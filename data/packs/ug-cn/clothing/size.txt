@@ -1,0 +1,16 @@
+---
+description: Clothing size. The Latin S/M/L run is international and correct in any locale; the numbers beside it are the Chinese size system, which labels a garment by chest or waist measurement in centimetres and is what a Xinjiang label prints.
+locale: ug-cn
+---
+XS
+S
+M
+L
+XL
+XXL
+XXXL
+160
+165
+170
+175
+180

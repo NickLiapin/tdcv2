@@ -1,0 +1,11 @@
+---
+description: Short weekday form in Uyghur — the first syllable of the full name, Sunday first.
+locale: ug-cn
+---
+يەك
+دۈش
+سەي
+چار
+پەي
+جۈم
+شەن

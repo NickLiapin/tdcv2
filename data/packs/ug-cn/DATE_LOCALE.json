@@ -1,0 +1,59 @@
+{
+  "months": [
+    "يانۋار",
+    "فېۋرال",
+    "مارت",
+    "ئاپرېل",
+    "ماي",
+    "ئىيۇن",
+    "ئىيۇل",
+    "ئاۋغۇست",
+    "سېنتەبىر",
+    "ئۆكتەبىر",
+    "نويابىر",
+    "دېكابىر"
+  ],
+  "monthsInDate": [
+    "يانۋار",
+    "فېۋرال",
+    "مارت",
+    "ئاپرېل",
+    "ماي",
+    "ئىيۇن",
+    "ئىيۇل",
+    "ئاۋغۇست",
+    "سېنتەبىر",
+    "ئۆكتەبىر",
+    "نويابىر",
+    "دېكابىر"
+  ],
+  "monthsShort": [
+    "1-ئاي",
+    "2-ئاي",
+    "3-ئاي",
+    "4-ئاي",
+    "5-ئاي",
+    "6-ئاي",
+    "7-ئاي",
+    "8-ئاي",
+    "9-ئاي",
+    "10-ئاي",
+    "11-ئاي",
+    "12-ئاي"
+  ],
+  "weekdays": [
+    "يەكشەنبە",
+    "دۈشەنبە",
+    "سەيشەنبە",
+    "چارشەنبە",
+    "پەيشەنبە",
+    "جۈمە",
+    "شەنبە"
+  ],
+  "weekdaysShort": ["يەك", "دۈش", "سەي", "چار", "پەي", "جۈم", "شەن"],
+  "formats": {
+    "L": "YYYY-MM-DD",
+    "LL": "YYYY MMMM D"
+  },
+  "notes": "Six things a formatter has to know about ug-cn. FIRST, THE TEXT RUNS RIGHT TO LEFT but THE DIGITS DO NOT: Uyghur in China uses the European digits 0-9, not the Arabic-Indic ٠-٩ that Arabic and Persian use, and a date like 2026-08-16 reads left to right inside a right-to-left line. _locale.json declares direction rtl. SECOND, THE ORDER IS BIG-ENDIAN, year first, on the Chinese pattern and unlike every other Perso-Arabic locale in this project: L is YYYY-MM-DD. THIRD, THE ORDINARY WAY TO NAME A MONTH IS BY NUMBER. A Uyghur newspaper dates itself 2026-يىلى 8-ئاينىڭ 16-كۈنى — year + yili, month-number + ayning, day-number + küni — with a HYPHEN between each numeral and the noun it counts, because the hyphen is how Uyghur attaches an ordinal to a numeral. That fully idiomatic form cannot be written with these tokens; if the implementation supports literal text in a pattern, LL should be YYYY-[يىلى] M-[ئاينىڭ] D-[كۈنى], and if it does not, YYYY MMMM D is the correct fallback and is what is set above. monthsShort therefore holds 1-ئاي … 12-ئاي rather than clipped names, which is not a placeholder: it is the real short form. FOURTH, the long month names in months are the RUSSIAN-DERIVED set (yanwar, féwral, mart) shared with Central Asia, and monthsInDate is identical to months, which is correct rather than a copy-paste slip — Uyghur has no genitive month form, because the case suffix attaches to the numeral, not to the month name. FIFTH, the weekday names are Persian and NUMBERED — düshenbe is day two, seyshenbe day three, charshenbe day four, peyshenbe day five — with jüme (Arabic, the Friday prayer) and shenbe breaking the count; the array is Sunday-first because the formatter wants it that way, while the Uyghur working week starts on Monday. SIXTH, Uyghur has NO GRAMMATICAL GENDER, so no formatter output ever has to agree with anything, but it DOES have four-way vowel harmony, so any suffix a formatter appends has FOUR possible shapes chosen by the last vowel of the word it attaches to — this is the opposite of Uzbek, which lost harmony and has one shape. Time is 24-hour with a colon (14:30). The decimal separator is a dot and the thousands separator a comma, following Chinese practice rather than Russian."
+}

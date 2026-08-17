@@ -1,0 +1,8 @@
+---
+description: Season in Uyghur. Four, and sharply four: Xinjiang is deep continental, with summers over 40 degrees in the Turpan basin and winters below minus 20 in the north.
+locale: ug-cn
+---
+باھار
+ياز
+كۈز
+قىش

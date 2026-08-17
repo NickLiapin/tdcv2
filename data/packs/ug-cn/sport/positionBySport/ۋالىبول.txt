@@ -1,0 +1,10 @@
+---
+description: Position or competition category in ۋالىبول, in Uyghur. Filename matches sport/sportCoherent.txt character for character.
+locale: ug-cn
+---
+ئۇزاتقۇچى
+ئوڭ قانات ئۇرغۇچى
+سول قانات ئۇرغۇچى
+مەركىزىي توسقۇچى
+لىبېرو
+قارشى ئۇرغۇچى

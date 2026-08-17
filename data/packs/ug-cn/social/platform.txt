@@ -1,0 +1,21 @@
+---
+description: Social platform. THE FIRST ROW IS THE ONE TO KNOW: Ündidar is the Uyghur name for WeChat, coined from ün (voice) and the Persian -dar (holder) rather than transliterated from Weixin, and it is the platform Uyghur social life actually runs on. QQ, Weibo, Douyin and Bilibili follow it and are written in their international form for the same reason as in media/streamingPlatform.txt. The Western platforms in the second half are known and named in Uyghur but are not reachable from inside China, which is a fact about the network and not about the language.
+locale: ug-cn
+---
+ئۈندىدار
+QQ
+Weibo
+Douyin
+Bilibili
+Xiaohongshu
+Kuaishou
+فەيسبۇك
+ئىنستاگرام
+تېلېگرام
+ۋاتسئاپ
+تۋىتتېر
+يۇتيۇب
+تىكتوك
+لىنكېدئىن
+رېددىت
+دىسكورد

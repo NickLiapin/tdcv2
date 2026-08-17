@@ -1,0 +1,29 @@
+---
+description: Gemstone in Uyghur. QASHTESHI COMES FIRST AND IS NOT A TRANSLATION: Hotan nephrite has been dug from the Yurungqash and Qaraqash — the White Jade and Black Jade rivers — for three thousand years and is the stone Uyghur culture is actually built around. The rest are the international stones with Persian-Arabic names: yaqut ruby, zumret emerald, piroze turquoise, eqiq agate, kehriba amber.
+locale: ug-cn
+---
+قاشتېشى
+ئالماس
+ياقۇت
+زۇمرەت
+سافىر
+پىروزە
+ئەقىق
+لەئەل
+مەرۋايىت
+ئۈنچە
+مەرجان
+كەھرىبا
+ئوپال
+ئامېتىست
+توپاز
+گرانات
+مالاخىت
+لاپىس
+ئوبسىدىئان
+ئونىكىس
+خرىزولىت
+ئاي تېشى
+يېشىل قاش
+ئاق قاش
+قارا قاش

@@ -1,0 +1,12 @@
+---
+description: Time of day in Uyghur. seher is the hour before dawn, when the pre-fast meal is eaten in Ramadan, and is a distinct named part of the day rather than a poetic word.
+locale: ug-cn
+---
+سەھەر
+ئەتىگەن
+چۈشتىن بۇرۇن
+چۈش
+چۈشتىن كېيىن
+كەچقۇرۇن
+كەچ
+كېچە

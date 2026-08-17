@@ -1,0 +1,29 @@
+---
+description: Dog breed in Uyghur. TAZI IS THE LOCAL ONE: the Central Asian sighthound, kept for coursing hare and fox, and a word that is Turkic rather than borrowed. alabay is the Central Asian shepherd dog that guards a flock, and qoychi it is the working sheepdog. The rest are transliterated European and Chinese breeds.
+locale: ug-cn
+---
+تازى
+ئالاباي
+قويچى ئىت
+ئوۋچى ئىت
+گېرمان ئوۋچى ئىتى
+لابرادور
+بۇلدوگ
+پۇدېل
+ھاسكى
+سامويېد
+چاۋچاۋ
+روتۋېيلېر
+دوبېرمان
+تاكسا
+سپانىيېل
+تېرىيېر
+بېيگل
+پەكىنېس
+شارپېي
+كورگى
+بوكسېر
+دالماتىن
+مالتا ئىتى
+ئوۋچى تازى
+كۆچە ئىتى

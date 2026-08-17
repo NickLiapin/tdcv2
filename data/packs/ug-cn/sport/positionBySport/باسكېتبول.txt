@@ -1,0 +1,10 @@
+---
+description: Position or competition category in باسكېتبول, in Uyghur. Filename matches sport/sportCoherent.txt character for character.
+locale: ug-cn
+---
+باشلىغۇچى
+يان قوغدىغۇچى
+كىچىك ھۇجۇمچى
+چوڭ ھۇجۇمچى
+مەركەز
+ئالماشتۇرما ئويۇنچى

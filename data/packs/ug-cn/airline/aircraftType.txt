@@ -1,0 +1,30 @@
+---
+description: Aircraft type. Manufacturer designations are international and are used unchanged in Uyghur; only the maker name is transliterated, and even that is often left in Latin. COMAC C919 and ARJ21 are the Chinese-built types now flying domestic routes.
+locale: ug-cn
+---
+بوئىنگ 737
+بوئىنگ 737 MAX
+بوئىنگ 747
+بوئىنگ 757
+بوئىنگ 767
+بوئىنگ 777
+بوئىنگ 787
+ئېيرباس A319
+ئېيرباس A320
+ئېيرباس A320neo
+ئېيرباس A321
+ئېيرباس A330
+ئېيرباس A350
+ئېيرباس A380
+COMAC C919
+COMAC ARJ21
+ئېمبرايېر E190
+ئېمبرايېر E175
+بومبارديئېر CRJ900
+ATR 72
+Cessna 208
+Antonov An-24
+Boeing 737-800
+Airbus A321neo
+Xian MA60
+Harbin Y-12

@@ -1,0 +1,40 @@
+---
+description: Airline as Uyghur names it. THE FIRST BLOCK IS THE CHINESE CARRIERS, whose names are descriptive and translate cleanly — Junggo jenubiy hawa yolliri is China Southern, the airline that actually flies most routes into and out of the region. The international block is transliterated. NO REGIONAL OR PREFECTURE-BRANDED CARRIER IS LISTED: those are place-bound and belong in a country pack, not a language one.
+locale: ug-cn
+---
+جۇڭگو جەنۇبىي ھاۋا يوللىرى
+جۇڭگو شەرقىي ھاۋا يوللىرى
+جۇڭگو خەلقئارا ھاۋا يوللىرى
+ھەينەن ھاۋا يوللىرى
+شېنجېن ھاۋا يوللىرى
+شياميېن ھاۋا يوللىرى
+سىچۈەن ھاۋا يوللىرى
+جۇڭگو يۈك ھاۋا يوللىرى
+تۈرك ھاۋا يوللىرى
+قازاقىستان ھاۋا يوللىرى
+ئۆزبېكىستان ھاۋا يوللىرى
+رۇسىيە ھاۋا يوللىرى
+ئىران ھاۋا يوللىرى
+پاكىستان ھاۋا يوللىرى
+ئەمىرلىكلەر ھاۋا يوللىرى
+قاتار ھاۋا يوللىرى
+ئېتىھاد ھاۋا يوللىرى
+سىنگاپور ھاۋا يوللىرى
+ياپونىيە ھاۋا يوللىرى
+كورېيە ھاۋا يوللىرى
+تايلاند ھاۋا يوللىرى
+مالايشىيا ھاۋا يوللىرى
+ھىندىستان ھاۋا يوللىرى
+گېرمانىيە ھاۋا يوللىرى
+فىرانسىيە ھاۋا يوللىرى
+ئەنگلىيە ھاۋا يوللىرى
+گوللاندىيە شاھانە ھاۋا يوللىرى
+ئامېرىكا ھاۋا يوللىرى
+بىرلەشمە ھاۋا يوللىرى
+دېلتا ھاۋا يوللىرى
+كانادا ھاۋا يوللىرى
+ئاۋسترالىيە ھاۋا يوللىرى
+ئەرەب ھاۋا يوللىرى
+مىسىر ھاۋا يوللىرى
+ئېفىيوپىيە ھاۋا يوللىرى
+ئازەربەيجان ھاۋا يوللىرى

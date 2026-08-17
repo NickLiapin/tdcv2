@@ -1,0 +1,13 @@
+---
+description: Content rating in Uyghur. China has no statutory film-rating board, so these are advisory audience labels rather than legal certificates, and that is why the list reads as descriptions rather than as codes.
+locale: ug-cn
+---
+ھەممە ياشتىكىلەرگە
+ئائىلە بىلەن كۆرۈشكە
+بالىلارغا
+ئۆسمۈرلەرگە
+چوڭلارغا
+ئاتا-ئانا يېتەكچىلىكىدە
+18 ياشتىن يۇقىرى
+ئېھتىياتلىق كۆرۈش
+باھالانمىغان

@@ -1,0 +1,20 @@
+---
+description: Horse in Uyghur — AND MOST OF THESE ARE NOT BREEDS BUT AGE-AND-SEX TERMS, which is the Turkic way of naming a horse and has no English equivalent above the level of foal and mare: qulun a foal at foot, tay a yearling, baytal a mare, ayghir a stallion, axta a gelding, yorgha an ambler bred for a smooth gait, and tulpar the winged horse of the epics. Ili éti is the Ili horse, a real regional breed.
+locale: ug-cn
+---
+ئات
+قۇلۇن
+تاي
+بايتال
+ئايغىر
+ئاختا
+يورغا
+ئارغىماق
+تۇلپار
+بەيگە ئېتى
+ئىلى ئېتى
+قازاق ئېتى
+موڭغۇل ئېتى
+ئەرەب ئېتى
+ئىنگلىز ئېتى
+يۈك ئېتى

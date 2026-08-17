@@ -1,0 +1,58 @@
+---
+description: Colour in Uyghur. THE SIX BASIC TERMS ARE TURKIC AND ARE ALSO PLACE-NAME ELEMENTS — aq white, qara black, qizil red, kök blue, yéshil green, sériq yellow — which is why address/cityPrefix.txt carries the same six. kök covers blue and the green of growing things, as it does across Turkic. THE DERIVED SHADES USE TWO SUFFIXES that harmonise: -ghuch / -üch for approximate (qizghuch reddish, kökǖch bluish, sarghuch yellowish) and -mtul for darkened (qaramtul blackish). Everything else is a compound with reng, colour, borrowed from Persian.
+locale: ug-cn
+---
+ئاق
+قارا
+قىزىل
+كۆك
+يېشىل
+سېرىق
+قوڭۇر
+بوز
+كۈلرەڭ
+ھالرەڭ
+بىنەپشە رەڭ
+ئاپېلسىن رەڭ
+ئالتۇن رەڭ
+كۈمۈش رەڭ
+مىس رەڭ
+پىروزە رەڭ
+قىزغۇچ
+كۆكۈچ
+سارغۇچ
+يېشىلچە
+قارامتۇل
+ئاقىش
+قېنىق قىزىل
+ئوچۇق قىزىل
+قان رەڭ
+ئانار رەڭ
+گۈلرەڭ
+ئاسمان كۆكى
+دېڭىز كۆكى
+قېنىق كۆك
+ئوچۇق كۆك
+سىياھ رەڭ
+چىمەن يېشىلى
+زەيتۇن يېشىلى
+قېنىق يېشىل
+ئوچۇق يېشىل
+زۇمرەت رەڭ
+ئالتۇن سېرىقى
+لىمون سېرىقى
+قۇم رەڭ
+قەھۋە رەڭ
+شاكىلات رەڭ
+ياغاچ رەڭ
+تېرە رەڭ
+تۆمۈر رەڭ
+تۈتۈن رەڭ
+سۈت رەڭ
+قار رەڭ
+ئۈنچە رەڭ
+كېچە رەڭ
+كۆمۈر رەڭ
+ئەقىق رەڭ
+لەئەل رەڭ
+ياقۇت رەڭ

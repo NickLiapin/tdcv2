@@ -1,0 +1,24 @@
+---
+description: Writing system in Uyghur — and THE SINGLE MOST IMPORTANT FACT ABOUT THIS PACK BELONGS HERE. UYGHUR IS A TURKIC LANGUAGE WRITTEN IN A PERSO-ARABIC ALPHABET, RIGHT TO LEFT, AND IT WRITES EVERY VOWEL WITH A LETTER OF ITS OWN. It is a TRUE ALPHABET, not an abjad. Arabic and Persian drop short vowels and leave the reader to supply them; Uyghur Ereb Yéziqi does not, and cannot, because vowel harmony makes the vowels carry grammar. The alphabet has 32 letters — 24 consonants and EIGHT VOWELS: ا a, ە e, ې é, ى i, و o, ۇ u, ۆ ö, ۈ ü (U+0627, U+06D5, U+06D0, U+0649, U+0648, U+06C7, U+06C6, U+06C8). A word-initial vowel is carried on the hemze ئ (U+0626), so Abdulla begins ئا and Ömer begins ئۆ — which is why so many values in this pack open with ئ. ANY PIPELINE THAT ASSUMES ARABIC VOWEL-DROPPING, STRIPS 'DIACRITICS', OR NORMALISES ۇ ۆ ۈ TO و WILL DESTROY THE TEXT, and the damage is silent because the result is still valid Arabic-script characters. The digits are the EUROPEAN 0-9, not the Arabic-Indic ٠-٩, and they run left to right inside a right-to-left line. _locale.json declares direction rtl. Four other scripts in this list wrote Uyghur historically and the Latin and Cyrillic ones still do outside China: kona uyghur yéziqi, the Old Uyghur script inherited from Sogdian and written vertically; the Old Turkic runes of the Orkhon inscriptions; the Manichaean script; and Brahmi and Kharosthi from the Buddhist Tarim.
+locale: ug-cn
+---
+ئۇيغۇر ئەرەب يېزىقى
+ئۇيغۇر لاتىن يېزىقى
+ئۇيغۇر كىرىل يېزىقى
+كونا ئۇيغۇر يېزىقى
+كۆك تۈرك يېزىقى
+ئورخۇن يېزىقى
+مانى يېزىقى
+سوغدى يېزىقى
+براھمى يېزىقى
+خەرۇشتى يېزىقى
+ئەرەب يېزىقى
+پارس يېزىقى
+لاتىن يېزىقى
+كىرىل يېزىقى
+خەنزۇ يېزىقى
+تىبەت يېزىقى
+موڭغۇل يېزىقى
+مانجۇ يېزىقى
+دېۋاناگارى يېزىقى
+كورېيە يېزىقى

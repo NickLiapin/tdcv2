@@ -1,0 +1,35 @@
+---
+description: Musical instrument in Uyghur. THE FIRST EIGHT ARE THE MUQAM ENSEMBLE and none of them has an English name: the dutar, a two-string long-necked lute played in every house; the rawap, plucked and skin-bellied; the tembur, the long lute that carries the melody; the ghejek, a spike fiddle; the satar, bowed and with sympathetic strings, which leads a muqam; the dap, the frame drum with rings inside the rim; the naghra, the paired kettledrums played outdoors with the sunay; and the sunay, the shawm. The transliterated European instruments follow.
+locale: ug-cn
+---
+دۇتار
+راۋاپ
+تەمبۇر
+غەجەك
+ساتار
+داپ
+ناغرا
+سۇناي
+نەي
+بالامان
+قالون
+چاڭ
+سىتار
+ئۇد
+تار
+دومبىرا
+قوبۇز
+گىتار
+سكرىپكا
+ۋىئولونچېل
+كونترباس
+پىئانو
+ئاككوردېئون
+فلېيتا
+كلارنېت
+ساكسوفون
+تىرۇبا
+بارابان
+ئارفا
+ئورگان
+سىنتېزاتور

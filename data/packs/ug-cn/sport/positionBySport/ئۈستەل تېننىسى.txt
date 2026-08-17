@@ -1,0 +1,10 @@
+---
+description: Position or competition category in ئۈستەل تېننىسى, in Uyghur. Filename matches sport/sportCoherent.txt character for character.
+locale: ug-cn
+---
+يەككە
+جۈپ
+ئارىلاش جۈپ
+گۇرۇپپا مۇسابىقىسى
+ھۇجۇم ئۇسلۇبى
+مۇداپىئە ئۇسلۇبى

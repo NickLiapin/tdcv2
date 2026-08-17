@@ -1,0 +1,16 @@
+---
+description: Streaming platform. THE LATIN BRAND NAMES ARE KEPT AS THEY ARE, which is correct in any locale and is also the honest option here: the Chinese platforms that dominate the market in Xinjiang — iQIYI, Youku, Tencent Video, Bilibili, Douyin — have no settled Uyghur spelling I could confirm, so they are written in their international Latin form rather than guessed at in the Arabic script. The last four rows are Uyghur words for kinds of service rather than companies.
+locale: ug-cn
+---
+iQIYI
+Youku
+Tencent Video
+Bilibili
+Douyin
+Migu Video
+YouTube
+Netflix
+Spotify
+تور تېلېۋىزىيىسى
+تور رادىئوسى
+ۋىدىئو سۇپىسى

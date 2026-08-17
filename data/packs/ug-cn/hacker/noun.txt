@@ -1,0 +1,41 @@
+---
+description: Technical noun in Uyghur. Where a native word exists Uyghur uses it — tor is a network, achquch a key, shipir a cipher, tosma a firewall — and where none does, the international term is transliterated into the Arabic script rather than left in Latin.
+locale: ug-cn
+---
+تور
+سىستېما
+پروگرامما
+ھۆججەت
+مۇلازىمېتىر
+ئۇلىنىش
+ئىنتېرفېيىس
+ئالگورىزىم
+كود
+سانلىق مەلۇمات
+سانداندۇق
+دىسكا
+ئىچكى ساقلىغۇچ
+پروتسېسسور
+بايت
+بىت
+ماترىسا
+ھالقا
+سىگنال
+ئاچقۇچ
+شىفىر
+تىزىملىك
+بۇلۇت
+تور بېكەت
+ئىشلەتكۈچى
+پارول
+سالاھىيەت
+خەۋپسىزلىك
+توسما
+ئۆتكەل
+ئۈزۈلمە
+توك مەنبەسى
+ھالەت
+مودۇل
+كىتابخانا
+پروتوكول
+ئىسكىلات

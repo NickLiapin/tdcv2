@@ -1,0 +1,12 @@
+---
+description: Position or competition category in كۈرەش, in Uyghur. Filename matches sport/sportCoherent.txt character for character.
+locale: ug-cn
+---
+ئەركىن كۈرەش
+كلاسسىك كۈرەش
+57 كىلوگرام
+65 كىلوگرام
+74 كىلوگرام
+86 كىلوگرام
+97 كىلوگرام
+125 كىلوگرام

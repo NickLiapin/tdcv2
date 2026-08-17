@@ -1,0 +1,11 @@
+---
+description: Day of the week in Uyghur. THE NAMES ARE PERSIAN AND THEY COUNT: düshenbe is day two, seyshenbe day three, charshenbe day four, peyshenbe day five, counting from shenbe (Saturday), which is the Sabbath the count starts after. jüme is Arabic, the day of congregational prayer, and is the one day named for what happens on it. Sunday-first ordering here because the formatter wants it; the Uyghur working week begins on Monday.
+locale: ug-cn
+---
+يەكشەنبە
+دۈشەنبە
+سەيشەنبە
+چارشەنبە
+پەيشەنبە
+جۈمە
+شەنبە

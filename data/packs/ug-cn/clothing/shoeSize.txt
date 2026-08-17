@@ -1,0 +1,16 @@
+---
+description: Shoe size as a shoebox in Xinjiang prints it. THE SCALE IS THE CONTINENTAL RETAIL ONE, 35 to 46, which is what a shop assistant asks for and what the label shows in large type. China's own national standard is Mondopoint — foot length in millimetres, 230, 245, 260 — and it is normally printed in small type BESIDE the number below, so a box carries both. This file holds the number people actually say. Whole sizes only.
+locale: ug-cn
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

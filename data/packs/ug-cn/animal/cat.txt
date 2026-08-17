@@ -1,0 +1,22 @@
+---
+description: Cat breed in Uyghur. Breed names are transliterated with the country in front, which is how Uyghur names any imported breed: pars müshüki, the Persian cat.
+locale: ug-cn
+---
+پارس مۈشۈكى
+سىئام مۈشۈكى
+ئەنگلىيە قىسقا تۈكلۈك مۈشۈك
+رۇس كۆك مۈشۈكى
+مەينكۇن
+بېنگال مۈشۈكى
+سفىنكىس
+ئابىسسىنىيە مۈشۈكى
+نورۋېگىيە ئورمان مۈشۈكى
+تۈرك ئانگورىسى
+بىرما مۈشۈكى
+راگدول
+شوتلاندىيە مۈشۈكى
+ئامېرىكا قىسقا تۈكلۈك مۈشۈك
+ئېكزوتىك مۈشۈك
+مانكس
+كورات
+ئۆي مۈشۈكى

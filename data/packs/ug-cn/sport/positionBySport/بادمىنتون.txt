@@ -1,0 +1,10 @@
+---
+description: Position or competition category in بادمىنتون, in Uyghur. Filename matches sport/sportCoherent.txt character for character.
+locale: ug-cn
+---
+يەككە
+جۈپ
+ئارىلاش جۈپ
+گۇرۇپپا مۇسابىقىسى
+ئالدىنقى ساھە
+ئارقا ساھە

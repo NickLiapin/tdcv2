@@ -1,0 +1,10 @@
+---
+description: Position or competition category in قول توپ, in Uyghur. Filename matches sport/sportCoherent.txt character for character.
+locale: ug-cn
+---
+دەرۋازىۋەن
+يان ھۇجۇمچى
+ئوتتۇرا ھۇجۇمچى
+ئارقا ئويۇنچى
+مەركىزىي ئارقا
+بۇرجەك ئويۇنچىسى

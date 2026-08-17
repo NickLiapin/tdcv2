@@ -1,0 +1,16 @@
+---
+description: Short month form in Uyghur — AND IT IS A NUMBER, NOT A CLIPPED NAME. Uyghur in China writes 1-ay through 12-ay, literally first-month, and the hyphen is the ordinal marker that Uyghur puts between a numeral and what it counts. This is the form used on forms, invoices, timetables and newspaper mastheads, and it is a genuinely different thing from the three-letter abbreviations en and ru ship.
+locale: ug-cn
+---
+1-ئاي
+2-ئاي
+3-ئاي
+4-ئاي
+5-ئاي
+6-ئاي
+7-ئاي
+8-ئاي
+9-ئاي
+10-ئاي
+11-ئاي
+12-ئاي

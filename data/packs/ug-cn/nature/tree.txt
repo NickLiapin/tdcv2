@@ -1,0 +1,32 @@
+---
+description: Tree in Uyghur. TOGHRAQ IS THE ONE THAT MATTERS: the desert poplar, Populus euphratica, which grows along the Tarim where nothing else will and is the emblem of the oasis — a Uyghur saying gives it a thousand years standing, a thousand years dead and a thousand years fallen. saksayul is saxaul and yulghun tamarisk, both desert shrubs that hold the sand; jigde is the oleaster, whose flowers scent a village in May. The orchard block is the region's living: mulberry, walnut, apricot, pomegranate, fig.
+locale: ug-cn
+---
+توغراق
+تېرەك
+ئاق تېرەك
+سۆگەت
+چىنار
+قارىياغاچ
+ئۈجمە
+ياڭاق
+ئۆرۈك
+ئالما
+نەشپۈت
+شاپتۇل
+ئانار
+ئەنجۈر
+خورما
+بادام
+پىستە
+جىگدە
+ساكسايۇل
+يۇلغۇن
+ئارچا
+قارىغاي
+قىزىل قارىغاي
+قايىن
+ئېمەن
+زەيتۇن
+كىپارىس
+تال

@@ -1,0 +1,26 @@
+---
+description: Flower in Uyghur. gül is both the word for flower and the commonest element in a woman’s name — see person/female/firstName.txt, where Gülnar, Aygül and Gülnisa are all built on it.
+locale: ug-cn
+---
+ئەتىرگۈل
+لالە
+قىزغالداق
+نەرگىز
+سۇسەن
+بىنەپشە
+ياسمىن
+رەيھان
+خرىزانتېما
+پىيون
+لىلىيە
+گىئاتسىنت
+نېلۇپەر
+ئاپتاپپەرەس
+ماگنولىيە
+ئورخىدېيە
+گېرانى
+كاكتۇس گۈلى
+قىزىل گۈل
+ئاق گۈل
+باھار گۈلى
+چۆل گۈلى

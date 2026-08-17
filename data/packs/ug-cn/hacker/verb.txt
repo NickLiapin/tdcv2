@@ -1,0 +1,32 @@
+---
+description: Technical verb in Uyghur, as the verbal noun. Note that most take the light verb qilish, to do, when the stem is a borrowing: tehlil qilish, to analyse.
+locale: ug-cn
+---
+ئۇلاش
+يېزىش
+ئوقۇش
+ھېسابلاش
+شىفىرلاش
+يېشىش
+سىناش
+توسۇش
+ئېچىش
+يېپىش
+قايتا قوزغىتىش
+يېڭىلاش
+قاچىلاش
+ئۆچۈرۈش
+ساقلاش
+ئەۋەتىش
+قوبۇل قىلىش
+تەڭشەش
+ئىزدەش
+تەھلىل قىلىش
+نۇسخىلاش
+يۆتكەش
+بىرلەشتۈرۈش
+ئايرىش
+تەكشۈرۈش
+مۇقىملاشتۇرۇش
+ئەۋزەللەشتۈرۈش
+تارقىتىش

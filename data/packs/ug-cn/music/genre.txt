@@ -1,0 +1,39 @@
+---
+description: Musical genre in Uyghur. ON MUQAM IS THE FIRST ROW AND THE CENTRAL FACT: the Twelve Muqam is a suite cycle of some twelve hours, assembled in the sixteenth century by Amannisa Xan, and UNESCO lists it as intangible heritage — it is to Uyghur music what the whole classical repertoire is to a European one. The regional muqam traditions (Dolan, Turpan, Hami, Kucha) are named separately because they are genuinely different repertoires. senem (the sung-and-danced suite) and meshrep music are functional rather than concert forms.
+locale: ug-cn
+---
+ئون ئىككى مۇقام
+دولان مۇقامى
+تۇرپان مۇقامى
+قۇمۇل مۇقامى
+كۇچا مۇقامى
+مەشرەپ نەغمىسى
+خەلق ناخشىسى
+قوشاق
+سەنەم
+ناخشا
+ئۇسسۇل نەغمىسى
+داستان ئېيتىش
+دىنىي نەغمە
+زىكىر
+كلاسسىك مۇزىكا
+ئوپېرا
+سىمفونىيە
+خور
+پوپ مۇزىكىسى
+روك
+جاز
+بليۇز
+رەپ
+ھىپ-ھوپ
+ئېلېكترون مۇزىكا
+كانتىرى
+رېگگە
+فولك
+كىنو مۇزىكىسى
+بالىلار ناخشىسى
+ھەربىي ماۋزىكا
+مەرشە
+تويلۇق نەغمە
+زامانىۋى ئۇيغۇر ناخشىسى
+ئەنئەنىۋى ئۇيغۇر مۇزىكىسى

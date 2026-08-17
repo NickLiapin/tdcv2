@@ -1,0 +1,25 @@
+---
+description: Religion in Uyghur, AND THE LIST IS A HISTORY RATHER THAN A SURVEY. Uyghurs are Sunni Muslims of the Hanafi school today and have been since the Karakhanids converted in the tenth century, but the four rows after that are not padding: the Uyghur Khaganate adopted MANICHAEISM as its state religion in 762 and is the only state that ever did; Buddhism followed it in the Turfan and Kucha kingdoms and left the cave temples; the Church of the East (nestoriy xristianliqi) had bishops in Turfan; and tengrichilik, the sky-worship of the pre-Islamic Turks, is the layer under all of them. The Manichaean, Buddhist and Christian manuscripts of the Tarim are why Old Uyghur is one of the best-attested medieval Turkic languages.
+locale: ug-cn
+---
+ئىسلام
+سۈننىي ئىسلام
+شىئە ئىسلام
+سوپىزم
+بۇددا دىنى
+تىبەت بۇددىزمى
+مانى دىنى
+تەڭرىچىلىك
+شامانىزم
+نەستورىي خرىستىئانلىقى
+خرىستىئان دىنى
+كاتولىك
+پروتېستانت
+پراۋوسلاۋىيە
+دائوچىلىق
+كونفۇتسىچىلىق
+يەھۇدىي دىنى
+ھىندى دىنى
+سىك دىنى
+ئېتىقادسىز
+دىنسىز

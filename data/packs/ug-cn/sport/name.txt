@@ -1,0 +1,59 @@
+---
+description: Sport in Uyghur. TWO ROWS ARE UYGHUR AND NOTHING ELSE: darwazliq is the high tightrope walk, performed without a net over a town square and listed by UNESCO as intangible heritage, and küresh is the belt wrestling that closes a meshrep. at chépish, horse racing, is shared with the Kazakh and Kyrgyz of the north. Table tennis, badminton and wushu head the modern block because they head it in China.
+locale: ug-cn
+---
+پۇتبول
+باسكېتبول
+ۋالىبول
+قول توپ
+ئۈستەل تېننىسى
+بادمىنتون
+تېننىس
+كۈرەش
+دارۋازلىق
+ئات چېپىش
+ئوقيا ئېتىش
+مەرگەنلىك
+بوكس
+جيۇدو
+تەيكۋوندو
+ئۇشۇ
+ئېغىر ئاتلېتىكا
+يېنىك ئاتلېتىكا
+يۈگۈرۈش
+ماراتون
+ئۇزۇنلۇققا سەكرەش
+ئېگىزلىككە سەكرەش
+نەيزە ئېتىش
+دىسك ئېتىش
+سۇدا ئۈزۈش
+سۇغا سەكرەش
+ۋېلىسىپىت مۇسابىقىسى
+شاھمات
+گىمناستىكا
+ئاكروباتىكا
+كونكى تېيىلىش
+لىژا تېيىلىش
+خوككېي
+بەيسبول
+رېگبى
+گولف
+بىلياردو
+يوگا
+فىتنېس
+ئالپىنىزم
+تاغقا چىقىش
+قايىق ھەيدەش
+ئات مىنىش
+ئارغامچا تارتىش
+دومىنو
+تاۋلاش
+قىلىچلىشىش
+ئېتىش سپورتى
+ئۈچ ئادىملىق مۇسابىقە
+قار تاختىسى
+سۇ توپى
+سىنخرون ئۈزۈش
+ئورىيېنتىر يۈگۈرۈش
+چۆل بەيگىسى
+كۆپ تۈرلۈك مۇسابىقە

@@ -1,0 +1,32 @@
+---
+description: Technical verb in the PRESENT CONTINUOUS, in Uyghur — the form a progress message uses. THE ENDING IS -watidu / -watidu AND IT HARMONISES: ulanwatidu it is connecting, yéngilawatidu it is updating, öchürüwatidu it is deleting, where the vowel before the -w copies the class of the stem. English makes this form with -ing and one ending; Uyghur makes it with a suffix that changes shape, which is why this file cannot be generated from hacker/verb.txt by string concatenation.
+locale: ug-cn
+---
+ئۇلىنىۋاتىدۇ
+يېزىۋاتىدۇ
+ئوقۇۋاتىدۇ
+ھېسابلاۋاتىدۇ
+شىفىرلاۋاتىدۇ
+يېشىۋاتىدۇ
+سىناۋاتىدۇ
+توسۇۋاتىدۇ
+ئېچىۋاتىدۇ
+يېپىۋاتىدۇ
+قوزغىتىۋاتىدۇ
+يېڭىلاۋاتىدۇ
+قاچىلاۋاتىدۇ
+ئۆچۈرۈۋاتىدۇ
+ساقلاۋاتىدۇ
+ئەۋەتىۋاتىدۇ
+قوبۇل قىلىۋاتىدۇ
+تەڭشەۋاتىدۇ
+ئىزدەۋاتىدۇ
+تەھلىل قىلىۋاتىدۇ
+نۇسخىلاۋاتىدۇ
+يۆتكەۋاتىدۇ
+بىرلەشتۈرۈۋاتىدۇ
+ئايرىۋاتىدۇ
+تەكشۈرۈۋاتىدۇ
+تارقىتىۋاتىدۇ
+ھېسابلىنىۋاتىدۇ
+يۈكلىنىۋاتىدۇ

@@ -1,0 +1,26 @@
+---
+description: Metal in Uyghur. The four everyday ones are Turkic — tömür iron, mis copper, altun gold, kümüsh silver — and the industrial and rare metals are transliterated, which is the general pattern of the technical vocabulary.
+locale: ug-cn
+---
+تۆمۈر
+پولات
+مىس
+ئالتۇن
+كۈمۈش
+برونزا
+لاتۇن
+ئالۇمىن
+سىنك
+قوغۇشۇن
+قەلەي
+نىكېل
+خروم
+تىتان
+ماگنىي
+ۋولفرام
+پلاتىنا
+سىماب
+ئۇران
+كوبالت
+مارگانېتس
+لىتىي

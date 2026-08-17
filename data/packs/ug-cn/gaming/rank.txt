@@ -1,0 +1,14 @@
+---
+description: Competitive rank in Uyghur. The metal ladder is the international one, translated; qashtéshi (jade) replaces the diamond tier at the top, which is what a Uyghur-language game community would reach for.
+locale: ug-cn
+---
+يېڭى ئوينىغۇچى
+برونزا
+كۈمۈش
+ئالتۇن
+پىلاتىنا
+ئالماس
+قاشتېشى
+ئۇستاز
+چوڭ ئۇستاز
+چېمپىيون

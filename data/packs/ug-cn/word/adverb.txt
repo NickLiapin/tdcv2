@@ -1,0 +1,36 @@
+---
+description: Everyday Uyghur adverb. Note that place adverbs carry a case suffix that harmonises: bu yerde here, u yerde there, hemme yerde everywhere.
+locale: ug-cn
+---
+ھازىر
+بۈگۈن
+ئەتە
+تۈنۈگۈن
+ھەمىشە
+ھەرگىز
+بەزىدە
+دائىم
+تېزدىن
+ئاستا
+بىردىنلا
+ئاندىن
+بۇرۇن
+كېيىن
+يېقىندا
+ئۇزاقتىن
+بۇ يەردە
+ئۇ يەردە
+ھەممە يەردە
+ھېچ يەردە
+بەك
+ئىنتايىن
+ئازراق
+كۆپ
+ئاز
+بىللە
+يالغۇز
+تېخى
+يەنە
+پەقەت
+ئەلۋەتتە
+بەلكىم

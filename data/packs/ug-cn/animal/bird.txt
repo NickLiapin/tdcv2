@@ -1,0 +1,30 @@
+---
+description: Bird in Uyghur. The raptor block — bürküt the golden eagle, shungqar the gyrfalcon, lachin the peregrine, qarchigha the goshawk — is longer than a European list because falconry is a living Uyghur and Kazakh practice in the Tengritagh, and the birds are told apart by name.
+locale: ug-cn
+---
+قارغا
+ساغىزغان
+قۇشقاچ
+چۈمچۈك
+كەپتەر
+بۈركۈت
+لاچىن
+شۇڭقار
+قارچىغا
+سار
+ياپىلاق
+كەكلىك
+تۆگىقۇش
+ئۆردەك
+غاز
+ئاققۇ
+لەيلەك
+تۇرنا
+بۇلبۇل
+ھۆپۈپ
+تۇتىقۇش
+توخۇ
+خوراز
+قاراقۇش
+قاشقالداق
+قارلىغاچ

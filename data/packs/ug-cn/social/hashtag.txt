@@ -1,0 +1,34 @@
+---
+description: Hashtag topic in Uyghur, without the # sign so a config can add it. The first block is what Uyghur users actually tag: food, muqam, the etles, the melon season, the bazaar.
+locale: ug-cn
+---
+ئۇيغۇرتائاملىرى
+لەڭمەن
+پولۇ
+كاۋاپ
+نان
+ئەتلەس
+دوپپا
+مۇقام
+دۇتار
+مەشرەپ
+ئۇسسۇل
+ناخشا
+قوغۇنمەۋسۈمى
+ئۈزۈم
+ئانار
+بازار
+ساياھەت
+تەڭرىتاغ
+چۆل
+يىپەكيولى
+ئائىلە
+دوستلۇق
+ھېيت
+توي
+مائارىپ
+كىتابئوقۇش
+ساغلاملىق
+سپورت
+تېخنىكا
+كۈندىلىكتۇرمۇش

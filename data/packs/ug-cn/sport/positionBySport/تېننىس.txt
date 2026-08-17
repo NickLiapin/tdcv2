@@ -1,0 +1,9 @@
+---
+description: Position or competition category in تېننىس, in Uyghur. Filename matches sport/sportCoherent.txt character for character.
+locale: ug-cn
+---
+يەككە
+جۈپ
+ئارىلاش جۈپ
+ئاساسىي سىزىق ئويۇنچىسى
+تورغا يېقىن ئويۇنچى

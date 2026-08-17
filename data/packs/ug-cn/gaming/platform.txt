@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Console names are international brands and keep their Latin spelling; the Uyghur rows name a kind of machine.
+locale: ug-cn
+---
+كومپيۇتېر
+يانفون
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Steam Deck
+بۇلۇت ئويۇنى
+تور مۇنبىرى
+ئويۇن ماشىنىسى

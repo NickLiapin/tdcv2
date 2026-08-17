@@ -1,0 +1,12 @@
+---
+description: Position or competition category in پۇتبول, in Uyghur. Filename matches sport/sportCoherent.txt character for character.
+locale: ug-cn
+---
+دەرۋازىۋەن
+مەركىزىي مۇداپىئەچى
+يان مۇداپىئەچى
+مۇداپىئە ئوتتۇرا ساھە
+ئوتتۇرا ساھە ئويۇنچىسى
+ھۇجۇمكار ئوتتۇرا ساھە
+يان ھۇجۇمچى
+مەركىزىي ھۇجۇمچى

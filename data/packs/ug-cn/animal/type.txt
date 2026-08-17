@@ -1,0 +1,42 @@
+---
+description: Kind of animal in Uyghur. The domestic block comes first and in the order it matters: qoy sheep, öchke goat, kala cattle, at horse, éshek donkey, töge camel. The Bactrian camel is a working animal in the Tarim and not an exotic one, and the donkey is still the commonest cart animal in a southern village.
+locale: ug-cn
+---
+قوي
+ئۆچكە
+كالا
+ئات
+ئېشەك
+تۆگە
+قېچىر
+ئىت
+مۈشۈك
+توخۇ
+ئۆردەك
+غاز
+كەپتەر
+قۇش
+بۆرە
+تۈلكە
+ئېيىق
+يولۋاس
+شىر
+پىل
+مايمۇن
+توشقان
+چاشقان
+كىرپە
+سۇسار
+بۇغا
+كىيىك
+تاغ تېكىسى
+ياۋا چوشقا
+يىلان
+پاقا
+كەسلەنچۈك
+بېلىق
+ھەرە
+چۈمۈلە
+كېپىنەك
+چىۋىن
+ئۆمۈچۈك

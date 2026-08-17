@@ -1,0 +1,8 @@
+---
+description: Financial quarter in Uyghur. The ordinal is written with the numeral, a hyphen and the noun: 1-charek.
+locale: ug-cn
+---
+1-چارەك
+2-چارەك
+3-چارەك
+4-چارەك

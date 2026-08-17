@@ -1,0 +1,12 @@
+---
+description: Book format in Uyghur. qolyazma, the manuscript, is not an antiquarian category here: hand-copied books circulated in Uyghur into the twentieth century and the Tarim manuscript finds are the reason Old Uyghur is so well attested.
+locale: ug-cn
+---
+قاتتىق مۇقاۋىلىق
+يۇمشاق مۇقاۋىلىق
+جىبى كىتاب
+ئېلېكترونلۇق كىتاب
+ئاۋازلىق كىتاب
+ژۇرنال
+گېزىت
+قوليازما

@@ -1,0 +1,16 @@
+---
+description: Month name in Uyghur. THESE ARE THE RUSSIAN-DERIVED NAMES — yanwar, féwral, mart — which Uyghur shares with the rest of Central Asia and which are what a calendar and a formatter print. BUT THE ORDINARY WAY TO NAME A MONTH IN XINJIANG IS BY NUMBER: 1-ay, 5-ay, 12-ay, first-month, fifth-month, twelfth-month, on the Chinese pattern, and a Uyghur newspaper dates itself 2026-yili 8-ayning 16-küni. Both are correct; the numbered forms are shipped in date/monthAbbr.txt, and DATE_LOCALE.json explains what a formatter should do about it.
+locale: ug-cn
+---
+يانۋار
+فېۋرال
+مارت
+ئاپرېل
+ماي
+ئىيۇن
+ئىيۇل
+ئاۋغۇست
+سېنتەبىر
+ئۆكتەبىر
+نويابىر
+دېكابىر

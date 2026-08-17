@@ -1,0 +1,32 @@
+---
+description: Literary genre in Uyghur. THE FIRST BLOCK IS THE CLASSICAL ONE and its categories are Persian-Turkic rather than European: dastan is the verse epic, of which the Uyghur canon has a dozen; qoshaq is the sung folk quatrain; and maqal-temsil, proverb-and-parable, is a published book category in its own right. chöchek is the folk tale and tépishmaq the riddle, both collected and printed as children's books.
+locale: ug-cn
+---
+رومان
+ھېكايە
+پوۋېست
+شېئىر
+داستان
+قوشاق
+غەزەل
+دراما
+ماقال-تەمسىل
+چۆچەك
+تېپىشماق
+تارىخ
+تەرجىمىھال
+خاتىرە
+سەپەرنامە
+ئىلمىي ئەسەر
+دەرسلىك
+لۇغەت
+قامۇس
+دىنىي كىتاب
+پەلسەپە
+سىياسەت
+ئىقتىساد
+تېببىي كىتاب
+بالىلار كىتابى
+ئىلمىي فانتازىيە
+دېتېكتىپ
+مۇھەببەت رومانى

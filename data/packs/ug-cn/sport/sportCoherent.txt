@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list under sport/positionBySport. NOTE WHAT THE CHILD LISTS HOLD FOR THE LAST FOUR: table tennis, badminton, tennis and wrestling have no positions at all, so their files hold the competition categories and weight classes instead — singles, doubles, mixed doubles, and the kilogram classes — because that is the field a scoresheet actually has. Inventing positions for a racket sport would be a lie that no file count would catch. The eight are chosen for what is played in Xinjiang: table tennis and badminton are national sports in China and belong here where en puts baseball.
+locale: ug-cn
+---
+پۇتبول
+باسكېتبول
+ۋالىبول
+قول توپ
+ئۈستەل تېننىسى
+بادمىنتون
+تېننىس
+كۈرەش

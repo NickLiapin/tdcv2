@@ -1,0 +1,26 @@
+---
+description: Kind of vehicle in Uyghur. THE CART ROWS ARE NOT HISTORICAL: the éshek harwisi, the donkey cart, is still working transport in southern Xinjiang villages, and harwa is the general word for any two-wheeled cart. The üch chaqliq motor, the three-wheeled motor cart, is what replaced it in the towns.
+locale: ug-cn
+---
+ئاپتوموبىل
+يۈك ماشىنىسى
+ئاۋتوبۇس
+كىچىك ئاۋتوبۇس
+تاكسى
+موتوسىكلېت
+ئۈچ چاقلىق موتور
+ۋېلىسىپىت
+ئېلېكتىر ۋېلىسىپىتى
+تىراكتور
+ھارۋا
+ئات ھارۋىسى
+ئېشەك ھارۋىسى
+پويىز
+تېز سۈرئەتلىك پويىز
+ئايروپىلان
+كېمە
+تانكېر
+ئوت ئۆچۈرۈش ماشىنىسى
+تېز قۇتقۇزۇش ماشىنىسى
+ئەكسكاۋاتور
+كىران

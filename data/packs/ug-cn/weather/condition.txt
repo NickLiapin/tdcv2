@@ -1,0 +1,20 @@
+---
+description: Weather condition in Uyghur. The range is continental and extreme: the Turpan basin is the hottest place in China and the Tengritagh passes are under snow half the year, so both ends of this list are ordinary.
+locale: ug-cn
+---
+ئوچۇق
+بۇلۇتلۇق
+يېرىم بۇلۇتلۇق
+يامغۇرلۇق
+قارلىق
+تۇمانلىق
+شامال
+بوران
+مۆلدۈر
+چاقماق
+ئىسسىق
+سوغۇق
+سالقىن
+قۇرغاق
+نەملىك
+مۇز

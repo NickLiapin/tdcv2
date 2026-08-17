@@ -1,0 +1,20 @@
+---
+description: Fish in Uyghur. The list is short because Xinjiang is landlocked and its native fish are few; osman is the Schizothorax of the Tarim and Ili rivers and is the one genuinely local species. Sea fish are imported and their names are transliterated.
+locale: ug-cn
+---
+سازان
+ئاق بېلىق
+قارا بېلىق
+ئوسمان
+لايبېلىق
+ئالابۇغا
+چاۋاق
+فورېل
+لوسوس
+تۇنېس
+ترېسكا
+سېلدى
+ئوسيوتر
+سۇداك
+كەمبالا
+دېڭىز بېلىقى

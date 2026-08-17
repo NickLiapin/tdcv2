@@ -1,0 +1,30 @@
+---
+description: Garment in Uyghur. THE DOPPA IS THE ONE EVERY UYGHUR OWNS: a square embroidered skullcap, folded flat, in patterns that name the town it comes from — the Hotan badam pattern of almond shapes is the best known. The etles köynek is the ikat-silk dress; the chapan is the long padded coat; the kesh is a soft leather boot worn inside a galosh, which is what lets a man take his shoes off at a doorway without going barefoot.
+locale: ug-cn
+---
+دوپپا
+ئەتلەس كۆينەك
+كۆينەك
+كۆڭلەك
+ئىشتان
+چاپان
+پەلتو
+ياپىنچا
+كوستيۇم
+جىلىتكا
+يۇڭ كۆينەك
+خالات
+ئىچ كىيىم
+سپورت كىيىمى
+ياغلىق
+رومال
+شارف
+بۆك
+قولقاپ
+پەيپاق
+ئاياغ
+ئۆتۈك
+كەش
+ساندال
+كەمەر
+پەرەنجى

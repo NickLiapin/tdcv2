@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon in Uyghur, AND TWO ENTRIES ARE PURELY LOCAL. qum borini is the sandstorm off the Taklimakan and qara boran, the black storm, is the spring dust storm that turns the sky brown for days — it is a named seasonal event, not a metaphor. THE RAINBOW IS CALLED HESEN-HÜSEN, after the two grandsons of the Prophet, which is a piece of Uyghur folk naming with no Turkic or Persian parallel.
+locale: ug-cn
+---
+قۇم بورىنى
+قارا بوران
+چاڭ-توزان
+تۇمان
+شەبنەم
+قىراۋ
+مۆلدۈر
+چاقماق
+گۈلدۈرماما
+ھەسەن-ھۈسەن
+سەراب
+مۇز قاتلىمى
+قار كۆچكىسى
+قۇرغاقچىلىق
+كەلكۈن
