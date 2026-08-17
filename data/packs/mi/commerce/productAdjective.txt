@@ -1,0 +1,58 @@
+---
+description: Adjective used on a product listing (Maori). Remember these are STATIVE VERBS, not adjectives — te reo has no adjective class — so "hou" can head a sentence by itself ("He hou tenei", this is new) with no verb "to be" anywhere in it. They follow the noun, so a listing reads TARU HOU rather than "new item". TUTURU means genuine or authentic and is what a Maori craft listing says instead of "handmade"; MAORI itself is the ordinary word for normal or natural, which is where the name of the people comes from — tangata maori, ordinary people, as against the strangers who arrived.
+locale: mi
+---
+hou
+tawhito
+nui
+iti
+roa
+poto
+wera
+makariri
+mārama
+pōuri
+māmā
+taumaha
+ngāwari
+pakari
+maro
+ngohengohe
+tere
+pōturi
+reka
+kawa
+tōtika
+kōpiko
+rite
+rerekē
+tūturu
+māori
+ātaahua
+rawe
+pai
+kino
+mā
+paru
+maroke
+mākū
+kōpiro
+mātotoru
+angiangi
+whānui
+whāiti
+teitei
+pāpaku
+hōhonu
+pūmau
+haumaru
+toitū
+auaha
+ahurei
+utu iti
+utu nui
+kounga
+whai hua
+ora
+hauora
+ngākau nui

@@ -1,0 +1,15 @@
+---
+description: Type of employment (Maori). MAHI TUAO, volunteer work, sits differently here than a European list would place it: work done for the marae, the kohanga reo or the hapu is unpaid and is nonetheless a genuine and expected occupation, so a dataset that treats it as "not employed" is losing real information. MAHI A-KAINGA is working from home and MAHI RANGI casual work taken day by day.
+locale: mi
+---
+Wā katoa
+Wā poto
+Kirimana
+Mahi rangi
+Mahi tūao
+Kaimahi tūturu
+Ākonga mahi
+Mahi ā-kāinga
+Mahi motuhake
+Mahi ā-wā
+Mahi ā-tau

@@ -1,0 +1,16 @@
+---
+description: Metal (Maori). THIS LIST IS SHORT AND THE SHORTNESS IS THE FACT: Maori had NO METALLURGY before European contact in 1769. There was no smelting, no forging and no metal at all — the hard materials were pounamu, mata (obsidian), pakohe (argillite), stone, bone and shell — so every word here is either a nineteenth-century loan reshaped to fit Maori phonotactics or a twentieth-century coinage for the classroom. RINO (iron) and MAITAI (iron or steel) came in with nails and axes and became the general words for metal itself; KAPA is copper, straight from the English; PARAHI is brass; KOURA is gold and HIRIWA silver, both loans, and koura is also the word for crayfish, which is a collision te reo simply lives with. The modern chemistry terms coined for te reo science teaching are not included here because they are specialist vocabulary rather than words a general list should serve as ordinary Maori.
+locale: mi
+---
+Rino
+Maitai
+Kōura
+Hiriwa
+Kapa
+Parahi
+Tini
+Arumini
+Konutea
+Mata
+Kōhatu
+Karaehe

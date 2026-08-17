@@ -1,0 +1,27 @@
+---
+description: Kind of government body (Maori). New Zealand government departments carry official te reo names beside their English ones and several are now known chiefly by the Maori one — the transport agency is Waka Kotahi, the health ministry Manatu Hauora, the education ministry Te Tahuhu o te Matauranga. MANATU is a ministry and TE PUNI a directorate; TARA and RUNANGA are used for offices and councils. This file holds the KINDS of body; the actual named New Zealand departments are country data and belong to the new_zealand pack.
+locale: mi
+---
+Manatū
+Tari Kāwanatanga
+Tari Matua
+Rūnanga
+Kaunihera
+Kaunihera-ā-rohe
+Kaunihera-ā-takiwā
+Poari Hauora
+Poari Kura
+Kōmihana
+Rōpū Whakamana
+Ratonga Tūmatanui
+Tari Pirihimana
+Tari Ahi
+Tari Taake
+Tari Whenua
+Tari Ture
+Tari Taiao
+Tari Ahumoana
+Tari Tāpoi
+Tari Ohaoha
+Te Puni
+Whare Pāremata

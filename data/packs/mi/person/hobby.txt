@@ -1,0 +1,74 @@
+---
+description: Pastime or practice (Maori). A good half of this list has no English one-word equivalent because the activity is Maori and the word is the only name for it: KAPA HAKA is Maori performing arts as a whole, not "dancing"; WHAIKORERO is formal oratory on a marae and a learned discipline; TA MOKO is Maori tattooing, whose patterns carry whakapapa and are read rather than merely looked at; WHAKAPAPA as a pursuit is the tracing and reciting of descent lines; RONGOA is Maori healing with plants and karakia; MAU RAKAU is traditional weapons practice; KI-O-RAHI is a traditional ball game now played competitively; WAKA AMA is outrigger canoe racing, a Pacific-wide sport; TAONGA PUORO are the traditional instruments, revived from museum collections within living memory. The introduced sports at the foot of the list show the same phonotactic reshaping every Maori loanword shows — rugby becomes WHUTUPORO, netball POITUKOHU, cricket KIRIKITI, hockey HOKI, tennis TENEHI — each syllable ending in a vowel because te reo allows nothing else.
+locale: mi
+---
+kapa haka
+waiata
+waiata-ā-ringa
+haka
+poi
+whakairo
+raranga
+tukutuku
+tā moko
+kōwhaiwhai
+whaikōrero
+karanga
+whakapapa
+kōrero pūrākau
+taonga pūoro
+mau rākau
+kī-o-rahi
+waka ama
+hoe waka
+eke ngaru
+hī ika
+hopu tuna
+kohi kaimoana
+hopu manu
+māra kai
+rongoā
+tunu kai
+hāngī
+kohi rimurimo
+whakatō rākau
+hīkoi
+piki maunga
+oma
+kaukau
+retireti
+kanikani
+puoro
+whakatangi kitā
+waiata tira
+pānui pukapuka
+tuhituhi
+whakaahua
+mahi toi
+peita
+tākaro ataata
+tākaro papa
+mahi rorohiko
+ako reo
+whutupōro
+whutupōro rīki
+poitūkohu
+kirikiti
+hōki
+poikiri
+tēnehi
+poitarawhiti
+hōpuni
+hī tuna
+whakangahau
+mahi whenua
+tiaki manu
+whakaora ngahere
+mahi kēmu
+kohi kōhatu
+tapatapahi rākau
+tuitui
+whatu kākahu
+mahi hangarau
+whakarite hui
+mahi rangahau

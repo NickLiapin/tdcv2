@@ -1,0 +1,12 @@
+---
+description: Part of the day (Maori). Several of these are phrases rather than single words because te reo describes the sun's position instead of naming an abstract hour: POUPOUTANGA O TE RA is the sun standing at its post, midday; TONGA O TE RA is the sun's setting. ATATU is first light and ATA the morning proper; AWATEA is broad daylight, the middle of the day when it is fully light. AHIAHI covers both English afternoon and evening, and there is no separate word that splits them.
+locale: mi
+---
+Atatū
+Ata
+Awatea
+Poupoutanga o te rā
+Ahiahi
+Tōnga o te rā
+Pō
+Waenganui pō

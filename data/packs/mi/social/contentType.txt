@@ -1,0 +1,17 @@
+---
+description: Kind of social post (Maori). KORERO is the general word for talk, story or discussion and covers most of what a social platform is for.
+locale: mi
+---
+Kōrero
+Whakaahua
+Ataata
+Ataata poto
+Oro
+Pānui
+Pātai
+Whakautu
+Whakaaturanga
+Kohinga whakaahua
+Rārangi
+Whakahoutanga
+Waiata

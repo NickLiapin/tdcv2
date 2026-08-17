@@ -1,0 +1,21 @@
+---
+description: Kind of official document (Maori). Note that a WHAKAPAPA, a recited genealogy, is not on this list even though it is the document that traditionally established a person's identity, rights and land interests — because it was spoken and memorised, not written, and the person reciting it WAS the record. TIRITI, treaty, is here for one specific document: Te Tiriti o Waitangi, whose Maori text is the one most Maori signed and whose wording differs materially from the English version, which is the whole ground of a hundred and fifty years of claims.
+locale: mi
+---
+Uruwhenua
+Raihana taraiwa
+Tiwhikete whānau
+Tiwhikete mārena
+Tiwhikete mate
+Tiwhikete kura
+Tohu mātauranga
+Whakaaetanga mahi
+Kirimana
+Wira
+Tiriti
+Pukapuka taake
+Pānui ture
+Nama utu
+Pukapuka whenua
+Tono
+Pūrongo

@@ -1,0 +1,9 @@
+---
+description: Hotel star rating. WHETU is a star. The numbers are international.
+locale: mi
+---
+Whetū 1
+Whetū 2
+Whetū 3
+Whetū 4
+Whetū 5

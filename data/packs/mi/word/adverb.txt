@@ -1,0 +1,36 @@
+---
+description: Adverb or intensifier (Maori). Manner words FOLLOW the verb — "haere marie", go peacefully — and the intensifiers RAWA, TINO and NOA IHO are the ones that do most of the work. TINO before a word and RAWA after it both mean "very"; NOA means merely or freely and is also the ritual opposite of tapu, so the same word does grammatical and religious work. PEA, perhaps, sits second in the sentence, not at the front.
+locale: mi
+---
+tino
+rawa
+noa
+noa iho
+pea
+kē
+anō
+hoki
+tonu
+kau
+wawe
+tōmuri
+āta
+marie
+tere
+pōturi
+kaha
+ngāwari
+tika
+hē
+mārama
+ngātahi
+takitahi
+tahi
+inaianei
+āpōpō
+inanahi
+ākuanei
+ināianei tonu
+ia rā
+ia wiki
+mō ake tonu

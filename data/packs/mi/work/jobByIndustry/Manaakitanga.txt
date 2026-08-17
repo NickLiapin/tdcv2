@@ -1,0 +1,14 @@
+---
+description: Jobs in Manaakitanga (Maori). Titles are built with KAI- prefixed to a verb — the person who does the doing — which is how te reo names an occupation without borrowing one.
+locale: mi
+---
+Kaitunu kai
+Kaimahi wharekai
+Kaiwhakahaere hōtēra
+Kaituku ratonga
+Kaiwhakarite hui
+Kaiwhakahaere marae
+Kaimahi papatākaro
+Kaiārahi tāpoi
+Kaitiaki manuhiri
+Kaimahi kīhini

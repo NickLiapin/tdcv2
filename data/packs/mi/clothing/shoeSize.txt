@@ -1,0 +1,18 @@
+---
+description: Shoe size on the UK SCALE, which is what a shoebox in Aotearoa prints. New Zealand inherited British sizing, so adult shoes are numbered UK 3 to 13 and NOT on the continental Paris-point scale — a UK 8 is a continental 42 — and not on the US scale either, which runs about a size and a half higher for men. Half sizes are ordinary here.
+locale: mi
+---
+3
+4
+5
+6
+7
+7.5
+8
+8.5
+9
+9.5
+10
+11
+12
+13

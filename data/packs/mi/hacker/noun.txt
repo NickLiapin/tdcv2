@@ -1,0 +1,41 @@
+---
+description: Technical noun (Maori). Almost all coined rather than borrowed: RONOHIKO is a computer ("electric brain"), IPURANGI the internet ("stream of data"), RARAUNGA data, PUMANAWA software (literally "the talents of the heart", the same word used for a person's gifts), PURERE hardware, PUNAHA a system, KONAE a file, KOPAKI a folder, MUKA a fibre. PAPAPATUHI is a keyboard and KIORE the mouse — kiore is the Pacific rat, and te reo made the same joke English did.
+locale: mi
+---
+rorohiko
+ipurangi
+raraunga
+pūmanawa
+pūrere
+pūnaha
+kōnae
+kōpaki
+muka
+papapātuhi
+kiore
+mata
+tūmau
+pātengi raraunga
+whatunga
+tukutuku
+kupu huna
+tohu
+pūtake
+hono
+kāri
+pouaka
+wāhi
+ara
+aho
+tohutoro
+whakamuna
+pae tukutuku
+pae whakawhiti
+pūkoro
+hōtaka
+papatono
+tono
+whakautu
+hapa
+pūrongo
+kapua

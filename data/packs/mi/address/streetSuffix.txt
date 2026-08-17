@@ -1,0 +1,16 @@
+---
+description: Thoroughfare type in Maori. IT GOES BEFORE THE NAME, NOT AFTER IT. English puts the generic last — Queen Street, Kauri Avenue — and te reo puts it first: Tiriti o Kuini, Ara Kauri, Huarahi Whanui. A config that copies English word order produces something no bilingual New Zealand street sign shows. TIRITI (street) and RORI (road) are loans reshaped to fit Maori phonotactics; ARA and HUARAHI are native words for a path and a route. The list is short because it is honestly short: te reo has a handful of general road words rather than the forty-odd graded types English uses (Close, Crescent, Rise, Mews), and no established Maori equivalent exists for most of them. Actual New Zealand street names are country data and live in new_zealand.geo.streetName.
+locale: mi
+---
+Tiriti
+Ara
+Huarahi
+Rori
+Ara hīkoi
+Ara whānui
+Ara poto
+Ara whakawhiti
+Peka
+Waenga
+Ākau
+Papa rēhia

@@ -1,0 +1,30 @@
+---
+description: Telecommunications provider. Company names and are not translated. These are New Zealand's actual operators — a small market with three network owners (One NZ, Spark, 2degrees) and a set of resellers on top of them — rather than a global list.
+locale: mi
+---
+Spark
+One NZ
+2degrees
+Skinny
+Warehouse Mobile
+Kogan Mobile
+Slingshot
+Orcon
+Vocus
+MyRepublic
+Now
+Nova Energy
+Trustpower
+Contact
+Chorus
+Vodafone
+Telecom
+Compass
+Bigpipe
+Stuff Fibre
+Voyager
+Devoli
+Wireless Nation
+Farmside
+Gravity
+Zeronet

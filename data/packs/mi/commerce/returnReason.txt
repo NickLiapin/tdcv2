@@ -1,0 +1,19 @@
+---
+description: Reason for returning goods (Maori). HE is the indefinite article and heads most of these, so the value reads as a small clause — "he pakaru", it is broken — because te reo states a reason as a sentence rather than as a noun phrase.
+locale: mi
+---
+He pakaru
+He hē te rahi
+He hē te tae
+He hē te taonga
+Kāore i rite ki te whakaahua
+He kino te kounga
+Kua tae mai i te wā tōmuri
+Kāore i hiahiatia
+Kua rerekē te whakaaro
+E rua ngā mea i tukuna
+Kua pau te wā
+He koretake
+He paru
+Kāore i oti te whakauru
+He hē te tono

@@ -1,0 +1,26 @@
+---
+description: Flower or flowering plant (Maori). The first group are native and their flowering is a calendar: POHUTUKAWA reddens at Christmas and is New Zealand's midsummer tree, which lands in DECEMBER because Aotearoa is in the southern hemisphere. KOWHAI turning gold marks early spring. PUAWANANGA, the white native clematis, flowers at the same moment and is by tradition the child of the stars. KOWHAI NGUTUKAKA, the kakabeak, is named for the shape of a kaka's beak and is now one of the rarest plants in the country. The garden flowers at the end are introduced and their names are loans reshaped by Maori phonotactics — rose becomes ROHI, lily RIRI, daisy TEIHI — each ending in a vowel because te reo permits no other ending.
+locale: mi
+---
+Pōhutukawa
+Kōwhai
+Rātā
+Puawānanga
+Rengarenga
+Kōwhai ngutukākā
+Kōtukutuku
+Koromiko
+Mānuka
+Kānuka
+Harakeke
+Wharariki
+Toetoe
+Raupō
+Kiekie
+Tāwhara
+Horopito
+Ramarama
+Karamū
+Pikiarero
+Rōhi
+Rīri

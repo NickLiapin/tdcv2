@@ -1,0 +1,14 @@
+---
+description: Jobs in Ture (Maori). Titles are built with KAI- prefixed to a verb — the person who does the doing — which is how te reo names an occupation without borrowing one.
+locale: mi
+---
+Rōia
+Kaiwhakawā
+Mātanga ture
+Kaitohutohu ture
+Kairangahau ture
+Kaituhi ture
+Kaiwhakamāori ture
+Kaiwhakahaere kōti
+Kaiwhakarite kirimana
+Kaitiaki tuhinga ture

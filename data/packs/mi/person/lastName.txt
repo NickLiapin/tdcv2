@@ -1,0 +1,103 @@
+---
+description: Maori family name, weighted. FOUR things a config cannot infer. FIRST, THERE WAS NO INHERITED SURNAME before European contact. A person was identified by a single name plus whakapapa — the recited genealogy that places them in a descent line — and by hapu and iwi. Fixed family names arrived with mission baptism, land-court registration and the 1913 Births and Deaths Registration Act, so every name in this file is at most about six generations old as a HERITABLE name, even when the word itself is ancient. Many were formed by freezing an ancestor's personal name (Te Heuheu, Te Wherowhero, Tawhiao, Ngata, Maniapoto) into a family name. SECOND, THIS LIST IS NOT THE WHOLE PICTURE and must not be used alone. A very large share of Maori today carry English, Scottish or Irish surnames inherited from settler ancestors — Smith, Walker, Jones, Grace, Solomon, Campbell are all borne by prominent Maori families. Those are English words and live in en.person.lastName; a realistic New Zealand dataset draws from BOTH addresses. Keeping them out of this file is what makes it a te reo Maori list rather than a New Zealand one. THIRD, a distinct class here is the transliterated settler surname, reshaped by Maori phonotactics rather than respelled: Wilson became WIRIHANA, Busby PUHIPI, Shortland HOTERENE, Graham KEREAMA, Watson WATENE, Brown PARAONE, Richardson REIHANA, Maunsell MANIHERA, Kemp KEPA, Davis REWITI. Every one of them ends in a vowel and contains no consonant cluster, because te reo permits neither. FOURTH, MAORI SURNAMES DO NOT INFLECT FOR GENDER — the same string serves a man and a woman — so there is deliberately NO person/female/lastName.txt in this pack and its absence is the design. The weights are the project default decay curve ordered by prominence; Statistics New Zealand publishes no surname frequency table, so no measured distribution exists to encode and none is claimed here.
+locale: mi
+weighted: true
+---
+Ngata,1000000
+Te Heuheu,933032
+Mahuta,895958
+Rātana,870550
+Kīngi,851339
+Harawira,835958
+Turia,823171
+Waititi,812252
+Tamihere,802741
+Henare,794328
+Parata,786793
+Katene,779977
+Horomia,773758
+Tirikatene,768045
+Whaitiri,762765
+Pōtaka,757858
+Hipango,753277
+Ririnui,748984
+Te Kanawa,744945
+Kaa,741134
+Pere,737527
+Wetere,734104
+Kohere,730848
+Pōmare,727744
+Te Wherowhero,724779
+Tāwhiao,721942
+Herangi,719223
+Paki,716612
+Maniapoto,714101
+Kāwharu,711685
+Kāretu,709355
+Winiata,707106
+Temara,704934
+Iti,702832
+Ihimaera,700798
+Tuwhare,698827
+Pihama,696915
+Rata,695058
+Mutu,693255
+Tau,691502
+Papa,689797
+Panapa,688137
+Mikaere,686519
+Te Awekōtuku,684943
+Whaanga,683405
+Awatere,681905
+Huata,680440
+Kaihau,679009
+Pōkiha,677610
+Tomoana,676243
+Ropiha,674905
+Tahana,673596
+Nuku,672314
+Ruwhiu,671058
+Te Kani,669828
+Te Puni,668622
+Puketapu,667440
+Waaka,666280
+Rangihau,665142
+Hakaraia,664025
+Karetai,662928
+Taiaroa,661851
+Tikao,660793
+Kereopa,659753
+Papakura,658731
+Herewini,657726
+Wikiriwhi,656738
+Nepia,655766
+Ihaka,654809
+Tuhiwai,653868
+Hikuroa,652941
+Manuirirangi,652028
+Hurihanganui,651130
+Ngātai,650244
+Poananga,649372
+Rakena,648512
+Nikora,647665
+Ratahi,646830
+Hape,646007
+Waretini,645195
+Wirihana,644394
+Puhipi,643603
+Hoterene,642824
+Kereama,642054
+Watene,641295
+Paraone,640545
+Reihana,639805
+Manihera,639074
+Kēpa,638353
+Rewiti,637640
+Wineera,636936
+Rīhari,636240
+Hohepa,635552
+Rāwiri,634873
+Piripi,634202
+Tautari,633538
+Ropata,632882
+Wiremu,632233

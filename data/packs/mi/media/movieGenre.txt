@@ -1,0 +1,23 @@
+---
+description: Film genre (Maori). Genre names built from te reo roots rather than borrowed — PAKIWAITARA is fiction or a story, WHAKAMATAKU horror (literally "to make afraid"), KATAKATA comedy, AROHA romance, MATAKU thriller.
+locale: mi
+---
+Pakiwaitara
+Kōrero pono
+Katakata
+Aroha
+Whakamataku
+Mataku
+Whawhai
+Pakanga
+Hītori
+Pūtaiao pohewa
+Pohewa
+Tamariki
+Whānau
+Puoro
+Ngahau
+Whakatoi
+Taiao
+Hākinakina
+Kōrero Māori

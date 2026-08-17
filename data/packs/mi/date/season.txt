@@ -1,0 +1,8 @@
+---
+description: Season (Maori). AOTEAROA IS IN THE SOUTHERN HEMISPHERE AND THE SEASONS ARE INVERTED: RAUMATI, summer, is December to February and contains Christmas; TAKURUA, winter, is June to August. A config that pairs "summer" with a June date is six months wrong here. KOANGA is spring and is named for the digging stick — it is the planting season, defined by the work rather than by the sun. NGAHURU is autumn and likewise means the harvest; it is also the word for ten, the tenth lunar month. HOTOKE is a common synonym for takurua. Two further points: the Maori year does not begin in January but at MATARIKI, the rising of the Pleiades in late June or early July, now a public holiday in New Zealand; and the maramataka recognises finer divisions than four, so a strict four-season model is itself an imported frame.
+locale: mi
+---
+Kōanga
+Raumati
+Ngahuru
+Takurua

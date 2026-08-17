@@ -1,0 +1,12 @@
+---
+description: Diagnoses seen in Mātai whatukuhu (Maori). HOW THIS LIST IS BUILT, because a medical list must say. Where te reo Maori has an ESTABLISHED term it is used: HUANGO is asthma, REWHAREWHA influenza, MATE HUKA diabetes ("sugar sickness"), MATE PUKUPUKU cancer, HUKIHUKI epilepsy, MATE KOHI tuberculosis, MATE WAREWARE dementia, PAPOURI depression, AWANGAWANGA anxiety, PAIPAI a sexually transmitted infection. Where it does not, the value uses the transparent MATE + organ or MATE + cause pattern te reo actually builds diagnoses with — mate whatukuhu is kidney disease, mate pukahukahu lung disease, pehanga toto teitei high blood pressure. NO SINGLE-WORD TERM HAS BEEN COINED HERE: an invented medical word is undetectable later and would be the worst kind of fabrication in a data pack. A clinical system must take its vocabulary from Te Reo Hapai, the standardised Maori glossary for the health and disability sector, and not from this file.
+locale: mi
+---
+Mate whatukuhu
+Mate kōhatu whatukuhu
+Mate mimi
+Pēhanga toto teitei
+Mate huka momo 2
+Mate toto whatukuhu
+Mate whatukuhu ohorere
+Mate whatukuhu roa

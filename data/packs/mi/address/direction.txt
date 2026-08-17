@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used inside a Maori place name. These are the elements that appear as part of the name itself rather than beside it — Te Tai Tokerau (the northern coast), Rangitoto ki te Tonga, Ohinemuri ki Runga. RUNGA and RARO, upper and lower, are far commoner in New Zealand place names than north and south are, and they refer to the course of a river or the slope of the land: the Upper and Lower reaches, not the top and bottom of a map. WAHO is the outer or seaward part and ROTO the inner or landward, UTA inland and TAI coastal. The names of real New Zealand places built from these belong to the new_zealand country pack, not here; this file holds the words the language builds them from.
+locale: mi
+---
+Raki
+Tonga
+Rāwhiti
+Hauāuru
+Uru
+Runga
+Raro
+Waho
+Roto
+Uta
+Tai
+Tua
+Waenga
+Tokerau
+Marangai

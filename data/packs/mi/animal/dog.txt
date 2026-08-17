@@ -1,0 +1,29 @@
+---
+description: Dog breed. Breed names are international proper nouns and are NOT translated into te reo — a Labrador is a Labrador on a New Zealand vet's form in either language — so these keep their standard spelling and are among the values in this pack that contain letters the Maori alphabet does not have. There is one thing te reo adds and English cannot: KURI, the first value, is not a breed of the modern kind but the Polynesian dog that arrived on the migration canoes about seven hundred years ago, kept for food and for its skin, and extinct by roughly 1860 through interbreeding with European dogs. No living breed descends from it.
+locale: mi
+---
+Kurī
+Labrador Retriever
+German Shepherd
+Border Collie
+Huntaway
+Heading Dog
+Jack Russell Terrier
+Golden Retriever
+Staffordshire Bull Terrier
+Bull Terrier
+Beagle
+Boxer
+Poodle
+Rottweiler
+Dachshund
+Cocker Spaniel
+Greyhound
+Fox Terrier
+Bichon Frise
+Shih Tzu
+Chihuahua
+Pug
+Siberian Husky
+Cavalier King Charles Spaniel
+Whippet

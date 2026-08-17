@@ -1,0 +1,77 @@
+---
+description: Diagnosis (Maori). HOW THIS LIST IS BUILT, because a medical list must say. Where te reo Maori has an ESTABLISHED term it is used: HUANGO is asthma, REWHAREWHA influenza, MATE HUKA diabetes ("sugar sickness"), MATE PUKUPUKU cancer, HUKIHUKI epilepsy, MATE KOHI tuberculosis, MATE WAREWARE dementia, PAPOURI depression, AWANGAWANGA anxiety, PAIPAI a sexually transmitted infection. Where it does not, the value uses the transparent MATE + organ or MATE + cause pattern te reo actually builds diagnoses with — mate whatukuhu is kidney disease, mate pukahukahu lung disease, pehanga toto teitei high blood pressure. NO SINGLE-WORD TERM HAS BEEN COINED HERE: an invented medical word is undetectable later and would be the worst kind of fabrication in a data pack. A clinical system must take its vocabulary from Te Reo Hapai, the standardised Maori glossary for the health and disability sector, and not from this file.
+locale: mi
+---
+Mate huka
+Mate huka momo 1
+Mate huka momo 2
+Mate manawa
+Pēhanga toto teitei
+Huango
+Mate pukupuku
+Mate pukupuku pūkahukahu
+Mate pukupuku ate
+Mate pukupuku puku
+Mate pukupuku whēkau
+Mate pukupuku kiri
+Mate pukupuku toto
+Mate kohi
+Rewharewha
+Mate rewharewha nui
+Mate pūkahukahu
+Mate korokoro
+Mate ihu
+Mate taringa
+Mate karu
+Mate niho
+Mate kiri
+Kiritona
+Mate hukihuki
+Mate wareware
+Mate roro
+Mate ia toto roro
+Mate ate
+Mate ate waipiro
+Mate whatukuhu
+Mate kōhatu whatukuhu
+Mate mimi
+Mate puku
+Mate whēkau ngau
+Mate kōpiro
+Mate hūkiki
+Rūmātiki
+Mate manawa rūmātiki
+Mate kōiwi
+Kōiwi ngoikore
+Mate pona
+Mate uaua
+Mate tuarā
+Pāpōuri
+Āwangawanga
+Mate hinengaro
+Mate moe
+Mate ngenge roa
+Mate ārai
+Kore whakawai miraka
+Kore whakawai kirihi
+Mate ārai kai
+Taumaha rawa
+Mate hikohiko manawa
+Mate toto
+Toto iti
+Mate repe
+Mate repe kakī
+Paipai
+Mate whakapoke
+Mate karawaka
+Mate kirikā
+Mate hakihaki
+Mate mamae ūpoko
+Mate ānini
+Mate wairua
+Mate waipiro
+Mate tarukino
+Mate toto kōpiko
+Ngoikore huaora D
+Mate huaketo
+Mate huakita

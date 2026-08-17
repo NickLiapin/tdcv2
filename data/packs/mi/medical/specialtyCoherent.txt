@@ -1,0 +1,14 @@
+---
+description: Medical specialty (has a coherent diagnosis list). MATAI means to examine or study and is the standard te reo way of naming a discipline, so the specialty is literally "the study of the heart", "the study of the brain", "the study of the skin" — transparent where the Greek-derived English is opaque.
+locale: mi
+---
+Mātai manawa
+Mātai roro
+Mātai pukupuku
+Mātai kiri
+Mātai puku
+Mātai repe
+Mātai pūkahukahu
+Mātai kōiwi
+Mātai hinengaro
+Mātai whatukuhu

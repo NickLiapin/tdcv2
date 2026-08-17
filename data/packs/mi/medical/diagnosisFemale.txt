@@ -1,0 +1,30 @@
+---
+description: Diagnosis of a condition affecting female anatomy (Maori). The same point as the male file: te reo marks no gender, so these words are not feminine — they name organs. WHARE TANGATA, "the house of humanity", is the ordinary respectful word for the womb and carries a status the clinical English "uterus" does not. HOW THIS LIST IS BUILT, because a medical list must say. Where te reo Maori has an ESTABLISHED term it is used: HUANGO is asthma, REWHAREWHA influenza, MATE HUKA diabetes ("sugar sickness"), MATE PUKUPUKU cancer, HUKIHUKI epilepsy, MATE KOHI tuberculosis, MATE WAREWARE dementia, PAPOURI depression, AWANGAWANGA anxiety, PAIPAI a sexually transmitted infection. Where it does not, the value uses the transparent MATE + organ or MATE + cause pattern te reo actually builds diagnoses with — mate whatukuhu is kidney disease, mate pukahukahu lung disease, pehanga toto teitei high blood pressure. NO SINGLE-WORD TERM HAS BEEN COINED HERE: an invented medical word is undetectable later and would be the worst kind of fabrication in a data pack. A clinical system must take its vocabulary from Te Reo Hapai, the standardised Maori glossary for the health and disability sector, and not from this file.
+locale: mi
+---
+Mate pukupuku ū
+Mate pukupuku kōpū
+Mate pukupuku kakau kōpū
+Mate pukupuku pīhau
+Mate kōpū
+Mate whare tangata
+Mate kiri kōpū
+Mate pīhau puku maha
+Mate marama
+Mate mate marama
+Ruahinetanga
+Mate hapū
+Pēhanga toto o te hapū
+Mate huka o te hapū
+Pāpōuri i muri i te whānau
+Mate whakawhānau
+Kore whakatō wahine
+Kōiwi ngoikore
+Mate ū
+Mate mimi wahine
+Mate repe ū
+Mate toto wahine
+Mate hinengaro wahine
+Mate manawa wahine
+Mate ārai wahine
+Mate whatukuhu wahine

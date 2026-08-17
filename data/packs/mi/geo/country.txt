@@ -1,0 +1,60 @@
+---
+description: Country, as te reo Maori names it, weighted by population in millions. These are Maori names, not respellings of the English: France is WIWI, which comes from French speakers saying "oui, oui" and is not a transliteration of "France" at all; New Zealand is AOTEAROA, "the long white cloud", the name the place already had. Where te reo did borrow the name it reshaped it to fit Maori phonotactics rather than transcribing it — Germany is TIAMANA, Spain PANIORA (from Espanol), Russia RUHIA, Egypt IHIPA, Poland PORONI — because every syllable must end in a vowel and no two consonants may touch. That constraint is also why one name here looks like a mistake and is not: the Kingdom of Tonga is TONGA, with the digraph ng, because g cannot stand alone in Maori — and TONGA is also the ordinary word for SOUTH, which geo/direction.txt carries. Te reo simply lives with the collision. THIS LIST IS DELIBERATELY MUCH SHORTER THAN THE ENGLISH ONE. Te reo Maori has established names for roughly this many states; coining the remaining hundred and eighty would be fabrication, so they are absent rather than invented. The Pacific states at the foot are floored at a weight of 1 because their true populations are well under a million and integer millions would round them out of existence; they are here because Aotearoa is a Pacific country and Samoa, Tonga, Fiji, Niue and the Cook Islands are its nearest neighbours and, in the Polynesian cases, its nearest linguistic relatives. INGARANGI is England; in ordinary speech it is often stretched to cover Britain as a whole, and the identifiers belonging to the United Kingdom as a state live in the united_kingdom country pack, not here.
+locale: mi
+weighted: true
+---
+Haina,1410
+Īnia,1400
+Amerika,335
+Initonīhia,275
+Pākitāne,240
+Parahi,215
+Rūhia,144
+Mēhiko,128
+Hapani,124
+Piripīni,115
+Ihipa,105
+Wietanama,98
+Irāna,88
+Tiamana,84
+Tairana,72
+Wīwī,68
+Awherika ki te Tonga,60
+Ītari,59
+Ingarangi,57
+Kenia,55
+Kōrea ki te Tonga,52
+Pāniora,47
+Āketina,46
+Irāka,44
+Kānata,39
+Poroni,38
+Ukareina,38
+Hauri Arāpia,36
+Marēhia,34
+Peru,34
+Ahitereiria,26
+Hire,20
+Hōrana,18
+Perekiuma,12
+Kiupa,11
+Huitene,11
+Kariki,10
+Pōtukara,10
+Papua Nūkini,10
+Iharaira,10
+Ōtiria,9
+Huiterangi,9
+Hingapoa,6
+Tenemāka,6
+Whinirana,6
+Nōwei,6
+Kotirana,5
+Airana,5
+Aotearoa,5
+Whītī,1
+Wanuatu,1
+Hāmoa,1
+Tonga,1
+Kuki Airani,1
+Niue,1

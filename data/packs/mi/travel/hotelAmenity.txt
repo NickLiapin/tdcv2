@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Maori). POWHIRI at the head is genuine: New Zealand hotels and conference venues routinely open an event with a formal welcome, and larger ones retain a kaumatua to do it.
+locale: mi
+---
+Ipurangi kore utu
+Parenga waka
+Parakuihi
+Wharekai
+Pā inu
+Puna kaukau
+Puna wera
+Whare tākaro
+Rūma hui
+Ratonga horoi kākahu
+Ratonga rūma
+Pouaka makariri
+Pūrere kawhe
+Pouaka whakaata
+Pūrere whakamahana
+Pūrere whakamātao
+Kaitiaki pō
+Whakawhiti taunga rererangi
+Kararehe whakaaetia
+Uru hunga hauā
+Pōwhiri
+Kaiārahi tāpoi
+Rūma waiho tueke
+Pouaka haumaru
+Māra
+Papa tamariki
+Whare rongoā
+Ratonga waea
+Rūma kaukau
+Tāora

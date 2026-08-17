@@ -1,0 +1,26 @@
+---
+description: Vegetable (Maori). KUMARA is the staple and the most important plant in the list: it came from tropical Polynesia on the migration canoes and its cultivation this far south, with storage pits dug against the frost, is one of the real achievements of Maori horticulture. TARO and HUE (bottle gourd) came the same way. PUHA is sow thistle, a green picked wild and boiled with pork; WATAKIRIHI is watercress; PIKOPIKO are unrolled fern fronds; ARUHE is the rhizome of bracken fern, the famine staple, pounded before eating. KARENGO is edible seaweed. Everything after those is introduced and borrowed — carrot KAROTI, cabbage KAPETI, onion RIKI, bean PINI, pea PI, corn KANGA — each rebuilt so that no consonant is left unsupported by a vowel.
+locale: mi
+---
+Kūmara
+Taro
+Hue
+Pūhā
+Watakirihi
+Pikopiko
+Aruhe
+Karengo
+Kamokamo
+Rimurimo
+Rīwai
+Kānga
+Kāroti
+Kāpeti
+Riki
+Pīni
+Pī
+Tōmato
+Korare
+Huawhenua
+Kūkama
+Rētehi

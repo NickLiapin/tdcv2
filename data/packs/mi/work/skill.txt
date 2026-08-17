@@ -1,0 +1,46 @@
+---
+description: Workplace skill (Maori). The first block are skills that are Maori and are genuinely listed on New Zealand job descriptions: WHAIKORERO (formal oratory), KARANGA (the call that opens a powhiri, performed by women), TE REO MAORI itself, TIKANGA (protocol), WHAKAPAPA (genealogy), MATAURANGA MAORI (the Maori knowledge system), KAITIAKITANGA (environmental guardianship, now written into resource-management law) and WHAKAWHANAUNGATANGA — building relationship before business, which in Maori settings is not a soft skill but a precondition for anything else happening.
+locale: mi
+---
+Whaikōrero
+Karanga
+Waiata
+Whakairo
+Raranga
+Tā moko
+Te reo Māori
+Tikanga
+Whakapapa
+Rongoā
+Mātauranga Māori
+Kaitiakitanga
+Whakawhanaungatanga
+Manaaki tangata
+Ārahi
+Mahi tahi
+Whakatau take
+Auaha
+Whakaaro arohaehae
+Whakawhitiwhiti kōrero
+Whakamāori
+Tuhituhi
+Tuhi pūrongo
+Pānui
+Tātau
+Whakahaere
+Whakahaere kaupapa
+Whakahaere pūtea
+Rangahau
+Arotake
+Whakarite hui
+Ako
+Hangarau matihiko
+Rorohiko
+Tātaritanga raraunga
+Waihanga pūmanawa
+Hauora
+Haumaru mahi
+Taraiwa
+Tunu kai
+Hoe waka
+Mau rākau

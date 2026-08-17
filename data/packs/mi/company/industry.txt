@@ -1,0 +1,59 @@
+---
+description: Industry sector (Maori). Several of these are New Zealand's actual economy rather than a generic list: AHUWHENUA is farming, MIRAKA dairy, AHUMOANA aquaculture, NGAHERE forestry, TAPOI tourism. AHUMAHI is the general word for an industry, and the compounds are built from it.
+locale: mi
+---
+Hangarau
+Hauora
+Pūtea
+Hanga
+Mātauranga
+Manaakitanga
+Waihanga
+Hokohoko
+Waka
+Ture
+Ahuwhenua
+Miraka
+Ahumoana
+Ngahere
+Tāpoi
+Hī ika
+Kai
+Inu
+Pāpāho
+Whakangahau
+Toi
+Puoro
+Whakaari
+Tā
+Whakaahua
+Rorohiko
+Whakapā
+Hiko
+Wai
+Para
+Taiao
+Rangahau
+Kaupapa here
+Kāwanatanga
+Kaunihera
+Whakawhanake
+Inihua
+Whenua
+Whare
+Kāri
+Hokohoko-ā-ipurangi
+Kawe utanga
+Whare rawa
+Rerenga rangi
+Kaipuke
+Tereina
+Pahi
+Tākaro
+Hākinakina
+Rongoā
+Kararehe
+Mīhini
+Rino
+Waro
+Kōura

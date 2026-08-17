@@ -1,0 +1,15 @@
+---
+description: Stage of a hiring process (Maori). WHAKAWHANAUNGATANGA at the head is not small talk and not a formality — in a Maori workplace the first meeting establishes who you are and who you are connected to, and a candidate who cannot place themselves is at a disadvantage no CV corrects. POWHIRI is the formal welcome onto a marae or into an organisation and may itself be part of the process.
+locale: mi
+---
+Tono
+Arotake tono
+Uiui waea
+Whakawhanaungatanga
+Uiui tuatahi
+Uiui tuarua
+Whakamātautau
+Uiui rōpū
+Pātai tohutoro
+Tuku tūranga
+Pōwhiri

@@ -1,0 +1,14 @@
+---
+description: Payment status (Maori). Same aspect markers as the order list: KUA for a completed action, KEI TE for one under way, KAORE ANO KIA for one not yet begun.
+locale: mi
+---
+Kua utua
+Kāore anō kia utua
+Kei te taritari
+Kua whakakorea
+Kua whakahokia
+Kua rāhuitia
+Kua hē
+Kei te tatari
+Kua pau te wā
+Kua wehea

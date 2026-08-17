@@ -1,0 +1,24 @@
+---
+description: Fruit (Maori). The first group are native and most were gathered rather than grown: KARAKA berries are edible only after long steaming and washing, because raw they are poisonous; TAWA, HINAU and MIRO were pounded or steeped; KONINI is the fuchsia berry and one of the few eaten straight off the tree; TUTU is on the list because te reo names it and it is deadly, which a fruit list from anywhere else would not need to say. The rest are introduced and their names are loans reshaped to Maori phonotactics — apple becomes APORO, banana PANANA, orange ARANI, lemon REMANA, grape KAREPE, peach PITITI — a vowel appended and every cluster broken, because te reo allows no other word shape.
+locale: mi
+---
+Karaka
+Tawa
+Hīnau
+Miro
+Kōnini
+Poroporo
+Tutu
+Tāwhara
+Koroī
+Taraire
+Āporo
+Panana
+Ārani
+Rēmana
+Karepe
+Merengi
+Pītiti
+Pea
+Rōpere
+Huakiwi

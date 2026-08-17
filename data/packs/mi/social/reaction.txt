@@ -1,0 +1,15 @@
+---
+description: Reaction to a post (Maori). KA PAI is the ordinary "well done"; MEA is "wow"; POUri sad. AROHA MAI is on the list and does not mean what a word-by-word reading suggests — it is "sorry" or "excuse me", literally "love toward me", and is what you say when offering sympathy.
+locale: mi
+---
+Ka pai
+Aroha
+Katakata
+Mīharo
+Pōuri
+Riri
+Aroha mai
+Tautoko
+Ohorere
+Kāore i pai
+Ngākau nui

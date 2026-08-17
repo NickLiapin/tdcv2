@@ -1,0 +1,14 @@
+---
+description: Jobs in Pūtea (Maori). Titles are built with KAI- prefixed to a verb — the person who does the doing — which is how te reo names an occupation without borrowing one.
+locale: mi
+---
+Kaitatau
+Mātanga pūtea
+Kaiwhakahaere pūtea
+Kaitohutohu haumi
+Kaiwhakahaere pēke
+Kaiarotake pūtea
+Kaitātari pūtea
+Kaiwhakahaere inihua
+Kaiwhakarite nama
+Kaitiaki pūtea

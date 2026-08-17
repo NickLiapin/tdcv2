@@ -1,0 +1,19 @@
+---
+description: Post-nominal letters after a name, as written in New Zealand. MAORI HAS NO JR / SR / II / III GENERATIONAL SUFFIX and this is not a gap to be filled with a translation: the link between an elder and a younger of the same name is carried by WHAKAPAPA, the recited genealogy, and by the kin terms MATAMUA (first-born) and POTIKI (last-born), never by a tag appended to the written name. So the only values here are qualifications and honours, which are letters rather than words and are identical in te reo and English documents. The New Zealand honours post-nominals (MNZM, ONZM, CNZM, QSM, QSO, ONZ) are included because they are what actually follows a name on a New Zealand programme or citation.
+locale: mi
+---
+PhD
+MA
+MSc
+BA
+BSc
+LLB
+MB ChB
+MNZM
+ONZM
+CNZM
+KNZM
+DNZM
+QSM
+QSO
+ONZ

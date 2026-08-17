@@ -1,0 +1,21 @@
+---
+description: Video game genre (Maori). Built from te reo roots — TAKARO is play, WHAKATAETAE competition, RAPU searching, WHAKATAU TAKE puzzle-solving.
+locale: mi
+---
+Whawhai
+Rapu
+Whakatau take
+Whakataetae
+Reihi
+Hākinakina
+Rautaki
+Hanga
+Kōrero
+Mataku
+Pohewa
+Tākaro tuku
+Tākaro rōpū
+Tākaro takitahi
+Tākaro tamariki
+Puoro
+Pūtaiao pohewa

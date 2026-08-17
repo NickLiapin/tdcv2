@@ -1,0 +1,25 @@
+---
+description: Religion or belief (Maori). THE FIRST FOUR ARE MAORI AND THREE OF THEM ARE CHURCHES FOUNDED IN AOTEAROA. RINGATU was founded by Te Kooti Arikirangi in the 1860s while he was a prisoner; RATANA by Tahupotiki Wiremu Ratana in 1918 after a vision, and it became a political force that held Maori parliamentary seats for decades; PAI MARIRE (Hauhau) arose in Taranaki in the 1860s. KARAKIA MAORI covers the older religious practice — atua, tapu and noa, karakia — which was never a "religion" as a separate institution but the ordinary framework of everything. The Christian denominations have established te reo names because the missions translated themselves: MIHINARE is Anglican (from "missionary"), KATORIKA Catholic, PEREHIPITIRIANA Presbyterian, METIRIHI Methodist, PAPITIHA Baptist. Hinduism, Buddhism, Sikhism and Baha'i are left in their international form because te reo has no established name for them and coining one would be invention — which is also why those four values carry letters the Maori alphabet does not have. Note finally that a great many New Zealanders record NO religion: it is the largest single answer in the census, which is why KORE HAHI is on this list rather than as an afterthought.
+locale: mi
+---
+Ringatū
+Rātana
+Pai Mārire
+Karakia Māori
+Mihinare
+Katorika
+Perehipitīriana
+Metirihi
+Pāpitiha
+Whakapono Karaitiana
+Mōmona
+Kaiwhakaatu a Ihowa
+Ihirāma
+Hinduism
+Buddhism
+Sikhism
+Hūrai
+Bahá’í
+Wairuatanga
+Kore hāhi
+Kāore i whakaatuhia

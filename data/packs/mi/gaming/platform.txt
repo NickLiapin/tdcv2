@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Hardware and brand names, not translated — PlayStation is PlayStation on a te reo screen, which is why every value here uses letters outside the Maori alphabet.
+locale: mi
+---
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+PC
+Steam Deck
+Android
+iOS
+Mac
+Browser

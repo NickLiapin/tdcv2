@@ -1,0 +1,42 @@
+---
+description: Affectionate name or term of address (Maori). MAORI HAS NO DIMINUTIVE SUFFIX — nothing corresponds to English -y or -ie, Spanish -ito or Russian -ochka — so affection is carried three other ways and this list holds all three. FIRST, the vocative particle E before a name or kin term: e hoa, e tā, e kō, e kare. SECOND, KIN TERMS USED AS ADDRESS, which is by far the commonest: moko and mokopuna to a grandchild, tama to a boy, kotiro to a girl, whaea and matua to an adult, koro and kuia to an elder, and these are used to people well outside one's own family. THIRD, genuine endearments — kare, tau, ipo, aroha. A handful of clipped given names (Wiri from Wiremu, Rawi from Rawiri, Hem from Hemi, Tama from Tamati) are at the foot of the list; they are real but the practice is much less systematic than in English, so the list is short on purpose rather than padded.
+locale: mi
+---
+e hoa
+e tā
+e kō
+e kare
+e hine
+e tama
+kare
+tau
+ipo
+aroha
+moko
+mokopuna
+tama
+kōtiro
+whaea
+matua
+koro
+kuia
+pōtiki
+mātāmua
+tuakana
+teina
+whanaunga
+hoa
+hoa aroha
+kōhine
+tamahine
+tamaiti
+Wiri
+Rāwi
+Hem
+Tāma
+Mere
+Hine
+Kiri
+Manu
+Toa
+Koa

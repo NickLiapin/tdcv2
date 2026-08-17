@@ -1,0 +1,17 @@
+---
+description: Freight type (Maori). This is what actually moves on a New Zealand road: RAKAU is logs, the country's largest single freight by volume; MIRAKA is milk, collected by tanker from farms twice a day; KARAREHE ORA is live stock. POUAKA UTAINA is a shipping container and UTANGA MAKARIRI refrigerated freight.
+locale: mi
+---
+Rākau
+Miraka
+Kararehe ora
+Kai
+Huawhenua
+Pouaka utaina
+Utanga makariri
+Hinu
+Kōhatu
+Onepū
+Rino
+Taputapu
+Waka

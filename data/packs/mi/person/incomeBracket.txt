@@ -1,0 +1,12 @@
+---
+description: Annual household income band, labelled in Maori. Amounts are in NEW ZEALAND DOLLARS — te tara o Aotearoa, NZD — written with a comma thousands separator and a dollar sign before the figure, which is how a New Zealand form prints it. Every line ends in IA TAU, "each year", which is how the phrase is built in te reo and which also keeps the value from ending in a comma and a run of digits, the shape data/scripts/check-weighted-headers.mjs reads as an undeclared weight.
+locale: mi
+---
+Kei raro i te $20,000 ia tau
+$20,000–$30,000 ia tau
+$30,000–$45,000 ia tau
+$45,000–$60,000 ia tau
+$60,000–$80,000 ia tau
+$80,000–$110,000 ia tau
+$110,000–$150,000 ia tau
+Kei runga ake i te $150,000 ia tau

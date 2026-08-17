@@ -1,0 +1,11 @@
+---
+description: Driver licence class. THESE ARE NEW ZEALAND'S CLASSES 1 TO 6 and they are neither the American CDL letters nor the European C/CE categories — Class 1 is a car, Class 2 to 5 are heavy vehicles by weight and combination, Class 6 is a motorcycle, and the F, R, T, W, D, O and P endorsements sit on top of them. Class numbers are figures rather than words and are identical in a te reo document.
+locale: mi
+---
+Karaehe 1
+Karaehe 2
+Karaehe 3
+Karaehe 4
+Karaehe 5
+Karaehe 6
+Whakaaetanga P

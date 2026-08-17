@@ -1,0 +1,38 @@
+---
+description: Sport (Maori). THE FIRST FIVE ARE MAORI AND ARE NOT FOLK GAMES. KI-O-RAHI is a traditional ball game with a circular field, two teams with opposite objectives, and a story attached to it; it is now played in New Zealand schools and has been demonstrated internationally. WAKA AMA, outrigger canoe racing, is one of the fastest-growing sports in the country with tens of thousands of paddlers and a national championship on Lake Karapiro. MAU RAKAU is weapons training with the taiaha. The introduced codes below show the usual reshaping — rugby WHUTUPORO, netball POITARAWHITI, basketball POITUKOHU, cricket KIRIKITI, soccer POIKIRI — and note that in New Zealand rugby union, netball and cricket are the mass-participation sports, not soccer.
+locale: mi
+---
+Kī-o-rahi
+Waka ama
+Mau rākau
+Poi toa
+Whutupōro
+Whutupōro rīki
+Poitarawhiti
+Poitūkohu
+Kirikiti
+Poikiri
+Hōkī
+Tēnehi
+Tēnehi tēpu
+Poirewa
+Kauhoe
+Oma
+Oma roa
+Peke
+Maka
+Eke paihikara
+Hoe
+Eke ngaru
+Rere waka
+Mekemeke
+Nonoke
+Korawhe
+Retireti hukarere
+Retireti papa
+Whakataetae hōiho
+Piki toka
+Hīkoi maunga
+Poi ngohe
+Pere
+Hākinakina

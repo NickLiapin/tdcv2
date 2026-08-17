@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code for Piripīni. Codes are an international standard and are identical in every language, so this value is not Maori and is not translated.
+locale: mi
+---
+PHP

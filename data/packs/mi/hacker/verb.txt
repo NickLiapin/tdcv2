@@ -1,0 +1,32 @@
+---
+description: Technical verb (Maori). Bare stems — the aspect particle that would place them in time is not part of the word, so these can be used with kei te, kua, ka or i as the sentence needs.
+locale: mi
+---
+whakauru
+tuku
+tiki
+tāuta
+whakarite
+whakamuna
+wetemuna
+whakaora
+whakahou
+tātari
+rapu
+whakakī
+horoi
+hono
+tuhi
+pānui
+kape
+neke
+muku
+whakatika
+whakamātau
+aroturuki
+whakahaere
+whakakore
+whakatōpū
+wehe
+whakaaunoa
+whakamahi

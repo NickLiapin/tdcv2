@@ -1,0 +1,16 @@
+---
+description: Type of leave (Maori). WA TANGIHANGA is the one a European list has no room for: New Zealand bereavement leave provisions commonly recognise that a tangihanga runs over several days and that the obligation to attend extends to the whole whanau and hapu, well beyond the immediate family an English "compassionate leave" clause imagines. WA MATUA covers parental leave for either parent, since te reo marks no gender and matua is simply "parent".
+locale: mi
+---
+Wā whakatā
+Wā māuiui
+Wā tangihanga
+Wā matua
+Wā whāngai
+Wā ako
+Wā tūao
+Wā kore utu
+Wā roa
+Wā tiaki whānau
+Wā hāpai kaupapa
+Wā whakangā

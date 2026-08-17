@@ -1,0 +1,18 @@
+---
+description: Order status (Maori). Built with KUA (completed action) and KEI TE (in progress), which is how te reo marks aspect — it has no past or present TENSE as such, only markers for whether the action is done, ongoing or yet to come, so a status list in Maori is naturally a list of aspect particles plus a verb.
+locale: mi
+---
+Kua tukuna
+Kei te whakarite
+Kua whakaūngia
+Kei te kohi
+Kua kohia
+Kua tukua atu
+Kei te haere
+Kua tae
+Kua whakakorea
+Kei te tatari
+Kua whakahokia
+Kua utua
+Kāore anō kia utua
+Kua mutu

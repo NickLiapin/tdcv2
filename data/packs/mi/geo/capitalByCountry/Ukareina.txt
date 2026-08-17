@@ -1,0 +1,5 @@
+---
+description: Capital of Ukareina. Te reo Maori names a handful of world cities in its own right — RANANA is London, PARI is Paris, ROMA Rome, ATENE Athens, TOKIO Tokyo, MOHIKAU Moscow, PEKINGI Beijing, WAHINGITONA Washington, and TE WHANGANUI-A-TARA is Wellington, which is the city's own older name rather than a translation of the English one. Where no established Maori form exists the city keeps its local spelling rather than having a Maori one coined for it, which is why some values here contain letters te reo does not use.
+locale: mi
+---
+Kyiv

@@ -1,0 +1,44 @@
+---
+description: Dish (Maori). The Maori dishes here are the same ones food/dishByCuisine/Maori.txt holds; the loanwords beside them show how te reo takes an English food word and rebuilds it so that every syllable ends in a vowel — biscuit becomes PIHIKETE, chocolate TIAKARETE, soup HUPA, pie PAI, sausage TOTITI, pudding PUTINI, jelly TIERE. THE MACRON IS DOING REAL WORK IN THIS LIST. KEKE is cake, a nineteenth-century loan. KEKE with both vowels long is an armpit. Nothing but the two macrons separates them, they are not the same word in any sense, and a pack that dropped the macron as "an accent" would be serving one for the other.
+locale: mi
+---
+Hāngī
+Rēwena parāoa
+Parāoa parai
+Takakau
+Poaka me te pūhā
+Kānga wai
+Tītī
+Kaimoana
+Pāua
+Kina
+Kūtai
+Kōura
+Tuna
+Pātiki
+Tāmure
+Kahawai
+Karengo
+Watakirihi
+Kūmara tunu
+Rīwai tunu
+Ika parai
+Hupa
+Parāoa
+Keke
+Pihikete
+Tiakarete
+Pai
+Tōtiti
+Pūtini
+Tiere
+Rāihi
+Kānga
+Miti hipi
+Miti kau
+Heihei tunu
+Ika me te rīwai
+Hanawiti
+Poroporo
+Pōpaea
+Aihikirīmi

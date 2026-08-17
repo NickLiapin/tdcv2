@@ -1,0 +1,15 @@
+---
+description: Booking status (Maori). Aspect markers again: KUA for a settled action, KEI TE for one in progress, KAORE ANO KIA for one not yet taken.
+locale: mi
+---
+Kua whakaūngia
+Kei te tatari
+Kua whakakorea
+Kua whakarerekētia
+Kua tae mai
+Kua wehe
+Kāore i tae mai
+Kua rāhuitia
+Kua utua
+Kāore anō kia utua
+Kua pau te wā

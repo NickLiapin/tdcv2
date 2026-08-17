@@ -1,0 +1,23 @@
+---
+description: Kind of property (Maori). PAPAKAINGA is the one with no overseas counterpart: housing built by a whanau or hapu on their own ancestral Maori land, a live category in New Zealand district plans and one that ordinary residential zoning rules had to be rewritten to allow. WHARE is a house, WHARE MOTUHAKE a standalone one, WHARE PIRI a semi-detached, PAPA WHARE an apartment block. PAAMU is a farm, borrowed from "farm".
+locale: mi
+---
+Whare
+Whare motuhake
+Whare piri
+Whare hono
+Papa whare
+Whare rūma
+Whare iti
+Papakāinga
+Whenua Māori
+Whenua wātea
+Pāmu
+Whare pakihi
+Whare rawa
+Toa
+Whare tāpoi
+Whare noho
+Whare kaumātua
+Whare tuawhenua
+Whare tāone

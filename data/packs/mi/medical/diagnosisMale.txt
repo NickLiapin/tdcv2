@@ -1,0 +1,24 @@
+---
+description: Diagnosis of a condition affecting male anatomy (Maori). NOTE WHAT THE LANGUAGE IS AND IS NOT DOING HERE. Te reo has no grammatical gender at all, so nothing in these words is masculine — they simply name organs that only some bodies have. The split into a male and a female file is anatomical, not linguistic, and the words themselves would be identical in any other sentence. HOW THIS LIST IS BUILT, because a medical list must say. Where te reo Maori has an ESTABLISHED term it is used: HUANGO is asthma, REWHAREWHA influenza, MATE HUKA diabetes ("sugar sickness"), MATE PUKUPUKU cancer, HUKIHUKI epilepsy, MATE KOHI tuberculosis, MATE WAREWARE dementia, PAPOURI depression, AWANGAWANGA anxiety, PAIPAI a sexually transmitted infection. Where it does not, the value uses the transparent MATE + organ or MATE + cause pattern te reo actually builds diagnoses with — mate whatukuhu is kidney disease, mate pukahukahu lung disease, pehanga toto teitei high blood pressure. NO SINGLE-WORD TERM HAS BEEN COINED HERE: an invented medical word is undetectable later and would be the worst kind of fabrication in a data pack. A clinical system must take its vocabulary from Te Reo Hapai, the standardised Maori glossary for the health and disability sector, and not from this file.
+locale: mi
+---
+Mate pukupuku repe tātea
+Repe tātea nui
+Mate pukupuku raho
+Mate raho huna
+Mate raho pupuhi
+Kore whakatō tāne
+Ngoikore ure
+Mate ure
+Mate pukupuku ū tāne
+Mate repe tātea
+Mate mimi tāne
+Mate toto tāne
+Iti rawa te hormone tāne
+Mate uaua tāne
+Mate tuarā tāne
+Mate manawa tāne
+Mate hūkiki tāne
+Mate ate tāne
+Mate pūkahukahu tāne
+Mate hinengaro tāne

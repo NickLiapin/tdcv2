@@ -1,0 +1,16 @@
+---
+description: Mobile or broadband plan type (Maori). MAHERE is a plan. UTU I MUA is prepay and UTU I MURI on account. RAUPAPA MUKA is a fibre connection — New Zealand's fibre rollout reaches most of the population, so fibre rather than copper is the default here.
+locale: mi
+---
+Mahere utu i mua
+Mahere utu i muri
+Mahere kirimana
+Mahere kore kirimana
+Mahere whānau
+Mahere pakihi
+Mahere raraunga
+Mahere raraunga mutunga kore
+Raupapa muka
+Raupapa kōpiri
+Ipurangi ā-tuku
+Ipurangi ā-amiorangi

@@ -1,0 +1,14 @@
+---
+description: Jobs in Mātauranga (Maori). Titles are built with KAI- prefixed to a verb — the person who does the doing — which is how te reo names an occupation without borrowing one.
+locale: mi
+---
+Kaiako
+Tumuaki
+Ahorangi
+Pūkenga
+Kaiwhakaako
+Kaiwhakahaere kura
+Kaiārahi ākonga
+Kaitiaki pukapuka
+Kaiwhakamāori
+Kaiwhakahaere kōhanga reo

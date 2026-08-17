@@ -1,0 +1,19 @@
+---
+description: Kind of court or tribunal (Maori). THIS IS NEW ZEALAND'S JUDICIARY, because te reo Maori has essentially one country and the words mean that country's courts. Two have no counterpart abroad: TE KOOTI WHENUA MAORI, the Maori Land Court, which has jurisdiction over Maori freehold land and has sat since 1865; and TE ROPU WHAKAMANA I TE TIRITI O WAITANGI, the Waitangi Tribunal, a standing commission of inquiry into Crown breaches of the Treaty whose findings are usually recommendations rather than orders. KOOTI is a loan from "court", rebuilt to end in a vowel.
+locale: mi
+---
+Kōti Rangatahi
+Kōti-ā-Rohe
+Te Kōti Matua
+Te Kōti Pīra
+Te Kōti Mana Nui
+Te Kooti Whenua Māori
+Te Kooti Pīra Māori
+Te Rōpū Whakamana i te Tiriti o Waitangi
+Kōti Whānau
+Kōti Taiohi
+Kōti Mahi
+Kōti Taiao
+Kōti Nama Iti
+Rūnanga Whakawā
+Kōti Whakawā

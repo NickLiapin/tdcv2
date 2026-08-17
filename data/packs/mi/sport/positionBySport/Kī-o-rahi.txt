@@ -1,0 +1,8 @@
+---
+description: Roles in ki-o-rahi (Maori). The traditional Maori ball game: KIOMA is the attacking team, running the circuit and touching the pou; TANIWHA is the defending team, working from the centre; KAITIAKI are the guardians of the central tupu; KAIWHAKAWA is the referee. The list is short because it is honestly short — ki-o-rahi has team roles and zones rather than eleven numbered positions, and no more were invented to fill it out.
+locale: mi
+---
+Kioma
+Taniwha
+Kaitiaki
+Kaiwhakawā

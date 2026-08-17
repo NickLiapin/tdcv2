@@ -1,0 +1,11 @@
+---
+description: Abbreviated weekday (Maori), Monday first, same order as date/weekday.txt. THE ABBREVIATION DROPS THE RA- PREFIX rather than truncating from the front, and that is forced rather than stylistic: every weekday begins with Ra, so a three-letter front truncation gives Rah, Rat, Raa, Rap, Ram, Rah, Rat — Rahina collides with Rahoroi and Ratu with Ratapu. Keeping the distinguishing element instead makes all seven unique.
+locale: mi
+---
+Hina
+Tū
+Apa
+Pare
+Mere
+Horoi
+Tapu

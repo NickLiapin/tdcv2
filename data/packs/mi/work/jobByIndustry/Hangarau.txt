@@ -1,0 +1,14 @@
+---
+description: Jobs in Hangarau (Maori). Titles are built with KAI- prefixed to a verb — the person who does the doing — which is how te reo names an occupation without borrowing one.
+locale: mi
+---
+Kaiwaihanga pūmanawa
+Kaitātari raraunga
+Mātanga rorohiko
+Kaiwhakahaere pūnaha
+Kaihoahoa atanga
+Kaiwhakamātau pūmanawa
+Kaitiaki haumarutanga ipurangi
+Kaiwhakahaere raraunga
+Kaiwhakahaere kaupapa hangarau
+Kaiwhakauru raraunga

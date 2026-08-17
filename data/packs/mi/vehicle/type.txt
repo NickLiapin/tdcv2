@@ -1,0 +1,26 @@
+---
+description: Kind of vehicle (Maori). WAKA IS THE HEAD OF THIS LIST AND IT IS NOT MERELY "VEHICLE". A waka is the canoe, and specifically the ocean-going canoe that brought each iwi's ancestors here — every iwi names its founding waka, and "ko Tainui te waka" is a line of a formal introduction. The word then extended to any conveyance, so a car is a WAKA and New Zealand's transport agency is called Waka Kotahi. WAKA TAUA is a war canoe, WAKA AMA an outrigger and WAKA HOURUA the double-hulled voyaging canoe that crossed the Pacific by star navigation. The modern vehicles are loans rebuilt to Maori shape — motor car MOTUKA, bus PAHI, train TEREINA, bicycle PAIHIKARA, aeroplane WAKA RERERANGI (a coinage, "sky-travelling vehicle", rather than a loan).
+locale: mi
+---
+Waka
+Waka taua
+Waka ama
+Waka hourua
+Waka tīwai
+Motukā
+Taraka
+Pahi
+Waka tūroro
+Waka ahi
+Tereina
+Paihikara
+Motupaika
+Waka rererangi
+Kaipuke
+Poti
+Waka hiko
+Waka whenua
+Waka utanga
+Waka rōpū
+Waka tāone
+Tarakihana

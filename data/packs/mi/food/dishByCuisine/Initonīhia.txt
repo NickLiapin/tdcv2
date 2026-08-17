@@ -1,0 +1,14 @@
+---
+description: Dishes of Initonīhia cuisine as they are named in Aotearoa. Dish names are not translated into te reo — a Maori speaker orders sushi, paella and pho by their own names, exactly as an English speaker does — so these values keep their original spelling and carry letters and diacritics the Maori alphabet does not have.
+locale: mi
+---
+Nasi goreng
+Rendang
+Sate
+Gado-gado
+Soto ayam
+Bakso
+Mie goreng
+Sambal
+Tempe goreng
+Nasi campur

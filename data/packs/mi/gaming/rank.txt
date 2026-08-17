@@ -1,0 +1,14 @@
+---
+description: Competitive rank (Maori). Uses the same materials te reo values highest, in order: from KIRIKIRI (gravel) up through the stones to POUNAMU (greenstone), which sits above gold here because in Aotearoa it genuinely was the most precious material there was.
+locale: mi
+---
+Kirikiri
+Kōhatu
+Rino
+Kapa
+Hiriwa
+Kōura
+Matā
+Pakohe
+Pounamu
+Kairangi

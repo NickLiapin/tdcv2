@@ -1,0 +1,28 @@
+---
+description: Character class (Maori). Built from real Maori roles: TOA is a warrior, TOHUNGA an expert and a priest, KAIHAUTU the one who calls the stroke in a canoe and so a leader, KAITIAKI a guardian, KAIWHAKAORA a healer, MATAKITE a seer, KAIRUKU a diver, KAIWHAIWHAI a tracker or pursuer. RANGATIRA is a chief. These are occupations te reo already has words for, so no invention was needed.
+locale: mi
+---
+Toa
+Tohunga
+Kaihautū
+Kaitiaki
+Kaiwhakaora
+Matakite
+Kairuku
+Kaiwhaiwhai
+Rangatira
+Kaiwhakairo
+Kaiwhakangaro
+Kaipupuri
+Kaiwero
+Kaiwhakatere
+Kaikōkiri
+Kaiārahi
+Kaituhi
+Kaimātai
+Kaiwhakatangi
+Kaimahi rongoā
+Kaipatu
+Kaikaranga
+Kaihoe
+Kaiwhakaari

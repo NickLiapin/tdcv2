@@ -1,0 +1,20 @@
+---
+description: Horse breed. HOIHO, the Maori word for a horse, is a loan from English "horse" rebuilt to Maori phonotactics — h-o-i-h-o, every syllable open — because there were no horses in Aotearoa until 1814 and no native word to reach for. It is also the name of the yellow-eyed penguin, an unrelated collision te reo lives with. The breed names below are international and are not translated.
+locale: mi
+---
+Hōiho
+Thoroughbred
+Standardbred
+Clydesdale
+Arabian
+Quarter Horse
+Appaloosa
+Shetland Pony
+Welsh Pony
+Connemara
+Kaimanawa
+Percheron
+Friesian
+Andalusian
+Hanoverian
+Palomino

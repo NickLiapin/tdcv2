@@ -1,0 +1,14 @@
+---
+description: Jobs in Waihanga (Maori). Titles are built with KAI- prefixed to a verb — the person who does the doing — which is how te reo names an occupation without borrowing one.
+locale: mi
+---
+Kaimahi wheketere
+Kaiwhakahaere kounga
+Kaiwhakatikatika mīhini
+Kaiwhakahaere whakaputa
+Kaiwhakauru rawa
+Kaiwhakahaere haumaru
+Kaiwhakatakoto
+Kaimahi tuari
+Kaitirotiro kounga
+Kaihanga

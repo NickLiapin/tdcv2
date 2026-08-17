@@ -1,0 +1,44 @@
+---
+description: Playing position, across sports. The Maori-owned sports contribute te reo terms — KAIHAUTU and KAIURUNGI from waka ama, KIOMA, TANIWHA and KAITIAKI from ki-o-rahi — and the introduced codes contribute their international position names untranslated, for the reason given in each positionBySport file: te reo has no standardised position vocabulary for them and none was invented here.
+locale: mi
+---
+Kaihautū
+Kaiurungi
+Kaihoe
+Kioma
+Taniwha
+Kaitiaki
+Kaiwhakawā
+Loosehead Prop
+Hooker
+Tighthead Prop
+Lock
+Blindside Flanker
+Openside Flanker
+Number 8
+Halfback
+First Five-Eighth
+Second Five-Eighth
+Centre
+Left Wing
+Right Wing
+Fullback
+Goal Shoot
+Goal Attack
+Wing Attack
+Wing Defence
+Goal Defence
+Goal Keep
+Point Guard
+Shooting Guard
+Small Forward
+Power Forward
+Sixth Man
+Batter
+Wicketkeeper
+Fast Bowler
+Spin Bowler
+All-rounder
+Goalkeeper
+Striker
+Midfielder

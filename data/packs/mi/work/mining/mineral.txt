@@ -1,0 +1,23 @@
+---
+description: Mined mineral or commodity (Maori). The list is New Zealand's geology rather than a general one. KOURA, gold, brought the Otago and Coromandel rushes; WARO is coal, mined on the West Coast; ONEPU RINO is ironsand, the black titanomagnetite beach sand that is one of the few ores New Zealand exports and that gives the west-coast beaches their colour. POUNAMU, MATA (obsidian), PAKOHE (argillite) and KOKOWAI (red ochre) head the list because those were what was actually quarried here before 1769 — there was no metal working at all, so "mining" in te reo begins with stone.
+locale: mi
+---
+Pounamu
+Matā
+Pakohe
+Kōkōwai
+Kōura
+Hiriwa
+Waro
+Onepū rino
+Rino
+Kapa
+Onepū
+Kirikiri
+Kōhatu
+Kōhatu kōtaha
+Tote
+Hinu whenua
+Haurehu māori
+Ngāwhā
+Pūngao

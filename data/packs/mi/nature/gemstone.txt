@@ -1,0 +1,23 @@
+---
+description: Precious or valued stone (Maori). POUNAMU IS NOT A GEMSTONE IN THE EUROPEAN SENSE AND THE FIRST EIGHT VALUES HERE ARE NOT SYNONYMS FOR IT — they are its named varieties, distinguished by colour and translucency the way a jeweller distinguishes cuts: KAWAKAWA is the common deep green named after the leaf it matches, INANGA a pale grey-green named after the whitebait, KAHURANGI the clearest and most prized, TANGIWAI a translucent bowenite whose name means "tears from water", TOTOWEKA green flecked with red like a weka's blood, KOKOPU spotted like the fish. Pounamu is a taonga rather than a commodity: pieces are named individually, carry the whakapapa of who held them, are given rather than bought, and ownership of all pounamu in the South Island was returned to Ngai Tahu by statute in 1997. MATA and TUHUA are obsidian, PAKOHE argillite and ONEWA greywacke — these were the working stone for blades and adzes, and with bone they were the entire hard-material toolkit, since there was no metal. The last few are international stones whose names are loans.
+locale: mi
+---
+Pounamu
+Kawakawa
+Īnanga
+Kahurangi
+Tangiwai
+Auhunga
+Raukaraka
+Kōkopu
+Totoweka
+Matā
+Tuhua
+Pakohe
+Onewa
+Kōkōwai
+Kōhatu
+Taimana
+Kōura
+Hiriwa
+Rupī

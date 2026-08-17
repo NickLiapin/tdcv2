@@ -1,0 +1,36 @@
+---
+description: Kind of building (Maori). WHARE is a house and the head of nearly every compound here, so the list reads as a catalogue of what buildings are FOR: wharekai a dining hall, wharemoe a sleeping house, wharekura a school, whare pukapuka a library, whare taonga a museum, whare karakia a church, whare herehere a prison. Several have no European counterpart at all. The WHARENUI is the carved meeting house of a marae and is itself an ancestor — its ridgepole is the spine, the rafters the ribs, the facing boards the arms — so it is addressed and spoken to, not merely occupied. WHAREMATE is the house where the dead lie during a tangihanga. PATAKA is a storehouse raised on posts, carved on the front because it held the wealth of the hapu. PA is a fortified village on defensible ground and KAINGA the unfortified settlement people actually lived in most of the time; PAPAKAINGA is ancestral land with housing on it, a live category in New Zealand planning law today. MARAE is the whole complex and, strictly, the open ground in front of the wharenui rather than a building at all. HOHIPERA (hospital) and TOA (store) are loans, reshaped as every loan is.
+locale: mi
+---
+Whare
+Wharenui
+Wharekai
+Wharemoe
+Wharepuni
+Wharekura
+Wharepaku
+Wharemate
+Whare wānanga
+Whare taonga
+Whare pukapuka
+Whare karakia
+Whare hokohoko
+Whare tapere
+Whare herehere
+Whare noho
+Whare tapu
+Whare rūnanga
+Pātaka
+Rua kūmara
+Pā
+Kāinga
+Papakāinga
+Marae
+Wharau
+Kauta
+Whata
+Hōhipera
+Toa
+Tari
+Wharau waka
+Whare waka

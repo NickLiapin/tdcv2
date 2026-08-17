@@ -1,0 +1,12 @@
+---
+description: Book format (Maori). PUKAPUKA is a book — the word originally meant a leaf, and was extended to the printed page. PUKAPUKA MATIHIKO is an ebook and PUKAPUKA WHAKARONGO an audiobook; the audiobook is worth flagging because te reo Maori is an oral language whose entire literature was spoken before 1815, and recorded speech is closer to its natural form than print is.
+locale: mi
+---
+Pukapuka uhi mārō
+Pukapuka uhi ngohe
+Pukapuka matihiko
+Pukapuka whakarongo
+Pukapuka nui
+Pukapuka tamariki
+Pukapuka whakaahua
+Pukapuka pānui

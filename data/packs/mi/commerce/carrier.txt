@@ -1,0 +1,24 @@
+---
+description: Parcel carrier. Carrier names are companies and are NOT translated — NZ Post is NZ Post on a te reo waybill, though the organisation's own Maori name, Tukurau Aotearoa, appears alongside it. Several of these are New Zealand operators rather than global ones, because that is who actually delivers here.
+locale: mi
+---
+NZ Post
+CourierPost
+PBT Couriers
+Post Haste
+NZ Couriers
+Castle Parcels
+Fastway
+Aramex
+DHL
+FedEx
+UPS
+TNT
+Toll
+Mainfreight
+Freightways
+Team Global Express
+Urgent Couriers
+GoSweetSpot
+Young Bros
+Halls

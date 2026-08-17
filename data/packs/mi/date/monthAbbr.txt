@@ -1,0 +1,16 @@
+---
+description: Abbreviated month (Maori), same order as date/month.txt. MAORI HAS NO ESTABLISHED THREE-LETTER MONTH CONVENTION comparable to Jan/Feb/Mar — the traditional names are compounds, and truncating each to three letters produces collisions and unpronounceable stumps. So each value here is the FIRST ELEMENT of the compound, which is how these are shortened in practice on New Zealand calendars, with the last three shortened to their distinguishing element instead (Whiringa-a-nuku and Whiringa-a-rangi share their first element, so they become Nuku and Rangi).
+locale: mi
+---
+Kohi
+Hui
+Pou
+Pae
+Hara
+Pipi
+Hōngo
+Here
+Mahu
+Nuku
+Rangi
+Haki

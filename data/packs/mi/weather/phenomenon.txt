@@ -1,0 +1,24 @@
+---
+description: Weather or sky phenomenon (Maori). Several of these are Aotearoa's own and have no everyday English word: RU WHENUA is an earthquake, PUIA a volcano or geyser, NGAWHA a hot spring, TAI ANIWHANIWHA a tsunami — a country sitting on a plate boundary names these constantly. TAHUNUI-A-RANGI is the aurora australis, "the great fires of the sky", the southern counterpart of the northern lights. ANIWANIWA and KAHUKURA are both the rainbow, and Kahukura is also an atua, so the word is not merely meteorological. MATARIKI is the Pleiades, whose rising in midwinter opens the Maori year and is now a New Zealand public holiday; PUANGA is Rigel, which some iwi watch instead because Matariki is not clearly visible from their coast.
+locale: mi
+---
+Āniwaniwa
+Kahukura
+Uira
+Whatitiri
+Āwhiowhio
+Āwhā
+Tai timu
+Tai pari
+Rū whenua
+Puia
+Ngāwhā
+Tai āniwhaniwha
+Waipuke
+Tauraki
+Tahunui-a-rangi
+Matariki
+Puanga
+Hukapapa
+Kōhu tonga
+Ua kōwhatu

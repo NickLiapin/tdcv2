@@ -1,0 +1,24 @@
+---
+description: Writing system. TE REO MAORI WAS AN ORAL LANGUAGE UNTIL 1815 and had no writing at all: knowledge was carried in whakapapa, whaikorero, waiata and moteatea, and in carving and tukutuku, which encode information but are not script. The Latin alphabet was applied to Maori by missionaries from about 1814, standardised by Professor Samuel Lee and Hongi Hika at Cambridge in 1820, and it uses FIFTEEN LETTERS — a e i o u with their macronned long counterparts, h k m n p r t w, and the digraphs NG and WH — with no c, b, d, f, g, j, l, q, s, v, x, y or z. The macron was not written consistently until the later twentieth century and is now standard. The other systems here keep their international names because te reo has no established forms for them and coining a set would be invention.
+locale: mi
+---
+Latin
+Cyrillic
+Greek
+Arabic
+Hebrew
+Han
+Hiragana
+Katakana
+Hangul
+Devanagari
+Bengali
+Tamil
+Thai
+Georgian
+Armenian
+Ge’ez
+Cherokee
+Inuktitut syllabics
+Braille
+Rongorongo

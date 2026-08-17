@@ -1,0 +1,44 @@
+---
+description: Tree (Maori). Almost every tree in this list is ENDEMIC TO AOTEAROA and has no English name other than the Maori one — kauri, rimu, totara, kahikatea, pohutukawa, manuka, nikau and kowhai are what English-speaking New Zealanders call them too, because English never coined an alternative. Trees are not scenery in Maori thought: the forest is the domain of TANE MAHUTA, and a totara felled for a canoe was taken with karakia and with the permission of the hapu. TOTARA is the canoe and carving timber; KAURI, which can live two thousand years, gave the largest hulls; HARAKEKE, at the foot of the list, is not a tree but is here because it is the plant everything was made from — rope, baskets, cloaks, fishing line.
+locale: mi
+---
+Kauri
+Rimu
+Tōtara
+Kahikatea
+Mataī
+Miro
+Rātā
+Pōhutukawa
+Nīkau
+Kōwhai
+Karaka
+Mānuka
+Kānuka
+Pūriri
+Tawa
+Hīnau
+Kohekohe
+Tītoki
+Ngaio
+Akeake
+Horoeka
+Whau
+Māhoe
+Pukatea
+Taraire
+Rewarewa
+Tānekaha
+Kāmahi
+Tarata
+Kaikōmako
+Houhere
+Ramarama
+Tī kōuka
+Toatoa
+Maire
+Rangiora
+Kōtukutuku
+Karamū
+Harakeke
+Kiekie

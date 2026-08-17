@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories. Names are descriptive te reo: AWHERIKA is Africa, UROPI Europe, AHIA Asia, and TE MOANA-NUI-A-KIWA is the Pacific Ocean, "the great ocean of Kiwa", which is the established Maori name and not a coinage. MOUTERE O TE MOANA-NUI-A-KIWA is deliberately first: Maori ARE a Pacific people, descended from the Austronesian voyagers who reached Aotearoa about 1300, and it is the group a Maori-language dataset will most often be describing. MOANA-A-WAENGA renders Mediterranean by its meaning, "the sea in the middle", which is what the Latin word says.
+locale: mi
+---
+Moutere o Te Moana-nui-a-Kiwa
+Āhia ki te Rāwhiti
+Āhia ki te Tonga
+Āhia ki te Tonga-mā-rāwhiti
+Ūropi ki te Raki
+Ūropi ki te Rāwhiti
+Moana-ā-waenga
+Rāwhiti Waenga
+Awherika ki Raro i te Hāhara
+Awherika ki te Raki
+Hūrai Ashkenazi
+Tāngata Whenua o Amerika

@@ -1,0 +1,34 @@
+---
+description: Field of tertiary study (Maori). Built on the MATAI pattern — matai means to examine or inspect, so matai hinengaro is psychology, matai pori sociology, matai whetu astronomy — which lets te reo name a discipline out of its own roots. MATAURANGA MAORI and TIKANGA MAORI are degree majors at New Zealand universities and wananga, not electives.
+locale: mi
+---
+Te reo Māori
+Mātauranga Māori
+Tikanga Māori
+Ture
+Rongoā
+Nēhi
+Hauora
+Pāngarau
+Pūtaiao
+Ahupūngao
+Matū
+Koiora
+Rorohiko
+Hangarau
+Ohaoha
+Pakihi
+Whakahaere
+Kaute
+Mātai hinengaro
+Mātai pāpori
+Mātai whetū
+Mātai whenua
+Hītori
+Matawhenua
+Toi
+Puoro
+Whakaari
+Hoahoanga
+Taiao
+Ahuwhenua

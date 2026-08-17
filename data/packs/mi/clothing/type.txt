@@ -1,0 +1,30 @@
+---
+description: Garment (Maori). The first six are Maori garments and none of them is a "type of coat". KOROWAI is a cloak with hanging tassels, worn at graduations and weddings and lent within a whanau rather than bought; KAHU HURUHURU is a feather cloak, the most prestigious; KAITAKA a fine flax cloak with woven borders; PIUPIU the flax skirt worn in kapa haka; PARE a headband and TIPARE the same worn across the forehead. These are taonga: a cloak has a name and a history and is placed on someone as an act, not put on as clothing. The rest are introduced garments with loaned names — shirt HATE, trousers TARAU, coat KOTI, hat POTAE, sock TOKENA — each rebuilt to end in a vowel.
+locale: mi
+---
+Korowai
+Kahu huruhuru
+Kaitaka
+Piupiu
+Pare
+Tīpare
+Kākahu
+Hāte
+Tarau
+Tarau poto
+Koti
+Koti ua
+Panekoti
+Kaka
+Weketi
+Hū
+Hū pāhikahika
+Tōkena
+Pōtae
+Kāmeta
+Karapu
+Tātua
+Kākahu moe
+Kākahu kaukau
+Kākahu hākinakina
+Hāte roa

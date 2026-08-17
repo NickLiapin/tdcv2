@@ -1,0 +1,14 @@
+---
+description: Industry (has a coherent job list). Names are te reo: HANGARAU technology, HAUORA health, PUTEA finance, HANGA construction, MATAURANGA education, MANAAKITANGA hospitality — and manaakitanga is worth pausing on, because it is not a synonym for the service industry. It is the obligation to care for, feed and shelter a guest, one of the load-bearing values of Maori society, and a hotel chain using it as a job category is borrowing a moral term. WAKA, for the transport sector, is the same word as canoe and is what New Zealand's transport agency is actually named (Waka Kotahi).
+locale: mi
+---
+Hangarau
+Hauora
+Pūtea
+Hanga
+Mātauranga
+Manaakitanga
+Waihanga
+Hokohoko
+Waka
+Ture

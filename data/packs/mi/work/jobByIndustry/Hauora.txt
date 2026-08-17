@@ -1,0 +1,14 @@
+---
+description: Jobs in Hauora (Maori). Titles are built with KAI- prefixed to a verb — the person who does the doing — which is how te reo names an occupation without borrowing one.
+locale: mi
+---
+Tākuta
+Nēhi
+Kaimahi hauora
+Mātanga hauora
+Kaiwhakaora
+Kaimirimiri
+Tohunga rongoā
+Kaimātai hinengaro
+Kaiwhakahaere hōhipera
+Kaiāwhina hauora

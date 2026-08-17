@@ -1,0 +1,60 @@
+---
+description: Material a product is made of (Maori). The native materials at the head are the ones Maori craft actually uses and several have no English word: HARAKEKE is New Zealand flax and MUKA the prepared fibre stripped from it, which was rope, line, cloak and basket; KIEKIE and PINGAO are the pale and gold weaving materials that make the patterns in a tukutuku panel; POUNAMU is nephrite jade; HUKAHUKA are the twisted tassels on a cloak. RAUPO thatched houses. Below them are the introduced materials, borrowed and rebuilt — glass KARAEHE, plastic KIRIHOU, rubber RAPA, wool WURU, cotton MIRO? no, cotton is MIRO-less: WURU is wool and KAKANO MIRO is not cotton, so cotton is left in its borrowed form.
+locale: mi
+---
+harakeke
+muka
+kiekie
+pīngao
+toetoe
+raupō
+kirikiri
+rākau
+kauri
+tōtara
+rimu
+mataī
+pounamu
+kōhatu
+matā
+pakohe
+kōiwi
+anga
+huruhuru
+hukahuka
+kiri
+kiri hipi
+kiri kau
+wūru
+wūru hipi
+rino
+maitai
+kapa
+parahi
+kōura
+hiriwa
+tini
+arumini
+karaehe
+kirihou
+rāpa
+pepa
+kāri
+raima
+kōhatu whakairo
+onepū
+uku
+paru
+oneone
+hinu
+muka rākau
+peita
+hinu rākau
+huka
+tote
+wai
+ahi
+pungarehu
+kōkōwai
+ngārahu
+tāhuna

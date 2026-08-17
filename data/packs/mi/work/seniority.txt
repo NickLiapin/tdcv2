@@ -1,0 +1,20 @@
+---
+description: Seniority level (Maori). THE MAORI MODEL OF RANK IS NOT A LADDER, IT IS A PAIR OF SIBLINGS. TUAKANA is the elder sibling and TEINA the younger, and the relationship runs both ways: the tuakana is obliged to teach and to look after the teina, the teina to support the tuakana, and in a different skill the roles swap outright. Tuakana-teina is used formally as a mentoring model in New Zealand schools and workplaces, and it is not the same as "senior" and "junior", which describe only position. The rest of the list runs from AKONGA (learner) through PUKENGA (skilled) and MATANGA (expert) to TOHUNGA (master). KAUMATUA is on the list because it is a real role in a New Zealand organisation, not an honorific: an elder retained to open events, advise on tikanga and hold the mana of the place, and outranking the chief executive in the situations that matter.
+locale: mi
+---
+Ākonga
+Tauhou
+Teina
+Tuakana
+Pūkenga
+Mātanga
+Tohunga
+Kaiārahi
+Kaiwhakahaere
+Kaiwhakahaere matua
+Tumuaki
+Tumu whakarae
+Heamana
+Rangatira
+Kaumātua
+Poutoko

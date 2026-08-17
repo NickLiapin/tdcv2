@@ -1,0 +1,30 @@
+---
+description: Aircraft type. Manufacturer designations are international and never translated — an A320 is an A320 in every language. The turboprops at the foot (ATR 72, Q300, Beechcraft 1900, Cessna Caravan, Britten-Norman Islander) are here because New Zealand's domestic network runs on small aircraft into short regional strips, and an Islander or a Caravan is what flies to the Chatham Islands or Great Barrier.
+locale: mi
+---
+Boeing 787-9
+Boeing 777-300ER
+Boeing 737-800
+Boeing 747-400
+Airbus A320
+Airbus A320neo
+Airbus A321neo
+Airbus A330-900
+Airbus A350-900
+Airbus A380
+ATR 72-600
+Bombardier Q300
+Beechcraft 1900D
+Cessna 208 Caravan
+Britten-Norman Islander
+Convair 580
+Saab 340
+Pilatus PC-12
+Embraer E190
+Boeing 767-300
+Boeing 777-200ER
+Airbus A321
+Airbus A319
+Fokker 100
+Metroliner
+Cessna 172

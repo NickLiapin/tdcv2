@@ -1,0 +1,16 @@
+---
+description: Personal pronoun (Maori). THE ENGLISH HE / SHE / THEY SET DOES NOT MAP ONTO THIS AND A CONFIG THAT ASSUMES IT WILL BE WRONG IN BOTH DIRECTIONS. Two independent reasons. FIRST, MAORI MARKS NO GENDER AT ALL in the third person: IA is he, she and singular they at once, and there is no other choice to make. A dataset that stores a gendered pronoun beside a Maori name is storing information te reo does not carry; a pronoun field in Maori is not derivable from a gender field and vice versa. SECOND, Maori distinguishes THREE NUMBERS and, in the first person, INCLUSIVE from EXCLUSIVE — a distinction English has no word for. Singular: AU or AHAU (I, the two are free variants), KOE (you), IA (he/she/it/they). Dual, exactly two people: TAUA (you and I — inclusive, the listener is IN), MAUA (he-or-she and I — exclusive, the listener is OUT), KORUA (you two), RAUA (those two). Plural, three or more: TATOU (all of us including you), MATOU (all of us but not you), KOUTOU (you all), RATOU (they). So English "we" is FOUR different Maori words and choosing between them states publicly whether the person you are speaking to belongs to the group. There is no neutral fallback: every use of "we" in Maori commits.
+locale: mi
+---
+au
+ahau
+koe
+ia
+tāua
+māua
+kōrua
+rāua
+tātou
+mātou
+koutou
+rātou

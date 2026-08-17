@@ -1,0 +1,26 @@
+---
+description: Department or business unit (Maori). PUMANAWA TANGATA, the term for human resources, is literally "the talents of people" and is a deliberate reframing rather than a translation of "resources". Two entries at the foot have no counterpart in a European organisation chart and are ordinary in a New Zealand one: a TIKANGA or MAORI unit advising on Maori protocol and Treaty obligations, and a KAUPAPA MAORI team, because the Treaty of Waitangi gives Maori a standing that most organisations here have to staff for. Note that HR could not be the category name in this pack: the two-letter code hr is Croatian to the address resolver, which is why the workplace category exists at all.
+locale: mi
+---
+Hangarau
+Pūtea
+Rangahau
+Whakatairanga
+Hokohoko
+Ratonga kiritaki
+Pūmanawa tangata
+Ture
+Tari matua
+Whakahaere
+Kaupapa here
+Whakawhitiwhiti kōrero
+Ako
+Haumaru
+Kounga
+Rorohiko
+Whare pukapuka
+Taiao
+Tikanga
+Kaupapa Māori
+Whakawhanaketanga
+Arotake

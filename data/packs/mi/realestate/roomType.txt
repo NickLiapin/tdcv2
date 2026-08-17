@@ -1,0 +1,20 @@
+---
+description: Room in a house (Maori). WHARE PAKU is the toilet and WHARE HORO the bathroom — kept separate here because in a New Zealand house they usually ARE separate rooms, which surprises visitors. WHAREKAI is the dining room in a house and also the dining hall of a marae.
+locale: mi
+---
+Rūma moe
+Rūma noho
+Wharekai
+Kīhini
+Whare horoi
+Wharepaku
+Rūma horoi kākahu
+Rūma mahi
+Rūma tākaro
+Rūma manuhiri
+Whare waka
+Whare rawa
+Ruruhau
+Whakamahau
+Māra
+Papa waho

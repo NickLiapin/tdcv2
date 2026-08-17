@@ -1,0 +1,14 @@
+---
+description: Conditions seen at higher prevalence in Maori and Pacific people (Maori). A PREVALENCE SIGNAL, NOT AN EXCLUSIVE LIST: every condition here occurs in every population, and ancestry shifts the odds rather than deciding the case. AND A SECOND CAVEAT THAT MATTERS MORE, because this is the group a Maori-language dataset is most often describing: the gap between Maori and non-Maori health outcomes in New Zealand is driven far more by housing, income, and access to and treatment within the health system than by genetics. Acute rheumatic fever, which has essentially vanished from the rest of the developed world, persists here almost entirely in Maori and Pacific children living in cold, crowded, damp housing — that is a housing statistic wearing a diagnosis. Modelling this list as inherited risk would reproduce exactly the mistake the New Zealand health system has been criticised for. HOW THIS LIST IS BUILT, because a medical list must say. Where te reo Maori has an ESTABLISHED term it is used: HUANGO is asthma, REWHAREWHA influenza, MATE HUKA diabetes ("sugar sickness"), MATE PUKUPUKU cancer, HUKIHUKI epilepsy, MATE KOHI tuberculosis, MATE WAREWARE dementia, PAPOURI depression, AWANGAWANGA anxiety, PAIPAI a sexually transmitted infection. Where it does not, the value uses the transparent MATE + organ or MATE + cause pattern te reo actually builds diagnoses with — mate whatukuhu is kidney disease, mate pukahukahu lung disease, pehanga toto teitei high blood pressure. NO SINGLE-WORD TERM HAS BEEN COINED HERE: an invented medical word is undetectable later and would be the worst kind of fabrication in a data pack. A clinical system must take its vocabulary from Te Reo Hapai, the standardised Maori glossary for the health and disability sector, and not from this file.
+locale: mi
+---
+Mate huka momo 2
+Mate hūkiki
+Mate manawa rūmātiki
+Kirikā rūmātiki
+Mate whatukuhu
+Taumaha rawa
+Mate manawa
+Pēhanga toto teitei
+Mate ate
+Mate huka o te hapū

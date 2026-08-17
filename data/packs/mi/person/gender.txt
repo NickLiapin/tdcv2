@@ -1,0 +1,9 @@
+---
+description: Gender as a person records it (Maori). Note the difference from the language itself: TE REO MAORI HAS NO GRAMMATICAL GENDER whatsoever — no gendered nouns, no gendered articles, no gendered adjective agreement, and one third-person pronoun (ia) for he, she and they alike. So unlike Welsh, Spanish or Russian, a "gender" field in a Maori dataset can only ever mean the person's own recorded gender; there is no second, grammatical sense for it to collide with. TANE and WAHINE are the everyday words for man and woman. IRAWHITI is the modern coinage for transgender (ira is genetic character or essence, whiti is to cross over). TAKATAPUI is older: it meant an intimate companion of the same sex, and has been reclaimed since the 1980s as the umbrella term for Maori of diverse gender and sexuality, so it may appear where a form offers it.
+locale: mi
+---
+Tāne
+Wahine
+Irawhiti
+Takatāpui
+Kāore i whakaatuhia

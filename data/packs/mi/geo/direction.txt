@@ -1,0 +1,19 @@
+---
+description: Compass direction and orientation (Maori). THE FOUR CARDINAL POINTS ARE ONLY HALF OF HOW TE REO LOCATES ANYTHING. Raki is north, tonga south, rawhiti east (literally the sun's rising) and hauauru or uru west; the intercardinals are built with MA, "and" — raki-ma-rawhiti is north-and-east. But the directions Maori actually uses most are RELATIVE TO LAND AND SEA, not to the pole: KI UTA is inland, KI TAI is toward the sea, and a set of directions given on a marae will normally use these rather than a compass. KI RUNGA and KI RARO, up and down, are used directionally too, and here a config must be careful — in northern iwi usage KI RARO means NORTHWARD and KI RUNGA southward, following the lie of the island rather than the map, so the two are the reverse of what a European reading of "up" and "down" on a north-up map would give. TOKERAU is both the north and the north wind, MARANGAI the east wind and the rain it brings.
+locale: mi
+---
+Raki
+Tonga
+Rāwhiti
+Hauāuru
+Uru
+Raki-mā-rāwhiti
+Raki-mā-uru
+Tonga-mā-rāwhiti
+Tonga-mā-uru
+Ki uta
+Ki tai
+Ki runga
+Ki raro
+Tokerau
+Marangai

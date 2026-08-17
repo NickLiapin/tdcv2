@@ -1,0 +1,11 @@
+---
+description: Day of the week (Maori), Monday first. Every name begins with RA, "day", and the second element numbers or describes it: Rahina is day one, Ratu day two, Raapa day three, Rapare day four, Ramere day five, RAHOROI is "washing day" (Saturday) and RATAPU is "sacred day" (Sunday) — the last two are mission-era coinages describing what the day was for, not numbers. A second complete set is also in everyday use, the transliterations Mane, Turei, Wenerei, Taite, Paraire, Hatarei with Ratapu shared between both; this file carries the Ra- set because it is the standard one.
+locale: mi
+---
+Rāhina
+Rātū
+Rāapa
+Rāpare
+Rāmere
+Rāhoroi
+Rātapu

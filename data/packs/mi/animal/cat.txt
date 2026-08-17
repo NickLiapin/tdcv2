@@ -1,0 +1,22 @@
+---
+description: Cat breed. Breed names are international and are not translated — the ordinary Maori words are NGERU or POTI for the animal itself, but a Siamese is a Siamese in te reo as in English. These values therefore carry letters outside the Maori alphabet, deliberately.
+locale: mi
+---
+Ngeru
+Persian
+Maine Coon
+Siamese
+Ragdoll
+Bengal
+Sphynx
+British Shorthair
+Russian Blue
+Abyssinian
+Burmese
+Birman
+Devon Rex
+Cornish Rex
+Norwegian Forest Cat
+Oriental Shorthair
+Tonkinese
+Manx

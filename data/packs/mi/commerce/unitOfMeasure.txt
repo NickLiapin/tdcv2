@@ -1,0 +1,34 @@
+---
+description: Unit of measure (Maori). NEW ZEALAND IS FULLY METRIC and has been since 1976, so these are metric units transliterated into te reo — MITA a metre, KIROKARAMU a kilogram, RITA a litre — and never feet, pounds or gallons. HEKITEA, the hectare, is the unit land is measured and sold in here, not the acre. The money units are TARA (dollar) and HENETI (cent). KETE (a woven basket) and RAU (a hundred, and also a leaf) are traditional counting measures and are still used for kai.
+locale: mi
+---
+mita
+henimita
+mirimita
+kiromita
+karamu
+kirokaramu
+tone
+rita
+mirirīta
+hēkitea
+mita pūrua
+mita pūtoru
+haora
+meneti
+hēkona
+rā
+wiki
+marama
+tau
+tāra
+hēneti
+pēke
+pouaka
+kete
+rau
+tekau
+kotahi
+putu
+pihi
+huinga

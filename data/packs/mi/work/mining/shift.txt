@@ -1,0 +1,9 @@
+---
+description: Work shift (Maori). Named for the part of the day rather than numbered, which is how te reo divides time — ATA morning, AWATEA the broad middle of the day, AHIAHI afternoon and evening together, PO night.
+locale: mi
+---
+Ata
+Awatea
+Ahiahi
+Pō
+Hurihanga roa

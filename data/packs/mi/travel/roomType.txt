@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Maori). WHARE MOE TAKITINI, the shared sleeping arrangement, is at the foot of the list for a reason: on a marae everyone sleeps together in the wharenui on mattresses on the floor, which is not a budget option but the normal and preferred arrangement, and a booking system that treats it as a dormitory downgrade has misread it.
+locale: mi
+---
+Rūma takitahi
+Rūma takirua
+Rūma moenga rahi
+Rūma moenga nui
+Rūma whānau
+Rūma tamariki
+Rūma hono
+Rūma rangatira
+Rūma tirohanga moana
+Rūma tirohanga maunga
+Rūma papa runga
+Rūma papa raro
+Rūma uru waipuru
+Rūma kīhini
+Whare iti
+Whare noho
+Whare moe takitini
+Puni

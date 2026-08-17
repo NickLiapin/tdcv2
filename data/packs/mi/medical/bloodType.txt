@@ -1,0 +1,12 @@
+---
+description: ABO and Rh blood group. An international classification, identical in every language, so these values are letters and signs rather than Maori words.
+locale: mi
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

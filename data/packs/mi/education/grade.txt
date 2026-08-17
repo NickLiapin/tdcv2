@@ -1,0 +1,18 @@
+---
+description: Grade or achievement band (Maori). NEW ZEALAND'S SCHOOL SYSTEM DOES NOT GRADE ON A TO F. Under NCEA a piece of work is judged against a standard, not against other students, and the four bands have official te reo names: PAETAE (Achieved), KAIAKA (Merit), KAIRANGI (Excellence) and KORE PAETAE (Not Achieved). There is no C-minus and no bell curve — every candidate can in principle reach Kairangi. The A-plus to D letters below are the university grading scale, which New Zealand tertiary institutions do use, so both systems are live and a dataset must know which one it is modelling.
+locale: mi
+---
+Kairangi
+Kaiaka
+Paetae
+Kore Paetae
+A+
+A
+A-
+B+
+B
+B-
+C+
+C
+C-
+D

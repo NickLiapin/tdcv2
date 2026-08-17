@@ -1,0 +1,18 @@
+---
+description: Type of insurance (Maori). INIHUA is a loan from "insurance", rebuilt so every syllable ends in a vowel. ONE ABSENCE IS THE POINT OF THIS LIST: there is no personal injury or accident cover here, because New Zealand's Accident Compensation Corporation covers everyone in the country — resident or visitor — for injury on a no-fault basis, and in exchange nobody may sue for personal injury. So the private accident-insurance market a European or American list would show simply does not exist here, and a synthetic New Zealand dataset that includes it is wrong about the country.
+locale: mi
+---
+Inihua whare
+Inihua taonga
+Inihua waka
+Inihua hauora
+Inihua oranga
+Inihua haerenga
+Inihua pakihi
+Inihua kararehe
+Inihua ture
+Inihua mōkete
+Inihua ahi
+Inihua rū whenua
+Inihua waipuke
+Inihua kaimahi

@@ -1,0 +1,12 @@
+---
+description: Clothing size letters. These are international letter sizes and are not translated. New Zealand womenswear is also numbered on the NZ/Australian scale (6 to 24), which is two sizes larger than the equivalent US number and one smaller than the UK — a NZ 12 is a US 8 — so a size field copied from an American dataset will describe different bodies.
+locale: mi
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

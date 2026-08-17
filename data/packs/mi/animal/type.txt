@@ -1,0 +1,33 @@
+---
+description: Kind of animal (Maori). AOTEAROA HAD NO LAND MAMMALS except two species of bat (PEKAPEKA), so nearly every mammal name in te reo is a loan brought in with the animal, and the loans are the clearest demonstration of Maori phonotactics in the whole pack: horse became HOIHO, cow KAU, sheep HIPI, pig POAKA (from "porker"), goat KOATI, rabbit RAPETI, lion RAIONA, elephant AREWHANA, camel KAMERA, monkey MAKIMAKI. Every one ends in a vowel and none contains two touching consonants, because te reo permits neither — a borrowed word is REBUILT to the shape of the language, not respelled in it. The native animals at the head of the list needed no loan: KURI was the Polynesian dog that came on the migration canoes and was extinct by about 1860, KIORE the Pacific rat that came with it, TUATARA a reptile with no close living relative anywhere, and TOHORA, PARAOA, AIHE and KEKENO are the sea mammals, which arrived on their own.
+locale: mi
+---
+Kurī
+Ngeru
+Poti
+Kiore
+Pekapeka
+Tuatara
+Moko
+Ngārara
+Tohorā
+Paraoa
+Aihe
+Kekeno
+Ika
+Manu
+Ngata
+Hōiho
+Kau
+Hipi
+Poaka
+Koati
+Heihei
+Rāpeti
+Kuihi
+Parera
+Raiona
+Arewhana
+Kāmera
+Makimaki
+Kararehe

@@ -1,0 +1,10 @@
+---
+description: Seats in a six-person outrigger canoe (Maori). These positions ARE te reo and are used as the real terms: KAIHAUTU sits in seat one and sets the stroke rate and calls the changes; seats two to five are KAIHOE, paddlers, and each has its own job in the rhythm; KAIURUNGI sits in seat six and steers, and in open water is the one making the decisions. The Maori terms are used at national regattas and are not a translation of an English set.
+locale: mi
+---
+Kaihautū
+Kaihoe tuarua
+Kaihoe tuatoru
+Kaihoe tuawhā
+Kaihoe tuarima
+Kaiurungi

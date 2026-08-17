@@ -1,0 +1,24 @@
+---
+description: Insect and other small crawling creature (Maori). The category is folk-taxonomic rather than entomological: NGARARA covers insects, spiders and lizards alike — anything small and crawling — and PUNGAWEREWERE (spider) sits in this list for that reason. WETA is the one every reader will have heard of: a flightless cricket the size of a mouse, of which the giant wetapunga is among the heaviest insects on earth, and the name means "god of ugly things". HUHU is the fat grub of a longhorn beetle and was eaten. KIHIKIHI, the cicada, is named for the sound it makes, as several Maori animal names are.
+locale: mi
+---
+Wētā
+Wētāpunga
+Pepe
+Pūrerehua
+Namu
+Waeroa
+Rō
+Ngaro
+Pī
+Rango
+Kihikihi
+Pōpokorua
+Kāpōwai
+Huhu
+Anuhe
+Kutu
+Pūngāwerewere
+Ngārara
+Mokoroa
+Kēkerewai

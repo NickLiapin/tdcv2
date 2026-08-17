@@ -1,0 +1,14 @@
+---
+description: Fuel type (Maori). PENEHINI is petrol and TIHERA diesel, both loans. HIKO, electricity, matters here: New Zealand generates roughly eighty per cent of its electricity from renewables — hydro, geothermal and wind — so an electric vehicle in this country is genuinely low-carbon in a way it is not everywhere.
+locale: mi
+---
+Penehīni
+Tīhera
+Hiko
+Ranu hiko
+Haurehu
+Haurehu māori
+Haihitorotanga
+Koroiro
+Penehīni tuahangata
+Kore hinu

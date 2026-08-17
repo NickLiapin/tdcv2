@@ -1,0 +1,20 @@
+---
+description: Kind of venue (Maori). MARAE is the first value and the most important: it is the whole complex — the open ground, the wharenui, the wharekai — and it is where a very large share of Maori gatherings actually happen, from funerals to conferences to vaccination clinics. It is not a hall for hire; it belongs to a hapu, and using it means being welcomed onto it.
+locale: mi
+---
+Marae
+Wharenui
+Wharekai
+Whare hui
+Whare wānanga
+Whare karakia
+Papa tākaro
+Whare tākaro
+Whare tapere
+Whare taonga
+Whare pukapuka
+Hōtēra
+Wharekai nui
+Papa whakataetae
+Tāhuna
+Ngahere

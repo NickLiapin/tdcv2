@@ -1,0 +1,19 @@
+---
+description: Payment method (Maori). MONI is money and UTU the payment — but UTU is a much heavier word than "payment": its root meaning is the restoring of balance, the return owed for anything given or done, good or ill, and it is the word behind reciprocity in Maori society. A price tag using it is borrowing a moral concept. KOHA, further down, is not a payment method in the transactional sense at all: it is a gift given at a hui or a marae, unpriced and unreceipted, and its size is a matter of judgement rather than a fee — but it is genuinely how money changes hands at a New Zealand event, so a payment field that cannot express it will misrepresent the transaction.
+locale: mi
+---
+Moni
+Kāri nama
+Kāri putunga
+EFTPOS
+Whakawhiti pēke
+Utu ā-ipurangi
+Waea pūkoro
+Utu ā-wā
+Koha
+Tuku moni
+Kāri koha
+Utu i muri
+Utu i mua
+Whakawhiti taonga
+Nama

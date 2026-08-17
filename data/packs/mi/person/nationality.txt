@@ -1,0 +1,43 @@
+---
+description: How a person's people or country of origin is named in Maori. TE REO HAS NO -ISH / -IAN DEMONYM SUFFIX: the country name itself does the work, so "he tangata Ahitereiria" is an Australian person and the noun is unchanged. The first four values are the ones that matter most and none of them names a state. MAORI is the indigenous people of Aotearoa; PAKEHA is a New Zealander of European descent, an ordinary neutral word and not a slur; TANGATA WHENUA is "people of the land", the people who hold ancestral authority in a place; TAUIWI is everyone who is not tangata whenua. These describe relationship to LAND, not citizenship, and a nationality field that offers only states cannot express any of them. TANGATA TIRITI, people of the Treaty, is the newer term for non-Maori New Zealanders who belong here by way of Te Tiriti o Waitangi. The Pacific entries are placed high because Aotearoa is a Pacific country and its nearest linguistic relatives are there.
+locale: mi
+---
+Māori
+Pākehā
+Tangata whenua
+Tauiwi
+Tangata Tiriti
+Ahitereiria
+Ingarangi
+Kotirana
+Airana
+Amerika
+Kānata
+Wīwī
+Tiamana
+Ītari
+Pāniora
+Hōrana
+Kariki
+Poroni
+Rūhia
+Haina
+Hapani
+Kōrea
+Īnia
+Piripīni
+Wietanama
+Tairana
+Marēhia
+Initonīhia
+Ihipa
+Hāmoa
+Tonga
+Whītī
+Kuki Airani
+Niue
+Tokerau
+Tahiti
+Papua Nūkini
+Awherika ki te Tonga
+Mēhiko

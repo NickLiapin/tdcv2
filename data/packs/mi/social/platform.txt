@@ -1,0 +1,21 @@
+---
+description: Social platform. Brand names, not translated.
+locale: mi
+---
+Facebook
+Instagram
+TikTok
+X
+YouTube
+Snapchat
+LinkedIn
+Reddit
+Pinterest
+WhatsApp
+Messenger
+Discord
+Twitch
+Threads
+Tumblr
+BeReal
+Bluesky

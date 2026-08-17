@@ -1,0 +1,22 @@
+---
+description: Weather condition (Maori). PAKI is fine settled weather and is a word with weight — it is the opposite of awha and is what a fishing or planting decision waits for. AWHA is a storm, UA rain, HAU wind, KOHU fog, HUKARERE snow, WHATU hail, HUKA frost and also foam and also sugar, three unrelated senses te reo keeps in one word. Note the hemisphere: the cold, wet months in Aotearoa are Pipiri to Here-turi-koka, June to August, so a config that pairs snow with December is half a year out.
+locale: mi
+---
+Paki
+Ua
+Ua nui
+Kapua
+Hau
+Hau nui
+Kohu
+Hukarere
+Whatu
+Huka
+Marino
+Āwhā
+Wera
+Makariri
+Tōmairangi
+Mahana
+Pūkeri
+Ua paku

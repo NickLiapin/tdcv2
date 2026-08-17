@@ -1,0 +1,54 @@
+---
+description: Shop department (Maori). Ordinary retail vocabulary, much of it loanwords rebuilt to Maori shape — KAKAHU is clothing (native), HU shoes, TAPUTAPU tools and equipment, MIHINI machines, PUKAPUKA books, TAKARO toys, RONGOA medicines. TAONGA MAORI, at the foot, is a real department in New Zealand shops and covers carving, weaving, pounamu and taonga puoro.
+locale: mi
+---
+Kai
+Inu
+Kākahu
+Kākahu tāne
+Kākahu wahine
+Kākahu tamariki
+Hū
+Taputapu
+Mīhini
+Rorohiko
+Waea pūkoro
+Pukapuka
+Puoro
+Tākaro
+Rongoā
+Hauora
+Ataahua
+Whare
+Kīhini
+Moenga
+Māra
+Waka
+Hākinakina
+Puni
+Kararehe
+Pēpi
+Tuhituhi
+Toi
+Taonga Māori
+Pūrere
+Hiko
+Whakapaipai
+Kōhatu
+Rākau
+Muka
+Kete
+Whāriki
+Aniana
+Tō
+Rāwaho
+Utu iti
+Utu nui
+Hokohoko hou
+Hokohoko tawhito
+Whakawhiwhinga
+Ratonga
+Whakatikatika
+Tuku
+Kohinga
+Hoko ā-ipurangi

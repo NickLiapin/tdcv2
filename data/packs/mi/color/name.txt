@@ -1,0 +1,44 @@
+---
+description: Colour name (Maori). Two things a config cannot infer. FIRST, THE BASIC PALETTE IS SMALLER THAN ENGLISH and it is extended by COMPOUNDING rather than by new roots: a shade is the base colour plus POURI (dark) or MARAMA (light), so kikorangi pouri is navy and kakariki marama is a pale green. Everything from the twenty-sixth value down is built that way and the pattern is fully productive — a config may compose more of them safely. SECOND, several of these name a THING rather than a hue and carry it with them: KOWHAI is the tree whose flowers are that yellow, POUNAMU is the green of greenstone, KOKOWAI is the red ochre used on carving and on people, KOURA is gold and also crayfish, PARAURI is brown and also a word for the dark-skinned. PANGO and MANGU are both black and MA and TEA both white, and te reo keeps all four.
+locale: mi
+---
+Whero
+Kākāriki
+Kikorangi
+Kōwhai
+Pango
+Mangu
+Mā
+Tea
+Parauri
+Kiwikiwi
+Hina
+Waiporoporo
+Karaka
+Māwhero
+Puru
+Papura
+Koma
+Pōuri
+Mārama
+Hiriwa
+Kōura
+Ngangana
+Pūwhero
+Kōkōwai
+Pounamu
+Whero pōuri
+Whero mārama
+Kikorangi pōuri
+Kikorangi mārama
+Kākāriki pōuri
+Kākāriki mārama
+Kōwhai pōuri
+Kōwhai mārama
+Parauri pōuri
+Parauri mārama
+Kiwikiwi pōuri
+Kiwikiwi mārama
+Māwhero pōuri
+Māwhero mārama
+Waiporoporo pōuri

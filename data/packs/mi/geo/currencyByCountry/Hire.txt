@@ -1,0 +1,5 @@
+---
+description: Currency of Hire. TARA (dollar) and PAUNA (pound) are long-established loanwords in te reo and are used here; every other currency keeps its international name, because Maori has no established form for it and inventing one would be fabrication.
+locale: mi
+---
+Peso

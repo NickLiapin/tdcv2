@@ -1,0 +1,16 @@
+---
+description: Kind of meeting (Maori). HUI is the general word and carries more than "meeting" does: a hui has a beginning (karakia), an order of speaking, and no fixed end — it finishes when the matter is settled. WANANGA is a deep, extended discussion, often residential, and is also the word for a tertiary institution. POWHIRI is the formal welcome that opens a gathering, POROPOROAKI the farewell that closes it, and WHAKATAU a lighter, less formal welcome.
+locale: mi
+---
+Hui
+Hui-ā-tau
+Hui-ā-wiki
+Hui-ā-rōpū
+Wānanga
+Pōwhiri
+Whakatau
+Poroporoaki
+Hui tuku kōrero
+Hui whakatau take
+Hui ipurangi
+Hui ā-iwi

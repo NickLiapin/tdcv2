@@ -1,0 +1,114 @@
+---
+description: Job title (Maori). ONE MORPHEME BUILDS MOST OF THIS LIST AND A CONFIG SHOULD KNOW IT: KAI- prefixed to a verb makes the person who does it. Ako (to teach) gives KAIAKO, a teacher; mahi (to work) KAIMAHI; tiaki (to care for) KAITIAKI; whakahaere (to run something) KAIWHAKAHAERE, a manager; tuhi (to write) KAITUHI; whakawa (to judge) KAIWHAKAWA. The pattern is fully productive, which is why te reo could name every modern occupation without borrowing: a job title is a verb plus kai-. Two other patterns run beside it. MATANGA means an expert in something and TOHUNGA a master of it — but tohunga is not merely "specialist": a tohunga whakairo is a master carver whose work is tapu, and before the Tohunga Suppression Act 1907 a tohunga was also a priest and healer. PUKENGA is a skilled person and, in a wananga, a lecturer. The loans at the foot are the trades English brought with it — carpenter KAMURA, blacksmith PARAKIMETE, nurse NEHI, doctor TAKUTA, lawyer ROIA, police officer PIRIHIMANA — each rebuilt so every syllable ends in a vowel.
+locale: mi
+---
+Kaiako
+Kaimahi
+Kaitiaki
+Kaiwhakahaere
+Kaiwhakahaere matua
+Kaiwhakahaere kaupapa
+Kaiwhakahaere pūtea
+Kaiwhakahaere tari
+Kaituhi
+Kaiētita
+Kaiwhakaari
+Kaiwaiata
+Kaitito waiata
+Kaiwhakaahua
+Kaipāpāho
+Kairīpoata
+Kaiwhakamāori
+Kaikōrero
+Kaiwhaikōrero
+Kaikaranga
+Kaiārahi
+Kaihautū
+Kaiwhakawā
+Kaitohutohu
+Kairangahau
+Kaimātai
+Kaimātai hinengaro
+Kaimātai koiora
+Kaimātai whenua
+Kaimātai whetū
+Kaitatau
+Kaihoko
+Kaihokohoko
+Kaitunu kai
+Kaitaraiwa
+Kaitaraiwa taraka
+Kaiurungi
+Kaihoe
+Kaiwhakaora
+Kaimirimiri
+Kaitautoko
+Kaiwhakaruruhau
+Kaihanga
+Kaihanga whare
+Kaipeita
+Kaihiko
+Kaimahi whenua
+Kaiahuwhenua
+Kaimahi ngahere
+Kaimahi hauora
+Kaiwhakaako
+Kaiwhakatikatika
+Kaiwhakarite hui
+Kaitiaki taiao
+Kaitiaki taonga
+Kaitiaki pukapuka
+Kaitiaki pūtea
+Kaiwhakahaere ratonga
+Kaiwhakatairanga
+Kaituku ratonga
+Mātanga hauora
+Mātanga ture
+Mātanga pūtea
+Mātanga rorohiko
+Mātanga hangarau
+Mātanga taiao
+Mātanga reo
+Mātanga tikanga
+Mātanga whakahaere
+Mātanga rongoā
+Tohunga
+Tohunga whakairo
+Tohunga tā moko
+Tohunga raranga
+Tohunga rongoā
+Tohunga tārai waka
+Pūkenga
+Ahorangi
+Tumuaki
+Tumu whakarae
+Heamana
+Hekeretari
+Kaikaunihera
+Minita
+Pīhopa
+Tākuta
+Nēhi
+Rōia
+Pirihimana
+Kāmura
+Parakimete
+Kaiwhakahaere pakihi
+Kaiwhakahaere hōtēra
+Kaimahi toa
+Kaimahi tari
+Kaimahi wharekai
+Kaimahi kaipuke
+Kaimahi hangarau
+Kaiwaihanga pūmanawa
+Kaitātari raraunga
+Kaiwhakauru raraunga
+Kaiwhakamātau
+Kaihoahoa
+Kaihoahoa whare
+Kaiwhakatinana kaupapa
+Kaiwhakahaere haumaru
+Kaiwhakahaere kounga
+Kaiwhakahaere pūmanawa tangata
+Kaiwhakahaere marae
+Kaumātua

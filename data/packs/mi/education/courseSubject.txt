@@ -1,0 +1,24 @@
+---
+description: School subject (Maori). THESE ARE THE OFFICIAL LEARNING AREAS OF THE NEW ZEALAND CURRICULUM IN TE REO and they were coined from Maori roots rather than borrowed: PUTAIAO is science, PANGARAU mathematics, HANGARAU technology, TIKANGA-A-IWI social sciences, TOI the arts, HAUORA health and wellbeing. Two have no counterpart in a European curriculum: TE REO MAORI as a subject in its own right, and MATAURANGA MAORI, the Maori knowledge system, which is taught as a body of knowledge and not as cultural studies.
+locale: mi
+---
+Te reo Māori
+Te reo Ingarihi
+Pāngarau
+Pūtaiao
+Hangarau
+Toi
+Hauora
+Tikanga-ā-iwi
+Hītori
+Matawhenua
+Ahupūngao
+Matū
+Koiora
+Ohaoha
+Mātauranga Māori
+Whakairo
+Raranga
+Puoro
+Whakaari
+Hākinakina

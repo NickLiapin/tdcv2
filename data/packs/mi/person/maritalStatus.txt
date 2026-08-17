@@ -1,0 +1,12 @@
+---
+description: Relationship status (Maori). Three things worth saying. FIRST, POUARU IS NOT GENDERED: one word covers widow and widower, because te reo marks no gender, so a field that splits the two in English collapses to a single value here. SECOND, MARENA is a loan from English "marry" reshaped to fit Maori phonotactics, and it names the introduced institution — the church and registry marriage. Traditional partnership had its own vocabulary (MOE, to marry or sleep with; TAUMAU, betrothed by arrangement between families; PUHI, a young woman of rank pledged in this way) and was recognised by the hapu without any register. THIRD, NOHO TAHI, living together, is not an informal category in New Zealand: de facto relationships have had substantially the same legal standing as marriage under the Property (Relationships) Act since 2002, so it is a status a form genuinely offers.
+locale: mi
+---
+Takakau
+Kua mārena
+Noho tahi
+Kua wehe
+Kua whakawehea
+Pouaru
+Kua taumau
+Kāore i whakaatuhia

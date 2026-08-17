@@ -1,0 +1,22 @@
+---
+description: Kind of event (Maori). Half of this list has no English equivalent and is ordinary in New Zealand life. POWHIRI is the formal welcome onto a marae, with its own fixed order — karanga, whaikorero, waiata, hongi — and it can take an hour. TANGIHANGA is the funeral, three days on the marae with the body never left alone. HUI is the meeting, WANANGA the extended teaching gathering, UNVEILING (HURA KOHATU) the ceremony a year after a death when the headstone is revealed. KAPA HAKA competitions and MATARIKI, the Maori new year and now a public holiday, are national fixtures. WHAKATUWHERA is an opening and POROPOROAKI a farewell.
+locale: mi
+---
+Hui
+Wānanga
+Pōwhiri
+Whakatau
+Poroporoaki
+Tangihanga
+Hura kōhatu
+Mārena
+Whānau hou
+Rā whānau
+Kapa haka
+Whakataetae
+Matariki
+Hākari
+Hui-ā-iwi
+Hui-ā-tau
+Whakatuwhera
+Kaupapa hākinakina

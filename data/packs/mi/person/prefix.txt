@@ -1,0 +1,23 @@
+---
+description: Title or respectful form of address placed before a name (Maori). MAORI HAS NO MR / MRS / MS SET AND NOTHING IN THIS LIST ENCODES MARITAL STATUS — the English honorific system marks a woman's marriage and a Maori one does not, so the commonest European use of a title field has no Maori equivalent at all. What te reo marks instead is AGE, RESPECT AND RELATIONSHIP. MATUA and WHAEA are the everyday respectful forms for an older man and an older woman (literally father and mother, extended well past one's own parents); KOROUA or KORO and KUIA address an elder, and KAUMATUA covers either. RANGATIRA is a chief and ARIKI a paramount chief of a descent line. TA is the official te reo form of the knighthood Sir, and KAHURANGI of Dame, both used in New Zealand honours citations. TAKUTA is doctor, AHORANGI professor, TUMUAKI a principal or head, PIHOPA a bishop and MINITA a minister of religion. Titles are used far more freely in address than English titles are: MATUA and WHAEA before a first name are ordinary, courteous speech, not formality.
+locale: mi
+---
+Matua
+Whaea
+Koro
+Koroua
+Kuia
+Kaumātua
+Tā
+Kahurangi
+Rangatira
+Ariki
+Tākuta
+Ahorangi
+Tumuaki
+Pīhopa
+Minita
+Pāpā
+Māmā
+Kaiako
+Tohunga

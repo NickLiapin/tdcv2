@@ -1,0 +1,44 @@
+---
+description: Airline. Company names and are not translated, though Air New Zealand's te reo name Te Manu Rererangi o Aotearoa appears on its livery and in its safety briefings, which have been delivered in Maori. These are the carriers that actually fly to and from Aotearoa — a short list, because the country is a long way from everywhere and served by relatively few airlines.
+locale: mi
+---
+Air New Zealand
+Jetstar
+Qantas
+Virgin Australia
+Singapore Airlines
+Emirates
+Cathay Pacific
+China Airlines
+China Eastern
+China Southern
+Fiji Airways
+Air Vanuatu
+Air Tahiti Nui
+Air Rarotonga
+Samoa Airways
+Air Niugini
+Air Chathams
+Sounds Air
+Barrier Air
+Originair
+Golden Bay Air
+American Airlines
+United Airlines
+Delta Air Lines
+Air Canada
+LATAM
+Korean Air
+Japan Airlines
+All Nippon Airways
+Malaysia Airlines
+Philippine Airlines
+Thai Airways
+Vietnam Airlines
+AirAsia X
+Etihad Airways
+Qatar Airways
+British Airways
+Air Calin
+Solomon Airlines
+Air Nauru

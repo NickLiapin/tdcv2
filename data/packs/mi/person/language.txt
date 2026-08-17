@@ -1,0 +1,34 @@
+---
+description: Language spoken, as Maori names it. The naming pattern is TE REO X — "the language of X" — with the country or people name unchanged, because te reo has no adjective-forming suffix for this. TE REO MAORI is an official language of New Zealand under the Maori Language Act; TE REO ROTAROTA is New Zealand Sign Language, likewise official, and rotarota is a genuine te reo word for signing rather than a transliteration. The Polynesian languages are grouped first on purpose: Maori is an East Polynesian language and Cook Islands Maori, Tahitian and Hawaiian are close enough that a speaker recognises a great deal of them — te reo Kuki Airani and te reo Maori are mutually intelligible in part.
+locale: mi
+---
+Te reo Māori
+Te reo Ingarihi
+Te reo Rotarota
+Te reo Kuki Airani
+Te reo Tahiti
+Te reo Hawai‘i
+Te reo Hāmoa
+Te reo Tonga
+Te reo Niue
+Te reo Tokelau
+Te reo Whītī
+Te reo Wīwī
+Te reo Tiamana
+Te reo Pāniora
+Te reo Ītari
+Te reo Hōrana
+Te reo Pōtukara
+Te reo Poroni
+Te reo Rūhia
+Te reo Kariki
+Te reo Haina
+Te reo Hapani
+Te reo Kōrea
+Te reo Īnia
+Te reo Hinitī
+Te reo Arapi
+Te reo Wietanama
+Te reo Tairana
+Te reo Piripīni
+Te reo Rātini

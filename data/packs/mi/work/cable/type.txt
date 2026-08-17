@@ -1,0 +1,13 @@
+---
+description: Cable type, telecom and networking (Maori). Category designations (Cat5e, Cat6, Ethernet, coaxial) are international standards and are not translated; the general words are te reo — WAEA is wire, WAEA HIKO a power cable, MUKA RAMA optical fibre (literally "light fibre", using muka, the prepared flax fibre that te reo already had a word for).
+locale: mi
+---
+Waea
+Waea hiko
+Waea whakapā
+Muka rama
+Coaxial
+Cat5e
+Cat6
+Cat6a
+Ethernet

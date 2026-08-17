@@ -1,0 +1,27 @@
+---
+description: Allergen (Maori). Two New Zealand notes. FIRST, KAIMOANA allergy matters more here than in most places, because shellfish gathering is an everyday food activity rather than a restaurant category. SECOND, PUA KURIKURI, pasture grass pollen, is the big seasonal one: New Zealand is largely under sown pasture and its spring pollen season is severe.
+locale: mi
+---
+Pīnati
+Nati rākau
+Kaimoana
+Kūtai
+Kōura
+Ika
+Miraka
+Hēki
+Witi
+Hua rākau
+Tōmato
+Karika
+Penihirini
+Rongoā mamae
+Rāpa
+Puehu
+Pua kurikuri
+Pua rākau
+Huruhuru ngeru
+Huruhuru kurī
+Wero pī
+Wero waeroa
+Pūngāwerewere

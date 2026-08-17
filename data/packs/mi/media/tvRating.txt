@@ -1,0 +1,13 @@
+---
+description: Broadcast classification. THESE ARE NEW ZEALAND'S CLASSIFICATIONS and they are not the American ones: G, PG, M, 16, 18 and R18 under the Films, Videos and Publications Classification Act, with AO (Adults Only) still used on free-to-air television. The letters are identical in a te reo listing.
+locale: mi
+---
+G
+PG
+M
+AO
+13
+16
+18
+R16
+R18

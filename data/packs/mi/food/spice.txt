@@ -1,0 +1,34 @@
+---
+description: Spice and seasoning (Maori). THE NATIVE PART OF THIS LIST IS DELIBERATELY TINY AND THAT IS THE HONEST PICTURE: pre-contact Maori cooking seasoned with HOROPITO, whose leaf is genuinely peppery and is still used commercially, with KAWAKAWA, and with the smoke and steam of the hangi — Aotearoa is far outside the spice trade and there was nothing else to reach for. PEPA (pepper) and TOTE (salt) are loans; KARIKA is garlic. Everything below them keeps its international name because te reo has no established form for it, and coining twenty Maori spice words would be exactly the fabrication a data pack must not commit. Those values are why part of this file uses letters outside the Maori alphabet.
+locale: mi
+---
+Horopito
+Kawakawa
+Pepa
+Tote
+Tote moana
+Karika
+Mānuka
+Kānuka
+Cinnamon
+Cumin
+Paprika
+Turmeric
+Cardamom
+Chilli
+Ginger
+Nutmeg
+Clove
+Saffron
+Oregano
+Basil
+Thyme
+Rosemary
+Bay leaf
+Coriander
+Star anise
+Fennel seed
+Mustard seed
+Vanilla
+Sumac
+Za’atar

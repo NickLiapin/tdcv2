@@ -1,0 +1,30 @@
+---
+description: Product review headline (Maori). Note how a Maori sentence starts: KA PAI is the everyday "well done, good", TINO PAI "very good", KAORE I PAI "not good". HE + noun forms an exclamation — "he rawe!" is "brilliant!". The negative KAORE and KORE come BEFORE the thing negated and take the whole clause with them, which is why every negative headline here begins with them.
+locale: mi
+---
+Ka pai
+Tino pai
+Tino rawe
+He rawe
+He tino pai tēnei
+He pai te kounga
+He pai te utu
+Tere te tuku
+He tino ātaahua
+Ka nui te pai
+Kua tino harikoa au
+Ka hoko anō au
+He pai mō te utu
+Ka tūturu te kounga
+He ngāwari te whakamahi
+Kāore i pai
+Kāore i tutuki i ngā tūmanako
+He kino te kounga
+He nui rawa te utu
+Kua pakaru wawe
+Kāore i rite ki te whakaahua
+He roa rawa te tatari
+Kāore au i te mōhio
+He āhua pai
+Kei waenga
+Tērā pea

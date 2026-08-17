@@ -1,0 +1,14 @@
+---
+description: Dishes of Īnia cuisine as they are named in Aotearoa. Dish names are not translated into te reo — a Maori speaker orders sushi, paella and pho by their own names, exactly as an English speaker does — so these values keep their original spelling and carry letters and diacritics the Maori alphabet does not have.
+locale: mi
+---
+Butter chicken
+Rogan josh
+Biryani
+Dhal
+Naan
+Samosa
+Tandoori chicken
+Palak paneer
+Vindaloo
+Chana masala

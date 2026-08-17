@@ -1,0 +1,41 @@
+---
+description: Medical specialty (Maori). Built on the MATAI pattern. RONGOA MAORI at the foot is not a specialty in the Western sense but is a funded service in the New Zealand health system: traditional Maori healing, using plant medicine, mirimiri (massage), karakia and whanau involvement, practised by tohunga rongoa.
+locale: mi
+---
+Mātai manawa
+Mātai roro
+Mātai pukupuku
+Mātai kiri
+Mātai puku
+Mātai repe
+Mātai pūkahukahu
+Mātai kōiwi
+Mātai hinengaro
+Mātai whatukuhu
+Mātai karu
+Mātai taringa
+Mātai niho
+Mātai toto
+Mātai ārai
+Mātai kōpū
+Mātai pēpi
+Mātai tamariki
+Mātai kaumātua
+Mātai whakaora
+Mātai hāparapara
+Mātai whakamoe
+Mātai iraoma
+Mātai huaketo
+Mātai mate ohorere
+Mātai whakaahua
+Mātai iriiri
+Mātai kai
+Mātai reo
+Mātai uaua
+Mātai wairua
+Mātai hauora tūmatanui
+Mātai mate whānui
+Mātai kiriata
+Mātai whakawhānau
+Nēhi
+Rongoā Māori

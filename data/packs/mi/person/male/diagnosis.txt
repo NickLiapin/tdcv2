@@ -1,0 +1,30 @@
+---
+description: Diagnosis for a person recorded as male (Maori). Draws on the same anatomical conditions as medical/diagnosisMale.txt. Te reo carries no gender in the words themselves. HOW THIS LIST IS BUILT, because a medical list must say. Where te reo Maori has an ESTABLISHED term it is used: HUANGO is asthma, REWHAREWHA influenza, MATE HUKA diabetes ("sugar sickness"), MATE PUKUPUKU cancer, HUKIHUKI epilepsy, MATE KOHI tuberculosis, MATE WAREWARE dementia, PAPOURI depression, AWANGAWANGA anxiety, PAIPAI a sexually transmitted infection. Where it does not, the value uses the transparent MATE + organ or MATE + cause pattern te reo actually builds diagnoses with — mate whatukuhu is kidney disease, mate pukahukahu lung disease, pehanga toto teitei high blood pressure. NO SINGLE-WORD TERM HAS BEEN COINED HERE: an invented medical word is undetectable later and would be the worst kind of fabrication in a data pack. A clinical system must take its vocabulary from Te Reo Hapai, the standardised Maori glossary for the health and disability sector, and not from this file.
+locale: mi
+---
+Mate pukupuku repe tātea
+Repe tātea nui
+Mate pukupuku raho
+Kore whakatō tāne
+Ngoikore ure
+Mate raho pupuhi
+Mate hūkiki
+Mate manawa
+Mate huka momo 2
+Pēhanga toto teitei
+Mate ate waipiro
+Mate pūkahukahu
+Mate tuarā
+Mate pona
+Pāpōuri
+Āwangawanga
+Mate wareware
+Mate whatukuhu
+Taumaha rawa
+Mate moe
+Mate waipiro
+Mate kiri
+Mate karu
+Mate niho
+Mate toto
+Rūmātiki

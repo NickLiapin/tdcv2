@@ -1,0 +1,28 @@
+---
+description: Household budget line (Maori). TWO CATEGORIES HERE HAVE NO PLACE IN A EUROPEAN BUDGET AND ARE ORDINARY IN A MAORI ONE. TANGIHANGA: a funeral runs three days on the marae and the whole whanau contributes to feeding and housing everyone who comes, so it is a recurring and sometimes substantial expense rather than a rare one. KOHA: the gift given when attending a hui, a tangi or a marae — unpriced, expected, and budgeted for. Both are real money and a spending model built on European categories will book them as miscellaneous and lose them. Amounts are in New Zealand dollars.
+locale: mi
+---
+Kai
+Whare
+Utu rēti
+Mōkete
+Hiko
+Wai
+Waea
+Ipurangi
+Waka
+Penehīni
+Hauora
+Rongoā
+Kura
+Kākahu
+Whakangahau
+Haerenga
+Penapena
+Nama
+Taake
+Inihua
+Koha
+Tangihanga
+Whānau
+Marae

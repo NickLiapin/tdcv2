@@ -1,0 +1,20 @@
+---
+description: Qualification (Maori). THE NEW ZEALAND QUALIFICATIONS FRAMEWORK HAS OFFICIAL TE REO NAMES AND THEY ARE NOT TRANSLITERATIONS: TOHU is a qualification, PAETAHI a bachelor's degree, PAERUA a master's and KAIRANGI a doctorate — paetahi and paerua are "first threshold" and "second threshold", which is a different metaphor from "bachelor" and "master" altogether. TIWHIKETE is a certificate. The three WANANGA at the foot are not a translation of "university": they are Maori tertiary institutions established under their own Act, teaching in te reo and according to tikanga, and their qualifications sit on the same national framework as any other. The particular universities and wananga are New Zealand institutions and belong to the new_zealand country pack.
+locale: mi
+---
+Tiwhikete
+Tiwhikete Taumata 3
+Tiwhikete Taumata 4
+Tohu Whakaū
+Tohu Paetahi
+Tohu Paetahi Honore
+Tohu Paerua
+Tohu Kairangi
+Tohu Whakaakoranga
+Tohu Reo Māori
+Tohu Mātauranga Māori
+Tohu Ngaio
+Tohu Wānanga
+Tohu Ako
+Tohu Hauora
+Tohu Pakihi

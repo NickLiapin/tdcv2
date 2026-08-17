@@ -1,0 +1,14 @@
+---
+description: Type of loan (Maori). MOKETE is a mortgage, a loan reshaped to Maori phonotactics. NAMA is a debt and heads the rest. NAMA AKONGA, the student loan, is worth flagging: New Zealand's is interest-free while the borrower lives in the country, which changes what the field means in a financial model.
+locale: mi
+---
+Mōkete
+Nama waka
+Nama ākonga
+Nama whaiaro
+Nama pakihi
+Kāri nama
+Nama whenua
+Nama whakapai whare
+Nama poto
+Nama whānau

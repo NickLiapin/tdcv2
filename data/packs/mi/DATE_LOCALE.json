@@ -1,0 +1,58 @@
+{
+  "months": [
+    "Kohitātea",
+    "Hui-tanguru",
+    "Poutū-te-rangi",
+    "Paenga-whāwhā",
+    "Haratua",
+    "Pipiri",
+    "Hōngongoi",
+    "Here-turi-kōkā",
+    "Mahuru",
+    "Whiringa-ā-nuku",
+    "Whiringa-ā-rangi",
+    "Hakihea"
+  ],
+  "monthsInDate": [
+    "Kohitātea",
+    "Hui-tanguru",
+    "Poutū-te-rangi",
+    "Paenga-whāwhā",
+    "Haratua",
+    "Pipiri",
+    "Hōngongoi",
+    "Here-turi-kōkā",
+    "Mahuru",
+    "Whiringa-ā-nuku",
+    "Whiringa-ā-rangi",
+    "Hakihea"
+  ],
+  "monthsShort": [
+    "Kohi",
+    "Hui",
+    "Pou",
+    "Pae",
+    "Hara",
+    "Pipi",
+    "Hōngo",
+    "Here",
+    "Mahu",
+    "Nuku",
+    "Rangi",
+    "Haki"
+  ],
+  "weekdays": [
+    "Rātapu",
+    "Rāhina",
+    "Rātū",
+    "Rāapa",
+    "Rāpare",
+    "Rāmere",
+    "Rāhoroi"
+  ],
+  "weekdaysShort": ["Tapu", "Hina", "Tū", "Apa", "Pare", "Mere", "Horoi"],
+  "formats": {
+    "L": "DD/MM/YYYY",
+    "LL": "D MMMM YYYY"
+  }
+}

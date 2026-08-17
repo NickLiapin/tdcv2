@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient (Maori). This list is the clearest single place in the pack to see how te reo handles a borrowed word. English butter, milk, sugar, salt, cheese, coffee, tea, rice, honey, cream and flour arrive as PATA, MIRAKA, HUKA, TOTE, TIHI, KAWHE, TI, RAIHI, HONI, KIRIMI and PARAOA — every one ending in a vowel, every consonant cluster broken open by an inserted vowel, and every sound te reo lacks mapped onto its nearest neighbour (s to h or t, b to p, l to r, f to wh or p, g to k). These are REBUILDINGS, not transliterations: nothing about "milk" predicts "miraka" letter by letter, but everything about Maori syllable structure does. PARAOA is worth a second look — it began as "flour", then came to mean bread as well, and PARAOA is also the sperm whale, an unrelated word te reo simply lives beside.
+locale: mi
+---
+Parāoa
+Huka
+Tote
+Pepa
+Hinu
+Pata
+Miraka
+Hēki
+Tīhi
+Mīti
+Rāihi
+Kirīmi
+Honi
+Wai
+Waina
+Pia
+Koko
+Kawhe
+Tī
+Tiakarete
+Ārani
+Rēmana
+Kūmara
+Rīwai
+Kānga
+Ika
+Kōura
+Karengo
+Pikopiko
+Kawakawa
+Horopito
+Pūhā
+Watakirihi
+Rēwena
+Hinu ōriwa
+Tote moana
+Hua rākau
+Huawhenua
+Riki
+Pīni

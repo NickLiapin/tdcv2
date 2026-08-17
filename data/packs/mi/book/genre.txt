@@ -1,0 +1,30 @@
+---
+description: Book genre (Maori). PURAKAU, at the head, is not "mythology" in the dismissive sense the English word carries: purakau are the accounts of atua and ancestors and they carry history, law and instruction inside a narrative frame. WHAKAPAPA books are genealogical records. WAIATA and MOTEATEA — composed song and traditional chant — are published as literature here, because chant IS the classical literature of te reo.
+locale: mi
+---
+Pūrākau
+Kōrero tuku iho
+Whakapapa
+Waiata
+Mōteatea
+Whakataukī
+Hītori
+Haurongo
+Pakiwaitara
+Pakimaero
+Kōrero pono
+Kōrero whakangahau
+Pukapuka tamariki
+Pukapuka taiohi
+Rangahau
+Pūtaiao
+Tikanga
+Ture
+Hauora
+Kai
+Toi
+Haerenga
+Aro whenua
+Kōrero pōhēhē
+Kōrero whakamataku
+Reo

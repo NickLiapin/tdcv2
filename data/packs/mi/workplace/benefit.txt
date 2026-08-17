@@ -1,0 +1,22 @@
+---
+description: Employment benefit (Maori). TWO OF THESE HAVE NO EUROPEAN EQUIVALENT AND ARE ORDINARY IN NEW ZEALAND. TANGIHANGA LEAVE is bereavement leave written for a funeral that lasts three days and is attended by the whole extended whanau, not for an afternoon off — many collective agreements name it explicitly. AKO TE REO MAORI, paid time to learn the language, is a benefit an increasing number of New Zealand employers offer, because a century of suppression means most Maori employees did not grow up speaking it. KIWISAVER is New Zealand's workplace retirement scheme and keeps its name.
+locale: mi
+---
+Inihua hauora
+KiwiSaver
+Wā whakatā utua
+Wā māuiui utua
+Wā tangihanga
+Wā whānau hou
+Ako te reo Māori
+Whakangungu
+Mahi ngāwari
+Mahi ā-kāinga
+Tautoko hinengaro
+Utu waka
+Waea pūkoro
+Rorohiko
+Utu hākinakina
+Kai tākaro
+Tautoko ako
+Utu haerenga

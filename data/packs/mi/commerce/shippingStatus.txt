@@ -1,0 +1,15 @@
+---
+description: Shipping status (Maori). RURAL DELIVERY is worth knowing about: a large share of New Zealand addresses are rural-delivery addresses served a few days a week, so "kei te haere" can honestly mean several days on a Northland or West Coast run.
+locale: mi
+---
+Kua whakaritea
+Kua tukua atu
+Kei te haere
+Kua tae ki te whare rawa
+Kei te tuku
+Kua tae
+Kua tukua ki te kāinga
+Kāore i taea te tuku
+Kei te tatari mō te tiki
+Kua whakahokia
+Kua ngaro

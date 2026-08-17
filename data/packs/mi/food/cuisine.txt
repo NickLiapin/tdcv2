@@ -1,0 +1,21 @@
+---
+description: Cuisine, named by the country or people it belongs to (Maori). Te reo has no -ese / -ish adjective ending, so the country name itself is the modifier — kai Itari is Italian food. The three Polynesian entries and the Maori one at the head are not decoration: Aotearoa's food landscape is Pacific as much as European, and Samoan, Tongan and Cook Islands kai are ordinary in New Zealand towns. Cuisines with no established Maori name are absent rather than invented, which is why this list is shorter than the English one.
+locale: mi
+---
+Māori
+Ītari
+Hapani
+Haina
+Īnia
+Mēhiko
+Tairana
+Wīwī
+Kariki
+Pāniora
+Amerika
+Kōrea
+Wietanama
+Hāmoa
+Tonga
+Kuki Airani
+Initonīhia

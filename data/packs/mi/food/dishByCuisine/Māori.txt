@@ -1,0 +1,36 @@
+---
+description: Dishes of Maori cuisine. HANGI is the method as much as the meal: food is steamed for hours in a pit on stones heated in a fire, and it names the gathering as well as the food. REWENA PARAOA is a sourdough bread leavened with a potato starter kept alive for years and passed between whanau. KANGA WAI is maize steeped in running water for months until it ferments — an acquired taste, and one of the very few pre-refrigeration preserving methods that survived. HUAHUA is birds cooked and sealed under their own fat in a container, a technique for storing a whole season. TITI are muttonbirds, harvested under customary right by Rakiura Maori alone. KUMARA came with the migration canoes from tropical Polynesia and was the staple crop; TUNA is eel, not the ocean fish English calls tuna.
+locale: mi
+---
+Hāngī
+Rēwena parāoa
+Parāoa parai
+Takakau
+Poaka me te pūhā
+Kānga wai
+Kānga pirau
+Kānga pungarehu
+Tītī
+Kaimoana
+Pāua
+Kina
+Kūtai
+Tuatua
+Pipi
+Tuangi
+Kōura
+Tuna
+Pātiki
+Tāmure
+Kahawai
+Hāpuku
+Karengo
+Watakirihi
+Kūmara
+Kamokamo
+Rīwai
+Huahua
+Pikopiko
+Tī kawakawa
+Īnanga
+Hue

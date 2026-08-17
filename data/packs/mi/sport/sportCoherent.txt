@@ -1,0 +1,12 @@
+---
+description: Sport (has a coherent position list). Eight sports: the six codes New Zealand actually plays in numbers, plus the two Maori ones whose roles te reo names in its own right.
+locale: mi
+---
+Whutupōro
+Whutupōro rīki
+Poitarawhiti
+Poitūkohu
+Kirikiti
+Poikiri
+Kī-o-rahi
+Waka ama

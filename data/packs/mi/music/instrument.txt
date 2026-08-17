@@ -1,0 +1,22 @@
+---
+description: Musical instrument (Maori). THE FIRST TEN ARE TAONGA PUORO, the traditional Maori instruments, and they were nearly lost — by the mid twentieth century almost nobody alive knew how to play them, and the repertoire was rebuilt from museum specimens, old recordings and elders' memories from the 1980s onward, largely by Hirini Melbourne, Richard Nunns and Brian Flintoff. KOAUAU is a small cross-blown flute, PUTORINO a bugle-flute with two voices (male and female), PUTATARA a conch trumpet, POROTITI a whirling disc, PURERE HUA a bullroarer, NGURU a flute played partly with the nose, TUMUTUMU a struck instrument of bone or stone. They are not folk curiosities: each is associated with an atua and a purpose, and several were used for healing rather than performance. The introduced instruments below carry loaned names — guitar KITA, piano PIANA, drum PAHU (a native word, originally a wooden gong).
+locale: mi
+---
+Kōauau
+Pūtōrino
+Pūtātara
+Pōrotiti
+Pūrerehua
+Ngūru
+Tumutumu
+Pūkāea
+Rōria
+Hue puruhau
+Pahu
+Kita
+Kita hiko
+Piana
+Ūkere
+Papa pātuhi
+Whīra
+Rakuraku

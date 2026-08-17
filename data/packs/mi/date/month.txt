@@ -1,0 +1,16 @@
+---
+description: Month, in the TRADITIONAL Maori names promoted by Te Taura Whiri i te Reo Maori (the Maori Language Commission) and used on New Zealand government material. These are NOT translations of January, February and so on — they are the names of the lunar months of the MARAMATAKA, the Maori calendar, aligned onto the Gregorian twelve. That alignment is a modern convention and slightly false at the edges, because a lunar month is not a Gregorian one. Several names describe what the season is doing: POUTU-TE-RANGI is the star Altair standing high, PAENGA-WHAWHA is the heaped-up stalks of the finished harvest, HERE-TURI-KOKA is "the scorching that makes the knees blister" — the depth of winter spent close to the fire — and PIPIRI is things drawn tightly together against the cold. NOTE THAT PIPIRI AND HONGONGOI, June and July, ARE THE COLD ONES: Aotearoa is in the southern hemisphere and every seasonal association a European config carries is six months out of phase. A second, wholly separate set is also in real use — the nineteenth-century transliterations Hanuere, Pepuere, Maehe, Aperira, Mei, Hune, Hurae, Akuhata, Hepetema, Oketopa, Noema, Tihema — which are reshaped English month names and are what many older printed calendars show. This file carries the traditional set because that is the recommended standard.
+locale: mi
+---
+Kohitātea
+Hui-tanguru
+Poutū-te-rangi
+Paenga-whāwhā
+Haratua
+Pipiri
+Hōngongoi
+Here-turi-kōkā
+Mahuru
+Whiringa-ā-nuku
+Whiringa-ā-rangi
+Hakihea

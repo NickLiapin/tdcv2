@@ -1,0 +1,26 @@
+---
+description: Property feature (Maori). MARA KAI, a food garden, is listed by real New Zealand agents as a selling point. PUNA WERA is a hot pool and is not a luxury in Rotorua or Taupo, where geothermal water is plumbed into ordinary houses.
+locale: mi
+---
+Māra kai
+Māra putiputi
+Puna kaukau
+Puna wera
+Whare waka
+Whakamahau
+Papa waho
+Ahi wera
+Pūrere whakamahana
+Pūrere whakamātao
+Karaehe takirua
+Pae hiko rā
+Ipu wai ua
+Taiepa
+Tirohanga moana
+Tirohanga maunga
+Ipurangi tere
+Whare rawa
+Rūma ako
+Whare kararehe
+Kēti aunoa
+Pūrere haumaru

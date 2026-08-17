@@ -1,0 +1,28 @@
+---
+description: Legal term (Maori). Several of these are English law words rebuilt as loans — TURE is law, ROIA a lawyer, KOTI a court, WIRA a will, KIRIMANA a contract. Others are Maori concepts that New Zealand law has taken IN rather than translated out: TIKANGA (Maori customary law, which the Supreme Court has confirmed is part of the common law of New Zealand), MANA WHENUA (customary authority over land), KAITIAKITANGA (guardianship, written into the Resource Management Act), RAHUI (a customary prohibition on taking from an area, which councils and iwi still declare and which people observe), TAONGA (treasured possessions, the word at the centre of most Treaty claims), and UTU, the obligation to restore balance, which underlies restorative justice practice here.
+locale: mi
+---
+Ture
+Tikanga
+Kawa
+Rōia
+Kōti
+Whakawā
+Kaiwhakawā
+Kirimana
+Wira
+Take
+Kereme
+Whakapae
+Whiu
+Taihara
+Mana whenua
+Kaitiakitanga
+Rāhui
+Taonga
+Utu
+Tino rangatiratanga
+Kāwanatanga
+Tiriti
+Whakaaetanga
+Whakataunga

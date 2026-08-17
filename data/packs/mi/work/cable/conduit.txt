@@ -1,0 +1,11 @@
+---
+description: Cable conduit or containment (Maori). WAEA is wire and also, on its own, a telephone; PAIPA is pipe, a loan. The technical containment types are international specifications and keep their names.
+locale: mi
+---
+Paipa kirihou
+Paipa rino
+Awa waea
+Ara waea
+Pouaka waea
+Whakaruruhau waea
+Papa waea

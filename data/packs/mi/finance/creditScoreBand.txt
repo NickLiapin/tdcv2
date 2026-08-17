@@ -1,0 +1,10 @@
+---
+description: Credit rating band (Maori). Ordinary te reo evaluative words: KAIRANGI is the top, the same word NCEA uses for Excellence, and TINO KINO the bottom.
+locale: mi
+---
+Tino kino
+Kino
+Ōrite
+Pai
+Tino pai
+Kairangi

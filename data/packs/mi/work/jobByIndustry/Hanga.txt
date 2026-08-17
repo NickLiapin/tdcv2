@@ -1,0 +1,14 @@
+---
+description: Jobs in Hanga (Maori). Titles are built with KAI- prefixed to a verb — the person who does the doing — which is how te reo names an occupation without borrowing one.
+locale: mi
+---
+Kāmura
+Kaihanga whare
+Kaihiko
+Kaipeita
+Parakimete
+Kaihoahoa whare
+Kaiwhakahaere papa hanga
+Kaimahi raima
+Kaiwhakatū tuanui
+Kaiwhakahaere haumaru

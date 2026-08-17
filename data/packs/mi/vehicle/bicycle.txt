@@ -1,0 +1,21 @@
+---
+description: Kind of bicycle (Maori). PAIHIKARA is a loan from "bicycle" rebuilt so that no consonant stands unsupported. PAIHIKARA MAUNGA, the mountain bike, is the commonest kind here.
+locale: mi
+---
+Paihikara ara
+Paihikara maunga
+Paihikara tāone
+Paihikara hiko
+Paihikara tamariki
+Paihikara takirua
+Paihikara utanga
+Paihikara whakataetae
+Paihikara papa
+Paihikara kotahi
+Paihikara whāiti
+Paihikara whānui
+Paihikara pekepeke
+Paihikara hukarere
+Paihikara one
+Paihikara toru
+Paihikara whāwhā

@@ -1,0 +1,17 @@
+---
+description: Kind of legal case (Maori). WHAKAWA is a trial or hearing and TAKE a matter or claim. TAKE TIRITI, a Treaty of Waitangi claim, has no equivalent anywhere else: it is a claim that the Crown has breached the guarantees of Te Tiriti o Waitangi, heard by the Waitangi Tribunal, and it may concern events of a hundred and eighty years ago. TAKE WHENUA MAORI, Maori land matters, go to the Maori Land Court, a court that exists nowhere else and that has run since 1865.
+locale: mi
+---
+Take taihara
+Take taiwhenua
+Take whānau
+Take whenua
+Take whenua Māori
+Take Tiriti
+Take mahi
+Take pakihi
+Take kirimana
+Take taonga tuku iho
+Take taiao
+Take tamariki
+Take pūtea

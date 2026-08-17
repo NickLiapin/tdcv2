@@ -1,0 +1,11 @@
+---
+description: Route type (Maori). ARA is a road or path, and the qualifiers describe the country it crosses: A-ROHE regional, A-TAONE urban, TUAWHENUA rural or back-country. ARA MOTU is the state highway network.
+locale: mi
+---
+Ara roa
+Ara poto
+Ara ā-rohe
+Ara ā-tāone
+Ara tuawhenua
+Ara motu
+Ara pō

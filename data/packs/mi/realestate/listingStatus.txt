@@ -1,0 +1,16 @@
+---
+description: Property listing status (Maori). Note the two auction-related values: New Zealand sells a very large share of its houses by AUCTION or by TENDER rather than at an asking price, so "hokona ki te reo hāpai" (sold at auction) is the normal outcome here rather than an exception.
+locale: mi
+---
+Kei te hoko
+Kei runga i te mākete
+Reo hāpai
+Tono utu
+Kua whakaaetia
+Kua hokona
+Kua hokona ki te reo hāpai
+Kei te rēti
+Kua rētihia
+Kua whakakorea
+Kua rāhuitia
+Kāore anō kia pānuitia

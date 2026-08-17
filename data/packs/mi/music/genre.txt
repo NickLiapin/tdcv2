@@ -1,0 +1,39 @@
+---
+description: Music genre (Maori). THE FIRST FIVE ARE MAORI FORMS AND ARE NOT "FOLK MUSIC". MOTEATEA is the classical chant repertoire — laments, love songs and songs of complaint, composed by named authors and transmitted exactly. WAIATA-A-RINGA is the action song, developed in the twentieth century and now the heart of kapa haka. HAKA is a posture dance, not always a war dance, and there are haka for welcome and for funerals. KARANGA is the ceremonial call and PATERE a fast rhythmic recitation, often listing whakapapa. The rest are international genres and keep their names.
+locale: mi
+---
+Mōteatea
+Waiata-ā-ringa
+Haka
+Karanga
+Pātere
+Waiata tira
+Waiata ringa
+Taonga pūoro
+Reggae
+Roots
+Hip hop
+Rap
+Soul
+R&B
+Rock
+Pop
+Country
+Folk
+Blues
+Jazz
+Punk
+Metal
+Electronic
+House
+Drum and bass
+Dub
+Ska
+Gospel
+Classical
+Opera
+Kapa haka
+Waiata Māori
+Dubstep
+Indie
+Acoustic

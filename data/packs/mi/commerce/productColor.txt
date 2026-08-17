@@ -1,0 +1,58 @@
+---
+description: Colour as written on a product listing in Maori. Same palette as color/name.txt in the form a listing uses, with the introduced fashion shades at the foot — those are loans (PURU from blue, PAPURA from purple, KARAKA doubling as orange and as the karaka tree) or compounds with POURI and MARAMA, because te reo builds shades by compounding rather than by borrowing a separate root for each one.
+locale: mi
+---
+whero
+kākāriki
+kikorangi
+kōwhai
+pango
+mangu
+mā
+tea
+parauri
+kiwikiwi
+hina
+waiporoporo
+karaka
+māwhero
+puru
+papura
+koma
+pōuri
+mārama
+hiriwa
+kōura
+ngangana
+pūwhero
+kōkōwai
+pounamu
+whero pōuri
+whero mārama
+kikorangi pōuri
+kikorangi mārama
+kākāriki pōuri
+kākāriki mārama
+kōwhai pōuri
+kōwhai mārama
+parauri pōuri
+parauri mārama
+kiwikiwi pōuri
+kiwikiwi mārama
+māwhero pōuri
+māwhero mārama
+waiporoporo pōuri
+whero ngangana
+kikorangi kōhatu
+kākāriki pounamu
+parauri kawhe
+mā rewa
+pango pōuri
+kōwhai huka
+hiriwa mārama
+kōura pōuri
+māwhero koma
+waiporoporo mārama
+kiwikiwi kōhatu
+puru pōuri
+papura pōuri

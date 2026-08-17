@@ -1,0 +1,8 @@
+---
+description: Financial or reporting quarter (Maori). HAUWHA is a quarter — hau, a part, plus wha, four — and the ordinals are the regular tua- series: tuatahi, tuarua, tuatoru, tuawha. Note that New Zealand's tax and government financial year runs 1 April to 31 March, so Q1 in a New Zealand dataset is April to June and not January to March; that is a country convention and belongs to the new_zealand pack, but it is what these labels will usually be counting.
+locale: mi
+---
+Hauwhā tuatahi
+Hauwhā tuarua
+Hauwhā tuatoru
+Hauwhā tuawhā

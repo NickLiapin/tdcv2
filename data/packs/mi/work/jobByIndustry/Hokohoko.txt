@@ -1,0 +1,14 @@
+---
+description: Jobs in Hokohoko (Maori). Titles are built with KAI- prefixed to a verb — the person who does the doing — which is how te reo names an occupation without borrowing one.
+locale: mi
+---
+Kaihoko
+Kaimahi toa
+Kaiwhakahaere toa
+Kaiwhakatairanga
+Kaitiaki rawa
+Kaiwhakarite utu
+Kaiwhakahaere hokohoko
+Kaiwhakauru taonga
+Kaitiaki whare rawa
+Kaituku taonga

@@ -1,0 +1,16 @@
+---
+description: Sub-address designator (Maori). THIS LIST IS SHORT AND THAT IS THE HONEST ANSWER: New Zealand addresses are written in English, the postal system's designators (Flat, Unit, Level, RD, PO Box) are English forms, and te reo has no established address-line vocabulary to set against them. What is here are the ordinary words a te reo document uses when it has to say the same thing — WAHANGA a section or unit, PAPA a floor or level, RUMA a room, TARI an office, TOA a shop, POUAKA POUTAPETA a post-office box. The real New Zealand address format, including the four-digit postcode and the Rural Delivery number, belongs to the new_zealand country pack and is not duplicated here.
+locale: mi
+---
+Wāhanga
+Papa
+Rūma
+Tari
+Toa
+Whare
+Pouaka poutāpeta
+Papa tuatahi
+Papa tuarua
+Papa tuatoru
+Papa o raro
+Papa o runga

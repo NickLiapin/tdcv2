@@ -1,0 +1,12 @@
+---
+description: Mining or quarrying method (Maori). KERI is to dig and heads most of these; HOROI KOURA is sluicing, washing gold from gravel with water, the method that reshaped whole Otago valleys. The list is short because te reo's mining vocabulary is post-contact and thin: there was no mining industry to name before 1850.
+locale: mi
+---
+Keri
+Keri rua
+Keri hōhonu
+Keri mata
+Horoi kōura
+Wāwāhi kōhatu
+Ruku moana
+Tango onepū

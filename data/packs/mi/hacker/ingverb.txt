@@ -1,0 +1,32 @@
+---
+description: Technical verb in progress (Maori). KEI TE marks the action as under way — te reo has no -ing suffix, it has a particle in front of the verb, so a progress message is a two-word phrase and not a single inflected word.
+locale: mi
+---
+kei te whakauru
+kei te tuku
+kei te tiki
+kei te tāuta
+kei te whakarite
+kei te whakamuna
+kei te wetemuna
+kei te whakaora
+kei te whakahou
+kei te tātari
+kei te rapu
+kei te whakakī
+kei te horoi
+kei te hono
+kei te motuhake
+kei te tuhi
+kei te pānui
+kei te kape
+kei te neke
+kei te muku
+kei te whakatika
+kei te whakamātau
+kei te aroturuki
+kei te whakahaere
+kei te whakakore
+kei te whakatōpū
+kei te wehe
+kei te whakaaunoa

@@ -1,0 +1,11 @@
+---
+description: Positions in Poitarawhiti. POSITION NAMES ARE NOT TRANSLATED AND THAT IS DELIBERATE. Maori-language sports broadcasting is real and long-running — Whakaata Maori has called rugby and netball in te reo since 2004 — but the position names used on air are the English ones, because no standardised Maori position vocabulary exists. Coining fourteen rugby positions would be fabrication, so these keep their international names and are among the values in this pack using letters outside the Maori alphabet.
+locale: mi
+---
+Goal Shoot
+Goal Attack
+Wing Attack
+Centre
+Wing Defence
+Goal Defence
+Goal Keep

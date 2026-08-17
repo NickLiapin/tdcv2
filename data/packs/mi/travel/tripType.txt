@@ -1,0 +1,24 @@
+---
+description: Kind of trip (Maori). HAERENGA is a journey. Several of these are specifically Maori reasons to travel: HAERENGA MARAE, going to a marae for a hui or tangi; HOKI KI TE KAINGA, returning to the ancestral home; and HIKOI, which is a walk but also a protest march, the most famous being the 1975 Land March the length of the North Island.
+locale: mi
+---
+Haerenga whakatā
+Haerenga pakihi
+Haerenga whānau
+Haerenga marae
+Hoki ki te kāinga
+Hīkoi
+Haerenga ako
+Haerenga hauora
+Haerenga tāpoi
+Haerenga hākinakina
+Haerenga puni
+Haerenga waka
+Haerenga kaipuke
+Haerenga rererangi
+Haerenga motukā
+Haerenga tuawhenua
+Haerenga poto
+Haerenga roa
+Haerenga takitahi
+Haerenga rōpū

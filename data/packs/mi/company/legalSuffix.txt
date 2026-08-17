@@ -1,0 +1,22 @@
+---
+description: Legal or organisational suffix on a company name (Maori). KAMUPENE (company) and KAPOREIHANA (corporation) are loans; RUNANGA, ROPU, KAHUI and OHU are te reo words for kinds of collective body and are used as real legal names — Te Runanga o Ngai Tahu is a statutory body, not a metaphor. Note two things. First, Limited and Ltd appear because New Zealand's Companies Act requires the English word on the register whatever the rest of the name says, so a Maori-named company is Te Puna Hauora LIMITED. Second, the Maori land entities — Ahu Whenua Trust, Maori Incorporation, Putea Trust — are creatures of Te Ture Whenua Maori Act and are New Zealand statutory forms; they belong to the new_zealand country pack and are not listed here.
+locale: mi
+---
+Kamupene
+Kaporeihana
+Rūnanga
+Rōpū
+Kāhui
+Ohu
+Poari
+Kōmiti
+Tarahiti
+Tari
+Whare
+Puna
+Limited
+Ltd
+Incorporated
+Trust
+Group
+Holdings

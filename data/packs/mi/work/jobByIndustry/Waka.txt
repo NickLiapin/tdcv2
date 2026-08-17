@@ -1,0 +1,14 @@
+---
+description: Jobs in Waka (Maori). Titles are built with KAI- prefixed to a verb — the person who does the doing — which is how te reo names an occupation without borrowing one.
+locale: mi
+---
+Kaitaraiwa taraka
+Kaiurungi
+Kaihoe
+Kaiwhakahaere kawenga
+Kaimahi kaipuke
+Kaiwhakarite haerenga
+Kaiwhakahaere whare rawa
+Kaitaraiwa pahi
+Kaiwhakahaere tereina
+Kaituku pouaka
