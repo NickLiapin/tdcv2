@@ -1,16 +1,16 @@
 ---
 address: luxembourg.holiday
-description: Luxembourg public holidays (French names)
+description: Luxembourg's eleven legal public holidays, in calendar order, as fixed by article L. 232-2 of the Code du travail after the loi du 25 avril 2019 added the eleventh. Two of them exist nowhere else in the European Union in this form. The Journée de l'Europe on 9 MAY is the addition of 2019 and Luxembourg is the only member state to have made Europe Day a public holiday — a direct consequence of hosting the Court of Justice, the Secretariat of the Parliament and the EIB. And the Grand Duke's birthday on 23 JUNE is not his birthday: Grand Duke Henri was born on 16 April and Grand Duke Guillaume V, who succeeded on 3 October 2025, was born on 11 November. The date is the national day and has been fixed by decree since 1961, deliberately moved to midsummer because a January birthday made for a miserable parade; the celebration proper begins on the evening of the 22nd. Five of the eleven move with Easter, so any hard-coded Luxembourgish holiday table is wrong the following year. What is NOT a holiday is the other half of the story: 24 and 31 December are ordinary working days in law, and Luxembourg — unlike Germany next door, which shares its language and its Catholic calendar — has no Whit Tuesday, no Corpus Christi and no Reformation Day, so a German holiday table applied to a Luxembourgish payroll is wrong in both directions. Names are the French forms the Inspection du travail et des mines publishes. Source: ITM, jours fériés légaux; Code du travail L. 232-2, as amended by the loi du 25 avril 2019.
 locale: fr
 ---
-Jour de l'An
+Nouvel An
 Lundi de Pâques
-Fête du Travail
+Premier Mai
 Journée de l'Europe
 Ascension
 Lundi de Pentecôte
-Fête nationale
+Jour de la célébration de l'anniversaire du Grand-Duc
 Assomption
 Toussaint
-Noël
-Saint-Étienne
+Premier jour de Noël
+Deuxième jour de Noël

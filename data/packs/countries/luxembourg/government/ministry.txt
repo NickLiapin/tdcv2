@@ -1,0 +1,27 @@
+---
+address: luxembourg.government.ministry
+description: The twenty-two ministerial portfolios of the Luxembourg government. The count against the population is the fact: twenty-two portfolios for 694,000 residents, held by a cabinet of around fifteen people, which means most Luxembourgish ministers hold two or three at once — the same person is routinely Minister of Finance and something else, and a Luxembourgish record naming "the minister" is naming a portfolio, not a person. The portfolios are also renamed at almost every change of government, far more freely than the administrations under them, so a list of ministries dates a document within a legislature: the Ministère des Affaires intérieures was the Ministère de l'Intérieur before 2023, and the Ministère de la Digitalisation only exists at all because Luxembourg made it a portfolio of its own in 2018. Note that there is no ministry of the interior in the policing sense — the police report to the Ministère des Affaires intérieures but the courts and the prosecution service belong to the Ministère de la Justice — and that Défense and Affaires étrangères are separate portfolios in a country whose army numbers under a thousand. Written the way the government writes them, "Ministère de/des" plus the portfolio. Source: gouvernement.lu, the composition of the government.
+locale: fr
+---
+Ministère des Affaires étrangères et du Commerce extérieur
+Ministère de la Coopération et de l'Action humanitaire
+Ministère de la Défense
+Ministère des Affaires intérieures
+Ministère de la Justice
+Ministère des Finances
+Ministère de l'Économie, des PME, de l'Énergie et du Tourisme
+Ministère du Travail
+Ministère de la Fonction publique
+Ministère de la Santé et de la Sécurité sociale
+Ministère de la Famille, des Solidarités, du Vivre ensemble et de l'Accueil
+Ministère de l'Éducation nationale, de l'Enfance et de la Jeunesse
+Ministère de la Recherche et de l'Enseignement supérieur
+Ministère de la Culture
+Ministère des Sports
+Ministère du Logement et de l'Aménagement du territoire
+Ministère de la Mobilité et des Travaux publics
+Ministère de l'Environnement, du Climat et de la Biodiversité
+Ministère de l'Agriculture, de l'Alimentation et de la Viticulture
+Ministère de la Protection des consommateurs
+Ministère de l'Égalité des genres et de la Diversité
+Ministère de la Digitalisation

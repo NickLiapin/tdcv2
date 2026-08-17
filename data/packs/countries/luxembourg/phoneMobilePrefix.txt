@@ -1,0 +1,12 @@
+---
+address: luxembourg.phoneMobilePrefix
+description: The three-digit blocks a Luxembourg mobile SUBSCRIBER number begins with. Every mobile number starts with 6 and is nine digits long, and the ILR's plan held thirteen 6-blocks in October 2025 — 621, 628, 651, 655, 658, 661, 668, 671, 678, 681, 691, 692, 698 — of which this file carries eight. The five left out are the ones ENDING IN 8: at the operators that follow the convention, voicemail is reached on a block whose last digit is 8 instead of 1, so 628 is the mailbox side of 621, 658 of 651, 668 of 661, 678 of 671 and 698 of 691. They are real allocations and they belong in the numbering plan, but they are not numbers a person hands out, so drawing them as if they were a subscriber's mobile is the kind of value that passes every check and reaches an answering machine. The history is legible in what is left: prefixes used to be 021, 061 and 091, and on 1 September 2006 the leading 0 became a 6 across the whole country to align with European numbering harmonisation, so 621, 661 and 691 are the same three original operators — POST Luxembourg (LuxGSM), Orange (Vox until 2009) and Proximus/Tango — while 651, 655, 671, 681 and 692 belong to later arrivals and resellers. The prefix does NOT identify the operator: mobile portability has applied since 2005. Nor does it identify a place: Luxembourg's plan is closed and non-geographic throughout, with no area codes at all. The 60 block is absent because it is machine-to-machine, twelve digits rather than nine. Source: ILR, Plan national de numérotation; règlement 14/174/ILR of 14 July 2014.
+---
+621
+651
+655
+661
+671
+681
+691
+692

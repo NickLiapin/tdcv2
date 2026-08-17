@@ -1,0 +1,29 @@
+---
+address: luxembourg.geo.quarter
+description: The 24 quarters (quartiers) of Luxembourg City, as the national address register lists them. They are the level below the locality and above the street, and in the capital they are how people actually say where they live — Kirchberg is the EU institutions and the banks, Gare the station district, Ville Haute the old town on the rock, Grund and Pfaffenthal the valleys below it, Gasperich the new business quarter around the Cloche d'Or. Two of the twenty-four are written as a PAIR with a slash, "Neudorf / Weimershof" and "Rollingergrund / Belair-Nord" and "Bonnevoie-Nord / Verlorenkost", because the register names them that way and there is no published split. Only Luxembourg City and Esch-sur-Alzette are subdivided at all — Esch has 16 quarters, which the register does not hold — so this list is the capital's alone, and a quarter is NOT part of a postal address: the postcode does that job, and a letter addressed to "Kirchberg" without one will not be sorted by it. Source: Administration du cadastre et de la topographie, Registre national des localités et des rues, table QUARTIER, extract of 10 August 2026.
+locale: fr
+---
+Beggen
+Belair
+Bonnevoie-Nord / Verlorenkost
+Bonnevoie-Sud
+Cents
+Cessange
+Clausen
+Dommeldange
+Eich
+Gare
+Gasperich
+Grund
+Hamm
+Hollerich
+Kirchberg
+Limpertsberg
+Merl
+Muhlenbach
+Neudorf / Weimershof
+Pfaffenthal
+Pulvermühl
+Rollingergrund / Belair-Nord
+Ville Haute
+Weimerskirch

@@ -1,0 +1,27 @@
+---
+address: luxembourg.government.court
+description: Every court in Luxembourg. All of them. The list is short enough to print in full and that is the fact worth recording: a country of 694,000 people runs its entire judiciary from THREE towns — Luxembourg, Esch-sur-Alzette and Diekirch — with three justices of the peace at the bottom, two district courts above them, and one Cour supérieure de justice holding the Court of Cassation and the Court of Appeal together in a single institution. There is no regional appellate layer, because there is no region: the judicial map has exactly two arrondissements, Luxembourg and Diekirch. A pack for a neighbouring country would suggest dozens of tribunaux de grande instance and half a dozen cours d'appel; Luxembourg has one of each ladder and that is the whole system. Three things sit outside the judicial order and are constantly mistaken for part of it. The administrative order is entirely separate, with its own Tribunal administratif and its own Cour administrative, and an administrative case never touches the judicial courts. The social order — the Conseil arbitral and the Conseil supérieur de la sécurité sociale — hears social-security disputes and is separate again. And the Cour constitutionnelle stands apart from all of them, ruling only on whether a law conforms to the Constitution, referred to it by whichever court is hearing the case. The tribunaux du travail and the tribunaux de police are not separate courts either: they are the justices of the peace sitting in a different capacity. Two INTERNATIONAL courts are seated in Luxembourg and belong to nobody's national system — the Court of Justice of the European Union and the Benelux Court of Justice — and their presence is why "a court in Luxembourg" and "a Luxembourgish court" are not the same phrase. Source: justice.public.lu, Organisation de la justice.
+locale: fr
+---
+Cour constitutionnelle
+Cour supérieure de justice
+Cour de cassation
+Cour d'appel
+Tribunal d'arrondissement de Luxembourg
+Tribunal d'arrondissement de Diekirch
+Justice de paix de Luxembourg
+Justice de paix d'Esch-sur-Alzette
+Justice de paix de Diekirch
+Tribunal du travail de Luxembourg
+Tribunal du travail d'Esch-sur-Alzette
+Tribunal du travail de Diekirch
+Tribunal de police de Luxembourg
+Tribunal de police d'Esch-sur-Alzette
+Tribunal de police de Diekirch
+Tribunal administratif
+Cour administrative
+Conseil arbitral de la sécurité sociale
+Conseil supérieur de la sécurité sociale
+Parquet général
+Parquet de Luxembourg
+Parquet de Diekirch

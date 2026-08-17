@@ -1,7 +1,9 @@
 ---
 address: luxembourg.vehicle.plate
-description: Luxembourg licence plate — two letters and four digits (e.g. AB 1234)
+description: An ordinary Luxembourg vehicle registration plate — two letters, a space and four digits, black on yellow with the EU band on the left, 520 by 110 mm. The letter pair comes from luxembourg.vehicle.plateLetters, the published issue sequence, which excludes I and O and holds back AA for official vehicles, CD for diplomatic and ZZ for special use. The digits run 4000 to 9999 because numbers BELOW 4000 are reserved for personalised plates: the standard series is issued in blocks of a thousand starting at 4000, and a low number is something an owner queued and paid for, not something the registry hands out. That reservation is the reason a Luxembourgish plate with a small number reads as expensive rather than old. Nothing on the plate encodes geography — Luxembourg has never used a regional letter — and nothing encodes age either, because the prescribed sequence walks up and down the alphabet rather than running straight through it, so two cars registered on the same day get letter pairs that look unrelated. Two other formats exist and are not generated here: mopeds and light quadricycles take two letters and only TWO digits, and a personalised number may be four or five digits with no letters at all, which is where the plates consisting of digits only come from. Single digits belong to the Grand-Ducal family, two-digit numbers to the government fleet, and P1 to P99 to the Chamber of Deputies. Written with a space between the letters and the digits, which is how the plate is laid out. Sources: règlement grand-ducal du 17 juin 2003 relatif à l'identification des véhicules routiers; SNCA, Obtenir un numéro d'immatriculation.
 generator: tdc
 locale: fr
 ---
-<gen type="regex" value="[A-Z]{2} [0-9]{4}"/>
+<sequence name="letters"><gen type="template" value="luxembourg.vehicle.plateLetters"/></sequence>
+<sequence name="digits"><gen type="number" value="4000..9999"/></sequence>
+<data>${{letters}} ${{digits}}</data>

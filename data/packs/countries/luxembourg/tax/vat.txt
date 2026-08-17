@@ -1,11 +1,13 @@
 ---
 address: luxembourg.tax.vat
-description: Luxembourg VAT / TVA — LU + 8 digits: a 6-digit base + 2-digit check = the 6-digit base mod 89.
+description: The Luxembourg VAT number (numéro d'identification à la TVA, "No. TVA") — LU and eight digits, the first six a sequential registration number and the last two a check computed as that six-digit number MODULO 89. Eighty-nine is the whole story: it is a prime, it is smaller than 100 so the remainder always fits the two digits allotted to it, and it is nothing like the mod-97 of an IBAN or the mod-11 of most national ID numbers, so a generic European VAT routine that tries mod-97 here fails on every valid Luxembourg number. There is no weighting, no doubling and no positional term — the six digits are read as one integer and divided. The check therefore does NOT catch a transposition of two digits whose swap leaves the number congruent mod 89, which is a real weakness and the reason VIES exists. Note what the number is not: it is not the matricule, which identifies the entity itself and has thirteen digits for a person and eleven for a company; it is not the RCS number, which identifies the company in the trade register and begins with a letter; and a Luxembourg company can hold all three at once and quote a different one on each document. VAT registration is compulsory above a turnover threshold, so many registered companies have an RCS number and no TVA number at all. Written LU12345678 on an invoice and in VIES; some accounting systems print it as "LU 123 456 78", which is decoration. The base here is drawn from 100000 to 299999, which is where the live series has reached. Verified against four published numbers: LU20260743 (Amazon EU S.à r.l.), LU10807024 (Société Générale Luxembourg), LU23323353 (Päiperléck S.à r.l.) and LU26640023 (Appassionato S.à r.l.) — the modulus accepts all four and rejects each of them with one digit changed.
 generator: tdc
+locale: fr
 ---
-<sequence name="base"><gen type="regex" value="[0-9]{6}"/></sequence>
+<sequence name="base"><gen type="number" value="100000..299999"/></sequence>
 <sequence name="vat"><compute>
-  <let name="check"><mod><to_number><field name="base"/></to_number><int v="89"/></mod></let>
-  <result><concat><str v="LU"/><field name="base"/><pad width="2" fill="0"><use name="check"/></pad></concat></result>
+  <!-- The published rule: check = base mod 89, written on two digits. -->
+  <let name="check"><pad width="2" fill="0"><mod><to_number><field name="base"/></to_number><int v="89"/></mod></pad></let>
+  <result><concat><str v="LU"/><field name="base"/><use name="check"/></concat></result>
 </compute></sequence>
 <data>${{vat}}</data>

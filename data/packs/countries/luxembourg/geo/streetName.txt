@@ -1,9 +1,1850 @@
 ---
 address: luxembourg.geo.streetName
-description: Luxembourg street name — a voie type followed by a bare name; e.g. "Rue de la Gare", "Avenue de la Liberté".
-generator: tdc
-locale: fr
+description: Real Luxembourg street names out of the national address register, weighted by the number of localities in which the register records a street of that name. Two things here are Luxembourg and not France or Germany. First, THE MOST COMMON STREET NAME IN THE COUNTRY IS "Maison" — 268 localities use it — because a village too small to name its streets numbers its houses instead, and the address is literally "Maison 12, L-9645 Derenbach". A validator that requires a street type in front of the number rejects several thousand perfectly good Luxembourgish addresses. Second, the register mixes languages inside one column and always has: of the 6,455 distinct names it holds, about 3,600 are French in form (Rue de l'Eglise 67, Rue des Champs 65, Rue Principale 56, Rue de la Gare 52) and about 1,500 are Luxembourgish or German (Haaptstrooss 49, Duerfstrooss 35, Millewee 28, Am Eck 22), with the rest bare toponyms belonging to neither. Nothing sorts them by region: a French name and a Luxembourgish one sit on facing sides of the same village. That is why this file declares no locale — the values are genuinely two languages, and tagging it "fr" would be a lie about half of them. Which names are here: every name the register records in two or more localities, plus every street of Luxembourg City and Esch-sur-Alzette. The 5,466 names that occur exactly once in one small village are left out to keep the file to the size the other packs run to; one obvious test entry in the register ("10ième machine SEO") is dropped. Source: Administration du cadastre et de la topographie, Registre national des localités et des rues, table RUE, extract of 10 August 2026.
+weighted: true
 ---
-<sequence name="kind"><gen type="text" value="Rue,Rue,Rue,Avenue,Avenue,Boulevard,Place,Montée,Route,Allée,Impasse,Val"/></sequence>
-<sequence name="named"><gen type="template" value="luxembourg.geo.streetNamed"/></sequence>
-<data>${{kind}} ${{named}}</data>
+Maison,268
+Rue de l'Eglise,67
+Rue des Champs,65
+Rue Principale,56
+Rue de la Gare,52
+Haaptstrooss,49
+Rue des Prés,48
+Rue du Moulin,44
+Rue de l'Ecole,43
+Rue des Jardins,42
+Rue du Cimetière,42
+Duerfstrooss,35
+Rue de la Montagne,32
+Rue Belle-Vue,31
+Rue Neuve,31
+Route de Luxembourg,30
+Rue des Romains,29
+Rue du Bois,29
+Millewee,28
+Grand-Rue,27
+Rue de Luxembourg,25
+Rue de la Forêt,24
+Rue de la Chapelle,23
+Am Eck,22
+Rue de la Fontaine,22
+Rue du Château,22
+Rue Michel Rodange,22
+Rue du Pont,20
+Rue du Chemin de Fer,19
+Duarrefstrooss,18
+Rue du Village,18
+Rue de l'Industrie,17
+Rue des Vergers,16
+Rue Dicks,16
+Am Bongert,15
+Neie Wee,15
+Rue du Parc,15
+Um Knupp,15
+An der Driicht,14
+Rue Belair,14
+Rue Hiel,14
+An der Gaass,13
+Route d'Arlon,13
+Rue de l'Eau,13
+Rue de la Libération,13
+Rue des Fleurs,13
+Am Brill,12
+Am Duerf,12
+Route d'Echternach,12
+Rue de la Montée,12
+Rue de la Vallée,12
+Rue des Roses,12
+Um Bierg,12
+Route de Diekirch,11
+Rue de l'École,11
+Rue de la Paix,11
+Rue du Lavoir,11
+Rue du Stade,11
+Am Pesch,10
+An der Uecht,10
+Op der Knupp,10
+Place de l'Eglise,10
+Rue de l'Indépendance,10
+Rue du Commerce,10
+Hauptstrooss,9
+Kierchestrooss,9
+Route du Vin,9
+Rue Basse,9
+Rue Batty Weber,9
+Rue de l'Alzette,9
+Rue de la Croix,9
+Rue de la Poste,9
+Rue de la Résistance,9
+Rue des Artisans,9
+Rue des Pommiers,9
+Rue des Sports,9
+Rue du Coin,9
+Rue du Fossé,9
+Rue du Nord,9
+Rue Michel Lentz,9
+Schoulstrooss,9
+Bei der Kapell,8
+Kierchewee,8
+Op der Heed,8
+Rue d'Esch,8
+Rue de l'Hôpital,8
+Rue des Vignes,8
+Rue du Brill,8
+Rue du Kiem,8
+Rue du Ruisseau,8
+Rue Grande-Duchesse Charlotte,8
+Rue Hiehl,8
+Rue Prince Henri,8
+Rue Robert Schuman,8
+Schoulwee,8
+Um Knapp,8
+Ale Wee,7
+Am Haff,7
+Am Wangert,7
+Arelerstrooss,7
+Neimillen,7
+Om Knupp,7
+Op der Baach,7
+Op der Gare,7
+Rue de Bettembourg,7
+Rue de l'Église,7
+Rue de Mersch,7
+Rue des Martyrs,7
+Rue des Muguets,7
+Rue du Curé,7
+Rue Haute,7
+Rue Henri Tudor,7
+Rue Pierre Dupong,7
+Rue St. Hubert,7
+Zone Industrielle,7
+An der Baach,6
+Avenue de la Gare,6
+Kiirchewee,6
+Knupp,6
+Neiewee,6
+Op der Héicht,6
+Place de la Gare,6
+Place des Martyrs,6
+Route d'Esch,6
+Route de Longwy,6
+Route de Mondorf,6
+Route de Remich,6
+Route de Thionville,6
+Rue Aloyse Kayser,6
+Rue Anne Beffort,6
+Rue de la Forge,6
+Rue de la Moselle,6
+Rue de la Sûre,6
+Rue de Remich,6
+Rue des Aubépines,6
+Rue des Bleuets,6
+Rue des Cerisiers,6
+Rue des Coquelicots,6
+Rue des Ecoles,6
+Rue des Eglantiers,6
+Rue des Lilas,6
+Rue des Primevères,6
+Rue des Prunelles,6
+Rue des Remparts,6
+Rue des Sources,6
+Rue des Trois Cantons,6
+Rue des Violettes,6
+Rue du Faubourg,6
+Rue Henri Dunant,6
+Rue Lily Unden,6
+Rue Pierre Krier,6
+An der Gewan,5
+An der Hiel,5
+An der Laach,5
+Burewee,5
+Duärrefstrooss,5
+Gaessel,5
+Groussgaass,5
+Hiel,5
+Huelewee,5
+Montée du Château,5
+Op der Haard,5
+Op der Strooss,5
+Place de la Libération,5
+Place du Marché,5
+Réimerwee,5
+Route d'Ettelbruck,5
+Rue Anne Frank,5
+Rue Auguste Liesch,5
+Rue d'Ansembourg,5
+Rue d'Arlon,5
+Rue d'Ettelbruck,5
+Rue d'Oetrange,5
+Rue de Bastogne,5
+Rue de la Cité,5
+Rue de la Mairie,5
+Rue de la Source,5
+Rue de Limpach,5
+Rue de Mondercange,5
+Rue de Mondorf,5
+Rue de Nospelt,5
+Rue de Redange,5
+Rue de Schandel,5
+Rue de Steinfort,5
+Rue des Carrières,5
+Rue des Genêts,5
+Rue des Marguerites,5
+Rue des Mines,5
+Rue des Noyers,5
+Rue des Tanneurs,5
+Rue des Tilleuls,5
+Rue du Canal,5
+Rue du Gruenewald,5
+Rue du Puits,5
+Rue du Soleil,5
+Rue du Verger,5
+Rue Edward Steichen,5
+Rue Emile Mayrisch,5
+Rue Ermesinde,5
+Rue Gabriel Lippmann,5
+Rue Marie Curie,5
+Rue Paul Eyschen,5
+Rue St. Nicolas,5
+Um Haff,5
+Wäistrooss,5
+Al Strooss,4
+Am Dall,4
+Am Gronn,4
+Am Weier,4
+An der Gässel,4
+An der Gruecht,4
+Bei der Millen,4
+Dikrecherstrooss,4
+Duerefstrooss,4
+Houschterhaff,4
+Ieweschtgaass,4
+Kiischtebierg,4
+Op der Bunn,4
+Op der Kopp,4
+Op der Tomm,4
+Route des Trois Cantons,4
+Rue Adolphe,4
+Rue Centrale,4
+Rue Charly Gaul,4
+Rue d'Eschweiler,4
+Rue de Beyren,4
+Rue de Canach,4
+Rue de Hesperange,4
+Rue de Hostert,4
+Rue de Kahler,4
+Rue de Keispelt,4
+Rue de l'Avenir,4
+Rue de l'Etang,4
+Rue de la Chiers,4
+Rue de la Colline,4
+Rue de la Laiterie,4
+Rue de la Piscine,4
+Rue de Larochette,4
+Rue de Mamer,4
+Rue de Moutfort,4
+Rue de Neudorf,4
+Rue de Pettingen,4
+Rue de Schifflange,4
+Rue de Soleuvre,4
+Rue des Acacias,4
+Rue des Alliés,4
+Rue des Bouleaux,4
+Rue des Caves,4
+Rue des Celtes,4
+Rue des Dahlias,4
+Rue des Forges,4
+Rue des Gaulois,4
+Rue des Promenades,4
+Rue des Rosiers,4
+Rue Dicks-Lentz,4
+Rue Dr Welter,4
+Rue du Camping,4
+Rue du Centre,4
+Rue du Château d'Eau,4
+Rue du Knapp,4
+Rue Elsy Jacobs,4
+Rue Guillaume,4
+Rue Jacques Lamort,4
+Rue Jean l'Aveugle,4
+Rue Jean Wolter,4
+Rue Marguerite Thomas-Clement,4
+Rue Mère Teresa,4
+Rue Michel Rasquin,4
+Rue Prince Jean,4
+Rue Raoul Follereau,4
+Rue Renert,4
+Rue Sigefroi,4
+Rue Simone Veil,4
+Rue Victor Hugo,4
+Scheierhaff,4
+Schlasswee,4
+Um Flouer,4
+Veianerstrooss,4
+Wantergaass,4
+Am Bierg,3
+Am Bréil,3
+Am Bungert,3
+Am Duarref,3
+Am Gaart,3
+Am Kundel,3
+Am Peesch,3
+Am Seif,3
+An de Wisen,3
+An der Bréck,3
+An der Delt,3
+An der Gaessel,3
+Avenue de l'Europe,3
+Avenue de la Liberté,3
+Beim Park,3
+Beim Schlass,3
+Boulevard Grande-Duchesse Charlotte,3
+Bousserwee,3
+Dikricherstrooss,3
+Driicht,3
+Ënnescht Duerf,3
+Enneschtgaass,3
+Faubourg,3
+Follmillen,3
+Houserstrooss,3
+Huelgaass,3
+Juddegaass,3
+Kierfechtstrooss,3
+Kierfechtswee,3
+Kiirfechtswee,3
+Lohrbierg,3
+Massewee,3
+Millebierg,3
+Montée des Vignes,3
+Montée St. Hubert,3
+Munnereferstrooss,3
+Om Béchel,3
+Op Bolicht,3
+Op den Aessen,3
+Op der Millen,3
+Op der Tonn,3
+Op Tomm,3
+Place de l'Église,3
+Place de l'Hôtel de Ville,3
+Place de l'Indépendance,3
+Place de la Résistance,3
+Place Grande-Duchesse Charlotte,3
+Roudenhaff,3
+Route d'Erpeldange,3
+Route de Bastogne,3
+Route de Beaufort,3
+Route de Mersch,3
+Route de Perlé,3
+Route de Trèves,3
+Rue Albert Einstein,3
+Rue Antoine Zinnen,3
+Rue Astrid Lindgren,3
+Rue Bechel,3
+Rue Bellevue,3
+Rue Brill,3
+Rue Charlotte,3
+Rue d'Ehlerange,3
+Rue d'Ell,3
+Rue d'Ernster,3
+Rue d'Itzig,3
+Rue d'Olingen,3
+Rue de Bascharage,3
+Rue de Blaschette,3
+Rue de Bourglinster,3
+Rue de Bridel,3
+Rue de Buschdorf,3
+Rue de Contern,3
+Rue de Dalheim,3
+Rue de Gasperich,3
+Rue de Grass,3
+Rue de Hivange,3
+Rue de Junglinster,3
+Rue de Kehlen,3
+Rue de Koerich,3
+Rue de Kopstal,3
+Rue de l'Abattoir,3
+Rue de l'Acier,3
+Rue de l'Innovation,3
+Rue de l'Usine,3
+Rue de la Ferme,3
+Rue de la Grotte,3
+Rue de la Liberté,3
+Rue de la Sapinière,3
+Rue de la Station,3
+Rue de la Tour,3
+Rue de Mensdorf,3
+Rue de Nagem,3
+Rue de Noertzange,3
+Rue de Reckange,3
+Rue de Reimberg,3
+Rue de Rindschleiden,3
+Rue de Roedgen,3
+Rue de Roeser,3
+Rue de Roodt,3
+Rue de Sanem,3
+Rue de Stavelot,3
+Rue de Steinsel,3
+Rue de Syren,3
+Rue de Trèves,3
+Rue de Waldbredimus,3
+Rue de Weiler,3
+Rue de Windhof,3
+Rue de Wormeldange,3
+Rue des Ardennes,3
+Rue des Bois,3
+Rue des Chênes,3
+Rue des Fondeurs,3
+Rue des Mineurs,3
+Rue des Moulins,3
+Rue des Peupliers,3
+Rue des Rochers,3
+Rue des Tisserands,3
+Rue des Trévires,3
+Rue du Berger,3
+Rue du Centenaire,3
+Rue du Couvent,3
+Rue du Dix Septembre,3
+Rue du Genêt,3
+Rue du Lac,3
+Rue du Lycée,3
+Rue du Marché,3
+Rue du Scheid,3
+Rue du Viaduc,3
+Rue du X Septembre,3
+Rue Duchscher,3
+Rue Emmanuel Servais,3
+Rue Gaessel,3
+Rue Gaston Thorn,3
+Rue Général Patton,3
+Rue Goethe,3
+Rue Grand-Duc Jean,3
+Rue Helen Buchholtz,3
+Rue Henri Bessemer,3
+Rue Jean Origer,3
+Rue Jean Schortgen,3
+Rue Jean-Pierre Bausch,3
+Rue Kiem,3
+Rue Knupp,3
+Rue Laach,3
+Rue Large,3
+Rue Lentz,3
+Rue Léon Kauffman,3
+Rue Lise Meitner,3
+Rue Lohr,3
+Rue Lou Koster,3
+Rue Louis Pasteur,3
+Rue Lucien Wercollier,3
+Rue Marcel Reuland,3
+Rue Mathias Koener,3
+Rue Nelson Mandela,3
+Rue Nicolas Biever,3
+Rue Nicolas Welter,3
+Rue Pierre Frieden,3
+Rue Sidney Thomas,3
+Rue St Martin,3
+Rue St Nicolas,3
+Rue Thomas Edison,3
+Rue Verte,3
+Rue Wiltheim,3
+Schleifmillen,3
+Sentier de l'Eglise,3
+Suebelwee,3
+Um Bongert,3
+Um Pad,3
+Um Wäschbuer,3
+Veinerstrooss,3
+Weltzerstrooss,3
+Wengertswee,3
+Wisestrooss,3
+A Laeschent,2
+A Wonesch,2
+Aalewee,2
+Aéroport de Luxembourg,2
+Aire de Capellen,2
+Al Géidgen,2
+Allée de la Jeunesse Sacrifiée 1940-1945,2
+Am Broch,2
+Am Burreneck,2
+Am Dielchen,2
+Am Fuert,2
+Am Gaa,2
+Am Grëndchen,2
+Am Grond,2
+Am Groussfeld,2
+Am huele Wee,2
+Am Lahr,2
+Am Sand,2
+Am Schack,2
+Am Scheerleck,2
+Am Schlass,2
+Am Wues,2
+An de Längten,2
+An de Strachen,2
+An den Azéngen,2
+An der Ae,2
+An der Gewaan,2
+An der Gewännchen,2
+An der Grousswiss,2
+An der Hiehl,2
+An der Hoeff,2
+An der Kaul,2
+An der Klaus,2
+An der Schlaed,2
+An der Schmëdd,2
+An der Steekaul,2
+An der Wollefskaul,2
+Aresdorferhaff,2
+Avenue Charlotte,2
+Avenue d'Oberkorn,2
+Avenue de Luxembourg,2
+Avenue du Swing,2
+Avenue Grand-Duc Jean,2
+Avenue Grande-Duchesse Charlotte,2
+Baachhiel,2
+Bamhaff,2
+Bastnicherstrooss,2
+Beesléckerweeg,2
+Beetebuergerstrooss,2
+Bei der Baach,2
+Bei der Kierch,2
+Bei der Kiirch,2
+Beim Burren,2
+Beim Weiher,2
+Beiricher Strooss,2
+Belle-Vue,2
+Beringerberg,2
+Berreggaass,2
+Biirderwee,2
+Binnewee,2
+Bockwee,2
+Boulevard des Lumières,2
+Boulevard du Jazz,2
+Boulevard Pierre Dupong,2
+Boulevard Prince Henri,2
+Bourewee,2
+Branebuergerstrooss,2
+Breedewee,2
+Broderbour,2
+Burgaass,2
+Burregaass,2
+Burrewee,2
+Burwee,2
+Chaussée St Martin,2
+Chemin de la Fontaine,2
+Chemin de la Forêt,2
+Chemin de Rambrouch,2
+Chemin Rouge,2
+Chemin Vert,2
+Cité Beaulieu,2
+Cité Grand-Duc Jean,2
+Cité op Eechelter,2
+Closdellt,2
+Ditzebierg,2
+Dosberbreck,2
+Dräikantonstrooss,2
+Duchscherstrooss,2
+Ellerwee,2
+Ëlwenterstrooss,2
+Enteschbaach,2
+Esplanade,2
+Fallstrooss,2
+Ferme Goudelt,2
+Fuussewee,2
+Gaalgebierg,2
+Gaardewee,2
+Gaaschtgrund,2
+Gantebeensmillen,2
+Garerstrooss,2
+Gässchen,2
+Gässel,2
+Grenzwee,2
+Growelterwee,2
+Gruefwee,2
+Hakenhaff,2
+Hannert de Gaarden,2
+Härebierg,2
+Haus,2
+Heidchen,2
+Hënneschtgaass,2
+Hëpperdangerstrooss,2
+Hoenerwee,2
+Huesepad,2
+Huldangerweeg,2
+Ierwescht Duerf,2
+Iewescht Duerf,2
+Impasse du Berger,2
+Kaesfurt,2
+Kalkesbaacherstrooss,2
+Kapellestrooss,2
+Kelleschhaff,2
+Kiirchestrooss,2
+Kiirfechstrooss,2
+Kiirfechtsstrooss,2
+Kiischtewee,2
+Kinnekswee,2
+Kirchewee,2
+Klaus,2
+Kounenhaff,2
+Kräizerbucherstrooss,2
+Kuelebierg,2
+Kuerzebësch,2
+Lameschmillen,2
+Lannewee,2
+Lellgerwee,2
+Lëtzebuerger Heck,2
+Lëtzebuergerstrooss,2
+Mäsgewaan,2
+Medernacherstrooss,2
+Mierscherstrooss,2
+Mieswee,2
+Millebaach,2
+Montée de l'Eglise,2
+Montée de la Chapelle,2
+Montée du Haut-Wangert,2
+Nacherstrooss,2
+Naerterstrooss,2
+Neihaff,2
+Nouspelterstrooss,2
+Om Bruch,2
+Om Bungert,2
+Om Buren,2
+Om Knäppchen,2
+Om Maes,2
+Op de Bësch,2
+Op der Bréck,2
+Op der Dresch,2
+Op der Driicht,2
+Op der Gewan,2
+Op der Haart,2
+Op der Héi,2
+Op der Hiel,2
+Op der Houscht,2
+Op der Huuscht,2
+Op der Lee,2
+Op der Sang,2
+Op der Schanz,2
+Op der Schleed,2
+Op der Uecht,2
+Op der Wiss,2
+Op Laangert,2
+Pënscherbierg,2
+Petite Rue,2
+Place Benelux,2
+Place de France,2
+Place de l'Etoile,2
+Place de l'Europe,2
+Place de la Mairie,2
+Place Nelson Mandela,2
+Place Pierre Krier,2
+Place Winston Churchill,2
+Port de Mertert,2
+Quai de la Moselle,2
+Quartier,2
+Quartier de l'Eglise,2
+Rangwee,2
+Reckenthal,2
+Réidenerwee,2
+Reimerwee,2
+Reisduerferstrooss,2
+Rippwelerwee,2
+Roost,2
+Route d'Eppeldorf,2
+Route de Bergem,2
+Route de Bettembourg,2
+Route de Bissen,2
+Route de Boudersberg,2
+Route de Dillingen,2
+Route de Dippach,2
+Route de Grundhof,2
+Route de Holtz,2
+Route de Kayl,2
+Route de Larochette,2
+Route de Noertzange,2
+Route de Reisdorf,2
+Route de Riedchen,2
+Route de Vichten,2
+Route de Wasserbillig,2
+Route de Zoufftgen,2
+Route Principale,2
+Rue Abbé Welter,2
+Rue Ada Lovelace,2
+Rue Albert Schweitzer,2
+Rue Albert Simon,2
+Rue Albert Ungeheuer,2
+Rue Alexandre Fleming,2
+Rue Aloyse Meyer,2
+Rue Alphonse Munchen,2
+Rue Andethana,2
+Rue André Duchscher,2
+Rue Anna Lindh,2
+Rue Annette Schwall-Lacroix,2
+Rue Ausone,2
+Rue Berg,2
+Rue Bommert,2
+Rue Bruch,2
+Rue C-M Spoo,2
+Rue Camille Claudel,2
+Rue Caspar-Mathias Spoo,2
+Rue Charles de Gaulle,2
+Rue Clairefontaine,2
+Rue d'Altlinster,2
+Rue d'Altrier,2
+Rue d'Alzingen,2
+Rue d'Echternach,2
+Rue d'Elvange,2
+Rue d'Oberkorn,2
+Rue d'Olm,2
+Rue d'Oradour,2
+Rue d'Ospern,2
+Rue Daundorf,2
+Rue de Belval,2
+Rue de Belvaux,2
+Rue de Beringen,2
+Rue de Bettange,2
+Rue de Bettborn,2
+Rue de Bissen,2
+Rue de Bivange,2
+Rue de Bonnevoie,2
+Rue de Brouch,2
+Rue de Buerden,2
+Rue de Buschrodt,2
+Rue de Cessange,2
+Rue de Christnach,2
+Rue de Clairefontaine,2
+Rue de Colmar-Berg,2
+Rue de Dahlem,2
+Rue de Dellen,2
+Rue de Diekirch,2
+Rue de Differdange,2
+Rue de Dippach,2
+Rue de Dondelange,2
+Rue de Fingig,2
+Rue de Flaxweiler,2
+Rue de Folschette,2
+Rue de Garnich,2
+Rue de Glabach,2
+Rue de Godbrange,2
+Rue de Goeblange,2
+Rue de Goetzingen,2
+Rue de Gonderange,2
+Rue de Grevenmacher,2
+Rue de Hagen,2
+Rue de Hassel,2
+Rue de Hautcharage,2
+Rue de Hellange,2
+Rue de Hobscheid,2
+Rue de Holtz,2
+Rue de Holzem,2
+Rue de Hussigny,2
+Rue de Kleinbettingen,2
+Rue de Kockelscheuer,2
+Rue de l'Attert,2
+Rue de l'Egalité,2
+Rue de l'Ermitage,2
+Rue de l'Ernz,2
+Rue de l'Hôtel de Ville,2
+Rue de la Barrière,2
+Rue de la Brasserie,2
+Rue de la Carrière,2
+Rue de la Cimenterie,2
+Rue de la Corniche,2
+Rue de la Déportation,2
+Rue de la Fonderie,2
+Rue de la Frontière,2
+Rue de la Gendarmerie,2
+Rue de la Grève,2
+Rue de la Rivière,2
+Rue de la Solidarité,2
+Rue de la Tannerie,2
+Rue de la Wark,2
+Rue de Lannen,2
+Rue de Lasauvage,2
+Rue de Leudelange,2
+Rue de Livange,2
+Rue de Manternach,2
+Rue de Marcinelle,2
+Rue de Meispelt,2
+Rue de Merl,2
+Rue de Merscheid,2
+Rue de Michelbouch,2
+Rue de Niederdonven,2
+Rue de Niederpallen,2
+Rue de Reichlange,2
+Rue de Rodenbourg,2
+Rue de Rolling,2
+Rue de Roodt-sur-Syre,2
+Rue de Rumelange,2
+Rue de Saeul,2
+Rue de Sandweiler,2
+Rue de Schoenfels,2
+Rue de Schouweiler,2
+Rue de Septfontaines,2
+Rue de Strassen,2
+Rue de Vianden,2
+Rue de Vichten,2
+Rue de Wecker,2
+Rue de Welscheid,2
+Rue de Wiltz,2
+Rue de Wormeldange-Haut,2
+Rue des Alouettes,2
+Rue des Anémones,2
+Rue des Ateliers,2
+Rue des Aulnes,2
+Rue des Bâteliers,2
+Rue des Bénédictins,2
+Rue des Bruyères,2
+Rue des Carrefours,2
+Rue des Erables,2
+Rue des Foyers,2
+Rue des Fraises,2
+Rue des Franciscaines,2
+Rue des Frênes,2
+Rue des Hêtres,2
+Rue des Légionnaires,2
+Rue des Ligures,2
+Rue des Merisiers,2
+Rue des Mérovingiens,2
+Rue des Pâquerettes,2
+Rue des Passeurs,2
+Rue des Pêcheurs,2
+Rue des Pins,2
+Rue des Platanes,2
+Rue des Ponts,2
+Rue des Pruniers,2
+Rue des Sacrifiés,2
+Rue des Sapins,2
+Rue des Saules,2
+Rue des Scillas,2
+Rue des Sorbiers,2
+Rue des Thermes,2
+Rue Dominique Lang,2
+Rue Dr Albert Schweitzer,2
+Rue Dr Auguste Schumacher,2
+Rue Dr Elvire Engel,2
+Rue Dr Emile Pauly,2
+Rue Dr Marie-Paule Molitor-Peffer,2
+Rue du Barrage,2
+Rue du Castel,2
+Rue du Charly,2
+Rue du Crassier,2
+Rue du Golf,2
+Rue du Mur,2
+Rue du Pain,2
+Rue du Plébiscite,2
+Rue du Port,2
+Rue du Puits Romain,2
+Rue du Rham,2
+Rue du Tilleul,2
+Rue du Travail,2
+Rue Eich,2
+Rue Emile Metz,2
+Rue Fernand Mertens,2
+Rue Flammang,2
+Rue Flebour,2
+Rue Florence Nightingale,2
+Rue François Faber,2
+Rue Françoise Groben,2
+Rue Frantz Seimetz,2
+Rue Fridhaff,2
+Rue Gaalgebierg,2
+Rue Galileo Galilei,2
+Rue Gaston Barbanson,2
+Rue General Patton,2
+Rue Gessel,2
+Rue Gewaennchen,2
+Rue Goldknapp,2
+Rue Guillaume Capus,2
+Rue Guillaume J. Kroll,2
+Rue Gustave Eiffel,2
+Rue Haupeschhaff,2
+Rue Hicht,2
+Rue Hoehl,2
+Rue J-F Kennedy,2
+Rue Jane Addams,2
+Rue Janglisbunn,2
+Rue Jean Erpelding,2
+Rue Jean Jaurès,2
+Rue Jean Schaack,2
+Rue Jean-Guillaume Kremer,2
+Rue Jean-Pierre Erpelding,2
+Rue Jean-Pierre Kemmer,2
+Rue Jean-Pierre Kirchen,2
+Rue Jean-Pierre Thill,2
+Rue Jeanne Rouff,2
+Rue Jeannot Kremer,2
+Rue John F. Kennedy,2
+Rue Jos Sünnen,2
+Rue Joseph Hackin,2
+Rue Joséphine Jacquemart-Jaans,2
+Rue Josy Meyers,2
+Rue Jules Wilhelm,2
+Rue Kallekerbësch,2
+Rue Karl Marx,2
+Rue Laduno,2
+Rue Langheck,2
+Rue Laurent Menager,2
+Rue Le Bataclan,2
+Rue Léon Weirich,2
+Rue Lou Hemmer,2
+Rue Louis Braille,2
+Rue Louise Michel,2
+Rue Louise Welter,2
+Rue Marcel Noppeney,2
+Rue Marcel Schintgen,2
+Rue Maria Teresa,2
+Rue Marie-Adelaide,2
+Rue Marie-Paule Molitor-Peffer,2
+Rue Mercier,2
+Rue Michel Welter,2
+Rue Neiwiss,2
+Rue Nic. Biever,2
+Rue Nico Klopp,2
+Rue Nicolas Braunshausen,2
+Rue Nicolas Margue,2
+Rue Nicolas Thill,2
+Rue Nicolas Victor Colbert,2
+Rue Nicolas-Ernest Barblé,2
+Rue Notre-Dame,2
+Rue Pasteur,2
+Rue Paul Medinger,2
+Rue Paul Noesen,2
+Rue Pierre Federspiel,2
+Rue Pierre Flammang,2
+Rue Pierre Neiertz,2
+Rue Pierre Werner,2
+Rue Pir Kremer,2
+Rue Poutty Stein,2
+Rue Prince Guillaume,2
+Rue Prinzenberg,2
+Rue Randlingen,2
+Rue Robert Krieps,2
+Rue Roger Krier,2
+Rue Roger Leiner,2
+Rue Roger Wercollier,2
+Rue Rosalind Franklin,2
+Rue Roudebësch,2
+Rue Ry Boissaux,2
+Rue Sauerwiss,2
+Rue Scheerbach,2
+Rue Schetzel,2
+Rue Schiller,2
+Rue Seitert,2
+Rue Sosthene Weis,2
+Rue St Joseph,2
+Rue St. Antoine,2
+Rue St. Joseph,2
+Rue Ste Barbe,2
+Rue Ste Irmine,2
+Rue Stressel,2
+Rue Thomas Byrne,2
+Rue Tschiderer,2
+Rue Victor Ferrant,2
+Rue Vieille,2
+Rue Wangert,2
+Rue Widdem,2
+Rue Winston Churchill,2
+Rue Woiwer,2
+Rue Xavier Brasseur,2
+Rue Yolande,2
+Rue Yvonne Useldinger-Hostert,2
+Rue Zénon Bernard,2
+Sandweiler-Gare,2
+Sauergaass,2
+Scheedhaff,2
+Schenk,2
+Schierenermillen,2
+Schoulbierg,2
+Schullstrooss,2
+Schullweeg,2
+Schüttbuerger Schlass,2
+Schwanenthal,2
+Sëllerstrooss,2
+Simmerschmelz,2
+Sonnestrooss,2
+Stackemer Weeg,2
+Steekaul,2
+Steil,2
+Theinshaff,2
+Thiergaart,2
+Toodlermillen,2
+Um Bëchel,2
+Um Buren,2
+Um Kalleksuewen,2
+Um Kiem,2
+Um Millewee,2
+Um Plateau,2
+Um Sand,2
+Um Séi,2
+Um Steen,2
+Um Waeschbur,2
+Um Weiher,2
+Val des Roses,2
+Val Fleuri,2
+Vir Fuuschent,2
+Virstadt,2
+Wämperweeg,2
+Weiler Weeg,2
+Wëntger Wee,2
+Wieweschgaass,2
+Wissgaart,2
+Z.A.C. Hahneboesch II,2
+Z.A.E. WOLSER B,2
+Zone Artisanale,2
+Zone Artisanale et Commerciale,2
+Zone Op Zaemer,2
+Allée de l'Unioun,1
+Allée des Charmes,1
+Allée des Châtaigniers,1
+Allée des Poiriers,1
+Allée des Résistants et des Déportés,1
+Allée du Carmel,1
+Allée Dwight David Eisenhower,1
+Allée Léopold Goebel,1
+Allée Marconi,1
+Allée Marconi - Villa Louvigny,1
+Allée Pierre de Mansfeld,1
+Allée Scheffer,1
+Am Guddebierg,1
+Am Pudel,1
+An der Schmelz,1
+Ancienne Côte d'Eich,1
+Avenue Amélie,1
+Avenue Charles de Gaulle,1
+Avenue de la Faïencerie,1
+Avenue de la Paix,1
+Avenue de la Porte-Neuve,1
+Avenue des Archiducs,1
+Avenue des Hauts-Fourneaux,1
+Avenue des Sidérurgistes,1
+Avenue des Terres-Rouges,1
+Avenue du Bois,1
+Avenue du Dix Septembre,1
+Avenue du Rock'n'Roll,1
+Avenue Emile Reuter,1
+Avenue Gaston Diderich,1
+Avenue Guillaume,1
+Avenue Jean-Pierre Pescatore,1
+Avenue John F. Kennedy,1
+Avenue Joseph Sax,1
+Avenue Marie-Thérèse,1
+Avenue Monterey,1
+Avenue Pasteur,1
+Avenue Victor Hugo,1
+Bambësch,1
+Bd Grande-Duchesse Joséphine-Charlotte,1
+Bei der Härewiss,1
+Beim Béinchen,1
+Beim Fetschebur,1
+Bisserweg,1
+Boulevard Aloyse Meyer,1
+Boulevard Berwart,1
+Boulevard Charles de Gaulle,1
+Boulevard Charles Simonis,1
+Boulevard d'Avranches,1
+Boulevard de Kockelscheuer,1
+Boulevard de Kyiv,1
+Boulevard de l'Alzette,1
+Boulevard de la Foire,1
+Boulevard de la Fraternité,1
+Boulevard de la Pétrusse,1
+Boulevard de Verdun,1
+Boulevard Dr Charles Marx,1
+Boulevard Dr Ernest Feltgen,1
+Boulevard du Brill,1
+Boulevard Emmanuel Servais,1
+Boulevard F.W. Raiffeisen,1
+Boulevard Franklin D. Roosevelt,1
+Boulevard Gaston Thorn,1
+Boulevard Général George S. Patton,1
+Boulevard Gustave Jacquemart,1
+Boulevard Hubert Clément,1
+Boulevard J.F. Kennedy,1
+Boulevard Jean Ulveling,1
+Boulevard John J. Pershing,1
+Boulevard Joseph II,1
+Boulevard Jules Salentiny,1
+Boulevard Kaltreis,1
+Boulevard Konrad Adenauer,1
+Boulevard Marcel Cahen,1
+Boulevard Napoléon 1er,1
+Boulevard Nelson Mandela,1
+Boulevard Paul Eyschen,1
+Boulevard Pierre Frieden,1
+Boulevard Pierre Krier,1
+Boulevard Pierre Werner,1
+Boulevard Prince Charles,1
+Boulevard Prince Félix,1
+Boulevard Robert Baden-Powell,1
+Boulevard Robert Schuman,1
+Boulevard Royal,1
+Boulevard Victor Thorn,1
+Boulevard Winston Churchill,1
+Brandgässel,1
+Bricherhaff,1
+Burgronn,1
+Centre Douanier Croix de Gasperich,1
+Centre Mercure,1
+Centre Nossbierg,1
+Château de Beggen,1
+Château de Dommeldange,1
+Chemin Alice Chomé-Bastian,1
+Chemin de Kockelscheuer,1
+Chemin de la Corniche,1
+Chemin de Roedgen,1
+Chemin Malala Yousafzai,1
+Chemin Ruby Bridges,1
+Chemin Sophie Scholl,1
+Circuit de la Foire Internationale,1
+Cité C.E.C.A.,1
+Cité de l'Espérance,1
+Cité Dr Nicolas Schaeftgen,1
+Cité Franz Leesberg,1
+Cité Joseph Brebsom,1
+Cité Louis Blum,1
+Cité Pierre Krier,1
+Cité Salvador Allende,1
+Cité Verte,1
+Cloche d'Or,1
+Côte d'Eich,1
+Cour du Couvent,1
+Crispinusbierg,1
+Déieregaart,1
+Dernier Sol,1
+Dieswee,1
+Domaine du Schlassgoard,1
+Duderhaff,1
+Ecole En Forêt,1
+Eecherfeld,1
+Eicherfeld,1
+Ellergronn,1
+Ënnert den Héichiewen,1
+Eydtmillen,1
+Fetschenhaff,1
+Fond St Martin,1
+Geessekneppchen,1
+Hammerdelchen,1
+Holzenbierg,1
+Ierzewee,1
+Impasse Drosbach,1
+Izegerstee,1
+Juegdschlass,1
+Kalchesbréck,1
+Kazebierg,1
+Keibierg,1
+Kleesgrëndchen,1
+Knäppchen,1
+Kockelscheier,1
+Kohlenberg,1
+Leemerwee,1
+Marché-aux-Poissons,1
+Millegässel,1
+Montagne de l'Ecole,1
+Montée de Clausen,1
+Montée de Dommeldange,1
+Montée de la Pétrusse,1
+Montée de Pfaffenthal,1
+Montée des Tilleuls,1
+Montée du Grund,1
+Montée Pilate,1
+Montée St Crépin,1
+Montée Thommes,1
+Mühlenweg,1
+Neiduerf,1
+Op dem Hongrege Bur,1
+Op den Drieschen,1
+Op der Léier,1
+Op der Schmëdd,1
+Papeierbierg,1
+Park Dräi Eechelen,1
+Passage de l Académie,1
+Passage de l'Académie,1
+Passage de l'Hôtel de Ville,1
+Passage des Cheminots,1
+Passage Gëlle Klack,1
+Passage Marc Olinger,1
+Passage Roger Manderscheid,1
+Passerelle des Arts,1
+Peitrus,1
+Pénétrante de Lallange,1
+Pénétrante de Lankelz,1
+Petite Rue des Jardins,1
+Petite Rue du Moulin,1
+Place Abbé P.J. Charles Mullendorff,1
+Place Adeline Pellegrino,1
+Place Am Boltgen,1
+Place Antoine Krier,1
+Place Auguste Engel,1
+Place Auguste Laurent,1
+Place d'Armes,1
+Place de Bruxelles,1
+Place de Clairefontaine,1
+Place de Durbuy,1
+Place de Gand,1
+Place de l'Académie,1
+Place de l'Exposition,1
+Place de l'Université,1
+Place de la Constitution,1
+Place de la Frontière,1
+Place de la Lorraine,1
+Place de la Paix,1
+Place de la Synagogue,1
+Place de Liège,1
+Place de Lodève,1
+Place de Metz,1
+Place de Nancy,1
+Place de Paris,1
+Place de Roedgen,1
+Place de Stalingrad,1
+Place de Strasbourg,1
+Place des Bains,1
+Place des Fondeurs,1
+Place des Franciscains,1
+Place des Libérateurs,1
+Place des Mines,1
+Place des Pays-Bas,1
+Place des Remparts,1
+Place des Rotondes,1
+Place des Sacrifiés 1940-1945,1
+Place du mémorial de la Shoah,1
+Place du Parc,1
+Place du Six Juin 1937,1
+Place du Théâtre,1
+Place Emile Hamilius,1
+Place Emile Mousel,1
+Place François-Joseph Dargent,1
+Place Grobirchen,1
+Place Guillaume II,1
+Place Henri Funck,1
+Place Jean Heinisch,1
+Place Jean Jaurès,1
+Place Jean-Pierre Manternach,1
+Place Jeanne d'Arc,1
+Place Joseph Thorn,1
+Place Léon Jouhaux,1
+Place Léon XIII,1
+Place Maurice Pescatore,1
+Place Mercier,1
+Place Nicolas Philippe,1
+Place Norbert Metz,1
+Place Pierre Ponath,1
+Place Sauerwiss,1
+Place Simone Veil,1
+Place St Jean,1
+Place St Michel,1
+Place St Willibrord,1
+Place Ste Cunégonde,1
+Place Sts Pierre et Paul,1
+Place Victor Hugo,1
+Place Virchow,1
+Place Wallis,1
+Place Yvonne Hostert,1
+Plateau Altmünster,1
+Plateau du Rham,1
+Plateau du St Esprit,1
+Pont Adolphe,1
+Pont Grande-Duchesse Charlotte,1
+Pont Jean-Pierre Buchler,1
+Pont Joseph Bech,1
+Pont Margot Libens-Reiffers,1
+Pont Viaduc,1
+Porte de France,1
+Porte des Sciences,1
+Quai Neiduerf,1
+Raspert,1
+Residence Hubert Clément,1
+Résidence Jean-Pierre Theisen,1
+Résidence Michel Rasquin,1
+Rives de Clausen,1
+Rond-point An der Schmelz,1
+Rond-point Charles de Gaulle,1
+Rond-point Hubert Clément,1
+Rond-point Op der Goar,1
+Rond-point Raemerich,1
+Rond-Point Robert Schaffner,1
+Rond-Point Robert Schuman,1
+Rond-point Terres-Rouges,1
+Rond-point Um Däich,1
+Roudebierg,1
+Rue Abbé François Lascombes,1
+Rue Abbé Jos Keup,1
+Rue Abbé Jules Lemire,1
+Rue Adam Roberti,1
+Rue Adolphe Fischer,1
+Rue Adolphe Omlor,1
+Rue Albert 1er,1
+Rue Albert Borschette,1
+Rue Albert Calmes,1
+Rue Albert Goedert,1
+Rue Albert Philippe,1
+Rue Albert Steffen,1
+Rue Albert Unden,1
+Rue Albert Wehrer,1
+Rue Alcide de Gasperi,1
+Rue Aldringen,1
+Rue Alfred de Musset,1
+Rue Alfred Kowalsky,1
+Rue Aline de Saint-Hubert,1
+Rue Alphonse Rupprecht,1
+Rue Alphonse Weicker,1
+Rue Anatole France,1
+Rue André Chevalier,1
+Rue André Koch,1
+Rue André Vésale,1
+Rue Andrea Costa-Delvaux,1
+Rue Antoine,1
+Rue Antoine de Saint-Exupéry,1
+Rue Antoine Diederich,1
+Rue Antoine Godart,1
+Rue Antoine Hirsch,1
+Rue Antoine Jans,1
+Rue Antoine Luja,1
+Rue Antoine Meyer,1
+Rue Antoine-François Van Der Meulen,1
+Rue Aristide Briand,1
+Rue Aristides de Sousa Mendes,1
+Rue Arthur Herchen,1
+Rue Arthur Knaff,1
+Rue Arthur Useldinger,1
+Rue Astrid,1
+Rue Auguste Charles,1
+Rue Auguste Laval,1
+Rue Auguste Letellier,1
+Rue Auguste Lumière,1
+Rue Auguste Neyen,1
+Rue Auguste Trémont,1
+Rue Barbourg,1
+Rue Baudouin,1
+Rue Béatrix de Bourbon,1
+Rue Beaumont,1
+Rue Beck,1
+Rue Bender,1
+Rue Benjamin Franklin,1
+Rue Bernard Haal,1
+Rue Berwart,1
+Rue Bischoff,1
+Rue Blaise Pascal,1
+Rue Boltgen,1
+Rue Burgoard,1
+Rue C.M. Spoo,1
+Rue Camille Polfer,1
+Rue Camille Wampach,1
+Rue Carlo Hemmer,1
+Rue Caroline Baldauff-Rothermel,1
+Rue Catherine Schleimer-Kill,1
+Rue Cents,1
+Rue Ch. W. Gluck,1
+Rue Charlemagne,1
+Rue Charles Arendt,1
+Rue Charles Bernhoeft,1
+Rue Charles Calmette,1
+Rue Charles Darwin,1
+Rue Charles de Tornaco,1
+Rue Charles Gounod,1
+Rue Charles IV,1
+Rue Charles Martel,1
+Rue Charles Sowa,1
+Rue Charles VI,1
+Rue Charles-Léon Hammes,1
+Rue Charles-Quint,1
+Rue Charlotte Engels,1
+Rue Chimay,1
+Rue Chingiz T. Aitmatov,1
+Rue Christophe Colomb,1
+Rue Christophe Plantin,1
+Rue Clair-Chêne,1
+Rue Comte Joseph de Ferraris,1
+Rue Conrad 1er,1
+Rue Curé Jacques Kayser,1
+Rue Cyprien Merjai,1
+Rue d'Allamont,1
+Rue d'Alsace,1
+Rue d'Amsterdam,1
+Rue d'Anvers,1
+Rue d'Audun,1
+Rue d'Avalon,1
+Rue d'Eich,1
+Rue d'Epernay,1
+Rue d'Etalle,1
+Rue d'Ethe,1
+Rue d'Ivoix,1
+Rue d'Offenbach,1
+Rue d'Orange,1
+Rue d'Orchimont,1
+Rue d'Orval,1
+Rue d'Ostende,1
+Rue Dante,1
+Rue de Beggen,1
+Rue de Bergem,1
+Rue de Bitbourg,1
+Rue de Bouillon,1
+Rue de Bourgogne,1
+Rue de Bragance,1
+Rue de Carignan,1
+Rue de Chicago,1
+Rue de Chiny,1
+Rue de Clausen,1
+Rue de Clervaux,1
+Rue de Coimbra (anc. Rue de Tilburg),1
+Rue de Cologne,1
+Rue de Crécy,1
+Rue de Dormans,1
+Rue de Gibraltar,1
+Rue de Halanzy,1
+Rue de Hamm,1
+Rue de Hollerich,1
+Rue de Houffalize,1
+Rue de Kevelaer,1
+Rue de Kirchberg,1
+Rue de l'Aciérie,1
+Rue de l'Aérodrome,1
+Rue de l'Ancien Athénée,1
+Rue de l'Arbed,1
+Rue de l'Hippodrome,1
+Rue de l'Ordre de la Couronne de Chêne,1
+Rue de l'Ouest,1
+Rue de la Boucherie,1
+Rue de la Congrégation,1
+Rue de la Fonte,1
+Rue de la Francophonie,1
+Rue de la Lavande,1
+Rue de la Loge,1
+Rue de la Lorraine,1
+Rue de la Malterie,1
+Rue de la Monnaie,1
+Rue de la Reine,1
+Rue de la Renaissance,1
+Rue de la Rotonde,1
+Rue de la Semois,1
+Rue de la Toison D'Or,1
+Rue de la Tour Jacob,1
+Rue de la Tuilerie,1
+Rue de Lallange,1
+Rue de Laroche,1
+Rue de Liège,1
+Rue de Lille,1
+Rue de Lodeve,1
+Rue de Mâcon,1
+Rue de Malines,1
+Rue de Marche,1
+Rue de Marville,1
+Rue de Moedling,1
+Rue de Montmédy,1
+Rue de Montpellier,1
+Rue de Mühlenbach,1
+Rue de Namur,1
+Rue de Nassau,1
+Rue de Neuerburg,1
+Rue de Neufchâteau,1
+Rue de Pont-Remy,1
+Rue de Prague,1
+Rue de Pulvermühl,1
+Rue de Puteaux,1
+Rue de Raemerich,1
+Rue de Reims,1
+Rue de Rochefort,1
+Rue de Rollingergrund,1
+Rue de Rotterdam,1
+Rue de Saint-Gilles,1
+Rue de Saint-Hubert,1
+Rue de Saint-Vith,1
+Rue de Salm,1
+Rue de Stalingrad,1
+Rue de Strasbourg,1
+Rue de Turin,1
+Rue de Velletri,1
+Rue de Virton,1
+Rue Dellhéicht,1
+Rue Demy Schlechter,1
+Rue des Argentins,1
+Rue des Arquebusiers,1
+Rue des Bains,1
+Rue des Capucins,1
+Rue des Charbons,1
+Rue des Cigales,1
+Rue des Dominicains,1
+Rue des Draperies,1
+Rue des Etats-Unis,1
+Rue des Forains,1
+Rue des Franciscains,1
+Rue des Girondins,1
+Rue des Glacis,1
+Rue des Grottes,1
+Rue des Hauts-Fourneaux,1
+Rue des Jardiniers,1
+Rue des Labours,1
+Rue des Maquisards,1
+Rue des Maraîchers,1
+Rue des Ouvriers,1
+Rue des Réservoirs,1
+Rue des Sept-Arpents,1
+Rue des Sept-Fontaines,1
+Rue des Trois Glands,1
+Rue Dominique-Joseph Hoferlin,1
+Rue Dr Carel Achen,1
+Rue Dr Emile Colling,1
+Rue Dr Jean-Pierre Knaff,1
+Rue Dr Michel Welter,1
+Rue Dr Nicolas Clasen,1
+Rue Dr Philippe Bastian,1
+Rue du 1er Mai,1
+Rue du Cinquantenaire,1
+Rue du Fort Berlaimont,1
+Rue du Fort Bourbon,1
+Rue du Fort Dumoulin,1
+Rue du Fort Elisabeth,1
+Rue du Fort Neipperg,1
+Rue du Fort Niedergrünewald,1
+Rue du Fort Olisy,1
+Rue du Fort Rheinsheim,1
+Rue du Fort Thüngen,1
+Rue du Fort Wallis,1
+Rue du Fort Wedell,1
+Rue du Glacis,1
+Rue du Grünewald,1
+Rue du Laboratoire,1
+Rue du Laminoir,1
+Rue du Marché-aux-Herbes,1
+Rue du Neuf Septembre 1867,1
+Rue du Palais de Justice,1
+Rue du Père Jacques Brocquart,1
+Rue du Père Raphaël,1
+Rue du Potager,1
+Rue du Rost,1
+Rue du St Esprit,1
+Rue du Tramway,1
+Rue Edmond Dune,1
+Rue Edouard Fellens,1
+Rue Edouard Grenier,1
+Rue Eecherschmelz,1
+Rue Emile Bian,1
+Rue Emile Duployé,1
+Rue Emile Eischen,1
+Rue Emile Lavandier,1
+Rue Emile Verhaeren,1
+Rue Englebert Neveu,1
+Rue Erasme,1
+Rue Ernest Koch,1
+Rue Ernie Reitz,1
+Rue Eugène Mousset,1
+Rue Eugène Reichling,1
+Rue Eugène Ruppert,1
+Rue Eugène Schaus,1
+Rue Eugène Wolff,1
+Rue Evrard Ketten,1
+Rue Evy Friedrich,1
+Rue F. W. Raiffeisen,1
+Rue Fanny Leclerc,1
+Rue Félix de Blochausen,1
+Rue Ferdinand Nothomb,1
+Rue Fernand D'Huart,1
+Rue Fernand Fox,1
+Rue François Baclesse,1
+Rue François Cigrang,1
+Rue François Donven,1
+Rue François Hogenberg,1
+Rue François Schaack,1
+Rue François Sébastien Tinant,1
+Rue Frantz Clément,1
+Rue Franz Liszt,1
+Rue Frédéric Joliot-Curie,1
+Rue Friedrich Wilhelm Engelhardt,1
+Rue Gabriel de Marie,1
+Rue Général G.S. Patton,1
+Rue Général Major Lunsford E. Oliver,1
+Rue Général Omar N. Bradley,1
+Rue Genistre,1
+Rue George C. Marshall,1
+Rue Georges Clemenceau,1
+Rue Gerhard Mercator,1
+Rue Gioacchino Rossini,1
+Rue Giselbert,1
+Rue Giuseppe Verdi,1
+Rue Glesener,1
+Rue Godchaux,1
+Rue Guido Oppenheim,1
+Rue Guillaume de Machault,1
+Rue Guillaume Schneider,1
+Rue Gustave Kahnt,1
+Rue Hall des Turbines,1
+Rue Heinrich Aigner,1
+Rue Heinrich Heine,1
+Rue Henri Frommes,1
+Rue Henri Habig,1
+Rue Henri Heymanns,1
+Rue Henri Koch,1
+Rue Henri Lamormesnil,1
+Rue Henri M. Schnadt,1
+Rue Henri Pensis,1
+Rue Henri Vannérus,1
+Rue Henri VII,1
+Rue Henry Bessemer,1
+Rue Herbert Schaefer,1
+Rue Hildegard von Bingen,1
+Rue Hugo Gernsback,1
+Rue Ignace de la Fontaine,1
+Rue Irmine,1
+Rue Isaac Newton,1
+Rue J.A. Muller,1
+Rue Jacques de Deventer,1
+Rue Jacques Stas,1
+Rue Jacques Sturm,1
+Rue Jean Berg,1
+Rue Jean Bertels,1
+Rue Jean Bertholet,1
+Rue Jean Chalop,1
+Rue Jean Engling,1
+Rue Jean Jacoby,1
+Rue Jean Jaures,1
+Rue Jean Linden,1
+Rue Jean Mersch-Wittenauer,1
+Rue Jean Monnet,1
+Rue Jean Piret,1
+Rue Jean Schoetter,1
+Rue Jean Soupert,1
+Rue Jean-Baptiste Esch,1
+Rue Jean-Baptiste Fresez,1
+Rue Jean-Baptiste Gellé,1
+Rue Jean-Baptiste Merkels,1
+Rue Jean-Baptiste Nothomb,1
+Rue Jean-François Boch,1
+Rue Jean-François Gangler,1
+Rue Jean-Gaspard de Cicignon,1
+Rue Jean-Georges Willmar,1
+Rue Jean-Pierre Beckius,1
+Rue Jean-Pierre Beicht,1
+Rue Jean-Pierre Biermann,1
+Rue Jean-Pierre Brasseur,1
+Rue Jean-Pierre David Heldenstein,1
+Rue Jean-Pierre Huberty,1
+Rue Jean-Pierre Koenig,1
+Rue Jean-Pierre Koltz,1
+Rue Jean-Pierre Kuborn,1
+Rue Jean-Pierre Lamboray,1
+Rue Jean-Pierre Michels,1
+Rue Jean-Pierre Pier,1
+Rue Jean-Pierre Pierrard,1
+Rue Jean-Pierre Probst,1
+Rue Jean-Pierre Sauvage,1
+Rue Jean-Pierre Thoma,1
+Rue Johannes Gutenberg,1
+Rue Johannes Kepler,1
+Rue John L. Mac Adam,1
+Rue Johny Flick,1
+Rue Joseph Hansen,1
+Rue Joseph Heintz,1
+Rue Joseph Hess,1
+Rue Joseph Junck,1
+Rue Joseph Kieffer,1
+Rue Joseph Kutter,1
+Rue Joseph Leydenbach,1
+Rue Joseph Massarette,1
+Rue Joseph Tockert,1
+Rue Joseph Weber,1
+Rue Joseph Wester,1
+Rue Jules Fischer,1
+Rue Jules Mersch,1
+Rue Julien Vesque,1
+Rue Kalchesbruck,1
+Rue Lamartine,1
+Rue Lankelz,1
+Rue Laura Bassi,1
+Rue Laurent,1
+Rue Lavoisier,1
+Rue Léandre Lacroix,1
+Rue Lefèvre,1
+Rue Lemire,1
+Rue Léo Moulin,1
+Rue Léon Hengen,1
+Rue Léon Jouhaux,1
+Rue Léon Kinsch,1
+Rue Léon Lamort,1
+Rue Léon Metz,1
+Rue Léon Metzler,1
+Rue Léon Thurm,1
+Rue Léon Thyes,1
+Rue Leonardo Da Vinci,1
+Rue Léopold Hoffmann,1
+Rue Léopold Sédar Senghor,1
+Rue Lise Rischard-Meyer,1
+Rue Louis de Froment,1
+Rue Louis Deny,1
+Rue Louis Petit,1
+Rue Louis XIV,1
+Rue Louvigny,1
+Rue Luc Housse,1
+Rue Lucien Thiel,1
+Rue Ludwig van Beethoven,1
+Rue Lull Gillen,1
+Rue Malakoff,1
+Rue Marcel Fischbach,1
+Rue Marcelle Dauphin,1
+Rue Maréchal Foch,1
+Rue Marguerite de Brabant,1
+Rue Marguerite de Busbach,1
+Rue Marguerite Mongenast-Servais,1
+Rue Marguerite-Séraphine Beving,1
+Rue Maria Mitchell,1
+Rue Marie Barbe Joséphine Munchen-Tesch,1
+Rue Marie De Zorn,1
+Rue Marie et Joseph Hackin,1
+Rue Marie et Pierre Curie,1
+Rue Marie Muller-Tesch,1
+Rue Marie-Adélaide,1
+Rue Marie-Louise Tidick-Ulveling,1
+Rue Marie-Paule von Roesgen,1
+Rue Marie-Thérèse Glaesener-Hartmann,1
+Rue Mathias Birthon,1
+Rue Mathias Hardt,1
+Rue Mathias Hertert,1
+Rue Mathias Kirsch,1
+Rue Mathias Tresch,1
+Rue Mathieu Lambert Schrobilgen,1
+Rue Maurice Barrès,1
+Rue Melchior Bourg-Gemen,1
+Rue Mère Franziska,1
+Rue Michel Engels,1
+Rue Michel Flammang,1
+Rue Michel Gehrend,1
+Rue Michel Gloesener,1
+Rue Michel Hulsemann,1
+Rue Michel Theato,1
+Rue Michel Weyer,1
+Rue Micky Bintz-Erpelding,1
+Rue Mil Neuf Cents,1
+Rue Mohrfels,1
+Rue Munkacsy,1
+Rue Munster,1
+Rue N.S. Pierret,1
+Rue Nennig,1
+Rue Nicolas Adames,1
+Rue Nicolas Bové,1
+Rue Nicolas Gonner,1
+Rue Nicolas Gredt,1
+Rue Nicolas Hein,1
+Rue Nicolas Liez,1
+Rue Nicolas Majerus,1
+Rue Nicolas Mameranus,1
+Rue Nicolas Mannes,1
+Rue Nicolas Martha,1
+Rue Nicolas Petit,1
+Rue Nicolas Ries,1
+Rue Nicolas Rollinger,1
+Rue Nicolas Simmer,1
+Rue Nicolas Van Werveke,1
+Rue Nicolaus Copernicus,1
+Rue Nina et Julien Lefèvre,1
+Rue Norbert Le Gallais,1
+Rue Paul Albrecht,1
+Rue Paul Henkes,1
+Rue Paul Palgen,1
+Rue Paul Séjourné,1
+Rue Paul Sontag,1
+Rue Paul Wilwertz,1
+Rue Pepin le Bref,1
+Rue Père Dominique Pire,1
+Rue Perle Mesta,1
+Rue Philippe II,1
+Rue Pierre Blanc,1
+Rue Pierre Brandenbourger,1
+Rue Pierre Claude,1
+Rue Pierre d'Aspelt,1
+Rue Pierre de Coubertin,1
+Rue Pierre Eloi Schoué,1
+Rue Pierre Goedert,1
+Rue Pierre Hentges,1
+Rue Pierre Kersch,1
+Rue Pierre Kohner,1
+Rue Pierre Maisonnet,1
+Rue Pierre Medawar,1
+Rue Pierre NIMAX sen.,1
+Rue Pierre Notting,1
+Rue Pierre Thinnes,1
+Rue Pierre-Joseph Redouté,1
+Rue Plaetis,1
+Rue Portland,1
+Rue Raymond Poincaré,1
+Rue Renaudin,1
+Rue René Weimerskirch,1
+Rue Richard Coudenhove-Kalergi,1
+Rue Richard Wagner,1
+Rue Robert Bruch,1
+Rue Robert Stumper,1
+Rue Romain Fandel,1
+Rue Rosemarie Kieffer,1
+Rue S. G. Thomas,1
+Rue Sainte Thérèse d'Avila,1
+Rue Siggy vu Lëtzebuerg,1
+Rue Sigismond,1
+Rue Simon Bolivar,1
+Rue Simone De Beauvoir,1
+Rue Sophie Germain,1
+Rue St Antoine,1
+Rue St Fiacre,1
+Rue St Gengoul,1
+Rue St Henri,1
+Rue St Jean,1
+Rue St Mathieu,1
+Rue St Quirin,1
+Rue St Ulric,1
+Rue St Vincent,1
+Rue St Willibrord,1
+Rue Ste Catherine,1
+Rue Ste Zithe,1
+Rue Théodore de Wacquant,1
+Rue Théodore Eberhard,1
+Rue Théodore Kapp,1
+Rue Théophile Funck-Brentano,1
+Rue Tony Bourg,1
+Rue Tony Dutreux,1
+Rue Tony Neuman,1
+Rue Tony Rollman,1
+Rue Tubis,1
+Rue Václav Havel,1
+Rue Valentin Simon,1
+Rue Vauban,1
+Rue Victor Ewen,1
+Rue Victor Neuens,1
+Rue Victor Wilhelm,1
+Rue W.A. Mozart,1
+Rue Walram,1
+Rue Walter Colling,1
+Rue Wenceslas 1er,1
+Rue William Turner,1
+Rue Willy Goergen,1
+Rue Wilson,1
+Rue Wurth-Paquet,1
+Rue Würth-Paquet,1
+Rue Xavier de Feller,1
+Ruelle du Château,1
+Salzhof,1
+Scheiwisschen,1
+Schneier,1
+Schoettermarial,1
+Schwaarzegronn,1
+Sentier de Bricherhof,1
+Sentier de Kayl,1
+Sentier de l'Espérance,1
+Sentier de la Scierie,1
+Sichebréck,1
+Site Industriel des Terres-Rouges,1
+Square Aloyse Meyer,1
+Square de New York,1
+Square Edouard André,1
+Square Emile Mayrisch,1
+Square Jan Palach,1
+Square Robert Brasseur,1
+Square Siggy vu Lëtzebuerg,1
+Square Tower-Hamlets,1
+Tawioun,1
+Tunnel Albert Bousser,1
+Tunnel René Konen,1
+Um Géiebierg,1
+Val de Hamm,1
+Val des Bons-Malades,1
+Val du Scheid,1
+Val St André,1
+Val Ste Croix,1
+Wandmillen,1
+Weimershaff,1
+ZARE Sommet,1
+Zone Industrielle Esch-Schifflange,1

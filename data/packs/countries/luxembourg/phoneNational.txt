@@ -1,0 +1,10 @@
+---
+address: luxembourg.phoneNational
+description: A Luxembourg mobile number written the way people in Luxembourg write it — the three-digit block, then three, then three: 621 123 456. There is no leading zero and no area code to put in front, because the plan is closed and non-geographic, so the national form is the international one with the +352 removed and nothing added back. Use this when a column is meant to look like something a person typed; use luxembourg.phone when it has to be machine-dialable. Fixed lines are grouped differently — in twos, 26 12 34 56 — which is luxembourg.phoneLandline's business, and the two groupings are a reliable way to tell at a glance which kind of number you are looking at even though both belong to the same closed plan. Businesses often print a line with a hyphenated extension after it (47 59 81-1), and that hyphen and what follows are NOT part of the number.
+generator: tdc
+locale: fr
+---
+<sequence name="prefix"><gen type="template" value="luxembourg.phoneMobilePrefix"/></sequence>
+<sequence name="a"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="b"><gen type="regex" value="[0-9]{3}"/></sequence>
+<data>${{prefix}} ${{a}} ${{b}}</data>

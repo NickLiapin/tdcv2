@@ -1,10 +1,9 @@
 ---
 address: luxembourg.education.university
-description: Higher-education institutions in Luxembourg
+description: Higher education in Luxembourg, which is almost entirely one institution. The Université du Luxembourg was founded by the loi du 12 août 2003 — the country had NO university at all until then, and generations of Luxembourgers took their degrees in Belgium, France and Germany instead, which is why so many senior Luxembourgish careers begin at Liège, Nancy, Trier or Louvain and why the country's academic vocabulary is borrowed from three systems at once. It is multilingual by statute rather than by courtesy: bachelor programmes are taught in two of French, German and English, and a semester abroad is compulsory. Beside it stand exactly two accredited specialised institutions — LUNEX, for sport, physiotherapy and osteopathy, at Differdange, and the Luxembourg School of Business, for management, in the capital — accredited under the loi du 21 juillet 2023 by the Ministère de la Recherche et de l'Enseignement supérieur. Miami University's John E. Dolibois European Center at Differdange is listed here because it teaches in Luxembourg and has since 1968, but it is a campus of a US university and is not Luxembourg-accredited, and it should not be treated as one. Two names that appear in older lists and MUST NOT be reused: Sacred Heart University's Luxembourg campus, which taught MBAs in the capital from 1991 and CLOSED in 2022, and the Institut Supérieur de Technologie, which was absorbed into the university at its founding. The three public research institutes — LIST, LISER and the Luxembourg Institute of Health — are not in this list because they award no degrees; a doctorate carried out at one of them is conferred by the university. Sources: mengstudien.public.lu, établissements d'enseignement supérieur spécialisés; luxembourg.public.lu.
 locale: fr
 ---
 Université du Luxembourg
-Luxembourg School of Business
-Sacred Heart University Luxembourg
 LUNEX University
-Miami University Luxembourg
+Luxembourg School of Business
+Miami University John E. Dolibois European Center

@@ -1,17 +1,21 @@
 ---
 address: luxembourg.sport.team
-description: Luxembourg National Division football clubs
+description: The sixteen clubs of the BGL Ligue, Luxembourg's national football division, in the 2026-27 season. Sixteen top-flight clubs in a country of 694,000 is roughly one per 43,000 residents, and the map they make is the map of Luxembourg's industry rather than its population: seven of the sixteen sit in the Minett, the old iron-ore basin in the south around Esch-sur-Alzette, Differdange, Dudelange, Niederkorn and Rumelange, because that is where the steelworks were and where the works teams were founded. The names carry the country's language question in miniature — F91 Dudelange and Jeunesse Esch use the French place name, UN Käerjéng 97 uses the Luxembourgish one, and Etzella Ettelbruck and Swift Hesperange are neither — and nobody has ever tried to make them consistent. The division turns over hard: four clubs went down at the end of 2025-26 and four came up, and FC Résidence Walferdange reached the top flight for the first time in its history, so a Luxembourgish club list is out of date within a year. Two names that appear in every older fixture are gone from this one and are the quickest way to date a stale list: CS Fola Esch, relegated in 2025 after seventeen consecutive seasons, and Union Titus Pétange, relegated in 2026 after sixteen. Written the way the league writes them. Source: the 2026-27 Luxembourg National Division.
 locale: fr
 ---
+FC Atert Bissen
+FC Differdange 03
 F91 Dudelange
-Fola Esch
-Progrès Niederkorn
-Racing Union Luxembourg
-Swift Hesperange
-Differdange 03
+FC Etzella Ettelbruck
+US Hostert
 Jeunesse Esch
-UNA Strassen
-Victoria Rosport
+UN Käerjéng 97
 US Mondorf-les-Bains
-FC Rodange 91
-Etzella Ettelbruck
+FC Progrès Niederkorn
+Racing FC Union Luxembourg
+FC Résidence Walferdange
+US Rumelange
+FC Swift Hesperange
+FC UNA Strassen
+FC Victoria Rosport
+FC Wiltz 71

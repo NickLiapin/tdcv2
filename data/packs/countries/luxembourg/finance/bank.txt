@@ -1,17 +1,124 @@
 ---
 address: luxembourg.finance.bank
-description: Banks operating in Luxembourg
-locale: fr
+description: Every credit institution and payment institution that holds an IBAN bank code in the Luxembourg payment system, from the register the ABBL — the banks' own association — publishes and keeps current. The list is the shape of the Luxembourg market and it is not the shape of a normal country's: 132 codes for 694,000 residents, and the names tell you why. Almost none of these banks are retail banks. Four are — Spuerkeess (the state savings bank, "Banque et Caisse d'Epargne de l'Etat"), BIL, BGL BNP Paribas and Raiffeisen, plus POST Luxembourg for the CCP accounts — and the rest are private banks, fund custodians, and the Luxembourg branches of banks headquartered somewhere else, because Luxembourg is where a European fund keeps its depositary and its transfer agent. Six Chinese banks hold Luxembourg codes; so do Brown Brothers Harriman, Clearstream, State Street, the EIB and the Banque centrale du Luxembourg. Since 2020 the register has also opened to payment institutions and e-money houses — PayPal, MANGOPAY, Satispay, Vivid Money, Rakuten — which is why the codes above 600 are mostly not banks in the old sense at all. Names are as the ABBL registers them, including the branch suffixes that make an entity Luxembourgish for payment purposes. Source: ABBL, Luxembourg Register of IBAN-BIC Codes, version of 31 July 2026.
 ---
-BGL BNP Paribas
-Banque Internationale à Luxembourg
-Banque de Luxembourg
-Spuerkeess
-Banque Raiffeisen
-ING Luxembourg
-POST Finance
+3S Money (Luxembourg) S.A.
+ABN AMRO Bank N.V. Luxembourg Branch
+Advanzia Bank S.A.
+Agricultural Bank of China (Luxembourg) S.A.
+Agricultural Bank of China, Luxembourg Branch
+Allfunds Bank International S.A.U.
+Alpha Bank S.A., Luxembourg Branch
+Andbank Luxembourg
+Associated Foreign Exchange Ireland Limited Luxembourg (Corpay)
+Banca March, S.A., Luxembourg Branch
+Banco Bradesco Europa S.A.
+Banco Inversis S.A., Luxembourg branch
+Banco Safra S.A., Luxembourg Branch
+Banco Santander (Brasil) S.A., Luxembourg Branch
+Bank GPB International S.A.
+Bank Julius Baer Europe S.A.
+Bank of America Europe DAC, Luxembourg Branch
+Bank of China (Europe) S.A.
+Bank of China Limited Luxembourg Branch
+Bank of Communications (Luxembourg) S.A.
+Banking Circle S.A.
+Bankinter Luxembourg S.A.
+Banque Centrale du Luxembourg
+Banque de Commerce et de Placements S.A., Luxembourg Branch
+Banque de Luxembourg S.A.
 Banque de Patrimoines Privés
-Quintet Private Bank
+Banque et Caisse d'Epargne de l'Etat, Luxembourg
+Banque Européenne d'Investissement
+Banque Havilland S.A.
+Banque Internationale à Luxembourg
+Banque J. Safra Sarasin (Luxembourg) SA
+BANQUE POPULAIRE ALSACE LORRAINE CHAMPAGNE, Succursale du Luxembourg
+Banque Raiffeisen
+Banque Transatlantique Luxembourg S.A.
+Barclays Bank Ireland plc, Luxembourg Branch
+BEMO Europe - Banque Privée
+BGL BNP Paribas
+BNP Paribas, Luxembourg Branch
+BPER Bank Luxembourg S.A.
+Brown Brothers Harriman (Luxembourg) S.C.A.
+BTG Pactual Europe S.A.
+CA Indosuez Wealth (Europe)
+CACEIS Bank Luxembourg Branch
+CaixaBank Wealth Management Luxembourg S.A.
+China Construction Bank (Europe) S.A.
+China Construction Bank Corporation, Luxembourg Branch
+China Merchants Bank (Europe) S.A.
+China Merchants Bank Co., Ltd., Luxembourg Branch
+Citco Bank Nederland N.V., Luxembourg Branch
+Citibank Europe plc, Luxembourg Branch
+Clearstream Banking S.A.
+COMO DL S.A.
+Convera Europe S.A.
+DekaBank Deutsche Girozentrale, Succursale de Luxembourg
+Delen Private Bank Luxembourg S.A.
+Deutsche Bank AG, Filiale Luxemburg
+Deutsche Bank Luxembourg S.A.
+DNB Luxembourg S.A.
+DONNER & REUSCHEL Aktiengesellschaft
+DZ PRIVATBANK S.A.
+Ebury Partners Belgium - succursale luxembourgeoise
+Edmond de Rothschild (Europe)
+EFG Bank (Luxembourg) S.A.
+Eurobank Private Bank Luxembourg S.A.
+European Depositary Bank S.A.
+Goldman Sachs Bank Europe SE, Luxembourg Branch
+Hamburg Commercial Bank AG Luxembourg Branch
+HSBC Continental Europe, Luxembourg
+HSBC Private Bank (Luxembourg) S.A.
+IBANFIRST SA, LUX BRANCH
+Industrial and Commercial Bank of China (Europe) S.A.
+Industrial and Commercial Bank of China Ltd., Luxembourg Branch
+ING Luxembourg
+Intesa Sanpaolo Bank Luxembourg S.A.
+Intesa Sanpaolo Wealth Management
+IRACE Digital Bank (Europe) S.A.
+J.P. Morgan Bank Luxembourg S.A.
+J.P. Morgan SE, Luxembourg branch
+Lombard Odier (Europe) S.A.
+MANGOPAY S.A.
+Mediobanca International (Luxembourg) S.A.
+Mirabaud & Cie (Europe) S.A.
+Mitsubishi UFJ Investor Services & Banking (Luxembourg) S.A.
+Mizuho Trust & Banking (Luxembourg) S.A.
+Natixis Corporate and Investment Banking Luxembourg
+NORD/LB Luxembourg S.A. Covered Bond Bank
+Northern Trust Global Services SE
+Novo Banco S.A., Succursale de Luxembourg
+Olky Payment Service Provider S.A.
+PayPal (Europe) S.à r.l. et Cie, S.C.A.
+Pictet & Cie (Europe) S.A.
+PingPong Europe S.A.
+POST Luxembourg
+Quintet Private Bank (Europe) S.A.
+Rakuten Europe Bank S.A.
+RBC Investor Services Bank S.A.
+RiverBank S.A.
+Rothschild & Co Wealth Management Luxembourg
+Royal Bank of Scotland International Limited, Luxembourg Branch (The)
+Satispay Europe S.A.
+Skandinaviska Enskilda Banken AB Luxembourg branch
+SKANDINAVISKA ENSKILDA BANKEN AB, Luxembourg Branch
+SMBC Nikko Bank (Luxembourg) S.A.
 Société Générale Luxembourg
-Banque Havilland
-Advanzia Bank
+Société Nationale de Crédit et d'Investissement
+Sogexia S.A.
+State Street Bank International GmbH, Zweigniederlassung Luxemburg
+State Street Bank Luxembourg S.A. (formerly Sanpaolo Bank S.A.)
+Sumitomo Mitsui Trust Bank (Luxembourg) S.A.
+Svenska Handelsbanken AB (Publ), Luxembourg Branch
+Swissquote Bank Europe S.A.
+The Bank of New York Mellon S.A./N.V., Luxembourg Branch
+U.S. BANK EUROPE DESIGNATED ACTIVITY COMPANY Luxembourg Branch
+UBS EUROPE SE, Luxembourg Branch
+UniCredit International Bank (Luxembourg) S.A.
+UnifiedPost Payments S.A. - Luxembourg Branch
+Union Bancaire Privée (Europe) S.A.
+VIVID MONEY S.A.
+VP Bank (Luxembourg) SA
+Wallee Europe S.A.

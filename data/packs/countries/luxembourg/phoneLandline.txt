@@ -1,0 +1,10 @@
+---
+address: luxembourg.phoneLandline
+description: A Luxembourg fixed line in the eight-digit form the plan has issued since 1999 — 2, then one of 4, 6 or 7, then a two-digit block from luxembourg.phoneLandlinePrefix, then four digits: 2622 3456, written 26 22 34 56. The 2 at the front is what the ILR now allocates for fixed and VoIP lines, and the 4/6/7 after it is the expansion digit that turned each of the old two-digit blocks into three eight-digit ones when the country ran out of numbers. THE OLDER FORM IS STILL VALID AND STILL EVERYWHERE, and this generator does not emit it: numbers issued before 1 May 1999 kept their original shape — the two-digit block followed by anything from one to six digits — which is why Luxembourgish fixed numbers in the wild have variable length, why the government's own switchboard is 247-XXXXX, and why a strict eight-digit rule rejects a large share of real Luxembourgish lines. Mobiles are nine digits, fixed lines eight, and neither has an area code to strip, so a phone column that fixes one length for Luxembourg is wrong about one kind of number or the other. Written in PAIRS by convention, 26 22 34 56, not in the three-three-three grouping used for mobiles; businesses append a hyphenated extension (-1 for the switchboard) that is not part of the number. Source: ILR, Plan national de numérotation, règlement 14/174/ILR of 14 July 2014.
+generator: tdc
+locale: fr
+---
+<sequence name="expansion"><gen type="text" value="4,6,7"/></sequence>
+<sequence name="prefix"><gen type="template" value="luxembourg.phoneLandlinePrefix"/></sequence>
+<sequence name="rest"><gen type="regex" value="[0-9]{4}"/></sequence>
+<data>2${{expansion}}${{prefix}}${{rest}}</data>

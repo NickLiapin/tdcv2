@@ -1,14 +1,14 @@
 ---
 address: luxembourg.finance.iban
-description: Luxembourg IBAN — 20 chars: LU + 2 ISO 7064 check digits + 3-digit bank code + 13-digit account.
+description: The Luxembourg IBAN — LU, two ISO 7064 MOD-97-10 check digits, a three-digit bank identification code and a thirteen-digit account number: twenty characters in all. The BBAN has no branch field, no national check digit and no letters, which makes it one of the simplest in the euro area and means the ONLY structural thing a validator can check beyond the mod-97 is whether those three digits name a bank that exists — so the bank code here is drawn from luxembourg.finance.bankCode, the register the ABBL publishes, rather than made up. An IBAN with a correct mod-97 and a bank code of 555 is a number no payment system can route. Two Luxembourgish quirks. First, the CCP accounts at POST Luxembourg carry bank code 111 and predate IBAN by decades; a Luxembourger will still call one a "compte chèque postal" and read it out as LU52 1111 0000 1111 0000. Second, the country hosts far more banks than it has residents to bank with — 132 codes for 694,000 people — because Luxembourg is where European investment funds keep their depositary, so a Luxembourg IBAN in a dataset is at least as likely to belong to a fund as to a person. Printed in groups of four for humans and unspaced in files, which is the form emitted here. Verified against four IBANs the Luxembourg Red Cross publishes on its own donation pages — LU52 1111 0000 1111 0000 (POST), LU50 0023 1017 5400 0000 (BIL), LU32 0030 0422 0039 0000 (BGL BNP Paribas) and LU79 0019 1000 1279 4000 (Spuerkeess) — all four accepted, each rejected with one digit changed, and each one's bank code found in the ABBL register.
 generator: tdc
 locale: fr
 ---
-<sequence name="bank"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="bank"><gen type="template" value="luxembourg.finance.bankCode"/></sequence>
 <sequence name="account"><gen type="regex" value="[0-9]{13}"/></sequence>
 <sequence name="iban"><compute>
-  <let name="bban"><concat><field name="bank"/><field name="account"/></concat></let>
-  <let name="rearranged"><concat><use name="bban"/><str v="LU"/><str v="00"/></concat></let>
+  <!-- ISO 13616: move "LU00" to the end, letters become 10..35, take mod 97, check = 98 - remainder. -->
+  <let name="rearranged"><concat><field name="bank"/><field name="account"/><str v="LU"/><str v="00"/></concat></let>
   <let name="digits"><join><each>
     <over><use name="rearranged"/></over>
     <do><encode as="base36"><current/></encode></do>

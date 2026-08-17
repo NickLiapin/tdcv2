@@ -1,0 +1,21 @@
+---
+address: luxembourg.finance.amount
+generator: tdc
+description: A sum of money written the way Luxembourg writes it — groups of three separated by a FULL STOP, a COMMA for the decimal point, and the euro sign AFTER the figure with a no-break space before it: 1.234.567,89 €. That grouping is the thing worth stopping on, because it is not what a French-language locale usually does. CLDR gives fr-FR a NARROW NO-BREAK SPACE as the group separator (1 234 567,89 €) and gives fr-LU a full stop, and de-LU and lb-LU agree with fr-LU — so Luxembourg's French follows GERMAN grouping, and the same figure written in Paris and in Luxembourg City differs in every separator. All three of Luxembourg's administrative languages produce the identical string here, which makes money the one field in this pack where the language question has no consequence at all. The cost of getting it wrong is silent: "1.234" read under a French or English locale is one point two three four, a factor of a thousand, and both readings parse. The space before the € is U+00A0, invisible in an editor and the reason a naive split on " " gives the wrong field count. Two decimals are always kept — Luxembourg still mints and accepts one- and two-cent coins and does not round cash totals to five, unlike Belgium and the Netherlands next door. The magnitude is spread across five decades rather than drawn flat, because a uniform draw over a seven-digit range puts nearly every value in the millions and a real price list is mostly two, three and four figures. Nothing here is a number the engine can do arithmetic on: it is the PRINTED form. Source: CLDR 47 currency patterns for fr-LU, de-LU and lb-LU, checked against ICU 76.
+locale: fr
+---
+<sequence name="raw"><gen type="number" value="1..9999999"/></sequence>
+<sequence name="shift"><gen type="number" value="0..4"/></sequence>
+<sequence name="cents"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="amount"><compute>
+  <!-- Spread the magnitude: divide the 7-digit draw by 1, 10, 100, 1000 or 10000. -->
+  <let name="scale"><at>
+    <in><list v="1,10,100,1000,10000"/></in>
+    <index><to_number><field name="shift"/></to_number></index>
+  </at></let>
+  <let name="whole"><divide><to_number><field name="raw"/></to_number><use name="scale"/></divide></let>
+  <!-- CLDR fr-LU / de-LU / lb-LU: group separator ".", decimal ",", pattern "#,##0.00 ¤". -->
+  <let name="grouped"><group size="3" sep="."><use name="whole"/></group></let>
+  <result><concat><use name="grouped"/><str v=","/><field name="cents"/><str v=" €"/></concat></result>
+</compute></sequence>
+<data>${{amount}}</data>

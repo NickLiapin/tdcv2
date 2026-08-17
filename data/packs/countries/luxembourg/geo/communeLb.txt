@@ -1,0 +1,106 @@
+---
+address: luxembourg.geo.communeLb
+description: The same 100 communes as luxembourg.geo.commune, under their LUXEMBOURGISH names, weighted by population at 1 January 2026. Luxembourgish (Lëtzebuergesch) has been the national language since the loi du 24 février 1984, which also makes French the language of legislation and admits French, German and Luxembourgish as administrative languages — and the three do not agree about place names. Lëtzebuerg is Luxembourg, Esch-Uelzecht is Esch-sur-Alzette, Déifferdeng is Differdange, Miersch is Mersch, Iechternach is Echternach. This is not a transliteration and cannot be generated from the French form: Käerjeng is Bascharage-and-Clemency merged under a name that exists only in Luxembourgish, and Groussbus-Wal is the Luxembourgish spelling of a commune the French list calls Grosbous-Wahl. These names are what appears on road signs, on the commune's own website and in speech; they are NOT what appears on a letter, in a judgment or in the national address register, which is why this pack's default everywhere else is the French form. Do not mix the two files in one address line. Source: Syvicol, Annuaire des communes (the Luxembourgish name column).
+weighted: true
+locale: lb
+---
+Lëtzebuerg,137678
+Esch-Uelzecht,38275
+Déifferdeng,31421
+Diddeleng,22379
+Péiteng,21290
+Suessem,19611
+Hesper,17264
+Schëffleng,11674
+Beetebuerg,11651
+Mamer,11583
+Käerjeng,11343
+Miersch,10888
+Stroossen,10831
+Ettelbréck,10212
+Keel,9989
+Bartreng,9489
+Walfer,9256
+Jonglënster,9139
+Wolz,8538
+Kielen,7449
+Dikrech,7398
+Monnerech,7312
+Réiser,7184
+Nidderaanwen,7161
+Klierf,6327
+Steesel,6186
+Stengefort,6154
+Iechternach,6031
+Rëmeleng,5767
+Mäertert,5685
+Munneref,5524
+Habscht,5337
+Helperknapp,5326
+Gréiwemaacher,5297
+Schengen,5265
+Rammerech,5064
+Fréiseng,5039
+Wëntger,5038
+Conter,5006
+Luerenzweiler,4760
+Koplescht,4740
+Dippech,4721
+Schëtter,4500
+Parc Housen,4407
+Réimech,4156
+Betzder,4127
+Sandweiler,3872
+Rouspert-Mompech,3795
+Ëlwen,3708
+Biissen,3564
+Lëntgen,3484
+Esch-Sauer,3373
+Bous-Waldbriedemes,3368
+Wuermer,3249
+Réiden op der Attert,3149
+Beefort,3102
+Bettenduerf,3051
+Äerenzdallgemeng,2963
+Reckeng op der Mess,2957
+Biekerech,2913
+Käerch,2814
+Leideleng,2765
+Wäiswampech,2699
+Ierpeldeng op der Sauer,2662
+Weiler zum Tuer,2523
+Colmer-Bierg,2471
+Mäerzeg,2435
+Feelen,2431
+Garnech,2421
+Groussbus-Wal,2390
+Duelem,2377
+Tandel,2374
+Manternach,2340
+Stauséigemeng,2320
+Bäerdref,2293
+Fluessweiler,2268
+Veianen,2243
+Fiels,2241
+Useldeng,2181
+Schieren,2172
+Lenneng,2114
+Konsdref,2093
+Stadbriedemes,2023
+Waldbëlleg,1999
+Biwer,1902
+Préizerdaul,1802
+Buerschent,1784
+Géisdref,1682
+Ell,1668
+Hiefenech,1597
+Wanseler,1590
+Bauschelt,1579
+Noumer,1516
+Viichten,1453
+Reisduerf,1422
+Bech,1370
+Fëschbech,1344
+Kiischpelt,1309
+Pëtschent,1191
+Sëll,1081

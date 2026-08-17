@@ -1,9 +1,64 @@
 ---
 address: luxembourg.docs.matricule
-description: Luxembourg national ID (matricule / numéro d'identification) — 13 digits: YYYYMMDD birth date + 5 digits. Structural: the two trailing control digits (a Luhn and a Verhoeff digit) are not reproduced.
+description: The Luxembourg national identification number — the matricule, formally the numéro d'identification national, created by the loi du 19 juin 2013 and carried by every person registered in the Registre national des personnes physiques. Thirteen digits, AAAAMMJJXXXC1C2 — the full four-digit year of birth, the month, the day, a three-digit serial that distinguishes people born on the same date, and then TWO check digits computed by TWO DIFFERENT ALGORITHMS over the SAME eleven leading digits. C1 is a Luhn mod-10 digit, the credit-card checksum; C2 is a Verhoeff digit, the dihedral-group D5 checksum that Jacobus Verhoeff published in 1969 and that catches every single-digit error and every adjacent transposition, including the ones Luhn misses. Neither is computed over the other: both read the eleven digits and nothing else, so a system that validates C2 over twelve digits gets a wrong answer on every number. That pairing is what makes the matricule unusual — most countries settle for one checksum, and the two here are not variants of one scheme but arithmetic from two different decades bolted onto one number. The other Luxembourgish thing about it is the FULL YEAR: eight digits of date, not six, so there is no century ambiguity and no windowing rule to get wrong, and a matricule sorts chronologically as a string. The number is the tax identification number, the social security number and the administrative reference all at once — the Centre commun de la sécurité sociale, the Administration des contributions directes and every commune use the same thirteen digits — so it is high-sensitivity data, and this generator draws births from 1900 to 2012 so that a value can be recognised as synthetic by its serial rather than by its date. Legal persons get an eleven-digit identifier of their own on a different scheme, which this pack does not generate. Verified against the published example matricule 1893120105732: base 18931201057, Luhn 3, Verhoeff 2.
 generator: tdc
 locale: fr
 ---
-<sequence name="birth"><gen type="date" from="1940-01-01" to="2015-12-31" format="YYYYMMDD"/></sequence>
-<sequence name="tail"><gen type="regex" value="[0-9]{5}"/></sequence>
-<data>${{birth}}${{tail}}</data>
+<sequence name="dob"><gen type="date" from="1900-01-01" to="2012-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="base"><compute>
+  <!-- The eleven digits both checksums read: AAAAMMJJ + XXX. -->
+  <result><concat><field name="dob"/><field name="serial"/></concat></result>
+</compute></sequence>
+<sequence name="c1"><compute>
+  <!-- C1: Luhn mod 10. The base is 11 long, so the rightmost digit sits at index 10
+       and doubling every second digit from the right means doubling every EVEN index. -->
+  <let name="sum"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <choose>
+        <when><test><equals><mod><current_index/><int v="2"/></mod><int v="0"/></equals></test>
+          <then><choose>
+            <when><test><greater_than><to_number><current/></to_number><int v="4"/></greater_than></test>
+              <then><subtract><multiply><current/><int v="2"/></multiply><int v="9"/></subtract></then></when>
+            <otherwise><multiply><current/><int v="2"/></multiply></otherwise>
+          </choose></then></when>
+        <otherwise><current/></otherwise>
+      </choose>
+    </add></do>
+  </reduce></let>
+  <result><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></result>
+</compute></sequence>
+<sequence name="c2"><compute>
+  <!-- C2: Verhoeff. c := d(c, p((i+1) mod 8, n_i)) with n_0 the RIGHTMOST digit, then
+       the check digit is inv(c). The order of the fold matters — the D5 multiplication
+       is not commutative — so the digits are reversed first. -->
+  <let name="chars"><each><over><field name="base"/></over><do><current/></do></each></let>
+  <let name="rev"><each>
+    <over><field name="base"/></over>
+    <do><at><in><use name="chars"/></in><index><subtract><int v="10"/><current_index/></subtract></index></at></do>
+  </each></let>
+  <let name="c"><reduce>
+    <over><use name="rev"/></over>
+    <init><int v="0"/></init>
+    <do><at>
+      <!-- d, the D5 multiplication table, flattened row-major: index = 10*row + column. -->
+      <in><list v="0,1,2,3,4,5,6,7,8,9,1,2,3,4,0,6,7,8,9,5,2,3,4,0,1,7,8,9,5,6,3,4,0,1,2,8,9,5,6,7,4,0,1,2,3,9,5,6,7,8,5,9,8,7,6,0,4,3,2,1,6,5,9,8,7,1,0,4,3,2,7,6,5,9,8,2,1,0,4,3,8,7,6,5,9,3,2,1,0,4,9,8,7,6,5,4,3,2,1,0"/></in>
+      <index><add>
+        <multiply><acc/><int v="10"/></multiply>
+        <at>
+          <!-- p, the permutation table, 8 rows of 10, flattened: index = 10*(i+1 mod 8) + digit. -->
+          <in><list v="0,1,2,3,4,5,6,7,8,9,1,5,7,6,2,8,3,0,9,4,5,8,0,3,7,9,6,1,4,2,8,9,1,6,0,4,3,5,2,7,9,4,5,3,1,2,6,8,7,0,4,2,8,6,5,7,3,9,0,1,2,7,9,3,8,0,6,4,1,5,7,0,4,6,9,1,3,2,5,8"/></in>
+          <index><add>
+            <multiply><mod><add><current_index/><int v="1"/></add><int v="8"/></mod><int v="10"/></multiply>
+            <to_number><current/></to_number>
+          </add></index>
+        </at>
+      </add></index>
+    </at></do>
+  </reduce></let>
+  <!-- inv, the D5 inverse table. -->
+  <result><at><in><list v="0,4,3,2,1,5,6,7,8,9"/></in><index><use name="c"/></index></at></result>
+</compute></sequence>
+<data>${{base}}${{c1}}${{c2}}</data>

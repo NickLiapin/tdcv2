@@ -1,0 +1,54 @@
+---
+address: luxembourg.government.agency
+description: State administrations, services and public establishments of Luxembourg, as the government lists them. Luxembourg is ADMINISTRATION-shaped rather than agency-shaped: the ministries in luxembourg.government.ministry set policy and the work is done by a body whose name almost always begins with "Administration de", "Service de", "Institut", "Direction" or "Office", each created by its own law and each holding the register or the register-like thing it is named for. Four are worth knowing before reading any Luxembourgish dataset. The Centre commun de la sécurité sociale issues and holds the matricule, the thirteen-digit number in luxembourg.docs.matricule that doubles as the tax reference. The Administration des contributions directes and the Administration de l'enregistrement, des domaines et de la TVA split the tax system in two — direct tax on one side, VAT and registration duty on the other — so "the Luxembourg tax office" names two different bodies depending on the tax. The Administration du cadastre et de la topographie keeps the national register of localities and streets, which is where every place name and postcode in this pack comes from. And the Centre des technologies de l'information de l'État runs the population register the residency figures come from. Names move: the police were renamed Police Lëtzebuerg — a Luxembourgish name for a state body, which is itself notable in a country that legislates in French — and the Centre pour la langue luxembourgeoise (ZLS) is the body charged with the national language's spelling and dictionary. Two financial supervisors are absent from the government's own list because they are independent public establishments rather than administrations, and both are added here since any Luxembourgish financial dataset names one of them: the CSSF, which supervises the fund industry, and the Banque centrale du Luxembourg. Source: gouvernement.lu, Administrations et services de l'État.
+locale: fr
+---
+Centre commun de la sécurité sociale
+Administration des contributions directes
+Administration de l'enregistrement, des domaines et de la TVA
+Administration des douanes et accises
+Administration du cadastre et de la topographie
+Centre des technologies de l'information de l'État
+Institut national de la statistique et des études économiques
+Commission de surveillance du secteur financier
+Banque centrale du Luxembourg
+Commission nationale pour la protection des données
+Institut luxembourgeois de régulation
+Police Lëtzebuerg
+Inspection générale de la police
+Corps grand-ducal d'incendie et de secours
+Armée luxembourgeoise
+Agence pour le développement de l'emploi
+Inspection du travail et des mines
+Inspection générale de la sécurité sociale
+Inspection générale des finances
+Direction de la santé
+Administration de l'environnement
+Administration de la gestion de l'eau
+Administration de la nature et des forêts
+Administration des ponts et chaussées
+Administration des bâtiments publics
+Administration des chemins de fer
+Administration des transports publics
+Administration de la navigation aérienne
+Direction de l'aviation civile
+Administration luxembourgeoise vétérinaire et alimentaire
+Administration des services techniques de l'agriculture
+Administration pénitentiaire
+Archives nationales de Luxembourg
+Bibliothèque nationale de Luxembourg
+Centre pour la langue luxembourgeoise
+Institut national des langues Luxembourg
+Institut national d'administration publique
+Institut luxembourgeois de la normalisation, de l'accréditation, de la sécurité et qualité des produits et services
+Haut-Commissariat à la protection nationale
+Service de renseignement de l'État
+Service information et presse
+Service national de la jeunesse
+Service central de législation
+Office national de l'accueil
+Office national de l'enfance
+Office national d'inclusion sociale
+Direction de la protection des consommateurs
+Trésorerie de l'État
+Luxembourg stratégie

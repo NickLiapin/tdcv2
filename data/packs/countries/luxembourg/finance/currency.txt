@@ -1,0 +1,7 @@
+---
+address: luxembourg.finance.currency
+description: The two units of Luxembourg money. The currency is the euro (ISO 4217 EUR, symbol €), divided into 100 cents, and Luxembourg has used it since the first day it existed — 1 January 1999 for accounts, 1 January 2002 for cash — as one of the eleven founding members of the euro area. What it replaced is the part worth knowing, because it survives in old records: the Luxembourg franc (LUF), which was NOT an independent currency but was pegged one-for-one to the Belgian franc under the Belgium-Luxembourg Economic Union of 1921, so Belgian francs circulated freely in Luxembourg and a pre-2002 Luxembourgish price is a Belgian-franc price. The conversion rate is fixed by law and irrevocable: 40.3399 LUF to the euro. Cash rounding is NOT practised — Luxembourg still issues and accepts one- and two-cent coins, unlike Belgium, the Netherlands, Finland, Ireland and Italy, which round cash totals to five cents — so a Luxembourgish till total can end in any cent and a rounding rule imported from a neighbour is wrong here. Note the gender and the plural in French: "un euro", "des euros" with an s, and "cent" is the official term while "centime" is what people actually say. See luxembourg.finance.amount for how a figure is written, which is where Luxembourg surprises you.
+locale: fr
+---
+euro
+cent

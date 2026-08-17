@@ -1,6 +1,9 @@
 ---
 address: luxembourg.phone
-description: Luxembourg mobile phone in E.164 form (+352 6[269]XXXXXX)
+description: A Luxembourg mobile number in E.164 form — +352 and then nine digits beginning with one of the thirteen 6-blocks in luxembourg.phoneMobilePrefix. Luxembourg's plan has no area codes and no trunk prefix: the number you dial from the next street is the number you dial from Australia minus the +352, there is no leading 0 to strip, and a "city code" column has nothing to put in it. That is the fact a foreign address schema gets wrong about Luxembourg, and it also means the national and international forms differ only by the country code — see luxembourg.phoneNational for the spaced Luxembourgish form. The length is the other trap: a mobile is NINE digits after the country code and a fixed line is EIGHT (see luxembourg.phoneLandline), so a single fixed-width phone column cannot hold both, and a validator that assumes one national length for the country rejects half of it. Mobiles have been nine digits since 1 September 2006, when the old eight-digit 0-prefixed numbers were renumbered onto 6; numbers in the old form stopped working on 1 March 2007 and any that survive in a dataset are pre-2007. This generator draws the block from the published plan rather than from a regex, so it never emits a 6-prefix that was never allocated. Source: ILR, Plan national de numérotation (E.164), règlement 14/174/ILR.
 generator: tdc
+locale: fr
 ---
-<gen type="regex" value="\+3526[269][0-9]{6}"/>
+<sequence name="prefix"><gen type="template" value="luxembourg.phoneMobilePrefix"/></sequence>
+<sequence name="rest"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+352${{prefix}}${{rest}}</data>
