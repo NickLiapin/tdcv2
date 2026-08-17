@@ -20,8 +20,25 @@ import { fileURLToPath } from 'node:url';
 const HERE = dirname(fileURLToPath(import.meta.url));
 const PACKS = join(HERE, '..', 'packs');
 
-/** `value,123` — a trailing integer after a comma, which is what a count is. */
-const LOOKS_WEIGHTED = /,\d+$/;
+/**
+ * `value,123` — a trailing integer after a comma, which is what a count is.
+ *
+ * The two directions of this check need DIFFERENT strictness, and using one
+ * rule for both is wrong in one direction or the other.
+ *
+ * Reading a list that DECLARES `weighted: true`, any trailing `,digits` is the
+ * count — the values themselves may well end in digits, as postal codes and
+ * area codes do.
+ *
+ * Guessing whether a list that declares NOTHING is secretly weighted, that is
+ * too loose: it fires on every income bracket written in a comma-grouping
+ * currency (`Llai na £15,000`, `€75,000 sa €120,000`) and reports an honest
+ * list as an undeclared weighted one. Two locale packs hit it on the same day.
+ * So the guess additionally requires a non-digit before the comma, which is
+ * what separates a weight delimiter from a thousands separator.
+ */
+const HAS_COUNT = /,\d+$/;
+const LOOKS_WEIGHTED = /(^|[^\d]),\d+$/;
 
 function everyList(dir) {
   const out = [];
@@ -48,7 +65,10 @@ for (const file of files) {
   if (body.length === 0) continue;
 
   const declared = /^weighted:\s*true\s*$/m.test(header);
-  const counted = body.filter((l) => LOOKS_WEIGHTED.test(l)).length;
+  // Reading a declared list, any trailing `,digits` is the count. Guessing at
+  // an undeclared one, require a non-digit before the comma — see the note on
+  // the two patterns above.
+  const counted = body.filter((l) => (declared ? HAS_COUNT : LOOKS_WEIGHTED).test(l)).length;
 
   if (declared) {
     weighted++;
