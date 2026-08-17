@@ -1,0 +1,18 @@
+---
+description: Kind of court. TAJIK IS ESSENTIALLY A ONE-COUNTRY LANGUAGE, so these ARE Tajikistan's courts and the description says so rather than pretending to be generic: the Constitutional Court, the Supreme Court, the Supreme Economic Court, and the ordinary courts of the provinces, cities and districts. THE COURT OF ELDERS IS NOT A COURT: суди ақсақолон, sometimes met in rural reporting, is a customary village council with no judicial power under the constitution, and a config must not file its decisions as judgments.
+locale: tg
+---
+Суди конститутсионӣ
+Суди Олӣ
+Суди Олии иқтисодӣ
+суди ҳарбӣ
+суди вилоятӣ
+суди шаҳрӣ
+суди ноҳиявӣ
+суди иқтисодии вилоятӣ
+суди вилояти мухтор
+суди марҳилаи якум
+суди марҳилаи апеллятсионӣ
+суди марҳилаи кассатсионӣ
+суди назоратӣ
+суди ҳакамӣ

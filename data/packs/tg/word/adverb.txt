@@ -1,0 +1,36 @@
+---
+description: Common Tajik adverb. Note that many Tajik adverbs are the bare adjective used unchanged — тез means both 'fast' and 'quickly' — so this list overlaps word/adjective.txt on purpose rather than by accident; Tajik has no productive adverb ending equivalent to English -ly.
+locale: tg
+---
+ҳоло
+имрӯз
+дирӯз
+фардо
+пагоҳ
+ҳамеша
+ҳеҷ гоҳ
+баъзан
+аксаран
+зуд
+оҳиста
+якбора
+тадриҷан
+хеле
+каме
+бисёр
+кам
+танҳо
+ҳам
+боз
+аллакай
+ҳанӯз
+дар ин ҷо
+он ҷо
+ҳама ҷо
+ҳеҷ ҷо
+боло
+поён
+пеш
+қафо
+якҷоя
+алоҳида

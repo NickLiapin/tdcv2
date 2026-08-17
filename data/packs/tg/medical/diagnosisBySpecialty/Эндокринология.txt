@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Эндокринология, in Tajik clinical wording.
+locale: tg
+---
+Диабети қанд
+Бузургшавии ғадуди сипаршакл
+Норасоии йод
+Гипотиреоз
+Фарбеҳӣ
+Норасоии витамини D

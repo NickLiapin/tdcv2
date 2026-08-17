@@ -1,0 +1,5 @@
+---
+description: Currency of Италия as Tajik names it.
+locale: tg
+---
+евро

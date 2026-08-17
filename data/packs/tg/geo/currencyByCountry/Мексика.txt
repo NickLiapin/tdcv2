@@ -1,0 +1,5 @@
+---
+description: Currency of Мексика as Tajik names it.
+locale: tg
+---
+песои мексикоӣ

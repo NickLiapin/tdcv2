@@ -1,0 +1,44 @@
+---
+description: Kind of animal as Tajik names it. ПАЛАНГИ БАРФӢ, the snow leopard, is the national animal of Tajikistan and appears on the state emblem; БУЗИ КӮҲӢ, the Siberian ibex, and НАХҶИР, the markhor, are the wild goats of the Pamirs. ШУТУР, the camel, and АСП are working animals here rather than exotics.
+locale: tg
+---
+гов
+гӯсфанд
+буз
+асп
+хар
+хачир
+шутур
+саг
+гурба
+мурғ
+хурӯс
+мурғобӣ
+ғоз
+кабӯтар
+харгӯш
+гург
+рӯбоҳ
+шағол
+кафтор
+хирс
+бабр
+паланг
+паланги барфӣ
+шер
+фил
+гавазн
+оҳу
+бузи кӯҳӣ
+нахҷир
+хук
+мор
+калтакалос
+сангпушт
+қурбоққа
+моҳӣ
+муш
+каламуш
+хуфош
+уқоб
+занбӯр

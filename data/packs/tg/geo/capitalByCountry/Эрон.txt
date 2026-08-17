@@ -1,0 +1,5 @@
+---
+description: Capital of Эрон as Tajik names it.
+locale: tg
+---
+Теҳрон

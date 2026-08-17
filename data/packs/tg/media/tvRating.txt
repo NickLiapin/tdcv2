@@ -1,0 +1,13 @@
+---
+description: Age rating on Tajik television and video. The post-Soviet 0+/6+/12+/16+/18+ marking is what appears in the corner of the screen, inherited from the Russian system; the two Tajik phrases are how a broadcaster words it.
+locale: tg
+---
+0+
+6+
+12+
+16+
+18+
+барои ҳама
+бо иҷозати волидайн
+танҳо барои калонсолон
+маҳдудияти синну сол нест

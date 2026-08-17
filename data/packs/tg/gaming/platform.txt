@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Hardware brands keep their Latin spelling; the two Tajik entries name the local reality — компютерклуб, the paid-by-the-hour internet and gaming club, is how a large share of players in Tajikistan actually play, since home consoles are expensive relative to income.
+locale: tg
+---
+PC
+PlayStation
+PlayStation 4
+PlayStation 5
+Xbox
+Nintendo Switch
+Android
+iOS
+браузер
+компютерклуб
+консоли рӯимизӣ

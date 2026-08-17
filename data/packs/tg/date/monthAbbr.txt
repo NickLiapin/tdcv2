@@ -1,0 +1,16 @@
+---
+description: Abbreviated month in Tajik, lower case, no full stop. Same Russian-derived stems as date/month.txt clipped to three letters; май is already three and is not clipped further.
+locale: tg
+---
+янв
+фев
+мар
+апр
+май
+июн
+июл
+авг
+сен
+окт
+ноя
+дек

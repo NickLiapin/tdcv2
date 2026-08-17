@@ -1,0 +1,10 @@
+---
+description: Conditions with elevated prevalence in the Мардуми бумии Амрико ancestry group, in Tajik.
+locale: tg
+---
+Диабети навъи 2
+Сангҳои талхадон
+Бемории ҷигари алкоголӣ
+Фарбеҳӣ
+Норасоии лактаза
+Артрити ревматоидӣ

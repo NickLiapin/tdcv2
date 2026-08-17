@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code for Арабистони Саудӣ.
+locale: tg
+---
+SAR

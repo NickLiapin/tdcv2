@@ -1,0 +1,27 @@
+---
+description: Writing system as Tajik names it. TAJIK HAS USED THREE OF THEM IN ONE CENTURY and that is the single most important thing about this file: Perso-Arabic until 1928, LATIN from 1928 to 1940, and CYRILLIC from 1940 to now. This is why a Tajik and an Iranian can talk but cannot read each other — the language is the same and the alphabet is not. THE TAJIK CYRILLIC ALPHABET IS NOT THE RUSSIAN ONE: it has thirty-five letters, six of which Russian lacks — ғ ӣ қ ӯ ҳ ҷ — and the 1998 reform struck out four that only ever served Russian loanwords, ы, ц, щ and ь. Ъ WAS NOT STRUCK OUT and is a full Tajik letter: it writes the Persian-Arabic ayn and glottal stop, as in маърифат, санъат, шӯъба and ҷумъа, so a checker that treats ъ as a Russian residue is wrong. СУҒДӢ, Sogdian, is the script of this region's own pre-Islamic literature, and its descendant survives in the Yaghnob valley; АВЕСТОӢ is the alphabet the Zoroastrian scripture was written in.
+locale: tg
+---
+кириллӣ
+лотинӣ
+форсӣ-арабӣ
+арабӣ
+ибрӣ
+юнонӣ
+арманӣ
+гурҷӣ
+деванагарӣ
+бангалӣ
+тамилӣ
+тайӣ
+хмерӣ
+бирманӣ
+хитоӣ
+ҷопонӣ
+кореягӣ
+суғдӣ
+авестоӣ
+паҳлавӣ
+бохтарӣ
+хароштӣ
+мехӣ

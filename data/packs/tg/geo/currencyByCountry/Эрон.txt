@@ -1,0 +1,5 @@
+---
+description: Currency of Эрон as Tajik names it.
+locale: tg
+---
+риёли эронӣ

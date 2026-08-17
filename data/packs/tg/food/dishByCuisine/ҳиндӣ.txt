@@ -1,0 +1,10 @@
+---
+description: Dishes of ҳиндӣ cuisine as Tajik names them.
+locale: tg
+---
+Карри
+Масала
+Тандурӣ
+Бирёнии ҳиндӣ
+Наон
+Палакпанир

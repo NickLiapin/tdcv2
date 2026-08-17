@@ -1,0 +1,5 @@
+---
+description: Capital of Ливия as Tajik names it.
+locale: tg
+---
+Триполи

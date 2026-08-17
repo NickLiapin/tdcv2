@@ -1,0 +1,5 @@
+---
+description: Currency of Миср as Tajik names it.
+locale: tg
+---
+фунти мисрӣ

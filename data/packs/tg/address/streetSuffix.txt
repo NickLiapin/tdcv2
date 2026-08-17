@@ -1,0 +1,44 @@
+---
+description: Tajik thoroughfare type. READ THIS BEFORE USING THE FILE: DESPITE THE NAME 'streetSuffix' THESE GO IN FRONT OF THE NAME, NOT AFTER IT. Tajik is Persian and builds an address with the IZOFAT — the type word comes first, takes the linking -и, and the name follows: кӯчаи Рӯдакӣ, 'the street of Rudaki'; хиёбони Исмоили Сомонӣ; майдони Дӯстӣ. This is the exact opposite of Turkic Kazakh or Uzbek, which put the type word last, and of English, which puts it last too. EVERY ENTRY HERE ALREADY CARRIES THE -и, so a config concatenates value + space + street name and must not add an ending of its own. The bare forms кӯча, хиёбон, майдон exist but are wrong in front of a name. Хиёбон is the native word for an avenue and is what signage uses; проспект is the Russian loan and survives on older plates.
+locale: tg
+---
+кӯчаи
+хиёбони
+майдони
+гузари
+гузаргоҳи
+бунбасти
+тангкӯчаи
+шоҳроҳи
+роҳи
+пули
+боғи
+хиёбончаи
+маҳаллаи
+мавзеи
+деҳаи
+шаҳраки
+ноҳияи
+ҷамоати
+микроноҳияи
+маҳаллаи истиқоматии
+растаи
+лаби
+паси
+назди
+болои
+поёни
+сари
+даромадгоҳи
+хатсайри
+гулгашти
+сарбанди
+чорраҳаи
+проспекти
+переулоки
+квартали
+гузаргоҳи зеризаминии
+хиёбони марказии
+кӯчаи навбунёди
+роҳи автомобилгарди
+кӯчаи танги

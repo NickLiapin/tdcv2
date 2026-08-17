@@ -1,0 +1,5 @@
+---
+description: Capital of Бангладеш as Tajik names it.
+locale: tg
+---
+Дакка

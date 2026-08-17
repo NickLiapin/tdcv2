@@ -1,0 +1,9 @@
+---
+description: Hotel star rating. The five-star scale is used, but note that Tajikistan has no binding national classification enforced across the sector, so a star count on a listing is a self-declaration rather than an audited grade.
+locale: tg
+---
+1 ситора
+2 ситора
+3 ситора
+4 ситора
+5 ситора

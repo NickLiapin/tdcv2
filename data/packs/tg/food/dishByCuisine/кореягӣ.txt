@@ -1,0 +1,10 @@
+---
+description: Dishes of кореягӣ cuisine as Tajik names them.
+locale: tg
+---
+Кимчӣ
+Пулгогӣ
+Бибимбап
+Токпокӣ
+Самгетан
+Морковчаи кореягӣ

@@ -1,0 +1,34 @@
+---
+description: Airline. BRAND NAMES KEEP THEIR OWN SPELLING in any locale, so these stay in Latin script exactly as painted on the tail. The selection is the network a Tajik traveller actually meets — the Russian, Turkish, Gulf and Central Asian carriers that serve Dushanbe and Khujand — rather than a global top-thirty. TAJIKISTAN'S OWN AIRLINES ARE DELIBERATELY ABSENT: a national carrier is country data and belongs in the Tajikistan country pack, not in the language.
+locale: tg
+---
+Aeroflot
+S7 Airlines
+Ural Airlines
+Pobeda
+Rossiya Airlines
+Turkish Airlines
+Pegasus Airlines
+flydubai
+Emirates
+Qatar Airways
+Air Arabia
+Uzbekistan Airways
+Air Astana
+SCAT Airlines
+FlyArystan
+Avia Traffic Company
+Azerbaijan Airlines
+Kam Air
+Ariana Afghan Airlines
+China Southern Airlines
+Air China
+IndiGo
+Air India
+Lufthansa
+Austrian Airlines
+Wizz Air
+Belavia
+Ukraine International Airlines
+Iran Air
+Mahan Air

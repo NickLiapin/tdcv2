@@ -1,0 +1,5 @@
+---
+description: Currency of Австралия as Tajik names it.
+locale: tg
+---
+доллари австралиягӣ

@@ -1,0 +1,5 @@
+---
+description: Currency of Шветсия as Tajik names it.
+locale: tg
+---
+крони шведӣ

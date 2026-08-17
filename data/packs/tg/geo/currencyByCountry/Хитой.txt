@@ -1,0 +1,5 @@
+---
+description: Currency of Хитой as Tajik names it.
+locale: tg
+---
+юан

@@ -1,0 +1,5 @@
+---
+description: Capital of Олмон as Tajik names it.
+locale: tg
+---
+Берлин

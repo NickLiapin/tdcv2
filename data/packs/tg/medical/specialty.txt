@@ -1,0 +1,44 @@
+---
+description: Medical specialty in Tajik. The longer free list; medical/specialtyCoherent.txt is the ten-way coherent parent. Note ФТИЗИАТРИЯ, the tuberculosis specialty, which is a full and busy discipline here with its own hospital network — a Western list usually folds it into pulmonology and Tajikistan does not.
+locale: tg
+---
+терапия
+педиатрия
+ҷарроҳӣ
+ҷарроҳии дил
+ҷарроҳии асаб
+травматология
+ортопедия
+кардиология
+неврология
+психиатрия
+наркология
+эндокринология
+гастроэнтерология
+гепатология
+нефрология
+урология
+гинекология
+акушерӣ
+неонатология
+онкология
+гематология
+иммунология
+аллергология
+ревматология
+дерматология
+венерология
+офталмология
+оториноларингология
+пулмонология
+фтизиатрия
+бемориҳои сироятӣ
+паразитология
+анестезиология
+реаниматология
+радиология
+ташхиси ултрасадоӣ
+лабораторияи ташхисӣ
+физиотерапия
+стоматология
+тибби оилавӣ

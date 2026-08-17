@@ -1,0 +1,5 @@
+---
+description: Capital of Руминия as Tajik names it.
+locale: tg
+---
+Бухарест

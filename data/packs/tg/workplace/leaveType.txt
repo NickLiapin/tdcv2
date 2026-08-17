@@ -1,0 +1,16 @@
+---
+description: Kind of leave in Tajik. РУХСАТИИ ҲАҶ is a real request here: a pilgrimage to Mecca takes several weeks and employers handle it as a named category rather than as ordinary holiday.
+locale: tg
+---
+рухсатии меҳнатӣ
+рухсатии солона
+рухсатии иловагӣ
+рухсатии бе нигоҳ доштани музди меҳнат
+рухсатии беморӣ
+рухсатии ҳомиладорӣ ва таваллуд
+рухсатии парастории кӯдак
+рухсатии таълимӣ
+рухсатии ҳаҷ
+рухсатии тӯй
+рухсатии мотам
+рухсатии ҳарбӣ

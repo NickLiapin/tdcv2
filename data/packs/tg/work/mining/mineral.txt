@@ -1,0 +1,23 @@
+---
+description: Mineral worked in Tajik mining. THE ORDER IS THE COUNTRY'S OWN: сурма (antimony) and алюминий head the list because Tajikistan is a world-scale antimony producer and the Tursunzoda aluminium smelter is its largest industrial enterprise; тилло, нуқра and симоб follow. Уран is included because Soviet-era uranium mining at Taboshar left tailings that are still a live environmental matter.
+locale: tg
+---
+сурма
+алюминий
+тилло
+нуқра
+симоб
+мис
+руҳ
+сурб
+оҳан
+волфрам
+молибден
+уран
+ангишт
+намак
+гаҷ
+оҳак
+мармар
+санги сохтмонӣ
+рег

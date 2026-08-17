@@ -1,0 +1,5 @@
+---
+description: Capital of Арманистон as Tajik names it.
+locale: tg
+---
+Ереван

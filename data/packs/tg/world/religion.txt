@@ -1,0 +1,26 @@
+---
+description: Religion as Tajik names it. TWO FACTS A CONFIG CANNOT INFER. FIRST, Tajikistan's Muslims are overwhelmingly SUNNI OF THE HANAFI SCHOOL, which the state recognises by name, EXCEPT in Gorno-Badakhshan, where the population is ISMOILӢ — Nizari Ismaili Shia, following the Aga Khan — so a single 'Muslim' category flattens a real and regionally sharp division. SECOND, ЗАРДУШТИЯ is not a foreign religion on this list: Zoroastrianism arose in this cultural area, the Avesta is in an Iranian language ancestral to Tajik, and Наврӯз is its festival still kept by everyone. Its followers today are almost none, but its presence in the vocabulary and the calendar is total.
+locale: tg
+---
+ислом
+исломи суннӣ
+мазҳаби ҳанафӣ
+исломи шиа
+исмоилия
+тасаввуф
+масеҳият
+православӣ
+католикӣ
+протестантӣ
+яҳудият
+зардуштия
+буддоия
+ҳиндуия
+бахоия
+конфутсийгарӣ
+шаманизм
+бединӣ
+атеизм
+агностисизм
+бе мазҳаб
+нишон надод

@@ -1,0 +1,42 @@
+---
+description: Fruit as Tajik names it. THE APRICOT IS THE ONE TO KNOW: зардолу is a staple rather than a treat, dried by the tonne in the Zarafshon and Rasht valleys and eaten all winter, and the dried form has its own words. САНҶИД, the silverberry or oleaster, and УННОБ, the jujube, have no everyday English names at all and are ordinary market fruit here. ХУРМО means BOTH the date and the persimmon and a config cannot disambiguate it from the word alone. Melons — харбуза and тарбуз — are summer staples, not luxuries.
+locale: tg
+---
+себ
+нок
+беҳӣ
+шафтолу
+зардолу
+олу
+олуча
+олуболу
+гелос
+ангур
+анор
+анҷир
+тут
+туги сиёҳ
+хурмо
+санҷид
+унноб
+зирк
+настаран
+қулфинай
+тамашк
+марминҷон
+тарбуз
+харбуза
+лимӯ
+норанҷ
+апелсин
+мандарин
+нашпотӣ
+банан
+ананас
+манго
+киви
+авокадо
+грейпфрут
+хурмои хушк
+зардолуи хушк
+мавиз

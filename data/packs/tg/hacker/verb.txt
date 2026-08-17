@@ -1,0 +1,32 @@
+---
+description: Technical verb in Tajik. Every one is a COMPOUND VERB — a noun plus кардан, намудан, додан or шудан — which is how modern Tajik builds nearly all new verbs, so the borrowed English stem sits inside a Tajik frame rather than replacing it: рамзгузорӣ кардан 'to encrypt', ҳак кардан 'to hack'.
+locale: tg
+---
+пайваст шудан
+қатъ кардан
+фиристодан
+қабул кардан
+хондан
+навиштан
+нигоҳ доштан
+ҳазф кардан
+нусхабардорӣ кардан
+интиқол додан
+рамзгузорӣ кардан
+рамзкушоӣ кардан
+ҳак кардан
+вайрон кардан
+барқарор кардан
+санҷидан
+иҷро кардан
+компилятсия кардан
+ислоҳ кардан
+нав кардан
+танзим кардан
+муҳофизат кардан
+дастрасӣ гирифтан
+манъ кардан
+ҷустуҷӯ кардан
+индексатсия кардан
+коркард кардан
+таҳлил кардан

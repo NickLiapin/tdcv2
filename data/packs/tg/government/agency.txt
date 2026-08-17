@@ -1,0 +1,29 @@
+---
+description: Kind of state body as Tajik names it. THESE ARE TAJIKISTAN'S, named as such, because Tajik is spoken as a state language in one country and the words mean that country's institutions. The hierarchy of the words is worth knowing: ВАЗОРАТ is a ministry, КУМИТА a state committee ranking just below one, АГЕНТӢ and ХАДАМОТ are agencies and services under a ministry, and МАҚОМОТИ ИҶРОИЯИ ҲОКИМИЯТИ ДАВЛАТӢ is the formal name for a provincial or district administration, headed by a раис appointed from above.
+locale: tg
+---
+Вазорати корҳои хориҷӣ
+Вазорати корҳои дохилӣ
+Вазорати молия
+Вазорати рушди иқтисод ва савдо
+Вазорати маориф ва илм
+Вазорати тандурустӣ ва ҳифзи иҷтимоии аҳолӣ
+Вазорати адлия
+Вазорати мудофиа
+Вазорати энергетика ва захираҳои об
+Вазорати нақлиёт
+Вазорати кишоварзӣ
+Вазорати меҳнат ва шуғли аҳолӣ
+Вазорати фарҳанг
+Кумитаи давлатии амнияти миллӣ
+Кумитаи давлатии сармоягузорӣ
+Кумитаи андоз
+Хадамоти гумрук
+Агентии омор
+Агентии стандартизатсия
+Агентии хизмати давлатӣ
+Бонки миллии Тоҷикистон
+Прокуратураи генералӣ
+мақомоти иҷроияи ҳокимияти давлатӣ
+ҷамоат
+Маҷлиси намояндагон

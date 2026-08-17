@@ -1,0 +1,16 @@
+---
+description: Month name in Tajik, nominative. THE NAMES ARE THE RUSSIAN-DERIVED SET AND THAT IS CORRECT — Tajikistan runs on the Gregorian calendar and this is what a Tajik newspaper, payslip and passport print. NOTE THE MISSING SOFT SIGN: январ, феврал, апрел, июн, июл, сентябр, октябр, ноябр, декабр have NO ь, because the 1998 alphabet reform removed ь from Tajik entirely. Writing январь here is Russian, not Tajik, and is the single easiest way to spot a pack that was copied across. Tajik ALSO has a second, Persian solar set — Ҳамал, Савр, Ҷавзо, Саратон, Асад, Сунбула, Мезон, Ақраб, Қавс, Ҷадӣ, Далв, Ҳут — which is shipped in person/zodiac.txt and MUST NOT be substituted here: those months begin around the 21st and do not line up with Gregorian ones. Month names are lower case in Tajik, including at the start of a date.
+locale: tg
+---
+январ
+феврал
+март
+апрел
+май
+июн
+июл
+август
+сентябр
+октябр
+ноябр
+декабр

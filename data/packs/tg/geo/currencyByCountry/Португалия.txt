@@ -1,0 +1,5 @@
+---
+description: Currency of Португалия as Tajik names it.
+locale: tg
+---
+евро

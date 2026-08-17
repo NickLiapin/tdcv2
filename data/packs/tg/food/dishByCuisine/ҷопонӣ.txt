@@ -1,0 +1,11 @@
+---
+description: Dishes of ҷопонӣ cuisine as Tajik names them.
+locale: tg
+---
+Сушӣ
+Сашимӣ
+Рамен
+Темпура
+Шӯрбои мисо
+Удон
+Якиторӣ

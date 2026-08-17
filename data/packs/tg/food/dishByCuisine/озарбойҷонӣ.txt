@@ -1,0 +1,10 @@
+---
+description: Dishes of озарбойҷонӣ cuisine as Tajik names them.
+locale: tg
+---
+Довға
+Қутоб
+Питӣ
+Долма
+Шакарбура
+Лявангӣ

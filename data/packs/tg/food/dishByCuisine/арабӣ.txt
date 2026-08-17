@@ -1,0 +1,10 @@
+---
+description: Dishes of арабӣ cuisine as Tajik names them.
+locale: tg
+---
+Ҳумус
+Фалофел
+Шаварма
+Табула
+Мансаф
+Кабса

@@ -1,0 +1,11 @@
+---
+description: Dishes of эронӣ cuisine as Tajik names them.
+locale: tg
+---
+Челавкабоб
+Ғормасабзӣ
+Фисинҷон
+Обгӯшт
+Таҳчин
+Мирзоқосимӣ
+Оширеште

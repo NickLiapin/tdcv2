@@ -1,0 +1,12 @@
+---
+description: Team sport, as the coherent parent of sport/positionBySport/. ONLY SPORTS WITH NAMED POSITIONS ARE HERE, which is why Tajikistan's two most important sports are missing: ГӮШТИНГИРӢ, the belt wrestling, and БУЗКАШӢ, the mounted goat-carcass game, have weight classes and riders rather than positions, and inventing positions for them would put phrases in the pack that nobody says. Both are in sport/name.txt where they belong. Each value here is the filename of a file in sport/positionBySport/.
+locale: tg
+---
+Футбол
+Футзал
+Волейбол
+Баскетбол
+Гандбол
+Хоккей
+Регби
+Тӯббозии обӣ

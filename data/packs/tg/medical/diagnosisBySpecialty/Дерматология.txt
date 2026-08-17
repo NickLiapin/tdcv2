@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Дерматология, in Tajik clinical wording.
+locale: tg
+---
+Экзема
+Псориаз
+Дерматити атопӣ
+Занбӯруғи пӯст
+Кӯра
+Ҷӯшиши аллергӣ

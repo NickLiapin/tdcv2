@@ -1,0 +1,5 @@
+---
+description: Capital of Испания as Tajik names it.
+locale: tg
+---
+Мадрид

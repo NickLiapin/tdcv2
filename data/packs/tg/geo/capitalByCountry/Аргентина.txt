@@ -1,0 +1,5 @@
+---
+description: Capital of Аргентина as Tajik names it.
+locale: tg
+---
+Буэнос-Айрес

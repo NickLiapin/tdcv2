@@ -1,0 +1,49 @@
+---
+description: Kind of building as a Tajik address or property record names it. ҲАВЛӢ IS THE ONE THAT DOES NOT TRANSLATE: it is a walled family compound with an interior courtyard, the normal form of a Tajik house outside the Soviet-built blocks, and it is a building type rather than a garden — rendering it as 'yard' loses what it is. Similarly чойхона, the teahouse, is a civic building and not a restaurant, and мадраса is a religious college, not a school.
+locale: tg
+---
+бино
+хона
+ҳавлӣ
+манзил
+иморат
+бинои истиқоматӣ
+бинои бисёрошёна
+бинои маъмурӣ
+бинои идоравӣ
+коргоҳ
+корхона
+фабрика
+анбор
+гараж
+дӯкон
+мағоза
+бозор
+тиҷоратхона
+тарабхона
+ошхона
+чойхона
+меҳмонхона
+беморхона
+поликлиника
+дорухона
+мактаб
+гимназия
+литсей
+донишгоҳ
+донишкада
+коллеҷ
+боғча
+масҷид
+мадраса
+калисо
+театр
+осорхона
+китобхона
+варзишгоҳ
+истгоҳ
+фурудгоҳ
+таҳхона
+болохона
+айвон
+манора

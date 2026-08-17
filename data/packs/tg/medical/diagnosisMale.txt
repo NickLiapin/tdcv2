@@ -1,0 +1,24 @@
+---
+description: Diagnosis recorded only for male patients, in Tajik clinical wording. Mirrors person/male/diagnosis.txt and is kept separate because a config may want the clinical list without the person context.
+locale: tg
+---
+Гиперплазияи хуштабиати простата
+Простатит
+Саратони простата
+Аденомаи простата
+Варикотселе
+Гидроселе
+Фимоз
+Парафимоз
+Крипторхизм
+Орхит
+Эпидидимит
+Ихтилоли эректилӣ
+Нозоии мардона
+Синдроми Клайнфелтер
+Гинекомастия
+Торсияи узви таносул
+Уретрити мардона
+Камбуди тестостерон
+Саратони узвҳои таносулӣ
+Балоғати дермондаи писарон

@@ -1,0 +1,5 @@
+---
+description: Capital of Алҷазоир as Tajik names it.
+locale: tg
+---
+Алҷазоир

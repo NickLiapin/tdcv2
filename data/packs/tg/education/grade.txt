@@ -1,0 +1,25 @@
+---
+description: Mark as a Tajik school or university records it. TWO SCALES ARE IN USE AND THEY ARE NOT THE SAME. School runs the inherited five-point scale where 5 is the best and 2 is a fail — there is no 1 in practice and no 0 — and each number has a word: 5 аъло, 4 хуб, 3 қаноатбахш, 2 ғайриқаноатбахш. Universities moved to a 100-point credit scale with ECTS letters after the Bologna reforms, so a transcript may show either. A config must not convert between them by arithmetic: a 3 is a pass and a C is a pass, but 60 out of 100 is not 3 out of 5.
+locale: tg
+---
+5
+4
+3
+2
+аъло
+хуб
+қаноатбахш
+ғайриқаноатбахш
+A
+B
+C
+D
+E
+F
+гузашт
+нагузашт
+имтиҳон супорид
+имтиҳон насупорид
+аълохон
+зачёт
+зачёт нашуд

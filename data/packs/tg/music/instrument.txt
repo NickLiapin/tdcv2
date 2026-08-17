@@ -1,0 +1,36 @@
+---
+description: Musical instrument in Tajik. THE FIRST BLOCK IS THE TAJIK ENSEMBLE and none of it translates: ДУТОР is the two-string long-necked lute that is the household instrument, РУБОБ the shorter plucked lute that carries the melody, ТАНБӮР the long lute of the Shashmaqom, ҒИЖАК the spike fiddle bowed on the knee, ДОИРА the frame drum with metal rings inside that every ensemble is built around, and КАРНАЙ the long straight ceremonial horn heard at weddings. НАЙ and СУРНАЙ are the soft and loud reed pipes. The second block is the international orchestra under Russian loan names.
+locale: tg
+---
+дутор
+рубоб
+танбӯр
+сетор
+ғижак
+қашқарча
+чанг
+доира
+таблак
+дафф
+най
+сурнай
+карнай
+гитара
+фортепиано
+скрипка
+виолончел
+контрабас
+флейта
+кларнет
+гобой
+саксофон
+труба
+тромбон
+аккордеон
+боян
+гармон
+синтезатор
+барабан
+барабанҳо
+тарелка
+ксилофон

@@ -1,0 +1,5 @@
+---
+description: Capital of Урдун as Tajik names it.
+locale: tg
+---
+Аммон

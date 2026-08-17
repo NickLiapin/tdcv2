@@ -1,0 +1,34 @@
+---
+description: Book genre in Tajik. ДЕВОН and МАСНАВӢ are not decorative additions: a девон is the collected lyric verse of one poet, arranged by rhyme letter, and a маснавӣ is a long narrative poem in rhyming couplets — the two dominant book forms of a thousand years of Persian literature, and both are still ordinary shelf categories in a Tajik bookshop. РУБОӢ, the quatrain, is the third.
+locale: tg
+---
+роман
+қисса
+ҳикоя
+повест
+достон
+девон
+маснавӣ
+рубоӣ
+ғазал
+шеър
+драма
+фоҷиа
+мазҳака
+ёддошт
+тарҷумаи ҳол
+таърих
+фалсафа
+дин
+илмӣ
+оммавии илмӣ
+дарсӣ
+луғат
+энсиклопедия
+адабиёти кӯдакона
+афсона
+фантастика
+детектив
+саргузашт
+сафарнома
+адабиёти тарҷумавӣ

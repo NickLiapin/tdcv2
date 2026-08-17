@@ -1,0 +1,5 @@
+---
+description: Currency of Ҳиндустон as Tajik names it.
+locale: tg
+---
+рупияи ҳиндӣ

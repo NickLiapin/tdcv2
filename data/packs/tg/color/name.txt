@@ -1,0 +1,58 @@
+---
+description: Colour as Tajik names it. MOST TAJIK COLOUR WORDS BEYOND THE BASIC SEVEN ARE BUILT FROM AN OBJECT PLUS -Ӣ, 'the colour of that thing': анорӣ is pomegranate-red, гулобӣ rose-pink, пистагӣ pistachio-green, шафтолуӣ peach, лимӯӣ lemon, заъфаронӣ saffron, қаҳваранг coffee-coloured. TWO OF THESE ARE THE SOURCE OF ENGLISH WORDS: хокӣ, from хок 'dust', is where khaki comes from, and фирӯзӣ, from the turquoise stone, is behind the English colour name. So a config CANNOT translate an English colour list into Tajik word for word and expect the reverse to hold — the borrowing already went the other way. Basic colours are the seven at the head: сафед, сиёҳ, сурх, кабуд, сабз, зард, хокистарӣ.
+locale: tg
+---
+сафед
+сиёҳ
+сурх
+кабуд
+сабз
+зард
+хокистарӣ
+норанҷӣ
+бунафш
+гулобӣ
+қаҳваранг
+тиллоӣ
+нуқрагӣ
+осмонӣ
+фирӯзӣ
+лоҷувардӣ
+анорӣ
+зайтунӣ
+шаробӣ
+кремӣ
+хокӣ
+пистагӣ
+бодомӣ
+шафтолуӣ
+лимӯӣ
+заъфаронӣ
+шакарӣ
+чормағзӣ
+сурхи торик
+сурхи равшан
+кабуди торик
+кабуди равшан
+сабзи торик
+сабзи равшан
+зарди тилло
+сафеди барфӣ
+сиёҳи шабона
+хокистарии дуддор
+бунафши равшан
+гулобии равшан
+норанҷии оташин
+марҷонӣ
+садафӣ
+мисӣ
+биринҷӣ
+заранҷабилӣ
+хиштӣ
+регӣ
+гилӣ
+зумуррадӣ
+ёқутӣ
+каҳрабоӣ
+шафақӣ
+нилобӣ

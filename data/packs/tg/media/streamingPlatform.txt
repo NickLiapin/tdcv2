@@ -1,0 +1,16 @@
+---
+description: Streaming service. Brand names keep their own spelling. The Russian services are on the list because they are what is actually watched in Tajikistan — Russian remains the second language of media consumption — alongside YouTube, which is the dominant platform by a wide margin.
+locale: tg
+---
+YouTube
+Netflix
+Amazon Prime Video
+Disney+
+Apple TV+
+Kinopoisk
+IVI
+Okko
+Megogo
+Start
+Telegram
+TikTok

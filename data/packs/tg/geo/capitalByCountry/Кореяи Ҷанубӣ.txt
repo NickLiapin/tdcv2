@@ -1,0 +1,5 @@
+---
+description: Capital of Кореяи Ҷанубӣ as Tajik names it.
+locale: tg
+---
+Сеул

@@ -1,0 +1,5 @@
+---
+description: Capital of Тунис as Tajik names it.
+locale: tg
+---
+Тунис

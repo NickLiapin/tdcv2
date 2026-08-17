@@ -1,0 +1,9 @@
+---
+description: Mining shift, in Tajik.
+locale: tg
+---
+баст
+басти рӯзона
+басти шабона
+басти саҳарӣ
+басти иловагӣ

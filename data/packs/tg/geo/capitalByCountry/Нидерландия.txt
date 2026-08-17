@@ -1,0 +1,5 @@
+---
+description: Capital of Нидерландия as Tajik names it.
+locale: tg
+---
+Амстердам

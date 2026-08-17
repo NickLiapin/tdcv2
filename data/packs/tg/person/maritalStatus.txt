@@ -1,0 +1,18 @@
+---
+description: Marital status as a Tajik document records it. Note that Tajik distinguishes the widow from the widower with two different words (бева and бевамард) and that the state registers only a marriage performed at the ЗАГС; a никоҳ, the religious ceremony, has no civil effect on its own, which is why 'married by никоҳ only' is a real and separate category in Tajikistani survey data.
+locale: tg
+---
+муҷаррад
+оиладор
+хонадор
+ҳамсардор
+ҷудошуда
+талоқшуда
+бева
+бевамард
+аз ҳам ҷудо зиндагикунанда
+танҳо бо никоҳ
+аз нав оиладоршуда
+номзад
+фотиҳашуда
+маълум нест

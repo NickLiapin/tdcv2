@@ -1,0 +1,26 @@
+---
+description: Department inside a Tajik organisation. ШӮЪБА is the ordinary word for a department and takes the IZOFAT before what it is a department of — шӯъбаи кадрҳо, 'the department of personnel' — so every multiword entry here is one phrase and must not be split. Note that the personnel department is шӯъбаи кадрҳо, from the Russian кадры, and that this project's category for such lists is `workplace` and never `hr`, which collides with the Croatian locale code.
+locale: tg
+---
+шӯъбаи кадрҳо
+шӯъбаи муҳосибот
+шӯъбаи молия
+шӯъбаи ҳуқуқӣ
+шӯъбаи маркетинг
+шӯъбаи фурӯш
+шӯъбаи харид
+шӯъбаи анбор
+шӯъбаи нақлиёт
+шӯъбаи истеҳсолот
+шӯъбаи назорати сифат
+шӯъбаи техникӣ
+шӯъбаи технологияи иттилоотӣ
+шӯъбаи амният
+шӯъбаи муносибатҳои байналмилалӣ
+шӯъбаи таҳлил
+шӯъбаи банақшагирӣ
+шӯъбаи хизматрасонии муштариён
+раёсат
+дафтари марказӣ
+лабораторияи илмӣ
+бойгонӣ

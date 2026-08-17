@@ -1,0 +1,5 @@
+---
+description: Capital of Озарбойҷон as Tajik names it.
+locale: tg
+---
+Боку

@@ -1,0 +1,12 @@
+---
+description: Monthly gross income band in SOMONI (TJS), the currency of Tajikistan since 2000, subdivided into 100 дирам. THE MAGNITUDES ARE LOCAL AND MUCH SMALLER THAN A EUROPEAN LIST: the statutory minimum wage is in the low hundreds of somoni a month and the national average sits in the high hundreds to low thousands, so a band above 10 000 сомонӣ is genuinely high earning here. REMITTANCES ARE MISSING FROM ANY SUCH BAND BY CONSTRUCTION — money sent home by relatives working in Russia is a large share of many households' income and is not a wage, so a config modelling Tajikistani household income cannot use this file alone. The unit follows the number as сомонӣ, and the decimal mark is a comma.
+locale: tg
+---
+то 500 сомонӣ
+500 – 1 000 сомонӣ
+1 000 – 1 500 сомонӣ
+1 500 – 2 500 сомонӣ
+2 500 – 4 000 сомонӣ
+4 000 – 7 000 сомонӣ
+7 000 – 10 000 сомонӣ
+зиёда аз 10 000 сомонӣ

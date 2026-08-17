@@ -1,0 +1,5 @@
+---
+description: Currency of Нидерландия as Tajik names it.
+locale: tg
+---
+евро

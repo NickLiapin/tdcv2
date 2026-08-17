@@ -1,0 +1,34 @@
+---
+description: Vegetable as Tajik names it. Several entries have no single English word: КАБУДӢ is the bundle of mixed fresh herbs that comes with every meal and is treated as a vegetable, not a garnish; МОШ is the mung bean and is a staple grain-legume here rather than a health-food import. Note that картошка and помидор are Russian loans that entirely displaced any older word, while the older Persian names survive for everything that grew here first — пиёз, сабзӣ, шалғам, каду, лӯбиё, нахӯд.
+locale: tg
+---
+картошка
+пиёз
+пиёзи кабуд
+сирпиёз
+сабзӣ
+сабзии зард
+карам
+гулкарам
+помидор
+бодиринг
+бодинҷон
+қаланфур
+қаланфури булғорӣ
+каду
+кадуча
+шалғам
+турб
+турбча
+лаблабу
+лӯбиё
+нахӯд
+мош
+исфаноҷ
+кабудӣ
+шибит
+кашнич
+ҷаъфарӣ
+райҳон
+торон
+ҷуворимакка

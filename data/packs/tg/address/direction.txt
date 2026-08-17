@@ -1,0 +1,20 @@
+---
+description: Directional or positional qualifier as it appears inside a Tajik address or district name. THESE ARE THE -Ӣ ADJECTIVE FORMS, not the bare compass nouns: a Tajik noun takes them through the izofat, as in ноҳияи Шимолӣ or Кореяи Шимолӣ, so шимолӣ and not шимол is what a config needs when qualifying a place. The compass nouns themselves are in geo/direction.txt. The last group are the ordinary spatial words an address uses instead of a compass: болоӣ upper, поёнӣ lower, дарунӣ inner, берунӣ outer.
+locale: tg
+---
+шимолӣ
+ҷанубӣ
+шарқӣ
+ғарбӣ
+марказӣ
+болоӣ
+поёнӣ
+миёна
+дарунӣ
+берунӣ
+чап
+рост
+наздик
+дур
+канорӣ
+кӯҳӣ

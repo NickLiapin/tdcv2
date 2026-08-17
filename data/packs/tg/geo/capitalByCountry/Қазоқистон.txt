@@ -1,0 +1,5 @@
+---
+description: Capital of Қазоқистон as Tajik names it.
+locale: tg
+---
+Остона

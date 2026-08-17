@@ -1,0 +1,16 @@
+---
+description: Zodiac sign in Tajik. THESE TWELVE WORDS ARE ALSO THE MONTHS OF THE SOLAR HIJRI CALENDAR used across the Persian-speaking world and still current in Tajikistan for Наврӯз and the agricultural year: Ҳамал is Aries and is also the month that begins at the spring equinox on 21 March. So a config must not assume a value here is a star sign — it may be a month, and the two readings do not line up with the Gregorian months at all, since each solar month starts around the 21st.
+locale: tg
+---
+Ҳамал
+Савр
+Ҷавзо
+Саратон
+Асад
+Сунбула
+Мезон
+Ақраб
+Қавс
+Ҷадӣ
+Далв
+Ҳут

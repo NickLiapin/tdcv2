@@ -1,0 +1,12 @@
+---
+description: Compass point in Tajik — EIGHT, NOT SIXTEEN, AND THE SHORTFALL IS DELIBERATE. The four cardinals are шимол, ҷануб, шарқ, ғарб and the four intercardinals are built by joining two of them with the linking -у: шимолу шарқ is 'north-and-east'. Tajik has NO settled 32- or 16-point rose the way English does; there is no accepted word for north-northeast, and inventing шимолу шимолу шарқ would put a phrase in this file that no Tajik writes. The ADJECTIVE forms a config needs to qualify a noun — шимолӣ, ҷанубӣ, шарқӣ, ғарбӣ — are NOT here; they are in address/direction.txt, because they behave differently in a sentence: Кореяи Шимолӣ takes the izofat and the adjective, never the bare noun.
+locale: tg
+---
+шимол
+ҷануб
+шарқ
+ғарб
+шимолу шарқ
+шимолу ғарб
+ҷанубу шарқ
+ҷанубу ғарб

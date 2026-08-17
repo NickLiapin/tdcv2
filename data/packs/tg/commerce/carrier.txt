@@ -1,0 +1,24 @@
+---
+description: Shipping carrier. THE INTERNATIONAL BRANDS KEEP THEIR LATIN SPELLING — DHL, FedEx, UPS are written as printed on the van in any locale. The Tajik entries are generic service names rather than one country's postal operator, which belongs in a country pack.
+locale: tg
+---
+DHL
+FedEx
+UPS
+TNT
+Aramex
+EMS
+почтаи оддӣ
+почтаи фаврӣ
+почтаи ҳавоӣ
+хадамоти курерӣ
+курери шаҳрӣ
+расонидан ба хона
+нуқтаи қабули мол
+боркашонии автомобилӣ
+боркашонии роҳи оҳан
+боркашонии ҳавоӣ
+боркашонии байналмилалӣ
+боркашонии яхдондор
+интиқоли транзитӣ
+хизмати гумрукӣ

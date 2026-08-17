@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Онкология, in Tajik clinical wording.
+locale: tg
+---
+Саратони меъда
+Саратони шуш
+Саратони ширдон
+Саратони ҷигар
+Лейкоз
+Лимфома

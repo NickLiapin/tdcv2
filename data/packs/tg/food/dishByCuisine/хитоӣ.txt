@@ -1,0 +1,10 @@
+---
+description: Dishes of хитоӣ cuisine as Tajik names them.
+locale: tg
+---
+Димсам
+Вонтон
+Мурғи пекинӣ
+Чоумейн
+Мапотофу
+Ҷиаози

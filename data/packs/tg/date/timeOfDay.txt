@@ -1,0 +1,14 @@
+---
+description: Part of the day in Tajik. SEVERAL OF THESE ARE PRAYER TIMES BEFORE THEY ARE CLOCK TIMES and that is how the Tajik day is divided: бомдод, пешин, аср, шом and хуфтан are the five daily prayers, so пешин means both 'noon' and 'the noon prayer' and аср is the stretch of late afternoon named after the prayer that falls in it. A config translating an English morning/afternoon/evening triple into Tajik loses this and will produce something flatter than what people say.
+locale: tg
+---
+саҳар
+бомдод
+субҳ
+пешин
+баъдизуҳр
+аср
+бегоҳӣ
+шом
+шаб
+нимишаб

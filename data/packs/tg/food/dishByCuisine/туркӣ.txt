@@ -1,0 +1,10 @@
+---
+description: Dishes of туркӣ cuisine as Tajik names them.
+locale: tg
+---
+Донар
+Кӯфта
+Бӯрак
+Пахлава
+Лаҳмаҷун
+Менемен

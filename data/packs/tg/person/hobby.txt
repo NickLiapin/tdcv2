@@ -1,0 +1,81 @@
+---
+description: Pastime as Tajik names it. MOST ENTRIES ARE VERBAL NOUNS ENDING IN -Ӣ, which is how Tajik turns an activity into a noun: шоҳмотбозӣ is chess-playing, моҳигирӣ is fish-taking, кӯҳнавардӣ is mountain-walking, дуторнавозӣ is dutar-playing. A config cannot build these by putting a Tajik verb next to an English gerund. Several are specific to the region rather than translated in: бузкашӣ, the mounted goat-carcass game, and гӯштингирӣ, the belt wrestling, are the two big traditional sports; кабӯтарбозӣ, keeping and flying pigeons, is a real urban hobby; and дуторнавозӣ, рубобнавозӣ and доиранавозӣ name the three instruments an amateur is most likely to own.
+locale: tg
+---
+хониши китоб
+шоҳмотбозӣ
+нардбозӣ
+футбол
+волейбол
+баскетбол
+гӯштингирӣ
+бузкашӣ
+тирандозӣ
+шиноварӣ
+давидан
+кӯҳнавардӣ
+кӯҳгардӣ
+велосипедронӣ
+сайёҳӣ
+моҳигирӣ
+шикор
+боғдорӣ
+гулпарварӣ
+паррандапарварӣ
+занбӯриасалпарварӣ
+кабӯтарбозӣ
+аспсаворӣ
+ошпазӣ
+нонпазӣ
+палавпазӣ
+самбӯсапазӣ
+дӯзандагӣ
+гулдӯзӣ
+бофандагӣ
+кандакорӣ
+кулолгарӣ
+наққошӣ
+хушнависӣ
+суратгирӣ
+филмбинӣ
+мусиқӣ гӯш кардан
+сурудхонӣ
+рақс
+дуторнавозӣ
+рубобнавозӣ
+доиранавозӣ
+найнавозӣ
+шеърхонӣ
+шеърнависӣ
+забономӯзӣ
+сафар
+лижаронӣ
+яхмолакбозӣ
+карате
+бокс
+ҷудо
+тхэквондо
+самбо
+йога
+фитнес
+аэробика
+барномасозӣ
+бозиҳои видеоӣ
+шабакаҳои иҷтимоӣ
+коллексиякунӣ
+тангашиносӣ
+маркашиносӣ
+таърихомӯзӣ
+ситорашиносӣ
+моделсозӣ
+дуредгарӣ
+оҳангарӣ
+таъмири мошин
+сабзавоткорӣ
+чорводорӣ
+меҳмоннавозӣ
+чойнӯшӣ
+мутолиаи рӯзнома
+театрбинӣ
+рассомӣ
+ҳайкалтарошӣ

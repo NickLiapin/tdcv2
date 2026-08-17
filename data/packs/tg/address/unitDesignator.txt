@@ -1,0 +1,27 @@
+---
+description: Unit label inside a Tajik building address. EVERY ENTRY CARRIES THE IZOFAT -и AND PRECEDES ITS NUMBER — хонаи 12, ҳуҷраи 45, ошёнаи 3 — the reverse of English 'Apt. 12' only in that the linking vowel is obligatory: a config must not strip it, and must not add a comma between the word and the number. A full Tajik address reads type-first throughout: кӯчаи Рӯдакӣ, бинои 24, хонаи 12.
+locale: tg
+---
+хонаи
+манзили
+ҳуҷраи
+утоқи
+ошёнаи
+қабати
+даромадгоҳи
+блоки
+корпуси
+бинои
+дафтари
+толори
+анбори
+таҳхонаи
+болохонаи
+ҳавлии
+чойхонаи
+мағозаи
+ҷойгоҳи
+боксӣ
+квартираи
+сексияи
+подъезди

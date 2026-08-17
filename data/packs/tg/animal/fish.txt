@@ -1,0 +1,29 @@
+---
+description: Fish as Tajik names it. ШИРМОҲӢ, the Aral barbel, and ГУЛМОҲӢ, the trout, are the two river fish anyone here can name; the Amu Darya and Syr Darya basins supply the native species and the rest arrived through Soviet fish farming or the tin. Tajikistan is landlocked and mountainous, so SEA FISH IN THIS LIST ARE MARKET GOODS, NOT LOCAL CATCH — a config building a fishing dataset should not treat them as caught here.
+locale: tg
+---
+гулмоҳӣ
+ширмоҳӣ
+зағорамоҳӣ
+сазан
+лаққа
+суф
+тосмоҳӣ
+мурғмоҳӣ
+амур
+оромӣ
+карп
+судак
+шӯрмоҳӣ
+лососӣ
+тунмоҳӣ
+скумбрия
+треска
+хек
+камбала
+кефал
+сардина
+моҳии зинда
+моҳии хушк
+моҳии дудӣ
+икра

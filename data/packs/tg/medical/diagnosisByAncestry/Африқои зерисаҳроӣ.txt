@@ -1,0 +1,13 @@
+---
+description: Conditions with elevated prevalence in the Африқои зерисаҳроӣ ancestry group, in Tajik. This list is a PREVALENCE SIGNAL, NOT AN EXCLUSIVE ONE: every condition here occurs in every population, and ancestry shifts the prior probability, it does not decide the diagnosis.
+locale: tg
+---
+Камхунии ҳилолиҳуҷайра
+Бетаталассемия
+Норасоии G6PD
+Бемории музмини гурда (варианти APOL1)
+Норасоии лактаза
+Фибромиомаи бачадон
+Гипертонияи барвақт
+Саратони простата
+Кетоатсидози диабетӣ

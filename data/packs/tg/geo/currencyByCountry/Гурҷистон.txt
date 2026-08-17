@@ -1,0 +1,5 @@
+---
+description: Currency of Гурҷистон as Tajik names it.
+locale: tg
+---
+лари

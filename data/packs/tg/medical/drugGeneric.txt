@@ -1,0 +1,46 @@
+---
+description: Generic drug name as a Tajik prescription writes it. THE SPELLING IS THE INTERNATIONAL NONPROPRIETARY NAME TRANSLITERATED THROUGH RUSSIAN, which is what a Tajik pharmacy label and a doctor's script both show; there is no separate Persian pharmaceutical nomenclature in use. The anti-tuberculosis block (изониазид, рифампитсин, пиразинамид, этамбутол) is at the head because TB treatment is a major and centrally supplied part of Tajik prescribing. NOTE THE ТС: Tajik has no ц — the 1998 reform struck it out — so every Russian -цин comes out -тсин and цефтриаксон is written сефтриаксон.
+locale: tg
+---
+изониазид
+рифампитсин
+пиразинамид
+этамбутол
+стрептомитсин
+амокситсиллин
+ампитсиллин
+азитромитсин
+сефтриаксон
+сипрофлоксатсин
+метронидазол
+нистатин
+флуконазол
+атсикловир
+паратсетамол
+ибупрофен
+аспирин
+аналгин
+диклофенак
+димедрол
+супрастин
+лоратадин
+дексаметазон
+преднизолон
+инсулин
+метформин
+глибенкламид
+эналаприл
+каптоприл
+амлодипин
+атенолол
+фуросемид
+нитроглитсерин
+омепразол
+ранитидин
+но-шпа
+ангишти фаъол
+регидрон
+оҳани сулфат
+кислотаи фолий
+витамини D
+йодомарин

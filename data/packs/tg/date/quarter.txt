@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter in Tajik. Built with the IZOFAT: чоряк, a quarter, takes -и and is followed by the ordinal — чоряки якум, 'the quarter the first'. The ordinal cannot precede the noun the way English puts 'first' before 'quarter'.
+locale: tg
+---
+чоряки якум
+чоряки дуюм
+чоряки сеюм
+чоряки чорум

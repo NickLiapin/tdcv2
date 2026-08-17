@@ -1,0 +1,14 @@
+---
+description: Industry, as the coherent parent of work/jobByIndustry/. Ten sectors that match Tajikistan's actual employment rather than a Western default: КИШОВАРЗӢ comes first because agriculture is still the largest employer in the country by a wide margin, and КӮҲКОРӢ is here because mining — aluminium, antimony, gold, silver — is the main industrial export. Each value is the filename of a file in work/jobByIndustry/.
+locale: tg
+---
+Кишоварзӣ
+Сохтмон
+Маориф
+Тандурустӣ
+Молия
+Технологияи иттилоотӣ
+Саноат
+Кӯҳкорӣ
+Нақлиёт
+Савдо

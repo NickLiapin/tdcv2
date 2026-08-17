@@ -1,0 +1,26 @@
+---
+description: Metal as Tajik names it. СУРМА, antimony, is on this list for a reason a European pack would not have: Tajikistan is one of the world's largest antimony producers and the Anzob deposit is a significant national export, so a mining or trade dataset built here that omits it is missing the main metal. ТИЛЛО, gold, and НУҚРА, silver, are also mined domestically. Note that биринҷӣ, brass, is one letter away from биринҷ, rice, and a config must not confuse them.
+locale: tg
+---
+тилло
+нуқра
+мис
+оҳан
+пӯлод
+биринҷӣ
+бронза
+руҳ
+қалъагӣ
+сурб
+алюминий
+никел
+хром
+титан
+платина
+симоб
+волфрам
+магний
+уран
+сурма
+кадмий
+молибден

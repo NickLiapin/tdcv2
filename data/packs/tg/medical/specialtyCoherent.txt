@@ -1,0 +1,14 @@
+---
+description: Medical specialty, as the coherent parent of medical/diagnosisBySpecialty/. The names are the international Greek-Latin set as Tajik spells them, arriving through Russian, which is how Tajik clinical vocabulary works: the disease names are often Persian but the specialty names are not. Each value is the filename of a file in medical/diagnosisBySpecialty/.
+locale: tg
+---
+Кардиология
+Дерматология
+Эндокринология
+Гастроэнтерология
+Нефрология
+Неврология
+Онкология
+Ортопедия
+Психиатрия
+Пулмонология

@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Ортопедия, in Tajik clinical wording.
+locale: tg
+---
+Шикастани устухон
+Артрози буғум
+Дарди камар
+Каҷии сутунмӯҳра
+Осеби мениск
+Даррафтагии буғум

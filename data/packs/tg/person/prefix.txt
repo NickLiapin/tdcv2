@@ -1,0 +1,36 @@
+---
+description: Tajik honorific or title. THE POSITION IS SPLIT AND A CONFIG MUST NOT ASSUME ONE RULE. Ҷаноби, устод, муҳтарам, домулло and мулло PRECEDE the name — and ҷаноби carries the IZOFAT -и because it is linked to what follows (ҷаноби Раҳимов, 'the mister of Rahimov'), so the bare form ҷаноб is wrong in front of a name. Хонум, ако, апа, бобо, бибӣ, амак, хола and ҳоҷӣ FOLLOW it: Гулнора хонум, Карим ако, Раҳим бобо. The kinship words are addressed to strangers as readily as to relatives and are the ordinary polite way to speak to anyone older. Устод, literally master, is the standard address to a teacher, a writer or a musician and is not translatable as Mr.
+locale: tg
+---
+ҷаноби
+хонум
+муҳтарам
+устод
+домулло
+мулло
+ҳоҷӣ
+эшон
+шайх
+ако
+ака
+апа
+бобо
+бибӣ
+амак
+тағо
+хола
+додар
+духтур
+профессор
+дотсент
+академик
+муаллим
+муаллима
+раис
+сардор
+мирзо
+амир
+шоҳ
+ҳазрати
+ҷаноби олӣ
+бародар

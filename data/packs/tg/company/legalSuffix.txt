@@ -1,0 +1,35 @@
+---
+description: Legal form of a Tajik company. THREE THINGS A CONFIG MUST GET RIGHT. FIRST, THE ABBREVIATION PRECEDES THE NAME, it does not follow it: ҶДММ «Ориён», not «Ориён» ҶДММ — the reverse of Ltd, GmbH and S.A. SECOND, THE NAME IS WRAPPED IN GUILLEMETS « », inherited from Russian typographic practice, not in straight quotes. THIRD, ҶДММ (Ҷамъияти дорои масъулияти маҳдуд) is the ordinary limited company and covers the overwhelming majority of registered businesses. ХОҶАГИИ ДЕҲҚОНӢ, the dehqan farm, has no Western equivalent: it is a distinct legal person for family farming created by the land reform that broke up the Soviet collective farms, and it is one of the commonest registered entities in the country.
+locale: tg
+---
+ҶДММ
+Ҷамъияти дорои масъулияти маҳдуд
+ҶСК
+Ҷамъияти саҳомии кушода
+ҶСП
+Ҷамъияти саҳомии пӯшида
+КВД
+Корхонаи воҳиди давлатӣ
+КД
+Корхонаи давлатӣ
+Хоҷагии деҳқонӣ
+Хоҷагии фермерӣ
+Кооператив
+Кооперативи истеҳсолӣ
+Соҳибкори инфиродӣ
+СИ
+Ширкат
+Ширкати саҳомӣ
+Муассиса
+Муассисаи давлатӣ
+Муассисаи ҷамъиятӣ
+Ташкилоти ҷамъиятӣ
+Иттиҳодия
+Фонд
+Намояндагӣ
+Филиал
+Корхонаи муштарак
+Ташкилоти маблағгузории хурд
+Ассотсиатсия
+Консорсиум
+Холдинг

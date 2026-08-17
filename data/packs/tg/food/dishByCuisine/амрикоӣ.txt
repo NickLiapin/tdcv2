@@ -1,0 +1,10 @@
+---
+description: Dishes of амрикоӣ cuisine as Tajik names them.
+locale: tg
+---
+Гамбургер
+Хотдог
+Стейк
+Барбекю
+Чизбургер
+Панкейк

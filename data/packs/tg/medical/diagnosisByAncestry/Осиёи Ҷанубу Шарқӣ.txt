@@ -1,0 +1,10 @@
+---
+description: Conditions with elevated prevalence in the Осиёи Ҷанубу Шарқӣ ancestry group, in Tajik.
+locale: tg
+---
+Алфаталассемия
+Гемоглобини Е
+Норасоии G6PD
+Саратони назофарингеалӣ
+Норасоии лактаза
+Табларзаи денге

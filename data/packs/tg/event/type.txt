@@ -1,0 +1,28 @@
+---
+description: Kind of event in Tajik. ТӮЙ leads because it dominates social life: a Tajik wedding is a multi-day sequence of separate named events with hundreds of guests, large enough that the state has legislated to cap its size and cost. ХАТНАТӮЙ, the circumcision feast, is a comparable family occasion with no Western equivalent, and ХУДОӢ is a communal meal given as a votive offering.
+locale: tg
+---
+тӯй
+тӯи арӯсӣ
+хатнатӯй
+чашни номгузорӣ
+худоӣ
+маърака
+маросими дафн
+ид
+Наврӯз
+Иди Рамазон
+Иди Қурбон
+ҷашн
+консерт
+фестивал
+намоишгоҳ
+конфронс
+семинар
+тренинг
+мусобиқа
+олимпиада
+мулоқот
+маҷлис
+ифтитоҳ
+субботник

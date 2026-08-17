@@ -1,0 +1,8 @@
+---
+description: Gender as a Tajik form asks it. A Tajik passport records ҷинс with two values, мард and зан; the last two are here for datasets that allow a wider answer and are not what the state registry stores.
+locale: tg
+---
+мард
+зан
+дигар
+нишон дода нашудааст

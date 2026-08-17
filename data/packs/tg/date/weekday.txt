@@ -1,0 +1,11 @@
+---
+description: Weekday in Tajik, MONDAY FIRST, which is how a Tajik calendar prints the week. THE NAMES ARE TRANSPARENT PERSIAN COUNTING and a reader can decode them: шанбе is Saturday and the week is numbered from it — якшанбе is 'one-шанбе' Sunday, душанбе 'two' Monday, сешанбе 'three' Tuesday, чоршанбе 'four' Wednesday, панҷшанбе 'five' Thursday. Friday breaks the pattern and is ҷумъа, the Arabic word for the congregational prayer. THE CAPITAL OF TAJIKISTAN IS LITERALLY THE WORD FOR MONDAY: Душанбе grew from a Monday market. All lower case. Note that ҷумъа, not шанбе or якшанбе, is the day with religious weight, while the state weekend is Saturday and Sunday.
+locale: tg
+---
+душанбе
+сешанбе
+чоршанбе
+панҷшанбе
+ҷумъа
+шанбе
+якшанбе

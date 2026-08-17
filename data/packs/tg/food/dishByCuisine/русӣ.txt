@@ -1,0 +1,11 @@
+---
+description: Dishes of русӣ cuisine as Tajik names them.
+locale: tg
+---
+Борш
+Пелмен
+Салати Оливе
+Блин
+Окрошка
+Каша
+Сирник

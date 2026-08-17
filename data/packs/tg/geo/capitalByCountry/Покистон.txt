@@ -1,0 +1,5 @@
+---
+description: Capital of Покистон as Tajik names it.
+locale: tg
+---
+Исломобод

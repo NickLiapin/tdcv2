@@ -1,0 +1,5 @@
+---
+description: Currency of Булғористон as Tajik names it.
+locale: tg
+---
+лев

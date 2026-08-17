@@ -1,0 +1,5 @@
+---
+description: Capital of Яман as Tajik names it.
+locale: tg
+---
+Санъо

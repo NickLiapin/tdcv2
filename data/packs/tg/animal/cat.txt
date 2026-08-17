@@ -1,0 +1,22 @@
+---
+description: Cat breed. THE NAMES ARE INTERNATIONAL AND ADAPTED, NOT TRANSLATED, and that is honest rather than lazy: pedigree cat breeding is not a Tajik tradition and Tajik has no native breed names to offer. The one entry that is genuinely Persian is ФОРСӢ, the Persian cat, which is what the breed is called in the language the breed is named after. Most cats here are гурбаи хонагӣ, an ordinary house cat of no breed at all, which is why it is on the list.
+locale: tg
+---
+Гурбаи хонагӣ
+Гурбаи кӯчагӣ
+Форсӣ
+Сиёмӣ
+Британӣ
+Шотландӣ
+Мейнкун
+Бенгалӣ
+Сфинкс
+Абиссинӣ
+Русии кабуд
+Норвегӣ
+Бирма
+Рэгдолл
+Ангораи туркӣ
+Бомбей
+Шероз
+Сибирӣ

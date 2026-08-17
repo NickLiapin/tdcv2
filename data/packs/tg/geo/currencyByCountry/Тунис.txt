@@ -1,0 +1,5 @@
+---
+description: Currency of Тунис as Tajik names it.
+locale: tg
+---
+динори тунисӣ

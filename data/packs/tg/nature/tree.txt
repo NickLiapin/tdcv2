@@ -1,0 +1,32 @@
+---
+description: Tree as Tajik names it. ЧИНОР, the oriental plane, is the emblematic tree — planted in every village square and beside every shrine, and old enough in some places to be a landmark in its own right. АРЧА, the Zarafshon juniper, is the tree of the high mountains and its slow-growing groves are protected. ТУТ, the mulberry, is planted for the silkworm as much as for the fruit, and its dried berries are a winter food. САФЕДОР, the poplar, lines every irrigation canal and is the standard building timber.
+locale: tg
+---
+чинор
+сафедор
+бед
+тут
+тути сиёҳ
+арча
+санавбар
+кач
+заранг
+нораван
+шамшод
+сарв
+тӯс
+булут
+чормағз
+бодом
+писта
+себ
+нок
+зардолу
+шафтолу
+олу
+анор
+анҷир
+зайтун
+санҷид
+зирк
+арғувон

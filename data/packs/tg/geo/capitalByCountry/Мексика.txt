@@ -1,0 +1,5 @@
+---
+description: Capital of Мексика as Tajik names it.
+locale: tg
+---
+Мехико

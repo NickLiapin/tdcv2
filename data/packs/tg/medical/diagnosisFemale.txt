@@ -1,0 +1,30 @@
+---
+description: Diagnosis recorded only for female patients, in Tajik clinical wording. КАМХУНИИ ҲОМИЛАДОРОН leads because anaemia in pregnancy is one of the commonest recorded conditions among Tajik women and far more prevalent than in a European cohort; a uniform draw across this list understates it.
+locale: tg
+---
+Камхунии ҳомиладорон
+Камхунии норасоии оҳан
+Эндометриоз
+Синдроми тухмдони поликистозӣ
+Миомаи бачадон
+Кистаи тухмдон
+Саратони бачадон
+Саратони гарданаки бачадон
+Саратони тухмдон
+Саратони ширдон
+Мастопатия
+Мастит
+Дисменорея
+Аменорея
+Менорагия
+Вулвовагинит
+Сервитсит
+Преэклампсия
+Эклампсия
+Диабети ҳомиладорӣ
+Ҳомиладории беруназбачадонӣ
+Исқоти ҳамл
+Нозоии занона
+Климакс
+Остеопорози пас аз климакс
+Афсурдагии пас аз таваллуд

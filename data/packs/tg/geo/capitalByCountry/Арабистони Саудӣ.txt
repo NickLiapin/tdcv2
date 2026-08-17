@@ -1,0 +1,5 @@
+---
+description: Capital of Арабистони Саудӣ as Tajik names it.
+locale: tg
+---
+Риёз

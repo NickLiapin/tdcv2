@@ -1,0 +1,5 @@
+---
+description: Capital of Ғана as Tajik names it.
+locale: tg
+---
+Аккра

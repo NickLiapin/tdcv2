@@ -1,0 +1,20 @@
+---
+description: Academic degree in Tajik. THE SYSTEM IS TWO-TIERED AT THE TOP AND THAT IS THE thing a Western config gets wrong: НОМЗАДИ ИЛМ, 'candidate of sciences', is the first research degree and ДОКТОРИ ИЛМ is a SECOND, higher one earned years later — the Soviet arrangement, still in force. Номзади илм is roughly what a PhD is, доктори илм has no Western equivalent at all, and mapping either onto 'doctorate' loses the distinction. МУТАХАССИС is the old five-year single-cycle degree that preceded the Bologna split into бакалавр and магистр and is still held by everyone trained before the change.
+locale: tg
+---
+маълумоти миёна
+маълумоти миёнаи махсус
+дипломи коллеҷ
+бакалавр
+мутахассис
+магистр
+аспирантура
+номзади илм
+доктори илм
+доктори фалсафа (PhD)
+докторантура
+дотсент
+профессор
+академик
+узви вобастаи АИ
+маълумоти иловагии касбӣ

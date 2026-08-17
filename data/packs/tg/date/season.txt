@@ -1,0 +1,8 @@
+---
+description: Season in Tajik. Four of them, and the year turns at НАВРӮЗ on 21 March, the spring equinox, which is the Persian new year and the largest holiday in Tajikistan — so the Tajik year begins with баҳор, not with январ. Тирамоҳ, autumn, is literally 'the arrow month', from the old solar calendar.
+locale: tg
+---
+баҳор
+тобистон
+тирамоҳ
+зимистон

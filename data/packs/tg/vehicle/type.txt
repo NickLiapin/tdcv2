@@ -1,0 +1,28 @@
+---
+description: Kind of vehicle in Tajik. МОШИНИ МАРШРУТӢ, the shared minibus running a fixed route and leaving when full, is the backbone of urban and intercity transport here and is a vehicle category in its own right, not a bus. Note also that ХАР and АСП are still working transport in the mountain districts where the roads do not reach, which is why they are on a vehicle list at all.
+locale: tg
+---
+мошини сабукрав
+мошини боркаш
+автобус
+мошини маршрутӣ
+микроавтобус
+троллейбус
+трамвай
+таксӣ
+мошини мусофиркаш
+ҷипп
+кроссовер
+пикап
+фургон
+трактор
+комбайн
+экскаватор
+кран
+мотосикл
+мотороллер
+велосипед
+аробаи аспӣ
+хар
+асп
+қатора

@@ -1,0 +1,24 @@
+---
+description: Weather or natural phenomenon as Tajik names it. THIS LIST IS SKEWED TOWARDS MOUNTAIN HAZARDS BECAUSE THE COUNTRY IS: сел (a mudflow), тарма (an avalanche), заминҷунбӣ (an earthquake) and кӯчиши замин (a landslide) are routine seasonal events in Tajikistan, not rarities, and a risk or insurance dataset built here that omits them is wrong about the place. БОДИ АФҒОН is a named local wind — a hot dust-laden southerly blowing off the Afghan plains across Khatlon in summer — and has no English equivalent to translate to.
+locale: tg
+---
+борон
+барф
+жола
+туман
+шабнам
+қирав
+раъд
+барқ
+тӯфон
+гирдбод
+шамол
+боди афғон
+сел
+тарма
+заминҷунбӣ
+кӯчиши замин
+хушксолӣ
+гармои шадид
+яхбандӣ
+чангу ғубор

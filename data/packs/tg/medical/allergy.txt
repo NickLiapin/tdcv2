@@ -1,0 +1,26 @@
+---
+description: Allergen as a Tajik record names it. ЧАНГИ ЧИНОР is the local one: the plane trees planted in every town square shed irritant hairs and pollen in spring and are a routine seasonal complaint here. ЧАНГИ ПАХТА, cotton dust, is an occupational allergen in the growing districts.
+locale: tg
+---
+чанги хона
+чанги гул
+чанги чинор
+чанги пахта
+гарди сафедор
+пашми ҳайвонот
+мӯи гурба
+мӯи саг
+занбӯруғ
+хӯриши занбӯр
+чормағз
+бодом
+писта
+тухм
+шир
+гандум
+моҳӣ
+асал
+тарбуз
+дору
+пенитсиллин
+аспирин

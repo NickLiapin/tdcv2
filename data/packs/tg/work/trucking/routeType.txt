@@ -1,0 +1,11 @@
+---
+description: Road route type in Tajik. КӮҲӢ and АҒБАИ БАЛАНД are not decorative: over ninety per cent of Tajikistan is mountain, the main north-south road crosses passes above 3000 metres, and several routes close for the winter, so route type here is a real operational distinction rather than a label.
+locale: tg
+---
+дохилишаҳрӣ
+байнишаҳрӣ
+байналмилалӣ
+кӯҳӣ
+ағбаи баланд
+роҳи мавсимӣ
+роҳи транзитӣ

@@ -1,0 +1,5 @@
+---
+description: Currency of Тайланд as Tajik names it.
+locale: tg
+---
+бат

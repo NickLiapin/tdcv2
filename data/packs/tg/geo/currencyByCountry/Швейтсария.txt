@@ -1,0 +1,5 @@
+---
+description: Currency of Швейтсария as Tajik names it.
+locale: tg
+---
+франки швейтсарӣ

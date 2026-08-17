@@ -1,0 +1,21 @@
+---
+description: Social platform. Brand names keep their own spelling. THE MIX IS THE POINT: Instagram, TikTok and YouTube dominate, but ODNOKLASSNIKI and VKONTAKTE remain genuinely used because so many Tajik families have members working in Russia and those are the networks the migration runs on. Telegram and IMO are heavily used for cross-border calling.
+locale: tg
+---
+Instagram
+TikTok
+YouTube
+Facebook
+Telegram
+WhatsApp
+IMO
+Viber
+Odnoklassniki
+VKontakte
+X
+Snapchat
+LinkedIn
+Pinterest
+Likee
+Zoom
+Skype

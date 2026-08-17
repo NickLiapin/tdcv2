@@ -1,0 +1,11 @@
+---
+description: Abbreviated weekday in Tajik, Monday first, matching date/weekday.txt. Formed from the first letter of the numeral plus ш for шанбе; ҷумъа has no шанбе in it and abbreviates as ҷм.
+locale: tg
+---
+дш
+сш
+чш
+пш
+ҷм
+шб
+яш

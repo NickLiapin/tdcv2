@@ -1,0 +1,46 @@
+---
+description: Workplace skill in Tajik. TRILINGUAL WORKING IS A SKILL HERE AND IS NAMED AS ONE: a Tajik CV routinely lists забони русӣ and забони англисӣ alongside the state language, because Russian remains the working language of much business and of labour migration. The technical entries keep their international spelling — Excel, SQL, 1С — because that is what the software is called.
+locale: tg
+---
+кор бо компютер
+Excel
+Word
+PowerPoint
+1С
+SQL
+барномасозӣ
+таҳлили маълумот
+идоракунии лоиҳа
+муҳосибот
+аудит
+банақшагирии буҷет
+музокирот
+фурӯш
+хизматрасонии муштарӣ
+маркетинг
+шабакаҳои иҷтимоӣ
+тарҷума
+забони русӣ
+забони англисӣ
+забони ӯзбекӣ
+забони хитоӣ
+нотиқӣ
+навиштани ҳисобот
+кор дар гурӯҳ
+роҳбарӣ
+мураббигӣ
+ҳалли низоъ
+идоракунии вақт
+тафаккури интиқодӣ
+ҳалли масъала
+диққат ба ҷузъиёт
+ронандагӣ
+кор бо таҷҳизот
+кафшергарӣ
+нақшакашӣ
+AutoCAD
+назорати сифат
+бехатарии меҳнат
+кор бо ҳуҷҷатҳо
+коргузорӣ
+омӯзгорӣ

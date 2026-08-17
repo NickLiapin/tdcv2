@@ -1,0 +1,12 @@
+---
+description: Conditions with elevated prevalence in the Аврупои Шимолӣ ancestry group, in Tajik.
+locale: tg
+---
+Муковисидоз
+Гемохроматоз
+Бемории селиакӣ
+Склерози пароканда
+Диабети навъи 1
+Саратони пӯст
+Норасоии алфа-1-антитрипсин
+Остеопороз

@@ -1,0 +1,34 @@
+---
+description: Bird as Tajik names it. БУЛБУЛ, the nightingale, is not an ordinary bird name in this language — it is the central image of a thousand years of Persian poetry, paired with the rose, and a Tajik reader meets the word in a verse before meeting it in a field. КАБК, the chukar partridge, is kept in cages and matched in singing contests. Birds of prey (уқоб, боз, шоҳин, қаргас) are mountain species and are well distinguished in the vocabulary.
+locale: tg
+---
+гунҷишк
+кабӯтар
+зоғ
+зоғча
+булбул
+тӯтӣ
+уқоб
+боз
+шоҳин
+қаргас
+бум
+ҷуғз
+лайлак
+мурғобӣ
+ғоз
+товус
+қирғовул
+кабк
+бедона
+майна
+сор
+чумчуқ
+сангхӯрак
+чуғзи кӯҳӣ
+мурғи бешазор
+шунқор
+заррин
+фароштурук
+боклон
+ҳудҳуд

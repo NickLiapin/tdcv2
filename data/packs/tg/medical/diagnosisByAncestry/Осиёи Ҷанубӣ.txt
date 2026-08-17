@@ -1,0 +1,11 @@
+---
+description: Conditions with elevated prevalence in the Осиёи Ҷанубӣ ancestry group, in Tajik.
+locale: tg
+---
+Диабети навъи 2
+Бемории ишемиявии дил
+Бетаталассемия
+Норасоии G6PD
+Норасоии витамини D
+Сил
+Норасоии лактаза

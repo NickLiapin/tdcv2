@@ -1,0 +1,16 @@
+---
+description: Ancestry population as clinical genetics defines it — GEOGRAPHIC DESCENT, not a social race category, and used here only because allele frequencies really do differ by descent. The twelve groups follow the reference set, translated into Tajik. A NOTE ON THE FIT TO THIS POPULATION: Tajiks are an Iranian people of Central Asia and fall between Шарқи Наздик and Осиёи Ҷанубӣ with a large component none of the twelve names, so a Tajik cohort will NOT map cleanly onto this list and a config that assumes it does will misattribute risk. What is genuinely elevated in the region — beta-thalassaemia trait, G6PD deficiency and consanguinity-related recessive disease from a high rate of cousin marriage — sits across two of the groups rather than inside one. Each value is the filename of a file in medical/diagnosisByAncestry/.
+locale: tg
+---
+Африқои зерисаҳроӣ
+Африқои Шимолӣ
+Баҳримиёназаминӣ
+Шарқи Наздик
+Аврупои Шимолӣ
+Аврупои Шарқӣ
+Яҳудиёни ашкеназӣ
+Осиёи Ҷанубӣ
+Осиёи Шарқӣ
+Осиёи Ҷанубу Шарқӣ
+Мардуми бумии Амрико
+Ҷазираҳои Уқёнуси Ором

@@ -1,0 +1,40 @@
+---
+description: Music genre in Tajik. TWO ENTRIES ARE THE REAL TAJIK CLASSICAL TRADITION and must not be read as folk labels. ШАШМАҚОМ is the six-cycle suite repertoire of Bukhara and Samarkand, a courtly art music with a fixed sequence of modes and classical Persian poetry as its text, inscribed on the UNESCO intangible heritage list; performing one мақом in full takes hours. ФАЛАК is the vocal genre of the mountain districts — a high, open, lamenting solo line over sparse accompaniment — and is the sound most Tajiks would name as their own. The international genres keep their loan names.
+locale: tg
+---
+Шашмақом
+мақом
+фалак
+суруди халқӣ
+мусиқии классикӣ
+мусиқии анъанавӣ
+мусиқии мардумӣ
+эстрада
+поп
+рок
+ҷаз
+блюз
+рэп
+хип-хоп
+электронӣ
+техно
+хаус
+диско
+шансон
+мусиқии кино
+суруди лирикӣ
+суруди ватандӯстӣ
+гимн
+мадҳия
+марсия
+наът
+қавволӣ
+мусиқии рақсӣ
+мусиқии тӯёна
+мусиқии симфонӣ
+опера
+балет
+мусиқии кӯдакона
+регги
+метал
+фолк

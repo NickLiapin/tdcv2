@@ -1,0 +1,9 @@
+---
+description: Playing positions in Тӯббозии обӣ, in Tajik.
+locale: tg
+---
+дарвозабон
+мудофеъ
+маркази ҳуҷум
+боли чап
+боли рост

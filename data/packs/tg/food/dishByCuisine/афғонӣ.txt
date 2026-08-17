@@ -1,0 +1,10 @@
+---
+description: Dishes of афғонӣ cuisine as Tajik names them.
+locale: tg
+---
+Қобулипалав
+Мантуи афғонӣ
+Ошак
+Болонӣ
+Ҷалебӣ
+Шӯрво

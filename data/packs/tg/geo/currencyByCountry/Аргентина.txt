@@ -1,0 +1,5 @@
+---
+description: Currency of Аргентина as Tajik names it.
+locale: tg
+---
+песои аргентинӣ

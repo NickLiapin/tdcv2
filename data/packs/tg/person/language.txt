@@ -1,0 +1,46 @@
+---
+description: Language as Tajik names it. THE FIRST ENTRY IS THE FACT THAT MATTERS: забони тоҷикӣ IS PERSIAN. Tajik, Iranian Форсӣ and Afghan Дарӣ are one language with three standards — a Tajik and an Iranian can hold a conversation without an interpreter, and CANNOT READ EACH OTHER, because Tajik is written in Cyrillic and the other two in the Perso-Arabic script. The Tajik constitution calls the state language забони тоҷикӣ, and the phrase забони форсӣ is used in Tajikistan for the Iranian standard specifically. Забони русӣ sits second because it remains the language of interethnic communication with constitutional standing and is the working language of labour migration to Russia. Note the FORM: Tajik names a language забони X, 'the language of X', with the IZOFAT -и on забон, and the language adjective itself ends in -ӣ (тоҷикӣ, русӣ, англисӣ) — so a config cannot build the phrase by concatenation without the -и.
+locale: tg
+---
+забони тоҷикӣ
+забони русӣ
+забони ӯзбекӣ
+забони англисӣ
+забони форсӣ
+забони дарӣ
+забони қирғизӣ
+забони қазоқӣ
+забони туркманӣ
+забони арабӣ
+забони туркӣ
+забони озарбойҷонӣ
+забони помирӣ
+забони шуғнонӣ
+забони рушонӣ
+забони вахонӣ
+забони язгуломӣ
+забони ишкошимӣ
+забони яғнобӣ
+забони пашту
+забони урду
+забони ҳиндӣ
+забони хитоӣ
+забони ҷопонӣ
+забони кореягӣ
+забони олмонӣ
+забони фаронсавӣ
+забони испанӣ
+забони итолиёӣ
+забони португалӣ
+забони украинӣ
+забони белорусӣ
+забони арманӣ
+забони гурҷӣ
+забони ибрӣ
+забони ҳолландӣ
+забони лаҳистонӣ
+забони чехӣ
+забони юнонӣ
+забони ветнамӣ
+забони уйғурӣ
+забони тоторӣ

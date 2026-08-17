@@ -1,0 +1,5 @@
+---
+description: Capital of Исроил as Tajik names it.
+locale: tg
+---
+Ерусалим

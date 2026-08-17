@@ -1,0 +1,15 @@
+---
+description: Form of employment as a Tajik contract names it. Two of these carry the country's biggest labour fact: МЕҲНАТИ МУҲОҶИРАТӢ, migrant labour, is not a marginal category in Tajikistan — a large share of working-age men spend part of the year employed abroad, mostly in Russia, and remittances are a major part of national income. МЕҲНАТИ МАВСИМӢ, seasonal work, covers the cotton and fruit harvests. A config modelling Tajik employment that offers only full-time / part-time is describing a different country.
+locale: tg
+---
+шуғли доимӣ
+шуғли муваққатӣ
+шуғли нопурра
+шуғли пурра
+шартномавӣ
+меҳнати мавсимӣ
+меҳнати муҳоҷиратӣ
+худифодагор
+соҳибкори инфиродӣ
+коромӯз
+ихтиёрӣ

@@ -1,0 +1,5 @@
+---
+description: Currency of Сингапур as Tajik names it.
+locale: tg
+---
+доллари сингапурӣ

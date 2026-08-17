@@ -1,0 +1,5 @@
+---
+description: Currency of Арабистони Саудӣ as Tajik names it.
+locale: tg
+---
+риёли саудӣ

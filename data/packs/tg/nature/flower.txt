@@ -1,0 +1,32 @@
+---
+description: Flower as Tajik names it. THE TULIP IS NATIVE HERE, not Dutch: лола grows wild on the Tajik foothills, the garden tulip was bred from Central Asian species, and the word is used for a red flower generally as well as for the tulip. САДБАРГ, literally 'hundred-petal', is the rose; the Persian rose-and-nightingale pairing behind so much poetry is садбарг and булбул. Several entries are the blossom of a fruit tree named as a flower in its own right — гули бодом, гули себ, гули анор — which is how a Tajik spring is described.
+locale: tg
+---
+лола
+лолаи сурх
+лолаи кӯҳӣ
+садбарг
+садбарги сафед
+наргис
+ёсуман
+бунафша
+нилуфар
+чиннигул
+сунбул
+заъфарон
+офтобпараст
+шаббӯ
+гулхайрӣ
+арғувон
+настаран
+бобуна
+гули мино
+гули анор
+гули бодом
+гули себ
+гули зардолу
+гули сурх
+гули шаб
+райҳонгул
+хушбӯйгул
+гули кӯҳӣ

@@ -1,0 +1,10 @@
+---
+description: Conditions with elevated prevalence in the Аврупои Шарқӣ ancestry group, in Tajik.
+locale: tg
+---
+Бемории Вилсон
+Фенилкетонурия
+Тромбофилияи ирсӣ
+Норасоии лактаза
+Бемории ишемиявии дил
+Саратони меъда

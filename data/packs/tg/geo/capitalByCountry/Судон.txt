@@ -1,0 +1,5 @@
+---
+description: Capital of Судон as Tajik names it.
+locale: tg
+---
+Хартум

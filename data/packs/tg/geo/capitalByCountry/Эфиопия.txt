@@ -1,0 +1,5 @@
+---
+description: Capital of Эфиопия as Tajik names it.
+locale: tg
+---
+Аддис-Абеба

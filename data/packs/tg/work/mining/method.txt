@@ -1,0 +1,12 @@
+---
+description: Mining method, in Tajik. Tajikistan mines both ways: the aluminium and antimony operations are underground, the gold and building-stone quarries are open cast.
+locale: tg
+---
+кони кушод
+кони зеризаминӣ
+усули чоҳӣ
+усули шахтавӣ
+коркарди зинапоягӣ
+усули таркиш
+шустушӯи маъдан
+коркарди химиявӣ

@@ -1,0 +1,20 @@
+---
+description: Blood group. THE POST-SOVIET NOTATION IS THE FIRST EIGHT and is what a Tajik clinic writes: the group is given as a Roman numeral with the antigens in brackets, I(0), II(A), III(B), IV(AB), followed by Rh+ or Rh−. The plain international forms are also here because imported forms and laboratory printouts use them. A config must not treat II(A) and A+ as different groups: they are the same blood in two notations.
+locale: tg
+---
+I(0) Rh+
+I(0) Rh−
+II(A) Rh+
+II(A) Rh−
+III(B) Rh+
+III(B) Rh−
+IV(AB) Rh+
+IV(AB) Rh−
+0+
+0−
+A+
+A−
+B+
+B−
+AB+
+AB−

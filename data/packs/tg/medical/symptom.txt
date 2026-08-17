@@ -1,0 +1,42 @@
+---
+description: Symptom as a Tajik patient reports it. THESE ARE THE PATIENT'S WORDS, NOT THE CHART'S, and most are Persian compounds built on ДАРД, pain — сардард, дилдард, гулударди, дандондард, камардард — where English needs 'headache, stomach ache, sore throat'. A config translating an English symptom list literally will produce Russified phrases no patient uses.
+locale: tg
+---
+табларза
+сардард
+чарх задани сар
+заъфи умумӣ
+хастагӣ
+сулфа
+сулфаи хушк
+сулфа бо балғам
+нафастангӣ
+тангии нафас
+дарди сина
+тапиши дил
+фишори баланд
+фишори паст
+дилбеҳузурӣ
+қайкунӣ
+исҳол
+қабзият
+дарди шикам
+дилдард
+сӯзиши меъда
+набудани иштиҳо
+камвазнӣ
+варам
+дасту пойи варамида
+дарди буғум
+камардард
+дарди гардан
+хунукхӯрӣ
+арақи шабона
+хориши пӯст
+доғи пӯст
+зардии пӯст
+гулударди
+дандондард
+хунравии бинӣ
+бехобӣ
+изтироб

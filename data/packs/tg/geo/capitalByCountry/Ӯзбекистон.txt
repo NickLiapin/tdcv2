@@ -1,0 +1,5 @@
+---
+description: Capital of Ӯзбекистон as Tajik names it.
+locale: tg
+---
+Тошканд

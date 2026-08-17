@@ -1,0 +1,5 @@
+---
+description: Currency of Ҷопон as Tajik names it.
+locale: tg
+---
+йена

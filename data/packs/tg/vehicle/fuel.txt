@@ -1,0 +1,14 @@
+---
+description: Fuel type in Tajik. ГАЗИ МОЕЪ (LPG) is on the list because a large share of Tajik cars run converted to gas — it is cheaper than petrol and the conversion is routine — so a vehicle dataset that offers only petrol and diesel misses a major category.
+locale: tg
+---
+бензин
+бензини АИ-92
+бензини АИ-95
+дизел
+гази моеъ
+гази фишурда
+гибрид
+барқӣ
+ангишт
+ҳезум

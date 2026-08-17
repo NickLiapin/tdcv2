@@ -1,0 +1,5 @@
+---
+description: Capital of Британияи Кабир as Tajik names it.
+locale: tg
+---
+Лондон

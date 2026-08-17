@@ -1,0 +1,38 @@
+---
+description: Garment as Tajik names it. THE FIRST BLOCK IS TAJIK CLOTHING AND HAS NO EUROPEAN EQUIVALENT. КУРТА is the long tunic-dress worn by women over ЭЗОР or ЛОЗИМӢ, the loose trousers gathered at the ankle — the two are one outfit and neither is worn alone. ЧАКАН is the hand-embroidered version of that dress and its embroidery is on the UNESCO intangible heritage list. АТЛАС and АДРАС are the warp-ikat silks the dresses are cut from, named by the cloth rather than the garment. ТӮППӢ is the embroidered skullcap, worn by men and women both and regionally patterned so that the wearer's district is readable from it. ҶОМА is the quilted coat, САЛЛА the wound turban, and КАМАРБАНД the sash that closes them. The second block is ordinary international dress under Russian loan names.
+locale: tg
+---
+курта
+эзор
+лозимӣ
+чакан
+атлас
+адрас
+тӯппӣ
+салла
+рӯймол
+ҷома
+чакман
+камарбанд
+пероҳан
+доман
+нимтана
+мӯза
+калӯш
+ҷуроб
+кулоҳ
+дастпӯшак
+шим
+костюм
+куртка
+палто
+пиҷак
+ҷемпер
+футболка
+ҷинс
+либоси варзишӣ
+либоси корӣ
+пойафзол
+туфлӣ
+сандал
+чакмани зимистонӣ

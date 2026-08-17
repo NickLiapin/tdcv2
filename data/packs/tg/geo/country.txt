@@ -1,0 +1,86 @@
+---
+description: Country as TAJIK names it, weighted by population in millions. TRANSLATED, NOT TRANSLITERATED, and the translations are Persian rather than Russian: Egypt is Миср, Greece is Юнон, Poland is Лаҳистон, Hungary is Маҷористон, Germany is Олмон, France is Фаронса, Japan is Ҷопон, China is Хитой, India is Ҳиндустон, Iran is Эрон. A Tajik reading Египет or Германия is reading Russian. The Persian -истон, land of, is far more productive here than -land is in English and covers every neighbour: Тоҷикистон, Ӯзбекистон, Қирғизистон, Қазоқистон, Туркманистон, Афғонистон, Покистон, Арманистон, Гурҷистон, Ҳиндустон, Лаҳистон, Маҷористон, Булғористон. Several names take the IZOFAT and are phrases, not words: Иёлоти Муттаҳидаи Амрико, Арабистони Саудӣ, Африкаи Ҷанубӣ, Кореяи Ҷанубӣ, Зеландияи Нав — each -и links the head noun to its modifier, so a config must copy the whole string and must never split on the space. TAJIKISTAN IS AT ITS REAL WEIGHT OF 10 and is not boosted; a Tajikistan-centred dataset must filter rather than rely on the weighting.
+locale: tg
+weighted: true
+---
+Хитой,1410
+Ҳиндустон,1400
+Иёлоти Муттаҳидаи Амрико,335
+Индонезия,275
+Покистон,240
+Нигерия,220
+Бразилия,215
+Бангладеш,170
+Русия,144
+Мексика,128
+Ҷопон,125
+Эфиопия,120
+Миср,110
+Ветнам,98
+Эрон,88
+Туркия,85
+Олмон,84
+Тайланд,72
+Фаронса,68
+Британияи Кабир,67
+Африкаи Ҷанубӣ,60
+Италия,59
+Кореяи Ҷанубӣ,52
+Судон,47
+Испания,47
+Аргентина,46
+Алҷазоир,45
+Ироқ,44
+Афғонистон,41
+Канада,39
+Лаҳистон,38
+Украина,38
+Марокаш,37
+Арабистони Саудӣ,36
+Ӯзбекистон,35
+Яман,34
+Ғана,33
+Малайзия,33
+Мозамбик,33
+Непал,30
+Австралия,26
+Кореяи Шимолӣ,26
+Сурия,22
+Шри-Ланка,22
+Қазоқистон,20
+Руминия,19
+Чили,19
+Нидерландия,18
+Камбоҷа,17
+Зимбабве,16
+Белгия,12
+Тунис,12
+Урдун,11
+Чехия,11
+Юнон,10
+Португалия,10
+Шветсия,10
+Маҷористон,10
+Озарбойҷон,10
+Тоҷикистон,10
+Аморати Муттаҳидаи Араб,10
+Австрия,9
+Швейтсария,9
+Исроил,9
+Белорус,9
+Ливия,7
+Қирғизистон,7
+Сербия,7
+Булғористон,6
+Туркманистон,6
+Дания,6
+Финландия,6
+Сингапур,6
+Норвегия,5
+Ирландия,5
+Зеландияи Нав,5
+Лубнон,5
+Гурҷистон,4
+Кувайт,4
+Арманистон,3
+Қатар,3

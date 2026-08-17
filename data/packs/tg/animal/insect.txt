@@ -1,0 +1,24 @@
+---
+description: Insect or small invertebrate as Tajik names it. КИРМАКИ ПИЛЛА, the silkworm, is farmed rather than wild: sericulture is an old Tajik industry and the атлас and адрас silks in clothing/type.txt come from it. КАЖДУМ, the scorpion, and КАННА, the tick, are the two an actual health record is likely to mention.
+locale: tg
+---
+занбӯр
+занбӯри асал
+магас
+пашша
+мӯрча
+малах
+шапалак
+кирм
+кирмаки пилла
+тортанак
+сӯсар
+кайк
+шабуш
+гамбӯсак
+сӯзанак
+каждум
+канна
+шапаракчаи шаб
+чирчирак
+хунхӯрак

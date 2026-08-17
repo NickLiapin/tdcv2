@@ -1,0 +1,5 @@
+---
+description: Currency of Аморати Муттаҳидаи Араб as Tajik names it.
+locale: tg
+---
+дирҳам

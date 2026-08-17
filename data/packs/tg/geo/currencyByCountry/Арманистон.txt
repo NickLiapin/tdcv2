@@ -1,0 +1,5 @@
+---
+description: Currency of Арманистон as Tajik names it.
+locale: tg
+---
+драм

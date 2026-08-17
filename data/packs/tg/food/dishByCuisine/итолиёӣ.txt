@@ -1,0 +1,11 @@
+---
+description: Dishes of итолиёӣ cuisine as Tajik names them.
+locale: tg
+---
+Паста
+Питса
+Лазания
+Ризотто
+Спагеттӣ
+Тирамису
+Равиолӣ

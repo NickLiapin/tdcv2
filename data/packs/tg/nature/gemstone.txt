@@ -1,0 +1,29 @@
+---
+description: Gemstone as Tajik names it. TWO OF THESE ARE BADAKHSHAN'S OWN AND ARE NOT ORDINARY LOANWORDS. ЛОҶУВАРД, lapis lazuli, was mined at Sar-i Sang in the Badakhshan mountains for six thousand years and supplied Egypt, Mesopotamia and the Renaissance with ultramarine; the English azure and the Russian лазурь both descend from this word. ЛАЪЛ is the Badakhshan spinel that Europe called the Balas ruby and set in crowns, believing it a ruby. ФИРӮЗА, turquoise, is the Persian word behind the French pierre turquoise and so behind the English name of the colour.
+locale: tg
+---
+лаъл
+лоҷувард
+фирӯза
+зумуррад
+ёқут
+алмос
+марворид
+ақиқ
+гавҳар
+каҳрабо
+аметист
+топаз
+гранат
+малахит
+оникс
+опал
+кварс
+нефрит
+яшма
+берилл
+ситрин
+турмалин
+обсидиан
+содалит
+хризолит

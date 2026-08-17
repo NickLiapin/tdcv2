@@ -1,0 +1,59 @@
+{
+  "months": [
+    "январ",
+    "феврал",
+    "март",
+    "апрел",
+    "май",
+    "июн",
+    "июл",
+    "август",
+    "сентябр",
+    "октябр",
+    "ноябр",
+    "декабр"
+  ],
+  "monthsInDate": [
+    "январи",
+    "феврали",
+    "марти",
+    "апрели",
+    "майи",
+    "июни",
+    "июли",
+    "августи",
+    "сентябри",
+    "октябри",
+    "ноябри",
+    "декабри"
+  ],
+  "monthsShort": [
+    "янв",
+    "фев",
+    "мар",
+    "апр",
+    "май",
+    "июн",
+    "июл",
+    "авг",
+    "сен",
+    "окт",
+    "ноя",
+    "дек"
+  ],
+  "weekdays": [
+    "якшанбе",
+    "душанбе",
+    "сешанбе",
+    "чоршанбе",
+    "панҷшанбе",
+    "ҷумъа",
+    "шанбе"
+  ],
+  "weekdaysShort": ["яш", "дш", "сш", "чш", "пш", "ҷм", "шб"],
+  "formats": {
+    "L": "DD.MM.YYYY",
+    "LL": "D MMMM YYYY"
+  },
+  "notes": "Five things a formatter has to get right for Tajik. FIRST AND MOST IMPORTANT, monthsInDate IS NOT A COPY OF months and the difference is the IZOFAT: inside a date the month name takes -и, because it is linked to the year that follows — 5 январи соли 2026, literally '5 of-January of-the-year 2026'. The nominative январ is what you say when naming the month alone; январи is what appears in a full date. соли, 'the year', carries its own izofat too, and no format token supplies that word, so a config building a full Tajik date string has to add сол itself. SECOND, THE SOFT SIGN IS GONE: январ, феврал, апрел, июн, июл, сентябр, октябр, ноябр, декабр end in a hard consonant with no ь, because the 1998 alphabet reform struck ь, ы, ц and щ out of Tajik. A month list with январь in it is Russian text in a Tajik pack. THIRD, the weekday names are Persian numerals counted off шанбе (Saturday): якшанбе one, душанбе two, сешанбе three, чоршанбе four, панҷшанбе five, then ҷумъа for Friday from the Arabic word for the congregational prayer. The capital of the country is the word for Monday. The array here is Sunday-first because the formatter wants it that way, while date/weekday.txt in the pack is Monday-first because that is how a Tajik calendar prints it; both are the same seven words, all lower case. FOURTH, there is a SECOND month system in live use and it must never be swapped in here: the solar Hijri months Ҳамал, Савр, Ҷавзо, Саратон, Асад, Сунбула, Мезон, Ақраб, Қавс, Ҷадӣ, Далв, Ҳут, which are also the zodiac signs, begin around the 21st of each Gregorian month and do not align with them. The year they belong to turns at Наврӯз on 21 March. FIFTH, the numeric format is DD.MM.YYYY with dots, time is 24-hour with a colon and Tajik has no am/pm, the decimal separator is a comma and the thousands separator a space, and the currency is the сомонӣ, which replaced the Tajikistani rouble on 30 October 2000 at 1 сомонӣ to 1000 roubles — so any monetary series crossing that date changes unit."
+}

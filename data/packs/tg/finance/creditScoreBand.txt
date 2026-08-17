@@ -1,0 +1,9 @@
+---
+description: Creditworthiness band in Tajik. Tajikistan has a credit-information bureau rather than a single public consumer score, so these are BANDS A LENDER USES internally, not a number a borrower knows about themselves the way an American knows a FICO score. A config must not print one of these as if the customer had been told it.
+locale: tg
+---
+хеле хуб
+хуб
+миёна
+паст
+хеле паст

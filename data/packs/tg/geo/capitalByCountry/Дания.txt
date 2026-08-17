@@ -1,0 +1,5 @@
+---
+description: Capital of Дания as Tajik names it.
+locale: tg
+---
+Копенгаген

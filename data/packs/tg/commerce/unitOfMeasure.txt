@@ -1,0 +1,34 @@
+---
+description: Unit of measure in Tajik. METRIC THROUGHOUT — Tajikistan inherited the Soviet metric system and uses nothing else. Two traditional units survive in the bazaar and are on the list: ЧОРАК, a quarter, and the МАН, an old weight of several kilograms whose exact value varied by district and which is now heard mostly from older traders. A config must not treat ман as a fixed quantity.
+locale: tg
+---
+дона
+ҷуфт
+маҷмӯа
+қуттӣ
+халта
+борхалта
+баста
+рулон
+варақ
+метр
+сантиметр
+миллиметр
+километр
+метри мураббаъ
+метри мукааб
+литр
+миллилитр
+грамм
+килограмм
+тонна
+сентнер
+соат
+дақиқа
+рӯз
+моҳ
+сол
+чорак
+ман
+дараҷа
+фоиз

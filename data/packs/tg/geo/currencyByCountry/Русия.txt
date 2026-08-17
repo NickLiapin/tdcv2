@@ -1,0 +1,5 @@
+---
+description: Currency of Русия as Tajik names it.
+locale: tg
+---
+рубли русӣ

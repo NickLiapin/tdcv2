@@ -1,0 +1,11 @@
+---
+description: Dishes of фаронсавӣ cuisine as Tajik names them.
+locale: tg
+---
+Круассан
+Багет
+Ратотуй
+Кремабрюле
+Кишилорен
+Буйабес
+Эклер

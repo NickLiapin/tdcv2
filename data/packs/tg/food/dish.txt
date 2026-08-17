@@ -1,0 +1,44 @@
+---
+description: Dish as Tajik names it. THE NATIONAL DISH IS ОШИ ПАЛАВ and the word order is the point: ош, the meal, takes the izofat and палав follows, so it is 'the meal of pilaf'. ҚУРУТОБ HAS NO TRANSLATION — flaky фатир bread torn into a wooden тавақ, drowned in қурут (reconstituted dried yogurt) and topped with fried onion, eaten with the hands from a shared bowl; it is the dish Tajikistan is best known for and 'yogurt bread salad' is not it. Note also that САМБӮСА is baked on the wall of a танӯр, not fried, and that СУМАЛАК is made once a year at Наврӯз from sprouted wheat, stirred overnight by a group of women, and is a ritual before it is a food.
+locale: tg
+---
+Оши палав
+Қурутоб
+Шакароб
+Тушбера
+Сумалак
+Угро
+Мастоба
+Шӯрбо
+Бирёни хуҷандӣ
+Кабоби тобагӣ
+Кабоби сихӣ
+Кабоби ҷигар
+Самбӯса
+Манту
+Лағмон
+Чакка
+Ширчой
+Далда
+Атола
+Ҳасиб
+Димлама
+Шӯла
+Норин
+Ҳалим
+Нахӯдшӯрак
+Оши бурида
+Кашк
+Нони фатир
+Кулча
+Чалпак
+Ҳалво
+Ҳалвойтар
+Нишалло
+Пашмак
+Салати бодиринг
+Салати помидор
+Туршии сабзавот
+Шириничой
+Мураббо
+Бӯрак

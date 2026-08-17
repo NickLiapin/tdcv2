@@ -1,0 +1,48 @@
+---
+description: Common Tajik verb, in the infinitive. TAJIK VERBS END IN -ДАН OR -ТАН and the verb comes LAST in the sentence — Tajik is subject-object-verb, not the subject-verb-object of the European locales — so a config splicing a Tajik clause together from parts cannot use an English word-order template. Many everyday meanings are expressed by a COMPOUND of noun plus кардан or шудан rather than by a simple verb.
+locale: tg
+---
+будан
+шудан
+кардан
+доштан
+гуфтан
+гирифтан
+додан
+дидан
+шунидан
+донистан
+фаҳмидан
+хостан
+тавонистан
+омадан
+рафтан
+истодан
+нишастан
+хестан
+хобидан
+хӯрдан
+нӯшидан
+хондан
+навиштан
+омӯхтан
+кор кардан
+бозӣ кардан
+хандидан
+гиристан
+дӯст доштан
+гуфтугӯ кардан
+пурсидан
+ҷавоб додан
+кушодан
+бастан
+харидан
+фурӯхтан
+сохтан
+шикастан
+ёфтан
+гум кардан
+интизор шудан
+зистан
+мурдан
+оғоз кардан

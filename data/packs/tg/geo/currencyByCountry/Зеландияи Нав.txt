@@ -1,0 +1,5 @@
+---
+description: Currency of Зеландияи Нав as Tajik names it.
+locale: tg
+---
+доллари Зеландияи Нав

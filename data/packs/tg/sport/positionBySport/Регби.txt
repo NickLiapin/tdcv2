@@ -1,0 +1,10 @@
+---
+description: Playing positions in Регби, in Tajik.
+locale: tg
+---
+сутунмӯҳра
+ҳукер
+қулф
+флангер
+нимпасдиҳанда
+мудофеи ақиб

@@ -1,0 +1,5 @@
+---
+description: Currency of Ливия as Tajik names it.
+locale: tg
+---
+динори ливиягӣ

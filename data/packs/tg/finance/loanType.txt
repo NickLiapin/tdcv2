@@ -1,0 +1,14 @@
+---
+description: Kind of loan in Tajik. ҚАРЗИ ХУРД, microcredit, is at the head because microfinance institutions reach far more Tajik borrowers than commercial banks do, and ҚАРЗИ КИШОВАРЗӢ matters for the same reason agriculture does. Note that ҚАРЗИ ИСЛОМӢ is a real product line offered by licensed Islamic banking windows, structured to avoid interest, and is not a synonym for any of the others.
+locale: tg
+---
+қарзи хурд
+қарзи истеъмолӣ
+қарзи манзил
+қарзи ипотекӣ
+қарзи автомобил
+қарзи кишоварзӣ
+қарзи тиҷоратӣ
+қарзи соҳибкории хурд
+қарзи таълимӣ
+қарзи исломӣ

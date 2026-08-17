@@ -1,0 +1,34 @@
+---
+description: Hashtag as Tajik writes it. TAJIK HASHTAGS ARE WRITTEN IN CYRILLIC AND HOLD THEIR DIACRITICS — #Тоҷикистон, #Наврӯз, #Душанбе — and the platforms handle ғ, ӣ, қ, ӯ, ҳ and ҷ correctly, so a config must not strip them to ASCII. Multiword tags are written closed up with no separator.
+locale: tg
+---
+#Тоҷикистон
+#Душанбе
+#Хуҷанд
+#Наврӯз
+#Ватан
+#Тоҷикон
+#ЗабониТоҷикӣ
+#ФарҳангиТоҷик
+#Помир
+#Бадахшон
+#Кӯҳистон
+#Сафар
+#Табиат
+#Кӯҳнавардӣ
+#Оила
+#Тӯй
+#Ошипалав
+#Қурутоб
+#Таом
+#Мусиқӣ
+#Шашмақом
+#Фалак
+#Варзиш
+#Футбол
+#Гӯштингирӣ
+#Илм
+#Маориф
+#Ҷавонон
+#Хабар
+#Тиҷорат

@@ -1,0 +1,5 @@
+---
+description: Capital of Кореяи Шимолӣ as Tajik names it.
+locale: tg
+---
+Пхенян

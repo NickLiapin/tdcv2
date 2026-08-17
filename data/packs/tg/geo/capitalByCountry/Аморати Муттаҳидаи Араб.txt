@@ -1,0 +1,5 @@
+---
+description: Capital of Аморати Муттаҳидаи Араб as Tajik names it.
+locale: tg
+---
+Абу-Дабӣ

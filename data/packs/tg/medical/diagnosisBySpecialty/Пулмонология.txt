@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Пулмонология, in Tajik clinical wording.
+locale: tg
+---
+Сил
+Пневмония
+Бронхити музмин
+Нафастангӣ
+Бемории музмини обстуктивии шуш
+Плеврит

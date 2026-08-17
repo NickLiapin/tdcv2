@@ -1,0 +1,9 @@
+---
+description: Playing positions in Футзал, in Tajik.
+locale: tg
+---
+дарвозабон
+мудофеъ
+ҳофбеки канорӣ
+ҳуҷумкунанда
+бозигари универсалӣ

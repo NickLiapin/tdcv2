@@ -1,0 +1,5 @@
+---
+description: Capital of Белгия as Tajik names it.
+locale: tg
+---
+Брюссел

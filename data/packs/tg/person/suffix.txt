@@ -1,0 +1,26 @@
+---
+description: What follows a Tajik name. The first block is the NAMING suffixes, which are the live part of this list: -зода and -зод (born of), -иён and -ён (of the line of), -пур (son of), -фар, and -ӣ, the relative adjective. Since the 2016 amendments to the civil-status registration law these are what an ethnic Tajik newborn's surname must be built with, in place of the Russian -ов / -ович. Писари and духтари, 'son of' and 'daughter of', do the same job with the IZOFAT instead of a suffix and stand as separate words. THE GENERATIONAL NUMERALS ARE DELIBERATELY ABSENT: Tajik has no Jr / Sr / II / III convention. The rest are degrees and state honours, written after the name in a document.
+locale: tg
+---
+-зода
+-зод
+-иён
+-ён
+-пур
+-фар
+-ӣ
+писари
+духтари
+номзади илм
+доктори илм
+магистр
+бакалавр
+профессор
+дотсент
+академик
+PhD
+ҳоҷӣ
+Қаҳрамони Тоҷикистон
+Ходими хизматнишондодаи илм
+Арбоби ҳунар
+муовин

@@ -1,0 +1,24 @@
+---
+description: Purpose of a journey in Tajik. ЗИЁРАТ, pilgrimage to a shrine, and ҲАҶ, the pilgrimage to Mecca, are ordinary trip purposes here and appear on real booking forms. САФАРИ КОРӢ БА ХОРИҶА for labour migration is the largest single reason Tajik citizens cross a border and should not be modelled as business travel.
+locale: tg
+---
+сафари сайёҳӣ
+сафари корӣ
+сафари корӣ ба хориҷа
+сафари оилавӣ
+сафари меҳмонӣ
+зиёрат
+ҳаҷ
+умра
+сафари табобатӣ
+сафари таълимӣ
+сафари илмӣ
+сафари варзишӣ
+истироҳат
+кӯҳнавардӣ
+сайри табиат
+шикор
+моҳигирӣ
+тӯй
+маърака
+транзит

@@ -1,0 +1,23 @@
+---
+description: Kind of property in Tajik. ҲАВЛӢ is the one that decides everything: a walled family compound with a courtyard, its own gate and usually a garden, and the normal form of housing outside the Soviet apartment blocks. It is bought, sold, inherited and divided as a unit, and it is not a 'house with a yard'. МАНЗИЛ is the flat in a бинои бисёрошёна, the multi-storey block.
+locale: tg
+---
+ҳавлӣ
+хонаи истиқоматӣ
+манзил
+манзили якхонагӣ
+манзили духонагӣ
+манзили сехонагӣ
+манзили чорхонагӣ
+бинои бисёрошёна
+коттеҷ
+виллаи истироҳатӣ
+хонаи боғӣ
+қитъаи замин
+замини кишоварзӣ
+дӯкон
+бинои тиҷоратӣ
+бинои идоравӣ
+анбор
+коргоҳ
+гараж

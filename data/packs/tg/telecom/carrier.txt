@@ -1,0 +1,30 @@
+---
+description: Telecom service as Tajik names it. THESE ARE SERVICE TYPES, NOT OPERATOR NAMES: Tajikistan's actual mobile networks are country data and belong in the Tajikistan country pack, not in the language pack. Note ИНТИҚОЛИ ПУЛ ТАВАССУТИ МОБИЛӢ — mobile money transfer is a mainstream telecom product here because it carries remittances, and a European carrier list has no equivalent line.
+locale: tg
+---
+алоқаи мобилӣ
+алоқаи симӣ
+алоқаи шаҳрӣ
+алоқаи байнишаҳрӣ
+алоқаи байналмилалӣ
+интернети мобилӣ
+интернети симӣ
+интернети моҳворавӣ
+интернети оптикӣ
+Wi-Fi
+3G
+4G
+5G
+телевизиони кабелӣ
+телевизиони рақамӣ
+телевизиони моҳворавӣ
+радиоалоқа
+алоқаи трункӣ
+хизмати SMS
+интиқоли пул тавассути мобилӣ
+рӯминг
+рӯминги байналмилалӣ
+хизмати корпоративӣ
+IP-телефония
+марказҳои алоқа
+нуқтаи дастрасии ҷамъиятӣ

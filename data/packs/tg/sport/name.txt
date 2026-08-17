@@ -1,0 +1,59 @@
+---
+description: Sport as Tajik names it. THE TWO AT THE HEAD ARE THE COUNTRY'S OWN. ГӮШТИНГИРӢ is Tajik belt wrestling, contested in a cotton jacket with a sash, and is the national sport with its own federation and televised championships — not a folk pastime. БУЗКАШӢ is the mounted game in which riders fight for a headless goat carcass; it is played across the Khatlon and Rasht valleys, particularly around Наврӯз, and there is no English word for it. Weightlifting and judo follow because they are where Tajikistan wins international medals.
+locale: tg
+---
+гӯштингирӣ
+бузкашӣ
+атлетикаи вазнин
+ҷудо
+самбо
+бокс
+муборизаи озод
+муборизаи юнонӣ-румӣ
+таэквондо
+карате
+кикбоксинг
+футбол
+футзал
+волейбол
+баскетбол
+гандбол
+хоккей
+регби
+тӯббозии обӣ
+теннис
+тенниси рӯимизӣ
+бадминтон
+шоҳмот
+нард
+шашка
+давидан
+давиши масофаи дароз
+марафон
+атлетикаи сабук
+ҷаҳиш ба баландӣ
+ҷаҳиш ба дурӣ
+партофтани найза
+шиноварӣ
+ғаввосӣ
+велосипедронӣ
+кӯҳнавардӣ
+сангнавардӣ
+лижаронӣ
+яхмолакбозӣ
+аспсаворӣ
+тирандозӣ
+камонварӣ
+гимнастика
+гимнастикаи бадеӣ
+акробатика
+вазнбардорӣ
+бодибилдинг
+фитнес
+йога
+рафтани варзишӣ
+триатлон
+паркур
+скейтбординг
+рафтинг
+варзиши электронӣ

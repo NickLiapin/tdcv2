@@ -1,0 +1,26 @@
+---
+description: Property feature in Tajik. ТАНӮР, the clay bread oven, and САҲНИ ҲАВЛӢ, the inner courtyard, are selling points in a Tajik listing and have no line in a Western template. Note that ГАРМИДИҲИИ МАРКАЗӢ is a genuine differentiator rather than a given: central heating largely stopped working outside Dushanbe after 1991 and most homes heat individually.
+locale: tg
+---
+гармидиҳии марказӣ
+гармидиҳии инфиродӣ
+оби гарм
+оби лӯлакашӣ
+чоҳи об
+газ
+барқи доимӣ
+генератор
+кондитсионер
+танӯр
+саҳни ҳавлӣ
+боғча
+ток
+дарахтони мевадор
+гараж
+ҷойи мошинмонӣ
+лифт
+домофон
+муҳофиза
+таъмири аврупоӣ
+мебелдор
+интернет

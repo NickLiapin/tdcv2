@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Неврология, in Tajik clinical wording.
+locale: tg
+---
+Сакта
+Мигрен
+Эпилепсия
+Радикулит
+Остеохондроз
+Невропатияи канорӣ

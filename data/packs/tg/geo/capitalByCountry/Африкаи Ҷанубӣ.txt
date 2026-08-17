@@ -1,0 +1,5 @@
+---
+description: Capital of Африкаи Ҷанубӣ as Tajik names it.
+locale: tg
+---
+Претория

@@ -1,0 +1,11 @@
+---
+description: Conditions with elevated prevalence in the Осиёи Шарқӣ ancestry group, in Tajik.
+locale: tg
+---
+Норасоии алдегиддегидрогеназа
+Саратони меъда
+Гепатити В
+Норасоии лактаза
+Саратони назофарингеалӣ
+Бемории Моямоя
+Глаукомаи кунҷи пӯшида

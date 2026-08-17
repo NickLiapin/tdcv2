@@ -1,0 +1,88 @@
+---
+description: Diagnosis in Tajik clinical wording. THE HEAD OF THIS LIST IS TAJIKISTAN'S EPIDEMIOLOGY, NOT EUROPE'S. СИЛ, tuberculosis, is a leading notifiable disease with a serious drug-resistant share and belongs at the top of any Tajik clinical dataset. ЭХИНОКОККОЗ and БРУСЕЛЛЁЗ come from close daily contact with sheep and cattle and are ordinary rural diagnoses here, not tropical curiosities. ЛЕЙШМАНИОЗ is endemic in the southern lowlands. НОРАСОИИ ЙОД and РАХИТ are public-health conditions of the mountain districts, not historical ones. ВАРАҶА, malaria, is on the list because it was endemic within living memory and Tajikistan was certified malaria-free only in 2017, so a historical series will contain it and a current one should not. Vocabulary note: the everyday disease names are Persian (сил, вабо, домана, зуком, камхунӣ, нафастангӣ) while the technical ones arrive through Russian in their international form, and both appear on the same chart.
+locale: tg
+---
+Сил
+Сили доруғунҷоиш
+Пневмония
+Бронхити музмин
+Нафастангӣ
+Бемории музмини обстуктивии шуш
+Зуком
+Шамолхӯрӣ
+Ангина
+Гайморит
+Отит
+Гепатити А
+Гепатити В
+Гепатити С
+Зардчаи вирусӣ
+ВИЧ-инфексия
+Домана
+Вабо
+Дизентерия
+Салмонеллёз
+Гелминтоз
+Эхинококкоз
+Бруселлёз
+Лейшманиоз
+Вараҷа
+Кузоз
+Сурхак
+Сурхча
+Обила
+Сулфаи кабуд
+Дифтерия
+Диабети қанд
+Фишорбаландии шараёнӣ
+Бемории ишемиявии дил
+Инфаркти миокард
+Сакта
+Аритмия
+Норасоии музмини дил
+Иллати модарзодии дил
+Камхунӣ
+Камхунии норасоии оҳан
+Бетаталассемия
+Норасоии G6PD
+Гастрит
+Захми меъда
+Сангҳои талхадон
+Панкреатит
+Колити музмин
+Пиелонефрит
+Гломерулонефрит
+Сангҳои гурда
+Норасоии музмини гурда
+Простатит
+Артрити ревматоидӣ
+Артрози буғум
+Остеохондроз
+Радикулит
+Остеопороз
+Рахит
+Норасоии витамини D
+Норасоии йод
+Бузургшавии ғадуди сипаршакл
+Гипотиреоз
+Фарбеҳӣ
+Камғизоӣ
+Экзема
+Псориаз
+Дерматити атопӣ
+Занбӯруғи пӯст
+Аллергия
+Катаракта
+Глаукома
+Коҳиши шунавоӣ
+Мигрен
+Эпилепсия
+Афсурдагӣ
+Ихтилоли изтиробӣ
+Бехобӣ
+Саратони меъда
+Саратони шуш
+Саратони ҷигар
+Заҳролудшавии хӯрокворӣ
+Шикастани устухон
+Сӯхтагӣ

@@ -1,0 +1,11 @@
+---
+description: Driving licence category in Tajik. The categories are the post-Soviet set A-F, the same letters neighbouring countries use.
+locale: tg
+---
+А
+В
+С
+D
+Е
+ВС
+СЕ

@@ -1,0 +1,9 @@
+---
+description: Diagnoses seen in Нефрология, in Tajik clinical wording.
+locale: tg
+---
+Пиелонефрит
+Гломерулонефрит
+Сангҳои гурда
+Норасоии музмини гурда
+Кистаи гурда

@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Психиатрия, in Tajik clinical wording.
+locale: tg
+---
+Афсурдагӣ
+Ихтилоли изтиробӣ
+Бехобӣ
+Шизофрения
+Ихтилоли дуқутбӣ
+Вобастагӣ ба маводи мухаддир

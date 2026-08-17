@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient as Tajik names it. TWO ENTRIES CARRY THE CUISINE. ДУНБА is the fat from a fat-tailed sheep's tail and is the traditional cooking fat — rendered in the pot before anything else goes in — so a Tajik recipe that starts with vegetable oil has already been modernised. БИРИНҶИ ДЕВЗИРА is the short reddish rice grown in the Zarafshon valley that a proper plov is made with; ordinary биринҷ is not a substitute. Note that равғани пахта, cottonseed oil, is the everyday frying fat across Central Asia and is not a health-food curiosity here. ЧАККА, ҶУРҒОТ and ҚУРУТ are three different dairy products along one line: yogurt, strained yogurt and dried yogurt.
+locale: tg
+---
+орд
+об
+шир
+маска
+равған
+равғани пахта
+равғани офтобпараст
+дунба
+гӯшти гов
+гӯшти гӯсфанд
+гӯшти буз
+гӯшти мурғ
+тухм
+биринҷ
+биринҷи девзира
+макарон
+нон
+хамир
+хамиртуруш
+панир
+чакка
+ҷурғот
+қаймоқ
+асал
+шакар
+намак
+чормағз
+бодом
+писта
+мавиз
+кишмиш
+зардолуи хушк
+лӯбиё
+нахӯд
+мош
+ҷав
+гандум
+ҷуворимакка
+кунҷид
+равғани зайтун

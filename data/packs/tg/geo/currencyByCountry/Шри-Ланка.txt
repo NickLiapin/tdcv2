@@ -1,0 +1,5 @@
+---
+description: Currency of Шри-Ланка as Tajik names it.
+locale: tg
+---
+рупияи шриланкагӣ

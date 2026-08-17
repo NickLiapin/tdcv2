@@ -1,0 +1,12 @@
+---
+description: Dishes of ӯзбекӣ cuisine as Tajik names them.
+locale: tg
+---
+Ош
+Манти
+Лағмон
+Норин
+Шӯрпо
+Ҳалим
+Чучвара
+Сомса

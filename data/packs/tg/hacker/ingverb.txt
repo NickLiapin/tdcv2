@@ -1,0 +1,32 @@
+---
+description: Technical action as a Tajik VERBAL NOUN. This is the file English fills with -ing forms; Tajik has no participle that works that way and uses the verbal noun in -Ӣ or the infinitive as a noun instead — рамзгузорӣ 'encrypting', нусхабардорӣ 'copying'. A config must not append a suffix to hacker/verb.txt to build these.
+locale: tg
+---
+пайвастшавӣ
+қатъшавӣ
+фиристодан
+қабулкунӣ
+хониш
+навишт
+нигоҳдорӣ
+ҳазфкунӣ
+нусхабардорӣ
+интиқол
+рамзгузорӣ
+рамзкушоӣ
+ҳаккунӣ
+барқароркунӣ
+санҷиш
+иҷро
+компилятсия
+ислоҳкунӣ
+навсозӣ
+танзим
+муҳофизат
+дастрасӣ
+манъкунӣ
+ҷустуҷӯ
+индексатсия
+коркард
+таҳлил
+мониторинг

@@ -1,0 +1,20 @@
+---
+description: Horse breed. ЛОҚАЙ IS TAJIKISTAN'S OWN BREED, named for the Loqai people of the Khatlon valleys — a small tough mountain horse, the one бузкашӣ is played on. АХАЛТАКА, the Akhal-Teke, is the neighbouring Turkmen breed and the most famous horse of Central Asia; ҚАРАБОИР comes from the Uzbek side. The Soviet breeds (Донӣ, Будённӣ, Орлов) arrived with the studs of the 1930s.
+locale: tg
+---
+Лоқай
+Ахалтака
+Қарабоир
+Ёбу
+Арабӣ
+Инглисӣ
+Донӣ
+Будённӣ
+Орлов
+Қирғизӣ
+Қазоқӣ
+Фриз
+Андалусӣ
+Мустанг
+Понии кӯҳӣ
+Аспи боркаш

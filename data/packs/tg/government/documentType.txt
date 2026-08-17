@@ -1,0 +1,24 @@
+---
+description: Kind of official document as Tajik names it. ШИНОСНОМА is the identity document and the same word covers the internal ID and the travel passport, distinguished by adding хориҷӣ. Note ДАФТАРЧАИ МЕҲНАТӢ, the Soviet-era work book: a physical booklet in which every job a person has held is stamped by the employer, still issued and still the primary evidence of a work record — there is no European equivalent, and a config modelling Tajik employment history should know the record is a document a person carries.
+locale: tg
+---
+шиноснома
+шиносномаи хориҷӣ
+шаҳодатномаи таваллуд
+шаҳодатномаи никоҳ
+шаҳодатномаи талоқ
+шаҳодатномаи фавт
+гувоҳномаи ронандагӣ
+дафтарчаи меҳнатӣ
+рақами мушаххаси андозсупоранда
+шаҳодатномаи бақайдгирии давлатӣ
+иҷозатномаи фаъолият
+рухсатномаи сохтмон
+шаҳодатномаи ҳуқуқи моликият
+дипломи маълумоти олӣ
+аттестати мактабӣ
+маълумотнома
+ваколатнома
+васиқа
+ариза
+шартнома

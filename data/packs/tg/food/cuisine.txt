@@ -1,0 +1,21 @@
+---
+description: Cuisine as Tajik names it. EACH VALUE IS THE -Ӣ RELATIVE ADJECTIVE, not a country name: таомҳои тоҷикӣ, 'Tajik dishes', so the adjective is what a menu and a cookbook use. The near neighbours come first because they are what people actually eat — Tajik, Uzbek, Iranian and Afghan cooking overlap heavily, and the boundary between Tajik and Uzbek cuisine is a political one more than a culinary one. Russian cooking is here because seventy Soviet years put борш and Оливе on the everyday table. Each value is the filename of a file in food/dishByCuisine/.
+locale: tg
+---
+тоҷикӣ
+ӯзбекӣ
+эронӣ
+афғонӣ
+русӣ
+туркӣ
+арабӣ
+ҳиндӣ
+хитоӣ
+кореягӣ
+ҷопонӣ
+итолиёӣ
+фаронсавӣ
+амрикоӣ
+мексикоӣ
+гурҷӣ
+озарбойҷонӣ

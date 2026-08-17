@@ -1,0 +1,5 @@
+---
+description: Currency of Покистон as Tajik names it.
+locale: tg
+---
+рупияи покистонӣ

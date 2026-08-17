@@ -1,0 +1,12 @@
+---
+description: Tajik personal pronoun. TAJIK HAS NO GRAMMATICAL GENDER AND NO GENDERED THIRD-PERSON PRONOUN: ӯ and вай each mean he, she and it together, and онҳо covers them all. An English he/him — she/her pairing is IMPOSSIBLE to write here and this file does not fake one; a config that needs to signal sex in Tajik must use a noun (мард, зан) or the given name, never a pronoun. What Tajik does distinguish instead is FORMALITY, which English does not: ту is the familiar you and Шумо the polite one, and Шумо doubles as the plural. ӯ is the literary form and вай the everyday one; they are not two different people.
+locale: tg
+---
+ман
+ту
+Шумо
+ӯ
+вай
+мо
+шумоён
+онҳо

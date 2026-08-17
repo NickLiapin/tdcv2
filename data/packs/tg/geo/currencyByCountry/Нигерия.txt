@@ -1,0 +1,5 @@
+---
+description: Currency of Нигерия as Tajik names it.
+locale: tg
+---
+найра

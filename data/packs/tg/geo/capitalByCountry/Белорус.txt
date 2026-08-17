@@ -1,0 +1,5 @@
+---
+description: Capital of Белорус as Tajik names it.
+locale: tg
+---
+Минск

@@ -1,0 +1,10 @@
+---
+description: Conditions with elevated prevalence in the Шарқи Наздик ancestry group, in Tajik.
+locale: tg
+---
+Бетаталассемия
+Табларзаи оилавии баҳримиёназаминӣ
+Норасоии G6PD
+Диабети навъи 2
+Норасоии витамини D
+Бемориҳои ирсии метаболикӣ

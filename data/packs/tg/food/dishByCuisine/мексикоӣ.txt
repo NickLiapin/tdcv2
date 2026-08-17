@@ -1,0 +1,10 @@
+---
+description: Dishes of мексикоӣ cuisine as Tajik names them.
+locale: tg
+---
+Такос
+Буррито
+Кесадиля
+Начос
+Гуакамоле
+Энчилада

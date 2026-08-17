@@ -1,0 +1,10 @@
+---
+description: Jobs in the Маориф sector, in Tajik.
+locale: tg
+---
+муаллим
+омӯзгор
+директори мактаб
+мураббӣ
+методист
+профессор

@@ -1,0 +1,26 @@
+---
+description: Household budget line in Tajik. Two lines here are larger in a Tajik household than in a European one and are named separately for that reason: ТӮЙ ВА МАРОСИМ — weddings, circumcisions and funerals — is a major planned expense that families save for years to meet, and ИНТИҚОЛИ ПУЛ ба хешовандон, money sent to relatives, flows both ways across the border. Note that the state has legislated to CAP wedding spending, which tells you how large the line is.
+locale: tg
+---
+хӯрокворӣ
+манзил
+иҷораи манзил
+коммуналӣ
+барқ
+газ
+об
+гармидиҳӣ
+нақлиёт
+сӯзишворӣ
+алоқа ва интернет
+тандурустӣ
+дору
+маориф
+либос
+лавозимоти хона
+тӯй ва маросим
+интиқоли пул
+садақа ва хайрия
+фароғат
+сафар
+пасандоз

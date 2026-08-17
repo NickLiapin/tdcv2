@@ -1,0 +1,5 @@
+---
+description: Capital of Қатар as Tajik names it.
+locale: tg
+---
+Доҳа

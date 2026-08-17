@@ -1,0 +1,19 @@
+---
+description: Clothing size. TWO SYSTEMS ARE READ SIDE BY SIDE ON A TAJIK LABEL and both are here. The numeric run 42-58 is the post-Soviet ГОСТ sizing inherited from the USSR and still what a market trader and a domestic factory quote; the letter run arrived with imported clothing and is what a mall or an online shop shows. They are NOT interchangeable — a ГОСТ 48 is roughly an M, not a European 48 — so a config must not convert between them arithmetically.
+locale: tg
+---
+42
+44
+46
+48
+50
+52
+54
+56
+58
+XS
+S
+M
+L
+XL
+XXL

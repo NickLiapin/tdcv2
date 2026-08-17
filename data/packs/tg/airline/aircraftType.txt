@@ -1,0 +1,30 @@
+---
+description: Aircraft type. Model designations are international and keep their Latin form. Weighted towards the narrowbodies and turboprops that actually work this region's short high-altitude sectors.
+locale: tg
+---
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A330
+Airbus A350
+Boeing 737-300
+Boeing 737-400
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 757
+Boeing 767
+Boeing 777
+Boeing 787
+Embraer E190
+Bombardier CRJ-200
+ATR 72
+Sukhoi Superjet 100
+Tupolev Tu-154
+Yakovlev Yak-40
+Antonov An-24
+Antonov An-26
+Ilyushin Il-76
+Mil Mi-8
+Cessna 208 Caravan
+Let L-410

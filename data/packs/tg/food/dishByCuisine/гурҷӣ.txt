@@ -1,0 +1,10 @@
+---
+description: Dishes of гурҷӣ cuisine as Tajik names them.
+locale: tg
+---
+Хачапурӣ
+Хинкалӣ
+Сатсивӣ
+Лобио
+Чахохбилӣ
+Пхалӣ

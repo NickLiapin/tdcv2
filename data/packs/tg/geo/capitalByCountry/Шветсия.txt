@@ -1,0 +1,5 @@
+---
+description: Capital of Шветсия as Tajik names it.
+locale: tg
+---
+Стокҳолм

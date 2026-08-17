@@ -1,0 +1,29 @@
+---
+description: Dog breed. TWO OF THESE ARE THE REGION'S OWN AND HEAD THE LIST. САГИ ГУРГГИР, known everywhere as the алабай, is the Central Asian shepherd — a livestock guardian bred for centuries to fight wolves, not a pet, and the largest dog anyone here keeps. ТОЗӢ is the Central Asian sighthound, coursed after hare and gazelle. The rest are international breeds under adapted names.
+locale: tg
+---
+Саги гурггир
+Алабай
+Тозӣ
+Саги чӯпонии олмонӣ
+Саги чӯпонии қафқозӣ
+Лабрадор
+Ротвейлер
+Доберман
+Пудел
+Булдог
+Такса
+Хаски
+Спаниел
+Терер
+Чихуахуа
+Мопс
+Шарпей
+Далматин
+Боксёр
+Коллӣ
+Борзой
+Питбул
+Акита
+Самоед
+Бигл

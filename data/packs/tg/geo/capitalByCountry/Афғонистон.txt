@@ -1,0 +1,5 @@
+---
+description: Capital of Афғонистон as Tajik names it.
+locale: tg
+---
+Кобул

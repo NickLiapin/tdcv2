@@ -1,0 +1,5 @@
+---
+description: Currency of Қатар as Tajik names it.
+locale: tg
+---
+риёли қатарӣ

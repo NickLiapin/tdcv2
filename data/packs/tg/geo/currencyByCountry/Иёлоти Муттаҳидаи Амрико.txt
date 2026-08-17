@@ -1,0 +1,5 @@
+---
+description: Currency of Иёлоти Муттаҳидаи Амрико as Tajik names it.
+locale: tg
+---
+доллари амрикоӣ

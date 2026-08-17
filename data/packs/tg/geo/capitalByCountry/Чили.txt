@@ -1,0 +1,5 @@
+---
+description: Capital of Чили as Tajik names it.
+locale: tg
+---
+Сантяго

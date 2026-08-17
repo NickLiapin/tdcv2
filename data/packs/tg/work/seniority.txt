@@ -1,0 +1,20 @@
+---
+description: Seniority level. The Tajik ladder is the Soviet one and its rungs are not the English ones: КОРОМӮЗ is a trainee, then the plain title, then КАЛОН ('senior', placed AFTER the noun — муҳандиси калон), then ПЕШБАР and САРВАР. The academic and research track runs separately through ходими илмӣ and its own grades. МУОВИН is a deputy and always precedes what it deputises for.
+locale: tg
+---
+коромӯз
+шогирд
+мутахассиси ҷавон
+мутахассис
+мутахассиси дараҷаи дуюм
+мутахассиси дараҷаи якум
+мутахассиси калон
+мутахассиси пешбар
+сармутахассис
+устои калон
+мудир
+муовин
+сардор
+роҳбар
+директор
+раис

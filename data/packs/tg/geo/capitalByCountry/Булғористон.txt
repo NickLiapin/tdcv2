@@ -1,0 +1,5 @@
+---
+description: Capital of Булғористон as Tajik names it.
+locale: tg
+---
+София

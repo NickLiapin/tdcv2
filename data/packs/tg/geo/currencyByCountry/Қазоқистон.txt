@@ -1,0 +1,5 @@
+---
+description: Currency of Қазоқистон as Tajik names it.
+locale: tg
+---
+тенге

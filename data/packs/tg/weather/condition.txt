@@ -1,0 +1,20 @@
+---
+description: Weather condition as a Tajik forecast states it. The range a Tajik forecast has to cover is wider than a European one: Khatlon in the lowlands passes 45 degrees in summer while the eastern Pamir plateau sits above 3500 metres and goes below minus 40, so гарм and хунук in the same country mean very different things on the same day.
+locale: tg
+---
+офтобӣ
+нимабрнок
+абрнок
+боронӣ
+борони сабук
+борони сахт
+барфӣ
+жоладор
+туманӣ
+шамолдор
+тӯфонӣ
+раъду барқдор
+гарм
+хеле гарм
+салқин
+хунук

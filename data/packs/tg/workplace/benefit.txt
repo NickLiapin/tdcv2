@@ -1,0 +1,22 @@
+---
+description: Employee benefit as a Tajik employer offers it. Note that хӯроки нисфирӯзӣ (a midday meal) and нақлиёти корхона (works transport) are commoner and more valued here than in a Western package, while private health insurance is rare because state clinics are the default.
+locale: tg
+---
+суғуртаи тиббӣ
+хӯроки нисфирӯзӣ
+нақлиёти корхона
+манзили хидматӣ
+мукофоти солона
+иловапулии кор дар шароити вазнин
+рухсатии пулакӣ
+рухсатии иловагӣ
+ҷуброни телефон
+ҷуброни сӯзишворӣ
+омӯзиши касбӣ
+такмили ихтисос
+боғчаи кӯдакон
+путёвкаи табобатӣ
+кӯмаки моддӣ
+иҷозати кори фосилавӣ
+ҷадвали фасеҳи корӣ
+нафақаи иловагӣ

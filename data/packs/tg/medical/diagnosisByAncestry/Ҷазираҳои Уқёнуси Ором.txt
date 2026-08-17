@@ -1,0 +1,10 @@
+---
+description: Conditions with elevated prevalence in the Ҷазираҳои Уқёнуси Ором ancestry group, in Tajik.
+locale: tg
+---
+Диабети навъи 2
+Фарбеҳӣ
+Подагра
+Бемории музмини гурда
+Фишорбаландӣ
+Табларзаи ревматикӣ

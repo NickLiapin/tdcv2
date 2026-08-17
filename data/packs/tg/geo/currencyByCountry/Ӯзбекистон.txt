@@ -1,0 +1,5 @@
+---
+description: Currency of Ӯзбекистон as Tajik names it.
+locale: tg
+---
+сӯм

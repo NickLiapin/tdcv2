@@ -1,0 +1,19 @@
+---
+description: Payment method in Tajik. ПУЛИ НАҚД COMES FIRST BECAUSE IT DOMINATES: cash is still the normal way to pay in Tajikistan and a card-first list would describe somewhere else. ИНТИҚОЛИ ПУЛӢ, a money transfer, is a consumer payment method here and not an exotic one — remittances from labour migrants in Russia move through the same rails and are a large share of household income. Mobile wallets have grown fast and are the main alternative to cash.
+locale: tg
+---
+пули нақд
+корти бонкӣ
+корти пардохти миллӣ
+интиқоли бонкӣ
+интиқоли пулӣ
+ҳамёни электронӣ
+пардохти мобилӣ
+QR-код
+пардохт ҳангоми супоридан
+пардохти пешакӣ
+қисман пардохт
+қарзи истеъмолӣ
+пардохти давра ба давра
+чек
+асъори хориҷӣ

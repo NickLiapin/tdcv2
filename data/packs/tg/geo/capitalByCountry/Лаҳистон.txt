@@ -1,0 +1,5 @@
+---
+description: Capital of Лаҳистон as Tajik names it.
+locale: tg
+---
+Варшава

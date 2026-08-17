@@ -1,0 +1,16 @@
+---
+description: Shoe size on the CONTINENTAL EUROPEAN (Paris point) scale, which is what a Tajikistani reads on a shoebox and asks for in the bazaar. It came in through the Soviet ГОСТ standard, which used the same Paris point for adult footwear, so the numbers did not change in 1991 and nothing else replaced them. Whole numbers only — the Paris-point scale has no half sizes.
+locale: tg
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

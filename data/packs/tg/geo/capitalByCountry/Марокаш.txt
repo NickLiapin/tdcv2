@@ -1,0 +1,5 @@
+---
+description: Capital of Марокаш as Tajik names it.
+locale: tg
+---
+Работ

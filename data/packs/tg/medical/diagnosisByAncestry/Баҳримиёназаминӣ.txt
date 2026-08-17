@@ -1,0 +1,11 @@
+---
+description: Conditions with elevated prevalence in the Баҳримиёназаминӣ ancestry group, in Tajik.
+locale: tg
+---
+Бетаталассемия
+Норасоии G6PD
+Табларзаи оилавии баҳримиёназаминӣ
+Гемохроматоз
+Норасоии лактаза
+Синдроми Ҷилбер
+Саратони пӯст
