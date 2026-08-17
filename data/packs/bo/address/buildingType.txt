@@ -1,0 +1,28 @@
+---
+description: Kind of building (Tibetan). The suffix -khang, literally 'house', is FULLY PRODUCTIVE and is how Tibetan makes almost every building word: ja-khang teahouse, za-khang restaurant, sman-khang hospital, dpe-mdzod-khang library. A config can therefore compose new ones the same way. rdzong is a fort that is also a district seat, and gzhis-ka is a landed estate - neither has an English one-word equivalent.
+locale: bo
+---
+ཁང་པ་
+ཁང་ཆེན་
+མཁར་
+རྫོང་
+དགོན་པ་
+ལྷ་ཁང་
+མཆོད་རྟེན་
+ཕོ་བྲང་
+བླ་བྲང་
+གྲྭ་ཚང་
+འདུ་ཁང་
+སློབ་གྲྭ་
+སྨན་ཁང་
+ཚོང་ཁང་
+ཇ་ཁང་
+ཟ་ཁང་
+མགྲོན་ཁང་
+དཔེ་མཛོད་ཁང་
+ལས་ཁུངས་
+བཟོ་གྲྭ་
+མཛོད་ཁང་
+ར་བ་
+འབྲོག་གུར་
+གཞིས་ཁ་

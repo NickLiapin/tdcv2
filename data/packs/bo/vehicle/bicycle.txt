@@ -1,0 +1,10 @@
+---
+description: Bicycle (Tibetan). SHORT ON PURPOSE: Tibetan has one word for the bicycle, rkang-'khor 'foot wheel', and no established vocabulary distinguishing a road bike from a gravel bike. The variants here are the ones the language really makes - electric, mountain, child's, cargo.
+locale: bo
+---
+རྐང་འཁོར་
+གློག་རྐང་འཁོར་
+རི་བོའི་རྐང་འཁོར་
+བྱིས་པའི་རྐང་འཁོར་
+ཁུར་སྐྱེལ་རྐང་འཁོར་
+རྐང་འཁོར་རྒན་པ་

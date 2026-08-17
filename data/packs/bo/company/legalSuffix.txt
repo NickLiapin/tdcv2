@@ -1,0 +1,12 @@
+---
+description: Legal form appended to a company name (Tibetan). FOUR JURISDICTIONS, NOT ONE. Tibetan-speaking businesses are registered in China, India, Nepal or Bhutan, and the legal forms are those countries' - there is no Tibetan company law. These are the Tibetan WORDS for the forms, which is language; the registration rules are a country pack's problem.
+locale: bo
+---
+ཚད་ཡོད་ཀུང་སི་
+ཀུང་སི་
+ཚོང་ལས་ཁང་
+ཚོགས་པ་
+མཉམ་ལས་ཁང་
+རང་ཁྱིམ་ཚོང་ལས་
+རིན་མེད་ཚོགས་པ་
+སྤྱི་ཚོགས་ཚོང་ལས་

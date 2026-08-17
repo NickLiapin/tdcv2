@@ -1,0 +1,13 @@
+---
+description: Street-type word placed after a street name (Tibetan). lam is the general road word; skor-lam is a circumambulation road, a street type that exists because pilgrims walk clockwise round a holy place, and every Tibetan town has one.
+locale: bo
+---
+ལམ་
+ལམ་ཆེན་
+ལམ་ཕྲན་
+སྲང་ལམ་
+སྐོར་ལམ་
+ཁྲོམ་ལམ་
+རྒྱ་ལམ་
+ལམ་བུ་
+ཟམ་པ་

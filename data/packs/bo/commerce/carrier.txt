@@ -1,0 +1,20 @@
+---
+description: Delivery carrier. THESE ARE COMPANY NAMES AND COMPANY NAMES ARE NOT LANGUAGE - they keep their real spelling in Tibetan exactly as Wi-Fi does. Which carriers actually serve a Tibetan-speaking address depends on which of four countries it is in, so a realistic list belongs in a country pack; these are the operators that in fact deliver across the Tibetan-speaking areas.
+locale: bo
+---
+China Post
+SF Express
+YTO Express
+ZTO Express
+STO Express
+JD Logistics
+EMS
+India Post
+Blue Dart
+DTDC
+Delhivery
+Nepal Post
+Bhutan Post
+DHL
+FedEx
+UPS

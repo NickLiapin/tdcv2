@@ -1,0 +1,12 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child), in Tibetan. 'brog-las, pastoral herding, is on this list and is not on the English one: it is a whole economy on the Tibetan plateau, with its own jobs, its own seasons and its own migrations.
+locale: bo
+---
+འཕྲུལ་རིག་
+འཕྲོད་བསྟེན་
+ཤེས་ཡོན་
+བཟོ་བསྐྲུན་
+ཞིང་ལས་
+འབྲོག་ལས་
+ཚོང་ལས་
+ཡུལ་སྐོར་

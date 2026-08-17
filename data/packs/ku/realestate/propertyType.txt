@@ -1,0 +1,23 @@
+---
+description: Property type. ماڵی حەوشەدار — the courtyard house — is the traditional Kurdish town dwelling and is still what most listings mean by "house".
+locale: ku
+---
+ماڵی حەوشەدار
+خانووی تاک
+شوقە
+ئەپارتمان
+ڤیلا
+ماڵی دوانە
+باڵەخانەی خێزانی
+ستۆدیۆ
+پێنتهاوس
+دووکان
+نووسینگە
+کۆگا
+زەوی
+باخ
+ماڵی گوندی
+کەپری هاوینە
+ماڵی کۆن
+تەلاری بازرگانی
+گەراج

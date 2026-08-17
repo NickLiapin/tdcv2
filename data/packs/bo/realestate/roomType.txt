@@ -1,0 +1,18 @@
+---
+description: Room type (Tibetan). mchod-khang, the shrine room, is a room in most Tibetan homes and is the one a Tibetan would list first.
+locale: bo
+---
+མཆོད་ཁང་
+ཐབ་ཚང་
+ཉལ་ཁང་
+འདུག་ཁང་
+མགྲོན་ཁང་མིག་
+འཁྲུ་ཁང་
+གསང་སྤྱོད་
+ཟ་ཁང་མིག་
+ལས་ཁང་མིག་
+མཛོད་ཁང་མིག་
+ཐོག་ཁ་
+ར་བ་
+འོག་ཁང་
+སྒོ་ཁང་

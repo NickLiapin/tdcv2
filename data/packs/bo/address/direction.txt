@@ -1,0 +1,16 @@
+---
+description: Compass direction (Tibetan). NOTE THE ORDER OF THE COMPOUNDS: Tibetan says shar-lho, 'east-south', where English says south-east - the cardinal that comes first is the opposite one. A config translating 'southeast' element by element will get it backwards.
+locale: bo
+---
+ཤར་
+ལྷོ་
+ནུབ་
+བྱང་
+ཤར་ལྷོ་
+ལྷོ་ནུབ་
+ནུབ་བྱང་
+བྱང་ཤར་
+སྟེང་
+འོག་
+དབུས་
+ཕྱོགས་བཞི་

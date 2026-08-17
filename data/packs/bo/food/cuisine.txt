@@ -1,0 +1,9 @@
+---
+description: Cuisine (Tibetan). Each value has a dishByCuisine child file. FIVE VALUES, NOT SEVENTEEN, AND DELIBERATELY SO: three of them are the regional cuisines of the Tibetan-speaking world (Ue-Tsang, Amdo, Kham) plus Bhutanese, whose language Dzongkha shares this written language, plus Chinese, which is the foreign cuisine Tibetan actually has native words for (la-phing, rgya-thug). Italian, Thai, Mexican and the rest have no established Tibetan dish names - a Tibetan speaker says the dish's own name - so inventing Tibetan spellings for them would be fabrication and they are left out.
+locale: bo
+---
+བོད་ཟས་
+ཨ་མདོའི་ཟས་
+ཁམས་ཟས་
+འབྲུག་ཟས་
+རྒྱ་ཟས་

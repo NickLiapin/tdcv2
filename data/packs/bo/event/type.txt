@@ -1,0 +1,24 @@
+---
+description: Kind of event (Tibetan). Lo-gsar (Losar, the new year) and Sa-ga zla-ba are festivals of the TIBETAN LUNISOLAR CALENDAR and move against the Gregorian one every year - see DATE_LOCALE.json - and whether either is a paid public holiday depends on which of four states the person is in, which is a country pack's business, not this one's. gling-kha, the summer picnic in a garden, is a scheduled social event in Tibetan life and not merely an outing.
+locale: bo
+---
+ལོ་གསར་
+ས་ག་ཟླ་བ་
+གླིང་ཁ་
+འཆམ་
+སྟོན་མོ་
+གཉེན་སྟོན་
+སྐྱེས་སྐར་
+དགའ་སྟོན་
+ཚོགས་འདུ་
+འགྲེམས་སྟོན་
+འགྲན་བསྡུར་
+རོལ་དབྱངས་འཁྲབ་སྟོན་
+ཟློས་གར་འཁྲབ་སྟོན་
+ཞབས་བྲོའི་སྟོན་མོ་
+ཚོང་འདུས་
+དབང་ཆེན་
+ཆོས་འཁོར་
+མྱ་ངན་གྱི་མཛད་སྒོ་
+སློབ་མཐར་མཛད་སྒོ་
+གནས་སྐོར་

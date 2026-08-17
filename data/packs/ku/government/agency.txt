@@ -1,0 +1,27 @@
+---
+description: Kinds of public body, as Kurdish words. THE HARD FACT THIS FILE RECORDS: Kurds are divided across Turkey, Iran, Iraq and Syria and have no state, so there is no Kurdish ministry of anything and no national agency list to copy. These are the generic Kurdish terms for kinds of authority — the words, not one government's org chart. Any real agency of any of the four states belongs in that state's country pack.
+locale: ku
+---
+وەزارەتی تەندروستی
+وەزارەتی پەروەردە
+وەزارەتی خوێندنی باڵا
+وەزارەتی ناوخۆ
+وەزارەتی دادوەری
+وەزارەتی دارایی
+وەزارەتی کار
+وەزارەتی کشتوکاڵ
+وەزارەتی گواستنەوە
+وەزارەتی سامانە سروشتییەکان
+وەزارەتی کولتوور
+وەزارەتی ژینگە
+وەزارەتی پلاندانان
+بەڕێوەبەرایەتیی گشتی
+پارێزگا
+شارەوانی
+ناحیە
+دەستەی باج
+دەستەی گومرگ
+دەستەی ئامار
+دەستەی هەڵبژاردن
+پۆلیس
+ڕێکخراوی مافی مرۆڤ

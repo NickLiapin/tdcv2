@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier, in Central Kurdish
+locale: ku
+---
+ئاسن
+بڕۆنز
+زیو
+زێڕ
+پلاتین
+ئەڵماس
+مامۆستا
+مامۆستای گەورە
+شەڕخواز
+ئەفسانە

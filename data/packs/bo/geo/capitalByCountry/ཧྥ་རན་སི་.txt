@@ -1,0 +1,5 @@
+---
+description: Capital of ཧྥ་རན་སི་ (Tibetan)
+locale: bo
+---
+པ་རི་

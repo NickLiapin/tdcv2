@@ -1,0 +1,5 @@
+---
+description: Currency of ڕووسیا, in Central Kurdish
+locale: ku
+---
+ڕۆبڵی ڕووسی

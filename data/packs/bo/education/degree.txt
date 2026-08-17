@@ -1,0 +1,20 @@
+---
+description: Academic or monastic degree (Tibetan). THE MONASTIC LADDER IS THE REAL TIBETAN DEGREE SYSTEM and it comes first: dge-bshes lha-rams-pa is the highest degree of the dGe-lugs monastic universities and takes about twenty years of debate; mkhan-po is its counterpart in the rNying-ma and Sa-skya schools. The modern university degrees at the end are recent, are studied in Chinese, Hindi, Nepali or English rather than in Tibetan, and their Tibetan names are translations.
+locale: bo
+---
+དགེ་བཤེས་ལྷ་རམས་པ་
+དགེ་བཤེས་ཚོགས་རམས་པ་
+དགེ་བཤེས་རབ་འབྱམས་པ་
+དགེ་བཤེས་གླིང་བསྲེ་བ་
+མཁན་པོ་
+བཀའ་རམས་པ་
+རབ་འབྱམས་པ་
+དགེ་ཚུལ་
+དགེ་སློང་
+སྔགས་རམས་པ་
+སྨན་རམས་པ་
+རྩིས་རམས་པ་
+གཙུག་ལག་སློབ་མའི་ལག་ཁྱེར་
+ཞིབ་འཇུག་མཐོ་རིམ་ལག་ཁྱེར་
+ཞིབ་འཇུག་གོང་མའི་ལག་ཁྱེར་
+འབྲིང་རིམ་མཐར་ཕྱིན་ལག་ཁྱེར་

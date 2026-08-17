@@ -1,0 +1,5 @@
+---
+description: Capital of ئیتاڵیا, in Central Kurdish
+locale: ku
+---
+ڕۆما

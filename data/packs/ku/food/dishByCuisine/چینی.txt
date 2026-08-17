@@ -1,0 +1,10 @@
+---
+description: Dishes of چینی cuisine, named in Central Kurdish
+locale: ku
+---
+برنجی برژاو
+دەملینگ
+چاو مەین
+مریشکی کۆنگ پاو
+ئۆردەکی پەکینی
+سووپی وۆنتۆن

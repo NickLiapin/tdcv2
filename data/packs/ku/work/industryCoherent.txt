@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list under jobByIndustry
+locale: ku
+---
+تەکنەلۆژیا
+تەندروستی
+دارایی
+بیناسازی
+پەروەردە
+میوانداری
+پیشەسازی
+فرۆشتنی وردە
+گواستنەوە
+یاسا

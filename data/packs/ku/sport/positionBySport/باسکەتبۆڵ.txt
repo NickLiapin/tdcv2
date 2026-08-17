@@ -1,0 +1,9 @@
+---
+description: Positions in باسکەتبۆڵ, in Central Kurdish
+locale: ku
+---
+پارێزەری بەڕێوەبەر
+پارێزەری تەقەکەر
+هێرشبەری بچووک
+هێرشبەری بەهێز
+ناوەند

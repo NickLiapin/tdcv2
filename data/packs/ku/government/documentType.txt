@@ -1,0 +1,21 @@
+---
+description: Kinds of official document, as Kurdish words. WHO ISSUES THEM IS NOT A KURDISH QUESTION: a Kurd's passport is Turkish, Iranian, Iraqi or Syrian, and this pack deliberately carries NO identifier formats, no national ID numbers and no document numbering of any of the four. These are the names of the kinds of paper, and the formats belong in a country pack.
+locale: ku
+---
+پاسپۆرت
+ناسنامە
+کارتی نیشتەجێبوون
+بڕوانامەی لەدایکبوون
+بڕوانامەی هاوسەرگیری
+بڕوانامەی جیابوونەوە
+بڕوانامەی مردن
+مۆڵەتی شۆفێری
+مۆڵەتی کار
+ڤیزا
+مۆڵەتی بیناسازی
+مۆڵەتی بازرگانی
+ڕاپۆرتی باج
+کارتی خۆراک
+بەڵگەنامەی خوێندن
+وەکالەتنامە
+گرێبەستی کرێ

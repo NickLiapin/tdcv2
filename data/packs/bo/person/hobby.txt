@@ -1,0 +1,28 @@
+---
+description: Pastime or hobby (Tibetan). Includes the culturally specific ones: gling-kha, the summer picnic outing in a garden or grove, and skor-ra, walking a circuit clockwise round a temple or holy place, which is both devotion and daily exercise.
+locale: bo
+---
+གླིང་ཁ་
+སྐོར་ར་
+གླུ་གཞས་
+ཞབས་བྲོ་
+དཔེ་ཀློག་
+སྒོམ་སྒྲུབ་
+རི་མོ་འབྲི་བ་
+ཐང་ཀ་འབྲི་བ་
+ཡིག་གཟུགས་
+ཤོ་རྩེད་
+མིག་མངས་
+རྟ་རྒྱུག་
+མདའ་རྩེད་
+རྐང་རྩེད་
+ཆུ་རྐྱལ་
+རི་འགྲིམ་
+པར་རྒྱག་
+གློག་བརྙན་ལྟ་བ་
+ཁ་ལག་བཟོ་བ་
+མེ་ཏོག་གསོ་སྐྱོང་
+ཇ་འཐུང་སྤྲོ་སྐྱིད་
+གསོལ་ཇ་སྐོར་གླེང་
+རྩེད་མོ་རྩེ་བ་
+ཟློས་གར་ལྟ་བ་

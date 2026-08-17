@@ -1,0 +1,10 @@
+---
+description: Positions in ڕەقبی, in Central Kurdish
+locale: ku
+---
+پرۆپ
+هووکەر
+لۆک
+نیوەی سکرەم
+نیوەی فڕین
+پاشەوەند

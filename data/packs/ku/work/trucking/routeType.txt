@@ -1,0 +1,12 @@
+---
+description: Trucking route type, in Central Kurdish
+locale: ku
+---
+ڕێگای دوور
+ڕێگای درێژ
+ناوچەیی
+ناوخۆیی
+تایبەتکراو
+بە دوو شۆفێر
+مەیلی کۆتایی
+ڕێگای سنووری

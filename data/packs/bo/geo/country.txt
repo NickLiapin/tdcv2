@@ -1,0 +1,19 @@
+---
+description: Country as Tibetan names it, weighted by population in millions. FOURTEEN ENTRIES, NOT TWO HUNDRED, AND THE SHORTNESS IS HONEST. Tibetan has secure inherited names for its neighbours - rGya-nag China, rGya-gar India, Bal-yul Nepal, 'Brug-yul Bhutan, Sog-yul Mongolia - and settled borrowings for the large states. Beyond that there is NO standardised Tibetan orthography for foreign proper names: the Tibetan-language press inside China and the exile press in Dharamsala spell the same country differently, and there is no academy to settle it. Rather than invent spellings this list stops where secure usage stops. TIBET IS NOT IN THIS LIST because it is not a state - Tibetan is spoken across the Tibet Autonomous Region and the Tibetan prefectures of Qinghai, Sichuan, Gansu and Yunnan in China, and in India, Nepal and Bhutan.
+locale: bo
+weighted: true
+---
+རྒྱ་ནག་,1410
+རྒྱ་གར་,1400
+ཨ་རི་,335
+ཨུ་རུ་སུ་,144
+ཉི་ཧོང་,125
+འཇར་མན་,84
+ཧྥ་རན་སི་,68
+དབྱིན་ཇི་,67
+ཨི་ཊ་ལི་,59
+ལྷོ་ཀོ་རི་ཡ་,52
+བལ་ཡུལ་,30
+སིང་ག་པུར་,6
+སོག་ཡུལ་,3
+འབྲུག་ཡུལ་,1

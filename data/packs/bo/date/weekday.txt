@@ -1,0 +1,11 @@
+---
+description: Day of the week (Tibetan), Sunday first. Each is gza' plus a planet: Sun, Moon, Mars (mig-dmar 'red eye'), Mercury, Jupiter, Venus, Saturn - the same seven planet names Tibetans also use as personal names, so Dawa is both Monday and a man's name.
+locale: bo
+---
+གཟའ་ཉི་མ་
+གཟའ་ཟླ་བ་
+གཟའ་མིག་དམར་
+གཟའ་ལྷག་པ་
+གཟའ་ཕུར་བུ་
+གཟའ་པ་སངས་
+གཟའ་སྤེན་པ་

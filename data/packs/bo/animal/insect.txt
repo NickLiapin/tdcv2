@@ -1,0 +1,15 @@
+---
+description: Insect and other small crawling creature (Tibetan)
+locale: bo
+---
+སྦྲང་མ་
+སྦྲང་བུ་
+བུང་བ་
+ཕྱེ་མ་ལེབ་
+གྲོག་མ་
+སྲིན་བུ་
+སྡོམ་
+ཤིག་
+འབུ་
+ཤ་སྦྲང་
+སྦུར་བ་

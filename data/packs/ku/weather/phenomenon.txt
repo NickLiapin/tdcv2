@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon. ڕەشەبای خۆڵ (dust storm) and شەپۆلی گەرما (heatwave) are the events that actually close schools across Kurdistan; hurricanes and monsoons never reach it and are kept only because a general list is expected to name them.
+locale: ku
+---
+ڕەشەبای خۆڵ
+شەپۆلی گەرما
+شەپۆلی سەرما
+لافاو
+وشکەساڵی
+ڕەشەبای بەفر
+زریان
+ڕەشەبای تەرزە
+ئاگرکەوتنەوەی دارستان
+بەفربارینی قورس
+شەختەبەندان
+گەردەلوول
+تۆفان
+بارانی مۆسمی
+مژی چڕ

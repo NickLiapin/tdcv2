@@ -1,0 +1,9 @@
+---
+description: Positions in بۆکسینگ, in Central Kurdish
+locale: ku
+---
+کێشی مێشوولە
+کێشی پەڕەسێلکە
+کێشی سووک
+کێشی ناوەڕاست
+کێشی قورس

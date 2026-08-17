@@ -1,0 +1,20 @@
+---
+description: Kurdish address unit / interior designator, written before its number (شوقە 12، نهۆمی 3)
+locale: ku
+---
+ژمارە
+شوقە
+نهۆم
+قات
+ژوور
+بەش
+بلۆک
+باڵەخانە
+تەلار
+دەرگا
+نووسینگە
+دووکان
+کۆگا
+پارکینگ
+ژێرزەمین
+بەرزەبان

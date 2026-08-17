@@ -1,0 +1,11 @@
+---
+description: Dishes of فارسی cuisine, named in Central Kurdish
+locale: ku
+---
+چەلۆ کەباب
+قورمە سەوزی
+قەیمە
+فەسەنجان
+ئاشی ڕەشتە
+دیزی
+تەهچین

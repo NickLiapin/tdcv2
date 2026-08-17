@@ -1,0 +1,18 @@
+---
+description: Familiar and diminutive forms of address (Tibetan). A SHORT LIST ON PURPOSE. Tibetan does not carry a stock of nicknames the way English carries Bob for Robert: a familiar name is MADE from the given name by a rule, not chosen from a set - clip it to one syllable and add the respect particle lags (bsTan-'dzin -> bsTan lags), or add the diminutive -chung 'little'. That is a transformation a config should apply to a drawn given name, not a list to draw from. What is listed here is the other half of the practice: the kinship terms Tibetans genuinely use to address people whose names they know perfectly well - a-jo elder brother, a-cag elder sister, a-ma-lags mother, po-la grandfather - and a few affectionate epithets.
+locale: bo
+---
+ཨ་ཇོ་
+ཨ་ཅག་
+ཨ་མ་ལགས་
+ཨ་ཕ་ལགས་
+པོ་ལ་
+རྨོ་ལ་
+ཨ་ཞང་
+ཨ་ནེ་
+བུ་ཆུང་
+བུ་མོ་ཆུང་
+ཨ་ཁུ་
+སྤུན་ཆུང་
+ནོར་བུ་ཆུང་
+ཨ་ལོ་

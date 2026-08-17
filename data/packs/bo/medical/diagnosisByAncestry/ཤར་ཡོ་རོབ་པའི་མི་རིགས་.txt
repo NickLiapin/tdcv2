@@ -1,0 +1,8 @@
+---
+description: Conditions markedly more frequent in people of the ancestry ཤར་ཡོ་རོབ་པའི་མི་རིགས་ (Tibetan). Only conditions that have a settled Tibetan name are listed; where Tibetan medicine and Tibetan-language health material have no term at all the condition is omitted rather than given an invented one.
+locale: bo
+---
+སྙིང་ནད་
+མཆིན་ནད་
+ཁྲག་ཤེད་མཐོ་བ་
+ཆང་གིས་བསླད་པའི་ནད་

@@ -1,0 +1,34 @@
+---
+description: Symptom (Tibetan). THIS IS THE FILE WHERE THE HONORIFIC LEXICON BITES. Tibetan keeps a second vocabulary, zhe-sa, for anyone senior, and the body is where it is densest: mgo/dbu head, lag-pa/phyag hand, mig/spyan eye, rna-ba/snyan ear, kha/zhal mouth, snying/thugs heart, rkang-pa/zhabs foot, lus/sku body. A doctor writing a chart uses the ORDINARY word, which is what this list holds throughout; a doctor SPEAKING to a lama, an elder or a patient he wishes to honour must use the honorific one for the same body part, and 'dbu na-gi 'dug' and 'mgo na-gi 'dug' are the same headache in two registers. No config can pick between them from a gender or age column - it is a social relation, not an attribute of the patient - so the pack ships one register and says which.
+locale: bo
+---
+ན་ཟུག་
+མགོ་ན་བ་
+ཚད་པ་
+ལུ་བ་
+ཆམ་པ་
+སྐྱུག་མེར་
+སྐྱུགས་པ་
+འཁྲུ་བ་
+ཕོ་བ་ན་བ་
+རྒྱབ་ན་བ་
+ལྐོག་མ་ན་བ་
+རྣ་བ་ན་བ་
+སོ་ན་བ་
+མིག་དམར་པོ་ཆགས་པ་
+ཐང་ཆད་པ་
+གཉིད་མི་འོང་བ་
+ཟས་སྣང་མེད་པ་
+ཁྲག་ཤོར་བ་
+སྣ་ཁྲག་
+སྐྲངས་པ་
+འདར་བ་
+རྔུལ་ནག་འབྱུང་བ་
+མགོ་འཁོར་བ་
+དབུགས་མི་བདེ་བ་
+སྙིང་འཕར་བ་
+ལྗིད་ཚད་ཆག་པ་
+གཡན་པ་
+ཁ་སྐམ་པ་
+ཤ་གཟེར་
+ལག་རྐང་ཞན་པ་

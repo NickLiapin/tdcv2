@@ -1,0 +1,14 @@
+---
+description: Loan type. قەرزی بێ سوو (interest-free lending between kin and neighbours) is how most Kurdish households actually borrow, and it belongs on the list beside the bank products.
+locale: ku
+---
+قەرزی بێ سوو
+قەرزی خانوو
+قەرزی ئۆتۆمبێل
+قەرزی کەسی
+قەرزی خوێندن
+قەرزی کار
+قەرزی کشتوکاڵ
+قەرزی بچووک
+هێڵی کرێدیت
+یەکخستنی قەرز

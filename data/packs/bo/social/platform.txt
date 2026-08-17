@@ -1,0 +1,17 @@
+---
+description: Social platform. BRAND NAMES, KEPT AS THEY ARE. WeChat and Douyin carry most Tibetan-language social activity inside China; the exile communities use the western platforms. That split is real and a dataset that shows only one side of it is a dataset about one side.
+locale: bo
+---
+WeChat
+Weibo
+Douyin
+Kuaishou
+QQ
+Xiaohongshu
+WhatsApp
+Facebook
+Instagram
+X
+YouTube
+Telegram
+Signal

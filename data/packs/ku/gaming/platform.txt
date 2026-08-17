@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Hardware brand names keep their real spelling.
+locale: ku
+---
+PlayStation 5
+Xbox Series X
+Nintendo Switch
+PC
+Steam Deck
+مۆبایل
+PlayStation 4
+Xbox One
+Meta Quest
+کۆمپیوتەری دەستی
+کافێنێتی گەیمینگ

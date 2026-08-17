@@ -1,0 +1,16 @@
+---
+description: Zodiac sign, in Central Kurdish
+locale: ku
+---
+بەران
+گا
+دووانە
+قرژاڵ
+شێر
+کچەزەڕ
+تەرازوو
+دووپشک
+کەوان
+کاڤر
+ئاوهێنەر
+ماسی

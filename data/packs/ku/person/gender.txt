@@ -1,0 +1,8 @@
+---
+description: Gender label. SORANI KURDISH HAS NO GRAMMATICAL GENDER — nouns, adjectives and verbs do not agree for it, and neither do family names. This is one of the sharpest breaks with Kurmanji Kurdish, which does inflect for gender and case. These values are social labels for a data field, not a grammatical category of the language.
+locale: ku
+---
+نێر
+مێ
+جێندەری تر
+ئاشکرا نەکراوە

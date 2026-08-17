@@ -1,0 +1,5 @@
+---
+description: Capital of سەنگافورە, in Central Kurdish
+locale: ku
+---
+سەنگافورە

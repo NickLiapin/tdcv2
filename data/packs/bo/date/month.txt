@@ -1,0 +1,16 @@
+---
+description: Month of the Gregorian year (Tibetan). Tibetan month names are ORDINAL, not proper nouns: zla-ba dang-po is literally 'first month'. That has a consequence a config cannot infer - the same twelve words also name the months of the TIBETAN LUNISOLAR CALENDAR, which does not line up with this one, so 'zla-ba dang-po' means January in a Gregorian date and Losar month in a traditional one. See DATE_LOCALE.json.
+locale: bo
+---
+ཟླ་བ་དང་པོ་
+ཟླ་བ་གཉིས་པ་
+ཟླ་བ་གསུམ་པ་
+ཟླ་བ་བཞི་པ་
+ཟླ་བ་ལྔ་པ་
+ཟླ་བ་དྲུག་པ་
+ཟླ་བ་བདུན་པ་
+ཟླ་བ་བརྒྱད་པ་
+ཟླ་བ་དགུ་པ་
+ཟླ་བ་བཅུ་པ་
+ཟླ་བ་བཅུ་གཅིག་པ་
+ཟླ་བ་བཅུ་གཉིས་པ་

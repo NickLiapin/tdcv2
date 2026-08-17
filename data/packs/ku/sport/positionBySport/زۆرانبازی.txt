@@ -1,0 +1,9 @@
+---
+description: Positions in زۆرانبازی, in Central Kurdish
+locale: ku
+---
+کێشی سووک
+کێشی ناوەڕاست
+کێشی قورس
+زۆرانبازی ئازاد
+زۆرانبازی ڕۆمانی

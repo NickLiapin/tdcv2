@@ -1,0 +1,5 @@
+---
+description: Currency of ཨུ་རུ་སུ་ (Tibetan)
+locale: bo
+---
+རུ་སྦལ་

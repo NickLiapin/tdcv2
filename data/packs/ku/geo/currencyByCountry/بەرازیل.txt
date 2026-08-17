@@ -1,0 +1,5 @@
+---
+description: Currency of بەرازیل, in Central Kurdish
+locale: ku
+---
+ڕیاڵی بەرازیلی

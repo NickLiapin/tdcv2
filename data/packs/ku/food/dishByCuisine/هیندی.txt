@@ -1,0 +1,10 @@
+---
+description: Dishes of هیندی cuisine, named in Central Kurdish
+locale: ku
+---
+بریانی
+مریشکی تیکا ماسالا
+سامۆسا
+نانی هیندی
+دال
+پاڵاک پەنیر

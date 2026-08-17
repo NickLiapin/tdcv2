@@ -1,0 +1,10 @@
+---
+description: Honorifics that TRAIL a Kurdish name (نازدار خان، حەمە ئاغا). KURDISH HAS NO GENERATIONAL SUFFIX — no Jr, no Sr, no II/III/IV — and no post-nominal degree letters either, so this list is deliberately short rather than padded with borrowed English forms. Several of these are inherited status titles now largely archaic outside village and tribal usage.
+locale: ku
+---
+خان
+ئاغا
+بەگ
+ئەفەندی
+پاشا
+زادە

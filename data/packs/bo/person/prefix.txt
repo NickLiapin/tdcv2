@@ -1,0 +1,20 @@
+---
+description: Name title / prefix (Tibetan). These come from the HONORIFIC register (zhe-sa): sku-zhabs (Mr) and lcam / lcam-sku-zhabs (Mrs) are the modern civil titles, while dge-bshes, mkhan-po, rin-po-che, bla-ma, a-ni and dge-slong are religious ranks that outrank any civil title and are used in place of it, never stacked with it. lags is not a title but a respect particle appended to a name (bsTan-'dzin lags) and is listed here because that is the slot a config puts it in.
+locale: bo
+---
+སྐུ་ཞབས་
+ལྕམ་
+ལྕམ་སྐུ་ཞབས་
+ལགས་
+བླ་མ་
+རིན་པོ་ཆེ་
+དགེ་བཤེས་
+མཁན་པོ་
+དགེ་སློང་
+དགེ་ཚུལ་
+ཨ་ནི་
+སྤྲུལ་སྐུ་
+ཨེམ་ཆི་
+དགེ་རྒན་
+སློབ་དཔོན་
+ཞབས་དྲུང་

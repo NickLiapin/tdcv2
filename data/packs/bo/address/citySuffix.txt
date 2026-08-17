@@ -1,0 +1,30 @@
+---
+description: Second element of a Tibetan place name, and each one is a LANDFORM: -thang a plain, -sgang a ridge, -lung and -rong a valley, -mdo a river confluence, -mtsho a lake, -phug a cave, -brag a rock face. Tibetan toponymy describes terrain, which is why so many of these are geographical rather than commemorative. -gling ('isle', by extension 'place') and -dgon ('monastery') are the two commonest.
+locale: bo
+---
+གླིང་
+སྒང་
+ཐང་
+རོང་
+ལུང་
+མདོ་
+ཆུ་
+མཚོ་
+རི་
+གངས་
+དགོན་
+རྫོང་
+ཕུག་
+བྲག་
+ཡུལ་
+གྲོང་
+ཚང་
+ནང་
+ལྡིང་
+ཤོད་
+སྟོད་
+སྨད་
+ཁ་
+སྒོ་
+ཞོལ་
+སྟེང་

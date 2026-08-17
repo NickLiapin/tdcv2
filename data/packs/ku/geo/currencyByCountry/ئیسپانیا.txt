@@ -1,0 +1,5 @@
+---
+description: Currency of ئیسپانیا, in Central Kurdish
+locale: ku
+---
+یۆرۆ

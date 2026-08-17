@@ -1,0 +1,26 @@
+---
+description: Literary genre (Tibetan). THESE ARE TIBETAN GENRES, NOT TRANSLATED WESTERN ONES. rnam-thar is the life of a realised master and is a genre with its own conventions, not simply 'biography'; mgur is spiritual song; gter-ma is a text held to have been concealed and later rediscovered, which is a claim about the book's own history that no Western genre makes; sgrung is the epic, above all the Gesar epic, the longest poem on earth and still sung by bards. The modern genres at the end are twentieth-century imports.
+locale: bo
+---
+རྣམ་ཐར་
+མགུར་
+སྒྲུང་
+གེ་སར་སྒྲུང་
+གཏེར་མ་
+བསྟན་བཅོས་
+ལོ་རྒྱུས་
+ཆོས་འབྱུང་
+སྙན་ངག་
+ལམ་ཡིག་
+དཀར་ཆག་
+ཞལ་གདམས་
+གསུང་འབུམ་
+ཚིག་མཛོད་
+བརྡ་སྤྲོད་
+སྨན་ཡིག་
+རྩིས་གཞུང་
+ཞིབ་འཇུག་དེབ་
+བརྩམས་སྒྲུང་
+སྒྲུང་ཐུང་
+བུ་ཕྲུག་དཔེ་དེབ་
+གསར་འགྱུར་དེབ་

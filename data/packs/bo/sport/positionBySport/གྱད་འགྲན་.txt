@@ -1,0 +1,8 @@
+---
+description: Position or role in གྱད་འགྲན་ (Tibetan)
+locale: bo
+---
+གྱད་པོ་
+འགྲན་ཟླ་
+ཁྲིམས་ལྟ་བ་
+སློབ་སྟོན་པ་

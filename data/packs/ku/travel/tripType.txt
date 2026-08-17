@@ -1,0 +1,24 @@
+---
+description: Trip type. زیارەت (pilgrimage) and سەردانی خزم (visiting family) matter in a region whose people are spread over four states and a large diaspora.
+locale: ku
+---
+کاری بازرگانی
+پشوو
+پشووی خێزانی
+مانگی هەنگوین
+سەرکێشی
+گەشتی ڕێگا
+کەمپ
+چیانۆردی
+زیارەت
+حەج
+سەردانی خزم
+گەشتی شاری
+گەشتی کەنار دەریا
+گەشتی گروپی
+گەشتی تاکەکەسی
+گەشتی خوێندن
+گەشتی پزیشکی
+گەشتی وەرزشی
+گەشتی کولتووری
+گەشتی سەیران

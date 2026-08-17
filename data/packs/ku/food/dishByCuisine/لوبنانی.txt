@@ -1,0 +1,11 @@
+---
+description: Dishes of لوبنانی cuisine, named in Central Kurdish
+locale: ku
+---
+حومس
+فەلافل
+تەبولە
+فەتووش
+شاوەرما
+مەنقووشە
+کوبە

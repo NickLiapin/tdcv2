@@ -1,0 +1,13 @@
+---
+description: Content rating. There is NO Kurdish rating board — Kurds have no state to run one — so these are descriptive audience labels in Kurdish rather than the code of any country's system.
+locale: ku
+---
+بۆ هەمووان
+بۆ خێزان
+بە چاودێریی دایک و باوک
+تەمەن 7 بەرەو سەرەوە
+تەمەن 13 بەرەو سەرەوە
+تەمەن 16 بەرەو سەرەوە
+تەمەن 18 بەرەو سەرەوە
+تەنیا بۆ پێگەیشتوان
+ناوەڕۆکی توند

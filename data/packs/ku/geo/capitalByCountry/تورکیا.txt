@@ -1,0 +1,5 @@
+---
+description: Capital of تورکیا, in Central Kurdish
+locale: ku
+---
+ئەنقەرە

@@ -1,0 +1,5 @@
+---
+description: Capital of ئیسپانیا, in Central Kurdish
+locale: ku
+---
+مەدرید

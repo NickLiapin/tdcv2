@@ -1,0 +1,9 @@
+---
+description: Dishes of تایلەندی cuisine, named in Central Kurdish
+locale: ku
+---
+پاد تای
+کاریی سەوز
+تۆم یام
+زەڵاتەی پەپایە
+برنجی لینجی مانگۆ

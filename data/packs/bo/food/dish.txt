@@ -1,0 +1,28 @@
+---
+description: Prepared dish (Tibetan). HONORIFIC REGISTER: everything here is the ORDINARY word. Tibetan keeps a whole second vocabulary, zhe-sa, for speaking to or about someone senior, and food is where it bites hardest - kha-lag 'food' becomes zhal-lag, ja 'tea' becomes gsol-ja, za 'to eat' becomes bzhes or mchod. A menu in a monastery guest hall and the same menu in a roadside teahouse are lexically different documents. This pack ships the ordinary register throughout and does not mix the two, because a list with both in it is a register error no config can repair.
+locale: bo
+---
+ཐུག་པ་
+མོག་མོག་
+རྩམ་པ་
+བོད་ཇ་
+ཤ་ཕག་ལེབ་
+ཐེན་ཐུག་
+བག་ལེབ་
+འབྲས་སིལ་
+ཞོ་
+ཆུ་ར་
+ཆང་
+ཤ་སྐམ་
+ལ་ཕིང་
+རྒྱུ་མ་
+ཙམ་ཐུག་
+ཐུག་པ་བཐུག་
+ཁུར་བ་
+བ་ཚ་མར་ཁུ་
+ཤོ་གོ་ཁ་ཚ་
+ཇ་ངར་མོ་
+སྐྱོ་མ་
+ཐུད་
+ཨ་མདོ་བ་ལེབ་
+གྱ་ཐུག་

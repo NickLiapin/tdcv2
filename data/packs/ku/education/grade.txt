@@ -1,0 +1,16 @@
+---
+description: Grade band, given as the WORDS Kurdish schools use rather than as a number. NUMERIC SCALES DIFFER BY STATE — Iraq and Syria mark out of 100, Iran out of 20, Turkey on its own scale — so a language pack cannot carry one number line without picking a country.
+locale: ku
+---
+نایاب
+زۆر باش
+باش
+ناوەند
+گونجاو
+دەرچوو
+لاواز
+کەوتوو
+ئامادە نەبوو
+ناتەواو
+بەبێ نمرە
+ڕەتکراوە

@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket (Tibetan). THERE IS NO TIBETAN CURRENCY AND NO TIBETAN STATE. Tibetan is spoken across the Tibet Autonomous Region and the Tibetan areas of Qinghai, Sichuan, Gansu and Yunnan in China (renminbi), and in India (rupee), Nepal (Nepalese rupee) and Bhutan (ngultrum). These brackets are in CHINESE YUAN, written rgya-sgor, because the large majority of Tibetan speakers live in China; a dataset for the exile communities needs rupee brackets instead and this pack does not supply them. The digits are Tibetan (U+0F20-U+0F29). yan means 'and above' and man means 'and below' - they follow the number, they do not precede it.
+locale: bo
+---
+རྒྱ་སྒོར་༡༠༠༠༠མན་
+རྒྱ་སྒོར་༡༠༠༠༠ནས་༢༠༠༠༠བར་
+རྒྱ་སྒོར་༢༠༠༠༠ནས་༣༥༠༠༠བར་
+རྒྱ་སྒོར་༣༥༠༠༠ནས་༥༠༠༠༠བར་
+རྒྱ་སྒོར་༥༠༠༠༠ནས་༨༠༠༠༠བར་
+རྒྱ་སྒོར་༨༠༠༠༠ནས་༡༢༠༠༠༠བར་
+རྒྱ་སྒོར་༡༢༠༠༠༠ནས་༢༠༠༠༠༠བར་
+རྒྱ་སྒོར་༢༠༠༠༠༠ཡན་

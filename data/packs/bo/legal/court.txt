@@ -1,0 +1,16 @@
+---
+description: Kind of court (Tibetan). GENERIC TIBETAN, NOT ONE COUNTRY'S JUDICIARY. Tibetan speakers are tried in Chinese, Indian, Nepalese and Bhutanese courts and those systems do not have the same tiers, so this list holds the Tibetan words for kinds of court rather than any state's court structure.
+locale: bo
+---
+ས་གནས་ཁྲིམས་ཁང་
+ས་ཁུལ་ཁྲིམས་ཁང་
+མཐོ་རིམ་ཁྲིམས་ཁང་
+ཁྲིམས་ཁང་ཆེན་མོ་
+བཤེར་ཡིག་ཁྲིམས་ཁང་
+ཉེས་ཆད་ཁྲིམས་ཁང་
+དམངས་དོན་ཁྲིམས་ཁང་
+ཚོང་དོན་ཁྲིམས་ཁང་
+ནང་མིའི་ཁྲིམས་ཁང་
+བྱིས་པའི་ཁྲིམས་ཁང་
+བར་འདུམ་ཁང་
+ཞིབ་དཔྱོད་ཁང་

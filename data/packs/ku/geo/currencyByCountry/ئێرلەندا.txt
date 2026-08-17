@@ -1,0 +1,5 @@
+---
+description: Currency of ئێرلەندا, in Central Kurdish
+locale: ku
+---
+یۆرۆ

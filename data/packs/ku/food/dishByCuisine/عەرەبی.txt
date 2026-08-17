@@ -1,0 +1,10 @@
+---
+description: Dishes of عەرەبی cuisine, named in Central Kurdish
+locale: ku
+---
+مەقلووبە
+مەنسەف
+کەبسە
+مەسگووف
+قوزی
+حەریسە

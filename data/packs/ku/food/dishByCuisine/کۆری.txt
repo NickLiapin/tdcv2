@@ -1,0 +1,9 @@
+---
+description: Dishes of کۆری cuisine, named in Central Kurdish
+locale: ku
+---
+بیبیمباپ
+بولگۆگی
+کیمچی
+جاپچێ
+تۆکبۆکی

@@ -1,0 +1,5 @@
+---
+description: Currency of هیندستان, in Central Kurdish
+locale: ku
+---
+ڕووپیی هیندی

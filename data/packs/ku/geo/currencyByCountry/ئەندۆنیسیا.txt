@@ -1,0 +1,5 @@
+---
+description: Currency of ئەندۆنیسیا, in Central Kurdish
+locale: ku
+---
+ڕووپیای ئەندۆنیسی

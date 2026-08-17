@@ -1,0 +1,9 @@
+---
+description: Work shift (Tibetan)
+locale: bo
+---
+ཞོགས་ལས་
+ཉིན་ལས་
+དགོང་ལས་
+མཚན་ལས་
+གཟའ་འཁོར་ལས་

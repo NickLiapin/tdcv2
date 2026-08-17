@@ -1,0 +1,5 @@
+---
+description: Currency of ئیتاڵیا, in Central Kurdish
+locale: ku
+---
+یۆرۆ

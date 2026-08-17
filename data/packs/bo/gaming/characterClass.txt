@@ -1,0 +1,20 @@
+---
+description: Playable character class (Tibetan). Tibetan has no game-industry vocabulary of its own, so rather than invent one this list uses the REAL Tibetan words for the roles a game would need: sngags-pa the tantric practitioner, sgom-chen the hermit meditator, gter-ston the treasure revealer, mkha'-'gro the dakini, dpa'-bo the hero. They are the words a Tibetan speaker would reach for, which is a different thing from a translation of 'paladin'.
+locale: bo
+---
+དཔའ་བོ་
+དམག་མི་
+སྔགས་པ་
+སྒོམ་ཆེན་
+གཏེར་སྟོན་
+བླ་མ་
+སྨན་པ་
+རྔོན་པ་
+མདའ་མཁན་
+རྐུན་མ་
+གྱད་པོ་
+མཁའ་འགྲོ་
+སྲུང་མ་
+བཟོ་བོ་
+ཚོང་པ་
+རྟ་པ་

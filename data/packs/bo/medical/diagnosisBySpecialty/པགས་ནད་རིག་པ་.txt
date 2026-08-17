@@ -1,0 +1,11 @@
+---
+description: Diagnosis seen in the specialty པགས་ནད་རིག་པ་ (Tibetan)
+locale: bo
+---
+པགས་ནད་
+གཡན་པ་
+ཤུ་བ་
+འབྲུམ་བུ་
+པགས་པ་སྐམ་པ་
+ཐོར་པ་
+པགས་པའི་འབྲས་ནད་

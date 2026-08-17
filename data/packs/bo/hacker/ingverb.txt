@@ -1,0 +1,20 @@
+---
+description: Computing verb in the progressive (Tibetan). Tibetan makes the progressive with the auxiliary bzhin-pa after the verb - phab-len byed-bzhin-pa, 'downloading' - so the English -ing has an exact structural counterpart here, unusually.
+locale: bo
+---
+ཕབ་ལེན་བྱེད་བཞིན་པ་
+ཡར་འཇུག་བྱེད་བཞིན་པ་
+སྒྲིག་འཇུག་བྱེད་བཞིན་པ་
+གསོག་འཇོག་བྱེད་བཞིན་པ་
+ཞིབ་བཤེར་བྱེད་བཞིན་པ་
+སྦས་གསང་བྱེད་བཞིན་པ་
+བཤེར་འཛུལ་བྱེད་བཞིན་པ་
+འཚོལ་བཤེར་བྱེད་བཞིན་པ་
+འབྲེལ་མཐུད་བྱེད་བཞིན་པ་
+ལེགས་བཅོས་བྱེད་བཞིན་པ་
+བཟོ་བཅོས་བྱེད་བཞིན་པ་
+བསྐྱར་སྒྲིག་བྱེད་བཞིན་པ་
+བཀག་སྡོམ་བྱེད་བཞིན་པ་
+འགྲེམས་སྤེལ་བྱེད་བཞིན་པ་
+རྩིས་རྒྱག་བཞིན་པ་
+བསྡུ་ལེན་བྱེད་བཞིན་པ་

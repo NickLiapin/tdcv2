@@ -1,0 +1,5 @@
+---
+description: Currency of نیوزیلەندا, in Central Kurdish
+locale: ku
+---
+دۆلاری نیوزیلەندی

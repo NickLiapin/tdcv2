@@ -1,0 +1,16 @@
+---
+description: Gregorian month names as Central Kurdish writes them, January first, so the list lines up index for index with DATE_LOCALE.json. These are the Levantine-origin names used across Iraqi Kurdistan. Kurds ALSO keep a solar calendar whose year opens at Newroz on 21 March with the months خاکەلێوە، گوڵان، جۆزەردان، پووشپەڕ، گەلاوێژ، خەرمانان، ڕەزبەر، گەڵاڕێزان، سەرماوەز، بەفرانبار، ڕێبەندان، ڕەشەمە; no solar month boundary meets a Gregorian one, so those names are NOT interchangeable with these and are recorded in DATE_LOCALE.json notes rather than served here.
+locale: ku
+---
+کانوونی دووەم
+شوبات
+ئازار
+نیسان
+ئایار
+حوزەیران
+تەمووز
+ئاب
+ئەیلوول
+تشرینی یەکەم
+تشرینی دووەم
+کانوونی یەکەم

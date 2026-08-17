@@ -1,0 +1,15 @@
+---
+description: Compass direction (Tibetan). Tibetan builds the intercardinals in the reverse order to English: shar-lho is literally east-south and means southeast.
+locale: bo
+---
+ཤར་
+ལྷོ་
+ནུབ་
+བྱང་
+ཤར་ལྷོ་
+ལྷོ་ནུབ་
+ནུབ་བྱང་
+བྱང་ཤར་
+སྟེང་
+འོག་
+དབུས་

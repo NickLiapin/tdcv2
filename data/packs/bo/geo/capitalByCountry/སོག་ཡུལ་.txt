@@ -1,0 +1,5 @@
+---
+description: Capital of སོག་ཡུལ་ (Tibetan)
+locale: bo
+---
+ཨུ་ལན་བྷ་ཐོར་

@@ -1,0 +1,11 @@
+---
+description: Weekday names, listed from شەممە (Saturday) because the working week across Kurdish-speaking areas starts on Saturday and the weekend is Friday — in Iraqi Kurdistan often Friday and Saturday. Kurdish counts its weekdays off شەممە: یەکشەممە is "one after Saturday", دووشەممە "two after", and only هەینی (Friday) has an independent name.
+locale: ku
+---
+شەممە
+یەکشەممە
+دووشەممە
+سێشەممە
+چوارشەممە
+پێنجشەممە
+هەینی

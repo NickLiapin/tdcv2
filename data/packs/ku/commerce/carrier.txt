@@ -1,0 +1,16 @@
+---
+description: Shipping carrier. NO KURDISH POSTAL SERVICE EXISTS — a post office is a state institution and Kurds have no state — so the list is the international couriers that actually deliver to Kurdish-speaking cities, plus the regional operator ARAMEX. The four states' own postal services are deliberately left out rather than one of them being picked.
+locale: ku
+---
+DHL
+FedEx
+UPS
+TNT
+ARAMEX
+ئەمازۆن لۆجستیک
+گەیاندنی ناوخۆیی
+گەیاندنی خێرا
+گەیاندنی هەمان ڕۆژ
+بارهەڵگری زەمینی
+بارهەڵگری ئاسمانی
+گەیاندنی سەربەخۆ

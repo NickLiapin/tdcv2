@@ -1,0 +1,14 @@
+---
+description: Cable type (telecom / networking), in Central Kurdish
+locale: ku
+---
+فایبەری نووری
+کۆئاکسیاڵ
+دووجووتی پێچراو
+کات فایڤ ئی
+کات سیکس
+کات سیکس ئەی
+ئیسەرنێت
+هەوایی
+ژێرزەمینی
+کێبڵی هێز

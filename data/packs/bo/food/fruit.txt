@@ -1,0 +1,19 @@
+---
+description: Fruit (Tibetan). Includes the three myrobalans a-ru-ra, ba-ru-ra and skyu-ru-ra, which are fruit and are also the three most important drugs in Tibetan medicine - a Tibetan hears them as medicine first and food second. star-bu is sea buckthorn, the plateau berry.
+locale: bo
+---
+ཤིང་ཏོག་
+འབྲས་བུ་
+ཀུ་ཤུ་
+ལི་
+རྒུན་འབྲུམ་
+ཁམ་བུ་
+ཨ་མྲ་
+སྟར་བུ་
+སེ་བ་
+ཨ་རུ་ར་
+བ་རུ་ར་
+སྐྱུ་རུ་ར་
+བུ་རམ་ཤིང་
+སྟར་ཀ་
+ཛམ་བུ་

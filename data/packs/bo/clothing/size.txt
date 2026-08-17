@@ -1,0 +1,15 @@
+---
+description: Clothing size (Tibetan). The Tibetan words are what a tailor uses; the Latin letters are what is printed on a factory label in all four countries Tibetan speakers buy clothes in, and both are in daily use.
+locale: bo
+---
+ཧ་ཅང་ཆུང་བ་
+ཆུང་བ་
+འབྲིང་
+ཆེན་པོ་
+ཧ་ཅང་ཆེན་པོ་
+XS
+S
+M
+L
+XL
+XXL

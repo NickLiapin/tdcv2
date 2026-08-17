@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter, spelled out — Kurdish has no established "Q1" style abbreviation.
+locale: ku
+---
+چارەکی یەکەم
+چارەکی دووەم
+چارەکی سێیەم
+چارەکی چوارەم

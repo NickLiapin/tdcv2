@@ -1,0 +1,20 @@
+---
+description: Room type. دیوەخان is the formal guest room a Kurdish house keeps for visitors and has no exact English equivalent.
+locale: ku
+---
+دیوەخان
+ژووری نووستن
+ژووری میوان
+ژووری خواردن
+چێشتخانە
+حەمام
+دەستشۆر
+ژووری کار
+ژێرزەمین
+بەرزەبان
+گەراج
+ژووری جلشۆردن
+ئەمبار
+تەڕاس
+حەوش
+سەربان

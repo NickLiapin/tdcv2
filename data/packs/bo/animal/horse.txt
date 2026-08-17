@@ -1,0 +1,16 @@
+---
+description: Horse (Tibetan). Tibetan names horses by COAT COLOUR and by role, not by breed - rta-dkar is 'white horse', rta-khra 'piebald horse'. rkyang, the kiang, is the wild ass of the plateau and is not a horse breed.
+locale: bo
+---
+རྟ་
+རྟ་ཕོ་
+རྒོད་མ་
+རྟ་ཕྲུག་
+རྟ་དཀར་
+རྟ་ནག་
+རྟ་དམར་
+རྟ་སེར་
+རྟ་ཁྲ་
+རྟ་རྒོད་
+རྐྱང་
+དྲེལ་

@@ -1,0 +1,24 @@
+---
+description: Kurdish thoroughfare type. IT GOES BEFORE THE NAME, linked by the ezafe -ی: شەقامی نالی، گەڕەکی ئازادی، کۆڵانی گوڵان — the opposite of English "Nali Street". A config that appends this after the name produces something no Kurdish reader would recognise.
+locale: ku
+---
+شەقام
+کۆڵان
+گەڕەک
+جادە
+ڕێگا
+بولیڤارد
+مەیدان
+گۆڕەپان
+چوارڕێیان
+پارک
+باخچە
+بازاڕ
+دەروازە
+پرد
+ناوچە
+کۆی نیشتەجێبوون
+سەیرانگا
+سووک
+ڕێڕەو
+تەنیشت

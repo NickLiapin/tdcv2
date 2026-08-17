@@ -1,0 +1,5 @@
+---
+description: Capital of ئەمریکا, in Central Kurdish
+locale: ku
+---
+واشنتن

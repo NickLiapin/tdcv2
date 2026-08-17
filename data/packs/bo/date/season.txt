@@ -1,0 +1,8 @@
+---
+description: Season (Tibetan). The Tibetan plateau has four, but they are not the European four: dbyar-kha is the short warm rainy season, dgun-kha the long cold one, and the two between them are brief. The suffix -kha / -ka is part of the season word, not a case ending.
+locale: bo
+---
+དཔྱིད་ཀ་
+དབྱར་ཁ་
+སྟོན་ཁ་
+དགུན་ཁ་

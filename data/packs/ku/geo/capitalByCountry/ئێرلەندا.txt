@@ -1,0 +1,5 @@
+---
+description: Capital of ئێرلەندا, in Central Kurdish
+locale: ku
+---
+دەبلین

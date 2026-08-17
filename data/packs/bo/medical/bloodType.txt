@@ -1,0 +1,12 @@
+---
+description: ABO blood group with Rh factor. The letters are NOT translated in any locale, Tibetan included - a Tibetan lab report writes khrag rigs A+ with the letter in Latin - so these keep their real form.
+locale: bo
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

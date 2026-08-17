@@ -1,0 +1,16 @@
+---
+description: Month abbreviation. Kurdish does not clip a month name to three letters the way English does — only the two compound pairs shorten, کانوونی دووەم to کانوونی ٢ and تشرینی یەکەم to تشرینی ١, and the other eight names are already short and are written out in full. Western digits are used here and throughout the pack for internal consistency, though Iraqi Kurdish print also uses the Arabic-Indic ٠-٩.
+locale: ku
+---
+کانوونی 2
+شوبات
+ئازار
+نیسان
+ئایار
+حوزەیران
+تەمووز
+ئاب
+ئەیلوول
+تشرینی 1
+تشرینی 2
+کانوونی 1

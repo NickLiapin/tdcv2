@@ -1,0 +1,9 @@
+---
+description: Positions in ڤۆلیبۆڵ, in Central Kurdish
+locale: ku
+---
+بەرزکەرەوە
+لێدەری دەرەوە
+بەربەستی ناوەڕاست
+لیبەرۆ
+لێدەری بەرامبەر

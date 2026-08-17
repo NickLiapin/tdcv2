@@ -1,0 +1,21 @@
+---
+description: Religion and religious school (Tibetan). Bon is the indigenous pre-Buddhist religion of Tibet and is still practised; it is not a sect of Buddhism and does not belong under one. The four Buddhist schools rNying-ma, bKa'-brgyud, Sa-skya and dGe-lugs plus Jo-nang and the non-sectarian Ris-med movement are the divisions that actually organise Tibetan religious life, which is why they sit in the same list as the world religions rather than under a sub-category.
+locale: bo
+---
+ནང་བསྟན་
+བོན་
+ཐེག་ཆེན་
+རྡོ་རྗེ་ཐེག་པ་
+རྙིང་མ་
+བཀའ་བརྒྱུད་
+ས་སྐྱ་
+དགེ་ལུགས་
+ཇོ་ནང་
+རིས་མེད་
+ཡེ་ཤུའི་ཆོས་ལུགས་
+ཁ་ཆེའི་ཆོས་ལུགས་
+ཧིན་དུའི་ཆོས་ལུགས་
+ཡ་ཧུ་དཱའི་ཆོས་ལུགས་
+སིག་ཁའི་ཆོས་ལུགས་
+ཀུང་ཙེའི་ལུགས་
+ཆོས་ལུགས་མེད་པ་

@@ -1,0 +1,5 @@
+---
+description: Capital of سوید, in Central Kurdish
+locale: ku
+---
+ستۆکهۆڵم

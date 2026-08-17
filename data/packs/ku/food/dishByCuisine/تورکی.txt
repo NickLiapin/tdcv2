@@ -1,0 +1,11 @@
+---
+description: Dishes of تورکی cuisine, named in Central Kurdish
+locale: ku
+---
+کەباب
+لەحمەعەجین
+بەقڵاوە
+مانتی
+دۆنەر
+پیدە
+کەبابی ئیسکەندەر

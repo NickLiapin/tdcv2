@@ -1,0 +1,22 @@
+---
+description: Airline. AIRLINE NAMES ARE BRANDS AND KEEP THEIR REAL SPELLING, as Wi-Fi and Xbox do. These are the carriers that actually fly to the Tibetan-speaking world - Lhasa, Shigatse, Nyingchi, Xining, Leh, Kathmandu, Paro - which is why the list is Chinese, Indian, Nepalese and Bhutanese rather than global.
+locale: bo
+---
+Air China
+Tibet Airlines
+Sichuan Airlines
+China Eastern
+China Southern
+Chengdu Airlines
+Lucky Air
+West Air
+Air India
+IndiGo
+SpiceJet
+Vistara
+Nepal Airlines
+Buddha Air
+Yeti Airlines
+Himalaya Airlines
+Drukair
+Bhutan Airlines

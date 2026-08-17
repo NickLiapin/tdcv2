@@ -1,0 +1,15 @@
+---
+description: Marital status, in Central Kurdish. ژنهێناوە (has taken a wife) and مێردکردوو (has taken a husband) are the everyday gendered ways of saying "married"; هاوسەردار is the neutral register a form would print.
+locale: ku
+---
+سەڵت
+هاوسەردار
+ژنهێناوە
+مێردکردوو
+جیابووەتەوە
+بێوەژن
+بێوەپیاو
+دەستگیران
+مارەبڕاو
+لێکجیابوو
+هاوژیان

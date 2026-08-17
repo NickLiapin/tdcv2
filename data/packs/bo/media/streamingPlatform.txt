@@ -1,0 +1,16 @@
+---
+description: Streaming platform. BRAND NAMES, KEPT AS THEY ARE. Which of these a Tibetan speaker actually uses depends on which side of a border they live: the Chinese platforms carry Tibetan-language channels and dominate inside China, the others serve the exile communities in India and Nepal.
+locale: bo
+---
+Douyin
+Bilibili
+Tencent Video
+iQIYI
+Youku
+Kuaishou
+YouTube
+Netflix
+TikTok
+Disney+ Hotstar
+JioCinema
+Zee5

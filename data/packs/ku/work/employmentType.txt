@@ -1,0 +1,15 @@
+---
+description: Employment / contract type. کرێکاری ڕۆژانە (day labour hired at a street corner) is a large and ordinary part of the Kurdish labour market and is not a euphemism for anything.
+locale: ku
+---
+کاتی تەواو
+کاتی بەشی
+گرێبەست
+کاتی
+خۆپەروەردەیی
+ئازاد
+وەرزی
+کرێکاری ڕۆژانە
+شاگردی
+دووەم کار
+دڵخوازانە

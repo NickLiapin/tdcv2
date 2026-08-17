@@ -1,0 +1,5 @@
+---
+description: Currency of مەکسیک, in Central Kurdish
+locale: ku
+---
+پێسۆی مەکسیکی

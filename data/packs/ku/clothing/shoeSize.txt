@@ -1,0 +1,16 @@
+---
+description: Shoe size on the EUROPEAN (Paris point) scale, which is what a shoebox reads in every part of Kurdistan — Turkey, Iran, Iraq and Syria all use it, so this is one of the few measurements where the four states agree and a language pack can carry it without picking a country.
+locale: ku
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

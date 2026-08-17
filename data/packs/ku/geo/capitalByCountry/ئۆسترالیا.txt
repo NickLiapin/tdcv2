@@ -1,0 +1,5 @@
+---
+description: Capital of ئۆسترالیا, in Central Kurdish
+locale: ku
+---
+کانبێرا

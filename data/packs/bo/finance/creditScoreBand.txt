@@ -1,0 +1,9 @@
+---
+description: Credit rating band (Tibetan). NO NUMBERS AND NO BUREAU. A credit score is issued by a national credit bureau under national law, and Tibetan speakers fall under four different ones - the People's Bank of China system, India's CIBIL, Nepal's and Bhutan's. A language pack cannot own any of their scales, so this list holds only the Tibetan WORDS for a rating band.
+locale: bo
+---
+ཧ་ཅང་བཟང་པོ་
+བཟང་པོ་
+འབྲིང་
+ཞན་པ་
+ཧ་ཅང་ཞན་པ་

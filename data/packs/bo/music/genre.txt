@@ -1,0 +1,22 @@
+---
+description: Music genre (Tibetan). THESE ARE TIBETAN GENRES. nang-ma and stod-gzhas are the classical and dance repertoires of old Lhasa; lha-mo is Tibetan opera, sung outdoors over a whole day; dbyangs is the liturgical chant of the monasteries, notated in its own curving script; mgur is the spiritual song of a realised master; and Ge-sar sgrung is the sung epic. Rock and pop are at the end because they arrived last, not because they matter least to young listeners.
+locale: bo
+---
+གླུ་
+གཞས་
+དམངས་གླུ་
+སྟོད་གཞས་
+ནང་མ་
+ལྷ་མོ་
+འཆམ་
+རོལ་མོ་
+དབྱངས་
+མགུར་
+གེ་སར་སྒྲུང་
+ཞབས་བྲོ་
+ལས་གླུ་
+བྱིས་གླུ་
+དེང་རབས་གླུ་གཞས་
+རོལ་དབྱངས་
+བརྡུང་གླུ་
+རླུང་གླུ་

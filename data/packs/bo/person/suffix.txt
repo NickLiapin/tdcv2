@@ -1,0 +1,10 @@
+---
+description: Name suffix (Tibetan). Tibetan has NO generational suffix - there is no Jr, Sr, II or III, because names are not inherited from a parent in the first place (see person/lastName.txt). What can follow a name is an academic or monastic qualification, and the list is short for that reason rather than by omission.
+locale: bo
+---
+དགེ་བཤེས་
+མཁས་པ་
+རབ་འབྱམས་པ་
+སློབ་དཔོན་
+ཨེམ་ཆི་
+དགེ་རྒན་

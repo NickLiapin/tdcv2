@@ -1,0 +1,13 @@
+---
+description: Fuel (Tibetan). lci-ba, dried yak dung, is listed as a fuel because on the treeless plateau it IS the household fuel - it heats and cooks for most pastoral households and is stacked on the walls of every nomad camp. Leaving it out to keep the list looking like a European one would misrepresent the place.
+locale: bo
+---
+རྡོ་སྣུམ་
+སྣུམ་
+རྡོ་སོལ་
+སོལ་བ་
+ལྕི་བ་
+ཤིང་
+གློག་
+ཉི་ཤུགས་
+རླུང་ཤུགས་

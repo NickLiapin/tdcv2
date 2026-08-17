@@ -1,0 +1,9 @@
+---
+description: Hotel star rating, in Central Kurdish
+locale: ku
+---
+یەک ئەستێرە
+دوو ئەستێرە
+سێ ئەستێرە
+چوار ئەستێرە
+پێنج ئەستێرە

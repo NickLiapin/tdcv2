@@ -1,0 +1,5 @@
+---
+description: Capital of مەکسیک, in Central Kurdish
+locale: ku
+---
+شاری مەکسیکۆ

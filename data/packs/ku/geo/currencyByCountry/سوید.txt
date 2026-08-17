@@ -1,0 +1,5 @@
+---
+description: Currency of سوید, in Central Kurdish
+locale: ku
+---
+کرۆنی سویدی

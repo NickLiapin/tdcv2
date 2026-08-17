@@ -1,0 +1,30 @@
+---
+description: Unit of measure (Tibetan). THE TRADITIONAL UNITS ARE STILL IN USE AND THEY ARE NOT METRIC. bre is a volume measure of grain, khal is twenty bre, rgya-ma is the catty of about 500 g, srang a weight of about 37 g that was also the old silver currency unit, and zho and skar-ma are its tenth and hundredth. The body measures khru (cubit), mtho (span) and sor (finger width) are used for cloth and building. dpag-tshad is the yojana, a day's march, and turns up in religious and geographical texts rather than in a shop. The metric units at the end are the loans.
+locale: bo
+---
+བྲེ་
+ཁལ་
+རྒྱ་མ་
+སྲང་
+ཞོ་
+སྐར་མ་
+ཁྲུ་
+མཐོ་
+སོར་
+འདོམ་
+དཔག་ཚད་
+རྒྱང་གྲགས་
+ཀི་ལོ་
+གྷི་རམ་
+ལི་ཐར་
+མི་ལི་ལི་ཐར་
+མི་ཊར་
+སེན་ཊི་མི་ཊར་
+ཀི་ལོ་མི་ཊར་
+སྒམ་
+ཐུམ་སྒྲིལ་
+ཆ་
+ཚན་པ་
+སྒྲིལ་མ་
+ཁུག་མ་
+རེ་རེ་

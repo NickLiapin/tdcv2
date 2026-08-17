@@ -1,0 +1,8 @@
+---
+description: Dishes of ڤیەتنامی cuisine, named in Central Kurdish
+locale: ku
+---
+فۆ
+بان می
+ڕۆڵی بەهاری
+بون چا

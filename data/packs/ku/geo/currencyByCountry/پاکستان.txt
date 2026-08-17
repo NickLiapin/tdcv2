@@ -1,0 +1,5 @@
+---
+description: Currency of پاکستان, in Central Kurdish
+locale: ku
+---
+ڕووپیی پاکستانی

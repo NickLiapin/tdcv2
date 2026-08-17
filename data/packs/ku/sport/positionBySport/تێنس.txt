@@ -1,0 +1,9 @@
+---
+description: Positions in تێنس, in Central Kurdish
+locale: ku
+---
+یاریزانی تاک
+یاریزانی دوانە
+خزمەتکار
+یاریزانی بنەڕەت
+یاریزانی تۆڕ

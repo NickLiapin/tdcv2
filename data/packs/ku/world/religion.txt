@@ -1,0 +1,26 @@
+---
+description: World religions and faiths, named in Central Kurdish. The list keeps the religions that are actually native to Kurdish-speaking areas — Yarsanism (کاکەیی/یارسان), Yazidism (ئێزیدی), Alevism (عەلەوی), Zoroastrianism and the Assyrian churches — beside the world religions, because a Kurdish dataset that offers only Islam and Christianity misdescribes the region.
+locale: ku
+---
+ئیسلام
+سوننە
+شیعە
+ئێزیدی
+کاکەیی
+یارسان
+عەلەوی
+زەردەشتی
+مەسیحی
+کاسۆلیک
+ئۆرسۆدۆکس
+پرۆتستانت
+ئاشووری
+کلدانی
+جولەکە
+ماندایی
+شەبەک
+بودی
+هیندۆسی
+سیخ
+بێباوەڕ
+لادین

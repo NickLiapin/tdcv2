@@ -1,0 +1,24 @@
+---
+description: Event type. نەورۆز، خەڵات (the shared meal) and پرسە (the mourning gathering) are the Kurdish social calendar and are not interchangeable with a "festival" or a "funeral".
+locale: ku
+---
+کۆنفرانس
+سیمینار
+وۆرکشۆپ
+وێبینار
+هاوسەرگیری
+دەستگیرانی
+کۆنسێرت
+فیستیڤاڵ
+نەورۆز
+جەژن
+خەڵات
+پرسە
+پێشانگا
+پێشانگای بازرگانی
+کۆکردنەوەی پارە
+شەونشین
+بەرەوپیرچوون
+دەستپێکردنی بەرهەم
+ڕێوڕەسمی دەرچوون
+یادی لەدایکبوون

@@ -1,0 +1,18 @@
+---
+description: Tree and woody shrub (Tibetan). Most of the Tibetan plateau is above the tree line, so this list is short by geography rather than by omission: shug-pa, the juniper burnt as incense in every household offering, and mkhan-pa, the artemisia, matter far more in Tibetan life than any timber tree.
+locale: bo
+---
+ཤིང་
+ཤུག་པ་
+ཐང་ཤིང་
+སྟག་པ་
+ལྕང་མ་
+གླང་མ་
+སེང་ལྡེང་
+ཙན་དན་
+སྐྱེར་པ་
+མཁན་པ་
+ཨོམ་བུ་
+སྟར་ཀ་
+ཀུ་ཤུ་ཤིང་
+ཨ་མྲ་ཤིང་

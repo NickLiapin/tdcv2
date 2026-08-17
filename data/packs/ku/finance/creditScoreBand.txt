@@ -1,0 +1,10 @@
+---
+description: Credit score band. RECORDED AS A LIMITATION: there is no credit bureau in any Kurdish-speaking area and no Kurd has a credit score, so these are the Kurdish words a translated form would use, and nothing in the region generates the number behind them.
+locale: ku
+---
+زۆر لاواز
+لاواز
+ناوەند
+باش
+زۆر باش
+نایاب

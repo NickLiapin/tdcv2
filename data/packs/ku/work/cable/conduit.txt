@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs, in Central Kurdish
+locale: ku
+---
+بۆریی پی ڤی سی
+بۆریی پۆڵایین
+بۆریی پۆلی‌ئیسیلین
+ناشتنی ڕاستەوخۆ
+بۆریی ناوەکی
+سینیی کێبڵ
+هەڵواسراوی هەوایی

@@ -1,0 +1,22 @@
+---
+description: Kind of public body (Tibetan). THESE ARE CATEGORIES, NOT INSTITUTIONS, AND THAT IS DELIBERATE. There is no Tibetan state and no Tibetan civil service; Tibetan speakers deal with Chinese, Indian, Nepalese and Bhutanese agencies. What a language pack can hold is the Tibetan WORDS for kinds of office - the education bureau, the health bureau, the tax office - and that is what this is. Named ministries belong in a country pack.
+locale: bo
+---
+སྲིད་གཞུང་ལས་ཁུངས་
+ས་གནས་ལས་ཁུངས་
+ཤེས་ཡོན་ལས་ཁུངས་
+འཕྲོད་བསྟེན་ལས་ཁུངས་
+ཞིང་ལས་ལས་ཁུངས་
+འབྲོག་ལས་ལས་ཁུངས་
+ཁྲལ་སྒོར་ལས་ཁུངས་
+ཉེན་རྟོག་ལས་ཁུངས་
+ཁྲིམས་ཁང་
+ཞིབ་དཔྱོད་ལས་ཁུངས་
+མི་འབོར་ཐོ་འགོད་ལས་ཁུངས་
+ས་ཁང་ལས་ཁུངས་
+ཁོར་ཡུག་ལས་ཁུངས་
+རིག་གནས་ལས་ཁུངས་
+ཡུལ་སྐོར་ལས་ཁུངས་
+སྐྱེལ་འདྲེན་ལས་ཁུངས་
+བརྒྱུད་ལམ་ལས་ཁུངས་
+དམངས་སྐྱོང་ལས་ཁུངས་

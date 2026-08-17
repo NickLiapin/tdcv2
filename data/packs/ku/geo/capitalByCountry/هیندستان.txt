@@ -1,0 +1,5 @@
+---
+description: Capital of هیندستان, in Central Kurdish
+locale: ku
+---
+نیو دەلهی

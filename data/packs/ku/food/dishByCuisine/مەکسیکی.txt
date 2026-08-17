@@ -1,0 +1,10 @@
+---
+description: Dishes of مەکسیکی cuisine, named in Central Kurdish
+locale: ku
+---
+تاکۆ
+بوریتۆ
+کێساڵدیا
+گواکامۆلی
+ئێنچیلادا
+تامالی

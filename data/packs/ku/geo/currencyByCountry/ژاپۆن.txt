@@ -1,0 +1,5 @@
+---
+description: Currency of ژاپۆن, in Central Kurdish
+locale: ku
+---
+یەنی ژاپۆنی

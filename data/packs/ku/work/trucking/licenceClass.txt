@@ -1,0 +1,12 @@
+---
+description: Heavy-vehicle driving categories, named by the VEHICLE rather than by a letter class. THIS IS A REFUSAL, RECORDED: Kurds have no state, so there is no Kurdish licensing authority, and the four states that do license Kurdish drivers disagree — Turkey issues A/B/C/D/E classes, Iran issues پایە یەک/دوو/سێ, and Iraq and Syria use their own categories. Naming any one of those systems would smuggle one state into a language pack, so the file holds the vehicle categories the words themselves describe. Real licence classes belong in a country pack.
+locale: ku
+---
+مۆتۆرسیکل
+ئۆتۆمبێلی سووک
+بارهەڵگری سووک
+بارهەڵگری ناوەڕاست
+بارهەڵگری قورس
+باس
+یەدەکەکێش
+گواستنەوەی ماددە مەترسیدارەکان

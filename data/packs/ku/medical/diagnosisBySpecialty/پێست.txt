@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in پێست (Central Kurdish)
+locale: ku
+---
+سۆریازیس
+ئەگزیمای ئەتۆپی
+گەنی
+مێلانۆما
+ڕۆزاسیا
+ئەگزیمای بەرکەوتن

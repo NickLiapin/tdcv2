@@ -1,0 +1,26 @@
+---
+description: Company legal form, in Kurdish words. WHICH FORMS ARE ACTUALLY REGISTRABLE IS SET BY EACH OF THE FOUR STATES, not by the language — Turkey registers A.Ş. and Ltd. Şti., Iraq registers its own series, Iran and Syria theirs — so these are the Kurdish TERMS for kinds of company, and the legally exact suffix for one market belongs in a country pack.
+locale: ku
+---
+شەریکە
+شەریکەی سنووردار
+شەریکەی تاکەکەسی
+شەریکەی هاوبەش
+شەریکەی گشتی
+شەریکەی تایبەت
+شەریکەی هاوبەشیی سنووردار
+گروپ
+هۆڵدینگ
+دەستەی بازرگانی
+کۆمەڵگا
+کۆمپانیا
+دەزگا
+بنکە
+ناوەند
+نووسینگە
+کارگە
+تاقیگە
+ڕێکخراوی نا حکومی
+کۆمەڵەی هاوکاری
+یەکێتی
+سەندیکا

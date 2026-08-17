@@ -1,0 +1,24 @@
+---
+description: Aircraft type. Type designators are international and are never translated. The A319 leads this list for a real reason: Lhasa Gonggar sits at 3570 m and Bamda at 4334 m, and high-altitude take-off performance is what decides which airframes can serve the plateau at all - a fleet list for this locale is not the same as a fleet list anywhere else.
+locale: bo
+---
+A319
+A319neo
+A320
+A320neo
+A321
+A330-200
+A330-300
+A350-900
+B737-700
+B737-800
+B737 MAX 8
+B757-200
+B767-300
+B777-300ER
+B787-9
+ATR 72-600
+Dash 8 Q400
+ARJ21
+C919
+Beechcraft 1900D

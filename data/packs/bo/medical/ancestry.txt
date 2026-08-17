@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Tibetan, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them - geographic descent, not social race categories. TIBETANS ARE NOT A SEPARATE ENTRY and clinically they should be: the plateau population carries EPAS1 and EGLN1 variants, inherited in part from Denisovans, that hold haemoglobin down at 4000 m where other populations thicken their blood and develop chronic mountain sickness. They fall under 'East Asian' here only because this list keeps the twelve groups the rest of the packs use so that a config written against one locale works against all of them.
+locale: bo
+---
+ཨ་ཧྥི་རི་ཀ་ལྷོ་མའི་མི་རིགས་
+ཨ་ཧྥི་རི་ཀ་བྱང་མའི་མི་རིགས་
+རྒྱ་མཚོ་བར་མའི་མི་རིགས་
+ཤར་ཕྱོགས་བར་མའི་མི་རིགས་
+བྱང་ཡོ་རོབ་པའི་མི་རིགས་
+ཤར་ཡོ་རོབ་པའི་མི་རིགས་
+ཡ་ཧུ་དཱ་ཨཤ་ཀེ་ན་ཛིའི་མི་རིགས་
+ལྷོ་ཨེ་ཤི་ཡའི་མི་རིགས་
+ཤར་ཨེ་ཤི་ཡའི་མི་རིགས་
+ཤར་ལྷོ་ཨེ་ཤི་ཡའི་མི་རིགས་
+ཨ་མེ་རི་ཀའི་གདོད་མའི་མི་རིགས་
+ཞི་བདེ་རྒྱ་མཚོའི་གླིང་ཕྲན་མི་རིགས་

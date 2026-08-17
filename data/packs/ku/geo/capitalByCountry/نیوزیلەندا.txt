@@ -1,0 +1,5 @@
+---
+description: Capital of نیوزیلەندا, in Central Kurdish
+locale: ku
+---
+وێلینگتۆن

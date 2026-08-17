@@ -1,0 +1,10 @@
+---
+description: Dishes of ئیتاڵی cuisine, named in Central Kurdish
+locale: ku
+---
+پیتزای مارگەریتا
+سپاگێتی کاربۆنارا
+لازانیا
+ریزۆتۆ
+تیرامیسو
+نیۆکی

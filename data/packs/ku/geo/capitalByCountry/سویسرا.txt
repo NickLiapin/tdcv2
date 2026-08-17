@@ -1,0 +1,5 @@
+---
+description: Capital of سویسرا, in Central Kurdish
+locale: ku
+---
+بێرن

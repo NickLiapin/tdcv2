@@ -1,0 +1,5 @@
+---
+description: Capital of پورتوگال, in Central Kurdish
+locale: ku
+---
+لیسبۆن

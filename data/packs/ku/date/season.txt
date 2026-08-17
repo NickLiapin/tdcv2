@@ -1,0 +1,8 @@
+---
+description: Season. Kurdish-speaking areas run a full four-season continental year; بەهار (spring) opens the Kurdish calendar at Newroz.
+locale: ku
+---
+بەهار
+هاوین
+پاییز
+زستان

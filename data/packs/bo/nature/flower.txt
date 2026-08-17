@@ -1,0 +1,14 @@
+---
+description: Flower and flowering plant (Tibetan). SHORT ON PURPOSE, and the reason is worth knowing: Tibetan botanical vocabulary comes almost entirely from the medical tradition gso-ba rig-pa, so a Tibetan plant name is usually a materia-medica entry - spang-rgyan is the gentian used against fever, bong-dkar the aconite, gur-gum the saffron. Ornamental-garden flower names of the European kind largely do not exist in Tibetan.
+locale: bo
+---
+མེ་ཏོག་
+པདྨ་
+ཨུཏྤལ་
+སྤང་རྒྱན་
+བ་ལུ་
+གུར་གུམ་
+བོང་དཀར་
+ཨུ་དུམ་ཝ་ར་
+སེར་ཆེན་
+མེ་ཏོག་དཀར་པོ་

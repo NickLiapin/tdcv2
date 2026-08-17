@@ -1,0 +1,10 @@
+---
+description: Dishes of ئیسپانی cuisine, named in Central Kurdish
+locale: ku
+---
+پایێلا
+تاپاس
+گازپاچۆ
+تۆرتیای ئیسپانی
+چوڕۆس
+پاتاتاس براڤاس

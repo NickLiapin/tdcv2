@@ -1,0 +1,5 @@
+---
+description: Capital of ئارجەنتین, in Central Kurdish
+locale: ku
+---
+بوینس ئایرێس

@@ -1,0 +1,12 @@
+---
+description: Dog (Tibetan). SHORT ON PURPOSE - Tibetan classifies dogs by the JOB they do, not by breed: 'dogs-khyi is the chained mastiff at the gate, lug-khyi the flock dog, rngon-khyi the hunting dog. The only two Tibetan dogs the world knows as breeds, bod-khyi (Tibetan mastiff) and a-pa-so (Lhasa Apso), are here; a longer list would be kennel-club breed names translated into Tibetan, which nobody says.
+locale: bo
+---
+བོད་ཁྱི་
+འདོགས་ཁྱི་
+ལུག་ཁྱི་
+རྔོན་ཁྱི་
+ཨ་པ་སོ་
+ཁྱི་རྒོད་
+ཁྱི་ཕྲུག་
+ཁྱི་ཆུང་

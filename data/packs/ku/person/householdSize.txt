@@ -1,0 +1,12 @@
+---
+description: Household size. Kurdish households run larger than the European average, so the list carries a 7+ tail rather than stopping at 5.
+locale: ku
+---
+1
+2
+3
+4
+5
+6
+7
+8+

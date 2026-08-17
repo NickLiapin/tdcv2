@@ -1,0 +1,19 @@
+---
+description: Medicine (Tibetan). THIS IS THE TIBETAN PHARMACOPOEIA, NOT A LIST OF INTERNATIONAL GENERICS, and that is a deliberate refusal: paracetamol, amoxicillin and metformin have no Tibetan names - a Tibetan prescription writes them in Latin or transliterates them ad hoc with no agreed spelling - so a biomedical drug column for this locale should carry the international generic name unchanged rather than a Tibetan invention. What Tibetan does have is its own materia medica, and its formula names follow a rule a config cannot guess: CHIEF INGREDIENT PLUS THE NUMBER OF INGREDIENTS. Gur-gum 13 is the thirteen-ingredient saffron formula, A-ru 18 the eighteen-ingredient myrobalan one. The numerals are Tibetan digits (U+0F20-U+0F29).
+locale: bo
+---
+ཨ་གར་༨
+ཙན་དན་༨
+གུར་གུམ་༡༣
+ཨ་རུ་༡༨
+སེང་ལྡེང་༡༥
+ཟླ་ཤེལ་༢༡
+སྲོག་འཛིན་༡༡
+སྨན་མཆོག་བདུད་རྩི་
+རིན་ཆེན་མང་སྦྱོར་
+རིན་ཆེན་གྲང་སྦྱོར་ཆེན་མོ་
+བསམ་འཕེལ་ནོར་བུ་
+ཟླ་ཤེལ་༦
+ཨ་གར་༣༥
+བྱ་རྐང་༡༥
+སྟག་ཤ་༥

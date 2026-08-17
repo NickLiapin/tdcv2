@@ -1,0 +1,19 @@
+---
+description: Weather or natural phenomenon (Tibetan). gangs-nyil (avalanche) and thun-pa (drought) are ordinary hazards of a high plateau, not exotic ones.
+locale: bo
+---
+འཇའ་ཚོན་
+ཐོག་
+ས་ཡོམ་
+གངས་ཉིལ་
+ཆུ་ལོག་
+ཐན་པ་
+རླུང་འཚུབ་
+སེར་བ་
+བྱེ་འཚུབ་
+ཁ་བའི་འཚུབ་མ་
+ན་བུན་
+ཟླ་གཟའ་
+ཉི་གཟའ་
+སྐར་མདའ་
+ཟིལ་པ་

@@ -1,0 +1,10 @@
+---
+description: Sport that has a coherent position list (Tibetan). Half of these are TRADITIONAL Tibetan contests - archery, horse racing and wrestling are the three events of a plateau summer festival - and for those the child file holds ROLES rather than field positions, because a race has no left back.
+locale: bo
+---
+རྐང་རྩེད་སྤོ་ལོ་
+ལག་རྩེད་སྤོ་ལོ་
+མདའ་རྩེད་
+རྟ་རྒྱུག་
+གྱད་འགྲན་
+འགྲན་རྒྱུག་

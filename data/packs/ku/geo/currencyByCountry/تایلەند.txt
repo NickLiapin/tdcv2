@@ -1,0 +1,5 @@
+---
+description: Currency of تایلەند, in Central Kurdish
+locale: ku
+---
+بات

@@ -1,0 +1,5 @@
+---
+description: Capital of کەنەدا, in Central Kurdish
+locale: ku
+---
+ئۆتاوا

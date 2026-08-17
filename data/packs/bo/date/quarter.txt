@@ -1,0 +1,8 @@
+---
+description: Quarter of the year (Tibetan)
+locale: bo
+---
+དུས་ཚིགས་དང་པོ་
+དུས་ཚིགས་གཉིས་པ་
+དུས་ཚིགས་གསུམ་པ་
+དུས་ཚིགས་བཞི་པ་

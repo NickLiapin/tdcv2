@@ -1,0 +1,24 @@
+---
+description: Airline names. NO KURDISH FLAG CARRIER EXISTS — a flag carrier needs a flag — so the list is the airlines that actually fly into Kurdish-speaking cities plus the large internationals, written as Kurdish media write them.
+locale: ku
+---
+تورکیش ئێرلاینز
+پێگاسوس
+ئێرلاینزی عێراقی
+ماهان ئێر
+ئێران ئێر
+فڵای دوبەی
+ئێمیرەیتس
+قەتەر ئێرویز
+ئێتیهاد
+ئێر ئەرەبیا
+مسر بۆ فڕین
+ڕۆیاڵ ئوردنی
+میدڵ ئیست ئێرلاینز
+لوفتهانزا
+ئێر فڕانس
+کەی ئێڵ ئێم
+بریتیش ئێرویز
+ئۆسترین ئێرلاینز
+ئێروفلۆت
+ئایبیریا

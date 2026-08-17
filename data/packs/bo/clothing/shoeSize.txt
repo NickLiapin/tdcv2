@@ -1,0 +1,15 @@
+---
+description: Shoe size on the CHINESE / MONDOPOINT numeric scale (35-45), written in Tibetan digits (U+0F20-U+0F29). THE SCALE IS A COUNTRY CONVENTION AND TIBETAN SPEAKERS LIVE IN FOUR COUNTRIES. This is the scale on a shoebox in Lhasa, Xining or Shigatse, which is where most Tibetan speakers are. The exile communities in India and Nepal read UK sizes (5-11) and Bhutan reads UK too, so a dataset for those communities needs a different scale and this file does not supply it. Traditional Tibetan boots, lham and phying-lham, are made to the foot and have no size number at all.
+locale: bo
+---
+༣༥
+༣༦
+༣༧
+༣༨
+༣༩
+༤༠
+༤༡
+༤༢
+༤༣
+༤༤
+༤༥

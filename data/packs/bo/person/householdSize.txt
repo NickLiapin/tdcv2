@@ -1,0 +1,11 @@
+---
+description: Household size, in Tibetan digits (U+0F20-U+0F29)
+locale: bo
+---
+༡
+༢
+༣
+༤
+༥
+༦
+༧ཡན་

@@ -1,0 +1,26 @@
+---
+description: Hashtag in Tibetan. A REAL PROBLEM LIVES IN THIS FILE. Tibetan writes no spaces, and the character that separates syllables, U+0F0B TSHEG, has Unicode General_Category Po - punctuation, not a letter. A hashtag parser that ends the tag at the first non-letter therefore cuts a Tibetan hashtag at its FIRST TSHEG, so a two-syllable tag is silently truncated to one syllable, and two different tags can collapse onto the same string. Some Tibetan users write hashtags with the tsheg anyway and some drop it; both spellings are in this list because both are in the wild.
+locale: bo
+---
+#བོད་
+#བོད་སྐད་
+#བོད་ཡིག་
+#བོདཡིག
+#ལོ་གསར་
+#ལོགསར
+#གངས་ལྗོངས་
+#ལྷ་ས་
+#བོད་ཟས་
+#རྩམ་པ་
+#བོད་ཇ་
+#ཐང་ཀ་
+#གེ་སར་
+#ནང་བསྟན་
+#གླིང་ཁ་
+#ཞབས་བྲོ་
+#བོད་ཀྱི་གླུ་གཞས་
+#གནས་སྐོར་
+#གཡག་
+#ཁྲུང་ཁྲུང་
+#བོད་སྨན་
+#དཔེ་ཆ་

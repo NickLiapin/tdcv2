@@ -1,0 +1,11 @@
+---
+description: Abbreviated weekday (Tibetan), Sunday first - the planet name with the gza' dropped.
+locale: bo
+---
+ཉི་མ་
+ཟླ་བ་
+མིག་དམར་
+ལྷག་པ་
+ཕུར་བུ་
+པ་སངས་
+སྤེན་པ་

@@ -1,0 +1,39 @@
+---
+description: Fruit. Figs, pomegranates, mulberries, quinces and oleaster are orchard staples across Kurdistan, so they lead rather than trail the list.
+locale: ku
+---
+سێو
+هەرمێ
+بەهی
+هەنار
+هەنجیر
+ترێ
+تووت
+تووی ڕەش
+تووی شین
+گێلاس
+ئاڵووچە
+هەڵووژە
+خۆخ
+قەیسی
+سنجید
+زەڕەشک
+خورما
+زەیتوون
+گوێز
+بادەم
+پستە
+لیمۆ
+لیمۆی ترش
+پرتەقاڵ
+نارنج
+شووتی
+کاڵەک
+تووەفەرەنگی
+مۆز
+مانگۆ
+ئەنەناس
+کیوی
+پەپایە
+ئەڤۆکادۆ
+نارگیل

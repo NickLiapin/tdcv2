@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in شێرپەنجە (Central Kurdish)
+locale: ku
+---
+شێرپەنجەی مەمک
+شێرپەنجەی سییە
+شێرپەنجەی کۆڵۆن
+لۆکیمیا
+لیمفۆما
+مێلانۆما

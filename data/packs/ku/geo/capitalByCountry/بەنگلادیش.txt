@@ -1,0 +1,5 @@
+---
+description: Capital of بەنگلادیش, in Central Kurdish
+locale: ku
+---
+داکا

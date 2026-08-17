@@ -1,0 +1,9 @@
+---
+description: Hotel star rating, in Tibetan digits (U+0F20-U+0F29)
+locale: bo
+---
+སྐར་མ་༡
+སྐར་མ་༢
+སྐར་མ་༣
+སྐར་མ་༤
+སྐར་མ་༥

@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of སིང་ག་པུར་
+locale: bo
+---
+SGD

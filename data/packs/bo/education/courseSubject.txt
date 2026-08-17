@@ -1,0 +1,26 @@
+---
+description: Course subject (Tibetan). THE FIRST TEN ARE THE TIBETAN CURRICULUM ITSELF, not a translation of a Western one: the five major sciences (crafts, medicine, grammar, logic, inner science) and the five minor ones (poetics, lexicography, prosody, drama, astrology) are how Tibetan scholarship has divided knowledge for a thousand years, and a Tibetan monastic or traditional school timetable is still built on them.
+locale: bo
+---
+བཟོ་རིག་པ་
+གསོ་བ་རིག་པ་
+སྒྲ་རིག་པ་
+ཚད་མ་རིག་པ་
+ནང་དོན་རིག་པ་
+སྙན་ངག་
+མངོན་བརྗོད་
+སྡེབ་སྦྱོར་
+ཟློས་གར་
+སྐར་རྩིས་
+བོད་ཡིག་
+རྒྱ་ཡིག་
+དབྱིན་ཡིག་
+རྩིས་རིག་
+ཚན་རིག་
+ལོ་རྒྱུས་
+ས་ཁམས་རིག་པ་
+སྐྱེ་དངོས་རིག་པ་
+རྫས་འགྱུར་རིག་པ་
+དངོས་ཁམས་རིག་པ་
+གློག་ཀླད་རིག་པ་
+ལུས་རྩལ་

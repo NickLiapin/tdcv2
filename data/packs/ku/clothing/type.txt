@@ -1,0 +1,36 @@
+---
+description: Garment. The first entries are Kurdish national dress and have no English equivalent: چۆغە and ڕانک و چۆغە are the man's jacket-and-trousers, پشتێن the wide waist sash, کڵاو the cap the turban is wound on, and کراسی کوردی the woman's long dress.
+locale: ku
+---
+کراسی کوردی
+ڕانک و چۆغە
+چۆغە
+پشتێن
+کڵاو
+مێزەر
+شاڵ
+کەوا
+فەرەنجی
+کراس
+پانتۆڵ
+جین
+دامێن
+بلوز
+تیشێرت
+چاکەت
+پاڵتۆ
+قات
+سویتەر
+کورتەپۆش
+شۆرت
+جلی خەو
+گۆرەوی
+دەستکێش
+کڵاوی زستانە
+قایش
+گرێی مل
+پێڵاو
+بووت
+پێڵاوی وەرزشی
+سەندەل
+کڵاش

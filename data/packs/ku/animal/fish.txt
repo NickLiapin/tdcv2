@@ -1,0 +1,28 @@
+---
+description: Fish. The first entries are river fish of the Tigris and its Kurdish tributaries; the rest are sea fish Kurdish markets import.
+locale: ku
+---
+ماسیی سازان
+ماسیی بەنی
+ماسیی گەتان
+ماسیی شەبووت
+ماسیی زوری
+ماسیی برزەم
+قەرەبالیق
+ماسیی سلوور
+ماسیی ئاڵا
+سالمۆن
+تونە
+سەردین
+هەرینگ
+ماکرێل
+ماسیی زێڕین
+ماسیی شمشێری
+ماسیی ڕەقە
+هاڵیبووت
+ماسیی پەڕدار
+مارماسی
+ماسیی سوور
+ماسیی پشیلە
+بێتا
+ماسیی دەلقە

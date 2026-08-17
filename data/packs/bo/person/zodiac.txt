@@ -1,0 +1,16 @@
+---
+description: Birth-year animal of the Tibetan calendar (lo-rtags). NOT the Greek zodiac: Tibetan reckons a birth sign from the YEAR, not the month, on a twelve-animal cycle that combines with five elements to make the sixty-year rab-byung cycle. Aries and Scorpio have no Tibetan equivalent and are deliberately absent.
+locale: bo
+---
+བྱི་བ་
+གླང་
+སྟག་
+ཡོས་
+འབྲུག་
+སྦྲུལ་
+རྟ་
+ལུག་
+སྤྲེལ་
+བྱ་
+ཁྱི་
+ཕག་

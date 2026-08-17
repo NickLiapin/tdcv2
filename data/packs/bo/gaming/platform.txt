@@ -1,0 +1,14 @@
+---
+description: Gaming platform. PLATFORM NAMES ARE BRANDS and keep their real spelling in every locale, Tibetan included.
+locale: bo
+---
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Android
+iOS
+WeChat Mini Game
+Steam

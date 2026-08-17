@@ -1,0 +1,9 @@
+---
+description: Fish (Tibetan). VERY SHORT, AND THE SHORTNESS IS THE DATA. Fish are traditionally not eaten across most of Tibet - partly because water burial gives the dead to the river, partly because one fish feeds fewer people than one yak kills - so Tibetan never developed the fine-grained fish vocabulary of a fishing culture. chu-srin is the makara of Buddhist iconography, a water creature rather than a species.
+locale: bo
+---
+ཉ་
+ཉ་ཆེན་
+ཉ་ཕྲུག་
+གསེར་ཉ་
+ཆུ་སྲིན་

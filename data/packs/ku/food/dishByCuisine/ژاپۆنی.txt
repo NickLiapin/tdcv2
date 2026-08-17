@@ -1,0 +1,10 @@
+---
+description: Dishes of ژاپۆنی cuisine, named in Central Kurdish
+locale: ku
+---
+سووشی
+ڕامەن
+تێمپورا
+ئودۆن
+سووپی میسۆ
+ئۆنیگیری

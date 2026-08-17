@@ -1,0 +1,59 @@
+{
+  "months": [
+    "کانوونی دووەم",
+    "شوبات",
+    "ئازار",
+    "نیسان",
+    "ئایار",
+    "حوزەیران",
+    "تەمووز",
+    "ئاب",
+    "ئەیلوول",
+    "تشرینی یەکەم",
+    "تشرینی دووەم",
+    "کانوونی یەکەم"
+  ],
+  "monthsInDate": [
+    "کانوونی دووەم",
+    "شوبات",
+    "ئازار",
+    "نیسان",
+    "ئایار",
+    "حوزەیران",
+    "تەمووز",
+    "ئاب",
+    "ئەیلوول",
+    "تشرینی یەکەم",
+    "تشرینی دووەم",
+    "کانوونی یەکەم"
+  ],
+  "monthsShort": [
+    "کانوونی 2",
+    "شوبات",
+    "ئازار",
+    "نیسان",
+    "ئایار",
+    "حوزەیران",
+    "تەمووز",
+    "ئاب",
+    "ئەیلوول",
+    "تشرینی 1",
+    "تشرینی 2",
+    "کانوونی 1"
+  ],
+  "weekdays": [
+    "یەکشەممە",
+    "دووشەممە",
+    "سێشەممە",
+    "چوارشەممە",
+    "پێنجشەممە",
+    "هەینی",
+    "شەممە"
+  ],
+  "weekdaysShort": ["یەک", "دوو", "سێ", "چوار", "پێنج", "هەینی", "شەممە"],
+  "formats": {
+    "L": "DD/MM/YYYY",
+    "LL": "D-ی MMMM YYYY"
+  },
+  "notes": "CENTRAL KURDISH (SORANI), PERSO-ARABIC SCRIPT, RIGHT-TO-LEFT. months[] are the GREGORIAN months as Iraqi Kurdistan names them, because the engine emits Gregorian dates and months[0] must be January. Kurds ALSO keep their own solar calendar: the year opens at Newroz on 21 March, the Kurdish era counts from 700 BCE (2026 CE is Kurdish year 2726), and the twelve months are خاکەلێوە، گوڵان، جۆزەردان، پووشپەڕ، گەلاوێژ، خەرمانان، ڕەزبەر، گەڵاڕێزان، سەرماوەز، بەفرانبار، ڕێبەندان، ڕەشەمە. Those are NOT swappable index for index with the Gregorian names — خاکەلێوە runs roughly 21 March to 20 April, not January — so they are recorded here and deliberately not served as months[]. WEEK ORDER: the working week starts on SATURDAY (شەممە) and Friday (هەینی) is the day off, so weekdays[] is rotated into the Sunday-first order this file requires; it is not the local week order. Kurdish counts weekdays off شەممە (یەکشەممە = one after Saturday) and only هەینی has an independent name. monthsShort[] is NOT a three-letter clipping: Kurdish shortens only the two compound pairs, کانوونی دووەم to کانوونی 2 and تشرینی یەکەم to تشرینی 1, and writes the other eight out in full. LL uses the Kurdish ezafe-linked ordinal form D-ی MMMM YYYY (٧-ی نیسان ٢٠٢٦). NOTE ON THE CODE ITSELF: \"ku\" here is SORANI because typescript/src/data-pack/locales.ts lists ku among RTL_LOCALES. Northern Kurdish (Kurmanji) is written in a LATIN alphabet, is left-to-right, and would need its own code; nothing in this file applies to it."
+}

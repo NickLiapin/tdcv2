@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list under diagnosisBySpecialty
+locale: ku
+---
+دڵ و خوێنبەرەکان
+دەمار و مێشک
+شێرپەنجە
+پێست
+گەدە و ڕیخۆڵە
+گلان و شەکرە
+سییە و هەناسە
+ئێسک و جومگە
+دەروونی
+گورچیلە

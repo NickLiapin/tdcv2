@@ -1,0 +1,11 @@
+---
+description: Route type (Tibetan). la-lam, the pass road, is a route type on the plateau because most journeys cross one.
+locale: bo
+---
+རྒྱ་ལམ་
+ལ་ལམ་
+རི་ལམ་
+གྲོང་ལམ་
+ས་གཞུང་ལམ་
+རྒྱང་ལམ་
+ཐུང་ལམ་

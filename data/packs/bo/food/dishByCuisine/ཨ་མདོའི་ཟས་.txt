@@ -1,0 +1,11 @@
+---
+description: Dish of the cuisine ཨ་མདོའི་ཟས་ (Tibetan)
+locale: bo
+---
+ཨ་མདོ་བ་ལེབ་
+ཐུག་པ་
+རྩམ་པ་
+ཞོ་
+ཆུ་ར་
+ཤ་སྐམ་
+སྐྱོ་མ་

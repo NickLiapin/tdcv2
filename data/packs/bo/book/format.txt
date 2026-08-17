@@ -1,0 +1,14 @@
+---
+description: Book format (Tibetan). THE TIBETAN BOOK IS NOT A CODEX. A dpe-cha is a stack of loose oblong leaves, printed or written on both sides, wrapped in cloth and pressed between two wooden boards - it has no spine, no binding and no page order enforced by anything but the reader's care, and it is still the format of every liturgical text in use. shing-par means the book was printed from carved wooden blocks, which is how Tibet printed for six hundred years. A config that assumes 'hardback or paperback' has no slot for either.
+locale: bo
+---
+དཔེ་ཆ་
+པོ་ཏི་
+ཤིང་པར་
+བྲིས་མ་
+དེབ་
+སྐོགས་སྲ་
+སྐོགས་འཇམ་
+གློག་རྡུལ་དེབ་
+སྒྲ་དེབ་
+པར་མ་

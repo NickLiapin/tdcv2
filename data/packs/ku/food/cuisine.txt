@@ -1,0 +1,21 @@
+---
+description: Cuisine, in Central Kurdish. کوردی leads because a Kurdish dataset that treats Kurdish food as foreign gets the whole point backwards.
+locale: ku
+---
+کوردی
+تورکی
+فارسی
+عەرەبی
+لوبنانی
+ئیتاڵی
+فەڕەنسی
+یۆنانی
+ئیسپانی
+چینی
+ژاپۆنی
+کۆری
+ڤیەتنامی
+تایلەندی
+هیندی
+مەکسیکی
+ئەمریکی

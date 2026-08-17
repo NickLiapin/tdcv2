@@ -1,0 +1,30 @@
+---
+description: Colour name (Tibetan). Two things a config cannot infer. Colour terms are built from a root plus -po / -pa (dkar-po white) or -kha / -khu (ljang-khu green), and the compound X-mdog 'the colour of X' is fully productive - gser-mdog gold-coloured, g.yu-mdog turquoise-coloured - so the Tibetan colour vocabulary is open by construction and this list is a sample, not an inventory. smug-po is the specific dark maroon of monastic robes and is a far more salient colour word in Tibetan than 'purple' is in English.
+locale: bo
+---
+དཀར་པོ་
+ནག་པོ་
+དམར་པོ་
+སེར་པོ་
+སྔོན་པོ་
+ལྗང་ཁུ་
+སྨུག་པོ་
+སྐྱ་བོ་
+ཁྲ་བོ་
+དམར་སྐྱ་
+ལི་ཁྲི་
+མཐིང་ཁ་
+སྔོ་ལྗང་
+སྔོ་སྐྱ་
+ལྗང་སྐྱ་
+སེར་སྐྱ་
+དམར་ནག་
+ཁམ་སེར་
+ནག་སྐྱ་
+གསེར་མདོག་
+དངུལ་མདོག་
+ཟངས་མདོག་
+གཡུ་མདོག་
+མུ་མེན་མདོག་
+ཤེལ་མདོག་
+དམར་སེར་

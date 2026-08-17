@@ -1,0 +1,5 @@
+---
+description: Capital of کۆریای باشوور, in Central Kurdish
+locale: ku
+---
+سیئوول

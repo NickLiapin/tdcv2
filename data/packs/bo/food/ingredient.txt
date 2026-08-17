@@ -1,0 +1,28 @@
+---
+description: Cooking ingredient (Tibetan). The traditional Tibetan larder is barley, dairy and meat, and the list reflects that: nas is barley, rtsam-pa its roasted flour and the staple of the whole plateau, mar butter, chu-ra the hard dried cheese. Meat words compound the animal with sha - lug-sha mutton, g.yag-sha yak.
+locale: bo
+---
+ནས་
+རྩམ་པ་
+མར་
+ཞོ་
+ཆུ་ར་
+འོ་མ་
+ཤ་
+ལུག་ཤ་
+གཡག་ཤ་
+གླང་ཤ་
+ཕག་ཤ་
+བྱ་ཤ་
+འབྲས་
+གྲོ་
+ཕྱེ་
+ཚྭ་
+སྒོ་ང་
+ཇ་
+ཆུ་
+སྣུམ་
+བུ་རམ་
+ཀ་ར་
+སྲན་མ་
+ཨ་ལུ་

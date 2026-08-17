@@ -1,0 +1,12 @@
+---
+description: Cable type (Tibetan). Fibre, coaxial and the rest are engineering categories a Tibetan technician names descriptively; the international type codes stay in Latin.
+locale: bo
+---
+གློག་སྐུད་
+ཟངས་སྐུད་
+ཤེལ་སྐུད་
+འོད་སྐུད་
+ལྟེ་སྐུད་
+ས་ཐིག་སྐུད་
+རྒྱུད་ལམ་སྐུད་
+ཁ་པར་སྐུད་

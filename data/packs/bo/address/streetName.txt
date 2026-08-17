@@ -1,0 +1,28 @@
+---
+description: Name element for a street (Tibetan). These are the WORDS Tibetan street names are made of - auspicious abstracts (bde-skyid happiness, zhi-bde peace, mthun-sgril unity), the sun and moon, the precious substances - to be composed before an address/streetSuffix value. Actual named streets (Barkhor, Lingkhor, Yuthok Lam) are Lhasa city data and belong in a country pack, not here.
+locale: bo
+---
+བདེ་སྐྱིད་
+བཀྲ་ཤིས་
+ཞི་བདེ་
+མཐུན་སྒྲིལ་
+མདུན་སྐྱོད་
+དར་རྒྱས་
+ཉི་མ་
+ཟླ་བ་
+གངས་ལྗོངས་
+པདྨ་
+གསེར་
+གཡུ་
+མེ་ཏོག་
+ནོར་བུ་
+རིན་ཆེན་
+སེང་གེ་
+ཁྲུང་ཁྲུང་
+ཤར་ཕྱོགས་
+ནུབ་ཕྱོགས་
+གསར་པ་
+རྙིང་པ་
+ཆེན་མོ་
+བདེ་ཆེན་
+ཡང་རྩེ་

@@ -1,0 +1,28 @@
+---
+description: Language spoken, as Tibetan names them. bod-skad covers a chain of mutually unintelligible varieties that share one written language: the Lhasa standard, Amdo, Kham, Ladakhi, Sherpa, Dzongkha and Balti are all in this list and are all what a speaker may mean by 'Tibetan'.
+locale: bo
+---
+བོད་སྐད་
+ལྷ་སའི་སྐད་
+ཨ་མདོའི་སྐད་
+ཁམས་སྐད་
+ལ་དྭགས་སྐད་
+ཤར་པའི་སྐད་
+རྫོང་ཁ་
+སྦལ་ཏིའི་སྐད་
+རྒྱ་སྐད་
+དབྱིན་ཇིའི་སྐད་
+རྒྱ་གར་སྐད་
+བལ་སྐད་
+ལེགས་སྦྱར་སྐད་
+ཨུ་རུ་སུའི་སྐད་
+ཡ་རི་པན་སྐད་
+ཀོ་རི་ཡའི་སྐད་
+ཨ་རབ་སྐད་
+ཧྥ་རན་སིའི་སྐད་
+ཛར་མན་སྐད་
+སི་པན་སྐད་
+སོག་སྐད་
+ཡུ་གུར་སྐད་
+ཐའི་སྐད་
+བར་མའི་སྐད་

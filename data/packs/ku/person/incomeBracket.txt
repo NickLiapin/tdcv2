@@ -1,0 +1,11 @@
+---
+description: Annual household income bracket. AMOUNTS ARE IN US DOLLARS ON PURPOSE. Kurdish is spoken across four states with four different currencies — the Iraqi dinar, the Turkish lira, the Iranian rial and the Syrian pound — so there is no national currency a Kurdish LANGUAGE pack could name without silently picking one of the four states. The dollar is also the currency Kurds themselves quote large sums in across the region. For real local money, a country pack owns it.
+locale: ku
+---
+کەمتر لە 3,000 دۆلار
+3,000–6,000 دۆلار
+6,000–12,000 دۆلار
+12,000–20,000 دۆلار
+20,000–35,000 دۆلار
+35,000–60,000 دۆلار
+زیاتر لە 60,000 دۆلار

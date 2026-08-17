@@ -1,0 +1,5 @@
+---
+description: Currency of کەنەدا, in Central Kurdish
+locale: ku
+---
+دۆلاری کەنەدی

@@ -1,0 +1,5 @@
+---
+description: Currency of ڤیەتنام, in Central Kurdish
+locale: ku
+---
+دۆنگ

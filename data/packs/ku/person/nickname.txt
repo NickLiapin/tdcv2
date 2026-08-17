@@ -1,0 +1,34 @@
+---
+description: Kurdish informal by-names. Kurdish nicknames work in two ways and both are here: a clipped given name (حەمە from محەمەد، ئەحە from ئەحمەد), and — far more often — a descriptive or occupational epithet hung on the given name to tell apart the several men in a village who share it, as in حەمە نانەوا "Heme the baker" or ئەحمەد گەورە "big Ahmed". The epithets are the productive half, so most of this list is epithets. Kept short because only well-attested forms are included.
+locale: ku
+---
+حەمە
+ئەحە
+کاکە
+مامە
+گەورە
+بچووک
+ڕەش
+سپی
+سوور
+زەرد
+درێژ
+کورت
+پیر
+گەنج
+نانەوا
+قەساب
+جووتیار
+شوان
+ئاسنگەر
+دارتاش
+شۆفێر
+مامۆستا
+حاجی
+سەیاد
+ماسیگر
+گۆرانیبێژ
+تەلار
+کوردی
+شارستان
+گوندی

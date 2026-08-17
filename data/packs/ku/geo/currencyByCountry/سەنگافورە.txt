@@ -1,0 +1,5 @@
+---
+description: Currency of سەنگافورە, in Central Kurdish
+locale: ku
+---
+دۆلاری سەنگافوری

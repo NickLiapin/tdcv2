@@ -1,0 +1,10 @@
+---
+description: Dishes of فەڕەنسی cuisine, named in Central Kurdish
+locale: ku
+---
+کرواسان
+کیشی لۆرین
+ڕاتاتوی
+کرێپ
+سووپی پیاز
+کۆک ئۆ ڤەن

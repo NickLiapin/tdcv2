@@ -1,0 +1,12 @@
+---
+description: ABO / Rh blood group. WRITTEN IN LATIN LETTERS ON PURPOSE — Kurdish hospitals, lab slips and blood-donor cards print A, B, AB, O with a Latin sign exactly as everywhere else, and a Kurdish-script respelling would be something no clinician has ever seen. This is the same rule that keeps Wi-Fi and A320 unchanged.
+locale: ku
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

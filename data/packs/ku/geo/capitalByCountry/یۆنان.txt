@@ -1,0 +1,5 @@
+---
+description: Capital of یۆنان, in Central Kurdish
+locale: ku
+---
+ئەسینا

@@ -1,0 +1,19 @@
+---
+description: Kinds of court, as Kurdish words. KURDS HAVE NO STATE AND THEREFORE NO JUDICIARY OF THEIR OWN — a Kurdish court sits under Iraqi, Turkish, Iranian or Syrian law depending on where it stands — so this list holds the WORDS the language uses for kinds of court, exactly as the Spanish and Portuguese packs do, and names no country's bench.
+locale: ku
+---
+دادگا
+دادگای باڵا
+دادگای دەستووری
+دادگای پێداچوونەوە
+دادگای بنەڕەت
+دادگای تاوان
+دادگای مەدەنی
+دادگای بازرگانی
+دادگای کار
+دادگای ئیداری
+دادگای بارودۆخی کەسی
+دادگای گەنجان
+دادگای داواکارییە بچووکەکان
+دادگای تێهەڵچوون
+دادگای شەرعی

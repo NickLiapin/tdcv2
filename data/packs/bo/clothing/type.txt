@@ -1,0 +1,26 @@
+---
+description: Garment (Tibetan). SOME OF THESE CARRY INFORMATION A CONFIG WOULD OTHERWISE HAVE TO GUESS. The pang-gdan, the striped woollen apron, is worn by MARRIED WOMEN - putting one on a record whose marital status says single is a contradiction the data itself will not flag. The kha-btags is a ceremonial scarf given in greeting and farewell, not clothing. The phyu-pa (chuba) is the Tibetan robe, worn by both sexes with different cuts, and the thul-pa is its sheepskin winter form.
+locale: bo
+---
+ཕྱུ་པ་
+ཐུལ་པ་
+བང་གདན་
+སྟོད་ཐུང་
+སྨད་གོས་
+ཞྭ་མོ་
+ལྷམ་
+ཕྱིང་ལྷམ་
+སྐེད་རགས་
+ཁ་བཏགས་
+སྣམ་བུ་
+གོས་ཆེན་
+བལ་གོས་
+རས་གོས་
+རྔུལ་གོས་
+ལག་ཤུབས་
+རྐང་ཤུབས་
+ཤ་མོ་གོས་
+སྟོད་གོས་
+ཕྱི་གོས་
+ཉལ་གོས་
+ཆོས་གོས་

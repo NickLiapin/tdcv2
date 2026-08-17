@@ -1,0 +1,8 @@
+---
+description: Gender label (Tibetan)
+locale: bo
+---
+ཕོ་
+མོ་
+སྐྱེས་པ་
+བུད་མེད་

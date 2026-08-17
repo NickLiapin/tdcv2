@@ -1,0 +1,20 @@
+---
+description: Horse breed. The Kurdish horse (کوردی) and the Arabian are the breeds of the region; the rest are internationally known.
+locale: ku
+---
+ئەسپی کوردی
+ئەسپی عەرەبی
+ئەسپی کاسپی
+ئەسپی تورکەمەنی
+ئەسپی ئەندەلوسی
+ئەسپی ئینگلیزی
+موستانگ
+کلایدزدەیل
+ئەپەلووزا
+فریزی
+شایەر
+پێرشیرۆن
+پاڵۆمینۆ
+مۆرگان
+کورەئەسپی شێتلاند
+ئەسپی کێوی

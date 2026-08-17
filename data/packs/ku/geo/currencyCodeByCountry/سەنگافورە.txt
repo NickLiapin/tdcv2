@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of سەنگافورە. Codes are international three-letter Latin symbols and are never localised.
+locale: ku
+---
+SGD

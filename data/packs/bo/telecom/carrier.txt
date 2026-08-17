@@ -1,0 +1,17 @@
+---
+description: Mobile network operator. BRAND NAMES. There is no Tibetan operator because there is no Tibetan state: a Tibetan-speaking subscriber is on a Chinese, Indian, Nepalese or Bhutanese network, and which one is a fact about the address, not about the language.
+locale: bo
+---
+China Mobile
+China Unicom
+China Telecom
+China Broadnet
+Jio
+Airtel
+Vi
+BSNL
+Ncell
+Nepal Telecom
+Smart Cell
+TashiCell
+Bhutan Telecom

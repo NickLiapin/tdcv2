@@ -1,0 +1,24 @@
+---
+description: Mined mineral / commodity. Oil, natural gas, limestone, gypsum, marble and sulphur are what is actually dug and pumped in Kurdish-speaking areas; the rest are listed because a general mining vocabulary needs them.
+locale: ku
+---
+نەوت
+گازی سروشتی
+قیر
+بەردی گەچ
+بەردی هێڵکاری
+مەڕمەڕ
+گەچ
+کبریت
+خوێ
+کرۆمیت
+ئاسنی خاو
+مس
+زێڕ
+زیو
+زینک
+قورقوشم
+خەڵووز
+بۆکسایت
+فۆسفات
+ئۆرانیۆم

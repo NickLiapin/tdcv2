@@ -1,0 +1,26 @@
+---
+description: Product material (Tibetan). bal (wool), phying-pa (felt) and sra-mo (yak-hair cloth) are the plateau's own materials and are used far more than cotton.
+locale: bo
+---
+བལ་
+ཕྱིང་པ་
+སྲ་མོ་
+ཀོ་བ་
+རས་
+དར་
+གོས་ཆེན་
+ཤིང་
+ལྕགས་
+ཟངས་
+གསེར་
+དངུལ་
+ར་གན་
+རྡོ་
+ཤེལ་
+ས་སྣོད་
+ཕིང་
+རྩྭ་
+སྤུ་
+རྭ་
+ཤོག་བུ་
+སྐུད་པ་

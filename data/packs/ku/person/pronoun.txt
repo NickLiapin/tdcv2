@@ -1,0 +1,10 @@
+---
+description: Personal pronouns of Sorani Kurdish. THERE IS NO he/him VERSUS she/her SPLIT TO DRAW FROM: ئەو is the single third-person pronoun and covers he, she and it. A config that expects an English-style pronoun-set list will not find one here, and the list is short by design rather than short by omission.
+locale: ku
+---
+من
+تۆ
+ئەو
+ئێمە
+ئێوە
+ئەوان

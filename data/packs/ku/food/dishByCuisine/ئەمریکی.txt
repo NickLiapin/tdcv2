@@ -1,0 +1,10 @@
+---
+description: Dishes of ئەمریکی cuisine, named in Central Kurdish
+locale: ku
+---
+چیزبرگەر
+هۆتدۆگ
+باڵی بەفەلۆ
+ماک ئەند چیز
+شیرینیی سێو
+پەتاتەی برژاو

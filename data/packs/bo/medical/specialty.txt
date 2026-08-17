@@ -1,0 +1,29 @@
+---
+description: Medical specialty (Tibetan). The productive pattern is <disease> + rig-pa, 'the science of', so snying-nad rig-pa is cardiology, literally 'the science of heart disease'. bod-sman, Tibetan medicine, is a specialty in its own right and staffs its own departments in hospitals across the Tibetan areas; it is not folk practice and belongs in this list beside the others.
+locale: bo
+---
+སྙིང་ནད་རིག་པ་
+ཀླད་ནད་རིག་པ་
+འབྲས་ནད་རིག་པ་
+པགས་ནད་རིག་པ་
+བྱིས་ནད་རིག་པ་
+སེམས་ཁམས་རིག་པ་
+གློ་ནད་རིག་པ་
+མཁལ་ནད་རིག་པ་
+ནང་ནད་རིག་པ་
+གཤག་བཅོས་རིག་པ་
+བུད་མེད་ནད་རིག་པ་
+མིག་ནད་རིག་པ་
+སོ་ནད་རིག་པ་
+རུས་པའི་ནད་རིག་པ་
+ཕོ་རྒྱུའི་ནད་རིག་པ་
+ཁྲག་ནད་རིག་པ་
+འགོས་ནད་རིག་པ་
+མྱུར་སྐྱོབ་རིག་པ་
+བསིལ་སྨན་རིག་པ་
+འཕྲུལ་པར་རིག་པ་
+ཟས་བཅུད་རིག་པ་
+རྣ་སྣ་ལྐོག་གསུམ་རིག་པ་
+དབང་རྩིའི་ནད་རིག་པ་
+བོད་སྨན་
+སྨན་རྩིས་རིག་པ་

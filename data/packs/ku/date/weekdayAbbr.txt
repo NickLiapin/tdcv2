@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation, Saturday first to match date/weekday.txt. Kurdish shortens the counted days to their numeral word and leaves هەینی and شەممە whole.
+locale: ku
+---
+شەممە
+یەک
+دوو
+سێ
+چوار
+پێنج
+هەینی

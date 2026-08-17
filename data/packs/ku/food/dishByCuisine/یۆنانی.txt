@@ -1,0 +1,10 @@
+---
+description: Dishes of یۆنانی cuisine, named in Central Kurdish
+locale: ku
+---
+موساکا
+سووڤلاکی
+جایرۆ
+زەڵاتەی یۆنانی
+تزاتزیکی
+سپاناکۆپیتا

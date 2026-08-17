@@ -1,0 +1,5 @@
+---
+description: Currency of تورکیا, in Central Kurdish
+locale: ku
+---
+لیرەی تورکی

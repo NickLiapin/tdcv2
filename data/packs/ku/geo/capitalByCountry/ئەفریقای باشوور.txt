@@ -1,0 +1,5 @@
+---
+description: Capital of ئەفریقای باشوور, in Central Kurdish
+locale: ku
+---
+پریتۆریا

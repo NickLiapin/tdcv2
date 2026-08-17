@@ -1,0 +1,27 @@
+---
+description: Country and territory name (Tibetan). Same caveat as geo/country.txt: Tibetan has no standardised orthography for foreign proper names and this list stops where secure usage stops rather than inventing spellings. The last three entries are REGIONS, not states - Ladakh and Sikkim are in India and Tibet is not a country - and they are here because they are the Tibetan-speaking places a Tibetan-language dataset most often needs to name.
+locale: bo
+---
+རྒྱ་ནག་
+རྒྱ་གར་
+ཨ་རི་
+ཨུ་རུ་སུ་
+ཉི་ཧོང་
+འཇར་མན་
+ཧྥ་རན་སི་
+དབྱིན་ཇི་
+ཨི་ཊ་ལི་
+ལྷོ་ཀོ་རི་ཡ་
+བལ་ཡུལ་
+འབྲུག་ཡུལ་
+སོག་ཡུལ་
+སིང་ག་པུར་
+ཐའི་ལེན་
+ཁ་ན་ཌ་
+ཨོ་སི་ཊེ་ལི་ཡ་
+སི་པན་
+ཧོ་ལན་
+སུད་སི་
+བོད་
+ལ་དྭགས་
+འབྲས་ལྗོངས་

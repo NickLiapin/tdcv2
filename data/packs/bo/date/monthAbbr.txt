@@ -1,0 +1,16 @@
+---
+description: Abbreviated month, zla plus a Tibetan digit (U+0F20-U+0F29). This is how a Tibetan newspaper masthead writes it.
+locale: bo
+---
+ཟླ་༡
+ཟླ་༢
+ཟླ་༣
+ཟླ་༤
+ཟླ་༥
+ཟླ་༦
+ཟླ་༧
+ཟླ་༨
+ཟླ་༩
+ཟླ་༡༠
+ཟླ་༡༡
+ཟླ་༡༢

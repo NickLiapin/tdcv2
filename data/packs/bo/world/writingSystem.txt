@@ -1,0 +1,18 @@
+---
+description: Writing system (Tibetan). THE TIBETAN SCRIPT STACKS VERTICALLY AND THIS IS THE FILE THAT SAYS SO. One Tibetan syllable can carry a prefix, a superscript, a root letter, a subscript, a vowel, a suffix and a post-suffix - up to seven separate Unicode codepoints - all rendered as ONE vertical cluster the reader sees as a single unit. bsgrubs is six codepoints in one cluster. So a codepoint count badly overcounts what is on the page, and a UTF-16 length limit will truncate mid-stack and produce a broken glyph. Measure with grapheme clusters, or better with tsheg-delimited syllables. The first three entries are the Tibetan hands: dbu-can, the headed script all printing uses, dbu-med, the headless cursive of manuscripts, and 'khyug-yig, the running hand. lan-tsha is the ornamental script used for Sanskrit inside Tibetan books.
+locale: bo
+---
+དབུ་ཅན་
+དབུ་མེད་
+འཁྱུག་ཡིག་
+ལན་ཚ་
+ཝརྟུ་
+ལེགས་སྦྱར་ཡི་གེ་
+རྒྱ་ཡིག་
+ཨིན་ཡིག་
+ཨུ་རུ་སུའི་ཡི་གེ་
+ཨ་རབ་ཡི་གེ་
+ཀོ་རི་ཡའི་ཡི་གེ་
+སོག་ཡིག་
+ཐའི་ཡིག་
+བར་མའི་ཡི་གེ་

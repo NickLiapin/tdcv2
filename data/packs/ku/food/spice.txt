@@ -1,0 +1,32 @@
+---
+description: Spice and herb. سەماق (sumac) and پونگ (wild mint) are what a Kurdish kitchen reaches for first; both grow on the hillsides.
+locale: ku
+---
+سەماق
+دارچین
+زیرە
+زەردەچەوە
+زەنجەفیل
+هەڵ
+میخەک
+جەوز
+زەعفەران
+فلفلی ڕەش
+فلفلی سوور
+پاپریکا
+خەردەل
+گژنیج
+جەعدە
+شویت
+پونگ
+ڕەیحان
+سەعتەر
+ڕۆزماری
+گەڵای غار
+مەردەقوش
+بادیان
+کونجی
+ڕازیانە
+کەرەفسی وشک
+کاکوتی
+نانەخوا

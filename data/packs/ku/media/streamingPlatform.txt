@@ -1,0 +1,16 @@
+---
+description: Streaming platform. Brand names, respelled in Kurdish script the way Kurdish media write them; the Latin originals are equally correct.
+locale: ku
+---
+نێتفلیکس
+یوتیوب
+ئەمازۆن پرایم
+دیزنی پلەس
+ئەپڵ تی ڤی پلەس
+شاهد
+سپۆتیفای
+ساوندکلاود
+تویچ
+ئەنغامی
+ئینستاگرام ڕیلز
+تیک تۆک

@@ -1,0 +1,34 @@
+---
+description: Computing noun (Tibetan). Tibetan DOES have a modern computing vocabulary, built by translators in Dharamsala and Lhasa from native roots rather than borrowed: glog-klad is a computer, literally 'electric brain'; dra-rgya the internet, 'net web'; mnyen-chas software, 'soft tool'; sra-chas hardware, 'hard tool'. The words are transparent in a way English's are not.
+locale: bo
+---
+གློག་ཀླད་
+དྲ་རྒྱ་
+དྲ་ཚིགས་
+དྲ་ལམ་
+མཉེན་ཆས་
+སྲ་ཆས་
+ཡིག་ཆ་
+ཡིག་སྣོད་
+གཞི་གྲངས་
+གཞི་གྲངས་མཛོད་
+གསང་ཨང་
+ཐོ་འགོད་
+མ་ལག་
+འཕྲུལ་ཆས་
+བརྒྱུད་ལམ་
+གློག་འཕྲིན་
+འཚོལ་བྱེད་
+ལག་ཐོགས་ཁ་པར་
+བརྙན་འཕྲིན་
+འོད་སྐུད་
+ཨང་གྲངས་
+བརྡ་ཆད་
+སྒྲིག་ཆས་
+རྩིས་རིག་
+སྙིང་ཆས་
+གནས་ཚུལ་
+ཟུར་ཨང་
+པར་རིས་
+ཡིག་གཟུགས་
+སྒོ་ལྕགས་

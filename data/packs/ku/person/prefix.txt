@@ -1,0 +1,22 @@
+---
+description: Titles used before a Kurdish name. POSITION MATTERS AND A CONFIG CANNOT GUESS IT: کاک and خاتوو and مامۆستا go BEFORE the given name (کاک ئارام، خاتوو ئەڤین), while خان، ئاغا and بەگ trail it instead and live in person/suffix.txt. کاک and خاتوو are the everyday Kurdish equivalents of Mr and Ms and attach to the GIVEN name, never to the family name.
+locale: ku
+---
+کاک
+خاتوو
+بەڕێز
+مامۆستا
+دکتۆر
+پرۆفیسۆر
+ئەندازیار
+پزیشک
+مەلا
+شێخ
+سەید
+حاجی
+مام
+خاڵۆ
+ئەفسەر
+سەرۆک
+بەڕێوەبەر
+پارێزەر

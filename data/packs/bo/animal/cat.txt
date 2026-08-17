@@ -1,0 +1,9 @@
+---
+description: Cat (Tibetan). VERY SHORT ON PURPOSE. Tibetan has no cat-breed vocabulary at all - there is no Tibetan word for Siamese or Persian, and inventing one would be fabrication. What the language does have is the domestic cat under two names, the kitten, and the wild cats of the plateau.
+locale: bo
+---
+ཞི་མི་
+བྱི་ལ་
+ཞི་ཕྲུག་
+གུང་
+གསའ་

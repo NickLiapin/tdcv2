@@ -1,0 +1,21 @@
+---
+description: Kind of official document (Tibetan). Again the WORDS, not any country's paperwork: no identity number, no passport series, no licence format is in this pack, because Tibetan is spoken in four states and none of them is Tibetan. A config needing a real identity document must draw it from the relevant country pack.
+locale: bo
+---
+ངོ་སྤྲོད་ལག་ཁྱེར་
+ཕྱི་འགྲུལ་ལག་ཁྱེར་
+ཁ་ལོ་བའི་ལག་ཁྱེར་
+སྐྱེས་ཐོ་ལག་ཁྱེར་
+གཉེན་ཐོ་ལག་ཁྱེར་
+འདས་ཐོ་ལག་ཁྱེར་
+ཁྱིམ་ཐོ་
+སློབ་མཐར་ལག་ཁྱེར་
+ལས་ཀའི་ལག་ཁྱེར་
+ཆོག་མཆན་ཡི་གེ་
+ཞུ་ཡིག་
+སྙན་ཞུ་
+གན་རྒྱ་
+ཐོ་གཞུང་
+ཁྲལ་ཡིག་
+འགྲོ་ཆོག་ཡིག་ཆ་
+ས་ཁང་ཡིག་ཆ་

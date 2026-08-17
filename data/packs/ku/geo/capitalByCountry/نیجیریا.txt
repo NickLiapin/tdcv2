@@ -1,0 +1,5 @@
+---
+description: Capital of نیجیریا, in Central Kurdish
+locale: ku
+---
+ئەبووجا

@@ -1,0 +1,20 @@
+---
+description: Academic degree, in Central Kurdish. WHICH SCHOOL ISSUES WHICH CERTIFICATE IS A STATE MATTER and the four differ, so these are the Kurdish names for LEVELS of qualification, not any one ministry's certificate list.
+locale: ku
+---
+بڕوانامەی سەرەتایی
+بڕوانامەی ناوەندی
+بڕوانامەی ئامادەیی
+دیپلۆم
+دیپلۆمی پیشەیی
+دیپلۆمی بەرز
+بەکالۆریۆس
+بەکالۆریۆسی ئەندازیاری
+بەکالۆریۆسی هونەر
+بەکالۆریۆسی زانست
+ماستەر
+ماستەری بەڕێوەبردنی کار
+دکتۆرا
+دکتۆرای پزیشکی
+دکتۆرای یاسا
+پۆست دکتۆرا

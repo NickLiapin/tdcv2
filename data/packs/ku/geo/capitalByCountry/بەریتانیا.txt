@@ -1,0 +1,5 @@
+---
+description: Capital of بەریتانیا, in Central Kurdish
+locale: ku
+---
+لەندەن

@@ -1,0 +1,67 @@
+{
+  "months": [
+    "ཟླ་བ་དང་པོ་",
+    "ཟླ་བ་གཉིས་པ་",
+    "ཟླ་བ་གསུམ་པ་",
+    "ཟླ་བ་བཞི་པ་",
+    "ཟླ་བ་ལྔ་པ་",
+    "ཟླ་བ་དྲུག་པ་",
+    "ཟླ་བ་བདུན་པ་",
+    "ཟླ་བ་བརྒྱད་པ་",
+    "ཟླ་བ་དགུ་པ་",
+    "ཟླ་བ་བཅུ་པ་",
+    "ཟླ་བ་བཅུ་གཅིག་པ་",
+    "ཟླ་བ་བཅུ་གཉིས་པ་"
+  ],
+  "monthsInDate": [
+    "ཟླ་༡",
+    "ཟླ་༢",
+    "ཟླ་༣",
+    "ཟླ་༤",
+    "ཟླ་༥",
+    "ཟླ་༦",
+    "ཟླ་༧",
+    "ཟླ་༨",
+    "ཟླ་༩",
+    "ཟླ་༡༠",
+    "ཟླ་༡༡",
+    "ཟླ་༡༢"
+  ],
+  "monthsShort": [
+    "ཟླ་༡",
+    "ཟླ་༢",
+    "ཟླ་༣",
+    "ཟླ་༤",
+    "ཟླ་༥",
+    "ཟླ་༦",
+    "ཟླ་༧",
+    "ཟླ་༨",
+    "ཟླ་༩",
+    "ཟླ་༡༠",
+    "ཟླ་༡༡",
+    "ཟླ་༡༢"
+  ],
+  "weekdays": [
+    "གཟའ་ཉི་མ་",
+    "གཟའ་ཟླ་བ་",
+    "གཟའ་མིག་དམར་",
+    "གཟའ་ལྷག་པ་",
+    "གཟའ་ཕུར་བུ་",
+    "གཟའ་པ་སངས་",
+    "གཟའ་སྤེན་པ་"
+  ],
+  "weekdaysShort": [
+    "ཉི་མ་",
+    "ཟླ་བ་",
+    "མིག་དམར་",
+    "ལྷག་པ་",
+    "ཕུར་བུ་",
+    "པ་སངས་",
+    "སྤེན་པ་"
+  ],
+  "formats": {
+    "L": "YYYY/MM/DD",
+    "LL": "YYYY MMMM D"
+  },
+  "notes": "THE YEAR COMES FIRST. A Tibetan date is written year, then month, then day - spyi-lo 2026 zla 8 tshes 16 - so LL is YYYY MMMM D and not D MMMM YYYY. MONTH NAMES ARE ORDINAL, NOT PROPER NOUNS: zla-ba dang-po is 'first month'. Inside a running date the long ordinal form is not used; Tibetan writes zla followed by the number, which is why monthsInDate differs from months and equals monthsShort. The day of the month is preceded by tshes, which the token grammar cannot emit, so a caller needing the full civil form must compose it. DIGITS: Tibetan has its own, U+0F20-U+0F29 (0F20 is zero), and they are in daily use on Tibetan-language newspapers, signage and school books alongside Arabic digits. Both are correct; this table does NOT convert, and the strings above use Tibetan digits in the short forms only. A SECOND CALENDAR RUNS ALONGSIDE THIS ONE AND THIS PACK DOES NOT CONVERT TO IT. The Tibetan calendar is lunisolar: twelve lunar months with an intercalary month roughly every 32 months, and - unlike any Western calendar - days are SKIPPED and DOUBLED, so a Tibetan month can have no 5th day at all and two 12th days. The year begins at Losar in February or March, not on 1 January, and years are counted in the 60-year rab-byung cycle as well as by animal and element (2026 CE is the Fire Horse year). Every religious date and every festival is fixed on that calendar and moves against this one. A caller needing a Tibetan lunar date must compute it itself; the twelve ordinal names above are the SAME words used for its months. THE WEEK STARTS ON SUNDAY and the seven day names are the seven planets. NO NATIONAL HOLIDAY LIST BELONGS HERE: Tibetan is spoken in China, India, Nepal and Bhutan and there is no Tibetan state, so the civil holidays differ by country and belong to a country pack, not to this locale."
+}

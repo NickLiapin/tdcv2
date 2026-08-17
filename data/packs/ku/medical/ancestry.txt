@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group, parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories. Kurds fall under ڕۆژهەڵاتی ناوەڕاست; the group is not a Kurdish-specific label and this pack does not invent one.
+locale: ku
+---
+ئەفریقای ژێرسەحرا
+باکووری ئەفریقا
+مەدیتەرانی
+ڕۆژهەڵاتی ناوەڕاست
+باکووری ئەوروپا
+ڕۆژهەڵاتی ئەوروپا
+جولەکەی ئەشکەنازی
+باشووری ئاسیا
+ڕۆژهەڵاتی ئاسیا
+باشووری ڕۆژهەڵاتی ئاسیا
+ڕەسەنی ئەمریکا
+دوورگەنشینی ئارام

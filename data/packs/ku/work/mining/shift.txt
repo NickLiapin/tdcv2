@@ -1,0 +1,9 @@
+---
+description: Work shift, in Central Kurdish
+locale: ku
+---
+ڕۆژانە
+شەوانە
+ئێوارانە
+بەیانیان
+ئاڵوگۆڕ

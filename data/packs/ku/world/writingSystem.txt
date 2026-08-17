@@ -1,0 +1,25 @@
+---
+description: Writing systems, named in Central Kurdish. THIS PACK SHIPS CENTRAL KURDISH (SORANI) IN THE KURDISH PERSO-ARABIC ALPHABET, RIGHT-TO-LEFT — one standard, no mixing. Kurdish has two written standards: Kurmanji (northern; Turkey, Syria) in a Latin alphabet with c/x/q/ê/î/û/ç/ş, and Sorani (central; Iraq, Iran) in a Perso-Arabic one. They differ in grammar too, not only script — Kurmanji keeps grammatical gender and case, Sorani has neither. Sorani was chosen because the engine registers "ku" as right-to-left in typescript/src/data-pack/locales.ts and _locale.json ships "direction": "rtl"; a Latin Kurmanji pack under this code would contradict the engine, and locales.ts is not this pack's to edit. The Kurdish-only letters ە ۆ ێ ڕ ڵ ڤ (absent from Arabic and from Persian) appear in 4000 of the pack's 5275 values, which is what makes this Kurdish rather than merely Arabic-script; the only Latin in the pack is international acronyms, ISO currency codes, gene symbols and hardware model names, and there is not one Kurmanji letter (ê î û ç ş) anywhere in it.
+locale: ku
+---
+ئەلفوبێی کوردی
+ئەلفوبێی عەرەبی
+ئەلفوبێی فارسی
+ئەلفوبێی لاتینی
+ئەلفوبێی کریلی
+ئەلفوبێی یۆنانی
+ئەلفوبێی عیبری
+ئەلفوبێی ئەرمەنی
+ئەلفوبێی گورجی
+ئەلفوبێی سریانی
+ئەلفوبێی ئێزیدی
+نووسینی هان
+هیراگانا
+کاتاکانا
+هانگول
+دێڤەناگەری
+ئەلفوبێی تایلەندی
+نووسینی گیعز
+نووسینی مێخی
+هێرۆگلیفی میسری
+نووسینی بریل

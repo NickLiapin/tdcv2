@@ -1,0 +1,5 @@
+---
+description: Currency of نیجیریا, in Central Kurdish
+locale: ku
+---
+نایرا

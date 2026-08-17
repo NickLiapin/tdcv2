@@ -1,0 +1,13 @@
+---
+description: Metal (Tibetan). The traditional metallurgical set, which is what Tibetan actually has words for. dngul-chu, literally 'silver water', is mercury, and it is a medicine in the Tibetan tradition rather than only a poison. Modern elements - aluminium, titanium, uranium - have no established Tibetan name and enter as loanwords; they are deliberately not listed.
+locale: bo
+---
+གསེར་
+དངུལ་
+ཟངས་
+ལྕགས་
+ར་གན་
+ལི་
+ཁྲོ་
+དངུལ་ཆུ་
+ཞ་ཉེ་

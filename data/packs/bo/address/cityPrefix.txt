@@ -1,0 +1,34 @@
+---
+description: First element of a Tibetan place name. Tibetan settlement names are COMPOUNDS and this is the productive first half - lha 'god', gser 'gold', g.yu 'turquoise', stod 'upper', smad 'lower', gangs 'snow'. Combine with address/citySuffix.txt to build a plausible Tibetan-shaped place name. NO REAL SETTLEMENT NAMES ARE IN THIS PACK: Tibetan-speaking places lie in China, India, Nepal and Bhutan, so an actual gazetteer belongs to one of those country packs, not to a language pack.
+locale: bo
+---
+ལྷ་
+དཔལ་
+བཀྲ་ཤིས་
+གསེར་
+གཡུ་
+དཀར་
+ནག་
+དམར་
+སྟོད་
+སྨད་
+ཤར་
+ནུབ་
+བྱང་
+ལྷོ་
+ཆུ་
+རི་
+གངས་
+སེང་
+རྟ་
+རྒྱལ་
+ཟངས་
+བསམ་
+མཁར་
+ནོར་
+བདེ་
+སྐྱིད་
+ཉི་
+ཟླ་
+པདྨ་
+རྡོ་

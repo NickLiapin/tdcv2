@@ -1,0 +1,5 @@
+---
+description: Capital of ڕووسیا, in Central Kurdish
+locale: ku
+---
+مۆسکۆ

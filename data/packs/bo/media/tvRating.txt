@@ -1,0 +1,11 @@
+---
+description: Content age rating (Tibetan). NO OFFICIAL CODES, AND THAT IS A REFUSAL. Age-rating systems are statutory - China, India, Nepal and Bhutan each have their own and none of them is Tibetan - so this file holds only the Tibetan words for an audience band. A dataset needing a real rating code must take it from a country pack.
+locale: bo
+---
+ཀུན་སྤྱོད་རུང་བ་
+ཕ་མའི་ལམ་སྟོན་དགོས་པ་
+ལོ་༡༢ཡན་
+ལོ་༡༥ཡན་
+ལོ་༡༨ཡན་
+ན་གཞོན་ལ་མི་འོས་པ་
+ཁྲིད་སྟོན་དགོས་པ་

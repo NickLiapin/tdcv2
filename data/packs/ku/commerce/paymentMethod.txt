@@ -1,0 +1,19 @@
+---
+description: Payment method. پارەی نەقد (cash) leads because the Kurdish-speaking economy is still largely a cash one, and حەواڵە — the informal money-transfer network — moves more household money across the four states' borders than any bank does.
+locale: ku
+---
+پارەی نەقد
+حەواڵە
+کارتی کرێدیت
+کارتی بانکی
+گواستنەوەی بانکی
+جزدانی مۆبایل
+پارەدان لە کاتی گەیاندن
+کارتی دیاری
+پەی پاڵ
+ئەپڵ پەی
+گووگڵ پەی
+دراوی ئەلیکترۆنی
+قیستی مانگانە
+ئێستا بکڕە دواتر بدە
+چەک

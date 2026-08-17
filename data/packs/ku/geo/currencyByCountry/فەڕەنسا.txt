@@ -1,0 +1,5 @@
+---
+description: Currency of فەڕەنسا, in Central Kurdish
+locale: ku
+---
+یۆرۆ

@@ -1,0 +1,41 @@
+---
+description: Countries as Central Kurdish names them, weighted by population in millions. Names are TRANSLATED, not respelled from English — Germany is ئەڵمانیا, Greece is یۆنان, Egypt is میسر, Morocco is مەغریب. KURDISTAN IS NOT ON THIS LIST AND CANNOT BE: it is not a country. The Kurdish-speaking region is divided between تورکیا، ئێران، عێراق and سووریا, all four of which do appear here or in location/country.txt as the states they are. That absence is the single most important thing this pack records about its language.
+locale: ku
+weighted: true
+---
+چین,1410
+هیندستان,1400
+ئەمریکا,335
+ئەندۆنیسیا,275
+پاکستان,240
+نیجیریا,220
+بەرازیل,215
+بەنگلادیش,170
+ڕووسیا,144
+مەکسیک,128
+ژاپۆن,125
+میسر,110
+ڤیەتنام,98
+تورکیا,85
+ئەڵمانیا,84
+تایلەند,72
+فەڕەنسا,68
+بەریتانیا,67
+ئەفریقای باشوور,60
+ئیتاڵیا,59
+کۆریای باشوور,52
+ئیسپانیا,47
+ئارجەنتین,46
+کەنەدا,39
+پۆڵەندا,38
+عەرەبستانی سعودی,36
+ئۆسترالیا,26
+هۆڵەندا,18
+سوید,10
+یۆنان,10
+پورتوگال,10
+سویسرا,9
+سەنگافورە,6
+نەرویج,5
+ئێرلەندا,5
+نیوزیلەندا,5

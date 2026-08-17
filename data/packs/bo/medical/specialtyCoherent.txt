@@ -1,0 +1,12 @@
+---
+description: Medical specialty that has a coherent diagnosis list (Tibetan)
+locale: bo
+---
+སྙིང་ནད་རིག་པ་
+ཀླད་ནད་རིག་པ་
+འབྲས་ནད་རིག་པ་
+པགས་ནད་རིག་པ་
+བྱིས་ནད་རིག་པ་
+སེམས་ཁམས་རིག་པ་
+གློ་ནད་རིག་པ་
+མཁལ་ནད་རིག་པ་

@@ -1,0 +1,5 @@
+---
+description: Currency of بەنگلادیش, in Central Kurdish
+locale: ku
+---
+تاکا

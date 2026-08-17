@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list under positionBySport
+locale: ku
+---
+تۆپی پێ
+باسکەتبۆڵ
+ڤۆلیبۆڵ
+دەستەتۆپ
+زۆرانبازی
+بۆکسینگ
+تێنس
+ڕەقبی

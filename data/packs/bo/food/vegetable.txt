@@ -1,0 +1,13 @@
+---
+description: Vegetable (Tibetan). SHORT BY GEOGRAPHY. Much of the Tibetan plateau is above 4000 m and above the limit of vegetable cultivation, so the traditional diet is barley, dairy and meat and the native vegetable vocabulary is correspondingly thin - la-phug, the turnip-radish, is the one that grows everywhere. Most other vegetable names in modern Tibetan are Chinese or Indian loans, and pe-tshe (cabbage) is one of them.
+locale: bo
+---
+ཨ་ལུ་
+ལ་ཕུག་
+སྒོག་པ་
+ཙོང་
+སྲན་མ་
+ཤ་མོ་
+ལྕུམ་
+པེ་ཚེ་
+ཚལ་སྣ་

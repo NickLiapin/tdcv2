@@ -1,0 +1,11 @@
+---
+description: Vehicle weight class a driver is cleared for (Tibetan). THESE ARE NOT LICENCE CLASSES AND THAT IS A REFUSAL, NOT AN OVERSIGHT. Driving-licence classes are issued by a state, and Tibetan speakers hold Chinese licences (A1, A2, B1, B2, C1), Indian ones, Nepalese ones or Bhutanese ones - four different systems. A language pack cannot own any of them; they belong in a country pack. What is listed here is the vehicle size a Tibetan speaker would name in Tibetan, which is language and not law.
+locale: bo
+---
+རླངས་འཁོར་ཆུང་བ་
+རླངས་འཁོར་འབྲིང་བ་
+རླངས་འཁོར་ཆེན་པོ་
+ཁུར་སྐྱེལ་རླངས་འཁོར་
+སྤྱི་སྤྱོད་རླངས་འཁོར་
+སྒ་འཁོར་
+ཞིང་ལས་འཕྲུལ་འཁོར་

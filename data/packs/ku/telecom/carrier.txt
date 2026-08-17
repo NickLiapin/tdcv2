@@ -1,0 +1,18 @@
+---
+description: Mobile operators serving Kurdish speakers. THERE IS NO KURDISH CARRIER, because a mobile licence is issued by a state and Kurds have no state: every operator here is licensed by Turkey, Iran, Iraq or Syria, or is an international brand. They are listed TOGETHER, all four markets at once, precisely so the file does not quietly become one country's carrier list. No phone number format ships with this pack for the same reason — that is country-pack work.
+locale: ku
+---
+کۆرەک تێلێکۆم
+ئاسیاسێل
+زەین
+تورکسێل
+ڤۆدافۆن
+تورک تێلێکۆم
+ئێرانسێل
+هەمڕای ئەوەل
+ڕایتێل
+سیریاتێل
+ئێم تی ئێن
+ئۆرانج
+ئێتیساڵات
+ستارلینک

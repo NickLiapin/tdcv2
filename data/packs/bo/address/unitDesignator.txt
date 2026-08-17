@@ -1,0 +1,11 @@
+---
+description: Sub-address designator (Tibetan)
+locale: bo
+---
+ཨང་
+ཁང་ཨང་
+ཁང་མིག་
+ཐོག་
+སྒོ་ཨང་
+ཁང་ཚན་
+སྡེ་ཚན་

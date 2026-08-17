@@ -1,0 +1,20 @@
+---
+description: Property type (Tibetan). rtswa-thang (pasture) and phyugs-ra (stock pen) are property types on the plateau, and for a pastoral household grazing land is the asset that matters - not a building. 'brog-gur, the black yak-hair tent, is a dwelling and belongs in a housing column.
+locale: bo
+---
+ཁང་པ་
+ཁང་བུ་
+ཐོག་བརྩེགས་ཁང་པ་
+ཁང་མིག་
+གཞིས་ཁ་
+ར་བ་
+ཕྱུགས་ར་
+རྩྭ་ཐང་
+ས་ཞིང་
+ཤིང་ནགས་
+འབྲོག་གུར་
+ཚོང་ཁང་
+མཛོད་ཁང་
+ལས་ཁུངས་ཁང་པ་
+ཞིང་ཁང་
+རྙིང་ཁང་

@@ -1,0 +1,22 @@
+---
+description: Adjective used in Tibetan business writing. NOT BUZZWORDS - the corporate buzzword register does not exist in Tibetan, because there is no Tibetan-language corporate world large enough to have grown one. These are ordinary evaluative adjectives, which is what Tibetan business prose actually uses.
+locale: bo
+---
+གསར་པ་
+ཡག་པོ་
+མགྱོགས་པོ་
+བརྟན་པོ་
+ཡོངས་རྫོགས་
+སྤུས་དག་
+རྒྱ་ཆེན་
+ཁྱད་འཕགས་
+འོས་འཚམ་
+སླ་མོ་
+ཟབ་མོ་
+ཕན་ཐོགས་ཅན་
+ཡིད་རྟོན་རུང་བ་
+ཁེ་ཕན་ཅན་
+འགྲན་ཟླ་བྲལ་བ་
+རང་བཞིན་
+རྒྱུན་གནས་
+ཐོན་སྐྱེད་ཆེན་པོ་

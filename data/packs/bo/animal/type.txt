@@ -1,0 +1,37 @@
+---
+description: Animal (Tibetan). Weighted to the high plateau, which is what these words are for: g.yag is the male yak and 'bri the female - Tibetan has no single word covering both, and calling a female yak a yak is the standard English mistake. mdzo is the yak-cattle hybrid, rkyang the wild ass and gtsod the chiru antelope; none of the three has an everyday English name.
+locale: bo
+---
+གཡག་
+འབྲི་
+མཛོ་
+ལུག་
+ར་
+རྟ་
+བོང་བུ་
+བ་
+གླང་
+ཁྱི་
+ཞི་མི་
+ཕག་པ་
+བྱ་
+ཉ་
+རྔ་མོང་
+བྱི་བ་
+རི་བོང་
+སྟག་
+གཟིག་
+སེང་གེ་
+དོམ་
+དྲེད་མོང་
+སྤྱང་ཀི་
+ཝ་མོ་
+ཤྭ་བ་
+རྐྱང་
+ཕྱི་བ་
+སྦྲུལ་
+སྦལ་པ་
+གླང་ཆེན་
+སྤྲེལ་
+གཙོད་
+སྲེ་མོང་

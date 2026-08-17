@@ -1,0 +1,5 @@
+---
+description: Capital of تایلەند, in Central Kurdish
+locale: ku
+---
+بانکۆک

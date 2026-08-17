@@ -1,0 +1,38 @@
+---
+description: Music genre. The first four are Kurdish forms: لاوک and حەیران are the long unaccompanied mountain songs, بەیت the sung narrative, and دەنگبێژی the bardic tradition that carries them.
+locale: ku
+---
+لاوک
+حەیران
+بەیت
+دەنگبێژی
+مەقام
+گۆرانیی فۆلکلۆری
+هەڵپەڕکێ
+گۆرانیی نیشتمانی
+گۆرانیی کلاسیکی کوردی
+ئایینی
+کلاسیک
+پۆپ
+ڕۆک
+جاز
+بلووز
+هیپ هۆپ
+ڕاپ
+ئەلیکترۆنی
+هاوس
+تێکنۆ
+مێتاڵ
+پەنک
+ڕێگی
+ئاڕ ئەند بی
+سۆڵ
+فەنک
+کانتری
+ئیندی
+ئامبیێنت
+لاتینی
+عەرەبی
+تورکی
+فارسی
+مۆسیقای فیلم

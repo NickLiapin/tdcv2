@@ -1,0 +1,19 @@
+---
+description: Spice and seasoning (Tibetan). These names come from the Tibetan materia medica, where taste is a clinical category: gso-ba rig-pa sorts every substance by the six tastes ro-drug (sweet, sour, salty, bitter, hot, astringent) and by whether it warms or cools. na-le-sham is black pepper, pi-pi-ling long pepper, sug-smel cardamom.
+locale: bo
+---
+ལན་ཚྭ་
+ཟི་ར་
+ཤིང་ཚ་
+ཤིང་ཀུན་
+གུར་གུམ་
+སྒ་
+སྒ་སྐྱ་
+པི་པི་ལིང་
+ན་ལེ་ཤམ་
+ལི་ཤི་
+སུག་སྨེལ་
+ཀ་ཀོ་ལ་
+ཛཱ་ཏི་
+ཡུངས་དཀར་
+ཙན་དན་
