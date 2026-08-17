@@ -1,0 +1,14 @@
+---
+description: Dishes of Española cuisine, named in Galician. Coherent child of food/cuisine.txt.
+locale: gl
+---
+Paella
+Tortilla de patacas
+Gazpacho
+Xamón ibérico
+Patacas bravas
+Croquetas
+Fabada
+Churros con chocolate
+Salmorexo
+Cochinillo

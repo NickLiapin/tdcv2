@@ -1,0 +1,11 @@
+---
+description: Cable conduit type, in Galician.
+locale: gl
+---
+Canalización subterránea
+Bandexa
+Tubo corrugado
+Galería de servizos
+Tendido aéreo
+Rexistro
+Arqueta

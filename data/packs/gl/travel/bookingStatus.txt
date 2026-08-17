@@ -1,0 +1,15 @@
+---
+description: Booking status, in Galician.
+locale: gl
+---
+Confirmada
+Pendente
+Cancelada
+Modificada
+En espera
+Rexistro realizado
+Saída realizada
+Non presentado
+Reembolsada
+Caducada
+Pagada

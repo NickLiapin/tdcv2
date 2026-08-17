@@ -1,0 +1,21 @@
+---
+address: latvia.government.court
+description: Every court in Latvia — all sixteen. The count is the point: Latvia consolidated its first instance so hard that the whole country is now covered by six general-jurisdiction district courts, and a list of the twenty-odd named after individual towns is pre-reform. The three-tier ladder runs district (rajona) court, regional (apgabaltiesa) court, and the Senāts of the Augstākā tiesa in cassation; the five judicial regions are Rīga, Vidzeme, Kurzeme, Zemgale and Latgale, which are four of the historical lands plus the capital, so the court map and the administrative map of 35 novadi do not line up at all. Two ladders sit beside the ordinary one and are frequently mistaken for part of it. Administrative cases — a citizen against the state — go to the Administratīvā rajona tiesa and then the Administratīvā apgabaltiesa, a separate two-tier system that has no equivalent in several neighbouring countries and that both feed into the same Senāts. And the Ekonomisko lietu tiesa, opened on 31 March 2021, is a first-instance court of NATIONWIDE jurisdiction created specifically for economic crime, money laundering and complex commercial disputes in the wake of the 2018 banking crisis — it is the direct institutional answer to what happened to ABLV Bank, and no neighbour's pack has anything like it. The Satversmes tiesa is outside the three tiers entirely: it rules only on whether a law conforms to the Satversme, is not an appeal from anything, and it is the court that struck down the annexation of Varakļānu novads in 2021 and so changed the geography in latvia.geo.novads. Names are as the courts cite themselves. Source: Tiesu administrācija, tiesas.lv.
+locale: lv
+---
+Latvijas Republikas Augstākā tiesa
+Latvijas Republikas Satversmes tiesa
+Rīgas apgabaltiesa
+Vidzemes apgabaltiesa
+Kurzemes apgabaltiesa
+Zemgales apgabaltiesa
+Latgales apgabaltiesa
+Administratīvā apgabaltiesa
+Rīgas pilsētas tiesa
+Rīgas rajona tiesa
+Vidzemes rajona tiesa
+Kurzemes rajona tiesa
+Zemgales rajona tiesa
+Latgales rajona tiesa
+Administratīvā rajona tiesa
+Ekonomisko lietu tiesa

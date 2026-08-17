@@ -1,0 +1,16 @@
+---
+description: Mobile plan type, in Galician.
+locale: gl
+---
+Prepago
+Contrato
+Tarifa plana
+Só datos
+Voz e datos
+Fibra e móbil
+Convergente
+Familiar
+Empresa
+Internacional
+Roaming incluído
+Liña adicional

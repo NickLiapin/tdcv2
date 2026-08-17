@@ -1,0 +1,15 @@
+---
+description: Stage of a hiring process, in Galician.
+locale: gl
+---
+Recepción de candidaturas
+Cribado de currículos
+Entrevista telefónica
+Entrevista con recursos humanos
+Proba técnica
+Entrevista técnica
+Dinámica de grupo
+Entrevista final
+Comprobación de referencias
+Oferta
+Incorporación

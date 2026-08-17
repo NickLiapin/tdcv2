@@ -1,0 +1,32 @@
+---
+description: Flower, in Galician. TOXO (gorse) and XESTA (broom) head it because they are what actually flowers across Galician hillsides - blazing yellow in spring - and both are landscape words, surnames and place names before they are garden plants. CAMELIA is here because Galicia's mild wet winters made it the camellia capital of Europe and the pazo gardens hold national collections.
+locale: gl
+---
+Toxo
+Xesta
+Uz
+Carqueixa
+Camelia
+Hortensia
+Rosa
+Cravo
+Tulipán
+Narciso
+Lirio
+Xacinto
+Margarida
+Xirasol
+Amapola
+Violeta
+Lavanda
+Xasmín
+Madreselva
+Dedaleira
+Campaíña
+Prímula
+Anémona
+Orquídea
+Fento
+Herba de namorar
+Perpetua
+Crisantemo

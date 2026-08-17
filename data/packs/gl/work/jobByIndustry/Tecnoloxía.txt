@@ -1,0 +1,18 @@
+---
+description: Job titles in Tecnoloxía, in Galician. Coherent child of work/industryCoherent.txt.
+locale: gl
+---
+Enxeñeiro de software
+Analista de datos
+Científico de datos
+Administrador de sistemas
+Enxeñeiro de redes
+Deseñador UX
+Xefe de produto
+Técnico de soporte
+Analista de seguridade
+Arquitecto de nube
+Desenvolvedor móbil
+Programador web
+Administrador de bases de datos
+Enxeñeiro de intelixencia artificial

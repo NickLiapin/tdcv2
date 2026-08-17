@@ -1,0 +1,59 @@
+---
+description: Industry sector, in Galician.
+locale: gl
+---
+Agricultura
+Gandaría
+Pesca
+Acuicultura
+Conserva
+Silvicultura
+Madeira
+Minaría
+Canteira
+Construción
+Industria
+Naval
+Automoción
+Aeronáutica
+Téxtil
+Confección
+Moda
+Alimentación
+Adega
+Distribución
+Comercio retallista
+Comercio maiorista
+Transporte
+Loxística
+Portos
+Enerxía
+Enerxía eólica
+Hidroeléctrica
+Telecomunicacións
+Informática
+Software
+Biotecnoloxía
+Farmacéutica
+Sanidade
+Educación
+Investigación
+Finanzas
+Banca
+Seguros
+Inmobiliaria
+Hostalaría
+Turismo
+Restauración
+Ocio
+Cultura
+Medios
+Publicidade
+Consultaría
+Servizos xurídicos
+Administración pública
+Terceiro sector
+Medio ambiente
+Xestión de residuos
+Auga
+Deporte

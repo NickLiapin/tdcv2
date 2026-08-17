@@ -1,0 +1,26 @@
+---
+description: Vehicle type, in Galician.
+locale: gl
+---
+Turismo
+Todoterreo
+Furgoneta
+Furgón
+Camión
+Autobús
+Autocar
+Motocicleta
+Ciclomotor
+Bicicleta
+Patinete eléctrico
+Tractor
+Remolque
+Caravana
+Autocaravana
+Quad
+Carretilla elevadora
+Ambulancia
+Camión de bombeiros
+Coche patrulla
+Barco
+Traineira

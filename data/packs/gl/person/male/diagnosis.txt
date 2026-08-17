@@ -1,0 +1,30 @@
+---
+description: Diagnosis that can only be given to a male patient, named in Galician. Held separately from medical/diagnosis.txt so a config can keep a person record coherent with its gender column.
+locale: gl
+---
+Hiperplasia benigna de próstata
+Cancro de próstata
+Prostatite
+Disfunción eréctil
+Hipogonadismo masculino
+Varicocele
+Hidrocele
+Fimose
+Parafimose
+Balanite
+Epididimite
+Orquite
+Torsión testicular
+Cancro de testículo
+Criptorquidia
+Xinecomastia
+Enfermidade de Peyronie
+Azoospermia
+Oligospermia
+Esterilidade masculina
+Uretrite
+Estenose uretral
+Hernia inguinal
+Calvicie androxénica
+Cancro de pene
+Síndrome de Klinefelter

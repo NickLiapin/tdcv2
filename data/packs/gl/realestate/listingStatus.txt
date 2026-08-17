@@ -1,0 +1,16 @@
+---
+description: Listing status, in Galician.
+locale: gl
+---
+En venda
+En alugueiro
+Reservado
+Vendido
+Alugado
+Retirado
+Baixada de prezo
+Novo
+Destacado
+En construción
+Chave en man
+A rehabilitar

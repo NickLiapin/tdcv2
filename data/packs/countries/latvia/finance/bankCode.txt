@@ -1,0 +1,17 @@
+---
+address: latvia.finance.bankCode
+description: The four-LETTER bank codes that can stand in positions 5-8 of a Latvian IBAN. This is where Latvia parts company with every one of its neighbours: Poland, Lithuania and Estonia all put digits in the bank field, and Latvia puts the institution half of the bank's BIC — HABA is Swedbank, UNLA is SEB, PARX is Citadele, the P being a fossil of Parex. Two consequences follow. A MOD-97 routine has to transliterate A-Z to 10-35 before it can fold a Latvian IBAN, which a digits-only implementation silently skips; and the bank code is not a number, so a schema that stores it as an integer loses it entirely. Thirteen codes are listed, one for each credit institution in Latvijas Banka's register that holds a Latvian BIC — the ten Latvian-licensed banks plus the three foreign branches that were given LV codes rather than keeping their home ones. Three real codes are deliberately NOT drawn here. TREL is the Valsts kase (Treasury), where state bodies bank and no private person does; LACB is Latvijas Banka itself, the central bank; and NDEA is Nordea's old Latvian code, which stopped being issued when Nordea's Baltic business became Luminor in 2017 but still sits on live accounts — LV51NDEA0000082414423 is published by a Latvian public body today. So a validator that accepts only codes from this list will reject a real, current Latvian account. Source: the Latvian BIC register, cross-checked against Latvijas Banka's Finanšu tirgus dalībnieku reģistrs, segment Kredītiestādes.
+---
+HABA
+UNLA
+PARX
+RIKO
+RTMB
+CBBR
+LLBB
+MULT
+LAPB
+IDXO
+RIBR
+LAVF
+OKOY

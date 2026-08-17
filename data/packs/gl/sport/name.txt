@@ -1,0 +1,64 @@
+---
+description: Sport, in Galician. The tail of this list is Galicia's own: TRAINEIRAS are the thirteen-oar sea rowing boats raced between coastal towns; the XOGO DOS BIRLOS is the Galician nine-pin bowling game; CHAVE is a throwing game at an iron key on a post; LOITA GALEGA is the traditional wrestling, revived from the medieval texts; and the RAPA DAS BESTAS, in which unbroken wild horses are wrestled and shorn bare-handed in a stone curro, is a contest rather than a festival and has no equivalent anywhere.
+locale: gl
+---
+Fútbol
+Baloncesto
+Balonmán
+Voleibol
+Rugby
+Fútbol sala
+Hóckey sobre patíns
+Hóckey sobre herba
+Tenis
+Pádel
+Bádminton
+Tenis de mesa
+Atletismo
+Maratón
+Ciclismo
+Ciclismo de montaña
+Natación
+Natación sincronizada
+Waterpolo
+Remo
+Traineiras
+Piragüismo
+Vela
+Surf
+Windsurf
+Bodyboard
+Mergullo
+Pesca deportiva
+Ximnasia artística
+Ximnasia rítmica
+Halterofilia
+Judo
+Karate
+Taekwondo
+Boxeo
+Loita greco-romana
+Loita galega
+Esgrima
+Tiro con arco
+Tiro olímpico
+Equitación
+Hípica
+Golf
+Escalada
+Montañismo
+Sendeirismo
+Espeleoloxía
+Patinaxe
+Patinaxe artística
+Esquí
+Snowboard
+Automobilismo
+Motociclismo
+Xadrez
+Petanca
+Xogo dos birlos
+Chave
+Rapa das bestas
+Triatlón
+Orientación

@@ -1,0 +1,21 @@
+---
+description: Social platform, in Galician usage. Brand names are NOT translated.
+locale: gl
+---
+WhatsApp
+Instagram
+TikTok
+Facebook
+X
+YouTube
+Telegram
+LinkedIn
+Twitch
+Pinterest
+Snapchat
+Reddit
+Discord
+BeReal
+Mastodon
+Bluesky
+Threads

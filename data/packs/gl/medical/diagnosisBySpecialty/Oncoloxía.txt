@@ -1,0 +1,13 @@
+---
+description: Diagnoses commonly managed by Oncoloxía, in Galician. Coherent child of medical/specialtyCoherent.txt.
+locale: gl
+---
+Cancro de pulmón
+Cancro colorrectal
+Cancro de mama
+Cancro de próstata
+Cancro gástrico
+Leucemia
+Linfoma
+Melanoma
+Cancro de vexiga

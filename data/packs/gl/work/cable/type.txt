@@ -1,0 +1,13 @@
+---
+description: Cable type, in Galician.
+locale: gl
+---
+Cable de cobre
+Cable de aluminio
+Fibra óptica
+Par trenzado
+Cable coaxial
+Cable submarino
+Cable de alta tensión
+Cable apantallado
+Manguera eléctrica

@@ -1,0 +1,15 @@
+---
+description: Reaction to a post, in Galician.
+locale: gl
+---
+Gústame
+Non me gusta
+Encántame
+Rir
+Sorpresa
+Tristeza
+Anoxo
+Aplauso
+Apoio
+Curiosidade
+Celebración

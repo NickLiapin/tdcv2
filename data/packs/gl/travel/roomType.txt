@@ -1,0 +1,22 @@
+---
+description: Hotel room type, in Galician.
+locale: gl
+---
+Individual
+Dobre
+Dobre con dúas camas
+Triple
+Cuádruple
+Suite
+Xúnior suite
+Familiar
+Con vistas ao mar
+Con vistas á ría
+Interior
+Exterior
+Adaptada
+Con terraza
+Ático
+Bungalow
+Apartamento
+Cama en albergue

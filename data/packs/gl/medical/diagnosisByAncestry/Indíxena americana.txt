@@ -1,0 +1,9 @@
+---
+description: Conditions with raised prevalence in the Indíxena americana ancestry group, in Galician. Coherent child of medical/ancestry.txt.
+locale: gl
+---
+Diabetes mellitus tipo 2
+Litiase biliar
+Deficiencia de lactase
+Obesidade
+Enfermidade renal crónica

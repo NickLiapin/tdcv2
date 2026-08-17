@@ -1,0 +1,23 @@
+---
+description: Legal term, in Galician.
+locale: gl
+---
+Demandante
+Demandado
+Acusado
+Testemuña
+Citación
+Declaración
+Acta notarial
+Medida cautelar
+Testemuño
+Sentenza
+Acordo
+Litixio
+Recurso
+Xurisdición
+Prescrición
+Alegacións
+Proba
+Costas
+Execución

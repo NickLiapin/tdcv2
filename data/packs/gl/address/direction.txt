@@ -1,0 +1,19 @@
+---
+description: Directional qualifier appended to a Galician district or sector name (Sector Norte, Ensanche Sur). The second half is the SEAMEN'S WIND ROSE of the Galician coast, which is ordinary vocabulary on the ria and not jargon: nordes is the dry north-east wind of summer, vendaval the wet south-wester of winter gales, travesia the onshore wind that makes a harbour unsafe, terral the offshore night wind off the land, and galerna the sudden north-west squall that has killed fishing crews within living memory. A weather report on Galician radio uses these words rather than the compass bearings.
+locale: gl
+---
+Norte
+Sur
+Leste
+Oeste
+Nordeste
+Noroeste
+Sueste
+Suroeste
+Centro
+Nordés
+Vendaval
+Travesía
+Terral
+Galerna
+Xistral

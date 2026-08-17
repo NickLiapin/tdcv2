@@ -1,0 +1,26 @@
+---
+description: Interior part of a Galician address, written after the street number: rua Nova 15, 3.º esquerda, escaleira B. The floor is a Galician ordinal written with a raised o and a full stop (1.º, 2.º, 3.º) and the door is esquerda or dereita, abbreviated esq. and dta. Baixo is the ground floor, entrechan the mezzanine above it, and soto the basement. Portal is the street door of a block and is part of the address in Spain; Galician says portal, not the Castilian portal in a different sense.
+locale: gl
+---
+Escaleira
+Piso
+Andar
+Porta
+Planta
+Baixo
+Entrechán
+Principal
+Ático
+Soto
+Bloque
+Portal
+Nave
+Local
+Oficina
+Despacho
+Esquerda
+Dereita
+Interior
+Exterior
+Garaxe
+Rocho

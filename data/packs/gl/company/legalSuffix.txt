@@ -1,0 +1,44 @@
+---
+description: Legal form of a company as registered in Galicia. These are the SPANISH company forms, because Galicia is in Spain: S.A. (sociedade anonima), S.L. (limitada, by far the commonest), S.L.U. (single-member limited), C.B. (comunidade de bens). Two are worth noting. S. Coop. Galega is the GALICIAN cooperative form, created by Galicia's own cooperatives act and registered in Galicia rather than nationally. S.A.T. is the agrarian transformation company, the legal shell a group of Galician dairy farms normally uses. Note also that the suffix follows the name, and that many Galician firms write the form itself in Galician (Sociedade Limitada) rather than in Castilian.
+locale: gl
+---
+S.A.
+S.L.
+S.L.U.
+S.A.U.
+S.L.L.
+S.L.N.E.
+S. Coop. Galega
+S. Coop.
+S.A.T.
+C.B.
+S.C.
+S. Civil
+A.I.E.
+U.T.E.
+Sociedade Anónima
+Sociedade Limitada
+Sociedade Cooperativa Galega
+Fundación
+Asociación
+Grupo
+Holding
+e Fillos
+Irmáns
+e Compañía
+Sociedade
+Consultora
+Servizos
+Solucións
+Sistemas
+Tecnoloxías
+Enxeñaría
+Industrias
+Construcións
+Distribucións
+Comercial
+Internacional
+Ibérica
+Galega
+Atlántica
+do Noroeste

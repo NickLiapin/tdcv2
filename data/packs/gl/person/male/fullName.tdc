@@ -1,0 +1,11 @@
+---
+description: Galician full male name: one given name and TWO surnames, paternal then maternal (Brais Rodriguez Souto). The two surnames are simply juxtaposed with a space and no connector - unlike Catalan, which may join them with 'i'. Since 1999 Spanish law lets parents put the maternal surname first, so the reverse order occurs, but paternal-first is the default and the norm. Both surnames are drawn from the same list because Galician surnames do not inflect for gender.
+generator: tdc
+locale: gl
+---
+<sequence name="p">
+  <gen name="f" type="template" value="gl.person.male.firstName"/>
+  <gen name="p1" type="template" value="gl.person.lastName"/>
+  <gen name="p2" type="template" value="gl.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.p1}} ${{p.p2}}</data>

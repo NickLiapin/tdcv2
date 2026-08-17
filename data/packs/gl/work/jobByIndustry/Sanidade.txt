@@ -1,0 +1,22 @@
+---
+description: Job titles in Sanidade, in Galician. Coherent child of work/industryCoherent.txt.
+locale: gl
+---
+Médico de familia
+Pediatra
+Cirurxián
+Anestesista
+Enfermeira
+Enfermeiro
+Matrona
+Farmacéutico
+Fisioterapeuta
+Terapeuta ocupacional
+Odontólogo
+Óptico
+Veterinario
+Auxiliar de enfermaría
+Celador
+Técnico de laboratorio
+Radiólogo
+Psicólogo clínico

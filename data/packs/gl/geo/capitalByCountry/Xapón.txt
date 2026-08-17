@@ -1,0 +1,5 @@
+---
+description: Capital of Xapón as Galician names it. Coherent child of geo/country.txt.
+locale: gl
+---
+Toquio

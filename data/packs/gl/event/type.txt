@@ -1,0 +1,22 @@
+---
+description: Kind of event, in Galician. ROMARIA and FESTA PATRONAL are the backbone of the Galician calendar - every parroquia holds one for its patron saint - and MAGOSTO (the November chestnut roast), ENTROIDO (carnival, which in Galicia runs to its own much longer calendar) and QUEIMADA are events people put in a diary, not folklore.
+locale: gl
+---
+Congreso
+Xornada
+Voda
+Concerto
+Festival
+Obradoiro
+Seminario web
+Feira
+Feira de mostras
+Gala
+Presentación de produto
+Seminario
+Romaría
+Festa patronal
+Magosto
+Entroido
+Queimada
+Foliada

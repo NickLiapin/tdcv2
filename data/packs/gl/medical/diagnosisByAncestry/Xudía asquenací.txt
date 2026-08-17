@@ -1,0 +1,11 @@
+---
+description: Conditions with raised prevalence in the Xudía asquenací ancestry group, in Galician. Coherent child of medical/ancestry.txt.
+locale: gl
+---
+Enfermidade de Tay-Sachs
+Enfermidade de Gaucher
+Disautonomía familiar
+Enfermidade de Canavan
+Mutacións BRCA1 e BRCA2
+Síndrome de Bloom
+Anemia de Fanconi C

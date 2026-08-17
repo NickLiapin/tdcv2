@@ -1,0 +1,12 @@
+---
+description: Personal pronoun set, in Galician. Galician subject pronouns are el / ela / eles / elas; the dative and accusative clitics differ (lle, o, a), which is why each entry shows the pair a speaker would actually be asked for. Galician has no established non-binary pronoun in the standard, so 'elu' is given as the form used in current activist writing and marked as such rather than presented as normative.
+locale: gl
+---
+el/o
+ela/a
+el/lle
+ela/lle
+eles/os
+elas/as
+elu/lle
+sen preferencia

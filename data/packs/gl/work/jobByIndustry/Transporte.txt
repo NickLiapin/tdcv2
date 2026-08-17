@@ -1,0 +1,18 @@
+---
+description: Job titles in Transporte, in Galician. Coherent child of work/industryCoherent.txt.
+locale: gl
+---
+Condutor de camión
+Condutor de autobús
+Repartidor
+Taxista
+Maquinista
+Piloto
+Auxiliar de voo
+Controlador aéreo
+Capitán de barco
+Práctico de porto
+Carretilleiro
+Coordinador de loxística
+Xefe de tráfico
+Mensaxeiro

@@ -1,0 +1,19 @@
+---
+description: KIND of court, in the words Galician uses for them - GENERIC legal vocabulary, not one state's bench. Galician is a co-official language before the courts sitting in Galicia and a party has the right to be heard in it, though in practice the written procedure runs largely in Castilian. The NAMED courts - the Tribunal Superior de Xustiza de Galicia, the Audiencia Provincial of each of the four provinces, the Tribunal Supremo - are institutions of one state and belong in the Spain country pack, so only the kinds are here.
+locale: gl
+---
+Xulgado de paz
+Xulgado de primeira instancia
+Xulgado de instrución
+Xulgado do penal
+Xulgado do social
+Xulgado do mercantil
+Xulgado de menores
+Xulgado de familia
+Xulgado de violencia sobre a muller
+Xulgado do contencioso-administrativo
+Audiencia provincial
+Tribunal superior de xustiza
+Tribunal supremo
+Tribunal constitucional
+Tribunal de contas

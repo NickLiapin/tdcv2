@@ -1,0 +1,15 @@
+---
+description: Playing positions in Fútbol, in Galician. Coherent child of sport/sportCoherent.txt.
+locale: gl
+---
+Porteiro
+Lateral dereito
+Lateral esquerdo
+Central
+Medio centro
+Medio defensivo
+Medio ofensivo
+Extremo dereito
+Extremo esquerdo
+Dianteiro centro
+Segundo punta

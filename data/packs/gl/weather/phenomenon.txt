@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon, in Galician. GALERNA is the sudden violent north-wester that can arrive on a calm summer afternoon and has drowned fishing crews within living memory; MARUSIA is the heavy swell that runs before a storm; RESACA the dangerous backwash on the beaches of the Costa da Morte. These are hazard words in Galicia, not poetry.
+locale: gl
+---
+Galerna
+Marusía
+Resaca
+Temporal
+Ciclóns
+Fronte atlántica
+Borrasca
+Anticiclón
+Orballada
+Sarabiada
+Xeada
+Néboa mariña
+Brétema
+Marea viva
+Marea morta

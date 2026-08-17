@@ -1,0 +1,5 @@
+---
+description: Currency of Portugal as Galician names it, lower case - Galician does not capitalise currency names. Coherent child of geo/country.txt.
+locale: gl
+---
+euro

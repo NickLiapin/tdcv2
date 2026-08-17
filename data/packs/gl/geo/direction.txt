@@ -1,0 +1,20 @@
+---
+description: Compass direction in Galician, the sixteen points. Galician says Leste and Oeste for east and west, and forms the compounds without a hyphen (Nordeste, Sursueste). A second and older set is in daily use beside these and is listed in address/direction: the wind rose of the Galician coast, which names each bearing after the wind that blows from it - nordes, vendaval, travesia, terral, galerna.
+locale: gl
+---
+Norte
+Sur
+Leste
+Oeste
+Nordeste
+Noroeste
+Sueste
+Suroeste
+Nornordeste
+Lesnordeste
+Lessueste
+Sursueste
+Sursuroeste
+Oessuroeste
+Oesnoroeste
+Nornoroeste

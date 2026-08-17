@@ -1,0 +1,21 @@
+---
+description: Cuisine, named in Galician. GALEGA heads the list because it is the home cuisine and because it is genuinely distinct from Spanish cooking rather than a region of it: it is Atlantic rather than Mediterranean, built on shellfish, octopus, pork, greens and maize bread, and it uses almost no olive oil, no saffron and no rice as a staple. Portuguesa and Espanola are both here as separate cuisines, which is the honest arrangement for a kitchen that sits between the two. Parent of food/dishByCuisine - the child filenames must match these values character for character.
+locale: gl
+---
+Galega
+Española
+Portuguesa
+Italiana
+Xaponesa
+Mexicana
+Chinesa
+India
+Francesa
+Tailandesa
+Grega
+Estadounidense
+Coreana
+Vietnamita
+Turca
+Libanesa
+Marroquí

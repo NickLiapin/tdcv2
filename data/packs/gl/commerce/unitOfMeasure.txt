@@ -1,0 +1,34 @@
+---
+description: Unit of measure in Galician. METRIC, because Spain is metric: quilogramo, litro, metro. No pounds, ounces or gallons. FERRADO is included and is genuinely used in Galicia for land: it is the traditional area unit, still quoted in rural property sales, and it is NOT a fixed size - it runs from roughly 400 to 640 square metres depending on the parish, which is exactly the sort of thing a data pack should say out loud rather than silently round.
+locale: gl
+---
+unidade
+caixa
+paquete
+pack
+ducia
+par
+xogo
+rolo
+fardo
+quilogramo
+gramo
+miligramo
+tonelada
+litro
+mililitro
+centilitro
+metro
+centímetro
+milímetro
+quilómetro
+metro cadrado
+metro cúbico
+hectárea
+ferrado
+bandexa
+bolsa
+botella
+lata
+saco
+palé

@@ -1,0 +1,32 @@
+---
+description: Technical adjective in Galician, masculine singular.
+locale: gl
+---
+auxiliar
+primario
+secundario
+de servidor
+dixital
+de código aberto
+virtual
+multiplataforma
+redundante
+en liña
+sen conexión
+háptico
+multibyte
+sen fíos
+neuronal
+óptico
+de estado sólido
+móbil
+de alta velocidade
+cifrado
+distribuído
+escalable
+conteneirizado
+asíncrono
+concorrente
+persistente
+efémero
+tolerante a fallos

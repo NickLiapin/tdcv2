@@ -1,0 +1,11 @@
+---
+description: Haulage route type, in Galician.
+locale: gl
+---
+Local
+Comarcal
+Rexional
+Nacional
+Internacional
+Longa distancia
+Reparto de última milla

@@ -1,0 +1,58 @@
+---
+address: latvia.government.agency
+description: State institutions of Latvia — the direct administration bodies (tiešās pārvaldes iestādes) under the Cabinet, plus the constitutional bodies and the two state companies that a Latvian record is most likely to name. The Cabinet counts 144 direct administration institutions; this is the working subset a dataset actually meets. Five are worth knowing before reading any Latvian data. Valsts ieņēmumu dienests (VID) collects tax and customs and is the authority behind latvia.tax.vat. Pilsonības un migrācijas lietu pārvalde (PMLP) runs the Fizisko personu reģistru and issues the personas kods — it is the body that stopped putting birth dates in the number on 1 July 2017. Uzņēmumu reģistrs issues the vienotais reģistrācijas numurs in latvia.docs.registracijasNumurs. Centrālā statistikas pārvalde publishes the population figures the geography files here are weighted by. And Latvijas Banka is both the central bank and, since the Finanšu un kapitāla tirgus komisija was merged into it on 1 January 2023, the single financial supervisor — so a Latvian dataset dated before 2023 will name FKTK for work Latvijas Banka does now, and FKTK no longer exists. Two entries carry the prefix VAS and are NOT ministries or agencies but state joint-stock companies performing delegated public functions: Ceļu satiksmes drošības direkcija (CSDD), which registers every vehicle and issues both the plate and the driving licence, and Latvijas Pasts, which owns the LV-#### postal index. Names are in normal Latvian case with their diacritics, which is how the institutions write themselves and not how a register upper-cases them. Source: Valsts pārvaldes iestādes Latvijā, grouped by ministry.
+locale: lv
+---
+Valsts ieņēmumu dienests
+Valsts kase
+Pilsonības un migrācijas lietu pārvalde
+Valsts policija
+Valsts robežsardze
+Valsts ugunsdzēsības un glābšanas dienests
+Valsts drošības dienests
+Satversmes aizsardzības birojs
+Iekšējās drošības birojs
+Uzņēmumu reģistrs
+Valsts zemes dienests
+Tiesu administrācija
+Valsts probācijas dienests
+Ieslodzījuma vietu pārvalde
+Maksātnespējas kontroles dienests
+Datu valsts inspekcija
+Patentu valde
+Valsts valodas centrs
+Centrālā statistikas pārvalde
+Konkurences padome
+Patērētāju tiesību aizsardzības centrs
+Būvniecības valsts kontroles birojs
+Latvijas Investīciju un attīstības aģentūra
+Iepirkumu uzraudzības birojs
+Centrālā finanšu un līgumu aģentūra
+Nodarbinātības valsts aģentūra
+Valsts sociālās apdrošināšanas aģentūra
+Valsts darba inspekcija
+Nacionālais veselības dienests
+Veselības inspekcija
+Zāļu valsts aģentūra
+Slimību profilakses un kontroles centrs
+Neatliekamās medicīniskās palīdzības dienests
+Pārtikas un veterinārais dienests
+Lauku atbalsta dienests
+Valsts meža dienests
+Valsts vides dienests
+Dabas aizsardzības pārvalde
+Valsts izglītības satura centrs
+Izglītības kvalitātes valsts dienests
+Latviešu valodas aģentūra
+Latvijas Nacionālais arhīvs
+Nacionālā kultūras mantojuma pārvalde
+Valsts digitālās attīstības aģentūra
+Latvijas ģeotelpiskās informācijas aģentūra
+Nacionālie bruņotie spēki
+Latvijas Banka
+Sabiedrisko pakalpojumu regulēšanas komisija
+Valsts kontrole
+Tiesībsargs
+Centrālā vēlēšanu komisija
+VAS "Ceļu satiksmes drošības direkcija"
+VAS "Latvijas Pasts"

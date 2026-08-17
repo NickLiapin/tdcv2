@@ -1,0 +1,124 @@
+---
+description: Product noun, in Galician.
+locale: gl
+---
+Cadeira
+Mesa
+Coche
+Ordenador
+Teclado
+Rato
+Pantalla
+Monitor
+Bicicleta
+Balón
+Luvas
+Pantalón
+Camisa
+Zapatos
+Gorro
+Toallas
+Xabón
+Queixo
+Touciño
+Pizza
+Ensalada
+Patacas fritas
+Lámpada
+Mochila
+Botella
+Carteira
+Reloxo
+Auriculares
+Altofalante
+Escritorio
+Sofá
+Manta
+Almofada
+Chaqueta
+Calcetíns
+Lentes de sol
+Paraugas
+Cunca
+Caderno
+Cargador
+Chaleira
+Torradeira
+Ventilador
+Espello
+Alfombra
+Reloxo de parede
+Floreiro
+Coitelo
+Culler
+Garfo
+Cesta
+Tenda de campaña
+Saco de durmir
+Mochila de montaña
+Cámara
+Trípode
+Impresora
+Router
+Disco duro
+Memoria USB
+Cable
+Batería
+Ferramenta
+Martelo
+Chave inglesa
+Destornillador
+Serra
+Escaleira
+Regadeira
+Vasoira
+Cubo
+Pota
+Tixola
+Prato
+Vaso
+Cafeteira
+Batedora
+Microondas
+Neveira
+Lavadora
+Aspiradora
+Ferro de pasar
+Secador
+Máquina de afeitar
+Cepillo
+Perfume
+Crema
+Libro
+Revista
+Bolígrafo
+Lapis
+Mesa de noite
+Estante
+Armario
+Cortina
+Vela
+Marco
+Xogo de mesa
+Peluche
+Instrumento
+Gaita
+Pandeireta
+Guitarra
+Tenda
+Colchón
+Edredón
+Sabas
+Toalla de praia
+Neveira portátil
+Cadeira de praia
+Sombrilla
+Nasa
+Cana de pescar
+Chaleco salvavidas
+Remo
+Kaiak
+Táboa de surf
+Traxe de neopreno
+Botas de auga
+Chuvasqueiro

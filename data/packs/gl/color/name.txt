@@ -1,0 +1,58 @@
+---
+description: Colour name in Galician. Two are worth flagging: Galician says AZUL for blue but uses CELESTE and MARIÑO for the light and dark ends, and BRANCO for white against Castilian blanco - the b/br split is one of the regular Galician-versus-Castilian sound correspondences (branco, brando, pracer) and it shows up in surnames too.
+locale: gl
+---
+Vermello
+Verde
+Azul
+Amarelo
+Laranxa
+Roxo
+Rosa
+Marrón
+Negro
+Branco
+Gris
+Cian
+Maxenta
+Lima
+Granate
+Mariño
+Oliva
+Turquesa
+Celeste
+Prata
+Ouro
+Beixe
+Coral
+Carmesí
+Índigo
+Marfil
+Caqui
+Lavanda
+Violeta
+Salmón
+Castaño
+Carbón
+Menta
+Pexego
+Ameixa
+Rubí
+Zafiro
+Esmeralda
+Ámbar
+Bronce
+Cobre
+Escarlata
+Lousa
+Chocolate
+Mostaza
+Borgoña
+Fucsia
+Azul celeste
+Verde botella
+Verde oliva
+Azul mariño
+Vermello teixo
+Gris perla
+Ocre

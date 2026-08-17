@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Brand names are NOT translated - PlayStation, Xbox and Nintendo Switch are the same words in Galician.
+locale: gl
+---
+PlayStation 5
+Xbox Series X
+Nintendo Switch
+PC
+Steam Deck
+Móbil
+PlayStation 4
+Xbox One
+Meta Quest
+Nintendo Switch 2
+Navegador

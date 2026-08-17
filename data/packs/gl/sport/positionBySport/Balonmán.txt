@@ -1,0 +1,11 @@
+---
+description: Playing positions in Balonmán, in Galician. Coherent child of sport/sportCoherent.txt.
+locale: gl
+---
+Porteiro
+Extremo esquerdo
+Extremo dereito
+Lateral esquerdo
+Lateral dereito
+Central
+Pivote

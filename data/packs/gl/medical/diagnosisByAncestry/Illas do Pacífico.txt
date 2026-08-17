@@ -1,0 +1,9 @@
+---
+description: Conditions with raised prevalence in the Illas do Pacífico ancestry group, in Galician. Coherent child of medical/ancestry.txt.
+locale: gl
+---
+Diabetes mellitus tipo 2
+Obesidade
+Gota
+Cardiopatía isquémica
+Enfermidade renal crónica

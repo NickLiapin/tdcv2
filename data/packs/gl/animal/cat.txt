@@ -1,0 +1,22 @@
+---
+description: Cat breed. Breed names are international and are NOT translated, beyond the Galician form of the country adjective.
+locale: gl
+---
+Persa
+Maine Coon
+Siamés
+Ragdoll
+Bengalí
+Sphynx
+Británico de pelo curto
+Abisinio
+Scottish Fold
+Bosque de Noruega
+Azul ruso
+Birmano
+Americano de pelo curto
+Devon Rex
+Chartreux
+Angorá turco
+Común europeo
+Sagrado de Birmania

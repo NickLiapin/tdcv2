@@ -1,0 +1,20 @@
+---
+description: Clothing size. The letter codes are international and are not translated; Spain also labels women's wear with the numeric 34-50 scale, which is why both are here.
+locale: gl
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL
+34
+36
+38
+40
+42
+44
+46
+48

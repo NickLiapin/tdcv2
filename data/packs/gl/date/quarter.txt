@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter in Galician. The ordinal is written with a raised o and a full stop (1.º), the Galician and Portuguese convention, not the Castilian 1o or the Catalan 1r.
+locale: gl
+---
+1.º trimestre
+2.º trimestre
+3.º trimestre
+4.º trimestre

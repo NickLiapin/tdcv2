@@ -1,0 +1,23 @@
+---
+description: Film genre, in Galician.
+locale: gl
+---
+Acción
+Comedia
+Drama
+Terror
+Suspense
+Romántica
+Ciencia ficción
+Fantasía
+Documental
+Animación
+Aventuras
+Policial
+Misterio
+Western
+Musical
+Bélica
+Biográfica
+Histórica
+Curtametraxe

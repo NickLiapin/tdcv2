@@ -1,0 +1,24 @@
+---
+description: Kind of trip, in Galician. CAMINO DE SANTIAGO is here because Galicia is where every route ends: several hundred thousand people a year walk into Santiago, and 'peregrinaxe' is an ordinary trip purpose on a Galician booking form rather than an exotic one.
+locale: gl
+---
+Vacacións
+Viaxe de negocios
+Fin de semana
+Escapada
+Peregrinaxe
+Camiño de Santiago
+Viaxe familiar
+Lúa de mel
+Viaxe de estudos
+Congreso
+Feira
+Turismo rural
+Enoturismo
+Turismo gastronómico
+Sendeirismo
+Surf
+Cruceiro
+Visita a familiares
+Volta ao mundo
+Traslado

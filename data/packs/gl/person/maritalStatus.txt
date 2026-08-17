@@ -1,0 +1,18 @@
+---
+description: Marital status, in Galician, in the two grammatical genders Galician marks: casado / casada, solteiro / solteira. A form asking for this in Galician must agree with the person, so both forms are here and a config that draws one at random without looking at the gender column will produce ungrammatical rows.
+locale: gl
+---
+Solteiro
+Solteira
+Casado
+Casada
+Divorciado
+Divorciada
+Viúvo
+Viúva
+Separado
+Separada
+Parella de feito
+Comprometido
+Comprometida
+Convivinte

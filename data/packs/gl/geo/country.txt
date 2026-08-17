@@ -1,0 +1,55 @@
+---
+description: Country as GALICIAN names it, weighted by population in millions. Translated, not transliterated, and the Galician forms differ from the Castilian ones by more than an accent: Alemana not Alemania, Xapon not Japon, Exipto not Egipto, Arxentina, Belxica, Nixeria, Ucraina, Suiza, Marrocos not Marruecos, Paises Baixos not Paises Bajos. The letter X marks nearly every one of them. Weights are population in millions, so a draw reflects where people actually live rather than treating every state as equally likely.
+locale: gl
+weighted: true
+---
+China,1410
+India,1400
+Estados Unidos,335
+Indonesia,275
+Paquistán,240
+Nixeria,220
+Brasil,215
+Bangladesh,170
+Rusia,144
+México,128
+Xapón,125
+Exipto,110
+Vietnam,98
+Turquía,85
+Alemaña,84
+Francia,68
+Reino Unido,67
+Italia,59
+Sudáfrica,60
+Corea do Sur,52
+España,47
+Arxentina,46
+Canadá,39
+Polonia,38
+Marrocos,37
+Arabia Saudita,36
+Ucraína,38
+Australia,26
+Venezuela,28
+Perú,34
+Colombia,52
+Chile,20
+Romanía,19
+Países Baixos,18
+Portugal,10
+Grecia,10
+Suecia,10
+Suíza,9
+Austria,9
+Bélxica,12
+Cuba,11
+Noruega,5
+Dinamarca,6
+Finlandia,6
+Irlanda,5
+Nova Zelandia,5
+Singapur,6
+Tailandia,72
+Uruguai,3
+Andorra,1

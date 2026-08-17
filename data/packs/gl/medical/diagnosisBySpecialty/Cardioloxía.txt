@@ -1,0 +1,13 @@
+---
+description: Diagnoses commonly managed by Cardioloxía, in Galician. Coherent child of medical/specialtyCoherent.txt.
+locale: gl
+---
+Hipertensión arterial
+Cardiopatía isquémica
+Fibrilación auricular
+Insuficiencia cardíaca
+Angina de peito
+Infarto agudo de miocardio
+Valvulopatía
+Miocardiopatía dilatada
+Pericardite

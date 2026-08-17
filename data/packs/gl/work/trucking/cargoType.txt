@@ -1,0 +1,17 @@
+---
+description: Freight cargo type, in Galician.
+locale: gl
+---
+Carga xeral
+Peixe fresco
+Marisco vivo
+Conxelados
+Refrixerados
+Gando vivo
+Madeira
+Lousa
+Granito
+Cemento
+Combustible
+Mercadoría perigosa
+Automóbiles

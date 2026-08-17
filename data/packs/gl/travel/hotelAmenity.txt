@@ -1,0 +1,34 @@
+---
+description: Hotel amenity, in Galician. The tail is Galician: an ALBERGUE DE PEREGRINOS stamps the pilgrim's credencial, and a hotel on any of the Camino routes advertises credential stamping, a drying room for wet gear and a bicycle store as its main features, because that is what a walker arriving in the rain wants.
+locale: gl
+---
+Wi-Fi
+Almorzo incluído
+Aparcadoiro
+Aparcadoiro gratuíto
+Piscina
+Ximnasio
+Spa
+Sauna
+Restaurante
+Bar
+Servizo de cuartos
+Recepción 24 horas
+Aire acondicionado
+Calefacción
+Caixa forte
+Lavandaría
+Cuarto de secado
+Gardabicicletas
+Selo do Camiño
+Admite mascotas
+Traslado ao aeroporto
+Consigna
+Ascensor
+Acceso adaptado
+Terraza
+Vistas ao mar
+Salón de eventos
+Servizo de limpeza diario
+Berce dispoñible
+Cociña compartida

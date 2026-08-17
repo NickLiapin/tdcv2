@@ -1,0 +1,40 @@
+---
+description: Fish, in Galician. This list is longer and more specific than most locales' because fish is the centre of Galician life: XOUBA is a small sardine and a different item on a menu from SARDINA, RODABALLO is turbot and is farmed here on an industrial scale, and the LAMPREA - a jawless parasitic fish caught in the Mino with medieval stone-weir traps - is a delicacy with its own season and festival.
+locale: gl
+---
+Sardiña
+Xouba
+Xurelo
+Bocarte
+Anchoa
+Pescada
+Merluza
+Bacallau
+Abadexo
+Faneca
+Rodaballo
+Linguado
+Solla
+Raia
+Robaliza
+Sargo
+Dourada
+Ollomol
+Rubio
+Congro
+Safío
+Anguía
+Angula
+Lamprea
+Salmón
+Troita
+Reo
+Atún
+Bonito
+Sarda
+Peixe espada
+Quenlla
+Melga
+Choco
+Lura
+Polbo

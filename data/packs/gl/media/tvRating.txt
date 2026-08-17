@@ -1,0 +1,13 @@
+---
+description: Broadcast age rating as used in Spain and therefore in Galicia: the numeric ICAA/CNMC system (TP, 7, 12, 16, 18), NOT the US TV-Y/PG-13/R codes. TP is 'todos os publicos'.
+locale: gl
+---
+TP
+APTA
+7
+12
+16
+18
+X
+Non recomendada para menores
+Reservada

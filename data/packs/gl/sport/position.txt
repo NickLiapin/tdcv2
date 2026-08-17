@@ -1,0 +1,54 @@
+---
+description: Playing position, in Galician, across sports. See sport/positionBySport for the position sets that actually go with each sport.
+locale: gl
+---
+Porteiro
+Lateral dereito
+Lateral esquerdo
+Central
+Medio centro
+Medio defensivo
+Medio ofensivo
+Extremo dereito
+Extremo esquerdo
+Dianteiro centro
+Segundo punta
+Base
+Escolta
+Aleiro
+Ala-pívot
+Pívot
+Pivote
+Colocador
+Oposto
+Receptor
+Líbero
+Piar
+Talonador
+Segunda liña
+Terceira liña
+Medio melé
+Medio apertura
+Centro
+Á
+Zagueiro
+Defensa
+Medio
+Dianteiro
+Patrón
+Proel
+Bogavante
+Remeiro de centro
+Estribor
+Babor
+Peche
+Ala dereita
+Ala esquerda
+Xogador universal
+Adestrador
+Segundo adestrador
+Preparador físico
+Árbitro
+Xuíz de liña
+Capitán
+Suplente

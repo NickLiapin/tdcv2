@@ -1,0 +1,32 @@
+---
+description: Technical verb in Galician, infinitive.
+locale: gl
+---
+copiar de seguranza
+eludir
+piratear
+anular
+comprimir
+copiar
+navegar
+indexar
+conectar
+xerar
+cuantificar
+calcular
+sintetizar
+introducir
+transmitir
+programar
+reiniciar
+analizar
+cifrar
+descifrar
+despregar
+compilar
+depurar
+refactorizar
+migrar
+replicar
+sincronizar
+virtualizar

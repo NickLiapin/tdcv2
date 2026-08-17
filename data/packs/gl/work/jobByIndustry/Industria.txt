@@ -1,0 +1,17 @@
+---
+description: Job titles in Industria, in Galician. Coherent child of work/industryCoherent.txt.
+locale: gl
+---
+Operario de produción
+Mecánico industrial
+Torneiro
+Fresador
+Matriceiro
+Xefe de planta
+Técnico de calidade
+Enxeñeiro industrial
+Electromecánico
+Caldeireiro
+Operador de máquina
+Encargado de quenda
+Técnico de mantemento

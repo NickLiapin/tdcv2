@@ -1,0 +1,20 @@
+---
+description: Seniority level, in Galician.
+locale: gl
+---
+Aprendiz
+Bolseiro
+Auxiliar
+Xúnior
+Oficial de terceira
+Oficial de segunda
+Oficial de primeira
+Sénior
+Especialista
+Encargado
+Coordinador
+Xefe de equipo
+Xefe de departamento
+Subdirector
+Director
+Director xeral

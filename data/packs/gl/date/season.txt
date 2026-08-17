@@ -1,0 +1,8 @@
+---
+description: Season in Galician. Four, and the northern-hemisphere ones: Galicia is at 42-43 degrees north. Veran and outono are the Galician forms against Castilian verano and otono.
+locale: gl
+---
+primavera
+verán
+outono
+inverno

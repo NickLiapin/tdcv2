@@ -1,0 +1,81 @@
+---
+description: Diagnosis, named in Galician clinical usage.
+locale: gl
+---
+Hipertensión arterial
+Diabetes mellitus tipo 2
+Asma
+Bronquite aguda
+Gripe
+Xaqueca
+Trastorno de ansiedade xeneralizada
+Trastorno depresivo maior
+Artrose
+Artrite reumatoide
+Refluxo gastroesofáxico
+Anemia ferropénica
+Hipotiroidismo
+Infección urinaria
+Pneumonía
+Enfermidade renal crónica
+Cardiopatía isquémica
+Fibrilación auricular
+Insuficiencia cardíaca
+Ictus isquémico
+Epilepsia
+Enfermidade de Parkinson
+Enfermidade de Alzheimer
+Esclerose múltiple
+Psoríase
+Dermatite atópica
+Rinite alérxica
+Sinusite crónica
+Otite media
+Conxuntivite
+Catarata
+Glaucoma
+Apendicite
+Colecistite
+Diverticulite
+Síndrome do intestino irritable
+Enfermidade de Crohn
+Colite ulcerosa
+Hepatite B crónica
+Cirrose hepática
+Pancreatite aguda
+Gota
+Osteoporose
+Fibromialxia
+Ciática
+Hernia discal
+Síndrome do túnel carpiano
+Tendinite
+Enfermidade pulmonar obstrutiva crónica
+Tuberculose
+Leucemia
+Linfoma
+Melanoma
+Hiperlipidemia
+Obesidade
+Apnea obstrutiva do sono
+Insomnio
+Trastorno bipolar
+Trastorno por déficit de atención e hiperactividade
+Enfermidade celíaca
+Lupus eritematoso sistémico
+Vertixe
+Acufenos
+Hemorroides
+Varices
+Trombose venosa profunda
+Embolia pulmonar
+Nefrolitíase
+Anemia
+Hipertiroidismo
+Úlcera péptica
+Gastrite
+Celulite infecciosa
+Sepse
+Gastroenterite aguda
+Deficiencia de vitamina D
+Insuficiencia venosa crónica

@@ -1,0 +1,16 @@
+---
+description: Abbreviated month in Galician, lower case and with a full stop. Maio and xuño are short enough that Galician writes them out rather than abbreviating; the full stop is still omitted for maio because nothing has been cut.
+locale: gl
+---
+xan.
+feb.
+mar.
+abr.
+maio
+xuñ.
+xul.
+ago.
+set.
+out.
+nov.
+dec.

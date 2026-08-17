@@ -1,0 +1,59 @@
+---
+description: Corporate buzzword adjective in Galician, MASCULINE singular - it inflects.
+locale: gl
+---
+Escalable
+Áxil
+Fluído
+Robusto
+Integrado
+Optimizado
+Distribuído
+Nativo na nube
+Baseado en datos
+Centrado no cliente
+Integral
+De nova xeración
+En tempo real
+Multiplataforma
+Empresarial
+Modular
+Sen fricción
+Chave en man
+De referencia
+Preparado para o futuro
+Holístico
+Dinámico
+Proactivo
+Adaptativo
+Seguro
+Intelixente
+Automatizado
+Unificado
+Colaborativo
+Innovador
+Disruptivo
+Enxebre
+Personalizado
+Compoñible
+Resiliente
+Elástico
+Extensible
+Accionable
+De valor engadido
+Sostible
+Certificado
+Interoperable
+Transversal
+Estratéxico
+Disruptor
+Vertical
+Convergente
+Federado
+Descentralizado
+Automatizable
+Cuantificable
+Medible
+Rastrexable
+Auditable
+Trazable

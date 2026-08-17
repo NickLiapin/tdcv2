@@ -1,0 +1,28 @@
+---
+description: Game character class, in Galician.
+locale: gl
+---
+Guerreiro
+Mago
+Pícaro
+Paladín
+Cazador
+Sacerdote
+Bruxo
+Druída
+Monxe
+Explorador
+Bárbaro
+Nigromante
+Bardo
+Asasino
+Clérigo
+Feiticeiro
+Cabaleiro
+Arqueiro
+Berserker
+Alquimista
+Invocador
+Ladrón
+Xamán
+Templario

@@ -1,0 +1,14 @@
+---
+address: latvia.phoneMobilePrefix
+description: The ten two-digit blocks a Latvian mobile number can start with — the whole 2-series, 20000000 to 29999999. They are NOT operator codes and NOT regional codes. Latvia has had mobile number portability for years, so a 26 number says nothing about which operator holds it, and the plan is flat and closed, so it says nothing about where its owner lives either. This file exists for the only inference the prefix does support, which is the one that matters when a Latvian dataset separates callable columns: a leading 2 means mobile, a leading 6 means a fixed line (latvia.phoneLandline), 7 was payphones, 5 is reserved and never issued, and 80, 81, 88, 89 and 90 are toll-free, shared-cost or premium-rate and must not be dialled by a test harness. The whole of 2x is mobile — unlike the 6-series, which subdivides into district blocks, the 2-series has no internal geography at all. Note that the 2 is not historical decoration but a 2008 renumbering: a 2 was prepended to every mobile number and a 6 to every landline on the same day, which is why Latvian records from before 2008 carry seven-digit numbers that need the prefix restored rather than a country code stripped. Source: the ITU-T E.164 national numbering plan for country code +371.
+---
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29

@@ -1,0 +1,24 @@
+---
+description: Suffix after a Galician name. Galician, like Spanish and Portuguese, does NOT use the English Jr/Sr generational suffix - a son with his father's name is distinguished by the second surname instead, which is one of the practical points of carrying two. So this list is academic and professional postnominals as Galician writes them, and the generational suffixes are deliberately absent.
+locale: gl
+---
+Ph.D.
+Dr.
+Dra.
+M.D.
+Lic.
+Enx.
+Arq.
+MBA
+M.Sc.
+B.Sc.
+Avdo.
+Avda.
+C.P.
+Col.
+Emérito
+Emérita
+Xubilado
+Xubilada
+Fillo
+Filla

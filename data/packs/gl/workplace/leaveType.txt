@@ -1,0 +1,16 @@
+---
+description: Type of leave, in Galician, using the entitlements Spanish law actually grants: permiso por nacemento is now equal for both parents, and excedencia is a long unpaid leave with a right to return that has no direct English equivalent.
+locale: gl
+---
+Vacacións
+Baixa por enfermidade
+Permiso por nacemento
+Permiso por lactación
+Excedencia
+Excedencia por coidado de fillos
+Permiso por falecemento
+Permiso por matrimonio
+Asuntos propios
+Permiso de mudanza
+Baixa por accidente laboral
+Permiso sen soldo

@@ -1,0 +1,166 @@
+---
+description: The NAME half of a Galician street, composed AFTER a streetSuffix: rua Nova, praza do Obradoiro, avenida de Rosalia de Castro. THIS FILE IS WHERE THE ARTICLE CONTRACTION BITES. Most entries begin with an already-contracted preposition plus article - do, da, dos, das - because de + o = do and de + a = da obligatorily in Galician. The contraction is baked into the value on purpose: a config that stored 'Horreo' and joined 'rua' + 'de' + 'Horreo' would emit 'rua de o Horreo', which is not Galician. Three stocks are mixed, as the real street map mixes them: common nouns with the article (do Horreo, da Ponte, do Muino), saints and Marian titles, and pan-Galician cultural figures who have a street in essentially every Galician town - Rosalia de Castro, Curros Enriquez, Castelao, Valle-Inclan, Otero Pedrayo, Cunqueiro, Manuel Murguia, Eduardo Pondal, Concepcion Arenal. Those names are LANGUAGE-level rather than country-level: they are the writers of the Rexurdimento and of the Galician twentieth century, and they are why two Galician towns' street maps rhyme. No real municipality's actual street list is here; that belongs to the Spain country pack.
+locale: gl
+---
+Nova
+Vella
+Maior
+Real
+Alta
+Baixa
+Longa
+Estreita
+Ancha
+do Hórreo
+do Muíño
+dos Muíños
+da Ponte
+das Pontes
+da Fonte
+das Fontes
+do Campo
+dos Campos
+da Praia
+do Mar
+da Ría
+do Río
+do Regato
+da Veiga
+das Veigas
+da Leira
+do Souto
+dos Soutos
+do Carballo
+da Carballeira
+do Piñeiro
+dos Piñeiros
+do Castiñeiro
+da Castiñeira
+do Bidueiro
+do Toxo
+da Xesta
+da Silva
+das Flores
+da Horta
+das Hortas
+do Agro
+da Agra
+do Monte
+dos Montes
+da Serra
+do Val
+do Outeiro
+da Chan
+do Chao
+da Pena
+das Penas
+do Penedo
+da Rocha
+do Coto
+da Costa
+da Ladeira
+do Porto
+do Peirao
+da Lonxa
+do Cais
+do Faro
+da Illa
+das Illas
+do Castro
+dos Castros
+do Pazo
+dos Pazos
+da Torre
+das Torres
+da Muralla
+do Arco
+da Porta
+do Adro
+da Igrexa
+do Mosteiro
+da Capela
+do Cruceiro
+do Cemiterio
+do Hospital
+da Escola
+do Mercado
+da Feira
+do Concello
+da Vila
+da Aldea
+do Lugar
+da Parroquia
+do Camiño
+da Corredoira
+da Congostra
+da Calexa
+do Sol
+da Lúa
+das Estrelas
+do Vento
+da Chuvia
+da Néboa
+da Brétema
+do Orballo
+do Ceo
+da Paz
+da Liberdade
+da Constitución
+do Progreso
+da Concordia
+da Amizade
+de San Roque
+de San Xoán
+de San Pedro
+de San Bieito
+de San Martiño
+de Santiago
+de San Xurxo
+de San Lourenzo
+de San Cristovo
+de San Antón
+de Santa María
+de Santa Mariña
+de Santa Comba
+de Santa Uxía
+de Santa Baia
+do Carme
+do Rosario
+da Mercé
+dos Remedios
+da Barca
+da Guía
+das Angustias
+de Rosalía de Castro
+de Curros Enríquez
+de Eduardo Pondal
+de Manuel Murguía
+de Castelao
+de Valle-Inclán
+de Otero Pedrayo
+de Álvaro Cunqueiro
+de Ramón Piñeiro
+de Concepción Arenal
+de Emilia Pardo Bazán
+de Manuel Antonio
+de Ramón Cabanillas
+de Celso Emilio Ferreiro
+de María Mariño
+de Xela Arias
+de Carvalho Calero
+de Vicente Risco
+de Antón Villar Ponte
+de Alexandre Bóveda
+dos Irmandiños
+das Letras Galegas
+da Galiza
+do Reino de Galicia
+dos Mariñeiros
+das Redeiras
+das Percebeiras
+dos Canteiros
+dos Labregos
+das Palilleiras
+dos Emigrantes
+da Emigración
+do Retorno

@@ -1,0 +1,7 @@
+---
+address: latvia.finance.currency
+description: The two Latvian money units. Latvia adopted the euro on 1 January 2014, the eighteenth member of the euro area, so the currency is the euro (ISO 4217 EUR) divided into 100 cents — and both words decline in Latvian, which is why a Latvian price list says "eiro" but a Latvian sentence says "divi eiro" and "piecdesmit centi". The unit this file exists to keep out is the lats: Latvia's own currency until 31 December 2013, code LVL, divided into 100 santīmi, and irrevocably fixed at 0.702804 LVL to the euro for the changeover. Test data older than 2014, and a surprising amount of reference data copied from it, still carries lats amounts, and the giveaway is the scale — the lats was worth about 1.42 euro, the most valuable currency unit in the European Union at the time, so a "salary" of 500 in a Latvian file is either a 2013 monthly wage in lats or a 2026 weekly one in euro and nothing distinguishes them but the date. Notes in circulation are the euro area's 5 to 200; coins are 1, 2, 5, 10, 20 and 50 cents and 1 and 2 euro, and Latvia mints its own national sides. See latvia.finance.amount for how a figure is written.
+locale: lv
+---
+eiro
+cents

@@ -1,0 +1,58 @@
+---
+description: Colour as a product listing writes it, in Galician, MASCULINE singular.
+locale: gl
+---
+Vermello
+Verde
+Azul
+Amarelo
+Laranxa
+Roxo
+Rosa
+Marrón
+Negro
+Branco
+Gris
+Prata
+Ouro
+Beixe
+Crema
+Marfil
+Turquesa
+Coral
+Granate
+Mariño
+Oliva
+Caqui
+Lavanda
+Violeta
+Salmón
+Castaño
+Carbón
+Menta
+Ámbar
+Bronce
+Cobre
+Escarlata
+Lousa
+Chocolate
+Mostaza
+Borgoña
+Fucsia
+Celeste
+Azul mariño
+Verde botella
+Gris perla
+Ocre
+Terracota
+Arxila
+Area
+Pizarra
+Grafito
+Perla
+Nácar
+Antracita
+Viño
+Mel
+Café
+Trigo

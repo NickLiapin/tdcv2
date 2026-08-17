@@ -1,0 +1,9 @@
+---
+description: Playing positions in Voleibol, in Galician. Coherent child of sport/sportCoherent.txt.
+locale: gl
+---
+Colocador
+Oposto
+Receptor
+Central
+Líbero

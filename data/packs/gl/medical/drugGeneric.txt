@@ -1,0 +1,45 @@
+---
+description: Generic drug name, in the Galician spelling of the international nonproprietary name. These are INN stems adapted to Galician orthography, not brand names.
+locale: gl
+---
+Paracetamol
+Ibuprofeno
+Ácido acetilsalicílico
+Amoxicilina
+Azitromicina
+Lisinopril
+Metformina
+Atorvastatina
+Amlodipino
+Omeprazol
+Levotiroxina
+Salbutamol
+Metoprolol
+Losartán
+Gabapentina
+Hidroclorotiazida
+Sertralina
+Prednisona
+Varfarina
+Furosemida
+Ciprofloxacino
+Doxiciclina
+Fluoxetina
+Citalopram
+Pantoprazol
+Sinvastatina
+Montelucast
+Tramadol
+Naproxeno
+Insulina glarxina
+Escitalopram
+Duloxetina
+Clopidogrel
+Enalapril
+Diazepam
+Lorazepam
+Alopurinol
+Ranitidina
+Dexametasona
+Cloruro sódico
+Ondansetrón

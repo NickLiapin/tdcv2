@@ -1,0 +1,14 @@
+---
+description: Fuel or drivetrain, in Galician. GASOIL rather than the Castilian diesel is what a Galician pump and a Galician driver say.
+locale: gl
+---
+Gasolina
+Gasoil
+Híbrido
+Híbrido enchufable
+Eléctrico
+Gas licuado
+Gas natural
+Hidróxeno
+Biodiésel
+Etanol

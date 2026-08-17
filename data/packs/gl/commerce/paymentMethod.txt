@@ -1,0 +1,19 @@
+---
+description: Payment method, in Galician. BIZUM is on the list because it is the Spanish bank-to-bank instant transfer used by essentially everyone in Spain and therefore in Galicia - it is not a card and not PayPal, and a payment-method list for this locale that omits it is describing somewhere else. Contra reembolso is cash on delivery.
+locale: gl
+---
+Tarxeta de crédito
+Tarxeta de débito
+Bizum
+Transferencia bancaria
+Domiciliación bancaria
+PayPal
+Apple Pay
+Google Pay
+Contra reembolso
+Efectivo
+Tarxeta agasallo
+Financiamento
+Pagamento aprazado
+Criptomoeda
+Cheque

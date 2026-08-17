@@ -1,0 +1,40 @@
+---
+description: Vegetable, named in Galician. GRELOS lead because they define the Galician kitchen and have no English name at all - they are the flowering tops of the turnip, eaten as a green, and they carry a protected designation of origin. Nabiza is the same plant at an earlier stage and is a different vegetable to a Galician cook. Repolo, berza and couve are three distinct cabbages here, not synonyms. Faba de Lourenza and pemento de Padron, Herbon, Arnoia, Couto and Mougan are Galician protected varieties.
+locale: gl
+---
+Grelos
+Nabiza
+Nabo
+Repolo
+Berza
+Couve
+Pataca
+Cebola
+Allo
+Porro
+Cenoria
+Tomate
+Pemento
+Pemento de Padrón
+Pemento de Herbón
+Faba
+Feixón
+Chícharo
+Leituga
+Escarola
+Espinaca
+Acelga
+Cabaza
+Cabaciño
+Pepino
+Berenxena
+Coliflor
+Brócoli
+Millo
+Espárrago
+Alcachofa
+Remolacha
+Rabaniza
+Apio
+Champiñón
+Cogomelo

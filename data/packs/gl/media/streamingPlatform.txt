@@ -1,0 +1,16 @@
+---
+description: Streaming platform available in Galicia. Brand names are NOT translated. The Galician public broadcaster's on-demand service is on the list because it is the one place with Galician-language originals.
+locale: gl
+---
+Netflix
+Prime Video
+Disney+
+Max
+Apple TV+
+Movistar Plus+
+Filmin
+Atresplayer
+RTVE Play
+Crunchyroll
+YouTube
+Twitch

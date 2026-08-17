@@ -1,0 +1,8 @@
+---
+description: Playing positions in Hóckey sobre patíns, in Galician. Coherent child of sport/sportCoherent.txt.
+locale: gl
+---
+Porteiro
+Defensa
+Medio
+Dianteiro

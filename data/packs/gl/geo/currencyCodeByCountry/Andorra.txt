@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code for Andorra. The code is international and is NOT translated. Coherent child of geo/country.txt.
+locale: gl
+---
+EUR

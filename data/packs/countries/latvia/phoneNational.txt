@@ -1,0 +1,6 @@
+---
+address: latvia.phoneNational
+description: A Latvian mobile number written the way Latvians write it — eight bare digits in two groups of four, 2612 3456. There is no leading zero and no area code to put in front, because the plan is closed and eight digits flat, so the national form differs from the international one only by the missing +371; a Latvian who reads a number aloud reads eight digits and nothing else. Grouping is a convention rather than a rule and 4+4 is the common one for mobiles, with landlines often written 6712 3456 in the same shape — Latvia does not split its numbers differently by type the way Norway does. Use this form when a column is meant to look like something a Latvian typed; use latvia.phone when it has to be machine-dialable, and note that concatenating "+371" to this string gives a number with a space in the middle, which most diallers reject.
+generator: tdc
+---
+<gen type="regex" value="2[0-9]{3} [0-9]{4}"/>

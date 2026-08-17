@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Galician. Amounts are in EUR, Spain's currency and therefore Galicia's. Galician writes a decimal COMMA and groups thousands with a full stop, so 30.000 EUR here is thirty thousand, not thirty. The bands are set low relative to the en pack on purpose: Galician household income sits below the Spanish average, and a pack that copied US brackets would describe a different country.
+locale: gl
+---
+Menos de 12.000 EUR
+12.000–18.000 EUR
+18.000–25.000 EUR
+25.000–35.000 EUR
+35.000–50.000 EUR
+50.000–70.000 EUR
+70.000–100.000 EUR
+Máis de 100.000 EUR

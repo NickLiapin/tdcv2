@@ -1,0 +1,9 @@
+---
+description: Conditions with raised prevalence in the Leste europea ancestry group, in Galician. Coherent child of medical/ancestry.txt.
+locale: gl
+---
+Fibrose quística
+Hemocromatose hereditaria
+Enfermidade celíaca
+Fenilcetonuria
+Trombofilia por factor V Leiden

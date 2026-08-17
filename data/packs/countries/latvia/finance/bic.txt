@@ -1,0 +1,19 @@
+---
+address: latvia.finance.bic
+description: The 8-character BIC (SWIFT) codes registered in Latvia for credit institutions, the central bank and the Treasury. Characters 5-6 are always LV; characters 7-8 are the location code, and Latvia uses two of them almost evenly — 22 and 2X — for no reason a payer needs to know, which is why HABALV22 and UNLALV2X are both perfectly ordinary. The first four characters are the same institution code that sits inside the IBAN (latvia.finance.bankCode), so in Latvia the IBAN CONTAINS the BIC's institution half and the two can be checked against each other; that is not true of Poland, Lithuania or Estonia, whose BBANs are numeric. An 8-character BIC addresses a head office, and systems that insist on 11 pad it with XXX, so HABALV22 and HABALV22XXX are the same bank. Two entries are not commercial banks and are here because they appear on real Latvian payment documents: LACBLV2X is Latvijas Banka, the central bank, and TRELLV22 is the Valsts kase, where every state body banks — a payment to a Latvian ministry, court or tax office goes to TREL, not to a commercial bank. Names are as the SWIFT register holds them, which is not always the bank's current trading name: LAPBLV2X is still registered as AS LPB BANK although the bank has traded as AS Magnetiq Bank since 19 April 2024, and IDXOLV22 is registered as AS IDX1R although the licence Latvijas Banka issued on 21 May 2024 is to AS INDEXO Banka. Sources: the Latvian BIC register; Latvijas Banka Finanšu tirgus dalībnieku reģistrs.
+---
+HABALV22
+UNLALV2X
+PARXLV22
+RIKOLV2X
+RTMBLV2X
+CBBRLV22
+LLBBLV2X
+MULTLV2X
+LAPBLV2X
+IDXOLV22
+RIBRLV22
+LAVFLV22
+OKOYLV2X
+LACBLV2X
+TRELLV22

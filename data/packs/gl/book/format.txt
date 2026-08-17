@@ -1,0 +1,12 @@
+---
+description: Book format, in Galician.
+locale: gl
+---
+Tapa dura
+Tapa branda
+Rústica
+Libro electrónico
+Audiolibro
+Edición de peto
+Encadernación de biblioteca
+Facsímile

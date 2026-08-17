@@ -1,0 +1,14 @@
+---
+description: Diagnoses commonly managed by Gastroenteroloxía, in Galician. Coherent child of medical/specialtyCoherent.txt.
+locale: gl
+---
+Refluxo gastroesofáxico
+Úlcera péptica
+Gastrite
+Síndrome do intestino irritable
+Enfermidade de Crohn
+Colite ulcerosa
+Enfermidade celíaca
+Cirrose hepática
+Pancreatite aguda
+Diverticulite

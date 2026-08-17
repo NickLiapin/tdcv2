@@ -1,0 +1,13 @@
+---
+description: Dishes of Italiana cuisine, named in Galician. Coherent child of food/cuisine.txt.
+locale: gl
+---
+Pizza margarita
+Espaguetes á carbonara
+Lasaña
+Risoto
+Osso buco
+Tiramisú
+Ñoquis
+Minestrone
+Carpaccio

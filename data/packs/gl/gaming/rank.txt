@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier, in Galician.
+locale: gl
+---
+Ferro
+Bronce
+Prata
+Ouro
+Platino
+Diamante
+Mestre
+Gran mestre
+Retador
+Lenda

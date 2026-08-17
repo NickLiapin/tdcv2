@@ -1,0 +1,14 @@
+---
+description: Medical specialty, in Galician, for coherent diagnosis drawing. Note TRAUMATOLOXIA rather than a calque of Orthopedics: in Spain and Galicia the hospital service is Traumatoloxia e Cirurxia Ortopedica and traumatoloxia is what a patient says. Parent of medical/diagnosisBySpecialty; child filenames must match these values exactly.
+locale: gl
+---
+Cardioloxía
+Dermatoloxía
+Endocrinoloxía
+Gastroenteroloxía
+Nefroloxía
+Neuroloxía
+Oncoloxía
+Traumatoloxía
+Psiquiatría
+Pneumoloxía

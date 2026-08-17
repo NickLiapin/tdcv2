@@ -1,0 +1,41 @@
+---
+description: Tree, in Galician. CARBALLO (the pedunculate oak) is the national tree, gives its name to towns, surnames and the carballeira where a romaria is held, and is the single most loaded word on this list. EUCALIPTO is here because it has to be: Galicia has the largest eucalyptus plantation area in Europe, it is the backbone of the pulp industry and simultaneously the country's bitterest environmental argument, and a Galician tree list that omitted it would be describing the landscape people wish for rather than the one that exists.
+locale: gl
+---
+Carballo
+Cerquiño
+Sobreira
+Aciñeira
+Castiñeiro
+Bidueiro
+Ameneiro
+Salgueiro
+Chopo
+Freixo
+Umeiro
+Pradairo
+Abeleira
+Nogueira
+Cerdeira
+Maceira
+Pereira
+Ameixeira
+Figueira
+Loureiro
+Acivro
+Teixo
+Érbedo
+Sanguiño
+Sabugueiro
+Espiño
+Abruñeiro
+Piñeiro
+Piñeiro do país
+Piñeiro insigne
+Eucalipto
+Abeto
+Faia
+Castiñeiro de indias
+Plátano
+Tileiro
+Amieiro

@@ -1,0 +1,10 @@
+---
+description: Conditions with raised prevalence in the Asiática oriental ancestry group, in Galician. Coherent child of medical/ancestry.txt.
+locale: gl
+---
+Deficiencia de lactase
+Cancro gástrico
+Hepatite B crónica
+Deficiencia de aldehído deshidroxenase
+Alfa-talasemia
+Carcinoma nasofarínxeo

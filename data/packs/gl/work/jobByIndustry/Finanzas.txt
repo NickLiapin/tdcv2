@@ -1,0 +1,16 @@
+---
+description: Job titles in Finanzas, in Galician. Coherent child of work/industryCoherent.txt.
+locale: gl
+---
+Contable
+Analista financeiro
+Auditor
+Actuario
+Asesor fiscal
+Xestor de banca
+Director de oficina
+Analista de riscos
+Corredor de seguros
+Economista
+Interventor
+Tesoureiro

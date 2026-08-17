@@ -1,0 +1,14 @@
+---
+description: Payment status, in Galician.
+locale: gl
+---
+Pendente
+Autorizado
+Pagado
+Fallido
+Reembolsado
+Reembolsado parcialmente
+Retrocesión
+Anulado
+Rexeitado
+En revisión

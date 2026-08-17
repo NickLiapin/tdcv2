@@ -1,0 +1,24 @@
+---
+description: Parcel carrier operating in Galicia. Brand names are NOT translated. Correos is the Spanish postal service and is what most rural Galician addresses actually receive.
+locale: gl
+---
+Correos
+Correos Express
+SEUR
+MRW
+Nacex
+GLS
+DHL
+UPS
+FedEx
+TNT
+Envialia
+CTT Express
+Celeritas
+Zeleris
+ASM
+Tipsa
+Redur
+Halcourier
+Amazon Logistics
+Glovo

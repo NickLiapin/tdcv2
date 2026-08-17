@@ -1,6 +1,6 @@
 ---
 address: latvia.docs.personasKods
-description: Latvian personas kods, both forms in circulation. Latvia broke its own number in two on 1 July 2017, so one address cannot honestly emit only one shape. The PRE-2017 form is DDMMYY-CNNNZ, where C is the century (0 = 1800s, 1 = 1900s, 2 = 2000s) and NNN a birth-order serial; unlike its Estonian and Lithuanian neighbours it encodes NO sex. The form issued SINCE 1 July 2017 begins 32 — an impossible day-of-month, which is the whole point — and the remaining eight digits carry no birth date, no sex and no region at all. Both are legally current: nobody was reissued, so old codes stay in force for life. Drawn here roughly 85 pre-2017 / 15 post-2017, an estimate from births and new registrations since 2017 against Latvia's population, not a published figure. The check digit is the SAME for both forms — see the note in the body. Dates run 1900-01-01..2017-06-30, so the century marker 0 for the 1800s never fires.
+description: Latvian personas kods, BOTH forms in circulation. Latvia broke its own identifier in two on 1 July 2017 and never reissued anybody, so one address cannot honestly emit only one shape — a validator that knows one form rejects a large part of the population. The PRE-2017 form is DDMMYY-CNNNZ, where C is the century (0 = 1800s, 1 = 1900s, 2 = 2000s) and NNN a birth-order serial; unlike its Estonian isikukood and Lithuanian asmens kodas neighbours, whose leading digit is a sex-and-century marker, it encodes NO sex. The form issued SINCE 1 July 2017 begins 32 — an impossible day of the month, which is the whole point — and the remaining eight digits are, in PMLP's own words, randomly generated: no birth date, no sex, no region. Both are legally current for life, and since 2017 a holder of an old code may swap to a new one once, free, on request; take-up has been small (PMLP reported about 295 changes in the year to June 2024 against a population of 1.85 million), so the old form still dominates and this address draws roughly 85 old to 15 new. THAT SPLIT IS AN ESTIMATE, not a published figure — PMLP's Fizisko personu reģistra statistika publishes population by age, citizenship and municipality and does not break down code format at all, and no other body publishes it either. Treat 85/15 as a shape, not a measurement. The check digit is the SAME function for both forms — see the note in the body — and both were verified against published vectors. Dates run 1900-01-01..2017-06-30, so the century marker 0 for the 1800s never fires.
 generator: tdc
 locale: lv
 ---
@@ -31,11 +31,16 @@ locale: lv
       <otherwise><concat><use name="ddmmyy"/><use name="century"/><field name="serial"/></concat></otherwise>
     </choose>
   </let>
-  <!-- ONE check rule covers both forms. The 2017 change is often written up as a
-       new checksum, because the old rule is published as (1101 - S) mod 11 mod 10
-       and the new one as (1 - S) mod 11 mod 10 — but 1101 = 11*100 + 1, so
-       1101 = 1 (mod 11) and the two are the same function. Confirmed on published
-       vectors of both shapes: 161175-19997 (old) and 328673-00679 (new). -->
+  <!-- ONE check rule covers both forms, and this is worth spelling out because the
+       2017 change is often written up as a new checksum. The rule republished from
+       the Latvian spec is  Z = (1101 - SUM(w*d)) mod 11 mod 10, w = 1,6,3,7,9,10,5,8,4,2.
+       python-stdnum's stdnum/lv/pvn.py words it differently, as
+       Z = (1 + SUM(v*d)) mod 11 mod 10 with v = 10,5,8,4,2,1,6,3,7,9 — and the two are
+       the SAME function, because 1101 = 1 (mod 11) and v = -w (mod 11). Checked on
+       200000 random 10-digit bases: zero disagreements. stdnum applies it to BOTH
+       shapes, and its doctests carry a vector of each: 161175-19997 (old) and
+       328673-00679 (new) accepted, 328673-00677 refused. Both confirmed here.
+       No real person's code is used anywhere in this pack. -->
   <let name="sum"><reduce>
     <over><use name="base"/></over>
     <init><int v="0"/></init>

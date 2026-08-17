@@ -1,0 +1,11 @@
+---
+description: Abbreviated weekday in Galician, Monday first.
+locale: gl
+---
+lun.
+mar.
+mér.
+xov.
+ven.
+sáb.
+dom.

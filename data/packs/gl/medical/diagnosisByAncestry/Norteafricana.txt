@@ -1,0 +1,9 @@
+---
+description: Conditions with raised prevalence in the Norteafricana ancestry group, in Galician. Coherent child of medical/ancestry.txt.
+locale: gl
+---
+Beta-talasemia
+Deficiencia de G6PD
+Febre mediterránea familiar
+Favismo
+Diabetes mellitus tipo 2

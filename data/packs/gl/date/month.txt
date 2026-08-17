@@ -1,0 +1,16 @@
+---
+description: Month name in Galician, lower case - Galician does NOT capitalise month names. Xaneiro and xuño show the letter X doing the work Castilian gives to J (enero/junio) and Portuguese to J (janeiro/junho); decembro and setembro end in -bro where Castilian has -bre. Inside a written date the month takes the preposition de and the article is NOT used: 12 de xaneiro de 2024.
+locale: gl
+---
+xaneiro
+febreiro
+marzo
+abril
+maio
+xuño
+xullo
+agosto
+setembro
+outubro
+novembro
+decembro

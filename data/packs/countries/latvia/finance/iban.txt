@@ -1,13 +1,14 @@
 ---
 address: latvia.finance.iban
-description: Latvian IBAN — 21 characters: LV + 2 ISO 7064 check digits + a bank code that is four LETTERS, not digits (it is the institution half of the bank's BIC — HABA for Swedbank, UNLA for SEB, PARX for Citadele) + a 13-digit account number. The letter bank code is the visible difference from Poland, Lithuania and Estonia, whose BBANs are numeric throughout, and it means the MOD-97 fold has to transliterate letters to numbers before it can run. The registry allows the 13-character account to be alphanumeric; real Latvian accounts are digits, and digits are what is drawn. State bodies bank at the Treasury under TREL, which is deliberately left out of the draw. Verified against the SWIFT registry example LV80BANK0000435195001 and the real published accounts LV24UNLA0001000221208 and LV47HABA0551055080524.
+description: The Latvian IBAN — 21 characters: LV, two ISO 7064 MOD-97-10 check digits, a four-LETTER bank code drawn from latvia.finance.bankCode, and a 13-character account. The letter bank code is the visible difference from Poland, Lithuania and Estonia, whose BBANs are numeric throughout, and it means the MOD-97 fold has to transliterate letters to numbers before it can run; a digits-only implementation gets the wrong remainder rather than an error, which is the worst way to fail. The registry declares those 13 account characters as `13!c`, alphanumeric, and most Latvian accounts are in fact all digits — so most implementations quietly assume digits and most of the time get away with it. They do not always: Latvijas Banka publishes its own account as LV35LACB0EUR175050100, where the account part begins 0EUR, and that IBAN is valid. Digits are what this generator draws, because that is what a customer account looks like; the counter-example is recorded here so nobody writes `[0-9]{13}` into a validator. Verified by MOD-97 against seven published numbers, all accepted: LV35LACB0EUR175050100 (Latvijas Banka, own account-details page), LV08HABA0551041541190, LV58HABA0551004772731, LV95PARX0002242990005 and LV26TREL9160032000000 (Latvijas Biozinātņu un tehnoloģiju universitāte, own rekvizīti page), LV51NDEA0000082414423 (LU Botanical Garden), and the IBAN Registry example LV80BANK0000435195001; each is rejected with one digit changed. Printed in groups of four for humans, unspaced in files, which is what is emitted here.
 generator: tdc
 locale: lv
 ---
-<sequence name="bank"><gen type="text" value="HABA,UNLA,PARX,RIKO,RTMB,CBBR,LLBB,MULT,LAPB,IDXO"/></sequence>
+<sequence name="bank"><gen type="template" value="latvia.finance.bankCode"/></sequence>
 <sequence name="account"><gen type="regex" value="[0-9]{13}"/></sequence>
 <sequence name="iban"><compute>
   <let name="bban"><concat><field name="bank"/><field name="account"/></concat></let>
+  <!-- ISO 13616: move the country code and "00" to the end, letters become 10..35, take mod 97. -->
   <let name="rearranged"><concat><use name="bban"/><str v="LV"/><str v="00"/></concat></let>
   <let name="digits"><join><each>
     <over><use name="rearranged"/></over>

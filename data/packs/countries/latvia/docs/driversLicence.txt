@@ -1,0 +1,7 @@
+---
+address: latvia.docs.driversLicence
+description: Latvian driving licence number (vadītāja apliecības numurs) — three letters followed by six digits, nine characters, issued by CSDD (Ceļu satiksmes drošības direkcija). There is NO check digit, so the number is a bare serial and a typo in it is undetectable without a lookup. Two things about the Latvian licence are worth holding on to. It is NOT the identifier a Latvian record keys a driver on — the personas kods is, and it is printed on the licence in field 4d, so a Latvian driving-licence record almost always carries both, one durable and one that changes at every renewal. And the licence is a plastic card in the EU model valid ten years, so unlike the older paper licences of some neighbours the number turns over on a fixed clock. The three letters do not encode a region: unlike the vehicle plate's letters, which are also geography-free, there is no published scheme that reads meaning into them at all. Format per the Microsoft Purview entity definition for the Latvia driver's license number: "three letters followed by six digits", checksum "No"; the Latvian keywords the same definition lists are "vadītāja apliecība" and "autovadītāja apliecība".
+generator: tdc
+locale: lv
+---
+<gen type="regex" value="[A-Z]{3}[0-9]{6}"/>

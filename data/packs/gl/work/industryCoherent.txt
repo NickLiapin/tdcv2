@@ -1,0 +1,14 @@
+---
+description: Industry, in Galician, for coherent job drawing. PESCA heads it and is not decoration: Vigo is the largest fishing port in Europe by value landed, Galicia holds the biggest distant-water fleet in the EU, and the ria mussel rafts produce the bulk of Europe's output - fishing, shellfishing, aquaculture and canning are the industry a Galician record is most likely to sit in, so it is here in place of the generic Legal category the en pack uses. Parent of work/jobByIndustry; the child filenames must match these values character for character.
+locale: gl
+---
+Pesca
+Tecnoloxía
+Sanidade
+Educación
+Finanzas
+Construción
+Industria
+Comercio
+Hostalaría
+Transporte

@@ -1,0 +1,17 @@
+---
+description: Kind of legal case, in Galician.
+locale: gl
+---
+Civil
+Penal
+Familia
+Laboral
+Contencioso-administrativo
+Mercantil
+Concurso de acredores
+Danos e prexuízos
+Arrendamentos
+Herdanzas
+Propiedade intelectual
+Estranxeiría
+Tributario

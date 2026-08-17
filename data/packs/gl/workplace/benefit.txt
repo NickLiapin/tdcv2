@@ -1,0 +1,22 @@
+---
+description: Employment benefit, in Galician. Several are specific to Spain and therefore to Galicia: the PAGA EXTRA is a legally mandated extra month's salary paid twice a year, the TICKET RESTAURANTE is a tax-favoured meal allowance, and public healthcare is universal so private insurance is a perk rather than the basis of cover.
+locale: gl
+---
+Paga extra
+Ticket restaurante
+Seguro médico privado
+Plan de pensións
+Teletraballo
+Horario flexible
+Xornada intensiva no verán
+Días de asuntos propios
+Formación pagada
+Axuda ao transporte
+Gardaría de empresa
+Cheque gardaría
+Ximnasio
+Móbil de empresa
+Coche de empresa
+Bonus por obxectivos
+Días extra de vacacións
+Clases de idiomas

@@ -1,0 +1,16 @@
+---
+description: Kind of workplace meeting, in Galician.
+locale: gl
+---
+Reunión de equipo
+Reunión diaria
+Reunión de seguimento
+Comité de dirección
+Reunión de departamento
+Sesión de planificación
+Retrospectiva
+Presentación de resultados
+Formación interna
+Reunión con cliente
+Asemblea de persoal
+Reunión do comité de empresa

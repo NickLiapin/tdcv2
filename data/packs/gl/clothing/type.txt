@@ -1,0 +1,39 @@
+---
+description: Garment type, in Galician. Camisola is a jumper and camiseta a T-shirt - the pair trips translators. Chuvasqueiro (rain shell) and impermeable are ordinary rather than specialist items in a place with 150 rain days a year, and the ZOCA, the wooden clog raised on three heels to walk a wet field, is the traditional Galician footwear.
+locale: gl
+---
+Camiseta
+Camisa
+Camisola
+Xersei
+Chaqueta
+Chaquetón
+Abrigo
+Anorak
+Chuvasqueiro
+Impermeable
+Pantalón
+Vaqueiros
+Pantalón curto
+Saia
+Vestido
+Blusa
+Traxe
+Chaleco
+Sudadeira
+Roupa interior
+Calcetíns
+Medias
+Zapatos
+Botas
+Zapatillas
+Sandalias
+Zocas
+Gorro
+Boina
+Bufanda
+Luvas
+Cinto
+Gravata
+Pixama
+Bañador

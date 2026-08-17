@@ -1,0 +1,9 @@
+---
+description: Conditions with raised prevalence in the Sueste asiático ancestry group, in Galician. Coherent child of medical/ancestry.txt.
+locale: gl
+---
+Alfa-talasemia
+Beta-talasemia
+Hemoglobina E
+Deficiencia de G6PD
+Talasemia intermedia

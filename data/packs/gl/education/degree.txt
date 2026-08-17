@@ -1,0 +1,20 @@
+---
+description: Academic qualification, in Galician, using the SPANISH system rather than the US one: ESO is compulsory secondary education, Bacharelato the pre-university course, FP de grao medio and superior the vocational tracks, and Grao / Máster / Doutoramento the three post-Bologna university levels. There is no Associate degree here because Spain has none.
+locale: gl
+---
+Educación Primaria
+Educación Secundaria Obrigatoria
+Bacharelato
+FP Básica
+FP de Grao Medio
+FP de Grao Superior
+Certificado de profesionalidade
+Grao
+Diplomatura
+Licenciatura
+Enxeñaría Técnica
+Enxeñaría Superior
+Máster
+Máster Universitario
+Doutoramento
+Título propio

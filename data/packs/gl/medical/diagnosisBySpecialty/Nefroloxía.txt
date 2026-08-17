@@ -1,0 +1,12 @@
+---
+description: Diagnoses commonly managed by Nefroloxía, in Galician. Coherent child of medical/specialtyCoherent.txt.
+locale: gl
+---
+Enfermidade renal crónica
+Insuficiencia renal aguda
+Nefrolitíase
+Glomerulonefrite
+Síndrome nefrótica
+Infección urinaria
+Poliquistose renal
+Pielonefrite

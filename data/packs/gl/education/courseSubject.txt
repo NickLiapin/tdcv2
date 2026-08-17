@@ -1,0 +1,24 @@
+---
+description: School subject, in Galician, as it appears on a timetable in Galicia. LINGUA GALEGA E LITERATURA is a compulsory subject in its own right, taught alongside Lingua Castela e Literatura - both are on every Galician pupil's timetable, and that pair is what makes this list different from a Spanish one.
+locale: gl
+---
+Lingua Galega e Literatura
+Lingua Castelá e Literatura
+Matemáticas
+Física
+Química
+Bioloxía e Xeoloxía
+Xeografía e Historia
+Lingua Estranxeira: Inglés
+Segunda Lingua Estranxeira
+Educación Física
+Educación Plástica e Visual
+Música
+Tecnoloxía
+Informática
+Economía
+Filosofía
+Latín
+Grego
+Relixión
+Valores Éticos

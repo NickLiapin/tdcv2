@@ -1,0 +1,88 @@
+---
+description: Pastime, in Galician. The list is not a translation of the en one: it carries what people in Galicia actually do. Marisqueo (gathering shellfish on the foreshore, a licensed occupation and a pastime), percebeiro work on the rocks, andar a setas and the autumn magosto (chestnut roast), romarias and the queimada rite, foliada and muineira dancing, gaita playing, the regueifa sung poetic duel, traineira rowing in the rias, and the tapes-and-vinos circuit are Galician. Surfing on the Costa da Morte and the Camino de Santiago on foot are here because both are ordinary weekend activity in Galicia rather than tourism.
+locale: gl
+---
+Ler
+Sendeirismo
+Fotografía
+Cociñar
+Xardinaría
+Pintura
+Ciclismo
+Videoxogos
+Ioga
+Viaxar
+Pesca
+Punto
+Correr
+Repostaría
+Carpintaría
+Xadrez
+Baile
+Surf
+Acampada
+Observación de aves
+Cerámica
+Astronomía
+Marisqueo
+Andar a setas
+Andar ás mazarocas
+Magosto
+Queimada
+Romarías
+Foliada
+Muiñeira
+Tocar a gaita
+Tocar a pandeireta
+Canto tradicional
+Regueifa
+Remo en trainera
+Vela
+Piragüismo
+Mergullo
+Xogo dos birlos
+Chave
+Petanca
+Camiño de Santiago
+Peregrinaxe
+Coleccionismo
+Filatelia
+Numismática
+Modelismo
+Maquetas de barcos
+Bordado
+Encaixe de Camariñas
+Costura
+Tear
+Cestaría
+Talla en madeira
+Cantaría
+Ourivaría
+Azabache
+Apicultura
+Horta
+Viticultura
+Criar galiñas
+Adestrar cans
+Equitación
+Caza
+Espeleoloxía
+Escalada
+Montañismo
+Natación
+Fútbol
+Baloncesto
+Balonmán
+Atletismo
+Ximnasia
+Teatro afeccionado
+Coro
+Banda de música
+Escribir
+Poesía
+Xenealoxía
+Historia local
+Arqueoloxía
+Observación de estrelas
+Meteoroloxía
+Xogos de mesa

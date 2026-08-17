@@ -1,0 +1,9 @@
+---
+description: Credit standing band, in Galician. NOTE: Spain has no consumer credit SCORE of the US kind. What exists is the ASNEF/RAI defaulters register and each bank's internal rating, so these bands are a solvency assessment, not a FICO number, and a config that prints a three-digit score beside them is inventing an institution that does not exist here.
+locale: gl
+---
+Moi baixa
+Baixa
+Media
+Alta
+Moi alta

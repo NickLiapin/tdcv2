@@ -1,0 +1,26 @@
+---
+description: Metal, in Galician. VOLFRAMIO is here for a Galician reason: the wolfram mines of Ourense and Lugo supplied both sides of the Second World War and the smuggling that went with it is living memory.
+locale: gl
+---
+Ouro
+Prata
+Cobre
+Ferro
+Aceiro
+Aluminio
+Estaño
+Chumbo
+Cinc
+Níquel
+Cromo
+Titanio
+Volframio
+Mercurio
+Platino
+Paladio
+Magnesio
+Manganeso
+Bronce
+Latón
+Peltre
+Cobalto

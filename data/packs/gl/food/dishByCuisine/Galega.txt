@@ -1,0 +1,37 @@
+---
+description: Dishes of Galega cuisine, named in Galician. Coherent child of food/cuisine.txt.
+locale: gl
+---
+Polbo á feira
+Empanada galega
+Caldo galego
+Lacón con grelos
+Cocido galego
+Raxo con patacas
+Zorza
+Churrasco
+Pementos de Padrón
+Caldeirada de peixe
+Merluza á galega
+Rodaballo ao forno
+Ameixas á mariñeira
+Zamburiñas á grella
+Percebes cocidos
+Centola cocida
+Sardiñas asadas
+Xoubas fritas
+Empanada de bacallau
+Empanada de xoubas
+Androlla
+Botelo
+Lamprea á bordelesa
+Filloas
+Tarta de Santiago
+Bica
+Queixo de tetilla
+Requeixo con mel
+Orellas de entroido
+Torta de Mondoñedo
+Melindres
+Freixós
+Queimada

@@ -1,0 +1,10 @@
+---
+description: Dishes of Marroquí cuisine, named in Galician. Coherent child of food/cuisine.txt.
+locale: gl
+---
+Cuscús
+Taxine de cordeiro
+Pastela
+Harira
+Tanxía
+Chebakia

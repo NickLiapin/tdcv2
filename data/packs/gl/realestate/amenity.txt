@@ -1,0 +1,26 @@
+---
+description: Property amenity, in Galician. GALERIA is the glazed balcony that fronts whole streets in A Coruna and Ferrol and is a selling point rather than a fitting; LAREIRA is the open stone hearth of a Galician kitchen; and CALEFACCION is listed by fuel because in Galicia it genuinely varies - gasoil, pellet, wood and heat pump are all common and a listing always says which.
+locale: gl
+---
+Ascensor
+Garaxe
+Rocho
+Terraza
+Balcón
+Galería
+Xardín
+Horta
+Piscina
+Lareira
+Estufa de pellets
+Calefacción de gasoil
+Calefacción de leña
+Bomba de calor
+Aire acondicionado
+Ventás de PVC
+Dobre acristalamento
+Illamento térmico
+Amoblado
+Cociña equipada
+Portal automático
+Zona comunitaria

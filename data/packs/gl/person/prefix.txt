@@ -1,0 +1,34 @@
+---
+description: Title placed before a Galician name. Galician abbreviates Senor as Sr. and Senora as Sra. with a full stop, and the courtesy forms Don and Dona are used with the GIVEN name (Don Manuel), never with the surname alone, which is the opposite of English Mr Smith. Relixious and academic titles are the Galician ones: Don/Dona for clergy, Prof., Dr. and Dra. with the feminine form spelled out because Galician marks it.
+locale: gl
+---
+Sr.
+Sra.
+Srta.
+Don
+Dona
+Dr.
+Dra.
+Prof.
+Prof.ª
+Lic.
+Enx.
+Arq.
+Avogado
+Avogada
+Cón.
+Rev.
+Xuíz
+Xuíza
+Alcalde
+Alcaldesa
+Cap.
+Sarx.
+Ten.
+Cor.
+Xen.
+Excmo.
+Excma.
+Ilmo.
+Ilma.
+Mons.

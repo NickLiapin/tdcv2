@@ -1,0 +1,24 @@
+---
+description: Weather condition, in Galician. ORBALLAR - to fall as an extremely fine, near-weightless drizzle that soaks you without seeming to rain - is the single most Galician word on this list and has no one-word English equivalent. Galician distinguishes at least four grades of rain, and using 'chuvia' for all of them loses the distinction a Galician forecast actually makes.
+locale: gl
+---
+Sol
+Despexado
+Anubrado
+Nubrado
+Cuberto
+Orballo
+Chuvia
+Chuvia forte
+Bátega
+Chuvascos
+Treboada
+Sarabia
+Neve
+Xeada
+Néboa
+Brétema
+Vento
+Temporal
+Ventoso
+Bochorno

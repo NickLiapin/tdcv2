@@ -1,0 +1,14 @@
+---
+description: Diagnoses commonly managed by Traumatoloxía, in Galician. Coherent child of medical/specialtyCoherent.txt.
+locale: gl
+---
+Artrose
+Artrite reumatoide
+Hernia discal
+Ciática
+Síndrome do túnel carpiano
+Tendinite
+Fractura de cadeira
+Escoliose
+Rotura de menisco
+Lumbalxia

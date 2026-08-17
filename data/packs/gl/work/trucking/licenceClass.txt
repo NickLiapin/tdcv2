@@ -1,0 +1,11 @@
+---
+description: Driving licence class, in Galician, using the Spanish and EU classes that actually appear on a licence in Galicia - B, C1, C, C+E, D, D+E - not US CDL classes.
+locale: gl
+---
+B
+C1
+C1+E
+C
+C+E
+D
+D+E

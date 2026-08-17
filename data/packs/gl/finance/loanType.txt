@@ -1,0 +1,14 @@
+---
+description: Loan type, in Galician.
+locale: gl
+---
+Hipoteca
+Préstamo persoal
+Préstamo para o coche
+Préstamo de estudos
+Crédito ao consumo
+Liña de crédito
+Préstamo empresarial
+Anticipo de nómina
+Reunificación de débedas
+Microcrédito

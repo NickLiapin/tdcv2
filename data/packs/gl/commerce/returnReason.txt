@@ -1,0 +1,19 @@
+---
+description: Reason a customer gives for a return, in Galician.
+locale: gl
+---
+Chegou danado
+Artigo equivocado
+Non se corresponde coa descrición
+Talla incorrecta
+Cambiei de opinión
+Atopei mellor prezo noutro sitio
+Defectuoso de fábrica
+Faltan pezas
+Entrega tardía
+Xa non o preciso
+Pedido por erro
+Calidade inferior á esperada
+Duplicado
+Cor equivocada
+Non é compatible

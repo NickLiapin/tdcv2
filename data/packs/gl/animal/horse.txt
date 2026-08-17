@@ -1,0 +1,20 @@
+---
+description: Horse breed, in Galician. The CABALO GALEGO DE MONTE is the native semi-feral mountain horse - small, hardy, living unfenced on the sierras and rounded up once a year at the rapa das bestas - and it is a recognised breed, not a feral population of something else.
+locale: gl
+---
+Cabalo galego de monte
+Puro raza española
+Árabe
+Puro sangue inglés
+Mustang
+Clydesdale
+Appaloosa
+Cuarto de milla
+Frisón
+Shire
+Andaluz
+Palomino
+Percherón
+Poni Shetland
+Lusitano
+Hispano-bretón

@@ -1,0 +1,17 @@
+---
+description: Kind of social post, in Galician.
+locale: gl
+---
+Publicación
+Historia
+Vídeo curto
+Directo
+Enquisa
+Fío
+Comentario
+Compartido
+Álbum de fotos
+Reel
+Podcast
+Boletín
+Retransmisión

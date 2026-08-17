@@ -1,0 +1,16 @@
+---
+description: Shoe size as printed on a shoebox in Galicia: the continental European (Paris point) scale, because Spain uses it. Not UK sizes, not US sizes, not centimetres.
+locale: gl
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

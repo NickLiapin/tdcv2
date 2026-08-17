@@ -1,0 +1,12 @@
+---
+description: ABO and Rh blood group. International notation, NOT translated.
+locale: gl
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

@@ -1,0 +1,40 @@
+---
+description: Medical specialty, in Galician.
+locale: gl
+---
+Cardioloxía
+Dermatoloxía
+Endocrinoloxía
+Gastroenteroloxía
+Neuroloxía
+Oncoloxía
+Oftalmoloxía
+Traumatoloxía
+Pediatría
+Psiquiatría
+Pneumoloxía
+Radioloxía
+Reumatoloxía
+Uroloxía
+Nefroloxía
+Hematoloxía
+Inmunoloxía
+Anestesioloxía
+Urxencias
+Medicina de familia
+Medicina interna
+Xinecoloxía e obstetricia
+Otorrinolaringoloxía
+Anatomía patolóxica
+Cirurxía plástica
+Cirurxía xeral
+Cirurxía vascular
+Enfermidades infecciosas
+Xeriatría
+Neonatoloxía
+Rehabilitación
+Medicina do traballo
+Medicina preventiva
+Alergoloxía
+Nutrición
+Coidados paliativos

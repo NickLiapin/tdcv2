@@ -1,0 +1,10 @@
+---
+description: Dishes of Vietnamita cuisine, named in Galician. Coherent child of food/cuisine.txt.
+locale: gl
+---
+Pho
+Banh mi
+Rolos de primavera
+Bun cha
+Com tam
+Café vietnamita

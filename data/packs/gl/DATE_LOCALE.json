@@ -1,0 +1,60 @@
+{
+  "months": [
+    "xaneiro",
+    "febreiro",
+    "marzo",
+    "abril",
+    "maio",
+    "xuño",
+    "xullo",
+    "agosto",
+    "setembro",
+    "outubro",
+    "novembro",
+    "decembro"
+  ],
+  "monthsInDate": [
+    "de xaneiro",
+    "de febreiro",
+    "de marzo",
+    "de abril",
+    "de maio",
+    "de xuño",
+    "de xullo",
+    "de agosto",
+    "de setembro",
+    "de outubro",
+    "de novembro",
+    "de decembro"
+  ],
+  "monthsShort": [
+    "xan.",
+    "feb.",
+    "mar.",
+    "abr.",
+    "maio",
+    "xuñ.",
+    "xul.",
+    "ago.",
+    "set.",
+    "out.",
+    "nov.",
+    "dec."
+  ],
+  "weekdays": [
+    "domingo",
+    "luns",
+    "martes",
+    "mércores",
+    "xoves",
+    "venres",
+    "sábado"
+  ],
+  "weekdaysShort": ["dom.", "lun.", "mar.", "mér.", "xov.", "ven.", "sáb."],
+  "formats": {
+    "L": "DD/MM/YYYY",
+    "LL": "D [de] MMMM [de] YYYY",
+    "LLL": "D [de] MMMM [de] YYYY HH:mm",
+    "LLLL": "dddd, D [de] MMMM [de] YYYY HH:mm"
+  }
+}

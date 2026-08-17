@@ -1,0 +1,9 @@
+---
+description: Playing positions in Baloncesto, in Galician. Coherent child of sport/sportCoherent.txt.
+locale: gl
+---
+Base
+Escolta
+Aleiro
+Ala-pívot
+Pívot

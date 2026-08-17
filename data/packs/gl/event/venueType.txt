@@ -1,0 +1,20 @@
+---
+description: Kind of venue, in Galician.
+locale: gl
+---
+Salón de hotel
+Palacio de congresos
+Estadio
+Teatro
+Auditorio
+Sala de festas
+Pazo
+Adega
+Carpa
+Campo da festa
+Adro da igrexa
+Alameda
+Nave industrial
+Xardín
+Sala de reunións
+Local social

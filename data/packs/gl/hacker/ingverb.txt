@@ -1,0 +1,32 @@
+---
+description: Technical verb in the Galician PROGRESSIVE, which is formed as 'estar a' plus the infinitive - 'estase a comprimir' - and NOT with a gerund the way Castilian does it ('se esta comprimiendo'). The Galician construction is the same one Portuguese uses. The bare gerund forms in -ndo also exist and are listed here because a progress message usually shows them alone.
+locale: gl
+---
+copiando
+eludindo
+pirateando
+anulando
+comprimindo
+copiando datos
+navegando
+indexando
+conectando
+xerando
+cuantificando
+calculando
+sintetizando
+transmitindo
+programando
+reiniciando
+analizando
+cifrando
+descifrando
+despregando
+compilando
+depurando
+migrando
+replicando
+sincronizando
+virtualizando
+descargando
+cargando

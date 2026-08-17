@@ -1,0 +1,11 @@
+---
+description: Dishes of Grega cuisine, named in Galician. Coherent child of food/cuisine.txt.
+locale: gl
+---
+Musaca
+Souvlaki
+Xiro
+Ensalada grega
+Espanacopita
+Baklava
+Tzatziki

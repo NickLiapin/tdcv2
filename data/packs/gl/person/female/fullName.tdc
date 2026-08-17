@@ -1,0 +1,11 @@
+---
+description: Galician full female name: one given name and TWO surnames, paternal then maternal (Uxia Fernandez Carballo). The surnames are the SAME forms a man would carry - Galician surnames do not inflect for gender, so this generator draws from person/lastName.txt exactly as the male one does, and there is deliberately no person/female/lastName.txt for it to read.
+generator: tdc
+locale: gl
+---
+<sequence name="p">
+  <gen name="f" type="template" value="gl.person.female.firstName"/>
+  <gen name="p1" type="template" value="gl.person.lastName"/>
+  <gen name="p2" type="template" value="gl.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.p1}} ${{p.p2}}</data>

@@ -1,0 +1,13 @@
+---
+description: Dishes of Xaponesa cuisine, named in Galician. Coherent child of food/cuisine.txt.
+locale: gl
+---
+Sushi
+Ramen
+Tempura
+Udon
+Polo teriyaki
+Sopa de miso
+Katsu curry
+Onigiri
+Sashimi

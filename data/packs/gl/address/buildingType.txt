@@ -1,0 +1,46 @@
+---
+description: Building type in Galician. Several have no equivalent outside Galicia and the north of Portugal. A PAZO is the granite manor house of the Galician gentry, with its own chapel and dovecote. An HORREO is the raised stone granary standing on staddle-stones that keeps maize dry and out of reach of rats - there are tens of thousands still standing and it is the single most recognisable Galician structure. A CETAREA is a seawater tank cut into the rock to hold live shellfish, and a CONSERVEIRA the cannery that made the rias industrial. A LONXA is the auction hall where the catch is sold the hour it lands. Reitoral is the parish priest's house, now very often a rural hotel, and casa de aldea a village house let to visitors - both are ordinary property types in Galician listings.
+locale: gl
+---
+Casa
+Piso
+Apartamento
+Edificio
+Bloque
+Torre
+Chalé
+Adosado
+Casa de aldea
+Pazo
+Reitoral
+Casa reitoral
+Hórreo
+Cabazo
+Palleira
+Alpendre
+Cortello
+Cuadra
+Muíño
+Fábrica
+Conserveira
+Nave
+Almacén
+Lonxa
+Cetárea
+Faro
+Escola
+Hospital
+Igrexa
+Capela
+Mosteiro
+Convento
+Concello
+Mercado
+Tenda
+Taberna
+Restaurante
+Hotel
+Albergue
+Estadio
+Biblioteca
+Museo

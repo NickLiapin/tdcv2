@@ -1,0 +1,12 @@
+---
+description: Dishes of Chinesa cuisine, named in Galician. Coherent child of food/cuisine.txt.
+locale: gl
+---
+Polo kung pao
+Arroz frito
+Empanadiñas ao vapor
+Chow mein
+Porco agridoce
+Tofu mapo
+Pato de Pequín
+Sopa wonton

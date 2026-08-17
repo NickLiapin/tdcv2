@@ -1,0 +1,39 @@
+---
+description: Music genre, in Galician. The tail is the Galician tradition and it is not folklore in a museum: MUINEIRA is the 6/8 dance, ALALA the slow unaccompanied song, FOLIADA the night gathering where the tunes are played, PANDEIRETEIRAS the women's tambourine-and-voice ensembles, REGUEIFA the sung poetic duel now revived by young rappers, and 'folk galego' the electric tradition of Milladoiro, Carlos Nunez and Luar na Lubre.
+locale: gl
+---
+Rock
+Pop
+Indie
+Punk
+Metal
+Hip hop
+Rap
+Trap
+R&B
+Soul
+Funk
+Jazz
+Blues
+Reggae
+Electrónica
+House
+Techno
+Clásica
+Ópera
+Coral
+Música de cámara
+Bandas sonoras
+Country
+Folk
+Folk galego
+Muiñeira
+Alalá
+Foliada
+Pandeireteiras
+Regueifa
+Música celta
+Gaita
+Cantigas
+Fado
+Flamenco

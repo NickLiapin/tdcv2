@@ -1,0 +1,21 @@
+---
+description: Bicycle type, in Galician.
+locale: gl
+---
+Bicicleta de estrada
+Bicicleta de montaña
+Bicicleta urbana
+Bicicleta híbrida
+Bicicleta eléctrica
+Bicicleta de gravel
+Bicicleta plegable
+Bicicleta de paseo
+Bicicleta de carga
+Bicicleta infantil
+Bicicleta de pista
+Bicicleta BMX
+Bicicleta de cicloturismo
+Tándem
+Triciclo
+Bicicleta de descenso
+Bicicleta estática

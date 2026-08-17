@@ -1,0 +1,13 @@
+---
+description: Playing positions in Rugby, in Galician. Coherent child of sport/sportCoherent.txt.
+locale: gl
+---
+Piar
+Talonador
+Segunda liña
+Terceira liña
+Medio melé
+Medio apertura
+Centro
+Á
+Zagueiro

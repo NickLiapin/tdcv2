@@ -1,0 +1,5 @@
+---
+description: Capital of Francia as Galician names it. Coherent child of geo/country.txt.
+locale: gl
+---
+París

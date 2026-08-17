@@ -1,0 +1,41 @@
+---
+description: Trailing qualifier of a Galician place name (Vilanova de Arousa, Castro de Rei, Sanxenxo de Abaixo, Ponte Vella). The qualifiers with de contract with a following article exactly as everywhere else in the language, which is why they are stored already contracted - do Monte, da Veiga, dos Condes. The bare adjectives agree in gender with the place name in front of them, so Vello and Vella and Novo and Nova are both listed and picking the wrong one is a grammar error, not a spelling variant. De Arriba and de Abaixo are the commonest pair in rural Galicia, distinguishing the upper and lower halves of one settlement.
+locale: gl
+---
+de Arriba
+de Abaixo
+do Medio
+de Riba
+do Monte
+dos Montes
+do Mar
+da Ribeira
+da Veiga
+do Val
+da Serra
+do Río
+da Ponte
+da Fonte
+do Campo
+da Chan
+do Souto
+da Carballeira
+do Pazo
+da Torre
+da Igrexa
+dos Condes
+do Bispo
+do Rei
+de Fóra
+de Dentro
+Vello
+Vella
+Novo
+Nova
+Grande
+Pequeno
+Pequena
+Maior
+Menor
+do Norte
+do Sur

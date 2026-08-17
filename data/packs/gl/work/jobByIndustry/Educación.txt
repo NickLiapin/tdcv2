@@ -1,0 +1,18 @@
+---
+description: Job titles in Educación, in Galician. Coherent child of work/industryCoherent.txt.
+locale: gl
+---
+Mestre de infantil
+Mestre de primaria
+Profesor de secundaria
+Catedrático
+Profesor universitario
+Orientador escolar
+Bibliotecario
+Director de centro
+Educador social
+Profesor de galego
+Logopeda
+Monitor de comedor
+Titor
+Investigador

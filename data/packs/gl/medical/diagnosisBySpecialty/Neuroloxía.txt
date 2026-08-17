@@ -1,0 +1,13 @@
+---
+description: Diagnoses commonly managed by Neuroloxía, in Galician. Coherent child of medical/specialtyCoherent.txt.
+locale: gl
+---
+Xaqueca
+Epilepsia
+Enfermidade de Parkinson
+Enfermidade de Alzheimer
+Esclerose múltiple
+Ictus isquémico
+Neuropatía periférica
+Vertixe
+Cefalea tensional

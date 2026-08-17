@@ -1,0 +1,11 @@
+---
+description: Dishes of Tailandesa cuisine, named in Galician. Coherent child of food/cuisine.txt.
+locale: gl
+---
+Pad thai
+Curry verde
+Tom yum
+Curry massaman
+Ensalada de papaia
+Arroz doce con mango
+Satay

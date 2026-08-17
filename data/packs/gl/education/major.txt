@@ -1,0 +1,40 @@
+---
+description: University field of study, in Galician.
+locale: gl
+---
+Enxeñaría Informática
+Administración e Dirección de Empresas
+Psicoloxía
+Bioloxía
+Enxeñaría Mecánica
+Enxeñaría Eléctrica
+Enxeñaría Naval
+Enxeñaría de Montes
+Economía
+Ciencias Políticas
+Filoloxía Galega
+Filoloxía Hispánica
+Filoloxía Inglesa
+Enfermaría
+Medicina
+Odontoloxía
+Farmacia
+Veterinaria
+Química
+Matemáticas
+Física
+Historia
+Historia da Arte
+Belas Artes
+Dereito
+Xornalismo
+Publicidade
+Traballo Social
+Educación Infantil
+Educación Primaria
+Arquitectura
+Enxeñaría Civil
+Ciencias do Mar
+Bioloxía Mariña
+Ciencia de Datos
+Ciencias Ambientais

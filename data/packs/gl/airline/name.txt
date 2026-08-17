@@ -1,0 +1,54 @@
+---
+description: Airline. Brand names are NOT translated. The head is what actually flies from Santiago, A Coruna and Vigo.
+locale: gl
+---
+Vueling
+Ryanair
+Iberia
+Iberia Regional Air Nostrum
+Air Europa
+easyJet
+Volotea
+Binter Canarias
+TAP Air Portugal
+Lufthansa
+Air France
+KLM
+British Airways
+Swiss
+Brussels Airlines
+Austrian Airlines
+SAS
+Norwegian
+Wizz Air
+Turkish Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+Singapore Airlines
+Cathay Pacific
+Qantas
+ANA
+Japan Airlines
+Air Canada
+United Airlines
+Delta Air Lines
+American Airlines
+LATAM
+Avianca
+Aerolíneas Argentinas
+Copa Airlines
+Aeroméxico
+Royal Air Maroc
+EgyptAir
+Ethiopian Airlines
+Kenya Airways
+South African Airways
+Air India
+China Southern
+Korean Air
+Aer Lingus
+Finnair
+LOT
+Croatia Airlines
+Luxair

@@ -1,0 +1,31 @@
+---
+description: Household budget line, in Galician. LEÑA is on the list and is not quaint: wood is a normal domestic heating fuel across rural Galicia and a real monthly line in a real household budget.
+locale: gl
+---
+Alugueiro
+Hipoteca
+Compra
+Subministracións
+Luz
+Auga
+Gas
+Leña
+Internet e móbil
+Transporte
+Combustible
+Seguro do coche
+Ocio
+Restaurantes
+Sanidade
+Seguros
+Aforro
+Subscricións
+Viaxes
+Educación
+Roupa
+Agasallos
+Coidado de fillos
+Mascotas
+Pago de débedas
+Imposto de circulación
+IBI

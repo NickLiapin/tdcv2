@@ -1,0 +1,13 @@
+---
+description: Diagnoses commonly managed by Psiquiatría, in Galician. Coherent child of medical/specialtyCoherent.txt.
+locale: gl
+---
+Trastorno depresivo maior
+Trastorno de ansiedade xeneralizada
+Trastorno bipolar
+Esquizofrenia
+Trastorno obsesivo compulsivo
+Insomnio
+Trastorno por consumo de alcohol
+Trastorno de estrés postraumático
+Trastorno alimentario

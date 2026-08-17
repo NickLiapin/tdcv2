@@ -1,0 +1,10 @@
+---
+description: Playing positions in Fútbol sala, in Galician. Coherent child of sport/sportCoherent.txt.
+locale: gl
+---
+Porteiro
+Peche
+Ala dereita
+Ala esquerda
+Pívot
+Xogador universal

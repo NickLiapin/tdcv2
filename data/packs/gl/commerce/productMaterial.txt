@@ -1,0 +1,62 @@
+---
+description: Product material, in Galician.
+locale: gl
+---
+Aceiro
+Aceiro inoxidable
+Madeira
+Carballo
+Piñeiro
+Castiñeiro
+Nogueira
+Formigón
+Plástico
+Algodón
+Liño
+La
+Granito
+Lousa
+Goma
+Metal
+Cerámica
+Coiro
+Bambú
+Vidro
+Aluminio
+Silicona
+Cobre
+Latón
+Mármore
+Fibra de carbono
+Lona
+Cortiza
+Xute
+Vimbio
+Palla
+Papel
+Cartón
+Poliéster
+Nailon
+Viscosa
+Seda
+Caxemira
+Feltro
+Neopreno
+Porcelana
+Barro
+Estaño
+Prata
+Ouro
+Azabache
+Bronce
+Ferro
+Titanio
+Zinc
+Resina
+Espuma
+Espuma viscoelástica
+Fibra de vidro
+Contrachapado
+Melamina
+Terracota
+Pedra

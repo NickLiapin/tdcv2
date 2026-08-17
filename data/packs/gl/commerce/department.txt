@@ -1,0 +1,54 @@
+---
+description: Retail department, in Galician.
+locale: gl
+---
+Libros
+Filmes
+Música
+Videoxogos
+Electrónica
+Informática
+Fogar
+Xardín
+Ferramentas
+Alimentación
+Peixaría
+Carnizaría
+Panadaría
+Adega
+Saúde
+Beleza
+Perfumaría
+Xoguetes
+Nenos
+Bebé
+Roupa
+Calzado
+Xoiaría
+Reloxaría
+Deportes
+Aire libre
+Automoción
+Industrial
+Oficina
+Papelaría
+Mascotas
+Mobles
+Electrodomésticos
+Ferraxaría
+Bricolaxe
+Iluminación
+Téxtil fogar
+Menaxe
+Limpeza
+Óptica
+Farmacia
+Floraría
+Viaxes
+Telefonía
+Instrumentos musicais
+Arte
+Antigüidades
+Segunda man
+Alugueiro
+Servizos

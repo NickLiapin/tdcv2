@@ -1,0 +1,39 @@
+---
+description: Musical instrument, in Galician. The head is the Galician traditional set: the GAITA GALEGA is the mouth-blown bagpipe with a conical chanter and one to three drones, the PANDEIREITA the square-frame tambourine played by women in threes, the ZANFONA the hurdy-gurdy, the REQUINTA a small transverse flute, and the CUNCHAS scallop shells scraped as a rhythm instrument - which is exactly what it sounds like.
+locale: gl
+---
+Gaita galega
+Pandeireta
+Pandeiro
+Pandeireita
+Tamboril
+Bombo
+Zanfona
+Requinta
+Frauta traveseira
+Charrasco
+Cunchas
+Culleres
+Ferriños
+Bouzouki
+Guitarra
+Guitarra eléctrica
+Baixo
+Violín
+Viola
+Violoncelo
+Contrabaixo
+Arpa
+Piano
+Acordeón
+Órgano
+Trompeta
+Trombón
+Saxofón
+Clarinete
+Óboe
+Fagot
+Frauta
+Batería
+Percusión
+Sintetizador

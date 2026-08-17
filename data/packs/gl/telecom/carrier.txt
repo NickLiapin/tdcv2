@@ -1,0 +1,30 @@
+---
+description: Mobile or broadband operator available in Galicia. Brand names are NOT translated. R is the one that matters locally: R Cable is the Galician operator, built as Galicia's own cable network, and it holds a share in Galicia it holds nowhere else in Spain - a telecom list for this locale without R is describing Madrid.
+locale: gl
+---
+R
+Movistar
+Vodafone
+Orange
+Yoigo
+MásMóvil
+Digi
+Pepephone
+Lowi
+O2
+Simyo
+Jazztel
+Amena
+Euskaltel
+Telecable
+Finetwork
+Avatel
+Adamo
+Lyca Mobile
+Llamaya
+Hits Mobile
+República Móvil
+Fibratel
+Onmovil
+Aire Networks
+Telecom Castilla

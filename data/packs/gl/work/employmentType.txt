@@ -1,0 +1,15 @@
+---
+description: Employment type, in Galician, using the categories Spanish labour law actually recognises: contrato indefinido, contrato temporal, fixo descontinuo (a permanent contract worked only in season, which is the normal form in canning and tourism and has no English equivalent), and autonomo for the self-employed.
+locale: gl
+---
+Contrato indefinido
+Contrato temporal
+Fixo descontinuo
+Media xornada
+Xornada completa
+Autónomo
+Bolseiro
+Prácticas
+Interino
+Obra e servizo
+Traballo de tempada

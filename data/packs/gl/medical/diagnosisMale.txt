@@ -1,0 +1,24 @@
+---
+description: Diagnosis restricted to male patients, in Galician. Kept beside person/male/diagnosis.txt because some configs address it here.
+locale: gl
+---
+Hiperplasia benigna de próstata
+Cancro de próstata
+Prostatite
+Disfunción eréctil
+Hipogonadismo masculino
+Varicocele
+Hidrocele
+Fimose
+Balanite
+Epididimite
+Orquite
+Torsión testicular
+Cancro de testículo
+Criptorquidia
+Xinecomastia
+Enfermidade de Peyronie
+Azoospermia
+Esterilidade masculina
+Uretrite
+Cancro de pene

@@ -1,0 +1,29 @@
+---
+description: Gemstone, in Galician. AZABACHE - jet - is first and is genuinely Galician: the azabacheiros of Santiago have carved it into pilgrim badges and figas since the Middle Ages, their guild street still exists beside the cathedral, and it is the one stone with a Galician trade attached to it.
+locale: gl
+---
+Azabache
+Cuarzo
+Cuarzo rosa
+Ametista
+Diamante
+Rubí
+Zafiro
+Esmeralda
+Topacio
+Ópalo
+Turquesa
+Xade
+Granate
+Peridoto
+Aguamariña
+Turmalina
+Lapislázuli
+Malaquita
+Ónice
+Ágata
+Xaspe
+Ámbar
+Coral
+Perla
+Nácar

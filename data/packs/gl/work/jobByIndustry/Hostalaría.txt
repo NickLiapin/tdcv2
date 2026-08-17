@@ -1,0 +1,19 @@
+---
+description: Job titles in Hostalaría, in Galician. Coherent child of work/industryCoherent.txt.
+locale: gl
+---
+Cociñeiro
+Cociñeira
+Segundo de cociña
+Pinche
+Camareiro
+Camareira
+Barman
+Sumiller
+Pulpeira
+Reposteiro
+Recepcionista de hotel
+Gobernanta
+Director de hotel
+Guía turístico
+Hospitaleiro de albergue

@@ -1,0 +1,16 @@
+---
+address: latvia.geo.valstspilseta
+description: The ten valstspilsētas — the cities the Administratīvo teritoriju un apdzīvoto vietu likums names as state cities — weighted by population at 1 January 2026. This is the Latvian fact most often reported wrongly abroad, including in summaries of the 2021 reform: there are TEN valstspilsētas but only SEVEN of them are local governments. Rīga, Daugavpils, Jelgava, Jūrmala, Liepāja, Rēzekne and Ventspils are administrative territories in their own right and appear in no novads. Jēkabpils, Ogre and Valmiera hold the same valstspilsēta title but are territorial units INSIDE Jēkabpils novads, Ogres novads and Valmieras novads — Ogre was raised to valstspilsēta by the same 2020 law that put it inside a novads. So "valstspilsēta" is a status, not a tier of government, and a schema that treats it as the top of the address hierarchy will place three of these ten wrongly. The seven independent ones plus the 35 novadi are Latvia's 42 local governments. Source: Latvijas administratīvais iedalījums, "Septiņām no desmit valstspilsētām ... ir noteikts atsevišķas administratīvās teritorijas statuss ... Jēkabpils, Ogre un Valmiera ir attiecīgo novadu teritoriālā iedalījuma vienības".
+weighted: true
+locale: lv
+---
+Rīga,588911
+Daugavpils,77486
+Liepāja,66746
+Jelgava,54408
+Jūrmala,52926
+Ventspils,32479
+Rēzekne,25978
+Valmiera,22746
+Ogre,22499
+Jēkabpils,20685

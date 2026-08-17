@@ -1,0 +1,14 @@
+---
+description: Dishes of Portuguesa cuisine, named in Galician. Coherent child of food/cuisine.txt.
+locale: gl
+---
+Bacallau á Braga
+Caldo verde
+Francesiña
+Pasteis de nata
+Arroz de marisco
+Cataplana
+Alheira
+Sardiñas asadas
+Bifana
+Arroz doce

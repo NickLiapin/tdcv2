@@ -1,0 +1,41 @@
+---
+description: Technical noun in Galician.
+locale: gl
+---
+controlador
+protocolo
+largura de banda
+panel
+microchip
+programa
+porto
+tarxeta
+matriz
+interface
+sistema
+sensor
+devasa
+disco duro
+píxel
+alarma
+fluxo
+monitor
+aplicación
+transmisor
+bus
+circuíto
+condensador
+base de datos
+canalización
+servidor
+cliente
+nodo
+cluster
+contedor
+rexistro
+caché
+cola
+fío
+proceso
+memoria
+núcleo

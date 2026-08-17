@@ -1,0 +1,8 @@
+---
+description: Gender, in Galician. Galician has two grammatical genders and no neuter, so 'non binario' and 'prefire non dicilo' are phrases rather than single words - there is no third form to inflect.
+locale: gl
+---
+Home
+Muller
+Non binario
+Prefire non dicilo

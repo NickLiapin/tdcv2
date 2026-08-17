@@ -1,0 +1,12 @@
+---
+description: Dishes of Francesa cuisine, named in Galician. Coherent child of food/cuisine.txt.
+locale: gl
+---
+Coq au vin
+Boeuf bourguignon
+Ratatouille
+Croissant
+Quiche lorraine
+Bouillabaisse
+Crepes
+Cassoulet

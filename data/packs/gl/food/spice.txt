@@ -1,0 +1,34 @@
+---
+description: Spice or culinary herb, named in Galician. Galician cooking is not heavily spiced and the working set is short - pemento doce, loureiro, allo, perexil and salsa do the vast majority of the work - so the long tail here is the imported cabinet rather than everyday use.
+locale: gl
+---
+Pemento doce
+Pemento picante
+Pementa negra
+Pementa branca
+Loureiro
+Perexil
+Ourego
+Tomiño
+Romeu
+Salvia
+Menta
+Herbaboa
+Albahaca
+Estragón
+Eneldo
+Cebolino
+Comiño
+Cilantro
+Canela
+Cravo
+Noz moscada
+Azafrán
+Xenxibre
+Cardamomo
+Curcuma
+Anís
+Fiúncho
+Mostaza
+Sésamo
+Vainilla

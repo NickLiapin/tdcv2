@@ -1,0 +1,15 @@
+---
+description: Shipping status, in Galician.
+locale: gl
+---
+Etiqueta creada
+En tránsito
+En reparto
+Entregado
+Incidencia
+Devolto ao remitente
+Agardando recollida
+Atrasado
+En aduana
+Extraviado
+Entrega fallida

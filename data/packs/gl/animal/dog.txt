@@ -1,0 +1,29 @@
+---
+description: Dog breed. Breed names are international, but the first is a GALICIAN breed found essentially nowhere else: the CAN DE PALLEIRO, the yard-and-herding dog of the Galician smallholding, on the Xunta's register of native breeds and pulled back from near-extinction in the 1990s. PODENGO, GALGO ESPANOL and MASTIN are Iberian rather than specifically Galician.
+locale: gl
+---
+Can de palleiro
+Pastor alemán
+Labrador retriever
+Golden retriever
+Bulldog francés
+Bulldog inglés
+Caniche
+Beagle
+Rottweiler
+Teckel
+Bóxer
+Husky siberiano
+Gran danés
+Dóberman
+Pastor australiano
+Border collie
+Chihuahua
+Shih tzu
+Pomerania
+Corgi
+Boiadeiro de Berna
+Podengo
+Galgo español
+Mastín
+Pastor belga

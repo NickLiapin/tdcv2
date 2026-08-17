@@ -1,0 +1,5 @@
+---
+description: Capital of Andorra as Galician names it. Coherent child of geo/country.txt.
+locale: gl
+---
+Andorra a Vella

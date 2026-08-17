@@ -1,0 +1,21 @@
+---
+description: Video game genre, in Galician.
+locale: gl
+---
+Acción
+Aventura
+Rol
+Estratexia
+Simulación
+Deportes
+Quebracabezas
+Disparos
+Plataformas
+Carreiras
+Loita
+Supervivencia
+Mundo aberto
+Multixogador masivo
+Roguelike
+Terror
+Musical

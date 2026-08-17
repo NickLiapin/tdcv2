@@ -1,0 +1,11 @@
+---
+description: Number of people in a household. Galicia's rural settlement is dispersed across some 30000 named places and the traditional unit is the casa, so single-person and two-person households dominate the real distribution; this list holds the buckets, not the shares.
+locale: gl
+---
+1
+2
+3
+4
+5
+6
+7 ou máis

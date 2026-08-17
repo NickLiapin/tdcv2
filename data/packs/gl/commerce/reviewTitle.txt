@@ -1,0 +1,30 @@
+---
+description: Customer review headline, in Galician.
+locale: gl
+---
+Produto excelente!
+Moi recomendable
+Non paga a pena
+Superou as expectativas
+Correcto sen máis
+Volvería mercalo
+Decepcionante
+Calidade excelente
+Rompeu axiña
+Perfecto polo prezo
+Mellor do que agardaba
+Non o recomendo
+Encántame!
+Un pouco caro
+Exactamente como se describe
+Chegou moi rápido
+Envío lentísimo
+Bo produto, mal envío
+Relación calidade-prezo inmellorable
+Non o repetiría
+Xusto o que buscaba
+Serve para o seu, nada máis
+Moi bonito
+Fallou ao mes
+Atención ao cliente impecable
+Volvería a esta tenda

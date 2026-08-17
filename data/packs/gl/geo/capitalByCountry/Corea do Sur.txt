@@ -1,0 +1,5 @@
+---
+description: Capital of Corea do Sur as Galician names it. Coherent child of geo/country.txt.
+locale: gl
+---
+Seúl

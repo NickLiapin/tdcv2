@@ -1,0 +1,21 @@
+---
+description: Job titles in Construción, in Galician. Coherent child of work/industryCoherent.txt.
+locale: gl
+---
+Albanel
+Canteiro
+Carpinteiro
+Electricista
+Fontaneiro
+Soldador
+Pintor
+Encofrador
+Ferrallista
+Tellador
+Cristaleiro
+Aparellador
+Arquitecto
+Enxeñeiro civil
+Xefe de obra
+Topógrafo
+Operador de guindastre

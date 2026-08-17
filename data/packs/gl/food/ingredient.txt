@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient, named in Galician. UNTO is the one a translator gets wrong: it is cured pork fat, kept hung and rancid on purpose, and a spoonful of it is what makes caldo galego taste of Galicia rather than of vegetable soup. Pemento doce and pemento picante are the two paprikas that dress polbo a feira. Fariña de millo is maize flour, the basis of broa, and is not wheat flour.
+locale: gl
+---
+Fariña
+Fariña de millo
+Fariña de centeo
+Pan
+Broa
+Azucre
+Sal
+Sal groso
+Manteiga
+Unto
+Touciño
+Lardo
+Ovos
+Leite
+Nata
+Queixo
+Iogur
+Aceite de oliva
+Vinagre
+Pemento doce
+Pemento picante
+Pementa negra
+Cebola
+Allo
+Perexil
+Loureiro
+Tomate
+Pataca
+Arroz
+Lentellas
+Garavanzos
+Fabas
+Mel
+Fermento
+Caldo de peixe
+Caldo de galiña
+Viño branco
+Viño tinto
+Augardente
+Azafrán

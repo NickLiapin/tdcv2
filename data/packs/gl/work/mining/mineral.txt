@@ -1,0 +1,23 @@
+---
+description: Mineral extracted, in Galician. Lousa (roofing slate) heads the list because Galicia produces a large share of the world's roofing slate, and volframio (tungsten) is here because the Galician wolfram mines were fought over by both sides in the Second World War.
+locale: gl
+---
+Lousa
+Granito
+Cuarzo
+Volframio
+Estaño
+Ouro
+Prata
+Cobre
+Chumbo
+Cinc
+Ferro
+Caolín
+Feldespato
+Mica
+Talco
+Magnesita
+Area
+Carbón
+Lignito

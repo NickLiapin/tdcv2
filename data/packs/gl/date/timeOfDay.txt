@@ -1,0 +1,13 @@
+---
+description: Part of the day in Galician. Galician cuts the evening in two and the extra cut is real rather than stylistic: the tarde runs to about sunset, and the seran is the stretch after it - historically the gathering at which a household worked, talked and sang after the day's labour, which is why seran also means an evening entertainment. Boas tardes and boas noites are the greetings; there is no separate greeting for the seran. Madrugada is the small hours before dawn and is a noun, not a phrase.
+locale: gl
+---
+madrugada
+amencer
+mañá
+mediodía
+tarde
+serán
+solpor
+noite
+medianoite

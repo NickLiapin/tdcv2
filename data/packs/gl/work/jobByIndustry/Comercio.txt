@@ -1,0 +1,19 @@
+---
+description: Job titles in Comercio, in Galician. Coherent child of work/industryCoherent.txt.
+locale: gl
+---
+Dependente
+Dependenta
+Encargado de tenda
+Caixeiro
+Repoñedor
+Xefe de vendas
+Comercial
+Escaparatista
+Xestor de compras
+Almaceneiro
+Atención ao cliente
+Panadeiro
+Carniceiro
+Peixeiro
+Froiteiro

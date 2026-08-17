@@ -1,0 +1,11 @@
+---
+description: Dishes of Estadounidense cuisine, named in Galician. Coherent child of food/cuisine.txt.
+locale: gl
+---
+Hamburguesa con queixo
+Costelas á barbacoa
+Macarróns con queixo
+Ás búfalo
+Crema de ameixas
+Torta de mazá
+Pan de millo

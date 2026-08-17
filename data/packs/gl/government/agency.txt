@@ -1,0 +1,27 @@
+---
+description: KIND of public body, in the words Galician uses for them. GENERIC vocabulary, not one administration's organisation chart: a concello is a town council, a deputacion the provincial body, a consellaria a department of the regional government, a mancomunidade a joint body of several councils, and a parroquia the sub-municipal unit that Galicia uniquely still uses for administration. The individually NAMED bodies - the Xunta de Galicia, the Parlamento de Galicia, the Valedor do Pobo, the Spanish ministries - belong in the Spain country pack, together with everything attached to them.
+locale: gl
+---
+Concello
+Deputación
+Consellaría
+Dirección Xeral
+Secretaría Xeral
+Delegación territorial
+Mancomunidade
+Área metropolitana
+Comarca
+Parroquia
+Xunta de veciños
+Comunidade de montes
+Confraría de pescadores
+Autoridade portuaria
+Servizo de saúde
+Centro de saúde
+Servizo de emerxencias
+Policía local
+Protección civil
+Rexistro civil
+Oficina de emprego
+Axencia tributaria
+Servizo de estatística

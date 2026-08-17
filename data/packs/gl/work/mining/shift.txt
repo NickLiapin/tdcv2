@@ -1,0 +1,9 @@
+---
+description: Mining shift, in Galician.
+locale: gl
+---
+Quenda de mañá
+Quenda de tarde
+Quenda de noite
+Quenda partida
+Fin de semana

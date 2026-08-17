@@ -1,0 +1,23 @@
+---
+description: Insect, in Galician.
+locale: gl
+---
+Formiga
+Abella
+Abesouro
+Avespa
+Vespa velutina
+Bolboreta
+Couza
+Escaravello
+Xoaniña
+Libeliña
+Saltón
+Grilo
+Cigarra
+Vagalume
+Mosca
+Mosquito
+Pulga
+Piollo
+Térmite

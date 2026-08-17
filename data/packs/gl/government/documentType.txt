@@ -1,0 +1,21 @@
+---
+description: KIND of official document, named in Galician. These are the kinds; the NUMBERS, formats and issuing registries are NOT here and belong to the Spain country pack - no DNI or NIE number layout, no NIF, no Seguridade Social number, no passport series, no postcode, no province, no bank code. Galicia is in Spain and Spain owns every one of those. What is here is the vocabulary, including the two Galician-specific ones: the CREDENCIAL DO PEREGRINO, stamped along the Camino, and the COMPOSTELA, the Latin certificate issued in Santiago on arrival.
+locale: gl
+---
+Documento de identidade
+Pasaporte
+Permiso de condución
+Certificado de nacemento
+Certificado de matrimonio
+Certificado de defunción
+Certificado de empadroamento
+Tarxeta sanitaria
+Vida laboral
+Declaración da renda
+Licenza de obra
+Licenza de actividade
+Permiso de residencia
+Visado
+Título académico
+Credencial do peregrino
+Compostela

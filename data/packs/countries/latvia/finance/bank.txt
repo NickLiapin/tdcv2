@@ -1,17 +1,20 @@
 ---
 address: latvia.finance.bank
-description: Credit institutions licensed in Latvia (official Latvian names). Latvia's banking sector was cut roughly in half after the 2018 collapse of ABLV Bank and the wind-down of the non-resident deposit business, so this list is short by regional standards and deliberately excludes the well-known names that no longer trade — ABLV, Parex, Latvijas Krājbanka, Baltic International Bank. Swedbank Latvia operates under the Swedbank Baltics licence.
+description: Every credit institution in Latvijas Banka's Finanšu tirgus dalībnieku reģistrs — the ten banks licensed in Latvia, then the five branches of credit institutions licensed in other member states. Names are as the register writes them, quotation marks and all: Latvian company law puts the trading name in quotes inside the legal form, so the register really does hold `Akciju sabiedrība "Citadele banka"` and `"Swedbank" AS`, and stripping the quotes to tidy the string produces a name that matches nothing. Fifteen is a short list by regional standards and the shortness is the history: the 2018 collapse of ABLV Bank and the wind-down of the non-resident deposit business roughly halved the sector, and ABLV, Parex, Latvijas Krājbanka and Baltic International Bank are all gone — they are deliberately absent here, however familiar the names. Movement since is small but real: AS INDEXO Banka took the first new Latvian banking licence in years on 21 May 2024, and AS Magnetiq Bank is the former LPB Bank, renamed on 19 April 2024 and still registered under the old name at SWIFT. Latvijas Banka is NOT in this list — it is the central bank, not somewhere a customer holds an account, and it appears in latvia.government.agency instead. The register's own registration numbers were used to verify latvia.docs.registracijasNumurs: all fifteen satisfy the modulus-11 rule, and their leading digits are 4 and 5 only, never 9, because 9 belongs to state bodies and associations. Source: Latvijas Banka, Finanšu tirgus dalībnieku reģistrs, segment Kredītiestādes.
 locale: lv
 ---
-Swedbank
-AS SEB banka
-AS Citadele banka
-Luminor Bank AS Latvijas filiāle
-AS Rietumu Banka
+"Swedbank" AS
+AS "SEB banka"
+Akciju sabiedrība "Citadele banka"
+Akciju sabiedrība "Rietumu Banka"
 BluOr Bank AS
 Signet Bank AS
-AS Industra Bank
-Magnetiq Bank AS
-AS Indexo Banka
-AS Reģionālā investīciju banka
-Latvijas Banka
+AS "Industra Bank"
+AS Magnetiq Bank
+Akciju sabiedrība "Reģionālā investīciju banka"
+AS INDEXO Banka
+Luminor Bank AS Latvijas filiāle
+AS SEB Pank Latvijas filiāle
+Bigbank AS Latvijas filiāle
+OP Corporate Bank plc filiāle Latvijā
+TF Bank AB Latvijas filiāle

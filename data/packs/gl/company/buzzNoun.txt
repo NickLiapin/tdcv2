@@ -1,0 +1,64 @@
+---
+description: Corporate buzzword noun in Galician.
+locale: gl
+---
+sinerxía
+paradigma
+ecosistema
+marco
+canalización
+fluxo de traballo
+arquitectura
+infraestrutura
+plataforma
+solución
+estratexia
+folla de ruta
+iniciativa
+metodoloxía
+ancho de banda
+aliñamento
+panca
+rendemento
+valor engadido
+entregable
+punto de contacto
+referencia
+fito
+compromiso
+orquestración
+integración
+migración
+transformación
+optimización
+escalabilidade
+interoperabilidade
+gobernanza
+cumprimento
+resiliencia
+observabilidade
+telemetría
+cadencia
+cota mental
+vertical
+pista de despegue
+palanca
+modelo
+prototipo
+iteración
+despregamento
+monitorización
+indicador
+métrica
+cadro de mando
+obxectivo
+resultado clave
+proposta de valor
+vantaxe competitiva
+cuota de mercado
+segmento
+nicho
+conversión
+retención
+fidelización
+adquisición

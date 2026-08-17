@@ -1,0 +1,11 @@
+---
+description: Dishes of Turca cuisine, named in Galician. Coherent child of food/cuisine.txt.
+locale: gl
+---
+Kebab
+Baklava
+Meze
+Lahmacun
+Dolma
+Kofte
+Pide

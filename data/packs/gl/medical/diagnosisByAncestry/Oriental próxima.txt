@@ -1,0 +1,9 @@
+---
+description: Conditions with raised prevalence in the Oriental próxima ancestry group, in Galician. Coherent child of medical/ancestry.txt.
+locale: gl
+---
+Febre mediterránea familiar
+Beta-talasemia
+Deficiencia de G6PD
+Enfermidade de Behçet
+Sordeira conxénita non sindrómica

@@ -1,0 +1,42 @@
+---
+description: Symptom, in Galician.
+locale: gl
+---
+Febre
+Dor de cabeza
+Cansazo
+Náuseas
+Vómitos
+Diarrea
+Estrinximento
+Dor abdominal
+Dor torácica
+Falta de aire
+Tose
+Dor de gorxa
+Rinorrea
+Conxestión nasal
+Mareo
+Visión borrosa
+Dor muscular
+Dor articular
+Lumbalxia
+Erupción cutánea
+Proído
+Inchazo
+Adormecemento
+Formigamento
+Palpitacións
+Perda de apetito
+Perda de peso
+Suores nocturnas
+Calafríos
+Espirros
+Ardor de estómago
+Distensión abdominal
+Cambras
+Debilidade
+Confusión
+Insomnio
+Sangrado nasal
+Zunido de oídos

@@ -1,0 +1,9 @@
+---
+description: Conditions with raised prevalence in the Sudasiática ancestry group, in Galician. Coherent child of medical/ancestry.txt.
+locale: gl
+---
+Diabetes mellitus tipo 2
+Cardiopatía isquémica precoz
+Beta-talasemia
+Deficiencia de G6PD
+Deficiencia de vitamina D

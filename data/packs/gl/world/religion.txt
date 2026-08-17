@@ -1,0 +1,25 @@
+---
+description: Religion or belief, in Galician.
+locale: gl
+---
+Catolicismo
+Cristianismo ortodoxo
+Protestantismo
+Evanxelismo
+Testemuñas de Xehová
+Islam
+Xudaísmo
+Hinduísmo
+Budismo
+Sikhismo
+Xainismo
+Taoísmo
+Confucianismo
+Xintoísmo
+Bahaísmo
+Relixións tradicionais
+Paganismo
+Agnosticismo
+Ateísmo
+Espiritualidade non relixiosa
+Sen relixión

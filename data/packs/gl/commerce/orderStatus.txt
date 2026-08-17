@@ -1,0 +1,18 @@
+---
+description: Order status, in Galician.
+locale: gl
+---
+Pendente
+En proceso
+Confirmado
+Enviado
+En reparto
+Entregado
+Cancelado
+Devolto
+Reembolsado
+En espera
+Sen existencias
+Fallido
+Agardando pagamento
+Preparando envío

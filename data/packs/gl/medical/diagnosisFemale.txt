@@ -1,0 +1,30 @@
+---
+description: Diagnosis restricted to female patients, in Galician. Kept beside person/female/diagnosis.txt because some configs address it here.
+locale: gl
+---
+Endometriose
+Síndrome de ovario poliquístico
+Miomas uterinos
+Cancro de mama
+Cancro de ovario
+Cancro de colo do útero
+Cancro de endometrio
+Vaxinose bacteriana
+Candidíase vaxinal
+Enfermidade inflamatoria pélvica
+Dismenorrea
+Amenorrea
+Menorraxia
+Menopausa
+Perimenopausa
+Prolapso uterino
+Quiste ovárico
+Mastite
+Mastopatía fibroquística
+Preeclampsia
+Diabetes xestacional
+Hiperémese gravídica
+Aborto espontáneo
+Embarazo ectópico
+Depresión posparto
+Vaxinite atrófica

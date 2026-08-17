@@ -1,0 +1,30 @@
+---
+description: Book genre, in Galician.
+locale: gl
+---
+Narrativa
+Ensaio
+Novela
+Novela negra
+Misterio
+Suspense
+Romántica
+Ciencia ficción
+Fantasía
+Terror
+Biografía
+Memorias
+Historia
+Autoaxuda
+Poesía
+Teatro
+Literatura infantil
+Literatura xuvenil
+Novela histórica
+Aventuras
+Filosofía
+Viaxes
+Libro de receitas
+Novela gráfica
+Banda deseñada
+Distopía

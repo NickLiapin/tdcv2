@@ -1,0 +1,10 @@
+---
+description: Playing positions in Remo, in Galician. Coherent child of sport/sportCoherent.txt.
+locale: gl
+---
+Patrón
+Proel
+Bogavante
+Remeiro de centro
+Estribor
+Babor

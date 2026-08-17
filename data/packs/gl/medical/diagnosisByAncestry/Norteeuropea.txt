@@ -1,0 +1,11 @@
+---
+description: Conditions with raised prevalence in the Norteeuropea ancestry group, in Galician. Coherent child of medical/ancestry.txt.
+locale: gl
+---
+Fibrose quística
+Hemocromatose hereditaria
+Deficiencia de alfa-1-antitripsina
+Enfermidade celíaca
+Esclerose múltiple
+Fenilcetonuria
+Melanoma

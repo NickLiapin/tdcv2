@@ -1,0 +1,13 @@
+---
+description: Diagnoses commonly managed by Endocrinoloxía, in Galician. Coherent child of medical/specialtyCoherent.txt.
+locale: gl
+---
+Diabetes mellitus tipo 2
+Diabetes mellitus tipo 1
+Hipotiroidismo
+Hipertiroidismo
+Tiroidite de Hashimoto
+Bocio
+Obesidade
+Osteoporose
+Síndrome metabólica

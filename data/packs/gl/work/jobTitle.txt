@@ -1,0 +1,225 @@
+---
+description: Job title in Galician. Many are listed in BOTH grammatical genders (cocineiro / cocineira, mestre / mestra, avogado / avogada) because Galician marks the gender of a job title and a record whose gender column says Muller but whose job says Cocineiro is ungrammatical, not merely unusual. A number of these trades exist nowhere else and are not translations: a PERCEBEIRO gathers goose barnacles off wave-hit rock, a MARISCADORA works the intertidal flats under licence, a REDEIRA mends nets on the quay, a BATEEIRO farms mussels on a raft, a PULPEIRA cooks and serves octopus at fairs, a PALILLEIRA makes bobbin lace at Camarinas, an AZABACHEIRO carves jet for Santiago pilgrims, a ZOQUEIRO makes wooden clogs, and the AFIADOR - the itinerant knife grinder of Ourense - is proverbial enough that Galicians abroad are still called by the name.
+locale: gl
+---
+Mariñeiro
+Patrón de pesca
+Armador
+Percebeiro
+Mariscadora
+Redeira
+Redeiro
+Bateeiro
+Peixeira
+Operario de lonxa
+Técnico de acuicultura
+Biólogo mariño
+Mecánico naval
+Inspector de pesca
+Conserveiro
+Estibador
+Mergullador profesional
+Enxeñeiro de software
+Analista de datos
+Científico de datos
+Administrador de sistemas
+Enxeñeiro de redes
+Deseñador UX
+Xefe de produto
+Técnico de soporte
+Analista de seguridade
+Arquitecto de nube
+Desenvolvedor móbil
+Programador web
+Administrador de bases de datos
+Enxeñeiro de intelixencia artificial
+Médico de familia
+Pediatra
+Cirurxián
+Anestesista
+Enfermeira
+Enfermeiro
+Matrona
+Farmacéutico
+Fisioterapeuta
+Terapeuta ocupacional
+Odontólogo
+Óptico
+Veterinario
+Auxiliar de enfermaría
+Celador
+Técnico de laboratorio
+Radiólogo
+Psicólogo clínico
+Mestre de infantil
+Mestre de primaria
+Profesor de secundaria
+Catedrático
+Profesor universitario
+Orientador escolar
+Bibliotecario
+Director de centro
+Educador social
+Profesor de galego
+Logopeda
+Monitor de comedor
+Titor
+Investigador
+Contable
+Analista financeiro
+Auditor
+Actuario
+Asesor fiscal
+Xestor de banca
+Director de oficina
+Analista de riscos
+Corredor de seguros
+Economista
+Interventor
+Tesoureiro
+Albanel
+Canteiro
+Carpinteiro
+Electricista
+Fontaneiro
+Soldador
+Pintor
+Encofrador
+Ferrallista
+Tellador
+Cristaleiro
+Aparellador
+Arquitecto
+Enxeñeiro civil
+Xefe de obra
+Topógrafo
+Operador de guindastre
+Operario de produción
+Mecánico industrial
+Torneiro
+Fresador
+Matriceiro
+Xefe de planta
+Técnico de calidade
+Enxeñeiro industrial
+Electromecánico
+Caldeireiro
+Operador de máquina
+Encargado de quenda
+Técnico de mantemento
+Dependente
+Dependenta
+Encargado de tenda
+Caixeiro
+Repoñedor
+Xefe de vendas
+Comercial
+Escaparatista
+Xestor de compras
+Almaceneiro
+Atención ao cliente
+Panadeiro
+Carniceiro
+Peixeiro
+Froiteiro
+Cociñeiro
+Cociñeira
+Segundo de cociña
+Pinche
+Camareiro
+Camareira
+Barman
+Sumiller
+Pulpeira
+Reposteiro
+Recepcionista de hotel
+Gobernanta
+Director de hotel
+Guía turístico
+Hospitaleiro de albergue
+Condutor de camión
+Condutor de autobús
+Repartidor
+Taxista
+Maquinista
+Piloto
+Auxiliar de voo
+Controlador aéreo
+Capitán de barco
+Práctico de porto
+Carretilleiro
+Coordinador de loxística
+Xefe de tráfico
+Mensaxeiro
+Avogado
+Avogada
+Procurador
+Notario
+Xuíz
+Xuíza
+Fiscal
+Secretario xudicial
+Policía
+Garda civil
+Bombeiro
+Militar
+Traballador social
+Xornalista
+Fotógrafo
+Deseñador gráfico
+Tradutor
+Intérprete
+Corrector de textos
+Escritor
+Editor
+Músico
+Gaiteiro
+Actor
+Actriz
+Bailarín
+Bailarina
+Labrego
+Labrega
+Gandeiro
+Apicultor
+Viticultor
+Adegueiro
+Xardineiro
+Podador
+Silvicultor
+Madeireiro
+Serrador
+Ourive
+Azabacheiro
+Ceramista
+Palilleira
+Cesteiro
+Zoqueiro
+Afiador
+Canteiro de cruceiros
+Barbeiro
+Perruqueiro
+Esteticista
+Limpador
+Limpadora
+Vixiante de seguridade
+Conserxe
+Carteiro
+Funcionario
+Administrativo
+Recepcionista
+Secretario
+Arquiveiro
+Enxeñeiro de montes
+Enxeñeiro agrónomo
+Meteorólogo
+Xeólogo
+Arqueólogo
+Restaurador de arte
+Museólogo
+Socorrista
+Adestrador deportivo
+Árbitro
+Sacerdote
+Monxa
+Sancristán

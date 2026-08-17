@@ -1,0 +1,21 @@
+---
+description: Job titles in Pesca, in Galician. Coherent child of work/industryCoherent.txt.
+locale: gl
+---
+Mariñeiro
+Patrón de pesca
+Armador
+Percebeiro
+Mariscadora
+Redeira
+Redeiro
+Bateeiro
+Peixeira
+Operario de lonxa
+Técnico de acuicultura
+Biólogo mariño
+Mecánico naval
+Inspector de pesca
+Conserveiro
+Estibador
+Mergullador profesional

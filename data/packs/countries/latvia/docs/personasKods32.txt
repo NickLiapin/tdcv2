@@ -1,12 +1,15 @@
 ---
 address: latvia.docs.personasKods32
-description: Latvian personas kods, the dateless form issued since 1 July 2017 — 32NNNN-NNNNZ. Latvia stopped putting the birth date in the number and marked the break by opening every new code with 32, a day-of-month that cannot exist, so old and new can never be confused. Everything after the 32 is random: no birth date, no sex, no region. Everyone registered in the Population Register from that date holds this form, and holders of an old code may swap once, free, on request. The check digit rule is UNCHANGED from the pre-2017 form — the two are frequently published as different formulas, (1101 - S) mod 11 mod 10 versus (1 - S) mod 11 mod 10, but 1101 = 1 (mod 11) makes them the same function. Verified against the published number 328673-00679, and 328673-00677 is refused.
+description: Latvian personas kods, the dateless form issued since 1 July 2017 — 32NNNN-NNNNZ. Latvia stopped putting the birth date in the number and marked the break by opening every new code with 32, a day of the month that cannot exist, so old and new can never be confused by a reader or by a parser. Everything after the 32 is random: PMLP's own description is that the first digits are "32" and the rest are system-generated digits from 0 to 9 with no human involvement — no birth date, no sex, no region, no region-of-registration, nothing. Everyone entered in the Fizisko personu reģistrs from that date holds this form, and a holder of an old code may swap to one once in a lifetime, free, on request. Use this address when a record must NOT leak an age: that is what the form was created for, after years of argument that a birth-date-bearing identifier invited discrimination in hiring and in shops. Use latvia.docs.personasKodsPre2017 when the code must agree with a birth date elsewhere in the record, and latvia.docs.personasKods for a realistic mix of the two. The check digit rule is UNCHANGED from the pre-2017 form; the claim is not inferred here but taken from python-stdnum, whose validate() branches on the "32" prefix only to skip the birth-date check and then applies the identical calc_check_digit_pers(). Verified against its published vectors: 328673-00679 accepted, 328673-00677 refused, and every single-digit mutation of the valid one refused.
 generator: tdc
 locale: lv
 ---
 <sequence name="opaque"><gen type="regex" value="[0-9]{8}"/></sequence>
 <sequence name="kods"><compute>
   <let name="base"><concat><str v="32"/><field name="opaque"/></concat></let>
+  <!-- Z = (1101 - SUM(w*d)) mod 11 mod 10, w = 1,6,3,7,9,10,5,8,4,2. Identical to
+       stdnum's (1 + SUM(v*d)) mod 11 mod 10 with v = 10,5,8,4,2,1,6,3,7,9, since
+       1101 = 1 (mod 11) and v = -w (mod 11). -->
   <let name="sum"><reduce>
     <over><use name="base"/></over>
     <init><int v="0"/></init>

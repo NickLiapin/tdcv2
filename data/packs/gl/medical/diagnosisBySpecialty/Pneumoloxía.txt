@@ -1,0 +1,13 @@
+---
+description: Diagnoses commonly managed by Pneumoloxía, in Galician. Coherent child of medical/specialtyCoherent.txt.
+locale: gl
+---
+Asma
+Enfermidade pulmonar obstrutiva crónica
+Pneumonía
+Bronquite aguda
+Apnea obstrutiva do sono
+Tuberculose
+Fibrose pulmonar
+Embolia pulmonar
+Rinite alérxica

@@ -1,0 +1,16 @@
+---
+description: Ancestry population as CLINICAL GENETICS defines it - geographic descent used to set a prior on inherited-disease risk - named in Galician. These are NOT social race categories and must not be used as such. Parent of medical/diagnosisByAncestry; the child filenames must match these values character for character.
+locale: gl
+---
+Africana subsahariana
+Norteafricana
+Mediterránea
+Oriental próxima
+Norteeuropea
+Leste europea
+Xudía asquenací
+Sudasiática
+Asiática oriental
+Sueste asiático
+Indíxena americana
+Illas do Pacífico

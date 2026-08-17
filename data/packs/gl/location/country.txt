@@ -1,0 +1,198 @@
+---
+description: Country name as GALICIAN writes it. Galician TRANSLATES rather than borrows, and the results differ from the Castilian forms by much more than an accent: Alemana not Alemania, Xapon not Japon, Xamaica, Xordania, Exipto, Arxentina, Belxica, Camboxa, Nixer, Nixeria, Acerbaixan, Taxiquistan, Suiza not Suiza-with-z, Marrocos not Marruecos, Paises Baixos not Paises Bajos, Ucraina, Iemen. The letter X marks most of them and is the quickest test that this list is Galician and not Castilian with the accents moved. See geo/country.txt for the same names carrying population weights.
+locale: gl
+---
+Acerbaixán
+Afganistán
+Albania
+Alemaña
+Alxeria
+Andorra
+Angola
+Antiga e Barbuda
+Arabia Saudita
+Armenia
+Arxentina
+Australia
+Austria
+Bahamas
+Bahrain
+Bangladesh
+Barbados
+Belarús
+Belice
+Benín
+Bolivia
+Bosnia e Hercegovina
+Botswana
+Brasil
+Brunei
+Bulgaria
+Burkina Faso
+Burundi
+Bután
+Bélxica
+Cabo Verde
+Camboxa
+Camerún
+Canadá
+Chad
+Chile
+China
+Chipre
+Cidade do Vaticano
+Colombia
+Comores
+Corea do Norte
+Corea do Sur
+Costa Rica
+Costa do Marfil
+Croacia
+Cuba
+Dinamarca
+Dominica
+Ecuador
+El Salvador
+Emiratos Árabes Unidos
+Eritrea
+Eslovaquia
+Eslovenia
+España
+Estados Unidos
+Estonia
+Eswatini
+Etiopía
+Exipto
+Filipinas
+Finlandia
+Fixi
+Francia
+Gabón
+Gambia
+Ghana
+Granada
+Grecia
+Guatemala
+Guinea
+Guinea Ecuatorial
+Guinea-Bissau
+Güiana
+Haití
+Honduras
+Hungría
+Iemen
+Illas Marshall
+Illas Salomón
+India
+Indonesia
+Iraq
+Irlanda
+Irán
+Islandia
+Israel
+Italia
+Kazakhstán
+Kenya
+Kirguizistán
+Kiribati
+Kuwait
+Laos
+Lesoto
+Letonia
+Liberia
+Libia
+Liechtenstein
+Lituania
+Luxemburgo
+Líbano
+Macedonia do Norte
+Madagascar
+Malaisia
+Malawi
+Maldivas
+Malta
+Malí
+Marrocos
+Mauricio
+Mauritania
+Micronesia
+Moldavia
+Mongolia
+Montenegro
+Mozambique
+Myanmar
+México
+Mónaco
+Namibia
+Nauru
+Nepal
+Nicaragua
+Nixeria
+Noruega
+Nova Zelandia
+Níxer
+Omán
+Palau
+Palestina
+Panamá
+Papúa-Nova Guinea
+Paquistán
+Paraguai
+Países Baixos
+Perú
+Polonia
+Portugal
+Qatar
+Reino Unido
+República Centroafricana
+República Checa
+República Democrática do Congo
+República Dominicana
+República do Congo
+Romanía
+Ruanda
+Rusia
+Samoa
+San Cristovo e Nevis
+San Marino
+San Vicente e as Granadinas
+Santa Lucía
+Santo Tomé e Príncipe
+Senegal
+Serbia
+Serra Leoa
+Seychelles
+Singapur
+Siria
+Somalia
+Sri Lanka
+Sudáfrica
+Sudán
+Sudán do Sur
+Suecia
+Surinam
+Suíza
+Tailandia
+Taiwán
+Tanzania
+Taxiquistán
+Timor Leste
+Togo
+Tonga
+Trinidad e Tobago
+Tunisia
+Turkmenistán
+Turquía
+Tuvalu
+Ucraína
+Uganda
+Uruguai
+Uzbequistán
+Vanuatu
+Venezuela
+Vietnam
+Xamaica
+Xapón
+Xordania
+Zambia
+Zimbabwe

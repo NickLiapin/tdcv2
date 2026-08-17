@@ -1,0 +1,12 @@
+---
+description: Sport, in Galician, for coherent position drawing. REMO is here and it means TRAINEIRA rowing: the fixed-bench sea boats raced between the coastal towns from June to September, with a patron who steers standing and thirteen oars. It is the biggest spectator sport on the Galician coast after football and it exists nowhere else in the same form. HOCKEY SOBRE PATINS is here for the same reason - Galicia and Catalonia are the world's two strongholds of rink hockey. Parent of sport/positionBySport; child filenames must match these values character for character.
+locale: gl
+---
+Fútbol
+Baloncesto
+Balonmán
+Voleibol
+Rugby
+Hóckey sobre patíns
+Remo
+Fútbol sala

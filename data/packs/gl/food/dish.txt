@@ -1,0 +1,54 @@
+---
+description: Prepared dish as a Galician menu names it. The list is Galician-weighted rather than international: polbo a feira is octopus boiled in a copper pot, cut with scissors and dressed with paprika and oil, and it is served by a pulpeira at every fair; empanada is a flat two-crust pie, NOT the Argentine turnover of the same name; caldo galego is the everyday soup of greens, potato and white beans with unto; grelos are turnip tops and have no English name; a filloa is a crepe traditionally made with the blood of the winter pig; tarta de Santiago carries the cross of the Order of Santiago in icing sugar; and queimada is spirit burned with sugar and coffee beans while a conxuro is recited over it.
+locale: gl
+---
+Polbo á feira
+Empanada galega
+Caldo galego
+Lacón con grelos
+Cocido galego
+Pote galego
+Raxo con patacas
+Zorza
+Churrasco
+Pementos de Padrón
+Caldeirada de peixe
+Merluza á galega
+Rodaballo ao forno
+Bacallau á galega
+Ameixas á mariñeira
+Zamburiñas á grella
+Vieiras ao forno
+Mexillóns ao vapor
+Percebes cocidos
+Centola cocida
+Nécoras cocidas
+Navallas á prancha
+Berberechos ao vapor
+Ostras de Arcade
+Sardiñas asadas
+Xoubas fritas
+Empanada de bacallau
+Empanada de zamburiñas
+Empanada de xoubas
+Arroz con bogavante
+Androlla
+Botelo
+Lamprea á bordelesa
+Angulas
+Filloas
+Freixós
+Tarta de Santiago
+Bica
+Melindres
+Rosquillas
+Orellas de entroido
+Torta de Mondoñedo
+Queixo de tetilla
+Requeixo con mel
+Queimada
+Licor café
+Augardente
+Tortilla de patacas
+Croquetas de xamón
+Callos

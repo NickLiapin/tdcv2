@@ -1,0 +1,5 @@
+---
+description: Capital of Uruguai as Galician names it. Coherent child of geo/country.txt.
+locale: gl
+---
+Montevideo

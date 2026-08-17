@@ -1,0 +1,14 @@
+---
+description: Diagnoses commonly managed by Dermatoloxía, in Galician. Coherent child of medical/specialtyCoherent.txt.
+locale: gl
+---
+Psoríase
+Dermatite atópica
+Acne
+Rosácea
+Urticaria
+Melanoma
+Carcinoma basocelular
+Vitiligo
+Alopecia areata
+Micose cutánea

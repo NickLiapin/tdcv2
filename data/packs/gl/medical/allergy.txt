@@ -1,0 +1,26 @@
+---
+description: Allergen, in Galician.
+locale: gl
+---
+Penicilina
+Cacahuete
+Froitos secos
+Marisco
+Ovo
+Leite
+Soia
+Trigo
+Látex
+Pole
+Ácaros do po
+Pelo de animal
+Picadura de abella
+Aspirina
+Sulfamidas
+Iodo
+Sésamo
+Peixe
+Anisakis
+Níquel
+Pole de gramíneas
+Esporas de fungos

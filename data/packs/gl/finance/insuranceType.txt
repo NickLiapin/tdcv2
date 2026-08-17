@@ -1,0 +1,18 @@
+---
+description: Insurance type, in Galician.
+locale: gl
+---
+Saúde
+Automóbil
+Fogar
+Vida
+Alugueiro
+Viaxe
+Mascotas
+Invalidez
+Dental
+Óptica
+Responsabilidade civil
+Decesos
+Embarcación
+Agraria

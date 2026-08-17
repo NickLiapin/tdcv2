@@ -1,0 +1,42 @@
+---
+description: Bird, in Galician. GAIVOTA, CORVO MARIÑO and PARDELA are the everyday coastal birds and the first thing anyone sees on a Galician quay; the PITA DO MONTE is the capercaillie, now down to a handful of birds in the eastern mountains and a symbol of what Galician forestry has cost.
+locale: gl
+---
+Gaivota
+Corvo mariño
+Pardela
+Arao
+Mascato
+Píllara
+Garza
+Garza real
+Corvo
+Pega
+Gralla
+Pardal
+Ferreiriño
+Merlo
+Papuxa
+Rula
+Pomba
+Andoriña
+Vencello
+Cuco
+Bubela
+Peto
+Picapeixe
+Lavandeira
+Laverca
+Aguia
+Miñato
+Falcón
+Lagarteiro
+Bufo real
+Curuxa
+Moucho
+Pita do monte
+Perdiz
+Faisán
+Cisne
+Lavanco
+Cegoña

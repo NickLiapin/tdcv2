@@ -1,0 +1,29 @@
+---
+description: Property type in a Galician listing. PAZO, HORREO, REITORAL and CASA DE ALDEA are real categories on Galician property portals, not curiosities: a pazo is the granite manor house of the gentry and dozens are on the market at any time, a reitoral is a former priest's house, and a FINCA quoted in FERRADOS rather than square metres is the normal way rural land is advertised.
+locale: gl
+---
+Piso
+Ático
+Baixo
+Dúplex
+Estudio
+Apartamento
+Casa
+Casa de aldea
+Chalé
+Adosado
+Pareado
+Vivenda unifamiliar
+Pazo
+Reitoral
+Muíño rehabilitado
+Hórreo
+Finca
+Terreo
+Soar
+Nave industrial
+Local comercial
+Oficina
+Garaxe
+Rocho
+Edificio completo

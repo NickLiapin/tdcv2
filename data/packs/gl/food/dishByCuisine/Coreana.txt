@@ -1,0 +1,11 @@
+---
+description: Dishes of Coreana cuisine, named in Galician. Coherent child of food/cuisine.txt.
+locale: gl
+---
+Bibimbap
+Bulgogi
+Guiso de kimchi
+Japchae
+Tteokbokki
+Polo frito coreano
+Galbi

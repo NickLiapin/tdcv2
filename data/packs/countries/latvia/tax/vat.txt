@@ -1,27 +1,8 @@
 ---
 address: latvia.tax.vat
-description: Latvian PVN (pievienotās vērtības nodokļa) registration number — LV plus the payer's 11-digit number. Rewritten from the stub that shipped here, which declared "no checksum" and drew eleven free digits; that is not true of Latvia. For a legal entity the eleven digits are its vienotais reģistrācijas numurs and carry a real check — weights 9,1,4,8,3,10,2,5,7,6,1 over all eleven, weighted sum 3 modulo 11 — so a random eleven-digit LV VAT number is rejected by any validator about ten times out of eleven. Verified against LV40003521600, and LV40003521601 is refused. A sole trader registers under their own personas kods instead, which is a different arithmetic; latvia.docs.personasKods produces that shape.
+description: Latvian PVN (pievienotās vērtības nodokļa) registration number — LV plus the payer's 11 digits. Latvia issues no separate VAT identifier: for a legal entity the eleven digits ARE its vienotais reģistrācijas numurs, so this address draws latvia.docs.registracijasNumurs and prefixes it, and the two can never drift apart. That means the VAT number carries the registration number's real check — weights 9,1,4,8,3,10,2,5,7,6,1 over all eleven, weighted sum 3 modulo 11 — and a random eleven-digit LV VAT number is rejected by any correct validator about ten times out of eleven. This file was originally a stub declaring "no checksum" and drawing eleven free digits; that was simply untrue of Latvia and is the reason it was rewritten. Two traps remain for anyone reusing an EU VAT routine. Registration is not automatic: a Latvian company holds its reģistrācijas numurs from incorporation but only gets a PVN number once it registers for VAT, so a valid company with no VAT number is normal and not a data error. And a sole trader registers under their own personas kods instead, which is a DIFFERENT arithmetic — python-stdnum's validate() branches on whether the first digit exceeds 3 precisely to choose between the two rules. Verified against the published vector LV40003521600, accepted; LV40003521601, refused; and against fifteen real Latvian company numbers from Latvijas Banka's register, all accepted.
 generator: tdc
 locale: lv
 ---
-<sequence name="base"><gen type="regex" value="[459][0-9]{9}"/></sequence>
-<sequence name="check"><compute><result>
-  <mod>
-    <subtract>
-      <int v="14"/>
-      <mod>
-        <reduce>
-          <over><field name="base"/></over>
-          <init><int v="0"/></init>
-          <do><add><acc/><multiply><current/>
-            <at><in><list v="9,1,4,8,3,10,2,5,7,6"/></in><index><current_index/></index></at>
-          </multiply></add></do>
-        </reduce>
-        <int v="11"/>
-      </mod>
-    </subtract>
-    <int v="11"/>
-  </mod>
-</result></compute></sequence>
-<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
-<data>LV${{base}}${{check}}</data>
+<sequence name="nr"><gen type="template" value="latvia.docs.registracijasNumurs"/></sequence>
+<data>LV${{nr}}</data>

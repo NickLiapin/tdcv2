@@ -1,0 +1,11 @@
+---
+description: Day of the week in Galician, lower case, Monday first. Four of the seven are invariable between singular and plural - luns, martes, mercores, xoves and venres are the same word for one day and for many, so 'os luns' means 'on Mondays' with no change to the noun. Only sabado and domingo take a plural. The names come from the Latin planetary days, not from the numbered Portuguese system: Galician says martes where Portuguese says terca-feira, and this is one of the clearest places the two split.
+locale: gl
+---
+luns
+martes
+mércores
+xoves
+venres
+sábado
+domingo

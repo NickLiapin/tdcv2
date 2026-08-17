@@ -1,0 +1,11 @@
+---
+description: Dishes of Libanesa cuisine, named in Galician. Coherent child of food/cuisine.txt.
+locale: gl
+---
+Hummus
+Falafel
+Shawarma
+Tabulé
+Kibbeh
+Fattoush
+Manakish

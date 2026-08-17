@@ -1,0 +1,16 @@
+---
+description: Zodiac sign, in Galician.
+locale: gl
+---
+Aries
+Touro
+Xémini
+Cáncer
+Leo
+Virxe
+Libra
+Escorpión
+Saxitario
+Capricornio
+Acuario
+Peixes

@@ -1,0 +1,46 @@
+---
+description: Animal, in Galician. The head is the fauna of Galicia rather than a zoo list: the LOBO survives here in one of the largest populations in western Europe, the OSO is back in the eastern mountains, and the CABALO DO MONTE - the free-roaming wild horse of the Galician sierras, gathered and shorn bare-handed at the rapa das bestas - is a distinct animal, not an escaped domestic horse.
+locale: gl
+---
+Can
+Gato
+Vaca
+Boi
+Porco
+Ovella
+Cabra
+Cabalo
+Cabalo do monte
+Galiña
+Galo
+Pato
+Ganso
+Coello
+Lobo
+Raposo
+Xabaril
+Corzo
+Cervo
+Oso
+Teixugo
+Lontra
+Marta
+Garduña
+Furón
+Ourizo cacho
+Esquío
+Toupa
+Rato
+Morcego
+Lebre
+Elefante
+León
+Tigre
+Xirafa
+Cebra
+Mono
+Canguro
+Panda
+Golfiño
+Balea
+Foca

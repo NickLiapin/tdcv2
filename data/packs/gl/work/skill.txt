@@ -1,0 +1,46 @@
+---
+description: Occupational skill, in Galician. Programming languages, CAD and Excel keep their real names - a brand or a language name is not translated. LINGUA GALEGA is on the list as a skill because it genuinely is one: the CELGA certificate is a formal qualification and is required or scored for public employment in Galicia, so 'Galego (CELGA 4)' is a line on a real Galician CV.
+locale: gl
+---
+Python
+JavaScript
+SQL
+Java
+C++
+Excel
+CAD
+Modelaxe 3D
+Análise de datos
+Aprendizaxe automática
+Computación na nube
+Xestión de proxectos
+Metodoloxía áxil
+Redacción técnica
+Deseño gráfico
+Fotografía
+Contabilidade
+Modelaxe financeira
+Atención ao cliente
+Vendas
+Negociación
+Oratoria
+Liderado de equipos
+Xestión do tempo
+Resolución de problemas
+Galego (CELGA 4)
+Castelán
+Inglés
+Portugués
+Francés
+Soldadura
+Instalación eléctrica
+Fontanaría
+Carpintaría
+Lectura de planos
+Mecanizado
+Condución de carretilla
+Manexo de maquinaria pesada
+Carné C+E
+Primeiros auxilios
+Manipulación de alimentos
+Patrón de embarcación

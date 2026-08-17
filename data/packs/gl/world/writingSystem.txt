@@ -1,0 +1,24 @@
+---
+description: Writing system, in Galician.
+locale: gl
+---
+Alfabeto latino
+Alfabeto cirílico
+Alfabeto grego
+Alfabeto árabe
+Alfabeto hebreo
+Alfabeto armenio
+Alfabeto xeorxiano
+Devanagari
+Bengalí
+Tamil
+Telugu
+Kannada
+Malaialam
+Sinhala
+Thai
+Khmer
+Han
+Hiragana
+Katakana
+Hangul

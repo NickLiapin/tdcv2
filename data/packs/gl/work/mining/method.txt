@@ -1,0 +1,12 @@
+---
+description: Mining method, in Galician. Galicia's mining is slate in Valdeorras, granite quarrying and, historically, tungsten and tin - so open-pit and quarry methods dominate.
+locale: gl
+---
+Ceo aberto
+Canteira
+Galería
+Pozo vertical
+Cámaras e piares
+Corta
+Lavadoiro
+Bateo

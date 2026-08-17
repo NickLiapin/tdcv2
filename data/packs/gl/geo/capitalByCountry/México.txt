@@ -1,0 +1,5 @@
+---
+description: Capital of México as Galician names it. Coherent child of geo/country.txt.
+locale: gl
+---
+Cidade de México

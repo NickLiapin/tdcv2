@@ -1,0 +1,26 @@
+---
+description: Company department, in Galician. Note that human resources is 'Recursos humanos' here and the pack category for workplace vocabulary is 'workplace', NOT 'hr' - hr is the language code for Croatian and a category with that name can never be drawn.
+locale: gl
+---
+Dirección
+Administración
+Recursos humanos
+Finanzas
+Contabilidade
+Vendas
+Márketing
+Comunicación
+Compras
+Loxística
+Almacén
+Produción
+Calidade
+Mantemento
+Enxeñaría
+Investigación
+Desenvolvemento
+Informática
+Atención ao cliente
+Xurídico
+Prevención de riscos
+Formación

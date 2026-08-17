@@ -1,0 +1,58 @@
+---
+description: Product adjective in Galician, MASCULINE singular - Galician inflects these for gender and number, so joining one to a feminine product noun without changing the ending is ungrammatical (cadeira ergonomico is wrong; cadeira ergonomica is right).
+locale: gl
+---
+Pequeno
+Grande
+Ergonómico
+Rústico
+Intelixente
+Fermoso
+Incrible
+Fantástico
+Práctico
+Elegante
+Artesanal
+Feito a man
+Licenciado
+Refinado
+Sen marca
+Moderno
+Clásico
+Vintage
+Premium
+Luxoso
+Compacto
+Portátil
+Duradeiro
+Lixeiro
+Sen fíos
+Recargable
+Axustable
+Pregable
+Impermeable
+Illante
+Reciclado
+Ecolóxico
+Sostible
+Robusto
+Resistente
+Silencioso
+Rápido
+Eficiente
+Automático
+Manual
+Universal
+Profesional
+Doméstico
+Infantil
+Antideslizante
+Antibacteriano
+Térmico
+Transpirable
+Reversible
+Multiusos
+Compatible
+Certificado
+Orixinal
+Exclusivo
