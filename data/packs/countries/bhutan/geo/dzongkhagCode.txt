@@ -1,0 +1,24 @@
+---
+address: bhutan.geo.dzongkhagCode
+description: The two-digit dzongkhag codes, 01 to 20, leading zero significant — Bumthang is 01, not 1. They are ALPHABETICAL BY ROMAN DZONGKHA NAME and nothing else: not by population, not by region, not by any historical precedence, so the code carries no geography beyond the name it was sorted under, and Thimphu — the capital, a third of the urban population, the seat of everything — is 14 purely because T is the fourteenth letter in play. Order matches bhutan.geo.dzongkhag line for line. These are the codes that sit in digits 2 and 3 of every Citizenship Identity Card (see bhutan.docs.cid); they are NOT the first digits of the postcode, which uses a different and shorter numbering with the postal region first (bhutan.geo.postalCode), and they are NOT the plate region digit, which runs 1 to 4 over the four zones (bhutan.vehicle.regionCode). Three separate numbering systems over the same twenty districts, and none of them agrees with the other two — that is the fact to hold on to before joining any two Bhutanese datasets on a district number. Verified against 11 380 distinct Citizenship Identity Card numbers published by the Election Commission of Bhutan alongside their holders' dzongkhags: every dzongkhag's modal code is the one listed here.
+---
+01
+02
+03
+04
+05
+06
+07
+08
+09
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20

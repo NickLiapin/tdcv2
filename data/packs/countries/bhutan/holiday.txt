@@ -1,0 +1,20 @@
+---
+address: bhutan.holiday
+description: Bhutan's public holidays, in the order the year runs. MOST OF THEM MOVE, and not by the Gregorian rules a Western calendar knows how to handle: Bhutan keeps its own lunisolar calendar, adapted from the Tibetan, in which a month can be doubled or a day omitted outright, so a Bhutanese holiday date cannot be derived from a Gregorian formula the way Easter can — the dates are set by astrologers and published year by year, and a hard-coded table is wrong the following year. Losar, the new year, moved from 18 February in one recent year to late February in another. Four dates are fixed and are the exceptions: the Birth Anniversary of His Majesty the King on 21 February, which is a THREE-DAY holiday (21, 22 and 23); Coronation Day on 1 November; the Birth Anniversary of the Fourth Druk Gyalpo on 11 November, which is also Constitution Day; and National Day on 17 December, marking the enthronement of the first King, Ugyen Wangchuck, at Punakha in 1907 — Bhutan was never colonised, so its national day commemorates the founding of the monarchy and not an independence it never had to win. The Buddhist holidays are the calendar's spine and several have no Western analogue at all: the Descending Day of Lord Buddha (Lhabab Duechen), the First Sermon (Chokhor Duechen), the Death Anniversary of Zhabdrung Ngawang Namgyal, who unified Bhutan in the seventeenth century and gave it the dzong system this pack's geography is still named after, and Blessed Rainy Day (Thrue Bab), which marks the end of the monsoon and on which Bhutanese ritually bathe. Dashain is here because roughly a fifth of Bhutan is Lhotshampa, of Nepali origin and Hindu, and their principal festival is a national holiday. Names as the government publishes them in English.
+locale: en
+---
+Winter Solstice
+Traditional Day of Offering
+Losar
+Birth Anniversary of His Majesty the King
+Death Anniversary of Zhabdrung Ngawang Namgyal
+Birth Anniversary of the Third Druk Gyalpo
+Lord Buddha's Parinirvana
+Birth Anniversary of Guru Rinpoche
+First Sermon of Lord Buddha
+Blessed Rainy Day
+Dashain
+Descending Day of Lord Buddha
+Coronation Day of His Majesty the King
+Birth Anniversary of the Fourth Druk Gyalpo
+National Day

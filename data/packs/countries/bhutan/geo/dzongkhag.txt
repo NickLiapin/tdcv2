@@ -1,0 +1,26 @@
+---
+address: bhutan.geo.dzongkhag
+description: The twenty dzongkhags (districts) of Bhutan, weighted by their resident population at the Population and Housing Census of Bhutan 2017 — 727 145 people in the whole kingdom, which is fewer than live in one mid-sized European city and is the single number that most changes how this pack should be read. The weights are brutally uneven: Thimphu alone holds 138 736 people and Gasa holds 3 952, a ratio of 35 to 1, so a uniform draw over twenty names puts thirty-five times too many records in the high Himalaya and is wrong in a way no format check will catch. THE ORDER OF THIS FILE IS NOT ARBITRARY AND MUST NOT BE RESORTED: it is alphabetical by the Roman Dzongkha name, which is the order that assigns the two-digit dzongkhag code in bhutan.geo.dzongkhagCode and inside every Citizenship Identity Card number, so Bumthang is 01 because B comes first and Zhemgang is 20 because Z comes last. Sorting this list by population silently breaks the join with bhutan.docs.cid. The spellings are Roman Dzongkha, the Latin orthography the Dzongkha Development Commission published in 1997 and the Ministry of Home Affairs made mandatory for all government institutions on 29 May 1997 — they are not English and not ad-hoc transliteration, and the dzongkhag administrations use them in their own domain names (chhukha.gov.bt, lhuentse.gov.bt, pemagatshel.gov.bt, trashiyangtse.gov.bt, samdrupjongkhar.gov.bt all resolve; chukha.gov.bt, lhuntse.gov.bt and tashiyangtse.gov.bt do not). Older data and foreign courier files still carry Chukha, Lhuntse, Tashigang, Pema Gatshel and Wangdi. The Dzongkha-script forms are at bhutan.geo.dzongkhagDzongkha, index-aligned line for line with this file. Sources: PHCB 2017 for the populations; UNGEGN Working Group on Romanization Systems, report on Dzongkha, version 4.0, for the orthography.
+weighted: true
+locale: en
+---
+Bumthang,17820
+Chhukha,68966
+Dagana,24965
+Gasa,3952
+Haa,13655
+Lhuentse,14437
+Mongar,37150
+Paro,46316
+Pemagatshel,23632
+Punakha,28740
+Samdrup Jongkhar,35079
+Samtse,62590
+Sarpang,46004
+Thimphu,138736
+Trashigang,45518
+Trashiyangtse,17300
+Trongsa,19960
+Tsirang,22376
+Wangdue Phodrang,42186
+Zhemgang,17763

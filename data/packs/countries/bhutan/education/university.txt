@@ -1,0 +1,23 @@
+---
+address: bhutan.education.university
+description: Bhutan's universities and degree-awarding colleges. THE STRUCTURE IS THE STORY: the Royal University of Bhutan, created by Royal Charter in 2003, is not a campus but a federation — it was assembled out of colleges that already existed and were scattered one per region, so Sherubtse College in Kanglung (founded 1968, the oldest and for decades the ONLY place in Bhutan where a degree could be taken), the College of Science and Technology at Rinchending, Jigme Namgyel Engineering College at Dewathang, Gaeddu College of Business Studies at Gedu, the College of Natural Resources at Lobesa, the College of Language and Culture Studies at Taktse and the two teacher-training colleges at Paro and Samtse are constituent colleges of one university spread across seven dzongkhags. The Khesar Gyalpo University of Medical Sciences of Bhutan, established 2013, is the second university and holds the medical, nursing and traditional-medicine faculties; the Faculty of Traditional Medicine teaches gSo-ba Rig-pa, the Himalayan medical system, as a degree subject inside the national health service rather than as folklore beside it, which has no counterpart in most countries. Royal Thimphu College is private and affiliated to RUB; the Royal Institute of Management and the Jigme Singye Wangchuck School of Law are autonomous. WHAT IS NOT HERE AND MATTERS: Bhutan has no medical school producing general doctors at scale, so most Bhutanese doctors train in India, Bangladesh, Sri Lanka or Thailand, and a Bhutanese professional biography with a foreign university in it is the norm rather than the exception. Each entry was checked against a live .edu.bt or .bt presence.
+locale: en
+---
+Royal University of Bhutan
+Khesar Gyalpo University of Medical Sciences of Bhutan
+Sherubtse College
+College of Science and Technology
+Jigme Namgyel Engineering College
+Gaeddu College of Business Studies
+College of Natural Resources
+College of Language and Culture Studies
+Paro College of Education
+Samtse College of Education
+Gyalpozhing College of Information Technology
+Royal Thimphu College
+Norbuling Rigter College
+Royal Institute of Management
+Jigme Singye Wangchuck School of Law
+Faculty of Nursing and Public Health
+Faculty of Traditional Medicine
+Faculty of Postgraduate Medicine

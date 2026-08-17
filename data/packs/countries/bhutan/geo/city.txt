@@ -1,0 +1,58 @@
+---
+address: bhutan.geo.city
+description: Every Bhutanese town of more than about 450 people, weighted by its population at the Population and Housing Census 2017. THE SHAPE OF THIS DISTRIBUTION IS THE POINT. Thimphu holds 114 551 people and the second town, Phuentsholing, holds 27 658 — a four-to-one gap — and the twelfth-largest town in the kingdom has 3 448. Bhutan has one city, four towns that would be called small towns anywhere else, and a long tail of settlements of a few hundred people, so a generator that treats "city" as a uniform pick over fifty names produces a country that does not exist. Below the top five the weights matter more than the names. Three entries catch people out. TSHONGDUE is the town of Paro: the aerodrome, the dzong and the valley are Paro, but the built-up town Bhutan counts and names is Tshongdue, so a file that lists "Paro" as a town and a file that lists "Tshongdue" are listing the same place and will not join. WANGDUE is the town of Wangdue Phodrang, and Bhutanese usage clips it. And Nganglam grew from 1 018 people in 2005 to 5 418 in 2017, a fivefold jump on the back of the border trade and the cement works, which is why a Bhutanese town list from before 2010 is not merely stale but differently shaped. Deothang, a real town of 2 644 in 2005, is absent because the 2017 census did not report it separately, and inventing a figure for it would have been the only way to include it. Names are Roman Dzongkha. Source: National Statistics Bureau, Population and Housing Census of Bhutan 2017, municipalities and towns table.
+weighted: true
+locale: en
+---
+Thimphu,114551
+Phuentsholing,27658
+Tshongdue,11448
+Gelephu,9858
+Samdrup Jongkhar,9325
+Wangdue,8954
+Punakha,6262
+Jakar,6243
+Nganglam,5418
+Samtse,5396
+Mongar,4452
+Gomtu,3661
+Damphu,3448
+Kanglung,3223
+Yangtse,3187
+Sarpang,3152
+Trongsa,3122
+Trashigang,3037
+Gedu,2849
+Gyelpozhing,2629
+Haa,2596
+Zhemgang,2177
+Tsimalakha,2135
+Rangjung,2024
+Lhamoi Dzingkha,1961
+Chhukha,1842
+Samdrup Choling,1713
+Dagana,1547
+Lhuentse,1500
+Jomotsangkha,1136
+Khaling,1129
+Pemagatshel,1038
+Darla,1037
+Dramedtse,969
+Khasadrapchu,966
+Lingmethang,952
+Panbang,800
+Lobaysa,784
+Gasa,779
+Autsho,775
+Yadi,730
+Nobding,713
+Sipsu,617
+Damji,587
+Dagapela,578
+Drukjeygang,575
+Kilikhar,565
+Tingtibi,534
+Nangkhor,522
+Jyenkana,502
+Wamrong,484
+Beteykha,465

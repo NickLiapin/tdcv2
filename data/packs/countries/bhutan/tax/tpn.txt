@@ -1,0 +1,6 @@
+---
+address: bhutan.tax.tpn
+description: The Bhutanese Taxpayer Number (TPN), issued by the Department of Revenue and Customs under the Ministry of Finance. It is the credential as much as the identifier: the TPN is what a taxpayer logs into RAMIS, the Revenue Administration Management Information System, with, and the Department states it is required for all transactions and correspondence with it. Registration is at one of eight regional revenue and customs offices, in person or online. THE COMPOSITION IS NOT PUBLISHED. The Department publishes how to obtain a TPN and says nothing about how the digits are made up; the widely repeated figure is eight to eleven digits for a legal entity, with eleven the usual modern length, and this generator emits eleven. NO CHECKSUM IS PUBLISHED AND NONE IS COMPUTED HERE — inventing a plausible modulus-11 would be worse than none, because it would look verified. A TPN is not a Citizenship Identity Card number: an individual's TPN is linked to their CID and can be looked up from it, but the two are distinct numbers and the CID's dzongkhag-and-gewog structure does not appear in the TPN. It is also not a separate VAT or GST number — see bhutan.tax.vat, where the point is that Bhutan issues no such thing.
+generator: tdc
+---
+<gen type="regex" value="[1-9][0-9]{10}"/>

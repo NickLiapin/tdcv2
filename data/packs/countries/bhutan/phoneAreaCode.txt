@@ -1,0 +1,11 @@
+---
+address: bhutan.phoneAreaCode
+description: The seven single-digit area codes of the Bhutanese fixed network, 2 to 8, one per operational area. THEY ARE ONE DIGIT LONG, which is the fact that breaks foreign address schemas: a "city code" field of two or three characters, or a validator that assumes an area code of at least two digits, cannot hold a Bhutanese one. Written with a leading zero when dialled nationally — 02 for Thimphu — so the printed form is two characters and the code itself is one. The areas: 2 covers Thimphu, Punakha, Wangdue Phodrang and Gasa; 3 Trongsa, Bumthang and Zhemgang; 4 Trashigang, Mongar, Lhuentse and Trashiyangtse; 5 Phuentsholing, Chhukha and Samtse; 6 Gelephu, Sarpang, Tsirang and Dagana; 7 Samdrup Jongkhar and Pemagatshel; 8 Paro and Haa. Note that this is a SEVENTH numbering of Bhutan's districts, agreeing with neither the dzongkhag code (bhutan.geo.dzongkhagCode), the postal region digit (bhutan.geo.postalCode) nor the plate zone (bhutan.vehicle.regionCode) — Paro is telephone area 8, dzongkhag 08 by coincidence, postal 12 and plate zone 1. Source: ITU-T Operational Bulletin, Bhutan (+975), BICMA communication of 28 September 2021, fixed service numbering plan.
+---
+2
+3
+4
+5
+6
+7
+8

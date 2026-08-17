@@ -1,0 +1,7 @@
+---
+address: bhutan.telecom.operator
+description: Bhutan's two telecommunications operators. Bhutan Telecom Limited is state-owned, holds mobile prefixes 17 and 16 and runs the fixed network; Tashi InfoComm Limited, universally called TashiCell, is private and holds 77 and 87. Two operators is the whole market, and both are licensed by the Bhutan InfoComm and Media Authority. THE DATE THAT EXPLAINS THE SHAPE OF BHUTANESE TELECOMS IS 2 JUNE 1999. Bhutan was the LAST COUNTRY IN THE WORLD to permit television, and it permitted television and the public internet on the same day, when the Bhutan Broadcasting Service made its first transmission to mark the silver jubilee of the fourth King's coronation; a ban on TV had stood since 1992 and satellite reception was allowed only in 1998. Mobile service followed in 2003. So Bhutan skipped the mass fixed-line era altogether: it went from no broadcast media, no internet and a fixed network reaching a minority of the country, to near-universal mobile coverage, inside about fifteen years. Anyone modelling Bhutanese data should take that literally — there is no long tail of legacy landline subscribers to draw from, an email address or a web presence for a Bhutanese person or business is a post-1999 artefact by construction, and "how long has this customer had an account" cannot exceed the age of the medium.
+locale: en
+---
+Bhutan Telecom Limited
+Tashi InfoComm Limited

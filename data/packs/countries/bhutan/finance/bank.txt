@@ -1,0 +1,11 @@
+---
+address: bhutan.finance.bank
+description: Every bank in Bhutan. All of them. The list is six lines long and that is not an abbreviation — a kingdom of 727 000 people supports six licensed banks, and a Bhutanese financial dataset built on the assumption that a "bank" column has hundreds of possible values is wrong about the country by two orders of magnitude. Bank of Bhutan is the oldest, founded in 1968 and majority state-owned through Druk Holding and Investments; Bhutan National Bank was the second; Bhutan Development Bank Limited began as a development finance institution set up with Asian Development Bank money and still carries the rural mandate; Druk PNB is the joint venture with Punjab National Bank of India, which is the visible face of a much larger fact about Bhutanese finance — the ngultrum is pegged one for one to the Indian rupee and Indian banks and Indian credit are woven through the system; T Bank is the small private commercial bank; and DK Bank (Digital Kidu) is the digital-first entrant. All are licensed and supervised by the Royal Monetary Authority of Bhutan, which is the central bank and is NOT a commercial bank, though it holds a BIC of its own (RMABBTBT) and turns up in BIC lists beside the six. Names as the Royal Monetary Authority and the SWIFT register carry them. See bhutan.finance.bic for the codes.
+locale: en
+---
+Bank of Bhutan Limited
+Bhutan National Bank Limited
+Bhutan Development Bank Limited
+Druk PNB Bank Limited
+T Bank Limited
+DK Bank Limited

@@ -1,0 +1,7 @@
+---
+address: bhutan.phoneNational
+description: A Bhutanese mobile number written the way a Bhutanese writes it — the eight digits in two groups of four, 17 12 3456 spaced as "1712 3456". There is no trunk prefix and no leading zero to strip on a mobile number: the national form differs from the international one only by the missing +975, which is unusual and is what makes Bhutanese mobile numbers easy to move between formats and Bhutanese FIXED numbers hard (those do take a leading 0 on the area code — see bhutan.phoneLandline). Use this form when a column should look like something a person typed; use bhutan.phone when it has to be dialable.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="(16|17|77|87)[0-9]{2} [0-9]{4}"/>

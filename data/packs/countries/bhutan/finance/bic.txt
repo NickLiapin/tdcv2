@@ -1,0 +1,11 @@
+---
+address: bhutan.finance.bic
+description: The 8-character BIC (SWIFT) codes registered to institutions in Bhutan, exactly as the SWIFT register carries them. Every one has BT in positions 5-6 — the ISO 3166-1 alpha-2 code for Bhutan — and the pattern to notice is BHUBBTBT for Bank of Bhutan, where BHUB is the institution and BTBT is "Bhutan, Thimphu": the doubled BT is not a typo and not redundancy, it is the country code followed by a location code that happens to repeat it. THIS IS THE ONLY INTERNATIONAL BANK IDENTIFIER BHUTAN HAS. Bhutan is not in the IBAN registry — the registry maintained by SWIFT lists roughly ninety countries and territories and Bhutan is not among them — so an inbound international payment to Bhutan is addressed by BIC plus a plain account number, and any schema with a mandatory IBAN column cannot hold a Bhutanese account. An 8-character BIC addresses a head office; systems that insist on 11 pad it with XXX, so BHUBBTBT and BHUBBTBTXXX are the same bank and BHUBBTBT001 is the Phuentsholing main branch. RMABBTBT belongs to the Royal Monetary Authority, the central bank, and is not a commercial correspondent.
+---
+BHUBBTBT
+BNBTBTBT
+BHDEBTBT
+PUNBBTBT
+TBBTBTBT
+DIKIBTBB
+RMABBTBT

@@ -1,0 +1,7 @@
+---
+address: bhutan.vehicle.plateType
+description: The three two-letter class prefixes that take the ordinary Bhutanese plate format of prefix, zone digit, series letter and four digits. BP is a private vehicle and its plate is white on red; BT is a taxi, black on yellow; BG is a Royal Government vehicle, yellow on red. The B is for Bhutan. Left out deliberately because they do NOT take this format: RBP (Royal Bhutan Police) and RBG (Royal Bodyguard), which are three letters followed by four digits with no zone digit and no series letter, and CD for the diplomatic corps, which is white on blue and carries a country number and Dzongkha text instead. The colour and the prefix say the same thing twice, which is a real redundancy in the system and a useful one — a Bhutanese can read a vehicle's class off the plate at a distance in which the letters are not legible. THIS LIST IS DELIBERATELY UNWEIGHTED and a uniform draw over it is not what the road looks like — private cars vastly outnumber taxis and government vehicles — but the Road Safety and Transport Authority publishes no split by plate class, so a weight here would be a number invented to look thorough. A config that needs a realistic fleet should impose its own ratio.
+---
+BP
+BT
+BG

@@ -1,0 +1,8 @@
+---
+address: bhutan.phoneMobilePrefix
+description: The four two-digit network destination codes a Bhutanese mobile number can begin with. 17 and 16 belong to Bhutan Telecom Limited, the state-owned operator; 77 and 87 belong to Tashi InfoComm Limited, trading as TashiCell. That is the whole mobile market — two operators, four prefixes — and it is why the prefix of a Bhutanese mobile number really does tell you the operator, unlike in countries with portability and a dozen resellers. The two 2018 codes, 17 and 77, carry the great majority of numbers; 87 was allocated in May 2025 and 16 in August 2025 as the older blocks filled, which means a Bhutanese phone-number pattern hard-coded before 2025 silently rejects the newest subscribers. NOT IN THIS LIST AND OFTEN MISTAKEN FOR IT: 19 and 79, the SIM-based IoT ranges for Bhutan Telecom and TashiCell devices, which are twelve digits rather than eight and are not phones. THIS LIST IS DELIBERATELY UNWEIGHTED. The real distribution is nothing like uniform — 17 and 77 have been issuing numbers since 2018 and 16 and 87 only since 2025, so the great majority of live Bhutanese numbers begin 17 or 77 — but neither BICMA nor either operator publishes subscriber counts by block, so any weight here would be a guess dressed as data. Source: ITU-T Operational Bulletin, Bhutan (+975), BICMA communication of 26 August 2025, Table A.
+---
+16
+17
+77
+87

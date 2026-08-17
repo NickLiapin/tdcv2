@@ -1,0 +1,14 @@
+---
+address: bhutan.society.gnhDomain
+description: The nine domains of Gross National Happiness — an OFFICIAL BHUTANESE STATISTIC with a published index, not a slogan, and the reason this file sits in a country pack rather than in a book of quotations. Bhutan measures GNH the way other states measure GDP: the Centre for Bhutan and GNH Studies runs a national survey, the 2022 round covering 11 052 respondents drawn from every dzongkhag, and computes a single index from 33 indicators grouped into these nine domains. The published values are 0.756 for 2015 and 0.781 for 2022, a rise of 3.3 per cent across the pandemic years, on a scale where 1 is the maximum. It is also administratively binding rather than descriptive: government policy is screened against the domains by the Gross National Happiness Commission before it can proceed, so "does this raise or lower GNH" is a procedural question a Bhutanese civil servant has to answer on a form. The domains are the ones to know because they show what Bhutan counts that nobody else does — TIME USE is a domain, meaning that how many hours a person sleeps and works is a national statistic; CULTURAL DIVERSITY AND RESILIENCE covers whether people still speak their mother tongue and know the driglam namzha code of conduct; ECOLOGICAL DIVERSITY AND RESILIENCE is why Bhutan's constitution requires 60 per cent forest cover in perpetuity and why the country is carbon-negative. Living standards is one domain of nine, and income is one indicator inside it. Source: Centre for Bhutan and GNH Studies, 2022 GNH Index; Oxford Poverty and Human Development Initiative.
+locale: en
+---
+Psychological wellbeing
+Health
+Time use
+Education
+Cultural diversity and resilience
+Good governance
+Community vitality
+Ecological diversity and resilience
+Living standards

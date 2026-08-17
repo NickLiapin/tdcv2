@@ -1,0 +1,8 @@
+---
+address: bhutan.vehicle.regionCode
+description: The four zone digits of a Bhutanese registration plate: 1 western, 2 central, 3 southern, 4 eastern. Four zones, twenty dzongkhags, so the digit narrows a vehicle to roughly a quarter of the kingdom and no further — a car registered in Thimphu, Paro, Haa, Punakha or Gasa is all equally "1". DO NOT JOIN THIS TO THE POSTCODE'S FIRST DIGIT. The postal system also divides Bhutan into four regions numbered 1 to 4 and orders them differently: postal 1 is western, 2 SOUTHERN, 3 central, 4 eastern, while the plate has 2 central and 3 southern. Two four-way divisions of the same country, both numbered 1 to 4, disagreeing on two of the four — which is exactly the kind of near-match that passes review and produces silently wrong data.
+---
+1
+2
+3
+4

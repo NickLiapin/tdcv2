@@ -1,0 +1,21 @@
+---
+address: bhutan.finance.amount
+description: A sum of money written the way Bhutan writes it: "Nu." BEFORE the figure, groups of three, a full stop for the decimal point and two decimals — Nu. 1,234,567.89. Two things about that are worth being certain of, because both are counter-intuitive and both were taken from the text of a Bhutanese legal instrument rather than from a style guide. THE GROUPING IS WESTERN, NOT INDIAN. The ngultrum is pegged one to one to the Indian rupee and the rupee circulates alongside it, so the natural assumption is that Bhutan groups digits in the Indian lakh-and-crore pattern (12,34,567). It does not. The Goods and Services Tax Rules 2026, made by the Ministry of Finance and in force since 1 January 2026, write their thresholds as Nu. 1,000,000 and Nu. 2,500,000 — plain three-digit groups — and use no lakh or crore anywhere in 114 pages. AND THE SYMBOL IS "Nu." WITH A FULL STOP, placed in front, and it is not the ISO code: BTN is what a bank or an exchange feed uses, "Nu." is what a price tag, an invoice and an Act of Parliament use, and "BTN 1,000" is bank language while "Nu. 1,000" is Bhutanese. Spacing after the symbol is inconsistent even inside a single official document — the GST Rules print both "Nu. 30,000" and "Nu.10,000" — and this generator uses the spaced form. The magnitude is spread across five decades rather than drawn uniformly, because a uniform draw over a seven-digit range puts nearly every value in the millions, and Bhutanese prices are mostly two, three and four figures against a GDP per head of a few thousand dollars. Nothing here is a number the engine can do arithmetic on: it is the PRINTED form.
+generator: tdc
+locale: en
+---
+<sequence name="raw"><gen type="number" value="1..9999999"/></sequence>
+<sequence name="shift"><gen type="number" value="0..4"/></sequence>
+<sequence name="cents"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="amount"><compute>
+  <!-- Spread the magnitude: divide the 7-digit draw by 1, 10, 100, 1000 or 10000. -->
+  <let name="scale"><at>
+    <in><list v="1,10,100,1000,10000"/></in>
+    <index><to_number><field name="shift"/></to_number></index>
+  </at></let>
+  <let name="whole"><divide><to_number><field name="raw"/></to_number><use name="scale"/></divide></let>
+  <!-- Three-digit groups, not the Indian lakh pattern: see the description. -->
+  <let name="grouped"><group size="3" sep=","><use name="whole"/></group></let>
+  <result><concat><str v="Nu. "/><use name="grouped"/><str v="."/><field name="cents"/></concat></result>
+</compute></sequence>
+<data>${{amount}}</data>

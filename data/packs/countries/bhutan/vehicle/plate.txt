@@ -1,0 +1,10 @@
+---
+address: bhutan.vehicle.plate
+description: An ordinary Bhutanese vehicle registration plate, in the current format — two letters for the class, a hyphen, ONE digit for the zone, a hyphen, then a letter and four digits: BP-1-A1234. Issued and regulated by the Road Safety and Transport Authority. Three things about it are Bhutanese rather than generic. THE ZONE DIGIT IS ONE OF FOUR, not one of twenty: Bhutan registers vehicles against the four regional zones — 1 western, 2 central, 3 southern, 4 eastern — and not against the twenty dzongkhags, so a plate locates a car to a quarter of the country and no further, and a plate-to-district lookup cannot exist. That is also a FOURTH numbering of Bhutan's geography, agreeing with neither the dzongkhag code, the postal region nor the telephone area code, and note in particular that the plate zones and the postal dzongdey both run 1 to 4 over four regions and DISAGREE about which is which — postal 2 is the southern region while plate 2 is central. THE COLOUR CARRIES THE CLASS and the letters repeat it: BP private is white on red, BT taxi is black on yellow, BG government is yellow on red, RBP police is white on blue. And the letter before the four digits is a SERIES letter, incremented when the previous four-digit block ran out, so it is a rough age marker rather than a code — earlier plates were BP-N-NNNN with no letter at all, and those are still on the road. Not generated here: RBP and RBG plates, which are three letters and four digits with no zone; and diplomatic plates, which are white on blue and carry the Dzongkha word for "representative", a country number, the letters CD and a serial — the one Bhutanese plate that prints Dzongkha script.
+generator: tdc
+locale: en
+---
+<sequence name="cls"><gen type="template" value="bhutan.vehicle.plateType"/></sequence>
+<sequence name="zone"><gen type="template" value="bhutan.vehicle.regionCode"/></sequence>
+<sequence name="rest"><gen type="regex" value="[A-Z][0-9]{4}"/></sequence>
+<data>${{cls}}-${{zone}}-${{rest}}</data>

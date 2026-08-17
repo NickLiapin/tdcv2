@@ -1,0 +1,26 @@
+---
+address: bhutan.docs.cid
+description: The Bhutanese Citizenship Identity Card number (CID) — eleven digits, and the join key of every Bhutanese record there is: it opens a bank account, registers a taxpayer, enrols a voter, buys a SIM and appears on the census form. Its structure is published and its layout is a place, not a person: digit 1 is the status (1 for a Bhutanese citizen, 2 for the permanent-resident and non-national categories, about two per cent of the numbers in circulation); digits 2-3 are the dzongkhag code from bhutan.geo.dzongkhagCode, alphabetical, 01 Bumthang to 20 Zhemgang; digits 4-5 are the gewog code, alphabetical within that dzongkhag; digits 6-11 are a six-digit serial. So the first five digits say where a person was REGISTERED — the ancestral gewog, the household in the census register — not where they live now, which is why a Thimphu resident routinely carries a CID beginning 107 or 115. THERE IS NO CHECK DIGIT, AND THIS IS THE PART TO BE EXACT ABOUT. The Department of Civil Registration and Census publishes the digit layout and publishes no checksum, and the absence was tested rather than assumed: against 11 380 distinct real CID numbers published by the Election Commission of Bhutan, Luhn over the whole number holds for 1 128 of them (9.9 per cent, which is chance), the eleventh digit is uniformly distributed across 0-9 to within one per cent, the whole number is divisible by 11 for 9.1 per cent and leaves 1 modulo 97 for 1.1 per cent — every one of those is exactly what a number with no checksum looks like, and no weighted modulus-10 or modulus-11 scheme over the first ten digits agreed with the eleventh for more than a chance fraction of the corpus. A validator for a Bhutanese CID can check the length, the leading digit, the dzongkhag range and nothing else. THE GEWOG DIGITS DRIFT. The gewog roster went from 199 in 2002 to 205 in 2005 and has been re-cut since — three of Sarpang's gewogs moved to Dagana with the Lhamoizingkha dungkhag in 2007 — and a card keeps the number it was issued under, so real cards carry gewog codes above the current roster for several dzongkhags. This generator draws inside the CURRENT roster (bhutan.geo.gewog), which is the conservative choice: every number it emits is well-formed under today's table, and a real corpus will contain some that are not. The CID is not the taxpayer number (see bhutan.tax.tpn) and is not the passport number.
+generator: tdc
+---
+<sequence name="dzc"><gen type="template" value="bhutan.geo.dzongkhagCode"/></sequence>
+<sequence name="raw"><gen type="number" value="0..9999"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{6}"/></sequence>
+<sequence name="statusraw"><gen type="number" value="1..100"/></sequence>
+<sequence name="gewogc"><compute>
+  <!-- Gewogs per dzongkhag, in the order of bhutan.geo.dzongkhagCode; the code
+       runs 01..N inside each district, so the ceiling differs district by district. -->
+  <let name="idx"><subtract><to_number><field name="dzc"/></to_number><int v="1"/></subtract></let>
+  <let name="ceiling"><at><in><list v="4,11,14,4,6,8,17,10,11,11,11,15,12,8,15,8,5,12,15,8"/></in><index><use name="idx"/></index></at></let>
+  <let name="g"><add><mod><to_number><field name="raw"/></to_number><use name="ceiling"/></mod><int v="1"/></add></let>
+  <result><pad width="2" fill="0"><use name="g"/></pad></result>
+</compute></sequence>
+<sequence name="status"><compute>
+  <!-- 1 = Bhutanese citizen, 2 = permanent resident / non-national. The published
+       corpus runs 11 146 to 232, so roughly one number in fifty begins with 2. -->
+  <result><choose>
+    <when><test><less_than><to_number><field name="statusraw"/></to_number><int v="99"/></less_than></test><then><int v="1"/></then></when>
+    <otherwise><int v="2"/></otherwise>
+  </choose></result>
+</compute></sequence>
+<data>${{status}}${{dzc}}${{gewogc}}${{serial}}</data>

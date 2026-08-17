@@ -1,0 +1,35 @@
+---
+address: bhutan.government.agency
+description: Departments, authorities and constitutional bodies of the Bhutanese state — the level at which Bhutanese government actually touches a record, because the ministries above them are small and set policy. Four of these issue the identifiers in this pack and are worth knowing before reading any Bhutanese dataset: the DEPARTMENT OF CIVIL REGISTRATION AND CENSUS, under Home Affairs, issues the Citizenship Identity Card and holds the census register that the CID's dzongkhag and gewog digits point into; the DEPARTMENT OF REVENUE AND CUSTOMS, under Finance, issues the Taxpayer Number and runs RAMIS, and since 1 January 2026 administers the Goods and Services Tax that replaced the Bhutan Sales Tax; the ROYAL MONETARY AUTHORITY is the central bank and licenses all six banks; and the BHUTAN INFOCOMM AND MEDIA AUTHORITY owns the numbering plan. Two entries have no equivalent in most countries and are not decorative. The GROSS NATIONAL HAPPINESS COMMISSION screens government policy against the nine GNH domains before it can proceed — happiness is an administrative gate in Bhutan, not a slogan (see bhutan.society.gnhDomain). And the DZONGKHA DEVELOPMENT COMMISSION fixes the Roman Dzongkha spellings that every geographic name in this pack is written in; its 1997 romanisation was made mandatory for all government institutions by the Ministry of Home Affairs on 29 May 1997, which is why Bhutanese place names in Latin script are consistent enough to join on at all. Names as the agencies write them; each was checked to hold a live .gov.bt or .org.bt presence.
+locale: en
+---
+Department of Civil Registration and Census
+Department of Revenue and Customs
+Royal Monetary Authority of Bhutan
+Bhutan InfoComm and Media Authority
+National Statistics Bureau
+Election Commission of Bhutan
+Royal Civil Service Commission
+Anti-Corruption Commission
+Royal Audit Authority
+Office of the Attorney General
+Department of Immigration
+Department of Law and Order
+Royal Bhutan Police
+Royal Bhutan Army
+National Land Commission Secretariat
+Road Safety and Transport Authority
+Bhutan Postal Corporation Limited
+Gross National Happiness Commission
+Dzongkha Development Commission
+Bhutan Broadcasting Service Corporation
+Druk Holding and Investments
+Bhutan Chamber of Commerce and Industry
+Department of Tourism
+Bhutan Narcotics Control Authority
+National Environment Commission
+Bhutan Standards Bureau
+Bhutan Agriculture and Food Regulatory Authority
+Department of Local Governance and Disaster Management
+GovTech Agency
+National Commission for Women and Children

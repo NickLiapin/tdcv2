@@ -1,0 +1,210 @@
+---
+address: bhutan.geo.gewogWithDzongkhag
+description: The same 205 gewogs as bhutan.geo.gewog, each followed by its dzongkhag — "Chhoekhor, Bumthang" — because a bare gewog name does not identify a place in Bhutan. Two gewogs are called Norbugang (Pemagatshel and Samtse) and two are called Gakiling (Haa and Sarpang), so a config that draws a gewog and a dzongkhag independently will produce impossible addresses roughly nineteen times in twenty; this file is the pair drawn together. Index-aligned with bhutan.geo.gewog and bhutan.geo.gewogDzongkha.
+locale: en
+---
+Chhoekhor (1), Bumthang
+Chhume (2), Bumthang
+Tang (3), Bumthang
+Ura (4), Bumthang
+Bjachho, Chhukha
+Bongo, Chhukha
+Chapcha, Chhukha
+Darla, Chhukha
+Dungna, Chhukha
+Geling, Chhukha
+Getana, Chhukha
+Lokchina, Chhukha
+Metakha, Chhukha
+Phuentsholing, Chhukha
+Sampheling, Chhukha
+Dorona, Dagana
+Drujegang, Dagana
+Gesarling, Dagana
+Goshi, Dagana
+Kana, Dagana
+Karmaling, Dagana
+Khebisa, Dagana
+Lajab, Dagana
+Lhamoi Zingkha, Dagana
+Nichula, Dagana
+Trashiding, Dagana
+Tsangkha, Dagana
+Tsendagang, Dagana
+Tseza, Dagana
+Khamaed, Gasa
+Khatoe, Gasa
+Laya, Gasa
+Lunana, Gasa
+Bji, Haa
+Gakiling, Haa
+Katsho, Haa
+Samar, Haa
+Sangbay, Haa
+Uesu, Haa
+Gangzur, Lhuentse
+Khoma, Lhuentse
+Jarey, Lhuentse
+Kurtoed, Lhuentse
+Menbi, Lhuentse
+Metsho, Lhuentse
+Minjay, Lhuentse
+Tsenkhar, Lhuentse
+Balam, Mongar
+Chali, Mongar
+Chaskhar, Mongar
+Drametse, Mongar
+Drepong, Mongar
+Gongdue, Mongar
+Jurmey, Mongar
+Kengkhar, Mongar
+Mongar, Mongar
+Narang, Mongar
+Ngatshang, Mongar
+Saling, Mongar
+Shermuhoong, Mongar
+Silambi, Mongar
+Thangrong, Mongar
+Tsakaling, Mongar
+Tsamang, Mongar
+Dokar, Paro
+Dopshari, Paro
+Doteng, Paro
+Hungrel, Paro
+Lamgong, Paro
+Lungnyi, Paro
+Naja, Paro
+Shapa, Paro
+Tsento, Paro
+Wangchang, Paro
+Chimoong, Pemagatshel
+Chokhorling, Pemagatshel
+Chongshing, Pemagatshel
+Dechheling, Pemagatshel
+Dungmaed, Pemagatshel
+Khar, Pemagatshel
+Nanong, Pemagatshel
+Norbugang, Pemagatshel
+Shumar, Pemagatshel
+Yurung, Pemagatshel
+Zobel, Pemagatshel
+Barp, Punakha
+Chhubug, Punakha
+Dzomi, Punakha
+Goenshari, Punakha
+Guma, Punakha
+Kabisa, Punakha
+Lingmukha, Punakha
+Shenga Bjemi, Punakha
+Talog, Punakha
+Toepisa, Punakha
+Toewang, Punakha
+Dewathang, Samdrup Jongkhar
+Gomdar, Samdrup Jongkhar
+Langchenphu, Samdrup Jongkhar
+Lauri, Samdrup Jongkhar
+Martshala, Samdrup Jongkhar
+Orong, Samdrup Jongkhar
+Pemathang, Samdrup Jongkhar
+Phuntshothang, Samdrup Jongkhar
+Samrang, Samdrup Jongkhar
+Serthi, Samdrup Jongkhar
+Wangphu, Samdrup Jongkhar
+Dungtoe, Samtse
+Dophoogchen, Samtse
+Duenchukha, Samtse
+Namgaychhoeling, Samtse
+Norbugang, Samtse
+Norgaygang, Samtse
+Pemaling, Samtse
+Phuentshogpelri, Samtse
+Samtse, Samtse
+Sangngagchhoeling, Samtse
+Tading, Samtse
+Tashicholing, Samtse
+Tendruk, Samtse
+Ugentse, Samtse
+Yoeseltse, Samtse
+Chhuzagang, Sarpang
+Chhudzom, Sarpang
+Dekiling, Sarpang
+Gakiling, Sarpang
+Gelephu, Sarpang
+Jigmechholing, Sarpang
+Samtenling, Sarpang
+Senggey, Sarpang
+Sherzhong, Sarpang
+Shompangkha, Sarpang
+Tareythang, Sarpang
+Umling, Sarpang
+Chang, Thimphu
+Darkala, Thimphu
+Genye, Thimphu
+Kawang, Thimphu
+Lingzhi, Thimphu
+Mewang, Thimphu
+Naro, Thimphu
+Soe, Thimphu
+Bartsham, Trashigang
+Bidung, Trashigang
+Kanglung, Trashigang
+Kangpar, Trashigang
+Khaling, Trashigang
+Lumang, Trashigang
+Merag, Trashigang
+Phongmed, Trashigang
+Radi, Trashigang
+Sagteng, Trashigang
+Samkhar, Trashigang
+Shongphoog, Trashigang
+Thrimshing, Trashigang
+Uzorong, Trashigang
+Yangnyer, Trashigang
+Bumdeling, Trashiyangtse
+Jamkhar, Trashiyangtse
+Khamdang, Trashiyangtse
+Ramjar, Trashiyangtse
+Toetsho, Trashiyangtse
+Tomzhang, Trashiyangtse
+Yalang, Trashiyangtse
+Yangtse, Trashiyangtse
+Dragteng, Trongsa
+Korphoog, Trongsa
+Langthil, Trongsa
+Nubi, Trongsa
+Tangsibji, Trongsa
+Barshong, Tsirang
+Dunglegang, Tsirang
+Gosarling, Tsirang
+Kikhorthang, Tsirang
+Mendrelgang, Tsirang
+Patshaling, Tsirang
+Phuntenchu, Tsirang
+Rangthangling, Tsirang
+Semjong, Tsirang
+Sergithang, Tsirang
+Tsholingkhar, Tsirang
+Tsirangtoe, Tsirang
+Athang, Wangdue Phodrang
+Bjendag, Wangdue Phodrang
+Darkar, Wangdue Phodrang
+Dangchu, Wangdue Phodrang
+Gangteng, Wangdue Phodrang
+Gasetsho Gom, Wangdue Phodrang
+Gasetsho Wom, Wangdue Phodrang
+Kazhi, Wangdue Phodrang
+Nahi, Wangdue Phodrang
+Nyisho, Wangdue Phodrang
+Phangyul, Wangdue Phodrang
+Phobji, Wangdue Phodrang
+Ruepisa, Wangdue Phodrang
+Sephu, Wangdue Phodrang
+Thedtsho, Wangdue Phodrang
+Bardo, Zhemgang
+Bjoka, Zhemgang
+Goshing, Zhemgang
+Nangkor, Zhemgang
+Ngangla, Zhemgang
+Phangkhar, Zhemgang
+Shingkhar, Zhemgang
+Trong, Zhemgang

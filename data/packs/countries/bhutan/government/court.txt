@@ -1,0 +1,27 @@
+---
+address: bhutan.government.court
+description: The Bhutanese ordinary courts. The judiciary has FOUR TIERS and the shape is unusual: the Supreme Court of Bhutan sits at the top with a Chief Justice and four Drangpons (justices) and has existed only since 2008, when the Constitution created it; the High Court of Bhutan, which until then WAS the highest court, sits below it with a Chief Justice and eight Drangpons; then a Dzongkhag Court in each of the twenty dzongkhags; and below those, in the dzongkhags that have a dungkhag subdivision, a Dungkhag Court which is the court of first instance there. So a case begins in a Dungkhag Court in the six dzongkhags that have one and in the Dzongkhag Court in the other fourteen — the first-instance court for a Bhutanese depends on which district they are in, which is not how most court hierarchies work. This list names the two national courts and the twenty Dzongkhag Courts; the Dungkhag Courts are named after their dungkhags and are not enumerated here. The judiciary prints its own name in Dzongkha — དཔལ་ལྡན་འབྲུག་པའི་དྲང་ཁྲིམས་ལྷན་སྡེ། — and runs its website in both Dzongkha and English, which is the pattern across Bhutanese officialdom: the institution's NAME is in Dzongkha and its DOCUMENTS are largely in English. Court names use the dzongkhag spellings of bhutan.geo.dzongkhag. Source: the Judiciary of Bhutan.
+locale: en
+---
+Supreme Court of Bhutan
+High Court of Bhutan
+Bumthang Dzongkhag Court
+Chhukha Dzongkhag Court
+Dagana Dzongkhag Court
+Gasa Dzongkhag Court
+Haa Dzongkhag Court
+Lhuentse Dzongkhag Court
+Mongar Dzongkhag Court
+Paro Dzongkhag Court
+Pemagatshel Dzongkhag Court
+Punakha Dzongkhag Court
+Samdrup Jongkhar Dzongkhag Court
+Samtse Dzongkhag Court
+Sarpang Dzongkhag Court
+Thimphu Dzongkhag Court
+Trashigang Dzongkhag Court
+Trashiyangtse Dzongkhag Court
+Trongsa Dzongkhag Court
+Tsirang Dzongkhag Court
+Wangdue Phodrang Dzongkhag Court
+Zhemgang Dzongkhag Court

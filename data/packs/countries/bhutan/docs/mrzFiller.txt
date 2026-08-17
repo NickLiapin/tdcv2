@@ -1,0 +1,5 @@
+---
+address: bhutan.docs.mrzFiller
+description: The ICAO 9303 filler character '<', fourteen of them — the width of the optional-data field of a TD3 machine-readable zone. IT IS HERE FOR A MECHANICAL REASON AND NOT A BHUTANESE ONE: the TDC config language is XML and this engine does not decode XML entities, so <str v="&lt;"/> yields the four characters &, l, t, ; rather than a less-than sign, and there is no other way to get that character into a generated value from inside a config. A pack list file's body is plain text and is not parsed as XML, so it can hold the character literally. bhutan.docs.passportMrz draws the run from here and slices single characters off it to pad the document-number field. Nothing about Bhutan is encoded here; the filler is identical on every ICAO travel document in the world, and Laos and Myanmar keep the same file for the same reason.
+---
+<<<<<<<<<<<<<<

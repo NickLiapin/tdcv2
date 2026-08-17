@@ -1,0 +1,14 @@
+---
+address: bhutan.government.ministry
+description: The ministries of the Royal Government of Bhutan as they stand after the January 2024 restructuring, which is the fact that dates any Bhutanese government dataset. The 2023 reform cut ten ministries to nine and MERGED PORTFOLIOS ACROSS THE OLD BOUNDARIES rather than renaming them, so a list from 2022 names ministries that no longer exist and misses most of these: the Ministry of Economic Affairs became Industry, Commerce and Employment; Labour and Human Resources was folded into it; Works and Human Settlement and the transport side of Information and Communications became Infrastructure and Transport; Agriculture and Forests became Agriculture and Livestock while forestry and hydropower moved to the new Ministry of Energy and Natural Resources; Education became Education and Skills Development; and Foreign Affairs took on external trade. The Ministry of Home Affairs was for a period Home and Cultural Affairs, which is still the name on the Department of Civil Registration and Census's own pages. Bhutan's government is unusually SMALL and unusually DEPARTMENT-shaped: nine ministries for a country of 727 000 people, with the work done by departments and autonomous agencies underneath them — the Citizenship Identity Card comes from a department, not a ministry, and so does the taxpayer number. See bhutan.government.agency for those.
+locale: en
+---
+Ministry of Finance
+Ministry of Home Affairs
+Ministry of Foreign Affairs and External Trade
+Ministry of Health
+Ministry of Education and Skills Development
+Ministry of Agriculture and Livestock
+Ministry of Energy and Natural Resources
+Ministry of Industry, Commerce and Employment
+Ministry of Infrastructure and Transport

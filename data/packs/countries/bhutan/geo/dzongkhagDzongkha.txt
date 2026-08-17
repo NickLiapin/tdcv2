@@ -1,0 +1,25 @@
+---
+address: bhutan.geo.dzongkhagDzongkha
+description: The same twenty dzongkhags as bhutan.geo.dzongkhag, written in Dzongkha, INDEX-ALIGNED LINE FOR LINE with it so the two can be drawn as a pair. Dzongkha is written in the Tibetan script (Unicode U+0F00–U+0FFF) in its Uchen printed form — the same letters as Tibetan, a different language, and Bhutanese longhand (jotshum, joyi) is unique to Dzongkha and is not what is printed here. THE CHARACTER THAT WILL BREAK YOUR CODE IS U+0F0B TSHEG, the raised dot between every pair of syllables. It is a SYLLABLE separator, not a word separator: Dzongkha marks no word boundaries at all, so ཐིམ་ཕུ་རྫོང་ཁག is four syllables and two words (Thimphu / dzongkhag) and nothing in the string says where one ends. A tokeniser that splits on the tsheg gets syllables and calls them words; a line-breaker that treats the tsheg as a space is right by accident, because the tsheg is where Dzongkha may break a line; and a "strip punctuation" pass that deletes it destroys the text. Every entry here ends in རྫོང་ཁག (dzongkhag, district) — the name proper is what precedes it. The terminal ། U+0F0D SHAD, the Tibetan full stop, has been stripped from the two entries that carried it in the source, because it is sentence punctuation and not part of a name; nothing else has been altered. WHY THIS FILE IS SHORT AND MOST OF THIS PACK IS IN LATIN LETTERS: Bhutan writes far more of its official record in English and Roman Dzongkha than in Dzongkha script. The postcode register, the Citizenship Identity Card, the taxpayer number, the numbering plan, the plate, the bank names and every dzongkhag administration website are in Latin script; the Department of Revenue and Customs and the Judiciary print their own names in Dzongkha, currency notes and dzong signage are in Dzongkha, and the Election Commission publishes gewog names in both. The rule followed throughout this pack is: use Dzongkha where a Bhutanese document prints Dzongkha, use Latin where it prints Latin. Gasa is the entry to check a source against — the UNGEGN report gives མགར་ས and the English Wikipedia gives དགའ་ས; the Dzongkha-language source agrees with UNGEGN, and that is the form here. Source: the article titles of the Dzongkha Wikipedia, whose romanisations were checked one by one against the Roman Dzongkha in bhutan.geo.dzongkhag.
+locale: dz
+---
+བུམ་ཐང་རྫོང་ཁག
+ཆུ་ཁ་རྫོང་ཁག
+དར་དཀར་ན་རྫོང་ཁག
+མགར་ས་རྫོང་ཁག
+ཧཱ་རྫོང་ཁག
+ལྷུན་རྩེ་རྫོང་ཁག
+མོང་སྒར་རྫོང་ཁག
+སྤ་རོ་རྫོང་ཁག
+པདྨ་དགའ་ཚལ་རྫོང་ཁག
+སྤུ་ན་ཁ་རྫོང་ཁག
+བསམ་གྲུབ་ལྗོངས་མཁར་རྫོང་ཁག
+བསམ་རྩེ་རྫོང་ཁག
+གསར་སྤང་རྫོང་ཁག
+ཐིམ་ཕུ་རྫོང་ཁག
+བཀྲིས་སྒང་རྫོང་ཁག
+བཀྲིས་གཡང་རྩེ་རྫོང་ཁག
+ཀྲོང་གསར་རྫོང་ཁག
+རྩི་རང་རྫོང་ཁག
+དབང་འདུས་ཕོ་བྲང་རྫོང་ཁག
+གཞལམ་སྒང་རྫོང་ཁག

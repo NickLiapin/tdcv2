@@ -1,0 +1,15 @@
+---
+address: bhutan.sport.team
+description: The clubs of the Bhutan Premier League, the national football championship. TEN CLUBS IS THE WHOLE TOP FLIGHT, and five of them are based in Thimphu, which is what a league looks like in a country of 727 000 people where a third of the urban population lives in one valley. Two entries are not clubs in the ordinary sense and that is normal here rather than an anomaly: BFF Academy is the Bhutan Football Federation's own under-19 side, playing in the senior first division against grown men, and Royal Thimphu College and Ugyen Academy are educational institutions fielding league teams — in a football economy this small the schools and the federation ARE clubs. Paro FC has won the last five titles in a row and six in all. The league plays from April to November, spring to autumn, because Thimphu sits at 2 300 metres and the winter is not playable; Changlimithang Stadium in Thimphu is the national ground and the home of three of the ten. Bhutan is also the origin of the most-cited fixture in football, the 2002 "Other Final" against Montserrat, played on the day of the World Cup final between the two lowest-ranked teams in FIFA; Bhutan won 4-0.
+locale: en
+---
+Paro FC
+Thimphu City FC
+Transport United FC
+Royal Thimphu College FC
+Ugyen Academy FC
+Tensung FC
+Tsirang FC
+Samtse FC
+Southern City FC
+BFF Academy
