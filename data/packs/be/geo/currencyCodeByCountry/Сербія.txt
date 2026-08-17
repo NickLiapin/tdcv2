@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code for Сербія. Child of geo/country.txt.
+locale: be
+---
+RSD

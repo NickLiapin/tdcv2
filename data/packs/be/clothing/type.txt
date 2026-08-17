@@ -1,0 +1,30 @@
+---
+description: Garment (Belarusian). Кажух is the sheepskin coat and Валёнкі the felted wool boots — both are real winter clothing in a country where January averages -5°C, not folklore. Світа is the traditional woollen overcoat.
+locale: be
+---
+Кашуля
+Блузка
+Швэдар
+Джэмпер
+Кофта
+Футболка
+Штаны
+Джынсы
+Спадніца
+Сукенка
+Касцюм
+Пінжак
+Куртка
+Паліто
+Плашч
+Кажух
+Світа
+Шапка
+Шалік
+Пальчаткі
+Шкарпэткі
+Абутак
+Боты
+Валёнкі
+Красоўкі
+Бялізна

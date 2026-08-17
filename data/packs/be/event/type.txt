@@ -1,0 +1,22 @@
+---
+description: Kind of event (Belarusian). FIVE OF THESE ARE BELARUSIAN CALENDAR EVENTS AND ONE IS A STATE OCCASION. Дажынкі is the harvest festival, and since 1996 it is held as a national holiday hosted by a different town each year, so it is both a village rite and a government event. Купалле is midsummer night, Каляды the winter cycle with house-to-house singing, Гуканне вясны the spring calling. Талака is a collective work-bee where neighbours build or harvest for one household in turn, and it has no English word.
+locale: be
+---
+Дажынкі
+Купалле
+Каляды
+Гуканне вясны
+Масленіца
+Талака
+Вяселле
+Хрэсьбіны
+Дзень нараджэння
+Юбілей
+Выпускны
+Канферэнцыя
+Семінар
+Кірмаш
+Фестываль
+Канцэрт
+Выстава
+Спаборніцтвы

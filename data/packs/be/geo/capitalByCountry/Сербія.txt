@@ -1,0 +1,5 @@
+---
+description: Capital of Сербія, in Belarusian. Child of geo/country.txt.
+locale: be
+---
+Бялград

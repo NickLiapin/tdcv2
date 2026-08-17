@@ -1,0 +1,26 @@
+---
+description: Metal or alloy (Belarusian). Калій is here because Belarus is one of the world's largest producers of potash: the Salihorsk mines are the country's biggest export after refined oil, and калійныя ўгнаенні is a phrase every Belarusian knows.
+locale: be
+---
+Жалеза
+Сталь
+Чыгун
+Медзь
+Латунь
+Бронза
+Алюміній
+Цынк
+Волава
+Свінец
+Нікель
+Хром
+Тытан
+Магній
+Срэбра
+Золата
+Плаціна
+Ртуць
+Вальфрам
+Кобальт
+Калій
+Натрый

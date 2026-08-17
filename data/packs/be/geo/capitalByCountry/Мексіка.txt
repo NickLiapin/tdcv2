@@ -1,0 +1,5 @@
+---
+description: Capital of Мексіка, in Belarusian. Child of geo/country.txt.
+locale: be
+---
+Мехіка

@@ -1,0 +1,20 @@
+---
+description: Horse breed (Belarusian). БЕЛАРУСКАЯ ЗАПРАЖНАЯ IS A REAL NATIVE BREED, bred at Belarusian stud farms from local forest horses and recognised in 2000 — a small heavy draught horse suited to peat soil, and the only horse breed the country has of its own. The rest are international breeds in Belarusian spelling.
+locale: be
+---
+Беларуская запражная
+Арлоўскі рысак
+Рускі цяжкавоз
+Арабскі скакун
+Ахалцекінскі
+Фрызскі
+Андалузскі
+Ганноверскі
+Галандскі паўкроўны
+Шатландскі поні
+Мустанг
+Апалуза
+Клайдэсдаль
+Шайр
+Персерон
+Гуцульскі

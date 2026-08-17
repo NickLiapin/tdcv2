@@ -1,0 +1,5 @@
+---
+description: Capital of Польшча, in Belarusian. Child of geo/country.txt.
+locale: be
+---
+Варшава

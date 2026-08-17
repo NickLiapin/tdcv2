@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised prevalence in the Усходнеазіяцкая ancestry group, in Belarusian. Child of medical/ancestry.txt.
+locale: be
+---
+Дэфіцыт лактазы
+Непераноснасць алкаголю (ALDH2)
+Рак страўніка
+Насафарынгеальны рак
+Альфа-таласемія

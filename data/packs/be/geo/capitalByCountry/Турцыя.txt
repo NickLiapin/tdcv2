@@ -1,0 +1,5 @@
+---
+description: Capital of Турцыя, in Belarusian. Child of geo/country.txt.
+locale: be
+---
+Анкара

@@ -1,0 +1,14 @@
+---
+description: Dishes of Турэцкая cuisine, named in Belarusian. Child of food/cuisine.txt.
+locale: be
+---
+Донер
+Кебаб
+Лахмаджун
+Підэ
+Мэнэмэн
+Кёфтэ
+Долма
+Баклава
+Локум
+Айран

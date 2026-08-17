@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised prevalence in the Паўночнаафрыканская ancestry group, in Belarusian. Child of medical/ancestry.txt.
+locale: be
+---
+Дэфіцыт Г6ФД
+Бэта-таласемія
+Сярпістаклетачная анемія
+Сямейная міжземнаморская ліхаманка
+Цукровы дыябет 2 тыпу

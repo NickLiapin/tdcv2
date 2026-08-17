@@ -1,0 +1,11 @@
+---
+description: Abbreviated weekday (Belarusian). These are the two-letter forms a Belarusian calendar column prints; нд for нядзеля is the Sunday column and stands at the END of the row, not the start.
+locale: be
+---
+пн
+аў
+ср
+чц
+пт
+сб
+нд

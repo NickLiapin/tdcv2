@@ -1,0 +1,6 @@
+---
+description: Gender label (Belarusian). Two values only, matching en and ru, because this list is what a parent= filter selects on and a longer one silently leaves most rows without a name. These are the adjectives a Belarusian form prints beside its М / Ж boxes.
+locale: be
+---
+Мужчынскі
+Жаночы

@@ -1,0 +1,5 @@
+---
+description: Currency of Кітай, named in Belarusian. Child of geo/country.txt.
+locale: be
+---
+юань

@@ -1,0 +1,21 @@
+---
+description: Kind of bicycle (Belarusian). Аіст is the Minsk bicycle factory's brand and is the bicycle most Belarusians of a certain age learned on; the word аіст is the stork, the same bird as бусел.
+locale: be
+---
+Гарадскі
+Дарожны
+Горны
+Шасейны
+Гравійны
+Гібрыдны
+Складны
+Дзіцячы
+Падлеткавы
+Жаночы
+Аіст
+Электравеласіпед
+BMX
+Тандэм
+Ляжачы
+Грузавы
+Фэтбайк

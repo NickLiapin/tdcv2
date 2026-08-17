@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Belarusian. THE CURRENCY IS THE BELARUSIAN ROUBLE, code BYN, written руб. after the amount, and it is the DENOMINATED rouble of 1 July 2016, which cut four zeros off the old one — a figure from before that date is 10,000 times larger and any historic Belarusian money data must be checked for which rouble it is in. The bands are set against the real distribution: the average gross monthly wage was about 2,300 BYN in 2024, so a single-earner household lands near 28,000 BYN a year and the 24,000-36,000 band is the middle of the country. Belarusian writes the decimal comma and spaces the thousands (28 000,50).
+locale: be
+---
+Менш за 9 000 руб.
+9 000–15 000 руб.
+15 000–24 000 руб.
+24 000–36 000 руб.
+36 000–54 000 руб.
+54 000–80 000 руб.
+80 000–120 000 руб.
+Больш за 120 000 руб.

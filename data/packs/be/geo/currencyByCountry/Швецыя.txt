@@ -1,0 +1,5 @@
+---
+description: Currency of Швецыя, named in Belarusian. Child of geo/country.txt.
+locale: be
+---
+шведская крона

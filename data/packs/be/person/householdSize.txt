@@ -1,0 +1,11 @@
+---
+description: Number of people in a household. Belarus averages about 2.4 people per household and roughly a third of urban households are one person, so the small values carry most of the real weight; the list is the plain integers a census form offers.
+locale: be
+---
+1
+2
+3
+4
+5
+6
+7 і больш

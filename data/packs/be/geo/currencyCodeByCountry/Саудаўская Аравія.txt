@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code for Саудаўская Аравія. Child of geo/country.txt.
+locale: be
+---
+SAR

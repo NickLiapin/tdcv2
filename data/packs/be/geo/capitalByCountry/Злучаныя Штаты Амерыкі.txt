@@ -1,0 +1,5 @@
+---
+description: Capital of Злучаныя Штаты Амерыкі, in Belarusian. Child of geo/country.txt.
+locale: be
+---
+Вашынгтон

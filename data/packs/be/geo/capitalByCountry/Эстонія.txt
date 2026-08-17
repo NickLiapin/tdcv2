@@ -1,0 +1,5 @@
+---
+description: Capital of Эстонія, in Belarusian. Child of geo/country.txt.
+locale: be
+---
+Талін

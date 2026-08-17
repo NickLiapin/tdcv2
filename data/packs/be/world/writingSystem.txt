@@ -1,0 +1,24 @@
+---
+description: Writing system as Belarusian names it. THREE OF THESE HAVE BEEN USED TO WRITE BELARUSIAN ITSELF, which is true of almost no other language. Кірыліца is the current one. ЛАЦІНКА is the Belarusian Latin alphabet with its own letters č, š, ž, ŭ and ł — not a transliteration but a full orthography, the one the first Belarusian newspaper Наша Ніва printed in from 1906, and it is what puts narkamaŭka and taraškievica into Latin script. АРАБІЦА is the Belarusian Arabic script: the Lipka Tatars wrote Belarusian in Arabic letters for four centuries, in manuscript books called kitabs, and those are among the oldest continuous records of spoken Belarusian there are. Глаголіца is the older Slavic alphabet that Cyrillic replaced.
+locale: be
+---
+Кірыліца
+Лацінка
+Арабіца
+Глаголіца
+Грэчаскі алфавіт
+Лацінскі алфавіт
+Іўрыт
+Дэванагары
+Кітайскае пісьмо
+Хірагана
+Катакана
+Хангыль
+Тайскае пісьмо
+Армянскі алфавіт
+Грузінскі алфавіт
+Эфіопскае пісьмо
+Кхмерскае пісьмо
+Тыбецкае пісьмо
+Клінапіс
+Брайль

@@ -1,0 +1,9 @@
+---
+description: Mining shift (Belarusian).
+locale: be
+---
+Першая змена
+Другая змена
+Начная змена
+Рамонтная змена
+Вахта

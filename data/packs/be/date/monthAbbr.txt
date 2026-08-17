@@ -1,0 +1,16 @@
+---
+description: Abbreviated month (Belarusian), with the full stop that Belarusian abbreviation always carries. май has no abbreviation because it is already three letters, exactly as in the full list.
+locale: be
+---
+студз.
+лют.
+сак.
+крас.
+май
+чэрв.
+ліп.
+жн.
+вер.
+кастр.
+ліст.
+снеж.

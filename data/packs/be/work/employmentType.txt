@@ -1,0 +1,15 @@
+---
+description: Kind of employment (Belarusian). КАНТРАКТ IS THE DEFAULT IN BELARUS, not the exception: since 1999 most employees are on fixed-term contracts of one to five years rather than open-ended employment, renewed at the employer's discretion, and this is the single biggest difference between a Belarusian and a Western European employment record. Размеркаванне is another: a graduate of a state-funded place must work two years where the state sends them.
+locale: be
+---
+Кантракт
+Бестэрміновы працоўны дагавор
+Тэрміновы працоўны дагавор
+Поўная занятасць
+Няпоўная занятасць
+Сумяшчальніцтва
+Сумяшчэнне
+Дагавор падраду
+Індывідуальны прадпрымальнік
+Самазаняты
+Размеркаванне

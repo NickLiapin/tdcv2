@@ -1,0 +1,14 @@
+---
+description: Dishes of Украінская cuisine, named in Belarusian. Child of food/cuisine.txt.
+locale: be
+---
+Украінскі баршч
+Варэнікі
+Галушкі
+Сала з часнаком
+Дзеруны
+Крутанікі
+Пампушкі
+Кулеш
+Банош
+Сырнікі

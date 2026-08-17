@@ -1,0 +1,21 @@
+---
+description: Social platform (Belarusian). TELEGRAM AND VIBER LEAD IN BELARUS, not the platforms an English list would put first: Viber is the default family messenger and Telegram carries most public and news traffic, so a realistic Belarusian dataset that puts Facebook at the top is wrong about the country. Brand names keep their Latin or their own Cyrillic spelling.
+locale: be
+---
+Telegram
+Viber
+Instagram
+TikTok
+YouTube
+ВКантакце
+Аднакласнікі
+Facebook
+X
+WhatsApp
+Skype
+Discord
+LinkedIn
+Pinterest
+Twitch
+Snapchat
+Threads

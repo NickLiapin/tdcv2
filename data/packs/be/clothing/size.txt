@@ -1,0 +1,12 @@
+---
+description: Clothing size (Belarusian). Belarus labels garments with the INTERNATIONAL letter sizes in shops, but state-owned factories also print the older numeric size (46, 48, 50), which is the chest measurement in centimetres halved. Both appear on the same rail; the letters are what a modern label carries.
+locale: be
+---
+XS
+S
+M
+L
+XL
+XXL
+XXXL
+Універсальны

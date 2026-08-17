@@ -1,0 +1,30 @@
+---
+description: Diagnosis recorded only for male patients (Belarusian), matching en/person/male/diagnosis.txt. The list overlaps medical/diagnosisMale.txt by design: the two addresses serve the same clinical fact from different parents, one under person and one under medical.
+locale: be
+---
+Варыкацэле
+Крыптархізм
+Фімоз
+Прастатыт
+Дабраякасная гіперплазія прастаты
+Рак прастаты
+Рак яечка
+Эрэктыльная дысфункцыя
+Мужчынская бясплоднасць
+Гінекамастыя
+Гіпаганадызм
+Дэфіцыт тэстастэрону
+Андрагенная алапецыя
+Пахавая грыжа
+Урэтрыт
+Баланапастыт
+Хвароба Пейроні
+Азаспермія
+Гідрацэле
+Перакрут яечка
+Эпідыдыміт
+Орхіт
+Прыапізм
+Гемафілія A
+Дальтанізм
+Падагра

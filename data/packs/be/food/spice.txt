@@ -1,0 +1,34 @@
+---
+description: Spice or seasoning (Belarusian). Belarusian cooking is a herb cuisine rather than a spice cuisine: кроп, часнок, хрэн, кмен and лаўровы ліст do most of the work, and кмен in particular goes into bread, cheese and sauerkraut here in a way it does not further west. The tropical spices at the end are all imports and all arrived through the same trade the rest of Europe used.
+locale: be
+---
+Соль
+Чорны перац
+Духмяны перац
+Лаўровы ліст
+Кроп
+Пятрушка
+Кмен
+Часнок
+Хрэн
+Гарчыца
+Майран
+Чабор
+Мята
+Мяліса
+Базілік
+Арэгана
+Размарын
+Эстрагон
+Каляндра
+Папрыка
+Куркума
+Імбір
+Карыца
+Гваздзіка
+Мушкатовы арэх
+Кардамон
+Ваніль
+Шафран
+Чылі
+Кары

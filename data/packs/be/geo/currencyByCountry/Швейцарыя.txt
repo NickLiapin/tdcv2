@@ -1,0 +1,5 @@
+---
+description: Currency of Швейцарыя, named in Belarusian. Child of geo/country.txt.
+locale: be
+---
+швейцарскі франк

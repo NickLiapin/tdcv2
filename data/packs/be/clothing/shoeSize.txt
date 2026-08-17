@@ -1,0 +1,16 @@
+---
+description: Shoe size on the EUROPEAN (Paris point) scale, which is what a Belarusian shoebox is marked with. Belarus uses the continental numbering exactly as Poland, Germany and Russia do — there is no separate national scale and neither UK nor US numbering is printed on the box. Belarus does still manufacture its own footwear (Marko, Belwest), and those factories label in the same European points.
+locale: be
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

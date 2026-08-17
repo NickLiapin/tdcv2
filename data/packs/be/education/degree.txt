@@ -1,0 +1,20 @@
+---
+description: Level of education or degree (Belarusian). BELARUS RUNS THE TWO-TIER SOVIET RESEARCH DEGREE SYSTEM: кандыдат навук comes first and доктар навук is a second, higher doctorate earned years later, so "doctor" in a Belarusian CV does not mean PhD. Дацэнт and прафесар are academic RANKS conferred separately from the degrees. Сярэдняя спецыяльная адукацыя (a technical college) is a distinct level between school and university with no exact English equivalent.
+locale: be
+---
+Базавая адукацыя
+Агульная сярэдняя адукацыя
+Прафесійна-тэхнічная адукацыя
+Сярэдняя спецыяльная адукацыя
+Бакалаўр
+Спецыяліст
+Магістр
+Аспірантура
+Дактарантура
+Кандыдат навук
+Доктар навук
+Дацэнт
+Прафесар
+Акадэмік
+Член-карэспандэнт
+Павышэнне кваліфікацыі

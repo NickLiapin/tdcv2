@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Дэрматалогія, in Belarusian. Child of medical/specialtyCoherent.txt.
+locale: be
+---
+Атапічны дэрматыт
+Кантактны дэрматыт
+Псарыяз
+Экзема
+Крапіўніца
+Акне
+Ружовыя вугры
+Мікоз скуры
+Імпетыга
+Вітыліга

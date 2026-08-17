@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised prevalence in the Міжземнаморская ancestry group, in Belarusian. Child of medical/ancestry.txt.
+locale: be
+---
+Бэта-таласемія
+Дэфіцыт Г6ФД
+Сямейная міжземнаморская ліхаманка
+Сярпістаклетачная прыкмета
+Лактазная непераноснасць

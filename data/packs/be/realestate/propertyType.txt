@@ -1,0 +1,23 @@
+---
+description: Kind of property (Belarusian). Лецішча and Дачны ўчастак are separate entries because they are separate things in Belarusian law and in advertisements: the plot may be sold with or without the cottage. Кватэра-гасцінка is the single-room flat with a shared corridor left over from workers' hostels and is its own market category.
+locale: be
+---
+Кватэра
+Аднапакаёвая кватэра
+Двухпакаёвая кватэра
+Трохпакаёвая кватэра
+Кватэра-студыя
+Кватэра-гасцінка
+Пентхаус
+Прыватны дом
+Катэдж
+Таунхаус
+Паўдома
+Хата ў вёсцы
+Лецішча
+Дачны ўчастак
+Зямельны ўчастак
+Гараж
+Машынамесца
+Офіс
+Гандлёвае памяшканне

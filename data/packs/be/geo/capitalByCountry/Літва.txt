@@ -1,0 +1,5 @@
+---
+description: Capital of Літва, in Belarusian. Child of geo/country.txt.
+locale: be
+---
+Вільня

@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Belarusian). Brand names keep their own spelling.
+locale: be
+---
+PC
+PlayStation
+Xbox
+Nintendo Switch
+Steam Deck
+Мабільныя
+Android
+iOS
+Воблачны геймінг
+Браўзер
+Рэтракансоль

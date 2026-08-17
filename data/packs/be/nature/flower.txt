@@ -1,0 +1,32 @@
+---
+description: Flower (Belarusian). ВАСІЛЁК COMES FIRST BECAUSE IT IS THE NATIONAL FLOWER — the cornflower is the flower Belarus is named with in song and in ornament, and the colour васільковы at color/name.txt is derived from it. Сон-трава (pasqueflower) and Пралеска are the two spring flowers of the Belarusian forest and both are protected by law.
+locale: be
+---
+Васілёк
+Рамонак
+Званочак
+Дзьмухавец
+Канюшына
+Лілея
+Півоня
+Вяргіня
+Астра
+Флокс
+Ружа
+Цюльпан
+Нарцыс
+Гладыёлус
+Гарлачык
+Бэз
+Язмін
+Сон-трава
+Пралеска
+Мак
+Іван-чай
+Незабудка
+Фіялка
+Настурцыя
+Аксаміткі
+Хрызантэма
+Чабор
+Крываўнік

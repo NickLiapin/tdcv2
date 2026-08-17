@@ -1,0 +1,14 @@
+---
+description: Dishes of Яўрэйская cuisine, named in Belarusian. Child of food/cuisine.txt.
+locale: be
+---
+Форшмак
+Гефілтэ фіш
+Цымес
+Латкес
+Кугель
+Маца
+Бульбяны кугель
+Курыны булён
+Кнейдлах
+Хала

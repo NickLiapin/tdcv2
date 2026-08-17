@@ -1,0 +1,16 @@
+---
+description: Month name (Belarusian), nominative, lowercase. BELARUSIAN KEPT THE SLAVIC NATURE-NAMES and did NOT take the Latin set: студзень is the month of cold (сцюжа), сакавік the month the tree sap runs, красавік the month things go beautiful, чэрвень the month of the червец insect that gave the crimson dye, ліпень the month the lime tree flowers, жнівень the month of the harvest (жніво), верасень the month heather flowers, кастрычнік the month flax is scutched (кастрыца), лістапад the month leaves fall and снежань the month of snow. This is the single loudest difference from RUSSIAN, which uses январь / февраль / март: a Belarusian date is not a Russian date respelled. Polish, Czech and Ukrainian kept their own native sets too, and they do NOT agree with each other — Belarusian жнівень is August while Czech srpen is also August but Croatian and Polish sierpień differ in shape, and Belarusian красавік is APRIL while Czech květen is MAY. The only Latin-derived month left is май.
+locale: be
+---
+студзень
+люты
+сакавік
+красавік
+май
+чэрвень
+ліпень
+жнівень
+верасень
+кастрычнік
+лістапад
+снежань

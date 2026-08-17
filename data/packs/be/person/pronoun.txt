@@ -1,0 +1,12 @@
+---
+description: Personal pronoun (Belarusian), subject form. Note ён / яна against Russian он / она — the akanne and yakanne are in the pronouns too. мы and вы have no ы-less variant, and Belarusian keeps ы where Ukrainian has и. There is no separate formal-singular pronoun: politeness uses the plural Вы, capitalised in a letter.
+locale: be
+---
+я
+ты
+ён
+яна
+яно
+мы
+вы
+яны

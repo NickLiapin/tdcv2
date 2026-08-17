@@ -1,0 +1,14 @@
+---
+description: Dishes of Французская cuisine, named in Belarusian. Child of food/cuisine.txt.
+locale: be
+---
+Цыбульны суп
+Рататуй
+Кіш Ларэн
+Круасан
+Багет
+Бёф бургіньён
+Кок-а-вэн
+Крэм-брюле
+Эклер
+Профітролі

@@ -1,0 +1,11 @@
+---
+description: Weekday (Belarusian), lowercase, MONDAY FIRST as the Belarusian week runs. The names carry their own arithmetic: аўторак is "the second", серада "the middle", чацвер "the fourth" and пятніца "the fifth", all counted from панядзелак, which is itself "after the не-дзеля", the day of not-doing. нядзеля therefore means Sunday in Belarusian — it is a FALSE FRIEND of Polish niedziela (also Sunday) but of Russian неделя, which means the whole WEEK. A Belarusian week is тыдзень. аўторак carries ў.
+locale: be
+---
+панядзелак
+аўторак
+серада
+чацвер
+пятніца
+субота
+нядзеля

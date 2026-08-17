@@ -1,0 +1,14 @@
+---
+description: Dishes of Грэчаская cuisine, named in Belarusian. Child of food/cuisine.txt.
+locale: be
+---
+Мусака
+Сувлакі
+Гірас
+Грэчаскі салат
+Цацікі
+Спанакопіта
+Долмадэс
+Пастыцыё
+Клефтыка
+Баклава

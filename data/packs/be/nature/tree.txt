@@ -1,0 +1,32 @@
+---
+description: Tree (Belarusian). Сасна and Бяроза lead because they lead in fact: two fifths of Belarus is forest and the pine and the birch are more than half of it by area. Дуб carries the weight in folklore and Вярба in Easter ritual. Every one of these grows in Belarus except the last three, which are listed because they are sold as timber or planted in parks.
+locale: be
+---
+Сасна
+Елка
+Бяроза
+Дуб
+Клён
+Ліпа
+Асіна
+Вольха
+Вярба
+Ясень
+Граб
+Вяз
+Таполя
+Рабіна
+Чаромха
+Ляшчына
+Ядловец
+Каштан
+Акацыя
+Яблыня
+Груша
+Сліва
+Вішня
+Бук
+Мадрына
+Кедр
+Піхта
+Крушына

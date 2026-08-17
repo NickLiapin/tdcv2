@@ -1,0 +1,5 @@
+---
+description: Currency of Егіпет, named in Belarusian. Child of geo/country.txt.
+locale: be
+---
+егіпецкі фунт

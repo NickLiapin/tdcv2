@@ -1,0 +1,29 @@
+---
+description: Fish (Belarusian). THE FIRST TWO THIRDS ARE FRESHWATER because Belarus is landlocked and every fish a Belarusian catches comes out of a river, a lake or a fish farm — Шчупак, Лешч, Карась and Плотка are the everyday catch of the Prypiac and the Braslaw lakes. The sea fish at the end are all things bought in a shop, which is why Селядзец (salted herring) is culturally the most important of them and Траска is second.
+locale: be
+---
+Шчупак
+Акунь
+Плотка
+Лешч
+Карась
+Карп
+Лінь
+Сом
+Судак
+Язь
+Галавень
+Уклейка
+Ёрш
+Налім
+Стронга
+Вугор
+Пячкур
+Краснапёрка
+Сазан
+Талсталобік
+Селядзец
+Траска
+Тунец
+Ласось
+Асётр

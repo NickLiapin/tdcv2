@@ -1,0 +1,28 @@
+---
+description: Name suffix (Belarusian). BELARUSIAN HAS NO Jr / Sr CONVENTION AT ALL: a son who carries his father's name is told apart by the patronymic (імя па бацьку), which is a separate obligatory field on every Belarusian document and is NOT a name suffix — it stands between the given name and the surname, so it cannot be modelled here. The roman numerals below therefore number rulers and never sons: Вітаўт, Жыгімонт II Аўгуст, Стэфан Баторый. What genuinely trails a Belarusian name is a degree abbreviation, and even those are usually written in front instead.
+locale: be
+---
+малодшы
+старэйшы
+I
+II
+III
+IV
+V
+VI
+VII
+VIII
+IX
+X
+к.н.
+д.н.
+PhD
+MSc
+MBA
+MD
+LL.M.
+BSc
+BA
+MA
+DSc
+Esq.

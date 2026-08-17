@@ -1,0 +1,5 @@
+---
+description: Capital of Бразілія, in Belarusian. Child of geo/country.txt.
+locale: be
+---
+Бразіліа

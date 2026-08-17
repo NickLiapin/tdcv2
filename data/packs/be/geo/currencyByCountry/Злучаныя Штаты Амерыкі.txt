@@ -1,0 +1,5 @@
+---
+description: Currency of Злучаныя Штаты Амерыкі, named in Belarusian. Child of geo/country.txt.
+locale: be
+---
+долар

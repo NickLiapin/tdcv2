@@ -1,0 +1,5 @@
+---
+description: Capital of Сінгапур, in Belarusian. Child of geo/country.txt.
+locale: be
+---
+Сінгапур

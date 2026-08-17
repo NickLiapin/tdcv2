@@ -1,0 +1,13 @@
+---
+description: Age rating mark (Belarusian). BELARUS USES THE PLUS-NUMBER SYSTEM, not letters: a mark like 12+ is printed in the corner of the screen and in the listings under the law on protecting children from harmful information. There is no equivalent of PG-13 or R, and no advisory content descriptors beside the number.
+locale: be
+---
+0+
+6+
+12+
+16+
+18+
+Без узроставых абмежаванняў
+Дзіцячая праграма
+Сямейны прагляд
+Толькі для дарослых

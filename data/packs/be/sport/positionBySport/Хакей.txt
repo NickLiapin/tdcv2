@@ -1,0 +1,12 @@
+---
+description: Playing positions in Хакей, in Belarusian. Child of sport/sportCoherent.txt.
+locale: be
+---
+Варатар
+Правы абаронца
+Левы абаронца
+Цэнтральны нападаючы
+Правы крайні нападаючы
+Левы крайні нападаючы
+Гулец большасці
+Гулец меншасці

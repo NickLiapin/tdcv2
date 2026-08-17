@@ -1,0 +1,20 @@
+---
+description: Compass direction (Belarusian), the sixteen points. THE INTERCARDINALS ARE TWO WORDS in Belarusian — паўночны ўсход, not a single compound as in Macedonian or German — because the first half is an adjective agreeing with the second. EVERY ONE OF THE EIGHT CONTAINING "ўсход" SHOWS THE Ў RULE: у becomes ў after a vowel, so it is паўночны ўсход with ў but Усход with У when the word starts the phrase. That alternation is automatic and obligatory in Belarusian and exists in no other Slavic language.
+locale: be
+---
+Поўнач
+Поўдзень
+Усход
+Захад
+Паўночны ўсход
+Паўночны захад
+Паўднёвы ўсход
+Паўднёвы захад
+Поўнач-паўночны ўсход
+Усход-паўночны ўсход
+Усход-паўднёвы ўсход
+Поўдзень-паўднёвы ўсход
+Поўдзень-паўднёвы захад
+Захад-паўднёвы захад
+Захад-паўночны захад
+Поўнач-паўночны захад

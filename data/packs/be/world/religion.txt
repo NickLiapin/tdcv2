@@ -1,0 +1,25 @@
+---
+description: Religion or confession as Belarusian names it. BELARUS IS THE SLAVIC CONFESSIONAL BORDER and the list has to show it: Праваслаўе is the largest confession, but Каталіцтва is around a sixth of the population and is the majority in the Hrodna region, which is why Belarusian keeps a full Catholic vocabulary (касцёл for a Catholic church against царква for an Orthodox one). УНІЯЦТВА — the Greek Catholic church of the 1596 Union of Brest — WAS THE FAITH OF THE MAJORITY OF BELARUSIANS from the seventeenth century until it was abolished by the Russian empire in 1839, so it is not a fringe entry here but the country's largest former church. Іслам belongs to the Lipka Tatars, settled since the fourteenth century; Іудаізм to a community that was a third of the urban population before 1941.
+locale: be
+---
+Праваслаўе
+Каталіцтва
+Уніяцтва
+Пратэстантызм
+Лютэранства
+Кальвінізм
+Баптызм
+Пяцідзесятніцтва
+Адвентызм
+Стараабрадніцтва
+Іслам
+Сунізм
+Шыізм
+Іудаізм
+Будызм
+Індуізм
+Сікхізм
+Язычніцтва
+Атэізм
+Агнастыцызм
+Без веравызнання

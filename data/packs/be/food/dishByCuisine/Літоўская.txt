@@ -1,0 +1,12 @@
+---
+description: Dishes of Літоўская cuisine, named in Belarusian. Child of food/cuisine.txt.
+locale: be
+---
+Цэпеліны
+Шалтыбаршчай
+Кугеліс
+Скіландзіс
+Кібінай
+Шакоціс
+Баландэляй
+Вядарай

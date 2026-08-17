@@ -1,0 +1,44 @@
+---
+description: Dish, named in Belarusian, Belarusian cooking first. ДРАНІКІ ARE THE NATIONAL DISH and the word is worth knowing: they are grated raw potato fried as a pancake, and the potato is not incidental — Belarus eats among the most potatoes per head in the world and бульба is a national nickname. FOUR ITEMS HAVE NO ENGLISH NAME AT ALL: мачанка is a thick pork gravy that pancakes are dipped into and is a whole meal; верашчака is its older, sourer version; бабка is grated potato baked in the oven with pork; кулага is a berry-and-flour dessert cooked slowly, and it is what Belarusian folklore means by a sweet. Крамбамбуля is a spiced honey spirit, historically Belarusian and now made again commercially.
+locale: be
+---
+Дранікі
+Бабка
+Калдуны
+Мачанка
+Верашчака
+Клёцкі
+Клёцкі з душамі
+Крупнік
+Жур
+Халаднік
+Зацірка
+Кулага
+Кісель
+Кумпяк
+Паляндвіца
+Сальтысон
+Кіндзюк
+Вантрабянка
+Дамашняя каўбаса
+Смажаніна
+Сала
+Скваркі
+Тварог
+Бліны
+Аладкі
+Пампушкі
+Піражкі
+Жытні хлеб
+Бульба ў мундзірах
+Тушаная капуста
+Квашаная капуста
+Салёныя агуркі
+Марынаваныя грыбы
+Юшка
+Бігас
+Крамбамбуля
+Квас
+Бярозавы сок
+Куцця
+Сыта

@@ -1,0 +1,5 @@
+---
+description: Currency of Латвія, named in Belarusian. Child of geo/country.txt.
+locale: be
+---
+еўра

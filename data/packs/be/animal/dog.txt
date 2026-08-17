@@ -1,0 +1,29 @@
+---
+description: Dog breed (Belarusian). Аўчарка is the Belarusian word for a shepherd dog and heads several breed names. Ганчак — the hound — is the working type of the Belarusian and Polish forests and the word is native, not borrowed. Дварняк is the ordinary mongrel and is a real answer on a Belarusian veterinary form.
+locale: be
+---
+Нямецкая аўчарка
+Усходнееўрапейская аўчарка
+Лабрадор
+Хаскі
+Такса
+Пудзель
+Спаніэль
+Ратвейлер
+Даберман
+Боксер
+Мопс
+Ёркшырскі тэр’ер
+Чыхуахуа
+Бульдог
+Дог
+Сенбернар
+Калі
+Курцхаар
+Ганчак
+Барзая
+Лайка
+Стафардшырскі тэр’ер
+Шпіц
+Бігль
+Дварняк

@@ -1,0 +1,40 @@
+---
+description: Building type (Belarusian). FOUR ARE SPECIFIC TO THE COUNTRY and a Western European listing has no single word for them: хрушчоўка is the five-storey walk-up block of 1957-1985 that still houses a large share of urban Belarus and is a real property category in every advertisement; сталінка is its heavier pre-1956 predecessor with higher ceilings and costs more; лецішча is the summer cottage on a garden plot that a great many town families also own and go to at weekends; свіран is the timber granary standing separate from the house on a Belarusian farmstead. хата is the traditional village house and is not a synonym for дом — a дом is any building, a хата is that building.
+locale: be
+---
+Шматкватэрны дом
+Панэльны дом
+Цагляны дом
+Каркасны дом
+Хрушчоўка
+Сталінка
+Прыватны дом
+Драўляны дом
+Хата
+Сядзіба
+Дача
+Лецішча
+Кватэра
+Гасцінка
+Аднапакаёўка
+Студыя
+Мансарда
+Падвал
+Паўпадвал
+Гараж
+Свіран
+Хлеў
+Лазня
+Адміністрацыйны будынак
+Гандлёвы цэнтр
+Прамысловы корпус
+Склад
+Ферма
+Школа
+Бальніца
+Царква
+Касцёл
+Сінагога
+Мячэць
+Замак
+Палац

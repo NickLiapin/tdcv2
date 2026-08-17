@@ -1,0 +1,16 @@
+---
+description: Streaming service (Belarusian). VOKA AND ZALA ARE BELARUSIAN and are the two the country actually watches: ZALA is Beltelecom's IPTV, the state telecom operator, and VOKA belongs to A1 Belarus. Both are brand names and keep their Latin spelling on screen. The international services are listed under their own names for the same reason.
+locale: be
+---
+VOKA
+ZALA
+Megogo
+Кінапоіск
+IVI
+Okko
+Wink
+YouTube
+Netflix
+Amediateka
+Premier
+Twitch

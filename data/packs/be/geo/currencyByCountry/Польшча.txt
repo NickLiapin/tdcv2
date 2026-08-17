@@ -1,0 +1,5 @@
+---
+description: Currency of Польшча, named in Belarusian. Child of geo/country.txt.
+locale: be
+---
+злоты

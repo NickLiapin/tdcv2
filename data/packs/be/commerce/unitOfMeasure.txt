@@ -1,0 +1,34 @@
+---
+description: Unit of measure (Belarusian). Belarus is fully metric. САТКА is the one an English reader will not know: a сотка is 100 square metres and is the unit every Belarusian states a garden plot in — a dacha is "шэсць сотак", never 600 m². Гектар is used for farmland.
+locale: be
+---
+шт.
+пара
+камплект
+упакоўка
+скрыня
+мяшок
+рулон
+г
+кг
+т
+мл
+л
+мм
+см
+м
+км
+м²
+сотка
+га
+м³
+кВт
+кВт·гадз
+В
+А
+Вт
+гадз
+хв
+сут
+бал
+%

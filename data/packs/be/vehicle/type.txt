@@ -1,0 +1,26 @@
+---
+description: Kind of vehicle (Belarusian). Тралейбус is not a curiosity here: Minsk runs one of the largest trolleybus networks in the world and Belarus builds the vehicles itself. Трактар and Камбайн are on the list because agricultural machinery is one of the country's principal industries.
+locale: be
+---
+Легкавы аўтамабіль
+Пікап
+Мікрааўтобус
+Аўтобус
+Тралейбус
+Трамвай
+Электробус
+Грузавік
+Самазвал
+Фура
+Цягач
+Прычэп
+Фургон
+Трактар
+Камбайн
+Экскаватар
+Аўтакран
+Матацыкл
+Мапед
+Скутэр
+Квадрацыкл
+Снегаход

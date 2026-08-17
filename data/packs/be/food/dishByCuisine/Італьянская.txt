@@ -1,0 +1,14 @@
+---
+description: Dishes of Італьянская cuisine, named in Belarusian. Child of food/cuisine.txt.
+locale: be
+---
+Піца
+Паста
+Лазання
+Рызота
+Ньокі
+Мінестронэ
+Карпача
+Тырамісу
+Кануолі
+Брускета

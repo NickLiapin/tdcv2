@@ -1,0 +1,9 @@
+---
+description: Credit rating band (Belarusian). BELARUS HAS NO PRIVATE CREDIT BUREAU AND NO CONSUMER SCORE LIKE FICO: the Credit Register is run by the National Bank and holds a repayment history, and each bank scores from it internally, so these are the words a bank uses about a borrower rather than a published number a person can look up.
+locale: be
+---
+Высокая
+Добрая
+Сярэдняя
+Нізкая
+Крытычная

@@ -1,0 +1,27 @@
+---
+description: Belarusian address unit designator, written before its number. A FULL BELARUSIAN FLAT ADDRESS STACKS THREE OF THEM — вул. Савецкая, д. 12, корп. 2, кв. 45 — and корпус has no English equivalent: one postal number can cover several separate blocks standing in a yard, so корп. 2 is a different building, not a wing or a floor. а/с is the post-office box (абаненцкая скрыня). СТ and ДСК are the dacha and garage cooperatives, which are addressable in Belarus with their own plot numbers and appear in real address data.
+locale: be
+---
+кв.
+кватэра
+д.
+дом
+корп.
+корпус
+буд.
+будынак
+пад.
+пад’езд
+пав.
+паверх
+пам.
+памяшканне
+пакой
+офіс
+каб.
+кабінет
+бокс
+секцыя
+блок
+участак
+а/с

@@ -1,0 +1,23 @@
+---
+description: Mineral extracted (Belarusian). BELARUS IS A POTASH COUNTRY: калійная соль from the Salihorsk basin is the republic's largest mineral export and the reason Salihorsk exists, so it heads the list rather than sitting in it. Торф is the second: peat is cut for fuel and for horticulture across the country and is a genuine extractive industry here. САПРАПЕЛЬ is the one an English list will not have — lake-bottom organic sediment, dredged and used as fertiliser and in medicine, and Belarus has more of it than almost anywhere. There is no metal ore worth mining in Belarus at all.
+locale: be
+---
+Калійная соль
+Каменная соль
+Торф
+Сапрапель
+Нафта
+Буры вугаль
+Гаручыя сланцы
+Даламіт
+Мел
+Мергель
+Гліна
+Каалін
+Пясок
+Кварцавы пясок
+Жвір
+Граніт
+Гіпс
+Бурштын
+Мінеральная вада

@@ -1,0 +1,11 @@
+---
+description: Cable conduit or routing method (Belarusian).
+locale: be
+---
+Гафрыраваная труба
+Металарукаў
+Кабель-канал
+Латок
+Траса ў зямлі
+Паветраная лінія
+Калектар

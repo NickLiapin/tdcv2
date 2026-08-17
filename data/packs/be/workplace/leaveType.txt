@@ -1,0 +1,16 @@
+---
+description: Kind of leave (Belarusian). BELARUS HAS ONE OF THE LONGEST CHILDCARE LEAVES IN THE WORLD: адпачынак па догляду за дзіцем runs until the child is THREE, the job is held open for the whole period and a state allowance is paid throughout, so a Belarusian HR record routinely shows a three-year gap that is not unemployment. Донарскі дзень is a paid day off for giving blood, a statutory entitlement. Адгул is time off in lieu.
+locale: be
+---
+Працоўны адпачынак
+Дадатковы адпачынак
+Адпачынак па цяжарнасці і родах
+Адпачынак па догляду за дзіцем
+Вучэбны адпачынак
+Творчы адпачынак
+Адпачынак без захавання заработнай платы
+Бальнічны
+Догляд за хворым членам сям’і
+Донарскі дзень
+Адгул
+Прагул

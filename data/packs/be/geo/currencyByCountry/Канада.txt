@@ -1,0 +1,5 @@
+---
+description: Currency of Канада, named in Belarusian. Child of geo/country.txt.
+locale: be
+---
+канадскі долар

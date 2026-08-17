@@ -1,0 +1,12 @@
+---
+description: Dishes of Узбекская cuisine, named in Belarusian. Child of food/cuisine.txt.
+locale: be
+---
+Плоў
+Лагман
+Самса
+Шурпа
+Манты
+Дымляма
+Нон
+Ачычук

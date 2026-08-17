@@ -1,0 +1,18 @@
+---
+description: Marital status (Belarusian). THE STATUS IS GENDERED IN BELARUSIAN AND CANNOT BE WRITTEN ONCE: a man is жанаты and a woman замужам, and there is no common word covering both — a Belarusian form asks the question differently depending on the sex box already ticked. Same for the widowed pair, удавец / удава. Belarus has no registered partnership or civil union in law, so no such value exists; грамадзянскі шлюб is the everyday phrase for cohabitation and has no legal standing at all.
+locale: be
+---
+Не жанаты
+Жанаты
+Незамужам
+Замужам
+Разведзены
+Разведзеная
+Удавец
+Удава
+У грамадзянскім шлюбе
+Асобна пражывае
+Заручаны
+Заручаная
+Не паведамляецца
+Іншае

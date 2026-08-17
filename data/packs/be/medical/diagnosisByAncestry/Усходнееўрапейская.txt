@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the Усходнееўрапейская ancestry group, in Belarusian. Child of medical/ancestry.txt.
+locale: be
+---
+Дэфіцыт альфа-1-антытрыпсіну
+Фенілкетанурыя
+Гіперхаластэрынемія
+Ішэмічная хвароба сэрца
+Алкагольная залежнасць
+Рак шчытападобнай залозы

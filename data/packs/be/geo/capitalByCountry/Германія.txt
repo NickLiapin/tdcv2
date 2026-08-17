@@ -1,0 +1,5 @@
+---
+description: Capital of Германія, in Belarusian. Child of geo/country.txt.
+locale: be
+---
+Берлін

@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised prevalence in the Карэнная амерыканская ancestry group, in Belarusian. Child of medical/ancestry.txt.
+locale: be
+---
+Цукровы дыябет 2 тыпу
+Жоўцекаменная хвароба
+Атлусценне
+Рэўматоідны артрыт
+Алкагольная залежнасць

@@ -1,0 +1,8 @@
+---
+description: Season (Belarusian). Four of them, and Belarus genuinely has four: it is a continental climate with real snow cover from December to March and a warm humid summer. восень carries no о in the second syllable because there is none to reduce.
+locale: be
+---
+вясна
+лета
+восень
+зіма

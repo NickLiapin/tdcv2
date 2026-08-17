@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the Ашкеназская яўрэйская ancestry group, in Belarusian. Child of medical/ancestry.txt.
+locale: be
+---
+Хвароба Тэя-Сакса
+Хвароба Гошэ
+Сіндром Блума
+Сямейная дызаўтаномія
+Мутацыі BRCA1 і BRCA2
+Хвароба Канавана

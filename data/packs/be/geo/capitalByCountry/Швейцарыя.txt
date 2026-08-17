@@ -1,0 +1,5 @@
+---
+description: Capital of Швейцарыя, in Belarusian. Child of geo/country.txt.
+locale: be
+---
+Берн

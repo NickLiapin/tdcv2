@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised prevalence in the Блізкаўсходняя ancestry group, in Belarusian. Child of medical/ancestry.txt.
+locale: be
+---
+Сямейная міжземнаморская ліхаманка
+Бэта-таласемія
+Дэфіцыт Г6ФД
+Цукровы дыябет 2 тыпу
+Спадчынная глухата

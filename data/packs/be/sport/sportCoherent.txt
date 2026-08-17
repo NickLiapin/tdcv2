@@ -1,0 +1,12 @@
+---
+description: Sport, as the parent of sport/positionBySport. THE EIGHT ARE THE ONES BELARUS ACTUALLY PLAYS AND WINS AT. Хакей comes second because ice hockey is the country's flagship sport with a state-built ледавы палац in every regional town; Біятлон is here because Belarus has won more Olympic medals in biathlon than in anything else, and it is a sport whose "positions" are race formats and relay legs, not places on a pitch — which is why its child file looks different from the team ones. Веславанне (rowing and canoe) is the other historic strength. Each value has a sport/positionBySport child of exactly the same name.
+locale: be
+---
+Футбол
+Хакей
+Біятлон
+Гандбол
+Валейбол
+Баскетбол
+Веславанне
+Лёгкая атлетыка

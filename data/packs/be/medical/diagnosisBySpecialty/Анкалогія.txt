@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Анкалогія, in Belarusian. Child of medical/specialtyCoherent.txt.
+locale: be
+---
+Рак шчытападобнай залозы
+Рак лёгкага
+Рак тоўстай кішкі
+Рак страўніка
+Рак скуры
+Меланома
+Лімфома
+Лейкоз
+Рак малочнай залозы
+Рак прастаты

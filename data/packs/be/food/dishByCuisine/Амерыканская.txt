@@ -1,0 +1,14 @@
+---
+description: Dishes of Амерыканская cuisine, named in Belarusian. Child of food/cuisine.txt.
+locale: be
+---
+Бургер
+Хот-дог
+Стэйк
+Барбекю рэбры
+Клубны сэндвіч
+Крылцы буфала
+Чызкейк
+Брауні
+Панкейкі
+Яблычны пірог

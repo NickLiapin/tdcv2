@@ -1,0 +1,36 @@
+---
+description: Belarusian honorific or title written BEFORE a name. TWO REGISTERS COEXIST AND THEY ARE POLITICALLY LOADED: спадар / спадарыня / спадарычна is the native Belarusian address, revived from the interwar period and standard in Belarusian-language publishing and among Belarusian speakers; пан / пані is the older Grand-Duchy form, still ordinary in the west. Both are here because a Belarusian text uses one or the other and never таварыш, which belongs to a closed Soviet register. Academic titles PRECEDE the name in Belarusian and stack (праф. д-р Марыя Багдановіч), which is why person/suffix.txt holds almost nothing academic. к.т.н. and д.т.н. are the two-tier Soviet-inherited degree system Belarus still runs: кандыдат навук below, доктар навук above.
+locale: be
+---
+спадар
+спадарыня
+спадарычна
+пан
+пані
+панна
+д-р
+праф.
+праф. д-р
+дац.
+дац. д-р
+акад.
+чл.-кар.
+к.т.н.
+к.ф.-м.н.
+к.м.н.
+к.э.н.
+к.ю.н.
+к.г.н.
+д.т.н.
+д.м.н.
+д.ф.н.
+інж.
+ксёндз
+айцец
+а.
+протаіерэй
+дыякан
+сястра
+брат
+генерал
+палкоўнік

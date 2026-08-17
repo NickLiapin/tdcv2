@@ -1,0 +1,53 @@
+---
+description: Country as Belarusian names it, weighted by population in millions. TRANSLATED, NEVER TRANSLITERATED: Германія is the Belarusian word, not "Germany" respelled, and the same goes for Вялікабрытанія, Венгрыя, Грэцыя and Нідэрланды. AKANNE RUNS THROUGH THE WHOLE LIST — Германія not Германия, Італія not Италия, Канада, Аўстралія, Партугалія — and every і here is the Belarusian dotted і, never Russian и. Аўстралія, Аўстрыя and Саудаўская Аравія carry ў. ВІЛЬНЯ IS THE BELARUSIAN NAME OF VILNIUS and is not a variant spelling of Вільнюс: the city was the cultural capital of Belarusian national life until 1939 and its Belarusian name is the older one. Балгарыя is listed with the euro because Bulgaria adopted it on 1 January 2026, and Харватыя since 1 January 2023. Each value has a capitalByCountry, currencyByCountry and currencyCodeByCountry child of exactly the same name.
+locale: be
+weighted: true
+---
+Індыя,1450
+Кітай,1416
+Злучаныя Штаты Амерыкі,342
+Інданезія,284
+Пакістан,255
+Нігерыя,238
+Бразілія,213
+Бангладэш,175
+Расія,144
+Мексіка,131
+Японія,123
+Егіпет,118
+В’етнам,101
+Турцыя,87
+Германія,84
+Тайланд,72
+Вялікабрытанія,69
+Францыя,68
+Паўднёвая Афрыка,64
+Італія,59
+Паўднёвая Карэя,52
+Іспанія,48
+Аргенціна,46
+Канада,41
+Польшча,38
+Украіна,38
+Саудаўская Аравія,34
+Аўстралія,27
+Румынія,19
+Нідэрланды,18
+Чэхія,11
+Швецыя,11
+Грэцыя,10
+Партугалія,10
+Венгрыя,10
+Швейцарыя,9
+Аўстрыя,9
+Беларусь,9
+Сербія,7
+Балгарыя,6
+Сінгапур,6
+Нарвегія,6
+Ірландыя,5
+Новая Зеландыя,5
+Харватыя,4
+Літва,3
+Латвія,2
+Эстонія,1

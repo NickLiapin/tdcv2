@@ -1,0 +1,5 @@
+---
+description: Capital of Паўднёвая Афрыка, in Belarusian. Child of geo/country.txt.
+locale: be
+---
+Прэторыя

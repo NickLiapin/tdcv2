@@ -1,0 +1,5 @@
+---
+description: Capital of Украіна, in Belarusian. Child of geo/country.txt.
+locale: be
+---
+Кіеў

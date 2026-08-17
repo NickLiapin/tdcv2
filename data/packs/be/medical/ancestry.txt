@@ -1,0 +1,16 @@
+---
+description: Ancestry population as clinical genetics defines it — GEOGRAPHIC DESCENT, NOT A SOCIAL RACE CATEGORY, and it is used to shift a prior probability, never to decide a diagnosis. Twelve groups, matching the reference pack, named in Belarusian. Belarusians themselves fall under Усходнееўрапейская. Паўднёва-ўсходнеазіяцкая carries the Belarusian ў rule: у becomes ў after a vowel even inside a compound word. Each value has a medical/diagnosisByAncestry child of exactly the same name.
+locale: be
+---
+Паўночнаеўрапейская
+Усходнееўрапейская
+Міжземнаморская
+Ашкеназская яўрэйская
+Блізкаўсходняя
+Паўночнаафрыканская
+Субсахарская афрыканская
+Паўднёваазіяцкая
+Усходнеазіяцкая
+Паўднёва-ўсходнеазіяцкая
+Карэнная амерыканская
+Ціхаакіянская астраўная

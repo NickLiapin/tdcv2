@@ -1,0 +1,5 @@
+---
+description: Capital of Грэцыя, in Belarusian. Child of geo/country.txt.
+locale: be
+---
+Афіны

@@ -1,0 +1,14 @@
+---
+description: Dishes of Польская cuisine, named in Belarusian. Child of food/cuisine.txt.
+locale: be
+---
+Бігас
+Жур па-польску
+Пірагі
+Зразы
+Росул
+Флякі
+Макоўнік
+Сэрнік
+Куцця
+Панчкі

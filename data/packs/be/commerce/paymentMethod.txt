@@ -1,0 +1,19 @@
+---
+description: Payment method (Belarusian). TWO OF THESE EXIST ONLY IN BELARUS. ЕРІП (Адзіная разліковая і інфармацыйная прастора, branded «Разлік») is a single state clearing hub through which almost every bill in the country is paid — utilities, fines, tuition, online orders — from any bank's app by looking the payee up in one shared tree, and no other country has an equivalent single point. БЕЛКАРТ is the Belarusian national card scheme; state salaries and pensions are commonly paid onto BELKART cards, which do not work abroad. Халва is an interest-free instalment card and растэрміноўка by card is an ordinary way to buy an appliance here.
+locale: be
+---
+Наяўныя
+Банкаўская карта
+БЕЛКАРТ
+Visa
+Mastercard
+Мір
+ЕРІП
+Інтэрнэт-банкінг
+Мабільны банкінг
+Apple Pay
+Samsung Pay
+Банкаўскі пераказ
+Разлік пры атрыманні
+Растэрміноўка
+Падарункавы сертыфікат

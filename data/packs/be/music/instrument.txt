@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Belarusian). THE FIRST FOUR ARE BELARUSIAN FOLK INSTRUMENTS and are not decoration: цымбалы, the hammered dulcimer, is the national instrument and is taught as a principal study in Belarusian music schools right up to conservatory level, which is true nowhere else; дуда is the Belarusian bagpipe; жалейка is a single-reed pipe and ліра the hurdy-gurdy the wandering singers carried. Баян is the Russian-type chromatic button accordion and is far commoner in Belarus than the piano accordion.
+locale: be
+---
+Цымбалы
+Дуда
+Жалейка
+Ліра
+Гуслі
+Скрыпка
+Альт
+Віяланчэль
+Кантрабас
+Баян
+Акардэон
+Гармонік
+Піяніна
+Раяль
+Арган
+Гітара
+Бас-гітара
+Балалайка
+Флейта
+Кларнет
+Габой
+Фагот
+Саксафон
+Труба
+Трамбон
+Валторна
+Туба
+Барабан
+Бубен
+Трашчоткі
+Сінтэзатар

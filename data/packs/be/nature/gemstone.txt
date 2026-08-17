@@ -1,0 +1,29 @@
+---
+description: Gemstone (Belarusian). БУРШТЫН IS THE ONE THAT IS ACTUALLY DUG HERE: Baltic amber is found in the Belarusian Polesian deposits as well as on the coast, and the colour бурштынавы at color/name.txt comes from it. The rest are imported stones.
+locale: be
+---
+Бурштын
+Алмаз
+Брыльянт
+Рубін
+Сапфір
+Смарагд
+Тапаз
+Аметыст
+Гранат
+Апал
+Біруза
+Нефрыт
+Малахіт
+Агат
+Анікс
+Яшма
+Хрызаліт
+Аквамарын
+Турмалін
+Цытрын
+Лазурыт
+Жэмчуг
+Каралы
+Гарны крышталь
+Абсідыян

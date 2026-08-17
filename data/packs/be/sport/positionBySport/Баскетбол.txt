@@ -1,0 +1,10 @@
+---
+description: Playing positions in Баскетбол, in Belarusian. Child of sport/sportCoherent.txt.
+locale: be
+---
+Разыгравальны абаронца
+Атакуючы абаронца
+Лёгкі форвард
+Магутны форвард
+Цэнтравы
+Шосты гулец

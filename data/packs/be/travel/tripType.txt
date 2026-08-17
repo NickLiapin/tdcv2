@@ -1,0 +1,24 @@
+---
+description: Kind of trip (Belarusian). Аграэкатурызм is a legal category in Belarus, not a marketing word: a decree of 2006 lets a rural household take paying guests under a light tax regime, and the аграсядзіба that results is the main form of domestic tourism in the country. Санаторнае лячэнне is the other: Belarus runs a large Soviet-inherited sanatorium system and a two-week course of treatment is an ordinary holiday here.
+locale: be
+---
+Аграэкатурызм
+Санаторнае лячэнне
+Адпачынак на прыродзе
+Вандроўка па лесе
+Байдарачны паход
+Веласіпедны паход
+Рыбалка
+Паляванне
+Збор грыбоў
+Экскурсія
+Замкі і сядзібы
+Паломніцтва
+Гарадскі ўік-энд
+Дзелавая паездка
+Канферэнцыя
+Шопінг-тур
+Марскі адпачынак
+Горналыжны тур
+Круіз
+Дзіцячы лагер

@@ -1,0 +1,12 @@
+---
+description: Dishes of Тайская cuisine, named in Belarusian. Child of food/cuisine.txt.
+locale: be
+---
+Том ям
+Пад тай
+Том кха
+Зялёнае кары
+Чырвонае кары
+Сом там
+Масаман
+Манга з рысам

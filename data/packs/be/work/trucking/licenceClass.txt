@@ -1,0 +1,11 @@
+---
+description: Belarusian driving licence category. THE LETTERS ARE NOT THE EU ONES DESPITE LOOKING ALIKE. CATEGORY F HAS NO EU EQUIVALENT: it is for tractors and self-propelled agricultural machinery, issued by the agriculture inspectorate rather than the traffic police, and in a country with this much farmland it is a common licence. Category I covers other self-propelled machines. A Belarusian licence prints the categories as Latin letters even though everything else on it is Cyrillic.
+locale: be
+---
+A
+B
+C
+D
+BE
+CE
+F

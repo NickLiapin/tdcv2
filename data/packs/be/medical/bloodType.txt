@@ -1,0 +1,12 @@
+---
+description: Blood group (Belarusian). WRITTEN WITH THE ROMAN NUMERAL BESIDE THE LETTER, which is the post-Soviet convention and is what a Belarusian medical card, a donor card and a military ID all print: 0 is I, A is II, B is III and AB is IV. A dataset that gives a Belarusian patient a bare "A+" is not wrong about the biology but is wrong about the document. The Rh sign is written with the Latin letters Rh in an otherwise Cyrillic record.
+locale: be
+---
+0 (I) Rh+
+0 (I) Rh−
+A (II) Rh+
+A (II) Rh−
+B (III) Rh+
+B (III) Rh−
+AB (IV) Rh+
+AB (IV) Rh−

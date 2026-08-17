@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Belarusian). Шалі is the Belarusian name of Libra — the scales — where Russian has Весы; Вадалей and Казярог show akanne against the Russian forms. The set itself is the international twelve.
+locale: be
+---
+Авен
+Цялец
+Блізняты
+Рак
+Леў
+Дзева
+Шалі
+Скарпіён
+Стралец
+Казярог
+Вадалей
+Рыбы

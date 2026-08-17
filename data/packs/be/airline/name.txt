@@ -1,0 +1,54 @@
+---
+description: Airline name. BELAVIA IS BELARUS'S OWN CARRIER and its Belarusian name is Белавія; the rest are international carriers, whose names are brands and keep their own spelling in any locale.
+locale: be
+---
+Белавія
+Аэрафлот
+Turkish Airlines
+Emirates
+Qatar Airways
+Lufthansa
+Air France
+KLM
+British Airways
+Iberia
+Alitalia
+Swiss
+Austrian
+LOT
+Czech Airlines
+airBaltic
+Finnair
+SAS
+Norwegian
+Ryanair
+Wizz Air
+easyJet
+Aegean
+TAROM
+Bulgaria Air
+Air Serbia
+Ukraine International
+Azerbaijan Airlines
+Uzbekistan Airways
+Air Astana
+Georgian Airways
+Armenia Airways
+Etihad
+Flydubai
+Egyptair
+Royal Jordanian
+El Al
+Air China
+China Southern
+China Eastern
+Hainan Airlines
+Korean Air
+Japan Airlines
+ANA
+Singapore Airlines
+Thai Airways
+Vietnam Airlines
+Air India
+Delta
+United

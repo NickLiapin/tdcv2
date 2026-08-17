@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised prevalence in the Паўднёва-ўсходнеазіяцкая ancestry group, in Belarusian. Child of medical/ancestry.txt.
+locale: be
+---
+Альфа-таласемія
+Гемаглабін E
+Дэфіцыт Г6ФД
+Насафарынгеальны рак
+Туберкулёз

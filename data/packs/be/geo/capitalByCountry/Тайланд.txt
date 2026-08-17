@@ -1,0 +1,5 @@
+---
+description: Capital of Тайланд, in Belarusian. Child of geo/country.txt.
+locale: be
+---
+Бангкок

@@ -1,0 +1,5 @@
+---
+description: Capital of Канада, in Belarusian. Child of geo/country.txt.
+locale: be
+---
+Атава

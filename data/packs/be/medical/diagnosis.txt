@@ -1,0 +1,82 @@
+---
+description: Diagnosis, in Belarusian. Belarusian clinical vocabulary is the international Latin-derived one transcribed into Cyrillic (панкрэатыт, псарыяз, глаўкома) rather than translated, so these read as international terms in a Belarusian coat; the everyday native words (сухоты for tuberculosis, жаўтуха for jaundice) are NOT what a chart records. РАК ШЧЫТАПАДОБНАЙ ЗАЛОЗЫ SITS HIGHER IN A BELARUSIAN LIST THAN IT WOULD ANYWHERE ELSE: Belarus received about seventy per cent of the Chernobyl fallout in 1986, childhood thyroid cancer rose by more than an order of magnitude in the affected regions, and the country has run a lifelong screening register for it ever since. A realistic Belarusian medical dataset that omits it is missing the country's defining public-health fact.
+locale: be
+---
+Артэрыяльная гіпертэнзія
+Ішэмічная хвароба сэрца
+Інфаркт міякарда
+Сардэчная недастатковасць
+Арытмія
+Фібрыляцыя перадсэрдзяў
+Атэрасклероз
+Варыкозная хвароба
+Інсульт
+Транзіторная ішэмічная атака
+Мігрэнь
+Эпілепсія
+Хвароба Паркінсана
+Рассеяны склероз
+Полінеўрапатыя
+Радыкуліт
+Астэахандроз
+Артроз
+Артрыт
+Рэўматоідны артрыт
+Астэапароз
+Падагра
+Скаліёз
+Гастрыт
+Язва страўніка
+Гастраэзафагеальны рэфлюкс
+Панкрэатыт
+Халецыстыт
+Жоўцекаменная хвароба
+Гепатыт
+Цыроз печані
+Каліт
+Хвароба Крона
+Сіндром раздражнёнага кішачніка
+Цукровы дыябет 1 тыпу
+Цукровы дыябет 2 тыпу
+Гіпатырэоз
+Гіпертырэоз
+Аўтаімунны тырэаідыт
+Эндэмічны зоб
+Атлусценне
+Метабалічны сіндром
+Анемія
+Жалезадэфіцытная анемія
+Тромбацытапенія
+Бранхіяльная астма
+Хранічная абструктыўная хвароба лёгкіх
+Бранхіт
+Пнеўманія
+Туберкулёз
+Алергічны рыніт
+Сінусіт
+Тонзіліт
+Атыт
+Кан’юнктывіт
+Катаракта
+Глаўкома
+Атапічны дэрматыт
+Псарыяз
+Экзема
+Крапіўніца
+Акне
+Мікоз скуры
+Цыстыт
+Піеланефрыт
+Мачакаменная хвароба
+Хранічная хвароба нырак
+Рак шчытападобнай залозы
+Рак лёгкага
+Рак тоўстай кішкі
+Рак скуры
+Меланома
+Лейкоз
+Лімфома
+Дэпрэсія
+Трывожнае засмучэнне
+Бяссонніца
+Харчовая алергія

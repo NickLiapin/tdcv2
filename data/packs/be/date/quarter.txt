@@ -1,0 +1,8 @@
+---
+description: Calendar quarter (Belarusian). The Belarusian financial year is the calendar year, so квартал I is January to March with no offset.
+locale: be
+---
+I квартал
+II квартал
+III квартал
+IV квартал

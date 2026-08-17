@@ -1,0 +1,45 @@
+---
+description: Legal form of a Belarusian company, in the abbreviation that goes with the name. THESE ARE BELARUS'S OWN FORMS, because Belarusian is the language of one country and the abbreviations are what a Belarusian register prints. THE UNITARY ENTERPRISE (УП) HAS NO WESTERN EQUIVALENT: its property is not owned by the enterprise but stays with its single founder, so ПУП, ДУП, РУП and КУП are four different owners of the same legal shape — private, state, republican and municipal — and the letter in front says which. ААТ and ЗАТ are the open and closed joint-stock companies; ТАА is the ordinary limited company; СВК is the agricultural production cooperative, which is what most collective farms were converted into. The forms are written in the abbreviated Belarusian form; the Russian-language register writes the same entities ОАО, ЗАО, ООО.
+locale: be
+---
+ААТ
+ЗАТ
+ТАА
+ТДА
+УП
+ПУП
+ДУП
+РУП
+КУП
+СТАА
+ЗТАА
+СП
+ІП
+СВК
+ФГ
+ДП
+НВА
+НВРУП
+НДІ
+КБ
+ГА
+Установа
+Фонд
+Асацыяцыя
+Саюз
+Кааператыў
+Гаспадарчае таварыства
+Дзяржаўнае прадпрыемства
+Прыватнае прадпрыемства
+Замежнае прадпрыемства
+Сумеснае прадпрыемства
+Філіял
+Прадстаўніцтва
+Рэзідэнт ПВТ
+Рэзідэнт СЭЗ
+Таварыства з абмежаванай адказнасцю
+Адкрытае акцыянернае таварыства
+Закрытае акцыянернае таварыства
+Унітарнае прадпрыемства
+Індывідуальны прадпрымальнік
+Сельскагаспадарчы вытворчы кааператыў

@@ -1,0 +1,5 @@
+---
+description: Currency of Паўднёвая Карэя, named in Belarusian. Child of geo/country.txt.
+locale: be
+---
+вона

@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the Паўночнаеўрапейская ancestry group, in Belarusian. Child of medical/ancestry.txt.
+locale: be
+---
+Гемахраматоз
+Мукавісцыдоз
+Дэфіцыт лактазы ў дарослых
+Цэліякія
+Меланома скуры
+Хвароба Дзюпюітрэна

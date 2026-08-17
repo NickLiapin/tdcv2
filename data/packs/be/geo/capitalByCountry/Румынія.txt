@@ -1,0 +1,5 @@
+---
+description: Capital of Румынія, in Belarusian. Child of geo/country.txt.
+locale: be
+---
+Бухарэст

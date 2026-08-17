@@ -1,0 +1,21 @@
+---
+description: Video game genre (Belarusian). Belarus is the home of Wargaming and World of Tanks, so the tactical and MMO genres are unusually well known there; the genre words themselves are international loans.
+locale: be
+---
+Экшн
+Шутэр
+Стратэгія
+Ролевая гульня
+Прыгодніцкая
+Сімулятар
+Гоначная
+Спартыўная
+Галаваломка
+Платформер
+Файтынг
+Хорар
+Выжыванне
+Пясочніца
+MMO
+Тактычная
+Візуальная навела

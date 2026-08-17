@@ -1,0 +1,5 @@
+---
+description: Capital of Новая Зеландыя, in Belarusian. Child of geo/country.txt.
+locale: be
+---
+Велінгтан

@@ -1,0 +1,38 @@
+---
+description: Fruit and berry (Belarusian). THE BERRIES ARE NOT A GARNISH HERE: журавіны grow on the Polesian bogs, чарніцы and брусніцы in the pine forests, and picking them is a household activity with a season and a law regulating it. Belarus is one of Europe's largest wild-cranberry producers. Антонаўка is a named apple variety so common in Belarusian gardens that it functions as a fruit word of its own.
+locale: be
+---
+Яблык
+Антонаўка
+Груша
+Сліва
+Вішня
+Чарэшня
+Абрыкос
+Персік
+Журавіны
+Чарніцы
+Брусніцы
+Маліна
+Суніцы
+Клубніцы
+Парэчкі
+Чорныя парэчкі
+Агрэст
+Ажына
+Бузіна
+Рабіна
+Каліна
+Шыпшына
+Абляпіха
+Вянгерка
+Вінаград
+Кавун
+Дыня
+Банан
+Апельсін
+Мандарын
+Лімон
+Грэйпфрут
+Ківі
+Ананас

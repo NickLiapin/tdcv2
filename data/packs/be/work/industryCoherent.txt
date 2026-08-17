@@ -1,0 +1,14 @@
+---
+description: Industry, as the parent of work/jobByIndustry. Ten of them, kept in step with the reference pack. Сельская гаспадарка is not a token entry in Belarus: roughly one worker in eight is in agriculture or forestry, and Старшыня СВК — chairman of an agricultural production cooperative — is a real senior job title, the direct descendant of the collective-farm chairman. Each value has a work/jobByIndustry child of exactly the same name.
+locale: be
+---
+Тэхналогіі
+Ахова здароўя
+Адукацыя
+Фінансы
+Будаўніцтва
+Вытворчасць
+Транспарт
+Гандаль
+Сельская гаспадарка
+Права

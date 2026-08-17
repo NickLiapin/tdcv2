@@ -1,0 +1,21 @@
+---
+description: Cuisine as Belarusian names it, and the seventeen a Belarusian actually meets. THE FIRST SEVEN ARE THE CUISINES OF BELARUS ITSELF OR OF ITS NEIGHBOURS AND MINORITIES, not foreign options: Яўрэйская and Татарская are here because both communities have lived in Belarus for centuries and their dishes are on ordinary Belarusian tables — форшмак and цымес are not thought of as exotic. Літоўская belongs beside Беларуская because the two shared a state for four hundred years and the dishes overlap: цэпеліны and калдуны are cousins. Each value has a food/dishByCuisine child of exactly the same name.
+locale: be
+---
+Беларуская
+Руская
+Украінская
+Польская
+Літоўская
+Яўрэйская
+Татарская
+Грузінская
+Узбекская
+Італьянская
+Французская
+Грэчаская
+Кітайская
+Японская
+Тайская
+Турэцкая
+Амерыканская

@@ -1,0 +1,14 @@
+---
+description: Medical specialty, as the parent of medical/diagnosisBySpecialty. Ten of them, kept in step with the reference pack. Each value has a child of exactly the same name.
+locale: be
+---
+Кардыялогія
+Неўралогія
+Гастраэнтэралогія
+Эндакрыналогія
+Дэрматалогія
+Анкалогія
+Артапедыя
+Псіхіятрыя
+Пульманалогія
+Нефралогія

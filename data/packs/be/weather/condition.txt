@@ -1,0 +1,20 @@
+---
+description: Weather condition (Belarusian). Мжа is drizzle and is a separate word from дождж because in a Belarusian autumn it is a separate experience. Галалёд is black ice on the road and Ажаледзіца the ice glaze on trees and wires — two words English covers with one, and the Belarusian forecast distinguishes them because they warn different people.
+locale: be
+---
+Ясна
+Малааблочна
+Пераменная воблачнасць
+Пахмурна
+Дождж
+Ліўні
+Мжа
+Снег
+Мокры снег
+Град
+Туман
+Імгла
+Галалёд
+Замаразкі
+Спёка
+Мароз

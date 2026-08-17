@@ -1,0 +1,12 @@
+---
+description: Dishes of Кітайская cuisine, named in Belarusian. Child of food/cuisine.txt.
+locale: be
+---
+Качка па-пекінску
+Дзімсам
+Локшына смажаная
+Курыца гунбао
+Вантоны
+Баоцзы
+Смажаны рыс
+Мапа тофу

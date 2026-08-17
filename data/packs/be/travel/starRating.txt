@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Belarusian). Belarus certifies hotels one to five stars by state standard.
+locale: be
+---
+1 зорка
+2 зоркі
+3 зоркі
+4 зоркі
+5 зорак

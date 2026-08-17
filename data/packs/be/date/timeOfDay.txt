@@ -1,0 +1,12 @@
+---
+description: Part of the day (Belarusian). світанне and змярканне are separate words from раніца and вечар and are not interchangeable with them; at Belarus's latitude (51-56°N) the June difference between світанне and раніца is a matter of a couple of hours and in December they nearly touch, which is why the language keeps them apart.
+locale: be
+---
+світанне
+раніца
+поўдзень
+дзень
+вечар
+змярканне
+ноч
+поўнач

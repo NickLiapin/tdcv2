@@ -1,0 +1,22 @@
+---
+description: Cat breed (Belarusian). Breed names are international and keep their shape; the Belarusian part is the spelling — Сібірская, Шатландская, Персідская, Бенгальская all show akanne and the dotted і.
+locale: be
+---
+Сібірская
+Персідская
+Шатландская вісловухая
+Брытанская кароткашэрсная
+Мэйн-кун
+Бенгальская
+Абісінская
+Сіямская
+Тайская
+Руская блакітная
+Сфінкс
+Нарвежская лясная
+Рэгдол
+Бурманская
+Турэцкая ангора
+Дэвон-рэкс
+Экзатычная кароткашэрсная
+Двараковая

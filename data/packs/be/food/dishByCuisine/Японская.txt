@@ -1,0 +1,14 @@
+---
+description: Dishes of Японская cuisine, named in Belarusian. Child of food/cuisine.txt.
+locale: be
+---
+Сушы
+Сашымі
+Рамэн
+Удон
+Тэмпура
+Місасуп
+Якіторы
+Гёдза
+Данбуры
+Онігіры

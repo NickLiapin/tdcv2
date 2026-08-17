@@ -1,0 +1,5 @@
+---
+description: Currency of Саудаўская Аравія, named in Belarusian. Child of geo/country.txt.
+locale: be
+---
+рыял

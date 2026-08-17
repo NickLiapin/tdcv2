@@ -1,0 +1,12 @@
+---
+description: Dishes of Грузінская cuisine, named in Belarusian. Child of food/cuisine.txt.
+locale: be
+---
+Хачапуры
+Хінкалі
+Саціві
+Лобіа
+Аджапсандалі
+Чахахбілі
+Пхалі
+Чурчхела

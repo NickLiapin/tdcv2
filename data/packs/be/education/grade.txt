@@ -1,0 +1,16 @@
+---
+description: School mark (Belarusian). BELARUS GRADES ON A TEN-POINT SCALE, introduced in 2002 and used from primary school to university: 1 is the lowest passing entry and 10 the highest, with "залічана" for pass/fail subjects. This is NOT the Russian five-point scale and a dataset that scores Belarusian pupils out of five is wrong. Anything below 3 is a fail in practice.
+locale: be
+---
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+Залічана
+Не залічана

@@ -1,0 +1,11 @@
+---
+description: Kind of haulage route (Belarusian). Belarus sits on the road between the EU and Russia, so міжнародны рэйс and транзітны рэйс are the bread and butter of its haulage industry.
+locale: be
+---
+Гарадскі рэйс
+Прыгарадны рэйс
+Міжгародні рэйс
+Міжабласны рэйс
+Міжнародны рэйс
+Транзітны рэйс
+Зваротны рэйс

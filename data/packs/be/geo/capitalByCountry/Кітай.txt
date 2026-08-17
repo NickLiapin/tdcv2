@@ -1,0 +1,5 @@
+---
+description: Capital of Кітай, in Belarusian. Child of geo/country.txt.
+locale: be
+---
+Пекін

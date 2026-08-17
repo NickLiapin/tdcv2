@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Артапедыя, in Belarusian. Child of medical/specialtyCoherent.txt.
+locale: be
+---
+Артроз
+Каксартроз
+Гонартроз
+Астэапароз
+Скаліёз
+Пералом шыйкі сцягна
+Грыжа міжпазванковага дыска
+Плоскаступнёвасць
+Разрыў меніска
+Тэндзініт

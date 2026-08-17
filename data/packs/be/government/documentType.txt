@@ -1,0 +1,21 @@
+---
+description: Kind of official document (Belarusian). BELARUS SPLIT ITS IDENTITY DOCUMENTS IN TWO IN 2021: the ID-карта is the internal identity card with a chip, and the біяметрычны пашпарт is a separate travel document, so a Belarusian may now hold both and they are not the same thing. Even so the old pink пашпарт gramadzianina is still in circulation and still valid. ПРАЦОЎНАЯ КНІЖКА has no Western equivalent: a paper booklet in which every employer records the dates and reason for leaving, kept by the employer while you work there, and it decides the pension. Даведка is the general word for an official certificate and a Belarusian life needs a great many of them.
+locale: be
+---
+Пашпарт грамадзяніна
+Біяметрычны пашпарт
+ID-карта
+Від на жыхарства
+Пасведчанне аб нараджэнні
+Пасведчанне аб шлюбе
+Пасведчанне аб разводзе
+Пасведчанне аб смерці
+Вадзіцельскае пасведчанне
+Ваенны білет
+Працоўная кніжка
+Даведка аб даходах
+Даведка аб нясудзімасці
+Пенсійнае пасведчанне
+Тэхнічны пашпарт
+Атэстат аб адукацыі
+Дыплом

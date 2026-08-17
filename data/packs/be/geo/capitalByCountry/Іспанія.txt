@@ -1,0 +1,5 @@
+---
+description: Capital of Іспанія, in Belarusian. Child of geo/country.txt.
+locale: be
+---
+Мадрыд

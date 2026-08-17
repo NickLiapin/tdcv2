@@ -1,0 +1,59 @@
+{
+  "_comment": "BELARUSIAN KEPT THE SLAVIC NATURE-NAMES FOR THE MONTHS and did not take the Latin set, so a Belarusian date shares nothing with a Russian one: студзень is the month of hard cold, сакавік the month the sap runs, красавік the month things turn beautiful, жнівень the month of the harvest, кастрычнік the month flax is scutched, лістапад the month leaves fall, снежань the month of snow. Only май is Latin-derived. The native sets of Belarusian, Polish, Czech and Ukrainian do NOT agree with each other and must never be derived from one another: Belarusian красавік is APRIL while Czech květen is MAY, and Belarusian лістапад is NOVEMBER while Croatian listopad is OCTOBER. monthsInDate IS DIFFERENT FROM months and the difference is grammar, not style: a Belarusian date puts the month in the GENITIVE, so 16 жніўня 2026 г. and not 16 жнівень — and the genitive is not formed by one rule, студзень -> студзеня but люты -> лютага, because люты is an adjective (\"the fierce one\") and declines like one. жнівень -> жніўня also shows the ў alternation: в becomes ў when it lands after a vowel and before a consonant. Month and weekday names are written LOWERCASE in Belarusian. Weekdays are listed Sunday-first per the field contract, but the Belarusian week begins on MONDAY and the names prove it: аўторак is \"the second\", серада \"the middle\", чацвер \"the fourth\", пятніца \"the fifth\". нядзеля means SUNDAY in Belarusian — a false friend of Russian неделя, which means the whole week; the Belarusian for a week is тыдзень. A full Belarusian date is normally closed with \" г.\" for года.",
+  "months": [
+    "студзень",
+    "люты",
+    "сакавік",
+    "красавік",
+    "май",
+    "чэрвень",
+    "ліпень",
+    "жнівень",
+    "верасень",
+    "кастрычнік",
+    "лістапад",
+    "снежань"
+  ],
+  "monthsInDate": [
+    "студзеня",
+    "лютага",
+    "сакавіка",
+    "красавіка",
+    "мая",
+    "чэрвеня",
+    "ліпеня",
+    "жніўня",
+    "верасня",
+    "кастрычніка",
+    "лістапада",
+    "снежня"
+  ],
+  "monthsShort": [
+    "студз.",
+    "лют.",
+    "сак.",
+    "крас.",
+    "май",
+    "чэрв.",
+    "ліп.",
+    "жн.",
+    "вер.",
+    "кастр.",
+    "ліст.",
+    "снеж."
+  ],
+  "weekdays": [
+    "нядзеля",
+    "панядзелак",
+    "аўторак",
+    "серада",
+    "чацвер",
+    "пятніца",
+    "субота"
+  ],
+  "weekdaysShort": ["нд", "пн", "аў", "ср", "чц", "пт", "сб"],
+  "formats": {
+    "L": "DD.MM.YYYY",
+    "LL": "D MMMM YYYY"
+  }
+}

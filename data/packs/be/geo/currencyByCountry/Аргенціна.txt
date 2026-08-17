@@ -1,0 +1,5 @@
+---
+description: Currency of Аргенціна, named in Belarusian. Child of geo/country.txt.
+locale: be
+---
+песа

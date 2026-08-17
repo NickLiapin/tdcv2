@@ -1,0 +1,62 @@
+---
+description: Material a product is made of (Belarusian). ЛЁН IS FIRST FOR A REASON: Belarus is one of the world's largest flax growers and the Orsha linen mill is a national enterprise, so ільняны is an everyday product label here rather than a speciality. Скура and Аўчына are ordinary materials here too, and Салома is a real craft material — see саломапляценне at person/hobby.txt.
+locale: be
+---
+Лён
+Бавоўна
+Воўна
+Шоўк
+Віскоза
+Поліэстэр
+Нейлон
+Акрыл
+Эластан
+Фліс
+Драп
+Твід
+Джынса
+Вельвет
+Замша
+Скура
+Штучная скура
+Аўчына
+Футра
+Штучнае футра
+Дрэва
+Сасна
+Дуб
+Бяроза
+Фанера
+ДСП
+МДФ
+Бамбук
+Салома
+Лаза
+Гліна
+Кераміка
+Фарфор
+Фаянс
+Шкло
+Крышталь
+Камень
+Граніт
+Мармур
+Бетон
+Цэгла
+Сталь
+Нержавеючая сталь
+Чыгун
+Алюміній
+Медзь
+Латунь
+Бронза
+Срэбра
+Золата
+Тытан
+Пластык
+Сілікон
+Гума
+Каўчук
+Папера
+Кардон
+Пенапаліўрэтан

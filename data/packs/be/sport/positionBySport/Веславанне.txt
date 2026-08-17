@@ -1,0 +1,11 @@
+---
+description: Playing positions in Веславанне, in Belarusian. Child of sport/sportCoherent.txt.
+locale: be
+---
+Загрэбны
+Баковы весляр
+Рулявы
+Адзіночнік
+Байдарачнік
+Каноіст
+Стырнавы

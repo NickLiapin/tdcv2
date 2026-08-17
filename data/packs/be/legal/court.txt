@@ -1,0 +1,19 @@
+---
+description: KIND of court, as Belarusian names it — not the roster of actual courts, which is the country pack's business. BELARUS HAS NO SEPARATE COMMERCIAL COURT SYSTEM ANY MORE: the хозяйственные суды were folded into the general court system in 2014, so an эканамічны суд is now a chamber of the regional court and not an independent branch. The Канстытуцыйны Суд is not part of the judiciary at all — it reviews laws, not cases, and cannot be appealed to by a citizen.
+locale: be
+---
+Раённы суд
+Гарадскі суд
+Раённы (гарадскі) суд
+Абласны суд
+Вярхоўны Суд
+Эканамічны суд
+Канстытуцыйны Суд
+Ваенны суд
+Міжнародны арбітражны суд
+Трацейскі суд
+Суд першай інстанцыі
+Апеляцыйная інстанцыя
+Касацыйная інстанцыя
+Наглядная інстанцыя
+Судовая калегія

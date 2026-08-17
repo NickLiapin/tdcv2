@@ -1,0 +1,34 @@
+---
+description: Bird (Belarusian). Бусел is the white stork and is the first bird any Belarusian names; Зязюля is the cuckoo and its call is what Belarusian folklore counts years by. Глушэц (capercaillie) and Цецярук (black grouse) are the two big forest grouse of the Belarusian pine woods and are separate everyday words, not specialist ones.
+locale: be
+---
+Бусел
+Ластаўка
+Верабей
+Варона
+Сарока
+Сініца
+Дзяцел
+Салавей
+Жаўрук
+Зязюля
+Журавель
+Чапля
+Качка
+Гусь
+Лебедзь
+Цецярук
+Глушэц
+Рабчык
+Курапатка
+Сава
+Пугач
+Арол
+Ястраб
+Сокал
+Каршун
+Грак
+Галка
+Шпак
+Снягір
+Шчыгол

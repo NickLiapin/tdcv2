@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the Субсахарская афрыканская ancestry group, in Belarusian. Child of medical/ancestry.txt. THIS LIST IS A PREVALENCE SIGNAL, NOT AN EXCLUSIVE ONE: every condition here occurs in every population, and ancestry shifts the prior probability rather than deciding the diagnosis.
+locale: be
+---
+Сярпістаклетачная анемія
+Носьбітства сярпістаклетачнай прыкметы
+Дэфіцыт Г6ФД
+Артэрыяльная гіпертэнзія
+Саркаідоз
+Міёма маткі

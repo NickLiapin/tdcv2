@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code for Літва. Child of geo/country.txt.
+locale: be
+---
+EUR

@@ -1,0 +1,82 @@
+---
+description: Pastime, in Belarusian. Several are specific to the country rather than generic: збор грыбоў and збор ягад are not a curiosity but a mass autumn activity in a country that is two-fifths forest and where the wild-mushroom harvest is regulated by law; бортніцтва is tree beekeeping in a hollowed living pine, a Belarusian and Polesian craft on the UNESCO intangible-heritage list and a completely different thing from пчалярства in hives; лазня is the bathhouse as a weekend social occasion. Wi-Fi-era loanwords (падкасты, стрымінг, геакэшынг) keep their international shape.
+locale: be
+---
+Чытанне
+Рыбалка
+Паляванне
+Садоўніцтва
+Агародніцтва
+Фатаграфія
+Кулінарыя
+Выпечка
+Вязанне
+Вышыванне
+Ткацтва
+Ганчарства
+Разьба па дрэве
+Саломапляценне
+Жывапіс
+Малюнак
+Каліграфія
+Гульня на гітары
+Гульня на цымбалах
+Гульня на піяніна
+Спевы
+Танцы
+Тэатр
+Кіно
+Падарожжы
+Турызм
+Веласіпед
+Бег
+Плаванне
+Лыжы
+Канькі
+Шахматы
+Шашкі
+Картачныя гульні
+Настольныя гульні
+Відэагульні
+Праграмаванне
+Радыёаматарства
+Мадэлізм
+Робататэхніка
+3D-друк
+Калекцыянаванне марак
+Нумізматыка
+Генеалогія
+Астраномія
+Назіранне за птушкамі
+Бортніцтва
+Пчалярства
+Збор грыбоў
+Збор ягад
+Кансерваванне
+Вінаробства
+Піваварства
+Лазня
+Ёга
+Медытацыя
+Фітнес
+Трэнажорная зала
+Скалалажанне
+Байдарка
+Арыенціраванне
+Геакэшынг
+Дроны
+Акварыум
+Сабакаводства
+Конны спорт
+Верхавая язда
+Стральба з лука
+Дартс
+Більярд
+Боўлінг
+Караоке
+Падкасты
+Блогінг
+Стрымінг
+Вэб-дызайн
+Фларыстыка
+Бансай

@@ -1,0 +1,44 @@
+---
+description: Belarusian thoroughfare type. IT GOES BEFORE THE NAME (вул. Янкі Купалы, пр-т Незалежнасці), the opposite of the English order, and the abbreviated form is what is written on an envelope. Two entries have no English equivalent. завулак is a short side street hung off a longer one and keeps its parent's name with a number (1-ы Савецкі завулак), so завулак names are never independent. аграгарадок is a Belarusian administrative invention of 2005: a village upgraded by decree with mains services and a school, and it is a postal address type in its own right. гасцінец is the old word for a highway between towns and survives in road names.
+locale: be
+---
+вул.
+вуліца
+пр-т
+праспект
+пл.
+плошча
+зав.
+завулак
+б-р
+бульвар
+наб.
+набярэжная
+праезд
+тракт
+шаша
+тупік
+мкр.
+мікрараён
+аграгарадок
+в.
+вёска
+пас.
+пасёлак
+хутар
+урочышча
+ст.
+станцыя
+дарога
+узвоз
+алея
+сквер
+парк
+гасцінец
+квартал
+сядзіба
+СТ
+ДСК
+г.п.
+гарадскі пасёлак
+аг.

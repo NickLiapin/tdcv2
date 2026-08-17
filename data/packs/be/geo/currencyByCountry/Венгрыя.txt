@@ -1,0 +1,5 @@
+---
+description: Currency of Венгрыя, named in Belarusian. Child of geo/country.txt.
+locale: be
+---
+форынт

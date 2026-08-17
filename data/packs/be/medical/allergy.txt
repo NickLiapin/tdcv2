@@ -1,0 +1,26 @@
+---
+description: Allergen (Belarusian). Пылок бярозы heads the list because birch pollen is the dominant spring allergen in Belarus — the country is a fifth birch by forest area — and the season is a public-health event here.
+locale: be
+---
+Пылок бярозы
+Пылок вольхі
+Пылок ляшчыны
+Пылок злакаў
+Пылок палыну
+Пылок амброзіі
+Хатні пыл
+Пылавыя кляшчы
+Плесневыя грыбы
+Поўсць ката
+Поўсць сабакі
+Пух птушак
+Укус пчалы
+Укус восы
+Арахіс
+Арэхі
+Малако
+Яйка
+Рыба
+Мёд
+Пеніцылін
+Латэкс

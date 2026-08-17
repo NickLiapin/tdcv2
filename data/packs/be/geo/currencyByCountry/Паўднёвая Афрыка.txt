@@ -1,0 +1,5 @@
+---
+description: Currency of Паўднёвая Афрыка, named in Belarusian. Child of geo/country.txt.
+locale: be
+---
+ранд

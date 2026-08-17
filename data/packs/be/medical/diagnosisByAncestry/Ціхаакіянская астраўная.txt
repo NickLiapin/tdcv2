@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised prevalence in the Ціхаакіянская астраўная ancestry group, in Belarusian. Child of medical/ancestry.txt.
+locale: be
+---
+Цукровы дыябет 2 тыпу
+Атлусценне
+Падагра
+Хранічная хвароба нырак
+Рэўматычная ліхаманка

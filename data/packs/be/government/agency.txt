@@ -1,0 +1,27 @@
+---
+description: KIND of state body, as Belarusian names it. THE NAMED MINISTRIES AND AGENCIES OF BELARUS ARE THE COUNTRY PACK'S business; this file holds the generic words instead, so it composes: Міністэрства + a subject, Камітэт + a subject. ВЫКАНКАМ IS THE ONE WITH NO WESTERN EQUIVALENT: the выканаўчы камітэт is the executive arm of local government at every level — regional, district and village — and it is appointed from above rather than elected, which is why Belarusian administrative language leans on it so heavily. Саўвет (Савет дэпутатаў) is the elected council beside it.
+locale: be
+---
+Міністэрства
+Дзяржаўны камітэт
+Камітэт
+Дэпартамент
+Упраўленне
+Аддзел
+Інспекцыя
+Служба
+Агенцтва
+Фонд
+Цэнтр
+Інстытут
+Выканкам
+Абласны выканкам
+Раённы выканкам
+Сельвыканкам
+Савет дэпутатаў
+Адміністрацыя раёна
+Нацыянальны банк
+Пракуратура
+Следчы камітэт
+Мытня
+Пагранслужба

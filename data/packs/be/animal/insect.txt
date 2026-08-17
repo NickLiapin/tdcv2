@@ -1,0 +1,24 @@
+---
+description: Insect (Belarusian). Пчала comes first because beekeeping is a Belarusian trade with its own vocabulary — see бортніцтва at person/hobby.txt. Каларадскі жук is the Colorado beetle and is the single insect every Belarusian gardener names without prompting, because it eats the potato crop.
+locale: be
+---
+Пчала
+Аса
+Чмель
+Мурашка
+Матылёк
+Стракоза
+Конік
+Саранча
+Жук
+Каларадскі жук
+Божая кароўка
+Камар
+Муха
+Авадзень
+Клоп
+Прус
+Кляшч
+Светлячок
+Вусень
+Сляпень

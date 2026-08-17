@@ -1,0 +1,30 @@
+---
+description: Telecom operator or brand as sold in Belarus. THE MOBILE MARKET HAS EXACTLY THREE NETWORKS — A1 (the former velcom), МТС and life:) — and everything else on this list resells one of them or provides fixed-line service. Белтэлекам is the state incumbent and byfly is its consumer broadband brand; ZALA is its IPTV. Brand names keep their registered spelling, which is why life:) carries its punctuation.
+locale: be
+---
+A1
+МТС
+life:)
+Белтэлекам
+byfly
+ZALA
+БеСТ
+Атлант Тэлеком
+Дзелавая сетка
+Космас-ТБ
+Белсэл
+Транзітны аператар
+Правайдар
+Віртуальны аператар
+Стацыянарная сувязь
+Мабільная сувязь
+Оптавалакно
+ADSL
+GPON
+LTE
+5G
+Спадарожнікавы інтэрнэт
+IP-тэлефанія
+Хмарная АТС
+Роўмінг
+M2M

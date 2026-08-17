@@ -1,0 +1,12 @@
+---
+description: Dishes of Татарская cuisine, named in Belarusian. Child of food/cuisine.txt.
+locale: be
+---
+Бешбармак
+Манты
+Чак-чак
+Эчпачмак
+Кыстыбый
+Азу
+Пярэмячы
+Губадзія

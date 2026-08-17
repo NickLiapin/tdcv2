@@ -1,0 +1,24 @@
+---
+description: Delivery carrier as a Belarusian shop lists it. Белпошта is the state post; ЕЎРАПОШТА is a private Belarusian courier network with pickup points in every town and is the one most online orders inside the country actually go through. Brand names keep their own spelling, Latin or Cyrillic, because that is what is printed on the parcel.
+locale: be
+---
+Белпошта
+Еўрапошта
+ЕМС Беларусь
+СДЭК
+DHL
+DPD
+UPS
+FedEx
+TNT
+GLS
+Boxberry
+Кур’ерская дастаўка
+Самавываз
+Постамат
+Пункт выдачы
+Транспартная кампанія
+Чыгуначная дастаўка
+Аўтаперавозчык
+Авіядастаўка
+Дастаўка да дзвярэй

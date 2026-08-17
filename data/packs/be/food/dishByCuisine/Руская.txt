@@ -1,0 +1,16 @@
+---
+description: Dishes of Руская cuisine, named in Belarusian. Child of food/cuisine.txt.
+locale: be
+---
+Баршч
+Шчы
+Салянка
+Акрошка
+Пельмені
+Бліны
+Піражкі
+Кулеб’яка
+Каша грэцкая
+Селядзец пад футрам
+Вінегрэт
+Квас

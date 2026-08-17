@@ -1,0 +1,5 @@
+---
+description: Capital of Венгрыя, in Belarusian. Child of geo/country.txt.
+locale: be
+---
+Будапешт

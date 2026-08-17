@@ -1,0 +1,14 @@
+---
+description: Fuel or drivetrain (Belarusian). Belarus opened its first nuclear power station in 2020 and pushes electric cars hard, so Электра is a real category on a Belarusian registration document, not a rarity.
+locale: be
+---
+Бензін
+Дызель
+Газ (СПГ)
+Метан
+Бензін і газ
+Гібрыд
+Плагін-гібрыд
+Электра
+Вадарод
+Без рухавіка

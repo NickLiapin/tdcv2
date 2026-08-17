@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Belarusian street, district or housing estate (вул. Заходняя, мкр. Паўночны). Masculine and feminine forms are both listed because the qualifier agrees with the noun it attaches to — мікрараён is masculine, вуліца feminine — and Belarusian keeps full adjective agreement. Усход, Усходні and Усходняя all carry ў after the vowel, which is the letter no other Slavic language has.
+locale: be
+---
+Поўнач
+Поўдзень
+Усход
+Захад
+Паўночны
+Паўночная
+Паўднёвы
+Паўднёвая
+Усходні
+Усходняя
+Заходні
+Заходняя
+Цэнтр
+Цэнтральны
+Цэнтральная

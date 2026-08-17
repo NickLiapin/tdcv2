@@ -1,0 +1,34 @@
+---
+description: Vegetable (Belarusian). БУЛЬБА LEADS AND THAT IS NOT A JOKE: potato consumption per head in Belarus is among the highest anywhere, the word is a national nickname, and a Belarusian recipe collection is organised around it. Бурак, капуста and цыбуля are the rest of the winter store; the greenhouse vegetables at the end are imports or hothouse crops and are seasonal words in a way they are not further south.
+locale: be
+---
+Бульба
+Бурак
+Капуста
+Цыбуля
+Морква
+Часнок
+Агурок
+Памідор
+Кабачок
+Гарбуз
+Рэдзька
+Рэпа
+Бручка
+Хрэн
+Шчаўе
+Кроп
+Пятрушка
+Салата
+Шпінат
+Гарох
+Фасоля
+Бабы
+Сачавіца
+Кукуруза
+Перац
+Баклажан
+Сельдэрэй
+Пастарнак
+Цыбуля-парэй
+Брокалі

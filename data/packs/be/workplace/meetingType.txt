@@ -1,0 +1,16 @@
+---
+description: Kind of work meeting (Belarusian). Планёрка is the short standing meeting at the start of the working day and is an institution in Belarusian workplaces.
+locale: be
+---
+Планёрка
+Нарада
+Аператыўка
+Сход калектыву
+Пасяджэнне
+Прэзентацыя
+Мазгавы штурм
+Гутарка адзін на адзін
+Рэтраспектыва
+Відэаканферэнцыя
+Вучоба
+Інструктаж
