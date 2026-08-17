@@ -1,7 +1,7 @@
 ---
 address: maldives.government.agency
 description: Agencies, authorities, services and departments of the Maldivian state — the bodies that actually hold the records, as against the ministries that set policy (see maldives.government.ministry). Four of them are worth knowing before reading any Maldivian dataset. The Department of National Registration registers every birth and death and issues the identity card, so it is the source of maldives.docs.nationalId. The Maldives Inland Revenue Authority (MIRA) is a body separate from the finance ministry and issues every taxpayer number in the country, so it is the source of maldives.tax.tin. The Maldives Monetary Authority is the central bank and licenses the banks in maldives.finance.bank. And the Maldives Bureau of Statistics runs the census that the population weights throughout this pack come from. Two entries have no counterpart in most countries. The Maldives Zakat House administers the Islamic obligatory alms as a state function, with its own poverty register — a tax-like transfer that sits outside the tax system entirely. And the National Centre for Information Technology runs eFaas, the national digital identity, which is the login for essentially every government service; a Maldivian citizen's interaction with the state is mediated through one app to a degree few countries match. Note the shape of the state: a population of half a million supports a full set of national regulators — aviation, broadcasting, food and drug, capital markets, utilities — because being a sovereign state requires them regardless of size, so Maldivian agencies are numerous and small.
-locale: dv-Latn
+locale: dv-latn
 ---
 Maldives Inland Revenue Authority
 Maldives Monetary Authority

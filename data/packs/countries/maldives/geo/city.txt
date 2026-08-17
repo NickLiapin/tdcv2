@@ -2,7 +2,7 @@
 address: maldives.geo.city
 description: The five cities of the Maldives, weighted by 2022 census population. A "city" here is a legal status under the Decentralization Act 2010 — an inhabited area of 10,000 or more with a city council, which sits OUTSIDE any administrative atoll — and the list is short because almost nowhere in the country reaches ten thousand people. Malé is 211,908 and the next largest, Addu City, is 25,062: a ratio of more than eight to one between first and second city, which is extreme even by small-island standards and is the central fact of Maldivian demography. Kulhudhuffushi and Fuvahmulah are single islands that became cities in 2010; Thinadhoo in Gaafu Dhaalu was granted city status in 2023 and is missing from any list older than that. Addu City is six settlements strung along one atoll rim, not a single town. Note that Malé City and the atoll of Kaafu are different things that overlap on the map — Malé island sits inside Malé Atoll but is not administered by it.
 weighted: true
-locale: dv-Latn
+locale: dv-latn
 ---
 Malé,211908
 Addu City,25062

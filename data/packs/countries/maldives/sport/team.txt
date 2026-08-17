@@ -1,7 +1,7 @@
 ---
 address: maldives.sport.team
 description: Maldivian football clubs — the Dhivehi Premier League sides and the clubs with the deepest history in the domestic game. The thing that makes this list unlike any other national club list is that ALL TEN TOP-FLIGHT CLUBS PLAY IN THE SAME STADIUM, the 4,000-seat National Football Stadium in Malé, and all of them are based in the capital. There are no away grounds and no travel: a "home" fixture is a scheduling label. That follows from the geography — moving a squad between islands means a boat or a seaplane — and it is why Maldivian clubs are identified by MALE WARD rather than by town, so Club Eagles is Maafannu, New Radiant is Henveiru, Odi Sports Club is Galolhu and Buru, Green Streets and Valencia are all Machchangolhi. Names carry conventions worth knowing: S&RC is Sports and Recreation Club, SC is Sports Club, and Club Valencia and Club Green Streets take the word Club in FRONT, which is a Maldivian habit rather than a translation artefact. Maziya S&RC is the dominant side of the modern era. New Radiant and Victory are the historic giants and both have been relegated and rebuilt within the last decade, which is what happens when clubs are funded by sponsors rather than gate receipts. Note that football is the national sport by a wide margin, but the Maldives' only continental trophy is the 2008 SAFF Championship won by the national team.
-locale: dv-Latn
+locale: dv-latn
 ---
 Maziya S&RC
 New Radiant S.C.

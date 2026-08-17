@@ -1,6 +1,6 @@
 ---
 address: maldives.geo.islandThaana
-description: The 187 inhabited islands written in Thaana, weighted by 2022 census population — the same list and the same order as maldives.geo.island, in the script the country writes. This is the form on an island council sign, in the Dhivehi census tables and on a national identity card, and it is the form that settles the romanisation arguments: the island the census romanises Dhihdhoo and the council romanises Dhidhdhoo is one spelling in Thaana. Thaana is right-to-left and lives in Unicode U+0780-U+07BF; it is neither Arabic nor Sinhala, and none of these values contain a codepoint from either of those blocks. Note that a Dhivehi vowel is a diacritic (fili) over or under the consonant, so a name that looks four characters wide can be eight codepoints, and truncating a Thaana string by codepoint count cuts vowels off their consonants. Source: Maldives Bureau of Statistics, Census 2022.
+description: The 186 inhabited atoll islands written in Thaana, weighted by 2022 census population — the same list and the same order as maldives.geo.island, in the script the country writes. This is the form on an island council sign, in the Dhivehi census tables and on a national identity card, and it is the form that settles the romanisation arguments: the island the census romanises Dhihdhoo and the council romanises Dhidhdhoo is one spelling in Thaana. Thaana is right-to-left and lives in Unicode U+0780-U+07BF; it is neither Arabic nor Sinhala, and none of these values contain a codepoint from either of those blocks. Note that a Dhivehi vowel is a diacritic (fili) over or under the consonant, so a name that looks four characters wide can be eight codepoints, and truncating a Thaana string by codepoint count cuts vowels off their consonants. Source: Maldives Bureau of Statistics, Census 2022.
 weighted: true
 locale: dv
 ---
@@ -99,7 +99,6 @@ locale: dv
 ފަރެސްމާތޮޑާ,858
 މަޑިފުށި,858
 ފޭދޫ,854
-ހުޅުލެ,802
 ކޮޅުފުށި,793
 ވައިކަރަދޫ,776
 ހުޅުދެލި,764

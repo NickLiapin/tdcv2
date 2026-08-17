@@ -1,7 +1,7 @@
 ---
 address: maldives.geo.atollGeographic
 description: The OFFICIAL geographical names of the twenty administrative atolls, romanised — the names Maldivians use in serious geographic, historical and cultural writing, as against the letter codes tourists and foreigners use. Thiladhunmathi, Miladhunmadulu, Maalhosmadulu, Faadhippolhu, Ari, Felidhu, Mulaku, Nilandhe, Kolhumadulu, Hadhdhunmathi, Huvadhu, Fuvahmulah, Addu: these are the atolls. Uthuruburi means the northern part and Dhekunuburi the southern, so Thiladhunmathi Uthuruburi and Thiladhunmathi Dhekunuburi are two administrative halves of ONE natural atoll — the largest atoll in the world by area outside the submerged banks. Two names in this list are conventionally written WITHOUT the word atholhu after them, and adding it is the mark of a foreign source: Faadhippolhu, Kolhumadulu, Hadhdhunmathi and Fuvahmulah end in -polhu, -madulu, -mathi or stand alone, and take no suffix. The administrative map and the natural map are not the same map either: there are 27 natural atolls and only 20 administrative ones, so Ihavandhippolhu, Makunudhoo, Goidhoo, Rasdhoo, Thoddoo, Gaafaru and Vattaru are real atolls with no administrative existence, and Kaafu is two natural atolls (North and South Malé) counted as one. Order matches maldives.geo.atoll.
-locale: dv-Latn
+locale: dv-latn
 ---
 Thiladhunmathi Uthuruburi
 Thiladhunmathi Dhekunuburi

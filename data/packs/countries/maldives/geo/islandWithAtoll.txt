@@ -1,8 +1,8 @@
 ---
 address: maldives.geo.islandWithAtoll
-description: An inhabited island written the way a Maldivian address writes it: the atoll abbreviation, a full stop, a space, then the island — HDh. Kulhudhuffushi, GDh. Thinadhoo, K. Maafushi, ADh. Mahibadhoo. This is the qualified form and it exists because a bare island name is ambiguous across the country: Feydhoo, Dhidhdhoo, Maalhos, Funadhoo, Thinadhoo, Meedhoo, Gan and Villingili each name two or more islands in different atolls, and the atoll prefix is what makes an address deliverable. Weighted by 2022 census population, so the values are drawn in the proportions the population actually lives in. Malé City has no atoll prefix and is not in this list — a Malé address is a ward and a house name instead, see maldives.geo.maleWard and maldives.geo.houseName. Note the punctuation: the abbreviation takes a full stop and the digraphs keep their lowercase second letter, so "HDh." is right and "HDH." and "H.Dh." are not.
+description: An inhabited island written the way a Maldivian address writes it: the atoll abbreviation, a full stop, a space, then the island — HDh. Kulhudhuffushi, GDh. Thinadhoo, K. Maafushi, ADh. Mahibadhoo. This is the qualified form and it exists because a bare island name is ambiguous across the country: Feydhoo, Dhidhdhoo, Maalhos, Funadhoo, Thinadhoo, Meedhoo, Gan and Villingili each name two or more islands in different atolls, and the atoll prefix is what makes an address deliverable. Weighted by 2022 census population, so the values are drawn in the proportions the population actually lives in. Malé City has no atoll prefix and is not in this list — a Malé address is a ward and a house name instead, see maldives.geo.maleWard and maldives.geo.houseName — and neither is Hulhulé, the airport island, which is part of Malé City. Note the punctuation: the abbreviation takes a full stop and the digraphs keep their lowercase second letter, so "HDh." is right and "HDH." and "H.Dh." are not.
 weighted: true
-locale: dv-Latn
+locale: dv-latn
 ---
 S. Hithadhoo,13759
 HDh. Kulhudhuffushi,10131
@@ -16,7 +16,7 @@ HA. Dhihdhoo,3412
 R. Dhuvaafaru,3321
 Dh. Kudahuvadhoo,3131
 L. Fonadhoo,2986
-GA. Villimalé,2900
+GA. Vilin'gili,2900
 HA. Ihavandhoo,2873
 ADh. Maamin'gili,2798
 HDh. Hanimaadhoo,2664
@@ -99,7 +99,6 @@ AA. Mathiveri,878
 GDh. Faresmaathodaa,858
 Th. Madifushi,858
 Sh. Feydhoo,854
-K. Hulhule,802
 M. Kolhufushi,793
 HDh. Vaikaradhoo,776
 Dh. Hulhudheli,764

@@ -1,7 +1,7 @@
 ---
 address: maldives.government.ministry
 description: The ministries of the Maldivian government. The list changes with every president and changes a lot: Maldivian ministries are merged, split and renamed by presidential decree at the start of a term, so "Ministry of Tourism and Environment" and "Ministry of Economic Development, Transport and Trade" are current compounds of what were separate ministries a term earlier, and any Maldivian organisational data more than a few years old names ministries that no longer exist. Three of these have no equivalent in a secular state and are not ceremonial: the Ministry of Islamic Affairs regulates mosques, preaching licences and religious rulings in a country whose constitution requires citizens to be Muslim; the Ministry of Dhivehi Language, Culture and Heritage is the guardian of a language with about 350,000 speakers and no other home; and the Ministry of Fisheries and Ocean Resources runs what was the entire national economy before tourism arrived and is still the largest employer of Maldivians outside the resorts. Note there is no ministry of agriculture-and-forestry shape here and no ministry of energy: on islands averaging a metre and a half above sea level, the environment portfolio is a survival portfolio, and it sits with tourism because tourism is what pays for it. The President's Office is listed with the ministries because it is a ministry-rank office in the Maldivian civil-service structure. Source: the Maldives civil service register of government offices.
-locale: dv-Latn
+locale: dv-latn
 ---
 The President's Office
 Ministry of Foreign Affairs

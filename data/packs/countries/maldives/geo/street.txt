@@ -1,7 +1,7 @@
 ---
 address: maldives.geo.street
 description: Real street names of Malé City. Every Maldivian street name ends in one of three words and the word is the rank: MAGU is a thoroughfare, HINGUN a road, GOALHI a lane or alley — Majeedhee Magu, Ameenee Magu and Boduthakurufaanu Magu are the three that cross the capital, and a goalhi is often no wider than a car. The word is part of the name and is written as a separate capitalised word, so "Orchid Magu" is the name and "Orchid" alone is not. The names themselves are a fair sample of Maldivian naming: flowers (Orchid, Violet, Rose), qualities (Abadhah Ufaa, "eternal joy"), and the titles of national figures (Boduthakurufaanu, the sultan who drove out the Portuguese in 1573). Note what a Malé street does NOT carry: house numbers. Buildings are identified by a NAME, not a number on a street, so the street is only half an address here — see maldives.geo.houseName.
-locale: dv-Latn
+locale: dv-latn
 ---
 Aaburuzu Hingun
 Aaminaa Rani Hingun

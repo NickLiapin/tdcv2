@@ -1,337 +1,2281 @@
 ---
 address: maldives.geo.houseName
-description: Real house names of Malé City. THIS IS THE SINGLE MOST IMPORTANT FACT ABOUT A MALDIVIAN ADDRESS: buildings have names, not numbers. There is no house number, no building number and no number on the street; a Malé address is the house name, the ward and the postcode, and the street is often left out altogether because the house name is the identifier the post office indexes. The names are Dhivehi words and compounds — Alimasge (ruby house), Aanooraanee (radiant), Aazamaan (the age) — and a great many end in -ge, which simply means house, so Fenfiyaazuge is "the house Fenfiyaazu". Names with English words in them (Villa, Manzil, Palace) are common in newer buildings and are equally real. Two consequences for anyone modelling Maldivian addresses. First, the house name is a free text field of unbounded shape, not a number, and a schema with an integer house_number cannot hold a Maldivian address at all. Second, house names are NOT unique across the country — they are unique only within a ward — so the key is house name plus ward plus postcode. Values here are a sample taken from the Malé postcode register, spread across the alphabet of streets.
-locale: dv-Latn
+description: Real house names of Malé City, every one of them taken from the Malé postcode register. THIS IS THE SINGLE MOST IMPORTANT FACT ABOUT A MALDIVIAN ADDRESS: buildings have names, not numbers. There is no house number, no building number and no number on the street; a Malé address is the house name, the ward and the postcode, and the street is often left out altogether because the house name is what the post office indexes. The names are Dhivehi words and compounds — Alimasge (ruby house), Aanooraanee (radiant), Aazamaan (the age) — and a great many end in -ge, which simply means house, so Fenfiyaazuge is "the house Fenfiyaazu". Names with English or Arabic words in them (Villa, Manzil, Palace, Manzilge) are common in newer buildings and are equally real. Three consequences for anyone modelling Maldivian addresses. The house name is a free text field of unbounded shape, not a number, so a schema with an integer house_number cannot hold a Maldivian address at all. House names are NOT unique across the country — they are unique only within a ward — so the key is house name plus ward plus postcode. And the same name recurs with a suffix on the parts of a subdivided plot (Irumatheebai, the west side; Hulhangubai, the south side), which is a Maldivian inheritance practice showing through in the address data.
+locale: dv-latn
 ---
+A D Reed
 A D Villa
 A M House
+A Rasheed Fihaara
+A S Store
+Aa Alimas
 Aabaadhee
+Aabaadhu
+Aabageechaa
+Aabidhaa Manzil
+Aabin
+Aabuhavaa
+Aadhaige
+Aadhilleege
 Aadhuni
+Aafaadu
+Aafalge
+Aafathis
+Aafehi
+Aafini
+Aagadhage
+Aagaraa House
 Aagaraage
+Aagas
+Aagisaa Manzil
+Aagulshan
 Aahama
+Aahethi
+Aahiyaa
+Aahiyaa Gulshan
+Aahiyaa Irumatheebai
+Aahiyaa Villa
+Aailaa Aai Behey Court
+Aaishaa
+Aajeenaa
+Aakaash
+Aakaash Villa
+Aakakaage
+Aakakaage No. 1
+Aakuri
 Aala
 Aammu Ufa
+Aamuleege
+Aamuli
+Aamuranga
+Aanadhu
 Aanandhu
+Aanika
 Aaniru
+Aanooraanee
+Aanooru
+Aanu
+Aanuveli
+Aapiyaa
+Aaraamuge
+Aaroa
+Aaroadhi
+Aaroashan
+Aaru
+Aarukore Villa
+Aarunooruge
+Aasaanee
+Aasam
+Aashiruvaadh
+Aashiyaanaa
+Aasiyaanaa Villa
+Aasmaanu Villa
+Aasmaanuge
+Aasnaa
+Aasthaana
+Aathari
+Aathila
 Aaufaa
+Aavaaz
+Aaveli
+Aavina
+Aazaadhe Vaadhee
 Aazaadhee Gulshan
 Aazaadhuge
+Aazamaan
+Ab Villa
+Abaa
 Abaanaa
 Abaarana
+Abadhahhiyaage
+Abbasaa
+Abeeru
+Abeeru Aage
+Abudhurahmaan Aabaadhu
+Abuhaa
+Abuhareege
 Abulagheege
+Acacia
+Achieve
+Acropolis
+Addana
+Addoo
+Addoo Villa
+Addooge
+Addooge Aage
+Addooge Dhekunubai
+Addu Atolhu Gamaa Behey Section
 Adha
+Adhaarasamge
+Adhangau
+Adharan
+Adheel Jaleel & Brothers No. 1
+Adhoo
+Adhunee Aage
+Adhuni
+Adimagu
+Adk Hospital
+Adt No. 2 Store
+Afeesha
+Affection Night
+Afsaanaage
+Afsantheen
 Afzaa
+Ageedhuge
+Agi
+Agoohaa
 Agra
+Aguleemuge
+Ah Store
+Ahi
+Ahigas
+Ahigasdhoshuge
+Ahimaage
+Ahimaage Aage
+Ahmaan
+Ahmadhee Aabaadhu
+Ahmadhee Baazaaru No. 7 Fihaara
+Ahuliha
+Aibahaaru
+Aidam Wood
+Aidha
 Aidhooge
+Aifa
+Ail Haven
+Aimaa
+Aimirani
+Aina Adams
+Ainaa
 Air Cool
+Air Dawn
+Airy
 Aishaa Manzil
+Aishath Manzil
+Ajamee Poolge
+Ajumee Star
+Akiri
 Akirifushi
+Al Aan
+Al Madhrasathul Arabiyyathul Islamiyya
 Alafaru
+Alaka
+Alamaage
+Alamanda
+Alanaasimaage
+Alanaasimaage Aage
+Alaniru
+Alarm
 Alaska
+Alavaluge
 Albania
+Albeedo
+Albian Store
 Alcove
 Alcyon
+Alcyon Traders
+Alfaa
+Alhi Fashuvi
 Alhifashuvi Aage
+Alhifashuvige
+Alhifehi
+Alhige
+Alhivilaa
 Alhivilaage
 Ali
+Ali Aabaadhu
 Ali Handhu
 Ali Handhuvaruge
+Ali Havaa
+Ali House
+Ali Kuri
+Ali Reef
+Ali Thari
+Alia
+Alia Buliding
+Alia Butik
+Alia Flat
+Alia Furniture Mart
+Alia Saw Mill
+Alidhooge
+Alidhufffaru
 Alifas
+Alifu Atoll Fihaara
+Alifusheege
 Aligaa
 Alihaa
+Alihuras
+Alikilegefaanu Magu No. 2 / 10
+Alikuraage
+Alimas Vaadhee
+Alimasge
+Alimasge Irumatheebai
+Alimathaage
+Alinaru
+Alinaru Hiyaa
+Alinaru Lodge
+Alinaru Villa
+Alinarumaa
+Alinarumaage
+Alinooru
+Alires
+Alishaa
 Alivaage
+Alividhuvaruge
+All Paris
+Almaas
 Almaas Villa
+Almaazaa
+Almeeriyaa
+Almond Villa
+Alpine
+Altar
 Alunthila
+Aluvimaage
+Aluvimaage Aage
+Always Happy House
+Amaan Asseyri
+Amaanee
+Amaaz
+Aman
+Amaraa
+Amazon
+Ambries
+Ameelee Hiyaa
+Ameelee Manzil
+Ameenee Gulshan
+Ameeraa Manzil
 Amenity
+American Star
+Amery
+Amfaa
+Aminiya School
+Amna
+Amsaa
 Amsaa Villa
+Amshaah
+Anaa Villa
+Anaabaaru
 Anaalu
+Anaaru Kalee
+Anasam
+Anbaraa
 Anbareege
+Anbugasdhoshuge
 Anbuge
+Anbumaage
+Andaapool Aage
+Andaapool Lodge
+Andaapool Villa
+Andaapoolge
+Andaapoolmaage
+Andalus
+Andhaaseege
+Andhaleebuge
+Andharusavaa
+Andhunge
+Andhunkosheege
+Andhunkosheege Aage
+Andromoeda
+Anemone
+Angaa Villa
+Angaagau
+Angaagau Uthurubai
+Angaagiri
+Angelica
 Angoorumaage
+Angsanaa
 Ankaa
+Ankara
+Annaaru
+Annaaruge
+Annaarumaage
+Anoanaage
+Anoomaa
+Ansaanaa
+Antares
+Anti Corruption Board
+Anti Fabric
+Anulaaris
+Anzaaneege
+Anzaaneege Aage
+Apple Green
+Araa Handhu
+Araa Iru
+Araa Kuri
 Araa Raiy Kuri
 Araa Raiy Niru
+Araa Rihi
+Araa Thari
+Araaroot Villa
+Araarootuge
+Arabian Villa
+Araliya
+Araneedha
+Arctic Loon
+Areeba
+Areej
 Areeka
+Areesh
 Arena
+Ari Fan
+Arihiyaa
+Arimatheege
+Arinagaage
+Aris
+Arivaru
+Arizona
+Aroma
+Aroodhaage
+Arooshaa Manzil
+Arrow Villa
+Arum Lily
+Arusheef
+Arutha
+Aruzaana
+Asaas
+Asal
+Asaree
+Asaree Aage
+Asaree Fehi
+Asaree Gomaa
 Asaree Handhaan
+Asaree Handhu
+Asaree Hiyaa
 Asaree Pearl
 Asaree Villa
 Asaree Vilu
+Asareege
+Asbaabu
+Asdhoo
+Aseyge
+Aseynaa
+Asfaam
 Asfaru
+Ashaariz
+Ashi
 Ashifaa
 Asia
 Asima Manzil
+Asisa
+Asiyaa Manzil
+Asjehige
 Askaru Villa
 Asnaf
+Asrafee Hiyaa
+Asrafee Villa
+Asrafeege
+Asreemaage
+Asru
+Assariyaa
+Asseyri
+Asseyri Hiya
+Asseyrige
+Assidha
+Asteroids
+Aston Villa
+Astral
+Astral Aage
+Asuru Hiyaa
+Asurumaa Villa
+Asurumaage
+Aswaan
+Asward
+Asyoothu
+Atha
+Athafaiy
 Athafaru
+Athagasdhoshuge
+Athakuri
+Athamaa
+Athamaa Plazaa
+Athamaa Store
 Athamaa Villa
+Athamaage
+Athamoo
+Atharulaage
+Atharumaage
+Atharumaage Aage
+Athassaagiri
+Athena
+Athireege
+Athireege Aage
+Athiri Veli
+Athirimatheege
+Athletic Association Of Maldives
+Atholhu Vehi
+Atlanta
+Atlanta Ge
+Atoll Post Building
+Attorney Generals Office
+Audit Office
+Augusta
+Aumiskiy
+Aurora
 Autoage
+Autum Glory
+Aveelaa
+Avenue
+Avi
+Avi Roalhi
+Avidheyge
+Avihi
+Axel
 Axilaris
 Axis
+Azalea
+Azora
 Azum
+Azzaam Villa
+Baa Atoll Fihaara
+Baabil
+Baabul Avaalee
 Baabussaadhaa
+Baadee Villa
+Baadeege
 Baadhal
+Baadhalaage
+Baadhireege
+Baadhiyaa
+Baagh Bahaaru
 Baamiyaage
+Baani
 Baansaage
 Baansreege
+Baarana
+Baaranaage
+Baaranaage Aage
+Baaranaage Hulhanguge
+Baarish
 Baazujehige
+Babul
+Babuna
+Badhuru
 Badialige
 Badifasgandudhoshuge
+Badikulhimaage
 Badimirusge
+Badmington Association Of Maldives
+Bageechaa
+Bageechaa Kuri
+Bageechaa Store
+Bageechaa Villa
+Bageechaage
+Bageechaage Aage
+Bagshaan
+Bahaaree Aage
+Bahaareege
+Bahaaru Villa
+Bahaaruge
 Bahrain
+Baidid Villa
+Baikandige
+Baikandige Aage
+Balance
+Balsam Villa
+Bamboo
+Banaaras
+Banafsaa Store
+Banafsaa Villa
+Banafsaage
+Banana House
+Banana Villa
+Banbukeyogasdhoshuge
+Bandaara Villa
+Bandeyrige
 Bandhuge
+Bandidhooge
+Bandosge
+Banff Villa
+Bangaa
+Bangkok
+Bangufadigge
+Bangufadigge Irumatheege
+Bank Of Maldives Baazaaru Branch
+Bank Of Maldives Limited Head Office
+Bank Of Maldives Majeedhee Magu Branch
+Baraboamaage
+Barakaathu
+Baroasaa
+Barracuda
+Basheeree Hiyaa
+Bashigasdhoshuge
+Bashima Villa
+Bashimaa Vaadhee
+Bashimaage
+Basketball Association Of Maldives
+Basthee
 Bathalaa
+Bavana
+Bavathi
+Beach Corner
+Beach Flat
+Beach Heaven
+Beach Hotel
+Beach House
+Beach Nest
+Beach Nut
 Beach Roadge
+Beach Shine
+Beach Side
+Beach Slope
+Beauteen House
+Beauty
 Beauty Flowers
+Beauty Night
+Beauty Shop
+Beauty Site
+Beauty Villa
+Beehive
+Beehive Uthurubai
+Beenaa
+Beetrootge
+Begoaniya
+Belgiumge
+Beneenaa
+Benety
+Benhaage
+Berebedhige
+Berebedhimaage
+Berebedhimaage Aage
+Bereezee Villa
+Berinmadhoo
+Beriyan Faru
 Beruge
+Beuty Line
+Beverly Hills
+Beydhanaage
+Beyzange
 Bhm Building
+Bianca
+Bif No. 2
+Big Fish
+Bihuge
 Bihuroaz Kamana Miskiy
+Bijileege
+Bilaaluge
+Bilaaluge Aage
+Bilaaluge Hulhanguge
 Bilamagugasdhoshuge
+Bilamagumaa
+Bilaveyoge
+Billoori Villa
+Billoorige
+Billoorijehige
+Billoorimaage
 Biminee
 Binaafushi
+Binfolhu
+Binkolhu
+Binmaa Villa
+Binmaage
+Binmathee Aage
+Binmatheege
 Binunimaage
+Birdline
+Birmingham
+Birmingham Irumathi Bai
+Bissaaveli
+Blaashamge
 Black House
 Black Pool
+Black Rose
+Black Rose No. 1
+Bloom
+Blue Asseyri
 Blue Astoria
+Blue Bell
+Blue Bird
+Blue Birdge
+Blue Chip
+Blue Cloud
+Blue Coral
+Blue Corner
+Blue Diamond
+Blue Dream
+Blue Face
+Blue Feather
 Blue Finch
+Blue Fish
+Blue Flower
+Blue Grass
+Blue Heaven
+Blue Home
 Blue House
+Blue Hut
+Blue Jay
 Blue Lagoon
+Blue Lake
+Blue Lake Aage
+Blue Lake Lodge
+Blue Light
+Blue Line
+Blue Lodge
 Blue Loon
+Blue Mead
+Blue Moon
+Blue Mountain
+Blue Nile
+Blue Pearl
 Blue Pigeon
+Blue Reef
+Blue Rest
+Blue River
+Blue Rose
+Blue Sand
+Blue Sapphire
+Blue Scoop
+Blue Screen
+Blue Sea
+Blue Seven
+Blue Shine
+Blue Sky
+Blue Stone
+Blue Surgeon
+Blue Valley
+Blue Villa
 Blue Wate
+Blue Wave
+Blue West
+Blue Whale
+Blue Wing
 Bluege
 Bluekiyaage
+Boaddoo
+Boaga
+Boakeyo Villa
+Boakeyogasdhoshuge
+Boalhajehige
+Boalhakinkirimaage
 Boashigasdhoshuge
+Boavelige
+Bodudhaharaage
+Bodudhigaagasdhoshuge
+Bodufaru
 Bodufenvalhuge
+Bodufulhahge
+Bodugaadhoshuge
+Bodugaluge
+Bodugaluge Dhekunubai
+Bodugalumaafaiyge
+Bodukekuri Villa
+Bodukekurige
+Bodukosheege
+Bodukunnaruge
+Bodumaa
+Bodumaguge
+Boduruhdhoshuge
+Boduthakurufaanu Magu No. 1/ 51 Fihaara
+Boduthakurufaanu Magu No. 1/ 52 Fihaara
+Boduthakurufaanu Magu No. 1/ 55 Fihaara
+Boduthakurufaanu Magu No. 12 Fihaara
+Boduthakurufaanu Magu No. 30 Fihaara
+Boduthakurufaanu Magu No. 40 Fihaara
+Boduthakurufaanu Magu No. 42 Fihaara
+Boduthakurufaanu Magu No. 49 Fihaara
+Boduthakurufaanu Magu No. 50 Fihaara
+Boduthakurufaanu Magu No. 51 Fihaara
+Boduthakurufaanu Magu No. 52 Fihaara
+Boduthakurufaanu Magu No. 62 Fihaara
+Boduthakurufaanu Magu No. 63 Fihaara
+Boduthakurufaanu Magu No. 65 Fihaara
+Boduthakurufaanu Magu No. 67 Fihaara
+Boduthakurufaanu Magu No. 68 Fihaara
+Boduthakurufaanu Magu No. 69 Fihaara
+Boduthakurufaanu Magu No. 70 Fihaara
+Boduthakurufaanu Magu No. 71 Fihaara
+Boduthakurufaanu Magu No. 72 Fihaara
+Boduthakurufaanu Magu No. 73 Fihaara
+Boduthakurufaanu Magu No. 74 Fihaara
+Boige
+Boiling Fish
+Bokarumaage
+Bolifushi
+Bolige
+Bolissafaru
+Bondibaiyge
 Bondiboashige
 Bondifashuvige
+Bondikandholhuge
+Bondimaage
+Bondimaage Aage
+Bonthi
+Book Production Unit
+Borneo
+Bougan Villa
+Boulder
+Bourun Villa
+Boy Scout Association Of Maldives
+Bradely
+Breeve
+Bremen
 Bright Blue
+Bright Corner
 Bright Day
+Bright Flower
+Bright Star
+Bright Villa
 Brilliance
+Brinjal Flower
+British Council
 Broken Heart
+Brown House
+Buchaa
 Buchaa Hiyaa
+Buchaage
+Buchaage Aage
 Building Construction And Mechanical Works
+Bulbul Aage
+Bulbulaa
+Bulbulaage
+Buloosham
 Bunberuge
+Buradhamaage
+Burakige
+Burakige Aage
+Burehimaage
 Burevimaage
+Burudhaavakaruge
+Burumaa Villa
+Burumaage
+Burunee Kudathuthu Private Ltd. No1
+Buruneege
+Buruneege Dhekunuge
+Burunu
+Busthaanu
+Busthaanu Fehi
+Busthaanu Hiyaa
+Busthaanuge
+Calcuthaage
+Caledonia
+California
+California No. 1
+California No. 2
+California Uthurubai
 Calm Sea
 Calvinia
 Camrock
 Camy
+Canaria
+Canary Lodge
 Canary Maa
+Canary Villa
 Canaryge
+Candys
+Cannon
+Canoapas
+Canopy
+Canvas
+Capri
+Capricorn
+Caranation Maage
 Care Rest
+Caribbean
+Carnation Fiya
 Carnation Hiya
+Carnation Lodge
+Carnation View
+Carnation View Dhekunu Bai
+Carnation Villa
+Carnation Villa Dhekunubai
+Carnationge
+Carol
+Carol 1
+Carpentaruge
+Carpenter Villa
 Carrot
+Casia
+Casino
+Cassuarina
+Castle
+Catania
 Cathy Rose
 Caution
+Cenaflower
+Central
+Centre For Higher Secondary Education
+Centre For Open Learning
+Centre For The Holy Quran
+Centro Sema
+Chaandh
+Chaappage
+Chaaru Chaandh
+Chabeylee Aage
+Chamak
+Chaman
+Chambeylee View
+Chambeylee Villa
+Chambeyly Hiyaa
+Chambeylymaa
+Chambeylymaage
+Champa Flats
+Champa Heaven
 Champa Lodge
+Champa Palace
+Champa Star
+Champaa Moon
+Champaa Villa
+Champaage
+Champaamaage
+Champaapoolge
+Chanbeyleege
+Chandhanee
+Chandhanee Magu No. 14
+Chandhanee Magu No. 16
+Chandhanee Magu No. 4
+Chandhanee Villa
+Chandhaneege
+Chandhaneemaage
+Chandhani Flower
+Chandhani House
+Chandhani Magu 34
+Chandhani Magu No. 22 Fihaara
+Chandhani Magu No. 24 Fihaara
+Chandhani Magu No. 27 Fihaara
+Chandhani Magu No. 30 Fihaara
+Chandhani Palace
+Chanpaamaa
+Charity
+Charlotte
+Cheese
 Cherry
+Cherry Bell
+Cherry Bell Aage
+Cherry Bell Dhekunubai
+Cherry House
 Cherry Park
+Cherrymaage
+Chest Clinic
+Cheynuge
+Chichandaage
+Childrens Home
+Chilhiyaa
 Chilhiyaa Villa
+Chilhiyaajehige
+Chilka Lake
+Chinaaru
 Choicia
+Choir
+Chorus
+Cinema Fihaara
+Citrus
+City View
+City Villa
+Civilization
+Climate
+Clip
+Clover
+Coafeege
+Coal Field
+Coast
 Coazee Round
+Cocoa
+Cocoa Hiyaa
+Cocoa Maa
+Cocoage
+Coconut House
+Coconut Villa
+Coil
 Coliseum
 Columbia
+Comrade
+Comrade Hiya
+Comrade Villa
+Cononta
+Cool Breeze
 Cool Cool
+Cool Grass
+Cool Oasis
+Cool Star
+Cool Stone
+Cool Stone 2
+Cool Stone 6
+Cool Stone No. 2
+Cool Stone No. 5
+Cool Wave
+Cooling Villa
 Copyge
+Coral Berry
 Coral Dale
+Coral Gardens
+Coral Lodge
+Coral Reef
+Coral Sea
+Coral Tree
+Coral Wood
+Corbin
+Cord
+Corner
+Corona
+Coronet Peak
+Cosy
+Cosy House
+Cosy Lodge
+Cosy Nest
+Cottage
+Cotton
+Cotton Villa
+Courage
+Courtmaage
+Cowslip
+Cph No. 1
 Cph No. 2
+Cph No. 3
+Cph No. 4
+Cph No. 6
+Cph No. 7
+Crab Tree
+Cream
+Cream Vaadhee
+Cream Villa
+Creamge
+Crescent Moon
+Crescent No. 1
+Crescent No. 17
+Crescent No. 18
+Crescent No. 2
+Crescent No. 4
+Crescent No. 5
 Crescent No. 6
 Crescent No. 7
+Crescent No. 9
 Crescent Wood
+Crest
+Crest Hill
+Cricket Association Of Maldives
+Crimson
+Crimson Light
 Crimson Rose
 Cristo
+Croamis
+Croany
+Crocus
+Cromer
+Croton
+Crown Villa
+Crystal
+Crystal Villa
+Cualiflower
+Cuba Villa
+Culcuttage
+Cupid
+Cylinco
+Cynosure
+Cyprea
+D M K Shopping Centre
+D U T K No. 1 Fihaara
+Da Vinci
+Daaf Store No. 1
+Daaliyaa
+Daily Work
+Dainty
 Daisy
 Daisy Aage
+Daisy Fehi
 Daisy Irumathee Bai
 Daisy Kuri
 Daisy Lodge
+Daisy Villa
+Daisymaage
+Dakar Villa
+Dallas
+Dankaa House
 Dawn Dew
+Dawn Flake
+Dawn Flakes
+Dawn Fresh
+Dawn Fresh No. 3
+Dawn House
+Dawn Light
+Dawn Shine
+Day Star
+Daylight Shop
+Daylight Villa
+Daylightge
+Dazzle
+Dd Night
+Dear Friend
+Dear House
+Dearest
 Deens Villa
 Deep Blue
+Deep Light
 Delight Villa
+Delphi
 Delphinium
+Denone
+Denube
 Department Of Civil Aviation
+Department Of Correction
+Department Of External Resources
+Department Of Immigration And Emigration
 Department Of Inland Revenue
+Department Of Meteorology
+Department Of National Registration
+Department Of Public Examinations
 Department Of Public Health
+Dew Berry
+Dew Drop
 Dhaadharaa
 Dhaadharaage
 Dhaahadhaage
+Dhaali
 Dhaaliyaan
+Dhaalu Atoll Fihaara
+Dhaana
+Dhaannaage
+Dhaareege
+Dhaarul Falaah
+Dhaarul Garaar
+Dhaarul Salaam
+Dhaarunnooraini
+Dhaashin
+Dhaasthaan
+Dhaayaage
+Dhadikoshee Irumatheege
+Dhagaduthalhaage
+Dhagandukendige
+Dhahaau
+Dhahamala
+Dhaharaage
+Dhakandhaamaage
+Dhamana
+Dhanaaru
 Dhanas
+Dhanbidhooge
+Dhanbu Fiya
 Dhanbu Kokaa
+Dhanbufashuvige
+Dhanbugasdhoshuge
+Dhanbuge
+Dhanbumaage
+Dhanbumaage Aage
+Dhanburuhmaage
+Dhanbuvilaage
+Dhandialuvige
+Dhanmaru
+Dhanvaruge
+Dhanvarugey Aage
+Dharaaru
+Dharavandhooge
 Dharavandhooge Uthuruge
+Dharraasaa
+Dharu Market
 Dharubaaruge
 Dharumavantha Rasgefaanu Miskiy
+Dharumavantha School
+Dhaskara
+Dhathuge
+Dhathurunaage
+Dhavilaa
+Dheba Raalhu
+Dheban Veli
 Dhebudhaaru
+Dhebudhaaruge
+Dhedhunburige
+Dheeb
+Dheefram
+Dheefram Aage
+Dheeframge
+Dheehtha
+Dheenaa
+Dhefehi
+Dhegaa
+Dhekafi
+Dhekenanfaruge
+Dhekunu Aage
+Dhekunu Fiya
+Dhekunu Hiyaleege
+Dhekunu Innaage
+Dhekunu Koshi
+Dhekunu Thila
+Dhekunu Villa
+Dhekunuge
 Dhemaa
 Dhemaagasdhoshuge
+Dhenoo
+Dhenoo Villa
 Dherahaa
+Dheriyaa
+Dhessa
+Dhethandimaa Lodge
+Dhethandimaage
+Dheufaa
+Dheveli
 Dheveli Kinaaraa
+Dheven Dhuni
+Dhevinage
+Dhey Handhuvaru
+Dheydharuge
 Dheylian
 Dheyliya Villa
+Dheyliyaage
+Dheys
+Dheysh
+Dhigaagasdhoshuge
+Dhiggaa
+Dhiggaamaa
+Dhiggaamaage
+Dhiggaamaage Aage
+Dhiggali
+Dhiggaruge
+Dhiggaruge Hulhanguge
+Dhiggiri
+Dhiguharuge
+Dhiguthiyara
+Dhiguthiyaramaa
+Dhiguthiyaramaage
 Dhihi
+Dhijlath
+Dhilaas
+Dhilaasaa Aage
 Dhilaasaa Manzil
+Dhilaasaa Villa
+Dhilaasaage
+Dhilaavaru Aage
+Dhilaavaru Hiyaa
+Dhilaavaru Villa
+Dhilaavaruge
+Dhilaaveyz
 Dhilbahaaru
+Dhilbahaaruge
 Dhilbahaarumaage
+Dhildhaaru
 Dhildhiyaa
+Dhileyraamuge
+Dhilfizaage
+Dhilkash
+Dhilkash Villa
+Dhilkashge
+Dhilkushaage
+Dhillee Villa
+Dhilleege
+Dhilma
+Dhilshaadhu Villa
+Dhilshaadhuge
+Dhimishq
+Dhimyaath
+Dhinasha
+Dhinman
+Dhiraagu
+Dhirey
+Dhireylaalge
+Dhiri Koalhi
+Dhirihandooge
+Dhirimaage
+Dhirimoo
+Dhiththudi
+Dhivaru
+Dhivehi Atha
+Dhivehige
+Dhivili
+Dhiyaath
+Dhiyahdooge
+Dhiyaneru
+Dhiyares
+Dhoadhi
+Dhoadhil
+Dhoalhanbuge
+Dhoalhu
+Dholhiyadhoo
+Dhon Aabuge
+Dhon Annaaruge
+Dhon Atha
 Dhon Bageechaage
+Dhon Bileyge
+Dhon Bulhaage
+Dhon Dhunburige
+Dhon Enbooge
+Dhon Fehige
+Dhon Finolhu
+Dhon Guri
+Dhon Hiri
+Dhon Hura
 Dhon Jeymuge
 Dhon Lunboa Aage
+Dhon Lunboage
 Dhon Moosa
+Dhon Umaruge
 Dhon Veli
+Dhonalha
+Dhonalha Kuri
+Dhonalhamaage
+Dhonfaiy
 Dhonjeymuge Aage
+Dhonkeyogasdhoshuge
+Dhonna
+Dhonthila
+Dhonveli Finolhu
+Dhonveli Thundi
+Dhoogas
+Dhoohimerige
 Dhoondigam
+Dhooni Hoali
+Dhooni Huraa
+Dhoonidhoo
+Dhoonifushi
+Dhoores
+Dhoores Villa
+Dhoorihaa
 Dhooriyaa Villa
+Dhooriyaage
+Dhoovehi
+Dhooveli
+Dhoragali
+Dhoruge
+Dhoshimeynaage
+Dhoshunge
+Dhoththadafige
 Dhubuge
+Dhugethi
+Dhullisaa
+Dhullisaage
+Dhunbugas
+Dhunbugasdhoshuge
+Dhunburige
+Dhunburimaage
+Dhunburimaage Aage
+Dhunburuvaage
+Dhunfini Villa
+Dhunfinige
+Dhungethimaage
+Dhuni
+Dhunifaru
+Dhunikolhu
 Dhunnikamaage
 Dhunthari
 Dhushim
+Dhuvaafaru
 Dhuvaaru
+Dhuvanfaru
+Dhuvarusaa
 Dhuveli
+Dhuveydhaaru
+Dhuveydhaaruge
+Dial Complex
 Diamond Villa
+Dik No. 15 Fihaara
 Dik No. 4 Fihaara
+Dimlight
+Dioamond Valley
 Divine Test
+Dmk No. 2
+Doaly
+Doarency Villa
+Dolphin
+Dolphin House
+Dolphin House Uthurubai
+Donna
+Donny Gole
+Doobee
+Doobeege Aage
+Dream
+Dream Girl
+Dream House
+Dream Of Garden
+Dreamy Beach
+Dreamy Life
+Dreamy Light
+Dreamy Scene
+Droop
+Drop
+Drummers Shelter
+Dublin
+Dullisaage
+Dune
+Durian
+Dusk
+Dwelling
+Eagle
+Eagle Nest
+Eagle Villa
+Ealden
+Earth
+Easa
+Ease
+East Corner
+East End
+East Light
+East Pink
+East Woods
+Eastern Lagoon
+Eastern Star
+Easy Night
+Easy Rest
+Ebage
+Echo
+Eclipse
+Econ
 Edhuruge
 Educational Development Centre
+Eedhiyal
+Eedhu Miskiy
+Eelaaf
+Eemaan Manzil
+Eeraanuge Aage
+Eeree
+Effas
 Efiya
+Efoaniyamge
+Eggamuge
+Eggamuge Aage
+Eggamuge Uthuruge
+Ehada
+Ehdhdhunfaru
 Ehthigili
+Eight Roses
+Eimey
+Ekraa
+Elaa
+Elaachaa
+Elaasio
+Eleena
 Eli
+Elite Store
 Elliot Villa
+Elmason
+Elnilan
+Elpaa
+Elpaso
+Elysium
+Emboodhooge
+Emboogasdhoshuge
+Emboomaage
+Emerald
+Emethyst
+Emmuli
+Emmulimaage
+Emotion
+Empire Store
+Emteyshange
 Emu
+Enboo
 Enboo Kuri
+Enboomaa
+Endheri
+Endheri Aage
+Endheri Gas
+Endheri Kuri
+Endheri Villa
+Endherimaage
 Endless
+Enfalhu
 Engakuri
 English Preparatory And Secondary School
+Enif
+Enniru
+Enomiya
+Entertain
+Enthiyaaz
 Enthurium
+Envashi
+Equal
+Equator
+Eral Sea
+Ereet
+Eri
+Eriyadhoo
+Erose
+Esbari
+Esdhara
+Esfiya
+Esheveli
+Esjehi Aage
+Esjehi Villa
+Esjehige
 Ethere
+Etherevari
+Eththeyomaage
+Ethumaa
+Ethumaa Villa
+Ethumaage
+Etnaa
 Eureka
+Evansee
+Evening Flower
+Evening Garden
+Evening Rose
+Evening Star
+Evening Village
+Ever Blue
+Ever Bright
+Ever Chance
+Ever Cold
+Ever Free
+Ever Glory
+Ever Glory Aage
 Ever Green Oak
+Ever Last
+Ever Peace
+Ever Pink
+Ever Rest
+Ever Sea
+Ever Spring
+Ever Spring 2 Van Bai
+Everest Aage
+Evershine
+Eveylaage
+Evina
+Excells
+Exita
+Eydhafushi
 Eynaaz
+Eyshan Lodge
 F A House
+Faadhoo
+Faafu Atoll Fihaara
+Faaga
+Faagafilaage
+Faagamaage
+Faagathi
+Faagathi Hiya
+Faagathige
+Faahi
+Faalandhoshuge
+Faalandhoshuge Aage
+Faalsaage
+Faamdheyri Magu No. 3/3
+Faamdheyri Magu No. 4/3
+Faamdheyrige
+Faamdheyrige Aage
+Faan
+Faana
+Faarish
+Faaroshige
+Faashanaa Building
 Faashi
+Faathimath Hiyaa
+Faaz
+Fabric Villa
 Faculty Of Education
+Faculty Of Engineering Technology
+Faculty Of Health Science
+Faculty Of Hospitality And Tourism Studies
+Faculty Of Management And Computing
+Faculty Of Shareeah And Law
+Fadigge
+Fahaage
+Fahaage Aage
+Fahala
+Faheli
 Fahi
 Fahi Faru
+Fahi Magu
+Fahi Roalhi
+Fahi Vai
+Fahi Villa
+Fahivaa
+Fahivaa Hiyaa
+Fahivaage
 Faifuhey Miskiy
+Faimaa Villa
+Fainuge
 Fair Lawn
 Fair Rules
+Fair View
+Fairleen
+Fairy
+Fairy Corner
+Fairy Garden
+Fairy House
+Fairy Light
+Fairy Palace
+Fairy Villa
 Faisal Aabaadhu
+Faisandhu
+Faith
+Faiy Koalhi
+Faiy Koani
+Faiyliyaage
+Faizaa
 Falagadige
+Falak
+Falconge
+Falhoamaa
+Falhubalaage
+Falhugiri
+Falhumatheege
+Fan
+Fan Asseyri
+Fanaaru
 Fanas
+Fandhu
+Fandiyaaru Miskiy
+Fandunuvaage
+Fanfehi
+Fanfini
+Fange
+Fangi
+Fanhiya
+Fannuveli
 Fanriyaa
+Fanthi
+Fanvaiy
+Faransaa Aage
+Faransaage
 Fares
+Faridhoo
 Faridhuveli
+Farifari
+Farimaage
+Farivadhu
+Farraas
+Faru
 Farudha Bageecha
 Farudhaabageechaage
+Farudhigga
+Faruhaanaa Manzil
 Farukan
+Farukani
+Farumaa
 Fas Eri
+Fasaanaa
+Fascination
+Fasfiya
+Fashala
+Fashan
+Fashion Mead
+Fashuvi
+Fashuvige
+Fashuvimaage
+Faskolhu
+Fasmandhu
+Fasmeeru
+Fasmoo
+Fasmooge
+Fasmugoo
+Fassiya
+Fathaha
+Fathangu
 Fathanguge
 Fathanguge Aage
+Fathangumaa
+Fathangumaage
+Fathihuge Ali
+Fathis
+Fathis Handhuvaruge
+Fathis Villa
+Fatholhu
 Fathuru
+Favites
+Favour
+Favourite
+Favourite Corner
+Favourite Flower
+Favourite Hill
+Favourite Moon
+Favourite View
+Favourite Villa
+Fazaa
+Fazaa Uthurubai
+Faze
+Fee Ali
+Feeni
+Feeroazu Hiyaa
 Feeroazu Lodge
+Feeroazu Store
+Feeroazu Vaadhee
+Feeroazu View
 Feeroazu Villa
 Feeroazuge
+Feerumuranga Maa
+Feerumurangage
+Fehen Faru
+Fehi Aabaadhu
+Fehi Ali
+Fehi Ali Aage
+Fehi Asseyri
+Fehi Atha
+Fehi Bin
+Fehi Faiy
+Fehi Faiykoalhi
+Fehi Funa
 Fehi Hiri
+Fehi Hiyaa
+Fehi Kekuri
+Fehi Niru
+Fehi Vaadhee
+Fehi Villa
+Fehidhunburi
+Fehifarudhaage
+Fehifarudhaage Irimatheebai
+Fehifashuvi Aage
+Fehifashuvige
+Fehigas
+Fehige
 Fehigili
+Fehigiri
+Fehikokaa
+Fehimaa
+Fehimaage
+Fehimas
 Fehimoonima
+Fehividhuvaruge
+Fehivilaage
 Fehivilu
 Fehivilu Aage
 Fehivina
+Fehivinage
 Fehivinamaage
+Fehunuge
+Fehurihi
+Felicia
+Felicity
+Felidhoo
 Felina
 Femlet
+Femlin
 Femoaraage
+Fen Aaru
+Fen Baani
 Fen Hiri
+Fen Maa
+Fen Vehi
+Fen Villa
+Fenali
+Fenari
+Fenboa Huraa
+Fendhuni
+Fenee
+Fenfahi
 Fenfini
+Fenfinige
+Fenfiyaaz
+Fenfiyaazu Aage
+Fenfiyaazuge
+Fenfoah Villa
+Fenfoahge
+Fenfoahge Hulhagubai
+Fenfoahmaa
+Fenfusheege
+Fengandudhoshuge
+Fengas
+Fengasdhoshuge
+Fengasge
+Fenigellidhaage
+Fenkani
 Fenkula
+Fenkuri
+Fenmeeru
+Fenmuli
+Fennaage
+Fennel
+Fenniru
 Fenrinbudhooge
+Fentenoy
+Fenthilage
+Fenthulhaa
+Fenvilaage
+Fenvilu
+Fenvina
+Ferose
+Feryna
+Fesco
+Fesdhoo
 Feydhoo
+Feydhooge
+Feydhookoshee Aage
+Feydhookosheege
+Feydhookoshi
+Feylige
+Feymans
+Feyru Vaadhee
+Feyrugasdhoshuge
+Feyruge
+Feyruge Aage
+Feyrumaage
+Feyrumaage Irumatheebai
+Feyvaru
+Field Daisy
+Fies
+Fifty Flower
 Fig
+Filaa Building
+Filaaliyaa
+Filaaveli
+Filaria Clinic
+Filigasdhoshuge
+Filikurige
+Filimaa Kolalhi
+Filimaage
+Filladhooge
+Filmy Sight
+Fin
+Fine Beach
+Fine Park
+Fine Shade
+Fineyge
+Fini Asseyri
+Fini Fehi
 Fini Kuri
 Fini Roalhi
+Fini Vaadhy
+Fini Villa
+Finiaage
+Finifaru
+Finifenjanbuge
 Finifenmaage
+Finihiyaage
+Finihura
+Finikandu
+Finimaage
+Finimaage Aage
+Finiunimaage
 Finivaage
 Finivaage No. 1
 Finivaage No. 2
+Finivaijiheyge
+Finivairoalhi
+Finiveli
+Finivilu
+Finneeraa
+Finoalge
+Finoalge Aage
+Finolhu
+Fioraa
+Firaavaru
+Fithuroanu Villa
+Fithuroanuge
+Fiushaa
+Five Roses
+Five Star
+Fiya
+Fiyaamaa Aage
+Fiyaamaage
+Fiyaathoshi Finifenmaage
 Fiyaathoshi Villa
 Fiyaathoshige
+Fiyaathoshimaage
+Fiyajahaage
+Fiyala
+Fiyanoomaage
+Fiyares
 Fiyavahi
+Fiyavani
+Fiyoaree
+Fizaa
 Flag
+Flag Aage
+Flamingo
+Flash
+Flex
+Flight View
+Floato
+Floato Hulhagubai
+Flora
+Florence
+Florida
+Florida Lodge
+Florifer
+Flourine
+Flower House
+Flower Mead
+Flower Sweet
+Flowerge
+Fluke
 Flying Tiger
+Flying Wheel
+Foggasdhoshuge
+Foggasge
+Fohdhooge
+Foni Maa
+Fonifonimaage
+Fonihelenbelige
+Fonilunboage
+Fonithulhaage
+Fonuvaiy
+Foolhumaa
+Foolhumaage
 Foosiya
+Football Association Of Maldives
+Ford
+Foreign Investment Services Bureau
+Forest
+Forget Me Not
+Forsythia
+Fortune
+Fothivaru
+Foththeyo
+Fountain
+Four Flower
+Four Lights
 Four Moons
+Four Season
 Four Stars
+Four Winds
+Four Wings
+Four Wings Hulhangubai
+Frame
+Free Park
 Free Wind
 Free Wind Aage
+Freeshia
+Freeze
+Frenzy
+Frenzy Villa
+Fresco
+Fresh
+Fresh Heart
 Fresh Light
 Friendly Cottage
+Friendship
+Frozen Breeze
+Fruit Garden
+Frution
 Fufooge
+Fuhkafa
+Fujeyra
+Fuji
+Fukkafamaage
+Fulhafi
+Fulhoi
+Fulhuge
+Fulidhooge
+Full Moon
 Fullaage
+Fulmaa
+Fulooniyaa
+Fulooniyaage
+Fulooniyaamaage
+Fulooniyaamaage Aage
+Fun Fini
 Funa
+Funa Haali
+Funa Hoalhi
+Funa Kuri
+Funaadu
+Funadhoo
+Funagasdhoshuge
+Funagasdhoshuge Hulhangubai
+Funamaage
+Funamaage Aage
+Funaru
+Funfalhu
 Funfen
 Funoas
 Funvilu
+Fura
+Furaathu
+Furahani
+Furahani Aage
 Furahanige
+Furankara
+Furummaa
+Furummaage
+Fus
+Fus Falhu
+Fusfalhu
 Fusfaraaguge
+Fusfaru
+Fushethikaaluge
+Fushifaru
+Fusholhu
+Fusion
 Fusthulhaa Hiyaa
+Fusthulhaage
+Fusthulhaamaage
+Fusvilaage
 Fusvilu
+Futtaru
+Gaadhoo
+Gaafaruge
+Gaafolhu
+Gaafu Alifu Atoll Fihaara
+Gaafu Dhaal Atoll Fihaara
+Gaafushi
+Gaahaka
+Gaamaadhoo
+Gaamathi
+Gaathufalhu
+Gaathugiri
+Gaaviya
 Gaburusthaanu No. 1
+Gaburusthaanu No. 2
+Gaburusthaanu No. 3
+Gaburusthaanu No. 4
+Gaburusthaanu No. 5
+Gadhage
+Gadhage Hulhanguge
+Gadhamoo
+Gadhanoo
 Gadhdhaduge
+Gahaa
+Gahaa No. 4
+Gahanaa Lodge
+Gahu Roadhi
+Gajuraage
+Galadhunge
+Galagili
+Galaxia
+Galaxy
+Galeenaa
 Gallandhoo
+Galolhu Aage
+Galolhu Avashu Office
+Galolhu Fehi
+Galolhu Madharusa
+Galolhu Villa
+Galolhuge
+Galufalhuge
 Gambia
+Gandhakoalhige
+Gandhakoalhimaage
+Gangehi
+Gap
 Gappys Nest
+Garaadeege
+Garanbuge
+Garden
+Garden Beauty
+Gardenia
+Gardenia Villa
 Garnet
+Gas Hiyaa
+Gasdhoshuge
+Gasdhoshuge Dhekunuge
 Gaseemu
+Gasfehi
+Gaskara
+Gasru
+Gasvaa
+Gasveli
+Gaus
+Gavali
+Gaze
+Gazeeraa
+Gazelle
+Gazwin
+Gedha
+Geelaa Villa
+Gehi
+Gemaa
+Gemana
+Gemendhooge
 Gemini
+Georgia
+Geradhoo
+Geranium
+Gerevi
+Ghaazee Building
+Gilwell Park
+Ginamaage
+Ginaveli
+Ginger Villa
+Giniraahi Aage
+Giniraahi Store
+Giniraahige
+Giniraahige Irumatheege
+Gireethereyge
+Giri
+Girifaru
+Giriteege
+Gissaage
+Giulhilaashige
 Giulhilaashimaage
 Giyasuddeen School
+Glamour
+Glassge
+Glen Villa
+Glister
+Glitter
+Gloriosa
+Glory Aage
+Gloryge
+Gnamgnam
+Gnamgnamge
+Gnaviyani Atoll Fihaara
+Goalhithereyge
+Goalwich
+Goanbiligasdhoshuge
+Goanbilige
+Goanbilimaage
+Gofi
 Gofi Kolhu
+Gogresmaage
+Gogresmaage Aage
+Goidhooge
+Gokkolhu
+Gold Bird Lily
+Gold Fruit
+Gold Hill
+Gold Hope
+Gold Measure
+Gold Ring
+Gold Village
+Golden Beam
+Golden Bones
+Golden Crown
+Golden Faaz
+Golden Faaz Aage
+Golden Fish
+Golden Flower
+Golden House
+Golden Hut
+Golden Leaf
+Golden Light
+Golden Meet
+Golden Moon
+Golden Pearl
+Golden Ray
 Golden Sand
+Golden Sava
+Golden Spark
+Golden Spring
 Golden Star
+Golden Sunbeam
+Golden Tree
+Golden Valley
+Golden View
+Golhaage
+Gomakasthoorige
+Gomashige
+Gonaafaru
+Gonaagasdhoshuge
+Gondudhoshuge
+Gondumathee Aage
 Gongali
+Gongresmaage Aage
+Good Heart
+Good Land
+Good Life
+Good Luck
+Goodness
+Government Employees Club
+Graceland
+Graces
+Grape House
+Graphite
+Graphix
+Grass Mead
+Gravity
+Green
+Green Avenue
+Green Beans
+Green Bird
+Green Canaria
+Green Fish
+Green Flower
+Green Garden
 Green Grass
+Green Heaven
+Green Heaven Dhekunubai
+Green House
+Green Leaf
+Green Life
+Green Light
 Green Lin
+Green Lodge
+Green Meadow
+Green Mountain
+Green Night
 Green Peak
+Green Pearl
+Green Side
+Green Silk
+Green Star
+Green Star Aage
 Green Stuff
+Green Villa
+Green Weed
+Green Wheel
+Green World
+Green Zest
+Greenland
+Greenland Aage
+Greenwich
+Grey
+Grey Shells
+Grey View
+Grey Villa
+Grey Wool
+Grey Wool Aage
+Greyshiyaa
 Growth
+Gudhanuge
 Gul Alaage
 Gul Alaage Aage
 Gul Alaamaage
 Gulaabee Hiyaa
+Gulaabee Villa
+Gulaabeege
+Gulaabu
+Gulbahaaruge
+Gulbakaa Villa
+Gulbakaage
+Gulcoazuge
+Guldhamge
+Guldhasthaa
+Guldhasthaa Aage
+Guldhasthaage
 Guleynoorange
 Guleynooranmaage
+Guleyseemge
+Gulfaam Kuri
+Gulfaamu
+Gulfaamu Hiyaa
+Gulfaamuge
+Gulhazaaruge
+Gulhazaarumaage
+Gulhee Easaa Kaleyfaanu Ali Manikge No. 1
+Gulhee Store
+Gulheege
+Gulisthaanuge
+Gulkandhu
+Gulrooge
+Gulsameemaage
 Gulsanpaage
 Gulshan
+Gulshan Kinara
+Gulshan Villa
+Gulshaneege
+Gulzaaru
+Gulzaaru Iram
+Gulzaaru Vaadhee
+Gumree
+Gumree Villa
+Gumreege
+Gumreehiya
+Guraathunge
+Guraha
 Gurahaage
+Gurahali
+Guraidhooge
+Gurunful
+Gurus
+Guruva
+Ha Atoll Fihaara
+Haa Dhaalu Atoll Fihaara
+Haa Villa
 Haabin
+Haadhoo
+Haafus
 Haafus Villa
+Haagireege
+Haagoashi
+Haaidh
+Haail
+Haajaraage
+Haajee Edhuruge
+Haalam
+Haalhalamaage
+Haali
+Haameemuge
+Haaufaa
+Habaruge
+Habarumaage
 Hadhdhunmatheege
 Hadhdhunmatheege Aage
 Hahdhunmatheege Dhekunu
 Hahifa
+Haifa
+Haikal
+Haimaa
+Hainaa
+Haivakaruge
+Haiy Huraa
+Haiythari
+Haizaraan
+Hakageli
+Haki
+Halaveli
+Halaveligasdhoshuge
+Halavelige
 Halavelimaage
+Half Sea
 Hali
+Hama Roalhi
 Hamathi
+Hamdharudheege
+Hameedhee
+Hameedhee Building
+Hameedhee Manzil
 Hameedhee Store No. 1
 Hameedhee Store No. 2
 Hameedhee Store No. 3
 Hanafas Veli
 Hanafasge
+Handhaan
 Handhaanuge
+Handhu
+Handhubalaage
+Handhuvaree Asseyri
+Handhuvaree Asseyri Aage
+Handhuvaree Gulshan
+Handhuvaree Manzil
+Handhuvaree Naaz
 Handhuvaree Rey
 Handhuvaree Roashan
+Handhuvaree Vaadhee
+Handhuvaree Villa
+Handhuvareege
+Handhuvareege No. 1
+Handhuvareege No. 3
+Handhuvareege No. 4
+Handhuvareege No. 5
+Handhuvareege No. 6
+Handhuvareege No. 8
+Handhuvaru
+Handhuvarudheyge
+Handhuvarugasdhoshuge
+Handhuvaruge
 Hangnaameedhooge
+Hani Dhoadhi
 Hani Kandu
+Hani Thila
+Hani Vilu
+Hanifaa
+Hanifaru
+Hanimaadhoo Aage
+Hanimaadhooge
+Hanuthalhaage
+Happiness
+Happy
+Happy Beach
+Happy Corner
+Happy Cottage
 Happy Dawn
+Happy Future
+Happy Garden
+Happy House
+Happy Life
+Happy Luck
+Happy Night
 Happy Night Irumathee Bai
+Happy Side
+Happy Sun
+Happy Villa
+Hapy Night Irumathee Bai
+Hard Rock
+Hari
 Harinma
+Harisa
+Hariyaanaa
+Harumaluge
 Hasankaarige
+Haslath
 Hasnaa Manzil
+Hassa
+Hasthee
+Hathaa
 Hatheyli
+Hathi
+Hathifushi
+Hathihaa
+Hathikandu
+Hathikolhu
+Hathvaa
+Hats Building
 Hauthaa
+Havaa
+Havaasaa
+Havana
+Havathi
+Haveeree Fannu
 Haveeree Fini
 Haveeree Gulshan
+Haveeree Hingun No. 1
+Haveeree Hingun No. 11/1
+Haveeree Hingun No. 2
+Haveeree Hingun No. 5 Fihaara
 Haveeree Manzil
 Haveeree Naaz
 Haveeree Naaz Dhekunubai
@@ -340,597 +2284,3760 @@ Haveeree Ufaa
 Haveereege
 Havehi
 Haven
+Haveyli
+Havi
+Havihtha
 Hawaii
+Hazaaree Villa
 Hazaaru Aabaadhu
+Hazaarumaage
+Hazel
+Hazel Crest
 Hazel House
+Hazelin
 Hazview
+Heart
+Heena
+Heenaa Hiyaa
+Heenaa Villa
+Heenaadige
+Heenaagasdhoshuge
+Heenaage
+Heenaamaagala
+Heenaamaage
+Heenaaville
+Heenfaru
+Heeraa Handhuvaru
+Heeraage
+Helebeligasdhoshuge
 Heleenaa
+Helenbelige
+Helengeli
 Helengeli Aage
 Helengeli Annex
+Helium
 Hemavathi
+Hemlock
+Hen Bane
+Hen Bane Hulhangu Bai
+Henboodhooge
+Henveiru Avashu Office
 Henveiru Fehi
+Henveiru Villa
+Henveiruge
+Herafaa
+Herethere
+Heritage
+Hero
+Heroan
+Hespress
+Heveli
+Heylhi
+Heylhifah
+Hiari
+Hiba
+Hibaru
+Hickory
+Hicoast
+Hidhaayaa Manzil
+High Commission Of Bangladesh
+High Commission Of Pakistan
+High Commission Of Sri Lanka
+High Court
+High Grove
+High Low
+Highway
+Hikaa
+Hikahera
+Hikandhigasdhoshuge
 Hikandhimaage
+Hikifinifenmaage
+Hikigul Alaage Aage
+Hikigulalaage
+Hikihuvandhumaage
+Hikikashimaage
+Hikiunimaage
+Hikiveli
+Hilaaleege
 Hilaalu
+Hilan
+Hilihilaage
+Hill In The Garden
+Hillary
+Hilman
 Hilmiyaa
+Hilton
+Himaa
+Himaliya
+Himaliyage
+Himerimaage
+Himeyn
+Himitheege
+Himitheege Aage
+Himmi
+Himmiyaa
+Hinhura
+Hinnavaru
+Hinnavaru Hulhangu Bai
+Hinton
+Hiraa
+Hirafusge
+Hiran
 Hireveri
+Hiri
+Hiri Asseyri
+Hirifinolhu
 Hirifushi
+Hirigaa
 Hirikulhlhage
+Hirimi
+Hirinaidhoo
+Hiriyaa
+Hiriyaadhoo
+Hiroshima
 Hirudhugasdhoshuge
+Hirundhuge
+Hirundumaage
+Hissaa
+Hithahffinivaage
+Hithifaru
+Hithigasdhoshuge
 Hithigasdhoshuge Aage
+Hithilaage
+Hithilaage 1
+Hithilaage 2
+Hithilaage 3
+Hithilaage 4
+Hithilaage 5
+Hithimaage
 Hiyaa
+Hiyaa Hulhangu
+Hiyaa Roadhi
+Hiyaafahi
+Hiyaafinige
+Hiyaagofi
+Hiyaakan
+Hiyaakoani
+Hiyaavahi
 Hiyaavahige
 Hiyaavahige Aage
 Hiyala
 Hiyalee Gulshan
+Hiyaleege
+Hiyaleege Aage
+Hiyaleege Hulhangubai
+Hiyama
+Hiyani
+Hiyfahi
+Hiyfaseyhage
+Hiyfaseyhage Aage
+Hiyththala Villa
+Hiyththalage
+Hiyvaru
+Hizaaru
+Hnigaaru
 Hoagulhaa Manzil
 Hoama
 Hoara
 Hoara Villa
+Holhige
+Holhikoshee Aage
+Holhikosheege
+Holhudhooge
+Hollywood
+Homelet
+Hondali
+Honey
+Honey Comb
+Honey Dew
+Honey Season
+Honey Suckle
+Honourary Consulate Of Germany
+Hoola
+Hoorusheedhu Aabaadhu
+Hope
+Horizon
 Hortensia
 Hortensia Irumatheebai
+Host Side
+Hostock
+Hotaadhoshuge
 Hotel De Nowel
 Hotel De Nowelge Irumatheebai
+House Plaza
+Houston
 Hover
+Huba
+Hudhanbaruge
+Hudhu Aanu
+Hudhu Akiri
+Hudhu Ali
+Hudhu Bitha
+Hudhu Carnation
 Hudhu Gul Alaage
 Hudhu Huiypilaage
+Hudhu Kelaa
+Hudhu Lily
+Hudhu Thari
+Hudhuasurumaage
+Hudhufalhu
+Hudhufalhu Aage
+Hudhufas
 Hudhufashuvi
+Hudhufinifenmaage
+Hudhufinifenmaage Aage
+Hudhufiya
+Hudhugaa
+Hudhugiri
+Hudhuhaa
+Hudhuhaa Villa
 Hudhuhimeri
+Hudhuhiri
+Hudhuhudhaa Manzil
+Hudhuhudhaage
+Hudhuhudhu
+Hudhukaneeruge
+Hudhukashimaa
+Hudhukokaa
+Hudhumaage
+Hudhumuraka
+Hudhuruvaage
+Hudhuruvaamaage
+Hudhuveli
+Hudhuveyo
+Hudhuvilaa
 Hudhuvilaage
+Huivani
 Hukuradhige
+Hukuru Miskiy
+Hulhangu Asseyri
+Hulhangu Hiyaa
+Hulhanguge
+Hulhevehi
+Hulhiyandhoo
+Hulhugali
 Hulhuleyge
+Hulhumale Development Unit
+Hulhuvehi
 Humashi
+Humid
+Hunaru
+Hundred Flower
+Hunige
+Huraa
+Hurafa
+Hurasfaru
+Huravee Building
+Huraveege
+Hurendhoo
+Hurevi
+Hushaamin
+Hushan
+Husmaa
 Husnoo
 Husnoo Vaadhee
+Husnooge
+Husnoovilaa
 Husnuheenaage
+Hussein Aabaadhu
 Huvadhoo
+Huvafenee Asseyri
+Huvahandhooge
+Huvairiyaa
+Huvan
+Huvandhu
 Huvandhugandhakoalhige
 Huvandhugandhakoalhige Uthuruge
+Huvandhumaa Hiyaa
+Huvandhumaage
 Hycinth
+Hyde Park
+Hyle
+I H D No. 3
 I Rasheed Fihaara
+Ibna
+Ibrahimee Aabaadhu
+Ibrahimee Manzil
+Ibrahimee Miskiy
+Ice Villa
+Icege
+Idhaalaa
+Idhimaa
 Ifaau
+Iguleemuge
+Igzoara
 Ihaa
+Ihaadhoo
+Ihaali
 Ihahdhoo
+Ihala
+Ihd No. 2
+Ihd No. 6
+Ihi
+Ihuraamuge
+Ihuruge
 Ikuleelu House
+Ilaa
+Ilaaroa
+Ilamaa
+Ilex
+Ilolhi
 Imaadhuddeen School
+Imd & Sons No. 1 Hulhangubai
+Imd & Sons No. 2 Irumatheebai
+Indhira Gandi Memorial Hospital
+Indiana
+Indigo
 Inguruge
+Inhouse
 Insaaf
+Inshaas
+Inshop
+Insiyyaa Manzil
+Iraaku Villa
+Iraakuge
+Iraakumaage
+Iraasaa
+Iraasmikuge
+Iramaa
+Iramaa Bageechaa
+Iramaa Shop
+Iramaage
+Iramaage Aage
+Iranuge
+Iris
+Iru
+Iru Ali
+Irudhashuge
+Irudheymaage
 Irudhoadhi
 Irufaa
+Irufuheyge
+Irumatheege
+Irumatheege Aage
+Irutha
+Iruvai
+Iruvaige
+Iruvelige
+Iruzuvaa
+Iruzuvaage
+Iruzuvaamaage
+Isa
+Isaaz
 Iscreenge
+Isdhoo
+Isfahaan
+Ishaana
+Ishaanee Villa
+Ishraag
+Iskandhar School
+Iskandharu Villa
 Islamic Call Society
+Islamic Centre
+Island Aviation Services Limited
+Island Plaza
+Ispanjuge
+Ispikaa
+Issari
+Isseri
+Isthafaage
+Isthafaage No. 2
+Isvadi
 Ithaa
+Ithaamuiyge
+Ivaau
+Ivory
 Ivory House
+Ivy
+Ixia
+Izumeeru
+Izumiaan
 Jaaralge
+Jaayaa
+Jade
+Jagumagaanaa
 Jahaamugurige
+Jailam
+Jaisas
+Jaliyaa
 Jamaalee Store
 Jamaaluddeen School
+Jamaica
+Jambu Villa
+Jambugasdhoshuge
+Jamburoalge
+Jamburol
+Jamburolgasdhoshuge
+Jamnaage
+Janaan
+Janavaree Villa
+Janavareemaage
+Janbumaa
+Janbumaa Villa
+Janbumaage
+Janbumaage Aage
+Janbumoo
+Janburolumaage
+Janine
+Jankar
+Janthari
+Japonica
+Jaree Villa
+Jareemaage
+Jasmine
+Jasmine Villa
+Jasthuge
+Jasthukafaage
+Java
+Javaafaa
+Javaahiriyya
+Javaahiru
 Javaahiru Asseyri
+Javaahiru Doadhi
+Javaahiru Vaadhee
+Javaahiru Villa
+Javaahiruge
+Javaahirumaage
+Javaahirumaage Aage
+Javza
+Jaykays
+Jazeemaa
+Jazeeraa
+Jazz
+Jeeraan
+Jeezaa
+Jeezaage Aage
+Jeezaan
+Jehey Vai
+Jeleena
+Jelly
+Jelly Fish
+Jenshan
+Jewel
+Jeymugasdhoshuge
 Jeymuge
 Jiena
+Jiena Fihaara
+Jihathul Vaadhee
+Jinaaee Court
+Joajed Villa
+Jointer
+Joorfin House
+Jootheege
+Juliet House
+Julietge
+Jumhooree Maidhaan
 Junaina
+Jupiter
+Justice Building
+Jute Flower
+Juvenile Court
+K Mohamed Ali No. 2 Fihaara
+Kaadhu
+Kaafu Atoll Fihaara
+Kaahil
+Kaakeege
+Kaali
+Kaalivah
+Kaamarangage
+Kaaminee Hiyaa
+Kaaminee Hulhanguge
+Kaaminee Irumatheege
+Kaamineege
+Kaamineepool
+Kaamineepoolge
+Kaamineepoolge Irumatheebai
+Kaamiyaabuge
+Kaamraam
+Kaanigasdhoshuge
+Kaanikuri
 Kaanimaage
+Kaaviyaa
+Kabeelaage
+Kabeesh
+Kaboage
+Kadhurumaa
+Kadhurumaa Villa
+Kadhurumaage
+Kafagasdhoshuge
 Kafamaage
+Kafena
+Kafeyra
+Kafidhooge
+Kafihi
+Kafiyaa Vilu
+Kafloage
+Kafurutholhige
+Kafurutholhimaage
 Kagi
 Kahafathi
+Kahanbuge
+Kahekshaan
+Kahekshaan Dhekunubai
+Kahurabuge
+Kai Mai
 Kairuge
+Kakaage
+Kakaage Aage
+Kakaage Aage 1
+Kakaage Aage 2
 Kalaafaanu School
 Kalaavehi
+Kalamidhi
+Kalee
+Kalhagaarimaage
 Kalhi
+Kalhihi
+Kalhoahge
 Kalhu Keeli
+Kalhufehige
+Kalhufuruhge
+Kalhufuruhge Aage
+Kalhugiri
+Kalhuhuraage
+Kalhumuraka
 Kalhuthukkalaa Koshi N S S
 Kalhuvakaru Miskiy
+Kalhuvakaruge
 Kalhuveli
+Kamadhoo
+Kamana
 Kamaraage
 Kana
+Kanakurige
 Kanamadhu
 Kanamana
 Kanamana Lodge
+Kanandhoo
+Kanbaalifaru
+Kanburu Villa
+Kanburuge
+Kandaru
+Kandhili
+Kandholhu
 Kandholhumaage
+Kandhugasdhoshuge
+Kandhumaage
+Kandi House
+Kandige
+Kandige 1
+Kandige 2
+Kandige 3
+Kanditheemu Villa
+Kanditholhige
 Kandoo Kuri
+Kandoodhooge
+Kandoogasdhoshuge
+Kandooge
+Kandoomaage
+Kandoomaage Aage
+Kandu Olhi
 Kandu Roalhi
+Kandufinige
+Kandufushi
+Kanduhaa
 Kandumoonufushi
 Kanduneelange
 Kanduneelange Aage
+Kandunooge
+Kanduvaige
+Kaneeru Gudhan Huri Goathi
+Kaneeru Store
+Kaneeru Vaadhee
+Kaneeru Villa
+Kaneeruge
 Kaneerumaage
+Kanesca
+Kangathi
+Kani Kuradhi
+Kanmatheege
+Kanneli
+Kanuhuraa
+Kanzaan
+Kanzoori
+Kanzudhoshuge
 Karaadhunburi Aage
 Karaadhunburige
+Karaamaage
+Karam
+Karanfooge
+Karankaa Villa
+Karankaage
 Karankaamaage
+Kareena
+Kareezumaage
+Karinma
+Karishma Villa
+Karishmaa
+Karoage
+Karoage Aage
 Kasabuge
+Kaseedhaa Manzil
+Kaseedhaage
+Kaseeraage
+Kashikeyogasdhoshuge
+Kashimaa
+Kashimaa Hiyaa
+Kashimaa Villa
+Kashimaage
+Kashish
 Kashiveli
+Kashmeeru Garden
+Kashmeeru Vaadhee
+Kashmeeruge
+Kassanfaruge
+Kasthooirmaage Aage
+Kasthoori Hiyaa
 Kasthoori Villa
+Kasthoorige
+Kasthoorimaage
+Kathiriya
+Kathleen
+Kathuge
+Kausar
+Kaval
+Kaval Aage
+Kdk Villa
+Kdm No. 1 Fihaara
+Kdm No. 2 Fihaara
+Keekimini
+Keel
 Keeli
+Keema
+Keemiyaage
 Keeni
 Keeranmaage
+Keesa
+Keesfilaa
 Kekuri
+Kekurimaage
+Kekurimaage Uthurubai
+Kelaage
+Kelaage Aage
+Kelaamaa Villa
+Kelaamaage
+Kelaavee
+Kelan
 Keleeks
+Kelmia
+Kemeeliyaa
 Kenanfaru
+Kendhifashuvige
+Kendhifashuvige 2
 Kenroamaage
 Kenroamaage Aage
+Keplaa
+Kerafaage
+Keramaa
+Kerin Light
+Kerin Light Uthuruge
+Kethi
+Keveli
+Keviaanaa
+Keyovaluge
+Keytha
+Khairu
 Khaleej
+Khathwaa
 Kid No. 1 Fihaara
 Kid No. 2 Fihaara
+Kidhaa
+Kiev
+Kigali
+Kilavathi
+Kilisfaru
+Kimiulus
+Kinaaraa House
+Kinaaraage
+Kinaaree Aage
+Kinaareege
+Kinbidhooge
+Kinbigasdhoshuge
+Kinbimaage
+Kinbimaage Aage
+Kinolhas
+Kiosk
+Kiran
+Kirili
+Kishinef
+Kismiree Villa
+Kismireege
 Kisoomoo
+Kisthee
+Kith
+Kiuree
+Kiwi
+Kiyavaage
 Kk Store
+Kkm Building
+Koabia
+Koaheraa
 Koahinooru
+Koalhi
+Koamaari
+Koamas
+Koani
+Koaraa
 Koashak
 Kodhdhipparu
+Kokaa Avi
+Kokaa Handhuvaru
+Kokaa Handhuvaruge
+Kokaa Hiyani
+Kokaa Villa
+Kokaage
+Kokkiri
+Kolaa
+Kolhala
+Kolige
+Kolige Umar Manik No. 4 Fihaara
+Komaa
+Kondeyge
+Konkeeliyaa
+Koofaa
+Kosheege
+Koshidhoshuge
+Kothange
+Kothanmaage
+Kothari
 Kotharivilaage
 Kotharivilaage Aage
+Kottafaru
+Koveli
+Kuburaa
+Kuda Faree
+Kudadhaharaage
+Kudadhunmaari Villa
+Kudadhunmaarige
+Kudafareege
+Kudafaruge
+Kudafusheege
+Kudagiri
+Kudahenveiruge
+Kudanevige
+Kudarikiluge
+Kudarikiluge Aage
+Kudathilage
+Kudaveyodhoshuge
+Kudaveyomatheege
+Kudheenaa Hiyaa
+Kudheenaage
+Kudhehigasdhoshuge
+Kudhehige
+Kudhehimaage
 Kudhibaiyge
+Kudhiboli
+Kudhifeyru Vaadhee
+Kudhigasfinolhu
+Kudhihithigasdhoshuge
 Kudhihithige
+Kudhilunboamaage
+Kudhimaa Villa
 Kudhimaage
+Kudhimagooge
+Kudhimagoomaage
+Kudhiraiymaage
 Kudhiruvaalige
+Kudhithiyara
+Kudhivina
+Kufraa
+Kukunmaage
 Kuleevia
+Kulhavahgasdhoshuge
+Kulhavahgasdhoshuge Aage
+Kulhavahmaage
+Kulhidhoshuge
+Kulhithulhaa Maa
+Kulhithulhaage
+Kulhivaru Ekuveni
+Kulhlhafilaage
+Kulhlhavammaage Aage
+Kulhlhavhage
+Kulhudhuhfusheege
+Kulhudhuhfusheege Aage
+Kulhudhuhfusheege Dhekunubai
+Kulliyathul Dhiraasathul Islamiyya
+Kumeri
 Kumunzaanige
+Kunaa
+Kunaavashi
+Kunahangaalige
+Kundi
+Kundi 1
+Kundige
+Kundige Aage
+Kundige Dhekunubai
+Kundige Uthuurubai
+Kunnaarumaage
+Kunnu Mala
+Kunooz
 Kurahaage
+Kurangi
+Kuredhifushi
+Kuredhige
+Kuredhimaage
+Kuredhivaru
+Kuredhivaruge
+Kuredhivaruge Aage
+Kurehdhooge
+Kurendhoo Aage
+Kurendhooge
 Kurevi
+Kuriboashi
+Kurigam
+Kurikeela Hiyaa
+Kurikeela Villa
+Kurikeela Villa Aage
+Kurikeelage
+Kurimaa
 Kurimagu
 Kurinbee Lodge
+Kurinbeege
+Kuriruhge
+Kurolhi
+Kurolhikosheege
+Kurumba Villa
+Kuruvani
+Laaba
 Laafen
+Laaj Varudhee
+Laal Baagh
+Laal Baagh Irumatheebai
+Laalge
+Laalpoolge
+Laalpoolge Aage
+Laam
+Laami Hiyaa
 Laamigasdhoshuge
+Laamige
 Laamige Aage
 Laamiyaa
+Laamu
+Laamu Atoll Fihaara
+Laapelaamaa
+Laapeys
+Labulaabu Villa
+Labulaabuge
+Lace
+Ladhumaage
+Ladhumaage Aage
+Lady Moon
+Ladybird
+Ladybird Aage
+Lafiet
+Lagan
+Laganaa
+Laggaa Huraa
+Lagoon View
+Laihaa
+Lainoofaruge
+Lainoofarumaage
+Lake
+Lake Side
+Lake Wood
+Lakeeru
+Lakshanaa
 Lamhaa
+Lamina
+Lamps Air
+Land Of Garden
+Landhooge
+Landhooge Irumathee Bai
+Lane Villa
 Lanka
+Lansimoo Villa
+Lansimooge
+Lansimooge Aage
+Lantern
+Lapwing
+Lark
+Laser Beam
+Last Pink
+Latest
+Latheefa Aabaadhu
+Latonia
+Laurel
+Lavender
+Lavendly
+Lavendly Aage
+Law Commission Of Maldives
+Lead House
+Leaves
+Leelaa Manzil
+Leemaa
+Leenia
+Leenia Dhekunubai
+Leeside
+Leevaan
+Leeward
+Leheri
+Lemeena
+Lemon Tree
+Lentaanaa
+Lerissaa
+Leykokaa Villa
+Leykokaage
+Leysan
+Lhaimagu
+Lhaimaguge
+Lhakuri
+Lhareethi Aage
+Lhareethige
+Lhavaiyni Atoll Fihaara
+Lhohaar
+Lhoheege
+Lhosgasdhoshuge
+Lhosmaage
+Lian
+Liberty
 Lido
+Lifadhoo
+Life
+Life Sea
+Light Blue
+Light Breeze
+Light Cloud
+Light Corner
+Light Garden
+Light Green
+Light Grey
+Light House
+Light Line
+Light Night
 Light Room
+Light Rose
+Light Shadow
+Light Signal
+Light Sky
+Light Star
 Light View
+Light Villa
+Light Zone
+Lightning Villa
 Lilac
+Lilac House
+Lilac Rose
+Lilac View
+Lilac Villa
+Lilies
+Lilium
+Lily
+Lily Fehi
 Lily Gas
+Lily Koalhi
+Lily Night
+Lily Of The Valley
+Lily Park
+Lily Store
+Lily Villa
+Lilyge
+Lilymaage
+Lilymaage Aage
+Limarik
 Linaatey
+Link House
+Linkia
 Linnet
+Lisaan
+Lisbon
+Lismata
 Little Hut
+Little Rock
 Livaazaa House
+Liverpool
+Liverpool Villa
+Liyaa Aage
+Liyaage
+Liyan
 Liyoanis
+Loafaru
+Loajehi Aage
+Loajehige
 Loakashi
+Loakuri
+Loamaafaanu
+Loaras
+Loathalhaage
+Lobby
+Lobekan
+Local Marketting Centre
+Lodge
+Loha
+Lonadhoo
+Lonsi
 Lonugamuge
+Lonuge
+Lonumidhilige
+Lonuveli
 Loobiyaa
+Loonaava
+Looseenaa
+Loover
+Loozaa
+Losoniya
 Lotus
 Louisiana
+Love Nest
+Love Side
 Lovely Garden
 Lovely Garden Aage
 Lucifer
+Lucky
 Lucky Corner
+Lucky Heaven
+Lucky Home
+Lucky House
 Lucky Last
+Lucky Light
+Lucky Lodge
+Lucky Lodge Hulhangubai
+Lucky Moon
+Lucky Shade
+Lucky Shade 2
+Lucky Star
+Lucky Step
+Lucky View
+Luma
+Luna View
+Lunar
+Lunboagasdhoshuge
+Lunboage
+Lunboamaage
+Lunboamaage Uthurubai
+Lunch Mead
 Luneria
 Luster
+Lux Garden
+Lux Lodge
+Lux Villa
+Lux Villa Hulhangubai
+Luxlin
 Luxury
 Luxury Garden
+Luxury Home
+Luxury Villa
 Luxury Wood
+Luxwood
+Lyon
+M H A
+M M I No. 2 Fihaara
 M N Villa
+M U Store
+M U Uthaa
+Maa Ali
+Maa Bageechaa
+Maa Feeni
+Maa Villa
+Maabadhi
+Maabageechaage
+Maabandeyri Aage
 Maabandeyrige
+Maabandhrigey Hulhangubai
+Maabinhuraa
+Maabulhaage
+Maadhandu
+Maadhary
+Maadheli
+Maadhil
+Maadhoo
+Maadhooge
+Maadhooni Faru
+Maadhooni Villa
+Maadhuni
+Maadhuvaa
+Maadu
+Maadumatheege
+Maaenboodhooge
+Maaf Traders
+Maafaagaa
+Maafaala
+Maafahi
+Maafahige
+Maafaiyge
+Maafaiyvaru
+Maafannu Aage
+Maafannu Avashu Office
+Maafannu Madharusa
+Maafannu Villa
+Maafannuge
+Maafarivaage
+Maafaru
+Maafas
+Maafathi
+Maafeeni
 Maafilaafushi
+Maafilaage
+Maafinivaage
+Maafinivaage Aage
+Maafiya
+Maafolhey Villa
+Maafolheyge
+Maafuna
+Maafusheege
+Maagaa
 Maagala
+Maagas
+Maagasdhoshuge
+Maagiri
+Maagoshi
+Maahaa
 Maahal
 Maahal Hulhangubai
 Maaharaa
+Maahi
+Maahinna
+Maahiyaa
+Maahuraa
+Maairaa
+Maaishaa Manzil
+Maajehi Villa
+Maajehige
+Maajehige Aage
+Maakanaa
+Maakandu
+Maakoalhige
+Maakoani
+Maakolhu
+Maakoshaaruge
+Maakoshaaruge Hulhanguge
+Maakoshaaruge Irumatheege
+Maakunge
+Maakurathu
+Maakuri
 Maalam
 Maalhenboo
 Maalhenboo Villa
 Maalhenbooge
+Maalhika
+Maalhuveli
+Maalik
+Maalimeege
+Maalin
+Maalin Spike Building
+Maamahi
+Maamelaameli
 Maamendhoo
+Maamuli
+Maamutaa
+Maanaagaa
+Maanaagalaa
+Maandhoo Villa
+Maandhooge
 Maandhooge Dhekunuge
+Maanel
 Maanel Kola
+Maanifaa
+Maanifaage
+Maaniga
+Maanigiri
+Maanika
+Maaolhu
+Maaraadha Aage
+Maaraadhage
+Maaram
+Maarana
+Maarandhooge
+Maaranga
 Maarehaa
+Maaren
+Maares
+Maaridha
+Maarikilu
+Maaru
+Maasaa
+Maashaa
+Maashigiri
+Maathandi
+Maathila
+Maavaa Villa
+Maavaage
+Maavaage Aage
+Maavadi Aage
+Maavadige
 Maavaharu
+Maavani
+Maavaru Huraa
+Maavarulu
+Maavas
+Maavashi
+Maavelavaru
+Maaveyodhoshuge
+Maaveyoge
 Maavilu
+Maavina
+Maayaa
+Maazin
 Mabusthaanuge
+Machchangoalhi Villa
 Machchangoalhige
+Macro Villa
+Madhan
+Madhanee Court
+Madharaage
+Madharin
+Madheehaa Manzil
 Madhoshigasdhoshuge
+Madhoshige
+Madhoshimaage
+Madhrasathul Aaliya
+Madhrasathul Ameeru Ahmed
+Madhurasaadhoshuge
 Madhyan
+Madihaa
+Madihera
+Madithila
+Madivaru
+Madonna
+Madonna Lily
+Madufehige
+Madulu
+Maduvilu
+Mafraa Villa
+Magaraa
+Magic Villa
+Magma
+Magnolia
+Magoodhooge
+Magoomaage
+Magumatheege
+Mahal
+Mahasa
+Mahdhu
+Mahek
+Mahi
+Mahidhoo
+Mahinoor
+Mahoaniya
+Maidhaan
+Maila
+Maimagumatheege
+Maimagumatheege Aage
 Maimoo
+Maimoon Villa
+Mainaa
+Mainaafaru
+Mainaage
+Mainaage Dhekunu Bai
+Mainaage Uthuru Bai
+Mainz
+Maishaan
+Maizaan
+Maizaandhoshuge
+Majeedee Magu No. 52
+Majeedhee Magu Fihaara No. 75
+Majeedhee Store
+Majeedhi Baazaaru No. 8 Fihaara
+Majeediyya School
+Majudhuhdheenu Dhanaalu
+Makaan
+Makaarim
 Makhmaa Villa
 Makhmaage
 Makunudhoo
+Mal
+Mala
 Mala Villa
+Malaagaa
+Malaaz
 Malagas
 Malahiyaa
+Malakaa
+Malakuri
+Malamathi
+Malange
+Malareethige
 Malares
+Malaria Control Project Unit
+Malas
+Malbaa
+Malbaree
+Maldives Accreditation Board
+Maldives Center For Social Education
+Maldives College Of Higher Education
+Maldives Customs Services
 Maldives Girl Guide Association
 Maldives Industrial Fisheries Company Limited
+Maldives Monetory Authority
+Maldives National Cadet Corp
+Maldives National Ship Management Limited
+Maldives Olympic Committee
 Maldives Water And Sanitation Authority
 Maldives Water And Sewarage Company
-Malé Hiyaa 1
-Malé Hiyaa 2
-Malé Thila
+Male English School
+Male Faru
+Male Gum
+Male Health Centre
+Male Hiyaa 1
+Male Hiyaa 2
+Male Municipality
+Male Thila
+Male Villa
+Maleesa
+Maleyge
+Maleyge Aage
 Malhaaru
 Malhaaru Aage
+Maliku View
+Malikuruvaa
 Malikuruvaage
+Malikuruvaamaa
+Malikuruvaamaage
+Malima
 Malinge
 Malu Villa
 Malumaluge
 Maluthereyge
+Malvina
+Manaaf
+Manaage
+Manaal
+Manaamu
 Manaau
+Manaaziruge
+Manadhoo
+Manadhooge
+Manafaru
+Manafaru Villa
+Manas
+Manazoa
+Mandhu Edhuruge
+Mango Flower
+Mango House
+Mango Tree
+Manila
+Manna
+Mansafa
+Mansion House
+Manzaruge
 Manzil
+Manzil Hiyaa
+Manzilussaadhaa
 Maple
+Marathon
+Marble
 Marco
+Marine Light
+Marine Research Centre
+Marine View
+Marine Villa
+Mariyaadhu
+Mariyaazee
+Mariyamma
+Mariyammaage
+Market Hotaa
+Marsee
+Martin
+Marudhaanaage
+Marudhaanaage Aage
 Marujaanuge
+Maruvaareedhuge
 Marvel
+Marvelous Garden
+Mary
 Marz
+Masaa Ul Barudhu
+Mascot
+Masdhoshi
+Mashroomge
+Masijidhul Bahaauhdheen
 Masjidh Yoosuful Barbaree
+Masjidhul Afeefuhdheen
 Masjidhul Furugaan
+Masjidhul Ibrahim Iskandharu
+Masjidhul Jalaaluhdheen
+Masjidhul Mohamed Fareedhul Awwal
+Masjidhul Mohamed Imaadhuhdheen
 Masjidhul Nooru
+Masjidhul Salaahuhdheen
+Masjidhul Salaam
+Masjidhul Shaheedhu Ali
+Masjidhul Sultaan Adil
+Masjidhul Sulthaan Hassan Izzuhdheen
+Masjidhul Sulthaan Mohmed Shamsuhdheen
+Masjidhul Thaguwa
+Masjidhul Zikura
+Mask
 Maskan
+Maskothange
+Masodige
+Masodige Aage
+Masrooraa
+Massaaguge
+Masthaanu
+Masthakaa
+Masthakaage
+Masthila
+Masvilu
+Mathares
+Matharesmaage
+Mathidhahuraa
+Mathidhoo
 Mathidhuni
+Mathihuraa
+Mathiraiymaage
+Mathivahge
+Mathiveri
+Mauvaa
+Mauzoom
+May Weed Villa
+Mayfair
+Mayfair Lodge
+Mayflower
+Mazaage
+Mazaaraa
+Mazaneeloa
+Meadow
+Meadow Dhekunubai
+Meadow Sweet
+Meadows
+Medalin
+Medalmaage
+Medalmaage Aage
+Medhafushige
+Medhufaru
+Medhuge
+Medhugiri
+Medhukoshi
+Medhureemuskulhige
+Medhuriyaa
+Medhuthila
+Medhuziyaaraiy
+Medhuziyaaraiy Magu No. 8
+Medhuziyaaraiy Magu No. 9
+Medhuziyaaraiydhoshuge
+Medrit House
+Mee Nooru
+Meedhoo
+Meedhuhfaru
+Meegaathu
+Meemas
+Meenaaz
+Meenia
+Meeraa
+Meeraa Aage
+Meerange
+Meerathu
+Meerubahuruge
+Meerubahuruge Aage
+Meezaan
+Meezaaru
+Mehelige
 Mekaano. Store
 Mekaanoa Gudhan
+Mekaanoage
+Mekunu
+Melaa
+Melaim
+Melavahi
+Melbourne
+Melbourne Iru
+Melee
+Melins
+Melon
+Melveena
 Memory
+Memory Villa
+Memosa
+Memosa Manzil
+Mendhoo
 Mendhoo Aage
 Menorial
+Mensa
 Merangi
+Mercury
+Mercury House
+Mercuryge
+Mercuryge Aage
+Mereelia
+Merida
 Meridian
+Merihaanaa
+Meroonaage
+Merry Corner
+Merry Dream
+Merry Gold
+Merry Lodge
+Merry Meet
+Merry Rose
+Merry Weather
+Mesaa
 Metro Villa
+Metropolis
+Mexicano
+Meybiskadhuruge
+Meydhaamaizandhoshuge
 Meyga
+Meynaa Building
+Meynaage
+Meynaage Hulhanguge
+Meyvaagasdhoshuge
+Meyvaage
+Mezarin
+Mialani
+Mialani Aage
+Mialanige
+Micro Wave
+Mid Line
+Middle Park
+Middle West
+Middle West Dhekunubai
+Midhili
+Midhili Kuri
 Midhilimaage
 Midhilimaage Aage
+Midland
 Midlin
+Midway Traders
 Mifco Goathi
+Miflin
+Mihraab
+Mihraan
+Milaafaru
+Milaavaru
+Miladhooge
+Milahandhuvaru
 Milan
+Milandhoo
 Milano
+Milcoaraage
+Miles
+Milet
+Milk Bush
+Milk Maid No. 1
+Milk Maid No. 2
+Milk Maidge
+Milky Way Aage
+Millenia
+Millenium
 Million
+Mimosa Villa
+Minaa
+Minaa Shop No. 1
+Minaa Shop No. 2
+Minaadhoo
+Minaage
 Minaavaru
+Minhaa Manzil
+Mini Garden
+Mini Rose
+Ministry Of Construction And Public Works
+Ministry Of Defense And National Security
+Ministry Of Economics Development And Trade
+Ministry Of Education
 Ministry Of Finance And Treasury
+Ministry Of FisheriesAgriculture And Marine Resources
 Ministry Of Foreign Affairs
 Ministry Of Gender And Family
 Ministry Of Health
+Ministry Of Higher EducationEmployment And Social Security
 Ministry Of Home Affairs
+Ministry Of Justice
+Ministry Of Planning And National Development
+Ministry Of Tourism And Civil Aviation
+Ministry Of Transport And Communication
+Ministry Of Youth And Sports
+Miraan
+Miraaz
+Miri
+Mirihi
+Mirihi Villa
+Mirihimaage
+Miriyaas Villa
+Miriyaasge
+Miriyandhoo
+Mirusgasdhoshuge
+Mirusge
+Mirzam
+Misbaahu
+Missouri
+Mist
+Mistletoe
+Misty Lodge
+Misty Night
 Misurugandhakoalhige
 Misururuvaage
+Mithuna
+Mithuru
 Mitry Park
+Miuman
+Miurex
+Miuvision
+Miya
+Miyaami
 Miyaanaa
+Miyarenge
+Mizamaan
+Moara
+Moary Lodge
+Moashee
+Modern Comet
+Modern House
+Mohamed Ali Didi Shop
+Mohamed Ismail Didi Goalhi No. 5
+Mohammed Ismail Didi Golahi No. 2
+Mohoree Villa
+Mohoree Villa Aage
+Mohoreege
+Moisaa
+Moneeshiya
+Montreal
+Montrovia
+Moobondi
+Moodhumaage
 Moodhuvina
+Moomiyaage
+Moon Beam
+Moon Beams
 Moon Drops
+Moon Shadow
+Moonee
 Moonimaage
+Moonlight Vally
+Moonlight View
+Moonlightge
+Moonlit Villa
+Moorithi Building
+Moorithi Villa
+Moorithige
+Moosa I Didi
 Moosiru
+Moosum
+Moosum Bahaaru Aage
+Morning Glory
+Morning House
+Morning Rose
+Morning Star
+Morning Sun
+Morning Vaadhee
+Morning Villa
+Morning Village
+Morris
+Moscowge
+Mother Land
+Motherin
 Mpa Complex
+Mubeen
+Muduhiri
+Mugoo
+Mugurige
+Muhammadhee Gulshan
 Muhdhoo
+Muiri
+Muiveyodhoshuge
+Muiy
+Muiy Kolhu
+Muiythoshi
+Muiythoshige
+Mujumaraage
+Mulahaa
+Mulakuge
+Mulamma
+Mulammaa Villa
+Mulammaage
+Mulee
+Mulee Aage
 Mulee Aage Garage
+Muleege
+Mulhadhooge
 Mullet
+Mundooge
+Munich
 Muniya
+Muniya Manzil
+Muniya Villa
+Muniyaage
+Munnaarudhoshuge
+Munthazaa
+Muraidhoo
+Muraidhooge
+Muraka
+Murakamaage
+Muranga
+Muranga Villa
 Murangamaa Aage
+Murangamaage
+Murevi
+Murex
+Murin
+Muringu
+Mushimas
+Mushiveli
+Mushthareege
+Muskaan
 Muslim World League Office
+Musthafaa Aabaadhu
+Muthaafushi
+Mutheege
+Mutheege Aage
+Mutthisanpaage
 Muzdhalifaa
+Naad
+Naadhee
+Naadhee Villa
+Naagaa
 Naagali
+Naagin
 Naagoashi Villa
+Naagooruge
+Naagoshi
 Naail
 Naainfaruge
+Naaka
+Naalooth
+Naares
+Naarigugasdhoshuge
+Naaringuge
+Naaru
+Naasan
+Naash
+Naashaa
+Naaz
 Naazil
+Naazlee Manzil
+Naazukee Gulshan
+Nadhee
+Nadhuwaa
+Nafaa
+Nafeesaa Manzil
+Nageenaa
+Nageesaa
+Naghmaa
+Nagili
 Naheedhee Manzil
+Nahuru
+Naiboli
+Naibuge
 Naibuge Irumatheege
 Naibuge Irumatheege Aage
 Naishaa
+Nakaa
+Nakhdhaa Store
+Nakhudhaa Store
 Nalage
+Nalahiyaa Manzil
 Nalahiyaa Villa
+Nalahiyaage
+Nalamas Villa
+Nalamashaa
+Namibia
+Namoonaa Villa
+Namoonaage
+Nanaimo
+Nanfashuvige
 Nankuraa
 Nankuraa View
 Nankuraa Villa
 Nankuraage
 Nannaarige
+Nanreethige
+Nanreethimaage
 Narcotics Control Board
+Nareemaan
+Nareetha
+Naridhooge
+Narrow
+Naru
+Narugis
+Narugis Villa
+Narugismaage
+Narugismaage Aage
 Naseeb
+Naseemee
+Naseemee Handhuvaru
+Naseemee Manzil
+Naseemee Villa
+Naseemeege
 Naseemuge
+Naseemussabaa
+Nasfaru
+Nashaathu Villa
+Nashville
+Nasreen Villa
+Nasreenuge
+Nasru
+Nasru Villa
+Nasrussabaa
+Nasrussabaa Hulhagubai
+Natheejaa
+National Art Gallery
+National Bureau Of Classification
+National Centre For Linguistic And Historical Research
+National Library
+National Stadium
+National Thallasaemea Centre
+Naughtyless
+Navaagan
+Navaara
+Navaranna
+Navy Blue
+Nayaa
+Nayaa Bahaaru
+Nayaa Chaandh
+Nayaa Gulshan
 Nazaa
+Nazairu
+Neat
+Nebula
+Nectar
+Nedhunge
+Neel
 Neel Manzil
 Neelaa
+Neelam
+Neelanfaru
+Neelee Sithaaraa
 Neeloafaru
 Neeloafaru Valley
+Neeloafaru View
+Neeloafaruge
 Neeloafarumaage
+Neelofaru Lobby
+Neelofaru Lodge
+Neeluge
+Neeluge Aage
+Neem
 Neemaa
+Neenaa
+Neep Tide
+Neeri
 Neeriam
+Neerweek
+Nees
+Neighbour
+Nelivaru
+Nelivaru Aage
+Nelkan
+Nellaidhooge
+Neluge
+Nelum
+Neo Light
 Neon
+Neptune
+Nereen
 Neru
+Nestal
+Nestal Uthurubai
+Netan
+Netball Association Of Maldives
+Netherland
+Never Corn
+New Blue
 New Columbia
 New Dawn
+New Flash
+New Florida
+New Forest
+New Fulooniyaa
+New Happiness
+New Heaven
+New Hope
+New Life
+New Light
+New Liverpool
+New Moon
+New Olympia
+New Place
+New Plaza
 New Plot
+New Queen
+New Saw Shine
+New Shaaraaz
+New Sight
+New Sky Villa
+New Star
+New Sunny Way
+New Valley
+New York House
+Newly
+Newton
+Nexus
+Neyhaa
+Neyo
+Neyskaa
 Neyzaa
+Niagiz
+Niara
+Niaru
+Nibiligaa
 Nibooge
 Nibraas
+Nice Dream
+Nickchoon
+Nicosia
+Nigaaran
+Nigaataa
+Night Dream
+Night Flower
+Night Garden
+Night Light
 Night Moon
+Night Rose
+Night Shadow
+Night View
+Night Villa
+Nihaali
+Nika
+Nikagasdhoshuge
+Nikamaage
+Niko
 Nilaa Veli
+Nilanfaru
+Nileena
+Nimeri
+Nimsaa
+Nina Ricci
+Nine House
+Ninfair
+Nirili
+Nirolhu
+Nirolhuge
+Niru
+Niruhaa
 Niruveli
+Nisfu
+Nishaan
+Nishaanaa Manzil
+Nishaath
+Nishan Plaza
+Nisreen Villa
+Nissaa
 Nivai
+Nivali
+Nivico
+Niyaama
+Niyaasaa
+Niyadhoshi
+Niyadhuruge
+Niyagala
+Niyami
 Niyandhuru
+Niyandhurumaage
+Noaret Villa
+Nolhivaramge
 Non Formal Education Centre
+Noo Akiri
+Noo Ali
+Noo Finolhu
+Noo Ruh
 Noo Uraha
+Nooasurumaage
+Noobahaaru
+Noobahaaruge
+Noobeena
+Noofaru
+Noofas
+Noofehi
+Noofiya
+Noogiri
 Noohikaa
+Noohiri
+Noohiya
+Nookokaa
+Nookuri
+Nookurikeela
+Noomaage
 Noomaraa Hiyaa
+Noomaraa Villa
+Noomaraage
 Noomaraage Aage
+Noomas
+Noomuraka
+Noor Fehi
+Nooraanee
+Nooraanee Aage
+Nooraanee Fehi
+Nooraanee Hiya
+Nooraanee Maa
+Nooraanee Villa
+Nooraanee Villa No. 2
+Nooraaneege
+Noorali
 Nooran Villa
+Noorange
 Nooranmaage
 Nooranmaage Aage
+Nooranuge
+Nooree
+Nooree Fehi
+Nooree Villa
+Nooreege
+Noorehi
+Noorodhi
+Nooru
 Nooru Asseyri
+Nooru Manzil
+Nooru Ufa
+Nooru Vaadhee
 Nooru Zeyru
 Noorussabaa
+Noothari
+Noovilaage
+Noovilu
+Noovina
+North Breeze
+North House
 North Sea
+Nova
+Novelty
+Nufolheymaa
+Nuzaa Nizu
+Nuzuhaa
+Nylex
+Nylonuge
+Oadens
+Oagam
 Oak Leaf
+Oak Villa
+Oakum
+Oaran
+Oarumaan
 Oasis
 Oasis View
+Oasis Villa
+Ocean Breeze
+Ocean Green
+Ocean Lead
+Ocean Reed
+Ocean Star Aage
+Ocean Store
 Ocean Valley
 Ocean Veli
 Ocean Villa
+Ocean Way
+Oceania
+Oceanic Store No. 3 Fihaara
 Oceanic Villa
+Oden Avenue
+Odeon
 Odessaa
 Office Of Commissioner Of Elections
+Ogaru
+Ogaruge
+Ogaruge No. 1
 Oidhuni
 Oikolhuge
+Oikuri
 Oivaali
+Oivaru
+Okara
+Okkafage
+Olhahali
+Olhahali Villa
+Olhali
+Olhi
+Olhitherige
+Olhufalhu
+Olhufas
+Olhufehi
+Olhufushi
+Olhugiri
 Olhuha
+Olhuvaali
+Oli
+Olienter
+Oliester
+Olive
+Oliveenaa
+Oliver Green
+Olympia
+Olympus
+Omadhoo
+Omadhoo Fannu
+Omega
 Onigandu
+Onix
+Onoda
+Ontario
+Onuthoorige
+Ooty
 Opal
+Opera
+Oping Sun
+Option
+Orbit Villa
+Orchard
+Orchard No. 1
+Orchard No. 2
+Orchard No. 3
+Orchard No. 4
+Orchard Plaza
+Orchid
+Orchid Flower
+Orchid House
+Orchid Lodge
+Orchid Magu 2/44 Fihaara
+Orchid Magu 4/42 Fihaara
+Orchid Magu 5/42 Fihaara
+Orchid Magu 5/43 Fihaara
+Orchid Magu No. 11 Fihaara
+Orchid Magu No. 12 Fihaara
+Orchid Magu No. 13 Fihaara
+Orchid Magu No. 14 Fihaara
+Orchid Magu No. 19 Fihaara
+Orchid Magu No. 20 Fihaara
+Orchid Magu No. 21 Fihaara
+Orchid Magu No. 22 Fihaara
+Orchid Magu No. 23 Fihaara
+Orchid Magu No. 24 Fihaara
+Orchid Magu No. 5 Fihaara
+Orchid Magu No. 8 Fihaara
+Orchid Magu No. 9 Fihaara
+Orchid Vaadhee
 Orchid Villa
+Orchid Villa Aage
+Orchidge
+Orchidmaage
+Orient House
+Oriental Plaza
+Orion
+Osaka
+Oshanigasdhoshuge
 Oshanimaage
+Oslo
+Osprey
+Ostrich
+Othuveel
+Ottaru
 Oxford
 Oxidental Villa
+Oyaagiri
+Oyenaashi
+Ozone
 Paa Complex
+Paakee Villa
+Paakeeza
+Paalma
+Paalma Villa
 Paamelia
+Paanis
+Paanisvilla
+Paatraa
+Paayal
+Paci Flora
+Pal
+Palm Beach
+Palm Court
+Palm Lodge
+Palm Shade
+Palm Spring
+Palm Valley
 Palm View
+Palmeyra
+Pardon Villa
+Pareeruge
 Pareevaar
+Parindhaage
+Paris Villa
+Parisge
+Park Lane
+Park Side
+Park View
+Parkaru House
+Parkaruge
+Parrot
+Parrot Nest
 Paruvaanaage
+Paruvaazuge
+Passion Flower
+Passion Flower Irumatheebai
+Passion Fruit
+Passions
 Peace Corner
+Peace Heaven
+Peach
+Peach Coral
+Peachers
+Pearl Root
+Pears
+Pegasus
+Penamaa Villa
+Penamaage
+Penter Green
 Pentium
+Pentland
+Penton Villa
+Penzee Aage
+Penzee House
+Penzee Nectar
 Penzee Villa
+Penzeemaa
+Penzeemaage
+Penzy
+Peoples Majlis
 Perceive Villa
 Perihelium
+Perry Winkle
+Pescally
+Petooniya
+Petra
+Petral
+Petty Bird
+Petty Corner
+Petty Rose
+Petty Villa
+Pheasant
+Philadelphia
 Phoenix Villa
+Piccadilly
+Picnic
+Pigeon Orchid
 Pine Wood
+Pineapple
+Pines
 Pink
+Pink Coral
+Pink Dream
+Pink Flower
+Pink Garden
+Pink House
+Pink Light
+Pink Night
+Pink Rose
+Pink Star
+Pinnacle
+Pisces
+Pisthaage
+Pity Pool
 Piyaajee
+Piyaanaage
+Piyaaz
+Platinum Cottage
+Plaza
+Pleasant Villa
 Pleasant Waves
 Plex
+Point Hiyaa
+Point Villa
+Polaris
+Pole Star
+Polgaha Villa
+Pompiya
+Pompiya Lodge
+Pompiyage
 Pool
+Pool Bahaar
+Pool Bahaaru Aage
 Pool Bahaaruge
 Pool Copyge
 Pool Dream
+Pool Kinaaraa
+Pool Vaadhee
 Poonam
+Poppy
+Port Side
+Premio
+Pretty Flower
+Pretty Villa
+Primrose
+Progresive Center
 Prospect
 Public Health Laboratory Building
+Pul
+Pyramids
+Pythagorous
+Qismath
 Quattro
+Queen
 Queens
 Queensville
+Quest
+Raadha
+Raagundaage
+Raahaa
+Raalhaahaa
+Raalhu
+Raalhu Fonu
+Raalhufuni
+Raalhuveli
+Raanee Villa
+Raarohige
+Raaspareege
+Raasthaa
+Raaveege
+Raavehi
+Raaverige
 Raaz
+Rabarumaage
+Rabee Ee Lodge
+Rabee Ee Manzil
+Rabee Ee Ufaa
+Rabee Eege
+Rabeeu Villa
+Rabeeuge
 Radheef
 Radheef Aage
+Radhuvaania
 Radiant
+Radium Kokaa
+Radiumge
+Radiumge Aage
+Rado
 Rafaa
+Rafaahu
+Rafeeguge
+Rafsaan
 Rageethaa
+Rageethaa Aage
+Rahadhoo
 Rahdhebaige
 Rainbow
+Rainland
+Raiy Endheri
+Raiy Hiri
+Raiy Lily Villa
+Raiy Lilyge
+Raiy Minaa
+Raiy Muiyge
+Raiy Villa
+Raiyaanu Apartment
+Raiybageechaage
+Raiydhigga
+Raiyfusge
+Raiykashimaa
+Raiykashimaage
 Raiykokaage
 Raiykunnaruge
+Raiykuredhi
+Raiymoo
+Raiyniru
+Raiyruva
 Raiysuthulige
+Raiyvilaage
+Raiyvina
 Ran Asseyri
+Ran Avi
+Ran Faunu
 Ran Ili
+Ran Ribudhooge
+Ranauraa Villa
+Ranauraage
+Ranauraage Aage
+Ranauraamaage
 Ranbin
+Ranboli
+Ranbusthaanuge
+Randhelige
+Randhuni
 Ranfaga
+Ranfahi
+Ranfalhoage
+Ranfaruge
+Ranfas
 Ranfehi
 Ranfiya
+Rangaleege
+Rangali
+Rangas
+Rangehi
+Rangireege
+Rangumaage
+Rangumaage Hulhagu Bai
+Rangumaage Irumatheege
+Ranhadhaage
+Ranhatha
 Ranhiri
 Ranhiya
 Ranhiyaa
+Rani
+Ranika
+Rankokaa
+Rankokaa Fehi
+Rankokaa Lodge
 Rankokaa Villa
+Rankokaage
 Rankoralige
+Ranmaa Gulshan
+Ranmahi
+Ranmatheege
+Ranmuiyge
+Ranmuthee
+Rannaa
+Rannaruge
+Ranreendhooge
+Ranrihi
+Ranriyaalage
+Ranriyaalage Aage
 Ransavaa
 Ranthari
+Ranthudu
 Ranvara
+Ranvehi
 Ranveli
+Ranvikkaage
+Ranvilaage
+Ranvilu
+Ras Ain
+Ras Huvandhu
 Ras Roanu
+Rasdhoo
+Rasfari
+Rasfaru
 Rasfushi
+Rasgeraha
+Raskara
+Rasma
+Rasmaadhooge
+Rasmee Boalhage
+Rasthari
+Rate
+Ratheegaa
+Ratheegaa Aage
+Rathuloage
+Rathunaagiri
+Raufathuge
 Rauhaa
 Raulaa
 Raushaa
+Ravanthila
+Ravi
+Ray
+Raylight
+Real
+Real Night
+Reason
+Rechchafaru
 Red Coast
 Red Coral
+Red Fish
+Red Flower
+Red Heaven
+Red Hill
+Red Leaf
+Red Line
 Red Pearl
+Red Rock
+Red Sea
+Red Stone
+Red Wood
+Redham
+Redhan
+Reeds
+Reef Dream
+Reef Side
+Reef View
+Reehussabaa
+Reemaa Villa
+Reenaa Villa
 Reendhooge
+Reendhookokaage
 Reendhoomaage
+Reendhoomaage Hulhangubai
+Reesha Villa
+Reeshaa Manzil
+Reethi Alhi
+Reethi Gas
+Reethi Maakoani
+Reethi Noo
+Reethigasdhoshuge
+Reethimaage
+Reflasia
+Regal Kent
+Regalge
+Regina
+Reginaa House
+Rehan
 Rehela
+Rehi
 Reiko
 Release
 Release Aage
+Relic
+Remind House
 Remsis
+Ren
+Rest Point
+Resting Garden
 Resting House
 Result Park
+Revi Nala
 Revimaage
+Revimoo
+Reward
+Rexy
+Rey Ali
+Reyalivaage
 Reylight Villa
 Reynis
+Reysham
+Reyvaa Villa
+Reyvaage
+Reyvan
+Ribinsk
 Richeenoa
+Ridhaa
 Rifaa
+Rifaam
+Rihaab
+Rihi
+Rihi Ali
 Rihi Dhoadhi
+Rihi Thari
 Rihi Villa
+Rihidhoolage
 Rihifaiy
+Rihifas
 Rihihandhuvaruge
+Rihihuvafen
+Rihimaa
+Rihiraalhu
+Rihithalhaage
+Rihiveli
+Rihividhuvaruge
 Rihivilaage
+Rihivilu
 Rikaaz
 Riloom
+Rimaal
+Rimhaa
+Riminee
+Rimlaa
+Rimlaas
+Rinbudhoo
+Rinbudhooge
+Rindhali
+Rindhalige
 Rinso
+Rio Grand
+Rising Sun
+Risthaa
+Riveli
+Rivelige
+River Nile
 River Side
+Riverdale
+Riverin
+Riveyna
+Rivoli
+Riyaa
+Riyaa View
+Riyan
+Rizaamandhu Vaadhee
+Road Construction Section
+Roamge
+Roanu Male Goathi
+Roanu West
+Roanuge
+Roashan Haaru
+Roashan View
+Roashan Villa
+Roashanee Handhaan
 Roashanee Manzil
+Roashanee Villa
+Robins
+Rochaa
+Rock Beach
+Rock Beach Aage
+Rock Beach View
+Rock Beach Villa
+Rocketge
+Rocketge Aage
+Rocks Dale
+Roma
+Romania
+Rombus
+Romeo
+Rosa
+Rosario
+Rosarium
+Rosary
+Rosary Light
+Rosary View
+Rosary West
+Rose
+Rose Bank
+Rose Beam
+Rose Burn
+Rose Field
+Rose Garden
+Rose House
+Rose In Bloom
+Rose Mary
+Rose Mead
 Rose Vaadhee
+Rose Valley
 Rose View
+Rose Villa
+Rose Wood
+Roselin
+Rosen Dale
+Rosen Land
+Rosey Lips
+Roshanee Aage
+Roshaneege
+Roshanlane
+Rosia
+Rosy
 Rosy Corner
+Rosy Side
+Rosy Villa
 Rosy Yard
+Rubber Lane
+Rubican
+Rubuman Villa
+Ruby
 Ruffushi
+Ruhdhoshuge
+Ruhjehige
+Ruhkuri
+Ruhuna
 Rukkara
 Rukuhiyaa
+Rukumaage
+Ruthu
+Ruvaa
+Ruvaaguge
+Ruvaakandaage
+Ruvaamaage
+Ruvaamaage Aage
+Ruvaise
+S B D No. 4
+S E K Store
+S M I Store No. 1
+S M Ismail & Sons No. 4
+S M Ismail & Sons No. 6
 S P Villa
+S U M No. 2 Fihaara
+S U M No. 4 Fihaara
+Saadhaage
+Saadhumaanee
+Saadhunaa Manzil
+Saafu Aaru
+Saah
+Saahath
+Saahil
+Saaina Hiya
+Saaj
+Saalimiyya
+Saaliya Manzil
 Saamaraa
+Saamee Villa
+Saamil
+Saamil Aabaadhu
+Saamiraa Manzil
+Saamiyaa Lodge
 Saanee Villa
+Saaniyaa
+Saaraa
+Saarigaa
 Saascuf
+Saatanuge
+Saathee
+Saavan
+Saayan
+Saaz
+Sabaahulkhairu
+Sabrath
+Sabudhelige
+Sadhara
+Saeed Vaadhee
+Saeeda Manzil
+Safari
 Saffron
+Sahuru Huvaaru
+Saibaan
+Saiboanigasdhoshuge
 Saiboanige
+Sailaa
+Saimaa
 Saimaa Villa
 Saimaage
+Saint Heleena
+Saintloss
 Sairius
+Sakaimoo
+Sakeena Manzil
+Sakeena Store
+Sakeena Villa
+Sakkeyogasdhoshuge
+Sakkeyoge
+Sakkeyomaage
+Sakkeyomaage Aage
+Salaamath
 Saleeta
+Salient
+Salina
+Saljamge
+Saljamge Aage
+Saljamge Hulhagubai
+Sallige
+Salmaa Store
+Salsabeeluge Aage
+Saltha
+Salva
+Salvation
+Salveeniyaa
 Samaa
+Saman Villa
+Saman Villa No. 2
+Saman Villa No. 3
+Saman Villa No. 4
+Samandharu
+Samangiri
+Samantha
 Sameera Aabaadh
+Sameydhaan
+Samheed Aabaadu
+Samiyyaa
+Samnaa
+Samoa
+Samsaara
+Sanathu
+Sand Martin
+Sandhaleege
 Sandharoasge
 Sandhora
+Sandhu
+Sandhubarakaage
+Sandhura
+Sandhuravi
+Sandhuvaa
+Sandy Beach
+Sandy Hollow
+Sangufareedhuge
+Sangumarumaruge
+Sanmaamu Aage
+Sanmaamuge
 Sanoaraage
+Sanoaraamaa
+Sansan Villa
+Sansange
+Sansange Aage
+Santharaage
+Sanyo
+Sapphire
+Saraa
 Saroakge
+Sarumaage
+Sarusoonuge
 Sarusoonumaage
+Sathaavaree Aage
+Sathaavarumaage
+Sathaha
+Satharuge
 Saturn
+Savaaheli
+Save
+Saveyraa
+Scarlet
 Scenery
+Scenery View
+Schooner
+Scorpio
+Scorpios
+Sea Bird
+Sea Breeze
+Sea Dust
+Sea Face
+Sea Line
 Sea Queen
+Sea Reed
 Sea Rose
+Sea Scape
 Sea Speed
+Sea Star
 Sea Tracks
+Sea View Plaza
+Sea Wave
+Sea Weed
+Sea Wind
+Seagull
+Seagullge
+Seal
 Sear
+Sear Fish Store Huri Goathi
+Sear Fishge
+Season
+Seat
+Second Place
 Seed
+Seema Villa
+Seenaa
+Seeni Asurumaage
+Seeniyaa Villa
+Seenu Aage
 Seenu Villa
+Seenukarankaage
+Seenukarankaage Aage
+Seenumaa
+Seenusanpaage
+Seenusanpaage Hulhangubai
 Seeraa
+Seeraazeege
+Seeraazeekanmatheege
+Seeriazge
+Seeriazge Aage
+Seesan Villa
+Seesange
+Seesun
+Seetumaage
 Seiko
+Selby Drive
+Selly
+Selvia
+Selvin
 Selvinaa
+Selvio
+Semaa
+Semi Deal
+Semi Tone
+Senaa
+Senaa Aage
+Send Rose
+Senekaa
 Senorita
+Sentalum
+Senthia
+Sentreetaa
+Sentuge
+Sentuge Aage
+Serenade
+Sesnaa
+Seveela
 Seveena
+Seven & Bee
+Seven & House
 Seven Members
+Seven Star
+Seventy Flower
+Sevil
+Seyboo Villa
+Seybooge
+Seylam
+Shaadhee
+Shaadhee Villa
+Shaadhee Villa Uthurubai
+Shaadhu
+Shaah
+Shaah Aabaadhu
+Shaahee
+Shaahee Hiyaa
+Shaahidhaa Manzil
 Shaakiry Hiyaa
+Shaam
+Shaamaa
+Shaamraa
+Shaan
 Shaariu Vaadhee
+Shaazee Blue
+Shaazee Win
+Shabaab
+Shabnam
+Shabnam Ge
+Shabnam Lodge
+Shabnameege
 Shabnamge
 Shadows Nest
+Shadowy
+Shady Cabin
+Shady Corner
 Shady Ground
+Shady Grove
+Shady Home
+Shady Lodge
+Shady Mead
+Shady Palm
+Shady Region
 Shady Rest
+Shady Side
+Shady Spot
+Shady Villa
+Shady Yard
+Shafaa
+Shafaamaa
 Shafaq
+Shafeegee Hiyaa
 Shafeeguge
+Shaffaafu Aabaadhu
+Shaheedhu Hussein Adam Building
 Shamrock
+Shanghai
+Sharaf
+Shareedhuge
+Shareefa Manzil
+Shark
+Sharon
+Sharoora
+Sharumeelaa Manzil
+Sharuvath
+Shazaa
 Shazrath
+Shedless
 Sheen
+Sheeraaz
+Sheereen Villa
+Sheereen Villa No. 1
+Sheereen Villa No. 2
+Sheesha Vehi
+Sheeshaa Hiyaa
+Shell Flower
+Shell Pink
+Shelter
+Shenan
+Shereen
+Sheriff
+Shiaaru
 Shifaanaa Manzil
+Shifaanaa Villa
+Shifan
+Shifman
+Shifraa
 Shikaaru
+Shimaagu
+Shimla
+Shining Pearl
 Shining Star
+Ship Plaza
+Shishaan
+Shoat Ale Villa
+Shrub
+Shu Ulaa
+Shuaau
+Shuaaz
+Shuaibu Aabaadhu
+Shuooru
+Shuroou
+Side Hedge
+Sienaa
+Siera Lodge
+Sieraa
+Sigma
+Sigoafaage
 Sikaaru
+Sikal
+Sikandharuge
+Sikkage
+Sikkage Hulhanguge
+Sikkagey Aage
+Sikuraa
 Sil Wood
+Sileyha
+Silk
+Silk House
+Silk Wood
+Silsilaage
+Silver Beam
+Silver Cloud
+Silver Daaz
+Silver Dale
+Silver Dale Aage
+Silver Diamond
+Silver Dream
 Silver Grass
+Silver Leaf
+Silver Mead
+Silver Moon
+Silver Mountain
+Silver Nest
+Silver Night
+Silver Oak
+Silver Sand
+Silver Scene
+Silver Shark
+Silver Shine
+Silver Star
+Silver Star No. 2
+Silver Star No. 3
+Silver Star No. 4
+Silver Wave
+Silvereen
+Sim
 Sina Ekatha
+Sindhithaa
+Sindhu
+Sindhu Hiya
+Sineege
 Single
+Siren
+Siretu
+Siri Bin
+Sirili
+Sirus
+Siry
+Sisil Corner
+Sisil Emporium
+Sisil Faru
+Sisil Garden
+Sisil Hiyaa
+Siskin
+Sisraa
 Sithaaraa
+Sithaaraa Vaadhee
+Sithuraa
+Sittha
+Sivler Mead
+Sizero
+Sizlee Manzil
+Skin Clinic
+Skwalow
+Sky Lark
+Sky Net
+Sky Villa
+Sky Villa 1
+Skyla
 Sleet
 Sleet Villa
+Slip Way
+Slip Way Aage
+Slip Way Irumatheebai
 Slogan
+Smilex
 Snoopy
+Snow
+Snow Burry
 Snow Down
+Snow Drop
 Snow Field
+Snow Flex
 Snow Light
+Snow Line
+Snow Mountain
+Snow Rose
+Snow Sky
+Snow White
+Snow White No. 3
+Snow White No. 4
+Snow White No. 5
+Snow White No. 6
+Snow White No. 7
+Snowliya
+Soafaage
 Soafiya
+Soamaa Trade
+Soan Blue
 Soasanee Uthuru Bai
+Soma
+Soniya
+Sooraa
+Sooraj
+Sooraj Villa
+Sosun
 Sosun Abeer
+Sosun Flower
+Sosun Magu No. 4
+Sosun Manzil
+Sosun Mead
+Sosun Villa
 Sosunee
+Sosunge
+Sosunmaage
+South Breeze
+South End
+South Light
+South Pink
+South Reef
+Southern Beach
+Souverign
+Spain Villa
+Spain Wheel
 Sparrow
+Spatula
+Spotlight
+Star
+Star Light
+Star Shell
+Star Wheel
 Starling
+Starlit Villa
 State Electric Company Ltd
+State Trading Organization Plc
+Steam Blue
 Stella
+Sting Bee
+Sto Ahmadhee Building
 Sto Labour Quarters
 Sto No. 2
 Sto No. 7
+Sto No. 8 Koshi
 Sto No. 9 Koshi
 Sto Number 2
 Sto Number 7
 Sto Number 9
+Sto Trade Center
 Sto Vehicle Garage
+Stone
+Suaauh Shamsi
+Suaz
+Sufaaraa
+Sugar Cane
+Suhaanee
+Sukhuraa
+Sukkathuraage
+Sulha
+Sulthaana Manzil
+Sumalnivaas
+Summer Bloom
+Summer Bluege
+Summer Hill
+Summer Place
+Summit
 Sun Beam
+Sun Bright
+Sun City
+Sun Dance
+Sun East
+Sun Flower
+Sun Graze
 Sun Lodge
+Sun Night
+Sun Ray
+Sun Reef
 Sun Rest
+Sun Set
+Sun Shade
 Sunaar
+Sunbulaa
+Sunbury
+Sundhura
+Suneethaa
+Sunny Breeze
+Sunny Coast
+Sunny Corner
+Sunny Dale
+Sunny Inn
+Sunny Lodge
+Sunny Rose
+Sunny Side
+Sunny Way
+Sunrise Aage
+Sunrise House
+Sunrise Villa
+Sunrisege
+Sunrisege Aage
+Sunshine
+Super Market Shopping Center
+Supreme Council For Islamic Affairs
+Surumuthi
+Suthuli
+Suthulige
+Suthulimaage
 Suvaasaa Manzil
+Suvaasaa Villa
+Suvaasaage
 Swaasthi
 Swan Lake
+Swanee
+Swastika
+Sweet Breeze
+Sweet Dream
+Sweet Dream Hulhangubai
 Sweet Flower
 Sweet Flower Irumatheebai
+Sweet Ireenaa
+Sweet Meadow
+Sweet Medalin
+Sweet Pea
 Sweet Rose
+Swing
+Sword
+Sydney
+Table Tennis Association Of Maldives
+Tail Fin
+Tama
+Target
+Taurus
+Tb Clinic
+Tb Leprosy Control Project Unit
+Tearose
 Tears Joy
+Tedrel
+Tedrel Aage
 Teezal
+Telecom Building
+Telecommunication Authority Of Maldives
+Temarisk
 Ten Stars
+Tennis Association Of Maldives
+Tensy
+Tesco
+Tetra
+Texas
+Texas Hulhangubai
+Thaaj
+Thaajudeen School
+Thaalhafilige
+Thaalin
+Thaangeedhoshuge
+Thaavathaa
+Thabahge
+Thaburuge
+Thaburumaage
 Thadinoomaage
+Thaiba
+Thaif
 Thakandhoo
+Thakathuvaage
 Thalhamudhige
+Thalhu
+Thalvaaruge
+Thanbee Aage
+Thanbeege
 Thandiraiymaage
+Thanhaa
+Thanthaara
+Tharaadhu
 Tharaanaage
 Tharaanaage Aage
+Tharaboozuge
+Tharaf
+Tharaha
 Tharijehi Aage
+Tharijehige
 Tharividhaage
+Thashimushi Villa
+Thashimushige
+Thasliyaa
+The Scout Association Of Maldives
+The Villa
+Thedhu Ofi
+Theefaridhoo
+Theemuge
+Theerathuge
+Theerathuge Hulhangubai
+Themaa
+Themaage
+Theveli
+Thiburoaz
+Thigo
+Thikaanis
+Thikureethu
+Thila
 Thila Asseyri
+Thila Falhu
+Thila Gaa
+Thila Vilu
+Thilaakolhu
+Thiladhoo
 Thilafan
+Thilafihige
+Thilafushi
+Thilahaa
+Thilinfaru
 Thimaaveshi
+Thin Fiya
+Thin Hiri
+Thinadhooge
+Thingandu Vina
+Thiringali
+Thiyani
+Thiyara
+Thiyaramaage
+Thoathaa Villa
+Thoathaage
+Thoddooge
+Thonaadaa
+Thonthoa
+Thoonis
+Thoonu Veli
+Thoothugasdhoshuge
+Thoothumaa
+Thoraamaage
+Thorny Asseyri
 Thousand Flower
+Three A Shop
+Three A Villa
+Three And One
+Three Birds
 Three Chances
+Three D
+Three Flowers
 Three Friends
+Three Lights
+Three Moons
+Three Rooms
 Three Roses
 Three Sisters
 Three Star
+Threek Light
 Threen Star
+Thrive
+Throaliya
+Thrush
+Thuhufaa
+Thulhaadhooge
+Thulhaagiri
+Thulhaagiri Aage
+Thulusdhooge
+Thuna
+Thunburi
 Thundi
+Thundiveli
 Thuni Veli
+Thunigaa
+Thuthiya
 Thuvaru
 Thuzulaa
+Tibet
+Tide
+Timeless
+Tinujehi Aage
+Tinujehige
 Tiny Waves
+Titian
+Titokee
+Tivega Light
+Tomato
+Toorak
+Toorak Dhekunu
+Top View
 Topaz
+Tow
+Town Villa
+Tranquil Villa
 Tranquility
+Trust Home
+Tube Rose
+Tulip
+Tulip Villa
+Tunisia
 Turin
+Turkey
+Twelve Green
+Twilight
+Twilight Inn
+Twilight Reverie
+Twin Flower
+Twin Lodge
 Twine
+Two Friends
 Two Lines
+U N Building
+U N D P
+U N F P A
+U N I C E F
+Uddhadige
 Udha
 Udhagiri
 Udhares
+Udhares Villa
+Udharesge
+Udhuhey Villa
+Uduvilaage
+Uduvilla
+Ufaa
+Ufakaara
+Ufanthundi
+Ufanveli
+Ufuligiri
+Ufuriaa
+Ugulu
+Uigulhaage
+Uivashaage
+Ujaalaa Vidhuvaru
+Ujaalaage
+Ulagala
+Ulhaa
+Ulhandhu
+Ultra Violet
+Umaan
+Umaru Faru
+Umaru Shopping Arcade
+Ummeedhu
+Unheat
+Uni Hiya
+Unigasdhoshuge
+Unihiya
+Unikuri
+Unimaa
+Unimaa Hiyaa
+Unimaa Villa
+Unimaage
+Unimoo
+Unity
+Uniya
+Uraha
 Uranus
+Usaa
 Uss Hakuruge
 Uss Hakuruge Dhekunuge
+Utheemuge
 Uththara
+Uththige
+Uthuru
+Uthuru Innaage
+Uthurubin
+Uthuruge
+Uthuruge Aage
 Uthuruthila
+Uthuruvehi
+Utility
+Vaadhee
+Vaadhee Building
+Vaadhee Rose
+Vaadhee Trade Center
+Vaadheege
+Vaadhooge
+Vaagali
+Vaal
 Vaali
+Vaaly Villa
+Vaarey Villa
+Vaaruluge
+Vaarutha
+Vaavelaaveli
+Vabberuge
+Vadhy Ufa
 Vadinolhuge
 Vadinolhuge Aage
+Vagaaru
 Vaggiri
+Vaguthee Manzil
+Vah Maizaan Dhoshuge
+Vahaari
+Vahbbinfaruge
+Vahfufulhige
+Vahfushi
+Vahtheenigasdhoshuge
+Vahtheenige
+Vai Roalhi
+Vaidheriyaage
+Vaifilaa Aage
+Vaifilaage
+Vaifini
+Vaifinige
+Vaijehey
+Vaijeheyge
+Vaijeheyge Aage
+Vaikani
+Vaikaradhooge
+Vaimatheege
+Vaimathi
+Vainujeheyge
+Vaisoori
+Vakaru
 Vakkaru
+Valanju
+Valencia
+Valencia Aage
+Valley Home
+Valleyge
 Valuge
+Valumaizandhoshuge
 Valuthereyge
+Vammaizan
+Vancouver
+Vandhunmaafaru
+Vanha
+Vani
+Vanillage
+Vanolhu
+Varukandhuge
 Varunulaa
+Vase
+Vashafaru
+Vattaru
+Vatththiyarage
+Vazaalaage
+Veenaa
+Veenaa Store
+Veesange
+Veesun House
+Veevaa
+Veevaru
+Veeza Aage
+Veezaa
+Vega
+Vega No. 2
+Vegaa Store
 Veheli
+Vehi
+Vehpilaage
+Velaaluge
+Velaanaage
+Velaanaavaru
+Velaaveli
 Velagala
+Velagali
+Velanbulige
+Velasfaruge
+Velasfaruge Aage
+Velavaru
+Velavaru Villa
+Veleege
+Veleethaa
+Veli
+Velidhooge
+Velifaru
 Veliferam
 Velifothi
+Veligandu
+Veliraalhufashuge
+Veliraalhuge
+Velirange
+Velires
+Velivani
+Velvet
+Venezia
+Venosa
+Venus
+Venus House
+Venus Light
+Venus Thari
+Venus Villa
+Venusge
 Veraa
+Verona
+Veshi
+Vesnaa
+Vethi
+Veylaa
 Veymuige
+Veymuiy Villa
+Veyoge
+Veyru
+Veyvaru
+Victoria
+Victory House
+Victory Lodge
+Vidhaa Muiy
+Vidhi Faam
+Vidhuvaruge
+View
 Vihafaru
+Vihakekurige
+Vijan
+Vilaa Rodhi
+Vilaadhoshuge
+Vilaadhuni
+Vilaadikurikeela
 Vilaaraiylaage
+Vilaarikaa
+Vilaathukunnaaru Aage
+Vilaathukunnaaruge
+Vilamendhoo
+Vilares
 Vili
+Villa
+Villa Building
+Villa De Light
+Villa De Rose
 Villa De Sosun
+Villa Shabnamee
+Vilnaa
 Vilnas
+Vilu Fehi
 Vilufusheege
 Vilufushi
+Vilunoo
 Viluveli
+Vimla
+Vimla Annex
+Vinafehi
+Vinagandu
+Vinakara
+Vinakuri
+Vinali
+Vinamaa
+Vinares
+Vinavi
+Vinolia
+Viola
 Violet Abeeru
+Violet Fehi
+Violet Mead
 Violet Villa
+Violetge
+Violetmaage
+Viraah
 Visaanu Manzil
+Visenza
+Vision
+Visteria
+Viyafushi
+Viyani
+Viyavathi
+Vohkkolhu
+Vohkkolhuge
+Vohkkolhuge Aage
+Vohmuli
 Voice Of Maldives
+Volga
+Volley Ball Association Of Maldives
 Voshu Ali
+Waaris
+Wailaa Wool
+Walnut
+Waste Management Section
+Water Lily
+Water Pole
+Water Valley
+Waterfall
 Waterloo
+Waves
+Waving Light
 Wavy Walk
 Wavy Walk Hulhangubai
+Way Side
+Wedge Wood
+Weeping
+Welkin
 Wellgrow
 Wellgrow Aage
+West Alaska
+West Beach
+West Beach Aage
 West Coast
+West End
+West End Lodge
 West House
+West Pink
+West Queen
 West Sea
+West Side
+West Site
+West Snow
+West Stone
+West Wind
+West Yard
+Westerly
+Whale Shark
+White Beach
+White Bell
+White Birdy
+White Coral
+White Coral No. 4
+White Fish
+White Flower
+White Gate
 White Girl
 White Label
+White Land
+White Lily
+White Line
+White Moon
+White Reef
+White Rose
+White Sands
 White Sea
+White Shore
+White Snow
+White Stream
+White View
+White Villa
+Wild Rose
+Willow Moth
 Wind Screen
+Wind Star
 Windmaage
+Windy Rest
+Winsum
+Winter Blue
+Winter Green
+Winter Palace
+Wish
+Wonderland
 Wood Shade
+Wood Stock
+Wood Villa
+Wood Wind
 Woodland
 Woodland Aage
+Woodpecker
+World Dream
 Xenon
+Xerox
+Xylem
+Yaadhu
+Yaagoothuge
+Yaaru
+Yaasmeen
+Yaazoom
+Yardly
+Yardly Dhekunubai
+Yasmin
+Yellow Bell
+Yellow Diamond
+Yellow Flower
+Yellow Heaven
+Yellow Light
+Yellow Rose
+Yellow Sea
+Yenisee
+Yoofeeliyaa
+Yorence
+You Corn
+Youlin
 Yureekaa
+Yuznee
 Zaa
+Zaab
+Zaaham
+Zaamiyaa
+Zaamiyaa Villa
+Zabarujudhu
+Zabarujudhuge
+Zabarujudhuge Aage
+Zabarujudhuge Iru
+Zaee
 Zafna
 Zainaa Manzil
+Zaithooni
+Zaithooni Kuri
+Zaithoonigasdhoshuge
+Zaithoonige
+Zaithoonimaage
+Zamaalick
+Zamaan
+Zamaanee Aakula
+Zamaanee Bahaaru
+Zamaanee Fehi
+Zamaanee Gulshan
+Zamaanee Jihaahdu
+Zamaanee Kula
 Zamaanee Manzil
+Zamaanee Roashan
 Zamaanee Villa
+Zamaaneege
+Zambassy
+Zameen
+Zamlaa Flats
+Zamnaa
 Zamzam
 Zamzameege
+Zanginimaage
+Zareefaa
+Zaufaraan
+Zebeyi
+Zeenaa
+Zeeniyaa
+Zeeniyaa Palace
+Zeeniyaamaa
+Zeeniyaamaage
+Zeephiaaz
+Zeethaa
 Zefaa
+Zefelin
+Zemaa
+Zenaanaa
+Zeneon
 Zenith
+Zenthrum
+Zephyr
+Zephyre
+Zeplin
+Zest
+Zeyvaru
+Zifrol
+Zihu
+Zikuraadi
+Zillion
+Zim Building
+Zimaa
+Zinshaa
 Zircorn
+Ziyaa Villa
+Ziyaadhaa Manzil
+Ziyaaraiy Miskiy
+Ziyaaraiydhoshuge
+Ziyaaraiyfushi
+Zoniya
+Zony
 Zoom
 Zoonaa Manzil
+Zubeydhaa Manzil
+Zuhulu
+Zuhuraa
+Zulf
+Zureeth
+Zurige
+Zuriyaanumaage
 Zuvaarimaage

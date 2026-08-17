@@ -1,7 +1,7 @@
 ---
 address: maldives.education.university
 description: The Maldives' universities and higher-education colleges. The list is short and young, and both facts are the point: the country had NO university at all until the National University Act of January 2011 turned the Maldives College of Higher Education into the Maldives National University, so anyone Maldivian with a degree older than about 2014 took it abroad — in Malaysia, India, Sri Lanka, Australia or the United Kingdom — and a Maldivian CV that shows a foreign university is the normal case rather than the exceptional one. The Islamic University of Maldives was established in 2015 out of the College of Islamic Studies and is the second public university, which follows from a constitution that makes Islam the state religion and requires citizens to be Muslim. Everything else on this list is a private college: Villa College is the largest of them and is owned by the Villa group, one of the country's big tourism conglomerates, which is how higher education got funded here. Maldives Polytechnic is the vocational institution, established by cabinet decision in 2023, and teaches the trades a resort economy needs. Note the geography problem behind the shortness of the list: with 187 inhabited islands and a capital that holds two in five citizens, almost all tertiary teaching happens in Malé, and studying means moving there.
-locale: dv-Latn
+locale: dv-latn
 ---
 Maldives National University
 Islamic University of Maldives

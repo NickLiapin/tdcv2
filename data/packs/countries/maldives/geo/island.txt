@@ -1,8 +1,8 @@
 ---
 address: maldives.geo.island
-description: Every inhabited island of the Maldives — all 187 of them — weighted by resident population at the census of 13 September 2022. This is the closest thing the country has to a list of settlements, and the shape of it is the country: the largest entry outside the capital, Hithadhoo in Addu, has 13,759 people; the smallest, Rakeedhoo in Vaavu, has 76; the median island has about 700, and more than a third of the whole population does not appear in this list at all because it lives in Malé City (211,908), which is not an island in the administrative sense — see maldives.geo.maleWard. A population drawn from this list is therefore an ATOLL population and will look nothing like a Maldivian national sample. Three things to know before parsing island names. First, they repeat: there is a Dhidhdhoo in Haa Alif and a Dhidhdhoo in Alif Dhaalu, a Feydhoo in Shaviyani and a Feydhoo in Addu, a Thinadhoo in Vaavu and the city of Thinadhoo in Gaafu Dhaalu, so an island name is NOT a key and must be qualified by its atoll — maldives.geo.islandWithAtoll does that. Second, the romanisation is not standardised: the census writes Dhihdhoo where the island council writes Dhidhdhoo, Huvarafushi against Hoarafushi, Bileiyfahi against Bilehffahi, Hinmafushi against Himmafushi; the census forms are used here and the Thaana in maldives.geo.islandThaana is the unambiguous version. Third, resorts are not on this list. About 170 further islands are leased tourist resorts with a staff population and no residents, and 52,482 people were counted on them in 2022 — more than any atoll except Addu — so a Maldivian dataset about tourism is about islands this file does not contain. Source: Maldives Bureau of Statistics, Population and Housing Census 2022.
+description: Every inhabited island in an administrative atoll of the Maldives — 186 of them — weighted by resident population at the census of 13 September 2022. This is the closest thing the country has to a list of settlements, and the shape of it is the country: the largest entry, Hithadhoo in Addu, has 13,759 people; the smallest, Rakeedhoo in Vaavu, has 76; the median island has about 700, and more than a third of the whole population does not appear in this list at all because it lives in Malé City (211,908), which is not in any atoll — see maldives.geo.maleWard. A population drawn from this list is therefore an ATOLL population and will look nothing like a Maldivian national sample. The census counts one further inhabited island, Hulhulé, the airport island with 802 residents; it belongs to Malé City rather than to an atoll, so it carries no atoll prefix and is not in this list. Three things to know before parsing island names. First, they repeat: there is a Dhidhdhoo in Haa Alif and a Dhidhdhoo in Alif Dhaalu, a Feydhoo in Shaviyani and a Feydhoo in Addu, a Thinadhoo in Vaavu and the city of Thinadhoo in Gaafu Dhaalu, so an island name is NOT a key and must be qualified by its atoll — maldives.geo.islandWithAtoll does that. Second, the romanisation is not standardised: the census writes Dhihdhoo where the island council writes Dhidhdhoo, Huvarafushi against Hoarafushi, Bileiyfahi against Bilehffahi, Hinmafushi against Himmafushi; the census forms are used here and the Thaana in maldives.geo.islandThaana is the unambiguous version. Third, resorts are not on this list. About 170 further islands are leased tourist resorts with a staff population and no residents, and 52,482 people were counted on them in 2022 — more than any atoll except Addu — so a Maldivian dataset about tourism is about islands this file does not contain. Source: Maldives Bureau of Statistics, Population and Housing Census 2022.
 weighted: true
-locale: dv-Latn
+locale: dv-latn
 ---
 Hithadhoo,13759
 Kulhudhuffushi,10131
@@ -16,7 +16,7 @@ Dhihdhoo,3412
 Dhuvaafaru,3321
 Kudahuvadhoo,3131
 Fonadhoo,2986
-Villimalé,2900
+Vilin'gili,2900
 Ihavandhoo,2873
 Maamin'gili,2798
 Hanimaadhoo,2664
@@ -99,7 +99,6 @@ Mathiveri,878
 Faresmaathodaa,858
 Madifushi,858
 Feydhoo,854
-Hulhule,802
 Kolhufushi,793
 Vaikaradhoo,776
 Hulhudheli,764
