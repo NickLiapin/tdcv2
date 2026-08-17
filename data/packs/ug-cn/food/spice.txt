@@ -1,0 +1,26 @@
+---
+description: Spice and seasoning in Uyghur. ZIRE COMES FIRST AND THAT IS NOT ALPHABETICAL: cumin is the signature of the whole cuisine, and a kebab is dressed with zire and qizil much and nothing else. The Persian layer names the sweet spices — darchin cinnamon, hel cardamom, qerenpül clove, zeperan saffron — and the herb block is fresh rather than dried, because kishnish (coriander), shiwit (dill), reyhan (basil) and pudina (mint) go on the plate at the table. REFUSED HERE: turmeric, which I could not confirm a settled Uyghur name for, and which is better absent than guessed.
+locale: ug-cn
+---
+زىرە
+قىزىل مۇچ
+قارا مۇچ
+تۇز
+سامساق
+زەنجىۋىل
+دارچىن
+قەرەنپۈل
+ھەل
+زەپەران
+ئانىس
+لاۋر يوپۇرمىقى
+كىشنىش
+شىۋىت
+رەيھان
+پۇدىنا
+كۈنجۈت
+سىركە
+سويا سۇيۇقلۇقى
+ھەسەل
+شېكەر
+قىزىل مۇچ توزى

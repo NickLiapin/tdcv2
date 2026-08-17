@@ -1,0 +1,10 @@
+---
+description: Faroese full name for a woman: one given name and one second name (Marjun Joensen, Eivør Hansdóttir). It draws from person/female/lastName, which carries the family names unchanged - a Faroese family name does not inflect for sex - and the patronymics in their -dóttir form. So a woman drawn from the head of the list shares her name with her brother, and one drawn from the tail does not: Hansson and Hansdóttir are the same father.
+generator: tdc
+locale: fo
+---
+<sequence name="p">
+  <gen name="f" type="template" value="fo.person.female.firstName"/>
+  <gen name="l" type="template" value="fo.person.female.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

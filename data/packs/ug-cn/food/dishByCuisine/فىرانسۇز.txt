@@ -1,0 +1,10 @@
+---
+description: Dish of the فىرانسۇز kitchen, in Uyghur. Filename matches food/cuisine.txt character for character.
+locale: ug-cn
+---
+كروسسان
+باگېت
+راتاتۇي
+كرېم بىرۇلې
+كىش
+پىياز شورپىسى

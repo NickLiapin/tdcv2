@@ -1,0 +1,19 @@
+---
+description: Payment method in Uyghur, and TWO ROWS ARE THE LOCAL FACT. Ündidar is WeChat — a name coined by Uyghur speakers themselves out of ün (voice) and the Persian -dar (holder), not a transliteration of Weixin — and Ündidar puli is WeChat Pay, which together with Alipay is how most everyday payment in Xinjiang is made. Cash is still first here because it is still first in a village bazaar. Card and bank transfer follow the international pattern.
+locale: ug-cn
+---
+نەق پۇل
+ئۈندىدار پۇلى
+ئېلىپەي
+بانكا كارتىسى
+كرېدىت كارتىسى
+تور بانكىسى
+پۇل ئۆتكۈزۈش
+QR كود بىلەن تۆلەش
+ئېلېكترونلۇق ھەميان
+مال كەلگەندە تۆلەش
+ئالدىن تۆلەش
+بۆلۈپ تۆلەش
+چەك
+بانكا كېپىللىكى
+سوۋغا كارتىسى

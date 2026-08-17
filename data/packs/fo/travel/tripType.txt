@@ -1,0 +1,24 @@
+---
+description: Purpose or kind of trip in Faroese.
+locale: fo
+---
+Vinnuferð
+Frítíðarferð
+Familjuferð
+Brúdleypsferð
+Ráðstevnuferð
+Skúlaferð
+Bygdaferð
+Fjallaferð
+Bátatúrur
+Fuglaskoðanarferð
+Fiskiferð
+Ljósmyndaferð
+Matarferð
+Ólavsøkuferð
+Kryssferð
+Bakpakkaferð
+Sjálvdrivin ferð
+Hópferð
+Heimferð
+Dagsferð

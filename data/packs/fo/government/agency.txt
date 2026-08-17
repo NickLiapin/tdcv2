@@ -1,0 +1,27 @@
+---
+description: Public body in Faroese. The Faroe Islands are SELF-GOVERNING within the Kingdom of Denmark, and the split runs straight through this list: Løgtingið (the parliament) and Landsstýrið (the government) with their -málaráð ministries are Faroese and take their own decisions on fisheries, education, health, tax and industry, while police, courts, defence, the currency and foreign affairs remain Danish and are run from Copenhagen. Anything with a number, a register or a jurisdiction attached belongs in a country pack, not here.
+locale: fo
+---
+Løgtingið
+Landsstýrið
+Fíggjarmálaráðið
+Fiskimálaráðið
+Mentamálaráðið
+Heilsumálaráðið
+Almannamálaráðið
+Uttanríkis- og vinnumálaráðið
+Umhvørvismálaráðið
+Kommunan
+Kommunustýrið
+Landsverk
+TAKS
+Heilsutrygd
+Hagstova Føroya
+Umhvørvisstovan
+Búnaðarstovan
+Havstovan
+Vinnueftirlitið
+Almannaverkið
+Nevnd
+Stovnur
+Eftirlit

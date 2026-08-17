@@ -1,0 +1,15 @@
+---
+description: Shipping status in Faroese. UPPIHALD Í VEÐRI is a real tracking state here and not a joke: the islands are served by one airport and one ferry, both stop for weather often enough that carriers report it as a delivery status, and nothing moves between islands on a bad day either.
+locale: fo
+---
+Merki gjørt
+Á veg
+Í Tórshavn
+Út til levering
+Latið
+Bíðar á posthúsinum
+Uppihald í veðri
+Í tolli
+Farið til baka
+Burtur komið
+Tikið upp

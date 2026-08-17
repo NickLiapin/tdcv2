@@ -1,0 +1,5 @@
+---
+description: Currency of تاجىكىستان, named in Uyghur.
+locale: ug-cn
+---
+سومونى

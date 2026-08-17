@@ -1,0 +1,11 @@
+---
+description: Dishes of Kinesiskur matur
+locale: fo
+---
+Vorrullur
+Steiktur rís
+Dumplings
+Peking-ont
+Chow mein
+Kung Pao-høsn
+Mapo tofu

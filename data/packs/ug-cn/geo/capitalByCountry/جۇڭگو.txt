@@ -1,0 +1,5 @@
+---
+description: Capital of جۇڭگو, in Uyghur. Filename matches geo/country.txt character for character.
+locale: ug-cn
+---
+بېيجىڭ

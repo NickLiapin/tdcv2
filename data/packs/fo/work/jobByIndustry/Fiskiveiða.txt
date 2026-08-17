@@ -1,0 +1,10 @@
+---
+description: Jobs in Fiskiveiða
+locale: fo
+---
+Skipari
+Stýrimaður
+Maskinmeistari
+Fiskimaður
+Netabøtari
+Fiskaverkari

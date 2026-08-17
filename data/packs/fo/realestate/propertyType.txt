@@ -1,0 +1,23 @@
+---
+description: Kind of property in Faroese. NEYST and HJALLUR are sold and valued as property here and appear in estate agents' listings: a neyst is the stone boathouse at the shore, a hjallur the slatted drying shed. Neither has an equivalent in a Danish or English property list.
+locale: fo
+---
+Sethús
+Einafamiljuhús
+Tvífamiljuhús
+Røðhús
+Íbúð
+Leiguíbúð
+Kjallaraíbúð
+Summarhús
+Bóndagarður
+Grund
+Neyst
+Hjallur
+Løða
+Vinnuhús
+Skrivstova
+Búð
+Goymsluhús
+Fiskavirki
+Havnargrund

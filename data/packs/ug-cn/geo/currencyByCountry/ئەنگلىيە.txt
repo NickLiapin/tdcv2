@@ -1,0 +1,5 @@
+---
+description: Currency of ئەنگلىيە, named in Uyghur.
+locale: ug-cn
+---
+فوند ستېرلىڭ

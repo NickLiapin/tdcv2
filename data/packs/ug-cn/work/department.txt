@@ -1,0 +1,26 @@
+---
+description: Department of a company or an institution, in Uyghur. bölüm is the unit and the name is formed as function + bölümi with the possessive joint, so xadimlar bölümi is literally the staff-its-department. Note that Uyghur says xadimlar (staff) rather than borrowing human resources; the category name hr is banned in this project for an unrelated reason and the Uyghur word never needed it.
+locale: ug-cn
+---
+باشقۇرۇش بۆلۈمى
+خادىملار بۆلۈمى
+مالىيە بۆلۈمى
+ھېسابات بۆلۈمى
+سېتىش بۆلۈمى
+سېتىۋېلىش بۆلۈمى
+ئىشلەپچىقىرىش بۆلۈمى
+تەتقىقات بۆلۈمى
+تېخنىكا بۆلۈمى
+ئۇچۇر بۆلۈمى
+سۈپەت تەكشۈرۈش بۆلۈمى
+ئىسكىلات بۆلۈمى
+قاتناش بۆلۈمى
+تەشۋىقات بۆلۈمى
+قانۇن بۆلۈمى
+خەۋپسىزلىك بۆلۈمى
+مۇلازىمەت بۆلۈمى
+لايىھىلەش بۆلۈمى
+پىلان بۆلۈمى
+كاتىپلىق بۆلۈمى
+تەربىيىلەش بۆلۈمى
+ساقلىق بۆلۈمى

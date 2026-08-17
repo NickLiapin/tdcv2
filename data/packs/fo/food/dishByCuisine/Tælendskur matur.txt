@@ -1,0 +1,10 @@
+---
+description: Dishes of Tælendskur matur
+locale: fo
+---
+Pad thai
+Grønt karrý
+Tom yum
+Massaman-karrý
+Som tam
+Mango sticky rice

@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Kyrrahavsoyggjar ancestry. A prevalence signal, not an exclusive one.
+locale: fo
+---
+Sukursjúka týpa 2
+Ovfeitirelateraður blóðtrýstur
+Gikt
+Reumatisk hjartasjúka
+Langvarandi nýrusjúka
+Podagra

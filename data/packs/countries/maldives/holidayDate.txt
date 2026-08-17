@@ -1,0 +1,18 @@
+---
+address: maldives.holidayDate
+description: The DATE of each Maldivian public holiday, in the same order as maldives.holiday and maldives.holidayEnglish — and the reason this is a text list rather than a set of dates is the substance of the file. The first five are Gregorian day-and-month and can be put on a calendar for any year. The remaining eight are HIJRI day-and-month and cannot: 1 Muharram, 1 and 12 Rabi' al-Awwal, 2 Rabi' al-Thani, 1 Ramadan, 1-3 Shawwal, 9 Dhu al-Hijjah and 10-13 Dhu al-Hijjah are dates in a lunar calendar of 354 or 355 days, so each of them lands about eleven days earlier in the Gregorian year than it did last year, and each returns to the same Gregorian date only after about 33 years. Two of the entries are RANGES rather than days, because Eid al-Fitr and Eid al-Adha are multi-day festivals, and one date carries a range in Gregorian too: Independence Day is 26-27 July. Converting the Hijri entries is not simply arithmetic. The Maldives fixes the start of each lunar month by observation of the new moon, announced by the Ministry of Islamic Affairs, so the official date can be one day off any astronomical conversion table and can differ from the same festival in Saudi Arabia or Indonesia. A pipeline that converts these with a library and treats the result as authoritative will be wrong roughly as often as it is right about the exact day, and the honest representation is what is written here: the Hijri date, unconverted, with the year left open.
+locale: en
+---
+1 January
+1 May
+26-27 July
+3 November
+11 November
+1 Muharram
+1 Rabi' al-Awwal
+12 Rabi' al-Awwal
+2 Rabi' al-Thani
+1 Ramadan
+1-3 Shawwal
+9 Dhu al-Hijjah
+10-13 Dhu al-Hijjah

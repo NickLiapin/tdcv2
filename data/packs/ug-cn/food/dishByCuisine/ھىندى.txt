@@ -1,0 +1,10 @@
+---
+description: Dish of the ھىندى kitchen, in Uyghur. Filename matches food/cuisine.txt character for character.
+locale: ug-cn
+---
+كاررى
+بىريانى
+تاندۇرى توخۇ
+ماسالا
+چاپاتى
+پانىر

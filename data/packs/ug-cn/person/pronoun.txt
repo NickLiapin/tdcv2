@@ -1,0 +1,12 @@
+---
+description: Personal pronoun (Uyghur). THE THIRD PERSON IS THE POINT: u covers he, she and it with no distinction whatever, and ular covers they. A config that maps a gender column onto a pronoun column has nothing to map in Uyghur. The second person is graded for respect instead — sen to a child or an intimate, siz to almost everyone, sili to an elder or a stranger being honoured — which is the axis Uyghur marks where English marks sex.
+locale: ug-cn
+---
+مەن
+سەن
+سىز
+سىلى
+ئۇ
+بىز
+سىلەر
+ئۇلار

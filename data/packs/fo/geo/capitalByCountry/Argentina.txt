@@ -1,0 +1,5 @@
+---
+description: Capital of Argentina as Faroese names it
+locale: fo
+---
+Buenos Aires

@@ -1,0 +1,32 @@
+---
+description: Field of study in Faroese. The first four are what Fróðskaparsetur Føroya, the University of the Faroe Islands, actually teaches as its own degrees; most other fields are studied in Denmark, which is why the list reads like a Danish university prospectus written in Faroese.
+locale: fo
+---
+Føroyskt mál og bókmentir
+Sjúkrarøkt
+Læraraútbúgving
+Fiskivinnufrøði
+Søga
+Samfelagsfrøði
+Búskapur
+Løgfrøði
+Læknafrøði
+Sálarfrøði
+Felagsfrøði
+Teldufrøði
+Verkfrøði
+Byggifrøði
+Sjóvinnufrøði
+Náttúruvísindi
+Alisfrøði
+Evnafrøði
+Lívfrøði
+Støddfrøði
+Umhvørvisfrøði
+Landafrøði
+Fjølmiðlafrøði
+Marknaðarføring
+Umsiting
+Tónleikur
+Listir
+Guðfrøði

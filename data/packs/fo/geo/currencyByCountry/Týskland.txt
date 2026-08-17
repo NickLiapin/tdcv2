@@ -1,0 +1,5 @@
+---
+description: Currency of Týskland as Faroese names it
+locale: fo
+---
+evra

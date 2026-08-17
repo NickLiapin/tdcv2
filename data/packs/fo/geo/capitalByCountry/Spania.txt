@@ -1,0 +1,5 @@
+---
+description: Capital of Spania as Faroese names it
+locale: fo
+---
+Madrid

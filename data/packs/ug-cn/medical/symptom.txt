@@ -1,0 +1,42 @@
+---
+description: Symptom in Uyghur, as a patient would say it. NOTE THE GRAMMAR: a symptom is normally organ + aghriqi, the organ plus its pain — bash aghriqi is head-its-pain — and the possessive suffix -i / -si is what joins them, which is the same joint used all through this pack for street types and specialty names. The verbal ones are infinitives: qusush to vomit, terlesh to sweat, titresh to shiver.
+locale: ug-cn
+---
+قىزىتما
+باش ئاغرىقى
+ھالسىزلىق
+كۆڭۈل ئېلىشىش
+قۇسۇش
+ئىچ سۈرۈش
+ئىچ قېتىش
+قورساق ئاغرىقى
+كۆكرەك ئاغرىقى
+نەپەس سىقىلىش
+يۆتەل
+گال ئاغرىقى
+بۇرۇن ئېقىش
+بۇرۇن پېتىش
+باش ئايلىنىش
+كۆز خىرەلىشىش
+مۇسكۇل ئاغرىقى
+بوغۇم ئاغرىقى
+بەل ئاغرىقى
+تېرە تاشمىسى
+قىچىشىش
+ئىششىش
+سەزگۈسىزلىنىش
+چىمىلداش
+يۈرەك ئۇرۇشى تېزلىشىش
+ئىشتىھا يوقلۇقى
+ئورۇقلاش
+كېچىدە تەرلەش
+ئۈشۈش
+چۈچكۈرۈش
+ئاشقازان كۆيۈشى
+قورساق دەمىشى
+مۇسكۇل تارتىشىش
+تىترەش
+ئېسىڭ ئېزىش
+ئۇيقۇسىزلىق
+قان كېتىش
+تەرلەش

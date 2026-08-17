@@ -1,0 +1,20 @@
+---
+description: Seniority level for a role, in Faroese.
+locale: fo
+---
+Lærlingur
+Starvsvenjingarfólk
+Nýbyrjari
+Assistentur
+Sveinur
+Meistari
+Miðal
+Royndur
+Serfrøðingur
+Yvirserfrøðingur
+Leiðari
+Deildarleiðari
+Verkstjóri
+Stjóri
+Aðalstjóri
+Nevndarformaður

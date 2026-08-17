@@ -1,0 +1,10 @@
+---
+description: Jobs in Handil
+locale: fo
+---
+Handilsstjóri
+Búðarstarvsfólk
+Kassastarvsfólk
+Innkeypari
+Goymslustarvsfólk
+Sølumaður

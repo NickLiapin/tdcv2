@@ -1,0 +1,12 @@
+---
+description: Dish of the خەنزۇ kitchen, in Uyghur. Filename matches food/cuisine.txt character for character.
+locale: ug-cn
+---
+جياۋزا
+بائوزا
+مېنتۇ
+چاۋمەن
+خوگو
+گۇڭباۋ توخۇ
+مافو دوفۇ
+بېيجىڭ ئۆردەك كاۋىپى

@@ -1,0 +1,16 @@
+---
+description: Diagnosis seen in the تېرە كېسەللىكلىرى clinic, in Uyghur. Filename matches medical/specialtyCoherent.txt character for character.
+locale: ug-cn
+---
+ئېكزېما
+تەڭگە كېسىلى
+تاشما
+قىچىشما
+ئۇچۇق
+سۈگەت
+پېسە
+تېرە ياللۇغى
+تېرە زەڭ كېسىلى
+يۈز سەپكىسى
+كۆيۈك
+تېرە قۇرۇشى

@@ -1,0 +1,26 @@
+---
+description: Metal in Faroese.
+locale: fo
+---
+Gull
+Silvur
+Kopar
+Jarn
+Stál
+Rustfrítt stál
+Alumin
+Tin
+Blýggj
+Sink
+Nikkul
+Kvikksilvur
+Platin
+Brons
+Messing
+Titan
+Króm
+Wolfram
+Uran
+Magnesium
+Kalsium
+Kobolt

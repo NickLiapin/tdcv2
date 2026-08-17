@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Norðurevropa ancestry. A prevalence signal, not an exclusive one.
+locale: fo
+---
+Cystisk fibrosa
+Hemokromatosa
+Alfa-1-antitrypsintrot
+Fenylketonuri
+Laktosetoleransa
+Multipul sklerosa
+Húðkrabbamein
+Celiaki
+Karnitintrot
+Familiær hyperkolesterolemi

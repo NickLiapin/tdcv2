@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list beside it in sport/positionBySport.
+locale: fo
+---
+Fótbóltur
+Hondbóltur
+Flogbóltur
+Kappróður
+Kurvabóltur
+Íshokkey
+Rugby
+Baseball

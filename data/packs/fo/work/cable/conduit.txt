@@ -1,0 +1,11 @@
+---
+description: How a cable run is installed, in Faroese. SJÓKAÐAL is not exotic here: the Faroe Islands are eighteen islands wired to each other and to Europe by submarine cable, both for power and for the fibre that carries the country's internet, so laying and repairing them is ordinary local work.
+locale: fo
+---
+PVC-rør
+Stálrør
+HDPE-rør
+Beinleiðis niðurgrivið
+Kaðalbrúgv
+Kaðalgrøv
+Sjókaðal

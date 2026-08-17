@@ -1,0 +1,22 @@
+---
+description: Weather phenomenon in Faroese. ÆLABOGI is the rainbow, and it is literally a shower-bow rather than a rain-bow - Danish says regnbue and Icelandic regnbogi, and Faroese names it after the squall it appears in. NORÐLJÓS is the aurora.
+locale: fo
+---
+Ódn
+Stormflóð
+Snjóódn
+Skriða
+Toran
+Elding
+Ælabogi
+Norðljós
+Sólmyrking
+Mánamyrking
+Brim
+Stórsjógvur
+Fjøruflóð
+Hitabylgja
+Kuldabylgja
+Mjørkabanki
+Vindkast
+Turkur

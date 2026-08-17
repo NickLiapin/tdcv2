@@ -1,0 +1,12 @@
+---
+description: Monthly household income bracket, labelled in Dhivehi. Amounts are in ދިވެހި ރުފިޔާ (Maldivian rufiyaa, MVR), the currency of the Maldives — the one country where Dhivehi is the state language. These are MONTHLY, not annual: Maldivian pay is quoted by the month, and the statutory minimum wage introduced in 2022 is 4500-8000 rufiyaa a month depending on employer size.
+locale: dv
+---
+4500 ރުފިޔާއިން ދަށް
+4500 - 8000 ރުފިޔާ
+8000 - 12000 ރުފިޔާ
+12000 - 20000 ރުފިޔާ
+20000 - 30000 ރުފިޔާ
+30000 - 50000 ރުފިޔާ
+50000 - 100000 ރުފިޔާ
+100000 ރުފިޔާއިން މަތި

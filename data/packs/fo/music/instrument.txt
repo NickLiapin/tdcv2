@@ -1,0 +1,35 @@
+---
+description: Musical instrument in Faroese.
+locale: fo
+---
+Fiðla
+Gittari
+Elgittari
+Bassgittari
+Klaver
+Orgul
+Harmonikka
+Munnharpa
+Trumma
+Trumbusett
+Floyta
+Trompet
+Básúna
+Horn
+Tuba
+Klarinett
+Saksofonur
+Obo
+Fagott
+Selló
+Kontrabassi
+Harpa
+Mandolin
+Ukulele
+Banjo
+Syntisajsari
+Xylofon
+Tambúrin
+Sekkjapípa
+Sítar
+Congas

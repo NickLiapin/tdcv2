@@ -1,0 +1,24 @@
+---
+description: Kind of event in Faroese. ÓLAVSØKA is the national holiday on 28-29 July, when the Løgting opens and the whole country goes to Tórshavn; KAPPRÓÐUR, the rowing race between village crews, is the sporting event of the summer and is held at Ólavsøka and at every regatta before it. Neither has an equivalent elsewhere.
+locale: fo
+---
+Ólavsøka
+Kappróður
+Bygdarfestur
+Brúdleyp
+Konsert
+Festivalur
+Ráðstevna
+Fundur
+Ársfundur
+Skeið
+Fyrilestur
+Vísing
+Dansistevna
+Ítróttarkapping
+Netverksfundur
+Jarðarferð
+Skírn
+Ferming
+Føðingardagur
+Jólahald

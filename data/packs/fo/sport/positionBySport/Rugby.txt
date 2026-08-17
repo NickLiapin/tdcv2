@@ -1,0 +1,10 @@
+---
+description: Positions in Rugby. In English on purpose: the game is barely played here and has no Faroese terminology.
+locale: fo
+---
+Prop
+Hooker
+Lock
+Scrum-half
+Fly-half
+Fullback

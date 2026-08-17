@@ -1,0 +1,16 @@
+---
+description: Kind of leave in Faroese. One category that a European list would normally carry is ABSENT on purpose: there is no military leave, because the Faroe Islands have no armed forces and no conscription - defence is Denmark's responsibility and no Faroese employee is ever called up.
+locale: fo
+---
+Frítíð
+Sjúkufráveru
+Barsilsfarloyvi
+Feðrafarloyvi
+Foreldrafarloyvi
+Barnasjúkudagur
+Sorgarfráveru
+Skeiðsfráveru
+Ólønt fráveru
+Frídagur
+Vetrarfrítíð
+Ólavsøkufrítíð

@@ -1,0 +1,24 @@
+---
+description: School subject in Uyghur. THREE LANGUAGES ARE THREE SEPARATE SUBJECTS on an Uyghur school timetable — uyghur tili, xenzu tili and ingliz tili — and that is the single structural difference from a European curriculum.
+locale: ug-cn
+---
+ئۇيغۇر تىلى
+خەنزۇ تىلى
+ئىنگلىز تىلى
+ماتېماتىكا
+فىزىكا
+خىمىيە
+بىئولوگىيە
+جۇغراپىيە
+تارىخ
+سىياسەت
+ئەدەبىيات
+مۇزىكا
+رەسىم
+تەنتەربىيە
+ئەمگەك
+ئىنفورماتىكا
+ئىقتىساد
+پەلسەپە
+پىسخولوگىيە
+ئاسترونومىيە

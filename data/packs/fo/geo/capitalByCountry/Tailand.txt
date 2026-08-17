@@ -1,0 +1,5 @@
+---
+description: Capital of Tailand as Faroese names it
+locale: fo
+---
+Bangkok

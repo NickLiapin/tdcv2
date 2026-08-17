@@ -1,0 +1,16 @@
+---
+description: Property listing status in Faroese.
+locale: fo
+---
+Til sølu
+Til leigu
+Tilboð móttikið
+Selt
+Útleigað
+Fráteikið
+Nýtt á marknaðinum
+Prísur lækkaður
+Á uppboðssølu
+Tikið av marknaðinum
+Undir bygging
+Ikki tøkt

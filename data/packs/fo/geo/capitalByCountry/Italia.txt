@@ -1,0 +1,5 @@
+---
+description: Capital of Italia as Faroese names it
+locale: fo
+---
+Róm

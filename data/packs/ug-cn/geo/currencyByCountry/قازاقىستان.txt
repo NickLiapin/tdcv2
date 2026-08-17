@@ -1,0 +1,5 @@
+---
+description: Currency of قازاقىستان, named in Uyghur.
+locale: ug-cn
+---
+تەڭگە

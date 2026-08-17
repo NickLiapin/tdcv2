@@ -1,0 +1,16 @@
+---
+description: Month name in Faroese. They are LOWER CASE - Faroese does not capitalise month names, and a config that title-cases them is wrong. The forms are the international ones spelled Faroese: apríl, mai, juni, juli, desember.
+locale: fo
+---
+januar
+februar
+mars
+apríl
+mai
+juni
+juli
+august
+september
+oktober
+november
+desember

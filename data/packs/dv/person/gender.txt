@@ -1,0 +1,6 @@
+---
+description: Gender label (Dhivehi). Maldivian official forms record two and only two, so this list is two long by design rather than by omission.
+locale: dv
+---
+ފިރިހެން
+އަންހެން

@@ -1,0 +1,24 @@
+---
+description: Delivery carrier and freight mode as an Uyghur parcel label shows them. Junggo pochtisi is China Post and is the one universal service; EMS, DHL, FedEx and UPS keep their international Latin brand names, which is correct in any locale. THE CHINESE PRIVATE COURIERS ARE DELIBERATELY ABSENT: SF, YTO, ZTO and the rest have no settled Uyghur spelling that I could confirm, and a guessed transliteration of a brand name is worse than a short list. The remaining rows are modes of carriage rather than companies, which is how a small Uyghur trader actually describes a shipment.
+locale: ug-cn
+---
+جۇڭگو پوچتىسى
+EMS
+DHL
+FedEx
+UPS
+تېز يەتكۈزۈش شىركىتى
+شەھەر ئىچى يەتكۈزۈش
+ئۆيگىچە يەتكۈزۈش
+ئاۋىئا يۈك
+تېمىر يول يۈكى
+ئاپتوموبىل يۈكى
+دېڭىز يۈكى
+سوغۇق زەنجىر يەتكۈزۈش
+يۈك ئامبىرى
+رەستىدىن ئېلىش
+ئۆزى ئېلىپ كېتىش
+ئارىلىق ئامبار
+چېگرا ھالقىغان يۈك
+ئالدىن ئېلىش نۇقتىسى
+كارۋان يۈكى

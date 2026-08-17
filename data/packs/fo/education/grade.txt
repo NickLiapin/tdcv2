@@ -1,0 +1,11 @@
+---
+description: School mark in Faroese schools. This is the Danish 7-point scale (7-trins-skalan), which the Faroes use unchanged: 12, 10, 7, 4, 02, 00, -3. Three things a config cannot guess - the scale is NOT continuous (there is no 11, 9, 8), 02 is the pass mark and the leading zero is part of the mark rather than formatting, and -3 is a real negative mark for an unacceptable performance. There is no A-F lettering here at all.
+locale: fo
+---
+12
+10
+7
+4
+02
+00
+-3

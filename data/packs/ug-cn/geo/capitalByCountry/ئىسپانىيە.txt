@@ -1,0 +1,5 @@
+---
+description: Capital of ئىسپانىيە, in Uyghur. Filename matches geo/country.txt character for character.
+locale: ug-cn
+---
+مادرىد

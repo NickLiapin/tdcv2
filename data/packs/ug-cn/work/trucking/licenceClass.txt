@@ -1,0 +1,12 @@
+---
+description: Vehicle category a driver is licensed for, named in Uyghur. REFUSED: the actual class CODES. Driving licence classes in Xinjiang are the Chinese national A1/A2/B1/B2/C1 series, which is a country fact and not a language one, and printing them in a locale pack is exactly the mistake this project keeps finding. What is here is the Uyghur words for the kinds of vehicle; the code that goes on the card belongs in a country pack.
+locale: ug-cn
+---
+يېنىك ئاپتوموبىل
+ئېغىر يۈك ماشىنىسى
+تىرکەشلىك يۈك ماشىنىسى
+ئاۋتوبۇس
+كىچىك ئاپتوبۇس
+موتوسىكلېت
+تىراكتور
+خەتەرلىك يۈك رۇخسىتى

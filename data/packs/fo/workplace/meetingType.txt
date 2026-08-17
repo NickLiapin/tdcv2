@@ -1,0 +1,16 @@
+---
+description: Kind of meeting in Faroese.
+locale: fo
+---
+Dagligur fundur
+Vikuligur fundur
+Eintil-ein
+Deildarfundur
+Alfundur
+Nevndarfundur
+Ársfundur
+Verkætlanarfundur
+Kundafundur
+Netfundur
+Skeið
+Endurskoðanarfundur

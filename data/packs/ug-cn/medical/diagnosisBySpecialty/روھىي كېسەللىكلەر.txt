@@ -1,0 +1,16 @@
+---
+description: Diagnosis seen in the روھىي كېسەللىكلەر clinic, in Uyghur. Filename matches medical/specialtyCoherent.txt character for character.
+locale: ug-cn
+---
+دەپرەسسىيە
+ئەندىشە كېسىلى
+شىزوفرېنىيە
+ئىككى قۇتۇپلۇق كېسەللىك
+ئۇيقۇسىزلىق
+مەجبۇرىي ھەرىكەت كېسىلى
+زەربىدىن كېيىنكى زورۇقۇش
+دىققەت يېتىشمەسلىك
+ھاراقكەشلىك
+زەھەرگە ئېسىلىش
+تاماق يېيىش تەرتىپسىزلىكى
+ھاياجانلىنىش كېسىلى

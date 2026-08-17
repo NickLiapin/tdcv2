@@ -1,0 +1,9 @@
+---
+description: Diagnoses seen in Nefrologi
+locale: fo
+---
+Langvarandi nýrusjúka
+Nýrusteinar
+Glomerulonefritt
+Bráð nýrubilan
+Nýrubruni

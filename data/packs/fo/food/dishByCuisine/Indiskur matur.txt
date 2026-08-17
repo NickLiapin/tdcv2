@@ -1,0 +1,11 @@
+---
+description: Dishes of Indiskur matur
+locale: fo
+---
+Butter chicken
+Biryani
+Tikka masala
+Samosa
+Naan
+Dal
+Rogan josh

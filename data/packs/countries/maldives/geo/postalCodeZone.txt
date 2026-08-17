@@ -1,0 +1,28 @@
+---
+address: maldives.geo.postalCodeZone
+description: The two leading digits of a Maldivian postcode — the atoll zone. A Maldives postcode is five digits, zone + three, and the zone runs down the country from north to south: 01 Haa Alif, 02 Haa Dhaalu, 03 Shaviyani and so on to 19 Seenu, with Malé City taking 20 (Malé island), 21 (Villimalé), 22 (Hulhule) and 23 (Hulhumalé). The interesting one is 00. Alif Dhaalu, the southern half of Ari Atoll, carries zone 00 — Mahibadhoo is 00040 and Dhangethi 00060 — because the nineteen atolls that existed when the codes were allocated took 01 to 19 and the half created in 1984 was given the one code left. So a Maldivian postcode can begin with two zeros, and a field that stores it as an integer loses an entire atoll. Watch out for the Universal Postal Union addressing sheet for the Maldives, dated 2004 and still published: it puts Alif Dhaalu at 10 and shifts every zone below it up by one, which lands Seenu on 20 and collides it with Malé. That is not what the codes in use say - Hithadhoo in Addu is 19020, not 20020 - and this list follows the codes in use. Order matches maldives.geo.atoll, with the four Malé City zones appended.
+---
+01
+02
+03
+04
+05
+06
+07
+08
+09
+00
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23

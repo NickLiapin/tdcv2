@@ -1,0 +1,20 @@
+---
+description: Kind of venue in Faroese. SAMKOMUHÚS, the village assembly house, is where most Faroese social life outside Tórshavn actually happens - it is the concert hall, the dance floor, the wedding reception and the meeting room of a village of two hundred people.
+locale: fo
+---
+Samkomuhús
+Bygdarhús
+Ítróttarhøll
+Konsertsalur
+Leikpallur
+Ráðstevnuhøll
+Hotellsalur
+Kirkja
+Skúli
+Matstova
+Bar
+Bókasavn
+Savn
+Undir berum himli
+Havnarøki
+Ferja

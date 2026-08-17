@@ -1,0 +1,5 @@
+---
+description: Currency of پورتۇگالىيە, named in Uyghur.
+locale: ug-cn
+---
+ياۋرو

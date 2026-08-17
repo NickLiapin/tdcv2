@@ -1,0 +1,66 @@
+{
+  "months": [
+    "januar",
+    "februar",
+    "mars",
+    "apríl",
+    "mai",
+    "juni",
+    "juli",
+    "august",
+    "september",
+    "oktober",
+    "november",
+    "desember"
+  ],
+  "monthsInDate": [
+    "januar",
+    "februar",
+    "mars",
+    "apríl",
+    "mai",
+    "juni",
+    "juli",
+    "august",
+    "september",
+    "oktober",
+    "november",
+    "desember"
+  ],
+  "monthsShort": [
+    "jan.",
+    "feb.",
+    "mar.",
+    "apr.",
+    "mai",
+    "jun.",
+    "jul.",
+    "aug.",
+    "sep.",
+    "okt.",
+    "nov.",
+    "des."
+  ],
+  "weekdays": [
+    "sunnudagur",
+    "mánadagur",
+    "týsdagur",
+    "mikudagur",
+    "hósdagur",
+    "fríggjadagur",
+    "leygardagur"
+  ],
+  "weekdaysShort": [
+    "sun.",
+    "mán.",
+    "týs.",
+    "mik.",
+    "hós.",
+    "frí.",
+    "ley."
+  ],
+  "formats": {
+    "L": "DD.MM.YYYY",
+    "LL": "D. MMMM YYYY"
+  }
+}

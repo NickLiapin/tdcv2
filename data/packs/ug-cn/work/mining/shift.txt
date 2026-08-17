@@ -1,0 +1,9 @@
+---
+description: Work shift in Uyghur. nöwet is a turn or a shift; the day is divided the same four ways as in any industrial rota.
+locale: ug-cn
+---
+ئەتىگەنلىك نۆۋەت
+چۈشلۈك نۆۋەت
+كەچلىك نۆۋەت
+كېچىلىك نۆۋەت
+دەم ئېلىش كۈنى

@@ -1,0 +1,25 @@
+---
+address: maldives.geo.atollGeographicThaana
+description: The official geographical atoll names in Thaana — the form printed in a Dhivehi government notice or a census table. This is the same list as maldives.geo.atollGeographic, in the same order, in the script the country actually writes. Note that the pairs are transparent here in a way the romanisation hides: uthuruburi and dhekunuburi are ordinary Dhivehi words for the northern and southern part, so a Dhivehi reader sees "Thiladhunmathi, northern part" where a Latin reader sees an opaque compound. Gnaviyani is the exception in this list and is given as the letter-code form, because Fuvahmulah is a single island that is its own atoll and has no separate geographical atoll name. Source: Maldives Bureau of Statistics, Census 2022 division names.
+locale: dv
+---
+ތިލަދުންމަތީ އުތުރުބުރި
+ތިލަދުންމަތީ ދެކުނުބުރި
+މިލަދުންމަޑުލު އުތުރުބުރި
+މިލަދުންމަޑުލު ދެކުނުބުރި
+މާޅޮސްމަޑުލު އުތުރުބުރި
+މާޅޮސްމަޑުލު ދެކުނުބުރި
+ފާދިއްޕޮޅު
+މާލެ އަތޮޅު
+އަރިއަތޮޅު އުތުރުބުރި
+އަރިއަތޮޅު ދެކުނުބުރި
+ފެލިދެ އަތޮޅު
+މުލަކަތޮޅު
+ނިލަންދެއަތޮޅު އުތުރުބުރި
+ނިލަންދެއަތޮޅު ދެކުނުބުރި
+ކޮޅުމަޑުލު
+ހައްދުންމަތި
+ހުވަދުއަތޮޅު އުތުރުބުރި
+ހުވަދުއަތޮޅު ދެކުނުބުރި
+ފުވައްމުލައް
+އައްޑުއަތޮޅު

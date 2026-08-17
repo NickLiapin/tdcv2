@@ -1,0 +1,5 @@
+---
+description: Currency of Nigeria as Faroese names it
+locale: fo
+---
+nigeriansk naira

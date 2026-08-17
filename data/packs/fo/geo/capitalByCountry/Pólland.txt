@@ -1,0 +1,5 @@
+---
+description: Capital of Pólland as Faroese names it
+locale: fo
+---
+Warsjava

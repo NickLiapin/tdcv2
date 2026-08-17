@@ -1,0 +1,32 @@
+---
+description: Technical verb in the Faroese present participle (-andi).
+locale: fo
+---
+dagførandi
+avritandi
+dulritandi
+kannandi
+koyrandi
+byggjandi
+sendandi
+strikandi
+goymandi
+leitandi
+flytandi
+startandi
+brótandi
+tengjandi
+skannandi
+verjandi
+sporandi
+hlaðandi
+greinandi
+málandi
+stýrandi
+skipandi
+reinsandi
+endurskapandi
+samstillandi
+prógvandi
+veitandi
+vaktandi

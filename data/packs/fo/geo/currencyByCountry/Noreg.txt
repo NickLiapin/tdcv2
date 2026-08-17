@@ -1,0 +1,5 @@
+---
+description: Currency of Noreg as Faroese names it
+locale: fo
+---
+norsk króna

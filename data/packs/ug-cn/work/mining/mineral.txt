@@ -1,0 +1,23 @@
+---
+description: Mineral, in Uyghur. THE LAST ROW IS THE ONE THAT MATTERS LOCALLY: qashtéshi is nephrite jade, dug and picked from the White Jade and Black Jade rivers at Hotan for three thousand years, and it is the single mineral with a deep native Uyghur name rather than a transliterated one. Oil and coal head the list because that is the modern order of the industry; the metal names are mostly Turkic (tömür iron, mis copper, altun gold, kümüsh silver) and the industrial minerals mostly borrowed.
+locale: ug-cn
+---
+نېفىت
+تەبىئىي گاز
+كۆمۈر
+تۆمۈر
+مىس
+ئالتۇن
+كۈمۈش
+قوغۇشۇن
+سىنك
+نىكېل
+ۋولفرام
+ئالۇمىن
+تۇز
+گىپس
+مەرمەر
+گرانىت
+ئاسبېست
+ئۇران
+قاشتېشى

@@ -1,0 +1,16 @@
+---
+description: Type of leave in Uyghur. ruxset is permission and the compounds are formed with it. Two rows are specifically local: héyt ruxsiti, leave for the Eid, and hej ruxsiti, leave to make the pilgrimage — which is taken once in a lifetime and is months rather than days.
+locale: ug-cn
+---
+يىللىق دەم ئېلىش
+كېسەل رۇخسىتى
+ئىش رۇخسىتى
+توي رۇخسىتى
+تۇغۇت رۇخسىتى
+ئاتا رۇخسىتى
+ماتەم رۇخسىتى
+ھەقسىز رۇخسەت
+ھېيت رۇخسىتى
+ھەج رۇخسىتى
+ئوقۇش رۇخسىتى
+نۆۋەتلىك دەم ئېلىش

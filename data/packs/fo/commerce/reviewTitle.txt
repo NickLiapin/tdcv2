@@ -1,0 +1,30 @@
+---
+description: Title a customer puts on a product review, in Faroese.
+locale: fo
+---
+Sera gott!
+Kann mæla til
+Betri enn væntað
+Góður prísur
+Skjót levering
+Sum lýst
+Fantastisk vøra
+Virkar væl
+Perfekt!
+Keypi aftur
+Góður kvalitetur
+Var vónbrotin
+Ikki tess vert
+Ov dýrt
+Ikki so gott
+Kom skalað
+Skeiv stødd
+Ov seint
+Gott til prísin
+Mæli ikki til
+Heldur í veðri
+Vatntætt sum lovað
+Ov lítið
+Ov stórt
+Rætt sum eg vildi
+Nøkso gott

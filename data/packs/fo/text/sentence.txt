@@ -1,0 +1,66 @@
+---
+description: Faroese filler sentences. Handwritten: Project Gutenberg holds no Faroese book at all. The search that other locales use to find a public-domain corpus (query l.fo) returns "No records found", while the same search returns books for Icelandic and Danish, so there was nothing to build from and this file was written by hand rather than harvested. It is not the output of data/scripts/build-text-corpus.mjs and is much smaller than a corpus-backed locale's.
+locale: fo
+---
+Báturin liggur við bryggjuna.
+Mjørkin liggur yvir fjøllunum.
+Seyðurin gongur í hagunum.
+Vindurin er hvassur í dag.
+Sólin skínur sjáldan leingi.
+Fiskimenninir fara út tíðliga um morgunin.
+Konan prjónar ein peysa.
+Børnini spæla á vøllinum.
+Skipið kemur inn í havnina.
+Kvøldið er lygnt og bjart.
+Vit fara at ganga á fjall.
+Hann rørir bátin út á fjørðin.
+Hon les eina bók í stovuni.
+Tey syngja kvæði í samkomuhúsinum.
+Kirkjan stendur ovast í bygdini.
+Tað regnar aftur í dag.
+Ferjan siglir millum oyggjarnar.
+Tunnilin gongur undir fjørðin.
+Skerpikjøtið hongur í hjallinum.
+Lundin situr á bergsbrúnni.
+Tjaldrið er fuglur Føroya.
+Vit drekka kaffi og eta køku.
+Hann arbeiðir á fiskavirkinum.
+Hon undirvísir í skúlanum.
+Bygdin hevur tvey hundrað íbúgvar.
+Vegurin er smalur og bratur.
+Kavin liggur á fjøllunum um veturin.
+Summarið er stutt og kalt.
+Náttin er ljós í juni.
+Vit sigldu til Tórshavnar í gjár.
+Hann keypti ein nýggjan bát í fjør.
+Hon skrivaði eitt bræv til systur sína.
+Tey bygdu eitt nýtt hús við sjógvin.
+Fiskurin verður turkaður í vindinum.
+Ullin er Føroya gull.
+Dansurin byrjar klokkan átta.
+Løgtingið kemur saman í Tórshavn.
+Presturin heldur prædiku hvønn sunnudag.
+Bátarnir koma inn við fullari last.
+Vit sóu norðljósini í nátt.
+Mjørkin kom skjótt yvir bygdina.
+Hann er skipari á einum trolara.
+Hon er sjúkrarøktarfrøðingur á sjúkrahúsinum.
+Børnini ganga í skúla í bygdini.
+Vit hava eitt lítið hús við havnina.
+Ælabogin stóð yvir fjørðinum.
+Tað er kalt úti í dag.
+Gestirnir komu við ferjuni.
+Vit fara til Danmarkar í summar.
+Hann hevur arbeitt á sjónum í tjúgu ár.
+Hon spælir á fiðlu.
+Tey dansa føroyskan dans.
+Klokkan er níggju um morgunin.
+Vit møtast á Vaglinum.
+Fuglarnir flúgva yvir bergið.
+Sjógvurin er úrigur í dag.
+Ódnin var hørð í nátt.
+Vit hava ikki sæð sólina í eina viku.
+Bókin er skrivað á føroyskum.
+Hann lærir at rógva.
+Tað er langt millum bygdirnar.
+Hvør bygd hevur sítt egna samkomuhús.

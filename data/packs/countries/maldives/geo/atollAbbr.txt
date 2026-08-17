@@ -1,0 +1,25 @@
+---
+address: maldives.geo.atollAbbr
+description: The Latin ABBREVIATION of each atoll code name — HA, HDh, Sh, N, R, B, Lh, K, AA, ADh, V, M, F, Dh, Th, L, GA, GDh, Gn, S. This is the form a Maldivian actually writes, because an island name on its own is ambiguous: there is a Funadhoo in Shaviyani and a Funadhoo in Malé atoll, a Maalhos in Alif Alif and a Maalhos in Baa, a Thinadhoo in Vaavu and a Thinadhoo in Gaafu Dhaalu. So the atoll abbreviation is prefixed and the pair is the real key: "HDh. Kulhudhuffushi", "GDh. Thinadhoo", "K. Maafushi" — see maldives.geo.islandWithAtoll. Note the capitalisation is not free: the digraphs are written Dh, Lh, Th, Gn with a lowercase second letter, and the doubled codes AA / ADh / GA / GDh take a capital, so "HDH" and "Adh" are both wrong. Order matches maldives.geo.atoll.
+locale: dv-Latn
+---
+HA
+HDh
+Sh
+N
+R
+B
+Lh
+K
+AA
+ADh
+V
+M
+F
+Dh
+Th
+L
+GA
+GDh
+Gn
+S

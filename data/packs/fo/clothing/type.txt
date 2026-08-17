@@ -1,0 +1,34 @@
+---
+description: Garment in Faroese. FØROYSKUR PEYSI is a specific thing and not a generic jumper: the hand-knitted patterned wool sweater. The wool it is made of is the subject of the national proverb ULL ER FØROYA GULL, wool is the gold of the Faroes. Waterproofs and wool outnumber light clothing on this list because the weather makes them.
+locale: fo
+---
+Føroyskur peysi
+Ullpeysa
+Peysa
+Skjúrta
+Bolur
+Buksur
+Stuttbuksur
+Kjóli
+Pils
+Jakki
+Vindjakki
+Dúnnjakki
+Regnfrakki
+Frakki
+Vesta
+Skinnjakki
+Ullarnærklæði
+Náttklæði
+Baðdrakt
+Sokkar
+Hosur
+Vøttir
+Húgva
+Trefil
+Skógvar
+Støvlar
+Gummistøvlar
+Sandalar
+Belti
+Bindi

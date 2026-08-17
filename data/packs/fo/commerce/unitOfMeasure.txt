@@ -1,0 +1,34 @@
+---
+description: Unit of measure in Faroese. The Faroes are fully metric, as Denmark is. The two at the end survive because they are sea measures: sjómíl is the nautical mile and favnur the fathom, and both are still used on the water.
+locale: fo
+---
+stk.
+pakki
+kassi
+posi
+fløska
+dós
+glas
+rulla
+ark
+par
+dusin
+sett
+g
+kg
+tonn
+ml
+dl
+l
+mm
+cm
+m
+km
+m2
+m3
+kWh
+tími
+dagur
+vika
+sjómíl
+favnur

@@ -1,0 +1,10 @@
+---
+description: Condition with a raised prevalence in the شەرقىي ياۋروپا ancestry group, in Uyghur. Filename matches medical/ancestry.txt character for character.
+locale: ug-cn
+---
+ئىرسىي گېموخروماتوز
+فېنىلكېتونۇرىيە
+ئائىلىۋى يۇقىرى خولېستېرىن
+ھاراقتىن كېلىپ چىققان جىگەر كېسىلى
+كىستوزلۇق فىبروز
+ۋىلسون كېسىلى

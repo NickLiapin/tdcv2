@@ -1,0 +1,25 @@
+---
+description: Religion in Faroese. Two entries are specifically Faroese facts. FÓLKAKIRKJAN is the Lutheran national church, which separated from the Danish folkekirke in 2007 and is now its own church with its own bishop. BRØÐRASAMKOMAN is the Plymouth Brethren, and it is not a fringe group here: it has been estimated at around a tenth of the population, which makes the Faroes the most Brethren country on earth and has no parallel anywhere else in the Nordic region.
+locale: fo
+---
+Fólkakirkjan
+Brøðrasamkoman
+Kristindómur
+Katólska kirkjan
+Adventistar
+Pinsurørslan
+Baptistar
+Metodistar
+Jehova vitni
+Mormónar
+Islam
+Jødadómur
+Hindudómur
+Buddhismi
+Sikhismi
+Bahá'í
+Ásatrú
+Ateismi
+Agnostiki
+Ongin trúgv
+Annað

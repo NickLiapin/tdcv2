@@ -1,0 +1,5 @@
+---
+description: Currency of شىۋېتسىيە, named in Uyghur.
+locale: ug-cn
+---
+شىۋېتسىيە كرونى

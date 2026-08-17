@@ -1,0 +1,11 @@
+---
+description: Dishes of Franskur matur
+locale: fo
+---
+Coq au vin
+Bouillabaisse
+Ratatouille
+Croissant
+Crème brûlée
+Quiche Lorraine
+Boeuf bourguignon

@@ -1,0 +1,54 @@
+---
+description: Airline name, kept in its own spelling as brand names are in every locale. Atlantic Airways is the Faroese national carrier and the only airline based in the islands.
+locale: fo
+---
+Atlantic Airways
+SAS
+Norwegian
+Icelandair
+Air Greenland
+Widerøe
+Finnair
+KLM
+Lufthansa
+Air France
+British Airways
+Aer Lingus
+Ryanair
+easyJet
+Wizz Air
+Vueling
+Swiss
+Austrian Airlines
+Brussels Airlines
+TAP Air Portugal
+Iberia
+ITA Airways
+Aegean Airlines
+LOT Polish Airlines
+airBaltic
+Turkish Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+Singapore Airlines
+Cathay Pacific
+Japan Airlines
+All Nippon Airways
+Korean Air
+Air Canada
+Delta Air Lines
+United Airlines
+American Airlines
+JetBlue
+Alaska Airlines
+Qantas
+Air New Zealand
+Ethiopian Airlines
+EgyptAir
+Royal Air Maroc
+LATAM
+Avianca
+Aeroméxico
+Air India
+China Southern Airlines

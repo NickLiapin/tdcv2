@@ -1,0 +1,24 @@
+---
+description: Shipping and freight carrier. The Faroese ones are named because they are the ones a parcel to the islands actually travels with: Posta is the national postal service, Smyril Line runs the passenger and freight ferry to Denmark and Iceland, Strandfaraskip Landsins runs the inter-island ferries and buses, and Faroe Ship is the container line. Brand names keep their own spelling.
+locale: fo
+---
+Posta
+Smyril Line
+Strandfaraskip Landsins
+Faroe Ship
+Atlantic Airways Cargo
+Eimskip
+Samskip
+PostNord
+GLS
+DSV
+DHL
+UPS
+FedEx
+Bring
+DB Schenker
+Blue Water Shipping
+Royal Arctic Line
+Maersk
+TNT
+DPD

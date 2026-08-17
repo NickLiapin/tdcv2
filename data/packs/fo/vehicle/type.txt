@@ -1,0 +1,26 @@
+---
+description: Vehicle body type in Faroese.
+locale: fo
+---
+Fólkabilur
+Sedan
+Stationvognur
+Hatchback
+Coupé
+Jeppi
+Varubilur
+Pickup
+Minivognur
+Cabriolet
+Lastbilur
+Tanglabilur
+Buss
+Minibuss
+Motorsúkkla
+Fetasúkkla
+Húsvognur
+Tilhengari
+Tráktorur
+Grevimaskina
+Sjúkrabilur
+Brandbilur

@@ -1,0 +1,14 @@
+---
+description: Loan type in Uyghur. qerz is a debt and the compound names what it is for.
+locale: ug-cn
+---
+ئۆي قەرزى
+ماشىنا قەرزى
+ئىستېمال قەرزى
+دېھقانچىلىق قەرزى
+كارخانا قەرزى
+ئوقۇش قەرزى
+كىچىك مەبلەغلىك قەرز
+گۆرۈلۈك قەرز
+كېپىللىكلىك قەرز
+قىسقا مۇددەتلىك قەرز

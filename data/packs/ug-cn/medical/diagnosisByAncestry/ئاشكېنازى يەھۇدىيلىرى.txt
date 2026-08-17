@@ -1,0 +1,16 @@
+---
+description: Condition with a raised prevalence in the ئاشكېنازى يەھۇدىيلىرى ancestry group, in Uyghur. Filename matches medical/ancestry.txt character for character.
+locale: ug-cn
+---
+تاي-ساكس كېسىلى
+گوشې كېسىلى 1-تىپ
+ئائىلىۋى دىسئاۋتونومىيە
+كاناۋان كېسىلى
+نىيېمان-پىك كېسىلى A تىپ
+بلۇم سىندرومى
+XI ئامىل يېتەرسىزلىكى
+BRCA1 ئاساسچى مۇتاتسىيىسى
+BRCA2 ئاساسچى مۇتاتسىيىسى
+مۇكولىپىدوز IV تىپ
+كرون كېسىلى
+بۇرالما دىستونىيە

@@ -1,0 +1,36 @@
+---
+description: Trailing element of an Uyghur place name. THREE LANGUAGES ARE STACKED HERE and the stack is the history of the Tarim basin. The Iranian layer is oldest — -kent is Sogdian for town, -awat is Persian abad, a watered and settled place, and -bagh is a garden. The Turkic layer is about water and ground, because in an oasis a settlement is named for its water: bulaq spring, quduq well, östeng and ériq irrigation channels, köl lake, döng rise, toqay river-forest. The Arabic-Islamic layer is small and religious: mazar a saint's shrine, lenger the hostel beside it, meschit a mosque. -awat and -bagh together account for a large share of village names in southern Xinjiang.
+locale: ug-cn
+---
+شەھەر
+كەنت
+يېزا
+قىشلاق
+باغ
+ئاۋات
+بوستان
+بازار
+بۇلاق
+قۇدۇق
+ئۆستەڭ
+ئېرىق
+كۆل
+دەريا
+تاغ
+دۆڭ
+تۆپە
+توقاي
+ئارال
+قورغان
+تام
+مازار
+لەڭگەر
+مەسچىت
+دەرۋازە
+كۆۋرۈك
+ئېغىز
+ئۆتەڭ
+چوققا
+يېرى
+ئۆڭكۈر
+چۆل

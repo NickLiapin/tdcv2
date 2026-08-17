@@ -1,0 +1,12 @@
+---
+description: Marital status in Faroese.
+locale: fo
+---
+Ógiftur
+Giftur
+Fráskildur
+Einkjumaður
+Einkja
+Í sambúgvi
+Registrerað partnalag
+Skildur

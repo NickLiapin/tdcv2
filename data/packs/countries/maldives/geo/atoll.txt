@@ -1,0 +1,25 @@
+---
+address: maldives.geo.atoll
+description: The twenty administrative atolls of the Maldives under their CODE NAMES, in geographic order from north to south. A code name is not the atoll's name. Each administrative atoll has an official geographical name in Dhivehi — Thiladhunmathi Uthuruburi, Maalhosmadulu Dhekunuburi, Kolhumadulu, Hadhdhunmathi — and, quite separately, a CODE NAME made of a Thaana letter, adopted so that atolls could be identified over the radio to the administration in Malé. So the atoll a tourist brochure calls "Baa" is really Maalhosmadulu Dhekunuburi, and the atoll called "Alif" is Ari. Those two naming systems are the single biggest trap in Maldivian reference data: they are BOTH current, they appear in different documents, and neither is a translation of the other. This file is the code-name system; maldives.geo.atollGeographic is the geographical one, and the two lists are in the same order so an index taken from one indexes the other. Where the letters run out the code doubles up, and the second letter marks the half: Alifu means Uthuruburi (north), Dhaalu means Dhekunuburi (south), which is why Haa Alif sits north of Haa Dhaalu and Gaafu Alif north of Gaafu Dhaalu. Two entries are cities rather than atoll councils and are still listed here because their atoll code survives: Gnaviyani is Fuvahmulah City and Seenu is Addu City. Malé City is NOT in this list — it is the twenty-first first-level division and carries no Thaana atoll letter. Source: Maldives Decentralization Act 2010 and the administrative divisions register.
+locale: dv-Latn
+---
+Haa Alif
+Haa Dhaalu
+Shaviyani
+Noonu
+Raa
+Baa
+Lhaviyani
+Kaafu
+Alif Alif
+Alif Dhaalu
+Vaavu
+Meemu
+Faafu
+Dhaalu
+Thaa
+Laamu
+Gaafu Alif
+Gaafu Dhaalu
+Gnaviyani
+Seenu

@@ -1,0 +1,40 @@
+---
+description: Language name in Uyghur. Uyghur names a language with tili, the possessive of til (tongue): uyghur tili, xenzu tili. THE SECOND BLOCK IS REAL LOCAL DATA. xenzu tili is Chinese, the language of instruction and administration; qazaq, qirghiz, mongghul, xui and sibe are the other languages of Xinjiang, and sibe tili is the last living form of Manchu, kept alive by a few thousand speakers in the Ili valley. UYGHUR ITSELF IS TURKIC, close enough to Uzbek for the two to be mutually intelligible in speech and completely unlike its Persian and Arabic vocabulary donors in grammar — the borrowing is in the words, not in the machinery.
+locale: ug-cn
+---
+ئۇيغۇر تىلى
+خەنزۇ تىلى
+ئىنگلىز تىلى
+قازاق تىلى
+قىرغىز تىلى
+ئۆزبېك تىلى
+موڭغۇل تىلى
+خۇي تىلى
+سىبە تىلى
+تاتار تىلى
+رۇس تىلى
+تاجىك تىلى
+ئەرەب تىلى
+پارس تىلى
+تۈرك تىلى
+ئۇردۇ تىلى
+ھىندى تىلى
+ياپون تىلى
+كورېيە تىلى
+فىرانسۇز تىلى
+گېرمان تىلى
+ئىسپان تىلى
+پورتۇگال تىلى
+ئىتالىيان تىلى
+ۋىيېتنام تىلى
+تايلاند تىلى
+ئىندونېزىيە تىلى
+مالاي تىلى
+تۈركمەن تىلى
+ئازەربەيجان تىلى
+قاراقالپاق تىلى
+پەشتۇ تىلى
+كۇرد تىلى
+ئىبرانى تىلى
+گرېك تىلى
+ئىتاليان تىلى

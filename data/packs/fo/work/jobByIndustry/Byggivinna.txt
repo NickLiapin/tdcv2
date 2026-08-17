@@ -1,0 +1,10 @@
+---
+description: Jobs in Byggivinna
+locale: fo
+---
+Snikkari
+Murari
+Elektrikari
+Rørleggjari
+Byggileiðari
+Kranaførari

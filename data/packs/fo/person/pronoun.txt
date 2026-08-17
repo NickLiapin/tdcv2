@@ -1,0 +1,12 @@
+---
+description: Faroese personal pronoun, given as nominative/dative because Faroese has four cases and a pronoun changes shape in each (hann / hann / honum / hansara). Faroese has THREE third-person plural pronouns and they are chosen by gender: TEIR for a group of men, TÆR for a group of women, TEY for a mixed group or for neuter - and tey is also what is used for one person of unstated gender. English and Danish have one word here and Faroese has three, which no config can guess.
+locale: fo
+---
+hann/honum
+hon/henni
+tey/teimum
+tað/tí
+teir/teimum
+tær/teimum
+hann/hon
+hon/tey

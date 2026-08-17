@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier in Faroese.
+locale: fo
+---
+Jarn
+Brons
+Silvur
+Gull
+Platin
+Diamantur
+Meistari
+Stórmeistari
+Kappi
+Goðsøgn

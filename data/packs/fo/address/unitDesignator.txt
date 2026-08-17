@@ -1,0 +1,26 @@
+---
+description: Secondary address unit in Faroese. HÆDD is a storey, and Faroese counts the ground floor as the first (1. hædd), the continental way rather than the British way. Faroese addresses do not use the Danish th./tv. door markers; the side is written out (høgru megin, vinstru megin) or the flat is numbered.
+locale: fo
+---
+Hædd
+1. hædd
+2. hædd
+3. hædd
+Kjallari
+Loft
+Íbúð
+Inngangur
+Hurð
+Rúm
+Deild
+Skrivstova
+Bygningur
+Blokkur
+Høgru megin
+Vinstru megin
+Fyri framman
+Fyri aftan
+Postboks
+Goymsla
+Bilhús
+Neyst

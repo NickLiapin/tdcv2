@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Norðurafrika ancestry. A prevalence signal, not an exclusive one.
+locale: fo
+---
+G6PD-trot
+Beta-talassemibera
+Familiær miðjarðarhavsfeber
+Behcets sjúka
+Sigðcellubera
+Laktoseintoleransa

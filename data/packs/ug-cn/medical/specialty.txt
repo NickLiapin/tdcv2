@@ -1,0 +1,41 @@
+---
+description: Medical specialty in Uyghur. Most are built natively as organ + késellikliri (its diseases) instead of borrowing a Greek stem. THE LAST TWO ROWS ARE REAL AND LOCAL: uyghur tibabiti, Uyghur traditional medicine, is a licensed practice in China with its own hospitals, pharmacopoeia and university department, and xenzu tibabiti is Traditional Chinese Medicine — a Xinjiang hospital commonly runs departments for both alongside the modern ones above them.
+locale: ug-cn
+---
+ئىچكى كېسەللىكلەر
+ئومۇمىي جەرراھلىق
+يۈرەك كېسەللىكلىرى
+نېرۋا كېسەللىكلىرى
+ئۆسمە كېسەللىكلىرى
+تېرە كېسەللىكلىرى
+ھەزىم كېسەللىكلىرى
+ئىچكى سەكرېتسىيە كېسەللىكلىرى
+ئۆپكە كېسەللىكلىرى
+سۆڭەك كېسەللىكلىرى
+روھىي كېسەللىكلەر
+بۆرەك كېسەللىكلىرى
+بالىلار كېسەللىكلىرى
+ئاياللار كېسەللىكلىرى
+تۇغۇت
+كۆز كېسەللىكلىرى
+قۇلاق-بۇرۇن-گال كېسەللىكلىرى
+چىش كېسەللىكلىرى
+سىيدىك يولى كېسەللىكلىرى
+قان كېسەللىكلىرى
+يۇقۇملۇق كېسەللىكلەر
+ئىممۇنولوگىيە
+ئاللېرگىيە
+نۇر تەكشۈرۈش
+ھوشسىزلاندۇرۇش
+تېز قۇتقۇزۇش
+ئەسلىگە كەلتۈرۈش
+ئائىلە تېببىي
+ياشانغانلار كېسەللىكلىرى
+يېڭى تۇغۇلغانلار كېسەللىكلىرى
+پاتولوگىيە
+لابوراتورىيە تەكشۈرۈش
+پىلاستىك جەرراھلىق
+قان تومۇر جەرراھلىقى
+رېۋماتىزم كېسەللىكلىرى
+ئۇيغۇر تىبابىتى
+خەنزۇ تىبابىتى

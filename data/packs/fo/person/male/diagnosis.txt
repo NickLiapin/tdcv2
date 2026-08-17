@@ -1,0 +1,30 @@
+---
+description: Diagnoses for a male patient: the male-only conditions together with common ones. Terminology follows the Danish-Latin nomenclature Faroese clinical records use - see medical/diagnosis for why.
+locale: fo
+---
+Góðkynjað prostatastórvøkstur
+Prostatitt
+Varikocela
+Hydrocela
+Fimosa
+Epididymitt
+Kryptorkismi
+Erektil dysfunktión
+Testosterontrot
+Gynekomasti
+Prostatakrabbamein
+Testikkelkrabbamein
+Høgur blóðtrýstur
+Sukursjúka
+Astma
+Slitgigt
+Ryggverkur
+Høgt kolesterol
+Gikt
+Karnitintrot
+Migrena
+Depressión
+Svøvntrot
+Blóðklumpur
+Beinbrot
+Kransæðrasjúka

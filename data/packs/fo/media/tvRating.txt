@@ -1,0 +1,10 @@
+---
+description: Film and television content rating in Faroese. The Faroes use the DANISH system - Medieraadet's four age bands (all ages, not advised under 7, from 11, from 15) - because Danish film classification applies here. There is no Faroese board and no separate Faroese rating; 18 appears only as a streaming service's own label.
+locale: fo
+---
+Loyvt øllum
+Ikki mælt til børn undir 7
+Loyvt frá 11 ár
+Loyvt frá 15 ár
+Loyvt frá 18 ár
+Ikki metið

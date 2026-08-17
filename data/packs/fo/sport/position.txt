@@ -1,0 +1,39 @@
+---
+description: Playing position, mixed sports, in Faroese. Faroese builds these as transparent compounds on mál (goal), vørn (defence), sókn (attack) and vongur (wing), which is why they read as descriptions rather than as jargon. The imported ball sports are a genuine exception: basketball, baseball, ice hockey and American football are barely played here and Faroese clubs use the English position names unchanged - see the files under sport/positionBySport, where the Faroese sports are in Faroese and the imported ones are not.
+locale: fo
+---
+Málmaður
+Verji
+Miðverji
+Síðuverji
+Miðvallarleikari
+Verjandi miðvallarleikari
+Sóknarleikari
+Vongleikari
+Vinstravongur
+Høgravongur
+Vinstribakur
+Høgrabakur
+Miðbakur
+Strekleikari
+Uppspælari
+Kantslagari
+Miðblokkari
+Libero
+Móttakari
+Stýrimaður
+Rórsmaður
+Fremsti rórsmaður
+Aftasti rórsmaður
+Skipari
+Kappingarstjóri
+Venjari
+Hjálparvenjari
+Dómari
+Linjudómari
+Varaleikari
+Fyriliði
+Point guard
+Center
+Pitcher
+Quarterback

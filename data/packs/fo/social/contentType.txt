@@ -1,0 +1,17 @@
+---
+description: Kind of social media content in Faroese.
+locale: fo
+---
+Uppslag
+Viðmerking
+Svar
+Søga
+Stuttfilmur
+Beinleiðis sending
+Mynd
+Myndarøð
+Video
+Ljóðbrot
+Kanning
+Deiling
+Endurdeiling

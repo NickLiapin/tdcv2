@@ -1,0 +1,9 @@
+---
+description: Dish of the تايلاند kitchen, in Uyghur. Filename matches food/cuisine.txt character for character.
+locale: ug-cn
+---
+پاد تاي
+توم يام
+يېشىل كاررى
+سوم تام
+مانگولۇق گۈرۈچ

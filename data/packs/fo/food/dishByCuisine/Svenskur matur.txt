@@ -1,0 +1,11 @@
+---
+description: Dishes of Svenskur matur
+locale: fo
+---
+Köttbullar
+Gravlax
+Janssons frestelse
+Surströmming
+Raggmunk
+Pytt i panna
+Prinsesstårta

@@ -1,0 +1,10 @@
+---
+description: Jobs in Ferðavinna
+locale: fo
+---
+Ferðaleiðari
+Hotellstjóri
+Kokkur
+Tænari
+Móttøkufólk
+Bátatúraskipari

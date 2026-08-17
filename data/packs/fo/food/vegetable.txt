@@ -1,0 +1,34 @@
+---
+description: Vegetable in Faroese. EPLI IS THE POTATO - this is the false friend that will bite anyone reading Faroese against Danish or English, and it is the reason food/fruit calls the apple súrepli. Potatoes, grønkál and næpa are the three things that reliably grow in Faroese soil; the rest is imported, and the list reflects a shop rather than a garden.
+locale: fo
+---
+Epli
+Grønkál
+Næpa
+Gulrót
+Hvítkál
+Reyðkál
+Blómkál
+Brokkoli
+Rósakál
+Leykur
+Hvítleykur
+Purra
+Reyðbeta
+Reddika
+Agurk
+Tomat
+Salat
+Spinat
+Ertrar
+Bønur
+Maisur
+Paprika
+Soppur
+Sellari
+Aspargus
+Graskar
+Sótepli
+Persillerót
+Gráslaykur
+Squash

@@ -1,0 +1,5 @@
+---
+description: Capital of Brasil as Faroese names it
+locale: fo
+---
+Brasilia

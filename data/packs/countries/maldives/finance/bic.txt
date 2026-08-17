@@ -1,0 +1,12 @@
+---
+address: maldives.finance.bic
+description: The ISO 9362 business identifier codes (SWIFT codes) registered in the Maldives — four letters of institution, MV for the country, and two characters of location, all of them MV because every registered institution sits in Malé. Eight characters here rather than eleven: an eight-character BIC is the head office, and the eleven-character form appends a branch code or XXX, so MALBMVMV and MALBMVMVXXX are the same bank and a system that compares them as strings says they are different. A BIC carries NO check digit — it is a registry entry, not a computed number, so the only way to validate one is to look it up. MMAUMVMV is the Maldives Monetary Authority, the central bank, and is in this list because it is a SWIFT participant, not because it is a commercial bank. Note that the Maldives has BICs but NO IBAN: a Maldivian international transfer is addressed by BIC plus a plain account number, and there is no ISO 13616 check to catch a typo in the account, which is why Maldivian bank instructions insist on the account name as well. HSBCMVMV remains in the SWIFT directory although HSBC no longer operates in the Maldives, which is the ordinary way BIC tables go stale. Source: the SWIFT BIC directory entries for country MV.
+---
+MALBMVMV
+MADVMVMV
+SBINMVMV
+BCEYMVMV
+HABBMVMV
+MCBLMVMV
+CBMVMVMV
+MMAUMVMV

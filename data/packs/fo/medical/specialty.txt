@@ -1,0 +1,40 @@
+---
+description: Medical specialty. Faroese uses the international names: the Faroe Islands have one hospital system whose doctors qualify in Denmark, and the specialty names came with them. There is no separate Faroese nomenclature to translate into, and coining one would name departments that do not exist.
+locale: fo
+---
+Kardiologi
+Neurologi
+Onkologi
+Dermatologi
+Endokrinologi
+Gastroenterologi
+Nefrologi
+Ortopedi
+Psykiatri
+Pulmonologi
+Almenn lækning
+Bráðlækning
+Anestesi
+Skurðlækning
+Bróstskurðlækning
+Neuroskurðlækning
+Urologi
+Gynekologi
+Føðingarhjálp
+Barnalækning
+Elligarlækning
+Reumatologi
+Hematologi
+Infektiónslækning
+Immunologi
+Allergologi
+Øra-, nasa- og hálslækning
+Eygnalækning
+Radiologi
+Patologi
+Klinisk lívevnafrøði
+Mikrobiologi
+Fysioterapi
+Ergoterapi
+Tannlækning
+Arbeiðslækning

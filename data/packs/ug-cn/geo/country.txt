@@ -1,0 +1,57 @@
+---
+description: Country as UYGHUR names it, weighted by population in millions. THE FIRST ROW IS THE FACT TO KNOW: Uyghur calls China Junggo, straight from the Chinese Zhongguo, and not by any Turkic or Persian word — where Uzbek says Xitoy and Turkish Cin, ug-cn borrowed from the state language it lives beside. Most other names arrive with a Persian-Turkic shape: the -iye ending does the work of -ia (Germaniye, Italiye, Turkiye) and the Persian -istan means land-of (Pakistan, Qazaqistan, Afghanistan, Özbékistan). England stands for the whole United Kingdom, as it does in most of Central Asia. Country names take case suffixes like any other Uyghur noun, and the suffix HARMONISES: Junggoda in China but Türkiyede in Turkey, Iranda but Németde — a config that appends a fixed -da will be wrong half the time.
+locale: ug-cn
+weighted: true
+---
+جۇڭگو,1410
+ھىندىستان,1400
+ئامېرىكا قوشما شتاتلىرى,335
+ئىندونېزىيە,275
+پاكىستان,240
+نىگېرىيە,220
+بىرازىلىيە,215
+بانگلادىش,170
+رۇسىيە,144
+مېكسىكا,128
+ياپونىيە,124
+ئېفىيوپىيە,123
+فىلىپپىن,115
+مىسىر,110
+ۋىيېتنام,99
+ئىران,88
+تۈركىيە,85
+گېرمانىيە,84
+تايلاند,72
+ئەنگلىيە,67
+فىرانسىيە,65
+جەنۇبىي ئافرىقا,60
+ئىتالىيە,59
+جەنۇبىي كورېيە,52
+ئىسپانىيە,47
+ئىراق,44
+ئافغانىستان,41
+كانادا,39
+ئۇكرائىنا,38
+پولشا,37
+سەئۇدى ئەرەبىستان,36
+ئۆزبېكىستان,35
+مالايشىيا,33
+ئاۋسترالىيە,26
+قازاقىستان,20
+گوللاندىيە,18
+چېخىيە,11
+شىۋېتسىيە,10
+گرېتسىيە,10
+پورتۇگالىيە,10
+تاجىكىستان,10
+بىرلەشكەن ئەرەب ئەمىرلىكلىرى,10
+ئاۋستىرىيە,9
+شىۋىتسارىيە,9
+قىرغىزىستان,7
+دانىيە,6
+فىنلاندىيە,6
+تۈركمەنىستان,6
+سىنگاپور,6
+نورۋېگىيە,5
+يېڭى زېلاندىيە,5
+موڭغۇلىيە,3

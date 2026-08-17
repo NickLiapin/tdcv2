@@ -1,0 +1,7 @@
+---
+address: maldives.calendar.weekendDay
+description: The Maldivian weekend: FRIDAY AND SATURDAY. Friday is the primary rest day and the reason for the shape of the week — jumu'ah, the congregational prayer, falls at midday on Friday, shops and offices close for it, and the Maldives is a country where the constitution makes Islam the state religion and requires citizens to be Muslim, so this is not a soft convention. Saturday was added as the second rest day; the pair means the working week is Sunday to Thursday, see maldives.calendar.workingDay. Two things to get right. A Maldivian public holiday that falls on a Friday or Saturday falls on a WEEKEND, which is the opposite of the intuition a Monday-to-Friday calendar gives, so holiday-in-lieu logic ported from Europe compensates for the wrong days. And Friday is a normal high-traffic day for anything tourist-facing — flights, ferries, excursions, resort check-ins — because resorts do not keep the national week, so "the weekend" in a Maldivian dataset means one thing for a government record and nothing at all for a tourism one. The day names here are English because they have to be written in some language; which two days they are is the country fact.
+locale: en
+---
+Friday
+Saturday

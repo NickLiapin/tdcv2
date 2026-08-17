@@ -1,0 +1,5 @@
+---
+description: Currency of ئاۋسترالىيە, named in Uyghur.
+locale: ug-cn
+---
+ئاۋسترالىيە دوللارى

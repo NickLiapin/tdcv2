@@ -1,0 +1,12 @@
+---
+description: Condition with a raised prevalence in the جەنۇبىي ئاسىيا ancestry group, in Uyghur. Filename matches medical/ancestry.txt character for character.
+locale: ug-cn
+---
+ئەرتە باشلانغان 2-تىپ شېكەر كېسىلى
+ۋاقىتسىز تاج تومۇر كېسىلى
+نورمال بەدەن ئېغىرلىقىدا مەركىزىي سېمىزلىك
+D ۋىتامىنى يېتەرسىزلىكى
+بېتا تالاسسېمىيە خاسلىقى
+مېتابولىزم سىندرومى
+G6PD يېتەرسىزلىكى
+رېۋماتىك يۈرەك كېسىلى

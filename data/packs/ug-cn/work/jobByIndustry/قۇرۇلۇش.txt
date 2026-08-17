@@ -1,0 +1,13 @@
+---
+description: Job in the قۇرۇلۇش industry, in Uyghur. Filename matches work/industryCoherent.txt character for character.
+locale: ug-cn
+---
+قۇرۇلۇشچى
+مېمار
+تام قوپۇرغۇچى
+سۇۋاقچى
+بوياقچى
+ياغاچچى
+ئېلېكتىرىكچى
+كىران ھەيدىگۈچىسى
+قۇرۇلۇش مۇھەندىسى

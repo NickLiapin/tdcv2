@@ -1,0 +1,5 @@
+---
+description: Capital of Kanada as Faroese names it
+locale: fo
+---
+Ottawa

@@ -1,0 +1,9 @@
+---
+address: maldives.phoneNational
+description: A Maldivian mobile number written the way Maldivians write it — three digits, a space, four digits: 777 1234. There is no leading zero and no area code to put in front, because the plan is closed and seven digits flat, so the national form differs from the international one only by the missing +960. The three-four grouping is the same for fixed lines, 332 3456, which is why a Maldivian phone column looks uniform in a way most countries' do not: every number in the country is seven digits in two groups, whatever it is for. Use this form when a column is meant to look like something a Maldivian typed; use maldives.phone when it has to be machine-dialable, and maldives.phoneLandline for a fixed line.
+generator: tdc
+---
+<sequence name="prefix"><gen type="template" value="maldives.phoneMobilePrefix"/></sequence>
+<sequence name="third"><gen type="regex" value="[0-9]"/></sequence>
+<sequence name="rest"><gen type="regex" value="[0-9]{4}"/></sequence>
+<data>${{prefix}}${{third}} ${{rest}}</data>

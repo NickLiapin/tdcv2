@@ -1,0 +1,8 @@
+---
+description: Season in Faroese. Four, but they are not the continental four in practice: the Faroese year is famously one long cool grey season, with about eight degrees between the average of the warmest month and the coldest.
+locale: fo
+---
+vár
+summar
+heyst
+vetur

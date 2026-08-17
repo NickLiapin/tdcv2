@@ -1,0 +1,45 @@
+---
+description: Legal form of an Uyghur-registered business, TRANSLATED FROM THE CHINESE COMPANY LAW because that is the law these businesses register under — cheklik shirket is 有限公司, payliq cheklik shirket is 股份有限公司, guruppa shirkiti is 集团. The cooperative rows are not decoration: the déhqanlar koopératipi, the farmers' cooperative, is the commonest registered legal person in rural Xinjiang. Uyghur has one country, so naming that country's legal forms is correct here; the registration numbers that go with them are a country matter and are not in this pack.
+locale: ug-cn
+---
+چەكلىك شىركەت
+چەكلىك مەسئۇلىيەت شىركىتى
+پايلىق چەكلىك شىركەت
+گۇرۇپپا شىركىتى
+شىركەت
+كارخانا
+شەخسىي كارخانا
+شېرىكچىلىك كارخانىسى
+ئورتاق كارخانا
+چەت ئەل مەبلىغى كارخانىسى
+كوئوپېراتىپ
+دېھقانلار كوئوپېراتىپى
+ئائىلە خوجىلىقى
+زاۋۇت
+فابرىكا
+ئىشلەپچىقىرىش بازىسى
+سودا شىركىتى
+تەمىنات شىركىتى
+قۇرۇلۇش شىركىتى
+قاتناش شىركىتى
+لوگىستىكا شىركىتى
+تېخنىكا شىركىتى
+تور شىركىتى
+مەدەنىيەت شىركىتى
+ساياھەت شىركىتى
+مېھمانخانا
+ئاشخانا
+دۇكان
+بازار
+مەركەز
+ئىنستىتۇت
+لابوراتورىيە
+تەتقىقات ئورنى
+مۇلازىمەت مەركىزى
+بىرلەشمە
+جەمئىيەت
+ھەيئەت
+فوند
+ئىدارە
+تارماق شىركەت
+ۋەكالەتخانا

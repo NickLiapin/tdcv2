@@ -1,0 +1,13 @@
+---
+description: Household size. Maldivian households run larger than European ones — the 2022 census average is about 5.4 people in Male and 5.0 nationally — so the tail matters.
+locale: dv
+---
+1
+2
+3
+4
+5
+6
+7
+8
+9+

@@ -1,0 +1,5 @@
+---
+description: Capital of Sveis as Faroese names it
+locale: fo
+---
+Bern

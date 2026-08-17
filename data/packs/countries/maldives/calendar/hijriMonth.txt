@@ -1,0 +1,17 @@
+---
+address: maldives.calendar.hijriMonth
+description: The twelve months of the Hijri calendar, in the romanisation Maldivian official English uses, because the Maldives runs this calendar alongside the Gregorian one for every religious date and several state ones. It is a purely LUNAR calendar of twelve months and 354 or 355 days, with no intercalation, so it drifts against the seasons by about eleven days a year — Ramadan moves right round the solar year in roughly 33 years and can fall in any month. Four of these months carry the country's fixed points: Muharram opens the year, Rabi' al-Awwal holds both National Day (the 1st) and Mawlid (the 12th), Ramadan is the fast, and Dhu al-Hijjah holds the Day of Hajj and Eid al-Adha. In the Maldives the start of each month is fixed by MOON SIGHTING announced by the Ministry of Islamic Affairs rather than by calculation, so a Hijri date here can differ by a day from a computed calendar and from another country's announcement of the same festival — which is why maldives.holidayDate records Hijri dates unconverted. Note the naming conventions that trip up matching: Rabi' al-Awwal and Rabi' al-Thani are also written Rabi' al-Akhir and Rabee'ul Aakhir; Jumada al-Ula and Jumada al-Akhirah likewise; and the apostrophe in Rabi', Jumada and Dhu al-Qi'dah is an ayn and is routinely dropped. Dhivehi has its own Thaana spellings of all twelve, which belong to the Dhivehi language pack rather than here.
+locale: en
+---
+Muharram
+Safar
+Rabi' al-Awwal
+Rabi' al-Thani
+Jumada al-Ula
+Jumada al-Akhirah
+Rajab
+Sha'ban
+Ramadan
+Shawwal
+Dhu al-Qi'dah
+Dhu al-Hijjah

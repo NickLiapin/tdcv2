@@ -1,0 +1,18 @@
+---
+description: Order status in Faroese, as a Faroese web shop labels it.
+locale: fo
+---
+Bíðar
+Verður viðgjørt
+Váttað
+Tilbúgvið
+Sent
+Á veg
+Út til levering
+Latið
+Tikið upp
+Avlýst
+Endurgoldið
+Skilað aftur
+Bíðar eftir gjaldi
+Miseydnað

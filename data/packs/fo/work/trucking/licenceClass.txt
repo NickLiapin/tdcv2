@@ -1,0 +1,15 @@
+---
+description: Driving licence category in the Faroe Islands. These are the EUROPEAN categories - the Faroes issue a Danish-model licence and use the EU letter classes - and NOT the US Class A / Class B / Class C system that the English pack carries. B is the ordinary car licence, C the lorry, D the bus, and E added to any of them allows a trailer.
+locale: fo
+---
+A
+A1
+AM
+B
+BE
+C
+C1
+CE
+D
+D1
+DE

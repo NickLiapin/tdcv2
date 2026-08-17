@@ -1,0 +1,5 @@
+---
+description: Currency of مېكسىكا, named in Uyghur.
+locale: ug-cn
+---
+پېسو

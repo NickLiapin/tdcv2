@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis that requires female anatomy - it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis. Terminology is the Danish-Latin one Faroese clinical records use.
+locale: fo
+---
+Endometriosa
+Polycystiskt eggjastokkasyndrom
+Livmóðurknútar
+Eggjastokkacysta
+Livmóðurhálsdysplasi
+Livmóðurhálskrabbamein
+Livmóðurkrabbamein
+Eggjastokkakrabbamein
+Brjóstakrabbamein
+Brjóstafibroadenom
+Mastitt
+Amenoré
+Dysmenoré
+Ov nógv blæðing
+Klimakteriskar plágur
+Ufrukt
+Svangskapssukursjúka
+Preeklampsi
+Abortur
+Utanlívmóðursvangskapur
+Livmóðursig
+Trush
+Bakteriell vaginosa
+Blørubruni í svangskapi
+Brjóstamjólkartrot
+Eftirføðingardepressión

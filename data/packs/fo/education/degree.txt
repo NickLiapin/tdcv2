@@ -1,0 +1,20 @@
+---
+description: Academic or vocational qualification in Faroese. SVEINAPRÓGV is the journeyman's certificate at the end of a trade apprenticeship and ranks as a full qualification here, not as a lesser one. Degrees above it are taken at Fróðskaparsetur Føroya or, for most subjects, in Denmark - the islands have one university and it does not cover every field.
+locale: fo
+---
+Fólkaskúlaprógv
+Miðnámsprógv
+Studentsprógv
+HF-prógv
+Handilsskúlaprógv
+Teknisk útbúgving
+Yrkisprógv
+Sveinaprógv
+Meistaraprógv
+Diplomprógv
+Bachelor
+Kandidatprógv
+Master
+Ph.d.
+Doktaragrað
+Eftirútbúgving

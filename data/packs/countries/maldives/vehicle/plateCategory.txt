@@ -1,0 +1,12 @@
+---
+address: maldives.vehicle.plateCategory
+description: The two characters at the centre of the top line of a Maldivian number plate — the vehicle CATEGORY, a letter for the kind of vehicle and a digit for the size band within it. A is a motorcycle, B a passenger vehicle, C a goods vehicle, and the digit narrows it: A1 is a motorcycle under 50cc or an invalid carriage and A0 is 50cc and above; B1 seats nine or fewer, B2 seats ten to twenty and B0 seats more than twenty; C1 carries up to 2 tonnes, C2 between 2 and 4, and C0 above 4. The convention to notice is that ZERO MEANS LARGEST, not smallest and not unclassified: A0, B0 and C0 are the top band of each family, so a numeric sort of these codes puts the heaviest lorry first and the lightest moped fourth. That reads as an off-by-one bug and is not one. Source: Maldives Transport Authority vehicle categories under the 2003 plate scheme.
+---
+A1
+A0
+B1
+B2
+B0
+C1
+C2
+C0

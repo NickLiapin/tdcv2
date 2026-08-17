@@ -1,0 +1,13 @@
+---
+address: maldives.geo.maleWard
+description: The wards of Malé City, weighted by resident population at the 2022 census. Malé City is the twenty-first first-level division of the Maldives and it is not one island: the four historic wards - Maafannu, Henveiru, Galolhu and Machchangolhi — divide the single square kilometre of Malé island itself between them, while Hulhumalé is reclaimed land beside the airport built in two numbered phases, and Villimalé is a separate island of the same atoll. Together they hold 211,908 people, about two in five Maldivians, on land you can walk across in twenty minutes, which makes Malé one of the most densely populated cities on earth. The four Malé-island ward names are said to be older than the city administration and to describe the place: maa-fannu is the big landing, en-beyru is out where the bait was got, galu-olhu the stone groove, mathi-angolhi the windward fork. A Malé address does not use a street number — it uses a HOUSE NAME and the ward, see maldives.geo.houseName. Note Hulhumalé is counted as two wards, Phase 1 and Phase 2, and Phase 2 grew from nothing to 29,855 residents between 2014 and 2022, so any Maldivian geography older than about 2020 is missing it entirely. Source: Maldives Bureau of Statistics, Census 2022.
+weighted: true
+locale: dv-Latn
+---
+Maafannu,47036
+Hulhumalé Phase 1,35859
+Henveiru,34012
+Hulhumalé Phase 2,29855
+Galolhu,28484
+Machchangolhi,27706
+Villimalé,6755

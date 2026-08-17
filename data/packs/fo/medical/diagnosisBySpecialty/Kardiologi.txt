@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Kardiologi
+locale: fo
+---
+Høgur blóðtrýstur
+Kransæðrasjúka
+Atrieflimmer
+Hjartabilan
+Hjartatilburður
+Hjartaklaffasjúka

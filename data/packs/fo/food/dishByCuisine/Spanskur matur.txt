@@ -1,0 +1,11 @@
+---
+description: Dishes of Spanskur matur
+locale: fo
+---
+Paella
+Tapas
+Gazpacho
+Tortilla española
+Churros
+Jamón serrano
+Patatas bravas

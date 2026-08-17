@@ -1,0 +1,5 @@
+---
+description: Capital of Indonesia as Faroese names it
+locale: fo
+---
+Jakarta

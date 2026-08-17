@@ -1,0 +1,12 @@
+---
+description: Job in the مالىيە industry, in Uyghur. Filename matches work/industryCoherent.txt character for character.
+locale: ug-cn
+---
+ھېسابچى
+بانكا خادىمى
+ئىقتىسادچى
+مالىيە تەھلىلچىسى
+سۇغۇرتا ۋەكىلى
+خەزىنىچى
+كرېدىت خادىمى
+ھېسابات تەكشۈرگۈچىسى

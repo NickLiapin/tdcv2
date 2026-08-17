@@ -1,0 +1,5 @@
+---
+description: Capital of Suðurkorea as Faroese names it
+locale: fo
+---
+Seoul

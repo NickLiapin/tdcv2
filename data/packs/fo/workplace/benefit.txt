@@ -1,0 +1,22 @@
+---
+description: Employee benefit in Faroese. FERJUKORT and TUNNILSKORT are real Faroese benefits: an employer who draws staff from another island pays for the ferry or the tunnel toll, because that is the commute.
+locale: fo
+---
+Eftirlønarskipan
+Heilsutrygging
+Tannrøktartrygging
+Frítíð
+Barsilsfarloyvi
+Feðrafarloyvi
+Fleksitíð
+Heimaarbeiði
+Skeiðsstuðul
+Ræktarrúm
+Matarskipan
+Fartelefon
+Fyritøkubilur
+Ferjukort
+Tunnilskort
+Ferðafrádráttur
+Húsarhaldsstuðul
+Bónus

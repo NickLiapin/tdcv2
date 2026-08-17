@@ -1,0 +1,16 @@
+---
+description: Company legal form in Faroese. P/F (partafelag) and Sp/f (smápartafelag) are the FAROESE forms and are what a Faroese company registration actually produces - Bakkafrost is P/F Bakkafrost. They correspond to Danish A/S and ApS, which also appear because Danish-registered companies trade here, but a Faroese company is not an A/S. Note the slash: P/F and Sp/f are written with it and are not abbreviated any other way.
+locale: fo
+---
+P/F
+Sp/f
+A/S
+ApS
+I/S
+K/S
+Grunnur
+Felag
+Sjálvognarstovnur
+Samvirki
+Íognarfelag
+Kommunalt felag

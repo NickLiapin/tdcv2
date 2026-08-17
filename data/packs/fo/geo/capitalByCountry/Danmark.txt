@@ -1,0 +1,5 @@
+---
+description: Capital of Danmark as Faroese names it
+locale: fo
+---
+Keypmannahavn

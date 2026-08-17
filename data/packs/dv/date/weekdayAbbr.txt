@@ -1,0 +1,11 @@
+---
+description: Weekday, short form (Dhivehi). Dhivehi abbreviates a weekday by its first syllable plus a full stop; the full names are in date/weekday.txt.
+locale: dv
+---
+ހޯމަ
+އަން.
+ބުދަ
+ބުރާ.
+ހުކުރު
+ހޮނި.
+އާދި.

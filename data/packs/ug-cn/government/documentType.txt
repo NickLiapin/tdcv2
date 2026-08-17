@@ -1,0 +1,21 @@
+---
+description: KINDS of official document, named in Uyghur — not document numbers, which are a country matter and are deliberately absent from this pack. güwahname is a certificate and kinéshka a booklet-style card, both borrowed, while nopus deptiri (the household register, 户口簿) is the document that matters most in daily Chinese administration.
+locale: ug-cn
+---
+كىملىك
+پاسپورت
+ھەيدىگۈچىلىك كىنېشكىسى
+نوپۇس دەپتىرى
+تۇغۇلۇش گۇۋاھنامىسى
+توي گۇۋاھنامىسى
+ئاجرىشىش گۇۋاھنامىسى
+ۋاپات گۇۋاھنامىسى
+ئوقۇش گۇۋاھنامىسى
+دىپلوم
+كەسپىي گۇۋاھنامە
+ساغلاملىق دەپتىرى
+سۇغۇرتا كارتىسى
+مۈلۈك گۇۋاھنامىسى
+يەر ئىشلىتىش گۇۋاھنامىسى
+كارخانا كىنېشكىسى
+باج تىزىملىتىش گۇۋاھنامىسى

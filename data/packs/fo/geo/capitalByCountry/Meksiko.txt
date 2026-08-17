@@ -1,0 +1,5 @@
+---
+description: Capital of Meksiko as Faroese names it
+locale: fo
+---
+Mexico City

@@ -1,0 +1,39 @@
+---
+description: Music genre in Faroese. KVÆÐI is not a borrowing and not an equivalent of anything: it is the medieval Faroese narrative ballad, sung unaccompanied to the chain dance, and it is a living category rather than a museum one - the corpus is one of the largest bodies of surviving medieval ballad in Europe.
+locale: fo
+---
+Kvæði
+Fólkatónleikur
+Sálmar
+Kórtónleikur
+Rokk
+Popp
+Jazz
+Klassiskur tónleikur
+Ópera
+Barokktónleikur
+Kammartónleikur
+Sinfoniskur tónleikur
+Metall
+Punk
+Grunge
+Indie
+Alternativur rokkur
+Elektroniskur tónleikur
+Techno
+House
+Disko
+Synthpopp
+Ambient
+Hiphopp
+Rapp
+Blues
+Country
+Reggae
+Ska
+Soul
+Funk
+Gospel
+Salsa
+Dansitónleikur
+Filmtónleikur

@@ -1,0 +1,14 @@
+---
+description: Cable type in Faroese. The category designations (Cat5e, Cat6) are international.
+locale: fo
+---
+Ljósleiðari
+Koaksialkaðal
+Snúgvið par
+Cat5e
+Cat6
+Cat6a
+Streymkaðal
+Sjókaðal
+Jarðkaðal
+Luftlinja

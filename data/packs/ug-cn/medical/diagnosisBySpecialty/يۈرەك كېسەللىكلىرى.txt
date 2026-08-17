@@ -1,0 +1,16 @@
+---
+description: Diagnosis seen in the يۈرەك كېسەللىكلىرى clinic, in Uyghur. Filename matches medical/specialtyCoherent.txt character for character.
+locale: ug-cn
+---
+يۇقىرى قان بېسىمى
+يۈرەك تاج تومۇر كېسىلى
+يۈرەك تۇتۇلۇشى
+يۈرەك يېتەرسىزلىكى
+يۈرەك ئۇرۇشى تەرتىپسىزلىكى
+يۈرەك قاپچۇقى ياللۇغى
+يۈرەك كلاپىنى كېسىلى
+تۇغما يۈرەك كېسىلى
+ئارتېرىيە قېتىشىشى
+يۈرەك بۇلچۇق كېسىلى
+ۋېنا كېڭىيىشى
+قان بېسىمى تۆۋەنلىشى

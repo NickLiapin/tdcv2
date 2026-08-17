@@ -1,0 +1,12 @@
+---
+description: Dishes of Føroyskur matur
+locale: fo
+---
+Skerpikjøt
+Ræst kjøt
+Ræstur fiskur
+Grind og spik
+Knettir
+Drylur
+Garnatálg
+Rabarbugreytur

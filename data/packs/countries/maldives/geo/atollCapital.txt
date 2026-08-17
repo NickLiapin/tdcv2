@@ -1,0 +1,25 @@
+---
+address: maldives.geo.atollCapital
+description: The capital island of each administrative atoll — the island the atoll council sits on. Three of them are cities in their own right and therefore no longer inside the atoll they head: Kulhudhuffushi (Haa Dhaalu), Fuvahmulah (Gnaviyani) and Hithadhoo (Seenu, Addu City), and Thinadhoo in Gaafu Dhaalu joined them in 2023. An atoll capital is not the atoll's largest island in every case — Kaafu's capital is Thulusdhoo with about 1,400 people while Maafushi in the same atoll has more than twice that — because the seat follows the old atoll office rather than population. Order matches maldives.geo.atoll.
+locale: dv-Latn
+---
+Dhiddhoo
+Kulhudhuffushi
+Funadhoo
+Manadhoo
+Ungoofaaru
+Eydhafushi
+Naifaru
+Thulusdhoo
+Rasdhoo
+Mahibadhoo
+Felidhoo
+Muli
+Nilandhoo
+Kudahuvadhoo
+Veymandoo
+Fonadhoo
+Villingili
+Thinadhoo
+Fuvahmulah
+Hithadhoo

@@ -1,0 +1,16 @@
+---
+description: Kind of meeting in Uyghur. yighin is the meeting and the qualifier goes in front of it.
+locale: ug-cn
+---
+يىغىن
+ئەتىگەنلىك يىغىن
+ھەپتىلىك يىغىن
+ئايلىق يىغىن
+يىللىق يىغىن
+خىزمەت مۇھاكىمىسى
+لايىھە مۇھاكىمىسى
+تور يىغىنى
+تېلېفون يىغىنى
+تەربىيىلەش يىغىنى
+خېرىدار كۆرۈشۈشى
+خۇلاسە يىغىنى

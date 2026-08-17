@@ -1,0 +1,11 @@
+---
+description: Marital status (Dhivehi). The Maldives has among the highest divorce rates in the world, so ވަރިވެފައި is not a rare value in Maldivian data.
+locale: dv
+---
+ކައިވެނި ނުކުރާ
+ކައިވެނިކޮށްފައި
+ވަރިވެފައި
+ފިރިމަރުވެފައި
+އަނބިމަރުވެފައި
+ވަކިވެގެން
+އެންގޭޖްވެފައި

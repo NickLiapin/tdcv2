@@ -1,0 +1,10 @@
+---
+description: Jobs in Flutningur
+locale: fo
+---
+Lastbilsførari
+Bussførari
+Havnaarbeiðari
+Flogleiðari
+Tyrluførari
+Flutningsskipari

@@ -1,0 +1,9 @@
+---
+description: Dish of the خۇي kitchen, in Uyghur. Filename matches food/cuisine.txt character for character.
+locale: ug-cn
+---
+لەنجۇ لەڭمىنى
+قوي گۆشى شورپىسى
+گۆش سامسا
+قوي بېشى
+قازان كاۋىپى

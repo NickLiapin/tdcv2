@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eysturevropa ancestry. A prevalence signal, not an exclusive one.
+locale: fo
+---
+Hemokromatosa
+Fenylketonuri
+Familiær hyperkolesterolemi
+Alkoholrelaterað livrasjúka
+Beta-talassemibera
+Cystisk fibrosa

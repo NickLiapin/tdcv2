@@ -1,0 +1,18 @@
+---
+description: Kind of insurance in Faroese. BÁTATRYGGING is on the list because a very large share of Faroese households owns a boat, and it is as ordinary a policy here as car insurance.
+locale: fo
+---
+Heilsutrygging
+Bilatrygging
+Húsatrygging
+Innbotrygging
+Lívstrygging
+Ferðatrygging
+Ólukkutrygging
+Bátatrygging
+Sjótrygging
+Ábyrgdartrygging
+Arbeiðsloysistrygging
+Djóratrygging
+Vinnutrygging
+Barnatrygging

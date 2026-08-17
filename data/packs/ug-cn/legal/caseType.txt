@@ -1,0 +1,17 @@
+---
+description: Kind of legal case, in Uyghur. THESE ARE THE WORDS A LANGUAGE USES FOR KINDS OF CASE, not one country's docket. dewa is a suit and talash-tartish a dispute; the pairing jinayi ish (criminal matter) against heq telep dewasi (civil claim) is the basic division.
+locale: ug-cn
+---
+جىنايى ئىش
+ھەق تەلەپ دەۋاسى
+مەمۇرىي دەۋا
+ئائىلە دەۋاسى
+ئاجرىشىش دەۋاسى
+مىراس دەۋاسى
+ئەمگەك تالاش-تارتىشى
+توختام تالاش-تارتىشى
+مۈلۈك دەۋاسى
+يەر دەۋاسى
+زىيان تۆلەش دەۋاسى
+سودا دەۋاسى
+تەھرىر ھوقۇقى دەۋاسى

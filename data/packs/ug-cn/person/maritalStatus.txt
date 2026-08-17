@@ -1,0 +1,15 @@
+---
+description: Marital status in Uyghur. THE LANGUAGE USES A DIFFERENT VERB FOR EACH SEX AND THERE IS NO NEUTRAL ONE, which is the single hardest thing about this column: a man öylinidu, literally becomes housed, and a woman yatliq bolidu, literally becomes of another household. So öylengen can only describe a man and yatliq bolghan can only describe a woman, and a config that draws this field independently of the gender field will produce impossible people. nikahliq, from the Arabic nikah, is the sex-neutral form and is what a form or a database should use if it has only one column. tul covers both widow and widower, again without marking sex.
+locale: ug-cn
+---
+بويتاق
+نىكاھلىق
+ئۆيلەنگەن
+ياتلىق بولغان
+ئاجراشقان
+تۇل
+ۋەدىلەشكەن
+توي قىلمىغان
+ئايرىم ياشاۋاتقان
+قايتا نىكاھلانغان
+كۆرسىتىلمىگەن

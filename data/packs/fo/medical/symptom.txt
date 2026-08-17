@@ -1,0 +1,42 @@
+---
+description: Symptom or presenting complaint in Faroese.
+locale: fo
+---
+Hiti
+Høvuðpína
+Møði
+Ælni
+Uppkast
+Niðurgangur
+Harðlívi
+Magapína
+Brjóstverkur
+Andarteppa
+Hosti
+Hálspína
+Nasarenning
+Svimil
+Yvirlið
+Hjartaflog
+Bólgnan
+Kløði
+Útslátt
+Ryggverkur
+Liðaverkur
+Vøddaverkur
+Doðni
+Skelving
+Svitni
+Kuldaskelving
+Vektartap
+Vektarøking
+Matarleysi
+Svøvnloysi
+Trupulleikar at kyngja
+Sjónbroytingar
+Oyrasusan
+Bløðing
+Blóð í tvagi
+Tíð tvagláting
+Bruni við tvagláting
+Óklárt sinni

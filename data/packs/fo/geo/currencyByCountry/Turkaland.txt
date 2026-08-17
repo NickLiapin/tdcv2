@@ -1,0 +1,5 @@
+---
+description: Currency of Turkaland as Faroese names it
+locale: fo
+---
+turkisk lira

@@ -1,0 +1,28 @@
+---
+description: Role-playing character class in Faroese.
+locale: fo
+---
+Kappi
+Bogaskjútti
+Gandakallur
+Gandakona
+Tjóvur
+Riddari
+Prestur
+Berserkur
+Læknari
+Veiðimaður
+Njósnari
+Sjórænari
+Smiður
+Skald
+Dvørgur
+Álvur
+Risi
+Norn
+Vardi
+Særingarmaður
+Fjallgongumaður
+Sjómaður
+Grasakona
+Frægðarmaður

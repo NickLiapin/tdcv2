@@ -1,0 +1,29 @@
+---
+description: Gemstone and mineral in Faroese. ZEOLITT belongs here for a Faroese reason: the islands are stacked basalt lava, and zeolite crystals fill the gas cavities in it. They are the one mineral people actually go looking for in the Faroes, and a Faroese mineral collection is largely made of them.
+locale: fo
+---
+Zeolitt
+Ravur
+Kvarts
+Ametystur
+Agat
+Jaspis
+Onyks
+Obsidian
+Kalsit
+Diamantur
+Rubinur
+Safirur
+Smaragdur
+Perla
+Topas
+Opalur
+Turkis
+Granatur
+Akvamarin
+Jade
+Koral
+Malakitt
+Sitrin
+Peridot
+Mánasteinur

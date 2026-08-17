@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Faroese street, district or place name. Faroese says EYSTUR for east where Icelandic says austur and Danish oest - the same word, but the Faroese spelling is the one that matters when you are checking a pack is really Faroese. Faroese also keeps a separate set of comparatives (norðari, sunnari, eystari, vestari) for telling two neighbouring places apart.
+locale: fo
+---
+Norður
+Suður
+Eystur
+Vestur
+Norðeystur
+Norðvestur
+Suðeystur
+Suðvestur
+Norðari
+Sunnari
+Eystari
+Vestari
+Ovari
+Niðari
+Innari

@@ -1,0 +1,80 @@
+---
+description: Medical diagnosis that can occur in any patient - no sex or ancestry restriction. A note on the language, because it explains the mixture: Faroese clinical practice runs on Danish and Latin terminology. Doctors and nurses train in Denmark, the records are kept in that vocabulary, and Faroese has established native words for the everyday conditions (sukursjúka, høgur blóðtrýstur, krabbamein) but not for the specific ones. Inventing Faroese names for the rest would produce words no Faroese clinician has ever written, so the international terms stand. KARNITINTROT is here for a real reason: primary carnitine deficiency is far more common in the Faroe Islands than anywhere else on earth - roughly one person in three hundred carries the defect against about one in forty thousand elsewhere - and after a run of sudden cardiac deaths the islands screened the whole population for it. It is the one diagnosis a Faroese dataset should not omit.
+locale: fo
+---
+Høgur blóðtrýstur
+Sukursjúka
+Sukursjúka týpa 1
+Astma
+Karnitintrot
+Multipul sklerosa
+Krabbamein
+Lungnabruni
+Bronkitis
+KOL
+Hjartatilburður
+Hjartabilan
+Atrieflimmer
+Angina pectoris
+Heilablóðfall
+Migrena
+Epilepsi
+Parkinsonssjúka
+Alzheimerssjúka
+Depressión
+Angist
+Bipolar sjúka
+Skisofreni
+Svøvntrot
+Gigt
+Slitgigt
+Reumatoid artritt
+Beinskjørleiki
+Beinbrot
+Skiveprolaps
+Ryggverkur
+Karpaltunnilssyndrom
+Psoriasis
+Eksem
+Akne
+Rosacea
+Nældufeber
+Sárkyklasjúka
+Magasár
+Refluks
+Crohns sjúka
+Ulcerøs kolitt
+Irritabul tarmur
+Gallsteinar
+Livrabruni
+Nýrusteinar
+Langvarandi nýrusjúka
+Blørubruni
+Skjaldkirtilstrot
+Ovvirkin skjaldkirtil
+Blóðmangul
+Jarntrot
+D-vitamintrot
+B12-trot
+Ovfeiti
+Høgt kolesterol
+Gikt
+Bindivevssjúka
+Allergiskur rinitt
+Bihulubruni
+Oyrabruni
+Hálsbruni
+Influensa
+Covid-19
+Sárklovningur
+Sólbrenning
+Svimil
+Tinnitus
+Grár stjarni
+Grønur stjarni
+Nærsýni
+Fjarsýni
+Sukursjúkur fótur
+Æðrabólgnan
+Blóðklumpur
+Lungnablóðklumpur

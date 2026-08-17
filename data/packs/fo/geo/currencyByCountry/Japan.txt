@@ -1,0 +1,5 @@
+---
+description: Currency of Japan as Faroese names it
+locale: fo
+---
+japanskur yen

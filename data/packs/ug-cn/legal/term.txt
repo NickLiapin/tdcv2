@@ -1,0 +1,23 @@
+---
+description: Legal term in Uyghur. The vocabulary is Arabic-Persian almost throughout — qanun, hökum, dewa, huquq, jaza — which is the same layer that supplies religious and administrative words.
+locale: ug-cn
+---
+قانۇن
+نىزام
+ھۆكۈم
+دەۋا
+دەۋاگەر
+جاۋابكار
+ئادۋوكات
+گۇۋاھچى
+دەلىل
+ئىسپات
+ئەرز
+شىكايەت
+ئاپېللاتسىيە
+توختام
+مەجبۇرىيەت
+ھوقۇق
+جازا
+جەرىمانە
+كېپىللىك

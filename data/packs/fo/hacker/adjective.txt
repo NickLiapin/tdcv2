@@ -1,0 +1,32 @@
+---
+description: Technical adjective in Faroese, masculine singular. TALGILDUR is the established Faroese word for digital and TRÁÐLEYSUR for wireless - Faroese coins rather than borrows here, and the coinages are in official use.
+locale: fo
+---
+talgildur
+tráðleysur
+netbundin
+sjálvvirkandi
+dulritaður
+opin
+afturlatin
+tryggur
+skjótur
+seinur
+støðugur
+óstøðugur
+samsvarandi
+sjálvstøðugur
+miðsavnaður
+býttur
+fjarstýrdur
+innbygdur
+útvortis
+innvortis
+logiskur
+fysiskur
+veirufríur
+afturkomiligur
+skalerbarur
+avritaður
+dagførdur
+prógvaður

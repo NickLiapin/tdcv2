@@ -1,0 +1,16 @@
+---
+description: Gregorian month, short form (Dhivehi). Dhivehi shortens with a full stop after the clipped stem.
+locale: dv
+---
+ޖެނު.
+ފެބް.
+މާރޗް
+އޭޕްރީ.
+މެއި
+ޖޫން
+ޖުލައި
+އޮގަ.
+ސެޕް.
+އޮކްޓޫ.
+ނޮވެ.
+ޑިސެ.

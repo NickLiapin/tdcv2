@@ -1,0 +1,22 @@
+---
+description: Cuisine in Faroese, written as a noun phrase (adjective + matur) rather than as a bare adjective. That is deliberate: a Faroese adjective inflects for the gender of the noun it stands with, so a bare adjective in a list would be a form with no context and would come out wrong as often as right. The masculine matur fixes the form. These values are the filenames in food/dishByCuisine.
+locale: fo
+---
+Føroyskur matur
+Danskur matur
+Íslendskur matur
+Norskur matur
+Svenskur matur
+Enskur matur
+Franskur matur
+Týskur matur
+Italskur matur
+Spanskur matur
+Grikskur matur
+Tyrkiskur matur
+Kinesiskur matur
+Japanskur matur
+Indiskur matur
+Tælendskur matur
+Meksikanskur matur
+Amerikanskur matur

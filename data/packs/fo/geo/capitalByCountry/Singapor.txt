@@ -1,0 +1,5 @@
+---
+description: Capital of Singapor as Faroese names it
+locale: fo
+---
+Singapor

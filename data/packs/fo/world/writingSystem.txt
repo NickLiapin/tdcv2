@@ -1,0 +1,24 @@
+---
+description: Writing system in Faroese - and the place to record how Faroese itself is written, because it is unusual. The Faroese alphabet is Latin plus á í ó ú ý, æ, ø and ð, and it was DESIGNED TO LOOK OLD. V. U. Hammershaimb built it in the 1840s on Old Norse and Icelandic rather than on how Faroese is actually said, so that speakers of every dialect could read one page; the gap between spelling and pronunciation that resulted is enormous and entirely deliberate. Ð IS THE EXTREME CASE: IT IS WRITTEN EVERYWHERE AND PRONOUNCED NOWHERE - it marks a historical consonant that the spoken language lost, surviving as silence or as a glide. Jakob Jakobsen proposed a phonetic spelling in the 1880s and lost the argument, and the etymological one has stood ever since. Two more things a reader should not confuse: Faroese uses Ø where Icelandic uses Ö, and Faroese has NO þ (thorn) at all - Icelandic kept both þ and ð, Faroese kept only ð.
+locale: fo
+---
+latínskt skrift
+føroyska stavraðið
+rúnir
+grikskt skrift
+kýrilliskt skrift
+arabiskt skrift
+hebraiskt skrift
+armenskt skrift
+georgiskt skrift
+devanagari
+bengalskt skrift
+tamilskt skrift
+kinesisk tekn
+japanskt skrift
+koreanskt hangul
+tælendskt skrift
+etiopiskt skrift
+tibetskt skrift
+mongolskt skrift
+blindraskrift

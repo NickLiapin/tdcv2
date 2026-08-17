@@ -1,0 +1,26 @@
+---
+description: Property amenity in Uyghur. The üzüm sözliki (grape trellis), the tonur (clay oven) and the well are ordinary features of a courtyard house and appear in a listing the way a balcony does elsewhere.
+locale: ug-cn
+---
+توك
+سۇ تۇرۇبىسى
+ئىسسىتىش
+گاز
+كانالىزاتسىيە
+تور ئۇلىنىشى
+لىفت
+گاراژ
+ماشىنا توختىتىش ئورنى
+ھويلا
+باغچە
+ئۈزۈم سۆزلىكى
+تونۇر
+قۇدۇق
+ئامبار
+يەرتۆلە
+بالكون
+ئۆگزە بېغى
+مۇھاپىزەت
+ئېلېكترون قۇلۇپ
+قۇياش ئىسسىقلىقى
+مېۋە دەرىخى

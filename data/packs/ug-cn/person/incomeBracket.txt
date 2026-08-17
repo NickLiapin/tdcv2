@@ -1,0 +1,11 @@
+---
+description: Annual household income bracket, labelled in Uyghur. THE CURRENCY IS THE CHINESE YUAN, yüen (元, RMB), which is what a payslip in Xinjiang shows; the bands run from roughly 2,000 to 40,000 US dollars a year at 2025 rates. Written with the number first and the currency word after it, which is the Uyghur order. A locale pack cannot carry an exchange rate, so it carries the local numbers. NOTE THE NUMERALS: Uyghur written in the Arabic script uses the EUROPEAN digits 0-9, not the Arabic-Indic ٠-٩ of Arabic and Persian, and the digits run left to right inside a right-to-left line.
+locale: ug-cn
+---
+30000 يۈەندىن ئاز
+30000–60000 يۈەن
+60000–100000 يۈەن
+100000–150000 يۈەن
+150000–250000 يۈەن
+250000–400000 يۈەن
+400000 يۈەندىن كۆپ

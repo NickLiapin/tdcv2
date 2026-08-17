@@ -1,0 +1,24 @@
+---
+description: Faroese filler paragraphs. Handwritten: Project Gutenberg holds no Faroese book at all. The search that other locales use to find a public-domain corpus (query l.fo) returns "No records found", while the same search returns books for Icelandic and Danish, so there was nothing to build from and this file was written by hand rather than harvested. It is not the output of data/scripts/build-text-corpus.mjs and is much smaller than a corpus-backed locale's.
+locale: fo
+---
+Bygdin liggur inni í botni á fjørðinum. Húsini standa tætt saman undir fjallinum, og kirkjan stendur ovast. Ein smalur vegur gongur út til havnina, har bátarnir liggja.
+Um morgunin fóru fiskimenninir út. Sjógvurin var lygnur, men mjørkin lá yvir sundinum, og tey sóu ikki oyggina á hinum megin. Um kvøldið komu bátarnir inn aftur við fullari last.
+Skerpikjøtið hongur í hjallinum allan veturin. Vindurin fer ígjøgnum tiljurnar og turkar kjøtið spakuliga. Tað er hesin vindur, og ikki salt ella eldur, sum goymir matin í Føroyum.
+Seyðurin gongur úti alt árið. Hann finnur sær fóður í hagunum, eisini tá ið kavin liggur á fjøllunum, og bóndin fer út at vitja hann eina ferð um vikuna.
+Ullin var longu tíðliga tann mest týdningarmikla útflutningsvøran. Konurnar prjónaðu peysar heima í stovuni, og peysarnir vórðu seldir út úr landinum. Enn í dag verður sagt at ull er Føroya gull.
+Kvæðini eru gomul. Tey vórðu ongantíð prentað í fyrstuni, men sungin frá manni til mann í fleiri hundrað ár, og fyrst seint vórðu tey skrivað niður. Enn verða tey sungin, og enn verður dansað eftir teimum.
+Í samkomuhúsinum er dansur hvørt kvøld í ólavsøkuvikuni. Fólk taka hvørt annað í hondina og ganga í ring, og ein syngur fyri meðan hini svara. Tað er eingin tónleikur, bara røddirnar.
+Kappróðurin er høvuðsdagurin um summarið. Hvør bygd hevur sítt egna manning, og bátarnir eru teir somu sum fyrr vórðu brúktir til fiskiskap. Fólk standa á bryggjuni og rópa á sínar egnu.
+Veðrið broytist skjótt. Um morgunin skein sólin, um middagin kom mjørkin, og um kvøldið var rok. Tey siga at tú kanst uppliva fýra árstíðir á einum degi.
+Ferjan siglir millum oyggjarnar fleiri ferðir um dagin. Tá ið ódnin er hørð, siglir hon ikki, og tá kemur eingin til bygdina og eingin fer haðani.
+Tunlarnir hava broytt landið. Fyrr tók tað ein heilan dag at koma úr einari bygd í aðra, og nú tekur tað ein hálvan tíma. Summir siga at nakað er farið burtur við hesum.
+Í Tórshavn búgva góð fjórtan túsund menniskju. Tað er lítil býur, men tað er høvuðsstaðurin, og har situr Løgtingið, sum er eitt av teimum elstu tingum í heiminum.
+Lundin kemur upp á bergið um várið. Hann grevur sær holu í grasinum og verður har til heyst, og so fer hann aftur út á havið og kemur ikki inn aftur fyrr enn næsta ár.
+Tjaldrið er fuglur Føroya. Tað kemur í mars, og tá vita fólk at várið er komið, hóast kavin enn liggur á fjøllunum.
+Bátasmiðurin arbeiðir enn eftir gomlum leisti. Hann brúkar eingi teknifør, men mátar við eygunum, og báturin verður tann sami sum faðir hansara gjørdi.
+Alivinnan er nú størri enn fiskiveiðan. Alistøðirnar liggja inni í fjørðunum, og laksurin verður fluttur út til allan heimin, ofta við flogfari sama dagin.
+Í skúlanum lesa børnini bæði føroyskt og danskt. Føroyskt er móðurmálið, og danskt læra tey frá triðja flokki, so tey kunnu lesa og skriva bæði málini.
+Um veturin er tað myrkt tá ið fólk fara á arbeiði og myrkt tá ið tey koma heim aftur. Men um summarið verður tað ongantíð heilt myrkt, og fólk sita úti langt út á náttina.
+Tað eru eingi trø í Føroyum. Vindurin, saltið og seyðurin sleppa ongum at vaksa, og tey fáu træini sum standa vórðu øll plantað av fólki fyri minni enn hundrað árum síðani.
+Málið er skrivað sum tað var talað fyri langari tíð síðani. Hammershaimb valdi at skriva tað soleiðis at øll skuldu kunna lesa tað, hóast eingin sigur tað longur á tann hátt, og tí er munurin millum skrift og talu so stórur.

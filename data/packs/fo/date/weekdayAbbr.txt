@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation in Faroese, Monday first. Note mik. and hós. - see date/weekday for why Faroese has no onsdag and no torsdag.
+locale: fo
+---
+mán.
+týs.
+mik.
+hós.
+frí.
+ley.
+sun.

@@ -1,0 +1,5 @@
+---
+description: Currency of Avstralia as Faroese names it
+locale: fo
+---
+avstralskur dollari

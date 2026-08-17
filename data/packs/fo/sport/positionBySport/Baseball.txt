@@ -1,0 +1,10 @@
+---
+description: Positions in Baseball. In English on purpose: the game is not played in the Faroe Islands and has no Faroese terminology.
+locale: fo
+---
+Pitcher
+Catcher
+First baseman
+Shortstop
+Outfielder
+Designated hitter

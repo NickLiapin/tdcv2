@@ -1,0 +1,10 @@
+---
+description: Jobs in Fíggjarvinna
+locale: fo
+---
+Bankastarvsfólk
+Bókhaldari
+Grannskoðari
+Fíggjarráðgevi
+Tryggingarráðgevi
+Búskaparfrøðingur

@@ -1,0 +1,5 @@
+---
+description: Currency of شىۋىتسارىيە, named in Uyghur.
+locale: ug-cn
+---
+شىۋىتسارىيە فرانكى

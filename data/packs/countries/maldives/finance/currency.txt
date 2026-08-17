@@ -1,0 +1,7 @@
+---
+address: maldives.finance.currency
+description: The two Maldivian money units. The currency is the rufiyaa (ISO 4217 MVR, everyday abbreviation Rf, and its own currency sign in Unicode at U+A4A5 in the Thaana-adjacent range), divided into 100 laari. The name comes from Sanskrit rupya, wrought silver, by the same road as the Indian rupee, and before it the islands used cowrie shells as money for centuries — the Maldives was the world's supplier of them, and Ibn Battuta counted forty shiploads a year leaving Malé in 1344. The ISO code changed in 1990 from MVQ, the Maldive rupee, to MVR, so financial records from before then carry a code no modern library recognises. Two practical facts. The rufiyaa is NOT freely floating: the Maldives Monetary Authority holds it against the US dollar at a midpoint of Rf 12.85 with a band of plus or minus 20 percent, so the official rate has sat at 15.42 to the dollar for years while the parallel rate has not, and a Maldivian amount converted at the official rate is not what the transaction was worth. And the tourism economy runs on dollars: resorts, dive centres and much of Malé price in USD and settle in USD, so a Maldivian invoice may legitimately carry either currency and the currency field is not a formality. Notes in circulation are Rf 5, 10, 20, 50, 100, 500 and 1000; coins are 1, 2, 5, 10, 25 and 50 laari and Rf 1 and Rf 2. The 5000-rufiyaa note exists but is rare. See maldives.finance.amount for how a figure is written.
+locale: dv-Latn
+---
+rufiyaa
+laari

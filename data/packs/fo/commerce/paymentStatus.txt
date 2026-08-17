@@ -1,0 +1,14 @@
+---
+description: Payment status in Faroese.
+locale: fo
+---
+Bíðar
+Góðkent
+Goldið
+Partvíst goldið
+Í viðgerð
+Miseydnað
+Avlýst
+Endurgoldið
+Ov seint
+Afturvíst

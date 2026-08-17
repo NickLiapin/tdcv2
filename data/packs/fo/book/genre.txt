@@ -1,0 +1,30 @@
+---
+description: Book genre in Faroese. KVÆÐABÓK is a category of its own in a Faroese bookshop: a collection of kvæði, the medieval Faroese narrative ballads still sung to the chain dance. The written corpus runs to tens of thousands of stanzas.
+locale: fo
+---
+Skaldsøga
+Yrkingar
+Fakbók
+Kvæðabók
+Ævintýr
+Krimi
+Spenningssøga
+Søgulig skaldsøga
+Vísindaskaldskapur
+Fantasy
+Ástarsøga
+Ævisøga
+Sjálvsøga
+Barnabók
+Ungdómsbók
+Ferðafrásøgn
+Matbók
+Handbók
+Orðabók
+Sálmabók
+Søga
+Trúarbók
+Vísindabók
+Yrkingasavn
+Sjónleikur
+Tjóðsagnir

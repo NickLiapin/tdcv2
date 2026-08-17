@@ -1,0 +1,5 @@
+---
+description: Currency of Saudi-Arabia as Faroese names it
+locale: fo
+---
+saudiarabiskur riyal

@@ -1,0 +1,5 @@
+---
+description: Capital of India as Faroese names it
+locale: fo
+---
+Nýdelhi

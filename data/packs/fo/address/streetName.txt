@@ -1,0 +1,114 @@
+---
+description: Faroese street names on the ordinary compound pattern: a specific element welded to a generic one, written as one word, with the house number after a space and no comma (Skúlavegur 12). These are the recurring names found in town after town rather than one town's register - a full street list for Tórshavn or Klaksvík is tied to that town's FO postcode and belongs in a Faroe Islands country pack. The last ten are the preposition type (Yviri við Strond, Undir Bryggjubakka): a real Faroese address written as several words, where the preposition is part of the name and is capitalised with it.
+locale: fo
+---
+Skúlavegur
+Skúlagøta
+Skúlabrekka
+Kirkjuvegur
+Kirkjugøta
+Kirkjubrekka
+Bakkavegur
+Bakkagøta
+Havnarvegur
+Havnargøta
+Bryggjuvegur
+Landavegur
+Dalavegur
+Dalsbrekka
+Heiðavegur
+Hagavegur
+Bøvegur
+Bøgøta
+Túnvegur
+Garðavegur
+Garðagøta
+Sandvegur
+Sandagøta
+Nesvegur
+Nesgøta
+Víkarvegur
+Oyrarvegur
+Eiðisvegur
+Sundsvegur
+Fjarðarvegur
+Fjallvegur
+Tinghúsvegur
+Ráðhúsvegur
+Posthúsvegur
+Sjúkrahúsvegur
+Bókasavnsvegur
+Ítróttarvegur
+Bygdarvegur
+Bygdargøta
+Nýggjavegur
+Gamlivegur
+Miðvegur
+Ringvegur
+Tunnilsvegur
+Flogvallarvegur
+Ferjuvegur
+Bátahavnarvegur
+Verksmiðjuvegur
+Handilsvegur
+Fiskivinnuvegur
+Alistøðarvegur
+Neystavegur
+Hjallavegur
+Løðugøta
+Fjósgøta
+Ravnagøta
+Lundagøta
+Tjaldursgøta
+Skarvagøta
+Súlugøta
+Havhestagøta
+Sóljugøta
+Fífugøta
+Lyngvegur
+Blómugøta
+Trjágøta
+Eikigøta
+Sólvegur
+Mánavegur
+Stjørnuvegur
+Norðljósvegur
+Vindgøta
+Brimgøta
+Sjóvarvegur
+Havgøta
+Bárugøta
+Seglgøta
+Bátagøta
+Skipagøta
+Akkerisgøta
+Vitagøta
+Kelduvegur
+Áarvegur
+Lækjargøta
+Fossvegur
+Grótgøta
+Berggøta
+Hamarsvegur
+Klettavegur
+Urðargøta
+Tindavegur
+Múlavegur
+Tangagøta
+Heygsvegur
+Brekkugøta
+Geilin
+Gongin
+Vaglið
+Trøðin
+Steinavegur
+Yviri við Strond
+Undir Bryggjubakka
+Á Hjalla
+Í Botni
+Við Áir
+Undir Heygi
+Á Reyni
+Í Trøðum
+Við Ánna
+Undir Bø

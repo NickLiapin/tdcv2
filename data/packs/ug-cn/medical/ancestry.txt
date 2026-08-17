@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Uyghur, the parent of medical/diagnosisByAncestry. These are ancestry populations as CLINICAL GENETICS defines them — geographic descent, not social race categories. UYGHURS ARE NOT ONE OF THE TWELVE, and the reason is worth stating: Uyghur genomes are an old and thorough West-Eurasian/East-Eurasian admixture, so a Uyghur patient sits between the yéqin sherq and sherqiy asiya rows rather than in either. The findings that matter locally are beta thalassaemia and G6PD deficiency from the western side and lactase non-persistence from the eastern. The twelve groups are kept identical to every other locale so a config can move between them.
+locale: ug-cn
+---
+شىمالىي ياۋروپا
+شەرقىي ياۋروپا
+ئوتتۇرا دېڭىز
+ئاشكېنازى يەھۇدىيلىرى
+يېقىن شەرق
+شىمالىي ئافرىقا
+ساخارا جەنۇبىدىكى ئافرىقا
+شەرقىي ئاسىيا
+جەنۇبىي ئاسىيا
+جەنۇبىي شەرقىي ئاسىيا
+تىنچ ئوكيان ئاراللىرى
+ئامېرىكا يەرلىك خەلقلىرى

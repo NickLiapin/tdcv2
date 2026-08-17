@@ -1,0 +1,5 @@
+---
+description: Currency of بىرازىلىيە, named in Uyghur.
+locale: ug-cn
+---
+رېئال

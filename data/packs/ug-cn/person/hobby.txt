@@ -1,0 +1,56 @@
+---
+description: Pastime, named in Uyghur. A hobby is normally a verbal noun — the -sh / -ish ending on kitab oqush (reading a book) and naxsha éytish (singing) is the infinitive, so the values read as activities rather than as nouns. THE MUSICAL BLOCK IS NOT DECORATION: the dutar, rawap, tembur, ghejek and dap are the instruments of the Twelve Muqam, and meshrep — a gathering of music, dance, food and moral instruction — is a named Uyghur institution with no English word, listed by UNESCO. Kepter béqish, keeping pigeons, and the bazaar stroll are ordinary and widespread. NOTE THE VOWEL HARMONY working across the list: körüsh but oqush, öginish but tartish — the suffix vowel copies the front-or-back class of the stem.
+locale: ug-cn
+---
+كىتاب ئوقۇش
+مۇزىكا ئاڭلاش
+ناخشا ئېيتىش
+ئۇسسۇل ئويناش
+دۇتار چېلىش
+راۋاپ چېلىش
+تەمبۇر چېلىش
+غەجەك چېلىش
+داپ چېلىش
+مۇقام ئاڭلاش
+مەشرەپ ئۆتكۈزۈش
+خەتتاتلىق
+رەسىم سىزىش
+سۈرەتكە تارتىش
+تىكىش
+كەشتە تىكىش
+گىلەم توقۇش
+باغۋەنچىلىك
+گۈل ئۆستۈرۈش
+تاماق ئېتىش
+نان يېقىش
+چاي ئىچىش
+شاھمات ئويناش
+پۇتبول ئويناش
+ۋالىبول ئويناش
+باسكېتبول ئويناش
+ئۈستەل تېننىسى ئويناش
+سۇدا ئۈزۈش
+يۈگۈرۈش
+ۋېلىسىپىت مىنىش
+ئات مىنىش
+تاغقا چىقىش
+سەيلە قىلىش
+سەپەر قىلىش
+بېلىق تۇتۇش
+ئوۋچىلىق
+كىنو كۆرۈش
+تېلېۋىزور كۆرۈش
+كومپيۇتېر ئويۇنى ئويناش
+شېئىر يېزىش
+تارىخ ئۆگىنىش
+تىل ئۆگىنىش
+ياغاچچىلىق
+كۇلالچىلىق
+تېمىرچىلىك
+كەپتەر بېقىش
+قۇش بېقىش
+بازار ئايلىنىش
+دوستلار بىلەن ئولتۇرۇش
+كىنو ئىشلەش
+خەت يېزىش
+قوليازما توپلاش

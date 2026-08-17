@@ -1,0 +1,34 @@
+---
+description: Hashtag word, to prefix with # in a template. These are the tags a Faroese account actually uses, and several are place or event names: olavsoka is the national holiday, kappródur the rowing race, and visitfaroeislands is the tourist board's own tag and is written in English on purpose.
+locale: fo
+---
+foroyar
+faroeislands
+visitfaroeislands
+torshavn
+foroyskt
+olavsoka
+kappródur
+grind
+ull
+peysi
+kvaedi
+dansur
+solja
+tjaldur
+lundi
+sjogvur
+fjoll
+natura
+mjorki
+nordljos
+batur
+fiskur
+laksur
+matur
+kaffi
+heim
+familja
+vinir
+ferding
+gledi

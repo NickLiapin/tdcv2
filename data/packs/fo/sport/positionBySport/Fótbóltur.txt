@@ -1,0 +1,10 @@
+---
+description: Positions in Fótbóltur, in Faroese. Football is the sport Faroese actually has its own vocabulary for.
+locale: fo
+---
+Málmaður
+Miðverji
+Síðuverji
+Verjandi miðvallarleikari
+Miðvallarleikari
+Sóknarleikari

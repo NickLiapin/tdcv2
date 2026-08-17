@@ -1,0 +1,8 @@
+---
+description: Gender label (Uyghur). Four values, matching en and ru. Uyghur has NO grammatical gender at all — no gendered pronoun, no agreement, no gendered adjective — so these are lexical labels only. er and ayal are also the everyday words for husband and wife.
+locale: ug-cn
+---
+ئەر
+ئايال
+باشقا
+كۆرسىتىلمىگەن

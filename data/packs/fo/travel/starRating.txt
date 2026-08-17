@@ -1,0 +1,9 @@
+---
+description: Hotel star rating in Faroese.
+locale: fo
+---
+1 stjørna
+2 stjørnur
+3 stjørnur
+4 stjørnur
+5 stjørnur

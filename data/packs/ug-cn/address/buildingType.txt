@@ -1,0 +1,40 @@
+---
+description: Kind of building, in Uyghur. THE PERSIAN SUFFIX -xana (house of) DOES ALMOST ALL THE WORK HERE and is the most productive word-building element in the language for places: doxturxana hospital, dorixana pharmacy, ashxana canteen, chayxana teahouse, kutupxana library, kinoxana cinema, méhmanxana hotel, pochtixana post office. It attaches to Arabic, Persian, Turkic and Russian stems alike. The courtyard house, hoyla, is the traditional Uyghur dwelling — rooms around a walled yard with a grape trellis — and is a different thing from öy, which is the house or the flat inside it.
+locale: ug-cn
+---
+ئۆي
+ھويلا
+تۇرالغۇ ئۆي
+كۆپ قەۋەتلىك بىنا
+بىنا
+ئىمارەت
+ئىشخانا
+دۇكان
+بازار
+ساتىدىغان مەركەز
+مېھمانخانا
+ئاشخانا
+چايخانا
+مەكتەپ
+ئۇنىۋېرسىتېت
+دوختۇرخانا
+دورىخانا
+مەسچىت
+مەدرىسە
+كۇتۇپخانا
+مۇزېي
+تىياتىرخانا
+كىنوخانا
+زاۋۇت
+ئىسكىلات
+گاراژ
+ئامبار
+قوتان
+كەپە
+مۇنار
+كۆۋرۈك
+ۋوگزال
+ئايرودۇرۇم
+بانكا
+پوچتىخانا
+ھاممام

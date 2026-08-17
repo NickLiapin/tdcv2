@@ -1,0 +1,44 @@
+---
+description: Uyghur dish. THE THREE THAT DEFINE THE KITCHEN are lengmen, hand-pulled noodles served under a stir-fried topping; polu, the rice pilaf cooked with mutton and carrot that is the food of a wedding; and kawap, mutton grilled over charcoal with cumin and chilli, which is why zire (cumin) is the first entry in food/spice.txt. NAN IS NOT A SIDE DISH BUT THE STAPLE — baked on the wall of a clay tonur, in a dozen named shapes, and girde nan is the small thick ring. Several names are borrowed straight from Chinese and kept: dapenji is 大盘鸡, big-plate chicken, and lengpung is 凉粉, cold starch jelly. Meat means mutton unless another animal is named; pork appears nowhere in this pack, and that is not an oversight.
+locale: ug-cn
+---
+لەڭمەن
+پولۇ
+كاۋاپ
+تونۇر كاۋاپ
+جىگەر كاۋاپ
+سامسا
+گۆشنان
+مانتا
+چۆچۈرە
+ئۈگرە
+سۇيۇق ئاش
+شورپا
+نارىن
+داپەنجى
+لەڭپۇڭ
+قاتلىما
+كۆمەچ
+توغاچ
+گىردە نان
+نان
+پىتىر نان
+ياغلىق نان
+سەڭزە
+پوشكال
+ماتاڭ
+ھالۋا
+قايماق
+ئەتكەنچاي
+قوي گۆشى قورۇمىسى
+كالا گۆشى قورۇمىسى
+توخۇ قورۇمىسى
+ئۆپكە-ئېسىپ
+قازان كاۋىپى
+پىياز قورۇمىسى
+كارتوپ قورۇمىسى
+بادىنجان قورۇمىسى
+كۆكتات سالىتى
+قوغۇن
+ئۈزۈم
+كىشمىش

@@ -1,0 +1,12 @@
+---
+description: Job in the ئۇچۇر تېخنىكىسى industry, in Uyghur. Filename matches work/industryCoherent.txt character for character.
+locale: ug-cn
+---
+پروگراممىچى
+سىستېما باشقۇرغۇچى
+تور مۇھەندىسى
+سانلىق مەلۇمات تەھلىلچىسى
+دىزاينېر
+سىناقچى
+تېخنىكا مۇدىرى
+خەۋپسىزلىك مۇتەخەسسىسى

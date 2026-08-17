@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Suðeysturasia ancestry. A prevalence signal, not an exclusive one.
+locale: fo
+---
+Hemoglobin E
+Alfa-talassemi
+G6PD-trot
+Nasopharynkskrabbamein
+Laktoseintoleransa
+Hepatitt B
+Beta-talassemi

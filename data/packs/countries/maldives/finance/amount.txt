@@ -1,0 +1,21 @@
+---
+address: maldives.finance.amount
+description: A sum of money written the way the Maldives writes it — the code or abbreviation FIRST, a space, then groups of three separated by commas and two decimals after a full stop: MVR 1,234,567.89. Three points where this differs from what a neighbour's pack would suggest. The grouping is INTERNATIONAL, three digits at a time, not the South Asian lakh-crore grouping that puts a comma after two digits from the right: the Maldives writes MVR 12,00,000 nowhere, and a routine written for Indian or Sri Lankan amounts groups Maldivian ones wrongly. The symbol goes in FRONT, unlike most of the currencies that use a comma-and-point convention. And there are two accepted prefixes for the same money — MVR is the ISO 4217 code and the bank and government form, Rf is the everyday shop and price-list form, and Rf. with a full stop is also seen; they are not interchangeable in register even though they name the same unit, and this generator emits the MVR form because it is the one that survives a data feed. The hundredth is the laari, and unlike some withdrawn subunits it is still coined down to 1 laari, so two decimals are meaningful rather than decorative. The magnitude is spread across five decades rather than drawn uniformly, because a uniform draw over a seven-digit range puts almost every value in the millions while Maldivian prices are mostly two, three and four figures — a bottle of water is Rf 10, a Malé taxi ride Rf 30, and the income-tax registration threshold is MVR 40,000 a month. Nothing here is a number the engine can do arithmetic on: it is the PRINTED form. Be aware that a Maldivian price is quite often not in rufiyaa at all — resorts, dive schools and much of the tourism economy quote and settle in US dollars — so a currency column beside this one is not optional.
+generator: tdc
+locale: dv-Latn
+---
+<sequence name="raw"><gen type="number" value="1..9999999"/></sequence>
+<sequence name="shift"><gen type="number" value="0..4"/></sequence>
+<sequence name="laari"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="amount"><compute>
+  <!-- Spread the magnitude: divide the 7-digit draw by 1, 10, 100, 1000 or 10000. -->
+  <let name="scale"><at>
+    <in><list v="1,10,100,1000,10000"/></in>
+    <index><to_number><field name="shift"/></to_number></index>
+  </at></let>
+  <let name="whole"><divide><to_number><field name="raw"/></to_number><use name="scale"/></divide></let>
+  <!-- Three-digit grouping with a comma; NOT the lakh-crore grouping of the region. -->
+  <let name="grouped"><group size="3" sep=","><use name="whole"/></group></let>
+  <result><concat><str v="MVR "/><use name="grouped"/><str v="."/><field name="laari"/></concat></result>
+</compute></sequence>
+<data>${{amount}}</data>

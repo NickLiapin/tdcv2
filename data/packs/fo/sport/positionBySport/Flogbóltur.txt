@@ -1,0 +1,9 @@
+---
+description: Positions in Flogbóltur, in Faroese.
+locale: fo
+---
+Uppspælari
+Kantslagari
+Miðblokkari
+Libero
+Móttakari

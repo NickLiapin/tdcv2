@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Miðjarðarhavsøki ancestry. A prevalence signal, not an exclusive one.
+locale: fo
+---
+Beta-talassemi
+Beta-talassemibera
+G6PD-trot
+Familiær miðjarðarhavsfeber
+Sigðcellubera
+Wilsons sjúka
+Hemokromatosa

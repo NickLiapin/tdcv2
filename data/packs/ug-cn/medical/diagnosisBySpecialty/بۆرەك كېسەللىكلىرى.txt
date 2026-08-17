@@ -1,0 +1,16 @@
+---
+description: Diagnosis seen in the بۆرەك كېسەللىكلىرى clinic, in Uyghur. Filename matches medical/specialtyCoherent.txt character for character.
+locale: ug-cn
+---
+بۆرەك ياللۇغى
+بۆرەك تېشى
+سوزۇلما بۆرەك يېتەرسىزلىكى
+ئۆتكۈر بۆرەك يېتەرسىزلىكى
+نېفروتىك سىندروم
+بۆرەك كىستىسى
+سىيدىك يولى ياللۇغى
+سىيدىك قاپچۇقى ياللۇغى
+بۆرەك ئارتېرىيىسى تارىيىشى
+بۆرەك راكى
+سىيدىك تۇتالماسلىق
+بۆرەك چۈشۈشى

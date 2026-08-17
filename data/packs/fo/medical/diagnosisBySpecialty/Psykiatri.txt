@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Psykiatri
+locale: fo
+---
+Depressión
+Angist
+Bipolar sjúka
+Skisofreni
+ADHD
+Etingartrupulleikar

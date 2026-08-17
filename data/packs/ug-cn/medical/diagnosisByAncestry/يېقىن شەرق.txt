@@ -1,0 +1,10 @@
+---
+description: Condition with a raised prevalence in the يېقىن شەرق ancestry group, in Uyghur. Filename matches medical/ancestry.txt character for character.
+locale: ug-cn
+---
+ئائىلىۋى ئوتتۇرا دېڭىز قىزىتمىسى
+بېتا تالاسسېمىيە
+G6PD يېتەرسىزلىكى
+بېھچەت كېسىلى
+D ۋىتامىنى يېتەرسىزلىكى
+ئورغاق ھۈجەيرە خاسلىقى

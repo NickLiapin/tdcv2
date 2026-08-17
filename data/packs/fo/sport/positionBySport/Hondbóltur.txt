@@ -1,0 +1,11 @@
+---
+description: Positions in Hondbóltur, in Faroese.
+locale: fo
+---
+Málmaður
+Vinstravongur
+Høgravongur
+Vinstribakur
+Høgrabakur
+Miðbakur
+Strekleikari

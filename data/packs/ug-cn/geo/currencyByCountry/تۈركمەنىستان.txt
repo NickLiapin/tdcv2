@@ -1,0 +1,5 @@
+---
+description: Currency of تۈركمەنىستان, named in Uyghur.
+locale: ug-cn
+---
+مانات

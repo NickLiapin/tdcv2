@@ -1,0 +1,34 @@
+---
+description: Vegetable in Uyghur. The everyday base of the kitchen is the first four — piyaz onion, kartop potato, sewze carrot and pemidur tomato — and sewze is not optional, because a polu without carrot is not a polu. jüsey is Chinese chives, borrowed from the Han kitchen next door and now ordinary in Uyghur cooking; lengpung, the cold starch jelly, is made from mung-bean starch and appears here as its plant. Words for pepper are built on much: qizil much chilli, bulghar much sweet pepper.
+locale: ug-cn
+---
+پىياز
+كارتوپ
+سەۋزە
+پەمىدۇر
+سامساق
+كاۋا
+بادىنجان
+تەرخەمەك
+كارام
+گۈلكارام
+لوبا
+شالغام
+قىزىل مۇچ
+بۇلغار مۇچ
+كۆك پىياز
+جۈسەي
+ئىسپاناق
+سالات
+شىۋىت
+كىشنىش
+رەيھان
+پۇدىنا
+ماش
+نوھۇت
+پۇرچاق
+قوناق
+زەيتۇن
+قوزىقارىن
+كۆكتات
+قىزىل لوبا

@@ -1,0 +1,23 @@
+---
+description: Legal term in Faroese.
+locale: fo
+---
+Sakførari
+Verji
+Dómari
+Ákærdi
+Kærari
+Vitni
+Vitnisburður
+Stevningur
+Dómur
+Rættarhald
+Kæra
+Sekt
+Revsing
+Fongsul
+Skaðabót
+Sáttmáli
+Ábyrgd
+Sannroynd
+Prógv

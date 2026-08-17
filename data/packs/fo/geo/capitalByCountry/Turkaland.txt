@@ -1,0 +1,5 @@
+---
+description: Capital of Turkaland as Faroese names it
+locale: fo
+---
+Ankara

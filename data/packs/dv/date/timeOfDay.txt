@@ -1,0 +1,15 @@
+---
+description: Time of day (Dhivehi). The everyday divisions are anchored on the five prayer times rather than on clock hours: ފަތިސް is dawn prayer, މެންދުރު midday, ޢަޞްރު mid-afternoon, މަޣްރިބް sunset and ޢިޝާ nightfall.
+locale: dv
+---
+ފަތިސް
+ހެނދުނު
+މެންދުރު
+މެންދުރުފަހު
+ޢަޞްރު
+ހަވީރު
+މަޣްރިބް
+އިރުއޮއްސޭ ވަގުތު
+ޢިޝާ
+ރޭގަނޑު
+ދަންވަރު

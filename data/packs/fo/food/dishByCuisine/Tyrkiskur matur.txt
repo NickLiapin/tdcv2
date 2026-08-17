@@ -1,0 +1,11 @@
+---
+description: Dishes of Tyrkiskur matur
+locale: fo
+---
+Kebab
+Baklava
+Meze
+Lahmacun
+Dolma
+Börek
+Pilav

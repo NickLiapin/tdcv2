@@ -1,0 +1,5 @@
+---
+description: Currency of Sveis as Faroese names it
+locale: fo
+---
+svissisk frankur

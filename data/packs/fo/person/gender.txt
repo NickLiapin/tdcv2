@@ -1,0 +1,8 @@
+---
+description: Gender label in Faroese. The Faroese national register (the P-tal register) records two, as the Danish one does - there is no third legal category here - so the last two values are dataset conventions and not something a Faroese official record can contain.
+locale: fo
+---
+Kallmaður
+Kvinna
+Annað
+Ikki uppgivið

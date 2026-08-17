@@ -1,0 +1,14 @@
+---
+description: Fuel type in Faroese. Worth knowing for anything modelling emissions: Faroese electricity is roughly half wind and hydro, so an electric car here is a genuinely different proposition from one on a coal grid.
+locale: fo
+---
+Bensin
+Diesel
+Rafmagn
+Hybrid
+Plug-in hybrid
+Vetni
+Gass
+Biodiesel
+Etanol
+Sólarorka

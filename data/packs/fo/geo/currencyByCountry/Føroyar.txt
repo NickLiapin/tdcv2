@@ -1,0 +1,5 @@
+---
+description: Currency of Føroyar. The Faroe Islands issue their OWN banknotes, the føroyska krónan, which carry Faroese designs and Faroese wording - but the króna is not a separate currency. It is the Danish krone at one to one, backed by Danmarks Nationalbank, and Danish coins circulate unchanged because the Faroes mint none. That is why the ISO code beside this file says DKK and not something Faroese.
+locale: fo
+---
+føroysk króna

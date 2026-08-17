@@ -1,0 +1,34 @@
+---
+description: Hotel facility in Faroese. Útsýni til havið is on nearly every Faroese listing for the obvious reason, and flogvøllurflutningur matters here because Vágar airport is an hour's drive and two tunnels from Tórshavn.
+locale: fo
+---
+Ókeypis netsamband
+Morgunmatur
+Bilstøði
+Matstova
+Bar
+Ræktarrúm
+Sáun
+Heitur pottur
+Svimjihylur
+Ráðstevnurúm
+Tvátt
+Rúmtænasta
+Køksfør
+Hjólastólsatgongd
+Djór loyvd
+Flogvøllurflutningur
+Útsýni til havið
+Útsýni til fjøllini
+Grill
+Bókasavn
+Reiðgoymsla
+Turkirúm
+Barnarúm
+Ókeypis avlýsing
+Seinur útskriving
+Tíðlig innskriving
+Ferðaleiðsøgn
+Fiskiveiðiførleiki
+Bátatúrar
+Fuglaskoðan

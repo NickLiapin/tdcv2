@@ -1,0 +1,11 @@
+---
+description: Gross MONTHLY pay band in Faroese kronur. The currency needs saying plainly: the Faroe Islands use the Danish krone. Faroese banknotes are printed with Faroese wording and Faroese designs and are called the føroysk króna, but they are the Danish krone at one to one, issued under Danmarks Nationalbank, and the coins are Danish. The ISO code is DKK - there is no FOK. Faroese writes thousands with a full stop and decimals with a comma (30.000 kr.), and pay is quoted monthly, not annually.
+locale: fo
+---
+Undir 20.000 kr.
+20.000–25.000 kr.
+25.000–30.000 kr.
+30.000–40.000 kr.
+40.000–50.000 kr.
+50.000–70.000 kr.
+Yvir 70.000 kr.

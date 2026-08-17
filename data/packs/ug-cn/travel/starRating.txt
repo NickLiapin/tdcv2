@@ -1,0 +1,9 @@
+---
+description: Hotel star rating in Uyghur. yultuz is a star; the numeral comes first and takes the possessive with -luq.
+locale: ug-cn
+---
+بىر يۇلتۇزلۇق
+ئىككى يۇلتۇزلۇق
+ئۈچ يۇلتۇزلۇق
+تۆت يۇلتۇزلۇق
+بەش يۇلتۇزلۇق

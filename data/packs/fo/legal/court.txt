@@ -1,0 +1,19 @@
+---
+description: Kind of court, in the Faroese words for them. Read this before using it: the Faroe Islands have exactly ONE first-instance court, Føroya Rættur, and it is a Danish district court - the judiciary was never transferred to home rule. Appeals go to Eystari Landsrættur and then to the Danish Supreme Court in Copenhagen. So this list holds the Faroese vocabulary for kinds of court, several of which name a court that sits in Denmark and not here; the named institutions and their jurisdictions belong in a country pack.
+locale: fo
+---
+Rættur
+Undirrættur
+Landsrættur
+Hægstirættur
+Skiftirættur
+Fúttarættur
+Gerðarrættur
+Sjó- og handilsrættur
+Arbeiðsrættur
+Vinnurættur
+Kærunevnd
+Dómstólur
+Serdómstólur
+Rættarnevnd
+Sáttarnevnd

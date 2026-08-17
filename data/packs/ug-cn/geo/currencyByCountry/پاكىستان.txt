@@ -1,0 +1,5 @@
+---
+description: Currency of پاكىستان, named in Uyghur.
+locale: ug-cn
+---
+رۇپىيە

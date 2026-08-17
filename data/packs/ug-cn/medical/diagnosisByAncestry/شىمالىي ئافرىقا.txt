@@ -1,0 +1,10 @@
+---
+description: Condition with a raised prevalence in the شىمالىي ئافرىقا ancestry group, in Uyghur. Filename matches medical/ancestry.txt character for character.
+locale: ug-cn
+---
+G6PD يېتەرسىزلىكى
+بېتا تالاسسېمىيە خاسلىقى
+ئائىلىۋى ئوتتۇرا دېڭىز قىزىتمىسى
+بېھچەت كېسىلى
+لاكتازا داۋاملاشماسلىقى
+پىگمېنتلىق قۇرۇق تېرە كېسىلى

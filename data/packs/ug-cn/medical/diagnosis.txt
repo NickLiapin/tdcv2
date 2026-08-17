@@ -1,0 +1,84 @@
+---
+description: General diagnosis in Uyghur. THE TERMS ARE BUILT, NOT BORROWED, wherever Uyghur has the parts: organ + yallughi is an inflammation (öpke yallughi pneumonia, jiger yallughi hepatitis, börek yallughi nephritis), organ + raki is a cancer, organ + téshi a stone. Where no native compound exists the international term is transliterated into the Arabic script rather than left in Latin — migrén, ekzéma, diabét is instead the native shéker késili, sugar-disease. Two entries are specifically regional: öpke sili, tuberculosis, and qizil öngech raki, oesophageal cancer, which has one of the highest incidences in the world along the old Silk Road corridor.
+locale: ug-cn
+---
+يۇقىرى قان بېسىمى
+شېكەر كېسىلى
+ئۆپكە ياللۇغى
+سوزۇلما بىرونخىت
+دەم سىقىلىش
+ئۆپكە سىلى
+گال ياللۇغى
+زۇكام
+تۇمۇ
+ئاشقازان ياللۇغى
+ئاشقازان يارىسى
+ئون ئىككى بارماق ئۈچەي يارىسى
+ئۈچەي ياللۇغى
+كور ئىچەك ياللۇغى
+ئىچ قېتىش
+ئىچ سۈرۈش
+سوزۇلما جىگەر ياللۇغى
+جىگەر سىررىروزى
+ماي جىگەر
+ئۆت تېشى
+ئۆت خالتىسى ياللۇغى
+پانكرېئاس ياللۇغى
+بۆرەك ياللۇغى
+بۆرەك تېشى
+سوزۇلما بۆرەك يېتەرسىزلىكى
+سىيدىك يولى ياللۇغى
+سىيدىك قاپچۇقى ياللۇغى
+يۈرەك تاج تومۇر كېسىلى
+يۈرەك تۇتۇلۇشى
+يۈرەك يېتەرسىزلىكى
+يۈرەك ئۇرۇشى تەرتىپسىزلىكى
+ئارتېرىيە قېتىشىشى
+ۋېنا كېڭىيىشى
+مېڭە قان تومۇر كېسىلى
+باش ئاغرىقى
+مىگرېن
+تۇتقاقلىق
+پاركىنسون كېسىلى
+ئالزگېيمېر كېسىلى
+يۈز نېرۋىسى پارالىچى
+نېرۋا ياللۇغى
+بەل ئاغرىقى
+بەل ئومۇرتقىسى چۈشۈشى
+بوغۇم ياللۇغى
+رېۋماتىك بوغۇم ياللۇغى
+سۆڭەك بوشىشى
+سۆڭەك سۇنۇشى
+پودارگا
+قالقانسىمان بەز چوڭىيىشى
+قالقانسىمان بەز يېتەرسىزلىكى
+سېمىزلىك
+قانسىزلىق
+قان راكى
+لىمفا ئۆسمىسى
+ئۆپكە راكى
+ئاشقازان راكى
+جىگەر راكى
+ئۈچەي راكى
+كۆكرەك راكى
+قىزىل ئۆڭگەچ راكى
+تېرە راكى
+ئېكزېما
+تەڭگە كېسىلى
+تاشما
+قىچىشما
+پېسە
+ئۇچۇق
+يۈز سەپكىسى
+كۆز تور پەردىسى كېسىلى
+گلاۋكوما
+كاتاراكتا
+يېقىندىن كۆرەرلىك
+قۇلاق ياللۇغى
+ئاڭلاش كېمىيىشى
+چىش قۇرتلىشى
+مىلك ياللۇغى
+دەپرەسسىيە
+ئەندىشە كېسىلى
+ئۇيقۇسىزلىق
+كەملىك سىندرومى

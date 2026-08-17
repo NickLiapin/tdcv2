@@ -1,0 +1,5 @@
+---
+description: Currency of ئىندونېزىيە, named in Uyghur.
+locale: ug-cn
+---
+رۇپىيە

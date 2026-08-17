@@ -1,0 +1,10 @@
+---
+description: Jobs in Upplýsingartøkni
+locale: fo
+---
+Forritari
+Kervisfrøðingur
+Dátufrøðingur
+Netverksstjóri
+Trygdarserfrøðingur
+Vevhannari

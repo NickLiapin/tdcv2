@@ -1,0 +1,5 @@
+---
+description: Currency of Singapor as Faroese names it
+locale: fo
+---
+singaporskur dollari

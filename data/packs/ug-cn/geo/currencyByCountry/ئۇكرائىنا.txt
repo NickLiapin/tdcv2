@@ -1,0 +1,5 @@
+---
+description: Currency of ئۇكرائىنا, named in Uyghur.
+locale: ug-cn
+---
+گىرىۋنا

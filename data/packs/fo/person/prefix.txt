@@ -1,0 +1,12 @@
+---
+description: Title placed before a name. Kept short on purpose: Faroese normally uses NO title at all. Everyone, including ministers and strangers, is addressed by the given name, and in a country of fifty thousand people where most of a village is related, a title before a name is formal written register only.
+locale: fo
+---
+harri
+frúgv
+frøkun
+dr.
+prof.
+sr.
+prestur
+løgmaður

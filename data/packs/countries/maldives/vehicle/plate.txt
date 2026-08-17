@@ -1,0 +1,11 @@
+---
+address: maldives.vehicle.plate
+description: A Maldivian vehicle registration plate as it is actually laid out, which is TWO LINES on a small square plate rather than one strip. The top line is four characters — a serial letter, the two-character vehicle category, another serial letter — and the bottom line is the use letter and four digits: AB1A over P3665 is a private light passenger vehicle, AC1A over T1450 a taxi, AB1A over S8708 a police car. Read as one string that is nine characters, and the order the eye reads it in is not the order the meaning runs in: the class information (B1, P) is split across the two lines with the serial letters wrapped around it. The current scheme dates from 2003; before 1998 plates were just a number up to four digits, so an old Maldivian record may hold a plate that is legal history and matches no modern pattern. Two things a plate does NOT tell you. It carries no geography — one national registration authority, no atoll letters, no island code — which is the opposite of the boat registration plates, where the atoll letter is the point (see maldives.geo.atollLetter). And it carries no check digit; there is no published validation rule for a Maldivian plate and none is invented here. The two flanking serial letters advance as blocks fill, and every published photograph of a current plate shows A on both sides, which suggests the early blocks are still being worked through; this generator draws both letters uniformly from A-Z, so it produces late-alphabet combinations more often than the road does. Emitted here with a single space between the two lines, which is how a Maldivian writes it in running text.
+generator: tdc
+---
+<sequence name="first"><gen type="regex" value="[A-Z]"/></sequence>
+<sequence name="category"><gen type="template" value="maldives.vehicle.plateCategory"/></sequence>
+<sequence name="second"><gen type="regex" value="[A-Z]"/></sequence>
+<sequence name="use"><gen type="template" value="maldives.vehicle.plateUse"/></sequence>
+<sequence name="serial"><gen type="number" value="1000..9999"/></sequence>
+<data>${{first}}${{category}}${{second}} ${{use}}${{serial}}</data>

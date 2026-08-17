@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list beside it in medical/diagnosisBySpecialty.
+locale: fo
+---
+Kardiologi
+Neurologi
+Onkologi
+Dermatologi
+Endokrinologi
+Gastroenterologi
+Nefrologi
+Ortopedi
+Psykiatri
+Pulmonologi

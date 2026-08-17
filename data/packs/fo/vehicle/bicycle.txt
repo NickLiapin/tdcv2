@@ -1,0 +1,21 @@
+---
+description: Kind of bicycle in Faroese.
+locale: fo
+---
+Vegasúkkla
+Fjallasúkkla
+Hybridsúkkla
+Elsúkkla
+Kappingarsúkkla
+Barnasúkkla
+Foldisúkkla
+Lastsúkkla
+Trísúkkla
+Grussúkkla
+Bæjarsúkkla
+Ferðasúkkla
+BMX
+Tandemsúkkla
+Hjólastólssúkkla
+Fetasúkkla
+Hjálparmotorsúkkla

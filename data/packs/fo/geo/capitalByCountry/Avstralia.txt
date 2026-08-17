@@ -1,0 +1,5 @@
+---
+description: Capital of Avstralia as Faroese names it
+locale: fo
+---
+Canberra

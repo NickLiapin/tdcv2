@@ -1,0 +1,32 @@
+---
+description: Technical verb in the Faroese infinitive. DAGFØRA - to bring up to date - is the ordinary Faroese word for updating software, and TAKA NIÐUR for downloading; neither borrows the English word.
+locale: fo
+---
+dagføra
+avrita
+dulrita
+avdulrita
+forrita
+koda
+kanna
+royna
+byggja
+koyra
+seta upp
+taka niður
+leggja upp
+goyma
+strika
+flyta
+senda
+tengja
+avtengja
+skanna
+verja
+brótast inn
+spora
+endurstarta
+greina
+stýra
+samstilla
+prógva

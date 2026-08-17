@@ -1,0 +1,9 @@
+---
+description: Positions in Íshokkey. In English on purpose - there is no ice rink in the Faroe Islands and no Faroese vocabulary for the game.
+locale: fo
+---
+Goaltender
+Defenseman
+Center
+Left wing
+Right wing

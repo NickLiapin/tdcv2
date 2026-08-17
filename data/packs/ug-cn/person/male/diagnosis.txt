@@ -1,0 +1,26 @@
+---
+description: Diagnosis specific to or far commoner in men, in Uyghur. Terms are built the ordinary Uyghur way — organ + yallugh (inflammation) or organ + késel (disease), with the possessive linking the two — rather than borrowed whole: öpke yallughi is pneumonia, jiger yallughi hepatitis, ashqazan yarisi a stomach ulcer.
+locale: ug-cn
+---
+پروستات چوڭىيىشى
+پروستات ياللۇغى
+ئۇرۇقدان ۋېنا كېڭىيىشى
+ئۇرۇقدان چۈشمەسلىكى
+قوشۇمچە بەز ياللۇغى
+سىيدىك يولى تارىيىشى
+ئۆپكە راكى
+ھەزىم يولى يارىسى
+سوزۇلما جىگەر ياللۇغى
+يۈرەك تومۇر كېسىلى
+يۇقىرى قان بېسىمى
+بەل ئاغرىقى
+بوغۇم ياللۇغى
+شېكەر كېسىلى
+ئۆپكە ياللۇغى
+سوزۇلما بىرونخىت
+ئاشقازان يارىسى
+ئۆت تېشى
+بۆرەك تېشى
+مېڭە قان تومۇر كېسىلى
+ئۈچەي ياللۇغى
+كۆز تور پەردە كېسىلى

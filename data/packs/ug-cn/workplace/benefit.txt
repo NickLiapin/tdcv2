@@ -1,0 +1,22 @@
+---
+description: Employment benefit in Uyghur. The first block is the Chinese statutory social insurance package as an Uyghur contract names it; the rest are the ordinary in-kind benefits, and the meal, transport and dormitory rows are the ones that appear most often in a Xinjiang job advertisement.
+locale: ug-cn
+---
+ئىجتىمائىي كاپالەت
+تېببىي سۇغۇرتا
+تەقاۋۇتلۇق سۇغۇرتىسى
+ئىشسىزلىق سۇغۇرتىسى
+ئەمگەك زېدىلىنىش سۇغۇرتىسى
+ئۆي پۇلى
+تاماق پۇلى
+قاتناش پۇلى
+ھەقلىق دەم ئېلىش
+بايراملىق سوۋغا
+تەربىيىلەش پۇرسىتى
+ئۆي ئىجارە ياردىمى
+بالا باقىش ياردىمى
+ساغلاملىق تەكشۈرۈشى
+ئىش كىيىمى
+ياتاق
+تۈنلۈك ھەققى
+يىللىق مۇكاپات

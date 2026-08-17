@@ -1,0 +1,5 @@
+---
+description: Capital of Japan as Faroese names it
+locale: fo
+---
+Tokyo

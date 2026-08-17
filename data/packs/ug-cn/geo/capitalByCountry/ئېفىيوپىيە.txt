@@ -1,0 +1,5 @@
+---
+description: Capital of ئېفىيوپىيە, in Uyghur. Filename matches geo/country.txt character for character.
+locale: ug-cn
+---
+ئاددىس ئابەبا

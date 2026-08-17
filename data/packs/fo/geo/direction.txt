@@ -1,0 +1,12 @@
+---
+description: Compass direction in Faroese. EYSTUR is east - Faroese keeps the old form where Danish has oest, and this word is one of the quickest ways to tell a genuinely Faroese list from a Danish one. These are the nouns; the comparative adjectives used with a place name (norðari, sunnari, eystari, vestari) are separate words and inflect.
+locale: fo
+---
+Norður
+Suður
+Eystur
+Vestur
+Norðeystur
+Norðvestur
+Suðeystur
+Suðvestur

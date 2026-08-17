@@ -1,0 +1,12 @@
+---
+description: Job in the قاتناش industry, in Uyghur. Filename matches work/industryCoherent.txt character for character.
+locale: ug-cn
+---
+ھەيدىگۈچى
+شوپۇر
+ئۇچقۇچى
+ئاۋتوبۇس ھەيدىگۈچىسى
+تېمىر يول خادىمى
+يۈك توشۇغۇچى
+دىسپەتچېر
+لوگىستىكا خادىمى

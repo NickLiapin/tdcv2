@@ -1,0 +1,5 @@
+---
+description: Capital of Pakistan as Faroese names it
+locale: fo
+---
+Islamabad

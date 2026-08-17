@@ -1,0 +1,34 @@
+---
+description: Spice or herb in Faroese.
+locale: fo
+---
+Pipar
+Salt
+Kanel
+Paprika
+Karrý
+Ingefer
+Múskat
+Nellikur
+Timian
+Rosmarin
+Basilika
+Oregano
+Dill
+Persilla
+Gráslaykur
+Koriander
+Safran
+Chili
+Kardemomma
+Anis
+Vanilja
+Salvia
+Mynta
+Estragon
+Laurbaðblað
+Hvítleykspulvur
+Sinnopsfræ
+Kumin
+Spískumin
+Bragdsalt

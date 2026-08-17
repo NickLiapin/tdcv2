@@ -1,0 +1,5 @@
+---
+description: Currency of Pólland as Faroese names it
+locale: fo
+---
+pólskur zloty

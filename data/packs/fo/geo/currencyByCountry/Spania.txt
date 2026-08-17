@@ -1,0 +1,5 @@
+---
+description: Currency of Spania as Faroese names it
+locale: fo
+---
+evra

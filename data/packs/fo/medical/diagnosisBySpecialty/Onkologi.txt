@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Onkologi
+locale: fo
+---
+Brjóstakrabbamein
+Lungnakrabbamein
+Tarmkrabbamein
+Prostatakrabbamein
+Leukemi
+Lymfom

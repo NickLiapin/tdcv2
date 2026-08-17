@@ -1,0 +1,10 @@
+---
+description: Jobs in Heilsuverk
+locale: fo
+---
+Lækni
+Sjúkrarøktarfrøðingur
+Ljósmóðir
+Fysioterapeutur
+Apotekari
+Sjúkrabilsførari

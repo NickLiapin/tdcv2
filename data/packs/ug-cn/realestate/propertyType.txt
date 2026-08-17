@@ -1,0 +1,23 @@
+---
+description: Kind of property in Uyghur. hoyla, the walled courtyard house with rooms on two or three sides and a grape trellis over the yard, is the traditional Uyghur dwelling and is a distinct property type from a flat in a block; supa, the raised clay platform in the courtyard where a family eats and sleeps in summer, comes with it.
+locale: ug-cn
+---
+ھويلا
+يەر ئۆي
+قەۋەتلىك ئۆي
+كۋارتىر
+ئىككى ئېغىزلىق ئۆي
+ئۈچ ئېغىزلىق ئۆي
+تۇرالغۇ رايونى ئۆيى
+ۋىللا
+يېرىم ھويلا
+دۇكان
+ئىشخانا
+ئىسكىلات
+زاۋۇت بىناسى
+يەر
+ئېتىز
+باغ
+ئۈزۈمزار
+قوتان
+گاراژ

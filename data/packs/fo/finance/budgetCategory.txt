@@ -1,0 +1,24 @@
+---
+description: Household budget line in Faroese. FERJA OG TUNNILSGJALD is a real recurring household cost here: the islands are joined by subsea tunnels with tolls and by ferries, so getting to work can be a monthly bill.
+locale: fo
+---
+Húsaleiga
+Húsalán
+Matvørur
+Streymur
+Hiti
+Vatn
+Telefon og net
+Flutningur
+Ferja og tunnilsgjald
+Bensin
+Trygging
+Heilsa
+Klæði
+Skemtan
+Ferðing
+Sparing
+Barnarøkt
+Skattur
+Lán
+Gávur

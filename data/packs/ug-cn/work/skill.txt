@@ -1,0 +1,46 @@
+---
+description: Workplace skill in Uyghur, written as verbal nouns the way a Uyghur CV lists them. THE LANGUAGE ROWS ARE THE LOCAL ONES: literacy in Uyghur, Chinese and English are three separate skills on a Xinjiang job advertisement and are listed separately here, because a bilingual clerk is a specific and advertised qualification.
+locale: ug-cn
+---
+كومپيۇتېر ئىشلىتىش
+تىپ بېسىش
+خەت يېزىش
+تەرجىمە قىلىش
+سۆزلىشىش
+رەھبەرلىك قىلىش
+گۇرۇپپا باشقۇرۇش
+ۋاقىت باشقۇرۇش
+مەسىلە ھەل قىلىش
+تەھلىل قىلىش
+پىلانلاش
+سېتىش
+سودىلىشىش
+خېرىدار مۇلازىمىتى
+سانلىق مەلۇمات بىر تەرەپ قىلىش
+ھېسابات يۈرگۈزۈش
+لايىھىلەش
+رەسىم سىزىش
+سۈرەتكە تارتىش
+پروگرامما يېزىش
+تور قۇرۇش
+سىناق قىلىش
+ماشىنا ھەيدەش
+ئاپتوماشىنا رېمونتى
+پەيۋەنتلەش
+ياغاچچىلىق
+تىكىش
+پىشۇرۇش
+بىرىنچى ياردەم
+ئوقۇتۇش
+تەربىيىلەش
+تەشۋىقات قىلىش
+ئۇچۇر توپلاش
+ھۆججەت باشقۇرۇش
+ئۇيغۇرچە يېزىش
+خەنزۇچە سۆزلەش
+ئىنگلىزچە سۆزلەش
+يىغىن تەشكىللەش
+خەۋپسىزلىك تەكشۈرۈش
+سۈپەت باھالاش
+ئىسكىلات باشقۇرۇش
+ماشىنا مەشغۇلاتى

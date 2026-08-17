@@ -1,0 +1,27 @@
+---
+description: Kind of government office, in Uyghur. idare is the office and the name is function + idarisi. The last two rows are specific to a multi-ethnic autonomous region: the millet ishliri komitéti (nationalities affairs commission) and the diniy ishlar idarisi (religious affairs bureau) are real standing offices.
+locale: ug-cn
+---
+مەمۇرىي ئىدارە
+مائارىپ ئىدارىسى
+ساقلىقنى ساقلاش ئىدارىسى
+ئىجتىمائىي كاپالەت ئىدارىسى
+باج ئىدارىسى
+ساقچى ئىدارىسى
+ئوت ئۆچۈرۈش ئىدارىسى
+قاتناش باشقۇرۇش ئىدارىسى
+يەر-زېمىن ئىدارىسى
+ئەتراپ مۇھاپىزەت ئىدارىسى
+دېھقانچىلىق ئىدارىسى
+سۇ ئىشلىرى ئىدارىسى
+ئورمانچىلىق ئىدارىسى
+مەدەنىيەت ئىدارىسى
+ساياھەت ئىدارىسى
+ستاتىستىكا ئىدارىسى
+نوپۇس ئىدارىسى
+ئارخىپ ئىدارىسى
+پوچتا ئىدارىسى
+گۇمرۇك
+سودا-سانائەت ئىدارىسى
+مىللەت ئىشلىرى كومىتېتى
+دىنىي ئىشلار ئىدارىسى

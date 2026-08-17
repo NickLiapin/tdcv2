@@ -1,0 +1,11 @@
+---
+description: Dishes of Italskur matur
+locale: fo
+---
+Pitsa Margherita
+Spagetti carbonara
+Lasagne
+Risotto
+Tiramisu
+Minestrone
+Gnocchi

@@ -1,0 +1,16 @@
+---
+description: Month abbreviation in Faroese. Lower case, and each carries a full stop except mai, which is already its whole word.
+locale: fo
+---
+jan.
+feb.
+mar.
+apr.
+mai
+jun.
+jul.
+aug.
+sep.
+okt.
+nov.
+des.

@@ -1,0 +1,58 @@
+---
+description: Adjective a product listing uses, in Uyghur. THE -liq FAMILY IS THE HARMONY LESSON HERE. The adjective-forming suffix has FOUR shapes and the last vowel of the stem picks one: -liq after the back unrounded a and i (bash → bashliq), -lik after the front unrounded e and é (süpet → süpetlik, ishench → ishenchlik), -luq after the back rounded o and u (uzun → uzunluq), -lük after the front rounded ö and ü (köp → köplük). All four spellings appear in this pack. THIS IS THE ROUNDING HARMONY UZBEK HAS LOST AND UYGHUR KEEPS, and it is the fastest structural test of whether a text is really Uyghur rather than a Turkic neighbour in the same script.
+locale: ug-cn
+---
+سۈپەتلىك
+ئېسىل
+يېڭى
+كونا
+چوڭ
+كىچىك
+يېنىك
+ئېغىر
+ئۇزۇن
+قىسقا
+كەڭ
+تار
+قېلىن
+يۇپقا
+يۇمشاق
+قاتتىق
+ئىسسىق
+سوغۇق
+قۇرۇق
+ھۆل
+ئەرزان
+قىممەت
+ئىشەنچلىك
+پۇختا
+چىرايلىق
+گۈزەل
+ئاددىي
+مۇرەككەپ
+زامانىۋى
+ئەنئەنىۋى
+قول ھۈنەر
+تەبىئىي
+ساپ
+ئورگانىك
+خەۋپسىز
+ساغلام
+تېز
+ئاستا
+كۈچلۈك
+ئاجىز
+پارقىراق
+خىرە
+رەڭلىك
+ئاق-قارا
+كۆچمە
+ئېسىلما
+قايتا ئىشلىتىلىدىغان
+بىر قېتىملىق
+ئىقتىسادىي
+تېجەمكار
+كۆپ ئىقتىدارلىق
+ئاپتوماتىك
+قولدا ئىشلىنىدىغان
+سۇ ئۆتمەيدىغان

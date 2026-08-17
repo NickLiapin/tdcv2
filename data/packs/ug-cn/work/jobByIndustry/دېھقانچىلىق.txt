@@ -1,0 +1,14 @@
+---
+description: Job in the دېھقانچىلىق industry, in Uyghur. Filename matches work/industryCoherent.txt character for character.
+locale: ug-cn
+---
+دېھقان
+باغۋەن
+پادىچى
+مالچى
+ھەرىچى
+ئاگرونوم
+ئۈزۈمچى
+پاختىچى
+تىراكتور ھەيدىگۈچىسى
+سۇ خادىمى

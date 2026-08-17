@@ -1,0 +1,18 @@
+---
+address: maldives.holiday
+description: The public holidays of the Maldives in Dhivehi, the language they are proclaimed in, in calendar order — the five fixed by the government against the Gregorian calendar first, then the eight fixed by the Hijri calendar. TWO CALENDARS RUN AT ONCE HERE AND THAT IS THE WHOLE POINT: New Year, Labour Day, Independence Day (26 July), Victory Day (3 November) and Republic Day (11 November) sit on fixed Gregorian dates, while National Day, Mawlid, the day the Maldives embraced Islam, the first of Ramadan, Eid al-Fitr, the Day of Hajj and Eid al-Adha move against the Gregorian year by about eleven days annually, so a hard-coded Maldivian holiday table is wrong within a year. Worse for a scheduler, the Hijri dates are not merely computable — the Maldives declares them by MOON SIGHTING, so the date of Eid is announced days beforehand and can differ by one day from an astronomical table and from a neighbouring country's announcement. National Day is the striking one: it is a Hijri date, 1 Rabi' al-Awwal, marking Muhammad Thakurufaanu's victory over the Portuguese in 1573, so the Maldives' national day drifts through the Gregorian year and does not have an anniversary in the western sense. Two more Maldivian facts. The holidays cluster: Eid al-Fitr covers 1 to 3 Shawwal and Eid al-Adha 10 to 13 Dhu al-Hijjah, and with the weekend attached the country effectively stops for a week twice a year. And the working week is not the western one — see maldives.calendar.workingDay — so a holiday falling on a Friday or Saturday falls on a weekend here and on a working day almost everywhere else. Ramadan is not a holiday itself but its first day is, and government office hours shorten for the whole month. See maldives.holidayEnglish for the English names and maldives.holidayDate for the dates.
+locale: dv
+---
+މީލާދީ އައުއަހަރު ފެށޭ ދުވަސް
+ބައިނަލްއަޤައުމީ މަސައްކަތްތެރިންގެ ދުވަސް
+މިނިވަން ދުވަސް
+ނަޞްރުގެ ދުވަސް
+ޖުމްހޫރީ ދުވަސް
+ހިޖުރީ އައުއަހަރު ފެށޭ ދުވަސް
+ޤައުމީ ދުވަސް
+ކީރިތި ރަސޫލާގެ ޢީދު މީލާދު
+ރާއްޖެ އިސްލާމްވި ދުވަސް
+ރަމަޟާންމަހުގެ ފުރަތަމަ ދުވަސް
+ފިޠުރު ޢީދު ދުވަސް
+އަރަފާތް ދުވަސް
+އަޟްޙާ ޢީދު ދުވަސް

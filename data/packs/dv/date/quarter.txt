@@ -1,0 +1,8 @@
+---
+description: Financial quarter (Dhivehi). ކުއާޓަރު is the borrowed word used in Maldivian company reporting.
+locale: dv
+---
+1 ވަނަ ކުއާޓަރު
+2 ވަނަ ކުއާޓަރު
+3 ވަނަ ކުއާޓަރު
+4 ވަނަ ކުއާޓަރު

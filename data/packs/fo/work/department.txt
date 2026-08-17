@@ -1,0 +1,26 @@
+---
+description: Company department or function in Faroese.
+locale: fo
+---
+Leiðsla
+Fíggjardeild
+Bókhald
+Starvsfólkadeild
+Søludeild
+Marknaðarføring
+Kunningardeild
+Tøknideild
+Teldudeild
+Framleiðsla
+Innkeyp
+Goymsla
+Flutningur
+Kvalitetseftirlit
+Trygd
+Kundatænasta
+Gransking
+Menning
+Løgfrøðideild
+Rakstur
+Umsiting
+Reingerð

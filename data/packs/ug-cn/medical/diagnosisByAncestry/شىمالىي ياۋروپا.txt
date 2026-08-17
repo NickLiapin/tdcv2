@@ -1,0 +1,14 @@
+---
+description: Condition with a raised prevalence in the شىمالىي ياۋروپا ancestry group, in Uyghur. Filename matches medical/ancestry.txt character for character.
+locale: ug-cn
+---
+كىستوزلۇق فىبروز
+ئىرسىي گېموخروماتوز
+ئالفا-1 ئانتىتىرىپسىن يېتەرسىزلىكى
+فېنىلكېتونۇرىيە
+سېلىئاك كېسىلى
+كۆپ ئورۇنلۇق سكلېروز
+1-تىپ شېكەر كېسىلى
+دۇپۇيتىرېن قىسقىرىشى
+ئاساسىي ھۈجەيرە راكى
+لاكتازا داۋاملىشىشى

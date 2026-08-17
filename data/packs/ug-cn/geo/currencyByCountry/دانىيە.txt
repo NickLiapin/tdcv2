@@ -1,0 +1,5 @@
+---
+description: Currency of دانىيە, named in Uyghur.
+locale: ug-cn
+---
+دانىيە كرونى

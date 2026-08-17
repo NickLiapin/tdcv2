@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Dermatologi
+locale: fo
+---
+Psoriasis
+Eksem
+Akne
+Rosacea
+Melanom
+Sárkyklasjúka

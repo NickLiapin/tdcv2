@@ -1,0 +1,10 @@
+---
+description: Jobs in Útbúgving
+locale: fo
+---
+Lærari
+Skúlaleiðari
+Pedagogur
+Lektari
+Bókavørður
+Studningslærari

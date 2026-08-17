@@ -1,0 +1,10 @@
+---
+description: Jobs in Alivinna
+locale: fo
+---
+Alistøðarleiðari
+Alifiskaarbeiðari
+Fiskifrøðingur
+Djóralækni
+Fóðurstjóri
+Kvalitetseftirlitsfólk

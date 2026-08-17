@@ -1,0 +1,32 @@
+---
+description: Allergen in Uyghur. The food block is the one that differs from a European list: walnuts, almonds and dried apricots are eaten daily in Xinjiang and are the nut allergies that matter, while sesame and cumin come with the kebab. Brand and chemical names keep their international form transliterated into the Arabic script.
+locale: ug-cn
+---
+پېنىتسىللىن
+يەر ياڭىقى
+ياڭاق
+بادام
+پىستە
+دېڭىز مەھسۇلاتلىرى
+بېلىق
+تۇخۇم
+سۈت
+سويا
+بۇغداي
+كۈنجۈت
+زىرە
+لاتېكس
+گۈل چېڭى
+توزان
+چاڭ قۇرتى
+ھايۋان تۈكى
+مۈشۈك تۈكى
+زەڭ
+ھەرە زەھىرى
+ئاسپىرىن
+سۇلفانىلامىد
+ئىيود
+نىكېل
+خۇشپۇراق
+قۇياش نۇرى
+سوغۇق

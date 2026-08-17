@@ -1,0 +1,35 @@
+---
+description: Unit of measure in Uyghur. THE LAST THREE ROWS ARE THE LOCAL FACT and a config that ignores them will produce a market stall nobody in Xinjiang recognises: jin is the Chinese catty, exactly 500 grams, and it — not the kilogram — is how fruit, meat and vegetables are priced and sold; liang is a tenth of a jin, 50 grams, used for tea and spice; mo is the Chinese land unit, about 667 square metres, and is how a field is measured. The metric units above them are correct and official, and the catty is what the scale in the bazaar actually reads.
+locale: ug-cn
+---
+دانە
+تال
+جۈپ
+توپ
+باغ
+قۇتا
+خالتا
+قاپ
+شىشە
+بانكا
+رۇلون
+بوغچا
+ياشچىك
+ئون ئىككىلىك
+كىلوگرام
+گرام
+توننا
+لىتر
+مىللىلىتر
+مېتر
+سانتىمېتر
+مىللىمېتر
+كىلومېتر
+كۋادرات مېتر
+كۇب مېتر
+گېكتار
+سائەت
+مىنۇت
+جىن
+لياڭ
+مو

@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code for شىۋىتسارىيە. Latin letters by international standard — one of the few places Latin is correct in this pack.
+locale: ug-cn
+---
+CHF

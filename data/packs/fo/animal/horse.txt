@@ -1,0 +1,20 @@
+---
+description: Horse breed. Faroese calls a horse ROSS in everyday speech where Icelandic and Danish use hestur/hest. The first entry is the Faroe pony: a native breed down to a few dozen animals in the 1960s and bred back from a handful of survivors. It is critically endangered and genuinely distinct from the Icelandic horse.
+locale: fo
+---
+Føroyskt ross
+Íslendskur hestur
+Shetlandsponni
+Fjørðahestur
+Arabari
+Fullblóðshestur
+Frísari
+Haflinger
+Shire
+Clydesdale
+Connemara
+Welsh ponni
+Appaloosa
+Reiðhestur
+Vinnuhestur
+Ponni

@@ -1,0 +1,9 @@
+---
+description: Positions in Kurvabóltur. These are in English on purpose: basketball is a small sport in the Faroes and Faroese clubs use the English position names unchanged, so inventing Faroese ones would put words in the file that nobody says.
+locale: fo
+---
+Point guard
+Shooting guard
+Small forward
+Power forward
+Center

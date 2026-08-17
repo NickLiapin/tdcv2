@@ -1,0 +1,26 @@
+---
+description: Property feature in Faroese.
+locale: fo
+---
+Bilhús
+Bilstøði
+Garður
+Altan
+Terassa
+Útsýni til havið
+Útsýni til fjøllini
+Neyst
+Hjallur
+Goymsla
+Kjallari
+Loft
+Arinur
+Golvhiti
+Nýtt køki
+Nýtt bað
+Tváttarúm
+Sólpanel
+Varmadælur
+Trepilkoyri
+Barnavinarligt øki
+Stutt til skúla

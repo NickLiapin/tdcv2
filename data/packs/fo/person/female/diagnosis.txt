@@ -1,0 +1,31 @@
+---
+description: Diagnoses for a female patient: the female-only conditions together with common ones. Terminology follows the Danish-Latin nomenclature Faroese clinical records use - see medical/diagnosis for why.
+locale: fo
+---
+Endometriosa
+Polycystiskt eggjastokkasyndrom
+Livmóðurknútar
+Eggjastokkacysta
+Livmóðurhálsdysplasi
+Brjóstafibroadenom
+Mastitt
+Dysmenoré
+Klimakteriskar plágur
+Trush
+Blørubruni
+Svangskapssukursjúka
+Brjóstakrabbamein
+Livmóðurhálskrabbamein
+Høgur blóðtrýstur
+Sukursjúka
+Astma
+Slitgigt
+Beinskjørleiki
+Jarntrot
+Skjaldkirtilstrot
+Migrena
+Depressión
+Angist
+Karnitintrot
+D-vitamintrot
+Reumatoid artritt

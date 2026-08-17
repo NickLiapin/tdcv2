@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Product names keep their own spelling in every locale.
+locale: fo
+---
+PlayStation 5
+Xbox Series X
+Nintendo Switch
+PC
+Steam Deck
+iOS
+Android
+PlayStation 4
+Xbox One
+Meta Quest
+Nintendo 3DS

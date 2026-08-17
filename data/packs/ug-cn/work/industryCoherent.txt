@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list under work/jobByIndustry. Eight of the ten match en; agriculture and mining replace en's Hospitality and Legal, because in Xinjiang cotton, fruit, oil and coal are what most people work in and a hotel sector is not. Uyghur builds an industry name as a noun plus -chiliq or -at: déhqanchiliq is farmer-ness and ishlepchiqirish is a verbal noun, literally the working-out-and-producing.
+locale: ug-cn
+---
+ئۇچۇر تېخنىكىسى
+ساقلىقنى ساقلاش
+مالىيە
+قۇرۇلۇش
+مائارىپ
+دېھقانچىلىق
+ئىشلەپچىقىرىش
+سودا-سېتىق
+قاتناش
+كان سانائىتى

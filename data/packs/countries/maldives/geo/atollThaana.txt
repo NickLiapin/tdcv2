@@ -1,0 +1,25 @@
+---
+address: maldives.geo.atollThaana
+description: The atoll code letters as they are actually written — in Thaana, right to left. This is the primary form: the Latin "Haa Alif" is a spelling-out of the Thaana letter pair, not the other way round. Fifteen atolls take a single letter and five take two, and the pair is read as letter + half: the second letter is Alifu for the northern half and Dhaalu for the southern, so ha-alif and ha-dhaalu are the north and south of one natural atoll rather than two unrelated places. Thaana is written right to left, but it is NOT Arabic and it is NOT Sinhala: it is its own script in the Unicode block U+0780-U+07BF, invented in the sixteenth century, and its letter shapes are derived from the Arabic and Indic DIGITS rather than from any alphabet. A pipeline that detects "right to left" and reaches for an Arabic font, an Arabic shaper or an Arabic collation will render Dhivehi wrongly. Order matches maldives.geo.atoll, maldives.geo.atollAbbr and maldives.geo.atollLetter exactly.
+locale: dv
+---
+ހއ
+ހދ
+ށ
+ނ
+ރ
+ބ
+ޅ
+ކ
+އއ
+އދ
+ވ
+މ
+ފ
+ދ
+ތ
+ލ
+ގއ
+ގދ
+ޏ
+ސ

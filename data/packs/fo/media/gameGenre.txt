@@ -1,0 +1,21 @@
+---
+description: Video game genre in Faroese.
+locale: fo
+---
+Ævintýr
+Nasl
+Hlutverkaspæl
+Strategi
+Simulatión
+Ítróttarspæl
+Kappingarspæl
+Skjótispæl
+Gátuspæl
+Plattformspæl
+Yvirlivingarspæl
+Bygningsspæl
+Kortspæl
+Borðspæl
+Tónleikaspæl
+Rásspæl
+Skrekkspæl

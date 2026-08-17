@@ -1,0 +1,11 @@
+---
+description: Dishes of Danskur matur
+locale: fo
+---
+Smørrebrød
+Frikadellur
+Flæskesteg
+Stegt flæsk
+Leverpostei
+Rødgrød
+Wienerbrød

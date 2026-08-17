@@ -1,0 +1,23 @@
+---
+description: Film genre in Faroese.
+locale: fo
+---
+Nasl
+Skemtan
+Drama
+Skrekkur
+Spenning
+Ævintýr
+Vísindaskaldskapur
+Fantasy
+Ástarsøga
+Krimi
+Kríggjsfilmur
+Vestrafilmur
+Heimildarfilmur
+Teknifilmur
+Barnafilmur
+Tónleikafilmur
+Søgufilmur
+Ævisøgufilmur
+Stuttfilmur

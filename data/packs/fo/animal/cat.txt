@@ -1,0 +1,22 @@
+---
+description: Cat breed. Breed names are international and keep their own spelling; the Faroese words around them (kettur, ketta) are not part of the breed name.
+locale: fo
+---
+Húskettur
+Persari
+Maine Coon
+Siamesari
+Ragdoll
+Bengal
+Britskur stutthára
+Norsk skógarketta
+Russneskur bláur
+Sphynx
+Abyssinari
+Birma
+Sibirskur kettur
+Angora
+Manx
+Bombay
+Devon Rex
+Scottish Fold

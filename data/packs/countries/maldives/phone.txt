@@ -1,0 +1,8 @@
+---
+address: maldives.phone
+description: A Maldivian mobile number in E.164 form — +960 and then seven digits beginning with 7 (Dhiraagu) or 9 (Ooredoo). The Maldivian plan has been CLOSED and seven digits flat since the 2005 renumbering: there is no trunk prefix, no leading zero to strip and no area code, so the number dialled from the next island is the number dialled from Europe minus the +960. That is the fact a foreign address schema usually gets wrong about the Maldives, because an "area code" column has nothing to put in it and a "national format" that inserts a 0 produces a number that does not exist. The first digit is the OPERATOR, not the place: 7 was Dhiraagu's block and 9 Ooredoo's, and although mobile number portability exists the split is still visible in practice, so a 7-number and a 9-number are the two halves of a duopoly rather than two regions. Fixed lines live in 3 (Malé region) and 6 (the atolls) — see maldives.phoneLandline. Seven digits is short: the whole plan holds ten million numbers for half a million people, which is why the Maldives has never needed to renumber again. Written nationally in two groups, 777 1234, and internationally as +960 777 1234; this generator emits the unspaced E.164 form so it survives a CSV round-trip, and maldives.phoneNational carries the spaced form. Source: ITU national numbering plan for the Maldives.
+generator: tdc
+---
+<sequence name="prefix"><gen type="template" value="maldives.phoneMobilePrefix"/></sequence>
+<sequence name="rest"><gen type="regex" value="[0-9]{5}"/></sequence>
+<data>+960${{prefix}}${{rest}}</data>

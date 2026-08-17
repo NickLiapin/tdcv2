@@ -1,0 +1,14 @@
+---
+description: Condition with a raised prevalence in the شەرقىي ئاسىيا ancestry group, in Uyghur. Filename matches medical/ancestry.txt character for character.
+locale: ug-cn
+---
+ئالفا تالاسسېمىيە
+ئالدېگىد دېگىدروگېنازا 2 يېتەرسىزلىكى
+لاكتازا داۋاملاشماسلىقى
+بۇرۇن-ھەلقۇم راكى
+ئاشقازان راكى
+بۇلۇڭ تاقالما گلاۋكوما
+كاۋاساكى كېسىلى
+مويامويا كېسىلى
+كارباماز‍ېپىنغا يۇقىرى سەزگۈرلۈك
+پاتولوگىيىلىك يېقىندىن كۆرەرلىك

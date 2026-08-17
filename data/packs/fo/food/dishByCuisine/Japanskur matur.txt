@@ -1,0 +1,11 @@
+---
+description: Dishes of Japanskur matur
+locale: fo
+---
+Sushi
+Ramen
+Tempura
+Udon
+Miso-súpan
+Yakitori
+Sashimi

@@ -1,0 +1,22 @@
+---
+description: Kind of event in Uyghur. THE FIRST THREE ARE UYGHUR INSTITUTIONS with no English equivalent: meshrep, a men's gathering of music, dance, food and moral arbitration that UNESCO lists as intangible heritage; nezir, the memorial meal given for the dead; and chay, which as an event name means the formal invitation tea a household gives, not the drink. toy is a wedding and is the largest event in the calendar of any family.
+locale: ug-cn
+---
+مەشرەپ
+نەزىر
+چاي
+توي
+نىكاھ
+خەتنە توي
+بۆشۈك توي
+ئات قويۇش
+ھېيت
+روزا ھېيتى
+قۇربان ھېيتى
+نەۋرۇز
+يىغىن
+كۆرگەزمە
+كونسېرت
+مۇسابىقە
+كۆچۈش تويى
+دەپنە

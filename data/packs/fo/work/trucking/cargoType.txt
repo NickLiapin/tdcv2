@@ -1,0 +1,17 @@
+---
+description: Kind of freight or trailer in Faroese. Frozen and chilled fish dominate because that is what leaves the islands; LIVANDI FISKUR is a real category, moving live salmon between farm sites by well boat and tanker.
+locale: fo
+---
+Frystivognur
+Kølivognur
+Fiskaflutningur
+Livandi fiskur
+Turrur vognur
+Flatvognur
+Tanglavognur
+Gassflutningur
+Bygningstilfar
+Bilaflutningur
+Ruskflutningur
+Kontainari
+Búsflutningur

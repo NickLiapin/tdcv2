@@ -1,0 +1,21 @@
+---
+description: Kind of official document in Faroese. VÁTTAN is the Faroese word for a certificate or attestation and is the head of most of these compounds. Deliberately absent: the P-tal, the Faroese personal registration number. Its format, its check rule and the register behind it are country data and belong in a Faroe Islands country pack - a language pack must not carry an identifier that can be generated and mistaken for real.
+locale: fo
+---
+Pass
+Føðingarváttan
+Doypiváttan
+Giftingarváttan
+Deyðaváttan
+Koyrikort
+Heilsukort
+Skattakort
+Prógv
+Vitnisburður
+Fullmakt
+Sáttmáli
+Leigusáttmáli
+Keypssáttmáli
+Testamenti
+Avrit
+Umsókn

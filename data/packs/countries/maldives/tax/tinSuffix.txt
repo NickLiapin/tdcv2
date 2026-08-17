@@ -1,0 +1,17 @@
+---
+address: maldives.tax.tinSuffix
+description: The six characters that follow the business partner number in a Maldivian TIN — a three-letter revenue code and a three-digit sequence — exactly as the Maldives Inland Revenue Authority publishes them. The sequence is not a counter that climbs from 001 upwards for everybody: it is a SECTOR marker, and it only varies for goods and services tax, where 001 is the tourism sector, 501 the general sector and 901 social housing. Every other tax uses 001. That matters because the Maldives runs two GST rates on the same tax — 17 percent on tourism (TGST) and 8 percent on everything else (GGST) — so the three digits at the end of a Maldivian GST number tell you which rate the taxpayer charges, and a tourism registration and a general registration held by the same company are two different TINs that differ only in that field. Source: OECD CRS jurisdiction sheet for the Maldives, "Information on Tax Identification Numbers", section I, where each of these appears as a worked example against the business partner number 1000001.
+---
+GST001
+GST501
+GST901
+GRT001
+ATF001
+RMT001
+BPT001
+PIT001
+CIT001
+BIT001
+IIT001
+EWT001
+NWT001

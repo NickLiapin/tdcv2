@@ -1,0 +1,12 @@
+---
+description: Clothing size on the international letter scale used in Faroese shops.
+locale: fo
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

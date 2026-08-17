@@ -1,0 +1,5 @@
+---
+description: Capital of Týskland as Faroese names it
+locale: fo
+---
+Berlin

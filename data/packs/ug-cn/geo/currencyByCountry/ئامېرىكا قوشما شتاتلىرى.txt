@@ -1,0 +1,5 @@
+---
+description: Currency of ئامېرىكا قوشما شتاتلىرى, named in Uyghur.
+locale: ug-cn
+---
+دوللار

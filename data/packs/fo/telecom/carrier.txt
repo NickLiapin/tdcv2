@@ -1,0 +1,30 @@
+---
+description: Mobile network operator. The two Faroese ones come first: Hey (Føroya Tele) and Vodafone Føroyar are the only mobile networks in the islands, and between them they are the whole market. Number formats, the +298 country code and the dialling plan are country data and belong in a Faroe Islands country pack, not here.
+locale: fo
+---
+Hey
+Vodafone Føroyar
+Føroya Tele
+TDC
+Telenor
+Telia
+3
+YouSee
+CBB
+Lebara
+Lyca Mobile
+Tele2
+Elisa
+DNA
+Síminn
+Nova
+Vodafone
+O2
+Orange
+Deutsche Telekom
+Verizon
+AT&T
+T-Mobile
+EE
+Swisscom
+A1

@@ -1,0 +1,18 @@
+---
+description: Insurance type in Uyghur. sughurta is the Persian-Turkic word used across Central Asia; the compound is formed with the possessive, tébbiy sughurta being the exception because the modifier is an adjective.
+locale: ug-cn
+---
+تېببىي سۇغۇرتا
+ھايات سۇغۇرتىسى
+ھادىسە سۇغۇرتىسى
+ئاپتوموبىل سۇغۇرتىسى
+ئۆي سۇغۇرتىسى
+ئوت ئاپىتى سۇغۇرتىسى
+مال سۇغۇرتىسى
+يۈك سۇغۇرتىسى
+ساياھەت سۇغۇرتىسى
+تەقاۋۇتلۇق سۇغۇرتىسى
+ئىشسىزلىق سۇغۇرتىسى
+ئەمگەك زېدىلىنىش سۇغۇرتىسى
+دېھقانچىلىق سۇغۇرتىسى
+مەسئۇلىيەت سۇغۇرتىسى

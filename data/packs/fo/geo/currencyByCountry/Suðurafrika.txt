@@ -1,0 +1,5 @@
+---
+description: Currency of Suðurafrika as Faroese names it
+locale: fo
+---
+suðurafrikanskur rand

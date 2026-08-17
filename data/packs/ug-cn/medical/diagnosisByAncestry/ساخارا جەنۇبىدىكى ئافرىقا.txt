@@ -1,0 +1,16 @@
+---
+description: Condition with a raised prevalence in the ساخارا جەنۇبىدىكى ئافرىقا ancestry group, in Uyghur. Filename matches medical/ancestry.txt character for character. This list is a PREVALENCE SIGNAL, not an exclusive one: every condition here also occurs in other populations, and ancestry never rules a diagnosis in or out on its own.
+locale: ug-cn
+---
+ئورغاق ھۈجەيرە كېسىلى
+ئورغاق ھۈجەيرە خاسلىقى
+G6PD يېتەرسىزلىكى
+APOL1 مۇناسىۋەتلىك بۆرەك كېسىلى
+كېلوئىد يارا ئىزى
+ساركوئىدوز
+يۇقىرى قان بېسىمى بۆرەك سكلېروزى
+بالىياتقۇ مىومىسى
+خەتەرسىز ئېتنىك نېيتروپېنىيە
+لاكتازا داۋاملاشماسلىقى
+ساقال يۇڭ خالتىسى ساختا ياللۇغى
+پېسە

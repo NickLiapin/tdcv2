@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Gastroenterologi
+locale: fo
+---
+Refluks
+Crohns sjúka
+Ulcerøs kolitt
+Magasár
+Livrabruni
+Irritabul tarmur

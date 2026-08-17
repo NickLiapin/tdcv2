@@ -1,0 +1,16 @@
+---
+description: Zodiac sign in Uyghur. These are the twelve WESTERN signs, translated — the same set every other locale in this pack family ships, so a config can move between locales. THE ANIMAL CYCLE IS THE ONE UYGHURS ACTUALLY USE for a birth year, and it is a separate twelve that is not this list: chashqan, kala, yolwas, toshqan, luu, yilan, at, qoy, maymun, toxu, it, tongguz — mouse, ox, tiger, hare, dragon, snake, horse, sheep, monkey, fowl, dog, pig. It is shared with the Chinese and Turkic calendars and asking someone their year animal is ordinary conversation; asking their star sign is not.
+locale: ug-cn
+---
+قوچقار
+بۇقا
+قوشكېزەك
+قىسقۇچپاقا
+شىر
+قىز
+تارازا
+چايان
+ئوقيا
+تاغتەكە
+قوغا
+بېلىق

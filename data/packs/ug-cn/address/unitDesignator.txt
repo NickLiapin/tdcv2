@@ -1,0 +1,24 @@
+---
+description: Unit designator inside an Uyghur address. THE STRUCTURE IS THE CHINESE ONE, TRANSLATED: an address in Xinjiang descends turalghu rayoni (the gated residential compound) then bina (the numbered block) then birlik (the stairwell or unit) then öy (the flat), which is 小区 / 楼 / 单元 / 室 word for word. That is a different shape from the European street-plus-number and a config that models one will not model the other. The words themselves are Uyghur; the numbering scheme is a country matter and is deliberately not in this pack.
+locale: ug-cn
+---
+ئۆي
+قەۋەت
+بىنا
+بىرلىك
+نومۇر
+تۇرالغۇ رايونى
+دەرۋازا
+بۆلۈم
+ئىشخانا
+يەرتۆلە
+ئۆگزە
+گاراژ
+ئىسكىلات
+دۇكان
+خانا
+ھويلا
+پەلەمپەي
+بلوك
+قىسىم
+ئىشىك

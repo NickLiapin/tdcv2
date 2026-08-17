@@ -1,0 +1,7 @@
+---
+address: maldives.finance.currencyThaana
+description: The Maldivian currency written in Thaana — dhivehi rufiyaa, the full name as it appears on the banknotes and in Maldives Monetary Authority notices, and laari, the hundredth. Note that the everyday written abbreviation on a Maldivian price tag is the Latin "Rf" or the ISO "MVR" even in otherwise Dhivehi text, so a Thaana string and a Latin abbreviation sitting on the same line is normal typography here and not a mixed-encoding bug. Order matches maldives.finance.currency.
+locale: dv
+---
+ދިވެހި ރުފިޔާ
+ލާރި

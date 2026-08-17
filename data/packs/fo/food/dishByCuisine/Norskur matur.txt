@@ -1,0 +1,11 @@
+---
+description: Dishes of Norskur matur
+locale: fo
+---
+Lutefisk
+Fårikål
+Rakfisk
+Kjøttkaker
+Brunost
+Roykt laks
+Lefse

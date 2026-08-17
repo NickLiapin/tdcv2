@@ -1,0 +1,15 @@
+---
+description: Employment type in Uyghur. toluq waqitliq and yérim waqitliq are literally full-time and half-time; mewsümlük, seasonal, is the one that carries the most weight locally, because the cotton and fruit harvests move large numbers of people onto short contracts every autumn.
+locale: ug-cn
+---
+تولۇق ۋاقىتلىق
+يېرىم ۋاقىتلىق
+ۋاقىتلىق
+توختاملىق
+مەۋسۈملۈك
+سىناق مەزگىلى
+ئەركىن كەسپىي
+ئۆز ئالدىغا ئىشلەش
+ئوقۇش-ئەمگەك
+ياردەمچى خادىم
+نۆۋەتچىلىك

@@ -1,0 +1,28 @@
+---
+description: Writing system as Dhivehi names it, ތާނަ first. THAANA IS UNLIKE EVERY OTHER SCRIPT ON THIS LIST. Its consonants are NUMERALS: the first nine letters ހ ށ ނ ރ ބ ޅ ކ އ ވ are the Arabic digits 1-9 rewritten, and the next nine މ ފ ދ ތ ލ ގ ޏ ސ ޑ are the Indic digits 1-9 — no other alphabet in the world is built out of numbers, which is why Thaana is not counted as a descendant of the Semitic alphabet at all. It runs RIGHT TO LEFT (numerals inside it still run left to right), it appeared in Maldivian government documents around 1703, and it replaced ދިވެސް އަކުރު (Dhives Akuru), a Brahmi-derived Indic script that ran LEFT to right — so Dhivehi is one of very few languages to have reversed its own writing direction.
+locale: dv
+---
+ތާނަ
+ދިވެސް އަކުރު
+އެވޭލާ އަކުރު
+ލެޓިން
+ޢަރަބި
+ސިރިލިކް
+ސިންހަޅަ
+ދޭވަނާގަރީ
+ތަމަޅަ
+މަލަޔާޅަމް
+ބަންގާޅު
+ގުޖުރާތީ
+ގުރުމުކީ
+ޗައިނީސް
+ޖަޕާނު ކާނާ
+ކޮރެއާ ހަންގުލް
+ޔޫނާނީ
+ޢިބްރީ
+ތައި
+ބަރުމާ
+ކުމޭރު
+ޖޯޖިއަން
+އަރުމީނިއަން
+އިތިއޯޕިއަން

@@ -1,0 +1,104 @@
+---
+description: Element of an Uyghur company name, to be composed with a value from company/legalSuffix.txt. THE PALETTE IS THE LANDSCAPE AND THE TRADE: mountains and rivers, the fruit and the silk, precious stones, birds of prey, and the Silk Road itself. Tengritagh is the Tianshan, literally the Heaven Mountain; Yipek Yoli is the Silk Road; Qashtéshi is Hotan jade; Etles is the ikat silk. A company name in Uyghur is normally a bare noun with no article and no possessive: Tengritagh cheklik shirket.
+locale: ug-cn
+---
+ئالتۇن
+كۈمۈش
+مىس
+پولات
+تۆمۈر
+ئالماس
+مەرۋايىت
+پىروزە
+لەئەل
+قاشتېشى
+ئۈنچە
+يىپەك
+ئەتلەس
+پاختا
+يۇڭ
+گىلەم
+تەڭرىتاغ
+ئالتۇنتاغ
+قاراقۇرۇم
+پامىر
+تارىم
+ئىلى
+كۆكيار
+قۇمۇل
+يىپەك يولى
+كارۋان
+قوشقاچ
+شىر
+بۈركۈت
+لاچىن
+شۇڭقار
+تۇلپار
+ئارغىماق
+قۇياش
+ئاي
+يۇلتۇز
+تاڭ
+نۇر
+شەپەق
+شەرق
+غەرب
+شىمال
+جەنۇب
+باھار
+ياز
+كۈز
+قىش
+گۈل
+گۈلىستان
+بوستان
+باغ
+چىنار
+تېرەك
+توغراق
+ئۈزۈم
+ئانار
+قوغۇن
+ئۆرۈك
+ياڭاق
+ئالما
+بۇلاق
+دەريا
+كۆل
+ئۆستەڭ
+ئارال
+توقاي
+چۆل
+قۇم
+تاش
+يېڭى
+چوڭ
+ئىلغار
+ئالغا
+ئىتتىپاق
+بىرلىك
+دوستلۇق
+ھەمكارلىق
+ئىناقلىق
+بەخت
+ئۈمىد
+مېھرى
+سەمىمىيەت
+ئىشەنچ
+ياشلىق
+ئىقبال
+دەۋلەت
+مەرىپەت
+بىلىم
+ھىكمەت
+مۇقام
+دوپپا
+تونۇر
+نان
+چاي
+ئاق سۇ
+يېشىل ۋادى
+ئالتۇن كۆۋرۈك
+يىپەك بۇلاق
+تەڭرى نۇرى
+شەرق يۇلتۇزى

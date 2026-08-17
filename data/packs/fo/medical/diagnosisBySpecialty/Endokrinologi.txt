@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Endokrinologi
+locale: fo
+---
+Sukursjúka
+Skjaldkirtilstrot
+Ovvirkin skjaldkirtil
+Beinskjørleiki
+Karnitintrot
+Binyrutrot

@@ -1,0 +1,5 @@
+---
+description: Currency of Bretland as Faroese names it
+locale: fo
+---
+bretskt pund

@@ -1,0 +1,11 @@
+---
+description: Dishes of Íslendskur matur
+locale: fo
+---
+Hangikjøt
+Skyr
+Harðfiskur
+Plokkfiskur
+Kjötsúpa
+Rúgbrauð
+Hákarl

@@ -1,0 +1,26 @@
+---
+description: THE UYGHUR HONORIFIC, WHICH FOLLOWS THE NAME — this file, not person/prefix.txt, is where a polite form of address is built: name + value. ependi and xanim are the neutral Mr and Ms. THE KIN TERMS ARE USED WITH STRANGERS and are the commonest of all: aka to a man older than you, acha to a woman older than you, uka and singil downwards, hemme and taghay for the aunt-and-uncle generation — age, not relation, decides which one. haji is earned by the pilgrimage to Mecca and molla by religious learning; muellim is a teacher and usta a craftsman, and both are used of people who are neither, as a general mark of respect. NONE OF THESE INFLECT and none of them is a generational marker: Uyghur has no Jr/Sr/III, because with a patronymic system a son never carries his father's full name.
+locale: ug-cn
+---
+ئەپەندى
+خانىم
+ئاكا
+ئاچا
+ئۇكا
+سىڭىل
+ھاجى
+ھاجىم
+مۇئەللىم
+ئۇستا
+ئۇستاز
+موللا
+ئىمام
+بەگ
+خان
+باي
+خوجا
+تاغاي
+ھەممە
+بوۋاي
+موما
+ئىنى

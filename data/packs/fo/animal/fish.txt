@@ -1,0 +1,29 @@
+---
+description: Fish in Faroese. This is the working vocabulary of the country's main industry, so it is unusually precise: toskur, hýsa and upsi are three separate fish that English collapses into whitefish, and blákjaftur (blue whiting) is an everyday Faroese word with no everyday English one. Laksur heads the farmed side, which is now the larger export.
+locale: fo
+---
+Toskur
+Hýsa
+Upsi
+Longa
+Brosma
+Havtaska
+Hvítingur
+Makrelur
+Sild
+Laksur
+Urriði
+Sjóurriði
+Álur
+Hávur
+Skøta
+Rognkelsi
+Kongafiskur
+Steinbítur
+Lýsingur
+Svartkalvi
+Blálonga
+Sílur
+Gulllaks
+Tunga
+Blákjaftur

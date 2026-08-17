@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list beside it in work/jobByIndustry. Fiskiveiða and Alivinna are listed separately rather than lumped together as fishing, because in the Faroes they are two different industries with different employers, different skills and different regulators.
+locale: fo
+---
+Fiskiveiða
+Alivinna
+Byggivinna
+Heilsuverk
+Útbúgving
+Fíggjarvinna
+Handil
+Flutningur
+Upplýsingartøkni
+Ferðavinna

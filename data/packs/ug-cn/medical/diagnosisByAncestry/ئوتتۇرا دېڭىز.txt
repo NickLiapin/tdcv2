@@ -1,0 +1,11 @@
+---
+description: Condition with a raised prevalence in the ئوتتۇرا دېڭىز ancestry group, in Uyghur. Filename matches medical/ancestry.txt character for character.
+locale: ug-cn
+---
+بېتا تالاسسېمىيە
+بېتا تالاسسېمىيە خاسلىقى
+G6PD يېتەرسىزلىكى
+ئائىلىۋى ئوتتۇرا دېڭىز قىزىتمىسى
+بېھچەت كېسىلى
+ئالفا تالاسسېمىيە
+پۇرچاق زەھەرلىنىشى

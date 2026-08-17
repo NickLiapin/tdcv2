@@ -1,0 +1,45 @@
+---
+description: Country as Faroese names it, weighted by population in millions. Faroese translates rather than transliterates and the results are not the Danish ones: Germany is Týskland, the United Kingdom Bretland, Turkey Turkaland, Greece Grikkaland, France Frakland, Switzerland Sveis, the Netherlands Niðurlond, Sweden Svøríki. Copenhagen is Keypmannahavn. The last two weights are rounded up to 1 only so they are positive integers - Iceland is about 0.39 million and the Faroes about 0.054.
+locale: fo
+weighted: true
+---
+Kina,1410
+India,1400
+Sambandsríki Amerika,335
+Indonesia,275
+Pakistan,240
+Nigeria,220
+Brasil,215
+Bangladesj,170
+Russland,144
+Meksiko,128
+Japan,125
+Egyptaland,105
+Vietnam,98
+Turkaland,85
+Týskland,84
+Tailand,72
+Bretland,67
+Frakland,65
+Suðurafrika,60
+Italia,59
+Suðurkorea,52
+Spania,47
+Argentina,46
+Kanada,39
+Pólland,38
+Saudi-Arabia,36
+Avstralia,26
+Niðurlond,18
+Grikkaland,10
+Portugal,10
+Svøríki,10
+Sveis,9
+Danmark,6
+Finnland,6
+Singapor,6
+Noreg,5
+Írland,5
+Nýsæland,5
+Ísland,1
+Føroyar,1

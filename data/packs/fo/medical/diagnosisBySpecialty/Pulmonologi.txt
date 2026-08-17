@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Pulmonologi
+locale: fo
+---
+Astma
+KOL
+Lungnabruni
+Lungnablóðklumpur
+Søvnapnø
+Lungnafibrosa

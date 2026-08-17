@@ -1,0 +1,11 @@
+---
+description: Route type in Uyghur. The last two are local rather than generic: a road in Xinjiang is either a mountain road over the Tengritagh or a desert road across the Taklimakan, and they are different jobs.
+locale: ug-cn
+---
+شەھەر ئىچى
+شەھەرلەر ئارىسى
+ئۆلكە ئىچى
+ئۇزۇن مۇساپە
+قىسقا مۇساپە
+تاغ يولى
+چۆل يولى

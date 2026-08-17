@@ -1,0 +1,50 @@
+---
+description: Job skill in Faroese, technical, trade and soft. NETABØTING - mending fishing nets - and BÁTAFØRSLA are real employable skills here and appear on real Faroese CVs. Danish sits near the top because Faroese working life is bilingual: a great deal of paperwork, training material and correspondence is in Danish.
+locale: fo
+---
+Føroyskt
+Danskt
+Enskt
+Netabøting
+Bátaførsla
+Navigatión
+Sjótrygd
+Fiskavirking
+Alifiskarøkt
+Sveising
+Snikkaraarbeiði
+Muraraarbeiði
+Elektrikaraarbeiði
+Rørleggjaraarbeiði
+Bilviðgerð
+Motorviðgerð
+Tungur transportur
+Kranaførsla
+Prjónaskapur
+Vevnaður
+Matgerð
+Bakstur
+Bókhald
+Grannskoðan
+Fíggjarstýring
+Verkætlanarleiðsla
+Marknaðarføring
+Søla
+Kundatænasta
+Umsiting
+Skriving
+Umseting
+Ljósmyndan
+Filmsklipping
+Grafisk hond
+Vevsíðugerð
+Forritan
+Python
+JavaScript
+SQL
+Excel
+Dátugreining
+Netverkstýring
+Trygd
+Fyrstuhjálp
+Bjarging

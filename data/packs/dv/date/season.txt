@@ -1,0 +1,6 @@
+---
+description: Season (Dhivehi). THE MALDIVES HAS TWO, NOT FOUR. The country sits on the equator and its year is divided by the monsoon: އިރުވައި (iruvai), the dry north-east monsoon from roughly December to April, and ހުޅަނގު (hulhangu), the wet south-west monsoon from May to November. Spring and autumn have no Dhivehi names because they have no Maldivian referent. The two monsoons are in turn subdivided into the 27 ނަކަތް of the traditional fishing calendar.
+locale: dv
+---
+އިރުވައި
+ހުޅަނގު

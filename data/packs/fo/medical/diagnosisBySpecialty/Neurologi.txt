@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Neurologi
+locale: fo
+---
+Migrena
+Epilepsi
+Parkinsonssjúka
+Multipul sklerosa
+Heilablóðfall
+Neuropati

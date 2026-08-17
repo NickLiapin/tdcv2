@@ -1,0 +1,10 @@
+---
+address: maldives.calendar.workingDay
+description: The days the Maldives works. THE MALDIVIAN WEEK RUNS SUNDAY TO THURSDAY. Friday and Saturday are the weekend (maldives.calendar.weekendDay), because Friday is the day of congregational prayer and Maldivian law and custom put the rest days around it, so Sunday is the first day of the working week and Thursday is the Maldivian Friday. Government offices open 08:00 and close 14:00 — a six-hour public-sector day — and shorten again during Ramadan, to roughly 09:00 to 13:30. Three consequences that catch out anyone scheduling against the Maldives. A "weekday" filter written for a Monday-to-Friday country marks every Maldivian Friday as a working day and every Maldivian Sunday as a weekend, which is wrong at both ends of the week and wrong about 40 percent of the time overall. A cross-border business week with Europe or the Americas overlaps on only three days, Monday to Wednesday, and with the Gulf on all five. And the day names themselves are not the country's property — they belong to whichever language is writing them — but WHICH days these are is a fact about the Maldives, which is why this list lives in the country pack. Resorts, hospitals, ferries and the tourism economy generally do not observe it at all: a resort island runs seven days a week, so a Maldivian working-hours model that applies the government week to the whole country is wrong about the industry that is half the economy.
+locale: en
+---
+Sunday
+Monday
+Tuesday
+Wednesday
+Thursday

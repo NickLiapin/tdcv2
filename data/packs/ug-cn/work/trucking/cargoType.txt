@@ -1,0 +1,18 @@
+---
+description: Freight type in Uyghur. The first four are what actually moves out of Xinjiang by road: paxta cotton, méwe fruit, qoghun-tawuz melons, kömür coal. The compound qoghun-tawuz, melons-and-watermelons, is a single freight category in the region and travels as one.
+locale: ug-cn
+---
+پاختا
+مېۋە
+قوغۇن-تاۋۇز
+كۆمۈر
+نېفىت
+قۇرۇلۇش ماتېرىيالى
+سېمېنت
+تۆمۈر
+ياغاچ
+ماشىنا
+مال
+ئوزۇق-تۈرلۈك
+توڭلاتقۇ يۈك
+خەتەرلىك يۈك

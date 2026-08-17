@@ -1,0 +1,5 @@
+---
+description: Currency of Egyptaland as Faroese names it
+locale: fo
+---
+egyptiskt pund

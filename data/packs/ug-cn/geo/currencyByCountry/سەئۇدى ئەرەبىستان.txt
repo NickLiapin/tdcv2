@@ -1,0 +1,5 @@
+---
+description: Currency of سەئۇدى ئەرەبىستان, named in Uyghur.
+locale: ug-cn
+---
+رىيال

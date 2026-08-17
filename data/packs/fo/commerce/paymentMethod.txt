@@ -1,0 +1,19 @@
+---
+description: Payment method in Faroese. MobilePay is the Danish phone-payment app and is the everyday way Faroese people send money to one another. There is no Faroese card scheme and no Faroese currency of its own - see person/incomeBracket for what the money actually is. Bank and card ISSUER names belong in a Faroe Islands country pack, not here.
+locale: fo
+---
+Gjaldkort
+Debetkort
+Kredittkort
+MobilePay
+Netbanki
+Bankayvirførsla
+Kontantir
+Faktura
+Avdráttur
+Gávukort
+PayPal
+Apple Pay
+Google Pay
+Postuppkrav
+Avbetaling

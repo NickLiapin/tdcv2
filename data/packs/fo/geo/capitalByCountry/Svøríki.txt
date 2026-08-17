@@ -1,0 +1,5 @@
+---
+description: Capital of Svøríki as Faroese names it
+locale: fo
+---
+Stokkhólmur

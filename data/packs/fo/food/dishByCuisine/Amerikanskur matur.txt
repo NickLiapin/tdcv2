@@ -1,0 +1,11 @@
+---
+description: Dishes of Amerikanskur matur
+locale: fo
+---
+Hamborgari
+BBQ-rivjabein
+Mac and cheese
+Buffalo wings
+Clam chowder
+Eplaterta
+Pannukøkur

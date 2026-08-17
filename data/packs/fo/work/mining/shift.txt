@@ -1,0 +1,9 @@
+---
+description: Work shift in Faroese.
+locale: fo
+---
+Dagvakt
+Kvøldvakt
+Náttvakt
+Skiftisvakt
+Helgivakt

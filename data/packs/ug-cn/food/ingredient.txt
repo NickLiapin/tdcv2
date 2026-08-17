@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient in Uyghur. un (flour) and gürüch (rice) head it because the kitchen divides between the two: noodles and nan on one side, polu on the other. YAGH COVERS EVERY FAT — oil, butter and rendered tail fat alike — and qoy méyi, mutton fat, is the cooking fat that gives the food its taste. qurut is dried salted curd, hard as stone, dissolved into soup or eaten as it is; it is a pastoral food shared with Kazakh and Kyrgyz neighbours.
+locale: ug-cn
+---
+ئۇن
+گۈرۈچ
+سۇ
+تۇز
+ياغ
+قوي مېيى
+زەيتۇن مېيى
+سېرىق ياغ
+قوي گۆشى
+كالا گۆشى
+توخۇ گۆشى
+ئۆردەك گۆشى
+بېلىق
+تۇخۇم
+سۈت
+قايماق
+پىشلاق
+قۇرۇت
+قېتىق
+خېمىرتۇرۇچ
+نەشىستە
+شېكەر
+ھەسەل
+سىركە
+سويا سۇيۇقلۇقى
+زىرە
+قىزىل مۇچ
+قارا مۇچ
+پىياز
+سامساق
+سەۋزە
+كارتوپ
+پەمىدۇر
+ماش
+نوھۇت
+پۇرچاق
+ياڭاق
+بادام
+كىشمىش
+كۈنجۈت

@@ -1,0 +1,62 @@
+---
+description: Material a product is made of, in Faroese. ULL leads the list rather than trailing it: Faroese wool is the islands' oldest export and the material of the national garment, and the proverb ULL ER FØROYA GULL says what it was worth. Basalt is here because the islands are made of it and it is the only stone quarried locally.
+locale: fo
+---
+Ull
+Føroysk ull
+Bómull
+Lín
+Silki
+Leður
+Skinn
+Fleece
+Filt
+Nylon
+Polyester
+Akryl
+Viskosa
+Gummi
+Plast
+Træverk
+Eik
+Furu
+Greni
+Birk
+Bambus
+Kork
+Papp
+Pappír
+Glas
+Postulín
+Keramikk
+Steinur
+Marmor
+Granit
+Basalt
+Betong
+Stál
+Rustfrítt stál
+Jarn
+Alumin
+Kopar
+Messing
+Brons
+Sink
+Tin
+Silvur
+Gull
+Titan
+Vaks
+Tálg
+Horn
+Bein
+Perlumór
+Torv
+Endurnýtt plast
+Endurnýtt pappír
+Blandað tilfar
+Vatntætt tilfar
+Vindtætt tilfar
+Andandi tilfar
+Ullarfilt
+Grótull

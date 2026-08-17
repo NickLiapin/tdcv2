@@ -1,0 +1,12 @@
+---
+description: Blood type. INTERNATIONAL ABO/Rh NOTATION, kept in Latin letters exactly as it is written on an Uyghur medical card — this is one of the handful of places in this pack where Latin characters are correct rather than a leak. The letters run left to right inside a right-to-left line.
+locale: ug-cn
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

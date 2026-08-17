@@ -1,0 +1,12 @@
+---
+description: Time of day in Faroese. FYRRAPARTUR and SEINNAPARTUR - the earlier part and the later part of the day - are the ordinary way Faroese divides the working day, where English says morning and afternoon.
+locale: fo
+---
+morgun
+fyrrapartur
+middagur
+seinnapartur
+kvøld
+nátt
+sólarris
+sólsetur

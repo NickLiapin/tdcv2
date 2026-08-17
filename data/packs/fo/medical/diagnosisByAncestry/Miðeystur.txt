@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Miðeystur ancestry. A prevalence signal, not an exclusive one.
+locale: fo
+---
+Familiær miðjarðarhavsfeber
+Beta-talassemi
+G6PD-trot
+Behcets sjúka
+Sigðcellubera
+Laktoseintoleransa

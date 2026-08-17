@@ -1,0 +1,46 @@
+---
+description: Language spoken, in Faroese. Two are worth calling out. Faroese and Danish are BOTH official in the islands and every Faroese child learns Danish at school from the third year, so a Faroese record showing two languages is the norm and not an exception. Føroyskt teknmál is Faroese Sign Language, which is its own language and not signed Danish.
+locale: fo
+---
+føroyskt
+danskt
+enskt
+íslendskt
+norskt
+svenskt
+grønlendskt
+finskt
+týskt
+hollendskt
+franskt
+spanskt
+portugisiskt
+italskt
+grikskt
+pólskt
+russiskt
+ukrainskt
+litavskt
+lettiskt
+estiskt
+kekkiskt
+ungarskt
+rumenskt
+turkiskt
+arabiskt
+hebraiskt
+persiskt
+hindi
+urdu
+bengalskt
+tamilskt
+kinesiskt
+japanskt
+koreanskt
+tælendskt
+vietnamesiskt
+filipsoyskt
+indonesiskt
+swahili
+samiskt
+føroyskt teknmál

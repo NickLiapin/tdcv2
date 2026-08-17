@@ -1,0 +1,15 @@
+---
+description: Booking status in Faroese.
+locale: fo
+---
+Váttað
+Bíðar
+Avlýst
+Innskrivað
+Útskrivað
+Ikki møtt
+Umbiligt
+Á bíðilista
+Broytt
+Endurgoldið
+Frásagt

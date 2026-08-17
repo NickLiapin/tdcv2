@@ -1,0 +1,16 @@
+---
+description: Zodiac sign. Dhivehi has genuinely native names for these — they come from the Sanskrit rāśi through the Indo-Aryan inheritance the language shares with Sinhala, not from Arabic, and ތުލަ (Libra) and ސިންހަ (Leo) are recorded in the Dhivehi dictionary. Astrology sits alongside the traditional nakaiy calendar in Maldivian almanacs.
+locale: dv
+---
+މޭޝަ
+ވުރުޝަބަ
+މިތުނަ
+ކަރްކަޓަ
+ސިންހަ
+ކަންޏާ
+ތުލަ
+ވުރުޝްޗިކަ
+ދަނު
+މަކަރަ
+ކުންބަ
+މީނަ

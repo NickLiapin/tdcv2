@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Ortopedi
+locale: fo
+---
+Slitgigt
+Reumatoid artritt
+Skiveprolaps
+Karpaltunnilssyndrom
+Beinbrot
+Menisksskaði

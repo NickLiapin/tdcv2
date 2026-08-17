@@ -1,0 +1,5 @@
+---
+description: Currency of سىنگاپور, named in Uyghur.
+locale: ug-cn
+---
+سىنگاپور دوللارى

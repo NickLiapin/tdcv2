@@ -1,0 +1,34 @@
+---
+description: Bird in Faroese. Seabirds dominate because the islands are seabird cliffs: tjaldur, the oystercatcher, is the national bird, and lundi (puffin), lomvigi (guillemot) and havhestur (fulmar) were caught off the cliffs for food within living memory. There are very few songbirds and almost no woodland birds, because there is almost no woodland.
+locale: fo
+---
+Tjaldur
+Lundi
+Lomvigi
+Álka
+Teisti
+Súla
+Skarvur
+Havhestur
+Drunnhvíti
+Ritan
+Svartbakur
+Kjógvi
+Skúgvur
+Æða
+Grágás
+Spógvi
+Stelkur
+Mýrisnípa
+Títlingur
+Steinstólpa
+Stari
+Ravnur
+Kráka
+Snjófuglur
+Lómur
+Fálki
+Ugla
+Svala
+Dunna
+Svanur

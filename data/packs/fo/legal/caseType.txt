@@ -1,0 +1,17 @@
+---
+description: Kind of legal case in Faroese.
+locale: fo
+---
+Einkamál
+Revsimál
+Familjumál
+Skilnaðarmál
+Arvamál
+Konkursmál
+Vinnumál
+Arbeiðsmál
+Leigumál
+Ognarmál
+Sjórættarmál
+Umhvørvismál
+Skattamál

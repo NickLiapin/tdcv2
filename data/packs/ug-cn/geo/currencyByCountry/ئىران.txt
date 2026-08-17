@@ -1,0 +1,5 @@
+---
+description: Currency of ئىران, named in Uyghur.
+locale: ug-cn
+---
+رىيال

@@ -1,0 +1,10 @@
+---
+description: Dish of the رۇس kitchen, in Uyghur. Filename matches food/cuisine.txt character for character.
+locale: ug-cn
+---
+بورش
+پەلمەن
+بلىن
+ئولىۋيە سالىتى
+شاشلىك
+ئوكروشكا

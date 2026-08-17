@@ -1,0 +1,10 @@
+---
+description: Condition with a raised prevalence in the ئامېرىكا يەرلىك خەلقلىرى ancestry group, in Uyghur. Filename matches medical/ancestry.txt character for character.
+locale: ug-cn
+---
+2-تىپ شېكەر كېسىلى
+ئۆت تېشى كېسىلى
+شېكەر كېسىلى بۆرەك زېدىلىنىشى
+رېۋماتىك بوغۇم ياللۇغى
+ھاراقسىز ماي جىگەر كېسىلى
+مېتابولىزم سىندرومى

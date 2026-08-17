@@ -1,0 +1,16 @@
+---
+description: Diagnosis seen in the ئۆسمە كېسەللىكلىرى clinic, in Uyghur. Filename matches medical/specialtyCoherent.txt character for character.
+locale: ug-cn
+---
+ئۆپكە راكى
+ئاشقازان راكى
+جىگەر راكى
+كۆكرەك راكى
+ئۈچەي راكى
+قىزىل ئۆڭگەچ راكى
+بالىياتقۇ بوينى راكى
+بۆرەك راكى
+قان راكى
+لىمفا ئۆسمىسى
+تېرە راكى
+قالقانسىمان بەز راكى

@@ -1,0 +1,13 @@
+---
+description: Cable type in Uyghur. The technical vocabulary is transliterated; the qualifiers (mis copper, polat steel, yer asti underground) are native.
+locale: ug-cn
+---
+مىس كابېل
+ئوپتىك تالا
+كوئاكسىئال كابېل
+يۇقىرى بېسىملىق كابېل
+تۆۋەن بېسىملىق كابېل
+يەر ئاستى كابېلى
+ھاۋا لىنىيىسى
+ئالاقە كابېلى
+توك كابېلى

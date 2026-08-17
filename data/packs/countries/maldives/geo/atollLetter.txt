@@ -1,0 +1,24 @@
+---
+address: maldives.geo.atollLetter
+description: The single LATIN letter code of each atoll, the one that appears on a boat registration plate. Read the list top to bottom and the anomaly is the whole story: A B C D E F G H U I J K L M N O P Q R S. The letters ran A to S straight down the country from north to south when there were NINETEEN administrative atolls, so Ari Atoll — the ninth from the north — was I. On 1 March 1984 Ari was cut in two, and the letter did not move: the SOUTHERN half kept I as Alif Dhaalu, and the new northern half was given the next free letter, U, as Alif Alif. That is why U sits between H and I here and nowhere near the end. Malé City, which is a city and not an atoll, took T. So a sort of this file is not a sort of the country, and a program that maps letters to positions alphabetically puts Alif Alif in the far south. Note also that the postcode zones disagree about which half of Ari is the newcomer: there it is Alif DHAALU that gets the out-of-sequence code (00), while Alif Alif sits in sequence at 09 — see maldives.geo.postalCodeZone. Order matches maldives.geo.atoll. Malé's T is not in this list because Malé is not in maldives.geo.atoll; it is in maldives.geo.city.
+---
+A
+B
+C
+D
+E
+F
+G
+H
+U
+I
+J
+K
+L
+M
+N
+O
+P
+Q
+R
+S

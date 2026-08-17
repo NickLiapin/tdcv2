@@ -1,0 +1,22 @@
+---
+description: Hotel room type in Faroese.
+locale: fo
+---
+Einkultrúm
+Dupultrúm
+Tvíbeddarúm
+Familjurúm
+Svita
+Standard
+Deluxe
+Rúm við havútsýni
+Rúm við fjallútsýni
+Kjallararúm
+Loftrúm
+Studio
+Íbúð
+Hús
+Hyttar
+Sovisalur
+Tilbygt rúm
+Hjólastólsvinarligt rúm

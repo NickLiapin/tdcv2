@@ -1,0 +1,19 @@
+---
+description: Kind of court, in Uyghur. UYGHUR HAS ESSENTIALLY ONE COUNTRY, so these are the Chinese judiciary's tiers as Uyghur names them — xelq sot mehkimisi is 人民法院, the People's Court, and the aliy / ottura / asasiy ladder is the supreme, intermediate and basic-level division. The wasitichilik komitéti is the people's mediation committee, which settles most village disputes before they reach a court at all and is a real institution rather than an informal one.
+locale: ug-cn
+---
+خەلق سوت مەھكىمىسى
+ئالىي سوت مەھكىمىسى
+ئوتتۇرا سوت مەھكىمىسى
+ئاساسىي سوت مەھكىمىسى
+جىنايى ئىشلار سوتى
+ھەق تەلەپ سوتى
+مەمۇرىي سوت
+ئائىلە سوتى
+سودا سوتى
+ھەربىي سوت
+ۋاسىتىچىلىك كومىتېتى
+ۋاسىتىچىلىك ھەيئىتى
+پروكۇراتۇرا
+ئادلىيە ئىدارىسى
+نوتارىئۇس ئىشخانىسى

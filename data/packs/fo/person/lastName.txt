@@ -1,0 +1,147 @@
+---
+description: Faroese second name for a MAN, and the general-purpose surname list. The Faroes run TWO naming systems side by side and this file holds both, which is the single most important thing to know about it. Most Faroese carry an INHERITED FAMILY NAME - the head of this list - and it is passed down and shared by a family exactly as in Denmark; a great many of those are Danish-form -sen names, because that is what nineteenth-century Danish clerks made of Faroese patronymics when they froze them. Alongside them sit Faroese family names from farms and places, including the preposition type (á Lakjuni, av Reyni, í Soylu), which is written as two or three words with a lower-case preposition and is a live Faroese surname type. The TAIL of the list is different in kind: those are LIVE PATRONYMICS, the father's given name in the genitive plus -son, formed afresh for each child and not inherited - the Icelandic system, which the Faroes kept as a legal option and a minority still use. Two consequences a config cannot infer. First, unlike Iceland the Faroes have real family names, so people ARE alphabetised by this name and a household does share one. Second, an inherited name ending in -son (Patursson, Edmundsson) is NOT a live patronymic and a woman carries it unchanged - see person/female/lastName, which differs from this file only in the patronymic tail. Weights are a modelled shape, not measured counts: Hagstova Foroya publishes no surname frequency table, so the numbers encode what is known - inherited names dominant, live patronymics a few per cent of draws - rather than a citation.
+locale: fo
+weighted: true
+---
+Joensen,1000000
+Hansen,683020
+Jacobsen,546491
+Petersen,466516
+Poulsen,412635
+Olsen,373265
+Thomsen,342923
+Danielsen,318640
+Nielsen,298653
+Simonsen,281838
+Mortensen,267445
+Johannesen,254947
+Rasmussen,243967
+Andreasen,234223
+Sørensen,225502
+Christiansen,217638
+Jakobsen,210500
+Andersen,203986
+Larsen,198009
+Pedersen,192501
+Mikkelsen,187404
+Samuelsen,182670
+Michelsen,178258
+Justinussen,174134
+Zachariasen,170268
+Johansen,166634
+Jensen,163211
+Knudsen,159979
+Davidsen,156921
+Gregersen,154022
+Benjaminsen,151269
+Edmundsson,148651
+Andreassen,146156
+Eliasen,143776
+Isaksen,141502
+Thomassen,139326
+Sivertsen,137243
+Magnussen,135244
+Ellefsen,133326
+Hendriksson,131482
+Baldvinsson,129709
+Oskarsson,128001
+Djurhuus,126355
+Heinesen,124767
+Patursson,123235
+Restorff,121754
+Højgaard,120322
+Dahl,118937
+Debes,117596
+Matras,116296
+Mohr,115037
+Holm,113815
+Hentze,112628
+Enni,111477
+Vang,110357
+Wang,109269
+Winther,108210
+Ziska,107180
+Klein,106177
+Lützen,105200
+Kjølbro,104248
+Nolsøe,103320
+Midjord,102415
+Sundstein,101532
+Reinert,100669
+Skaale,99828
+Kamban,99005
+Kampmann,98202
+Helmsdal,97417
+Kjelnæs,96649
+Hoydal,95898
+Arge,95163
+Háfoss,94444
+Stenberg,93739
+Kallsberg,93050
+Eidesgaard,92375
+Brattaberg,91713
+Bjartalíð,91064
+Vatnsdal,90428
+Færø,89805
+Højsted,89194
+Elttør,88594
+Egilstrøð,88005
+Nattestad,87427
+Lisberg,86860
+Lassen,86303
+Mikines,85756
+Brú,85219
+Gregoriussen,84691
+Biskopstø,84172
+Løkin,83662
+Skarðenni,83160
+á Lakjuni,82667
+á Neystabø,82183
+á Steig,81706
+á Ryggi,81236
+av Reyni,80775
+av Rana,80320
+av Skarði,79873
+í Soylu,79433
+í Jákupsstovu,78999
+í Sandagerði,78572
+í Grøterí,78152
+úr Skarði,77738
+Hansson,38000
+Jákupsson,30866
+Jógvansson,27330
+Pálsson,25071
+Petursson,23447
+Poulsson,22199
+Ólavsson,21196
+Sigurðsson,20364
+Sjúrðarson,19657
+Bárðarson,19045
+Tórðarson,18508
+Høgnason,18031
+Rógvason,17604
+Súnason,17217
+Kárason,16864
+Bogason,16540
+Ólason,16242
+Rúnason,15966
+Hjaltason,15709
+Ingason,15469
+Trygvason,15245
+Marnersson,15033
+Gunnleygsson,14834
+Ottarsson,14646
+Heðinsson,14468
+Eyðunsson,14299
+Hanusson,14138
+Jóannesson,13984
+Klæmintsson,13838
+Andriasson,13698
+Mikkjalsson,13564
+Mortansson,13435
+Tummasson,13312
+Magnusson,13193
+Dánjalsson,13079
+Torkilsson,12969
+Leivsson,12862
+Jensson,12760

@@ -1,0 +1,9 @@
+---
+description: Credit rating band in Uyghur. Five plain adjectives; the numeric score behind them is a country matter.
+locale: ug-cn
+---
+ناچار
+ئوتتۇراھال
+ياخشى
+ئېسىل
+ئەڭ ئېسىل

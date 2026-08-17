@@ -1,0 +1,20 @@
+---
+description: Room in an Uyghur house. supa is the raised sleeping-and-eating platform, dehliz the covered passage, and ambar the storeroom for grain and dried fruit.
+locale: ug-cn
+---
+مېھمانخانا
+ياتاق
+ئاشخانا
+داستىخان ئۆيى
+سۇپا
+دەھلىز
+ھويلا
+ئامبار
+يەرتۆلە
+ھاجەتخانا
+يۇيۇنۇش ئۆيى
+كىر ئۆيى
+ئىش ئۆيى
+بالىلار ئۆيى
+ئۆگزە
+گاراژ

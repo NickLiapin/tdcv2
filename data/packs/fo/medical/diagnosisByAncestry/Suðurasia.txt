@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of Suðurasia ancestry. A prevalence signal, not an exclusive one.
+locale: fo
+---
+Tíðlig sukursjúka týpa 2
+Tíðlig kransæðrasjúka
+Miðjuovfeiti við vanligari kropsvekt
+D-vitamintrot
+Beta-talassemibera
+G6PD-trot
+Høgt lipoprotein(a)
+Laktoseintoleransa

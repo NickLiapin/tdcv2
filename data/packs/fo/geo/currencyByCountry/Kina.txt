@@ -1,0 +1,5 @@
+---
+description: Currency of Kina as Faroese names it
+locale: fo
+---
+kinesiskur yuan

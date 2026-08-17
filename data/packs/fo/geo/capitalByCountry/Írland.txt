@@ -1,0 +1,5 @@
+---
+description: Capital of Írland as Faroese names it
+locale: fo
+---
+Dublin

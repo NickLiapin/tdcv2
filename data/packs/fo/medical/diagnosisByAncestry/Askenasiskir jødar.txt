@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Askenasiskir jødar ancestry. A prevalence signal, not an exclusive one.
+locale: fo
+---
+Tay-Sachs sjúka
+Gauchers sjúka týpa 1
+Familiær dysautonomi
+Canavans sjúka
+Niemann-Picks sjúka
+Bloom-syndrom
+Fanconi-anemi
+BRCA1-mutatión
+BRCA2-mutatión
+Familiær miðjarðarhavsfeber
+Faktor XI-trot
+Mukolipidosa týpa IV

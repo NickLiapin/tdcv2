@@ -1,0 +1,5 @@
+---
+description: Currency of Svøríki as Faroese names it
+locale: fo
+---
+svensk króna

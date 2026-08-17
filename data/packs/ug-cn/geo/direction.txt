@@ -1,0 +1,17 @@
+---
+description: Compass direction in Uyghur. THE FOUR CARDINALS ARE ARABIC: shimal, jenub, sherq, gherb — sherq and gherb are the sunrise and sunset pair that also name the East and the West as regions. The intercardinals are built with the possessive -i and are written as two words: shimaliy sherq. The last four rows are the everyday spatial words a speaker actually uses for directions in a town: ichki inner, sirtqi outer, yuqiri upper (which means upstream, and in Xinjiang that is southwest towards the mountains) and töwen lower.
+locale: ug-cn
+---
+شىمال
+جەنۇب
+شەرق
+غەرب
+شىمالىي شەرق
+شىمالىي غەرب
+جەنۇبىي شەرق
+جەنۇبىي غەرب
+ئوتتۇرا
+ئىچكى
+سىرتقى
+يۇقىرى
+تۆۋەن

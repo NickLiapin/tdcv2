@@ -1,0 +1,5 @@
+---
+description: Capital of Grikkaland as Faroese names it
+locale: fo
+---
+Aten

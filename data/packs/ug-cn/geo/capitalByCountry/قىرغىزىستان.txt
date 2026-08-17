@@ -1,0 +1,5 @@
+---
+description: Capital of قىرغىزىستان, in Uyghur. Filename matches geo/country.txt character for character.
+locale: ug-cn
+---
+بىشكەك

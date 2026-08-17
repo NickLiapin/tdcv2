@@ -1,0 +1,8 @@
+---
+description: Roles in Kappróður. Rowing has no named positions the way a ball sport does: there is the stýrimaður who steers and calls the stroke, and the rórsmenn identified by where they sit in the boat. The list is short because that is all there is, not because it is unfinished.
+locale: fo
+---
+Stýrimaður
+Fremsti rórsmaður
+Rórsmaður
+Aftasti rórsmaður

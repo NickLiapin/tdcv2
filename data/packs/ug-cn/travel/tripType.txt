@@ -1,0 +1,24 @@
+---
+description: Kind of trip in Uyghur. hej sepiri, the pilgrimage to Mecca, and mazar ziyariti, the visit to a saint’s shrine, are both real journey types with their own vocabulary and season.
+locale: ug-cn
+---
+ئائىلىۋى ساياھەت
+خىزمەت سەپىرى
+تەشۋىقات سەپىرى
+يالغۇز ساياھەت
+گۇرۇپپىلىق ساياھەت
+ھەج سەپىرى
+مازار زىيارىتى
+يېزا ساياھىتى
+تاغ ساياھىتى
+چۆل ساياھىتى
+مەدەنىيەت ساياھىتى
+تارىخىي يەرلەرنى زىيارەت
+مېۋە مەۋسۈمى ساياھىتى
+قىشلىق ساياھەت
+دەم ئېلىش سەپىرى
+ئوقۇش سەپىرى
+داۋالىنىش سەپىرى
+قىسقا سەپەر
+ئۇزۇن سەپەر
+چېگرا ھالقىغان سەپەر

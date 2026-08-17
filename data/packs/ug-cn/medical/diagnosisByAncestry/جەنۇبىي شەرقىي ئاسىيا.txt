@@ -1,0 +1,11 @@
+---
+description: Condition with a raised prevalence in the جەنۇبىي شەرقىي ئاسىيا ancestry group, in Uyghur. Filename matches medical/ancestry.txt character for character.
+locale: ug-cn
+---
+گېموگلوبىن E كېسىلى
+ئالفا تالاسسېمىيە
+G6PD يېتەرسىزلىكى
+بۇرۇن-ھەلقۇم راكى
+بېتا تالاسسېمىيە
+بىرۇگادا سىندرومى
+لاكتازا داۋاملاشماسلىقى

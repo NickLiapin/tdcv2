@@ -1,0 +1,32 @@
+---
+description: Flower in Faroese. SÓLJA is the national flower of the Faroe Islands, the marsh marigold that fills the wet ground in spring; FÍFA is cotton grass and LYNGUR heather, and between them they are most of what actually flowers on a Faroese hillside. The garden flowers further down the list survive here only with shelter.
+locale: fo
+---
+Sólja
+Fífa
+Lyngur
+Bláklokka
+Hvítsmæra
+Reyðsmæra
+Fjóla
+Marikápa
+Rósa
+Túlipanur
+Lilja
+Narsissa
+Snjóklokka
+Krokus
+Hyacint
+Anemona
+Prímula
+Nellika
+Krysantemum
+Orkidé
+Sólblóma
+Dahlia
+Iris
+Pion
+Begonia
+Petunia
+Klokkublóma
+Ljósberi

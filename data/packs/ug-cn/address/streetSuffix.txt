@@ -1,0 +1,28 @@
+---
+description: Uyghur thoroughfare type. LIKE TURKISH AND UNLIKE ENGLISH, IT FOLLOWS THE NAME — Yüsüp Xas Hajip kochisi, not kochisi Yüsüp Xas Hajip — and the form below already carries the third-person possessive that joins it to the name. THE JOINT IS THE PART TO GET RIGHT: the possessive is -i after a consonant and -si after a vowel, and it does NOT take part in vowel harmony, so kocha becomes kochisi and yol becomes yoli and nothing else can happen. Contrast the plural in the same pack, which does harmonise (-lar / -ler). The mikrorayon / kwartal block arrived through Russian and Chinese planning vocabulary and names a numbered block of flats, not a street.
+locale: ug-cn
+---
+كوچىسى
+كوچا
+يولى
+چوڭ يولى
+تار كوچىسى
+بېشى
+خىياۋىنى
+مەيدانى
+باغچىسى
+سەيلىگاھى
+بازىرى
+مەھەللىسى
+رايونى
+تۇرالغۇ رايونى
+مىكرورايونى
+كۋارتالى
+كۆۋرۈكى
+دەرۋازىسى
+ئېرىقى
+ئۆستىڭى
+بۇلۇڭى
+ئۆتەڭى
+سانائەت رايونى
+دۆڭى

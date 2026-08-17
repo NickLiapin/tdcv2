@@ -1,0 +1,9 @@
+---
+description: Credit standing band in Faroese. Read the description before using it: the Faroe Islands have NO consumer credit score. There is no scoring bureau and no number a person carries; a Faroese bank assesses an applicant case by case from pay slips and account history. These are therefore generic descriptive bands, not the output of any real system, and nothing in a Faroese record maps onto a FICO-style number.
+locale: fo
+---
+Vánaligt
+Miðal
+Gott
+Sera gott
+Framúr

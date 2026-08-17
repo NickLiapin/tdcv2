@@ -1,0 +1,10 @@
+---
+description: Faroese full name for a man: one given name and one second name (Jógvan Joensen). What the second element MEANS depends on which part of person/lastName it was drawn from, and both outcomes are correct Faroese. Most draws give an inherited family name, and the result reads exactly like a Danish or Norwegian full name - a real surname, shared with the bearer's father and his children. A minority of draws give a live patronymic and the result reads like an Icelandic name - Jógvan Hansson is Jógvan, son of Hans - which is not inherited and says nothing about a family. A few give the preposition type (Jógvan á Lakjuni), which is three words and still one name. The two parts are drawn independently, which is right in both cases: a man's given name and his father's given name are unrelated.
+generator: tdc
+locale: fo
+---
+<sequence name="p">
+  <gen name="f" type="template" value="fo.person.male.firstName"/>
+  <gen name="l" type="template" value="fo.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

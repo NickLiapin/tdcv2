@@ -1,0 +1,18 @@
+---
+description: Suffix after a name. Faroese has NO Jr / Sr convention - that job is done by the second name, and where two men in one village share both names they are told apart by the house or farm they live at (Jákup á Hjalla), which is why several of those appear as surnames in person/lastName. What is left is academic, and it is written in the Danish abbreviations Faroese uses.
+locale: fo
+---
+yngri
+eldri
+dr.
+ph.d.
+cand.mag.
+cand.scient.
+cand.med.
+cand.jur.
+BA
+MA
+BSc
+MSc
+MBA
+prof.

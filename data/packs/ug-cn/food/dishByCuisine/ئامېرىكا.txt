@@ -1,0 +1,10 @@
+---
+description: Dish of the ئامېرىكا kitchen, in Uyghur. Filename matches food/cuisine.txt character for character.
+locale: ug-cn
+---
+گامبۇرگېر
+خوت دوگ
+بىفشتېكس
+پانكېك
+بارباكيۇ
+ئالما پىروگى

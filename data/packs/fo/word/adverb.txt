@@ -1,0 +1,36 @@
+---
+description: Common Faroese adverb.
+locale: fo
+---
+skjótt
+spakuliga
+væl
+illa
+ofta
+sjáldan
+altíð
+ongantíð
+nú
+tá
+her
+har
+uppi
+niðri
+inni
+úti
+fram
+aftur
+saman
+eisini
+bara
+heldur
+næstan
+kanska
+sjálvsagt
+veruliga
+greitt
+varliga
+samstundis
+í dag
+í gjár
+í morgin

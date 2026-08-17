@@ -1,0 +1,15 @@
+---
+description: Dhivehi personal pronoun. Dhivehi third person DOES NOT DISTINGUISH HE FROM SHE — އޭނާ covers both — so unlike the European locales a pronoun here carries no gender and a config cannot infer one from it. The politeness axis is what Dhivehi does mark: ތިޔަ and ކަލޭ are familiar, ތިޔަބޭފުޅާ is respectful, and ތިމަން is the formal first person.
+locale: dv
+---
+އަހަރެން
+އަހަރެމެން
+ތިޔަ
+ކަލޭ
+ތިޔަބޭފުޅާ
+ތިޔަބައިމީހުން
+އޭނާ
+އެމީހާ
+އެބޭފުޅާ
+އެމީހުން
+ތިމަން

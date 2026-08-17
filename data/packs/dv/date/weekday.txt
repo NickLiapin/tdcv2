@@ -1,0 +1,11 @@
+---
+description: Weekday (Dhivehi). THESE ARE NOT ARABIC. Despite the Arabic-looking script the weekday names are Indo-Aryan planetary names inherited from Sanskrit and shared with Sinhala: Aadhihthaa (Sun), Hoama (Moon/Soma), Angaara (Mars), Budha (Mercury), Buraasfathi (Bruhaspati/Jupiter), Hukuru (Shukra/Venus), Honihiru (Shani/Saturn). Only Friday doubles as the congregational prayer day. The Maldivian working week runs Sunday to Thursday; the weekend is Friday and Saturday. Listed Monday first to match the other packs.
+locale: dv
+---
+ހޯމަ
+އަންގާރަ
+ބުދަ
+ބުރާސްފަތި
+ހުކުރު
+ހޮނިހިރު
+އާދިއްތަ

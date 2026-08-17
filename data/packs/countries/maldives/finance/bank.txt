@@ -1,0 +1,12 @@
+---
+address: maldives.finance.bank
+description: Every bank licensed by the Maldives Monetary Authority to take deposits in the Maldives. There are eight, and the shape of the list is the shape of the market. Bank of Maldives, majority-owned by the state and the only bank with branches on islands outside the capital, is so dominant that "the bank" in Maldivian conversation means BML; Maldives Islamic Bank is the country's Islamic bank and the only one that was Shari'ah-compliant from the start, in a country whose constitution requires every citizen to be Muslim. Four of the eight are branches of foreign banks rather than Maldivian companies — State Bank of India, Bank of Ceylon, Habib Bank Limited and the Mauritius Commercial Bank — which is what a banking market of half a million people looks like: the Indian, Sri Lankan and Pakistani banks followed the trade and the migrant workforce, and MCB followed the tourism money. Commercial Bank of Maldives is a joint venture with Commercial Bank of Ceylon. Maldives Premier Bank is the newest, licensed by the MMA and the only addition to the list in years, so any Maldivian reference data older than its licensing has seven names rather than eight. HSBC held a Maldives licence and still appears in stale BIC tables; it no longer operates in the country, and a list that includes it is out of date. Note what is NOT a bank here: the SME Development Finance Corporation, the Housing Development Finance Corporation and the leasing companies are licensed finance companies, not banks, and cannot take retail deposits.
+---
+Bank of Maldives PLC
+Maldives Islamic Bank PLC
+State Bank of India, Malé Branch
+Bank of Ceylon, Malé Branch
+Habib Bank Limited, Malé Branch
+The Mauritius Commercial Bank (Maldives) Private Limited
+Commercial Bank of Maldives Private Limited
+Maldives Premier Bank

@@ -1,0 +1,5 @@
+---
+description: Currency of جۇڭگو, named in Uyghur.
+locale: ug-cn
+---
+يۈەن

@@ -1,0 +1,13 @@
+---
+address: maldives.government.court
+description: The courts of the Maldives under the Judicature Act (Law 22/2010). Three tiers: the Supreme Court, the High Court, and the lower courts, which split into the SUPERIOR COURTS and the MAGISTRATE COURTS. The four superior courts all sit in Malé and are divided by subject rather than by place — Criminal, Civil, Family and Juvenile — with the Drug Court, created under the Narcotics Control Act, sitting at the same level and doing something no court in most systems does: it supervises rehabilitation rather than only sentencing. The magistrate courts are the part that is Maldivian rather than generic. There is one on every inhabited island with at least 500 residents, about 180 of them staffed by roughly 146 magistrates, so a country of half a million people runs more first-instance courts per head than almost anywhere, for the plain reason that a litigant on Fuvahmulah cannot travel to Malé for a small claim. The High Court sits in Malé but hears appeals from all of them and has held sittings in the north and south to shorten that journey. What is NOT here: the Maldives has no separate constitutional court — the Supreme Court holds the power of constitutional review — and no administrative court, but it does have an Employment Tribunal and a Tax Appeal Tribunal outside the court structure that hear matters a foreign system would send to a court. Judges apply Islamic Shari'ah where statute is silent, which is a live rule rather than a formality. Source: Judicature Act 22/2010 and the Department of Judicial Administration.
+locale: dv-Latn
+---
+Supreme Court of the Maldives
+High Court of the Maldives
+Criminal Court
+Civil Court
+Family Court
+Juvenile Court
+Drug Court
+Magistrate Court

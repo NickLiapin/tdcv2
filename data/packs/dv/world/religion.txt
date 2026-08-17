@@ -1,0 +1,25 @@
+---
+description: World religion as Dhivehi names it. Islam is first for a reason a config should know: the Maldivian constitution makes Sunni Islam the state religion and Maldivian citizenship conditional on it, so a Maldivian person record realistically has one value here. The rest of the list is how Dhivehi names other people's religions; ބުއްދިސްޓް is historically the Maldives' own, before the conversion in 1153.
+locale: dv
+---
+އިސްލާމް
+ބުއްދިސްޓް
+ހިންދޫ
+ކްރިސްޓިއަން
+ކެތޮލިކް
+ޕްރޮޓެސްޓަންޓް
+އޯތޮޑޮކްސް
+ޔަހޫދީ
+ސިކުދީން
+ޖަޔިން
+ޝިންޓޯ
+ޓާއޯ
+ކޮންފޫޝަސް
+ބަހާއީ
+ޒޮރޮއަސްޓްރިއަން
+ސުންނީ
+ޝީޢީ
+ސޫފީ
+ދީނެއް ނެތް
+ޤަބޫލުނުކުރާ
+ޔަގީންނުވާ

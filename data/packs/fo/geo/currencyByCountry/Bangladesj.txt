@@ -1,0 +1,5 @@
+---
+description: Currency of Bangladesj as Faroese names it
+locale: fo
+---
+bangladesjsk taka

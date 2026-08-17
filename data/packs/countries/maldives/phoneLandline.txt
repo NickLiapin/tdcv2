@@ -1,0 +1,8 @@
+---
+address: maldives.phoneLandline
+description: A Maldivian fixed-line number in E.164 form — +960 and seven digits, of which the first three are the geographic block. Unlike the mobile ranges these digits ARE geographic and they are laid out down the country: Malé City sits on 3 (301 and 330 to 334 for Malé island, 335 Hulhumalé, 339 Villimalé) and every atoll sits on 6, stepping by two from 650 in Haa Alif at the northern tip to 688-690 in Addu at the southern. So 6 60 XXXX is Baa atoll and 6 82 XXXX is Gaafu Alif, and the middle two digits are effectively an atoll number in a THIRD numbering of the atolls that agrees with neither the boat letter codes nor the postcode zones. They are still not area codes in the dialling sense: the plan is closed, you dial all seven digits from anywhere, and there is no trunk prefix, so the block is a hint about where a line was installed rather than something to prepend. Fixed lines matter less here than almost anywhere — the country went mobile-first and many islands have more mobile subscriptions than people — so a Maldivian dataset with a landline column will have it mostly empty for individuals and mostly filled for offices, resorts and councils. The blocks are drawn here from maldives.geo.phoneAreaCode, which carries them in atoll order. Source: ITU national numbering plan for the Maldives, the 2005 renumbering table.
+generator: tdc
+---
+<sequence name="area"><gen type="template" value="maldives.geo.phoneAreaCode"/></sequence>
+<sequence name="rest"><gen type="regex" value="[0-9]{4}"/></sequence>
+<data>+960${{area}}${{rest}}</data>

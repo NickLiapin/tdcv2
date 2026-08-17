@@ -1,0 +1,14 @@
+---
+description: Kind of loan in Faroese.
+locale: fo
+---
+Húsalán
+Byggilán
+Bilalán
+Bátalán
+Persónslán
+Lesilán
+Vinnulán
+Kredittkortslán
+Yvirtrekk
+Umskipanarlán

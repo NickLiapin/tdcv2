@@ -1,0 +1,8 @@
+---
+description: Financial quarter as Faroese accounting writes it.
+locale: fo
+---
+1. ársfjórðingur
+2. ársfjórðingur
+3. ársfjórðingur
+4. ársfjórðingur

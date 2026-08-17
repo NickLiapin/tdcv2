@@ -1,0 +1,5 @@
+---
+description: Currency of نورۋېگىيە, named in Uyghur.
+locale: ug-cn
+---
+نورۋېگىيە كرونى

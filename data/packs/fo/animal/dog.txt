@@ -1,0 +1,29 @@
+---
+description: Dog breed. The first entry is the Faroese sheepdog, a small native herding breed that came within a few animals of extinction in the twentieth century and survives in very small numbers; it is a recognised breed, not a local word for a mongrel.
+locale: fo
+---
+Føroyskur hundur
+Labrador retriever
+Týskur schæfer
+Golden retriever
+Franskur bulldog
+Beagle
+Puddil
+Rottweiler
+Border collie
+Dachshund
+Jack Russell terrier
+Grønlandshundur
+Íslendskur fjárhundur
+Cocker spaniel
+Boksari
+Chihuahua
+Dobermann
+Bernhardshundur
+Skotskur terrier
+Samojed
+Siberian husky
+Springer spaniel
+Whippet
+Dalmatinari
+Mops

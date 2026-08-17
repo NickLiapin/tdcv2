@@ -1,0 +1,32 @@
+---
+description: Tree in Faroese. The words exist; the trees largely do not. The Faroe Islands are effectively TREELESS - wind, salt and sheep between them keep the islands bare, the only native woody plants are dwarf willow and juniper creeping along the ground, and every stand of trees you can see was planted in the twentieth century, mostly sitka spruce in sheltered plantations at Tórshavn and Kunoy. So the head of this list is what grows here and the tail is vocabulary for trees a Faroese speaker has read about.
+locale: fo
+---
+Víðir
+Eini
+Sitkagreni
+Birk
+Greni
+Furu
+Hvítgreni
+Fjallafura
+Aspa
+Elri
+Popul
+Selja
+Eik
+Bók
+Lønn
+Álmur
+Lind
+Hesli
+Hagtorn
+Kastanja
+Kirsuberjatræ
+Eplatræ
+Sýpressa
+Sedristræ
+Palma
+Bambus
+Oliventræ
+Ýr

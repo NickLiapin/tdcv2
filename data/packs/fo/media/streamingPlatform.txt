@@ -1,0 +1,16 @@
+---
+description: Streaming service. Brand names keep their own spelling. Kringvarp Føroya is the Faroese public broadcaster and the only one of these that produces anything in Faroese; the Danish and international services are what people actually watch, which is a fair picture of a language with fifty thousand speakers.
+locale: fo
+---
+Kringvarp Føroya
+Netflix
+Viaplay
+TV 2 Play
+DR TV
+HBO Max
+Disney+
+Amazon Prime Video
+Apple TV+
+Paramount+
+YouTube
+Spotify

@@ -1,0 +1,44 @@
+---
+description: Dish in Faroese. The first dozen are the national ones and most of them are preserved rather than cooked, because that is what a treeless, windy, wet island with no fuel and no salt of its own could do: SKERPIKJØT is mutton hung in a slatted hjallur until the wind dries it, RÆST KJØT and RÆSTUR FISKUR are the same process stopped halfway, at fermentation. GRIND OG SPIK is pilot whale and blubber, still eaten and still caught communally. KNETTIR are fish dumplings and GARNATÁLG is suet cooked in the sheep's own gut.
+locale: fo
+---
+Skerpikjøt
+Ræst kjøt
+Ræstur fiskur
+Turrur fiskur
+Grind og spik
+Tvøst og spik
+Knettir
+Súpuknettir
+Garnatálg
+Drylur
+Sperðil
+Saltkjøt
+Plukkfiskur
+Fiskabollar
+Ovnsteikt lomb
+Seyðahøvd
+Fiskasúpan
+Grønkálssúpan
+Kjøtsúpan
+Steiktur toskur
+Kókaður toskur
+Rabarbugreytur
+Havragreytur
+Kavringur
+Rúgbreyð
+Franskbreyð
+Pannukøkur
+Vaflur
+Frikadellur
+Pylsa
+Pitsa
+Hamborgari
+Spagetti
+Lasagne
+Sushi
+Tacos
+Kebab
+Karrýrættur
+Salatur
+Kransakaka

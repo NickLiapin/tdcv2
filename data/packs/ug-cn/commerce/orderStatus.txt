@@ -1,0 +1,18 @@
+---
+description: Order status in Uyghur, written as finite verbs in the past tense the way a tracking page shows them: qobul qilindi, it has been accepted.
+locale: ug-cn
+---
+زاكاز قوبۇل قىلىندى
+تەستىقلاندى
+پۇل تۆلەندى
+تەييارلىنىۋاتىدۇ
+ئىسكىلاتتىن چىقىرىلدى
+يولغا چىقتى
+يولدا
+يەتكۈزۈلىۋاتىدۇ
+يەتكۈزۈلدى
+تاماملاندى
+بىكار قىلىندى
+قايتۇرۇلدى
+پۇل قايتۇرۇلدى
+كېچىكتى

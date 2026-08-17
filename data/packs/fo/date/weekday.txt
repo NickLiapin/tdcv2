@@ -1,0 +1,11 @@
+---
+description: Weekday in Faroese, lower case, Monday first. This is the single most distinctive list in the pack. Faroese threw the pagan gods out of the middle of the week: Wednesday is MIKUDAGUR, mid-week day, not Odin's day, and Thursday is HÓSDAGUR, not Thor's day - the result of a deliberate church-driven reform that Danish, Norwegian, Swedish and English never made. Tuesday kept Tyr (týsdagur) and Saturday is leygardagur, bath-day, as in Icelandic.
+locale: fo
+---
+mánadagur
+týsdagur
+mikudagur
+hósdagur
+fríggjadagur
+leygardagur
+sunnudagur

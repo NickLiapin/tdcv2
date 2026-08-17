@@ -1,0 +1,13 @@
+---
+address: maldives.geo.maleWardThaana
+description: The wards of Malé City in Thaana, weighted by 2022 census population — the same list and order as maldives.geo.maleWard. Note the two Hulhumalé entries carry a WESTERN ARABIC DIGIT, 1 and 2, inside an otherwise right-to-left string: Dhivehi uses the ordinary 0-9 digits, not the Arabic-Indic ones, so a bidirectional renderer has to handle a left-to-right run embedded in a right-to-left line. That is the commonest way Maldivian text is rendered wrongly. Source: Maldives Bureau of Statistics, Census 2022.
+weighted: true
+locale: dv
+---
+މާފަންނު,47036
+ހުޅުމާލެ ސްޓޭޖް 1,35859
+ހެންވޭރު,34012
+ހުޅުމާލެ ސްޓޭޖް 2,29855
+ގަލޮޅު,28484
+މައްޗަންގޮޅި,27706
+ވިލިނގިލި,6755

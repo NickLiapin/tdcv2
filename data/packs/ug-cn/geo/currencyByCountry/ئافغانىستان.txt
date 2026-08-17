@@ -1,0 +1,5 @@
+---
+description: Currency of ئافغانىستان, named in Uyghur.
+locale: ug-cn
+---
+ئافغانى

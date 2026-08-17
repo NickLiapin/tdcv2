@@ -1,0 +1,10 @@
+---
+address: maldives.vehicle.plateUse
+description: The letter that opens the bottom line of a Maldivian number plate and says what the vehicle is FOR. It works together with the background colour, and the pair is the classification: P private, C commercial, G government and S police all take white on black; T taxi takes black on yellow; D diplomatic takes a blue plate. So a plate reading P3665 is a private car and S8708 is a police vehicle, and the letter is not a serial prefix — it is the use class, and it changes if the vehicle changes hands into a different class. This is the only part of a Maldivian plate that carries any meaning about the owner; nothing on the plate says where the vehicle is registered, which is unusual for the region and follows from the country being one registration authority with no provinces. Note that vehicle registration here is dominated by motorcycles: Malé is a square kilometre with more registered motorcycles than people, so the plates a Maldivian actually sees are overwhelmingly the two-wheeler categories rather than cars. Source: Maldives Transport Authority plate scheme introduced in 2003.
+---
+P
+C
+G
+S
+T
+D

@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient in Faroese. SPEKK (whale blubber) and TÁLG (mutton suet) are ordinary larder items in a Faroese kitchen and are what fat meant here before imported oil.
+locale: fo
+---
+Mjøl
+Hveitimjøl
+Rúgmjøl
+Havragrýn
+Sukur
+Salt
+Smør
+Olja
+Spekk
+Tálg
+Egg
+Mjólk
+Súrmjólk
+Rómi
+Ostur
+Ger
+Bakipulvur
+Edikur
+Sinnop
+Tomatsós
+Honning
+Súkkulát
+Kakao
+Rís
+Pasta
+Breyð
+Fiskur
+Kjøt
+Lambakjøt
+Seyðakjøt
+Hakkað kjøt
+Sirop
+Gelatin
+Vanilja
+Fløti
+Súrdeiggj
+Fiskasoð
+Kjøtsoð
+Sitrónsaft
+Vatn

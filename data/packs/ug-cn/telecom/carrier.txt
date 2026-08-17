@@ -1,0 +1,8 @@
+---
+description: Mobile carrier in Uyghur — AND THE LIST IS THREE LONG BECAUSE CHINA HAS THREE. There are no others: China Mobile, China Unicom and China Telecom are the whole market, and a fourth name in this file would be an invented company. Where en and pl can list a dozen, this locale cannot, and the short list is the honest answer rather than a gap. The Uyghur forms are descriptive translations of the Chinese names; the fourth row is the state broadcasting network's newer mobile arm.
+locale: ug-cn
+---
+جۇڭگو كۆچمە ئالاقە
+جۇڭگو بىرلەشمە ئالاقە
+جۇڭگو تېلېكوم
+جۇڭگو رادىئو-تېلېۋىزىيە تورى

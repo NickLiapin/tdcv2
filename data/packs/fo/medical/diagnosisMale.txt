@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis that requires male anatomy - it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: fo
+---
+Góðkynjað prostatastórvøkstur
+Prostatitt
+Prostatakrabbamein
+Testikkelkrabbamein
+Varikocela
+Hydrocela
+Epididymitt
+Fimosa
+Parafimosa
+Kryptorkismi
+Erektil dysfunktión
+Testosterontrot
+Gynekomasti
+Peyronies sjúka
+Testikkelsnúningur
+Balanitt
+Sáðleiðaratrot
+Ufrukt hjá monnum
+Prostatasteinar
+Penilt krabbamein

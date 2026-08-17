@@ -1,0 +1,5 @@
+---
+description: Capital of Portugal as Faroese names it
+locale: fo
+---
+Lissabon

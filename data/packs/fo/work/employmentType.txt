@@ -1,0 +1,15 @@
+---
+description: Kind of employment contract in Faroese. SESONGSTARV matters here: fish processing, tourism and the salmon harvest are seasonal, and a large share of Faroese work is contracted that way.
+locale: fo
+---
+Fast starv
+Hálvt starv
+Tíðaravmarkað starv
+Sáttmálastarv
+Tímalønt
+Vikarstarv
+Lærlingur
+Starvsvenjing
+Sjálvstøðugur
+Sesongstarv
+Frítíðarstarv

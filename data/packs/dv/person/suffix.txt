@@ -1,0 +1,14 @@
+---
+description: Inherited Maldivian name ending. These matter more here than anywhere else in this pack: they are the ONLY part of a Maldivian name that is inherited at all. They are aristocratic house endings — ދީދީ, މަނިކު, ފުޅު, ތަކުރުފާނު — carried by a minority of families descended from the old ranked classes, and they sit after the father's name (އަޙްމަދު ޢަލީ ދީދީ). Most Maldivians have none. No academic post-nominals: Maldivian degrees are written as a prefix (ޑރ.) instead.
+locale: dv
+---
+ދީދީ
+މަނިކު
+މަނިކުފާނު
+ފުޅު
+ތަކުރުފާނު
+ކަލޭގެފާނު
+ކިލެގެފާނު
+ދޮށިމޭނާ
+ބަނޑޭރި
+މާފަތްކަލޭގެފާނު

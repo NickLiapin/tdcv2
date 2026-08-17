@@ -1,0 +1,18 @@
+---
+address: maldives.holidayEnglish
+description: The public holidays of the Maldives under the English names the government uses in its English-language notices, in the same order as maldives.holiday, so an index taken from one indexes the other. Five are Gregorian and eight are Hijri; the split is at Islamic New Year. Read the Gregorian five and the country's twentieth century is in them: Independence Day is 26 July 1965, when the Maldives ceased to be a British protectorate; Republic Day is 11 November 1968, the start of the second republic after the sultanate was abolished; and Victory Day is 3 November 1988, the failed coup by Sri Lankan mercenaries that Indian paratroopers put down within hours. National Day is NOT any of those — it is a Hijri date commemorating a sixteenth-century victory over the Portuguese, which is a good measure of how the country dates itself. "The Day Maldives Embraced Islam" marks the conversion of the islands in 1153, and is a public holiday about a religious change eight and a half centuries ago that is still constitutionally load-bearing. Note that Ramadan itself is not a holiday; the FIRST DAY of Ramadan is.
+locale: en
+---
+New Year's Day
+Labour Day
+Independence Day
+Victory Day
+Republic Day
+Islamic New Year
+National Day
+Mawlid
+The Day Maldives Embraced Islam
+First Day of Ramadan
+Eid al-Fitr
+Day of Hajj
+Eid al-Adha

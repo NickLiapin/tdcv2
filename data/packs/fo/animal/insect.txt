@@ -1,0 +1,19 @@
+---
+description: Insect and small invertebrate in Faroese. The list is SHORT on purpose. The Faroes are treeless, windswept and cool, so the insect fauna is among the poorest in Europe - no native wasp fauna to speak of, hardly any butterflies, no beetle fauna worth the name - and the language accordingly has few native insect words. Padding this out with borrowed names would misrepresent both the islands and the vocabulary.
+locale: fo
+---
+Fluga
+Mýggja
+Býfluga
+Humla
+Veps
+Maur
+Fivrildi
+Kongulá
+Lús
+Fló
+Ormur
+Snigil
+Larva
+Mol
+Marfló

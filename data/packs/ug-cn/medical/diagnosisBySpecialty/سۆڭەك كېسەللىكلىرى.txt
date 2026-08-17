@@ -1,0 +1,16 @@
+---
+description: Diagnosis seen in the سۆڭەك كېسەللىكلىرى clinic, in Uyghur. Filename matches medical/specialtyCoherent.txt character for character.
+locale: ug-cn
+---
+سۆڭەك سۇنۇشى
+بوغۇم ياللۇغى
+بەل ئومۇرتقىسى چۈشۈشى
+تىز بوغۇمى ياللۇغى
+مۈرە بوغۇمى ياللۇغى
+سۆڭەك بوشىشى
+ئومۇرتقا قىڭغىيىشى
+سۆڭەك ياللۇغى
+مۇسكۇل يىرتىلىشى
+پەي سوزۇلۇشى
+بوغۇم چىقىشى
+تاپان يېسىلىشى

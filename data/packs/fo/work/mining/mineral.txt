@@ -1,0 +1,23 @@
+---
+description: Mined mineral in Faroese. Read this before generating a Faroese mining record: the Faroe Islands have essentially NO mining industry. There is one small coal seam, at Hvalba on Suðuroy, worked on and off since the eighteenth century and still cut in tiny quantities; beyond that the islands quarry their own basalt, gravel and sand, and collect zeolites out of the lava for interest rather than for money. Everything after the first six on this list is the Faroese word for a mineral mined somewhere else.
+locale: fo
+---
+Kol
+Basalt
+Grót
+Møl
+Sandur
+Zeolittar
+Kalsit
+Tuff
+Leir
+Torv
+Jarn
+Kopar
+Gull
+Silvur
+Sink
+Blýggj
+Alumin
+Uran
+Salt

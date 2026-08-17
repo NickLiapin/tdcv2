@@ -1,0 +1,15 @@
+---
+description: Reaction to a post, in Faroese.
+locale: fo
+---
+Dámar
+Elskar
+Lær
+Undrast
+Kedd
+Ill
+Takk
+Stuðlar
+Deilir
+Goymir
+Fylgir

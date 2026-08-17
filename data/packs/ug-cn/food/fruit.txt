@@ -1,0 +1,34 @@
+---
+description: Fruit in Uyghur. THIS IS THE MOST LOCAL LIST IN THE PACK. Xinjiang is a fruit country and the first six entries are what it is famous for: üzüm the grape of Turpan, tawuz the watermelon, qoghun the sweet Hami melon, anar the pomegranate of Kashgar, örük the apricot, and enjür the fig. chilan is the jujube and dolana the hawthorn, both eaten fresh and dried; üjme is the mulberry, which lines every irrigation channel. THE DRIED FORMS MATTER AS MUCH AS THE FRESH: kishmish (raisins), quruq örük (dried apricot) and the nuts — yangaq walnut, badam almond, piste pistachio — are sold by the sack and are what leaves the region. The tropical block at the end is imported and its names are transliterations.
+locale: ug-cn
+---
+ئۈزۈم
+تاۋۇز
+قوغۇن
+ئانار
+ئۆرۈك
+ئەنجۈر
+ئالما
+نەشپۈت
+شاپتۇل
+ئالخورى
+گىلاس
+ئۈجمە
+چىلان
+دولانا
+بېھى
+خورما
+قۇرۇق ئۆرۈك
+كىشمىش
+ياڭاق
+بادام
+پىستە
+قارىغات
+لىمون
+ئاپېلسىن
+مانداررىن
+بانان
+كىۋى
+ئانناس
+مانگو
+گرېيپفرۇت

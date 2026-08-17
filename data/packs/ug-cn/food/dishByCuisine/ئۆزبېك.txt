@@ -1,0 +1,11 @@
+---
+description: Dish of the ئۆزبېك kitchen, in Uyghur. Filename matches food/cuisine.txt character for character.
+locale: ug-cn
+---
+پولۇ
+سومسا
+دىملاما
+ماشخوردا
+چۇچۋارا
+ھالىم
+نارىن

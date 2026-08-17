@@ -1,0 +1,24 @@
+---
+description: School subject in Faroese. ALISFRØÐI (physics) and EVNAFRØÐI (chemistry) are native coinages, not borrowings, and a Faroese pupil takes both Faroese and Danish as separate compulsory subjects - Danish is taught as a second language from the third year, which is why it is on a school timetable and not on a foreign-language list.
+locale: fo
+---
+Føroyskt
+Danskt
+Enskt
+Týskt
+Franskt
+Spanskt
+Støddfrøði
+Alisfrøði
+Evnafrøði
+Lívfrøði
+Náttúrufrøði
+Søga
+Landafrøði
+Samfelagsfrøði
+Kristindómur
+Tónleikur
+Mynda- og handverk
+Ítrótt
+Teldufrøði
+Heimaframleiðsla

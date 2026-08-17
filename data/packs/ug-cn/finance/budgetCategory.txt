@@ -1,0 +1,24 @@
+---
+description: Household budget category in Uyghur. toy-tökün, the wedding-and-feast line, is a real and large household category in Xinjiang and has no counterpart in a European budget list.
+locale: ug-cn
+---
+ئۆي ئىجارىسى
+تاماق
+قاتناش
+توك-سۇ
+ئالاقە
+ساقلىق
+مائارىپ
+كىيىم-كېچەك
+مەدەنىي تۇرمۇش
+ساياھەت
+سوۋغا
+سۇغۇرتا
+ئۆي قەرزى
+ماشىنا خىراجىتى
+بالا تەربىيىسى
+جەمغارما
+خەير-ساخاۋەت
+توي-تۆكۈن
+دورا
+باشقا خىراجەت

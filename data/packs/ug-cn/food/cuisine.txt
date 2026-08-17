@@ -1,0 +1,21 @@
+---
+description: Cuisine, named in Uyghur, and the parent of food/dishByCuisine. THE ORDER IS THE ORDER OF A XINJIANG STREET, not of a European restaurant guide: Uyghur first, then Han Chinese, Kazakh, Uzbek and Hui, which are the kitchens actually next door to each other. Uyghur names a cuisine with a bare ethnonym — uyghur taamliri, Uyghur foods — so the values here are the ethnonyms and not adjectives with an ending. The far end of the list is the international block and is thinner because it is thinner in life.
+locale: ug-cn
+---
+ئۇيغۇر
+خەنزۇ
+قازاق
+ئۆزبېك
+خۇي
+تۈرك
+پارس
+ئەرەب
+ھىندى
+پاكىستان
+كورېيە
+ياپون
+رۇس
+ئىتالىيان
+فىرانسۇز
+ئامېرىكا
+تايلاند

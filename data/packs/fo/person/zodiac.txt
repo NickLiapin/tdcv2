@@ -1,0 +1,16 @@
+---
+description: Zodiac sign in Faroese. They carry the definite article as part of the name - Faroese suffixes the article, so Veðrurin is the-Ram and Ljónið is the-Lion, and that ending is not an artefact.
+locale: fo
+---
+Veðrurin
+Tarvurin
+Tvíburarnir
+Krabbin
+Ljónið
+Moyggin
+Vágin
+Skorpiónin
+Bogmaðurin
+Steinbukkurin
+Vatnberin
+Fiskarnir

@@ -1,0 +1,5 @@
+---
+description: Capital of Kina as Faroese names it
+locale: fo
+---
+Beijing

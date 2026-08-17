@@ -1,0 +1,26 @@
+---
+description: Weather in Faroese, and the vocabulary is unusually fine-grained because the weather is the country's main subject. MJØRKI is fog and is a daily condition rather than an event; SÚLD is the fine wet drizzle that is not quite rain; ÆL is a sudden squall of rain, hail or snow that passes in minutes; ROK is a gale strong enough to stop the ferries; ÓDN is a full storm. English collapses most of these into rain and wind.
+locale: fo
+---
+Sólskin
+Bjart
+Hálvskýggjað
+Skýggjað
+Tjúkt
+Mjørki
+Súld
+Regn
+Æl
+Skúrur
+Kavi
+Slett
+Hagl
+Frost
+Hálka
+Lygna
+Vindur
+Hvassur vindur
+Rok
+Stormur
+Ódn
+Rákandi mjørki

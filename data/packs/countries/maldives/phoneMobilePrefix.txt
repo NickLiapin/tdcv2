@@ -1,0 +1,15 @@
+---
+address: maldives.phoneMobilePrefix
+description: The eleven two-digit blocks a Maldivian mobile number can start with. They are OPERATOR blocks, not regional ones — 73, 76, 77, 78 and 79 were allocated to Dhiraagu and 91, 92, 96, 97, 98 and 99 to Ooredoo (which traded as Wataniya until 2013, so older Maldivian records call the same numbers Wataniya numbers). The Maldives has exactly two mobile operators serving 500,000 people across 187 inhabited islands and about 170 resorts, with mobile penetration well over 100 percent because a resort worker typically carries one SIM for the island and one for home. That duopoly is why the first two digits are informative at all: in a market with a dozen operators and full portability the prefix would say nothing, and in the Maldives it still says which network a number was sold on. The only other inference the leading digit supports is the one this file exists for: 7 or 9 means mobile, 3 or 6 means a fixed line, and nothing else is dialable as an ordinary number. Source: ITU national numbering plan for the Maldives, the allocations table.
+---
+73
+76
+77
+78
+79
+91
+92
+96
+97
+98
+99

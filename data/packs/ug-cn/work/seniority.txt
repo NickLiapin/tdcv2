@@ -1,0 +1,20 @@
+---
+description: Seniority level in Uyghur. The ladder is built from plain adjectives — kichik small, ottura middle, aliy high, bash head — rather than from borrowed junior/senior. usta, master, sits outside the office ladder and belongs to the trades, where it is the top rank and is earned by apprenticeship under another usta.
+locale: ug-cn
+---
+ئۆگەنچى
+ياردەمچى
+كىچىك
+ئوتتۇرا
+ئالىي
+باش
+تەجرىبىلىك
+مۇتەخەسسىس
+ئۇستا
+گۇرۇپپا باشلىقى
+سەپ باشلىقى
+بۆلۈم مۇدىرى
+مۇئاۋىن مۇدىر
+مۇدىر
+باش مۇدىر
+رەئىس

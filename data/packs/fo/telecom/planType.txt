@@ -1,0 +1,16 @@
+---
+description: Kind of mobile subscription in Faroese.
+locale: fo
+---
+Fyrigoldið
+Eftirgoldið
+Óavmarkað
+Familjuavtala
+Fyritøkuavtala
+Studentaavtala
+Bara dátur
+Bara tal
+Fastnet
+Breiðband
+Ljósleiðari
+Ferðapakki

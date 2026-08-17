@@ -1,0 +1,19 @@
+---
+description: Compass and relative direction used in an Uyghur address or a set of directions. Same cardinals as geo/direction.txt plus the body-relative pair ong (right) and sol (left) and the front-and-back pair aldi and keyni, which is how someone actually describes where a shop is.
+locale: ug-cn
+---
+شىمال
+جەنۇب
+شەرق
+غەرب
+شىمالىي شەرق
+شىمالىي غەرب
+جەنۇبىي شەرق
+جەنۇبىي غەرب
+ئوتتۇرا
+ئوڭ
+سول
+ئالدى
+كەينى
+ئۈستى
+ئاستى

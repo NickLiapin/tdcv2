@@ -1,0 +1,11 @@
+---
+description: Dishes of Enskur matur
+locale: fo
+---
+Fish and chips
+Shepherd's pie
+Roast beef
+Full English breakfast
+Bangers and mash
+Scones
+Steak and kidney pie

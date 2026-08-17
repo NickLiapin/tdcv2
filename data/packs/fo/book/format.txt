@@ -1,0 +1,12 @@
+---
+description: Book format in Faroese. TELDUBÓK is the Faroese for an e-book, built on telda (computer) rather than borrowed from English - Faroese coins native compounds for new technology far more readily than Danish does.
+locale: fo
+---
+Harðbind
+Bleytbind
+Teldubók
+Ljóðbók
+Innbundin
+Stórprent
+Myndabók
+Serprent

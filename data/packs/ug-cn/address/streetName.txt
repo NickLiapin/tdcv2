@@ -1,0 +1,119 @@
+---
+description: Street name of the kind found across Uyghur towns — the scholars first, then civic words, then trees and gardens. THE SCHOLARLY BLOCK IS UYGHUR RATHER THAN GENERICALLY ISLAMIC and is the fastest way to tell this list from an Arabic or a Persian one: Yüsüp Xas Hajip wrote the Qutadghu Bilig at Kashgar in 1069, the first great book in a Turkic language; Mehmud Qeshqiri compiled the Diwan Lughat at-Turk, the first Turkic dictionary, in the same decade and the same city; Amannisa Xan assembled the Twelve Muqam in the sixteenth century; Sutuq Bughraxan was the first Karakhanid ruler to adopt Islam. The civic block is ordinary — Dostluq friendship, Ittipaq unity, Bilim knowledge, Emgek labour. Compose before a value from address/streetSuffix.txt: Dostluq kochisi. One particular town's streets belong in a country pack, not here.
+locale: ug-cn
+---
+يۈسۈپ خاس ھاجىپ
+مەھمۇد قەشقىرى
+ئەھمەد يۈكنەكى
+ئاماننىسا خان
+سۇتۇق بۇغراخان
+ئاپاق خوجا
+زەلىلى
+خىرقىتى
+گۇمنام
+ئابدۇرېھىم نىزارى
+لۇتپۇللا مۇتەللىپ
+ئەلىشىر ناۋائى
+ئەھمەد يەسەۋى
+باباراھىم مەشرەپ
+ئىبنى سىنا
+ئەل فارابى
+ئەل خارەزمى
+ئەل بىرۇنى
+ئۇلۇغبەگ
+ئۆمەر ھەييام
+فىردەۋسى
+ھافىز
+جامى
+سەئدى
+دوستلۇق
+ئىتتىپاق
+تىنچلىق
+بىرلىك
+بەخت
+ئۈمىد
+يېڭىلىق
+مەدەنىيەت
+مائارىپ
+بىلىم
+ساغلاملىق
+ئەمگەك
+دېھقانچىلىق
+سانائەت
+سودا
+قۇرۇلۇش
+تېخنىكا
+ئىلىم-پەن
+ياشلار
+ئانا
+بالىلار
+مۇئەللىم
+شىپا
+تۆمۈريول
+ۋوگزال
+ئايرودۇرۇم
+بازار
+چوڭ بازار
+مال بازىرى
+گۈل بازىرى
+باغ
+گۈلباغ
+چىنىباغ
+بوستان
+گۈلىستان
+ئۈزۈمزار
+ئالمىلىق
+تېرەكلىك
+سۆگەتلىك
+ياغاچلىق
+قوغۇنلۇق
+ئانارلىق
+ئۆرۈكزار
+چىنار
+تېرەك
+سۆگەت
+توغراق
+ئۈجمە
+ياڭاق
+تاشكۆۋرۈك
+ئاققۆۋرۈك
+يېڭى كۆۋرۈك
+قىزىل تام
+ئاق مەسچىت
+ھەيتگاھ
+مازار
+لەڭگەر
+تەڭرىتاغ
+ئالتۇنتاغ
+قۇياش
+يۇلتۇز
+ئاي
+تاڭ
+باھار
+ياز
+كۈز
+قىش
+شەرق
+غەرب
+شىمال
+جەنۇب
+يىپەك يولى
+كارۋان يولى
+ئۆستەڭ بويى
+دەريا بويى
+كۆل بويى
+بۇلاق بېشى
+ئېرىق بويى
+خەلق
+جۇمھۇرىيەت
+ھۆرلۈك
+ئىنقىلاب
+قۇرۇلتاي
+ئوكتەبىر
+غەلىبە
+ئىلغار
+گۈزەللىك
+مېھرىبانلىق
+سەمىمىيەت
+ئىناقلىق
+ھەمكارلىق

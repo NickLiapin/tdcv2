@@ -1,0 +1,12 @@
+---
+description: Extraction method in Faroese.
+locale: fo
+---
+Undirjarðargrevstur
+Opið brot
+Steinbrot
+Sprenging
+Boring
+Handgrevstur
+Sandsúgving
+Møltøka

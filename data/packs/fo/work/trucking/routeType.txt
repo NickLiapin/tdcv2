@@ -1,0 +1,11 @@
+---
+description: Kind of haulage route in Faroese. These are shaped by the geography and not by distance: TUNNILSLEIÐ and FERJUFLUTNINGUR are how you get between islands, and the longest possible domestic run is a couple of hours. There is no long-haul trucking in the Faroe Islands.
+locale: fo
+---
+Bygdaflutningur
+Oyggjaflutningur
+Havnarflutningur
+Tunnilsleið
+Ferjuflutningur
+Fjallavegur
+Dagstúrur

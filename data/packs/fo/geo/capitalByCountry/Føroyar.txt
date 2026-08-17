@@ -1,0 +1,5 @@
+---
+description: Capital of Føroyar as Faroese names it
+locale: fo
+---
+Tórshavn

@@ -1,0 +1,32 @@
+---
+address: maldives.geo.phoneAreaCode
+description: The three-digit block that opens a Maldivian fixed-line number in each atoll. These are NOT area codes in the usual sense and there is no trunk prefix to put in front of them: a Maldives number is seven digits flat, and these three are simply the first three of the seven. Atoll fixed lines all begin with 6 and the blocks step by two down the country — 650 Haa Alif, 652 Haa Dhaalu, 654 Shaviyani and so on to 686 Fuvahmulah and 688 Addu, which also uses 689 and 690 — while Malé City sits on 3: 301 and 330 to 334 for Malé island, 335 for Hulhumalé, 339 for Villimalé. The stepping by two is the whole plan: each atoll was given a pair of blocks and only the first of each pair is in general use. Order matches maldives.geo.atoll, with the Malé City blocks appended. Source: ITU national numbering plan for the Maldives, the 2005 renumbering.
+---
+650
+652
+654
+656
+658
+660
+662
+664
+666
+668
+670
+672
+674
+676
+678
+680
+682
+684
+686
+688
+301
+330
+331
+332
+333
+334
+335
+339

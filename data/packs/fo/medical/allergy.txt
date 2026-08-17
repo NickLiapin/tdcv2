@@ -1,0 +1,26 @@
+---
+description: Common allergy in Faroese.
+locale: fo
+---
+Penicillin
+Sulfa
+Aspirin
+Jod
+Kontrastevni
+Latex
+Jarðnøtur
+Trænøtur
+Skeljadjór
+Fiskur
+Egg
+Mjólk
+Soya
+Hveiti
+Sesam
+Býflugueitur
+Vepsaeitur
+Blómufræ
+Húsdustmítur
+Djórahár
+Mygla
+Nikkul

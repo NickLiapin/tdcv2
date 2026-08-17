@@ -1,0 +1,11 @@
+---
+description: Dishes of Meksikanskur matur
+locale: fo
+---
+Tacos
+Burrito
+Enchiladas
+Quesadilla
+Guacamole
+Nachos
+Tamales

@@ -1,0 +1,11 @@
+---
+description: Dishes of Grikskur matur
+locale: fo
+---
+Moussaka
+Souvlaki
+Gyros
+Grikskt salat
+Tzatziki
+Baklava
+Spanakopita

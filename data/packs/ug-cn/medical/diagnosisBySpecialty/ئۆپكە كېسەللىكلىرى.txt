@@ -1,0 +1,16 @@
+---
+description: Diagnosis seen in the ئۆپكە كېسەللىكلىرى clinic, in Uyghur. Filename matches medical/specialtyCoherent.txt character for character.
+locale: ug-cn
+---
+ئۆپكە ياللۇغى
+سوزۇلما بىرونخىت
+دەم سىقىلىش
+ئۆپكە سىلى
+ئۆپكە كېڭىيىشى
+پىلېۋرا ياللۇغى
+ئۆپكە راكى
+گال ياللۇغى
+ئۆپكە فىبروزى
+ئۇيقۇدا نەپەس توختاش
+سوزۇلما توسۇلما ئۆپكە كېسىلى
+ئۆپكە شىشى

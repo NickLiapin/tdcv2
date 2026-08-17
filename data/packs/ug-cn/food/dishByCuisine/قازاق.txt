@@ -1,0 +1,11 @@
+---
+description: Dish of the قازاق kitchen, in Uyghur. Filename matches food/cuisine.txt character for character.
+locale: ug-cn
+---
+بەشبارماق
+قازى
+باۋىرساق
+قۇرۇت
+قىمىز
+شۈبات
+ئەت شورپا

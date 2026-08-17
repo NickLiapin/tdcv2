@@ -1,0 +1,11 @@
+---
+description: Dishes of Týskur matur
+locale: fo
+---
+Schnitzel
+Bratwurst
+Sauerkraut
+Brezel
+Sauerbraten
+Kartoffelsalat
+Spätzle

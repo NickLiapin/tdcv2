@@ -1,0 +1,20 @@
+---
+description: Educational qualification in Uyghur. The ladder is the Chinese one as Uyghur names it: nine years of compulsory schooling, then upper secondary or a vocational school, then baklawur, magistir and doktor.
+locale: ug-cn
+---
+باشلانغۇچ گۇۋاھنامىسى
+تولۇقسىز ئوتتۇرا
+تولۇق ئوتتۇرا
+كەسپىي ئوتتۇرا
+ھۈنەر مەكتىپى
+تېخنىكوم
+ئالىي مەكتەپ دىپلومى
+باكلاۋۇر
+ماگىستىر
+دوكتور
+دوكتوردىن كېيىنكى
+سىرتتىن ئوقۇش دىپلومى
+قوشۇمچە كەسپ
+ئىلمىي ئۇنۋان
+دوتسېنتلىق
+پروفېسسورلۇق

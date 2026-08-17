@@ -1,0 +1,260 @@
+---
+address: maldives.geo.street
+description: Real street names of Malé City. Every Maldivian street name ends in one of three words and the word is the rank: MAGU is a thoroughfare, HINGUN a road, GOALHI a lane or alley — Majeedhee Magu, Ameenee Magu and Boduthakurufaanu Magu are the three that cross the capital, and a goalhi is often no wider than a car. The word is part of the name and is written as a separate capitalised word, so "Orchid Magu" is the name and "Orchid" alone is not. The names themselves are a fair sample of Maldivian naming: flowers (Orchid, Violet, Rose), qualities (Abadhah Ufaa, "eternal joy"), and the titles of national figures (Boduthakurufaanu, the sultan who drove out the Portuguese in 1573). Note what a Malé street does NOT carry: house numbers. Buildings are identified by a NAME, not a number on a street, so the street is only half an address here — see maldives.geo.houseName.
+locale: dv-Latn
+---
+Aaburuzu Hingun
+Aaminaa Rani Hingun
+Abadhah Fehi Magu
+Abadhah Ufaa Hingun
+Abadhah Ufaa Magu
+Abadhahfehi Magu
+Ablaghee Goalhi
+Alamaa Goalhi
+Alhivilaa Magu
+Alikilegefaanu Magu
+Alimas Magu
+Almas Goalhi
+Ameenee Magu
+Ameeru Ahmed Magu
+Aminarani Hingun
+Anoanaa Goalhi
+Asaree Goalhi
+Asaree Hingun
+Asrafee Magu
+Asseyri Hingun
+Asurumaa Goalhi
+Athamaa Goalhi
+Baamiya Goalhi
+Badifasgandu Hingun
+Badifasgandudhoshu Magu
+Banafsaa Magu
+Bandharumathee Hingun
+Barujoaraa Goalhi
+Bentheyo Goalhi
+Binhima Goalhi
+Bluekiya Magu
+Bodufulhah Goalhi
+Bodufungandu Magu
+Bodurasgefaanu Magu
+Boduthakurufaanu Magu
+Bokarumaa Goalhi
+Bulbul Goalhi
+Burevi Magu
+Buruzu Magu
+Carnation Magu
+Chaandhanee Magu
+Champaa Magu
+Chanbeylee Magu
+Daisy Magu
+Dhakadhaa Magu
+Dhanbu Goalhi
+Dhanburuh Goalhi
+Dhanburuh Magu
+Dharumavantha Magu
+Dheefram Goalhi
+Dhevina Magu
+Dheyliyaa Hingun
+Dhidhi Goalhi
+Dhilbahaaru Goalhi
+Dhilbahaaru Hingun
+Dhilbahaaru Magu
+Dhilkushaa Goalhi
+Dhillee Goalhi
+Dhillee Magu
+Dhonadharaadha Higun
+Dhonhuraa Goalhi
+Dhoohimeri Magu
+Dhunbugas Magu
+Dhunburi Magu
+Emboo Goalhi
+Faamdheyri Magu
+Faashanaa Kilege Magu
+Falhumathee Magu
+Fandiyaaru Magu
+Fareedhee Goalhi
+Fareedhee Higun
+Fareedhee Magu
+Feeroazu Magu
+Fenfiyaazu Goalhi
+Filigas Hingun
+Filigas Magu
+Finifenmaa Goalhi
+Finihiyaa Goalhi
+Fiyaashoshi Goalhi
+Fiyaathoshi Hingun
+Fiyaathoshi Magu
+Fiyaathsohi Magu
+Flooniyaa Magu
+Fulooniyaa Goalhi
+Fulooniyaa Magu
+Funa Goalhi
+Galadhun Goalhi
+Gandhakoalhi Magu
+Gul Alaa Goalhi
+Gulaabee Magu
+Guleynooran Magu
+Gulfaamu Goalhi
+Gulfaamu Hingun
+Gulhazaaru Goalhi
+Gulisthaanu Goalhi
+Gumree Goalhi
+Guraabuthundi Hingun
+Hadheebee Magu
+Halaveli Goalhi
+Handhuvaree Hingun
+Handhuvarudhey Goalhi
+Handhuvarudhey Hingun
+Haveeree Goalhi
+Haveeree Hingun
+Heenaa Goalhi
+Helebeli Goalhi
+Hiffaseyha Goalhi
+Hilaalee Goalhi
+Hilaalee Magu
+Hirundhu Magu
+Hithaffinivaa Magu
+Hithigas Magu
+Hiyalee Goalhi
+Hudhufalhu Goalhi
+Husainee Goalhi
+Husnuheena Magu
+Huvafenee Goalhi
+Huvandhumaa Goalhi
+Ibarahim Hassan Didi Magu
+Ibraheemee Magu
+Iraaku Magu
+Iramaa Magu
+Irudheymaa Hingun
+Iskandharu Magu
+Ithaa Goalhi
+Izzuddheen Magu
+Jahaamuguri Goalhi
+Jamaaludheen Hingun
+Jambu Magu
+Janavaree Hingun
+Janavaree Magu
+Javaahiru Goalhi
+Javaahiru Hingun
+Javaahiru Magu
+Joashee Hingun
+Jumhooree Hingun
+Kaaminee Hingun
+Kaaminee Magu
+Kaani Goalhi
+Kaasinjee Magu
+Kalaafaanu Hingun
+Kalhuhuraa Magu
+Kanba Aisa Rani Hingun
+Kandi Dhon Maniku Goalhi
+Kaneeru Goalhi
+Karankaa Magu
+Kashimaa Hingun
+Kasthoori Magu
+Kendhigas Hingun
+Keneree Magu
+Kinbigas Magu
+Koaru Kendi Hingun
+Koaru Kendi Magu
+Koimalaa Hingun
+Kolige Umaru Maniku Goalhi
+Kudheenaa Goalhi
+Kudhimaa Goalhi
+Kudhiraiymaa Goalhi
+Kulhidhoshu Magu
+Kulhlhavah Goalhi
+Kurangi Goalhi
+Kurikeela Magu
+Lainoofaru Magu
+Lansimoo Goalhi
+Lily Magu
+Lonuziyaaraiy Magu
+Maaburuzu Hingun
+Maafaiy Thakurufaanu Magu
+Maanifaa Hingun
+Maaveyo Goalhi
+Maaveyo Magu
+Madhoshi Goalhi
+Majeedhee Magu
+Medhuziyaaraiy Magu
+Meheli Goalhi
+Mialani Goalhi
+Miriyaas Magu
+Mohamed Ismail Didi Goalhi
+Moonimaa Hingun
+Moonlight Hingun
+Moosa Ibrahim Didi Goalhi
+Muithoshi Goalhi
+Muiveyo Goalhi
+Muiveyo Magu
+Muiythoshi Goalhi
+Muniyaa Magu
+Muranga Magu
+Mushtharee Magu
+Muthee Goalhi
+Narugis Goalhi
+Naseemee Hingun
+Nedhun Goalhi
+Neeloafaru Hingun
+Neeloafaru Magu
+Nikagas Hingun
+Nikagas Magu
+Nirolhu Magu
+Niyandhuru Goalhi
+Nooraanee Goalhi
+Nooree Goalhi
+Orchid Magu
+Raadhafathi Hingun
+Rabee Ee Hingun
+Rah Dhebai Hingun
+Rah Dhebai Magu
+Raiveri Hingun
+Raiveribe Magu
+Raiyfus Goalhi
+Raiyvila Hingun
+Raiyvilaa Magu
+Ranauraa Goalhi
+Ranvilla Goalhi
+Rehendhi Hingun
+Riyaasee Hingun
+Roashanee Goalhi
+Roashanee Hingun
+Roashanee Magu
+Ruhkendiya Hingun
+Ruvaagu Magu
+Sabudheli Magu
+Sabudheriyaa Magu
+Saharaa Magu
+Saimaa Goalhi
+Samundhu Goalhi
+Sandhubarakaa Goalhi
+Satharu Goalhi
+Sayyid Kilegefaanu Magu
+Seesan Magu
+Shaariu Varudhee
+Shabnam Goalhi
+Shabnam Magu
+Shaheed Ali Hingun
+Shaheedh Ali Goalhi
+Shaheedhu Hussein Mohamed Hingun
+Shaheedhu Kuda Adamge Kudathuthu Hingun
+Shaheedhu Kudanevi Thutthu Manik Hingun
+Shameemee Goalhi
+Shariu Varudhee
+Sheeraazee Goalhi
+Sikka Goalhi
+Siththi Maavaa Hingun
+Sosun Magu
+Thabreyzee Hingun
+Thandhiraiymaa Goalhi
+Thurravaas Goalhi
+Unigas Magu
+Vaidheri Hingun
+Vaijehey Magu
+Varudhee Hingun
+Violet Goalhi
+Violet Hingun
+Violet Magu
+Yaagoothu Goalhi
+Zamaanee Goalhi
+Zamaanee Hingun

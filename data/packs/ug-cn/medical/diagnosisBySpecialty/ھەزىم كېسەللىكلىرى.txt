@@ -1,0 +1,16 @@
+---
+description: Diagnosis seen in the ھەزىم كېسەللىكلىرى clinic, in Uyghur. Filename matches medical/specialtyCoherent.txt character for character.
+locale: ug-cn
+---
+ئاشقازان ياللۇغى
+ئاشقازان يارىسى
+ئون ئىككى بارماق ئۈچەي يارىسى
+سوزۇلما جىگەر ياللۇغى
+جىگەر سىررىروزى
+ئۆت تېشى
+ئۆت خالتىسى ياللۇغى
+پانكرېئاس ياللۇغى
+ئۈچەي ياللۇغى
+ئىچ قېتىش
+ئىچ سۈرۈش
+تىك ئىچەك ياللۇغى

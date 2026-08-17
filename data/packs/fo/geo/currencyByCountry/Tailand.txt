@@ -1,0 +1,5 @@
+---
+description: Currency of Tailand as Faroese names it
+locale: fo
+---
+tælendskur baht

@@ -1,0 +1,16 @@
+---
+description: School mark in Uyghur. THERE ARE NO LETTER GRADES: schools in Xinjiang mark out of 100 and report a band, so the five word-bands and the point ranges below are the two forms a report card actually carries. A config that fills this column with A/B/C is producing a document nobody in China would recognise.
+locale: ug-cn
+---
+ئەلا
+ياخشى
+ئوتتۇراھال
+ئۆتتى
+ئۆتمىدى
+95-100
+90-94
+85-89
+80-84
+70-79
+60-69
+60 تىن تۆۋەن

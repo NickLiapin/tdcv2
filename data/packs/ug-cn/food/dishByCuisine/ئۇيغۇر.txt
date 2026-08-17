@@ -1,0 +1,16 @@
+---
+description: Dish of the ئۇيغۇر kitchen, in Uyghur. Filename matches food/cuisine.txt character for character.
+locale: ug-cn
+---
+لەڭمەن
+پولۇ
+كاۋاپ
+سامسا
+مانتا
+گۆشنان
+چۆچۈرە
+داپەنجى
+نارىن
+تونۇر كاۋاپ
+لەڭپۇڭ
+سەڭزە

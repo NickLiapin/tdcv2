@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list under medical/diagnosisBySpecialty. The ten match en so a config can move between locales. Uyghur builds a specialty name as organ + késellikliri (its diseases) rather than by borrowing a Greek stem, so yürek késellikliri is literally the heart-diseases and is what a hospital door in Xinjiang says.
+locale: ug-cn
+---
+يۈرەك كېسەللىكلىرى
+نېرۋا كېسەللىكلىرى
+ئۆسمە كېسەللىكلىرى
+تېرە كېسەللىكلىرى
+ھەزىم كېسەللىكلىرى
+ئىچكى سەكرېتسىيە كېسەللىكلىرى
+ئۆپكە كېسەللىكلىرى
+سۆڭەك كېسەللىكلىرى
+روھىي كېسەللىكلەر
+بۆرەك كېسەللىكلىرى

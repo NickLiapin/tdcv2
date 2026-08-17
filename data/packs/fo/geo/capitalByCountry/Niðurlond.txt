@@ -1,0 +1,5 @@
+---
+description: Capital of Niðurlond as Faroese names it
+locale: fo
+---
+Amsterdam

@@ -1,0 +1,30 @@
+---
+description: Aircraft type. Model designations keep their manufacturer spelling in every locale. The first three are what actually serves the islands: Atlantic Airways flies the Airbus A320neo family out of Vágar and runs the Leonardo AW139 helicopters that do both search-and-rescue and the scheduled inter-island service.
+locale: fo
+---
+Airbus A320neo
+Airbus A319
+Leonardo AW139
+Airbus A320
+Airbus A321neo
+Airbus A330-300
+Airbus A350-900
+Boeing 737-700
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 757-200
+Boeing 767-300
+Boeing 777-300ER
+Boeing 787-9
+ATR 42-500
+ATR 72-600
+Embraer E170
+Embraer E190
+Embraer E195-E2
+Bombardier CRJ900
+De Havilland Dash 8 Q400
+BAe 146-200
+Avro RJ85
+Cessna 172
+Bell 212
+Sikorsky S-92

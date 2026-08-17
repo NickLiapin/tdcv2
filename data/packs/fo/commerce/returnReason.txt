@@ -1,0 +1,19 @@
+---
+description: Reason a customer gives for returning an order, in Faroese.
+locale: fo
+---
+Skalað í flutningi
+Skeiv vøra send
+Svarar ikki til lýsingina
+Skeiv stødd
+Skeivur litur
+Broytt hugsan
+Ov seint komið
+Vantandi lutir
+Virkar ikki
+Kvaliteturin ikki nøktandi
+Betri prísur aðrastaðni
+Tvíbýtt bílegging
+Fekk aldri vøruna
+Skalað umbúgving
+Passar ikki

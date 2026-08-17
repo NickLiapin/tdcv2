@@ -1,0 +1,16 @@
+---
+description: Diagnosis seen in the نېرۋا كېسەللىكلىرى clinic, in Uyghur. Filename matches medical/specialtyCoherent.txt character for character.
+locale: ug-cn
+---
+مېڭە قان تومۇر كېسىلى
+تۇتقاقلىق
+مىگرېن
+پارالىچ
+پاركىنسون كېسىلى
+ئالزگېيمېر كېسىلى
+كۆپ ئورۇنلۇق سكلېروز
+يۈز نېرۋىسى پارالىچى
+نېرۋا ياللۇغى
+باش ئاغرىقى
+بەل نېرۋىسى سىقىلىشى
+تىترەش كېسىلى

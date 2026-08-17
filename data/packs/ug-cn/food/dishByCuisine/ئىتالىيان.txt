@@ -1,0 +1,10 @@
+---
+description: Dish of the ئىتالىيان kitchen, in Uyghur. Filename matches food/cuisine.txt character for character.
+locale: ug-cn
+---
+پىتسا
+پاستا
+لازانيا
+رىزوتتو
+سپاگېتتى
+تىرامىسۇ

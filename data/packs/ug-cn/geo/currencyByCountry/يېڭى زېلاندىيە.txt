@@ -1,0 +1,5 @@
+---
+description: Currency of يېڭى زېلاندىيە, named in Uyghur.
+locale: ug-cn
+---
+يېڭى زېلاندىيە دوللارى

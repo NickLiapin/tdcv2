@@ -1,0 +1,16 @@
+---
+description: Title that PRECEDES the name in Uyghur — and the list is short because in Uyghur almost nothing does. The native honorifics all FOLLOW the name and are shipped in person/suffix.txt instead: Ablimit ependi, Gülnar xanim, Tursun aka, Memet muellim. What can stand in front is the borrowed academic and professional rank, which arrived through Russian and Chinese usage and keeps the foreign word order. A config that fills a European Mr/Mrs slot from this file will produce something an Uyghur reader would not write; fill person/suffix.txt instead.
+locale: ug-cn
+---
+پروفېسسور
+دوكتور
+ئاكادېمىك
+ئىنژېنېر
+دوختۇر
+مۇدىر
+باشلىق
+رەئىس
+مۇھەررىر
+كاتىپ
+ھۆرمەتلىك
+قەدىرلىك

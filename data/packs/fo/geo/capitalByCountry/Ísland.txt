@@ -1,0 +1,5 @@
+---
+description: Capital of Ísland as Faroese names it
+locale: fo
+---
+Reykjavík

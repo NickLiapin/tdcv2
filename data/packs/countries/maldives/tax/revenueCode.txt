@@ -1,0 +1,15 @@
+---
+address: maldives.tax.revenueCode
+description: The three-letter revenue codes that sit in the middle of a Maldivian taxpayer identification number, one per tax the Maldives Inland Revenue Authority (MIRA) administers. GST is goods and services tax, GRT green tax (a per-guest, per-night levy on tourists that has no equivalent in most tax systems), ATF the airport tax and fee, RMT the remittance tax (charged on money sent abroad by foreign workers, a tax that exists because roughly a quarter of the workforce is foreign), BPT the old business profit tax that income tax replaced in 2020, and the rest are the branches of income tax: PIT for individuals, CIT for entities, BIT for banks, IIT for insurance providers, EWT for employee withholding and NWT for non-resident withholding. The list is the shape of the Maldivian state's revenue: an island economy with no personal income tax below MVR 720,000 a year, no capital gains tax, no property tax and no inheritance tax, funded instead by taxing tourists at the door, at the bed and at the till. Source: the OECD CRS jurisdiction sheet for the Maldives, "Information on Tax Identification Numbers", section I, which lists these codes with a worked example for each.
+---
+GST
+GRT
+ATF
+RMT
+BPT
+PIT
+CIT
+BIT
+IIT
+EWT
+NWT

@@ -1,0 +1,5 @@
+---
+description: Capital of Bretland as Faroese names it
+locale: fo
+---
+London

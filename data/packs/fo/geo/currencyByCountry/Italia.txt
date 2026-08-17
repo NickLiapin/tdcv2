@@ -1,0 +1,5 @@
+---
+description: Currency of Italia as Faroese names it
+locale: fo
+---
+evra

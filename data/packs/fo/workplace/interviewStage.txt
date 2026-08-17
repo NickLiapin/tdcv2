@@ -1,0 +1,15 @@
+---
+description: Stage in a hiring process, in Faroese.
+locale: fo
+---
+Umsókn móttikin
+Umsóknarkanning
+Telefonsamrøða
+Fyrsta samrøða
+Onnur samrøða
+Tøknisamrøða
+Royndarverkevni
+Tilvísingar kannaðar
+Tilboð givið
+Tilboð tikið
+Frásagt
