@@ -1,0 +1,24 @@
+---
+description: Trip type (Welsh).
+locale: cy
+---
+Gwyliau
+Busnes
+Penwythnos i ffwrdd
+Taith undydd
+Mis mêl
+Teithio'r byd
+Taith gerdded
+Gwersylla
+Carafanio
+Glampio
+Taith feicio
+Taith fynydda
+Taith ddiwylliannol
+Pererindod
+Ymweld â theulu
+Cynhadledd
+Taith ysgol
+Taith goffa
+Gwyliau sgïo
+Mordaith

@@ -1,0 +1,5 @@
+---
+description: Currency of Twrci, named in Welsh.
+locale: cy
+---
+Lira Twrci

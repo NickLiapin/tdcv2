@@ -1,0 +1,16 @@
+---
+description: Diagnoses seen in Cardioleg (Welsh).
+locale: cy
+---
+Pwysedd gwaed uchel
+Clefyd rhydwelïau coronaidd
+Trawiad ar y galon
+Angina
+Methiant y galon
+Ffibriliad atrïaidd
+Arhythmia
+Clefyd falfiau'r galon
+Cardiomyopathi
+Endocarditis
+Pericarditis
+Clefyd rhydwelïau ymylol

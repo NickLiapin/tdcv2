@@ -1,0 +1,5 @@
+---
+description: Currency of Y Swistir, named in Welsh.
+locale: cy
+---
+Ffranc y Swistir

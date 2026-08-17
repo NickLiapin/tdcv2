@@ -1,0 +1,46 @@
+---
+description: Animal, general (Welsh). Three compounds name an animal by where it lives rather than what it is: DYFRGI the otter is dŵr + ci, "water dog"; MOCHYN DAEAR the badger is "earth pig"; TWRCH DAEAR the mole is "earth boar". LLWYNOG and CADNO are both the fox and both standard — the first is the northern word, the second the southern, and a Welsh dataset that uses only one has quietly picked a region.
+locale: cy
+---
+Ci
+Cath
+Ceffyl
+Buwch
+Dafad
+Gafr
+Mochyn
+Iâr
+Ceiliog
+Hwyaden
+Llwynog
+Cadno
+Blaidd
+Arth
+Llew
+Teigr
+Eliffant
+Jiráff
+Sebra
+Mwnci
+Cangarŵ
+Panda
+Coala
+Carw
+Cwningen
+Ysgyfarnog
+Llygoden
+Llygoden fawr
+Gwiwer
+Draenog
+Mochyn daear
+Twrch daear
+Dyfrgi
+Carlwm
+Gwenci
+Ystlum
+Dolffin
+Morfil
+Morlo
+Bual
+Elc
+Racŵn

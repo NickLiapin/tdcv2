@@ -1,0 +1,11 @@
+---
+description: Weekday name (Welsh), Monday first as a Welsh speaker lists them. The word DYDD is part of the name in ordinary use — "dydd Llun", not bare "Llun" — and swapping it for NOS shifts the whole phrase to that evening: nos Sadwrn is Saturday night. Five of the seven are Roman planet-gods (Mawrth/Mars, Mercher/Mercury, Iau/Jupiter, Gwener/Venus, Sadwrn/Saturn), which is why dydd Mawrth and the month Mawrth are the same word.
+locale: cy
+---
+dydd Llun
+dydd Mawrth
+dydd Mercher
+dydd Iau
+dydd Gwener
+dydd Sadwrn
+dydd Sul

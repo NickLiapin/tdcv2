@@ -1,0 +1,13 @@
+---
+description: Personal pronoun (Welsh). Two things no English-shaped config will guess. FIRST, Welsh keeps the T-V distinction English lost: TI is singular and familiar, CHI is plural AND the polite singular, so choosing between them encodes a social relationship. SECOND, Welsh has NO neuter pronoun — there is no "it". Every noun is grammatically masculine or feminine and takes ef/fe/fo or hi accordingly, so a table is "she" and a book is "he". FE is the southern form and FO the northern one for the same word.
+locale: cy
+---
+fi
+ti
+ef
+fe
+fo
+hi
+ni
+chi
+nhw

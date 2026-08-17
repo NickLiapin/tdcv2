@@ -1,0 +1,34 @@
+---
+description: Book genre (Welsh). FFUGLEN WYDDONOL, science fiction, is the mutation in miniature: ffuglen is feminine, so gwyddonol loses its g and becomes wyddonol. CYNGHANEDD has no English word at all — it is the system of consonant-and-stress chiming that strict-metre Welsh poetry has used unbroken since the fourteenth century, and books of it are shelved as their own thing.
+locale: cy
+---
+Ffuglen
+Ffeithiol
+Nofel
+Stori fer
+Barddoniaeth
+Cynghanedd
+Drama
+Hunangofiant
+Cofiant
+Hanes
+Athroniaeth
+Diwinyddiaeth
+Gwyddoniaeth
+Ffuglen wyddonol
+Ffantasi
+Dirgelwch
+Ias a chyffro
+Rhamant
+Arswyd
+Antur
+Llyfr taith
+Llenyddiaeth plant
+Llyfr coginio
+Hunangymorth
+Llyfr lluniau
+Chwedlau gwerin
+Beirniadaeth lenyddol
+Geiriadur
+Gwyddoniadur
+Llyfr emynau

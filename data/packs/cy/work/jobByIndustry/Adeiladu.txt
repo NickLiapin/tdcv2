@@ -1,0 +1,14 @@
+---
+description: Jobs in Adeiladu (Welsh).
+locale: cy
+---
+Trydanwr
+Plymwr
+Saer coed
+Fforman adeiladu
+Gweithredwr peiriannau trwm
+Tirfesurydd
+Saer maen
+Töwr
+Plastrwr
+Chwarelwr

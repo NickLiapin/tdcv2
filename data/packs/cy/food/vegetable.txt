@@ -1,0 +1,36 @@
+---
+description: Vegetable (Welsh). CENHINEN, the leek, is not an ordinary entry: it is a national emblem of Wales, worn on Saint David's Day and on the shirt of the national rugby side. The onion shows the north-south split that runs through Welsh vocabulary — NIONYN in the north, WINWNSYN in the south, both standard, and a dataset using only one has silently chosen a region.
+locale: cy
+---
+Cenhinen
+Taten
+Moronen
+Nionyn
+Winwnsyn
+Garlleg
+Bresychen
+Blodfresych
+Brocoli
+Ysgewyll
+Pys
+Ffa
+Ffa dringo
+Corbwmpen
+Pwmpen
+Ciwcymbr
+Tomato
+Letysen
+Sbigoglys
+Betys
+Maip
+Rwden
+Erfin
+Pannas
+Seleri
+Madarch
+Pupur
+Corn melys
+Radish
+Cêl
+Artisiog
+Asbaragws

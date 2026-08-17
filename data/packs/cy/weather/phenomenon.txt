@@ -1,0 +1,24 @@
+---
+description: Weather phenomenon (Welsh).
+locale: cy
+---
+Mellt
+Taranau
+Storm fellt a tharanau
+Enfys
+Corwynt
+Trowynt
+Llifogydd
+Sychder
+Ton wres
+Rhew caled
+Lluwchfeydd eira
+Niwl y môr
+Gwlith
+Gwynt traed y meirw
+Ymchwydd storm
+Tirlithriad
+Cwmwl
+Machlud
+Gwawr
+Aurora

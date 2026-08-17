@@ -1,0 +1,14 @@
+---
+description: Loan type (Welsh).
+locale: cy
+---
+Benthyciad personol
+Morgais
+Benthyciad car
+Benthyciad myfyriwr
+Benthyciad busnes
+Gorddrafft
+Cerdyn credyd
+Benthyciad gwarantedig
+Benthyciad diwarant
+Prydles

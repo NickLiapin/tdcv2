@@ -1,0 +1,5 @@
+---
+description: Currency of Seland Newydd, named in Welsh.
+locale: cy
+---
+Doler Seland Newydd

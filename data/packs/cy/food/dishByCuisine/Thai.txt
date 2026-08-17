@@ -1,0 +1,12 @@
+---
+description: Dishes of Thai cuisine, named in Welsh where Welsh has its own name and left in the original where the dish travelled under its own name.
+locale: cy
+---
+Pad thai
+Cyri gwyrdd
+Cyri coch
+Tom yum
+Som tam
+Massaman
+Reis gludiog a mango
+Satay

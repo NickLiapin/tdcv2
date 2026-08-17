@@ -1,0 +1,26 @@
+---
+description: Weather condition (Welsh). Wales is one of the wettest countries in Europe and the vocabulary shows it: GLAW is rain, GLAW MÂN drizzle, PISTYLLIO the rain coming down like a spout, and the ordinary idiom for a downpour is BWRW HEN WRAGEDD A FFYN — "throwing down old women and sticks". HINDDA is settled fair weather and has no one-word English equivalent.
+locale: cy
+---
+Heulog
+Cymylog
+Gorchudd rhannol
+Glaw
+Glaw mân
+Cawodydd
+Pistyllio
+Bwrw hen wragedd a ffyn
+Niwl
+Tarth
+Eira
+Cesair
+Rhew
+Llwydrew
+Barrug
+Gwyntog
+Stormus
+Tawel
+Hindda
+Clòs
+Mwll
+Tes

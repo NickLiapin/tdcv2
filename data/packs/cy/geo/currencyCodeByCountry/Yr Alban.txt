@@ -1,0 +1,5 @@
+---
+description: Currency code of Yr Alban.
+locale: cy
+---
+GBP

@@ -1,0 +1,5 @@
+---
+description: Currency code of Pacistan.
+locale: cy
+---
+PKR

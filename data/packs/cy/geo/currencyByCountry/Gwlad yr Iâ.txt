@@ -1,0 +1,5 @@
+---
+description: Currency of Gwlad yr Iâ, named in Welsh.
+locale: cy
+---
+Coron Gwlad yr Iâ

@@ -1,0 +1,192 @@
+---
+description: Country names as Welsh writes them. Where Welsh has its own long-established name it is used and not transcribed — YR ALMAEN for Germany, FFRAINC for France, YR EIDAL for Italy, GWLAD PWYL for Poland, GWLAD YR IÂ for Iceland, YR ISELDIROEDD for the Netherlands, LIBANUS for Lebanon, IWERDDON for Ireland. Where Welsh has no separate name of its own, the international form is used unchanged rather than a Welsh spelling being invented for it: that is a decision, and it is why this list mixes the two. Note how many Welsh country names carry the definite article as part of the name (Yr Aifft, Yr Ariannin, Y Swistir, Y Ffindir) — Welsh has NO indefinite article at all, so the definite article is more visible here than an English reader expects.
+locale: cy
+---
+Cymru
+Lloegr
+Yr Alban
+Gogledd Iwerddon
+Y Deyrnas Unedig
+Iwerddon
+Ffrainc
+Yr Almaen
+Yr Eidal
+Sbaen
+Portiwgal
+Gwlad Belg
+Yr Iseldiroedd
+Lwcsembwrg
+Y Swistir
+Awstria
+Denmarc
+Norwy
+Sweden
+Y Ffindir
+Gwlad yr Iâ
+Gwlad Pwyl
+Tsiecia
+Slofacia
+Hwngari
+Rwmania
+Bwlgaria
+Gwlad Groeg
+Croatia
+Slofenia
+Serbia
+Bosnia a Hercegofina
+Montenegro
+Gogledd Macedonia
+Albania
+Wcráin
+Belarws
+Lithwania
+Latfia
+Estonia
+Moldofa
+Rwsia
+Twrci
+Cyprus
+Malta
+Andorra
+Monaco
+San Marino
+Liechtenstein
+Y Fatican
+Ynys Manaw
+Ynysoedd Ffaröe
+Llydaw
+Cernyw
+Yr Aifft
+Libya
+Tunisia
+Algeria
+Moroco
+Swdan
+De Swdan
+Ethiopia
+Eritrea
+Somalia
+Kenya
+Wganda
+Tanzania
+Rwanda
+Burundi
+Gweriniaeth y Congo
+Gweriniaeth Ddemocrataidd y Congo
+Angola
+Zambia
+Zimbabwe
+Botswana
+Namibia
+De Affrica
+Lesotho
+Eswatini
+Mosambic
+Madagascar
+Malawi
+Nigeria
+Ghana
+Senegal
+Mali
+Niger
+Tsiad
+Camerŵn
+Gini
+Gini-Bissau
+Sierra Leone
+Liberia
+Y Traeth Ifori
+Togo
+Benin
+Burkina Faso
+Gambia
+Mauritania
+Gabon
+Y Weriniaeth Canolbarth Affrica
+Tsieina
+Japan
+De Korea
+Gogledd Korea
+Mongolia
+Taiwan
+India
+Pacistan
+Bangladesh
+Sri Lanca
+Nepal
+Bhutan
+Maldives
+Affganistan
+Iran
+Irac
+Syria
+Libanus
+Israel
+Palesteina
+Iorddonen
+Saudi Arabia
+Yemen
+Oman
+Yr Emiradau Arabaidd Unedig
+Qatar
+Bahrain
+Kuwait
+Twrcmenistan
+Wsbecistan
+Casachstan
+Cirgistan
+Tajicistan
+Azerbaijan
+Armenia
+Georgia
+Fietnam
+Gwlad Thai
+Cambodia
+Laos
+Myanmar
+Malaysia
+Singapore
+Indonesia
+Y Philipinau
+Brwnei
+Timor-Leste
+Yr Unol Daleithiau
+Canada
+Mecsico
+Guatemala
+Belîs
+Honduras
+El Salfador
+Nicaragua
+Costa Rica
+Panama
+Ciwba
+Jamaica
+Haiti
+Y Weriniaeth Ddominicaidd
+Puerto Rico
+Y Bahamas
+Barbados
+Trinidad a Thobago
+Colombia
+Feneswela
+Ecwador
+Periw
+Bolifia
+Brasil
+Paraguay
+Wrwgwái
+Yr Ariannin
+Chile
+Guyana
+Surinam
+Awstralia
+Seland Newydd
+Papua Gini Newydd
+Ffiji
+Samoa
+Tonga
+Vanuatu
+Ynysoedd Solomon
+Kiribati
+Palau

@@ -1,0 +1,5 @@
+---
+description: Currency code of Awstria.
+locale: cy
+---
+EUR

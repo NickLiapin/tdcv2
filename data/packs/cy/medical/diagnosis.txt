@@ -1,0 +1,93 @@
+---
+description: Medical diagnosis (Welsh), as NHS Wales writes them bilingually. Two entries are here because of Welsh industrial history rather than to fill the list: NIWMOCONIOSIS, coalworkers' pneumoconiosis, has an ordinary Welsh name — CLEFYD Y LLWCH, "the disease of the dust" — because it was the commonest occupational killer in the south Wales coalfield for a century, and silicosis did the same in the slate quarries of the north.
+locale: cy
+---
+Diabetes math 1
+Diabetes math 2
+Cyn-ddiabetes
+Pwysedd gwaed uchel
+Colesterol uchel
+Clefyd y galon
+Trawiad ar y galon
+Methiant y galon
+Ffibriliad atrïaidd
+Angina
+Strôc
+Pwl isgemig dros dro
+Clefyd rhydwelïau ymylol
+Thrombosis gwythiennau dwfn
+Emboledd ysgyfeiniol
+Asthma
+COPD
+Broncitis
+Niwmonia
+Ffibrosis systig
+Twbercwlosis
+Niwmoconiosis
+Clefyd y llwch
+Silicosis
+Apnoea cwsg
+Ffliw
+COVID-19
+Canser yr ysgyfaint
+Canser y fron
+Canser y coluddyn
+Canser y prostad
+Canser y croen
+Melanoma
+Lewcemia
+Lymffoma
+Anemia
+Anemia diffyg haearn
+Arthritis
+Osteoarthritis
+Arthritis gwynegol
+Osteoporosis
+Gowt
+Ffibromyalgia
+Poen cefn cronig
+Disg llithredig
+Clefyd Alzheimer
+Dementia
+Clefyd Parkinson
+Epilepsi
+Meigryn
+Sglerosis ymledol
+Clefyd niwronau motor
+Niwropathi
+Iselder
+Gorbryder
+Anhwylder deubegwn
+Sgitsoffrenia
+Anhwylder straen wedi trawma
+ADHD
+Awtistiaeth
+Dyslecsia
+Clefyd coeliag
+Clefyd Crohn
+Colitis briwiol
+Syndrom coluddyn llidus
+Wlser stumog
+Adlif asid
+Clefyd yr afu brasterog
+Hepatitis
+Sirosis
+Cerrig bustl
+Pancreatitis
+Clefyd yr arennau cronig
+Cerrig yr arennau
+Haint y llwybr wrinol
+Gorthyroidedd
+Isthyroidedd
+Soriasis
+Ecsema
+Wrticaria
+Clefyd Lyme
+Cataract
+Glawcoma
+Dirywiad macwlaidd
+Colli clyw
+Tinitws
+Clefyd Ménière
+Gordewdra
+Diffyg fitamin D

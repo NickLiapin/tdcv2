@@ -1,0 +1,14 @@
+---
+description: Payment status (Welsh).
+locale: cy
+---
+Yn aros
+Wedi'i awdurdodi
+Wedi talu
+Wedi methu
+Wedi'i ad-dalu
+Wedi'i ad-dalu'n rhannol
+Ôl-godiad
+Wedi'i ddirymu
+Wedi'i wrthod
+Yn aros am gadarnhad

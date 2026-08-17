@@ -1,0 +1,11 @@
+---
+description: Haulage route type (Welsh).
+locale: cy
+---
+Pellter hir
+Rhanbarthol
+Lleol
+Penodedig
+Tîm
+Milltir olaf
+Traws-sianel

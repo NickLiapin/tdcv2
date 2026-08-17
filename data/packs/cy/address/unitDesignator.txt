@@ -1,0 +1,27 @@
+---
+description: Welsh address unit / interior designator. Two entries carry a mutation a config cannot compute: AIL LAWR ("second floor") is llawr soft-mutated after the ordinal ail, while TRYDYDD LLAWR keeps the radical llawr — the same noun, two forms, decided by which ordinal precedes it. Welsh ordinals from "third" up do not soft-mutate a masculine noun; ail always does.
+locale: cy
+---
+Fflat
+Uned
+Ystafell
+Llawr
+Llawr gwaelod
+Llawr cyntaf
+Ail lawr
+Trydydd llawr
+Islawr
+Atig
+Adeilad
+Adain
+Bloc
+Drws
+Rhif
+Swyddfa
+Adran
+Cyntedd
+Modurdy
+Sied
+Lolfa
+Safle
+Cwt

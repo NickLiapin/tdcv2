@@ -1,0 +1,54 @@
+---
+description: Airline name. Carrier names are brands and keep their registered spelling in Welsh text, exactly as Wi-Fi and Xbox do.
+locale: cy
+---
+British Airways
+easyJet
+Ryanair
+Jet2
+TUI Airways
+Aer Lingus
+Loganair
+Wizz Air
+Vueling
+Eurowings
+Lufthansa
+Air France
+KLM
+Iberia
+Swiss
+Austrian Airlines
+Brussels Airlines
+SAS
+Norwegian
+Finnair
+LOT
+Czech Airlines
+TAP Air Portugal
+ITA Airways
+Aegean Airlines
+Turkish Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+Singapore Airlines
+Cathay Pacific
+Qantas
+Air New Zealand
+ANA
+Japan Airlines
+Korean Air
+China Airlines
+Air India
+Air Canada
+Delta Air Lines
+United Airlines
+American Airlines
+Southwest Airlines
+JetBlue Airways
+Alaska Airlines
+Aeroméxico
+LATAM
+Ethiopian Airlines
+Kenya Airways
+South African Airways

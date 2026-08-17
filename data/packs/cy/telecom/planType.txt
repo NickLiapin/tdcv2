@@ -1,0 +1,16 @@
+---
+description: Telecom plan type (Welsh).
+locale: cy
+---
+Talu wrth fynd
+Contract misol
+Contract 12 mis
+Contract 24 mis
+SIM yn unig
+Data diderfyn
+Cynllun teulu
+Cynllun busnes
+Band eang
+Ffibr
+Ffibr llawn
+Band eang symudol

@@ -1,0 +1,12 @@
+---
+description: Jobs in Technoleg (Welsh).
+locale: cy
+---
+Peiriannydd meddalwedd
+Gwyddonydd data
+Peiriannydd DevOps
+Rheolwr cynnyrch
+Dylunydd profiad defnyddiwr
+Peiriannydd sicrhau ansawdd
+Dadansoddwr systemau
+Gweinyddwr rhwydwaith

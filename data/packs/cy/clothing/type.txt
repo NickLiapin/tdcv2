@@ -1,0 +1,38 @@
+---
+description: Garment type (Welsh). CRYS CHWYS, a sweatshirt, is literally "sweat shirt"; a GŴN NOS is a nightgown and shows the circumflex that marks a long vowel.
+locale: cy
+---
+Crys
+Crys-T
+Crys chwys
+Blows
+Siwmper
+Cardigan
+Siaced
+Cot
+Cot law
+Trowsus
+Jîns
+Siorts
+Sgert
+Ffrog
+Siwt
+Gwasgod
+Tei
+Sgarff
+Menig
+Het
+Cap
+Sanau
+Esgidiau
+Bwtsias
+Sliperi
+Gwisg nofio
+Pyjamas
+Gŵn nos
+Ffedog
+Clogyn
+Fest
+Dillad isaf
+Gwregys
+Gwisg ysgol

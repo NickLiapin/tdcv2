@@ -1,0 +1,28 @@
+---
+address: taiwan.geo.city
+description: 中華民國臺灣地區的二十二個縣市，依內政部戶政司「戶口統計速報」民國115年6月底的實際人口加權。THIRTEEN OF THESE TWENTY-TWO ARE NOT CITIES AND THAT IS THE FIRST THING TO KNOW: the top line of a Taiwanese address is the 縣市, and the 縣市 set mixes six 直轄市 (special municipalities), three 市 (provincial cities) and thirteen 縣 (counties) into one column, so "city" here means "the first-level division an address starts with" and not "an urban place". 新北市 alone holds 4.04 million of 23.24 million, and 連江縣 holds 13,643 — a ratio of 296 to 1 — so an unweighted draw over these names puts one row in twenty-two on Matsu, an archipelago with less than 0.06 per cent of the population, and every per-city aggregate computed from it is wrong at both ends. Three of the names collide with second-level names and are NOT unique keys across the whole address: 新竹市 and 新竹縣 are separate first-level divisions that surround each other, 嘉義市 sits as an enclave inside 嘉義縣, and both pairs split in the 1982 upgrades — a dataset that stores "新竹" without the 市/縣 suffix has lost the distinction between 455,755 people and 598,260 different ones. THE CHARACTER 臺 IS THE OFFICIAL ONE AND 台 IS THE EVERYDAY ONE: the Ministry of the Interior settled on 臺北市, 臺中市, 臺南市, 臺東縣 in 2010 for all official use, so government records, ID cards and company registrations write 臺, while shop signs, newspapers, most private companies and about half of all web forms write 台北市 — the two are the same place and will not join on the string, which is the single most common cause of a broken join in Taiwanese data. This file uses the official 臺 throughout. 金門縣 and 連江縣 are not in 臺灣省 at all: they are the remnant of 福建省, 200 km away across the strait and a few kilometres off the Chinese coast, they were under military administration until 1992, and a model that treats "Taiwan" as one island silently excludes them. 桃園市 was a 縣 until 2014 and 臺中縣, 臺南縣 and 高雄縣 were abolished into their cities in 2010, so any Taiwanese dataset older than about 2015 carries first-level names that no longer exist.
+locale: zh-tw
+weighted: true
+---
+新北市,4038031
+臺中市,2867468
+高雄市,2709973
+臺北市,2425964
+桃園市,2356618
+臺南市,1848108
+彰化縣,1203726
+屏東縣,779096
+雲林縣,647648
+新竹縣,598260
+苗栗縣,529791
+嘉義縣,470404
+南投縣,467082
+新竹市,455755
+宜蘭縣,448513
+基隆市,358574
+花蓮縣,311290
+嘉義市,261497
+臺東縣,207858
+金門縣,137716
+澎湖縣,106550
+連江縣,13643

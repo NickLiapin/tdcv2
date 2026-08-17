@@ -1,0 +1,46 @@
+---
+address: taiwan.docs.nationalId
+description: 中華民國國民身分證統一編號（身分證字號）— one capital letter and nine digits, carrying the real published check digit. THE ALGORITHM, from the table in the 內政部 rules on 國民身分證統一編號配賦: the letter converts to a TWO-DIGIT number by a fixed table (A=10 B=11 C=12 D=13 E=14 F=15 G=16 H=17 I=34 J=18 K=19 L=20 M=21 N=22 O=35 P=23 Q=24 R=25 S=26 T=27 U=28 V=29 W=32 X=30 Y=31 Z=33), and then N = a1x1 + a2x9 + n1x8 + n2x7 + n3x6 + n4x5 + n5x4 + n6x3 + n7x2 + n8x1 + n9x1, valid when N mod 10 = 0. Note the letter contributes TWO weighted terms, not one, and that the last two digits both take weight 1 — a validator that treats the letter as a single value or runs the weights 9..1 straight down will accept about a tenth of all wrong numbers. THE TABLE IS NOT ALPHABETICAL AND THAT IS THE TRAP: I and O jump to 34 and 35 and W jumps to 32, because those letters were assigned out of order in 1982 and 1965 respectively, so any implementation that computes the letter value as (letter - 'A' + 10) is wrong for I, O, W, X, Y and Z and right for everything else. THE SECOND CHARACTER IS SEX AND NATIONALITY IN ONE DIGIT: 1 male citizen, 2 female citizen, and — since 2021-01-02, when the 移民署 replaced the old two-letter 統一證號 for foreign residents with a number in exactly this format — 8 male foreign resident and 9 female foreign resident. This address emits citizens only, 1 and 2; the foreign-resident series is at taiwan.docs.uiNumber, which shares this arithmetic exactly. THE THIRD CHARACTER carries meaning too, since 2003-07-01: 0 to 5 mean a citizen born in Taiwan, 6 a naturalised former foreign national, 7 a former 無戶籍國民, 8 a former Hong Kong or Macau resident, 9 a former resident of mainland China. Numbers issued before that date have a plain serial digit there, so a 7 in position three is only sometimes a statement about the holder. Digits four to nine are a serial and encode nothing — NO BIRTH DATE, unlike the Korean, Polish or South African equivalents — so a Taiwanese ID number leaks sex, nationality class and the county of first registration and nothing else. It is nevertheless the master key to almost every Taiwanese record system and is printed on the health insurance card, the driving licence and the tax return, so it should be treated as sensitive test data. Well-formed is not the same as issued: this file computes the check digit, it does not consult 戶政司.
+generator: tdc
+---
+<sequence name="area"><gen type="template" value="taiwan.docs.idAreaLetter"/></sequence>
+<!-- 1 male citizen, 2 female citizen. 8 and 9 are the foreign-resident series and
+     live in taiwan.docs.uiNumber. Taiwan's registered population is 50.3% female. -->
+<sequence name="sex"><gen type="text" value="1,2" percent="49,51"/></sequence>
+<!-- Third character: 0-5 born in Taiwan, 6-9 the naturalisation classes, which are
+     a small share of the population. -->
+<sequence name="status"><gen type="text" value="0,1,2,3,4,5,6,7,8,9" percent="16,16,16,16,16,16,1,1,1,1"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{6}"/></sequence>
+<sequence name="id"><compute>
+  <!-- base36 turns A..Z into 10..35, so subtracting 10 gives the table index. -->
+  <let name="idx"><subtract>
+    <to_number><encode as="base36"><field name="area"/></encode></to_number>
+    <int v="10"/>
+  </subtract></let>
+  <!-- The published conversion table. It is NOT alphabetical: I=34, O=35, W=32. -->
+  <let name="code"><at>
+    <in><list v="10,11,12,13,14,15,16,17,34,18,19,20,21,22,35,23,24,25,26,27,28,29,32,30,31,33"/></in>
+    <index><use name="idx"/></index>
+  </at></let>
+  <let name="a1"><divide><use name="code"/><int v="10"/></divide></let>
+  <let name="a2"><mod><use name="code"/><int v="10"/></mod></let>
+  <!-- The letter contributes two terms: a1 with weight 1 and a2 with weight 9. -->
+  <let name="letterPart"><add>
+    <use name="a1"/>
+    <multiply><use name="a2"/><int v="9"/></multiply>
+  </add></let>
+  <let name="base"><concat><field name="sex"/><field name="status"/><field name="serial"/></concat></let>
+  <!-- The eight digits before the check take weights 8,7,6,5,4,3,2,1. -->
+  <let name="sum"><reduce>
+    <over><use name="base"/></over>
+    <init><use name="letterPart"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="8,7,6,5,4,3,2,1"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <!-- The check digit itself carries weight 1, so it is simply what makes the
+       total a multiple of ten. -->
+  <let name="check"><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><field name="area"/><use name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{id}}</data>

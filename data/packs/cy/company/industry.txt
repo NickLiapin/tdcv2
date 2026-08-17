@@ -1,0 +1,59 @@
+---
+description: Industry sector (Welsh).
+locale: cy
+---
+Technoleg gwybodaeth
+Meddalwedd
+Telathrebu
+Gweithgynhyrchu
+Peirianneg
+Adeiladu
+Pensaernïaeth
+Ynni
+Ynni adnewyddadwy
+Olew a nwy
+Mwyngloddio
+Chwareli llechi
+Amaethyddiaeth
+Ffermio defaid
+Ffermio llaeth
+Coedwigaeth
+Pysgota
+Bwyd a diod
+Bragu
+Manwerthu
+Cyfanwerthu
+Logisteg
+Cludiant
+Awyrofod
+Modurol
+Rheilffyrdd
+Morwrol
+Cyllid
+Bancio
+Yswiriant
+Eiddo tiriog
+Cyfreithiol
+Cyfrifeg
+Ymgynghori
+Hysbysebu
+Cyfryngau
+Cyhoeddi
+Darlledu
+Ffilm a theledu
+Cerddoriaeth
+Y celfyddydau
+Twristiaeth
+Lletygarwch
+Bwytai
+Chwaraeon
+Addysg
+Addysg uwch
+Ymchwil
+Iechyd
+Fferylliaeth
+Gofal cymdeithasol
+Y sector cyhoeddus
+Y trydydd sector
+Amgylchedd
+Diogelwch

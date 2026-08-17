@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the Dwyrain Ewropeaidd ancestry group (Welsh).
+locale: cy
+---
+Clefyd Gaucher
+Ffibrosis systig
+Diffyg alpha-1 antitrypsin
+Clefyd Wilson
+Diabetes math 1
+Clefyd cardiofasgwlaidd cynnar

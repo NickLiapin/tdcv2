@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the De-ddwyrain Asiaidd ancestry group (Welsh).
+locale: cy
+---
+Alpha-thalasaemia
+Clefyd hemoglobin E
+Diffyg G6PD
+Diffyg lactas
+Twbercwlosis
+Canser yr afu

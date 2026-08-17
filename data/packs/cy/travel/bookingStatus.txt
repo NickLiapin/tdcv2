@@ -1,0 +1,15 @@
+---
+description: Booking status (Welsh).
+locale: cy
+---
+Wedi'i gadarnhau
+Yn aros
+Wedi'i ganslo
+Wedi'i gwblhau
+Heb gyrraedd
+Wedi'i ad-dalu
+Ar restr aros
+Wedi'i newid
+Wedi'i or-archebu
+Wedi cofrestru
+Wedi'i ddal yn ôl

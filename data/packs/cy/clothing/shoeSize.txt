@@ -1,0 +1,20 @@
+---
+description: Shoe size on the UK scale, which is what a shoebox in Wales prints. Wales is inside the United Kingdom, so it uses UK numbering and NOT the continental Paris-point scale: a UK 8 is a continental 42. Half sizes are ordinary here, which they are not everywhere.
+locale: cy
+---
+3
+4
+4.5
+5
+5.5
+6
+6.5
+7
+7.5
+8
+8.5
+9
+9.5
+10
+11
+12

@@ -1,0 +1,155 @@
+---
+description: Product noun (Welsh), in the radical singular. Two things a config must know before joining one of these to an adjective: the adjective goes AFTER the noun, and a FEMININE noun soft-mutates it (cadair fach, potel fawr) while a masculine one does not (bwrdd bach, ci mawr). Welsh nouns carry gender and this list does not mark it, so the mutation cannot be derived from the string.
+locale: cy
+---
+cadair
+bwrdd
+desg
+soffa
+gwely
+cwpwrdd
+silff
+drych
+lamp
+cloc
+ffôn
+cyfrifiadur
+gliniadur
+bysellfwrdd
+llygoden
+sgrin
+monitor
+clustffonau
+seinydd
+gwefrydd
+camera
+teledu
+radio
+oergell
+rhewgell
+popty
+microdon
+tegell
+tostiwr
+peiriant golchi
+sugnwr llwch
+gwyntyll
+gwresogydd
+haearn smwddio
+sosban
+padell
+plât
+powlen
+cwpan
+mwg
+gwydr
+potel
+fflasg
+cyllell
+fforc
+llwy
+bwrdd torri
+basged
+bocs
+bag
+sach
+sach gefn
+waled
+pwrs
+oriawr
+sbectol haul
+ambarél
+het
+cap
+sgarff
+menig
+crys
+trowsus
+sgert
+ffrog
+siaced
+cot
+siwmper
+sanau
+esgidiau
+bwtsias
+tywel
+blanced
+gobennydd
+cwilt
+cynfas
+llen
+ryg
+carped
+sebon
+siampŵ
+past dannedd
+brws
+crib
+llyfr
+llyfr nodiadau
+beiro
+pensil
+papur
+amlen
+stamp
+map
+cerdyn
+poster
+llun
+fâs
+cannwyll
+pabell
+sach gysgu
+rhaff
+tortsh
+cwmpawd
+beic
+helmed
+pêl
+raced
+ffon
+rhwyd
+gwialen bysgota
+canŵ
+padl
+car
+teiar
+batri
+olwyn
+allwedd
+clo
+morthwyl
+sgriwdreifer
+ysgol
+rhaw
+cryman
+pladur
+whilber
+pot blodau
+hadau
+gwrtaith
+peiriant torri gwair
+caws
+bara
+menyn
+llaeth
+wyau
+cig moch
+pysgod
+cig oen
+tatws
+moron
+afal
+te
+coffi
+siwgr
+halen
+mêl
+jam
+cacen
+bisged
+siocled
+cwrw
+gwin
+dŵr

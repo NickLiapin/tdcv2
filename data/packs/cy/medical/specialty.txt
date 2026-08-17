@@ -1,0 +1,40 @@
+---
+description: Medical specialty (Welsh).
+locale: cy
+---
+Cardioleg
+Dermatoleg
+Endocrinoleg
+Gastroenteroleg
+Niwroleg
+Oncoleg
+Offthalmoleg
+Ortopedeg
+Pediatreg
+Seiciatreg
+Pwlmonoleg
+Radioleg
+Rhewmatoleg
+Wroleg
+Neffroleg
+Hematoleg
+Imiwnoleg
+Anesthesioleg
+Meddygaeth Frys
+Meddygaeth Deulu
+Meddygaeth Fewnol
+Obstetreg a Gynaecoleg
+Otolaryngoleg
+Patholeg
+Llawfeddygaeth Blastig
+Llawfeddygaeth Gyffredinol
+Llawfeddygaeth Fasgwlaidd
+Niwrolawfeddygaeth
+Clefydau Heintus
+Geriatreg
+Newyddenedigol
+Meddygaeth Adsefydlu
+Meddygaeth Liniarol
+Geneteg Glinigol
+Microbioleg
+Iechyd Cyhoeddus

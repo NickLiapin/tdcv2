@@ -1,0 +1,60 @@
+---
+description: Product material (Welsh). LLECHEN, slate, is not a decorative addition to this list: Welsh slate roofed much of the nineteenth-century world and the quarries of Gwynedd are a World Heritage Site, so slate is an ordinary Welsh product material in a way it is not elsewhere. GWLÂN carries the circumflex marking its long a.
+locale: cy
+---
+dur
+dur di-staen
+haearn
+alwminiwm
+copr
+pres
+efydd
+metel
+pren
+derw
+ffawydd
+pinwydd
+cnau Ffrengig
+bambŵ
+gwiail
+corc
+plastig
+silicon
+rwber
+gwydr
+ceramig
+porslen
+crochenwaith
+concrit
+carreg
+llechen
+marmor
+gwenithfaen
+lledr
+swêd
+cotwm
+lliain
+gwlân
+gwlân cnu
+sidan
+melfed
+ffelt
+neilon
+polyester
+ffibr carbon
+papur
+cardfwrdd
+cwyr
+clai
+gwellt
+brethyn
+cynfas
+rhwyd
+ffwr ffug
+gwlân Cymreig
+brethyn cartref
+resin
+acrylig
+titaniwm
+sinc
+plwm

@@ -1,0 +1,21 @@
+---
+description: Social media platform. Brand names keep their registered spelling.
+locale: cy
+---
+Facebook
+Instagram
+X
+TikTok
+LinkedIn
+Reddit
+YouTube
+Snapchat
+Pinterest
+Threads
+Mastodon
+Bluesky
+Discord
+Tumblr
+WhatsApp
+Telegram
+Signal

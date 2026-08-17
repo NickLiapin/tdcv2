@@ -1,0 +1,20 @@
+---
+description: Seniority or level label for a role (Welsh).
+locale: cy
+---
+Intern
+Hyfforddai
+Prentis
+Iau
+Cyswllt
+Canolradd
+Uwch
+Arweinydd
+Staff
+Prif
+Rheolwr
+Uwch Reolwr
+Cyfarwyddwr
+Is-lywydd
+Pennaeth
+Prif Swyddog

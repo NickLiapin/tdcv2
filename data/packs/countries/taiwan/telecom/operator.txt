@@ -1,0 +1,10 @@
+---
+address: taiwan.telecom.operator
+description: 臺灣的電信業者 — the mobile and fixed network operators licensed by the 國家通訊傳播委員會. TAIWAN HAD FIVE MOBILE OPERATORS IN 2023 AND HAS THREE NOW, which is the single fact that dates any Taiwanese telecoms dataset: 台灣之星 merged into 台灣大哥大 and 亞太電信 into 遠傳電信, both completed in December 2023, leaving 中華電信, 遠傳電信 and 台灣大哥大. Number blocks that used to identify the two absorbed carriers — 0902, 0908, 0973, 0986 for 台灣之星 and 0906, 0907, 0977, 0980, 0982, 0985 for 亞太 — now belong to the survivors, so an operator column derived from a prefix table older than 2024 names two companies that no longer exist. In any case the prefix has not identified the carrier since number portability arrived in 2005; see taiwan.phoneMobilePrefix. 中華電信 is the former state monopoly, privatised in stages from 1996 and still the largest shareholder-controlled telecom in the country with the government holding a substantial stake, and it owns the copper and most of the fibre, so the other operators buy access from it — which is why it appears in fixed-line allocations for every area code while the others appear in only a few blocks each. 台灣固網 and 亞太電信 hold the alternative fixed-network licences from the 2000 liberalisation, and 新世紀資通 (Sparq) is the third; between them they took the 55XX, 66XX and 77XX blocks in the 02 area. THE VOCABULARY IS NOT THE MAINLAND'S AND CONVERTING THE CHARACTERS WILL NOT FIX IT. Taiwan writes 網路 for network and internet, 行動電話 for a mobile phone, 頻寬 for bandwidth, 數位 for digital and 軟體 for software; mainland Chinese uses different words for all five (wǎngluò, yídòng diànhuà, dàikuān, shùzì, ruǎnjiàn), not merely different character forms of the same ones. So a mainland telecoms glossary run through a Simplified-to-Traditional converter comes out in correct Traditional characters and still reads as foreign to a Taiwanese reader, which is the failure mode this whole pack is written against. 中華電信 also runs the 168 and 189 information numbers and, through 中華黃頁, the directory that Taiwanese businesses still list in.
+locale: zh-tw
+---
+中華電信
+遠傳電信
+台灣大哥大
+台灣固網
+新世紀資通

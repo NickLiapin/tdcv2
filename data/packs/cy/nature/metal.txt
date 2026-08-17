@@ -1,0 +1,26 @@
+---
+description: Metal (Welsh). Three of these are Welsh industrial history rather than chemistry: COPR made Swansea the copper-smelting capital of the world in the nineteenth century, PLWM and arian came out of the mid-Wales lead mines, and AUR from Dolgellau — Welsh gold, still used for royal wedding rings, from a seam the Romans were already working at Dolaucothi.
+locale: cy
+---
+Aur
+Arian
+Copr
+Haearn
+Dur
+Alwminiwm
+Plwm
+Tun
+Sinc
+Nicel
+Titaniwm
+Platinwm
+Pres
+Efydd
+Mercwri
+Magnesiwm
+Crôm
+Cobalt
+Wraniwm
+Twngsten
+Lithiwm
+Paladiwm

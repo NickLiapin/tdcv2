@@ -1,0 +1,32 @@
+---
+description: Tech adjective (Welsh). They follow the noun as Welsh adjectives do, and mutate after a feminine one: cronfa DDIGIDOL, not cronfa digidol.
+locale: cy
+---
+digidol
+rhithwir
+cynradd
+eilaidd
+atodol
+pen-blaen
+pen-ôl
+ffynhonnell agored
+traws-blatfform
+diangen
+ar-lein
+all-lein
+haptig
+aml-beit
+diwifr
+niwral
+optegol
+cyflwr-solet
+symudol
+cyflym
+wyth-did
+awtomatig
+wedi'i amgryptio
+dosbarthedig
+cydamserol
+anghydamserol
+graddadwy
+cwmwl

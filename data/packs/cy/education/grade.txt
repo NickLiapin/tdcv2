@@ -1,0 +1,19 @@
+---
+description: Grade (Welsh). Two scales sit here because Wales uses both: A* to U are the school grades on GCSE and A level papers, and DOSBARTH CYNTAF through TRYDYDD DOSBARTH are the honours classes of a degree. The awarding body and the qualification names are United Kingdom data and live in that pack; these are the grade labels.
+locale: cy
+---
+A*
+A
+B
+C
+D
+E
+U
+Dosbarth Cyntaf
+Ail Ddosbarth Uwch
+Ail Ddosbarth Is
+Trydydd Dosbarth
+Pas
+Rhagoriaeth
+Teilyngdod
+Methiant

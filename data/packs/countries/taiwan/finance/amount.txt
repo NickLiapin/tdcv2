@@ -1,0 +1,20 @@
+---
+address: taiwan.finance.amount
+description: A sum of money written the way Taiwan writes it — NT$ then the figure, groups of three separated by a COMMA, and NO DECIMAL PART at all: NT$1,234,567. The first two follow the CLDR zh-Hant-TW currency pattern and are the same characters English uses, so a Taiwanese amount survives an English parser. The third is where a formatter goes wrong: CLDR and ISO 4217 both give TWD two fraction digits and every currency library will therefore print NT$1,234,567.00, but the 角 and 分 those decimals count have not circulated since the 1980s, the smallest coin is the NT$1, and cash totals are rounded to the whole dollar at the till — so the two decimals are always zero and are noise in every Taiwanese row. THERE IS NO SPACE AFTER THE SIGN, unlike the Mongolian or the French convention, and no space anywhere in the string. THE SIGN IS THE PROBLEM, NOT THE DIGITS. Inside Taiwan the currency sign is a bare $ — a Taiwanese menu, price tag, invoice and web checkout write $100 and mean NT$100 — and NT$ is the disambiguated form kept for export and for anywhere a US dollar might be meant. This file uses NT$ because a data set is exactly the place where the ambiguity bites: a column of Taiwanese prices marked $ and joined to a column of American ones is off by a factor of about 32 and nothing in either string says so. The magnitude is drawn across five decades rather than uniformly, because the New Taiwan dollar is a low-denomination currency: a bowl of beef noodles is about NT$150, a monthly rent in Taipei about NT$25,000 and a median monthly salary about NT$45,000, so a uniform draw over a seven-digit range would make almost every value a car. Nothing here is a number the engine can do arithmetic on — it is the PRINTED form. For an amount to compute with, generate a plain number and format at the point of output. A Taiwanese contract, cheque or formal receipt would not use this form at all: it writes the amount in the anti-tampering numerals as 新臺幣壹萬貳仟參佰肆拾伍元整, which is a different string for the same money.
+generator: tdc
+---
+<sequence name="raw"><gen type="number" value="1..9999999"/></sequence>
+<sequence name="shift"><gen type="number" value="0..4"/></sequence>
+<sequence name="amount"><compute>
+  <!-- Spread the magnitude: divide the 7-digit draw by 1, 10, 100, 1000 or 10000. -->
+  <let name="scale"><at>
+    <in><list v="1,10,100,1000,10000"/></in>
+    <index><to_number><field name="shift"/></to_number></index>
+  </at></let>
+  <let name="whole"><divide><to_number><field name="raw"/></to_number><use name="scale"/></divide></let>
+  <!-- CLDR zh-Hant-TW: pattern "¤#,##0.00", group separator a comma, no space after
+       the sign. The decimals are dropped on purpose: the 角 is out of circulation. -->
+  <let name="grouped"><group size="3" sep=","><use name="whole"/></group></let>
+  <result><concat><str v="NT$"/><use name="grouped"/></concat></result>
+</compute></sequence>
+<data>${{amount}}</data>

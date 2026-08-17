@@ -1,0 +1,16 @@
+---
+description: Month name (Welsh), CAPITALISED as Welsh writes them. MAWRTH is both March and Tuesday (dydd Mawrth) — one word from Mars for both — and HYDREF is both October and autumn, so a Welsh month name is not always unambiguously a month. GORFFENNAF is "end of summer" and MEDI is literally "reaping".
+locale: cy
+---
+Ionawr
+Chwefror
+Mawrth
+Ebrill
+Mai
+Mehefin
+Gorffennaf
+Awst
+Medi
+Hydref
+Tachwedd
+Rhagfyr

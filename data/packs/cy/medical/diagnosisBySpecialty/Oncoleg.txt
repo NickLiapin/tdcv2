@@ -1,0 +1,16 @@
+---
+description: Diagnoses seen in Oncoleg (Welsh).
+locale: cy
+---
+Canser yr ysgyfaint
+Canser y fron
+Canser y coluddyn
+Canser y prostad
+Canser y croen
+Melanoma
+Lewcemia
+Lymffoma
+Myeloma
+Canser y stumog
+Canser y pancreas
+Canser yr arennau

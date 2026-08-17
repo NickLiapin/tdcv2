@@ -1,0 +1,19 @@
+---
+description: Dishes of Prydeinig cuisine, named in Welsh where Welsh has its own name and left in the original where the dish travelled under its own name.
+locale: cy
+---
+Pysgod a sglodion
+Rhost dydd Sul
+Pwdin Efrog
+Pastai bugail
+Pastai cig a chwrw
+Selsig a stwnsh
+Brecwast llawn
+Ffa pob ar dost
+Crymbl afal
+Treiffl
+Sgon a hufen
+Cyri tecawê
+Cig eidion wedi'i halltu
+Wy Albanaidd
+Cawl tomato

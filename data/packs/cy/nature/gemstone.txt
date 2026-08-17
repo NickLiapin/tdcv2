@@ -1,0 +1,29 @@
+---
+description: Gemstone (Welsh). MUCHUDD is jet, the black fossil wood polished for mourning jewellery; Welsh has its own word for it. RHUDDEM, ruby, is built from rhudd, "crimson", and gem.
+locale: cy
+---
+Diemwnt
+Rhuddem
+Saffir
+Emrallt
+Amethyst
+Topas
+Opal
+Perl
+Gwrel
+Ambr
+Jâd
+Muchudd
+Twrmalin
+Garned
+Cwarts
+Onycs
+Lapis lazuli
+Turcwois
+Sitrin
+Peridot
+Maen lleuad
+Llygad y teigr
+Aquamarin
+Obsidian
+Malachit

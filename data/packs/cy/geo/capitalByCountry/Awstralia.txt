@@ -1,0 +1,5 @@
+---
+description: Capital of Awstralia, in Welsh.
+locale: cy
+---
+Canberra

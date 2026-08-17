@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Welsh).
+locale: cy
+---
+Haearn
+Efydd
+Arian
+Aur
+Platinwm
+Diemwnt
+Meistr
+Uwch-feistr
+Herwr
+Elît

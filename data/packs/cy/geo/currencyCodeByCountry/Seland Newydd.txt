@@ -1,0 +1,5 @@
+---
+description: Currency code of Seland Newydd.
+locale: cy
+---
+NZD

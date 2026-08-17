@@ -1,0 +1,19 @@
+---
+address: taiwan.geo.countyAdministeredCity
+description: 中華民國現有的十四個縣轄市 — the third kind of "city" in Taiwan, and the one that confuses every foreign schema. A 縣轄市 is a SECOND-level division: it sits under a 縣 exactly where a 鄉 or a 鎮 sits, its mayor is a township-level official, and it has no more legal standing than the 鄉 next door — yet its name ends in 市 just like 臺北市 does. So the string "臺東市" is a second-level unit inside 臺東縣, while "臺北市" is a first-level unit with nothing above it, and no amount of pattern-matching on the 市 suffix will tell them apart. A dataset that types "city" as one thing has three different things in the column. THIS FILE IS DELIBERATELY UNWEIGHTED because the population figures available for all fourteen do not come from one date and mixing them would be worse than not weighting. The sourced end-2024 figures, from the 內政部 series quoted in the 市制 literature, are: 彰化市 223,689 (the largest), 花蓮市 97,950, 南投市 96,989, 宜蘭市 94,941, 苗栗市 86,013, 馬公市 63,702, 朴子市 40,317, 太保市 39,614 (the smallest). Half of them are therefore under the 100,000 threshold that the 地方制度法 now sets for the status — they keep it because the 1999 law grandfathered existing 縣轄市 rather than demoting them, and because between 1977 and 2015 the threshold was 150,000 and a 縣政府所在地 could be upgraded regardless of size. 太保市 and 朴子市 exist for that second reason and for no other: when 嘉義市 was promoted out of 嘉義縣 in 1982 the county government had to move, it moved to the boundary between 太保鄉 and 朴子鎮, and both were upgraded — 太保 because the county hall stands in it and 朴子 by a special dispensation because the county council does. 頭份市 and 員林市 are the newest, upgraded in 2015 when the threshold came back down to 100,000. 竹北市 in 新竹縣 is the densest at 4,689 people per square kilometre, a dormitory for the 新竹科學園區; 臺東市 is the largest by area at 109.7691 km2 and one of the emptiest.
+locale: zh-tw
+---
+宜蘭市
+竹北市
+苗栗市
+頭份市
+彰化市
+員林市
+南投市
+斗六市
+太保市
+朴子市
+屏東市
+臺東市
+花蓮市
+馬公市

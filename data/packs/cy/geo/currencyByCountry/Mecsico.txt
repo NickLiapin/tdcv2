@@ -1,0 +1,5 @@
+---
+description: Currency of Mecsico, named in Welsh.
+locale: cy
+---
+Peso Mecsico

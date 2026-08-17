@@ -1,0 +1,48 @@
+---
+description: Cooking ingredient (Welsh).
+locale: cy
+---
+Blawd
+Blawd ceirch
+Siwgr
+Halen
+Menyn
+Olew
+Olew olewydd
+Wyau
+Llaeth
+Hufen
+Caws
+Iogwrt
+Burum
+Powdr codi
+Soda pobi
+Reis
+Pasta
+Ceirch
+Haidd
+Gwenith
+Bara
+Briwsion bara
+Cig eidion
+Cig oen
+Porc
+Cyw iâr
+Cig moch
+Selsig
+Pysgod
+Tatws
+Nionod
+Garlleg
+Moron
+Tomatos
+Stoc
+Saws soi
+Finegr
+Mêl
+Siocled
+Cnau
+Cnau Ffrengig
+Almon
+Sudd lemon
+Past tomato

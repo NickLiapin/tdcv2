@@ -1,0 +1,15 @@
+---
+description: Shipping status (Welsh).
+locale: cy
+---
+Label wedi'i greu
+Ar y ffordd
+Yn y depo
+Allan i'w ddanfon
+Wedi'i ddanfon
+Wedi'i adael gyda chymydog
+Yn aros i'w gasglu
+Wedi'i ohirio
+Wedi'i ddychwelyd at yr anfonwr
+Methwyd â danfon
+Eithriad

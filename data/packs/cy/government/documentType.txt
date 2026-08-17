@@ -1,0 +1,23 @@
+---
+description: Official document type (Welsh). These are the KINDS of document, in the words Welsh uses for them; the identifiers printed on them — National Insurance numbers, driver numbers, passport numbers — are United Kingdom data and are in that pack. Every one of these can be requested in Welsh from a body operating in Wales, which is a statutory right rather than a courtesy.
+locale: cy
+---
+Pasbort
+Tystysgrif geni
+Tystysgrif priodas
+Tystysgrif marwolaeth
+Tystysgrif fabwysiadu
+Trwydded yrru
+Cerdyn adnabod
+Ffurflen dreth
+Cofrestriad pleidleisiwr
+Caniatâd cynllunio
+Trwydded adeiladu
+Trwydded fusnes
+Fisa
+Tystysgrif yswiriant
+Cofnod meddygol
+Gweithred eiddo
+Ewyllys
+Contract cyflogaeth
+Cytundeb tenantiaeth

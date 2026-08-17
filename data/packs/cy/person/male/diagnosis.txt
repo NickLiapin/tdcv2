@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses drawn for a male row: the male-only conditions plus common ones. General conditions are in medical/diagnosis.
+locale: cy
+---
+Chwyddiant anfalaen y prostad
+Prostatitis
+Canser y prostad
+Canser y ceilliau
+Faricosel
+Hydrosel
+Epididymitis
+Camweithrediad codiad
+Gynecomastia
+Hypogonadedd gwrywaidd
+Moelni patrwm gwrywaidd
+Torgest y sgrotwm
+Clefyd rhydwelïau coronaidd
+Trawiad ar y galon
+Diabetes math 2
+Gowt
+Niwmoconiosis
+Clefyd y llwch
+COPD
+Pwysedd gwaed uchel
+Anhwylder defnyddio alcohol
+Poen cefn cronig
+Apnoea cwsg
+Canser y coluddyn
+Hemocromatosis etifeddol
+Clefyd yr afu brasterog

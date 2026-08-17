@@ -1,0 +1,29 @@
+---
+description: World religion and denomination (Welsh). The Nonconformist denominations are listed separately because in Wales they are the story: METHODISTIAETH GALFINAIDD, Welsh Calvinistic Methodism, is a denomination that came into being in Wales and exists almost nowhere else, and the ANNIBYNWYR (Independents) and BEDYDDWYR (Baptists) built the chapel culture that carried the language through the nineteenth century. YR EGLWYS YNG NGHYMRU, the Church in Wales, was disestablished from the Church of England in 1920 — and its name is the standard textbook example of the NASAL mutation, because yn + Cymru gives yng Nghymru, not yn Cymru.
+locale: cy
+---
+Cristnogaeth
+Yr Eglwys yng Nghymru
+Anglicanaidd
+Anghydffurfiaeth
+Methodistiaeth Galfinaidd
+Yr Annibynwyr
+Y Bedyddwyr
+Y Wesleaid
+Catholigiaeth
+Uniongrededd
+Crynwyr
+Islam
+Hindŵaeth
+Bwdhaeth
+Iddewiaeth
+Siciaeth
+Baha'i
+Jainiaeth
+Shinto
+Taoaeth
+Anffyddiaeth
+Agnostigiaeth
+Digrefydd
+Paganiaeth
+Derwyddiaeth

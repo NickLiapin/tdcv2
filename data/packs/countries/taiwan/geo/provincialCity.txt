@@ -1,0 +1,9 @@
+---
+address: taiwan.geo.provincialCity
+description: 中華民國的三個市（舊稱省轄市），依內政部戶政司民國115年6月底人口加權。These are the leftovers of a category that once had eleven members and now has three: a 市 is a first-level division like a 縣 and a 直轄市, but it reports to the (now hollow) 臺灣省 rather than to the 行政院, so it sits between the two in status and gets far less central money per head than a 直轄市 of the same size. 新竹市 at 455,755 is larger than five of the thirteen counties and is the richest local government per head in the country because the 新竹科學園區 sits inside it, which is why its campaign for 直轄市 status — or for a merger with 新竹縣 to reach the 1.25 million threshold — has been live politics since 2021. 嘉義市 is an ENCLAVE: it is completely surrounded by 嘉義縣, whose county government had to move out to 太保市 when the city was split off in 1982, and the two share a name, a hospital catchment and nothing administrative at all. 基隆市 is Taiwan's northern port and is functionally a district of Taipei — it shares the 02 telephone code with 臺北市 and 新北市 and a large share of its working population commutes — but is a separate first-level division with its own mayor. 新竹市 and 嘉義市 were both upgraded from 縣轄市 on 1982-07-01, and that upgrade is why the national-ID letters O and I exist: the letter table had no code for either city before then, so O was assigned to 新竹市 and I to 嘉義市 out of the unused tail of the alphabet, which is why they map to 35 and 34 while every other letter runs in sequence from 10.
+locale: zh-tw
+weighted: true
+---
+新竹市,455755
+基隆市,358574
+嘉義市,261497

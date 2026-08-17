@@ -1,0 +1,12 @@
+---
+description: Time of day (Welsh). Welsh counts the parts of the day differently at the edges: BORE BACH is "little morning", the small hours before dawn, and MIN NOS is "the edge of night", the last light. NOS and NOSWAITH are not interchangeable — noswaith is the evening as an occasion (noswaith dda, "good evening"), nos the night itself.
+locale: cy
+---
+Bore bach
+Bore
+Hanner dydd
+Prynhawn
+Min nos
+Noswaith
+Nos
+Hanner nos

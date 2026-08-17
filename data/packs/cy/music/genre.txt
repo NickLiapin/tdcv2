@@ -1,0 +1,39 @@
+---
+description: Music genre (Welsh). CANU PENILLION, also called cerdd dant, has no equivalent anywhere else: a singer improvises a counter-melody in Welsh over a harpist playing a different tune, the two lines meeting at the end. CYMANFA GANU is congregational hymn-singing as a public event, and PLYGAIN the pre-dawn Christmas carol service sung unaccompanied in parts.
+locale: cy
+---
+Gwerin
+Canu gwerin
+Canu penillion
+Cerdd dant
+Plygain
+Cymanfa ganu
+Emyn
+Corawl
+Côr meibion
+Clasurol
+Opera
+Roc
+Roc Cymraeg
+Pop
+Indie
+Pync
+Metel
+Jazz
+Blues
+Gwlad
+Reggae
+Hip hop
+Rap
+Electronig
+Tŷ
+Techno
+Ambient
+Cerddoriaeth ffilm
+Sioe gerdd
+Acwstig
+Enaid
+Ffync
+Disgo
+Byd
+Traddodiadol

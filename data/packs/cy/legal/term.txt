@@ -1,0 +1,23 @@
+---
+description: Legal term (Welsh). Welsh legal vocabulary is old rather than translated: CYFRAITH HYWEL, the law codified under Hywel Dda in the tenth century, gave Welsh a full legal register centuries before these courts existed, and words such as tyst, dedfryd and iawndal come from it.
+locale: cy
+---
+Achwynydd
+Diffynnydd
+Tyst
+Gwŷs
+Datganiad
+Affidafid
+Gwaharddeb
+Tystiolaeth
+Dedfryd
+Rheithfarn
+Setliad
+Ymgyfreitha
+Awdurdodaeth
+Iawndal
+Bargyfreithiwr
+Cyfreithiwr
+Barnwr
+Rheithgor
+Apêl

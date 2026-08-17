@@ -1,0 +1,40 @@
+---
+description: Unit of measure for products (Welsh). Metric units are the shop standard, but Wales also keeps two imperial units in everyday retail use — PEINT for beer and milk and MILLTIR for distance — because the United Kingdom never dropped them.
+locale: cy
+---
+yr un
+bocs
+cas
+pecyn
+dwsin
+pâr
+set
+rholyn
+sypyn
+cilogram
+gram
+litr
+mililitr
+metr
+centimetr
+milimetr
+cilometr
+milltir
+peint
+chwart
+galwyn
+pwys
+owns
+tunnell
+carton
+hambwrdd
+bag
+potel
+tun
+jar
+tiwb
+darn
+llathen
+troedfedd
+modfedd
+erw

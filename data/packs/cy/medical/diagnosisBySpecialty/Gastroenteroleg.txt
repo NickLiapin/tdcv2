@@ -1,0 +1,16 @@
+---
+description: Diagnoses seen in Gastroenteroleg (Welsh).
+locale: cy
+---
+Clefyd coeliag
+Clefyd Crohn
+Colitis briwiol
+Syndrom coluddyn llidus
+Wlser stumog
+Adlif asid
+Clefyd yr afu brasterog
+Hepatitis
+Sirosis
+Cerrig bustl
+Pancreatitis
+Diferticwlitis

@@ -1,0 +1,11 @@
+---
+description: Jobs in Manwerthu (Welsh).
+locale: cy
+---
+Rheolwr siop
+Ariannwr
+Cynorthwyydd siop
+Marsiandiwr
+Swyddog atal colledion
+Prynwr
+Cynorthwyydd stoc

@@ -1,0 +1,30 @@
+---
+description: Mobile and broadband operator. Welsh is effectively a one-country language, so these are the operators that actually sell in Wales — all of them United Kingdom networks. The company names are brands and keep their registered spelling even in Welsh-language advertising.
+locale: cy
+---
+EE
+O2
+Vodafone
+Three
+BT
+Sky Mobile
+Tesco Mobile
+giffgaff
+Lebara
+Lycamobile
+Virgin Media
+iD Mobile
+Smarty
+VOXI
+Plusnet
+TalkTalk
+Ogi
+Zen Internet
+Utility Warehouse
+Asda Mobile
+Superdrug Mobile
+Now Broadband
+Shell Energy Broadband
+Community Fibre
+Hyperoptic
+Openreach

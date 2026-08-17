@@ -1,0 +1,14 @@
+---
+description: Dishes of Sbaenaidd cuisine, named in Welsh where Welsh has its own name and left in the original where the dish travelled under its own name.
+locale: cy
+---
+Paella
+Tortilla española
+Gazpacho
+Tapas
+Jamón serrano
+Patatas bravas
+Churros
+Pisto
+Fabada
+Crema catalana

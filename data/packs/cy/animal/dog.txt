@@ -1,0 +1,31 @@
+---
+description: Dog breed (Welsh). Five of these are Welsh breeds and their Welsh names are the primary ones: CORGI SIR BENFRO and CORGI CEREDIGION are the two corgis (corgi is cor + ci, "dwarf dog", with the soft mutation of ci to gi inside the compound), DAEARGI CYMREIG the Welsh terrier ("earth-dog"), CI DEFAID CYMREIG the Welsh sheepdog, SBANIEL SPRINGER CYMREIG the Welsh springer.
+locale: cy
+---
+Corgi Sir Benfro
+Corgi Ceredigion
+Daeargi Cymreig
+Ci Defaid Cymreig
+Sbaniel Springer Cymreig
+Adargi Labrador
+Adargi Euraid
+Bugail Almaenig
+Bulldog Ffrengig
+Tarw-gi
+Pwdl
+Bîgl
+Rottweiler
+Dachshund
+Bocsiwr
+Husky Siberia
+Ci Mawr Denmarc
+Dobermann
+Bugail Awstralia
+Ci Defaid y Gororau
+Chihuahua
+Shih Tzu
+Pomeranian
+Ci Mynydd Bern
+Milgi
+Bytheiad
+Terier Jack Russell

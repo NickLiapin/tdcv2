@@ -1,0 +1,28 @@
+---
+description: Fish (Welsh). Two are found almost nowhere else and have no ordinary English name: the GWYNIAD is a whitefish marooned in Llyn Tegid (Bala) since the ice age and lives in that one lake, and the TORGOCH (arctic charr, "red belly") survives in a handful of deep Snowdonia lakes. SEWIN, the sea trout, is the rare traffic in the other direction — a Welsh word English borrowed rather than translated.
+locale: cy
+---
+Eog
+Sewin
+Brithyll
+Torgoch
+Gwyniad
+Penfras
+Corbenfras
+Cegddu
+Lleden
+Macrell
+Penwaig
+Llysywen
+Draenog y môr
+Merlan
+Hyrddyn
+Carp
+Draenogyn
+Tiwna
+Sardîn
+Morgi
+Cranc
+Cimwch
+Pysgodyn aur
+Brithyll seithliw

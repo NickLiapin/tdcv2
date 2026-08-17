@@ -1,0 +1,14 @@
+---
+description: Dishes of Mecsicanaidd cuisine, named in Welsh where Welsh has its own name and left in the original where the dish travelled under its own name.
+locale: cy
+---
+Taco
+Burrito
+Quesadilla
+Enchilada
+Guacamole
+Tamale
+Chilli con carne
+Fajita
+Nachos
+Pozole

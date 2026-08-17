@@ -1,0 +1,28 @@
+---
+description: RPG character class (Welsh). BARDD and DERWYDD are the odd pair here: English borrowed both words for exactly these fantasy classes, but in Welsh they are not fantasy at all — the Gorsedd of Bards is a living body that robes poets at the National Eisteddfod every summer, and bardd is simply the word for a poet.
+locale: cy
+---
+Rhyfelwr
+Dewin
+Lleidr
+Marchog
+Heliwr
+Offeiriad
+Swynwr
+Derwydd
+Mynach
+Fforestwr
+Barbariad
+Necromanser
+Bardd
+Llofrudd
+Clerig
+Consuriwr
+Arwr
+Amddiffynnwr
+Saethwr
+Gwarcheidwad
+Ysbïwr
+Alcemydd
+Chwedleuwr
+Cleddyfwr

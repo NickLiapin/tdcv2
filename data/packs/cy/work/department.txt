@@ -1,0 +1,26 @@
+---
+description: Company department or function (Welsh).
+locale: cy
+---
+Peirianneg
+Cynnyrch
+Dylunio
+Gwerthiant
+Marchnata
+Cyllid
+Cyfrifeg
+Adnoddau Dynol
+Gweithrediadau
+Cyfreithiol
+Cymorth i Gwsmeriaid
+Technoleg Gwybodaeth
+Ymchwil a Datblygu
+Caffael
+Sicrhau Ansawdd
+Logisteg
+Gweinyddiaeth
+Cyfleusterau
+Diogelwch
+Cydymffurfiaeth
+Cyfathrebu
+Y Gymraeg

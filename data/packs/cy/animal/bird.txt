@@ -1,0 +1,44 @@
+---
+description: Bird (Welsh). The BARCUD COCH, the red kite, is the bird Wales is known for: it was down to a handful of pairs in the mid-Wales hills and every British red kite alive descends from that remnant. Several names show mutation inside the compound — TYLLUAN WEN ("barn owl") is gwyn feminised and mutated after the feminine tylluan, GLAS Y DORLAN ("kingfisher") is literally "the blue of the riverbank", CNOCELL Y COED "the knocker of the wood".
+locale: cy
+---
+Aderyn y to
+Robin goch
+Barcud coch
+Eryr
+Hebog
+Cudyll coch
+Gwalch y pysgod
+Tylluan wen
+Tylluan frech
+Gwylan
+Pioden
+Brân
+Cigfran
+Jac-y-do
+Ydfran
+Titw tomos las
+Ji-binc
+Llinos
+Bronfraith
+Mwyalchen
+Drudwen
+Dryw
+Ehedydd
+Gwennol
+Gwennol ddu
+Cog
+Colomen
+Sguthan
+Alarch
+Gŵydd
+Hwyaden
+Crëyr glas
+Glas y dorlan
+Cnocell y coed
+Pâl
+Gwylog
+Cornchwiglen
+Pengwin
+Estrys
+Paun

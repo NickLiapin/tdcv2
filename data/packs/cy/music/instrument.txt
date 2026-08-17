@@ -1,0 +1,37 @@
+---
+description: Musical instrument (Welsh). Three of these are Welsh instruments. The TELYN, the harp, is the national instrument, and the TELYN DEIRES — the triple harp, with three parallel rows of strings and no pedals — is played nowhere else. The CRWTH is a bowed lyre that died out around 1800 and has been revived. The PIBGORN is a hornpipe with cow-horn bell and reed, also Welsh and also revived.
+locale: cy
+---
+Telyn
+Telyn deires
+Crwth
+Pibgorn
+Ffidil
+Fiola
+Sielo
+Bas dwbl
+Gitâr
+Gitâr fas
+Banjo
+Mandolin
+Piano
+Organ
+Harmoniwm
+Acordion
+Consertina
+Ffliwt
+Chwibanogl
+Clarinét
+Obo
+Basŵn
+Sacsoffon
+Trwmped
+Corn Ffrengig
+Trombôn
+Twba
+Drwm
+Drymiau
+Tabwrdd
+Symbal
+Siloffon
+Llais

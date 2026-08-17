@@ -1,0 +1,19 @@
+---
+description: Payment method (Welsh). Product names such as Apple Pay and PayPal keep their brand spelling.
+locale: cy
+---
+Cerdyn credyd
+Cerdyn debyd
+PayPal
+Apple Pay
+Google Pay
+Trosglwyddiad banc
+Debyd uniongyrchol
+Arian parod
+Arian wrth ddanfon
+Siec
+Taleb rodd
+Cerdyn anrheg
+Cryptoarian
+Prynu nawr, talu wedyn
+Credyd siop

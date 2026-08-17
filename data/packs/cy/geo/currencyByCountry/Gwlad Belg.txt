@@ -1,0 +1,5 @@
+---
+description: Currency of Gwlad Belg, named in Welsh.
+locale: cy
+---
+Ewro

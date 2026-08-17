@@ -1,0 +1,17 @@
+---
+description: Social content type (Welsh).
+locale: cy
+---
+Post
+Sylw
+Ymateb
+Stori
+Fideo byr
+Pleidlais
+Byw
+Ailbostio
+Edefyn
+Crybwylliad
+Neges breifat
+Llun
+Fideo

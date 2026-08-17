@@ -1,0 +1,5 @@
+---
+description: Capital of Tsieina, in Welsh.
+locale: cy
+---
+Beijing

@@ -1,0 +1,19 @@
+---
+address: taiwan.holiday
+description: 中華民國的國定假日，依《紀念日及節日實施條例》— the days that are non-working for everyone, in Traditional Chinese. THE LAW IS NEW AND THE LIST GREW IN 2025, so any Taiwanese working-day calendar built before then is wrong. Until 2025 holidays were set by the 紀念日及節日實施辦法, an executive regulation the 行政院 could amend at will; on 2025-05-09 the 立法院 passed the 紀念日及節日實施條例, a statute, promulgated 2025-05-28, and the old regulation was repealed on 2025-06-06. The statute restored three days that had been working days for decades — 教師節/孔子誕辰紀念日 on 28 September, 臺灣光復節暨金門古寧頭大捷紀念日 on 25 October, and 行憲紀念日 on 25 December — and added 小年夜, the day before New Year's Eve. Taiwan gained four public holidays in one Act. FIVE OF THESE MOVE WITH THE LUNAR CALENDAR AND CANNOT BE COMPUTED FROM A MONTH AND A DAY: 小年夜, 農曆除夕, 春節 (the first three days of the first lunar month), 端午節 (fifth day of the fifth) and 中秋節 (fifteenth of the eighth) follow the Chinese lunisolar calendar, so 春節 lands anywhere from late January to late February. 清明節 is different again — it is a SOLAR TERM, fixed to the sun's position and falling on 4 or 5 April, so it is stable in the Gregorian calendar while everything else lunar is not, and it collides with 兒童節 on 4 April in most years, which is why the two are usually taken together as one long weekend. 25 DECEMBER IS A HOLIDAY AND IT IS NOT CHRISTMAS. 行憲紀念日 marks the constitution coming into force in 1947; the date coincides with Christmas by accident and Taiwan is not a Christian country. A model that infers "Christmas" from a 25 December holiday in Taiwanese data has drawn the wrong conclusion about the culture. THE COUNT OF NON-WORKING DAYS IS ANNOUNCED, NOT DERIVED. Where a holiday falls at a weekend the 人事行政總處 grants a substitute day (Friday for a Saturday, Monday for a Sunday), and where one falls on a Tuesday or Thursday the government routinely bridges the gap and makes the country work a Saturday to pay it back — so the Taiwanese calendar has make-up WORKING days as well as make-up holidays, and the official calendar is published a year ahead rather than computed. 勞動節 on 1 May is a holiday for workers under the 勞動基準法 and historically not for civil servants, so it is one date on which a Taiwanese office may be open and a Taiwanese factory shut. Occupational days that are not general holidays are excluded here: 消防節, 警察節, 軍人節, 海巡節 and the three days of 原住民族歲時祭儀, which indigenous employees choose according to their own nation's calendar.
+locale: zh-tw
+---
+中華民國開國紀念日
+小年夜
+農曆除夕
+春節
+和平紀念日
+兒童節
+清明節
+勞動節
+端午節
+中秋節
+教師節
+中華民國國慶日
+臺灣光復節暨金門古寧頭大捷紀念日
+行憲紀念日

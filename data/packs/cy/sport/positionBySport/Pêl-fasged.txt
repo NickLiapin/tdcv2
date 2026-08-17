@@ -1,0 +1,9 @@
+---
+description: Playing positions in Pêl-fasged (Welsh).
+locale: cy
+---
+Amddiffynnwr pwynt
+Amddiffynnwr saethu
+Asgellwr bach
+Asgellwr pwerus
+Canolwr

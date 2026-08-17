@@ -1,0 +1,12 @@
+---
+description: Conditions with a raised prevalence in the Gogledd Ewropeaidd ancestry group (Welsh). Hereditary haemochromatosis belongs at the head of this list for a Welsh pack in particular: it reaches its highest prevalence anywhere in the world in populations of Atlantic Celtic descent, which is why the literature nicknames it the Celtic curse.
+locale: cy
+---
+Hemocromatosis etifeddol
+Ffibrosis systig
+Clefyd coeliag
+Diabetes math 1
+Sglerosis ymledol
+Canser y croen
+Melanoma
+Diffyg alpha-1 antitrypsin

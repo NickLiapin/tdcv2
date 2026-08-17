@@ -1,0 +1,5 @@
+---
+description: Capital of De Affrica, in Welsh.
+locale: cy
+---
+Pretoria

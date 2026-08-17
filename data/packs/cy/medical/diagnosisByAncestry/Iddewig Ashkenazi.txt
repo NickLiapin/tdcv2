@@ -1,0 +1,12 @@
+---
+description: Conditions with a raised prevalence in the Iddewig Ashkenazi ancestry group (Welsh).
+locale: cy
+---
+Clefyd Tay-Sachs
+Clefyd Gaucher
+Clefyd Canavan
+Dysawtonomia teuluol
+Treigliadau BRCA1 a BRCA2
+Clefyd Niemann-Pick
+Anemia Fanconi
+Clefyd Crohn

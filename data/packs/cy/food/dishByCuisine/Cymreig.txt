@@ -1,0 +1,34 @@
+---
+description: Dishes of Cymreig cuisine, named in Welsh where Welsh has its own name and left in the original where the dish travelled under its own name.
+locale: cy
+---
+Cawl
+Cawl cennin
+Lobsgows
+Bara brith
+Bara lawr
+Caws pobi
+Selsig Morgannwg
+Pice ar y maen
+Cacen gri
+Crempog
+Teisen lap
+Ffagots a phys
+Cig oen Cymreig
+Cig eidion Cymreig
+Caws Caerffili
+Cocos a bara lawr
+Cregyn gleision
+Sewin wedi'i bobi
+Brithyll a chig moch
+Tatws popty
+Tatws rhost
+Wyau Ynys Môn
+Bara ceirch
+Uwd
+Llymru
+Pastai cig oen
+Teisen ddu
+Pwdin gwaed
+Cawl cennin a thatws
+Torth frith

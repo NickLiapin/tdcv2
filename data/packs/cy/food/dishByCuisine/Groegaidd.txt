@@ -1,0 +1,13 @@
+---
+description: Dishes of Groegaidd cuisine, named in Welsh where Welsh has its own name and left in the original where the dish travelled under its own name.
+locale: cy
+---
+Moussaka
+Souvlaki
+Salad Groegaidd
+Tzatziki
+Dolmades
+Spanakopita
+Gyros
+Baklava
+Pastitsio

@@ -1,0 +1,14 @@
+---
+description: Cable type, telecom and networking (Welsh). Category designations are international.
+locale: cy
+---
+Ffibr optegol
+Cyfechelog
+Pâr dirdro
+Cat5e
+Cat6
+Cat6a
+Ethernet
+Awyrol
+Tanddaearol
+Tanfor

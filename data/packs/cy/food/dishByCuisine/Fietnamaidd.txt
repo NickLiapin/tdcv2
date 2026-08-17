@@ -1,0 +1,11 @@
+---
+description: Dishes of Fietnamaidd cuisine, named in Welsh where Welsh has its own name and left in the original where the dish travelled under its own name.
+locale: cy
+---
+Phở
+Bánh mì
+Gỏi cuốn
+Bún chả
+Cơm tấm
+Chả giò
+Bún bò Huế

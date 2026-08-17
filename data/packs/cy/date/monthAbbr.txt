@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Welsh). CHWEF and GORFF begin with the digraphs ch and ff, which are SINGLE letters of the Welsh alphabet — truncating a Welsh word by character count can cut a letter in half.
+locale: cy
+---
+Ion
+Chwef
+Maw
+Ebr
+Mai
+Meh
+Gorff
+Awst
+Medi
+Hyd
+Tach
+Rhag

@@ -1,0 +1,5 @@
+---
+description: Currency code of Y Ffindir.
+locale: cy
+---
+EUR

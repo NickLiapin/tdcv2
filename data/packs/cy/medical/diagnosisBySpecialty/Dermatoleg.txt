@@ -1,0 +1,16 @@
+---
+description: Diagnoses seen in Dermatoleg (Welsh).
+locale: cy
+---
+Ecsema
+Soriasis
+Acne
+Rosacea
+Wrticaria
+Fitiligo
+Ymlediad gwallt
+Impetigo
+Cochni'r croen
+Melanoma
+Carsinoma celloedd gwaelodol
+Dafadennau

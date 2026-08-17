@@ -1,0 +1,5 @@
+---
+description: Capital of Yr Aifft, in Welsh.
+locale: cy
+---
+Cairo

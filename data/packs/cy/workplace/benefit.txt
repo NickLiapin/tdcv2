@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Welsh). PENSIWN GWEITHLE is the UK auto-enrolment workplace pension; there is no 401(k) here because that is an American scheme.
+locale: cy
+---
+Pensiwn gweithle
+Gwyliau â thâl
+Gwyliau banc
+Yswiriant iechyd preifat
+Yswiriant deintyddol
+Yswiriant bywyd
+Tâl salwch
+Absenoldeb rhiant
+Absenoldeb mamolaeth
+Absenoldeb tadolaeth
+Gweithio o gartref
+Oriau hyblyg
+Wythnos pedwar diwrnod
+Aelodaeth campfa
+Cynllun beicio i'r gwaith
+Ad-daliad ffioedd dysgu
+Hyfforddiant Cymraeg
+Rhaglen lles

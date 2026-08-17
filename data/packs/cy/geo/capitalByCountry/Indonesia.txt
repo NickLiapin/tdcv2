@@ -1,0 +1,5 @@
+---
+description: Capital of Indonesia, in Welsh.
+locale: cy
+---
+Jakarta

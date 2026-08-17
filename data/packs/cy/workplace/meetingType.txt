@@ -1,0 +1,16 @@
+---
+description: Meeting type (Welsh).
+locale: cy
+---
+Cyfarfod sefyll
+Un-i-un
+Cyfarfod staff
+Adolygiad
+Cynllunio sbrint
+Cyfarfod cychwyn
+Cydamseru
+Gweithdy
+Sesiwn syniadau
+Cyfarfod bwrdd
+Cyfarfod cyffredinol
+Ôl-drafodaeth

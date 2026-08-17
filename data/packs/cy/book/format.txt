@@ -1,0 +1,12 @@
+---
+description: Book format (Welsh). E-LYFR shows the soft mutation a prefix imposes: llyfr becomes lyfr after e-, so the compound is not e-llyfr.
+locale: cy
+---
+Clawr caled
+Clawr meddal
+Llyfr clawr papur
+E-lyfr
+Llyfr sain
+Print bras
+Llawysgrif
+Cyfrol

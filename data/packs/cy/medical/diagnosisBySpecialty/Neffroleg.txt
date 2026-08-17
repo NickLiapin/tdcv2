@@ -1,0 +1,16 @@
+---
+description: Diagnoses seen in Neffroleg (Welsh).
+locale: cy
+---
+Clefyd yr arennau cronig
+Methiant yr arennau acíwt
+Cerrig yr arennau
+Glomeriwloneffritis
+Neffropathi diabetig
+Clefyd polysystig yr arennau
+Haint y llwybr wrinol
+Pyeloneffritis
+Syndrom neffrotig
+Proteinwria
+Anemia clefyd yr arennau
+Pwysedd gwaed uchel arennol

@@ -1,0 +1,12 @@
+---
+description: Playing positions in Criced (Welsh).
+locale: cy
+---
+Batiwr
+Batiwr agoriadol
+Bowliwr cyflym
+Bowliwr troelli
+Wicedwr
+Maeswr
+Chwaraewr amryddawn
+Capten

@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Welsh).
+locale: cy
+---
+1 seren
+2 seren
+3 seren
+4 seren
+5 seren

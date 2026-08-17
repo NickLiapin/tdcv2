@@ -1,0 +1,5 @@
+---
+description: Currency of Japan, named in Welsh.
+locale: cy
+---
+Yen Japan

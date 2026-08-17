@@ -1,0 +1,47 @@
+---
+description: Tech noun (Welsh). Welsh technical vocabulary is coined rather than borrowed wherever it can be: a firewall is MUR GWARCHOD ("guarding wall"), a database CRONFA DDATA ("a store of data", with data mutated after the feminine cronfa), a microchip MICROSGLODYN ("micro-splinter"), software MEDDALWEDD from meddal, "soft".
+locale: cy
+---
+gyrrwr
+protocol
+lled band
+panel
+microsglodyn
+rhaglen
+porth
+cerdyn
+arae
+rhyngwyneb
+system
+synhwyrydd
+mur gwarchod
+disg galed
+picsel
+larwm
+ffrwd
+monitor
+cymhwysiad
+trosglwyddydd
+bws
+cylched
+cynhwysydd
+matrics
+cronfa ddata
+piblinell
+gweinydd
+cwmwl
+bysellfwrdd
+sgrin
+ffeil
+ffolder
+rhwydwaith
+storfa
+cof
+prosesydd
+meddalwedd
+caledwedd
+cod
+sgript
+algorithm
+porwr
+cyfrinair

@@ -1,0 +1,22 @@
+---
+description: Cat breed. Pedigree breed names are registry terms and travel unchanged; where Welsh has a settled form it is used (Cath Bersaidd, "Persian cat", with persaidd soft-mutated after the feminine cath).
+locale: cy
+---
+Cath Bersaidd
+Maine Coon
+Siamese
+Ragdoll
+Bengal
+Sphynx
+British Shorthair
+Abyssinian
+Scottish Fold
+Norwegian Forest
+Russian Blue
+Birman
+American Shorthair
+Devon Rex
+Cornish Rex
+Burmese
+Manx
+Cath gorsen

@@ -1,0 +1,5 @@
+---
+description: Currency of Brasil, named in Welsh.
+locale: cy
+---
+Real Brasil

@@ -1,0 +1,5 @@
+---
+description: Capital of Saudi Arabia, in Welsh.
+locale: cy
+---
+Riyadh

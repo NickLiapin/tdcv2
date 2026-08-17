@@ -304,6 +304,7 @@ export const CANONICAL_COUNTRIES: ReadonlySet<string> = new Set([
   'sweden',
   'switzerland',
   'syria',
+  'taiwan',
   'tajikistan',
   'tanzania',
   'thailand',

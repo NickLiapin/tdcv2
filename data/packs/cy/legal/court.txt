@@ -1,0 +1,19 @@
+---
+description: Court type (Welsh). The courts of England and Wales as Welsh names them. LLYS Y GORON is the Crown Court, LLYS YNADON the magistrates' court; the buildings, the circuits and the case numbers are United Kingdom data and belong to that pack.
+locale: cy
+---
+Y Goruchaf Lys
+Y Llys Apêl
+Yr Uchel Lys
+Llys y Goron
+Llys Ynadon
+Llys Sirol
+Llys Teulu
+Llys Ieuenctid
+Llys Crwner
+Llys Hawliadau Bychain
+Tribiwnlys
+Tribiwnlys Cyflogaeth
+Tribiwnlys Eiddo
+Y Llys Gweinyddol
+Llys Apêl Troseddol

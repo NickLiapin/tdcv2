@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: cy
+---
+Endometriosis
+Syndrom ofari polysystig
+Ffibroidau'r groth
+Coden ar yr ofari
+Canser yr ofari
+Canser ceg y groth
+Dysplasia ceg y groth
+Serfigitis
+Endometritis
+Canser yr endometriwm
+Clefyd llidiol y pelfis
+Faginosis bacteriol
+Candidiasis y fagina
+Mislif trwm
+Poen mislif
+Diffyg mislif
+Cyn-eclampsia
+Diabetes yn ystod beichiogrwydd
+Chwydu gormodol mewn beichiogrwydd
+Beichiogrwydd ectopig
+Gwaedu ar ôl geni
+Mastitis
+Newid ffibrocystig y fron
+Syndrom y menopos
+Anhwylder dysfforig cyn-fislifol
+Cwymp y groth

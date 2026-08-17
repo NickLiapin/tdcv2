@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Welsh).
+locale: cy
+---
+Beic ffordd
+Beic mynydd
+Beic hybrid
+Beic trafnidiaeth
+Beic teithio
+Beic rasio
+Beic trac
+Beic croes-seiclo
+Beic graean
+Beic plygu
+Beic trydan
+Beic cargo
+Tandem
+Beic plentyn
+BMX
+Beic tair olwyn
+Beic gorwedd

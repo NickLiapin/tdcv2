@@ -1,0 +1,5 @@
+---
+description: Capital of Yr Unol Daleithiau, in Welsh.
+locale: cy
+---
+Washington

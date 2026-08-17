@@ -1,0 +1,35 @@
+---
+address: taiwan.phoneLandline
+description: A Taiwanese fixed line in E.164 form — +886, then a real area code with its trunk zero stripped, then a subscriber number OF THE LENGTH THAT CODE ACTUALLY TAKES. That last clause is the whole point of the file: Taiwan's landline is always ten digits nationally (including the trunk zero) but the split moves, so 02 takes eight subscriber digits and 0836 takes five, and a generator that pairs one fixed length with every code produces numbers that are the wrong length for eleven of the thirteen areas. The code-to-length map used here is 02→8, 03→7, 037→6, 04→8, 049→7, 05→7, 06→7, 07→7, 08→7, 089→6, 082→6, 0836→5. THE AREA CODES ARE DRAWN WEIGHTED BY THE POPULATION THEY SERVE, roughly: 02 (臺北, 新北, 基隆) 28 per cent, 03 (桃園, 新竹, 宜蘭, 花蓮) 18, 04 (臺中, 彰化) 18, 07 (高雄) 12, 06 (臺南, 澎湖) 8, 05 (嘉義, 雲林) 6, 08 (屏東) 3, and 037, 049, 082, 089 and 0836 the remainder — because an unweighted draw over thirteen codes would put one Taiwanese landline in thirteen on Matsu. 0836 (馬祖, 13,643 people) is deliberately over-represented at 1 per cent against its true 0.06 so that the five-digit case appears at all. 0826 (烏坵鄉) is in taiwan.phoneAreaCode and is NOT drawn here: it is a garrison of a few hundred people on an island 100 km from the county it belongs to, and a synthetic Taiwanese population with any 0826 numbers in it is modelling something that barely exists. NO LEADING-DIGIT RULES ARE APPLIED to the subscriber part. The 市內交換機局碼 (exchange codes) are allocated by the NCC in published blocks — in 02 the 2, 3 and 8 openings are 中華電信, 55 and 77 are 遠傳, 66 is 台灣固網 — so a real 02 number does not begin with every digit, and a number generated here is well-formed rather than routable. Fixed lines are declining fast in Taiwan and are a household fitting rather than a personal contact; see taiwan.phone, which is what a Taiwanese person will give you.
+generator: tdc
+---
+<!-- Index into the code/length tables below, weighted by the population each area
+     serves. 0826 (烏坵) is excluded; see the description. -->
+<sequence name="idx"><gen type="text" value="0,1,2,3,4,5,6,7,8,9,10,11" percent="28,18,2,18,2,6,8,12,3,1,1,1"/></sequence>
+<sequence name="digits"><gen type="regex" value="[0-9]{8}"/></sequence>
+<sequence name="line"><compute>
+  <!-- Area codes WITHOUT the trunk zero, which is what E.164 wants. -->
+  <let name="code"><at>
+    <in><list>
+      <str v="2"/><str v="3"/><str v="37"/><str v="4"/><str v="49"/><str v="5"/>
+      <str v="6"/><str v="7"/><str v="8"/><str v="89"/><str v="82"/><str v="836"/>
+    </list></in>
+    <index><to_number><field name="idx"/></to_number></index>
+  </at></let>
+  <let name="len"><at>
+    <in><list v="8,7,6,8,7,7,7,7,7,6,6,5"/></in>
+    <index><to_number><field name="idx"/></to_number></index>
+  </at></let>
+  <!-- The engine's <slice> takes literal bounds, so the four lengths in the plan
+       are spelled out rather than computed. -->
+  <let name="sub">
+    <choose>
+      <when><test><equals><use name="len"/><int v="8"/></equals></test><then><slice from="0" to="8"><field name="digits"/></slice></then></when>
+      <when><test><equals><use name="len"/><int v="7"/></equals></test><then><slice from="0" to="7"><field name="digits"/></slice></then></when>
+      <when><test><equals><use name="len"/><int v="6"/></equals></test><then><slice from="0" to="6"><field name="digits"/></slice></then></when>
+      <otherwise><slice from="0" to="5"><field name="digits"/></slice></otherwise>
+    </choose>
+  </let>
+  <result><concat><str v="+886"/><use name="code"/><use name="sub"/></concat></result>
+</compute></sequence>
+<data>${{line}}</data>

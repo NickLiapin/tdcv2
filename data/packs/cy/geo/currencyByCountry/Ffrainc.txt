@@ -1,0 +1,5 @@
+---
+description: Currency of Ffrainc, named in Welsh.
+locale: cy
+---
+Ewro

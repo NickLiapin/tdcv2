@@ -1,0 +1,44 @@
+---
+description: Welsh thoroughfare type — it goes BEFORE the name, not after it: Stryd Fawr, Heol y Bont, Ffordd yr Orsaf, Rhodfa'r Môr. English puts the generic last (High Street) and a config that copies English order produces something no Welsh street sign shows. Most of these are FEMININE (stryd, heol, ffordd, lôn, rhes, rhodfa), which is why the name that follows them soft-mutates — Stryd FAWR from mawr. The masculine ones (maes, clos, llwybr, cae) leave the name alone.
+locale: cy
+---
+Stryd
+Heol
+Ffordd
+Lôn
+Rhodfa
+Rhes
+Teras
+Maes
+Clos
+Cilgant
+Llwybr
+Cae
+Sgwâr
+Allt
+Bryn
+Glan
+Parc
+Ffordd osgoi
+Cwrt
+Dôl
+Gerddi
+Bwlch
+Trem
+Golwg
+Llan
+Tir
+Pentref
+Craig
+Coed
+Nant
+Cwm
+Erw
+Bro
+Llys
+Gardd
+Waun
+Hafan
+Mynydd
+Porth
+Rhiw

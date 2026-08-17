@@ -1,0 +1,15 @@
+---
+description: Mining or quarrying method (Welsh). CHWAREL BONC is the gallery system by which Welsh slate was worked — the quarry cut back in stepped terraces, each terrace a ponc — and it is not how coal or metal is mined anywhere. PILERI A STALAU is pillar and stall, the older south Wales coal method that TALCEN HIR, longwall, replaced.
+locale: cy
+---
+Brig
+Tanddaearol
+Siafft
+Lefel
+Drifft
+Talcen hir
+Pileri a stalau
+Chwarel bonc
+Chwarel dwll
+Golchi
+Ffrwydro

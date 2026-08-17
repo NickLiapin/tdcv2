@@ -1,0 +1,47 @@
+---
+description: Job skill — technical, trade and soft (Welsh). Programming languages and product names keep their real spelling. CYMRAEG is a genuine and frequently required job skill in Wales: public-sector posts are routinely advertised as "Cymraeg yn hanfodol" (Welsh essential) or "Cymraeg yn ddymunol" (Welsh desirable), so the language itself is a listed competency in a way it is not elsewhere.
+locale: cy
+---
+Cymraeg
+Cymraeg yn hanfodol
+Saesneg
+Cyfieithu
+Python
+JavaScript
+SQL
+Java
+C++
+Cyfrifiadura cwmwl
+Dysgu peirianyddol
+Dadansoddi data
+Rheoli prosiectau
+Agile
+Siarad cyhoeddus
+Ysgrifennu technegol
+Gwasanaeth cwsmeriaid
+Gwerthu
+Cadw cyfrifon
+Modelu ariannol
+CAD
+Modelu 3D
+Dylunio graffeg
+Copïysgrifennu
+Weldio
+Gwifrau trydanol
+Plymio
+Gwaith saer
+Darllen cynlluniau
+Peiriannu
+Sodro
+Gweithredu fforchgodwr
+Gweithredu peiriannau trwm
+Trwydded yrru C+E
+Cymorth cyntaf
+CPR
+Diogelwch bwyd
+Ffrangeg
+Sbaeneg
+Negodi
+Arwain tîm
+Rheoli amser
+Datrys problemau

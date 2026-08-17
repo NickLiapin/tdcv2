@@ -1,0 +1,11 @@
+---
+description: Household size, written out in Welsh. This tiny file is the clearest demonstration in the whole pack of why Welsh values cannot be joined mechanically: the NUMERAL decides what happens to the first letter of the noun after it, and all three mutations appear here in seven lines. UN and PEDWAR and PUM and SAITH leave PERSON alone. DAU triggers the SOFT mutation, so p becomes b: dau BERSON. TRI and CHWE trigger the ASPIRATE mutation, so p becomes ph: tri PHERSON, chwe PHERSON. The same noun, four spellings, decided entirely by the number in front of it — and nothing in the string "person" or the string "tri" tells a generator that.
+locale: cy
+---
+un person
+dau berson
+tri pherson
+pedwar person
+pum person
+chwe pherson
+saith person neu fwy

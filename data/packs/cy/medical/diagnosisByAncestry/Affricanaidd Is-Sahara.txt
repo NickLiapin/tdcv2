@@ -1,0 +1,14 @@
+---
+description: Conditions with a raised prevalence in the Affricanaidd Is-Sahara ancestry group (Welsh). The list is a prevalence signal, not an exclusive one: none of these conditions is confined to this population and none of them is universal within it.
+locale: cy
+---
+Clefyd crymangelloedd
+Nodwedd crymangell
+Diffyg G6PD
+Neffropathi cysylltiedig ag APOL1
+Pwysedd gwaed uchel
+Diabetes math 2
+Myoma'r groth
+Sarcoidosis
+Keloid
+Diffyg lactas

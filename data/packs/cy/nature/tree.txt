@@ -1,0 +1,32 @@
+---
+description: Tree (Welsh). Every name here shows the Welsh COLLECTIVE-AND-SINGULATIVE system, which runs the opposite way to the European default: the basic word is the MASS — derw is "oaks", bedw "birches", coed "trees" — and you add the singulative ending -en to get ONE of them: derwen, bedwen, coeden. English and its neighbours start from the singular and add a plural ending; Welsh starts from the many and marks the one. The same pattern gives plant/plentyn (children/a child), sêr/seren, adar/aderyn, pysgod/pysgodyn, blodau/blodyn. All singulatives in -en are FEMININE, so an adjective after them soft-mutates: derwen fawr, not derwen mawr.
+locale: cy
+---
+Derwen
+Onnen
+Bedwen
+Ffawydden
+Celynnen
+Criafolen
+Helygen
+Gwernen
+Collen
+Masarnen
+Ywen
+Pinwydden
+Ffynidwydden
+Sbriwsen
+Llarwydden
+Poplysen
+Castanwydden
+Llwyfen
+Draenen wen
+Draenen ddu
+Ysgawen
+Pisgwydden
+Afallen
+Gellygen
+Cedrwydden
+Palmwydden
+Olewydden
+Eirinen

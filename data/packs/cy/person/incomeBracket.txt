@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Welsh. Amounts are in POUNDS STERLING: Wales is inside the United Kingdom and uses the pound, with a comma thousands separator and a full stop for decimals (£24,500.00). Every line ends in Y FLWYDDYN, "per year", which is how a Welsh form words it — and which also keeps the value from ending in a comma and a run of digits, the shape data/scripts/check-weighted-headers.mjs reads as an undeclared weight.
+locale: cy
+---
+Llai na £15,000 y flwyddyn
+£15,000–£25,000 y flwyddyn
+£25,000–£35,000 y flwyddyn
+£35,000–£50,000 y flwyddyn
+£50,000–£75,000 y flwyddyn
+£75,000–£100,000 y flwyddyn
+£100,000–£150,000 y flwyddyn
+Mwy na £150,000 y flwyddyn

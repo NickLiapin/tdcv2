@@ -1,0 +1,26 @@
+---
+description: Vehicle type (Welsh).
+locale: cy
+---
+Car
+Car bach
+Hatchbac
+Salŵn
+Ystad
+Cerbyd 4x4
+SUV
+Fan
+Fan fach
+Lorri
+Lorri gymalog
+Tancer
+Bws
+Bws mini
+Coets
+Beic modur
+Sgwter
+Tractor
+Cynaeafwr
+Cwad
+Carafán
+Cartref modur

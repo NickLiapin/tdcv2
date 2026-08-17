@@ -1,0 +1,23 @@
+---
+description: Film genre (Welsh).
+locale: cy
+---
+Drama
+Comedi
+Antur
+Gweithredu
+Arswyd
+Ias a chyffro
+Dirgelwch
+Rhamant
+Ffuglen wyddonol
+Ffantasi
+Animeiddiad
+Dogfen
+Hanesyddol
+Rhyfel
+Gorllewinol
+Cerddorol
+Bywgraffiad
+Teulu
+Trosedd

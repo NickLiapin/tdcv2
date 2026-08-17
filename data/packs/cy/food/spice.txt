@@ -1,0 +1,36 @@
+---
+description: Spice or herb (Welsh). CENNIN SYFI, chives, is literally "chive leeks" — the leek word again.
+locale: cy
+---
+Halen
+Pupur
+Saets
+Teim
+Rhosmari
+Persli
+Mintys
+Basil
+Oregano
+Marjoram
+Taragon
+Dil
+Cennin syfi
+Dail llawryf
+Sinamon
+Sinsir
+Nytmeg
+Clof
+Cardamom
+Cwmin
+Coriander
+Tyrmerig
+Paprica
+Tsili
+Mwstard
+Hadau ffenigl
+Hadau carwe
+Saffrwm
+Fanila
+Anis
+Pupur cayenne
+Lemonwellt

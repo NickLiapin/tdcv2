@@ -1,0 +1,38 @@
+---
+description: Playing position, mixed sports (Welsh).
+locale: cy
+---
+Gôl-geidwad
+Cefnwr
+Cefnwr canol
+Chwaraewr canol cae
+Asgellwr
+Blaenwr
+Ymosodwr
+Prop pen rhydd
+Bachwr
+Prop pen tyn
+Clo
+Blaenasgellwr
+Wythwr
+Mewnwr
+Maswr
+Canolwr
+Batiwr
+Bowliwr
+Wicedwr
+Maeswr
+Capten
+Chwarterwr
+Rhedwr cefn
+Derbynnydd eang
+Leinbacwr
+Taflwr
+Daliwr
+Byrstop
+Amddiffynnwr pwynt
+Amddiffynnwr saethu
+Asgellwr pwerus
+Gosodwr
+Libero
+Eilydd

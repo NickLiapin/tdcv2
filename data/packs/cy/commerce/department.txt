@@ -1,0 +1,54 @@
+---
+description: Store department or category (Welsh).
+locale: cy
+---
+Llyfrau
+Ffilmiau
+Cerddoriaeth
+Gemau
+Electroneg
+Cyfrifiaduron
+Ffonau
+Cartref
+Gardd
+Offer
+Bwyd
+Groser
+Diodydd
+Iechyd
+Harddwch
+Fferylliaeth
+Teganau
+Plant
+Babanod
+Dillad
+Esgidiau
+Gemwaith
+Bagiau
+Chwaraeon
+Awyr Agored
+Beicio
+Modurol
+Diwydiannol
+Swyddfa
+Anifeiliaid Anwes
+Dodrefn
+Offer Trydanol
+Deunydd Ysgrifennu
+Caledwedd
+Adeiladu
+Paent
+Celf a Chrefft
+Gwnïo
+Cegin
+Ystafell Ymolchi
+Gwely a Bath
+Goleuadau
+Storio
+Glanhau
+Golchi Dillad
+Amaeth
+Pysgota
+Cerddoriaeth Fyw
+Anrhegion
+Nadolig

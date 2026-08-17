@@ -1,0 +1,12 @@
+---
+description: Dishes of Coreaidd cuisine, named in Welsh where Welsh has its own name and left in the original where the dish travelled under its own name.
+locale: cy
+---
+Kimchi
+Bibimbap
+Bulgogi
+Tteokbokki
+Japchae
+Samgyeopsal
+Kimchi jjigae
+Sundubu jjigae

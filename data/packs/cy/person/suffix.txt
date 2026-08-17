@@ -1,0 +1,28 @@
+---
+description: Post-nominal or generational suffix (Welsh). YR IEUAF and YR HYNAF are junior and senior. AS is the abbreviation for Aelod o'r Senedd, a Member of the Welsh Parliament, and also for Aelod Seneddol, a Member of the UK Parliament — the same two letters for two different bodies. The honours themselves (OBE, MBE) are United Kingdom awards and their registers are UK data.
+locale: cy
+---
+yr Ieuaf
+yr Hynaf
+BA
+BSc
+BEng
+LLB
+MA
+MSc
+MBA
+PhD
+MD
+TAR
+FRSA
+OBE
+MBE
+CBE
+AS
+AS Cymru
+YH
+QC
+KC
+RIBA
+ACA
+MRCVS

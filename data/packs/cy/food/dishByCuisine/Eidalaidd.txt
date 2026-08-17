@@ -1,0 +1,16 @@
+---
+description: Dishes of Eidalaidd cuisine, named in Welsh where Welsh has its own name and left in the original where the dish travelled under its own name.
+locale: cy
+---
+Pizza Margherita
+Spaghetti carbonara
+Lasagne
+Risotto
+Gnocchi
+Bruschetta
+Minestrone
+Osso buco
+Tiramisù
+Panna cotta
+Ravioli
+Pesto

@@ -1,0 +1,5 @@
+---
+description: Currency code of Yr Eidal.
+locale: cy
+---
+EUR

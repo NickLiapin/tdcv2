@@ -1,0 +1,5 @@
+---
+description: Capital of Pacistan, in Welsh.
+locale: cy
+---
+Islamabad

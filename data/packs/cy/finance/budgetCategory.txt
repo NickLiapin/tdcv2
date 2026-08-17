@@ -1,0 +1,29 @@
+---
+description: Household budget category (Welsh). Amounts in a Welsh budget are in pounds sterling.
+locale: cy
+---
+Rhent
+Morgais
+Bwyd
+Siopa
+Trafnidiaeth
+Tanwydd
+Cyfleustodau
+Trydan
+Nwy
+Dŵr
+Ffôn a rhyngrwyd
+Yswiriant
+Iechyd
+Addysg
+Gofal plant
+Adloniant
+Gwyliau
+Dillad
+Anrhegion
+Cynilo
+Elusen
+Treth gyngor
+Anifeiliaid anwes
+Aelodaeth
+Cynnal a chadw

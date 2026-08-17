@@ -1,0 +1,8 @@
+---
+description: Gender as a person records it (Welsh). Not to be confused with grammatical gender: every Welsh NOUN is masculine or feminine too (gwrywaidd/benywaidd), and that decides mutation, so a "gender" field in a Welsh dataset can mean two entirely different things.
+locale: cy
+---
+Gwryw
+Benyw
+Anneuaidd
+Heb ei ddatgan

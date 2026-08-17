@@ -1,0 +1,12 @@
+---
+address: taiwan.geo.specialMunicipality
+description: 中華民國的六個直轄市，依內政部戶政司民國115年6月底人口加權。A 直轄市 is a city that reports directly to the 行政院 rather than through a province, and the category carries real consequences rather than being a courtesy title: its mayor is a national political figure — four of the last five presidential candidates had been one — its budget comes straight from the central government, it has its own 警察局, 消防局 and 教育局, and its second-level divisions are 區 with appointed chiefs rather than the elected 鄉鎮市 chiefs a 縣 has. TOGETHER THEY HOLD 16.25 OF TAIWAN'S 23.24 MILLION PEOPLE, ABOUT 70 PER CENT, in about a quarter of the land area, which is the fact that makes an unweighted draw over Taiwanese places wrong. The set is recent and a dataset older than 2015 will not match it: only 臺北市 (1967) and 高雄市 (1979) are long-standing. 新北市 was 臺北縣 until 2010-12-25, when 臺中縣+臺中市 and 臺南縣+臺南市 also merged into 臺中市 and 臺南市 and 高雄縣 merged into 高雄市 — the change that retired the ID-number letters L, R and S — and 桃園縣 became 桃園市 on 2014-12-25. So four of these six names either did not exist or meant something smaller fifteen years ago. 新北市 is the largest local government in the country and completely surrounds 臺北市, which is why the two are usually treated as one metropolitan area (北北基, with 基隆市) even though they are separate governments with separate mayors and separate transit fare systems.
+locale: zh-tw
+weighted: true
+---
+新北市,4038031
+臺中市,2867468
+高雄市,2709973
+臺北市,2425964
+桃園市,2356618
+臺南市,1848108

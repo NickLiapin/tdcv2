@@ -1,0 +1,15 @@
+---
+description: Social reaction (Welsh).
+locale: cy
+---
+Hoffi
+Wrth fy modd
+Ha ha
+Waw
+Trist
+Blin
+Gofal
+Dathlu
+Cefnogi
+Craff
+Chwilfrydig

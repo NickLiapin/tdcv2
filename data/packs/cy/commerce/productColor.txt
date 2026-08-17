@@ -1,0 +1,58 @@
+---
+description: Colour as written on a Welsh product listing. The listing form usually keeps the noun ahead of it (crys glas, "blue shirt"), so these are radical masculine forms; after a feminine noun the initial mutates and the two-form adjectives switch (ffrog WEN, not ffrog gwyn).
+locale: cy
+---
+gwyn
+du
+llwyd
+llwyd golau
+llwyd tywyll
+arian
+coch
+coch tywyll
+byrgwnd
+pinc
+pinc golau
+oren
+melyn
+aur
+hufen
+ifori
+brown
+siocled
+tywod
+gwinau
+gwyrdd
+gwyrdd tywyll
+gwyrdd golau
+olewydd
+gwyrddlas
+turcwois
+glas
+glas tywyll
+glas golau
+glas y nefoedd
+indigo
+porffor
+fioled
+lelog
+piws
+magenta
+marŵn
+efydd
+copr
+pres
+du matt
+gwyn sgleiniog
+llwyd carreg
+glas y môr
+gwyrdd coedwig
+coch tân
+melyn mwstard
+llwyd siarcol
+gwyn eira
+brith
+du a gwyn
+aml-liw
+tryloyw
+naturiol

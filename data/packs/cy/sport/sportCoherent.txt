@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Welsh). RYGBI heads the list rather than football because rugby union is the sport Wales is organised around, and because Welsh has a full native position vocabulary for it — used every week in commentary on S4C — which it does not have to anything like the same depth for the imported American games further down.
+locale: cy
+---
+Rygbi
+Pêl-droed
+Criced
+Pêl-fasged
+Pêl-foli
+Pêl-fas
+Hoci Iâ
+Pêl-droed Americanaidd

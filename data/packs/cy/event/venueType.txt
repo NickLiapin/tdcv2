@@ -1,0 +1,29 @@
+---
+description: Venue type (Welsh). The CAPEL is on this list because the chapel, not the church, is the building most Welsh communal events historically happened in; MAES is the field an eisteddfod or a show pitches on and is the ordinary word for a festival site.
+locale: cy
+---
+Neuadd
+Neuadd bentref
+Neuadd y Dref
+Capel
+Eglwys
+Pabell
+Maes
+Stadiwm
+Theatr
+Sinema
+Gwesty
+Tafarn
+Clwb
+Canolfan Gymunedol
+Canolfan Hamdden
+Oriel
+Amgueddfa
+Llyfrgell
+Ysgol
+Coleg
+Castell
+Plasty
+Gerddi
+Parc
+Traeth

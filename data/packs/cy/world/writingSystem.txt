@@ -1,0 +1,24 @@
+---
+description: Writing system (Welsh). OGAM is on this list because Wales is where it matters: Ogham is a Primitive Irish alphabet of notches cut along the edge of a standing stone, and the bilingual Latin-and-Ogham stones of west Wales are the reason the script can be read at all. Welsh itself is written in the Latin alphabet, but its alphabet is NOT the English one — CH, DD, FF, NG, LL, PH, RH and TH are each a SINGLE LETTER, so the alphabet has 29 letters and LL sorts after L rather than inside it. There is no K, Q, V, X or Z in native Welsh words, and W and Y are VOWELS.
+locale: cy
+---
+Lladin
+Ogam
+Rwnau
+Cyrilig
+Groeg
+Arabaidd
+Hebraeg
+Han
+Hiragana
+Katakana
+Hangul
+Devanagari
+Bengali
+Tamil
+Thai
+Cmer
+Georgaidd
+Armenaidd
+Ethiopaidd
+Tibetaidd

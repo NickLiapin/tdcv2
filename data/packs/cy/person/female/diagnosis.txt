@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses drawn for a female row: the female-only conditions plus common ones. General conditions are in medical/diagnosis.
+locale: cy
+---
+Endometriosis
+Syndrom ofari polysystig
+Ffibroidau'r groth
+Coden ar yr ofari
+Canser yr ofari
+Canser ceg y groth
+Dysplasia ceg y groth
+Serfigitis
+Endometritis
+Canser y fron
+Newid ffibrocystig y fron
+Mastitis
+Mislif trwm
+Poen mislif
+Cyn-eclampsia
+Diabetes yn ystod beichiogrwydd
+Syndrom y menopos
+Osteoporosis
+Anemia diffyg haearn
+Clefyd y thyroid
+Arthritis gwynegol
+Meigryn
+Iselder
+Gorbryder
+Ffibromyalgia
+Haint y llwybr wrinol
+Clefyd coeliag

@@ -1,0 +1,9 @@
+---
+description: Work shift (Welsh).
+locale: cy
+---
+Dydd
+Nos
+Prynhawn
+Sifft ddwbl
+Cylchdroi

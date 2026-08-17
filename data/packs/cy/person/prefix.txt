@@ -1,0 +1,36 @@
+---
+description: Title placed before a name (Welsh). Y PARCHEDIG, "the Reverend", is disproportionately common in Welsh records because Nonconformist chapels had a minister in every village and the minister was often the most-recorded person in it. BONWR and BONESIG are the native Welsh equivalents of Mr and Mrs, used in formal Welsh-language correspondence where English would use the borrowed forms.
+locale: cy
+---
+Mr
+Mrs
+Miss
+Ms
+Bonwr
+Bonesig
+Boneddiges
+Dr
+Yr Athro
+Athro
+Y Parchedig
+Y Parchg
+Y Gwir Barchedig
+Y Tra Pharchedig
+Yr Esgob
+Y Canon
+Syr
+Y Fonesig
+Arglwydd
+Arglwyddes
+Yr Anrhydeddus
+Y Gwir Anrhydeddus
+Y Cynghorydd
+Y Maer
+Y Faeres
+Y Barnwr
+Yr Ustus
+Cyrnol
+Capten
+Uwchgapten
+Lifftenant
+Rhingyll

@@ -1,0 +1,5 @@
+---
+description: Currency of Indonesia, named in Welsh.
+locale: cy
+---
+Rwpia Indonesia

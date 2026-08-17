@@ -1,0 +1,17 @@
+---
+address: taiwan.phoneAreaCode
+description: 臺灣的長途電話區碼 — the thirteen geographic area codes of the Taiwanese numbering plan, written with the trunk zero as they are printed and dialled at home. THE CODE AND THE SUBSCRIBER NUMBER TRADE LENGTH AGAINST EACH OTHER, which is the fact a fixed-width phone column cannot hold: 02 takes eight subscriber digits, 03, 04, 049, 05, 06, 07 and 08 take seven, 037, 089 and 082 take six, and 0826 and 0836 take five — so a Taiwanese landline is always ten digits national including the trunk zero, but the split between code and number moves. A parser that assumes a two-character area code turns (037)24-1234 into area 03 and number 724-1234, which is a different town. THE CODE IS NOT THE COUNTY. 03 alone covers 桃園市, 新竹市, 新竹縣, 宜蘭縣 and 花蓮縣 — five first-level divisions on both coasts of the island, which are not adjacent and are not one calling area: a call from 新竹市 to 桃園市 is a long-distance call despite both being 03, while a call from 臺北市 to 基隆市 is local because both are 02. The plan was laid out along the old telephone-exchange trunk network and not along administrative boundaries, so nothing joins cleanly. 02 covers 臺北市, 新北市, 基隆市 and the 迴龍 corner of 桃園市龜山區, which is the single largest calling area in the country. 04 spans 臺中市 and 彰化縣 and reaches across to 花蓮縣秀林鄉關原, a mountain hamlet wired from the Taichung side of the central range. Four codes serve fewer than a million people each and two serve almost nobody: 0826 is 烏坵鄉, a garrison of a few hundred belonging to 金門縣 but lying 100 km away off the Chinese coast, and 0836 is 連江縣 (馬祖) with 13,643. There is NO CODE STARTING WITH 4, deliberately: 405, 406, 412 and 449 are national single-number service codes, which is why no geographic area was ever given a 4. The trunk zero is dropped for international dialling — (02)2345-6789 is +886-2-2345-6789 — and Taiwan does not print the code in brackets consistently, so both (02)2345-6789 and 02-2345-6789 are correct at home.
+---
+02
+03
+037
+04
+049
+05
+06
+07
+08
+089
+082
+0826
+0836

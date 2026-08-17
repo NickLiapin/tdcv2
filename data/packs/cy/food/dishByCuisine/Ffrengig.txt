@@ -1,0 +1,16 @@
+---
+description: Dishes of Ffrengig cuisine, named in Welsh where Welsh has its own name and left in the original where the dish travelled under its own name.
+locale: cy
+---
+Coq au vin
+Ratatouille
+Bouillabaisse
+Cassoulet
+Quiche Lorraine
+Crêpe
+Croissant
+Soupe à l'oignon
+Boeuf bourguignon
+Crème brûlée
+Tarte tatin
+Baguette

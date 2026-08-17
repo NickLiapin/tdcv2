@@ -1,0 +1,16 @@
+---
+description: Leave type (Welsh).
+locale: cy
+---
+Gwyliau blynyddol
+Absenoldeb salwch
+Absenoldeb rhiant
+Absenoldeb mamolaeth
+Absenoldeb tadolaeth
+Absenoldeb profedigaeth
+Dyletswydd rheithgor
+Absenoldeb di-dâl
+Absenoldeb astudio
+Diwrnod personol
+Absenoldeb meddygol
+Absenoldeb cydymdeimlad

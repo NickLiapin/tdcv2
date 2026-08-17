@@ -1,0 +1,12 @@
+---
+description: Clothing size, labelled in Welsh as bilingual shop signage does it.
+locale: cy
+---
+Bach iawn
+Bach
+Canolig
+Mawr
+Mawr iawn
+Mawr iawn iawn
+Un maint
+Maint plentyn

@@ -1,0 +1,5 @@
+---
+description: Currency of Yr Aifft, named in Welsh.
+locale: cy
+---
+Punt yr Aifft

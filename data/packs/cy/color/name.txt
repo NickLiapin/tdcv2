@@ -1,0 +1,60 @@
+---
+description: Colour name (Welsh). Welsh does not cut the spectrum where English does, and GLAS is the proof: it covers blue, but it is also the green of living grass (glaswellt, "grass", is literally blue-straw) and the grey of a horse (caseg las). LLWYD runs from grey through brown to the pale of a monk's habit. GWYRDD, the tidy word for green, is a borrowing from Latin viridis and arrived to fill a gap the native system did not have. Two colour adjectives also have separate FEMININE forms, so the same colour has two spellings: gwyn/gwen and melyn/melen — ci gwyn but cath wen.
+locale: cy
+---
+Gwyn
+Gwen
+Du
+Coch
+Glas
+Gwyrdd
+Melyn
+Melen
+Oren
+Porffor
+Pinc
+Brown
+Llwyd
+Arian
+Aur
+Efydd
+Copr
+Pres
+Hufen
+Ifori
+Gwyrddlas
+Glaswyrdd
+Glas tywyll
+Glas golau
+Glas y nefoedd
+Gwyrdd tywyll
+Gwyrdd golau
+Coch tywyll
+Coch golau
+Melyn golau
+Melyn tywyll
+Llwyd golau
+Llwyd tywyll
+Piws
+Fioled
+Lelog
+Magenta
+Sgarlad
+Gwinau
+Rhudd
+Melyngoch
+Cochddu
+Melynwyn
+Llwydwyn
+Llwydlas
+Lliw haul
+Siocled
+Brith
+Brych
+Eirin
+Mwstard
+Olewydd
+Tywod
+Marŵn
+Turcwois
+Indigo

@@ -1,0 +1,24 @@
+---
+description: Shipping carrier. Carrier names are brands and are not translated; ROYAL MAIL delivers throughout Wales under that name and prints Post Brenhinol beside it on bilingual signage, but the company name in a data field is the registered one.
+locale: cy
+---
+Royal Mail
+Parcelforce
+Evri
+DPD
+Yodel
+Hermes
+UPS
+FedEx
+DHL
+TNT
+Amazon Logistics
+DX
+Whistl
+Tuffnells
+ArrowXL
+UK Mail
+GLS
+An Post
+Panther Logistics
+Menzies Distribution

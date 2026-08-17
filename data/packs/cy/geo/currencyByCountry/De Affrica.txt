@@ -1,0 +1,5 @@
+---
+description: Currency of De Affrica, named in Welsh.
+locale: cy
+---
+Rand

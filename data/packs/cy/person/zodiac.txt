@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Welsh). Welsh translates the signs rather than keeping the Latin, and each carries the definite article as part of the name: Y LLEW is "the lion", Y FORWYN "the virgin" (morwyn soft-mutated after the article because it is feminine), YR AFR "the goat", Y CARIWR DŴR "the water carrier".
+locale: cy
+---
+Yr Hwrdd
+Y Tarw
+Yr Efeilliaid
+Y Cranc
+Y Llew
+Y Forwyn
+Y Fantol
+Y Sgorpion
+Y Saethydd
+Yr Afr
+Y Cariwr Dŵr
+Y Pysgod

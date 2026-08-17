@@ -1,0 +1,46 @@
+---
+description: Adverb (Welsh). Welsh has almost no adverb morphology: an adjective is turned into an adverb by putting the particle YN in front of it, which is why every value here begins with yn — "quickly" is YN GYFLYM, from cyflym. The particle SOFT-MUTATES what follows, so cyflym becomes gyflym, da becomes dda, mawr becomes fawr. But it does NOT mutate ll or rh, which is why yn LLAWEN and yn RHYDD keep their initials while everything around them changes: an exception a rule engine has to be told about, because the mutation is otherwise regular.
+locale: cy
+---
+yn gyflym
+yn araf
+yn dda
+yn ddrwg
+yn dawel
+yn swnllyd
+yn ofalus
+yn ddiofal
+yn hawdd
+yn galed
+yn gynnar
+yn hwyr
+yn aml
+yn anaml
+yn syth
+yn raddol
+yn sydyn
+yn dyner
+yn arw
+yn glir
+yn gywir
+yn anghywir
+yn hapus
+yn drist
+yn llawen
+yn rhydd
+yn llwyr
+yn rhannol
+yn agored
+yn gyfrinachol
+yn wirfoddol
+yn barhaus
+yn ddyddiol
+yn wythnosol
+yn flynyddol
+yn ddiweddar
+yn ddiweddarach
+yn gyntaf
+yn olaf
+yn union
+yn fwriadol
+yn ddamweiniol

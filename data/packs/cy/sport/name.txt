@@ -1,0 +1,59 @@
+---
+description: Sport (Welsh). Rugby union is the Welsh national game and the Welsh names for it and its parts are in everyday use rather than translations made for the list.
+locale: cy
+---
+Rygbi
+Rygbi'r gynghrair
+Pêl-droed
+Criced
+Tenis
+Golff
+Athletau
+Rhedeg
+Marathon
+Traws gwlad
+Nofio
+Beicio
+Beicio mynydd
+Rhwyfo
+Canŵio
+Hwylio
+Syrffio
+Bocsio
+Reslo
+Jiwdo
+Carate
+Ffensio
+Saethyddiaeth
+Saethu
+Codi pwysau
+Gymnasteg
+Trampolinio
+Pêl-rwyd
+Hoci
+Hoci iâ
+Pêl-fasged
+Pêl-foli
+Pêl-fas
+Pêl-droed Americanaidd
+Badminton
+Sboncen
+Tennis bwrdd
+Dartiau
+Snwcer
+Biliards
+Bowlio
+Bowlio deg
+Sgïo
+Eirafyrddio
+Sglefrio
+Sglefrfyrddio
+Dringo
+Mynydda
+Marchogaeth
+Rasio ceffylau
+Treiathlon
+Ffitrwydd
+Ioga
+Cŵn defaid
+Tynnu rhaff

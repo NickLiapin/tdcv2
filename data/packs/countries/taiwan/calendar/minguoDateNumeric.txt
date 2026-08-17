@@ -1,0 +1,16 @@
+---
+address: taiwan.calendar.minguoDateNumeric
+description: The seven-digit machine form of a Minguo date — YYYMMDD with the year counted from 1912 and ZERO-PADDED TO THREE DIGITS, no separators: 1150618 is 民國115年6月18日, that is 2026-06-18, and 0760221 is 民國76年2月21日, that is 1987-02-21. THIS IS NOT A CURIOSITY, IT IS WHAT TAIWANESE GOVERNMENT SYSTEMS ACTUALLY RETURN. The 經濟部 company registry open API gives every company's incorporation date in exactly this form — TSMC's Company_Setup_Date is the string "0760221" — and the same seven-digit field appears in tax filings, household registration extracts, land records and most legacy government data exports. A schema that types the column as an integer loses the leading zero for every date before 民國100 (2011) and turns 0760221 into 760221, which now reads as 民國76年02月21日 only if you already know how many digits to expect. SEVEN DIGITS, NOT EIGHT, AND THAT IS THE WHOLE TRAP. An ISO date is eight digits, a Minguo one is seven, and both are bare digit strings with no delimiter — so 20260618 and 1150618 are the same day in two formats that differ only in length, and a parser that reads the first four characters as a year turns 1150618 into the year 1150. Anything before 民國100 is eight characters if you count the padding as significant and six if you strip it, so the field is not even self-describing by length unless the padding is preserved. Between 民國 1 and 99 the padded form starts with a zero; between 100 and 999 it does not; and the whole scheme quietly assumes the Republic will not last a thousand years. Two more shapes exist in the same records and mean the same thing: 115.06.18 and 115/06/18, both with the year unpadded. See taiwan.calendar.minguoDate for the printed form with the era name and unit characters.
+generator: tdc
+---
+<sequence name="g"><gen type="date" from="1971-01-01" to="2041-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="d"><compute>
+  <let name="year"><to_number><slice from="0" to="4"><field name="g"/></slice></to_number></let>
+  <let name="minguo"><pad width="3" fill="0"><subtract><use name="year"/><int v="1911"/></subtract></pad></let>
+  <result><concat>
+    <use name="minguo"/>
+    <slice from="4" to="6"><field name="g"/></slice>
+    <slice from="6" to="8"><field name="g"/></slice>
+  </concat></result>
+</compute></sequence>
+<data>${{d}}</data>

@@ -1,0 +1,52 @@
+---
+address: taiwan.tax.ubn
+description: 營利事業統一編號（統編）— the eight-digit number every business, branch, foundation, temple, school and government office in Taiwan is registered under, carrying its real published check digit including the special case at the seventh position. THE ALGORITHM, from the 財政部財政資訊中心 specification: multiply the eight digits by the weights 1,2,1,2,1,2,4,1; for each product add its TENS DIGIT AND ITS UNITS DIGIT to a running total (so 9x2 = 18 contributes 9, not 18); the number is valid when the total is divisible by ten. THE SPECIAL CASE IS AT POSITION SEVEN AND IT IS NOT OPTIONAL: when the seventh digit is 7 the product is 7x4 = 28, whose digit sum is 10, and the specification allows that 10 to be folded once more to 1+0 = 1 — so a number whose seventh digit is 7 is ALSO valid when total+1 is divisible by ten. Roughly one real number in thirty needs that second branch; a validator without it rejects real companies, and 中華電子投資股份有限公司 (11083673, total 29) is one of them. THE MODULUS CHANGED IN 2023. The Ministry of Finance forecast that unused eight-digit numbers would run out in 2024 and relaxed the rule from divisible-by-10 to divisible-by-5, effective 2023-04-01, with the seventh-digit exception carried across unchanged; numbers issued before that date still satisfy the old rule, numbers issued after it satisfy only the new one. This file generates under the OLD rule, because every mod-10 number is also a mod-5 number and so is accepted by validators of either generation, while the reverse is not true — a mod-5-only number is rejected by every pre-2023 Taiwanese system still in service, of which there are many. Two modelling facts. The UBN is the tax number, the VAT number, the company registration number and the invoice number all at once — see taiwan.tax.vat — so a Taiwanese company has one identifier and not four, and a schema with separate columns will hold the same eight digits in each. And it is PUBLIC: the 經濟部商業司 publishes name, address, capital, director and status against every UBN at an open API, so a Taiwanese company identifier is not confidential data in the way a personal 身分證字號 is. Well-formed is not registered: this computes the check digit and nothing more.
+generator: tdc
+---
+<sequence name="six"><gen type="regex" value="[0-9]{6}"/></sequence>
+<!-- The seventh digit is drawn separately because it is the one the specification
+     treats differently. -->
+<sequence name="seventh"><gen type="regex" value="[0-9]"/></sequence>
+<!-- When the seventh digit is 7 there are TWO admissible check digits; this picks
+     between them so that the generated population contains both kinds. -->
+<sequence name="branch"><gen type="regex" value="[01]"/></sequence>
+<sequence name="ubn"><compute>
+  <let name="base7"><concat><field name="six"/><field name="seventh"/></concat></let>
+  <!-- Weights 1,2,1,2,1,2,4 over the first seven digits. Each product contributes
+       its tens digit AND its units digit: 9x2 = 18 gives 1 + 8 = 9. -->
+  <let name="sum7"><reduce>
+    <over><use name="base7"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><add>
+      <divide>
+        <multiply><current/><at><in><list v="1,2,1,2,1,2,4"/></in><index><current_index/></index></at></multiply>
+        <int v="10"/>
+      </divide>
+      <mod>
+        <multiply><current/><at><in><list v="1,2,1,2,1,2,4"/></in><index><current_index/></index></at></multiply>
+        <int v="10"/>
+      </mod>
+    </add></add></do>
+  </reduce></let>
+  <!-- The eighth digit has weight 1 and is never more than 9, so it contributes
+       itself: the check digit is whatever makes the total a multiple of ten. -->
+  <let name="primary"><mod><subtract><int v="10"/><mod><use name="sum7"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <!-- The seventh-digit-is-7 branch: a total ending in 9 is also accepted, because
+       the digit sum 10 of 7x4 = 28 may itself be folded to 1. -->
+  <let name="alternate"><mod><subtract><int v="19"/><mod><use name="sum7"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <let name="check">
+    <choose>
+      <when><test><equals><field name="seventh"/><int v="7"/></equals></test>
+        <then>
+          <choose>
+            <when><test><equals><field name="branch"/><int v="1"/></equals></test><then><use name="alternate"/></then></when>
+            <otherwise><use name="primary"/></otherwise>
+          </choose>
+        </then>
+      </when>
+      <otherwise><use name="primary"/></otherwise>
+    </choose>
+  </let>
+  <result><concat><use name="base7"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{ubn}}</data>

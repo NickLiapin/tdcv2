@@ -1,0 +1,20 @@
+---
+description: Directional qualifier for a Welsh street, district or place name. The compounds show soft mutation working, including its most surprising case: the soft mutation of G is DELETION, so gogledd + gorllewin gives gogledd-ORLLEWIN, not gogledd-gorllewin, and de + gorllewin gives de-orllewin. Dwyrain likewise becomes ddwyrain (d to dd). A heuristic that expects a mutation to swap one letter for another loses the g entirely here.
+locale: cy
+---
+Gogledd
+De
+Dwyrain
+Gorllewin
+Gogledd-ddwyrain
+Gogledd-orllewin
+De-ddwyrain
+De-orllewin
+Canol
+Uchaf
+Isaf
+Canolog
+Pellaf
+Nesaf
+Uwch
+Is

@@ -1,0 +1,32 @@
+---
+description: Tech verb (Welsh), in the VERB-NOUN form. Welsh has no infinitive as such: the dictionary form of a verb is a noun (hacio is both "to hack" and "hacking"), which is why the same word appears here and, prefixed with yn, in hacker/ingverb.txt.
+locale: cy
+---
+ategu
+osgoi
+hacio
+diystyru
+cywasgu
+copïo
+llywio
+mynegeio
+cysylltu
+cynhyrchu
+meintioli
+cyfrifo
+syntheseiddio
+mewnbynnu
+trosglwyddo
+rhaglennu
+ailgychwyn
+dosrannu
+amgryptio
+dadgryptio
+gosod
+llwytho
+lawrlwytho
+uwchlwytho
+sganio
+dadfygio
+optimeiddio
+adfer

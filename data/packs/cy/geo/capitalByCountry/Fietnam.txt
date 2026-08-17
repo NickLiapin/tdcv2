@@ -1,0 +1,5 @@
+---
+description: Capital of Fietnam, in Welsh.
+locale: cy
+---
+Hanoi

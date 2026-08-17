@@ -1,0 +1,29 @@
+---
+description: Government body, named as Wales names them. Welsh is effectively a one-country language, so these are Welsh institutions rather than generic labels — Llywodraeth Cymru is the devolved government, SENEDD CYMRU the parliament, CADW the historic-environment service (the name is the ordinary verb "to keep"), ESTYN the schools inspectorate ("to reach out"), and COMISIYNYDD Y GYMRAEG the Welsh Language Commissioner, an office with no counterpart in England. The bodies that are NOT devolved — the tax office, the driver agency, the passport office — are United Kingdom institutions and belong in the united_kingdom country pack, not here.
+locale: cy
+---
+Llywodraeth Cymru
+Senedd Cymru
+Cyfoeth Naturiol Cymru
+Iechyd Cyhoeddus Cymru
+Amgueddfa Cymru
+Llyfrgell Genedlaethol Cymru
+Cadw
+Estyn
+Cymwysterau Cymru
+Comisiynydd y Gymraeg
+Chwaraeon Cymru
+Cyngor Celfyddydau Cymru
+Trafnidiaeth Cymru
+Bwrdd Iechyd Prifysgol
+Ymddiriedolaeth GIG
+Awdurdod Lleol
+Cyngor Sir
+Cyngor Bwrdeistref Sirol
+Cyngor Tref
+Cyngor Cymuned
+Awdurdod Parc Cenedlaethol
+Gwasanaeth Tân ac Achub
+Comisiynydd Plant Cymru
+Comisiynydd Pobl Hŷn Cymru
+Archwilio Cymru

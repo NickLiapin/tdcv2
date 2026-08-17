@@ -1,0 +1,12 @@
+---
+description: Jobs in Gweithgynhyrchu (Welsh).
+locale: cy
+---
+Peiriannydd
+Weldiwr
+Arolygydd ansawdd
+Goruchwyliwr cynhyrchu
+Cydosodwr
+Melinwr
+Gweithredwr peiriant
+Technegydd cynnal a chadw

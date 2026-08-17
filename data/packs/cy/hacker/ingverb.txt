@@ -1,0 +1,32 @@
+---
+description: Tech verb in the progressive (Welsh). Welsh has NO -ing participle at all: the progressive is built with the preposition YN in front of the verb-noun, so "she is hacking" is mae hi YN hacio — literally "she is at hacking". That is why every value here begins with yn, and why a config that expects to bolt a suffix onto a stem cannot produce this form.
+locale: cy
+---
+yn ategu
+yn osgoi
+yn hacio
+yn diystyru
+yn cywasgu
+yn copïo
+yn llywio
+yn mynegeio
+yn cysylltu
+yn cynhyrchu
+yn meintioli
+yn cyfrifo
+yn syntheseiddio
+yn trosglwyddo
+yn rhaglennu
+yn ailgychwyn
+yn dosrannu
+yn amgryptio
+yn dadgryptio
+yn gosod
+yn llwytho
+yn lawrlwytho
+yn uwchlwytho
+yn sganio
+yn dadfygio
+yn optimeiddio
+yn monitro
+yn adfer

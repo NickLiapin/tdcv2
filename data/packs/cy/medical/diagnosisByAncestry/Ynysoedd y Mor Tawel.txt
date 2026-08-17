@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the Ynysoedd y Mor Tawel ancestry group (Welsh).
+locale: cy
+---
+Diabetes math 2
+Gordewdra
+Gowt
+Clefyd yr arennau cronig
+Twymyn gwynegol
+Pwysedd gwaed uchel

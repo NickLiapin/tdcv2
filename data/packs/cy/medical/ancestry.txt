@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: cy
+---
+Affricanaidd Is-Sahara
+Gogledd Affricanaidd
+Mor y Canoldir
+Dwyrain Canol
+Gogledd Ewropeaidd
+Dwyrain Ewropeaidd
+Iddewig Ashkenazi
+De Asiaidd
+Dwyrain Asiaidd
+De-ddwyrain Asiaidd
+Brodorol Americanaidd
+Ynysoedd y Mor Tawel

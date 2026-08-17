@@ -1,0 +1,49 @@
+---
+description: Country, as Welsh names it, weighted by population in millions. These are translations and not transcriptions: Germany is YR ALMAEN, France FFRAINC, Italy YR EIDAL, Poland GWLAD PWYL ("the land of Poland"), Greece GWLAD GROEG, Iceland GWLAD YR IÂ ("the land of the ice"), the Netherlands YR ISELDIROEDD ("the low lands"). Note how many carry the definite article as part of the name — Yr Almaen, Yr Eidal, Yr Aifft, Yr Ariannin, Y Swistir — because Welsh has no indefinite article at all and the definite one is doing work here that English does with nothing. CYMRU, LLOEGR and YR ALBAN are on this list on purpose: Welsh calls all four of the British nations GWLEDYDD, countries, and a Welsh speaker listing gwledydd includes their own. They are not sovereign states, which is why their currency is pound sterling and why the identifiers that go with a state belong to the united_kingdom country pack.
+locale: cy
+weighted: true
+---
+Tsieina,1410
+India,1400
+Yr Unol Daleithiau,335
+Indonesia,275
+Pacistan,240
+Nigeria,220
+Brasil,215
+Bangladesh,170
+Rwsia,144
+Mecsico,128
+Japan,125
+Yr Aifft,110
+Fietnam,98
+Twrci,85
+Yr Almaen,84
+Gwlad Thai,72
+Ffrainc,68
+Y Deyrnas Unedig,67
+Lloegr,57
+De Affrica,60
+Yr Eidal,59
+De Korea,52
+Sbaen,47
+Yr Ariannin,46
+Canada,39
+Gwlad Pwyl,38
+Saudi Arabia,36
+Awstralia,26
+Yr Iseldiroedd,18
+Gwlad Belg,12
+Sweden,10
+Gwlad Groeg,10
+Portiwgal,10
+Y Swistir,9
+Awstria,9
+Norwy,5
+Denmarc,6
+Y Ffindir,6
+Iwerddon,5
+Seland Newydd,5
+Singapore,6
+Yr Alban,5
+Cymru,3
+Gwlad yr Iâ,1

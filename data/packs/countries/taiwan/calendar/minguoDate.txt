@@ -1,0 +1,20 @@
+---
+address: taiwan.calendar.minguoDate
+description: A date written the way a Taiwanese official document writes it — 民國115年6月18日 — with the year counted from 1912 and the month and day the ordinary Gregorian ones. This is the printed form: the year carries the era name 民國, each field carries its unit character 年月日, and the month and day are written WITHOUT leading zeros, so 6月 and not 06月. It is what appears on a court judgment, a land deed, a tax notice, a household registration transcript, a marriage certificate and the top of almost every government form in Taiwan. THE ERA IS THE ONLY THING THAT DIFFERS FROM A GREGORIAN DATE. 民國 1 is 1912 and the year begins on 1 January exactly as the Western one does, so the conversion is a flat subtraction of 1911 with no month-boundary correction — unlike the Nepali or the Islamic calendars, and like the Thai Buddhist Era. That simplicity is what makes the mistake quiet rather than loud: a converter that forgets the era produces a valid-looking date 1,911 years out, and a converter that applies it twice produces one 3,822 years out, and neither throws. Everyday Taiwanese usage is mixed and inconsistent, which is the harder problem: newspapers and private companies mostly write 2026年6月18日 in the Western era, government bodies write 民國115年6月18日, and the same document often carries both — so a Taiwanese date column can hold 115, 2026 or 26 in the year field and only context distinguishes them. The abbreviated forms 115.06.18 and 115/06/18 are also standard on official paper. See taiwan.calendar.minguoDateNumeric for the seven-digit machine form the government APIs actually return, and taiwan.calendar.minguoYear for the era itself. Nothing in this pack shifts the engine's own dates; this address does its own conversion from a Gregorian draw.
+generator: tdc
+locale: zh-tw
+---
+<sequence name="g"><gen type="date" from="1971-01-01" to="2041-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="d"><compute>
+  <let name="year"><to_number><slice from="0" to="4"><field name="g"/></slice></to_number></let>
+  <!-- 民國 1 = 1912, so the era year is the Gregorian year less 1911. -->
+  <let name="minguo"><subtract><use name="year"/><int v="1911"/></subtract></let>
+  <let name="mm"><to_number><slice from="4" to="6"><field name="g"/></slice></to_number></let>
+  <let name="dd"><to_number><slice from="6" to="8"><field name="g"/></slice></to_number></let>
+  <result><concat>
+    <str v="民國"/><use name="minguo"/><str v="年"/>
+    <use name="mm"/><str v="月"/>
+    <use name="dd"/><str v="日"/>
+  </concat></result>
+</compute></sequence>
+<data>${{d}}</data>

@@ -1,0 +1,5 @@
+---
+description: Currency code of Yr Almaen.
+locale: cy
+---
+EUR

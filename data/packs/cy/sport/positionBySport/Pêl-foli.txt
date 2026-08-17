@@ -1,0 +1,10 @@
+---
+description: Playing positions in Pêl-foli (Welsh).
+locale: cy
+---
+Gosodwr
+Ymosodwr allanol
+Ymosodwr canol
+Ymosodwr gwrthol
+Libero
+Blociwr

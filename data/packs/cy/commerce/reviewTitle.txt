@@ -1,0 +1,30 @@
+---
+description: Product review title (Welsh).
+locale: cy
+---
+Cynnyrch gwych!
+Yn ei argymell yn fawr
+Ddim yn werth yr arian
+Gwell na'r disgwyl
+Iawn, am wn i
+Byddwn yn prynu eto
+Siomedig
+Ansawdd rhagorol
+Torri'n rhy fuan
+Perffaith am y pris
+Peidiwch â phrynu
+Wrth fy modd!
+Ychydig yn ddrud
+Yn union fel y disgrifiwyd
+Danfoniad cyflym
+Gwerth pob ceiniog
+Da iawn wir
+Gofalus wrth archebu
+Nid i mi
+Yn gwneud y gwaith
+Wedi fy synnu
+Cadarn a chryf
+Trafferth gyda'r maint
+Byddai'n well cael cyfarwyddiadau
+Ardderchog
+Digon derbyniol

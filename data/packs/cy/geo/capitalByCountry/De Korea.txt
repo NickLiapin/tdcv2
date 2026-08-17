@@ -1,0 +1,5 @@
+---
+description: Capital of De Korea, in Welsh.
+locale: cy
+---
+Seoul

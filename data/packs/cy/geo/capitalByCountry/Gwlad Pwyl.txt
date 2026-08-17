@@ -1,0 +1,5 @@
+---
+description: Capital of Gwlad Pwyl, in Welsh.
+locale: cy
+---
+Warsaw

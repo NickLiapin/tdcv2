@@ -1,0 +1,14 @@
+---
+description: Vehicle fuel or power type (Welsh).
+locale: cy
+---
+Petrol
+Disel
+Trydan
+Hybrid
+Hybrid plwg-i-mewn
+Hybrid ysgafn
+Hydrogen
+LPG
+Bio-danwydd
+Pedalau

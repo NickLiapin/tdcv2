@@ -1,0 +1,5 @@
+---
+description: Capital of Seland Newydd, in Welsh.
+locale: cy
+---
+Wellington

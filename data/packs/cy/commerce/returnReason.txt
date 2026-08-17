@@ -1,0 +1,19 @@
+---
+description: Order return reason (Welsh).
+locale: cy
+---
+Cyrraedd wedi'i ddifrodi
+Anfonwyd yr eitem anghywir
+Ddim fel y disgrifiwyd
+Maint anghywir
+Lliw anghywir
+Newid meddwl
+Pris gwell mewn man arall
+Diffygiol o'r cychwyn
+Rhannau ar goll
+Danfoniad hwyr
+Dim angen bellach
+Archebwyd drwy gamgymeriad
+Ansawdd is na'r disgwyl
+Ddim yn ffitio
+Derbyniwyd dau o'r un peth

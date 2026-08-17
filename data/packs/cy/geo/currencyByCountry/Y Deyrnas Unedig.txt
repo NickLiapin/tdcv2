@@ -1,0 +1,5 @@
+---
+description: Currency of Y Deyrnas Unedig, named in Welsh.
+locale: cy
+---
+Punt sterling

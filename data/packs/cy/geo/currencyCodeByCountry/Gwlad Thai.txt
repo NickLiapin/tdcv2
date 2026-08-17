@@ -1,0 +1,5 @@
+---
+description: Currency code of Gwlad Thai.
+locale: cy
+---
+THB

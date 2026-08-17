@@ -1,0 +1,42 @@
+---
+address: taiwan.legal.court
+description: 中華民國的各級法院，as the 司法院 constitutes them — the institutions a case is actually filed in, not the kinds of court, which are ordinary vocabulary and belong in a language pack. THE COURT NAME CARRIES THE PROVINCE AND THAT IS THE FIRST SURPRISE: twenty of the twenty-two district courts are 臺灣X地方法院 and two are 福建X地方法院, because 金門 and 連江 belong to the vestigial 福建省 rather than to 臺灣省 — so a court name in Taiwanese legal data starts with one of two province names that have had no government since 2018. Above them sits 福建高等法院金門分院, a High Court branch for a province of 151,000 people. Three tiers: 地方法院 first instance, 高等法院 second, 最高法院 third, with the 高等法院 sitting in Taipei and branching to 臺中, 臺南, 高雄 and 花蓮. ADMINISTRATIVE CASES RUN ON A SEPARATE AND PARALLEL CHAIN and a schema that files them with civil cases has mismodelled Taiwanese law: 臺北, 臺中 and 高雄高等行政法院 hear them at first instance for anything above a threshold, with a 地方行政訴訟庭 inside each since the 2023 reform took first-instance administrative jurisdiction away from the district courts, and 最高行政法院 is the apex. There is no route from the ordinary chain to the administrative one. TWO OF THE ENTRIES ARE NOT ORDINARY COURTS AND BOTH WERE RENAMED RECENTLY. 憲法法庭 is the constitutional court: until 2022 the fifteen 大法官 issued 解釋 (interpretations) as a council, and the 憲法訴訟法 turned them into a court issuing 判決 with named opinions and dissents — so Taiwanese constitutional citations before and after 2022 are in two incompatible formats, 釋字第748號 against 111年憲判字第1號. 懲戒法院 is the disciplinary court for public officials and judges; it was the 公務員懲戒委員會, a committee rather than a court, until 2020. 智慧財產及商業法院 is one court with two jurisdictions, merged in 2021 when commercial cases were added to the intellectual-property court. 臺灣高雄少年及家事法院 is the country's only dedicated juvenile and family court; everywhere else those cases go to a division of the district court. 臺灣橋頭地方法院 is the newest, opened 2016-09-01 to split the enormous 高雄 caseload, so any Taiwanese case database from before that date has no such court and its cases sit under 高雄.
+locale: zh-tw
+---
+最高法院
+最高行政法院
+憲法法庭
+懲戒法院
+臺灣高等法院
+臺灣高等法院臺中分院
+臺灣高等法院臺南分院
+臺灣高等法院高雄分院
+臺灣高等法院花蓮分院
+福建高等法院金門分院
+臺北高等行政法院
+臺中高等行政法院
+高雄高等行政法院
+智慧財產及商業法院
+臺灣高雄少年及家事法院
+臺灣臺北地方法院
+臺灣士林地方法院
+臺灣新北地方法院
+臺灣宜蘭地方法院
+臺灣基隆地方法院
+臺灣桃園地方法院
+臺灣新竹地方法院
+臺灣苗栗地方法院
+臺灣臺中地方法院
+臺灣南投地方法院
+臺灣彰化地方法院
+臺灣雲林地方法院
+臺灣嘉義地方法院
+臺灣臺南地方法院
+臺灣高雄地方法院
+臺灣橋頭地方法院
+臺灣屏東地方法院
+臺灣臺東地方法院
+臺灣花蓮地方法院
+臺灣澎湖地方法院
+福建金門地方法院
+福建連江地方法院

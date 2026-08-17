@@ -1,0 +1,30 @@
+---
+description: School subject (Welsh). CYMRAEG is on this list for a reason no other locale can copy: Welsh is a compulsory subject for every pupil in every school in Wales up to the age of sixteen, whether the school teaches through Welsh or through English. The subject names are those used by schools in Wales; the qualifications themselves belong to the united_kingdom pack.
+locale: cy
+---
+Cymraeg
+Cymraeg Ail Iaith
+Saesneg
+Mathemateg
+Gwyddoniaeth
+Ffiseg
+Cemeg
+Bioleg
+Hanes
+Daearyddiaeth
+Addysg Grefyddol
+Celf a Dylunio
+Cerddoriaeth
+Drama
+Addysg Gorfforol
+Technoleg Gwybodaeth
+Cyfrifiadureg
+Dylunio a Thechnoleg
+Ffrangeg
+Almaeneg
+Sbaeneg
+Astudiaethau Busnes
+Economeg
+Cymdeithaseg
+Seicoleg
+Bwyd a Maeth

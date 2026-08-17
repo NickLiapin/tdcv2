@@ -1,0 +1,42 @@
+---
+description: Common symptom or complaint (Welsh).
+locale: cy
+---
+Twymyn
+Cur pen
+Blinder
+Cyfog
+Chwydu
+Dolur rhydd
+Rhwymedd
+Poen bol
+Poen yn y frest
+Diffyg anadl
+Peswch
+Dolur gwddf
+Trwyn yn rhedeg
+Trwyn wedi tagu
+Pendro
+Golwg aneglur
+Poen cyhyrau
+Poen cymalau
+Poen cefn
+Brech ar y croen
+Cosi
+Chwyddo
+Fferdod
+Pigo mân
+Curiad calon cyflym
+Colli archwaeth
+Colli pwysau
+Chwysu yn y nos
+Ias oer
+Tisian
+Llosg cylla
+Chwyddo'r bol
+Cramp
+Gwendid
+Dryswch
+Anhunedd
+Clwyf
+Gwaedu

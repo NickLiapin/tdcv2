@@ -1,0 +1,16 @@
+---
+description: Diagnoses seen in Seiciatreg (Welsh).
+locale: cy
+---
+Iselder
+Gorbryder
+Anhwylder deubegwn
+Sgitsoffrenia
+Anhwylder straen wedi trawma
+Anhwylder obsesiynol cymhellol
+ADHD
+Awtistiaeth
+Anhwylder panig
+Anhwylder bwyta
+Anhwylder defnyddio alcohol
+Anhunedd

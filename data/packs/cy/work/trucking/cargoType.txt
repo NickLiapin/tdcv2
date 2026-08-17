@@ -1,0 +1,17 @@
+---
+description: Lorry cargo or trailer type (Welsh).
+locale: cy
+---
+Fan sych
+Oergell
+Gwely gwastad
+Tancer
+Da byw
+Nwyddau peryglus
+Cynhwysydd rhyngfodd
+Cludwr ceir
+Isel
+Dec cam
+Tipiwr
+Swmp
+Coed

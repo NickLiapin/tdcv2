@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the Mor y Canoldir ancestry group (Welsh).
+locale: cy
+---
+Beta-thalasaemia
+Anemia Môr y Canoldir
+Diffyg G6PD
+Twymyn Fôr y Canoldir deuluol
+Ffafiaeth
+Hemocromatosis

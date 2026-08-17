@@ -1,0 +1,16 @@
+---
+description: Diagnoses seen in Pwlmonoleg (Welsh).
+locale: cy
+---
+Asthma
+COPD
+Broncitis
+Niwmonia
+Ffibrosis systig
+Twbercwlosis
+Niwmoconiosis
+Clefyd y llwch
+Silicosis
+Apnoea cwsg
+Emboledd ysgyfeiniol
+Ffibrosis ysgyfeiniol

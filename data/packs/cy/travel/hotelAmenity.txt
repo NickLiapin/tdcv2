@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Welsh).
+locale: cy
+---
+Wi-Fi am ddim
+Brecwast wedi'i gynnwys
+Parcio am ddim
+Pwll nofio
+Sba
+Sawna
+Campfa
+Bwyty
+Bar
+Gwasanaeth ystafell
+Aerdymheru
+Gwres canolog
+Teledu lloeren
+Tegell yn yr ystafell
+Sychwr gwallt
+Cyfleusterau golchi dillad
+Lifft
+Mynediad i gadair olwyn
+Croeso i anifeiliaid
+Gardd
+Teras
+Golygfa o'r môr
+Golygfa o'r mynydd
+Lle tân
+Man gwefru ceir trydan
+Ystafell gyfarfod
+Desg gymorth 24 awr
+Storfa bagiau
+Beiciau ar gael
+Cae chwarae

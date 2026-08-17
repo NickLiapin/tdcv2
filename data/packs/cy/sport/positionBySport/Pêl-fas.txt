@@ -1,0 +1,13 @@
+---
+description: Playing positions in Pêl-fas (Welsh).
+locale: cy
+---
+Taflwr
+Daliwr
+Bas cyntaf
+Ail fas
+Trydydd bas
+Byrstop
+Maeswr chwith
+Maeswr canol
+Maeswr de

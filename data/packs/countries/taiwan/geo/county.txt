@@ -1,0 +1,19 @@
+---
+address: taiwan.geo.county
+description: 中華民國現存的十三個縣，依內政部戶政司民國115年6月底人口加權。THE COUNTY IS THE FIRST-LEVEL DIVISION THAT IS DISAPPEARING: there were sixteen in 2009 and there are thirteen now, because 臺北縣, 臺中縣, 臺南縣, 高雄縣 and 桃園縣 were all either merged into or promoted to 直轄市 between 2010 and 2014. Every remaining 縣 is smaller than every 直轄市, and together the thirteen hold 5.87 million people against the six municipalities' 16.25 million. A 縣 differs from a 直轄市 in structure and not only in size: its second level is the 鄉, 鎮 and 縣轄市 at taiwan.geo.township, whose chiefs and councils are ELECTED, whereas a municipality's 區長 is appointed — so local government in a county is a genuinely separate tier with its own budget and its own elections, and a schema that models Taiwanese local government as a flat two-level tree is wrong for 5.87 million people and right for the other 16.25 million. ELEVEN OF THE THIRTEEN ARE IN 臺灣省 AND TWO ARE NOT: 金門縣 and 連江縣 belong to 福建省, sit off the Chinese coast rather than off Taiwan, were under 戰地政務 military administration until 1992 and 1994 respectively, and 連江縣 at 13,643 people is by a wide margin the smallest local government in the country — smaller than a single 里 in 新北市. Both provinces were stripped of all function in 1998 and formally defunded in 2018, so 臺灣省 and 福建省 are names on a map and nothing else; the counties report to the central government directly in practice. 彰化縣 at 1.2 million is larger than four of the six municipalities were when they were promoted and has been campaigning for 直轄市 status for years.
+locale: zh-tw
+weighted: true
+---
+彰化縣,1203726
+屏東縣,779096
+雲林縣,647648
+新竹縣,598260
+苗栗縣,529791
+嘉義縣,470404
+南投縣,467082
+宜蘭縣,448513
+花蓮縣,311290
+臺東縣,207858
+金門縣,137716
+澎湖縣,106550
+連江縣,13643

@@ -1,0 +1,5 @@
+---
+description: Capital of Yr Alban, in Welsh.
+locale: cy
+---
+Caeredin

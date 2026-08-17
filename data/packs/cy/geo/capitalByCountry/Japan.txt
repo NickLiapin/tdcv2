@@ -1,0 +1,5 @@
+---
+description: Capital of Japan, in Welsh.
+locale: cy
+---
+Tokyo

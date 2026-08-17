@@ -1,0 +1,16 @@
+---
+description: Diagnoses seen in Ortopedeg (Welsh).
+locale: cy
+---
+Osteoarthritis
+Arthritis gwynegol
+Osteoporosis
+Toriad asgwrn
+Disg llithredig
+Poen cefn cronig
+Ysgwydd rewedig
+Penelin tenis
+Rhwygo gewyn y pen-glin
+Sciatica
+Bwrsitis
+Sgoliosis

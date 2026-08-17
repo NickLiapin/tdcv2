@@ -1,0 +1,12 @@
+---
+description: Jobs in Lletygarwch (Welsh).
+locale: cy
+---
+Cogydd
+Rheolwr gwesty
+Barmon
+Gweinydd
+Is-gogydd
+Trefnydd digwyddiadau
+Porthor
+Rheolwr bwyty

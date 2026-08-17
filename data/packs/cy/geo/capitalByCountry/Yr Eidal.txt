@@ -1,0 +1,5 @@
+---
+description: Capital of Yr Eidal, in Welsh.
+locale: cy
+---
+Rhufain

@@ -1,0 +1,5 @@
+---
+description: Capital of Gwlad Thai, in Welsh.
+locale: cy
+---
+Bangkok

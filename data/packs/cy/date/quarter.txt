@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Welsh). Welsh ordinals agree with the gender of the noun, and chwarter is masculine, so the fourth is PEDWERYDD; with a feminine noun it would be pedwaredd.
+locale: cy
+---
+Chwarter cyntaf
+Ail chwarter
+Trydydd chwarter
+Pedwerydd chwarter

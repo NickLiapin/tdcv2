@@ -1,0 +1,5 @@
+---
+description: Currency code of Saudi Arabia.
+locale: cy
+---
+SAR

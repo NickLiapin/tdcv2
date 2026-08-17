@@ -1,0 +1,18 @@
+---
+description: Marital status (Welsh).
+locale: cy
+---
+Sengl
+Priod
+Dyweddïedig
+Yn cyd-fyw
+Mewn partneriaeth sifil
+Gwahanedig
+Wedi gwahanu'n gyfreithiol
+Ysgaredig
+Gweddw
+Gŵr gweddw
+Gwraig weddw
+Partneriaeth sifil wedi'i diddymu
+Gweddw ar ôl partner sifil
+Heb ei ddatgan

@@ -1,0 +1,13 @@
+---
+description: Conduit or installation method for cable runs (Welsh).
+locale: cy
+---
+PVC
+Dur anhyblyg
+HDPE
+Claddu uniongyrchol
+Mewnddwythell
+Hambwrdd ceblau
+Negesydd awyrol
+Twnnel
+Ffos

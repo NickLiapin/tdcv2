@@ -1,0 +1,20 @@
+---
+description: Compass direction (Welsh). The compounds are where the soft mutation shows: gogledd + gorllewin is GOGLEDD-ORLLEWIN, because the soft mutation of g is to delete it, and gogledd + dwyrain is GOGLEDD-DDWYRAIN, d becoming dd. Note also that dd is one letter of the Welsh alphabet, not two.
+locale: cy
+---
+Gogledd
+De
+Dwyrain
+Gorllewin
+Gogledd-ddwyrain
+Gogledd-orllewin
+De-ddwyrain
+De-orllewin
+Gogledd-gogledd-ddwyrain
+Dwyrain-gogledd-ddwyrain
+Dwyrain-de-ddwyrain
+De-de-ddwyrain
+De-de-orllewin
+Gorllewin-de-orllewin
+Gorllewin-gogledd-orllewin
+Gogledd-gogledd-orllewin

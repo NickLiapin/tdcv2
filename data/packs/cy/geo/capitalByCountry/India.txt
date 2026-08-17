@@ -1,0 +1,5 @@
+---
+description: Capital of India, in Welsh.
+locale: cy
+---
+New Delhi

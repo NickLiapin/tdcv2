@@ -1,0 +1,5 @@
+---
+description: Capital of Canada, in Welsh.
+locale: cy
+---
+Ottawa

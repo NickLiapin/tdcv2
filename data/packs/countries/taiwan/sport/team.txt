@@ -1,0 +1,18 @@
+---
+address: taiwan.sport.team
+description: 臺灣的職業球隊 — the six clubs of the 中華職業棒球大聯盟 (CPBL) and the professional basketball clubs, in Traditional Chinese. THE TEAM NAME IS THE SPONSOR'S NAME AND CHANGES WHEN THE SPONSOR DOES, which is the modelling fact that matters here and is unlike almost anywhere in Europe: a Taiwanese club is owned outright by a company, it carries that company's brand in the first half of its name and a nickname in the second, and when it is sold the first half is replaced while the fans, the ground and the record book carry on. 中信兄弟 was 兄弟象 from 1990 until 中國信託 bought it in 2013; 樂天桃猿 has been 第一金剛, La New 熊, Lamigo 桃猿 and now Rakuten's; 富邦悍將 was 義大犀牛 and before that 興農牛 and 三商虎's successor. So a Taiwanese sports dataset joined on club name across ten years will fail on four of the six, and the stable key is the franchise rather than the string. 味全龍 is the exception that shows the rule from the other side: it folded in 1999 after the match-fixing scandals that nearly killed the league, and was REVIVED under the same name in 2019 by the same food company, so records under that name exist for 1990-1999 and for 2019 onward with a twenty-year hole in between. 台鋼雄鷹 is the newest, admitted in 2023 and playing from 2024, which took the league from five clubs to six. BASEBALL IS THE NATIONAL SPORT AND BASKETBALL IS THE SECOND, and Taiwan's basketball history is a warning about league identifiers rather than club ones: the P. LEAGUE+ and the T1 League ran as rival professional leagues from 2020 and 2021, and merged into the 台灣職業籃球大聯盟 (TPBL) for the 2024-25 season, which now runs seven clubs, so a Taiwanese basketball record needs a league column as well as a season, and the same club appears under two league codes on either side of the merger. Football is semi-professional and is not listed. Note the club naming convention 統一7-ELEVEn獅: a Latin brand embedded inside a Chinese name is normal in Taiwan and the string is genuinely mixed-script, so a validator that rejects non-CJK characters in a Chinese name field will reject a real club.
+locale: zh-tw
+---
+中信兄弟
+統一7-ELEVEn獅
+樂天桃猿
+富邦悍將
+味全龍
+台鋼雄鷹
+臺北台新戰神
+新北中信特攻
+新北國王
+桃園台啤永豐雲豹
+新竹御嵿攻城獅
+福爾摩沙夢想家
+高雄全家海神

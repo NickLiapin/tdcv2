@@ -1,0 +1,5 @@
+---
+description: Capital of Sweden, in Welsh.
+locale: cy
+---
+Stockholm

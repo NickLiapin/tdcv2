@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the Brodorol Americanaidd ancestry group (Welsh).
+locale: cy
+---
+Diabetes math 2
+Clefyd cerrig bustl
+Clefyd yr arennau cronig
+Diffyg lactas
+Clefyd yr afu alcoholaidd
+Arthritis gwynegol

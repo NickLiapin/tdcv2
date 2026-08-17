@@ -1,0 +1,16 @@
+---
+description: Property listing status (Welsh).
+locale: cy
+---
+Ar werth
+Ar rent
+Dan gynnig
+Wedi'i werthu
+Wedi'i osod
+Dan gontract
+Oddi ar y farchnad
+Yn dod yn fuan
+Adeilad newydd
+Pris wedi gostwng
+Ocsiwn
+Rhan-berchnogaeth

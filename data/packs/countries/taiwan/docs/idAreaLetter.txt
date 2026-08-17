@@ -1,0 +1,27 @@
+---
+address: taiwan.docs.idAreaLetter
+description: The first character of a 中華民國國民身分證統一編號 — a capital Latin letter standing for the 縣市 that issued the number, weighted here by that division's population from 內政部戶政司 民國115年6月. THE LETTER IS THE PLACE OF FIRST HOUSEHOLD REGISTRATION, NOT THE PLACE OF BIRTH AND NOT THE CURRENT ADDRESS: it is fixed at the moment the number is first issued and never changes afterwards, so a person born in 花蓮縣 whose family had registered in 臺北市 gets an A, and someone who has lived in 高雄市 for forty years still carries the F they were given in 新北市. Joining this letter to a residence column will therefore disagree for a large share of a real population, and Taiwan is a country where internal migration ran one way for fifty years. FOUR LETTERS ARE MISSING AND EACH IS MISSING FOR A DIFFERENT REASON. L (臺中縣), R (臺南縣) and S (高雄縣) stopped being assigned on 2010-12-25 when those three counties were abolished into the neighbouring municipalities; Y (陽明山管理局) stopped on 1974-01-01 when that body was dissolved and its two districts, 士林 and 北投, went to 臺北市 and started getting A. All four are still carried by living people — anyone registered in 高雄縣 before 2010 has an S for life — so a real Taiwanese population contains L, R, S and a dwindling number of Y, and this file leaves them out because there is no published figure for how many, and inventing one would be worse than the gap. What is here is the 22 letters currently in issue, one per first-level division. I and O are the youngest: neither was used at all until 1982, because the letters were laid out in 1965 in the order the divisions then existed and I and O were skipped as too easily confused with 1 and 0 — when 嘉義市 and 新竹市 were promoted out of their counties on 1982-07-01 the two skipped letters were taken up for them, which is why I and O map to 34 and 35 while every other letter runs from 10 upward in order. See taiwan.docs.nationalId for the arithmetic those numbers feed.
+weighted: true
+---
+F,4038031
+B,2867468
+E,2709973
+A,2425964
+H,2356618
+D,1848108
+N,1203726
+T,779096
+P,647648
+J,598260
+K,529791
+Q,470404
+M,467082
+O,455755
+G,448513
+C,358574
+U,311290
+I,261497
+V,207858
+W,137716
+X,106550
+Z,13643

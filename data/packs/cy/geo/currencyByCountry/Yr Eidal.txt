@@ -1,0 +1,5 @@
+---
+description: Currency of Yr Eidal, named in Welsh.
+locale: cy
+---
+Ewro

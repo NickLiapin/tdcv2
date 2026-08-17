@@ -1,0 +1,39 @@
+---
+description: Fruit (Welsh). LLUS are bilberries — a small dark upland whin-berry picked on the Welsh hills in August, and a different fruit from the imported blueberry, which Welsh has to call llus gleision to tell them apart. CRIAFOL, rowan berries, come from the tree traditionally planted by a farmhouse door.
+locale: cy
+---
+Afal
+Gellygen
+Eirinen
+Ceiriosen
+Mefus
+Mafon
+Mwyar duon
+Llus
+Llugaeron
+Cyrens duon
+Cyrens cochion
+Gwsberis
+Criafol
+Aeron ysgaw
+Eirin gwlanog
+Bricyllen
+Banana
+Oren
+Tanjerîn
+Lemon
+Leim
+Grawnffrwyth
+Grawnwin
+Melon
+Watermelon
+Pîn-afal
+Mango
+Ciwi
+Ffigysen
+Datysen
+Pomgranad
+Papaia
+Afocado
+Cnau coco
+Rhiwbob

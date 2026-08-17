@@ -1,0 +1,14 @@
+---
+description: Dishes of Tsieineaidd cuisine, named in Welsh where Welsh has its own name and left in the original where the dish travelled under its own name.
+locale: cy
+---
+Reis wedi'i ffrio
+Nwdls tro-ffrio
+Cyw iâr melys a sur
+Dim sum
+Hwyaden Peking
+Rholiau gwanwyn
+Cig eidion a brocoli
+Mapo tofu
+Wonton
+Chow mein

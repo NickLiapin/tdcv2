@@ -1,0 +1,18 @@
+---
+description: Order status (Welsh).
+locale: cy
+---
+Yn aros
+Wrthi'n prosesu
+Wedi'i gadarnhau
+Wedi'i anfon
+Allan i'w ddanfon
+Wedi'i ddanfon
+Wedi'i ganslo
+Wedi'i ddychwelyd
+Wedi'i ad-dalu
+Ar oedi
+Ar ôl-archeb
+Wedi methu
+Yn aros am daliad
+Wedi'i baratoi

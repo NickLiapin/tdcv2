@@ -1,0 +1,26 @@
+---
+description: Common allergy (Welsh).
+locale: cy
+---
+Penisilin
+Cnau daear
+Cnau coed
+Pysgod cregyn
+Wyau
+Llaeth
+Soia
+Gwenith
+Glwten
+Latecs
+Paill
+Paill glaswellt
+Gwiddon llwch
+Ffwr anifeiliaid
+Pigiadau gwenyn
+Aspirin
+Cyffuriau sylffa
+Ïodin
+Sesame
+Nicel
+Mwstard
+Seleri

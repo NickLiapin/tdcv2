@@ -1,0 +1,5 @@
+---
+description: Currency code of Gwlad Belg.
+locale: cy
+---
+EUR

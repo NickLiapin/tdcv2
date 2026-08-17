@@ -1,0 +1,45 @@
+---
+description: Company legal or name suffix. Welsh forms are not decoration: a company registered in Wales may lawfully use CYFYNGEDIG or CYF in place of Limited or Ltd, and CWMNI CYFYNGEDIG CYHOEDDUS (CCC) in place of plc — the only such concession in United Kingdom company law. The register itself, and the company numbers in it, are UK data and live in the united_kingdom country pack; these are the WORDS.
+locale: cy
+---
+Cyf
+Cyf.
+Cyfyngedig
+CCC
+Cwmni Cyfyngedig Cyhoeddus
+Ltd
+Limited
+PLC
+LLP
+Partneriaeth Atebolrwydd Cyfyngedig
+Partneriaeth
+Cwmni
+Cwmni Cydweithredol
+Cwmni Buddiannau Cymunedol
+Cwmni Cyfyngedig drwy Warant
+Cymdeithas
+Cymdeithas Adeiladu
+Undeb Credyd
+Elusen Gofrestredig
+Ymddiriedolaeth
+Sefydliad
+Menter Gymdeithasol
+Grŵp
+Grwp
+Cwmni Daliannol
+Cwmni Cyswllt
+Cwmni Cydweithredol Cyfyngedig
+Masnachwr Unigol
+a'i Feibion
+a'i Fab
+a'r Cwmni
+a'i Gwmni
+Brodyr
+Chwiorydd
+a Chwmni
+Cwmni Rhyngwladol
+Cwmni Cyfyngedig Preifat
+Corfforedig
+Cyfyngedig Cymru
+Cwmni Cymreig
+Cwmni Cydfuddiannol

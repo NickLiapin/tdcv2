@@ -1,0 +1,24 @@
+---
+description: Property type (Welsh). TYDDYN has no neat English equivalent: it is a smallholding — a house with a few acres, too small to be a farm and too agricultural to be a cottage — and it is an ordinary category on a Welsh estate agent's books. HAFOD and HENDRE appear here too, as the upland and lowland dwellings of the old transhumance year.
+locale: cy
+---
+Tŷ ar wahân
+Tŷ pâr
+Tŷ teras
+Byngalo
+Fflat
+Fflat stiwdio
+Deulawr
+Bwthyn
+Tyddyn
+Ffermdy
+Fferm
+Plasty
+Maenordy
+Ysgubor wedi'i throsi
+Capel wedi'i drosi
+Tŷ newydd
+Tŷ Fictoraidd
+Hafod
+Hendre
+Cartref symudol

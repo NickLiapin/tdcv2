@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Welsh).
+locale: cy
+---
+Ystafell sengl
+Ystafell ddwbl
+Ystafell deuwely
+Ystafell deulu
+Ystafell driphlyg
+Swît
+Swît briodas
+Ystafell foethus
+Ystafell safonol
+Ystafell wely a brecwast
+Bwthyn hunanarlwyo
+Ystafell â golygfa o'r môr
+Ystafell â golygfa o'r mynydd
+Ystafell hygyrch
+Ystafell dawel
+Llofft
+Pod glampio
+Iwrt

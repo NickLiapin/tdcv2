@@ -1,0 +1,12 @@
+---
+description: Playing positions in Pêl-droed Americanaidd (Welsh).
+locale: cy
+---
+Chwarterwr
+Rhedwr cefn
+Derbynnydd eang
+Pen tynn
+Leinbacwr
+Cefnwr amddiffynnol
+Diogelwr
+Ciciwr

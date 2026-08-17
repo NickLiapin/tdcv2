@@ -1,0 +1,5 @@
+---
+description: Currency of Yr Unol Daleithiau, named in Welsh.
+locale: cy
+---
+Doler yr Unol Daleithiau

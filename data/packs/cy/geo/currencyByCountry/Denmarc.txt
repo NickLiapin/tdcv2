@@ -1,0 +1,5 @@
+---
+description: Currency of Denmarc, named in Welsh.
+locale: cy
+---
+Coron Denmarc

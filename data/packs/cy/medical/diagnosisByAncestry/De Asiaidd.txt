@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the De Asiaidd ancestry group (Welsh).
+locale: cy
+---
+Diabetes math 2
+Clefyd rhydwelïau coronaidd cynnar
+Beta-thalasaemia
+Diffyg G6PD
+Diffyg fitamin D
+Clefyd yr arennau cronig

@@ -1,0 +1,9 @@
+---
+description: Playing positions in Hoci Iâ (Welsh).
+locale: cy
+---
+Gôl-geidwad
+Amddiffynnwr
+Canolwr
+Asgellwr chwith
+Asgellwr de

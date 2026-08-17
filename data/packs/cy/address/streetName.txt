@@ -1,0 +1,182 @@
+---
+description: The name part of a Welsh street, to be placed AFTER a streetSuffix (Stryd + y Bont = Stryd y Bont). Most entries are genitive phrases with the definite article, and they are deliberately the safest shape to generate: the article y/yr already fixes the mutation inside the phrase (y Bont from pont, y Farchnad from marchnad, yr Orsaf from gorsaf), so the value is stable whichever generic precedes it. The bare adjectives at the end of the list are NOT stable — they are given in the feminine soft-mutated form that Stryd/Heol/Ffordd require (Fawr, Newydd, Hir), and after a masculine generic such as Maes they would need the radical. Personal names do not mutate in this position. Streets belonging to one particular Welsh town, and the English-language names on the same bilingual signs, are country data and live in the united_kingdom pack.
+locale: cy
+---
+y Bont
+y Castell
+yr Eglwys
+y Capel
+y Felin
+y Farchnad
+yr Orsaf
+y Cei
+y Bryn
+y Coleg
+yr Ysgol
+yr Ysbyty
+y Llyfrgell
+y Neuadd
+y Parc
+y Cwm
+y Nant
+y Rhyd
+y Ffynnon
+y Graig
+y Goedwig
+y Berllan
+yr Efail
+y Llan
+y Faenor
+y Gaer
+y Domen
+y Tŵr
+y Porth
+y Bwlch
+y Waun
+y Rhos
+y Ddôl
+y Gors
+y Llyn
+y Môr
+yr Afon
+y Traeth
+y Tywod
+y Creigiau
+yr Ardd
+y Berth
+y Gelli
+y Fron
+y Fynwent
+y Sgwâr
+y Groes
+y Gorlan
+y Sgubor
+y Beudy
+yr Hafod
+yr Hendre
+y Gwernydd
+y Meillion
+y Deri
+yr Onnen
+y Fedwen
+y Dderwen
+y Gollen
+yr Helyg
+y Rhosyn
+y Cennin
+yr Ysgaw
+y Grug
+yr Eithin
+y Rhedyn
+y Blodau
+y Wenynen
+yr Ehedydd
+y Wennol
+y Barcud
+yr Eryr
+y Gwylanod
+y Fronfraith
+y Gwenoliaid
+Dewi Sant
+Dwynwen
+Non
+Illtud
+Teilo
+Padarn
+Cadog
+Deiniol
+Beuno
+Curig
+Tysul
+Cybi
+Seiriol
+Melangell
+Gwenfrewi
+Owain Glyndŵr
+Llywelyn
+Llywelyn Fawr
+Hywel Dda
+Rhodri Mawr
+Gruffudd
+Maredudd
+Cadwaladr
+Caradog
+Macsen
+Arthur
+Myrddin
+Taliesin
+Aneirin
+Dafydd ap Gwilym
+Ann Griffiths
+Williams Pantycelyn
+Iolo Morganwg
+Ceiriog
+Islwyn
+Hedd Wyn
+Kate Roberts
+T. H. Parry-Williams
+Waldo
+Saunders Lewis
+Gwenallt
+Elfed
+Mynyddog
+Alun
+Talhaiarn
+Eben Fardd
+Goronwy Owen
+Twm o'r Nant
+Daniel Owen
+Griffith Jones
+Thomas Charles
+Llyn
+Môn
+Arfon
+Eifionydd
+Meirion
+Ceredigion
+Dyfed
+Gwent
+Morgannwg
+Powys
+Maldwyn
+Brycheiniog
+Gwynedd
+Clwyd
+Tegeingl
+Ardudwy
+Penfro
+Ystrad Tywi
+Cantref
+Rhufoniog
+yr Wyddfa
+Cader Idris
+Pumlumon
+y Preselau
+Bannau Brycheiniog
+y Berwyn
+yr Aran
+Tryfan
+y Glyder
+Carnedd Dafydd
+Moel Famau
+Mynydd Hiraethog
+Fawr
+Fach
+Newydd
+Hen
+Hir
+Fer
+Gul
+Lydan
+Uchaf
+Isaf
+Ganol
+Wen
+Ddu
+Goch
+Las
+Lwyd
+Deg
+Dawel
+Serth
+Wastad

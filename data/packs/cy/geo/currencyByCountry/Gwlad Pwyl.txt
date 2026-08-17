@@ -1,0 +1,5 @@
+---
+description: Currency of Gwlad Pwyl, named in Welsh.
+locale: cy
+---
+Zloty

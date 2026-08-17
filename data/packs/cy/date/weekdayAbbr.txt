@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Welsh), Monday first.
+locale: cy
+---
+Llun
+Maw
+Mer
+Iau
+Gwe
+Sad
+Sul

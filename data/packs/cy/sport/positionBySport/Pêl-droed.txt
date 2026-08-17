@@ -1,0 +1,15 @@
+---
+description: Playing positions in Pêl-droed (Welsh).
+locale: cy
+---
+Gôl-geidwad
+Cefnwr
+Cefnwr canol
+Cefnwr de
+Cefnwr chwith
+Chwaraewr canol cae
+Canol cae amddiffynnol
+Canol cae ymosodol
+Asgellwr
+Blaenwr
+Ymosodwr

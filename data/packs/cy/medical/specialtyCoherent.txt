@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list (Welsh).
+locale: cy
+---
+Cardioleg
+Niwroleg
+Oncoleg
+Dermatoleg
+Gastroenteroleg
+Endocrinoleg
+Pwlmonoleg
+Ortopedeg
+Seiciatreg
+Neffroleg

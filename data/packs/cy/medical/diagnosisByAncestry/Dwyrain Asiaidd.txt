@@ -1,0 +1,11 @@
+---
+description: Conditions with a raised prevalence in the Dwyrain Asiaidd ancestry group (Welsh).
+locale: cy
+---
+Alpha-thalasaemia
+Diffyg lactas
+Adwaith cochi i alcohol
+Canser y stumog
+Canser y nasoffaryncs
+Clefyd Kawasaki
+Glawcoma ongl gaeedig

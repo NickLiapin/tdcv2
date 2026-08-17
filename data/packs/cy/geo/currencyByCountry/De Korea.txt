@@ -1,0 +1,5 @@
+---
+description: Currency of De Korea, named in Welsh.
+locale: cy
+---
+Won De Korea

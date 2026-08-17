@@ -1,0 +1,14 @@
+---
+address: taiwan.geo.address
+description: 一行臺灣地址，依中華郵政的書寫順序：郵遞區號、縣市、鄉鎮市區、路名、段、號。THE ORDER IS LARGEST TO SMALLEST WITH NO SEPARATORS AT ALL — 10058臺北市中正區忠孝東路一段1號 is one unbroken string, no commas, no spaces, and the reader parses it by recognising the 市/區/路/段/號 particles rather than by splitting on anything. A parser written for a Western address, which splits on commas and reads smallest-first, gets nothing here. The postal code comes FIRST, in front of the city, which is the reverse of Japan and of most of Europe. WHAT IS COHERENT HERE AND WHAT IS NOT: the postal code, the city, the district and the road are each real, and the code and the district each come from the published register — but they are drawn INDEPENDENTLY, so the code will not be the code for the district and the district will usually not be in the city. A Taiwanese address that has to hang together needs the code and the place resolved from one row of the 中華郵政 table; nothing in this pack does that, because the register maps district to code and the engine draws each address separately. The 段 is emitted for about half the rows because most Taiwanese roads have no sections at all and only long arterial roads are divided; where it appears it is written with a Chinese numeral (一段, 二段 …), never an Arabic one, and it goes between the road name and the number. Two levels below the 段 are omitted and are common in real addresses: 巷 (a lane, numbered by the house number where it leaves the road) and 弄 (an alley off a lane), so a real Taiwanese address is often 新北市板橋區文化路二段242巷15弄3號 and this file produces the shorter form. The building number can also carry a 之N suffix (15之1號, for a subdivided lot) and a floor (3樓) and a unit (之2); none of those is generated. English-language Taiwanese addresses reverse the whole order and romanise the road name, and the romanisation is not stable — 忠孝 is Zhongxiao in Hanyu Pinyin, Jhongsiao in Tongyong Pinyin and Chunghsiao in Wade-Giles, and all three are on street signs somewhere in the country — so a Taiwanese address in Latin script cannot be joined to one in Chinese without a lookup.
+generator: tdc
+locale: zh-tw
+---
+<sequence name="zip"><gen type="template" value="taiwan.geo.postalCode"/></sequence>
+<sequence name="city"><gen type="template" value="taiwan.geo.city"/></sequence>
+<sequence name="dist"><gen type="template" value="taiwan.geo.district"/></sequence>
+<sequence name="road"><gen type="template" value="taiwan.geo.roadName"/></sequence>
+<sequence name="num"><gen type="number" value="1..350"/></sequence>
+<!-- Most Taiwanese roads have no sections; the empty value keeps the majority plain. -->
+<sequence name="sec"><gen type="text" value=",,,一段,二段,三段,四段"/></sequence>
+<data>${{zip}}${{city}}${{dist}}${{road}}${{sec}}${{num}}號</data>

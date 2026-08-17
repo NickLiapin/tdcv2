@@ -1,0 +1,12 @@
+---
+description: Jobs in Trafnidiaeth (Welsh).
+locale: cy
+---
+Gyrrwr lorri
+Cydlynydd logisteg
+Rheolwr traffig awyr
+Anfonwr
+Peilot masnachol
+Gweithiwr warws
+Gyrrwr bws
+Gyrrwr trên

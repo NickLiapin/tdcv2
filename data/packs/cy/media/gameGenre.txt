@@ -1,0 +1,21 @@
+---
+description: Video game genre (Welsh).
+locale: cy
+---
+Antur
+Gweithredu
+Saethu
+Chwarae rôl
+Strategaeth
+Efelychu
+Pos
+Platfform
+Rasio
+Chwaraeon
+Ymladd
+Arswyd goroesi
+Byd agored
+Amlchwaraewr
+Cerddoriaeth
+Bwrdd
+Cardiau

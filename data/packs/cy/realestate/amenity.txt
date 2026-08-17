@@ -1,0 +1,30 @@
+---
+description: Property amenity (Welsh).
+locale: cy
+---
+Modurdy
+Lle parcio
+Gardd
+Iard
+Balconi
+Patio
+Decin
+Lle tân
+Stof llosgi coed
+Gwres canolog
+Paneli solar
+Pwmp gwres
+Ffenestri gwydr dwbl
+Llawr pren
+Cegin newydd
+Ystafell wisgo
+Ystafell en-suite
+Peiriant golchi llestri
+Ystafell olchi
+Seler
+Atig
+Lifft
+System ddiogelwch
+Croeso i anifeiliaid
+Golygfa o'r môr
+Golygfa o'r mynydd

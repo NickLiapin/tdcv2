@@ -1,0 +1,13 @@
+---
+address: taiwan.phone
+description: A Taiwanese mobile number in E.164 form — +886 then a real allocated four-digit block from taiwan.phoneMobilePrefix WITH ITS LEADING ZERO REMOVED, then six subscriber digits, giving twelve characters after the plus sign. THE TRUNK ZERO IS THE WHOLE TRAP. Taiwan's plan has a trunk prefix of 0 and every number a Taiwanese person writes, says, saves in a contact list or prints on a card carries it: 0912-345-678. It must be stripped for international dialling, so the same number is +886-912-345-678 abroad, and a system that concatenates the country code onto the printed national number produces +8860912345678 and silently reaches nothing. This is the single commonest defect in Taiwanese contact data and it is invisible until someone dials. Mobile is what "phone number" means in Taiwan to a degree worth modelling: mobile penetration has been above 120 per cent of population for over a decade, essentially every adult has a mobile, and fixed lines are a household fitting rather than a personal contact — so a Taiwanese person record with a landline and no mobile is the unusual case. The number carries no geography at all, unlike the landline at taiwan.phoneLandline whose area code says where the line is. It carries no carrier information either, since number portability in 2005 broke the link between the block and the network. Written domestically as 0912-345-678 with hyphens after the fourth and seventh digits, or as 0912345678 with none; the ten digits are the same either way, and both forms appear in Taiwanese databases, so a mobile-number column needs normalising before it can be joined on.
+generator: tdc
+---
+<sequence name="prefix"><gen type="template" value="taiwan.phoneMobilePrefix"/></sequence>
+<sequence name="sub"><gen type="regex" value="[0-9]{6}"/></sequence>
+<sequence name="e164"><compute>
+  <!-- Drop the trunk zero: 0912 becomes 912 in the international form. -->
+  <let name="national"><slice from="1"><field name="prefix"/></slice></let>
+  <result><concat><str v="+886"/><use name="national"/><field name="sub"/></concat></result>
+</compute></sequence>
+<data>${{e164}}</data>

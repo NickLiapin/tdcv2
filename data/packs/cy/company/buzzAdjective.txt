@@ -1,0 +1,59 @@
+---
+description: Business buzz adjective (Welsh), for catch-phrases. These follow the noun as all Welsh adjectives do.
+locale: cy
+---
+graddadwy
+ystwyth
+di-dor
+cadarn
+integredig
+symlach
+dosbarthedig
+cwmwl-frodorol
+data-yrredig
+cwsmer-ganolog
+pen-i-ben
+y genhedlaeth nesaf
+amser-real
+traws-blatfform
+lefel-menter
+modiwlar
+di-ffrithiant
+parod
+gorau yn ei ddosbarth
+diogel at y dyfodol
+cyfannol
+deinamig
+rhagweithiol
+addasol
+optimeiddiedig
+diogel
+deallus
+awtomataidd
+unedig
+cydweithredol
+arloesol
+chwyldroadol
+main
+pwrpasol
+cyfansoddadwy
+gwydn
+elastig
+estynadwy
+gweithredadwy
+gwerth-ychwanegol
+tryloyw
+atebol
+cynaliadwy
+carbon-niwtral
+dwyieithog
+hygyrch
+byd-eang
+lleol
+rhanbarthol
+strategol
+effeithlon
+hyblyg
+craff
+cyflym
+dibynadwy

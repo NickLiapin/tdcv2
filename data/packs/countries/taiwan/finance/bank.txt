@@ -1,0 +1,45 @@
+---
+address: taiwan.finance.bank
+description: 在臺灣營業的本國銀行，依金融機構代號排序，與 taiwan.finance.bankCode 逐行對齊 — line N here is the bank whose three-digit code is line N there, so the two files can be drawn with one index and stay consistent. THE THREE-DIGIT CODE IS THE ROUTING NUMBER AND TAIWAN HAS NO IBAN. Taiwan is not in the IBAN registry and issues none — no TW IBAN exists, and a validator that demands one for a Taiwanese account is asking for something the country does not produce. A domestic transfer is addressed by the three-digit bank code plus a four-digit branch code plus the account number; an inbound international transfer uses the SWIFT/BIC code instead. This pack therefore has no finance/iban.txt, deliberately. 八大行庫 is the phrase to know: 臺灣銀行, 臺灣土地銀行, 合作金庫, 第一銀行, 華南銀行, 彰化銀行, 兆豐銀行 and 臺灣中小企業銀行 are the state-influenced banks that between them hold most government and state-enterprise business, and they are the ones a Taiwanese salary is most likely paid into. 中華郵政 (code 700) is on this list and is NOT a bank: the post office runs the largest deposit-taking network in the country, roughly 1,300 branches against about 5,000 for all the banks combined, it takes deposits and remits money but by law makes no loans, and its 劃撥 giro account is what small Taiwanese transactions, school fees, magazine subscriptions and mail-order payments still run on. A Taiwanese payment schema without a postal giro option is missing a channel used by millions. Three of the entries are pure internet banks licensed in 2019 and opened in 2021 with no branches at all — 將來銀行, 連線銀行 (LINE Bank) and 樂天銀行 — so "branch code" is meaningless for them. 花旗（台灣）and 滙豐（台灣）and 星展（台灣）are locally incorporated subsidiaries of foreign banks and count as 本國銀行 in Taiwanese law, which is why they carry ordinary three-digit codes rather than foreign-bank codes; 花旗 sold its Taiwanese consumer business to 星展 in 2023 and kept its corporate bank, so the name survives on a much smaller institution. The roster moves: mergers retire a code every few years, and a code is never reissued.
+locale: zh-tw
+---
+臺灣銀行
+臺灣土地銀行
+合作金庫商業銀行
+第一商業銀行
+華南商業銀行
+彰化商業銀行
+上海商業儲蓄銀行
+台北富邦商業銀行
+國泰世華商業銀行
+中國輸出入銀行
+高雄銀行
+兆豐國際商業銀行
+全國農業金庫
+花旗（台灣）商業銀行
+王道商業銀行
+臺灣中小企業銀行
+渣打國際商業銀行
+台中商業銀行
+京城商業銀行
+滙豐（台灣）商業銀行
+瑞興商業銀行
+華泰商業銀行
+臺灣新光商業銀行
+陽信商業銀行
+板信商業銀行
+三信商業銀行
+中華郵政
+聯邦商業銀行
+遠東國際商業銀行
+元大商業銀行
+永豐商業銀行
+玉山商業銀行
+凱基商業銀行
+星展（台灣）商業銀行
+台新國際商業銀行
+安泰商業銀行
+中國信託商業銀行
+將來商業銀行
+連線商業銀行
+樂天國際商業銀行

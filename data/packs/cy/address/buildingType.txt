@@ -1,0 +1,41 @@
+---
+description: Building type (Welsh). HAFOD and HENDRE are a pair no other European default has: the hafod is the upland summer dwelling a family moved to with the stock in May, the hendre the lowland winter home they came back to — transhumance written into the housing stock, and into hundreds of place names. A BEUDY is a cowshed, an EFAIL a smithy. Note NEUADD BENTREF ("village hall"): neuadd is a feminine noun, so the following pentref soft-mutates to bentref. Values are given in the radical (dictionary) form except where the compound itself fixes the mutation.
+locale: cy
+---
+Tŷ
+Byngalo
+Fflat
+Tŷ pâr
+Tŷ teras
+Tŷ ar wahân
+Bwthyn
+Plasty
+Maenordy
+Castell
+Tŵr
+Ffermdy
+Ysgubor
+Beudy
+Hafod
+Hendre
+Capel
+Eglwys
+Ysgol
+Ysbyty
+Llyfrgell
+Neuadd
+Neuadd bentref
+Swyddfa
+Warws
+Ffatri
+Siop
+Gwesty
+Bwyty
+Tafarn
+Stadiwm
+Melin
+Efail
+Modurdy
+Canolfan
+Cwt
+Sied

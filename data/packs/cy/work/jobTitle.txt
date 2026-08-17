@@ -1,0 +1,160 @@
+---
+description: Job title (Welsh). Note the pair ATHRO and ATHRAWES: Welsh job titles OFTEN inflect for the sex of the holder — athro is a male teacher, athrawes a female one; cogydd/cogyddes, ysgrifennydd/ysgrifenyddes, rheolwr/rheolwraig, gweithiwr/gweithwraig, actor/actores. The masculine is used generically when the sex is unknown, but a Welsh dataset that pairs a female given name with athro has produced a real error, and no length or character check will find it. A handful of titles here exist because Wales does: CYFIEITHYDD and SWYDDOG Y GYMRAEG are translator and Welsh-language officer, posts that public bodies in Wales are required to fill, and TIWTOR CYMRAEG teaches the language to adults.
+locale: cy
+---
+Athro
+Athrawes
+Darlithydd
+Pennaeth
+Cynorthwyydd dysgu
+Tiwtor Cymraeg
+Llyfrgellydd
+Archifydd
+Curadur
+Cyfieithydd
+Dehonglydd
+Swyddog y Gymraeg
+Golygydd
+Newyddiadurwr
+Gohebydd
+Cyflwynydd
+Cynhyrchydd
+Cyfarwyddwr
+Sgriptiwr
+Awdur
+Bardd
+Cerddor
+Cantor
+Cantores
+Actor
+Actores
+Arlunydd
+Dylunydd
+Ffotograffydd
+Pensaer
+Peiriannydd
+Peiriannydd sifil
+Peiriannydd meddalwedd
+Peiriannydd trydanol
+Peiriannydd mecanyddol
+Gwyddonydd
+Cemegydd
+Ffisegydd
+Biolegydd
+Daearegwr
+Ecolegydd
+Ymchwilydd
+Dadansoddwr data
+Gwyddonydd data
+Rhaglennydd
+Gweinyddwr systemau
+Rheolwr prosiect
+Rheolwr cynnyrch
+Rheolwr
+Rheolwraig
+Cyfarwyddwr gweithredol
+Prif Weithredwr
+Cadeirydd
+Ysgrifennydd
+Ysgrifenyddes
+Derbynnydd
+Gweinyddwr
+Clerc
+Cyfrifydd
+Archwilydd
+Actiwari
+Bancwr
+Broceriwr
+Cynghorydd ariannol
+Economegydd
+Ystadegydd
+Cyfreithiwr
+Bargyfreithiwr
+Barnwr
+Ynad
+Heddwas
+Heddferch
+Diffoddwr tân
+Parafeddyg
+Meddyg
+Meddyg teulu
+Meddyg ymgynghorol
+Llawfeddyg
+Nyrs
+Bydwraig
+Fferyllydd
+Deintydd
+Optegydd
+Milfeddyg
+Ffisiotherapydd
+Therapydd galwedigaethol
+Seicolegydd
+Cwnselydd
+Gweithiwr cymdeithasol
+Gofalwr
+Gweithiwr ieuenctid
+Cogydd
+Cogyddes
+Pobydd
+Cigydd
+Bragwr
+Barmon
+Gweinydd
+Rheolwr gwesty
+Ffermwr
+Bugail
+Garddwr
+Coedwigwr
+Pysgotwr
+Chwarelwr
+Glöwr
+Trydanwr
+Plymwr
+Saer coed
+Saer maen
+Töwr
+Plastrwr
+Peintiwr
+Gof
+Weldiwr
+Mecanydd
+Adeiladwr
+Tirfesurydd
+Syrfëwr meintiau
+Gyrrwr
+Gyrrwr bws
+Gyrrwr lorri
+Gyrrwr trên
+Peilot
+Morwr
+Capten llong
+Postmon
+Postmones
+Glanhawr
+Diogelwr
+Gweithiwr warws
+Ariannwr
+Cynorthwyydd siop
+Rheolwr siop
+Cynrychiolydd gwerthiant
+Marchnatwr
+Ymgynghorydd
+Hyfforddwr
+Hyfforddwr personol
+Chwaraewr proffesiynol
+Dyfarnwr
+Trefnydd digwyddiadau
+Tywysydd twristiaid
+Gweinidog
+Offeiriad
+Ficer
+Cynghorydd
+Aelod o'r Senedd
+Gwas sifil
+Arolygydd
+Archwiliwr
+Technegydd
+Technegydd labordy
+Radiograffydd
+Podiatrydd
+Dietegydd

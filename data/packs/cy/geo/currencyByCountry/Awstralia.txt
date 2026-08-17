@@ -1,0 +1,5 @@
+---
+description: Currency of Awstralia, named in Welsh.
+locale: cy
+---
+Doler Awstralia

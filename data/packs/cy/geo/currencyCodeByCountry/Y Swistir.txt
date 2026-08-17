@@ -1,0 +1,5 @@
+---
+description: Currency code of Y Swistir.
+locale: cy
+---
+CHF

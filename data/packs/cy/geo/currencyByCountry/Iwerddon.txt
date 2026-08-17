@@ -1,0 +1,5 @@
+---
+description: Currency of Iwerddon, named in Welsh.
+locale: cy
+---
+Ewro

@@ -1,0 +1,5 @@
+---
+description: Capital of Ffrainc, in Welsh.
+locale: cy
+---
+Paris

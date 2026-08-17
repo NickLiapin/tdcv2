@@ -1,0 +1,15 @@
+---
+description: Employment or contract type (Welsh). CONTRACT DIM ORIAU is the zero-hours contract, a UK employment category with its own Welsh name.
+locale: cy
+---
+Amser llawn
+Rhan-amser
+Contract
+Dros dro
+Interniaeth
+Llawrydd
+Tymhorol
+Prentisiaeth
+Contract dim oriau
+Asiantaeth
+Hunangyflogedig

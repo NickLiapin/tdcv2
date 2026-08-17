@@ -1,0 +1,12 @@
+---
+description: Jobs in Addysg (Welsh).
+locale: cy
+---
+Athro
+Athrawes
+Darlithydd
+Cynorthwyydd dysgu
+Pennaeth
+Llyfrgellydd
+Cwnselydd ysgol
+Tiwtor Cymraeg

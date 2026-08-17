@@ -1,0 +1,46 @@
+---
+description: Dish (Welsh). CAWL heads the list because it is the closest thing Wales has to a national dish — a slow lamb, leek and root-vegetable broth, eaten from a bowl with bread and cheese. BARA LAWR is laverbread, boiled seaweed fried in oatmeal, which sounds like a curiosity and is a Swansea market staple. PICE AR Y MAEN, "cakes on the stone", are Welsh cakes, cooked on a bakestone rather than baked.
+locale: cy
+---
+Cawl
+Cawl cennin
+Lobsgows
+Bara brith
+Bara lawr
+Caws pobi
+Selsig Morgannwg
+Pice ar y maen
+Crempog
+Teisen lap
+Ffagots a phys
+Cig oen rhost
+Tatws popty
+Cocos
+Cregyn gleision
+Brithyll a chig moch
+Wyau Ynys Môn
+Bara ceirch
+Uwd
+Pastai
+Pysgod a sglodion
+Rhost dydd Sul
+Cyri
+Pizza
+Pasta
+Lasagne
+Swshi
+Byrger
+Taco
+Salad
+Cawl tomato
+Cawl madarch
+Omled
+Brechdan
+Tost
+Ffa pob ar dost
+Reis wedi'i ffrio
+Stiw
+Pastai bugail
+Crymbl afal
+Treiffl
+Sgon

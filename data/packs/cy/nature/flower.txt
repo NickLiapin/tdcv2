@@ -1,0 +1,36 @@
+---
+description: Flower (Welsh). CENNIN PEDR, the daffodil, is literally "Peter's leeks" — which is exactly why Wales has two national emblems that keep being confused: the leek (cenhinen) and the daffodil (cennin Pedr) share a word, and both are worn on Saint David's Day. Several other names are descriptions rather than labels: LLYGAD Y DYDD is "the eye of the day" (daisy), DANT Y LLEW "the lion's tooth" (dandelion), CLYCHAU'R GOG "the cuckoo's bells" (bluebells), BYSEDD Y CŴN "the dogs' fingers" (foxglove), LILI WEN FACH "little white lily" (snowdrop).
+locale: cy
+---
+Cennin Pedr
+Rhosyn
+Rhosyn gwyllt
+Llygad y dydd
+Briallu
+Clychau'r gog
+Lili wen fach
+Eirlys
+Blodyn menyn
+Dant y llew
+Pabi
+Pabi coch
+Tiwlip
+Lili
+Lili'r dyffrynnoedd
+Bysedd y cŵn
+Grug
+Eithin
+Meillion
+Ysgall
+Fioled
+Gwyddfid
+Suran y coed
+Gold Mair
+Blodyn yr haul
+Cwlwm cariad
+Erwain
+Melyn yr eithin
+Saffrwm
+Hyasinth
+Lelog
+Camri

@@ -1,0 +1,16 @@
+---
+description: Dishes of Indiaidd cuisine, named in Welsh where Welsh has its own name and left in the original where the dish travelled under its own name.
+locale: cy
+---
+Cyri
+Tikka masala
+Biryani
+Dhal
+Samosa
+Naan
+Rogan josh
+Saag paneer
+Pakora
+Korma
+Vindaloo
+Chapati

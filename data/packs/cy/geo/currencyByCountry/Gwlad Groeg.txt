@@ -1,0 +1,5 @@
+---
+description: Currency of Gwlad Groeg, named in Welsh.
+locale: cy
+---
+Ewro

@@ -1,0 +1,40 @@
+---
+description: Field of study (Welsh).
+locale: cy
+---
+Y Gymraeg
+Saesneg
+Ieithyddiaeth
+Hanes
+Hanes Cymru
+Archaeoleg
+Athroniaeth
+Diwinyddiaeth
+Daearyddiaeth
+Gwleidyddiaeth
+Cymdeithaseg
+Seicoleg
+Economeg
+Y Gyfraith
+Busnes
+Cyfrifeg
+Mathemateg
+Ffiseg
+Cemeg
+Bioleg
+Gwyddor yr Amgylchedd
+Daeareg
+Cyfrifiadureg
+Peirianneg
+Pensaernïaeth
+Meddygaeth
+Nyrsio
+Fferylliaeth
+Milfeddygaeth
+Amaethyddiaeth
+Addysg
+Celf
+Cerddoriaeth
+Astudiaethau Theatr
+Y Cyfryngau
+Newyddiaduraeth

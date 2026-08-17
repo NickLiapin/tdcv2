@@ -1,0 +1,5 @@
+---
+description: Capital of Singapore, in Welsh.
+locale: cy
+---
+Singapore

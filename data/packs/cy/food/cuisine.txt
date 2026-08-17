@@ -1,0 +1,21 @@
+---
+description: Cuisine (Welsh). The names are adjectives of nationality and take the -aidd / -eg / -ig endings; they follow the noun, so "Italian food" is bwyd Eidalaidd. CYMREIG heads the list because Welsh cooking is a real and separate tradition, not a regional variant of British — see food/dishByCuisine/Cymreig.txt.
+locale: cy
+---
+Cymreig
+Prydeinig
+Gwyddelig
+Ffrengig
+Eidalaidd
+Sbaenaidd
+Groegaidd
+Twrcaidd
+Libanaidd
+Indiaidd
+Tsieineaidd
+Japaneaidd
+Coreaidd
+Thai
+Fietnamaidd
+Mecsicanaidd
+Americanaidd

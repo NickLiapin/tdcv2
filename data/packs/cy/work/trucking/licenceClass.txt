@@ -1,0 +1,12 @@
+---
+description: Driving licence category. These are the UK and EU categories used in Wales — C+E is the articulated-lorry entitlement — and NOT the American CDL classes.
+locale: cy
+---
+B
+BE
+C1
+C1E
+C
+CE
+D1
+D

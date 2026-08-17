@@ -1,0 +1,9 @@
+---
+description: Credit score band (Welsh). The bands are the UK ones, five steps from very poor to excellent; the score numbers themselves differ by agency and belong to the united_kingdom pack.
+locale: cy
+---
+Gwael iawn
+Gwael
+Gweddol
+Da
+Rhagorol

@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the Dwyrain Canol ancestry group (Welsh).
+locale: cy
+---
+Twymyn Fôr y Canoldir deuluol
+Beta-thalasaemia
+Diffyg G6PD
+Clefyd Behçet
+Diabetes math 2
+Anhwylderau cyfansoddol o briodas berthynas

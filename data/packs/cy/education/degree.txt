@@ -1,0 +1,22 @@
+---
+description: Academic degree (Welsh). Welsh universities award and print these titles in Welsh; the abbreviations are the international Latin-based ones except TAR, the Welsh short form of the postgraduate teaching certificate.
+locale: cy
+---
+Tystysgrif
+Diploma
+Gradd Sylfaen
+Baglor yn y Celfyddydau
+Baglor yn y Gwyddorau
+Baglor Peirianneg
+Baglor yn y Gyfraith
+Baglor Addysg
+Meistr yn y Celfyddydau
+Meistr yn y Gwyddorau
+Meistr Gweinyddu Busnes
+Meistr drwy Ymchwil
+Doethur mewn Athroniaeth
+Doethur mewn Llên
+Tystysgrif Addysg i Raddedigion
+Prentisiaeth
+Uwch Ddiploma Cenedlaethol
+Tystysgrif Genedlaethol

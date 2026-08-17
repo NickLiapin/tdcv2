@@ -1,0 +1,5 @@
+---
+description: Currency of Fietnam, named in Welsh.
+locale: cy
+---
+Dong Fietnam

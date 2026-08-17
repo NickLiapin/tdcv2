@@ -1,0 +1,15 @@
+---
+description: Playing positions in Rygbi (Welsh).
+locale: cy
+---
+Prop pen rhydd
+Bachwr
+Prop pen tyn
+Clo
+Blaenasgellwr
+Wythwr
+Mewnwr
+Maswr
+Canolwr
+Asgellwr
+Cefnwr

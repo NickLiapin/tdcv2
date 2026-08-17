@@ -1,0 +1,16 @@
+---
+description: Diagnoses seen in Niwroleg (Welsh).
+locale: cy
+---
+Strôc
+Pwl isgemig dros dro
+Epilepsi
+Meigryn
+Clefyd Parkinson
+Sglerosis ymledol
+Clefyd niwronau motor
+Niwropathi ymylol
+Clefyd Alzheimer
+Syndrom twnnel carpal
+Niwralgia'r wyneb
+Myasthenia gravis

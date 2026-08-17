@@ -1,0 +1,17 @@
+---
+description: Legal case type (Welsh). England and Wales are ONE legal jurisdiction — Wales has no separate court system — so these are the case types of that shared jurisdiction in their Welsh names, not a distinct Welsh law. The right to use Welsh in them is real and statutory: since the Welsh Language Act 1993 anyone may speak Welsh in any court in Wales.
+locale: cy
+---
+Sifil
+Troseddol
+Teulu
+Methdaliad
+Anaf personol
+Cyflogaeth
+Anghydfod contract
+Eiddo deallusol
+Eiddo tiriog
+Mewnfudo
+Treth
+Gofal plant
+Ysgariad

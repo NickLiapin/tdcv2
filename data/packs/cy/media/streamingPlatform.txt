@@ -1,0 +1,16 @@
+---
+description: Streaming platform. Brand names keep their registered spelling; S4C is the Welsh-language television channel and BBC Radio Cymru the Welsh-language radio station, both of which broadcast entirely in Welsh.
+locale: cy
+---
+S4C Clic
+BBC iPlayer
+Netflix
+Disney+
+Amazon Prime Video
+Apple TV+
+YouTube
+Spotify
+BBC Sounds
+ITVX
+Channel 4
+Now

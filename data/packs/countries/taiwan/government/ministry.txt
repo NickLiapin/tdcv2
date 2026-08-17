@@ -1,0 +1,36 @@
+---
+address: taiwan.government.ministry
+description: 行政院所屬的部與委員會，依《行政院組織法》— the fifteen 部 and nine 委員會 that make up the Taiwanese cabinet, plus the two 總處, the central bank and the palace museum that sit at the same level. THE LIST IS UNSTABLE AND TWO OF THE NAMES ARE UNDER FIVE YEARS OLD, so a Taiwanese dataset older than about 2022 will not join on it: 數位發展部 was created on 2022-08-27, 環境部 replaced 行政院環境保護署 and 農業部 replaced 行政院農業委員會 on 2023-08-01, 國家科學及技術委員會 replaced 科技部 on 2022-07-27, and 運動部 was created on 2025-09-09 out of the sports administration inside 教育部. Five names in three years. NOTE THE WORD 數位: Taiwan's word for "digital" is 數位 (shùwèi), where the mainland uses shùzì — a different WORD and not a different spelling of the same one, so the ministry is 數位發展部 and a glossary converted character-by-character from mainland Chinese produces a name that does not exist. Taiwanese technical vocabulary diverges this way throughout: 軟體 for software, 網路 for network, 資訊 for information, 影印 for photocopying, 品質 for quality, 專案 for a project, 計程車 for a taxi. 部 AND 委員會 ARE NOT THE SAME KIND OF BODY. A 部 owns a policy field, drafts its own law and runs its own budget; a 委員會 coordinates across fields and typically has a collegiate membership, which is why 大陸委員會 (relations with mainland China), 原住民族委員會 and 客家委員會 are 會 rather than 部. Three of the 會 here — 中央選舉委員會, 公平交易委員會 and 國家通訊傳播委員會 — are 獨立機關 whose members serve fixed terms and are NOT replaced when the cabinet changes, so a "minister" column keyed on cabinet turnover is wrong for them. 主計總處 and 人事行政總處 are 總處, a rank invented for two central staff functions — national accounts and civil-service personnel — and 主計總處 is the body that publishes every Taiwanese economic statistic. 中央銀行 sits inside the 行政院 rather than outside it, unlike most modern central banks, and 國立故宮博物院 holds cabinet rank because of what it contains: the imperial collection evacuated from Beijing in 1948. Bodies OUTSIDE the 行政院 are at taiwan.government.agency, and the distinction is constitutional rather than administrative — Taiwan has five branches, not three.
+locale: zh-tw
+---
+內政部
+外交部
+國防部
+財政部
+教育部
+法務部
+經濟部
+交通部
+勞動部
+農業部
+衛生福利部
+環境部
+文化部
+數位發展部
+運動部
+國家發展委員會
+大陸委員會
+金融監督管理委員會
+海洋委員會
+僑務委員會
+國軍退除役官兵輔導委員會
+原住民族委員會
+客家委員會
+國家科學及技術委員會
+中央選舉委員會
+公平交易委員會
+國家通訊傳播委員會
+行政院主計總處
+行政院人事行政總處
+中央銀行
+國立故宮博物院

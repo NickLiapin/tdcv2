@@ -1,0 +1,18 @@
+---
+description: Insurance type (Welsh).
+locale: cy
+---
+Yswiriant car
+Yswiriant cartref
+Yswiriant cynnwys
+Yswiriant bywyd
+Yswiriant iechyd
+Yswiriant teithio
+Yswiriant anifeiliaid anwes
+Yswiriant busnes
+Yswiriant atebolrwydd
+Yswiriant incwm
+Yswiriant salwch difrifol
+Yswiriant beic
+Yswiriant morgais
+Yswiriant amaethyddol

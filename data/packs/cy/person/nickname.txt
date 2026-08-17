@@ -1,0 +1,106 @@
+---
+description: Familiar or by-name (Welsh). The first part of the list is ordinary short forms (Dai and Deio for Dafydd, Twm for Tomos, Wil for Gwilym, Ianto and Now for Ieuan, Guto for Gruffudd). The rest is a naming practice Wales developed BECAUSE of the surname problem in person/lastName.txt: when a village holds nine men called Jones, the surname stops distinguishing anybody, so a second name is attached from the trade, the house, the farm or a physical feature — JONES Y POST is Jones the postman, DAI'R GOF Dai the blacksmith, WILLIAMS Y SGŴL Williams the schoolmaster, WIL CAE COCH Will of the red field. The by-name is not a joke or an affectation: it is the part of the name that actually identifies the person, and it is how people are listed in local memory and on gravestones.
+locale: cy
+---
+Dai
+Deio
+Dei
+Twm
+Tomi
+Wil
+Wili
+Ianto
+Now
+Sioni
+Siôn
+Guto
+Gutyn
+Bili
+Bryn
+Cled
+Emlyn
+Gwil
+Hyw
+Iolo
+Jac
+Lyn
+Meic
+Rhod
+Sam
+Steff
+Tref
+Tudur
+Wyn
+Ems
+Gar
+Ger
+Osh
+Beth
+Cati
+Nel
+Meg
+Sian
+Siw
+Mags
+Anni
+Bet
+Cer
+Del
+Eira fach
+Ffi
+Gwenno
+Lowri fach
+Mali
+Mari
+Nia fach
+Non
+Jones y Post
+Jones y Siop
+Jones y Gof
+Jones y Bara
+Jones y Llaeth
+Jones Bryn Awel
+Jones Ty'n Llan
+Davies y Ffariar
+Davies y Sgŵl
+Davies y Bwtsiwr
+Davies Cae Draw
+Williams y Sgŵl
+Williams y Gweinidog
+Williams y Coed
+Williams Pen y Bryn
+Evans y Bwtsiwr
+Evans y Bws
+Evans y Banc
+Evans Glanrafon
+Thomas y Crydd
+Thomas y Teiliwr
+Thomas y Felin
+Thomas Cwm Du
+Dai'r Gof
+Dai'r Post
+Dai Bach
+Dai Tŷ Uchaf
+Wil Cae Coch
+Wil y Cwm
+Wil Bwlch
+Wil Bach
+Twm Tew
+Twm y Nant
+Twm Sgubor
+Ianto Fach
+Ianto'r Felin
+Siôn Llwyd
+Siôn y Gwynt
+Huw Bach
+Huw Bryn
+Ifan Coch
+Ifan y Mynydd
+Nel y Post
+Bet y Bont
+Meg Tŷ Gwyn
+Cati'r Llan
+Mari'r Fron
+Sian y Siop
+Gwen Tŷ Hen
+Lisa Lân

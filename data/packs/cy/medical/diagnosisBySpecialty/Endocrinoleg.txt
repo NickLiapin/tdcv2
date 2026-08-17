@@ -1,0 +1,16 @@
+---
+description: Diagnoses seen in Endocrinoleg (Welsh).
+locale: cy
+---
+Diabetes math 1
+Diabetes math 2
+Cyn-ddiabetes
+Gorthyroidedd
+Isthyroidedd
+Clefyd Hashimoto
+Clefyd Graves
+Syndrom Cushing
+Clefyd Addison
+Osteoporosis
+Syndrom ofari polysystig
+Diffyg fitamin D

@@ -1,0 +1,8 @@
+---
+description: Season (Welsh). HYDREF is autumn and also the month October, which is the same collision date/month.txt carries.
+locale: cy
+---
+Gwanwyn
+Haf
+Hydref
+Gaeaf

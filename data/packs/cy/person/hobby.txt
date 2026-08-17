@@ -1,0 +1,82 @@
+---
+description: Hobby or pastime (Welsh). Two of these are national rather than personal habits. BARDDONI, writing verse in strict metre, is a competitive mass pastime kept alive by the eisteddfod circuit — the crowning and chairing of the bard is the climax of the National Eisteddfod every August. CANU MEWN CÔR, singing in a choir, is the same: the male voice choir grew out of chapel and colliery and is still an ordinary weekly commitment in many towns. HEL ACHAU, tracing family history, is unusually popular in Wales for the reason set out in person/lastName.txt: when a third of the country shares twenty surnames, working out who is who is genuinely difficult and genuinely interesting.
+locale: cy
+---
+Darllen
+Ysgrifennu
+Barddoni
+Canu
+Canu mewn côr
+Canu penillion
+Chwarae'r delyn
+Chwarae'r gitâr
+Chwarae'r piano
+Dawnsio gwerin
+Dawnsio
+Actio
+Adrodd
+Hel achau
+Cerdded
+Mynydda
+Dringo
+Rhedeg
+Beicio
+Nofio
+Syrffio
+Canŵio
+Hwylio
+Pysgota
+Marchogaeth
+Gwersylla
+Gwylio adar
+Garddio
+Tyfu llysiau
+Cadw gwenyn
+Cadw ieir
+Ffermio
+Coginio
+Pobi
+Bragu cwrw
+Gwau
+Gwnïo
+Gwehyddu
+Crochenwaith
+Gwaith coed
+Cerfio
+Peintio
+Tynnu lluniau
+Ffotograffiaeth
+Gwneud gemwaith
+Calligraffi
+Casglu stampiau
+Gwyddbwyll
+Cardiau
+Jig-so
+Cwis
+Dartiau
+Bowlio
+Snwcer
+Rygbi
+Pêl-droed
+Criced
+Tenis
+Badminton
+Sboncen
+Golff
+Hoci
+Athletau
+Bocsio
+Codi pwysau
+Ioga
+Myfyrio
+Gwirfoddoli
+Dysgu ieithoedd
+Gemau fideo
+Gwylio ffilmiau
+Podledu
+Blogio
+Sgïo
+Saethyddiaeth
+Cerdded cŵn
+Modelau
+Crwydro

@@ -1,0 +1,59 @@
+{
+  "months": [
+    "Ionawr",
+    "Chwefror",
+    "Mawrth",
+    "Ebrill",
+    "Mai",
+    "Mehefin",
+    "Gorffennaf",
+    "Awst",
+    "Medi",
+    "Hydref",
+    "Tachwedd",
+    "Rhagfyr"
+  ],
+  "monthsInDate": [
+    "Ionawr",
+    "Chwefror",
+    "Mawrth",
+    "Ebrill",
+    "Mai",
+    "Mehefin",
+    "Gorffennaf",
+    "Awst",
+    "Medi",
+    "Hydref",
+    "Tachwedd",
+    "Rhagfyr"
+  ],
+  "monthsShort": [
+    "Ion",
+    "Chwef",
+    "Maw",
+    "Ebr",
+    "Mai",
+    "Meh",
+    "Gorff",
+    "Awst",
+    "Medi",
+    "Hyd",
+    "Tach",
+    "Rhag"
+  ],
+  "weekdays": [
+    "dydd Sul",
+    "dydd Llun",
+    "dydd Mawrth",
+    "dydd Mercher",
+    "dydd Iau",
+    "dydd Gwener",
+    "dydd Sadwrn"
+  ],
+  "weekdaysShort": ["Sul", "Llun", "Maw", "Mer", "Iau", "Gwe", "Sad"],
+  "formats": {
+    "L": "DD/MM/YYYY",
+    "LL": "D MMMM YYYY"
+  },
+  "notes": "Four things. FIRST, monthsInDate is deliberately IDENTICAL to months: Welsh does not inflect the month inside a date, so 5 Ionawr 2026 uses the plain name — unlike Basque or Polish, where the field exists precisely because the month changes. It is only when a config builds the older phrasal date with the preposition o (\"the fifth OF March\") that the month soft-mutates, and then it is o Fawrth, o Fehefin, o Orffennaf (g deleted), o Ragfyr — a mutation the formatter does not and should not perform. SECOND, month and weekday names are CAPITALISED in Welsh, unlike French, Spanish or Basque. THIRD, the weekday name normally carries dydd in front of it, so the entries include it; replacing dydd with nos moves the phrase to that evening (nos Sadwrn = Saturday night). weekdays is Sunday-first because the formatter wants it that way, while date/weekday.txt in the pack is Monday-first, and the Welsh week does begin on Monday. FOURTH, the numeric date is little-endian UK style, 05/01/2026, and the time is written 14:30 with a colon; the currency is pound sterling written £1,234.56 with a comma thousands separator and a full stop for decimals, because Wales is inside the United Kingdom."
+}

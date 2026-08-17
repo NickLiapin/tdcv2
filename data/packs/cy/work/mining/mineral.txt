@@ -1,0 +1,23 @@
+---
+description: Mined mineral or commodity (Welsh). The first four are Welsh industrial history rather than a general list. GLO CARREG is anthracite, the hardest and cleanest-burning coal, and the south-west Wales field was the largest anthracite field in the world. LLECHI is slate: the quarries of Gwynedd roofed the nineteenth century and are now a World Heritage Site. COPR made Swansea the world's copper-smelting centre, and AUR from the Dolgellau belt is still mined in small quantities for wedding rings.
+locale: cy
+---
+Glo
+Glo carreg
+Llechi
+Copr
+Plwm
+Aur
+Arian
+Sinc
+Haearn
+Calchfaen
+Gwenithfaen
+Tywodfaen
+Halen
+Cerrig mân
+Manganîs
+Silica
+Clai tân
+Ocr
+Barit

@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Console and store names are brands and keep their registered spelling in Welsh text.
+locale: cy
+---
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Nintendo Switch 2
+Cyfrifiadur personol
+Steam Deck
+Ffôn symudol
+Tabled
+Meta Quest

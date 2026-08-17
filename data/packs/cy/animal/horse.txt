@@ -1,0 +1,22 @@
+---
+description: Horse breed (Welsh). The Welsh pony and cob are a native breed group registered in four sections, and their Welsh names are the primary ones: MERLEN FYNYDD GYMREIG is the Section A mountain pony (mynydd and Cymreig both soft-mutated after the feminine merlen), COB CYMREIG the Section D cob.
+locale: cy
+---
+Merlen Fynydd Gymreig
+Merlen Gymreig
+Cob Cymreig
+Ceffyl Gwedd
+Merlen Shetland
+Merlen Dartmoor
+Merlen Exmoor
+Merlen Connemara
+Merlen y Fforest Newydd
+Arabaidd
+Gwaedlin Pur
+Shire
+Clydesdale
+Ffrisiaidd
+Andalusaidd
+Palomino
+Appaloosa
+Mustang

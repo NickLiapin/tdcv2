@@ -1,0 +1,13 @@
+---
+description: Content rating. These are the BBFC certificates used throughout the United Kingdom, so they apply in Wales; the classification body itself is UK data.
+locale: cy
+---
+U
+PG
+12
+12A
+15
+18
+R18
+Cyngor rhieni
+Pob oed

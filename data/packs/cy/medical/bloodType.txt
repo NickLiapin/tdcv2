@@ -1,0 +1,12 @@
+---
+description: ABO / Rh blood type. The notation is international.
+locale: cy
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

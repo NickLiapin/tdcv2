@@ -1,0 +1,26 @@
+---
+description: Insect (Welsh). BUWCH GOCH GOTA, the ladybird, is a three-word phrase in which both adjectives mutate after the feminine buwch — coch to goch, cwta to gota — so "little red cow" surfaces with two changed initials and no config could rebuild it from the dictionary forms. GWAS Y NEIDR, the dragonfly, is "the adder's servant"; PILI-PALA and GLÖYN BYW are both ordinary words for a butterfly, the first southern and the second northern.
+locale: cy
+---
+Morgrugyn
+Gwenynen
+Cacynen
+Pili-pala
+Glöyn byw
+Gwyfyn
+Chwilen
+Gwas y neidr
+Ceiliog rhedyn
+Sioncyn y gwair
+Buwch goch gota
+Criciad
+Pryf tân
+Magïen
+Cleren
+Gwybedyn
+Mosgito
+Chwannen
+Lleuen
+Pryf copyn
+Neidr gantroed
+Termit

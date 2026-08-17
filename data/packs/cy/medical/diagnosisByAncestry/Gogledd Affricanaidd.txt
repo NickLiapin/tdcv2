@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the Gogledd Affricanaidd ancestry group (Welsh).
+locale: cy
+---
+Beta-thalasaemia
+Diffyg G6PD
+Twymyn Fôr y Canoldir deuluol
+Diabetes math 2
+Diffyg fitamin D
+Anemia diffyg haearn

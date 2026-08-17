@@ -1,0 +1,34 @@
+---
+description: Hashtag word, to be prefixed with # in a template. Welsh-language social media is real and has its own tags: #DyddGwylDewi is Saint David's Day, #Eisteddfod the festival, #Cymraeg the language itself, #DysguCymraeg the Welsh-learner community, #CymruAmByth "Wales for ever".
+locale: cy
+---
+Cymraeg
+CymruAmByth
+DyddGwylDewi
+Eisteddfod
+DysguCymraeg
+CaruCymru
+Cymru
+Eryri
+Bendigedig
+Hiraeth
+Cofio
+Bore
+Machlud
+Natur
+Antur
+Bwyd
+Coginio
+Teithio
+Ffasiwn
+Cerddoriaeth
+Celf
+Llyfrau
+Ffotograffiaeth
+Chwaraeon
+Rygbi
+PelDroed
+Iechyd
+Ffitrwydd
+Gardd
+Cariad

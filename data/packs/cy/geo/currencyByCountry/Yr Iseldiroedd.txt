@@ -1,0 +1,5 @@
+---
+description: Currency of Yr Iseldiroedd, named in Welsh.
+locale: cy
+---
+Ewro

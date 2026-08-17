@@ -1,0 +1,29 @@
+---
+description: Event type (Welsh). Four of these are Welsh institutions with no English equivalent, and translating them loses the thing itself. An EISTEDDFOD is a competitive festival of poetry, music and prose that has run in some form since 1176; the National Eisteddfod is conducted entirely in Welsh and moves to a different town each year. A CYMANFA GANU is a mass hymn-singing meeting where the congregation is the choir. A NOSON LAWEN is an evening of songs, recitation and comic turns. A TWMPATH is a folk dance. The GORSEDD is the order of bards that presides over the eisteddfod.
+locale: cy
+---
+Priodas
+Pen-blwydd
+Bedydd
+Angladd
+Parti
+Cinio
+Cynhadledd
+Cyfarfod
+Seminar
+Gweithdy
+Cyngerdd
+Gŵyl
+Eisteddfod
+Cymanfa Ganu
+Noson Lawen
+Twmpath
+Gorsedd
+Sioe Amaethyddol
+Ffair
+Arddangosfa
+Gêm
+Rasys
+Gorymdaith
+Lansiad
+Cwrdd

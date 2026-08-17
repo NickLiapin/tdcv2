@@ -1,0 +1,30 @@
+---
+description: Aircraft type. Manufacturer designations are international and are not translated into Welsh — an A320 is an A320 on a Welsh boarding card exactly as it is on any other.
+locale: cy
+---
+Boeing 737
+Boeing 737 MAX
+Boeing 747
+Boeing 757
+Boeing 767
+Boeing 777
+Boeing 787 Dreamliner
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A330
+Airbus A350
+Airbus A380
+Embraer E175
+Embraer E190
+Embraer E195
+Bombardier CRJ900
+ATR 42
+ATR 72
+De Havilland Dash 8
+Saab 340
+Britten-Norman Islander
+Cessna Citation
+Pilatus PC-12
+Beechcraft King Air
