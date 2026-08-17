@@ -1,0 +1,84 @@
+---
+description: General diagnoses in Nynorsk. Latin and Greek clinical terms are identical in both written standards, so the divergence sits entirely in the Norwegian-worded entries: sjukdom for sykdom (Parkinsons sjukdom, Alzheimers sjukdom, nyresjukdom, koronarsjukdom), hjarte- for hjerte-, liding for lidelse, beinskjørheit for benskjørhet, urinvegsinfeksjon for urinveisinfeksjon, mellomøyrebetennelse for mellomørebetennelse, grøn stær for grønn stær, feitme for fedme, åreknutar for åreknuter and djup for dyp. kols is the Norwegian abbreviation for COPD and is written lowercase as an ordinary word in both standards.
+locale: nn
+---
+hypertensjon
+diabetes type 2
+astma
+akutt bronkitt
+influensa
+migrene
+generalisert angstliding
+depresjon
+vinterdepresjon
+artrose
+leddgikt
+gastroøsofageal refluks
+jernmangelanemi
+hypotyreose
+urinvegsinfeksjon
+lungebetennelse
+kronisk nyresjukdom
+koronarsjukdom
+atrieflimmer
+hjartesvikt
+hjerneinfarkt
+epilepsi
+Parkinsons sjukdom
+Alzheimers sjukdom
+multippel sklerose
+psoriasis
+atopisk eksem
+allergisk rhinitt
+kronisk biholebetennelse
+mellomøyrebetennelse
+konjunktivitt
+grå stær
+grøn stær
+blindtarmbetennelse
+galleblærebetennelse
+divertikulitt
+irritabel tarm
+Crohns sjukdom
+ulcerøs kolitt
+kronisk hepatitt B
+levercirrhose
+akutt pankreatitt
+urinsyregikt
+beinskjørheit
+fibromyalgi
+isjias
+skiveprolaps
+karpaltunnelsyndrom
+senebetennelse
+kols
+tuberkulose
+leukemi
+lymfom
+føflekkreft
+hyperlipidemi
+feitme
+søvnapné
+insomni
+bipolar liding
+ADHD
+cøliaki
+systemisk lupus erythematosus
+svimmelheit
+tinnitus
+hemoroider
+åreknutar
+djup venetrombose
+lungeemboli
+nyrestein
+anemi
+hypertyreose
+magesår
+gastritt
+erysipelas
+sepsis
+brystkreft
+akutt gastroenteritt
+D-vitaminmangel
+borreliose
+kronisk venøs insuffisiens

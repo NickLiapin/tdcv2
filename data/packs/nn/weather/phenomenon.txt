@@ -1,0 +1,23 @@
+---
+description: Larger weather and natural events in Nynorsk. flaum for flom and bølgje for bølge are the divergences; nordlys, midnattssol, mørketid and polarnatt are the four that make Norwegian weather vocabulary Norwegian, and mørketid — the weeks north of the Arctic Circle when the sun does not rise at all — has no English word.
+locale: nn
+---
+nordlys
+midnattssol
+mørketid
+polarnatt
+snøskred
+jordskred
+flaum
+isgang
+springflo
+snøfokk
+snøstorm
+storm
+orkan
+hetebølgje
+kuldebølgje
+tørke
+hagl
+lyn
+skoddebanke

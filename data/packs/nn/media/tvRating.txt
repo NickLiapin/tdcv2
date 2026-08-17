@@ -1,0 +1,11 @@
+---
+description: Norwegian film and television age rating as Medietilsynet sets it — six real classes plus the unrated case. Tillaten for Tillatt and Ikkje for Ikke are the Nynorsk forms. Note that these are ages in years and not letter codes; Norway has never used a letter system.
+locale: nn
+---
+Tillaten for alle
+6 år
+9 år
+12 år
+15 år
+18 år
+Ikkje vurdert

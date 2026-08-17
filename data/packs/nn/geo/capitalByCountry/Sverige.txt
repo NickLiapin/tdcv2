@@ -1,0 +1,5 @@
+---
+description: Capital of Sverige, as Nynorsk writes it
+locale: nn
+---
+Stockholm

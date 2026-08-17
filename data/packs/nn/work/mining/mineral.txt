@@ -1,0 +1,27 @@
+---
+description: Minerals mined in Norway, in Nynorsk. kol for kull is the divergence; the rest are mineral names and identical in both standards. ilmenitt, rutil, olivin, nefelinsyenitt and larvikitt are the ones Norway actually exports — Norway is among the world's largest producers of olivine.
+locale: nn
+---
+ilmenitt
+rutil
+olivin
+nefelinsyenitt
+larvikitt
+kvarts
+kvartsitt
+kalkstein
+dolomitt
+skifer
+grafitt
+jernmalm
+kobber
+nikkel
+sink
+bly
+titan
+molybden
+apatitt
+feltspat
+talk
+gull
+kol

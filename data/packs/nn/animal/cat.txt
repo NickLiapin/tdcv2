@@ -1,0 +1,22 @@
+---
+description: Cat breeds recognised in Norway, in Nynorsk. Norsk skogkatt is the national breed. Breed names built on a place take the Nynorsk origin suffix -ar where Bokmål takes -er — persar, siamesar, abyssinar, burmesar, orientalar — and heilag birma carries the Nynorsk heilag for hellig. The English and made-up breed names (ragdoll, sphynx, scottish fold, russian blue) keep their real spelling in any locale.
+locale: nn
+---
+norsk skogkatt
+persar
+maine coon
+siamesar
+ragdoll
+bengal
+sphynx
+britisk korthår
+europeisk korthår
+abyssinar
+scottish fold
+russian blue
+heilag birma
+devon rex
+cornish rex
+burmesar
+sibirkatt
+orientalar

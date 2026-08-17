@@ -1,0 +1,22 @@
+---
+description: Employment benefit in Nynorsk. feriepengar, innskotspensjon and heimekontor are the divergences — Nynorsk plural -ar, innskot for innskudd, heim for hjem. feriepengar is not a perk but a statutory 10.2 per cent of the previous year's pay, paid out in June; the category is named here so a config author does not read it as a bonus.
+locale: nn
+---
+feriepengar
+innskotspensjon
+behandlingsforsikring
+helseforsikring
+tannforsikring
+livsforsikring
+fri telefon
+firmabil
+heimekontor
+fleksitid
+aksjeprogram
+bonusordning
+treningsstøtte
+bedriftsidrettslag
+kantine
+etterutdanning
+personalrabatt
+barnehageplass

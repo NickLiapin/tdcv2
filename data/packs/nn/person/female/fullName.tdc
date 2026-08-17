@@ -1,0 +1,10 @@
+---
+description: Nynorsk full female name — one given name and one surname (Ingebjørg Myklebust). The surname is drawn from the same list as the male one, because Norwegian surnames do not inflect for gender.
+generator: tdc
+locale: nn
+---
+<sequence name="p">
+  <gen name="f" type="template" value="nn.person.female.firstName"/>
+  <gen name="l" type="template" value="nn.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

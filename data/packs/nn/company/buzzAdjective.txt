@@ -1,0 +1,46 @@
+---
+description: Corporate adjective in Nynorsk. The -leg/-lig and -laus/-løs endings again — heilskapleg, saumlaus — plus the Nynorsk past participle in -a where Bokmål has -et: strømlinjeforma, framtidsretta, handlingsretta, samla, datadriven. skreddarsydd, tilpassingsdyktig, samansettbar, samhandlande and verdiskapande complete the list.
+locale: nn
+---
+skalerbar
+smidig
+saumlaus
+robust
+integrert
+strømlinjeforma
+distribuert
+skybasert
+datadriven
+kundeorientert
+ende-til-ende
+neste generasjons
+sanntids
+plattformuavhengig
+bedriftsklar
+modulær
+friksjonsfri
+nøkkelferdig
+framtidsretta
+heilskapleg
+dynamisk
+proaktiv
+tilpassingsdyktig
+optimalisert
+sikker
+intelligent
+automatisert
+samla
+samhandlande
+innovativ
+disruptiv
+slank
+skreddarsydd
+samansettbar
+motstandsdyktig
+elastisk
+utvidbar
+handlingsretta
+verdiskapande
+berekraftig
+digital
+grøn

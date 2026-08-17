@@ -1,0 +1,29 @@
+---
+description: Insects and other small creatures in Nynorsk. kvefs is the western word for the wasp that Bokmål calls veps; sommarfugl, augestikkar, grashoppe and nattsvermar are the Nynorsk forms of sommerfugl, øyenstikker, gresshoppe and nattsvermer. knott and klegg have no English single word — the first is the biting midge of a Norwegian summer evening and the second the horsefly.
+locale: nn
+---
+maur
+skogsmaur
+honningbie
+humle
+kvefs
+geithams
+sommarfugl
+admiral
+neslesommarfugl
+kålsommarfugl
+marihøne
+gullbasse
+granbarkbille
+augestikkar
+grashoppe
+siriss
+mygg
+knott
+klegg
+husflue
+blomsterflue
+nattsvermar
+skogflått
+døgnflue
+vårflue

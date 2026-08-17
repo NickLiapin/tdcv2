@@ -1,0 +1,28 @@
+---
+description: Character class in a role-playing game, in Nynorsk. The agent nouns take -ar: krigar, magikar, snikmordar, bogeskyttar, helbredar, skjoldberar, runemeister, beistetemjar, nekromantikar, riddar. tjuv replaces tyv and boge replaces bue. skald is a Norse word both standards kept.
+locale: nn
+---
+krigar
+magikar
+trollmann
+tjuv
+snikmordar
+paladin
+jeger
+bogeskyttar
+prest
+helbredar
+druide
+munk
+barbar
+nekromantikar
+bard
+riddar
+skjoldberar
+alkymist
+ingeniør
+sjaman
+berserk
+skald
+runemeister
+beistetemjar

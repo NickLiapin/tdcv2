@@ -1,0 +1,30 @@
+---
+description: Diagnoses that apply to female anatomy, in Nynorsk. livmora is the Nynorsk feminine definite where Bokmål writes livmoren — the single clearest grammatical difference between the standards, because Nynorsk keeps a real feminine gender that Bokmål lets writers avoid. bløding for blødning, forgifting for forgiftning, liding for lidelse, alvorleg for alvorlig and utanfor for utenfor are the rest.
+locale: nn
+---
+endometriose
+polycystisk ovariesyndrom
+myom i livmora
+ovarialcyste
+eggstokkreft
+livmorhalskreft
+celleforandringar i livmorhalsen
+cervicitt
+endometritt
+livmorkreft
+bekkeninfeksjon
+bakteriell vaginose
+soppinfeksjon i skjeden
+kraftige menstruasjonsblødingar
+menstruasjonssmerter
+uteblitt menstruasjon
+svangerskapsforgifting
+svangerskapsdiabetes
+alvorleg svangerskapskvalme
+svangerskap utanfor livmora
+bløding etter fødsel
+brystbetennelse
+fibroadenom i bryst
+overgangsplager
+premenstruell dysforisk liding
+livmorframfall

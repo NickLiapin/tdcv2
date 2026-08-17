@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list, and the parent of work/jobByIndustry. All ten are spelled exactly as in Bokmål — these are compound nouns of Latin and Low German origin that neither standard reshaped — while every child file under them diverges heavily. That contrast, an identical parent over divergent children, is the shape of the whole nn/nb relationship. Capitalised because they are category labels; company/industry holds the same fields in ordinary lowercase Nynorsk and is longer.
+locale: nn
+---
+Teknologi
+Helse og omsorg
+Finans
+Bygg og anlegg
+Utdanning
+Reiseliv
+Industri
+Varehandel
+Transport
+Juss

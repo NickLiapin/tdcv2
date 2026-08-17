@@ -1,0 +1,5 @@
+---
+description: Currency of Indonesia, as Nynorsk names it
+locale: nn
+---
+indonesisk rupiah

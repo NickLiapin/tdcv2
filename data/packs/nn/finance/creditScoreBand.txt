@@ -1,0 +1,9 @@
+---
+description: Credit risk band as a Norwegian credit bureau reports it. Norway has no consumer-facing score in the American sense — bureaus return a risk class, and a lookup on you is legally required to be disclosed to you. låg for lav and høg for høy are the Nynorsk forms.
+locale: nn
+---
+svært låg risiko
+låg risiko
+middels risiko
+høg risiko
+svært høg risiko

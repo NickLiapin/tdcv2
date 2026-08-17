@@ -1,0 +1,26 @@
+---
+description: Term of art from Norwegian procedure, in Nynorsk. Two entries are genuinely different WORDS and not spellings: orskurd is the Nynorsk term for the court order that Bokmål calls a kjennelse, and påtalemakt replaces påtalemyndighet — both are the forms used in Nynorsk judgments. saksøkjar, forsvarar and meddommar carry the -ar agent ending, forelding replaces foreldelse and mellombels forføying replaces midlertidig forføyning. A meddommar is a lay judge who sits on the bench with equal vote, which Norwegian courts use as standard.
+locale: nn
+---
+saksøkjar
+saksøkt
+tiltalt
+fornærma
+vitne
+stemning
+forkynning
+forklaring
+orskurd
+dom
+forlik
+anke
+rettskraft
+jurisdiksjon
+verneting
+påtalemakt
+forsvarar
+aktor
+meddommar
+bevisbyrde
+forelding
+mellombels forføying

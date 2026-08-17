@@ -1,0 +1,8 @@
+---
+description: Gender label in Nynorsk. ikkje is the Nynorsk negation where Bokmål writes ikke, so both of the last two entries differ from the Bokmål pack even though the categories are the same. oppgjeve is the Nynorsk past participle of gje (Bokmål oppgitt, from gi).
+locale: nn
+---
+mann
+kvinne
+ikkje-binær
+ikkje oppgjeve

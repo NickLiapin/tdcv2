@@ -1,0 +1,17 @@
+---
+description: Kind of freight in Nynorsk. farleg gods is the divergence — Nynorsk -leg for Bokmål -lig — and is the legal term for ADR dangerous goods. tømmer, timber, moves by road all over Norway.
+locale: nn
+---
+tørrlast
+kjølegods
+frysegods
+planbil
+tank
+dyretransport
+farleg gods
+container
+biltransport
+tømmer
+bulk
+kranbil
+avfall

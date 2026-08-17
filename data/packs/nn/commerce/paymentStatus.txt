@@ -1,0 +1,14 @@
+---
+description: State of a payment, in Nynorsk. ventar for venter and mislukkast for mislyktes are the divergences; the Latin-derived states (autorisert, refundert, annullert) are shared.
+locale: nn
+---
+ventar
+autorisert
+betalt
+delbetalt
+mislukkast
+avvist
+refundert
+delvis refundert
+tilbakeført
+annullert

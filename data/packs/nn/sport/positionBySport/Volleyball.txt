@@ -1,0 +1,9 @@
+---
+description: Playing positions in volleyball, in Nynorsk. Filename matches the parent value in sport/sportCoherent.txt character for character.
+locale: nn
+---
+oppleggjar
+kantspelar
+midtblokkerar
+libero
+diagonalspelar

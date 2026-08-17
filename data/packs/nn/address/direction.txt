@@ -1,0 +1,19 @@
+---
+description: Direction as used inside an address in Nynorsk — the four cardinals, the four intercardinals and the relative words a Norwegian address uses for a part of a settlement. aust is the divergence, and it drags nordaust and søraust with it.
+locale: nn
+---
+nord
+sør
+aust
+vest
+nordaust
+nordvest
+søraust
+sørvest
+sentrum
+sentral
+indre
+ytre
+øvre
+nedre
+midtre

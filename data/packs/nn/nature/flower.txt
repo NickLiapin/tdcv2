@@ -1,0 +1,34 @@
+---
+description: Flowers and wild plants in Nynorsk. kvitveis for hvitveis is the hv-/kv- rule; revebjølle for revebjelle and ringblom for ringblomst are Nynorsk word forms. The second half of the list is Norwegian mountain and bog flora — røsslyng, reinrose, myrull, geitrams, mjødurt — which is what a Norwegian actually sees, rather than a florist's catalogue.
+locale: nn
+---
+rose
+tulipan
+tusenfryd
+solsikke
+lilje
+orkidé
+påskelilje
+ringblom
+lavendel
+iris
+peon
+nellik
+krysantemum
+valmue
+fiol
+blåveis
+kvitveis
+liljekonvall
+prestekrage
+løvetann
+marikåpe
+blåklokke
+engsoleie
+gullris
+mjødurt
+revebjølle
+røsslyng
+reinrose
+myrull
+geitrams

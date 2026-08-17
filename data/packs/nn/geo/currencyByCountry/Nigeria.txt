@@ -1,0 +1,5 @@
+---
+description: Currency of Nigeria, as Nynorsk names it
+locale: nn
+---
+naira

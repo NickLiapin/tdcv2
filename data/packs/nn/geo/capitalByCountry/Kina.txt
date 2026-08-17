@@ -1,0 +1,5 @@
+---
+description: Capital of Kina, as Nynorsk writes it
+locale: nn
+---
+Beijing

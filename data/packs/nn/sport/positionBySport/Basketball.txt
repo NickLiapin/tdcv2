@@ -1,0 +1,9 @@
+---
+description: Playing positions in basketball, in Nynorsk. Filename matches the parent value in sport/sportCoherent.txt character for character.
+locale: nn
+---
+playmaker
+shooting guard
+small forward
+power forward
+senter

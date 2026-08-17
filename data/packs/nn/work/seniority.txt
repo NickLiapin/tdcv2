@@ -1,0 +1,21 @@
+---
+description: Seniority level in Nynorsk. Six differ from Bokmål, all through the same two endings: -ar for -er (rådgjevar, teamleiar, prosjektleiar, avdelingsleiar, seksjonsleiar) and -leg/-ande for -lig/-ende (fagansvarleg, administrerande). rådgjevar and seniorrådgjevar are real graded ranks in Norwegian public service, not vague titles.
+locale: nn
+---
+praktikant
+lærling
+trainee
+nyutdanna
+junior
+konsulent
+rådgjevar
+seniorrådgjevar
+senior
+spesialist
+fagansvarleg
+teamleiar
+prosjektleiar
+avdelingsleiar
+seksjonsleiar
+direktør
+administrerande direktør

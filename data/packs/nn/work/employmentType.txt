@@ -1,0 +1,17 @@
+---
+description: Form of employment in Nynorsk, following the categories Norwegian labour law uses. mellombels is the Nynorsk word for temporary and has no Bokmål equivalent in use — Bokmål says midlertidig. tilsetjing for ansettelse, heiltid for heltid, innleigd for innleid and frilansar for frilanser are the other four.
+locale: nn
+---
+fast tilsetjing
+mellombels tilsetjing
+heiltid
+deltid
+vikariat
+engasjement
+tilkallingsvakt
+lærling
+praktikant
+konsulent
+frilansar
+sesongarbeid
+innleigd

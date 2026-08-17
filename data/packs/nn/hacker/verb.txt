@@ -1,0 +1,32 @@
+---
+description: Technical verb in the INFINITIVE, in Nynorsk. kople til for koble til, berekne for beregne and overvake for overvåke are the divergences; the -ere loanverbs are identical in both standards. Pair with hacker/ingverb.txt, which holds the same verbs in the present tense.
+locale: nn
+---
+sikkerheitskopiere
+omgå
+hacke
+overstyre
+komprimere
+kopiere
+navigere
+indeksere
+kople til
+generere
+kvantifisere
+berekne
+syntetisere
+overføre
+programmere
+starte på nytt
+tolke
+kryptere
+dekryptere
+rulle ut
+overvake
+analysere
+optimalisere
+kompilere
+laste ned
+laste opp
+synkronisere
+konfigurere

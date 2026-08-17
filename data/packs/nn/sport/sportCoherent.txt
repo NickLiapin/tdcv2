@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list, and the parent of sport/positionBySport. Handball differs from the Bokmål parent (Håndball) — Nynorsk hand against Bokmål hånd — so the child directory name differs too. Note which of Norway's biggest sports are NOT here: langrenn, skiskyting, hopp and alpint are what the country is known for, and none of them has playing positions at all. Inventing some would have been a fabrication, so they live in sport/name.txt and are deliberately absent from this parent.
+locale: nn
+---
+Fotball
+Handball
+Ishockey
+Bandy
+Innebandy
+Volleyball
+Basketball
+Amerikansk fotball

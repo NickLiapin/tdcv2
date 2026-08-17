@@ -1,0 +1,171 @@
+---
+description: Complete street names as a Nynorsk municipality writes them. These are WHOLE names, not stems to compose: Norwegian glues the thoroughfare word onto the name as one word (Storgata, Kyrkjevegen, Solbakken), so there is no separate suffix to append — address/streetSuffix.txt is the alternative to this file, not its partner. The systematic difference from the Bokmål pack is -vegen against -veien: Nynorsk has no vei at all, only veg, and roughly a quarter of Norwegian municipalities sign their streets that way. On top of that come Kyrkjegata for Kirkegata, Skulegata for Skolegata, Hamnegata for Havnegata, Marknadsgata for Markedsgata, Gardsvegen for Gårdsveien, Stølsvegen for Seterveien and Kvitveisvegen for Hvitveisveien. Names honouring a person keep the genitive -s and the person's own spelling, which is why the Nynorsk writers Aasen, Vinje, Garborg, Hauge, Blix, Sivle and Vesaas appear here — they are the names actually on street signs in the Nynorsk counties. Street names specific to one city belong in the Norway country pack, not here.
+locale: nn
+---
+Storgata
+Kyrkjegata
+Skulegata
+Jernbanegata
+Strandgata
+Torggata
+Nygata
+Hamnegata
+Bakkegata
+Sjøgata
+Elvegata
+Møllergata
+Bakargata
+Smedgata
+Skomakargata
+Apotekargata
+Fiskargata
+Marknadsgata
+Rådhusgata
+Slottsgata
+Festningsgata
+Borgargata
+Brugata
+Vollgata
+Parkgata
+Kongens gate
+Dronningas gate
+Karl Johans gate
+Haakon VIIs gate
+Olav Vs gate
+Harald Hårfagres gate
+Olav Kyrres gate
+Sverres gate
+Ivar Aasens veg
+Aasmund Vinjes veg
+Arne Garborgs veg
+Hulda Garborgs veg
+Olav H. Hauges veg
+Elias Blix' veg
+Per Sivles veg
+Tarjei Vesaas' veg
+Anders Hovdens veg
+Aasta Hansteens veg
+Bjørnsons gate
+Ibsens gate
+Holbergs gate
+Welhavens gate
+Kiellands gate
+Hamsuns veg
+Undsets veg
+Asbjørnsens gate
+Moes veg
+Nansens veg
+Amundsens veg
+Griegs veg
+Bulls gate
+Michelsens gate
+Parkvegen
+Skogvegen
+Fjellvegen
+Sjøvegen
+Elvevegen
+Dalvegen
+Åsvegen
+Livegen
+Myrvegen
+Engvegen
+Hagevegen
+Blomstervegen
+Solvegen
+Solbakken
+Soltoppen
+Utsikta
+Panoramavegen
+Bjørkevegen
+Furuvegen
+Granvegen
+Lindevegen
+Rognevegen
+Eikevegen
+Hasselvegen
+Seljevegen
+Ospevegen
+Lønnevegen
+Almevegen
+Askevegen
+Heggevegen
+Viervegen
+Einervegen
+Lyngvegen
+Kløvervegen
+Fiolvegen
+Rosevegen
+Liljevegen
+Tulipanvegen
+Blåklokkevegen
+Kvitveisvegen
+Blåveisvegen
+Løvetannvegen
+Prestekragevegen
+Snøklokkevegen
+Blåbærstien
+Tytebærvegen
+Moltevegen
+Bringebærvegen
+Jordbærvegen
+Nypevegen
+Bjørnstien
+Revefaret
+Elgstien
+Harevegen
+Ekornvegen
+Måsevegen
+Ørnevegen
+Falkevegen
+Svanevegen
+Tranevegen
+Gaupevegen
+Ulvevegen
+Kyrkjevegen
+Prestegardsvegen
+Kapellvegen
+Klostervegen
+Sentrumsvegen
+Byvegen
+Bygdevegen
+Grendevegen
+Skulevegen
+Barnehagevegen
+Sjukehusvegen
+Idrettsvegen
+Stadionvegen
+Industrivegen
+Verkstadvegen
+Fabrikkvegen
+Hamnevegen
+Kaivegen
+Bryggjevegen
+Sjøbodvegen
+Fiskarvegen
+Bondevegen
+Gardsvegen
+Stølsvegen
+Løkkevegen
+Jordevegen
+Skrenten
+Kroken
+Svingen
+Faret
+Holtet
+Gløttet
+Tråkket
+Stubben
+Smoget
+Terrassen
+Ringen
+Bakken
+Brinken
+Kollen
+Toppen
+Marka
+Enga
+Jordet
+Tunet
+Bryggja
+Kaia
+Promenaden

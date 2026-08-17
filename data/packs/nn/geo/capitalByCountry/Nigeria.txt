@@ -1,0 +1,5 @@
+---
+description: Capital of Nigeria, as Nynorsk writes it
+locale: nn
+---
+Abuja

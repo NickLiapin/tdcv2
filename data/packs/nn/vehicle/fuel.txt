@@ -1,0 +1,14 @@
+---
+description: Fuel or energy source for a vehicle, in Nynorsk. Identical to the Bokmål list — these are international technical terms. Norway is the country where the first entry is the ordinary answer: electricity passed every other fuel in new-car sales years ago.
+locale: nn
+---
+elektrisitet
+bensin
+diesel
+hybrid
+ladbar hybrid
+hydrogen
+biodiesel
+bioetanol
+naturgass
+biogass

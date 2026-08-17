@@ -1,0 +1,29 @@
+---
+description: Weather in Nynorsk, ending with the Beaufort wind scale as Norwegian names it — liten kuling through full storm is a real ladder every Norwegian forecast uses and it does not translate to English adjectives. vêr takes the circumflex in Nynorsk (klarvêr, tordenvêr) because it separates vêr, weather, from ver, ram; Bokmål writes vær with no such pair to keep apart. skodde is the western word for the fog that Bokmål calls tåke, bye the Nynorsk form of byge, and skya the Nynorsk participle where Bokmål writes skyet.
+locale: nn
+---
+sol
+klarvêr
+delvis skya
+skya
+overskya
+regn
+yr
+regnbyer
+tordenvêr
+snø
+snøbyer
+sludd
+skodde
+dis
+lett bris
+frisk bris
+liten kuling
+stiv kuling
+sterk kuling
+liten storm
+full storm
+orkan
+frost
+rim
+glatt føre

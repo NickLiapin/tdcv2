@@ -1,0 +1,19 @@
+---
+description: Kind of insurance sold in Norway, in Nynorsk. innbuforsikring for innboforsikring is the only divergence — Nynorsk innbu for Bokmål innbo — because the rest are compounds of shared words. hytteforsikring is its own product because a large minority of Norwegian households own a second cabin.
+locale: nn
+---
+innbuforsikring
+husforsikring
+hytteforsikring
+bilforsikring
+ansvarsforsikring
+kaskoforsikring
+reiseforsikring
+helseforsikring
+livsforsikring
+uføreforsikring
+barneforsikring
+dyreforsikring
+båtforsikring
+yrkesskadeforsikring
+ulykkesforsikring

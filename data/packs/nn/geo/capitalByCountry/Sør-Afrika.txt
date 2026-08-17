@@ -1,0 +1,5 @@
+---
+description: Capital of Sør-Afrika, as Nynorsk writes it
+locale: nn
+---
+Pretoria

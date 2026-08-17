@@ -1,0 +1,35 @@
+---
+description: Herbs and spices in Nynorsk. graslauk for gressløk and pepparrot for pepperrot are the divergences; the rest are international spice names spelled the same in both standards. einebær, juniper, is the Norwegian one — it flavours akevitt and goes in game stews.
+locale: nn
+---
+kanel
+karve
+dill
+persille
+graslauk
+timian
+rosmarin
+basilikum
+oregano
+laurbærblad
+einebær
+ingefær
+gurkemeie
+spisskummen
+koriander
+kardemomme
+muskat
+nellik
+safran
+paprikapulver
+chilipulver
+karri
+sennep
+sennepsfrø
+pepparrot
+salvie
+estragon
+mynte
+stjerneanis
+fennikel
+vanilje

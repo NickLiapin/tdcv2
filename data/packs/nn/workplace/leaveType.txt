@@ -1,0 +1,16 @@
+---
+description: Kind of leave in Nynorsk, following Norwegian employment law. eigenmelding, sjukmelding, utan løn and militærteneste are the Nynorsk forms of egenmelding, sykmelding, uten lønn and militærtjeneste. eigenmelding is self-certified sick leave with no doctor involved and has no English equivalent; fedrekvote and mødrekvote are the parts of parental leave reserved by law for each parent and lost if unused.
+locale: nn
+---
+ferie
+eigenmelding
+sjukmelding
+foreldrepermisjon
+fedrekvote
+mødrekvote
+omsorgspermisjon
+velferdspermisjon
+permisjon utan løn
+utdanningspermisjon
+avspasering
+militærteneste

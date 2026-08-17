@@ -1,0 +1,12 @@
+---
+description: Gross annual income band in Norwegian kroner (NOK). Norwegian groups thousands with a space, never a comma, and writes the unit lowercase after the number — 450 000 kr. The bands are the same numbers as the Bokmål pack because they are money, not language.
+locale: nn
+---
+Under 300 000 kr
+300 000–450 000 kr
+450 000–600 000 kr
+600 000–800 000 kr
+800 000–1 000 000 kr
+1 000 000–1 500 000 kr
+1 500 000–2 000 000 kr
+Over 2 000 000 kr

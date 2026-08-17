@@ -1,0 +1,37 @@
+---
+description: Playing position across several sports, in Nynorsk. spelar for spiller runs through the whole list (midtbanespelar, kantspelar, strekspelar, bakspelar, diagonalspelar), and midtstoppar, angripar, oppleggjar and høgre- replace midtstopper, angriper, opplegger and høyre-. The American football and basketball positions keep their English names because that is what Norwegian commentary uses.
+locale: nn
+---
+keeper
+målvakt
+midtstoppar
+back
+høgreback
+venstreback
+midtbanespelar
+defensiv midtbane
+offensiv midtbane
+kantspelar
+høgreving
+venstreving
+spiss
+angripar
+strekspelar
+bakspelar
+playmaker
+senter
+libero
+oppleggjar
+midtblokkerar
+diagonalspelar
+halvback
+forward
+quarterback
+running back
+wide receiver
+linebacker
+cornerback
+kicker
+shooting guard
+small forward
+power forward

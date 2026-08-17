@@ -1,0 +1,14 @@
+---
+description: Driving licence class as printed on a Norwegian licence. These are EU/EEA codes and are identical in every European locale and in both Norwegian standards — a letter is a letter. Kept in the language pack rather than the country pack because the code set is the EEA's, not Norway's.
+locale: nn
+---
+B
+BE
+C1
+C1E
+C
+CE
+D1
+D1E
+D
+DE

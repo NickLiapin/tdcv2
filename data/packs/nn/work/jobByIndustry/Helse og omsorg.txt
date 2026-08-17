@@ -1,0 +1,10 @@
+---
+description: Jobs found in helse og omsorg, in Nynorsk. Filename matches the parent value in work/industryCoherent.txt character for character.
+locale: nn
+---
+sjukepleiar
+lege
+helsefagarbeidar
+vernepleiar
+fysioterapeut
+bioingeniør

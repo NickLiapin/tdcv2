@@ -1,0 +1,21 @@
+---
+description: Cuisine in Nynorsk, and the parent of food/dishByCuisine. All seventeen are spelled exactly as in Bokmål, and that is the honest answer: nationality adjectives in -sk came into Norwegian ready-made and neither standard reshaped them, so this parent list is a 100 per cent overlap while the Norsk child under it is not. Capitalised because they head a category; in running Nynorsk they are lowercase, norsk mat, italiensk mat.
+locale: nn
+---
+Norsk
+Italiensk
+Japansk
+Meksikansk
+Kinesisk
+Indisk
+Fransk
+Thailandsk
+Gresk
+Spansk
+Amerikansk
+Koreansk
+Vietnamesisk
+Tyrkisk
+Libanesisk
+Peruansk
+Argentinsk

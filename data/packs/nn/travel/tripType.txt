@@ -1,0 +1,26 @@
+---
+description: Purpose or shape of a trip, in Nynorsk. bryllaupsreise for bryllupsreise, åleinereise for alenereise, sommarferie for sommerferie and haustferie for høstferie. The four school holidays — påskeferie, sommarferie, haustferie, vinterferie — are fixed national weeks in Norway and drive the whole domestic travel market.
+locale: nn
+---
+forretningsreise
+ferie
+familieferie
+bryllaupsreise
+eventyrreise
+bilferie
+cruise
+ryggsekktur
+storbyferie
+strandferie
+gruppereise
+åleinereise
+hyttetur
+fjelltur
+skiferie
+påskeferie
+sommarferie
+haustferie
+vinterferie
+helgetur
+charterreise
+campingtur

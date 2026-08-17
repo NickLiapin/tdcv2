@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in people of Sør-Asia descent, in Nynorsk. sjukdom for sykdom is the Nynorsk form throughout.
+locale: nn
+---
+diabetes type 2
+koronarsjukdom
+betatalassemi
+glukose-6-fosfatdehydrogenasemangel
+D-vitaminmangel
+laktoseintoleranse

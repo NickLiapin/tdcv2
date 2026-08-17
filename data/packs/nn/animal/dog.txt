@@ -1,0 +1,34 @@
+---
+description: Dog breeds in Nynorsk, headed by the four Norwegian ones — elghund grå and svart, buhund and lundehund, the last bred to climb cliffs after puffins and the only dog with six toes on each foot. svart replaces Bokmål sort, korthåra replaces korthåret (Nynorsk past participles end -a, not -et), and haldenstøvar carries the -ar agent ending.
+locale: nn
+---
+norsk elghund grå
+norsk elghund svart
+norsk buhund
+norsk lundehund
+dunker
+haldenstøvar
+hygenhund
+labrador retriever
+golden retriever
+flat coated retriever
+schäferhund
+border collie
+engelsk setter
+gordonsetter
+irsk setter
+korthåra vorstehhund
+cocker spaniel
+jack russell terrier
+chihuahua
+puddel
+dachshund
+rottweiler
+boxer
+siberian husky
+alaskan malamute
+samojedhund
+berner sennenhund
+fransk bulldog
+cavalier king charles spaniel
+beagle

@@ -1,0 +1,22 @@
+---
+description: Kind of dwelling in Nynorsk. bustad for bolig runs through the list (einebustad, tomannsbustad, fritidsbustad), leilegheit for leilighet through the flats, rekkjehus for rekkehus, sjølveigar- for selveier-, burettslags- for borettslags- and gardsbruk for gårdsbruk. The three flat types are legally distinct forms of ownership in Norway and are not interchangeable: a selveier owns the flat, a borettslag member owns a share that carries the right to live in it, and an aksjeleilighet is the older share-company version.
+locale: nn
+---
+einebustad
+tomannsbustad
+rekkjehus
+leilegheit
+sjølveigarleilegheit
+burettslagsleilegheit
+aksjeleilegheit
+hybel
+sokkelleilegheit
+loftsleilegheit
+penthouse
+tomt
+hytte
+fritidsbustad
+gardsbruk
+småbruk
+næringslokale
+garasje

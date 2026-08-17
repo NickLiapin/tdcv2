@@ -1,0 +1,5 @@
+---
+description: Currency of Australia, as Nynorsk names it
+locale: nn
+---
+australsk dollar

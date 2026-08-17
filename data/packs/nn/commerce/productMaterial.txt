@@ -1,0 +1,51 @@
+---
+description: What a product is made of, in Nynorsk. glas for glass, herda glas for herdet glass, støypejern for støpejern, semska skinn for semsket skinn and lêr for lær are the divergences — lêr takes a circumflex in Nynorsk to separate it from ler, laughs. The timber names (furu, gran, eik, bjørk, ask) are shared with Bokmål and with nature/tree.txt.
+locale: nn
+---
+stål
+rustfritt stål
+jern
+støypejern
+aluminium
+messing
+kobber
+sink
+tre
+furu
+gran
+eik
+bjørk
+ask
+teak
+bambus
+kryssfiner
+sponplate
+plast
+akryl
+silikon
+gummi
+glas
+herda glas
+keramikk
+porselen
+betong
+granitt
+marmor
+skifer
+lêr
+skinn
+semska skinn
+ull
+merinoull
+bomull
+lin
+silke
+polyester
+nylon
+fleece
+dun
+filt
+kork
+papp
+resirkulert plast
+karbonfiber

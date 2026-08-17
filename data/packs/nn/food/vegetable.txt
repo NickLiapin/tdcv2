@@ -1,0 +1,37 @@
+---
+description: Vegetables in Nynorsk. Five of the commonest differ from Bokmål and four of them are the same two rules: lauk for løk and kvitlauk for hvitløk (the diphthong and the hv-/kv- rule together), raudbete for rødbete, raudkål for rødkål and grønkål for grønnkål. kålrot is the swede, and Norway is one of the few countries that eats it in quantity.
+locale: nn
+---
+potet
+gulrot
+kålrot
+nepe
+raudbete
+lauk
+purre
+kvitlauk
+kål
+raudkål
+grønkål
+blomkål
+brokkoli
+rosenkål
+salat
+agurk
+tomat
+paprika
+squash
+aubergine
+mais
+erter
+sukkererter
+bønner
+spinat
+sjampinjong
+kantarell
+steinsopp
+sellerirot
+stangselleri
+asparges
+reddik
+pastinakk

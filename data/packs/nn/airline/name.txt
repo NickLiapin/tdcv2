@@ -1,0 +1,54 @@
+---
+description: Airlines flying to and from Norway. Company names, so identical to the Bokmål list. Widerøe is the one that needs context: it flies the short-runway network that connects the west coast and the north, on routes bought by the state because no one would fly them otherwise, and many of its destinations are in the Nynorsk-writing counties.
+locale: nn
+---
+SAS
+Norwegian
+Widerøe
+Norse Atlantic Airways
+Finnair
+Icelandair
+Lufthansa
+KLM
+Air France
+British Airways
+Swiss
+Austrian Airlines
+Brussels Airlines
+Iberia
+TAP Air Portugal
+Aegean Airlines
+LOT Polish Airlines
+airBaltic
+Ryanair
+Wizz Air
+easyJet
+Vueling
+Eurowings
+Condor
+TUI fly
+Turkish Airlines
+Pegasus Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+Singapore Airlines
+Cathay Pacific
+Thai Airways
+Vietnam Airlines
+Air India
+IndiGo
+ANA
+Japan Airlines
+Korean Air
+China Southern
+Qantas
+Air Canada
+United Airlines
+Delta Air Lines
+American Airlines
+LATAM
+Avianca
+Ethiopian Airlines
+Kenya Airways
+El Al

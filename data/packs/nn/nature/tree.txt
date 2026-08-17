@@ -1,0 +1,32 @@
+---
+description: Trees that grow in Norway, in Nynorsk. This list is one of the closest to the Bokmål pack in the whole locale, and that is worth saying out loud: tree names are old shared Norse vocabulary that neither standard reshaped, so gran, furu, bjørk, osp, selje, rogn and hegg are spelled identically in both. sitkagran is an introduced species and a live controversy on the west coast.
+locale: nn
+---
+gran
+furu
+bjørk
+dunbjørk
+hengebjørk
+osp
+selje
+rogn
+hegg
+or
+svartor
+gråor
+eik
+bøk
+ask
+alm
+lønn
+lind
+hassel
+barlind
+einer
+kristtorn
+vier
+poppel
+hestekastanje
+lerk
+edelgran
+sitkagran

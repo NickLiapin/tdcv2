@@ -1,0 +1,9 @@
+---
+description: Shift pattern in Nynorsk. heilkontinuerleg is the divergence and shows two rules at once — heil for hel and -leg for -lig. It means round-the-clock operation every day of the year.
+locale: nn
+---
+dagskift
+kveldsskift
+nattskift
+rotasjon
+heilkontinuerleg

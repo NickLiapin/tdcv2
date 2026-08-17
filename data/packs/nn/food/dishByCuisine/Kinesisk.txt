@@ -1,0 +1,12 @@
+---
+description: Kinesisk dishes as a Nynorsk menu writes them. Dish names are loanwords and keep their own spelling in any locale; only the Norwegian words around them (steikt, grøn, svinekjøt, vårrullar, kaffi) are in Nynorsk.
+locale: nn
+---
+kung pao-kylling
+steikt ris
+dumplings
+chow mein
+sursøtt svinekjøt
+mapo tofu
+pekingand
+wonton-suppe

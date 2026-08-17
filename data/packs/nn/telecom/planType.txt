@@ -1,0 +1,16 @@
+---
+description: Kind of mobile subscription in Nynorsk. breiband for bredbånd, rullerande for rullerende and utanlandspakke for utenlandspakke are the divergences. delt datapott — a data allowance shared across a household's SIM cards — is how most Norwegian family plans are sold.
+locale: nn
+---
+kontantkort
+fastprisabonnement
+fri data
+familieabonnement
+bedriftsabonnement
+dataabonnement
+mobilt breiband
+ungdomsabonnement
+seniorabonnement
+delt datapott
+rullerande data
+utanlandspakke

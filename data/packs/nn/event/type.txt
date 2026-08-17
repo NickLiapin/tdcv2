@@ -1,0 +1,26 @@
+---
+description: Kind of organised event, in Nynorsk. bryllaup for bryllup, sommarfest for sommerfest and gravferd for begravelse are the divergences — gravferd is the ordinary Nynorsk word and Bokmål's begravelse is a Low German loan. julebord is the office Christmas dinner and dugnad unpaid collective work; both are scheduled events in a Norwegian calendar.
+locale: nn
+---
+konferanse
+seminar
+kurs
+workshop
+webinar
+messe
+bryllaup
+konfirmasjon
+dåp
+bursdag
+jubileum
+konsert
+festival
+julebord
+sommarfest
+dugnad
+lansering
+innsamlingsaksjon
+nettverkstreff
+generalforsamling
+årsmøte
+gravferd

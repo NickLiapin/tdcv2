@@ -1,0 +1,32 @@
+---
+description: The same verbs in the PRESENT TENSE. Norwegian has no -ing form that works this way, so the present is what a status line prints. This file shows the Nynorsk present tense clearly: verbs of the a-class end -ar where Bokmål ends -er, so hackar, tolkar, koplar til, lastar ned, startar på nytt, overvakar and bereknar differ, while the -ere loanverbs (kopierer, krypterer, analyserer) end -erer in both standards and do not.
+locale: nn
+---
+sikkerheitskopierer
+omgår
+hackar
+overstyrer
+komprimerer
+kopierer
+navigerer
+indekserer
+koplar til
+genererer
+kvantifiserer
+bereknar
+syntetiserer
+overfører
+programmerer
+startar på nytt
+tolkar
+krypterer
+dekrypterer
+rullar ut
+overvakar
+analyserer
+optimaliserer
+kompilerer
+lastar ned
+lastar opp
+synkroniserer
+konfigurerer

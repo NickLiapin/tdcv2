@@ -1,0 +1,5 @@
+---
+description: Currency of Storbritannia, as Nynorsk names it
+locale: nn
+---
+britisk pund

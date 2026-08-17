@@ -1,0 +1,5 @@
+---
+description: Capital of Hellas, as Nynorsk writes it
+locale: nn
+---
+Athen

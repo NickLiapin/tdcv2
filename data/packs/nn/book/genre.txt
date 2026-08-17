@@ -1,0 +1,30 @@
+---
+description: Book genre in Nynorsk. grøssar for grøsser, sjølvbiografi and sjølvhjelp for selvbiografi and selvhjelp, memoarar for memoarer and teikneserie for tegneserie. skjønnlitteratur against sakprosa is the primary Norwegian split and matches fiction against non-fiction only roughly: sakprosa covers essays and reportage as well as reference.
+locale: nn
+---
+skjønnlitteratur
+sakprosa
+krim
+spenning
+thriller
+romantikk
+science fiction
+fantasy
+grøssar
+biografi
+sjølvbiografi
+memoarar
+historie
+sjølvhjelp
+poesi
+lyrikk
+ungdomsbok
+barnebok
+historisk roman
+eventyr
+reiseskildring
+kokebok
+teikneserie
+dystopi
+essay
+novellesamling

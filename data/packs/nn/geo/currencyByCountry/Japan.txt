@@ -1,0 +1,5 @@
+---
+description: Currency of Japan, as Nynorsk names it
+locale: nn
+---
+japansk yen

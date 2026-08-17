@@ -1,0 +1,11 @@
+---
+description: Conditions with a raised prevalence in people of Nord-Europa descent, in Nynorsk. sjukdom for sykdom is the Nynorsk form throughout.
+locale: nn
+---
+cystisk fibrose
+arveleg hemokromatose
+cøliaki
+laktosetoleranse i vaksen alder
+alfa-1-antitrypsinmangel
+fenylketonuri
+føflekkreft

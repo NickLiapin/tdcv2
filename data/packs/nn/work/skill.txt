@@ -1,0 +1,46 @@
+---
+description: Skill listed on a Norwegian CV, in Nynorsk. Programming languages and tool names keep their real spelling in any locale. The Nynorsk forms are skytenester for skytjenester, prosjektleiing for prosjektledelse, røyrlegging for rørlegging, teikningslesing for tegningslesing, truckførarbevis for truckførerbevis, anleggsmaskinkøyring for anleggsmaskinkjøring, teamleiing for teamledelse and problemløysing for problemløsning. varme arbeid is a certificate Norwegian insurers require for hot work; HLR is hjarte-lunge-redning, CPR.
+locale: nn
+---
+Python
+JavaScript
+SQL
+Java
+C++
+skytenester
+maskinlæring
+dataanalyse
+prosjektleiing
+smidig metodikk
+presentasjonsteknikk
+teknisk skriving
+kundeservice
+sal
+rekneskap
+økonomistyring
+CAD
+3D-modellering
+grafisk design
+tekstforfatting
+sveising
+elektrisk installasjon
+røyrlegging
+tømrararbeid
+teikningslesing
+maskinering
+lodding
+truckførarbevis
+anleggsmaskinkøyring
+tungbilsertifikat
+varme arbeid
+HMS-kurs
+førstehjelp
+HLR
+næringsmiddelhygiene
+norsk
+engelsk
+samisk
+forhandlingsteknikk
+teamleiing
+tidsstyring
+problemløysing

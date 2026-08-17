@@ -1,0 +1,11 @@
+---
+description: Spansk dishes as a Nynorsk menu writes them. Dish names are loanwords and keep their own spelling in any locale; only the Norwegian words around them (steikt, grøn, svinekjøt, vårrullar, kaffi) are in Nynorsk.
+locale: nn
+---
+paella
+tapas
+gazpacho
+tortilla española
+churros
+patatas bravas
+jamón ibérico

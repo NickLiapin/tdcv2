@@ -1,0 +1,5 @@
+---
+description: Capital of Thailand, as Nynorsk writes it
+locale: nn
+---
+Bangkok

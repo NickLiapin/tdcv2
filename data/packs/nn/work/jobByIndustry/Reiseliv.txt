@@ -1,0 +1,10 @@
+---
+description: Jobs found in reiseliv, in Nynorsk. Filename matches the parent value in work/industryCoherent.txt character for character.
+locale: nn
+---
+kokk
+servitør
+resepsjonist
+hotellsjef
+guide
+bartender

@@ -1,0 +1,26 @@
+---
+description: School subject as the Norwegian curriculum names it, in Nynorsk. framandspråk for fremmedspråk and handverk for håndverk are the divergences. KRLE is kristendom, religion, livssyn og etikk, a single compulsory subject covering all of them; mat og helse is cooking and nutrition and is compulsory too.
+locale: nn
+---
+matematikk
+fysikk
+kjemi
+biologi
+naturfag
+informasjonsteknologi
+historie
+geografi
+samfunnsfag
+samfunnskunnskap
+norsk
+engelsk
+framandspråk
+KRLE
+kunst og handverk
+musikk
+kroppsøving
+mat og helse
+samfunnsøkonomi
+psykologi
+filosofi
+statistikk

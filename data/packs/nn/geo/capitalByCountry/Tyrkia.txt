@@ -1,0 +1,5 @@
+---
+description: Capital of Tyrkia, as Nynorsk writes it
+locale: nn
+---
+Ankara

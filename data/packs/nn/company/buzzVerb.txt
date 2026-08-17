@@ -1,0 +1,44 @@
+---
+description: Corporate verb in the infinitive, in Nynorsk. gjere for gjøre, hauste for høste, framskunde for framskynde, leggje til rette for tilrettelegge, leie an for lede an and vidareutvikle for videreutvikle. The -ere loanverbs (optimalisere, orkestrere, akselerere) are identical in both standards, which is why roughly half this list survives the crossing unchanged.
+locale: nn
+---
+utnytte
+forenkle
+optimalisere
+orkestrere
+myndiggjere
+gjere mogleg
+skalere
+transformere
+forstyrre
+innovere
+iterere
+integrere
+rulle ut
+hauste
+låse opp
+akselerere
+forsterke
+utforme
+måle
+dyrke
+drive
+utvikle
+framskunde
+leggje til rette
+generere
+insentivere
+operasjonalisere
+produktifisere
+redefinere
+gjenskape
+revolusjonere
+leie an
+standardisere
+omstille
+samle
+digitalisere
+effektivisere
+vidareutvikle
+forankre
+løfte

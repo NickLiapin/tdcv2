@@ -1,0 +1,20 @@
+---
+description: Kind of legal case, in Nynorsk. eigedomstvist for eiendomstvist is the only spelling divergence; the rest are compounds of shared legal vocabulary. barnevernssak and gjeldsordning are Norwegian statutory procedures — child welfare proceedings and a court-supervised debt settlement — and both are named in law.
+locale: nn
+---
+sivil sak
+straffesak
+familiesak
+barnefordeling
+barnevernssak
+arvesak
+konkurs
+gjeldsordning
+erstatningssak
+arbeidsrettssak
+kontraktstvist
+immaterialrett
+eigedomstvist
+nabotvist
+utlendingssak
+skattesak

@@ -1,0 +1,12 @@
+---
+description: Garment size on the international letter scale, which is what Norwegian clothing labels use. Letters, so identical everywhere.
+locale: nn
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

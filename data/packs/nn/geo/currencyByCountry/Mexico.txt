@@ -1,0 +1,5 @@
+---
+description: Currency of Mexico, as Nynorsk names it
+locale: nn
+---
+meksikansk peso

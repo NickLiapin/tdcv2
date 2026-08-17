@@ -1,0 +1,5 @@
+---
+description: Currency of Tyskland, as Nynorsk names it
+locale: nn
+---
+euro

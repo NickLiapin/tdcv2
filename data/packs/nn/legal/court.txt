@@ -1,0 +1,19 @@
+---
+description: KIND of court, in lowercase Nynorsk — the words a language has for types of tribunal, not a roster of institutions. The named Norwegian courts (Høyesterett, the six lagmannsretter, the 28 tingretter) live in the Norway country pack at norway.government.court, which is where a config should draw a real court name from; this list is what belongs to the LANGUAGE. høgsterett for høyesterett and utval for utvalg are the Nynorsk forms. Two entries have no equivalent in most countries: a jordskifterett is a separate land-consolidation court that redraws property boundaries, and a forliksråd is a lay conciliation board in every municipality that most small civil claims must pass through first.
+locale: nn
+---
+domstol
+høgsterett
+ankeutval
+lagmannsrett
+tingrett
+forliksråd
+jordskifterett
+arbeidsrett
+trygderett
+riksrett
+utmarksdomstol
+konfliktråd
+voldgiftsrett
+namsrett
+klagenemnd

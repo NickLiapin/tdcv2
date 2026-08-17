@@ -1,0 +1,12 @@
+---
+description: Physical or digital format of a book, in Nynorsk. innbunden and spiralinnbunden replace innbundet and spiralinnbundet, and hefta replaces heftet — Nynorsk past participles again. storpocket is a Norwegian trade paperback size and is a real distinct format in the shops.
+locale: nn
+---
+innbunden
+hefta
+pocketbok
+storpocket
+kartonert
+e-bok
+lydbok
+spiralinnbunden

@@ -1,0 +1,39 @@
+---
+description: Music genre in Nynorsk. visesong for visesang, kyrkjemusikk for kirkemusikk and salmar for salmer are the divergences; the imported genre names are identical. Four entries are Norwegian and need context: danseband is a live dance-hall pop genre with its own charts, korpsmusikk is the brass and wind band tradition that half of Norwegian children pass through, joik is the Sámi vocal form, and black metal is a Norwegian export.
+locale: nn
+---
+rock
+pop
+jazz
+klassisk
+hiphop
+country
+elektronika
+blues
+reggae
+black metal
+death metal
+heavy metal
+punk
+folkemusikk
+visesong
+danseband
+korpsmusikk
+kyrkjemusikk
+salmar
+joik
+samisk musikk
+R&B
+soul
+funk
+disco
+house
+techno
+indie
+gospel
+ambient
+ska
+bluegrass
+latin
+opera
+musikal

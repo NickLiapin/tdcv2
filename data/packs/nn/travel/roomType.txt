@@ -1,0 +1,22 @@
+---
+description: Kind of room a Norwegian booking offers, in Nynorsk. leilegheit for leilighet and tilgjengeleg for tilgjengelig are the divergences. The last three are Norwegian accommodation types with no English word: a koie is a simple unstaffed forest hut, a rorbu a fisherman's cabin on stilts over the water in Lofoten, and both are ordinary things to book.
+locale: nn
+---
+enkeltrom
+dobbeltrom
+tomannsrom
+trippelrom
+familierom
+standardrom
+superiorrom
+deluxerom
+panoramarom
+suite
+junior suite
+leilegheit
+studio
+hytte
+koie
+rorbu
+sengeplass i sovesal
+tilgjengeleg rom

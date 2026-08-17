@@ -1,0 +1,16 @@
+---
+description: Abbreviated month in Nynorsk, with the full stop that Norwegian keeps. mars, mai, juni and juli are short enough that they are not abbreviated at all. Identical to the Bokmål set.
+locale: nn
+---
+jan.
+feb.
+mars
+apr.
+mai
+juni
+juli
+aug.
+sep.
+okt.
+nov.
+des.

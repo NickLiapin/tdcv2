@@ -1,0 +1,48 @@
+---
+description: Industry in ordinary lowercase Nynorsk — the longer, non-capitalised sibling of work/industryCoherent.txt. eigedom for eiendom, forsking for forskning, offentleg for offentlig, underhaldning for underholdning, konsulentverksemd for konsulentvirksomhet and juridiske tenester for juridiske tjenester are the divergences. The first eleven entries are what the Norwegian economy actually is: fishing, fish farming, reindeer herding, oil and gas, hydropower and shipping, and havbruk and reindrift have no ordinary English words.
+locale: nn
+---
+jordbruk
+skogbruk
+fiske
+havbruk
+oppdrett
+reindrift
+bergverk
+olje og gass
+kraftproduksjon
+fornybar energi
+bygg og anlegg
+industri
+verftsindustri
+næringsmiddelindustri
+prosessindustri
+varehandel
+engroshandel
+detaljhandel
+transport
+sjøfart
+luftfart
+logistikk
+informasjonsteknologi
+telekommunikasjon
+finans
+bank
+forsikring
+eigedom
+helse og omsorg
+farmasi
+bioteknologi
+utdanning
+forsking
+offentleg forvaltning
+forsvar
+reiseliv
+hotell og restaurant
+kultur
+media
+underhaldning
+konsulentverksemd
+juridiske tenester
+rekruttering
+frivillig sektor

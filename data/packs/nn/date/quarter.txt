@@ -1,0 +1,8 @@
+---
+description: Calendar quarter in Nynorsk. The ordinal is written as a digit with a full stop, as Norwegian writes all ordinals.
+locale: nn
+---
+1. kvartal
+2. kvartal
+3. kvartal
+4. kvartal

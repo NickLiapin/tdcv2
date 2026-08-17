@@ -1,0 +1,16 @@
+---
+description: Zodiac sign in Nynorsk. Half of them differ from Bokmål, because the sign names are ordinary nouns in the definite form and the two standards inflect differently: Nynorsk feminines take -a (Løva, Jomfrua, Vekta against Bokmål Løven, Jomfruen, Vekten) and Nynorsk plurals take -ane (Tvillingane, Fiskane against Tvillingene, Fiskene). Vêren carries the circumflex that separates vêr, ram, from ver, weather. Vassmannen has the Nynorsk vass- where Bokmål has vann-.
+locale: nn
+---
+Vêren
+Tyren
+Tvillingane
+Krepsen
+Løva
+Jomfrua
+Vekta
+Skorpionen
+Skytten
+Steinbukken
+Vassmannen
+Fiskane

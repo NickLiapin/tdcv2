@@ -1,0 +1,5 @@
+---
+description: Currency of Saudi-Arabia, as Nynorsk names it
+locale: nn
+---
+saudiarabisk rial

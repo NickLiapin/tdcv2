@@ -1,0 +1,5 @@
+---
+description: Currency of USA, as Nynorsk names it
+locale: nn
+---
+amerikansk dollar

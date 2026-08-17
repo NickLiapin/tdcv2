@@ -1,0 +1,13 @@
+---
+description: Cable type in Nynorsk. Category names (Cat5e, Cat6, Cat6a) are international and keep their spelling; jordkabel, luftkabel and sjøkabel are shared with Bokmål. Norway lays a great deal of sjøkabel because the settlements are on fjords.
+locale: nn
+---
+fiberoptisk
+koaksial
+parkabel
+Cat5e
+Cat6
+Cat6a
+jordkabel
+luftkabel
+sjøkabel

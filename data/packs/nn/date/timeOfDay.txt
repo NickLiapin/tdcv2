@@ -1,0 +1,12 @@
+---
+description: Part of the day in Nynorsk. kveld, natt and morgon are shared with Bokmål in meaning but morgon carries the Nynorsk -o- (Bokmål morgen), and gry/skumring are the same in both.
+locale: nn
+---
+morgon
+formiddag
+ettermiddag
+kveld
+natt
+gry
+skumring
+midnatt

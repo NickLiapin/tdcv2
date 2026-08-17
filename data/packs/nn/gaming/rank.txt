@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier in Nynorsk. meister for mester, stormeister for stormester and utfordrar for utfordrer are the divergences; the metals are shared with nature/metal.txt and with Bokmål.
+locale: nn
+---
+jern
+bronse
+sølv
+gull
+platina
+diamant
+meister
+stormeister
+utfordrar
+legende

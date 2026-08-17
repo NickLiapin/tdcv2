@@ -1,0 +1,5 @@
+---
+description: Capital of Noreg, as Nynorsk writes it
+locale: nn
+---
+Oslo

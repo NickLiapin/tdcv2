@@ -1,0 +1,5 @@
+---
+description: Capital of Bangladesh, as Nynorsk writes it
+locale: nn
+---
+Dhaka

@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised prevalence in people of Midtausten descent, in Nynorsk. sjukdom for sykdom is the Nynorsk form throughout.
+locale: nn
+---
+familiær middelhavsfeber
+betatalassemi
+glukose-6-fosfatdehydrogenasemangel
+Behçets sjukdom
+spinal muskelatrofi

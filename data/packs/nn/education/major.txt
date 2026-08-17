@@ -1,0 +1,41 @@
+---
+description: Field of university study in Nynorsk. vitskap for vitenskap is the systematic divergence (rettsvitskap, statsvitskap, medievitskap, musikkvitskap, idrettsvitskap), plus sjukepleie for sykepleie and lærarutdanning for lærerutdanning. petroleumsteknologi, marin teknikk and marinbiologi are here because they are large real Norwegian degree programmes.
+locale: nn
+---
+informatikk
+datateknologi
+ingeniørfag
+bygg og anlegg
+maskin
+elektro
+marin teknikk
+petroleumsteknologi
+fornybar energi
+økonomi og administrasjon
+siviløkonomi
+rettsvitskap
+medisin
+sjukepleie
+odontologi
+farmasi
+psykologi
+pedagogikk
+lærarutdanning
+barnehagelærar
+sosialt arbeid
+statsvitskap
+sosiologi
+historie
+nordisk språk og litteratur
+matematikk
+fysikk
+kjemi
+biologi
+geologi
+marinbiologi
+arkitektur
+industridesign
+journalistikk
+medievitskap
+musikkvitskap
+idrettsvitskap

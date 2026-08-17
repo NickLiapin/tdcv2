@@ -1,0 +1,13 @@
+---
+description: Personal pronoun pairs in Nynorsk, subject/object. This is the single sharpest divide between the two written standards and it is visible in almost every sentence: Nynorsk ho/henne where Bokmål has hun/henne, han/han where Bokmål has han/ham, and dei/dei where Bokmål has de/dem. The first-person eg (Bokmål jeg) and the plural me (Bokmål vi) are not in this list because the address holds third-person reference pairs, the ones a record needs; they are named here because they are the forms a reader will actually use to tell the standards apart.
+locale: nn
+---
+han/han
+ho/henne
+hen/hen
+dei/dei
+han/hen
+ho/hen
+den/den
+det/det
+vedkomande

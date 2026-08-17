@@ -1,0 +1,30 @@
+---
+description: Common allergen in Nynorsk. Five differ from Bokmål: mjølk for melk, kveite for hvete (the same Nynorsk word that means halibut — a real homograph), graspollen for gresspollen, kvefsestikk for vepsestikk and skaldyr for skalldyr. Birch, grass and mugwort pollen are the three that matter in Norway, in that order through the season.
+locale: nn
+---
+penicillin
+nøtter
+peanøtter
+hasselnøtt
+mandlar
+skaldyr
+reker
+egg
+mjølk
+laktose
+soya
+kveite
+gluten
+fisk
+sesam
+lateks
+bjørkepollen
+graspollen
+burotpollen
+husstøvmidd
+katt
+hund
+kvefsestikk
+nikkel
+acetylsalisylsyre
+jod

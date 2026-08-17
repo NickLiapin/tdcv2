@@ -1,0 +1,15 @@
+---
+description: Kind of loan in Nynorsk. bustadlån for boliglån and byggjelån for byggelån are the divergences. rammelån is a revolving credit line secured on a home and is a standard Norwegian product; hyttelån is a mortgage on a holiday cabin and is priced differently from a home loan.
+locale: nn
+---
+bustadlån
+rammelån
+billån
+forbrukslån
+studielån
+byggjelån
+mellomfinansiering
+kredittkortgjeld
+refinansiering
+bedriftslån
+hyttelån

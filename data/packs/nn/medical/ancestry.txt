@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Nynorsk, and the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories. Half the twelve differ from Bokmål, all through the compass: Nynorsk aust for øst gives Midtausten, Aust-Europa, Aust-Asia and Søraust-Asia, and the Nynorsk definite plural gives Stillehavsøyane and jødar.
+locale: nn
+---
+Afrika sør for Sahara
+Nord-Afrika
+Middelhavsområdet
+Midtausten
+Nord-Europa
+Aust-Europa
+Askenasiske jødar
+Sør-Asia
+Aust-Asia
+Søraust-Asia
+Urfolk i Amerika
+Stillehavsøyane

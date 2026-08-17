@@ -1,0 +1,5 @@
+---
+description: Currency of Egypt, as Nynorsk names it
+locale: nn
+---
+egyptisk pund

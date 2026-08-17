@@ -1,0 +1,5 @@
+---
+description: Capital of USA, as Nynorsk writes it
+locale: nn
+---
+Washington D.C.

@@ -1,0 +1,32 @@
+---
+description: Fish of Norwegian waters in Nynorsk. Three of the commonest names differ from Bokmål and all three are the diphthong rule: aure for ørret, raudspette for rødspette and kviting for hvitting. skrei is the migrating winter cod and has no English word; kveite is halibut, and the same spelling also means wheat in Nynorsk, which is a real homograph and not a mistake.
+locale: nn
+---
+laks
+aure
+sjøaure
+røye
+torsk
+skrei
+sei
+hyse
+lyr
+brosme
+lange
+makrell
+sild
+brisling
+kveite
+flyndre
+raudspette
+steinbit
+uer
+breiflabb
+abbor
+gjedde
+sik
+harr
+ål
+pigghå
+kviting
+lysing

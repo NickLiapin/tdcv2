@@ -1,0 +1,10 @@
+---
+description: Diagnoses a kardiologi department in Norway actually sees, in Nynorsk. Filename matches the parent value in medical/specialtyCoherent.txt character for character.
+locale: nn
+---
+hypertensjon
+koronarsjukdom
+atrieflimmer
+hjartesvikt
+hjarteinfarkt
+hyperlipidemi

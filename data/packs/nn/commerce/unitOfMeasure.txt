@@ -1,0 +1,36 @@
+---
+description: Unit a Norwegian shop or recipe uses, in Nynorsk. øskje for eske, glas for glass and famn for favn are the divergences. Two units need warning: mil in Norwegian is TEN kilometres, not the English mile, and hektogram (100 g) is what a Norwegian delicatessen counter weighs in.
+locale: nn
+---
+stk
+pakke
+øskje
+kartong
+kasse
+sekk
+pose
+rull
+bunt
+sett
+par
+dusin
+brett
+boks
+flaske
+glas
+tube
+kilo
+hektogram
+gram
+tonn
+liter
+desiliter
+centiliter
+milliliter
+meter
+centimeter
+millimeter
+kvadratmeter
+kubikkmeter
+mil
+famn

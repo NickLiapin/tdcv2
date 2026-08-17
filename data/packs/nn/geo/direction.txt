@@ -1,0 +1,20 @@
+---
+description: The sixteen-point compass in Nynorsk. aust is the divergence: Nynorsk kept the Old Norse diphthong austr where Bokmål took Danish øst, so every compound containing it differs too — nordaust, søraust, aust-nordaust. nord, sør and vest are shared. This is the clearest place in the pack to see the diphthong rule at work, because the four cardinal points are a closed set and exactly one of them moved.
+locale: nn
+---
+nord
+sør
+aust
+vest
+nordaust
+nordvest
+søraust
+sørvest
+nord-nordaust
+aust-nordaust
+aust-søraust
+sør-søraust
+sør-sørvest
+vest-sørvest
+vest-nordvest
+nord-nordvest

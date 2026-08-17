@@ -1,0 +1,16 @@
+---
+description: Streaming service available in Norway. Brand names, identical to the Bokmål list. NRK TV belongs at the head for a reason that is specific to this locale: NRK is required by statute to publish at least 25 per cent of its content in Nynorsk, which makes the public broadcaster the largest single publisher of Nynorsk anywhere.
+locale: nn
+---
+NRK TV
+TV 2 Play
+Viaplay
+Netflix
+HBO Max
+Disney+
+Amazon Prime Video
+Apple TV+
+SkyShowtime
+Allente
+YouTube
+Spotify

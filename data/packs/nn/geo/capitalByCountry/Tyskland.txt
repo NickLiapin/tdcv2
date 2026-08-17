@@ -1,0 +1,5 @@
+---
+description: Capital of Tyskland, as Nynorsk writes it
+locale: nn
+---
+Berlin

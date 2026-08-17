@@ -1,0 +1,42 @@
+---
+description: Symptom as a patient reports it, in Nynorsk. This list diverges hard because symptoms are described in everyday words rather than clinical ones: hovudverk for hodepine, trøyttleik for tretthet, nase for nese, hjartebank for hjertebank, øyresus for øresus, nattesveitte for nattesvette, hovning for hevelse, kraftløyse for kraftløshet, forstopping for forstoppelse and the Nynorsk plurals krampar, frysningar, søvnvanskar. The last entry is a different word rather than a spelling: Nynorsk medvitstap where Bokmål says bevissthetstap or besvimelse, because Nynorsk has medvit for consciousness and Bokmål borrowed bevissthet from Low German.
+locale: nn
+---
+feber
+hovudverk
+trøyttleik
+kvalme
+oppkast
+diaré
+forstopping
+magesmerter
+brystsmerter
+tungpust
+hoste
+sår hals
+rennande nase
+tett nase
+svimmelheit
+tåkesyn
+muskelsmerter
+leddsmerter
+korsryggsmerter
+utslett
+kløe
+hovning
+nummenheit
+prikking
+hjartebank
+nedsett appetitt
+utilsikta vekttap
+nattesveitte
+frysningar
+nysing
+halsbrann
+oppblåstheit
+krampar
+kraftløyse
+forvirring
+øyresus
+søvnvanskar
+medvitstap

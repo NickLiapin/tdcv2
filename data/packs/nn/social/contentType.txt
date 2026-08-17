@@ -1,0 +1,17 @@
+---
+description: Kind of post on a social platform, in Nynorsk. bilete for bilde and avstemming for avstemning are the divergences; the borrowed ones (reel, tråd) are the same in both standards.
+locale: nn
+---
+innlegg
+kommentar
+svar
+historie
+reel
+avstemming
+direktesending
+deling
+tråd
+omtale
+direktemelding
+videoklipp
+bilete

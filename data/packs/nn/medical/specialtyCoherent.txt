@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list, and the parent of diagnosisBySpecialty. All ten are Greek and Latin compounds and are identical to the Bokmål parent — another identical parent over divergent children. Capitalised because they are category labels; medical/specialty holds the same words in ordinary lowercase Nynorsk and is longer, and THAT list is not identical, because it contains the Norwegian-worded specialties.
+locale: nn
+---
+Kardiologi
+Nevrologi
+Onkologi
+Dermatologi
+Gastroenterologi
+Endokrinologi
+Lungemedisin
+Ortopedi
+Psykiatri
+Nyremedisin

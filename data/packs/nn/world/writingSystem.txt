@@ -1,0 +1,24 @@
+---
+description: Writing system in Nynorsk. kinesiske teikn for kinesiske tegn is the divergence. det norske alfabetet is listed separately from latinsk alfabet on purpose: it is the 26 Latin letters plus æ, ø and å, sorted in that order after z, and treating it as plain Latin is the commonest way Norwegian data comes out wrong — see location/country.txt for what that collation actually does. runer are the older Norse system and are still read on stones across the country.
+locale: nn
+---
+latinsk alfabet
+det norske alfabetet
+kyrillisk
+gresk
+arabisk
+hebraisk
+armensk
+georgisk
+kinesiske teikn
+hiragana
+katakana
+hangul
+devanagari
+thai
+tamil
+bengalsk
+ge’ez
+tifinagh
+runer
+punktskrift

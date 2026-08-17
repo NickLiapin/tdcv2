@@ -1,0 +1,30 @@
+---
+description: Gemstones in Nynorsk. Mineral names are international and this list is identical to the Bokmål one — an honest 100 per cent overlap rather than a missing translation. thulitt and larvikitt are the two Norwegian ones: thulite is the national stone and larvikite the blue building stone quarried at Larvik and exported worldwide.
+locale: nn
+---
+diamant
+rubin
+safir
+smaragd
+ametyst
+topas
+opal
+granat
+akvamarin
+peridot
+turkis
+jade
+onyks
+perle
+sitrin
+tanzanitt
+turmalin
+månestein
+zirkon
+lapis lazuli
+thulitt
+larvikitt
+bergkrystall
+rosenkvarts
+jaspis
+agat

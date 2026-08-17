@@ -1,0 +1,5 @@
+---
+description: Capital of Brasil, as Nynorsk writes it
+locale: nn
+---
+Brasília

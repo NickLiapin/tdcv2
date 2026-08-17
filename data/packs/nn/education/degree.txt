@@ -1,0 +1,23 @@
+---
+description: Level of education in the Norwegian system, in Nynorsk. skule for skole runs through it (grunnskule, vidaregåande skule, fagskule, høgskulekandidat), and sveinebrev and meisterbrev replace svennebrev and mesterbrev. The three craft certificates are a real ladder: fagbrev after apprenticeship, sveinebrev in the traditional trades, meisterbrev as the licence to train apprentices yourself.
+locale: nn
+---
+grunnskule
+vidaregåande skule
+studiespesialisering
+yrkesfag
+fagbrev
+sveinebrev
+meisterbrev
+fagskule
+årsstudium
+høgskulekandidat
+bachelor
+master
+sivilingeniør
+siviløkonom
+cand.med.
+cand.jur.
+cand.psychol.
+ph.d.
+dr.philos.

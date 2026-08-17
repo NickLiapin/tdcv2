@@ -1,0 +1,20 @@
+---
+description: Kind of place an event is held, in Nynorsk. løe for låve is the divergence — the western word for a barn, and barn weddings are a real Norwegian fashion. samfunnshus and grendehus are village halls owned by the community itself and are where most rural events happen.
+locale: nn
+---
+hotell
+konferansesenter
+festsal
+kulturhus
+samfunnshus
+grendehus
+idrettshall
+stadion
+teater
+kino
+aula
+gymsal
+restaurant
+møterom
+løe
+takterrasse

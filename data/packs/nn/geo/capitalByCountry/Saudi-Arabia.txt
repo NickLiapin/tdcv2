@@ -1,0 +1,5 @@
+---
+description: Capital of Saudi-Arabia, as Nynorsk writes it
+locale: nn
+---
+Riyadh

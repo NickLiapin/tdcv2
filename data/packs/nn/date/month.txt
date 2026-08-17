@@ -1,0 +1,16 @@
+---
+description: Month in Nynorsk. All twelve are spelled exactly as in Bokmål — the month names came into Norwegian from Latin through Danish and neither written standard touched them, so this file is one of the places where the two standards are indistinguishable. The divergence in this category is in date/weekday.txt and date/season.txt, not here. Lowercase in running text.
+locale: nn
+---
+januar
+februar
+mars
+april
+mai
+juni
+juli
+august
+september
+oktober
+november
+desember

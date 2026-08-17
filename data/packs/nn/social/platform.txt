@@ -1,0 +1,21 @@
+---
+description: Social platform used in Norway. Brand names, identical to the Bokmål list. Jodel is the outlier and belongs here rather than in a generic list: it is anonymous and location-based, and in Norway it is effectively a student network.
+locale: nn
+---
+Facebook
+Instagram
+TikTok
+Snapchat
+X
+LinkedIn
+YouTube
+Reddit
+Pinterest
+Discord
+Twitch
+WhatsApp
+Messenger
+Telegram
+Signal
+Threads
+Jodel

@@ -1,0 +1,18 @@
+---
+description: Marital status in Nynorsk, following the categories the Norwegian population register uses. skild is the Nynorsk participle where Bokmål writes skilt, sambuar the Nynorsk agent noun where Bokmål writes samboer, and uoppgjeve where Bokmål writes uoppgitt. enkje is the Nynorsk form of enke.
+locale: nn
+---
+ugift
+gift
+separert
+skild
+enkje
+enkjemann
+registrert partnar
+separert partnar
+skild partnar
+attlevande partnar
+sambuar
+forlova
+einsleg
+uoppgjeve

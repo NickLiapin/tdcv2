@@ -1,0 +1,11 @@
+---
+description: Conditions with a raised prevalence in people of Middelhavsområdet descent, in Nynorsk. sjukdom for sykdom is the Nynorsk form throughout.
+locale: nn
+---
+betatalassemi
+betatalassemitrekk
+glukose-6-fosfatdehydrogenasemangel
+familiær middelhavsfeber
+Behçets sjukdom
+alfatalassemi
+favisme

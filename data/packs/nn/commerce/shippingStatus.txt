@@ -1,0 +1,15 @@
+---
+description: Tracking state of a parcel, in Nynorsk. Nynorsk past participles end -a where Bokmål ends -et, so oppretta, henta, forseinka and endra replace opprettet, hentet, forsinket and endret; mottakar and avsendar replace mottaker and avsender.
+locale: nn
+---
+etikett oppretta
+henta
+undervegs
+på terminal
+ut for levering
+levert
+klar for henting
+henta av mottakar
+avvik
+returnert til avsendar
+forseinka

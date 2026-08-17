@@ -1,0 +1,21 @@
+---
+description: Video game genre in Nynorsk. spel for spill runs through the whole list — rollespel, puslespel, skytespel, plattformspel, kampspel, byggjespel — and overleving replaces overlevelse. The English genre names that Norwegian never translated (MMORPG, roguelike, sandkasse) are the same in both standards.
+locale: nn
+---
+action
+eventyr
+rollespel
+strategi
+simulator
+sport
+puslespel
+skytespel
+plattformspel
+racing
+kampspel
+overleving
+sandkasse
+MMORPG
+roguelike
+skrekk
+byggjespel

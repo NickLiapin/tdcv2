@@ -1,0 +1,30 @@
+---
+description: Headline of a product review, as a Nynorsk-writing customer would type it. Like the return reasons these are sentences, so the overlap with Bokmål is close to nothing: nøgd for fornøyd, tilrådd for anbefalt, pengane for pengene, greitt for greit, skuffa for skuffet, gjekk for gikk, venta for ventet, elskar for elsker, skildra for beskrevet, verkar for fungerer, kvar for hver, nydeleg for nydelig. framifrå — outstanding — is a Nynorsk word Bokmål simply does not have.
+locale: nn
+---
+Svært nøgd!
+Blir sterkt tilrådd
+Ikkje verdt pengane
+Over all forventning
+Heilt greitt
+Kjøper igjen
+Skuffa
+Framifrå kvalitet
+Gjekk i stykker altfor fort
+Perfekt til prisen
+Betre enn venta
+Kan ikkje tilrådast
+Elskar han!
+Litt dyr
+Akkurat som skildra
+Rask levering
+Solid og stabil
+Verkar som han skal
+Litt skuffande
+Verdt kvar krone
+Nydeleg design
+Enkel å bruke
+Passa ikkje
+God kvalitet til prisen
+Ville ikkje kjøpt igjen
+Topp!

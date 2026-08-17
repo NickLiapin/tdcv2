@@ -1,0 +1,50 @@
+---
+description: Sport in Nynorsk. handball for håndball, symjing for svømming, segling for seiling, bogeskyting for bueskyting and riding for ridning are the divergences. The first eight are the winter sports Norway is organised around, and langrenn, skiskyting, hopp and kombinert have no positions at all — which is why they are here and not in sport/sportCoherent.txt.
+locale: nn
+---
+fotball
+handball
+langrenn
+skiskyting
+alpint
+hopp
+kombinert
+freestyle
+snowboard
+ishockey
+bandy
+innebandy
+curling
+skøyter
+hurtigløp på skøyter
+friidrett
+orientering
+sykling
+symjing
+roing
+padling
+segling
+golf
+tennis
+badminton
+bordtennis
+basketball
+volleyball
+amerikansk fotball
+rugby
+baseball
+boksing
+bryting
+judo
+karate
+taekwondo
+turn
+skyting
+bogeskyting
+riding
+motorsport
+rallycross
+klatring
+triatlon
+terrengløp
+e-sport

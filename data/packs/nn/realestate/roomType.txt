@@ -1,0 +1,20 @@
+---
+description: Room in a Norwegian home, in Nynorsk. stove for stue, spisestove for spisestue, badstove for badstue and kjellar for kjeller are the divergences. bod is a locked storage room that Norwegian flats have by law, and it is not a cupboard.
+locale: nn
+---
+stove
+kjøkken
+soverom
+bad
+vaskerom
+entré
+gang
+gjesterom
+kontor
+kjellar
+loft
+bod
+spisestove
+garderobe
+vinterhage
+badstove

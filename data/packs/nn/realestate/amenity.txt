@@ -1,0 +1,31 @@
+---
+description: Feature named in a Norwegian property listing, in Nynorsk. badstove for badstue, vedomn for vedovn, kjellar for kjeller, varmekablar for varmekabler, vassboren for vannbåren leikeplass for lekeplass and dyrehald for dyrehold. varmekablar — electric floor heating — appears in almost every Norwegian bathroom listing, and vassboren varme is the waterborne alternative.
+locale: nn
+---
+balkong
+terrasse
+hage
+garasje
+carport
+parkeringsplass
+heis
+peis
+vedomn
+badstove
+boblebad
+kjellar
+loft
+bod
+sportsbod
+oppvaskmaskin
+vaskemaskin
+felles vaskerom
+varmekablar
+vassboren varme
+solcellepanel
+ladepunkt for elbil
+utsikt
+sjøutsikt
+leikeplass
+dyrehald tillate
+møblert

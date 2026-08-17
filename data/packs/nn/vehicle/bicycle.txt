@@ -1,0 +1,21 @@
+---
+description: Kind of bicycle in Nynorsk. landevegssykkel is the divergence: Nynorsk has veg where Bokmål has vei, so the road bike is a landevegssykkel and not a landeveissykkel. spark is the kick-sled — a chair on runners you push along ice, and a real vehicle in a Norwegian winter.
+locale: nn
+---
+elsykkel
+landevegssykkel
+terrengsykkel
+elektrisk terrengsykkel
+hybridsykkel
+grussykkel
+bysykkel
+tursykkel
+foldesykkel
+lastesykkel
+barnesykkel
+tandemsykkel
+fatbike
+BMX-sykkel
+sykkelkross
+sparkesykkel
+spark

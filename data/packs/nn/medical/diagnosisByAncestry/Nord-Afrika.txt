@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised prevalence in people of Nord-Afrika descent, in Nynorsk. sjukdom for sykdom is the Nynorsk form throughout.
+locale: nn
+---
+betatalassemi
+glukose-6-fosfatdehydrogenasemangel
+familiær middelhavsfeber
+sigdcelletrekk
+favisme

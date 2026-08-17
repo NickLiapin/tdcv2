@@ -1,0 +1,5 @@
+---
+description: Currency of Tyrkia, as Nynorsk names it
+locale: nn
+---
+tyrkisk lira

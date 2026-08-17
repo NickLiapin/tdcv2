@@ -1,0 +1,5 @@
+---
+description: Capital of Russland, as Nynorsk writes it
+locale: nn
+---
+Moskva

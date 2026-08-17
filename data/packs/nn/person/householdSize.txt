@@ -1,0 +1,11 @@
+---
+description: Number of people in a household. Digits, so identical in both written standards; Statistisk sentralbyrå tops its household tables out at seven or more.
+locale: nn
+---
+1
+2
+3
+4
+5
+6
+7+

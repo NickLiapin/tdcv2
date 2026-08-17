@@ -1,0 +1,27 @@
+---
+description: Sub-address label in Nynorsk. gnr., bnr., snr. and fnr. are the Norwegian cadastral numbers — gardsnummer, bruksnummer, seksjonsnummer, festenummer — and every Norwegian property has them; Nynorsk writes gardsnummer where Bokmål writes gårdsnummer, though the abbreviation is the same. leilegheit and kjellar are the two spelled forms that differ.
+locale: nn
+---
+etg.
+etasje
+oppgang
+inngang
+leil.
+leilegheit
+hybel
+rom
+kontor
+seksjon
+bygg
+blokk
+hus
+gnr.
+bnr.
+snr.
+fnr.
+postboks
+boks
+kjellar
+loft
+sokkel
+bod

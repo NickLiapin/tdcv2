@@ -1,0 +1,32 @@
+---
+description: Technical adjective in Nynorsk. open kjeldekode for åpen kildekode, trådlaus for trådløs, høghastigheits for høyhastighets, fleirkjerna for flerkjernet, tilkopla for tilkoblet and tovegs for toveis. The Latinate ones (digital, virtuell, autonom, biometrisk, adaptiv, asynkron) are identical in both standards.
+locale: nn
+---
+digital
+virtuell
+trådlaus
+optisk
+nevral
+mobil
+redundant
+primær
+sekundær
+kryptert
+distribuert
+skybasert
+open kjeldekode
+plattformuavhengig
+sanntids
+høghastigheits
+haptisk
+fleirkjerna
+tilkopla
+autonom
+biometrisk
+syntetisk
+adaptiv
+modulær
+innebygd
+kvantebasert
+tovegs
+asynkron

@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised prevalence in people of Aust-Europa descent, in Nynorsk. sjukdom for sykdom is the Nynorsk form throughout.
+locale: nn
+---
+arveleg hemokromatose
+Wilsons sjukdom
+fenylketonuri
+familiær hyperkolesterolemi
+cystisk fibrose

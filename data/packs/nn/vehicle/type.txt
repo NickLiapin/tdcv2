@@ -1,0 +1,26 @@
+---
+description: Kind of road vehicle in Nynorsk. fleirbruksbil for flerbruksbil is the divergence — Nynorsk fleire against Bokmål flere. snøskuter and beltebil are Norwegian categories with real legal meaning in the north.
+locale: nn
+---
+sedan
+kombi
+stasjonsvogn
+kupé
+kabriolet
+SUV
+crossover
+fleirbruksbil
+varebil
+pickup
+kassebil
+minibuss
+buss
+lastebil
+trekkvogn
+bobil
+campingvogn
+traktor
+ATV
+snøskuter
+beltebil
+veteranbil

@@ -1,0 +1,5 @@
+---
+description: Currency of Canada, as Nynorsk names it
+locale: nn
+---
+kanadisk dollar

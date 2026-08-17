@@ -1,0 +1,17 @@
+---
+description: Shoe size on the EUROPEAN (Paris point) scale, which is what a Norwegian shoebox is printed with. Numbers, so identical in both written standards and in every European locale. Norway does not use the UK or US scales at all, and a config that maps a Norwegian record onto US sizes will be wrong by about two and a half points.
+locale: nn
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47

@@ -1,0 +1,10 @@
+---
+description: Playing positions in amerikansk fotball, in Nynorsk. Filename matches the parent value in sport/sportCoherent.txt character for character.
+locale: nn
+---
+quarterback
+running back
+wide receiver
+linebacker
+cornerback
+kicker

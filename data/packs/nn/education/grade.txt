@@ -1,0 +1,18 @@
+---
+description: Grade as a Norwegian school or university awards it. Compulsory and upper secondary school use 1 to 6 with 6 best; higher education uses A to F with F failing; and some courses are graded only pass/fail. All three scales are in use at once, which is why they are in one list. ikkje bestått for ikke bestått is the only Nynorsk divergence.
+locale: nn
+---
+6
+5
+4
+3
+2
+1
+A
+B
+C
+D
+E
+F
+bestått
+ikkje bestått

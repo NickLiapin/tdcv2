@@ -1,0 +1,20 @@
+---
+description: Horse breeds kept in Norway, in Nynorsk. The first three are the Norwegian native breeds; the fjordhest is the western breed and comes from the same counties that write Nynorsk. travar and hannoveranar carry the Nynorsk -ar where Bokmål has -er.
+locale: nn
+---
+fjordhest
+dølahest
+nordlandshest
+norsk kaldblodstravar
+varmblods travar
+engelsk fullblod
+arabisk fullblod
+islandshest
+shetlandsponni
+welshponni
+new forest ponni
+connemara
+hannoveranar
+holsteinar
+frieser
+haflinger

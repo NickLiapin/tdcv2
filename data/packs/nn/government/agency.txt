@@ -1,0 +1,34 @@
+---
+description: KIND of public body, in Nynorsk — the words, not the institutions. The named Norwegian agencies (Skatteetaten, NAV, Brønnøysundregistrene) belong to the Norway country pack and are deliberately NOT here: this file holds the categories a Nynorsk text uses to describe one. ombod for ombud, statleg verksemd for statlig virksomhet, utval for utvalg, helseføretak for helseforetak and offentleg stifting for offentlig stiftelse are the divergences. fylkesmann is kept alongside statsforvaltar because the office was renamed in 2021 and both words appear in records.
+locale: nn
+---
+departement
+direktorat
+etat
+tilsyn
+ombod
+ombodsperson
+statsforvaltar
+fylkesmann
+kommune
+fylkeskommune
+bydel
+statleg verksemd
+forvaltningsorgan
+nemnd
+klagenemnd
+råd
+utval
+kommisjon
+register
+institutt
+kontor
+politidistrikt
+lensmannskontor
+helseføretak
+regionalt helseføretak
+statsføretak
+offentleg stifting
+ambassade
+konsulat
+sekretariat

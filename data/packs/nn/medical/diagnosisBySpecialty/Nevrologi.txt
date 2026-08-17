@@ -1,0 +1,10 @@
+---
+description: Diagnoses a nevrologi department in Norway actually sees, in Nynorsk. Filename matches the parent value in medical/specialtyCoherent.txt character for character.
+locale: nn
+---
+migrene
+epilepsi
+Parkinsons sjukdom
+multippel sklerose
+hjerneinfarkt
+perifer nevropati

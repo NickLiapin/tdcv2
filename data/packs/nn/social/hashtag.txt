@@ -1,0 +1,35 @@
+---
+description: Hashtag a Norwegian actually posts, in Nynorsk. noreg for norge is the divergence that matters, and syttandemai for syttendemai; nynorsk and vestlandet are in the list because they are what a Nynorsk-writing account tags itself with. Several of these need explaining: utepils is the first beer drunk outdoors in spring and is a national event, dugnad is unpaid collective work everyone in a housing cooperative is expected to turn up for, and allemannsretten is the legal right to walk and camp on uncultivated land regardless of who owns it.
+locale: nn
+---
+noreg
+nynorsk
+vestlandet
+oslo
+bergen
+trondheim
+tromsø
+lofoten
+nordlys
+midnattssol
+friluftsliv
+fjelltur
+påskefjellet
+hyttekos
+hyttetur
+utepils
+fredagstaco
+kosekveld
+matpakke
+brunost
+kanelbolle
+strikkedilla
+ski
+langrenn
+dugnad
+allemannsretten
+russetid
+syttandemai
+sommarferie
+bålkos
+godtur

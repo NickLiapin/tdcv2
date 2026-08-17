@@ -1,0 +1,11 @@
+---
+description: Abbreviated weekday in Nynorsk, with the full stop Norwegian keeps. tys., lau. and sun. are the three that differ from Bokmål tir., lør. and søn.
+locale: nn
+---
+mån.
+tys.
+ons.
+tor.
+fre.
+lau.
+sun.

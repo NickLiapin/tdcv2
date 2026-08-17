@@ -1,0 +1,36 @@
+---
+description: Musical instrument in Nynorsk. trekkspel and munnspel replace trekkspill and munnspill. The last five are Norwegian folk instruments and the first of them is a Nynorsk-country instrument specifically: the hardingfele, with four or five sympathetic strings under the fingerboard, comes from Hardanger in Vestland — the same region that carries the written standard. langeleik, lur, bukkehorn and seljefløyte are the others, and none has an English name.
+locale: nn
+---
+gitar
+elgitar
+bassgitar
+piano
+flygel
+fiolin
+bratsj
+cello
+kontrabass
+trommer
+saksofon
+trompet
+trombone
+tuba
+valthorn
+tverrfløyte
+klarinett
+obo
+fagott
+harpe
+ukulele
+banjo
+trekkspel
+munnspel
+orgel
+keyboard
+synthesizer
+hardingfele
+langeleik
+lur
+bukkehorn
+seljefløyte

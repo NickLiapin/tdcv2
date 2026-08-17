@@ -1,0 +1,16 @@
+---
+description: Kind of workplace meeting in Nynorsk. dagleg for daglig, ein-til-ein for en-til-en and medarbeidarsamtale for medarbeidersamtale are the divergences. medarbeidarsamtale is the annual one-to-one between employee and manager and is close to mandatory in Norwegian working life; idédugnad is a brainstorm named after the dugnad, unpaid collective work.
+locale: nn
+---
+dagleg standup
+ein-til-ein
+medarbeidarsamtale
+allmøte
+avdelingsmøte
+personalmøte
+styremøte
+statusmøte
+oppstartsmøte
+retrospektiv
+sprintplanlegging
+idédugnad

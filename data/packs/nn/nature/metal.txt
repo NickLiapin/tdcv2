@@ -1,0 +1,27 @@
+---
+description: Metals in Nynorsk. Like the gemstones, this is chemistry rather than language and the list is identical to the Bokmål one. kvikksølv is quicksilver, literally, in both standards.
+locale: nn
+---
+gull
+sølv
+platina
+kobber
+jern
+aluminium
+titan
+sink
+nikkel
+bly
+tinn
+bronse
+messing
+stål
+palladium
+kobolt
+krom
+wolfram
+magnesium
+molybden
+kvikksølv
+vanadium
+mangan

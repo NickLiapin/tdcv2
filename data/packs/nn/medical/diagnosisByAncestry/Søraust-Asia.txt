@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised prevalence in people of Søraust-Asia descent, in Nynorsk. sjukdom for sykdom is the Nynorsk form throughout.
+locale: nn
+---
+alfatalassemi
+hemoglobin E-sjukdom
+glukose-6-fosfatdehydrogenasemangel
+laktoseintoleranse
+nasofarynxkreft

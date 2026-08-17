@@ -1,0 +1,26 @@
+---
+description: Line in a Norwegian household budget, in Nynorsk. husleige for husleie, bustadlån for boliglån, straum for strøm, daglegvarer for dagligvarer, klede for klær, gåver for gaver and anna gjeld for annen gjeld. SFO is skolefritidsordning, after-school care, and is a real monthly bill for Norwegian families with children under ten; studielån is the state student loan from Lånekassen, which almost every Norwegian graduate carries.
+locale: nn
+---
+husleige
+bustadlån
+felleskostnader
+kommunale avgifter
+straum
+mat og daglegvarer
+transport
+drivstoff
+kollektivtransport
+bil
+forsikring
+helse
+barnehage
+SFO
+klede
+fritid
+ferie
+sparing
+abonnement
+gåver
+studielån
+anna gjeld

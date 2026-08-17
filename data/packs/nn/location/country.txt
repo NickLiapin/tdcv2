@@ -1,0 +1,233 @@
+---
+description: Country names in Nynorsk, sorted in NORWEGIAN alphabetical order — the 26 Latin letters, then æ, ø and å in that order AFTER z. Compare the tail with the Bokmål pack to see the whole point of this locale in one place: nb ends Zambia, Zimbabwe, Øst-Timor, Østerrike, Ålandsøyene, while nn ends Zambia, Zimbabwe, Ålandsøyane — because Nynorsk keeps the Old Norse diphthong in Aust-Timor and Austerrike, which moves both countries from the very end of the alphabet to near the very front. The other systematic difference is the definite plural: Nynorsk island groups end -øyane where Bokmål ends -øyene (Færøyane, Filippinane, Salomonøyane, Cookøyane, Maldivane, Seychellane). And Norway itself is Noreg. Sorted by an English or plain-Unicode collator, Ålandsøyane jumps to the front, which is the commonest way a Norwegian list comes out visibly wrong.
+locale: nn
+---
+Afghanistan
+Albania
+Algerie
+Amerikansk Samoa
+Andorra
+Angola
+Anguilla
+Antigua og Barbuda
+Argentina
+Armenia
+Aruba
+Aserbajdsjan
+Aust-Timor
+Austerrike
+Australia
+Bahamas
+Bahrain
+Bangladesh
+Barbados
+Belarus
+Belgia
+Belize
+Benin
+Bermuda
+Bhutan
+Bolivia
+Bosnia-Hercegovina
+Botswana
+Brasil
+Brunei
+Bulgaria
+Burkina Faso
+Burundi
+Canada
+Chile
+Colombia
+Cookøyane
+Costa Rica
+Cuba
+Curaçao
+Danmark
+Dei britiske jomfruøyane
+Dei sameinte arabiske emirata
+Den demokratiske republikken Kongo
+Den dominikanske republikken
+Den sentralafrikanske republikken
+Djibouti
+Dominica
+Ecuador
+Egypt
+Ekvatorial-Guinea
+El Salvador
+Elfenbeinskysten
+Eritrea
+Estland
+Eswatini
+Etiopia
+Falklandsøyane
+Fiji
+Filippinane
+Finland
+Frankrike
+Fransk Guyana
+Fransk Polynesia
+Færøyane
+Gabon
+Gambia
+Georgia
+Ghana
+Gibraltar
+Grenada
+Grønland
+Guadeloupe
+Guam
+Guatemala
+Guinea
+Guinea-Bissau
+Guyana
+Haiti
+Hellas
+Honduras
+Hongkong
+India
+Indonesia
+Irak
+Iran
+Irland
+Island
+Isle of Man
+Israel
+Italia
+Jamaica
+Japan
+Jemen
+Jomfruøyane
+Jordan
+Kambodsja
+Kamerun
+Kapp Verde
+Kasakhstan
+Kenya
+Kina
+Kirgisistan
+Kiribati
+Komorane
+Kosovo
+Kroatia
+Kuwait
+Kypros
+Laos
+Latvia
+Lesotho
+Libanon
+Liberia
+Libya
+Liechtenstein
+Litauen
+Luxembourg
+Madagaskar
+Malawi
+Malaysia
+Maldivane
+Mali
+Malta
+Marokko
+Marshalløyane
+Martinique
+Mauritania
+Mauritius
+Mayotte
+Mexico
+Mikronesiaføderasjonen
+Moldova
+Monaco
+Mongolia
+Montenegro
+Montserrat
+Mosambik
+Myanmar
+Namibia
+Nauru
+Nederland
+Nepal
+New Zealand
+Nicaragua
+Niger
+Nigeria
+Niue
+Nord-Korea
+Nord-Makedonia
+Noreg
+Norfolkøya
+Ny-Caledonia
+Oman
+Pakistan
+Palau
+Palestina
+Panama
+Papua Ny-Guinea
+Paraguay
+Peru
+Polen
+Portugal
+Puerto Rico
+Qatar
+Republikken Kongo
+Réunion
+Romania
+Russland
+Rwanda
+Saint Kitts og Nevis
+Saint Lucia
+Saint Vincent og Grenadinane
+Salomonøyane
+Samoa
+San Marino
+São Tomé og Príncipe
+Saudi-Arabia
+Senegal
+Serbia
+Seychellane
+Sierra Leone
+Singapore
+Slovakia
+Slovenia
+Somalia
+Spania
+Sri Lanka
+Storbritannia
+Sudan
+Surinam
+Svalbard
+Sveits
+Sverige
+Syria
+Sør-Afrika
+Sør-Korea
+Sør-Sudan
+Tadsjikistan
+Taiwan
+Tanzania
+Thailand
+Togo
+Tokelau
+Tonga
+Trinidad og Tobago
+Tsjad
+Tsjekkia
+Tunisia
+Turkmenistan
+Turks- og Caicosøyane
+Tuvalu
+Tyrkia
+Tyskland
+Uganda
+Ukraina
+Ungarn
+Uruguay
+USA
+Usbekistan
+Vanuatu
+Vatikanstaten
+Venezuela
+Vest-Sahara
+Vietnam
+Wallis og Futuna
+Zambia
+Zimbabwe
+Ålandsøyane

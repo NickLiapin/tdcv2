@@ -1,0 +1,27 @@
+---
+description: Religion and life stance in Nynorsk. Den norske kyrkja for Den norske kirke, pinserørsla for pinsebevegelsen and ikkje religiøs for ikke religiøs are the divergences. livssynshumanisme belongs on this list rather than beside it: Norway gives non-religious life stances the same legal standing and the same state funding per member as religions, and Human-Etisk Forbund is one of the largest such organisations in the world per capita.
+locale: nn
+---
+kristendom
+Den norske kyrkja
+luthersk kristendom
+katolisisme
+ortodoks kristendom
+pinserørsla
+baptisme
+metodisme
+Jehovas vitne
+islam
+jødedom
+hinduisme
+buddhisme
+sikhisme
+bahá’í
+jainisme
+shinto
+taoisme
+åsatru
+livssynshumanisme
+ateisme
+agnostisisme
+ikkje religiøs

@@ -1,0 +1,31 @@
+---
+description: Diagnoses to draw for a person recorded as female — the sex-specific list mixed with the general conditions that are commoner in women, so a generated patient record is plausible rather than only gynaecological. Nynorsk throughout; see medical/diagnosisFemale.txt for the sex-specific part.
+locale: nn
+---
+celleforandringar i livmorhalsen
+myom i livmora
+soppinfeksjon i skjeden
+fibroadenom i bryst
+polycystisk ovariesyndrom
+endometriose
+ovarialcyste
+cervicitt
+endometritt
+brystbetennelse
+kraftige menstruasjonsblødingar
+overgangsplager
+kronisk pankreatitt
+klamydia
+artrose
+hypertensjon
+diabetes type 2
+astma
+migrene
+jernmangelanemi
+hypotyreose
+urinvegsinfeksjon
+beinskjørheit
+fibromyalgi
+depresjon
+brystkreft
+tinnitus

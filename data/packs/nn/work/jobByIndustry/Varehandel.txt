@@ -1,0 +1,10 @@
+---
+description: Jobs found in varehandel, in Nynorsk. Filename matches the parent value in work/industryCoherent.txt character for character.
+locale: nn
+---
+butikkmedarbeidar
+butikksjef
+innkjøpar
+varepåfyllar
+kundehandsamar
+visualmerchandiser

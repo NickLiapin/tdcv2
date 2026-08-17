@@ -1,0 +1,5 @@
+---
+description: Capital of Nederland, as Nynorsk writes it
+locale: nn
+---
+Amsterdam

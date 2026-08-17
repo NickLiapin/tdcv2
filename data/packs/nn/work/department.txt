@@ -1,0 +1,26 @@
+---
+description: Department inside an organisation, in Nynorsk. Seven of the twenty-two differ from Bokmål and each shows a different rule: sal for salg and marknad for marked (native word forms), rekneskap for regnskap and forsking for forskning (Nynorsk -ing where Bokmål has -ning), eigedom for eiendom (diphthong), tryggleik for sikkerhet (Nynorsk -leik where Bokmål borrowed the Low German -het) and etterleving for etterlevelse (-ing for -else). HMS is helse, miljø og tryggleik — occupational health and safety — and is a legally required function in every Norwegian workplace.
+locale: nn
+---
+utvikling
+produkt
+design
+sal
+marknad
+økonomi
+rekneskap
+personal
+drift
+juridisk
+kundeservice
+IT
+forsking og utvikling
+innkjøp
+kvalitet
+logistikk
+administrasjon
+eigedom og drift
+tryggleik
+etterleving
+kommunikasjon
+HMS

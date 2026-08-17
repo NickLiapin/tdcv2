@@ -1,0 +1,12 @@
+---
+description: Mining method in Nynorsk. dagbrot for dagbrudd and pallsprenging for pallsprengning are the divergences — Nynorsk -ing where Bokmål has -ning, and brot where Bokmål has brudd. skjerping is prospecting by staking a claim, which Norwegian mining law still calls that.
+locale: nn
+---
+dagbrot
+underjordsdrift
+pallsprenging
+strossing
+sjaktdrift
+stolldrift
+langveggdrift
+skjerping

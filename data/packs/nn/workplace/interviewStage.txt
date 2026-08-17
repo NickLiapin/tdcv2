@@ -1,0 +1,15 @@
+---
+description: Stage of a hiring process in Nynorsk. Six of the eleven differ: motteken for mottatt, førstegongs-/andregongsintervju for førstegangs-/andregangsintervju (Nynorsk gong for gang), caseoppgåve for caseoppgave, tilbod for tilbud and tilsett for ansatt.
+locale: nn
+---
+søknad motteken
+søknadsgjennomgang
+telefonintervju
+førstegongsintervju
+andregongsintervju
+caseoppgåve
+evnetest
+referansesjekk
+tilbod
+avslag
+tilsett

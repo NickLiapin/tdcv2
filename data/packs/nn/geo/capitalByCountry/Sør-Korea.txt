@@ -1,0 +1,5 @@
+---
+description: Capital of Sør-Korea, as Nynorsk writes it
+locale: nn
+---
+Seoul

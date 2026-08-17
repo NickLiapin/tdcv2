@@ -1,0 +1,36 @@
+---
+description: Common adverb in Nynorsk. The -leg/-lig ending again — tydeleg, plutseleg, verkeleg, venleg, endeleg — plus høgt for høyt, sjeldan for sjelden, heilt for helt and roleg for rolig.
+locale: nn
+---
+raskt
+sakte
+forsiktig
+lett
+stille
+høgt
+alltid
+aldri
+ofte
+av og til
+sjeldan
+plutseleg
+mildt
+tydeleg
+enkelt
+nesten
+heilt
+knapt
+mest
+verkeleg
+djupt
+vidt
+fritt
+modig
+roleg
+ivrig
+fast
+gjerne
+venleg
+snart
+straks
+endeleg

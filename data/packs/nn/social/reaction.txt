@@ -1,0 +1,15 @@
+---
+description: Reaction on a social post, in Nynorsk. The Nynorsk present tense of -e verbs ends -ar where Bokmål ends -er, so likar, elskar, feirar and støttar replace liker, elsker, feirer and støtter. That one ending is the single most frequent visible difference between the two standards in running text.
+locale: nn
+---
+likar
+elskar
+ha ha
+wow
+trist
+sint
+bryr meg
+feirar
+støttar
+innsiktsfullt
+nysgjerrig

@@ -1,0 +1,16 @@
+---
+description: State of a property listing, in Nynorsk. Nine of the twelve differ: til sals for til salgs, sal for salg, bodrunde for budrunde, seld for solgt, til leige for til leie, utleigd for utleid, mellombels for midlertidig, marknaden for markedet and prisantyding for prisantydning. bodrunde is the Norwegian open bidding round — bids are made by binding deadline over hours, and prisantyding is only an indication, not an asking price.
+locale: nn
+---
+til sals
+kjem for sal
+visning
+bodrunde
+seld
+seld før visning
+til leige
+utleigd
+mellombels teken av marknaden
+prisantyding justert
+nybygg
+under oppføring

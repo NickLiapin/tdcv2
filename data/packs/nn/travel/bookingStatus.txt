@@ -1,0 +1,15 @@
+---
+description: State of a travel booking, in Nynorsk. The Nynorsk past participle in -a does the work: stadfesta, innsjekka, utsjekka, endra where Bokmål has bekreftet, innsjekket, utsjekket, endret. ventar for venter completes it.
+locale: nn
+---
+stadfesta
+ventar
+kansellert
+innsjekka
+utsjekka
+uteblitt
+endra
+refundert
+på venteliste
+delvis betalt
+garantert

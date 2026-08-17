@@ -1,0 +1,28 @@
+---
+description: Suffix placed after a name in Nynorsk — generation markers and academic degrees. d.e. and d.y. abbreviate den eldre and den yngre, and are the Norwegian equivalent of Sr. and Jr.; both standards write them the same because they are abbreviations. Everything here is Latin or an abbreviation, so this list is identical to the Bokmål one, which is the honest answer for a category made of abbreviations.
+locale: nn
+---
+d.e.
+d.y.
+jr.
+sr.
+II
+III
+IV
+V
+ph.d.
+dr.philos.
+dr.med.
+dr.juris
+dr.theol.
+cand.mag.
+cand.jur.
+cand.med.
+cand.psychol.
+cand.polit.
+cand.scient.
+siv.ing.
+siv.øk.
+MBA
+M.Sc.
+em.

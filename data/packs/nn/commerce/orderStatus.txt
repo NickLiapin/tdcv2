@@ -1,0 +1,18 @@
+---
+description: State of a customer order, in Nynorsk. handsaming is the Nynorsk word for processing where Bokmål has the Low German behandling — the same substitution runs through the whole pack (sakshandsamar for saksbehandler, kundehandsamar for kundebehandler). stadfesta for bekreftet, ventar for venter and undervegs for underveis are the rest.
+locale: nn
+---
+ventar
+under handsaming
+stadfesta
+betalt
+plukkast
+pakkast
+sendt
+undervegs
+klar for henting
+levert
+kansellert
+returnert
+refundert
+restordre

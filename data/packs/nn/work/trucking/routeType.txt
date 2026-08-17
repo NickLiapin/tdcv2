@@ -1,0 +1,12 @@
+---
+description: Kind of haulage route in Nynorsk. lokalkøyring and nattkøyring carry the Nynorsk køyre for Bokmål kjøre, and fjellovergangar the Nynorsk plural -ar. fjellovergangar is a real route category in Norway: mountain passes that close in winter and decide the schedule.
+locale: nn
+---
+langtransport
+internasjonal transport
+distribusjon
+lokalkøyring
+fjellovergangar
+nattkøyring
+faste ruter
+siste mil

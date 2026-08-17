@@ -1,0 +1,38 @@
+---
+description: Title placed before a name in Nynorsk. Several differ from Bokmål: ordførar for ordfører (the Nynorsk agent suffix -ar against Bokmål -er), sokneprest where Bokmål writes sogneprest, and dagleg leiar for daglig leder. The Latin academic abbreviations (dr., cand.jur., siv.ing.) are Latin in both standards and are not translated.
+locale: nn
+---
+hr.
+fru
+frøken
+dr.
+dr.med.
+dr.philos.
+prof.
+professor
+førsteamanuensis
+siv.ing.
+ing.
+cand.jur.
+cand.med.
+adv.
+advokat
+dommar
+lagdommar
+pastor
+sokneprest
+prost
+biskop
+rektor
+ordførar
+statsminister
+statsråd
+statsforvaltar
+direktør
+dagleg leiar
+kaptein
+løytnant
+oberst
+general
+kommandør
+sersjant

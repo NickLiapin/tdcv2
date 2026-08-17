@@ -1,0 +1,5 @@
+---
+description: Currency of Vietnam, as Nynorsk names it
+locale: nn
+---
+vietnamesisk dong

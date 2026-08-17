@@ -1,0 +1,23 @@
+---
+description: Film genre in Nynorsk. This list is IDENTICAL to the Bokmål one, all nineteen entries, and it is the clearest single example of why the overlap between the standards is high: genre labels are international borrowings (action, thriller, western, musikal) or Latinate nouns (dokumentar, animasjon, biografi), and neither standard reshaped any of them.
+locale: nn
+---
+action
+komedie
+drama
+skrekk
+thriller
+romantikk
+science fiction
+fantasy
+dokumentar
+animasjon
+eventyr
+krim
+mysterium
+western
+musikal
+krigsfilm
+biografi
+familiefilm
+kortfilm

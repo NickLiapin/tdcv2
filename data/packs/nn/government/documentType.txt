@@ -1,0 +1,25 @@
+---
+description: Kind of official document a person in Norway holds, in Nynorsk. løyve is the Nynorsk word for a licence or permit where Bokmål uses three different Low German loans — bevilling, tillatelse and the verb tillate — so skilsmisseløyve, opphaldsløyve, byggjeløyve and serveringsløyve replace skilsmissebevilling, oppholdstillatelse, byggetillatelse and serveringsbevilling. førarkort for førerkort, skatteoppgjer for skatteoppgjør and skøyte for skjøte complete it. The document NUMBERS — fødselsnummer, passport series, licence numbers — belong to the Norway country pack and are not here.
+locale: nn
+---
+pass
+nasjonalt ID-kort
+fødselsattest
+vigselsattest
+skilsmisseløyve
+førarkort
+opphaldsløyve
+vitnemål
+fagbrev
+attest
+politiattest
+skattemelding
+skatteoppgjer
+byggjeløyve
+ferdigattest
+serveringsløyve
+testament
+skøyte
+helsetrygdkort
+legeerklæring
+arbeidsavtale

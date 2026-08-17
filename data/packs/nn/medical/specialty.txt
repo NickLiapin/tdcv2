@@ -1,0 +1,40 @@
+---
+description: Medical specialty in ordinary lowercase Nynorsk, the longer sibling of specialtyCoherent. Unlike the parent list, this one DOES diverge from Bokmål, because it reaches the specialties Norwegian names in Norwegian rather than in Greek: augesjukdomar for øyesykdommer, blodsjukdomar for blodsykdommer, kvinnesjukdomar for kvinnesykdommer and øyre-nase-hals for øre-nese-hals. Those four are the whole difference, which is why the coherent parent above could be identical while this file is not.
+locale: nn
+---
+kardiologi
+dermatologi
+endokrinologi
+gastroenterologi
+nevrologi
+onkologi
+augesjukdomar
+ortopedi
+pediatri
+psykiatri
+lungemedisin
+radiologi
+revmatologi
+urologi
+nyremedisin
+blodsjukdomar
+immunologi
+anestesiologi
+akuttmedisin
+allmennmedisin
+indremedisin
+fødselshjelp og kvinnesjukdomar
+øyre-nase-hals
+patologi
+plastikkirurgi
+generell kirurgi
+karkirurgi
+infeksjonsmedisin
+geriatri
+nyfødtmedisin
+fysikalsk medisin og rehabilitering
+arbeidsmedisin
+samfunnsmedisin
+klinisk farmakologi
+nukleærmedisin
+medisinsk genetikk

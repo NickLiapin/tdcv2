@@ -1,0 +1,5 @@
+---
+description: Capital of Argentina, as Nynorsk writes it
+locale: nn
+---
+Buenos Aires

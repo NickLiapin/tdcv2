@@ -1,0 +1,5 @@
+---
+description: Capital of Spania, as Nynorsk writes it
+locale: nn
+---
+Madrid

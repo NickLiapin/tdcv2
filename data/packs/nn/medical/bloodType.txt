@@ -1,0 +1,12 @@
+---
+description: ABO blood group with rhesus factor. Letters and signs, so identical in every locale and in both Norwegian standards. A+ is the commonest in Norway, then O+.
+locale: nn
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

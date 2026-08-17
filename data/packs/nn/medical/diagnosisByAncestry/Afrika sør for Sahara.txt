@@ -1,0 +1,11 @@
+---
+description: Conditions with a raised prevalence in people of Afrika sør for Sahara descent, in Nynorsk. sjukdom for sykdom is the Nynorsk form throughout. This list is a prevalence signal, not an exclusive one: none of these conditions occurs only in this population, and none of them occurs in every member of it.
+locale: nn
+---
+sigdcelleanemi
+sigdcelletrekk
+glukose-6-fosfatdehydrogenasemangel
+alfatalassemi
+APOL1-assosiert nyresjukdom
+keloiddanning
+sarkoidose

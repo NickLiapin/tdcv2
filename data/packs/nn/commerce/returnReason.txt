@@ -1,0 +1,19 @@
+---
+description: Why a customer sent an item back, written as a customer writes it. These are whole sentences rather than single words, so almost nothing survives the crossing from Bokmål: ikkje for ikke in every negation, skildringa for beskrivelsen, storleik for størrelse, vara for varen, passa/fann/fekk/tinga for passet/fant/fikk/bestilte, delar manglar for deler mangler, forseinka for forsinket, dårlegare for dårligere and nytta for benyttet. angrerett is the statutory fourteen-day right of withdrawal and is a legal term, not a policy.
+locale: nn
+---
+kom skadd fram
+feil vare sendt
+vara stemmer ikkje med skildringa
+feil storleik
+passa ikkje
+ombestemte meg
+fann betre pris ein annan stad
+defekt ved mottak
+delar manglar
+forseinka levering
+treng han ikkje lenger
+tinga ved ein feil
+dårlegare kvalitet enn venta
+angrerett nytta
+fekk dobbelt opp

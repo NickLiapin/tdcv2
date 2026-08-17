@@ -1,0 +1,20 @@
+---
+description: Norwegian dishes in Nynorsk. Every difference from the Bokmål child file is a Nynorsk word form rather than a different dish: komle for raspeball, pinnekjøt for pinnekjøtt, rømmegraut for rømmegrøt.
+locale: nn
+---
+fårikål
+kjøtkaker i brun saus
+lapskaus
+komle
+pinnekjøt
+ribbe
+rømmegraut
+fiskesuppe
+plukkfisk
+gravlaks
+lutefisk
+smalahove
+rakfisk
+svele
+lefse
+kransekake

@@ -1,0 +1,11 @@
+---
+description: How a cable is laid, in Nynorsk. røyr is the Nynorsk word for pipe or duct where Bokmål writes rør, so every duct type differs. luftspenn is an overhead span between poles.
+locale: nn
+---
+trekkerøyr
+PVC-røyr
+PE-røyr
+stålrøyr
+direkte i grøft
+kabelbru
+luftspenn

@@ -1,0 +1,5 @@
+---
+description: Capital of Japan, as Nynorsk writes it
+locale: nn
+---
+Tokyo

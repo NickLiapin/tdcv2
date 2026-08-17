@@ -1,0 +1,34 @@
+---
+description: Facility a Norwegian hotel or cabin advertises, in Nynorsk. frukost for frokost, badstove for badstue, symjebasseng for svømmebasseng, vaskeriteneste for vaskeritjeneste, kaffitraktar for kaffetrakter, sykkelutleige for sykkelutleie and rullestolvenleg for rullestolvennlig. tillatne is the Nynorsk PLURAL participle agreeing with kjæledyr, an agreement Bokmål dropped. tørkerom — a heated drying room for wet outdoor clothing — is standard in Norwegian mountain and coastal lodgings and has no English equivalent.
+locale: nn
+---
+gratis wi-fi
+frukost inkludert
+badstove
+boblebad
+symjebasseng
+treningsrom
+spa
+restaurant
+bar
+romservice
+flyplasstransport
+parkering
+ladepunkt for elbil
+kjæledyr tillatne
+konferanserom
+resepsjon døgnet rundt
+bagasjeoppbevaring
+vaskeriteneste
+minibar
+kaffitraktar på rommet
+balkong
+sjøutsikt
+fjellutsikt
+peis
+skibod
+tørkerom
+sykkelutleige
+barnepass
+heis
+rullestolvenleg

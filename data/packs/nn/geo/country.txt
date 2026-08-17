@@ -1,0 +1,41 @@
+---
+description: Country as Nynorsk names it, weighted by population in millions, and the parent of the three coherent geo groups. Noreg is the entry that matters: Nynorsk calls the country Noreg and Bokmål calls it Norge, and both are official names of the same state — the single most recognisable pair in the whole language. Translated, not transliterated: Kina, Tyskland, Hellas, Sveits, Storbritannia, Russland. Noreg sits at its real weight, five million out of eight billion, so a config that wants Norwegian rows must not draw the country from here.
+locale: nn
+weighted: true
+---
+Kina,1410
+India,1400
+USA,335
+Indonesia,275
+Pakistan,240
+Nigeria,220
+Brasil,215
+Bangladesh,170
+Russland,144
+Mexico,128
+Japan,125
+Egypt,105
+Vietnam,99
+Tyrkia,85
+Tyskland,84
+Thailand,70
+Storbritannia,67
+Frankrike,65
+Italia,59
+Sør-Afrika,60
+Sør-Korea,52
+Spania,47
+Argentina,46
+Polen,38
+Canada,39
+Saudi-Arabia,36
+Australia,26
+Nederland,18
+Hellas,10
+Portugal,10
+Sverige,10
+Sveits,9
+Noreg,5
+Irland,5
+New Zealand,5
+Singapore,6

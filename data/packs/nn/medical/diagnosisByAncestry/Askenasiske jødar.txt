@@ -1,0 +1,11 @@
+---
+description: Conditions with a raised prevalence in people of Askenasiske jødar descent, in Nynorsk. sjukdom for sykdom is the Nynorsk form throughout.
+locale: nn
+---
+Tay-Sachs sjukdom
+Gauchers sjukdom type 1
+familiær dysautonomi
+Canavans sjukdom
+BRCA1-mutasjon
+BRCA2-mutasjon
+Bloom syndrom

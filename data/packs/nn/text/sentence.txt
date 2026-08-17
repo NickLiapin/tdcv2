@@ -1,0 +1,64 @@
+---
+description: Filler sentences in Nynorsk. Handwritten: Project Gutenberg holds no Nynorsk book at all. The language search l.nn returns "No records found.", and the 23 books Gutenberg files under the Norwegian code no are Ibsen, Hamsun, Wergeland and Undset — every one of them Bokmål or Riksmål, the Dano-Norwegian tradition that Nynorsk was built as an alternative to. Arne Garborg, the great Nynorsk novelist, is on Gutenberg only in Esperanto and Finnish translation, and Olav Duun only in English. Building a Nynorsk corpus out of those 23 books would have produced a text/ directory in the wrong written standard, which is exactly the failure this pack exists to avoid, so these files are written by hand instead. If a real Nynorsk corpus is ever wired into data/scripts/build-text-corpus.mjs, this file should be replaced rather than extended. Each line is one complete, grammatical Nynorsk sentence with a full stop, written to cover ordinary registers — statement, question, narrative past — and to exercise the forms that separate the standard: the -ar present tense, the a-ending past participle, the feminine definite in -a, and the pronouns eg, me, ho and dei.
+locale: nn
+---
+Det regna heile natta, og om morgonen låg skodda tett over fjorden.
+Ho gjekk ut på tunet og såg at snøen hadde lagt seg over marka.
+Me hadde ikkje venta at båten skulle kome så tidleg.
+Han sette seg ned ved bordet og opna boka han hadde lånt på biblioteket.
+Kva meiner du eigentleg med det?
+Barna sprang ned til stranda medan foreldra rydda etter middagen.
+Vegen over fjellet var stengd, så dei måtte køyre den lange runden om fjorden.
+Ingen visste kven som hadde lagt brevet i postkassa.
+Det er ikkje lett å skrive godt, men det er verdt strevet.
+Om sommaren står sola oppe nesten heile natta her nord.
+Gamlemor sat i stova og strikka medan radioen stod på.
+Han spurde om me ville vere med på fjelltur laurdag.
+Skulen ligg like ved kyrkja, og båe er bygde av stein.
+Ho las setninga ein gong til før ho svarte.
+Vatnet var så klart at dei kunne sjå botnen fire meter nede.
+Etter mange år i byen flytte dei attende til bygda.
+Det tok tid å lære seg dei nye orda, men no gjekk det greitt.
+Fisken beit ikkje, og dei rodde heim med tom kasse.
+Han hadde arbeidd på same verkstaden i tretti år.
+Me må hugse å slå av lyset før me går.
+Kvifor sa du ikkje noko med ein gong?
+Ho kjende lukta av nybakt brød alt i trappa.
+Dei bygde huset sjølve, stokk for stokk, den sommaren.
+Toget var seint, og han rakk ikkje møtet.
+Det stod ein hest på jordet og såg på oss.
+Om vinteren går borna på ski til skulen.
+Ingen av oss hadde tenkt på den moglegheita.
+Ho skreiv namnet sitt nedst på arket og la det frå seg.
+Straumen gjekk klokka åtte, og heile bygda vart mørk.
+Han fortalde ei lang historie om far sin og havet.
+Me sat lenge og prata om alt som hadde hendt.
+Det var kaldt, men lufta var still og himmelen klar.
+Butikken opnar klokka ni og stengjer klokka fem.
+Ho hadde alltid meint at ein skal seie det ein tenkjer.
+Dei fann eit gammalt kart i kjellaren under trappa.
+Kvar einaste morgon gjekk han same vegen ned til kaia.
+Det luktar haust når lauvet fell.
+Han visste ikkje kva han skulle svare, så han sa ingenting.
+Elva hadde stige om natta og dekte den nedste enga.
+Me kan møtast på kaféen ved torget klokka to.
+Ho lærte seg å lese før ho fylte fem år.
+Gjestene kom seint, men maten var framleis varm.
+Det var ikkje pengane som mangla, det var tida.
+Han bar veden inn medan det enno var lyst.
+Sauene beitte oppe i lia heile sommaren.
+Ingen kunne minnast eit slikt uvêr før.
+Ho tok av seg skoa i gangen og gjekk stille inn.
+Dei hadde arbeidd saman lenge og forstod kvarandre utan ord.
+Brevet kom to veker for seint, men det kom.
+Det er lang veg heim, sa han, og reiste seg.
+Snøen låg enno på tinden då dei kom opp.
+Han ler alltid av sine eigne historier.
+Me plukka bær heile ettermiddagen og fylte tre bøtter.
+Ho hadde ikkje sett havet før ho vart tolv.
+Kva tid trur du dei kjem?
+Båten låg still ved kaia og venta på flo.
+Dei bygde ein ny veg, og bygda vart mindre einsam.
+Han skreiv i dagboka kvar kveld, år etter år.
+Ingen ting varer evig, men noko varer lenge.
+Me såg nordlyset frå trappa, grønt og stille over fjellet.

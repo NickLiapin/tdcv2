@@ -1,0 +1,45 @@
+---
+description: Generic drug name (INN) as a Norwegian prescription prints it. This list is IDENTICAL to the Bokmål one, and that is not laziness: an INN is an international non-proprietary name regulated by the WHO and adopted unchanged into Norwegian, so paracetamol is paracetamol in both written standards and inventing a Nynorsk spelling would make the pack wrong. fenoksymetylpenicillin is the Norwegian first-line antibiotic, prescribed where most countries would reach for amoxicillin.
+locale: nn
+---
+paracetamol
+ibuprofen
+acetylsalisylsyre
+fenoksymetylpenicillin
+amoksicillin
+azitromycin
+ciprofloksacin
+doksysyklin
+lisinopril
+metformin
+atorvastatin
+simvastatin
+amlodipin
+omeprazol
+pantoprazol
+levotyroksin
+salbutamol
+metoprolol
+losartan
+gabapentin
+hydroklortiazid
+furosemid
+sertralin
+escitalopram
+citalopram
+fluoksetin
+duloksetin
+prednisolon
+warfarin
+apiksaban
+klopidogrel
+montelukast
+tramadol
+kodein
+morfin
+naproksen
+diklofenak
+cetirizin
+loratadin
+nitroglyserin
+insulin glargin

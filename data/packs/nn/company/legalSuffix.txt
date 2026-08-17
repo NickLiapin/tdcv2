@@ -1,0 +1,43 @@
+---
+description: What follows a Norwegian company name. The first fifteen are the legal forms and are fixed abbreviations set by statute — AS is aksjeselskap, ASA the public equivalent, ENK a sole proprietorship, IKS an inter-municipal company, BRL a housing cooperative — and they are identical in both written standards because they are codes. The descriptive tail is where Nynorsk shows: Stiftinga for Stiftelsen, Foreininga for Foreningen, Sameige for Sameie, Gruppa for Gruppen, Eigedom for Eiendom, Verkstad for Verksted, Løysingar for Løsninger, Tenester for Tjenester, Rådgjeving for Rådgivning, & Søner for & Sønner — and Noreg for Norge, which is what a Nynorsk company actually puts in its name.
+locale: nn
+---
+AS
+ASA
+ANS
+DA
+NUF
+ENK
+SA
+KS
+IKS
+KF
+SF
+HF
+FKF
+BRL
+BA
+Sameige
+Stiftinga
+Foreininga
+Samvirkelaget
+Gruppa
+Konsern
+Holding
+Invest
+Eigedom
+Industriar
+Verkstad
+Bruk
+Verk
+Teknologi
+System
+Løysingar
+Tenester
+Rådgjeving
+Partners
+& Søner
+& Co
+Noreg
+Nordic
+Group

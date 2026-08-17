@@ -1,0 +1,8 @@
+---
+description: Season in Nynorsk. Two of the four separate the standards: Nynorsk sommar and haust against Bokmål sommer and høst. haust is the older diphthong that Nynorsk kept and Bokmål monophthongised through Danish; sommar carries the Nynorsk -ar ending where Bokmål has -er. vår and vinter are shared.
+locale: nn
+---
+vår
+sommar
+haust
+vinter

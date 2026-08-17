@@ -1,0 +1,9 @@
+---
+description: Hotel star rating. Numbers and the plural of stjerne, which is the same in both written standards — an honest identical list. Norway has no official star classification at all, so these are the hotel's own claim.
+locale: nn
+---
+1 stjerne
+2 stjerner
+3 stjerner
+4 stjerner
+5 stjerner

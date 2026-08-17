@@ -1,0 +1,5 @@
+---
+description: Capital of Storbritannia, as Nynorsk writes it
+locale: nn
+---
+London

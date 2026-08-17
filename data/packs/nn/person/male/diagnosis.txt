@@ -1,0 +1,30 @@
+---
+description: Diagnoses to draw for a person recorded as male — the sex-specific list mixed with the general conditions that are commoner in men. Nynorsk throughout; see medical/diagnosisMale.txt for the sex-specific part.
+locale: nn
+---
+varikocele
+ikkje-descendert testikkel
+forhudsforsnevring
+godarta prostataforstørring
+prostatitt
+testikkeltorsjon
+bitestikkelbetennelse
+gynekomasti
+ereksjonssvikt
+testosteronmangel
+kronisk pankreatitt
+klamydia
+artrose
+hypertensjon
+diabetes type 2
+astma
+migrene
+urinsyregikt
+nyrestein
+magesår
+lungebetennelse
+atrieflimmer
+tinnitus
+tjukktarmskreft
+depresjon
+kols

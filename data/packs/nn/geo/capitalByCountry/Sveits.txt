@@ -1,0 +1,5 @@
+---
+description: Capital of Sveits, as Nynorsk writes it
+locale: nn
+---
+Bern

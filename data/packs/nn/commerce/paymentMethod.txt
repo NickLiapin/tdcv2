@@ -1,0 +1,19 @@
+---
+description: How a Norwegian customer pays. Vipps heads the list and is not optional context: it is the national mobile payment app and is used by more or less the entire adult population, including for person-to-person transfers. BankAxept is the domestic debit scheme that sits underneath most Norwegian bank cards. avtalegiro is a standing direct debit. Brand names keep their spelling; only gåvekort differs from the Bokmål gavekort.
+locale: nn
+---
+Vipps
+BankAxept
+bankkort
+kredittkort
+Visa
+Mastercard
+Apple Pay
+Google Pay
+PayPal
+Klarna
+faktura
+delbetaling
+bankoverføring
+avtalegiro
+gåvekort

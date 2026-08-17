@@ -1,0 +1,10 @@
+---
+description: Jobs found in bygg og anlegg, in Nynorsk. Filename matches the parent value in work/industryCoherent.txt character for character.
+locale: nn
+---
+elektrikar
+røyrleggjar
+tømrar
+murar
+anleggsmaskinførar
+byggjeleiar

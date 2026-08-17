@@ -1,0 +1,11 @@
+---
+description: Playing positions in fotball, in Nynorsk. Filename matches the parent value in sport/sportCoherent.txt character for character.
+locale: nn
+---
+keeper
+midtstoppar
+back
+defensiv midtbane
+offensiv midtbane
+kantspelar
+spiss

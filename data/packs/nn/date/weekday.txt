@@ -1,0 +1,11 @@
+---
+description: Weekday in Nynorsk. Three of the seven are different words from Bokmål: tysdag (Bokmål tirsdag), laurdag (lørdag) and sundag (søndag). tysdag keeps the god-name Ty where Bokmål took the Danish tirs-; laurdag keeps the au diphthong of Old Norse laugardagr, wash-day. sundag is the form Nynorsk dictionaries and Nynorsk media use; søndag is a permitted Nynorsk sideform and is what CLDR's nn data prints, so a config comparing against a CLDR-backed date library will see søndag there and sundag here. Lowercase in running text.
+locale: nn
+---
+måndag
+tysdag
+onsdag
+torsdag
+fredag
+laurdag
+sundag

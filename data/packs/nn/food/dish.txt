@@ -1,0 +1,51 @@
+---
+description: Norwegian dishes as Nynorsk names them. Food is where the two standards separate hardest, because the words are old and native: kjøt for kjøtt (pinnekjøt, kjøtkaker), graut for grøt (rømmegraut, risgraut), steik for stek, omn for ovn, kvit for hvit, skule for skole (skulebrød) and bollar/vaflar for boller/vafler. komle is the west-coast name for the potato dumpling that eastern Norway calls raspeball and Trøndelag klubb — the same dish under three regional names, and komle is the one a Nynorsk municipality prints on a canteen menu. smalahove is a salted, smoked half sheep's head and is eaten in exactly the counties that write Nynorsk.
+locale: nn
+---
+fårikål
+kjøtkaker i brun saus
+lapskaus
+betasuppe
+ertesuppe
+komle
+raspeballar
+sodd
+pinnekjøt
+ribbe
+medisterkaker
+svinesteik
+elggryte
+reinsdyrsteik
+omnsbakt laks
+gravlaks
+røykelaks
+fiskebollar i kvit saus
+fiskekaker
+fiskesuppe
+plukkfisk
+bacalao
+lutefisk
+torsk med eggesmør
+sursild
+spekemat
+rakfisk
+smalahove
+brødskive med brunost
+vaflar
+lefse
+pølse med lompe
+svele
+riskrem
+moltekrem
+tilslørte bondepiker
+kransekake
+bløtkake
+skulebrød
+skillingsbolle
+fyrstekake
+krumkake
+rømmegraut
+risgraut
+blåbærsuppe
+fredagstaco
+frosenpizza

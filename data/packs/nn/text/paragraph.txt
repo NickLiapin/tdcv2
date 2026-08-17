@@ -1,0 +1,24 @@
+---
+description: Filler paragraphs in Nynorsk, two to four sentences each. Handwritten: Project Gutenberg holds no Nynorsk book at all. The language search l.nn returns "No records found.", and the 23 books Gutenberg files under the Norwegian code no are Ibsen, Hamsun, Wergeland and Undset — every one of them Bokmål or Riksmål, the Dano-Norwegian tradition that Nynorsk was built as an alternative to. Arne Garborg, the great Nynorsk novelist, is on Gutenberg only in Esperanto and Finnish translation, and Olav Duun only in English. Building a Nynorsk corpus out of those 23 books would have produced a text/ directory in the wrong written standard, which is exactly the failure this pack exists to avoid, so these files are written by hand instead. If a real Nynorsk corpus is ever wired into data/scripts/build-text-corpus.mjs, this file should be replaced rather than extended. The subject matter is deliberately western and rural, because that is the register Nynorsk was built from and where it is still the everyday written language: farms, fjords, boats, mountain pastures, the dugnad, the road that closes for winter.
+locale: nn
+---
+Garden låg høgt oppe i lia, med utsyn over heile fjorden. Om morgonen kunne dei sjå skodda liggje som eit teppe nede ved vatnet, medan sola alt hadde nådd tunet. Det var difor dei aldri flytte, sa bestefar, sjølv om vegen var bratt og vinteren lang.
+Ho hadde lært å lese på nynorsk, og då ho seinare byrja å arbeide i byen, la ho merke til at orda hennar var litt annleis enn dei andre sine. Ikkje verre, berre annleis. Etter kvart slutta ho å tenkje på det.
+Båten kom inn mot kaia i solnedgangen. Fiskarane var trøytte etter ei lang veke på havet, men fangsten var god, og det var nok til å bere dei gjennom haust og vinter. Nokon hadde alt sett på kaffi i naustet.
+Det snødde heile natta. Då dei opna døra om morgonen, stod snøen til midt på leggen, og dei måtte måke seg veg ut til vegen. Skulen var stengd, og borna jubla.
+Han hadde arbeidd på verkstaden sidan han var seksten. Hendene hans kjende kvar skrue og kvar bolt i maskinene, og han trong ikkje sjå ned for å vite kva han gjorde. No var det ingen som skulle overta etter han.
+Kyrkja var frå trettenhundretalet, bygd av stein som var bore opp frå fjøra. Dei som bygde henne, hadde ikkje maskiner og ikkje mykje anna enn tid. Ho står der enno.
+Om sommaren gjekk dei til støls med kyrne. Det tok ein heil dag å kome opp, og oppe var det berre eit lite hus, ei kjelde og mykje gras. Nokre veker seinare kom dei ned att med ost og smør nok til heile året.
+Ho skreiv brev til systera si kvar månad i tretti år. Då systera døydde, fann dei alle breva i ei kasse på loftet, ordna etter dato, med band rundt kvart år.
+Vegen over fjellet er open frå mai til november, og stengd resten av året. Dei som bur på båe sider, reknar den stengde tida som ein del av året, ikkje som eit uhell.
+Elva har alltid gått der ho går. Ein gong i hundreåret stig ho over breiddene og tek med seg det som står i vegen, og så legg ho seg til ro att. Folk byggjer likevel nær vatnet, fordi jorda er best der.
+Han lærte seg å spele hardingfele av ein gammal mann i grannebygda. Det tok tre år før han fekk til den fyrste slåtten, og då han endeleg fekk det til, gret han.
+Nynorsk vart laga av Ivar Aasen på attenhundretalet, ikkje ut av lufta, men ut av dei dialektane han samla på reisene sine gjennom landet. Han gjekk til fots, skreiv ned det han høyrde, og sette det saman til eit skriftmål.
+Butikken i bygda heldt ope til han vart lagd ned. Etter det måtte folk køyre fire mil for å handle. Nokre år seinare opna dei han att, som samvirkelag, og no eig bygda han sjølv.
+Det er noko med lyset her om våren. Det kjem tilbake fort, nesten for fort, og på nokre veker går ein frå mørker til lange kveldar der ingen vil gå inn.
+Ho hugsa framleis lukta av naustet: tjøre, salt og gammalt tre. Faren hadde arbeidd der kvar kveld, og ho hadde sete på ei kasse og sett på.
+Dugnaden var sett til laurdag klokka ti. Nesten alle kom, med rive og spade, og etter fire timar var plassen rydda, benkane måla og kaffien drukken.
+Snøskredet gjekk om natta og stogga tjue meter frå huset. Ingen vart skadd, men etter det flytte dei hytta lenger ut på flata, slik dei gamle hadde tilrådd frå fyrst av.
+Han hadde vore borte i tjue år. Då han kom att, kjende han att fjellet og elva, men ikkje husa og ikkje folka. Det var fjellet han hadde kome for.
+Skuleklassen las eit dikt av Olav H. Hauge om eit tre som står åleine. Læraren spurde kva treet stod for, og ingen svarte, men alle skjøna det.
+Om hausten blir bygda stille. Turistane reiser, hyttene blir stengde, og dei som bur der heile året, får bygda for seg sjølve att. Mange seier det er den beste tida.

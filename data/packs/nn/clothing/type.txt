@@ -1,0 +1,36 @@
+---
+description: Garment in Nynorsk. sokkar, vottar, hanskar and fjellstøvlar carry the Nynorsk plural -ar against Bokmål -er, and skaljakke replaces skalljakke. The last third of the list is what a Norwegian wardrobe actually contains: ullundertøy, ullsokkar, anorakk, fjellstøvlar and gummistøvlar are ordinary clothing here, not specialist equipment.
+locale: nn
+---
+t-skjorte
+skjorte
+bluse
+genser
+ullgenser
+hettegenser
+jakke
+boblejakke
+regnjakke
+skaljakke
+anorakk
+kåpe
+frakk
+dressjakke
+dress
+bukse
+olabukse
+shorts
+skjørt
+kjole
+strømpebukse
+ullundertøy
+sokkar
+ullsokkar
+lue
+vottar
+hanskar
+skjerf
+belte
+joggesko
+fjellstøvlar
+gummistøvlar

@@ -1,0 +1,24 @@
+---
+description: Mobile operators and resellers active in Norway. Company names, so identical to the Bokmål list. Norway has three physical networks — Telenor, Telia and Ice — and everything else on this list rents capacity from one of them.
+locale: nn
+---
+Telenor
+Telia
+Ice
+OneCall
+Talkmore
+Chilimobil
+MyCall
+Release
+Happybytes
+PlussMobil
+Saga Mobil
+Phonero
+Com4
+Fjordkraft Mobil
+Lycamobile
+Lebara
+NextGenTel
+Altibox
+GlobalConnect
+Telio
