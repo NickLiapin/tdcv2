@@ -1,0 +1,29 @@
+---
+description: Dog breed. Dogs are banned as pets in the Maldives and are essentially absent from the islands, so unlike every other locale this list names no local type: it is international breed names only, kept in their real spelling.
+locale: dv
+---
+ލެބްރެޑޯ
+ގޯލްޑަން ރިޓްރީވަރު
+ޖަރުމަން ޝެފަޑް
+ބުލްޑޯގް
+ބީގަލް
+ޕޫޑްލް
+ރޮޓްވައިލަރު
+ޑޯބަރްމަން
+ހަސްކީ
+ޗިވާވާ
+ޕަގް
+ބޮކްސަރު
+ޑޯބަރު
+ޑަލްމޭޝަން
+ގްރޭހައުންޑް
+ޓެރިއަރު
+ޔޯކްޝަޔަރު ޓެރިއަރު
+ސްޕެނިއަލް
+ކޮލީ
+ޑަޗްޝަންޑް
+ސެއިންޓް ބާނާޑް
+ޕޮމެރޭނިއަން
+ޝީޓްޒޫ
+މާސްޓިފް
+ބޯޑަރު ކޮލީ

@@ -1,0 +1,24 @@
+---
+description: Household budget line (Dhivehi). Two of these are peculiar to the Maldives: ފެރީ / ދޯނި ދަތުރު, because getting anywhere costs a boat fare, and ކުލި, because Malé rents swallow a huge share of a household's monthly income.
+locale: dv
+---
+ކުލި
+ކާބޯތަކެތި
+ފެންބިލު
+ކަރަންޓު ބިލު
+ފޯނު ބިލު
+އިންޓަނެޓް
+ފެރީ ދަތުރު
+ދޯނި ދަތުރު
+ސައިކަލު ތެޔޮ
+ބޭސްފަރުވާ
+ސްކޫލު ފީ
+ފޮތާއި ސާމާނު
+ފޭރާން
+ސާފުކުރާ ސާމާނު
+ހަދިޔާ
+ޞަދަޤާތް
+އިންޝުއަރެންސް
+ދަރަނި އަދާކުރުން
+ރައްކާކުރުން
+މުނިފޫހިފިލުވުން

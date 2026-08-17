@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Dhivehi). The first six are Maldivian: ބޮޑުބެރު is the big drum, ބެރު the hand drum, ތާރަ the tambourine of the Tara performance, ދަނޑި the sticks of the stick dance, ސަންގު a conch and ބުލްބުލް the harmonium of the raivaru singers.
+locale: dv
+---
+ބޮޑުބެރު
+ބެރު
+ތާރަ
+ދަނޑި
+ސަންގު
+ބުލްބުލް
+ތަބުލާ
+ހަރުމޯނިއަމް
+ސިތާރު
+ދޮޅަކު
+ގިޓާ
+ބާސްގިޓާ
+ޔޫކުލޭލޭ
+ވައޮލިން
+ޗެލޯ
+ޕިއާނޯ
+ކީބޯޑް
+އޮނު
+ފުޅި
+ފުލޫޓު
+ކްލެރިނެޓް
+ސެކްސަފޯން
+ޓްރަމްޕެޓް
+ޓްރޮމްބޯން
+ޑްރަމް
+ޑްރަމްސެޓް
+ކީސް
+ޑަނޑޫރާ
+ގުނގުރު
+ސަމްޕަލަރު
+ސިންތެސައިޒަރު

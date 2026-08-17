@@ -1,0 +1,18 @@
+---
+description: Dhivehi thoroughfare word. It comes AFTER the name and is written joined to it — މަޖީދީމަގު, ޗާންދަނީމަގު — not separated the way an English 'Street' is. މަގު is the ordinary street, ހިނގުން a lane, ގޯޅި an alley; ވިލާ, ގެ and މާގެ end a HOUSE name rather than a street.
+locale: dv
+---
+މަގު
+ހިނގުން
+ގޯޅި
+ބުރު
+ދޮށު
+ކޮޅު
+ފަންނު
+މައިޒާން
+ބަނދަރު
+ފާލަން
+ވިލާ
+ގެ
+މާގެ
+ހިޔާ

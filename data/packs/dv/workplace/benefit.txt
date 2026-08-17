@@ -1,0 +1,22 @@
+---
+description: Employment benefit (Dhivehi). ރަށަށްދާ ޗުއްޓީ, home-island leave, is a standard Maldivian benefit because most resort and Malé staff work far from where their family lives.
+locale: dv
+---
+ޞިއްޙީ އިންޝުއަރެންސް
+ޕެންޝަން
+ރިޓަޔަރްމަންޓް ސްކީމް
+ސަރްވިސް ޗާޖު
+ރަށަށްދާ ޗުއްޓީ
+އަހަރީ ޗުއްޓީ
+ބަލި ޗުއްޓީ
+ވިހެއުމުގެ ޗުއްޓީ
+ބައްޕަ ޗުއްޓީ
+ދަރިވަރު ޗުއްޓީ
+ދަތުރު ޢިނާޔަތް
+ކެއުމުގެ ޢިނާޔަތް
+ހުރުމުގެ އިންތިޒާމު
+ފޯނު ޢިނާޔަތް
+ތަމްރީނު
+ދިރާސީ އެހީ
+ބޯނަސް
+ރޯދަ ޢިނާޔަތް

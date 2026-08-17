@@ -1,0 +1,24 @@
+---
+description: Kind of carrier that moves goods in the Maldives. These are types, not company names: goods reach the outer atolls by supply dhoni and landing craft, and only urgent freight flies.
+locale: dv
+---
+ދޯނި
+ސަޕްލައި ދޯނި
+ލޭންޑިންގް ކްރާފްޓް
+ބާޖު
+ފެރީ
+ކާގޯ ބޯޓު
+ކޮންޓެއިނަރު ބޯޓު
+ސްޕީޑް ލޯންޗް
+މަތިންދާބޯޓު
+ސީޕްލޭން
+ހެލިކޮޕްޓަރު
+ލޮރީ
+ޕިކަޕް
+ވޭން
+ސައިކަލު
+ބައިސްކަލު
+ޕޯސްޓު
+ކޫރިއަރު
+އަތުން ގެންދިއުން
+އެއަރު ފްރެއިޓް

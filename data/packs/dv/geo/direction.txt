@@ -1,0 +1,12 @@
+---
+description: Compass direction (Dhivehi). The four cardinals double as the Maldivian monsoon names — ހުޅަނގު (west) names the south-west monsoon and އިރުވައި (east wind) the north-east one — so a direction word in Dhivehi can carry a season with it.
+locale: dv
+---
+އުތުރު
+ދެކުނު
+އިރު
+ހުޅަނގު
+އިރުއުތުރު
+ހުޅަނގުއުތުރު
+އިރުދެކުނު
+ހުޅަނގުދެކުނު

@@ -1,0 +1,12 @@
+---
+description: Clothing size. Maldivian retail imports from Sri Lanka, India and the Gulf and prints the Latin letter sizes untranslated, so these stay Latin — the same string a Maldivian reads on a label.
+locale: dv
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

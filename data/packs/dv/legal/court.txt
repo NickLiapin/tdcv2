@@ -1,0 +1,17 @@
+---
+description: Kind of court (Dhivehi). Dhivehi is the state language of one country, so these name the courts of the Maldives: a Supreme Court, a High Court, four superior courts in Malé and a magistrate court on each inhabited island. There is no separate constitutional court — the Supreme Court holds that jurisdiction.
+locale: dv
+---
+ސުޕްރީމް ކޯޓު
+ހައިކޯޓު
+ސިވިލް ކޯޓު
+ކްރިމިނަލް ކޯޓު
+ފެމިލީ ކޯޓު
+ޖުވެނައިލް ކޯޓު
+ޑްރަގް ކޯޓު
+މެޖިސްޓްރޭޓް ކޯޓު
+އަތޮޅު ކޯޓު
+ޝަރުޢީ ކޯޓު
+ޓްރައިބިއުނަލް
+ވަޒީފާއާބެހޭ ޓްރައިބިއުނަލް
+ޓެކްސް އެޕީލް ޓްރައިބިއުނަލް

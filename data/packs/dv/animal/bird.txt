@@ -1,0 +1,34 @@
+---
+description: Bird (Dhivehi). The Maldives has very few land birds and a great many seabirds, so the list leans to terns, herons and frigatebirds; ކާޅު (the house crow) and ކޮވެލި (the Asian koel) are the two every islander hears.
+locale: dv
+---
+ކާޅު
+ކޮވެލި
+ކޮތަރު
+ދޫނި
+މާވަލި
+ވާލި
+ދޫނިހުދު
+ރާބޮންދި
+ހުދު ރާބޮންދި
+ހުދު ދޫނި
+މާރަނގަ
+ބޮޑު މާރަނގަ
+ރާބަނދި
+އަސްދޫނި
+ކުކުޅު
+ކުކުޅު ފިރިހެން
+ފިޔޮއް
+ބާޒު
+ހުދު ބާޒު
+ކަނޑު ދޫނި
+ފެންދޫނި
+މާދޫނި
+ބިލެތް ދޫނި
+ކުޑަ ދޫނި
+ދޮންދޫނި
+ބުލްބުލް
+ކާނާ ދޫނި
+ފަރު ދޫނި
+ރާޅު ދޫނި
+ދޫނިރޯޅި

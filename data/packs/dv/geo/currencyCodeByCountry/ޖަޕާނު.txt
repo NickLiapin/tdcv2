@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code for Japan. Codes are Latin in every locale. Coherent child of geo/country.txt.
+locale: dv
+---
+JPY

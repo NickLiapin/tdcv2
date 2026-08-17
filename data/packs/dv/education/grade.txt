@@ -1,0 +1,16 @@
+---
+description: Grade (Dhivehi). Maldivian secondary results come from the Cambridge O and A level system, so the letters are the Cambridge ones and are printed in Latin.
+locale: dv
+---
+A*
+A
+B
+C
+D
+E
+F
+U
+ފާސް
+ފެއިލް
+ވަރަށް ރަނގަޅު
+ރަނގަޅު

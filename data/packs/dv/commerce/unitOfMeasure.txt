@@ -1,0 +1,34 @@
+---
+description: Unit of measure. Dhivehi keeps a full set of pre-metric units the dictionary still records — ނާޅި (about a kilo), ލާހި, ކޮއްޓެ (four naalhi), ރިޔަން (elbow to fingertip), ކައިވަތް (a span of nine inches), ބަމަ (a fathom) — beside the metric ones a shop actually prints today.
+locale: dv
+---
+އެކަތި
+ފޮށި
+ކޭސް
+ޕެކެޓު
+ޑަޒަން
+ޖޯޑު
+ސެޓު
+ބޮނޑި
+ބަޑަލި
+ކިލޯ
+ގްރާމު
+ޓަނު
+ލީޓަރު
+މިލިލީޓަރު
+މީޓަރު
+ސެންޓިމީޓަރު
+ފޫޓު
+އިންޗި
+ޔާޑު
+ގެލަން
+ޕައުންޑު
+އައުންސު
+ނާޅި
+ލާހި
+ކޮއްޓެ
+ރިޔަން
+ކައިވަތް
+ބަމަ
+މުށް
+ފަޅި

@@ -1,0 +1,24 @@
+---
+description: Diagnosis recorded for a male patient, in Dhivehi. Same clinical set as medical/diagnosisMale.txt, addressed under person/ for configs that build a person record.
+locale: dv
+---
+ޕްރޮސްޓޭޓް ކެންސަރު
+ޕްރޮސްޓޭޓް ދުޅަވުން
+އޮށުގެ ކެންސަރު
+އޮށް ދުޅަވުން
+ފިރިހެންހަށީގެ ބޯ ދުޅަވުން
+މަނި ގުދަން ދުޅަވުން
+ކުޑަގެފިލި ނުހިފުން
+އުރަވަޅީވައި
+ބޮލުން އިސްތަށި ފޭބުން
+ދަރިމައިނުވުން
+ހަކުރު ބަލި
+ލޭމައްޗަށްދިއުން
+ހިތުގެ ބަލި
+ހާރްޓް އެޓޭކް ޖެހުން
+ފުއްޕާމޭގެ ކެންސަރު
+ކަށި ފީވުން
+ހުޅުތައް ދުޅަވުން
+ސްޓްރެސް
+ފަލަބަލި
+ބުރަކަށީގައި ރިހުން

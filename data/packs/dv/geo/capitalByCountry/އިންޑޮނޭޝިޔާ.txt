@@ -1,0 +1,5 @@
+---
+description: Capital of Indonesia as Dhivehi names it. Coherent child of geo/country.txt.
+locale: dv
+---
+ޖަކާޓާ

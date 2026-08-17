@@ -1,0 +1,5 @@
+---
+description: Currency of Vietnam as Dhivehi names it. Coherent child of geo/country.txt.
+locale: dv
+---
+ޑޮންގު

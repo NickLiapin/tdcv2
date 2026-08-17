@@ -1,0 +1,14 @@
+---
+description: Fuel (Dhivehi). Marine diesel is the country's main fuel because the fleet is diesel.
+locale: dv
+---
+ޑީސަލް
+ޕެޓްރޯލް
+މެރިން ޑީސަލް
+ކަރަންޓު
+ހައިބްރިޑް
+ސޯލާ
+ގޭސް
+ބަޔޯ ޑީސަލް
+ހައިޑްރޮޖަން
+ފުޅި ގޭސް

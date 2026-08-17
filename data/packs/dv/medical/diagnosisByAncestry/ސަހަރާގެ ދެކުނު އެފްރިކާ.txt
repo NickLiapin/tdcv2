@@ -1,0 +1,16 @@
+---
+description: Condition with a raised prevalence in the ސަހަރާގެ_ދެކުނު_އެފްރިކާ ancestry group, in Dhivehi. This list is a prevalence signal, not an exclusive one: none of these conditions is confined to this population and most people in it will have none of them.
+locale: dv
+---
+ސިކްލް ސެލް އެނީމިޔާ
+ޖީ6ޕީޑީ އެންޒައިމް މަދުވުން
+ލޭމައްޗަށްދިއުން
+ގުރުދާ ފޭލްވުން
+ހަކުރު ބަލި
+ކިރު ހަޖަމުނުވުން
+ފައިފަލަ ބަލި
+ޕްރޮސްޓޭޓް ކެންސަރު
+ލޭމަދުވުން
+ފައިބްރޮއިޑް
+ސާކޮއިޑޯސިސް
+ތެލެސީމިޔާ

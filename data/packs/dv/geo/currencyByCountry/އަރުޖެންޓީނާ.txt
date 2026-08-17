@@ -1,0 +1,5 @@
+---
+description: Currency of Argentina as Dhivehi names it. Coherent child of geo/country.txt.
+locale: dv
+---
+ޕެސޯ

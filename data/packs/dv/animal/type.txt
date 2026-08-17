@@ -1,0 +1,42 @@
+---
+description: Animal (Dhivehi). Read the order: this is a country with no native land mammal bigger than a flying fox, so the sea animals are the real fauna and ބުޅާ, ކުއްތާ, ކުކުޅު and ބަކަރި are essentially the whole land list.
+locale: dv
+---
+މަސް
+މިޔަރު
+ބޯވަ
+މަޑި
+ވެލާ
+ކަހަނބު
+ކަކުނި
+އިހި
+ބޮލި
+މުރަކަ
+ބޮޑުމަސް
+ކުޑަކުޑަ ބޮޑުމަސް
+ދޫނި
+ކާޅު
+ކޮވެލި
+ކޮތަރު
+އަސްދޫނި
+ކުކުޅު
+ބުޅާ
+ކުއްތާ
+ބަކަރި
+ގެރި
+ކަންބަޅި
+އޫރު
+އަސް
+ޖަމަލު
+ރާމާމަކުނު
+ސިންގާ
+ޒަރާފާ
+އެތް
+ސާރިދޯޅު
+ގެންޑާ
+ހަރުފަ
+ކިނބޫ
+ހޯނު
+ބޮނޑު
+މީދާ
+ވާ

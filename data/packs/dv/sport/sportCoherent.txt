@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list. Football is the Maldivian national game and the national team won the 2008 SAFF Championship; volleyball, futsal and cricket are the other three an island ground actually hosts.
+locale: dv
+---
+ފުޓުބޯޅަ
+ފުޓްސަލް
+ވޮލީބޯޅަ
+ބާސްކެޓްބޯޅަ
+ކްރިކެޓް
+ބެޑްމިންޓަން
+ހޭންޑްބޯޅަ
+ނެޓްބޯޅަ

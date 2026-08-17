@@ -1,0 +1,21 @@
+---
+description: Weather or sea phenomenon (Dhivehi). Several belong only to a reef country: އުދަ is the swell that floods a low island, ދިޔަވަރު the tide, and ފެންބޮޑުވުން the flooding that follows heavy rain on land two metres above the sea.
+locale: dv
+---
+އުދަ
+ދިޔަވަރު
+ބޮޑުދިޔަ
+ހިކިދިޔަ
+ފެންބޮޑުވުން
+ކޮޅިގަނޑު
+ތޫފާން
+ގުގުރި
+ވިދުވަރު
+ހޮނު
+ދުންފިނި
+ރެނދަ
+ކޭތަ
+އިރުކޭތަ
+ހަނދުކޭތަ
+ދޫނިރޯޅި
+ފެންފޮދު

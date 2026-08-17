@@ -1,0 +1,14 @@
+---
+description: Competitive rank (Dhivehi), using the Dhivehi metal and gem words.
+locale: dv
+---
+ދަގަނޑު
+ލޯ
+ރިހި
+ރަން
+ޕްލެޓިނަމް
+އަލްމާސް
+މާސްޓަރު
+ގްރޭންޑްމާސްޓަރު
+ޗެމްޕިއަން
+ލެޖެންޑް

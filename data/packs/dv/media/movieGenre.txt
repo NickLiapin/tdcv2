@@ -1,0 +1,23 @@
+---
+description: Film genre (Dhivehi). Maldivian cinema is small but real: ދިވެހި ފިލްމު is a live category, and the horror film is its strongest local form because the folklore supplies it.
+locale: dv
+---
+ދިވެހި ފިލްމު
+ލޯބީގެ
+ބިރުވެރި
+ކޮމެޑީ
+ޑްރާމާ
+އެކްޝަން
+ތުރިލަރު
+ސަސްޕެންސް
+ކުށުގެ
+ހަނގުރާމަ
+ތާރީޚީ
+ދީނީ
+ޑޮކިއުމަންޓަރީ
+އެނިމޭޝަން
+ކުޑަކުދިންގެ
+މިއުޒިކަލް
+ސައިންސް ފިކްޝަން
+ފެންޓަސީ
+އާއިލީ

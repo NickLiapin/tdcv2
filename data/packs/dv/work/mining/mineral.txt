@@ -1,0 +1,23 @@
+---
+description: Mineral. The Maldives has NO mining industry at all — the country is coral sand on a volcanic ridge with no metal ores — so this list names minerals as Dhivehi knows them from science and trade, not from any Maldivian pit. The two things actually dug here are ހިރިގާ (coral stone, quarried for building until it was banned) and ވެލި (sand).
+locale: dv
+---
+ހިރިގާ
+ވެލި
+މުރަކަ
+ދަގަނޑު
+ލޯ
+ރަން
+ރިހި
+އެލްމެނިއަމް
+ޓިނު
+ދިރުނބާ
+ޒިންކް
+ނިކަލް
+ކްރޯމިއަމް
+މެންގަނީޒް
+ފޮސްފޭޓް
+ލޮނު
+ސަލްފަރު
+ބޮކްސައިޓް
+ހިލަ

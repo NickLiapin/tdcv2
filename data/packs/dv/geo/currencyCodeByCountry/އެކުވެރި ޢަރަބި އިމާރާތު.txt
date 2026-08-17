@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code for United Arab Emirates. Codes are Latin in every locale. Coherent child of geo/country.txt.
+locale: dv
+---
+AED

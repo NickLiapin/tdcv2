@@ -1,0 +1,22 @@
+---
+description: Secondary address unit (Dhivehi). Malé is vertical, so ފުލޯ and ފުލެޓް do most of the work; ކޮޓަރި is a room and ބައި a share of a house.
+locale: dv
+---
+ފުލެޓް
+ފުލޯ
+ކޮޓަރި
+ބައި
+އެޕާޓްމަންޓު
+ބްލޮކް
+ގޭގެބައި
+މަތީބައި
+ތިރީބައި
+ފުރަތަމަ ފުލޯ
+ދެވަނަ ފުލޯ
+ތިންވަނަ ފުލޯ
+ގްރައުންޑް ފުލޯ
+ފުރަގަސްބައި
+ކުރިމަތީބައި
+ވަކިކޮޓަރި
+ގުދަން
+ގަރާޖު

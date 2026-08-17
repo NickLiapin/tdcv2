@@ -1,0 +1,20 @@
+---
+description: Horse breed. There are no horses in the Maldives; the word އަސް is in the dictionary and in the zodiac but not in the fields, so these are foreign breed names only.
+locale: dv
+---
+ޢަރަބި
+ތޯރޯބްރެޑް
+އެރޭބިއަން
+މާވާރީ
+ކާތިޔާވާރީ
+އެންޑަލޫސިއަން
+ފްރީޝިއަން
+މުސްޓޭންގް
+އެޕަލޫސާ
+ކުއާޓަރު ހޯސް
+ޝަޔަރު
+ކްލައިޑްސްޑޭލް
+ޕާލޮމީނޯ
+ޕޯނީ
+ޝެޓްލެންޑް ޕޯނީ
+ހެނޯވޭރިއަން

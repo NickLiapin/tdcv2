@@ -1,0 +1,17 @@
+---
+description: Cargo type (Dhivehi). Most Maldivian freight travels by boat, so this doubles as a manifest for a supply dhoni.
+locale: dv
+---
+އާންމު މުދާ
+ކޮންޓެއިނަރު
+ފިނިކުރި މުދާ
+ފިނިކުރި މަސް
+ކާބޯތަކެތި
+ފެންފުޅި
+ސިމެންތި
+ދަގަނޑު
+ލަކުޑި
+ތެޔޮ
+ގޭސް
+ކުނި
+ފަރުނީޗަރު

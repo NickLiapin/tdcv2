@@ -1,0 +1,24 @@
+---
+description: Trip type (Dhivehi). ހަނީމޫން is a category in its own right here — the Maldives is one of the world's honeymoon destinations — and ދަތުރު, an island day trip by dhoni, is what Maldivians themselves mean by a holiday.
+locale: dv
+---
+ހަނީމޫން
+ދަތުރު
+ޢާއިލީ ދަތުރު
+ފީނުމުގެ ދަތުރު
+ސާފިންގް ދަތުރު
+މަސްބޭނުމުގެ ދަތުރު
+ސަފާރީ
+ލިވަބޯޑް
+ރިސޯޓު ޗުއްޓީ
+ގެސްޓްހައުސް ޗުއްޓީ
+ވިޔަފާރި ދަތުރު
+ކޮންފަރެންސް ދަތުރު
+ބޭސްފަރުވާގެ ދަތުރު
+ޙައްޖު
+ޢުމްރާ
+ތަޢުލީމީ ދަތުރު
+ސްކޫލު ދަތުރު
+އެކަނި ދަތުރު
+ގްރޫޕް ދަތުރު
+ދުވަހު ދަތުރު

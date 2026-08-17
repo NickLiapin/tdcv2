@@ -1,0 +1,22 @@
+---
+description: Official document type (Dhivehi). Names of KINDS of document only — the number formats behind them belong in a Maldives country pack that does not exist yet.
+locale: dv
+---
+އުފަންދުވަހުގެ ސެޓްފިކެޓް
+އައިޑީ ކާޑު
+ޕާސްޕޯޓު
+ޑްރައިވިންގް ލައިސަންސް
+ކައިވެނީގެ ސެޓްފިކެޓް
+ވަރީގެ ސެޓްފިކެޓް
+މަރުވިކަމުގެ ސެޓްފިކެޓް
+ވަޒީފާގެ އެއްބަސްވުން
+ވޯކް ޕަރްމިޓް
+ވިސާ
+ގޯތީގެ ރަޖިސްޓަރީ
+ދޯނީގެ ރަޖިސްޓަރީ
+ވިޔަފާރި ރަޖިސްޓަރީ
+ޓެކްސް ބަޔާން
+ބިލްޑިންގް ޕަރްމިޓް
+ސްކޫލު ސެޓްފިކެޓް
+ބޭސް ސިޓީ
+ފުލުހުންގެ ރިޕޯޓު

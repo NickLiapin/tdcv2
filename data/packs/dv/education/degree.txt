@@ -1,0 +1,20 @@
+---
+description: Academic award (Dhivehi). The Maldives National Qualifications Framework runs certificate -> diploma -> degree, and Maldivian CVs give the level in Dhivehi with the subject in English.
+locale: dv
+---
+ސެޓްފިކެޓް ލެވެލް 1
+ސެޓްފިކެޓް ލެވެލް 2
+ސެޓްފިކެޓް ލެވެލް 3
+ސެޓްފިކެޓް ލެވެލް 4
+އެޑްވާންސްޑް ސެޓްފިކެޓް
+ފައުންޑޭޝަން
+ޑިޕްލޮމާ
+އެޑްވާންސްޑް ޑިޕްލޮމާ
+އެސޯސިއޭޓް ޑިގްރީ
+ބެޗެލަރްސް ޑިގްރީ
+ޕޯސްޓް ގްރެޖުއޭޓް
+މާސްޓަރްސް ޑިގްރީ
+އެމްފިލް
+ޕީއެޗްޑީ
+ޑޮކްޓަރޭޓް
+ޢިލްމީ ދަރަޖަ

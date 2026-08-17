@@ -1,0 +1,5 @@
+---
+description: Currency of Maldives as Dhivehi names it. Coherent child of geo/country.txt.
+locale: dv
+---
+ދިވެހި ރުފިޔާ

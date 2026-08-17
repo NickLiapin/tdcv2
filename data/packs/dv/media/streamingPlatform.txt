@@ -1,0 +1,16 @@
+---
+description: Streaming service (Dhivehi). Brand names keep their real spelling in Thaana transcription; ބައިސްކޯފު is the Maldives' own service and its name is the old Dhivehi word for a cinema.
+locale: dv
+---
+ބައިސްކޯފު
+ނެޓްފްލިކްސް
+ޔޫޓިއުބް
+އެމޭޒަން ޕްރައިމް
+ޑިޒްނީ ޕްލަސް
+ހޮޓްސްޓަރު
+ސްޕޮޓިފައި
+އެޕަލް ޓީވީ
+ސޮނީ ލިވް
+ޒީފައިވް
+ޓިކްޓޮކް
+ސްޕީޑްނެޓް

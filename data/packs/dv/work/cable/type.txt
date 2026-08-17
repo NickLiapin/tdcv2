@@ -1,0 +1,13 @@
+---
+description: Cable type (Dhivehi). Submarine fibre is what connects the Maldives to the internet and the atolls to each other.
+locale: dv
+---
+ކަނޑުއަޑީގެ ފައިބަރު
+ފައިބަރު އޮޕްޓިކް
+ކޮއެކްޝަލް
+ކެޓް6
+ކެޓް5
+ކަރަންޓު ކޭބަލް
+އާމަރްޑް ކޭބަލް
+ފުލެޓް ކޭބަލް
+އަރްތު ކޭބަލް

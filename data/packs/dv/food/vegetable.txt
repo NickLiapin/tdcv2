@@ -1,0 +1,34 @@
+---
+description: Vegetable (Dhivehi). Almost nothing grows on a coral island, so a Maldivian vegetable list is short on leaves and long on roots and tubers that ship well; ފިޔާ, އަލުވި and މިރުސް come in by boat from India and Sri Lanka.
+locale: dv
+---
+ފިޔާ
+ކުދިފިޔާ
+ލޮނުމެދު
+އަލުވި
+މުޅާ
+ބަށި
+މިރުސް
+ކެކުރި
+ބަރަބޯ
+ކެބެޖު
+ކެރެޓު
+ބީންސް
+ފަޅޯ ދޮންނުވާ
+ބަނބުކެޔޮ
+ދޮންކެޔޮ ދޮންނުވާ
+އަލަ
+ކައްޓަލަ
+މުގު
+ތޮރާ
+ބޮނޑިކޮޕީ
+ފެންކޮޕީ
+ފަތްކޮޕީ
+ބިސްބުރު
+ސެލެރީ
+ސްޕިނެޗް
+ބްރޮކޮލީ
+މަޝްރޫމް
+ފުށްޕާ
+ދިވެހި މިރުސް
+ކާނާމަދު

@@ -1,0 +1,35 @@
+---
+description: Hashtag (Dhivehi). Written without the # so a config can add it. Thaana hashtags work on every major platform, and Maldivian Twitter runs largely in Thaana.
+locale: dv
+---
+ދިވެހި
+ދިވެހިރާއްޖެ
+މާލެ
+ރާއްޖެ
+ފަތުރުވެރިކަން
+މަސްވެރިކަން
+ކަނޑު
+ފަރު
+ފީނުން
+ދޯނި
+ބޮޑުބެރު
+ދިވެހިބަސް
+ތާނަ
+ރޯދަމަސް
+ޢީދު
+ކައިވެނި
+ދަތުރު
+ރިސޯޓު
+ބީޗު
+ރާޅު
+ހަނދުވަރު
+ފެހި
+ތިމާވެށި
+ކުނި
+ކުޅިވަރު
+ފުޓުބޯޅަ
+ތަޢުލީމް
+ސިއްޙަތު
+ޚަބަރު
+ފޮޓޯ
+ލަވަ

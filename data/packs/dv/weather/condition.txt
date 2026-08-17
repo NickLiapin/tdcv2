@@ -1,0 +1,21 @@
+---
+description: Weather (Dhivehi). Maldivian weather vocabulary is monsoon vocabulary: ވިއްސާރަ is the rainy spell, ކޮޅިގަނޑު a squall, and there is no word here for snow or frost because there is no referent.
+locale: dv
+---
+އަވި
+ހޫނު
+ފިނި
+ވިލާ
+ވިލާގަނޑު
+ވިއްސާރަ
+ވާރޭ
+ބޯކޮށް ވާރޭ
+ކެރި
+ކޮޅިގަނޑު
+ގުގުރި
+ވިދުވަރު
+ވައިގަދަ
+ފިނިވައި
+ހަމަހިމޭން
+ދިޔަވަރު
+ބޮޑު ރާޅު

@@ -1,0 +1,19 @@
+---
+description: Payment method (Dhivehi). ރުފިޔާ ނަގުދު is cash in the local currency; a Maldivian shop also quotes US dollars, because the resort economy runs on them.
+locale: dv
+---
+ނަގުދު
+ޑޮލަރު ނަގުދު
+ޑެބިޓް ކާޑު
+ކްރެޑިޓް ކާޑު
+ވިސާ
+މާސްޓަރްކާޑް
+ބޭންކު ޓްރާންސްފަރު
+އިންޓަރްނެޓް ބޭންކިންގް
+މޮބައިލް ޕޭމަންޓް
+ޗެކު
+ފައިސާ ޙަވާލުކުރުމުން
+ބައިބަޔަށް ދެއްކުން
+ކްރެޑިޓް
+ގިފްޓް ކާޑު
+ޕޮއިންޓް

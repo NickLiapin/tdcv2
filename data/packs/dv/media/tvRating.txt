@@ -1,0 +1,13 @@
+---
+description: Content rating (Dhivehi). These are the classifications the Maldives' National Bureau of Classification uses; the letters are Latin because that is how they are printed.
+locale: dv
+---
+G
+PG
+12+
+15+
+18+
+18R
+PU
+ބަލައިނުގަނެވޭ
+ދިވެހި ފިލްމު ރޭޓިންގް

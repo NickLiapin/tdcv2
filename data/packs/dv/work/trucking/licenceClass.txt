@@ -1,0 +1,12 @@
+---
+description: Driving licence category as the Maldives issues them. The categories are Maldivian and the letters are the ones printed on the card; category A (motorcycle) is the one most Maldivians hold, because Malé runs on scooters.
+locale: dv
+---
+A
+A1
+B
+B1
+C
+C1
+D
+E

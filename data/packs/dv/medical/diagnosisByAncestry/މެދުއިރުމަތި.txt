@@ -1,0 +1,10 @@
+---
+description: Condition with a raised prevalence in the މެދުއިރުމަތި ancestry group, in Dhivehi.
+locale: dv
+---
+ތެލެސީމިޔާ
+ފެމިލިއަލް މެޑިޓެރޭނިއަން ފީވަރު
+ޖީ6ޕީޑީ އެންޒައިމް މަދުވުން
+ހަކުރު ބަލި
+ފަލަބަލި
+ވިޓަމިން ޑީ މަދުވުން

@@ -1,0 +1,5 @@
+---
+description: Currency of South Korea as Dhivehi names it. Coherent child of geo/country.txt.
+locale: dv
+---
+ވޮން

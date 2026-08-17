@@ -1,0 +1,21 @@
+---
+description: Shoe size on the UK scale — the numbers printed on a shoebox in the Maldives. The Maldives was a British protectorate until 1965 and still imports most footwear through Sri Lanka and India, which are UK-sized; European numbers appear only as a second row on the label. Dhivehi has no shoe scale of its own.
+locale: dv
+---
+3
+3.5
+4
+4.5
+5
+5.5
+6
+6.5
+7
+7.5
+8
+8.5
+9
+9.5
+10
+11
+12

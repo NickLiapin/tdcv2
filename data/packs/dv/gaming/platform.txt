@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Brand names keep their real spelling.
+locale: dv
+---
+PlayStation
+Xbox
+Nintendo Switch
+PC
+Steam
+Android
+iOS
+Mobile
+Browser
+Arcade
+VR

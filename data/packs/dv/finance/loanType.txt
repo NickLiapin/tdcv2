@@ -1,0 +1,14 @@
+---
+description: Loan type (Dhivehi). Islamic finance is mainstream in the Maldives, so the sharia-compliant instruments (މުރާބަޙާ, އިޖާރާ, މުޝާރަކާ) sit beside conventional loans rather than as an exotic extra.
+locale: dv
+---
+ބޯހިޔާވަހިކަމުގެ ލޯނު
+ގެދޮރު ލޯނު
+ވިޔަފާރި ލޯނު
+ޒާތީ ލޯނު
+ތަޢުލީމީ ލޯނު
+ސައިކަލު ލޯނު
+ދޯނި ލޯނު
+މުރާބަޙާ
+އިޖާރާ
+މުޝާރަކާ

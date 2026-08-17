@@ -1,0 +1,38 @@
+---
+description: Music genre (Dhivehi). ބޮޑުބެރު — big-drum music sung and danced by a standing line of men — is the Maldives' own form and the one that fills an island celebration; ބަނދިޔާ, ތާރަ and ދަނޑިޖެހުން are the other indigenous ones. The rest are imports, dominated by Hindi film music.
+locale: dv
+---
+ބޮޑުބެރު
+ބަނދިޔާ
+ތާރަ
+ދަނޑިޖެހުން
+ލަންގިރި
+ރައިވަރު
+ޅެން
+ދިވެހި ލަވަ
+ހިންދީ ލަވަ
+ފިލްމީ
+ޤައުމީ ސަލާމް
+ދީނީ ލަވަ
+މަދަޙަ
+ޤުރުއާން
+ޕޮޕް
+ރޮކް
+ހިޕްހޮޕް
+ރެޕް
+ރެގޭ
+ޖޭޒް
+ބްލޫސް
+ކްލެސިކަލް
+ފޯކް
+ކަންޓްރީ
+އިލެކްޓްރޯނިކް
+ޑާންސް
+ހައުސް
+ޓެކްނޯ
+މެޓަލް
+ޕަންކް
+ސޯލް
+ފަންކް
+އެކޯސްޓިކް
+ލަވަކިޔުން

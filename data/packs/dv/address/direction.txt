@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Maldivian place or ward name. The four Dhivehi compass words are also the two monsoon names: ހުޅަނގު (west) is the south-WEST monsoon and އިރުވައި (east wind) the north-EAST one, so a Maldivian reads a season out of a direction word.
+locale: dv
+---
+އުތުރު
+ދެކުނު
+އިރު
+ހުޅަނގު
+އިރުއުތުރު
+އިރުދެކުނު
+ހުޅަނގުއުތުރު
+ހުޅަނގުދެކުނު
+މެދު
+މަތި
+ތިރި
+ބޭރު
+އެތެރެ
+ކުރި
+ފުރަގަސް

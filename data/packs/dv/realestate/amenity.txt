@@ -1,0 +1,25 @@
+---
+description: Property amenity (Dhivehi). Air conditioning, a water tank and a standby generator are the three that decide a Maldivian listing.
+locale: dv
+---
+އޭސީ
+ފަންކާ
+ފެންތާނގީ
+ސްޓޭންޑްބައި ޖަނަރޭޓަރު
+ހޫނުފެން
+ސޯލާ ޕެނަލް
+ފައިބަރު އިންޓަނެޓް
+ސީސީޓީވީ
+ސެކިއުރިޓީ
+ލިފްޓު
+ޕާކިންގް
+ސައިކަލު ޕާކިންގް
+ބެލްކަނީ
+ފެންޑާ
+ގޯތިތެރެ
+ބަގީޗާ
+ފެންވަރާ ތަން
+ދޮންނަމެޝިން
+ފަރުނީޗަރު
+ބަދިގޭ ސާމާނު
+ކަނޑުފެންނަ ގޮތް

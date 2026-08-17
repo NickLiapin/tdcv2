@@ -1,0 +1,13 @@
+---
+description: Dish belonging to the އިޓަލީ kitchen, as Dhivehi writes it. Coherent child of food/cuisine.txt.
+locale: dv
+---
+ޕިއްޒާ
+ޕާސްތާ
+ލަޒާނިއާ
+ސްޕަގެޓީ
+ރިސޮޓޯ
+ބްރުޝެއްޓާ
+ރެވިއޯލީ
+ޓިރަމިސޫ
+ނިޔޯކީ

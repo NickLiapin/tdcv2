@@ -1,0 +1,12 @@
+---
+description: Playing position in ހޭންޑްބޯޅަ, in Dhivehi. Coherent child of sport/sportCoherent.txt.
+locale: dv
+---
+ގޯލްކީޕަރު
+ލެފްޓް ވިންގު
+ރައިޓް ވިންގު
+ލެފްޓް ބެކް
+ރައިޓް ބެކް
+ސެންޓަރު ބެކް
+ޕިވޯޓް
+ޑިފެންޑަރު

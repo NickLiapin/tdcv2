@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list. The order is the Maldivian economy in order: tourism and fisheries between them are most of what the country earns, and shipping is how everything else moves.
+locale: dv
+---
+ފަތުރުވެރިކަން
+މަސްވެރިކަން
+ކަނޑުދަތުރު
+އިމާރާތްކުރުން
+ތަޢުލީމް
+ސިއްޙަތު
+ފައިނޭންސް
+ޓެކްނޮލޮޖީ
+ވިޔަފާރި
+ސަރުކާރު

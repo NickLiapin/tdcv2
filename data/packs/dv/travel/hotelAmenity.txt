@@ -1,0 +1,33 @@
+---
+description: Hotel or resort amenity (Dhivehi). The Maldivian list is not the European one: a house reef, a dive centre, a seaplane transfer and an overwater villa are the things a Maldivian property advertises.
+locale: dv
+---
+ފަރު
+ފީނާ ސެންޓަރު
+ސްނޯކްލިންގް
+ވޯޓަރު ސްޕޯޓްސް
+ފެންމަތީ ވިލާ
+ބީޗު ވިލާ
+ސްވިމިންގް ޕޫލް
+ސްޕާ
+ޖިމް
+ބީޗު
+އަމިއްލަ ބީޗު
+ސީޕްލޭން ދަތުރު
+ސްޕީޑްބޯޓު ދަތުރު
+ފެރީ ދަތުރު
+އޭސީ
+ވައިފައި
+ފަނުކޮޓަރި
+ރެސްޓޯރަންޓު
+ބުފޭ
+ރޫމް ސާވިސް
+ލޯންޑްރީ
+ބޭބީ ސިޓިންގް
+ދޯނި ދަތުރު
+މަސްބޭނުމުގެ ދަތުރު
+ސަންސެޓް ކްރޫޒް
+ޑޮލްފިން ދަތުރު
+ސާފިންގް
+ކެނޯ
+ބައިސްކަލު

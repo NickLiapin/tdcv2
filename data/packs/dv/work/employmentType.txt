@@ -1,0 +1,15 @@
+---
+description: Employment type (Dhivehi). Expatriate work permits are a huge share of the Maldivian labour force, so ބިދޭސީ ވަޒީފާ is a real category.
+locale: dv
+---
+ދާއިމީ
+ވަގުތީ
+ކޮންޓްރެކްޓް
+ފުލްޓައިމް
+ޕާޓްޓައިމް
+ދުވަހު މަސައްކަތް
+ސީޒަނަލް
+ބިދޭސީ ވަޒީފާ
+ޓްރެއިނީ
+އިންޓަރްން
+އަމިއްލަ މަސައްކަތް

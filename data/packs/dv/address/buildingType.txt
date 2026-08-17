@@ -1,0 +1,37 @@
+---
+description: Building type (Dhivehi). ގެ, the plain word for a house, heads the list because a Maldivian address IS a house: buildings are named, not numbered (see address/streetName.txt).
+locale: dv
+---
+ގެ
+އިމާރާތް
+އެޕާޓްމަންޓު
+ފުލެޓް
+ވިލާ
+ގަނޑުވަރު
+އޮފީސް
+ފިހާރަ
+ގުދަން
+ކާރުޚާނާ
+ހަސްފަތާލު
+ސިއްޙީމަރުކަޒު
+ބޭސްފިހާރަ
+ސްކޫލު
+މަދަރުސާ
+ކުތުބުޚާނާ
+މިސްކިތް
+ހޮޓާ
+ރެސްޓޯރަންޓު
+ކެފޭ
+ފާރޮށިގެ
+ބައިސްކޯފުގެ
+ބޭންކު
+ޕޯސްޓްއޮފީސް
+ބަނދަރު
+ފާލަން
+ވައިގެބަނދަރު
+ސްޓޭޑިއަމް
+ދަނޑު
+މައިޒާން
+ކޮށާރު
+ގަރާޖު
+ރިސޯޓު

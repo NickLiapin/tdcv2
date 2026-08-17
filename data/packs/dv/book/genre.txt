@@ -1,0 +1,31 @@
+---
+description: Book genre (Dhivehi). ދިވެހި ވާހަކަ is its own genre in the Maldives — a serialised prose romance tradition — and ފޯކްލޯރ covers the island spirit tales (ދޮންހިޔަލަ, ރަންނަމާރި) that every Maldivian child knows.
+locale: dv
+---
+ވާހަކަ
+ދިވެހި ވާހަކަ
+ކުރުވާހަކަ
+ލޯބީގެ ވާހަކަ
+ބިރުވެރި ވާހަކަ
+ފޯކްލޯރު
+ތާރީޚް
+ސީރަތު
+ޙަޔާތުނާމާ
+ދީނީ
+ފިޤުހު
+ސައިންސް
+ފަލްސަފާ
+ސިޔާސަތު
+އިޤްތިޞާދު
+ޤާނޫނު
+ބޭސްވެރިކަން
+ދަތުރުނާމާ
+ޅެން
+ޅެންފޮތް
+ކުޑަކުދިންގެ ފޮތް
+ސްކޫލު ފޮތް
+ރަދީފު
+ބަސްފޮތް
+ކެއްކުމުގެ ފޮތް
+ކުޅިވަރު
+ފޮޓޯފޮތް

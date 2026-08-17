@@ -1,0 +1,5 @@
+---
+description: Currency of United Kingdom as Dhivehi names it. Coherent child of geo/country.txt.
+locale: dv
+---
+ސްޓާލިންގް ޕައުންޑް

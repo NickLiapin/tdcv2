@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list. Dhivehi names most specialties by the organ plus ބަލި ('illness') rather than with a Greek suffix, so ހިތުގެ ބަލި is cardiology literally 'illness of the heart'.
+locale: dv
+---
+ހިތުގެ ބަލި
+ނާރުގެ ބަލި
+ކެންސަރު
+ހަމުގެ ބަލި
+ހަޖަމުގެ ބަލި
+ހޯރްމޯން
+ފުއްޕާމޭގެ ބަލި
+ކަށީގެ ބަލި
+ނަފްސާނީ
+ގުރުދާގެ ބަލި

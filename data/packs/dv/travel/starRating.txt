@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Dhivehi).
+locale: dv
+---
+އެއް ތަރި
+ދެ ތަރި
+ތިން ތަރި
+ހަތަރު ތަރި
+ފަސް ތަރި

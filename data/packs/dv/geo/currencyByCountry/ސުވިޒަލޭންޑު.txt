@@ -1,0 +1,5 @@
+---
+description: Currency of Switzerland as Dhivehi names it. Coherent child of geo/country.txt.
+locale: dv
+---
+ސްވިސް ފްރޭންކް

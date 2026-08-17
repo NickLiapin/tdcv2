@@ -1,0 +1,21 @@
+---
+description: Cuisine (Dhivehi), parent of food/dishByCuisine. ދިވެހި leads and the neighbours that actually feed the Maldives — India, Sri Lanka and the Arab world — come next; the European entries are resort food.
+locale: dv
+---
+ދިވެހި
+އިންޑިޔާ
+ސްރީލަންކާ
+ޢަރަބި
+ތުރުކީ
+ލުބުނާން
+ސީނު
+ޖަޕާނު
+ކޮރެއާ
+ތައި
+ވިއެޓުނާމް
+އިންޑޮނޭޝިޔާ
+އިޓަލީ
+ފަރަންސޭސި
+މެކްސިކޯ
+އިނގިރޭސި
+އެމެރިކާ

@@ -1,0 +1,22 @@
+---
+description: Cat breed. Breed names keep their real spelling in Thaana transcription; the ordinary Maldivian island cat is simply ދިވެހި ބުޅާ.
+locale: dv
+---
+ދިވެހި ބުޅާ
+ޕާރްޝިއަން
+ސިޔާމީ
+ބެންގާލް
+މެއިން ކޫން
+ބްރިޓިޝް ޝޯޓްހެއަރު
+ރެގްޑޯލް
+ސްފިންކްސް
+އެބިސީނިއަން
+ބަރްމީޒް
+ރަޝިއަން ބްލޫ
+ސްކޮޓިޝް ފޯލްޑް
+ނޯވީޖިއަން ފޮރެސްޓް
+އޮރިއެންޓަލް
+ބޮމްބޭ
+މަންކްސް
+ޓާކިޝް އެންގޯރާ
+ސަވާނާ

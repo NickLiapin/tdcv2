@@ -1,0 +1,28 @@
+---
+description: Aircraft type. Model names keep their real spelling in any locale. The float-equipped Twin Otter is the Maldives' workhorse: the country runs one of the largest seaplane fleets in the world.
+locale: dv
+---
+DHC-6 Twin Otter
+ATR 42
+ATR 72
+Dash 8
+A319
+A320
+A320neo
+A321
+A330
+A330neo
+A340
+A350
+A380
+B737
+B737 MAX
+B747
+B757
+B767
+B777
+B787
+E190
+CRJ900
+An-26
+Cessna 208 Caravan

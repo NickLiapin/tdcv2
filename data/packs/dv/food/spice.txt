@@ -1,0 +1,34 @@
+---
+description: Spice (Dhivehi). ދިރި is cumin, ކަޅުދިރި black caraway, ކުކުން saffron and ކާފޫރު camphor — all attested Dhivehi dictionary entries. The Maldives sat on the medieval spice route and the vocabulary shows it.
+locale: dv
+---
+މިރުސް
+ހިކިމިރުސް
+ރީނދޫ
+ދިރި
+ކަޅުދިރި
+ކޮތަނބިރި
+ފޮނިތޮށި
+ކަރަންފޫ
+ކާފޫރުތޮޅި
+ބަދިއަން
+ފެންޑާ
+ދިވެހި ހަވާދު
+ގަރަމް މަސާލާ
+ކުކުން
+ކާފޫރު
+އިނގުރު
+ލޮނުމެދު
+ސަރުކުރު
+ހިކަނދިފަތް
+މުރަނގަފަތި
+ބިލެތްފަތް
+ކައްބާބު
+ފުޅިމަސް ހަވާދު
+ކުޅި ހަވާދު
+ބޭލީފް
+ޕެޕްރިކާ
+ނަޓްމެގް
+އޮރެގާނޯ
+ތައިމް
+ބޭސިލް

@@ -1,0 +1,15 @@
+---
+description: Shipping status (Dhivehi). ދޯނިން ފޮނުވައިފި is real and not decorative: goods reach most islands by boat, so an atoll delivery leg is a boat leg.
+locale: dv
+---
+ތައްޔާރުކުރަނީ
+ޕެކްކޮށްފި
+ފޮނުވަން ދީފި
+ދޯނިން ފޮނުވައިފި
+މަތިންދާބޯޓުން ފޮނުވައިފި
+ދަތުރުމަތީގައި
+އަތޮޅަށް ފޯރައިފި
+ގެންގޮސްދެނީ
+ޙަވާލުކޮށްފި
+ނުލިބުނު
+އަނބުރާ ފޮނުވައިފި

@@ -1,0 +1,9 @@
+---
+description: Credit standing band (Dhivehi).
+locale: dv
+---
+ވަރަށް ދަށް
+ދަށް
+ރަނގަޅު
+ވަރަށް ރަނގަޅު
+އެންމެ ރަނގަޅު

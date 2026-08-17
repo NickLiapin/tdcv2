@@ -1,0 +1,45 @@
+---
+description: Fish (Dhivehi). This is the strongest list in the pack and the reason is economic: tuna is the Maldives' export and the reef its larder, so Dhivehi names fish the way other languages name trees. ކަޅުބިލަމަސް is skipjack, the national fish; ފާނަ is grouper, ހަނދި trevally, ރައިވެރިމަސް snapper, ބިބީ butterflyfish and ފެހުރިހި the whale shark.
+locale: dv
+---
+ކަޅުބިލަ މަސް
+ކަންނެލި
+ނިގޫދިގު ކަންނެލި
+ލައްޓި
+ކުރު މަސް
+ރެހި
+މާރެހި
+ފާނަ
+ރަން ފާނަ
+ކަޅު ފާނަ
+ކުލަ ފާނަ
+ވެލި ފާނަ
+ހަނދި
+ކަޅަ ހަނދި
+މުޑަ ހަނދި
+ރައިވެރިމަސް
+ބެރެބެދި ރައިވެރިމަސް
+ދަންބޮޑު
+ފުންނަ
+ވެންފުންނަ
+ރޮނޑު
+ބިބީ
+ކޮކާމަސް
+ބޮއްމަސް
+ފިލޮޅު
+ތޮޅި
+މުގުރާން
+ގުރުވަ
+މިޔަރު
+ފެހުރިހި
+އުރަހަކަޅު މިޔަރު
+މަޑި
+ބޯވަ
+ވެލާ
+ހިބަރު
+މަސް ހިބަރު
+ތުންދިގު ބިބީ
+ކާޅު
+ބުރެކި
+އައިލަ
+ކޭލަ

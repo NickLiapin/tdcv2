@@ -1,0 +1,33 @@
+---
+description: Tree (Dhivehi). ރުއް, the coconut palm, is on the national emblem and is the country's timber, rope, thatch, food and drink all at once; ބަނބުކެޔޮ (breadfruit), ފުނަ (Alexandrian laurel), ކާނި, ނިކަ and ދިއްގާ are the other island trees.
+locale: dv
+---
+ރުއް
+ބަނބުކެޔޮ
+ފުނަ
+ކާނި
+ނިކަ
+ދިއްގާ
+ހިރުނދު
+މިދިލި
+ކުރެދި
+މަގޫ
+ބޮޑުމަގޫ
+ބިލެތްގަސް
+ކުއްޅަވައް
+އަނބުގަސް
+ދޮންކެޔޮގަސް
+ފަޅޯގަސް
+ޖަނބުރޯލުގަސް
+ސޭބުގަސް
+ކާށިރުއް
+ދޮންވެލިގަސް
+މުރަނގަ
+އާމަނަކަ
+ކަށިކުނބުރު
+ކުނބުރު
+މަދޮށި
+ތެލަ
+ބޮޑުނިކަ
+ބޮޑުފުނަ
+އުނިމާގަސް

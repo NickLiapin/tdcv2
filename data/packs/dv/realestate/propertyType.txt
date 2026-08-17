@@ -1,0 +1,22 @@
+---
+description: Property type (Dhivehi). ގޯތި, a plot of land granted to a citizen, is the central concept in Maldivian property, and ހިއްކި_ބިން (reclaimed land) is where nearly all new Malé property is.
+locale: dv
+---
+ގޯތި
+ގެ
+ފުލެޓް
+އެޕާޓްމަންޓު
+ރޯހައުސް
+ވިލާ
+ބިން
+ހިއްކި ބިން
+ފަޅު ގޯތި
+ފިހާރަ
+އޮފީސް
+ގުދަން
+ކާރުޚާނާ
+ގަރާޖު
+ރިސޯޓު
+ގެސްޓްހައުސް
+ދަނޑު
+ފަޅުރަށް

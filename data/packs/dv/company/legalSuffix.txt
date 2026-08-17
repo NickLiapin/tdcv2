@@ -1,0 +1,31 @@
+---
+description: Company legal form as it is written in a Maldivian company name. ޕްރައިވެޓް ލިމިޓެޑް is by far the commonest; ޕަބްލިކް ލިމިޓެޑް covers the listed companies. Dhivehi is the state language of one country, so these are the forms the Maldivian registrar recognises.
+locale: dv
+---
+ޕްރައިވެޓް ލިމިޓެޑް
+ޕަބްލިކް ލިމިޓެޑް
+ލިމިޓެޑް
+ކުންފުނި
+ކޯޕަރޭޝަން
+ގްރޫޕް
+ހޯލްޑިންގްސް
+އިންޓަނޭޝަނަލް
+އެންޓަޕްރައިސަސް
+އިންވެސްޓްމަންޓް
+ޓްރޭޑިންގް
+ސާވިސަސް
+ސޮލިއުޝަންސް
+ސިސްޓަމްސް
+ޓެކްނޮލޮޖީސް
+ވެންޗާސް
+ޕާޓްނާސް
+އެސޯސިއޭޓްސް
+އިންޑަސްޓްރީސް
+ކޮންސްޓްރަކްޝަން
+ކޮންސަލްޓަންޓްސް
+ލެބްސް
+މޯލްޑިވްސް
+ޖަމްޢިއްޔާ
+ކޯޕަރޭޓިވް
+ސޮސައިޓީ
+ފައުންޑޭޝަން

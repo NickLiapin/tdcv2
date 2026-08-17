@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group, parent of medical/diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories. Maldivians themselves fall under ދެކުނު އޭޝިޔާ: the population is Indo-Aryan with South Indian, Arab and African admixture from the trade routes.
+locale: dv
+---
+ސަހަރާގެ ދެކުނު އެފްރިކާ
+އުތުރު އެފްރިކާ
+މެޑިޓެރޭނިއަން
+މެދުއިރުމަތި
+އުތުރު ޔޫރަޕް
+އިރުމަތީ ޔޫރަޕް
+އަޝްކެނާޒީ ޔަހޫދީ
+ދެކުނު އޭޝިޔާ
+ދެކުނުއިރުމަތީ އޭޝިޔާ
+އިރުމަތީ އޭޝިޔާ
+ޕެސިފިކް ޖަޒީރާ
+އެމެރިކާގެ އަޞްލު ދަރިކޮޅު

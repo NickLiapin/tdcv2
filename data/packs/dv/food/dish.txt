@@ -1,0 +1,45 @@
+---
+description: Dish (Dhivehi). The Maldivian entries are first and they are almost all tuna: މަސްހުނި is shredded smoked tuna with coconut and chilli eaten at breakfast, ގަރުދިޔަ the clear tuna broth poured over rice, ރިހާކުރު the thick reduced tuna paste that is the national condiment. The ހެދިކާ short eats — ބަޖިޔާ, ގުޅަ, ބިސްކީމިޔާ — are the tea-time canon.
+locale: dv
+---
+މަސްހުނި
+ގަރުދިޔަ
+ރިހާކުރު
+ބޮނޑިބަތް
+ފިހުނުމަސް
+ކުޅިމަސް
+ބަޖިޔާ
+ގުޅަ
+ބިސްކީމިޔާ
+ކުޅި ބޯކިބާ
+ފޮނި ބޯކިބާ
+މަސްރޮށި
+ހަނދުލީ
+ތެލުލި ބަނބުކެޔޮ
+ރޮށި
+ފަރާޓާ
+ބަތް
+ކުކުޅު ރިހަ
+މަސް ރިހަ
+ބަނބުކެޔޮ ރިހަ
+ކާށިކިރު ރިހަ
+ސަޓަނި
+ފިހުނު ފަރުމަސް
+ކަނޑުކުކުޅު
+ދޮންކެޔޮ ފޮޅި
+ހުނި ފޮޅި
+ބިރިޔާނީ
+ނަސިގޮރެންގް
+ފްރައިޑް ރައިސް
+ޗައުމިން
+ސޫޕު
+ސެލެޑް
+ސޭންޑްވިޗް
+ބާގަރު
+ޕިއްޒާ
+ޕާސްތާ
+ސުޝީ
+ޓާކޯ
+ކަބާބު
+ފިޝް އެންޑް ޗިޕްސް
+ފްރައިޑް ޗިކަން

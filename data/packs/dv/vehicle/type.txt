@@ -1,0 +1,26 @@
+---
+description: Vehicle (Dhivehi). THE ORDER IS THE POINT: in a country of 1,190 islands the boat is the vehicle and the car is the exception, so ދޯނި, the Maldivian planked boat, heads the list and ފެރީ, ސްޕީޑްބޯޓު and ސީޕްލޭން carry the traffic a road would carry elsewhere.
+locale: dv
+---
+ދޯނި
+ފެރީ
+ސްޕީޑްބޯޓު
+ލޯންޗް
+ސަފާރީ ބޯޓު
+ބާޖު
+ލޭންޑިންގް ކްރާފްޓް
+ކާގޯ ބޯޓު
+ސީޕްލޭން
+މަތިންދާބޯޓު
+ހެލިކޮޕްޓަރު
+ސައިކަލު
+ބައިސްކަލު
+ކާރު
+ޓެކްސީ
+ޕިކަޕް
+ލޮރީ
+ވޭން
+ބަސް
+އެމްބިއުލާންސް
+ފަޔަރު ޓްރަކް
+ބަގީ

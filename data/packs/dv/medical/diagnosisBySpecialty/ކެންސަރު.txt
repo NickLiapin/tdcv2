@@ -1,0 +1,14 @@
+---
+description: Diagnosis seen by the ކެންސަރު specialty, in Dhivehi. Coherent child of medical/specialtyCoherent.txt.
+locale: dv
+---
+ކެންސަރު
+ހަމުގެ ކެންސަރު
+އުރަމަތީގެ ކެންސަރު
+ފުއްޕާމޭގެ ކެންސަރު
+ގޮހޮރުގެ ކެންސަރު
+ފުރަމޭގެ ކެންސަރު
+ލޭގެ ކެންސަރު
+ރަހިމުގެ ކެންސަރު
+ޕްރޮސްޓޭޓް ކެންސަރު
+ލިމްފޯމާ
