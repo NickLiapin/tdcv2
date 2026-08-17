@@ -1,0 +1,28 @@
+---
+address: turkmenistan.education.university
+description: Turkmenistan's higher-education institutions, in the Turkmen names the institutions themselves use. Twenty of the twenty-three are in Aşgabat, which is the single most important fact about Turkmen higher education: the capital holds 14.6% of the population and nearly the whole of the university system, and only four institutions sit anywhere else — the teacher-training institute in Türkmenabat, the agricultural institute in Daşoguz, the energy institute in Mary and the equestrian academy in Arkadag. NOTE THE ORTHOGRAPHY, which is Turkmen and not a typo: it is "uniwersiteti", with w, because the Turkmen Latin alphabet has no letter v; "instituty" and "akademiýasy" take the possessive suffix because the name is a genitive construction; and the institutions write themselves in sentence case, not Title Case, so it is "Magtymguly adyndaky Türkmen döwlet uniwersiteti" exactly as tdu.edu.tm prints it. "X adyndaky" means "named after X" and is the normal Turkmen way of carrying a dedication in an institution's name — Magtymguly Pyragy the eighteenth-century poet, Ýagşygeldi Kakaýew and Myrat Garryýew ministers, Maýa Kulyýewa a singer, Aba Annaýew a horse breeder. Two of the dedications are political rather than commemorative and date the name: S.A.Nyýazow is the first president, and Oguz han is the mythical ancestor of the Turkic peoples, adopted as a state symbol. The list moves fast at the top end — the engineering-transport and the telecommunications institutes were created in 2019, the equestrian academy in Arkadag opened in 2023, and the industrialists' and entrepreneurs' university in 2025 — so a list more than a couple of years old is missing several. Names verified against the institutions' own .edu.tm sites where they run one (tdu, tdmi, tohi, tdei, tdbgi, iogu); the remainder follow the same published forms.
+locale: tk
+---
+Magtymguly adyndaky Türkmen döwlet uniwersiteti
+Ýagşygeldi Kakaýew adyndaky Halkara nebit we gaz uniwersiteti
+Myrat Garryýew adyndaky Türkmenistanyň Döwlet lukmançylyk uniwersiteti
+Türkmenistanyň Oguz han adyndaky Inžener-tehnologiýalar uniwersiteti
+S.A.Nyýazow adyndaky Türkmen oba hojalyk uniwersiteti
+Halkara ynsanperwer ylymlary we ösüş uniwersiteti
+Halkara senagatçylar we telekeçiler uniwersiteti
+Döwletmämmet Azady adyndaky Türkmen milli dünýä dilleri instituty
+Türkmenistanyň Daşary işler ministrliginiň Halkara gatnaşyklary instituty
+Türkmenistanyň Inžener-tehniki we ulag kommunikasiýalary instituty
+Türkmenistanyň Telekommunikasiýalar we informatika instituty
+Maýa Kulyýewa adyndaky Türkmen milli konserwatoriýasy
+Seýitnazar Seýdi adyndaky Türkmen döwlet mugallymçylyk instituty
+Türkmenistanyň Döwlet çeperçilik akademiýasy
+Türkmen döwlet maliýe instituty
+Türkmen oba hojalyk instituty
+Türkmen döwlet binagärlik-gurluşyk instituty
+Türkmen döwlet medeniýet instituty
+Türkmen döwlet ykdysadyýet we dolandyryş instituty
+Türkmen döwlet bedenterbiýe we sport instituty
+Türkmenistanyň Döwlet energetika instituty
+Türkmenistanyň Prezidentiniň ýanyndaky Döwlet gullugy akademiýasy
+Aba Annaýew adyndaky Halkara atçylyk akademiýasy

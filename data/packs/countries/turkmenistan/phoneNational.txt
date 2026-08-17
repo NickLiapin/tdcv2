@@ -1,0 +1,10 @@
+---
+address: turkmenistan.phoneNational
+description: A Turkmen mobile number written the way it is dialled inside the country — the trunk prefix 8, then the eight-digit national number in pairs: 8 65 12 34 56. Turkmenistan kept the Soviet trunk prefix when it took the country code 993, so a domestic call carries a leading 8 that must be dropped before the number can be dialled from abroad, and 8 is also the first digit of the international access sequence 8~10 (the tilde is the second dial tone), which is why a Turkmen writing a number for a foreigner drops one 8 and keeps the other. This form is for a column that has to look like something a person typed; use turkmenistan.phone when the value has to be machine-dialable. The pairing shown here is the mobile grouping. A fixed line is grouped differently and the grouping depends on the length of its area code — an Aşgabat number reads 12 27 01 06 and a Türkmenabat one reads 422 7-98-21 — which is turkmenistan.phoneLandline's business and not modelled as a single written form here, because there isn't one.
+generator: tdc
+---
+<sequence name="prefix"><gen type="template" value="turkmenistan.phoneMobilePrefix"/></sequence>
+<sequence name="a"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="b"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="c"><gen type="regex" value="[0-9]{2}"/></sequence>
+<data>8 ${{prefix}} ${{a}} ${{b}} ${{c}}</data>

@@ -1,0 +1,12 @@
+---
+address: turkmenistan.geo.province
+description: The six first-level divisions of Turkmenistan — five provinces (welaýat) and the capital, which is a city with provincial rank — weighted by the sum of their districts' 2022 census populations. The five welaýatlar are the ones the Universal Postal Union lists for addressing: Ahal, Balkan, Daşoguz, Lebap, Mary. Aşgabat is the sixth unit and is NOT one of them: it is the only city in the country that acts as a province in law, which is why a Turkmen address to the capital carries no welaýat line at all while an address to Balkanabat carries "BALKAN wel." — the UPU's own examples show exactly that difference. Two facts about the shape of the country follow from these weights and are easy to get wrong. The east is where the people are: Mary, Daşoguz and Lebap together hold 65% of the population, and Balkan, which is the largest province by area at roughly a third of the national territory, holds 7.5% of it because most of that area is the Garagum desert and the Caspian shore. And the capital is only 14.6% of the country, which is a small share for a Central Asian capital — Turkmenistan is 52.9% rural by its own census. The shares computed here (Aşgabat 14.60%, Mary 22.83%, Daşoguz 21.97%, Balkan 7.51%) reproduce the shares the State Statistics Committee published for the 2022 census (14.6%, 22.9%, 22.0%, 7.5%), which is the cross-check that these weights are the official ones and not a reconstruction. Arkadag, opened 29 June 2023 and described in Turkmen law as a city of state significance, is counted inside Ahal here because that is where the district register places it; its 567 residents at census time do not move any share. Sum 7 055 509 against the published national total of 7 057 841, a gap of 2 332 accounted for by Awaza district, which has no published figure. Source: 2022 population census of Turkmenistan.
+weighted: true
+locale: tk
+---
+Mary,1610487
+Daşoguz,1550354
+Lebap,1447298
+Aşgabat,1030063
+Ahal,887412
+Balkan,529895

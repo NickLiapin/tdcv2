@@ -1,0 +1,13 @@
+---
+address: turkmenistan.sport.team
+description: The eight clubs of the Ýokary Liga, Turkmenistan's top football division, as it was played in 2025. The league is small and it is state-owned in a way that has no equivalent in Europe: the clubs are the sides of ministries, agencies and state concerns rather than of cities or of private owners, which is why Altyn Asyr is the mobile operator, Nebitçi is the oil industry, Energetik is the power sector and Köpetdag is the Ministry of Internal Affairs — so a Turkmen club is a workplace team that happens to play professionally, and it moves, merges or is dissolved when its parent does. Arkadag FK, founded in 2023 for the new city of the same name, won the title in 2023, 2024 and 2025 and took the 2025 season with a perfect 28 wins from 28, which says more about the league than about the club. Several of the names double as place names and mean the club rather than the town, and two of the eight are in the same city: Aşgabat and Köpetdag both play in the capital. Note the Turkmen: "Ýokary Liga" is simply "top league", Nebitçi is "oil worker", Merw is the ancient city of Merv beside modern Mary, and Şagadam is the older name of the port city of Türkmenbaşy, which the club still carries.
+locale: tk
+---
+Arkadag
+Ahal
+Altyn Asyr
+Şagadam
+Nebitçi
+Aşgabat
+Köpetdag
+Merw

@@ -1,0 +1,14 @@
+---
+address: turkmenistan.finance.bankEnglish
+description: The same nine banks as turkmenistan.finance.bank, in the English the Central Bank of Turkmenistan itself uses on the English side of its register. These forms are here because they are what appears in a Turkmen bank's correspondence with a foreign counterparty, on a SWIFT message and in an English-language contract, and because they are NOT a translation this pack invented — a Turkmen bank's English name is fixed by the Central Bank, which is why "Turkmenbashi" is spelled with the Russian-transliterated sh rather than the Turkmen ş, and why "Dayhanbank" loses the ý. That inconsistency is the register's, not an error here, and matching a Turkmen bank across its two names is a real join problem: Türkmenistanyň «Türkmenbaşy» paýdarlar täjirçilik banky and Joint-Stock Commercial Bank of Turkmenistan «Turkmenbashi» are one institution and share no substring in common. Order matches turkmenistan.finance.bank. Source: Central Bank of Turkmenistan, cbt.tm, English pages.
+locale: en
+---
+The State Bank for Foreign Economic Affairs of Turkmenistan
+The State Development Bank of Turkmenistan
+The State Commercial Bank of Turkmenistan «Turkmenistan»
+The State Commercial Bank of Turkmenistan «Dayhanbank»
+Joint-Stock Commercial Bank of Turkmenistan «Turkmenbashi»
+Joint-Stock Commercial Bank of Turkmenistan «Halkbank»
+Joint-Stock Commercial Bank of Turkmenistan «Senagat»
+Joint-Stock Commercial Bank «Rysgal»
+Turkmen-Turkish Joint-Stock Commercial Bank

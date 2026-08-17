@@ -1,0 +1,56 @@
+---
+address: turkmenistan.geo.city
+description: The 50 places that hold the legal status of CITY (şäher) in Turkmenistan, weighted by their 2022 census population. The status is legal, not descriptive: a Turkmen settlement is a city, a town (şäherçe), or a village (oba) by decree of the Mejlis, and the three are ranked, so this list is not "the 50 biggest places" — Gämi in Ak bugdaý district has 18 148 residents and is a village, while Darganata is a city with 13 777. Seven of these cities additionally hold DISTRICT status (etrap hukukly): Arkadag, Balkanabat, Daşoguz, Türkmenabat, Türkmenbaşy, Baýramaly and Mary, which is why those names appear again in turkmenistan.geo.district. Aşgabat is in a class of its own — the only city that is legally a province. Two entries carry names that are the same as a district's and mean a different place; three Turkmen settlements are called Saparmyrat Türkmenbaşy and two of them are here. Arkadag sits at the bottom of the list on a weight of 567, which is not an error and is worth understanding: the city was built from bare steppe between 2019 and 2023 and opened on 29 June 2023, six months AFTER the census that produced these weights, so the figure counts the people who were living on the site while it was a construction project. Its real population is not published. A config that wants Arkadag to appear at its intended size has to say so; this pack will not put a number there that nobody published. Source: the 2022 population census of Turkmenistan (17 December 2022), the only national count published since 1995, as tabulated per municipality on en.wikipedia from the State Statistics Committee release. THE COUNT IS DISPUTED: independent observers, RFE/RL among them, hold that the published total of 7 057 841 overstates the real population, which emigration has cut hard since 2010; no alternative figure has been published either, so these are the only numbers there are and they are used here as RELATIVE weights, which survives a uniform inflation of the whole table.
+weighted: true
+locale: tk
+---
+Aşgabat,1030063
+Türkmenabat,230861
+Daşoguz,201142
+Mary,167027
+Balkanabat,123190
+Türkmenbaşy,91745
+Baýramaly,70376
+Tejen,67488
+Gyzylarbat,48558
+Magdanly,44508
+Boldumsaz,39532
+Bäherden,37588
+Köneürgenç,37176
+Andalyp,36594
+Gökdepe,33381
+Kaka,33315
+Kerki,32489
+Sarahs,31269
+Ýolöten,30709
+Seýdi,29670
+Änew,28653
+Akdepe,28045
+Görogly,26770
+Bereket,23697
+Saýat,21619
+Gazojak,21035
+Halaç,20778
+Saparmyrat Türkmenbaşy,20720
+Farap,20547
+Şabat,19392
+Gubadag,18950
+Köýtendag,18816
+Türkmengala,16696
+Serhetabat,16038
+Dänew,15409
+Magtymguly,15386
+Garabekewül,15135
+Murgap,14822
+Darganata,13777
+Altyn asyr,13660
+Dostluk,13655
+Hojambaz,13485
+Babadaýhan,13440
+Esenguly,12918
+Sakar,12769
+Etrek,12508
+Sakarçäge,11891
+Garabogaz,7877
+Şatlyk,7725
+Arkadag,567

@@ -1,0 +1,11 @@
+---
+address: turkmenistan.phoneMobilePrefix
+description: The seven two-digit blocks a Turkmen mobile number starts with. All seven belong to ONE operator, and that is the fact worth carrying: Altyn Asyr, trading as TMCell, is a state monopoly, so unlike almost anywhere else in the world a Turkmen mobile prefix carries no operator information because there is only one operator to carry. The second network, MTS Turkmenistan, was shut down by the state in 2010, allowed back, and shut down again in 2017 with roughly 1.8 million subscribers cut off overnight; its numbers went back into the pool. A prefix carries no geography either — 6 or 7 means mobile, 1 to 5 means a geographic line (see turkmenistan.phoneAreaCode), and 8 is the trunk prefix rather than a range. Six subscriber digits follow the prefix, for the same eight-digit national number every Turkmen line has. Not in this list and easy to mistake for a mobile block: 6020, the four-digit code of the Aşgabat city telephone network's CDMA fixed-wireless service, which is a landline product on a 6-series code.
+---
+61
+62
+63
+64
+65
+71
+72

@@ -1,0 +1,11 @@
+---
+address: turkmenistan.docs.passportSeries
+description: The six two-letter codes that appear in the SERIES of a Turkmen internal passport, one per first-level division — AŞ Aşgabat, AH Ahal, BN Balkan, DZ Daşoguz, LB Lebap, MR Mary. The code records where the passport was issued, not where the holder lives now, and it is the only piece of a Turkmen identity document whose structure is actually published. Note that these are NOT the vehicle-plate codes even though five of the six letters pairs are identical: a plate from the capital ends AG and a passport from the capital reads AŞ, and the plate set has a seventh member, AK for Arkadag, which no passport series has because Arkadag is inside Ahal for passport purposes. The Russian-language reference table transliterates the capital's code as AS; the specimen the Turkmen consular service publishes prints it AŞ, with the Turkmen ş, and that is the form used here. Turkmenistan's unified national passport replaced the Soviet 1974 book on 25 October 1996, every citizen must hold one from the age of 16, and it is valid for life with a new photograph pasted in at 25 and 45 — so a series letter issued in 1998 is still in circulation and the pre-2018 district names printed beside it are still on the page.
+locale: tk
+---
+AŞ
+AH
+BN
+DZ
+LB
+MR

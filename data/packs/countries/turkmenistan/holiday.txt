@@ -1,0 +1,14 @@
+---
+address: turkmenistan.holiday
+description: Turkmenistan's nine non-working public holidays, in calendar order, as article 81 of the Labour Code lists them and as the consular sections of Turkmen embassies reprint that list. TWO OF THE NINE HAVE NO FIXED DATE: Oraza baýramy (Eid al-Fitr, 1 Şewwal) and Gurban baýramy (Eid al-Adha, 10 Zülhijje) follow the Hijri calendar and their Gregorian dates are set each year by presidential decree, so a Turkmen holiday table hard-coded to Gregorian dates is wrong every year — and the decree matters, because it also names how many days off each carries, which has been three for Gurban baýramy in some years and one in others. THE DATE OF INDEPENDENCE DAY MOVED: it was 27 October from 1992 to 2017 and has been 27 September since 2018, so any source that puts Turkmen independence in October is at least eight years stale, and there are many. Two more that catch people out: 18 May is a single holiday for the Constitution AND the State Flag, which were separate days until they were combined (the flag day used to be 19 February, the first president's birthday, and dropping it was a deliberate un-naming); and 12 December is Halkara Bitaraplyk güni, marking the UN General Assembly's 1995 recognition of Turkmenistan's permanent neutrality, which is the country's foundational foreign-policy fact and not a generic peace day. Days that feel like holidays and are not non-working days in law: 9 May (Ýeňiş güni, victory in the Great Patriotic War), 27 January (Watan goragçylarynyň güni), 1 September (Bilimler we talyp ýaşlar güni) and 21 December (the day of remembrance of the first president) are all in the official calendar of observances but are working days. A WARNING ABOUT DATED TURKMEN SOURCES generally, which applies to any calendar data for this country: between August 2002 and 2008 Turkmenistan renamed every month and most weekdays after national symbols and the first president's family — January became Türkmenbaşy, April became Gurbansoltan after his mother, Saturday became Ruhgün — and in 2008 renamed them all back. A calendar, a form or a table published in that window carries month names that no Turkmen has used for eighteen years, and it looks entirely authoritative. Month and weekday names are the language pack's business, not this pack's; this note is here because the renaming is what makes an out-of-date Turkmen source dangerous rather than merely old.
+locale: tk
+---
+Täze ýyl
+Halkara zenanlar güni
+Milli bahar baýramy
+Türkmenistanyň Konstitusiýasynyň we Türkmenistanyň Döwlet baýdagynyň güni
+Türkmenistanyň Garaşsyzlyk güni
+Hatyra güni
+Halkara Bitaraplyk güni
+Oraza baýramy
+Gurban baýramy

@@ -1,0 +1,34 @@
+---
+address: turkmenistan.government.agency
+description: Ministries, state committees, services and other central bodies of the Turkmen state. Every name here that carries a .gov.tm site was taken from the title of that site rather than from a secondary list, because Turkmen institutions are renamed and merged often enough that a second-hand list is usually describing the government of some earlier year. Four of those renamings are live traps. THE TAX AUTHORITY IS NO LONGER A SERVICE: what English sources still call the Main State Tax Service now runs as the Salgyt müdiriýeti, a directorate INSIDE the Ministry of Finance and Economy, which is what its own site tax.gov.tm says it is — so a Turkmen taxpayer number is issued by a department of a ministry, not by an independent revenue body. The finance and the economy ministries are ONE ministry, Maliýe we ykdysadyýet ministrligi, not two. Health carries the pharmaceutical industry with it, Saglygy goraýyş we derman senagaty ministrligi, which is why the same ministry that runs the hospitals also owns the factories that supply them. And environmental protection has moved: the meteorological service still files itself under an "Oba hojalyk we daşky gurşawy goramak ministrligi" while the agriculture ministry's own site is titled plainly Oba hojalyk ministrligi, so both forms are in circulation in 2026 and a record naming either is not necessarily stale. Note what is NOT a ministry and is often mistaken for one: Türkmengaz, Türkmennebit and Türkmenhimiýa are state concerns (döwlet konserni) whose heads sit in the Cabinet, and the Halk Maslahaty is a chamber of the legislature rather than an executive body. Names in ordinary Turkmen sentence case, the way the institutions write them, not the uppercase some of their sites use in headings.
+locale: tk
+---
+Türkmenistanyň Ministrler Kabineti
+Türkmenistanyň Mejlisi
+Türkmenistanyň Daşary işler ministrligi
+Türkmenistanyň Maliýe we ykdysadyýet ministrligi
+Türkmenistanyň Maliýe we ykdysadyýet ministrliginiň Salgyt müdiriýeti
+Türkmenistanyň Içeri işler ministrligi
+Türkmenistanyň Adalat ministrligi
+Türkmenistanyň Goranmak ministrligi
+Türkmenistanyň Milli howpsuzlyk ministrligi
+Türkmenistanyň Bilim ministrligi
+Türkmenistanyň Saglygy goraýyş we derman senagaty ministrligi
+Türkmenistanyň Oba hojalyk ministrligi
+Türkmenistanyň Medeniýet ministrligi
+Türkmenistanyň Zähmet we ilaty durmuş taýdan goramak ministrligi
+Türkmenistanyň Energetika ministrligi
+Türkmenistanyň Gurluşyk we binagärlik ministrligi
+Türkmenistanyň Senagat we gurluşyk önümçiligi ministrligi
+Türkmenistanyň Söwda we daşary ykdysady aragatnaşyklar ministrligi
+Türkmenistanyň Dokma senagaty ministrligi
+Türkmenistanyň Awtomobil ýollarynyň gurluşygy ministrligi
+Türkmenistanyň Merkezi banky
+Türkmenistanyň Baş prokuraturasy
+Türkmenistanyň Ýokary kazyýeti
+Türkmenistanyň Statistika baradaky döwlet komiteti
+Türkmenistanyň Döwlet migrasiýa gullugy
+Türkmenistanyň Döwlet gümrük gullugy
+Türkmenistanyň Adalatçysy
+Türkmenistanyň Oba hojalyk we daşky gurşawy goramak ministrliginiň Gidrometeorologiýa baradaky gullugy
+Türkmenistanyň Döwlet habarlar agentligi

@@ -1,0 +1,11 @@
+---
+address: turkmenistan.vehicle.plateRegion
+description: The seven two-letter region codes that close a Turkmen number plate — AG Aşgabat, AH Ahal, AK Arkadag, BN Balkan, DZ Daşoguz, LB Lebap, MR Mary. The code sits at the END of the plate, not the beginning, which is the opposite of the Russian and Kazakh habit and the reason a parser written for a post-Soviet neighbour reads a Turkmen plate backwards. AK is the newest and dates the plate: Arkadag was granted the status of a city of state significance in March 2023 and opened that June, so a plate ending AK cannot be older than 2023, and a region table without AK is pre-2023. Note that these are NOT the passport series codes even though five of the seven look identical: the capital is AG on a plate and AŞ in a passport series, and there is no AK passport series because Arkadag issues passports through Ahal. Source: the register of Turkmen plate indices as tabulated on ru.wikipedia and en.wikipedia; Turkmenistan publishes no plate register this pack could reach, so the codes are corroborated across the two rather than taken from a state source.
+---
+AG
+AH
+AK
+BN
+DZ
+LB
+MR

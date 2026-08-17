@@ -1,0 +1,14 @@
+---
+address: turkmenistan.government.court
+description: The upper courts of Turkmenistan. Article 14 of the Law on Courts sets out the whole system in one sentence — "Türkmenistanda Türkmenistanyň Ýokary kazyýeti, Türkmenistanyň Arbitraž kazyýeti, welaýat kazyýetleri, welaýat hukukly we döwlet ähmiýetli şäher kazyýetleri, şeýle hem etrap kazyýetleri we etrap hukukly şäher kazyýetleri hereket edýärler" — and that sentence is the whole list, in four tiers: the Supreme Court, the Arbitration Court, the province courts and the courts of cities that rank as a province or as a city of state significance, and below them the district courts and the courts of cities that rank as a district. This file names the nine courts of the top three tiers. The names of the five province courts and the two city courts are COMPOSED from the statutory pattern plus the register's own province and city names rather than copied from a published roster, because Turkmenistan publishes no roster; that is stated here rather than hidden, and each one is composed the way the law itself writes them. Two things are worth knowing before reading a Turkmen judicial record. There is no jury of any kind and no constitutional court — constitutional questions belong to the Mejlis, so nothing in this list reviews a law. And the district tier, which is where nearly every case actually starts, has one court per etrap and therefore moves whenever the districts do: the November 2022 reorganisation and the creation of Arkadag's two boroughs in 2023 both changed it, and there are roughly as many district courts as the 58 districts in turkmenistan.geo.district. Arkadag city carries its own court because the law of March 2023 made it a döwlet ähmiýetli şäher, the only city other than Aşgabat to sit above the district tier. Sources: Law of Turkmenistan "Kazyýet hakynda" (redrafted), article 14, as published by the Prosecutor General's Office; the Supreme Court's own site court.gov.tm, which titles itself Türkmenistanyň Ýokary kazyýeti.
+locale: tk
+---
+Türkmenistanyň Ýokary kazyýeti
+Türkmenistanyň Arbitraž kazyýeti
+Aşgabat şäher kazyýeti
+Arkadag şäher kazyýeti
+Ahal welaýat kazyýeti
+Balkan welaýat kazyýeti
+Daşoguz welaýat kazyýeti
+Lebap welaýat kazyýeti
+Mary welaýat kazyýeti

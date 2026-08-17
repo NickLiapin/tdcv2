@@ -1,0 +1,62 @@
+---
+address: turkmenistan.geo.district
+description: The districts (etrap) of Turkmenistan — the second level of the administrative hierarchy, below the province and above the town and village — weighted by their 2022 census population. 56 of the 58 are listed. The 58 divide into three kinds that are usually flattened into one and should not be: 44 ordinary rural districts; SEVEN CITIES THAT HOLD DISTRICT STATUS in their own right (Arkadag, Balkanabat, Daşoguz, Türkmenabat, Türkmenbaşy, Baýramaly, Mary — by law such a city must have over 30 000 residents and be a provincial seat, and it is run by an appointed häkim with its own budget rather than by an elected geňeş); and SEVEN BOROUGHS, the four of Aşgabat (Bagtyýarlyk, Berkararlyk, Büzmeýin, Köpetdag), the two of Arkadag (Gorjaw, Kärizek) and Awaza under Türkmenbaşy. Three names occur twice, once as a city-district and once as the rural district around it — Türkmenbaşy in Balkan, Baýramaly and Mary in Mary province. In Turkmen those are separated as "X şäheri" and "X etraby"; here the city entry carries the " şäheri" suffix and the rural one is left bare, which is an editorial choice made to keep the list unambiguous and is recorded here rather than hidden. Gorjaw (2022 population 0) and Awaza (no published figure) are the two districts LEFT OUT: a weighted list cannot carry a zero, and inventing a count for them would be the one thing worse than omitting them. The set moves: the November 2022 reorganisation redrew and renamed a large part of it, Arkadag's two boroughs were created in 2023, and the count stood at 58 on 19 September 2025 — so any Turkmen district list older than 2023 is wrong in a way that looks authoritative. Source: the 2022 population census of Turkmenistan (17 December 2022), the only national count published since 1995, as tabulated per municipality on en.wikipedia from the State Statistics Committee release. THE COUNT IS DISPUTED: independent observers, RFE/RL among them, hold that the published total of 7 057 841 overstates the real population, which emigration has cut hard since 2010; no alternative figure has been published either, so these are the only numbers there are and they are used here as RELATIVE weights, which survives a uniform inflation of the whole table.
+weighted: true
+locale: tk
+---
+Bagtyýarlyk,309619
+Köpetdag,278840
+Berkararlyk,266425
+Türkmenabat,230861
+Şabat,218075
+Garaşsyzlyk,210249
+Daşoguz,201142
+Balkanabat,188429
+Köneürgenç,176784
+Sakarçäge,176394
+Büzmeýin,175179
+Murgap,174177
+Mary,173140
+Baýramaly,170462
+Wekilbazar,168734
+Mary şäheri,167027
+Görogly,164894
+Saparmyrat Türkmenbaşy,162861
+Gökdepe,161819
+Dänew,159634
+Ýolöten,155616
+Gubadag,155061
+Çärjew,154397
+Tejen,152699
+Ak bugdaý,144119
+Tagtabazar,134751
+Halaç,133909
+Kerki,132562
+Akdepe,130681
+Saýat,128082
+Bäherden,126409
+Türkmengala,124642
+Köýtendag,122523
+Döwletli,104864
+Boldumsaz,102435
+Babadaýhan,97312
+Türkmenbaşy şäheri,91745
+Kaka,83708
+Hojambaz,82809
+Sarahs,80643
+Farap,79302
+Gyzylarbat,72473
+Baýramaly şäheri,70376
+Garagum,62218
+Garabekewül,60403
+Darganata,57952
+Esenguly,45436
+Altyn asyr,39569
+Bereket,39282
+Magtymguly,34664
+Türkmenbaşy,34119
+Oguzhan,32950
+Ruhubelent,28172
+Etrek,23747
+Arkadag,567
+Kärizek,567

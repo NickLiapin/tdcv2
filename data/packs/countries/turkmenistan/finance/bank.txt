@@ -1,0 +1,14 @@
+---
+address: turkmenistan.finance.bank
+description: Every bank in Turkmenistan, under the names the Central Bank of Turkmenistan lists on its own register page. There are nine, and that number is the point: this is not a list trimmed to the interesting entries, it is the whole banking system of a country of seven million. Four are state banks, four are joint-stock commercial banks (paýdarlar täjirçilik banky) in which the state is nonetheless the dominant shareholder, and one — Türkmen-Türk — is the single foreign joint venture, with Türkiye İş Bankası on the other side. There is no foreign-owned retail bank, no branch of a European or Russian bank, and no private bank in the sense the word carries elsewhere. Two things follow that a payments integration has to know. First, THERE IS NO TURKMEN IBAN: Turkmenistan is not in the ISO 13616 registry, it appears in no IBAN country table, and its neighbours Uzbekistan, Tajikistan and Kyrgyzstan are not there either while Kazakhstan, Azerbaijan and Georgia are — so a validator that expects every country to have one has nothing to validate here, and there is deliberately no turkmenistan.finance.iban address in this pack. Second, these banks do hold SWIFT BICs ending TM, so an international payment to Turkmenistan is addressed by BIC and account number rather than by IBAN. Note the naming convention, which is Turkmen and not decorative: the bank's own name sits in guillemets inside a longer phrase that states its legal form — Türkmenistanyň «Halkbank» paýdarlar täjirçilik banky is "the Halkbank joint-stock commercial bank of Turkmenistan" — and Turkmen paperwork uses the full form. Names as the Central Bank prints them; the register's rendering of "ösüş" drops the diaeresis in one place and the correct Turkmen spelling is used here. English forms are turkmenistan.finance.bankEnglish. Source: Central Bank of Turkmenistan, cbt.tm.
+locale: tk
+---
+Türkmenistanyň Döwlet daşary ykdysady iş banky
+Türkmenistanyň Döwlet ösüş banky
+Türkmenistanyň «Türkmenistan» döwlet täjirçilik banky
+Türkmenistanyň «Daýhanbank» döwlet täjirçilik banky
+Türkmenistanyň «Türkmenbaşy» paýdarlar täjirçilik banky
+Türkmenistanyň «Halkbank» paýdarlar täjirçilik banky
+Türkmenistanyň «Senagat» paýdarlar täjirçilik banky
+«Rysgal» paýdarlar täjirçilik banky
+Türkmen-Türk paýdarlar täjirçilik banky

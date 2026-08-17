@@ -1,0 +1,13 @@
+---
+address: turkmenistan.phoneLandline
+description: A Turkmen fixed-line number in E.164 form — +993 and eight digits, built from a real geographic code (turkmenistan.phoneAreaCode) followed by however many subscriber digits are left over from the eight. That subtraction is the whole trick of the Turkmen plan and is done here rather than assumed: a two-digit code leaves six subscriber digits, a three-digit code leaves five, a four-digit code leaves four, and the total is always eight. So +99312270106 (Türkmenpoçta, Aşgabat) and +99342279821 (the Demirbetonönümleri works, Türkmenabat) are both well-formed, and both are eight digits after the country code even though one has a two-digit code and the other a three. A generator that glued a six-digit subscriber onto every code would emit nine- and ten-digit numbers, which is the mistake this file exists to avoid. Fixed telephony is run by Türkmentelekom, a state operator; the codes are historically geographic and there is no published number portability, so unlike a mobile number a landline's code does say roughly where the line is. Written locally in pairs or in the Soviet 3-92-10 grouping depending on how many digits there are, and dialled inside the country behind the trunk prefix 8.
+generator: tdc
+---
+<sequence name="area"><gen type="template" value="turkmenistan.phoneAreaCode"/></sequence>
+<sequence name="sub"><gen type="regex" value="[1-9][0-9]{5}"/></sequence>
+<sequence name="nsn"><compute>
+  <!-- Area code + six spare digits is 8 to 10 characters; cut it back to the
+       eight digits a Turkmen national number always has. -->
+  <result><slice from="0" to="8"><concat><field name="area"/><field name="sub"/></concat></slice></result>
+</compute></sequence>
+<data>+993${{nsn}}</data>

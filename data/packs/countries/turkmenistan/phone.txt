@@ -1,0 +1,8 @@
+---
+address: turkmenistan.phone
+description: A Turkmen mobile number in E.164 form — +993 followed by eight digits, the first two drawn from the 6- and 7-series blocks that Altyn Asyr (TMCell) holds. Turkmenistan took the country code 993 when the Soviet +7 plan was broken up, and its national number has been eight digits flat ever since, so there is no trunk zero to strip and nothing to put in a "city code" column for a mobile line. Written locally in pairs after the prefix — 65 12 34 56 — and dialled inside the country as 8 65 123456, since 8 is the trunk prefix. This generator emits the unspaced international form so it survives a CSV round-trip; turkmenistan.phoneNational carries the way a Turkmen writes it. One operator holds every one of these blocks, so no prefix in this range tells you anything about the network, the tariff or the region. Landlines are turkmenistan.phoneLandline and start with 1 to 5.
+generator: tdc
+---
+<sequence name="prefix"><gen type="template" value="turkmenistan.phoneMobilePrefix"/></sequence>
+<sequence name="sub"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+993${{prefix}}${{sub}}</data>

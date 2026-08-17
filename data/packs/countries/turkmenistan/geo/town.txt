@@ -1,0 +1,74 @@
+---
+address: turkmenistan.geo.town
+description: The 68 places that hold the legal status of TOWN (şäherçe) in Turkmenistan, weighted by their 2022 census population. A şäherçe sits between a city and a village in Turkmen administrative law — it has an elected geňeş rather than a häkim, and it is the rank that most Soviet-era workers' settlements landed in. Several are bigger than several of the cities in turkmenistan.geo.city (Gumdag has 30 884 residents and is a town; Altyn asyr has 13 660 and is a city), because rank here follows the decree that granted it and not the current headcount. Names repeat across the country: there are towns called Bereket in Köneürgenç and in Ak bugdaý as well as the city of Bereket in Balkan, and a town called Saparmyrat Türkmenbaşy in Mary distinct from the city of that name in Daşoguz — so a Turkmen place name is not a key without its district. Source: the 2022 population census of Turkmenistan (17 December 2022), the only national count published since 1995, as tabulated per municipality on en.wikipedia from the State Statistics Committee release. THE COUNT IS DISPUTED: independent observers, RFE/RL among them, hold that the published total of 7 057 841 overstates the real population, which emigration has cut hard since 2010; no alternative figure has been published either, so these are the only numbers there are and they are used here as RELATIVE weights, which survives a uniform inflation of the whole table.
+weighted: true
+locale: tk
+---
+Gumdag,30884
+Jebel,15056
+Kerkiçi,14996
+Hazar,14671
+Bereket,13549
+Tagtabazar,13312
+Saparmyrat Türkmenbaşy,13251
+Mekan,12115
+Astanababa,11466
+Ýagtyýol,10488
+Amyderýa,10330
+Bagtyýarlyk,9804
+Aşyr Kakabaýew,9603
+Jeýhun,9496
+Garadepe,9016
+Duşak,8405
+Ýaşlyk,8172
+Orazgeldi Ärsaryýew,8040
+Bokurdak,7726
+Gökçäge,7569
+Çohpetde,7503
+Türkmenbaşy,7334
+Garaşsyzlyk,7136
+Mukry,7013
+Beşir,6971
+Asuda,6807
+Akdaş,6750
+Yzgant,6547
+Oguzhan,6430
+Arçman,6014
+Kiştiwan,5989
+Döwletli,4942
+Yslam,4869
+Çaltut,4857
+Hojagala,4752
+Deňizhan,4686
+Ekerem,3972
+Gurşun magdan käni,3953
+Zähmet,3855
+Kelif,3701
+Janahyr,3664
+Gaňňaly,3580
+Başsaka,3498
+Bahar,3090
+Lebap,3058
+Mollanepes,2878
+Wekilbazar,2832
+Rejepguly Ataýew,2760
+Berkarar,2747
+Parahat,2494
+Sadylla Rozmetow,2316
+Guwlymaýak,1853
+Garamätnyýaz,1844
+Çärjew,1825
+Suwçyoba,1758
+Bagtyýarlyk,1727
+Belek,1720
+Oglanly,1715
+Ruhubelent,1653
+Garaşsyzlygyň 15 ýyllygy,1598
+Bereketli zaman,1429
+Berkarar,1408
+Gyzylgaýa,993
+Döwletli zaman,982
+Peşanaly,935
+Gyzylsuw,859
+Uzboý,730
+Garlyk,16

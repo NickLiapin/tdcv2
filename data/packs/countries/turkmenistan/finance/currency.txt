@@ -1,0 +1,7 @@
+---
+address: turkmenistan.finance.currency
+description: The two Turkmen money units. The currency is the manat (ISO 4217 TMT, numeric 934, everyday symbol m), divided into 100 teňňe. Three facts about it break naive handling. THE CODE CHANGED: the old manat was TMM, and on 1 January 2009 Turkmenistan redenominated at 5 000 old manats to 1 new one, so a pre-2009 figure is off by a factor of five thousand and a table that mixes the two is not off by a rounding error. THERE ARE TWO RATES: the official rate has been pegged at 3.5 manats to the US dollar since January 2015 and has not moved since, while cash exchange is forbidden by law and the parallel rate has run at ten times the official one or worse — so "converted to USD at the official rate" and "converted at the rate people actually get" are different numbers for the same manat amount, and neither is wrong. AND THE SUBUNIT IS ALIVE: unlike the Norwegian øre or the Finnish penni, teňňe coins are still minted and circulate at 1, 2, 5, 10, 20 and 50 teňňe, so two decimals on a Turkmen amount are real rather than decorative. Notes are 1, 5, 10, 20, 50, 100 and 200 manats; a 500-manat note was designed and never issued. See turkmenistan.finance.amount for how a figure is written.
+locale: tk
+---
+manat
+teňňe

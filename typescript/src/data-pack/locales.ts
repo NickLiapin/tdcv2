@@ -312,6 +312,7 @@ export const CANONICAL_COUNTRIES: ReadonlySet<string> = new Set([
   'togo',
   'tunisia',
   'turkey',
+  'turkmenistan',
   'uae',
   'uganda',
   'ukraine',
