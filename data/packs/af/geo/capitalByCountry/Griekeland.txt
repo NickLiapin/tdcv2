@@ -1,0 +1,5 @@
+---
+description: Capital of Griekeland, in Afrikaans.
+locale: af
+---
+Athene

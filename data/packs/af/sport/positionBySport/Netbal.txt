@@ -1,0 +1,11 @@
+---
+description: Netball positions, in Afrikaans. All seven are named, since netball has no substitutable generic position.
+locale: af
+---
+Doelskut
+Doelaanval
+Vleuelaanval
+Middel
+Vleuelverdediging
+Doelverdediging
+Doelwagter

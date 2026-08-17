@@ -1,0 +1,26 @@
+---
+description: Vehicle body type, in Afrikaans. Bakkie is the pickup truck and is the single best-selling vehicle class in South Africa - the word is Afrikaans, went into South African English unchanged, and has no European equivalent. Luikrug is a hatchback, Stasiewa an estate, Paneelwa a panel van, and the Minibustaxi is the sixteen-seater that carries most of the country to work.
+locale: af
+---
+Bakkie
+Dubbelkajuitbakkie
+Luikrug
+Sedan
+Stasiewa
+Nutsvoertuig
+Kruiser
+Coupé
+Kabriolet
+Sportmotor
+Luuksemotor
+Vierwielaangedrewe
+Minibus
+Minibustaxi
+Paneelwa
+Bus
+Vragmotor
+Sleepwa
+Karavaan
+Motorfiets
+Viertrekker
+Trekker

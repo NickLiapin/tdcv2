@@ -1,0 +1,5 @@
+---
+description: Capital of Германия, in Kyrgyz
+locale: ky
+---
+Берлин

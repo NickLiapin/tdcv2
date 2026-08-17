@@ -1,0 +1,34 @@
+---
+description: Household budget line, in Afrikaans, as a South African household actually keeps it. Four of these are local rather than universal. Munisipale dienste is a single monthly account covering water, electricity, refuse and property rates. Mediese fonds is a medical scheme, which is not health insurance and is regulated separately. Gewapende reaksie is an armed-response security contract, an ordinary suburban line item. Huishulp is domestic help, employed in a large share of middle-income households and covered by its own labour law.
+locale: af
+---
+Huur
+Verband
+Munisipale dienste
+Elektrisiteit
+Water
+Erfbelasting
+Kruideniersware
+Vervoer
+Brandstof
+Motorpaaiement
+Motorversekering
+Mediese fonds
+Korttermynversekering
+Uiteet
+Vermaak
+Selfoon en data
+Internet
+Intekeninge
+Reis
+Skoolfooie
+Onderwys
+Klere
+Geskenke
+Kinderversorging
+Huishulp
+Gewapende reaksie
+Skuldbetaling
+Spaargeld
+Aftreespaarplan
+Begrafnispolis

@@ -1,0 +1,46 @@
+---
+description: Dishes an Afrikaans speaker eats, in Afrikaans. Most of these have no name in any other language: potjiekos is cooked in a three-legged pot over coals, bredie is a slow stew named after what is in it, waterblommetjiebredie uses the flower buds of a Cape water plant, and biltong and droëwors are air-dried meat. Note the diminutives - braaibroodjies, slaphakskeentjies, pampoenkoekies, skilpadjies - which Afrikaans uses far more freely than Dutch does. The apostrophe in koe’sisters is U+2019.
+locale: af
+---
+Braaivleis
+Boerewors
+Biltong
+Droëwors
+Potjiekos
+Bobotie
+Melktert
+Koeksisters
+Koe’sisters
+Vetkoek
+Sosaties
+Pap en wors
+Chakalaka
+Mieliepap
+Krummelpap
+Stywepap
+Bunny chow
+Gatsby
+Waterblommetjiebredie
+Tamatiebredie
+Denningvleis
+Skilpadjies
+Souskluitjies
+Malvapoeding
+Melkkos
+Roosterkoek
+Pannekoek
+Hertzoggies
+Soetkoekies
+Karringmelkbeskuit
+Frikkadelle
+Smoorsnoek
+Ingelegde vis
+Samoesas
+Kerrie-en-rys
+Snoekbraai
+Braaibroodjies
+Slaphakskeentjies
+Pampoenkoekies
+Afval
+Boerebeskuit
+Melkkonfyt

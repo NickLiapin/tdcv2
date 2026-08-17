@@ -1,0 +1,46 @@
+---
+description: University field of study, in Afrikaans.
+locale: af
+---
+Rekenaarwetenskap
+Inligtingkunde
+Bedryfsadministrasie
+Sielkunde
+Biologie
+Biochemie
+Meganiese Ingenieurswese
+Elektriese Ingenieurswese
+Siviele Ingenieurswese
+Chemiese Ingenieurswese
+Mynbou-ingenieurswese
+Ekonomie
+Politieke Wetenskap
+Afrikaans en Nederlands
+Engelse Letterkunde
+Verpleegkunde
+Chemie
+Wiskunde
+Statistiek
+Geskiedenis
+Bemarking
+Finansies
+Rekeningkunde
+Kommunikasiekunde
+Sosiologie
+Fisika
+Grafiese Ontwerp
+Datawetenskap
+Omgewingswetenskap
+Wynkunde
+Landbou-ekonomie
+Diereproduksie
+Argitektuur
+Regsgeleerdheid
+Teologie
+Maatskaplike Werk
+Geologie
+Dierkunde
+Plantkunde
+Antropologie
+Argeologie
+Musiekwetenskap

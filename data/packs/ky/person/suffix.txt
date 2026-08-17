@@ -1,0 +1,18 @@
+---
+description: What can follow a Kyrgyz personal name. KYRGYZ HAS NO Jr./Sr./II/III SYSTEM AT ALL, so this list does not contain one — inventing 'Кичи' and 'Улуу' to fill the shape would have produced name suffixes no Kyrgyz document carries. What genuinely follows a name is the patronymic word (уулу / кызы) and the postposed kin honorifics, plus the academic abbreviations.
+locale: ky
+---
+уулу
+кызы
+байке
+аке
+эже
+апа
+ата
+мырза
+айым
+аксакал
+и.к.
+и.д.
+проф.
+доц.

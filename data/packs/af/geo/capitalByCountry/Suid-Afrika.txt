@@ -1,0 +1,5 @@
+---
+description: Capital of Suid-Afrika, in Afrikaans.
+locale: af
+---
+Pretoria

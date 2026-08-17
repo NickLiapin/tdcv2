@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier, in Afrikaans.
+locale: af
+---
+Yster
+Brons
+Silwer
+Goud
+Platinum
+Diamant
+Meester
+Grootmeester
+Uitdager
+Legende

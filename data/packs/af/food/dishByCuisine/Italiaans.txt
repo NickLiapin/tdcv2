@@ -1,0 +1,12 @@
+---
+description: Italian dishes, keeping their Italian names as an Afrikaans menu prints them.
+locale: af
+---
+Margherita-pizza
+Spaghetti carbonara
+Lasagne
+Risotto
+Osso buco
+Tiramisu
+Gnocchi
+Minestrone

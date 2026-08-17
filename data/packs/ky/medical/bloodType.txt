@@ -1,0 +1,12 @@
+---
+description: Blood type. Kyrgyzstan uses the international ABO/Rh notation on documents, alongside the Soviet Roman-numeral form (I, II, III, IV) that older records carry.
+locale: ky
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

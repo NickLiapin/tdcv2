@@ -1,0 +1,8 @@
+---
+description: Gender label in Kyrgyz
+locale: ky
+---
+Эркек
+Аял
+Башка
+Көрсөтүлгөн эмес

@@ -1,0 +1,24 @@
+---
+description: Kind of trip, in Afrikaans. Wildbesigtiging and Jagtog - a game-viewing trip and a hunting trip - are mainstream holiday categories in South Africa and Namibia rather than specialist ones, and Wittebroodsreis is the honeymoon.
+locale: af
+---
+Sake
+Ontspanning
+Gesinsvakansie
+Wittebroodsreis
+Avontuur
+Padreis
+Seereis
+Rugsakreis
+Stadsuitstappie
+Strandvakansie
+Wildbesigtiging
+Jagtog
+Wynroete
+Groeptoer
+Alleenreis
+Kampeervakansie
+Bergtog
+Kultuurtoer
+Studiereis
+Pelgrimstog

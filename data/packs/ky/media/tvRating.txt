@@ -1,0 +1,13 @@
+---
+description: Age rating on television and film in Kyrgyz. Kyrgyzstan uses the post-Soviet numeric age marks (0+, 6+, 12+, 16+, 18+), not the American G/PG/R letters.
+locale: ky
+---
+0+
+6+
+12+
+16+
+18+
+Жалпыга ачык
+Ата-эненин коштоосунда
+Балдарга сунушталбайт
+Чоңдор үчүн

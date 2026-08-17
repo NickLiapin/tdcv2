@@ -1,0 +1,46 @@
+---
+description: Workplace skill, in Afrikaans. Programming languages and tool names keep their real spelling. The language block is the practical one for this labour market: an advertisement in the Western Cape asks for Afrikaans and English, one in Gauteng frequently for isiZulu or Sesotho as well.
+locale: af
+---
+Python
+JavaScript
+SQL
+Java
+C++
+Wolkrekenaarkunde
+Masjienleer
+Data-analise
+Projekbestuur
+Agile
+Openbare redevoering
+Tegniese skryfwerk
+Kliëntediens
+Verkope
+Boekhouding
+Finansiële modellering
+CAD
+3D-modellering
+Grafiese ontwerp
+Kopieskryf
+Sweiswerk
+Elektriese bedrading
+Loodgieterswerk
+Timmerwerk
+Bouplanne lees
+Masjinering
+Soldeerwerk
+Vurkhysterbestuur
+Swaarmasjienbediening
+Kode 14-bestuur
+Noodhulp
+Kardiopulmonale resussitasie
+Voedselveiligheid
+Afrikaans
+Engels
+isiZulu
+isiXhosa
+Sesotho
+Onderhandeling
+Spanleierskap
+Tydsbestuur
+Probleemoplossing

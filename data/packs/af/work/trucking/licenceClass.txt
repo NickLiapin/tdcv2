@@ -1,0 +1,12 @@
+---
+description: Driving licence code, as issued in South Africa. This is NOT the American Class A/B/C system of the reference en list: South African codes run A and A1 for motorcycles, B and EB for light vehicles, and C1, C, EC1 and EC for heavy vehicles, where the E prefix means the vehicle may draw a trailer over 750 kg. A professional driving permit is a separate document carried alongside the licence, not a class of it. Namibia uses a closely related code set.
+locale: af
+---
+Kode A
+Kode A1
+Kode B
+Kode EB
+Kode C1
+Kode C
+Kode EC1
+Kode EC

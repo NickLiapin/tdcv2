@@ -1,0 +1,20 @@
+---
+description: The address word a Kyrgyz street name is followed by. THIS IS WHERE ROUNDING HARMONY BITES: every value here is a noun carrying the third-person possessive suffix, and Kyrgyz has FOUR shapes of it — -ы/-и/-у/-ү (-сы/-си/-су/-сү after a vowel) — chosen by both the backness AND the roundness of the stem vowel. көчө gives көчөсү, аянт gives аянты, жол gives жолу, өтмөк gives өтмөгү. Kazakh, the nearest relative, has only two (-ы/-і), so a Kazakh-shaped suffix table produces көчөсі and is instantly wrong here.
+locale: ky
+---
+көчөсү
+проспектиси
+бульвары
+аянты
+жолу
+чоң жолу
+шоссеси
+өтмөгү
+тупиги
+кичи району
+кварталы
+конушу
+багы
+жээги
+участкасы
+аймагы

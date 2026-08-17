@@ -1,0 +1,10 @@
+---
+description: Neurology diagnoses, in Afrikaans.
+locale: af
+---
+Migraine
+Epilepsie
+Parkinson se siekte
+Multipele sklerose
+Iskemiese beroerte
+Perifere neuropatie

@@ -1,0 +1,12 @@
+---
+description: The eight sports that have a position list of their own in sport/positionBySport/. Kyrgyzstan's own national sports — көк бөрү, эр эңиш, тогуз коргоол — are in sport/name.txt but deliberately NOT here: көк бөрү is played by four riders with no fixed named positions, and writing a position table for it would be inventing terminology rather than recording it.
+locale: ky
+---
+Футбол
+Баскетбол
+Волейбол
+Гандбол
+Муз хоккейи
+Регби
+Бейсбол
+Америка футболу

@@ -1,0 +1,10 @@
+---
+description: Nephrology diagnoses, in Afrikaans.
+locale: af
+---
+Chroniese niersiekte
+Nierstene
+Glomerulonefritis
+Akute nierbesering
+Polisistiese niersiekte
+Diabetiese nefropatie

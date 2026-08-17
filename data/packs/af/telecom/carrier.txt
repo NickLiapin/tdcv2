@@ -1,0 +1,30 @@
+---
+description: Mobile network brand. Operator brands are not translated. The first block operates in South Africa and Namibia; the rest are the international networks a subscriber would meet when roaming.
+locale: af
+---
+Vodacom
+MTN
+Telkom
+Cell C
+Rain
+FNB Connect
+Capitec Connect
+Melon Mobile
+MTC
+TN Mobile
+Paratus
+Vodafone
+Orange
+O2
+EE
+Telefonica
+Deutsche Telekom
+Airtel
+Safaricom
+Jio
+China Mobile
+Etisalat
+Zain
+Movistar
+Verizon
+AT&T

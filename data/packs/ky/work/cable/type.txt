@@ -1,0 +1,13 @@
+---
+description: Cable type. The category designations are international.
+locale: ky
+---
+Оптикалык була
+Коаксиалдык
+Кош ийрилген
+Cat5e
+Cat6
+Cat6a
+Жогорку вольттуу
+Жерге көмүлүүчү
+Аба линиясы

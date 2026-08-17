@@ -1,0 +1,19 @@
+---
+description: Directional qualifier hung on an Afrikaans street, suburb or district name (Ringweg-Noord, Bellville-Suid). Afrikaans hyphenates it onto the place name rather than writing it as a free-standing word.
+locale: af
+---
+Noord
+Suid
+Oos
+Wes
+Noordoos
+Noordwes
+Suidoos
+Suidwes
+Sentraal
+Bo
+Onder
+Binne
+Buite
+Bopunt
+Onderpunt

@@ -1,0 +1,28 @@
+---
+description: Role-playing character class, in Afrikaans. Skelm is a rogue, Sluipmoordenaar an assassin and Duiwelbesweerder a warlock.
+locale: af
+---
+Vegter
+Towenaar
+Skelm
+Paladyn
+Jagter
+Priester
+Duiwelbesweerder
+Druïde
+Monnik
+Boogskutter
+Barbaar
+Nekromanser
+Bard
+Sluipmoordenaar
+Kleriek
+Toorkunstenaar
+Ridder
+Berserker
+Alchemis
+Beswerer
+Skerpskutter
+Genesers
+Sjamaan
+Wagter

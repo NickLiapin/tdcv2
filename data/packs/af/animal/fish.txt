@@ -1,0 +1,29 @@
+---
+description: Fish names in Afrikaans. The list is a Cape one: Snoek is the pelagic fish the Cape has eaten and salted for three centuries, Galjoen is the national fish of South Africa, Kabeljou, Geelbek, Steenbras, Elf and Poenskop are the standard line-fish of the Cape and KwaZulu-Natal coasts, Stokvis is what the trawl fleet lands, and Kurper is the freshwater tilapia of the inland dams. Perlemoen is an abalone rather than a fish and is here because it is sold - and poached - alongside them.
+locale: af
+---
+Snoek
+Galjoen
+Kabeljou
+Geelbek
+Steenbras
+Elf
+Geelstert
+Poenskop
+Kingklip
+Stokvis
+Kurper
+Baber
+Geelvis
+Forel
+Karp
+Baars
+Sardyn
+Ansjovis
+Maasbanker
+Harder
+Tuna
+Marlyn
+Haai
+Rog
+Perlemoen

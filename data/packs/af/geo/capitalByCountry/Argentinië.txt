@@ -1,0 +1,5 @@
+---
+description: Capital of Argentinië, in Afrikaans.
+locale: af
+---
+Buenos Aires

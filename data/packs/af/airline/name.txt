@@ -1,0 +1,54 @@
+---
+description: Airline names as printed on a ticket. Airline brands are not translated, so these stay in their registered spelling. The first block is what an Afrikaans speaker actually flies - the South African and Namibian carriers and the African regional operators - followed by the long-haul lines serving Cape Town, Johannesburg and Windhoek.
+locale: af
+---
+South African Airways
+FlySafair
+Airlink
+CemAir
+LIFT
+FlyNamibia
+Air Botswana
+Eswatini Air
+LAM Mozambique Airlines
+TAAG Angola Airlines
+Ethiopian Airlines
+Kenya Airways
+RwandAir
+EgyptAir
+Royal Air Maroc
+Air Mauritius
+Air Zimbabwe
+Malawi Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+Turkish Airlines
+British Airways
+Virgin Atlantic
+Lufthansa
+KLM
+Air France
+Swiss
+TAP Air Portugal
+Iberia
+Delta Air Lines
+United Airlines
+American Airlines
+Air Canada
+Qantas
+Singapore Airlines
+Cathay Pacific
+ANA
+Japan Airlines
+China Southern Airlines
+Air India
+IndiGo
+Saudia
+Oman Air
+Aeroflot
+LATAM
+Azul
+Ryanair
+easyJet
+Norse Atlantic Airways

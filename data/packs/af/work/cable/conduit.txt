@@ -1,0 +1,11 @@
+---
+description: Cable conduit type, in Afrikaans.
+locale: af
+---
+PVC
+Staalpyp
+HDPE
+Direkte begrawing
+Binnebuis
+Kabelrak
+Lugdraer

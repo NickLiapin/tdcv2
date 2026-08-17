@@ -1,0 +1,5 @@
+---
+description: Capital of Нигерия, in Kyrgyz
+locale: ky
+---
+Абужа

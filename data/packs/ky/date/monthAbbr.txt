@@ -1,0 +1,16 @@
+---
+description: Abbreviated month name in Kyrgyz
+locale: ky
+---
+янв
+фев
+мар
+апр
+май
+июн
+июл
+авг
+сен
+окт
+ноя
+дек

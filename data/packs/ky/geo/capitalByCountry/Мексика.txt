@@ -1,0 +1,5 @@
+---
+description: Capital of Мексика, in Kyrgyz
+locale: ky
+---
+Мехико

@@ -1,0 +1,16 @@
+---
+description: School or university mark in Kyrgyz. Kyrgyzstan kept the Soviet FIVE-POINT scale, where 5 is the best and 2 is a fail, so a config that assumes A-F or 1-100 will be wrong here. Universities add the pass/fail зачёт and, in the Bologna courses, letter grades.
+locale: ky
+---
+5 — эң жакшы
+4 — жакшы
+3 — канааттандырарлык
+2 — канааттандырарлык эмес
+Эсептелди
+Эсептелген жок
+A
+B
+C
+D
+E
+F

@@ -1,0 +1,5 @@
+---
+description: Capital of Түштүк Африка Республикасы, in Kyrgyz
+locale: ky
+---
+Претория

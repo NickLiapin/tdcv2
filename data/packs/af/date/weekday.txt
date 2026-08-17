@@ -1,0 +1,11 @@
+---
+description: Weekday names in Afrikaans, Monday first. As with the months, Afrikaans capitalises these and Dutch does not.
+locale: af
+---
+Maandag
+Dinsdag
+Woensdag
+Donderdag
+Vrydag
+Saterdag
+Sondag

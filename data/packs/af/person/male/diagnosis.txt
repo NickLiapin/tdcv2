@@ -1,0 +1,30 @@
+---
+description: Diagnosis specific to male patients, in Afrikaans - a short list for use where a full diagnosis draw would be anatomically wrong.
+locale: af
+---
+Varikoseel
+Kriptorgidisme
+Fimose
+Prostaatvergroting
+Prostatitis
+Chroniese pankreatitis
+Chlamidia
+Chroniese artritis
+Sentrale retinale arterie-embolie
+Rektale kanker
+Testikulêre torsie
+Erektiele disfunksie
+Ginekomastie
+Manlike patroonkaalheid
+Epididimitis
+Hidroseel
+Manlike hipogonadisme
+Prostaatkanker
+Balanitis
+Skrotale breuk
+Spermatoseel
+Manlike onvrugbaarheid
+Peyronie se siekte
+Priapisme
+Testikulêre kanker
+Silikose

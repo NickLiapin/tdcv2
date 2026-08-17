@@ -1,0 +1,23 @@
+---
+description: Kind of legal matter, in Afrikaans. South African law is Roman-Dutch at its base with English procedure on top, and two entries here have no American counterpart. A grondeis is a land restitution claim brought under the Restitution of Land Rights Act by people dispossessed after 1913, heard by a dedicated court. And what English calls bankruptcy splits in two: sekwestrasie applies to a natural person, likwidasie to a company, and they are different proceedings.
+locale: af
+---
+Siviel
+Krimineel
+Familiereg
+Egskeiding
+Onderhoud
+Sekwestrasie
+Likwidasie
+Persoonlike besering
+Arbeidsgeskil
+Onbillike ontslag
+Kontrakgeskil
+Intellektuele eiendom
+Eiendomsreg
+Grondeis
+Huurgeskil
+Immigrasie
+Belasting
+Administratiewe hersiening
+Grondwetlike aangeleentheid

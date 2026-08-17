@@ -1,0 +1,36 @@
+---
+description: Tree, in Afrikaans. The first block is indigenous: the Kremetart is the baobab, Geelhout the yellowwood and the national tree, Kameeldoring the camel thorn of the Kalahari and Namibia, Mopanie the tree the whole lowveld woodland is named after, and Wag-’n-bietjie the thorn whose name means "wait a bit" - which is what its hooked thorns make you do, and which puts the indefinite article ’n inside a plant name. Bloekom and Rooikrans at the end are introduced species and among the country's worst invasive weeds, so they are as much a part of the landscape as the rest.
+locale: af
+---
+Kremetart
+Geelhout
+Kameeldoring
+Mopanie
+Marula
+Kiepersol
+Stinkhout
+Melkhout
+Boekenhout
+Wildevy
+Witgat
+Wag-’n-bietjie
+Sekelbos
+Assegaaiboom
+Tamboetie
+Waboom
+Olienhout
+Doringboom
+Soetdoring
+Swarthaak
+Kiaat
+Bloekom
+Rooikrans
+Denneboom
+Eik
+Wilger
+Populier
+Jakaranda
+Seder
+Sipres
+Akasia
+Meidoring

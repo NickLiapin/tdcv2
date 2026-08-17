@@ -1,0 +1,19 @@
+---
+description: Social media platform. Platform brands are not translated. WhatsApp leads because South Africa is one of the most WhatsApp-dependent markets in the world and much of what would be a Facebook post elsewhere is a WhatsApp group message here.
+locale: af
+---
+WhatsApp
+Facebook
+Instagram
+TikTok
+X
+YouTube
+LinkedIn
+Telegram
+Snapchat
+Pinterest
+Reddit
+Threads
+Discord
+Mastodon
+Tumblr

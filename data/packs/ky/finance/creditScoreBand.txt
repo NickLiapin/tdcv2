@@ -1,0 +1,9 @@
+---
+description: Credit rating band in Kyrgyz
+locale: ky
+---
+Начар
+Ортозаар
+Жакшы
+Абдан жакшы
+Мыкты

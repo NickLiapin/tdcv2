@@ -1,0 +1,5 @@
+---
+description: Capital of Noorweë, in Afrikaans.
+locale: af
+---
+Oslo

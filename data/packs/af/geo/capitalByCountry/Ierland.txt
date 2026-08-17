@@ -1,0 +1,5 @@
+---
+description: Capital of Ierland, in Afrikaans.
+locale: af
+---
+Dublin

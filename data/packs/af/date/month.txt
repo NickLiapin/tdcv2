@@ -1,0 +1,16 @@
+---
+description: Month names in Afrikaans. Afrikaans CAPITALISES month names - Januarie, Februarie - and Dutch does not (januari, februari). At this exact address the two languages differ in case on every one of the twelve values, which makes this the cheapest place to see that they are not the same language.
+locale: af
+---
+Januarie
+Februarie
+Maart
+April
+Mei
+Junie
+Julie
+Augustus
+September
+Oktober
+November
+Desember

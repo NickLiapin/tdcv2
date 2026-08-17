@@ -1,0 +1,26 @@
+---
+description: Metals in Kyrgyz. Алтын and сымап are not abstract here: gold is the country's largest export and Khaidarkan was for decades one of the world's few primary mercury mines, so both words carry an industry.
+locale: ky
+---
+Алтын
+Күмүш
+Платина
+Мис
+Темир
+Болот
+Чоюн
+Алюминий
+Коргошун
+Калай
+Цинк
+Никель
+Хром
+Титан
+Вольфрам
+Сымап
+Марганец
+Магний
+Уран
+Коло
+Жез
+Сурьма

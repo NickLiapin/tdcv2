@@ -1,0 +1,5 @@
+---
+description: Capital of Грекия, in Kyrgyz
+locale: ky
+---
+Афины

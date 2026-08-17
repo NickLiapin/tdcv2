@@ -1,0 +1,32 @@
+---
+description: Technical verb, in Afrikaans, in the bare infinitive - which in Afrikaans is also the form used for every person and number, since the language dropped verb conjugation almost entirely.
+locale: af
+---
+rugsteun
+omseil
+inbreek
+oorheers
+saampers
+kopieer
+navigeer
+indekseer
+koppel
+genereer
+kwantifiseer
+bereken
+sintetiseer
+invoer
+uitsaai
+programmeer
+herlaai
+ontleed
+enkripteer
+dekripteer
+ontplooi
+ontfout
+aflaai
+oplaai
+filtreer
+skandeer
+herstel
+opdateer

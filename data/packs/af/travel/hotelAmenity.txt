@@ -1,0 +1,34 @@
+---
+description: Hotel or guest-house feature, in Afrikaans. Braaigeriewe and Wildritte are ordinary line items on a southern African accommodation listing, and Kragopwekker - a backup generator - is advertised because power cuts are scheduled rather than exceptional.
+locale: af
+---
+Gratis Wi-Fi
+Swembad
+Spa
+Gimnasium
+Restaurant
+Kroeg
+Kamerdiens
+Lughawevervoer
+Gratis ontbyt
+Selfsorgkombuis
+Parkering
+Veilige parkering
+Troeteldiervriendelik
+Sakesentrum
+Portier
+Wassery
+Warmbad
+Dakterras
+Braaigeriewe
+Wildritte
+Kragopwekker
+Lugreëling
+Kluis
+Kinderspeelarea
+Konferensiefasiliteite
+Rolstoeltoeganklik
+Wynkelder
+Uitsigdek
+Vuurmaakplek
+Boma

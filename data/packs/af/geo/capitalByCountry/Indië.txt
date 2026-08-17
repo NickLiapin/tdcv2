@@ -1,0 +1,5 @@
+---
+description: Capital of Indië, in Afrikaans.
+locale: af
+---
+Nieu-Delhi

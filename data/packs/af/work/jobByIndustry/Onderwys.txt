@@ -1,0 +1,10 @@
+---
+description: Education jobs, in Afrikaans.
+locale: af
+---
+Onderwyser
+Professor
+Skoolvoorligter
+Bibliotekaris
+Onderwysassistent
+Skoolhoof

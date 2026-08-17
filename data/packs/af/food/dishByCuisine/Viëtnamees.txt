@@ -1,0 +1,10 @@
+---
+description: Vietnamese dishes. Loanwords keep their real spelling.
+locale: af
+---
+Pho
+Banh mi
+Loempies
+Bun cha
+Com tam
+Viëtnamese koffie

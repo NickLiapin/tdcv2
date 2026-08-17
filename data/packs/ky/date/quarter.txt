@@ -1,0 +1,8 @@
+---
+description: Calendar quarter
+locale: ky
+---
+1-чейрек
+2-чейрек
+3-чейрек
+4-чейрек

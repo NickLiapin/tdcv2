@@ -1,0 +1,29 @@
+---
+description: Dog breeds in Kyrgyz. Тайган is the native Kyrgyz sighthound, hunted with alongside a golden eagle, and дөбөт is the mountain guard dog; both are ordinary words, not kennel-club terms. The rest are the international breeds a Kyrgyz vet or shelter actually writes down.
+locale: ky
+---
+Тайган
+Дөбөт
+Алабай
+Койчу ит
+Аңчы ит
+Короо ити
+Немис овчаркасы
+Кавказ овчаркасы
+Лабрадор
+Голден ретривер
+Хаски
+Маламут
+Пудель
+Такса
+Бульдог
+Ротвейлер
+Доберман
+Спаниель
+Терьер
+Чихуахуа
+Мопс
+Боксёр
+Колли
+Бигль
+Далматин

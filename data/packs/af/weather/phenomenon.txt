@@ -1,0 +1,22 @@
+---
+description: Weather event, in Afrikaans. Three are regional and named. The Kaapse Dokter is the hard south-easter that scours Cape Town clean in summer and is called a doctor because it was believed to blow the plague away. A bergwind is a hot dry downslope wind off the interior plateau that can raise the coastal temperature by fifteen degrees in an hour. Droogte and Veldbrand lead the list because drought and veld fire are the region's defining hazards, not its exotic ones.
+locale: af
+---
+Droogte
+Veldbrand
+Hittegolf
+Haelstorm
+Donderstorm
+Vloed
+Sturtvloed
+Kaapse Dokter
+Bergwind
+Stofstorm
+Sandstorm
+Tropiese siklone
+Windhoos
+Sneeustorm
+Swartryp
+Koue front
+Springty
+Mistbank

@@ -1,0 +1,5 @@
+---
+description: Capital of Pole, in Afrikaans.
+locale: af
+---
+Warskou

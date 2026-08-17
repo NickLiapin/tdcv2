@@ -1,0 +1,16 @@
+---
+description: Mobile plan type, in Afrikaans. Voorafbetaald - prepaid - leads because the great majority of South African and Namibian subscriptions are prepaid rather than contract, which is the reverse of the European pattern.
+locale: af
+---
+Voorafbetaald
+Kontrak
+Top-up
+Onbeperk
+Gesinsplan
+Sakeplan
+Slegs data
+Nagbundel
+Sosiale bundel
+Maandbundel
+Weekbundel
+Dagbundel

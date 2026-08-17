@@ -1,0 +1,54 @@
+---
+description: Airlines a Kyrgyz-speaking passenger meets: the carriers based in or flying to Kyrgyzstan, plus the large international ones. Airline brands keep their own spelling, so the Latin-script names are not translated. Kyrgyzstan's own airline market is small and changes often, so this is a language-pack list of names in circulation, not an official registry.
+locale: ky
+---
+Avia Traffic Company
+Tez Jet
+Asman Airlines
+Air Manas
+Sky KG Airlines
+Aero Nomad Airlines
+Аэрофлот
+S7 Airlines
+Уральские авиалинии
+Победа
+Turkish Airlines
+Pegasus Airlines
+Air Astana
+FlyArystan
+Uzbekistan Airways
+Somon Air
+China Southern Airlines
+Air China
+Emirates
+flydubai
+Qatar Airways
+Etihad Airways
+Lufthansa
+Air France
+KLM
+British Airways
+Austrian Airlines
+Aegean Airlines
+Azerbaijan Airlines
+Georgian Airways
+Belavia
+SCAT Airlines
+IndiGo
+Korean Air
+Japan Airlines
+Singapore Airlines
+Qazaq Air
+Jazeera Airways
+Salam Air
+Wizz Air
+Ryanair
+easyJet
+Vueling
+Norwegian
+AJet
+Southwest Airlines
+Delta Air Lines
+American Airlines
+United Airlines
+Air Canada

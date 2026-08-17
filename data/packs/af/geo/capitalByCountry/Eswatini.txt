@@ -1,0 +1,5 @@
+---
+description: Capital of Eswatini, in Afrikaans.
+locale: af
+---
+Mbabane

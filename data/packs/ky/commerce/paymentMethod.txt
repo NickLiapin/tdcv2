@@ -1,0 +1,19 @@
+---
+description: Payment method in Kyrgyz. Элкарт is Kyrgyzstan's own card scheme and is listed here the way the Polish pack lists BLIK — as a payment method the language names, not as a bank; the banks themselves belong to the kyrgyzstan country pack.
+locale: ky
+---
+Кредиттик карта
+Дебеттик карта
+Элкарт
+Visa
+Mastercard
+Мир
+Накталай акча
+Банк которуу
+Мобилдик капчык
+QR код менен төлөө
+Apple Pay
+Google Pay
+Товар алганда төлөө
+Бөлүп төлөө
+Кредитке алуу

@@ -1,0 +1,19 @@
+---
+description: Severe weather or natural hazard in Kyrgyz. КӨЧКҮ AND СЕЛ ARE NOT EXOTIC: avalanche and mudflow are the two hazards that close Kyrgyz mountain roads every year, and жер титирөө (earthquake) is a standing risk across the whole country.
+locale: ky
+---
+Көчкү
+Сел
+Жер көчкү
+Жер титирөө
+Кар бороону
+Бороон
+Куюн
+Ураган
+Ысык толкун
+Аяз толкуну
+Суу ташкыны
+Кургакчылык
+Мөндүр
+Чаң бороону
+Токой өрттөрү

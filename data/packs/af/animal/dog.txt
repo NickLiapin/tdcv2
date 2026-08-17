@@ -1,0 +1,29 @@
+---
+description: Dog breed names. Three are southern African and are named in Afrikaans because that is where the name was made: the Boerboel is the farm mastiff of the interior, the Rhodesiese Rifrug is the ridgeback, and Africanis is the indigenous landrace rather than a kennel-club breed.
+locale: af
+---
+Boerboel
+Rhodesiese Rifrug
+Africanis
+Labrador Retriever
+Duitse Herdershond
+Golden Retriever
+Franse Bulhond
+Bulhond
+Poedel
+Brak
+Rottweiler
+Worshond
+Bokser
+Siberiese Husky
+Deense Dog
+Dobermann
+Australiese Skaaphond
+Border Collie
+Chihuahua
+Shih Tzu
+Pommer
+Corgi
+Berner Sennenhond
+Jack Russell
+Skotse Terriër

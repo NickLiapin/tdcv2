@@ -1,0 +1,14 @@
+---
+description: Mining method, in Afrikaans. Seebodemmyn is marine diamond mining off the Namibian and Northern Cape coast, which is a method that barely exists outside this region.
+locale: af
+---
+Oopgroef
+Ondergronds
+Strookmyn
+Spoelmyn
+Alluviale myn
+Skagmyn
+Dryfmyn
+Langfront
+Kamer-en-pilaar
+Seebodemmyn

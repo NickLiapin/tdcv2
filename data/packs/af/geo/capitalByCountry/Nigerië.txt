@@ -1,0 +1,5 @@
+---
+description: Capital of Nigerië, in Afrikaans.
+locale: af
+---
+Abuja

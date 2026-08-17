@@ -1,0 +1,24 @@
+---
+description: Writing systems in Kyrgyz. KYRGYZ HAS USED THREE OF THEM IN ONE CENTURY: Arabic script until 1928, Latin from 1928 to 1940, Cyrillic since 1940 — and a Latin switch is still debated. The Yenisei runiform inscriptions at the top of the list are the oldest writing associated with the Kyrgyz, which is why they are named here rather than lumped in with 'runes'.
+locale: ky
+---
+Кирилл жазуусу
+Латын жазуусу
+Араб жазуусу
+Байыркы түрк руна жазуусу
+Энесай жазуусу
+Кытай иероглифтери
+Деванагари
+Хангыль
+Хирагана
+Катакана
+Грек жазуусу
+Иврит жазуусу
+Армян жазуусу
+Грузин жазуусу
+Тай жазуусу
+Тибет жазуусу
+Эфиоп жазуусу
+Бенгал жазуусу
+Тамил жазуусу
+Уйгур жазуусу

@@ -1,0 +1,47 @@
+---
+description: Dishes in Kyrgyz, weighted toward what is actually eaten. Бешбармак — boiled meat over hand-cut noodle sheets, eaten with the hands, which is what the name says — is the feast dish; лагман and ашлям-фуу came from the Dungan and Uyghur kitchens and are now everywhere; кымыз (fermented mare's milk) and максым (fermented barley drink) are drunk as food, not as novelties.
+locale: ky
+---
+Бешбармак
+Лагман
+Ашлям-фуу
+Куурдак
+Шорпо
+Манты
+Самсы
+Оромо
+Кесме
+Нарын
+Палоо
+Гошнан
+Дымдама
+Чучук
+Быжы
+Каттама
+Боорсок
+Гүйрү лагман
+Шашлык
+Плов
+Ганфан
+Тандыр нан
+Жупка
+Кулчетай
+Ак чучук
+Куурулган күрүч
+Борщ
+Пельмени
+Блин
+Пицца
+Бургер
+Хот-дог
+Суши
+Роллдор
+Донер
+Шаурма
+Хачапури
+Кымыз
+Максым
+Чалап
+Жарма
+Айран
+Курут

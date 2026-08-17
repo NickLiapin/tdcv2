@@ -1,0 +1,10 @@
+---
+description: Afrikaans full female name - one given name and one surname (Sannie Adams). It draws from the SAME person/lastName.txt as the male template, because Afrikaans surnames do not take a feminine form: a woman named Botha is Botha. There is deliberately no person/female/lastName.txt in this pack.
+generator: tdc
+locale: af
+---
+<sequence name="p">
+  <gen name="f" type="template" value="af.person.female.firstName"/>
+  <gen name="l" type="template" value="af.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

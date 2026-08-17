@@ -1,0 +1,16 @@
+---
+description: Status of a property listing, in Afrikaans.
+locale: af
+---
+Te koop
+Te huur
+Aanbod hangende
+Verkoop
+Onder kontrak
+Van die mark af
+Binnekort beskikbaar
+Bankbesit
+Op veiling
+Nuwe ontwikkeling
+Prys verlaag
+Verhuur

@@ -1,0 +1,5 @@
+---
+description: Currency of Viëtnam, in Afrikaans.
+locale: af
+---
+Dong

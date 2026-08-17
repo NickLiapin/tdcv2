@@ -1,0 +1,12 @@
+---
+description: Chinese dishes as an Afrikaans menu names them.
+locale: af
+---
+Kung Pao-hoender
+Gebraaide rys
+Dumplings
+Chow mein
+Suursoet vark
+Mapo-tofu
+Pekingeend
+Wonton-sop

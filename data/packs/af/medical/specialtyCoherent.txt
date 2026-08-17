@@ -1,0 +1,14 @@
+---
+description: Medical specialty, in Afrikaans, and the parent of diagnosisBySpecialty.
+locale: af
+---
+Kardiologie
+Neurologie
+Onkologie
+Dermatologie
+Gastro-enterologie
+Endokrinologie
+Longsiektes
+Ortopedie
+Psigiatrie
+Nefrologie

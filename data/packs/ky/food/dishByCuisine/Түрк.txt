@@ -1,0 +1,12 @@
+---
+description: Dishes of Түрк cuisine, in Kyrgyz
+locale: ky
+---
+Кебап
+Дөнөр
+Лахмажун
+Пиде
+Долма
+Көфте
+Чорба
+Баклава

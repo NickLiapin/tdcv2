@@ -1,0 +1,5 @@
+---
+description: Capital of Turkye, in Afrikaans.
+locale: af
+---
+Ankara

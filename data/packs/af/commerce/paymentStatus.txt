@@ -1,0 +1,14 @@
+---
+description: Payment status, in Afrikaans.
+locale: af
+---
+Hangende
+Gemagtig
+Betaal
+Misluk
+Terugbetaal
+Gedeeltelik terugbetaal
+Betaling teruggeëis
+Nietig verklaar
+Geweier
+Word geverifieer

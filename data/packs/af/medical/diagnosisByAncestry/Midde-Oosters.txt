@@ -1,0 +1,10 @@
+---
+description: Conditions with a higher prevalence in Middle Eastern ancestry, in Afrikaans.
+locale: af
+---
+Familiêre Mediterreense koors
+Beta-talassemie
+Glukose-6-fosfaatdehidrogenase-tekort
+Behçet se siekte
+Vitamien D-tekort
+Sekelseleienskap

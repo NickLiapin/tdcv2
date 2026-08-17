@@ -1,0 +1,9 @@
+---
+description: Hotel star rating in Kyrgyz
+locale: ky
+---
+1 жылдыз
+2 жылдыз
+3 жылдыз
+4 жылдыз
+5 жылдыз

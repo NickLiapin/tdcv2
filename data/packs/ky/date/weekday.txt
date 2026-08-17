@@ -1,0 +1,11 @@
+---
+description: Weekdays in Kyrgyz, Monday first, as a Kyrgyz calendar prints them. Five of the seven are built on the Persian counting series (дүйшөмбү, шейшемби, шаршемби, бейшемби, жекшемби — 'second day', 'third day' and so on), and жума is the Friday of Muslim usage.
+locale: ky
+---
+дүйшөмбү
+шейшемби
+шаршемби
+бейшемби
+жума
+ишемби
+жекшемби

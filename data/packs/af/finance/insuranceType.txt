@@ -1,0 +1,20 @@
+---
+description: Kind of insurance, in Afrikaans. Two entries are specific to this market. Mediese fonds is a medical scheme rather than health insurance: it is a non-profit member fund regulated under its own Act, and calling it versekering is legally wrong. Begrafnispolis - funeral cover - is the most widely held insurance product in South Africa by number of policies, held far more often than life cover, and its absence from a generated South African dataset is more conspicuous than its presence.
+locale: af
+---
+Mediese fonds
+Begrafnispolis
+Lewensversekering
+Motorversekering
+Huiseienaarsversekering
+Huisinhoudversekering
+Huurdersversekering
+Ongeskiktheidsdekking
+Gevreesde-siekte-dekking
+Inkomstebeskerming
+Reisversekering
+Troeteldierversekering
+Aanspreeklikheidsversekering
+Besigheidsversekering
+Oesversekering
+Vee-versekering

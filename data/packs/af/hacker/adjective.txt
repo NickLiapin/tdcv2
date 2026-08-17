@@ -1,0 +1,32 @@
+---
+description: Technical adjective, in Afrikaans. Draadloos is wireless, Oopbron open-source, Vastetoestand solid-state.
+locale: af
+---
+hulp-
+primêre
+agterkant-
+digitale
+oopbron
+virtuele
+kruisplatform
+oortollige
+aanlyn
+aanraak-
+multigreep
+bluetooth
+draadlose
+neurale
+optiese
+vastetoestand
+mobiele
+1080p
+8-bis
+hoëspoed
+geënkripteerde
+verspreide
+gelaagde
+saamgeperste
+outomatiese
+gesinchroniseerde
+dinamiese
+statiese

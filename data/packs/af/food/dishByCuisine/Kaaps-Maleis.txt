@@ -1,0 +1,16 @@
+---
+description: Cape Malay dishes. Boeber is the warm milk-and-vermicelli drink made on the fifteenth night of Ramadan; koe’sisters, spelled with an apostrophe and spiced with cardamom and aniseed, are a different thing from the Afrikaner koeksister.
+locale: af
+---
+Bobotie
+Denningvleis
+Koe’sisters
+Bredie
+Sosaties
+Kerrie-en-rys
+Boeber
+Gesmoorde snoek
+Samoesas
+Roti
+Tamatiebredie
+Geelrys met rosyne

@@ -1,0 +1,94 @@
+---
+description: Diagnosis, in Afrikaans. Four entries near the top are what makes this a southern African list rather than a translated European one. MIV-infeksie and Tuberkulose are the two largest causes of adult illness in the region and are frequently diagnosed together. Fetale alkoholsindroom is here because the Western Cape wine districts - overwhelmingly Afrikaans-speaking - record the highest prevalence measured anywhere in the world, a legacy of the dop system that paid farm labour in wine. Silikose is the occupational lung disease of the gold mines. A diagnosis list for this locale that omits them would be a translation exercise rather than a description of the population.
+locale: af
+---
+Hipertensie
+Tipe 2-diabetes mellitus
+MIV-infeksie
+Tuberkulose
+Multimiddelweerstandige tuberkulose
+Asma
+Akute brongitis
+Griep
+Migraine
+Veralgemeende angsversteuring
+Major depressiewe versteuring
+Osteoartritis
+Rumatoïede artritis
+Gastro-esofageale refluksiekte
+Ystertekortanemie
+Hipotiroïdisme
+Urienweginfeksie
+Longontsteking
+Chroniese niersiekte
+Koronêre arteriesiekte
+Atriale fibrillasie
+Kongestiewe hartversaking
+Iskemiese beroerte
+Epilepsie
+Parkinson se siekte
+Alzheimer se siekte
+Multipele sklerose
+Psoriase
+Atopiese dermatitis
+Allergiese rinitis
+Chroniese sinusitis
+Middeloorontsteking
+Konjunktivitis
+Katarak
+Gloukoom
+Blindedermontsteking
+Galblaasontsteking
+Divertikulitis
+Prikkelbaredermsindroom
+Crohn se siekte
+Ulseratiewe kolitis
+Chroniese hepatitis B
+Lewersirrose
+Akute pankreatitis
+Jig
+Osteoporose
+Fibromialgie
+Isjias
+Diskusprolaps
+Karpaletonnelsindroom
+Tendinitis
+Chroniese obstruktiewe longsiekte
+Silikose
+Pneumokoniose
+Leukemie
+Limfoom
+Melanoom
+Basaalselkarsinoom
+Hiperlipidemie
+Vetsug
+Obstruktiewe slaapapnee
+Slapeloosheid
+Bipolêre versteuring
+Aandagafleibaarheid-hiperaktiwiteitsversteuring
+Seliakie
+Sistemiese lupus erythematosus
+Duiseligheid
+Oorsuisings
+Aambeie
+Spatare
+Diepveneuse trombose
+Longembolie
+Nierstene
+Anemie
+Hipertiroïdisme
+Maagsweer
+Gastritis
+Sellulitis
+Sepsis
+Borskanker
+Akute gastro-enteritis
+Vitamien D-tekort
+Chroniese veneuse onvoldoendheid
+Malaria
+Bilharzia
+Fetale alkoholsindroom
+Rumatiese hartsiekte
+Sekelselsiekte
+Alkoholgebruiksversteuring
+Slukdermkanker

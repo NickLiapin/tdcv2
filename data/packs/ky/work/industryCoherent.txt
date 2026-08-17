@@ -1,0 +1,14 @@
+---
+description: The ten industries that have a job list of their own in work/jobByIndustry/
+locale: ky
+---
+Технология
+Ден соолук сактоо
+Каржы
+Курулуш
+Билим берүү
+Мейманкана бизнеси
+Укук
+Өнөр жай
+Соода
+Транспорт

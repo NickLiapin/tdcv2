@@ -1,0 +1,5 @@
+---
+description: Currency of Тажикстан, in Kyrgyz
+locale: ky
+---
+сомони

@@ -1,0 +1,21 @@
+---
+description: Seniority level, in Afrikaans.
+locale: af
+---
+Intern
+Leerling
+Vakleerling
+Junior
+Medewerker
+Middelvlak
+Senior
+Leier
+Spesialis
+Hoofspesialis
+Bestuurder
+Seniorbestuurder
+Direkteur
+Uitvoerende direkteur
+Visepresident
+Hoof
+Uitvoerende hoof

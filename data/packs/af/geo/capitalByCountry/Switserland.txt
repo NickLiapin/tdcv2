@@ -1,0 +1,5 @@
+---
+description: Capital of Switserland, in Afrikaans.
+locale: af
+---
+Bern

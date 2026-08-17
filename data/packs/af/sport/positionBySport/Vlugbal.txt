@@ -1,0 +1,9 @@
+---
+description: Volleyball positions, in Afrikaans.
+locale: af
+---
+Opsteller
+Buitehouer
+Middelblokker
+Libero
+Teenoorgestelde

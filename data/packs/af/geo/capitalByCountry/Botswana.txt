@@ -1,0 +1,5 @@
+---
+description: Capital of Botswana, in Afrikaans.
+locale: af
+---
+Gaborone

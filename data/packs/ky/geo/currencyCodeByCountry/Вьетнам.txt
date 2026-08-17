@@ -1,0 +1,5 @@
+---
+description: Currency code of Вьетнам
+locale: ky
+---
+VND

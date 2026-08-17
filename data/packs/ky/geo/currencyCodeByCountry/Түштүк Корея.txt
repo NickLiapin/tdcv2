@@ -1,0 +1,5 @@
+---
+description: Currency code of Түштүк Корея
+locale: ky
+---
+KRW

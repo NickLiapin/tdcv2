@@ -1,0 +1,11 @@
+---
+description: Construction jobs, in Afrikaans. A passer en draaier is a fitter and turner, and the phrase is the standard South African trade title.
+locale: af
+---
+Elektrisiën
+Loodgieter
+Timmerman
+Messelaar
+Bouvoorman
+Landmeter
+Passer en draaier

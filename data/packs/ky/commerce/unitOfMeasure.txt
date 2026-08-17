@@ -1,0 +1,34 @@
+---
+description: Unit of measure in Kyrgyz commerce. Metric throughout — Kyrgyzstan uses SI — with the bazaar counting units (даана, байлам, түрмөк) that a metric table alone does not give you.
+locale: ky
+---
+даана
+кутуча
+кутучасы
+таңгак
+ондук
+жуп
+комплект
+топтом
+байлам
+түрмөк
+баштык
+капчык
+грамм
+килограмм
+тонна
+центнер
+миллилитр
+литр
+кубметр
+миллиметр
+сантиметр
+метр
+километр
+чарчы метр
+гектар
+саат
+күн
+ай
+жыл
+рулон

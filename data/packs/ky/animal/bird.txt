@@ -1,0 +1,34 @@
+---
+description: Birds in Kyrgyz. Бүркүт (golden eagle) heads the list on purpose: eagle falconry with a trained бүркүт is a living Kyrgyz practice, and the bird appears on the som banknotes and in the epic, so it is an everyday word rather than a specialist one.
+locale: ky
+---
+Бүркүт
+Шумкар
+Ителги
+Кыргый
+Куш
+Чымчык
+Таранчы
+Торгой
+Булбул
+Карга
+Кузгун
+Сагызган
+Чабалекей
+Кептер
+Кекилик
+Улар
+Каркыра
+Тоодак
+Токулдак
+Үкү
+Жапалак
+Ак куу
+Каз
+Өрдөк
+Тоок
+Короз
+Күркүлдөк
+Тоту куш
+Чардак
+Дүрбөлөң

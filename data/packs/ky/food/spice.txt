@@ -1,0 +1,34 @@
+---
+description: Spices and herbs in Kyrgyz. Зире (cumin) leads because it is the defining spice of the plov and samsa kitchen here, in a way that pepper is in Europe.
+locale: ky
+---
+Зире
+Туз
+Кара мурч
+Ак мурч
+Кызыл мурч
+Паприка
+Кориандр
+Куркума
+Дарчын
+Гвоздика
+Мускат жаңгагы
+Имбирь
+Лавр жалбырагы
+Базилик
+Райхан
+Орегано
+Розмарин
+Тимьян
+Шафран
+Ванилин
+Зирк
+Кунжут
+Ажгон
+Жалбыз
+Анис
+Кардамон
+Хмели-сунели
+Сумах
+Кызылча уругу
+Сарымсак порошогу

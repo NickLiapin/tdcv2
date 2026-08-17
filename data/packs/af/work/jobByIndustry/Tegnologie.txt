@@ -1,0 +1,10 @@
+---
+description: Technology jobs, in Afrikaans.
+locale: af
+---
+Sagteware-ingenieur
+Datawetenskaplike
+DevOps-ingenieur
+Produkbestuurder
+Gebruikerservaringontwerper
+Toetsingenieur

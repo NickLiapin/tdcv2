@@ -1,0 +1,10 @@
+---
+description: Legal jobs, in Afrikaans. The profession splits into prokureur and advokaat, and both are listed because they are different jobs.
+locale: af
+---
+Prokureur
+Advokaat
+Regsassistent
+Landdros
+Regssekretaresse
+Hofklerk

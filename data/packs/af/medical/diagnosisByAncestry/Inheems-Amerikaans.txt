@@ -1,0 +1,10 @@
+---
+description: Conditions with a higher prevalence in Indigenous American ancestry, in Afrikaans.
+locale: af
+---
+Tipe 2-diabetes mellitus
+Galstene
+Diabetiese nefropatie
+Rumatoïede artritis
+Nie-alkoholiese vetlewersiekte
+Metaboliese sindroom

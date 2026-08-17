@@ -1,0 +1,32 @@
+---
+description: Kind of event, in Afrikaans. Five of these are institutions of Afrikaans community life rather than translations. A kerkbasaar is a church fete and is still the main fundraising event of a country town. Boeresport is a day of traditional field games - tug of war, sack races, jukskei. A kunstefees is one of the large Afrikaans arts festivals that anchor the cultural calendar. Matriekafskeid is the school-leaving formal. And a braai is an event, not a meal.
+locale: af
+---
+Konferensie
+Troue
+Konsert
+Fees
+Kunstefees
+Werkswinkel
+Webinaar
+Handelskou
+Landbouskou
+Fondsinsameling
+Kerkbasaar
+Netwerkgeleentheid
+Produkbekendstelling
+Seminaar
+Gala
+Boeresport
+Braai
+Matriekafskeid
+Skoolkonsert
+Sportdag
+Reünie
+Doopfees
+Verjaardagpartytjie
+Begrafnis
+Gedenkdiens
+Veiling
+Wynproe
+Optog

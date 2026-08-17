@@ -1,0 +1,24 @@
+---
+description: Diagnosis specific to male anatomy, in Afrikaans.
+locale: af
+---
+Goedaardige prostaathiperplasie
+Prostatitis
+Prostaatkanker
+Testikulêre kanker
+Testikulêre torsie
+Varikoseel
+Hidroseel
+Epididimitis
+Kriptorgidisme
+Fimose
+Balanitis
+Erektiele disfunksie
+Peyronie se siekte
+Manlike onvrugbaarheid
+Ginekomastie
+Manlike hipogonadisme
+Priapisme
+Spermatoseel
+Manlike patroonkaalheid
+Skrotale breuk

@@ -1,0 +1,11 @@
+---
+description: Thai dishes as an Afrikaans menu names them.
+locale: af
+---
+Pad thai
+Groen kerrie
+Tom yum
+Massaman-kerrie
+Papajaslaai
+Mango-kleefrys
+Satay

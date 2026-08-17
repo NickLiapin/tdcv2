@@ -1,0 +1,5 @@
+---
+description: Currency code of Brasilië.
+locale: af
+---
+BRL

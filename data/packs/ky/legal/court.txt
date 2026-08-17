@@ -1,0 +1,19 @@
+---
+description: Kinds of court as Kyrgyz names them. АКСАКАЛДАР СОТУ IS NOT FOLKLORE: the court of elders is written into the Kyrgyz constitution, sits in villages and town districts, and hears small property, family and neighbour disputes by agreement of the parties — so a Kyrgyz list of courts that stops at the state judiciary is missing a real tier. Kyrgyz is spoken in essentially one state, so the rest are the courts of the Kyrgyz Republic.
+locale: ky
+---
+Жогорку сот
+Конституциялык сот
+Жогорку соттун Конституциялык палатасы
+Облустук сот
+Бишкек шаардык соту
+Райондук сот
+Шаардык сот
+Административдик сот
+Аскер соту
+Арбитраждык сот
+Аксакалдар соту
+Балдар иштери боюнча сот
+Апелляциялык сот
+Кассациялык сот
+Тергөө соту

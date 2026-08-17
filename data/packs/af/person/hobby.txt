@@ -1,0 +1,81 @@
+---
+description: Pastime, in Afrikaans. Braai is first and is not a translation of barbecue - it is a fixed social occasion and people list it as a hobby without irony. Voëlkyk, Wildkyk and Jag are ordinary suburban pastimes here rather than specialist ones, Jukskei is a traditional throwing game still played in clubs, and Boeremusiek speel and Konsertina speel belong to a living amateur tradition.
+locale: af
+---
+Braai
+Hengel
+Voëlkyk
+Wildkyk
+Stap
+Bergklim
+Kampeer
+Fietsry
+Hardloop
+Swem
+Gholf
+Duik
+Branderplankry
+Perdry
+Motorfietsry
+Vier-by-vier ry
+Jag
+Skyfskiet
+Boogskiet
+Rugby kyk
+Krieket kyk
+Sokker kyk
+Skaak
+Jukskei
+Boeresport
+Tuinmaak
+Groente kweek
+Lees
+Skryf
+Fotografie
+Kook
+Bak
+Konfyt maak
+Biltong maak
+Wynproe
+Bierbrou
+Naaldwerk
+Brei
+Hekelwerk
+Houtwerk
+Draaiwerk
+Sweiswerk
+Motors herstel
+Skilder
+Teken
+Beeldhouwerk
+Pottebakkery
+Sing
+Koorsang
+Kitaar speel
+Klavier speel
+Konsertina speel
+Boeremusiek speel
+Dans
+Sokkie
+Langarm dans
+Teater
+Sterrekyk
+Modelbou
+Muntversameling
+Seëlversameling
+Genealogie
+Geskiedenis lees
+Vrywilligerswerk
+Kerkwerk
+Padreise
+Kampervakansies
+Roei
+Kanovaar
+Seil
+Vlieg
+Valskermspring
+Rotsklim
+Grotverkenning
+Voëlfotografie
+Fynbos-stap
+Bewaringswerk

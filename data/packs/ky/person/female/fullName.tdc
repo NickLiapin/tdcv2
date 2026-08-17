@@ -1,0 +1,10 @@
+---
+description: Kyrgyz full female name: given name followed by the feminine family name (Айгүл Асанова, or Айгүл Бакыт кызы with the native patronymic, which is three words).
+generator: tdc
+locale: ky
+---
+<sequence name="p">
+  <gen name="f" type="template" value="ky.person.female.firstName"/>
+  <gen name="l" type="template" value="ky.person.female.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

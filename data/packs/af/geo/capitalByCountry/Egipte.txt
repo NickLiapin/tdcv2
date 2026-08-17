@@ -1,0 +1,5 @@
+---
+description: Capital of Egipte, in Afrikaans.
+locale: af
+---
+Kaïro

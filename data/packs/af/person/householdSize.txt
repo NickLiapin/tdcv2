@@ -1,0 +1,11 @@
+---
+description: Number of people in the household. The South African average is a little over three, but multigenerational households are common and the tail is heavier than in Europe.
+locale: af
+---
+1
+2
+3
+4
+5
+6
+7+

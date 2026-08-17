@@ -1,0 +1,5 @@
+---
+description: Currency of Америка Кошмо Штаттары, in Kyrgyz
+locale: ky
+---
+доллар

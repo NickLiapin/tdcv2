@@ -1,0 +1,5 @@
+---
+description: Currency of Frankryk, in Afrikaans.
+locale: af
+---
+Euro

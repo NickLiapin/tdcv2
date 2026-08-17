@@ -1,0 +1,9 @@
+---
+description: Personal pronoun set, in Afrikaans. Two facts a config cannot infer. First, Afrikaans has no grammatical gender on nouns at all - the definite article is die for everything, and the Dutch de/het split has no counterpart - so gender surfaces only in these third-person pronouns. Second, hulle does not change for case: it is both "they" and "them", so the pair reads hulle/hulle rather than something like Dutch zij/hen. The neopronoun space of English has no established Afrikaans equivalent, and inventing one here would be fabrication, so the list stops where actual usage stops.
+locale: af
+---
+hy/hom
+sy/haar
+hulle/hulle
+hy/hulle
+sy/hulle

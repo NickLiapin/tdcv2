@@ -1,0 +1,14 @@
+---
+description: Rugby union positions, in Afrikaans. Acht is the number eight, Skrumskakel the scrum-half and Losskakel the fly-half.
+locale: af
+---
+Stut
+Haker
+Slot
+Flank
+Acht
+Skrumskakel
+Losskakel
+Senter
+Vleuel
+Heelagter

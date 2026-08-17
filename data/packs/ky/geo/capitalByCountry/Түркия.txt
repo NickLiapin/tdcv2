@@ -1,0 +1,5 @@
+---
+description: Capital of Түркия, in Kyrgyz
+locale: ky
+---
+Анкара

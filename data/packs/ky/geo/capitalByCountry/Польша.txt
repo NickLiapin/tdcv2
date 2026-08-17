@@ -1,0 +1,5 @@
+---
+description: Capital of Польша, in Kyrgyz
+locale: ky
+---
+Варшава

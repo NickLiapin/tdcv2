@@ -1,0 +1,11 @@
+---
+description: Abbreviated weekday in Kyrgyz, Monday first
+locale: ky
+---
+дүй
+шей
+шар
+бей
+жум
+ише
+жек

@@ -1,0 +1,26 @@
+---
+description: Company department, in Afrikaans. Note the diaeresis in Kliëntediens.
+locale: af
+---
+Ingenieurswese
+Produk
+Ontwerp
+Verkope
+Bemarking
+Finansies
+Rekeningkunde
+Menslike Hulpbronne
+Bedrywighede
+Regsdienste
+Kliëntediens
+Inligtingstegnologie
+Navorsing en Ontwikkeling
+Verkryging
+Gehalteversekering
+Logistiek
+Administrasie
+Fasiliteite
+Sekuriteit
+Nakoming
+Opleiding
+Interne Oudit

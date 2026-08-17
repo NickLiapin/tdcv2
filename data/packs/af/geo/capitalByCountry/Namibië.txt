@@ -1,0 +1,5 @@
+---
+description: Capital of Namibië, in Afrikaans.
+locale: af
+---
+Windhoek

@@ -1,0 +1,22 @@
+---
+description: Kind of venue in Kyrgyz. Тойкана — a hall built for wedding feasts — is a distinct building type here, and a боз үй put up in a yard is a perfectly ordinary venue for a feast.
+locale: ky
+---
+Тойкана
+Мейманкана залы
+Конференц-зал
+Маданият үйү
+Театр
+Кинотеатр
+Концерт залы
+Стадион
+Спорт залы
+Ресторан
+Кафе
+Ашкана
+Клуб
+Көргөзмө залы
+Ачык аянтча
+Сейил бак
+Жайлоо
+Боз үй

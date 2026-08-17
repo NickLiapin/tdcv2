@@ -1,0 +1,40 @@
+---
+description: Medical specialty, in Afrikaans.
+locale: af
+---
+Kardiologie
+Dermatologie
+Endokrinologie
+Gastro-enterologie
+Neurologie
+Onkologie
+Oftalmologie
+Ortopedie
+Pediatrie
+Psigiatrie
+Longsiektes
+Radiologie
+Reumatologie
+Urologie
+Nefrologie
+Hematologie
+Immunologie
+Narkose
+Noodgeneeskunde
+Huisartskunde
+Internegeneeskunde
+Verloskunde en Ginekologie
+Keel-, Neus- en Oorheelkunde
+Patologie
+Plastiese Chirurgie
+Algemene Chirurgie
+Vaskulêre Chirurgie
+Infeksiesiektes
+Geriatrie
+Neonatologie
+Fisiese Geneeskunde en Rehabilitasie
+Openbare Gesondheid
+Bedryfsgeneeskunde
+Reisgeneeskunde
+Palliatiewe Sorg
+Genetika

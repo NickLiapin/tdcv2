@@ -1,0 +1,5 @@
+---
+description: Currency code of Бразилия
+locale: ky
+---
+BRL

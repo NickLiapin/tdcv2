@@ -1,0 +1,5 @@
+---
+description: Currency of Польша, in Kyrgyz
+locale: ky
+---
+злотый

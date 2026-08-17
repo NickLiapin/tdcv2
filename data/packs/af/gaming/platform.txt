@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Console and store brands are not translated.
+locale: af
+---
+PlayStation 5
+Xbox Series X
+Nintendo Switch
+PC
+Steam Deck
+Selfoon
+PlayStation 4
+Xbox One
+Meta Quest
+Nintendo Switch 2
+Webblaaier

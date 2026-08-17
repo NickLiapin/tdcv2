@@ -1,0 +1,5 @@
+---
+description: Capital of Angola, in Afrikaans.
+locale: af
+---
+Luanda

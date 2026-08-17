@@ -1,0 +1,11 @@
+---
+description: Haulage route type, in Afrikaans.
+locale: af
+---
+Langafstand
+Streeksroete
+Plaaslik
+Toegewyde roete
+Spanbestuur
+Laaste myl
+Kruisgrens

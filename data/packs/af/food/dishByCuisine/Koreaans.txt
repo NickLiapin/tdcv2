@@ -1,0 +1,11 @@
+---
+description: Korean dishes. Loanwords keep their real spelling.
+locale: af
+---
+Bibimbap
+Bulgogi
+Kimchi-bredie
+Japchae
+Tteokbokki
+Koreaanse gebraaide hoender
+Galbi

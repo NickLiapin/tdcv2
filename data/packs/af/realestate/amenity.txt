@@ -1,0 +1,40 @@
+---
+description: Property feature as it appears in an Afrikaans listing. Several of these are South African and would puzzle a European reader. A stoep is a raised covered veranda - note that Dutch stoep means the pavement, so this is a false friend rather than a shared word. A braaiplek is a built-in barbecue and a lapa a thatched open-sided entertainment structure; both are standard listing lines. Wendy-huis is a wooden garden shed, named after a brand. And the block from Sonpanele to Boorgat exists because of load-shedding and water restrictions: a generator, an inverter, solar panels, a JoJo water tank and a borehole are now selling points rather than eccentricities. Elektriese omheining and Gewapende reaksie - electric fencing and an armed-response contract - are ordinary suburban features here.
+locale: af
+---
+Swembad
+Motorhuis
+Toesluitmotorhuis
+Afdak
+Stoep
+Braaiplek
+Lapa
+Kaggel
+Houtvloere
+Ingeboude kaste
+Loopkas
+Balkon
+Tuin
+Boorgat
+JoJo-tank
+Sonpanele
+Kragopwekker
+Omsetter
+Alarmstelsel
+Elektriese omheining
+Gewapende reaksie
+Sekuriteitshek
+Diefwering
+Personeelkwartiere
+Wendy-huis
+Gimnasium
+Hyser
+Parkering
+Skottelgoedwasser
+Wasgoedkamer
+Troeteldiervriendelik
+Kelder
+Dakkamer
+Uitsig op die berg
+Uitsig op die see
+Rivierfront

@@ -1,0 +1,5 @@
+---
+description: Currency code of Сауд Арабиясы
+locale: ky
+---
+SAR

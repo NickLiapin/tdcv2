@@ -1,0 +1,5 @@
+---
+description: Capital of Канада, in Kyrgyz
+locale: ky
+---
+Оттава

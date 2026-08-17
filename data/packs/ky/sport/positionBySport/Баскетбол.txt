@@ -1,0 +1,9 @@
+---
+description: Playing positions in Баскетбол, in Kyrgyz
+locale: ky
+---
+Оюн курооочу
+Атуучу коргоочу
+Жеңил чабуулчу
+Күчтүү чабуулчу
+Борбор

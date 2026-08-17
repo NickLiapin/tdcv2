@@ -1,0 +1,5 @@
+---
+description: Currency of Кытай, in Kyrgyz
+locale: ky
+---
+юань

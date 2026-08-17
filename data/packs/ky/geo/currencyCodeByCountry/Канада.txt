@@ -1,0 +1,5 @@
+---
+description: Currency code of Канада
+locale: ky
+---
+CAD

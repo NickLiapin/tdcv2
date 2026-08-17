@@ -1,0 +1,16 @@
+---
+description: Boerekos dishes - the farm cooking of the Afrikaans interior.
+locale: af
+---
+Potjiekos
+Boerewors
+Melktert
+Malvapoeding
+Waterblommetjiebredie
+Souskluitjies
+Melkkos
+Pampoenkoekies
+Vetkoek
+Roosterkoek
+Skilpadjies
+Krummelpap

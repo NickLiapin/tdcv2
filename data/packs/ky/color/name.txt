@@ -1,0 +1,58 @@
+---
+description: Colour words in Kyrgyz. Two things a European colour list does not have. FIRST, the intensive forms: Kyrgyz reduplicates the first syllable with a closing consonant to mean "utterly this colour" — аппак, капкара, кыпкызыл, көпкөк, сапсары, жапжашыл — and these are everyday words, not poetry. SECOND, the horse-coat terms тору, жээрде, кула, буурул, ала and чаар are ordinary colour vocabulary in a herding language and are used of other things too.
+locale: ky
+---
+ак
+кара
+кызыл
+сары
+жашыл
+көк
+боз
+күрөң
+сур
+кызгылт
+кызгылт сары
+кызгылт көк
+күлгүн
+көгүлтүр
+саргыч
+кочкул кызыл
+ачык көк
+күңүрт көк
+ачык жашыл
+күңүрт жашыл
+ачык сары
+кою жашыл
+кара көк
+кызгылт күрөң
+аппак
+капкара
+кыпкызыл
+көпкөк
+сапсары
+жапжашыл
+тору
+жээрде
+кула
+буурул
+ала
+чаар
+алтын түс
+күмүш түс
+коло түс
+жез түс
+беж
+хаки
+индиго
+коралл
+лаванда
+зумурут
+фирүза
+шоколад түс
+кофе түс
+крем түс
+лимон түс
+апельсин түс
+жаңгак түс
+кум түс

@@ -1,0 +1,28 @@
+---
+description: Kind of property, in Afrikaans. Three are legal categories of the South African property system rather than descriptions. A deeltiteleenheid is a sectional-title unit, owned with an undivided share of common property, and is a different form of ownership from a freehold house. An erf is the surveyed stand itself. A hoewe is a smallholding on the town edge, usually a hectare or more, and is a recognised zoning class. A sekuriteitskompleks - a walled estate with controlled access - is the dominant new-build form in the metros.
+locale: af
+---
+Vrystaande huis
+Meenthuis
+Woonstel
+Deeltiteleenheid
+Duet
+Sekuriteitskompleks
+Landgoedhuis
+Erf
+Hoewe
+Plaas
+Wildplaas
+Wynplaas
+Strandhuis
+Vakansiehuis
+Rondawel
+Losieshuis
+Gastehuis
+Woonstelblok
+Studio
+Solderwoonstel
+Penthuis
+Aftreewoonstel
+Bedryfseiendom
+Pakhuis

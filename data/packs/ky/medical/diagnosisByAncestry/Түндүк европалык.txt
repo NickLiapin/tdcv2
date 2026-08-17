@@ -1,0 +1,14 @@
+---
+description: Conditions whose prevalence is higher in people of Northern European descent
+locale: ky
+---
+Муковисцидоз
+Тукум куума гемохроматоз
+Альфа-1-антитрипсин жетишсиздиги
+Фенилкетонурия
+Целиакия
+Чачыранды склероз
+1-типтеги кант диабети
+Тери рагы
+Остеопороз
+Лактоза көтөрүмдүүлүгү

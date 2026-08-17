@@ -1,0 +1,15 @@
+---
+description: Reaction to a post, in Afrikaans.
+locale: af
+---
+Hou van
+Liefde
+Haha
+Sjoe
+Hartseer
+Kwaad
+Omgee
+Vier
+Ondersteun
+Insiggewend
+Nuuskierig

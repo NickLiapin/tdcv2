@@ -1,0 +1,12 @@
+---
+description: Dishes of Индия cuisine, in Kyrgyz
+locale: ky
+---
+Карри
+Бирьяни
+Тикка масала
+Самоса
+Дал
+Наан
+Тандыр тоок
+Палак панир

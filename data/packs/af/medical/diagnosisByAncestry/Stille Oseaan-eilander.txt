@@ -1,0 +1,10 @@
+---
+description: Conditions with a higher prevalence in Pacific Islander ancestry, in Afrikaans.
+locale: af
+---
+Tipe 2-diabetes mellitus
+Vetsugverwante hipertensie
+Jig
+Rumatiese hartsiekte
+Chroniese niersiekte
+Hiperurisemie

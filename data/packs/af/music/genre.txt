@@ -1,0 +1,39 @@
+---
+description: Music genre, in Afrikaans. Four of these are Afrikaans genres and belong to different communities of speakers, which is the point of listing them together. Boeremusiek is the concertina-and-accordion dance music of the Afrikaner interior. Ghoema is the drum-driven Cape Malay and Cape Coloured tradition of the Kaapse Klopse carnival, and it is the older of the two. Langarm is the Cape ballroom style danced to it. Sokkie is the modern Afrikaans social-dance pop that fills the radio playlists. Kwaito, Amapiano, Gqom and Maskandi are South African genres in other languages that any listener here knows.
+locale: af
+---
+Rock
+Pop
+Jazz
+Klassiek
+Hip-hop
+Country
+Elektronies
+Blues
+Reggae
+Metaal
+Volksmusiek
+R&B
+Soul
+Funk
+Punk
+Disco
+House
+Techno
+Indie
+Gospel
+Ambient
+Ska
+Bluegrass
+Latyns
+Boeremusiek
+Ghoema
+Langarm
+Sokkie
+Kwaito
+Amapiano
+Gqom
+Maskandi
+Afrikaanse treffers
+Koorsang
+Kerkmusiek

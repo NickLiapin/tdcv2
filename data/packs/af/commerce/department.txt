@@ -1,0 +1,54 @@
+---
+description: Shop department, in Afrikaans. Braai en buitelewe is a department in its own right in South African retail rather than a subheading of "outdoor", and Landbou is mainstream in any town outside the metros.
+locale: af
+---
+Boeke
+Films
+Musiek
+Speletjies
+Elektronika
+Rekenaars
+Selfone
+Huis
+Tuin
+Gereedskap
+Hardeware
+Boumateriaal
+Kruideniersware
+Vars produkte
+Slaghuis
+Bakkery
+Drank
+Gesondheid
+Apteek
+Skoonheid
+Speelgoed
+Kinders
+Baba
+Klere
+Skoene
+Juweliersware
+Horlosies
+Sport
+Buitelug
+Kamp
+Braai en buitelewe
+Vis en hengel
+Jag
+Motors
+Motoronderdele
+Bande
+Nywerheid
+Kantoor
+Skryfbehoeftes
+Troeteldiere
+Meubels
+Matte
+Toestelle
+Kombuis
+Beddegoed
+Verf
+Elektries
+Loodgietery
+Landbou
+Sonkrag

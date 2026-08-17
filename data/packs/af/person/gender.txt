@@ -1,0 +1,8 @@
+---
+description: Gender label, in Afrikaans. Nie-binêr takes a circumflex.
+locale: af
+---
+Manlik
+Vroulik
+Nie-binêr
+Ander

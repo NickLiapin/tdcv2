@@ -1,0 +1,36 @@
+---
+description: Kind of building, in Afrikaans. Moskee and Madressa are here because the oldest Afrikaans-speaking community is the Cape Muslim one, whose Bo-Kaap mosques predate most Cape churches; Rondawel and Skuur belong to the rural half of the same language area.
+locale: af
+---
+Woonstel
+Huis
+Kantoor
+Pakhuis
+Winkel
+Fabriek
+Hospitaal
+Kliniek
+Skool
+Universiteit
+Hotel
+Gastehuis
+Restaurant
+Winkelsentrum
+Stadion
+Biblioteek
+Kerk
+Moskee
+Madressa
+Sinagoge
+Munisipale kantoor
+Polisiestasie
+Poskantoor
+Plaashuis
+Skuur
+Rondawel
+Meenthuis
+Losieshuis
+Werkswinkel
+Pakkamer
+Kragstasie
+Hoewe

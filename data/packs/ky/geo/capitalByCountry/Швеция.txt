@@ -1,0 +1,5 @@
+---
+description: Capital of Швеция, in Kyrgyz
+locale: ky
+---
+Стокгольм

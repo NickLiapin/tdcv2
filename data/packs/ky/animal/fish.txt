@@ -1,0 +1,29 @@
+---
+description: Fish in Kyrgyz. The first group is what actually comes out of Issyk-Kul, the Naryn and the reservoirs — осман, маринка and чебак are lake fish with no single-word English name — and the rest is what a shop freezer holds.
+locale: ky
+---
+Осман
+Маринка
+Чебак
+Форель
+Сазан
+Ак амур
+Чортон
+Судак
+Лещ
+Табан балык
+Сом
+Бекире
+Карп
+Толстолобик
+Кызыл балык
+Тунец
+Треска
+Скумбрия
+Сельдь
+Килька
+Камбала
+Хек
+Океан окуну
+Тилапия
+Угорь

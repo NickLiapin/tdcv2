@@ -1,0 +1,15 @@
+---
+description: Shipment tracking status, in Afrikaans.
+locale: af
+---
+Etiket geskep
+Opgetel
+Onderweg
+By plaaslike depot
+Uit vir aflewering
+Afgelewer
+Uitsondering
+Terug na afsender
+Wag vir afhaal
+Vertraag
+Adres onvolledig

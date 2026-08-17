@@ -1,0 +1,11 @@
+---
+description: Association football positions, in Afrikaans.
+locale: af
+---
+Doelwagter
+Senterverdediger
+Kantverdediger
+Verdedigende middelveldspeler
+Aanvallende middelveldspeler
+Vleuel
+Spits

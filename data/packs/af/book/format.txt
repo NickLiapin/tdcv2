@@ -1,0 +1,12 @@
+---
+description: Book format, in Afrikaans.
+locale: af
+---
+Hardeband
+Sagteband
+E-boek
+Luisterboek
+Grootdrukuitgawe
+Biblioteekband
+Sakuitgawe
+Omnibus

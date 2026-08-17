@@ -1,0 +1,5 @@
+---
+description: Currency of Тайланд, in Kyrgyz
+locale: ky
+---
+бат

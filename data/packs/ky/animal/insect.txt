@@ -1,0 +1,24 @@
+---
+description: Insects and other small crawling animals in Kyrgyz, as ordinary speech groups them
+locale: ky
+---
+Кумурска
+Ак кумурска
+Балаары
+Сары аары
+Көпөлөк
+Коңуз
+Май коңуз
+Тезек коңузу
+Инелик
+Чегиртке
+Чиркей
+Чымын
+Бүргө
+Бит
+Кандала
+Жөргөмүш
+Кара курт
+Чаян
+Курт
+Соргуч

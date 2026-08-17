@@ -1,0 +1,49 @@
+---
+description: Country as Afrikaans names it, weighted by population in millions. The names are translated, not transliterated: Germany is Duitsland, France Frankryk, the United Kingdom Verenigde Koninkryk, Wales-of-the-north Noorweë. Eight southern African neighbours that the reference en list omits are included, because a dataset generated in Afrikaans that cannot name Namibia, Botswana, Zimbabwe, Mozambique, Angola, Zambia, Lesotho or Eswatini is missing its own region. Namibia is not a neighbour like the others: Afrikaans is the most widely understood language in the country and was its official language until 1990.
+locale: af
+weighted: true
+---
+China,1410
+Indië,1400
+Verenigde State,335
+Indonesië,275
+Pakistan,240
+Nigerië,220
+Brasilië,215
+Bangladesj,170
+Rusland,144
+Mexiko,128
+Japan,125
+Egipte,110
+Viëtnam,98
+Turkye,85
+Duitsland,84
+Thailand,72
+Frankryk,68
+Verenigde Koninkryk,67
+Suid-Afrika,60
+Italië,59
+Suid-Korea,52
+Spanje,47
+Argentinië,46
+Kanada,39
+Pole,38
+Saoedi-Arabië,36
+Mosambiek,33
+Angola,36
+Australië,26
+Zambië,20
+Nederland,18
+Zimbabwe,16
+Swede,10
+Griekeland,10
+Portugal,10
+Switserland,9
+Singapoer,6
+Noorweë,5
+Ierland,5
+Nieu-Seeland,5
+Namibië,3
+Botswana,3
+Lesotho,2
+Eswatini,1

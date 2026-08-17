@@ -1,0 +1,12 @@
+---
+description: Income band in Kyrgyz som (KGS). THESE ARE MONTHLY, NOT ANNUAL: pay in Kyrgyzstan is quoted, advertised and compared by the month, so an annual band would be a foreign unit here. For scale, the average monthly wage is in the third or fourth band.
+locale: ky
+---
+10 000 сомго чейин
+10 000–20 000 сом
+20 000–30 000 сом
+30 000–50 000 сом
+50 000–75 000 сом
+75 000–100 000 сом
+100 000–150 000 сом
+150 000 сомдон жогору

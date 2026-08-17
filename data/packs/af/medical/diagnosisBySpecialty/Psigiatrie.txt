@@ -1,0 +1,11 @@
+---
+description: Psychiatry diagnoses, in Afrikaans.
+locale: af
+---
+Major depressiewe versteuring
+Veralgemeende angsversteuring
+Bipolêre versteuring
+Skisofrenie
+Posttraumatiese stresversteuring
+Aandagafleibaarheid-hiperaktiwiteitsversteuring
+Alkoholgebruiksversteuring

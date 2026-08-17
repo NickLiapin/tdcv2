@@ -1,0 +1,5 @@
+---
+description: Currency code of Verenigde State.
+locale: af
+---
+USD

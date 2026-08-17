@@ -1,0 +1,38 @@
+---
+description: Fruit, in Afrikaans. Nartjie is the soft citrus the rest of the world calls a satsuma or clementine, and the word went into South African English unchanged; note the -tjie diminutive ending, which is the commonest diminutive in the language. Spanspek is the sweet melon, Waatlemoen the watermelon and Suurlemoen the lemon - literally "sour orange".
+locale: af
+---
+Appel
+Piesang
+Lemoen
+Nartjie
+Suurlemoen
+Lemmetjie
+Pomelo
+Aarbei
+Bloubessie
+Framboos
+Druiwe
+Perske
+Nektarien
+Appelkoos
+Pruim
+Peer
+Kersie
+Vy
+Granaat
+Waatlemoen
+Spanspek
+Pynappel
+Mango
+Papaja
+Kiwivrug
+Klapper
+Grenadella
+Avokado
+Guawa
+Litchi
+Dadel
+Turksvy
+Marula
+Kaapse gooseberry

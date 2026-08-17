@@ -1,0 +1,28 @@
+---
+description: Game character class in Kyrgyz. Баатыр (hero/champion) and балбан (wrestler-strongman) are the words the epic uses for its fighters and are what a Kyrgyz translation of a game reaches for.
+locale: ky
+---
+Баатыр
+Балбан
+Жоокер
+Мергенчи
+Жаачы
+Сыйкырчы
+Бакшы
+Дарыгер
+Уурукчу
+Уста
+Кароолчу
+Жол башчы
+Аңчы
+Малчы
+Шаман
+Мунарачы
+Аскер башчы
+Кылыччан
+Найзачы
+Атчан жоокер
+Чалгынчы
+Коргоочу
+Илимпоз
+Соодагер

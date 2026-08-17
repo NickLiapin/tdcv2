@@ -1,0 +1,5 @@
+---
+description: Capital of Швейцария, in Kyrgyz
+locale: ky
+---
+Берн

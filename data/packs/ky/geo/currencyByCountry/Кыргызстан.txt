@@ -1,0 +1,5 @@
+---
+description: Currency of Кыргызстан, in Kyrgyz
+locale: ky
+---
+сом

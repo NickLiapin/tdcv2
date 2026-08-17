@@ -1,0 +1,11 @@
+---
+description: Conditions whose prevalence is higher in people of Southeast Asian descent
+locale: ky
+---
+Гемоглобин Е
+Альфа-талассемия
+Г6ФД жетишсиздиги
+Мурун-кекиртек рагы
+Бета-талассемия
+Бругада синдрому
+Безгек

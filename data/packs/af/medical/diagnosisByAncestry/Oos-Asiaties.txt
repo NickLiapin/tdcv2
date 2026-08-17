@@ -1,0 +1,14 @@
+---
+description: Conditions with a higher prevalence in East Asian ancestry, in Afrikaans.
+locale: af
+---
+Alfa-talassemie
+Aldehieddehidrogenase 2-tekort
+Laktase-nievolharding
+Nasofaringeale karsinoom
+Maagkanker
+Primêre nouhoekglaukoom
+Kawasaki se siekte
+Moyamoya-siekte
+Karbamasepien-oorgevoeligheid
+Patologiese miopie

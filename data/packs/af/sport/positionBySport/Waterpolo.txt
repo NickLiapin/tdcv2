@@ -1,0 +1,10 @@
+---
+description: Water polo positions, in Afrikaans. Water polo is a mainstream schools sport in South Africa, which is why it stands where baseball would elsewhere.
+locale: af
+---
+Doelwagter
+Middelvoor
+Middelverdediger
+Drywer
+Vleuel
+Punt

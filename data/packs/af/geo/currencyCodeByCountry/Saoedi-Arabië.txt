@@ -1,0 +1,5 @@
+---
+description: Currency code of Saoedi-Arabië.
+locale: af
+---
+SAR

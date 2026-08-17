@@ -1,0 +1,9 @@
+---
+description: Mining shift, in Afrikaans. A skof is a shift.
+locale: af
+---
+Dagskof
+Middagskof
+Nagskof
+Roterende skof
+Naweekskof

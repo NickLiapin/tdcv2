@@ -1,0 +1,25 @@
+---
+description: Religion in Kyrgyz. ТЕҢИРЧИЛИК belongs on this list: Tengrism, the pre-Islamic sky faith, is a live self-description in Kyrgyzstan today, revived and argued about publicly, not an archaeological label. Kyrgyzstan is majority Sunni Muslim of the Hanafi school, with an Orthodox Christian minority.
+locale: ky
+---
+Ислам
+Сунний ислам
+Ханафи мазхабы
+Шиий ислам
+Христиан дини
+Православие
+Католик чиркөөсү
+Протестантизм
+Баптизм
+Иудаизм
+Буддизм
+Индуизм
+Теңирчилик
+Шаманизм
+Бахаизм
+Сикхизм
+Даосизм
+Конфуцийчилик
+Синтоизм
+Атеизм
+Дини жок

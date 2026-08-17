@@ -1,0 +1,5 @@
+---
+description: Capital of Verenigde Koninkryk, in Afrikaans.
+locale: af
+---
+Londen

@@ -1,0 +1,59 @@
+{
+  "months": [
+    "январь",
+    "февраль",
+    "март",
+    "апрель",
+    "май",
+    "июнь",
+    "июль",
+    "август",
+    "сентябрь",
+    "октябрь",
+    "ноябрь",
+    "декабрь"
+  ],
+  "monthsInDate": [
+    "январь",
+    "февраль",
+    "март",
+    "апрель",
+    "май",
+    "июнь",
+    "июль",
+    "август",
+    "сентябрь",
+    "октябрь",
+    "ноябрь",
+    "декабрь"
+  ],
+  "monthsShort": [
+    "янв",
+    "фев",
+    "мар",
+    "апр",
+    "май",
+    "июн",
+    "июл",
+    "авг",
+    "сен",
+    "окт",
+    "ноя",
+    "дек"
+  ],
+  "weekdays": [
+    "жекшемби",
+    "дүйшөмбү",
+    "шейшемби",
+    "шаршемби",
+    "бейшемби",
+    "жума",
+    "ишемби"
+  ],
+  "weekdaysShort": ["жек", "дүй", "шей", "шар", "бей", "жум", "ише"],
+  "formats": {
+    "L": "DD.MM.YYYY",
+    "LL": "D-MMMM, YYYY-жыл"
+  },
+  "notes": "Five things a formatter has to get right for Kyrgyz. FIRST, THE MONTH NAMES HERE ARE THE RUSSIAN-DERIVED ONES, and that is deliberate: январь, февраль, март are what a Kyrgyz form, ticket, timetable and newspaper date actually print, and ky.wikipedia titles its own month articles with them. Kyrgyz also has a COMPLETE NATIVE SET — үчтүн айы, бирдин айы, жалган куран, чын куран, бугу, кулжа, теке, баш оона, аяк оона, тогуздун айы, жетинин айы, бештин айы — used in state and literary registers and shipped in this pack as date/monthNative.txt. They are alternative names for the same twelve months, not a different calendar, and a formatter that wants the official register should swap the array wholesale. SECOND, THE DAY TAKES AN ORDINAL HYPHEN: a Kyrgyz date is written 5-январь, not 5 январь, and the year is written 2026-жыл — the word жыл ('year') is part of the written date and no format token supplies it, so LL here carries it literally. THIRD, month and weekday names are LOWER CASE. FOURTH, the weekdays array is Sunday-first because the formatter wants it that way, while date/weekday.txt in the pack is Monday-first because that is how a Kyrgyz calendar prints; the same seven words either way. Note дүйшөмбү and бейшемби are not symmetrical in spelling — дүйшөмбү carries ө and ү, and dropping them gives the Kazakh дүйсенбі, a different word. FIFTH, numeric dates are DD.MM.YYYY with dots, time is 24-hour with a colon and Kyrgyz has no am/pm, the decimal separator is a comma, thousands are separated by a space, and the currency word сом follows the number: 1 234,56 сом. The som replaced the rouble on 10 May 1993, so any monetary series crossing that date changes unit."
+}

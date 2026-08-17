@@ -1,0 +1,16 @@
+---
+description: Abbreviated month names in Afrikaans, capitalised as the full names are. Note Mrt for Maart and Des for Desember - Afrikaans spells December with a D-e-s.
+locale: af
+---
+Jan
+Feb
+Mrt
+Apr
+Mei
+Jun
+Jul
+Aug
+Sep
+Okt
+Nov
+Des

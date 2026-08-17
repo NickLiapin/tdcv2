@@ -1,0 +1,9 @@
+---
+description: Star rating, in Afrikaans. South Africa's grading is awarded by the Tourism Grading Council rather than by the establishment itself.
+locale: af
+---
+1 ster
+2 sterre
+3 sterre
+4 sterre
+5 sterre

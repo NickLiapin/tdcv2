@@ -1,0 +1,32 @@
+---
+description: Garments in Kyrgyz. Калпак (the white felt hat), тебетей (the fur-trimmed winter hat), элечек (the married woman's wound headdress) and чепкен (the felt coat) are worn, sold and given as gifts today — the калпак has its own national day on 5 March — so they belong in a clothing list rather than in a costume museum.
+locale: ky
+---
+Ак калпак
+Тебетей
+Элечек
+Чепкен
+Чапан
+Көйнөк
+Шым
+Футболка
+Свитер
+Кофта
+Куртка
+Пальто
+Тон
+Кемсел
+Юбка
+Шорты
+Байпак
+Өтүк
+Бут кийим
+Кроссовка
+Тапочке
+Белбоо
+Колкап
+Шарф
+Жоолук
+Спорттук кийим
+Жамгыр плащы
+Ич кийим

@@ -1,0 +1,10 @@
+---
+description: Manufacturing jobs, in Afrikaans.
+locale: af
+---
+Masjinis
+Sweiser
+Gehalte-inspekteur
+Produksietoesighouer
+Monteerder
+Meulwerktuigkundige

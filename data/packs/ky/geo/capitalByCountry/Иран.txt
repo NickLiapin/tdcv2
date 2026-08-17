@@ -1,0 +1,5 @@
+---
+description: Capital of Иран, in Kyrgyz
+locale: ky
+---
+Тегеран

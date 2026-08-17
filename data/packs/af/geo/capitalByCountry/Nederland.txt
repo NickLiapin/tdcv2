@@ -1,0 +1,5 @@
+---
+description: Capital of Nederland, in Afrikaans.
+locale: af
+---
+Amsterdam

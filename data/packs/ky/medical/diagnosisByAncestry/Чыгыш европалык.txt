@@ -1,0 +1,10 @@
+---
+description: Conditions whose prevalence is higher in people of Eastern European descent
+locale: ky
+---
+Тукум куума гемохроматоз
+Фенилкетонурия
+Үй-бүлөлүк гиперхолестеринемия
+Алкоголдук боор оорусу
+Муковисцидоз
+Вильсон оорусу

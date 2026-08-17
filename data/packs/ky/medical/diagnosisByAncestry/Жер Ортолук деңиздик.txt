@@ -1,0 +1,11 @@
+---
+description: Conditions whose prevalence is higher in people of Mediterranean descent
+locale: ky
+---
+Бета-талассемия
+Бета-талассемия белгиси
+Г6ФД жетишсиздиги
+Үй-бүлөлүк Жер Ортолук деңиз ысытмасы
+Бехчет оорусу
+Альфа-талассемия
+Гемохроматоз

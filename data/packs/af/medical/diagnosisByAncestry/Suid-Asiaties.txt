@@ -1,0 +1,12 @@
+---
+description: Conditions with a higher prevalence in South Asian ancestry, in Afrikaans.
+locale: af
+---
+Vroeg-aanvang tipe 2-diabetes mellitus
+Voortydige koronêre arteriesiekte
+Sentrale vetsug by normale liggaamsmassa-indeks
+Vitamien D-tekort
+Beta-talassemie-eienskap
+Metaboliese sindroom
+Glukose-6-fosfaatdehidrogenase-tekort
+Rumatiese hartsiekte

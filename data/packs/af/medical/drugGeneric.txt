@@ -1,0 +1,47 @@
+---
+description: Generic drug name, in Afrikaans spelling. South Africa uses the international nonproprietary name, not the American one, and two of these differ visibly as a result: paracetamol is what the en list calls acetaminophen, and salbutamol is what it calls albuterol - the same molecules under different names, and a config that maps between the two lists by position will pair them wrongly. The last block is the standard first-line antiretroviral and antituberculosis regimens, which are dispensed here at a scale no European list reflects.
+locale: af
+---
+Parasetamol
+Ibuprofen
+Aspirien
+Amoksisillien
+Asitromisien
+Lisinopriel
+Metformien
+Atorvastatien
+Amlodipien
+Omepresool
+Levotiroksien
+Salbutamol
+Metoprolol
+Losartan
+Gabapentien
+Hidrochlorotiasied
+Sertralien
+Prednisoon
+Warfarien
+Furosemied
+Siprofloksasien
+Doksisiklien
+Fluoksetien
+Sitalopram
+Pantoprasool
+Simvastatien
+Montelukas
+Tramadol
+Naprokseen
+Amoksisillien-klavulanaat
+Insulien glargien
+Essitalopram
+Duloksetien
+Klopidogrel
+Allopurinol
+Tenofovir
+Lamivudien
+Dolutegravir
+Rifampisien
+Isoniasied
+Pirasinamied
+Etambutol
+Kotrimoksasool

@@ -1,0 +1,20 @@
+---
+description: The sixteen compass points in Kyrgyz. The cardinals are native words, not loans, and two of the four (түндүк north, түштүк south) cannot be written at all without ү, one of the three letters Kyrgyz has and Russian does not.
+locale: ky
+---
+Түндүк
+Түштүк
+Чыгыш
+Батыш
+Түндүк-чыгыш
+Түндүк-батыш
+Түштүк-чыгыш
+Түштүк-батыш
+Түндүк-түндүк-чыгыш
+Чыгыш-түндүк-чыгыш
+Чыгыш-түштүк-чыгыш
+Түштүк-түштүк-чыгыш
+Түштүк-түштүк-батыш
+Батыш-түштүк-батыш
+Батыш-түндүк-батыш
+Түндүк-түндүк-батыш

@@ -1,0 +1,31 @@
+---
+description: Kyrgyz short and affectionate name forms. THE LIST IS DELIBERATELY SHORT. Kyrgyz makes them with a productive rule rather than from a fixed stock: take the first syllable of the name and add -ке or -кө (Чыңгыз -> Чыке, Асан -> Асаке, Сүйүнбек -> Сүке), which is respectful-affectionate and used for elders as much as for children; or add -жан to the whole name. I have listed only the forms I can vouch for as actually used, rather than mechanically running the rule over every name in the pack and shipping the output as if it were attested.
+locale: ky
+---
+Чыке
+Асаке
+Баке
+Сүке
+Маке
+Түке
+Жаке
+Каке
+Наке
+Раке
+Саке
+Таке
+Ыке
+Эке
+Аке
+Бүбү
+Гүлү
+Айке
+Нуке
+Дүкө
+Айгүлжан
+Азаматжан
+Айбекжан
+Нурланжан
+Бакытжан
+Мээримжан
+Гүлжан

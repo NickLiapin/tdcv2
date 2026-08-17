@@ -1,0 +1,26 @@
+---
+description: Sub-address unit label used in a Kyrgyz postal address. Kyrgyz addresses inherited the Soviet layout, so the flat number and the stairwell (подъезд) are both normal parts of an address.
+locale: ky
+---
+батир
+б.
+кв.
+кабат
+каб.
+подъезд
+кире бериш
+бөлмө
+офис
+кеңсе
+корпус
+блок
+секция
+короо
+үй
+№
+имарат
+павильон
+контейнер
+бокс
+жертөлө
+чатыр асты

@@ -1,0 +1,5 @@
+---
+description: Capital of Индия, in Kyrgyz
+locale: ky
+---
+Нью-Дели

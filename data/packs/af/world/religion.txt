@@ -1,0 +1,25 @@
+---
+description: Religion, in Afrikaans. Two entries belong here for local reasons. Islam is not a minority curiosity in the Afrikaans-speaking world: the Cape Muslim community is one of the oldest congregations of Afrikaans speakers anywhere, and the language's earliest written texts were theirs. Afrikatradisionele godsdiens is followed by millions in the region and is recorded as such in the census. Note the diaeresis in Hindoeïsme, Judaïsme, Sjintoïsme, Taoïsme and Ateïsme, where it marks the vowel as a separate syllable.
+locale: af
+---
+Christenskap
+Islam
+Afrikatradisionele godsdiens
+Hindoeïsme
+Judaïsme
+Boeddhisme
+Sikhisme
+Baháʼí
+Jainisme
+Sjintoïsme
+Taoïsme
+Rastafari
+Ateïsme
+Agnostisisme
+Sekulêr
+Geen
+Gereformeerd
+Anglikaans
+Katoliek
+Pinkster
+Sionisties

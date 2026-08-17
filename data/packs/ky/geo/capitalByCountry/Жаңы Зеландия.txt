@@ -1,0 +1,5 @@
+---
+description: Capital of Жаңы Зеландия, in Kyrgyz
+locale: ky
+---
+Веллингтон

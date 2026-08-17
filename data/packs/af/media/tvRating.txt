@@ -1,0 +1,13 @@
+---
+description: Age classification, on the South African FPB scale, which is what an Afrikaans viewer actually sees. It is NOT the American G/PG/R scale of the reference en list: classification runs A, PG, 7-9PG, 10-12PG, 13, 16, 18, X18, XX, where X18 is restricted to licensed adult premises and XX is refused classification outright. The letters that follow a rating on screen are content warnings - G for geweld, T for taal, S for seks, N for naaktheid, D for dwelms, V for vooroordeel.
+locale: af
+---
+A
+PG
+7-9PG
+10-12PG
+13
+16
+18
+X18
+XX

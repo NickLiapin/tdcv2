@@ -1,0 +1,10 @@
+---
+description: Endocrinology diagnoses, in Afrikaans.
+locale: af
+---
+Tipe 2-diabetes mellitus
+Hipotiroïdisme
+Hipertiroïdisme
+Osteoporose
+Cushing se sindroom
+Polisistiese ovariumsindroom

@@ -1,0 +1,21 @@
+---
+description: Kinds of official document in Kyrgyz — the NAMES of the document types, not their numbers; the numbers belong to the kyrgyzstan country pack.
+locale: ky
+---
+Паспорт
+Ички паспорт
+Жалпы жарандык паспорт
+Туулгандыгы жөнүндө күбөлүк
+Нике күбөлүгү
+Ажырашуу күбөлүгү
+Өлгөндүгү жөнүндө күбөлүк
+Айдоочунун күбөлүгү
+Аскердик билет
+Эмгек китепчеси
+Медициналык полис
+Салык күбөлүгү
+Каттоо күбөлүгү
+Диплом
+Аттестат
+Ишеним кат
+Аныктама

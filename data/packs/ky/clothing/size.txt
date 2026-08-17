@@ -1,0 +1,12 @@
+---
+description: Clothing size. The Latin letter sizes are what labels carry; the even Soviet numeric sizes (44, 46, 48…) are still used in bazaars and by older shoppers, which is why both appear.
+locale: ky
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

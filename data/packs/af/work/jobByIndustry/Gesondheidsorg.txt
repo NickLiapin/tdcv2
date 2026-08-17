@@ -1,0 +1,10 @@
+---
+description: Healthcare jobs, in Afrikaans.
+locale: af
+---
+Geregistreerde verpleegkundige
+Geneesheer
+Apteker
+Fisioterapeut
+Mediese assistent
+Radiograaf

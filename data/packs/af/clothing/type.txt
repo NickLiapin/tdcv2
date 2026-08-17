@@ -1,0 +1,30 @@
+---
+description: Garment type, in Afrikaans. Kortbroek is shorts, Langbroek trousers, Trui a jumper, Baadjie a jacket, Tekkies trainers and Sokkies socks - the -ie ending on the last two being the ordinary Afrikaans diminutive rather than a separate word.
+locale: af
+---
+T-hemp
+Hemp
+Bloese
+Jeans
+Langbroek
+Kortbroek
+Romp
+Rok
+Trui
+Baadjie
+Jas
+Onderbaadjie
+Pak klere
+Kaftan
+Oorpak
+Nagklere
+Swemklere
+Sokkies
+Skoene
+Tekkies
+Stewels
+Sandale
+Hoed
+Pet
+Serp
+Handskoene

@@ -1,0 +1,42 @@
+---
+description: Symptom, in Afrikaans. Nagsweet and Gewigsverlies are given prominence because together with a persistent cough they are the classic tuberculosis screening triad used in every clinic in the region.
+locale: af
+---
+Koors
+Hoofpyn
+Moegheid
+Naarheid
+Braking
+Diarree
+Hardlywigheid
+Maagpyn
+Borspyn
+Kortasem
+Hoes
+Aanhoudende hoes
+Seer keel
+Loopneus
+Verstopte neus
+Duiseligheid
+Wasige sig
+Spierpyn
+Gewrigspyn
+Lae rugpyn
+Veluitslag
+Jeuk
+Swelling
+Gevoelloosheid
+Tinteling
+Hartkloppings
+Verlies aan eetlus
+Onbedoelde gewigsverlies
+Nagsweet
+Koue rillings
+Nies
+Sooibrand
+Opgeblasenheid
+Krampe
+Swakheid
+Verwardheid
+Slaperigheid
+Bloedneus

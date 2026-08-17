@@ -1,0 +1,32 @@
+---
+description: Verb in its progressive form, in Afrikaans. This address is where Afrikaans and English part company: Afrikaans has NO -ing participle, and there is no single word that does what "backing up" does. The progressive is periphrastic - "aan die rugsteun", literally "at the backing-up" - so every value here is two or three words, and a config that expects one word will produce something ungrammatical. The alternative construction, "besig om te rugsteun", is equally correct and equally not one word.
+locale: af
+---
+aan die rugsteun
+aan die omseil
+aan die inbreek
+aan die oorheers
+aan die saampers
+aan die kopieer
+aan die navigeer
+aan die indekseer
+aan die koppel
+aan die genereer
+aan die kwantifiseer
+aan die bereken
+aan die sintetiseer
+aan die uitsaai
+aan die programmeer
+aan die herlaai
+aan die ontleed
+aan die enkripteer
+aan die ontplooi
+aan die ontfout
+aan die aflaai
+aan die oplaai
+aan die filtreer
+aan die monitor
+aan die skandeer
+aan die herstel
+aan die opdateer
+aan die toets

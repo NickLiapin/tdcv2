@@ -1,0 +1,5 @@
+---
+description: Capital of Portugal, in Afrikaans.
+locale: af
+---
+Lissabon

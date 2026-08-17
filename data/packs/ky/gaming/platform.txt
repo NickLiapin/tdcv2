@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Hardware brand names are international and keep their Latin spelling.
+locale: ky
+---
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox Series S
+Xbox One
+Nintendo Switch
+PC
+Steam Deck
+Android
+iOS
+Веб браузер

@@ -1,0 +1,5 @@
+---
+description: Currency of Suid-Afrika, in Afrikaans.
+locale: af
+---
+Suid-Afrikaanse rand

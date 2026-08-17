@@ -1,0 +1,5 @@
+---
+description: Currency code of Noorweë.
+locale: af
+---
+NOK

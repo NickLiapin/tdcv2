@@ -1,0 +1,16 @@
+---
+description: Ancestry group as clinical genetics uses it — geographic descent, not a social race category. The twelve groups are the standard clinical set, translated into Kyrgyz.
+locale: ky
+---
+Сахарадан түштүктөгү африкалык
+Түндүк африкалык
+Жер Ортолук деңиздик
+Жакынкы Чыгыш
+Түндүк европалык
+Чыгыш европалык
+Ашкенази жөөттөрү
+Чыгыш азиялык
+Түштүк азиялык
+Түштүк-чыгыш азиялык
+Америкалык түпкү эл
+Тынч океан аралдары

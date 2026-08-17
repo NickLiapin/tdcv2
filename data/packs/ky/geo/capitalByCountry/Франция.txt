@@ -1,0 +1,5 @@
+---
+description: Capital of Франция, in Kyrgyz
+locale: ky
+---
+Париж

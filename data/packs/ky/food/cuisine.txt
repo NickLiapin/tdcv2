@@ -1,0 +1,21 @@
+---
+description: Cuisines a Kyrgyz eater actually names. Дүңгөн and Уйгур are on this list because the Dungan and Uyghur communities of the Chui and Issyk-Kul valleys cook publicly and their dishes — ашлям-фуу, гошнан, лагман — are eaten daily by everyone; leaving them out to make room for a European cuisine would misdescribe the country's food.
+locale: ky
+---
+Кыргыз
+Дүңгөн
+Уйгур
+Өзбек
+Казак
+Орус
+Кытай
+Түрк
+Индия
+Италия
+Жапон
+Корей
+Мексика
+Француз
+Араб
+Америка
+Грузин

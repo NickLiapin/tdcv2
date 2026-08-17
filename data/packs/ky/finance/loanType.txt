@@ -1,0 +1,14 @@
+---
+description: Type of loan in Kyrgyz. Микрокредит is first because microfinance is a mainstream form of borrowing in Kyrgyzstan rather than a marginal one.
+locale: ky
+---
+Микрокредит
+Керектөө кредити
+Ипотека
+Автокредит
+Айыл чарба кредити
+Бизнес кредит
+Билим берүү кредити
+Күрөөлүк кредит
+Овердрафт
+Ислам каржылоосу

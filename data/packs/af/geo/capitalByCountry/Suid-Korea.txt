@@ -1,0 +1,5 @@
+---
+description: Capital of Suid-Korea, in Afrikaans.
+locale: af
+---
+Seoel

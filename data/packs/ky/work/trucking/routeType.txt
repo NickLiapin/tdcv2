@@ -1,0 +1,11 @@
+---
+description: Kind of haulage route in Kyrgyz. Ашуу аркылуу — over a mountain pass — is a route class of its own here, because the passes carry weight limits and close for snow.
+locale: ky
+---
+Шаар ичи
+Облус ичи
+Облус аралык
+Эл аралык
+Транзит
+Тоо жолу
+Ашуу аркылуу

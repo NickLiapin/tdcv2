@@ -1,0 +1,34 @@
+---
+description: Spice and herb, in Afrikaans. The middle of the list is the Cape Malay masala shelf - borrie, koljander, kaneel, naeltjies, kardemom - which is why Cape cooking tastes the way it does; rooibos and buchu at the end are indigenous Cape plants used as much for tea as for seasoning.
+locale: af
+---
+Kaneel
+Komyn
+Paprika
+Borrie
+Gemmer
+Neutmuskaat
+Oreganum
+Basiliekruid
+Tiemie
+Roosmaryn
+Kardemom
+Koljander
+Rissiepoeier
+Naeltjies
+Saffraan
+Lourierblaar
+Dille
+Salie
+Pietersielie
+Kruisement
+Peperwortel
+Mosterdsaad
+Anys
+Steranys
+Vinkel
+Boegoe
+Rooibos
+Kerriepoeier
+Masala
+Swartpeper

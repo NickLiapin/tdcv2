@@ -1,0 +1,5 @@
+---
+description: Capital of Сауд Арабиясы, in Kyrgyz
+locale: ky
+---
+Эр-Рияд

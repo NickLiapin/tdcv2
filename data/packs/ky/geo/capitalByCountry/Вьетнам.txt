@@ -1,0 +1,5 @@
+---
+description: Capital of Вьетнам, in Kyrgyz
+locale: ky
+---
+Ханой

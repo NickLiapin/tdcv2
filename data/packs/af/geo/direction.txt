@@ -1,0 +1,20 @@
+---
+description: Compass direction, in Afrikaans. Afrikaans writes the intermediate points as one fused word - Noordnoordoos, not "Noord-Noordoos" - which is a spelling a config cannot derive by joining the two cardinal values with a hyphen.
+locale: af
+---
+Noord
+Suid
+Oos
+Wes
+Noordoos
+Noordwes
+Suidoos
+Suidwes
+Noordnoordoos
+Oosnoordoos
+Oossuidoos
+Suidsuidoos
+Suidsuidwes
+Wessuidwes
+Wesnoordwes
+Noordnoordwes

@@ -1,0 +1,18 @@
+---
+description: Marital status, in Afrikaans. Two things differ from the reference list. Afrikaans distinguishes the widow from the widower lexically - Weduwee is a woman, Wewenaar a man - so a single "widowed" value cannot be produced from this list without choosing a gender first. And South African law recognises three separate kinds of marriage, each with its own register: a civil marriage, a customary marriage under African customary law, and a civil union, open to same-sex couples since 2006. A marriage concluded only by nikah is recognised for some purposes and not others, which is why it is listed on its own. The last two values record the matrimonial property regime, which South African forms ask for as a matter of course.
+locale: af
+---
+Ongetroud
+Getroud
+Geskei
+Weduwee
+Wewenaar
+Vervreem
+Verloof
+Saamwoon
+Gewoonteregtelike huwelik
+Burgerlike verbintenis
+Moslemhuwelik
+Lewensmaat oorlede
+Binne gemeenskap van goedere getroud
+Buite gemeenskap van goedere getroud

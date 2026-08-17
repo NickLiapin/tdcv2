@@ -1,0 +1,12 @@
+---
+description: Pulmonology diagnoses, in Afrikaans. Silicosis is not an exotic entry here: it is the classic occupational lung disease of the South African gold mines and the subject of the country's largest class-action settlement.
+locale: af
+---
+Asma
+Chroniese obstruktiewe longsiekte
+Longontsteking
+Longembolie
+Tuberkulose
+Slaapapnee
+Silikose
+Pneumokoniose

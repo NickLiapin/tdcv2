@@ -1,0 +1,12 @@
+---
+description: Japanese dishes. Loanwords keep their real spelling.
+locale: af
+---
+Sushi
+Ramen
+Tempura
+Udon
+Teriyaki-hoender
+Misosop
+Katsu-kerrie
+Onigiri

@@ -1,0 +1,5 @@
+---
+description: Capital of Италия, in Kyrgyz
+locale: ky
+---
+Рим

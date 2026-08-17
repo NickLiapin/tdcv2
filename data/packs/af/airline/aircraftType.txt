@@ -1,0 +1,30 @@
+---
+description: Aircraft type designation. These are manufacturer product names and keep their real spelling in every locale - there is no Afrikaans form of "Airbus A320". The turboprops at the end carry most of the regional flying in South Africa and Namibia, so they are not the afterthought they would be on a North American list.
+locale: af
+---
+Boeing 737
+Boeing 737 MAX
+Boeing 747
+Boeing 757
+Boeing 767
+Boeing 777
+Boeing 787 Dreamliner
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A330
+Airbus A340
+Airbus A350
+Airbus A380
+Embraer E170
+Embraer E175
+Embraer E190
+Embraer ERJ-135
+Bombardier CRJ900
+De Havilland Dash 8 Q400
+ATR 42
+ATR 72
+Cessna Grand Caravan
+Pilatus PC-12
+Beechcraft King Air

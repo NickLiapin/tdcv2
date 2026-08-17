@@ -1,0 +1,12 @@
+---
+description: Oncology diagnoses, in Afrikaans. Slukdermkanker is included because the Transkei and the Western Cape carry among the highest oesophageal cancer rates recorded anywhere.
+locale: af
+---
+Borskanker
+Longkanker
+Kolorektale kanker
+Leukemie
+Limfoom
+Melanoom
+Slukdermkanker
+Baarmoederhalskanker

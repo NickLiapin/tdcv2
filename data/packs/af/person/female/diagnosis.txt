@@ -1,0 +1,31 @@
+---
+description: Diagnosis specific to female patients, in Afrikaans - a short list for use where a full diagnosis draw would be anatomically wrong.
+locale: af
+---
+Servikale displasie
+Baarmoedervesels
+Spruw
+Borsfibroadenoom
+Polisistiese ovarium
+Servikale erosie
+Chroniese pankreatitis
+Chlamidia
+Chroniese artritis
+Servisitis
+Sentrale retinale arterie-embolie
+Rektale kanker
+Endometritis
+Endometriose
+Ovariumsist
+Menorragie
+Dismenorree
+Amenorree
+Bakteriële vaginose
+Vulvovaginale kandidose
+Mastitis
+Pre-eklampsie
+Swangerskapsdiabetes
+Menopousale sindroom
+Baarmoederhalskanker
+Ovariumkanker
+Bekkeninflammatoriese siekte

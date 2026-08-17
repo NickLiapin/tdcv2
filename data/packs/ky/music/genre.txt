@@ -1,0 +1,39 @@
+---
+description: Music genres in Kyrgyz. Күү is a solo instrumental piece for komuz with a story behind it — a named genre, not "folk music"; айтыш is a sung improvised duel between two akyns and is still broadcast on television with prizes; кошок is the funeral lament; and Манас айтуу, reciting the epic, is a performance genre with its own professionals.
+locale: ky
+---
+Күү
+Айтыш
+Терме
+Кошок
+Бешик ыры
+Манас айтуу
+Санат-насыят
+Кыргыз эл ыры
+Эл музыкасы
+Эстрада
+Поп
+Рок
+Метал
+Панк
+Альтернатива
+Инди
+Джаз
+Блюз
+Соул
+Классикалык музыка
+Опера
+Хип-хоп
+Рэп
+R&B
+Регги
+Электрондук музыка
+Техно
+Хаус
+Транс
+Дабстеп
+Диско
+Кантри
+Латын музыкасы
+К-поп
+Саундтрек

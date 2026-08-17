@@ -1,0 +1,20 @@
+---
+description: Level of education or academic degree in Kyrgyz. Kyrgyzstan runs the Bologna bachelor/master ladder alongside the inherited Soviet кандидат/доктор research degrees, so both appear.
+locale: ky
+---
+Башталгыч билим
+Негизги орто билим
+Жалпы орто билим
+Аттестат
+Башталгыч кесиптик билим
+Орто кесиптик билим
+Диплом
+Бакалавр
+Адис
+Магистр
+Аспирантура
+Илимдин кандидаты
+Илимдин доктору
+PhD
+Доцент
+Профессор

@@ -1,0 +1,14 @@
+---
+description: Fuel type, in Afrikaans. Petrol is sold by octane grade at the pump here (93 and 95) and diesel dominates the light-commercial market because so much of the fleet is bakkies.
+locale: af
+---
+Petrol
+Diesel
+Elektries
+Hibried
+Inprop-hibried
+Waterstof
+Etanol
+Vloeibare petroleumgas
+Aardgas
+Biodiesel

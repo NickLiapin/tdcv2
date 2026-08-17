@@ -1,0 +1,9 @@
+---
+description: Credit score band, in Afrikaans, as the South African credit bureaus report it.
+locale: af
+---
+Swak
+Gemiddeld
+Goed
+Baie goed
+Uitstekend

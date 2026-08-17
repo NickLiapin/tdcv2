@@ -1,0 +1,12 @@
+---
+description: Indian dishes as eaten in South Africa. Bunny chow - a hollowed half-loaf filled with curry - was invented in Durban, and breyani is the local spelling and the local dish.
+locale: af
+---
+Bunny chow
+Breyani
+Roti
+Butterhoender
+Dhal
+Bhajia
+Samoesa
+Naan

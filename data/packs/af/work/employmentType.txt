@@ -1,0 +1,15 @@
+---
+description: Form of employment, in Afrikaans. Leerlingskap is a learnership - a structured workplace qualification created by the Skills Development Act, funded through a levy and quite distinct from an apprenticeship, which is Vakleerlingskap. Both are legal categories here rather than descriptions.
+locale: af
+---
+Voltyds
+Deeltyds
+Kontrak
+Bepaalde termyn
+Tydelik
+Toevallige arbeid
+Internskap
+Leerlingskap
+Vakleerlingskap
+Vryskut
+Seisoenaal

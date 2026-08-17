@@ -1,0 +1,5 @@
+---
+description: Currency of Сауд Арабиясы, in Kyrgyz
+locale: ky
+---
+риал

@@ -1,0 +1,5 @@
+---
+description: Capital of Singapoer, in Afrikaans.
+locale: af
+---
+Singapoer

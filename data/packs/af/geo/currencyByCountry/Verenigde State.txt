@@ -1,0 +1,5 @@
+---
+description: Currency of Verenigde State, in Afrikaans.
+locale: af
+---
+Amerikaanse dollar

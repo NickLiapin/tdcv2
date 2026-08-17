@@ -1,0 +1,24 @@
+---
+description: Weather condition, in Afrikaans. Note the diaeresis in Reënerig and Motreën: reën is two syllables and the ë is what says so.
+locale: af
+---
+Sonnig
+Helder
+Halfbewolk
+Bewolk
+Oortrokke
+Reënerig
+Motreën
+Donderstorm
+Hael
+Sneeu
+Ryp
+Mistig
+Newelig
+Winderig
+Stowwerig
+Warm
+Snikheet
+Koel
+Koud
+Vriesend

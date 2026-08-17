@@ -1,0 +1,5 @@
+---
+description: Currency code of Suid-Korea.
+locale: af
+---
+KRW

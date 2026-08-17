@@ -1,0 +1,27 @@
+---
+description: Mineral, in Afrikaans, ordered by what the region actually produces: South Africa holds the largest platinum, chrome and manganese reserves in the world, Namibia is a major uranium producer, and both mine diamonds.
+locale: af
+---
+Goud
+Platinum
+Steenkool
+Diamant
+Chroom
+Mangaan
+Ystererts
+Koper
+Sink
+Lood
+Uraan
+Vanadium
+Titaan
+Andalusiet
+Fluoorspaat
+Nikkel
+Sirkoon
+Silwer
+Rodium
+Palladium
+Sout
+Fosfaat
+Kalksteen

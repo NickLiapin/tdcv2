@@ -1,0 +1,11 @@
+---
+description: Dermatology diagnoses, in Afrikaans. Skin cancer sits high on this list because South Africa records one of the world's highest incidences of it.
+locale: af
+---
+Psoriase
+Atopiese dermatitis
+Aknee
+Melanoom
+Basaalselkarsinoom
+Rosasea
+Kontakdermatitis

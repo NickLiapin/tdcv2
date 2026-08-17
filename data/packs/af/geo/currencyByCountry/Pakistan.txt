@@ -1,0 +1,5 @@
+---
+description: Currency of Pakistan, in Afrikaans.
+locale: af
+---
+Pakistanse roepee

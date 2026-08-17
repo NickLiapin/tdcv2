@@ -1,0 +1,16 @@
+---
+description: The native Kyrgyz month names, the alternative to the Russian-derived set in date/month.txt. They are hunting- and herding-season names: жалган куран and чын куран are the 'false' and 'true' roebuck months, бугу is the deer, кулжа the argali ram, теке the ibex, and the last five COUNT DOWN in odd numbers toward spring — тогуздун айы (month of nine), жетинин айы (seven), бештин айы (five), үчтүн айы (three), бирдин айы (one). Order here is January to December. Verified against ky.wikipedia's month articles, each of which titles itself with the Russian-derived name and glosses the native one.
+locale: ky
+---
+үчтүн айы
+бирдин айы
+жалган куран
+чын куран
+бугу
+кулжа
+теке
+баш оона
+аяк оона
+тогуздун айы
+жетинин айы
+бештин айы

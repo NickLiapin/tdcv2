@@ -1,0 +1,17 @@
+---
+description: Freight type, in Afrikaans.
+locale: af
+---
+Droë vrag
+Verkoelde vrag
+Plat bak
+Tenkwa
+Vee
+Gevaarlike stowwe
+Intermodale houer
+Motordraer
+Laaibak
+Trapdek
+Stortwa
+Massagoed
+Houtstamme

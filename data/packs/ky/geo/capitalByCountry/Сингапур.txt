@@ -1,0 +1,5 @@
+---
+description: Capital of Сингапур, in Kyrgyz
+locale: ky
+---
+Сингапур

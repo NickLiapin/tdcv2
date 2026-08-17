@@ -1,0 +1,30 @@
+---
+description: School subject as it appears on a South African report card, in Afrikaans. Three of these exist nowhere outside this school system. Lewensoriëntering is a compulsory subject from grade 4 to matric covering health, citizenship and careers. Wiskundige Geletterdheid is a full alternative to Wiskunde that a learner may take instead of it, not a remedial version of it. And a language is taken either as Huistaal or as Eerste Addisionele Taal - the same language, two different syllabuses and two different marks - so "Afrikaans" alone is not a subject.
+locale: af
+---
+Afrikaans Huistaal
+Afrikaans Eerste Addisionele Taal
+Engels Huistaal
+Engels Eerste Addisionele Taal
+isiZulu Eerste Addisionele Taal
+Wiskunde
+Wiskundige Geletterdheid
+Fisiese Wetenskappe
+Lewenswetenskappe
+Geografie
+Geskiedenis
+Lewensoriëntering
+Rekeningkunde
+Besigheidstudies
+Ekonomie
+Rekenaartoepassingstegnologie
+Inligtingstegnologie
+Toerisme
+Verbruikerstudies
+Gasvryheidstudies
+Landbouwetenskappe
+Ingenieursgrafika en -ontwerp
+Musiek
+Visuele Kunste
+Dramatiese Kunste
+Liggaamlike Opvoeding

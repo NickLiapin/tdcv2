@@ -1,0 +1,5 @@
+---
+description: Capital of Australië, in Afrikaans.
+locale: af
+---
+Canberra

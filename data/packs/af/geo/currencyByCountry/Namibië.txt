@@ -1,0 +1,5 @@
+---
+description: Currency of Namibië, in Afrikaans.
+locale: af
+---
+Namibiese dollar

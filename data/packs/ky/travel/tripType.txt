@@ -1,0 +1,24 @@
+---
+description: Purpose or kind of trip in Kyrgyz. Жайлоого чыгуу — going up to the summer pasture — is a seasonal journey a large part of the country still makes, and зыярат (pilgrimage) covers both the hajj and visits to local shrines.
+locale: ky
+---
+Иш сапары
+Эс алуу
+Үй-бүлөлүк эс алуу
+Бал айы
+Укмуштуу саякат
+Унаа менен саякат
+Тоо жүрүшү
+Кемпинг
+Жайлоого чыгуу
+Ат менен жүрүш
+Зыярат
+Ажылык
+Туугандарга баруу
+Дарылануу сапары
+Окуу сапары
+Конференцияга баруу
+Спорттук сапар
+Экскурсия
+Транзит
+Эмгек миграциясы

@@ -1,0 +1,29 @@
+---
+description: Gemstone, in Afrikaans. Diamonds head the list because Kimberley and the Namibian coast are where the modern diamond industry was made; Tiersoog and Sugiliet are South African stones, the second mined almost nowhere else on earth.
+locale: af
+---
+Diamant
+Tansaniet
+Robyn
+Saffier
+Smarag
+Ametis
+Topaas
+Opaal
+Granaat
+Akwamaryn
+Peridoot
+Turkoois
+Jade
+Oniks
+Pêrel
+Sitrien
+Toermalyn
+Maanklip
+Sirkoon
+Lapis lazuli
+Tiersoog
+Sugiliet
+Rooskwarts
+Bergkristal
+Malagiet

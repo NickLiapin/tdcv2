@@ -1,0 +1,23 @@
+---
+description: Kind of property in Kyrgyz. Элитка and хрущёвка are the two names of the housing stock everyone uses; a боз үй on a plot is also a real listing line in rural adverts.
+locale: ky
+---
+Батир
+1 бөлмөлүү батир
+2 бөлмөлүү батир
+3 бөлмөлүү батир
+Студия
+Жеке үй
+Эки кабаттуу үй
+Коттедж
+Особняк
+Элитка
+Хрущёвка
+Индивидуалдык долбоор
+Жарым үй
+Времянка
+Жер участогу
+Дача
+Кеңсе жайы
+Соода жайы
+Кампа

@@ -1,0 +1,5 @@
+---
+description: Currency of Nieu-Seeland, in Afrikaans.
+locale: af
+---
+Nieu-Seelandse dollar

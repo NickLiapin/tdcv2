@@ -1,0 +1,12 @@
+---
+description: Cricket roles, in Afrikaans. Paaltjiewagter is the wicketkeeper - literally the "little-stick guard".
+locale: af
+---
+Kolwer
+Openingskolwer
+Bouler
+Snelbouler
+Draaibouler
+Paaltjiewagter
+Allerondeman
+Veldwerker

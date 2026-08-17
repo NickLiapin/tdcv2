@@ -1,0 +1,5 @@
+---
+description: Capital of Кытай, in Kyrgyz
+locale: ky
+---
+Пекин

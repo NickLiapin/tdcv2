@@ -1,0 +1,12 @@
+---
+description: Annual gross household income bracket, in South African rand. The symbol is R and it precedes the amount. Afrikaans writes thousands with a SPACE and the decimal with a comma, so R150 000 is a hundred and fifty thousand rand and R1,5 miljoen is one and a half million - a config that formats these with a comma thousands separator will produce something that reads as a decimal fraction. Namibia uses the Namibian dollar, pegged one to one with the rand, so the same numbers hold there. The bands are wide at the bottom because South African household income is among the most unequal measured anywhere.
+locale: af
+---
+Minder as R50 000
+R50 000 - R100 000
+R100 000 - R200 000
+R200 000 - R350 000
+R350 000 - R500 000
+R500 000 - R750 000
+R750 000 - R1 000 000
+Meer as R1 000 000

@@ -1,0 +1,5 @@
+---
+description: Currency of Жапония, in Kyrgyz
+locale: ky
+---
+иена

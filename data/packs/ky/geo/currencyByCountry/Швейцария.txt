@@ -1,0 +1,5 @@
+---
+description: Currency of Швейцария, in Kyrgyz
+locale: ky
+---
+франк

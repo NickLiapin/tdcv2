@@ -1,0 +1,16 @@
+---
+description: Months in Kyrgyz. These are the Russian-derived names, and they are the ones that actually appear on a form, a school timetable, a bus ticket and in ky.wikipedia's own article titles. Kyrgyz ALSO has a complete native month system (see date/monthNative.txt) which is used in state and literary registers; the two sets are alternatives for the same twelve months, not two different calendars. Lower case, as Kyrgyz writes them.
+locale: ky
+---
+январь
+февраль
+март
+апрель
+май
+июнь
+июль
+август
+сентябрь
+октябрь
+ноябрь
+декабрь

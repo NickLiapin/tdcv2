@@ -1,0 +1,5 @@
+---
+description: Capital of Indonesië, in Afrikaans.
+locale: af
+---
+Jakarta

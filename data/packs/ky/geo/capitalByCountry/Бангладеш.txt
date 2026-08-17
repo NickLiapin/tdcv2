@@ -1,0 +1,5 @@
+---
+description: Capital of Бангладеш, in Kyrgyz
+locale: ky
+---
+Дакка

@@ -1,0 +1,16 @@
+---
+description: Kind of leave in Kyrgyz. Той өргүүсү is not a joke entry: leave for a family celebration or a funeral is a normal, often written-down entitlement here.
+locale: ky
+---
+Жылдык эмгек өргүүсү
+Ооруга байланыштуу өргүү
+Декреттик өргүү
+Бала багуу өргүүсү
+Акысыз өргүү
+Окуу өргүүсү
+Той өргүүсү
+Аза күтүү өргүүсү
+Кошумча өргүү
+Мамлекеттик майрам
+Компенсация күнү
+Аскердик кызматка чакыруу

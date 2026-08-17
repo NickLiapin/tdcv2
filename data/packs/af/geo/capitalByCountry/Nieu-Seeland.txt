@@ -1,0 +1,5 @@
+---
+description: Capital of Nieu-Seeland, in Afrikaans.
+locale: af
+---
+Wellington

@@ -1,0 +1,13 @@
+---
+description: Cable type. Category designations are international and are not translated.
+locale: af
+---
+Optiese vesel
+Koaksiaal
+Gedraaide paar
+Cat5e
+Cat6
+Cat6a
+Ethernet
+Lugkabel
+Ondergrondse kabel

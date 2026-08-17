@@ -1,0 +1,9 @@
+---
+description: Basketball positions, in Afrikaans.
+locale: af
+---
+Puntwag
+Skietwag
+Klein aanvaller
+Kragaanvaller
+Senter

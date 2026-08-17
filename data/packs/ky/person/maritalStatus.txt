@@ -1,0 +1,18 @@
+---
+description: Marital status in Kyrgyz. THE VERB DIFFERS BY THE SEX OF THE PERSON MARRYING: a man үйлөнөт (takes a wife) and a woman турмушка чыгат (goes out into married life), so 'married' is two different words and a single ungendered value cannot be written. Both are listed. Нике is the religious marriage, contracted separately from the state registration and often before it, so the two are distinct statuses here.
+locale: ky
+---
+Бойдок
+Турмушка чыга элек
+Үйлөнгөн
+Турмушка чыккан
+Никеде
+Нике кыйылган
+Ажырашкан
+Жесир
+Бөлүнүп жашайт
+Кайра үйлөнгөн
+Кайра турмушка чыккан
+Расмий катталган эмес
+Белгисиз
+Көрсөтүлгөн эмес

@@ -1,0 +1,12 @@
+---
+description: Dishes of Жапон cuisine, in Kyrgyz
+locale: ky
+---
+Суши
+Рамен
+Темпура
+Удон
+Мисо шорпо
+Якитори
+Онигири
+Сашими

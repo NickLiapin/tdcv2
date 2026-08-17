@@ -1,0 +1,5 @@
+---
+description: Currency of Brasilië, in Afrikaans.
+locale: af
+---
+Brasiliaanse reaal

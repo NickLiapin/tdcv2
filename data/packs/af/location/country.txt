@@ -1,0 +1,239 @@
+---
+description: Country and territory names in Afrikaans. Translated, never transliterated: Germany is Duitsland, France Frankryk, Greece Griekeland, Norway Noorweë, Ukraine Oekraïne. Note the diacritics that come with them - the ë of Noorweë and Zambië marks a separate syllable, and Kaïro, Haïti and Oekraïne take ï for the same reason.
+locale: af
+---
+Afghanistan
+Albanië
+Algerië
+Amerikaans-Samoa
+Andorra
+Angola
+Anguilla
+Antarktika
+Antigua en Barbuda
+Argentinië
+Armenië
+Aruba
+Australië
+Oostenryk
+Azerbeidjan
+Bahamas
+Bahrein
+Bangladesj
+Barbados
+Belarus
+België
+Belize
+Benin
+Bermuda
+Bhoetan
+Bolivië
+Bosnië en Herzegowina
+Botswana
+Brasilië
+Broenei
+Bulgarye
+Burkina Faso
+Burundi
+Kambodja
+Kameroen
+Kanada
+Kaap Verde
+Kaaimanseilande
+Sentraal-Afrikaanse Republiek
+Tsjad
+Chili
+China
+Kerseiland
+Kokoseilande
+Kolombië
+Comore
+Demokratiese Republiek van die Kongo
+Republiek van die Kongo
+Cookeilande
+Costa Rica
+Ivoorkus
+Kroasië
+Kuba
+Siprus
+Tsjeggië
+Denemarke
+Djiboeti
+Dominica
+Dominikaanse Republiek
+Ecuador
+Egipte
+El Salvador
+Ekwatoriaal-Guinee
+Eritrea
+Estland
+Ethiopië
+Falklandeilande
+Faroëreilande
+Fidji
+Finland
+Frankryk
+Frans-Guyana
+Frans-Polinesië
+Franse Suidelike Gebiede
+Gaboen
+Gambië
+Georgië
+Duitsland
+Ghana
+Gibraltar
+Griekeland
+Groenland
+Grenada
+Guadeloupe
+Guam
+Guatemala
+Guinee
+Guinee-Bissau
+Guyana
+Haïti
+Heilige Stoel
+Honduras
+Hongkong
+Hongarye
+Ysland
+Indië
+Indonesië
+Iran
+Irak
+Ierland
+Israel
+Italië
+Jamaika
+Japan
+Jordanië
+Kasakstan
+Kenia
+Kiribati
+Noord-Korea
+Suid-Korea
+Kosovo
+Koeweit
+Kirgisië
+Laos
+Letland
+Libanon
+Lesotho
+Liberië
+Libië
+Liechtenstein
+Litaue
+Luxemburg
+Macau
+Madagaskar
+Malawi
+Maleisië
+Malediwe
+Mali
+Malta
+Marshalleilande
+Martinique
+Mauritanië
+Mauritius
+Mayotte
+Mexiko
+Mikronesië
+Moldowa
+Monaco
+Mongolië
+Montenegro
+Montserrat
+Marokko
+Mosambiek
+Myanmar
+Namibië
+Nauru
+Nepal
+Nederland
+Nederlandse Antille
+Nieu-Kaledonië
+Nieu-Seeland
+Nicaragua
+Niger
+Nigerië
+Niue
+Noord-Macedonië
+Noordelike Mariane
+Noorweë
+Oman
+Pakistan
+Palau
+Palestynse gebiede
+Panama
+Papoea-Nieu-Guinee
+Paraguay
+Peru
+Filippyne
+Pitcairn
+Pole
+Portugal
+Puerto Rico
+Katar
+Réunion
+Roemenië
+Rusland
+Rwanda
+Sint Kitts en Nevis
+Sint Lucia
+Sint Vincent en die Grenadine
+Samoa
+San Marino
+São Tomé en Príncipe
+Saoedi-Arabië
+Senegal
+Serwië
+Seychelle
+Sierra Leone
+Singapoer
+Slowakye
+Slowenië
+Salomonseilande
+Somalië
+Suid-Afrika
+Suid-Soedan
+Spanje
+Sri Lanka
+Soedan
+Suriname
+Eswatini
+Swede
+Switserland
+Sirië
+Taiwan
+Tadjikistan
+Tanzanië
+Thailand
+Tibet
+Oos-Timor
+Togo
+Tokelau
+Tonga
+Trinidad en Tobago
+Tunisië
+Turkye
+Turkmenistan
+Turks- en Caicoseilande
+Tuvalu
+Uganda
+Oekraïne
+Verenigde Arabiese Emirate
+Verenigde Koninkryk
+Verenigde State
+Uruguay
+Oesbekistan
+Vanuatu
+Vatikaanstad
+Venezuela
+Viëtnam
+Britse Maagde-eilande
+Amerikaanse Maagde-eilande
+Wallis en Futuna
+Wes-Sahara
+Jemen
+Zambië
+Zimbabwe

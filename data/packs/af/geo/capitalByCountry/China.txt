@@ -1,0 +1,5 @@
+---
+description: Capital of China, in Afrikaans.
+locale: af
+---
+Beijing

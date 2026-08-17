@@ -1,0 +1,5 @@
+---
+description: Capital of Spanje, in Afrikaans.
+locale: af
+---
+Madrid

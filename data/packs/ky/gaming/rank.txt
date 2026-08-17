@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier in Kyrgyz
+locale: ky
+---
+Темир
+Коло
+Күмүш
+Алтын
+Платина
+Зумурут
+Алмаз
+Устат
+Улуу устат
+Чемпион

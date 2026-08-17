@@ -1,0 +1,11 @@
+---
+description: Greek dishes as an Afrikaans menu names them.
+locale: af
+---
+Moussaka
+Souvlaki
+Gyros
+Griekse slaai
+Spanakopita
+Baklava
+Tzatziki

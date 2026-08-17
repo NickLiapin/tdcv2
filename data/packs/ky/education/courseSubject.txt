@@ -1,0 +1,24 @@
+---
+description: School subject in Kyrgyz. Kyrgyz schools teach Kyrgyz and Russian as separate subjects and the Manas epic is a named part of the literature course, not an optional extra.
+locale: ky
+---
+Математика
+Алгебра
+Геометрия
+Физика
+Химия
+Биология
+География
+Информатика
+Тарых
+Кыргыз тили
+Кыргыз адабияты
+Манастаануу
+Орус тили
+Орус адабияты
+Англис тили
+Астрономия
+Сүрөт
+Музыка
+Дене тарбия
+Адеп

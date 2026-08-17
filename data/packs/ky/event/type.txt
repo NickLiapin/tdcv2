@@ -1,0 +1,24 @@
+---
+description: Kinds of event in Kyrgyz. THE LIFE-CYCLE FEASTS ARE NOT DECORATION: той is the general word for a celebration with guests, and Kyrgyz names each occasion separately — бешик той when a baby is first put in the cradle, тушоо кесүү when the tie is cut from a toddler's legs so it can walk, кыз узатуу when a daughter is seen off to marry, and аш, the large memorial feast held a year after a death. All four are ordinary calendar entries here.
+locale: ky
+---
+Той
+Үйлөнүү тою
+Кыз узатуу
+Бешик той
+Тушоо кесүү
+Сүннөт той
+Аш
+Куран окуу
+Жыйын
+Курултай
+Конференция
+Форум
+Семинар
+Тренинг
+Концерт
+Фестиваль
+Көргөзмө
+Жарманке
+Мелдеш
+Ачылыш аземи

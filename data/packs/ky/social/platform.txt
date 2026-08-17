@@ -1,0 +1,21 @@
+---
+description: Social platform used in Kyrgyzstan. Brand names keep their own spelling; Одноклассники and Telegram carry more weight here than they would in Western Europe.
+locale: ky
+---
+WhatsApp
+Telegram
+Instagram
+TikTok
+Facebook
+YouTube
+Одноклассники
+ВКонтакте
+X
+Viber
+Snapchat
+LinkedIn
+Pinterest
+Discord
+Threads
+Namba
+Zoom

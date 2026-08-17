@@ -1,0 +1,11 @@
+---
+description: Conditions with a higher prevalence in Southeast Asian ancestry, in Afrikaans.
+locale: af
+---
+Hemoglobien E-siekte
+Alfa-talassemie
+Glukose-6-fosfaatdehidrogenase-tekort
+Nasofaringeale karsinoom
+Beta-talassemie
+Brugada-sindroom
+Laktase-nievolharding

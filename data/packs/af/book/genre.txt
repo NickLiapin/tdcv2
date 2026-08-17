@@ -1,0 +1,32 @@
+---
+description: Book genre, in Afrikaans. Two are categories of Afrikaans literature specifically and have no English-language equivalent shelf: the Plaasroman is the farm novel, a genre with its own century-long critical tradition, and Grensliteratuur is the body of writing that came out of the border war of the 1970s and 1980s.
+locale: af
+---
+Fiksie
+Niefiksie
+Misterie
+Riller
+Romanse
+Wetenskapfiksie
+Fantasie
+Gruwel
+Biografie
+Outobiografie
+Geskiedenis
+Selfhelp
+Poësie
+Drama
+Jeugliteratuur
+Kinderboek
+Historiese fiksie
+Misdaad
+Avontuur
+Memoires
+Filosofie
+Reisverhaal
+Kookboek
+Strokiesroman
+Distopiese fiksie
+Plaasroman
+Grensliteratuur
+Godsdienstig

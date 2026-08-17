@@ -1,0 +1,5 @@
+---
+description: Capital of Индонезия, in Kyrgyz
+locale: ky
+---
+Жакарта

@@ -1,0 +1,5 @@
+---
+description: Currency of Indonesië, in Afrikaans.
+locale: af
+---
+Roepia

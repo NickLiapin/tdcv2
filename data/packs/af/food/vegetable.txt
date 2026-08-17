@@ -1,0 +1,34 @@
+---
+description: Vegetable, in Afrikaans. Mielie is maize on the cob, Patat the orange sweet potato, Waatlemoenkonfyt-pampoen the boiling pumpkin, and Marog and Morogo are the wild leafy greens gathered and cooked across southern Africa.
+locale: af
+---
+Wortel
+Broccoli
+Blomkool
+Spinasie
+Aartappel
+Patat
+Komkommer
+Blaarslaai
+Ui
+Prei
+Rissie
+Soetrissie
+Murgpampoentjie
+Pampoen
+Botterskorsie
+Groenboontjies
+Ertjies
+Mielie
+Aspersies
+Eiervrug
+Boerkool
+Kool
+Seldery
+Sampioen
+Beet
+Radys
+Raap
+Knolraap
+Marog
+Wortelblare

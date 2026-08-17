@@ -1,0 +1,10 @@
+---
+description: Afrikaans full male name - one given name and one surname (Piet van Wyk). Afrikaans carries a single surname, and the surname does not inflect for gender, so the same lastName list serves both this file and the female one. Where the surname begins with a particle it stays lowercase after the given name, which is exactly the form person/lastName.txt stores, so this template needs no special casing.
+generator: tdc
+locale: af
+---
+<sequence name="p">
+  <gen name="f" type="template" value="af.person.male.firstName"/>
+  <gen name="l" type="template" value="af.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

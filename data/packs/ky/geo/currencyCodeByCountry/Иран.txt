@@ -1,0 +1,5 @@
+---
+description: Currency code of Иран
+locale: ky
+---
+IRR

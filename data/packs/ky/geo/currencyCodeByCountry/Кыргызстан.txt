@@ -1,0 +1,5 @@
+---
+description: Currency code of Кыргызстан
+locale: ky
+---
+KGS

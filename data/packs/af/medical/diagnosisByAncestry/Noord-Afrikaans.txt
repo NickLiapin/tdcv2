@@ -1,0 +1,10 @@
+---
+description: Conditions with a higher prevalence in North African ancestry, in Afrikaans.
+locale: af
+---
+Glukose-6-fosfaatdehidrogenase-tekort
+Beta-talassemie-eienskap
+Familiêre Mediterreense koors
+Behçet se siekte
+Laktase-nievolharding
+Xeroderma pigmentosum

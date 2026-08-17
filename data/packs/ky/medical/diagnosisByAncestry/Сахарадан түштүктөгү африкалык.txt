@@ -1,0 +1,15 @@
+---
+description: Conditions whose prevalence is higher in people of Sub-Saharan African descent. THIS IS A PREVALENCE SIGNAL, NOT AN EXCLUSIVE LIST: every condition here occurs in every population, and ancestry only shifts the prior probability.
+locale: ky
+---
+Орок клеткалуу анемия
+Орок клеткалуу белги
+Г6ФД жетишсиздиги
+APOL1 менен байланышкан нефропатия
+Келоид тырыктар
+Саркоидоз
+Простата рагы
+Жогорку кан басымы
+Лактоза көтөрбөстүк
+Фибромиома
+Д витамининин жетишсиздиги

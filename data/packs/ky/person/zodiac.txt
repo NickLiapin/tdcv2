@@ -1,0 +1,16 @@
+---
+description: Western zodiac signs in Kyrgyz. NOTE WHAT THIS FILE IS NOT: the living Kyrgyz sign system is мүчөл, the twelve-year animal cycle (чычкан, уй, жолборс, коён, улуу, жылан, жылкы, кой, маймыл, тоок, ит, доңуз), by which a person's мүчөл жаш at 13, 25, 37 and so on is a real occasion marked with a gift of red clothing. A Kyrgyz asked for their sign is at least as likely to answer with an animal year as with one of these twelve.
+locale: ky
+---
+Кочкор
+Бука
+Эгиздер
+Рак
+Арстан
+Кыз
+Тараза
+Чаян
+Жаа
+Тоо теке
+Суу куюучу
+Балыктар

@@ -1,0 +1,17 @@
+---
+description: Kind of social media post, in Afrikaans.
+locale: af
+---
+Plasing
+Kommentaar
+Antwoord
+Storie
+Reel
+Peiling
+Regstreeks
+Herplasing
+Draad
+Vermelding
+Direkte boodskap
+Video
+Foto

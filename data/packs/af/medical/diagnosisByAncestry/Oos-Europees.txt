@@ -1,0 +1,10 @@
+---
+description: Conditions with a higher prevalence in Eastern European ancestry, in Afrikaans.
+locale: af
+---
+Erflike hemochromatose
+Fenielketonurie
+Familiêre hipercholesterolemie
+Alkoholverwante lewersiekte
+Sistiese fibrose
+Wilson se siekte

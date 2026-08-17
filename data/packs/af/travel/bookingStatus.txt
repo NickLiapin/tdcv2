@@ -1,0 +1,15 @@
+---
+description: Booking status, in Afrikaans.
+locale: af
+---
+Bevestig
+Hangende
+Gekanselleer
+Ingeboek
+Uitgeboek
+Nie opgedaag nie
+Gewysig
+Terugbetaal
+Wagtend op betaling
+Op waglys
+Verstreke

@@ -1,0 +1,10 @@
+---
+description: Retail jobs, in Afrikaans.
+locale: af
+---
+Winkelbestuurder
+Kassier
+Winkelassistent
+Handelaar
+Verliesvoorkomingsbeampte
+Inkoper

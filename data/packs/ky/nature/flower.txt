@@ -1,0 +1,32 @@
+---
+description: Flowers in Kyrgyz. Кызгалдак is the wild mountain tulip — the Tien Shan is one of the places the garden tulip came from — and байчечекей, the snowdrop, is the word spring is announced with.
+locale: ky
+---
+Кызгалдак
+Байчечекей
+Гүл
+Роза
+Лилия
+Нарцисс
+Гиацинт
+Пион
+Хризантема
+Гвоздика
+Астра
+Георгин
+Фиалка
+Орхидея
+Күн карама
+Ромашка
+Көкнар
+Лаванда
+Жасмин
+Сирень
+Мимоза
+Тюльпан
+Эдельвейс
+Кампанула
+Незабудка
+Магнолия
+Камелия
+Бегония

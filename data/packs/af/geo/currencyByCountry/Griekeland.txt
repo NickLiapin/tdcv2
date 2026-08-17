@@ -1,0 +1,5 @@
+---
+description: Currency of Griekeland, in Afrikaans.
+locale: af
+---
+Euro

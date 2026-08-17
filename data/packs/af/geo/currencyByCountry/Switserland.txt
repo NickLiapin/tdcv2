@@ -1,0 +1,5 @@
+---
+description: Currency of Switserland, in Afrikaans.
+locale: af
+---
+Switserse frank

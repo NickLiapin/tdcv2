@@ -1,0 +1,27 @@
+---
+description: Afrikaans address unit designator. Two of these are institutions of the southern African postal system rather than translations of anything: Posbus is a numbered post-office box and is a completely ordinary residential address in South Africa and Namibia, and Privaatsak - "private bag" - is a bulk-delivery address used by farms, schools, hospitals and government offices where no street delivery exists. Erf names the surveyed stand itself. The numbers that follow them belong in a country pack.
+locale: af
+---
+Woonstel
+Eenheid
+Deur
+Gebou
+Blok
+Vloer
+Kamer
+Kantoor
+Winkel
+Erf
+Hoewe
+Perseel
+Posbus
+Privaatsak
+Suite
+Afdeling
+Vleuel
+Ingang
+Hek
+Loods
+Staanplek
+Motorhuis
+Kajuit

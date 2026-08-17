@@ -1,0 +1,5 @@
+---
+description: Currency of Египет, in Kyrgyz
+locale: ky
+---
+фунт

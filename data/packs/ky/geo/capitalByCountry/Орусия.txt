@@ -1,0 +1,5 @@
+---
+description: Capital of Орусия, in Kyrgyz
+locale: ky
+---
+Москва

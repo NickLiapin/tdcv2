@@ -1,0 +1,11 @@
+---
+description: Cardiology diagnoses, in Afrikaans.
+locale: af
+---
+Hipertensie
+Koronêre arteriesiekte
+Atriale fibrillasie
+Kongestiewe hartversaking
+Miokardiale infarksie
+Hiperlipidemie
+Rumatiese hartsiekte

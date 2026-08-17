@@ -1,0 +1,16 @@
+---
+description: Shoe size on the continental European (Paris point) scale, which is what is printed on a shoebox in Bishkek and what a customer asks for in a shop. It came in through the Soviet ГОСТ, which used the same Paris point for adult footwear, and nothing replaced it after 1991. Whole numbers only — the scale has no half sizes.
+locale: ky
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

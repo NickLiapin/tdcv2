@@ -1,0 +1,10 @@
+---
+description: Kyrgyz full male name: given name followed by the family name. Note that the result is TWO words for a -ов surname and THREE for the native patronymic (Азамат Бакыт уулу), because уулу is a separate word.
+generator: tdc
+locale: ky
+---
+<sequence name="p">
+  <gen name="f" type="template" value="ky.person.male.firstName"/>
+  <gen name="l" type="template" value="ky.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

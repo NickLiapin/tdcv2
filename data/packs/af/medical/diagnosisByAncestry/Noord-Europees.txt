@@ -1,0 +1,16 @@
+---
+description: Conditions with a higher prevalence in Northern European ancestry, in Afrikaans. Two are worth flagging for this locale: familial hypercholesterolaemia and variegate porphyria both reach exceptionally high frequencies in the Afrikaner population through founder effect, tracing to a small number of seventeenth-century Cape settlers, and porphyria variegata is sometimes called the South African form for that reason.
+locale: af
+---
+Sistiese fibrose
+Erflike hemochromatose
+Alfa-1-antitripsientekort
+Fenielketonurie
+Seliakie
+Multipele sklerose
+Tipe 1-diabetes mellitus
+Dupuytren se kontraktuur
+Basaalselkarsinoom
+Laktasevolharding
+Familiêre hipercholesterolemie
+Porfiria variegata

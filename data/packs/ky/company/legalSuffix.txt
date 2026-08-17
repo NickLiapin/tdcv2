@@ -1,0 +1,21 @@
+---
+description: Legal form of a Kyrgyz company. The list is SHORT ON PURPOSE — Kyrgyzstan has only a handful of registered forms, and padding it out would invent company types that cannot exist. Note that both the Kyrgyz abbreviation and the Russian one are in daily use on the same signboards: ЖЧК and ОсОО are the same limited-liability company, and ОсОО is if anything the commoner of the two.
+locale: ky
+---
+ЖЧК
+ОсОО
+АК
+ААК
+ЖАК
+ЖИ
+ЖК
+МКК
+МФК
+КФЧ
+Кооператив
+Мамлекеттик ишкана
+Коомдук фонд
+Коомдук бирикме
+Ассоциация
+Филиал
+Өкүлчүлүк

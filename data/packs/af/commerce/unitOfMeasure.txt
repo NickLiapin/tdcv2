@@ -1,0 +1,38 @@
+---
+description: Unit of measure on an Afrikaans invoice or shelf label. South Africa and Namibia have been fully metric since the 1970s, so no pound, ounce or gallon appears here - unlike the reference en list, where imperial units are half the file. Tros is a bunch, Bossie a bundle of herbs, and Sakkie the diminutive sold at a farm stall.
+locale: af
+---
+elk
+stuk
+paar
+stel
+dosyn
+boks
+kissie
+karton
+pak
+sakkie
+sak
+rol
+bondel
+bossie
+tros
+emmer
+bakkie
+houer
+bottel
+blik
+milligram
+gram
+kilogram
+ton
+milliliter
+liter
+millimeter
+sentimeter
+meter
+vierkante meter
+kubieke meter
+kilometer
+hektaar
+kilowattuur

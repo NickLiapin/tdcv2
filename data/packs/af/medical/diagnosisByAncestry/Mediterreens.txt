@@ -1,0 +1,11 @@
+---
+description: Conditions with a higher prevalence in Mediterranean ancestry, in Afrikaans.
+locale: af
+---
+Beta-talassemie
+Beta-talassemie-eienskap
+Glukose-6-fosfaatdehidrogenase-tekort
+Familiêre Mediterreense koors
+Behçet se siekte
+Alfa-talassemie
+Favisme

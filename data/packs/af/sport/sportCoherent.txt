@@ -1,0 +1,12 @@
+---
+description: Sport with a position list, in Afrikaans, and the parent of positionBySport. Baseball and American football are absent because neither is played here in any numbers; netball, water polo and hockey are in their place.
+locale: af
+---
+Rugby
+Sokker
+Krieket
+Netbal
+Hokkie
+Vlugbal
+Basketbal
+Waterpolo

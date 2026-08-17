@@ -1,0 +1,15 @@
+---
+description: Stage of a hiring process, in Afrikaans.
+locale: af
+---
+Aansoek onder hersiening
+Telefoniese sifting
+Tegniese onderhoud
+Onderhoud op perseel
+Paneelonderhoud
+Finale ronde
+Verwysingskontrole
+Agtergrondkontrole
+Aanbod
+Afgekeur
+Aangestel

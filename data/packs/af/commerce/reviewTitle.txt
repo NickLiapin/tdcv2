@@ -1,0 +1,30 @@
+---
+description: Headline a customer puts on a product review, in Afrikaans. Two grammatical facts of the language are visible here and nowhere else in this pack. The first is the double negative: "Sal dit nie weer koop nie" needs the second nie to close the clause, and a config cannot infer it. The second is the indefinite article ’n, written with an apostrophe, ALWAYS lowercase even when it opens a sentence, and passing the capital letter on to the word after it - so the title reads "’n Bietjie te duur", never "’n bietjie" and never "’N bietjie". The apostrophe used throughout this pack is U+2019.
+locale: af
+---
+Uitstekende produk!
+Sterk aanbeveel
+Nie die moeite werd nie
+Beter as verwag
+Net so-so
+Sal weer koop
+Teleurgesteld
+Puik gehalte
+Te gou gebreek
+Perfek vir die prys
+’n Bietjie te duur
+’n Goeie koop
+Sal dit nie weer koop nie
+Presies soos beskryf
+Ek is baie tevrede
+Dit werk nie
+Vinnige aflewering
+Sleg verpak
+Doen presies wat dit moet
+Nie wat ek verwag het nie
+Goeie waarde
+Nogal swaar
+Maklik om te gebruik
+Sou dit nie aanbeveel nie
+Beslis die moeite werd
+’n Uitstekende koop

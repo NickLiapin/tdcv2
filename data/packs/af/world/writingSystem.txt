@@ -1,0 +1,24 @@
+---
+description: Writing system, in Afrikaans. Arabies leads for a reason specific to this language: the first books printed in Afrikaans were written in ARABIC SCRIPT, not Latin. Cape Muslim teachers wrote the spoken language of their community in Arabic letters from the 1830s onward, and Abu Bakr Effendi's Uiteensetting van die Godsdiens, printed in Istanbul in 1877, is among the earliest Afrikaans books in existence - decades before the language was written in Latin script by anyone. Afrikaans is therefore one of very few languages whose written history begins in a script it no longer uses.
+locale: af
+---
+Arabies
+Latyn
+Cyrillies
+Han
+Devanagari
+Hangul
+Grieks
+Hebreeus
+Thai
+Georgies
+Armeens
+Hiragana
+Katakana
+Ge'ez
+Tifinagh
+Bengaals
+Tamil
+Telugu
+Birmaans
+Khmer

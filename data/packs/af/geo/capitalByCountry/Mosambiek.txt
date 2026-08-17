@@ -1,0 +1,5 @@
+---
+description: Capital of Mosambiek, in Afrikaans.
+locale: af
+---
+Maputo

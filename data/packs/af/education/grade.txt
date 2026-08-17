@@ -1,0 +1,16 @@
+---
+description: School mark, on the seven-level achievement scale of the South African National Senior Certificate. This scale replaces the letter grades of the reference en list entirely: marks are reported as a level from 7 down to 1 with the percentage band attached, and a learner needs level 4 in the home language and level 3 in three other subjects to pass. The named descriptors below are the official Afrikaans wording.
+locale: af
+---
+Vlak 7 - Uitmuntende prestasie (80-100%)
+Vlak 6 - Verdienstelike prestasie (70-79%)
+Vlak 5 - Wesenlike prestasie (60-69%)
+Vlak 4 - Voldoende prestasie (50-59%)
+Vlak 3 - Matige prestasie (40-49%)
+Vlak 2 - Elementêre prestasie (30-39%)
+Vlak 1 - Ontoereikende prestasie (0-29%)
+Onderskeiding
+Geslaag met lof
+Geslaag
+Gedruip
+Onvolledig

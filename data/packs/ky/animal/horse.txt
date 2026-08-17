@@ -1,0 +1,20 @@
+---
+description: Horse breeds in Kyrgyz. Kyrgyz also classifies a horse by AGE AND GAIT rather than by breed — кулун (foal), тай (yearling), кунан (three-year-old), бышты (four-year-old), айгыр (stallion), бээ (mare), жорго (ambler) — and those words are far commoner in speech than any breed name, so the two ambler entries are here on purpose.
+locale: ky
+---
+Кыргыз жылкысы
+Жаңы кыргыз тукуму
+Жорго
+Чабдар жорго
+Ахалтеке
+Араб жылкысы
+Дон жылкысы
+Орлов жүрдөгү
+Английче тукум
+Мустанг
+Аппалуза
+Фриз тукуму
+Шайр
+Пони
+Шетленд пониси
+Хафлингер

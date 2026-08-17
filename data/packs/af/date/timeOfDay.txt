@@ -1,0 +1,14 @@
+---
+description: Time of day, in Afrikaans. Môre is the morning (and, unchanged, also tomorrow); the circumflex separates it from more, "beautiful". Skemer covers both dusk and the dawn half-light.
+locale: af
+---
+Oggend
+Môre
+Middag
+Namiddag
+Aand
+Nag
+Dagbreek
+Skemer
+Middernag
+Middaguur

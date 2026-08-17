@@ -1,0 +1,5 @@
+---
+description: Currency of Rusland, in Afrikaans.
+locale: af
+---
+Russiese roebel

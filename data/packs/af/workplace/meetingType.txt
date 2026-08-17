@@ -1,0 +1,16 @@
+---
+description: Kind of meeting, in Afrikaans.
+locale: af
+---
+Staanvergadering
+Een-tot-een
+Personeelvergadering
+Terugblik
+Sprintbeplanning
+Skopvergadering
+Sinkronisasie
+Hersiening
+Werkswinkel
+Dinkskrum
+Inklokgesprek
+Nabetragting

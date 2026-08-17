@@ -1,0 +1,22 @@
+---
+description: Cat breed names. Breed names are international registry names and are not translated, so most read the same in Afrikaans as anywhere else; only the descriptive ones (Britse Korthaar, Noorse Boskat, Russiese Blou) take Afrikaans forms.
+locale: af
+---
+Persies
+Maine Coon
+Siamees
+Ragdoll
+Bengaal
+Sphynx
+Britse Korthaar
+Abessinies
+Scottish Fold
+Noorse Boskat
+Russiese Blou
+Birman
+Amerikaanse Korthaar
+Devon Rex
+Birmaans
+Turkse Angora
+Somalies
+Ocicat

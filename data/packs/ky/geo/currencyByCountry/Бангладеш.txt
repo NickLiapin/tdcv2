@@ -1,0 +1,5 @@
+---
+description: Currency of Бангладеш, in Kyrgyz
+locale: ky
+---
+така

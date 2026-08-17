@@ -1,0 +1,16 @@
+---
+description: Zodiac sign, in Afrikaans. The signs run against the season here: Steenbok falls in high summer, not midwinter.
+locale: af
+---
+Ram
+Stier
+Tweelinge
+Kreef
+Leeu
+Maagd
+Weegskaal
+Skerpioen
+Boogskutter
+Steenbok
+Waterdraer
+Visse

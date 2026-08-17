@@ -1,0 +1,19 @@
+---
+description: Kind of court, in Afrikaans, as the South African judiciary is structured. The Konstitusionele Hof sits above everything; the Hoogste Hof van Appèl is the general appeal court; the Hooggeregshof is the high court of a division; and the Landdroshof - the magistrate's court - is where almost every ordinary matter is actually heard. Two are specific to this country: the Grondeisehof hears land restitution claims, and the Arbeidshof and its appeal court sit outside the ordinary hierarchy entirely. Note the grave accent in Appèl.
+locale: af
+---
+Konstitusionele Hof
+Hoogste Hof van Appèl
+Hooggeregshof
+Landdroshof
+Streekhof
+Distrikshof
+Klein Eise-hof
+Kinderhof
+Gesinshof
+Arbeidshof
+Arbeidsappèlhof
+Grondeisehof
+Belastinghof
+Mededingingstribunaal
+Gelykheidshof

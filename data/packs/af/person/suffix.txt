@@ -1,0 +1,28 @@
+---
+description: Post-nominal, in Afrikaans. CA(SA) is the chartered accountant designation and is written exactly that way, brackets included. Pr.Ing marks a registered professional engineer, Pr.Sci.Nat a registered natural scientist, and SC a senior counsel - the South African equivalent of a KC.
+locale: af
+---
+Jnr
+Snr
+II
+III
+IV
+BA
+BSc
+BCom
+BIng
+LLB
+MB ChB
+MA
+MSc
+MBA
+LLM
+PhD
+DPhil
+CA(SA)
+Pr.Ing
+Pr.Sci.Nat
+SC
+RN
+Dip
+ND

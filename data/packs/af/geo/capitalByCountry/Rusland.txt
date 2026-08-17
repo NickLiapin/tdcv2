@@ -1,0 +1,5 @@
+---
+description: Capital of Rusland, in Afrikaans.
+locale: af
+---
+Moskou

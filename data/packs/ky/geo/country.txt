@@ -1,0 +1,45 @@
+---
+description: Countries as Kyrgyz names them, weighted by population in millions. The names are TRANSLATED, not respelled from English: China is Кытай, Russia is Орусия, Japan is Жапония, New Zealand is Жаңы Зеландия. The Central Asian neighbours are in because they are the near world for a Kyrgyz speaker, and Казакстан is spelled with к, not the Russian х.
+locale: ky
+weighted: true
+---
+Кытай,1410
+Индия,1400
+Америка Кошмо Штаттары,335
+Индонезия,275
+Пакистан,240
+Нигерия,220
+Бразилия,215
+Бангладеш,170
+Орусия,144
+Мексика,128
+Жапония,125
+Египет,110
+Вьетнам,98
+Иран,88
+Түркия,85
+Германия,84
+Тайланд,72
+Улуу Британия,67
+Франция,65
+Түштүк Африка Республикасы,60
+Италия,59
+Түштүк Корея,52
+Испания,47
+Аргентина,46
+Канада,39
+Польша,38
+Сауд Арабиясы,36
+Өзбекстан,36
+Австралия,26
+Казакстан,20
+Нидерланд,18
+Тажикстан,10
+Швеция,10
+Грекия,10
+Швейцария,9
+Кыргызстан,7
+Норвегия,5
+Ирландия,5
+Жаңы Зеландия,5
+Сингапур,6

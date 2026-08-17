@@ -1,0 +1,5 @@
+---
+description: Currency of Түштүк Корея, in Kyrgyz
+locale: ky
+---
+вон

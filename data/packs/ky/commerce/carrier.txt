@@ -1,0 +1,24 @@
+---
+description: Parcel and delivery services used in Kyrgyzstan, plus the international couriers. Latin-script brands keep their own spelling.
+locale: ky
+---
+Кыргыз почтасы
+DHL
+FedEx
+UPS
+TNT
+DPD
+CDEK
+Boxberry
+Pony Express
+EMS
+Aramex
+Glovo
+Namba Food
+Курьердик кызмат
+Шаар ичинде жеткирүү
+Өзү алып кетүү
+Почтомат
+Жүк ташуучу
+Такси менен жеткирүү
+Экспресс жеткирүү

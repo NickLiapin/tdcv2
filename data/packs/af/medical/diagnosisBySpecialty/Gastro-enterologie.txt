@@ -1,0 +1,10 @@
+---
+description: Gastroenterology diagnoses, in Afrikaans.
+locale: af
+---
+Gastro-esofageale refluksiekte
+Crohn se siekte
+Ulseratiewe kolitis
+Maagsweer
+Prikkelbaredermsindroom
+Lewersirrose

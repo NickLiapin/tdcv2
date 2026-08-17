@@ -1,0 +1,5 @@
+---
+description: Capital of Тажикстан, in Kyrgyz
+locale: ky
+---
+Душанбе

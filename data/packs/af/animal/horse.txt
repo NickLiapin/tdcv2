@@ -1,0 +1,20 @@
+---
+description: Horse breed names. The Boerperd and the Nooitgedachter are southern African breeds; the Basoetoeponie is the mountain pony of Lesotho, bred from Cape stock and known across the region by its Afrikaans name.
+locale: af
+---
+Boerperd
+Nooitgedachter
+Basoetoeponie
+Arabier
+Volbloed
+Vriesperd
+Ponie
+Appaloosa
+Andalusiër
+Clydesdale
+Shire
+Palomino
+Percheron
+Haflinger
+Kwartperd
+Muil

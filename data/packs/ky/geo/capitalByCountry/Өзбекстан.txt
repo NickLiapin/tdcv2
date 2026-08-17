@@ -1,0 +1,5 @@
+---
+description: Capital of Өзбекстан, in Kyrgyz
+locale: ky
+---
+Ташкент

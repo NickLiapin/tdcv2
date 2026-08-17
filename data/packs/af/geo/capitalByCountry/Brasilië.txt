@@ -1,0 +1,5 @@
+---
+description: Capital of Brasilië, in Afrikaans.
+locale: af
+---
+Brasilia

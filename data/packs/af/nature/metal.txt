@@ -1,0 +1,26 @@
+---
+description: Metal, in Afrikaans. The order is not arbitrary: South Africa holds the world's largest platinum, chrome and manganese reserves and Namibia is a major uranium producer, so these are the metals the region's economy is actually built on rather than a generic periodic-table sample.
+locale: af
+---
+Goud
+Platinum
+Chroom
+Mangaan
+Yster
+Vanadium
+Uraan
+Silwer
+Koper
+Aluminium
+Titaan
+Sink
+Nikkel
+Lood
+Tin
+Brons
+Geelkoper
+Staal
+Palladium
+Rodium
+Kobalt
+Wolfram

@@ -1,0 +1,10 @@
+---
+description: Conditions whose prevalence is higher in people of North African descent
+locale: ky
+---
+Г6ФД жетишсиздиги
+Бета-талассемия белгиси
+Үй-бүлөлүк Жер Ортолук деңиз ысытмасы
+Бехчет оорусу
+Лактоза көтөрбөстүк
+Пигменттүү ксеродерма

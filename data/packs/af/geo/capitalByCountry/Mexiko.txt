@@ -1,0 +1,5 @@
+---
+description: Capital of Mexiko, in Afrikaans.
+locale: af
+---
+Mexikostad

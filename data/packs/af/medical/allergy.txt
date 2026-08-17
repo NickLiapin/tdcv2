@@ -1,0 +1,26 @@
+---
+description: Allergen, in Afrikaans.
+locale: af
+---
+Penisillien
+Grondboontjies
+Boomneute
+Skulpvis
+Eiers
+Melk
+Soja
+Koring
+Latex
+Stuifmeel
+Grasstuifmeel
+Huisstofmyt
+Diereskilfers
+Bysteke
+Aspirien
+Sulfamiddels
+Jodium
+Sesam
+Vis
+Sitrus
+Sulfiete
+Rooivleis

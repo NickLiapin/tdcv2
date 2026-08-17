@@ -1,0 +1,24 @@
+---
+description: Insect names in Afrikaans. Hottentotsgot is the mantis, Miskruier the dung beetle, Naaldekoker the dragonfly, Sonbesie the cicada, Liewenheersbesie the ladybird and Vuurvliegie the firefly - the last showing the -ie diminutive Afrikaans hangs on small living things as a matter of course.
+locale: af
+---
+Mier
+By
+Perdeby
+Skoenlapper
+Mot
+Kewer
+Miskruier
+Naaldekoker
+Sprinkaan
+Hottentotsgot
+Sonbesie
+Vuurvliegie
+Liewenheersbesie
+Kriek
+Muskiet
+Vlieg
+Termiet
+Rysmier
+Kakkerlak
+Luis

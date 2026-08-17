@@ -1,0 +1,35 @@
+---
+description: Musical instrument, in Afrikaans. The concertina and the trekklavier - literally the "pull piano", the button accordion - are the two instruments boeremusiek is built on. The ghoematrom is the hand drum of the Cape carnival. Mondfluitjie, the harmonica, carries the -tjie diminutive.
+locale: af
+---
+Kitaar
+Klavier
+Viool
+Tromme
+Baskitaar
+Saksofoon
+Trompet
+Fluit
+Tjello
+Klarinet
+Trombone
+Harp
+Ukulele
+Banjo
+Konsertina
+Trekklavier
+Ghoematrom
+Mondfluitjie
+Blokfluit
+Marimba
+Djembe
+Orrel
+Kontrabas
+Hobo
+Xilofoon
+Mandolien
+Tamboeryn
+Simbale
+Siter
+Doedelsak
+Sintetiseerder

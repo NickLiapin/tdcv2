@@ -1,0 +1,5 @@
+---
+description: Capital of Bangladesj, in Afrikaans.
+locale: af
+---
+Dhaka

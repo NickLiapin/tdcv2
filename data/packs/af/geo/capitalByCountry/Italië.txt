@@ -1,0 +1,5 @@
+---
+description: Capital of Italië, in Afrikaans.
+locale: af
+---
+Rome

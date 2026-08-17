@@ -1,0 +1,5 @@
+---
+description: Currency code of Suid-Afrika.
+locale: af
+---
+ZAR

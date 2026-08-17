@@ -1,0 +1,5 @@
+---
+description: Currency of Saoedi-Arabië, in Afrikaans.
+locale: af
+---
+Saoedi-Arabiese riaal

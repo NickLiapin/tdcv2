@@ -1,0 +1,14 @@
+---
+description: The ten specialties that have a diagnosis list of their own in medical/diagnosisBySpecialty/
+locale: ky
+---
+Кардиология
+Неврология
+Онкология
+Дерматология
+Гастроэнтерология
+Эндокринология
+Нефрология
+Ортопедия
+Психиатрия
+Пульмонология

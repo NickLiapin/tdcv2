@@ -1,0 +1,5 @@
+---
+description: Capital of Пакистан, in Kyrgyz
+locale: ky
+---
+Исламабад

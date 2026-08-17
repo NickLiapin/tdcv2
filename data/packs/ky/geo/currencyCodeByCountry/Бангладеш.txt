@@ -1,0 +1,5 @@
+---
+description: Currency code of Бангладеш
+locale: ky
+---
+BDT

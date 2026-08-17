@@ -1,0 +1,5 @@
+---
+description: Currency of Орусия, in Kyrgyz
+locale: ky
+---
+рубль

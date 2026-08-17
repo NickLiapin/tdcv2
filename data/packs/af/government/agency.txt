@@ -1,0 +1,27 @@
+---
+description: Government department, named in Afrikaans. These are the departments of the South African state, which is the government an Afrikaans speaker deals with; they are officially styled in English and these are the standard Afrikaans equivalents, still used in Afrikaans-language official communication and in the press. Binnelandse Sake is Home Affairs, which issues identity documents and passports; SARS is the revenue service; SASSA pays the social grants that reach roughly a third of the population.
+locale: af
+---
+Departement van Binnelandse Sake
+Departement van Gesondheid
+Departement van Basiese Onderwys
+Departement van Hoër Onderwys en Opleiding
+Departement van Vervoer
+Suid-Afrikaanse Inkomstediens
+Departement van Justisie
+Departement van Indiensneming en Arbeid
+Departement van Maatskaplike Ontwikkeling
+Suid-Afrikaanse Maatskaplike Sekerheidsagentskap
+Departement van Landbou
+Departement van Water en Sanitasie
+Departement van Bosbou, Visserye en die Omgewing
+Departement van Verdediging
+Departement van Polisie
+Departement van Korrektiewe Dienste
+Departement van Handel, Nywerheid en Mededinging
+Departement van Menslike Nedersettings
+Departement van Minerale en Petroleumhulpbronne
+Departement van Toerisme
+Departement van Sport, Kuns en Kultuur
+Nasionale Tesourie
+Munisipaliteit

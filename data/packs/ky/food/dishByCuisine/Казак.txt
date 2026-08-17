@@ -1,0 +1,12 @@
+---
+description: Dishes of Казак cuisine, in Kyrgyz
+locale: ky
+---
+Бешбармак
+Куурдак
+Казы
+Шужук
+Баурсак
+Сорпо
+Курут
+Кымыз

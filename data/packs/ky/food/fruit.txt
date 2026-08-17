@@ -1,0 +1,38 @@
+---
+description: Fruits and nuts in Kyrgyz. Жаңгак is not a stray entry: Arslanbob in Jalal-Abad province holds the largest natural walnut forest on earth and the harvest is a season in the working year, so the walnut is an everyday fruit here rather than an import.
+locale: ky
+---
+Алма
+Алмурут
+Өрүк
+Шабдалы
+Гилас
+Алча
+Кара өрүк
+Жүзүм
+Дарбыз
+Коон
+Анар
+Инжир
+Курма
+Бүлдүркөн
+Малина
+Кара карагат
+Кызыл карагат
+Чычырканак
+Ит мурун
+Долоно
+Жаңгак
+Бадам
+Писта
+Фундук
+Банан
+Апельсин
+Мандарин
+Лимон
+Грейпфрут
+Ананас
+Киви
+Манго
+Авокадо
+Хурма

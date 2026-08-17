@@ -1,0 +1,5 @@
+---
+description: Capital of Түштүк Корея, in Kyrgyz
+locale: ky
+---
+Сеул

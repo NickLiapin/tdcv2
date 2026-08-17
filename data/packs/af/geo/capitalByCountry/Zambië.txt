@@ -1,0 +1,5 @@
+---
+description: Capital of Zambië, in Afrikaans.
+locale: af
+---
+Lusaka

@@ -1,0 +1,5 @@
+---
+description: Currency of Иран, in Kyrgyz
+locale: ky
+---
+риал

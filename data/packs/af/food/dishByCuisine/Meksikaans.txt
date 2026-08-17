@@ -1,0 +1,12 @@
+---
+description: Mexican dishes as an Afrikaans menu names them.
+locale: af
+---
+Tacos
+Burrito
+Enchiladas
+Quesadilla
+Guacamole
+Tamales
+Nachos
+Chilli con carne

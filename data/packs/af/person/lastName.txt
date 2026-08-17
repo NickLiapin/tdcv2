@@ -1,0 +1,389 @@
+---
+description: Surnames carried by Afrikaans speakers, roughly frequency-ordered. WHO THE POOL IS. Afrikaans has more Coloured first-language speakers than white ones, and this list is built to show that rather than to hide it: the Cape surnames - Adams, Davids, Jacobs, Fortuin, Booysen, Petersen, Hendricks, Isaacs, Willemse, Plaatjies, Stuurman - are not an appendix to an Afrikaner list, they are interleaved through it by frequency, which is where they actually sit. Five stocks feed the pool and they are deliberately NOT split into five files, because families are not separable that way and a per-community file would be a racial index rather than a data source. The stocks are: (1) Cape Coloured surnames, among them the month-names - September, Oktober, Januarie, April - given to people enslaved at the Cape and inherited ever since; (2) Cape Malay Muslim surnames - Ebrahim, Gamieldien, Salie, Behardien, Rakiep, Toefy - from the Indonesian and Indian Ocean deportations of the seventeenth and eighteenth centuries; (3) Dutch settler names, most with a particle; (4) French Huguenot names from the 1688 arrivals, now spelled the Afrikaans way - Cronjé, Naudé, Nortjé, du Preez, le Roux, Viljoen from Villion, Rossouw from Rousseau, Terblanche from Terreblanche; (5) German names, which arrived in larger numbers than the Huguenot ones - Kruger, Meyer, Schoeman, Steenkamp, Opperman, Lubbe - with a Namibian tail (Diergaardt, Izaaks, Swartbooi, Witbooi, Boois, Kooper, Christiaans) from the Baster, Nama and Damara communities who speak Afrikaans as a first language. WHAT A CONFIG CANNOT INFER. Afrikaans surnames do NOT inflect for gender - a woman named Botha is Botha - so there is deliberately no person/female/lastName.txt in this pack, and its absence is the design. The particle (van, van der, du, le, de) is stored lowercase, which is the correct form after a given name: Flip van der Merwe, Faf de Klerk, Willie le Roux. Capitalise it yourself when the surname stands alone: "Van der Merwe het gebel". One rule differs from Dutch and matters for sorting: South Africa ALPHABETISES UNDER THE PARTICLE, so van der Merwe files under V and de Klerk under D, whereas the Netherlands files de Vries under V for Vries. The counts are the project default decay curve applied to a considered ranking, not a census: no Afrikaans surname approaches the concentration of a Korean Kim or a Vietnamese Nguyen, so a gentle curve is the honest shape. The list is shorter than the reference en one because it stops where verifiable names stop.
+locale: af
+weighted: true
+---
+van der Merwe,1000000
+Botha,933032
+Adams,895958
+Jacobs,870550
+Davids,851339
+van Wyk,835958
+Petersen,823171
+Williams,812252
+Fortuin,802741
+Abrahams,794328
+Booysen,786793
+Hendricks,779977
+Isaacs,773758
+Daniels,768045
+Pretorius,762765
+van Zyl,757858
+Nel,753277
+Coetzee,748984
+du Plessis,744945
+Smit,741134
+Steyn,737527
+Venter,734104
+Fourie,730848
+Kruger,727744
+Meyer,724779
+van Niekerk,721942
+du Toit,719223
+le Roux,716612
+Swanepoel,714101
+Olivier,711685
+Visser,709355
+Louw,707106
+Marais,704934
+van Rensburg,702832
+Erasmus,700798
+Pienaar,698827
+Bezuidenhout,696915
+Human,695058
+Jansen,693255
+September,691502
+van Heerden,689797
+Snyders,688137
+Solomons,686519
+Titus,684943
+April,683405
+Oktober,681905
+Januarie,680440
+Julies,679009
+Arendse,677610
+Cupido,676243
+Damon,674905
+Willemse,673596
+Plaatjies,672314
+Stuurman,671058
+Witbooi,669828
+Klaasen,668622
+Koopman,667440
+Philander,666280
+Fredericks,665142
+Goliath,664025
+Malgas,662928
+Ontong,661851
+Pekeur,660793
+Ruiters,659753
+Saal,658731
+Sauls,657726
+Jantjies,656738
+Lottering,655766
+Maarman,654809
+Olifant,653868
+Poggenpoel,652941
+Tromp,652028
+Carolissen,651130
+Diedericks,650244
+Domingo,649372
+Adonis,648512
+Afrika,647665
+Baartman,646830
+Bruintjies,646007
+Prins,645195
+Kleinbooi,644394
+Links,643603
+Mouton,642824
+Michaels,642054
+Moses,641295
+Manuel,640545
+Cloete,639805
+Hanse,639074
+Jonkers,638353
+Lakay,637640
+Marthinus,636936
+Meintjies,636240
+Mentoor,635552
+Windvogel,634873
+Kleinsmidt,634202
+Kannemeyer,633538
+Sass,632882
+de Wee,632233
+van Rooi,631591
+van der Ross,630957
+Farmer,630329
+Felix,629709
+Gertse,629095
+Joseph,628487
+Lewis,627886
+Sonday,627291
+Magerman,626702
+Losper,626120
+Wildschut,625543
+Truter,624972
+Carelse,624406
+Stoffels,623847
+Pedro,623292
+Filander,622743
+Esau,622200
+Dyers,621661
+Langeveldt,621128
+Rademan,620600
+Simons,620076
+Slinger,619557
+Sylvester,619043
+Ebrahim,618534
+Mohamed,618029
+Omar,617529
+Salie,617033
+Parker,616542
+Khan,616055
+Gamieldien,615572
+Behardien,615093
+Rakiep,614618
+Toefy,614147
+Fakier,613680
+Jaffer,613217
+Kamalie,612758
+Latief,612303
+Nordien,611851
+Osman,611403
+Achmat,610959
+Allie,610518
+Bassier,610080
+Cassiem,609646
+Dollie,609215
+Hoosain,608788
+Majiet,608364
+Samsodien,607943
+Levendal,607525
+Emeran,607111
+Effendi,606699
+Booley,606291
+Ariefdien,605885
+van Rooyen,605483
+van der Walt,605083
+van der Westhuizen,604687
+van Staden,604293
+van Vuuren,603902
+van Tonder,603514
+van Schalkwyk,603128
+van Deventer,602745
+van As,602365
+van den Berg,601988
+van der Heever,601613
+van der Berg,601240
+van der Schyff,600870
+van der Vyver,600503
+van der Wath,600138
+Janse van Rensburg,599776
+Jansen van Vuuren,599416
+de Beer,599058
+de Bruin,598702
+de Jager,598349
+de Klerk,597998
+de Kock,597650
+de Lange,597303
+de Villiers,596959
+de Vos,596617
+de Waal,596277
+de Wet,595940
+de Swardt,595604
+du Preez,595270
+du Plooy,594939
+Vermeulen,594609
+Viljoen,594282
+Visagie,593956
+Vorster,593633
+Vosloo,593311
+Vries,592991
+Wessels,592673
+Wentzel,592357
+Wolmarans,592043
+Uys,591731
+Theron,591420
+Terblanche,591112
+Taljaard,590805
+Swart,590499
+Swartz,590196
+Strydom,589894
+Strauss,589594
+Stander,589295
+Steenkamp,588999
+Smith,588704
+Slabbert,588410
+Serfontein,588118
+Schutte,587828
+Scholtz,587539
+Schoeman,587252
+Rossouw,586966
+Roux,586682
+Roos,586399
+Retief,586118
+Rademeyer,585838
+Prinsloo,585560
+Potgieter,585283
+Pieterse,585008
+Pietersen,584734
+Otto,584461
+Opperman,584190
+Oosthuizen,583920
+Odendaal,583652
+Nortjé,583385
+Naudé,583119
+Muller,582855
+Mostert,582592
+Maree,582330
+Malherbe,582069
+Malan,581810
+Lubbe,581552
+Loots,581296
+Lombard,581040
+Landman,580786
+Labuschagne,580533
+Kriel,580281
+Kotze,580030
+Koekemoer,579781
+Klopper,579533
+Kirsten,579286
+Kemp,579040
+Joubert,578795
+Jordaan,578551
+Hugo,578309
+Herbst,578067
+Hattingh,577827
+Grobler,577588
+Grobbelaar,577350
+Greeff,577113
+Gouws,576877
+Gous,576642
+Gerber,576408
+Geldenhuys,576175
+Fouché,575943
+Esterhuizen,575712
+Esterhuyse,575483
+Engelbrecht,575254
+Duvenhage,575026
+Dippenaar,574799
+Delport,574574
+Cronjé,574349
+Conradie,574125
+Claassen,573902
+Cilliers,573680
+Carstens,573459
+Carolus,573239
+Burger,573020
+Bruwer,572801
+Brink,572584
+Breytenbach,572368
+Brand,572152
+Bosman,571937
+Bosch,571724
+Botes,571511
+Boonzaaier,571299
+Blignaut,571088
+Beukes,570877
+Basson,570668
+Barnard,570459
+Andrews,570251
+Alexander,570044
+Senekal,569838
+Rautenbach,569633
+Lategan,569428
+Nieuwoudt,569225
+Bester,569022
+Buys,568820
+Dreyer,568618
+Ferreira,568418
+Fick,568218
+Fransman,568019
+Geyer,567821
+Goosen,567624
+Hanekom,567427
+Harmse,567231
+Havenga,567036
+Heyns,566841
+Hoffman,566647
+Horn,566454
+Kellerman,566262
+Kleynhans,566070
+Kok,565880
+Krige,565689
+Kritzinger,565500
+Laubscher,565311
+Lourens,565123
+Marx,564936
+Matthee,564749
+Moolman,564563
+Pelser,564377
+Pistorius,564193
+Raubenheimer,564009
+Reyneke,563825
+Scheepers,563643
+Schreuder,563460
+Smuts,563279
+Snyman,563098
+Spies,562918
+Stadler,562739
+Stoltz,562560
+Theunissen,562381
+Tredoux,562204
+Veldman,562027
+Verster,561850
+Vivier,561674
+Vlok,561499
+Wagner,561325
+Walters,561151
+Weber,560977
+Wiese,560804
+Wilken,560632
+Wolfaardt,560460
+Zietsman,560289
+Minnaar,560119
+Nagel,559949
+Lamprecht,559779
+Groenewald,559610
+Boois,559442
+Christiaans,559274
+Diergaardt,559107
+Gertze,558941
+Izaaks,558775
+Kooper,558609
+Swartbooi,558444
+McNab,558280
+Cornelius,558116
+Johannes,557952
+Jafta,557789
+Hermanus,557627
+Andreas,557465
+Frans,557304
+Matthys,557143
+Samuels,556983
+Salomon,556823
+Peters,556664
+Pieters,556505
+Phillips,556346
+Thomas,556189
+Martin,556031
+George,555875
+Gordon,555718
+Brown,555562
+Johnson,555407
+Jonas,555252
+Klein,555098
+Lucas,554944
+May,554790
+Newman,554637
+Noble,554485
+Prince,554332
+Saunders,554181
+Stevens,554030
+Taylor,553879
+Thompson,553729
+Tobias,553579
+Walker,553429
+White,553280
+Wilson,553132
+Wright,552984
+Fisher,552836
+Dixon,552689
+Dick,552542
+Daniel,552396
+Bailey,552250
+Cameron,552104
+Henry,551959
+Hector,551815
+Marcus,551670
+Mason,551527

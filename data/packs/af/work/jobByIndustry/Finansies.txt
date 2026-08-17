@@ -1,0 +1,10 @@
+---
+description: Finance jobs, in Afrikaans.
+locale: af
+---
+Finansiële ontleder
+Rekenmeester
+Beleggingsbankier
+Ouditeur
+Aktuaris
+Leningsbeampte

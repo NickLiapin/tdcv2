@@ -1,0 +1,5 @@
+---
+description: Currency code of Швейцария
+locale: ky
+---
+CHF

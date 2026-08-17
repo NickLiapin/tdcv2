@@ -1,0 +1,11 @@
+---
+description: Driving licence category in Kyrgyz. Kyrgyzstan uses the post-Soviet A/B/C/D letter system with the E trailer endorsements, not the American CDL classes.
+locale: ky
+---
+A
+B
+C
+D
+BE
+CE
+DE

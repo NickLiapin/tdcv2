@@ -1,0 +1,23 @@
+---
+description: Film genre, in Afrikaans. Wildwesfilm is a western; note the circumflex in Dokumentêr.
+locale: af
+---
+Aksie
+Komedie
+Drama
+Gruwel
+Riller
+Romanse
+Wetenskapfiksie
+Fantasie
+Dokumentêr
+Animasie
+Avontuur
+Misdaad
+Misterie
+Wildwesfilm
+Musiekblyspel
+Oorlogsfilm
+Biografie
+Familiefilm
+Kortfilm

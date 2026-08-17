@@ -1,0 +1,5 @@
+---
+description: Capital of Saoedi-Arabië, in Afrikaans.
+locale: af
+---
+Riaad

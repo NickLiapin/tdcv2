@@ -1,0 +1,5 @@
+---
+description: Capital of Испания, in Kyrgyz
+locale: ky
+---
+Мадрид

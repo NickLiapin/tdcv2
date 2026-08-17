@@ -1,0 +1,38 @@
+---
+description: Kinds of building in Kyrgyz. Includes the boz uy (боз үй), the felt yurt, which is not a museum object: it is still put up for weddings, funerals and the summer pasture, and a Kyrgyz address list that omits it is describing somewhere else.
+locale: ky
+---
+Үй
+Батир
+Жеке үй
+Көп кабаттуу үй
+Коттедж
+Боз үй
+Кепе
+Имарат
+Кеңсе
+Кеңсе имараты
+Дүкөн
+Соода борбору
+Базар
+Кампа
+Устакана
+Завод
+Фабрика
+Гараж
+Ангар
+Мунара
+Мейманкана
+Ашкана
+Оорукана
+Дарыкана
+Мектеп
+Бала бакча
+Китепкана
+Музей
+Театр
+Стадион
+Мечит
+Чиркөө
+Мал сарай
+Жертөлө

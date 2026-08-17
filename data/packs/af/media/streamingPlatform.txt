@@ -1,0 +1,16 @@
+---
+description: Streaming service. Platform brands are not translated. Showmax is the local service and carries most of the Afrikaans-language catalogue; DStv Stream is the satellite broadcaster's streaming arm.
+locale: af
+---
+Showmax
+DStv Stream
+Netflix
+Disney+
+Amazon Prime Video
+Apple TV+
+YouTube
+Spotify
+Twitch
+Crunchyroll
+VIU
+eVOD

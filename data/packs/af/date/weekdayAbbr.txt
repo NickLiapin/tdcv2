@@ -1,0 +1,11 @@
+---
+description: Abbreviated weekday names in Afrikaans, Monday first. Afrikaans abbreviates the weekday to two letters, not three.
+locale: af
+---
+Ma
+Di
+Wo
+Do
+Vr
+Sa
+So

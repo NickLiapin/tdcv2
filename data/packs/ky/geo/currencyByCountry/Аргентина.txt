@@ -1,0 +1,5 @@
+---
+description: Currency of Аргентина, in Kyrgyz
+locale: ky
+---
+песо

@@ -1,0 +1,5 @@
+---
+description: Capital of Pakistan, in Afrikaans.
+locale: af
+---
+Islamabad

@@ -1,0 +1,14 @@
+---
+description: Fuel type in Kyrgyz. Газ (LPG) is high on the list because converting a petrol car to gas is ordinary practice here, not a rarity.
+locale: ky
+---
+Бензин
+Дизель
+Газ
+Метан
+Пропан
+Гибрид
+Кошулма гибрид
+Электр
+Суутек
+Этанол

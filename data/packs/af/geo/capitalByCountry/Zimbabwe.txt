@@ -1,0 +1,5 @@
+---
+description: Capital of Zimbabwe, in Afrikaans.
+locale: af
+---
+Harare

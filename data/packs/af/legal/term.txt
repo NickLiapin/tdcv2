@@ -1,0 +1,26 @@
+---
+description: Legal term, in Afrikaans. Two of these mark the Roman-Dutch inheritance. An interdik is what English law calls an injunction, and the word is the ordinary one here. And the profession is split: a prokureur is the attorney a client walks in to see, an advokaat is counsel who argues in the higher courts, and only recently may a client brief the second directly. A landdros is a magistrate, a regter a judge, and the two are not the same office.
+locale: af
+---
+Eiser
+Verweerder
+Beskuldigde
+Aanklaer
+Prokureur
+Advokaat
+Landdros
+Regter
+Dagvaarding
+Getuienis
+Beëdigde verklaring
+Interdik
+Uitspraak
+Vonnis
+Skikking
+Geding
+Jurisdiksie
+Borgtog
+Pleidooi
+Hofbevel
+Appèl
+Kruisondervraging

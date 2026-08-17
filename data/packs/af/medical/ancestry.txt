@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them - geographic descent, not social race categories. One caveat matters for this locale in particular: the twelve groups are the project-wide set, and they contain no KhoeSan category, although KhoeSan ancestry is the largest single component of the Cape population that speaks Afrikaans as a first language. The absence is a limitation of the shared list, not a statement about the population.
+locale: af
+---
+Sub-Sahara-Afrikaans
+Noord-Afrikaans
+Mediterreens
+Midde-Oosters
+Noord-Europees
+Oos-Europees
+Asjkenasies-Joods
+Suid-Asiaties
+Oos-Asiaties
+Suidoos-Asiaties
+Inheems-Amerikaans
+Stille Oseaan-eilander

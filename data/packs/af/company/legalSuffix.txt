@@ -1,0 +1,45 @@
+---
+description: Legal form appended to a South African or Namibian company name, in its Afrikaans form. (Edms) Bpk is Eiendoms Beperk - a private company, the equivalent of Pty Ltd - and Bpk alone is a public company. Ing is Ingelyf, an incorporated firm of professionals whose directors are jointly liable, which is why attorneys and auditors use it. BK is a Beslote Korporasie, the close corporation: it is here because hundreds of thousands still trade, but no new one has been registrable since the Companies Act of 2008 took effect in 2011, so a BK in generated data implies a business older than that.
+locale: af
+---
+(Edms) Bpk
+Bpk
+Ing
+BK
+NPC
+SOC Bpk
+Trust
+Vennootskap
+Vennote
+en Seuns
+en Kie
+Groep
+Holdings
+Beleggings
+Ondernemings
+Industrieë
+Internasionaal
+Oplossings
+Stelsels
+Tegnologieë
+Dienste
+Handelaars
+Verspreiders
+Vervaardigers
+Laboratoriums
+Konsultante
+Ingenieurs
+Kontrakteurs
+Boerdery
+Landgoed
+Kelder
+Wynlandgoed
+Myne
+Vragvervoer
+Verskaffers
+Agentskap
+Makelaars
+Eiendomme
+Bouers
+Werkswinkel
+Ateljee

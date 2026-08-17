@@ -1,0 +1,12 @@
+---
+description: French dishes. The Huguenot settlers of 1688 brought vines rather than a surviving kitchen, so these are the modern restaurant French, not a Cape inheritance.
+locale: af
+---
+Coq au vin
+Beef bourguignon
+Ratatouille
+Croissant
+Quiche Lorraine
+Bouillabaisse
+Pannekoek
+Cassoulet

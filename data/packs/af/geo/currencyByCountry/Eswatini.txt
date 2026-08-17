@@ -1,0 +1,5 @@
+---
+description: Currency of Eswatini, in Afrikaans.
+locale: af
+---
+Lilangeni

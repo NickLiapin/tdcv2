@@ -1,0 +1,16 @@
+---
+description: Kind of leave, in Afrikaans. Gesinsverantwoordelikheidsverlof is a statutory entitlement under the Basic Conditions of Employment Act - three days a year for the birth or illness of a child or a death in the family - and it has no counterpart in the reference list. Note also that South African sick leave accrues over a three-year cycle rather than annually.
+locale: af
+---
+Jaarlikse verlof
+Siekverlof
+Gesinsverantwoordelikheidsverlof
+Kraamverlof
+Vaderskapsverlof
+Aannemingsverlof
+Roubeklagverlof
+Studieverlof
+Onbetaalde verlof
+Sabbatsverlof
+Jurieplig
+Spesiale verlof

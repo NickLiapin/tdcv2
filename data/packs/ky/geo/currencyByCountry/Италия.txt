@@ -1,0 +1,5 @@
+---
+description: Currency of Италия, in Kyrgyz
+locale: ky
+---
+евро

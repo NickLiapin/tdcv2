@@ -1,0 +1,11 @@
+---
+description: Hospitality jobs, in Afrikaans. A wildbewaarder - game ranger - is a hospitality job here, since most of the sector's ranger posts sit at private lodges.
+locale: af
+---
+Sjef
+Hotelbestuurder
+Kroegman
+Portier
+Souschef
+Geleentheidskoördineerder
+Wildbewaarder

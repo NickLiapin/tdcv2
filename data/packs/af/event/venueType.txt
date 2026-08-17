@@ -1,0 +1,24 @@
+---
+description: Kind of venue, in Afrikaans. A wynlandgoed - wine estate - is the default wedding venue of the Western Cape, and a wildplaas serves the same role in the interior; both are as ordinary here as a hotel ballroom is elsewhere.
+locale: af
+---
+Hotelbalsaal
+Konferensiesentrum
+Stadion
+Teater
+Feessaal
+Dakterras
+Tuin
+Pakhuis
+Ouditorium
+Nagklub
+Vergaderkamer
+Wynlandgoed
+Wildplaas
+Kerksaal
+Skoolsaal
+Stadsaal
+Kampterrein
+Strandklub
+Plaaswerf
+Boomhuis

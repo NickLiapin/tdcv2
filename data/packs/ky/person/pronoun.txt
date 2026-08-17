@@ -1,0 +1,12 @@
+---
+description: Kyrgyz personal pronouns. KYRGYZ HAS NO GRAMMATICAL GENDER: ал is he, she and it at once, and there is no Kyrgyz pair matching he/him against she/her. A config that picks a pronoun set from a person's gender has nothing to pick from in this language, and that absence is the fact, not a gap in the file. What Kyrgyz does distinguish instead is politeness in the second person — сен to an intimate or a child, сиз to an elder or a stranger — so that pair is here in place of the gender pair.
+locale: ky
+---
+ал
+ал/ага
+ал/аны
+алар
+мен
+сен
+сиз
+биз

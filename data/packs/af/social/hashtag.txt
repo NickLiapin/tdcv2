@@ -1,0 +1,34 @@
+---
+description: Hashtag. This list is deliberately mixed, and the mixture is the observation: Afrikaans speakers post in Afrikaans but hashtag largely in English, so a realistic Afrikaans feed carries #fyp and #tbt beside #braai and #boerekos. Writing this list wholly in Afrikaans would be tidier and wrong.
+locale: af
+---
+braai
+boerekos
+plaaslewe
+suidafrika
+kaapstad
+liefde
+lewe
+natuur
+veld
+wildlewe
+fynbos
+sonsondergang
+bergklim
+padreis
+familie
+vriende
+kos
+mooi
+gelukkig
+motivering
+proudlysouthafrican
+lekker
+tbt
+fyp
+ootd
+photooftheday
+instagood
+viral
+trending
+wanderlust

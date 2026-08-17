@@ -1,0 +1,5 @@
+---
+description: Currency of China, in Afrikaans.
+locale: af
+---
+Renminbi

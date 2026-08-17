@@ -1,0 +1,21 @@
+---
+description: Video game genre, in Afrikaans. Where the genre name is an English term of art with no Afrikaans equivalent in use - roguelike, sandbox, MMORPG - it is kept.
+locale: af
+---
+Aksie
+Avontuur
+Rolspel
+Strategie
+Simulasie
+Sport
+Legkaart
+Skietspel
+Platformspel
+Wedren
+Vegspel
+Oorlewing
+Sandput
+MMORPG
+Roguelike
+Ritmespel
+Gruwelspel

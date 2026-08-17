@@ -1,0 +1,5 @@
+---
+description: Currency code of China.
+locale: af
+---
+CNY

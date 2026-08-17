@@ -1,0 +1,19 @@
+---
+description: Reason a customer gives for returning an item, written as an Afrikaans shopper would write it. Several of these show the Afrikaans double negative, where a negated clause is closed by a second nie: "Dit werk nie soos geadverteer nie". Dutch does not do this, and it is the most reliable single way to tell an Afrikaans sentence from a Dutch one. Where nie already stands at the end of the clause it is not doubled - "Dit werk nie" is complete as it stands.
+locale: af
+---
+Beskadig ontvang
+Verkeerde item gestuur
+Item nie soos beskryf nie
+Verkeerde grootte
+Ek het van plan verander
+Goedkoper elders gekry
+Defektief by ontvangs
+Onderdele ontbreek
+Laat afgelewer
+Nie meer nodig nie
+Per ongeluk bestel
+Gehalte was swak
+Dit werk nie soos geadverteer nie
+Kleur stem nie ooreen nie
+Dubbel bestel

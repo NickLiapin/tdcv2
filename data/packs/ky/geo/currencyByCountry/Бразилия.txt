@@ -1,0 +1,5 @@
+---
+description: Currency of Бразилия, in Kyrgyz
+locale: ky
+---
+реал

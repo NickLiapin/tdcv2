@@ -1,0 +1,19 @@
+---
+description: Direction word used in an address or in ordinary speech
+locale: ky
+---
+Түндүк
+Түштүк
+Чыгыш
+Батыш
+Түндүк-чыгыш
+Түндүк-батыш
+Түштүк-чыгыш
+Түштүк-батыш
+Өйдө
+Ылдый
+Сол
+Оң
+Алдыда
+Артта
+Ортодо

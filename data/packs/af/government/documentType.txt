@@ -1,0 +1,24 @@
+---
+description: Kind of official document, named in Afrikaans. The identiteitsdokument is the green bar-coded book, now being replaced by the smartcard identiteitskaart, and both are named here because both are in circulation. The actual identity NUMBER, and its check digit, belong in a country pack, not here.
+locale: af
+---
+Paspoort
+Identiteitsdokument
+Identiteitskaart
+Geboortesertifikaat
+Huweliksertifikaat
+Egskeidingsbevel
+Sterftesertifikaat
+Bestuurslisensie
+Professionele bestuurspermit
+Voertuiglisensie
+Kiesersregistrasie
+Belastingopgawe
+Bouplan-goedkeuring
+Besigheidslisensie
+Visum
+Werkspermit
+Verblyfpermit
+Testament
+Volmag
+Polisieklaringsertifikaat

@@ -1,0 +1,5 @@
+---
+description: Currency of Норвегия, in Kyrgyz
+locale: ky
+---
+крона

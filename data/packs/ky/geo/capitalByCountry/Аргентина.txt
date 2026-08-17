@@ -1,0 +1,5 @@
+---
+description: Capital of Аргентина, in Kyrgyz
+locale: ky
+---
+Буэнос-Айрес

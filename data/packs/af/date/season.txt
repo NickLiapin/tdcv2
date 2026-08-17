@@ -1,0 +1,8 @@
+---
+description: Season names in Afrikaans, listed in the order the southern hemisphere lives them. This is not a translation problem but a hemisphere problem: in South Africa and Namibia Somer runs December to February and Winter June to August, so a config that maps month 12 to Winter because the European packs do will label every Christmas as midwinter. Lente is spring, Herfs autumn.
+locale: af
+---
+Somer
+Herfs
+Winter
+Lente

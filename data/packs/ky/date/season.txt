@@ -1,0 +1,8 @@
+---
+description: Season. Kyrgyzstan is sharply continental and has four full seasons; жаз (spring) and жай (summer) are two different words and are easy to confuse.
+locale: ky
+---
+жаз
+жай
+күз
+кыш

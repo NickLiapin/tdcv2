@@ -1,0 +1,30 @@
+---
+description: Mobile and internet providers used in Kyrgyzstan, plus the operator brands of the neighbouring countries a Kyrgyz migrant worker carries a SIM for. Brand names keep their own spelling.
+locale: ky
+---
+Beeline KG
+MegaCom
+O!
+Sky Mobile
+Nurtelecom
+Кыргызтелеком
+Saima Telecom
+ElCat
+Aknet
+Homeline
+Jet
+Fastnet
+Megaline
+Транссвязь
+Kyrgyz Mobile
+Билайн
+МТС
+Мегафон
+Теле2
+Yota
+Kcell
+Activ
+Beeline KZ
+Ucell
+Beeline UZ
+Tcell

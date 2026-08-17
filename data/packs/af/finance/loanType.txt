@@ -1,0 +1,16 @@
+---
+description: Kind of loan, in Afrikaans. A home loan is called a verband, literally a bond, and South Africans say "my bond" where an American says "my mortgage". Winkelrekening - a store account - is a form of consumer credit large enough here to be regulated by the National Credit Act.
+locale: af
+---
+Verband
+Huislening
+Motorfinansiering
+Persoonlike lening
+Studentelening
+Besigheidslening
+Kredietfasiliteit
+Winkelrekening
+Skuldkonsolidasie
+Betaaldaglening
+Oortrekkingsfasiliteit
+Boerderylening

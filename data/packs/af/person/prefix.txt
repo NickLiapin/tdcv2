@@ -1,0 +1,36 @@
+---
+description: Title placed before a name, in Afrikaans. Four are specific to this society. Ds is dominee, the minister of a Reformed congregation, and is a form of address in daily use. Adv marks an advocate as against Prokureur's attorney, and the distinction is a real professional one. Sjeg and Hadji are Cape Muslim honorifics - the second is carried for life by anyone who has performed the hajj and stands in front of the name like any other title. Oom and Tannie, uncle and aunt, are used to any older person whether related or not, and are titles in practice.
+locale: af
+---
+Mnr
+Mev
+Mej
+Dr
+Prof
+Ds
+Past
+Eerw
+Br
+Sr
+Adv
+Imam
+Sjeg
+Hadji
+Kapt
+Sers
+Lt
+Kmdt
+Kol
+Genl
+Adm
+Regter
+Landdros
+Raadslid
+Burgemeester
+Oom
+Tannie
+Sir
+Dame
+Edelagbare
+Ere
+Wyle

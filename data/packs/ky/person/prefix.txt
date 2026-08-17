@@ -1,0 +1,28 @@
+---
+description: Kyrgyz forms of respectful address — AND THEY GO AFTER THE NAME, NOT BEFORE IT. Kyrgyz addresses people by kin term: Азамат байке (elder brother), Айгүл эже (elder sister), Асан аке, Бүбүсара апа. A config that puts these in front of the name, the way Mr or Pani work, produces 'байке Азамат', which is not a thing anyone says. Мырза and айым, the modern Mr/Ms, also follow the name. Only the borrowed academic titles (Доктор, Профессор, Академик) come first.
+locale: ky
+---
+байке
+аке
+эже
+эжеке
+апа
+апаке
+ата
+аба
+таке
+уке
+сиңди
+карындаш
+жеңе
+мырза
+айым
+аксакал
+байбиче
+молдо
+устат
+мугалим
+Доктор
+Профессор
+Академик
+Доцент

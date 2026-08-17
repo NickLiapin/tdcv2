@@ -1,0 +1,16 @@
+---
+description: Streaming service watched in Kyrgyzstan. Brand names keep their own spelling. The Russian-language services sit alongside the global ones because that is what is actually subscribed to here.
+locale: ky
+---
+YouTube
+Netflix
+Кинопоиск
+ivi
+Okko
+Megogo
+Amediateka
+Amazon Prime Video
+Disney+
+Apple TV+
+Twitch
+TikTok

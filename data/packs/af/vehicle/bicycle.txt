@@ -1,0 +1,21 @@
+---
+description: Bicycle type, in Afrikaans.
+locale: af
+---
+Padfiets
+Bergfiets
+Gruisfiets
+Hibriede fiets
+Toerfiets
+BMX-fiets
+Elektriese fiets
+Voufiets
+Baanfiets
+Kruiserfiets
+Vetbandfiets
+Kinderfiets
+Eenwielfiets
+Tandem
+Ligfiets
+Veldwedrenfiets
+Draaifiets

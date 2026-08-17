@@ -1,0 +1,10 @@
+---
+description: Field hockey positions, in Afrikaans.
+locale: af
+---
+Doelwagter
+Agterspeler
+Middelveldspeler
+Vleuel
+Spits
+Swaaispeler

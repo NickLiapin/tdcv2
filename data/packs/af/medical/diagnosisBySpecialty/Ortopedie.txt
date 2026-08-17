@@ -1,0 +1,10 @@
+---
+description: Orthopaedics diagnoses, in Afrikaans.
+locale: af
+---
+Osteoartritis
+Rumatoïede artritis
+Diskusprolaps
+Karpaletonnelsindroom
+Isjias
+Rotatorkasskeur

@@ -1,0 +1,10 @@
+---
+description: Transport jobs, in Afrikaans.
+locale: af
+---
+Vragmotorbestuurder
+Logistiekkoördineerder
+Lugverkeersleier
+Versender
+Handelsvlieënier
+Pakhuiswerker

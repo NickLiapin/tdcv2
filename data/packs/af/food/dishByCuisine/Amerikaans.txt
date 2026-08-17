@@ -1,0 +1,11 @@
+---
+description: American dishes as an Afrikaans menu names them.
+locale: af
+---
+Kaasburger
+Braairibbetjies
+Macaroni en kaas
+Buffalo-vlerkies
+Mosselsop
+Appeltert
+Mieliebrood

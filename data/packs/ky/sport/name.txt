@@ -1,0 +1,64 @@
+---
+description: Sports in Kyrgyz. КӨК БӨРҮ IS THE NATIONAL SPORT: two teams of riders carry a goat carcass to the opponents' clay goal, it has a federation, a league and televised finals. Эр эңиш is mounted wrestling, кыз куумай a chase on horseback, and тогуз коргоол the two-row sowing board game that is taught in schools and played at championship level. Эркин күрөш (freestyle wrestling) is where Kyrgyzstan's Olympic medals come from.
+locale: ky
+---
+Көк бөрү
+Эр эңиш
+Оодарыш
+Кыз куумай
+Тыйын энмей
+Жамбы атуу
+Ат чабыш
+Тогуз коргоол
+Ордо
+Упай
+Балбан күрөш
+Эркин күрөш
+Грек-рим күрөшү
+Дзюдо
+Самбо
+Бокс
+Кикбоксинг
+Тхэквондо
+Каратэ
+Айкидо
+ММА
+Оор атлетика
+Жеңил атлетика
+Марафон
+Жүгүрүү
+Узундукка секирүү
+Бийиктикке секирүү
+Найза ыргытуу
+Футбол
+Мини-футбол
+Волейбол
+Пляж волейболу
+Баскетбол
+Гандбол
+Регби
+Бейсбол
+Америка футболу
+Муз хоккейи
+Теннис
+Үстөл теннис
+Бадминтон
+Сквош
+Велоспорт
+Сүзүү
+Гимнастика
+Көркөм гимнастика
+Фигуралык учуу
+Конькиде тайгалануу
+Лыжа спорту
+Сноуборд
+Альпинизм
+Скалолазание
+Спорттук туризм
+Шахмат
+Шашки
+Бильярд
+Гольф
+Рафтинг
+Каякинг
+Параплан

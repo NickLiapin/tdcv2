@@ -1,0 +1,18 @@
+---
+description: Order status on an Afrikaans online store.
+locale: af
+---
+Hangende
+Word verwerk
+Bevestig
+Betaling afwagtend
+Word gepak
+Versend
+Uit vir aflewering
+Afgelewer
+Gekanselleer
+Teruggestuur
+Terugbetaal
+In wag
+Uit voorraad
+Misluk

@@ -1,0 +1,27 @@
+---
+description: Government bodies as Kyrgyz names them. Kyrgyz is spoken in essentially one state, so these are the REAL ministries and agencies of the Kyrgyz Republic rather than generic words — that is what the terms mean. The names of these bodies are reorganised often; treat the list as the vocabulary in circulation, not as a register of the current cabinet.
+locale: ky
+---
+Билим берүү жана илим министрлиги
+Саламаттык сактоо министрлиги
+Ички иштер министрлиги
+Тышкы иштер министрлиги
+Каржы министрлиги
+Юстиция министрлиги
+Коргоо министрлиги
+Айыл чарба министрлиги
+Энергетика министрлиги
+Транспорт жана коммуникациялар министрлиги
+Экономика жана коммерция министрлиги
+Эмгек, социалдык камсыздоо жана миграция министрлиги
+Маданият, маалымат, спорт жана жаштар саясаты министрлиги
+Өзгөчө кырдаалдар министрлиги
+Санариптик өнүктүрүү министрлиги
+Улуттук коопсуздук мамлекеттик комитети
+Мамлекеттик салык кызматы
+Мамлекеттик бажы кызматы
+Социалдык фонд
+Улуттук статистика комитети
+Улуттук банк
+Борбордук шайлоо комиссиясы
+Акыйкатчы

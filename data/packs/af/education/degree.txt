@@ -1,0 +1,24 @@
+---
+description: Qualification, in Afrikaans, as awarded in South Africa. Two levels have no United States equivalent and a config cannot infer them. The Honneursgraad is a separate one-year postgraduate degree taken AFTER the three-year bachelor and BEFORE the master's - it is not an "honours" distinction attached to a bachelor's. Nasionale Senior Sertifikaat, universally called matriek, is the school-leaving certificate and the thing a job advertisement asks for. Nasionale Diploma and Gevorderde Diploma come from the universities of technology rather than the traditional universities.
+locale: af
+---
+Nasionale Senior Sertifikaat
+Hoër Sertifikaat
+Nasionale Sertifikaat (Beroepsgerig)
+Nasionale Diploma
+Gevorderde Diploma
+Baccalaureus Artium
+Baccalaureus Scientiae
+Baccalaureus Commercii
+Baccalaureus in die Ingenieurswese
+Baccalaureus Educationis
+Baccalaureus Legum
+Baccalaureus in die Geneeskunde en Chirurgie
+Honneursgraad
+Nagraadse Onderwysdiploma
+Magister Artium
+Magister Scientiae
+Magister in Bedryfsadministrasie
+Magister Legum
+Doctor Philosophiae
+Doctor Litterarum et Philosophiae

@@ -1,0 +1,12 @@
+---
+description: Number of people in a household. Kyrgyz households run large by European standards — the average is above four and three-generation households are ordinary — so the upper end of this range is not exotic.
+locale: ky
+---
+1
+2
+3
+4
+5
+6
+7
+8

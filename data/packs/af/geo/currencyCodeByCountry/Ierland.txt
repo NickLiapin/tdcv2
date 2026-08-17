@@ -1,0 +1,5 @@
+---
+description: Currency code of Ierland.
+locale: af
+---
+EUR

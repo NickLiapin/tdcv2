@@ -1,0 +1,14 @@
+---
+description: Industry with a job list, in Afrikaans, and the parent of jobByIndustry.
+locale: af
+---
+Tegnologie
+Gesondheidsorg
+Finansies
+Konstruksie
+Onderwys
+Gasvryheid
+Vervaardiging
+Kleinhandel
+Vervoer
+Regsdienste

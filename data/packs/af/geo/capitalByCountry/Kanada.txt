@@ -1,0 +1,5 @@
+---
+description: Capital of Kanada, in Afrikaans.
+locale: af
+---
+Ottawa

@@ -1,0 +1,5 @@
+---
+description: Capital of Viëtnam, in Afrikaans.
+locale: af
+---
+Hanoi

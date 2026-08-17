@@ -1,0 +1,16 @@
+---
+description: Conditions with a higher prevalence in Ashkenazi Jewish ancestry, in Afrikaans.
+locale: af
+---
+Tay-Sachs-siekte
+Gaucher se siekte tipe 1
+Familiêre disoutonomie
+Canavan se siekte
+Niemann-Pick-siekte tipe A
+Bloom-sindroom
+Faktor XI-tekort
+BRCA1-stigtermutasie
+BRCA2-stigtermutasie
+Mukolipidose tipe IV
+Crohn se siekte
+Torsiedistonie

@@ -1,0 +1,5 @@
+---
+description: Currency of Вьетнам, in Kyrgyz
+locale: ky
+---
+донг

@@ -1,0 +1,24 @@
+---
+description: Room in a house, in Afrikaans. A binnehof is an internal courtyard and a spens a walk-in pantry.
+locale: af
+---
+Slaapkamer
+Hoofslaapkamer
+Badkamer
+En-suite badkamer
+Gastetoilet
+Kombuis
+Spens
+Sitkamer
+Eetkamer
+Gesinskamer
+Studeerkamer
+Kantoor
+Wasgoedkamer
+Kelder
+Dakkamer
+Motorhuis
+Stoep
+Binnehof
+Speelkamer
+Gastekamer

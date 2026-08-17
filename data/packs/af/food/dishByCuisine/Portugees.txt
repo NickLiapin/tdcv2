@@ -1,0 +1,12 @@
+---
+description: Portuguese dishes, brought to South Africa by the Madeiran and Mozambican Portuguese communities and now thoroughly local.
+locale: af
+---
+Peri-peri-hoender
+Espetada
+Prego-rol
+Trinchado
+Bacalhau
+Pastel de nata
+Caldo verde
+Peri-peri-garnale

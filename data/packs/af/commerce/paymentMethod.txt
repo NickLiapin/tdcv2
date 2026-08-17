@@ -1,0 +1,20 @@
+---
+description: Payment method, in Afrikaans. Three of these are South African rather than general: EFT - an electronic funds transfer the buyer pushes from their own banking app - is the dominant way of settling an online invoice here, Onmiddellike EFT is the bank-authorised variant, and Bewaarkoop is layby, still a mainstream way to buy furniture and clothing on a low income. SnapScan and Zapper are local QR wallets and keep their brand spelling.
+locale: af
+---
+Kredietkaart
+Debietkaart
+EFT
+Onmiddellike EFT
+SnapScan
+Zapper
+PayPal
+Apple Pay
+Google Pay
+Bankoorplasing
+Kontant by aflewering
+Geskenkbewys
+Winkelrekening
+Bewaarkoop
+Koop nou, betaal later
+Kriptogeld

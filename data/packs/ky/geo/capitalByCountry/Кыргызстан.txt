@@ -1,0 +1,5 @@
+---
+description: Capital of Кыргызстан, in Kyrgyz
+locale: ky
+---
+Бишкек

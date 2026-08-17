@@ -1,0 +1,20 @@
+---
+description: Cuisine, in Afrikaans, and the parent of food/dishByCuisine. The first two are the cuisines of the two largest Afrikaans-speaking communities: Boerekos is the farm cooking of the interior, and Kaaps-Maleis is the Cape Malay cooking that Muslim Cape cooks built out of Indonesian, Indian and Dutch elements from the seventeenth century onward - it is older than Boerekos and it is where most of what the world thinks of as South African food comes from.
+locale: af
+---
+Boerekos
+Kaaps-Maleis
+Portugees
+Indies
+Italiaans
+Sjinees
+Japannees
+Meksikaans
+Frans
+Thai
+Grieks
+Spaans
+Amerikaans
+Koreaans
+Viëtnamees
+Turks

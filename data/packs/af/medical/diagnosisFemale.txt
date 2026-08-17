@@ -1,0 +1,30 @@
+---
+description: Diagnosis specific to female anatomy, in Afrikaans.
+locale: af
+---
+Endometriose
+Polisistiese ovariumsindroom
+Baarmoedervesels
+Ovariumsist
+Ovariumkanker
+Baarmoederhalskanker
+Servikale displasie
+Servisitis
+Endometritis
+Endometriumkanker
+Bekkeninflammatoriese siekte
+Bakteriële vaginose
+Vulvovaginale kandidose
+Menorragie
+Dismenorree
+Amenorree
+Pre-eklampsie
+Swangerskapsdiabetes
+Hiperemesis gravidarum
+Buitebaarmoederlike swangerskap
+Postpartum bloeding
+Mastitis
+Fibrosistiese borsverandering
+Menopousale sindroom
+Premenstruele disforiese versteuring
+Baarmoederverzakking

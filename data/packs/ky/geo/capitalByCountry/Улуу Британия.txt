@@ -1,0 +1,5 @@
+---
+description: Capital of Улуу Британия, in Kyrgyz
+locale: ky
+---
+Лондон

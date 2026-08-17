@@ -1,0 +1,22 @@
+---
+description: Room type, in Afrikaans. Selfsorg - self-catering - is a category of its own in southern African accommodation rather than a feature of a room, and Rondawel and Safaritent are ordinary bookable units at game lodges and holiday resorts.
+locale: af
+---
+Standaard
+Luukse
+Suite
+Enkelkamer
+Dubbelkamer
+Tweelingkamer
+Gesinskamer
+Selfsorgeenheid
+Chalet
+Rondawel
+Safaritent
+Boshuisie
+Stapelbedkamer
+Studio
+Penthuis
+Toeganklike kamer
+Verbindende kamers
+Tuinkamer

@@ -1,0 +1,24 @@
+---
+description: Employee benefit, in Afrikaans. Three are South African. A dertiende tjek is the thirteenth cheque - a December bonus of one month's salary, so normal that its absence is negotiated rather than its presence. Voorsorgfonds and Pensioenfonds are two different statutory retirement vehicles and an employer offers one or the other. Behuisingsubsidie, a housing allowance, is a standard element of public-sector and mining packages.
+locale: af
+---
+Mediese fonds
+Pensioenfonds
+Voorsorgfonds
+Dertiende tjek
+Groeplewensversekering
+Ongeskiktheidsdekking
+Betaalde verlof
+Afstandwerk
+Buigsame ure
+Aandeleopsies
+Kraamverlof
+Vaderskapsverlof
+Studiehulp
+Vervoertoelaag
+Behuisingsubsidie
+Selfoontoelaag
+Gimnasiumlidmaatskap
+Welstandsprogram
+Begrafnisbystand
+Werknemerhulpprogram

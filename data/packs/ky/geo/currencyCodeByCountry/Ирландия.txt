@@ -1,0 +1,5 @@
+---
+description: Currency code of Ирландия
+locale: ky
+---
+EUR

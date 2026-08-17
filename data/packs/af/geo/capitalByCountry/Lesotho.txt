@@ -1,0 +1,5 @@
+---
+description: Capital of Lesotho, in Afrikaans.
+locale: af
+---
+Maseru

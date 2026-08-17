@@ -1,0 +1,35 @@
+---
+description: Musical instruments in Kyrgyz. Комуз, the three-string fretless lute, is the national instrument and is played by amateurs everywhere; кыл кыяк is the bowed horsehair fiddle; ооз комуз is the metal jaw harp, usually played by women; чоор and сыбызгы are shepherd's pipes. These are current instruments with living repertoire, not museum pieces.
+locale: ky
+---
+Комуз
+Кыл кыяк
+Ооз комуз
+Темир комуз
+Чоор
+Сыбызгы
+Чопо чоор
+Добулбас
+Керней
+Сурнай
+Асатаяк
+Жетиген
+Домбра
+Дутар
+Рубаб
+Гитара
+Бас гитара
+Пианино
+Скрипка
+Виолончель
+Арфа
+Флейта
+Кларнет
+Саксофон
+Труба
+Аккордеон
+Баян
+Гармошка
+Барабан
+Синтезатор
+Ксилофон

@@ -1,0 +1,11 @@
+---
+description: Spanish dishes as an Afrikaans menu names them.
+locale: af
+---
+Paella
+Tapas
+Gazpacho
+Spaanse omelet
+Churros
+Patatas bravas
+Jamón ibérico

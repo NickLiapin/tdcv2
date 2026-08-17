@@ -1,0 +1,8 @@
+---
+description: Financial quarter label. K is for kwartaal. The South African government and most listed companies run a financial year from 1 March to 28 February, so K1 here is not the calendar January-March.
+locale: af
+---
+K1
+K2
+K3
+K4

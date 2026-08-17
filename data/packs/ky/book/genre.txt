@@ -1,0 +1,30 @@
+---
+description: Book genres in Kyrgyz. THE MANAS ENTRY IS THE POINT OF THIS LIST: "Манас" is the longest epic ever recorded — around half a million lines, some twenty times the Odyssey and the Iliad together — and it is not a museum text. It is still recited from memory by манасчы (Manas reciters), broadcast, taught in school and quoted in ordinary argument, so эпос, дастан and санжыра (oral genealogy) are live publishing categories here and not historical curiosities.
+locale: ky
+---
+Эпос
+Дастан
+Санжыра
+Жомок
+Макал-лакаптар
+Көркөм адабият
+Роман
+Повесть
+Аңгеме
+Ыр жыйнагы
+Драма
+Детектив
+Триллер
+Тарыхый роман
+Фантастика
+Илимий фантастика
+Фэнтези
+Өмүр баян
+Эскерүү
+Балдар адабияты
+Окуу китеби
+Сөздүк
+Энциклопедия
+Саякат очерки
+Психология
+Бизнес адабияты

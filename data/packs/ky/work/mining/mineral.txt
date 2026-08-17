@@ -1,0 +1,23 @@
+---
+description: Mineral or ore in Kyrgyz. Mining is a real industry here — gold above all, plus the mercury and antimony deposits at Khaidarkan and Kadamjai and the coal of the south — so these are working words.
+locale: ky
+---
+Алтын
+Күмүш
+Мис
+Сымап
+Сурьма
+Уран
+Көмүр
+Таш көмүр
+Күрөң көмүр
+Темир рудасы
+Коргошун
+Цинк
+Калай
+Вольфрам
+Молибден
+Нефрит
+Туз
+Гипс
+Известняк

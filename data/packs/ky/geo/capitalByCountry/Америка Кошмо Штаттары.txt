@@ -1,0 +1,5 @@
+---
+description: Capital of Америка Кошмо Штаттары, in Kyrgyz
+locale: ky
+---
+Вашингтон

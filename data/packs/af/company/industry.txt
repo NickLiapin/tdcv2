@@ -1,0 +1,59 @@
+---
+description: Industry sector, in Afrikaans. Mynwese is listed high because gold, platinum, coal, manganese and Namibian uranium are the industrial spine of the region rather than a niche, and Wynbou - viticulture - is a sector of its own in the Western Cape.
+locale: af
+---
+Landbou
+Mynwese
+Konstruksie
+Vervaardiging
+Kleinhandel
+Groothandel
+Vervoer
+Inligtingstegnologie
+Finansies
+Versekering
+Eiendom
+Gesondheidsorg
+Onderwys
+Gasvryheid
+Vermaak
+Energie
+Telekommunikasie
+Motorbedryf
+Lugvaart
+Farmaseutika
+Biotegnologie
+Logistiek
+Media
+Konsultasie
+Nieregeringsorganisasies
+Wynbou
+Veeboerdery
+Visserye
+Bosbou
+Toerisme
+Wildbedryf
+Chemikalieë
+Staalvervaardiging
+Papier en verpakking
+Tekstiel
+Voedselverwerking
+Drankbedryf
+Sekuriteitsdienste
+Skoonmaakdienste
+Ingenieurswese
+Argitektuur
+Regsdienste
+Rekeningkunde
+Bemarking
+Reklame
+Uitgewery
+Drukwerk
+Meubelvervaardiging
+Sonkrag
+Waterwese
+Afvalbestuur
+Openbare sektor
+Verdediging
+Navorsing
+Sport en ontspanning

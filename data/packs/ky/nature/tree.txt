@@ -1,0 +1,31 @@
+---
+description: Trees in Kyrgyz. Арча — the Tien Shan juniper — grows where nothing else does, is burned to purify a house, and is the tree Kyrgyz names first; жаңгак is the walnut of the Arslanbob forests.
+locale: ky
+---
+Арча
+Карагай
+Тянь-Шань карагайы
+Терек
+Кайың
+Тал
+Мажнун тал
+Чынар
+Эмен
+Жаңгак
+Алма жыгачы
+Өрүк жыгачы
+Алмурут жыгачы
+Долоно
+Ит мурун
+Чычырканак
+Клён
+Липа
+Ясень
+Каштан
+Кедр
+Пихта
+Акация
+Тыт
+Жийде
+Бамбук
+Кипарис
