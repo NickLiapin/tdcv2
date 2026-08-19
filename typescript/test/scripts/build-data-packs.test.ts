@@ -79,8 +79,35 @@ describe('build-data-packs', () => {
     // usa: a country, no language
     expect(byId['usa']?.country).toBe('usa');
     expect(byId['usa']?.locale).toBeUndefined();
-    // no id conflates the two axes
-    expect(index.bundles.some((b) => b.id.includes('-'))).toBe(false);
+    /*
+     * No id conflates the two axes.
+     *
+     * This used to be spelled "no id contains a hyphen", which passed only
+     * while no hyphenated locale shipped. It is not the rule: hy-am, pa-in,
+     * ug-cn, uz-latn and zh-cn are single locales whose own codes carry a
+     * region or script subtag, and for four of them the part before the hyphen
+     * is not a locale at all, so the code is atomic rather than composed.
+     *
+     * The real rule is that no bundle may pair a LANGUAGE with a COUNTRY —
+     * that composition is the user's to make (common + en + usa), never ours.
+     * So test it directly: never both fields, and never an id whose halves are
+     * a known locale and a known country pack.
+     */
+    for (const b of index.bundles) {
+      expect(`${b.id}: locale=${String(b.locale)} country=${String(b.country)}`).not.toMatch(
+        /locale=(?!undefined).* country=(?!undefined)/,
+      );
+    }
+    const localeIds = new Set(index.bundles.filter((b) => b.locale).map((b) => b.id));
+    const countryIds = new Set(index.bundles.filter((b) => b.country).map((b) => b.id));
+    const mashes = index.bundles
+      .filter((b) => b.id.includes('-'))
+      .filter((b) => {
+        const [head, tail] = b.id.split('-');
+        return localeIds.has(head) && countryIds.has(tail);
+      })
+      .map((b) => b.id);
+    expect(mashes).toEqual([]);
   });
 
   it('index hashes match the zips they point at', async () => {

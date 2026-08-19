@@ -2,80 +2,20 @@
   "$comment": "Source manifest for the downloadable data-pack bundles. Language, country and 'common' are INDEPENDENT axes and compose — US English data = common + en + usa; Canadian French = common + fr + canada. Each bundle therefore names exactly ONE axis; never a language-country mash like 'en-us'. `scripts/build-data-packs.mjs` turns this into build/data-packs/ (zips + an index.json with computed sha256). `packs` paths are relative to this file's directory (data/).",
   "bundles": [
     {
-      "id": "common",
-      "name": "Common (locale-agnostic)",
-      "description": "Generators bound to neither a language nor a country: uuid, hashes, ISBN/ISSN, GTIN/UPC/EAN, card PANs, MRZ, IPv4/IPv6/MAC, semver, and more.",
-      "packs": ["packs/common"]
+      "id": "af",
+      "name": "Afrikaans (language)",
+      "description": "Content bound to the Afrikaans language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "af",
+      "packs": ["packs/af"]
     },
     {
-      "id": "ar",
-      "name": "Arabic (language)",
-      "description": "Content bound to the Arabic language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
-      "locale": "ar",
-      "packs": ["packs/ar"]
-    },
-    {
-      "id": "de",
-      "name": "German (language)",
-      "description": "Content bound to the German language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
-      "locale": "de",
-      "packs": ["packs/de"]
-    },
-    {
-      "id": "el",
-      "name": "Greek (language)",
-      "description": "Content bound to the Greek language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
-      "locale": "el",
-      "packs": ["packs/el"]
-    },
-    {
-      "id": "en",
-      "name": "English (language)",
-      "description": "Content bound to the English language, not to any one country: given names and surnames (US-frequency-weighted), gender words, country names. Shared by every English-speaking locale (USA, UK, Canada, Australia, …).",
-      "locale": "en",
-      "packs": ["packs/en"]
-    },
-    {
-      "id": "es",
-      "name": "Spanish (language)",
-      "description": "Content bound to the Spanish language, not to any one country: given names and the paternal+maternal surname pair, address wording, company legal forms, commerce and everyday vocabulary. Shared by every Spanish-speaking locale (Mexico, Argentina, Spain, Colombia, …).",
-      "locale": "es",
-      "packs": ["packs/es"]
-    },
-    {
-      "id": "fr",
-      "name": "French (language)",
-      "description": "Content bound to the French language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
-      "locale": "fr",
-      "packs": ["packs/fr"]
-    },
-    {
-      "id": "it",
-      "name": "Italian (language)",
-      "description": "Content bound to the Italian language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
-      "locale": "it",
-      "packs": ["packs/it"]
-    },
-    {
-      "id": "pl",
-      "name": "Polish (language)",
-      "description": "Content bound to the Polish language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
-      "locale": "pl",
-      "packs": ["packs/pl"]
-    },
-    {
-      "id": "pt",
-      "name": "Portuguese (language)",
-      "description": "Content bound to the Portuguese language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
-      "locale": "pt",
-      "packs": ["packs/pt"]
-    },
-    {
-      "id": "ru",
-      "name": "Russian (language)",
-      "description": "Content bound to the Russian language: given names, gendered surnames and patronymics, gender words, months and weekdays, colors, country names. Shared by every Russian-speaking locale.",
-      "locale": "ru",
-      "packs": ["packs/ru"]
+      "id": "albania",
+      "name": "Albania (country)",
+      "description": "Data specific to Albania: docs, education, finance, geo, government, holiday, phone, sport, tax, telecom, vehicle.",
+      "country": "albania",
+      "regions": ["europe"],
+      "point": [20, 41],
+      "packs": ["packs/countries/albania"]
     },
     {
       "id": "algeria",
@@ -96,6 +36,13 @@
       "packs": ["packs/countries/angola"]
     },
     {
+      "id": "ar",
+      "name": "Arabic (language)",
+      "description": "Content bound to the Arabic language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "ar",
+      "packs": ["packs/ar"]
+    },
+    {
       "id": "argentina",
       "name": "Argentina (country)",
       "description": "Data specific to Argentina: CUIT and CUIL, the CBU with both of its check digits, the 23 provinces and CABA with ISO codes, the CPA postal format whose leading letter is the province, cities, banks with their BCRA codes, universities, Primera División clubs, holidays and the Mercosur plate.",
@@ -103,6 +50,15 @@
       "regions": ["south"],
       "point": [-64, -34],
       "packs": ["packs/countries/argentina"]
+    },
+    {
+      "id": "armenia",
+      "name": "Armenia (country)",
+      "description": "Data specific to Armenia: docs, education, finance, geo, government, holiday, language, phone, phoneLandline, product, sport, tax, telecom, vehicle.",
+      "country": "armenia",
+      "regions": ["europe", "asia"],
+      "point": [45, 40.2],
+      "packs": ["packs/countries/armenia"]
     },
     {
       "id": "australia",
@@ -123,6 +79,22 @@
       "packs": ["packs/countries/austria"]
     },
     {
+      "id": "az",
+      "name": "Azerbaijani (language)",
+      "description": "Content bound to the Azerbaijani language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "az",
+      "packs": ["packs/az"]
+    },
+    {
+      "id": "azerbaijan",
+      "name": "Azerbaijan (country)",
+      "description": "Data specific to Azerbaijan: docs, education, finance, geo, government, holiday, phone, phoneLandline, phoneMobilePrefix, phoneNational, sport, tax, vehicle.",
+      "country": "azerbaijan",
+      "regions": ["europe", "asia"],
+      "point": [47.6, 40.3],
+      "packs": ["packs/countries/azerbaijan"]
+    },
+    {
       "id": "bahrain",
       "name": "Bahrain (country)",
       "description": "Data specific to Bahrain: docs, education, finance, geo, holiday, phone, sport, vehicle.",
@@ -130,6 +102,22 @@
       "regions": ["asia"],
       "point": [50.5, 26],
       "packs": ["packs/countries/bahrain"]
+    },
+    {
+      "id": "bangladesh",
+      "name": "Bangladesh (country)",
+      "description": "Data specific to Bangladesh: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "bangladesh",
+      "regions": ["asia"],
+      "point": [90.4, 23.7],
+      "packs": ["packs/countries/bangladesh"]
+    },
+    {
+      "id": "be",
+      "name": "Belarusian (language)",
+      "description": "Content bound to the Belarusian language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "be",
+      "packs": ["packs/be"]
     },
     {
       "id": "belarus",
@@ -159,6 +147,36 @@
       "packs": ["packs/countries/benin"]
     },
     {
+      "id": "bg",
+      "name": "Bulgarian (language)",
+      "description": "Content bound to the Bulgarian language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "bg",
+      "packs": ["packs/bg"]
+    },
+    {
+      "id": "bhutan",
+      "name": "Bhutan (country)",
+      "description": "Data specific to Bhutan: docs, education, finance, geo, government, holiday, phone, phoneAreaCode, phoneLandline, phoneMobilePrefix, phoneNational, society, sport, tax, telecom, vehicle.",
+      "country": "bhutan",
+      "regions": ["asia"],
+      "point": [90.4, 27.5],
+      "packs": ["packs/countries/bhutan"]
+    },
+    {
+      "id": "bn",
+      "name": "Bengali (language)",
+      "description": "Content bound to the Bengali language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "bn",
+      "packs": ["packs/bn"]
+    },
+    {
+      "id": "bo",
+      "name": "Tibetan (language)",
+      "description": "Content bound to the Tibetan language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "bo",
+      "packs": ["packs/bo"]
+    },
+    {
       "id": "bolivia",
       "name": "Bolivia (country)",
       "description": "Data specific to Bolivia: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
@@ -166,6 +184,15 @@
       "regions": ["south"],
       "point": [-64, -17],
       "packs": ["packs/countries/bolivia"]
+    },
+    {
+      "id": "bosnia_and_herzegovina",
+      "name": "Bosnia And Herzegovina (country)",
+      "description": "Data specific to Bosnia And Herzegovina: docs, education, finance, geo, government, holiday, language, phone, phoneLandline, sport, tax, vehicle.",
+      "country": "bosnia_and_herzegovina",
+      "regions": ["europe"],
+      "point": [17.8, 44],
+      "packs": ["packs/countries/bosnia_and_herzegovina"]
     },
     {
       "id": "brazil",
@@ -177,6 +204,22 @@
       "packs": ["packs/countries/brazil"]
     },
     {
+      "id": "bs",
+      "name": "Bosnian (language)",
+      "description": "Content bound to the Bosnian language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "bs",
+      "packs": ["packs/bs"]
+    },
+    {
+      "id": "bulgaria",
+      "name": "Bulgaria (country)",
+      "description": "Data specific to Bulgaria: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "bulgaria",
+      "regions": ["europe"],
+      "point": [25.5, 42.7],
+      "packs": ["packs/countries/bulgaria"]
+    },
+    {
       "id": "burkina_faso",
       "name": "Burkina Faso (country)",
       "description": "Data specific to Burkina Faso: docs, education, finance, geo, holiday, phone, sport, vehicle.",
@@ -184,6 +227,22 @@
       "regions": ["africa"],
       "point": [-1.7, 12.3],
       "packs": ["packs/countries/burkina_faso"]
+    },
+    {
+      "id": "ca",
+      "name": "Catalan (language)",
+      "description": "Content bound to the Catalan language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "ca",
+      "packs": ["packs/ca"]
+    },
+    {
+      "id": "cambodia",
+      "name": "Cambodia (country)",
+      "description": "Data specific to Cambodia: docs, education, finance, geo, government, holiday, legal, phone, phoneAreaCode, phoneLandline, phoneMobilePrefix, phoneMobilePrefixWithLength, sport, tax, vehicle.",
+      "country": "cambodia",
+      "regions": ["asia"],
+      "point": [105, 12.6],
+      "packs": ["packs/countries/cambodia"]
     },
     {
       "id": "cameroon",
@@ -249,6 +308,12 @@
       "packs": ["packs/countries/colombia"]
     },
     {
+      "id": "common",
+      "name": "Common (locale-agnostic)",
+      "description": "Generators bound to neither a language nor a country: uuid, hashes, ISBN/ISSN, GTIN/UPC/EAN, card PANs, MRZ, IPv4/IPv6/MAC, semver, and more.",
+      "packs": ["packs/common"]
+    },
+    {
       "id": "comoros",
       "name": "Comoros (country)",
       "description": "Data specific to Comoros: education, finance, geo, holiday, phone.",
@@ -276,6 +341,22 @@
       "packs": ["packs/countries/costa_rica"]
     },
     {
+      "id": "croatia",
+      "name": "Croatia (country)",
+      "description": "Data specific to Croatia: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "croatia",
+      "regions": ["europe"],
+      "point": [15.8, 45.1],
+      "packs": ["packs/countries/croatia"]
+    },
+    {
+      "id": "cs",
+      "name": "Czech (language)",
+      "description": "Content bound to the Czech language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "cs",
+      "packs": ["packs/cs"]
+    },
+    {
       "id": "cuba",
       "name": "Cuba (country)",
       "description": "Data specific to Cuba: docs, education, finance, geo, holiday, phone, sport, vehicle.",
@@ -283,6 +364,45 @@
       "regions": ["north"],
       "point": [-79, 21.5],
       "packs": ["packs/countries/cuba"]
+    },
+    {
+      "id": "cy",
+      "name": "Welsh (language)",
+      "description": "Content bound to the Welsh language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "cy",
+      "packs": ["packs/cy"]
+    },
+    {
+      "id": "cyprus",
+      "name": "Cyprus (country)",
+      "description": "Data specific to Cyprus: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "cyprus",
+      "regions": ["europe", "asia"],
+      "point": [33.2, 35.1],
+      "packs": ["packs/countries/cyprus"]
+    },
+    {
+      "id": "czechia",
+      "name": "Czechia (country)",
+      "description": "Data specific to Czechia: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "czechia",
+      "regions": ["europe"],
+      "point": [15.5, 49.8],
+      "packs": ["packs/countries/czechia"]
+    },
+    {
+      "id": "da",
+      "name": "Danish (language)",
+      "description": "Content bound to the Danish language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 22 more.",
+      "locale": "da",
+      "packs": ["packs/da"]
+    },
+    {
+      "id": "de",
+      "name": "German (language)",
+      "description": "Content bound to the German language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "de",
+      "packs": ["packs/de"]
     },
     {
       "id": "denmark",
@@ -321,6 +441,13 @@
       "packs": ["packs/countries/dr_congo"]
     },
     {
+      "id": "dv",
+      "name": "Dhivehi (language)",
+      "description": "Content bound to the Dhivehi language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "dv",
+      "packs": ["packs/dv"]
+    },
+    {
       "id": "east_timor",
       "name": "East Timor (country)",
       "description": "Data specific to East Timor: docs, education, finance, geo, holiday, phone, sport.",
@@ -348,6 +475,13 @@
       "packs": ["packs/countries/egypt"]
     },
     {
+      "id": "el",
+      "name": "Greek (language)",
+      "description": "Content bound to the Greek language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "el",
+      "packs": ["packs/el"]
+    },
+    {
       "id": "el_salvador",
       "name": "El Salvador (country)",
       "description": "Data specific to El Salvador: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
@@ -355,6 +489,13 @@
       "regions": ["north"],
       "point": [-88.9, 13.8],
       "packs": ["packs/countries/el_salvador"]
+    },
+    {
+      "id": "en",
+      "name": "English (language)",
+      "description": "Content bound to the English language, not to any one country: given names and surnames (US-frequency-weighted), gender words, country names. Shared by every English-speaking locale (USA, UK, Canada, Australia, …).",
+      "locale": "en",
+      "packs": ["packs/en"]
     },
     {
       "id": "equatorial_guinea",
@@ -366,6 +507,57 @@
       "packs": ["packs/countries/equatorial_guinea"]
     },
     {
+      "id": "es",
+      "name": "Spanish (language)",
+      "description": "Content bound to the Spanish language, not to any one country: given names and the paternal+maternal surname pair, address wording, company legal forms, commerce and everyday vocabulary. Shared by every Spanish-speaking locale (Mexico, Argentina, Spain, Colombia, …).",
+      "locale": "es",
+      "packs": ["packs/es"]
+    },
+    {
+      "id": "estonia",
+      "name": "Estonia (country)",
+      "description": "Data specific to Estonia: docs, education, finance, geo, government, holiday, phone, phoneLandline, phoneMobilePrefix, phoneNational, sport, tax, vehicle.",
+      "country": "estonia",
+      "regions": ["europe"],
+      "point": [25.5, 58.6],
+      "packs": ["packs/countries/estonia"]
+    },
+    {
+      "id": "et",
+      "name": "Estonian (language)",
+      "description": "Content bound to the Estonian language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "et",
+      "packs": ["packs/et"]
+    },
+    {
+      "id": "eu",
+      "name": "Basque (language)",
+      "description": "Content bound to the Basque language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "eu",
+      "packs": ["packs/eu"]
+    },
+    {
+      "id": "fa",
+      "name": "Persian (language)",
+      "description": "Content bound to the Persian language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "fa",
+      "packs": ["packs/fa"]
+    },
+    {
+      "id": "fi",
+      "name": "Finnish (language)",
+      "description": "Content bound to the Finnish language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "fi",
+      "packs": ["packs/fi"]
+    },
+    {
+      "id": "fil",
+      "name": "Filipino (language)",
+      "description": "Content bound to the Filipino language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "fil",
+      "packs": ["packs/fil"]
+    },
+    {
       "id": "finland",
       "name": "Finland (country)",
       "description": "Data specific to Finland: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
@@ -373,6 +565,20 @@
       "regions": ["europe"],
       "point": [26, 64],
       "packs": ["packs/countries/finland"]
+    },
+    {
+      "id": "fo",
+      "name": "Faroese (language)",
+      "description": "Content bound to the Faroese language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "fo",
+      "packs": ["packs/fo"]
+    },
+    {
+      "id": "fr",
+      "name": "French (language)",
+      "description": "Content bound to the French language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "fr",
+      "packs": ["packs/fr"]
     },
     {
       "id": "france",
@@ -384,6 +590,13 @@
       "packs": ["packs/countries/france"]
     },
     {
+      "id": "ga",
+      "name": "Irish (language)",
+      "description": "Content bound to the Irish language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "ga",
+      "packs": ["packs/ga"]
+    },
+    {
       "id": "gabon",
       "name": "Gabon (country)",
       "description": "Data specific to Gabon: docs, education, finance, geo, holiday, phone, sport, vehicle.",
@@ -391,6 +604,22 @@
       "regions": ["africa"],
       "point": [11.8, -0.8],
       "packs": ["packs/countries/gabon"]
+    },
+    {
+      "id": "gd",
+      "name": "Scottish Gaelic (language)",
+      "description": "Content bound to the Scottish Gaelic language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "gd",
+      "packs": ["packs/gd"]
+    },
+    {
+      "id": "georgia",
+      "name": "Georgia (country)",
+      "description": "Data specific to Georgia: docs, education, finance, geo, government, holiday, legal, phone, phoneAreaCode, phoneLandline, phoneMobilePrefix, sport, tax, vehicle.",
+      "country": "georgia",
+      "regions": ["europe", "asia"],
+      "point": [43.4, 42.3],
+      "packs": ["packs/countries/georgia"]
     },
     {
       "id": "germany",
@@ -402,6 +631,22 @@
       "packs": ["packs/countries/germany"]
     },
     {
+      "id": "ghana",
+      "name": "Ghana (country)",
+      "description": "Data specific to Ghana: docs, education, finance, geo, holiday, language, phone, phoneNational, phonePrefix, sport, tax, vehicle.",
+      "country": "ghana",
+      "regions": ["africa"],
+      "point": [-1, 7.9],
+      "packs": ["packs/countries/ghana"]
+    },
+    {
+      "id": "gl",
+      "name": "Galician (language)",
+      "description": "Content bound to the Galician language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "gl",
+      "packs": ["packs/gl"]
+    },
+    {
       "id": "greece",
       "name": "Greece (country)",
       "description": "Data specific to Greece: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
@@ -409,6 +654,13 @@
       "regions": ["europe"],
       "point": [22, 39],
       "packs": ["packs/countries/greece"]
+    },
+    {
+      "id": "gu",
+      "name": "Gujarati (language)",
+      "description": "Content bound to the Gujarati language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "gu",
+      "packs": ["packs/gu"]
     },
     {
       "id": "guatemala",
@@ -447,6 +699,20 @@
       "packs": ["packs/countries/haiti"]
     },
     {
+      "id": "he",
+      "name": "Hebrew (language)",
+      "description": "Content bound to the Hebrew language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "he",
+      "packs": ["packs/he"]
+    },
+    {
+      "id": "hi",
+      "name": "Hindi (language)",
+      "description": "Content bound to the Hindi language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "hi",
+      "packs": ["packs/hi"]
+    },
+    {
       "id": "honduras",
       "name": "Honduras (country)",
       "description": "Data specific to Honduras: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
@@ -454,6 +720,79 @@
       "regions": ["north"],
       "point": [-86.5, 14.8],
       "packs": ["packs/countries/honduras"]
+    },
+    {
+      "id": "hr",
+      "name": "Croatian (language)",
+      "description": "Content bound to the Croatian language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "hr",
+      "packs": ["packs/hr"]
+    },
+    {
+      "id": "hu",
+      "name": "Hungarian (language)",
+      "description": "Content bound to the Hungarian language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "hu",
+      "packs": ["packs/hu"]
+    },
+    {
+      "id": "hungary",
+      "name": "Hungary (country)",
+      "description": "Data specific to Hungary: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "hungary",
+      "regions": ["europe"],
+      "point": [19.5, 47.2],
+      "packs": ["packs/countries/hungary"]
+    },
+    {
+      "id": "hy-am",
+      "name": "Armenian (language)",
+      "description": "Content bound to the Armenian language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "hy-am",
+      "packs": ["packs/hy-am"]
+    },
+    {
+      "id": "iceland",
+      "name": "Iceland (country)",
+      "description": "Data specific to Iceland: docs, education, finance, geo, government, holiday, phone, phoneLandline, sport, tax, telecom, vehicle.",
+      "country": "iceland",
+      "regions": ["europe"],
+      "point": [-18.6, 64.9],
+      "packs": ["packs/countries/iceland"]
+    },
+    {
+      "id": "id",
+      "name": "Indonesian (language)",
+      "description": "Content bound to the Indonesian language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "id",
+      "packs": ["packs/id"]
+    },
+    {
+      "id": "india",
+      "name": "India (country)",
+      "description": "Data specific to India: docs, education, finance, geo, holiday, language, phone, sport, tax, vehicle.",
+      "country": "india",
+      "regions": ["asia"],
+      "point": [79, 22],
+      "packs": ["packs/countries/india"]
+    },
+    {
+      "id": "indonesia",
+      "name": "Indonesia (country)",
+      "description": "Data specific to Indonesia: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "indonesia",
+      "regions": ["asia"],
+      "point": [113.9, -2.5],
+      "packs": ["packs/countries/indonesia"]
+    },
+    {
+      "id": "iran",
+      "name": "Iran (country)",
+      "description": "Data specific to Iran: docs, education, finance, geo, holiday, phone, phoneLandline, sport, tax, vehicle.",
+      "country": "iran",
+      "regions": ["asia"],
+      "point": [53.7, 32.4],
+      "packs": ["packs/countries/iran"]
     },
     {
       "id": "iraq",
@@ -474,6 +813,29 @@
       "packs": ["packs/countries/ireland"]
     },
     {
+      "id": "is",
+      "name": "Icelandic (language)",
+      "description": "Content bound to the Icelandic language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "is",
+      "packs": ["packs/is"]
+    },
+    {
+      "id": "israel",
+      "name": "Israel (country)",
+      "description": "Data specific to Israel: docs, education, finance, geo, holiday, phone, phoneLandline, sport, tax, vehicle.",
+      "country": "israel",
+      "regions": ["asia"],
+      "point": [34.9, 31],
+      "packs": ["packs/countries/israel"]
+    },
+    {
+      "id": "it",
+      "name": "Italian (language)",
+      "description": "Content bound to the Italian language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "it",
+      "packs": ["packs/it"]
+    },
+    {
       "id": "italy",
       "name": "Italy (country)",
       "description": "Data specific to Italy: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
@@ -492,6 +854,22 @@
       "packs": ["packs/countries/ivory_coast"]
     },
     {
+      "id": "ja",
+      "name": "Japanese (language)",
+      "description": "Content bound to the Japanese language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "ja",
+      "packs": ["packs/ja"]
+    },
+    {
+      "id": "japan",
+      "name": "Japan (country)",
+      "description": "Data specific to Japan: docs, education, finance, geo, holiday, phone, phoneLandline, sport, tax, vehicle.",
+      "country": "japan",
+      "regions": ["asia"],
+      "point": [138, 36.2],
+      "packs": ["packs/countries/japan"]
+    },
+    {
       "id": "jordan",
       "name": "Jordan (country)",
       "description": "Data specific to Jordan: docs, education, finance, geo, holiday, phone, sport, vehicle.",
@@ -499,6 +877,20 @@
       "regions": ["asia"],
       "point": [36.5, 31],
       "packs": ["packs/countries/jordan"]
+    },
+    {
+      "id": "jv",
+      "name": "Javanese (language)",
+      "description": "Content bound to the Javanese language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "jv",
+      "packs": ["packs/jv"]
+    },
+    {
+      "id": "ka",
+      "name": "Georgian (language)",
+      "description": "Content bound to the Georgian language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "ka",
+      "packs": ["packs/ka"]
     },
     {
       "id": "kazakhstan",
@@ -510,6 +902,50 @@
       "packs": ["packs/countries/kazakhstan"]
     },
     {
+      "id": "kenya",
+      "name": "Kenya (country)",
+      "description": "Data specific to Kenya: docs, education, finance, geo, holiday, phone, phoneLandline, sport, tax, vehicle.",
+      "country": "kenya",
+      "regions": ["africa"],
+      "point": [37.9, 0],
+      "packs": ["packs/countries/kenya"]
+    },
+    {
+      "id": "kk",
+      "name": "Kazakh (language)",
+      "description": "Content bound to the Kazakh language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "kk",
+      "packs": ["packs/kk"]
+    },
+    {
+      "id": "km",
+      "name": "Khmer (language)",
+      "description": "Content bound to the Khmer language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "km",
+      "packs": ["packs/km"]
+    },
+    {
+      "id": "kn",
+      "name": "Kannada (language)",
+      "description": "Content bound to the Kannada language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "kn",
+      "packs": ["packs/kn"]
+    },
+    {
+      "id": "ko",
+      "name": "Korean (language)",
+      "description": "Content bound to the Korean language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "ko",
+      "packs": ["packs/ko"]
+    },
+    {
+      "id": "ku",
+      "name": "Kurdish (language)",
+      "description": "Content bound to the Kurdish language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "ku",
+      "packs": ["packs/ku"]
+    },
+    {
       "id": "kuwait",
       "name": "Kuwait (country)",
       "description": "Data specific to Kuwait: docs, education, finance, geo, holiday, phone, sport, vehicle.",
@@ -519,6 +955,13 @@
       "packs": ["packs/countries/kuwait"]
     },
     {
+      "id": "ky",
+      "name": "Kyrgyz (language)",
+      "description": "Content bound to the Kyrgyz language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "ky",
+      "packs": ["packs/ky"]
+    },
+    {
       "id": "kyrgyzstan",
       "name": "Kyrgyzstan (country)",
       "description": "Data specific to Kyrgyzstan: docs, education, finance, geo, holiday, phone, sport, vehicle.",
@@ -526,6 +969,31 @@
       "regions": ["asia"],
       "point": [74.5, 41.3],
       "packs": ["packs/countries/kyrgyzstan"]
+    },
+    {
+      "id": "laos",
+      "name": "Laos (country)",
+      "description": "Data specific to Laos: docs, education, finance, geo, government, holiday, legal, phone, phoneAreaCode, phoneLandline, phoneMobilePrefix, sport, tax, vehicle.",
+      "country": "laos",
+      "regions": ["asia"],
+      "point": [102.5, 19.9],
+      "packs": ["packs/countries/laos"]
+    },
+    {
+      "id": "latvia",
+      "name": "Latvia (country)",
+      "description": "Data specific to Latvia: docs, education, finance, geo, government, holiday, phone, phoneLandline, phoneMobilePrefix, phoneNational, sport, tax, vehicle.",
+      "country": "latvia",
+      "regions": ["europe"],
+      "point": [24.6, 56.9],
+      "packs": ["packs/countries/latvia"]
+    },
+    {
+      "id": "lb",
+      "name": "Luxembourgish (language)",
+      "description": "Content bound to the Luxembourgish language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "lb",
+      "packs": ["packs/lb"]
     },
     {
       "id": "lebanon",
@@ -555,6 +1023,29 @@
       "packs": ["packs/countries/liechtenstein"]
     },
     {
+      "id": "lithuania",
+      "name": "Lithuania (country)",
+      "description": "Data specific to Lithuania: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "lithuania",
+      "regions": ["europe"],
+      "point": [23.9, 55.2],
+      "packs": ["packs/countries/lithuania"]
+    },
+    {
+      "id": "lo",
+      "name": "Lao (language)",
+      "description": "Content bound to the Lao language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "lo",
+      "packs": ["packs/lo"]
+    },
+    {
+      "id": "lt",
+      "name": "Lithuanian (language)",
+      "description": "Content bound to the Lithuanian language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "lt",
+      "packs": ["packs/lt"]
+    },
+    {
       "id": "luxembourg",
       "name": "Luxembourg (country)",
       "description": "Data specific to Luxembourg: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
@@ -562,6 +1053,13 @@
       "regions": ["europe"],
       "point": [6.1, 49.8],
       "packs": ["packs/countries/luxembourg"]
+    },
+    {
+      "id": "lv",
+      "name": "Latvian (language)",
+      "description": "Content bound to the Latvian language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "lv",
+      "packs": ["packs/lv"]
     },
     {
       "id": "macau",
@@ -582,6 +1080,24 @@
       "packs": ["packs/countries/madagascar"]
     },
     {
+      "id": "malaysia",
+      "name": "Malaysia (country)",
+      "description": "Data specific to Malaysia: docs, education, finance, geo, government, holiday, phone, sport, tax, vehicle.",
+      "country": "malaysia",
+      "regions": ["asia"],
+      "point": [102, 4.2],
+      "packs": ["packs/countries/malaysia"]
+    },
+    {
+      "id": "maldives",
+      "name": "Maldives (country)",
+      "description": "Data specific to Maldives: calendar, docs, education, finance, geo, government, holiday, holidayDate, holidayEnglish, phone, phoneLandline, phoneMobilePrefix, phoneNational, sport, tax, vehicle.",
+      "country": "maldives",
+      "regions": ["asia"],
+      "point": [73.2, 3.2],
+      "packs": ["packs/countries/maldives"]
+    },
+    {
       "id": "mali",
       "name": "Mali (country)",
       "description": "Data specific to Mali: docs, education, finance, geo, holiday, phone, sport, vehicle.",
@@ -589,6 +1105,15 @@
       "regions": ["africa"],
       "point": [-3, 17.5],
       "packs": ["packs/countries/mali"]
+    },
+    {
+      "id": "malta",
+      "name": "Malta (country)",
+      "description": "Data specific to Malta: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "malta",
+      "regions": ["europe"],
+      "point": [14.4, 35.9],
+      "packs": ["packs/countries/malta"]
     },
     {
       "id": "mauritania",
@@ -609,6 +1134,43 @@
       "packs": ["packs/countries/mexico"]
     },
     {
+      "id": "mi",
+      "name": "Māori (language)",
+      "description": "Content bound to the Māori language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "mi",
+      "packs": ["packs/mi"]
+    },
+    {
+      "id": "mk",
+      "name": "Macedonian (language)",
+      "description": "Content bound to the Macedonian language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "mk",
+      "packs": ["packs/mk"]
+    },
+    {
+      "id": "ml",
+      "name": "Malayalam (language)",
+      "description": "Content bound to the Malayalam language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "ml",
+      "packs": ["packs/ml"]
+    },
+    {
+      "id": "mn",
+      "name": "Mongolian (language)",
+      "description": "Content bound to the Mongolian language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "mn",
+      "packs": ["packs/mn"]
+    },
+    {
+      "id": "moldova",
+      "name": "Moldova (country)",
+      "description": "Data specific to Moldova: docs, education, finance, food, geo, holiday, language, phone, sport, tax, vehicle.",
+      "country": "moldova",
+      "regions": ["europe"],
+      "point": [28.4, 47.4],
+      "packs": ["packs/countries/moldova"]
+    },
+    {
       "id": "monaco",
       "name": "Monaco (country)",
       "description": "Data specific to Monaco: education, finance, geo, holiday, phone, sport, vehicle.",
@@ -616,6 +1178,15 @@
       "regions": ["europe"],
       "point": [7.42, 43.74],
       "packs": ["packs/countries/monaco"]
+    },
+    {
+      "id": "mongolia",
+      "name": "Mongolia (country)",
+      "description": "Data specific to Mongolia: docs, education, finance, geo, government, holiday, legal, phone, phoneAreaCode, phoneLandline, phoneMobilePrefix, sport, tax, telecom, vehicle.",
+      "country": "mongolia",
+      "regions": ["asia"],
+      "point": [103.8, 46.9],
+      "packs": ["packs/countries/mongolia"]
     },
     {
       "id": "morocco",
@@ -634,6 +1205,66 @@
       "regions": ["africa"],
       "point": [35.5, -18],
       "packs": ["packs/countries/mozambique"]
+    },
+    {
+      "id": "mr",
+      "name": "Marathi (language)",
+      "description": "Content bound to the Marathi language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "mr",
+      "packs": ["packs/mr"]
+    },
+    {
+      "id": "ms",
+      "name": "Malay (language)",
+      "description": "Content bound to the Malay language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "ms",
+      "packs": ["packs/ms"]
+    },
+    {
+      "id": "mt",
+      "name": "Maltese (language)",
+      "description": "Content bound to the Maltese language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "mt",
+      "packs": ["packs/mt"]
+    },
+    {
+      "id": "my",
+      "name": "Burmese (language)",
+      "description": "Content bound to the Burmese language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "my",
+      "packs": ["packs/my"]
+    },
+    {
+      "id": "myanmar",
+      "name": "Myanmar (country)",
+      "description": "Data specific to Myanmar: docs, education, finance, geo, government, holiday, legal, phone, phoneLandline, phoneMobilePrefix, sport, tax, vehicle.",
+      "country": "myanmar",
+      "regions": ["asia"],
+      "point": [96, 21.9],
+      "packs": ["packs/countries/myanmar"]
+    },
+    {
+      "id": "nb",
+      "name": "Norwegian Bokmål (language)",
+      "description": "Content bound to the Norwegian Bokmål language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "nb",
+      "packs": ["packs/nb"]
+    },
+    {
+      "id": "ne",
+      "name": "Nepali (language)",
+      "description": "Content bound to the Nepali language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "ne",
+      "packs": ["packs/ne"]
+    },
+    {
+      "id": "nepal",
+      "name": "Nepal (country)",
+      "description": "Data specific to Nepal: calendar, docs, education, finance, geo, holiday, phone, phoneAreaCode, phoneLandline, sport, symbol, symbolEnglish, tax, vehicle.",
+      "country": "nepal",
+      "regions": ["asia"],
+      "point": [84.1, 28.4],
+      "packs": ["packs/countries/nepal"]
     },
     {
       "id": "netherlands",
@@ -672,6 +1303,47 @@
       "packs": ["packs/countries/niger"]
     },
     {
+      "id": "nigeria",
+      "name": "Nigeria (country)",
+      "description": "Data specific to Nigeria: docs, education, finance, geo, holiday, language, phone, phoneNational, phonePrefix, sport, tax, vehicle.",
+      "country": "nigeria",
+      "regions": ["africa"],
+      "point": [8.7, 9.1],
+      "packs": ["packs/countries/nigeria"]
+    },
+    {
+      "id": "nl",
+      "name": "Dutch (language)",
+      "description": "Content bound to the Dutch language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "nl",
+      "packs": ["packs/nl"]
+    },
+    {
+      "id": "nn",
+      "name": "Norwegian Nynorsk (language)",
+      "description": "Content bound to the Norwegian Nynorsk language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "nn",
+      "packs": ["packs/nn"]
+    },
+    {
+      "id": "north_macedonia",
+      "name": "North Macedonia (country)",
+      "description": "Data specific to North Macedonia: docs, education, finance, geo, government, holiday, language, phone, phoneAreaCode, sport, tax, vehicle.",
+      "country": "north_macedonia",
+      "regions": ["europe"],
+      "point": [21.7, 41.6],
+      "packs": ["packs/countries/north_macedonia"]
+    },
+    {
+      "id": "norway",
+      "name": "Norway (country)",
+      "description": "Data specific to Norway: docs, education, finance, geo, government, holiday, phone, phoneLandline, phoneMobilePrefix, phoneNational, sport, tax, vehicle.",
+      "country": "norway",
+      "regions": ["europe"],
+      "point": [8.5, 60.5],
+      "packs": ["packs/countries/norway"]
+    },
+    {
       "id": "oman",
       "name": "Oman (country)",
       "description": "Data specific to Oman: docs, education, finance, geo, holiday, phone, sport, vehicle.",
@@ -679,6 +1351,22 @@
       "regions": ["asia"],
       "point": [56, 21],
       "packs": ["packs/countries/oman"]
+    },
+    {
+      "id": "pa-in",
+      "name": "Punjabi (language)",
+      "description": "Content bound to the Punjabi language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "pa-in",
+      "packs": ["packs/pa-in"]
+    },
+    {
+      "id": "pakistan",
+      "name": "Pakistan (country)",
+      "description": "Data specific to Pakistan: docs, education, finance, geo, holiday, language, phone, sport, tax, vehicle.",
+      "country": "pakistan",
+      "regions": ["asia"],
+      "point": [69.3, 30.4],
+      "packs": ["packs/countries/pakistan"]
     },
     {
       "id": "palestine",
@@ -717,6 +1405,22 @@
       "packs": ["packs/countries/peru"]
     },
     {
+      "id": "philippines",
+      "name": "Philippines (country)",
+      "description": "Data specific to Philippines: docs, education, finance, geo, holiday, person, phone, sport, tax, vehicle.",
+      "country": "philippines",
+      "regions": ["asia"],
+      "point": [121.8, 12.9],
+      "packs": ["packs/countries/philippines"]
+    },
+    {
+      "id": "pl",
+      "name": "Polish (language)",
+      "description": "Content bound to the Polish language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "pl",
+      "packs": ["packs/pl"]
+    },
+    {
       "id": "poland",
       "name": "Poland (country)",
       "description": "Data specific to Poland: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
@@ -735,6 +1439,13 @@
       "packs": ["packs/countries/portugal"]
     },
     {
+      "id": "pt",
+      "name": "Portuguese (language)",
+      "description": "Content bound to the Portuguese language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "pt",
+      "packs": ["packs/pt"]
+    },
+    {
       "id": "puerto_rico",
       "name": "Puerto Rico (country)",
       "description": "Data specific to Puerto Rico: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
@@ -751,6 +1462,29 @@
       "regions": ["asia"],
       "point": [51.2, 25.3],
       "packs": ["packs/countries/qatar"]
+    },
+    {
+      "id": "ro",
+      "name": "Romanian (language)",
+      "description": "Content bound to the Romanian language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "ro",
+      "packs": ["packs/ro"]
+    },
+    {
+      "id": "romania",
+      "name": "Romania (country)",
+      "description": "Data specific to Romania: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "romania",
+      "regions": ["europe"],
+      "point": [25, 45.9],
+      "packs": ["packs/countries/romania"]
+    },
+    {
+      "id": "ru",
+      "name": "Russian (language)",
+      "description": "Content bound to the Russian language: given names, gendered surnames and patronymics, gender words, months and weekdays, colors, country names. Shared by every Russian-speaking locale.",
+      "locale": "ru",
+      "packs": ["packs/ru"]
     },
     {
       "id": "russia",
@@ -807,6 +1541,63 @@
       "packs": ["packs/countries/senegal"]
     },
     {
+      "id": "serbia",
+      "name": "Serbia (country)",
+      "description": "Data specific to Serbia: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "serbia",
+      "regions": ["europe"],
+      "point": [21, 44],
+      "packs": ["packs/countries/serbia"]
+    },
+    {
+      "id": "si",
+      "name": "Sinhala (language)",
+      "description": "Content bound to the Sinhala language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "si",
+      "packs": ["packs/si"]
+    },
+    {
+      "id": "singapore",
+      "name": "Singapore (country)",
+      "description": "Data specific to Singapore: docs, education, finance, geo, holiday, phone, phoneLandline, sport, tax, vehicle.",
+      "country": "singapore",
+      "regions": ["asia"],
+      "point": [103.8, 1.35],
+      "packs": ["packs/countries/singapore"]
+    },
+    {
+      "id": "sk",
+      "name": "Slovak (language)",
+      "description": "Content bound to the Slovak language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "sk",
+      "packs": ["packs/sk"]
+    },
+    {
+      "id": "sl",
+      "name": "Slovenian (language)",
+      "description": "Content bound to the Slovenian language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "sl",
+      "packs": ["packs/sl"]
+    },
+    {
+      "id": "slovakia",
+      "name": "Slovakia (country)",
+      "description": "Data specific to Slovakia: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "slovakia",
+      "regions": ["europe"],
+      "point": [19.7, 48.7],
+      "packs": ["packs/countries/slovakia"]
+    },
+    {
+      "id": "slovenia",
+      "name": "Slovenia (country)",
+      "description": "Data specific to Slovenia: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "slovenia",
+      "regions": ["europe"],
+      "point": [15, 46.15],
+      "packs": ["packs/countries/slovenia"]
+    },
+    {
       "id": "somalia",
       "name": "Somalia (country)",
       "description": "Data specific to Somalia: education, finance, geo, holiday, phone, sport.",
@@ -825,6 +1616,15 @@
       "packs": ["packs/countries/south_africa"]
     },
     {
+      "id": "south_korea",
+      "name": "South Korea (country)",
+      "description": "Data specific to South Korea: docs, education, finance, geo, holiday, phone, phoneAreaCode, phoneLandline, sport, tax, vehicle.",
+      "country": "south_korea",
+      "regions": ["asia"],
+      "point": [127.8, 35.9],
+      "packs": ["packs/countries/south_korea"]
+    },
+    {
       "id": "spain",
       "name": "Spain (country)",
       "description": "Data specific to Spain: DNI, NIE, CIF and NIF, the CCC and its ES IBAN, the social-security NUSS, the 17 autonomous communities and 50 provinces with their INE and ISO codes, municipalities, postal codes that encode the province, universities, LaLiga and Segunda clubs, holidays and the current plate format.",
@@ -834,6 +1634,29 @@
       "packs": ["packs/countries/spain"]
     },
     {
+      "id": "sq",
+      "name": "Albanian (language)",
+      "description": "Content bound to the Albanian language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "sq",
+      "packs": ["packs/sq"]
+    },
+    {
+      "id": "sr",
+      "name": "Serbian (language)",
+      "description": "Content bound to the Serbian language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "sr",
+      "packs": ["packs/sr"]
+    },
+    {
+      "id": "sri_lanka",
+      "name": "Sri Lanka (country)",
+      "description": "Data specific to Sri Lanka: docs, education, finance, geo, holiday, language, phone, phoneLandline, sport, tax, vehicle.",
+      "country": "sri_lanka",
+      "regions": ["asia"],
+      "point": [80.8, 7.9],
+      "packs": ["packs/countries/sri_lanka"]
+    },
+    {
       "id": "sudan",
       "name": "Sudan (country)",
       "description": "Data specific to Sudan: docs, education, finance, geo, holiday, phone, sport, vehicle.",
@@ -841,6 +1664,20 @@
       "regions": ["africa"],
       "point": [30, 15.5],
       "packs": ["packs/countries/sudan"]
+    },
+    {
+      "id": "sv",
+      "name": "Swedish (language)",
+      "description": "Content bound to the Swedish language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "sv",
+      "packs": ["packs/sv"]
+    },
+    {
+      "id": "sw",
+      "name": "Swahili (language)",
+      "description": "Content bound to the Swahili language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "sw",
+      "packs": ["packs/sw"]
     },
     {
       "id": "sweden",
@@ -870,6 +1707,22 @@
       "packs": ["packs/countries/syria"]
     },
     {
+      "id": "ta",
+      "name": "Tamil (language)",
+      "description": "Content bound to the Tamil language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "ta",
+      "packs": ["packs/ta"]
+    },
+    {
+      "id": "taiwan",
+      "name": "Taiwan (country)",
+      "description": "Data specific to Taiwan: calendar, docs, education, finance, geo, government, holiday, legal, phone, phoneAreaCode, phoneLandline, phoneMobilePrefix, sport, tax, telecom, vehicle.",
+      "country": "taiwan",
+      "regions": ["asia"],
+      "point": [121, 23.7],
+      "packs": ["packs/countries/taiwan"]
+    },
+    {
       "id": "tajikistan",
       "name": "Tajikistan (country)",
       "description": "Data specific to Tajikistan: docs, education, finance, geo, holiday, phone, sport, vehicle.",
@@ -877,6 +1730,52 @@
       "regions": ["asia"],
       "point": [71, 38.8],
       "packs": ["packs/countries/tajikistan"]
+    },
+    {
+      "id": "tanzania",
+      "name": "Tanzania (country)",
+      "description": "Data specific to Tanzania: docs, education, finance, geo, holiday, holidayEnglish, phone, phoneLandline, sport, tax, vehicle.",
+      "country": "tanzania",
+      "regions": ["africa"],
+      "point": [34.9, -6.4],
+      "packs": ["packs/countries/tanzania"]
+    },
+    {
+      "id": "te",
+      "name": "Telugu (language)",
+      "description": "Content bound to the Telugu language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "te",
+      "packs": ["packs/te"]
+    },
+    {
+      "id": "tg",
+      "name": "Tajik (language)",
+      "description": "Content bound to the Tajik language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "tg",
+      "packs": ["packs/tg"]
+    },
+    {
+      "id": "th",
+      "name": "Thai (language)",
+      "description": "Content bound to the Thai language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "th",
+      "packs": ["packs/th"]
+    },
+    {
+      "id": "thailand",
+      "name": "Thailand (country)",
+      "description": "Data specific to Thailand: calendar, docs, education, finance, geo, holiday, phone, phoneLandline, sport, tax, vehicle.",
+      "country": "thailand",
+      "regions": ["asia"],
+      "point": [101, 15.9],
+      "packs": ["packs/countries/thailand"]
+    },
+    {
+      "id": "tk",
+      "name": "Turkmen (language)",
+      "description": "Content bound to the Turkmen language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "tk",
+      "packs": ["packs/tk"]
     },
     {
       "id": "togo",
@@ -888,6 +1787,13 @@
       "packs": ["packs/countries/togo"]
     },
     {
+      "id": "tr",
+      "name": "Turkish (language)",
+      "description": "Content bound to the Turkish language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "tr",
+      "packs": ["packs/tr"]
+    },
+    {
       "id": "tunisia",
       "name": "Tunisia (country)",
       "description": "Data specific to Tunisia: docs, education, finance, geo, holiday, phone, sport, vehicle.",
@@ -895,6 +1801,24 @@
       "regions": ["africa"],
       "point": [9.5, 34],
       "packs": ["packs/countries/tunisia"]
+    },
+    {
+      "id": "turkey",
+      "name": "Turkey (country)",
+      "description": "Data specific to Turkey: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "turkey",
+      "regions": ["europe", "asia"],
+      "point": [35.2, 39],
+      "packs": ["packs/countries/turkey"]
+    },
+    {
+      "id": "turkmenistan",
+      "name": "Turkmenistan (country)",
+      "description": "Data specific to Turkmenistan: docs, education, finance, geo, government, holiday, phone, phoneAreaCode, phoneLandline, phoneMobilePrefix, phoneNational, sport, tax, vehicle.",
+      "country": "turkmenistan",
+      "regions": ["asia"],
+      "point": [59.6, 39],
+      "packs": ["packs/countries/turkmenistan"]
     },
     {
       "id": "uae",
@@ -906,6 +1830,38 @@
       "packs": ["packs/countries/uae"]
     },
     {
+      "id": "ug-cn",
+      "name": "Uyghur (language)",
+      "description": "Content bound to the Uyghur language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "ug-cn",
+      "packs": ["packs/ug-cn"]
+    },
+    {
+      "id": "uganda",
+      "name": "Uganda (country)",
+      "description": "Data specific to Uganda: culture, docs, education, finance, geo, holiday, phone, phoneLandline, sport, tax, vehicle.",
+      "country": "uganda",
+      "regions": ["africa"],
+      "point": [32.3, 1.4],
+      "packs": ["packs/countries/uganda"]
+    },
+    {
+      "id": "uk",
+      "name": "Ukrainian (language)",
+      "description": "Content bound to the Ukrainian language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "uk",
+      "packs": ["packs/uk"]
+    },
+    {
+      "id": "ukraine",
+      "name": "Ukraine (country)",
+      "description": "Data specific to Ukraine: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "ukraine",
+      "regions": ["europe"],
+      "point": [31.2, 48.4],
+      "packs": ["packs/countries/ukraine"]
+    },
+    {
       "id": "united_kingdom",
       "name": "United Kingdom (country)",
       "description": "Data specific to United Kingdom: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
@@ -913,6 +1869,13 @@
       "regions": ["europe"],
       "point": [-2, 54],
       "packs": ["packs/countries/united_kingdom"]
+    },
+    {
+      "id": "ur",
+      "name": "Urdu (language)",
+      "description": "Content bound to the Urdu language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "ur",
+      "packs": ["packs/ur"]
     },
     {
       "id": "uruguay",
@@ -933,6 +1896,22 @@
       "packs": ["packs/countries/usa"]
     },
     {
+      "id": "uz-latn",
+      "name": "Uzbek (Latin) (language)",
+      "description": "Content bound to the Uzbek (Latin) language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "uz-latn",
+      "packs": ["packs/uz-latn"]
+    },
+    {
+      "id": "uzbekistan",
+      "name": "Uzbekistan (country)",
+      "description": "Data specific to Uzbekistan: docs, education, finance, geo, government, holiday, phone, phoneAreaCode, phoneAreaCodeWithRegion, phoneLandline, phoneMobilePrefix, phoneNational, sport, tax, telecom, vehicle.",
+      "country": "uzbekistan",
+      "regions": ["asia"],
+      "point": [64.6, 41.4],
+      "packs": ["packs/countries/uzbekistan"]
+    },
+    {
       "id": "vatican_city",
       "name": "Vatican City (country)",
       "description": "Data specific to Vatican City: education, finance, geo, holiday, phone, sport, vehicle.",
@@ -951,6 +1930,22 @@
       "packs": ["packs/countries/venezuela"]
     },
     {
+      "id": "vi",
+      "name": "Vietnamese (language)",
+      "description": "Content bound to the Vietnamese language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "vi",
+      "packs": ["packs/vi"]
+    },
+    {
+      "id": "vietnam",
+      "name": "Vietnam (country)",
+      "description": "Data specific to Vietnam: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "vietnam",
+      "regions": ["asia"],
+      "point": [108.3, 14.1],
+      "packs": ["packs/countries/vietnam"]
+    },
+    {
       "id": "yemen",
       "name": "Yemen (country)",
       "description": "Data specific to Yemen: docs, education, finance, geo, holiday, phone, sport.",
@@ -958,6 +1953,29 @@
       "regions": ["asia"],
       "point": [47, 15.5],
       "packs": ["packs/countries/yemen"]
+    },
+    {
+      "id": "yo",
+      "name": "Yoruba (language)",
+      "description": "Content bound to the Yoruba language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 24 more.",
+      "locale": "yo",
+      "packs": ["packs/yo"]
+    },
+    {
+      "id": "zh-cn",
+      "name": "Simplified Chinese (language)",
+      "description": "Content bound to the Simplified Chinese language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "zh-cn",
+      "packs": ["packs/zh-cn"]
+    },
+    {
+      "id": "zimbabwe",
+      "name": "Zimbabwe (country)",
+      "description": "Data specific to Zimbabwe: docs, education, finance, geo, holiday, language, phone, sport, tax, vehicle.",
+      "country": "zimbabwe",
+      "regions": ["africa"],
+      "point": [29.2, -19],
+      "packs": ["packs/countries/zimbabwe"]
     }
   ]
 }
