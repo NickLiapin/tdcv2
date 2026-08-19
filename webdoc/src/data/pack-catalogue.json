@@ -2008,7 +2008,9 @@
       ],
       "truncated": false,
       "bytes": 24290,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": true
     },
     {
@@ -2027,7 +2029,9 @@
       ],
       "truncated": false,
       "bytes": 3589,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -2046,7 +2050,9 @@
       ],
       "truncated": false,
       "bytes": 4386,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -2066,7 +2072,9 @@
       ],
       "truncated": false,
       "bytes": 15608,
-      "regions": ["south"],
+      "regions": [
+        "south"
+      ],
       "unreleased": false
     },
     {
@@ -2091,7 +2099,10 @@
       ],
       "truncated": false,
       "bytes": 35912,
-      "regions": ["europe", "asia"],
+      "regions": [
+        "europe",
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -2111,7 +2122,9 @@
       ],
       "truncated": false,
       "bytes": 12534,
-      "regions": ["oceania"],
+      "regions": [
+        "oceania"
+      ],
       "unreleased": false
     },
     {
@@ -2130,7 +2143,9 @@
       ],
       "truncated": false,
       "bytes": 5041,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -2154,7 +2169,10 @@
       ],
       "truncated": false,
       "bytes": 37322,
-      "regions": ["europe", "asia"],
+      "regions": [
+        "europe",
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -2173,7 +2191,9 @@
       ],
       "truncated": false,
       "bytes": 3837,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": false
     },
     {
@@ -2193,7 +2213,9 @@
       ],
       "truncated": false,
       "bytes": 29217,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -2212,7 +2234,9 @@
       ],
       "truncated": false,
       "bytes": 5204,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -2232,7 +2256,9 @@
       ],
       "truncated": false,
       "bytes": 7219,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -2251,7 +2277,9 @@
       ],
       "truncated": false,
       "bytes": 3161,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -2278,7 +2306,9 @@
       ],
       "truncated": false,
       "bytes": 44879,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -2298,7 +2328,9 @@
       ],
       "truncated": false,
       "bytes": 12322,
-      "regions": ["south"],
+      "regions": [
+        "south"
+      ],
       "unreleased": false
     },
     {
@@ -2321,7 +2353,9 @@
       ],
       "truncated": false,
       "bytes": 36076,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": true
     },
     {
@@ -2342,7 +2376,9 @@
       ],
       "truncated": false,
       "bytes": 7482,
-      "regions": ["south"],
+      "regions": [
+        "south"
+      ],
       "unreleased": false
     },
     {
@@ -2362,7 +2398,9 @@
       ],
       "truncated": false,
       "bytes": 14087,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -2381,7 +2419,9 @@
       ],
       "truncated": false,
       "bytes": 3486,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -2407,7 +2447,9 @@
       ],
       "truncated": false,
       "bytes": 44454,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -2426,7 +2468,9 @@
       ],
       "truncated": false,
       "bytes": 3158,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -2446,7 +2490,9 @@
       ],
       "truncated": false,
       "bytes": 10848,
-      "regions": ["north"],
+      "regions": [
+        "north"
+      ],
       "unreleased": false
     },
     {
@@ -2464,7 +2510,9 @@
       ],
       "truncated": false,
       "bytes": 4408,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -2483,7 +2531,9 @@
       ],
       "truncated": false,
       "bytes": 3133,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -2503,7 +2553,9 @@
       ],
       "truncated": false,
       "bytes": 17476,
-      "regions": ["south"],
+      "regions": [
+        "south"
+      ],
       "unreleased": false
     },
     {
@@ -2522,7 +2574,9 @@
       ],
       "truncated": false,
       "bytes": 6756,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": false
     },
     {
@@ -2543,17 +2597,27 @@
       ],
       "truncated": false,
       "bytes": 16208,
-      "regions": ["south"],
+      "regions": [
+        "south"
+      ],
       "unreleased": false
     },
     {
       "id": "comoros",
       "name": "Comoros",
       "blurb": "Data specific to Comoros",
-      "categories": ["education", "finance", "geo", "holiday", "phone"],
+      "categories": [
+        "education",
+        "finance",
+        "geo",
+        "holiday",
+        "phone"
+      ],
       "truncated": false,
       "bytes": 2710,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -2572,7 +2636,9 @@
       ],
       "truncated": false,
       "bytes": 3153,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -2592,7 +2658,9 @@
       ],
       "truncated": false,
       "bytes": 11252,
-      "regions": ["north"],
+      "regions": [
+        "north"
+      ],
       "unreleased": false
     },
     {
@@ -2612,7 +2680,9 @@
       ],
       "truncated": false,
       "bytes": 9908,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -2631,7 +2701,9 @@
       ],
       "truncated": false,
       "bytes": 6367,
-      "regions": ["north"],
+      "regions": [
+        "north"
+      ],
       "unreleased": false
     },
     {
@@ -2651,7 +2723,10 @@
       ],
       "truncated": false,
       "bytes": 9868,
-      "regions": ["europe", "asia"],
+      "regions": [
+        "europe",
+        "asia"
+      ],
       "unreleased": false
     },
     {
@@ -2671,7 +2746,9 @@
       ],
       "truncated": false,
       "bytes": 15357,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -2691,7 +2768,9 @@
       ],
       "truncated": false,
       "bytes": 5953,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -2710,7 +2789,9 @@
       ],
       "truncated": false,
       "bytes": 3103,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -2730,7 +2811,9 @@
       ],
       "truncated": false,
       "bytes": 11208,
-      "regions": ["north"],
+      "regions": [
+        "north"
+      ],
       "unreleased": false
     },
     {
@@ -2749,7 +2832,9 @@
       ],
       "truncated": false,
       "bytes": 3383,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -2767,7 +2852,9 @@
       ],
       "truncated": false,
       "bytes": 4048,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": false
     },
     {
@@ -2787,7 +2874,9 @@
       ],
       "truncated": false,
       "bytes": 12131,
-      "regions": ["south"],
+      "regions": [
+        "south"
+      ],
       "unreleased": false
     },
     {
@@ -2806,7 +2895,9 @@
       ],
       "truncated": false,
       "bytes": 6954,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -2826,7 +2917,9 @@
       ],
       "truncated": false,
       "bytes": 13971,
-      "regions": ["north"],
+      "regions": [
+        "north"
+      ],
       "unreleased": false
     },
     {
@@ -2845,7 +2938,9 @@
       ],
       "truncated": false,
       "bytes": 8750,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -2869,7 +2964,9 @@
       ],
       "truncated": false,
       "bytes": 30825,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -2889,7 +2986,9 @@
       ],
       "truncated": false,
       "bytes": 7112,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -2909,7 +3008,9 @@
       ],
       "truncated": false,
       "bytes": 12311,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -2928,7 +3029,9 @@
       ],
       "truncated": false,
       "bytes": 3049,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -2953,7 +3056,10 @@
       ],
       "truncated": false,
       "bytes": 25634,
-      "regions": ["europe", "asia"],
+      "regions": [
+        "europe",
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -2973,7 +3079,9 @@
       ],
       "truncated": false,
       "bytes": 7340,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -2996,7 +3104,9 @@
       ],
       "truncated": false,
       "bytes": 35275,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": true
     },
     {
@@ -3016,7 +3126,9 @@
       ],
       "truncated": false,
       "bytes": 7010,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -3036,7 +3148,9 @@
       ],
       "truncated": false,
       "bytes": 9861,
-      "regions": ["north"],
+      "regions": [
+        "north"
+      ],
       "unreleased": false
     },
     {
@@ -3055,7 +3169,9 @@
       ],
       "truncated": false,
       "bytes": 3142,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -3074,7 +3190,9 @@
       ],
       "truncated": false,
       "bytes": 4362,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -3093,7 +3211,9 @@
       ],
       "truncated": false,
       "bytes": 3099,
-      "regions": ["north"],
+      "regions": [
+        "north"
+      ],
       "unreleased": false
     },
     {
@@ -3113,7 +3233,9 @@
       ],
       "truncated": false,
       "bytes": 10772,
-      "regions": ["north"],
+      "regions": [
+        "north"
+      ],
       "unreleased": false
     },
     {
@@ -3133,7 +3255,9 @@
       ],
       "truncated": false,
       "bytes": 14837,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -3156,7 +3280,9 @@
       ],
       "truncated": false,
       "bytes": 56658,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": true
     },
     {
@@ -3177,7 +3303,9 @@
       ],
       "truncated": false,
       "bytes": 21143,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -3197,7 +3325,9 @@
       ],
       "truncated": false,
       "bytes": 21459,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -3218,7 +3348,9 @@
       ],
       "truncated": false,
       "bytes": 22241,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -3237,7 +3369,9 @@
       ],
       "truncated": false,
       "bytes": 3951,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": false
     },
     {
@@ -3257,7 +3391,9 @@
       ],
       "truncated": false,
       "bytes": 11108,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -3278,7 +3414,9 @@
       ],
       "truncated": false,
       "bytes": 13880,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -3298,7 +3436,9 @@
       ],
       "truncated": false,
       "bytes": 7380,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -3317,7 +3457,9 @@
       ],
       "truncated": false,
       "bytes": 3579,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -3338,7 +3480,9 @@
       ],
       "truncated": false,
       "bytes": 24834,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -3357,7 +3501,9 @@
       ],
       "truncated": false,
       "bytes": 4314,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": false
     },
     {
@@ -3376,7 +3522,9 @@
       ],
       "truncated": false,
       "bytes": 5489,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": false
     },
     {
@@ -3397,7 +3545,9 @@
       ],
       "truncated": false,
       "bytes": 21750,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": true
     },
     {
@@ -3416,7 +3566,9 @@
       ],
       "truncated": false,
       "bytes": 3937,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": false
     },
     {
@@ -3435,7 +3587,9 @@
       ],
       "truncated": false,
       "bytes": 4442,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": false
     },
     {
@@ -3460,7 +3614,9 @@
       ],
       "truncated": false,
       "bytes": 48012,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -3484,7 +3640,9 @@
       ],
       "truncated": false,
       "bytes": 36197,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -3503,7 +3661,9 @@
       ],
       "truncated": false,
       "bytes": 4078,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": false
     },
     {
@@ -3522,7 +3682,9 @@
       ],
       "truncated": false,
       "bytes": 3926,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -3540,7 +3702,9 @@
       ],
       "truncated": false,
       "bytes": 3354,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -3560,7 +3724,9 @@
       ],
       "truncated": false,
       "bytes": 11273,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -3583,7 +3749,9 @@
       ],
       "truncated": true,
       "bytes": 67461,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -3602,7 +3770,9 @@
       ],
       "truncated": false,
       "bytes": 3839,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": false
     },
     {
@@ -3621,7 +3791,9 @@
       ],
       "truncated": false,
       "bytes": 3188,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -3642,7 +3814,9 @@
       ],
       "truncated": false,
       "bytes": 28670,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -3669,7 +3843,9 @@
       ],
       "truncated": false,
       "bytes": 78335,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -3688,7 +3864,9 @@
       ],
       "truncated": false,
       "bytes": 3111,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -3708,7 +3886,9 @@
       ],
       "truncated": false,
       "bytes": 12637,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -3726,7 +3906,9 @@
       ],
       "truncated": false,
       "bytes": 3850,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -3749,7 +3931,9 @@
       ],
       "truncated": false,
       "bytes": 21212,
-      "regions": ["north"],
+      "regions": [
+        "north"
+      ],
       "unreleased": false
     },
     {
@@ -3771,7 +3955,9 @@
       ],
       "truncated": false,
       "bytes": 18133,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": true
     },
     {
@@ -3789,7 +3975,9 @@
       ],
       "truncated": false,
       "bytes": 4419,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -3815,7 +4003,9 @@
       ],
       "truncated": false,
       "bytes": 41389,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -3834,7 +4024,9 @@
       ],
       "truncated": false,
       "bytes": 4039,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -3853,7 +4045,9 @@
       ],
       "truncated": false,
       "bytes": 4580,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -3877,7 +4071,9 @@
       ],
       "truncated": false,
       "bytes": 39744,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -3902,7 +4098,9 @@
       ],
       "truncated": false,
       "bytes": 58522,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -3922,7 +4120,9 @@
       ],
       "truncated": false,
       "bytes": 6687,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -3942,7 +4142,9 @@
       ],
       "truncated": false,
       "bytes": 12234,
-      "regions": ["oceania"],
+      "regions": [
+        "oceania"
+      ],
       "unreleased": false
     },
     {
@@ -3962,7 +4164,9 @@
       ],
       "truncated": false,
       "bytes": 11390,
-      "regions": ["north"],
+      "regions": [
+        "north"
+      ],
       "unreleased": false
     },
     {
@@ -3981,7 +4185,9 @@
       ],
       "truncated": false,
       "bytes": 3015,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -4004,7 +4210,9 @@
       ],
       "truncated": false,
       "bytes": 31462,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": true
     },
     {
@@ -4027,7 +4235,9 @@
       ],
       "truncated": false,
       "bytes": 40648,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": true
     },
     {
@@ -4051,7 +4261,9 @@
       ],
       "truncated": false,
       "bytes": 46542,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": true
     },
     {
@@ -4070,7 +4282,9 @@
       ],
       "truncated": false,
       "bytes": 3156,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": false
     },
     {
@@ -4091,7 +4305,9 @@
       ],
       "truncated": false,
       "bytes": 21144,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -4110,7 +4326,9 @@
       ],
       "truncated": false,
       "bytes": 4146,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": false
     },
     {
@@ -4130,7 +4348,9 @@
       ],
       "truncated": false,
       "bytes": 10616,
-      "regions": ["north"],
+      "regions": [
+        "north"
+      ],
       "unreleased": false
     },
     {
@@ -4150,7 +4370,9 @@
       ],
       "truncated": false,
       "bytes": 9746,
-      "regions": ["south"],
+      "regions": [
+        "south"
+      ],
       "unreleased": false
     },
     {
@@ -4171,7 +4393,9 @@
       ],
       "truncated": false,
       "bytes": 15009,
-      "regions": ["south"],
+      "regions": [
+        "south"
+      ],
       "unreleased": false
     },
     {
@@ -4192,7 +4416,9 @@
       ],
       "truncated": false,
       "bytes": 38783,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -4212,7 +4438,9 @@
       ],
       "truncated": false,
       "bytes": 7585,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -4232,7 +4460,9 @@
       ],
       "truncated": false,
       "bytes": 6814,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -4252,7 +4482,9 @@
       ],
       "truncated": false,
       "bytes": 10368,
-      "regions": ["north"],
+      "regions": [
+        "north"
+      ],
       "unreleased": false
     },
     {
@@ -4271,7 +4503,9 @@
       ],
       "truncated": false,
       "bytes": 3817,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": false
     },
     {
@@ -4291,7 +4525,9 @@
       ],
       "truncated": false,
       "bytes": 10432,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -4309,7 +4545,10 @@
       ],
       "truncated": false,
       "bytes": 51070,
-      "regions": ["europe", "asia"],
+      "regions": [
+        "europe",
+        "asia"
+      ],
       "unreleased": false
     },
     {
@@ -4328,7 +4567,9 @@
       ],
       "truncated": false,
       "bytes": 3061,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -4347,7 +4588,9 @@
       ],
       "truncated": false,
       "bytes": 4215,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -4365,7 +4608,9 @@
       ],
       "truncated": false,
       "bytes": 4555,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -4385,7 +4630,9 @@
       ],
       "truncated": false,
       "bytes": 6709,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": false
     },
     {
@@ -4404,7 +4651,9 @@
       ],
       "truncated": false,
       "bytes": 3338,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -4424,7 +4673,9 @@
       ],
       "truncated": false,
       "bytes": 23310,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": true
     },
     {
@@ -4445,7 +4696,9 @@
       ],
       "truncated": false,
       "bytes": 22637,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -4465,7 +4718,9 @@
       ],
       "truncated": false,
       "bytes": 18421,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -4485,7 +4740,9 @@
       ],
       "truncated": false,
       "bytes": 17405,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -4502,7 +4759,9 @@
       ],
       "truncated": false,
       "bytes": 3174,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -4522,7 +4781,9 @@
       ],
       "truncated": false,
       "bytes": 7977,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -4544,7 +4805,9 @@
       ],
       "truncated": false,
       "bytes": 20212,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -4566,7 +4829,9 @@
       ],
       "truncated": false,
       "bytes": 18727,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -4588,7 +4853,9 @@
       ],
       "truncated": false,
       "bytes": 29519,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -4607,7 +4874,9 @@
       ],
       "truncated": false,
       "bytes": 3990,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -4627,7 +4896,9 @@
       ],
       "truncated": false,
       "bytes": 6820,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -4646,7 +4917,9 @@
       ],
       "truncated": false,
       "bytes": 6111,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -4665,7 +4938,9 @@
       ],
       "truncated": false,
       "bytes": 3217,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": false
     },
     {
@@ -4692,7 +4967,9 @@
       ],
       "truncated": false,
       "bytes": 64947,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -4711,7 +4988,9 @@
       ],
       "truncated": false,
       "bytes": 4361,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": false
     },
     {
@@ -4733,7 +5012,9 @@
       ],
       "truncated": false,
       "bytes": 31766,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": true
     },
     {
@@ -4755,7 +5036,9 @@
       ],
       "truncated": false,
       "bytes": 28050,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -4774,7 +5057,9 @@
       ],
       "truncated": false,
       "bytes": 2990,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -4793,7 +5078,9 @@
       ],
       "truncated": false,
       "bytes": 4189,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": false
     },
     {
@@ -4813,7 +5100,10 @@
       ],
       "truncated": false,
       "bytes": 15294,
-      "regions": ["europe", "asia"],
+      "regions": [
+        "europe",
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -4838,7 +5128,9 @@
       ],
       "truncated": false,
       "bytes": 34974,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -4857,7 +5149,9 @@
       ],
       "truncated": false,
       "bytes": 4398,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": false
     },
     {
@@ -4879,7 +5173,9 @@
       ],
       "truncated": false,
       "bytes": 28208,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": true
     },
     {
@@ -4899,7 +5195,9 @@
       ],
       "truncated": false,
       "bytes": 19014,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": true
     },
     {
@@ -4919,7 +5217,9 @@
       ],
       "truncated": false,
       "bytes": 12872,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -4937,7 +5237,9 @@
       ],
       "truncated": false,
       "bytes": 11666,
-      "regions": ["south"],
+      "regions": [
+        "south"
+      ],
       "unreleased": false
     },
     {
@@ -4955,7 +5257,9 @@
       ],
       "truncated": false,
       "bytes": 19277,
-      "regions": ["north"],
+      "regions": [
+        "north"
+      ],
       "unreleased": false
     },
     {
@@ -4982,7 +5286,9 @@
       ],
       "truncated": false,
       "bytes": 38863,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -5000,7 +5306,9 @@
       ],
       "truncated": false,
       "bytes": 3698,
-      "regions": ["europe"],
+      "regions": [
+        "europe"
+      ],
       "unreleased": false
     },
     {
@@ -5020,7 +5328,9 @@
       ],
       "truncated": false,
       "bytes": 11408,
-      "regions": ["south"],
+      "regions": [
+        "south"
+      ],
       "unreleased": false
     },
     {
@@ -5040,7 +5350,9 @@
       ],
       "truncated": false,
       "bytes": 20725,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": true
     },
     {
@@ -5058,7 +5370,9 @@
       ],
       "truncated": false,
       "bytes": 2987,
-      "regions": ["asia"],
+      "regions": [
+        "asia"
+      ],
       "unreleased": false
     },
     {
@@ -5079,7 +5393,9 @@
       ],
       "truncated": false,
       "bytes": 28496,
-      "regions": ["africa"],
+      "regions": [
+        "africa"
+      ],
       "unreleased": true
     }
   ]
