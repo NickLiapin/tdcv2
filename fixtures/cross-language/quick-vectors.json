@@ -782,15 +782,15 @@
       "name": "an-uninstalled-pack-is-not-a-typo",
       "seed": "m",
       "locale": "en",
-      "address": "af.person.lastName",
+      "address": "x-pseudo.person.lastName",
       "verbatim": false,
       "contains": [
-        "the \"af\" pack is not installed",
-        "\"af.person.lastName\" cannot be drawn",
-        "tdcv2 pack add af"
+        "the \"x-pseudo\" pack is not installed",
+        "\"x-pseudo.person.lastName\" cannot be drawn",
+        "tdcv2 pack add x-pseudo"
       ],
       "absent": ["Did you mean"],
-      "message": "the \"af\" pack is not installed, so \"af.person.lastName\" cannot be drawn. Install it with `tdcv2 pack add af` (run `tdcv2 init` once first, to say where packs go)."
+      "message": "the \"x-pseudo\" pack is not installed, so \"x-pseudo.person.lastName\" cannot be drawn. Install it with `tdcv2 pack add x-pseudo` (run `tdcv2 init` once first, to say where packs go)."
     }
   ]
 }

@@ -273,9 +273,9 @@ byte-for-byte match with the output shown above.
   implementations, and the same seed gives the same value in each.
 
 - **[Locale and country packs](data-packs/overview.mdx).** Generate data for people,
-  places, medical records, and documents in ten languages. Country packs also support
-  national ID formats for more than ninety countries, with the appropriate check-digit
-  rule for each format.
+  places, medical records, and documents in %%TDC_PACK_LANGUAGES%% languages. Country packs
+  also support national ID formats for %%TDC_PACK_COUNTRIES%% countries, with the
+  appropriate check-digit rule for each format.
 
 ## Where TDC is used
 
@@ -347,7 +347,8 @@ registry produces the same bytes for the same config and seed.
 | **[Java](bindings/java.mdx)**             | Maven Central | `io.github.nickliapin:tdcv2` | %%TDC_JAVA_VERSION%%   |
 
 Every published package carries a starter set of data packs, so it works with
-nothing else installed; the other ten languages and ninety-odd country packs are
+nothing else installed; the other %%TDC_PACK_LANGUAGES%% languages and
+%%TDC_PACK_COUNTRIES%% country packs are
 [a download away](data-packs/installing-packs.mdx).
 
 ## Where to start

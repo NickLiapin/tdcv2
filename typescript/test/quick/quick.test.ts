@@ -118,16 +118,21 @@ describe('quick API', () => {
     // downloaded. So the FIRST thing a reader tries from the landing page —
     // `tdc.lang.ru.person.lastName()` on a fresh install — used to answer
     // "did you mean en.person.lastName?", which suggests English to someone
-    // who asked for Russian. `af` stands in for that here, because a repo
-    // checkout has every pack and `ru` therefore resolves.
+    // who asked for Russian. A repo checkout has every written pack, so this
+    // needs a locale code that is real but will never hold data. `x-pseudo` is
+    // moment.js's pseudo-locale for testing, not a human language.
+    //
+    // It used to be `af`, until Afrikaans was written and the test's premise
+    // died with it — silently, because nothing tied the two together. The guard
+    // in data/scripts/check-quick-uninstalled-locale.mjs now does.
     const draw = new QuickDraw('m', 'en');
     try {
-      draw.draw({ type: 'template', attrs: { value: 'af.person.lastName' } }, 1);
+      draw.draw({ type: 'template', attrs: { value: 'x-pseudo.person.lastName' } }, 1);
       expect.unreachable('should have thrown');
     } catch (error) {
       const message = (error as Error).message;
-      expect(message).toContain('"af" pack is not installed');
-      expect(message).toContain('tdcv2 pack add af');
+      expect(message).toContain('"x-pseudo" pack is not installed');
+      expect(message).toContain('tdcv2 pack add x-pseudo');
       // The wrong answer, specifically: never propose another language.
       expect(message).not.toContain('Did you mean');
     }

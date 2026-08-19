@@ -130,15 +130,15 @@ class QuickTest {
   @Test
   @DisplayName("a missing pack says so instead of proposing another language")
   void aMissingPack() {
-    // The jar carries a starter set; the rest are downloaded. Answering `af.person.lastName`
-    // with "did you mean en.person.lastName?" offers English to someone who asked for Afrikaans.
+    // The jar carries a starter set; the rest are downloaded. Answering `x-pseudo.person.lastName`
+    // with "did you mean en.person.lastName?" offers English to someone who asked for a language nobody has installed.
     TdcQuickException caught =
         assertThrows(
             TdcQuickException.class,
-            () -> Quick.tdc().seed("m").locale("en").get("af.person.lastName"));
+            () -> Quick.tdc().seed("m").locale("en").get("x-pseudo.person.lastName"));
     String message = caught.getMessage();
-    assertTrue(message.contains("\"af\" pack is not installed"), message);
-    assertTrue(message.contains("tdcv2 pack add af"), message);
+    assertTrue(message.contains("\"x-pseudo\" pack is not installed"), message);
+    assertTrue(message.contains("tdcv2 pack add x-pseudo"), message);
     // Maven puts no `tdcv2` on the PATH, so the advice also has to appear in a form a Java user
     // can type. The line above is the spelling the other four share and every port asserts.
     assertTrue(message.contains("java -jar tdcv2-cli.jar pack add af"), message);

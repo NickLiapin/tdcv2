@@ -133,18 +133,18 @@ fn a_misspelled_address_names_the_nearest_one() {
 #[test]
 fn a_missing_pack_says_so_instead_of_proposing_another_language() {
     // The binary carries a starter set; the rest are downloaded. Answering
-    // `af.person.lastName` with "did you mean en.person.lastName?" offers
-    // English to someone who asked for Afrikaans.
+    // `x-pseudo.person.lastName` with "did you mean en.person.lastName?" offers
+    // English to someone who asked for a language nobody has installed.
     let error = Quick::seeded("m")
         .locale("en")
-        .get("af.person.lastName")
+        .get("x-pseudo.person.lastName")
         .unwrap_err();
     assert!(
-        error.0.contains("\"af\" pack is not installed"),
+        error.0.contains("\"x-pseudo\" pack is not installed"),
         "{}",
         error.0
     );
-    assert!(error.0.contains("tdcv2 pack add af"), "{}", error.0);
+    assert!(error.0.contains("tdcv2 pack add x-pseudo"), "{}", error.0);
     assert!(!error.0.contains("Did you mean"), "{}", error.0);
 }
 

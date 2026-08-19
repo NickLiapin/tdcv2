@@ -119,16 +119,16 @@ public class QuickTest
     public void AMissingPackSaysSoInsteadOfProposingAnotherLanguage()
     {
         // A build carries common/en/usa; the rest are downloaded. Answering
-        // `af.person.lastName` with "did you mean en.person.lastName?" offers English to
-        // someone who asked for Afrikaans.
+        // `x-pseudo.person.lastName` with "did you mean en.person.lastName?" offers English to
+        // someone who asked for a language nobody has installed.
         var draw = new QuickDraw("m", "en");
         var caught = Assert.Throws<TdcQuickException>(() =>
             draw.Draw(
                 "template",
-                new Dictionary<string, string> { ["value"] = "af.person.lastName" },
+                new Dictionary<string, string> { ["value"] = "x-pseudo.person.lastName" },
                 1));
-        Assert.Contains("\"af\" pack is not installed", caught.Message);
-        Assert.Contains("tdcv2 pack add af", caught.Message);
+        Assert.Contains("\"x-pseudo\" pack is not installed", caught.Message);
+        Assert.Contains("tdcv2 pack add x-pseudo", caught.Message);
         Assert.DoesNotContain("Did you mean", caught.Message);
     }
 

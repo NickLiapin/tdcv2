@@ -135,14 +135,14 @@ class TestRefusals:
 
     def test_a_missing_pack_says_so_instead_of_proposing_another_language(self) -> None:
         # A wheel carries common/en/usa; the rest are downloaded. Answering
-        # `af.person.lastName` with "did you mean en.person.lastName?" offers
-        # English to someone who asked for Afrikaans.
+        # `x-pseudo.person.lastName` with "did you mean en.person.lastName?" offers
+        # English to someone who asked for a language nobody has installed.
         draw = QuickDraw("m", "en")
         with pytest.raises(TdcQuickError) as caught:
-            draw.draw("template", {"value": "af.person.lastName"}, 1)
+            draw.draw("template", {"value": "x-pseudo.person.lastName"}, 1)
         message = str(caught.value)
-        assert '"af" pack is not installed' in message
-        assert "tdcv2 pack add af" in message
+        assert '"x-pseudo" pack is not installed' in message
+        assert "tdcv2 pack add x-pseudo" in message
         assert "Did you mean" not in message
 
     def test_a_double_quote_in_a_value(self) -> None:

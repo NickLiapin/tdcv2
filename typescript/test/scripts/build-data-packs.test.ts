@@ -104,7 +104,12 @@ describe('build-data-packs', () => {
       .filter((b) => b.id.includes('-'))
       .filter((b) => {
         const [head, tail] = b.id.split('-');
-        return localeIds.has(head) && countryIds.has(tail);
+        // Under noUncheckedIndexedAccess a destructured split element is
+        // possibly undefined, and an id like "uz-latn" only mashes the axes if
+        // BOTH halves name a real bundle.
+        return (
+          head !== undefined && tail !== undefined && localeIds.has(head) && countryIds.has(tail)
+        );
       })
       .map((b) => b.id);
     expect(mashes).toEqual([]);

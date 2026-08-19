@@ -112,16 +112,22 @@ const DIAGNOSTICS = [
   },
   {
     // The fork the five diverged on. A pack that is real but not downloaded must not be answered
-    // with another language's address — that offers English to someone who asked for Afrikaans.
+    // with another language's address — that offers English to someone who asked for something else.
+    //
+    // The locale here must be a canonical code that will NEVER hold data, because a repo checkout
+    // carries every written pack. This said `af` until Afrikaans was written, at which point the
+    // draw succeeded and the vector proved nothing. `x-pseudo` is moment.js's pseudo-locale for
+    // testing, not a human language. data/scripts/check-quick-uninstalled-locale.mjs fails the
+    // moment whatever is named here gains a data file, so the next person is told why.
     name: 'an-uninstalled-pack-is-not-a-typo',
     seed: 'm',
     locale: 'en',
-    address: 'af.person.lastName',
+    address: 'x-pseudo.person.lastName',
     verbatim: false,
     contains: [
-      'the "af" pack is not installed',
-      '"af.person.lastName" cannot be drawn',
-      'tdcv2 pack add af',
+      'the "x-pseudo" pack is not installed',
+      '"x-pseudo.person.lastName" cannot be drawn',
+      'tdcv2 pack add x-pseudo',
     ],
     absent: ['Did you mean'],
   },
