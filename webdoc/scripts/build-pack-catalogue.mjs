@@ -12,6 +12,7 @@
  *   node scripts/build-pack-catalogue.mjs [--check]
  */
 
+import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -51,15 +52,81 @@ function split(description) {
   return { blurb, categories, truncated };
 }
 
+/**
+ * Which ids the RELEASED packages can actually address.
+ *
+ * A pack downloads fine whatever its id, but the address only resolves if the
+ * installed package's own registry knows it — so a country registered after the
+ * last release is downloadable and unusable, and worse, its presence in the
+ * store makes every unrelated config emit TDC171 warnings. Measured on the
+ * published 0.2.2: `japan.geo.prefecture` exits 1 with no output, and
+ * `usa.geo.state` still works but prints 49 warnings.
+ *
+ * So the catalogue marks them. The mark is derived from the last release tag,
+ * which means it disappears by itself at the next release rather than becoming
+ * another sentence somebody has to remember to delete.
+ */
+function releasedIds() {
+  try {
+    const tag = execFileSync(
+      "git",
+      ["describe", "--tags", "--abbrev=0", "--match", "v*"],
+      {
+        cwd: ROOT,
+        encoding: "utf8",
+      },
+    ).trim();
+    const src = execFileSync(
+      "git",
+      ["show", `${tag}:typescript/src/data-pack/locales.ts`],
+      {
+        cwd: ROOT,
+        encoding: "utf8",
+        maxBuffer: 1 << 22,
+      },
+    );
+    const set = (name) =>
+      new Set(
+        [
+          ...src
+            .match(new RegExp(`${name}[\\s\\S]*?\\]\\)`))[0]
+            .matchAll(/'([a-z0-9_-]+)'/g),
+        ].map((m) => m[1]),
+      );
+    return {
+      tag,
+      ids: new Set([
+        ...set("CANONICAL_LOCALES"),
+        ...set("CANONICAL_COUNTRIES"),
+      ]),
+    };
+  } catch (error) {
+    // No git, no tags, or a shallow clone: say nothing rather than guess. Print it,
+    // though — a silent catch here once hid a missing import and marked nothing.
+    console.warn(`  (release marks skipped: ${error.message.split("\n")[0]})`);
+    return { tag: null, ids: null };
+  }
+}
+
+const released = releasedIds();
+
 const entry = (b) => ({
   id: b.id,
   name: b.name.replace(/\s*\((language|country)\)$/, ""),
   ...split(b.description),
   bytes: sizes.get(b.id) ?? null,
   regions: b.regions ?? null,
+  // true only when we can prove the released registry lacks it
+  // `common` is a reserved bucket, not a locale or a country, so it appears in
+  // neither registry — asking whether the released version "knows" it always
+  // answered no, and the first run marked the one pack that has shipped since
+  // the beginning as brand new.
+  unreleased:
+    released.ids && b.id !== "common" ? !released.ids.has(b.id) : false,
 });
 
 const catalogue = {
+  releasedTag: released.tag,
   generated: "node webdoc/scripts/build-pack-catalogue.mjs",
   common: manifest.filter((b) => !b.locale && !b.country).map(entry),
   languages: manifest

@@ -1,4 +1,5 @@
 {
+  "releasedTag": "v0.2.2",
   "generated": "node webdoc/scripts/build-pack-catalogue.mjs",
   "common": [
     {
@@ -18,7 +19,8 @@
       ],
       "truncated": false,
       "bytes": 47627,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     }
   ],
   "languages": [
@@ -42,7 +44,8 @@
       ],
       "truncated": true,
       "bytes": 145572,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "sq",
@@ -64,7 +67,8 @@
       ],
       "truncated": true,
       "bytes": 148835,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "ar",
@@ -86,7 +90,8 @@
       ],
       "truncated": true,
       "bytes": 89302,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "hy-am",
@@ -108,7 +113,8 @@
       ],
       "truncated": true,
       "bytes": 181990,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "az",
@@ -130,7 +136,8 @@
       ],
       "truncated": true,
       "bytes": 155705,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "eu",
@@ -152,7 +159,8 @@
       ],
       "truncated": true,
       "bytes": 131233,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "be",
@@ -174,7 +182,8 @@
       ],
       "truncated": true,
       "bytes": 192017,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "bn",
@@ -196,7 +205,8 @@
       ],
       "truncated": true,
       "bytes": 164293,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "bs",
@@ -218,7 +228,8 @@
       ],
       "truncated": true,
       "bytes": 188145,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "bg",
@@ -240,7 +251,8 @@
       ],
       "truncated": true,
       "bytes": 196556,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "my",
@@ -262,7 +274,8 @@
       ],
       "truncated": true,
       "bytes": 237734,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "ca",
@@ -284,7 +297,8 @@
       ],
       "truncated": true,
       "bytes": 141729,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "hr",
@@ -306,7 +320,8 @@
       ],
       "truncated": true,
       "bytes": 139800,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "cs",
@@ -328,7 +343,8 @@
       ],
       "truncated": true,
       "bytes": 151620,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "da",
@@ -350,7 +366,8 @@
       ],
       "truncated": true,
       "bytes": 116185,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "dv",
@@ -372,7 +389,8 @@
       ],
       "truncated": true,
       "bytes": 164066,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "nl",
@@ -394,7 +412,8 @@
       ],
       "truncated": true,
       "bytes": 166017,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "en",
@@ -411,7 +430,8 @@
       ],
       "truncated": false,
       "bytes": 148898,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "et",
@@ -433,7 +453,8 @@
       ],
       "truncated": true,
       "bytes": 146779,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "fo",
@@ -455,7 +476,8 @@
       ],
       "truncated": true,
       "bytes": 141291,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "fil",
@@ -477,7 +499,8 @@
       ],
       "truncated": true,
       "bytes": 177047,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "fi",
@@ -499,7 +522,8 @@
       ],
       "truncated": true,
       "bytes": 164872,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "fr",
@@ -521,7 +545,8 @@
       ],
       "truncated": true,
       "bytes": 131022,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "gl",
@@ -543,7 +568,8 @@
       ],
       "truncated": true,
       "bytes": 155549,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "ka",
@@ -565,7 +591,8 @@
       ],
       "truncated": true,
       "bytes": 162277,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "de",
@@ -587,7 +614,8 @@
       ],
       "truncated": true,
       "bytes": 138736,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "el",
@@ -609,7 +637,8 @@
       ],
       "truncated": true,
       "bytes": 120940,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "gu",
@@ -631,7 +660,8 @@
       ],
       "truncated": true,
       "bytes": 237423,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "he",
@@ -653,7 +683,8 @@
       ],
       "truncated": true,
       "bytes": 160482,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "hi",
@@ -675,7 +706,8 @@
       ],
       "truncated": true,
       "bytes": 146380,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "hu",
@@ -697,7 +729,8 @@
       ],
       "truncated": true,
       "bytes": 153070,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "is",
@@ -719,7 +752,8 @@
       ],
       "truncated": true,
       "bytes": 135668,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "id",
@@ -741,7 +775,8 @@
       ],
       "truncated": true,
       "bytes": 90566,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "ga",
@@ -763,7 +798,8 @@
       ],
       "truncated": true,
       "bytes": 131011,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "it",
@@ -785,7 +821,8 @@
       ],
       "truncated": true,
       "bytes": 135573,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "ja",
@@ -807,7 +844,8 @@
       ],
       "truncated": true,
       "bytes": 145925,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "jv",
@@ -829,7 +867,8 @@
       ],
       "truncated": true,
       "bytes": 173392,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "kn",
@@ -851,7 +890,8 @@
       ],
       "truncated": true,
       "bytes": 155192,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "kk",
@@ -873,7 +913,8 @@
       ],
       "truncated": true,
       "bytes": 203167,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "km",
@@ -895,7 +936,8 @@
       ],
       "truncated": true,
       "bytes": 176222,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "ko",
@@ -917,7 +959,8 @@
       ],
       "truncated": true,
       "bytes": 99285,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "ku",
@@ -939,7 +982,8 @@
       ],
       "truncated": true,
       "bytes": 147263,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "ky",
@@ -961,7 +1005,8 @@
       ],
       "truncated": true,
       "bytes": 162778,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "lo",
@@ -983,7 +1028,8 @@
       ],
       "truncated": true,
       "bytes": 175741,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "lv",
@@ -1005,7 +1051,8 @@
       ],
       "truncated": true,
       "bytes": 151976,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "lt",
@@ -1027,7 +1074,8 @@
       ],
       "truncated": true,
       "bytes": 148839,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "lb",
@@ -1049,7 +1097,8 @@
       ],
       "truncated": true,
       "bytes": 178208,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "mk",
@@ -1071,7 +1120,8 @@
       ],
       "truncated": true,
       "bytes": 196524,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "ms",
@@ -1093,7 +1143,8 @@
       ],
       "truncated": true,
       "bytes": 182579,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "ml",
@@ -1115,7 +1166,8 @@
       ],
       "truncated": true,
       "bytes": 194451,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "mt",
@@ -1137,7 +1189,8 @@
       ],
       "truncated": true,
       "bytes": 140969,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "mi",
@@ -1159,7 +1212,8 @@
       ],
       "truncated": true,
       "bytes": 215628,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "mr",
@@ -1181,7 +1235,8 @@
       ],
       "truncated": true,
       "bytes": 218071,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "mn",
@@ -1203,7 +1258,8 @@
       ],
       "truncated": true,
       "bytes": 215822,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "ne",
@@ -1225,7 +1281,8 @@
       ],
       "truncated": true,
       "bytes": 251789,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "nb",
@@ -1247,7 +1304,8 @@
       ],
       "truncated": true,
       "bytes": 130963,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "nn",
@@ -1269,7 +1327,8 @@
       ],
       "truncated": true,
       "bytes": 147873,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "fa",
@@ -1291,7 +1350,8 @@
       ],
       "truncated": true,
       "bytes": 172758,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "pl",
@@ -1313,7 +1373,8 @@
       ],
       "truncated": true,
       "bytes": 143118,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "pt",
@@ -1335,7 +1396,8 @@
       ],
       "truncated": true,
       "bytes": 139026,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "pa-in",
@@ -1357,7 +1419,8 @@
       ],
       "truncated": true,
       "bytes": 167646,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "ro",
@@ -1379,7 +1442,8 @@
       ],
       "truncated": true,
       "bytes": 186456,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "ru",
@@ -1395,7 +1459,8 @@
       ],
       "truncated": false,
       "bytes": 146918,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "gd",
@@ -1417,7 +1482,8 @@
       ],
       "truncated": true,
       "bytes": 151618,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "sr",
@@ -1439,7 +1505,8 @@
       ],
       "truncated": true,
       "bytes": 174063,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "zh-cn",
@@ -1461,7 +1528,8 @@
       ],
       "truncated": true,
       "bytes": 113033,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "si",
@@ -1483,7 +1551,8 @@
       ],
       "truncated": true,
       "bytes": 184637,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "sk",
@@ -1505,7 +1574,8 @@
       ],
       "truncated": true,
       "bytes": 120424,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "sl",
@@ -1527,7 +1597,8 @@
       ],
       "truncated": true,
       "bytes": 142274,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "es",
@@ -1545,7 +1616,8 @@
       ],
       "truncated": false,
       "bytes": 137424,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "sw",
@@ -1567,7 +1639,8 @@
       ],
       "truncated": true,
       "bytes": 147664,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "sv",
@@ -1589,7 +1662,8 @@
       ],
       "truncated": true,
       "bytes": 140857,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "tg",
@@ -1611,7 +1685,8 @@
       ],
       "truncated": true,
       "bytes": 215456,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "ta",
@@ -1633,7 +1708,8 @@
       ],
       "truncated": true,
       "bytes": 210313,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "te",
@@ -1655,7 +1731,8 @@
       ],
       "truncated": true,
       "bytes": 188732,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "th",
@@ -1677,7 +1754,8 @@
       ],
       "truncated": true,
       "bytes": 159989,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "bo",
@@ -1699,7 +1777,8 @@
       ],
       "truncated": true,
       "bytes": 122898,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "tr",
@@ -1721,7 +1800,8 @@
       ],
       "truncated": true,
       "bytes": 96010,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "tk",
@@ -1743,7 +1823,8 @@
       ],
       "truncated": true,
       "bytes": 141083,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "uk",
@@ -1765,7 +1846,8 @@
       ],
       "truncated": true,
       "bytes": 124561,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "ur",
@@ -1787,7 +1869,8 @@
       ],
       "truncated": true,
       "bytes": 193863,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "ug-cn",
@@ -1809,7 +1892,8 @@
       ],
       "truncated": true,
       "bytes": 200459,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "uz-latn",
@@ -1831,7 +1915,8 @@
       ],
       "truncated": true,
       "bytes": 177700,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "vi",
@@ -1853,7 +1938,8 @@
       ],
       "truncated": true,
       "bytes": 103983,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "cy",
@@ -1875,7 +1961,8 @@
       ],
       "truncated": true,
       "bytes": 141191,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     },
     {
       "id": "yo",
@@ -1897,7 +1984,8 @@
       ],
       "truncated": true,
       "bytes": 180545,
-      "regions": null
+      "regions": null,
+      "unreleased": false
     }
   ],
   "countries": [
@@ -1920,7 +2008,8 @@
       ],
       "truncated": false,
       "bytes": 24290,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": true
     },
     {
       "id": "algeria",
@@ -1938,7 +2027,8 @@
       ],
       "truncated": false,
       "bytes": 3589,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "angola",
@@ -1956,7 +2046,8 @@
       ],
       "truncated": false,
       "bytes": 4386,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "argentina",
@@ -1975,7 +2066,8 @@
       ],
       "truncated": false,
       "bytes": 15608,
-      "regions": ["south"]
+      "regions": ["south"],
+      "unreleased": false
     },
     {
       "id": "armenia",
@@ -1999,7 +2091,8 @@
       ],
       "truncated": false,
       "bytes": 35912,
-      "regions": ["europe", "asia"]
+      "regions": ["europe", "asia"],
+      "unreleased": true
     },
     {
       "id": "australia",
@@ -2018,7 +2111,8 @@
       ],
       "truncated": false,
       "bytes": 12534,
-      "regions": ["oceania"]
+      "regions": ["oceania"],
+      "unreleased": false
     },
     {
       "id": "austria",
@@ -2036,7 +2130,8 @@
       ],
       "truncated": false,
       "bytes": 5041,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "azerbaijan",
@@ -2059,7 +2154,8 @@
       ],
       "truncated": false,
       "bytes": 37322,
-      "regions": ["europe", "asia"]
+      "regions": ["europe", "asia"],
+      "unreleased": true
     },
     {
       "id": "bahrain",
@@ -2077,7 +2173,8 @@
       ],
       "truncated": false,
       "bytes": 3837,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": false
     },
     {
       "id": "bangladesh",
@@ -2096,7 +2193,8 @@
       ],
       "truncated": false,
       "bytes": 29217,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": true
     },
     {
       "id": "belarus",
@@ -2114,7 +2212,8 @@
       ],
       "truncated": false,
       "bytes": 5204,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "belgium",
@@ -2133,7 +2232,8 @@
       ],
       "truncated": false,
       "bytes": 7219,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "benin",
@@ -2151,7 +2251,8 @@
       ],
       "truncated": false,
       "bytes": 3161,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "bhutan",
@@ -2177,7 +2278,8 @@
       ],
       "truncated": false,
       "bytes": 44879,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": true
     },
     {
       "id": "bolivia",
@@ -2196,7 +2298,8 @@
       ],
       "truncated": false,
       "bytes": 12322,
-      "regions": ["south"]
+      "regions": ["south"],
+      "unreleased": false
     },
     {
       "id": "bosnia_and_herzegovina",
@@ -2218,7 +2321,8 @@
       ],
       "truncated": false,
       "bytes": 36076,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": true
     },
     {
       "id": "brazil",
@@ -2238,7 +2342,8 @@
       ],
       "truncated": false,
       "bytes": 7482,
-      "regions": ["south"]
+      "regions": ["south"],
+      "unreleased": false
     },
     {
       "id": "bulgaria",
@@ -2257,7 +2362,8 @@
       ],
       "truncated": false,
       "bytes": 14087,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "burkina_faso",
@@ -2275,7 +2381,8 @@
       ],
       "truncated": false,
       "bytes": 3486,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "cambodia",
@@ -2300,7 +2407,8 @@
       ],
       "truncated": false,
       "bytes": 44454,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": true
     },
     {
       "id": "cameroon",
@@ -2318,7 +2426,8 @@
       ],
       "truncated": false,
       "bytes": 3158,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "canada",
@@ -2337,7 +2446,8 @@
       ],
       "truncated": false,
       "bytes": 10848,
-      "regions": ["north"]
+      "regions": ["north"],
+      "unreleased": false
     },
     {
       "id": "cape_verde",
@@ -2354,7 +2464,8 @@
       ],
       "truncated": false,
       "bytes": 4408,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "chad",
@@ -2372,7 +2483,8 @@
       ],
       "truncated": false,
       "bytes": 3133,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "chile",
@@ -2391,7 +2503,8 @@
       ],
       "truncated": false,
       "bytes": 17476,
-      "regions": ["south"]
+      "regions": ["south"],
+      "unreleased": false
     },
     {
       "id": "china",
@@ -2409,7 +2522,8 @@
       ],
       "truncated": false,
       "bytes": 6756,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": false
     },
     {
       "id": "colombia",
@@ -2429,7 +2543,8 @@
       ],
       "truncated": false,
       "bytes": 16208,
-      "regions": ["south"]
+      "regions": ["south"],
+      "unreleased": false
     },
     {
       "id": "comoros",
@@ -2438,7 +2553,8 @@
       "categories": ["education", "finance", "geo", "holiday", "phone"],
       "truncated": false,
       "bytes": 2710,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "congo",
@@ -2456,7 +2572,8 @@
       ],
       "truncated": false,
       "bytes": 3153,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "costa_rica",
@@ -2475,7 +2592,8 @@
       ],
       "truncated": false,
       "bytes": 11252,
-      "regions": ["north"]
+      "regions": ["north"],
+      "unreleased": false
     },
     {
       "id": "croatia",
@@ -2494,7 +2612,8 @@
       ],
       "truncated": false,
       "bytes": 9908,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "cuba",
@@ -2512,7 +2631,8 @@
       ],
       "truncated": false,
       "bytes": 6367,
-      "regions": ["north"]
+      "regions": ["north"],
+      "unreleased": false
     },
     {
       "id": "cyprus",
@@ -2531,7 +2651,8 @@
       ],
       "truncated": false,
       "bytes": 9868,
-      "regions": ["europe", "asia"]
+      "regions": ["europe", "asia"],
+      "unreleased": false
     },
     {
       "id": "czechia",
@@ -2550,7 +2671,8 @@
       ],
       "truncated": false,
       "bytes": 15357,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "denmark",
@@ -2569,7 +2691,8 @@
       ],
       "truncated": false,
       "bytes": 5953,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "djibouti",
@@ -2587,7 +2710,8 @@
       ],
       "truncated": false,
       "bytes": 3103,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "dominican_republic",
@@ -2606,7 +2730,8 @@
       ],
       "truncated": false,
       "bytes": 11208,
-      "regions": ["north"]
+      "regions": ["north"],
+      "unreleased": false
     },
     {
       "id": "dr_congo",
@@ -2624,7 +2749,8 @@
       ],
       "truncated": false,
       "bytes": 3383,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "east_timor",
@@ -2641,7 +2767,8 @@
       ],
       "truncated": false,
       "bytes": 4048,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": false
     },
     {
       "id": "ecuador",
@@ -2660,7 +2787,8 @@
       ],
       "truncated": false,
       "bytes": 12131,
-      "regions": ["south"]
+      "regions": ["south"],
+      "unreleased": false
     },
     {
       "id": "egypt",
@@ -2678,7 +2806,8 @@
       ],
       "truncated": false,
       "bytes": 6954,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "el_salvador",
@@ -2697,7 +2826,8 @@
       ],
       "truncated": false,
       "bytes": 13971,
-      "regions": ["north"]
+      "regions": ["north"],
+      "unreleased": false
     },
     {
       "id": "equatorial_guinea",
@@ -2715,7 +2845,8 @@
       ],
       "truncated": false,
       "bytes": 8750,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "estonia",
@@ -2738,7 +2869,8 @@
       ],
       "truncated": false,
       "bytes": 30825,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "finland",
@@ -2757,7 +2889,8 @@
       ],
       "truncated": false,
       "bytes": 7112,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "france",
@@ -2776,7 +2909,8 @@
       ],
       "truncated": false,
       "bytes": 12311,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "gabon",
@@ -2794,7 +2928,8 @@
       ],
       "truncated": false,
       "bytes": 3049,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "georgia",
@@ -2818,7 +2953,8 @@
       ],
       "truncated": false,
       "bytes": 25634,
-      "regions": ["europe", "asia"]
+      "regions": ["europe", "asia"],
+      "unreleased": true
     },
     {
       "id": "germany",
@@ -2837,7 +2973,8 @@
       ],
       "truncated": false,
       "bytes": 7340,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "ghana",
@@ -2859,7 +2996,8 @@
       ],
       "truncated": false,
       "bytes": 35275,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": true
     },
     {
       "id": "greece",
@@ -2878,7 +3016,8 @@
       ],
       "truncated": false,
       "bytes": 7010,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "guatemala",
@@ -2897,7 +3036,8 @@
       ],
       "truncated": false,
       "bytes": 9861,
-      "regions": ["north"]
+      "regions": ["north"],
+      "unreleased": false
     },
     {
       "id": "guinea",
@@ -2915,7 +3055,8 @@
       ],
       "truncated": false,
       "bytes": 3142,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "guinea_bissau",
@@ -2933,7 +3074,8 @@
       ],
       "truncated": false,
       "bytes": 4362,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "haiti",
@@ -2951,7 +3093,8 @@
       ],
       "truncated": false,
       "bytes": 3099,
-      "regions": ["north"]
+      "regions": ["north"],
+      "unreleased": false
     },
     {
       "id": "honduras",
@@ -2970,7 +3113,8 @@
       ],
       "truncated": false,
       "bytes": 10772,
-      "regions": ["north"]
+      "regions": ["north"],
+      "unreleased": false
     },
     {
       "id": "hungary",
@@ -2989,7 +3133,8 @@
       ],
       "truncated": false,
       "bytes": 14837,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "iceland",
@@ -3011,7 +3156,8 @@
       ],
       "truncated": false,
       "bytes": 56658,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": true
     },
     {
       "id": "india",
@@ -3031,7 +3177,8 @@
       ],
       "truncated": false,
       "bytes": 21143,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": true
     },
     {
       "id": "indonesia",
@@ -3050,7 +3197,8 @@
       ],
       "truncated": false,
       "bytes": 21459,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": true
     },
     {
       "id": "iran",
@@ -3070,7 +3218,8 @@
       ],
       "truncated": false,
       "bytes": 22241,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": true
     },
     {
       "id": "iraq",
@@ -3088,7 +3237,8 @@
       ],
       "truncated": false,
       "bytes": 3951,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": false
     },
     {
       "id": "ireland",
@@ -3107,7 +3257,8 @@
       ],
       "truncated": false,
       "bytes": 11108,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "israel",
@@ -3127,7 +3278,8 @@
       ],
       "truncated": false,
       "bytes": 13880,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": true
     },
     {
       "id": "italy",
@@ -3146,7 +3298,8 @@
       ],
       "truncated": false,
       "bytes": 7380,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "ivory_coast",
@@ -3164,7 +3317,8 @@
       ],
       "truncated": false,
       "bytes": 3579,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "japan",
@@ -3184,7 +3338,8 @@
       ],
       "truncated": false,
       "bytes": 24834,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": true
     },
     {
       "id": "jordan",
@@ -3202,7 +3357,8 @@
       ],
       "truncated": false,
       "bytes": 4314,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": false
     },
     {
       "id": "kazakhstan",
@@ -3220,7 +3376,8 @@
       ],
       "truncated": false,
       "bytes": 5489,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": false
     },
     {
       "id": "kenya",
@@ -3240,7 +3397,8 @@
       ],
       "truncated": false,
       "bytes": 21750,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": true
     },
     {
       "id": "kuwait",
@@ -3258,7 +3416,8 @@
       ],
       "truncated": false,
       "bytes": 3937,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": false
     },
     {
       "id": "kyrgyzstan",
@@ -3276,7 +3435,8 @@
       ],
       "truncated": false,
       "bytes": 4442,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": false
     },
     {
       "id": "laos",
@@ -3300,7 +3460,8 @@
       ],
       "truncated": false,
       "bytes": 48012,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": true
     },
     {
       "id": "latvia",
@@ -3323,7 +3484,8 @@
       ],
       "truncated": false,
       "bytes": 36197,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "lebanon",
@@ -3341,7 +3503,8 @@
       ],
       "truncated": false,
       "bytes": 4078,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": false
     },
     {
       "id": "libya",
@@ -3359,7 +3522,8 @@
       ],
       "truncated": false,
       "bytes": 3926,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "liechtenstein",
@@ -3376,7 +3540,8 @@
       ],
       "truncated": false,
       "bytes": 3354,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "lithuania",
@@ -3395,7 +3560,8 @@
       ],
       "truncated": false,
       "bytes": 11273,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "luxembourg",
@@ -3417,7 +3583,8 @@
       ],
       "truncated": true,
       "bytes": 67461,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "macau",
@@ -3435,7 +3602,8 @@
       ],
       "truncated": false,
       "bytes": 3839,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": false
     },
     {
       "id": "madagascar",
@@ -3453,7 +3621,8 @@
       ],
       "truncated": false,
       "bytes": 3188,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "malaysia",
@@ -3473,7 +3642,8 @@
       ],
       "truncated": false,
       "bytes": 28670,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": true
     },
     {
       "id": "maldives",
@@ -3499,7 +3669,8 @@
       ],
       "truncated": false,
       "bytes": 78335,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": true
     },
     {
       "id": "mali",
@@ -3517,7 +3688,8 @@
       ],
       "truncated": false,
       "bytes": 3111,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "malta",
@@ -3536,7 +3708,8 @@
       ],
       "truncated": false,
       "bytes": 12637,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "mauritania",
@@ -3553,7 +3726,8 @@
       ],
       "truncated": false,
       "bytes": 3850,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "mexico",
@@ -3575,7 +3749,8 @@
       ],
       "truncated": false,
       "bytes": 21212,
-      "regions": ["north"]
+      "regions": ["north"],
+      "unreleased": false
     },
     {
       "id": "moldova",
@@ -3596,7 +3771,8 @@
       ],
       "truncated": false,
       "bytes": 18133,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": true
     },
     {
       "id": "monaco",
@@ -3613,7 +3789,8 @@
       ],
       "truncated": false,
       "bytes": 4419,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "mongolia",
@@ -3638,7 +3815,8 @@
       ],
       "truncated": false,
       "bytes": 41389,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": true
     },
     {
       "id": "morocco",
@@ -3656,7 +3834,8 @@
       ],
       "truncated": false,
       "bytes": 4039,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "mozambique",
@@ -3674,7 +3853,8 @@
       ],
       "truncated": false,
       "bytes": 4580,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "myanmar",
@@ -3697,7 +3877,8 @@
       ],
       "truncated": false,
       "bytes": 39744,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": true
     },
     {
       "id": "nepal",
@@ -3721,7 +3902,8 @@
       ],
       "truncated": false,
       "bytes": 58522,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": true
     },
     {
       "id": "netherlands",
@@ -3740,7 +3922,8 @@
       ],
       "truncated": false,
       "bytes": 6687,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "new_zealand",
@@ -3759,7 +3942,8 @@
       ],
       "truncated": false,
       "bytes": 12234,
-      "regions": ["oceania"]
+      "regions": ["oceania"],
+      "unreleased": false
     },
     {
       "id": "nicaragua",
@@ -3778,7 +3962,8 @@
       ],
       "truncated": false,
       "bytes": 11390,
-      "regions": ["north"]
+      "regions": ["north"],
+      "unreleased": false
     },
     {
       "id": "niger",
@@ -3796,7 +3981,8 @@
       ],
       "truncated": false,
       "bytes": 3015,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "nigeria",
@@ -3818,7 +4004,8 @@
       ],
       "truncated": false,
       "bytes": 31462,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": true
     },
     {
       "id": "north_macedonia",
@@ -3840,7 +4027,8 @@
       ],
       "truncated": false,
       "bytes": 40648,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": true
     },
     {
       "id": "norway",
@@ -3863,7 +4051,8 @@
       ],
       "truncated": false,
       "bytes": 46542,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": true
     },
     {
       "id": "oman",
@@ -3881,7 +4070,8 @@
       ],
       "truncated": false,
       "bytes": 3156,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": false
     },
     {
       "id": "pakistan",
@@ -3901,7 +4091,8 @@
       ],
       "truncated": false,
       "bytes": 21144,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": true
     },
     {
       "id": "palestine",
@@ -3919,7 +4110,8 @@
       ],
       "truncated": false,
       "bytes": 4146,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": false
     },
     {
       "id": "panama",
@@ -3938,7 +4130,8 @@
       ],
       "truncated": false,
       "bytes": 10616,
-      "regions": ["north"]
+      "regions": ["north"],
+      "unreleased": false
     },
     {
       "id": "paraguay",
@@ -3957,7 +4150,8 @@
       ],
       "truncated": false,
       "bytes": 9746,
-      "regions": ["south"]
+      "regions": ["south"],
+      "unreleased": false
     },
     {
       "id": "peru",
@@ -3977,7 +4171,8 @@
       ],
       "truncated": false,
       "bytes": 15009,
-      "regions": ["south"]
+      "regions": ["south"],
+      "unreleased": false
     },
     {
       "id": "philippines",
@@ -3997,7 +4192,8 @@
       ],
       "truncated": false,
       "bytes": 38783,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": true
     },
     {
       "id": "poland",
@@ -4016,7 +4212,8 @@
       ],
       "truncated": false,
       "bytes": 7585,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "portugal",
@@ -4035,7 +4232,8 @@
       ],
       "truncated": false,
       "bytes": 6814,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "puerto_rico",
@@ -4054,7 +4252,8 @@
       ],
       "truncated": false,
       "bytes": 10368,
-      "regions": ["north"]
+      "regions": ["north"],
+      "unreleased": false
     },
     {
       "id": "qatar",
@@ -4072,7 +4271,8 @@
       ],
       "truncated": false,
       "bytes": 3817,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": false
     },
     {
       "id": "romania",
@@ -4091,7 +4291,8 @@
       ],
       "truncated": false,
       "bytes": 10432,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "russia",
@@ -4108,7 +4309,8 @@
       ],
       "truncated": false,
       "bytes": 51070,
-      "regions": ["europe", "asia"]
+      "regions": ["europe", "asia"],
+      "unreleased": false
     },
     {
       "id": "rwanda",
@@ -4126,7 +4328,8 @@
       ],
       "truncated": false,
       "bytes": 3061,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "san_marino",
@@ -4144,7 +4347,8 @@
       ],
       "truncated": false,
       "bytes": 4215,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "sao_tome_and_principe",
@@ -4161,7 +4365,8 @@
       ],
       "truncated": false,
       "bytes": 4555,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "saudi_arabia",
@@ -4180,7 +4385,8 @@
       ],
       "truncated": false,
       "bytes": 6709,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": false
     },
     {
       "id": "senegal",
@@ -4198,7 +4404,8 @@
       ],
       "truncated": false,
       "bytes": 3338,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "serbia",
@@ -4217,7 +4424,8 @@
       ],
       "truncated": false,
       "bytes": 23310,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": true
     },
     {
       "id": "singapore",
@@ -4237,7 +4445,8 @@
       ],
       "truncated": false,
       "bytes": 22637,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": true
     },
     {
       "id": "slovakia",
@@ -4256,7 +4465,8 @@
       ],
       "truncated": false,
       "bytes": 18421,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "slovenia",
@@ -4275,7 +4485,8 @@
       ],
       "truncated": false,
       "bytes": 17405,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "somalia",
@@ -4291,7 +4502,8 @@
       ],
       "truncated": false,
       "bytes": 3174,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "south_africa",
@@ -4310,7 +4522,8 @@
       ],
       "truncated": false,
       "bytes": 7977,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "south_korea",
@@ -4331,7 +4544,8 @@
       ],
       "truncated": false,
       "bytes": 20212,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": true
     },
     {
       "id": "spain",
@@ -4352,7 +4566,8 @@
       ],
       "truncated": false,
       "bytes": 18727,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "sri_lanka",
@@ -4373,7 +4588,8 @@
       ],
       "truncated": false,
       "bytes": 29519,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": true
     },
     {
       "id": "sudan",
@@ -4391,7 +4607,8 @@
       ],
       "truncated": false,
       "bytes": 3990,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "sweden",
@@ -4410,7 +4627,8 @@
       ],
       "truncated": false,
       "bytes": 6820,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "switzerland",
@@ -4428,7 +4646,8 @@
       ],
       "truncated": false,
       "bytes": 6111,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "syria",
@@ -4446,7 +4665,8 @@
       ],
       "truncated": false,
       "bytes": 3217,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": false
     },
     {
       "id": "taiwan",
@@ -4472,7 +4692,8 @@
       ],
       "truncated": false,
       "bytes": 64947,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": true
     },
     {
       "id": "tajikistan",
@@ -4490,7 +4711,8 @@
       ],
       "truncated": false,
       "bytes": 4361,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": false
     },
     {
       "id": "tanzania",
@@ -4511,7 +4733,8 @@
       ],
       "truncated": false,
       "bytes": 31766,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": true
     },
     {
       "id": "thailand",
@@ -4532,7 +4755,8 @@
       ],
       "truncated": false,
       "bytes": 28050,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": true
     },
     {
       "id": "togo",
@@ -4550,7 +4774,8 @@
       ],
       "truncated": false,
       "bytes": 2990,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "tunisia",
@@ -4568,7 +4793,8 @@
       ],
       "truncated": false,
       "bytes": 4189,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": false
     },
     {
       "id": "turkey",
@@ -4587,7 +4813,8 @@
       ],
       "truncated": false,
       "bytes": 15294,
-      "regions": ["europe", "asia"]
+      "regions": ["europe", "asia"],
+      "unreleased": true
     },
     {
       "id": "turkmenistan",
@@ -4611,7 +4838,8 @@
       ],
       "truncated": false,
       "bytes": 34974,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": true
     },
     {
       "id": "uae",
@@ -4629,7 +4857,8 @@
       ],
       "truncated": false,
       "bytes": 4398,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": false
     },
     {
       "id": "uganda",
@@ -4650,7 +4879,8 @@
       ],
       "truncated": false,
       "bytes": 28208,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": true
     },
     {
       "id": "ukraine",
@@ -4669,7 +4899,8 @@
       ],
       "truncated": false,
       "bytes": 19014,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": true
     },
     {
       "id": "united_kingdom",
@@ -4688,7 +4919,8 @@
       ],
       "truncated": false,
       "bytes": 12872,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "uruguay",
@@ -4705,7 +4937,8 @@
       ],
       "truncated": false,
       "bytes": 11666,
-      "regions": ["south"]
+      "regions": ["south"],
+      "unreleased": false
     },
     {
       "id": "usa",
@@ -4722,7 +4955,8 @@
       ],
       "truncated": false,
       "bytes": 19277,
-      "regions": ["north"]
+      "regions": ["north"],
+      "unreleased": false
     },
     {
       "id": "uzbekistan",
@@ -4748,7 +4982,8 @@
       ],
       "truncated": false,
       "bytes": 38863,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": true
     },
     {
       "id": "vatican_city",
@@ -4765,7 +5000,8 @@
       ],
       "truncated": false,
       "bytes": 3698,
-      "regions": ["europe"]
+      "regions": ["europe"],
+      "unreleased": false
     },
     {
       "id": "venezuela",
@@ -4784,7 +5020,8 @@
       ],
       "truncated": false,
       "bytes": 11408,
-      "regions": ["south"]
+      "regions": ["south"],
+      "unreleased": false
     },
     {
       "id": "vietnam",
@@ -4803,7 +5040,8 @@
       ],
       "truncated": false,
       "bytes": 20725,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": true
     },
     {
       "id": "yemen",
@@ -4820,7 +5058,8 @@
       ],
       "truncated": false,
       "bytes": 2987,
-      "regions": ["asia"]
+      "regions": ["asia"],
+      "unreleased": false
     },
     {
       "id": "zimbabwe",
@@ -4840,7 +5079,8 @@
       ],
       "truncated": false,
       "bytes": 28496,
-      "regions": ["africa"]
+      "regions": ["africa"],
+      "unreleased": true
     }
   ]
 }

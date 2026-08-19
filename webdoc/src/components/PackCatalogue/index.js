@@ -28,10 +28,16 @@ function Pack({ pack, labels }) {
       <summary className={styles.summary}>
         <span className={styles.name}>{pack.name}</span>
         <code className={styles.id}>{pack.id}</code>
+        {pack.unreleased && (
+          <span className={styles.unreleased}>{labels.nextRelease}</span>
+        )}
         <Bytes value={pack.bytes} unit={labels.kb} />
       </summary>
       <div className={styles.body}>
         <p className={styles.blurb}>{pack.blurb}.</p>
+        {pack.unreleased && (
+          <p className={styles.warning}>{labels.nextReleaseWhy}</p>
+        )}
         {pack.categories.length > 0 && (
           <>
             <p className={styles.label}>

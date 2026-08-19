@@ -97,3 +97,29 @@
   color: var(--ifm-color-emphasis-600);
   font-style: italic;
 }
+
+.unreleased {
+  margin-left: auto;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  background: var(--ifm-color-warning-contrast-background);
+  color: var(--ifm-color-warning-contrast-foreground);
+  border: 1px solid var(--ifm-color-warning-dark);
+  white-space: nowrap;
+}
+
+.unreleased + .size {
+  margin-left: 0.5rem;
+}
+
+.warning {
+  margin: 0.4rem 0;
+  padding: 0.5rem 0.65rem;
+  border-left: 3px solid var(--ifm-color-warning-dark);
+  background: var(--ifm-color-warning-contrast-background);
+  color: var(--ifm-color-warning-contrast-foreground);
+  font-size: 0.9rem;
+}

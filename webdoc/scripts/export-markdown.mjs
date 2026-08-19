@@ -336,6 +336,17 @@ function convert(body, page, code) {
   t = t.replace(/^import\s+[^\n]*\n/gm, "");
 
   // `export const …` is MDX plumbing that means nothing in plain markdown.
+  // Keep the page's own labels before dropping the line: the pack table below is
+  // built here, and its warning has to be in the page's language, not English.
+  let pageLabels = {};
+  t = t.replace(/^export const labels = (\{[\s\S]*?\});\s*$/m, (_m, raw) => {
+    try {
+      pageLabels = JSON.parse(raw);
+    } catch {
+      pageLabels = {};
+    }
+    return "";
+  });
   t = t.replace(/^export const [\s\S]*?;\s*$/gm, "");
 
   // A JSX comment is invisible in MDX and visible in GitHub markdown, so it becomes
@@ -388,12 +399,19 @@ function convert(body, page, code) {
         entry.categories.length > 0
           ? entry.categories.join(", ") + (entry.truncated ? ", …" : "")
           : "—";
-      return `| \`${entry.id}\` | ${entry.name} | ${held} |`;
+      const mark = entry.unreleased
+        ? ` **(${pageLabels.nextRelease ?? "next release"})**`
+        : "";
+      return `| \`${entry.id}\` | ${entry.name}${mark} | ${held} |`;
     });
     return hold(
       ["| Pack | Name | Holds |", "| :--- | :--- | :--- |", ...rows].join(
         "\n",
-      ) + "\n\nInstall any of them with `tdcv2 pack add <pack>`.",
+      ) +
+        "\n\nInstall any of them with `tdcv2 pack add <pack>`." +
+        (packs.some((e) => e.unreleased) && pageLabels.nextReleaseWhy
+          ? `\n\n> ${pageLabels.nextReleaseWhy}`
+          : ""),
     );
   });
 
