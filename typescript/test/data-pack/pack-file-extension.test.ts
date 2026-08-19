@@ -114,13 +114,18 @@ describe('only .txt and .tdc are pack files', () => {
     const root = packDir({
       'hu/_locale.json': MANIFEST,
       'hu/person/lastName.txt': 'Kovács\n',
-      // `atlantis` is no country; the declared address must NOT become
-      // `hu.atlantis.geo.city` just because the values are Hungarian.
+      // `atlantis` is in no list of countries; the declared address must NOT
+      // become `hu.atlantis.geo.city` just because the values are Hungarian.
       'hu/geo/city.txt': '---\naddress: atlantis.geo.city\nlocale: hu\n---\nBudapest\n',
     });
     const { registry, diagnostics } = scanPacks([root]);
-    expect([...registry.keys()].sort()).toStrictEqual(['hu.person.lastName']);
-    expect(diagnostics.map((d) => d.message).join(' ')).toContain('atlantis.geo.city');
+    // The author wrote the address down, so that is the address. This used to
+    // be dropped with a warning, because the library kept a list of countries
+    // and `atlantis` was not on it — which is what made the data depend on the
+    // engine's version. The intent the test was written for is unchanged and
+    // better served: the locale is not glued in front of a declared address.
+    expect([...registry.keys()].sort()).toStrictEqual(['atlantis.geo.city', 'hu.person.lastName']);
+    expect(diagnostics).toEqual([]);
   });
 
   it('still prefixes a PATH-derived address from the header locale', () => {

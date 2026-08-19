@@ -676,7 +676,7 @@
     },
     {
       "name": "a pack file that lands at no address is named, not merely missed",
-      "note": "The file carries a header, so it was meant as a pack, but `stray` names no locale, country or `common` and nothing in the header says where it belongs — so it is dropped, and the address it was asked for cannot resolve. Both halves have to be said: TDC071 alone sends the author to the config, which is right, while the file that was silently discarded sits in the folder next to it. Warning and error together, exit 1.",
+      "note": "The file sits at the ROOT of the data path with nothing but a description, so nothing says where it belongs: it is not inside a locale folder, not under `countries/`, and it declares no `address:`. A folder would have opened a namespace of its own; a loose file at the top cannot, or every raw `@data` list beside the packs would become one. So it is dropped, and the address it was asked for cannot resolve. Both halves have to be said: TDC071 alone sends the author to the config, which is right, while the file that was silently discarded sits in the folder next to it. Warning and error together, exit 1.",
       "files": {
         "mypacks/stray.txt": "---\ndescription: a list of my own\n---\nAlpha\nBeta\n",
         "a.tdc": "@strayPack"
@@ -687,7 +687,7 @@
         "warning[TDC171]",
         "stray.txt",
         "is not addressable",
-        "starts with no locale, country or `common`",
+        "does not match where the file is",
         "error[TDC071]"
       ]
     },

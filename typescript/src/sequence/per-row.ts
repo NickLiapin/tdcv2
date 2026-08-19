@@ -242,7 +242,9 @@ function packEntryFor(
   locale: string,
 ): PackEntry | undefined {
   if (gen.type !== 'template') return undefined;
-  return ctx.packs?.get(resolvePackAddress(gen.attrs['value'] ?? '', gen.attrs['local'] ?? locale));
+  return ctx.packs?.get(
+    resolvePackAddress(gen.attrs['value'] ?? '', gen.attrs['local'] ?? locale, ctx.packs),
+  );
 }
 
 /**

@@ -32,7 +32,7 @@ import { type GeneratorBody, parseGeneratorSpec } from './generator.js';
 import { parameterWidths } from './param-width.js';
 import {
   CANONICAL_LOCALES,
-  CANONICAL_COUNTRIES,
+  noteNamespace,
   RESERVED_BUCKETS,
   MANIFEST_FILENAME,
   parseLocaleManifest,
@@ -348,14 +348,76 @@ function loadOne(
     return;
   }
 
-  // Locale-first rule: only addresses whose first segment is a known locale
-  // code, a country or a reserved bucket (`common`) are registered as packs.
+  /** The first addressable segment the FILE'S OWN PATH yields. */
+  const pathHead = pathToAddress(root, file).split('.')[0] ?? '';
+
+  /**
+   * Is this address one the tree itself accounts for?
+   *
+   * This used to be a membership test against a list of countries COMPILED INTO
+   * THE LIBRARY, and that made the data version-bound: a country pack written
+   * after a release was unknown to every installed copy, so its files were
+   * refused and — worse — its mere presence in the store made unrelated configs
+   * emit this warning. Packs are meant to be independent of the engine; a list
+   * inside the engine is the one thing that cannot be.
+   *
+   * So placement is now STRUCTURAL. A directory under `countries/` names a
+   * country because of where it is, not because someone added the word to a
+   * Set, and the same is true of any other top-level grouping the data grows
+   * later. Locales stay a list only because THAT list is fixed: it mirrors
+   * moment.js and does not grow with the data.
+   *
+   * What the old check really protected against is kept below: an address the
+   * author DECLARED is never silently re-homed.
+   */
   const placed = (candidate: string): boolean => {
     const head = candidate.split('.')[0] ?? '';
-    return (
-      CANONICAL_LOCALES.has(head) || CANONICAL_COUNTRIES.has(head) || RESERVED_BUCKETS.has(head)
-    );
+    if (head.length === 0) return false;
+    // An address the author WROTE DOWN is the author's to choose. Refusing it
+    // because the library had not heard of its first segment is what made the
+    // data version-bound; a pack that says where it belongs belongs there.
+    if (declaredAddress !== undefined) return true;
+    if (CANONICAL_LOCALES.has(head) || RESERVED_BUCKETS.has(head)) return true;
+    if (pathHead !== head) return false;
+    // Placed by location. `countries/` is a grouping the tree already has, and
+    // its folders name themselves — no list required, and no header either,
+    // because the location alone is unambiguous.
+    if (isUnderCountries(root, file)) return true;
+    /*
+     * Any OTHER top-level folder opens a namespace of its own, so the data can
+     * grow shapes nobody has thought of yet without touching five engines.
+     *
+     * But it must carry a pack header to do it. A `dataPaths` folder also holds
+     * raw lists for `@data` — `statuses.txt` beside the packs — and those are
+     * not packs. Requiring the header is what separates "a new kind of pack"
+     * from "somebody's loose file", and it costs the pack author one line.
+     */
+    return parsed.hasHeader && rootRelativeDepth(root, file) > 1;
   };
+
+  /*
+   * `locale:` on a file with no `address:` still wins over the path.
+   *
+   * That header is how somebody keeps a flat folder of their own lists instead
+   * of rebuilding a locale tree to hold three files: `mylists/colour.txt` with
+   * `locale: ru` means `ru.mylists.colour`. Accepting any path head would have
+   * silently taken that away — the file would have registered as `mylists.…`
+   * and the address the author expected would be gone.
+   *
+   * It is decided BEFORE placement, because after the change every path is
+   * placeable and the old fallback could never fire.
+   */
+  const headerLocale = (parsed.header['locale'] ?? '').trim();
+  if (
+    declaredAddress === undefined &&
+    headerLocale.length > 0 &&
+    !CANONICAL_LOCALES.has(pathHead) &&
+    !RESERVED_BUCKETS.has(pathHead) &&
+    !isUnderCountries(root, file) &&
+    CANONICAL_LOCALES.has(headerLocale)
+  ) {
+    address = `${headerLocale}.${address}`;
+  }
 
   if (!placed(address)) {
     // The PATH put it nowhere addressable. A header `locale:` is the file's own
@@ -387,9 +449,10 @@ function loadOne(
       // probably a raw `@data` source, not a pack.
       diagnostics.push(
         packWarning(
-          `data-pack file "${file}" is not addressable: "${address}" starts with no locale, ` +
-            'country or `common`. Add `address:` or `locale:` to its header, or move it under ' +
-            'a locale folder.',
+          `data-pack file "${file}" is not addressable: "${address}" does not match where ` +
+            'the file is, and its first segment is not a known locale. A folder opens a ' +
+            'namespace of its own — move the file into one, or give it an `address:` or a ' +
+            '`locale:` that says where it belongs.',
           file,
         ),
       );
@@ -521,6 +584,9 @@ function loadOne(
   }
 
   rootOf.set(address, rootIndex);
+  // The tree just told us this namespace exists; remember it so an address
+  // starting with it is read as absolute rather than prefixed with a locale.
+  noteNamespace(address.split('.')[0] ?? '');
   registry.set(address, {
     address,
     ...payload,
@@ -535,6 +601,20 @@ function loadOne(
  * strips the final extension, splits on the path separator, joins with
  * dots. `person/es/man/firstName.txt` -> `person.es.man.firstName`.
  */
+/** How many path segments deep the file sits below the pack root. */
+function rootRelativeDepth(root: string, file: string): number {
+  let rel = file.startsWith(root) ? file.slice(root.length) : file;
+  while (rel.startsWith(sep) || rel.startsWith('/')) rel = rel.slice(1);
+  return rel.split(/[\\/]/).filter((s) => s.length > 0).length;
+}
+
+/** Does this file sit under the tree's `countries/` grouping? */
+function isUnderCountries(root: string, file: string): boolean {
+  let rel = file.startsWith(root) ? file.slice(root.length) : file;
+  while (rel.startsWith(sep) || rel.startsWith('/')) rel = rel.slice(1);
+  return rel.split(/[\\/]/)[0] === 'countries';
+}
+
 export function pathToAddress(root: string, file: string): string {
   let rel = file.startsWith(root) ? file.slice(root.length) : file;
   // Drop leading separator(s).

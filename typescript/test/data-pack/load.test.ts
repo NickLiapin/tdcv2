@@ -131,7 +131,9 @@ describe('countries grouping folder', () => {
     const root = tmpRoot('tdc-pack-country-');
     mkdirSync(join(root, 'countries', 'russia', 'vehicle'), { recursive: true });
     writeFileSync(join(root, 'countries', 'russia', 'vehicle', 'plate.txt'), 'A123BC\n');
-    // Unknown country -> skipped (no error), like any non-known first segment.
+    // A country the library has never heard of registers all the same: a folder
+    // under `countries/` names itself. It used to be skipped, which meant every
+    // new country pack needed an engine release before anyone could use it.
     mkdirSync(join(root, 'countries', 'atlantis', 'tax'), { recursive: true });
     writeFileSync(join(root, 'countries', 'atlantis', 'tax', 'x.txt'), '1\n');
 
@@ -140,7 +142,8 @@ describe('countries grouping folder', () => {
     expect(diagnostics).toEqual([]);
     expect(registry.has('russia.vehicle.plate')).toBe(true);
     expect(registry.has('countries.russia.vehicle.plate')).toBe(false);
-    expect(registry.has('atlantis.tax.x')).toBe(false); // unknown country -> skipped
+    expect(registry.has('atlantis.tax.x')).toBe(true);
+    expect(registry.has('countries.atlantis.tax.x')).toBe(false);
   });
 });
 

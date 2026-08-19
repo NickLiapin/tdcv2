@@ -347,10 +347,68 @@ export function directionOf(code: string): Direction {
  * prepended. `person.male.firstName` + `ru` -> `ru.person.male.firstName`;
  * `fr.person.male.firstName` stays `fr.person.male.firstName`.
  */
-export function resolvePackAddress(path: string, locale: string): string {
+/**
+ * Namespaces the loaded packs turned out to have.
+ *
+ * The scanner fills this in as it registers files. It exists because the
+ * alternative — asking a list compiled into the library whether a name is a
+ * country — made the DATA depend on the library's version: a pack written after
+ * a release was refused by every installed copy, and `japan.geo.prefecture` was
+ * not even recognised as an absolute address, so the locale was glued in front
+ * of it.
+ *
+ * Recording what the scan found, rather than threading a registry through every
+ * call site, keeps this to one line in the scanner — which matters, because the
+ * same rule has to hold in five implementations.
+ */
+const discoveredNamespaces = new Set<string>();
+
+/** Called by the pack scanner for every address it registers. */
+export function noteNamespace(head: string): void {
+  if (head.length > 0) discoveredNamespaces.add(head);
+}
+
+const headCache = new WeakMap<object, ReadonlySet<string>>();
+
+/**
+ * Every first segment the loaded packs actually provide.
+ *
+ * Computed once per registry and cached against it, because the answer only
+ * changes when the packs do.
+ */
+function headsOf(registry: ReadonlyMap<string, unknown>): ReadonlySet<string> {
+  const cached = headCache.get(registry);
+  if (cached !== undefined) return cached;
+  const heads = new Set<string>();
+  for (const address of registry.keys()) heads.add(address.split('.')[0] ?? '');
+  headCache.set(registry, heads);
+  return heads;
+}
+
+export function resolvePackAddress(
+  path: string,
+  locale: string,
+  registry?: ReadonlyMap<string, unknown>,
+): string {
   const first = path.split('.')[0] ?? '';
+  /*
+   * `CANONICAL_COUNTRIES` is a hint, not the authority. It is a list inside the
+   * library, so relying on it made a config's meaning depend on the library's
+   * VERSION: on 0.2.2, `japan.geo.prefecture` was not recognised as absolute and
+   * got the locale glued in front of it, producing an address nobody wrote.
+   *
+   * The authority is what the loaded packs actually provide. When a registry is
+   * to hand — which is every call site that then looks the address up — the
+   * question "is this segment a namespace" is answered by the data. The list
+   * stays as the answer for callers with no registry, and as the seed for
+   * `tdcv2 pack` before anything is installed.
+   */
   const isHard =
-    CANONICAL_LOCALES.has(first) || CANONICAL_COUNTRIES.has(first) || RESERVED_BUCKETS.has(first);
+    CANONICAL_LOCALES.has(first) ||
+    RESERVED_BUCKETS.has(first) ||
+    discoveredNamespaces.has(first) ||
+    (registry !== undefined && headsOf(registry).has(first)) ||
+    CANONICAL_COUNTRIES.has(first);
   return isHard ? path : `${locale}.${path}`;
 }
 

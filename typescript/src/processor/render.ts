@@ -1028,8 +1028,8 @@ function specsUsePercentPack(
     const path = g.attrs['value'] ?? '';
     if (path === '' || isDynamicTemplateValue(path)) return false;
     return (
-      packs.get(resolvePackAddress(path, g.attrs['local'] ?? locale ?? 'en'))?.needsWholeColumn ===
-      true
+      packs.get(resolvePackAddress(path, g.attrs['local'] ?? locale ?? 'en', packs))
+        ?.needsWholeColumn === true
     );
   });
 }
@@ -1210,7 +1210,9 @@ function renderGen(node: SelfClosingElementContext, attrs: AttrMap, ctx: RenderC
       // Soft/hard locale resolution (see build.ts). Data-pack addresses take
       // precedence over builtin template paths. A pack GENERATOR runs its
       // stored <gen> spec (one value); a pack DATA list is a uniform pick.
-      const packEntry = ctx.packs?.get(resolvePackAddress(path, attrs['local'] ?? ctx.locale));
+      const packEntry = ctx.packs?.get(
+        resolvePackAddress(path, attrs['local'] ?? ctx.locale, ctx.packs),
+      );
       if (packEntry?.generator) {
         return (
           runGenerator(packEntry.generator, 1, ctx.prng, ctx.locale, ctx.now, {
