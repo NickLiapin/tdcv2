@@ -395,19 +395,28 @@ function convert(body, page, code) {
   t = t.replace(new RegExp(`<PackCatalogue\\s*${ATTRS}/>`, "g"), (_m, raw) => {
     const packs = packCatalogue[attrs(raw).group] ?? [];
     const rows = packs.map((entry) => {
+      // Every list, never a count and never "and more": the offline copy exists
+      // so somebody can answer "is the thing I need in there" without a network.
       const held =
-        entry.categories.length > 0
-          ? entry.categories.join(", ") + (entry.truncated ? ", …" : "")
+        entry.groups.length > 0
+          ? entry.groups
+              .map(
+                ([name, leaves]) =>
+                  `**${name}** ${leaves.map((l) => `\`${l}\``).join(" ")}`,
+              )
+              .join("<br>")
           : "—";
       const mark = entry.unreleased
         ? ` **(${pageLabels.nextRelease ?? "next release"})**`
         : "";
-      return `| \`${entry.id}\` | ${entry.name}${mark} | ${held} |`;
+      return `| \`${entry.id}\` | ${entry.name}${mark} | ${String(entry.files)} | ${held} |`;
     });
     return hold(
-      ["| Pack | Name | Holds |", "| :--- | :--- | :--- |", ...rows].join(
-        "\n",
-      ) +
+      [
+        "| Pack | Name | Lists | Holds |",
+        "| :--- | :--- | ---: | :--- |",
+        ...rows,
+      ].join("\n") +
         "\n\nInstall any of them with `tdcv2 pack add <pack>`." +
         (packs.some((e) => e.unreleased) && pageLabels.nextReleaseWhy
           ? `\n\n> ${pageLabels.nextReleaseWhy}`

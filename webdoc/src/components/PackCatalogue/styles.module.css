@@ -85,6 +85,11 @@
   list-style: none;
 }
 
+.categories li {
+  margin: 0;
+  padding: 0;
+}
+
 .categories li code {
   font-size: 0.78rem;
 }
@@ -122,4 +127,62 @@
   background: var(--ifm-color-warning-contrast-background);
   color: var(--ifm-color-warning-contrast-foreground);
   font-size: 0.9rem;
+}
+
+.files {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.group {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  border-top: 1px solid var(--ifm-color-emphasis-100);
+}
+
+.groupName {
+  flex: 0 0 auto;
+  min-width: 8rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  /* Sit on the first row of chips, not on the top edge of the block. */
+  line-height: 1.5;
+  padding: 0.02rem 0.3rem;
+}
+
+.leaves {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/*
+ * Reset the list margins the theme adds.
+ *
+ * Docusaurus gives every list item after the first a top margin, which is right
+ * for prose and wrong for a row of chips: measured, the first chip sat 4px
+ * higher than its neighbours and was 4px taller, on every row of every pack.
+ * The flex line stretches items to its own height, so the one without the
+ * margin grew instead of moving — which is why it read as "raised" rather than
+ * "misplaced".
+ */
+.leaves li {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.leaves li code {
+  font-size: 0.76rem;
+  background: var(--ifm-color-emphasis-100);
+  padding: 0.02rem 0.3rem;
+  border-radius: 3px;
+  line-height: 1.5;
 }

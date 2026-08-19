@@ -13,7 +13,7 @@
  */
 
 import { execFileSync } from "node:child_process";
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -35,36 +35,72 @@ const sizes = existsSync(built)
   : new Map();
 
 /**
- * The description is one sentence ending in the pack's own category list. The
- * list is the useful half for a reader deciding what to install, so it is split
- * out and rendered as chips rather than left as prose that runs off the line.
+ * Everything a pack actually holds, read off disk and grouped by its first
+ * segment.
+ *
+ * NOT from the manifest's description. That sentence caps its list at twelve
+ * and ends "and more", which is the opposite of what this page is for — a
+ * reader is here to find out whether the thing they need is inside, and a
+ * truncated list cannot answer that. Worse, `common`'s description is
+ * hand-written prose, so splitting it on commas produced chips like
+ * "card PANs" that are not addresses at all and cannot be looked up.
+ *
+ * Reading the tree gives the real names, all of them: 29,985 across the
+ * catalogue, about 0.6 MB, which is a fair price for a page whose entire job
+ * is to say what is in there.
  */
-function split(description) {
+function contentsOf(dir) {
+  const groups = new Map();
+  let count = 0;
+  const walk = (at, prefix) => {
+    let entries;
+    try {
+      entries = readdirSync(at, { withFileTypes: true });
+    } catch {
+      return;
+    }
+    for (const e of entries) {
+      if (e.name.startsWith("_") || e.name.startsWith(".")) continue;
+      const next = prefix ? `${prefix}.${e.name}` : e.name;
+      if (e.isDirectory()) walk(join(at, e.name), next);
+      else if (e.name.endsWith(".txt")) {
+        const address = next.replace(/\.txt$/, "");
+        const head = address.split(".")[0];
+        const rest = address.slice(head.length + 1) || head;
+        if (!groups.has(head)) groups.set(head, []);
+        groups.get(head).push(rest);
+        count += 1;
+      }
+    }
+  };
+  walk(dir, "");
+  return {
+    count,
+    groups: [...groups.entries()]
+      .sort((a, b) => a[0].localeCompare(b[0]))
+      .map(([name, leaves]) => [
+        name,
+        leaves.sort((x, y) => x.localeCompare(y)),
+      ]),
+  };
+}
+
+/** The blurb is the half of the description BEFORE the colon — the sentence. */
+function blurbOf(description) {
   const at = description.indexOf(":");
-  if (at === -1) return { blurb: description.trim(), categories: [] };
-  const blurb = description.slice(0, at).trim();
-  const tail = description.slice(at + 1).replace(/\.$/, "");
-  const categories = tail
-    .split(",")
-    .map((s) => s.trim())
-    .filter((s) => s && !/^and \d+ more$/.test(s));
-  const truncated = /and \d+ more/.test(tail);
-  return { blurb, categories, truncated };
+  return (at === -1 ? description : description.slice(0, at)).trim();
 }
 
 /**
  * Which ids the RELEASED packages can actually address.
  *
- * A pack downloads fine whatever its id, but the address only resolves if the
- * installed package's own registry knows it — so a country registered after the
- * last release is downloadable and unusable, and worse, its presence in the
- * store makes every unrelated config emit TDC171 warnings. Measured on the
- * published 0.2.2: `japan.geo.prefecture` exits 1 with no output, and
- * `usa.geo.state` still works but prints 49 warnings.
+ * A pack downloads fine whatever its id, but on a released version the address
+ * only resolves if that build's own registry knows it — so a country added
+ * after the last release is downloadable and unusable there, and its presence
+ * in the store makes unrelated configs warn. Measured on the published 0.2.2.
  *
- * So the catalogue marks them. The mark is derived from the last release tag,
- * which means it disappears by itself at the next release rather than becoming
- * another sentence somebody has to remember to delete.
+ * Derived from the last release tag, so the mark clears itself at the next
+ * release instead of becoming a sentence somebody must remember to delete.
  */
 function releasedIds() {
   try {
@@ -101,8 +137,9 @@ function releasedIds() {
       ]),
     };
   } catch (error) {
-    // No git, no tags, or a shallow clone: say nothing rather than guess. Print it,
-    // though — a silent catch here once hid a missing import and marked nothing.
+    // No git, no tags, or a shallow clone: say nothing rather than guess. Print
+    // it, though — a silent catch here once hid a missing import and marked
+    // nothing at all.
     console.warn(`  (release marks skipped: ${error.message.split("\n")[0]})`);
     return { tag: null, ids: null };
   }
@@ -110,20 +147,20 @@ function releasedIds() {
 
 const released = releasedIds();
 
-const entry = (b) => ({
-  id: b.id,
-  name: b.name.replace(/\s*\((language|country)\)$/, ""),
-  ...split(b.description),
-  bytes: sizes.get(b.id) ?? null,
-  regions: b.regions ?? null,
-  // true only when we can prove the released registry lacks it
-  // `common` is a reserved bucket, not a locale or a country, so it appears in
-  // neither registry — asking whether the released version "knows" it always
-  // answered no, and the first run marked the one pack that has shipped since
-  // the beginning as brand new.
-  unreleased:
-    released.ids && b.id !== "common" ? !released.ids.has(b.id) : false,
-});
+const entry = (b) => {
+  const contents = contentsOf(join(ROOT, "data", b.packs[0]));
+  return {
+    id: b.id,
+    name: b.name.replace(/\s*\((language|country)\)$/, ""),
+    blurb: blurbOf(b.description),
+    files: contents.count,
+    groups: contents.groups,
+    bytes: sizes.get(b.id) ?? null,
+    regions: b.regions ?? null,
+    unreleased:
+      released.ids && b.id !== "common" ? !released.ids.has(b.id) : false,
+  };
+};
 
 const catalogue = {
   releasedTag: released.tag,
