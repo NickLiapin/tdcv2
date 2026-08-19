@@ -592,7 +592,7 @@ public sealed class DataPacks
     /// <remarks>
     /// A header may carry <c>address:</c> (authoritative) and <c>locale:</c> (used only when the
     /// path-derived address has no locale of its own). A file that resolves to neither a locale, a
-    /// country nor a reserved bucket is not addressable and is left out, which is the rule the
+    /// country nor a folder of its own is not addressable and is left out, which is the rule the
     /// reference applies.
     /// </remarks>
     private Dictionary<string, string> Addresses()
@@ -673,9 +673,10 @@ public sealed class DataPacks
     private static Diagnostic UnaddressableWarning(string file, string address) =>
         Diagnostic.Warning(
             "TDC171",
-            $"data-pack file \"{file}\" is not addressable: \"{address}\" starts with no locale, "
-            + "country or `common`. Add `address:` or `locale:` to its header, or move it under a "
-            + "locale folder.",
+            $"data-pack file \"{file}\" is not addressable: \"{address}\" does not match where "
+            + "the file is, and its first segment is not a known locale. A folder opens a "
+            + "namespace of its own — move the file into one, or give it an `address:` or a "
+            + "`locale:` that says where it belongs.",
             $"Data pack file: {file}",
             1,
             0);

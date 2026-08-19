@@ -141,7 +141,7 @@ class QuickTest {
     assertTrue(message.contains("tdcv2 pack add x-pseudo"), message);
     // Maven puts no `tdcv2` on the PATH, so the advice also has to appear in a form a Java user
     // can type. The line above is the spelling the other four share and every port asserts.
-    assertTrue(message.contains("java -jar tdcv2-cli.jar pack add af"), message);
+    assertTrue(message.contains("java -jar tdcv2-cli.jar pack add x-pseudo"), message);
     assertFalse(message.contains("Did you mean"), message);
   }
 

@@ -148,7 +148,7 @@ describe('countries grouping folder', () => {
 });
 
 describe('first-segment rule', () => {
-  it('does not register a file outside a locale folder as a pack (no error)', () => {
+  it('registers a folder as its own namespace, but not a loose file at the root', () => {
     const root = tmpRoot('tdc-pack-badloc-');
     mkdirSync(join(root, 'zz', 'person'), { recursive: true });
     writeFileSync(join(root, 'zz', 'person', 'name.txt'), 'A\nB\n');
@@ -157,8 +157,14 @@ describe('first-segment rule', () => {
 
     const { registry, diagnostics } = scanPacks([root]);
 
-    // Not locale-first -> not registered, and NOT an error (may be @data data).
-    expect(registry.has('zz.person.name')).toBe(false);
+    // A FOLDER opens a namespace of its own, so `zz/` is a pack root like any
+    // other — this is what Python, Rust, Java and C# have always done by asking
+    // whether the head names a directory. TypeScript asked a compiled list
+    // instead and was the only implementation where a new country needed a
+    // release; the divergence was real and no cross-language fixture covered it.
+    expect(registry.has('zz.person.name')).toBe(true);
+    // A loose file at the ROOT is still not a pack: that is the `@data` shape,
+    // and depth is what tells the two apart.
     expect(registry.has('statuses')).toBe(false);
     expect(diagnostics).toEqual([]);
   });

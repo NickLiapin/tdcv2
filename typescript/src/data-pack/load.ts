@@ -384,15 +384,17 @@ function loadOne(
     // because the location alone is unambiguous.
     if (isUnderCountries(root, file)) return true;
     /*
-     * Any OTHER top-level folder opens a namespace of its own, so the data can
+     * Any OTHER top-level FOLDER opens a namespace of its own, so the data can
      * grow shapes nobody has thought of yet without touching five engines.
      *
-     * But it must carry a pack header to do it. A `dataPaths` folder also holds
-     * raw lists for `@data` — `statuses.txt` beside the packs — and those are
-     * not packs. Requiring the header is what separates "a new kind of pack"
-     * from "somebody's loose file", and it costs the pack author one line.
+     * A folder, not a loose file: a `dataPaths` directory also holds raw lists
+     * for `@data` — `statuses.txt` beside the packs — and those are not packs.
+     * Depth is what separates them, and it is the rule the other four
+     * implementations already applied by asking whether the head names a
+     * directory. This one asked a list instead, which is why it was the only
+     * one where a new country needed a release.
      */
-    return parsed.hasHeader && rootRelativeDepth(root, file) > 1;
+    return rootRelativeDepth(root, file) > 1;
   };
 
   /*

@@ -601,9 +601,10 @@ fn unaddressable_warning(file: &str, address: &str) -> Diagnostic {
     Diagnostic::warning(
         "TDC171",
         format!(
-            "data-pack file \"{file}\" is not addressable: \"{address}\" starts with no locale, \
-             country or `common`. Add `address:` or `locale:` to its header, or move it under a \
-             locale folder."
+            "data-pack file \"{file}\" is not addressable: \"{address}\" does not match where \
+             the file is, and its first segment is not a known locale. A folder opens a \
+             namespace of its own — move the file into one, or give it an `address:` or a \
+             `locale:` that says where it belongs."
         ),
         &format!("Data pack file: {file}"),
         Pos { line: 1, column: 0 },
