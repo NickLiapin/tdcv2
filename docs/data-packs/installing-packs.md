@@ -4,7 +4,7 @@
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/data-packs/installing-packs)**
 
-← Previous: [Overview](./overview.md#top) · **[Contents](../README.md#top)** · Next: [Writing your own](./writing-your-own.md#top) →
+← Previous: [Overview](./overview.md#top) · **[Contents](../README.md#top)** · Next: [Catalogue](./catalogue.md#top) →
 
 ---
 
@@ -492,6 +492,6 @@ Two more variables shape the `pack` command rather than the search:
 
 ---
 
-← Previous: [Overview](./overview.md#top) · **[Contents](../README.md#top)** · Next: [Writing your own](./writing-your-own.md#top) →
+← Previous: [Overview](./overview.md#top) · **[Contents](../README.md#top)** · Next: [Catalogue](./catalogue.md#top) →
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/data-packs/installing-packs)**

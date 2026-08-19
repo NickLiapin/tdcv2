@@ -4,7 +4,7 @@
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/data-packs/writing-your-own)**
 
-← Previous: [Installing packs](./installing-packs.md#top) · **[Contents](../README.md#top)** · Next: [CLI](../reference/cli.md#top) →
+← Previous: [Catalogue](./catalogue.md#top) · **[Contents](../README.md#top)** · Next: [CLI](../reference/cli.md#top) →
 
 ---
 
@@ -400,6 +400,6 @@ independent of each other.
 
 ---
 
-← Previous: [Installing packs](./installing-packs.md#top) · **[Contents](../README.md#top)** · Next: [CLI](../reference/cli.md#top) →
+← Previous: [Catalogue](./catalogue.md#top) · **[Contents](../README.md#top)** · Next: [CLI](../reference/cli.md#top) →
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/data-packs/writing-your-own)**

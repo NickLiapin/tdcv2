@@ -12,6 +12,7 @@
 
 - [Обзор](./overview.md#top)
 - [Установка пакетов данных](./installing-packs.md#top)
+- [Каталог](./catalogue.md#top)
 - [Свой пакет данных](./writing-your-own.md#top)
 
 ---

@@ -1,0 +1,99 @@
+.catalogue {
+  margin: 1rem 0 2rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.filter {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  font-size: 0.95rem;
+}
+
+.count {
+  flex: 0 0 auto;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.pack {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-global-radius);
+  margin-bottom: 0.35rem;
+  background: var(--ifm-background-surface-color);
+}
+
+.summary {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  list-style: revert;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.id {
+  font-size: 0.8rem;
+  background: var(--ifm-color-emphasis-100);
+  padding: 0.05rem 0.35rem;
+  border-radius: 4px;
+}
+
+.size {
+  margin-left: auto;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.body {
+  padding: 0 0.75rem 0.75rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.blurb {
+  margin: 0.6rem 0 0.4rem;
+}
+
+.label {
+  margin: 0.6rem 0 0.3rem;
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.categories li code {
+  font-size: 0.78rem;
+}
+
+.install {
+  margin: 0;
+}
+
+.empty {
+  color: var(--ifm-color-emphasis-600);
+  font-style: italic;
+}

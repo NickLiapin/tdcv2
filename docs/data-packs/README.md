@@ -12,6 +12,7 @@
 
 - [Overview](./overview.md#top)
 - [Installing packs](./installing-packs.md#top)
+- [Catalogue](./catalogue.md#top)
 - [Writing your own](./writing-your-own.md#top)
 
 ---

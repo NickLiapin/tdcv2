@@ -90,6 +90,7 @@
 
 - [Обзор](./data-packs/overview.md#top)
 - [Установка пакетов данных](./data-packs/installing-packs.md#top)
+- [Каталог](./data-packs/catalogue.md#top)
 - [Свой пакет данных](./data-packs/writing-your-own.md#top)
 
 ## Справочник

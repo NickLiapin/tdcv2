@@ -1,0 +1,44 @@
+---
+title: Catalogue
+sidebar_position: 3
+---
+
+import PackCatalogue from '@site/src/components/PackCatalogue';
+
+export const labels = {"filter": "Filter by name, code or category", "total": "packs", "none": "Nothing matches that.", "holds": "Holds:", "andMore": "(and more)", "install": "Install:", "kb": "kB"};
+
+# The catalogue
+
+Every pack that ships, generated from the same manifest the installer reads. If a
+language or a country is not on this page it is not finished — an entry is a promise
+that every address under it resolves.
+
+**239 sets today: `common`, 86 languages and 152 countries.** Open one to see what it
+holds and how to install it.
+
+:::note
+
+A **language** pack holds what belongs to the language and to no country — names, colours,
+words, the shape of a date. A **country** pack holds what belongs to the state — its
+identifiers, its banks, its postcodes. They compose, and the box below is one axis at a
+time: US English is `common` + `en` + `usa`.
+
+:::
+
+## Common
+
+Bound to neither a language nor a country. Almost every config wants it.
+
+<PackCatalogue group="common" labels={labels} />
+
+## Languages
+
+One language, no country in it.
+
+<PackCatalogue group="languages" labels={labels} />
+
+## Countries
+
+One country, no language in it.
+
+<PackCatalogue group="countries" labels={labels} />

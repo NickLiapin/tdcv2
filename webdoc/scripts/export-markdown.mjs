@@ -18,23 +18,50 @@
  * Run:  node webdoc/scripts/export-markdown.mjs [outDir]
  */
 
-import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs';
-import { dirname, join, relative, sep } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import {
+  cpSync,
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  readdirSync,
+  rmSync,
+  statSync,
+  writeFileSync,
+} from "node:fs";
+import { dirname, join, relative, sep } from "node:path";
+import { fileURLToPath } from "node:url";
 
-import { ISO_UPDATED, TOKENS, spellDate } from '../plugins/remark-version.mjs';
+import { ISO_UPDATED, TOKENS, spellDate } from "../plugins/remark-version.mjs";
+
+/** The generated pack catalogue — the same file <PackCatalogue> renders from. */
+const packCatalogue = JSON.parse(
+  readFileSync(
+    new URL("../src/data/pack-catalogue.json", import.meta.url),
+    "utf8",
+  ),
+);
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const WEBSITE = join(HERE, '..');
-const ROOT = join(WEBSITE, '..');
+const WEBSITE = join(HERE, "..");
+const ROOT = join(WEBSITE, "..");
 
 /** Overridable so the drift check can export to a throwaway directory. */
-const OUT = process.argv[2] ? process.argv[2] : join(ROOT, 'docs');
+const OUT = process.argv[2] ? process.argv[2] : join(ROOT, "docs");
 
 const LOCALES = [
-  { code: 'en', dir: join(WEBSITE, 'docs'), out: '', name: 'English' },
-  { code: 'ru', dir: join(WEBSITE, 'i18n/ru/docusaurus-plugin-content-docs/current'), out: 'ru', name: 'Русский' },
-  { code: 'es', dir: join(WEBSITE, 'i18n/es/docusaurus-plugin-content-docs/current'), out: 'es', name: 'Español' },
+  { code: "en", dir: join(WEBSITE, "docs"), out: "", name: "English" },
+  {
+    code: "ru",
+    dir: join(WEBSITE, "i18n/ru/docusaurus-plugin-content-docs/current"),
+    out: "ru",
+    name: "Русский",
+  },
+  {
+    code: "es",
+    dir: join(WEBSITE, "i18n/es/docusaurus-plugin-content-docs/current"),
+    out: "es",
+    name: "Español",
+  },
 ];
 
 /**
@@ -42,30 +69,30 @@ const LOCALES = [
  * the site is the same content with search, a sidebar and working anchors, so
  * every page says where its live twin is.
  */
-const SITE = 'https://nickliapin.github.io/tdcv2';
+const SITE = "https://nickliapin.github.io/tdcv2";
 
 /** The few words the generated navigation needs in each language. */
 const UI = {
   en: {
-    title: 'TDC Documentation',
-    contents: 'Contents',
-    prev: 'Previous',
-    next: 'Next',
-    site: 'Read this on the documentation site',
+    title: "TDC Documentation",
+    contents: "Contents",
+    prev: "Previous",
+    next: "Next",
+    site: "Read this on the documentation site",
   },
   ru: {
-    title: 'Документация TDC',
-    contents: 'Оглавление',
-    prev: 'Назад',
-    next: 'Вперёд',
-    site: 'Открыть на сайте документации',
+    title: "Документация TDC",
+    contents: "Оглавление",
+    prev: "Назад",
+    next: "Вперёд",
+    site: "Открыть на сайте документации",
   },
   es: {
-    title: 'Documentación de TDC',
-    contents: 'Contenido',
-    prev: 'Anterior',
-    next: 'Siguiente',
-    site: 'Abrir en el sitio de documentación',
+    title: "Documentación de TDC",
+    contents: "Contenido",
+    prev: "Anterior",
+    next: "Siguiente",
+    site: "Abrir en el sitio de documentación",
   },
 };
 
@@ -78,11 +105,9 @@ const UI = {
  * it points at the introduction, which is where the sidebar opens anyway.
  */
 function siteUrl(outRel, code) {
-  const prefix = code === 'en' ? '' : `${code}/`;
-  const rel = outRel
-    .replace(/^(ru|es)\//, '')
-    .replace(/\.md$/, '');
-  const page = rel === 'README' || rel.endsWith('/README') ? 'intro' : rel;
+  const prefix = code === "en" ? "" : `${code}/`;
+  const rel = outRel.replace(/^(ru|es)\//, "").replace(/\.md$/, "");
+  const page = rel === "README" || rel.endsWith("/README") ? "intro" : rel;
   return `${SITE}/${prefix}docs/${page}`;
 }
 
@@ -93,21 +118,21 @@ function siteLink(outRel, code) {
 
 /** Docusaurus admonitions map onto GitHub's five alert types. */
 const ALERTS = {
-  note: 'NOTE',
-  tip: 'TIP',
-  info: 'IMPORTANT',
-  warning: 'WARNING',
-  caution: 'CAUTION',
-  danger: 'CAUTION',
+  note: "NOTE",
+  tip: "TIP",
+  info: "IMPORTANT",
+  warning: "WARNING",
+  caution: "CAUTION",
+  danger: "CAUTION",
 };
 
 /** Matches a tag's attribute list while tolerating `>` inside quoted values. */
-const ATTRS = '((?:[^>"\']|"[^"]*"|\'[^\']*\')*)';
+const ATTRS = "((?:[^>\"']|\"[^\"]*\"|'[^']*')*)";
 
 /** A token no documentation page contains, so a placeholder cannot collide.
  *  Deliberately printable: a raw control byte would make this file binary to
  *  git, grep and every editor. */
-const MARK = '@@TDCBLOCK@@';
+const MARK = "@@TDCBLOCK@@";
 
 /** Images actually referenced, so the export carries no dead weight. */
 const used = new Set();
@@ -121,7 +146,9 @@ function attrs(raw) {
 }
 
 /** The benchmark's own numbers, the same file the <Bars> component reads. */
-const PERFORMANCE = JSON.parse(readFileSync(join(WEBSITE, 'src/data/performance.json'), 'utf8'));
+const PERFORMANCE = JSON.parse(
+  readFileSync(join(WEBSITE, "src/data/performance.json"), "utf8"),
+);
 
 /** The width of a bar in characters — wide enough to compare, narrow enough that
  *  a row still fits a phone. */
@@ -129,64 +156,72 @@ const BAR = 14;
 
 /** Russian and Spanish write 8,97 where English writes 8.97, and the tables these
  *  sit beside already do. */
-const DECIMAL = { en: '.', ru: ',', es: ',' };
+const DECIMAL = { en: ".", ru: ",", es: "," };
 
 /** One <Bars> figure as a Markdown table GitHub can render. */
 function bars(a, code) {
-  const [config, tier, field] = a.source.split('.');
+  const [config, tier, field] = a.source.split(".");
   const set = PERFORMANCE[config][tier];
   const rows = set[field];
-  const heads = a.columns.split('|');
-  const max = Math.max(...rows.flatMap((r) => r.values).filter((v) => v !== null));
+  const heads = a.columns.split("|");
+  const max = Math.max(
+    ...rows.flatMap((r) => r.values).filter((v) => v !== null),
+  );
 
   // Precision follows the field, not the translated unit word. See the component.
   const number = (v) => {
-    if (v === null) return '—';
+    if (v === null) return "—";
     const text =
-      field === 'seconds' ? v.toFixed(2) : v >= 100 ? String(Math.round(v)) : v.toFixed(1);
-    return text.replace('.', DECIMAL[code] ?? '.');
+      field === "seconds"
+        ? v.toFixed(2)
+        : v >= 100
+          ? String(Math.round(v))
+          : v.toFixed(1);
+    return text.replace(".", DECIMAL[code] ?? ".");
   };
   const bar = (v) => {
-    if (v === null) return '';
+    if (v === null) return "";
     const filled = Math.max(1, Math.round((v / max) * BAR));
-    return ` ${'█'.repeat(filled)}${'░'.repeat(BAR - filled)}`;
+    return ` ${"█".repeat(filled)}${"░".repeat(BAR - filled)}`;
   };
 
-  const grouped = String(set.rows).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  const grouped = String(set.rows).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
   const mb = set.bytes / 1024 / 1024;
   const size = (mb >= 100 ? String(Math.round(mb)) : mb.toFixed(1)).replace(
-    '.',
-    DECIMAL[code] ?? '.',
+    ".",
+    DECIMAL[code] ?? ".",
   );
 
   const lines = [
-    `| ${grouped} ${a.rowsLabel ?? 'rows'} · ${size} ${a.sizeUnit ?? 'MB'} | ${heads.join(' | ')} |`,
-    `| :--- | ${heads.map(() => ':---').join(' | ')} |`,
+    `| ${grouped} ${a.rowsLabel ?? "rows"} · ${size} ${a.sizeUnit ?? "MB"} | ${heads.join(" | ")} |`,
+    `| :--- | ${heads.map(() => ":---").join(" | ")} |`,
     ...rows.map(
       (r) =>
         `| **${r.name}** — ${r.registry} | ` +
-        `${r.values.map((v) => `\`${number(v)} ${a.unit}\`${bar(v)}`).join(' | ')} |`,
+        `${r.values.map((v) => `\`${number(v)} ${a.unit}\`${bar(v)}`).join(" | ")} |`,
     ),
   ];
-  if (a.caption) lines.push('', `*${a.caption}*`);
-  return lines.join('\n');
+  if (a.caption) lines.push("", `*${a.caption}*`);
+  return lines.join("\n");
 }
 
 function frontmatter(text) {
   const m = /^---\n([\s\S]*?)\n---\n?/.exec(text);
   if (!m) return { data: {}, body: text };
   const data = {};
-  for (const line of m[1].split('\n')) {
+  for (const line of m[1].split("\n")) {
     const kv = /^(\w+):\s*(.*)$/.exec(line);
-    if (kv) data[kv[1]] = kv[2].replace(/^['"]|['"]$/g, '');
+    if (kv) data[kv[1]] = kv[2].replace(/^['"]|['"]$/g, "");
   }
   return { data, body: text.slice(m[0].length) };
 }
 
 /** A relative link from one file in the export to another. */
 function link(fromRel, toRel) {
-  const r = relative(dirname(join(OUT, fromRel)), join(OUT, toRel)).split(sep).join('/');
-  return r.startsWith('.') ? r : `./${r}`;
+  const r = relative(dirname(join(OUT, fromRel)), join(OUT, toRel))
+    .split(sep)
+    .join("/");
+  return r.startsWith(".") ? r : `./${r}`;
 }
 
 // ------------------------------------------------------------- the page tree
@@ -196,37 +231,41 @@ function link(fromRel, toRel) {
  * `position` in _category_.json, pages by `sidebar_position` in front matter —
  * exactly what the autogenerated sidebar does.
  */
-function readTree(dir, relPath = '') {
+function readTree(dir, relPath = "") {
   const items = [];
   for (const name of readdirSync(dir)) {
-    if (name.startsWith('_') || name.startsWith('.')) continue;
+    if (name.startsWith("_") || name.startsWith(".")) continue;
     const abs = join(dir, name);
     const childRel = relPath ? `${relPath}/${name}` : name;
     if (statSync(abs).isDirectory()) {
       let meta = {};
-      if (existsSync(join(abs, '_category_.json'))) {
-        meta = JSON.parse(readFileSync(join(abs, '_category_.json'), 'utf8'));
+      if (existsSync(join(abs, "_category_.json"))) {
+        meta = JSON.parse(readFileSync(join(abs, "_category_.json"), "utf8"));
       }
       items.push({
-        type: 'category',
+        type: "category",
         label: meta.label ?? name,
         position: meta.position ?? Infinity,
         relPath: childRel,
         children: readTree(abs, childRel),
       });
-    } else if (name.endsWith('.mdx') || name.endsWith('.md')) {
-      const { data } = frontmatter(readFileSync(abs, 'utf8'));
+    } else if (name.endsWith(".mdx") || name.endsWith(".md")) {
+      const { data } = frontmatter(readFileSync(abs, "utf8"));
       items.push({
-        type: 'page',
-        label: data.title ?? name.replace(/\.mdx?$/, ''),
-        position: data.sidebar_position ? Number(data.sidebar_position) : Infinity,
+        type: "page",
+        label: data.title ?? name.replace(/\.mdx?$/, ""),
+        position: data.sidebar_position
+          ? Number(data.sidebar_position)
+          : Infinity,
         file: name,
         relPath: relPath ? `${relPath}/${name}` : name,
-        outRelBase: `${childRel.replace(/\.mdx?$/, '')}.md`,
+        outRelBase: `${childRel.replace(/\.mdx?$/, "")}.md`,
       });
     }
   }
-  items.sort((a, b) => a.position - b.position || a.label.localeCompare(b.label));
+  items.sort(
+    (a, b) => a.position - b.position || a.label.localeCompare(b.label),
+  );
   return items;
 }
 
@@ -237,7 +276,7 @@ function readTree(dir, relPath = '') {
 function localize(items, locale, translations) {
   return items.map((it) => {
     const outRel = locale.out ? `${locale.out}/${it.relPath}` : it.relPath;
-    if (it.type === 'category') {
+    if (it.type === "category") {
       const key = `sidebar.docsSidebar.category.${it.label}`;
       return {
         ...it,
@@ -247,8 +286,9 @@ function localize(items, locale, translations) {
       };
     }
     const source = join(locale.dir, it.relPath);
-    if (!existsSync(source)) throw new Error(`missing ${locale.code} translation: ${it.relPath}`);
-    const { data } = frontmatter(readFileSync(source, 'utf8'));
+    if (!existsSync(source))
+      throw new Error(`missing ${locale.code} translation: ${it.relPath}`);
+    const { data } = frontmatter(readFileSync(source, "utf8"));
     return {
       ...it,
       label: data.title ?? it.label,
@@ -261,7 +301,7 @@ function localize(items, locale, translations) {
 /** Depth-first page order — what drives previous/next. */
 function flatten(items, acc = []) {
   for (const it of items) {
-    if (it.type === 'page') acc.push(it);
+    if (it.type === "page") acc.push(it);
     else flatten(it.children, acc);
   }
   return acc;
@@ -285,14 +325,18 @@ function convert(body, page, code) {
   // month is spelled out so no reader has to guess whether 08-10 is August or
   // October, and it is spelled in THEIR language. Without this the exported
   // Russian mirror said "10 August 2026" while the site said "10 августа".
-  const tokens = { ...TOKENS, '%%TDC_UPDATED%%': spellDate(ISO_UPDATED, code) };
-  for (const [token, value] of Object.entries(tokens)) t = t.split(token).join(value);
+  const tokens = { ...TOKENS, "%%TDC_UPDATED%%": spellDate(ISO_UPDATED, code) };
+  for (const [token, value] of Object.entries(tokens))
+    t = t.split(token).join(value);
 
   // Fenced code next: nothing below may rewrite what a reader will copy.
   t = t.replace(/^(```|~~~)[^\n]*\n[\s\S]*?^\1[ \t]*$/gm, (m) => hold(m));
 
   // MDX imports mean nothing in plain Markdown.
-  t = t.replace(/^import\s+[^\n]*\n/gm, '');
+  t = t.replace(/^import\s+[^\n]*\n/gm, "");
+
+  // `export const …` is MDX plumbing that means nothing in plain markdown.
+  t = t.replace(/^export const [\s\S]*?;\s*$/gm, "");
 
   // A JSX comment is invisible in MDX and visible in GitHub markdown, so it becomes
   // an HTML comment on the way out — same text, invisible in both places.
@@ -300,46 +344,74 @@ function convert(body, page, code) {
 
   // <Terminal title="…">{`…`}</Terminal> — a titled block of program output.
   t = t.replace(
-    new RegExp(`<Terminal\\s*${ATTRS}>\\s*\\{\`([\\s\\S]*?)\`\\}\\s*</Terminal>`, 'g'),
+    new RegExp(
+      `<Terminal\\s*${ATTRS}>\\s*\\{\`([\\s\\S]*?)\`\\}\\s*</Terminal>`,
+      "g",
+    ),
     (_m, raw, content) => {
-      const title = attrs(raw).title ?? '';
+      const title = attrs(raw).title ?? "";
       // Undo the escaping the JS template literal forced on the author.
-      const text = content.replace(/\\([`$\\])/g, '$1');
-      return hold(`${title ? `\`${title}\`\n\n` : ''}\`\`\`\n${text}\n\`\`\``);
+      const text = content.replace(/\\([`$\\])/g, "$1");
+      return hold(`${title ? `\`${title}\`\n\n` : ""}\`\`\`\n${text}\n\`\`\``);
     },
   );
 
   // <Figure src alt caption /> — an image with its caption underneath.
-  t = t.replace(new RegExp(`<Figure\\s*${ATTRS}/>`, 'g'), (_m, raw) => {
+  t = t.replace(new RegExp(`<Figure\\s*${ATTRS}/>`, "g"), (_m, raw) => {
     const a = attrs(raw);
     let src = a.src;
-    if (src.startsWith('/img/')) {
-      const rest = src.slice('/img/'.length);
+    if (src.startsWith("/img/")) {
+      const rest = src.slice("/img/".length);
       used.add(rest);
       src = link(page.outRel, `img/${rest}`);
     }
-    return hold(`![${a.alt ?? ''}](${src})${a.caption ? `\n\n*${a.caption}*` : ''}`);
+    return hold(
+      `![${a.alt ?? ""}](${src})${a.caption ? `\n\n*${a.caption}*` : ""}`,
+    );
   });
 
   // <Legend items={[["A","…"], …]} /> — decodes the letter badges in a figure.
   t = t.replace(/<Legend\s+items=\{(\[[\s\S]*?\])\}\s*\/>/g, (_m, raw) => {
-    const items = JSON.parse(raw.replace(/,(\s*[\]}])/g, '$1'));
-    return hold(items.map(([k, v]) => `- **${k}** — ${v}`).join('\n'));
+    const items = JSON.parse(raw.replace(/,(\s*[\]}])/g, "$1"));
+    return hold(items.map(([k, v]) => `- **${k}** — ${v}`).join("\n"));
+  });
+
+  // <PackCatalogue group labels /> — on the site this is a filterable list of
+  // collapsible packs. GitHub renders no React, so the page would export as three
+  // empty headings: the reader would be told a catalogue exists and shown none of
+  // it. Expand it into a real table from the same generated data the component
+  // reads, so the offline copy carries the catalogue rather than a promise of one.
+  t = t.replace(new RegExp(`<PackCatalogue\\s*${ATTRS}/>`, "g"), (_m, raw) => {
+    const packs = packCatalogue[attrs(raw).group] ?? [];
+    const rows = packs.map((entry) => {
+      const held =
+        entry.categories.length > 0
+          ? entry.categories.join(", ") + (entry.truncated ? ", …" : "")
+          : "—";
+      return `| \`${entry.id}\` | ${entry.name} | ${held} |`;
+    });
+    return hold(
+      ["| Pack | Name | Holds |", "| :--- | :--- | :--- |", ...rows].join(
+        "\n",
+      ) + "\n\nInstall any of them with `tdcv2 pack add <pack>`.",
+    );
   });
 
   // <Bars source columns unit rowsLabel caption /> — a measured comparison. On
   // the site every row carries a proportional coloured bar; GitHub renders no CSS,
   // so the proportion is redrawn with block characters and the numbers, which are
   // the part that has to be exact, are printed unchanged.
-  t = t.replace(new RegExp(`<Bars\\s*${ATTRS}/>`, 'g'), (_m, raw) => hold(bars(attrs(raw), code)));
+  t = t.replace(new RegExp(`<Bars\\s*${ATTRS}/>`, "g"), (_m, raw) =>
+    hold(bars(attrs(raw), code)),
+  );
 
   // <Tabs>/<TabItem> — one language per tab becomes one heading per language.
-  t = t.replace(new RegExp(`</?Tabs\\s*${ATTRS}>`, 'g'), '');
+  t = t.replace(new RegExp(`</?Tabs\\s*${ATTRS}>`, "g"), "");
   t = t.replace(
-    new RegExp(`<TabItem\\s*${ATTRS}>`, 'g'),
-    (_m, raw) => `#### ${attrs(raw).label ?? ''}`,
+    new RegExp(`<TabItem\\s*${ATTRS}>`, "g"),
+    (_m, raw) => `#### ${attrs(raw).label ?? ""}`,
   );
-  t = t.replace(/<\/TabItem>/g, '');
+  t = t.replace(/<\/TabItem>/g, "");
 
   // Links between pages: the tree is mirrored, so only the suffix changes.
   // A cross-reference with no fragment means "open that page", so it gets the
@@ -348,8 +420,8 @@ function convert(body, page, code) {
   // already name a section keep it, and images are untouched.
   t = t.replace(/\]\(([^)\s]+)\)/g, (m, href) => {
     if (/^https?:/.test(href)) return m;
-    const rewritten = href.replace(/\.mdx?(?=$|#)/, '.md');
-    return `](${rewritten.endsWith('.md') ? `${rewritten}#top` : rewritten})`;
+    const rewritten = href.replace(/\.mdx?(?=$|#)/, ".md");
+    return `](${rewritten.endsWith(".md") ? `${rewritten}#top` : rewritten})`;
   });
   t = t.replace(/\]\(\/img\/([^)]+)\)/g, (_m, rest) => {
     used.add(rest);
@@ -358,7 +430,7 @@ function convert(body, page, code) {
 
   // Admonitions become GitHub alerts. Line-based, because a body may hold
   // paragraphs, lists and held-out code that all need the quote marker.
-  const lines = t.split('\n');
+  const lines = t.split("\n");
   const out = [];
   for (let i = 0; i < lines.length; i++) {
     const open = /^:::(\w+)(?:\[(.*)\])?\s*$/.exec(lines[i]);
@@ -368,28 +440,32 @@ function convert(body, page, code) {
     }
     const inner = [];
     i++;
-    while (i < lines.length && !/^:::\s*$/.test(lines[i])) inner.push(lines[i++]);
-    out.push(`> [!${ALERTS[open[1]] ?? 'NOTE'}]`);
-    if (open[2]) out.push(`> **${open[2]}**`, '>');
-    for (const l of inner) out.push(l.trim() === '' ? '>' : `> ${l}`);
+    while (i < lines.length && !/^:::\s*$/.test(lines[i]))
+      inner.push(lines[i++]);
+    out.push(`> [!${ALERTS[open[1]] ?? "NOTE"}]`);
+    if (open[2]) out.push(`> **${open[2]}**`, ">");
+    for (const l of inner) out.push(l.trim() === "" ? ">" : `> ${l}`);
   }
-  t = out.join('\n');
+  t = out.join("\n");
 
   // Tidy the blank lines while the code is still held out, so nothing inside a
   // program's output gets collapsed.
-  t = `${t.replace(/\n{3,}/g, '\n\n').trim()}\n`;
+  t = `${t.replace(/\n{3,}/g, "\n\n").trim()}\n`;
 
   // Put the blocks back, carrying whatever prefix their line picked up — that
   // is what keeps a code block inside an alert quoted on every line.
-  return t.replace(new RegExp(`^(.*?)${MARK}(\\d+)${MARK}[ \\t]*$`, 'gm'), (_m, prefix, n) => {
-    const block = blocks[Number(n)];
-    if (!prefix.trimStart().startsWith('>')) return prefix + block;
-    const q = prefix.trimEnd();
-    return block
-      .split('\n')
-      .map((l) => (l === '' ? q : `${q} ${l}`))
-      .join('\n');
-  });
+  return t.replace(
+    new RegExp(`^(.*?)${MARK}(\\d+)${MARK}[ \\t]*$`, "gm"),
+    (_m, prefix, n) => {
+      const block = blocks[Number(n)];
+      if (!prefix.trimStart().startsWith(">")) return prefix + block;
+      const q = prefix.trimEnd();
+      return block
+        .split("\n")
+        .map((l) => (l === "" ? q : `${q} ${l}`))
+        .join("\n");
+    },
+  );
 }
 
 // ------------------------------------------------------------- the furniture
@@ -416,8 +492,10 @@ function to(fromRel, node) {
 /** One line of links to the same page in the other two languages. */
 function switcher(outRel, code, siblings) {
   return LOCALES.map((l) =>
-    l.code === code ? `**${l.name}**` : `[${l.name}](${to(outRel, siblings[l.code])})`,
-  ).join(' · ');
+    l.code === code
+      ? `**${l.name}**`
+      : `[${l.name}](${to(outRel, siblings[l.code])})`,
+  ).join(" · ");
 }
 
 /**
@@ -431,34 +509,37 @@ function nav(outRel, code, home, prev, next) {
   if (prev) parts.push(`← ${ui.prev}: [${prev.label}](${to(outRel, prev)})`);
   parts.push(`**[${ui.contents}](${to(outRel, home)})**`);
   if (next) parts.push(`${ui.next}: [${next.label}](${to(outRel, next)}) →`);
-  return parts.join(' · ');
+  return parts.join(" · ");
 }
 
 /** The table of contents a reader lands on when opening the folder. */
 function contents(items, code, outRel, siblings) {
   const lines = [
     TOP,
-    '',
+    "",
     `# ${UI[code].title}`,
-    '',
+    "",
     switcher(outRel, code, siblings),
-    '',
+    "",
     siteLink(outRel, code),
-    '',
-    '---',
-    '',
+    "",
+    "---",
+    "",
   ];
   const walk = (list, depth) => {
     for (const it of list) {
-      if (it.type === 'page') lines.push(`- [${it.label}](${to(outRel, it)})`);
+      if (it.type === "page") lines.push(`- [${it.label}](${to(outRel, it)})`);
       else {
-        lines.push('', `${'#'.repeat(Math.min(6, depth + 1))} ${it.label}`, '');
+        lines.push("", `${"#".repeat(Math.min(6, depth + 1))} ${it.label}`, "");
         walk(it.children, depth + 1);
       }
     }
   };
   walk(items, 1);
-  return `${lines.join('\n').replace(/\n{3,}/g, '\n\n').trim()}\n`;
+  return `${lines
+    .join("\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim()}\n`;
 }
 
 /** A folder gets a README so its link resolves and it lists what is inside. */
@@ -466,27 +547,27 @@ function folderIndex(cat, code, outRel, siblings, home) {
   const back = `**[${UI[code].contents}](${to(outRel, home)})**`;
   const lines = [
     TOP,
-    '',
+    "",
     `# ${cat.label}`,
-    '',
+    "",
     switcher(outRel, code, siblings),
-    '',
+    "",
     siteLink(outRel, code),
-    '',
+    "",
     back,
-    '',
-    '---',
-    '',
+    "",
+    "---",
+    "",
   ];
   for (const it of cat.children) {
     lines.push(
-      it.type === 'page'
+      it.type === "page"
         ? `- [${it.label}](${to(outRel, it)})`
         : `- [${it.label}/](${to(outRel, it.index)})`,
     );
   }
-  lines.push('', '---', '', back);
-  return `${lines.join('\n')}\n`;
+  lines.push("", "---", "", back);
+  return `${lines.join("\n")}\n`;
 }
 
 // --------------------------------------------------------------------- build
@@ -494,7 +575,7 @@ function folderIndex(cat, code, outRel, siblings, home) {
 rmSync(OUT, { recursive: true, force: true });
 mkdirSync(OUT, { recursive: true });
 
-const english = readTree(join(WEBSITE, 'docs'));
+const english = readTree(join(WEBSITE, "docs"));
 
 /**
  * Everything is built before anything is written, because a link now needs the
@@ -503,12 +584,15 @@ const english = readTree(join(WEBSITE, 'docs'));
  */
 const built = LOCALES.map((locale) => {
   let translations = {};
-  const file = join(WEBSITE, `i18n/${locale.code}/docusaurus-plugin-content-docs/current.json`);
-  if (existsSync(file)) translations = JSON.parse(readFileSync(file, 'utf8'));
+  const file = join(
+    WEBSITE,
+    `i18n/${locale.code}/docusaurus-plugin-content-docs/current.json`,
+  );
+  if (existsSync(file)) translations = JSON.parse(readFileSync(file, "utf8"));
 
   const tree = localize(english, locale, translations);
   const home = {
-    rel: locale.out ? `${locale.out}/README.md` : 'README.md',
+    rel: locale.out ? `${locale.out}/README.md` : "README.md",
     label: UI[locale.code].title,
   };
 
@@ -517,7 +601,7 @@ const built = LOCALES.map((locale) => {
   const catBy = new Map();
   const annotate = (items) => {
     for (const it of items) {
-      if (it.type === 'page') {
+      if (it.type === "page") {
         it.rel = it.outRel;
         pageBy.set(it.relPath, it);
       } else {
@@ -532,7 +616,8 @@ const built = LOCALES.map((locale) => {
   return { locale, tree, home, pages: flatten(tree), pageBy, catBy };
 });
 
-const siblings = (pick) => Object.fromEntries(built.map((b) => [b.locale.code, pick(b)]));
+const siblings = (pick) =>
+  Object.fromEntries(built.map((b) => [b.locale.code, pick(b)]));
 const homeSiblings = siblings((b) => b.home);
 
 let written = 0;
@@ -541,8 +626,12 @@ for (const { locale, tree, home, pages, pageBy } of built) {
   const code = locale.code;
 
   pages.forEach((page, i) => {
-    const { body } = frontmatter(readFileSync(page.source, 'utf8'));
-    const sw = switcher(page.outRel, code, siblings((b) => b.pageBy.get(page.relPath)));
+    const { body } = frontmatter(readFileSync(page.source, "utf8"));
+    const sw = switcher(
+      page.outRel,
+      code,
+      siblings((b) => b.pageBy.get(page.relPath)),
+    );
     const bar = nav(page.outRel, code, home, pages[i - 1], pages[i + 1]);
     const live = siteLink(page.outRel, code);
     const dest = join(OUT, page.outRel);
@@ -558,14 +647,20 @@ for (const { locale, tree, home, pages, pageBy } of built) {
   });
 
   mkdirSync(dirname(join(OUT, home.rel)), { recursive: true });
-  writeFileSync(join(OUT, home.rel), contents(tree, code, home.rel, homeSiblings));
+  writeFileSync(
+    join(OUT, home.rel),
+    contents(tree, code, home.rel, homeSiblings),
+  );
   written++;
 
   const indexes = (items) => {
     for (const it of items) {
-      if (it.type !== 'category') continue;
+      if (it.type !== "category") continue;
       const sw = siblings((b) => b.catBy.get(it.relPath));
-      writeFileSync(join(OUT, it.index.rel), folderIndex(it, code, it.index.rel, sw, home));
+      writeFileSync(
+        join(OUT, it.index.rel),
+        folderIndex(it, code, it.index.rel, sw, home),
+      );
       written++;
       indexes(it.children);
     }
@@ -576,9 +671,11 @@ for (const { locale, tree, home, pages, pageBy } of built) {
 // Figures are shared by all three languages — the whole point of keeping words
 // out of them. Only the ones a page actually references are carried over.
 for (const rest of used) {
-  const dest = join(OUT, 'img', rest);
+  const dest = join(OUT, "img", rest);
   mkdirSync(dirname(dest), { recursive: true });
-  cpSync(join(WEBSITE, 'static/img', rest), dest);
+  cpSync(join(WEBSITE, "static/img", rest), dest);
 }
 
-console.log(`wrote ${String(written)} markdown files to ${relative(ROOT, OUT) || OUT}`);
+console.log(
+  `wrote ${String(written)} markdown files to ${relative(ROOT, OUT) || OUT}`,
+);

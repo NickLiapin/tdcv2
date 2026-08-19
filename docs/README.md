@@ -90,6 +90,7 @@
 
 - [Overview](./data-packs/overview.md#top)
 - [Installing packs](./data-packs/installing-packs.md#top)
+- [Catalogue](./data-packs/catalogue.md#top)
 - [Writing your own](./data-packs/writing-your-own.md#top)
 
 ## Reference

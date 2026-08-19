@@ -4,7 +4,7 @@
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/data-packs/installing-packs)**
 
-← Назад: [Обзор](./overview.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Свой пакет данных](./writing-your-own.md#top) →
+← Назад: [Обзор](./overview.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Каталог](./catalogue.md#top) →
 
 ---
 
@@ -491,6 +491,6 @@ TDCV2_PACKS=/srv/shared-packs tdcv2 users.tdc
 
 ---
 
-← Назад: [Обзор](./overview.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Свой пакет данных](./writing-your-own.md#top) →
+← Назад: [Обзор](./overview.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Каталог](./catalogue.md#top) →
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/data-packs/installing-packs)**

@@ -4,7 +4,7 @@
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/data-packs/writing-your-own)**
 
-← Назад: [Установка пакетов данных](./installing-packs.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [CLI](../reference/cli.md#top) →
+← Назад: [Каталог](./catalogue.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [CLI](../reference/cli.md#top) →
 
 ---
 
@@ -396,6 +396,6 @@ TDC при загрузке проверяет, что **цикла нет** (A 
 
 ---
 
-← Назад: [Установка пакетов данных](./installing-packs.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [CLI](../reference/cli.md#top) →
+← Назад: [Каталог](./catalogue.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [CLI](../reference/cli.md#top) →
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/data-packs/writing-your-own)**

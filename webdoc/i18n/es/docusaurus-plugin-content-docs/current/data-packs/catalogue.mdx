@@ -1,0 +1,44 @@
+---
+title: Catálogo
+sidebar_position: 3
+---
+
+import PackCatalogue from '@site/src/components/PackCatalogue';
+
+export const labels = {"filter": "Filtrar por nombre, código o categoría", "total": "paquetes", "none": "No hay coincidencias.", "holds": "Contiene:", "andMore": "(y más)", "install": "Instalación:", "kb": "kB"};
+
+# El catálogo
+
+Todos los paquetes que se publican, generados a partir del mismo manifiesto que lee el
+instalador. Si un idioma o un país no aparece aquí, no está terminado: una entrada es la
+promesa de que todas las direcciones que contiene se resuelven.
+
+**Hoy hay 239 conjuntos: `common`, 86 idiomas y 152 países.** Abra uno para ver qué
+contiene y cómo instalarlo.
+
+:::note
+
+Un paquete de **idioma** contiene lo que pertenece al idioma y a ningún país — nombres,
+colores, palabras, la forma de una fecha. Uno de **país** contiene lo que pertenece al
+Estado — sus identificadores, sus bancos, sus códigos postales. Se combinan, y cada bloque
+de abajo es un solo eje: el inglés de EE. UU. es `common` + `en` + `usa`.
+
+:::
+
+## Common
+
+No está ligado ni a un idioma ni a un país. Casi toda configuración lo necesita.
+
+<PackCatalogue group="common" labels={labels} />
+
+## Idiomas
+
+Un idioma, sin país dentro.
+
+<PackCatalogue group="languages" labels={labels} />
+
+## Países
+
+Un país, sin idioma dentro.
+
+<PackCatalogue group="countries" labels={labels} />

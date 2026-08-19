@@ -4,7 +4,7 @@
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/data-packs/installing-packs)**
 
-← Anterior: [Descripción general](./overview.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Cree su propio paquete](./writing-your-own.md#top) →
+← Anterior: [Descripción general](./overview.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Catálogo](./catalogue.md#top) →
 
 ---
 
@@ -512,6 +512,6 @@ Otras dos variables afectan al comando `pack`, no a la búsqueda:
 
 ---
 
-← Anterior: [Descripción general](./overview.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Cree su propio paquete](./writing-your-own.md#top) →
+← Anterior: [Descripción general](./overview.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Catálogo](./catalogue.md#top) →
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/data-packs/installing-packs)**

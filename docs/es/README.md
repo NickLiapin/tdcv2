@@ -90,6 +90,7 @@
 
 - [Descripción general](./data-packs/overview.md#top)
 - [Instalar paquetes de datos](./data-packs/installing-packs.md#top)
+- [Catálogo](./data-packs/catalogue.md#top)
 - [Cree su propio paquete](./data-packs/writing-your-own.md#top)
 
 ## Referencia
