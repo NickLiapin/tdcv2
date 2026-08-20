@@ -180,6 +180,9 @@ columna de texto contra una lista de palabras numéricas sigue coincidiendo.
 | `log2(x)`                  | 1          | logaritmo binario — exacto en una potencia de dos  |
 | `asinh(x)` `acosh(x)` `atanh(x)` | 1     | funciones hiperbólicas inversas                    |
 | `hypot(x, y)`              | 2          | longitud del vector, sin desbordar por el camino   |
+| `gauss(x, c, w)`           | 3      | campana centrada en c: `exp(-((x - c) / w)²)`    |
+| `clamp(x, lo, hi)`         | 3      | x contenido en [lo, hi]; con lo > hi gana el techo |
+| `lerp(a, b, t)`            | 3      | fracción t del camino de a a b; exacto en ambos extremos, extrapola fuera |
 | `sign(x)`                  | 1          | −1, 0 o 1                                          |
 | `erf(x)` `erfc(x)`         | 1          | la función de error y su complemento               |
 | `gamma(x)` `lgamma(x)`     | 1          | Γ(x), y log \|Γ(x)\| para cuando Γ desborda        |

@@ -1342,6 +1342,18 @@
         ]
       }
     },
+    "expressions-math-2/gauss-clamp-and-lerp-are-the-compositions-they-claim": {
+      "engine2": {
+        "lines": [
+          "peak=ok symmetric=ok same_as_exp_pow=ok known_value=ok below=ok inside=ok above=ok inverted=ok negative=ok t0=ok t1=ok mid=ok extrapolates=ok extrapolates_back=ok endpoint_exact=ok"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "peak=ok symmetric=ok same_as_exp_pow=ok known_value=ok below=ok inside=ok above=ok inverted=ok negative=ok t0=ok t1=ok mid=ok extrapolates=ok extrapolates_back=ok endpoint_exact=ok"
+        ]
+      }
+    },
     "expressions-math/landmarks-every-implementation-must-agree-on": {
       "engine2": {
         "lines": [

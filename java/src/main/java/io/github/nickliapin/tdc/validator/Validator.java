@@ -308,6 +308,9 @@ public final class Validator {
           Map.entry("asinh", new int[] {1, 1}),
           Map.entry("atanh", new int[] {1, 1}),
           Map.entry("expm1", new int[] {1, 1}),
+          Map.entry("gauss", new int[] {3, 3}),
+          Map.entry("clamp", new int[] {3, 3}),
+          Map.entry("lerp", new int[] {3, 3}),
           Map.entry("hypot", new int[] {2, 2}),
           Map.entry("log1p", new int[] {1, 1}),
           Map.entry("log2", new int[] {1, 1}),
@@ -353,7 +356,8 @@ public final class Validator {
       List.of(
           "abs", "acos", "acosh", "asin", "asinh", "at", "atan", "atan2", "atanh", "beta",
           "cbrt", "ceil", "contains", "cos", "cosh", "count", "degrees", "digamma", "ends_with",
-          "erf", "erfc", "exp", "expm1", "floor", "gamma", "hypot", "is_empty", "join", "len",
+          "clamp", "erf", "erfc", "exp", "expm1", "floor", "gamma", "gauss", "hypot", "is_empty",
+          "join", "len", "lerp",
           "lgamma", "log", "log10", "log1p", "log2", "lower", "max", "mean", "median", "min",
           "pow", "radians", "round", "sign", "sin", "sinh", "split", "sqrt", "starts_with",
           "stddev", "sum", "tan", "tanh", "trunc", "upper", "zeta");

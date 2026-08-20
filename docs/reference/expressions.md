@@ -190,6 +190,9 @@ list of numeric words still matches.
 | `log2(x)`                  | 1      | base-2 logarithm — exact on a power of two       |
 | `asinh(x)` `acosh(x)` `atanh(x)` | 1 | inverse hyperbolic functions                     |
 | `hypot(x, y)`              | 2      | vector length, without overflowing on the way    |
+| `gauss(x, c, w)`           | 3      | bell centred on c: `exp(-((x - c) / w)²)`        |
+| `clamp(x, lo, hi)`         | 3      | x held inside [lo, hi]; lo > hi means the ceiling wins |
+| `lerp(a, b, t)`            | 3      | t of the way from a to b; exact at both ends, extrapolates outside |
 | `sign(x)`                  | 1      | −1, 0 or 1                                       |
 | `erf(x)` `erfc(x)`         | 1      | the error function and its complement            |
 | `gamma(x)` `lgamma(x)`     | 1      | Γ(x), and log \|Γ(x)\| for when Γ overflows       |

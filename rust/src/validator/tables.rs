@@ -395,7 +395,7 @@ pub const SUPPORTED_UNARY_OPERATORS: [&str; 3] = ["!", "-", "+"];
 /// down. The transcendental ones are computed by TDC itself (`crate::math`)
 /// rather than by the host libm, which is what keeps five implementations on
 /// one double.
-pub const EXPR_FUNCTIONS: [(&str, usize, usize); 55] = [
+pub const EXPR_FUNCTIONS: [(&str, usize, usize); 58] = [
     ("abs", 1, 1),
     ("acos", 1, 1),
     ("acosh", 1, 1),
@@ -408,6 +408,7 @@ pub const EXPR_FUNCTIONS: [(&str, usize, usize); 55] = [
     ("beta", 2, 2),
     ("cbrt", 1, 1),
     ("ceil", 1, 1),
+    ("clamp", 3, 3),
     ("contains", 2, 2),
     ("cos", 1, 1),
     ("cosh", 1, 1),
@@ -421,10 +422,12 @@ pub const EXPR_FUNCTIONS: [(&str, usize, usize); 55] = [
     ("expm1", 1, 1),
     ("floor", 1, 1),
     ("gamma", 1, 1),
+    ("gauss", 3, 3),
     ("hypot", 2, 2),
     ("is_empty", 1, 1),
     ("join", 2, 2),
     ("len", 1, 1),
+    ("lerp", 3, 3),
     ("lgamma", 1, 1),
     ("log", 1, 1),
     ("log10", 1, 1),
@@ -453,7 +456,7 @@ pub const EXPR_FUNCTIONS: [(&str, usize, usize); 55] = [
     ("zeta", 1, 1),
 ];
 
-pub const EXPR_FUNCTION_NAMES: [&str; 47] = [
+pub const EXPR_FUNCTION_NAMES: [&str; 50] = [
     "abs",
     "acos",
     "acosh",
@@ -465,6 +468,7 @@ pub const EXPR_FUNCTION_NAMES: [&str; 47] = [
     "beta",
     "cbrt",
     "ceil",
+    "clamp",
     "contains",
     "cos",
     "cosh",
@@ -477,9 +481,11 @@ pub const EXPR_FUNCTION_NAMES: [&str; 47] = [
     "expm1",
     "floor",
     "gamma",
+    "gauss",
     "hypot",
     "is_empty",
     "len",
+    "lerp",
     "lgamma",
     "log",
     "log10",

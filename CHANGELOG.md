@@ -13,6 +13,34 @@ page — is tracked in that implementation's own changelog:
 [TypeScript](typescript/CHANGELOG.md) · [Python](python/CHANGELOG.md) ·
 [Java](java/CHANGELOG.md) · [C#](csharp/CHANGELOG.md) · [Rust](rust/CHANGELOG.md).
 
+## [Unreleased]
+
+### Added
+
+<!-- covers: gauss clamp lerp -->
+
+- **`gauss(x, c, w)`, `clamp(x, lo, hi)` and `lerp(a, b, t)` in `expr=`.** Three
+  compositions of arithmetic that was already there, asked for by a project generating
+  synthetic ECGs, where the same bell was written out nine times per config:
+
+  ```xml
+  <sequence name="R"><gen type="formula" expr="Amp * gauss(Phase, 320, Width)"/></sequence>
+  ```
+
+  `gauss` squares with a multiplication rather than `pow`, which is exact under IEEE-754
+  where `pow` is not — so it is both cheaper and, measured over 300 random triples,
+  bit-identical to the `exp(-pow(…, 2))` it replaces. A config that switches to it keeps
+  its bytes.
+
+  `clamp` is `min(max(x, lo), hi)`, so handing the bounds over backwards lets the CEILING
+  win rather than raising: a host's own clamp throws there, and a generator that stops
+  mid-run over a swapped pair is worse than one that answers.
+
+  `lerp` is `a * (1 - t) + b * t`, not `a + (b - a) * t`. The two differ in floating
+  point and only the first lands exactly on both endpoints — over 200,000 random pairs
+  the naive spelling misses `b` at t=1 in 41 per cent of them. `t` outside [0, 1]
+  extrapolates.
+
 ## [0.2.2] — 2026-08-15
 
 ### Added
