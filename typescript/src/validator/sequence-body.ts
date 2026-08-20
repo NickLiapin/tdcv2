@@ -17,8 +17,8 @@
 
 import type { Diagnostic } from '../errors/index.js';
 import { attrValueRange } from '../errors/index.js';
-import type { OpenCloseElementContext } from '../generated/TDCParser.js';
-import { asDataWithBody, contentElements, elementKind } from '../processor/walk.js';
+import type { OpenCloseElementContext, SelfClosingElementContext } from '../generated/TDCParser.js';
+import { asDataWithBody, contentElements, elementKind, extractAttrs } from '../processor/walk.js';
 
 export type SequenceShape = 'simple' | 'compound' | 'composed';
 
@@ -59,4 +59,33 @@ export function checkSequenceDataAttrs(
       });
     }
   }
+}
+
+/**
+ * The values a sequence will actually produce, when the config says so outright.
+ *
+ * Only a body that is one unnamed `<gen type="text" value="a,b,c">` qualifies —
+ * a text generator's list is always literal, never a file or a pack, so what is
+ * written is what comes out.
+ *
+ * Unless something rewrites it. `case="upper"` turns `Male` into `MALE` and
+ * `mask="xxxx"` turns `Female` into `Fema`, so a comparison against the written
+ * word would then be wrong in both directions — flagging a config that works and
+ * accepting one that never matches. `repeat=` makes the value a list rather than
+ * a word. Any of the three, and the values stop being knowable from here.
+ */
+export function finiteTextValues(
+  shape: SequenceShape,
+  gens: readonly (OpenCloseElementContext | SelfClosingElementContext)[],
+): readonly string[] | undefined {
+  if (shape !== 'simple' || gens.length !== 1) return undefined;
+  const only = gens[0];
+  if (!only) return undefined;
+  const attrs = extractAttrs(only.attr());
+  if (attrs['type'] !== 'text') return undefined;
+  if (attrs['case'] !== undefined || attrs['mask'] !== undefined) return undefined;
+  if (attrs['repeat'] !== undefined) return undefined;
+  const raw = attrs['value'];
+  if (raw === undefined || raw.trim() === '') return undefined;
+  return raw.split(',').map((v) => v.trim());
 }

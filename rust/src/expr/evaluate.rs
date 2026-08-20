@@ -19,6 +19,30 @@ pub trait Scope {
 
     /// The value for `name` on the current row; `""` when the row has none.
     fn value(&self, name: &str) -> String;
+
+    /// The value for `name` on the PREVIOUS row, for `prev()`.
+    ///
+    /// `None` by default and for every scope but a sequential run's, so `prev()` is
+    /// refused rather than quietly answered from the current row — a silent
+    /// off-by-one-row is exactly the plausible wrong file this engine exists not to
+    /// produce. Separate from `value` because the two answer different questions about
+    /// the same name and an expression asks both: `RR` means this row, `prev(RR, …)`
+    /// means the one before.
+    fn previous(&self, _name: &str) -> Option<String> {
+        None
+    }
+
+    /// Whether this scope can answer `previous` AT ALL.
+    ///
+    /// Distinct from `previous` returning `None`, and the distinction is the whole
+    /// point: no previous row because this is the FIRST row means "use the caller's
+    /// initial value", while no previous row because the run is not sequential means
+    /// "refuse". Folding the two together made `prev()` outside the mode answer with
+    /// the initial value forever — a silent wrong file, which is what this all exists
+    /// to prevent.
+    fn has_previous(&self) -> bool {
+        false
+    }
 }
 
 /// The three types an expression works in.
@@ -90,6 +114,13 @@ fn eval(node: &Expr, scope: &dyn Scope) -> EngineResult<V> {
         Expr::Unary(op, operand) => unary_op(op, &eval(operand, scope)?)?,
         Expr::Binary(op, left, right) => binary_op(op, &eval(left, scope)?, &eval(right, scope)?)?,
         Expr::Call(name, args) => {
+            // `prev` is not an ordinary function and cannot be one: every other one
+            // here receives its arguments already evaluated, so `prev(RR, 700)` would
+            // be handed RR's value on THIS row — the one thing it must not see. It
+            // needs the NAME, which only the unevaluated tree still has.
+            if name == "prev" {
+                return eval_prev(args, scope);
+            }
             let mut values = Vec::with_capacity(args.len());
             for arg in args {
                 values.push(eval(arg, scope)?);
@@ -793,5 +824,31 @@ fn text(v: &V) -> String {
         V::Bool(b) => if *b { "true" } else { "false" }.to_string(),
         V::Str(s) => s.clone(),
         V::Lst(items) => items.iter().map(text).collect::<Vec<_>>().join(","),
+    }
+}
+
+/// `prev(Column, initial)` — that column's value on the row before this one.
+fn eval_prev(args: &[Expr], scope: &dyn Scope) -> EngineResult<V> {
+    if args.len() != 2 {
+        return invalid("prev(Column, initial) takes a column name and a first-row value");
+    }
+    let Expr::Name(target) = &args[0] else {
+        return invalid(
+            "the first argument of prev() must be a column name written plainly, as in prev(RR, 700)",
+        );
+    };
+    if !scope.has_previous() {
+        return invalid(
+            "prev() needs rows computed in order — add mode=\"sequential\" to <env>. Without it \
+             the engine may compute any row without the one before it.",
+        );
+    }
+    match scope.previous(target) {
+        // No earlier row, or a cell that row did not have: the caller's initial stands in.
+        None => eval(&args[1], scope),
+        Some(earlier) if earlier.is_empty() => eval(&args[1], scope),
+        // The raw text, exactly as a bare column reference gives it: `prev(X)` has to BE
+        // X one row back.
+        Some(earlier) => Ok(V::Str(earlier)),
     }
 }

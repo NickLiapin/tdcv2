@@ -44,6 +44,8 @@ export type GenTypeCtx = FileValidationContext &
   HttpCheckContext & {
     readonly diagnostics: Diagnostic[];
     readonly declaredSequences: readonly string[];
+    /** The sequence this gen belongs to, for `prev()` naming its own column. */
+    readonly currentSequence?: string | undefined;
     /** Of those, the ones whose `<gen>` repeats — a LIST in one cell. */
     readonly repeatingSequences: readonly string[];
     readonly locale: string;
@@ -152,7 +154,7 @@ export function checkGenByType(
       checkGenStat(gen, ctx.declaredSequences, ctx.diagnostics);
       break;
     case 'formula':
-      checkGenFormula(gen, ctx.declaredSequences, ctx.diagnostics);
+      checkGenFormula(gen, ctx.declaredSequences, ctx.diagnostics, ctx.currentSequence);
       break;
   }
 }

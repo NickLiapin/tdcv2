@@ -103,6 +103,14 @@ import { distributionColumn } from './dist-params.js';
 import { enforceValid } from './pack-valid.js';
 
 export interface SequenceBuildOptions {
+  /**
+   * Rows are computed strictly in order, so `prev()` has a previous row to read.
+   *
+   * Set from `<env mode="sequential">`. Not to be confused with
+   * `order="sequential"` on a list-backed generator, which is about the order
+   * values are DRAWN in and has nothing to do with this.
+   */
+  readonly sequential?: true;
   readonly regexMaxLength?: number | undefined;
   /**
    * A column's value at an absolute row, for a `<switch>` written inside a
@@ -344,7 +352,17 @@ export function buildSequences(
     // A column derived from other columns — running, stat, formula, a date
     // offset. One rule, one place: see `derived.ts` for why they belong
     // together and what each one costs.
-    if (registerDerivedColumn(spec, registry, count, prng, locale, ctx.instantColumns)) {
+    if (
+      registerDerivedColumn(
+        spec,
+        registry,
+        count,
+        prng,
+        locale,
+        ctx.instantColumns,
+        options.sequential,
+      )
+    ) {
       continue;
     }
     if (spec.items) {

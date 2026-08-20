@@ -32,6 +32,19 @@ public final class EngineRouter {
   /** The engine a config runs on: 1 in memory, 2 streaming, 3 exact on disk. */
   public static int resolve(Config config, DataPacks packs) {
     String forced = trimToNull(config.engine());
+    // engine= wins over mode= — except when the two contradict each other.
+    //
+    // mode="sequential" is not a preference about speed, it is a promise that row N is computed
+    // after row N-1, which only engine 1 keeps. Letting engine="2" quietly override it produced
+    // the worst possible message: the run failing with "add mode=sequential" against a config
+    // that already said it. Naming both attributes is the whole fix.
+    if ("sequential".equals(trimToNull(config.mode())) && forced != null && !"1".equals(forced)) {
+      throw new IllegalArgumentException(
+          "engine=\""
+              + forced
+              + "\" contradicts mode=\"sequential\": rows must be computed in order, and only "
+              + "engine 1 does that. Drop one of the two.");
+    }
     if (forced != null) {
       if (!"1".equals(forced) && !"2".equals(forced) && !"3".equals(forced)) {
         throw new IllegalArgumentException(
@@ -50,9 +63,17 @@ public final class EngineRouter {
     if ("stream".equals(mode)) {
       return 2;
     }
+    // "sequential" computes rows strictly in order, which is what prev() needs and what the
+    // streaming engines cannot promise: engine 2 resolves ANY row in O(1) without touching the
+    // one before it, and that is its whole design. So the mode forces engine 1, which
+    // materialises in order. The cost is engine 1's — the run is held in memory — and it is
+    // paid only by a config that asked for it.
+    if ("sequential".equals(mode)) {
+      return 1;
+    }
     if (mode != null && !"disk".equals(mode)) {
       throw new IllegalArgumentException(
-          "invalid mode \"" + mode + "\" — expected \"memory\" or \"disk\"");
+          "invalid mode \"" + mode + "\" — expected \"memory\", \"disk\" or \"sequential\"");
     }
     // No mode at all means disk: a config says how big its run is, not how to hold it, and the
     // engine that can stream is the right default for a generator whose whole point is volume.

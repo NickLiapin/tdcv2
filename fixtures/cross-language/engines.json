@@ -1708,6 +1708,14 @@
         "lines": ["same=yes inside="]
       }
     },
+    "expressions/prev-reads-the-row-before-under-mode-sequential": {
+      "engine2": {
+        "refused": "prev() needs rows computed in order — add mode=\"sequential\" to <env>. Without it the engine may compute any row without the one before it."
+      },
+      "engine3": {
+        "refused": "prev() needs rows computed in order — add mode=\"sequential\" to <env>. Without it the engine may compute any row without the one before it."
+      }
+    },
     "formatting/mask-phone": {
       "engine2": {
         "lines": ["555-123-4567"]

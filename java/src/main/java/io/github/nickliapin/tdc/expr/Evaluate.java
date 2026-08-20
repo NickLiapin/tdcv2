@@ -20,6 +20,33 @@ public final class Evaluate {
 
     /** The value for {@code name} on the current row; {@code ""} when the row has none. */
     String value(String name);
+
+    /**
+     * The value for {@code name} on the PREVIOUS row, for {@code prev()}.
+     *
+     * <p>{@code null} by default and for every scope but a sequential run's, so
+     * {@code prev()} is refused rather than quietly answered from the current row — a
+     * silent off-by-one-row is exactly the plausible wrong file this engine exists not
+     * to produce. Separate from {@code value} because the two answer different questions
+     * about the same name and an expression asks both: {@code RR} means this row,
+     * {@code prev(RR, …)} means the one before.
+     */
+    default String previous(String name) {
+      return null;
+    }
+
+    /**
+     * Whether this scope can answer {@code previous} AT ALL.
+     *
+     * <p>Distinct from {@code previous} returning null, and the distinction is the whole
+     * point: no previous row because this is the FIRST row means "use the caller's
+     * initial value", while no previous row because the run is not sequential means
+     * "refuse". Folding the two together makes {@code prev()} outside the mode answer
+     * with the initial value forever — a silent wrong file.
+     */
+    default boolean hasPrevious() {
+      return false;
+    }
   }
 
   private static final Map<String, Expr> CACHE = new ConcurrentHashMap<>();
@@ -65,6 +92,13 @@ public final class Evaluate {
       return scope.has(n.value()) ? scope.value(n.value()) : n.value();
     }
     if (node instanceof Expr.Call c) {
+      // `prev` is not an ordinary function and cannot be one: every other one here
+      // receives its arguments already evaluated, so `prev(RR, 700)` would be handed
+      // RR's value on THIS row — the one thing it must not see. It needs the NAME,
+      // which only the unevaluated tree still has.
+      if ("prev".equals(c.callee())) {
+        return evalPrev(c, scope);
+      }
       Object[] args = new Object[c.args().size()];
       for (int i = 0; i < args.length; i++) {
         args[i] = eval(c.args().get(i), scope);
@@ -948,5 +982,31 @@ public final class Evaluate {
       return String.valueOf((double) d);
     }
     return String.valueOf(v);
+  }
+
+  /** {@code prev(Column, initial)} — that column's value on the row before this one. */
+  private static Object evalPrev(Expr.Call c, Scope scope) {
+    if (c.args().size() != 2) {
+      throw new IllegalArgumentException(
+          "prev(Column, initial) takes a column name and a first-row value");
+    }
+    if (!(c.args().get(0) instanceof Expr.Name target)) {
+      throw new IllegalArgumentException(
+          "the first argument of prev() must be a column name written plainly, as in "
+              + "prev(RR, 700)");
+    }
+    if (!scope.hasPrevious()) {
+      throw new IllegalArgumentException(
+          "prev() needs rows computed in order — add mode=\"sequential\" to <env>. Without it "
+              + "the engine may compute any row without the one before it.");
+    }
+    String earlier = scope.previous(target.value());
+    // No earlier row, or a cell that row did not have: the caller's initial stands in.
+    if (earlier == null || earlier.isEmpty()) {
+      return eval(c.args().get(1), scope);
+    }
+    // The raw text, exactly as a bare column reference gives it: `prev(X)` has to BE X
+    // one row back.
+    return earlier;
   }
 }

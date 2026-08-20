@@ -244,10 +244,11 @@ public static class MemoryEngine
     /// <remarks>
     /// Resolved here for the same reason <c>running</c> and <c>stat</c> are: it reads columns
     /// that already exist, so every name in <c>expr=</c> has to be declared above. Unlike them it
-    /// needs only its OWN row, which is why it also streams.
+    /// needs only its OWN row, which is why it also streams — unless it calls <c>prev()</c>, and
+    /// then <paramref name="sequential"/> hands it the row before.
     /// </remarks>
     private static void FormulaColumn(
-        SequenceSpec spec, Dictionary<string, string?[]> columns, int count)
+        SequenceSpec spec, Dictionary<string, string?[]> columns, int count, bool sequential)
     {
         IReadOnlyDictionary<string, string> attrs = spec.Gen!.Attrs;
         string source = Formula.ExpressionOf(attrs);
@@ -256,6 +257,28 @@ public static class MemoryEngine
         for (int row = 0; row < count; row++)
         {
             int here = row;
+            // The previous row, and only under the mode that promises there IS one. The column's
+            // own earlier cells live in `values` — they are not in `columns` until the loop ends —
+            // so its own past is read from there and every other column from the dictionary.
+            Func<string, string?>? previousAt = !sequential
+                ? null
+                : name =>
+                {
+                    if (here == 0)
+                    {
+                        return null; // no earlier row: prev() falls back to its initial value
+                    }
+
+                    if (name == spec.Name)
+                    {
+                        return values[here - 1];
+                    }
+
+                    return columns.TryGetValue(name, out string?[]? earlier)
+                        && here - 1 < earlier.Length
+                            ? earlier[here - 1]
+                            : null;
+                };
             values[row] = Formula.ValueAtRow(
                 source,
                 decimals,
@@ -263,7 +286,8 @@ public static class MemoryEngine
                 columns.ContainsKey,
                 name => columns.TryGetValue(name, out string?[]? column) && here < column.Length
                     ? column[here]
-                    : null);
+                    : null,
+                previousAt);
         }
 
         columns[spec.Name] = values;
@@ -632,7 +656,7 @@ public static class MemoryEngine
             // streams.
             if (spec.Gen is not null && spec.Gen.Type == "formula")
             {
-                FormulaColumn(spec, columns, count);
+                FormulaColumn(spec, columns, count, config.Mode?.Trim() == "sequential");
                 continue;
             }
 

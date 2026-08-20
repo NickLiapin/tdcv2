@@ -320,6 +320,7 @@ public sealed class Validator
             ("degrees", 1, 1), ("digamma", 1, 1), ("ends_with", 2, 2),
             ("erf", 1, 1), ("erfc", 1, 1), ("exp", 1, 1), ("expm1", 1, 1), ("floor", 1, 1),
             ("gamma", 1, 1), ("gauss", 3, 3), ("hash", 2, 2), ("noise", 3, 3), ("clamp", 3, 3), ("lerp", 3, 3), ("hypot", 2, 2),
+            ("prev", 2, 2),
             ("is_empty", 1, 1), ("join", 2, 2), ("len", 1, 1), ("lgamma", 1, 1), ("log", 1, 1),
             ("log10", 1, 1), ("log1p", 1, 1),
             ("log2", 1, 1), ("lower", 1, 1), ("max", 1, int.MaxValue), ("mean", 1, 1),
@@ -339,7 +340,7 @@ public sealed class Validator
             "clamp", "exp", "expm1", "floor", "gamma", "gauss", "hash", "hypot", "is_empty", "join",
             "noise",
             "len",
-            "lerp", "lgamma",
+            "lerp", "lgamma", "prev",
             "log", "log10", "log1p", "log2", "lower", "max", "mean", "median", "min", "pow",
             "radians", "round", "sign",
             "sin", "sinh", "split", "sqrt", "starts_with", "stddev", "sum", "tan", "tanh",
@@ -468,6 +469,13 @@ public sealed class Validator
 
     /// <summary>The sequences declared BEFORE the one being walked — see CheckRunning.</summary>
     private IReadOnlyList<string> _declaredOrder = System.Array.Empty<string>();
+
+    /// <summary>The sequence whose gens are being walked, or null outside one.</summary>
+    /// <remarks>
+    /// Only <c>prev()</c> needs it: a column reading its OWN past is the point of the function,
+    /// and its own name is not "declared above" itself.
+    /// </remarks>
+    private string? _currentSequence;
 
     /// <summary>Field names per <c>&lt;pool&gt;</c>, and the sequences drawing a member.</summary>
     private readonly Dictionary<string, List<string>> _poolFields = new(StringComparer.Ordinal);
@@ -1382,10 +1390,13 @@ public sealed class Validator
                     break;
             }
 
+            _currentSequence = name;
             foreach (TDCParser.ElementContext inner in open.content().element())
             {
                 CheckGensIn(inner);
             }
+
+            _currentSequence = null;
 
             if (!string.IsNullOrWhiteSpace(name))
             {
@@ -5123,9 +5134,18 @@ public sealed class Validator
 
         var names = new SortedSet<string>(StringComparer.Ordinal);
         CollectIdentifiers(parsed, names);
+        // A column may read its OWN previous row — that is what prev() is for — so its own name
+        // is exempt HERE and nowhere else. Everything else still answers to declared-above.
+        var prevTargets = new HashSet<string>(StringComparer.Ordinal);
+        CollectPrevTargets(parsed, prevTargets);
+        string? own = _currentSequence is not null && prevTargets.Contains(_currentSequence)
+            ? _currentSequence
+            : null;
         foreach (string name in names)
         {
-            if (Checks.IsBuiltin(name) || _declaredOrder.Contains(name, StringComparer.Ordinal))
+            if (Checks.IsBuiltin(name)
+                || _declaredOrder.Contains(name, StringComparer.Ordinal)
+                || name == own)
             {
                 continue;
             }
@@ -5147,6 +5167,52 @@ public sealed class Validator
     /// unlike <c>if=</c>, where an unknown name is a legitimate bare word. That is what makes
     /// checking them all correct here and wrong there.
     /// </remarks>
+    /// <summary>Every column named as the FIRST argument of a <c>prev(...)</c> call.</summary>
+    /// <remarks>
+    /// Read off the tree rather than the text, so <c>prevention</c> and a quoted "prev(" inside a
+    /// string are not mistaken for the form. The traversal mirrors <see cref="CollectIdentifiers"/>
+    /// exactly: a node shape it forgets is a prev() the exemption would silently miss.
+    /// </remarks>
+    private static void CollectPrevTargets(Expr.Expr node, ISet<string> found)
+    {
+        switch (node)
+        {
+            case Expr.Expr.Unary u:
+                CollectPrevTargets(u.Operand, found);
+                break;
+            case Expr.Expr.Binary b:
+                CollectPrevTargets(b.Left, found);
+                CollectPrevTargets(b.Right, found);
+                break;
+            case Expr.Expr.Conditional t:
+                CollectPrevTargets(t.Test, found);
+                CollectPrevTargets(t.Consequent, found);
+                CollectPrevTargets(t.Alternate, found);
+                break;
+            case Expr.Expr.Call c:
+                if (c.Callee == "prev" && c.Args.Count > 0 && c.Args[0] is Expr.Expr.Name target)
+                {
+                    found.Add(target.Value);
+                }
+
+                foreach (Expr.Expr arg in c.Args)
+                {
+                    CollectPrevTargets(arg, found);
+                }
+
+                break;
+            case Expr.Expr.Arr a:
+                foreach (Expr.Expr item in a.Items)
+                {
+                    CollectPrevTargets(item, found);
+                }
+
+                break;
+            default:
+                break;
+        }
+    }
+
     private static void CollectIdentifiers(Expr.Expr node, ISet<string> found)
     {
         switch (node)

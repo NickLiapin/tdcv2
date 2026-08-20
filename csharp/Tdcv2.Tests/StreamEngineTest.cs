@@ -52,9 +52,14 @@ public class StreamEngineTest
         {
             actual = Render(node.RootElement, Engine);
         }
-        catch (Exception e) when (e is NotSupportedException or StreamEngine.UnsupportedHere)
+        catch (Exception e) when (e is NotSupportedException
+                                  or StreamEngine.UnsupportedHere
+                                  or ArgumentException)
         {
             // Not reached yet, or genuinely not this engine's work. Loud in the code, silent here.
+            // ArgumentException belongs here too: a refusal raised by the expression layer rather
+            // than the streaming builder — `prev()` without mode="sequential" — is still a refusal,
+            // and WHAT is refused is the contract, not which exception carries it.
             return;
         }
 

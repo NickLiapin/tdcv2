@@ -36,6 +36,8 @@ export function checkGenFormula(
   gen: OpenCloseElementContext | SelfClosingElementContext,
   declaredAbove: readonly string[],
   diagnostics: Diagnostic[],
+  /** The sequence this formula belongs to — the one name `prev()` may add. */
+  ownName?: string,
 ): void {
   const attrs = extractAttrs(gen.attr());
   if (attrs['type'] !== 'formula') return;
@@ -112,9 +114,21 @@ export function checkGenFormula(
   // four homes read the same way.
   if (exprAttr) checkIfExpression(exprAttr, expr, { diagnostics }, exprSite('expr'));
 
+  /*
+   * `prev(RR, 700)` may name THIS column, and only there.
+   *
+   * Referring to your own column in an ordinary formula is meaningless — the
+   * value being computed is the one you are asking for — which is what the rule
+   * below refuses. Reading your own PREVIOUS row is the opposite: it is a random
+   * walk, a Markov chain, an autoregression, and the whole reason
+   * `mode="sequential"` exists. So the name inside `prev()` is exempt from the
+   * declaration-order rule, and from nothing else.
+   */
+  const ownPrev = ownName !== undefined && prevTargets(ast).has(ownName) ? [ownName] : [];
   for (const name of identifiersOf(ast)) {
     if (BUILTIN_SEQUENCES.includes(name)) continue;
     if (declaredAbove.includes(name)) continue;
+    if (ownPrev.includes(name)) continue;
     const suggestion = closestMatch(name, [...declaredAbove]);
     diagnostics.push({
       severity: 'error',
@@ -207,4 +221,36 @@ function rootOf(node: jsep.MemberExpression): string | undefined {
   let cur: jsep.Expression = node;
   while (cur.type === 'MemberExpression') cur = (cur as jsep.MemberExpression).object;
   return cur.type === 'Identifier' ? (cur as jsep.Identifier).name : undefined;
+}
+
+/**
+ * The column names appearing as the first argument of a `prev()` call.
+ *
+ * Read off the tree rather than the text, so `prevention` and a quoted "prev("
+ * inside a string are not mistaken for the form.
+ */
+function prevTargets(ast: unknown): Set<string> {
+  const found = new Set<string>();
+  const visit = (node: unknown): void => {
+    if (node === null || typeof node !== 'object') return;
+    const n = node as {
+      type?: string;
+      callee?: { type?: string; name?: string };
+      arguments?: unknown[];
+    };
+    if (
+      n.type === 'CallExpression' &&
+      n.callee?.type === 'Identifier' &&
+      n.callee.name === 'prev'
+    ) {
+      const first = n.arguments?.[0] as { type?: string; name?: string } | undefined;
+      if (first?.type === 'Identifier' && first.name !== undefined) found.add(first.name);
+    }
+    for (const value of Object.values(node as Record<string, unknown>)) {
+      if (Array.isArray(value)) value.forEach(visit);
+      else visit(value);
+    }
+  };
+  visit(ast);
+  return found;
 }

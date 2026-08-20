@@ -17,7 +17,42 @@ page — is tracked in that implementation's own changelog:
 
 ### Added
 
-<!-- covers: gauss clamp lerp hash noise -->
+<!-- covers: gauss clamp lerp hash noise prev -->
+
+- **`prev(Column, initial)` and `<env mode="sequential">` — a column that reads its
+  own past.** Every other function answers from one row; this one reads `Column` from
+  the row before, and gives `initial` on the first.
+
+  ```xml
+  <env count="3600" seed="p001" mode="sequential">
+    <sequence name="RR">
+      <gen type="formula" decimals="3"
+           expr="clamp(prev(RR, 700) + (hash(_count, 3) - 0.5) * 180, 350, 1400)"/>
+    </sequence>
+  </env>
+  ```
+
+  It takes the column NAME, unevaluated — writing `RR` anywhere else in that expression
+  gives THIS row's value, which is the one thing `prev` exists to look past — and it
+  returns the same raw text a bare column reference gives, so the two cannot disagree
+  about a comparison.
+
+  The mode is the price. `mode="sequential"` promises that row N is computed after row
+  N−1, which only the in-memory engine keeps: the streaming engine resolves ANY row in
+  O(1) without touching the one before it, and that is its whole design. So the mode
+  forces engine 1, the run is held in memory, and only a config that asked for it pays.
+
+  Three refusals, all by name: `prev()` without the mode; `prev()` inside an `if=`,
+  which is a per-row choice the engine may take in any order; and `mode="sequential"`
+  beside `engine="2"` or `engine="3"`, which names BOTH attributes rather than telling
+  a config to add the mode it already has.
+
+  Not refused, and verified rather than assumed: `percent=`, `uniq` and `distinct` all
+  work beside it. Columns register in declaration order, which is the order `prev()`
+  already depends on.
+
+  **`mode="sequential"` is not `order="sequential"`.** The `order=` attribute walks one
+  generator's values in the order written; the `mode=` attribute is about the whole run.
 
 - **The run as columns, in all five.** `toColumns()` / `to_columns()` /
   `ToColumns()` returns each column as the language's own array of doubles —

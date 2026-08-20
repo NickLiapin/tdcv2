@@ -23,6 +23,21 @@ public static class Evaluate
 
         /// <summary>The value for <c>name</c> on the current row; <c>""</c> when the row has none.</summary>
         string Value(string name);
+
+        /// <summary>
+        /// Whether this scope can answer <see cref="Previous"/> AT ALL.
+        /// </summary>
+        /// <remarks>
+        /// Distinct from <see cref="Previous"/> returning null, and the distinction is the whole
+        /// point: no previous row because this is the FIRST row means "use the caller's initial
+        /// value", while no previous row because the run is not sequential means "refuse".
+        /// Folding the two together makes <c>prev()</c> outside the mode answer with the initial
+        /// value forever — a silent wrong file.
+        /// </remarks>
+        bool HasPrevious => false;
+
+        /// <summary>That column on the PREVIOUS row, or null when this is the first one.</summary>
+        string? Previous(string name) => null;
     }
 
     private static readonly ConcurrentDictionary<string, Expr> Cache = new();
@@ -71,13 +86,56 @@ public static class Evaluate
         Expr.Member m => MemberOf(m.Dotted, scope),
         Expr.Unary u => UnaryOp(u.Op, Eval(u.Operand, scope)),
         Expr.Binary b => BinaryOp(b.Op, Eval(b.Left, scope), Eval(b.Right, scope)),
-        Expr.Call c => CallFunction(c.Callee, c.Args.Select(a => Eval(a, scope)).ToArray()),
+        Expr.Call c => c.Callee == "prev"
+            ? EvalPrev(c, scope)
+            : CallFunction(c.Callee, c.Args.Select(a => Eval(a, scope)).ToArray()),
         Expr.Arr a => a.Items.Select(i => Eval(i, scope)).ToList(),
         Expr.Conditional t => ToBoolean(Eval(t.Test, scope))
             ? Eval(t.Consequent, scope)
             : Eval(t.Alternate, scope),
         _ => throw new InvalidOperationException($"if expression: unhandled node {node}"),
     };
+
+    /// <summary>That column one row back — the one function whose arguments must NOT be evaluated.</summary>
+    /// <remarks>
+    /// Every other function here receives its arguments already evaluated, and that is exactly
+    /// what <c>prev</c> cannot have: <c>prev(RR, 700)</c> needs the NAME <c>RR</c>, because
+    /// evaluating it first would hand back THIS row's value — the one thing prev exists to look
+    /// past.
+    /// </remarks>
+    private static object? EvalPrev(Expr.Call call, IScope scope)
+    {
+        if (call.Args.Count != 2)
+        {
+            throw new ArgumentException("prev(Column, initial) takes a column name and a first-row value");
+        }
+
+        if (call.Args[0] is not Expr.Name target)
+        {
+            throw new ArgumentException(
+                "the first argument of prev() must be a column name written plainly, as in prev(RR, 700)");
+        }
+
+        if (!scope.HasPrevious)
+        {
+            throw new ArgumentException(
+                "prev() needs rows computed in order — add mode=\"sequential\" to <env>. Without it "
+                + "the engine may compute any row without the one before it.");
+        }
+
+        string? earlier = scope.Previous(target.Value);
+        // No earlier row (the first one), or a cell that row did not have: the caller's
+        // initial stands in, which is what it is for.
+        if (string.IsNullOrEmpty(earlier))
+        {
+            return Eval(call.Args[1], scope);
+        }
+
+        // The raw text, exactly as a bare column reference gives it. `prev(X)` has to BE X one
+        // row back, and a number here where the plain name gives a string would make the two
+        // disagree about `==` and about a label.
+        return earlier;
+    }
 
     /// <summary>
     /// <c>A.B</c> is read three ways, in order: a compound field named "A.B"; else, when "A" is a

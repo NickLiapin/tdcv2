@@ -434,7 +434,9 @@ def _build_columns(
         # below: it reads columns that already exist, so every name in `expr=` has to be
         # declared above. Unlike them it needs only its OWN row, which is why it also streams.
         if spec.gen is not None and spec.gen.type == "formula":
-            _formula(spec, columns, count)
+            # `prev()` may look back one row only when the rows are computed in order,
+            # which is what `mode="sequential"` promises and the streaming engines cannot.
+            _formula(spec, columns, count, config.mode == "sequential")
             continue
 
         # A statistic over the whole run. Resolved here for the same reason and by the same
@@ -1979,13 +1981,27 @@ def _pattern(attrs: dict[str, str], count: int, run: _Run) -> list[str]:
     return [patterns.value_at(resolved, i / denom, band(i)) for i in range(count)]
 
 
-def _formula(spec, columns: dict[str, list[str]], count: int) -> None:
+def _formula(spec, columns: dict[str, list[str]], count: int, sequential: bool = False) -> None:
     """One `<gen type="formula">` column, from the columns already in the registry."""
     gen = spec.gen
     source = formula_gen.expression_of(gen.attrs)
     decimals = formula_gen.decimals_of(gen.attrs)
+    own = spec.name or ""
     values: list[str] = []
     for i in range(count):
+        # The previous row, for `prev()`. Two cases, and the first is the point:
+        # THIS column reads `values[i - 1]`, the row just computed — a random walk
+        # and a Markov chain are exactly that, and it works because this loop goes
+        # in order. Another column reads whatever it holds at `i - 1`; registration
+        # is in DECLARATION order, so a name declared above is already complete.
+        def previous_row(name: str, r: int = i) -> str | None:
+            if r == 0:
+                return None
+            if name == own:
+                return values[r - 1]
+            column = columns.get(name)
+            return column[r - 1] if column is not None and r - 1 < len(column) else None
+
         answer = formula_gen.value_at_row(
             source,
             decimals,
@@ -1994,9 +2010,10 @@ def _formula(spec, columns: dict[str, list[str]], count: int) -> None:
             ),
             lambda name: name in columns,
             i,
+            previous_row if sequential else None,
         )
         values.append("" if answer is None else answer)
-    columns[spec.name or ""] = values
+    columns[own] = values
 
 
 def _quantile_values(attrs: dict[str, str], count: int, prng: Sfc32, run: _Run) -> list[str]:

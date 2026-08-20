@@ -117,9 +117,20 @@ pub struct RowScope<'a> {
     pub has_column: &'a dyn Fn(&str) -> bool,
     pub value_at: &'a dyn Fn(&str) -> Option<String>,
     pub read: std::cell::RefCell<ColumnsRead>,
+    /// A column's value on the PREVIOUS row, for `prev()`. `None` unless the run is
+    /// sequential, in which case `prev()` is refused rather than answered wrongly.
+    pub previous_at: Option<&'a dyn Fn(&str) -> Option<String>>,
 }
 
 impl Scope for RowScope<'_> {
+    fn has_previous(&self) -> bool {
+        self.previous_at.is_some()
+    }
+
+    fn previous(&self, name: &str) -> Option<String> {
+        (self.previous_at?)(name)
+    }
+
     fn has(&self, name: &str) -> bool {
         name == "_count" || (self.has_column)(name)
     }
@@ -148,12 +159,14 @@ pub fn value_at_row(
     row: usize,
     has_column: &dyn Fn(&str) -> bool,
     value_at: &dyn Fn(&str) -> Option<String>,
+    previous_at: Option<&dyn Fn(&str) -> Option<String>>,
 ) -> EngineResult<Option<String>> {
     let scope = RowScope {
         row,
         has_column,
         value_at,
         read: std::cell::RefCell::new(ColumnsRead::default()),
+        previous_at,
     };
     let answer = as_value(source, &scope)?;
     let read = scope.read.into_inner();

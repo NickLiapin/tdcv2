@@ -171,6 +171,7 @@ EXPR_FUNCTIONS: dict[str, tuple[int, int | None]] = {
     "gauss": (3, 3),
     "hash": (2, 2),
     "noise": (3, 3),
+    "prev": (2, 2),
     "hypot": (2, 2),
     "floor": (1, 1),
     "is_empty": (1, 1),
@@ -648,7 +649,14 @@ def _identifiers_of(node) -> set[str]:
             child = getattr(n, attr, None)
             if child is not None:
                 walk(child)
-        for attr in ("arguments", "elements"):
+        # `args` as well as `arguments`: the Call node in this parser spells it the
+        # short way, so this walker descended into no function call at all. Every
+        # identifier inside one escaped the declaration-order rule — `abs(Typo)`
+        # passed `check` here and was refused by the reference, then failed at run
+        # time with "the expression has no number as its answer", which names
+        # neither the column nor the typo. Found while porting `prev()`; older than
+        # it by a long way.
+        for attr in ("arguments", "args", "elements"):
             children = getattr(n, attr, None)
             if children:
                 for child in children:
@@ -658,9 +666,38 @@ def _identifiers_of(node) -> set[str]:
     return found
 
 
+
+def _prev_targets(node) -> set[str]:
+    """The column names appearing as the first argument of a ``prev()`` call.
+
+    Read off the tree rather than the text, so ``prevention`` and a quoted "prev(" are
+    not mistaken for the form.
+    """
+    found: set[str] = set()
+
+    def walk(n) -> None:
+        args = getattr(n, "args", None)
+        if getattr(n, "name", None) == "prev" and args:
+            first = args[0]
+            if isinstance(first, Name):
+                found.add(first.value.split(".")[0])
+        for attr in ("left", "right", "argument", "test", "consequent", "alternate", "object"):
+            child = getattr(n, attr, None)
+            if child is not None:
+                walk(child)
+        for attr in ("arguments", "args", "elements"):
+            children = getattr(n, attr, None)
+            if children:
+                for child in children:
+                    walk(child)
+
+    walk(node)
+    return found
+
 class _Validator:
     __slots__ = (
         "base_dir",
+        "current_sequence",
         "declared_names",
         "declared_order",
         "diagnostics",
@@ -697,6 +734,12 @@ class _Validator:
         # Every sequence name the config declares — what an interpolation may refer to.
         self.declared_names: set[str] = set()
         self.declared_order: list[str] = []
+        # The sequence being walked right now, if it has a name. `declared_order`
+        # deliberately excludes it — that is what makes "declared above" mean what it
+        # says — so a check needing to know whose column this is cannot read it there.
+        # `prev()` needs exactly that: naming your own column is meaningless in an
+        # ordinary formula and is the entire point inside `prev`.
+        self.current_sequence: str | None = None
         # Field names per <pool>, and the sequences that draw a whole member from one.
         self.pool_fields: dict[str, list[str]] = {}
         # Of those fields, the ones whose value list the config writes down, and which pools any
@@ -1176,6 +1219,7 @@ class _Validator:
             self._check_closed_tag_attrs(tag, open_el.attr(), _line(open_el), _column(open_el))
             attrs = _attrs(open_el.attr())
             name = attrs.get("name")
+            self.current_sequence = name.strip() if name else None
             if name is None or not name.strip():
                 self._error(
                     "TDC030",
@@ -4367,8 +4411,14 @@ class _Validator:
             parsed = expr_parse(source)
         except ValueError:
             return  # Already reported; there is no tree to walk.
+        # `prev(RR, 700)` may name THIS column, and only there. Referring to your own
+        # column in an ordinary formula is meaningless — the value being computed is the
+        # one you are asking for — which is what the rule below refuses. Reading your own
+        # PREVIOUS row is the opposite: a random walk, a Markov chain, an autoregression,
+        # and the whole reason `mode="sequential"` exists.
+        own_prev = _prev_targets(parsed) & {self.current_sequence or ""}
         for name in sorted(_identifiers_of(parsed)):
-            if checks.is_builtin(name) or name in self.declared_order:
+            if checks.is_builtin(name) or name in self.declared_order or name in own_prev:
                 continue
             line, column = _at(gen, attribute)
             self._error(

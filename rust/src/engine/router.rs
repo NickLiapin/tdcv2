@@ -33,6 +33,21 @@ use crate::packs::DataPacks;
 /// `None` skips that one rule and answers from the config alone, which is what a
 /// caller that has no registry to hand can honestly do.
 pub fn resolve(config: &Config, packs: Option<&DataPacks>) -> EngineResult<u8> {
+    // `engine=` wins over `mode=` — except when the two contradict. `mode="sequential"`
+    // is not a preference about speed, it is a promise that row N is computed after row
+    // N-1, which only engine 1 keeps. Letting `engine="2"` override it silently produced
+    // the worst possible message: a run failing with "add mode=sequential" to a config
+    // that already said it.
+    if trim_to_none(config.mode.as_deref()) == Some("sequential") {
+        if let Some(forced) = trim_to_none(config.engine.as_deref()) {
+            if forced != "1" {
+                return invalid(&format!(
+                    "engine=\"{forced}\" contradicts mode=\"sequential\": rows must be \
+                     computed in order, and only engine 1 does that. Drop one of the two."
+                ));
+            }
+        }
+    }
     if let Some(forced) = trim_to_none(config.engine.as_deref()) {
         return match forced {
             "1" => Ok(1),
@@ -47,13 +62,18 @@ pub fn resolve(config: &Config, packs: Option<&DataPacks>) -> EngineResult<u8> {
 
     match trim_to_none(config.mode.as_deref()) {
         Some("memory") => return Ok(1),
+        // Rows strictly in order, so `prev()` has a previous row. Engine 2 resolves ANY
+        // row in O(1) without touching the one before it — that is its design, and it is
+        // what this mode cannot be built on. The cost is engine 1's: the run is held in
+        // memory.
+        Some("sequential") => return Ok(1),
         // "stream" is the old name for asking for Engine 2 outright, from before
         // mode described the constraint rather than the engine. Kept working;
         // the router is not consulted.
         Some("stream") => return Ok(2),
         Some(other) if other != "disk" => {
             return invalid(&format!(
-                "invalid mode \"{other}\" — expected \"memory\" or \"disk\""
+                "invalid mode \"{other}\" — expected \"memory\", \"disk\" or \"sequential\""
             ))
         }
         // No mode at all means disk: a config says how big its run is, not how

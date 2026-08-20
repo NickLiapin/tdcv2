@@ -83,6 +83,12 @@ struct Validator {
     /// total takes the declaration-order rule, and the gen check is too deep to
     /// be handed the walk's own list.
     declared_order: Vec<String>,
+    /// The sequence being walked right now, if it has a name.
+    ///
+    /// `declared_order` deliberately excludes it — that is what makes "declared above"
+    /// mean what it says — so a check needing to know whose column this is cannot read
+    /// it there. `prev()` needs exactly that.
+    current_sequence: Option<String>,
     locale: String,
     /// The run length from `<env count="…">`. Needed by checks whose answer
     /// depends on SIZE rather than shape — a `uniq` column costs nothing at a
@@ -889,9 +895,15 @@ impl Validator {
                 _ => {}
             }
 
+            // Whose column the gens below belong to. Set BEFORE they are walked and
+            // cleared after, because `declared_order` gains this name only afterwards —
+            // that ordering is what makes "declared above" mean what it says.
+            let outer_sequence = self.current_sequence.take();
+            self.current_sequence = named.map(str::to_string);
             for inner in &open.children {
                 self.check_gens_in(inner);
             }
+            self.current_sequence = outer_sequence;
 
             if let Some(n) = named {
                 declared.push(n.to_string());
@@ -3540,8 +3552,18 @@ impl Validator {
         };
         let mut names = std::collections::BTreeSet::new();
         collect_identifiers(&parsed, &mut names);
+        // `prev(RR, 700)` may name THIS column, and only there. Referring to your own
+        // column in an ordinary formula is meaningless — the value being computed is the
+        // one you are asking for — which is what the rule below refuses. Reading your own
+        // PREVIOUS row is the opposite: a random walk, a Markov chain, an autoregression,
+        // and the whole reason `mode="sequential"` exists.
+        let mut own_prev = std::collections::BTreeSet::new();
+        collect_prev_targets(&parsed, &mut own_prev);
         for name in names {
             if is_builtin(&name) || self.declared_order.contains(&name) {
+                continue;
+            }
+            if Some(&name) == self.current_sequence.as_ref() && own_prev.contains(&name) {
                 continue;
             }
             let hint = if self.declared_order.is_empty() {
@@ -6548,5 +6570,43 @@ fn two_places(value: f64) -> String {
         format!("{}", rounded.round() as i64)
     } else {
         format!("{rounded}")
+    }
+}
+
+/// The column names appearing as the first argument of a `prev()` call.
+///
+/// Read off the tree rather than the text, so `prevention` and a quoted "prev(" are not
+/// mistaken for the form. Mirrors `collect_identifiers`' traversal exactly, so a shape
+/// one of them descends into cannot be a shape the other misses.
+fn collect_prev_targets(node: &expr::Expr, found: &mut std::collections::BTreeSet<String>) {
+    match node {
+        expr::Expr::Unary(_, inner) | expr::Expr::Computed(inner) => {
+            collect_prev_targets(inner, found);
+        }
+        expr::Expr::Binary(_, left, right) => {
+            collect_prev_targets(left, found);
+            collect_prev_targets(right, found);
+        }
+        expr::Expr::Conditional(test, yes, no) => {
+            collect_prev_targets(test, found);
+            collect_prev_targets(yes, found);
+            collect_prev_targets(no, found);
+        }
+        expr::Expr::Call(name, args) => {
+            if name == "prev" {
+                if let Some(expr::Expr::Name(target)) = args.first() {
+                    found.insert(target.split('.').next().unwrap_or(target).to_string());
+                }
+            }
+            for arg in args {
+                collect_prev_targets(arg, found);
+            }
+        }
+        expr::Expr::Array(args) => {
+            for arg in args {
+                collect_prev_targets(arg, found);
+            }
+        }
+        _ => {}
     }
 }

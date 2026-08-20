@@ -59,8 +59,14 @@ def test_a_streaming_engine_matches_the_reference(name: str, case: dict, engine:
     expected = _EXPECTED[name][f"engine{engine}"]
 
     if "refused" in expected:
-        # WHAT is refused is the contract; how each language phrases it is not.
-        with pytest.raises((stream.UnsupportedError, stream.StreamError, RepairNeededError)):
+        # WHAT is refused is the contract; how each language phrases it is not — and neither is
+        # the exception class. A refusal that comes from the expression layer rather than the
+        # streaming builder is a plain ValueError, the same way the router's refusals are; the
+        # Java runner simply catches RuntimeException here, and this list is the same idea
+        # spelled out.
+        with pytest.raises(
+            (stream.UnsupportedError, stream.StreamError, RepairNeededError, ValueError)
+        ):
             _run(case, engine)
         return
 

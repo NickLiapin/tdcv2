@@ -44,10 +44,18 @@ def as_condition(source: str, has: Callable[[str], bool], value: Callable[[str],
     if ast is None:
         ast = parse(source)
         _CACHE[source] = ast
-    return to_boolean(_eval(ast, has, value))
+    # No previous row here on purpose: an `if=` is a per-row choice, and the engine that
+    # answers it may compute rows in any order. `prev()` inside one is refused by name,
+    # exactly as it is outside `mode="sequential"` — the same refusal, not a crash.
+    return to_boolean(_eval(ast, has, value, None))
 
 
-def as_value(source: str, has: Callable[[str], bool], value: Callable[[str], str]):
+def as_value(
+    source: str,
+    has: Callable[[str], bool],
+    value: Callable[[str], str],
+    prev: Callable[[str], str | None] | None = None,
+):
     """What ``source`` evaluates TO on this row, rather than whether it holds.
 
     The same evaluator as ``as_condition`` and deliberately so: a distribution parameter and a
@@ -57,10 +65,15 @@ def as_value(source: str, has: Callable[[str], bool], value: Callable[[str], str
     if ast is None:
         ast = parse(source)
         _CACHE[source] = ast
-    return _eval(ast, has, value)
+    return _eval(ast, has, value, prev)
 
 
-def _eval(node: Node, has: Callable[[str], bool], value: Callable[[str], str]):
+def _eval(
+    node: Node,
+    has: Callable[[str], bool],
+    value: Callable[[str], str],
+    prev: Callable[[str], str | None] | None = None,
+):
     if isinstance(node, Num):
         return node.value
     if isinstance(node, Str):
@@ -74,19 +87,47 @@ def _eval(node: Node, has: Callable[[str], bool], value: Callable[[str], str]):
     if isinstance(node, Member):
         return _member(node.dotted, has, value)
     if isinstance(node, Unary):
-        return _unary(node.op, _eval(node.operand, has, value))
+        return _unary(node.op, _eval(node.operand, has, value, prev))
     if isinstance(node, Binary):
-        return _binary(node.op, _eval(node.left, has, value), _eval(node.right, has, value))
+        return _binary(
+            node.op, _eval(node.left, has, value, prev), _eval(node.right, has, value, prev)
+        )
     if isinstance(node, Call):
+        # `prev` is not an ordinary function and cannot be one: every other one here
+        # receives its arguments already evaluated, so `prev(RR, 700)` would be handed
+        # RR's value on THIS row — the one thing it must not see. It needs the NAME,
+        # which only the unevaluated tree still has.
+        if node.name == "prev":
+            if len(node.args) != 2:
+                raise ValueError("prev(Column, initial) takes a column name and a first-row value")
+            target = node.args[0]
+            if not isinstance(target, Name):
+                raise ValueError(
+                    "the first argument of prev() must be a column name written plainly, "
+                    "as in prev(RR, 700)"
+                )
+            if prev is None:
+                raise ValueError(
+                    'prev() needs rows computed in order — add mode="sequential" to <env>. '
+                    "Without it the engine may compute any row without the one before it."
+                )
+            earlier = prev(target.value)
+            # No earlier row, or a cell that row did not have: the caller's initial stands in.
+            if earlier is None or earlier == "":
+                return _eval(node.args[1], has, value, prev)
+            # The raw text, exactly as a bare column reference gives it: `prev(X)` has
+            # to BE X one row back.
+            return earlier
         fn = _FUNCTIONS.get(node.name)
         if fn is None:
             raise ValueError(f'if expression: unknown function "{node.name}"')
-        return fn([_eval(a, has, value) for a in node.args])
+        return fn([_eval(a, has, value, prev) for a in node.args])
     if isinstance(node, Array):
-        return [_eval(item, has, value) for item in node.items]
+        return [_eval(item, has, value, prev) for item in node.items]
     if isinstance(node, Conditional):
-        branch = node.consequent if to_boolean(_eval(node.test, has, value)) else node.alternate
-        return _eval(branch, has, value)
+        held = to_boolean(_eval(node.test, has, value, prev))
+        branch = node.consequent if held else node.alternate
+        return _eval(branch, has, value, prev)
     if isinstance(node, Computed):
         raise ValueError("computed member access is not supported in if expressions")
     raise ValueError(f"if expression: unhandled node {node}")

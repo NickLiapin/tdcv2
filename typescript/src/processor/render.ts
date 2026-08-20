@@ -166,6 +166,13 @@ interface EnvConfig {
   readonly regexMaxLength: number;
   /** How the engine was selected — a user mode ("memory"/"disk") or a forced id. */
   readonly engineSelection: EngineSelection;
+  /**
+   * `<env mode="sequential">` — rows computed strictly in order so `prev()` has
+   * a previous row. Carried separately from `engineSelection` because that
+   * records WHICH engine, and this records WHY: `engine="1"` picks the same one
+   * without promising the ordering `prev()` depends on.
+   */
+  readonly sequential: boolean;
 }
 
 /**
@@ -520,6 +527,8 @@ export function prepareRender(
     ...packOptions,
     seed: env.seed,
     pools: buildPoolTables(extractPoolSpecs(envEl), env.seed, env.locale, now, packOptions),
+    // `prev()` may look back one row only when the rows are computed in order.
+    ...(env.sequential ? { sequential: true as const } : {}),
   };
   // Resolve the concrete engine. A user MODE picks it from the config: disk →
   // Engine 2 normally, Engine 3 when the config needs exact percentages AND
@@ -754,6 +763,7 @@ function extractEnvConfig(
     delimiterLine: fixtureEl('delimiter_line'),
     regexMaxLength,
     engineSelection: resolveEngineSelection(attrs, options),
+    sequential: attrs['mode'] === 'sequential',
   };
 }
 
@@ -778,12 +788,43 @@ export function resolveEngineSelection(attrs: AttrMap, options: RenderOptions): 
   if (options.stream === true) return { forced: 2 };
   if (options.mode !== undefined) return { mode: options.mode };
   const engineAttr = attrs['engine'];
-  if (engineAttr !== undefined && engineAttr !== '') return { forced: parseEngineId(engineAttr) };
   const modeAttr = attrs['mode'];
+  /*
+   * `engine=` wins over `mode=` — except when the two contradict each other.
+   *
+   * `mode="sequential"` is not a preference about speed, it is a promise that
+   * row N is computed after row N-1, which only Engine 1 keeps. Letting
+   * `engine="2"` quietly override it produced the worst possible message: the
+   * run failed saying "add mode=sequential" to a config that already said it.
+   * Naming both attributes is the whole fix.
+   */
+  if (
+    modeAttr === 'sequential' &&
+    engineAttr !== undefined &&
+    engineAttr !== '' &&
+    engineAttr !== '1'
+  ) {
+    throw new Error(
+      `engine="${engineAttr}" contradicts mode="sequential": rows must be computed in order, ` +
+        'and only engine 1 does that. Drop one of the two.',
+    );
+  }
+  if (engineAttr !== undefined && engineAttr !== '') return { forced: parseEngineId(engineAttr) };
   if (modeAttr === 'stream') return { forced: 2 };
+  /*
+   * `sequential` computes rows strictly in order, which is what `prev()` needs
+   * and what the streaming engines cannot promise: Engine 2 resolves ANY row in
+   * O(1) without touching the one before it, and that is its whole design. So
+   * the mode forces Engine 1, which materialises in order.
+   *
+   * The cost is Engine 1's: the run is held in memory. That is the honest price
+   * of a column that reads its own past, and it is paid only by a config that
+   * asked for it.
+   */
+  if (modeAttr === 'sequential') return { forced: 1 };
   if (modeAttr === 'memory' || modeAttr === 'disk') return { mode: modeAttr };
   if (modeAttr !== undefined && modeAttr !== '') {
-    throw new Error(`invalid mode "${modeAttr}" — expected "memory" or "disk"`);
+    throw new Error(`invalid mode "${modeAttr}" — expected "memory", "disk" or "sequential"`);
   }
   return { mode: 'disk' };
 }

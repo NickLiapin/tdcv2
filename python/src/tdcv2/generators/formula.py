@@ -132,11 +132,18 @@ def value_at_row(
     value_at: Callable[[str], str | None],
     has_column: Callable[[str], bool],
     iteration: int,
+    prev: Callable[[str], str | None] | None = None,
 ) -> str | None:
-    """One row's answer, or ``None`` when a column it read was empty."""
+    """One row's answer, or ``None`` when a column it read was empty.
+
+    ``prev`` reads a column on the PREVIOUS row and is present only under
+    ``mode="sequential"``. Absent, ``prev()`` in the expression is refused rather than
+    answered from the current row — a silent off-by-one-row is exactly the plausible
+    wrong file this engine exists not to produce.
+    """
     read = ColumnsRead()
     has, value = row_scope(value_at, has_column, iteration, read)
-    answer = as_value(source, has, value)
+    answer = as_value(source, has, value, prev)
     if read.empty:
         return None
     return render(answer, decimals, read)

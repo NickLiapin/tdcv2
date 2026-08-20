@@ -318,11 +318,29 @@ fn formula_column(
     gen: &Gen,
     columns: &mut BTreeMap<String, Vec<Option<String>>>,
     count: usize,
+    sequential: bool,
 ) -> EngineResult<()> {
     let source = formula::expression_of(&gen.attrs)?;
     let decimals = formula::decimals_of(&gen.attrs)?;
-    let mut values = Vec::with_capacity(count);
+    let own = spec.name.clone();
+    let mut values: Vec<Option<String>> = Vec::with_capacity(count);
     for row in 0..count {
+        // The previous row, for `prev()`. Two cases, and the first is the point: THIS
+        // column reads `values[row - 1]`, the row just computed — a random walk and a
+        // Markov chain are exactly that, and it works because this loop goes in order.
+        // Another column reads whatever it holds at `row - 1`; registration is in
+        // DECLARATION order, so a name declared above is already complete.
+        let previous = |name: &str| -> Option<String> {
+            if row == 0 {
+                return None;
+            }
+            if name == own {
+                return values[row - 1].clone();
+            }
+            columns.get(name).and_then(|c| c.get(row - 1).cloned()).flatten()
+        };
+        let previous_ref: Option<&dyn Fn(&str) -> Option<String>> =
+            if sequential { Some(&previous) } else { None };
         values.push(formula::value_at_row(
             &source,
             decimals,
@@ -334,6 +352,7 @@ fn formula_column(
                     .and_then(|c| c.get(row).cloned())
                     .flatten()
             },
+            previous_ref,
         )?);
     }
     columns.insert(spec.name.clone(), values);
@@ -742,7 +761,15 @@ fn build_columns_with(
             // every name in `expr=` has to be declared above. Unlike them it
             // needs only its OWN row, which is why it also streams.
             if gen.gen_type == "formula" {
-                formula_column(spec, gen, &mut columns, count)?;
+                // `prev()` may look back one row only when rows are computed in
+                // order, which is what `mode="sequential"` promises.
+                formula_column(
+                    spec,
+                    gen,
+                    &mut columns,
+                    count,
+                    env.config.mode.as_deref() == Some("sequential"),
+                )?;
                 continue;
             }
             // A statistic over the whole run. Resolved here for the same reason

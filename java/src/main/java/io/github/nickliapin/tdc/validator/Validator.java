@@ -313,6 +313,7 @@ public final class Validator {
           Map.entry("noise", new int[] {3, 3}),
           Map.entry("clamp", new int[] {3, 3}),
           Map.entry("lerp", new int[] {3, 3}),
+          Map.entry("prev", new int[] {2, 2}),
           Map.entry("hypot", new int[] {2, 2}),
           Map.entry("log1p", new int[] {1, 1}),
           Map.entry("log2", new int[] {1, 1}),
@@ -361,7 +362,7 @@ public final class Validator {
           "clamp", "erf", "erfc", "exp", "expm1", "floor", "gamma", "gauss", "hash", "hypot",
           "noise",
           "is_empty",
-          "join", "len", "lerp",
+          "join", "len", "lerp", "prev",
           "lgamma", "log", "log10", "log1p", "log2", "lower", "max", "mean", "median", "min",
           "pow", "radians", "round", "sign", "sin", "sinh", "split", "sqrt", "starts_with",
           "stddev", "sum", "tan", "tanh", "trunc", "upper", "zeta");
@@ -490,6 +491,14 @@ public final class Validator {
 
   /** The sequences declared BEFORE the one being walked — see {@link #checkRunning}. */
   private List<String> declaredOrder = new ArrayList<>();
+
+  /**
+   * The sequence whose gens are being walked, or null outside one.
+   *
+   * <p>Only {@code prev()} needs it: a column reading its OWN past is the point of the function,
+   * and its own name is not "declared above" itself.
+   */
+  private String currentSequence;
 
   /** Field names per pool, gathered before the members are walked. */
   private final Map<String, List<String>> poolFields = new LinkedHashMap<>();
@@ -1202,9 +1211,11 @@ public final class Validator {
         checkSequenceDataAttrs(open);
         checkComputeBody(open);
       }
+      currentSequence = name;
       for (TDCParser.ElementContext inner : open.content().element()) {
         checkGensIn(inner);
       }
+      currentSequence = null;
 
       if (name != null && !name.isBlank()) {
         declared.add(name);
@@ -2041,8 +2052,14 @@ public final class Validator {
     }
     java.util.SortedSet<String> names = new java.util.TreeSet<>();
     collectIdentifiers(parsed, names);
+    // A column may read its OWN previous row — that is what prev() is for — so its own name is
+    // exempt HERE and nowhere else. Everything else still answers to the declared-above rule.
+    java.util.Set<String> prevTargets = new java.util.HashSet<>();
+    collectPrevTargets(parsed, prevTargets);
+    String own =
+        currentSequence != null && prevTargets.contains(currentSequence) ? currentSequence : null;
     for (String name : names) {
-      if (Checks.isBuiltin(name) || declaredOrder.contains(name)) {
+      if (Checks.isBuiltin(name) || declaredOrder.contains(name) || name.equals(own)) {
         continue;
       }
       int[] at = at(gen, param);
@@ -2086,6 +2103,40 @@ public final class Validator {
     } else if (node instanceof io.github.nickliapin.tdc.expr.Expr.Arr a) {
       for (io.github.nickliapin.tdc.expr.Expr item : a.items()) {
         collectIdentifiers(item, found);
+      }
+    }
+  }
+
+  /**
+   * Every column named as the FIRST argument of a {@code prev(...)} call.
+   *
+   * <p>Read off the tree rather than the text, so {@code prevention} and a quoted "prev(" inside
+   * a string are not mistaken for the form. The traversal mirrors {@link #collectIdentifiers}
+   * exactly: a node shape it forgets is a prev() the exemption would silently miss.
+   */
+  private static void collectPrevTargets(
+      io.github.nickliapin.tdc.expr.Expr node, java.util.Set<String> found) {
+    if (node instanceof io.github.nickliapin.tdc.expr.Expr.Unary u) {
+      collectPrevTargets(u.operand(), found);
+    } else if (node instanceof io.github.nickliapin.tdc.expr.Expr.Binary b) {
+      collectPrevTargets(b.left(), found);
+      collectPrevTargets(b.right(), found);
+    } else if (node instanceof io.github.nickliapin.tdc.expr.Expr.Conditional t) {
+      collectPrevTargets(t.test(), found);
+      collectPrevTargets(t.consequent(), found);
+      collectPrevTargets(t.alternate(), found);
+    } else if (node instanceof io.github.nickliapin.tdc.expr.Expr.Call c) {
+      if ("prev".equals(c.callee())
+          && !c.args().isEmpty()
+          && c.args().get(0) instanceof io.github.nickliapin.tdc.expr.Expr.Name target) {
+        found.add(target.value());
+      }
+      for (io.github.nickliapin.tdc.expr.Expr arg : c.args()) {
+        collectPrevTargets(arg, found);
+      }
+    } else if (node instanceof io.github.nickliapin.tdc.expr.Expr.Arr a) {
+      for (io.github.nickliapin.tdc.expr.Expr item : a.items()) {
+        collectPrevTargets(item, found);
       }
     }
   }

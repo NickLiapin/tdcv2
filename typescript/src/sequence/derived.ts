@@ -41,6 +41,8 @@ export function registerDerivedColumn(
   prng: () => number,
   locale: string,
   instantColumns: ReadonlySet<string> | undefined,
+  /** Rows are computed strictly in order, so `prev()` has a previous row. */
+  sequential?: true,
 ): boolean {
   switch (spec.gen?.type) {
     case 'running':
@@ -50,7 +52,7 @@ export function registerDerivedColumn(
       registerStat(spec, registry, count);
       return true;
     case 'formula':
-      registerFormula(spec, registry, count);
+      registerFormula(spec, registry, count, sequential);
       return true;
     default:
       break;

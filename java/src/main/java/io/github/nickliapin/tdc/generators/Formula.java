@@ -61,7 +61,23 @@ public final class Formula {
       int row,
       Predicate<String> hasColumn,
       Function<String, String> valueAt) {
-    RowScope scope = new RowScope(row, hasColumn, valueAt);
+    return valueAtRow(source, decimals, row, hasColumn, valueAt, null);
+  }
+
+  /**
+   * One row's answer, with {@code previousAt} reading a column on the PREVIOUS row.
+   *
+   * <p>{@code previousAt} is null unless the run is sequential, and then {@code prev()} in
+   * the expression is refused rather than answered from the current row.
+   */
+  public static String valueAtRow(
+      String source,
+      Integer decimals,
+      int row,
+      Predicate<String> hasColumn,
+      Function<String, String> valueAt,
+      Function<String, String> previousAt) {
+    RowScope scope = new RowScope(row, hasColumn, valueAt, previousAt);
     Object answer = Evaluate.asValue(source, scope);
     return scope.empty ? null : render(answer, decimals, scope);
   }
@@ -123,11 +139,27 @@ public final class Formula {
     private final int row;
     private final Predicate<String> hasColumn;
     private final Function<String, String> valueAt;
+    private final Function<String, String> previousAt;
     private boolean empty;
     private String textColumn;
     private String textValue;
 
-    RowScope(int row, Predicate<String> hasColumn, Function<String, String> valueAt) {
+    @Override
+    public boolean hasPrevious() {
+      return previousAt != null;
+    }
+
+    @Override
+    public String previous(String name) {
+      return previousAt == null ? null : previousAt.apply(name);
+    }
+
+    RowScope(
+        int row,
+        Predicate<String> hasColumn,
+        Function<String, String> valueAt,
+        Function<String, String> previousAt) {
+      this.previousAt = previousAt;
       this.row = row;
       this.hasColumn = hasColumn;
       this.valueAt = valueAt;

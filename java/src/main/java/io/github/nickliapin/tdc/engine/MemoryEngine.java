@@ -240,16 +240,33 @@ public final class MemoryEngine {
    *
    * <p>Resolved here for the same reason {@code running} and {@code stat} are: it reads columns
    * that already exist, so every name in {@code expr=} has to be declared above. Unlike them it
-   * needs only its OWN row, which is why it also streams.
+   * needs only its OWN row, which is why it also streams — unless it calls {@code prev()}, and
+   * then {@code sequential} hands it the row before.
    */
   private static void formulaColumn(
-      Config.SequenceSpec spec, Map<String, String[]> columns, int count) {
+      Config.SequenceSpec spec, Map<String, String[]> columns, int count, boolean sequential) {
     Map<String, String> attrs = spec.gen().attrs();
     String source = Formula.expressionOf(attrs);
     Integer decimals = Formula.decimalsOf(attrs);
     String[] values = new String[count];
     for (int row = 0; row < count; row++) {
       final int here = row;
+      // The previous row, and only under the mode that promises there IS one. The column's own
+      // earlier cells live in `values` — they are not in `columns` until the loop ends — so its
+      // own past is read from there and every other column from the map.
+      java.util.function.Function<String, String> previousAt =
+          !sequential
+              ? null
+              : name -> {
+                if (here == 0) {
+                  return null; // no earlier row: prev() falls back to its initial value
+                }
+                if (name.equals(spec.name())) {
+                  return values[here - 1];
+                }
+                String[] column = columns.get(name);
+                return column != null && here - 1 < column.length ? column[here - 1] : null;
+              };
       values[row] =
           Formula.valueAtRow(
               source,
@@ -259,7 +276,8 @@ public final class MemoryEngine {
               name -> {
                 String[] column = columns.get(name);
                 return column != null && here < column.length ? column[here] : null;
-              });
+              },
+              previousAt);
     }
     columns.put(spec.name(), values);
   }
@@ -551,7 +569,11 @@ public final class MemoryEngine {
       // below: it reads columns that already exist, so every name in `expr=` has to be declared
       // above. Unlike them it needs only its OWN row, which is why it also streams.
       if (spec.gen() != null && "formula".equals(spec.gen().type())) {
-        formulaColumn(spec, columns, count);
+        formulaColumn(
+            spec,
+            columns,
+            count,
+            config.mode() != null && "sequential".equals(config.mode().trim()));
         continue;
       }
       if (spec.gen() != null && "stat".equals(spec.gen().type())) {

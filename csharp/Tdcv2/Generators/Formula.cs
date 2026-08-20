@@ -118,6 +118,22 @@ internal static class Formula
         int row,
         Func<string, bool> hasColumn,
         Func<string, string?> valueAt)
+        => ValueAtRow(source, decimals, row, hasColumn, valueAt, null);
+
+    /// <summary>
+    /// The same, with <paramref name="previousAt"/> reading a column on the PREVIOUS row.
+    /// </summary>
+    /// <remarks>
+    /// Null unless the run is sequential, and then <c>prev()</c> in the expression is refused
+    /// rather than quietly answered from the current row.
+    /// </remarks>
+    internal static string? ValueAtRow(
+        string source,
+        int? decimals,
+        int row,
+        Func<string, bool> hasColumn,
+        Func<string, string?> valueAt,
+        Func<string, string?>? previousAt)
     {
         var read = new ColumnsRead();
         bool Has(string name) => name == "_count" || hasColumn(name);
@@ -144,7 +160,33 @@ internal static class Formula
             return cell;
         }
 
-        object? answer = Evaluate.AsValue(source, Has, Value);
+        object? answer = Evaluate.AsValue(source, new RowScope(Has, Value, previousAt));
         return read.Empty ? null : Render(answer, decimals, read);
+    }
+
+    /// <summary>One row's names, plus the row before it when the run is sequential.</summary>
+    private sealed class RowScope : Evaluate.IScope
+    {
+        private readonly Func<string, bool> _has;
+        private readonly Func<string, string> _value;
+        private readonly Func<string, string?>? _previousAt;
+
+        internal RowScope(
+            Func<string, bool> has,
+            Func<string, string> value,
+            Func<string, string?>? previousAt)
+        {
+            _has = has;
+            _value = value;
+            _previousAt = previousAt;
+        }
+
+        public bool Has(string name) => _has(name);
+
+        public string Value(string name) => _value(name);
+
+        public bool HasPrevious => _previousAt is not null;
+
+        public string? Previous(string name) => _previousAt?.Invoke(name);
     }
 }

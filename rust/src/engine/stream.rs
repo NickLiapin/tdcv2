@@ -2519,6 +2519,10 @@ impl StreamEngine<'_> {
                         None
                     }
                 },
+                // No previous row here, ever: this engine resolves ANY row without
+                // touching the one before it — that is its whole design — so `prev()`
+                // is refused rather than answered from a row it never computed.
+                None,
             ),
         }
     }

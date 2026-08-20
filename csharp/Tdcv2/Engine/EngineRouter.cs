@@ -53,6 +53,18 @@ public static class EngineRouter
     public static int Resolve(Config config, DataPacks? packs)
     {
         string? forced = TrimToNull(config.Engine);
+        // engine= wins over mode= — except when the two contradict each other. mode="sequential"
+        // is not a preference about speed, it is a promise that row N is computed after row N-1,
+        // which only engine 1 keeps. Letting engine="2" quietly override it produced the worst
+        // possible message: a run failing with "add mode=sequential" against a config that
+        // already said it. Naming both attributes is the whole fix.
+        if (TrimToNull(config.Mode) == "sequential" && forced is not null && forced != "1")
+        {
+            throw new ArgumentException(
+                $"engine=\"{forced}\" contradicts mode=\"sequential\": rows must be computed in "
+                + "order, and only engine 1 does that. Drop one of the two.");
+        }
+
         if (forced is not null)
         {
             if (forced != "1" && forced != "2" && forced != "3")
@@ -78,10 +90,20 @@ public static class EngineRouter
             return 2;
         }
 
+        // "sequential" computes rows strictly in order, which is what prev() needs and what the
+        // streaming engines cannot promise: engine 2 resolves ANY row in O(1) without touching
+        // the one before it, and that is its whole design. So the mode forces engine 1, which
+        // materialises in order. The cost is engine 1's — the run is held in memory — and it is
+        // paid only by a config that asked for it.
+        if (mode == "sequential")
+        {
+            return 1;
+        }
+
         if (mode is not null && mode != "disk")
         {
             throw new ArgumentException(
-                $"invalid mode \"{mode}\" — expected \"memory\" or \"disk\"");
+                $"invalid mode \"{mode}\" — expected \"memory\", \"disk\" or \"sequential\"");
         }
 
         // No mode at all means disk: a config says how big its run is, not how to hold it, and the

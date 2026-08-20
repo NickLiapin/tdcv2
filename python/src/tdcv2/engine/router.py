@@ -25,6 +25,17 @@ from ..packs import DataPacks
 def resolve(config: Config, packs: DataPacks | None = None) -> int:
     """The engine a config runs on: 1 in memory, 2 streaming, 3 exact on disk."""
     forced = _trim_to_none(config.engine)
+    mode_for_conflict = _trim_to_none(config.mode)
+    # `engine=` wins over `mode=` — except when the two contradict. `mode="sequential"`
+    # is not a preference about speed, it is a promise that row N is computed after row
+    # N-1, which only engine 1 keeps. Letting `engine="2"` override it silently produced
+    # the worst possible message: a run failing with "add mode=sequential" to a config
+    # that already said it.
+    if mode_for_conflict == "sequential" and forced is not None and forced != "1":
+        raise ValueError(
+            f'engine="{forced}" contradicts mode="sequential": rows must be computed in '
+            "order, and only engine 1 does that. Drop one of the two."
+        )
     if forced is not None:
         if forced not in ("1", "2", "3"):
             raise ValueError(
@@ -36,12 +47,17 @@ def resolve(config: Config, packs: DataPacks | None = None) -> int:
     mode = _trim_to_none(config.mode)
     if mode == "memory":
         return 1
+    # Rows strictly in order, so `prev()` has a previous row. Engine 2 resolves ANY row
+    # in O(1) without touching the one before it — that is its design, and it is what
+    # this mode cannot be built on. The cost is engine 1's: the run is held in memory.
+    if mode == "sequential":
+        return 1
     if mode == "stream":
         # The old name for asking for Engine 2 outright, from before mode described the constraint
         # rather than the engine. Kept working; the router is not consulted.
         return 2
     if mode is not None and mode != "disk":
-        raise ValueError(f'invalid mode "{mode}" — expected "memory" or "disk"')
+        raise ValueError(f'invalid mode "{mode}" — expected "memory", "disk" or "sequential"')
     # No mode at all means disk: a config says how big its run is, not how to hold it, and the
     # engine that can stream is the right default for a generator whose whole point is volume.
 

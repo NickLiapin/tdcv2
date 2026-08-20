@@ -48,7 +48,7 @@ import {
   findChildElement,
   hasDataLiteral,
 } from '../processor/walk.js';
-import { checkSequenceDataAttrs, type SequenceShape, sequenceShape } from './sequence-body.js';
+import { checkSequenceDataAttrs, finiteTextValues, sequenceShape } from './sequence-body.js';
 
 import {
   BUILTIN_SEQUENCES,
@@ -269,6 +269,17 @@ export function validate(tree: DocumentContext, options: ValidationOptions = {})
 class Ctx {
   /** Names of sequences encountered in declaration order — for parent refs. */
   public readonly declaredSequences: string[] = [];
+
+  /**
+   * The sequence being walked right now, if it has a name.
+   *
+   * `declaredSequences` deliberately excludes it — that is what makes "declared
+   * above" mean what it says — so a check that needs to know whose column this
+   * is cannot get it from there. `prev()` needs exactly that: naming your own
+   * column is meaningless in an ordinary formula and is the entire point inside
+   * `prev`.
+   */
+  public currentSequence: string | undefined;
 
   /** Of those, the ones whose `<gen>` repeats — the only ones `each=` can walk. */
   public readonly repeatingSequences: string[] = [];
@@ -642,36 +653,17 @@ function checkDeclName(
   });
 }
 
-/**
- * The values a sequence will actually produce, when the config says so outright.
- *
- * Only a body that is one unnamed `<gen type="text" value="a,b,c">` qualifies —
- * a text generator's list is always literal, never a file or a pack, so what is
- * written is what comes out.
- *
- * Unless something rewrites it. `case="upper"` turns `Male` into `MALE` and
- * `mask="xxxx"` turns `Female` into `Fema`, so a comparison against the written
- * word would then be wrong in both directions — flagging a config that works and
- * accepting one that never matches. `repeat=` makes the value a list rather than
- * a word. Any of the three, and the values stop being knowable from here.
- */
-function finiteTextValues(
-  shape: SequenceShape,
-  gens: readonly (OpenCloseElementContext | SelfClosingElementContext)[],
-): readonly string[] | undefined {
-  if (shape !== 'simple' || gens.length !== 1) return undefined;
-  const only = gens[0];
-  if (!only) return undefined;
-  const attrs = extractAttrs(only.attr());
-  if (attrs['type'] !== 'text') return undefined;
-  if (attrs['case'] !== undefined || attrs['mask'] !== undefined) return undefined;
-  if (attrs['repeat'] !== undefined) return undefined;
-  const raw = attrs['value'];
-  if (raw === undefined || raw.trim() === '') return undefined;
-  return raw.split(',').map((v) => v.trim());
+function checkSequence(seqEl: OpenCloseElementContext, ctx: Ctx): void {
+  const previousSequence = ctx.currentSequence;
+  ctx.currentSequence = extractAttrs(seqEl.attr())['name'];
+  try {
+    checkSequenceBody(seqEl, ctx);
+  } finally {
+    ctx.currentSequence = previousSequence;
+  }
 }
 
-function checkSequence(seqEl: OpenCloseElementContext, ctx: Ctx): void {
+function checkSequenceBody(seqEl: OpenCloseElementContext, ctx: Ctx): void {
   checkDeclName(seqEl, ctx, 'sequence');
   const name = extractAttrs(seqEl.attr())['name'];
 

@@ -192,6 +192,7 @@ list of numeric words still matches.
 | `digamma(x)`               | 1      | ψ(x), the derivative of log Γ                    |
 | `zeta(s)`                  | 1      | the Riemann zeta function, for real s            |
 | `degrees(x)` `radians(x)`  | 1      | between the two ways of writing an angle         |
+| `prev(Column, initial)`    | 2      | that column one row back — needs `mode="sequential"`, see below |
 
 The operators — comparisons, the logical connectives and arithmetic — are exact, built from
 what IEEE-754 pins down, so the five implementations cannot disagree about them. The
@@ -210,6 +211,53 @@ the human answer and need a Unicode segmentation table that not every implementa
 carry, so the portable unit wins. `len("10")` is 2: a string function reads its argument as
 text, never as a number.
 :::
+
+## A column that reads its own past
+
+Every function above answers from ONE row. `prev(Column, initial)` is the exception: it
+reads `Column` from the row before this one, and on the first row it gives `initial`
+instead. That is what a random walk needs — each row is the previous row plus a step —
+and what no expression could say before.
+
+```xml
+<env count="3600" seed="p001" mode="sequential">
+  <sequence name="RR">
+    <gen type="formula" decimals="3"
+         expr="clamp(prev(RR, 700) + (hash(_count, 3) - 0.5) * 180, 350, 1400)"/>
+  </sequence>
+</env>
+```
+
+`prev` takes the column NAME, unevaluated. Writing `RR` anywhere else in that expression
+would give you THIS row's value, which is the one thing `prev` exists to look past.
+
+**It needs `mode="sequential"` on `<env>`, and says so if you forget.** The mode is a
+promise that row N is computed after row N−1. Without it the engine is free to resolve any
+row without touching the one before — that is how it streams a run larger than memory —
+so `prev()` would be reading a row that does not exist yet.
+
+:::caution[`mode="sequential"` and `order="sequential"` are different things]
+`order="sequential"` on a `<gen>` walks that generator's values in the order they are
+written, instead of drawing at random. It is about ONE column's values.
+
+`mode="sequential"` on `<env>` is about the whole RUN: rows are computed one after another.
+The words match; the subjects do not.
+:::
+
+What the mode costs, and what it refuses:
+
+- The run is held in memory (engine 1), and the column-at-a-time optimisations are off.
+  That is the honest price of a column that reads its own past, and only a config that
+  asked for it pays.
+- `mode="sequential"` together with `engine="2"` or `engine="3"` is refused, naming both
+  attributes. Those engines resolve any row without the one before it — that is their
+  design — so the two cannot both be honoured.
+- `prev()` inside an `if=` is refused as well. An `if=` is a choice made per row, and the
+  engine answering it may take the rows in any order.
+
+Everything else still works beside it: `percent=`, `uniq` and `distinct` are unaffected,
+because columns are registered in declaration order and that is the same order `prev()`
+depends on.
 
 ## Lists inside one row
 

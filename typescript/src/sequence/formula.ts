@@ -139,6 +139,7 @@ export function registerFormula(
   spec: SequenceSpec,
   registry: Record<string, Sequence>,
   count: number,
+  sequential?: true,
 ): void {
   const expr = formulaExpr(spec);
   if (expr === '') return; // no expr= — the validator reports it
@@ -147,7 +148,29 @@ export function registerFormula(
   const values = new Array<string | undefined>(count);
   for (let i = 0; i < count; i++) {
     const read: ColumnsRead = {};
-    const answer = evaluateValueInScope(expr, rowScope(registry, i, read));
+    /*
+     * The previous row, for `prev()`. Two cases, and the first is the point:
+     *
+     *   - THIS column: `values[i - 1]`, the row just computed. A column reading
+     *     its own past is what a random walk and a Markov chain are, and it
+     *     works because this loop goes in order.
+     *   - another column: whatever it holds at `i - 1`. Registration is in
+     *     DECLARATION order, so a name declared above is already complete and a
+     *     name declared below is not there yet — which is the restriction, and
+     *     it needs no dependency graph to enforce.
+     *
+     * Undefined at row 0, where the caller's `initial` stands in.
+     */
+    const previousRow =
+      sequential === undefined
+        ? undefined
+        : (name: string): string | undefined => {
+            if (i === 0) return undefined;
+            if (name === spec.name) return values[i - 1];
+            const seq = registry[name];
+            return seq ? (sequenceValueAt(seq, i - 1) ?? undefined) : undefined;
+          };
+    const answer = evaluateValueInScope(expr, rowScope(registry, i, read), previousRow);
     // A column this row does not have is not a zero. `parent=` leaves a cell
     // empty on the rows its condition did not pick, and `Height * 2` on such a
     // row used to print 0 — a number nobody generated, sitting in a file that

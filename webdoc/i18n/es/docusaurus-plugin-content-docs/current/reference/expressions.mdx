@@ -192,6 +192,7 @@ columna de texto contra una lista de palabras numéricas sigue coincidiendo.
 | `digamma(x)`               | 1          | ψ(x), la derivada de log Γ                         |
 | `zeta(s)`                  | 1          | la función zeta de Riemann, para s real            |
 | `degrees(x)` `radians(x)`  | 1          | entre las dos formas de escribir un ángulo         |
+| `prev(Column, initial)`    | 2          | esa columna una fila atrás — requiere `mode="sequential"`, véase abajo |
 
 Los operadores — comparaciones, conectivas lógicas y aritmética — son exactos: construidos
 con lo que IEEE-754 fija sin ambigüedad, así que las cinco implementaciones no pueden
@@ -210,6 +211,53 @@ serían la respuesta humana y necesitan una tabla de segmentación Unicode que n
 implementación puede llevar, así que gana la unidad portable. `len("10")` es 2: una función
 de cadena lee su argumento como texto, nunca como número.
 :::
+
+## Una columna que lee su propio pasado
+
+Todas las funciones anteriores responden desde UNA fila. `prev(Columna, inicial)` es la
+excepción: lee `Columna` de la fila anterior y, en la primera, entrega `inicial`. Es lo que
+necesita un paseo aleatorio — cada fila es la anterior más un paso — y lo que ninguna
+expresión podía decir antes.
+
+```xml
+<env count="3600" seed="p001" mode="sequential">
+  <sequence name="RR">
+    <gen type="formula" decimals="3"
+         expr="clamp(prev(RR, 700) + (hash(_count, 3) - 0.5) * 180, 350, 1400)"/>
+  </sequence>
+</env>
+```
+
+`prev` toma el NOMBRE de la columna, sin evaluar. Escribir `RR` en cualquier otro lugar de
+esa expresión daría el valor de ESTA fila, que es justamente lo que `prev` mira más atrás.
+
+**Requiere `mode="sequential"` en `<env>`, y lo dice si se olvida.** El modo es una promesa:
+la fila N se calcula después de la fila N−1. Sin él, el motor puede resolver cualquier fila
+sin tocar la anterior — así transmite una ejecución mayor que la memoria — y `prev()` estaría
+leyendo una fila que todavía no existe.
+
+:::caution[`mode="sequential"` y `order="sequential"` no son lo mismo]
+`order="sequential"` en un `<gen>` recorre los valores de ese generador en el orden escrito,
+en vez de sortearlos. Trata de los valores de UNA columna.
+
+`mode="sequential"` en `<env>` trata de la EJECUCIÓN entera: las filas se calculan una tras
+otra. Las palabras coinciden; los sujetos no.
+:::
+
+Lo que cuesta el modo, y lo que rechaza:
+
+- La ejecución se mantiene en memoria (motor 1) y las optimizaciones por columna quedan
+  apagadas. Es el precio honesto de una columna que lee su propio pasado, y solo lo paga
+  quien lo pidió.
+- `mode="sequential"` junto con `engine="2"` o `engine="3"` se rechaza, nombrando **ambos**
+  atributos. Esos motores resuelven cualquier fila sin la anterior — ese es su diseño — así
+  que no se pueden cumplir las dos cosas.
+- `prev()` dentro de un `if=` también se rechaza. Un `if=` es una elección por fila, y el
+  motor que la responde puede tomar las filas en cualquier orden.
+
+Todo lo demás sigue funcionando al lado: `percent=`, `uniq` y `distinct` no se ven afectados,
+porque las columnas se registran en el orden de declaración y ese es el mismo orden del que
+depende `prev()`.
 
 ## Listas dentro de una fila
 

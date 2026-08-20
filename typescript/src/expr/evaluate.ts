@@ -77,6 +77,17 @@ export function evaluateIf(expr: string, registry: SequenceRegistry, iteration: 
  */
 export type ExprScope = (name: string) => string | undefined;
 
+/**
+ * The value of a column on the PREVIOUS row, for `prev()`.
+ *
+ * Separate from `ExprScope` rather than folded into it, because the two answer
+ * different questions about the same name and an expression asks both: `RR`
+ * means this row, `prev(RR, …)` means the one before. Absent — which is every
+ * caller but a sequential run — `prev()` is refused rather than quietly
+ * answering with the current row.
+ */
+export type PrevScope = (name: string) => string | undefined;
+
 /** Evaluate `expr` with names resolved by `scope`, as a boolean. */
 export function evaluateInScope(expr: string, scope: ExprScope): boolean {
   return toBoolean(walk(compile(expr), scope));
@@ -95,8 +106,8 @@ export function evaluateInScope(expr: string, scope: ExprScope): boolean {
  * entry point rather than a flag on the boolean one so that neither reading
  * can quietly acquire the other's coercion.
  */
-export function evaluateValueInScope(expr: string, scope: ExprScope): unknown {
-  return walk(compile(expr), scope);
+export function evaluateValueInScope(expr: string, scope: ExprScope, prev?: PrevScope): unknown {
+  return walk(compile(expr), scope, prev);
 }
 
 /**
@@ -190,7 +201,7 @@ function checkedInteger(v: bigint): bigint {
   return v;
 }
 
-function walk(node: JsepNode, scope: ExprScope): unknown {
+function walk(node: JsepNode, scope: ExprScope, prev?: PrevScope): unknown {
   switch (node.type) {
     case 'Literal': {
       const literal = node as jsep.Literal;
@@ -227,13 +238,13 @@ function walk(node: JsepNode, scope: ExprScope): unknown {
     case 'BinaryExpression':
     case 'LogicalExpression': {
       const bin = node as jsep.BinaryExpression;
-      const left = walk(bin.left, scope);
-      const right = walk(bin.right, scope);
+      const left = walk(bin.left, scope, prev);
+      const right = walk(bin.right, scope, prev);
       return applyBinary(bin.operator, left, right);
     }
     case 'UnaryExpression': {
       const un = node as jsep.UnaryExpression;
-      const arg = walk(un.argument, scope);
+      const arg = walk(un.argument, scope, prev);
       return applyUnary(un.operator, arg);
     }
     case 'CallExpression': {
@@ -245,22 +256,60 @@ function walk(node: JsepNode, scope: ExprScope): unknown {
         throw new Error('only a plain function name can be called');
       }
       const name = (call.callee as jsep.Identifier).name;
+      /*
+       * `prev` is not an ordinary function and cannot be one.
+       *
+       * Every other function here receives its arguments already evaluated, so
+       * `prev(RR, 700)` would be handed the value of RR on THIS row — the one
+       * thing it must not see. It needs the NAME, which only the unevaluated
+       * tree still has. So it is read here, before the arguments are walked.
+       *
+       * Without a previous-row lookup the call is refused rather than answered
+       * from the current row: a silent off-by-one-row is exactly the kind of
+       * plausible wrong file this engine exists not to produce.
+       */
+      if (name === 'prev') {
+        const [target, fallback] = call.arguments;
+        if (call.arguments.length !== 2 || fallback === undefined) {
+          throw new Error('prev(Column, initial) takes a column name and a first-row value');
+        }
+        if (target?.type !== 'Identifier') {
+          throw new Error(
+            'the first argument of prev() must be a column name written plainly, as in ' +
+              'prev(RR, 700)',
+          );
+        }
+        if (prev === undefined) {
+          throw new Error(
+            'prev() needs rows computed in order — add mode="sequential" to <env>. Without it ' +
+              'the engine may compute any row without the one before it.',
+          );
+        }
+        const earlier = prev((target as jsep.Identifier).name);
+        // No earlier row (the first one), or a cell that row did not have: the
+        // caller's `initial` stands in, which is what it is for.
+        if (earlier === undefined || earlier === '') return walk(fallback, scope, prev);
+        // The raw text, exactly as a bare column reference gives it. `prev(X)` has
+        // to BE X one row back, and a number here where the plain name gives a
+        // string would make the two disagree about `==` and about a label.
+        return earlier;
+      }
       const fn = FUNCTIONS[name];
       if (!fn) throw new Error(`unknown function "${name}"`);
-      return fn(call.arguments.map((a) => walk(a, scope)));
+      return fn(call.arguments.map((a) => walk(a, scope, prev)));
     }
     case 'ArrayExpression': {
       // Only ever the right side of `in`, where it is a set of values to test
       // against. Bare words inside stay bare — `[US, CA, MX]` reads the way the
       // rest of the language reads an unquoted word.
       const array = node as jsep.ArrayExpression;
-      return array.elements.map((e) => (e ? walk(e, scope) : undefined));
+      return array.elements.map((e) => (e ? walk(e, scope, prev) : undefined));
     }
     case 'ConditionalExpression': {
       const cond = node as jsep.ConditionalExpression;
-      return toBoolean(walk(cond.test, scope))
-        ? walk(cond.consequent, scope)
-        : walk(cond.alternate, scope);
+      return toBoolean(walk(cond.test, scope, prev))
+        ? walk(cond.consequent, scope, prev)
+        : walk(cond.alternate, scope, prev);
     }
     default:
       throw new Error(`unsupported expression node: ${node.type}`);
@@ -555,7 +604,14 @@ const FUNCTIONS: Readonly<Record<string, (args: readonly unknown[]) => unknown>>
  * not evaluate is worse than one that does neither, because `check` calls the
  * config good and the run falls over.
  */
-export const IMPLEMENTED_FUNCTION_NAMES: readonly string[] = Object.keys(FUNCTIONS).sort();
+export const IMPLEMENTED_FUNCTION_NAMES: readonly string[] = [
+  ...Object.keys(FUNCTIONS),
+  // `prev` is handled before the table, because it must NOT have its arguments
+  // evaluated: `prev(Walk, 700)` needs the NAME `Walk`, and evaluating it first
+  // would hand it this row's value — the very thing it exists to look past. So
+  // it is named here by hand, and this list stays what it claims to be.
+  'prev',
+].sort();
 
 function at(args: readonly unknown[], index: number): unknown {
   if (index >= args.length) throw new Error('a function was given too few arguments');
