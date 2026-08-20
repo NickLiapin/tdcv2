@@ -19,6 +19,16 @@ page — is tracked in that implementation's own changelog:
 
 <!-- covers: gauss clamp lerp hash noise -->
 
+- **The run as columns, in all five.** `toColumns()` / `to_columns()` /
+  `ToColumns()` returns each column as the language's own array of doubles —
+  `Float64Array`, `double[]`, `Vec<f64>`, `array('d')` — and as text otherwise.
+
+  A column is numeric only when EVERY cell in it is a finite number. All-or-nothing
+  on purpose: an array of doubles cannot hold "no value", and filling the gaps with
+  NaN would put a number nobody generated where a `parent=` filter deliberately left
+  nothing. A caller who wants another container — numpy, a Span — converts the one
+  they get; nothing here stands in the way.
+
 - **`noise(t, scale, salt)` — smooth drift.** A value drawn fresh every `scale`
   rows and eased between, which is what a wandering baseline actually is:
 

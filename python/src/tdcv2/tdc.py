@@ -20,9 +20,11 @@ format.
 
 from __future__ import annotations
 
+import math
 import os
 import random
 import time
+from array import array
 from collections.abc import Iterator
 from dataclasses import dataclass
 from pathlib import Path
@@ -109,6 +111,26 @@ class Row:
     def __repr__(self) -> str:
         return repr(self.to_dict())
 
+
+
+def _as_finite_numbers(text: list[str | None]) -> list[float] | None:
+    """Every cell as a finite float, or ``None`` when even one of them is not.
+
+    ``float("")`` raises and ``float(None)`` raises, which is the answer wanted: neither is a
+    value the column produced.
+    """
+    out: list[float] = []
+    for cell in text:
+        if cell is None or cell == "":
+            return None
+        try:
+            number = float(cell)
+        except ValueError:
+            return None
+        if not math.isfinite(number):
+            return None
+        out.append(number)
+    return out
 
 class TDC:
     """A configured run. Everything is decided here; the values are produced on first use."""
@@ -290,6 +312,31 @@ class TDC:
         """Every record, as rows."""
         result = self._run()
         return [Row(result, i) for i in range(self.count)]
+
+    def to_columns(self) -> dict[str, array[float] | list[str | None]]:
+        """The run as COLUMNS rather than rows, with numbers as numbers.
+
+        A column comes back as ``array("d", ...)`` — the standard library's array of doubles —
+        only when EVERY cell in it is a finite number, and as a plain list otherwise. The type
+        therefore says which, and a caller reading a numeric column never has to check for a
+        label hiding in it.
+
+        All-or-nothing on purpose: an array of doubles cannot hold "no value", and filling the
+        gaps with NaN would put a number nobody generated where a ``parent=`` filter deliberately
+        left nothing.
+
+        Not a way to skip the number-to-string conversion: sequences hold their values as text,
+        so this parses them. It is for the ergonomics, and for not building the whole file as one
+        string first. A caller wanting numpy can hand the array straight to ``numpy.frombuffer``
+        or ``numpy.array`` — no copy of ours stands in the way.
+        """
+        result = self._run()
+        out: dict[str, array[float] | list[str | None]] = {}
+        for name in result.sequence_names():
+            text = [result.value(name, i) for i in range(self.count)]
+            numbers = _as_finite_numbers(text)
+            out[name] = array("d", numbers) if numbers is not None else text
+        return out
 
     def __iter__(self) -> Iterator[Row]:
         """The records one at a time, without building the list."""

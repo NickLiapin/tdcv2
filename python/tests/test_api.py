@@ -287,3 +287,26 @@ def test_no_two_shared_cases_in_one_file_share_a_name(kind: str) -> None:
     for path, document in _shared_documents(kind):
         names = [case["name"] for case in document["cases"]]
         assert len(set(names)) == len(names), f"{path.name}: duplicate case names"
+
+
+def test_to_columns_agrees_with_the_text_output() -> None:
+    """The numeric way out says the same thing as the text one — a second way to read one run."""
+    config = (
+        '<tdc><env count="4" seed="c">'
+        '<sequence name="N"><gen type="increment" value="1"/></sequence>'
+        '<sequence name="MV"><gen type="formula" expr="gauss(N, 2, 1)"/></sequence>'
+        '<sequence name="Label"><gen type="text" value="a,b" percent="50,50"/></sequence>'
+        "</env><block><line><data>${{N}}</data></line></block></tdc>"
+    )
+    tdc = TDC(config_string=config)
+    columns = tdc.to_columns()
+    rows = [r for r in str(tdc).split("\n") if r]
+
+    assert len(rows) == 4
+    # A column of numbers is an array of doubles; anything else stays as it was.
+    assert columns["N"].typecode == "d"
+    assert columns["MV"].typecode == "d"
+    assert not hasattr(columns["Label"], "typecode")
+    # The numbers are the same doubles the text prints, not a rounding of them.
+    for i, line in enumerate(rows):
+        assert columns["N"][i] == float(line)

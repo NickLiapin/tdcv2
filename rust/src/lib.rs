@@ -38,4 +38,4 @@ pub mod unicode;
 pub mod validator;
 
 pub use errors::{Diagnostic, Severity};
-pub use tdc::{Nested, Options, Plan, Row, Seed, Tdc, TdcError};
+pub use tdc::{Column, Nested, Options, Plan, Row, Seed, Tdc, TdcError};

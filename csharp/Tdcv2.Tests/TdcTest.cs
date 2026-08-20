@@ -308,4 +308,29 @@ public class TdcTest
 
         Assert.Equal("2026-04-23\n2026-04-23\n", data.ToString());
     }
+
+    /// <summary>
+    /// ToColumns is the numeric way out of a run. What matters is that it says the SAME
+    /// thing as the text output — a second way to read one run, not a second run.
+    /// </summary>
+    [Fact]
+    public void ToColumnsAgreesWithTheTextOutput()
+    {
+        const string config = "<tdc><env count=\"4\" seed=\"c\"><sequence name=\"N\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"MV\"><gen type=\"formula\" expr=\"gauss(N, 2, 1)\"/></sequence><sequence name=\"Label\"><gen type=\"text\" value=\"a,b\" percent=\"50,50\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>";
+        Tdc tdc = new(new Tdc.Options { ConfigString = config });
+        var columns = tdc.ToColumns();
+        string[] rows = tdc.ToString().Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+        Assert.Equal(4, rows.Length);
+        // A column of numbers is a double[]; anything else stays a string?[].
+        Assert.IsType<double[]>(columns["N"]);
+        Assert.IsType<double[]>(columns["MV"]);
+        Assert.IsType<string?[]>(columns["Label"]);
+        // The numbers are the same doubles the text prints, not a rounding of them.
+        var n = (double[])columns["N"];
+        for (int i = 0; i < rows.Length; i++)
+        {
+            Assert.Equal(double.Parse(rows[i], System.Globalization.CultureInfo.InvariantCulture), n[i]);
+        }
+    }
 }

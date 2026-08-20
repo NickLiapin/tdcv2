@@ -13,7 +13,9 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
-- **`toColumns()` — the run as columns, with numbers as numbers.** `toArray()`
+- **`toColumns()` — the run as columns, with numbers as numbers.** Present in all
+  five implementations, spelled by each language's convention: `toColumns`,
+  `to_columns`, `ToColumns`. `toArray()`
   hands back strings, so a caller wanting numbers parsed them again; a caller
   generating thousands of windows wrote the same `split(',')` and `Number()`
   every time.

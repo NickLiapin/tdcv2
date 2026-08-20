@@ -496,6 +496,68 @@ public sealed class Tdc
     }
 
     /// <summary>The records one at a time, without building a list of them.</summary>
+    /// <summary>
+    /// The run as COLUMNS rather than rows, with numbers as numbers.
+    ///
+    /// A column comes back as a <c>double[]</c> only when EVERY cell in it is a finite
+    /// number, and as a <c>string?[]</c> otherwise — the type therefore says which, and a
+    /// caller reading a numeric column never has to check for a label hiding in it.
+    ///
+    /// All-or-nothing on purpose: an array of doubles cannot hold "no value", and filling
+    /// the gaps with NaN would put a number nobody generated where a <c>parent=</c> filter
+    /// deliberately left nothing.
+    ///
+    /// Not a way to skip the number-to-string conversion: sequences hold their values as
+    /// text, so this parses them. It is for the ergonomics, and for not building the whole
+    /// file as one string first.
+    /// </summary>
+    public IReadOnlyDictionary<string, object> ToColumns()
+    {
+        IRowSource source = _run.Value;
+        var out_ = new Dictionary<string, object>();
+        foreach (string name in source.SequenceNames)
+        {
+            var text = new string?[source.Count];
+            for (int i = 0; i < source.Count; i++)
+            {
+                text[i] = source.Value(name, i);
+            }
+
+            double[]? numbers = AsFiniteNumbers(text);
+            out_[name] = numbers is not null ? numbers : text;
+        }
+
+        return out_;
+    }
+
+    /// <summary>Every cell as a finite double, or null when even one of them is not.</summary>
+    private static double[]? AsFiniteNumbers(string?[] text)
+    {
+        var out_ = new double[text.Length];
+        for (int i = 0; i < text.Length; i++)
+        {
+            string? cell = text[i];
+            if (string.IsNullOrEmpty(cell))
+            {
+                return null;
+            }
+
+            if (!double.TryParse(
+                    cell,
+                    System.Globalization.NumberStyles.Float,
+                    System.Globalization.CultureInfo.InvariantCulture,
+                    out double value)
+                || !double.IsFinite(value))
+            {
+                return null;
+            }
+
+            out_[i] = value;
+        }
+
+        return out_;
+    }
+
     public IEnumerable<Row> Rows()
     {
         IRowSource source = _run.Value;

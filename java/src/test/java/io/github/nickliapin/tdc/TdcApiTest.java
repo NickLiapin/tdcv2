@@ -263,4 +263,27 @@ class TdcApiTest {
             + "</env><block><line><data>${{A}}</data></line></block></tdc>";
     assertTrue(TDC.options().configString(served).build().usesHttp());
   }
+
+  /**
+   * `toColumns` is the numeric way out of a run. What matters is that it says the SAME
+   * thing as the text output — a second way to read one run, not a second run.
+   */
+  @org.junit.jupiter.api.Test
+  void toColumnsAgreesWithTheTextOutput() {
+    String source = "<tdc><env count=\"4\" seed=\"c\"><sequence name=\"N\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"MV\"><gen type=\"formula\" expr=\"gauss(N, 2, 1)\"/></sequence><sequence name=\"Label\"><gen type=\"text\" value=\"a,b\" percent=\"50,50\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>";
+    TDC tdc = config(source).build();
+    java.util.Map<String, Object> columns = tdc.toColumns();
+    String[] rows = tdc.toString().split("\n");
+
+    assertEquals(4, rows.length);
+    // A column of numbers is a double[]; anything else stays a String[].
+    assertTrue(columns.get("N") instanceof double[]);
+    assertTrue(columns.get("MV") instanceof double[]);
+    assertTrue(columns.get("Label") instanceof String[]);
+    // The numbers are the same doubles the text prints, not a rounding of them.
+    double[] n = (double[]) columns.get("N");
+    for (int i = 0; i < rows.length; i++) {
+      assertEquals(Double.parseDouble(rows[i]), n[i]);
+    }
+  }
 }

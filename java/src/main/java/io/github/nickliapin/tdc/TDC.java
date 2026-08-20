@@ -432,6 +432,57 @@ public final class TDC {
     return Collections.unmodifiableList(out);
   }
 
+  /**
+   * The run as COLUMNS rather than rows, with numbers as numbers.
+   *
+   * <p>A column comes back as a {@code double[]} only when EVERY cell in it is a finite
+   * number, and as a {@code String[]} otherwise — the type therefore says which, and a
+   * caller reading a numeric column never has to check for a label hiding in it.
+   *
+   * <p>All-or-nothing on purpose: an array of doubles cannot hold "no value", and filling
+   * the gaps with NaN would put a number nobody generated where a {@code parent=} filter
+   * deliberately left nothing. A cell with no value is {@code null} in the string form.
+   *
+   * <p>Not a way to skip the number-to-string conversion: sequences hold their values as
+   * text, so this parses them. It is for the ergonomics, and for not building the whole
+   * file as one string first.
+   */
+  public Map<String, Object> toColumns() {
+    RowSource result = run();
+    Map<String, Object> out = new LinkedHashMap<>();
+    for (String name : result.sequenceNames()) {
+      String[] text = new String[result.count()];
+      for (int i = 0; i < result.count(); i++) {
+        text[i] = result.value(name, i);
+      }
+      double[] numbers = asFiniteNumbers(text);
+      out.put(name, numbers != null ? numbers : text);
+    }
+    return Collections.unmodifiableMap(out);
+  }
+
+  /** Every cell as a finite double, or null when even one of them is not. */
+  private static double[] asFiniteNumbers(String[] text) {
+    double[] out = new double[text.length];
+    for (int i = 0; i < text.length; i++) {
+      String cell = text[i];
+      if (cell == null || cell.isEmpty()) {
+        return null;
+      }
+      double value;
+      try {
+        value = Double.parseDouble(cell);
+      } catch (NumberFormatException e) {
+        return null;
+      }
+      if (!Double.isFinite(value)) {
+        return null;
+      }
+      out[i] = value;
+    }
+    return out;
+  }
+
   /** The records one at a time, without building the list. */
   public Iterable<Row> iterate() {
     RowSource result = run();

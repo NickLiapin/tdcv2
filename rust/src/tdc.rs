@@ -241,6 +241,32 @@ pub struct Seed {
     pub generated: bool,
 }
 
+/// One column of a run: numbers when every cell is one, text otherwise.
+#[derive(Debug, Clone, PartialEq)]
+pub enum Column {
+    /// Every cell was a finite number.
+    Numbers(Vec<f64>),
+    /// At least one cell was empty or not a number, so the column stays as it was.
+    Text(Vec<Option<String>>),
+}
+
+/// Every cell as a finite f64, or `None` when even one of them is not.
+fn as_finite_numbers(text: &[Option<String>]) -> Option<Vec<f64>> {
+    let mut out = Vec::with_capacity(text.len());
+    for cell in text {
+        let cell = cell.as_deref()?;
+        if cell.is_empty() {
+            return None;
+        }
+        let value: f64 = cell.parse().ok()?;
+        if !value.is_finite() {
+            return None;
+        }
+        out.push(value);
+    }
+    Some(out)
+}
+
 impl Tdc {
     /// A config file, everything else from `<env>`.
     pub fn from_file(path: impl AsRef<Path>) -> Result<Tdc, TdcError> {
@@ -476,6 +502,39 @@ impl Tdc {
             source: self.run.as_ref(),
             index,
         })
+    }
+
+    /// The run as COLUMNS rather than rows, with numbers as numbers.
+    ///
+    /// A column comes back as `Column::Numbers` — a `Vec<f64>` — only when EVERY
+    /// cell in it is a finite number, and as `Column::Text` otherwise. The variant
+    /// therefore says which, and a caller reading a numeric column never has to
+    /// check for a label hiding in it.
+    ///
+    /// All-or-nothing on purpose: a vector of doubles cannot hold "no value", and
+    /// filling the gaps with NaN would put a number nobody generated where a
+    /// `parent=` filter deliberately left nothing.
+    ///
+    /// Not a way to skip the number-to-string conversion: sequences hold their
+    /// values as text, so this parses them. It is for the ergonomics, and for not
+    /// building the whole file as one string first.
+    pub fn to_columns(&self) -> Vec<(String, Column)> {
+        let source = self.run.as_ref();
+        let count = self.count();
+        source
+            .sequence_names()
+            .iter()
+            .map(|name| {
+                let text: Vec<Option<String>> = (0..count)
+                    .map(|i| source.value(name, i).map(str::to_owned))
+                    .collect();
+                let column = match as_finite_numbers(&text) {
+                    Some(numbers) => Column::Numbers(numbers),
+                    None => Column::Text(text),
+                };
+                (name.clone(), column)
+            })
+            .collect()
     }
 
     /// The records one at a time, without building a list of them.
