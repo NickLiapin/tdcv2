@@ -105,6 +105,7 @@ omisión — toda la corrida sostenida a la vez, lo que hace `toArray()`) o `"st
 | `writeFile(path)`  | escribe la salida en un archivo (por trozos) | un archivo de cualquier tamaño           |
 | `toIterator()`     | un generador de líneas (una por registro)    | texto grande, sin cadena entera          |
 | `toStream()`       | un `Readable` de Node.js                     | `pipe` a archivo / HTTP / gzip           |
+| `toColumns()`      | columnas; números como `Float64Array` | flujos numéricos, muchas ejecuciones |
 | `toArray()`        | un arreglo de objetos-fila                   | fixtures chicos de objetos               |
 | `iterate()`        | un generador de objetos-fila                 | salida de objetos, sin arreglo           |
 | `getAt(index)`     | un objeto-fila por índice                    | acceso puntual                           |

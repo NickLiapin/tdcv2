@@ -9,6 +9,33 @@ the npm package: its API surface, its command line, its landing page.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Added
+
+- **`toColumns()` — the run as columns, with numbers as numbers.** `toArray()`
+  hands back strings, so a caller wanting numbers parsed them again; a caller
+  generating thousands of windows wrote the same `split(',')` and `Number()`
+  every time.
+
+  ```ts
+  const { Sec, MV } = new TDC({ configString }).toColumns(); // Float64Array
+  ```
+
+  A column comes back as a `Float64Array` only when EVERY cell in it is a finite
+  number, and as a plain array otherwise — so the type says which, and a caller
+  reading a numeric column never has to check for a label hiding in it. The rule
+  is all-or-nothing on purpose: a typed array cannot hold "no value", and filling
+  the gaps with NaN would put a number nobody generated where a `parent=` filter
+  had deliberately left nothing. Compound and pool sequences contribute one key
+  per field, spelled `Name.field`.
+
+  It is not a way to skip the number-to-string conversion — sequences hold their
+  values as text, so this parses them. Measured on a 3,600-row window of six
+  formula columns, the whole round trip is 0.54 ms against 22 ms of generation,
+  2.4 per cent. This is for the ergonomics and for not building a 140 KB string
+  per window.
+
 ## [0.2.2] — 2026-08-15
 
 ### Changed

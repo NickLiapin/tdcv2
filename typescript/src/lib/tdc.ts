@@ -59,7 +59,9 @@ import { validate } from '../validator/index.js';
 import {
   getObjectRowAt,
   iterateObjectRows,
+  materializeColumns,
   materializeObjectRows,
+  type TdcColumns,
   type TdcObjectRow,
 } from './object.js';
 
@@ -487,6 +489,21 @@ export class TDC {
    */
   public toArray(): TdcObjectRow[] {
     return materializeObjectRows(this.tree, this.renderOptions());
+  }
+
+  /**
+   * Return the run as COLUMNS rather than rows.
+   *
+   * A column of numbers comes back as a `Float64Array`, everything else as a
+   * plain array — the type says which, so a caller reading a numeric column
+   * never has to check for a label hiding in it. Compound and pool sequences
+   * contribute one key per field, spelled `Name.field`.
+   *
+   * Like `toArray()`, this ignores the <block>/<line>/<data> wrappers: it is the
+   * generated data, not the file the data would have been written into.
+   */
+  public toColumns(): TdcColumns {
+    return materializeColumns(this.tree, this.renderOptions());
   }
 
   /** Stream object rows one by one. */

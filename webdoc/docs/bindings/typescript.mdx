@@ -100,6 +100,7 @@ default — the whole run held at once, what `toArray()` does) or `"streaming"`.
 | `writeFile(path)`  | writes the output to a file (chunks)  | a file of any size             |
 | `toIterator()`     | a generator of lines (one per record) | large text, no full string     |
 | `toStream()`       | a Node.js `Readable`                  | `pipe` to a file / HTTP / gzip |
+| `toColumns()`      | columns; numbers as `Float64Array`    | numeric pipelines, many runs   |
 | `toArray()`        | an array of row objects               | small object fixtures          |
 | `iterate()`        | a generator of row objects            | object output, no array        |
 | `getAt(index)`     | one row object by index               | point access                   |
