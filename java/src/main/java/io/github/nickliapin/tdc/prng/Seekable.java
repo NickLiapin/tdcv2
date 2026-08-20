@@ -74,4 +74,25 @@ public final class Seekable {
   public static double hashUnit(double n, double salt) {
     return generator("hash", bitsHex(n) + "|" + bitsHex(salt), 0).next();
   }
+
+  /**
+   * Smooth one-dimensional value noise — {@code noise(t, scale, salt)}.
+
+   * A drifting baseline is not three sine waves: modulate those however you like and a
+   * spectrum still shows three pure tones. Here each lattice point is an independent
+   * draw and only the interpolation between them is smooth.
+   *
+   * <p>The easing is the classic smoothstep, u*u*(3-2u), zero at both ends with zero
+   * slope. The interpolation is a*(1-u) + b*u for the same reason lerp uses it: the
+   * lattice points come out EXACTLY equal to hashUnit there. A scale of zero gives NaN.
+   */
+  public static double noiseUnit(double t, double scale, double salt) {
+    double x = t / scale;
+    double cell = Math.floor(x);
+    double u = x - cell;
+    double eased = u * u * (3 - 2 * u);
+    double a = hashUnit(cell, salt);
+    double b = hashUnit(cell + 1, salt);
+    return a * (1 - eased) + b * eased;
+  }
 }

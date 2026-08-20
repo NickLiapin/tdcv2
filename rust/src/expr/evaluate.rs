@@ -303,6 +303,8 @@ fn call_function(name: &str, args: &[V]) -> EngineResult<V> {
         // The replacement for the shader sin-trick: cyrb128 + sfc32 keyed by the
         // two arguments' IEEE-754 bit patterns, so no transcendental call per row.
         "hash" => V::Num(crate::prng::seekable::hash_unit(num(0)?, num(1)?)),
+        // Smooth value noise: an independent draw every `scale` rows, eased between.
+        "noise" => V::Num(crate::prng::seekable::noise_unit(num(0)?, num(1)?, num(2)?)),
         "hypot" => V::Num(crate::math::hypot(num(0)?, num(1)?)),
         // a * (1 - t) + b * t, not a + (b - a) * t: only this form lands exactly on
         // both endpoints. Measured over 200,000 random pairs, the naive one misses

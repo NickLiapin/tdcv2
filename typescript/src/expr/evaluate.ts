@@ -23,7 +23,7 @@
 import jsep from 'jsep';
 
 import * as TdcMath from '../math/tdc-math.js';
-import { hashUnit } from '../prng/seekable.js';
+import { hashUnit, noiseUnit } from '../prng/seekable.js';
 import { sequenceValueAt } from '../sequence/types.js';
 // Registers `in`. jsep's operator table is module state, so both the evaluator
 // and the validator must import this before they parse anything.
@@ -515,6 +515,14 @@ const FUNCTIONS: Readonly<Record<string, (args: readonly unknown[]) => unknown>>
    * PRNG the rest of TDC already runs on, keyed by the two arguments.
    */
   hash: (a) => hashUnit(num(a, 0), num(a, 1)),
+  /*
+   * noise(t, scale, salt) — smooth value noise, one dimension.
+   *
+   * What a drifting baseline actually needs. Three sines stay three pure tones
+   * in a spectrum however they are modulated; this draws an independent value
+   * every `scale` rows and eases between them, so the spectrum is broad.
+   */
+  noise: (a) => noiseUnit(num(a, 0), num(a, 1), num(a, 2)),
   hypot: (a) => TdcMath.hypot(num(a, 0), num(a, 1)),
   /*
    * lerp(a, b, t) — the point t of the way from a to b.

@@ -112,3 +112,35 @@ function bitsHex(value: number): string {
   const lo = bitsView.getUint32(4, false);
   return hi.toString(16).padStart(8, '0') + lo.toString(16).padStart(8, '0');
 }
+
+/**
+ * Smooth one-dimensional value noise — the `noise(t, scale, salt)` of the
+ * expression language.
+ *
+ * A drifting baseline is not three sine waves. Modulate them however you like
+ * and a spectrum still shows three pure tones; this has a broad one, because
+ * the value at each lattice point is independent and only the interpolation
+ * between them is smooth.
+ *
+ * `scale` is the wavelength in rows: the value is drawn fresh every `scale`
+ * rows and eased between. `salt` picks the series, exactly as in `hashUnit`.
+ *
+ * The easing is the classic smoothstep, `u * u * (3 - 2 * u)`, which is zero at
+ * both ends and has zero slope there — so the curve has no corner where one
+ * lattice cell meets the next. Interpolating with `a * (1 - u) + b * u` rather
+ * than `a + (b - a) * u` for the same reason `lerp` does: it lands exactly on
+ * the lattice value at u = 0 and u = 1, so a cell boundary is continuous to the
+ * last bit rather than to within an ulp.
+ *
+ * A `scale` of zero divides by zero and the answer is NaN — IEEE's answer to a
+ * question with no value, and the same one `sqrt(-1)` gives here.
+ */
+export function noiseUnit(t: number, scale: number, salt: number): number {
+  const x = t / scale;
+  const cell = Math.floor(x);
+  const u = x - cell;
+  const eased = u * u * (3 - 2 * u);
+  const a = hashUnit(cell, salt);
+  const b = hashUnit(cell + 1, salt);
+  return a * (1 - eased) + b * eased;
+}

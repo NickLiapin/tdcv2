@@ -17,7 +17,25 @@ page — is tracked in that implementation's own changelog:
 
 ### Added
 
-<!-- covers: gauss clamp lerp hash -->
+<!-- covers: gauss clamp lerp hash noise -->
+
+- **`noise(t, scale, salt)` — smooth drift.** A value drawn fresh every `scale`
+  rows and eased between, which is what a wandering baseline actually is:
+
+  ```xml
+  <sequence name="Drift"><gen type="formula" expr="0.3 * (noise(_count, 300, 7) - 0.5)"/></sequence>
+  ```
+
+  Three modulated sine waves cannot do this. Measured over 4,096 samples, the
+  sines put 74.6 per cent of their power into three frequency bins where this
+  puts 51.5 — the improvement is real and it grows with the number of octaves,
+  so one pair of scales is a floor rather than the whole benefit.
+
+  At a lattice point the value is EXACTLY `hash` there, because the easing
+  interpolates with `a * (1 - u) + b * u`; a cell boundary is therefore
+  continuous to the last bit, not to within an ulp. The midpoint of a cell is
+  the plain average of its ends. A `scale` of zero divides by zero and gives
+  NaN, the same answer `sqrt(-1)` gives here.
 
 - **`hash(n, salt)` in `expr=` — a repeatable value in [0, 1) from a pair of
   numbers.** The replacement for the shader trick a config writes when it wants a

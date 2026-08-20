@@ -80,4 +80,25 @@ public static class Seekable
     /// </summary>
     public static double HashUnit(double n, double salt) =>
         Generator("hash", BitsHex(n) + "|" + BitsHex(salt), 0).Next();
+
+    /// <summary>
+    /// Smooth one-dimensional value noise — <c>noise(t, scale, salt)</c>.
+    ///
+    /// A drifting baseline is not three sine waves: modulate those however you like
+    /// and a spectrum still shows three pure tones. Here each lattice point is an
+    /// independent draw and only the interpolation between them is smooth. The easing
+    /// is the classic smoothstep; the interpolation is a*(1-u) + b*u for the same
+    /// reason lerp uses it, so the lattice points equal HashUnit exactly. A scale of
+    /// zero gives NaN.
+    /// </summary>
+    public static double NoiseUnit(double t, double scale, double salt)
+    {
+        double x = t / scale;
+        double cell = Math.Floor(x);
+        double u = x - cell;
+        double eased = u * u * (3 - 2 * u);
+        double a = HashUnit(cell, salt);
+        double b = HashUnit(cell + 1, salt);
+        return a * (1 - eased) + b * eased;
+    }
 }

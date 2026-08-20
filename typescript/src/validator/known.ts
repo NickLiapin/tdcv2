@@ -207,6 +207,7 @@ export const EXPR_FUNCTIONS: Readonly<Record<string, { min: number; max: number 
   gamma: { min: 1, max: 1 },
   gauss: { min: 3, max: 3 },
   hash: { min: 2, max: 2 },
+  noise: { min: 3, max: 3 },
   hypot: { min: 2, max: 2 },
   is_empty: { min: 1, max: 1 },
   join: { min: 2, max: 2 },

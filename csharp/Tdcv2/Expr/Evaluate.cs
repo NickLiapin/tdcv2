@@ -300,6 +300,8 @@ public static class Evaluate
             // The replacement for the shader sin-trick: cyrb128 + sfc32 keyed by the two
             // arguments' IEEE-754 bit patterns, so no transcendental call per row.
             case "hash": return Prng.Seekable.HashUnit(Num(0), Num(1));
+            // Smooth value noise: an independent draw every `scale` rows, eased between.
+            case "noise": return Prng.Seekable.NoiseUnit(Num(0), Num(1), Num(2));
             case "hypot": return Maths.TdcMath.Hypot(Num(0), Num(1));
             // a * (1 - t) + b * t, not a + (b - a) * t: only this form lands exactly on
             // both endpoints. Measured over 200,000 random pairs, the naive one misses

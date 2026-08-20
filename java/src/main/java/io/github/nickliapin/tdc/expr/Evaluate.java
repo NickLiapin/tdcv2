@@ -382,6 +382,10 @@ public final class Evaluate {
       // arguments' IEEE-754 bit patterns, so no transcendental call per row.
       case "hash":
         return io.github.nickliapin.tdc.prng.Seekable.hashUnit(num(args, 0), num(args, 1));
+      // Smooth value noise: an independent draw every `scale` rows, eased between.
+      case "noise":
+        return io.github.nickliapin.tdc.prng.Seekable.noiseUnit(
+            num(args, 0), num(args, 1), num(args, 2));
       case "hypot":
         return io.github.nickliapin.tdc.mathx.TdcMath.hypot(num(args, 0), num(args, 1));
       case "log1p":

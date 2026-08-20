@@ -191,6 +191,7 @@ list of numeric words still matches.
 | `asinh(x)` `acosh(x)` `atanh(x)` | 1 | inverse hyperbolic functions                     |
 | `hypot(x, y)`              | 2      | vector length, without overflowing on the way    |
 | `hash(n, salt)`            | 2      | a repeatable value in [0, 1) from a pair of numbers |
+| `noise(t, scale, salt)`    | 3      | smooth drift: a fresh value every `scale` rows, eased between |
 | `gauss(x, c, w)`           | 3      | bell centred on c: `exp(-((x - c) / w)²)`        |
 | `clamp(x, lo, hi)`         | 3      | x held inside [lo, hi]; lo > hi means the ceiling wins |
 | `lerp(a, b, t)`            | 3      | t of the way from a to b; exact at both ends, extrapolates outside |

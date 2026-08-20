@@ -65,3 +65,28 @@ pub fn hash_unit(n: f64, salt: f64) -> f64 {
     let key = format!("{}|{}", bits_hex(n), bits_hex(salt));
     generator("hash", &key, 0).next()
 }
+
+/// Smooth one-dimensional value noise — `noise(t, scale, salt)`.
+/// 
+/// A drifting baseline is not three sine waves: modulate those however you like and
+/// a spectrum still shows three pure tones. Here each lattice point is an
+/// independent draw and only the interpolation between them is smooth, so the
+/// spectrum is broad.
+/// 
+/// `scale` is the wavelength in rows; `salt` picks the series. The easing is the
+/// classic smoothstep, u*u*(3-2u), zero at both ends with zero slope, so no corner
+/// appears where one cell meets the next. The interpolation is a*(1-u) + b*u for
+/// the same reason `lerp` uses it: the lattice points come out EXACTLY equal to
+/// `hash` there, so a cell boundary is continuous to the last bit.
+/// 
+/// A `scale` of zero divides by zero and the answer is NaN — the same answer
+/// `sqrt(-1)` gives here.
+pub fn noise_unit(t: f64, scale: f64, salt: f64) -> f64 {
+    let x = t / scale;
+    let cell = x.floor();
+    let u = x - cell;
+    let eased = u * u * (3.0 - 2.0 * u);
+    let a = hash_unit(cell, salt);
+    let b = hash_unit(cell + 1.0, salt);
+    a * (1.0 - eased) + b * eased
+}

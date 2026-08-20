@@ -170,6 +170,7 @@ EXPR_FUNCTIONS: dict[str, tuple[int, int | None]] = {
     "gamma": (1, 1),
     "gauss": (3, 3),
     "hash": (2, 2),
+    "noise": (3, 3),
     "hypot": (2, 2),
     "floor": (1, 1),
     "is_empty": (1, 1),

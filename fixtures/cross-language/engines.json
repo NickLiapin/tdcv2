@@ -1366,6 +1366,18 @@
         ]
       }
     },
+    "expressions-math-2/noise-is-smooth-value-noise-over-the-same-hash": {
+      "engine2": {
+        "lines": [
+          "lattice0=ok lattice1=ok lattice2=ok above_floor=ok below_ceiling=ok midpoint=ok in_range=ok repeatable=ok salt_separates=ok scale_separates=ok negative_t=ok zero_scale_is_nan=ok"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "lattice0=ok lattice1=ok lattice2=ok above_floor=ok below_ceiling=ok midpoint=ok in_range=ok repeatable=ok salt_separates=ok scale_separates=ok negative_t=ok zero_scale_is_nan=ok"
+        ]
+      }
+    },
     "expressions-math/landmarks-every-implementation-must-agree-on": {
       "engine2": {
         "lines": [

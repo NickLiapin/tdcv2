@@ -76,3 +76,36 @@ def hash_unit(n: float, salt: float) -> float:
     cyrb128 and the stream is sfc32 — the PRNG the rest of TDC already runs on.
     """
     return generator("hash", f"{_bits_hex(n)}|{_bits_hex(salt)}", 0).next()
+
+
+def noise_unit(t: float, scale: float, salt: float) -> float:
+    """Smooth one-dimensional value noise — `noise(t, scale, salt)`.
+
+    A drifting baseline is not three sine waves: modulate those however you like and
+    a spectrum still shows three pure tones. Here each lattice point is an
+    independent draw and only the interpolation between them is smooth, so the
+    spectrum is broad.
+
+    `scale` is the wavelength in rows; `salt` picks the series. The easing is the
+    classic smoothstep, u*u*(3-2u), zero at both ends with zero slope, so no corner
+    appears where one cell meets the next. The interpolation is a*(1-u) + b*u for
+    the same reason `lerp` uses it: the lattice points come out EXACTLY equal to
+    `hash` there, so a cell boundary is continuous to the last bit.
+
+    A `scale` of zero divides by zero and the answer is NaN — the same answer
+    `sqrt(-1)` gives here.
+    """
+    # Python RAISES on float division by zero where IEEE-754 — and the other four
+    # implementations — return an infinity. Downstream that infinity always ends
+    # as NaN, whatever `t` is: floor(inf) is inf and inf - inf is NaN, and 0/0 is
+    # NaN to begin with. So return NaN directly rather than let this one language
+    # throw where the rest answer. Same rule as `_divide` in expr/evaluate.py.
+    if scale == 0:
+        return math.nan
+    x = t / scale
+    cell = math.floor(x)
+    u = x - cell
+    eased = u * u * (3 - 2 * u)
+    a = hash_unit(cell, salt)
+    b = hash_unit(cell + 1, salt)
+    return a * (1 - eased) + b * eased

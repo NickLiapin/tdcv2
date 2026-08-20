@@ -333,6 +333,8 @@ _FUNCTIONS: dict[str, Callable[[list], object]] = {
     # The replacement for the shader sin-trick: cyrb128 + sfc32 keyed by the two
     # arguments' IEEE-754 bit patterns, so no transcendental call per row.
     "hash": lambda a: seekable.hash_unit(_num(a, 0), _num(a, 1)),
+    # Smooth value noise: an independent draw every `scale` rows, eased between.
+    "noise": lambda a: seekable.noise_unit(_num(a, 0), _num(a, 1), _num(a, 2)),
     "hypot": lambda a: tdc_math.hypot(_num(a, 0), _num(a, 1)),
     # a * (1 - t) + b * t, not a + (b - a) * t: only this form lands exactly on
     # both endpoints. Measured over 200,000 random pairs, the naive one misses b
