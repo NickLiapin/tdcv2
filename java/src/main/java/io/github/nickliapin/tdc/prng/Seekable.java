@@ -56,4 +56,22 @@ public final class Seekable {
     }
     return out;
   }
+
+  /** A double as the 16 hex digits of its IEEE-754 image. */
+  private static String bitsHex(double value) {
+    return String.format("%016x", Double.doubleToRawLongBits(value));
+  }
+
+  /**
+   * A deterministic value in [0, 1) from a pair of numbers — `hash(n, salt)`.
+   * 
+   * The key is built from the IEEE-754 BIT PATTERNS of the two arguments, not from
+   * their decimal forms: `salt` is any double, and the shortest decimal spelling of
+   * a double differs between languages, while those 64 bits are pinned by the
+   * standard and printing an integer as hex is exact everywhere. The mixing is
+   * cyrb128 and the stream is sfc32 — the PRNG the rest of TDC already runs on.
+   */
+  public static double hashUnit(double n, double salt) {
+    return generator("hash", bitsHex(n) + "|" + bitsHex(salt), 0).next();
+  }
 }

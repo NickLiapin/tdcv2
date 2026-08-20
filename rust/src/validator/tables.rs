@@ -395,7 +395,7 @@ pub const SUPPORTED_UNARY_OPERATORS: [&str; 3] = ["!", "-", "+"];
 /// down. The transcendental ones are computed by TDC itself (`crate::math`)
 /// rather than by the host libm, which is what keeps five implementations on
 /// one double.
-pub const EXPR_FUNCTIONS: [(&str, usize, usize); 58] = [
+pub const EXPR_FUNCTIONS: [(&str, usize, usize); 59] = [
     ("abs", 1, 1),
     ("acos", 1, 1),
     ("acosh", 1, 1),
@@ -423,6 +423,7 @@ pub const EXPR_FUNCTIONS: [(&str, usize, usize); 58] = [
     ("floor", 1, 1),
     ("gamma", 1, 1),
     ("gauss", 3, 3),
+    ("hash", 2, 2),
     ("hypot", 2, 2),
     ("is_empty", 1, 1),
     ("join", 2, 2),
@@ -456,7 +457,7 @@ pub const EXPR_FUNCTIONS: [(&str, usize, usize); 58] = [
     ("zeta", 1, 1),
 ];
 
-pub const EXPR_FUNCTION_NAMES: [&str; 50] = [
+pub const EXPR_FUNCTION_NAMES: [&str; 51] = [
     "abs",
     "acos",
     "acosh",
@@ -482,6 +483,7 @@ pub const EXPR_FUNCTION_NAMES: [&str; 50] = [
     "floor",
     "gamma",
     "gauss",
+    "hash",
     "hypot",
     "is_empty",
     "len",

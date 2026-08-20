@@ -66,3 +66,49 @@ export function seekableUniforms(
   for (let k = 0; k < count; k++) out[k] = openUnit(gen());
   return out;
 }
+
+/**
+ * A deterministic value in [0, 1) from a pair of numbers — the `hash(n, salt)`
+ * of the expression language.
+ *
+ * ── Why it exists ────────────────────────────────────────────────────────────
+ * A config that wants "a different random coefficient for every beat N" has had
+ * to write the shader trick: `sin(N * 12.9898) * 43758.5453`, minus its floor.
+ * That works here — TDC computes its own `sin`, so all five implementations
+ * agree on it — but it costs two transcendental calls per row, it is opaque in
+ * a listing, and its distribution is an accident rather than a design.
+ *
+ * ── Why the key is built from BITS rather than from digits ───────────────────
+ * The obvious spelling is to format the two numbers into the key string, the
+ * way `seekableGen` formats its row index. That is safe for an integer index
+ * and NOT safe here: `salt` is any double, and the shortest decimal form of a
+ * double is not the same in every language — Java's `Double.toString` and
+ * JavaScript's disagree about which digits to print. Building the key from the
+ * IEEE-754 bit pattern instead removes the question: those 64 bits are pinned
+ * by the standard, and formatting an integer as hex is exact everywhere.
+ *
+ * So the diffusion is cyrb128 and the stream is sfc32 — the two primitives the
+ * rest of TDC already runs on, already covered by the shared PRNG vectors, and
+ * already identical in five implementations. Nothing new to port but the bits.
+ */
+export function hashUnit(n: number, salt: number): number {
+  // Both numbers go into the key, so a different salt is a different stream
+  // over the same n — which is the whole point of the second argument.
+  return seekableGen('hash', `${bitsHex(n)}|${bitsHex(salt)}`, 0)();
+}
+
+/**
+ * A double as the 16 hex digits of its IEEE-754 image.
+ *
+ * `DataView` rather than arithmetic, because arithmetic on the exponent is
+ * where a port quietly rounds. -0 and 0 keep their different patterns, which is
+ * correct: they are different doubles, and a hash that conflated them would
+ * disagree with a language that does not.
+ */
+const bitsView = new DataView(new ArrayBuffer(8));
+function bitsHex(value: number): string {
+  bitsView.setFloat64(0, value, false);
+  const hi = bitsView.getUint32(0, false);
+  const lo = bitsView.getUint32(4, false);
+  return hi.toString(16).padStart(8, '0') + lo.toString(16).padStart(8, '0');
+}

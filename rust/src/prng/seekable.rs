@@ -48,3 +48,20 @@ pub fn uniforms(seed: &str, stream_id: &str, index: i32, count: usize) -> Vec<f6
     let mut gen = generator(seed, stream_id, index);
     (0..count).map(|_| open_unit(gen.next())).collect()
 }
+
+/// A double as the 16 hex digits of its IEEE-754 image.
+fn bits_hex(value: f64) -> String {
+    format!("{:016x}", value.to_bits())
+}
+
+/// A deterministic value in [0, 1) from a pair of numbers — `hash(n, salt)`.
+/// 
+/// The key is built from the IEEE-754 BIT PATTERNS of the two arguments, not from
+/// their decimal forms: `salt` is any double, and the shortest decimal spelling of
+/// a double differs between languages, while those 64 bits are pinned by the
+/// standard and printing an integer as hex is exact everywhere. The mixing is
+/// cyrb128 and the stream is sfc32 — the PRNG the rest of TDC already runs on.
+pub fn hash_unit(n: f64, salt: f64) -> f64 {
+    let key = format!("{}|{}", bits_hex(n), bits_hex(salt));
+    generator("hash", &key, 0).next()
+}

@@ -107,6 +107,14 @@
       "expected": [
         "peak=ok symmetric=ok same_as_exp_pow=ok known_value=ok below=ok inside=ok above=ok inverted=ok negative=ok t0=ok t1=ok mid=ok extrapolates=ok extrapolates_back=ok endpoint_exact=ok"
       ]
+    },
+    {
+      "name": "hash-is-the-same-stream-in-every-implementation",
+      "description": "hash(n, salt) replaces the shader sin-trick a config writes for a per-row random coefficient. It is cyrb128 + sfc32 — the PRNG the rest of TDC runs on — keyed by the IEEE-754 BIT PATTERNS of the two arguments rather than by their decimal spellings. That choice is what the last row tests: the shortest decimal form of a double is not the same string in every language, so a port that builds the key from digits drifts on a fractional salt while passing every whole-number row above it. The three published values fail immediately for a port that mixes differently at all.",
+      "config": "<tdc><env count=\"1\" seed=\"m\" local=\"en\" mode=\"memory\"><sequence name=\"C0\"><gen if=\"hash(1, 12.9) == 0.41771199833601713\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C1\"><gen if=\"hash(2, 12.9) == 0.5759327965788543\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C2\"><gen if=\"hash(1, 78.2) == 0.36098611587658525\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C3\"><gen if=\"hash(7, 3) >= 0 && hash(7, 3) < 1\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C4\"><gen if=\"hash(5, 1) != hash(5, 2)\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C5\"><gen if=\"hash(5, 1) != hash(6, 1)\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C6\"><gen if=\"hash(5, 1) == hash(5, 1)\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C7\"><gen if=\"hash(0, 1) != hash(0 - 0.0, 1) ? 1 : 1\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C8\"><gen if=\"hash(3, 0.1 + 0.2) == hash(3, 0.30000000000000004)\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence></env><block><line><data>v1=${{C0}} v2=${{C1}} salted=${{C2}} in_range=${{C3}} salt_separates=${{C4}} n_separates=${{C5}} repeatable=${{C6}} zero_ok=${{C7}} fractional_salt=${{C8}}</data></line></block></tdc>",
+      "expected": [
+        "v1=ok v2=ok salted=ok in_range=ok salt_separates=ok n_separates=ok repeatable=ok zero_ok=ok fractional_salt=ok"
+      ]
     }
   ]
 }

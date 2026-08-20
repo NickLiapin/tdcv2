@@ -17,7 +17,31 @@ page — is tracked in that implementation's own changelog:
 
 ### Added
 
-<!-- covers: gauss clamp lerp -->
+<!-- covers: gauss clamp lerp hash -->
+
+- **`hash(n, salt)` in `expr=` — a repeatable value in [0, 1) from a pair of
+  numbers.** The replacement for the shader trick a config writes when it wants a
+  different random coefficient for every row N:
+
+  ```xml
+  <sequence name="Amp"><gen type="formula" expr="1.4 * (0.94 + 0.12 * hash(N, 12.9))"/></sequence>
+  ```
+
+  The trick it replaces — `sin(N * 12.9898) * 43758.5453`, minus its floor — is
+  safe here, because TDC computes its own `sin` and five implementations agree on
+  it. What it costs is two transcendental calls a row, an opaque listing, and a
+  distribution that is an accident rather than a design.
+
+  It is cyrb128 + sfc32, the PRNG the rest of TDC already runs on, keyed by the
+  IEEE-754 BIT PATTERNS of the two arguments rather than their decimal spellings —
+  because the shortest decimal form of a double is not the same string in every
+  language, while those 64 bits are pinned by the standard. Different salts are
+  independent streams over the same n.
+
+  Measured before shipping: over 100 salts of 50,000 draws each, the chi-square
+  median is 18.3 against a theoretical 18.3, four of the hundred exceed the 5 per
+  cent critical value where five are expected, and two salts over the same n
+  correlate at −0.004.
 
 - **`gauss(x, c, w)`, `clamp(x, lo, hi)` and `lerp(a, b, t)` in `expr=`.** Three
   compositions of arithmetic that was already there, asked for by a project generating

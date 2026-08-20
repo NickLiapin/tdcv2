@@ -13,6 +13,7 @@ from collections.abc import Callable
 
 from ..lib import numbers
 from ..math import tdc_math
+from ..prng import seekable
 from .parse import (
     Array,
     Binary,
@@ -329,6 +330,9 @@ _FUNCTIONS: dict[str, Callable[[list], object]] = {
     # exact under IEEE-754 and pow is not, so this is cheaper and identical in
     # all five for free.
     "gauss": lambda a: tdc_math.exp(-(((_num(a, 0) - _num(a, 1)) / _num(a, 2)) ** 2)),
+    # The replacement for the shader sin-trick: cyrb128 + sfc32 keyed by the two
+    # arguments' IEEE-754 bit patterns, so no transcendental call per row.
+    "hash": lambda a: seekable.hash_unit(_num(a, 0), _num(a, 1)),
     "hypot": lambda a: tdc_math.hypot(_num(a, 0), _num(a, 1)),
     # a * (1 - t) + b * t, not a + (b - a) * t: only this form lands exactly on
     # both endpoints. Measured over 200,000 random pairs, the naive one misses b

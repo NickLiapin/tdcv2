@@ -9,6 +9,7 @@ eight.
 from __future__ import annotations
 
 import math
+import struct
 from functools import lru_cache
 
 from .prng import INITIAL, Sfc32, State, absorb, finish
@@ -58,3 +59,20 @@ def uniforms(seed: str, stream_id: str, index: int, count: int) -> list[float]:
     """``count`` uniforms in ``(0, 1)`` for one row — what a fixed-draw sampler needs."""
     gen = generator(seed, stream_id, index)
     return [open_unit(gen.next()) for _ in range(count)]
+
+
+def _bits_hex(value: float) -> str:
+    """A double as the 16 hex digits of its IEEE-754 image."""
+    return struct.unpack(">Q", struct.pack(">d", value))[0].to_bytes(8, "big").hex()
+
+
+def hash_unit(n: float, salt: float) -> float:
+    """A deterministic value in [0, 1) from a pair of numbers — `hash(n, salt)`.
+
+    The key is built from the IEEE-754 BIT PATTERNS of the two arguments, not from
+    their decimal forms: `salt` is any double, and the shortest decimal spelling of
+    a double differs between languages, while those 64 bits are pinned by the
+    standard and printing an integer as hex is exact everywhere. The mixing is
+    cyrb128 and the stream is sfc32 — the PRNG the rest of TDC already runs on.
+    """
+    return generator("hash", f"{_bits_hex(n)}|{_bits_hex(salt)}", 0).next()

@@ -378,6 +378,10 @@ public final class Evaluate {
         double g = (num(args, 0) - num(args, 1)) / num(args, 2);
         return io.github.nickliapin.tdc.mathx.TdcMath.exp(-(g * g));
       }
+      // The replacement for the shader sin-trick: cyrb128 + sfc32 keyed by the two
+      // arguments' IEEE-754 bit patterns, so no transcendental call per row.
+      case "hash":
+        return io.github.nickliapin.tdc.prng.Seekable.hashUnit(num(args, 0), num(args, 1));
       case "hypot":
         return io.github.nickliapin.tdc.mathx.TdcMath.hypot(num(args, 0), num(args, 1));
       case "log1p":

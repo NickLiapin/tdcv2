@@ -1354,6 +1354,18 @@
         ]
       }
     },
+    "expressions-math-2/hash-is-the-same-stream-in-every-implementation": {
+      "engine2": {
+        "lines": [
+          "v1=ok v2=ok salted=ok in_range=ok salt_separates=ok n_separates=ok repeatable=ok zero_ok=ok fractional_salt=ok"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "v1=ok v2=ok salted=ok in_range=ok salt_separates=ok n_separates=ok repeatable=ok zero_ok=ok fractional_salt=ok"
+        ]
+      }
+    },
     "expressions-math/landmarks-every-implementation-must-agree-on": {
       "engine2": {
         "lines": [

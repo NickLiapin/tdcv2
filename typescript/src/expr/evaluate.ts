@@ -23,6 +23,7 @@
 import jsep from 'jsep';
 
 import * as TdcMath from '../math/tdc-math.js';
+import { hashUnit } from '../prng/seekable.js';
 import { sequenceValueAt } from '../sequence/types.js';
 // Registers `in`. jsep's operator table is module state, so both the evaluator
 // and the validator must import this before they parse anything.
@@ -503,6 +504,17 @@ const FUNCTIONS: Readonly<Record<string, (args: readonly unknown[]) => unknown>>
     const t = (num(a, 0) - num(a, 1)) / num(a, 2);
     return TdcMath.exp(-(t * t));
   },
+  /*
+   * hash(n, salt) — a deterministic value in [0, 1) from a pair of numbers.
+   *
+   * The replacement for the shader trick a config writes when it wants "a
+   * different coefficient for every beat N": sin(N * 12.9898) * 43758.5453,
+   * minus its floor. That trick is safe here — TDC computes its own sin, so
+   * five implementations agree on it — but it spends two transcendental calls
+   * a row and its distribution is an accident. This is cyrb128 + sfc32, the
+   * PRNG the rest of TDC already runs on, keyed by the two arguments.
+   */
+  hash: (a) => hashUnit(num(a, 0), num(a, 1)),
   hypot: (a) => TdcMath.hypot(num(a, 0), num(a, 1)),
   /*
    * lerp(a, b, t) — the point t of the way from a to b.

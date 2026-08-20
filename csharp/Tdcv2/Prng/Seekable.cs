@@ -63,4 +63,21 @@ public static class Seekable
 
         return result;
     }
+
+    /// <summary>A double as the 16 hex digits of its IEEE-754 image.</summary>
+    private static string BitsHex(double value) =>
+        BitConverter.DoubleToInt64Bits(value)
+            .ToString("x16", System.Globalization.CultureInfo.InvariantCulture);
+
+    /// <summary>
+    /// A deterministic value in [0, 1) from a pair of numbers — <c>hash(n, salt)</c>.
+    ///
+    /// The key is built from the IEEE-754 BIT PATTERNS of the two arguments, not from
+    /// their decimal forms: <c>salt</c> is any double, and the shortest decimal spelling
+    /// of a double differs between languages, while those 64 bits are pinned by the
+    /// standard and printing an integer as hex is exact everywhere. The mixing is
+    /// cyrb128 and the stream is sfc32 — the PRNG the rest of TDC already runs on.
+    /// </summary>
+    public static double HashUnit(double n, double salt) =>
+        Generator("hash", BitsHex(n) + "|" + BitsHex(salt), 0).Next();
 }

@@ -206,6 +206,7 @@ export const EXPR_FUNCTIONS: Readonly<Record<string, { min: number; max: number 
   floor: { min: 1, max: 1 },
   gamma: { min: 1, max: 1 },
   gauss: { min: 3, max: 3 },
+  hash: { min: 2, max: 2 },
   hypot: { min: 2, max: 2 },
   is_empty: { min: 1, max: 1 },
   join: { min: 2, max: 2 },

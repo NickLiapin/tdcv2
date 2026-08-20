@@ -190,6 +190,7 @@ columna de texto contra una lista de palabras numéricas sigue coincidiendo.
 | `log2(x)`                  | 1          | logaritmo binario — exacto en una potencia de dos  |
 | `asinh(x)` `acosh(x)` `atanh(x)` | 1     | funciones hiperbólicas inversas                    |
 | `hypot(x, y)`              | 2          | longitud del vector, sin desbordar por el camino   |
+| `hash(n, salt)`            | 2      | valor repetible en [0, 1) a partir de dos números |
 | `gauss(x, c, w)`           | 3      | campana centrada en c: `exp(-((x - c) / w)²)`    |
 | `clamp(x, lo, hi)`         | 3      | x contenido en [lo, hi]; con lo > hi gana el techo |
 | `lerp(a, b, t)`            | 3      | fracción t del camino de a a b; exacto en ambos extremos, extrapola fuera |
