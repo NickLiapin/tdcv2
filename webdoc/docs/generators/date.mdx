@@ -561,6 +561,15 @@ right about what it asked for and wrong about what it got.
 The column named by `of` must be declared **above** the offset (`TDC240`), the
 same rule [`running`](./running.mdx) and [`stat`](./stat.mdx) follow.
 
+The formatting layer is ruled out too, for the same reason it is on a running total:
+an offset is built in declaration order, before that layer runs. `mask`, `case`,
+`missing`, `missing_as`, `repeat`, `anomaly`, `anomaly_factor` and `percent` are
+refused (`TDC015`) rather than ignored. Apply one where the value is **printed**
+instead — `${{Later|mask:x}}`, `${{Later|upper}}` — which is where it works today.
+
+A plain `type="date"` with no `of` reads every one of them normally; it is the offset
+that cannot.
+
 An offset reads a sibling column as the row is built, which the streaming path
 cannot do yet, so a config using one is built [in memory](../guides/large-outputs.mdx).
 TDC routes it there on its own; you only notice if you force the streaming engine with

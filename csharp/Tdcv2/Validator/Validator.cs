@@ -118,6 +118,22 @@ public sealed class Validator
     /// implemented: the interpolation filter runs where the value is PRINTED, so
     /// <c>${{Total|mask:x}}</c> works today.
     /// </remarks>
+    /// <summary>
+    /// The same, for a date measured from another column — keyed on <c>of=</c>, not on a type.
+    /// </summary>
+    /// <remarks>
+    /// <c>percent=</c> is here and not in the map below because the other three are numbers and
+    /// a quota over a derived number is a different argument; a date offset is a DATE, and a
+    /// quota over "row N plus seven days" would have to invent which rows get the offset and
+    /// which keep the original. Refused, like the rest.
+    /// </remarks>
+    private static readonly IReadOnlySet<string> OffsetWrappersNotRead =
+        new HashSet<string>(StringComparer.Ordinal)
+        {
+            "mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor",
+            "percent",
+        };
+
     private static readonly IReadOnlyDictionary<string, IReadOnlySet<string>> WrappersNotRead =
         new Dictionary<string, IReadOnlySet<string>>(StringComparer.Ordinal)
         {
@@ -3803,6 +3819,28 @@ public sealed class Validator
                     "cycle= says what happens when order=\"sequential\" reaches the end of its "
                     + "source. Without order=\"sequential\" the generator draws, and a draw never "
                     + "runs out.");
+                continue;
+            }
+
+            // A date measured from another column is the fourth member of the derived family,
+            // and it was the one nobody added. `running`, `stat` and `formula` are keyed by
+            // TYPE below, which a date offset cannot be: it is `type="date"` plus `of=`, and a
+            // plain `type="date"` reads every one of these correctly. So it is keyed on `of=`.
+            //
+            // Measured over six rows, each byte-identical to the plain run: mask=, case=,
+            // missing=, missing_as=, anomaly= with its factor, repeat= and percent= all did
+            // nothing while `check` called the config valid.
+            if (type == "date"
+                && attrs.TryGetValue("of", out string? measuredFrom)
+                && !string.IsNullOrWhiteSpace(measuredFrom)
+                && OffsetWrappersNotRead.Contains(name))
+            {
+                Ignored(
+                    gen, name,
+                    "a date measured from another column with of= is built in declaration "
+                    + "order, before the formatting layer runs — the same place a running total "
+                    + "is built. Apply it where the value is printed instead: "
+                    + "${{Later|mask:x}}, ${{Later|upper}}.");
                 continue;
             }
 

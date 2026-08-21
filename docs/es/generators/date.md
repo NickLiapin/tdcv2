@@ -613,6 +613,15 @@ de enero tiene razón sobre lo que pidió y no sobre lo que obtuvo.
 La columna nombrada en `of` debe estar declarada **encima** del desplazamiento
 (`TDC240`), la misma regla que siguen [`running`](./running.md#top) y
 [`stat`](./stat.md#top).
+La capa de formato también queda descartada, por la misma razón que en un total
+acumulado: un desplazamiento se construye en orden de declaración, antes de que esa capa
+se ejecute. `mask`, `case`, `missing`, `missing_as`, `repeat`, `anomaly`,
+`anomaly_factor` y `percent` se rechazan (`TDC015`) en vez de ignorarse. Aplíquelos donde
+el valor se **imprime** — `${{Later|mask:x}}`, `${{Later|upper}}` — que es donde
+funcionan hoy.
+
+Un `type="date"` normal sin `of` lee cada uno de ellos con normalidad; es el
+desplazamiento el que no puede.
 
 Un desplazamiento lee una columna hermana mientras se construye la fila, algo que
 la vía de streaming aún no sabe hacer, así que una configuración que lo use se

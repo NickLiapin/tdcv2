@@ -593,6 +593,23 @@ pub const PACK_WRAPPER_ATTRS: [&str; 21] = [
 /// these sat on them doing nothing while `check` called the config valid.
 /// Refused rather than implemented: the interpolation filter runs where the
 /// value is PRINTED, so `${{Total|mask:x}}` works today.
+/// The same, for a date measured from another column — keyed on `of=`, not on a type.
+///
+/// `percent=` is here and not in the table below because the other three are numbers and a
+/// quota over a derived number is a different argument; a date offset is a DATE, and a quota
+/// over "row N plus seven days" would have to invent which rows get the offset and which keep
+/// the original. Refused, like the rest.
+pub const OFFSET_WRAPPERS_NOT_READ: [&str; 8] = [
+    "mask",
+    "case",
+    "missing",
+    "missing_as",
+    "repeat",
+    "anomaly",
+    "anomaly_factor",
+    "percent",
+];
+
 pub const WRAPPERS_NOT_READ: [(&str, &[&str]); 3] = [
     (
         "running",

@@ -3220,6 +3220,30 @@ impl Validator {
                 continue;
             }
 
+            // A date measured from another column is the fourth member of the
+            // derived family, and it was the one nobody added. `running`, `stat`
+            // and `formula` are keyed by TYPE below, which a date offset cannot
+            // be: it is `type="date"` plus `of=`, and a plain `type="date"` reads
+            // every one of these correctly. So it is keyed on `of=` instead.
+            //
+            // Measured over six rows, each byte-identical to the plain run: mask=,
+            // case=, missing=, missing_as=, anomaly= with its factor, repeat= and
+            // percent= all did nothing while `check` called the config valid.
+            if gen_type == Some("date")
+                && attrs.get("of").map(|v| v.trim()).unwrap_or("") != ""
+                && tables::OFFSET_WRAPPERS_NOT_READ.contains(&name.as_str())
+            {
+                self.ignored(
+                    gen,
+                    name,
+                    "a date measured from another column with of= is built in declaration \
+                     order, before the formatting layer runs — the same place a running \
+                     total is built. Apply it where the value is printed instead: \
+                     ${{Later|mask:x}}, ${{Later|upper}}.",
+                );
+                continue;
+            }
+
             // A wrapper the type never puts its value through. Separate from the
             // ownership table because the name IS a general wrapper — it works
             // on almost every type, and these two resolve before the layer that

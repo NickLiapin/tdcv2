@@ -418,6 +418,25 @@ const BUILTIN_TEMPLATE_PARAMS: ReadonlyMap<string, ReadonlySet<string>> = new Ma
  * definition, and for `anomaly=` on a running total, which stops being the total
  * the moment it is multiplied.
  */
+/**
+ * The same, for a date measured from another column — keyed on `of=`, not on a type.
+ *
+ * `percent=` is here and not in the map above because the other three are numbers and a
+ * quota over a derived number is a different argument; a date offset is a DATE, and a
+ * quota over "row N plus seven days" would have to invent which rows get the offset and
+ * which keep the original. Refused, like the rest.
+ */
+const OFFSET_WRAPPERS_NOT_READ: ReadonlySet<string> = new Set([
+  'mask',
+  'case',
+  'missing',
+  'missing_as',
+  'repeat',
+  'anomaly',
+  'anomaly_factor',
+  'percent',
+]);
+
 const WRAPPERS_NOT_READ: ReadonlyMap<string, ReadonlySet<string>> = new Map([
   [
     'running',
@@ -560,12 +579,14 @@ export function checkGenAttrs(attrs: readonly AttrContext[], diagnostics: Diagno
   let value: string | undefined;
   let hasDistribution = false;
   let order: string | undefined;
+  let measuresFrom = false;
   for (const a of attrs) {
     const n = a._attrName?.text;
     if (n === 'type') type = attrValueText(a);
     else if (n === 'value') value = attrValueText(a);
     else if (n === 'distribution' && attrValueText(a).trim() !== '') hasDistribution = true;
     else if (n === 'order') order = attrValueText(a).trim();
+    else if (n === 'of' && attrValueText(a).trim() !== '') measuresFrom = true;
   }
 
   if (type === 'template') {
@@ -614,6 +635,37 @@ export function checkGenAttrs(attrs: readonly AttrContext[], diagnostics: Diagno
         name,
         'cycle= says what happens when order="sequential" reaches the end of its source. ' +
           'Without order="sequential" the generator draws, and a draw never runs out.',
+        [...GEN_ATTRIBUTES],
+        diagnostics,
+      );
+      continue;
+    }
+
+    /*
+     * A date measured from another column is the fourth member of the derived
+     * family, and it was the one nobody added.
+     *
+     * `running`, `stat` and `formula` are keyed by TYPE below, which a date
+     * offset cannot be: it is `type="date"` plus `of=`, and a plain `type="date"`
+     * reads every one of these correctly. So it is keyed on `of=` instead.
+     *
+     * Measured over six rows, each byte-identical to the plain run: `mask="xxxx"`,
+     * `case="upper"`, `missing="0.9"`, `missing_as="—"`, `anomaly=` with its
+     * factor, `repeat="3"` and `percent="90,10"` all did nothing while `check`
+     * called the config valid. `missing="0.9"` blanking 0 of 6 rows is the
+     * sharpest: a reader asking for gaps got a full column.
+     *
+     * The date page states the principle already — "refused rather than
+     * ignored" — and TDC295 and TDC296 already treat the offset as one of the
+     * four. This is the same rule reaching the same construct.
+     */
+    if (type === 'date' && measuresFrom && OFFSET_WRAPPERS_NOT_READ.has(name)) {
+      reportIgnored(
+        attr,
+        name,
+        'a date measured from another column with of= is built in declaration order, ' +
+          'before the formatting layer runs — the same place a running total is built. ' +
+          'Apply it where the value is printed instead: ${{Later|mask:x}}, ${{Later|upper}}.',
         [...GEN_ATTRIBUTES],
         diagnostics,
       );

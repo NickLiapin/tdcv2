@@ -119,6 +119,19 @@ public final class Validator {
    * implemented: the interpolation filter runs where the value is PRINTED, so
    * {@code ${{Total|mask:x}}} works today.
    */
+  /**
+   * The same, for a date measured from another column — keyed on {@code of=}, not on a type.
+   *
+   * <p>{@code percent=} is here and not in the map below because the other three are numbers
+   * and a quota over a derived number is a different argument; a date offset is a DATE, and a
+   * quota over "row N plus seven days" would have to invent which rows get the offset and
+   * which keep the original. Refused, like the rest.
+   */
+  private static final java.util.Set<String> OFFSET_WRAPPERS_NOT_READ =
+      java.util.Set.of(
+          "mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor",
+          "percent");
+
   private static final Map<String, java.util.Set<String>> WRAPPERS_NOT_READ =
       Map.of(
           "running", java.util.Set.of("mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"),
@@ -3290,6 +3303,24 @@ public final class Validator {
         ignored(gen, name,
             "cycle= says what happens when order=\"sequential\" reaches the end of its source. "
                 + "Without order=\"sequential\" the generator draws, and a draw never runs out.");
+        continue;
+      }
+      // A date measured from another column is the fourth member of the derived family, and
+      // it was the one nobody added. `running`, `stat` and `formula` are keyed by TYPE below,
+      // which a date offset cannot be: it is `type="date"` plus `of=`, and a plain
+      // `type="date"` reads every one of these correctly. So it is keyed on `of=` instead.
+      //
+      // Measured over six rows, each byte-identical to the plain run: mask=, case=, missing=,
+      // missing_as=, anomaly= with its factor, repeat= and percent= all did nothing while
+      // `check` called the config valid.
+      if ("date".equals(type)
+          && !attrs.getOrDefault("of", "").trim().isEmpty()
+          && OFFSET_WRAPPERS_NOT_READ.contains(name)) {
+        ignored(gen, name,
+            "a date measured from another column with of= is built in declaration order, "
+                + "before the formatting layer runs — the same place a running total is built. "
+                + "Apply it where the value is printed instead: ${{Later|mask:x}}, "
+                + "${{Later|upper}}.");
         continue;
       }
       // A wrapper the type never puts its value through. Separate from the ownership table
