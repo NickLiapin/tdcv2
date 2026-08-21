@@ -567,6 +567,31 @@ public sealed class Tdc
         }
     }
 
+    /// <summary>Every record, one at a time — the name the other four implementations use.</summary>
+    /// <remarks>
+    /// The same sequence <see cref="Rows"/> yields. One vocabulary across five languages is worth
+    /// more here than each one's local habit, because this library exists to be used BESIDE the
+    /// generator: a reader following an example written in another language should not have to
+    /// translate the method names. <see cref="Rows"/> keeps working and is not deprecated.
+    /// </remarks>
+    public IEnumerable<Row> Iterate() => Rows();
+
+    /// <summary>Every record, materialised — the name the other four implementations use.</summary>
+    public IReadOnlyList<Row> ToArray()
+    {
+        IRowSource source = _run.Value;
+        var out_ = new List<Row>(source.Count);
+        for (int i = 0; i < source.Count; i++)
+        {
+            out_.Add(new Row(source, i));
+        }
+
+        return out_;
+    }
+
+    /// <summary>One record by position — the same as the indexer, under the shared name.</summary>
+    public Row GetAt(int index) => this[index];
+
     /// <summary>One record by position.</summary>
     public Row this[int index]
     {

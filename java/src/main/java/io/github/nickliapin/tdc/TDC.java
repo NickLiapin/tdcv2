@@ -422,6 +422,18 @@ public final class TDC {
     }
   }
 
+  /**
+   * Every record, as rows — the name the other four implementations use.
+   *
+   * <p>The same thing {@link #toList()} returns. One vocabulary across five languages is worth
+   * more here than each one's local habit, because this library exists to be used BESIDE the
+   * generator: a reader following an example written in another language should not have to
+   * translate the method names. {@code toList()} keeps working and is not deprecated.
+   */
+  public List<Row> toArray() {
+    return toList();
+  }
+
   /** Every record, as rows. */
   public List<Row> toList() {
     RowSource result = run();

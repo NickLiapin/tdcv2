@@ -313,6 +313,39 @@ class TDC:
         result = self._run()
         return [Row(result, i) for i in range(self.count)]
 
+    def to_array(self) -> list[Row]:
+        """Every record, as rows — the name the other four implementations use.
+
+        The same thing ``to_list`` returns. One vocabulary across five languages is worth more
+        here than each one's local habit, because this library exists to be used BESIDE the
+        generator: a reader following an example written in another language should not have to
+        translate the method names. ``to_list`` keeps working and is not deprecated.
+        """
+        return self.to_list()
+
+    def to_string(self) -> str:
+        """The whole output as one string.
+
+        ``str(tdc)`` does the same and is the Pythonic spelling; this one exists so the name is
+        the same in all five. Neither is preferred over the other.
+        """
+        return str(self)
+
+    def get_at(self, index: int) -> Row:
+        """One record by its position, without materialising the rest."""
+        if index < 0 or index >= self.count:
+            raise IndexError(f"row {index} is outside a run of {self.count}")
+        return Row(self._run(), index)
+
+    def iterate(self):
+        """Every record, one at a time.
+
+        A generator rather than a list: a run too large to hold is exactly the case this is for.
+        """
+        result = self._run()
+        for i in range(self.count):
+            yield Row(result, i)
+
     def to_columns(self) -> dict[str, array[float] | list[str | None]]:
         """The run as COLUMNS rather than rows, with numbers as numbers.
 

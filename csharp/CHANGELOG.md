@@ -9,6 +9,22 @@ this package: the assembly and its library API.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Added
+
+- **One vocabulary for the finished run, in all five implementations.** The object a run
+  hands back now answers to the same names everywhere, spelled each language's own way.
+  Added `ToArray()`, `Iterate()` and `GetAt(index)`.
+
+  Nothing is renamed and nothing is deprecated: `Rows()` and the `this[int]` indexer keep working exactly as before.
+  This library is meant to be used BESIDE the generator, so a reader following an example
+  written in another language should not have to translate the method names.
+
+  Guarded by `fixtures/cross-language/api.json`, which all five test suites read. There was
+  no guard on this surface before, which is why it drifted at all — each choice was
+  reasonable in its own language and wrong for a reader crossing between them.
+
 ## [0.2.2] — 2026-08-15
 
 ### Changed

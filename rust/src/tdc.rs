@@ -450,6 +450,11 @@ impl Tdc {
         }
     }
 
+    /// The same, under the name the other four implementations use.
+    pub fn seed_info(&self) -> Seed {
+        self.seed()
+    }
+
     /// Which engine this config runs on: 1 in memory, 2 streaming, 3 exact on
     /// disk.
     ///
@@ -543,6 +548,26 @@ impl Tdc {
             source: self.run.as_ref(),
             index,
         })
+    }
+
+    /// The records one at a time — the name the other four implementations use.
+    ///
+    /// The same iterator [`Tdc::rows`] returns. One vocabulary across five languages is worth
+    /// more here than each one's local habit, because this library exists to be used BESIDE the
+    /// generator: a reader following an example written in another language should not have to
+    /// translate the method names. `rows` keeps working and is not deprecated.
+    pub fn iterate(&self) -> impl Iterator<Item = Row<'_>> + '_ {
+        self.rows()
+    }
+
+    /// Every record, materialised — the name the other four implementations use.
+    pub fn to_array(&self) -> Vec<Row<'_>> {
+        self.rows().collect()
+    }
+
+    /// One record by position — the same as [`Tdc::row`], under the shared name.
+    pub fn get_at(&self, index: usize) -> Option<Row<'_>> {
+        self.row(index)
     }
 
     /// What this run cost in memory, or nothing when the answer is "not much".

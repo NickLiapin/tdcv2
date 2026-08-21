@@ -18,6 +18,22 @@ line and jar URL it prints — so a reader is never handed a version that will n
 Publishing means replacing `not published` with the date it went out; the pages follow on
 the next build, and nothing else is edited.
 
+## [Unreleased]
+
+### Added
+
+- **One vocabulary for the finished run, in all five implementations.** The object a run
+  hands back now answers to the same names everywhere, spelled each language's own way.
+  Added `toArray()`.
+
+  Nothing is renamed and nothing is deprecated: `toList()` keep working exactly as before.
+  This library is meant to be used BESIDE the generator, so a reader following an example
+  written in another language should not have to translate the method names.
+
+  Guarded by `fixtures/cross-language/api.json`, which all five test suites read. There was
+  no guard on this surface before, which is why it drifted at all — each choice was
+  reasonable in its own language and wrong for a reader crossing between them.
+
 ## [0.2.2] — 2026-08-15
 
 Held back at first — the account was over Central's monthly release count — then

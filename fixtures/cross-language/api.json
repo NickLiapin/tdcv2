@@ -1,0 +1,90 @@
+{
+  "description": "The vocabulary of the object a finished run hands back, in all five languages. This library is meant to be used BESIDE the generator, so a reader following an example written in another language should not have to translate the method names. Each language spells the name its own way — camelCase, snake_case, PascalCase — and means exactly the same thing. Older names that predate this table are kept working and are listed under 'also'. Nothing here is deprecated; the point is that ONE of the spellings is the same idea everywhere.",
+  "why": "There was no guard on this surface, and it drifted: Python had no to_string, Java had no toArray, C# had neither GetAt nor Iterate, Rust had neither to_array nor get_at. Each was reasonable in its own language and wrong for a reader crossing between them.",
+  "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"increment\" value=\"1\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+  "members": [
+    {
+      "concept": "the whole run as text",
+      "typescript": "toString",
+      "python": "to_string",
+      "java": "toString",
+      "csharp": "ToString",
+      "rust": "to_string",
+      "also": {
+        "python": "str(tdc)",
+        "rust": "Display"
+      }
+    },
+    {
+      "concept": "every record, materialised",
+      "typescript": "toArray",
+      "python": "to_array",
+      "java": "toArray",
+      "csharp": "ToArray",
+      "rust": "to_array",
+      "also": {
+        "python": "to_list",
+        "java": "toList"
+      }
+    },
+    {
+      "concept": "every record, one at a time",
+      "typescript": "iterate",
+      "python": "iterate",
+      "java": "iterate",
+      "csharp": "Iterate",
+      "rust": "iterate",
+      "also": {
+        "csharp": "Rows",
+        "rust": "rows"
+      }
+    },
+    {
+      "concept": "one record by position",
+      "typescript": "getAt",
+      "python": "get_at",
+      "java": "getAt",
+      "csharp": "GetAt",
+      "rust": "get_at",
+      "also": {
+        "csharp": "this[int]",
+        "rust": "row"
+      }
+    },
+    {
+      "concept": "the run as columns rather than rows",
+      "typescript": "toColumns",
+      "python": "to_columns",
+      "java": "toColumns",
+      "csharp": "ToColumns",
+      "rust": "to_columns"
+    },
+    {
+      "concept": "written to a file",
+      "typescript": "writeFile",
+      "python": "write_file",
+      "java": "writeFile",
+      "csharp": "WriteFile",
+      "rust": "write_file"
+    },
+    {
+      "concept": "the seed actually used, and whether it was generated",
+      "typescript": "seedInfo",
+      "python": "seed_info",
+      "java": "seedInfo",
+      "csharp": "SeedInfo",
+      "rust": "seed_info",
+      "also": {
+        "rust": "seed"
+      }
+    },
+    {
+      "concept": "what the run will cost before it is made",
+      "typescript": "preflight",
+      "python": "preflight",
+      "java": "preflight",
+      "csharp": "Preflight",
+      "rust": "preflight"
+    }
+  ]
+}
