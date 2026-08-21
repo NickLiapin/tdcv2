@@ -223,6 +223,109 @@ mismo, y por eso cada una lleva una cota de precisión en vez de una promesa de 
 > implementación puede llevar, así que gana la unidad portable. `len("10")` es 2: una función
 > de cadena lee su argumento como texto, nunca como número.
 
+## Azar repetible, y formas donde ponerlo
+
+Cinco de las funciones de la tabla anterior existen para un solo trabajo: construir un
+valor que VARÍE como varían los datos reales, sin sortear nada. Cada una es un cálculo
+corriente sobre sus argumentos, así que los mismos argumentos dan siempre la misma
+respuesta, en las cinco implementaciones.
+
+### `hash(n, salt)` — un valor repetible en [0, 1) a partir de dos números
+
+La que se busca cuando cada fila quiere su propio coeficiente:
+
+```xml
+<tdc><env count="5" seed="w">
+  <sequence name="N"><gen type="increment" value="1"/></sequence>
+  <sequence name="Amp"><gen type="formula" decimals="4"
+       expr="1.4 * (0.94 + 0.12 * hash(N, 12.9))"/></sequence>
+</env><block><line><data>${{N}},${{Amp}}</data></line></block></tdc>
+```
+
+```
+1,1.3862
+2,1.4128
+3,1.4559
+4,1.4518
+5,1.4734
+```
+
+`salt` es lo que diferencia dos columnas de una misma fila: `hash(N, 1)` y `hash(N, 2)`
+son secuencias sin relación, de modo que una fila puede llevar varios coeficientes
+independientes sin una segunda semilla.
+
+Sustituye al truco de los shaders — `sin(n * 12.9898) * 43758.5453`, menos su parte
+entera — al que se recurre habitualmente. AQUÍ ese truco es seguro, porque TDC calcula su
+propio `sin` y las cinco implementaciones coinciden hasta el último bit. Lo que cuesta son
+dos llamadas trascendentes por fila, calculadas por software, y una línea que nadie puede
+leer. `hash` es aritmética entera y dice lo que es.
+
+### `noise(t, scale, salt)` — deriva suave
+
+Un valor nuevo cada `scale` filas, suavizado entre ellos. Así es como se comporta de
+verdad una línea de base errante, y tres senos modulados no saben hacerlo: medido sobre
+4.096 muestras, los senos ponen el 74,6 por ciento de su potencia en tres bandas de
+frecuencia donde esto pone el 51,5.
+
+```xml
+<sequence name="Drift"><gen type="formula" expr="0.3 * (noise(_count, 300, 7) - 0.5)"/></sequence>
+```
+
+Dos propiedades en las que se puede confiar, ambas exactas y no aproximadas:
+
+- **En un punto de la retícula el valor ES `hash` ahí.** `noise(k * scale, scale, salt)`
+  es igual a `hash(k, salt)` — los mismos bits, no «con precisión de un ulp» — porque el
+  suavizado interpola con `a * (1 - u) + b * u`. El borde de una celda es, por tanto,
+  continuo.
+- **El punto medio de una celda es la media simple de sus extremos.**
+
+Un `scale` de cero divide por cero y da NaN, la misma respuesta que da aquí `sqrt(-1)`. En
+una columna eso no se imprime: se rechaza por su nombre, porque un archivo lleno de `NaN`
+sin haber avisado a nadie es peor que una ejecución que se detiene.
+
+### `gauss(x, c, w)` — una campana centrada en `c`
+
+`exp(-((x - c) / w)²)`: uno en el centro, decayendo a ambos lados, y `w` fija el ancho.
+
+```xml
+<tdc><env count="7" seed="w">
+  <sequence name="X"><gen type="increment" value="1"/></sequence>
+  <sequence name="G"><gen type="formula" decimals="4" expr="gauss(X, 4, 1.5)"/></sequence>
+</env><block><line><data>${{X}},${{G}}</data></line></block></tdc>
+```
+
+```
+1,0.0183
+2,0.1690
+3,0.6412
+4,1.0000
+5,0.6412
+6,0.1690
+7,0.0183
+```
+
+No es una densidad de probabilidad: no está escalada para integrar uno. Es la FORMA, para
+multiplicar otra cosa por ella.
+
+### `clamp(x, lo, hi)` — mantener un valor dentro de un rango
+
+La barrera de todo lo que se acumula. **Si `lo` es mayor que `hi`, gana el techo**:
+`clamp(x, 9, 2)` es 2 para cualquier `x`. El orden importa y se declara en vez de dejarlo
+a la comparación que cada implementación haga primero: la referencia y sus cuatro puertos
+discreparon una vez sobre esto, y lo atrapó una prueba compartida.
+
+### `lerp(a, b, t)` — la fracción `t` del camino de `a` a `b`
+
+**Exacta en ambos extremos**: `lerp(10, 20, 0)` es exactamente 10 y `lerp(10, 20, 1)` es
+exactamente 20. Por eso existe en vez de escribirse a mano: la forma natural
+`a + (b - a) * t` falla `b` en `t = 1` en el 41 por ciento de 200.000 pares aleatorios,
+porque la resta pierde bits bajos que la suma no puede devolver. Aquí se calcula
+`a * (1 - t) + b * t`, que no puede perderlos.
+
+Fuera de [0, 1] extrapola en lugar de rechazar — `lerp(10, 20, 2)` es 30 — porque un valor
+que se pasó de rango suele ser la aritmética de quien llama, no un error, y `clamp` está
+justo al lado para cuando sí lo es.
+
 ## Una columna que lee su propio pasado
 
 Todas las funciones anteriores responden desde UNA fila. `prev(Columna, inicial)` es la

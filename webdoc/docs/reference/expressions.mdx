@@ -212,6 +212,106 @@ carry, so the portable unit wins. `len("10")` is 2: a string function reads its 
 text, never as a number.
 :::
 
+## Repeatable randomness, and shapes to put it in
+
+Five of the functions above exist for one job: building a value that VARIES the way real
+data varies, without drawing at random. Each is a plain calculation on its arguments, so
+the same arguments always give the same answer, in every implementation.
+
+### `hash(n, salt)` — a repeatable value in [0, 1) from a pair of numbers
+
+The one to reach for when every row wants its own coefficient:
+
+```xml
+<tdc><env count="5" seed="w">
+  <sequence name="N"><gen type="increment" value="1"/></sequence>
+  <sequence name="Amp"><gen type="formula" decimals="4"
+       expr="1.4 * (0.94 + 0.12 * hash(N, 12.9))"/></sequence>
+</env><block><line><data>${{N}},${{Amp}}</data></line></block></tdc>
+```
+
+```
+1,1.3862
+2,1.4128
+3,1.4559
+4,1.4518
+5,1.4734
+```
+
+`salt` is what makes two columns of the same row differ: `hash(N, 1)` and `hash(N, 2)` are
+unrelated sequences, so one row can carry several independent coefficients without a
+second seed.
+
+It replaces the shader trick — `sin(n * 12.9898) * 43758.5453`, minus its floor — that
+config writers reach for. That trick is safe HERE, because TDC computes its own `sin` and
+the five implementations agree on it to the last bit. What it costs is two transcendental
+calls a row, which are computed in software, and a line nobody can read. `hash` is integer
+arithmetic and says what it is.
+
+### `noise(t, scale, salt)` — smooth drift
+
+A fresh value every `scale` rows, eased between. This is what a wandering baseline
+actually is, and three modulated sine waves cannot do it: measured over 4,096 samples, the
+sines put 74.6 per cent of their power into three frequency bins where this puts 51.5.
+
+```xml
+<sequence name="Drift"><gen type="formula" expr="0.3 * (noise(_count, 300, 7) - 0.5)"/></sequence>
+```
+
+Two properties worth relying on, both exact rather than approximate:
+
+- **At a lattice point the value IS `hash` there.** `noise(k * scale, scale, salt)` equals
+  `hash(k, salt)` — the same bits, not the same to within an ulp — because the easing
+  interpolates with `a * (1 - u) + b * u`. A cell boundary is therefore continuous.
+- **The midpoint of a cell is the plain average of its ends.**
+
+A `scale` of zero divides by zero and gives NaN, the same answer `sqrt(-1)` gives here. In
+a column that is refused by name rather than printed, because a file full of `NaN` nobody
+was warned about is worse than a run that stops.
+
+### `gauss(x, c, w)` — a bell centred on `c`
+
+`exp(-((x - c) / w)²)`: 1 at the centre, falling away on both sides, `w` sets the width.
+
+```xml
+<tdc><env count="7" seed="w">
+  <sequence name="X"><gen type="increment" value="1"/></sequence>
+  <sequence name="G"><gen type="formula" decimals="4" expr="gauss(X, 4, 1.5)"/></sequence>
+</env><block><line><data>${{X}},${{G}}</data></line></block></tdc>
+```
+
+```
+1,0.0183
+2,0.1690
+3,0.6412
+4,1.0000
+5,0.6412
+6,0.1690
+7,0.0183
+```
+
+Not a probability density — it is not scaled to integrate to one. It is the SHAPE, for
+multiplying something else by.
+
+### `clamp(x, lo, hi)` — hold a value inside a range
+
+The guard rail on anything that accumulates. **If `lo` is greater than `hi`, the ceiling
+wins**: `clamp(x, 9, 2)` is 2 for every `x`. The order matters and is stated rather than
+left to whichever comparison the implementation happens to make first — the reference and
+its four ports disagreed about it once, and a shared fixture is what caught it.
+
+### `lerp(a, b, t)` — `t` of the way from `a` to `b`
+
+**Exact at both ends**: `lerp(10, 20, 0)` is exactly 10 and `lerp(10, 20, 1)` is exactly
+20. That is the reason it exists rather than being written out by hand: the natural
+spelling `a + (b - a) * t` misses `b` at `t = 1` in 41 per cent of 200,000 random pairs,
+because the subtraction loses low bits the addition cannot put back. This computes
+`a * (1 - t) + b * t`, which cannot.
+
+Outside [0, 1] it extrapolates rather than refusing — `lerp(10, 20, 2)` is 30 — because a
+value that ran past its range is usually the caller's arithmetic, not a mistake, and
+`clamp` is right there for when it is.
+
 ## A column that reads its own past
 
 Every function above answers from ONE row. `prev(Column, initial)` is the exception: it
