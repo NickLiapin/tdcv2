@@ -177,6 +177,8 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
                 Mode = options.Mode,
             };
             data = new Tdc(built);
+
+            return Produce(data, options, stdout, stderr);
         }
         catch (TdcDiagnosticException e)
         {
@@ -188,7 +190,19 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
             Fail(stderr, e.Message, false);
             return 1;
         }
+    }
 
+    /// <summary>Everything after the config is built: report, seed note, preflight, write.</summary>
+    /// <remarks>
+    /// Split out so it sits INSIDE the caller's try rather than between two of them. It used to
+    /// sit between, and the engine router throws from <c>Preflight</c> — so a plain
+    /// <c>mode="nonsense"</c> escaped both catches, printed a .NET stack trace where the reference
+    /// prints one line, and left the process with exit code 134 instead of 1. A script testing
+    /// for failure saw a crash, not a rejected config.
+    /// </remarks>
+    private static int Produce(
+        Tdc data, Args.Options options, TextWriter stdout, TextWriter stderr)
+    {
         Report(stderr, data.Diagnostics, options.Input, data.Source);
 
         // A run with no seed anywhere gets a random one. Print it, or the output cannot be
@@ -214,25 +228,17 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
             }
         }
 
-        try
+        if (options.Output is not null)
         {
-            if (options.Output is not null)
-            {
-                // No --jobs means "decide from the machine". The worker count never changes the
-                // bytes — a shard is a range of rows and every row is a function of its own number
-                // — so it is safe to pick from the hardware, unlike the engine, which follows from
-                // the config.
-                data.WriteFile(options.Output, options.Jobs ?? 0);
-            }
-            else
-            {
-                stdout.Write(data.ToString());
-            }
+            // No --jobs means "decide from the machine". The worker count never changes the
+            // bytes — a shard is a range of rows and every row is a function of its own number
+            // — so it is safe to pick from the hardware, unlike the engine, which follows from
+            // the config.
+            data.WriteFile(options.Output, options.Jobs ?? 0);
         }
-        catch (Exception e) when (e is ArgumentException or IOException or InvalidOperationException)
+        else
         {
-            Fail(stderr, e.Message, false);
-            return 1;
+            stdout.Write(data.ToString());
         }
 
         return 0;

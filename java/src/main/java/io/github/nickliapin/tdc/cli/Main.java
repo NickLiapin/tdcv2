@@ -177,6 +177,8 @@ public final class Main {
         built.engine(engine);
       }
       data = built.build();
+
+      return produce(data, options);
     } catch (TdcDiagnosticException e) {
       report(e.diagnostics(), options.input(), e.source());
       return 1;
@@ -184,7 +186,18 @@ public final class Main {
       fail(e.getMessage(), false);
       return 1;
     }
+  }
 
+  /**
+   * Everything after the config is built: report, seed note, preflight, write.
+   *
+   * <p>Split out so it sits INSIDE the caller's try rather than between two of them. It used to
+   * sit between, and the engine router throws from {@code preflight} — so a plain
+   * {@code mode="nonsense"} escaped both catches and printed a Java stack trace where the
+   * reference prints one line. The reader saw "the program broke" instead of "your config is
+   * wrong", with our own file names as the evidence.
+   */
+  private static int produce(TDC data, Args.Options options) {
     report(data.diagnostics(), options.input(), data.source());
 
     // A run with no seed anywhere gets a random one. Print it, or the output cannot be reproduced —
@@ -209,29 +222,26 @@ public final class Main {
       }
     }
 
-    try {
-      if (options.output() != null) {
-        // No --jobs means "decide from the machine". The worker count never changes the bytes —
-        // a shard is a range of rows and every row is a function of its own number — so it is
-        // safe to pick from the hardware, unlike the engine, which follows from the config.
-        data.writeFile(Path.of(options.output()), options.jobs() == null ? 0 : options.jobs());
-      } else {
-        // A worker owns a RANGE of rows and writes it at a known offset in the file. stdout has
-        // no offsets — it is one stream, in order — so there is nothing for a second worker to
-        // write into. Say so: a flag accepted and quietly dropped teaches the user that they
-        // asked for threads and got them, and they will believe the timing they measure.
-        //
-        // Only for an explicit number ABOVE one, the way the reference does it: `--jobs 1` asks
-        // for the single thread stdout already uses, and has therefore lost nothing.
-        if (options.jobs() != null && options.jobs() > 1) {
-          note("--jobs needs -o and is ignored writing to stdout — running single-threaded.");
-        }
-        System.out.print(data);
+    if (options.output() != null) {
+      // No --jobs means "decide from the machine". The worker count never changes the bytes —
+      // a shard is a range of rows and every row is a function of its own number — so it is
+      // safe to pick from the hardware, unlike the engine, which follows from the config.
+      data.writeFile(Path.of(options.output()), options.jobs() == null ? 0 : options.jobs());
+    } else {
+      // A worker owns a RANGE of rows and writes it at a known offset in the file. stdout has
+      // no offsets — it is one stream, in order — so there is nothing for a second worker to
+      // write into. Say so: a flag accepted and quietly dropped teaches the user that they
+      // asked for threads and got them, and they will believe the timing they measure.
+      //
+      // Only for an explicit number ABOVE one, the way the reference does it: `--jobs 1` asks
+      // for the single thread stdout already uses, and has therefore lost nothing.
+      if (options.jobs() != null && options.jobs() > 1) {
+        note("--jobs needs -o and is ignored writing to stdout — running single-threaded.");
       }
-    } catch (RuntimeException e) {
-      fail(e.getMessage(), false);
-      return 1;
+
+      System.out.print(data);
     }
+
     return 0;
   }
 

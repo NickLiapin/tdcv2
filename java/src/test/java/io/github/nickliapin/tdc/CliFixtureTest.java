@@ -139,6 +139,9 @@ class CliFixtureTest {
     String stderr = err.toString(StandardCharsets.UTF_8);
     assertEquals(testCase.get("exit").asInt(), code, "exit code; stderr was:\n" + stderr);
 
+    if (testCase.has("stderr")) {
+      assertEquals(resolve(testCase.get("stderr").asText(), dir, registry), stderr);
+    }
     if (testCase.has("stdout")) {
       assertEquals(testCase.get("stdout").asText(), stdout);
     }

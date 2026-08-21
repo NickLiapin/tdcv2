@@ -31,6 +31,7 @@ interface FixtureCase {
   readonly stdout?: string;
   readonly stdoutContains?: readonly string[];
   readonly stdoutMatches?: string;
+  readonly stderr?: string;
   readonly stderrContains?: readonly string[];
   readonly wrote?: Record<string, string>;
   readonly wroteContains?: Record<string, readonly string[]>;
@@ -224,6 +225,9 @@ describe('the shared CLI fixture', () => {
       }
       if (testCase.stdoutMatches !== undefined) {
         expect(stdoutBuf).toMatch(new RegExp(testCase.stdoutMatches, 'm'));
+      }
+      if (testCase.stderr !== undefined) {
+        expect(stderrBuf).toBe(resolveText(testCase.stderr, dir, registry));
       }
       for (const fragment of testCase.stderrContains ?? []) {
         expect(stderrBuf).toContain(resolveText(fragment, dir, registry));

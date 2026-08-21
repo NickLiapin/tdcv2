@@ -138,6 +138,8 @@ def test_case(case: dict, tmp_path: Path, capsys) -> None:
 
     if "stdout" in case:
         assert captured.out == case["stdout"]
+    if "stderr" in case:
+        assert captured.err == resolve(case["stderr"], tmp_path, registry)
     for fragment in case.get("stdoutContains", []):
         assert resolve(fragment, tmp_path, registry) in captured.out
     if "stdoutMatches" in case:

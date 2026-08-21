@@ -14,7 +14,8 @@
     "wrote": "relative path -> exact contents the run must have left behind",
     "wroteContains": "relative path -> substrings the file must contain",
     "only": "implementations this case runs in. Absent means all five. Present means the others do not support the feature yet — the case stays here, named and visible, rather than being deleted and forgotten.",
-    "note": "why the case is shaped the way it is, when that is not obvious"
+    "note": "why the case is shaped the way it is, when that is not obvious",
+    "stderr": "exact stderr, when the SHAPE of the message is the point and not only its words — a one-line refusal that a stack trace would also satisfy under stderrContains"
   },
   "configs": {
     "tiny": "<tdc><env count=\"3\" seed=\"cli\" inject=\"${{%}}\"></env><block><line><data>row ${{_count}}</data></line></block></tdc>",
@@ -35,7 +36,10 @@
     "fileRowLink": "<tdc>\n  <env count=\"5\" seed=\"cli-file\" local=\"en\">\n    <sequence name=\"N\"><gen type=\"file\" src=\"people.csv\" column=\"name\" row=\"P\"/></sequence>\n    <sequence name=\"C\"><gen type=\"file\" src=\"people.csv\" column=\"city\" row=\"P\"/></sequence>\n    <sequence name=\"K\"><gen type=\"file\" src=\"people.csv\" column=\"code\" row=\"P\"/></sequence>\n  </env>\n  <block><line><data>${{N}},${{C}},${{K}}</data></line></block>\n</tdc>\n",
     "fileTabbed": "<tdc>\n  <env count=\"4\" seed=\"cli-file\" local=\"en\">\n    <sequence name=\"C\"><gen type=\"file\" src=\"tabbed.tsv\" column=\"city\" delimiter=\"\\t\"/></sequence>\n  </env>\n  <block><line><data>${{C}}</data></line></block>\n</tdc>\n",
     "fileBadColumn": "<tdc>\n  <env count=\"2\" seed=\"cli-file\" local=\"en\">\n    <sequence name=\"N\"><gen type=\"file\" src=\"people.csv\" column=\"nosuchcolumn\"/></sequence>\n  </env>\n  <block><line><data>${{N}}</data></line></block>\n</tdc>\n",
-    "fileNoCycle": "<tdc>\n  <env count=\"5\" seed=\"cli-file\" local=\"en\">\n    <sequence name=\"N\"><gen type=\"file\" src=\"three.txt\" order=\"sequential\" cycle=\"false\"/></sequence>\n  </env>\n  <block><line><data>${{N}}</data></line></block>\n</tdc>\n"
+    "fileNoCycle": "<tdc>\n  <env count=\"5\" seed=\"cli-file\" local=\"en\">\n    <sequence name=\"N\"><gen type=\"file\" src=\"three.txt\" order=\"sequential\" cycle=\"false\"/></sequence>\n  </env>\n  <block><line><data>${{N}}</data></line></block>\n</tdc>\n",
+    "badMode": "<tdc><env count=\"2\" seed=\"w\" local=\"en\" mode=\"nonsense\"><sequence name=\"T\"><gen type=\"increment\" value=\"1\"/></sequence></env><block><line><data>${{T}}</data></line></block></tdc>",
+    "badEngine": "<tdc><env count=\"2\" seed=\"w\" local=\"en\" engine=\"9\"><sequence name=\"T\"><gen type=\"increment\" value=\"1\"/></sequence></env><block><line><data>${{T}}</data></line></block></tdc>",
+    "sequentialVsEngine": "<tdc><env count=\"2\" seed=\"w\" local=\"en\" mode=\"sequential\" engine=\"2\"><sequence name=\"T\"><gen type=\"increment\" value=\"1\"/></sequence></env><block><line><data>${{T}}</data></line></block></tdc>"
   },
   "cases": [
     {
@@ -1007,6 +1011,35 @@
       "argv": ["{dir}/a.tdc"],
       "exit": 1,
       "stderrContains": ["is empty on value row 2"]
+    },
+    {
+      "name": "an invalid mode is one line on stderr, not a stack trace",
+      "note": "Exact stderr on purpose. The message was already right in all five; three of them buried it under a stack trace, because the engine router throws from preflight and that call sat outside the CLI's catch. stderrContains would have passed on the trace, which is exactly how this went unnoticed.",
+      "files": {
+        "bad.tdc": "@badMode"
+      },
+      "argv": ["{dir}/bad.tdc"],
+      "exit": 1,
+      "stderr": "tdcv2: invalid mode \"nonsense\" — expected \"memory\", \"disk\" or \"sequential\"\n"
+    },
+    {
+      "name": "an invalid engine is one line on stderr, not a stack trace",
+      "files": {
+        "bad.tdc": "@badEngine"
+      },
+      "argv": ["{dir}/bad.tdc"],
+      "exit": 1,
+      "stderr": "tdcv2: invalid engine \"9\" — expected \"1\" (in-memory), \"2\" (streaming), or \"3\" (exact-on-disk)\n"
+    },
+    {
+      "name": "engine= against mode=\"sequential\" is one line naming both",
+      "note": "Naming both attributes matters: the alternative was a run that failed telling the config to add the mode it already had.",
+      "files": {
+        "bad.tdc": "@sequentialVsEngine"
+      },
+      "argv": ["{dir}/bad.tdc"],
+      "exit": 1,
+      "stderr": "tdcv2: engine=\"2\" contradicts mode=\"sequential\": rows must be computed in order, and only engine 1 does that. Drop one of the two.\n"
     }
   ],
   "gaps": {

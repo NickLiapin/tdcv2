@@ -19,9 +19,13 @@ from __future__ import annotations
 
 import sys
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 from ..errors import Diagnostic, Severity, TdcError, format_diagnostic, format_diagnostics
 from .args import Options, UsageError, parse
+
+if TYPE_CHECKING:  # `TDC` is imported inside the function it is used in, to keep startup cheap.
+    from ..tdc import TDC
 
 
 def _version() -> str:
@@ -171,6 +175,23 @@ def _generate(options: Options) -> int:
         _fail(str(e))
         return 1
 
+    try:
+        return _produce(data, options)
+    except TdcError as e:
+        _report(e.diagnostics, options.input, e.source)
+        return 1
+    except (OSError, ValueError, RuntimeError) as e:
+        # The same channel, for everything after the config is built. It used to guard only the
+        # WRITE, and the engine router raises from `preflight` — which sits before it — so a
+        # plain mode="nonsense" printed a Python traceback where the reference prints one line.
+        # A reader saw "the program broke" instead of "your config is wrong", with our own file
+        # names as the evidence.
+        _fail(str(e))
+        return 1
+
+
+def _produce(data: TDC, options: Options) -> int:
+    """Everything after the config is built: report, seed note, preflight, write."""
     _report(data.diagnostics, options.input, data.source)
 
     # A run with no seed anywhere gets a random one. Print it, or the output cannot be reproduced —
@@ -190,19 +211,13 @@ def _generate(options: Options) -> int:
         if budget.severity is Severity.ERROR:
             return 1
 
-    try:
-        if options.output is not None:
-            data.write_file(options.output, workers=options.jobs)
-        else:
-            # Straight to stdout in one write per record batch rather than per record: a syscall a
-            # row is most of the cost of a large run that is not being written to a file.
-            sys.stdout.write(str(data))
-    except (OSError, ValueError, RuntimeError) as e:
-        # RuntimeError is the engines' refusal channel (an infeasible uniq, a
-        # forced streaming engine on a whole-column config): one line, exit 1,
-        # never a stack trace — the reference's behavior.
-        _fail(str(e))
-        return 1
+    if options.output is not None:
+        data.write_file(options.output, workers=options.jobs)
+    else:
+        # Straight to stdout in one write per record batch rather than per record: a syscall a
+        # row is most of the cost of a large run that is not being written to a file.
+        sys.stdout.write(str(data))
+
     return 0
 
 
