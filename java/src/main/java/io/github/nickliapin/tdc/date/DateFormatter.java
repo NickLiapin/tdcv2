@@ -58,15 +58,42 @@ public final class DateFormatter {
    * design, so it is not an error.
    */
   public static void checkFormat(String format) {
-    for (int i = 0; i < format.length(); i++) {
-      if (format.charAt(i) != '[') {
+    // The same walk the formatter does, so what is refused here is exactly what would have
+    // been printed as literal text there. A near-miss token used to pass validation and then
+    // print itself: `hh:mm A` gave `hh:00 A`, `YYY` gave `24Y`, and the run said nothing.
+    int i = 0;
+    while (i < format.length()) {
+      if (format.charAt(i) == '[') {
+        int end = format.indexOf(']', i + 1);
+        if (end < 0) {
+          throw new IllegalArgumentException(
+              "date format: unterminated literal \"" + format + "\"");
+        }
+        i = end + 1;
         continue;
       }
-      int end = format.indexOf(']', i + 1);
-      if (end < 0) {
-        throw new IllegalArgumentException("date format: unterminated literal \"" + format + "\"");
+      String named = match(NAMED_FORMATS, format, i);
+      if (named != null) {
+        i += named.length();
+        continue;
       }
-      i = end;
+      String token = match(TOKENS, format, i);
+      if (token != null) {
+        i += token.length();
+        continue;
+      }
+      if (TOKEN_LETTERS.indexOf(format.charAt(i)) >= 0) {
+        // The whole run, so the message names what the writer typed rather than one letter.
+        int end = i;
+        while (end < format.length() && TOKEN_LETTERS.indexOf(format.charAt(end)) >= 0) {
+          end++;
+        }
+        String run = format.substring(i, end);
+        throw new IllegalArgumentException(
+            "date format: \"" + run + "\" is not a token — write it as [" + run
+                + "] if it is meant to be literal text");
+      }
+      i += 1;
     }
   }
 
@@ -111,13 +138,84 @@ public final class DateFormatter {
     return out.toString();
   }
 
-  private static String expand(String format, DateLocale locale) {
-    return switch (format) {
+  /**
+   * The named formats, longest first — the order they have to be tried in.
+   *
+   * <p>{@code LLLL} before {@code LLL} before {@code LL} before {@code L}, and
+   * {@code ISO_TIME} before {@code ISO}, or a longer name is read as a shorter one followed
+   * by letters nobody asked for.
+   */
+  private static final List<String> NAMED_FORMATS =
+      List.of("LLLL", "LLL", "LL", "L", "ISO_TIME", "ISO");
+
+  /**
+   * The letters a TOKEN is spelled with, plus the two a reader arrives with from elsewhere.
+   *
+   * <p>{@code A}/{@code a} is Moment's AM/PM and {@code h} its 12-hour clock; TDC has neither,
+   * and a format carrying them was written by somebody expecting them to work. Letters outside
+   * this set — the {@code o} and {@code f} of {@code of}, the {@code t} and {@code e} of
+   * {@code date:} — are ordinary words, and a word beside a date is a reasonable thing to
+   * write unbracketed.
+   */
+  private static final String TOKEN_LETTERS = "YMDdHhmsSZAaL";
+
+  private static String named(String name, DateLocale locale) {
+    return switch (name) {
       case "ISO" -> "YYYY-MM-DD";
       case "ISO_TIME" -> "YYYY-MM-DDTHH:mm:ss";
-      case "L", "LL", "LLL", "LLLL" -> locale.formats().get(format);
-      default -> format;
+      default -> locale.formats().get(name);
     };
+  }
+
+  /**
+   * Replace every named format with the tokens it stands for, once.
+   *
+   * <p>These are TOKENS, not whole formats: the reference table documents them beside
+   * {@code YYYY} and {@code MM}, and a reader who writes {@code LL [at] HH:mm} is owed the
+   * date the table promises. They used to be matched against the WHOLE format string, so
+   * {@code LL} alone worked and {@code LL HH:mm} printed the literal text {@code LL 00:00} —
+   * the config was accepted, the run succeeded, and the file was wrong.
+   *
+   * <p>Bracketed text is skipped, so {@code [LL]} stays the letters. The result is not
+   * expanded again: a locale's own {@code LL} is written in plain tokens, and a second pass
+   * could only find a name a locale had put there, which would be a loop rather than a
+   * feature.
+   */
+  private static String expand(String format, DateLocale locale) {
+    StringBuilder out = new StringBuilder();
+    int i = 0;
+    while (i < format.length()) {
+      if (format.charAt(i) == '[') {
+        int end = format.indexOf(']', i + 1);
+        if (end < 0) {
+          // Left for the caller to report, so the message is the one it always was.
+          out.append(format, i, format.length());
+          break;
+        }
+        out.append(format, i, end + 1);
+        i = end + 1;
+        continue;
+      }
+      String name = match(NAMED_FORMATS, format, i);
+      if (name != null) {
+        out.append(named(name, locale));
+        i += name.length();
+        continue;
+      }
+      out.append(format.charAt(i));
+      i += 1;
+    }
+    return out.toString();
+  }
+
+  /** The first candidate the format starts with at {@code i}, or null. */
+  private static String match(List<String> candidates, String format, int i) {
+    for (String candidate : candidates) {
+      if (format.startsWith(candidate, i)) {
+        return candidate;
+      }
+    }
+    return null;
   }
 
   /**

@@ -102,11 +102,21 @@ def format_date_time(value: PlainDateTime, fmt: str | None, locale_name: str | N
     return "".join(out)
 
 
+# The letters a TOKEN is spelled with, plus the two a reader arrives with from elsewhere.
+# ``A``/``a`` is Moment's AM/PM and ``h`` its 12-hour clock; TDC has neither, and a format
+# carrying them was written by somebody expecting them to work. Letters outside this set —
+# the ``o`` and ``f`` of ``of``, the ``t`` and ``e`` of ``date:`` — are ordinary words, and
+# a word beside a date is a reasonable thing to write unbracketed.
+_TOKEN_LETTERS = frozenset("YMDdHhmsSZAaL")
+
+
 def check_format(fmt: str) -> None:
     """Whether a format is well formed, without a date to apply it to.
 
-    Only the bracket literals can be malformed. An unknown token is text by design, so it is not
-    an error and there is nothing else to check.
+    The same walk the formatter does, so what is refused here is exactly what would have
+    been printed as literal text there. A near-miss token used to pass validation and then
+    print itself: ``hh:mm A`` gave ``hh:00 A``, ``YYY`` gave ``24Y``, and the run said
+    nothing.
     """
     i = 0
     while i < len(fmt):
@@ -114,18 +124,77 @@ def check_format(fmt: str) -> None:
             end = fmt.find("]", i + 1)
             if end < 0:
                 raise DateError(f'date format: unterminated literal "{fmt}"')
-            i = end
+            i = end + 1
+            continue
+        named = next((n for n in NAMED_FORMATS if fmt.startswith(n, i)), None)
+        if named is not None:
+            i += len(named)
+            continue
+        token = next((tk for tk in TOKENS if fmt.startswith(tk, i)), None)
+        if token is not None:
+            i += len(token)
+            continue
+        if fmt[i] in _TOKEN_LETTERS:
+            # The whole run, so the message names what the writer typed rather than one letter.
+            end = i
+            while end < len(fmt) and fmt[end] in _TOKEN_LETTERS:
+                end += 1
+            run = fmt[i:end]
+            raise DateError(
+                f'date format: "{run}" is not a token — '
+                f"write it as [{run}] if it is meant to be literal text"
+            )
         i += 1
 
 
-def _expand(fmt: str, locale: DateLocale) -> str:
-    if fmt == "ISO":
+# The named formats, longest first — the order they have to be tried in. `LLLL` before
+# `LLL` before `LL` before `L`, and `ISO_TIME` before `ISO`, or a longer name is read as a
+# shorter one followed by letters nobody asked for.
+NAMED_FORMATS = ("LLLL", "LLL", "LL", "L", "ISO_TIME", "ISO")
+
+
+def _named(name: str, locale: DateLocale) -> str:
+    if name == "ISO":
         return "YYYY-MM-DD"
-    if fmt == "ISO_TIME":
+    if name == "ISO_TIME":
         return "YYYY-MM-DDTHH:mm:ss"
-    if fmt in ("L", "LL", "LLL", "LLLL"):
-        return locale.formats[fmt]
-    return fmt
+    return locale.formats[name]
+
+
+def _expand(fmt: str, locale: DateLocale) -> str:
+    """Replace every named format with the tokens it stands for, once.
+
+    These are TOKENS, not whole formats: the reference table documents them beside ``YYYY``
+    and ``MM``, and a reader who writes ``LL [at] HH:mm`` is owed the date the table
+    promises. They used to be matched against the WHOLE format string, so ``LL`` alone
+    worked and ``LL HH:mm`` printed the literal text ``LL 00:00`` — the config was
+    accepted, the run succeeded, and the file was wrong.
+
+    Bracketed text is skipped, so ``[LL]`` stays the letters. The result is not expanded
+    again: a locale's own ``LL`` is written in plain tokens, and a second pass could only
+    find a name a locale had put there, which would be a loop rather than a feature.
+    """
+    out: list[str] = []
+    i = 0
+    while i < len(fmt):
+        if fmt[i] == "[":
+            end = fmt.find("]", i + 1)
+            if end < 0:
+                # Left for the caller to report, so the message is the one it always was.
+                out.append(fmt[i:])
+                break
+            out.append(fmt[i : end + 1])
+            i = end + 1
+            continue
+        for name in NAMED_FORMATS:
+            if fmt.startswith(name, i):
+                out.append(_named(name, locale))
+                i += len(name)
+                break
+        else:
+            out.append(fmt[i])
+            i += 1
+    return "".join(out)
 
 
 def _render(token: str, v: PlainDateTime, locale: DateLocale, after_day: bool = False) -> str:

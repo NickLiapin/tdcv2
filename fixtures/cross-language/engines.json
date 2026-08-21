@@ -1048,6 +1048,18 @@
         ]
       }
     },
+    "dates/a-named-format-composes-with-other-tokens": {
+      "engine2": {
+        "lines": [
+          "LL March 5, 2024 at 00:00 | 2024-03-05T00:00:00 | Tuesday, March 5, 2024 00:00"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "LL March 5, 2024 at 00:00 | 2024-03-05T00:00:00 | Tuesday, March 5, 2024 00:00"
+        ]
+      }
+    },
     "derived-columns/a-formula-over-two-columns": {
       "engine2": {
         "lines": [

@@ -640,10 +640,30 @@ unpadded pairs differ visibly:
 | `Z`    | UTC offset with a colon       | `+00:00`                       |
 | `ZZ`   | UTC offset without a colon    | `+0000`                        |
 | `ISO`  | ISO 8601 date                 | `2024-03-05`                   |
+| `ISO_TIME` | ISO 8601 date and time    | `2024-03-05T09:04:07`          |
 | `L`    | locale-aware short date       | `03/05/2024`                   |
 | `LL`   | locale-aware long date        | `March 5, 2024`                |
 | `LLL`  | locale-aware long date + time | `March 5, 2024 09:04`          |
 | `LLLL` | the same, with the weekday    | `Tuesday, March 5, 2024 09:04` |
+
+> [!NOTE]
+> **These are tokens, and a near-miss is refused**
+>
+> Every name in the table composes with the others. `LL [at] HH:mm` gives
+> `March 5, 2024 at 00:00`; the named forms are not whole-format keywords that only work
+> alone.
+>
+> **A letter that looks like a token but is not one is an error, not text.** `hh:mm A` is
+> Moment's 12-hour clock and AM/PM marker, which TDC does not have; it used to print itself
+> — `hh:00 A` — and the run said nothing. It now fails `check` and names what to do:
+>
+> ```
+> error[TDC152]: date format: "hh" is not a token — write it as [hh] if it is meant to be literal text
+> ```
+>
+> Ordinary words are untouched, because their letters are not token letters: `DD of MM`
+> still gives `05 of 03`. Bracket anything you want kept verbatim, which is the rule
+> [below](#literal-text-with-brackets) anyway.
 
 Month and weekday names, and the four `L` forms, follow the locale — see
 [below](#locale-aware-formats-l-and-ll). Everything else is the same in every

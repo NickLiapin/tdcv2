@@ -456,6 +456,13 @@
       "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"file\" src=\"people.csv\" column=\"phone\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": ["error TDC062 1:101"],
       "dataPath": "data"
+    },
+    {
+      "name": "a-near-miss-date-token-is-refused",
+      "demonstrates": "TDC152",
+      "description": "`hh` and `A` are Moment's 12-hour clock and AM/PM marker; TDC has neither. They used to pass validation and then print themselves — `hh:mm A` gave `hh:00 A` — so the config was accepted and the file was wrong. Letters outside the token alphabet are still ordinary words: `DD of MM` keeps working unbracketed.",
+      "config": "<tdc><env count=\"1\" seed=\"v\"><sequence name=\"D\"><gen type=\"date\" value=\"2024-03-05\" format=\"hh:mm A\"/></sequence></env><block><line><data>${{D}}</data></line></block></tdc>",
+      "expected": ["error TDC152 1:92"]
     }
   ]
 }

@@ -48,20 +48,55 @@ public static class DateFormatter
     /// </remarks>
     public static void CheckFormat(string format)
     {
-        for (int i = 0; i < format.Length; i++)
+        // The same walk the formatter does, so what is refused here is exactly what would have
+        // been printed as literal text there. A near-miss token used to pass validation and
+        // then print itself: `hh:mm A` gave `hh:00 A`, `YYY` gave `24Y`, and the run said
+        // nothing.
+        int i = 0;
+        while (i < format.Length)
         {
-            if (format[i] != '[')
+            if (format[i] == '[')
             {
+                int end = format.IndexOf(']', i + 1);
+                if (end < 0)
+                {
+                    throw new ArgumentException($"date format: unterminated literal \"{format}\"");
+                }
+
+                i = end + 1;
                 continue;
             }
 
-            int end = format.IndexOf(']', i + 1);
-            if (end < 0)
+            string? named = Match(NamedFormats, format, i);
+            if (named is not null)
             {
-                throw new ArgumentException($"date format: unterminated literal \"{format}\"");
+                i += named.Length;
+                continue;
             }
 
-            i = end;
+            string? token = Match(Tokens, format, i);
+            if (token is not null)
+            {
+                i += token.Length;
+                continue;
+            }
+
+            if (TokenLetters.IndexOf(format[i]) >= 0)
+            {
+                // The whole run, so the message names what the writer typed rather than one letter.
+                int end = i;
+                while (end < format.Length && TokenLetters.IndexOf(format[end]) >= 0)
+                {
+                    end++;
+                }
+
+                string run = format.Substring(i, end - i);
+                throw new ArgumentException(
+                    $"date format: \"{run}\" is not a token — write it as [{run}] if it is "
+                    + "meant to be literal text");
+            }
+
+            i += 1;
         }
     }
 
@@ -122,13 +157,97 @@ public static class DateFormatter
         return result.ToString();
     }
 
-    private static string Expand(string format, DateLocale locale) => format switch
+    /// <summary>The named formats, longest first — the order they have to be tried in.</summary>
+    /// <remarks>
+    /// <c>LLLL</c> before <c>LLL</c> before <c>LL</c> before <c>L</c>, and <c>ISO_TIME</c>
+    /// before <c>ISO</c>, or a longer name is read as a shorter one followed by letters nobody
+    /// asked for.
+    /// </remarks>
+    private static readonly string[] NamedFormats =
+        { "LLLL", "LLL", "LL", "L", "ISO_TIME", "ISO" };
+
+    /// <summary>
+    /// The letters a TOKEN is spelled with, plus the two a reader arrives with from elsewhere.
+    /// </summary>
+    /// <remarks>
+    /// <c>A</c>/<c>a</c> is Moment's AM/PM and <c>h</c> its 12-hour clock; TDC has neither, and
+    /// a format carrying them was written by somebody expecting them to work. Letters outside
+    /// this set — the <c>o</c> and <c>f</c> of <c>of</c>, the <c>t</c> and <c>e</c> of
+    /// <c>date:</c> — are ordinary words, and a word beside a date is a reasonable thing to
+    /// write unbracketed.
+    /// </remarks>
+    private const string TokenLetters = "YMDdHhmsSZAaL";
+
+    private static string Named(string name, DateLocale locale) => name switch
     {
         "ISO" => "YYYY-MM-DD",
         "ISO_TIME" => "YYYY-MM-DDTHH:mm:ss",
-        "L" or "LL" or "LLL" or "LLLL" => locale.Formats[format],
-        _ => format,
+        _ => locale.Formats[name],
     };
+
+    /// <summary>Replace every named format with the tokens it stands for, once.</summary>
+    /// <remarks>
+    /// These are TOKENS, not whole formats: the reference table documents them beside
+    /// <c>YYYY</c> and <c>MM</c>, and a reader who writes <c>LL [at] HH:mm</c> is owed the date
+    /// the table promises. They used to be matched against the WHOLE format string, so
+    /// <c>LL</c> alone worked and <c>LL HH:mm</c> printed the literal text <c>LL 00:00</c> —
+    /// the config was accepted, the run succeeded, and the file was wrong.
+    /// <para>
+    /// Bracketed text is skipped, so <c>[LL]</c> stays the letters. The result is not expanded
+    /// again: a locale's own <c>LL</c> is written in plain tokens, and a second pass could only
+    /// find a name a locale had put there, which would be a loop rather than a feature.
+    /// </para>
+    /// </remarks>
+    private static string Expand(string format, DateLocale locale)
+    {
+        var out_ = new System.Text.StringBuilder();
+        int i = 0;
+        while (i < format.Length)
+        {
+            if (format[i] == '[')
+            {
+                int end = format.IndexOf(']', i + 1);
+                if (end < 0)
+                {
+                    // Left for the caller to report, so the message is the one it always was.
+                    out_.Append(format, i, format.Length - i);
+                    break;
+                }
+
+                out_.Append(format, i, end + 1 - i);
+                i = end + 1;
+                continue;
+            }
+
+            string? name = Match(NamedFormats, format, i);
+            if (name is not null)
+            {
+                out_.Append(Named(name, locale));
+                i += name.Length;
+                continue;
+            }
+
+            out_.Append(format[i]);
+            i += 1;
+        }
+
+        return out_.ToString();
+    }
+
+    /// <summary>The first candidate the format starts with at <paramref name="i"/>, or null.</summary>
+    private static string? Match(string[] candidates, string format, int i)
+    {
+        foreach (string candidate in candidates)
+        {
+            if (string.CompareOrdinal(format, i, candidate, 0, candidate.Length) == 0
+                && i + candidate.Length <= format.Length)
+            {
+                return candidate;
+            }
+        }
+
+        return null;
+    }
 
     /// <summary>Renders one token. <paramref name="afterDay"/> selects the month form.</summary>
     /// <remarks>

@@ -36,7 +36,7 @@ export function formatDateTime(
   localeName: string | undefined,
 ): string {
   const locale = resolveDateLocale(localeName);
-  const expanded = expandLocalizedFormat(format ?? 'L', locale.formats);
+  const expanded = expandNamed(format ?? 'L', locale.formats);
   let out = '';
   // Whether a day-of-month token has already been rendered. `MMMM` reads it to
   // choose between the two month forms — see `renderToken`.
@@ -65,25 +65,112 @@ export function formatDateTime(
   return out;
 }
 
-export function validateDateFormat(format: string): void {
-  for (let i = 0; i < format.length; i++) {
-    if (format[i] !== '[') continue;
-    const end = format.indexOf(']', i + 1);
-    if (end < 0) throw new DateRuntimeError(`date format: unterminated literal "${format}"`);
-    i = end;
-  }
-}
-
-function expandLocalizedFormat(
+/**
+ * Replace every named format with the tokens it stands for, once.
+ *
+ * Bracketed text is skipped, so `[LL]` stays the literal letters. The result is NOT
+ * expanded again: a locale's own `LL` is written in plain tokens, and a second pass could
+ * only find a name a locale had put there — which would be a loop, not a feature.
+ */
+function expandNamed(
   format: string,
   formats: Readonly<Record<'L' | 'LL' | 'LLL' | 'LLLL', string>>,
 ): string {
-  if (format === 'ISO') return 'YYYY-MM-DD';
-  if (format === 'ISO_TIME') return 'YYYY-MM-DDTHH:mm:ss';
-  if (format === 'L' || format === 'LL' || format === 'LLL' || format === 'LLLL') {
-    return formats[format];
+  let out = '';
+  for (let i = 0; i < format.length; ) {
+    if (format[i] === '[') {
+      const end = format.indexOf(']', i + 1);
+      if (end < 0) {
+        // Left for the scanner to report, so the message names the same thing it always did.
+        out += format.slice(i);
+        break;
+      }
+      out += format.slice(i, end + 1);
+      i = end + 1;
+      continue;
+    }
+    const name = NAMED_FORMATS.find((candidate) => format.startsWith(candidate, i));
+    if (name !== undefined) {
+      out += namedFormat(name, formats);
+      i += name.length;
+      continue;
+    }
+    out += format[i] ?? '';
+    i += 1;
   }
-  return format;
+  return out;
+}
+
+/**
+ * The letters a TOKEN is spelled with, plus the two a reader arrives with from elsewhere.
+ *
+ * `A`/`a` is Moment's AM/PM and `h` its 12-hour clock; TDC has neither, and a format
+ * carrying them was written by somebody expecting them to work. Letters outside this set
+ * — the `o` and `f` of `of`, the `t` and `e` of `date:` — are ordinary words, and a word
+ * beside a date is a reasonable thing to write unbracketed.
+ */
+const TOKEN_LETTERS = new Set(Array.from('YMDdHhmsSZAaL'));
+
+export function validateDateFormat(format: string): void {
+  // Same walk the formatter does, so what is refused here is exactly what would have been
+  // printed as literal text there. A near-miss token used to pass validation and then
+  // print itself: `hh:mm A` gave `hh:00 A`, `YYY` gave `24Y`, and the run said nothing.
+  for (let i = 0; i < format.length; ) {
+    if (format[i] === '[') {
+      const end = format.indexOf(']', i + 1);
+      if (end < 0) throw new DateRuntimeError(`date format: unterminated literal "${format}"`);
+      i = end + 1;
+      continue;
+    }
+    const named = NAMED_FORMATS.find((candidate) => format.startsWith(candidate, i));
+    if (named !== undefined) {
+      i += named.length;
+      continue;
+    }
+    const token = TOKENS.find((candidate) => format.startsWith(candidate, i));
+    if (token !== undefined) {
+      i += token.length;
+      continue;
+    }
+    if (TOKEN_LETTERS.has(format[i] ?? '')) {
+      // The whole run, so the message names what the writer typed rather than one letter.
+      let end = i;
+      while (end < format.length && TOKEN_LETTERS.has(format[end] ?? '')) end += 1;
+      throw new DateRuntimeError(
+        `date format: "${format.slice(i, end)}" is not a token — ` +
+          `write it as [${format.slice(i, end)}] if it is meant to be literal text`,
+      );
+    }
+    i += 1;
+  }
+}
+
+/**
+ * The named formats, longest first — the order the scanner has to try them in.
+ *
+ * `LLLL` before `LLL` before `LL` before `L`, and `ISO_TIME` before `ISO`, or a longer
+ * name is read as a shorter one followed by letters nobody asked for.
+ */
+const NAMED_FORMATS = ['LLLL', 'LLL', 'LL', 'L', 'ISO_TIME', 'ISO'] as const;
+
+type NamedFormat = (typeof NAMED_FORMATS)[number];
+
+/**
+ * What a named format stands for.
+ *
+ * These are TOKENS, not whole formats. The reference table documents them beside `YYYY`
+ * and `MM`, and a reader who writes `LL [at] HH:mm` is owed the date the table promises.
+ * They used to be matched against the WHOLE format string, so `LL` alone worked and
+ * `LL HH:mm` printed the literal text `LL 00:00` — the config was accepted, the run
+ * succeeded, and the file was wrong. That is the failure this project exists to refuse.
+ */
+function namedFormat(
+  name: NamedFormat,
+  formats: Readonly<Record<'L' | 'LL' | 'LLL' | 'LLLL', string>>,
+): string {
+  if (name === 'ISO') return 'YYYY-MM-DD';
+  if (name === 'ISO_TIME') return 'YYYY-MM-DDTHH:mm:ss';
+  return formats[name];
 }
 
 /**

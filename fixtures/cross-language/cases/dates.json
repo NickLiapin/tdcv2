@@ -205,6 +205,14 @@
         "18 أكتوبر 2026|18. října 2026|18. Oktober 2026|18 Οκτωβρίου 2026|October 18, 2026|18 de octubre de 2026|18. lokakuuta 2026|18 octobre 2026|2026. október 18.|18 Oktober 2026|18 ottobre 2026|2026年10月18日|2026년 10월 18일|18 अक्तूबर 2026|18 oktober 2026|18 października 2026|18 de outubro de 2026|18 октября 2026 г.|18 oktober 2026|18 ตุลาคม 2026|18 Ekim 2026|18 жовтня 2026|ngày 18 tháng 10 năm 2026|2026年10月18日"
       ],
       "now": "2026-04-23T12:00:00Z"
+    },
+    {
+      "name": "a-named-format-composes-with-other-tokens",
+      "description": "L, LL, LLL, LLLL, ISO and ISO_TIME are TOKENS, documented beside YYYY and MM, and a reader who writes `LL [at] HH:mm` is owed the date the table promises. They used to be matched against the WHOLE format string: `LL` alone worked and `LL HH:mm` printed the literal text `LL 00:00`. The config was accepted, the run succeeded, and the file was wrong — which is the one failure this project exists to refuse. Bracketed text stays literal, so `[LL]` is still the letters.",
+      "config": "<tdc><env count=\"1\" seed=\"v\" local=\"en\"><sequence name=\"D\"><gen type=\"date\" value=\"2024-03-05\" format=\"[LL] LL [at] HH:mm\"/></sequence><sequence name=\"I\"><gen type=\"date\" value=\"2024-03-05\" format=\"ISO_TIME\"/></sequence><sequence name=\"R\"><gen type=\"date\" value=\"2024-03-05\" format=\"LLLL\"/></sequence></env><block><line><data>${{D}} | ${{I}} | ${{R}}</data></line></block></tdc>",
+      "expected": [
+        "LL March 5, 2024 at 00:00 | 2024-03-05T00:00:00 | Tuesday, March 5, 2024 00:00"
+      ]
     }
   ]
 }

@@ -609,10 +609,29 @@ Todos los tokens sobre un mismo instante fijo — **martes 5 de marzo de 2024,
 | `Z`    | desplazamiento UTC con dos puntos | `+00:00`                       |
 | `ZZ`   | desplazamiento UTC sin dos puntos | `+0000`                        |
 | `ISO`  | fecha en formato ISO 8601         | `2024-03-05`                   |
+| `ISO_TIME` | fecha y hora en ISO 8601      | `2024-03-05T09:04:07`          |
 | `L`    | fecha corta según el locale       | `03/05/2024`                   |
 | `LL`   | fecha larga según el locale       | `March 5, 2024`                |
 | `LLL`  | fecha larga con la hora           | `March 5, 2024 09:04`          |
 | `LLLL` | la misma, con el día de la semana | `Tuesday, March 5, 2024 09:04` |
+
+:::note[Son tokens, y un casi-token se rechaza]
+Cada nombre de la tabla se combina con los demás. `LL [at] HH:mm` da
+`March 5, 2024 at 00:00`; las formas con nombre no son palabras clave que solo funcionen
+solas.
+
+**Una letra que parece un token sin serlo es un error, no texto.** `hh:mm A` es el reloj
+de 12 horas y la marca AM/PM de Moment, que TDC no tiene; antes se imprimían a sí mismos
+— `hh:00 A` — y la ejecución no decía nada. Ahora no pasa `check` y dice qué hacer:
+
+```
+error[TDC152]: date format: "hh" is not a token — write it as [hh] if it is meant to be literal text
+```
+
+Las palabras corrientes no se ven afectadas, porque sus letras no son letras de token:
+`DD of MM` sigue dando `05 of 03`. Ponga entre corchetes lo que quiera conservar literal,
+que es la regla [de abajo](#texto-literal-entre-corchetes) de todos modos.
+:::
 
 Los nombres de mes y de día, y las cuatro formas de `L`, siguen el locale — ver
 [abajo](#formatos-dependientes-del-locale-l-y-ll). Todo lo demás es igual en cualquier idioma.

@@ -21,12 +21,28 @@ const TOKENS: [&str; 19] = [
     "D", "H", "m", "s", "Z",
 ];
 
+/// The named formats, longest first — the order they have to be tried in. `LLLL` before
+/// `LLL` before `LL` before `L`, and `ISO_TIME` before `ISO`, or a longer name is read as
+/// a shorter one followed by letters nobody asked for.
+const NAMED_FORMATS: [&str; 6] = ["LLLL", "LLL", "LL", "L", "ISO_TIME", "ISO"];
+
+/// The letters a TOKEN is spelled with, plus the two a reader arrives with from elsewhere.
+///
+/// `A`/`a` is Moment's AM/PM and `h` its 12-hour clock; TDC has neither, and a format
+/// carrying them was written by somebody expecting them to work. Letters outside this set
+/// — the `o` and `f` of `of`, the `t` and `e` of `date:` — are ordinary words, and a word
+/// beside a date is a reasonable thing to write unbracketed.
+const TOKEN_LETTERS: [char; 13] = ['Y', 'M', 'D', 'd', 'H', 'h', 'm', 's', 'S', 'Z', 'A', 'a', 'L'];
+
 pub fn locale(name: Option<&str>) -> &'static DateLocale {
     locales::resolve(name)
 }
 
 /// Whether a format string is well formed, without a date to apply it to.
 pub fn check_format(format: &str) -> EngineResult<()> {
+    // The same walk the formatter does, so what is refused here is exactly what would have
+    // been printed as literal text there. A near-miss token used to pass validation and then
+    // print itself: `hh:mm A` gave `hh:00 A`, `YYY` gave `24Y`, and the run said nothing.
     let chars: Vec<char> = format.chars().collect();
     let mut i = 0;
     while i < chars.len() {
@@ -35,9 +51,29 @@ pub fn check_format(format: &str) -> EngineResult<()> {
                 Some(end) => i += end + 2,
                 None => return invalid(&format!("date format: unterminated literal \"{format}\"")),
             }
-        } else {
-            i += 1;
+            continue;
         }
+        let rest: String = chars[i..].iter().collect();
+        if let Some(name) = NAMED_FORMATS.iter().find(|n| rest.starts_with(**n)) {
+            i += name.chars().count();
+            continue;
+        }
+        if let Some(token) = TOKENS.iter().find(|tk| rest.starts_with(**tk)) {
+            i += token.chars().count();
+            continue;
+        }
+        if TOKEN_LETTERS.contains(&chars[i]) {
+            // The whole run, so the message names what the writer typed rather than one letter.
+            let mut end = i;
+            while end < chars.len() && TOKEN_LETTERS.contains(&chars[end]) {
+                end += 1;
+            }
+            let run: String = chars[i..end].iter().collect();
+            return invalid(&format!(
+                "date format: \"{run}\" is not a token — write it as [{run}] if it is meant to be literal text"
+            ));
+        }
+        i += 1;
     }
     Ok(())
 }
@@ -94,16 +130,61 @@ fn starts_at(chars: &[char], at: usize, token: &str) -> bool {
         .all(|(i, c)| chars.get(at + i) == Some(&c))
 }
 
-fn expand(pattern: &str, locale: &DateLocale) -> String {
-    match pattern {
+/// What one named format stands for.
+fn named(name: &str, locale: &DateLocale) -> String {
+    match name {
         "ISO" => "YYYY-MM-DD".to_string(),
         "ISO_TIME" => "YYYY-MM-DDTHH:mm:ss".to_string(),
         "L" => locale.formats[0].to_string(),
         "LL" => locale.formats[1].to_string(),
         "LLL" => locale.formats[2].to_string(),
-        "LLLL" => locale.formats[3].to_string(),
-        other => other.to_string(),
+        _ => locale.formats[3].to_string(),
     }
+}
+
+/// Replace every named format with the tokens it stands for, once.
+///
+/// These are TOKENS, not whole formats: the reference table documents them beside `YYYY`
+/// and `MM`, and a reader who writes `LL [at] HH:mm` is owed the date the table promises.
+/// They used to be matched against the WHOLE format string, so `LL` alone worked and
+/// `LL HH:mm` printed the literal text `LL 00:00` — the config was accepted, the run
+/// succeeded, and the file was wrong.
+///
+/// Bracketed text is skipped, so `[LL]` stays the letters. The result is not expanded
+/// again: a locale's own `LL` is written in plain tokens, and a second pass could only
+/// find a name a locale had put there, which would be a loop rather than a feature.
+fn expand(pattern: &str, locale: &DateLocale) -> String {
+    let chars: Vec<char> = pattern.chars().collect();
+    let mut out = String::new();
+    let mut i = 0;
+    while i < chars.len() {
+        if chars[i] == '[' {
+            match chars[i + 1..].iter().position(|c| *c == ']') {
+                Some(end) => {
+                    out.extend(&chars[i..=i + end + 1]);
+                    i += end + 2;
+                }
+                None => {
+                    // Left for the caller to report, so the message is the one it always was.
+                    out.extend(&chars[i..]);
+                    break;
+                }
+            }
+            continue;
+        }
+        let rest: String = chars[i..].iter().collect();
+        match NAMED_FORMATS.iter().find(|name| rest.starts_with(**name)) {
+            Some(name) => {
+                out.push_str(&named(name, locale));
+                i += name.chars().count();
+            }
+            None => {
+                out.push(chars[i]);
+                i += 1;
+            }
+        }
+    }
+    out
 }
 
 /// `after_day` — whether a day-of-month token has already been rendered.
