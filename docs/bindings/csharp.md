@@ -116,6 +116,12 @@ that a misspelled address is caught when it runs, so the message it throws names
 the nearest real address. [One value at a time](../core-concepts/quick-api.md#top) is
 the whole surface.
 
+## The same names in every language
+
+The object a run hands back answers to the same names in all five packages, spelled
+each language's own way. [The table is here](same-names.md#top), and the test suites
+check it rather than take it on trust.
+
 ## Requirements
 
 .NET **6.0** or newer. See the [C# README](https://github.com/NickLiapin/tdcv2/tree/main/csharp)

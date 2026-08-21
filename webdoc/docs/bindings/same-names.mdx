@@ -1,0 +1,64 @@
+---
+title: The same names everywhere
+sidebar_position: 6
+---
+
+# The same names everywhere
+
+The five packages are one library with five front ends, and the object a finished run
+hands back answers to the **same names in all of them** — spelled each language's own
+way, meaning exactly the same thing.
+
+This matters more here than a local habit would. Nobody reads this library on its own:
+it is read beside the generator, and the example you are copying was as likely written
+in another language as in yours. A reader crossing between them should not have to
+translate the method names on the way.
+
+| What it gives you            | TypeScript    | Python         | Java          | C#            | Rust           |
+| ---------------------------- | ------------- | -------------- | ------------- | ------------- | -------------- |
+| The whole run as text        | `toString()`  | `to_string()`  | `toString()`  | `ToString()`  | `to_string()`  |
+| Every record, materialised   | `toArray()`   | `to_array()`   | `toArray()`   | `ToArray()`   | `to_array()`   |
+| Every record, one at a time  | `iterate()`   | `iterate()`    | `iterate()`   | `Iterate()`   | `iterate()`    |
+| One record by position       | `getAt(i)`    | `get_at(i)`    | `getAt(i)`    | `GetAt(i)`    | `get_at(i)`    |
+| The run as columns, not rows | `toColumns()` | `to_columns()` | `toColumns()` | `ToColumns()` | `to_columns()` |
+| Written to a file            | `writeFile()` | `write_file()` | `writeFile()` | `WriteFile()` | `write_file()` |
+| The seed actually used       | `seedInfo()`  | `seed_info()`  | `seedInfo()`  | `SeedInfo()`  | `seed_info()`  |
+| What the run will cost       | `preflight()` | `preflight()`  | `preflight()` | `Preflight()` | `preflight()`  |
+| How many records it produces | `count()`     | `count()`      | `count()`     | `Count()`     | `count()`      |
+
+## Your language's own spelling still works
+
+Each package grew its own names before this table existed, and every one of them keeps
+working. Nothing here is deprecated, and nothing was renamed — a published library does
+not get to break its callers to tidy its own spelling.
+
+| Also valid       | Where      |
+| ---------------- | ---------- |
+| `str(tdc)`       | Python     |
+| `len(tdc)`       | Python     |
+| `tdc[3]`         | Python     |
+| `for row in tdc` | Python     |
+| `to_list`        | Python     |
+| `toList`         | Java       |
+| `Rows`           | C#         |
+| `this[int]`      | C#         |
+| `rows`           | Rust       |
+| `row`            | Rust       |
+| `seed`           | Rust       |
+| `Display`        | Rust       |
+| `effectiveCount` | TypeScript |
+
+So `data.to_list()` and `data.to_array()` are the same call in Python, and you should
+write whichever reads better where you are. The table above is the one you can rely on
+being there in **all five**.
+
+:::note[This is checked, not promised]
+`fixtures/cross-language/api.json` holds the table, and all five test suites read it.
+TypeScript, Python, Java and C# ask by reflection whether the member exists; Rust has no
+reflection, so its test names each one in code — the calls do not compile if a name goes
+missing — and compares its list against the same file.
+
+It is guarded because it drifted. Before the guard existed, Python had no `to_string`,
+Java no `toArray`, C# neither `GetAt` nor `Iterate`, Rust neither `to_array` nor
+`get_at`, and this page's ancestors said the names matched anyway.
+:::

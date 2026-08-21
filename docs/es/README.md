@@ -113,3 +113,4 @@
 - [Java](./bindings/java.md#top)
 - [C#](./bindings/csharp.md#top)
 - [Rust](./bindings/rust.md#top)
+- [Los mismos nombres en todas partes](./bindings/same-names.md#top)

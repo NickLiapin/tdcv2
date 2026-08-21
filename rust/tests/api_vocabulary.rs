@@ -18,7 +18,7 @@ use tdcv2::json::Value;
 use tdcv2::Tdc;
 
 /// Every `rust` spelling this test actually calls, in fixture order.
-const CALLED: [&str; 8] = [
+const CALLED: [&str; 9] = [
     "to_string",
     "to_array",
     "iterate",
@@ -27,6 +27,7 @@ const CALLED: [&str; 8] = [
     "write_file",
     "seed_info",
     "preflight",
+    "count",
 ];
 
 #[test]
@@ -71,4 +72,5 @@ fn every_name_in_the_list_is_a_real_method() {
     let _ = std::fs::remove_file(&target);
     assert!(!tdc.seed_info().value.is_empty());
     let _ = tdc.preflight(true);
+    assert_eq!(tdc.count(), 3);
 }

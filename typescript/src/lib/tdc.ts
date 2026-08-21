@@ -352,6 +352,18 @@ export class TDC {
     return this.resolveCount();
   }
 
+  /**
+   * How many records this run produces — the name the other four use.
+   *
+   * The same number `effectiveCount()` gives. Four implementations call it `count`
+   * and the reference called it something else, which is the wrong way round for a
+   * library read beside examples written in other languages. `effectiveCount()`
+   * keeps working and is not deprecated.
+   */
+  public count(): number {
+    return this.resolveCount();
+  }
+
   /** Whether this run uses Engine 2 (streaming) — required for parallel generation. */
   public usesStreamEngine(): boolean {
     return this.isStreamEngine();

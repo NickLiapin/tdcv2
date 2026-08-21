@@ -38,9 +38,13 @@ data.write_file("users.csv")
 
 The whole output is `str(data)`, the rows are what you iterate over, one row is
 `data[3]`, and `len(data)` is how many there are — the object behaves like the Python
-you already write. The rest of the [TypeScript API](typescript.mdx) is there under
-snake_case names: `write_file`, `to_list`, `preflight`, `seed_info`, `uses_http`,
-`diagnostics`, `count`, `engine`.
+you already write.
+
+Beside those, the package answers to the names every implementation shares —
+`to_string`, `to_array`, `iterate`, `get_at`, `to_columns`, `write_file`, `seed_info`,
+`preflight` — so an example written in another language reads here unchanged. See
+[the same names everywhere](same-names.mdx). Python's own `to_list`, `rows`, `uses_http`,
+`diagnostics`, `count` and `engine` are unaffected and not deprecated.
 
 ## One value, without a config
 

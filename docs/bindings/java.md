@@ -63,7 +63,9 @@ for (var row : data.iterate()) {
 }
 ```
 
-The method names mirror the [TypeScript API](typescript.md#top).
+The method names mirror the [TypeScript API](typescript.md#top) — see
+[the same names everywhere](same-names.md#top) for the table, which the test suites check
+rather than merely assert.
 
 ## One value, without a config
 

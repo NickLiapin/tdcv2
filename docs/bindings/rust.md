@@ -4,7 +4,7 @@
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/bindings/rust)**
 
-← Previous: [C#](./csharp.md#top) · **[Contents](../README.md#top)**
+← Previous: [C#](./csharp.md#top) · **[Contents](../README.md#top)** · Next: [The same names everywhere](./same-names.md#top) →
 
 ---
 
@@ -132,12 +132,18 @@ is missing, the command says so and prints the install line for the platform it 
 Everything else — generating data, reading local packs, every output format — works
 without it.
 
+## The same names in every language
+
+The object a run hands back answers to the same names in all five packages, spelled
+each language's own way. [The table is here](same-names.md#top), and the test suites
+check it rather than take it on trust.
+
 ## Requirements
 
 Rust **1.74** or newer.
 
 ---
 
-← Previous: [C#](./csharp.md#top) · **[Contents](../README.md#top)**
+← Previous: [C#](./csharp.md#top) · **[Contents](../README.md#top)** · Next: [The same names everywhere](./same-names.md#top) →
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/bindings/rust)**

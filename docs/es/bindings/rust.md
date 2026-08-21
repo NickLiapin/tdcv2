@@ -4,7 +4,7 @@
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/bindings/rust)**
 
-← Anterior: [C#](./csharp.md#top) · **[Contenido](../README.md#top)**
+← Anterior: [C#](./csharp.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Los mismos nombres en todas partes](./same-names.md#top) →
 
 ---
 
@@ -133,12 +133,18 @@ hijo; si no está, el comando lo dice e imprime la línea de instalación para l
 en la que corre. Todo lo demás — generar datos, leer packs locales, cualquier formato de
 salida — funciona sin él.
 
+## Los mismos nombres en todos los lenguajes
+
+El objeto que devuelve una ejecución terminada responde a los mismos nombres en los
+cinco paquetes, escritos según la costumbre de cada lenguaje. [La tabla está aquí](same-names.md#top),
+y los conjuntos de pruebas la comprueban en vez de darla por buena.
+
 ## Requisitos
 
 Rust **1.74** o superior.
 
 ---
 
-← Anterior: [C#](./csharp.md#top) · **[Contenido](../README.md#top)**
+← Anterior: [C#](./csharp.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Los mismos nombres en todas partes](./same-names.md#top) →
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/bindings/rust)**

@@ -218,6 +218,12 @@ Cada dirección incluida es una propiedad real del tipo, así que un error de es
 un error de compilación y el autocompletado funciona sin ningún plugin. Toda la
 superficie está en [Un valor a la vez](../core-concepts/quick-api.md#top).
 
+## Los mismos nombres en todos los lenguajes
+
+El objeto que devuelve una ejecución terminada responde a los mismos nombres en los
+cinco paquetes, escritos según la costumbre de cada lenguaje. [La tabla está aquí](same-names.md#top),
+y los conjuntos de pruebas la comprueban en vez de darla por buena.
+
 ## Vea también
 
 - **[CLI](../reference/cli.md#top)** — el mismo motor desde la línea de comandos.

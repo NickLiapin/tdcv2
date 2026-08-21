@@ -27,7 +27,10 @@ def test_the_shared_name_exists(member: dict) -> None:
     tdc = TDC(config_string=DOC["config"])
     name = member["python"]
     assert hasattr(tdc, name), f'{name} — {member["concept"]}'
-    assert callable(getattr(tdc, name))
+    # A property is as good as a method here: the vocabulary is about the NAME a reader
+    # reaches for, and `count` is Pythonic as a property while `to_array` is not.
+    on_class = getattr(type(tdc), name, None)
+    assert callable(getattr(tdc, name)) or isinstance(on_class, property)
 
 
 def test_the_vocabulary_is_not_empty() -> None:

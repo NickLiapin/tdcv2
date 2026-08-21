@@ -15,6 +15,7 @@
 - [Java](./java.md#top)
 - [C#](./csharp.md#top)
 - [Rust](./rust.md#top)
+- [Одни и те же имена везде](./same-names.md#top)
 
 ---
 

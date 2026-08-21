@@ -63,7 +63,9 @@ for (var row : data.iterate()) {
 }
 ```
 
-Los nombres de los métodos son un espejo de la [API de TypeScript](typescript.md#top).
+Los nombres de los métodos son un espejo de la [API de TypeScript](typescript.md#top): la
+tabla está en [los mismos nombres en todas partes](same-names.md#top), y los conjuntos de
+pruebas la comprueban en vez de limitarse a afirmarlo.
 
 ## Un valor sin configuración
 

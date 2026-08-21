@@ -37,9 +37,13 @@ data.write_file("users.csv")
 ```
 
 Весь вывод — это `str(data)`, строки — то, по чему идёт цикл, одна строка — `data[3]`,
-а сколько их всего — `len(data)`: объект ведёт себя как обычный питоновский. Остальное
-из [TypeScript API](typescript.mdx) есть под snake_case-именами: `write_file`,
-`to_list`, `preflight`, `seed_info`, `uses_http`, `diagnostics`, `count`, `engine`.
+а сколько их всего — `len(data)`: объект ведёт себя как обычный питоновский.
+
+Рядом с этим пакет отзывается на имена, общие для всех реализаций — `to_string`,
+`to_array`, `iterate`, `get_at`, `to_columns`, `write_file`, `seed_info`, `preflight`, —
+так что пример, написанный на другом языке, читается здесь без перевода. См.
+[одни и те же имена везде](same-names.mdx). Собственные питоновские `to_list`, `rows`,
+`uses_http`, `diagnostics`, `count` и `engine` не затронуты и не устарели.
 
 Разбираться в диагностике удобно через [CLI](../reference/cli.mdx): `tdcv2 check`
 печатает те же ошибки с подсветкой места в конфиге.

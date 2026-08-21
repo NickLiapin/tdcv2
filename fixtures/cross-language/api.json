@@ -36,7 +36,8 @@
       "rust": "iterate",
       "also": {
         "csharp": "Rows",
-        "rust": "rows"
+        "rust": "rows",
+        "python": "for row in tdc"
       }
     },
     {
@@ -48,7 +49,8 @@
       "rust": "get_at",
       "also": {
         "csharp": "this[int]",
-        "rust": "row"
+        "rust": "row",
+        "python": "tdc[3]"
       }
     },
     {
@@ -85,6 +87,18 @@
       "java": "preflight",
       "csharp": "Preflight",
       "rust": "preflight"
+    },
+    {
+      "concept": "how many records the run produces",
+      "typescript": "count",
+      "python": "count",
+      "java": "count",
+      "csharp": "Count",
+      "rust": "count",
+      "also": {
+        "typescript": "effectiveCount",
+        "python": "len(tdc)"
+      }
     }
   ]
 }

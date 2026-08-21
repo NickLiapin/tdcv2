@@ -44,9 +44,14 @@ data.write_file("users.csv")
 
 La salida completa es `str(data)`, las filas son lo que se recorre, una fila es
 `data[3]` y cuántas hay es `len(data)`: el objeto se comporta como el Python que ya
-escribe. El resto de la [API de TypeScript](typescript.md#top) está bajo nombres en
-snake_case: `write_file`, `to_list`, `preflight`, `seed_info`, `uses_http`,
-`diagnostics`, `count`, `engine`.
+escribe.
+
+Junto a eso, el paquete responde a los nombres que comparten todas las implementaciones
+— `to_string`, `to_array`, `iterate`, `get_at`, `to_columns`, `write_file`, `seed_info`,
+`preflight` — de modo que un ejemplo escrito en otro lenguaje se lee aquí sin traducir.
+Véase [los mismos nombres en todas partes](same-names.md#top). Los propios `to_list`,
+`rows`, `uses_http`, `diagnostics`, `count` y `engine` de Python no se ven afectados ni
+quedan obsoletos.
 
 Para leer los diagnósticos conviene el [CLI](../reference/cli.md#top): `tdcv2 check`
 imprime los mismos errores señalando el lugar exacto en la configuración.

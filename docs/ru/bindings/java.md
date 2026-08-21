@@ -62,7 +62,9 @@ for (var row : data.iterate()) {
 }
 ```
 
-Имена методов повторяют [TypeScript API](typescript.md#top).
+Имена методов повторяют [TypeScript API](typescript.md#top) — таблица приведена в
+[одни и те же имена везде](same-names.md#top), и наборы тестов её проверяют, а не просто
+утверждают.
 
 ## Одно значение без конфига
 

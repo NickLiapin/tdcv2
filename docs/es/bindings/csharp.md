@@ -116,6 +116,12 @@ mal escrita se detecta al ejecutar, así que el mensaje que lanza nombra la dire
 más cercana. Toda la superficie está en [Un valor a la
 vez](../core-concepts/quick-api.md#top).
 
+## Los mismos nombres en todos los lenguajes
+
+El objeto que devuelve una ejecución terminada responde a los mismos nombres en los
+cinco paquetes, escritos según la costumbre de cada lenguaje. [La tabla está aquí](same-names.md#top),
+y los conjuntos de pruebas la comprueban en vez de darla por buena.
+
 ## Requisitos
 
 .NET **6.0** o posterior. En el [README de C#](https://github.com/NickLiapin/tdcv2/tree/main/csharp)
