@@ -1996,7 +1996,7 @@ public static class MemoryEngine
     /// PROOF, never a guess: no config that could have worked is turned away.
     /// </para>
     /// </remarks>
-    private static void CheckEnvUniqCapacity(Config config, int count)
+    internal static void CheckEnvUniqCapacity(Config config, int count)
     {
         var byName = new Dictionary<string, SequenceSpec>(StringComparer.Ordinal);
         foreach (SequenceSpec spec in config.Sequences)

@@ -1161,7 +1161,7 @@ public final class MemoryEngine {
    * this says nothing and the post-build check does its work as before. A refusal here is a PROOF,
    * never a guess: no config that could have worked is turned away.
    */
-  private static void checkEnvUniqCapacity(Config config, int count) {
+  public static void checkEnvUniqCapacity(Config config, int count) {
     Map<String, Config.SequenceSpec> byName = new LinkedHashMap<>();
     for (Config.SequenceSpec spec : config.sequences()) {
       byName.put(spec.name(), spec);

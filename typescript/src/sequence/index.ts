@@ -2,6 +2,7 @@
  * Sequence module public surface.
  */
 
+export { checkEnvUniqCapacity } from './uniq-capacity.js';
 export { buildSequences, runGenerator } from './build.js';
 export type { SequenceBuildOptions } from './build.js';
 export { resolveGenValueAt } from './gen-resolve.js';

@@ -687,6 +687,13 @@ public final class TDC {
   }
 
   private RowSource build() {
+    // Can the uniq groups cover count at all? Asked before an engine is chosen,
+    // because the answer does not depend on which one runs. It used to be asked
+    // inside the in-memory builder alone, so a config routed anywhere else got no
+    // answer — an infeasible run went ahead instead of being turned away in
+    // milliseconds. The check reads the SPECS; no column is built to answer it.
+    io.github.nickliapin.tdc.engine.MemoryEngine.checkEnvUniqCapacity(config, config.count());
+
     int engine = engine();
     if (engine == 1) {
       return MemoryEngine.build(config, packs, nowMillis, baseDir);

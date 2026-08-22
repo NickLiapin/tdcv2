@@ -69,6 +69,12 @@ def render(config: Config, packs: DataPacks, now_millis: int, base_dir: Path | N
 
 def build(config: Config, packs: DataPacks, now_millis: int, base_dir: Path | None = None):
     """The run as rows, on whichever engine the router picked."""
+    # Can the uniq groups cover `count` at all? Asked before an engine is chosen,
+    # because the answer does not depend on which one runs. It used to be asked
+    # inside the in-memory builder alone, so a config routed anywhere else got no
+    # answer — an infeasible run went ahead and filled the disk instead of being
+    # turned away in milliseconds. The check reads the SPECS; no column is built.
+    memory.check_env_uniq_capacity(config, config.count)
     engine = router.resolve(config, packs)
     if engine == 1:
         return memory.build(config, packs, now_millis, base_dir)

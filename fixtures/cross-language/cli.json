@@ -39,7 +39,8 @@
     "fileNoCycle": "<tdc>\n  <env count=\"5\" seed=\"cli-file\" local=\"en\">\n    <sequence name=\"N\"><gen type=\"file\" src=\"three.txt\" order=\"sequential\" cycle=\"false\"/></sequence>\n  </env>\n  <block><line><data>${{N}}</data></line></block>\n</tdc>\n",
     "badMode": "<tdc><env count=\"2\" seed=\"w\" local=\"en\" mode=\"nonsense\"><sequence name=\"T\"><gen type=\"increment\" value=\"1\"/></sequence></env><block><line><data>${{T}}</data></line></block></tdc>",
     "badEngine": "<tdc><env count=\"2\" seed=\"w\" local=\"en\" engine=\"9\"><sequence name=\"T\"><gen type=\"increment\" value=\"1\"/></sequence></env><block><line><data>${{T}}</data></line></block></tdc>",
-    "sequentialVsEngine": "<tdc><env count=\"2\" seed=\"w\" local=\"en\" mode=\"sequential\" engine=\"2\"><sequence name=\"T\"><gen type=\"increment\" value=\"1\"/></sequence></env><block><line><data>${{T}}</data></line></block></tdc>"
+    "sequentialVsEngine": "<tdc><env count=\"2\" seed=\"w\" local=\"en\" mode=\"sequential\" engine=\"2\"><sequence name=\"T\"><gen type=\"increment\" value=\"1\"/></sequence></env><block><line><data>${{T}}</data></line></block></tdc>",
+    "impossibleUniq": "<tdc><env count=\"1000000000\" seed=\"s\"><uniq><sequence name=\"A\"><gen type=\"text\" value=\"a,b,c\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"x,y,z\"/></sequence></uniq></env><block><line><data>${{A}}${{B}}</data></line></block></tdc>"
   },
   "cases": [
     {
@@ -1040,6 +1041,30 @@
       "argv": ["{dir}/bad.tdc"],
       "exit": 1,
       "stderr": "tdcv2: engine=\"2\" contradicts mode=\"sequential\": rows must be computed in order, and only engine 1 does that. Drop one of the two.\n"
+    },
+    {
+      "name": "an impossible uniq group is refused on engine 2, not attempted",
+      "note": "The capacity check reads the specs and costs milliseconds. It used to live inside the in-memory builder alone, so a config routed to another engine got no answer: this one ran for nineteen minutes and filled the disk. Pinned per engine because the whole point is that the refusal does not depend on which one runs.",
+      "files": {
+        "bad.tdc": "@impossibleUniq"
+      },
+      "argv": ["--engine", "2", "{dir}/bad.tdc"],
+      "exit": 1,
+      "stderrContains": [
+        "uniq: group \"A × B\" cannot produce 1000000000 unique combinations"
+      ]
+    },
+    {
+      "name": "an impossible uniq group is refused on engine 3, not attempted",
+      "note": "The capacity check reads the specs and costs milliseconds. It used to live inside the in-memory builder alone, so a config routed to another engine got no answer: this one ran for nineteen minutes and filled the disk. Pinned per engine because the whole point is that the refusal does not depend on which one runs.",
+      "files": {
+        "bad.tdc": "@impossibleUniq"
+      },
+      "argv": ["--engine", "3", "{dir}/bad.tdc"],
+      "exit": 1,
+      "stderrContains": [
+        "uniq: group \"A × B\" cannot produce 1000000000 unique combinations"
+      ]
     }
   ],
   "gaps": {

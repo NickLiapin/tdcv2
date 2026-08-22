@@ -63,6 +63,7 @@ import {
   buildExactDiskRegistry,
   buildLazyRegistry,
   buildSequences,
+  checkEnvUniqCapacity,
   extractEnvDistinctGroups,
   extractEnvUniqGroups,
   extractAsserts,
@@ -548,6 +549,18 @@ export function prepareRender(
   // "disk by default" from ever breaking. Explicitly forcing Engine 2
   // (engine="2" / --stream) is respected: it still throws, so the user who asked
   // for streaming is told when it can't be done rather than silently downgraded.
+  /*
+   * Can the uniq groups cover `count` at all? Asked here, before an engine is
+   * chosen, because the answer does not depend on which one runs.
+   *
+   * It used to be asked inside the in-memory builder alone. A config routed
+   * anywhere else got no answer: an infeasible billion-row group ran for
+   * nineteen minutes and filled the disk instead of being turned away in
+   * milliseconds. The check reads the SPECS — no column is built to answer it —
+   * and it costs 88 ms on a 400,000-row config.
+   */
+  checkEnvUniqCapacity(envUniqGroups, sequenceSpecs, env.count);
+
   const autoRoutedDisk = 'mode' in env.engineSelection && env.engineSelection.mode === 'disk';
   let registry: SequenceRegistry;
   if (engine === 2) {

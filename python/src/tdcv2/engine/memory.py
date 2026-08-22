@@ -361,7 +361,7 @@ def _build_columns(
     # Before a single row exists: can the uniq groups cover `count` at all? The post-build check
     # asks the same question over the finished columns, which means reaching it costs the
     # allocation this refusal is meant to save.
-    _check_env_uniq_capacity(config, count)
+    check_env_uniq_capacity(config, count)
 
     columns: dict[str, list[str | None]] = {}
     # The REAL value behind a date column's text, for the columns some offset measures from.
@@ -1565,7 +1565,7 @@ def _static_capacity(spec: SequenceSpec) -> int | None:
     return None
 
 
-def _check_env_uniq_capacity(config: Config, count: int) -> None:
+def check_env_uniq_capacity(config: Config, count: int) -> None:
     """Can each ``<uniq>`` group cover ``count`` at all — asked before a single row is built.
 
     The group already had this check, and its message is the right one. But it ran over the

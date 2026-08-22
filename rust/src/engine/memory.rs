@@ -1568,7 +1568,7 @@ fn static_capacity(spec: &SequenceSpec) -> Option<u128> {
 /// and then this says nothing and the post-build check does its work as before. A
 /// refusal here is a PROOF, never a guess: no config that could have worked is
 /// turned away.
-fn check_env_uniq_capacity(config: &Config, count: usize) -> EngineResult<()> {
+pub fn check_env_uniq_capacity(config: &Config, count: usize) -> EngineResult<()> {
     for group in &config.env_uniq_groups {
         let members: Vec<&SequenceSpec> = group
             .iter()

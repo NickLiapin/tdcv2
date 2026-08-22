@@ -152,6 +152,12 @@ pub fn render_in(config: &Config, now_millis: i64, base_dir: Option<&str>) -> En
     // Discovered rather than required: a config that draws from no pack at all
     // still runs on a machine that has none, and only engine 3 cannot proceed
     // without one.
+    // Can the uniq groups cover `count` at all? Asked before an engine is chosen,
+    // because the answer does not depend on which one runs. It used to be asked
+    // inside the in-memory builder alone, so a config routed anywhere else got no
+    // answer — an infeasible run went ahead instead of being turned away in
+    // milliseconds. The check reads the SPECS; no column is built to answer it.
+    memory::check_env_uniq_capacity(config, config.count.max(0) as usize)?;
     let packs = DataPacks::discover().ok();
     match router::resolve(config, packs.as_ref())? {
         1 => memory::render_in(config, now_millis, base_dir),
@@ -183,6 +189,12 @@ pub fn run_in(
     now_millis: i64,
     base_dir: Option<&str>,
 ) -> EngineResult<Box<dyn RowSource>> {
+    // Can the uniq groups cover `count` at all? Asked before an engine is chosen,
+    // because the answer does not depend on which one runs. It used to be asked
+    // inside the in-memory builder alone, so a config routed anywhere else got no
+    // answer — an infeasible run went ahead instead of being turned away in
+    // milliseconds. The check reads the SPECS; no column is built to answer it.
+    memory::check_env_uniq_capacity(config, config.count.max(0) as usize)?;
     match router::resolve(config, Some(packs))? {
         1 => Ok(Box::new(memory::run_in(
             config, packs, now_millis, base_dir,
