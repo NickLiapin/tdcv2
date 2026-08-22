@@ -137,6 +137,85 @@ export function uniqCapacity(
   return profile.length;
 }
 
+/**
+ * A set of row numbers that answers "the next one at or after here" in a few
+ * machine words.
+ *
+ * Repair needs to visit the duplicate rows below a given row in ascending
+ * order. Walking every row to find them was 47% of the time on a 400,000-row
+ * block, and collecting them all up front was worse — quadratic again, since
+ * the collection is rebuilt for every duplicate.
+ *
+ * Two levels of bitmap: one bit per row, and one summary bit per 32 rows. A
+ * lookup skips 32 empty rows at a time, and both levels update in constant
+ * time. Deliberately not a balanced tree — this is thirty lines that four other
+ * implementations have to carry, and the constant factor of a word scan beats
+ * the pointer chasing at every size this sees.
+ */
+class RowSet {
+  private readonly bits: Uint32Array;
+  private readonly summary: Uint32Array;
+
+  constructor(private readonly size: number) {
+    this.bits = new Uint32Array((size >> 5) + 1);
+    this.summary = new Uint32Array((size >> 10) + 1);
+  }
+
+  add(row: number): void {
+    this.bits[row >> 5] = (this.bits[row >> 5] ?? 0) | (1 << (row & 31));
+    this.summary[row >> 10] = (this.summary[row >> 10] ?? 0) | (1 << ((row >> 5) & 31));
+  }
+
+  remove(row: number): void {
+    const word = row >> 5;
+    const cleared = (this.bits[word] ?? 0) & ~(1 << (row & 31));
+    this.bits[word] = cleared;
+    // The summary bit stands for a whole word, so it only falls when the word does.
+    if (cleared === 0) {
+      this.summary[row >> 10] = (this.summary[row >> 10] ?? 0) & ~(1 << (word & 31));
+    }
+  }
+
+  has(row: number): boolean {
+    return ((this.bits[row >> 5] ?? 0) & (1 << (row & 31))) !== 0;
+  }
+
+  /** The smallest member at or after `from`, or -1. */
+  nextAtOrAfter(from: number): number {
+    if (from >= this.size) return -1;
+    let word = from >> 5;
+    const masked = (this.bits[word] ?? 0) & (0xffffffff << (from & 31));
+    if (masked !== 0) return (word << 5) + trailingZeros(masked);
+
+    // Skip whole words through the summary, then whole summary words.
+    word += 1;
+    while (word <= this.size >> 5) {
+      const block = word >> 5;
+      const inBlock = (this.summary[block] ?? 0) & (0xffffffff << (word & 31));
+      if (inBlock !== 0) {
+        word = (block << 5) + trailingZeros(inBlock);
+        const bits = this.bits[word] ?? 0;
+        if (bits !== 0) return (word << 5) + trailingZeros(bits);
+        word += 1;
+        continue;
+      }
+      word = (block + 1) << 5;
+    }
+    return -1;
+  }
+}
+
+/** Position of the lowest set bit. `value` must not be zero. */
+function trailingZeros(value: number): number {
+  let count = 0;
+  let v = value;
+  while ((v & 1) === 0) {
+    v >>>= 1;
+    count += 1;
+  }
+  return count;
+}
+
 /** Proportional builder: assemble rows so tuples are maximally distinct. */
 function buildRows(columns: readonly (readonly string[])[]): string[][] {
   const first = columns[0] ?? [];
@@ -285,6 +364,21 @@ function repairRows(rows: string[][], maxSweeps = 8): void {
     const countOf = (key: string): number => rowsByKey.get(key)?.length ?? 0;
     const isDup = (key: string): boolean => countOf(key) > 1;
 
+    // Which ROWS are duplicates right now. Kept beside `rowsByKey` so a swap
+    // updates both, and read by the candidate walk below to skip the rows that
+    // cannot qualify without looking at them one by one.
+    const duplicates = new RowSet(N);
+    for (const held of rowsByKey.values()) {
+      if (held.length > 1) for (const row of held) duplicates.add(row);
+    }
+    /** Re-read the status of every row holding `key`, after its count changed. */
+    const refresh = (key: string): void => {
+      const held = rowsByKey.get(key);
+      if (!held) return;
+      if (held.length > 1) for (const row of held) duplicates.add(row);
+      else for (const row of held) duplicates.remove(row);
+    };
+
     // Rows carrying each value, per live column, in ascending row order.
     const rowsByValue: Map<string, number[]>[] = liveColumns.map(() => new Map<string, number[]>());
     liveColumns.forEach((k, c) => {
@@ -331,12 +425,17 @@ function repairRows(rows: string[][], maxSweeps = 8): void {
         // exists? Asked once per value rather than once per row — 98 values
         // carried 200,000 rows, so the scan was asking it two thousand times
         // over for the same answer.
+        // The candidate key is `ri` with one cell replaced, so everything on
+        // either side of that cell is the same for every value asked about.
+        // Built once instead of copying the row and re-joining it per value:
+        // that was four million array allocations and four million joins on a
+        // 400,000-row block, which is where the time had moved to.
+        const prefix = ri.slice(0, k).join(SEP) + (k > 0 ? SEP : '');
+        const suffix = k + 1 < ri.length ? SEP + ri.slice(k + 1).join(SEP) : '';
         const clean: number[][] = [];
         for (const [v, held] of index) {
           if (v === ri[k] || held.length === 0) continue;
-          const trial = ri.slice();
-          trial[k] = v;
-          if (countOf(keyOf(trial)) === 0) clean.push(held);
+          if (countOf(prefix + v + suffix) === 0) clean.push(held);
         }
 
         /*
@@ -368,9 +467,11 @@ function repairRows(rows: string[][], maxSweeps = 8): void {
 
           // Everything below `next` carries a failed value, so only a duplicate
           // among them can pass — and the test below decides that, not this.
-          for (; at <= next && !done; at++) {
-            const j = at;
-            if (j !== next && !isDup(keys[j] ?? '')) continue;
+          // `duplicates` hands them over directly instead of being looked for.
+          while (at <= next && !done) {
+            let j = at >= next ? next : duplicates.nextAtOrAfter(at);
+            if (j < 0 || j > next) j = next;
+            at = j + 1;
             const rj = rows[j];
             if (j === i || !rj || ri[k] === rj[k]) continue;
 
@@ -407,6 +508,9 @@ function repairRows(rows: string[][], maxSweeps = 8): void {
             const holdJ = rowsByKey.get(newJ);
             if (holdJ) insertAscending(holdJ, j);
             else rowsByKey.set(newJ, [j]);
+            duplicates.remove(i);
+            duplicates.remove(j);
+            for (const key of [oldI, oldJ, newI, newJ]) refresh(key);
 
             removeFrom(index.get(valueI), i);
             removeFrom(index.get(valueJ), j);
