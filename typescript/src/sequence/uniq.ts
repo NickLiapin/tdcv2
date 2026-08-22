@@ -153,8 +153,40 @@ function buildRows(columns: readonly (readonly string[])[]): string[][] {
       if (g) g.push(j);
       else groups.set(key, [j]);
     }
+    /*
+     * A group of ONE row does not need a proportional split, and by the last
+     * column almost every group is one row.
+     *
+     * What the split would do for `total = 1`: every part floors to a base of
+     * zero, so the single unit goes to the largest remainder — and the
+     * remainder IS the weight, which is the value's remaining stock. Ties go to
+     * the lowest index, and `pool` is filled in first-appearance order, so
+     * "first strict maximum while iterating the pool" is the same value the
+     * split would have chosen. The deck it built held that one value, and
+     * sorting a one-element deck changes nothing.
+     *
+     * So this is the same answer, without rebuilding `live` and sorting a deck
+     * per row. It was 73% of the time on a 200,000-row block.
+     */
+    const takeSingle = (row: number | undefined): boolean => {
+      if (row === undefined) return false;
+      let best: string | undefined;
+      let bestCount = 0;
+      for (const [v, c] of pool) {
+        if (c > bestCount) {
+          best = v;
+          bestCount = c;
+        }
+      }
+      if (best === undefined) return false; // nothing left — the general path reports it
+      pool.set(best, bestCount - 1);
+      rows[row]?.push(best);
+      return true;
+    };
+
     // Largest groups first — they need the most diversity.
     for (const idxs of [...groups.values()].sort((a, b) => b.length - a.length)) {
+      if (idxs.length === 1 && takeSingle(idxs[0])) continue;
       const live = [...pool.entries()].filter(([, c]) => c > 0);
       const split = proportionalSplit(
         idxs.length,
@@ -183,58 +215,208 @@ function buildRows(columns: readonly (readonly string[])[]): string[][] {
  * Swap-repair: while a row is a duplicate, swap one of its column cells with
  * another row's cell in the same column when that strictly lowers the total
  * duplicate count. Column multisets are preserved by construction (a swap
- * moves values within one column). O(N²·K) per sweep — fine for the RAM
- * engine's scope; the streaming path uses a different mechanism entirely.
+ * moves values within one column).
+ *
+ * The answer is defined by a LINEAR SCAN: for the duplicate row `i` and each
+ * column in turn, the partner is the lowest-numbered row whose swap strictly
+ * lowers the duplicate count. That definition is the output contract — a
+ * different partner is a different dataset from the same seed — so everything
+ * below is an index that reaches the same row faster, never a different rule.
+ *
+ * It needed one. Measured on a 200,000-row block of a four-column group:
+ *
+ *     duplicates                 258
+ *     candidates examined  103,265,946     400,256 per duplicate
+ *     swaps accepted             258       every one of them
+ *
+ * Two full passes over the block to place each swap. Worse, duplicates grow as
+ * the square of the row count (birthday) and each cost a scan of every row, so
+ * the whole thing was CUBIC: 50k rows 7.2 s, 100k 11.4 s, 200k 58 s, and a
+ * 4,000,000-row run burned three and a half hours without writing a byte.
+ *
+ * Two observations make it cheap, and neither changes which row is chosen:
+ *
+ *   - A column holding ONE distinct value can never supply a partner: every
+ *     candidate fails `ri[k] === rj[k]`. Inside a `<switch>` block the subject
+ *     column is exactly that, and it cost a full pass per duplicate.
+ *
+ *   - The scan rejected 51,104,418 of the 51,104,676 candidates it tested, and
+ *     51,074,370 of those because the tuple `ri` WOULD BECOME already exists.
+ *     That depends only on the VALUE being swapped in, not on which row carries
+ *     it — and there were 98 distinct values across 200,000 rows. The scan was
+ *     asking the same question two thousand times per answer.
+ *
+ * So: ask once per value, then look only at rows that can still qualify. A row
+ * carrying a value that fails cannot be accepted UNLESS it is itself a
+ * duplicate — a duplicate partner starts from `before = 2`, so it can be
+ * accepted while leaving one collision behind. Both sets are kept, merged in
+ * ascending row order, and each candidate is put through the ORIGINAL test.
+ * Candidates that are skipped are ones that provably cannot pass it.
  */
 function repairRows(rows: string[][], maxSweeps = 8): void {
   const N = rows.length;
   const K = N > 0 ? (rows[0]?.length ?? 0) : 0;
+  if (N === 0 || K === 0) return;
   const keyOf = (r: readonly string[]): string => r.join(SEP);
+
+  // Columns that can supply a partner at all — see the note above.
+  const liveColumns: number[] = [];
+  for (let k = 0; k < K; k++) {
+    const seen = new Set<string>();
+    for (let i = 0; i < N && seen.size < 2; i++) seen.add(rows[i]?.[k] ?? '');
+    if (seen.size > 1) liveColumns.push(k);
+  }
+  if (liveColumns.length === 0) return;
+
   for (let sweep = 0; sweep < maxSweeps; sweep++) {
     let improved = false;
-    const counts = new Map<string, number>();
-    for (const r of rows) counts.set(keyOf(r), (counts.get(keyOf(r)) ?? 0) + 1);
-    const isDup = (key: string): boolean => (counts.get(key) ?? 0) > 1;
+
+    // Row keys, and the rows carrying each key. `counts` is this map's sizes,
+    // kept as one structure so a swap updates the two together or neither.
+    const keys: string[] = new Array<string>(N);
+    const rowsByKey = new Map<string, number[]>();
+    for (let i = 0; i < N; i++) {
+      const key = keyOf(rows[i] ?? []);
+      keys[i] = key;
+      const held = rowsByKey.get(key);
+      if (held) held.push(i);
+      else rowsByKey.set(key, [i]);
+    }
+    const countOf = (key: string): number => rowsByKey.get(key)?.length ?? 0;
+    const isDup = (key: string): boolean => countOf(key) > 1;
+
+    // Rows carrying each value, per live column, in ascending row order.
+    const rowsByValue: Map<string, number[]>[] = liveColumns.map(() => new Map<string, number[]>());
+    liveColumns.forEach((k, c) => {
+      const index = rowsByValue[c];
+      if (!index) return;
+      for (let i = 0; i < N; i++) {
+        const v = rows[i]?.[k] ?? '';
+        const held = index.get(v);
+        if (held) held.push(i);
+        else index.set(v, [i]);
+      }
+    });
+
+    /** Insert into an ascending array, keeping it ascending. */
+    const insertAscending = (list: number[], row: number): void => {
+      let lo = 0;
+      let hi = list.length;
+      while (lo < hi) {
+        const mid = (lo + hi) >> 1;
+        if ((list[mid] ?? 0) < row) lo = mid + 1;
+        else hi = mid;
+      }
+      list.splice(lo, 0, row);
+    };
+    const removeFrom = (list: number[] | undefined, row: number): void => {
+      if (!list) return;
+      const at = list.indexOf(row);
+      if (at >= 0) list.splice(at, 1);
+    };
 
     for (let i = 0; i < N; i++) {
       const ri = rows[i];
       if (!ri) continue;
-      // `ri` does not change while we scan for a partner — a swap ends the
-      // scan — so its key is built once instead of once per candidate.
-      const oldI = keyOf(ri);
+      const oldI = keys[i] ?? '';
       if (!isDup(oldI)) continue;
+
       let done = false;
-      for (let k = 0; k < K && !done; k++) {
-        for (let j = 0; j < N && !done; j++) {
-          const rj = rows[j];
-          if (j === i || !rj || ri[k] === rj[k]) continue;
-          const oldJ = keyOf(rj);
-          const ni = ri.slice();
-          const nj = rj.slice();
-          ni[k] = rj[k] ?? '';
-          nj[k] = ri[k] ?? '';
-          const newI = keyOf(ni);
-          const newJ = keyOf(nj);
-          // `ri` is a duplicate — that is why we are scanning at all.
-          const before = 1 + (isDup(oldJ) ? 1 : 0);
-          // The swap moves two rows, so only four tallies can change. This
-          // used to copy the entire `counts` map to learn that — an O(rows)
-          // allocation in the innermost loop, which made a sweep cubic in the
-          // row count. 19,000 rows of `uniq` + `percent` never finished.
-          const trialCount = (key: string): number =>
-            (counts.get(key) ?? 0) +
-            (key === newI ? 1 : 0) +
-            (key === newJ ? 1 : 0) -
-            (key === oldI ? 1 : 0) -
-            (key === oldJ ? 1 : 0);
-          const after = (trialCount(newI) > 1 ? 1 : 0) + (trialCount(newJ) > 1 ? 1 : 0);
-          if (after < before) {
+      for (let c = 0; c < liveColumns.length && !done; c++) {
+        const k = liveColumns[c] ?? 0;
+        const index = rowsByValue[c];
+        if (!index) continue;
+
+        // One question per VALUE: would `ri` land on a tuple that already
+        // exists? Asked once per value rather than once per row — 98 values
+        // carried 200,000 rows, so the scan was asking it two thousand times
+        // over for the same answer.
+        const clean: number[][] = [];
+        for (const [v, held] of index) {
+          if (v === ri[k] || held.length === 0) continue;
+          const trial = ri.slice();
+          trial[k] = v;
+          if (countOf(keyOf(trial)) === 0) clean.push(held);
+        }
+
+        /*
+         * Candidates in ascending row order, without building the list.
+         *
+         * A row whose value FAILED can still be accepted, but only if it is
+         * itself a duplicate: a duplicate partner starts from `before = 2`, so
+         * it may be taken while leaving one collision behind. Those rows lie
+         * between the clean ones, and asking `isDup` of each is cheap — far
+         * cheaper than collecting every duplicate in the block, which is what
+         * the first version of this did and which was quadratic all over again.
+         */
+        let at = 0;
+        const heads = clean.map(() => 0);
+        while (!done) {
+          let next = -1;
+          for (let c2 = 0; c2 < clean.length; c2++) {
+            const list = clean[c2];
+            const head = heads[c2] ?? 0;
+            if (!list || head >= list.length) continue;
+            const candidate = list[head] ?? 0;
+            if (next < 0 || candidate < next) next = candidate;
+          }
+          if (next < 0) break;
+          for (let c2 = 0; c2 < clean.length; c2++) {
+            const list = clean[c2];
+            if (list?.[heads[c2] ?? 0] === next) heads[c2] = (heads[c2] ?? 0) + 1;
+          }
+
+          // Everything below `next` carries a failed value, so only a duplicate
+          // among them can pass — and the test below decides that, not this.
+          for (; at <= next && !done; at++) {
+            const j = at;
+            if (j !== next && !isDup(keys[j] ?? '')) continue;
+            const rj = rows[j];
+            if (j === i || !rj || ri[k] === rj[k]) continue;
+
+            // From here down this is the original test, unchanged.
+            const oldJ = keys[j] ?? '';
+            const ni = ri.slice();
+            const nj = rj.slice();
+            ni[k] = rj[k] ?? '';
+            nj[k] = ri[k] ?? '';
+            const newI = keyOf(ni);
+            const newJ = keyOf(nj);
+            const before = 1 + (isDup(oldJ) ? 1 : 0);
+            const trialCount = (key: string): number =>
+              countOf(key) +
+              (key === newI ? 1 : 0) +
+              (key === newJ ? 1 : 0) -
+              (key === oldI ? 1 : 0) -
+              (key === oldJ ? 1 : 0);
+            const after = (trialCount(newI) > 1 ? 1 : 0) + (trialCount(newJ) > 1 ? 1 : 0);
+            if (after >= before) continue;
+
+            const valueI = ri[k] ?? '';
+            const valueJ = rj[k] ?? '';
             rows[i] = ni;
             rows[j] = nj;
-            counts.set(oldI, (counts.get(oldI) ?? 0) - 1);
-            counts.set(oldJ, (counts.get(oldJ) ?? 0) - 1);
-            counts.set(newI, (counts.get(newI) ?? 0) + 1);
-            counts.set(newJ, (counts.get(newJ) ?? 0) + 1);
+            keys[i] = newI;
+            keys[j] = newJ;
+
+            removeFrom(rowsByKey.get(oldI), i);
+            removeFrom(rowsByKey.get(oldJ), j);
+            const holdI = rowsByKey.get(newI);
+            if (holdI) insertAscending(holdI, i);
+            else rowsByKey.set(newI, [i]);
+            const holdJ = rowsByKey.get(newJ);
+            if (holdJ) insertAscending(holdJ, j);
+            else rowsByKey.set(newJ, [j]);
+
+            removeFrom(index.get(valueI), i);
+            removeFrom(index.get(valueJ), j);
+            const atI = index.get(valueJ);
+            if (atI) insertAscending(atI, i);
+            else index.set(valueJ, [i]);
+            const atJ = index.get(valueI);
+            if (atJ) insertAscending(atJ, j);
+            else index.set(valueI, [j]);
+
             improved = true;
             done = true;
           }
