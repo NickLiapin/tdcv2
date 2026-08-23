@@ -74,6 +74,7 @@ import {
 } from '../sequence/index.js';
 import { ExactUniqRepairNeeded } from '../sequence/exact-uniq.js';
 import { extractPoolSpecs } from '../sequence/pool.js';
+import type { UniqArrangement, UniqPlan } from '../sequence/build.js';
 import { buildPoolTables } from '../sequence/pool-build.js';
 import type { CaseSpec, SequenceRegistry, SequenceSpec, SwitchSpec } from '../sequence/index.js';
 import { resolveTemplate } from '../templates/resolver.js';
@@ -116,6 +117,14 @@ export interface RenderOptions {
   readonly mode?: EngineMode | undefined;
   /** Advanced: force a specific engine (1/2/3). Highest precedence; used by tests/parallel. */
   readonly engine?: EngineId | undefined;
+  /**
+   * A uniq arrangement worked out elsewhere, so this render does not work it
+   * out again — see `SequenceBuildOptions.uniqPlan`. What lets one thread do
+   * the analysis and several render ranges of the answer.
+   */
+  readonly uniqPlan?: UniqPlan | undefined;
+  /** Called with each uniq group's arrangement as it is worked out, so it can be passed on. */
+  readonly onUniqPlan?: ((group: string, arrangement: UniqArrangement) => void) | undefined;
   /** Base directory for relative `src` paths. Defaults to process cwd. */
   readonly baseDir?: string | undefined;
   /** Extra folders searched by `src="@data/..."` and relative file sources. */
@@ -527,6 +536,8 @@ export function prepareRender(
   // gains a pool keeps every other column exactly where it was.
   const buildOptions = {
     ...packOptions,
+    ...(options.uniqPlan !== undefined ? { uniqPlan: options.uniqPlan } : {}),
+    ...(options.onUniqPlan !== undefined ? { onUniqPlan: options.onUniqPlan } : {}),
     seed: env.seed,
     pools: buildPoolTables(extractPoolSpecs(envEl), env.seed, env.locale, now, packOptions),
     // `prev()` may look back one row only when the rows are computed in order.

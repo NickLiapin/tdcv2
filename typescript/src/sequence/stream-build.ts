@@ -318,7 +318,7 @@ export function buildLazyRegistry(
   // Env-level `<uniq>`: the same, and for the same reason — every member has to
   // exist before the tuple can be looked at.
   for (const group of envGroups.uniq) {
-    applyEnvUniq(group, specByName, registry, count);
+    applyEnvUniq(group, specByName, registry, count, options);
   }
   return registry;
 }

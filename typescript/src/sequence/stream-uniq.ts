@@ -8,7 +8,7 @@
 
 import { repairExactUniq } from './exact-uniq.js';
 import { sequenceValueAt } from './index.js';
-import type { Sequence, SequenceSpec } from './index.js';
+import type { Sequence, SequenceBuildOptions, SequenceSpec } from './index.js';
 
 /**
  * Enforce an env-level `<uniq>` group without holding the run.
@@ -40,9 +40,11 @@ export function applyEnvUniq(
   specByName: Map<string, SequenceSpec>,
   registry: Record<string, Sequence>,
   count: number,
+  options: SequenceBuildOptions = {},
 ): void {
   const members = group.filter((name) => registry[name] !== undefined);
   if (members.length < 2) return;
+  const label = members.join(' × ');
 
   const resolvers = members.map((name) => {
     const original = registry[name];
@@ -68,7 +70,17 @@ export function applyEnvUniq(
             JSON.stringify(columns.map((seq) => (seq ? (sequenceValueAt(seq, row) ?? '') : '')));
         })();
 
-  const repaired = repairExactUniq(resolvers, count, `"${members.join(' × ')}"`, {}, blockOf);
+  /*
+   * Either work the arrangement out, or be told it.
+   *
+   * Told is the whole point of `uniqPlan`: the analysis is a pass over every
+   * row and it answers the same way every time for a given config and seed, so
+   * a thread rendering rows 40,000,000 to 50,000,000 should not repeat it.
+   */
+  const repaired = repairExactUniq(resolvers, count, `"${label}"`, {}, blockOf, {
+    preset: options.uniqPlan?.[label],
+    onComputed: options.onUniqPlan ? (moved) => options.onUniqPlan?.(label, moved) : undefined,
+  });
   for (const name of members) {
     const seq = repaired[name];
     if (seq) registry[name] = seq;

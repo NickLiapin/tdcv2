@@ -95,7 +95,14 @@ class MinHeap<T> {
 }
 
 /** Streaming line reader over a run file — bounded memory, one partial line held. */
-class RunReader {
+/**
+ * Reads a run file back one record at a time, in bounded memory.
+ *
+ * Exported because the sort is not the only thing that writes a file of records
+ * and needs it back: the uniq repair keeps the tuples it has already computed
+ * rather than computing them again.
+ */
+export class RunReader {
   private readonly fd: number;
   private readonly buffer = Buffer.allocUnsafe(READ_BUFFER);
   private pending = '';
@@ -134,6 +141,36 @@ class RunReader {
 }
 
 const byteCompare = (a: string, b: string): number => (a < b ? -1 : a > b ? 1 : 0);
+
+/**
+ * Writes records to a file one at a time, buffered.
+ *
+ * `writeRun` below takes an array it already holds; this one is for a caller
+ * that has a stream and does not want to hold it.
+ */
+export class RunWriter {
+  private readonly fd: number;
+  private buffer = '';
+
+  constructor(path: string) {
+    this.fd = openSync(path, 'w');
+  }
+
+  write(record: string): void {
+    this.buffer += record;
+    this.buffer += '\n';
+    if (this.buffer.length >= WRITE_BATCH) {
+      writeSync(this.fd, this.buffer);
+      this.buffer = '';
+    }
+  }
+
+  close(): void {
+    if (this.buffer.length > 0) writeSync(this.fd, this.buffer);
+    this.buffer = '';
+    closeSync(this.fd);
+  }
+}
 
 function writeRun(records: readonly string[], path: string): void {
   const fd = openSync(path, 'w');

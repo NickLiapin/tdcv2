@@ -102,7 +102,32 @@ import { registerDerivedColumn } from './derived.js';
 import { distributionColumn } from './dist-params.js';
 import { enforceValid } from './pack-valid.js';
 
+/**
+ * A uniq group's arrangement, as it travels: row index (as a string, so it
+ * survives a structured clone) to the members' values for that row. Only the
+ * rows that moved are in it, which is a few thousand out of a hundred million.
+ */
+export type UniqArrangement = Readonly<Record<string, readonly string[]>>;
+
+/** Every env-level `<uniq>` group's arrangement, keyed by its members joined by ' × '. */
+export type UniqPlan = Readonly<Record<string, UniqArrangement>>;
+
 export interface SequenceBuildOptions {
+  /**
+   * Arrangements worked out elsewhere, so this build does not work them out
+   * again.
+   *
+   * Deciding which rows move where is the expensive half of a uniq run — a
+   * full pass over every row, twice — and it depends only on the config and the
+   * seed. So it is worth doing once and telling everyone else. That is what
+   * lets several threads each render a different range of rows of the same uniq
+   * config: without it each thread would repeat the whole analysis, which is
+   * slower than not splitting at all.
+   */
+  readonly uniqPlan?: UniqPlan | undefined;
+  /** Called with each group's arrangement as it is worked out, so it can be passed on. */
+  readonly onUniqPlan?: ((group: string, arrangement: UniqArrangement) => void) | undefined;
+
   /**
    * Rows are computed strictly in order, so `prev()` has a previous row to read.
    *

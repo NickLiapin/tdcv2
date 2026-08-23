@@ -28,6 +28,11 @@ import { externalSort } from './external-sort.js';
 import { makePercentResolver } from './stream-resolve.js';
 import type { Sequence } from './types.js';
 import { arrangeUnique, uniqUpperBound } from './uniq.js';
+import { SeenTuples } from './tuple-filter.js';
+import { RunReader, RunWriter } from './external-sort.js';
+import { mkdtempSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join as joinPath } from 'node:path';
 
 const SEP = String.fromCharCode(0); // NUL — cannot appear in a generated value
 const JOIN = String.fromCharCode(1); // SOH — column separator inside a tuple key
@@ -39,11 +44,41 @@ const INDEX_WIDTH = 16; // covers counts up to 10^16 (> JS safe integer range)
 // to the in-memory engine instead. Real configs collide far less (birthday).
 const MAX_REPAIR_ROWS = 20_000;
 
+/**
+ * Below this many rows the repair derives the tuples a second time rather than
+ * writing them down. A file is worth its own cost only once the second pass is
+ * measured in minutes; under a million rows it is measured in seconds. The
+ * choice is pure speed — both paths build the same set, since membership does
+ * not depend on the order things were added in.
+ */
+const JOURNAL_MIN_ROWS = 1_000_000;
+
 export interface DuplicateScanOptions {
   /** Records held in RAM per sort run (passed to externalSort). */
   readonly chunkSize?: number;
   /** Directory for temp files. */
   readonly tmpDir?: string;
+  /**
+   * Called with every sorted record as it goes past.
+   *
+   * The repair has to look at every tuple a SECOND time, to learn which ones
+   * are already taken. Computing them again costs what the scan cost: on a
+   * 97,000,000-row run that was 18 minutes of a 61-minute total, spent
+   * re-deriving values that had just been derived. The records are already in
+   * hand here, so a caller can write them down instead and read them back.
+   */
+  readonly onRecord?: (record: string) => void;
+  /**
+   * Rows from which the repair writes the tuples down instead of deriving them
+   * twice. Defaults to `JOURNAL_MIN_ROWS`.
+   *
+   * Both paths build the same set, so this is a speed choice — and a testable
+   * one: lowering it lets a small config take the path a 97,000,000-row run
+   * takes, and the two are then asserted to produce the same bytes. Without
+   * that the path would only ever run on a config too big for a test suite,
+   * which is how a path comes to be believed rather than known.
+   */
+  readonly journalMinRows?: number;
 }
 
 /** A row and the key of its tuple (the concatenation of its uniq'd columns). */
@@ -71,6 +106,7 @@ export function* findDuplicateGroups(
     chunkSize: options.chunkSize,
     tmpDir: options.tmpDir,
   })) {
+    options.onRecord?.(record);
     const split = record.lastIndexOf(SEP);
     const key = record.slice(0, split);
     const index = Number(record.slice(split + 1)); // leading zeros are ignored
@@ -235,21 +271,78 @@ export function repairExactUniq(
    * Absent means one block holding everything, which is the ordinary case.
    */
   blockOf?: (row: number) => string,
+  /**
+   * How the answer travels between threads.
+   *
+   * The analysis is the expensive half of a uniq run and it is a function of
+   * the config and the seed alone, so it is worth doing ONCE. `onComputed`
+   * hands the result out; `preset` hands it back in, and a caller holding one
+   * skips the analysis entirely. That is what lets several threads render
+   * different row ranges of the same uniq config: one thread works out which
+   * rows move where, the rest are told.
+   *
+   * The result is small — only the rows that actually moved, a few thousand on
+   * a run of a hundred million — so it crosses a thread boundary cheaply.
+   */
+  plan?: {
+    readonly preset?: Readonly<Record<string, readonly string[]>> | undefined;
+    readonly onComputed?: ((moved: Record<string, readonly string[]>) => void) | undefined;
+  },
 ): Record<string, Sequence> {
+  if (plan?.preset !== undefined) return applyOverride(resolvers, toOverride(plan.preset));
+
   const tuples = function* (): Generator<KeyedRow> {
     for (let i = 0; i < count; i++) yield { index: i, key: tupleKeyAt(resolvers, i) };
   };
 
-  // 1. Excess rows: keep the lowest index of each duplicate group, move the rest.
+  /*
+   * 1. Excess rows: keep the lowest index of each duplicate group, move the
+   *    rest — and keep every tuple the scan computed, written down as it goes.
+   *
+   * Step 2 below needs a second look at all of them. Deriving them again is a
+   * second full pass over the run, which is not a detail: measured on
+   * 97,000,000 rows it was 18 minutes on top of the 23 the scan took. Writing
+   * them down costs one sequential file and reads back in seconds.
+   *
+   * The file is only worth its own existence on a run big enough to have gone
+   * to disk anyway. Small runs skip it and step 2 derives the values as before,
+   * which is also what keeps their arrangement exactly what it was.
+   */
+  const journalFrom = options.journalMinRows ?? JOURNAL_MIN_ROWS;
+  const journalDir =
+    count >= journalFrom ? mkdtempSync(joinPath(tmpdir(), 'tdc-uniq-')) : undefined;
+  const journalPath = journalDir === undefined ? undefined : joinPath(journalDir, 'tuples');
+  const journal = journalPath === undefined ? undefined : new RunWriter(journalPath);
+
   const excess: number[] = [];
-  for (const group of findDuplicateGroups(tuples(), options)) {
-    for (let m = 1; m < group.length; m++) {
-      const idx = group[m];
-      if (idx !== undefined) excess.push(idx);
+  try {
+    const scan =
+      journal === undefined
+        ? options
+        : {
+            ...options,
+            onRecord: (r: string) => {
+              journal.write(r);
+            },
+          };
+    for (const group of findDuplicateGroups(tuples(), scan)) {
+      for (let m = 1; m < group.length; m++) {
+        const idx = group[m];
+        if (idx !== undefined) excess.push(idx);
+      }
     }
+  } finally {
+    journal?.close();
   }
+
   const k = resolvers.length;
+  const dropJournal = (): void => {
+    if (journalDir !== undefined) rmSync(journalDir, { recursive: true, force: true });
+  };
+
   if (excess.length === 0) {
+    dropJournal();
+    plan?.onComputed?.({}); // nothing moved, and the other threads need to know that
     const clean: Record<string, Sequence> = {};
     for (const r of resolvers) clean[r.id] = { name: r.id, values: [], resolve: r.resolve };
     return clean;
@@ -257,7 +350,10 @@ export function repairExactUniq(
   // The pool repair is O(pool²). Collisions are FEW for a real config (birthday
   // bound); an excess this large means a pathological config — hand it to the
   // in-memory engine rather than blowing up.
-  if (excess.length > MAX_REPAIR_ROWS) throw new ExactUniqRepairNeeded(excess.length, label);
+  if (excess.length > MAX_REPAIR_ROWS) {
+    dropJournal();
+    throw new ExactUniqRepairNeeded(excess.length, label);
+  }
   excess.sort((a, b) => a - b);
 
   // 2. The excess rows alone often lack the value diversity to move (e.g. a
@@ -302,26 +398,50 @@ export function repairExactUniq(
   }
   pool.sort((a, b) => a - b);
 
-  // Pool value space + the present NON-pool tuples that lie entirely within it
-  // (the only tuples a rearranged pool row could clash with).
+  /*
+   * Pool value space + the present NON-pool tuples that lie entirely within it
+   * (the only tuples a rearranged pool row could clash with).
+   *
+   * This walks the whole run, so it is the one part of the repair whose size
+   * follows the DATASET rather than the collisions — and on a large run it was
+   * the part that died. `SeenTuples` keeps it exact while that is affordable
+   * and switches to a fixed-size filter beyond, which can only ever make the
+   * arrangement more cautious than it needs to be.
+   */
   const poolColumns = resolvers.map((r) => pool.map((i) => r.resolve(i)));
   const poolSpace = poolColumns.map((col) => new Set(col));
-  const forbidden = new Set<string>();
-  for (let i = 0; i < count; i++) {
-    if (poolSet.has(i)) continue; // pool rows are being reassigned
-    let key = '';
-    let inSpace = true;
+  const forbidden = new SeenTuples(count);
+  const inPoolSpace = (values: readonly string[]): boolean => {
     for (let j = 0; j < k; j++) {
-      const value = resolvers[j]?.resolve(i) ?? '';
-      if (!poolSpace[j]?.has(value)) {
-        inSpace = false;
-        break;
-      }
-      if (j > 0) key += JOIN;
-      key += value;
+      if (!poolSpace[j]?.has(values[j] ?? '')) return false;
     }
-    if (inSpace) forbidden.add(key);
+    return true;
+  };
+
+  if (journalPath !== undefined) {
+    // Read back what the scan already worked out. Sorted order rather than row
+    // order, which changes nothing: this is only ever asked whether a tuple is
+    // in it, and that does not depend on the order things went in.
+    const reader = new RunReader(journalPath);
+    try {
+      for (let record = reader.next(); record !== undefined; record = reader.next()) {
+        const split = record.lastIndexOf(SEP);
+        if (poolSet.has(Number(record.slice(split + 1)))) continue; // being reassigned
+        const key = record.slice(0, split);
+        if (inPoolSpace(key.split(JOIN))) forbidden.add(key);
+      }
+    } finally {
+      reader.close();
+    }
+  } else {
+    for (let i = 0; i < count; i++) {
+      if (poolSet.has(i)) continue; // pool rows are being reassigned
+      const values: string[] = [];
+      for (let j = 0; j < k; j++) values.push(resolvers[j]?.resolve(i) ?? '');
+      if (inPoolSpace(values)) forbidden.add(values.join(JOIN));
+    }
   }
+  dropJournal();
 
   // 3. Arrange the pool's values into distinct tuples avoiding the present ones.
   //    One block at a time when the group has a switch member: values only ever
@@ -346,6 +466,29 @@ export function repairExactUniq(
     });
   }
 
+  if (plan?.onComputed) {
+    const moved: Record<string, readonly string[]> = {};
+    for (const [row, values] of override) moved[String(row)] = values;
+    plan.onComputed(moved);
+  }
+  return applyOverride(resolvers, override);
+}
+
+/** The plain object form of an override, as it travels between threads. */
+function toOverride(moved: Readonly<Record<string, readonly string[]>>): Map<number, string[]> {
+  const out = new Map<number, string[]>();
+  for (const [row, values] of Object.entries(moved)) out.set(Number(row), [...values]);
+  return out;
+}
+
+/**
+ * Sequences that answer from the override where there is one and from the
+ * original resolver everywhere else — which is all a repaired uniq column IS.
+ */
+function applyOverride(
+  resolvers: readonly UniqResolver[],
+  override: ReadonlyMap<number, readonly string[]>,
+): Record<string, Sequence> {
   const out: Record<string, Sequence> = {};
   resolvers.forEach((r, j) => {
     out[r.id] = {
@@ -367,7 +510,9 @@ export function repairExactUniq(
  */
 function arrangeAvoiding(
   columns: readonly (readonly string[])[],
-  forbidden: ReadonlySet<string>,
+  // Only ever asked, never added to — so anything that can answer will do, and
+  // a plain Set still satisfies it.
+  forbidden: { has(key: string): boolean },
   size: number,
 ): string[][] | null {
   const k = columns.length;
