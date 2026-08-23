@@ -28,11 +28,40 @@ public class CliTest
         JsonDocument.Parse(
             File.ReadAllText(Path.Combine(PrngVectorsTest.FixturesDir(), "cli.json"))));
 
+    /// <summary>
+    /// A case runs here unless it names the implementations it runs in and this is not one
+    /// of them. The fixture documents the key as understood by all five; this port used to
+    /// read every case regardless, so a declared gap would have failed here rather than
+    /// being recorded as a gap.
+    /// </summary>
+    private static bool AppliesHere(JsonElement node)
+    {
+        if (!node.TryGetProperty("only", out JsonElement only))
+        {
+            return true;
+        }
+
+        foreach (JsonElement name in only.EnumerateArray())
+        {
+            if (name.GetString() == "csharp")
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public static TheoryData<string, string> Cases()
     {
         var data = new TheoryData<string, string>();
         foreach (JsonElement node in Fixture.Value.RootElement.GetProperty("cases").EnumerateArray())
         {
+            if (!AppliesHere(node))
+            {
+                continue;
+            }
+
             data.Add(node.GetProperty("name").GetString()!, node.GetRawText());
         }
 
@@ -205,7 +234,22 @@ public class CliTest
     public void ReportsProgress()
     {
         int total = Fixture.Value.RootElement.GetProperty("cases").GetArrayLength();
+        var skipped = new List<string>();
+        foreach (JsonElement node in Fixture.Value.RootElement.GetProperty("cases").EnumerateArray())
+        {
+            if (!AppliesHere(node))
+            {
+                skipped.Add(node.GetProperty("name").GetString()!);
+            }
+        }
+
         Console.WriteLine($"cli: {Cases().Count()} of {total} shared cases run here");
-        Assert.Equal(total, Cases().Count());
+        foreach (string name in skipped)
+        {
+            Console.WriteLine($"cli: not here yet — {name}");
+        }
+
+        // Every case that is not a declared gap runs. Named, so a gap cannot be silent.
+        Assert.Equal(total - skipped.Count, Cases().Count());
     }
 }

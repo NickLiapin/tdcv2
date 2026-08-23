@@ -43,6 +43,11 @@ fn the_cli_behaves_as_the_shared_contract_says() {
             .expect("every case is named")
             .to_string();
 
+        if !applies_here(case) {
+            skipped.insert(name.clone());
+            continue;
+        }
+
         match not_built_yet(case) {
             Some(command) => {
                 skipped.insert(command);
@@ -54,8 +59,11 @@ fn the_cli_behaves_as_the_shared_contract_says() {
         }
     }
 
+    // Two reasons a case sits out — a command this port has not built, and a
+    // case that names the implementations it runs in without naming this one.
+    // Both are listed by name, so neither can be a silent absence.
     println!(
-        "cli: {ran} of {} shared cases run here; {} not built yet: {}",
+        "cli: {ran} of {} shared cases run here; {} sat out: {}",
         cases.len(),
         cases.len() - ran,
         skipped.iter().cloned().collect::<Vec<_>>().join(", ")
@@ -64,6 +72,21 @@ fn the_cli_behaves_as_the_shared_contract_says() {
 }
 
 /// The command a case needs, when this implementation does not have it.
+/// Does this case run here?
+///
+/// A case may name the implementations it runs in. Absent, it runs in all five.
+/// The fixture documents the key that way, and three ports read it — this one
+/// did not, so a case recorded elsewhere as a declared gap would have arrived
+/// here as a plain failure.
+fn applies_here(case: &Value) -> bool {
+    match case.get("only").and_then(Value::as_array) {
+        None => true,
+        Some(names) => names
+            .iter()
+            .any(|name| name.as_str() == Some("rust")),
+    }
+}
+
 fn not_built_yet(case: &Value) -> Option<String> {
     let command = case
         .get("command")
