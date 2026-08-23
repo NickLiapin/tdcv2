@@ -1056,7 +1056,20 @@
       },
       "argv": ["{dir}/bad.tdc"],
       "exit": 1,
-      "stderr": "tdcv2: invalid engine \"9\" — expected \"1\" (in-memory), \"2\" (streaming), or \"3\" (exact-on-disk)\n"
+      "stderr": "tdcv2: invalid engine \"9\" — expected \"1\" (in-memory), \"2\" (streaming), or \"3\" (exact-on-disk)\n",
+      "note": "The reference lists a fourth engine here and the other four do not, so the sentence differs by one clause. Engine 4 is an experiment that lives only in the reference — same bytes as Engine 3, different way of finding the duplicates — and until it is ported this case records who says what rather than being quietly softened to a wording nobody uses.",
+      "only": ["python", "java", "csharp", "rust"]
+    },
+    {
+      "name": "an invalid engine names the experimental one too",
+      "note": "The reference's own wording. It has to list every engine it will accept, or a user who reads the refusal learns a set of options that is not the real one.",
+      "only": ["typescript"],
+      "files": {
+        "bad.tdc": "@badEngine"
+      },
+      "argv": ["{dir}/bad.tdc"],
+      "exit": 1,
+      "stderr": "tdcv2: invalid engine \"9\" — expected \"1\" (in-memory), \"2\" (streaming), \"3\" (exact-on-disk), or \"4\" (experimental)\n"
     },
     {
       "name": "engine= against mode=\"sequential\" is one line naming both",
@@ -1096,7 +1109,8 @@
   "gaps": {
     "pack header warnings for a file nothing asks for": "TDC171 itself is no longer a gap — all five name the dropped file, and the case above pins it. What differs is WHEN. The reference reads every pack root before it starts, so it warns about an unplaceable file even when no config mentions it; the ports build that index only once a lookup has missed, which is the moment the author is looking for the file anyway. Measured, the reference's scan is 4100 files and ~240 ms per process against a bundled set that has never produced a single warning, so the ports keep the lazy scan on purpose. The one case it cannot reach: a stray file sitting beside packs a config uses successfully stays unreported outside TypeScript.",
     "TDC160, TDC161 and TDC162": "Three render-time refusals about an INLINE <gen> — `row=` on one, weighted advanced_regex choices, a non-numeric counter start or step. No implementation can reach them from its command line, the reference included: a <gen> inside <line> is TDC131/TDC132 and one directly inside <block> is TDC013, all raised by the validator before anything renders, and the TDC facade validates too. They are reachable only through TypeScript's low-level render(parse(src).tree) entry point, which walks an unvalidated AST — a shape the ports do not have, because they compile a config into a model rather than rendering the tree. Porting them would mean first accepting a config all five currently refuse.",
-    "env-level <uniq> under a streaming engine": "The reference streams it; the other four still refuse it by name. An env-level <uniq> makes the TUPLE of several sequences distinct, and each member is its own seekable column, so the reference leaves the columns alone, streams the tuples past an external sort to find the repeats, and rearranges only those few rows — bounded memory, and the same bytes the in-memory engine produces. Measured on the config that prompted it: 1 GB and 9,700,571 unique rows in 328 s and 2.03 GB of memory, against 932 s and 9.31 GB in memory. `uniq=\"true\"` on ONE sequence is refused in all five: that rearranges the gens inside a single compound column, which no per-row resolver can see. The old refusal is kept as a case naming the four that still produce it, so porting them is a deletion rather than a rediscovery."
+    "env-level <uniq> under a streaming engine": "The reference streams it; the other four still refuse it by name. An env-level <uniq> makes the TUPLE of several sequences distinct, and each member is its own seekable column, so the reference leaves the columns alone, streams the tuples past an external sort to find the repeats, and rearranges only those few rows — bounded memory, and the same bytes the in-memory engine produces. Measured on the config that prompted it: 1 GB and 9,700,571 unique rows in 328 s and 2.03 GB of memory, against 932 s and 9.31 GB in memory. `uniq=\"true\"` on ONE sequence is refused in all five: that rearranges the gens inside a single compound column, which no per-row resolver can see. The old refusal is kept as a case naming the four that still produce it, so porting them is a deletion rather than a rediscovery.",
+    "Engine 4": "An experiment, in the reference only. Engine 3 puts every tuple through ONE sort to find the repeated ones, and that sort cannot be split by row range without a merge over everything — five minutes of a ten-minute 10 GB run, on one core. Engine 4 chooses a pile by a hash OF THE TUPLE instead, so equal tuples always land together and the piles never have to be compared with each other: each is sorted and scanned by its own thread, and nothing is merged across them. It is required to produce the same bytes as Engine 3 — the piles change how the tuples are looked through, not which of them collide — so it is a speed experiment and not a different answer. Never chosen automatically; only `--engine 4` reaches it."
   },
   "registryBundle": {
     "id": "demo",

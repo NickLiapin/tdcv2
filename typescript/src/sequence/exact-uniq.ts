@@ -30,6 +30,7 @@ import type { Sequence } from './types.js';
 import { arrangeUnique, uniqUpperBound } from './uniq.js';
 import { SeenTuples } from './tuple-filter.js';
 import { mergeRuns, RunReader, RunWriter } from './external-sort.js';
+import { bucketOf, TupleBuckets } from './bucket-uniq.js';
 import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join as joinPath } from 'node:path';
@@ -92,6 +93,35 @@ export interface DuplicateScanOptions {
    * the repair reads them for its second look rather than writing its own copy.
    */
   readonly sortedRuns?: readonly string[];
+  /**
+   * Split the tuples into this many piles, chosen by a hash OF THE TUPLE, and
+   * scan each pile on its own — Engine 4.
+   *
+   * Equal tuples hash equally, so a colliding pair is always in the same pile
+   * and the piles never have to be compared with each other. That removes the
+   * one merge over everything, which on 10 GB was five minutes of a ten-minute
+   * run and the last stage still on a single core.
+   *
+   * The duplicates are the same ones, reported in the same order, so this
+   * changes the speed and not the answer. Absent or 1 means one pile, which is
+   * what Engine 3 does.
+   */
+  readonly buckets?: number;
+  /** Called once with each pile's size and file, for reporting how evenly they split. */
+  readonly onBuckets?: (sizes: readonly number[], paths: readonly string[]) => void;
+  /**
+   * The colliding rows, already found somewhere else.
+   *
+   * A pile can be sorted and scanned by anything that can read a file — it
+   * needs no config, no packs and no registry, only the records. So the piles
+   * can be handed to threads that know nothing about the run, and what comes
+   * back is this: the rows that have to move. Given it, the scan is skipped
+   * altogether.
+   *
+   * Must be every excess row, sorted ascending — the same list the scan would
+   * have produced, or the repair will move the wrong rows.
+   */
+  readonly knownExcess?: readonly number[];
 }
 
 /** A row and the key of its tuple (the concatenation of its uniq'd columns). */
@@ -110,6 +140,11 @@ export function* findDuplicateGroups(
   rows: Iterable<KeyedRow>,
   options: DuplicateScanOptions = {},
 ): Generator<readonly number[], void, void> {
+  if ((options.buckets ?? 1) > 1) {
+    yield* bucketedDuplicateGroups(rows, options);
+    return;
+  }
+
   let currentKey: string | undefined;
   let group: number[] = [];
 
@@ -138,6 +173,112 @@ export function* findDuplicateGroups(
     group.push(index);
   }
   if (group.length >= 2) yield group;
+}
+
+/**
+ * The same groups, found pile by pile.
+ *
+ * Every record is routed to a pile by the hash of its tuple, then each pile is
+ * sorted and scanned alone. Groups come out in pile order rather than in global
+ * key order — which no caller depends on, since the rows are reported by index
+ * and the caller sorts them.
+ */
+function* bucketedDuplicateGroups(
+  rows: Iterable<KeyedRow>,
+  options: DuplicateScanOptions,
+): Generator<readonly number[], void, void> {
+  const buckets = options.buckets ?? 1;
+  const piles = new TupleBuckets(buckets, options.tmpDir);
+  try {
+    /*
+     * Route from whatever the tuples are already in.
+     *
+     * When threads have computed them, they are on disk and reading them back
+     * costs a sequential pass; deriving them again costs a full generation of
+     * the run. This used to take the second road without noticing, because the
+     * pile branch was chosen before anyone asked whether the records already
+     * existed.
+     */
+    if (options.sortedRuns !== undefined && options.sortedRuns.length > 0) {
+      for (const path of options.sortedRuns) {
+        const reader = new RunReader(path);
+        try {
+          for (let r = reader.next(); r !== undefined; r = reader.next()) {
+            piles.add(r, r.slice(0, r.lastIndexOf(SEP)));
+          }
+        } finally {
+          reader.close();
+        }
+      }
+    } else {
+      for (const { index, key } of rows) {
+        piles.add(`${key}${SEP}${String(index).padStart(INDEX_WIDTH, '0')}`, key);
+      }
+    }
+    piles.seal();
+    options.onBuckets?.(piles.sizes(), piles.paths());
+
+    for (let pile = 0; pile < buckets; pile++) {
+      let currentKey: string | undefined;
+      let group: number[] = [];
+      for (const record of piles.sorted(pile, options.chunkSize)) {
+        options.onRecord?.(record);
+        const split = record.lastIndexOf(SEP);
+        const key = record.slice(0, split);
+        const index = Number(record.slice(split + 1));
+        if (key !== currentKey) {
+          if (group.length >= 2) yield group;
+          group = [];
+          currentKey = key;
+        }
+        group.push(index);
+      }
+      if (group.length >= 2) yield group;
+    }
+  } finally {
+    piles.drop();
+  }
+}
+
+/**
+ * The rows that have to move, from a stream of tuple records.
+ *
+ * One pile's worth of work, with nothing else attached: sort the records, and
+ * every row after the first of each repeated tuple is a row that must be
+ * rearranged. Kept separate from `repairExactUniq` so a thread can do it
+ * knowing only the files — no config, no packs, no registry.
+ */
+export function excessFromRecords(
+  records: Iterable<string>,
+  options: { chunkSize?: number | undefined; tmpDir?: string | undefined } = {},
+): number[] {
+  const excess: number[] = [];
+  let currentKey: string | undefined;
+  let group: number[] = [];
+
+  const flush = (): void => {
+    for (let m = 1; m < group.length; m++) {
+      const idx = group[m];
+      if (idx !== undefined) excess.push(idx);
+    }
+  };
+
+  for (const record of externalSort(records, {
+    ...(options.chunkSize !== undefined ? { chunkSize: options.chunkSize } : {}),
+    ...(options.tmpDir !== undefined ? { tmpDir: options.tmpDir } : {}),
+  })) {
+    const split = record.lastIndexOf(SEP);
+    const key = record.slice(0, split);
+    if (key !== currentKey) {
+      flush();
+      group = [];
+      currentKey = key;
+    }
+    group.push(Number(record.slice(split + 1)));
+  }
+  flush();
+  excess.sort((a, b) => a - b);
+  return excess;
 }
 
 /** Total DUPLICATE rows (rows beyond the first in each colliding group). */
@@ -295,6 +436,45 @@ export function scanTupleRuns(
   return paths;
 }
 
+/**
+ * Compute one range of rows and route each tuple straight into its pile —
+ * Engine 4's scan thread.
+ *
+ * The difference from `scanTupleRuns` is where the sorting happens. There, a
+ * thread sorts its own range and the coordinator merges everyone's runs, in one
+ * thread, over every record. Here nothing is sorted yet: each record goes
+ * directly to the file of the pile its tuple hashes to, and the sorting is done
+ * later, per pile, by whoever picks that pile up. Both phases are then spread,
+ * and no pass over everything is left in the middle.
+ *
+ * Returns one file per pile, in pile order — this thread's share of each.
+ */
+export function scanIntoPiles(
+  resolvers: readonly UniqResolver[],
+  from: number,
+  to: number,
+  dir: string,
+  prefix: string,
+  buckets: number,
+): string[] {
+  const writers: RunWriter[] = [];
+  const paths: string[] = [];
+  for (let b = 0; b < buckets; b++) {
+    const path = joinPath(dir, `${prefix}-pile-${String(b)}.txt`);
+    paths.push(path);
+    writers.push(new RunWriter(path));
+  }
+  try {
+    for (let i = from; i < to; i++) {
+      const key = tupleKeyAt(resolvers, i);
+      writers[bucketOf(key, buckets)]?.write(`${key}${SEP}${String(i).padStart(INDEX_WIDTH, '0')}`);
+    }
+  } finally {
+    for (const writer of writers) writer.close();
+  }
+  return paths;
+}
+
 /** Records a scan thread holds at once before sorting them out to a file. */
 const SCAN_CHUNK = 1_000_000;
 
@@ -387,25 +567,30 @@ export function repairExactUniq(
   const journal = journalPath === undefined ? undefined : new RunWriter(journalPath);
 
   const excess: number[] = [];
-  try {
-    const scan =
-      journal === undefined
-        ? options
-        : {
-            ...options,
-            onRecord: (r: string) => {
-              journal.write(r);
-            },
-          };
-    for (const group of findDuplicateGroups(tuples(), scan)) {
-      for (let m = 1; m < group.length; m++) {
-        const idx = group[m];
-        if (idx !== undefined) excess.push(idx);
-      }
-    }
-  } finally {
+  if (options.knownExcess !== undefined) {
+    // Someone else scanned the piles. Nothing to compute here.
+    excess.push(...options.knownExcess);
     journal?.close();
-  }
+  } else
+    try {
+      const scan =
+        journal === undefined
+          ? options
+          : {
+              ...options,
+              onRecord: (r: string) => {
+                journal.write(r);
+              },
+            };
+      for (const group of findDuplicateGroups(tuples(), scan)) {
+        for (let m = 1; m < group.length; m++) {
+          const idx = group[m];
+          if (idx !== undefined) excess.push(idx);
+        }
+      }
+    } finally {
+      journal?.close();
+    }
 
   const k = resolvers.length;
   const dropJournal = (): void => {

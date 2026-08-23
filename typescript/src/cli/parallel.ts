@@ -34,9 +34,13 @@ import { parseStrict } from '../parser/index.js';
 
 import type { RenderWorkerInput } from './render-worker.js';
 import type { ScanWorkerInput } from './scan-worker.js';
+import type { PileWorkerInput } from './pile-worker.js';
+import { bucketCountFor } from '../sequence/bucket-uniq.js';
+import type { EngineId } from '../processor/render.js';
 
 const WORKER_PATH = fileURLToPath(new URL('./render-worker.js', import.meta.url));
 const SCAN_WORKER_PATH = fileURLToPath(new URL('./scan-worker.js', import.meta.url));
+const PILE_WORKER_PATH = fileURLToPath(new URL('./pile-worker.js', import.meta.url));
 const CONCAT_BUFFER_BYTES = 1 << 20;
 
 export interface ParallelParams {
@@ -56,6 +60,8 @@ export interface ParallelParams {
   readonly dataPaths?: readonly string[] | undefined;
   readonly baseDir?: string | undefined;
   readonly jobs: number;
+  /** Which engine the run resolved to. Engine 4 splits the duplicate hunt into piles. */
+  readonly engine?: EngineId | undefined;
   /** Destination file descriptor (1 for stdout, or an opened output file). */
   readonly destFd: number;
 }
@@ -136,6 +142,7 @@ export function partitionRows(count: number, jobs: number): readonly (readonly [
 function planUniq(
   params: ParallelParams,
   scans: Readonly<Record<string, readonly string[]>>,
+  excess: Readonly<Record<string, readonly number[]>>,
 ): UniqPlan | undefined {
   const document = parseStrict(params.source);
   if (!hasUniqueness(document)) return undefined;
@@ -157,6 +164,7 @@ function planUniq(
     source: params.source,
     range: { start: 0, end: 0 },
     ...(Object.keys(scans).length > 0 ? { uniqScans: scans } : {}),
+    ...(Object.keys(excess).length > 0 ? { uniqExcess: excess } : {}),
     onUniqPlan: (group, arrangement) => {
       plan[group] = arrangement;
     },
@@ -183,8 +191,12 @@ export async function runParallel(params: ParallelParams): Promise<void> {
      * the whole-file scan would produce for its range; the arrangement is then
      * worked out once, here, from everyone's files merged.
      */
-    const scans = await scanInParallel(params, ranges, scanDir);
-    uniqPlan = planUniq(params, scans);
+    const { scans, piles } = await scanInParallel(params, ranges, scanDir);
+    // Engine 4 also splits the FINDING of the duplicates. Engine 3 leaves that
+    // to the coordinator, which merges everyone's runs in one thread — the last
+    // stage of a uniq run still bound to a single core.
+    const excess = Object.keys(piles).length > 0 ? await excessFromPiles(piles, scanDir) : {};
+    uniqPlan = planUniq(params, scans, excess);
 
     // Phase two: the rows themselves, every worker holding the arrangement.
     await Promise.all(
@@ -227,10 +239,13 @@ async function scanInParallel(
   params: ParallelParams,
   ranges: readonly (readonly [number, number])[],
   scanDir: string,
-): Promise<Record<string, readonly string[]>> {
+): Promise<{
+  readonly scans: Record<string, readonly string[]>;
+  readonly piles: Record<string, readonly (readonly string[])[]>;
+}> {
   const document = parseStrict(params.source);
   const groups = envUniqGroupsOf(document);
-  if (groups.length === 0) return {};
+  if (groups.length === 0) return { scans: {}, piles: {} };
 
   /*
    * Is the config even possible, before eleven threads are told to scan it?
@@ -243,7 +258,10 @@ async function scanInParallel(
    */
   checkUniqFeasible(document, params.count);
 
+  const buckets = params.engine === 4 ? bucketCountFor(params.count, params.jobs) : 1;
   const scans: Record<string, readonly string[]> = {};
+  const piles: Record<string, readonly (readonly string[])[]> = {};
+
   for (const members of groups) {
     const perRange = await Promise.all(
       ranges.map(([start, end], k) =>
@@ -261,14 +279,76 @@ async function scanInParallel(
           end,
           dir: scanDir,
           prefix: `g${String(groups.indexOf(members))}-r${String(k)}`,
+          ...(buckets > 1 ? { buckets } : {}),
         }),
       ),
     );
     // The engine names a group by its members joined this way; the key has to
     // match or the files would be computed and then quietly ignored.
-    scans[members.join(' × ')] = perRange.flat();
+    const label = members.join(' × ');
+    scans[label] = perRange.flat();
+    if (buckets > 1) {
+      /*
+       * Each thread wrote one file per pile, so a pile's records are spread
+       * across as many files as there were threads. Regroup them: pile b is
+       * every thread's b-th file. Nothing is read or copied — only the paths
+       * are rearranged.
+       */
+      piles[label] = Array.from({ length: buckets }, (_, b) =>
+        perRange.map((paths) => paths[b]).filter((path): path is string => path !== undefined),
+      );
+    }
   }
-  return scans;
+  return { scans, piles };
+}
+
+/**
+ * Engine 4: find the colliding rows by splitting the tuples into piles and
+ * giving each pile to a thread.
+ *
+ * The piles are chosen by a hash of the tuple, so every copy of a repeated
+ * tuple is in one pile and no pile has to be compared with another. That
+ * removes the merge over everything, which is the last stage of a uniq run
+ * still bound to a single core — five minutes of a ten-minute 10 GB run.
+ *
+ * A pile worker needs only the files: no config, no packs, no registry. It
+ * sorts and reports row numbers.
+ */
+async function excessFromPiles(
+  piles: Record<string, readonly (readonly string[])[]>,
+  tmpDir: string,
+): Promise<Record<string, readonly number[]>> {
+  const out: Record<string, readonly number[]> = {};
+  for (const [label, files] of Object.entries(piles)) {
+    const perPile = await Promise.all(files.map((paths) => runPileWorker({ paths, tmpDir })));
+    // One list, ascending — the same rows the single sort would have named, in
+    // the order the repair expects them.
+    const all = perPile.flat().slice();
+    all.sort((a, b) => a - b);
+    out[label] = all;
+  }
+  return out;
+}
+
+/** Run one pile worker and collect the row numbers it says must move. */
+function runPileWorker(input: PileWorkerInput): Promise<readonly number[]> {
+  return new Promise<readonly number[]>((resolve, reject) => {
+    const worker = new Worker(PILE_WORKER_PATH, { workerData: input });
+    let result: { ok: boolean; error?: string; excess?: readonly number[] } | undefined;
+    let earlyError: Error | undefined;
+    worker.on('message', (msg: { ok: boolean; error?: string; excess?: readonly number[] }) => {
+      result = msg;
+    });
+    worker.on('error', (err: Error) => {
+      earlyError = err;
+    });
+    worker.on('exit', (code) => {
+      if (earlyError) reject(earlyError);
+      else if (result && !result.ok) reject(new Error(result.error ?? 'pile worker failed'));
+      else if (code !== 0) reject(new Error(`pile worker stopped with exit code ${String(code)}`));
+      else resolve(result?.excess ?? []);
+    });
+  });
 }
 
 /** Run one scan worker and collect the run files it wrote. */

@@ -85,7 +85,15 @@ export function applyEnvUniq(
     resolvers,
     count,
     `"${label}"`,
-    scan !== undefined ? { sortedRuns: scan } : {},
+    {
+      ...(scan !== undefined ? { sortedRuns: scan } : {}),
+      ...(options.uniqBuckets !== undefined && options.uniqBuckets > 1
+        ? { buckets: options.uniqBuckets }
+        : {}),
+      ...(options.uniqExcess?.[label] !== undefined
+        ? { knownExcess: options.uniqExcess[label] }
+        : {}),
+    },
     blockOf,
     {
       preset: options.uniqPlan?.[label],

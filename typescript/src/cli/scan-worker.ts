@@ -23,7 +23,7 @@ import { parentPort, workerData } from 'node:worker_threads';
 import { bundledPacksDir, scanPacks } from '../data-pack/load.js';
 import { parseStrict } from '../parser/index.js';
 import { prepareRender } from '../processor/render.js';
-import { scanTupleRuns } from '../sequence/exact-uniq.js';
+import { scanIntoPiles, scanTupleRuns } from '../sequence/exact-uniq.js';
 import { sequenceValueAt } from '../sequence/index.js';
 
 export interface ScanWorkerInput {
@@ -43,6 +43,14 @@ export interface ScanWorkerInput {
   readonly dir: string;
   /** Distinguishes this worker's files from the others' in that directory. */
   readonly prefix: string;
+  /**
+   * Route into this many piles instead of sorting the range — Engine 4.
+   *
+   * Absent or 1 sorts the range and hands over runs, which the coordinator then
+   * merges in one thread. With piles nothing is sorted here: the sorting is
+   * done per pile, by whoever picks it up, so that half is spread too.
+   */
+  readonly buckets?: number | undefined;
 }
 
 function run(input: ScanWorkerInput): readonly string[] {
@@ -73,6 +81,16 @@ function run(input: ScanWorkerInput): readonly string[] {
   });
 
   mkdirSync(input.dir, { recursive: true });
+  if ((input.buckets ?? 1) > 1) {
+    return scanIntoPiles(
+      resolvers,
+      input.start,
+      input.end,
+      input.dir,
+      input.prefix,
+      input.buckets ?? 1,
+    );
+  }
   return scanTupleRuns(resolvers, input.start, input.end, input.dir, input.prefix);
 }
 

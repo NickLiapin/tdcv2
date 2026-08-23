@@ -141,6 +141,13 @@ export interface SequenceBuildOptions {
    * paths. See `DuplicateScanOptions.sortedRuns` — this is how they reach it.
    */
   readonly uniqScans?: Readonly<Record<string, readonly string[]>> | undefined;
+  /**
+   * Split the tuples into this many piles when looking for duplicates — Engine
+   * 4's experiment. See `bucket-uniq.ts`. Absent or 1 is what Engine 3 does.
+   */
+  readonly uniqBuckets?: number | undefined;
+  /** Colliding rows already found elsewhere, per uniq group. See `DuplicateScanOptions.knownExcess`. */
+  readonly uniqExcess?: Readonly<Record<string, readonly number[]>> | undefined;
 
   /**
    * Rows are computed strictly in order, so `prev()` has a previous row to read.

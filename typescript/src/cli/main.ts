@@ -54,7 +54,7 @@ interface CliArgs {
   readonly dataPaths: readonly string[];
   readonly stream: boolean;
   readonly mode: 'memory' | 'disk' | undefined;
-  readonly engine: 1 | 2 | 3 | undefined;
+  readonly engine: 1 | 2 | 3 | 4 | undefined;
   readonly jobs: number | undefined;
   readonly help: boolean;
   readonly version: boolean;
@@ -124,7 +124,7 @@ function parseArgs(argv: readonly string[]): CliArgs {
   const dataPaths: string[] = [];
   let stream = false;
   let mode: 'memory' | 'disk' | undefined;
-  let engine: 1 | 2 | 3 | undefined;
+  let engine: 1 | 2 | 3 | 4 | undefined;
   let jobs: number | undefined;
   let help = false;
   let version = false;
@@ -291,10 +291,13 @@ function parseNow(value: string): number {
   }
 }
 
-function parseEngine(value: string): 1 | 2 | 3 {
-  if (value === '1' || value === '2' || value === '3') return Number(value) as 1 | 2 | 3;
+function parseEngine(value: string): 1 | 2 | 3 | 4 {
+  if (value === '1' || value === '2' || value === '3' || value === '4') {
+    return Number(value) as 1 | 2 | 3 | 4;
+  }
   throw new Error(
-    `invalid --engine "${value}" — expected 1 (in-memory), 2 (streaming), or 3 (exact-on-disk)`,
+    `invalid --engine "${value}" — expected 1 (in-memory), 2 (streaming), ` +
+      `3 (exact-on-disk), or 4 (experimental)`,
   );
 }
 
@@ -389,7 +392,7 @@ export async function main(argv: readonly string[]): Promise<number> {
       dataPaths?: readonly string[];
       stream?: boolean;
       mode?: 'memory' | 'disk';
-      engine?: 1 | 2 | 3;
+      engine?: 1 | 2 | 3 | 4;
     } = { configFile: inputFile };
     if (args.seed !== undefined) opts.seed = args.seed;
     if (args.count !== undefined) opts.count = args.count;
@@ -685,6 +688,9 @@ async function renderParallel(tdc: TDC, args: CliArgs, jobs: number): Promise<vo
     ...tdc.workerOptions(),
     now: args.now ?? Date.now(),
     jobs,
+    // Engine 4 splits the duplicate hunt into piles as well as the scan; the
+    // coordinator is where that is arranged, so it has to be told.
+    engine: tdc.engineId(),
   };
   if (args.output) {
     const fd = openSync(args.output, 'w');

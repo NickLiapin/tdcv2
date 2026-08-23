@@ -28,6 +28,7 @@ import {
   writeFileSync,
   writeSync,
 } from 'node:fs';
+import type { EngineId } from '../processor/render.js';
 import { dirname, resolve } from 'node:path';
 import { Readable } from 'node:stream';
 
@@ -105,7 +106,7 @@ export interface TdcOptions {
   /** User mode: "memory" (Engine 1) or "disk" (Engine 2/3 auto). Overrides `<env mode>`. */
   readonly mode?: 'memory' | 'disk';
   /** Advanced: force a specific engine (1/2/3). Highest precedence. */
-  readonly engine?: 1 | 2 | 3;
+  readonly engine?: 1 | 2 | 3 | 4;
 }
 
 export interface TdcPreflightOptions {
@@ -314,7 +315,7 @@ export class TDC {
    * Which engine this run uses (1 in-memory, 2 streaming, 3 exact-on-disk),
    * resolved with the same precedence + disk-mode routing as the renderer.
    */
-  private resolveEngine(): 1 | 2 | 3 {
+  private resolveEngine(): EngineId {
     const envEl = findEnv(this.tree);
     const attrs = envEl ? extractAttrs(envEl.attr()) : {};
     const selection = resolveEngineSelection(attrs, {
@@ -367,6 +368,11 @@ export class TDC {
   /** Whether this run uses Engine 2 (streaming) — required for parallel generation. */
   public usesStreamEngine(): boolean {
     return this.isStreamEngine();
+  }
+
+  /** Which engine this run resolves to — for the parallel coordinator. */
+  public engineId(): EngineId {
+    return this.resolveEngine();
   }
 
   /**
@@ -579,7 +585,7 @@ export class TDC {
     now?: number;
     stream?: boolean;
     mode?: 'memory' | 'disk';
-    engine?: 1 | 2 | 3;
+    engine?: 1 | 2 | 3 | 4;
     baseDir?: string;
     dataPaths?: readonly string[];
     source?: string;
@@ -593,7 +599,7 @@ export class TDC {
       now?: number;
       stream?: boolean;
       mode?: 'memory' | 'disk';
-      engine?: 1 | 2 | 3;
+      engine?: 1 | 2 | 3 | 4;
       baseDir?: string;
       dataPaths?: readonly string[];
       source?: string;

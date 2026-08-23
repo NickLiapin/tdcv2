@@ -75,6 +75,8 @@ import {
 import { ExactUniqRepairNeeded } from '../sequence/exact-uniq.js';
 import { extractPoolSpecs } from '../sequence/pool.js';
 import type { UniqArrangement, UniqPlan } from '../sequence/build.js';
+import { bucketCountFor } from '../sequence/bucket-uniq.js';
+import { availableParallelism } from 'node:os';
 import { buildPoolTables } from '../sequence/pool-build.js';
 import type { CaseSpec, SequenceRegistry, SequenceSpec, SwitchSpec } from '../sequence/index.js';
 import { resolveTemplate } from '../templates/resolver.js';
@@ -129,6 +131,10 @@ export interface RenderOptions {
   readonly skipEnvUniq?: true;
   /** Tuple records already computed and sorted elsewhere, per uniq group, as run file paths. */
   readonly uniqScans?: Readonly<Record<string, readonly string[]>> | undefined;
+  /** Piles to split the duplicate hunt into. Set by Engine 4; see `bucket-uniq.ts`. */
+  readonly uniqBuckets?: number | undefined;
+  /** Colliding rows already found elsewhere, per uniq group — Engine 4's pile workers. */
+  readonly uniqExcess?: Readonly<Record<string, readonly number[]>> | undefined;
   /** Base directory for relative `src` paths. Defaults to process cwd. */
   readonly baseDir?: string | undefined;
   /** Extra folders searched by `src="@data/..."` and relative file sources. */
@@ -196,8 +202,12 @@ interface EnvConfig {
  * 2 = streaming (Engine 2): lazy, disk-friendly, multi-threaded; exact except
  *     percent-weighted `uniq`, which it refuses.
  * 3 = exact-on-disk (Engine 3): everything Engine 1 does, at scale, on disk.
+ * 4 = EXPERIMENTAL. Engine 3, with the duplicate hunt split into piles chosen
+ *     by a hash of the tuple, so no merge is needed across them. Same bytes as
+ *     Engine 3 by construction — a speed experiment, never auto-selected, and
+ *     only reachable by asking for it.
  */
-export type EngineId = 1 | 2 | 3;
+export type EngineId = 1 | 2 | 3 | 4;
 
 /**
  * User-facing mode. `memory` → Engine 1. `disk` → work off disk: TDC picks the
@@ -592,6 +602,8 @@ export function prepareRender(
     ...(options.onUniqPlan !== undefined ? { onUniqPlan: options.onUniqPlan } : {}),
     ...(options.skipEnvUniq ? { skipEnvUniq: true as const } : {}),
     ...(options.uniqScans !== undefined ? { uniqScans: options.uniqScans } : {}),
+    ...(options.uniqBuckets !== undefined ? { uniqBuckets: options.uniqBuckets } : {}),
+    ...(options.uniqExcess !== undefined ? { uniqExcess: options.uniqExcess } : {}),
     seed: env.seed,
     pools: buildPoolTables(extractPoolSpecs(envEl), env.seed, env.locale, now, packOptions),
     // `prev()` may look back one row only when the rows are computed in order.
@@ -666,7 +678,20 @@ export function prepareRender(
         envUniqGroups,
       });
     }
-  } else if (engine === 3) {
+  } else if (engine === 3 || engine === 4) {
+    if (engine === 4 && buildOptions.uniqBuckets === undefined) {
+      // Four piles per core, and one pile below a million rows — where the
+      // splitting costs more in files than it saves in sorting.
+      Object.assign(buildOptions, {
+        uniqBuckets: bucketCountFor(env.count, availableParallelism()),
+      });
+    }
+    /*
+     * Engine 4 is Engine 3 with the duplicate hunt split into piles. Same
+     * pipeline, same result — the piles change how the tuples are looked
+     * through, not which ones collide. Kept as its own id so the two can be
+     * measured against each other on one config.
+     */
     registry = buildExactDiskRegistry(
       sequenceSpecs,
       env.count,
@@ -921,9 +946,10 @@ export function resolveEngineSelection(attrs: AttrMap, options: RenderOptions): 
 }
 
 function parseEngineId(raw: string): EngineId {
-  if (raw === '1' || raw === '2' || raw === '3') return Number(raw) as EngineId;
+  if (raw === '1' || raw === '2' || raw === '3' || raw === '4') return Number(raw) as EngineId;
   throw new Error(
-    `invalid engine "${raw}" — expected "1" (in-memory), "2" (streaming), or "3" (exact-on-disk)`,
+    `invalid engine "${raw}" — expected "1" (in-memory), "2" (streaming), ` +
+      `"3" (exact-on-disk), or "4" (experimental)`,
   );
 }
 
