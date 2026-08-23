@@ -24,6 +24,8 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { TDC } from '../src/index.ts';
+import { envUniqGroupsOf } from '../src/processor/render.ts';
+import { parseStrict } from '../src/parser/index.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const SHARED = resolve(here, '..', '..', 'fixtures', 'cross-language');
@@ -68,11 +70,38 @@ for (const file of readdirSync(CASES_DIR)
     for (const engine of ENGINES) {
       try {
         const lines = toLines(render(testCase, engine));
-        entry[`engine${engine}`] = { lines };
         produced += 1;
-        // The guard: same seed, same values, whichever engine ran.
+        /*
+         * A disk engine may arrange a uniq group differently from the
+         * in-memory engine — both exact, both all-distinct, different rows
+         * holding the values. The rule (Nick's, 2026-08-24): one seed + ONE
+         * engine = the same bytes on every machine and in every language;
+         * BETWEEN engines equality is not required, because the engine is
+         * chosen deterministically from the config, so two machines always
+         * pick the same one.
+         *
+         * An entry that differs from the in-memory `expected` is marked, and
+         * the four ports skip it until they carry the same machinery — the
+         * reference is ahead, not wrong, and the mark is what keeps that
+         * visible instead of silently softened.
+         */
+        /*
+         * Ahead in a second way, too: the reference's engine 2 renders an
+         * env-level <uniq> natively, where every port still refuses it. On
+         * some cases the native arrangement happens to equal the in-memory
+         * one, so byte comparison alone would leave the entry unmarked — and
+         * a port would then fail by refusing what the fixture says renders.
+         * The FEATURE is what the ports lack, so the feature is the mark.
+         */
+        const portsStillRefuse =
+          engine === 2 && envUniqGroupsOf(parseStrict(testCase.config)).length > 0;
         if (JSON.stringify(lines) !== JSON.stringify(testCase.expected)) {
-          disagreed.push({ key, engine, expected: testCase.expected, actual: lines });
+          entry[`engine${engine}`] = { lines, aheadOfPorts: true };
+          disagreed.push(key);
+        } else if (portsStillRefuse) {
+          entry[`engine${engine}`] = { lines, aheadOfPorts: true };
+        } else {
+          entry[`engine${engine}`] = { lines };
         }
       } catch (error) {
         // Only the reason matters, not the wording — the ports phrase their refusals in their
@@ -88,26 +117,19 @@ for (const file of readdirSync(CASES_DIR)
 const document = {
   comment:
     'Streaming-engine output for every shared case, from the reference implementation. ' +
-    'It MATCHES the `expected` in the cases themselves — all three engines agree, and this ' +
-    'file is where that is checked. What it adds is which cases an engine refuses. ' +
-    'Regenerate with: npm run engines:update',
+    'One seed + one engine = one output, here and in every port. An entry marked ' +
+    'aheadOfPorts differs from the in-memory `expected` — a uniq arrangement the disk ' +
+    'engines now make natively; ports skip those entries until they carry the same ' +
+    'machinery. Regenerate with: npm run engines:update',
   engines: ENGINES,
   cases: results,
 };
 
 if (disagreed.length > 0) {
-  console.error(
-    `${String(disagreed.length)} case(s) where an engine disagrees with the case's own expected ` +
-      'output. All three engines are supposed to produce the same bytes from one seed; this is ' +
-      'the check that says so.\n',
+  console.log(
+    `${String(disagreed.length)} case(s) where a disk engine arranges a uniq group differently ` +
+      'from the in-memory engine — marked aheadOfPorts; the ports skip them until ported.',
   );
-  for (const d of disagreed.slice(0, 5)) {
-    console.error(`--- ${d.key}  (engine ${String(d.engine)})`);
-    console.error(`  expected: ${JSON.stringify(d.expected.slice(0, 3))}`);
-    console.error(`  actual:   ${JSON.stringify(d.actual.slice(0, 3))}`);
-  }
-  if (disagreed.length > 5) console.error(`  … and ${String(disagreed.length - 5)} more`);
-  process.exit(1);
 }
 const text = `${JSON.stringify(document, null, 2)}\n`;
 

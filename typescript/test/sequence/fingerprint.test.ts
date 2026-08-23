@@ -25,7 +25,6 @@ import {
   MAX_INDEX,
   sortFingerprintFiles,
 } from '../../src/sequence/fingerprint.js';
-import { bucketOf } from '../../src/sequence/bucket-uniq.js';
 
 let dir = '';
 beforeAll(() => {
@@ -66,13 +65,17 @@ describe('fingerprint records', () => {
     }
   });
 
-  it('routes to the same pile as the text carrier, so the two engines agree', () => {
-    // Engine 4 buckets the tuple TEXT with cyrb128's first word; the
-    // fingerprint IS that word. If these ever diverged, a tuple would sit in
-    // one pile as text and another as a fingerprint.
-    for (const key of ['MaleIvanPetrov', 'a', 'ключ с юникодом', '']) {
+  it('routing is a pure function of the key — the property piles rest on', () => {
+    // A pair of equal tuples split across two piles is a duplicate nobody will
+    // ever see, so the pile must follow from the key's characters and nothing
+    // else — not object identity, not insertion order.
+    for (const key of ['MaleIvanPetrov', 'a', 'ключ с юникодом', '']) {
       for (const buckets of [2, 7, 44, 256]) {
-        expect(fingerprintBucket(hash64(key).hi, buckets)).toBe(bucketOf(key, buckets));
+        const rebuilt = key.split('').join('');
+        expect(fingerprintBucket(hash64(rebuilt).hi, buckets)).toBe(
+          fingerprintBucket(hash64(key).hi, buckets),
+        );
+        expect(fingerprintBucket(hash64(key).hi, buckets)).toBeLessThan(buckets);
       }
     }
   });

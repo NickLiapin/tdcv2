@@ -1,20 +1,21 @@
 /**
- * Worker thread for the uniq SCAN (`--jobs N`).
+ * Worker thread for the uniq scan (`--jobs N`) — fingerprints.
  *
- * Before a uniq run can write anything it has to find out which rows collided,
- * and that means computing every row's tuple and sorting them so equal ones
- * become adjacent. On a 97,000,000-row config that pass was 23 minutes of a
- * 61-minute run, on one core out of twelve.
- *
- * It splits because each row's tuple is a function of its own number and
- * nothing else. A worker takes a contiguous range, computes exactly the records
- * the whole-file scan would produce there, sorts them into run files, and
- * reports the paths. The coordinator merges everyone's runs — cheap, since
- * nothing is computed and nothing is sorted again, only read in order.
+ * Before a uniq run can write anything it has to find out which rows collided.
+ * That means computing every row's tuple, and it splits because a tuple is a
+ * function of its own row number: a worker takes a contiguous range, hashes
+ * each tuple into a 13-byte fingerprint, and routes it straight into the file
+ * of the pile the hash names. Nothing is sorted here — a pile is sorted by the
+ * pile worker that picks it up, so that half of the work is spread too.
  *
  * The registry here is built WITHOUT applying the uniq group. That is not a
- * shortcut: the scan's input is what each row drew BEFORE any rearrangement, so
- * applying the rearrangement to obtain it would be circular.
+ * shortcut: the scan's input is what each row drew BEFORE any rearrangement,
+ * so applying the rearrangement to obtain it would be circular.
+ *
+ * The same worker also answers the VERIFY step: given row numbers whose
+ * fingerprints matched, it returns their true tuples, so the coordinator can
+ * tell genuine repeats from hash collisions. Both jobs need the registry,
+ * which is why they share a worker.
  */
 
 import { mkdirSync } from 'node:fs';
@@ -23,8 +24,10 @@ import { parentPort, workerData } from 'node:worker_threads';
 import { bundledPacksDir, scanPacks } from '../data-pack/load.js';
 import { parseStrict } from '../parser/index.js';
 import { prepareRender } from '../processor/render.js';
-import { scanIntoPiles, scanTupleRuns } from '../sequence/exact-uniq.js';
+import { tupleKeyAt, writeFingerprintPiles } from '../sequence/exact-uniq.js';
 import { sequenceValueAt } from '../sequence/index.js';
+
+import type { UniqResolver } from '../sequence/exact-uniq.js';
 
 export interface ScanWorkerInput {
   readonly source: string;
@@ -37,23 +40,23 @@ export interface ScanWorkerInput {
   readonly baseDir?: string | undefined;
   /** The group's members, in the order the engine reads them. */
   readonly members: readonly string[];
-  readonly start: number;
-  readonly end: number;
-  /** Directory the run files go in — the coordinator's, and its to remove. */
-  readonly dir: string;
+  /** Scan job: hash rows `[start, end)` into pile files. */
+  readonly start?: number | undefined;
+  readonly end?: number | undefined;
+  /** Directory the pile files go in — the coordinator's, and its to remove. */
+  readonly dir?: string | undefined;
   /** Distinguishes this worker's files from the others' in that directory. */
-  readonly prefix: string;
-  /**
-   * Route into this many piles instead of sorting the range — Engine 4.
-   *
-   * Absent or 1 sorts the range and hands over runs, which the coordinator then
-   * merges in one thread. With piles nothing is sorted here: the sorting is
-   * done per pile, by whoever picks it up, so that half is spread too.
-   */
+  readonly prefix?: string | undefined;
+  /** How many piles — the same number every worker was given. */
   readonly buckets?: number | undefined;
+  /**
+   * Verify job instead: return `[row, tuple]` for each of these rows. Sent for
+   * the rows whose fingerprints matched — a handful, so one worker does it.
+   */
+  readonly verifyIndices?: readonly number[] | undefined;
 }
 
-function run(input: ScanWorkerInput): readonly string[] {
+function buildResolvers(input: ScanWorkerInput): readonly UniqResolver[] {
   const document = parseStrict(input.source);
   const roots = [bundledPacksDir(), ...(input.dataPaths ?? [])].filter(
     (p): p is string => p !== undefined,
@@ -71,33 +74,39 @@ function run(input: ScanWorkerInput): readonly string[] {
     baseDir: input.baseDir,
     source: input.source,
   });
-
-  const resolvers = input.members.map((name) => {
+  return input.members.map((name) => {
     const sequence = prepared.registry[name];
     return {
       id: name,
       resolve: (i: number): string => (sequence ? (sequenceValueAt(sequence, i) ?? '') : ''),
     };
   });
+}
 
+function run(input: ScanWorkerInput): { paths?: readonly string[]; pairs?: [number, string][] } {
+  const resolvers = buildResolvers(input);
+  if (input.verifyIndices !== undefined) {
+    return { pairs: input.verifyIndices.map((row) => [row, tupleKeyAt(resolvers, row)]) };
+  }
+  if (input.dir === undefined || input.prefix === undefined) {
+    throw new Error('scan worker needs either verifyIndices or a range with dir and prefix');
+  }
   mkdirSync(input.dir, { recursive: true });
-  if ((input.buckets ?? 1) > 1) {
-    return scanIntoPiles(
+  return {
+    paths: writeFingerprintPiles(
       resolvers,
-      input.start,
-      input.end,
+      input.start ?? 0,
+      input.end ?? 0,
       input.dir,
       input.prefix,
       input.buckets ?? 1,
-    );
-  }
-  return scanTupleRuns(resolvers, input.start, input.end, input.dir, input.prefix);
+    ),
+  };
 }
 
-// Entry: scan the assigned range, then report the files (or the failure).
+// Entry: do the assigned job, then report the result (or the failure).
 try {
-  const paths = run(workerData as ScanWorkerInput);
-  parentPort?.postMessage({ ok: true, paths });
+  parentPort?.postMessage({ ok: true, ...run(workerData as ScanWorkerInput) });
 } catch (err) {
   parentPort?.postMessage({ ok: false, error: err instanceof Error ? err.message : String(err) });
 }

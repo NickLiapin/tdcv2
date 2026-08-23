@@ -106,7 +106,7 @@ export interface TdcOptions {
   /** User mode: "memory" (Engine 1) or "disk" (Engine 2/3 auto). Overrides `<env mode>`. */
   readonly mode?: 'memory' | 'disk';
   /** Advanced: force a specific engine (1/2/3). Highest precedence. */
-  readonly engine?: 1 | 2 | 3 | 4 | 5;
+  readonly engine?: 1 | 2 | 3;
 }
 
 export interface TdcPreflightOptions {
@@ -370,11 +370,6 @@ export class TDC {
     return this.isStreamEngine();
   }
 
-  /** Which engine this run resolves to — for the parallel coordinator. */
-  public engineId(): EngineId {
-    return this.resolveEngine();
-  }
-
   /**
    * Whether this run resolves each row on its own — Engine 2 or Engine 3.
    *
@@ -585,7 +580,7 @@ export class TDC {
     now?: number;
     stream?: boolean;
     mode?: 'memory' | 'disk';
-    engine?: 1 | 2 | 3 | 4 | 5;
+    engine?: 1 | 2 | 3;
     baseDir?: string;
     dataPaths?: readonly string[];
     source?: string;
@@ -599,7 +594,7 @@ export class TDC {
       now?: number;
       stream?: boolean;
       mode?: 'memory' | 'disk';
-      engine?: 1 | 2 | 3 | 4 | 5;
+      engine?: 1 | 2 | 3;
       baseDir?: string;
       dataPaths?: readonly string[];
       source?: string;

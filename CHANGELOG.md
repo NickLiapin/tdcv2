@@ -130,7 +130,39 @@ page — is tracked in that implementation's own changelog:
 
 ### Changed
 
-<!-- covers: uniq -->
+<!-- covers: uniq engines -->
+
+- **Uniqueness at scale: the disk engines carry uniq tuples as fingerprints.** On runs
+  of a million rows and up, engines 2 and 3 hunt duplicates through 13-byte hash
+  records instead of tuple text: routed into piles by the hash (equal tuples always
+  land together), sorted as packed integers, matching groups verified against the
+  true tuples, and the sorted piles kept on disk to answer the repair's "is this
+  tuple taken?" by binary search. No in-memory structure over the run — measured:
+  20 GB and 194,011,420 rows, every one distinct, single-threaded, 84 minutes, with
+  the heap CAPPED at 1 GB. Below a million rows the exact text path runs unchanged,
+  so small configs keep their bytes.
+
+  The repair's collision cap now grows with the run (a thousandth of the rows,
+  floored at the old 20,000) — collisions grow as the square of the run, so a flat
+  cap doomed every sufficiently large one. And past 20 million rows a tripped cap
+  refuses with a sentence instead of falling back to the in-memory engine, which
+  cannot hold such a table and used to die half an hour later with nothing written.
+
+- **Engines agree per engine, not across engines.** The rule is now: one seed + one
+  engine = the same bytes on every machine and in every language. BETWEEN engines
+  equality is not required — the engine is chosen deterministically from the config,
+  so two machines always pick the same one; requiring it only held the disk engines
+  down to what the in-memory engine could do. `engines.json` marks the entries where
+  the reference is ahead of the ports (`aheadOfPorts`), and the ports skip exactly
+  those, by name, until the machinery is ported.
+
+- **An env-level `<uniq>` streams.** Engine 2 no longer refuses it: each member is
+  its own seekable column, so the tuples are checked and the few colliding rows
+  rearranged without holding the run. `uniq="true"` on a single sequence is still
+  refused in stream mode — that rearranges the gens inside one compound column,
+  which no per-row resolver reproduces.
+
+<!-- covers: uniq arrangement -->
 
 - **A `uniq` group arranges its rows differently — the same data, laid out another way.**
   A config with `uniq="true"` or an env-level `<uniq>` still produces the same values in

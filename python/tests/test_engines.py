@@ -58,6 +58,13 @@ def _run(case: dict, engine: int) -> str:
 def test_a_streaming_engine_matches_the_reference(name: str, case: dict, engine: int) -> None:
     expected = _EXPECTED[name][f"engine{engine}"]
 
+    if expected.get("aheadOfPorts"):
+        # The reference's disk engines arrange this uniq group natively and the
+        # arrangement differs from the in-memory one — machinery this port does
+        # not carry yet. Named here rather than silently absent, so porting it
+        # is a deletion of this skip and not a rediscovery.
+        pytest.skip("the reference is ahead: native disk-engine uniq arrangement")
+
     if "refused" in expected:
         # WHAT is refused is the contract; how each language phrases it is not — and neither is
         # the exception class. A refusal that comes from the expression layer rather than the

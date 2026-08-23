@@ -39,6 +39,21 @@ import { join } from 'node:path';
 
 import { cyrb128 } from '../prng/prng.js';
 
+/**
+ * How many piles for a run of `count` rows.
+ *
+ * Enough that a pile is a small fraction of the whole, capped so the write
+ * buffers stay modest and the file count stays sane. A short run gets one pile
+ * — the signal to stay on the exact text path, where hashing has nothing to
+ * pay for itself with.
+ */
+export function bucketCountFor(count: number, cores: number): number {
+  if (count < 1_000_000) return 1;
+  // Four piles per core: measured sizes come out even (124,575..126,065 over
+  // sixteen piles at two million rows), so no core waits on a straggler.
+  return Math.min(256, Math.max(2, Math.max(1, cores) * 4));
+}
+
 /** Bytes per record: 4 (hash hi) + 4 (hash lo) + 5 (row index). */
 export const RECORD_BYTES = 13;
 

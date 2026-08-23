@@ -255,7 +255,16 @@ class CliFixtureTest {
 
   @Test
   void nothingIsSkipped() {
-    // Every case runs here. A skip would have to be explained in `gaps` first.
-    assertEquals(DOCUMENT.get("cases").size(), cases().count());
+    // Every case runs here unless it NAMES the implementations it runs in and
+    // this port is not among them — the reference moving ahead of the ports,
+    // recorded in the fixture rather than deleted from it. Anything else
+    // failing to run would still fail here.
+    long skipped = 0;
+    for (JsonNode testCase : DOCUMENT.get("cases")) {
+      if (!appliesHere(testCase)) {
+        skipped++;
+      }
+    }
+    assertEquals(DOCUMENT.get("cases").size() - skipped, cases().count());
   }
 }

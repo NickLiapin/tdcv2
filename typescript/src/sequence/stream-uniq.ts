@@ -80,16 +80,11 @@ export function applyEnvUniq(
    * row and it answers the same way every time for a given config and seed, so
    * a thread rendering rows 40,000,000 to 50,000,000 should not repeat it.
    */
-  const scan = options.uniqScans?.[label];
   const repaired = repairExactUniq(
     resolvers,
     count,
     `"${label}"`,
     {
-      ...(scan !== undefined ? { sortedRuns: scan } : {}),
-      ...(options.uniqBuckets !== undefined && options.uniqBuckets > 1
-        ? { buckets: options.uniqBuckets }
-        : {}),
       ...(options.uniqExcess?.[label] !== undefined
         ? { knownExcess: options.uniqExcess[label] }
         : {}),

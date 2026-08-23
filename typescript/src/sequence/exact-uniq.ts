@@ -28,9 +28,6 @@ import { externalSort } from './external-sort.js';
 import { makePercentResolver } from './stream-resolve.js';
 import type { Sequence } from './types.js';
 import { arrangeUnique, uniqUpperBound } from './uniq.js';
-import { SeenTuples } from './tuple-filter.js';
-import { mergeRuns, RunReader, RunWriter } from './external-sort.js';
-import { bucketOf, TupleBuckets } from './bucket-uniq.js';
 import {
   candidateGroups,
   FingerprintLedger,
@@ -84,70 +81,11 @@ function maxRepairRowsFor(count: number): number {
  */
 export const IN_MEMORY_FALLBACK_MAX_ROWS = 20_000_000;
 
-/**
- * Below this many rows the repair derives the tuples a second time rather than
- * writing them down. A file is worth its own cost only once the second pass is
- * measured in minutes; under a million rows it is measured in seconds. The
- * choice is pure speed — both paths build the same set, since membership does
- * not depend on the order things were added in.
- */
-const JOURNAL_MIN_ROWS = 1_000_000;
-
 export interface DuplicateScanOptions {
   /** Records held in RAM per sort run (passed to externalSort). */
   readonly chunkSize?: number;
   /** Directory for temp files. */
   readonly tmpDir?: string;
-  /**
-   * Called with every sorted record as it goes past.
-   *
-   * The repair has to look at every tuple a SECOND time, to learn which ones
-   * are already taken. Computing them again costs what the scan cost: on a
-   * 97,000,000-row run that was 18 minutes of a 61-minute total, spent
-   * re-deriving values that had just been derived. The records are already in
-   * hand here, so a caller can write them down instead and read them back.
-   */
-  readonly onRecord?: (record: string) => void;
-  /**
-   * Rows from which the repair writes the tuples down instead of deriving them
-   * twice. Defaults to `JOURNAL_MIN_ROWS`.
-   *
-   * Both paths build the same set, so this is a speed choice — and a testable
-   * one: lowering it lets a small config take the path a 97,000,000-row run
-   * takes, and the two are then asserted to produce the same bytes. Without
-   * that the path would only ever run on a config too big for a test suite,
-   * which is how a path comes to be believed rather than known.
-   */
-  readonly journalMinRows?: number;
-  /**
-   * Tuple records already computed and sorted, in run files written elsewhere.
-   *
-   * The scan is a full pass over every row — compute the tuple, sort it in with
-   * the rest — and it is the single most expensive stage of a uniq run. Each
-   * row is a function of its own number and nothing else, so it splits: several
-   * threads take a range apiece, sort what they produced, and hand the files
-   * over. Given them, this does no computing and no sorting, only the merge.
-   *
-   * The files also stand in for the journal: they already hold every tuple, so
-   * the repair reads them for its second look rather than writing its own copy.
-   */
-  readonly sortedRuns?: readonly string[];
-  /**
-   * Split the tuples into this many piles, chosen by a hash OF THE TUPLE, and
-   * scan each pile on its own — Engine 4.
-   *
-   * Equal tuples hash equally, so a colliding pair is always in the same pile
-   * and the piles never have to be compared with each other. That removes the
-   * one merge over everything, which on 10 GB was five minutes of a ten-minute
-   * run and the last stage still on a single core.
-   *
-   * The duplicates are the same ones, reported in the same order, so this
-   * changes the speed and not the answer. Absent or 1 means one pile, which is
-   * what Engine 3 does.
-   */
-  readonly buckets?: number;
-  /** Called once with each pile's size and file, for reporting how evenly they split. */
-  readonly onBuckets?: (sizes: readonly number[], paths: readonly string[]) => void;
   /**
    * The colliding rows, already found somewhere else.
    *
@@ -198,28 +136,15 @@ export function* findDuplicateGroups(
   rows: Iterable<KeyedRow>,
   options: DuplicateScanOptions = {},
 ): Generator<readonly number[], void, void> {
-  if ((options.buckets ?? 1) > 1) {
-    yield* bucketedDuplicateGroups(rows, options);
-    return;
-  }
-
   let currentKey: string | undefined;
   let group: number[] = [];
 
   // No custom comparator — the padded encoding sorts correctly byte-wise, which
   // is far cheaper than parsing each record on every comparison.
-  // Given sorted runs, the rows are never asked for: someone else already
-  // computed them. Otherwise compute and sort them here, as before.
-  const sorted =
-    options.sortedRuns !== undefined && options.sortedRuns.length > 0
-      ? mergeRuns(options.sortedRuns)
-      : externalSort(encode(rows), {
-          chunkSize: options.chunkSize,
-          tmpDir: options.tmpDir,
-        });
-
-  for (const record of sorted) {
-    options.onRecord?.(record);
+  for (const record of externalSort(encode(rows), {
+    chunkSize: options.chunkSize,
+    tmpDir: options.tmpDir,
+  })) {
     const split = record.lastIndexOf(SEP);
     const key = record.slice(0, split);
     const index = Number(record.slice(split + 1)); // leading zeros are ignored
@@ -231,112 +156,6 @@ export function* findDuplicateGroups(
     group.push(index);
   }
   if (group.length >= 2) yield group;
-}
-
-/**
- * The same groups, found pile by pile.
- *
- * Every record is routed to a pile by the hash of its tuple, then each pile is
- * sorted and scanned alone. Groups come out in pile order rather than in global
- * key order — which no caller depends on, since the rows are reported by index
- * and the caller sorts them.
- */
-function* bucketedDuplicateGroups(
-  rows: Iterable<KeyedRow>,
-  options: DuplicateScanOptions,
-): Generator<readonly number[], void, void> {
-  const buckets = options.buckets ?? 1;
-  const piles = new TupleBuckets(buckets, options.tmpDir);
-  try {
-    /*
-     * Route from whatever the tuples are already in.
-     *
-     * When threads have computed them, they are on disk and reading them back
-     * costs a sequential pass; deriving them again costs a full generation of
-     * the run. This used to take the second road without noticing, because the
-     * pile branch was chosen before anyone asked whether the records already
-     * existed.
-     */
-    if (options.sortedRuns !== undefined && options.sortedRuns.length > 0) {
-      for (const path of options.sortedRuns) {
-        const reader = new RunReader(path);
-        try {
-          for (let r = reader.next(); r !== undefined; r = reader.next()) {
-            piles.add(r, r.slice(0, r.lastIndexOf(SEP)));
-          }
-        } finally {
-          reader.close();
-        }
-      }
-    } else {
-      for (const { index, key } of rows) {
-        piles.add(`${key}${SEP}${String(index).padStart(INDEX_WIDTH, '0')}`, key);
-      }
-    }
-    piles.seal();
-    options.onBuckets?.(piles.sizes(), piles.paths());
-
-    for (let pile = 0; pile < buckets; pile++) {
-      let currentKey: string | undefined;
-      let group: number[] = [];
-      for (const record of piles.sorted(pile, options.chunkSize)) {
-        options.onRecord?.(record);
-        const split = record.lastIndexOf(SEP);
-        const key = record.slice(0, split);
-        const index = Number(record.slice(split + 1));
-        if (key !== currentKey) {
-          if (group.length >= 2) yield group;
-          group = [];
-          currentKey = key;
-        }
-        group.push(index);
-      }
-      if (group.length >= 2) yield group;
-    }
-  } finally {
-    piles.drop();
-  }
-}
-
-/**
- * The rows that have to move, from a stream of tuple records.
- *
- * One pile's worth of work, with nothing else attached: sort the records, and
- * every row after the first of each repeated tuple is a row that must be
- * rearranged. Kept separate from `repairExactUniq` so a thread can do it
- * knowing only the files — no config, no packs, no registry.
- */
-export function excessFromRecords(
-  records: Iterable<string>,
-  options: { chunkSize?: number | undefined; tmpDir?: string | undefined } = {},
-): number[] {
-  const excess: number[] = [];
-  let currentKey: string | undefined;
-  let group: number[] = [];
-
-  const flush = (): void => {
-    for (let m = 1; m < group.length; m++) {
-      const idx = group[m];
-      if (idx !== undefined) excess.push(idx);
-    }
-  };
-
-  for (const record of externalSort(records, {
-    ...(options.chunkSize !== undefined ? { chunkSize: options.chunkSize } : {}),
-    ...(options.tmpDir !== undefined ? { tmpDir: options.tmpDir } : {}),
-  })) {
-    const split = record.lastIndexOf(SEP);
-    const key = record.slice(0, split);
-    if (key !== currentKey) {
-      flush();
-      group = [];
-      currentKey = key;
-    }
-    group.push(Number(record.slice(split + 1)));
-  }
-  flush();
-  excess.sort((a, b) => a - b);
-  return excess;
 }
 
 /** Total DUPLICATE rows (rows beyond the first in each colliding group). */
@@ -449,65 +268,15 @@ export interface UniqResolver {
 }
 
 /**
- * Compute and sort the tuple records for ONE range of rows, into run files.
+ * Compute rows `[from, to)` and route each tuple's fingerprint straight into
+ * its pile file.
  *
- * The scan thread's whole job. Each row's tuple depends on its own number and
- * nothing else, so a thread given rows 40,000,000 to 50,000,000 can produce
- * exactly the records the whole-file scan would produce there, sort them, and
- * hand the files over. The coordinator merges everyone's files, which is cheap
- * — the expensive part was the computing and the sorting, and that is what
- * split.
- *
- * Records are sorted in chunks so a thread holds `chunkSize` of them at a time,
- * not its whole range. The files are the CALLER's to delete.
+ * The unit a scan thread runs: each thread takes a contiguous range and writes
+ * `buckets` files, and pile `b`'s records end up spread over the threads' b-th
+ * files — regrouping them is a rearrangement of paths, no bytes move. Returns
+ * one path per pile, in pile order.
  */
-export function scanTupleRuns(
-  resolvers: readonly UniqResolver[],
-  from: number,
-  to: number,
-  dir: string,
-  prefix: string,
-  chunkSize = SCAN_CHUNK,
-): string[] {
-  const paths: string[] = [];
-  let chunk: string[] = [];
-
-  const flush = (): void => {
-    if (chunk.length === 0) return;
-    chunk.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
-    const path = joinPath(dir, `${prefix}-${String(paths.length)}.txt`);
-    const writer = new RunWriter(path);
-    try {
-      for (const record of chunk) writer.write(record);
-    } finally {
-      writer.close();
-    }
-    paths.push(path);
-    chunk = [];
-  };
-
-  for (let i = from; i < to; i++) {
-    chunk.push(`${tupleKeyAt(resolvers, i)}${SEP}${String(i).padStart(INDEX_WIDTH, '0')}`);
-    if (chunk.length >= chunkSize) flush();
-  }
-  flush();
-  return paths;
-}
-
-/**
- * Compute one range of rows and route each tuple straight into its pile —
- * Engine 4's scan thread.
- *
- * The difference from `scanTupleRuns` is where the sorting happens. There, a
- * thread sorts its own range and the coordinator merges everyone's runs, in one
- * thread, over every record. Here nothing is sorted yet: each record goes
- * directly to the file of the pile its tuple hashes to, and the sorting is done
- * later, per pile, by whoever picks that pile up. Both phases are then spread,
- * and no pass over everything is left in the middle.
- *
- * Returns one file per pile, in pile order — this thread's share of each.
- */
-export function scanIntoPiles(
+export function writeFingerprintPiles(
   resolvers: readonly UniqResolver[],
   from: number,
   to: number,
@@ -515,20 +284,20 @@ export function scanIntoPiles(
   prefix: string,
   buckets: number,
 ): string[] {
-  const writers: RunWriter[] = [];
   const paths: string[] = [];
+  const writers: FingerprintWriter[] = [];
   for (let b = 0; b < buckets; b++) {
-    const path = joinPath(dir, `${prefix}-pile-${String(b)}.txt`);
+    const path = joinPath(dir, `${prefix}-${String(b)}`);
     paths.push(path);
-    writers.push(new RunWriter(path));
+    writers.push(new FingerprintWriter(path));
   }
   try {
     for (let i = from; i < to; i++) {
-      const key = tupleKeyAt(resolvers, i);
-      writers[bucketOf(key, buckets)]?.write(`${key}${SEP}${String(i).padStart(INDEX_WIDTH, '0')}`);
+      const { hi, lo } = hash64(tupleKeyAt(resolvers, i));
+      writers[fingerprintBucket(hi, buckets)]?.write(hi, lo, i);
     }
   } finally {
-    for (const writer of writers) writer.close();
+    for (const w of writers) w.close();
   }
   return paths;
 }
@@ -572,19 +341,7 @@ function resolveFingerprints(
   if (buckets < 2) return undefined;
 
   const dir = mkdtempSync(joinPath(options.tmpDir ?? tmpdir(), 'tdc-fp-'));
-  // Route every row's fingerprint to its pile.
-  const rawPaths: string[] = [];
-  const writers: FingerprintWriter[] = [];
-  for (let b = 0; b < buckets; b++) {
-    const path = joinPath(dir, `raw-${String(b)}`);
-    rawPaths.push(path);
-    writers.push(new FingerprintWriter(path));
-  }
-  for (let i = 0; i < count; i++) {
-    const { hi, lo } = hash64(tupleKeyAt(resolvers, i));
-    writers[fingerprintBucket(hi, buckets)]?.write(hi, lo, i);
-  }
-  for (const w of writers) w.close();
+  const rawPaths = writeFingerprintPiles(resolvers, 0, count, dir, 'raw', buckets);
 
   // Sort each pile and collect the candidate groups.
   const sorted: string[] = [];
@@ -630,10 +387,7 @@ export function verifyCandidates(
   return excess;
 }
 
-/** Records a scan thread holds at once before sorting them out to a file. */
-const SCAN_CHUNK = 1_000_000;
-
-function tupleKeyAt(resolvers: readonly UniqResolver[], i: number): string {
+export function tupleKeyAt(resolvers: readonly UniqResolver[], i: number): string {
   let key = '';
   for (let r = 0; r < resolvers.length; r++) {
     if (r > 0) key += JOIN;
@@ -717,62 +471,33 @@ export function repairExactUniq(
    *
    * `fingerprint` collects everything the fingerprint path knows — the sorted
    * pile files, their temp home if this call created them, and the verified
-   * excess. When it is set, the text machinery below (journal, sortedRuns,
-   * SeenTuples) is BYPASSED wholesale: excess is already exact, and the sorted
+   * excess. When it is set, the small-run text machinery below is BYPASSED
+   * wholesale: excess is already exact, and the sorted
    * piles answer the repair's membership question by binary search.
    */
   const fingerprint = resolveFingerprints(resolvers, count, options);
 
-  const journalFrom = options.journalMinRows ?? JOURNAL_MIN_ROWS;
-  // Sorted runs already ARE every tuple written down, so there is nothing to
-  // write again — step 2 reads those instead.
-  const haveRuns = options.sortedRuns !== undefined && options.sortedRuns.length > 0;
-  const journalDir =
-    fingerprint === undefined && !haveRuns && count >= journalFrom
-      ? mkdtempSync(joinPath(tmpdir(), 'tdc-uniq-'))
-      : undefined;
-  const journalPath = journalDir === undefined ? undefined : joinPath(journalDir, 'tuples');
-  const journal = journalPath === undefined ? undefined : new RunWriter(journalPath);
-
   const excess: number[] = [];
   if (fingerprint !== undefined) {
     excess.push(...fingerprint.excess);
-    journal?.close();
   } else if (options.knownExcess !== undefined) {
     // Someone else scanned the piles. Nothing to compute here.
     excess.push(...options.knownExcess);
-    journal?.close();
-  } else
-    try {
-      const scan =
-        journal === undefined
-          ? options
-          : {
-              ...options,
-              onRecord: (r: string) => {
-                journal.write(r);
-              },
-            };
-      for (const group of findDuplicateGroups(tuples(), scan)) {
-        for (let m = 1; m < group.length; m++) {
-          const idx = group[m];
-          if (idx !== undefined) excess.push(idx);
-        }
+  } else {
+    for (const group of findDuplicateGroups(tuples(), options)) {
+      for (let m = 1; m < group.length; m++) {
+        const idx = group[m];
+        if (idx !== undefined) excess.push(idx);
       }
-    } finally {
-      journal?.close();
     }
+  }
 
   const k = resolvers.length;
-  const dropJournal = (): void => {
-    if (journalDir !== undefined) rmSync(journalDir, { recursive: true, force: true });
-  };
   /*
-   * Separate from the journal on purpose: the journal is read once, before the
-   * arrangement, but the fingerprint files are the LEDGER the arrangement
-   * queries — they have to outlive it. Piles this call created live in their
-   * own temp home; piles handed in from outside are the coordinator's to
-   * remove.
+   * The fingerprint files are the LEDGER the arrangement queries — they have
+   * to outlive it, so they are dropped after it, and on every early way out.
+   * Piles this call created live in their own temp home; piles handed in from
+   * outside are the coordinator's to remove.
    */
   const dropFingerprints = (): void => {
     if (fingerprint?.ownDir !== undefined) {
@@ -781,18 +506,16 @@ export function repairExactUniq(
   };
 
   if (excess.length === 0) {
-    dropJournal();
     dropFingerprints();
     plan?.onComputed?.({}); // nothing moved, and the other threads need to know that
     const clean: Record<string, Sequence> = {};
     for (const r of resolvers) clean[r.id] = { name: r.id, values: [], resolve: r.resolve };
     return clean;
   }
-  // The pool repair is O(pool²). Collisions are FEW for a real config (birthday
-  // bound); an excess this large means a pathological config — hand it to the
-  // in-memory engine rather than blowing up.
+  // Collisions grow as the square of the run; the cap grows with the run too.
+  // Tripping it on a run small enough for the in-memory engine falls back
+  // there; past that the caller refuses honestly (see exact-disk.ts).
   if (excess.length > maxRepairRowsFor(count)) {
-    dropJournal();
     dropFingerprints();
     throw new ExactUniqRepairNeeded(excess.length, label);
   }
@@ -846,9 +569,8 @@ export function repairExactUniq(
    *
    * This walks the whole run, so it is the one part of the repair whose size
    * follows the DATASET rather than the collisions — and on a large run it was
-   * the part that died. `SeenTuples` keeps it exact while that is affordable
-   * and switches to a fixed-size filter beyond, which can only ever make the
-   * arrangement more cautious than it needs to be.
+   * the part that died. Below the fingerprint threshold the set stays exact
+   * and small; above it the fingerprint ledger answers from disk instead.
    */
   const poolColumns = resolvers.map((r) => pool.map((i) => r.resolve(i)));
   const poolSpace = poolColumns.map((col) => new Set(col));
@@ -862,11 +584,12 @@ export function repairExactUniq(
   /*
    * The membership question, answered one of two ways.
    *
-   * Text path: build a structure in memory over every row's tuple — exact
-   * below two million keys, a Bloom filter past that.
+   * Small run (no fingerprint piles): derive every row's tuple once more and
+   * hold the in-space ones in a plain exact set — affordable below a million
+   * rows, and what keeps every existing small-config byte where it was.
    *
-   * Fingerprint path: no structure at all. The sorted piles on disk ARE the
-   * ledger, a query is a binary search of ~25 record-sized reads, and the
+   * Large run: no structure at all. The sorted fingerprint piles on disk ARE
+   * the ledger, a query is a binary search of ~25 record-sized reads, and the
    * answers are exact — with one one-sided caveat: a 64-bit collision can call
    * a free tuple taken (the repair picks another), never a taken one free.
    */
@@ -876,47 +599,15 @@ export function repairExactUniq(
     ledger = new FingerprintLedger(fingerprint.sorted, poolSet);
     forbidden = ledger;
   } else {
-    const seen = new SeenTuples(count);
-    forbidden = seen;
-    buildSeenTuples(seen);
-  }
-
-  function buildSeenTuples(seen: SeenTuples): void {
-    const forbid = (key: string, row: number): void => {
-      if (poolSet.has(row)) return; // being reassigned
-      if (inPoolSpace(key.split(JOIN))) seen.add(key);
-    };
-    if (haveRuns) {
-      // The scan's own files, read straight through. Sorted per range rather
-      // than globally, which changes nothing: this is only ever asked whether
-      // a tuple is in it.
-      for (const record of mergeRuns(options.sortedRuns ?? [])) {
-        const split = record.lastIndexOf(SEP);
-        forbid(record.slice(0, split), Number(record.slice(split + 1)));
-      }
-    } else if (journalPath !== undefined) {
-      // Read back what the scan already worked out. Sorted order rather than
-      // row order, which changes nothing: membership does not depend on the
-      // order things went in.
-      const reader = new RunReader(journalPath);
-      try {
-        for (let record = reader.next(); record !== undefined; record = reader.next()) {
-          const split = record.lastIndexOf(SEP);
-          forbid(record.slice(0, split), Number(record.slice(split + 1)));
-        }
-      } finally {
-        reader.close();
-      }
-    } else {
-      for (let i = 0; i < count; i++) {
-        if (poolSet.has(i)) continue; // pool rows are being reassigned
-        const values: string[] = [];
-        for (let j = 0; j < k; j++) values.push(resolvers[j]?.resolve(i) ?? '');
-        if (inPoolSpace(values)) seen.add(values.join(JOIN));
-      }
+    const seen = new Set<string>();
+    for (let i = 0; i < count; i++) {
+      if (poolSet.has(i)) continue; // pool rows are being reassigned
+      const values: string[] = [];
+      for (let j = 0; j < k; j++) values.push(resolvers[j]?.resolve(i) ?? '');
+      if (inPoolSpace(values)) seen.add(values.join(JOIN));
     }
+    forbidden = seen;
   }
-  dropJournal();
 
   // 3. Arrange the pool's values into distinct tuples avoiding the present ones.
   //    One block at a time when the group has a switch member: values only ever

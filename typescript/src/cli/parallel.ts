@@ -35,8 +35,7 @@ import { parseStrict } from '../parser/index.js';
 import type { RenderWorkerInput } from './render-worker.js';
 import type { ScanWorkerInput } from './scan-worker.js';
 import type { PileWorkerInput } from './pile-worker.js';
-import { bucketCountFor } from '../sequence/bucket-uniq.js';
-import type { EngineId } from '../processor/render.js';
+import { bucketCountFor } from '../sequence/fingerprint.js';
 
 const WORKER_PATH = fileURLToPath(new URL('./render-worker.js', import.meta.url));
 const SCAN_WORKER_PATH = fileURLToPath(new URL('./scan-worker.js', import.meta.url));
@@ -60,8 +59,6 @@ export interface ParallelParams {
   readonly dataPaths?: readonly string[] | undefined;
   readonly baseDir?: string | undefined;
   readonly jobs: number;
-  /** Which engine the run resolved to. Engine 4 splits the duplicate hunt into piles. */
-  readonly engine?: EngineId | undefined;
   /** Destination file descriptor (1 for stdout, or an opened output file). */
   readonly destFd: number;
 }
@@ -141,7 +138,7 @@ export function partitionRows(count: number, jobs: number): readonly (readonly [
  */
 function planUniq(
   params: ParallelParams,
-  scans: Readonly<Record<string, readonly string[]>>,
+  fingerprints: Readonly<Record<string, readonly string[]>>,
   excess: Readonly<Record<string, readonly number[]>>,
 ): UniqPlan | undefined {
   const document = parseStrict(params.source);
@@ -163,7 +160,7 @@ function planUniq(
     baseDir: params.baseDir,
     source: params.source,
     range: { start: 0, end: 0 },
-    ...(Object.keys(scans).length > 0 ? { uniqScans: scans } : {}),
+    ...(Object.keys(fingerprints).length > 0 ? { uniqFingerprintFiles: fingerprints } : {}),
     ...(Object.keys(excess).length > 0 ? { uniqExcess: excess } : {}),
     onUniqPlan: (group, arrangement) => {
       plan[group] = arrangement;
@@ -191,12 +188,13 @@ export async function runParallel(params: ParallelParams): Promise<void> {
      * the whole-file scan would produce for its range; the arrangement is then
      * worked out once, here, from everyone's files merged.
      */
-    const { scans, piles } = await scanInParallel(params, ranges, scanDir);
-    // Engine 4 also splits the FINDING of the duplicates. Engine 3 leaves that
-    // to the coordinator, which merges everyone's runs in one thread — the last
-    // stage of a uniq run still bound to a single core.
-    const excess = Object.keys(piles).length > 0 ? await excessFromPiles(piles, scanDir) : {};
-    uniqPlan = planUniq(params, scans, excess);
+    const piles = await scanInParallel(params, ranges, scanDir);
+    // Phase two of the hunt: each pile is sorted and scanned by its own
+    // thread, and matching fingerprints come back as CANDIDATE row groups.
+    // Verification recomputes the true tuples for those few rows, so a hash
+    // collision costs a lookup and never a false duplicate.
+    const found = await excessFromPiles(params, piles, scanDir);
+    uniqPlan = planUniq(params, found.fingerprints, found.excess);
 
     // Phase two: the rows themselves, every worker holding the arrangement.
     await Promise.all(
@@ -229,39 +227,37 @@ export async function runParallel(params: ParallelParams): Promise<void> {
 }
 
 /**
- * Compute the tuple records for every range, in parallel, and return the run
- * files per uniq group.
+ * Hash every range's tuples into fingerprint piles, in parallel.
  *
- * Empty for a config with no env-level `<uniq>`, which is most of them — then
- * the analysis has nothing to do and this costs one parse.
+ * Returns, per uniq group, one entry per pile holding the files every thread
+ * wrote into it. Empty for a config with no env-level `<uniq>` — then the
+ * analysis has nothing to do and this costs one parse. Empty too below a
+ * million rows, where the coordinator's own render analyses the run faster
+ * than piles pay for themselves.
  */
 async function scanInParallel(
   params: ParallelParams,
   ranges: readonly (readonly [number, number])[],
   scanDir: string,
-): Promise<{
-  readonly scans: Record<string, readonly string[]>;
-  readonly piles: Record<string, readonly (readonly string[])[]>;
-}> {
+): Promise<Record<string, readonly (readonly string[])[]>> {
   const document = parseStrict(params.source);
   const groups = envUniqGroupsOf(document);
-  if (groups.length === 0) return { scans: {}, piles: {} };
+  if (groups.length === 0) return {};
 
   /*
-   * Is the config even possible, before eleven threads are told to scan it?
+   * Is the config even possible, before threads are told to scan it?
    *
    * The check is cheap — it counts what each column can produce, no rows
-   * generated — and a group asking for more distinct rows than its values allow
-   * is refused by it. Left until after the scan, an impossible config spent
-   * every core computing tuples for an answer that could never exist, and the
-   * refusal arrived once they were done.
+   * generated — and a group asking for more distinct rows than its values
+   * allow is refused by it. Left until after the scan, an impossible config
+   * spent every core computing tuples for an answer that could never exist.
    */
   checkUniqFeasible(document, params.count);
 
-  const buckets = params.engine === 4 ? bucketCountFor(params.count, params.jobs) : 1;
-  const scans: Record<string, readonly string[]> = {};
-  const piles: Record<string, readonly (readonly string[])[]> = {};
+  const buckets = bucketCountFor(params.count, params.jobs);
+  if (buckets < 2) return {};
 
+  const piles: Record<string, readonly (readonly string[])[]> = {};
   for (const members of groups) {
     const perRange = await Promise.all(
       ranges.map(([start, end], k) =>
@@ -279,64 +275,109 @@ async function scanInParallel(
           end,
           dir: scanDir,
           prefix: `g${String(groups.indexOf(members))}-r${String(k)}`,
-          ...(buckets > 1 ? { buckets } : {}),
-        }),
+          buckets,
+        }).then((r) => r.paths ?? []),
       ),
     );
-    // The engine names a group by its members joined this way; the key has to
-    // match or the files would be computed and then quietly ignored.
-    const label = members.join(' × ');
-    scans[label] = perRange.flat();
-    if (buckets > 1) {
-      /*
-       * Each thread wrote one file per pile, so a pile's records are spread
-       * across as many files as there were threads. Regroup them: pile b is
-       * every thread's b-th file. Nothing is read or copied — only the paths
-       * are rearranged.
-       */
-      piles[label] = Array.from({ length: buckets }, (_, b) =>
-        perRange.map((paths) => paths[b]).filter((path): path is string => path !== undefined),
-      );
-    }
+    /*
+     * Each thread wrote one file per pile, so a pile's records are spread
+     * across as many files as there were threads. Regroup them: pile b is
+     * every thread's b-th file. Nothing is read or copied — only the paths
+     * are rearranged. The engine names a group by its members joined with
+     * ' × '; the key has to match or the files would be computed and then
+     * quietly ignored.
+     */
+    piles[members.join(' × ')] = Array.from({ length: buckets }, (_, b) =>
+      perRange.map((paths) => paths[b]).filter((path): path is string => path !== undefined),
+    );
   }
-  return { scans, piles };
+  return piles;
 }
 
 /**
- * Engine 4: find the colliding rows by splitting the tuples into piles and
- * giving each pile to a thread.
+ * Sort and scan every pile in parallel, verify the candidates, and return the
+ * verified excess plus the sorted pile files per group.
  *
- * The piles are chosen by a hash of the tuple, so every copy of a repeated
- * tuple is in one pile and no pile has to be compared with another. That
- * removes the merge over everything, which is the last stage of a uniq run
- * still bound to a single core — five minutes of a ten-minute 10 GB run.
- *
- * A pile worker needs only the files: no config, no packs, no registry. It
- * sorts and reports row numbers.
+ * The sorted files are not a by-product: the repair binary-searches them to
+ * answer "is this tuple taken?", so they ARE the ledger and must reach the
+ * plan render via `uniqFingerprintFiles`.
  */
 async function excessFromPiles(
+  params: ParallelParams,
   piles: Record<string, readonly (readonly string[])[]>,
   tmpDir: string,
-): Promise<Record<string, readonly number[]>> {
-  const out: Record<string, readonly number[]> = {};
+): Promise<{
+  readonly fingerprints: Record<string, readonly string[]>;
+  readonly excess: Record<string, readonly number[]>;
+}> {
+  const fingerprints: Record<string, readonly string[]> = {};
+  const excess: Record<string, readonly number[]> = {};
+
   for (const [label, files] of Object.entries(piles)) {
-    const perPile = await Promise.all(files.map((paths) => runPileWorker({ paths, tmpDir })));
-    // One list, ascending — the same rows the single sort would have named, in
-    // the order the repair expects them.
-    const all = perPile.flat().slice();
-    all.sort((a, b) => a - b);
-    out[label] = all;
+    const sortedPaths = files.map((_, b) =>
+      join(tmpDir, `${label.replace(/[^\w]+/g, '_')}-sorted-${String(b)}`),
+    );
+    const perPile = await Promise.all(
+      files.map((paths, b) => runPileWorker({ paths, outPath: sortedPaths[b] ?? '', tmpDir })),
+    );
+    fingerprints[label] = sortedPaths;
+
+    const candidates = perPile.flat();
+    if (candidates.length === 0) {
+      excess[label] = [];
+      continue;
+    }
+    /*
+     * Verify: matching fingerprints are candidates, not verdicts. One worker
+     * recomputes the true tuples for the handful of candidate rows; rows whose
+     * tuples genuinely repeat — beyond the first of each, lowest spared — are
+     * the excess, ascending, exactly as the text scan would have named them.
+     */
+    const rows = candidates.flat();
+    const verified = await runScanWorker({
+      source: params.source,
+      seed: params.seed,
+      count: params.count,
+      locale: params.locale,
+      defaultLocale: params.defaultLocale,
+      now: params.now,
+      dataPaths: params.dataPaths,
+      baseDir: params.baseDir,
+      members: label.split(' × '),
+      verifyIndices: rows,
+    });
+    const keyOf = new Map(verified.pairs ?? []);
+    const out: number[] = [];
+    for (const group of candidates) {
+      const byKey = new Map<string, number[]>();
+      for (const row of group) {
+        const key = keyOf.get(row) ?? '';
+        const held = byKey.get(key);
+        if (held) held.push(row);
+        else byKey.set(key, [row]);
+      }
+      for (const same of byKey.values()) {
+        if (same.length < 2) continue;
+        same.sort((a, b) => a - b);
+        for (let m = 1; m < same.length; m++) {
+          const row = same[m];
+          if (row !== undefined) out.push(row);
+        }
+      }
+    }
+    out.sort((a, b) => a - b);
+    excess[label] = out;
   }
-  return out;
+  return { fingerprints, excess };
 }
 
-/** Run one pile worker and collect the row numbers it says must move. */
-function runPileWorker(input: PileWorkerInput): Promise<readonly number[]> {
-  return new Promise<readonly number[]>((resolve, reject) => {
+/** Run one pile worker: sort the pile, return the candidate row groups. */
+function runPileWorker(input: PileWorkerInput): Promise<readonly (readonly number[])[]> {
+  return new Promise((resolve, reject) => {
     const worker = new Worker(PILE_WORKER_PATH, { workerData: input });
-    let result: { ok: boolean; error?: string; excess?: readonly number[] } | undefined;
+    let result: { ok: boolean; error?: string; candidates?: (readonly number[])[] } | undefined;
     let earlyError: Error | undefined;
-    worker.on('message', (msg: { ok: boolean; error?: string; excess?: readonly number[] }) => {
+    worker.on('message', (msg: typeof result) => {
       result = msg;
     });
     worker.on('error', (err: Error) => {
@@ -346,30 +387,37 @@ function runPileWorker(input: PileWorkerInput): Promise<readonly number[]> {
       if (earlyError) reject(earlyError);
       else if (result && !result.ok) reject(new Error(result.error ?? 'pile worker failed'));
       else if (code !== 0) reject(new Error(`pile worker stopped with exit code ${String(code)}`));
-      else resolve(result?.excess ?? []);
+      else resolve(result?.candidates ?? []);
     });
   });
 }
 
-/** Run one scan worker and collect the run files it wrote. */
-function runScanWorker(input: ScanWorkerInput): Promise<readonly string[]> {
-  return new Promise<readonly string[]>((resolve, reject) => {
+/** Run one scan worker; the result carries pile paths (scan job) or tuple pairs (verify job). */
+function runScanWorker(
+  input: ScanWorkerInput,
+): Promise<{ paths?: readonly string[]; pairs?: [number, string][] }> {
+  return new Promise((resolve, reject) => {
     const worker = new Worker(SCAN_WORKER_PATH, { workerData: input });
-    let result: { ok: boolean; error?: string; paths?: readonly string[] } | undefined;
+    let result:
+      | { ok: boolean; error?: string; paths?: readonly string[]; pairs?: [number, string][] }
+      | undefined;
     let earlyError: Error | undefined;
-    worker.on('message', (msg: { ok: boolean; error?: string; paths?: readonly string[] }) => {
+    worker.on('message', (msg: typeof result) => {
       result = msg;
     });
     worker.on('error', (err: Error) => {
       earlyError = err;
     });
-    // Settle on exit, as the render workers do, so the files are closed before
-    // anyone reads or removes them.
+    // Settle on exit, so the files are closed before anyone reads or removes them.
     worker.on('exit', (code) => {
       if (earlyError) reject(earlyError);
       else if (result && !result.ok) reject(new Error(result.error ?? 'scan worker failed'));
       else if (code !== 0) reject(new Error(`scan worker stopped with exit code ${String(code)}`));
-      else resolve(result?.paths ?? []);
+      else
+        resolve({
+          ...(result?.paths ? { paths: result.paths } : {}),
+          ...(result?.pairs ? { pairs: result.pairs } : {}),
+        });
     });
   });
 }

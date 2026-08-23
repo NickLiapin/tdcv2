@@ -75,7 +75,7 @@ import {
 import { ExactUniqRepairNeeded, IN_MEMORY_FALLBACK_MAX_ROWS } from '../sequence/exact-uniq.js';
 import { extractPoolSpecs } from '../sequence/pool.js';
 import type { UniqArrangement, UniqPlan } from '../sequence/build.js';
-import { bucketCountFor } from '../sequence/bucket-uniq.js';
+import { bucketCountFor } from '../sequence/fingerprint.js';
 import { availableParallelism } from 'node:os';
 import { buildPoolTables } from '../sequence/pool-build.js';
 import type { CaseSpec, SequenceRegistry, SequenceSpec, SwitchSpec } from '../sequence/index.js';
@@ -129,13 +129,9 @@ export interface RenderOptions {
   readonly onUniqPlan?: ((group: string, arrangement: UniqArrangement) => void) | undefined;
   /** Build the uniq members without making them unique — for the threads that compute the scan. */
   readonly skipEnvUniq?: true;
-  /** Tuple records already computed and sorted elsewhere, per uniq group, as run file paths. */
-  readonly uniqScans?: Readonly<Record<string, readonly string[]>> | undefined;
-  /** Piles to split the duplicate hunt into. Set by Engine 4; see `bucket-uniq.ts`. */
-  readonly uniqBuckets?: number | undefined;
-  /** Fingerprint piles for the hunt. Set by Engine 5; see `fingerprint.ts`. */
+  /** Fingerprint piles for the uniq hunt; auto-set for the disk engines. See `fingerprint.ts`. */
   readonly uniqFingerprintBuckets?: number | undefined;
-  /** Sorted fingerprint files computed elsewhere, per uniq group — Engine 5's coordinator. */
+  /** Sorted fingerprint files computed elsewhere, per uniq group — the parallel coordinator's. */
   readonly uniqFingerprintFiles?: Readonly<Record<string, readonly string[]>> | undefined;
   /** Colliding rows already found elsewhere, per uniq group — Engine 4's pile workers. */
   readonly uniqExcess?: Readonly<Record<string, readonly number[]>> | undefined;
@@ -206,18 +202,14 @@ interface EnvConfig {
  * 2 = streaming (Engine 2): lazy, disk-friendly, multi-threaded; exact except
  *     percent-weighted `uniq`, which it refuses.
  * 3 = exact-on-disk (Engine 3): everything Engine 1 does, at scale, on disk.
- * 4 = EXPERIMENTAL. Engine 3, with the duplicate hunt split into piles chosen
- *     by a hash of the tuple, so no merge is needed across them. Same bytes as
- *     Engine 3 by construction — a speed experiment, never auto-selected, and
- *     only reachable by asking for it.
- * 5 = EXPERIMENTAL. Engine 4's piles carrying 13-byte FINGERPRINTS instead of
- *     tuple text: sorted as packed integers, verified against the true tuples,
- *     and queried by binary search on disk — no in-memory structure over the
- *     run. Same rows collide and move; the one legitimate divergence from
- *     Engine 3 is on runs large enough that 3's Bloom filter over-avoids where
- *     5 answers exactly. Never auto-selected.
+ *
+ * Engines 2 and 3 hunt uniq duplicates by FINGERPRINT on large runs: 13-byte
+ * hash records in piles, sorted as packed integers, verified against the true
+ * tuples, and queried by binary search on disk — no in-memory structure over
+ * the run. Grew up as experimental engines 4 and 5; measured at 20 GB under a
+ * heap capped at 1 GB before it was made the standard path.
  */
-export type EngineId = 1 | 2 | 3 | 4 | 5;
+export type EngineId = 1 | 2 | 3;
 
 /**
  * User-facing mode. `memory` → Engine 1. `disk` → work off disk: TDC picks the
@@ -611,8 +603,6 @@ export function prepareRender(
     ...(options.uniqPlan !== undefined ? { uniqPlan: options.uniqPlan } : {}),
     ...(options.onUniqPlan !== undefined ? { onUniqPlan: options.onUniqPlan } : {}),
     ...(options.skipEnvUniq ? { skipEnvUniq: true as const } : {}),
-    ...(options.uniqScans !== undefined ? { uniqScans: options.uniqScans } : {}),
-    ...(options.uniqBuckets !== undefined ? { uniqBuckets: options.uniqBuckets } : {}),
     ...(options.uniqExcess !== undefined ? { uniqExcess: options.uniqExcess } : {}),
     ...(options.uniqFingerprintBuckets !== undefined
       ? { uniqFingerprintBuckets: options.uniqFingerprintBuckets }
@@ -656,6 +646,17 @@ export function prepareRender(
   checkEnvUniqCapacity(envUniqGroups, sequenceSpecs, env.count);
 
   const autoRoutedDisk = 'mode' in env.engineSelection && env.engineSelection.mode === 'disk';
+  /*
+   * The disk engines carry uniq tuples as fingerprints once the run is big
+   * enough to pay for hashing (a million rows — four piles per core). Below
+   * that the text path runs, exact strings and all, which is also what keeps
+   * every existing small-config byte where it was.
+   */
+  if (engine !== 1 && buildOptions.uniqFingerprintBuckets === undefined) {
+    Object.assign(buildOptions, {
+      uniqFingerprintBuckets: bucketCountFor(env.count, availableParallelism()),
+    });
+  }
   let registry: SequenceRegistry;
   if (engine === 2) {
     try {
@@ -703,20 +704,7 @@ export function prepareRender(
         envUniqGroups,
       });
     }
-  } else if (engine === 3 || engine === 4 || engine === 5) {
-    // Four piles per core, and one pile below a million rows — where the
-    // splitting costs more in files than it saves in sorting. Engine 4 piles
-    // the tuple TEXT; engine 5 piles 13-byte fingerprints instead.
-    if (engine === 4 && buildOptions.uniqBuckets === undefined) {
-      Object.assign(buildOptions, {
-        uniqBuckets: bucketCountFor(env.count, availableParallelism()),
-      });
-    }
-    if (engine === 5 && buildOptions.uniqFingerprintBuckets === undefined) {
-      Object.assign(buildOptions, {
-        uniqFingerprintBuckets: bucketCountFor(env.count, availableParallelism()),
-      });
-    }
+  } else if (engine === 3) {
     /*
      * Engine 4 is Engine 3 with the duplicate hunt split into piles. Same
      * pipeline, same result — the piles change how the tuples are looked
@@ -977,12 +965,9 @@ export function resolveEngineSelection(attrs: AttrMap, options: RenderOptions): 
 }
 
 function parseEngineId(raw: string): EngineId {
-  if (raw === '1' || raw === '2' || raw === '3' || raw === '4' || raw === '5') {
-    return Number(raw) as EngineId;
-  }
+  if (raw === '1' || raw === '2' || raw === '3') return Number(raw) as EngineId;
   throw new Error(
-    `invalid engine "${raw}" — expected "1" (in-memory), "2" (streaming), ` +
-      `"3" (exact-on-disk), "4" or "5" (experimental)`,
+    `invalid engine "${raw}" — expected "1" (in-memory), "2" (streaming), or "3" (exact-on-disk)`,
   );
 }
 

@@ -1,5 +1,5 @@
 {
-  "comment": "Streaming-engine output for every shared case, from the reference implementation. It MATCHES the `expected` in the cases themselves — all three engines agree, and this file is where that is checked. What it adds is which cases an engine refuses. Regenerate with: npm run engines:update",
+  "comment": "Streaming-engine output for every shared case, from the reference implementation. One seed + one engine = one output, here and in every port. An entry marked aheadOfPorts differs from the in-memory `expected` — a uniq arrangement the disk engines now make natively; ports skip those entries until they carry the same machinery. Regenerate with: npm run engines:update",
   "engines": [2, 3],
   "cases": {
     "accumulate/a-running-total-inside-one-record": {
@@ -4936,24 +4936,36 @@
     },
     "uniq-distinct/env-uniq-across-sequences": {
       "engine2": {
-        "refused": "stream mode: <uniq> across sequences (a whole-column rearrangement) (\"A × B\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "lines": [
+          "a6-b5",
+          "a5-b3",
+          "a3-b3",
+          "a1-b2",
+          "a2-b4",
+          "a4-b1",
+          "a3-b6",
+          "a2-b1"
+        ],
+        "aheadOfPorts": true
       },
       "engine3": {
         "lines": [
-          "a6-b2",
-          "a5-b4",
+          "a6-b5",
+          "a5-b3",
           "a3-b3",
-          "a1-b1",
-          "a2-b5",
-          "a4-b6",
-          "a3-b1",
-          "a2-b3"
-        ]
+          "a1-b2",
+          "a2-b4",
+          "a4-b1",
+          "a3-b6",
+          "a2-b1"
+        ],
+        "aheadOfPorts": true
       }
     },
     "uniq-distinct/env-uniq-leaves-outsiders-alone": {
       "engine2": {
-        "refused": "stream mode: <uniq> across sequences (a whole-column rearrangement) (\"A × B\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "lines": ["yq|k2", "xr|k2", "ws|k1", "vo|k1", "zt|k1", "up|k2"],
+        "aheadOfPorts": true
       },
       "engine3": {
         "lines": ["yq|k2", "xr|k2", "ws|k1", "vo|k1", "zt|k1", "up|k2"]
@@ -5047,7 +5059,8 @@
     },
     "uniq-distinct/uniq-group-with-a-mix-member": {
       "engine2": {
-        "refused": "stream mode: <uniq> across sequences (a whole-column rearrangement) (\"K × N\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "lines": ["A3", "B3", "A2", "B1"],
+        "aheadOfPorts": true
       },
       "engine3": {
         "lines": ["A3", "B3", "A2", "B1"]
@@ -5055,7 +5068,8 @@
     },
     "uniq-distinct/uniq-group-with-a-switch-member": {
       "engine2": {
-        "refused": "stream mode: <uniq> across sequences (a whole-column rearrangement) (\"N × S\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "lines": ["M-bob-1", "M-ann-3", "F-cat-3", "F-dot-2"],
+        "aheadOfPorts": true
       },
       "engine3": {
         "lines": ["M-bob-1", "M-ann-3", "F-cat-3", "F-dot-2"]

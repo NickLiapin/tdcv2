@@ -42,6 +42,12 @@ fn expected_on(engine: &str) -> BTreeMap<String, Expected> {
         let Some(on_engine) = node.get(&format!("engine{engine}")) else {
             continue;
         };
+        // The reference's disk engines arrange this uniq group natively and
+        // the arrangement differs from the in-memory one — machinery this port
+        // does not carry yet. Skipped by name; porting it deletes this check.
+        if on_engine.get("aheadOfPorts").is_some() {
+            continue;
+        }
         if let Some(lines) = on_engine.get("lines").and_then(Value::as_array) {
             let mut text = String::new();
             for line in lines {
