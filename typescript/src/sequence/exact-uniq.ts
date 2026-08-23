@@ -113,8 +113,13 @@ export interface ExactUniqField {
 
 /**
  * Signals that the exact-% construction collided AND the bounded-memory repair
- * couldn't place every row (a pathologically tight pool). Callers catch this
- * and fall back to the in-memory engine, which has the whole table to work with.
+ * couldn't place every row (a pathologically tight pool).
+ *
+ * A caller that CHOSE a bounded-memory engine for the user catches this and
+ * falls back to the in-memory engine, which has the whole table to work with.
+ * A caller the user forced into stream mode lets it through instead: loading
+ * the whole table is the one thing that user asked not to happen, so the text
+ * says what to change rather than claiming a fallback happened.
  */
 export class ExactUniqRepairNeeded extends Error {
   constructor(
@@ -122,8 +127,9 @@ export class ExactUniqRepairNeeded extends Error {
     label: string,
   ) {
     super(
-      `Engine 3: uniq ${label} is too tight for the bounded-memory repair ` +
-        `(${String(collisions)} row(s) couldn't be placed) — using the in-memory engine instead.`,
+      `uniq ${label} is too tight to repair without holding the whole table ` +
+        `(${String(collisions)} row(s) couldn't be placed) — run without mode="stream" ` +
+        `so the in-memory engine can arrange it.`,
     );
     this.name = 'ExactUniqRepairNeeded';
   }
@@ -216,6 +222,19 @@ export function repairExactUniq(
   count: number,
   label: string,
   options: DuplicateScanOptions = {},
+  /**
+   * Rows that may trade values with each other, named by a key per row.
+   *
+   * A `<switch>` member draws from a different list depending on another
+   * column, so a male row's first name is not a value a female row may hold.
+   * The repair rearranges values among pool rows, and without this it would
+   * happily put `Megan` on a `Male` row: the tuple stays unique and the record
+   * stops making sense. With it, the pool is arranged one block at a time and
+   * donors come from the row's own block.
+   *
+   * Absent means one block holding everything, which is the ordinary case.
+   */
+  blockOf?: (row: number) => string,
 ): Record<string, Sequence> {
   const tuples = function* (): Generator<KeyedRow> {
     for (let i = 0; i < count; i++) yield { index: i, key: tupleKeyAt(resolvers, i) };
@@ -251,9 +270,31 @@ export function repairExactUniq(
   const pool = [...excess];
   const poolSet = new Set(excess);
   if (donorTarget > 0) {
-    const stride = Math.max(1, Math.floor(count / donorTarget));
-    for (let i = 0; i < count && pool.length - excess.length < donorTarget; i += stride) {
-      if (!poolSet.has(i)) {
+    if (blockOf === undefined) {
+      const stride = Math.max(1, Math.floor(count / donorTarget));
+      for (let i = 0; i < count && pool.length - excess.length < donorTarget; i += stride) {
+        if (!poolSet.has(i)) {
+          pool.push(i);
+          poolSet.add(i);
+        }
+      }
+    } else {
+      // Donors have to come from the row's OWN block, or they bring values it
+      // is not allowed to hold. Wanted per block, in proportion to how many
+      // rows of that block need moving.
+      const wanted = new Map<string, number>();
+      for (const row of excess) {
+        const block = blockOf(row);
+        wanted.set(block, (wanted.get(block) ?? 0) + 8);
+      }
+      for (const block of wanted.keys()) wanted.set(block, (wanted.get(block) ?? 0) + 24);
+      const stride = Math.max(1, Math.floor(count / Math.max(1, donorTarget)));
+      for (let i = 0; i < count; i += stride) {
+        if (poolSet.has(i)) continue;
+        const block = blockOf(i);
+        const left = wanted.get(block);
+        if (left === undefined || left <= 0) continue;
+        wanted.set(block, left - 1);
         pool.push(i);
         poolSet.add(i);
       }
@@ -283,16 +324,27 @@ export function repairExactUniq(
   }
 
   // 3. Arrange the pool's values into distinct tuples avoiding the present ones.
-  const arranged = arrangeAvoiding(poolColumns, forbidden, pool.length);
-  if (arranged === null) throw new ExactUniqRepairNeeded(excess.length, label);
-
+  //    One block at a time when the group has a switch member: values only ever
+  //    move among rows that were allowed to hold them.
   const override = new Map<number, string[]>();
+  const blocks = new Map<string, number[]>();
   pool.forEach((rowIndex, m) => {
-    override.set(
-      rowIndex,
-      arranged.map((col) => col[m] ?? ''),
-    );
+    const block = blockOf === undefined ? '' : blockOf(rowIndex);
+    const held = blocks.get(block);
+    if (held) held.push(m);
+    else blocks.set(block, [m]);
   });
+  for (const positions of blocks.values()) {
+    const columns = poolColumns.map((col) => positions.map((m) => col[m] ?? ''));
+    const arranged = arrangeAvoiding(columns, forbidden, positions.length);
+    if (arranged === null) throw new ExactUniqRepairNeeded(excess.length, label);
+    positions.forEach((m, at) => {
+      override.set(
+        pool[m] ?? 0,
+        arranged.map((col) => col[at] ?? ''),
+      );
+    });
+  }
 
   const out: Record<string, Sequence> = {};
   resolvers.forEach((r, j) => {

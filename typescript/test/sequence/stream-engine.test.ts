@@ -95,7 +95,13 @@ describe('Engine 2 — mode="stream"', () => {
       </tdc>`;
     expect(() => render(parseStrict(pctUniqDsl), { now: NOW })).toThrow(/rearrangement/i);
 
-    // env-level <uniq> with percent on a member: the same refusal.
+    /*
+     * env-level <uniq> is NOT in this list: the streaming engine does it now.
+     * This one still refuses, for a different reason — percentages make the
+     * column a multiset, so 70/30 over four rows draws x three times and only
+     * three tuples can start with an x. The refusal is about that row, and it
+     * says what to change rather than naming an unsupported feature.
+     */
     const pctEnvUniqDsl = `
       <tdc>
         <env count="4" seed="s" inject="\${{%}}" mode="stream">
@@ -106,7 +112,7 @@ describe('Engine 2 — mode="stream"', () => {
         </env>
         <block><line><data>\${{A}}\${{B}}</data></line></block>
       </tdc>`;
-    expect(() => render(parseStrict(pctEnvUniqDsl), { now: NOW })).toThrow(/rearrangement/i);
+    expect(() => render(parseStrict(pctEnvUniqDsl), { now: NOW })).toThrow(/too tight to repair/i);
   });
 
   it('the { stream: true } render option (CLI --stream) forces Engine 2', () => {
@@ -195,14 +201,22 @@ describe('Engine 2 — parent-child in stream mode', () => {
 
 /** Engine 2 — uniq (mixed-radix over a Feistel-permuted combination index). */
 /**
- * `uniq` belongs to the exact engine.
+ * `uniq` and the streaming engine — where the line now falls.
  *
- * A group REARRANGES whole columns so each keeps its multiset — a promise about
- * the finished column. Engine 2 resolves one row at a time and cannot keep it,
- * so it refuses rather than answer differently; the router sends every uniq to
- * Engine 3, which is where the guarantees below are met.
+ * A group REARRANGES whole columns so each keeps its multiset, which is a
+ * promise about the FINISHED column, and Engine 2 resolves one row at a time.
+ *
+ * For an env-level `<uniq>` the promise is kept anyway, because the columns
+ * stay seekable: each is already a function of the row number, the repeated
+ * tuples are found by streaming them through an external sort, and only those
+ * few rows are rearranged. Bounded memory, and the same bytes the in-memory
+ * engine produces — pinned below.
+ *
+ * `uniq="true"` on ONE sequence is still refused: there the rearrangement is
+ * of the gens inside a single compound column, which is not seekable the same
+ * way. The router sends it to Engine 3.
  */
-describe('uniq — refused by the streaming engine, kept by the exact one', () => {
+describe('uniq — one shape kept by the streaming engine, one still refused', () => {
   const seq = `
     <sequence name="P" uniq="true">
       <gen name="a" type="text" value="x,y,z"/>
@@ -227,13 +241,28 @@ describe('uniq — refused by the streaming engine, kept by the exact one', () =
       <block><line><data>\${{A}}\${{B}}</data></line></block>
     </tdc>`;
 
-  it('mode="stream" refuses, and says what to do instead', () => {
+  it('uniq="true" on one sequence still refuses under mode="stream", and says what to do', () => {
     expect(() => render(parseStrict(compound(6, 'mode="stream"')), { now: NOW })).toThrow(
       /rearrangement/i,
     );
-    expect(() => render(parseStrict(envGroup(6, 'mode="stream"')), { now: NOW })).toThrow(
-      /rearrangement/i,
-    );
+  });
+
+  it('an env-level <uniq> holds under mode="stream" — same bytes as the default routing', () => {
+    /*
+     * The tightest case there is: six rows out of a 3x2 pool, so the answer has
+     * to be the whole product and every single tuple has to land. Byte equality
+     * with the default routing is the part worth pinning — it says the two
+     * engines are interchangeable here, not merely that both produce SOMETHING
+     * unique.
+     */
+    for (const count of [3, 4, 5, 6]) {
+      const streamed = render(parseStrict(envGroup(count, 'mode="stream"')), { now: NOW });
+      const lines = streamed.split('\n').filter(Boolean);
+      expect(lines).toHaveLength(count);
+      expect(new Set(lines).size).toBe(count); // no repeated tuple
+      for (const l of lines) expect(product).toContain(l);
+      expect(streamed).toBe(render(parseStrict(envGroup(count)), { now: NOW }));
+    }
   });
 
   it('the default routing gives all-distinct tuples — the full product when count = capacity', () => {

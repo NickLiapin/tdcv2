@@ -12,14 +12,17 @@
  * is `slot − lo_V` — a bijection over `[0, M_V)`. That rank is the child's own
  * population index, so the same construction nests to any depth.
  *
- * uniq: this engine does not do it, in any form. It once built a compound
- * `uniq="true"` out of a mixed-radix bijection, and the description of that
- * construction outlived the construction itself — long enough for the
- * documentation to be written from this comment and promise streaming
- * uniqueness the router never delivers. `uniq` was redefined as a
- * rearrangement of a whole finished column, which is the one thing a lazy
- * per-row resolver cannot see, so every shape of it is refused here by name
- * and the router sends it to Engine 1 or Engine 3 instead.
+ * uniq, in two halves. `uniq="true"` on one sequence is still refused here by
+ * name: it rearranges the gens inside a single compound column, and a lazy
+ * per-row resolver cannot see a finished column. An env-level `<uniq>` IS done
+ * — see `stream-uniq.ts` — because there each member is its own seekable
+ * column, so the tuples can be streamed past a sort to find the repeats and
+ * only those few rows rearranged.
+ *
+ * This paragraph is worth keeping honest. An earlier version of it described a
+ * mixed-radix construction that had already been deleted, and it stayed long
+ * enough for the documentation to be written from it and promise users a
+ * streaming uniqueness the router never delivered.
  *
  * Scope: simple + compound sequences; text/percent (exact), counters, and
  * independent generators (number/date/regex/symbol/template via a per-row
@@ -30,6 +33,7 @@
 
 import { advancedRegexHasWeightedChoice } from '../generators/advanced-regex.js';
 import { evaluateCompute } from '../compute/index.js';
+import { applyEnvUniq } from './stream-uniq.js';
 import { computeCountsPerValue } from '../distribution/hamilton.js';
 import { evaluateIf } from '../expr/evaluate.js';
 import { expandPercentMask } from '../distribution/percent-mask.js';
@@ -153,17 +157,6 @@ export function buildLazyRegistry(
     },
     hasColumn: (name) => registry[name] !== undefined,
   };
-
-  // A `<uniq>` group REARRANGES whole columns so each keeps its multiset — a
-  // promise about the finished column, which no engine can keep a row at a
-  // time. This one could only offer something else (a bijection over the
-  // combination space, uniform over combinations, ignoring the values actually
-  // drawn), and one seed would then mean two datasets. It says so instead. The
-  // router sends every uniq to the exact engine; this is the backstop for a
-  // forced one.
-  for (const group of envGroups.uniq) {
-    throw unsupported('<uniq> across sequences (a whole-column rearrangement)', group.join(' × '));
-  }
 
   const specByName = new Map(specs.map((s) => [s.name, s]));
 
@@ -320,6 +313,12 @@ export function buildLazyRegistry(
   // repair so their values differ within a row (row-local, like in-sequence).
   for (const group of envGroups.distinct) {
     applyEnvDistinct(group, specByName, registry, seed, locale, now, options);
+  }
+
+  // Env-level `<uniq>`: the same, and for the same reason — every member has to
+  // exist before the tuple can be looked at.
+  for (const group of envGroups.uniq) {
+    applyEnvUniq(group, specByName, registry, count);
   }
   return registry;
 }

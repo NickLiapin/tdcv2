@@ -23,6 +23,8 @@ import { runInit } from '../../src/cli/init.js';
 
 interface FixtureCase {
   readonly name: string;
+  /** Why this case exists, for a reader who did not write it. */
+  readonly note?: string;
   readonly command?: string;
   readonly files?: Record<string, string>;
   readonly registry?: boolean;
@@ -184,8 +186,22 @@ describe('the shared CLI fixture', () => {
   });
 
   it('explains every case it skips', () => {
-    // TypeScript skips nothing today: the gaps are features it has and the others do not.
-    expect(SKIPPED).toHaveLength(0);
+    /*
+     * The reference may skip a case, but only in ONE direction: when the other
+     * four still do something it has moved past — an old refusal kept here,
+     * named, until they are ported. It must never skip because it lacks a
+     * feature the others have; that would mean the reference had fallen behind,
+     * and this file would be recording the gap in the wrong place.
+     *
+     * So a skipped case has to name every implementation except this one, and
+     * has to say in its note why. Anything else fails here rather than sitting
+     * quietly in the fixture.
+     */
+    const OTHERS = ['csharp', 'java', 'python', 'rust'];
+    for (const skipped of SKIPPED) {
+      expect([...(skipped.only ?? [])].sort()).toEqual(OTHERS);
+      expect(skipped.note ?? '').not.toBe('');
+    }
     expect(Object.keys(FIXTURE.gaps).length).toBeGreaterThan(0);
   });
 

@@ -741,7 +741,7 @@
     },
     {
       "name": "an env-level <uniq> is refused in the one refusal sentence",
-      "note": "The group is named as the members joined by ×, which is the only part of the template that is not a plain sequence name — so it is pinned separately from the cases whose name is one identifier.",
+      "note": "The group is named as the members joined by ×, which is the only part of the template that is not a plain sequence name — so it is pinned separately from the cases whose name is one identifier. The reference no longer refuses this: the streaming engine gained env-level <uniq>, so it is a declared gap in the other four until they are ported, and the case stays here naming exactly who still refuses.",
       "files": {
         "envuniq.tdc": "<tdc><env count=\"4\" seed=\"env-u\" local=\"en\"><uniq><sequence name=\"A\"><gen type=\"text\" value=\"a1,a2,a3,a4\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"b1,b2,b3,b4\"/></sequence></uniq></env><block><line><data>${{A}}-${{B}}</data></line></block></tdc>\n"
       },
@@ -750,6 +750,32 @@
       "stdout": "",
       "stderrContains": [
         "tdcv2: stream mode: <uniq> across sequences (a whole-column rearrangement) (\"A × B\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+      ],
+      "only": ["python", "java", "csharp", "rust"]
+    },
+    {
+      "name": "an env-level <uniq> holds under a forced streaming engine",
+      "note": "What replaces the refusal above. The streaming engine resolves one row at a time, so it cannot rearrange a finished column; instead it leaves the columns seekable and repairs only the tuples that repeat. `--engine 2` is what makes this observable — left alone the router would choose the engine itself. Four distinct rows out of a 4x4 pool, sorted so the assertion is about WHICH tuples exist rather than the order they came in.",
+      "only": ["typescript"],
+      "files": {
+        "envuniq.tdc": "<tdc><env count=\"4\" seed=\"env-u\" local=\"en\"><uniq><sequence name=\"A\"><gen type=\"text\" value=\"a1,a2,a3,a4\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"b1,b2,b3,b4\"/></sequence></uniq></env><block><line><data>${{A}}-${{B}}</data></line></block></tdc>\n"
+      },
+      "argv": ["{dir}/envuniq.tdc", "--engine", "2"],
+      "exit": 0,
+      "stdoutMatches": "^(?:a[1-4]-b[1-4]\\n){4}$"
+    },
+    {
+      "name": "an env-level <uniq> too tight to repair says so, and says what to change",
+      "note": "Percentages make the column a MULTISET, not a set: 70/30 over four rows draws x three times, so only three distinct tuples can start with an x — the capacity check counts distinct values and lets this through. The streaming engine then finds the row it cannot place. A user who asked for streaming asked NOT to hold the whole table, so it refuses instead of quietly loading it, and the sentence names the group the same × way.",
+      "only": ["typescript"],
+      "files": {
+        "tight.tdc": "<tdc><env count=\"4\" seed=\"env-u\" local=\"en\"><uniq><sequence name=\"A\"><gen type=\"text\" value=\"x,y\" percent=\"70,30\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"m,n\"/></sequence></uniq></env><block><line><data>${{A}}${{B}}</data></line></block></tdc>\n"
+      },
+      "argv": ["{dir}/tight.tdc", "--engine", "2"],
+      "exit": 1,
+      "stdout": "",
+      "stderrContains": [
+        "tdcv2: uniq \"A × B\" is too tight to repair without holding the whole table (1 row(s) couldn't be placed) — run without mode=\"stream\" so the in-memory engine can arrange it."
       ]
     },
     {
@@ -1069,7 +1095,8 @@
   ],
   "gaps": {
     "pack header warnings for a file nothing asks for": "TDC171 itself is no longer a gap — all five name the dropped file, and the case above pins it. What differs is WHEN. The reference reads every pack root before it starts, so it warns about an unplaceable file even when no config mentions it; the ports build that index only once a lookup has missed, which is the moment the author is looking for the file anyway. Measured, the reference's scan is 4100 files and ~240 ms per process against a bundled set that has never produced a single warning, so the ports keep the lazy scan on purpose. The one case it cannot reach: a stray file sitting beside packs a config uses successfully stays unreported outside TypeScript.",
-    "TDC160, TDC161 and TDC162": "Three render-time refusals about an INLINE <gen> — `row=` on one, weighted advanced_regex choices, a non-numeric counter start or step. No implementation can reach them from its command line, the reference included: a <gen> inside <line> is TDC131/TDC132 and one directly inside <block> is TDC013, all raised by the validator before anything renders, and the TDC facade validates too. They are reachable only through TypeScript's low-level render(parse(src).tree) entry point, which walks an unvalidated AST — a shape the ports do not have, because they compile a config into a model rather than rendering the tree. Porting them would mean first accepting a config all five currently refuse."
+    "TDC160, TDC161 and TDC162": "Three render-time refusals about an INLINE <gen> — `row=` on one, weighted advanced_regex choices, a non-numeric counter start or step. No implementation can reach them from its command line, the reference included: a <gen> inside <line> is TDC131/TDC132 and one directly inside <block> is TDC013, all raised by the validator before anything renders, and the TDC facade validates too. They are reachable only through TypeScript's low-level render(parse(src).tree) entry point, which walks an unvalidated AST — a shape the ports do not have, because they compile a config into a model rather than rendering the tree. Porting them would mean first accepting a config all five currently refuse.",
+    "env-level <uniq> under a streaming engine": "The reference streams it; the other four still refuse it by name. An env-level <uniq> makes the TUPLE of several sequences distinct, and each member is its own seekable column, so the reference leaves the columns alone, streams the tuples past an external sort to find the repeats, and rearranges only those few rows — bounded memory, and the same bytes the in-memory engine produces. Measured on the config that prompted it: 1 GB and 9,700,571 unique rows in 328 s and 2.03 GB of memory, against 932 s and 9.31 GB in memory. `uniq=\"true\"` on ONE sequence is refused in all five: that rearranges the gens inside a single compound column, which no per-row resolver can see. The old refusal is kept as a case naming the four that still produce it, so porting them is a deletion rather than a rediscovery."
   },
   "registryBundle": {
     "id": "demo",

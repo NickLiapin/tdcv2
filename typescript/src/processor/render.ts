@@ -72,6 +72,7 @@ import {
   StreamUnsupportedError,
   sequenceValueAt,
 } from '../sequence/index.js';
+import { ExactUniqRepairNeeded } from '../sequence/exact-uniq.js';
 import { extractPoolSpecs } from '../sequence/pool.js';
 import { buildPoolTables } from '../sequence/pool-build.js';
 import type { CaseSpec, SequenceRegistry, SequenceSpec, SwitchSpec } from '../sequence/index.js';
@@ -578,7 +579,19 @@ export function prepareRender(
         },
       );
     } catch (err) {
-      if (!autoRoutedDisk || !(err instanceof StreamUnsupportedError)) throw err;
+      /*
+       * Two ways this engine gives up, and both mean the same thing: only the
+       * whole table in memory can answer.
+       *
+       * `StreamUnsupportedError` — the config has a shape the lazy path cannot
+       * express at all. `ExactUniqRepairNeeded` — it CAN express it, but the
+       * uniq pool turned out too tight to repair a few rows without holding
+       * everything. The second used to escape here, so a config that should
+       * have quietly fallen back reached the user as an error whose own text
+       * announced a fallback that never happened.
+       */
+      const givesUp = err instanceof StreamUnsupportedError || err instanceof ExactUniqRepairNeeded;
+      if (!autoRoutedDisk || !givesUp) throw err;
       // Auto-routed disk mode + a config the streaming engine can't do lazily
       // (a rare uniq/distinct/parent edge case) → fall back to the in-memory
       // engine. Same result the old memory default produced.
