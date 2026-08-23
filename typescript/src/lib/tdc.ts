@@ -74,6 +74,20 @@ import {
 export const WRITE_BATCH_BYTES = 1 << 20;
 
 export interface TdcOptions {
+  /**
+   * Called as a run advances — the live wire for a progress bar.
+   *
+   * Phases: 'uniq-scan' (every row's tuple hashed), 'uniq-sort' (piles
+   * sorted; `done` counts piles), 'render' (rows written). Reports are
+   * throttled at the source, about one per half-percent of a phase. This is
+   * what TDC Studio and any service driving the engine listen to; the CLI's
+   * `--progress` turns the same wire into a status file.
+   */
+  readonly onProgress?: (progress: {
+    readonly phase: 'uniq-scan' | 'uniq-sort' | 'render';
+    readonly done: number;
+    readonly total: number;
+  }) => void;
   /** Path to a DSL file on disk (preferred for larger configs). */
   readonly configFile?: string;
   /** Inline DSL source string (preferred for small / dynamic configs). */
@@ -585,6 +599,11 @@ export class TDC {
     dataPaths?: readonly string[];
     source?: string;
     packs?: PackRegistry;
+    onProgress?: (progress: {
+      phase: 'uniq-scan' | 'uniq-sort' | 'render';
+      done: number;
+      total: number;
+    }) => void;
   } {
     const r: {
       seed?: string;
@@ -599,6 +618,11 @@ export class TDC {
       dataPaths?: readonly string[];
       source?: string;
       packs?: PackRegistry;
+      onProgress?: (progress: {
+        phase: 'uniq-scan' | 'uniq-sort' | 'render';
+        done: number;
+        total: number;
+      }) => void;
     } = {
       baseDir: this.baseDir,
       source: this.source,
@@ -613,6 +637,7 @@ export class TDC {
     if (this.options.mode !== undefined) r.mode = this.options.mode;
     if (this.options.engine !== undefined) r.engine = this.options.engine;
     if (this.options.dataPaths !== undefined) r.dataPaths = this.options.dataPaths;
+    if (this.options.onProgress !== undefined) r.onProgress = this.options.onProgress;
     return r;
   }
 }

@@ -94,6 +94,7 @@ export function applyEnvUniq(
       ...(options.uniqFingerprintFiles?.[label] !== undefined
         ? { fingerprintFiles: options.uniqFingerprintFiles[label] }
         : {}),
+      ...(options.onProgress !== undefined ? { onProgress: options.onProgress } : {}),
     },
     blockOf,
     {

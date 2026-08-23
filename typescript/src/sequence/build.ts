@@ -140,8 +140,20 @@ export interface SequenceBuildOptions {
   readonly uniqExcess?: Readonly<Record<string, readonly number[]>> | undefined;
   /** Fingerprint piles for the hunt — Engine 5. See `DuplicateScanOptions.fingerprintBuckets`. */
   readonly uniqFingerprintBuckets?: number | undefined;
-  /** Sorted fingerprint files computed elsewhere, per uniq group — Engine 5's coordinator. */
+  /** Sorted fingerprint files computed elsewhere, per uniq group — the parallel coordinator's. */
   readonly uniqFingerprintFiles?: Readonly<Record<string, readonly string[]>> | undefined;
+  /**
+   * Called as the uniq machinery advances. The phases and shape are
+   * `RenderProgress` — declared render-side because that is where the render
+   * phase reports from; the uniq phases join through here.
+   */
+  readonly onProgress?:
+    | ((progress: {
+        phase: 'uniq-scan' | 'uniq-sort' | 'render';
+        done: number;
+        total: number;
+      }) => void)
+    | undefined;
 
   /**
    * Rows are computed strictly in order, so `prev()` has a previous row to read.

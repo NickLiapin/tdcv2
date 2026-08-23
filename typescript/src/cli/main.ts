@@ -47,6 +47,8 @@ import { dataFileBytes, declaredSources, fitJobsToMemory } from './memory-budget
 interface CliArgs {
   readonly input: string | undefined;
   readonly output: string | undefined;
+  /** Write a machine-readable status file beside the output while generating. */
+  readonly progress: boolean;
   readonly seed: string | undefined;
   readonly count: number | undefined;
   readonly locale: string | undefined;
@@ -102,6 +104,10 @@ Options:
                            automatically from the config. memory: the small,
                            in-RAM engine (an escape hatch; does not scale)
   --disk                   Shortcut for --mode disk (already the default)
+  --progress               Write <output>.progress — a small JSON status file
+                           refreshed about once a second (phase, rows done,
+                           percent). Needs -o. Poll it, or watch its mtime as
+                           a heartbeat: not updated for minutes = not running
   --engine <1|2|3>         Advanced: force a specific engine
   --stream                 Legacy alias for --engine 2
   -h, --help               Show this message
@@ -123,6 +129,7 @@ function parseArgs(argv: readonly string[]): CliArgs {
   let now: number | undefined;
   const dataPaths: string[] = [];
   let stream = false;
+  let progress = false;
   let mode: 'memory' | 'disk' | undefined;
   let engine: 1 | 2 | 3 | undefined;
   let jobs: number | undefined;
@@ -179,6 +186,9 @@ function parseArgs(argv: readonly string[]): CliArgs {
         break;
       case '--stream':
         stream = true;
+        break;
+      case '--progress':
+        progress = true;
         break;
       case '--disk':
         mode = 'disk';
@@ -238,6 +248,7 @@ function parseArgs(argv: readonly string[]): CliArgs {
     now,
     dataPaths,
     stream,
+    progress,
     mode,
     engine,
     jobs,
@@ -289,6 +300,54 @@ function parseNow(value: string): number {
   } catch {
     throw new Error(`invalid --now "${value}" — expected YYYY-MM-DD or YYYY-MM-DDTHH:mm:ss (UTC)`);
   }
+}
+
+/**
+ * The `--progress` status file: one small JSON object, rewritten in place.
+ *
+ * Written atomically (temp + rename) so a poller never reads half a JSON, and
+ * throttled to about once a second so watching costs nothing. The file itself
+ * is the heartbeat — an mtime that stops moving for minutes means the process
+ * is gone, whatever the content says. On success the last write says
+ * `"phase":"done"` with the wall-clock seconds the run took.
+ */
+function statusFileWriter(path: string): {
+  report: (p: { phase: 'uniq-scan' | 'uniq-sort' | 'render'; done: number; total: number }) => void;
+  finish: () => void;
+} {
+  const startedAt = Date.now();
+  let lastWrite = 0;
+  const write = (payload: Record<string, unknown>): void => {
+    const tmp = `${path}.tmp`;
+    writeFileSync(tmp, `${JSON.stringify(payload)}\n`);
+    renameSync(tmp, path);
+  };
+  return {
+    report: (p): void => {
+      const now = Date.now();
+      if (now - lastWrite < 1000) return;
+      lastWrite = now;
+      write({
+        phase: p.phase,
+        done: p.done,
+        total: p.total,
+        percent: p.total > 0 ? Math.round((p.done / p.total) * 1000) / 10 : 0,
+        startedAt,
+        updatedAt: now,
+        pid: process.pid,
+      });
+    },
+    finish: (): void => {
+      write({
+        phase: 'done',
+        percent: 100,
+        startedAt,
+        updatedAt: Date.now(),
+        elapsedSeconds: Math.round((Date.now() - startedAt) / 1000),
+        pid: process.pid,
+      });
+    },
+  };
 }
 
 function parseEngine(value: string): 1 | 2 | 3 {
@@ -390,7 +449,24 @@ export async function main(argv: readonly string[]): Promise<number> {
       stream?: boolean;
       mode?: 'memory' | 'disk';
       engine?: 1 | 2 | 3;
+      onProgress?: (progress: {
+        phase: 'uniq-scan' | 'uniq-sort' | 'render';
+        done: number;
+        total: number;
+      }) => void;
     } = { configFile: inputFile };
+    let finishProgress: (() => void) | undefined;
+    if (args.progress) {
+      if (!args.output) {
+        process.stderr.write(
+          'tdcv2: --progress needs -o (the status file lives beside the output)\n',
+        );
+        return 2;
+      }
+      const status = statusFileWriter(`${args.output}.progress`);
+      opts.onProgress = status.report;
+      finishProgress = status.finish;
+    }
     if (args.seed !== undefined) opts.seed = args.seed;
     if (args.count !== undefined) opts.count = args.count;
     if (args.locale !== undefined) opts.locale = args.locale;
@@ -490,6 +566,7 @@ export async function main(argv: readonly string[]): Promise<number> {
       await (parquetOutput
         ? renderParquetParallel(tdc, args, jobs)
         : renderParallel(tdc, args, jobs));
+      finishProgress?.();
       return 0;
     }
 
@@ -524,6 +601,7 @@ export async function main(argv: readonly string[]): Promise<number> {
       }
       if (buf.length > 0) cliIo.writeStdout(buf);
     }
+    finishProgress?.();
     return 0;
   } catch (err) {
     if (err instanceof TdcDiagnosticError) {

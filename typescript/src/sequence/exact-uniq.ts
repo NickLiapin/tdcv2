@@ -118,6 +118,12 @@ export interface DuplicateScanOptions {
    * and goes straight to the arrangement, reading nothing but these.
    */
   readonly fingerprintFiles?: readonly string[];
+  /** Called as the scan and the pile sort advance — the uniq half of `RenderProgress`. */
+  readonly onProgress?: (progress: {
+    phase: 'uniq-scan' | 'uniq-sort' | 'render';
+    done: number;
+    total: number;
+  }) => void;
 }
 
 /** A row and the key of its tuple (the concatenation of its uniq'd columns). */
@@ -283,6 +289,11 @@ export function writeFingerprintPiles(
   dir: string,
   prefix: string,
   buckets: number,
+  onProgress?: (progress: {
+    phase: 'uniq-scan' | 'uniq-sort' | 'render';
+    done: number;
+    total: number;
+  }) => void,
 ): string[] {
   const paths: string[] = [];
   const writers: FingerprintWriter[] = [];
@@ -292,7 +303,12 @@ export function writeFingerprintPiles(
     writers.push(new FingerprintWriter(path));
   }
   try {
+    // About one report per half-percent of the range.
+    const reportEvery = Math.max(1, Math.floor((to - from) / 200));
     for (let i = from; i < to; i++) {
+      if (onProgress && (i - from) % reportEvery === 0) {
+        onProgress({ phase: 'uniq-scan', done: i - from, total: to - from });
+      }
       const { hi, lo } = hash64(tupleKeyAt(resolvers, i));
       writers[fingerprintBucket(hi, buckets)]?.write(hi, lo, i);
     }
@@ -341,12 +357,21 @@ function resolveFingerprints(
   if (buckets < 2) return undefined;
 
   const dir = mkdtempSync(joinPath(options.tmpDir ?? tmpdir(), 'tdc-fp-'));
-  const rawPaths = writeFingerprintPiles(resolvers, 0, count, dir, 'raw', buckets);
+  const rawPaths = writeFingerprintPiles(
+    resolvers,
+    0,
+    count,
+    dir,
+    'raw',
+    buckets,
+    options.onProgress,
+  );
 
   // Sort each pile and collect the candidate groups.
   const sorted: string[] = [];
   const candidates: (readonly number[])[] = [];
   for (let b = 0; b < buckets; b++) {
+    options.onProgress?.({ phase: 'uniq-sort', done: b, total: buckets });
     const out = joinPath(dir, `sorted-${String(b)}`);
     sortFingerprintFiles([rawPaths[b] ?? ''], out, dir);
     rmSync(rawPaths[b] ?? '', { force: true });

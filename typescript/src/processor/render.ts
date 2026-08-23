@@ -127,6 +127,8 @@ export interface RenderOptions {
   readonly uniqPlan?: UniqPlan | undefined;
   /** Called with each uniq group's arrangement as it is worked out, so it can be passed on. */
   readonly onUniqPlan?: ((group: string, arrangement: UniqArrangement) => void) | undefined;
+  /** Called as the run advances — see `RenderProgress`. */
+  readonly onProgress?: ((progress: RenderProgress) => void) | undefined;
   /** Build the uniq members without making them unique — for the threads that compute the scan. */
   readonly skipEnvUniq?: true;
   /** Fingerprint piles for the uniq hunt; auto-set for the disk engines. See `fingerprint.ts`. */
@@ -210,6 +212,26 @@ interface EnvConfig {
  * heap capped at 1 GB before it was made the standard path.
  */
 export type EngineId = 1 | 2 | 3;
+
+/**
+ * A moment of a running generation, for whoever is watching.
+ *
+ * A big run is silent for minutes at a time — the uniq scan alone was 40
+ * minutes of a 20 GB file — and a silent hour is indistinguishable from a hung
+ * one. TDC Studio sits on exactly that question, and so does anyone driving
+ * the engine from a service. The engine reports through a callback because it
+ * cannot know who is asking: the CLI turns it into a status file, Studio into
+ * a progress bar, a test into an array.
+ *
+ * `done` counts rows for the scans and the render, piles for the sort. Reports
+ * are throttled at the source (about one per half-percent of a phase), so the
+ * callback can be honest work without slowing the run.
+ */
+export interface RenderProgress {
+  readonly phase: 'uniq-scan' | 'uniq-sort' | 'render';
+  readonly done: number;
+  readonly total: number;
+}
 
 /**
  * User-facing mode. `memory` → Engine 1. `disk` → work off disk: TDC picks the
@@ -610,6 +632,7 @@ export function prepareRender(
     ...(options.uniqFingerprintFiles !== undefined
       ? { uniqFingerprintFiles: options.uniqFingerprintFiles }
       : {}),
+    ...(options.onProgress !== undefined ? { onProgress: options.onProgress } : {}),
     seed: env.seed,
     pools: buildPoolTables(extractPoolSpecs(envEl), env.seed, env.locale, now, packOptions),
     // `prev()` may look back one row only when the rows are computed in order.
@@ -797,7 +820,12 @@ export function* streamFromPrepared(
     if (head.length > 0) yield head;
   }
 
+  // About one report per half-percent: cheap enough to leave on always.
+  const reportEvery = Math.max(1, Math.floor((end - start) / 200));
   for (let i = start; i < end; i++) {
+    if (options.onProgress && (i - start) % reportEvery === 0) {
+      options.onProgress({ phase: 'render', done: i - start, total: end - start });
+    }
     // Build ONE card's worth of output in a local string, then yield
     // it as a single chunk. This keeps memory bounded by the size of
     // one card (rather than the whole output) while preserving the
@@ -843,6 +871,7 @@ export function* streamFromPrepared(
     if (card.length > 0) yield card;
   }
 
+  options.onProgress?.({ phase: 'render', done: end - start, total: end - start });
   if (end === env.count) {
     const tail = renderFixture(env.after, fixtureCtx(Math.max(0, env.count - 1)));
     if (tail.length > 0) yield tail;
