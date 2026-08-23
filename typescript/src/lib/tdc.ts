@@ -369,6 +369,19 @@ export class TDC {
     return this.isStreamEngine();
   }
 
+  /**
+   * Whether this run resolves each row on its own — Engine 2 or Engine 3.
+   *
+   * What parallel generation actually needs. Both engines compute row `i` from
+   * `i`, so a thread can be given a range and produce exactly the bytes the
+   * whole-file run produces there. Engine 3 was left out of that for a while
+   * and it cost every percent-plus-uniq config the ability to split at all,
+   * which is exactly the kind of config large enough to want it.
+   */
+  public usesSeekableEngine(): boolean {
+    return this.resolveEngine() !== 1;
+  }
+
   /** Resolved card count — CLI/API override beats env, env beats default. */
   private resolveCount(): number {
     if (this.options.count !== undefined) return this.options.count;

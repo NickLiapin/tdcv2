@@ -117,21 +117,36 @@ describe('parallelBlockReason', () => {
     expect(parallelBlockReason(src)).toMatch(/inline <gen>/i);
   });
 
-  it('blocks uniqueness — a worker cannot see past its own range', () => {
+  it('blocks uniq="true" on a sequence — nobody can resolve that a row at a time', () => {
+    // The rearrangement is of the generators INSIDE one compound column, and a
+    // worker resolving row 40,000,000 on its own cannot reproduce it.
     const compound = wrap(
       '<sequence name="K" uniq="true">' +
         '<gen name="a" type="text" value="x,y"/><gen name="b" type="text" value="m,n"/>' +
         '</sequence>',
       '<data>${{K.a}}${{K.b}}</data>',
     );
-    expect(parallelBlockReason(compound)).toMatch(/uniqueness/i);
+    expect(parallelBlockReason(compound)).toMatch(/uniq="true"/);
+  });
 
+  it('does NOT block an env-level <uniq> group — the arrangement travels', () => {
+    /*
+     * It used to, and the reason given was that a worker sees only its own
+     * range. True of the analysis, not of the rendering: which rows move where
+     * is worked out once by the coordinator and handed to every worker as a
+     * small map, after which each resolves its own rows without knowing what
+     * the others hold.
+     *
+     * Blocking it cost exactly the configs that most want splitting — a uniq
+     * group over millions of rows is the slow case, and it was the one case
+     * refused all eleven cores.
+     */
     const group = wrap(
       '<uniq><sequence name="A"><gen type="text" value="x,y"/></sequence>' +
         '<sequence name="B"><gen type="text" value="m,n"/></sequence></uniq>',
       '<data>${{A}}${{B}}</data>',
     );
-    expect(parallelBlockReason(group)).toMatch(/uniqueness/i);
+    expect(parallelBlockReason(group)).toBeUndefined();
   });
 });
 
@@ -142,9 +157,9 @@ describe('--jobs end-to-end (real worker threads)', () => {
   let dir = '';
 
   // An exact percentage, a counter and a compound — each a different way for a
-  // worker boundary to go wrong. `uniq` used to be here as the uniqueness
-  // stress; it is now refused for parallel writing (see the test below) because
-  // a worker cannot see past its own range.
+  // worker boundary to go wrong. An env-level `<uniq>` has its own case below,
+  // because there the coordinator has to work something out and hand it over
+  // rather than every worker deriving the same answer independently.
   const CONFIG = `<tdc>
     <env count="900" seed="par-e2e" inject="\${{%}}" mode="stream">
       <before><line><data>HEAD</data></line></before>
@@ -216,6 +231,51 @@ describe('--jobs end-to-end (real worker threads)', () => {
     // test in this file carries this budget; this one was left on the 10s
     // default and passed alone while timing out inside the full suite, where
     // the machine is busy — a red run that says nothing about the code.
+  }, 120_000);
+
+  it('an env-level <uniq> splits, and every row is still distinct', () => {
+    /*
+     * The case that used to be refused outright, and the reason the refusal
+     * mattered: a uniq group over millions of rows IS the slow config, and it
+     * was the one shape denied every core but one.
+     *
+     * Two things have to hold at once here. The bytes must match the
+     * single-threaded run — so the arrangement the coordinator worked out
+     * reached every worker intact — and the rows must all be distinct, which is
+     * what the config asked for in the first place. A worker that quietly
+     * analysed its own range instead would satisfy neither.
+     *
+     * 40 x 12 = 480 combinations over 400 rows: tight enough that the repair
+     * has real work to do, wide enough to be possible.
+     */
+    const names = Array.from({ length: 40 }, (_, i) => `a${String(i)}`).join(',');
+    const cfg = join(dir, 'uniq.tdc');
+    writeFileSync(
+      cfg,
+      `<tdc>
+        <env count="400" seed="par-uniq" local="en" mode="disk">
+          <uniq>
+            <sequence name="A"><gen type="text" value="${names}"/></sequence>
+            <sequence name="B"><gen type="text" value="m,n,o,p,q,r,s,t,u,v,w,x"/></sequence>
+          </uniq>
+        </env>
+        <block><line><data>\${{A}}-\${{B}}</data></line></block>
+      </tdc>`,
+    );
+
+    const read = (jobs: number): string => {
+      const out = join(dir, `uniq-${String(jobs)}.csv`);
+      runCli([distMain, cfg, '--jobs', String(jobs), '-o', out]);
+      return readFileSync(out, 'utf8');
+    };
+
+    const single = read(1);
+    expect(read(5)).toBe(single);
+    expect(read(9)).toBe(single);
+
+    const rows = single.split('\n').filter(Boolean);
+    expect(rows).toHaveLength(400);
+    expect(new Set(rows).size).toBe(400); // what uniq promised
   }, 120_000);
 
   /**

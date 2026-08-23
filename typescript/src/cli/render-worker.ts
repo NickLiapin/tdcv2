@@ -15,6 +15,7 @@ import { parentPort, workerData } from 'node:worker_threads';
 import { bundledPacksDir, scanPacks } from '../data-pack/load.js';
 import { parseStrict } from '../parser/index.js';
 import { renderStream } from '../processor/render.js';
+import type { UniqPlan } from '../sequence/build.js';
 
 import { WRITE_BATCH_BYTES } from '../lib/tdc.js';
 
@@ -32,6 +33,14 @@ export interface RenderWorkerInput {
   readonly start: number;
   readonly end: number;
   readonly tmpPath: string;
+  /**
+   * The uniq arrangement the coordinator worked out for the WHOLE file.
+   *
+   * Without it a worker would analyse the run itself — every row, twice — and
+   * eleven workers each doing that is slower than one thread doing it once.
+   * With it a worker does no analysis at all and simply renders its range.
+   */
+  readonly uniqPlan?: UniqPlan | undefined;
 }
 
 function run(input: RenderWorkerInput): void {
@@ -54,7 +63,17 @@ function run(input: RenderWorkerInput): void {
       ...(input.defaultLocale !== undefined ? { defaultLocale: input.defaultLocale } : {}),
       packs: scanPacks(roots).registry,
       now: input.now,
-      stream: true,
+      /*
+       * Route as the whole-file run routes, rather than forcing Engine 2.
+       *
+       * The engine is a function of the config, so `disk` lands the worker on
+       * the same one the coordinator resolved — Engine 2 normally, Engine 3
+       * when the config needs exact percentages and uniqueness together.
+       * Forcing Engine 2 here meant every Engine 3 config was refused
+       * parallelism outright, and those are the large ones.
+       */
+      mode: 'disk',
+      ...(input.uniqPlan !== undefined ? { uniqPlan: input.uniqPlan } : {}),
       dataPaths: input.dataPaths,
       baseDir: input.baseDir,
       source: input.source,

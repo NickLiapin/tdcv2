@@ -450,7 +450,7 @@ export async function main(argv: readonly string[]): Promise<number> {
     // single-threaded run. Parquet to STDOUT stays single-threaded: the
     // coordinator needs to place groups at known offsets.
     const parquetOutput = (args.output ?? '').toLowerCase().endsWith('.parquet');
-    const streamOk = tdc.usesStreamEngine();
+    const streamOk = tdc.usesSeekableEngine();
     const blockReason = streamOk ? parallelBlockReason(tdc.source) : undefined;
     const canParallelize =
       streamOk && blockReason === undefined && (!parquetOutput || !!args.output);
@@ -459,8 +459,8 @@ export async function main(argv: readonly string[]): Promise<number> {
       process.stderr.write(
         blockReason !== undefined
           ? `tdcv2: --jobs can't split this config: ${blockReason}. Running single-threaded.\n`
-          : 'tdcv2: --jobs needs the fast streaming engine (this config uses the exact ' +
-              'engine for percent+uniq). Running single-threaded.\n',
+          : 'tdcv2: --jobs needs an engine that resolves each row on its own; this ' +
+              'config uses the in-memory engine. Running single-threaded.\n',
       );
     }
     const requested = resolveJobCount({

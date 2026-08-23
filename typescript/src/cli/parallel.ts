@@ -20,7 +20,14 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Worker } from 'node:worker_threads';
 
-import { hasInlineRenderGenerators, hasUniqueness } from '../processor/render.js';
+import {
+  hasInlineRenderGenerators,
+  hasUniqueness,
+  hasUnsplittableUniqueness,
+  renderStream,
+} from '../processor/render.js';
+import { bundledPacksDir, scanPacks } from '../data-pack/load.js';
+import type { UniqArrangement, UniqPlan } from '../sequence/build.js';
 import { parseStrict } from '../parser/index.js';
 
 import type { RenderWorkerInput } from './render-worker.js';
@@ -59,8 +66,8 @@ export function parallelBlockReason(source: string): string | undefined {
   if (hasInlineRenderGenerators(document)) {
     return 'the config has an inline <gen>/<switch> in a <block>/fixture line (not in a <sequence>), which draws from the sequential render RNG and cannot be split across workers';
   }
-  if (hasUniqueness(document)) {
-    return 'the config asks for uniqueness (uniq="true", or a <uniq> group), which is a promise about the whole dataset — a worker sees only its own range of rows and could not tell a duplicate outside it from a value it has never seen';
+  if (hasUnsplittableUniqueness(document)) {
+    return 'the config has uniq="true" on a sequence, which rearranges the generators inside one compound column — a worker resolving a row on its own cannot reproduce that';
   }
   return undefined;
 }
@@ -109,8 +116,51 @@ export function partitionRows(count: number, jobs: number): readonly (readonly [
 }
 
 /** Render in parallel to `destFd`. Resolves when the full output has been written. */
+/**
+ * Work out the uniq arrangement once, here, so no worker has to.
+ *
+ * Deciding which rows a uniq group moves where is a pass over every row to find
+ * the collisions and a second to learn which tuples are taken — the expensive
+ * half of a uniq run, and the same answer every time for a given config and
+ * seed. Eleven workers each repeating it would make splitting the file slower
+ * than not splitting it.
+ *
+ * The render is asked for an EMPTY range: the registry is built, which is where
+ * the arrangement is decided, and not one row is produced. Returns undefined
+ * for a config with no uniq group, which is most of them.
+ */
+function planUniq(params: ParallelParams): UniqPlan | undefined {
+  const document = parseStrict(params.source);
+  if (!hasUniqueness(document)) return undefined;
+
+  const roots = [bundledPacksDir(), ...(params.dataPaths ?? [])].filter(
+    (p): p is string => p !== undefined,
+  );
+  const plan: Record<string, UniqArrangement> = {};
+  for (const _chunk of renderStream(document, {
+    seed: params.seed,
+    count: params.count,
+    ...(params.locale !== undefined ? { locale: params.locale } : {}),
+    ...(params.defaultLocale !== undefined ? { defaultLocale: params.defaultLocale } : {}),
+    packs: scanPacks(roots).registry,
+    now: params.now,
+    mode: 'disk',
+    dataPaths: params.dataPaths,
+    baseDir: params.baseDir,
+    source: params.source,
+    range: { start: 0, end: 0 },
+    onUniqPlan: (group, arrangement) => {
+      plan[group] = arrangement;
+    },
+  })) {
+    // Nothing is asked for; the registry is what this call is here to build.
+  }
+  return plan;
+}
+
 export async function runParallel(params: ParallelParams): Promise<void> {
   const ranges = partitionRows(params.count, params.jobs);
+  const uniqPlan = planUniq(params);
   const dir = mkdtempSync(join(tmpdir(), 'tdc-parallel-'));
   const tmpPaths = ranges.map((_, k) => join(dir, `range-${String(k)}.txt`));
 
@@ -129,6 +179,7 @@ export async function runParallel(params: ParallelParams): Promise<void> {
           start,
           end,
           tmpPath: tmpPaths[k] ?? join(dir, `range-${String(k)}.txt`),
+          ...(uniqPlan !== undefined ? { uniqPlan } : {}),
         };
         return runWorker(input);
       }),

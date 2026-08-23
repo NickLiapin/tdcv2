@@ -453,6 +453,23 @@ export function hasUniqueness(document: DocumentContext): boolean {
   return extractSequenceSpecs(env).some((spec) => spec.uniq === true);
 }
 
+/**
+ * Uniqueness that a row range cannot be rendered under, even given the
+ * arrangement worked out for the whole file.
+ *
+ * An env-level `<uniq>` is not one: it rearranges whole columns, the answer is
+ * a small map of which rows moved where, and a thread handed that map resolves
+ * its own rows without knowing what the others hold. `uniq="true"` on a single
+ * sequence is: it rearranges the gens INSIDE one compound column, which no
+ * per-row resolver reproduces.
+ */
+export function hasUnsplittableUniqueness(document: DocumentContext): boolean {
+  const tdc = findTdc(document);
+  const env = tdc ? findChildElement(tdc.content(), 'env') : undefined;
+  if (!env) return false;
+  return extractSequenceSpecs(env).some((spec) => spec.uniq === true);
+}
+
 export function hasInlineRenderGenerators(document: DocumentContext): boolean {
   const tdc = findTdc(document);
   if (!tdc) return false;
