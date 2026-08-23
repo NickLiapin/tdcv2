@@ -125,6 +125,10 @@ export interface RenderOptions {
   readonly uniqPlan?: UniqPlan | undefined;
   /** Called with each uniq group's arrangement as it is worked out, so it can be passed on. */
   readonly onUniqPlan?: ((group: string, arrangement: UniqArrangement) => void) | undefined;
+  /** Build the uniq members without making them unique — for the threads that compute the scan. */
+  readonly skipEnvUniq?: true;
+  /** Tuple records already computed and sorted elsewhere, per uniq group, as run file paths. */
+  readonly uniqScans?: Readonly<Record<string, readonly string[]>> | undefined;
   /** Base directory for relative `src` paths. Defaults to process cwd. */
   readonly baseDir?: string | undefined;
   /** Extra folders searched by `src="@data/..."` and relative file sources. */
@@ -463,6 +467,37 @@ export function hasUniqueness(document: DocumentContext): boolean {
  * sequence is: it rearranges the gens INSIDE one compound column, which no
  * per-row resolver reproduces.
  */
+/**
+ * The env-level `<uniq>` groups' members, as the config declares them.
+ *
+ * For the coordinator that hands the scan out: it has to name each group the
+ * same way the engine does, since the engine looks its pre-computed records up
+ * by that name. The engine drops a member that produced no sequence at all, so
+ * a name can in principle differ — and then the records are simply not found
+ * and the engine computes the scan itself. Slower, never wrong.
+ */
+export function envUniqGroupsOf(document: DocumentContext): readonly (readonly string[])[] {
+  const tdc = findTdc(document);
+  const env = tdc ? findChildElement(tdc.content(), 'env') : undefined;
+  return env ? extractEnvUniqGroups(env) : [];
+}
+
+/**
+ * Refuse a uniq group that cannot produce the rows asked of it — cheaply, and
+ * without generating anything.
+ *
+ * The renderer does this before choosing an engine. The parallel coordinator
+ * needs it before choosing to spawn threads: an impossible config used to set
+ * every core computing tuples for an arrangement that could never exist, and
+ * only refuse once they had finished.
+ */
+export function checkUniqFeasible(document: DocumentContext, count: number): void {
+  const tdc = findTdc(document);
+  const env = tdc ? findChildElement(tdc.content(), 'env') : undefined;
+  if (!env) return;
+  checkEnvUniqCapacity(extractEnvUniqGroups(env), extractSequenceSpecs(env), count);
+}
+
 export function hasUnsplittableUniqueness(document: DocumentContext): boolean {
   const tdc = findTdc(document);
   const env = tdc ? findChildElement(tdc.content(), 'env') : undefined;
@@ -555,6 +590,8 @@ export function prepareRender(
     ...packOptions,
     ...(options.uniqPlan !== undefined ? { uniqPlan: options.uniqPlan } : {}),
     ...(options.onUniqPlan !== undefined ? { onUniqPlan: options.onUniqPlan } : {}),
+    ...(options.skipEnvUniq ? { skipEnvUniq: true as const } : {}),
+    ...(options.uniqScans !== undefined ? { uniqScans: options.uniqScans } : {}),
     seed: env.seed,
     pools: buildPoolTables(extractPoolSpecs(envEl), env.seed, env.locale, now, packOptions),
     // `prev()` may look back one row only when the rows are computed in order.

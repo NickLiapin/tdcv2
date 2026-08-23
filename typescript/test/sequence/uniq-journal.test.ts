@@ -18,12 +18,13 @@
  * runs on a config far too large for a test suite, which is exactly how a code
  * path comes to be believed instead of known.
  */
-import { readdirSync } from 'node:fs';
+import { mkdtempSync, readdirSync, rmSync } from 'node:fs';
+import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 
 import { describe, expect, it } from 'vitest';
 
-import { countDuplicates, repairExactUniq } from '../../src/sequence/exact-uniq.js';
+import { countDuplicates, repairExactUniq, scanTupleRuns } from '../../src/sequence/exact-uniq.js';
 import type { Sequence } from '../../src/sequence/index.js';
 
 /** A resolver whose value for row `i` is a pure function of `i`. */
@@ -35,6 +36,23 @@ const column = (
   id,
   resolve: (i: number): string => values[Math.floor(i / stride) % values.length] ?? '',
 });
+
+/** A column that remembers how often it was asked for a value. */
+function countingColumn(
+  id: string,
+  values: readonly string[],
+  stride: number,
+): { id: string; resolve: (i: number) => string; calls: () => number } {
+  let calls = 0;
+  return {
+    id,
+    resolve: (i: number): string => {
+      calls++;
+      return values[Math.floor(i / stride) % values.length] ?? '';
+    },
+    calls: () => calls,
+  };
+}
 
 const many = (n: number, prefix: string): string[] =>
   Array.from({ length: n }, (_, i) => `${prefix}${String(i)}`);
@@ -112,6 +130,53 @@ describe('the repair reads back what the scan computed', () => {
       expect(new Set(a).size).toBe(c.count);
     });
   }
+
+  it('given records computed elsewhere, it computes none of its own', () => {
+    /*
+     * The scan splits across threads: each computes the tuples for its own
+     * range, sorts them into files, and the coordinator merges. What has to
+     * hold here is that the merge really replaces the work — a repair that
+     * quietly recomputed would be correct and pointless, and correctness alone
+     * cannot tell the two apart.
+     *
+     * So the columns count how often they are asked. Handed the files, the
+     * answer has to be zero.
+     */
+    const count = 500;
+    const dir = mkdtempSync(join(tmpdir(), 'tdc-scan-test-'));
+    try {
+      // Few collisions on purpose: the repair legitimately resolves its POOL,
+      // and a shape that collides heavily makes the pool the whole run, which
+      // would hide the thing being measured.
+      const first = [countingColumn('A', many(120, 'a'), 1), countingColumn('B', many(60, 'b'), 7)];
+      // Two "threads", each taking half the rows, exactly as the workers do.
+      const runs = [
+        ...scanTupleRuns(first, 0, 250, dir, 'r0'),
+        ...scanTupleRuns(first, 250, count, dir, 'r1'),
+      ];
+      expect(runs.length).toBeGreaterThan(0);
+
+      // The SAME shape as `first` — a different object, so the counts start at
+      // zero, but the very same values.
+      const second = [
+        countingColumn('A', many(120, 'a'), 1),
+        countingColumn('B', many(60, 'b'), 7),
+      ];
+      const asked = (): number => second.reduce((n, c) => n + c.calls(), 0);
+      const fromRuns = repairExactUniq(second, count, '"A × B"', { sortedRuns: runs });
+      // The repair still resolves the pool's own rows — the handful it is
+      // rearranging, never the whole run. Two columns over 500 rows would be
+      // 1,000 asks if it scanned; the pool costs a fraction of that.
+      expect(asked()).toBeLessThan(count);
+
+      // And it reaches the same answer as the run that did the scanning itself.
+      const own = repairExactUniq(first, count, '"A × B"', { journalMinRows: 1 });
+      const ids = ['A', 'B'];
+      expect(rowsOf(fromRuns, ids, count)).toEqual(rowsOf(own, ids, count));
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
 
   it('leaves no temp files behind', () => {
     /*

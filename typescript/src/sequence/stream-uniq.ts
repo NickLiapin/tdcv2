@@ -44,6 +44,9 @@ export function applyEnvUniq(
 ): void {
   const members = group.filter((name) => registry[name] !== undefined);
   if (members.length < 2) return;
+  // The scan threads want the values as drawn, before any rearrangement — that
+  // is the input the analysis reads, so producing it must not run the analysis.
+  if (options.skipEnvUniq) return;
   const label = members.join(' × ');
 
   const resolvers = members.map((name) => {
@@ -77,10 +80,18 @@ export function applyEnvUniq(
    * row and it answers the same way every time for a given config and seed, so
    * a thread rendering rows 40,000,000 to 50,000,000 should not repeat it.
    */
-  const repaired = repairExactUniq(resolvers, count, `"${label}"`, {}, blockOf, {
-    preset: options.uniqPlan?.[label],
-    onComputed: options.onUniqPlan ? (moved) => options.onUniqPlan?.(label, moved) : undefined,
-  });
+  const scan = options.uniqScans?.[label];
+  const repaired = repairExactUniq(
+    resolvers,
+    count,
+    `"${label}"`,
+    scan !== undefined ? { sortedRuns: scan } : {},
+    blockOf,
+    {
+      preset: options.uniqPlan?.[label],
+      onComputed: options.onUniqPlan ? (moved) => options.onUniqPlan?.(label, moved) : undefined,
+    },
+  );
   for (const name of members) {
     const seq = repaired[name];
     if (seq) registry[name] = seq;

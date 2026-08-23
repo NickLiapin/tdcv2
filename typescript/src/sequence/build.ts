@@ -127,6 +127,20 @@ export interface SequenceBuildOptions {
   readonly uniqPlan?: UniqPlan | undefined;
   /** Called with each group's arrangement as it is worked out, so it can be passed on. */
   readonly onUniqPlan?: ((group: string, arrangement: UniqArrangement) => void) | undefined;
+  /**
+   * Build the members of an env-level `<uniq>` group but do NOT make them
+   * unique.
+   *
+   * For the threads that compute the scan. Their whole job is to report what
+   * each row drew BEFORE any rearrangement — that is the input the analysis
+   * works on — so applying the analysis to get it would be circular.
+   */
+  readonly skipEnvUniq?: true;
+  /**
+   * Tuple records already computed and sorted, per uniq group, as run file
+   * paths. See `DuplicateScanOptions.sortedRuns` — this is how they reach it.
+   */
+  readonly uniqScans?: Readonly<Record<string, readonly string[]>> | undefined;
 
   /**
    * Rows are computed strictly in order, so `prev()` has a previous row to read.

@@ -191,6 +191,44 @@ function writeRun(records: readonly string[], path: string): void {
 }
 
 /**
+ * Merge already-sorted run files into one sorted stream.
+ *
+ * Phase two of the sort, on its own, because the runs do not have to have come
+ * from phase one. Several threads can each sort their own slice of the rows and
+ * hand the files over — the merge neither knows nor cares who wrote them, only
+ * that each is sorted. That is what lets the tuple scan use every core: the
+ * expensive part is computing and sorting the rows, and it splits; the merge is
+ * cheap and stays here.
+ *
+ * Only one record per run lives in memory at a time.
+ */
+export function* mergeRuns(
+  runs: readonly string[],
+  compare: (a: string, b: string) => number = byteCompare,
+): Generator<string, void, void> {
+  const readers = runs.map((p) => new RunReader(p));
+  try {
+    const heap = new MinHeap<{ readonly value: string; readonly run: number }>(
+      // Ties broken by run index, so the order does not depend on which thread
+      // happened to write which file.
+      (x, y) => compare(x.value, y.value) || x.run - y.run,
+    );
+    readers.forEach((reader, run) => {
+      const value = reader.next();
+      if (value !== undefined) heap.push({ value, run });
+    });
+    while (heap.size > 0) {
+      const top = heap.pop();
+      yield top.value;
+      const value = readers[top.run]?.next();
+      if (value !== undefined) heap.push({ value, run: top.run });
+    }
+  } finally {
+    for (const reader of readers) reader.close();
+  }
+}
+
+/**
  * Sort `records` into a fully-ordered stream using bounded memory. Yields the
  * sorted records. Consume the whole generator (temp files are cleaned up when
  * it finishes or is returned early).
@@ -228,23 +266,7 @@ export function* externalSort(
     }
     if (chunk.length > 0) flushChunk();
 
-    // K-way merge the sorted runs.
-    const readers = runs.map((p) => new RunReader(p));
-    const heap = new MinHeap<{ readonly value: string; readonly run: number }>(
-      (x, y) => compare(x.value, y.value) || x.run - y.run,
-    );
-    readers.forEach((reader, run) => {
-      const value = reader.next();
-      if (value !== undefined) heap.push({ value, run });
-    });
-    while (heap.size > 0) {
-      const top = heap.pop();
-      yield top.value;
-      const reader = readers[top.run];
-      const value = reader?.next();
-      if (value !== undefined) heap.push({ value, run: top.run });
-    }
-    for (const reader of readers) reader.close();
+    yield* mergeRuns(runs, compare);
   } finally {
     if (dir !== undefined)
       rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 50 });

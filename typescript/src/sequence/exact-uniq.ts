@@ -29,7 +29,7 @@ import { makePercentResolver } from './stream-resolve.js';
 import type { Sequence } from './types.js';
 import { arrangeUnique, uniqUpperBound } from './uniq.js';
 import { SeenTuples } from './tuple-filter.js';
-import { RunReader, RunWriter } from './external-sort.js';
+import { mergeRuns, RunReader, RunWriter } from './external-sort.js';
 import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join as joinPath } from 'node:path';
@@ -79,6 +79,19 @@ export interface DuplicateScanOptions {
    * which is how a path comes to be believed rather than known.
    */
   readonly journalMinRows?: number;
+  /**
+   * Tuple records already computed and sorted, in run files written elsewhere.
+   *
+   * The scan is a full pass over every row — compute the tuple, sort it in with
+   * the rest — and it is the single most expensive stage of a uniq run. Each
+   * row is a function of its own number and nothing else, so it splits: several
+   * threads take a range apiece, sort what they produced, and hand the files
+   * over. Given them, this does no computing and no sorting, only the merge.
+   *
+   * The files also stand in for the journal: they already hold every tuple, so
+   * the repair reads them for its second look rather than writing its own copy.
+   */
+  readonly sortedRuns?: readonly string[];
 }
 
 /** A row and the key of its tuple (the concatenation of its uniq'd columns). */
@@ -102,10 +115,17 @@ export function* findDuplicateGroups(
 
   // No custom comparator — the padded encoding sorts correctly byte-wise, which
   // is far cheaper than parsing each record on every comparison.
-  for (const record of externalSort(encode(rows), {
-    chunkSize: options.chunkSize,
-    tmpDir: options.tmpDir,
-  })) {
+  // Given sorted runs, the rows are never asked for: someone else already
+  // computed them. Otherwise compute and sort them here, as before.
+  const sorted =
+    options.sortedRuns !== undefined && options.sortedRuns.length > 0
+      ? mergeRuns(options.sortedRuns)
+      : externalSort(encode(rows), {
+          chunkSize: options.chunkSize,
+          tmpDir: options.tmpDir,
+        });
+
+  for (const record of sorted) {
     options.onRecord?.(record);
     const split = record.lastIndexOf(SEP);
     const key = record.slice(0, split);
@@ -224,10 +244,59 @@ export function arrangeExactUniq(
 }
 
 /** A uniq column resolver: its registry id and its exact-% value(i). */
-interface UniqResolver {
+export interface UniqResolver {
   readonly id: string;
   readonly resolve: (i: number) => string;
 }
+
+/**
+ * Compute and sort the tuple records for ONE range of rows, into run files.
+ *
+ * The scan thread's whole job. Each row's tuple depends on its own number and
+ * nothing else, so a thread given rows 40,000,000 to 50,000,000 can produce
+ * exactly the records the whole-file scan would produce there, sort them, and
+ * hand the files over. The coordinator merges everyone's files, which is cheap
+ * — the expensive part was the computing and the sorting, and that is what
+ * split.
+ *
+ * Records are sorted in chunks so a thread holds `chunkSize` of them at a time,
+ * not its whole range. The files are the CALLER's to delete.
+ */
+export function scanTupleRuns(
+  resolvers: readonly UniqResolver[],
+  from: number,
+  to: number,
+  dir: string,
+  prefix: string,
+  chunkSize = SCAN_CHUNK,
+): string[] {
+  const paths: string[] = [];
+  let chunk: string[] = [];
+
+  const flush = (): void => {
+    if (chunk.length === 0) return;
+    chunk.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
+    const path = joinPath(dir, `${prefix}-${String(paths.length)}.txt`);
+    const writer = new RunWriter(path);
+    try {
+      for (const record of chunk) writer.write(record);
+    } finally {
+      writer.close();
+    }
+    paths.push(path);
+    chunk = [];
+  };
+
+  for (let i = from; i < to; i++) {
+    chunk.push(`${tupleKeyAt(resolvers, i)}${SEP}${String(i).padStart(INDEX_WIDTH, '0')}`);
+    if (chunk.length >= chunkSize) flush();
+  }
+  flush();
+  return paths;
+}
+
+/** Records a scan thread holds at once before sorting them out to a file. */
+const SCAN_CHUNK = 1_000_000;
 
 function tupleKeyAt(resolvers: readonly UniqResolver[], i: number): string {
   let key = '';
@@ -309,8 +378,11 @@ export function repairExactUniq(
    * which is also what keeps their arrangement exactly what it was.
    */
   const journalFrom = options.journalMinRows ?? JOURNAL_MIN_ROWS;
+  // Sorted runs already ARE every tuple written down, so there is nothing to
+  // write again — step 2 reads those instead.
+  const haveRuns = options.sortedRuns !== undefined && options.sortedRuns.length > 0;
   const journalDir =
-    count >= journalFrom ? mkdtempSync(joinPath(tmpdir(), 'tdc-uniq-')) : undefined;
+    !haveRuns && count >= journalFrom ? mkdtempSync(joinPath(tmpdir(), 'tdc-uniq-')) : undefined;
   const journalPath = journalDir === undefined ? undefined : joinPath(journalDir, 'tuples');
   const journal = journalPath === undefined ? undefined : new RunWriter(journalPath);
 
@@ -418,7 +490,17 @@ export function repairExactUniq(
     return true;
   };
 
-  if (journalPath !== undefined) {
+  if (haveRuns) {
+    // The scan's own files, read straight through. Sorted per range rather than
+    // globally, which changes nothing: this is only ever asked whether a tuple
+    // is in it.
+    for (const record of mergeRuns(options.sortedRuns ?? [])) {
+      const split = record.lastIndexOf(SEP);
+      if (poolSet.has(Number(record.slice(split + 1)))) continue; // being reassigned
+      const key = record.slice(0, split);
+      if (inPoolSpace(key.split(JOIN))) forbidden.add(key);
+    }
+  } else if (journalPath !== undefined) {
     // Read back what the scan already worked out. Sorted order rather than row
     // order, which changes nothing: this is only ever asked whether a tuple is
     // in it, and that does not depend on the order things went in.
