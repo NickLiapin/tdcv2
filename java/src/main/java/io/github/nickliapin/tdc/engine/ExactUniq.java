@@ -4,6 +4,9 @@ import io.github.nickliapin.tdc.distribution.Hamilton;
 import io.github.nickliapin.tdc.prng.Permute;
 import io.github.nickliapin.tdc.prng.Prng;
 import io.github.nickliapin.tdc.sequence.Uniq;
+import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -48,7 +51,37 @@ final class ExactUniq {
   private static final int INDEX_WIDTH = 16;
 
   /** The pool repair is quadratic; past this many collisions, the config is pathological. */
-  private static final int MAX_REPAIR_ROWS = 20_000;
+  /** Anything that can answer "is this tuple taken?" — an exact set, or the disk ledger. */
+  public interface Membership {
+    boolean has(String key);
+  }
+
+  /** The small-run answer: every in-space tuple, held exactly. */
+  private record ExactMembership(Set<String> keys) implements Membership {
+    @Override
+    public boolean has(String key) {
+      return keys.contains(key);
+    }
+  }
+
+  /**
+   * How many colliding rows the bounded repair takes on, for a run of {@code count}.
+   *
+   * <p>A flat cap was written when the repair was quadratic in its pool. It is not any more, and
+   * collisions grow as the SQUARE of the run — so a flat cap doomed every sufficiently large run.
+   * A thousandth of the rows keeps the repair pool in tens of megabytes at any size, and the floor
+   * keeps small runs as permissive as they were.
+   */
+  private static int maxRepairRowsFor(int count) {
+    return Math.max(20_000, count / 1000);
+  }
+
+  /**
+   * Rows past which the in-memory engine is NOT a fallback. Past this it cannot hold the table at
+   * all, so falling back is not failing fast — it is failing after a long materialisation with
+   * nothing written.
+   */
+  public static final int IN_MEMORY_FALLBACK_MAX_ROWS = 20_000_000;
 
   /** The exact construction collided and the bounded repair could not place every row. */
   static final class RepairNeeded extends RuntimeException {
@@ -152,19 +185,34 @@ final class ExactUniq {
    */
   private static Map<String, Resolver> repair(
       List<Field> fields, List<Resolver> resolvers, int count, String label, Path tmpDir) {
-    // Keep the first row of every colliding group; the rest have to move.
+    // How the duplicates are hunted: by fingerprint on a large run, by tuple text on a small one.
+    // The carrier is all that differs — the rows found are the same either way, because a matching
+    // fingerprint is verified against the true tuples before it is believed.
+    FingerprintScan scan = fingerprintScan(resolvers, count, tmpDir);
+
     List<Integer> excess = new ArrayList<>();
-    Iterator<List<Integer>> groups = duplicateGroups(resolvers, count, tmpDir);
-    while (groups.hasNext()) {
-      List<Integer> group = groups.next();
-      for (int m = 1; m < group.size(); m++) {
-        excess.add(group.get(m));
+    if (scan != null) {
+      excess.addAll(scan.excess());
+    } else {
+      // Keep the first row of every colliding group; the rest have to move.
+      Iterator<List<Integer>> groups = duplicateGroups(resolvers, count, tmpDir);
+      while (groups.hasNext()) {
+        List<Integer> group = groups.next();
+        for (int m = 1; m < group.size(); m++) {
+          excess.add(group.get(m));
+        }
       }
     }
     if (excess.isEmpty()) {
+      if (scan != null) {
+        scan.drop();
+      }
       return registryOf(fields, resolvers);
     }
-    if (excess.size() > MAX_REPAIR_ROWS) {
+    if (excess.size() > maxRepairRowsFor(count)) {
+      if (scan != null) {
+        scan.drop();
+      }
       throw new RepairNeeded(excess.size(), label);
     }
 
@@ -196,32 +244,53 @@ final class ExactUniq {
       poolSpace.add(new HashSet<>(column));
     }
 
-    // The only tuples a rearranged pool row could collide with are the ones already present
-    // whose every value lies inside the pool's own value space. One pass finds them.
-    Set<String> forbidden = new HashSet<>();
-    for (int i = 0; i < count; i++) {
-      if (inPool.contains(i)) {
-        continue;
-      }
-      StringBuilder key = new StringBuilder();
-      boolean inSpace = true;
-      for (int j = 0; j < k; j++) {
-        String value = resolvers.get(j).valueAt(i);
-        if (!poolSpace.get(j).contains(value)) {
-          inSpace = false;
-          break;
+    // "Is this tuple taken?" — answered one of two ways.
+    //
+    // Large run: no structure at all. The sorted fingerprint piles on disk ARE the ledger, and a
+    // query is a binary search. Small run: derive every row's tuple once more and hold the ones
+    // inside the pool's value space in an exact set, exactly as before.
+    Membership forbidden;
+    Fingerprint.Ledger ledger = null;
+    if (scan != null) {
+      ledger = new Fingerprint.Ledger(scan.sortedPaths(), inPool);
+      forbidden = ledger;
+    } else {
+      Set<String> exact = new HashSet<>();
+      for (int i = 0; i < count; i++) {
+        if (inPool.contains(i)) {
+          continue;
         }
-        if (j > 0) {
-          key.append(JOIN);
+        StringBuilder key = new StringBuilder();
+        boolean inSpace = true;
+        for (int j = 0; j < k; j++) {
+          String value = resolvers.get(j).valueAt(i);
+          if (!poolSpace.get(j).contains(value)) {
+            inSpace = false;
+            break;
+          }
+          if (j > 0) {
+            key.append(JOIN);
+          }
+          key.append(value);
         }
-        key.append(value);
+        if (inSpace) {
+          exact.add(key.toString());
+        }
       }
-      if (inSpace) {
-        forbidden.add(key.toString());
-      }
+      forbidden = new ExactMembership(exact);
     }
 
-    List<List<String>> arranged = arrangeAvoiding(poolColumns, forbidden, pool.size());
+    List<List<String>> arranged;
+    try {
+      arranged = arrangeAvoiding(poolColumns, forbidden, pool.size());
+    } finally {
+      if (ledger != null) {
+        ledger.close();
+      }
+      if (scan != null) {
+        scan.drop();
+      }
+    }
     if (arranged == null) {
       throw new RepairNeeded(excess.size(), label);
     }
@@ -257,6 +326,98 @@ final class ExactUniq {
    * appended after a NUL, which makes plain byte order the same as ordering by key and then by
    * row — no record has to be parsed to be compared.
    */
+  /** What the fingerprint hunt produced: the sorted piles, their home, and the verified rows. */
+  private record FingerprintScan(List<Path> sortedPaths, Path directory, List<Integer> excess) {
+    void drop() {
+      for (Path path : sortedPaths) {
+        try {
+          Files.deleteIfExists(path);
+        } catch (IOException ignored) {
+          // A leftover pile in a temp directory is not worth failing a run over.
+        }
+      }
+      try {
+        Files.deleteIfExists(directory);
+      } catch (IOException ignored) {
+        // Same.
+      }
+    }
+  }
+
+  /**
+   * Hunt duplicates by fingerprint, or return null to leave the text path in charge.
+   *
+   * <p>Every row's tuple is hashed into a 13-byte record routed straight to its pile; each pile is
+   * sorted as raw bytes; groups sharing a hash are CANDIDATES. Verification then recomputes the
+   * true tuples for those few rows, so a 64-bit collision costs one recomputation and never a
+   * false duplicate — the rows returned are exactly the ones the text sort would name.
+   */
+  private static FingerprintScan fingerprintScan(
+      List<Resolver> resolvers, int count, Path tmpDir) {
+    int buckets = Fingerprint.bucketCountFor(count, Runtime.getRuntime().availableProcessors());
+    if (buckets < 2) {
+      return null;
+    }
+    Path directory;
+    try {
+      directory =
+          tmpDir == null
+              ? Files.createTempDirectory("tdc-fp-")
+              : Files.createTempDirectory(tmpDir, "tdc-fp-");
+    } catch (IOException e) {
+      throw new UncheckedIOException(e);
+    }
+
+    List<java.util.function.IntFunction<String>> asFunctions = new ArrayList<>();
+    for (Resolver resolver : resolvers) {
+      asFunctions.add(resolver::valueAt);
+    }
+    List<Path> rawPaths =
+        Fingerprint.writePiles(asFunctions, 0, count, directory, "raw", buckets, String.valueOf(JOIN));
+
+    List<Path> sortedPaths = new ArrayList<>();
+    List<List<Long>> candidates = new ArrayList<>();
+    for (int b = 0; b < buckets; b++) {
+      Path out = directory.resolve("sorted-" + b);
+      Fingerprint.sortFiles(List.of(rawPaths.get(b)), out, directory);
+      try {
+        Files.deleteIfExists(rawPaths.get(b));
+      } catch (IOException ignored) {
+        // The sorted copy is what matters; a stale raw pile costs a temp file.
+      }
+      sortedPaths.add(out);
+      candidates.addAll(Fingerprint.candidateGroups(out));
+    }
+    return new FingerprintScan(sortedPaths, directory, verify(resolvers, candidates));
+  }
+
+  /** Keep only the rows whose tuples GENUINELY repeat, lowest row of each group spared. */
+  private static List<Integer> verify(List<Resolver> resolvers, List<List<Long>> candidates) {
+    List<Integer> excess = new ArrayList<>();
+    for (List<Long> group : candidates) {
+      Map<String, List<Integer>> byKey = new HashMap<>();
+      for (long row : group) {
+        StringBuilder key = new StringBuilder();
+        for (int r = 0; r < resolvers.size(); r++) {
+          if (r > 0) {
+            key.append(JOIN);
+          }
+          key.append(resolvers.get(r).valueAt((int) row));
+        }
+        byKey.computeIfAbsent(key.toString(), ignored -> new ArrayList<>()).add((int) row);
+      }
+      for (List<Integer> rows : byKey.values()) {
+        if (rows.size() < 2) {
+          continue; // a hash collision, not a duplicate
+        }
+        java.util.Collections.sort(rows);
+        excess.addAll(rows.subList(1, rows.size()));
+      }
+    }
+    java.util.Collections.sort(excess);
+    return excess;
+  }
+
   private static Iterator<List<Integer>> duplicateGroups(
       List<Resolver> resolvers, int count, Path tmpDir) {
     Iterator<String> records =
@@ -336,7 +497,7 @@ final class ExactUniq {
    * survive the pass. What changes is which values meet each other.
    */
   private static List<List<String>> arrangeAvoiding(
-      List<List<String>> columns, Set<String> forbidden, int size) {
+      List<List<String>> columns, Membership forbidden, int size) {
     int k = columns.size();
     if (size == 0 || k == 0) {
       return new ArrayList<>(columns);
@@ -362,7 +523,7 @@ final class ExactUniq {
       for (int i = 0; i < size; i++) {
         List<String> ri = rows.get(i);
         String keyI = keyOf(ri);
-        if (tally.getOrDefault(keyI, 0) <= 1 && !forbidden.contains(keyI)) {
+        if (tally.getOrDefault(keyI, 0) <= 1 && !forbidden.has(keyI)) {
           continue;
         }
         boolean done = false;
@@ -427,14 +588,14 @@ final class ExactUniq {
     return out;
   }
 
-  private static boolean isBad(Map<String, Integer> tally, Set<String> forbidden, String key) {
-    return tally.getOrDefault(key, 0) > 1 || forbidden.contains(key);
+  private static boolean isBad(Map<String, Integer> tally, Membership forbidden, String key) {
+    return tally.getOrDefault(key, 0) > 1 || forbidden.has(key);
   }
 
   /** The verdict on {@code key} as it would stand after the two rows swapped. */
   private static boolean isBadAfter(
       Map<String, Integer> tally,
-      Set<String> forbidden,
+      Membership forbidden,
       String key,
       String oldI,
       String oldJ,
@@ -446,7 +607,7 @@ final class ExactUniq {
             + (key.equals(newJ) ? 1 : 0)
             - (key.equals(oldI) ? 1 : 0)
             - (key.equals(oldJ) ? 1 : 0);
-    return after > 1 || forbidden.contains(key);
+    return after > 1 || forbidden.has(key);
   }
 
   private static String keyOf(List<String> row) {
