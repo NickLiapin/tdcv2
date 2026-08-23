@@ -93,6 +93,12 @@ export function applyEnvUniq(
       ...(options.uniqExcess?.[label] !== undefined
         ? { knownExcess: options.uniqExcess[label] }
         : {}),
+      ...(options.uniqFingerprintBuckets !== undefined && options.uniqFingerprintBuckets > 1
+        ? { fingerprintBuckets: options.uniqFingerprintBuckets }
+        : {}),
+      ...(options.uniqFingerprintFiles?.[label] !== undefined
+        ? { fingerprintFiles: options.uniqFingerprintFiles[label] }
+        : {}),
     },
     blockOf,
     {

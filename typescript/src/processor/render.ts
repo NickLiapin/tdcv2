@@ -133,6 +133,10 @@ export interface RenderOptions {
   readonly uniqScans?: Readonly<Record<string, readonly string[]>> | undefined;
   /** Piles to split the duplicate hunt into. Set by Engine 4; see `bucket-uniq.ts`. */
   readonly uniqBuckets?: number | undefined;
+  /** Fingerprint piles for the hunt. Set by Engine 5; see `fingerprint.ts`. */
+  readonly uniqFingerprintBuckets?: number | undefined;
+  /** Sorted fingerprint files computed elsewhere, per uniq group — Engine 5's coordinator. */
+  readonly uniqFingerprintFiles?: Readonly<Record<string, readonly string[]>> | undefined;
   /** Colliding rows already found elsewhere, per uniq group — Engine 4's pile workers. */
   readonly uniqExcess?: Readonly<Record<string, readonly number[]>> | undefined;
   /** Base directory for relative `src` paths. Defaults to process cwd. */
@@ -206,8 +210,14 @@ interface EnvConfig {
  *     by a hash of the tuple, so no merge is needed across them. Same bytes as
  *     Engine 3 by construction — a speed experiment, never auto-selected, and
  *     only reachable by asking for it.
+ * 5 = EXPERIMENTAL. Engine 4's piles carrying 13-byte FINGERPRINTS instead of
+ *     tuple text: sorted as packed integers, verified against the true tuples,
+ *     and queried by binary search on disk — no in-memory structure over the
+ *     run. Same rows collide and move; the one legitimate divergence from
+ *     Engine 3 is on runs large enough that 3's Bloom filter over-avoids where
+ *     5 answers exactly. Never auto-selected.
  */
-export type EngineId = 1 | 2 | 3 | 4;
+export type EngineId = 1 | 2 | 3 | 4 | 5;
 
 /**
  * User-facing mode. `memory` → Engine 1. `disk` → work off disk: TDC picks the
@@ -604,6 +614,12 @@ export function prepareRender(
     ...(options.uniqScans !== undefined ? { uniqScans: options.uniqScans } : {}),
     ...(options.uniqBuckets !== undefined ? { uniqBuckets: options.uniqBuckets } : {}),
     ...(options.uniqExcess !== undefined ? { uniqExcess: options.uniqExcess } : {}),
+    ...(options.uniqFingerprintBuckets !== undefined
+      ? { uniqFingerprintBuckets: options.uniqFingerprintBuckets }
+      : {}),
+    ...(options.uniqFingerprintFiles !== undefined
+      ? { uniqFingerprintFiles: options.uniqFingerprintFiles }
+      : {}),
     seed: env.seed,
     pools: buildPoolTables(extractPoolSpecs(envEl), env.seed, env.locale, now, packOptions),
     // `prev()` may look back one row only when the rows are computed in order.
@@ -678,12 +694,18 @@ export function prepareRender(
         envUniqGroups,
       });
     }
-  } else if (engine === 3 || engine === 4) {
+  } else if (engine === 3 || engine === 4 || engine === 5) {
+    // Four piles per core, and one pile below a million rows — where the
+    // splitting costs more in files than it saves in sorting. Engine 4 piles
+    // the tuple TEXT; engine 5 piles 13-byte fingerprints instead.
     if (engine === 4 && buildOptions.uniqBuckets === undefined) {
-      // Four piles per core, and one pile below a million rows — where the
-      // splitting costs more in files than it saves in sorting.
       Object.assign(buildOptions, {
         uniqBuckets: bucketCountFor(env.count, availableParallelism()),
+      });
+    }
+    if (engine === 5 && buildOptions.uniqFingerprintBuckets === undefined) {
+      Object.assign(buildOptions, {
+        uniqFingerprintBuckets: bucketCountFor(env.count, availableParallelism()),
       });
     }
     /*
@@ -946,10 +968,12 @@ export function resolveEngineSelection(attrs: AttrMap, options: RenderOptions): 
 }
 
 function parseEngineId(raw: string): EngineId {
-  if (raw === '1' || raw === '2' || raw === '3' || raw === '4') return Number(raw) as EngineId;
+  if (raw === '1' || raw === '2' || raw === '3' || raw === '4' || raw === '5') {
+    return Number(raw) as EngineId;
+  }
   throw new Error(
     `invalid engine "${raw}" — expected "1" (in-memory), "2" (streaming), ` +
-      `"3" (exact-on-disk), or "4" (experimental)`,
+      `"3" (exact-on-disk), "4" or "5" (experimental)`,
   );
 }
 

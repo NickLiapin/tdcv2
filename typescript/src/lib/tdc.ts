@@ -106,7 +106,7 @@ export interface TdcOptions {
   /** User mode: "memory" (Engine 1) or "disk" (Engine 2/3 auto). Overrides `<env mode>`. */
   readonly mode?: 'memory' | 'disk';
   /** Advanced: force a specific engine (1/2/3). Highest precedence. */
-  readonly engine?: 1 | 2 | 3 | 4;
+  readonly engine?: 1 | 2 | 3 | 4 | 5;
 }
 
 export interface TdcPreflightOptions {
@@ -585,7 +585,7 @@ export class TDC {
     now?: number;
     stream?: boolean;
     mode?: 'memory' | 'disk';
-    engine?: 1 | 2 | 3 | 4;
+    engine?: 1 | 2 | 3 | 4 | 5;
     baseDir?: string;
     dataPaths?: readonly string[];
     source?: string;
@@ -599,7 +599,7 @@ export class TDC {
       now?: number;
       stream?: boolean;
       mode?: 'memory' | 'disk';
-      engine?: 1 | 2 | 3 | 4;
+      engine?: 1 | 2 | 3 | 4 | 5;
       baseDir?: string;
       dataPaths?: readonly string[];
       source?: string;

@@ -148,6 +148,10 @@ export interface SequenceBuildOptions {
   readonly uniqBuckets?: number | undefined;
   /** Colliding rows already found elsewhere, per uniq group. See `DuplicateScanOptions.knownExcess`. */
   readonly uniqExcess?: Readonly<Record<string, readonly number[]>> | undefined;
+  /** Fingerprint piles for the hunt — Engine 5. See `DuplicateScanOptions.fingerprintBuckets`. */
+  readonly uniqFingerprintBuckets?: number | undefined;
+  /** Sorted fingerprint files computed elsewhere, per uniq group — Engine 5's coordinator. */
+  readonly uniqFingerprintFiles?: Readonly<Record<string, readonly string[]>> | undefined;
 
   /**
    * Rows are computed strictly in order, so `prev()` has a previous row to read.

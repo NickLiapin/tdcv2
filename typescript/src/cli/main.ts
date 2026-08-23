@@ -54,7 +54,7 @@ interface CliArgs {
   readonly dataPaths: readonly string[];
   readonly stream: boolean;
   readonly mode: 'memory' | 'disk' | undefined;
-  readonly engine: 1 | 2 | 3 | 4 | undefined;
+  readonly engine: 1 | 2 | 3 | 4 | 5 | undefined;
   readonly jobs: number | undefined;
   readonly help: boolean;
   readonly version: boolean;
@@ -124,7 +124,7 @@ function parseArgs(argv: readonly string[]): CliArgs {
   const dataPaths: string[] = [];
   let stream = false;
   let mode: 'memory' | 'disk' | undefined;
-  let engine: 1 | 2 | 3 | 4 | undefined;
+  let engine: 1 | 2 | 3 | 4 | 5 | undefined;
   let jobs: number | undefined;
   let help = false;
   let version = false;
@@ -291,13 +291,13 @@ function parseNow(value: string): number {
   }
 }
 
-function parseEngine(value: string): 1 | 2 | 3 | 4 {
-  if (value === '1' || value === '2' || value === '3' || value === '4') {
-    return Number(value) as 1 | 2 | 3 | 4;
+function parseEngine(value: string): 1 | 2 | 3 | 4 | 5 {
+  if (value === '1' || value === '2' || value === '3' || value === '4' || value === '5') {
+    return Number(value) as 1 | 2 | 3 | 4 | 5;
   }
   throw new Error(
     `invalid --engine "${value}" — expected 1 (in-memory), 2 (streaming), ` +
-      `3 (exact-on-disk), or 4 (experimental)`,
+      `3 (exact-on-disk), 4 or 5 (experimental)`,
   );
 }
 
@@ -392,7 +392,7 @@ export async function main(argv: readonly string[]): Promise<number> {
       dataPaths?: readonly string[];
       stream?: boolean;
       mode?: 'memory' | 'disk';
-      engine?: 1 | 2 | 3 | 4;
+      engine?: 1 | 2 | 3 | 4 | 5;
     } = { configFile: inputFile };
     if (args.seed !== undefined) opts.seed = args.seed;
     if (args.count !== undefined) opts.count = args.count;

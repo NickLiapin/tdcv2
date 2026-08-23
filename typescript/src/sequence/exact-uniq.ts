@@ -31,6 +31,14 @@ import { arrangeUnique, uniqUpperBound } from './uniq.js';
 import { SeenTuples } from './tuple-filter.js';
 import { mergeRuns, RunReader, RunWriter } from './external-sort.js';
 import { bucketOf, TupleBuckets } from './bucket-uniq.js';
+import {
+  candidateGroups,
+  FingerprintLedger,
+  FingerprintWriter,
+  fingerprintBucket,
+  hash64,
+  sortFingerprintFiles,
+} from './fingerprint.js';
 import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join as joinPath } from 'node:path';
@@ -122,6 +130,25 @@ export interface DuplicateScanOptions {
    * have produced, or the repair will move the wrong rows.
    */
   readonly knownExcess?: readonly number[];
+  /**
+   * Hunt duplicates by FINGERPRINT instead of by tuple text — Engine 5.
+   *
+   * The scan writes 13-byte records (64-bit hash + row index) into piles and
+   * sorts numbers instead of strings; groups sharing a hash are candidates,
+   * verified by recomputing the true tuples for those few rows. The sorted
+   * piles then stay on disk and answer the repair's "is this tuple taken?" by
+   * binary search — no in-memory structure over the run at all.
+   *
+   * The value is the number of piles. Absent or <2 leaves Engine 3's text
+   * path in charge.
+   */
+  readonly fingerprintBuckets?: number;
+  /**
+   * Sorted fingerprint pile files computed elsewhere (the parallel
+   * coordinator), pile order. With `knownExcess` this skips the scan entirely
+   * and goes straight to the arrangement, reading nothing but these.
+   */
+  readonly fingerprintFiles?: readonly string[];
 }
 
 /** A row and the key of its tuple (the concatenation of its uniq'd columns). */
@@ -475,6 +502,103 @@ export function scanIntoPiles(
   return paths;
 }
 
+/** What the fingerprint path knows: the sorted piles, their temp home, the verified excess. */
+interface FingerprintScan {
+  readonly sorted: readonly string[];
+  readonly ownDir?: string;
+  readonly excess: readonly number[];
+}
+
+/**
+ * Run — or accept — the fingerprint scan. Undefined means the text machinery
+ * stays in charge.
+ *
+ * Handed files and a known excess (the parallel coordinator's case), nothing
+ * is computed here at all. Otherwise every row's tuple is hashed into 13-byte
+ * records routed straight to pile files, each pile is sorted as packed
+ * integers, and the groups that share a hash become candidates.
+ *
+ * Candidates are then VERIFIED: the true tuples for those few rows are
+ * recomputed and only genuine repeats survive. That is what makes the excess
+ * exact — the same rows the text sort would have named — while a 64-bit
+ * collision between different tuples costs one wasted recomputation and
+ * nothing else.
+ */
+function resolveFingerprints(
+  resolvers: readonly UniqResolver[],
+  count: number,
+  options: DuplicateScanOptions,
+): FingerprintScan | undefined {
+  if (
+    options.fingerprintFiles !== undefined &&
+    options.fingerprintFiles.length > 0 &&
+    options.knownExcess !== undefined
+  ) {
+    return { sorted: options.fingerprintFiles, excess: options.knownExcess };
+  }
+
+  const buckets = options.fingerprintBuckets ?? 1;
+  if (buckets < 2) return undefined;
+
+  const dir = mkdtempSync(joinPath(options.tmpDir ?? tmpdir(), 'tdc-fp-'));
+  // Route every row's fingerprint to its pile.
+  const rawPaths: string[] = [];
+  const writers: FingerprintWriter[] = [];
+  for (let b = 0; b < buckets; b++) {
+    const path = joinPath(dir, `raw-${String(b)}`);
+    rawPaths.push(path);
+    writers.push(new FingerprintWriter(path));
+  }
+  for (let i = 0; i < count; i++) {
+    const { hi, lo } = hash64(tupleKeyAt(resolvers, i));
+    writers[fingerprintBucket(hi, buckets)]?.write(hi, lo, i);
+  }
+  for (const w of writers) w.close();
+
+  // Sort each pile and collect the candidate groups.
+  const sorted: string[] = [];
+  const candidates: (readonly number[])[] = [];
+  for (let b = 0; b < buckets; b++) {
+    const out = joinPath(dir, `sorted-${String(b)}`);
+    sortFingerprintFiles([rawPaths[b] ?? ''], out, dir);
+    rmSync(rawPaths[b] ?? '', { force: true });
+    sorted.push(out);
+    for (const group of candidateGroups(out)) candidates.push(group);
+  }
+
+  return { sorted, ownDir: dir, excess: verifyCandidates(resolvers, candidates) };
+}
+
+/**
+ * Keep only the rows whose tuples GENUINELY repeat, lowest row of each group
+ * spared — exactly the rule the text scan applies.
+ */
+export function verifyCandidates(
+  resolvers: readonly UniqResolver[],
+  candidates: readonly (readonly number[])[],
+): number[] {
+  const excess: number[] = [];
+  for (const group of candidates) {
+    const byKey = new Map<string, number[]>();
+    for (const row of group) {
+      const key = tupleKeyAt(resolvers, row);
+      const held = byKey.get(key);
+      if (held) held.push(row);
+      else byKey.set(key, [row]);
+    }
+    for (const rows of byKey.values()) {
+      if (rows.length < 2) continue; // a hash collision, not a duplicate
+      rows.sort((a, b) => a - b);
+      for (let m = 1; m < rows.length; m++) {
+        const row = rows[m];
+        if (row !== undefined) excess.push(row);
+      }
+    }
+  }
+  excess.sort((a, b) => a - b);
+  return excess;
+}
+
 /** Records a scan thread holds at once before sorting them out to a file. */
 const SCAN_CHUNK = 1_000_000;
 
@@ -557,17 +681,33 @@ export function repairExactUniq(
    * to disk anyway. Small runs skip it and step 2 derives the values as before,
    * which is also what keeps their arrangement exactly what it was.
    */
+  /*
+   * Engine 5's carrier: fingerprints instead of tuple text.
+   *
+   * `fingerprint` collects everything the fingerprint path knows — the sorted
+   * pile files, their temp home if this call created them, and the verified
+   * excess. When it is set, the text machinery below (journal, sortedRuns,
+   * SeenTuples) is BYPASSED wholesale: excess is already exact, and the sorted
+   * piles answer the repair's membership question by binary search.
+   */
+  const fingerprint = resolveFingerprints(resolvers, count, options);
+
   const journalFrom = options.journalMinRows ?? JOURNAL_MIN_ROWS;
   // Sorted runs already ARE every tuple written down, so there is nothing to
   // write again — step 2 reads those instead.
   const haveRuns = options.sortedRuns !== undefined && options.sortedRuns.length > 0;
   const journalDir =
-    !haveRuns && count >= journalFrom ? mkdtempSync(joinPath(tmpdir(), 'tdc-uniq-')) : undefined;
+    fingerprint === undefined && !haveRuns && count >= journalFrom
+      ? mkdtempSync(joinPath(tmpdir(), 'tdc-uniq-'))
+      : undefined;
   const journalPath = journalDir === undefined ? undefined : joinPath(journalDir, 'tuples');
   const journal = journalPath === undefined ? undefined : new RunWriter(journalPath);
 
   const excess: number[] = [];
-  if (options.knownExcess !== undefined) {
+  if (fingerprint !== undefined) {
+    excess.push(...fingerprint.excess);
+    journal?.close();
+  } else if (options.knownExcess !== undefined) {
     // Someone else scanned the piles. Nothing to compute here.
     excess.push(...options.knownExcess);
     journal?.close();
@@ -596,9 +736,22 @@ export function repairExactUniq(
   const dropJournal = (): void => {
     if (journalDir !== undefined) rmSync(journalDir, { recursive: true, force: true });
   };
+  /*
+   * Separate from the journal on purpose: the journal is read once, before the
+   * arrangement, but the fingerprint files are the LEDGER the arrangement
+   * queries — they have to outlive it. Piles this call created live in their
+   * own temp home; piles handed in from outside are the coordinator's to
+   * remove.
+   */
+  const dropFingerprints = (): void => {
+    if (fingerprint?.ownDir !== undefined) {
+      rmSync(fingerprint.ownDir, { recursive: true, force: true, maxRetries: 5, retryDelay: 50 });
+    }
+  };
 
   if (excess.length === 0) {
     dropJournal();
+    dropFingerprints();
     plan?.onComputed?.({}); // nothing moved, and the other threads need to know that
     const clean: Record<string, Sequence> = {};
     for (const r of resolvers) clean[r.id] = { name: r.id, values: [], resolve: r.resolve };
@@ -609,6 +762,7 @@ export function repairExactUniq(
   // in-memory engine rather than blowing up.
   if (excess.length > MAX_REPAIR_ROWS) {
     dropJournal();
+    dropFingerprints();
     throw new ExactUniqRepairNeeded(excess.length, label);
   }
   excess.sort((a, b) => a - b);
@@ -667,7 +821,6 @@ export function repairExactUniq(
    */
   const poolColumns = resolvers.map((r) => pool.map((i) => r.resolve(i)));
   const poolSpace = poolColumns.map((col) => new Set(col));
-  const forbidden = new SeenTuples(count);
   const inPoolSpace = (values: readonly string[]): boolean => {
     for (let j = 0; j < k; j++) {
       if (!poolSpace[j]?.has(values[j] ?? '')) return false;
@@ -675,37 +828,61 @@ export function repairExactUniq(
     return true;
   };
 
-  if (haveRuns) {
-    // The scan's own files, read straight through. Sorted per range rather than
-    // globally, which changes nothing: this is only ever asked whether a tuple
-    // is in it.
-    for (const record of mergeRuns(options.sortedRuns ?? [])) {
-      const split = record.lastIndexOf(SEP);
-      if (poolSet.has(Number(record.slice(split + 1)))) continue; // being reassigned
-      const key = record.slice(0, split);
-      if (inPoolSpace(key.split(JOIN))) forbidden.add(key);
-    }
-  } else if (journalPath !== undefined) {
-    // Read back what the scan already worked out. Sorted order rather than row
-    // order, which changes nothing: this is only ever asked whether a tuple is
-    // in it, and that does not depend on the order things went in.
-    const reader = new RunReader(journalPath);
-    try {
-      for (let record = reader.next(); record !== undefined; record = reader.next()) {
-        const split = record.lastIndexOf(SEP);
-        if (poolSet.has(Number(record.slice(split + 1)))) continue; // being reassigned
-        const key = record.slice(0, split);
-        if (inPoolSpace(key.split(JOIN))) forbidden.add(key);
-      }
-    } finally {
-      reader.close();
-    }
+  /*
+   * The membership question, answered one of two ways.
+   *
+   * Text path: build a structure in memory over every row's tuple — exact
+   * below two million keys, a Bloom filter past that.
+   *
+   * Fingerprint path: no structure at all. The sorted piles on disk ARE the
+   * ledger, a query is a binary search of ~25 record-sized reads, and the
+   * answers are exact — with one one-sided caveat: a 64-bit collision can call
+   * a free tuple taken (the repair picks another), never a taken one free.
+   */
+  let forbidden: { has(key: string): boolean };
+  let ledger: FingerprintLedger | undefined;
+  if (fingerprint !== undefined) {
+    ledger = new FingerprintLedger(fingerprint.sorted, poolSet);
+    forbidden = ledger;
   } else {
-    for (let i = 0; i < count; i++) {
-      if (poolSet.has(i)) continue; // pool rows are being reassigned
-      const values: string[] = [];
-      for (let j = 0; j < k; j++) values.push(resolvers[j]?.resolve(i) ?? '');
-      if (inPoolSpace(values)) forbidden.add(values.join(JOIN));
+    const seen = new SeenTuples(count);
+    forbidden = seen;
+    buildSeenTuples(seen);
+  }
+
+  function buildSeenTuples(seen: SeenTuples): void {
+    const forbid = (key: string, row: number): void => {
+      if (poolSet.has(row)) return; // being reassigned
+      if (inPoolSpace(key.split(JOIN))) seen.add(key);
+    };
+    if (haveRuns) {
+      // The scan's own files, read straight through. Sorted per range rather
+      // than globally, which changes nothing: this is only ever asked whether
+      // a tuple is in it.
+      for (const record of mergeRuns(options.sortedRuns ?? [])) {
+        const split = record.lastIndexOf(SEP);
+        forbid(record.slice(0, split), Number(record.slice(split + 1)));
+      }
+    } else if (journalPath !== undefined) {
+      // Read back what the scan already worked out. Sorted order rather than
+      // row order, which changes nothing: membership does not depend on the
+      // order things went in.
+      const reader = new RunReader(journalPath);
+      try {
+        for (let record = reader.next(); record !== undefined; record = reader.next()) {
+          const split = record.lastIndexOf(SEP);
+          forbid(record.slice(0, split), Number(record.slice(split + 1)));
+        }
+      } finally {
+        reader.close();
+      }
+    } else {
+      for (let i = 0; i < count; i++) {
+        if (poolSet.has(i)) continue; // pool rows are being reassigned
+        const values: string[] = [];
+        for (let j = 0; j < k; j++) values.push(resolvers[j]?.resolve(i) ?? '');
+        if (inPoolSpace(values)) seen.add(values.join(JOIN));
+      }
     }
   }
   dropJournal();
@@ -724,7 +901,11 @@ export function repairExactUniq(
   for (const positions of blocks.values()) {
     const columns = poolColumns.map((col) => positions.map((m) => col[m] ?? ''));
     const arranged = arrangeAvoiding(columns, forbidden, positions.length);
-    if (arranged === null) throw new ExactUniqRepairNeeded(excess.length, label);
+    if (arranged === null) {
+      ledger?.close();
+      dropFingerprints();
+      throw new ExactUniqRepairNeeded(excess.length, label);
+    }
     positions.forEach((m, at) => {
       override.set(
         pool[m] ?? 0,
@@ -732,6 +913,9 @@ export function repairExactUniq(
       );
     });
   }
+
+  ledger?.close();
+  dropFingerprints();
 
   if (plan?.onComputed) {
     const moved: Record<string, readonly string[]> = {};
