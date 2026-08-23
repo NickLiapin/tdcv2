@@ -49,9 +49,40 @@ const JOIN = String.fromCharCode(1); // SOH — column separator inside a tuple 
 // (key, index) under plain BYTE comparison — no per-comparison parsing. NUL is
 // the smallest byte, so it terminates the key correctly even for prefixes.
 const INDEX_WIDTH = 16; // covers counts up to 10^16 (> JS safe integer range)
-// The bounded-memory repair is O(pool²); beyond this many colliding rows, defer
-// to the in-memory engine instead. Real configs collide far less (birthday).
-const MAX_REPAIR_ROWS = 20_000;
+/**
+ * How many colliding rows the bounded repair takes on, for a run of `count`.
+ *
+ * The old limit was a flat 20,000, written when the repair was quadratic in the
+ * pool. It no longer is — the builder deals distinct values and the repair
+ * rearranges what little is left; measured, 18,225 colliding rows out of
+ * 97,005,710 were rearranged in ten seconds. What the flat limit actually did
+ * at scale was worse than refusing: a 194-million-row run collided ~73,000
+ * times, tripped the limit, and fell back to the in-memory engine — which
+ * cannot hold 194 million rows and died half an hour later with nothing
+ * written.
+ *
+ * Collisions grow as the SQUARE of the run (birthday), so the limit has to
+ * grow with the run or every big run eventually trips it. A thousandth of the
+ * rows keeps the repair pool — nine rows per collision, held as tuples — in
+ * tens of megabytes at any size this engine reaches; the floor keeps small
+ * runs as permissive as they were.
+ */
+function maxRepairRowsFor(count: number): number {
+  return Math.max(20_000, Math.floor(count / 1000));
+}
+
+/**
+ * Rows past which the in-memory engine is NOT a fallback.
+ *
+ * The catch-and-fall-back exists for small tight configs, where the whole
+ * table in RAM genuinely can arrange what the bounded repair cannot. Past this
+ * many rows the in-memory engine cannot hold the table at all — the fallback
+ * would not fail fast, it would fail after half an hour of materialising, out
+ * of memory, having written nothing. Refusing with a sentence is the honest
+ * outcome. The number is conservative: engine 1 at this count already needs
+ * gigabytes.
+ */
+export const IN_MEMORY_FALLBACK_MAX_ROWS = 20_000_000;
 
 /**
  * Below this many rows the repair derives the tuples a second time rather than
@@ -760,7 +791,7 @@ export function repairExactUniq(
   // The pool repair is O(pool²). Collisions are FEW for a real config (birthday
   // bound); an excess this large means a pathological config — hand it to the
   // in-memory engine rather than blowing up.
-  if (excess.length > MAX_REPAIR_ROWS) {
+  if (excess.length > maxRepairRowsFor(count)) {
     dropJournal();
     dropFingerprints();
     throw new ExactUniqRepairNeeded(excess.length, label);

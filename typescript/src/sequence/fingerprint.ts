@@ -156,12 +156,20 @@ interface Batch {
 function writeSortedBatch(batch: Batch, path: string): void {
   const perm = new Uint32Array(batch.size);
   for (let i = 0; i < batch.size; i++) perm[i] = i;
-  // A comparator over two typed arrays: subtraction is exact here, both values
-  // are 32-bit and a double carries the difference without rounding. A radix
-  // pass would be faster still; measured fast enough that it has not earned
-  // its complexity yet.
+  /*
+   * The TYPED array's own sort, not the generic one. The first version called
+   * `Array.prototype.sort.call(perm, …)`, and V8's generic sort treats a typed
+   * array as a plain object: it copies every element into a number dictionary
+   * at ~40 bytes apiece — hundreds of megabytes of silent garbage for a
+   * two-million-record batch. Invisible with memory to spare; fatal under a
+   * capped heap, which is exactly how it was caught (the 20 GB proof run died
+   * at 766 MB in that dictionary). TypedArray#sort works on the raw elements.
+   *
+   * Subtraction in the comparator is exact: both values are 32-bit and a
+   * double carries the difference without rounding.
+   */
   const { hi, lo } = batch;
-  Array.prototype.sort.call(perm, (a: number, b: number) => {
+  perm.sort((a: number, b: number) => {
     const ha = hi[a] ?? 0;
     const hb = hi[b] ?? 0;
     if (ha !== hb) return ha - hb;

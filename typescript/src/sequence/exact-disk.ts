@@ -17,7 +17,7 @@
  */
 
 import { buildSequences, type SequenceBuildOptions } from './build.js';
-import { ExactUniqRepairNeeded } from './exact-uniq.js';
+import { ExactUniqRepairNeeded, IN_MEMORY_FALLBACK_MAX_ROWS } from './exact-uniq.js';
 import { buildLazyRegistry, StreamUnsupportedError } from './stream-build.js';
 import type { SequenceRegistry, SequenceSpec } from './types.js';
 
@@ -47,6 +47,20 @@ export function buildExactDiskRegistry(
     );
   } catch (err) {
     if (err instanceof StreamUnsupportedError || err instanceof ExactUniqRepairNeeded) {
+      /*
+       * The fallback is only a fallback while the in-memory engine can hold
+       * the table. Past that, falling back does not fail fast — it fails
+       * after half an hour of materialising, out of memory, with nothing
+       * written; measured on a 194-million-row run. A refusal that names the
+       * problem is the honest outcome.
+       */
+      if (count > IN_MEMORY_FALLBACK_MAX_ROWS) {
+        throw new Error(
+          `${err.message.replace(/ — .*$/, '')} — and at ${String(count)} rows the ` +
+            `in-memory engine cannot take over. Widen the uniq columns' values ` +
+            `(more distinct names, wider ranges…) or lower the count.`,
+        );
+      }
       return buildSequences(specs, count, prng, locale, now, {
         ...options,
         envUniqGroups,

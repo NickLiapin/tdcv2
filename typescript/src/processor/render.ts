@@ -72,7 +72,7 @@ import {
   StreamUnsupportedError,
   sequenceValueAt,
 } from '../sequence/index.js';
-import { ExactUniqRepairNeeded } from '../sequence/exact-uniq.js';
+import { ExactUniqRepairNeeded, IN_MEMORY_FALLBACK_MAX_ROWS } from '../sequence/exact-uniq.js';
 import { extractPoolSpecs } from '../sequence/pool.js';
 import type { UniqArrangement, UniqPlan } from '../sequence/build.js';
 import { bucketCountFor } from '../sequence/bucket-uniq.js';
@@ -685,6 +685,15 @@ export function prepareRender(
        */
       const givesUp = err instanceof StreamUnsupportedError || err instanceof ExactUniqRepairNeeded;
       if (!autoRoutedDisk || !givesUp) throw err;
+      // Same guard as the exact-disk engine: past what the in-memory engine
+      // can hold, the fallback is a slow crash, not a fallback.
+      if (err instanceof ExactUniqRepairNeeded && env.count > IN_MEMORY_FALLBACK_MAX_ROWS) {
+        throw new Error(
+          `${err.message.replace(/ — .*$/, '')} — and at ${String(env.count)} rows the ` +
+            `in-memory engine cannot take over. Widen the uniq columns' values ` +
+            `(more distinct names, wider ranges…) or lower the count.`,
+        );
+      }
       // Auto-routed disk mode + a config the streaming engine can't do lazily
       // (a rare uniq/distinct/parent edge case) → fall back to the in-memory
       // engine. Same result the old memory default produced.
