@@ -107,6 +107,34 @@ def arrange(columns: list[list[str]]) -> Arrangement:
     return Arrangement(out, distinct)
 
 
+def _deal_distinct(pool: dict[str, int], indexes: list[int], rows: list[list[str]]) -> bool:
+    """Give a group of ``g`` rows ``g`` DISTINCT values, when the column still has that many left.
+
+    Two rows in the same group agree on every column before this one, so they are distinct only
+    if they differ HERE. The proportional split does not know that: it hands out values in
+    proportion to remaining stock, which repeats a value inside a group as soon as one value
+    dominates. Every such repeat is a duplicate row, and duplicates are what the repair then
+    spends quadratic time undoing.
+
+    Taking the ``g`` largest stocks costs nothing in exactness — the column's multiset is fixed
+    either way, and this only chooses WHICH row gets which value. Returns False when the column
+    has fewer values left than the group has rows, and the proportional path handles it.
+    """
+    g = len(indexes)
+    # ``at`` is the position in the pool's own order, counted over every entry and not only the
+    # live ones, so a tie is broken by first appearance the same way in every implementation.
+    live = [(stock, at, value) for at, (value, stock) in enumerate(pool.items()) if stock > 0]
+    if len(live) < g:
+        return False
+
+    live.sort(key=lambda entry: (-entry[0], entry[1]))
+    for m in range(g):
+        stock, _at, value = live[m]
+        pool[value] = stock - 1
+        rows[indexes[m]].append(value)
+    return True
+
+
 def _build_rows(columns: list[list[str]]) -> list[list[str]]:
     """Rows assembled column by column, spreading each column's values across the groups so far."""
     rows = [[v] for v in columns[0]]
@@ -124,6 +152,8 @@ def _build_rows(columns: list[list[str]]) -> list[list[str]]:
         # Largest groups first: they are the ones most in need of diversity, and the pool is
         # finite, so serving them last would leave them whatever nobody else wanted.
         for indexes in sorted(groups.values(), key=len, reverse=True):
+            if _deal_distinct(pool, indexes, rows):
+                continue
             live_keys = [key for key, n_left in pool.items() if n_left > 0]
             split = _proportional_split(len(indexes), [pool[key] for key in live_keys])
 

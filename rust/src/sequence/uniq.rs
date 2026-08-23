@@ -157,6 +157,55 @@ pub fn arrange(columns: &[Vec<String>]) -> Arrangement {
 
 /// Assemble rows column by column, spreading each column's values across the
 /// groups so far.
+/// Give a group of `g` rows `g` DISTINCT values, when the column still has that
+/// many left.
+///
+/// Two rows in the same group agree on every column before this one, so they are
+/// distinct only if they differ HERE. The proportional split does not know that:
+/// it hands out values in proportion to remaining stock, which repeats a value
+/// inside a group as soon as one value dominates. Every such repeat is a
+/// duplicate row, and duplicates are what the repair then spends quadratic time
+/// undoing.
+///
+/// Taking the `g` largest stocks costs nothing in exactness — the column's
+/// multiset is fixed either way, and this only chooses WHICH row gets which
+/// value.
+///
+/// Returns false when the column has fewer values left than the group has rows;
+/// the proportional path handles that instead.
+fn deal_distinct(
+    pool: &mut BTreeMap<String, usize>,
+    pool_order: &[String],
+    indexes: &[usize],
+    rows: &mut [Vec<String>],
+) -> bool {
+    let g = indexes.len();
+    // `at` counts every entry, not only the live ones, so a tie is broken by
+    // first appearance the same way in every implementation.
+    let mut live: Vec<(usize, usize, &String)> = Vec::new();
+    for (at, key) in pool_order.iter().enumerate() {
+        let stock = pool[key];
+        if stock > 0 {
+            live.push((stock, at, key));
+        }
+    }
+    if live.len() < g {
+        return false;
+    }
+
+    live.sort_by(|a, b| b.0.cmp(&a.0).then(a.1.cmp(&b.1)));
+    let chosen: Vec<(String, usize)> = live
+        .iter()
+        .take(g)
+        .map(|(stock, _at, key)| ((*key).clone(), *stock))
+        .collect();
+    for (m, (value, stock)) in chosen.into_iter().enumerate() {
+        pool.insert(value.clone(), stock - 1);
+        rows[indexes[m]].push(value);
+    }
+    true
+}
+
 fn build_rows(columns: &[&Vec<String>]) -> Vec<Vec<String>> {
     let first = columns[0];
     let n = first.len();
@@ -194,6 +243,10 @@ fn build_rows(columns: &[&Vec<String>]) -> Vec<Vec<String>> {
         by_size.sort_by_key(|g| std::cmp::Reverse(g.len()));
 
         for indexes in by_size {
+            if deal_distinct(&mut pool, &pool_order, &indexes, &mut rows) {
+                continue;
+            }
+
             let mut live_keys: Vec<String> = Vec::new();
             let mut live: Vec<(usize, usize)> = Vec::new();
             for key in &pool_order {

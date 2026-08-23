@@ -217,17 +217,50 @@ function trailingZeros(value: number): number {
 }
 
 /** Proportional builder: assemble rows so tuples are maximally distinct. */
-function buildRows(columns: readonly (readonly string[])[]): string[][] {
+function buildRows(columns: readonly (readonly string[])[]): {
+  rows: string[][];
+  /** Final group id per row: two rows are the SAME tuple iff these match. */
+  groupOf: Int32Array;
+} {
   const first = columns[0] ?? [];
   const N = first.length;
   const rows: string[][] = first.map((v) => [v]);
+
+  /*
+   * Which rows agree on every column placed so far, as a NUMBER per row.
+   *
+   * This used to be `rows[j].join(SEP)` — the whole prefix, rebuilt for every
+   * row on every column. At five columns and ten million rows that is fifty
+   * million strings of sixty-odd characters, and it was the reason the run died
+   * in the garbage collector rather than in the arithmetic: 3.15 GB at 3.2M
+   * rows, and out of heap before ten million.
+   *
+   * The prefix is never READ, only compared, so an integer that means "the same
+   * prefix" does the same job. It is refined one column at a time: two rows keep
+   * sharing a group only if they shared the last one AND drew the same value.
+   * Int32Array, so ten million rows cost forty megabytes instead of gigabytes.
+   */
+  let groupOf = new Int32Array(N);
+  {
+    const seen = new Map<string, number>();
+    for (let j = 0; j < N; j++) {
+      const v = first[j] ?? '';
+      let id = seen.get(v);
+      if (id === undefined) {
+        id = seen.size;
+        seen.set(v, id);
+      }
+      groupOf[j] = id;
+    }
+  }
+
   for (let k = 1; k < columns.length; k++) {
     const pool = new Map<string, number>();
     for (const v of columns[k] ?? []) pool.set(v, (pool.get(v) ?? 0) + 1);
 
-    const groups = new Map<string, number[]>();
+    const groups = new Map<number, number[]>();
     for (let j = 0; j < N; j++) {
-      const key = (rows[j] ?? []).join(SEP);
+      const key = groupOf[j] ?? 0;
       const g = groups.get(key);
       if (g) g.push(j);
       else groups.set(key, [j]);
@@ -263,9 +296,51 @@ function buildRows(columns: readonly (readonly string[])[]): string[][] {
       return true;
     };
 
+    /*
+     * Give a group of `g` rows `g` DISTINCT values when the column still has
+     * that many in stock.
+     *
+     * Two rows in the same group agree on every column before this one, so they
+     * are distinct only if they differ HERE. The proportional split does not
+     * know that: it hands out values in proportion to remaining stock, which
+     * repeats a value inside a group as soon as one value dominates. Every such
+     * repeat is a duplicate row, and duplicates are what the repair then spends
+     * quadratic time undoing — 3,626 of them on a 400,000-row block, which is
+     * 0.9% of the rows and was most of the run time.
+     *
+     * Taking the `g` largest stocks instead costs nothing in exactness: the
+     * column's multiset is fixed either way, and this only chooses WHICH row
+     * gets which value. It also spreads the depletion, so later groups still
+     * find values left — which is where the repeats came from.
+     *
+     * When the column genuinely has fewer values left than the group has rows,
+     * a repeat is unavoidable and the proportional path below handles it.
+     */
+    const dealDistinct = (idxs: readonly number[]): boolean => {
+      const g = idxs.length;
+      const live: { value: string; stock: number; at: number }[] = [];
+      let at = 0;
+      for (const [value, stock] of pool) {
+        if (stock > 0) live.push({ value, stock, at });
+        at += 1;
+      }
+      if (live.length < g) return false;
+      // Ties by first appearance, so the choice is the same in every language.
+      live.sort((a, b) => b.stock - a.stock || a.at - b.at);
+      for (let m = 0; m < g; m++) {
+        const chosen = live[m];
+        const row = idxs[m];
+        if (!chosen || row === undefined) return false;
+        pool.set(chosen.value, chosen.stock - 1);
+        rows[row]?.push(chosen.value);
+      }
+      return true;
+    };
+
     // Largest groups first — they need the most diversity.
     for (const idxs of [...groups.values()].sort((a, b) => b.length - a.length)) {
       if (idxs.length === 1 && takeSingle(idxs[0])) continue;
+      if (dealDistinct(idxs)) continue;
       const live = [...pool.entries()].filter(([, c]) => c > 0);
       const split = proportionalSplit(
         idxs.length,
@@ -286,8 +361,31 @@ function buildRows(columns: readonly (readonly string[])[]): string[][] {
         if (row) row.push(v);
       }
     }
+
+    // Refine: rows stay together only if they also drew the same value here.
+    // Keyed by a map per old group rather than by a composite string, so this
+    // costs no allocation per row.
+    const refined = new Int32Array(N);
+    const byGroup = new Map<number, Map<string, number>>();
+    let nextId = 0;
+    for (let j = 0; j < N; j++) {
+      const old = groupOf[j] ?? 0;
+      const value = rows[j]?.[k] ?? '';
+      let inner = byGroup.get(old);
+      if (inner === undefined) {
+        inner = new Map<string, number>();
+        byGroup.set(old, inner);
+      }
+      let id = inner.get(value);
+      if (id === undefined) {
+        id = nextId++;
+        inner.set(value, id);
+      }
+      refined[j] = id;
+    }
+    groupOf = refined;
   }
-  return rows;
+  return { rows, groupOf };
 }
 
 /**
@@ -536,6 +634,16 @@ export interface ArrangeResult {
   readonly columns: string[][];
   /** Number of distinct row-tuples actually achieved. */
   readonly distinct: number;
+  /**
+   * Distinct tuples the BUILDER reached on its own, before any repair.
+   *
+   * Equal to `distinct` whenever the deal needed no help, which is the case
+   * worth watching: the repair is quadratic in the duplicates it is handed, so
+   * a deal that stops handing it any is the difference between a run of
+   * minutes and a run of hours. `distinct` alone cannot show that — a repaired
+   * table and a table that never needed repairing look identical from outside.
+   */
+  readonly builtDistinct: number;
 }
 
 /**
@@ -544,21 +652,36 @@ export interface ArrangeResult {
  */
 export function arrangeUnique(columns: readonly (readonly string[])[]): ArrangeResult {
   const K = columns.length;
-  if (K === 0) return { columns: [], distinct: 0 };
+  if (K === 0) return { columns: [], distinct: 0, builtDistinct: 0 };
   const N = columns[0]?.length ?? 0;
-  if (N === 0) return { columns: columns.map(() => []), distinct: 0 };
+  if (N === 0) return { columns: columns.map(() => []), distinct: 0, builtDistinct: 0 };
 
   const indexed = columns
     .map((col, index) => ({ col, index, dev: stddev(valueCounts(col)) }))
     .sort((a, b) => a.dev - b.dev || a.index - b.index);
 
-  const rows = buildRows(indexed.map((e) => e.col));
-  repairRows(rows);
+  const { rows, groupOf } = buildRows(indexed.map((e) => e.col));
+
+  /*
+   * Two rows are the same tuple exactly when they end in the same group, so the
+   * ids already say how many distinct tuples there are — no keys, no joins.
+   *
+   * Worth doing for what it SKIPS. A sweep of the repair builds a key per row
+   * and a map over all of them before discovering there is nothing to repair;
+   * on a run of millions that is hundreds of megabytes and a pass, spent to
+   * learn "nothing to do". Since the builder started handing out distinct
+   * values within a group it usually IS nothing to do.
+   */
+  const distinctIds = new Set<number>();
+  for (let i = 0; i < N; i++) distinctIds.add(groupOf[i] ?? 0);
+  if (distinctIds.size < N) repairRows(rows);
 
   const out: string[][] = new Array<string[]>(K);
   indexed.forEach((e, sortedK) => {
     out[e.index] = rows.map((r) => r[sortedK] ?? '');
   });
-  const distinct = new Set(rows.map((r) => r.join(SEP))).size;
-  return { columns: out, distinct };
+  // Counted from the ids when the builder already had them distinct; only a run
+  // that went through the repair needs the tuples looked at again.
+  const distinct = distinctIds.size === N ? N : new Set(rows.map((r) => r.join(SEP))).size;
+  return { columns: out, distinct, builtDistinct: distinctIds.size };
 }

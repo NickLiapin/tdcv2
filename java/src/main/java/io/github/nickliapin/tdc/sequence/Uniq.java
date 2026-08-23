@@ -175,6 +175,57 @@ public final class Uniq {
     return new Arrangement(out, seen.size());
   }
 
+  /**
+   * Give a group of {@code g} rows {@code g} DISTINCT values, when the column still has that many
+   * left.
+   *
+   * <p>Two rows in the same group agree on every column before this one, so they are distinct only
+   * if they differ HERE. The proportional split does not know that: it hands out values in
+   * proportion to remaining stock, which repeats a value inside a group as soon as one value
+   * dominates. Every such repeat is a duplicate row, and duplicates are what the repair then spends
+   * quadratic time undoing.
+   *
+   * <p>Taking the {@code g} largest stocks costs nothing in exactness — the column's multiset is
+   * fixed either way, and this only chooses WHICH row gets which value.
+   *
+   * @return false when the column has fewer values left than the group has rows, and the
+   *     proportional path below handles it instead.
+   */
+  private static boolean dealDistinct(
+      Map<String, Integer> pool, List<Integer> indexes, List<List<String>> rows) {
+    int g = indexes.size();
+    List<String> values = new ArrayList<>();
+    List<int[]> live = new ArrayList<>(); // {stock, position in the pool's own order}
+    int at = 0;
+    for (Map.Entry<String, Integer> entry : pool.entrySet()) {
+      if (entry.getValue() > 0) {
+        values.add(entry.getKey());
+        live.add(new int[] {entry.getValue(), at});
+      }
+      at++;
+    }
+    if (live.size() < g) {
+      return false;
+    }
+
+    // `at` counts every entry, not only the live ones, so a tie is broken by first appearance
+    // the same way in every implementation.
+    List<Integer> order = new ArrayList<>(live.size());
+    for (int i = 0; i < live.size(); i++) {
+      order.add(i);
+    }
+    order.sort(
+        Comparator.<Integer>comparingInt(i -> -live.get(i)[0]).thenComparingInt(i -> live.get(i)[1]));
+
+    for (int m = 0; m < g; m++) {
+      int pick = order.get(m);
+      String value = values.get(pick);
+      pool.put(value, live.get(pick)[0] - 1);
+      rows.get(indexes.get(m)).add(value);
+    }
+    return true;
+  }
+
   /** Assemble rows column by column, spreading each column's values across the groups so far. */
   private static List<List<String>> buildRows(List<List<String>> columns) {
     List<String> first = columns.get(0);
@@ -203,6 +254,9 @@ public final class Uniq {
       bySize.sort(Comparator.comparingInt((List<Integer> g) -> g.size()).reversed());
 
       for (List<Integer> indexes : bySize) {
+        if (dealDistinct(pool, indexes, rows)) {
+          continue;
+        }
         List<String> liveKeys = new ArrayList<>();
         List<int[]> live = new ArrayList<>();
         for (Map.Entry<String, Integer> entry : pool.entrySet()) {

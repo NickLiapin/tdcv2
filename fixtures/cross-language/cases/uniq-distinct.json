@@ -102,26 +102,26 @@
       "description": "20 unique rows out of a 4x8 pool a single draw could not arrange",
       "config": "<tdc><env count=\"20\" seed=\"u\" local=\"en\" mode=\"memory\"><sequence name=\"K\" uniq=\"true\"><gen name=\"a\" type=\"text\" value=\"a1,a2,a3,a4\"/><gen name=\"b\" type=\"text\" value=\"b1,b2,b3,b4,b5,b6,b7,b8\"/></sequence></env><block><line><data>${{K.a}}-${{K.b}}</data></line></block></tdc>",
       "expected": [
-        "a4-b1",
-        "a4-b4",
-        "a2-b1",
         "a4-b6",
+        "a4-b4",
+        "a2-b6",
+        "a4-b1",
         "a4-b7",
+        "a2-b4",
+        "a3-b5",
+        "a3-b2",
+        "a1-b7",
+        "a3-b6",
+        "a1-b8",
+        "a2-b1",
+        "a1-b3",
+        "a1-b5",
+        "a3-b4",
+        "a2-b7",
+        "a4-b8",
         "a2-b3",
         "a3-b1",
-        "a3-b2",
-        "a1-b2",
-        "a3-b4",
-        "a1-b3",
-        "a2-b4",
-        "a1-b5",
-        "a1-b7",
-        "a3-b5",
-        "a2-b6",
-        "a4-b8",
-        "a2-b7",
-        "a3-b6",
-        "a1-b8"
+        "a1-b2"
       ]
     },
     {
@@ -146,12 +146,12 @@
       "expected": [
         "a6-b2",
         "a5-b4",
-        "a3-b1",
-        "a1-b1",
-        "a2-b3",
-        "a4-b6",
         "a3-b3",
-        "a2-b5"
+        "a1-b1",
+        "a2-b5",
+        "a4-b6",
+        "a3-b1",
+        "a2-b3"
       ]
     },
     {
@@ -229,7 +229,7 @@
       "name": "uniq-group-with-a-mix-member",
       "description": "A <mix> inside an env-level <uniq> is a member like any other: a group rearranges whole columns between rows, and a mix keeps its value multiset whatever the order, so its percentages survive the move. Before this case the name was not registered at all — every reference to it read as undeclared.",
       "config": "<tdc><env count=\"4\" seed=\"mixgroup\" local=\"en\" mode=\"memory\"><uniq><mix name=\"K\" percent=\"50,50\"><case><gen type=\"text\" value=\"A\"/></case><case><gen type=\"text\" value=\"B\"/></case></mix><sequence name=\"N\"><gen type=\"number\" value=\"1..4\"/></sequence></uniq></env><block><line><data>${{K}}${{N}}</data></line></block></tdc>",
-      "expected": ["A2", "B1", "A3", "B3"]
+      "expected": ["A3", "B3", "A2", "B1"]
     },
     {
       "name": "uniq-group-with-a-switch-member",

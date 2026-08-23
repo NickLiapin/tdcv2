@@ -3344,50 +3344,50 @@
     "pool/uniq-inside-a-pool-makes-the-members-differ": {
       "engine2": {
         "lines": [
+          "x1",
           "x2",
-          "x1",
-          "x1",
-          "x1",
-          "x1",
-          "x1",
+          "x2",
+          "x2",
+          "x2",
+          "x2",
+          "y2",
+          "x2",
           "y1",
-          "x1",
-          "y2",
-          "y2",
-          "y2",
-          "y2",
+          "y1",
+          "y1",
           "y1",
           "y2",
           "y1",
-          "y1",
-          "x1",
           "y2",
-          "x1",
-          "x1"
+          "y2",
+          "x2",
+          "y1",
+          "x2",
+          "x2"
         ]
       },
       "engine3": {
         "lines": [
+          "x1",
           "x2",
-          "x1",
-          "x1",
-          "x1",
-          "x1",
-          "x1",
+          "x2",
+          "x2",
+          "x2",
+          "x2",
+          "y2",
+          "x2",
           "y1",
-          "x1",
-          "y2",
-          "y2",
-          "y2",
-          "y2",
+          "y1",
+          "y1",
           "y1",
           "y2",
           "y1",
-          "y1",
-          "x1",
           "y2",
-          "x1",
-          "x1"
+          "y2",
+          "x2",
+          "y1",
+          "x2",
+          "x2"
         ]
       }
     },
@@ -4894,26 +4894,26 @@
       },
       "engine3": {
         "lines": [
-          "a4-b1",
-          "a4-b4",
-          "a2-b1",
           "a4-b6",
+          "a4-b4",
+          "a2-b6",
+          "a4-b1",
           "a4-b7",
+          "a2-b4",
+          "a3-b5",
+          "a3-b2",
+          "a1-b7",
+          "a3-b6",
+          "a1-b8",
+          "a2-b1",
+          "a1-b3",
+          "a1-b5",
+          "a3-b4",
+          "a2-b7",
+          "a4-b8",
           "a2-b3",
           "a3-b1",
-          "a3-b2",
-          "a1-b2",
-          "a3-b4",
-          "a1-b3",
-          "a2-b4",
-          "a1-b5",
-          "a1-b7",
-          "a3-b5",
-          "a2-b6",
-          "a4-b8",
-          "a2-b7",
-          "a3-b6",
-          "a1-b8"
+          "a1-b2"
         ]
       }
     },
@@ -4942,12 +4942,12 @@
         "lines": [
           "a6-b2",
           "a5-b4",
-          "a3-b1",
-          "a1-b1",
-          "a2-b3",
-          "a4-b6",
           "a3-b3",
-          "a2-b5"
+          "a1-b1",
+          "a2-b5",
+          "a4-b6",
+          "a3-b1",
+          "a2-b3"
         ]
       }
     },
@@ -5050,7 +5050,7 @@
         "refused": "stream mode: <uniq> across sequences (a whole-column rearrangement) (\"K × N\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
       },
       "engine3": {
-        "lines": ["A2", "B1", "A3", "B3"]
+        "lines": ["A3", "B3", "A2", "B1"]
       }
     },
     "uniq-distinct/uniq-group-with-a-switch-member": {

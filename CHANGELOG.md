@@ -128,6 +128,31 @@ page — is tracked in that implementation's own changelog:
   the naive spelling misses `b` at t=1 in 41 per cent of them. `t` outside [0, 1]
   extrapolates.
 
+### Changed
+
+<!-- covers: uniq -->
+
+- **A `uniq` group arranges its rows differently — the same data, laid out another way.**
+  A config with `uniq="true"` or an env-level `<uniq>` still produces the same values in
+  the same proportions, every column still keeps the exact multiset it drew, and every
+  row-tuple is still distinct. Which row gets which value changed. A run pinned to
+  specific bytes from a given seed will see a different file; a run that asserts on the
+  distribution, the uniqueness, or the set of values will not.
+
+  The old arrangement was built by handing each group of rows values in proportion to
+  what the column had left. That repeats a value inside a group as soon as one value
+  dominates — and rows in a group already agree on every earlier column, so a repeat
+  there is a duplicate row. The duplicates were then undone by a repair whose cost is
+  quadratic in how many it is handed, while duplicates themselves grow as the square of
+  the row count. The two together are cubic, which is why this was not a slow run but a
+  stalled one: a 4,000,000-row config spent three and a half hours without writing a
+  byte.
+
+  Giving each group as many DISTINCT values as the column still has in stock costs
+  nothing in exactness — the multiset is fixed either way, and this only chooses which
+  row gets which value — and it hands the repair nothing to do. The same 4,000,000-row
+  config now finishes in 67 seconds, and 1,600,000 rows went from 549 seconds to 39.
+
 ## [0.2.2] — 2026-08-15
 
 ### Added

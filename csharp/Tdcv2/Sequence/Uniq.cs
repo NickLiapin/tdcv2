@@ -178,6 +178,63 @@ public static class Uniq
         return new Arrangement(result, seen.Count);
     }
 
+    /// <summary>
+    /// Give a group of <c>g</c> rows <c>g</c> DISTINCT values, when the column still has that many
+    /// left.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Two rows in the same group agree on every column before this one, so they are distinct only
+    /// if they differ HERE. The proportional split does not know that: it hands out values in
+    /// proportion to remaining stock, which repeats a value inside a group as soon as one value
+    /// dominates. Every such repeat is a duplicate row, and duplicates are what the repair then
+    /// spends quadratic time undoing.
+    /// </para>
+    /// <para>
+    /// Taking the <c>g</c> largest stocks costs nothing in exactness — the column's multiset is
+    /// fixed either way, and this only chooses WHICH row gets which value.
+    /// </para>
+    /// </remarks>
+    /// <returns>
+    /// False when the column has fewer values left than the group has rows; the proportional path
+    /// handles that instead.
+    /// </returns>
+    private static bool DealDistinct(
+        Dictionary<string, int> pool,
+        List<string> poolOrder,
+        List<int> indexes,
+        List<List<string>> rows)
+    {
+        int g = indexes.Count;
+        var live = new List<(string Value, int Stock, int At)>();
+        for (int at = 0; at < poolOrder.Count; at++)
+        {
+            string value = poolOrder[at];
+            int stock = pool[value];
+            if (stock > 0)
+            {
+                live.Add((value, stock, at));
+            }
+        }
+
+        if (live.Count < g)
+        {
+            return false;
+        }
+
+        // `At` counts every entry, not only the live ones, so a tie is broken by first appearance
+        // the same way in every implementation.
+        live.Sort((a, b) => a.Stock != b.Stock ? b.Stock.CompareTo(a.Stock) : a.At.CompareTo(b.At));
+        for (int m = 0; m < g; m++)
+        {
+            (string value, int stock, _) = live[m];
+            pool[value] = stock - 1;
+            rows[indexes[m]].Add(value);
+        }
+
+        return true;
+    }
+
     /// <summary>Assemble rows column by column, spreading each column's values across the groups so far.</summary>
     private static List<List<string>> BuildRows(IReadOnlyList<IReadOnlyList<string>> columns)
     {
@@ -223,6 +280,11 @@ public static class Uniq
 
             foreach (List<int> indexes in bySize)
             {
+                if (DealDistinct(pool, poolOrder, indexes, rows))
+                {
+                    continue;
+                }
+
                 var liveKeys = new List<string>();
                 var live = new List<(int Index, int Cap)>();
                 foreach (string key in poolOrder)
