@@ -21,10 +21,10 @@
 //! A pool too tight to solve hands the config back to the in-memory engine
 //! rather than shipping data that is nearly unique.
 
-use std::collections::{BTreeMap, BTreeSet};
-use std::path::Path;
+use std::collections::{BTreeMap, BTreeSet, HashSet};
+use std::path::{Path, PathBuf};
 
-use super::external_sort;
+use super::{external_sort, fingerprint};
 use crate::engine::{invalid, EngineError, EngineResult};
 use crate::prng::{self, permute};
 use crate::sequence::uniq;
@@ -44,7 +44,38 @@ const INDEX_WIDTH: usize = 16;
 
 /// The pool repair is quadratic; past this many collisions, the config is
 /// pathological.
-const MAX_REPAIR_ROWS: usize = 20_000;
+/// Anything that can answer "is this tuple taken?" — an exact set, or the disk ledger.
+pub trait Membership {
+    fn has(&mut self, key: &str) -> bool;
+}
+
+impl Membership for BTreeSet<String> {
+    fn has(&mut self, key: &str) -> bool {
+        self.contains(key)
+    }
+}
+
+impl Membership for fingerprint::Ledger {
+    fn has(&mut self, key: &str) -> bool {
+        fingerprint::Ledger::has(self, key)
+    }
+}
+
+/// How many colliding rows the bounded repair takes on, for a run of `count`.
+///
+/// A flat cap was written when the repair was quadratic in its pool. It is not
+/// any more, and collisions grow as the SQUARE of the run — so a flat cap
+/// doomed every sufficiently large run. A thousandth of the rows keeps the
+/// repair pool in tens of megabytes at any size, and the floor keeps small runs
+/// as permissive as they were.
+fn max_repair_rows_for(count: i32) -> usize {
+    (count as usize / 1000).max(20_000)
+}
+
+/// Rows past which the in-memory engine is NOT a fallback: past this it cannot
+/// hold the table at all, so falling back fails after a long materialisation
+/// rather than fast.
+pub const IN_MEMORY_FALLBACK_MAX_ROWS: i32 = 20_000_000;
 
 /// One uniq column: where it lands in the registry, its values, and their
 /// shares.
@@ -167,16 +198,33 @@ fn repair(
     label: &str,
     tmp_dir: &Path,
 ) -> EngineResult<Vec<(String, Resolver)>> {
-    // Keep the first row of every colliding group; the rest have to move.
+    // How the duplicates are hunted: by fingerprint on a large run, by tuple
+    // text on a small one. The carrier is all that differs — the rows found are
+    // the same either way, because a matching fingerprint is verified against
+    // the true tuples before it is believed.
+    let scan = fingerprint_scan(&resolvers, count, tmp_dir)?;
+
     let mut excess: Vec<i32> = Vec::new();
-    for group in duplicate_groups(&resolvers, count, tmp_dir)? {
-        excess.extend(group.into_iter().skip(1));
+    match &scan {
+        Some(found) => excess.extend(found.excess.iter().copied()),
+        None => {
+            // Keep the first row of every colliding group; the rest have to move.
+            for group in duplicate_groups(&resolvers, count, tmp_dir)? {
+                excess.extend(group.into_iter().skip(1));
+            }
+        }
     }
 
     if excess.is_empty() {
+        if let Some(found) = &scan {
+            found.drop_files();
+        }
         return Ok(named(fields, resolvers));
     }
-    if excess.len() > MAX_REPAIR_ROWS {
+    if excess.len() > max_repair_rows_for(count) {
+        if let Some(found) = &scan {
+            found.drop_files();
+        }
         return Err(repair_needed(excess.len(), label));
     }
 
@@ -208,33 +256,51 @@ fn repair(
         pool_columns.push(column);
     }
 
-    // The only tuples a rearranged pool row could collide with are the ones
-    // already present whose every value lies inside the pool's own value space.
-    // One pass finds them.
-    let mut forbidden: BTreeSet<String> = BTreeSet::new();
-    for i in 0..count {
-        if in_pool.contains(&i) {
-            continue;
+    // "Is this tuple taken?" — answered one of two ways.
+    //
+    // Large run: no structure at all. The sorted fingerprint piles on disk ARE
+    // the ledger, and a query is a binary search. Small run: derive every row's
+    // tuple once more and hold the ones inside the pool's value space in an
+    // exact set, exactly as before.
+    let mut forbidden: Box<dyn Membership> = match &scan {
+        Some(found) => {
+            let moving: HashSet<usize> = in_pool.iter().map(|row| *row as usize).collect();
+            Box::new(fingerprint::Ledger::open(&found.sorted_paths, moving).map_err(
+                |e| EngineError::Unsupported(format!("uniq fingerprint ledger: {e}")),
+            )?)
         }
-        let mut key = String::new();
-        let mut in_space = true;
-        for (j, resolver) in resolvers.iter().enumerate() {
-            let value = resolver.value_at(i);
-            if !pool_space[j].contains(&value) {
-                in_space = false;
-                break;
+        None => {
+            let mut exact: BTreeSet<String> = BTreeSet::new();
+            for i in 0..count {
+                if in_pool.contains(&i) {
+                    continue;
+                }
+                let mut key = String::new();
+                let mut in_space = true;
+                for (j, resolver) in resolvers.iter().enumerate() {
+                    let value = resolver.value_at(i);
+                    if !pool_space[j].contains(&value) {
+                        in_space = false;
+                        break;
+                    }
+                    if j > 0 {
+                        key.push(JOIN);
+                    }
+                    key.push_str(&value);
+                }
+                if in_space {
+                    exact.insert(key);
+                }
             }
-            if j > 0 {
-                key.push(JOIN);
-            }
-            key.push_str(&value);
+            Box::new(exact)
         }
-        if in_space {
-            forbidden.insert(key);
-        }
-    }
+    };
 
-    let Some(arranged) = arrange_avoiding(&pool_columns, &forbidden, pool.len()) else {
+    let arranged = arrange_avoiding(&pool_columns, forbidden.as_mut(), pool.len());
+    if let Some(found) = &scan {
+        found.drop_files();
+    }
+    let Some(arranged) = arranged else {
         return Err(repair_needed(excess.len(), label));
     };
 
@@ -254,6 +320,102 @@ fn repair(
 /// padded to a fixed width and appended after a NUL, which makes plain byte
 /// order the same as ordering by key and then by row — no record has to be
 /// parsed to be compared.
+/// What the fingerprint hunt produced: the sorted piles, their home, the rows.
+struct FingerprintScan {
+    sorted_paths: Vec<PathBuf>,
+    directory: PathBuf,
+    excess: Vec<i32>,
+}
+
+impl FingerprintScan {
+    fn drop_files(&self) {
+        let _ = std::fs::remove_dir_all(&self.directory);
+    }
+}
+
+/// Hunt duplicates by fingerprint, or return None to leave the text path in charge.
+///
+/// Every row's tuple is hashed into a 13-byte record routed straight to its
+/// pile; each pile is sorted as raw bytes; groups sharing a hash are
+/// CANDIDATES. Verification then recomputes the true tuples for those few rows,
+/// so a 64-bit collision costs one recomputation and never a false duplicate —
+/// the rows returned are exactly the ones the text sort would name.
+fn fingerprint_scan(
+    resolvers: &[Resolver],
+    count: i32,
+    tmp_dir: &Path,
+) -> EngineResult<Option<FingerprintScan>> {
+    let cores = std::thread::available_parallelism()
+        .map(std::num::NonZeroUsize::get)
+        .unwrap_or(1);
+    let buckets = fingerprint::bucket_count_for(count as u64, cores);
+    if buckets < 2 {
+        return Ok(None);
+    }
+
+    let directory = tmp_dir.join(format!("tdc-fp-{}", std::process::id()));
+    std::fs::create_dir_all(&directory)
+        .map_err(|e| EngineError::Unsupported(format!("uniq fingerprint dir: {e}")))?;
+
+    let join = JOIN.to_string();
+    let functions: Vec<Box<dyn Fn(usize) -> String + '_>> = resolvers
+        .iter()
+        .map(|r| Box::new(move |row: usize| r.value_at(row as i32)) as Box<dyn Fn(usize) -> String>)
+        .collect();
+
+    let raw_paths =
+        fingerprint::write_piles(&functions, 0, count as usize, &directory, "raw", buckets, &join)
+            .map_err(|e| EngineError::Unsupported(format!("uniq fingerprint scan: {e}")))?;
+
+    let mut sorted_paths = Vec::with_capacity(buckets);
+    let mut candidates: Vec<Vec<usize>> = Vec::new();
+    for (b, raw) in raw_paths.iter().enumerate() {
+        let out = directory.join(format!("sorted-{b}"));
+        fingerprint::sort_files(std::slice::from_ref(raw), &out, &directory)
+            .map_err(|e| EngineError::Unsupported(format!("uniq fingerprint sort: {e}")))?;
+        let _ = std::fs::remove_file(raw);
+        candidates.extend(
+            fingerprint::candidate_groups(&out)
+                .map_err(|e| EngineError::Unsupported(format!("uniq candidates: {e}")))?,
+        );
+        sorted_paths.push(out);
+    }
+
+    let excess = verify_candidates(resolvers, &candidates);
+    Ok(Some(FingerprintScan {
+        sorted_paths,
+        directory,
+        excess,
+    }))
+}
+
+/// Keep only the rows whose tuples GENUINELY repeat, lowest row of each group spared.
+fn verify_candidates(resolvers: &[Resolver], candidates: &[Vec<usize>]) -> Vec<i32> {
+    let mut excess: Vec<i32> = Vec::new();
+    for group in candidates {
+        let mut by_key: BTreeMap<String, Vec<i32>> = BTreeMap::new();
+        for row in group {
+            let mut key = String::new();
+            for (j, resolver) in resolvers.iter().enumerate() {
+                if j > 0 {
+                    key.push(JOIN);
+                }
+                key.push_str(&resolver.value_at(*row as i32));
+            }
+            by_key.entry(key).or_default().push(*row as i32);
+        }
+        for (_, mut rows) in by_key {
+            if rows.len() < 2 {
+                continue; // a hash collision, not a duplicate
+            }
+            rows.sort_unstable();
+            excess.extend(rows.into_iter().skip(1));
+        }
+    }
+    excess.sort_unstable();
+    excess
+}
+
 fn duplicate_groups(
     resolvers: &[Resolver],
     count: i32,
@@ -320,7 +482,7 @@ fn push_group(
 /// pool's totals survive the pass. What changes is which values meet each other.
 fn arrange_avoiding(
     columns: &[Vec<String>],
-    forbidden: &BTreeSet<String>,
+    forbidden: &mut dyn Membership,
     size: usize,
 ) -> Option<Vec<Vec<String>>> {
     let k = columns.len();
@@ -412,14 +574,14 @@ fn arrange_avoiding(
     )
 }
 
-fn is_bad(tally: &BTreeMap<String, i32>, forbidden: &BTreeSet<String>, key: &str) -> bool {
-    tally.get(key).copied().unwrap_or(0) > 1 || forbidden.contains(key)
+fn is_bad(tally: &BTreeMap<String, i32>, forbidden: &mut dyn Membership, key: &str) -> bool {
+    tally.get(key).copied().unwrap_or(0) > 1 || forbidden.has(key)
 }
 
 /// The verdict on `key` as it would stand after the two rows swapped.
 fn is_bad_after(
     tally: &BTreeMap<String, i32>,
-    forbidden: &BTreeSet<String>,
+    forbidden: &mut dyn Membership,
     key: &str,
     old_i: &str,
     old_j: &str,
@@ -430,7 +592,7 @@ fn is_bad_after(
         tally.get(key).copied().unwrap_or(0) + i32::from(key == new_i) + i32::from(key == new_j)
             - i32::from(key == old_i)
             - i32::from(key == old_j);
-    after > 1 || forbidden.contains(key)
+    after > 1 || forbidden.has(key)
 }
 
 fn key_of(row: &[String]) -> String {

@@ -44,7 +44,38 @@ internal static class ExactUniq
     private const int IndexWidth = 16;
 
     /// <summary>The pool repair is quadratic; past this many collisions, the config is pathological.</summary>
-    private const int MaxRepairRows = 20_000;
+    /// <summary>Anything that can answer "is this tuple taken?" — an exact set, or the disk ledger.</summary>
+    public interface IMembership
+    {
+        bool Has(string key);
+    }
+
+    /// <summary>The small-run answer: every in-space tuple, held exactly.</summary>
+    private sealed class ExactMembership : IMembership
+    {
+        private readonly HashSet<string> _keys;
+
+        internal ExactMembership(HashSet<string> keys) => _keys = keys;
+
+        public bool Has(string key) => _keys.Contains(key);
+    }
+
+    /// <summary>
+    /// How many colliding rows the bounded repair takes on, for a run of <paramref name="count"/>.
+    /// </summary>
+    /// <remarks>
+    /// A flat cap was written when the repair was quadratic in its pool. It is not any more, and
+    /// collisions grow as the SQUARE of the run — so a flat cap doomed every sufficiently large
+    /// run. A thousandth of the rows keeps the repair pool in tens of megabytes at any size, and
+    /// the floor keeps small runs as permissive as they were.
+    /// </remarks>
+    private static int MaxRepairRowsFor(int count) => Math.Max(20_000, count / 1000);
+
+    /// <summary>
+    /// Rows past which the in-memory engine is NOT a fallback: past this it cannot hold the table
+    /// at all, so falling back fails after a long materialisation rather than fast.
+    /// </summary>
+    public const int InMemoryFallbackMaxRows = 20_000_000;
 
     /// <summary>The exact construction collided and the bounded repair could not place every row.</summary>
     internal sealed class RepairNeeded : Exception
@@ -132,23 +163,37 @@ internal static class ExactUniq
         IReadOnlyList<Field> fields, IReadOnlyList<Resolver> resolvers, int count, string label,
         string tmpDir)
     {
-        // Keep the first row of every colliding group; the rest have to move.
+        // How the duplicates are hunted: by fingerprint on a large run, by tuple text on a small
+        // one. The carrier is all that differs — the rows found are the same either way, because a
+        // matching fingerprint is verified against the true tuples before it is believed.
+        FingerprintScan? scan = RunFingerprintScan(resolvers, count, tmpDir);
+
         var excess = new List<int>();
-        foreach (List<int> group in DuplicateGroups(resolvers, count, tmpDir))
+        if (scan is not null)
         {
-            for (int m = 1; m < group.Count; m++)
+            excess.AddRange(scan.Excess);
+        }
+        else
+        {
+            // Keep the first row of every colliding group; the rest have to move.
+            foreach (List<int> group in DuplicateGroups(resolvers, count, tmpDir))
             {
-                excess.Add(group[m]);
+                for (int m = 1; m < group.Count; m++)
+                {
+                    excess.Add(group[m]);
+                }
             }
         }
 
         if (excess.Count == 0)
         {
+            scan?.Drop();
             return RegistryOf(fields, resolvers);
         }
 
-        if (excess.Count > MaxRepairRows)
+        if (excess.Count > MaxRepairRowsFor(count))
         {
+            scan?.Drop();
             throw new RepairNeeded(excess.Count, label);
         }
 
@@ -182,43 +227,71 @@ internal static class ExactUniq
             poolSpace.Add(new HashSet<string>(column, StringComparer.Ordinal));
         }
 
-        // The only tuples a rearranged pool row could collide with are the ones already present
-        // whose every value lies inside the pool's own value space. One pass finds them.
-        var forbidden = new HashSet<string>(StringComparer.Ordinal);
-        for (int i = 0; i < count; i++)
+        // "Is this tuple taken?" — answered one of two ways.
+        //
+        // Large run: no structure at all. The sorted fingerprint piles on disk ARE the ledger, and
+        // a query is a binary search. Small run: derive every row's tuple once more and hold the
+        // ones inside the pool's value space in an exact set, exactly as before.
+        IMembership forbidden;
+        Fingerprint.Ledger? ledger = null;
+        if (scan is not null)
         {
-            if (inPool.Contains(i))
+            ledger = new Fingerprint.Ledger(scan.SortedPaths, inPool);
+            forbidden = ledger;
+        }
+        else
+        {
+            var exact = new HashSet<string>(StringComparer.Ordinal);
+            for (int i = 0; i < count; i++)
             {
-                continue;
-            }
-
-            var key = new StringBuilder();
-            bool inSpace = true;
-            for (int j = 0; j < k; j++)
-            {
-                string value = resolvers[j](i);
-                if (!poolSpace[j].Contains(value))
+                if (inPool.Contains(i))
                 {
-                    inSpace = false;
-                    break;
+                    continue;
                 }
 
-                if (j > 0)
+                var key = new StringBuilder();
+                bool inSpace = true;
+                for (int j = 0; j < k; j++)
                 {
-                    key.Append(Join);
+                    string value = resolvers[j](i);
+                    if (!poolSpace[j].Contains(value))
+                    {
+                        inSpace = false;
+                        break;
+                    }
+
+                    if (j > 0)
+                    {
+                        key.Append(Join);
+                    }
+
+                    key.Append(value);
                 }
 
-                key.Append(value);
+                if (inSpace)
+                {
+                    exact.Add(key.ToString());
+                }
             }
 
-            if (inSpace)
-            {
-                forbidden.Add(key.ToString());
-            }
+            forbidden = new ExactMembership(exact);
         }
 
-        List<List<string>>? arranged = ArrangeAvoiding(poolColumns, forbidden, pool.Count)
-            ?? throw new RepairNeeded(excess.Count, label);
+        List<List<string>>? arranged;
+        try
+        {
+            arranged = ArrangeAvoiding(poolColumns, forbidden, pool.Count);
+        }
+        finally
+        {
+            ledger?.Dispose();
+            scan?.Drop();
+        }
+
+        if (arranged is null)
+        {
+            throw new RepairNeeded(excess.Count, label);
+        }
 
         var overrides = new Dictionary<int, List<string>>();
         for (int m = 0; m < pool.Count; m++)
@@ -249,6 +322,114 @@ internal static class ExactUniq
     /// after a NUL, which makes plain byte order the same as ordering by key and then by row — no
     /// record has to be parsed to be compared.
     /// </remarks>
+    /// <summary>What the fingerprint hunt produced: the sorted piles, their home, the verified rows.</summary>
+    private sealed record FingerprintScan(List<string> SortedPaths, string Directory, List<int> Excess)
+    {
+        internal void Drop()
+        {
+            try
+            {
+                System.IO.Directory.Delete(Directory, recursive: true);
+            }
+            catch (IOException)
+            {
+                // A leftover pile in a temp directory is not worth failing a run over.
+            }
+        }
+    }
+
+    /// <summary>
+    /// Hunt duplicates by fingerprint, or return null to leave the text path in charge.
+    /// </summary>
+    /// <remarks>
+    /// Every row's tuple is hashed into a 13-byte record routed straight to its pile; each pile is
+    /// sorted as raw bytes; groups sharing a hash are CANDIDATES. Verification then recomputes the
+    /// true tuples for those few rows, so a 64-bit collision costs one recomputation and never a
+    /// false duplicate — the rows returned are exactly the ones the text sort would name.
+    /// </remarks>
+    private static FingerprintScan? RunFingerprintScan(
+        IReadOnlyList<Resolver> resolvers, int count, string tmpDir)
+    {
+        int buckets = Fingerprint.BucketCountFor(count, Environment.ProcessorCount);
+        if (buckets < 2)
+        {
+            return null;
+        }
+
+        string root = string.IsNullOrEmpty(tmpDir) ? Path.GetTempPath() : tmpDir;
+        string directory = Path.Combine(root, "tdc-fp-" + Guid.NewGuid().ToString("N")[..8]);
+        System.IO.Directory.CreateDirectory(directory);
+
+        var asFunctions = new List<Func<int, string>>();
+        foreach (Resolver resolver in resolvers)
+        {
+            asFunctions.Add(row => resolver(row));
+        }
+
+        List<string> rawPaths = Fingerprint.WritePiles(
+            asFunctions, 0, count, directory, "raw", buckets, Join.ToString());
+
+        var sortedPaths = new List<string>();
+        var candidates = new List<List<int>>();
+        for (int b = 0; b < buckets; b++)
+        {
+            string outPath = Path.Combine(directory, $"sorted-{b}");
+            Fingerprint.SortFiles(new[] { rawPaths[b] }, outPath, directory);
+            File.Delete(rawPaths[b]);
+            sortedPaths.Add(outPath);
+            candidates.AddRange(Fingerprint.CandidateGroups(outPath));
+        }
+
+        return new FingerprintScan(sortedPaths, directory, Verify(resolvers, candidates));
+    }
+
+    /// <summary>Keep only the rows whose tuples GENUINELY repeat, lowest row of each group spared.</summary>
+    private static List<int> Verify(
+        IReadOnlyList<Resolver> resolvers, List<List<int>> candidates)
+    {
+        var excess = new List<int>();
+        foreach (List<int> group in candidates)
+        {
+            var byKey = new Dictionary<string, List<int>>(StringComparer.Ordinal);
+            foreach (int row in group)
+            {
+                var key = new StringBuilder();
+                for (int r = 0; r < resolvers.Count; r++)
+                {
+                    if (r > 0)
+                    {
+                        key.Append(Join);
+                    }
+
+                    key.Append(resolvers[r](row));
+                }
+
+                string text = key.ToString();
+                if (!byKey.TryGetValue(text, out List<int>? rows))
+                {
+                    rows = new List<int>();
+                    byKey[text] = rows;
+                }
+
+                rows.Add(row);
+            }
+
+            foreach (List<int> rows in byKey.Values)
+            {
+                if (rows.Count < 2)
+                {
+                    continue; // a hash collision, not a duplicate
+                }
+
+                rows.Sort();
+                excess.AddRange(rows.GetRange(1, rows.Count - 1));
+            }
+        }
+
+        excess.Sort();
+        return excess;
+    }
+
     private static IEnumerable<List<int>> DuplicateGroups(
         IReadOnlyList<Resolver> resolvers, int count, string tmpDir)
     {
@@ -308,7 +489,7 @@ internal static class ExactUniq
     /// survive the pass. What changes is which values meet each other.
     /// </remarks>
     private static List<List<string>>? ArrangeAvoiding(
-        IReadOnlyList<IReadOnlyList<string>> columns, HashSet<string> forbidden, int size)
+        IReadOnlyList<IReadOnlyList<string>> columns, IMembership forbidden, int size)
     {
         int k = columns.Count;
         if (size == 0 || k == 0)
@@ -412,12 +593,12 @@ internal static class ExactUniq
     }
 
     private static bool IsBad(
-        IReadOnlyDictionary<string, int> tally, HashSet<string> forbidden, string key) =>
-        tally.GetValueOrDefault(key) > 1 || forbidden.Contains(key);
+        IReadOnlyDictionary<string, int> tally, IMembership forbidden, string key) =>
+        tally.GetValueOrDefault(key) > 1 || forbidden.Has(key);
 
     /// <summary>The verdict on <paramref name="key"/> as it would stand after the two rows swapped.</summary>
     private static bool IsBadAfter(
-        IReadOnlyDictionary<string, int> tally, HashSet<string> forbidden, string key, string oldI,
+        IReadOnlyDictionary<string, int> tally, IMembership forbidden, string key, string oldI,
         string oldJ, string newI, string newJ)
     {
         int after = tally.GetValueOrDefault(key)
@@ -425,7 +606,7 @@ internal static class ExactUniq
             + (key == newJ ? 1 : 0)
             - (key == oldI ? 1 : 0)
             - (key == oldJ ? 1 : 0);
-        return after > 1 || forbidden.Contains(key);
+        return after > 1 || forbidden.Has(key);
     }
 
     private static string KeyOf(IReadOnlyList<string> row) => string.Join(Join, row);
