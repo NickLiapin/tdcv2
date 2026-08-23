@@ -21,15 +21,19 @@ that is nearly unique.
 
 from __future__ import annotations
 
+import os
+import tempfile
 from collections.abc import Callable, Iterator
+from contextlib import suppress
 from dataclasses import dataclass
+from typing import Protocol
 from pathlib import Path
 
 from ..distribution import hamilton
 from ..prng import permute
 from ..prng.prng import create
 from ..sequence import uniq as uniq_lib
-from . import external_sort
+from . import external_sort, fingerprint
 
 # Separates a tuple's columns. Control characters cannot appear in a generated value.
 JOIN = "\x01"
@@ -41,7 +45,22 @@ SEP = "\x00"
 INDEX_WIDTH = 16
 
 # The pool repair is quadratic; past this many collisions, the config is pathological.
-MAX_REPAIR_ROWS = 20_000
+def max_repair_rows_for(count: int) -> int:
+    """How many colliding rows the bounded repair takes on, for a run of ``count``.
+
+    A flat cap was written when the repair was quadratic in its pool. It is not any more, and
+    collisions grow as the SQUARE of the run — so a flat cap doomed every sufficiently large run:
+    97 million rows slid under 20,000 at 18,225, and 194 million tripped it at about 73,000. A
+    thousandth of the rows keeps the repair pool in tens of megabytes at any size, and the floor
+    keeps small runs as permissive as they were.
+    """
+    return max(20_000, count // 1000)
+
+
+#: Rows past which the in-memory engine is NOT a fallback. Past this it cannot hold the table at
+#: all, so falling back is not failing fast — it is failing after a long materialisation with
+#: nothing written. Refusing with a sentence is the honest outcome.
+IN_MEMORY_FALLBACK_MAX_ROWS = 20_000_000
 
 # Sweeps of swap repair before the pool is judged unsolvable.
 MAX_SWEEPS = 32
@@ -122,13 +141,25 @@ def _repair(
     exact: a value only ever changes hands between two rows of the pool, so every column ends the
     pass with the multiset it started with.
     """
-    # The first row of every colliding group stays; the rest have to move.
+    # How the duplicates are hunted: by fingerprint on a large run, by tuple text on a small one.
+    # The carrier is all that differs — the rows found are the same rows either way, because a
+    # matching fingerprint is verified against the true tuples before it is believed.
+    scan = _fingerprint_scan(resolvers, count, tmp_dir)
+
     excess: list[int] = []
-    for group in _duplicate_groups(resolvers, count, tmp_dir):
-        excess.extend(group[1:])
+    if scan is not None:
+        excess = list(scan.excess)
+    else:
+        # The first row of every colliding group stays; the rest have to move.
+        for group in _duplicate_groups(resolvers, count, tmp_dir):
+            excess.extend(group[1:])
     if not excess:
+        if scan is not None:
+            scan.drop()
         return _registry(fields, resolvers)
-    if len(excess) > MAX_REPAIR_ROWS:
+    if len(excess) > max_repair_rows_for(count):
+        if scan is not None:
+            scan.drop()
         raise RepairNeededError(len(excess), label)
 
     # The colliding rows on their own often lack the variety to move — a lone duplicate can only
@@ -151,24 +182,40 @@ def _repair(
     pool_columns = [[resolvers[j](row) for row in pool] for j in range(k)]
     pool_space = [set(column) for column in pool_columns]
 
-    # The only tuples a rearranged pool row could collide with are the ones already present whose
-    # every value lies inside the pool's own value space. One pass finds them.
-    forbidden: set[str] = set()
-    for i in range(count):
-        if i in in_pool:
-            continue
-        tuple_values = []
-        in_space = True
-        for j in range(k):
-            value = resolvers[j](i)
-            if value not in pool_space[j]:
-                in_space = False
-                break
-            tuple_values.append(value)
-        if in_space:
-            forbidden.add(JOIN.join(tuple_values))
+    # "Is this tuple taken?" — answered one of two ways.
+    #
+    # Large run: no structure at all. The sorted fingerprint piles on disk ARE the ledger, and a
+    # query is a binary search. Small run: derive every row's tuple once more and hold the ones
+    # inside the pool's value space in an exact set, exactly as before.
+    ledger: fingerprint.Ledger | None = None
+    forbidden: Membership
+    if scan is not None:
+        ledger = fingerprint.Ledger(scan.sorted_paths, in_pool)
+        forbidden = ledger
+    else:
+        exact: set[str] = set()
+        for i in range(count):
+            if i in in_pool:
+                continue
+            tuple_values = []
+            in_space = True
+            for j in range(k):
+                value = resolvers[j](i)
+                if value not in pool_space[j]:
+                    in_space = False
+                    break
+                tuple_values.append(value)
+            if in_space:
+                exact.add(JOIN.join(tuple_values))
+        forbidden = _ExactMembership(exact)
 
-    arranged = _arrange_avoiding(pool_columns, forbidden, len(pool))
+    try:
+        arranged = _arrange_avoiding(pool_columns, forbidden, len(pool))
+    finally:
+        if ledger is not None:
+            ledger.close()
+        if scan is not None:
+            scan.drop()
     if arranged is None:
         raise RepairNeededError(len(excess), label)
 
@@ -181,6 +228,83 @@ def _repair(
             override[row][column] if row in override else base(row)
         )
     return out
+
+
+class Membership(Protocol):
+    """Anything that can answer "is this tuple taken?" — an exact set, or the disk ledger."""
+
+    def has(self, key: str) -> bool: ...
+
+
+class _ExactMembership:
+    """The small-run answer: every in-space tuple, held exactly."""
+
+    def __init__(self, keys: set[str]) -> None:
+        self._keys = keys
+
+    def has(self, key: str) -> bool:
+        return key in self._keys
+
+
+@dataclass
+class _FingerprintScan:
+    """What the fingerprint hunt produced: the sorted piles, their home, and the verified rows."""
+
+    sorted_paths: list[Path]
+    directory: Path
+    excess: list[int]
+
+    def drop(self) -> None:
+        for path in self.sorted_paths:
+            path.unlink(missing_ok=True)
+        with suppress(OSError):
+            self.directory.rmdir()
+
+
+def _fingerprint_scan(
+    resolvers: list[Resolver], count: int, tmp_dir: Path | None
+) -> _FingerprintScan | None:
+    """Hunt duplicates by fingerprint, or return None to leave the text path in charge.
+
+    Every row's tuple is hashed into a 13-byte record routed straight to its pile; each pile is
+    sorted as raw bytes; groups sharing a hash are CANDIDATES. Verification then recomputes the
+    true tuples for those few rows, so a 64-bit collision costs one recomputation and never a
+    false duplicate — the rows returned are exactly the ones the text sort would name.
+    """
+    buckets = fingerprint.bucket_count_for(count, os.cpu_count() or 1)
+    if buckets < 2:
+        return None
+
+    directory = Path(tempfile.mkdtemp(prefix="tdc-fp-", dir=tmp_dir))
+    raw_paths = fingerprint.write_piles(resolvers, 0, count, directory, "raw", buckets)
+
+    sorted_paths: list[Path] = []
+    candidates: list[list[int]] = []
+    for b in range(buckets):
+        out = directory / f"sorted-{b}"
+        fingerprint.sort_files([raw_paths[b]], out, directory)
+        raw_paths[b].unlink(missing_ok=True)
+        sorted_paths.append(out)
+        candidates.extend(fingerprint.candidate_groups(out))
+
+    return _FingerprintScan(sorted_paths, directory, _verify(resolvers, candidates))
+
+
+def _verify(resolvers: list[Resolver], candidates: list[list[int]]) -> list[int]:
+    """Keep only the rows whose tuples GENUINELY repeat, lowest row of each group spared."""
+    excess: list[int] = []
+    for group in candidates:
+        by_key: dict[str, list[int]] = {}
+        for row in group:
+            key = JOIN.join(resolver(row) for resolver in resolvers)
+            by_key.setdefault(key, []).append(row)
+        for rows in by_key.values():
+            if len(rows) < 2:
+                continue  # a hash collision, not a duplicate
+            rows.sort()
+            excess.extend(rows[1:])
+    excess.sort()
+    return excess
 
 
 def _duplicate_groups(
@@ -216,7 +340,7 @@ def _duplicate_groups(
 
 
 def _arrange_avoiding(
-    columns: list[list[str]], forbidden: set[str], size: int
+    columns: list[list[str]], forbidden: Membership, size: int
 ) -> list[list[str]] | None:
     """The pool's columns rearranged so its tuples are distinct and none is already taken.
 
@@ -240,7 +364,7 @@ def _arrange_avoiding(
         for i in range(size):
             ri = rows[i]
             key_i = JOIN.join(ri)
-            if tally.get(key_i, 0) <= 1 and key_i not in forbidden:
+            if tally.get(key_i, 0) <= 1 and not forbidden.has(key_i):
                 continue
             done = False
             for col in range(k):
@@ -290,8 +414,8 @@ def _arrange_avoiding(
     return [[row[j] for row in rows] for j in range(k)]
 
 
-def _is_bad(tally: dict[str, int], forbidden: set[str], key: str) -> bool:
-    return tally.get(key, 0) > 1 or key in forbidden
+def _is_bad(tally: dict[str, int], forbidden: Membership, key: str) -> bool:
+    return tally.get(key, 0) > 1 or forbidden.has(key)
 
 
 def _is_bad_after(tally, forbidden, key, old_i, old_j, new_i, new_j) -> bool:
@@ -303,7 +427,7 @@ def _is_bad_after(tally, forbidden, key, old_i, old_j, new_i, new_j) -> bool:
         - (1 if key == old_i else 0)
         - (1 if key == old_j else 0)
     )
-    return after > 1 or key in forbidden
+    return after > 1 or forbidden.has(key)
 
 
 def _cumulative(counts: list[int]) -> list[int]:

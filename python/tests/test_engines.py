@@ -59,11 +59,12 @@ def test_a_streaming_engine_matches_the_reference(name: str, case: dict, engine:
     expected = _EXPECTED[name][f"engine{engine}"]
 
     if expected.get("aheadOfPorts"):
-        # The reference's disk engines arrange this uniq group natively and the
-        # arrangement differs from the in-memory one — machinery this port does
-        # not carry yet. Named here rather than silently absent, so porting it
-        # is a deletion of this skip and not a rediscovery.
-        pytest.skip("the reference is ahead: native disk-engine uniq arrangement")
+        # Two things the reference has and this port does not YET, both about an env-level
+        # <uniq>: engine 2 renders one where this port still refuses, and engine 3 arranges one
+        # natively rather than handing it to the in-memory engine. The fingerprint carrier is
+        # ported (see test_fingerprint.py); this is the other half. Named rather than silently
+        # absent, so closing it is a deletion of this skip.
+        pytest.skip("the reference is ahead: env-level <uniq> on the disk engines")
 
     if "refused" in expected:
         # WHAT is refused is the contract; how each language phrases it is not — and neither is

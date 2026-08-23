@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "algorithm": "cyrb128 first two words; 13-byte big-endian record; pile = hi % buckets",
+  "comment": "The uniq fingerprint layer, pinned across implementations. Every number here decides WHICH tuples a large run avoids, so five implementations that differ in any of them produce different files from one seed. Tuple fields are joined with U+0001 before hashing.",
+  "recordBytes": 13,
+  "maxIndex": 1099511627776,
+  "hashes": [
+    {
+      "key": "",
+      "hi": 41608494,
+      "lo": 480788319,
+      "buckets": {
+        "2": 0,
+        "7": 4,
+        "44": 26,
+        "48": 30,
+        "256": 46
+      }
+    },
+    {
+      "key": "a",
+      "hi": 1589175524,
+      "lo": 2314171864,
+      "buckets": {
+        "2": 0,
+        "7": 6,
+        "44": 24,
+        "48": 20,
+        "256": 228
+      }
+    },
+    {
+      "key": "MaleIvanPetrov",
+      "hi": 3975371023,
+      "lo": 567412092,
+      "buckets": {
+        "2": 1,
+        "7": 1,
+        "44": 19,
+        "48": 31,
+        "256": 15
+      }
+    },
+    {
+      "key": "FemaleАннаИванова1990-03-14",
+      "hi": 4179654380,
+      "lo": 3937812825,
+      "buckets": {
+        "2": 0,
+        "7": 6,
+        "44": 0,
+        "48": 44,
+        "256": 236
+      }
+    },
+    {
+      "key": "ключ с юникодом",
+      "hi": 3688714642,
+      "lo": 293643749,
+      "buckets": {
+        "2": 0,
+        "7": 4,
+        "44": 30,
+        "48": 34,
+        "256": 146
+      }
+    },
+    {
+      "key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "hi": 2446402055,
+      "lo": 4049220800,
+      "buckets": {
+        "2": 1,
+        "7": 6,
+        "44": 31,
+        "48": 23,
+        "256": 7
+      }
+    },
+    {
+      "key": "0",
+      "hi": 4149038757,
+      "lo": 1095114108,
+      "buckets": {
+        "2": 1,
+        "7": 3,
+        "44": 17,
+        "48": 21,
+        "256": 165
+      }
+    },
+    {
+      "key": "MaleIvanPetro",
+      "hi": 3993728140,
+      "lo": 905210086,
+      "buckets": {
+        "2": 0,
+        "7": 3,
+        "44": 28,
+        "48": 28,
+        "256": 140
+      }
+    },
+    {
+      "key": "MaleIvanPetrow",
+      "hi": 856811265,
+      "lo": 112726664,
+      "buckets": {
+        "2": 1,
+        "7": 2,
+        "44": 13,
+        "48": 33,
+        "256": 1
+      }
+    }
+  ],
+  "records": [
+    {
+      "hi": 0,
+      "lo": 0,
+      "index": 0,
+      "bytes": "00000000000000000000000000"
+    },
+    {
+      "hi": 1,
+      "lo": 2,
+      "index": 3,
+      "bytes": "00000001000000020000000003"
+    },
+    {
+      "hi": 4294967295,
+      "lo": 4294967295,
+      "index": 1099511627775,
+      "bytes": "ffffffffffffffffffffffffff"
+    },
+    {
+      "hi": 123456789,
+      "lo": 987654321,
+      "index": 5000000000,
+      "bytes": "075bcd153ade68b1012a05f200"
+    }
+  ],
+  "pileCounts": [
+    {
+      "count": 999999,
+      "cores": 12,
+      "buckets": 1
+    },
+    {
+      "count": 1000000,
+      "cores": 12,
+      "buckets": 48
+    },
+    {
+      "count": 1000000,
+      "cores": 1,
+      "buckets": 4
+    },
+    {
+      "count": 50000000,
+      "cores": 2,
+      "buckets": 8
+    },
+    {
+      "count": 50000000,
+      "cores": 200,
+      "buckets": 256
+    },
+    {
+      "count": 97005710,
+      "cores": 11,
+      "buckets": 44
+    }
+  ]
+}

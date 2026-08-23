@@ -502,12 +502,19 @@ export function repairExactUniq(
    */
   const fingerprint = resolveFingerprints(resolvers, count, options);
 
+  /*
+   * Copied with a loop, not with a spread.
+   *
+   * `push(...excess)` passes every element as an ARGUMENT, and a config that
+   * collides heavily produces hundreds of thousands of them — enough to
+   * overflow the call stack before the cap below ever gets to refuse it. Found
+   * by a 1,200,000-row config with 200,000 expected collisions: "Maximum call
+   * stack size exceeded" instead of the refusal it had earned.
+   */
   const excess: number[] = [];
-  if (fingerprint !== undefined) {
-    excess.push(...fingerprint.excess);
-  } else if (options.knownExcess !== undefined) {
-    // Someone else scanned the piles. Nothing to compute here.
-    excess.push(...options.knownExcess);
+  const found = fingerprint?.excess ?? options.knownExcess;
+  if (found !== undefined) {
+    for (const row of found) excess.push(row);
   } else {
     for (const group of findDuplicateGroups(tuples(), options)) {
       for (let m = 1; m < group.length; m++) {

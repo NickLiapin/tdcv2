@@ -182,13 +182,22 @@ function writeSortedBatch(batch: Batch, path: string): void {
    *
    * Subtraction in the comparator is exact: both values are 32-bit and a
    * double carries the difference without rounding.
+   *
+   * The index breaks ties. Nothing downstream needs it — a candidate group's
+   * rows are sorted before use — but it makes the sorted FILE a function of
+   * its contents alone, so the records are ordered exactly as their 13
+   * big-endian bytes compare. A port can then sort the raw bytes and be
+   * certain it agrees, instead of reproducing a comparator.
    */
-  const { hi, lo } = batch;
+  const { hi, lo, index } = batch;
   perm.sort((a: number, b: number) => {
     const ha = hi[a] ?? 0;
     const hb = hi[b] ?? 0;
     if (ha !== hb) return ha - hb;
-    return (lo[a] ?? 0) - (lo[b] ?? 0);
+    const la = lo[a] ?? 0;
+    const lb = lo[b] ?? 0;
+    if (la !== lb) return la - lb;
+    return (index[a] ?? 0) - (index[b] ?? 0);
   });
   const writer = new FingerprintWriter(path);
   try {
@@ -274,7 +283,12 @@ export function sortFingerprintFiles(
           const a = readers[live[i] ?? 0];
           const b = readers[live[best] ?? 0];
           if (!a || !b) continue;
-          if (a.hi < b.hi || (a.hi === b.hi && a.lo < b.lo)) best = i;
+          if (
+            a.hi < b.hi ||
+            (a.hi === b.hi && (a.lo < b.lo || (a.lo === b.lo && a.index < b.index)))
+          ) {
+            best = i;
+          }
         }
         const runId = live[best] ?? 0;
         const r = readers[runId];
