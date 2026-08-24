@@ -2092,6 +2092,11 @@ public final class StreamEngine {
       if (to == count) {
         emit(out, fx.after(), count - 1);
       }
+      // Said at the end as well as along the way: a phase a watcher sees CLOSE is a phase it can
+      // tell from a stall. The sweep above reports every half-percent and so stops short.
+      if (onProgress != null) {
+        onProgress.report("render", to - from, to - from);
+      }
     } catch (IOException e) {
       throw new UncheckedIOException("cannot write the generated data", e);
     }

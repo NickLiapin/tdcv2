@@ -3789,6 +3789,12 @@ fn emit(
         config,
         &each,
     )?;
+    // Said at the end as well as along the way: a phase a watcher sees CLOSE is a
+    // phase it can tell from a stall. The sweep above reports every half-percent
+    // and so stops short.
+    if let Some(report) = on_progress {
+        report("render", count, count);
+    }
     Ok(out)
 }
 

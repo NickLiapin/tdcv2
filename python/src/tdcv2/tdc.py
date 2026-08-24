@@ -178,9 +178,15 @@ class TDC:
 
         ``on_progress(phase, done, total)`` is called as the run advances, so a caller with a long
         run can say more than "working". Phases: ``uniq-scan`` (every row's tuple hashed),
-        ``uniq-sort`` (piles sorted), ``render`` (rows written). It is called often — about two
-        hundred times per phase — so it must be cheap; the command line throttles it to once a
-        second before writing anything down.
+        ``uniq-sort`` (piles sorted), ``uniq-repair`` (the tuples that repeat checked and
+        rearranged — usually the longest of the four on a large run), ``render`` (rows written).
+        It is called often — about two hundred times per phase — so it must be cheap; the command
+        line throttles it to once a second before writing anything down.
+
+        Within a phase the numbers only ever RISE, and a phase ends at its own total, so a bar
+        drawn from them never jumps backwards and never stops short of full. ``uniq-repair`` is
+        several steps of different kinds reported on one growing scale, so its total is what has
+        been taken on so far rather than something known in advance.
         """
         if (config_file is None) == (config_string is None):
             raise ValueError("TDC needs exactly one of config_file and config_string")

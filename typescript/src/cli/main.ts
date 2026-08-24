@@ -312,7 +312,11 @@ function parseNow(value: string): number {
  * `"phase":"done"` with the wall-clock seconds the run took.
  */
 function statusFileWriter(path: string): {
-  report: (p: { phase: 'uniq-scan' | 'uniq-sort' | 'render'; done: number; total: number }) => void;
+  report: (p: {
+    phase: 'uniq-scan' | 'uniq-sort' | 'uniq-repair' | 'render';
+    done: number;
+    total: number;
+  }) => void;
   finish: () => void;
 } {
   const startedAt = Date.now();
@@ -459,7 +463,7 @@ export async function main(argv: readonly string[]): Promise<number> {
       mode?: 'memory' | 'disk';
       engine?: 1 | 2 | 3;
       onProgress?: (progress: {
-        phase: 'uniq-scan' | 'uniq-sort' | 'render';
+        phase: 'uniq-scan' | 'uniq-sort' | 'uniq-repair' | 'render';
         done: number;
         total: number;
       }) => void;
@@ -768,7 +772,7 @@ async function renderParallel(
   args: CliArgs,
   jobs: number,
   onProgress?: (progress: {
-    phase: 'uniq-scan' | 'uniq-sort' | 'render';
+    phase: 'uniq-scan' | 'uniq-sort' | 'uniq-repair' | 'render';
     done: number;
     total: number;
   }) => void,
@@ -806,7 +810,7 @@ async function renderParquetParallel(
   args: { output?: string | undefined; now?: number | undefined },
   jobs: number,
   onProgress?: (progress: {
-    phase: 'uniq-scan' | 'uniq-sort' | 'render';
+    phase: 'uniq-scan' | 'uniq-sort' | 'uniq-repair' | 'render';
     done: number;
     total: number;
   }) => void,

@@ -166,6 +166,43 @@ def _registry(ids: list[str], resolvers: list[Resolver]) -> dict[str, Resolver]:
     return {name: resolvers[j] for j, name in enumerate(ids)}
 
 
+class _RepairReport:
+    """One rising scale for the whole ``uniq-repair`` phase.
+
+    The repair is several steps with different units: candidate groups to check here, pool rows to
+    prepare there, then a deal repeated per sweep. Reported straight, each step would restart the
+    counter at zero, and a bar drawn from the phase would jump backwards every time one ended —
+    which reads as a bug, not as progress.
+
+    So the steps are added up. Each declares its size, the phase's total grows to hold it, and
+    ``done`` only ever rises. The total is not known in advance and is not meant to be: it is what
+    has been taken on so far.
+    """
+
+    def __init__(self, on_progress=None) -> None:
+        self._on_progress = on_progress
+        self._base = 0
+        self._size = 0
+
+    def _emit(self, done: int) -> None:
+        if self._on_progress is not None:
+            self._on_progress("uniq-repair", done, self._base + self._size)
+
+    def step(self, size: int) -> None:
+        """Take on a step of ``size`` units. Ends the previous one."""
+        self._base += self._size
+        self._size = size
+        self._emit(self._base)
+
+    def at(self, done: int) -> None:
+        """``done`` units into the current step."""
+        self._emit(self._base + done)
+
+    def finish(self) -> None:
+        """Close the phase full, so a watcher sees it end rather than stall."""
+        self._emit(self._base + self._size)
+
+
 def repair(
     ids: list[str],
     resolvers: list[Resolver],
@@ -194,7 +231,8 @@ def repair(
     # How the duplicates are hunted: by fingerprint on a large run, by tuple text on a small one.
     # The carrier is all that differs — the rows found are the same rows either way, because a
     # matching fingerprint is verified against the true tuples before it is believed.
-    scan = _fingerprint_scan(resolvers, count, tmp_dir, on_progress)
+    report = _RepairReport(on_progress)
+    scan = _fingerprint_scan(resolvers, count, tmp_dir, on_progress, report)
 
     excess: list[int] = []
     if scan is not None:
@@ -252,6 +290,7 @@ def repair(
     pool.sort()
 
     k = len(resolvers)
+    report.step(len(pool))
     pool_columns = [[resolvers[j](row) for row in pool] for j in range(k)]
     pool_space = [set(column) for column in pool_columns]
 
@@ -292,7 +331,7 @@ def repair(
     try:
         for positions in blocks.values():
             columns = [[column[m] for m in positions] for column in pool_columns]
-            arranged = _arrange_avoiding(columns, forbidden, len(positions))
+            arranged = _arrange_avoiding(columns, forbidden, len(positions), report)
             if arranged is None:
                 raise RepairNeededError(len(excess), label)
             for at, m in enumerate(positions):
@@ -303,6 +342,7 @@ def repair(
         if scan is not None:
             scan.drop()
 
+    report.finish()
     if plan is not None and plan.on_computed is not None:
         plan.on_computed(override)
     return _apply_override(ids, resolvers, override)
@@ -356,7 +396,7 @@ class _FingerprintScan:
 
 
 def _fingerprint_scan(
-    resolvers: list[Resolver], count: int, tmp_dir: Path | None, on_progress=None
+    resolvers: list[Resolver], count: int, tmp_dir: Path | None, on_progress=None, report=None
 ) -> _FingerprintScan | None:
     """Hunt duplicates by fingerprint, or return None to leave the text path in charge.
 
@@ -385,13 +425,24 @@ def _fingerprint_scan(
         sorted_paths.append(out)
         candidates.extend(fingerprint.candidate_groups(out))
 
-    return _FingerprintScan(sorted_paths, directory, _verify(resolvers, candidates))
+    return _FingerprintScan(sorted_paths, directory, _verify(resolvers, candidates, report))
 
 
-def _verify(resolvers: list[Resolver], candidates: list[list[int]]) -> list[int]:
-    """Keep only the rows whose tuples GENUINELY repeat, lowest row of each group spared."""
+def _verify(resolvers: list[Resolver], candidates: list[list[int]], report=None) -> list[int]:
+    """Keep only the rows whose tuples GENUINELY repeat, lowest row of each group spared.
+
+    Reported, because this is where a large run goes quiet. Every candidate group is a set of
+    rows sharing a 64-bit hash, and each costs a tuple recomputed per row to tell a real
+    duplicate from a hash collision. Measured in the reference at 6,000,000 rows: 99,852 groups
+    and tens of seconds, between the last ``uniq-sort`` and the first ``render``, saying nothing.
+    """
     excess: list[int] = []
-    for group in candidates:
+    if report is not None:
+        report.step(len(candidates))
+    report_every = max(1, len(candidates) // 200)
+    for done, group in enumerate(candidates):
+        if report is not None and done % report_every == 0:
+            report.at(done)
         by_key: dict[str, list[int]] = {}
         for row in group:
             key = JOIN.join(resolver(row) for resolver in resolvers)
@@ -438,7 +489,7 @@ def _duplicate_groups(
 
 
 def _arrange_avoiding(
-    columns: list[list[str]], forbidden: Membership, size: int
+    columns: list[list[str]], forbidden: Membership, size: int, report=None
 ) -> list[list[str]] | None:
     """The pool's columns rearranged so its tuples are distinct and none is already taken.
 
@@ -449,10 +500,20 @@ def _arrange_avoiding(
     if size == 0 or k == 0:
         return list(columns)
 
+    # Said BEFORE the first deal: `uniq_lib.arrange` below is itself seconds of work on a large
+    # pool, and a watcher that only heard from the sweep loop would sit on a stale `uniq-sort`
+    # throughout it. The phase NAME is the part that answers "what is it doing".
+    if report is not None:
+        report.step(size)
     arranged = uniq_lib.arrange(columns).columns
     rows = [[column[i] for column in arranged] for i in range(size)]
 
-    for _ in range(MAX_SWEEPS):
+    report_every = max(1, size // 200)
+    for sweep in range(MAX_SWEEPS):
+        # Each sweep is another `size` units taken on, so the scale grows with the work instead
+        # of the counter restarting inside the phase.
+        if sweep > 0 and report is not None:
+            report.step(size)
         tally: dict[str, int] = {}
         for row in rows:
             key = JOIN.join(row)
@@ -460,6 +521,8 @@ def _arrange_avoiding(
         improved = False
 
         for i in range(size):
+            if report is not None and i % report_every == 0:
+                report.at(i)
             ri = rows[i]
             key_i = JOIN.join(ri)
             if tally.get(key_i, 0) <= 1 and not forbidden.has(key_i):

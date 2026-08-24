@@ -206,6 +206,10 @@ public static class MemoryEngine
         }
 
         Emit(result, eachInfo, fx.After, columns, Math.Max(0, config.Count - 1), config.Inject);
+        // Said at the end as well as along the way: a phase a watcher sees CLOSE is a
+        // phase it can tell from a stall. The sweep above reports every half-percent
+        // and so stops short.
+        onProgress?.Invoke("render", config.Count, config.Count);
         return result.ToString();
     }
 

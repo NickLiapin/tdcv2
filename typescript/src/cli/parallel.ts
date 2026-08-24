@@ -71,7 +71,7 @@ export interface ParallelParams {
    */
   readonly onProgress?:
     | ((progress: {
-        phase: 'uniq-scan' | 'uniq-sort' | 'render';
+        phase: 'uniq-scan' | 'uniq-sort' | 'uniq-repair' | 'render';
         done: number;
         total: number;
       }) => void)

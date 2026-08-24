@@ -120,7 +120,7 @@ export interface DuplicateScanOptions {
   readonly fingerprintFiles?: readonly string[];
   /** Called as the scan and the pile sort advance — the uniq half of `RenderProgress`. */
   readonly onProgress?: (progress: {
-    phase: 'uniq-scan' | 'uniq-sort' | 'render';
+    phase: 'uniq-scan' | 'uniq-sort' | 'uniq-repair' | 'render';
     done: number;
     total: number;
   }) => void;
@@ -290,7 +290,7 @@ export function writeFingerprintPiles(
   prefix: string,
   buckets: number,
   onProgress?: (progress: {
-    phase: 'uniq-scan' | 'uniq-sort' | 'render';
+    phase: 'uniq-scan' | 'uniq-sort' | 'uniq-repair' | 'render';
     done: number;
     total: number;
   }) => void,
@@ -344,6 +344,7 @@ function resolveFingerprints(
   resolvers: readonly UniqResolver[],
   count: number,
   options: DuplicateScanOptions,
+  report?: RepairReport,
 ): FingerprintScan | undefined {
   if (
     options.fingerprintFiles !== undefined &&
@@ -379,19 +380,86 @@ function resolveFingerprints(
     for (const group of candidateGroups(out)) candidates.push(group);
   }
 
-  return { sorted, ownDir: dir, excess: verifyCandidates(resolvers, candidates) };
+  return {
+    sorted,
+    ownDir: dir,
+    excess: verifyCandidates(resolvers, candidates, report),
+  };
 }
 
 /**
  * Keep only the rows whose tuples GENUINELY repeat, lowest row of each group
  * spared — exactly the rule the text scan applies.
  */
+/**
+ * One rising scale for the whole `uniq-repair` phase.
+ *
+ * The repair is several steps with different units: candidate groups to check
+ * here, pool rows to prepare there, then a deal repeated per sweep. Reported
+ * straight, each step would restart the counter at zero, and a bar drawn from
+ * the phase would jump backwards every time one ended — which reads as a bug,
+ * not as progress.
+ *
+ * So the steps are added up. Each declares its size, the phase's total grows
+ * to hold it, and `done` only ever rises. The total is not known in advance
+ * and is not meant to be: it is what has been taken on so far.
+ */
+export interface RepairReport {
+  /** Take on a step of `size` units. Ends the previous one. */
+  step(size: number): void;
+  /** `done` units into the current step. */
+  at(done: number): void;
+  /** Close the phase full, so a watcher sees it end rather than stall. */
+  finish(): void;
+}
+
+export function repairReport(
+  onProgress?: (progress: {
+    phase: 'uniq-scan' | 'uniq-sort' | 'uniq-repair' | 'render';
+    done: number;
+    total: number;
+  }) => void,
+): RepairReport {
+  let base = 0;
+  let size = 0;
+  const emit = (done: number): void => {
+    onProgress?.({ phase: 'uniq-repair', done, total: base + size });
+  };
+  return {
+    step(next: number): void {
+      base += size;
+      size = next;
+      emit(base);
+    },
+    at(done: number): void {
+      emit(base + done);
+    },
+    finish(): void {
+      emit(base + size);
+    },
+  };
+}
+
 export function verifyCandidates(
   resolvers: readonly UniqResolver[],
   candidates: readonly (readonly number[])[],
+  report?: RepairReport,
 ): number[] {
   const excess: number[] = [];
+  /*
+   * Reported, because this is where a large run goes quiet.
+   *
+   * Every candidate group is a set of rows sharing a 64-bit hash, and each one
+   * costs a tuple recomputed per row to tell a real duplicate from a hash
+   * collision. Measured at 6,000,000 rows it is tens of seconds — between the
+   * last `uniq-sort` and the first `render`, saying nothing.
+   */
+  report?.step(candidates.length);
+  const reportEvery = Math.max(1, Math.floor(candidates.length / 200));
+  let done = 0;
   for (const group of candidates) {
+    if (done % reportEvery === 0) report?.at(done);
+    done += 1;
     const byKey = new Map<string, number[]>();
     for (const row of group) {
       const key = tupleKeyAt(resolvers, row);
@@ -491,6 +559,9 @@ export function repairExactUniq(
    * to disk anyway. Small runs skip it and step 2 derives the values as before,
    * which is also what keeps their arrangement exactly what it was.
    */
+  // One scale for every step of the repair, so the phase only ever rises.
+  const report = repairReport(options.onProgress);
+
   /*
    * Engine 5's carrier: fingerprints instead of tuple text.
    *
@@ -500,7 +571,7 @@ export function repairExactUniq(
    * wholesale: excess is already exact, and the sorted
    * piles answer the repair's membership question by binary search.
    */
-  const fingerprint = resolveFingerprints(resolvers, count, options);
+  const fingerprint = resolveFingerprints(resolvers, count, options, report);
 
   /*
    * Copied with a loop, not with a spread.
@@ -604,6 +675,12 @@ export function repairExactUniq(
    * the part that died. Below the fingerprint threshold the set stays exact
    * and small; above it the fingerprint ledger answers from disk instead.
    */
+  /*
+   * From here to the first `render` is the repair, and on a large run it is most
+   * of the wall clock: measured at 6,000,000 rows, the scan took 13 s, sorting
+   * the piles 2 s, and everything below 56 s. It used to report nothing at all.
+   */
+  report.step(pool.length);
   const poolColumns = resolvers.map((r) => pool.map((i) => r.resolve(i)));
   const poolSpace = poolColumns.map((col) => new Set(col));
   const inPoolSpace = (values: readonly string[]): boolean => {
@@ -654,7 +731,7 @@ export function repairExactUniq(
   });
   for (const positions of blocks.values()) {
     const columns = poolColumns.map((col) => positions.map((m) => col[m] ?? ''));
-    const arranged = arrangeAvoiding(columns, forbidden, positions.length);
+    const arranged = arrangeAvoiding(columns, forbidden, positions.length, report);
     if (arranged === null) {
       ledger?.close();
       dropFingerprints();
@@ -668,6 +745,7 @@ export function repairExactUniq(
     });
   }
 
+  report.finish();
   ledger?.close();
   dropFingerprints();
 
@@ -719,21 +797,45 @@ function arrangeAvoiding(
   // a plain Set still satisfies it.
   forbidden: { has(key: string): boolean },
   size: number,
+  report?: RepairReport,
 ): string[][] | null {
   const k = columns.length;
   if (size === 0 || k === 0) return columns.map((c) => [...c]);
 
+  // Said BEFORE the first deal, not after it. `arrangeUnique` below is itself
+  // seconds of work on a large pool, and a watcher that only heard from the
+  // sweep loop would sit on a stale `uniq-sort` throughout it — the phase name
+  // is the part that answers "what is it doing", and it costs one report.
+  report?.step(size);
   const arr = arrangeUnique(columns).columns; // distinct among themselves
   const rows: string[][] = Array.from({ length: size }, (_, i) => arr.map((c) => c[i] ?? ''));
   const keyOf = (row: readonly string[]): string => row.join(JOIN);
 
+  /*
+   * The pass that costs the most, and used to say nothing at all.
+   *
+   * Measured on 6,000,000 rows: the tuple scan took 13 s, sorting the piles took
+   * 2 s, and THIS took 56 of the 74 seconds — three quarters of the run, between
+   * the last `uniq-sort` report and the first `render` one, in silence. Anyone
+   * watching had a minute of a file that did not move and no way to tell a long
+   * repair from a hung process.
+   *
+   * Reported per row of the pool rather than per sweep: a sweep is quadratic in
+   * the pool, so on a large one there may only ever be a single sweep and a
+   * per-sweep report would fire once.
+   */
+  const reportEvery = Math.max(1, Math.floor(size / 200));
   for (let sweep = 0; sweep < 32; sweep++) {
+    // Each sweep is another `size` units taken on, so the scale grows with the
+    // work instead of the counter restarting inside the phase.
+    if (sweep > 0) report?.step(size);
     const counts = new Map<string, number>();
     for (const row of rows) counts.set(keyOf(row), (counts.get(keyOf(row)) ?? 0) + 1);
     const bad = (key: string): boolean => (counts.get(key) ?? 0) > 1 || forbidden.has(key);
 
     let improved = false;
     for (let i = 0; i < size; i++) {
+      if (i % reportEvery === 0) report?.at(i);
       const ri = rows[i];
       if (!ri) continue;
       // `ri` is fixed for the whole partner scan below, so its key and its

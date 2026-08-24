@@ -269,7 +269,8 @@ final class ExactUniq {
     // How the duplicates are hunted: by fingerprint on a large run, by tuple text on a small one.
     // The carrier is all that differs — the rows found are the same either way, because a matching
     // fingerprint is verified against the true tuples before it is believed.
-    FingerprintScan scan = fingerprintScan(resolvers, count, tmpDir, onProgress);
+    RepairReport report = new RepairReport(onProgress);
+    FingerprintScan scan = fingerprintScan(resolvers, count, tmpDir, onProgress, report);
 
     List<Integer> excess = new ArrayList<>();
     if (scan != null) {
@@ -342,6 +343,7 @@ final class ExactUniq {
     java.util.Collections.sort(pool);
 
     int k = resolvers.size();
+    report.step(pool.size());
     List<List<String>> poolColumns = new ArrayList<>();
     List<Set<String>> poolSpace = new ArrayList<>();
     for (int j = 0; j < k; j++) {
@@ -408,7 +410,8 @@ final class ExactUniq {
           }
           columns.add(slice);
         }
-        List<List<String>> arranged = arrangeAvoiding(columns, forbidden, positions.size());
+        List<List<String>> arranged =
+            arrangeAvoiding(columns, forbidden, positions.size(), report);
         if (arranged == null) {
           throw new RepairNeeded(excess.size(), label);
         }
@@ -429,6 +432,7 @@ final class ExactUniq {
       }
     }
 
+    report.finish();
     if (plan != null && plan.onComputed() != null) {
       plan.onComputed().accept(override);
     }
@@ -490,7 +494,7 @@ final class ExactUniq {
    * false duplicate — the rows returned are exactly the ones the text sort would name.
    */
   private static FingerprintScan fingerprintScan(
-      List<Resolver> resolvers, int count, Path tmpDir, Progress onProgress) {
+      List<Resolver> resolvers, int count, Path tmpDir, Progress onProgress, RepairReport report) {
     int buckets = Fingerprint.bucketCountFor(count, Runtime.getRuntime().availableProcessors());
     if (buckets < 2) {
       return null;
@@ -529,13 +533,80 @@ final class ExactUniq {
       sortedPaths.add(out);
       candidates.addAll(Fingerprint.candidateGroups(out));
     }
-    return new FingerprintScan(sortedPaths, directory, verify(resolvers, candidates));
+    return new FingerprintScan(sortedPaths, directory, verify(resolvers, candidates, report));
+  }
+
+  /**
+   * One rising scale for the whole {@code uniq-repair} phase.
+   *
+   * <p>The repair is several steps with different units: candidate groups to check here, pool rows
+   * to prepare there, then a deal repeated per sweep. Reported straight, each step would restart
+   * the counter at zero, and a bar drawn from the phase would jump backwards every time one ended
+   * — which reads as a bug, not as progress.
+   *
+   * <p>So the steps are added up. Each declares its size, the phase's total grows to hold it, and
+   * {@code done} only ever rises. The total is not known in advance and is not meant to be: it is
+   * what has been taken on so far.
+   */
+  // Package-private, not private: the rising scale is a promise to whoever draws a bar from
+  // this channel, and a promise is worth a test of its own.
+  static final class RepairReport {
+    private final Progress onProgress;
+    private long base;
+    private long size;
+
+    RepairReport(Progress onProgress) {
+      this.onProgress = onProgress;
+    }
+
+    private void emit(long done) {
+      if (onProgress != null) {
+        onProgress.report("uniq-repair", fits(done), fits(base + size));
+      }
+    }
+
+    /**
+     * The channel carries {@code int}s and the scale is a SUM, so it could in principle outgrow
+     * one where a row count never does. Held at the ceiling rather than wrapped: a bar that stops
+     * at full is wrong by a little, a bar that goes negative is wrong by everything.
+     */
+    private static int fits(long value) {
+      return value > Integer.MAX_VALUE ? Integer.MAX_VALUE : (int) value;
+    }
+
+    /** Take on a step of {@code size} units. Ends the previous one. */
+    void step(long next) {
+      base += size;
+      size = next;
+      emit(base);
+    }
+
+    /** {@code done} units into the current step. */
+    void at(long done) {
+      emit(base + done);
+    }
+
+    /** Close the phase full, so a watcher sees it end rather than stall. */
+    void finish() {
+      emit(base + size);
+    }
   }
 
   /** Keep only the rows whose tuples GENUINELY repeat, lowest row of each group spared. */
-  private static List<Integer> verify(List<Resolver> resolvers, List<List<Long>> candidates) {
+  private static List<Integer> verify(
+      List<Resolver> resolvers, List<List<Long>> candidates, RepairReport report) {
     List<Integer> excess = new ArrayList<>();
+    report.step(candidates.size());
+    // Reported, because this is where a large run goes quiet: every candidate group costs a
+    // tuple recomputed per row to tell a real duplicate from a hash collision, and there can be
+    // a hundred thousand of them — tens of seconds between the last sort and the first row.
+    int reportEvery = Math.max(1, candidates.size() / 200);
+    int done = 0;
     for (List<Long> group : candidates) {
+      if (done % reportEvery == 0) {
+        report.at(done);
+      }
+      done++;
       Map<String, List<Integer>> byKey = new HashMap<>();
       for (long row : group) {
         StringBuilder key = new StringBuilder();
@@ -638,12 +709,16 @@ final class ExactUniq {
    * survive the pass. What changes is which values meet each other.
    */
   private static List<List<String>> arrangeAvoiding(
-      List<List<String>> columns, Membership forbidden, int size) {
+      List<List<String>> columns, Membership forbidden, int size, RepairReport report) {
     int k = columns.size();
     if (size == 0 || k == 0) {
       return new ArrayList<>(columns);
     }
 
+    // Said BEFORE the first deal: Uniq.arrange below is itself seconds of work on a large pool,
+    // and a watcher that only heard from the sweep loop would sit on a stale "uniq-sort"
+    // throughout it. The phase NAME is the part that answers "what is it doing".
+    report.step(size);
     List<List<String>> arranged = Uniq.arrange(columns).columns();
     List<List<String>> rows = new ArrayList<>(size);
     for (int i = 0; i < size; i++) {
@@ -654,7 +729,13 @@ final class ExactUniq {
       rows.add(row);
     }
 
+    int reportEvery = Math.max(1, size / 200);
     for (int sweep = 0; sweep < 32; sweep++) {
+      // Each sweep is another `size` units taken on, so the scale grows with the work instead of
+      // the counter restarting inside the phase.
+      if (sweep > 0) {
+        report.step(size);
+      }
       Map<String, Integer> tally = new HashMap<>();
       for (List<String> row : rows) {
         tally.merge(keyOf(row), 1, Integer::sum);
@@ -662,6 +743,9 @@ final class ExactUniq {
       boolean improved = false;
 
       for (int i = 0; i < size; i++) {
+        if (i % reportEvery == 0) {
+          report.at(i);
+        }
         List<String> ri = rows.get(i);
         String keyI = keyOf(ri);
         if (tally.getOrDefault(keyI, 0) <= 1 && !forbidden.has(keyI)) {

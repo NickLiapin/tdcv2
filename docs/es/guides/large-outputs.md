@@ -123,12 +123,16 @@ entrega la corrida al motor en memoria, donde la memoria vuelve a seguir a `coun
 4.800.000 filas, dos espacios de valores:
 
 ```
-20.000 x 20.000 valores → unas 28.800 repeticiones, por encima del tope → falló incluso con 512 MB
-40.000 x 40.000 valores → unas  7.200 repeticiones, por debajo         → terminó dentro de 256 MB
+20.000 x 20.000 valores → falló incluso con el heap limitado a 512 MB
+40.000 x 40.000 valores → terminó dentro de 256 MB
 ```
 
 Así que lo que hay que razonar es cuántas tuplas pueden formar sus columnas frente a cuántas
 filas pidió — no el número de filas por sí solo. Ensanche una columna y la misma corrida cabe.
+Cuántas repeticiones produce de verdad una configuración no se estima con la fórmula del
+cumpleaños: medido en una corrida de 6.000.000 de filas, el barrido de huellas entregó al
+verificador 99.852 grupos candidatos donde esa fórmula predice unos 11.000. Ejecútelo y mire
+`--progress`.
 
 Las que de verdad siguen a `count` son las dos filas en memoria, y
 [`TDC299`](../reference/errors.md#top) avisa de ellas a partir de 100.000 filas. Un contador

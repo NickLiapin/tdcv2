@@ -117,12 +117,15 @@ run to the in-memory engine, where memory follows `count` again. Same 4,800,000 
 value spaces:
 
 ```
-20,000 x 20,000 values → about 28,800 repeats, over the cap → failed even at 512 MB
-40,000 x 40,000 values → about  7,200 repeats, under it     → finished inside 256 MB
+20,000 x 20,000 values → failed even with the heap capped at 512 MB
+40,000 x 40,000 values → finished inside 256 MB
 ```
 
 So the number to reason about is how many tuples your values can make against how many rows
-you asked for — not the row count on its own. Widen a column and the same run fits.
+you asked for — not the row count on its own. Widen a column and the same run fits. How many
+repeats a given config actually produces is not something to estimate from the birthday
+formula: measured on a 6,000,000-row run, the fingerprint scan handed the verifier 99,852
+candidate groups where that formula predicts about 11,000. Run it and watch `--progress`.
 
 The two in-memory rows are the ones that genuinely follow `count`, and
 [`TDC299`](../reference/errors.mdx) warns about them from 100,000 rows up. A `uniq` counter

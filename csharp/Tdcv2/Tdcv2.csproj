@@ -53,6 +53,16 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <!-- The test project may see `internal`, so a promise made inside the engine can be tested
+       where it is made instead of being widened into the public vocabulary to reach a test.
+       The five implementations are held to ONE public surface by ApiVocabularyTest; nothing
+       here is part of it. -->
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+      <_Parameter1>Tdcv2.Tests</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Antlr4.Runtime.Standard" Version="4.13.1" />
   </ItemGroup>

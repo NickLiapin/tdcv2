@@ -236,7 +236,8 @@ pub fn repair(
     // text on a small one. The carrier is all that differs — the rows found are
     // the same either way, because a matching fingerprint is verified against
     // the true tuples before it is believed.
-    let scan = fingerprint_scan(sources, count, tmp_dir, on_progress)?;
+    let mut report = RepairReport::new(on_progress);
+    let scan = fingerprint_scan(sources, count, tmp_dir, on_progress, &mut report)?;
 
     let mut excess: Vec<i32> = Vec::new();
     match &scan {
@@ -312,6 +313,7 @@ pub fn repair(
     pool.sort_unstable();
 
     let k = sources.len();
+    report.step(pool.len());
     let mut pool_columns: Vec<Vec<String>> = Vec::with_capacity(k);
     let mut pool_space: Vec<BTreeSet<String>> = Vec::with_capacity(k);
     for source in sources {
@@ -382,7 +384,7 @@ pub fn repair(
             .iter()
             .map(|column| positions.iter().map(|m| column[*m].clone()).collect())
             .collect();
-        match arrange_avoiding(&columns, forbidden.as_mut(), positions.len()) {
+        match arrange_avoiding(&columns, forbidden.as_mut(), positions.len(), &mut report) {
             Some(arranged) => {
                 for (at, m) in positions.iter().enumerate() {
                     overrides.insert(
@@ -404,6 +406,7 @@ pub fn repair(
     if failed {
         return Err(repair_needed(excess.len(), label));
     }
+    report.finish();
     Ok(overrides)
 }
 
@@ -439,6 +442,7 @@ fn fingerprint_scan(
     count: i32,
     tmp_dir: &Path,
     on_progress: crate::engine::Watch<'_>,
+    report: &mut RepairReport<'_>,
 ) -> EngineResult<Option<FingerprintScan>> {
     let cores = std::thread::available_parallelism()
         .map(std::num::NonZeroUsize::get)
@@ -490,7 +494,7 @@ fn fingerprint_scan(
         sorted_paths.push(out);
     }
 
-    let excess = verify_candidates(sources, &candidates);
+    let excess = verify_candidates(sources, &candidates, report);
     Ok(Some(FingerprintScan {
         sorted_paths,
         directory,
@@ -498,10 +502,72 @@ fn fingerprint_scan(
     }))
 }
 
+/// One rising scale for the whole `uniq-repair` phase.
+///
+/// The repair is several steps with different units: candidate groups to check
+/// here, pool rows to prepare there, then a deal repeated per sweep. Reported
+/// straight, each step would restart the counter at zero, and a bar drawn from
+/// the phase would jump backwards every time one ended — which reads as a bug,
+/// not as progress.
+///
+/// So the steps are added up. Each declares its size, the phase's total grows to
+/// hold it, and `done` only ever rises. The total is not known in advance and is
+/// not meant to be: it is what has been taken on so far.
+pub(crate) struct RepairReport<'a> {
+    on_progress: crate::engine::Watch<'a>,
+    base: usize,
+    size: usize,
+}
+
+impl<'a> RepairReport<'a> {
+    pub(crate) fn new(on_progress: crate::engine::Watch<'a>) -> Self {
+        Self {
+            on_progress,
+            base: 0,
+            size: 0,
+        }
+    }
+
+    fn emit(&self, done: usize) {
+        if let Some(report) = self.on_progress {
+            report("uniq-repair", done, self.base + self.size);
+        }
+    }
+
+    /// Take on a step of `next` units. Ends the previous one.
+    pub(crate) fn step(&mut self, next: usize) {
+        self.base += self.size;
+        self.size = next;
+        self.emit(self.base);
+    }
+
+    /// `done` units into the current step.
+    pub(crate) fn at(&self, done: usize) {
+        self.emit(self.base + done);
+    }
+
+    /// Close the phase full, so a watcher sees it end rather than stall.
+    pub(crate) fn finish(&self) {
+        self.emit(self.base + self.size);
+    }
+}
+
 /// Keep only the rows whose tuples GENUINELY repeat, lowest row of each group spared.
-fn verify_candidates(sources: &[Source<'_>], candidates: &[Vec<usize>]) -> Vec<i32> {
+fn verify_candidates(
+    sources: &[Source<'_>],
+    candidates: &[Vec<usize>],
+    report: &mut RepairReport<'_>,
+) -> Vec<i32> {
     let mut excess: Vec<i32> = Vec::new();
-    for group in candidates {
+    report.step(candidates.len());
+    // Reported, because this is where a large run goes quiet: every candidate group costs a
+    // tuple recomputed per row to tell a real duplicate from a hash collision, and there can be
+    // a hundred thousand of them — tens of seconds saying nothing.
+    let report_every = (candidates.len() / 200).max(1);
+    for (done, group) in candidates.iter().enumerate() {
+        if done % report_every == 0 {
+            report.at(done);
+        }
         let mut by_key: BTreeMap<String, Vec<i32>> = BTreeMap::new();
         for row in group {
             let mut key = String::new();
@@ -593,18 +659,30 @@ fn arrange_avoiding(
     columns: &[Vec<String>],
     forbidden: &mut dyn Membership,
     size: usize,
+    report: &mut RepairReport<'_>,
 ) -> Option<Vec<Vec<String>>> {
     let k = columns.len();
     if size == 0 || k == 0 {
         return Some(columns.to_vec());
     }
 
+    // Said BEFORE the first deal: `uniq::arrange` below is itself seconds of work
+    // on a large pool, and a watcher that only heard from the sweep loop would sit
+    // on a stale `uniq-sort` throughout it. The phase NAME answers "what is it
+    // doing".
+    report.step(size);
     let arranged = uniq::arrange(columns).columns;
     let mut rows: Vec<Vec<String>> = (0..size)
         .map(|i| arranged.iter().map(|column| column[i].clone()).collect())
         .collect();
 
-    for _ in 0..32 {
+    let report_every = (size / 200).max(1);
+    for sweep in 0..32 {
+        // Each sweep is another `size` units taken on, so the scale grows with the
+        // work instead of the counter restarting inside the phase.
+        if sweep > 0 {
+            report.step(size);
+        }
         let mut tally: BTreeMap<String, i32> = BTreeMap::new();
         for row in &rows {
             *tally.entry(key_of(row)).or_insert(0) += 1;
@@ -612,6 +690,9 @@ fn arrange_avoiding(
 
         let mut improved = false;
         for i in 0..size {
+            if i % report_every == 0 {
+                report.at(i);
+            }
             let key_i = key_of(&rows[i]);
             if !is_bad(&tally, forbidden, &key_i) {
                 continue;
@@ -730,4 +811,50 @@ fn run_for(cum_hi: &[i32], slot: i32) -> usize {
         }
     }
     lo
+}
+
+#[cfg(test)]
+mod tests {
+    use super::RepairReport;
+    use std::cell::RefCell;
+
+    /// The scale itself, tested where it is written: a new step lifts the floor
+    /// instead of resetting it, and the phase closes full.
+    #[test]
+    fn a_new_step_lifts_the_floor_instead_of_resetting_it() {
+        let seen: RefCell<Vec<(String, usize, usize)>> = RefCell::new(Vec::new());
+        let hook = |phase: &str, done: usize, total: usize| {
+            seen.borrow_mut().push((phase.to_string(), done, total));
+        };
+        let mut report = RepairReport::new(Some(&hook));
+
+        report.step(3);
+        report.at(1);
+        report.at(2);
+        report.step(5);
+        report.at(1);
+        report.finish();
+
+        let got: Vec<(usize, usize)> = seen.borrow().iter().map(|t| (t.1, t.2)).collect();
+        assert_eq!(
+            got,
+            vec![
+                (0, 3), // three units taken on
+                (1, 3),
+                (2, 3),
+                (3, 8), // the first step is behind us, five more taken on
+                (4, 8),
+                (8, 8), // closed full
+            ]
+        );
+        assert!(seen.borrow().iter().all(|t| t.0 == "uniq-repair"));
+    }
+
+    #[test]
+    fn no_listener_no_work() {
+        let mut report = RepairReport::new(None);
+        report.step(2);
+        report.at(1);
+        report.finish();
+    }
 }

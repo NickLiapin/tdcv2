@@ -17,6 +17,42 @@ page — is tracked in that implementation's own changelog:
 
 ### Added
 
+<!-- covers: progress uniq-repair -->
+
+- **`--progress` gained a fourth phase, `uniq-repair`, and it turned out to be the biggest
+  one.** Measured on a 6,000,000-row `<uniq>` group: hashing every tuple took 13 s, sorting
+  the piles 2 s, writing the rows 1 s across eight workers — and 56 of the 74 seconds sat
+  between the last `uniq-sort` and the first `render`, reporting nothing at all. Three
+  quarters of a run, indistinguishable from a hang.
+
+  That stretch is the repair: verifying the candidate groups the fingerprints turned up, then
+  rearranging the rows that really do repeat. It now reports, in all five implementations,
+  from BEFORE the first deal — the deal alone is seconds on a large pool, and a watcher that
+  only heard from the sweep loop would sit on a stale `uniq-sort` throughout it.
+
+  Watching it says something worth knowing: that run handed the verifier **99,852 candidate
+  groups** where the birthday formula predicts about 11,000. Reach for the measurement, not
+  the formula.
+
+- **A phase's numbers now only ever RISE, and a phase ends at its own total.** Two defects
+  that only showed up once the repair had a phase to report under.
+
+  The repair is several steps with different units — candidate groups to check, pool rows to
+  prepare, then a deal repeated per sweep. Each reported its own count against its own total,
+  so the counter restarted at zero every time a step ended: a bar drawn from `uniq-repair`
+  jumped backwards two or three times per run, which reads as a bug rather than as progress.
+  The steps are now added up on one growing scale — each declares its size, the phase's total
+  grows to hold it — so the total is what the repair has taken on so far rather than a figure
+  known in advance.
+
+  And `render` stopped one report short of its own total in Python, Java, C# and Rust, because
+  the loop reports every half-percent and the last partial slice never triggered one. A bar
+  built on it sat at 99.5% for however long the tail took, indistinguishable from a stall. All
+  four now close the phase.
+
+  The guarantee is a promise to whoever draws a bar, so all five implementations test it:
+  within a phase neither the count nor the scale goes backwards, and the phase closes full.
+
 <!-- covers: uniq compound -->
 
 - **A compound `uniq="true"` gets the fingerprint carrier it was supposed to have.** Every

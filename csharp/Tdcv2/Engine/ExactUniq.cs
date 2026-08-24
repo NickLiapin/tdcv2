@@ -217,7 +217,8 @@ internal static class ExactUniq
         // How the duplicates are hunted: by fingerprint on a large run, by tuple text on a small
         // one. The carrier is all that differs — the rows found are the same either way, because a
         // matching fingerprint is verified against the true tuples before it is believed.
-        FingerprintScan? scan = RunFingerprintScan(resolvers, count, tmpDir, onProgress);
+        var report = new RepairReport(onProgress);
+        FingerprintScan? scan = RunFingerprintScan(resolvers, count, tmpDir, onProgress, report);
 
         var excess = new List<int>();
         if (scan is not null)
@@ -306,6 +307,7 @@ internal static class ExactUniq
         pool.Sort();
 
         int k = resolvers.Count;
+        report.Step(pool.Count);
         var poolColumns = new List<IReadOnlyList<string>>();
         var poolSpace = new List<HashSet<string>>();
         for (int j = 0; j < k; j++)
@@ -392,7 +394,7 @@ internal static class ExactUniq
                     .Select(column => (IReadOnlyList<string>)positions.Select(m => column[m]).ToList())
                     .ToList();
                 List<List<string>>? arranged =
-                    ArrangeAvoiding(columns, forbidden, positions.Count);
+                    ArrangeAvoiding(columns, forbidden, positions.Count, report);
                 if (arranged is null)
                 {
                     throw new RepairNeeded(excess.Count, label);
@@ -412,6 +414,7 @@ internal static class ExactUniq
             scan?.Drop();
         }
 
+        report.Finish();
         plan?.OnComputed?.Invoke(overrides);
         return ApplyOverride(ids, resolvers, overrides);
     }
@@ -448,6 +451,61 @@ internal static class ExactUniq
     /// record has to be parsed to be compared.
     /// </remarks>
     /// <summary>What the fingerprint hunt produced: the sorted piles, their home, the verified rows.</summary>
+    /// <summary>
+    /// One rising scale for the whole <c>uniq-repair</c> phase.
+    /// </summary>
+    /// <remarks>
+    /// The repair is several steps with different units: candidate groups to check here, pool
+    /// rows to prepare there, then a deal repeated per sweep. Reported straight, each step would
+    /// restart the counter at zero, and a bar drawn from the phase would jump backwards every
+    /// time one ended — which reads as a bug, not as progress.
+    /// <para>
+    /// So the steps are added up. Each declares its size, the phase's total grows to hold it, and
+    /// <c>done</c> only ever rises. The total is not known in advance and is not meant to be: it
+    /// is what has been taken on so far.
+    /// </para>
+    /// </remarks>
+    // Internal, not private: the rising scale is a promise to whoever draws a bar from this
+    // channel, and a promise is worth a test of its own.
+    internal sealed class RepairReport
+    {
+        private readonly Progress? _onProgress;
+        private long _base;
+        private long _size;
+
+        internal RepairReport(Progress? onProgress)
+        {
+            _onProgress = onProgress;
+        }
+
+        private void Emit(long done)
+        {
+            _onProgress?.Invoke("uniq-repair", Fits(done), Fits(_base + _size));
+        }
+
+        /// <summary>Take on a step of <paramref name="next"/> units. Ends the previous one.</summary>
+        internal void Step(long next)
+        {
+            _base += _size;
+            _size = next;
+            Emit(_base);
+        }
+
+        /// <summary><paramref name="done"/> units into the current step.</summary>
+        internal void At(long done) => Emit(_base + done);
+
+        /// <summary>Close the phase full, so a watcher sees it end rather than stall.</summary>
+        internal void Finish() => Emit(_base + _size);
+
+        /// <summary>
+        /// The channel carries <c>int</c>s and the scale is a SUM, so it could in principle
+        /// outgrow one where a row count never does. Held at the ceiling rather than wrapped: a
+        /// bar that stops at full is wrong by a little, a bar that goes negative is wrong by
+        /// everything.
+        /// </summary>
+        private static int Fits(long value) => value > int.MaxValue ? int.MaxValue : (int)value;
+    }
+
     private sealed record FingerprintScan(List<string> SortedPaths, string Directory, List<int> Excess)
     {
         internal void Drop()
@@ -473,7 +531,8 @@ internal static class ExactUniq
     /// false duplicate — the rows returned are exactly the ones the text sort would name.
     /// </remarks>
     private static FingerprintScan? RunFingerprintScan(
-        IReadOnlyList<Resolver> resolvers, int count, string tmpDir, Progress? onProgress = null)
+        IReadOnlyList<Resolver> resolvers, int count, string tmpDir, Progress? onProgress,
+        RepairReport report)
     {
         int buckets = Fingerprint.BucketCountFor(count, Environment.ProcessorCount);
         if (buckets < 2)
@@ -506,16 +565,29 @@ internal static class ExactUniq
             candidates.AddRange(Fingerprint.CandidateGroups(outPath));
         }
 
-        return new FingerprintScan(sortedPaths, directory, Verify(resolvers, candidates));
+        return new FingerprintScan(
+            sortedPaths, directory, Verify(resolvers, candidates, report));
     }
 
     /// <summary>Keep only the rows whose tuples GENUINELY repeat, lowest row of each group spared.</summary>
     private static List<int> Verify(
-        IReadOnlyList<Resolver> resolvers, List<List<int>> candidates)
+        IReadOnlyList<Resolver> resolvers, List<List<int>> candidates, RepairReport report)
     {
         var excess = new List<int>();
+        report.Step(candidates.Count);
+        // Reported, because this is where a large run goes quiet: every candidate group costs a
+        // tuple recomputed per row to tell a real duplicate from a hash collision, and there can
+        // be a hundred thousand of them — tens of seconds saying nothing.
+        int reportEvery = Math.Max(1, candidates.Count / 200);
+        int reported = 0;
         foreach (List<int> group in candidates)
         {
+            if (reported % reportEvery == 0)
+            {
+                report.At(reported);
+            }
+
+            reported++;
             var byKey = new Dictionary<string, List<int>>(StringComparer.Ordinal);
             foreach (int row in group)
             {
@@ -615,7 +687,8 @@ internal static class ExactUniq
     /// survive the pass. What changes is which values meet each other.
     /// </remarks>
     private static List<List<string>>? ArrangeAvoiding(
-        IReadOnlyList<IReadOnlyList<string>> columns, IMembership forbidden, int size)
+        IReadOnlyList<IReadOnlyList<string>> columns, IMembership forbidden, int size,
+        RepairReport report)
     {
         int k = columns.Count;
         if (size == 0 || k == 0)
@@ -623,6 +696,10 @@ internal static class ExactUniq
             return columns.Select(c => c.ToList()).ToList();
         }
 
+        // Said BEFORE the first deal: Uniq.Arrange below is itself seconds of work on a large
+        // pool, and a watcher that only heard from the sweep loop would sit on a stale
+        // "uniq-sort" throughout it. The phase NAME answers "what is it doing".
+        report.Step(size);
         IReadOnlyList<List<string>> arranged = Uniq.Arrange(columns).Columns;
         var rows = new List<List<string>>(size);
         for (int i = 0; i < size; i++)
@@ -630,8 +707,16 @@ internal static class ExactUniq
             rows.Add(arranged.Select(column => column[i]).ToList());
         }
 
+        int reportEvery = Math.Max(1, size / 200);
         for (int sweep = 0; sweep < 32; sweep++)
         {
+            // Each sweep is another `size` units taken on, so the scale grows with the work
+            // instead of the counter restarting inside the phase.
+            if (sweep > 0)
+            {
+                report.Step(size);
+            }
+
             var tally = new Dictionary<string, int>(StringComparer.Ordinal);
             foreach (List<string> row in rows)
             {
@@ -642,6 +727,11 @@ internal static class ExactUniq
             bool improved = false;
             for (int i = 0; i < size; i++)
             {
+                if (i % reportEvery == 0)
+                {
+                    report.At(i);
+                }
+
                 List<string> ri = rows[i];
                 string keyI = KeyOf(ri);
                 if (!IsBad(tally, forbidden, keyI))

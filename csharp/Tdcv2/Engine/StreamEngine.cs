@@ -2333,6 +2333,10 @@ public sealed class StreamEngine
         {
             Emit(output, fx.After, _count - 1);
         }
+
+        // Said at the end as well as along the way: a phase a watcher sees CLOSE is a phase it
+        // can tell from a stall. The sweep above reports every half-percent and so stops short.
+        _onProgress?.Invoke("render", to - from, to - from);
     }
 
     private IReadOnlyDictionary<string, Repeat.Spec> EachInfo()

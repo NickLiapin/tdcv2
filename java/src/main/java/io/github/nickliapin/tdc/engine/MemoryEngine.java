@@ -168,6 +168,11 @@ public final class MemoryEngine {
     }
 
     emit(out, fx.after(), columns, count - 1, config.inject());
+    // Said at the end as well as along the way: a phase a watcher sees CLOSE is a phase it can
+    // tell from a stall. The sweep above reports every half-percent and so stops short.
+    if (onProgress != null) {
+      onProgress.report("render", count, count);
+    }
     return new Rendered(out.toString(), columns, count);
   }
 

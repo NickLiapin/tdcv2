@@ -228,7 +228,7 @@ export type EngineId = 1 | 2 | 3;
  * callback can be honest work without slowing the run.
  */
 export interface RenderProgress {
-  readonly phase: 'uniq-scan' | 'uniq-sort' | 'render';
+  readonly phase: 'uniq-scan' | 'uniq-sort' | 'uniq-repair' | 'render';
   readonly done: number;
   readonly total: number;
 }

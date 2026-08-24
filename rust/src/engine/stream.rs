@@ -3006,6 +3006,12 @@ impl StreamEngine<'_> {
             }
         }
         self.emit(out, &fx.after, (self.count - 1).max(0))?;
+        // Said at the end as well as along the way: a phase a watcher sees CLOSE
+        // is a phase it can tell from a stall. The sweep above reports every
+        // half-percent and so stops short.
+        if let Some(report) = self.on_progress {
+            report("render", total, total);
+        }
         Ok(())
     }
 

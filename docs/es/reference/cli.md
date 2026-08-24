@@ -179,8 +179,19 @@ tdcv2 demo.tdc -o out.csv --progress
 ```
 
 Las fases en orden: `uniq-scan` (se calcula el hash de la tupla de cada fila), `uniq-sort`
-(se ordenan los montones) y `render` (se escriben las filas); una ejecución sin `<uniq>`
-solo informa `render`. La última escritura es `{"phase":"done","percent":100,...}` con los
+(se ordenan los montones), `uniq-repair` (se comprueban y reordenan las tuplas repetidas) y
+`render` (se escriben las filas); una ejecución sin `<uniq>` solo informa `render`. En una
+ejecución `uniq` grande la más larga de las cuatro suele ser `uniq-repair` — medida en
+6.000.000 de filas fueron 56 de 74 segundos —, así que es ahí donde hay que esperar.
+
+Dentro de una fase los números solo suben, y la fase termina en su propio total: una
+barra
+dibujada a partir de ellos nunca salta hacia atrás ni se queda corta. `uniq-repair` son
+varios pasos de distinta naturaleza informados sobre una única escala creciente, así que su
+total es el trabajo que la reparación lleva asumido hasta ese momento y no una cifra
+conocida de antemano.
+
+La última escritura es `{"phase":"done","percent":100,...}` con los
 segundos de reloj que duró la ejecución.
 
 Dos cosas hacen que sea seguro consultarlo. El archivo se reemplaza de forma atómica, así

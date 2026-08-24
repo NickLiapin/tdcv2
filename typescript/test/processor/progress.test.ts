@@ -42,7 +42,8 @@ describe('onProgress', () => {
     });
 
     const phases = [...new Set(seen.map((p) => p.phase))];
-    expect(phases).toEqual(['uniq-scan', 'uniq-sort', 'render']);
+    // 400 rows drawn from 480 pairs: the repair is certain here, and it reports.
+    expect(phases).toEqual(['uniq-scan', 'uniq-sort', 'uniq-repair', 'render']);
 
     for (const phase of phases) {
       const of = seen.filter((p) => p.phase === phase);
@@ -51,6 +52,22 @@ describe('onProgress', () => {
         expect(of[i]!.done).toBeGreaterThanOrEqual(of[i - 1]!.done);
       }
     }
+    /*
+     * The repair is several steps with different units — candidate groups, then
+     * pool rows, then a deal per sweep — reported on ONE rising scale. Both
+     * halves matter: `done` never falls (checked above with the other phases),
+     * and the scale never shrinks under it, so a bar drawn from the phase
+     * cannot jump backwards when a step ends. It closes full.
+     */
+    const repair = seen.filter((p) => p.phase === 'uniq-repair');
+    expect(repair.length).toBeGreaterThan(1);
+    for (let i = 1; i < repair.length; i++) {
+      expect(repair[i]!.total).toBeGreaterThanOrEqual(repair[i - 1]!.total);
+      expect(repair[i]!.done).toBeLessThanOrEqual(repair[i]!.total);
+    }
+    const lastRepair = repair[repair.length - 1]!;
+    expect(lastRepair.done).toBe(lastRepair.total);
+
     // The render closes at exactly its total, so "done" is a real signal.
     const renderReports = seen.filter((p) => p.phase === 'render');
     expect(renderReports[renderReports.length - 1]).toEqual({

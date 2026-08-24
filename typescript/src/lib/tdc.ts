@@ -78,13 +78,15 @@ export interface TdcOptions {
    * Called as a run advances — the live wire for a progress bar.
    *
    * Phases: 'uniq-scan' (every row's tuple hashed), 'uniq-sort' (piles
-   * sorted; `done` counts piles), 'render' (rows written). Reports are
+   * sorted; `done` counts piles), 'uniq-repair' (repeats verified and
+   * rearranged — usually the longest on a large run), 'render' (rows
+   * written). Reports are
    * throttled at the source, about one per half-percent of a phase. This is
    * what TDC Studio and any service driving the engine listen to; the CLI's
    * `--progress` turns the same wire into a status file.
    */
   readonly onProgress?: (progress: {
-    readonly phase: 'uniq-scan' | 'uniq-sort' | 'render';
+    readonly phase: 'uniq-scan' | 'uniq-sort' | 'uniq-repair' | 'render';
     readonly done: number;
     readonly total: number;
   }) => void;
@@ -600,7 +602,7 @@ export class TDC {
     source?: string;
     packs?: PackRegistry;
     onProgress?: (progress: {
-      phase: 'uniq-scan' | 'uniq-sort' | 'render';
+      phase: 'uniq-scan' | 'uniq-sort' | 'uniq-repair' | 'render';
       done: number;
       total: number;
     }) => void;
@@ -619,7 +621,7 @@ export class TDC {
       source?: string;
       packs?: PackRegistry;
       onProgress?: (progress: {
-        phase: 'uniq-scan' | 'uniq-sort' | 'render';
+        phase: 'uniq-scan' | 'uniq-sort' | 'uniq-repair' | 'render';
         done: number;
         total: number;
       }) => void;

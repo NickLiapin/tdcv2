@@ -185,6 +185,10 @@ def build(
             _emit(out, fx.delimiter_block, columns, row, config.inject)
 
     _emit(out, fx.after, columns, count - 1, config.inject)
+    # Said at the end as well as along the way: a phase a watcher sees CLOSE is a phase it
+    # can tell from a stall. The sweep above reports every half-percent and so stops short.
+    if on_progress is not None:
+        on_progress("render", count, count)
     return Rendered("".join(out), columns, count)
 
 

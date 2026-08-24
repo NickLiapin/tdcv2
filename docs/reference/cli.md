@@ -178,7 +178,16 @@ tdcv2 demo.tdc -o out.csv --progress
 ```
 
 The phases in order: `uniq-scan` (every row's tuple hashed), `uniq-sort` (the piles
-sorted) and `render` (rows written); a run without a `<uniq>` only ever reports `render`.
+sorted), `uniq-repair` (the tuples that repeat checked and rearranged) and `render` (rows
+written); a run without a `<uniq>` only ever reports `render`. On a large `uniq` run
+`uniq-repair` is usually the longest of the four — measured at 6,000,000 rows it was 56 of
+74 seconds — so that is the one to expect a wait in.
+
+Within a phase the numbers only ever rise, and a phase ends at its own total — so a bar
+drawn from them never jumps backwards and never stops short of full. `uniq-repair` is
+several steps of different kinds reported on one growing scale, so its total is what the
+repair has taken on so far rather than something known in advance.
+
 The last write is `{"phase":"done","percent":100,...}` with the wall-clock seconds the run
 took.
 

@@ -112,8 +112,16 @@ impl From<EngineError> for TdcError {
 /// themselves.
 ///
 /// The phases, in the order a uniq run passes through them: `uniq-scan` (every
-/// row's tuple hashed into its pile), `uniq-sort` (the piles sorted), `render`
-/// (rows written). A run without uniqueness only ever reports `render`.
+/// row's tuple hashed into its pile), `uniq-sort` (the piles sorted),
+/// `uniq-repair` (the tuples that repeat checked and rearranged — usually the
+/// longest of the four on a large run), `render` (rows written). A run without
+/// uniqueness only ever reports `render`.
+///
+/// Within a phase the numbers only ever RISE, and a phase ends at its own total
+/// — so a bar drawn from them never jumps backwards and never stops short of
+/// full. `uniq-repair` is several steps of different kinds reported on one
+/// growing scale, so its total is what has been taken on so far rather than
+/// something known in advance.
 ///
 /// A newtype rather than a bare closure because [`Options`] derives `Debug` and
 /// a closure does not.

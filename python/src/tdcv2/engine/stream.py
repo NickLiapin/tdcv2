@@ -245,6 +245,10 @@ class StreamEngine:
                 self._emit(emit, fx.delimiter_block, row, each_info)
         if stop == self.count:
             self._emit(emit, fx.after, self.count - 1, each_info)
+        # Said at the end as well as along the way: a phase a watcher sees CLOSE is a phase it
+        # can tell from a stall. The sweep above reports every half-percent and so stops short.
+        if self.on_progress is not None:
+            self.on_progress("render", total, total)
 
     # ── pools ───────────────────────────────────────────────────────────────────────────────
 

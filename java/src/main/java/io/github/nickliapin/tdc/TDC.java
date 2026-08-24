@@ -265,9 +265,13 @@ public final class TDC {
      * Called as the run advances, so a caller with a long run can say more than "working".
      *
      * <p>Phases: {@code uniq-scan} (every row's tuple hashed), {@code uniq-sort} (piles sorted),
-     * {@code render} (rows written). It is called often — about two hundred times per phase — so
-     * it must be cheap; the command line throttles it to once a second before writing anything
-     * down.
+     * {@code uniq-repair} (the tuples that repeat checked and rearranged — usually the longest of
+     * the four on a large run), {@code render} (rows written). It is called often — about two
+     * hundred times per phase — so it must be cheap; the command line throttles it to once a
+     * second before writing anything down.
+     *
+     * <p>Within a phase the numbers only ever RISE, and a phase ends at its own total, so a bar
+     * drawn from them never jumps backwards and never stops short of full.
      */
     public Options onProgress(io.github.nickliapin.tdc.engine.Progress value) {
       this.onProgress = value;

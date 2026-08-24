@@ -242,9 +242,14 @@ public sealed class Tdc
         /// </summary>
         /// <remarks>
         /// Phases: <c>uniq-scan</c> (every row's tuple hashed), <c>uniq-sort</c> (piles sorted),
-        /// <c>render</c> (rows written). It is called often — about two hundred times per phase —
-        /// so it must be cheap; the command line throttles it to once a second before writing
-        /// anything down.
+        /// <c>uniq-repair</c> (the tuples that repeat checked and rearranged — usually the longest
+        /// of the four on a large run), <c>render</c> (rows written). It is called often — about
+        /// two hundred times per phase — so it must be cheap; the command line throttles it to
+        /// once a second before writing anything down.
+        /// <para>
+        /// Within a phase the numbers only ever RISE, and a phase ends at its own total, so a bar
+        /// drawn from them never jumps backwards and never stops short of full.
+        /// </para>
         /// </remarks>
         public Progress? OnProgress { get; set; }
 
