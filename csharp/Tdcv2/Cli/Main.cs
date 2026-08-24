@@ -224,9 +224,8 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
     /// that stops moving for minutes means the process is gone, whatever the content says. On
     /// success the last write says <c>"phase":"done"</c> with the wall-clock seconds the run took.
     /// <para>
-    /// Rows reported are the ones THIS process renders. A run split across workers writes its
-    /// shards elsewhere, so the file then carries the phases the coordinator sees and the closing
-    /// <c>done</c>, not a per-row count.
+    /// A run split across workers is counted whole: every shard reports the rows it has written
+    /// and the coordinator adds them up, so the percent is the FILE's, not one worker's.
     /// </para>
     /// </remarks>
     private sealed class StatusFile
@@ -254,7 +253,10 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
         internal void Report(string phase, int done, int total)
         {
             long now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-            if (now - _lastWrite < 1000)
+            // A finished phase is always written, throttle or not: forty-four piles can finish
+            // inside one second, and the throttle then dropped every report after the first —
+            // leaving the file saying "1 of 44" while the run had moved on.
+            if (done != total && now - _lastWrite < 1000)
             {
                 return;
             }

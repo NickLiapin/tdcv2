@@ -31,11 +31,11 @@ including when it fails.
 
 ## What each one is for
 
-| File                      | Proves                                                                                                                                                                               | Costs          |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- |
-| `memory-ceiling.heavy.ts` | Memory does not grow with the file: ten million rows with the heap capped at 512 MB. The cap is the point — an appetite that came back would die here instead of quietly using more. | ~70 s, 150 MB  |
-| `progress.heavy.ts`       | The status file moves through every phase on a real run and its mtime is a usable heartbeat, polled from outside the process.                                                        | ~30 s, 60 MB   |
-| `uniqueness.heavy.ts`     | Every row of a two-million-row file is distinct, counted with an external sort — not sampled — and the thread count does not change a byte.                                          | ~2 min, 100 MB |
+| File                      | Proves                                                                                                                                                                                               | Costs          |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| `memory-ceiling.heavy.ts` | Memory does not grow with the file: ten million rows with the heap capped at 512 MB. The cap is the point — an appetite that came back would die here instead of quietly using more.                 | ~70 s, 150 MB  |
+| `progress.heavy.ts`       | The status file moves through every phase on a real run and its mtime is a usable heartbeat, polled from outside the process — and a PARALLEL run is counted whole rather than one worker at a time. | ~35 s, 300 MB  |
+| `uniqueness.heavy.ts`     | Every row of a two-million-row file is distinct, counted with an external sort — not sampled — and the thread count does not change a byte.                                                          | ~2 min, 100 MB |
 
 They are cheaper than they were: the fingerprint work cut both the time and the
 scratch space by roughly an order of magnitude, and the configs were narrowed to
@@ -57,6 +57,12 @@ Three layers, and only the third is here:
   enough for the intermediate phases to appear at all. A three-row run finishes before
   the first throttled report is due; the fixture above can therefore only assert on
   the last write, and this fills that gap.
+
+  Its second case is about the PARALLEL path, which is the ordinary one: above a
+  hundred thousand rows the CLI splits the run by itself. That case was silent for a
+  while — every worker rendered its range without telling anyone, so an eleven-second
+  run reported one line — and no cheap test could have caught it, because the split
+  only happens on runs too big for a fast suite.
 
 The four ports have the first two layers. They have no heavy suite of their own — the
 engine behaviour they would exercise is already pinned byte for byte by the shared

@@ -295,7 +295,9 @@ class TDC:
         count = self._worker_count(workers)
         if count > 1:
             assert self._config_file is not None  # _worker_count returns 1 without a file
-            parallel.write_file(self._config_file, path, self._options, count, self.count)
+            parallel.write_file(
+                self._config_file, path, self._options, count, self.count, self._on_progress
+            )
             return
 
         with path.open("w", encoding="utf-8") as out:

@@ -29,6 +29,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import threading
 from pathlib import Path
 
 # Below this, a process costs more to start than its rows cost to generate. A worker's own startup
@@ -64,6 +65,24 @@ class ShardError(RuntimeError):
     """A worker failed, with whatever it said before it did."""
 
 
+def _watch(counters, count: int, on_progress, stop: threading.Event) -> None:
+    """Add up what the shards have written, until told the run is over.
+
+    Each shard keeps one number in one file; this reads them all four times a second and reports
+    the sum. A file that is missing or half-parsed counts as zero for that round rather than
+    stopping the watch: it means a shard has not written yet, which is not an error, and the next
+    round will see it.
+    """
+    while not stop.wait(0.25):
+        done = 0
+        for counter in counters:
+            try:
+                done += int(counter.read_text(encoding="utf-8"))
+            except (OSError, ValueError):
+                continue
+        on_progress("render", done, count)
+
+
 def _plain(value: object) -> object:
     """A `TDC` option as JSON. Only paths need help; everything else already is."""
     if isinstance(value, Path):
@@ -74,7 +93,12 @@ def _plain(value: object) -> object:
 
 
 def write_file(
-    config_file: str | Path, target: str | Path, options: dict, workers: int, count: int
+    config_file: str | Path,
+    target: str | Path,
+    options: dict,
+    workers: int,
+    count: int,
+    on_progress=None,
 ) -> None:
     """Write ``target`` from ``config_file`` using ``workers`` processes.
 
@@ -103,6 +127,9 @@ def write_file(
         env["PYTHONPATH"] = root + os.pathsep + env.get("PYTHONPATH", "")
 
         parts = [work_dir / f"part-{i:05d}" for i in range(len(shards(count, workers)))]
+        counters = (
+            [work_dir / f"progress-{i:05d}" for i in range(len(parts))] if on_progress else []
+        )
         running = [
             subprocess.Popen(
                 [
@@ -113,20 +140,42 @@ def write_file(
                     str(start),
                     str(stop),
                     str(part),
+                    *([str(counters[i])] if counters else []),
                 ],
                 env=env,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
                 text=True,
             )
-            for (start, stop), part in zip(shards(count, workers), parts, strict=True)
+            for i, ((start, stop), part) in enumerate(
+                zip(shards(count, workers), parts, strict=True)
+            )
         ]
 
-        failures = []
-        for i, process in enumerate(running):
-            _, errors = process.communicate()
-            if process.returncode != 0:
-                failures.append(f"shard {i}: {(errors or '').strip().splitlines()[-1:] or ['?']}")
+        # A watcher, not a wait. The reading below has to stay exactly as it was — a shard's stderr
+        # pipe fills at 64 KB and a parent that polls instead of draining would deadlock the moment
+        # one of them said too much. So the counting happens beside it, on its own thread, and the
+        # failure handling never learns that anyone is watching.
+        watching = threading.Event()
+        watcher = None
+        if counters:
+            watcher = threading.Thread(
+                target=_watch, args=(counters, count, on_progress, watching), daemon=True
+            )
+            watcher.start()
+
+        try:
+            failures = []
+            for i, process in enumerate(running):
+                _, errors = process.communicate()
+                if process.returncode != 0:
+                    failures.append(
+                        f"shard {i}: {(errors or '').strip().splitlines()[-1:] or ['?']}"
+                    )
+        finally:
+            watching.set()
+            if watcher is not None:
+                watcher.join(timeout=2)
         if failures:
             raise ShardError("parallel run failed — " + "; ".join(failures))
 

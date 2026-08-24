@@ -128,4 +128,80 @@ describe('the status file on a real run', () => {
     },
     30 * 60 * 1000,
   );
+
+  it(
+    "counts a PARALLEL run whole — the percent is the file's, not one worker's",
+    async () => {
+      const dir = mkdtempSync(join(tmpdir(), 'tdc-heavy-progress-par-'));
+      const config = join(dir, 'run.tdc');
+      const out = join(dir, 'out.jsonl');
+      const status = `${out}.progress`;
+
+      /*
+       * The case the channel was half-built for. Above a hundred thousand rows
+       * the CLI splits the run across workers by ITSELF, so the parallel path
+       * is the ordinary one and the single-threaded one is the exception — and
+       * while every worker rendered its own range in silence, the status file
+       * went straight from nothing to `done`. An eleven-second run reported one
+       * line. This is the test that would have said so.
+       *
+       * No `<uniq>`: this is about the render phase being summed across workers,
+       * and a wide uniq group would spend most of the run in the scan instead.
+       */
+      const values = Array.from({ length: 1000 }, (_, i) => `v${String(i)}`).join(',');
+      const { writeFileSync } = await import('node:fs');
+      writeFileSync(
+        config,
+        `<tdc><env count="8000000" seed="heavy-par" local="en">` +
+          `<sequence name="A"><gen type="text" value="${values}"/></sequence>` +
+          `<sequence name="B"><gen type="number" value="1..1000000"/></sequence>` +
+          `</env><block><line><data>\${{A}}|\${{B}}</data></line></block></tdc>\n`,
+      );
+
+      try {
+        // `--jobs 4`, named rather than left to the machine: the point is that
+        // FOUR workers are summed, and a test that let the host decide would
+        // prove nothing on a single-core runner.
+        const child = execFile('node', [distMain, config, '--jobs', '4', '--progress', '-o', out]);
+        const finished = new Promise<number>((resolveExit) => {
+          child.on('exit', (code) => {
+            resolveExit(code ?? -1);
+          });
+        });
+
+        const seen: Status[] = [];
+        while (child.exitCode === null) {
+          await sleep(250);
+          if (!existsSync(status)) continue;
+          const parsed = JSON.parse(readFileSync(status, 'utf8')) as Status;
+          const last = seen[seen.length - 1];
+          if (last?.phase !== parsed.phase || last.done !== parsed.done) seen.push(parsed);
+        }
+        expect(await finished).toBe(0);
+
+        const rendering = seen.filter((s) => s.phase === 'render');
+        // More than the two a silent parallel run would produce: the opening
+        // mark and whatever landed at the end.
+        expect(rendering.length).toBeGreaterThan(3);
+
+        // Every count is the WHOLE file's, so it is bounded by the row count —
+        // a worker's own numbers would have topped out at a quarter of it, and
+        // summing deltas twice would have overshot it.
+        for (const report of rendering) {
+          expect(report.total).toBe(8_000_000);
+          expect(report.done).toBeLessThanOrEqual(8_000_000);
+        }
+        // And it really got past one worker's share, which is what "whole" means.
+        const highest = Math.max(...rendering.map((r) => r.done ?? 0));
+        expect(highest).toBeGreaterThan(8_000_000 / 4);
+
+        const final = seen[seen.length - 1];
+        expect(final?.phase).toBe('done');
+        expect(final?.percent).toBe(100);
+      } finally {
+        rmSync(dir, { recursive: true, force: true });
+      }
+    },
+    30 * 60 * 1000,
+  );
 });

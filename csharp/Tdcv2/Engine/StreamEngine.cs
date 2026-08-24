@@ -199,9 +199,10 @@ public sealed class StreamEngine
         string? baseDir,
         TextWriter output,
         int from,
-        int to)
+        int to,
+        Progress? onProgress = null)
     {
-        var engine = new StreamEngine(config, packs, nowMillis, baseDir, false, null);
+        var engine = new StreamEngine(config, packs, nowMillis, baseDir, false, onProgress);
         engine.BuildColumns();
         engine.Write(output, from, to);
     }

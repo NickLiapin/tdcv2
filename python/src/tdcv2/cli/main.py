@@ -219,9 +219,8 @@ class _StatusFile:
     moving for minutes means the process is gone, whatever the content says. On success the last
     write says ``"phase":"done"`` with the wall-clock seconds the run took.
 
-    Rows reported are the ones THIS process renders. A run split across workers writes its shards
-    in other processes, so the file then carries the phases the coordinator sees and the closing
-    ``done``, not a per-row count.
+    A run split across workers is counted whole: every shard reports the rows it has written and
+    the parent adds them up, so the percent is the FILE's, not one worker's.
     """
 
     def __init__(self, path: Path) -> None:
@@ -236,7 +235,10 @@ class _StatusFile:
 
     def report(self, phase: str, done: int, total: int) -> None:
         now = int(time.time() * 1000)
-        if now - self._last_write < 1000:
+        # A finished phase is always written, throttle or not: several piles can finish inside one
+        # second, and the throttle then dropped every report after the first — leaving the file
+        # saying "1 of 44" while the run had moved on.
+        if done != total and now - self._last_write < 1000:
             return
         self._last_write = now
         self._write(

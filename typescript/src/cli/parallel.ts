@@ -61,6 +61,28 @@ export interface ParallelParams {
   readonly jobs: number;
   /** Destination file descriptor (1 for stdout, or an opened output file). */
   readonly destFd: number;
+  /**
+   * Called as the run advances, with the WHOLE file's numbers.
+   *
+   * Every worker reports the rows it has finished; this adds them up, so a
+   * watcher sees one run rather than N. Without it a parallel run was silent
+   * until the moment it ended — and above a hundred thousand rows the CLI
+   * chooses parallel by itself, which made silence the ordinary case.
+   */
+  readonly onProgress?:
+    | ((progress: {
+        phase: 'uniq-scan' | 'uniq-sort' | 'render';
+        done: number;
+        total: number;
+      }) => void)
+    | undefined;
+}
+
+/** What the workers have finished between them. */
+function total(counts: readonly number[]): number {
+  let sum = 0;
+  for (const n of counts) sum += n;
+  return sum;
 }
 
 /**
@@ -172,6 +194,10 @@ function planUniq(
 }
 
 export async function runParallel(params: ParallelParams): Promise<void> {
+  // Said before anything is spawned, so the status file EXISTS from the first
+  // moment. Starting a dozen workers takes seconds on a large config, and a
+  // watcher that finds no file cannot tell "not started yet" from "died".
+  params.onProgress?.({ phase: 'render', done: 0, total: params.count });
   const ranges = partitionRows(params.count, params.jobs);
   const dir = mkdtempSync(join(tmpdir(), 'tdc-parallel-'));
   const scanDir = join(dir, 'scan');
@@ -197,6 +223,12 @@ export async function runParallel(params: ParallelParams): Promise<void> {
     uniqPlan = planUniq(params, found.fingerprints, found.excess);
 
     // Phase two: the rows themselves, every worker holding the arrangement.
+    // The analysis is over and the rows are about to start. Said by the
+    // coordinator, because the stretch between the last pile and the first
+    // worker report is the repair — real work with no phase of its own, and
+    // without this mark the file would sit on "uniq-sort" through all of it.
+    params.onProgress?.({ phase: 'render', done: 0, total: params.count });
+    const rendered = new Array<number>(ranges.length).fill(0);
     await Promise.all(
       ranges.map(([start, end], k) => {
         const input: RenderWorkerInput = {
@@ -213,7 +245,10 @@ export async function runParallel(params: ParallelParams): Promise<void> {
           tmpPath: tmpPaths[k] ?? join(dir, `range-${String(k)}.txt`),
           ...(uniqPlan !== undefined ? { uniqPlan } : {}),
         };
-        return runWorker(input);
+        return runWorker(input, (rows) => {
+          rendered[k] = rows;
+          params.onProgress?.({ phase: 'render', done: total(rendered), total: params.count });
+        });
       }),
     );
 
@@ -259,24 +294,38 @@ async function scanInParallel(
 
   const piles: Record<string, readonly (readonly string[])[]> = {};
   for (const members of groups) {
+    // One slot per worker, so a later report from a worker REPLACES its earlier
+    // one instead of being added to it. Adding deltas would need the workers to
+    // send deltas, and a dropped message would then be lost for good.
+    const scanned = new Array<number>(ranges.length).fill(0);
     const perRange = await Promise.all(
       ranges.map(([start, end], k) =>
-        runScanWorker({
-          source: params.source,
-          seed: params.seed,
-          count: params.count,
-          locale: params.locale,
-          defaultLocale: params.defaultLocale,
-          now: params.now,
-          dataPaths: params.dataPaths,
-          baseDir: params.baseDir,
-          members,
-          start,
-          end,
-          dir: scanDir,
-          prefix: `g${String(groups.indexOf(members))}-r${String(k)}`,
-          buckets,
-        }).then((r) => r.paths ?? []),
+        runScanWorker(
+          {
+            source: params.source,
+            seed: params.seed,
+            count: params.count,
+            locale: params.locale,
+            defaultLocale: params.defaultLocale,
+            now: params.now,
+            dataPaths: params.dataPaths,
+            baseDir: params.baseDir,
+            members,
+            start,
+            end,
+            dir: scanDir,
+            prefix: `g${String(groups.indexOf(members))}-r${String(k)}`,
+            buckets,
+          },
+          (rows) => {
+            scanned[k] = rows;
+            params.onProgress?.({
+              phase: 'uniq-scan',
+              done: total(scanned),
+              total: params.count,
+            });
+          },
+        ).then((r) => r.paths ?? []),
       ),
     );
     /*
@@ -317,8 +366,18 @@ async function excessFromPiles(
     const sortedPaths = files.map((_, b) =>
       join(tmpDir, `${label.replace(/[^\w]+/g, '_')}-sorted-${String(b)}`),
     );
+    let sorted = 0;
     const perPile = await Promise.all(
-      files.map((paths, b) => runPileWorker({ paths, outPath: sortedPaths[b] ?? '', tmpDir })),
+      files.map((paths, b) =>
+        runPileWorker({ paths, outPath: sortedPaths[b] ?? '', tmpDir }).then((candidates) => {
+          // Counted as piles FINISH, not as they start: a pile that is still
+          // being sorted is not progress, and Promise.all would report them in
+          // the order they were created rather than the order they completed.
+          sorted += 1;
+          params.onProgress?.({ phase: 'uniq-sort', done: sorted, total: files.length });
+          return candidates;
+        }),
+      ),
     );
     fingerprints[label] = sortedPaths;
 
@@ -395,6 +454,7 @@ function runPileWorker(input: PileWorkerInput): Promise<readonly (readonly numbe
 /** Run one scan worker; the result carries pile paths (scan job) or tuple pairs (verify job). */
 function runScanWorker(
   input: ScanWorkerInput,
+  onRows?: (rows: number) => void,
 ): Promise<{ paths?: readonly string[]; pairs?: [number, string][] }> {
   return new Promise((resolve, reject) => {
     const worker = new Worker(SCAN_WORKER_PATH, { workerData: input });
@@ -402,7 +462,11 @@ function runScanWorker(
       | { ok: boolean; error?: string; paths?: readonly string[]; pairs?: [number, string][] }
       | undefined;
     let earlyError: Error | undefined;
-    worker.on('message', (msg: typeof result) => {
+    worker.on('message', (msg: (typeof result & { rows?: number }) | undefined) => {
+      if (msg?.rows !== undefined) {
+        onRows?.(msg.rows);
+        return;
+      }
       result = msg;
     });
     worker.on('error', (err: Error) => {
@@ -422,13 +486,20 @@ function runScanWorker(
   });
 }
 
-function runWorker(input: RenderWorkerInput): Promise<void> {
+function runWorker(input: RenderWorkerInput, onRows?: (rows: number) => void): Promise<void> {
   return new Promise<void>((resolve, reject) => {
     const worker = new Worker(WORKER_PATH, { workerData: input });
     let result: { ok: boolean; error?: string } | undefined;
     let earlyError: Error | undefined;
-    worker.on('message', (msg: { ok: boolean; error?: string }) => {
-      result = msg;
+    worker.on('message', (msg: { ok?: boolean; error?: string; rows?: number }) => {
+      // A message carrying `rows` is progress, not the outcome. Treating every
+      // message as the result would leave `result` holding a row count, and the
+      // worker's real answer would be the one thing nobody read.
+      if (msg.rows !== undefined) {
+        onRows?.(msg.rows);
+        return;
+      }
+      result = msg as { ok: boolean; error?: string };
     });
     worker.on('error', (err: Error) => {
       earlyError = err;

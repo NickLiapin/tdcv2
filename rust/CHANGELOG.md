@@ -18,6 +18,10 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   about once a second, naming the phase and how far along it is. The library takes
   the same channel as a hook: `on_progress: Some(ProgressHook(Rc::new(|phase, done, total| ...)))`.
 
+  Nothing here needs a parallel case, unlike the other four: this build accepts `--jobs`
+  and ignores it, so every run is the single-threaded one the channel already reports on
+  from end to end.
+
 - **One vocabulary for the finished run, in all five implementations.** The object a run
   hands back now answers to the same names everywhere, spelled each language's own way.
   Added `to_array()`, `iterate()`, `get_at(index)` and `seed_info()`.

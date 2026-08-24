@@ -176,9 +176,21 @@ page — is tracked in that implementation's own changelog:
   for minutes means the process is gone, whatever the content says.
 
   The same channel is on the library in every implementation (`onProgress`,
-  `on_progress`, `OnProgress`, `ProgressHook`). Reports come from the process doing
-  the rendering, so a run split across workers writes the phases the coordinator sees
-  and the closing `done` rather than a per-row count.
+  `on_progress`, `OnProgress`, `ProgressHook`).
+
+  A run split across workers is counted whole: every worker reports the rows it has
+  written and the coordinator adds them up, so the percent is the file's and not one
+  worker's. That is the case that matters — above a hundred thousand rows TDC splits
+  the run by itself, so a channel that only worked single-threaded would have been
+  silent exactly when it was needed. Python's workers are separate PROCESSES, where a
+  callback cannot reach: each shard keeps its count in one small file and the parent
+  adds them up on a watcher thread, beside the pipe reading rather than instead of it
+  — a parent that polled instead of draining would deadlock the moment a shard filled
+  its stderr buffer.
+
+  A phase's LAST report is always written, throttle or not. Forty-four piles can finish
+  inside one second, and the once-a-second throttle then dropped every report after the
+  first, leaving the file saying "1 of 44" long after the run had moved on.
 
 <!-- covers: uniq arrangement -->
 

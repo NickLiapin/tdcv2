@@ -13,6 +13,10 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- **`--progress` counts a parallel run whole.** Workers are separate processes here, so
+  each shard keeps its row count in one small file and the parent adds them up on a
+  watcher thread — beside the pipe reading, never instead of it.
+
 - **`--progress`, and `on_progress=` on `TDC`.** The command line writes
   `<output>.progress` beside the output — a small JSON object, rewritten in place
   about once a second, naming the phase and how far along it is. The library takes

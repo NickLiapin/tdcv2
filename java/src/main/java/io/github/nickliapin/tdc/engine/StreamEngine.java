@@ -187,7 +187,20 @@ public final class StreamEngine {
       Appendable out,
       int start,
       int stop) {
-    StreamEngine engine = new StreamEngine(config, packs, nowMillis, baseDir, false, null);
+    renderRows(config, packs, nowMillis, baseDir, out, start, stop, null);
+  }
+
+  /** The same, reporting the rows of ITS OWN range as it writes them. */
+  public static void renderRows(
+      Config config,
+      DataPacks packs,
+      long nowMillis,
+      Path baseDir,
+      Appendable out,
+      int start,
+      int stop,
+      Progress onProgress) {
+    StreamEngine engine = new StreamEngine(config, packs, nowMillis, baseDir, false, onProgress);
     engine.buildColumns();
     engine.write(out, start, Math.min(stop, engine.count));
   }

@@ -108,7 +108,31 @@ public final class Parallel {
       Path target,
       int workers,
       int count) {
+    writeFile(config, packsFor, nowMillis, baseDir, target, workers, count, null);
+  }
+
+  /**
+   * The same, reporting the WHOLE file's progress as the workers advance.
+   *
+   * <p>Every worker reports the rows of its own range; this adds them up, so a watcher sees one run
+   * rather than N. Without it a parallel run said nothing until the moment it ended — and above a
+   * hundred thousand rows the command line chooses parallel by itself, which made silence the
+   * ordinary case rather than the rare one.
+   */
+  public static void writeFile(
+      Config config,
+      java.util.function.Supplier<DataPacks> packsFor,
+      long nowMillis,
+      Path baseDir,
+      Path target,
+      int workers,
+      int count,
+      Progress onProgress) {
     List<int[]> ranges = shards(count, workers);
+    // One slot per worker, so a later report REPLACES that worker's earlier one instead of being
+    // added to it. Reporting deltas would lose ground the moment a report went missing.
+    java.util.concurrent.atomic.AtomicLongArray rendered =
+        new java.util.concurrent.atomic.AtomicLongArray(ranges.size());
     Path scratch;
     try {
       scratch = Files.createTempDirectory("tdcv2-shards-");
@@ -123,7 +147,19 @@ public final class Parallel {
       List<Future<Path>> pending = new ArrayList<>(ranges.size());
       for (int i = 0; i < ranges.size(); i++) {
         int[] range = ranges.get(i);
+        int slot = i;
         Path piece = scratch.resolve("part-" + i);
+        Progress perWorker =
+            onProgress == null
+                ? null
+                : (phase, done, unusedTotal) -> {
+                  rendered.set(slot, done);
+                  long sum = 0;
+                  for (int k = 0; k < rendered.length(); k++) {
+                    sum += rendered.get(k);
+                  }
+                  onProgress.report("render", (int) sum, count);
+                };
         pending.add(
             pool.submit(
                 () -> {
@@ -133,7 +169,14 @@ public final class Parallel {
                               Files.newOutputStream(piece), StandardCharsets.UTF_8),
                           1 << 16)) {
                     StreamEngine.renderRows(
-                        config, packsFor.get(), nowMillis, baseDir, out, range[0], range[1]);
+                        config,
+                        packsFor.get(),
+                        nowMillis,
+                        baseDir,
+                        out,
+                        range[0],
+                        range[1],
+                        perWorker);
                   }
                   return piece;
                 }));

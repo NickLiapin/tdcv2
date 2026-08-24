@@ -21,12 +21,13 @@ from pathlib import Path
 
 
 def main(argv: list[str]) -> int:
-    if len(argv) != 4:
-        print("usage: _shard <job.json> <start> <stop> <target>", file=sys.stderr)
+    if len(argv) not in (4, 5):
+        print("usage: _shard <job.json> <start> <stop> <target> [progress-file]", file=sys.stderr)
         return 2
 
     job = json.loads(Path(argv[0]).read_text(encoding="utf-8"))
     start, stop, target = int(argv[1]), int(argv[2]), argv[3]
+    progress_file = Path(argv[4]) if len(argv) == 5 else None
 
     options = dict(job["options"])
     for key in ("packs_dir", "base_dir"):
@@ -37,7 +38,20 @@ def main(argv: list[str]) -> int:
 
     from ..tdc import TDC
 
-    run = TDC(job["config_file"], **options)._run()
+    # How a shard tells the parent where it has got to. A worker is its own PROCESS here, so a
+    # callback cannot reach across; what can is a file the parent already knows the name of. It
+    # holds one number — the rows THIS shard has written — and the parent adds them up. Replaced
+    # atomically, so a parent reading mid-write gets the previous count rather than half a number.
+    def report(phase: str, done: int, total: int) -> None:
+        if phase != "render" or progress_file is None:
+            return
+        tmp = progress_file.with_name(progress_file.name + ".tmp")
+        tmp.write_text(str(done), encoding="utf-8")
+        tmp.replace(progress_file)
+
+    run = TDC(
+        job["config_file"], on_progress=report if progress_file is not None else None, **options
+    )._run()
     with open(target, "w", encoding="utf-8") as out:
         run.write_rows(out.write, start, stop)
     return 0

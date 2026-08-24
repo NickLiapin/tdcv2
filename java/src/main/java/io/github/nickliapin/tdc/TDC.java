@@ -413,7 +413,7 @@ public final class TDC {
               count);
       if (resolved > 1) {
         io.github.nickliapin.tdc.engine.Parallel.writeFile(
-            config, packsFactory, nowMillis, baseDir, target, resolved, count);
+            config, packsFactory, nowMillis, baseDir, target, resolved, count, onProgress);
         return;
       }
     }

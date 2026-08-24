@@ -183,9 +183,12 @@ que no se mueve durante minutos significa que el proceso ya no está, diga lo qu
 contenido.
 
 Necesita `-o`: el archivo de estado vive junto a la salida, así que sin salida no hay dónde
-ponerlo, y el comando lo dice en vez de aceptar la bandera y descartarla. Los recuentos
-vienen del proceso que renderiza, de modo que una ejecución repartida entre workers informa
-las fases y el `done` final en lugar de un recuento de filas.
+ponerlo, y el comando lo dice en vez de aceptar la bandera y descartarla.
+
+Una ejecución repartida entre workers se cuenta entera. Cada worker informa las filas que ha
+escrito y el coordinador las suma, así que el porcentaje es el del archivo y no el de un
+worker — lo cual importa, porque por encima de cien mil filas TDC reparte la ejecución por
+su cuenta salvo que se indique otra cosa.
 
 El mismo canal está en la biblioteca en todas las implementaciones, como una devolución de
 llamada que recibe `(phase, done, total)`.

@@ -102,9 +102,15 @@ public static class ParallelWrite
         string? baseDir,
         string target,
         int workers,
-        int count)
+        int count,
+        Progress? onProgress = null)
     {
         IReadOnlyList<(int Start, int End)> ranges = Shards(count, workers);
+        // One slot per worker, so a later report REPLACES that worker's earlier one instead of
+        // being added to it. Reporting deltas would lose ground the moment a report went missing.
+        // Without any of this a parallel run said nothing until the moment it ended — and above a
+        // hundred thousand rows the command line chooses parallel by itself.
+        var rendered = new long[ranges.Count];
         string scratch = Directory.CreateDirectory(
             Path.Combine(Path.GetTempPath(), "tdcv2-shards-" + Guid.NewGuid().ToString("N"))).FullName;
 
@@ -118,6 +124,20 @@ public static class ParallelWrite
                 string piece = Path.Combine(scratch, "part-" + i.ToString(
                     System.Globalization.CultureInfo.InvariantCulture));
                 pieces[i] = piece;
+                int slot = i;
+                Progress? perWorker = onProgress is null
+                    ? null
+                    : (phase, done, unusedTotal) =>
+                    {
+                        Interlocked.Exchange(ref rendered[slot], done);
+                        long sum = 0;
+                        for (int k = 0; k < rendered.Length; k++)
+                        {
+                            sum += Interlocked.Read(ref rendered[k]);
+                        }
+
+                        onProgress("render", (int)sum, count);
+                    };
                 pending[i] = Task.Run(() =>
                 {
                     // No BOM and no trailing newline of its own: the pieces are concatenated, so
@@ -125,7 +145,7 @@ public static class ParallelWrite
                     using var writer = new StreamWriter(
                         piece, append: false, new UTF8Encoding(false), 1 << 16);
                     StreamEngine.RenderRows(
-                        config, packsFor(), nowMillis, baseDir, writer, start, end);
+                        config, packsFor(), nowMillis, baseDir, writer, start, end, perWorker);
                 });
             }
 

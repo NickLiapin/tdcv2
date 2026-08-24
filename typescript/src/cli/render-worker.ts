@@ -78,6 +78,18 @@ function run(input: RenderWorkerInput): void {
       baseDir: input.baseDir,
       source: input.source,
       range: { start: input.start, end: input.end },
+      /*
+       * The rows this worker has finished, sent to the coordinator as it goes.
+       *
+       * Without it a parallel run says nothing at all until it is over — and a
+       * parallel run is what the CLI chooses by itself above a hundred thousand
+       * rows, so that was the silent case rather than the rare one. The
+       * coordinator adds up what every worker reports; a message carrying
+       * `rows` is progress, one carrying `ok` is the result.
+       */
+      onProgress: (report) => {
+        if (report.phase === 'render') parentPort?.postMessage({ rows: report.done });
+      },
     })) {
       buf += chunk;
       if (buf.length >= WRITE_BATCH_BYTES) {

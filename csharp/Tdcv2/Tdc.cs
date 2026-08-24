@@ -505,7 +505,8 @@ public sealed class Tdc
         }
 
         ParallelWrite.WriteFile(
-            _config, PacksForWorker, _nowMillis, _baseDir, target, resolved, _config.Count);
+            _config, PacksForWorker, _nowMillis, _baseDir, target, resolved, _config.Count,
+            _onProgress);
     }
 
     /// <summary>The records one at a time, without building a list of them.</summary>

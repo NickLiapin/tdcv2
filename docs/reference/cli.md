@@ -188,8 +188,11 @@ moved for minutes means the process is gone, whatever the content still says.
 
 It needs `-o` — the status file lives beside the output, so without an output there is
 nowhere to put it, and the command says so rather than accepting the flag and dropping it.
-The counts come from the process doing the rendering, so a run split across workers
-reports the phases and the closing `done` rather than a row count.
+
+A run split across workers is counted whole. Every worker reports the rows it has
+written and the coordinator adds them up, so the percent is the file's and not one
+worker's — which matters, because above a hundred thousand rows TDC splits the run by
+itself unless you say otherwise.
 
 The same channel is on the library in every implementation, as a callback taking
 `(phase, done, total)`.

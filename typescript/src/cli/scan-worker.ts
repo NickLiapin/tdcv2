@@ -100,6 +100,12 @@ function run(input: ScanWorkerInput): { paths?: readonly string[]; pairs?: [numb
       input.dir,
       input.prefix,
       input.buckets ?? 1,
+      // The rows this worker has hashed, for the coordinator to add up. On a
+      // large uniq run the scan is the longest phase, so it is the one a
+      // watcher most needs to see moving.
+      (report) => {
+        parentPort?.postMessage({ rows: report.done });
+      },
     ),
   };
 }

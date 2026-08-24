@@ -22,6 +22,9 @@ the next build, and nothing else is edited.
 
 ### Added
 
+- **`--progress` counts a parallel run whole.** Every worker thread reports the rows of
+  its own range into its own slot, and the coordinator sums them for the file's percent.
+
 - **`--progress`, and `Options.onProgress(...)`.** The command line writes
   `<output>.progress` beside the output — a small JSON object, rewritten in place
   about once a second, naming the phase and how far along it is. The library takes

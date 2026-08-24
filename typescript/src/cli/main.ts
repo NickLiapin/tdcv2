@@ -325,7 +325,16 @@ function statusFileWriter(path: string): {
   return {
     report: (p): void => {
       const now = Date.now();
-      if (now - lastWrite < 1000) return;
+      /*
+       * A finished phase is always written, throttle or not.
+       *
+       * Forty-four piles can finish inside one second, and the throttle then
+       * dropped every report after the first — leaving the file saying
+       * "uniq-sort 1 of 44" while the run had moved on. The last state of a
+       * phase is the one a watcher reasons from, so it is worth one extra
+       * write per phase.
+       */
+      if (p.done !== p.total && now - lastWrite < 1000) return;
       lastWrite = now;
       write({
         phase: p.phase,
@@ -565,7 +574,7 @@ export async function main(argv: readonly string[]): Promise<number> {
     if (jobs > 1 && canParallelize) {
       await (parquetOutput
         ? renderParquetParallel(tdc, args, jobs)
-        : renderParallel(tdc, args, jobs));
+        : renderParallel(tdc, args, jobs, opts.onProgress));
       finishProgress?.();
       return 0;
     }
@@ -754,7 +763,16 @@ function runFormat(argv: readonly string[]): number {
  * render-time generators) and that `jobs > 1`. Output is byte-identical to a
  * single-threaded run.
  */
-async function renderParallel(tdc: TDC, args: CliArgs, jobs: number): Promise<void> {
+async function renderParallel(
+  tdc: TDC,
+  args: CliArgs,
+  jobs: number,
+  onProgress?: (progress: {
+    phase: 'uniq-scan' | 'uniq-sort' | 'render';
+    done: number;
+    total: number;
+  }) => void,
+): Promise<void> {
   // From the TDC instance, not from `args`: the instance has already folded in
   // the project config, so its locale, its data paths and its base directory
   // are the ones the single-threaded run would have used. Reading `args` here
@@ -763,6 +781,7 @@ async function renderParallel(tdc: TDC, args: CliArgs, jobs: number): Promise<vo
     ...tdc.workerOptions(),
     now: args.now ?? Date.now(),
     jobs,
+    ...(onProgress !== undefined ? { onProgress } : {}),
   };
   if (args.output) {
     const fd = openSync(args.output, 'w');
