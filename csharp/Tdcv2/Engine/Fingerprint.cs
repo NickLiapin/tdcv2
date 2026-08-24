@@ -145,7 +145,8 @@ public static class Fingerprint
         string dir,
         string prefix,
         int buckets,
-        string join)
+        string join,
+        Progress? onProgress = null)
     {
         var paths = new List<string>();
         var writers = new List<Writer>();
@@ -159,8 +160,15 @@ public static class Fingerprint
         try
         {
             var key = new StringBuilder();
+            // About one report per half-percent of the range: cheap enough to leave on always.
+            int reportEvery = Math.Max(1, (to - from) / 200);
             for (int row = from; row < to; row++)
             {
+                if (onProgress is not null && (row - from) % reportEvery == 0)
+                {
+                    onProgress("uniq-scan", row - from, to - from);
+                }
+
                 key.Clear();
                 for (int r = 0; r < resolvers.Count; r++)
                 {

@@ -37,6 +37,7 @@ pub struct Options {
     pub jobs: Option<i32>,
     pub mode: Option<String>,
     pub engine: Option<u8>,
+    pub progress: bool,
     pub help: bool,
     pub version: bool,
 }
@@ -99,6 +100,8 @@ pub fn parse(argv: &[String]) -> Result<Options, UsageError> {
             result.engine = Some(2);
         } else if arg == "--disk" {
             result.mode = Some("disk".to_string());
+        } else if arg == "--progress" {
+            result.progress = true;
         } else if arg.starts_with('-') {
             return usage(format!("unknown option: {arg}"));
         } else if result.input.is_none() {

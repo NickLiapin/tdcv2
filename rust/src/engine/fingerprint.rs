@@ -138,6 +138,7 @@ pub fn read_records(path: &Path) -> Result<Vec<[u8; RECORD_BYTES]>, String> {
 ///
 /// Returns one path per pile, in pile order. Nothing is sorted here — a pile is
 /// sorted by whoever picks it up.
+#[allow(clippy::too_many_arguments)] // one pile writer, and every knob it needs
 pub fn write_piles(
     resolvers: &[Box<dyn Fn(usize) -> String + '_>],
     from: usize,
@@ -146,6 +147,7 @@ pub fn write_piles(
     prefix: &str,
     buckets: usize,
     join: &str,
+    on_progress: crate::engine::Watch<'_>,
 ) -> Result<Vec<PathBuf>, String> {
     let mut paths = Vec::with_capacity(buckets);
     let mut writers = Vec::with_capacity(buckets);
@@ -155,7 +157,14 @@ pub fn write_piles(
         paths.push(path);
     }
 
+    // About one report per half-percent of the range: cheap enough to leave on always.
+    let report_every = ((to - from) / 200).max(1);
     for row in from..to {
+        if let Some(report) = on_progress {
+            if (row - from) % report_every == 0 {
+                report("uniq-scan", row - from, to - from);
+            }
+        }
         let mut key = String::new();
         for (r, resolver) in resolvers.iter().enumerate() {
             if r > 0 {

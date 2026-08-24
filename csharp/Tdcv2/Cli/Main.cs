@@ -65,6 +65,10 @@ Options:
                            automatically from the config. memory: the small,
                            in-RAM engine (an escape hatch; does not scale)
   --disk                   Shortcut for --mode disk (already the default)
+  --progress               Write <output>.progress — a small JSON status file
+                           refreshed about once a second (phase, rows done,
+                           percent). Needs -o. Poll it, or watch its mtime as
+                           a heartbeat: not updated for minutes = not running
   --engine <1|2|3>         Advanced: force a specific engine
   --stream                 Legacy alias for --engine 2
   -h, --help               Show this message
@@ -159,12 +163,25 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
             return 1;
         }
 
+        StatusFile? status = null;
+        if (options.Progress)
+        {
+            if (options.Output is null)
+            {
+                stderr.Write("tdcv2: --progress needs -o (the status file lives beside the output)\n");
+                return 2;
+            }
+
+            status = new StatusFile(options.Output + ".progress");
+        }
+
         Tdc data;
         try
         {
             var built = new Tdc.Options
             {
                 ConfigFile = options.Input,
+                OnProgress = status is null ? null : status.Report,
                 Count = options.Count,
                 SeedValue = options.Seed,
                 Locale = options.Locale,
@@ -178,7 +195,13 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
             };
             data = new Tdc(built);
 
-            return Produce(data, options, stdout, stderr);
+            int code = Produce(data, options, stdout, stderr);
+            if (code == 0)
+            {
+                status?.Finish();
+            }
+
+            return code;
         }
         catch (TdcDiagnosticException e)
         {
@@ -190,6 +213,81 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
             Fail(stderr, e.Message, false);
             return 1;
         }
+    }
+
+    /// <summary>
+    /// The <c>--progress</c> status file: one small JSON object, rewritten in place.
+    /// </summary>
+    /// <remarks>
+    /// Written atomically (temp + rename) so a poller never reads half a JSON, and throttled to
+    /// about once a second so watching costs nothing. The file itself is the heartbeat — an mtime
+    /// that stops moving for minutes means the process is gone, whatever the content says. On
+    /// success the last write says <c>"phase":"done"</c> with the wall-clock seconds the run took.
+    /// <para>
+    /// Rows reported are the ones THIS process renders. A run split across workers writes its
+    /// shards elsewhere, so the file then carries the phases the coordinator sees and the closing
+    /// <c>done</c>, not a per-row count.
+    /// </para>
+    /// </remarks>
+    private sealed class StatusFile
+    {
+        private readonly string _path;
+        private readonly long _startedAt = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+        private long _lastWrite;
+
+        internal StatusFile(string path) => _path = path;
+
+        private void Write(string payload)
+        {
+            string tmp = _path + ".tmp";
+            try
+            {
+                File.WriteAllText(tmp, payload + "\n");
+                File.Move(tmp, _path, overwrite: true);
+            }
+            catch (IOException)
+            {
+                // A status file nobody can write is not a reason to lose the run it describes.
+            }
+        }
+
+        internal void Report(string phase, int done, int total)
+        {
+            long now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+            if (now - _lastWrite < 1000)
+            {
+                return;
+            }
+
+            _lastWrite = now;
+            // AwayFromZero, not the default: .NET rounds midpoints to even, so a percent
+            // landing exactly on a half — 812.5 — would go to 812 where the reference's
+            // Math.round gives 813. One field, two answers.
+            double percent = total > 0
+                ? Math.Round((double)done / total * 1000, MidpointRounding.AwayFromZero) / 10
+                : 0;
+            Write(
+                $"{{\"phase\":\"{phase}\",\"done\":{done},\"total\":{total}," +
+                $"\"percent\":{Number(percent)},\"startedAt\":{_startedAt}," +
+                $"\"updatedAt\":{now},\"pid\":{Environment.ProcessId}}}");
+        }
+
+        internal void Finish()
+        {
+            long now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+            Write(
+                $"{{\"phase\":\"done\",\"percent\":100,\"startedAt\":{_startedAt}," +
+                $"\"updatedAt\":{now}," +
+                $"\"elapsedSeconds\":" +
+                $"{(long)Math.Round((now - _startedAt) / 1000.0, MidpointRounding.AwayFromZero)}," +
+                $"\"pid\":{Environment.ProcessId}}}");
+        }
+
+        /// <summary>A whole percentage prints without its ".0", as every other runtime writes it.</summary>
+        private static string Number(double value) =>
+            value == Math.Round(value)
+                ? ((long)value).ToString(System.Globalization.CultureInfo.InvariantCulture)
+                : value.ToString(System.Globalization.CultureInfo.InvariantCulture);
     }
 
     /// <summary>Everything after the config is built: report, seed note, preflight, write.</summary>

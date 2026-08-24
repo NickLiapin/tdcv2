@@ -35,6 +35,7 @@ class Options:
     jobs: int | None = None
     mode: str | None = None
     engine: int | None = None
+    progress: bool = False
     help: bool = False
     version: bool = False
 
@@ -85,6 +86,8 @@ def parse(argv: list[str]) -> Options:
             out["engine"] = 2
         elif arg == "--disk":
             out["mode"] = "disk"
+        elif arg == "--progress":
+            out["progress"] = True
         elif arg.startswith("-"):
             raise UsageError(f"unknown option: {arg}")
         elif out.get("input") is None:

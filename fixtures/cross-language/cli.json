@@ -66,6 +66,18 @@
       "note": "The five help texts already differ on --jobs, each describing its own threading. The clock does not vary by implementation, so its wording should not either — and the wrapping is pinned because that is the part that drifts when somebody edits one file."
     },
     {
+      "name": "--help describes --progress in the same words everywhere",
+      "note": "Pinned like --now beside it: five help texts drift apart the moment nothing compares them, and a reader who meets this flag in one implementation must not get less help in the next.",
+      "argv": ["--help"],
+      "exit": 0,
+      "stdoutContains": [
+        "  --progress               Write <output>.progress — a small JSON status file",
+        "                           refreshed about once a second (phase, rows done,",
+        "                           percent). Needs -o. Poll it, or watch its mtime as",
+        "                           a heartbeat: not updated for minutes = not running"
+      ]
+    },
+    {
       "name": "--version prints the declared version",
       "argv": ["--version"],
       "exit": 0,
@@ -740,34 +752,18 @@
       ]
     },
     {
-      "name": "an env-level <uniq> is refused in the one refusal sentence",
-      "note": "The group is named as the members joined by ×, which is the only part of the template that is not a plain sequence name — so it is pinned separately from the cases whose name is one identifier. The reference no longer refuses this: the streaming engine gained env-level <uniq>, so it is a declared gap in the other four until they are ported, and the case stays here naming exactly who still refuses.",
-      "files": {
-        "envuniq.tdc": "<tdc><env count=\"4\" seed=\"env-u\" local=\"en\"><uniq><sequence name=\"A\"><gen type=\"text\" value=\"a1,a2,a3,a4\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"b1,b2,b3,b4\"/></sequence></uniq></env><block><line><data>${{A}}-${{B}}</data></line></block></tdc>\n"
-      },
-      "argv": ["{dir}/envuniq.tdc", "--engine", "2"],
-      "exit": 1,
-      "stdout": "",
-      "stderrContains": [
-        "tdcv2: stream mode: <uniq> across sequences (a whole-column rearrangement) (\"A × B\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
-      ],
-      "only": ["python", "java", "csharp", "rust"]
-    },
-    {
       "name": "an env-level <uniq> holds under a forced streaming engine",
-      "note": "What replaces the refusal above. The streaming engine resolves one row at a time, so it cannot rearrange a finished column; instead it leaves the columns seekable and repairs only the tuples that repeat. `--engine 2` is what makes this observable — left alone the router would choose the engine itself. Four distinct rows out of a 4x4 pool, sorted so the assertion is about WHICH tuples exist rather than the order they came in.",
-      "only": ["typescript"],
+      "note": "The streaming engine resolves one row at a time, so it cannot rearrange a finished column; instead it leaves the columns seekable and repairs only the tuples that repeat. `--engine 2` is what makes this observable — left alone the router would choose the engine itself. Pinned as exact bytes rather than a shape: one seed and one engine mean one arrangement, and all five produce this one. A regex over the shape would have passed on four repeated rows, which is the failure this case exists to catch.",
       "files": {
         "envuniq.tdc": "<tdc><env count=\"4\" seed=\"env-u\" local=\"en\"><uniq><sequence name=\"A\"><gen type=\"text\" value=\"a1,a2,a3,a4\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"b1,b2,b3,b4\"/></sequence></uniq></env><block><line><data>${{A}}-${{B}}</data></line></block></tdc>\n"
       },
       "argv": ["{dir}/envuniq.tdc", "--engine", "2"],
       "exit": 0,
-      "stdoutMatches": "^(?:a[1-4]-b[1-4]\\n){4}$"
+      "stdout": "a3-b3\na2-b2\na1-b4\na4-b1\n"
     },
     {
       "name": "an env-level <uniq> too tight to repair says so, and says what to change",
-      "note": "Percentages make the column a MULTISET, not a set: 70/30 over four rows draws x three times, so only three distinct tuples can start with an x — the capacity check counts distinct values and lets this through. The streaming engine then finds the row it cannot place. A user who asked for streaming asked NOT to hold the whole table, so it refuses instead of quietly loading it, and the sentence names the group the same × way.",
-      "only": ["typescript"],
+      "note": "Percentages make the column a MULTISET, not a set: 70/30 over four rows draws x three times, so only three distinct tuples can start with an x — the capacity check counts distinct values and lets this through. The streaming engine then finds the row it cannot place. A user who asked for streaming asked NOT to hold the whole table, so it refuses instead of quietly loading it, and the sentence names the group the same × way. Worded identically in all five: one message, five front ends.",
       "files": {
         "tight.tdc": "<tdc><env count=\"4\" seed=\"env-u\" local=\"en\"><uniq><sequence name=\"A\"><gen type=\"text\" value=\"x,y\" percent=\"70,30\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"m,n\"/></sequence></uniq></env><block><line><data>${{A}}${{B}}</data></line></block></tdc>\n"
       },
@@ -776,6 +772,35 @@
       "stdout": "",
       "stderrContains": [
         "tdcv2: uniq \"A × B\" is too tight to repair without holding the whole table (1 row(s) couldn't be placed) — run without mode=\"stream\" so the in-memory engine can arrange it."
+      ]
+    },
+    {
+      "name": "--progress writes a status file beside the output, ending in done",
+      "note": "The channel a watcher polls. A long run is silent for minutes and silence reads the same as a hang, so the run writes what it is doing into <output>.progress: a small JSON object, rewritten in place about once a second. Only the LAST write can be asserted on here — a three-row run finishes before the first throttled report is due — and it is the one that matters: `done` with the wall-clock seconds is what tells a poller the run ended rather than died. The intermediate phases are covered by the reference's local heavy test, which runs long enough to see them.",
+      "files": {
+        "tiny.tdc": "<tdc><env count=\"3\" seed=\"cli\" inject=\"${{%}}\"></env><block><line><data>row ${{_count}}</data></line></block></tdc>\n"
+      },
+      "argv": ["{dir}/tiny.tdc", "-o", "{dir}/out.txt", "--progress"],
+      "exit": 0,
+      "wroteContains": {
+        "out.txt.progress": [
+          "\"phase\":\"done\"",
+          "\"percent\":100",
+          "\"elapsedSeconds\":"
+        ]
+      }
+    },
+    {
+      "name": "--progress without -o is refused, not silently dropped",
+      "note": "The status file lives beside the output, so without an output there is nowhere to put it. A flag accepted and quietly ignored is worse than one refused: the user would poll a file that never appears and conclude the run had died. Exit 2 — the command line was wrong, not the config.",
+      "files": {
+        "tiny.tdc": "<tdc><env count=\"3\" seed=\"cli\" inject=\"${{%}}\"></env><block><line><data>row ${{_count}}</data></line></block></tdc>\n"
+      },
+      "argv": ["{dir}/tiny.tdc", "--progress"],
+      "exit": 2,
+      "stdout": "",
+      "stderrContains": [
+        "tdcv2: --progress needs -o (the status file lives beside the output)"
       ]
     },
     {

@@ -45,6 +45,7 @@ Besides generating, the CLI has `tdcv2 init` and `tdcv2 pack` for setup and data
 | `--mode <memory\|disk>` | Engine: `disk` (default) or `memory`                |
 | `--engine <1\|2\|3>`    | Force a specific engine (advanced)                  |
 | `--disk`                | Shortcut for `--mode disk` — already the default    |
+| `--progress`            | Write `<output>.progress`, a small JSON status file (needs `-o`) |
 | `--stream`              | Legacy alias for `--engine 2`                       |
 | `-h, --help`            | Show help                                           |
 | `-v, --version`         | Show version                                        |
@@ -161,6 +162,37 @@ itself whether to parallelize. In short:
 TDC works out how many threads fit in this machine's RAM and uses that many, so on a weak
 machine a run just takes longer instead of dying halfway through. Full details in
 [Large outputs](../guides/large-outputs.md#top).
+
+## `--progress` — watching a long run
+
+A run of a hundred million rows is silent for a long time, and silence looks exactly like
+a hang. `--progress` writes a small JSON file beside the output — `<output>.progress` —
+and rewrites it about once a second:
+
+```bash
+tdcv2 demo.tdc -o out.csv --progress
+```
+
+```json
+{ "phase": "render", "done": 4200000, "total": 10000000, "percent": 42, "pid": 51234 }
+```
+
+The phases in order: `uniq-scan` (every row's tuple hashed), `uniq-sort` (the piles
+sorted) and `render` (rows written); a run without a `<uniq>` only ever reports `render`.
+The last write is `{"phase":"done","percent":100,...}` with the wall-clock seconds the run
+took.
+
+Two things make it safe to poll. The file is replaced atomically, so a reader never sees
+half a JSON object. And its **modification time is the heartbeat**: a file that has not
+moved for minutes means the process is gone, whatever the content still says.
+
+It needs `-o` — the status file lives beside the output, so without an output there is
+nowhere to put it, and the command says so rather than accepting the flag and dropping it.
+The counts come from the process doing the rendering, so a run split across workers
+reports the phases and the closing `done` rather than a row count.
+
+The same channel is on the library in every implementation, as a callback taking
+`(phase, done, total)`.
 
 ## `tdcv2 check`
 

@@ -22,7 +22,8 @@ public static class Engines
 {
     /// <summary>The run, as something a caller can read rows and text out of.</summary>
     public static IRowSource Run(
-        Config config, DataPacks? packs, long? nowMillis = null, string? baseDir = null)
+        Config config, DataPacks? packs, long? nowMillis = null, string? baseDir = null,
+        Progress? onProgress = null)
     {
         DataPacks resolved = packs ?? DataPacks.Discover();
         long now = nowMillis ?? DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
@@ -37,18 +38,18 @@ public static class Engines
         int engine = EngineRouter.Resolve(config, resolved);
         if (engine == 1)
         {
-            return MemoryEngine.Run(config, resolved, now, baseDir);
+            return MemoryEngine.Run(config, resolved, now, baseDir, onProgress);
         }
 
         if (engine == 3)
         {
             // Engine 3 falls back on its own, so a config it cannot do exactly still renders.
-            return DiskEngine.Rows(config, resolved, now, baseDir);
+            return DiskEngine.Rows(config, resolved, now, baseDir, onProgress);
         }
 
         try
         {
-            return StreamEngine.Rows(config, resolved, now, baseDir);
+            return StreamEngine.Rows(config, resolved, now, baseDir, onProgress);
         }
         catch (StreamEngine.UnsupportedHere) when (!EngineRouter.Forced(config))
         {
@@ -56,7 +57,7 @@ public static class Engines
             // the whole column after all. Nothing asked for streaming, so nothing is owed a
             // refusal: the in-memory engine answers it, at the cost of the memory profile. A
             // forced engine is excluded above and still throws, which is the point of forcing one.
-            return MemoryEngine.Run(config, resolved, now, baseDir);
+            return MemoryEngine.Run(config, resolved, now, baseDir, onProgress);
         }
     }
 

@@ -35,7 +35,7 @@ namespace Tdcv2.Engine;
 internal static class ExactUniq
 {
     /// <summary>Separates a tuple's columns. Control characters cannot appear in a generated value.</summary>
-    private const char Join = (char)1;
+    internal const char Join = (char)1;
 
     /// <summary>Separates a key from its row index in a sortable record. NUL sorts below everything.</summary>
     private const char Sep = (char)0;
@@ -77,13 +77,29 @@ internal static class ExactUniq
     /// </summary>
     public const int InMemoryFallbackMaxRows = 20_000_000;
 
-    /// <summary>The exact construction collided and the bounded repair could not place every row.</summary>
-    internal sealed class RepairNeeded : Exception
+    /// <summary>
+    /// The exact construction collided and the bounded repair could not place every row.
+    /// </summary>
+    /// <remarks>
+    /// Two audiences, one sentence. A caller that CHOSE a bounded-memory engine for the user
+    /// catches this and falls back to the in-memory engine, which has the whole table to work with.
+    /// A caller the user forced into stream mode lets it through instead: holding the whole table is
+    /// the one thing that user asked not to happen, so the text says what to change rather than
+    /// claiming a fallback that did not occur.
+    /// </remarks>
+    /// <remarks>
+    /// An <c>InvalidOperationException</c>, like <c>UnsupportedHere</c> beside it, because that is
+    /// the family the CLI turns into one line and exit 1. As a plain <c>Exception</c> it escaped
+    /// both catches and printed a .NET stack trace with exit 134 — a crash where the reference
+    /// prints a sentence — the moment env-level uniq made it reachable from a forced engine.
+    /// </remarks>
+    internal sealed class RepairNeeded : InvalidOperationException
     {
         internal RepairNeeded(int collisions, string label)
             : base(
-                $"Engine 3: uniq {label} is too tight for the bounded-memory repair ({collisions} "
-                + "row(s) couldn't be placed) — using the in-memory engine instead.")
+                $"uniq {label} is too tight to repair without holding the whole table ({collisions} "
+                + "row(s) couldn't be placed) — run without mode=\"stream\" so the in-memory engine "
+                + "can arrange it.")
         {
         }
     }
@@ -99,7 +115,8 @@ internal static class ExactUniq
     /// </summary>
     /// <returns>One resolver per field, in the order they were given.</returns>
     internal static IReadOnlyDictionary<string, Resolver> Arrange(
-        IReadOnlyList<Field> fields, int count, string seed, string label, string tmpDir)
+        IReadOnlyList<Field> fields, int count, string seed, string label, string tmpDir,
+        Progress? onProgress = null)
     {
         var columnCounts = new List<IReadOnlyList<int>>();
         var counts = new List<int[]>();
@@ -133,19 +150,22 @@ internal static class ExactUniq
         // handful of integers, and a serial-number column makes it true.
         if (counts.Any(c => c.All(v => v <= 1)))
         {
-            return RegistryOf(fields, resolvers);
+            return RegistryOf(IdsOf(fields), resolvers);
         }
 
-        return Repair(fields, resolvers, count, label, tmpDir);
+        return Repair(IdsOf(fields), resolvers, count, label, tmpDir, null, onProgress);
     }
 
+    private static IReadOnlyList<string> IdsOf(IReadOnlyList<Field> fields) =>
+        fields.Select(field => field.Id).ToList();
+
     private static IReadOnlyDictionary<string, Resolver> RegistryOf(
-        IReadOnlyList<Field> fields, IReadOnlyList<Resolver> resolvers)
+        IReadOnlyList<string> ids, IReadOnlyList<Resolver> resolvers)
     {
         var result = new Dictionary<string, Resolver>(StringComparer.Ordinal);
-        for (int j = 0; j < fields.Count; j++)
+        for (int j = 0; j < ids.Count; j++)
         {
-            result[fields[j].Id] = resolvers[j];
+            result[ids[j]] = resolvers[j];
         }
 
         return result;
@@ -158,15 +178,22 @@ internal static class ExactUniq
     /// The repair moves a small pool of rows and nothing else. That is what keeps the percentages
     /// exact: a value only ever changes hands between two rows of the pool, so every column ends the
     /// pass with the multiset it started with.
+    /// <para>
+    /// <paramref name="blockOf"/> names which rows may trade values with each other. A
+    /// <c>&lt;switch&gt;</c> member draws from a different list depending on another column, so a
+    /// male row's first name is not a value a female row is allowed to hold; without this the repair
+    /// would keep the tuple unique and stop the record making sense. <c>null</c> means one block
+    /// holding everything, which is the ordinary case.
+    /// </para>
     /// </remarks>
-    private static IReadOnlyDictionary<string, Resolver> Repair(
-        IReadOnlyList<Field> fields, IReadOnlyList<Resolver> resolvers, int count, string label,
-        string tmpDir)
+    internal static IReadOnlyDictionary<string, Resolver> Repair(
+        IReadOnlyList<string> ids, IReadOnlyList<Resolver> resolvers, int count, string label,
+        string tmpDir, Func<int, string>? blockOf, Progress? onProgress = null)
     {
         // How the duplicates are hunted: by fingerprint on a large run, by tuple text on a small
         // one. The carrier is all that differs — the rows found are the same either way, because a
         // matching fingerprint is verified against the true tuples before it is believed.
-        FingerprintScan? scan = RunFingerprintScan(resolvers, count, tmpDir);
+        FingerprintScan? scan = RunFingerprintScan(resolvers, count, tmpDir, onProgress);
 
         var excess = new List<int>();
         if (scan is not null)
@@ -188,7 +215,7 @@ internal static class ExactUniq
         if (excess.Count == 0)
         {
             scan?.Drop();
-            return RegistryOf(fields, resolvers);
+            return RegistryOf(ids, resolvers);
         }
 
         if (excess.Count > MaxRepairRowsFor(count))
@@ -200,10 +227,11 @@ internal static class ExactUniq
         // The colliding rows on their own often lack the variety to move — a lone duplicate can
         // only re-form the tuple it already has. So the pool takes in donor rows sampled across the
         // run, which gives the arrangement room without letting any value leave the pool.
+        excess.Sort();
         int donorTarget = Math.Min(count - excess.Count, (8 * excess.Count) + 24);
         var inPool = new HashSet<int>(excess);
         var pool = new List<int>(excess);
-        if (donorTarget > 0)
+        if (donorTarget > 0 && blockOf is null)
         {
             int stride = Math.Max(1, count / donorTarget);
             for (int i = 0; i < count && pool.Count - excess.Count < donorTarget; i += stride)
@@ -212,6 +240,41 @@ internal static class ExactUniq
                 {
                     pool.Add(i);
                 }
+            }
+        }
+        else if (donorTarget > 0)
+        {
+            // Donors have to come from the row's OWN block, or they arrive holding values it is not
+            // allowed to take. Wanted per block, in proportion to how many of its rows have to move.
+            var wanted = new Dictionary<string, int>(StringComparer.Ordinal);
+            foreach (int row in excess)
+            {
+                string block = blockOf!(row);
+                wanted[block] = wanted.TryGetValue(block, out int held) ? held + 8 : 8;
+            }
+
+            foreach (string block in wanted.Keys.ToList())
+            {
+                wanted[block] += 24;
+            }
+
+            int stride = Math.Max(1, count / Math.Max(1, donorTarget));
+            for (int i = 0; i < count; i += stride)
+            {
+                if (inPool.Contains(i))
+                {
+                    continue;
+                }
+
+                string block = blockOf!(i);
+                if (!wanted.TryGetValue(block, out int left) || left <= 0)
+                {
+                    continue;
+                }
+
+                wanted[block] = left - 1;
+                inPool.Add(i);
+                pool.Add(i);
             }
         }
 
@@ -277,10 +340,46 @@ internal static class ExactUniq
             forbidden = new ExactMembership(exact);
         }
 
-        List<List<string>>? arranged;
+        // The pool is arranged one block at a time: a value only ever lands on a row that was
+        // allowed to hold it. One block, keyed by the empty string, is the ordinary case.
+        var blocks = new Dictionary<string, List<int>>(StringComparer.Ordinal);
+        var blockOrder = new List<string>();
+        for (int m = 0; m < pool.Count; m++)
+        {
+            string block = blockOf is null ? string.Empty : blockOf(pool[m]);
+            if (!blocks.TryGetValue(block, out List<int>? positions))
+            {
+                positions = new List<int>();
+                blocks[block] = positions;
+                blockOrder.Add(block);
+            }
+
+            positions.Add(m);
+        }
+
+        var overrides = new Dictionary<int, List<string>>();
         try
         {
-            arranged = ArrangeAvoiding(poolColumns, forbidden, pool.Count);
+            foreach (string block in blockOrder)
+            {
+                List<int> positions = blocks[block];
+                var columns = poolColumns
+                    .Select(column => (IReadOnlyList<string>)positions.Select(m => column[m]).ToList())
+                    .ToList();
+                List<List<string>>? arranged =
+                    ArrangeAvoiding(columns, forbidden, positions.Count);
+                if (arranged is null)
+                {
+                    throw new RepairNeeded(excess.Count, label);
+                }
+
+                for (int at = 0; at < positions.Count; at++)
+                {
+                    int index = at;
+                    overrides[pool[positions[at]]] =
+                        arranged.Select(column => column[index]).ToList();
+                }
+            }
         }
         finally
         {
@@ -288,23 +387,12 @@ internal static class ExactUniq
             scan?.Drop();
         }
 
-        if (arranged is null)
-        {
-            throw new RepairNeeded(excess.Count, label);
-        }
-
-        var overrides = new Dictionary<int, List<string>>();
-        for (int m = 0; m < pool.Count; m++)
-        {
-            overrides[pool[m]] = arranged.Select(column => column[m]).ToList();
-        }
-
         var result = new Dictionary<string, Resolver>(StringComparer.Ordinal);
         for (int j = 0; j < k; j++)
         {
             int column = j;
             Resolver baseResolver = resolvers[j];
-            result[fields[j].Id] = row =>
+            result[ids[j]] = row =>
                 overrides.TryGetValue(row, out List<string>? replaced)
                     ? replaced[column]
                     : baseResolver(row);
@@ -348,7 +436,7 @@ internal static class ExactUniq
     /// false duplicate — the rows returned are exactly the ones the text sort would name.
     /// </remarks>
     private static FingerprintScan? RunFingerprintScan(
-        IReadOnlyList<Resolver> resolvers, int count, string tmpDir)
+        IReadOnlyList<Resolver> resolvers, int count, string tmpDir, Progress? onProgress = null)
     {
         int buckets = Fingerprint.BucketCountFor(count, Environment.ProcessorCount);
         if (buckets < 2)
@@ -367,12 +455,13 @@ internal static class ExactUniq
         }
 
         List<string> rawPaths = Fingerprint.WritePiles(
-            asFunctions, 0, count, directory, "raw", buckets, Join.ToString());
+            asFunctions, 0, count, directory, "raw", buckets, Join.ToString(), onProgress);
 
         var sortedPaths = new List<string>();
         var candidates = new List<List<int>>();
         for (int b = 0; b < buckets; b++)
         {
+            onProgress?.Invoke("uniq-sort", b, buckets);
             string outPath = Path.Combine(directory, $"sorted-{b}");
             Fingerprint.SortFiles(new[] { rawPaths[b] }, outPath, directory);
             File.Delete(rawPaths[b]);
@@ -431,7 +520,7 @@ internal static class ExactUniq
     }
 
     private static IEnumerable<List<int>> DuplicateGroups(
-        IReadOnlyList<Resolver> resolvers, int count, string tmpDir)
+        IReadOnlyList<Resolver> resolvers, int count, string tmpDir, Progress? onProgress = null)
     {
         IEnumerable<string> Records()
         {

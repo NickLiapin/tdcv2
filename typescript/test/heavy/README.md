@@ -43,6 +43,26 @@ the smallest that still exercise the machinery. The 10 GB and 20 GB runs in the
 table below are not tests — they were done by hand, and the numbers are kept
 here so a future run has something to compare against.
 
+## What covers the progress channel, and where
+
+Three layers, and only the third is here:
+
+- The unit tests pin the SHAPE of a report — phases in order, `done` monotone, every
+  phase closing at its total.
+- `fixtures/cross-language/cli.json` pins the command line in all five: `--progress`
+  writes a status file that ends in `done` at 100%, and refuses without `-o`. That is
+  the part that has to be identical everywhere, so it lives with the other shared
+  cases rather than in one implementation's tests.
+- `progress.heavy.ts`, here, is the only place the channel is watched over a run long
+  enough for the intermediate phases to appear at all. A three-row run finishes before
+  the first throttled report is due; the fixture above can therefore only assert on
+  the last write, and this fills that gap.
+
+The four ports have the first two layers. They have no heavy suite of their own — the
+engine behaviour they would exercise is already pinned byte for byte by the shared
+cases, and four more gigabyte-scale suites would cost hours to buy a second opinion on
+the same numbers.
+
 ## Two traps these tests fell into first
 
 Both are worth knowing, because a new heavy test can fall into either.

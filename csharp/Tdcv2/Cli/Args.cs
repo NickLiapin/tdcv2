@@ -32,8 +32,8 @@ public static class Args
     /// <summary>What the command line asked for, before anything has been read or run.</summary>
     public sealed record Options(
         string? Input, string? Output, string? Seed, int? Count, string? Locale, long? Now,
-        IReadOnlyList<string> DataPaths, int? Jobs, string? Mode, int? Engine, bool Help,
-        bool Version);
+        IReadOnlyList<string> DataPaths, int? Jobs, string? Mode, int? Engine, bool Progress,
+        bool Help, bool Version);
 
     /// <summary>Mutable while parsing; a record once it is done.</summary>
     private sealed class Builder
@@ -48,11 +48,13 @@ public static class Args
         internal int? Jobs;
         internal string? Mode;
         internal int? Engine;
+        internal bool Progress;
         internal bool Help;
         internal bool Version;
 
         internal Options Build() => new(
-            Input, Output, Seed, Count, Locale, Now, DataPaths, Jobs, Mode, Engine, Help, Version);
+            Input, Output, Seed, Count, Locale, Now, DataPaths, Jobs, Mode, Engine, Progress, Help,
+            Version);
     }
 
     /// <summary>The generate command's arguments. Throws <see cref="UsageException"/> with the message to print.</summary>
@@ -108,6 +110,10 @@ public static class Args
             else if (arg == "--disk")
             {
                 result.Mode = "disk";
+            }
+            else if (arg == "--progress")
+            {
+                result.Progress = true;
             }
             else if (arg.StartsWith('-'))
             {

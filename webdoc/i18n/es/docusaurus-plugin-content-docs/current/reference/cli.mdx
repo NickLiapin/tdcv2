@@ -40,6 +40,7 @@ y los datos — vea [Instalar packs](../data-packs/installing-packs.mdx) — má
 | `--mode <memory\|disk>` | Motor: `disk` (por omisión) o `memory`                   |
 | `--engine <1\|2\|3>`    | Forzar un motor específico (avanzado)                    |
 | `--disk`                | Atajo de `--mode disk` — ya es el valor por omisión      |
+| `--progress`            | Escribe `<output>.progress`, un pequeño archivo JSON de estado (necesita `-o`) |
 | `--stream`              | Alias heredado de `--engine 2`                           |
 | `-h, --help`            | Muestra la ayuda                                         |
 | `-v, --version`         | Muestra la versión                                       |
@@ -156,6 +157,38 @@ por su cuenta si paralelizar. En resumen:
 TDC calcula cuántos hilos caben en la RAM de esta máquina y toma esa cantidad — en una
 máquina débil la corrida simplemente va más lenta, no se cae a la mitad. Todo el detalle
 está en [Volúmenes grandes](../guides/large-outputs.mdx).
+
+## `--progress` — observar una ejecución larga
+
+Una ejecución de cien millones de filas guarda silencio durante mucho tiempo, y el silencio
+se parece exactamente a un cuelgue. `--progress` escribe un pequeño archivo JSON junto a la
+salida — `<output>.progress` — y lo reescribe aproximadamente una vez por segundo:
+
+```bash
+tdcv2 demo.tdc -o out.csv --progress
+```
+
+```json
+{ "phase": "render", "done": 4200000, "total": 10000000, "percent": 42, "pid": 51234 }
+```
+
+Las fases en orden: `uniq-scan` (se calcula el hash de la tupla de cada fila), `uniq-sort`
+(se ordenan los montones) y `render` (se escriben las filas); una ejecución sin `<uniq>`
+solo informa `render`. La última escritura es `{"phase":"done","percent":100,...}` con los
+segundos de reloj que duró la ejecución.
+
+Dos cosas hacen que sea seguro consultarlo. El archivo se reemplaza de forma atómica, así
+que quien lo lee nunca ve medio JSON. Y su **hora de modificación es el latido**: un archivo
+que no se mueve durante minutos significa que el proceso ya no está, diga lo que diga su
+contenido.
+
+Necesita `-o`: el archivo de estado vive junto a la salida, así que sin salida no hay dónde
+ponerlo, y el comando lo dice en vez de aceptar la bandera y descartarla. Los recuentos
+vienen del proceso que renderiza, de modo que una ejecución repartida entre workers informa
+las fases y el `done` final en lugar de un recuento de filas.
+
+El mismo canal está en la biblioteca en todas las implementaciones, como una devolución de
+llamada que recibe `(phase, done, total)`.
 
 ## `tdcv2 check`
 

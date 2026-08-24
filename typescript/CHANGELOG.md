@@ -13,6 +13,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- **`--progress`, and `onProgress` on the library.** The command line writes
+  `<output>.progress` beside the output — a small JSON object, rewritten in place
+  about once a second, naming the phase and how far along it is. The library takes
+  the same channel as a callback: `new TDC({ onProgress: ({ phase, done, total }) => ... })`.
+  All five implementations now carry it, writing the same fields.
+
 - **One vocabulary for the finished run, in all five implementations.** The object a run
   hands back now answers to the same names everywhere, spelled each language's own way.
   The reference already carried every name; it now proves so against the shared table.

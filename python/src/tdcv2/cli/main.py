@@ -17,7 +17,11 @@ itself was wrong.
 
 from __future__ import annotations
 
+import json
+import math
+import os
 import sys
+import time
 from pathlib import Path
 from typing import TYPE_CHECKING
 
@@ -75,6 +79,10 @@ Options:
                            automatically from the config. memory: the small,
                            in-RAM engine (an escape hatch; does not scale)
   --disk                   Shortcut for --mode disk (already the default)
+  --progress               Write <output>.progress — a small JSON status file
+                           refreshed about once a second (phase, rows done,
+                           percent). Needs -o. Poll it, or watch its mtime as
+                           a heartbeat: not updated for minutes = not running
   --engine <1|2|3>         Advanced: force a specific engine
   --stream                 Legacy alias for --engine 2
   -h, --help               Show this message
@@ -155,6 +163,15 @@ def _generate(options: Options) -> int:
         sys.stderr.write(_missing_config(options.input))
         return 1
 
+    status = None
+    if options.progress:
+        if not options.output:
+            sys.stderr.write(
+                "tdcv2: --progress needs -o (the status file lives beside the output)\n"
+            )
+            return 2
+        status = _StatusFile(Path(f"{options.output}.progress"))
+
     try:
         data = TDC(
             options.input,
@@ -164,6 +181,7 @@ def _generate(options: Options) -> int:
             now=options.now,
             data_paths=[Path(p) for p in options.data_paths] or None,
             engine=options.engine if options.engine is not None else _engine_for(options.mode),
+            on_progress=status.report if status is not None else None,
         )
     except TdcError as e:
         _report(e.diagnostics, options.input, e.source)
@@ -176,7 +194,10 @@ def _generate(options: Options) -> int:
         return 1
 
     try:
-        return _produce(data, options)
+        code = _produce(data, options)
+        if code == 0 and status is not None:
+            status.finish()
+        return code
     except TdcError as e:
         _report(e.diagnostics, options.input, e.source)
         return 1
@@ -188,6 +209,76 @@ def _generate(options: Options) -> int:
         # names as the evidence.
         _fail(str(e))
         return 1
+
+
+class _StatusFile:
+    """The ``--progress`` status file: one small JSON object, rewritten in place.
+
+    Written atomically (temp + rename) so a poller never reads half a JSON, and throttled to about
+    once a second so watching costs nothing. The file itself is the heartbeat — an mtime that stops
+    moving for minutes means the process is gone, whatever the content says. On success the last
+    write says ``"phase":"done"`` with the wall-clock seconds the run took.
+
+    Rows reported are the ones THIS process renders. A run split across workers writes its shards
+    in other processes, so the file then carries the phases the coordinator sees and the closing
+    ``done``, not a per-row count.
+    """
+
+    def __init__(self, path: Path) -> None:
+        self._path = path
+        self._started_at = int(time.time() * 1000)
+        self._last_write = 0
+
+    def _write(self, payload: dict) -> None:
+        tmp = self._path.with_name(self._path.name + ".tmp")
+        tmp.write_text(json.dumps(payload, separators=(",", ":")) + "\n", encoding="utf-8")
+        tmp.replace(self._path)
+
+    def report(self, phase: str, done: int, total: int) -> None:
+        now = int(time.time() * 1000)
+        if now - self._last_write < 1000:
+            return
+        self._last_write = now
+        self._write(
+            {
+                "phase": phase,
+                "done": done,
+                "total": total,
+                "percent": self._percent(done, total),
+                "startedAt": self._started_at,
+                "updatedAt": now,
+                "pid": os.getpid(),
+            }
+        )
+
+    @staticmethod
+    def _percent(done: int, total: int) -> float | int:
+        """A whole percentage as an int, the way every other runtime writes it.
+
+        ``round(...)/10`` is a float in Python, so 70 would go into the file as ``70.0`` where the
+        other four write ``70`` — one field, two spellings, and a poller written against one of
+        them parsing the other.
+        """
+        if total <= 0:
+            return 0
+        # `round` is banker's in Python: round(812.5) is 812, where the reference's
+        # Math.round gives 813. One field, two answers, on any run whose percent lands
+        # exactly on a half. Floor of x+0.5 is what the other four do.
+        value = math.floor(done / total * 1000 + 0.5) / 10
+        return int(value) if value == int(value) else value
+
+    def finish(self) -> None:
+        now = int(time.time() * 1000)
+        self._write(
+            {
+                "phase": "done",
+                "percent": 100,
+                "startedAt": self._started_at,
+                "updatedAt": now,
+                "elapsedSeconds": math.floor((now - self._started_at) / 1000 + 0.5),
+                "pid": os.getpid(),
+            }
+        )
 
 
 def _produce(data: TDC, options: Options) -> int:

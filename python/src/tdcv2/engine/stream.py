@@ -132,6 +132,7 @@ class StreamEngine:
         "count",
         "exact_uniq",
         "now_millis",
+        "on_progress",
         "packs",
         "parents",
         "pool_tables",
@@ -145,6 +146,7 @@ class StreamEngine:
         now_millis: int,
         base_dir: Path | None,
         exact_uniq: bool = False,
+        on_progress=None,
     ) -> None:
         self.config = config
         self.packs = packs
@@ -155,6 +157,7 @@ class StreamEngine:
         self.columns: dict[str, Column] = {}
         self.parents: dict[str, Parent] = {}
         self.exact_uniq = exact_uniq
+        self.on_progress = on_progress
         # Pools are computed before anything streams — small, and off a derived seed, so the
         # bounded-memory promise is untouched and no other column moves.
         self.pool_tables = memory.build_pool_tables(config, packs, now_millis, base_dir)
@@ -206,7 +209,12 @@ class StreamEngine:
 
         if start == 0:
             self._emit(emit, fx.before, 0, each_info)
+        # About one report per half-percent: cheap enough to leave on always.
+        total = stop - start
+        report_every = max(1, total // 200)
         for row in range(start, stop):
+            if self.on_progress is not None and (row - start) % report_every == 0:
+                self.on_progress("render", row - start, total)
             self._emit(emit, fx.before_block, row, each_info)
 
             active = [
@@ -300,15 +308,7 @@ class StreamEngine:
 
         by_name = {spec.name: spec for spec in self.config.sequences}
 
-        # An env-level <uniq> builds its members together — their values are digits of one index —
-        # so they are done first and skipped in the loop below.
-        env_uniq_members: set[str] = set()
-        for group in self.config.env_uniq_groups:
-            env_uniq_members.update(self._build_env_uniq(group, by_name))
-
         for spec in self.config.sequences:
-            if spec.name in env_uniq_members:
-                continue
             # A reference to a <pool>. The table was computed before the run, so only the per-row
             # PICK happens here — and it is seekable, so it costs the streaming engines nothing.
             # A reference under a parent needs the parent's materialised column to know which rows
@@ -396,6 +396,11 @@ class StreamEngine:
 
         for group in self.config.env_distinct_groups:
             self._apply_env_distinct(group, by_name)
+
+        # Env-level <uniq> comes last, for the same reason <distinct> comes second-to-last: the
+        # constraint is about a tuple, so every member has to exist before it can be looked at.
+        for group in self.config.env_uniq_groups:
+            self._apply_env_uniq(group, by_name)
 
     def _computed_column(self, spec: SequenceSpec) -> Column:
         def column(row: int) -> str | None:
@@ -1486,15 +1491,57 @@ class StreamEngine:
             return
         raise unsupported("uniq (a whole-column rearrangement)", spec.name)
 
-    def _build_env_uniq(self, group: list[str], by_name) -> set[str]:
+    def _apply_env_uniq(self, group: list[str], by_name) -> None:
         """Env-level ``<uniq>``: the tuple of several sequences is unique across the run.
 
-        As with a sequence's own ``uniq``: a group rearranges finished columns, so it belongs to
-        the exact engine and this one refuses rather than answer differently.
+        The in-memory engine draws the whole table, finds the repeated tuples and swaps values
+        until none is left. That is exact and it does not scale: repeats grow as the SQUARE of the
+        row count.
+
+        Here the columns stay seekable — each is already a function of the row number — and only
+        the repeats are touched. The repair streams every tuple through a sort to find them, which
+        is bounded memory, then rearranges the few offenders in RAM. Its own refusal hands a
+        pathologically tight config back to the in-memory engine, so nothing is lost when the
+        space really is too small.
+
+        **This changes the arrangement.** A repaired dataset is not the one the in-memory engine
+        produced from the same seed. Both are correct — every tuple distinct, every column's
+        multiset untouched, so the percentages hold — but they are different arrangements.
         """
-        raise unsupported(
-            "<uniq> across sequences (a whole-column rearrangement)", " × ".join(group)
+        # Imported here: the exact engine and this one refer to each other.
+        from . import exact_uniq
+
+        members = [name for name in group if name in self.columns]
+        if len(members) < 2:
+            return
+        label = " × ".join(members)
+
+        resolvers = [
+            (lambda row, column=self.columns[name]: column(row) or "") for name in members
+        ]
+
+        # The columns a switch member is keyed by. Empty for an ordinary group, and then every row
+        # may trade with every other, as it always could.
+        subjects: list[str] = []
+        for name in members:
+            spec = by_name.get(name)
+            on = spec.switch_spec.on if spec is not None and spec.switch_spec is not None else None
+            if on is not None and on not in subjects and on in self.columns:
+                subjects.append(on)
+
+        block_of: Callable[[int], str] | None = None
+        if subjects:
+            keyed = [self.columns[name] for name in subjects]
+            # Any injective key groups the same rows; the separator cannot appear in a value.
+            block_of = lambda row: exact_uniq.JOIN.join(  # noqa: E731
+                column(row) or "" for column in keyed
+            )
+
+        repaired = exact_uniq.repair(
+            members, resolvers, self.count, f'"{label}"', self.base_dir, block_of, self.on_progress
         )
+        for name in members:
+            self.columns[name] = repaired[name]
 
     def _build_exact_uniq(self, spec: SequenceSpec) -> None:
         """Each column built to its declared shares, then verified distinct.
@@ -1531,7 +1578,7 @@ class StreamEngine:
             fields.append(Field(f"{spec.name}.{f.name}", values, percents))
 
         for name, resolver in arrange(
-            fields, self.count, self.seed, f'"{spec.name}"', self.base_dir
+            fields, self.count, self.seed, f'"{spec.name}"', self.base_dir, self.on_progress
         ).items():
             self.columns[name] = resolver
 
@@ -1687,6 +1734,7 @@ def rows(
     now_millis: int,
     base_dir: Path | None = None,
     exact_uniq: bool = False,
+    on_progress=None,
 ) -> StreamEngine:
     """The run as addressable records, computed on demand.
 
@@ -1697,7 +1745,7 @@ def rows(
     combinations, which is all this engine can promise on its own; true builds each column to its
     exact quota instead and verifies the result on disk.
     """
-    return StreamEngine(config, packs, now_millis, base_dir, exact_uniq)
+    return StreamEngine(config, packs, now_millis, base_dir, exact_uniq, on_progress)
 
 
 # ── small helpers ───────────────────────────────────────────────────────────────────────────

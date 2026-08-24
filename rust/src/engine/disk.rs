@@ -24,10 +24,25 @@ pub fn rows_in(
     now_millis: i64,
     base_dir: Option<&str>,
 ) -> EngineResult<Box<dyn RowSource>> {
-    match stream::rows_exact(config, packs, now_millis, base_dir) {
+    rows_in_watched(config, packs, now_millis, base_dir, None)
+}
+
+/// The same, reporting what it is doing as it goes.
+pub fn rows_in_watched(
+    config: &Config,
+    packs: &DataPacks,
+    now_millis: i64,
+    base_dir: Option<&str>,
+    on_progress: crate::engine::Watch<'_>,
+) -> EngineResult<Box<dyn RowSource>> {
+    match stream::rows_exact_watched(config, packs, now_millis, base_dir, on_progress) {
         Ok(rows) => Ok(Box::new(rows)),
-        Err(e) if falls_back(&e) => Ok(Box::new(memory::run_in(
-            config, packs, now_millis, base_dir,
+        Err(e) if falls_back(&e) => Ok(Box::new(memory::run_in_watched(
+            config,
+            packs,
+            now_millis,
+            base_dir,
+            on_progress,
         )?)),
         Err(e) => Err(e),
     }

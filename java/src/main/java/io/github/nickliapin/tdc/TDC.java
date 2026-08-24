@@ -73,6 +73,7 @@ public final class TDC {
   private final java.util.function.Supplier<DataPacks> packsFactory;
   private final long nowMillis;
   private final Path baseDir;
+  private final io.github.nickliapin.tdc.engine.Progress onProgress;
   private final List<Diagnostic> diagnostics;
 
   /** A materialized cell, roughly: a short string plus its object header and the slot holding it. */
@@ -176,6 +177,7 @@ public final class TDC {
     private List<Path> dataPaths = List.of();
     private Path baseDir;
     private Integer engine;
+    private io.github.nickliapin.tdc.engine.Progress onProgress;
 
     public Options configFile(Path value) {
       this.configFile = value;
@@ -256,6 +258,19 @@ public final class TDC {
      */
     public Options engine(int value) {
       this.engine = value;
+      return this;
+    }
+
+    /**
+     * Called as the run advances, so a caller with a long run can say more than "working".
+     *
+     * <p>Phases: {@code uniq-scan} (every row's tuple hashed), {@code uniq-sort} (piles sorted),
+     * {@code render} (rows written). It is called often — about two hundred times per phase — so
+     * it must be cheap; the command line throttles it to once a second before writing anything
+     * down.
+     */
+    public Options onProgress(io.github.nickliapin.tdc.engine.Progress value) {
+      this.onProgress = value;
       return this;
     }
 
@@ -355,6 +370,7 @@ public final class TDC {
         options.baseDir != null
             ? options.baseDir
             : options.configFile != null ? options.configFile.toAbsolutePath().getParent() : null;
+    this.onProgress = options.onProgress;
   }
 
   /** The whole output as one string. */
@@ -696,21 +712,21 @@ public final class TDC {
 
     int engine = engine();
     if (engine == 1) {
-      return MemoryEngine.build(config, packs, nowMillis, baseDir);
+      return MemoryEngine.build(config, packs, nowMillis, baseDir, onProgress);
     }
     if (engine == 3) {
       // Engine 3 falls back on its own, so a config it cannot do exactly still renders.
-      return DiskEngine.rows(config, packs, nowMillis, baseDir);
+      return DiskEngine.rows(config, packs, nowMillis, baseDir, onProgress);
     }
     try {
-      return StreamEngine.rows(config, packs, nowMillis, baseDir);
+      return StreamEngine.rows(config, packs, nowMillis, baseDir, onProgress);
     } catch (StreamEngine.Unsupported e) {
       if (forcedEngine()) {
         throw e; // named outright, so the refusal is the answer
       }
       // Routed here rather than asked for: the config turned out to need the whole column after
       // all, and correct data matters more than the memory profile.
-      return MemoryEngine.build(config, packs, nowMillis, baseDir);
+      return MemoryEngine.build(config, packs, nowMillis, baseDir, onProgress);
     }
   }
 

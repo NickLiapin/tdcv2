@@ -103,6 +103,12 @@ public final class MemoryEngine {
    *     the program was started from.
    */
   public static Rendered build(Config config, DataPacks packs, long nowMillis, Path baseDir) {
+    return build(config, packs, nowMillis, baseDir, null);
+  }
+
+  /** The same, reporting what it is doing as it goes. */
+  public static Rendered build(
+      Config config, DataPacks packs, long nowMillis, Path baseDir, Progress onProgress) {
     int count = config.count();
     Map<String, String[]> columns = buildColumns(config, count, packs, nowMillis, baseDir);
 
@@ -121,7 +127,12 @@ public final class MemoryEngine {
     StringBuilder out = new StringBuilder();
     emit(out, fx.before(), columns, 0, config.inject());
 
+    // About one report per half-percent: cheap enough to leave on always.
+    int reportEvery = Math.max(1, count / 200);
     for (int row = 0; row < count; row++) {
+      if (onProgress != null && row % reportEvery == 0) {
+        onProgress.report("render", row, count);
+      }
       emit(out, fx.beforeBlock(), columns, row, config.inject());
 
       // Drop the suppressed lines first. A delimiter belongs between the lines that survive,

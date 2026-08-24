@@ -48,11 +48,6 @@ public class StreamEngineTest
     {
         using JsonDocument node = JsonDocument.Parse(raw);
 
-        if (AheadOfPorts(name))
-        {
-            return;
-        }
-
         string? actual;
         try
         {
@@ -74,18 +69,6 @@ public class StreamEngineTest
 
     /// <summary>Which engine this class checks. The subclass below points the same cases at 3.</summary>
     protected virtual int Engine => 2;
-
-    /// <summary>
-    /// The reference's disk engines handle this uniq group natively — machinery this port does
-    /// not carry yet. Skipped by name in both checks; porting it deletes this helper.
-    /// </summary>
-    private bool AheadOfPorts(string name)
-    {
-        return Expected.Value.RootElement.GetProperty("cases")
-                .TryGetProperty(name, out JsonElement entry)
-            && entry.TryGetProperty("engine" + Engine, out JsonElement e2)
-            && e2.TryGetProperty("aheadOfPorts", out _);
-    }
 
     private string? Want(string name)
     {
@@ -155,7 +138,7 @@ public class StreamEngineTest
             string name = (string)row[0];
             using JsonDocument node = JsonDocument.Parse((string)row[1]);
             string? want = Want(name);
-            if (want is null || AheadOfPorts(name))
+            if (want is null)
             {
                 continue;
             }

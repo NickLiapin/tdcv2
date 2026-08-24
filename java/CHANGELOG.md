@@ -22,6 +22,11 @@ the next build, and nothing else is edited.
 
 ### Added
 
+- **`--progress`, and `Options.onProgress(...)`.** The command line writes
+  `<output>.progress` beside the output — a small JSON object, rewritten in place
+  about once a second, naming the phase and how far along it is. The library takes
+  the same channel as a callback: `TDC.options().onProgress((phase, done, total) -> ...)`.
+
 - **One vocabulary for the finished run, in all five implementations.** The object a run
   hands back now answers to the same names everywhere, spelled each language's own way.
   Added `toArray()`.

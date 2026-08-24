@@ -41,6 +41,7 @@ public final class Args {
       Integer jobs,
       String mode,
       Integer engine,
+      boolean progress,
       boolean help,
       boolean version) {}
 
@@ -56,13 +57,14 @@ public final class Args {
     Integer jobs;
     String mode;
     Integer engine;
+    boolean progress;
     boolean help;
     boolean version;
 
     Options build() {
       return new Options(
-          input, output, seed, count, locale, now, List.copyOf(dataPaths), jobs, mode, engine, help,
-          version);
+          input, output, seed, count, locale, now, List.copyOf(dataPaths), jobs, mode, engine,
+          progress, help, version);
     }
   }
 
@@ -102,6 +104,8 @@ public final class Args {
         out.engine = 2;
       } else if (arg.equals("--disk")) {
         out.mode = "disk";
+      } else if (arg.equals("--progress")) {
+        out.progress = true;
       } else if (arg.startsWith("-")) {
         throw new UsageException("unknown option: " + arg);
       } else if (out.input == null) {

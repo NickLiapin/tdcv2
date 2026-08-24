@@ -221,6 +221,17 @@ pub fn run_in(
     now_millis: i64,
     base_dir: Option<&str>,
 ) -> EngineResult<MaterializedRows> {
+    run_in_watched(config, packs, now_millis, base_dir, None)
+}
+
+/// The same, reporting what it is doing as it goes.
+pub fn run_in_watched(
+    config: &Config,
+    packs: &DataPacks,
+    now_millis: i64,
+    base_dir: Option<&str>,
+    on_progress: crate::engine::Watch<'_>,
+) -> EngineResult<MaterializedRows> {
     let env = Env::new(config, packs, now_millis, base_dir);
     let mut columns = build_columns(&env)?;
     resolve_http(&env, &mut columns)?;
@@ -244,7 +255,7 @@ pub fn run_in(
         .filter(|name| !name.starts_with('_'))
         .cloned()
         .collect();
-    let rendered = emit(config, &columns)?;
+    let rendered = emit(config, &columns, on_progress)?;
     Ok(MaterializedRows {
         config: config.clone(),
         columns,
@@ -3709,14 +3720,25 @@ pub(super) fn pick_sequential(list: &[String], i: usize, cycle: bool) -> EngineR
 
 // ── rendering ────────────────────────────────────────────────────────────────
 
-fn emit(config: &Config, columns: &BTreeMap<String, Vec<Option<String>>>) -> EngineResult<String> {
+fn emit(
+    config: &Config,
+    columns: &BTreeMap<String, Vec<Option<String>>>,
+    on_progress: crate::engine::Watch<'_>,
+) -> EngineResult<String> {
     let fx = &config.fixtures;
     let each = each_info(config)?;
     let count = config.count.max(0) as usize;
     let mut out = String::new();
 
     emit_lines(&mut out, &fx.before, columns, 0, config, &each)?;
+    // About one report per half-percent: cheap enough to leave on always.
+    let report_every = (count / 200).max(1);
     for row in 0..count {
+        if let Some(report) = on_progress {
+            if row % report_every == 0 {
+                report("render", row, count);
+            }
+        }
         emit_lines(&mut out, &fx.before_block, columns, row, config, &each)?;
 
         // Drop the suppressed lines first. A delimiter belongs between the lines

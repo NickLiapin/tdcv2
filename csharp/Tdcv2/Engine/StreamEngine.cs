@@ -117,11 +117,14 @@ public sealed class StreamEngine
     private readonly List<string> _order = new();
     private readonly Dictionary<string, IParentCapable> _parents = new(StringComparer.Ordinal);
     private readonly bool _exactUniq;
+    private readonly Progress? _onProgress;
 
     private StreamEngine(
-        Config config, DataPacks packs, long nowMillis, string? baseDir, bool exactUniq)
+        Config config, DataPacks packs, long nowMillis, string? baseDir, bool exactUniq,
+        Progress? onProgress)
     {
         _exactUniq = exactUniq;
+        _onProgress = onProgress;
         _config = config;
         _packs = packs;
         _nowMillis = nowMillis;
@@ -141,6 +144,11 @@ public sealed class StreamEngine
         Config config, DataPacks packs, long nowMillis, string? baseDir) =>
         Rows(config, packs, nowMillis, baseDir, false);
 
+    /// <summary>The same, reporting what it is doing as it goes.</summary>
+    public static IRowSource Rows(
+        Config config, DataPacks packs, long nowMillis, string? baseDir, Progress? onProgress) =>
+        Rows(config, packs, nowMillis, baseDir, false, onProgress);
+
     /// <summary>
     /// The same, with <paramref name="exactUniq"/> deciding how a <c>uniq="true"</c> sequence is
     /// built.
@@ -151,9 +159,10 @@ public sealed class StreamEngine
     /// exact engine asks for, and the one place the two differ.
     /// </remarks>
     internal static IRowSource Rows(
-        Config config, DataPacks packs, long nowMillis, string? baseDir, bool exactUniq)
+        Config config, DataPacks packs, long nowMillis, string? baseDir, bool exactUniq,
+        Progress? onProgress = null)
     {
-        var engine = new StreamEngine(config, packs, nowMillis, baseDir, exactUniq);
+        var engine = new StreamEngine(config, packs, nowMillis, baseDir, exactUniq, onProgress);
         engine.BuildColumns();
         return new StreamRows(engine);
     }
@@ -168,7 +177,7 @@ public sealed class StreamEngine
     public static void Render(
         Config config, DataPacks packs, long nowMillis, string? baseDir, TextWriter output)
     {
-        var engine = new StreamEngine(config, packs, nowMillis, baseDir, false);
+        var engine = new StreamEngine(config, packs, nowMillis, baseDir, false, null);
         engine.BuildColumns();
         engine.Write(output, 0, engine._count);
     }
@@ -192,7 +201,7 @@ public sealed class StreamEngine
         int from,
         int to)
     {
-        var engine = new StreamEngine(config, packs, nowMillis, baseDir, false);
+        var engine = new StreamEngine(config, packs, nowMillis, baseDir, false, null);
         engine.BuildColumns();
         engine.Write(output, from, to);
     }
@@ -395,21 +404,8 @@ public sealed class StreamEngine
 
         var byName = _config.Sequences.ToDictionary(s => s.Name, StringComparer.Ordinal);
 
-        // An env-level <uniq> builds its members together — their values are digits of one index —
-        // so they are done first and skipped in the loop below.
-        var envUniqMembers = new HashSet<string>(StringComparer.Ordinal);
-        foreach (IReadOnlyList<string> group in _config.EnvUniqGroups)
-        {
-            envUniqMembers.UnionWith(BuildEnvUniq(group, byName));
-        }
-
         foreach (SequenceSpec spec in _config.Sequences)
         {
-            if (envUniqMembers.Contains(spec.Name))
-            {
-                continue;
-            }
-
             if (spec.Uniq)
             {
                 BuildUniq(spec);
@@ -536,6 +532,13 @@ public sealed class StreamEngine
             ApplyEnvDistinct(group, byName);
         }
 
+        // Env-level <uniq> comes last, for the same reason <distinct> comes second-to-last: the
+        // constraint is about a tuple, so every member has to exist before it can be looked at.
+        foreach (IReadOnlyList<string> group in _config.EnvUniqGroups)
+        {
+            ApplyEnvUniq(group, byName);
+        }
+
         // The same check the in-memory engine makes, on the same finished run: an assertion that
         // only held on one engine would be a check that depends on how the file was produced.
         Assertions.Check(_config, ValueAt, _columns.ContainsKey);
@@ -545,19 +548,73 @@ public sealed class StreamEngine
     /// Env-level <c>&lt;uniq&gt;</c>: the tuple of several sequences is unique across the run.
     /// </summary>
     /// <remarks>
-    /// Built exactly like a compound's <c>uniq</c>, only the digits live in separate sequences. The
-    /// members cannot be drawn independently and then reconciled — that is the whole-column repair
-    /// this engine exists to avoid — so they are built together from one index.
+    /// The in-memory engine draws the whole table, finds the repeated tuples and swaps values until
+    /// none is left. That is exact and it does not scale: repeats grow as the SQUARE of the row
+    /// count.
+    /// <para>
+    /// Here the columns stay seekable — each is already a function of the row number — and only the
+    /// repeats are touched. The repair streams every tuple through a sort to find them, which is
+    /// bounded memory, then rearranges the few offenders in RAM. Its own refusal hands a
+    /// pathologically tight config back to the in-memory engine, so nothing is lost when the space
+    /// really is too small.
+    /// </para>
+    /// <para>
+    /// <b>This changes the arrangement.</b> A repaired dataset is not the one the in-memory engine
+    /// produced from the same seed. Both are correct — every tuple distinct, every column's multiset
+    /// untouched, so the percentages hold — but they are different arrangements.
+    /// </para>
     /// </remarks>
-    /// <returns>The names this took over, which the ordinary loop must then leave alone.</returns>
-    private IReadOnlySet<string> BuildEnvUniq(
+    private void ApplyEnvUniq(
         IReadOnlyList<string> group, IReadOnlyDictionary<string, SequenceSpec> byName)
     {
-        // As with a sequence's own `uniq`: a group rearranges finished columns, so it belongs to
-        // the in-memory engine and both disk engines refuse rather than answer differently.
-        throw Unsupported(
-            "<uniq> across sequences (a whole-column rearrangement)",
-            string.Join(" × ", group));
+        List<string> members = group.Where(name => _columns.ContainsKey(name)).ToList();
+        if (members.Count < 2)
+        {
+            return;
+        }
+
+        string label = string.Join(" × ", members);
+
+        var resolvers = new List<ExactUniq.Resolver>(members.Count);
+        foreach (string name in members)
+        {
+            Column column = _columns[name];
+            resolvers.Add(row => column(row) ?? string.Empty);
+        }
+
+        // The columns a switch member is keyed by. Empty for an ordinary group, and then every row
+        // may trade with every other, as it always could.
+        var keyed = new List<Column>();
+        foreach (string name in members)
+        {
+            if (!byName.TryGetValue(name, out SequenceSpec? spec) || spec.SwitchSpec is null)
+            {
+                continue;
+            }
+
+            if (_columns.TryGetValue(spec.SwitchSpec.On, out Column? subject)
+                && !keyed.Contains(subject))
+            {
+                keyed.Add(subject);
+            }
+        }
+
+        Func<int, string>? blockOf = null;
+        if (keyed.Count > 0)
+        {
+            // Any injective key groups the same rows; the separator cannot appear in a value.
+            blockOf = row => string.Join(
+                ExactUniq.Join, keyed.Select(column => column(row) ?? string.Empty));
+        }
+
+        IReadOnlyDictionary<string, ExactUniq.Resolver> repaired = ExactUniq.Repair(
+            members, resolvers, _count, $"\"{label}\"", _baseDir ?? Path.GetTempPath(), blockOf,
+            _onProgress);
+        foreach (string name in members)
+        {
+            ExactUniq.Resolver resolver = repaired[name];
+            Put(name, row => resolver(row));
+        }
     }
 
     /// <summary>
@@ -2079,7 +2136,8 @@ public sealed class StreamEngine
         }
 
         IReadOnlyDictionary<string, ExactUniq.Resolver> built = ExactUniq.Arrange(
-            fields, _count, _seed, $"\"{spec.Name}\"", _baseDir ?? Path.GetTempPath());
+            fields, _count, _seed, $"\"{spec.Name}\"", _baseDir ?? Path.GetTempPath(),
+            _onProgress);
         foreach (KeyValuePair<string, ExactUniq.Resolver> entry in built)
         {
             ExactUniq.Resolver resolver = entry.Value;
@@ -2180,8 +2238,15 @@ public sealed class StreamEngine
             Emit(output, fx.Before, 0);
         }
 
+        // About one report per half-percent: cheap enough to leave on always.
+        int reportEvery = Math.Max(1, (to - from) / 200);
         for (int row = from; row < to; row++)
         {
+            if (_onProgress is not null && (row - from) % reportEvery == 0)
+            {
+                _onProgress("render", row - from, to - from);
+            }
+
             Emit(output, fx.BeforeBlock, row);
 
             var active = new List<Line>();

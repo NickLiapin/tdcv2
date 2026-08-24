@@ -103,6 +103,29 @@ impl From<EngineError> for TdcError {
     }
 }
 
+/// What a run says about itself while it is still going.
+///
+/// A large run is silent for minutes at a time, and silence reads the same as a
+/// hang. This is the channel that tells them apart: it is called as the work
+/// advances, about two hundred times per phase, so it must be cheap. Whoever
+/// wants it durable — the command line writes a small JSON file — throttles it
+/// themselves.
+///
+/// The phases, in the order a uniq run passes through them: `uniq-scan` (every
+/// row's tuple hashed into its pile), `uniq-sort` (the piles sorted), `render`
+/// (rows written). A run without uniqueness only ever reports `render`.
+///
+/// A newtype rather than a bare closure because [`Options`] derives `Debug` and
+/// a closure does not.
+#[derive(Clone)]
+pub struct ProgressHook(pub std::rc::Rc<dyn Fn(&str, usize, usize)>);
+
+impl std::fmt::Debug for ProgressHook {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str("ProgressHook")
+    }
+}
+
 /// Everything a run can be told, for the cases the constructors do not cover.
 #[derive(Clone, Debug, Default)]
 pub struct Options {
@@ -119,6 +142,8 @@ pub struct Options {
     /// the tests that compare one engine against another; a config should say
     /// what it needs and let the router decide.
     pub engine: Option<u8>,
+    /// Called as the run advances — see [`ProgressHook`].
+    pub on_progress: Option<ProgressHook>,
     /// The clock, for `value="today"` and for a birth date's age window.
     ///
     /// A parameter so a test can pin it; without that a test asserting on a
@@ -403,6 +428,7 @@ impl Tdc {
         // Read once, here, rather than per value: a run that straddled midnight
         // would otherwise put two different dates in one file from one "today".
         let now_millis = options.now_millis.unwrap_or_else(now);
+        let on_progress = options.on_progress.clone();
         let engine = engine::router::resolve(&config, Some(&packs))?;
 
         Ok(Plan {
@@ -414,6 +440,7 @@ impl Tdc {
             packs,
             now_millis,
             base_dir,
+            on_progress,
         })
     }
 
@@ -594,6 +621,7 @@ pub struct Plan {
     packs: DataPacks,
     now_millis: i64,
     base_dir: Option<String>,
+    on_progress: Option<ProgressHook>,
 }
 
 impl Plan {
@@ -662,11 +690,14 @@ impl Plan {
             out: std::io::BufWriter::new(file),
             error: None,
         };
+        let hook = self.on_progress.clone();
+        let report = hook.map(|h| move |phase: &str, done: usize, total: usize| (h.0)(phase, done, total));
         let rendered = crate::engine::stream::write_in(
             &self.config,
             self.now_millis,
             self.base_dir.as_deref(),
             &mut sink,
+            report.as_ref().map(|f| f as &dyn Fn(&str, usize, usize)),
         );
         // The sink's own failure is the better message: the engine only knows
         // that a write refused, while the sink kept the reason the OS gave.
@@ -698,11 +729,14 @@ impl Plan {
         // Generated once and kept: asking for the text and then for the rows
         // must not run the generator twice, which would be both slow and — with
         // a generated seed — a different answer.
-        let run = engine::run_in(
+        let hook = self.on_progress.clone();
+        let report = hook.map(|h| move |phase: &str, done: usize, total: usize| (h.0)(phase, done, total));
+        let run = engine::run_in_watched(
             &self.config,
             &self.packs,
             self.now_millis,
             self.base_dir.as_deref(),
+            report.as_ref().map(|f| f as &dyn Fn(&str, usize, usize)),
         )?;
 
         Ok(Tdc {

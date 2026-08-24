@@ -20,12 +20,18 @@ from . import memory, stream
 from .exact_uniq import RepairNeededError
 
 
-def rows(config: Config, packs: DataPacks, now_millis: int, base_dir: Path | None = None):
+def rows(
+    config: Config,
+    packs: DataPacks,
+    now_millis: int,
+    base_dir: Path | None = None,
+    on_progress=None,
+):
     """The run as addressable records, exact and bounded — or in memory when it cannot be both."""
     try:
-        return stream.rows(config, packs, now_millis, base_dir, exact_uniq=True)
+        return stream.rows(config, packs, now_millis, base_dir, True, on_progress)
     except (stream.UnsupportedError, RepairNeededError):
-        return memory.build(config, packs, now_millis, base_dir)
+        return memory.build(config, packs, now_millis, base_dir, on_progress)
 
 
 def render(config: Config, packs: DataPacks, now_millis: int, base_dir: Path | None = None) -> str:

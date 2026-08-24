@@ -141,6 +141,7 @@ class TDC:
         "_config_file",
         "_diagnostics",
         "_now_millis",
+        "_on_progress",
         "_options",
         "_packs",
         "_rendered",
@@ -161,6 +162,7 @@ class TDC:
         data_paths: list[Path] | None = None,
         base_dir: Path | None = None,
         engine: int | None = None,
+        on_progress=None,
     ) -> None:
         """Exactly one of ``config_file`` and ``config_string``; the rest override ``<env>``.
 
@@ -171,6 +173,12 @@ class TDC:
         ``engine`` runs on one named engine (1 in memory, 2 streaming, 3 exact on disk), overriding
         everything the config says and refusing rather than falling back. That is what makes it
         useful for a benchmark and wrong for ordinary use.
+
+        ``on_progress(phase, done, total)`` is called as the run advances, so a caller with a long
+        run can say more than "working". Phases: ``uniq-scan`` (every row's tuple hashed),
+        ``uniq-sort`` (piles sorted), ``render`` (rows written). It is called often — about two
+        hundred times per phase — so it must be cheap; the command line throttles it to once a
+        second before writing anything down.
         """
         if (config_file is None) == (config_string is None):
             raise ValueError("TDC needs exactly one of config_file and config_string")
@@ -237,6 +245,7 @@ class TDC:
         # otherwise put two different dates in one file from one "today".
         self._now_millis = now if now is not None else int(time.time() * 1000)
         self._base_dir = config_dir
+        self._on_progress = on_progress
         self._rendered = None
         self._source = source
 
@@ -512,7 +521,9 @@ class TDC:
     def _build(self):
         # Routing, and recovering from a streaming refusal, live in `engine` — one place, so the
         # facade and the shared-case harness cannot come to different answers about one config.
-        return engine.build(self._config, self._packs, self._now_millis, self._base_dir)
+        return engine.build(
+            self._config, self._packs, self._now_millis, self._base_dir, self._on_progress
+        )
 
 
 def _total_memory() -> int:

@@ -117,7 +117,13 @@ def read_records(path: Path) -> Iterator[bytes]:
 
 
 def write_piles(
-    resolvers: list, from_row: int, to_row: int, directory: Path, prefix: str, buckets: int
+    resolvers: list,
+    from_row: int,
+    to_row: int,
+    directory: Path,
+    prefix: str,
+    buckets: int,
+    on_progress=None,
 ) -> list[Path]:
     """Hash rows ``[from_row, to_row)`` and route each fingerprint into its pile file.
 
@@ -128,8 +134,13 @@ def write_piles(
 
     paths = [directory / f"{prefix}-{b}" for b in range(buckets)]
     writers = [Writer(path) for path in paths]
+    total = to_row - from_row
+    # About one report per half-percent of the range: cheap enough to leave on always.
+    report_every = max(1, total // 200)
     try:
         for row in range(from_row, to_row):
+            if on_progress is not None and (row - from_row) % report_every == 0:
+                on_progress("uniq-scan", row - from_row, total)
             key = JOIN.join(resolver(row) for resolver in resolvers)
             hi, lo = hash64(key)
             writers[bucket_of(hi, buckets)].write(hi, lo, row)

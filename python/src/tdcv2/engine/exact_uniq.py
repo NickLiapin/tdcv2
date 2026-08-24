@@ -26,8 +26,8 @@ import tempfile
 from collections.abc import Callable, Iterator
 from contextlib import suppress
 from dataclasses import dataclass
-from typing import Protocol
 from pathlib import Path
+from typing import Protocol
 
 from ..distribution import hamilton
 from ..prng import permute
@@ -67,12 +67,20 @@ MAX_SWEEPS = 32
 
 
 class RepairNeededError(RuntimeError):
-    """The exact construction collided and the bounded repair could not place every row."""
+    """The exact construction collided and the bounded repair could not place every row.
+
+    Two audiences, one sentence. A caller that CHOSE a bounded-memory engine for the user catches
+    this and falls back to the in-memory engine, which has the whole table to work with. A caller
+    the user forced into stream mode lets it through instead: holding the whole table is the one
+    thing that user asked not to happen, so the text says what to change rather than claiming a
+    fallback that did not occur.
+    """
 
     def __init__(self, collisions: int, label: str) -> None:
         super().__init__(
-            f"Engine 3: uniq {label} is too tight for the bounded-memory repair "
-            f"({collisions} row(s) couldn't be placed) — using the in-memory engine instead."
+            f"uniq {label} is too tight to repair without holding the whole table "
+            f"({collisions} row(s) couldn't be placed) — run without mode=\"stream\" "
+            "so the in-memory engine can arrange it."
         )
 
 
@@ -89,7 +97,12 @@ Resolver = Callable[[int], str]
 
 
 def arrange(
-    fields: list[Field], count: int, seed: str, label: str, tmp_dir: Path | None = None
+    fields: list[Field],
+    count: int,
+    seed: str,
+    label: str,
+    tmp_dir: Path | None = None,
+    on_progress=None,
 ) -> dict[str, Resolver]:
     """The uniq columns built with exact shares, and their tuples verified really distinct."""
     counts = [
@@ -119,32 +132,39 @@ def arrange(
     # of integers, and a serial-number column makes it true.
     for column_counts in counts:
         if all(c <= 1 for c in column_counts):
-            return _registry(fields, resolvers)
+            return _registry([f.id for f in fields], resolvers)
 
-    return _repair(fields, resolvers, count, label, tmp_dir)
-
-
-def _registry(fields: list[Field], resolvers: list[Resolver]) -> dict[str, Resolver]:
-    return {f.id: resolvers[j] for j, f in enumerate(fields)}
+    return repair([f.id for f in fields], resolvers, count, label, tmp_dir, None, on_progress)
 
 
-def _repair(
-    fields: list[Field],
+def _registry(ids: list[str], resolvers: list[Resolver]) -> dict[str, Resolver]:
+    return {name: resolvers[j] for j, name in enumerate(ids)}
+
+
+def repair(
+    ids: list[str],
     resolvers: list[Resolver],
     count: int,
     label: str,
-    tmp_dir: Path | None,
+    tmp_dir: Path | None = None,
+    block_of: Callable[[int], str] | None = None,
+    on_progress=None,
 ) -> dict[str, Resolver]:
     """Verified, and whatever the construction left colliding repaired.
 
     The repair moves a small pool of rows and nothing else. That is what keeps the percentages
     exact: a value only ever changes hands between two rows of the pool, so every column ends the
     pass with the multiset it started with.
+
+    ``block_of`` names which rows may trade values with each other. A ``<switch>`` member draws
+    from a different list depending on another column, so a male row's first name is not a value a
+    female row is allowed to hold; without this the repair would keep the tuple unique and stop the
+    record making sense. Absent means one block holding everything, which is the ordinary case.
     """
     # How the duplicates are hunted: by fingerprint on a large run, by tuple text on a small one.
     # The carrier is all that differs — the rows found are the same rows either way, because a
     # matching fingerprint is verified against the true tuples before it is believed.
-    scan = _fingerprint_scan(resolvers, count, tmp_dir)
+    scan = _fingerprint_scan(resolvers, count, tmp_dir, on_progress)
 
     excess: list[int] = []
     if scan is not None:
@@ -156,11 +176,12 @@ def _repair(
     if not excess:
         if scan is not None:
             scan.drop()
-        return _registry(fields, resolvers)
+        return _registry(ids, resolvers)
     if len(excess) > max_repair_rows_for(count):
         if scan is not None:
             scan.drop()
         raise RepairNeededError(len(excess), label)
+    excess.sort()
 
     # The colliding rows on their own often lack the variety to move — a lone duplicate can only
     # re-form the tuple it already has. So the pool takes in donor rows sampled across the run,
@@ -168,7 +189,7 @@ def _repair(
     donor_target = min(count - len(excess), 8 * len(excess) + 24)
     in_pool = set(excess)
     pool = list(excess)
-    if donor_target > 0:
+    if donor_target > 0 and block_of is None:
         stride = max(1, count // donor_target)
         for i in range(0, count, stride):
             if len(pool) - len(excess) >= donor_target:
@@ -176,6 +197,26 @@ def _repair(
             if i not in in_pool:
                 in_pool.add(i)
                 pool.append(i)
+    elif donor_target > 0:
+        # Donors have to come from the row's OWN block, or they arrive holding values it is not
+        # allowed to take. Wanted per block, in proportion to how many of its rows have to move.
+        wanted: dict[str, int] = {}
+        for row in excess:
+            block = block_of(row)
+            wanted[block] = wanted.get(block, 0) + 8
+        for block in wanted:
+            wanted[block] += 24
+        stride = max(1, count // max(1, donor_target))
+        for i in range(0, count, stride):
+            if i in in_pool:
+                continue
+            block = block_of(i)
+            left = wanted.get(block, 0)
+            if left <= 0:
+                continue
+            wanted[block] = left - 1
+            in_pool.add(i)
+            pool.append(i)
     pool.sort()
 
     k = len(resolvers)
@@ -209,22 +250,31 @@ def _repair(
                 exact.add(JOIN.join(tuple_values))
         forbidden = _ExactMembership(exact)
 
+    # The pool is arranged one block at a time: a value only ever lands on a row that was allowed
+    # to hold it. One block, keyed by the empty string, is the ordinary case.
+    blocks: dict[str, list[int]] = {}
+    for m, row in enumerate(pool):
+        blocks.setdefault("" if block_of is None else block_of(row), []).append(m)
+
+    override: dict[int, list[str]] = {}
     try:
-        arranged = _arrange_avoiding(pool_columns, forbidden, len(pool))
+        for positions in blocks.values():
+            columns = [[column[m] for m in positions] for column in pool_columns]
+            arranged = _arrange_avoiding(columns, forbidden, len(positions))
+            if arranged is None:
+                raise RepairNeededError(len(excess), label)
+            for at, m in enumerate(positions):
+                override[pool[m]] = [column[at] for column in arranged]
     finally:
         if ledger is not None:
             ledger.close()
         if scan is not None:
             scan.drop()
-    if arranged is None:
-        raise RepairNeededError(len(excess), label)
-
-    override = {pool[m]: [column[m] for column in arranged] for m in range(len(pool))}
 
     out: dict[str, Resolver] = {}
-    for j, f in enumerate(fields):
+    for j, name in enumerate(ids):
         base = resolvers[j]
-        out[f.id] = lambda row, column=j, base=base: (
+        out[name] = lambda row, column=j, base=base: (
             override[row][column] if row in override else base(row)
         )
     return out
@@ -262,7 +312,7 @@ class _FingerprintScan:
 
 
 def _fingerprint_scan(
-    resolvers: list[Resolver], count: int, tmp_dir: Path | None
+    resolvers: list[Resolver], count: int, tmp_dir: Path | None, on_progress=None
 ) -> _FingerprintScan | None:
     """Hunt duplicates by fingerprint, or return None to leave the text path in charge.
 
@@ -276,11 +326,15 @@ def _fingerprint_scan(
         return None
 
     directory = Path(tempfile.mkdtemp(prefix="tdc-fp-", dir=tmp_dir))
-    raw_paths = fingerprint.write_piles(resolvers, 0, count, directory, "raw", buckets)
+    raw_paths = fingerprint.write_piles(
+        resolvers, 0, count, directory, "raw", buckets, on_progress
+    )
 
     sorted_paths: list[Path] = []
     candidates: list[list[int]] = []
     for b in range(buckets):
+        if on_progress is not None:
+            on_progress("uniq-sort", b, buckets)
         out = directory / f"sorted-{b}"
         fingerprint.sort_files([raw_paths[b]], out, directory)
         raw_paths[b].unlink(missing_ok=True)

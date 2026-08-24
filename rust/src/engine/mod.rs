@@ -184,11 +184,29 @@ pub fn render_in(config: &Config, now_millis: i64, base_dir: Option<&str>) -> En
 /// forgets it again, which is exactly what [`RowSource`] cannot do, so the rows
 /// it hands out are materialised at this boundary. Streaming callers use
 /// [`render_in`], which is the path that keeps memory flat.
+/// A run's progress channel, as the engines pass it around.
+///
+/// `None` is the ordinary case: nobody is watching, and the reports cost
+/// nothing because they are never made. See [`crate::tdc::ProgressHook`] for
+/// what the phases mean.
+pub type Watch<'a> = Option<&'a dyn Fn(&str, usize, usize)>;
+
 pub fn run_in(
     config: &Config,
     packs: &DataPacks,
     now_millis: i64,
     base_dir: Option<&str>,
+) -> EngineResult<Box<dyn RowSource>> {
+    run_in_watched(config, packs, now_millis, base_dir, None)
+}
+
+/// The same, reporting what it is doing as it goes.
+pub fn run_in_watched(
+    config: &Config,
+    packs: &DataPacks,
+    now_millis: i64,
+    base_dir: Option<&str>,
+    on_progress: Watch<'_>,
 ) -> EngineResult<Box<dyn RowSource>> {
     // Can the uniq groups cover `count` at all? Asked before an engine is chosen,
     // because the answer does not depend on which one runs. It used to be asked
@@ -197,17 +215,25 @@ pub fn run_in(
     // milliseconds. The check reads the SPECS; no column is built to answer it.
     memory::check_env_uniq_capacity(config, config.count.max(0) as usize)?;
     match router::resolve(config, Some(packs))? {
-        1 => Ok(Box::new(memory::run_in(
-            config, packs, now_millis, base_dir,
+        1 => Ok(Box::new(memory::run_in_watched(
+            config,
+            packs,
+            now_millis,
+            base_dir,
+            on_progress,
         )?)),
-        2 => match stream::rows_in(config, packs, now_millis, base_dir) {
+        2 => match stream::rows_in_watched(config, packs, now_millis, base_dir, on_progress) {
             Ok(rows) => Ok(Box::new(rows)),
-            Err(e) if recoverable(config, &e) => Ok(Box::new(memory::run_in(
-                config, packs, now_millis, base_dir,
+            Err(e) if recoverable(config, &e) => Ok(Box::new(memory::run_in_watched(
+                config,
+                packs,
+                now_millis,
+                base_dir,
+                on_progress,
             )?)),
             Err(e) => Err(e),
         },
-        3 => disk::rows_in(config, packs, now_millis, base_dir),
+        3 => disk::rows_in_watched(config, packs, now_millis, base_dir, on_progress),
         other => invalid(&format!("engine {other} does not exist")),
     }
 }

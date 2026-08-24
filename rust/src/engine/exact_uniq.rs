@@ -32,7 +32,7 @@ use crate::stats::hamilton;
 
 /// Separates a tuple's columns. Control characters cannot appear in a generated
 /// value.
-const JOIN: char = '\u{1}';
+pub const JOIN: char = '\u{1}';
 
 /// Separates a key from its row index in a sortable record. NUL sorts below
 /// everything.
@@ -119,15 +119,28 @@ impl Resolver {
 /// this and hands the config to the in-memory engine.
 pub fn repair_needed(collisions: usize, label: &str) -> EngineError {
     EngineError::Unsupported(format!(
-        "engine 3: uniq {label} is too tight for the bounded-memory repair ({collisions} row(s) \
-         couldn't be placed) — using the in-memory engine instead"
+        "uniq {label} is too tight to repair without holding the whole table ({collisions} row(s) \
+         couldn't be placed) — run without mode=\"stream\" so the in-memory engine can arrange it."
     ))
 }
 
+/// The part of that sentence that identifies it, wherever it is quoted from.
+const REPAIR_NEEDED_MARK: &str = "is too tight to repair without holding the whole table";
+
 /// Whether an error is the repair giving up, and so the signal to fall back.
 pub fn is_repair_needed(error: &EngineError) -> bool {
-    matches!(error, EngineError::Unsupported(m) if m.starts_with("engine 3: uniq "))
+    matches!(error, EngineError::Unsupported(m) if m.contains(REPAIR_NEEDED_MARK))
 }
+
+/// A column as the repair sees it: the value it gives a row.
+///
+/// The quota walk below is one such column, and a stream engine's finished
+/// column is another — an env-level `<uniq>` repairs sequences that were built
+/// by every other path in the engine, so the repair cannot name their type.
+pub type Source<'a> = Box<dyn Fn(i32) -> String + 'a>;
+
+/// The rows the repair moved, and the values they hold now — one per column.
+pub type Overrides = BTreeMap<i32, Vec<String>>;
 
 /// Build the uniq columns with exact shares, and make sure the tuples really are
 /// distinct.
@@ -137,6 +150,7 @@ pub fn arrange(
     seed: &str,
     label: &str,
     tmp_dir: &Path,
+    on_progress: crate::engine::Watch<'_>,
 ) -> EngineResult<Vec<(String, Resolver)>> {
     let mut counts: Vec<Vec<i32>> = Vec::with_capacity(fields.len());
     for field in fields {
@@ -179,7 +193,19 @@ pub fn arrange(
         return Ok(named(fields, resolvers));
     }
 
-    repair(fields, resolvers, count, label, tmp_dir)
+    let overrides = {
+        let sources: Vec<Source<'_>> = resolvers
+            .iter()
+            .map(|r| Box::new(move |row: i32| r.value_at(row)) as Source<'_>)
+            .collect();
+        repair(&sources, count, label, tmp_dir, None, on_progress)?
+    };
+    for (row, values) in &overrides {
+        for (j, resolver) in resolvers.iter_mut().enumerate() {
+            resolver.overrides.insert(*row, values[j].clone());
+        }
+    }
+    Ok(named(fields, resolvers))
 }
 
 fn named(fields: &[Field], resolvers: Vec<Resolver>) -> Vec<(String, Resolver)> {
@@ -191,25 +217,33 @@ fn named(fields: &[Field], resolvers: Vec<Resolver>) -> Vec<(String, Resolver)> 
 /// The repair moves a small pool of rows and nothing else. That is what keeps
 /// the percentages exact: a value only ever changes hands between two rows of
 /// the pool, so every column ends the pass with the multiset it started with.
-fn repair(
-    fields: &[Field],
-    resolvers: Vec<Resolver>,
+///
+/// `block_of` names which rows may trade values with each other. A `<switch>`
+/// member draws from a different list depending on another column, so a male
+/// row's first name is not a value a female row is allowed to hold; without
+/// this the repair would keep the tuple unique and stop the record making
+/// sense. `None` means one block holding everything, which is the ordinary
+/// case.
+pub fn repair(
+    sources: &[Source<'_>],
     count: i32,
     label: &str,
     tmp_dir: &Path,
-) -> EngineResult<Vec<(String, Resolver)>> {
+    block_of: Option<&dyn Fn(i32) -> String>,
+    on_progress: crate::engine::Watch<'_>,
+) -> EngineResult<Overrides> {
     // How the duplicates are hunted: by fingerprint on a large run, by tuple
     // text on a small one. The carrier is all that differs — the rows found are
     // the same either way, because a matching fingerprint is verified against
     // the true tuples before it is believed.
-    let scan = fingerprint_scan(&resolvers, count, tmp_dir)?;
+    let scan = fingerprint_scan(sources, count, tmp_dir, on_progress)?;
 
     let mut excess: Vec<i32> = Vec::new();
     match &scan {
         Some(found) => excess.extend(found.excess.iter().copied()),
         None => {
             // Keep the first row of every colliding group; the rest have to move.
-            for group in duplicate_groups(&resolvers, count, tmp_dir)? {
+            for group in duplicate_groups(sources, count, tmp_dir)? {
                 excess.extend(group.into_iter().skip(1));
             }
         }
@@ -219,7 +253,7 @@ fn repair(
         if let Some(found) = &scan {
             found.drop_files();
         }
-        return Ok(named(fields, resolvers));
+        return Ok(Overrides::new());
     }
     if excess.len() > max_repair_rows_for(count) {
         if let Some(found) = &scan {
@@ -227,6 +261,7 @@ fn repair(
         }
         return Err(repair_needed(excess.len(), label));
     }
+    excess.sort_unstable();
 
     // The colliding rows on their own often lack the variety to move — a lone
     // duplicate can only re-form the tuple it already has. So the pool takes in
@@ -235,23 +270,52 @@ fn repair(
     let donor_target = ((count as usize).saturating_sub(excess.len())).min(8 * excess.len() + 24);
     let mut in_pool: BTreeSet<i32> = excess.iter().copied().collect();
     let mut pool: Vec<i32> = excess.clone();
-    if donor_target > 0 {
-        let stride = (count as usize / donor_target).max(1) as i32;
-        let mut i = 0i32;
-        while i < count && pool.len() - excess.len() < donor_target {
-            if in_pool.insert(i) {
-                pool.push(i);
+    match block_of {
+        _ if donor_target == 0 => {}
+        None => {
+            let stride = (count as usize / donor_target).max(1) as i32;
+            let mut i = 0i32;
+            while i < count && pool.len() - excess.len() < donor_target {
+                if in_pool.insert(i) {
+                    pool.push(i);
+                }
+                i += stride;
             }
-            i += stride;
+        }
+        Some(block) => {
+            // Donors have to come from the row's OWN block, or they arrive
+            // holding values it is not allowed to take. Wanted per block, in
+            // proportion to how many of its rows have to move.
+            let mut wanted: BTreeMap<String, usize> = BTreeMap::new();
+            for row in &excess {
+                *wanted.entry(block(*row)).or_insert(0) += 8;
+            }
+            for left in wanted.values_mut() {
+                *left += 24;
+            }
+            let stride = (count as usize / donor_target.max(1)).max(1) as i32;
+            let mut i = 0i32;
+            while i < count {
+                if !in_pool.contains(&i) {
+                    if let Some(left) = wanted.get_mut(&block(i)) {
+                        if *left > 0 {
+                            *left -= 1;
+                            in_pool.insert(i);
+                            pool.push(i);
+                        }
+                    }
+                }
+                i += stride;
+            }
         }
     }
     pool.sort_unstable();
 
-    let k = resolvers.len();
+    let k = sources.len();
     let mut pool_columns: Vec<Vec<String>> = Vec::with_capacity(k);
     let mut pool_space: Vec<BTreeSet<String>> = Vec::with_capacity(k);
-    for resolver in &resolvers {
-        let column: Vec<String> = pool.iter().map(|row| resolver.value_at(*row)).collect();
+    for source in sources {
+        let column: Vec<String> = pool.iter().map(|row| source(*row)).collect();
         pool_space.push(column.iter().cloned().collect());
         pool_columns.push(column);
     }
@@ -277,8 +341,8 @@ fn repair(
                 }
                 let mut key = String::new();
                 let mut in_space = true;
-                for (j, resolver) in resolvers.iter().enumerate() {
-                    let value = resolver.value_at(i);
+                for (j, source) in sources.iter().enumerate() {
+                    let value = source(i);
                     if !pool_space[j].contains(&value) {
                         in_space = false;
                         break;
@@ -296,21 +360,51 @@ fn repair(
         }
     };
 
-    let arranged = arrange_avoiding(&pool_columns, forbidden.as_mut(), pool.len());
+    // The pool is arranged one block at a time: a value only ever lands on a row
+    // that was allowed to hold it. One block, keyed by the empty string, is the
+    // ordinary case.
+    let mut order: Vec<String> = Vec::new();
+    let mut blocks: BTreeMap<String, Vec<usize>> = BTreeMap::new();
+    for (m, row) in pool.iter().enumerate() {
+        let key = block_of.map_or_else(String::new, |block| block(*row));
+        let positions = blocks.entry(key.clone()).or_insert_with(|| {
+            order.push(key);
+            Vec::new()
+        });
+        positions.push(m);
+    }
+
+    let mut overrides = Overrides::new();
+    let mut failed = false;
+    for key in &order {
+        let positions = &blocks[key];
+        let columns: Vec<Vec<String>> = pool_columns
+            .iter()
+            .map(|column| positions.iter().map(|m| column[*m].clone()).collect())
+            .collect();
+        match arrange_avoiding(&columns, forbidden.as_mut(), positions.len()) {
+            Some(arranged) => {
+                for (at, m) in positions.iter().enumerate() {
+                    overrides.insert(
+                        pool[*m],
+                        arranged.iter().map(|column| column[at].clone()).collect(),
+                    );
+                }
+            }
+            None => {
+                failed = true;
+                break;
+            }
+        }
+    }
+    drop(forbidden);
     if let Some(found) = &scan {
         found.drop_files();
     }
-    let Some(arranged) = arranged else {
+    if failed {
         return Err(repair_needed(excess.len(), label));
-    };
-
-    let mut resolvers = resolvers;
-    for (j, resolver) in resolvers.iter_mut().enumerate() {
-        for (m, row) in pool.iter().enumerate() {
-            resolver.overrides.insert(*row, arranged[j][m].clone());
-        }
     }
-    Ok(named(fields, resolvers))
+    Ok(overrides)
 }
 
 /// The groups of rows whose tuples are identical, in bounded memory.
@@ -341,9 +435,10 @@ impl FingerprintScan {
 /// so a 64-bit collision costs one recomputation and never a false duplicate —
 /// the rows returned are exactly the ones the text sort would name.
 fn fingerprint_scan(
-    resolvers: &[Resolver],
+    sources: &[Source<'_>],
     count: i32,
     tmp_dir: &Path,
+    on_progress: crate::engine::Watch<'_>,
 ) -> EngineResult<Option<FingerprintScan>> {
     let cores = std::thread::available_parallelism()
         .map(std::num::NonZeroUsize::get)
@@ -358,18 +453,32 @@ fn fingerprint_scan(
         .map_err(|e| EngineError::Unsupported(format!("uniq fingerprint dir: {e}")))?;
 
     let join = JOIN.to_string();
-    let functions: Vec<Box<dyn Fn(usize) -> String + '_>> = resolvers
+    let functions: Vec<Box<dyn Fn(usize) -> String + '_>> = sources
         .iter()
-        .map(|r| Box::new(move |row: usize| r.value_at(row as i32)) as Box<dyn Fn(usize) -> String>)
+        .map(|source| {
+            Box::new(move |row: usize| source(row as i32)) as Box<dyn Fn(usize) -> String>
+        })
         .collect();
 
     let raw_paths =
-        fingerprint::write_piles(&functions, 0, count as usize, &directory, "raw", buckets, &join)
-            .map_err(|e| EngineError::Unsupported(format!("uniq fingerprint scan: {e}")))?;
+        fingerprint::write_piles(
+            &functions,
+            0,
+            count as usize,
+            &directory,
+            "raw",
+            buckets,
+            &join,
+            on_progress,
+        )
+        .map_err(|e| EngineError::Unsupported(format!("uniq fingerprint scan: {e}")))?;
 
     let mut sorted_paths = Vec::with_capacity(buckets);
     let mut candidates: Vec<Vec<usize>> = Vec::new();
     for (b, raw) in raw_paths.iter().enumerate() {
+        if let Some(report) = on_progress {
+            report("uniq-sort", b, buckets);
+        }
         let out = directory.join(format!("sorted-{b}"));
         fingerprint::sort_files(std::slice::from_ref(raw), &out, &directory)
             .map_err(|e| EngineError::Unsupported(format!("uniq fingerprint sort: {e}")))?;
@@ -381,7 +490,7 @@ fn fingerprint_scan(
         sorted_paths.push(out);
     }
 
-    let excess = verify_candidates(resolvers, &candidates);
+    let excess = verify_candidates(sources, &candidates);
     Ok(Some(FingerprintScan {
         sorted_paths,
         directory,
@@ -390,17 +499,17 @@ fn fingerprint_scan(
 }
 
 /// Keep only the rows whose tuples GENUINELY repeat, lowest row of each group spared.
-fn verify_candidates(resolvers: &[Resolver], candidates: &[Vec<usize>]) -> Vec<i32> {
+fn verify_candidates(sources: &[Source<'_>], candidates: &[Vec<usize>]) -> Vec<i32> {
     let mut excess: Vec<i32> = Vec::new();
     for group in candidates {
         let mut by_key: BTreeMap<String, Vec<i32>> = BTreeMap::new();
         for row in group {
             let mut key = String::new();
-            for (j, resolver) in resolvers.iter().enumerate() {
+            for (j, source) in sources.iter().enumerate() {
                 if j > 0 {
                     key.push(JOIN);
                 }
-                key.push_str(&resolver.value_at(*row as i32));
+                key.push_str(&source(*row as i32));
             }
             by_key.entry(key).or_default().push(*row as i32);
         }
@@ -417,17 +526,17 @@ fn verify_candidates(resolvers: &[Resolver], candidates: &[Vec<usize>]) -> Vec<i
 }
 
 fn duplicate_groups(
-    resolvers: &[Resolver],
+    sources: &[Source<'_>],
     count: i32,
     tmp_dir: &Path,
 ) -> EngineResult<Vec<Vec<i32>>> {
     let records = (0..count).map(|i| {
         let mut key = String::new();
-        for (j, resolver) in resolvers.iter().enumerate() {
+        for (j, source) in sources.iter().enumerate() {
             if j > 0 {
                 key.push(JOIN);
             }
-            key.push_str(&resolver.value_at(i));
+            key.push_str(&source(i));
         }
         key.push(SEP);
         key.push_str(&format!("{i:0>INDEX_WIDTH$}"));

@@ -75,6 +75,10 @@ public final class Main {
                                  automatically from the config. memory: the small,
                                  in-RAM engine (an escape hatch; does not scale)
         --disk                   Shortcut for --mode disk (already the default)
+        --progress               Write <output>.progress — a small JSON status file
+                                 refreshed about once a second (phase, rows done,
+                                 percent). Needs -o. Poll it, or watch its mtime as
+                                 a heartbeat: not updated for minutes = not running
         --engine <1|2|3>         Advanced: force a specific engine
         --stream                 Legacy alias for --engine 2
         -h, --help               Show this message
@@ -150,9 +154,21 @@ public final class Main {
       return 1;
     }
 
+    StatusFile status = null;
+    if (options.progress()) {
+      if (options.output() == null) {
+        System.err.print("tdcv2: --progress needs -o (the status file lives beside the output)\n");
+        return 2;
+      }
+      status = new StatusFile(Path.of(options.output() + ".progress"));
+    }
+
     TDC data;
     try {
       TDC.Options built = TDC.options().configFile(options.input());
+      if (status != null) {
+        built.onProgress(status::report);
+      }
       if (options.count() != null) {
         built.count(options.count());
       }
@@ -178,13 +194,79 @@ public final class Main {
       }
       data = built.build();
 
-      return produce(data, options);
+      int code = produce(data, options);
+      if (code == 0 && status != null) {
+        status.finish();
+      }
+      return code;
     } catch (TdcDiagnosticException e) {
       report(e.diagnostics(), options.input(), e.source());
       return 1;
     } catch (RuntimeException e) {
       fail(e.getMessage(), false);
       return 1;
+    }
+  }
+
+  /**
+   * The {@code --progress} status file: one small JSON object, rewritten in place.
+   *
+   * <p>Written atomically (temp + rename) so a poller never reads half a JSON, and throttled to
+   * about once a second so watching costs nothing. The file itself is the heartbeat — an mtime
+   * that stops moving for minutes means the process is gone, whatever the content says. On success
+   * the last write says {@code "phase":"done"} with the wall-clock seconds the run took.
+   *
+   * <p>Rows reported are the ones THIS process renders. A run split across workers writes its
+   * shards elsewhere, so the file then carries the phases the coordinator sees and the closing
+   * {@code done}, not a per-row count.
+   */
+  private static final class StatusFile {
+
+    private final Path path;
+    private final long startedAt = System.currentTimeMillis();
+    private long lastWrite;
+
+    StatusFile(Path path) {
+      this.path = path;
+    }
+
+    private void write(String payload) {
+      Path tmp = path.resolveSibling(path.getFileName() + ".tmp");
+      try {
+        java.nio.file.Files.writeString(tmp, payload + "\n");
+        java.nio.file.Files.move(tmp, path, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+      } catch (java.io.IOException e) {
+        // A status file nobody can write is not a reason to lose the run it describes.
+      }
+    }
+
+    void report(String phase, int done, int total) {
+      long now = System.currentTimeMillis();
+      if (now - lastWrite < 1000) {
+        return;
+      }
+      lastWrite = now;
+      double percent = total > 0 ? Math.round((double) done / total * 1000) / 10.0 : 0;
+      write(
+          "{\"phase\":\"" + phase + "\",\"done\":" + done + ",\"total\":" + total
+              + ",\"percent\":" + number(percent) + ",\"startedAt\":" + startedAt
+              + ",\"updatedAt\":" + now + ",\"pid\":" + ProcessHandle.current().pid() + "}");
+    }
+
+    void finish() {
+      long now = System.currentTimeMillis();
+      write(
+          "{\"phase\":\"done\",\"percent\":100,\"startedAt\":" + startedAt
+              + ",\"updatedAt\":" + now
+              + ",\"elapsedSeconds\":" + Math.round((now - startedAt) / 1000.0)
+              + ",\"pid\":" + ProcessHandle.current().pid() + "}");
+    }
+
+    /** A whole percentage prints without its ".0", the way every other runtime writes it. */
+    private static String number(double value) {
+      return value == Math.rint(value)
+          ? String.valueOf((long) value)
+          : String.valueOf(value);
     }
   }
 

@@ -135,10 +135,16 @@ public final class StreamEngine {
   private final Map<String, Column> columns = new LinkedHashMap<>();
   private final Map<String, ParentCapable> parents = new LinkedHashMap<>();
   private final boolean exactUniq;
+  private final Progress onProgress;
   private Map<String, Pool.Table> poolTables = Map.of();
 
   private StreamEngine(
-      Config config, DataPacks packs, long nowMillis, Path baseDir, boolean exactUniq) {
+      Config config,
+      DataPacks packs,
+      long nowMillis,
+      Path baseDir,
+      boolean exactUniq,
+      Progress onProgress) {
     this.config = config;
     this.packs = packs;
     this.nowMillis = nowMillis;
@@ -146,6 +152,7 @@ public final class StreamEngine {
     this.seed = config.seed();
     this.count = config.count();
     this.exactUniq = exactUniq;
+    this.onProgress = onProgress;
   }
 
   /**
@@ -156,7 +163,7 @@ public final class StreamEngine {
    */
   public static void render(
       Config config, DataPacks packs, long nowMillis, Path baseDir, Appendable out) {
-    StreamEngine engine = new StreamEngine(config, packs, nowMillis, baseDir, false);
+    StreamEngine engine = new StreamEngine(config, packs, nowMillis, baseDir, false, null);
     engine.buildColumns();
     engine.write(out, 0, engine.count);
   }
@@ -180,7 +187,7 @@ public final class StreamEngine {
       Appendable out,
       int start,
       int stop) {
-    StreamEngine engine = new StreamEngine(config, packs, nowMillis, baseDir, false);
+    StreamEngine engine = new StreamEngine(config, packs, nowMillis, baseDir, false, null);
     engine.buildColumns();
     engine.write(out, start, Math.min(stop, engine.count));
   }
@@ -201,7 +208,13 @@ public final class StreamEngine {
    * and read the same values the in-memory engine would have given them.
    */
   public static RowSource rows(Config config, DataPacks packs, long nowMillis, Path baseDir) {
-    return rows(config, packs, nowMillis, baseDir, false);
+    return rows(config, packs, nowMillis, baseDir, false, null);
+  }
+
+  /** The same, reporting what it is doing as it goes. */
+  public static RowSource rows(
+      Config config, DataPacks packs, long nowMillis, Path baseDir, Progress onProgress) {
+    return rows(config, packs, nowMillis, baseDir, false, onProgress);
   }
 
   /**
@@ -212,8 +225,13 @@ public final class StreamEngine {
    * what the exact engine asks for, and the one place the two differ.
    */
   static RowSource rows(
-      Config config, DataPacks packs, long nowMillis, Path baseDir, boolean exactUniq) {
-    StreamEngine engine = new StreamEngine(config, packs, nowMillis, baseDir, exactUniq);
+      Config config,
+      DataPacks packs,
+      long nowMillis,
+      Path baseDir,
+      boolean exactUniq,
+      Progress onProgress) {
+    StreamEngine engine = new StreamEngine(config, packs, nowMillis, baseDir, exactUniq, onProgress);
     engine.buildColumns();
     return new RowSource() {
       @Override
@@ -267,17 +285,7 @@ public final class StreamEngine {
     for (Config.SequenceSpec spec : config.sequences()) {
       byName.put(spec.name(), spec);
     }
-    // An env-level <uniq> builds its members together — their values are digits of one index —
-    // so they are done first and skipped in the loop below.
-    Set<String> envUniqMembers = new LinkedHashSet<>();
-    for (List<String> group : config.envUniqGroups()) {
-      envUniqMembers.addAll(buildEnvUniq(group, byName));
-    }
-
     for (Config.SequenceSpec spec : config.sequences()) {
-      if (envUniqMembers.contains(spec.name())) {
-        continue;
-      }
       if (spec.uniq()) {
         buildUniq(spec);
         continue;
@@ -384,6 +392,12 @@ public final class StreamEngine {
       applyEnvDistinct(group, byName);
     }
 
+    // Env-level <uniq> comes last, for the same reason <distinct> comes second-to-last: the
+    // constraint is about a tuple, so every member has to exist before it can be looked at.
+    for (List<String> group : config.envUniqGroups()) {
+      applyEnvUniq(group, byName);
+    }
+
     // The same check the in-memory engine makes, on the same finished run: an assertion that only
     // held on one engine would be a check that depends on how the file was produced.
     Assertions.check(config, this::valueAt, columns::containsKey);
@@ -392,17 +406,80 @@ public final class StreamEngine {
   /**
    * Env-level {@code <uniq>}: the tuple of several sequences is unique across the run.
    *
-   * <p>Built exactly like a compound's {@code uniq}, only the digits live in separate sequences.
-   * The members cannot be drawn independently and then reconciled — that is the whole-column
-   * repair this engine exists to avoid — so they are built together from one index.
+   * <p>The in-memory engine draws the whole table, finds the repeated tuples and swaps values
+   * until none is left. That is exact and it does not scale: repeats grow as the SQUARE of the row
+   * count.
    *
-   * @return the names this took over, which the ordinary loop must then leave alone
+   * <p>Here the columns stay seekable — each is already a function of the row number — and only
+   * the repeats are touched. The repair streams every tuple through a sort to find them, which is
+   * bounded memory, then rearranges the few offenders in RAM. Its own refusal hands a
+   * pathologically tight config back to the in-memory engine, so nothing is lost when the space
+   * really is too small.
+   *
+   * <p><b>This changes the arrangement.</b> A repaired dataset is not the one the in-memory engine
+   * produced from the same seed. Both are correct — every tuple distinct, every column's multiset
+   * untouched, so the percentages hold — but they are different arrangements.
    */
-  private Set<String> buildEnvUniq(List<String> group, Map<String, Config.SequenceSpec> byName) {
-    // As with a sequence's own `uniq`: a group rearranges finished columns, so it belongs to the
-    // in-memory engine and both disk engines refuse rather than answer differently.
-    throw unsupported(
-        "<uniq> across sequences (a whole-column rearrangement)", String.join(" × ", group));
+  private void applyEnvUniq(List<String> group, Map<String, Config.SequenceSpec> byName) {
+    List<String> members = new ArrayList<>();
+    for (String name : group) {
+      if (columns.containsKey(name)) {
+        members.add(name);
+      }
+    }
+    if (members.size() < 2) {
+      return;
+    }
+    String label = String.join(" × ", members);
+
+    List<ExactUniq.Resolver> resolvers = new ArrayList<>(members.size());
+    for (String name : members) {
+      Column column = columns.get(name);
+      resolvers.add(
+          row -> {
+            String value = column.valueAt(row);
+            return value == null ? "" : value;
+          });
+    }
+
+    // The columns a switch member is keyed by. Empty for an ordinary group, and then every row may
+    // trade with every other, as it always could.
+    List<Column> keyed = new ArrayList<>();
+    for (String name : members) {
+      Config.SequenceSpec spec = byName.get(name);
+      if (spec == null || spec.switchSpec() == null) {
+        continue;
+      }
+      String on = spec.switchSpec().on();
+      Column subject = columns.get(on);
+      if (subject != null && !keyed.contains(subject)) {
+        keyed.add(subject);
+      }
+    }
+    IntFunction<String> blockOf = null;
+    if (!keyed.isEmpty()) {
+      blockOf =
+          row -> {
+            // Any injective key groups the same rows; the separator cannot appear in a value.
+            StringBuilder key = new StringBuilder();
+            for (Column column : keyed) {
+              if (key.length() > 0) {
+                key.append(ExactUniq.JOIN);
+              }
+              String value = column.valueAt(row);
+              key.append(value == null ? "" : value);
+            }
+            return key.toString();
+          };
+    }
+
+    Map<String, ExactUniq.Resolver> repaired =
+        ExactUniq.repair(
+            members, resolvers, count, "\"" + label + "\"", baseDir, blockOf, onProgress);
+    for (String name : members) {
+      ExactUniq.Resolver resolver = repaired.get(name);
+      columns.put(name, resolver::valueAt);
+    }
   }
 
   /**
@@ -1888,7 +1965,8 @@ public final class StreamEngine {
     }
 
     Map<String, ExactUniq.Resolver> built =
-        ExactUniq.arrange(fields, count, seed, "\"" + spec.name() + "\"", baseDir);
+        ExactUniq.arrange(
+            fields, count, seed, "\"" + spec.name() + "\"", baseDir, onProgress);
     for (Map.Entry<String, ExactUniq.Resolver> entry : built.entrySet()) {
       ExactUniq.Resolver resolver = entry.getValue();
       columns.put(entry.getKey(), resolver::valueAt);
@@ -1904,7 +1982,12 @@ public final class StreamEngine {
       if (from == 0) {
         emit(out, fx.before(), 0);
       }
+      // About one report per half-percent: cheap enough to leave on always.
+      int reportEvery = Math.max(1, (to - from) / 200);
       for (int row = from; row < to; row++) {
+        if (onProgress != null && (row - from) % reportEvery == 0) {
+          onProgress.report("render", row - from, to - from);
+        }
         emit(out, fx.beforeBlock(), row);
 
         List<Config.Line> active = new ArrayList<>();

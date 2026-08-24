@@ -58,14 +58,6 @@ def _run(case: dict, engine: int) -> str:
 def test_a_streaming_engine_matches_the_reference(name: str, case: dict, engine: int) -> None:
     expected = _EXPECTED[name][f"engine{engine}"]
 
-    if expected.get("aheadOfPorts"):
-        # Two things the reference has and this port does not YET, both about an env-level
-        # <uniq>: engine 2 renders one where this port still refuses, and engine 3 arranges one
-        # natively rather than handing it to the in-memory engine. The fingerprint carrier is
-        # ported (see test_fingerprint.py); this is the other half. Named rather than silently
-        # absent, so closing it is a deletion of this skip.
-        pytest.skip("the reference is ahead: env-level <uniq> on the disk engines")
-
     if "refused" in expected:
         # WHAT is refused is the contract; how each language phrases it is not — and neither is
         # the exception class. A refusal that comes from the expression layer rather than the

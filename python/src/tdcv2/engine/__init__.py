@@ -67,7 +67,13 @@ def render(config: Config, packs: DataPacks, now_millis: int, base_dir: Path | N
         return memory.render(config, packs, now_millis, base_dir)
 
 
-def build(config: Config, packs: DataPacks, now_millis: int, base_dir: Path | None = None):
+def build(
+    config: Config,
+    packs: DataPacks,
+    now_millis: int,
+    base_dir: Path | None = None,
+    on_progress=None,
+):
     """The run as rows, on whichever engine the router picked."""
     # Can the uniq groups cover `count` at all? Asked before an engine is chosen,
     # because the answer does not depend on which one runs. It used to be asked
@@ -77,12 +83,12 @@ def build(config: Config, packs: DataPacks, now_millis: int, base_dir: Path | No
     memory.check_env_uniq_capacity(config, config.count)
     engine = router.resolve(config, packs)
     if engine == 1:
-        return memory.build(config, packs, now_millis, base_dir)
+        return memory.build(config, packs, now_millis, base_dir, on_progress)
     if engine == 3:
-        return disk.rows(config, packs, now_millis, base_dir)
+        return disk.rows(config, packs, now_millis, base_dir, on_progress)
     try:
-        return stream.rows(config, packs, now_millis, base_dir)
+        return stream.rows(config, packs, now_millis, base_dir, False, on_progress)
     except stream.UnsupportedError:
         if engine_was_named(config):
             raise
-        return memory.build(config, packs, now_millis, base_dir)
+        return memory.build(config, packs, now_millis, base_dir, on_progress)

@@ -1,5 +1,5 @@
 {
-  "comment": "Streaming-engine output for every shared case, from the reference implementation. One seed + one engine = one output, here and in every port. An entry marked aheadOfPorts differs from the in-memory `expected` — a uniq arrangement the disk engines now make natively; ports skip those entries until they carry the same machinery. Regenerate with: npm run engines:update",
+  "comment": "Streaming-engine output for every shared case, from the reference implementation. One seed + one engine = one output, here and in every port — every entry here is checked in all five. A few differ from the in-memory `expected`: a disk engine may arrange a uniq group differently, and both are correct. Regenerate with: npm run engines:update",
   "engines": [2, 3],
   "cases": {
     "accumulate/a-running-total-inside-one-record": {
@@ -4945,8 +4945,7 @@
           "a4-b1",
           "a3-b6",
           "a2-b1"
-        ],
-        "aheadOfPorts": true
+        ]
       },
       "engine3": {
         "lines": [
@@ -4958,14 +4957,12 @@
           "a4-b1",
           "a3-b6",
           "a2-b1"
-        ],
-        "aheadOfPorts": true
+        ]
       }
     },
     "uniq-distinct/env-uniq-leaves-outsiders-alone": {
       "engine2": {
-        "lines": ["yq|k2", "xr|k2", "ws|k1", "vo|k1", "zt|k1", "up|k2"],
-        "aheadOfPorts": true
+        "lines": ["yq|k2", "xr|k2", "ws|k1", "vo|k1", "zt|k1", "up|k2"]
       },
       "engine3": {
         "lines": ["yq|k2", "xr|k2", "ws|k1", "vo|k1", "zt|k1", "up|k2"]
@@ -5059,8 +5056,7 @@
     },
     "uniq-distinct/uniq-group-with-a-mix-member": {
       "engine2": {
-        "lines": ["A3", "B3", "A2", "B1"],
-        "aheadOfPorts": true
+        "lines": ["A3", "B3", "A2", "B1"]
       },
       "engine3": {
         "lines": ["A3", "B3", "A2", "B1"]
@@ -5068,8 +5064,7 @@
     },
     "uniq-distinct/uniq-group-with-a-switch-member": {
       "engine2": {
-        "lines": ["M-bob-1", "M-ann-3", "F-cat-3", "F-dot-2"],
-        "aheadOfPorts": true
+        "lines": ["M-bob-1", "M-ann-3", "F-cat-3", "F-dot-2"]
       },
       "engine3": {
         "lines": ["M-bob-1", "M-ann-3", "F-cat-3", "F-dot-2"]

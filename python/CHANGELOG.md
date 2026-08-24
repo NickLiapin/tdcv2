@@ -13,6 +13,11 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- **`--progress`, and `on_progress=` on `TDC`.** The command line writes
+  `<output>.progress` beside the output — a small JSON object, rewritten in place
+  about once a second, naming the phase and how far along it is. The library takes
+  the same channel as a callback: `TDC(config, on_progress=lambda phase, done, total: ...)`.
+
 - **One vocabulary for the finished run, in all five implementations.** The object a run
   hands back now answers to the same names everywhere, spelled each language's own way.
   Added `to_string()`, `to_array()`, `get_at(index)` and `iterate()`.

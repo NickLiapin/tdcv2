@@ -89,7 +89,8 @@ public static class MemoryEngine
     /// row has no format.
     /// </remarks>
     public static IRowSource Run(
-        Config config, DataPacks? packs, long? nowMillis = null, string? baseDir = null)
+        Config config, DataPacks? packs, long? nowMillis = null, string? baseDir = null,
+        Progress? onProgress = null)
     {
         IReadOnlyDictionary<string, string[]> columns = BuildColumns(new Ctx(
             config,
@@ -109,7 +110,7 @@ public static class MemoryEngine
                 : null,
             columns.ContainsKey);
 
-        return new MaterializedRows(config, columns);
+        return new MaterializedRows(config, columns, onProgress);
     }
 
     /// <summary>Every column already built; text is rendered on demand from those same values.</summary>
@@ -117,11 +118,14 @@ public static class MemoryEngine
     {
         private readonly Config _config;
         private readonly IReadOnlyDictionary<string, string[]> _columns;
+        private readonly Progress? _onProgress;
 
-        internal MaterializedRows(Config config, IReadOnlyDictionary<string, string[]> columns)
+        internal MaterializedRows(
+            Config config, IReadOnlyDictionary<string, string[]> columns, Progress? onProgress)
         {
             _config = config;
             _columns = columns;
+            _onProgress = onProgress;
             SequenceNames = columns.Keys
                 .Where(name => !name.StartsWith('_'))
                 .ToArray();
@@ -136,21 +140,28 @@ public static class MemoryEngine
                 ? values[row]
                 : null;
 
-        public string Text() => Emit(_config, _columns);
+        public string Text() => Emit(_config, _columns, _onProgress);
 
         public void WriteTo(TextWriter output) => output.Write(Text());
     }
 
     private static string Emit(
-        Config config, IReadOnlyDictionary<string, string[]> columns)
+        Config config, IReadOnlyDictionary<string, string[]> columns, Progress? onProgress = null)
     {
         Fixtures fx = config.Fixtures;
         IReadOnlyDictionary<string, Repeat.Spec> eachInfo = EachInfo(config);
         var result = new StringBuilder();
 
         Emit(result, eachInfo, fx.Before, columns, 0, config.Inject);
+        // About one report per half-percent: cheap enough to leave on always.
+        int reportEvery = Math.Max(1, config.Count / 200);
         for (int row = 0; row < config.Count; row++)
         {
+            if (onProgress is not null && row % reportEvery == 0)
+            {
+                onProgress("render", row, config.Count);
+            }
+
             Emit(result, eachInfo, fx.BeforeBlock, columns, row, config.Inject);
 
             // Drop the suppressed lines first. A delimiter belongs between the lines that

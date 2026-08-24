@@ -152,15 +152,33 @@ page — is tracked in that implementation's own changelog:
   engine = the same bytes on every machine and in every language. BETWEEN engines
   equality is not required — the engine is chosen deterministically from the config,
   so two machines always pick the same one; requiring it only held the disk engines
-  down to what the in-memory engine could do. `engines.json` marks the entries where
-  the reference is ahead of the ports (`aheadOfPorts`), and the ports skip exactly
-  those, by name, until the machinery is ported.
+  down to what the in-memory engine could do. Every entry in `engines.json` is now
+  checked in all five: the `aheadOfPorts` marks that let the ports skip the ones the
+  reference could do alone are gone, because there is nothing left for them to skip.
 
-- **An env-level `<uniq>` streams.** Engine 2 no longer refuses it: each member is
-  its own seekable column, so the tuples are checked and the few colliding rows
-  rearranged without holding the run. `uniq="true"` on a single sequence is still
-  refused in stream mode — that rearranges the gens inside one compound column,
-  which no per-row resolver reproduces.
+- **An env-level `<uniq>` streams — in all five.** The disk engines no longer refuse
+  it: each member is its own seekable column, so the tuples are checked and the few
+  colliding rows rearranged without holding the run. A `<switch>` member is arranged
+  one block at a time, so a value only ever lands on a row that was allowed to hold
+  it. Verified on a 1,200,000-row group through the fingerprint path: the five write
+  the same bytes, and every row is distinct.
+
+  A group too tight for the bounded repair says so in one sentence — the same
+  sentence everywhere — instead of quietly holding the whole table. `uniq="true"` on
+  a single sequence is still refused in stream mode: that rearranges the gens inside
+  one compound column, which no per-row resolver reproduces.
+
+- **A run can be asked what it is doing.** `--progress` writes `<output>.progress`
+  beside the output: one small JSON object, rewritten in place about once a second,
+  naming the phase (`uniq-scan`, `uniq-sort`, `render`), the rows done and the
+  percent, and closing with `done` and the wall-clock seconds. Written atomically, so
+  a poller never reads half a JSON; the file's mtime is the heartbeat — not moving
+  for minutes means the process is gone, whatever the content says.
+
+  The same channel is on the library in every implementation (`onProgress`,
+  `on_progress`, `OnProgress`, `ProgressHook`). Reports come from the process doing
+  the rendering, so a run split across workers writes the phases the coordinator sees
+  and the closing `done` rather than a per-row count.
 
 <!-- covers: uniq arrangement -->
 

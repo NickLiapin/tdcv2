@@ -22,10 +22,16 @@ public final class DiskEngine {
 
   /** The run as addressable records, exact and bounded — or in memory when it cannot be both. */
   public static RowSource rows(Config config, DataPacks packs, long nowMillis, Path baseDir) {
+    return rows(config, packs, nowMillis, baseDir, null);
+  }
+
+  /** The same, reporting what it is doing as it goes. */
+  public static RowSource rows(
+      Config config, DataPacks packs, long nowMillis, Path baseDir, Progress onProgress) {
     try {
-      return StreamEngine.rows(config, packs, nowMillis, baseDir, true);
+      return StreamEngine.rows(config, packs, nowMillis, baseDir, true, onProgress);
     } catch (StreamEngine.Unsupported | ExactUniq.RepairNeeded e) {
-      return MemoryEngine.build(config, packs, nowMillis, baseDir);
+      return MemoryEngine.build(config, packs, nowMillis, baseDir, onProgress);
     }
   }
 }

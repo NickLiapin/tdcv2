@@ -23,15 +23,16 @@ public static class DiskEngine
 {
     /// <summary>The run as addressable records, exact and bounded — or in memory when it cannot be both.</summary>
     public static IRowSource Rows(
-        Config config, DataPacks packs, long nowMillis, string? baseDir)
+        Config config, DataPacks packs, long nowMillis, string? baseDir,
+        Progress? onProgress = null)
     {
         try
         {
-            return StreamEngine.Rows(config, packs, nowMillis, baseDir, exactUniq: true);
+            return StreamEngine.Rows(config, packs, nowMillis, baseDir, true, onProgress);
         }
         catch (Exception e) when (e is StreamEngine.UnsupportedHere or ExactUniq.RepairNeeded)
         {
-            return MemoryEngine.Run(config, packs, nowMillis, baseDir);
+            return MemoryEngine.Run(config, packs, nowMillis, baseDir, onProgress);
         }
     }
 }

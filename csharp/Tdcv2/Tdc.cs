@@ -74,6 +74,7 @@ public sealed class Tdc
     private readonly DataPacks _packs;
     private readonly long _nowMillis;
     private readonly string? _baseDir;
+    private readonly Progress? _onProgress;
     private readonly Lazy<IRowSource> _run;
 
     /// <summary>
@@ -237,6 +238,17 @@ public sealed class Tdc
         public int? Engine { get; set; }
 
         /// <summary>
+        /// Called as the run advances, so a caller with a long run can say more than "working".
+        /// </summary>
+        /// <remarks>
+        /// Phases: <c>uniq-scan</c> (every row's tuple hashed), <c>uniq-sort</c> (piles sorted),
+        /// <c>render</c> (rows written). It is called often — about two hundred times per phase —
+        /// so it must be cheap; the command line throttles it to once a second before writing
+        /// anything down.
+        /// </remarks>
+        public Progress? OnProgress { get; set; }
+
+        /// <summary>
         /// <c>memory</c> or <c>disk</c> — how much of the run may be held at once.
         /// </summary>
         /// <remarks>
@@ -279,6 +291,7 @@ public sealed class Tdc
             ?? (options.ConfigFile is not null
                 ? Path.GetDirectoryName(Path.GetFullPath(options.ConfigFile))
                 : null);
+        _onProgress = options.OnProgress;
 
         // A pack directory named outright wins; otherwise the project's own tdcv2.config.json is
         // consulted, so a pack downloaded by any implementation is found by this one. Searched from
@@ -328,7 +341,7 @@ public sealed class Tdc
         // Generated once and kept: asking for text and then for rows must not run the generator
         // twice, which would be both slow and — with a generated seed — a different answer.
         _run = new Lazy<IRowSource>(
-            () => Engines.Run(_config, _packs, _nowMillis, _baseDir),
+            () => Engines.Run(_config, _packs, _nowMillis, _baseDir, _onProgress),
             LazyThreadSafetyMode.ExecutionAndPublication);
     }
 

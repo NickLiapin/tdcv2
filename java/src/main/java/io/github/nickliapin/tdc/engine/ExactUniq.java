@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
+import java.util.function.IntFunction;
 
 /**
  * Exact percentages and uniqueness at the same time, past the size of memory.
@@ -42,7 +43,7 @@ import java.util.Set;
 final class ExactUniq {
 
   /** Separates a tuple's columns. Control characters cannot appear in a generated value. */
-  private static final char JOIN = 1;
+  static final char JOIN = 1;
 
   /** Separates a key from its row index in a sortable record. NUL sorts below everything. */
   private static final char SEP = 0;
@@ -83,18 +84,27 @@ final class ExactUniq {
    */
   public static final int IN_MEMORY_FALLBACK_MAX_ROWS = 20_000_000;
 
-  /** The exact construction collided and the bounded repair could not place every row. */
+  /**
+   * The exact construction collided and the bounded repair could not place every row.
+   *
+   * <p>Two audiences, one sentence. A caller that CHOSE a bounded-memory engine for the user
+   * catches this and falls back to the in-memory engine, which has the whole table to work with. A
+   * caller the user forced into stream mode lets it through instead: holding the whole table is
+   * the one thing that user asked not to happen, so the text says what to change rather than
+   * claiming a fallback that did not occur.
+   */
   static final class RepairNeeded extends RuntimeException {
 
     private static final long serialVersionUID = 1L;
 
     RepairNeeded(int collisions, String label) {
       super(
-          "Engine 3: uniq "
+          "uniq "
               + label
-              + " is too tight for the bounded-memory repair ("
+              + " is too tight to repair without holding the whole table ("
               + collisions
-              + " row(s) couldn't be placed) — using the in-memory engine instead.");
+              + " row(s) couldn't be placed) — run without mode=\"stream\" so the in-memory "
+              + "engine can arrange it.");
     }
   }
 
@@ -114,7 +124,7 @@ final class ExactUniq {
    * @return one resolver per field, in the order they were given
    */
   static Map<String, Resolver> arrange(
-      List<Field> fields, int count, String seed, String label, Path tmpDir) {
+      List<Field> fields, int count, String seed, String label, Path tmpDir, Progress onProgress) {
     List<List<Integer>> columnCounts = new ArrayList<>();
     List<int[]> counts = new ArrayList<>();
     for (Field field : fields) {
@@ -162,18 +172,26 @@ final class ExactUniq {
         }
       }
       if (injective) {
-        return registryOf(fields, resolvers);
+        return registryOf(idsOf(fields), resolvers);
       }
     }
-    return repair(fields, resolvers, count, label, tmpDir);
+    return repair(idsOf(fields), resolvers, count, label, tmpDir, null, onProgress);
   }
 
-  private static Map<String, Resolver> registryOf(List<Field> fields, List<Resolver> resolvers) {
+  private static Map<String, Resolver> registryOf(List<String> ids, List<Resolver> resolvers) {
     Map<String, Resolver> out = new LinkedHashMap<>();
-    for (int j = 0; j < fields.size(); j++) {
-      out.put(fields.get(j).id(), resolvers.get(j));
+    for (int j = 0; j < ids.size(); j++) {
+      out.put(ids.get(j), resolvers.get(j));
     }
     return out;
+  }
+
+  private static List<String> idsOf(List<Field> fields) {
+    List<String> ids = new ArrayList<>(fields.size());
+    for (Field field : fields) {
+      ids.add(field.id());
+    }
+    return ids;
   }
 
   /**
@@ -182,13 +200,25 @@ final class ExactUniq {
    * <p>The repair moves a small pool of rows and nothing else. That is what keeps the percentages
    * exact: a value only ever changes hands between two rows of the pool, so every column ends the
    * pass with the multiset it started with.
+   *
+   * <p>{@code blockOf} names which rows may trade values with each other. A {@code <switch>}
+   * member draws from a different list depending on another column, so a male row's first name is
+   * not a value a female row is allowed to hold; without this the repair would keep the tuple
+   * unique and stop the record making sense. {@code null} means one block holding everything,
+   * which is the ordinary case.
    */
-  private static Map<String, Resolver> repair(
-      List<Field> fields, List<Resolver> resolvers, int count, String label, Path tmpDir) {
+  static Map<String, Resolver> repair(
+      List<String> ids,
+      List<Resolver> resolvers,
+      int count,
+      String label,
+      Path tmpDir,
+      IntFunction<String> blockOf,
+      Progress onProgress) {
     // How the duplicates are hunted: by fingerprint on a large run, by tuple text on a small one.
     // The carrier is all that differs — the rows found are the same either way, because a matching
     // fingerprint is verified against the true tuples before it is believed.
-    FingerprintScan scan = fingerprintScan(resolvers, count, tmpDir);
+    FingerprintScan scan = fingerprintScan(resolvers, count, tmpDir, onProgress);
 
     List<Integer> excess = new ArrayList<>();
     if (scan != null) {
@@ -207,7 +237,7 @@ final class ExactUniq {
       if (scan != null) {
         scan.drop();
       }
-      return registryOf(fields, resolvers);
+      return registryOf(ids, resolvers);
     }
     if (excess.size() > maxRepairRowsFor(count)) {
       if (scan != null) {
@@ -219,15 +249,40 @@ final class ExactUniq {
     // The colliding rows on their own often lack the variety to move — a lone duplicate can only
     // re-form the tuple it already has. So the pool takes in donor rows sampled across the run,
     // which gives the arrangement room without letting any value leave the pool.
+    java.util.Collections.sort(excess);
     int donorTarget = Math.min(count - excess.size(), 8 * excess.size() + 24);
     Set<Integer> inPool = new HashSet<>(excess);
     List<Integer> pool = new ArrayList<>(excess);
-    if (donorTarget > 0) {
+    if (donorTarget > 0 && blockOf == null) {
       int stride = Math.max(1, count / donorTarget);
       for (int i = 0; i < count && pool.size() - excess.size() < donorTarget; i += stride) {
         if (inPool.add(i)) {
           pool.add(i);
         }
+      }
+    } else if (donorTarget > 0) {
+      // Donors have to come from the row's OWN block, or they arrive holding values it is not
+      // allowed to take. Wanted per block, in proportion to how many of its rows have to move.
+      Map<String, Integer> wanted = new LinkedHashMap<>();
+      for (int row : excess) {
+        wanted.merge(blockOf.apply(row), 8, Integer::sum);
+      }
+      for (Map.Entry<String, Integer> entry : wanted.entrySet()) {
+        entry.setValue(entry.getValue() + 24);
+      }
+      int stride = Math.max(1, count / Math.max(1, donorTarget));
+      for (int i = 0; i < count; i += stride) {
+        if (inPool.contains(i)) {
+          continue;
+        }
+        String block = blockOf.apply(i);
+        Integer left = wanted.get(block);
+        if (left == null || left <= 0) {
+          continue;
+        }
+        wanted.put(block, left - 1);
+        inPool.add(i);
+        pool.add(i);
       }
     }
     java.util.Collections.sort(pool);
@@ -280,9 +335,37 @@ final class ExactUniq {
       forbidden = new ExactMembership(exact);
     }
 
-    List<List<String>> arranged;
+    // The pool is arranged one block at a time: a value only ever lands on a row that was allowed
+    // to hold it. One block, keyed by the empty string, is the ordinary case.
+    Map<String, List<Integer>> blocks = new LinkedHashMap<>();
+    for (int m = 0; m < pool.size(); m++) {
+      String block = blockOf == null ? "" : blockOf.apply(pool.get(m));
+      blocks.computeIfAbsent(block, unused -> new ArrayList<>()).add(m);
+    }
+
+    Map<Integer, List<String>> override = new HashMap<>();
     try {
-      arranged = arrangeAvoiding(poolColumns, forbidden, pool.size());
+      for (List<Integer> positions : blocks.values()) {
+        List<List<String>> columns = new ArrayList<>(k);
+        for (List<String> column : poolColumns) {
+          List<String> slice = new ArrayList<>(positions.size());
+          for (int m : positions) {
+            slice.add(column.get(m));
+          }
+          columns.add(slice);
+        }
+        List<List<String>> arranged = arrangeAvoiding(columns, forbidden, positions.size());
+        if (arranged == null) {
+          throw new RepairNeeded(excess.size(), label);
+        }
+        for (int at = 0; at < positions.size(); at++) {
+          List<String> tuple = new ArrayList<>(k);
+          for (List<String> column : arranged) {
+            tuple.add(column.get(at));
+          }
+          override.put(pool.get(positions.get(at)), tuple);
+        }
+      }
     } finally {
       if (ledger != null) {
         ledger.close();
@@ -291,25 +374,13 @@ final class ExactUniq {
         scan.drop();
       }
     }
-    if (arranged == null) {
-      throw new RepairNeeded(excess.size(), label);
-    }
-
-    Map<Integer, List<String>> override = new HashMap<>();
-    for (int m = 0; m < pool.size(); m++) {
-      List<String> tuple = new ArrayList<>(k);
-      for (List<String> column : arranged) {
-        tuple.add(column.get(m));
-      }
-      override.put(pool.get(m), tuple);
-    }
 
     Map<String, Resolver> out = new LinkedHashMap<>();
     for (int j = 0; j < k; j++) {
       int column = j;
       Resolver base = resolvers.get(j);
       out.put(
-          fields.get(j).id(),
+          ids.get(j),
           row -> {
             List<String> replaced = override.get(row);
             return replaced == null ? base.valueAt(row) : replaced.get(column);
@@ -353,7 +424,7 @@ final class ExactUniq {
    * false duplicate — the rows returned are exactly the ones the text sort would name.
    */
   private static FingerprintScan fingerprintScan(
-      List<Resolver> resolvers, int count, Path tmpDir) {
+      List<Resolver> resolvers, int count, Path tmpDir, Progress onProgress) {
     int buckets = Fingerprint.bucketCountFor(count, Runtime.getRuntime().availableProcessors());
     if (buckets < 2) {
       return null;
@@ -373,11 +444,15 @@ final class ExactUniq {
       asFunctions.add(resolver::valueAt);
     }
     List<Path> rawPaths =
-        Fingerprint.writePiles(asFunctions, 0, count, directory, "raw", buckets, String.valueOf(JOIN));
+        Fingerprint.writePiles(
+            asFunctions, 0, count, directory, "raw", buckets, String.valueOf(JOIN), onProgress);
 
     List<Path> sortedPaths = new ArrayList<>();
     List<List<Long>> candidates = new ArrayList<>();
     for (int b = 0; b < buckets; b++) {
+      if (onProgress != null) {
+        onProgress.report("uniq-sort", b, buckets);
+      }
       Path out = directory.resolve("sorted-" + b);
       Fingerprint.sortFiles(List.of(rawPaths.get(b)), out, directory);
       try {

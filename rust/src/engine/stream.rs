@@ -343,6 +343,16 @@ enum Column {
     /// One column of an exact-uniq arrangement: its quota walk, plus whatever
     /// the collision repair moved.
     ExactUniq(Box<exact_uniq::Resolver>),
+    /// A column an env-level `<uniq>` repaired: the column as it was drawn, plus
+    /// the handful of rows the repair moved.
+    ///
+    /// A wrapper rather than a rebuild, because the members of an env-level
+    /// group are ordinary sequences built by every other path in this engine —
+    /// the repair changes a few hundred values, not how a column is made.
+    EnvUniq {
+        base: Box<Column>,
+        overrides: std::rc::Rc<BTreeMap<i32, String>>,
+    },
     /// A value the whole domain shares — an empty `<mix>`, and its flag.
     Constant {
         domain: Domain,
@@ -401,6 +411,8 @@ struct DistinctMember {
 
 pub struct StreamEngine<'a> {
     env: Env<'a>,
+    /// What this run says about itself while it is still going, if anyone asked.
+    on_progress: crate::engine::Watch<'a>,
     seed: String,
     count: i32,
     columns: BTreeMap<String, Column>,
@@ -464,9 +476,11 @@ pub fn write_in<W: std::fmt::Write>(
     now_millis: i64,
     base_dir: Option<&str>,
     out: &mut W,
+    on_progress: crate::engine::Watch<'_>,
 ) -> EngineResult<()> {
     let packs = DataPacks::discover()?;
-    let engine = StreamEngine::build(config, &packs, now_millis, base_dir)?;
+    let engine =
+        StreamEngine::build_with(config, &packs, now_millis, base_dir, false, on_progress)?;
     engine.write_result(out)
 }
 
@@ -493,7 +507,19 @@ pub fn rows_in(
     now_millis: i64,
     base_dir: Option<&str>,
 ) -> EngineResult<StreamRows> {
-    let engine = StreamEngine::build(config, packs, now_millis, base_dir)?;
+    rows_in_watched(config, packs, now_millis, base_dir, None)
+}
+
+/// The same, reporting what it is doing as it goes.
+pub fn rows_in_watched(
+    config: &Config,
+    packs: &DataPacks,
+    now_millis: i64,
+    base_dir: Option<&str>,
+    on_progress: crate::engine::Watch<'_>,
+) -> EngineResult<StreamRows> {
+    let engine =
+        StreamEngine::build_with(config, packs, now_millis, base_dir, false, on_progress)?;
     StreamRows::of(&engine)
 }
 
@@ -504,7 +530,18 @@ pub fn rows_exact(
     now_millis: i64,
     base_dir: Option<&str>,
 ) -> EngineResult<StreamRows> {
-    let engine = StreamEngine::build_with(config, packs, now_millis, base_dir, true)?;
+    rows_exact_watched(config, packs, now_millis, base_dir, None)
+}
+
+/// The same, reporting what it is doing as it goes.
+pub fn rows_exact_watched(
+    config: &Config,
+    packs: &DataPacks,
+    now_millis: i64,
+    base_dir: Option<&str>,
+    on_progress: crate::engine::Watch<'_>,
+) -> EngineResult<StreamRows> {
+    let engine = StreamEngine::build_with(config, packs, now_millis, base_dir, true, on_progress)?;
     StreamRows::of(&engine)
 }
 
@@ -565,7 +602,7 @@ impl<'a> StreamEngine<'a> {
         now_millis: i64,
         base_dir: Option<&'a str>,
     ) -> EngineResult<StreamEngine<'a>> {
-        Self::build_with(config, packs, now_millis, base_dir, false)
+        Self::build_with(config, packs, now_millis, base_dir, false, None)
     }
 
     /// The same, with `exact_uniq` deciding how a `uniq="true"` sequence is
@@ -576,9 +613,11 @@ impl<'a> StreamEngine<'a> {
         now_millis: i64,
         base_dir: Option<&'a str>,
         exact_uniq: bool,
+        on_progress: crate::engine::Watch<'a>,
     ) -> EngineResult<StreamEngine<'a>> {
         let mut engine = StreamEngine {
             env: Env::new(config, packs, now_millis, base_dir),
+            on_progress,
             seed: config.seed.clone(),
             count: config.count,
             columns: BTreeMap::new(),
@@ -637,18 +676,7 @@ impl<'a> StreamEngine<'a> {
             .map(|s| (s.name.as_str(), s))
             .collect();
 
-        // An env-level <uniq> builds its members together — their values are
-        // digits of one index — so they are done first and skipped in the loop
-        // below.
-        let mut env_uniq_members: Vec<String> = Vec::new();
-        for group in &config.env_uniq_groups {
-            env_uniq_members.extend(self.build_env_uniq(group, &by_name)?);
-        }
-
         for spec in &config.sequences {
-            if env_uniq_members.contains(&spec.name) {
-                continue;
-            }
             if spec.uniq {
                 self.build_uniq(spec)?;
                 continue;
@@ -862,6 +890,13 @@ impl<'a> StreamEngine<'a> {
 
         for group in &config.env_distinct_groups {
             self.apply_env_distinct(group, &by_name)?;
+        }
+
+        // Env-level <uniq> comes last, for the same reason <distinct> comes
+        // second-to-last: the constraint is about a tuple, so every member has
+        // to exist before it can be looked at.
+        for group in &config.env_uniq_groups {
+            self.apply_env_uniq(group, &by_name)?;
         }
         Ok(())
     }
@@ -1730,6 +1765,7 @@ impl StreamEngine<'_> {
             &self.seed,
             &format!("\"{}\"", spec.name),
             &tmp,
+            self.on_progress,
         )?;
         for (id, resolver) in arranged {
             self.put(&id, Column::ExactUniq(Box::new(resolver)));
@@ -1740,21 +1776,143 @@ impl StreamEngine<'_> {
     /// Env-level `<uniq>`: the tuple of several sequences is unique across the
     /// run.
     ///
-    /// Built exactly like a compound's `uniq`, only the digits live in separate
-    /// sequences. The members cannot be drawn independently and then reconciled —
-    /// that is the whole-column repair this engine exists to avoid — so they are
-    /// built together from one index.
-    fn build_env_uniq(
+    /// The in-memory engine draws the whole table, finds the repeated tuples and
+    /// swaps values until none is left. That is exact and it does not scale:
+    /// repeats grow as the SQUARE of the row count.
+    ///
+    /// Here the columns stay seekable — each is already a function of the row
+    /// number — and only the repeats are touched. The repair streams every tuple
+    /// through a sort to find them, which is bounded memory, then rearranges the
+    /// few offenders in RAM. Its own refusal hands a pathologically tight config
+    /// back to the in-memory engine, so nothing is lost when the space really is
+    /// too small.
+    ///
+    /// **This changes the arrangement.** A repaired dataset is not the one the
+    /// in-memory engine produced from the same seed. Both are correct — every
+    /// tuple distinct, every column's multiset untouched, so the percentages
+    /// hold — but they are different arrangements.
+    fn apply_env_uniq(
         &mut self,
         group: &[String],
-        _by_name: &BTreeMap<&str, &SequenceSpec>,
-    ) -> EngineResult<Vec<String>> {
-        // As with a sequence's own `uniq`: a group rearranges finished columns, so it belongs
-        // to the in-memory engine and both disk engines refuse rather than answer differently.
-        here(
-            "<uniq> across sequences (a whole-column rearrangement)",
-            &group.join(" \u{d7} "),
-        )
+        by_name: &BTreeMap<&str, &SequenceSpec>,
+    ) -> EngineResult<()> {
+        let members: Vec<String> = group
+            .iter()
+            .filter(|name| self.columns.contains_key(name.as_str()))
+            .cloned()
+            .collect();
+        if members.len() < 2 {
+            return Ok(());
+        }
+        let label = members.join(" \u{d7} ");
+
+        // The columns a switch member is keyed by. Empty for an ordinary group,
+        // and then every row may trade with every other, as it always could.
+        let mut subjects: Vec<String> = Vec::new();
+        for name in &members {
+            let Some(spec) = by_name.get(name.as_str()) else {
+                continue;
+            };
+            if let Source::Switch(switch) = &spec.source {
+                if !subjects.contains(&switch.on) && self.columns.contains_key(&switch.on) {
+                    subjects.push(switch.on.clone());
+                }
+            }
+        }
+
+        // The run's own folder when there is one, so a temp file lands beside
+        // the work rather than wherever the shell happens to point.
+        let tmp = self
+            .env
+            .base_dir
+            .map_or_else(std::env::temp_dir, std::path::PathBuf::from);
+
+        // A column here can fail where a quota walk cannot — these are ordinary
+        // sequences, and one of them may be a compute tree over a bad
+        // expression. The repair asks for a string, so the first failure is put
+        // aside and raised the moment it returns, rather than silently becoming
+        // an empty value that changes which tuples collide.
+        let failure: std::cell::RefCell<Option<EngineError>> = std::cell::RefCell::new(None);
+        let repaired = {
+            // Shared, not moved: a closure that took `self` would take the
+            // engine's `&mut` with it and nothing after this block could touch
+            // it. Both of these are plain references, which copy.
+            let engine: &StreamEngine<'_> = self;
+            let held = &failure;
+            let keyed = &subjects;
+            let sources: Vec<exact_uniq::Source<'_>> = members
+                .iter()
+                .map(|name| {
+                    Box::new(move |row: i32| engine.value_or_note(name, row, held))
+                        as exact_uniq::Source<'_>
+                })
+                .collect();
+            let block: Option<Box<dyn Fn(i32) -> String + '_>> = if keyed.is_empty() {
+                None
+            } else {
+                // Any injective key groups the same rows; the separator cannot
+                // appear in a value.
+                Some(Box::new(move |row: i32| {
+                    keyed
+                        .iter()
+                        .map(|name| engine.value_or_note(name, row, held))
+                        .collect::<Vec<String>>()
+                        .join(&exact_uniq::JOIN.to_string())
+                }))
+            };
+            exact_uniq::repair(
+                &sources,
+                self.count,
+                &format!("\"{label}\""),
+                &tmp,
+                block.as_deref(),
+                self.on_progress,
+            )
+        };
+        if let Some(error) = failure.into_inner() {
+            return Err(error);
+        }
+        let overrides = repaired?;
+        if overrides.is_empty() {
+            return Ok(());
+        }
+
+        for (j, name) in members.iter().enumerate() {
+            let mut moved: BTreeMap<i32, String> = BTreeMap::new();
+            for (row, values) in &overrides {
+                moved.insert(*row, values[j].clone());
+            }
+            let base = self.columns[name].clone();
+            self.put(
+                name,
+                Column::EnvUniq {
+                    base: Box::new(base),
+                    overrides: std::rc::Rc::new(moved),
+                },
+            );
+        }
+        Ok(())
+    }
+
+    /// A column's value as the repair wants it: a string, with the first failure
+    /// put aside for the caller to raise.
+    fn value_or_note(
+        &self,
+        name: &str,
+        row: i32,
+        failure: &std::cell::RefCell<Option<EngineError>>,
+    ) -> String {
+        match self.value_at(name, row) {
+            Ok(Some(value)) => value,
+            Ok(None) => String::new(),
+            Err(error) => {
+                let mut held = failure.borrow_mut();
+                if held.is_none() {
+                    *held = Some(error);
+                }
+                String::new()
+            }
+        }
     }
 
     // ── distinct ─────────────────────────────────────────────────────────────
@@ -2500,6 +2658,11 @@ impl StreamEngine<'_> {
 
             Column::ExactUniq(resolver) => Ok(Some(resolver.value_at(row))),
 
+            Column::EnvUniq { base, overrides } => match overrides.get(&row) {
+                Some(replaced) => Ok(Some(replaced.clone())),
+                None => self.value_of(base, row),
+            },
+
             Column::Compute(tree) => {
                 let fields = StreamFields { engine: self, row };
                 compute::evaluate(tree, &fields)
@@ -2782,7 +2945,16 @@ impl StreamEngine<'_> {
         let each = memory::each_info(self.env.config)?;
 
         self.emit(out, &fx.before, 0)?;
+        // About one report per half-percent: cheap enough to leave on always.
+        let total = self.count.max(0) as usize;
+        let report_every = (total / 200).max(1);
         for row in 0..self.count {
+            if let Some(report) = self.on_progress {
+                let done = row.max(0) as usize;
+                if done % report_every == 0 {
+                    report("render", done, total);
+                }
+            }
             self.emit(out, &fx.before_block, row)?;
 
             let mut active = Vec::new();

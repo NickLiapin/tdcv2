@@ -54,6 +54,10 @@ Options:
                            automatically from the config. memory: the small,
                            in-RAM engine (an escape hatch; does not scale)
   --disk                   Shortcut for --mode disk (already the default)
+  --progress               Write <output>.progress — a small JSON status file
+                           refreshed about once a second (phase, rows done,
+                           percent). Needs -o. Poll it, or watch its mtime as
+                           a heartbeat: not updated for minutes = not running
   --engine <1|2|3>         Advanced: force a specific engine
   --stream                 Legacy alias for --engine 2
   -h, --help               Show this message
@@ -122,6 +126,84 @@ pub fn missing_config_message(file: &str) -> String {
     )
 }
 
+/// The `--progress` status file: one small JSON object, rewritten in place.
+///
+/// Written atomically (temp + rename) so a poller never reads half a JSON, and
+/// throttled to about once a second so watching costs nothing. The file itself
+/// is the heartbeat — an mtime that stops moving for minutes means the process
+/// is gone, whatever the content says. On success the last write says
+/// `"phase":"done"` with the wall-clock seconds the run took.
+struct StatusFile {
+    path: String,
+    started_at: u128,
+    last_write: std::cell::Cell<u128>,
+}
+
+impl StatusFile {
+    fn new(path: String) -> Self {
+        Self {
+            path,
+            started_at: millis_now(),
+            last_write: std::cell::Cell::new(0),
+        }
+    }
+
+    fn write(&self, payload: &str) {
+        let tmp = format!("{}.tmp", self.path);
+        // A status file nobody can write is not a reason to lose the run it describes.
+        if std::fs::write(&tmp, format!("{payload}\n")).is_ok() {
+            let _ = std::fs::rename(&tmp, &self.path);
+        }
+    }
+
+    fn report(&self, phase: &str, done: usize, total: usize) {
+        let now = millis_now();
+        if now - self.last_write.get() < 1000 {
+            return;
+        }
+        self.last_write.set(now);
+        let percent = if total > 0 {
+            (done as f64 / total as f64 * 1000.0).round() / 10.0
+        } else {
+            0.0
+        };
+        self.write(&format!(
+            "{{\"phase\":\"{phase}\",\"done\":{done},\"total\":{total},\"percent\":{},\
+             \"startedAt\":{},\"updatedAt\":{now},\"pid\":{}}}",
+            number(percent),
+            self.started_at,
+            std::process::id()
+        ));
+    }
+
+    fn finish(&self) {
+        let now = millis_now();
+        self.write(&format!(
+            "{{\"phase\":\"done\",\"percent\":100,\"startedAt\":{},\"updatedAt\":{now},\
+             \"elapsedSeconds\":{},\"pid\":{}}}",
+            self.started_at,
+            ((now - self.started_at) as f64 / 1000.0).round() as u64,
+            std::process::id()
+        ));
+    }
+}
+
+/// A whole percentage prints without its ".0", the way every other runtime writes it.
+fn number(value: f64) -> String {
+    if (value - value.round()).abs() < f64::EPSILON {
+        format!("{}", value.round() as i64)
+    } else {
+        format!("{value}")
+    }
+}
+
+fn millis_now() -> u128 {
+    std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .map(|d| d.as_millis())
+        .unwrap_or(0)
+}
+
 fn generate(
     options: &args::Options,
     input: &str,
@@ -137,6 +219,19 @@ fn generate(
         return Ok(1);
     }
 
+    let status = if options.progress {
+        let Some(output) = &options.output else {
+            writeln!(
+                stderr,
+                "tdcv2: --progress needs -o (the status file lives beside the output)"
+            )?;
+            return Ok(2);
+        };
+        Some(std::rc::Rc::new(StatusFile::new(format!("{output}.progress"))))
+    } else {
+        None
+    };
+
     let built = Options {
         config_file: Some(input.to_string()),
         count: options.count,
@@ -145,6 +240,11 @@ fn generate(
         now_millis: options.now,
         data_paths: options.data_paths.clone(),
         engine: options.engine,
+        on_progress: status.clone().map(|file| {
+            crate::tdc::ProgressHook(std::rc::Rc::new(move |phase: &str, done: usize, total: usize| {
+                file.report(phase, done, total);
+            }))
+        }),
         ..Options::default()
     };
 
@@ -203,7 +303,12 @@ fn generate(
     // same bytes by a costlier road.
     if let Some(path) = &options.output {
         match plan.write_streaming(std::path::Path::new(path)) {
-            Ok(true) => return Ok(0),
+            Ok(true) => {
+                if let Some(file) = &status {
+                    file.finish();
+                }
+                return Ok(0);
+            }
             Ok(false) => {}
             Err(e) => {
                 fail(stderr, &e.to_string(), false)?;
@@ -230,6 +335,10 @@ fn generate(
     if let Err(e) = written {
         fail(stderr, &e.to_string(), false)?;
         return Ok(1);
+    }
+
+    if let Some(file) = &status {
+        file.finish();
     }
 
     Ok(0)

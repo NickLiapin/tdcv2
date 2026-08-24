@@ -148,7 +148,8 @@ public final class Fingerprint {
       Path dir,
       String prefix,
       int buckets,
-      String join) {
+      String join,
+      Progress onProgress) {
     List<Path> paths = new ArrayList<>();
     List<Writer> writers = new ArrayList<>();
     for (int b = 0; b < buckets; b++) {
@@ -158,7 +159,12 @@ public final class Fingerprint {
     }
     try {
       StringBuilder key = new StringBuilder();
+      // About one report per half-percent of the range: cheap enough to leave on always.
+      int reportEvery = Math.max(1, (to - from) / 200);
       for (int row = from; row < to; row++) {
+        if (onProgress != null && (row - from) % reportEvery == 0) {
+          onProgress.report("uniq-scan", row - from, to - from);
+        }
         key.setLength(0);
         for (int r = 0; r < resolvers.size(); r++) {
           if (r > 0) {

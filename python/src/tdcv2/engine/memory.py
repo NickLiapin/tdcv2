@@ -127,7 +127,11 @@ def render(config: Config, packs: DataPacks, now_millis: int, base_dir: Path | N
 
 
 def build(
-    config: Config, packs: DataPacks, now_millis: int, base_dir: Path | None = None
+    config: Config,
+    packs: DataPacks,
+    now_millis: int,
+    base_dir: Path | None = None,
+    on_progress=None,
 ) -> Rendered:
     count = config.count
     columns = _build_columns(config, count, packs, now_millis, base_dir)
@@ -147,7 +151,11 @@ def build(
     out: list[str] = []
     _emit(out, fx.before, columns, 0, config.inject)
 
+    # About one report per half-percent: cheap enough to leave on always.
+    report_every = max(1, count // 200)
     for row in range(count):
+        if on_progress is not None and row % report_every == 0:
+            on_progress("render", row, count)
         _emit(out, fx.before_block, columns, row, config.inject)
 
         # The suppressed lines are dropped first. A delimiter belongs between the lines that

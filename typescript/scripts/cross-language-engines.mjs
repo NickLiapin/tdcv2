@@ -24,8 +24,6 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { TDC } from '../src/index.ts';
-import { envUniqGroupsOf } from '../src/processor/render.ts';
-import { parseStrict } from '../src/parser/index.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const SHARED = resolve(here, '..', '..', 'fixtures', 'cross-language');
@@ -80,29 +78,17 @@ for (const file of readdirSync(CASES_DIR)
          * chosen deterministically from the config, so two machines always
          * pick the same one.
          *
-         * An entry that differs from the in-memory `expected` is marked, and
-         * the four ports skip it until they carry the same machinery — the
-         * reference is ahead, not wrong, and the mark is what keeps that
-         * visible instead of silently softened.
+         * Which is why `lines` is the whole contract and every one of them is
+         * checked in all five. Entries used to carry an `aheadOfPorts` mark
+         * that told the ports to skip — the reference had env-level <uniq> in
+         * its streaming engine and they did not. They have it now, so the
+         * mark is gone rather than left standing over nothing: a skip nobody
+         * removes is a test that stopped running without saying so.
          */
-        /*
-         * Ahead in a second way, too: the reference's engine 2 renders an
-         * env-level <uniq> natively, where every port still refuses it. On
-         * some cases the native arrangement happens to equal the in-memory
-         * one, so byte comparison alone would leave the entry unmarked — and
-         * a port would then fail by refusing what the fixture says renders.
-         * The FEATURE is what the ports lack, so the feature is the mark.
-         */
-        const portsStillRefuse =
-          engine === 2 && envUniqGroupsOf(parseStrict(testCase.config)).length > 0;
         if (JSON.stringify(lines) !== JSON.stringify(testCase.expected)) {
-          entry[`engine${engine}`] = { lines, aheadOfPorts: true };
           disagreed.push(key);
-        } else if (portsStillRefuse) {
-          entry[`engine${engine}`] = { lines, aheadOfPorts: true };
-        } else {
-          entry[`engine${engine}`] = { lines };
         }
+        entry[`engine${engine}`] = { lines };
       } catch (error) {
         // Only the reason matters, not the wording — the ports phrase their refusals in their
         // own language and are checked on refusing, not on how they say so.
@@ -117,10 +103,10 @@ for (const file of readdirSync(CASES_DIR)
 const document = {
   comment:
     'Streaming-engine output for every shared case, from the reference implementation. ' +
-    'One seed + one engine = one output, here and in every port. An entry marked ' +
-    'aheadOfPorts differs from the in-memory `expected` — a uniq arrangement the disk ' +
-    'engines now make natively; ports skip those entries until they carry the same ' +
-    'machinery. Regenerate with: npm run engines:update',
+    'One seed + one engine = one output, here and in every port — every entry here is ' +
+    'checked in all five. A few differ from the in-memory `expected`: a disk engine may ' +
+    'arrange a uniq group differently, and both are correct. Regenerate with: ' +
+    'npm run engines:update',
   engines: ENGINES,
   cases: results,
 };
@@ -128,7 +114,7 @@ const document = {
 if (disagreed.length > 0) {
   console.log(
     `${String(disagreed.length)} case(s) where a disk engine arranges a uniq group differently ` +
-      'from the in-memory engine — marked aheadOfPorts; the ports skip them until ported.',
+      'from the in-memory engine — expected, and pinned by `lines` in all five.',
   );
 }
 const text = `${JSON.stringify(document, null, 2)}\n`;
