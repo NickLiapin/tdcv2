@@ -181,9 +181,9 @@ tdcv2 demo.tdc -o out.csv --progress
 Las fases en orden: `uniq-scan` (se calcula el hash de la tupla de cada fila), `uniq-sort`
 (se ordenan los montones), `uniq-repair` (se comprueban y reordenan las tuplas repetidas) y
 `render` (se escriben las filas); una ejecución sin `<uniq>` solo informa `render`. En una
-ejecución `uniq` grande la más larga de las cuatro suele ser `uniq-repair` — medida en
-6.000.000 de filas sobre 900.000.000 de pares posibles fueron de 50 a 62 segundos de 88 a 99,
-más que las otras tres juntas —, así que es ahí donde hay que esperar.
+ejecución `uniq` grande ninguna de ellas domina: medida en 6.000.000 de filas sobre
+900.000.000 de pares posibles, escribir las filas llevó 17 segundos, calcular el hash de cada
+tupla 12, ordenar los montones 3 y la reparación 7, de unos 40 en total.
 
 Dentro de una fase los números solo suben, y la fase termina en su propio total: una
 barra

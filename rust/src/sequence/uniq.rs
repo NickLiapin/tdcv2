@@ -21,6 +21,7 @@
 //! brute-force answer.
 
 use std::collections::BTreeMap;
+use std::collections::BinaryHeap;
 
 /// The separator that keys a tuple.
 ///
@@ -173,35 +174,122 @@ pub fn arrange(columns: &[Vec<String>]) -> Arrangement {
 ///
 /// Returns false when the column has fewer values left than the group has rows;
 /// the proportional path handles that instead.
+/// The remaining stock of one column, ordered the way the deal picks from it:
+/// largest stock first, ties to the value that appeared first.
+///
+/// That is what [`deal_distinct`] wants, and it used to get it by walking the
+/// WHOLE pool and SORTING it — once per group. Measured in the reference on a
+/// 6,000,000-row `<uniq>` whose repair pool held 179,133 rows over 30,000
+/// values: 44 of the run's 85 seconds, growing with the product of the two,
+/// while the partner scan everyone suspected cost 2.
+///
+/// A binary heap answers the same question by popping. Entries go stale as the
+/// deal spends stock, so a pop compares the entry against the live count in
+/// `pool` and discards it if the value has moved on — the ordinary lazy heap.
+/// What does NOT change is the answer: same order, same ties, same values to
+/// the same rows, byte for byte. That is the whole constraint here — which value
+/// a row draws IS the dataset, so a faster deal that deals differently is a
+/// different product.
+struct StockHeap {
+    /// `(stock, Reverse(at), value)`, so the max-heap answers "largest stock,
+    /// earliest appearance".
+    heap: BinaryHeap<(usize, std::cmp::Reverse<usize>, String)>,
+    at: BTreeMap<String, usize>,
+    live: usize,
+}
+
+impl StockHeap {
+    fn new(pool: &BTreeMap<String, usize>, pool_order: &[String]) -> Self {
+        let mut heap = BinaryHeap::new();
+        let mut at = BTreeMap::new();
+        let mut live = 0;
+        // `at` counts every entry, not only the live ones, so a tie is broken by
+        // first appearance the same way in every implementation.
+        for (appearance, key) in pool_order.iter().enumerate() {
+            at.insert(key.clone(), appearance);
+            let stock = pool[key];
+            if stock > 0 {
+                heap.push((stock, std::cmp::Reverse(appearance), key.clone()));
+                live += 1;
+            }
+        }
+        Self { heap, at, live }
+    }
+
+    /// Values with stock left — the `live.len()` the sort used to count.
+    fn live_count(&self) -> usize {
+        self.live
+    }
+
+    /// The next value the sort would have put first, or `None` if none is left.
+    ///
+    /// It is NOT returned to the heap here. A group takes several values and they
+    /// must be distinct, so the caller spends each one and hands them all back
+    /// once the group is dealt — until then a spent value has no fresh entry to
+    /// be drawn a second time.
+    fn take(&mut self, pool: &BTreeMap<String, usize>) -> Option<String> {
+        while let Some((stock, _at, value)) = self.heap.pop() {
+            if stock > 0 && pool.get(&value) == Some(&stock) {
+                return Some(value);
+            }
+        }
+        None
+    }
+
+    /// One unit of `value` dealt to a row.
+    fn spend(&mut self, pool: &mut BTreeMap<String, usize>, value: &str) {
+        // A value the pool never held is left alone, exactly as the direct
+        // decrement was.
+        if let Some(remaining) = pool.get_mut(value) {
+            *remaining = remaining.saturating_sub(1);
+            if *remaining == 0 {
+                self.live -= 1;
+            }
+        }
+    }
+
+    /// Put `value` back in the running at whatever stock it has now.
+    fn restore(&mut self, pool: &BTreeMap<String, usize>, value: &str) {
+        let stock = pool.get(value).copied().unwrap_or(0);
+        if stock > 0 {
+            let at = self.at.get(value).copied().unwrap_or(0);
+            self.heap
+                .push((stock, std::cmp::Reverse(at), value.to_string()));
+        }
+    }
+}
+
 fn deal_distinct(
+    stock: &mut StockHeap,
     pool: &mut BTreeMap<String, usize>,
-    pool_order: &[String],
     indexes: &[usize],
     rows: &mut [Vec<String>],
 ) -> bool {
     let g = indexes.len();
-    // `at` counts every entry, not only the live ones, so a tie is broken by
-    // first appearance the same way in every implementation.
-    let mut live: Vec<(usize, usize, &String)> = Vec::new();
-    for (at, key) in pool_order.iter().enumerate() {
-        let stock = pool[key];
-        if stock > 0 {
-            live.push((stock, at, key));
-        }
-    }
-    if live.len() < g {
+    // Asked before anything is spent, so a group too large for what is left is
+    // refused without having to be undone.
+    if stock.live_count() < g {
         return false;
     }
 
-    live.sort_by(|a, b| b.0.cmp(&a.0).then(a.1.cmp(&b.1)));
-    let chosen: Vec<(String, usize)> = live
-        .iter()
-        .take(g)
-        .map(|(stock, _at, key)| ((*key).clone(), *stock))
-        .collect();
-    for (m, (value, stock)) in chosen.into_iter().enumerate() {
-        pool.insert(value.clone(), stock - 1);
-        rows[indexes[m]].push(value);
+    // The `g` largest stocks, ties by first appearance — the same values the full
+    // sort put at the front, taken without sorting the rest.
+    let mut taken: Vec<String> = Vec::with_capacity(g);
+    for m in 0..g {
+        let Some(chosen) = stock.take(pool) else {
+            for value in &taken {
+                stock.restore(pool, value);
+            }
+            return false;
+        };
+        // Spent as it is taken: that is what keeps a value out of the rest of
+        // THIS group, which is the whole point of dealing distinct ones.
+        stock.spend(pool, &chosen);
+        rows[indexes[m]].push(chosen.clone());
+        taken.push(chosen);
+    }
+    for value in &taken {
+        stock.restore(pool, value);
     }
     true
 }
@@ -220,6 +308,8 @@ fn build_rows(columns: &[&Vec<String>]) -> Vec<Vec<String>> {
             }
             *pool.entry(v.clone()).or_insert(0) += 1;
         }
+
+        let mut stock = StockHeap::new(&pool, &pool_order);
 
         let mut group_order: Vec<String> = Vec::new();
         let mut groups: BTreeMap<String, Vec<usize>> = BTreeMap::new();
@@ -243,7 +333,7 @@ fn build_rows(columns: &[&Vec<String>]) -> Vec<Vec<String>> {
         by_size.sort_by_key(|g| std::cmp::Reverse(g.len()));
 
         for indexes in by_size {
-            if deal_distinct(&mut pool, &pool_order, &indexes, &mut rows) {
+            if deal_distinct(&mut stock, &mut pool, &indexes, &mut rows) {
                 continue;
             }
 
@@ -267,6 +357,7 @@ fn build_rows(columns: &[&Vec<String>]) -> Vec<Vec<String>> {
             }
             deck.sort();
 
+            let mut spent: Vec<String> = Vec::new();
             for (di, j) in indexes.into_iter().enumerate() {
                 let v = if di < deck.len() {
                     deck[di].clone()
@@ -275,10 +366,15 @@ fn build_rows(columns: &[&Vec<String>]) -> Vec<Vec<String>> {
                 } else {
                     deck[deck.len() - 1].clone()
                 };
-                if let Some(remaining) = pool.get_mut(&v) {
-                    *remaining = remaining.saturating_sub(1);
+                stock.spend(&mut pool, &v);
+                if !spent.contains(&v) {
+                    spent.push(v.clone());
                 }
                 rows[j].push(v);
+            }
+            // Back in the running at their new stocks, once the group is dealt.
+            for value in &spent {
+                stock.restore(&pool, value);
             }
         }
     }

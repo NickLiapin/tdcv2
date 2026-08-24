@@ -40,7 +40,9 @@ CONFIG = """<tdc>
 UNIQ_CONFIG = """<tdc>
   <env count="400" seed="pu" local="en">
     <uniq>
-      <sequence name="A"><gen type="text" value="a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t"/></sequence>
+      <sequence name="A">
+        <gen type="text" value="a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t"/>
+      </sequence>
       <sequence name="B"><gen type="number" value="1..40"/></sequence>
     </uniq>
   </env>

@@ -23,8 +23,8 @@ VECTORS = json.loads(
 
 
 def test_record_width_and_index_limit_match_the_contract() -> None:
-    assert fp.RECORD_BYTES == VECTORS["recordBytes"]
-    assert fp.MAX_INDEX == VECTORS["maxIndex"]
+    assert VECTORS["recordBytes"] == fp.RECORD_BYTES
+    assert VECTORS["maxIndex"] == fp.MAX_INDEX
 
 
 @pytest.mark.parametrize("vector", VECTORS["hashes"], ids=lambda v: repr(v["key"])[:30])
@@ -50,7 +50,9 @@ def test_an_index_past_the_limit_is_refused_not_wrapped() -> None:
         fp.encode(1, 1, fp.MAX_INDEX)
 
 
-@pytest.mark.parametrize("vector", VECTORS["pileCounts"], ids=lambda v: f"{v['count']}/{v['cores']}")
+@pytest.mark.parametrize(
+    "vector", VECTORS["pileCounts"], ids=lambda v: f"{v['count']}/{v['cores']}"
+)
 def test_pile_count_matches_the_reference(vector: dict) -> None:
     assert fp.bucket_count_for(vector["count"], vector["cores"]) == vector["buckets"]
 

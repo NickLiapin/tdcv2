@@ -199,37 +199,137 @@ public static class Uniq
     /// False when the column has fewer values left than the group has rows; the proportional path
     /// handles that instead.
     /// </returns>
-    private static bool DealDistinct(
-        Dictionary<string, int> pool,
-        List<string> poolOrder,
-        List<int> indexes,
-        List<List<string>> rows)
+    /// <summary>
+    /// The remaining stock of one column, ordered the way the deal picks from it: largest stock
+    /// first, ties to the value that appeared first.
+    /// </summary>
+    /// <remarks>
+    /// That is what <see cref="DealDistinct"/> wants, and it used to get it by walking the WHOLE
+    /// pool and SORTING it — once per group. Measured in the reference on a 6,000,000-row
+    /// <c>&lt;uniq&gt;</c> whose repair pool held 179,133 rows over 30,000 values: 44 of the run's
+    /// 85 seconds, growing with the product of the two, while the partner scan everyone suspected
+    /// cost 2.
+    /// <para>
+    /// A binary heap answers the same question by popping. Entries go stale as the deal spends
+    /// stock, so a pop compares the entry against the live count in <c>pool</c> and discards it if
+    /// the value has moved on — the ordinary lazy heap. What does NOT change is the answer: same
+    /// order, same ties, same values to the same rows, byte for byte. That is the whole constraint
+    /// here — which value a row draws IS the dataset, so a faster deal that deals differently is a
+    /// different product.
+    /// </para>
+    /// </remarks>
+    private sealed class StockHeap
     {
-        int g = indexes.Count;
-        var live = new List<(string Value, int Stock, int At)>();
-        for (int at = 0; at < poolOrder.Count; at++)
+        private readonly Dictionary<string, int> _pool;
+        private readonly Dictionary<string, int> _at = new(StringComparer.Ordinal);
+        private readonly PriorityQueue<string, (int Stock, int At)> _heap = new();
+        private int _live;
+
+        internal StockHeap(Dictionary<string, int> pool, List<string> poolOrder)
         {
-            string value = poolOrder[at];
-            int stock = pool[value];
-            if (stock > 0)
+            _pool = pool;
+            // `at` counts every entry, not only the live ones, so a tie is broken by first
+            // appearance the same way in every implementation.
+            for (int at = 0; at < poolOrder.Count; at++)
             {
-                live.Add((value, stock, at));
+                string value = poolOrder[at];
+                _at[value] = at;
+                if (pool[value] > 0)
+                {
+                    // Negated stock, so the min-priority queue answers "largest stock, earliest at".
+                    _heap.Enqueue(value, (-pool[value], at));
+                    _live++;
+                }
             }
         }
 
-        if (live.Count < g)
+        /// <summary>Values with stock left — the <c>live.Count</c> the sort used to count.</summary>
+        internal int LiveCount => _live;
+
+        /// <summary>
+        /// The next value the sort would have put first, or null if none is left.
+        /// </summary>
+        /// <remarks>
+        /// It is NOT returned to the heap here. A group takes several values and they must be
+        /// distinct, so the caller spends each one and hands them all back once the group is dealt
+        /// — until then a spent value has no fresh entry to be drawn a second time.
+        /// </remarks>
+        internal string? Take()
+        {
+            while (_heap.TryDequeue(out string? value, out (int Stock, int At) key))
+            {
+                int stock = -key.Stock;
+                if (stock > 0 && _pool.TryGetValue(value, out int now) && now == stock)
+                {
+                    return value;
+                }
+            }
+
+            return null;
+        }
+
+        /// <summary>One unit of <paramref name="value"/> dealt to a row.</summary>
+        internal void Spend(string value)
+        {
+            // A value the pool never held is left alone, exactly as the direct decrement was.
+            if (!_pool.TryGetValue(value, out int stock))
+            {
+                return;
+            }
+
+            _pool[value] = stock - 1;
+            if (stock - 1 == 0)
+            {
+                _live--;
+            }
+        }
+
+        /// <summary>Put <paramref name="value"/> back in the running at whatever stock it has now.</summary>
+        internal void Restore(string value)
+        {
+            if (_pool.TryGetValue(value, out int stock) && stock > 0)
+            {
+                _heap.Enqueue(value, (-stock, _at.TryGetValue(value, out int at) ? at : 0));
+            }
+        }
+    }
+
+    private static bool DealDistinct(StockHeap stock, List<int> indexes, List<List<string>> rows)
+    {
+        int g = indexes.Count;
+        // Asked before anything is spent, so a group too large for what is left is refused without
+        // having to be undone.
+        if (stock.LiveCount < g)
         {
             return false;
         }
 
-        // `At` counts every entry, not only the live ones, so a tie is broken by first appearance
-        // the same way in every implementation.
-        live.Sort((a, b) => a.Stock != b.Stock ? b.Stock.CompareTo(a.Stock) : a.At.CompareTo(b.At));
+        // The `g` largest stocks, ties by first appearance — the same values the full sort put at
+        // the front, taken without sorting the rest.
+        var taken = new List<string>(g);
         for (int m = 0; m < g; m++)
         {
-            (string value, int stock, _) = live[m];
-            pool[value] = stock - 1;
-            rows[indexes[m]].Add(value);
+            string? chosen = stock.Take();
+            if (chosen is null)
+            {
+                foreach (string value in taken)
+                {
+                    stock.Restore(value);
+                }
+
+                return false;
+            }
+
+            // Spent as it is taken: that is what keeps a value out of the rest of THIS group,
+            // which is the whole point of dealing distinct ones.
+            stock.Spend(chosen);
+            taken.Add(chosen);
+            rows[indexes[m]].Add(chosen);
+        }
+
+        foreach (string value in taken)
+        {
+            stock.Restore(value);
         }
 
         return true;
@@ -256,6 +356,8 @@ public static class Uniq
                 pool[v] = seen + 1;
             }
 
+            var stock = new StockHeap(pool, poolOrder);
+
             var groupOrder = new List<string>();
             var groups = new Dictionary<string, List<int>>(StringComparer.Ordinal);
             for (int j = 0; j < n; j++)
@@ -280,7 +382,7 @@ public static class Uniq
 
             foreach (List<int> indexes in bySize)
             {
-                if (DealDistinct(pool, poolOrder, indexes, rows))
+                if (DealDistinct(stock, indexes, rows))
                 {
                     continue;
                 }
@@ -310,18 +412,26 @@ public static class Uniq
                 deck.Sort(StringComparer.Ordinal);
 
                 int di = 0;
+                var spent = new List<string>();
                 foreach (int j in indexes)
                 {
                     string v = di < deck.Count
                         ? deck[di]
                         : deck.Count == 0 ? "" : deck[^1];
                     di++;
-                    if (pool.ContainsKey(v))
+                    stock.Spend(v);
+                    if (!spent.Contains(v))
                     {
-                        pool[v]--;
+                        spent.Add(v);
                     }
 
                     rows[j].Add(v);
+                }
+
+                // Back in the running at their new stocks, once the group is dealt.
+                foreach (string value in spent)
+                {
+                    stock.Restore(value);
                 }
             }
         }

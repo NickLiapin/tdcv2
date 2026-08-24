@@ -17,6 +17,28 @@ page — is tracked in that implementation's own changelog:
 
 ### Added
 
+<!-- covers: uniq deal stock heap -->
+
+- **A large `<uniq>` run is more than twice as fast, and every byte of its output is where it
+  was.** The deal that assembles the rows wants, for each group, "the values with the most
+  stock left, ties to the one that appeared first". It got that by walking the WHOLE value
+  pool and sorting it — once per group. At 30,000 values and 30,000 groups that is a sort of
+  thirty thousand entries, thirty thousand times.
+
+  Measured on a 6,000,000-row `<uniq>` whose repair pool held 179,133 rows over 30,000 values:
+  **44 of the run's 85 seconds**, growing with the product of the two. The partner scan
+  everyone suspected — including three earlier passes over this code — cost 2 seconds, and the
+  disk ledger 6.
+
+  It now draws from a lazy binary heap: same comparator, same ties, same values to the same
+  rows. The deal went from 46 seconds to 2.4 and the whole run from 88 to 40 in the reference;
+  in Python the deal alone went from 7.01 s to 0.13 s on 20,000 rows over 4,000 values, a
+  factor of 54.
+
+  Byte-identity is the point, not a bonus: which value a row draws IS the dataset, so a faster
+  deal that deals differently would be a different product for every user holding a seed. All
+  five implementations carry the change, and all five agree with the shared fixtures.
+
 <!-- covers: rust cargo fmt gate -->
 
 - **Rust is formatted by `cargo fmt`, and CI now says so.** It was the only one of the five
@@ -28,10 +50,13 @@ page — is tracked in that implementation's own changelog:
 <!-- covers: progress uniq-repair -->
 
 - **`--progress` gained a fourth phase, `uniq-repair`, and it turned out to be the biggest
-  one.** Measured on a 6,000,000-row `<uniq>` over 900,000,000 possible pairs: hashing every
-  tuple took 13 s, sorting the piles 3 s, writing the rows 18 s — and 50 to 62 s sat between
-  the last `uniq-sort` and the first `render`, reporting nothing at all. More than the other
-  three phases together, and indistinguishable from a hang.
+  one — which is how the entry below came to be written.** Measured on a 6,000,000-row
+  `<uniq>` over 900,000,000 possible pairs: hashing every tuple took 13 s, sorting the piles
+  3 s, writing the rows 18 s — and 50 to 62 s sat between the last `uniq-sort` and the first
+  `render`, reporting nothing at all. More than the other three phases together, and
+  indistinguishable from a hang. (It is 7 s now. The phase stays: the repair's size follows
+  the collisions rather than `count`, so a tight enough config can still spend real time
+  there, and a watcher should be told which part it is spending.)
 
   That stretch is the repair: verifying the candidate groups the fingerprints turned up, then
   rearranging the rows that really do repeat. It now reports, in all five implementations,

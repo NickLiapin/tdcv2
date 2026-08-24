@@ -814,12 +814,14 @@ function arrangeAvoiding(
   /*
    * The pass that costs the most, and used to say nothing at all.
    *
-   * Measured on 6,000,000 rows over 900,000,000 possible pairs: the tuple scan
-   * took 13 s, sorting the piles 3 s, writing the rows 18 s — and THIS took 50
-   * to 62 s, more than the other three together, between the last `uniq-sort`
-   * report and the first `render` one, in silence. Anyone watching had a minute
-   * of a file that did not move and no way to tell a long repair from a hung
-   * process.
+   * It USED to be most of the run: measured on 6,000,000 rows over 900,000,000
+   * possible pairs it took 50 to 62 s of 88 to 99, more than the other three
+   * phases together, and said nothing at all while it did. Anyone watching had
+   * a minute of a file that did not move and no way to tell a long repair from
+   * a hung process. Since the deal draws from a heap instead of re-sorting the
+   * value pool per group it is 7 s of 40 — the reporting is what is left, and
+   * it is worth keeping: the pool grows with the collisions, not with `count`,
+   * so a tight enough config can still spend real time in here.
    *
    * Measure this on a run that STAYS INSIDE the repair cap. A denser config
    * throws `ExactUniqRepairNeeded` and falls back to the in-memory engine, and

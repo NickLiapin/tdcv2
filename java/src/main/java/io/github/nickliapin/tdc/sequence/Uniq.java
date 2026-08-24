@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Set;
 
 /**
  * {@code uniq="true"} — make every row's tuple different from every other row's.
@@ -191,37 +194,116 @@ public final class Uniq {
    * @return false when the column has fewer values left than the group has rows, and the
    *     proportional path below handles it instead.
    */
-  private static boolean dealDistinct(
-      Map<String, Integer> pool, List<Integer> indexes, List<List<String>> rows) {
-    int g = indexes.size();
-    List<String> values = new ArrayList<>();
-    List<int[]> live = new ArrayList<>(); // {stock, position in the pool's own order}
-    int at = 0;
-    for (Map.Entry<String, Integer> entry : pool.entrySet()) {
-      if (entry.getValue() > 0) {
-        values.add(entry.getKey());
-        live.add(new int[] {entry.getValue(), at});
+  /**
+   * The remaining stock of one column, ordered the way the deal picks from it: largest stock
+   * first, ties to the value that appeared first.
+   *
+   * <p>That is what {@link #dealDistinct} wants, and it used to get it by walking the WHOLE pool
+   * and SORTING it — once per group. Measured in the reference on a 6,000,000-row {@code <uniq>}
+   * whose repair pool held 179,133 rows over 30,000 values: 44 of the run's 85 seconds, growing
+   * with the product of the two, while the partner scan everyone suspected cost 2.
+   *
+   * <p>A binary heap answers the same question by popping. Entries go stale as the deal spends
+   * stock, so a pop compares the entry against the live count in {@code pool} and discards it if
+   * the value has moved on — the ordinary lazy heap. What does NOT change is the answer: same
+   * order, same ties, same values to the same rows, byte for byte. That is the whole constraint
+   * here — which value a row draws IS the dataset, so a faster deal that deals differently is a
+   * different product.
+   */
+  private static final class StockHeap {
+    /** {@code {stock, appearance}} with the value beside it, ordered largest stock first. */
+    private record Entry(String value, int stock, int at) {}
+
+    private final Map<String, Integer> pool;
+    private final Map<String, Integer> at = new HashMap<>();
+    private final PriorityQueue<Entry> heap =
+        new PriorityQueue<>(
+            Comparator.comparingInt((Entry e) -> -e.stock()).thenComparingInt(Entry::at));
+    private int live;
+
+    StockHeap(Map<String, Integer> pool) {
+      this.pool = pool;
+      // `at` counts every entry, not only the live ones, so a tie is broken by first appearance
+      // the same way in every implementation.
+      int appearance = 0;
+      for (Map.Entry<String, Integer> entry : pool.entrySet()) {
+        this.at.put(entry.getKey(), appearance);
+        if (entry.getValue() > 0) {
+          heap.add(new Entry(entry.getKey(), entry.getValue(), appearance));
+          live++;
+        }
+        appearance++;
       }
-      at++;
     }
-    if (live.size() < g) {
+
+    /** Values with stock left — the {@code live.size()} the sort used to count. */
+    int liveCount() {
+      return live;
+    }
+
+    /**
+     * The next value the sort would have put first, or null if none is left.
+     *
+     * <p>It is NOT returned to the heap here. A group takes several values and they must be
+     * distinct, so the caller spends each one and hands them all back once the group is dealt —
+     * until then a spent value has no fresh entry to be drawn a second time.
+     */
+    String take() {
+      while (!heap.isEmpty()) {
+        Entry top = heap.poll();
+        if (top.stock() > 0 && pool.getOrDefault(top.value(), 0) == top.stock()) {
+          return top.value();
+        }
+      }
+      return null;
+    }
+
+    /** One unit of {@code value} dealt to a row. */
+    void spend(String value) {
+      int stock = pool.getOrDefault(value, 0) - 1;
+      pool.put(value, stock);
+      if (stock == 0) {
+        live--;
+      }
+    }
+
+    /** Put {@code value} back in the running at whatever stock it has now. */
+    void restore(String value) {
+      int stock = pool.getOrDefault(value, 0);
+      if (stock > 0) {
+        heap.add(new Entry(value, stock, at.getOrDefault(value, 0)));
+      }
+    }
+  }
+
+  private static boolean dealDistinct(
+      StockHeap stock, List<Integer> indexes, List<List<String>> rows) {
+    int g = indexes.size();
+    // Asked before anything is spent, so a group too large for what is left is refused without
+    // having to be undone.
+    if (stock.liveCount() < g) {
       return false;
     }
 
-    // `at` counts every entry, not only the live ones, so a tie is broken by first appearance
-    // the same way in every implementation.
-    List<Integer> order = new ArrayList<>(live.size());
-    for (int i = 0; i < live.size(); i++) {
-      order.add(i);
-    }
-    order.sort(
-        Comparator.<Integer>comparingInt(i -> -live.get(i)[0]).thenComparingInt(i -> live.get(i)[1]));
-
+    // The `g` largest stocks, ties by first appearance — the same values the full sort put at
+    // the front, taken without sorting the rest.
+    List<String> taken = new ArrayList<>(g);
     for (int m = 0; m < g; m++) {
-      int pick = order.get(m);
-      String value = values.get(pick);
-      pool.put(value, live.get(pick)[0] - 1);
-      rows.get(indexes.get(m)).add(value);
+      String chosen = stock.take();
+      if (chosen == null) {
+        for (String value : taken) {
+          stock.restore(value);
+        }
+        return false;
+      }
+      // Spent as it is taken: that is what keeps a value out of the rest of THIS group, which is
+      // the whole point of dealing distinct ones.
+      stock.spend(chosen);
+      taken.add(chosen);
+      rows.get(indexes.get(m)).add(chosen);
+    }
+    for (String value : taken) {
+      stock.restore(value);
     }
     return true;
   }
@@ -243,6 +325,8 @@ public final class Uniq {
         pool.merge(v, 1, Integer::sum);
       }
 
+      StockHeap stock = new StockHeap(pool);
+
       Map<String, List<Integer>> groups = new LinkedHashMap<>();
       for (int j = 0; j < n; j++) {
         groups.computeIfAbsent(String.join(SEP, rows.get(j)), ignored -> new ArrayList<>()).add(j);
@@ -254,7 +338,7 @@ public final class Uniq {
       bySize.sort(Comparator.comparingInt((List<Integer> g) -> g.size()).reversed());
 
       for (List<Integer> indexes : bySize) {
-        if (dealDistinct(pool, indexes, rows)) {
+        if (dealDistinct(stock, indexes, rows)) {
           continue;
         }
         List<String> liveKeys = new ArrayList<>();
@@ -276,11 +360,17 @@ public final class Uniq {
         deck.sort(Comparator.naturalOrder());
 
         int di = 0;
+        Set<String> spent = new LinkedHashSet<>();
         for (int j : indexes) {
           String v = di < deck.size() ? deck.get(di) : deck.isEmpty() ? "" : deck.get(deck.size() - 1);
           di++;
-          pool.merge(v, -1, Integer::sum);
+          stock.spend(v);
+          spent.add(v);
           rows.get(j).add(v);
+        }
+        // Back in the running at their new stocks, once the group is dealt.
+        for (String value : spent) {
+          stock.restore(value);
         }
       }
     }

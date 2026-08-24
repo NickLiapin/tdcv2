@@ -7,7 +7,7 @@ from tdcv2.engine import fingerprint
 
 NOW = 1704067200000  # 2024-01-01T00:00:00Z
 
-NAMES = ",".join("a%d" % i for i in range(40))
+NAMES = ",".join(f"a{i}" for i in range(40))
 UNIQ = (
     '<tdc><env count="400" seed="p" local="en" mode="disk"><uniq>'
     '<sequence name="A"><gen type="text" value="' + NAMES + '"/></sequence>'
@@ -52,7 +52,7 @@ def test_a_phases_numbers_only_ever_rise(on_disk: None) -> None:
     seen = _phases_of(UNIQ)
     for phase in dict.fromkeys(p for p, _, _ in seen):
         of = [(d, t) for p, d, t in seen if p == phase]
-        for (done, total), (before, scale) in zip(of[1:], of):
+        for (done, total), (before, scale) in zip(of[1:], of[:-1], strict=True):
             assert done >= before, phase
             assert total >= scale, phase
             assert done <= total, phase

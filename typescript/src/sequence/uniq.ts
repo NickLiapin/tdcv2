@@ -217,6 +217,128 @@ function trailingZeros(value: number): number {
 }
 
 /** Proportional builder: assemble rows so tuples are maximally distinct. */
+/**
+ * The remaining stock of one column, ordered the way the deal picks from it:
+ * largest stock first, ties to the value that appeared first.
+ *
+ * Both callers below want exactly that, and both used to get it by walking the
+ * WHOLE pool once per group — `dealDistinct` also SORTED it, thirty thousand
+ * entries at a time. Measured on a 6,000,000-row `<uniq>` whose repair pool held
+ * 179,133 rows over 30,000 values: 44 of the run's 85 seconds, growing with the
+ * product of the two, while the partner scan everyone suspected cost 2.
+ *
+ * A binary heap answers the same question by popping. Entries go stale as the
+ * deal spends stock, so a pop compares the entry against the live count in
+ * `pool` and discards it if the value has moved on — the ordinary lazy heap.
+ * What does NOT change is the answer: same comparator, same ties, same values
+ * to the same rows, byte for byte. That is the whole constraint here — which
+ * value a row draws is the dataset, so a faster deal that deals differently is
+ * a different product.
+ */
+class StockHeap {
+  /** `[value, stock, appearance]`, heapified on (stock desc, appearance asc). */
+  private readonly heap: [string, number, number][] = [];
+  /** How many values still have stock — the `live.length` the sort used to count. */
+  private live = 0;
+  private readonly at = new Map<string, number>();
+
+  constructor(private readonly pool: Map<string, number>) {
+    let appearance = 0;
+    for (const [value, stock] of pool) {
+      this.at.set(value, appearance);
+      if (stock > 0) {
+        this.heap.push([value, stock, appearance]);
+        this.live += 1;
+      }
+      appearance += 1;
+    }
+    for (let i = (this.heap.length >> 1) - 1; i >= 0; i--) this.sink(i);
+  }
+
+  /** Values with stock left. The deal refuses a group larger than this. */
+  get liveCount(): number {
+    return this.live;
+  }
+
+  /**
+   * The next value the sort would have put first, or undefined if none is left.
+   *
+   * It is NOT returned to the heap here. A group takes several values and they
+   * must be distinct, so the caller spends each one and hands them all back
+   * once the group is dealt — until then a spent value has no fresh entry to
+   * be drawn a second time.
+   */
+  take(): string | undefined {
+    while (this.heap.length > 0) {
+      const top = this.heap[0];
+      if (top === undefined) return undefined;
+      this.pop();
+      if (top[1] > 0 && this.pool.get(top[0]) === top[1]) return top[0];
+    }
+    return undefined;
+  }
+
+  /** One unit of `value` dealt to a row. */
+  spend(value: string): void {
+    const stock = (this.pool.get(value) ?? 0) - 1;
+    this.pool.set(value, stock);
+    if (stock === 0) this.live -= 1;
+  }
+
+  /** Put `value` back in the running at whatever stock it has now. */
+  restore(value: string): void {
+    const stock = this.pool.get(value) ?? 0;
+    if (stock <= 0) return;
+    const appearance = this.at.get(value) ?? 0;
+    this.heap.push([value, stock, appearance]);
+    let i = this.heap.length - 1;
+    while (i > 0) {
+      const parent = (i - 1) >> 1;
+      if (!this.before(i, parent)) break;
+      this.swap(i, parent);
+      i = parent;
+    }
+  }
+
+  /** Larger stock first; equal stocks in order of first appearance. */
+  private before(a: number, b: number): boolean {
+    const x = this.heap[a];
+    const y = this.heap[b];
+    if (x === undefined || y === undefined) return false;
+    return x[1] !== y[1] ? x[1] > y[1] : x[2] < y[2];
+  }
+
+  private swap(a: number, b: number): void {
+    const x = this.heap[a];
+    const y = this.heap[b];
+    if (x === undefined || y === undefined) return;
+    this.heap[a] = y;
+    this.heap[b] = x;
+  }
+
+  private pop(): void {
+    const last = this.heap.pop();
+    if (this.heap.length > 0 && last !== undefined) {
+      this.heap[0] = last;
+      this.sink(0);
+    }
+  }
+
+  private sink(from: number): void {
+    let i = from;
+    for (;;) {
+      const left = i * 2 + 1;
+      const right = left + 1;
+      let best = i;
+      if (left < this.heap.length && this.before(left, best)) best = left;
+      if (right < this.heap.length && this.before(right, best)) best = right;
+      if (best === i) return;
+      this.swap(i, best);
+      i = best;
+    }
+  }
+}
+
 function buildRows(columns: readonly (readonly string[])[]): {
   rows: string[][];
   /** Final group id per row: two rows are the SAME tuple iff these match. */
@@ -257,6 +379,7 @@ function buildRows(columns: readonly (readonly string[])[]): {
   for (let k = 1; k < columns.length; k++) {
     const pool = new Map<string, number>();
     for (const v of columns[k] ?? []) pool.set(v, (pool.get(v) ?? 0) + 1);
+    const stock = new StockHeap(pool);
 
     const groups = new Map<number, number[]>();
     for (let j = 0; j < N; j++) {
@@ -282,16 +405,10 @@ function buildRows(columns: readonly (readonly string[])[]): {
      */
     const takeSingle = (row: number | undefined): boolean => {
       if (row === undefined) return false;
-      let best: string | undefined;
-      let bestCount = 0;
-      for (const [v, c] of pool) {
-        if (c > bestCount) {
-          best = v;
-          bestCount = c;
-        }
-      }
+      const best = stock.take();
       if (best === undefined) return false; // nothing left — the general path reports it
-      pool.set(best, bestCount - 1);
+      stock.spend(best);
+      stock.restore(best);
       rows[row]?.push(best);
       return true;
     };
@@ -318,22 +435,26 @@ function buildRows(columns: readonly (readonly string[])[]): {
      */
     const dealDistinct = (idxs: readonly number[]): boolean => {
       const g = idxs.length;
-      const live: { value: string; stock: number; at: number }[] = [];
-      let at = 0;
-      for (const [value, stock] of pool) {
-        if (stock > 0) live.push({ value, stock, at });
-        at += 1;
-      }
-      if (live.length < g) return false;
-      // Ties by first appearance, so the choice is the same in every language.
-      live.sort((a, b) => b.stock - a.stock || a.at - b.at);
+      // Asked before anything is spent, so a group too large for what is left
+      // is refused without having to be undone.
+      if (stock.liveCount < g) return false;
+      // The `g` largest stocks, ties by first appearance — the same values the
+      // full sort put at the front, taken without sorting the rest.
+      const taken: string[] = [];
       for (let m = 0; m < g; m++) {
-        const chosen = live[m];
+        const chosen = stock.take();
         const row = idxs[m];
-        if (!chosen || row === undefined) return false;
-        pool.set(chosen.value, chosen.stock - 1);
-        rows[row]?.push(chosen.value);
+        if (chosen === undefined || row === undefined) {
+          for (const value of taken) stock.restore(value);
+          return false;
+        }
+        // Spent as it is taken: that is what keeps a value out of the rest of
+        // THIS group, which is the whole point of dealing distinct ones.
+        stock.spend(chosen);
+        taken.push(chosen);
+        rows[row]?.push(chosen);
       }
+      for (const value of taken) stock.restore(value);
       return true;
     };
 
@@ -354,12 +475,16 @@ function buildRows(columns: readonly (readonly string[])[]): {
       }
       deck.sort();
       let di = 0;
+      const spent = new Set<string>();
       for (const j of idxs) {
         const v = deck[di++] ?? deck[deck.length - 1] ?? '';
-        pool.set(v, (pool.get(v) ?? 0) - 1);
+        stock.spend(v);
+        spent.add(v);
         const row = rows[j];
         if (row) row.push(v);
       }
+      // Back in the running at their new stocks, once the group is dealt.
+      for (const value of spent) stock.restore(value);
     }
 
     // Refine: rows stay together only if they also drew the same value here.

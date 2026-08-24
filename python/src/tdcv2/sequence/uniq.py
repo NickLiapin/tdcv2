@@ -16,6 +16,7 @@ values drawn, which is what lets it be checked against a brute-force answer.
 
 from __future__ import annotations
 
+import heapq
 import math
 from dataclasses import dataclass
 
@@ -107,7 +108,73 @@ def arrange(columns: list[list[str]]) -> Arrangement:
     return Arrangement(out, distinct)
 
 
-def _deal_distinct(pool: dict[str, int], indexes: list[int], rows: list[list[str]]) -> bool:
+class _StockHeap:
+    """The remaining stock of one column, ordered the way the deal picks from it.
+
+    Largest stock first, ties to the value that appeared first. That is what :func:`_deal_distinct`
+    below wants, and it used to get it by walking the WHOLE pool and SORTING it — once per group.
+    Measured in the reference on a 6,000,000-row ``<uniq>`` whose repair pool held 179,133 rows over
+    30,000 values: 44 of the run's 85 seconds, growing with the product of the two, while the
+    partner scan everyone suspected cost 2.
+
+    A binary heap answers the same question by popping. Entries go stale as the deal spends stock,
+    so a pop compares the entry against the live count in ``pool`` and discards it if the value has
+    moved on — the ordinary lazy heap. What does NOT change is the answer: same order, same ties,
+    same values to the same rows, byte for byte. That is the whole constraint — which value a row
+    draws IS the dataset, so a faster deal that deals differently is a different product.
+    """
+
+    __slots__ = ("_at", "_heap", "_live", "_pool")
+
+    def __init__(self, pool: dict[str, int]) -> None:
+        self._pool = pool
+        self._at: dict[str, int] = {}
+        self._heap: list[tuple[int, int, str]] = []
+        self._live = 0
+        # ``at`` counts every entry, not only the live ones, so a tie is broken by first
+        # appearance the same way in every implementation.
+        for at, (value, stock) in enumerate(pool.items()):
+            self._at[value] = at
+            if stock > 0:
+                # Negated stock, so Python's min-heap answers "largest stock, earliest at".
+                self._heap.append((-stock, at, value))
+                self._live += 1
+        heapq.heapify(self._heap)
+
+    @property
+    def live_count(self) -> int:
+        """Values with stock left — the ``len(live)`` the sort used to count."""
+        return self._live
+
+    def take(self) -> str | None:
+        """The next value the sort would have put first, or None if none is left.
+
+        It is NOT returned to the heap here. A group takes several values and they must be
+        distinct, so the caller spends each one and hands them all back once the group is dealt —
+        until then a spent value has no fresh entry to be drawn a second time.
+        """
+        while self._heap:
+            negated, _at, value = heapq.heappop(self._heap)
+            stock = -negated
+            if stock > 0 and self._pool.get(value, 0) == stock:
+                return value
+        return None
+
+    def spend(self, value: str) -> None:
+        """One unit of ``value`` dealt to a row."""
+        stock = self._pool.get(value, 0) - 1
+        self._pool[value] = stock
+        if stock == 0:
+            self._live -= 1
+
+    def restore(self, value: str) -> None:
+        """Put ``value`` back in the running at whatever stock it has now."""
+        stock = self._pool.get(value, 0)
+        if stock > 0:
+            heapq.heappush(self._heap, (-stock, self._at.get(value, 0), value))
+
+
+def _deal_distinct(stock: _StockHeap, indexes: list[int], rows: list[list[str]]) -> bool:
     """Give a group of ``g`` rows ``g`` DISTINCT values, when the column still has that many left.
 
     Two rows in the same group agree on every column before this one, so they are distinct only
@@ -121,17 +188,27 @@ def _deal_distinct(pool: dict[str, int], indexes: list[int], rows: list[list[str
     has fewer values left than the group has rows, and the proportional path handles it.
     """
     g = len(indexes)
-    # ``at`` is the position in the pool's own order, counted over every entry and not only the
-    # live ones, so a tie is broken by first appearance the same way in every implementation.
-    live = [(stock, at, value) for at, (value, stock) in enumerate(pool.items()) if stock > 0]
-    if len(live) < g:
+    # Asked before anything is spent, so a group too large for what is left is refused without
+    # having to be undone.
+    if stock.live_count < g:
         return False
 
-    live.sort(key=lambda entry: (-entry[0], entry[1]))
+    # The ``g`` largest stocks, ties by first appearance — the same values the full sort put at
+    # the front, taken without sorting the rest.
+    taken: list[str] = []
     for m in range(g):
-        stock, _at, value = live[m]
-        pool[value] = stock - 1
-        rows[indexes[m]].append(value)
+        chosen = stock.take()
+        if chosen is None:
+            for value in taken:
+                stock.restore(value)
+            return False
+        # Spent as it is taken: that is what keeps a value out of the rest of THIS group, which
+        # is the whole point of dealing distinct ones.
+        stock.spend(chosen)
+        taken.append(chosen)
+        rows[indexes[m]].append(chosen)
+    for value in taken:
+        stock.restore(value)
     return True
 
 
@@ -145,6 +222,8 @@ def _build_rows(columns: list[list[str]]) -> list[list[str]]:
         for v in columns[k]:
             pool[v] = pool.get(v, 0) + 1
 
+        stock = _StockHeap(pool)
+
         groups: dict[str, list[int]] = {}
         for j in range(n):
             groups.setdefault(SEP.join(rows[j]), []).append(j)
@@ -152,7 +231,7 @@ def _build_rows(columns: list[list[str]]) -> list[list[str]]:
         # Largest groups first: they are the ones most in need of diversity, and the pool is
         # finite, so serving them last would leave them whatever nobody else wanted.
         for indexes in sorted(groups.values(), key=len, reverse=True):
-            if _deal_distinct(pool, indexes, rows):
+            if _deal_distinct(stock, indexes, rows):
                 continue
             live_keys = [key for key, n_left in pool.items() if n_left > 0]
             split = _proportional_split(len(indexes), [pool[key] for key in live_keys])
@@ -162,6 +241,7 @@ def _build_rows(columns: list[list[str]]) -> list[list[str]]:
                 deck.extend([key] * split[x])
             deck.sort()
 
+            spent: set[str] = set()
             for di, j in enumerate(indexes):
                 if di < len(deck):
                     v = deck[di]
@@ -169,8 +249,12 @@ def _build_rows(columns: list[list[str]]) -> list[list[str]]:
                     v = deck[-1]
                 else:
                     v = ""
-                pool[v] = pool.get(v, 0) - 1
+                stock.spend(v)
+                spent.add(v)
                 rows[j].append(v)
+            # Back in the running at their new stocks, once the group is dealt.
+            for value in spent:
+                stock.restore(value)
     return rows
 
 
