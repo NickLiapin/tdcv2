@@ -13,6 +13,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- **Parquet reports too**, once per row group.
+
 - **`--progress` counts a parallel run whole.** Every worker task reports the rows of
   its own range into its own slot, and the coordinator sums them for the file's percent.
 

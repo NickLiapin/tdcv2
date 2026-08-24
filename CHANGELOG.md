@@ -188,6 +188,9 @@ page — is tracked in that implementation's own changelog:
   — a parent that polled instead of draining would deadlock the moment a shard filled
   its stderr buffer.
 
+  Parquet output reports too, once per row group of fifty thousand rows — coarser
+  than the text path because a row group is the unit that writer works in.
+
   A phase's LAST report is always written, throttle or not. Forty-four piles can finish
   inside one second, and the once-a-second throttle then dropped every report after the
   first, leaving the file saying "1 of 44" long after the run had moved on.

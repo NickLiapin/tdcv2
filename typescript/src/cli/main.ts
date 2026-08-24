@@ -573,7 +573,7 @@ export async function main(argv: readonly string[]): Promise<number> {
     }
     if (jobs > 1 && canParallelize) {
       await (parquetOutput
-        ? renderParquetParallel(tdc, args, jobs)
+        ? renderParquetParallel(tdc, args, jobs, opts.onProgress)
         : renderParallel(tdc, args, jobs, opts.onProgress));
       finishProgress?.();
       return 0;
@@ -805,6 +805,11 @@ async function renderParquetParallel(
   tdc: TDC,
   args: { output?: string | undefined; now?: number | undefined },
   jobs: number,
+  onProgress?: (progress: {
+    phase: 'uniq-scan' | 'uniq-sort' | 'render';
+    done: number;
+    total: number;
+  }) => void,
 ): Promise<void> {
   const now = args.now ?? Date.now();
   // From the instance, like the text path: the command line does not know what
@@ -815,6 +820,7 @@ async function renderParquetParallel(
     now,
     // Never more workers than there are groups to hand out.
     jobs: parquetJobLimit(worker.source, jobs, now, worker.seed),
+    ...(onProgress !== undefined ? { onProgress } : {}),
   };
   const fd = openSync(args.output ?? '', 'w');
   try {

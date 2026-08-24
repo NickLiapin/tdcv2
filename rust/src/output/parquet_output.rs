@@ -33,25 +33,57 @@ struct Plan {
 
 /// The whole file in memory.
 pub fn to_bytes(config: &Config, rows: &dyn RowSource) -> EngineResult<Vec<u8>> {
+    to_bytes_watched(config, rows, None)
+}
+
+/// The same, reporting the rows it has laid down as it goes.
+pub fn to_bytes_watched(
+    config: &Config,
+    rows: &dyn RowSource,
+    on_progress: crate::engine::Watch<'_>,
+) -> EngineResult<Vec<u8>> {
     let plan = build_plan(config)?;
     let count = rows.count();
     let mut start = 0usize;
+    /*
+     * The first failing cell, kept aside.
+     *
+     * The writer's callback can only say "no more batches", not "this one was
+     * impossible", so a failure used to be swallowed here and the whole run
+     * CONVERTED A SECOND TIME afterwards purely to find out what it had been.
+     * Every Parquet file in this implementation was therefore built twice —
+     * which the progress channel made visible the day it was added: the percent
+     * climbed to 86 and then started again at 8. Holding the error costs one
+     * `RefCell` and the second pass goes away.
+     */
+    let failure: std::cell::RefCell<Option<EngineError>> = std::cell::RefCell::new(None);
 
-    writer::to_bytes(&plan.columns, || {
-        if start >= count {
+    let bytes = writer::to_bytes(&plan.columns, || {
+        if start >= count || failure.borrow().is_some() {
             return None;
+        }
+        // Once per row group, which is fifty thousand rows: coarser than the
+        // text path's half-percent, and it has to be — a row group is the unit
+        // this writer works in, and there is no moment inside one where a
+        // partial group means anything.
+        if let Some(report) = on_progress {
+            report("render", start, count);
         }
         let end = (start + ROW_GROUP_ROWS).min(count);
         let batch = build_batch(&plan, config, rows, start, end);
         start = end;
-        batch.ok()
-    })
-    // A failing cell has to reach the caller, and the batch closure cannot
-    // return one; it is re-derived here so the message is the same either way.
-    .and_then(|bytes| {
-        check_every_cell(&plan, config, rows)?;
-        Ok(bytes)
-    })
+        match batch {
+            Ok(batch) => Some(batch),
+            Err(e) => {
+                *failure.borrow_mut() = Some(e);
+                None
+            }
+        }
+    });
+    if let Some(error) = failure.into_inner() {
+        return Err(error);
+    }
+    bytes
 }
 
 /// The resolved schema, for telling the user which types were chosen.
@@ -182,21 +214,6 @@ fn cell_of(
     convert::of(&text, ty)
         .map(Cell::Scalar)
         .map_err(|e| named(e.0))
-}
-
-/// Every cell, converted and thrown away.
-///
-/// The writer takes a closure that cannot fail, so a bad cell would otherwise
-/// vanish into a `None` and truncate the file silently. Cheap enough — the
-/// alternative is a fallible closure threaded through the whole writer for a
-/// case that only ever happens once.
-fn check_every_cell(plan: &Plan, config: &Config, rows: &dyn RowSource) -> EngineResult<()> {
-    for row in 0..rows.count() {
-        for (i, column) in plan.declared.iter().enumerate() {
-            cell_of(plan, config, rows, column, i, row)?;
-        }
-    }
-    Ok(())
 }
 
 struct RowLookup<'a> {

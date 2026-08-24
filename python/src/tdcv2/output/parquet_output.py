@@ -38,10 +38,10 @@ class _Plan:
     separators: list[str | None]
 
 
-def write(config: Config, rows, out: Callable[[bytes], None]) -> None:
+def write(config: Config, rows, out: Callable[[bytes], None], on_progress=None) -> None:
     """The run written to a sink as a ``.parquet`` file."""
     plan = _plan(config)
-    writer.write(plan.columns, _batches(plan, config, rows), out)
+    writer.write(plan.columns, _batches(plan, config, rows, on_progress), out)
 
 
 def to_bytes(config: Config, rows) -> bytes:
@@ -96,10 +96,17 @@ def _plan(config: Config) -> _Plan:
     return _Plan(declared, built, types, separators)
 
 
-def _batches(plan: _Plan, config: Config, rows) -> Iterator[list[list[writer.Cell]]]:
+def _batches(
+    plan: _Plan, config: Config, rows, on_progress=None
+) -> Iterator[list[list[writer.Cell]]]:
     count = rows.count if isinstance(rows.count, int) else rows.count()
     start = 0
     while start < count:
+        # Once per row group, which is fifty thousand rows: coarser than the text path's
+        # half-percent, and it has to be — a row group is the unit this writer works in, and
+        # there is no moment inside one where a partial group means anything.
+        if on_progress is not None:
+            on_progress("render", start, count)
         end = min(start + ROW_GROUP_ROWS, count)
         batch: list[list[writer.Cell]] = [[] for _ in plan.columns]
 

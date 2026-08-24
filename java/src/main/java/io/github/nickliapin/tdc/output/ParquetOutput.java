@@ -36,8 +36,17 @@ public final class ParquetOutput {
 
   /** Write the run to a sink as a {@code .parquet} file. */
   public static void write(Config config, RowSource rows, OutputStream out) {
+    write(config, rows, out, null);
+  }
+
+  /** The same, reporting the rows it has laid down as it goes. */
+  public static void write(
+      Config config,
+      RowSource rows,
+      OutputStream out,
+      io.github.nickliapin.tdc.engine.Progress onProgress) {
     Plan plan = plan(config);
-    Writer.write(plan.columns, batches(plan, config, rows), out);
+    Writer.write(plan.columns, batches(plan, config, rows, onProgress), out);
   }
 
   /** The same, in memory — for a small output and for tests. */
@@ -107,7 +116,11 @@ public final class ParquetOutput {
     return new Plan(declared, columns, types, separators);
   }
 
-  private static Writer.Batches batches(Plan plan, Config config, RowSource rows) {
+  private static Writer.Batches batches(
+      Plan plan,
+      Config config,
+      RowSource rows,
+      io.github.nickliapin.tdc.engine.Progress onProgress) {
     int count = rows.count();
     return new Writer.Batches() {
       private int start;
@@ -116,6 +129,12 @@ public final class ParquetOutput {
       public List<List<Writer.Cell>> next() {
         if (start >= count) {
           return null;
+        }
+        // Once per row group, which is fifty thousand rows: coarser than the text path's
+        // half-percent, and it has to be — a row group is the unit this writer works in, and
+        // there is no moment inside one where a partial group means anything.
+        if (onProgress != null) {
+          onProgress.report("render", start, count);
         }
         int end = Math.min(start + ROW_GROUP_ROWS, count);
         List<List<Writer.Cell>> batch = new ArrayList<>(plan.columns.size());

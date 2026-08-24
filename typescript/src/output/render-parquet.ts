@@ -113,10 +113,23 @@ export interface RowRange {
   readonly to: number;
 }
 
-function* batches(p: Plan, range?: RowRange): Generator<ParquetBatch> {
+function* batches(
+  p: Plan,
+  range?: RowRange,
+  onProgress?: RenderOptions['onProgress'],
+): Generator<ParquetBatch> {
   const first = range ? range.from : 0;
   const last = range ? Math.min(range.to, p.count) : p.count;
   for (let start = first; start < last; start += ROW_GROUP_ROWS) {
+    /*
+     * Once per row group, which is fifty thousand rows.
+     *
+     * Coarser than the text path's half-percent, and it has to be: a row group
+     * is the unit this writer works in, and there is no moment inside one where
+     * a partial group means anything. Fifty thousand rows is well under a second
+     * of work, so the file still moves often enough to read as alive.
+     */
+    onProgress?.({ phase: 'render', done: start - first, total: last - first });
     const end = Math.min(start + ROW_GROUP_ROWS, last);
     const batch: ParquetCell[][] = p.declared.map(() => []);
     for (let row = start; row < end; row++) {
@@ -148,7 +161,7 @@ export function* renderParquetChunks(
   options: RenderOptions = {},
 ): Generator<Uint8Array> {
   const p = plan(document, options);
-  yield* writeParquetChunks(p.schema, batches(p));
+  yield* writeParquetChunks(p.schema, batches(p, undefined, options.onProgress));
 }
 
 /**
@@ -162,7 +175,7 @@ export async function* renderParquetChunksAsync(
   options: RenderOptions = {},
 ): AsyncGenerator<Uint8Array> {
   const p = planFrom(document, options, await prepareRenderAsync(document, options));
-  yield* writeParquetChunks(p.schema, batches(p));
+  yield* writeParquetChunks(p.schema, batches(p, undefined, options.onProgress));
 }
 
 /** The whole file in memory. Convenient for small outputs and tests. */
@@ -199,7 +212,7 @@ export function* renderParquetBlocks(
   range?: RowRange,
 ): Generator<RowGroupBlock> {
   const p = plan(document, options);
-  yield* rowGroupBlocks(p.schema, batches(p, range));
+  yield* rowGroupBlocks(p.schema, batches(p, range, options.onProgress));
 }
 
 /** How many row groups the file will hold — the unit of parallel work. */

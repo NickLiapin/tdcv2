@@ -196,6 +196,11 @@ escrito y el coordinador las suma, así que el porcentaje es el del archivo y no
 worker — lo cual importa, porque por encima de cien mil filas TDC reparte la ejecución por
 su cuenta salvo que se indique otra cosa.
 
+Una salida [Parquet](../guides/typed-output-parquet.md#top) también informa, una vez por grupo
+de filas, es decir cada cincuenta mil. Más grueso que en el camino de texto y a propósito:
+un grupo de filas es la unidad con la que trabaja ese escritor, y dentro de uno no hay
+ningún momento en el que un grupo a medias signifique algo.
+
 El mismo canal está en la biblioteca en todas las implementaciones, como una devolución de
 llamada que recibe `(phase, done, total)`.
 

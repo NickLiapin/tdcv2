@@ -37,10 +37,11 @@ public static class ParquetOutput
     private static readonly ColumnType DefaultType = ColumnType.Parse("string");
 
     /// <summary>Write the run to a sink as a <c>.parquet</c> file.</summary>
-    public static void Write(Config config, IRowSource rows, Stream output)
+    public static void Write(
+        Config config, IRowSource rows, Stream output, Engine.Progress? onProgress = null)
     {
         Plan plan = BuildPlan(config);
-        Writer.Write(plan.Columns, Batches(plan, config, rows), output);
+        Writer.Write(plan.Columns, Batches(plan, config, rows, onProgress), output);
     }
 
     /// <summary>The same, in memory — for a small output and for tests.</summary>
@@ -126,7 +127,8 @@ public static class ParquetOutput
         return new Plan(declared, columns, types, separators);
     }
 
-    private static Writer.Batches Batches(Plan plan, Config config, IRowSource rows)
+    private static Writer.Batches Batches(
+        Plan plan, Config config, IRowSource rows, Engine.Progress? onProgress = null)
     {
         int count = rows.Count;
         int start = 0;
@@ -138,6 +140,10 @@ public static class ParquetOutput
                 return null;
             }
 
+            // Once per row group, which is fifty thousand rows: coarser than the text path's
+            // half-percent, and it has to be — a row group is the unit this writer works in, and
+            // there is no moment inside one where a partial group means anything.
+            onProgress?.Invoke("render", start, count);
             int end = Math.Min(start + RowGroupRows, count);
             var batch = new List<List<Writer.Cell>>(plan.Columns.Count);
             for (int i = 0; i < plan.Columns.Count; i++)

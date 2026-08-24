@@ -423,7 +423,7 @@ public final class TDC {
       if (target.toString().toLowerCase(java.util.Locale.ROOT).endsWith(".parquet")) {
         try (java.io.OutputStream out =
             new java.io.BufferedOutputStream(Files.newOutputStream(target), 1 << 16)) {
-          io.github.nickliapin.tdc.output.ParquetOutput.write(config, run(), out);
+          io.github.nickliapin.tdc.output.ParquetOutput.write(config, run(), out, onProgress);
         }
         return;
       }

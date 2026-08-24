@@ -76,6 +76,11 @@ function run(input: ParquetWorkerInput): ParquetWorkerResult {
         dataPaths: input.dataPaths,
         baseDir: input.baseDir,
         source: input.source,
+        // The rows of ITS OWN range, for the coordinator to add up. A message
+        // carrying `rows` is progress; the one carrying `ok` is the result.
+        onProgress: (report) => {
+          parentPort?.postMessage({ rows: report.done });
+        },
       },
       { from: input.startGroup * ROW_GROUP_ROWS, to: input.endGroup * ROW_GROUP_ROWS },
     )) {

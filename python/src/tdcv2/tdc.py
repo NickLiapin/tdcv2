@@ -289,7 +289,7 @@ class TDC:
         # there is no flag to remember and no second call to make.
         if path.suffix.lower() == ".parquet":
             with path.open("wb") as out:
-                parquet_output.write(self._config, self._run(), out.write)
+                parquet_output.write(self._config, self._run(), out.write, self._on_progress)
             return
 
         count = self._worker_count(workers)

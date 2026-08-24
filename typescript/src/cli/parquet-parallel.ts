@@ -51,6 +51,20 @@ export interface ParquetParallelParams {
   readonly baseDir?: string | undefined;
   readonly jobs: number;
   readonly destFd: number;
+  /**
+   * Called as the run advances, with the WHOLE file's numbers.
+   *
+   * Same reason as the text path: above a hundred thousand rows the command
+   * line splits the run by itself, so a channel that only worked on one thread
+   * was silent exactly when somebody needed it.
+   */
+  readonly onProgress?:
+    | ((progress: {
+        phase: 'uniq-scan' | 'uniq-sort' | 'render';
+        done: number;
+        total: number;
+      }) => void)
+    | undefined;
 }
 
 /** Contiguous, balanced group ranges covering `[0, groups)`. */
@@ -102,23 +116,36 @@ export async function runParquetParallel(params: ParquetParallelParams): Promise
 
   const dir = mkdtempSync(join(tmpdir(), 'tdc-parquet-'));
   const tmpPaths = ranges.map((_, k) => join(dir, `group-${String(k)}.bin`));
+  // Said before anything is spawned, so the status file exists from the first
+  // moment — see the note in the text coordinator.
+  params.onProgress?.({ phase: 'render', done: 0, total: params.count });
+  // One slot per worker: a later report REPLACES that worker's earlier one.
+  const rendered = new Array<number>(ranges.length).fill(0);
 
   try {
     const results = await Promise.all(
       ranges.map(([startGroup, endGroup], k) =>
-        runWorker({
-          source: params.source,
-          seed: params.seed,
-          count: params.count,
-          locale: params.locale,
-          defaultLocale: params.defaultLocale,
-          now: params.now,
-          dataPaths: params.dataPaths,
-          baseDir: params.baseDir,
-          startGroup,
-          endGroup,
-          tmpPath: tmpPaths[k] ?? join(dir, `group-${String(k)}.bin`),
-        }),
+        runWorker(
+          {
+            source: params.source,
+            seed: params.seed,
+            count: params.count,
+            locale: params.locale,
+            defaultLocale: params.defaultLocale,
+            now: params.now,
+            dataPaths: params.dataPaths,
+            baseDir: params.baseDir,
+            startGroup,
+            endGroup,
+            tmpPath: tmpPaths[k] ?? join(dir, `group-${String(k)}.bin`),
+          },
+          (rows) => {
+            rendered[k] = rows;
+            let done = 0;
+            for (const n of rendered) done += n;
+            params.onProgress?.({ phase: 'render', done, total: params.count });
+          },
+        ),
       ),
     );
 
@@ -151,12 +178,20 @@ interface WorkerReply {
   readonly groups?: ParquetWorkerGroup[];
 }
 
-function runWorker(input: ParquetWorkerInput): Promise<{ groups: ParquetWorkerGroup[] }> {
+function runWorker(
+  input: ParquetWorkerInput,
+  onRows?: (rows: number) => void,
+): Promise<{ groups: ParquetWorkerGroup[] }> {
   return new Promise((resolve, reject) => {
     const worker = new Worker(WORKER_PATH, { workerData: input });
     let reply: WorkerReply | undefined;
     let earlyError: Error | undefined;
-    worker.on('message', (msg: WorkerReply) => {
+    worker.on('message', (msg: WorkerReply & { rows?: number }) => {
+      // Progress, not the outcome — see the note in the text coordinator.
+      if (msg.rows !== undefined) {
+        onRows?.(msg.rows);
+        return;
+      }
       reply = msg;
     });
     worker.on('error', (err: Error) => {

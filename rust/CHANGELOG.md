@@ -13,6 +13,16 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- **Parquet reports too**, once per row group. A watcher sees the percent climb twice on
+  a Parquet run here, and both climbs are real: this implementation materialises the run
+  before it encodes, where the other four encode straight off a lazy row source.
+
+- **A Parquet file is no longer built twice.** The writer's callback cannot report a bad
+  cell, so a failure was swallowed and the WHOLE run converted a second time afterwards
+  purely to find out what it had been — on every run, not only the failing ones. The error
+  is now held aside and raised directly. Same bytes, same message, one pass: measured 14 s
+  to 12 s on five million rows.
+
 - **`--progress`, and `Options::on_progress`.** The command line writes
   `<output>.progress` beside the output — a small JSON object, rewritten in place
   about once a second, naming the phase and how far along it is. The library takes

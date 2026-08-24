@@ -490,7 +490,7 @@ public sealed class Tdc
         {
             using var file = new FileStream(
                 target, FileMode.Create, FileAccess.Write, FileShare.None, 1 << 16);
-            ParquetOutput.Write(_config, _run.Value, file);
+            ParquetOutput.Write(_config, _run.Value, file, _onProgress);
             return;
         }
 

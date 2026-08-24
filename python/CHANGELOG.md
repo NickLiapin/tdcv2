@@ -13,6 +13,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- **Parquet reports too**, once per row group.
+
 - **`--progress` counts a parallel run whole.** Workers are separate processes here, so
   each shard keeps its row count in one small file and the parent adds them up on a
   watcher thread — beside the pipe reading, never instead of it.

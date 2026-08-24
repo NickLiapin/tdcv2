@@ -188,6 +188,10 @@ written and the coordinator adds them up, so the percent is the file's and not o
 worker's — which matters, because above a hundred thousand rows TDC splits the run by
 itself unless you say otherwise.
 
+A [Parquet](../guides/typed-output-parquet.mdx) run reports too, once per row group of
+fifty thousand rows. Coarser than the text path on purpose: a row group is the unit that
+writer works in, and there is no moment inside one where a partial group means anything.
+
 The same channel is on the library in every implementation, as a callback taking
 `(phase, done, total)`.
 

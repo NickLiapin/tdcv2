@@ -22,6 +22,8 @@ the next build, and nothing else is edited.
 
 ### Added
 
+- **Parquet reports too**, once per row group.
+
 - **`--progress` counts a parallel run whole.** Every worker thread reports the rows of
   its own range into its own slot, and the coordinator sums them for the file's percent.
 

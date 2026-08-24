@@ -13,6 +13,9 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- **Parquet reports too**, on both the single-threaded and the parallel path — once per
+  row group, summed across workers.
+
 - **`--progress` counts a parallel run whole.** Every worker reports the rows it has
   written and the coordinator adds them up, so the percent is the file's — including the
   `uniq-scan` and `uniq-sort` phases, which the parallel path also splits across workers.
