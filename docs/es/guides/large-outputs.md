@@ -47,11 +47,10 @@ configuración**:
   drásticamente más lenta a medida que crece el número de filas** (vea la advertencia
   abajo).
 
-  La memoria acotada es una promesa que esta guía hacía y ya no hace. Vuelto a medir, en un
-  solo hilo: un `uniq` compuesto pasó de 1 GB con 400 k filas y estaba por encima de 1,4 GB
-  con 800 k, aún subiendo, veintitrés minutos después. El ~1 GB es el tamaño del bloque del
-  ordenamiento externo, no un techo de la corrida. Los números están en la tabla de abajo;
-  aquí la memoria crece con el número de filas en todas las formas, y nada lo advierte.
+  La memoria se mantiene acotada mientras las repeticiones queden por debajo del tope de la
+  reparación; pasado ese tope la corrida se entrega al motor en memoria y la memoria vuelve a
+  seguir a `count`. Vea la tabla de abajo: lo que hay que razonar es el tope, no el número
+  de filas.
 
   La unicidad es una promesa sobre el **conjunto terminado**, no sobre una fila, y no se
   puede resolver fila a fila. Un worker sólo ve su propio rango de filas y no distinguiría un
@@ -100,24 +99,41 @@ Así que `uniq` cae en dos motores distintos según cómo esté escrito:
 | `uniq="true"` sobre una sola columna sorteada — `text`, `number`, `date`, `template` | en memoria      | crece con `count` |
 | `uniq="true"` sobre una columna hecha de una parte sorteada y literales `<data>`     | en memoria      | crece con `count` |
 | `uniq="true"` sobre un [contador](../generators/counters.md#top)                        | exacto en disco | crece con `count` |
-| `uniq="true"` sobre una secuencia compuesta (campos `<gen>` con nombre)              | exacto en disco | crece con `count` |
-| Un grupo [`<uniq>`](../constructs/unique-values.md#top) a nivel de env                  | exacto en disco | crece con `count` |
+| `uniq="true"` sobre una secuencia compuesta (campos `<gen>` con nombre)              | exacto en disco | **acotada** mientras haya pocas repeticiones |
+| Un grupo [`<uniq>`](../constructs/unique-values.md#top) a nivel de env                  | exacto en disco | **acotada** mientras haya pocas repeticiones |
 
-**Ninguna de las tres está acotada**, y esta tabla se lo prometía a todas. El ~1 GB es el
-trozo del ordenamiento externo, no un techo de la corrida. Medido en un solo hilo, memoria
-residente máxima:
+Las dos últimas están acotadas, y el límite se demostró PROHIBIENDO la memoria en vez de
+observarla: a cada corrida de abajo se le puso un techo duro de heap y tuvo que terminar
+dentro de él.
 
 ```
-uniq sobre contador     200 k  168 MB    4 M  822 MB   10 M  1,9 GB   20 M  3,0 GB
-uniq sobre compuesta    100 k  160 MB  400 k  990 MB  800 k  1,4 GB y sigue subiendo
-grupo <uniq> de env     100 k  495 MB  400 k  1,0 GB  800 k  1,7 GB
+grupo <uniq> de env       4.800.000 filas   terminó con el heap limitado a 256 MB
+uniq compuesto            4.800.000 filas   terminó con el heap limitado a 256 MB
+grupo <uniq> de env      10.000.000 filas   terminó con el heap limitado a 512 MB
 ```
 
-Son las filas con las que se dimensiona una máquina, así que conviene ser exactos.
+Observar en vez de prohibir es justo lo que dejó mal esta tabla antes. Sin límite, la corrida
+de 4.800.000 filas llega a un pico de unos 850 MB — pero termina en 256 MB cuando no se le
+permite más, porque un entorno con recolector de basura toma el sitio que le dan. La memoria
+residente máxima mide lo que el entorno ELIGIÓ; el techo mide lo que la corrida NECESITA.
 
-En la forma compuesta es donde más pega el aviso de lentitud de arriba: esa corrida de
-800 k tardó más de 23 minutos en un núcleo y no había terminado cuando se detuvo. Úsela
-cuando necesite la exactitud, no cuando necesite las filas.
+**Lo que rompe el límite son las repeticiones, no las filas.** La reparación trabaja con las
+filas cuyas tuplas chocan, y las sostiene; pasadas `max(20.000, count / 1000)` se detiene y
+entrega la corrida al motor en memoria, donde la memoria vuelve a seguir a `count`. Las mismas
+4.800.000 filas, dos espacios de valores:
+
+```
+20.000 x 20.000 valores → unas 28.800 repeticiones, por encima del tope → falló incluso con 512 MB
+40.000 x 40.000 valores → unas  7.200 repeticiones, por debajo         → terminó dentro de 256 MB
+```
+
+Así que lo que hay que razonar es cuántas tuplas pueden formar sus columnas frente a cuántas
+filas pidió — no el número de filas por sí solo. Ensanche una columna y la misma corrida cabe.
+
+Las que de verdad siguen a `count` son las dos filas en memoria, y
+[`TDC299`](../reference/errors.md#top) avisa de ellas a partir de 100.000 filas. Un contador
+también crece: 2.000.000 de filas necesitaron 512 MB y 4.000.000 necesitaron 1 GB, medido de
+la misma manera.
 
 **Ninguna forma de `uniq` corre en el motor rápido de streaming.** Rechaza `uniq` por su
 nombre, así que a una configuración que pidió streaming se le dice, en vez de entregarle

@@ -223,6 +223,34 @@ una configuración obtiene siempre un motor y por tanto una respuesta. Tendría 
 motor a mano para ver la diferencia, que es también la razón para no forzarlo a la ligera.
 :::
 
+### Unicidad a escala de gigabytes
+
+Las barras de arriba se detienen en doscientas mil filas, porque hasta ahí un gráfico sigue
+siendo legible. Estas son las corridas por las que la gente pregunta de verdad. Una sola
+configuración: cinco campos dentro de `<uniq>` — un sexo, un nombre elegido según él, un
+apellido, una fecha de nacimiento y un diagnóstico de un `<mix>` — escritos como líneas JSON
+de unos 110 bytes, en una máquina de 12 núcleos con 32 GB.
+
+| archivo | filas       | cómo                              | tiempo  | memoria  |
+| ------: | ----------: | :-------------------------------- | ------: | -------: |
+| 1 GB    |   9.700.571 | 11 hilos                          |    55 s |   8,4 GB |
+| 1 GB    |   9.700.571 | un hilo                           |   211 s |  0,73 GB |
+| 10 GB   |  97.005.710 | 11 hilos                          | ~10 min |  13,5 GB |
+| 10 GB   |  97.005.710 | un hilo, heap limitado a 640 MB   | ~35 min | < 640 MB |
+| 20 GB   | 194.011.420 | un hilo, heap limitado a 1 GB     |  84 min |  0,87 GB |
+
+Cada uno de esos archivos se comprobó ordenándolo entero después: el número de líneas
+distintas es igual al número de líneas. Las corridas con techo son las que demuestran lo que
+se promete sobre la memoria, por la razón que da [Salidas grandes](large-outputs.mdx): un
+techo dentro del cual la corrida debe terminar dice más que un pico que alcanzó por casualidad.
+
+Los hilos compran tiempo y pagan memoria, y el cambio es empinado: once convirtieron 211
+segundos en 55, y 0,73 GB en 8,4 GB, porque cada worker construye su propia copia de los datos
+que lee. En una máquina con RAM, tómelos; en una que no la tiene, un solo hilo igual termina.
+
+Para dimensionar: la misma corrida de 1 GB antes de este trabajo tardaba 932 segundos y 9,3 GB,
+y una de cuatro millones de filas pasó tres horas y media sin escribir un byte.
+
 ## Repetirlo usted mismo
 
 El arnés está en el repositorio e instala por sí solo las líneas de comandos publicadas:

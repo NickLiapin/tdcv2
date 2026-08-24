@@ -215,10 +215,10 @@ A smaller file than the one above — three short codes a row rather than six fi
 
 *Peak memory for the same run. Every implementation gives some of it back on engine 3, and the two that give back the most end up lighter than anything on the left.*
 
-Engine 3 is slower here and lighter, which is the bargain it exists to offer. Its cost also
-grows faster than engine 1's as the row count climbs — it verifies with an external sort — so
-a very large `uniq` run is the one case on this page where you should measure your own config
-rather than read a table.
+Engine 3 is slower here and lighter, which is the bargain it exists to offer. What its cost
+follows is not the row count but the number of REPEATS it has to repair — see [Large
+outputs](large-outputs.md#top) for the rule and the ceiling that goes with it. The section below
+carries the gigabyte-scale numbers.
 
 > [!NOTE]
 > **The two engines produce different data — and that is safe**
@@ -230,6 +230,34 @@ rather than read a table.
 > This cannot surprise you in practice: the engine is chosen from your config, so one config
 > always gets one engine and therefore one answer. You would have to override the engine by hand
 > to see the difference — which is also why overriding it is not something to do casually.
+
+### Uniqueness at gigabyte scale
+
+The bars above stop at two hundred thousand rows, because that is where a chart is still
+readable. These are the runs people actually ask about. One config throughout — five fields
+inside `<uniq>`: a gender, a first name chosen by it, a surname, a birth date and a diagnosis
+from a `<mix>` — written as JSON lines of about 110 bytes, on a 12-core machine with 32 GB.
+
+| file  | rows        | how                            | time    | memory   |
+| ----: | ----------: | :----------------------------- | ------: | -------: |
+| 1 GB  |   9,700,571 | 11 threads                     |    55 s |   8.4 GB |
+| 1 GB  |   9,700,571 | one thread                     |   211 s |  0.73 GB |
+| 10 GB |  97,005,710 | 11 threads                     | ~10 min |  13.5 GB |
+| 10 GB |  97,005,710 | one thread, heap capped 640 MB | ~35 min | < 640 MB |
+| 20 GB | 194,011,420 | one thread, heap capped 1 GB   |  84 min |  0.87 GB |
+
+Every one of those files was checked by sorting it whole afterwards: the number of distinct
+lines equals the number of lines. The capped runs are the ones that prove the memory claim,
+for the reason given in [Large outputs](large-outputs.md#top) — a ceiling the run must finish
+inside says more than a peak it happened to reach.
+
+Threads buy time and cost memory, and the trade is steep: eleven of them turned 211 seconds
+into 55, and 0.73 GB into 8.4 GB, because each worker builds its own copy of the data it
+reads. On a machine that has the RAM, take it; on one that does not, a single thread will
+still finish.
+
+For scale, the same 1 GB run before this work took 932 seconds and 9.3 GB, and a
+four-million-row one spent three and a half hours without writing a byte.
 
 ## Running it yourself
 

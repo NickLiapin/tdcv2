@@ -40,15 +40,11 @@ Two engines run under "disk", and TDC picks between them **from your config**:
   [`uniq="true"`](../constructs/unique-values.md#top) on a compound sequence or on a counter,
   a [`parent`](hierarchical-dependencies.md#top) whose parent is not a text sequence, and a
   weighted [`advanced_regex`](../generators/advanced-regex.md#top) — `(?%{…})`.
-  It guarantees the result exactly, and it pays for that by checking the data with an
-  external sort and a repair pass — a check that **gets dramatically slower as the row
-  count grows** (see the warning below).
-
-  Bounded memory is a claim this guide used to make and no longer does. Re-measured
-  single-threaded: a compound `uniq` passed 1 GB at 400 k rows and was over 1.4 GB at 800 k,
-  still climbing, twenty-three minutes in. The ~1 GB is the size of the external sort's
-  chunk, not a ceiling on the run. See the table below for the numbers; every shape here
-  grows with the row count, and nothing warns about it.
+  It guarantees the result exactly, and it pays for that by checking every tuple and
+  repairing the few that repeat. Memory stays bounded while the repeats stay under the
+  repair's cap; past that the run hands itself to the in-memory engine and the memory
+  follows `count`. See the table below — the cap is the number to reason about, not the
+  row count.
 
   Uniqueness is a promise about the **finished dataset**, not about any one row, so it
   cannot be settled a row at a time. A worker sees only its own range of rows and could not
@@ -92,29 +88,44 @@ everything else streams.
 
 So `uniq` lands on two different engines depending on how it is written:
 
-| `uniq` written as                                                        | Engine        | Memory             |
-| :----------------------------------------------------------------------- | :------------ | :----------------- |
-| `uniq="true"` on one drawn column — `text`, `number`, `date`, `template` | in-memory     | grows with `count` |
-| `uniq="true"` on a column composed of a drawn part and `<data>` literals | in-memory     | grows with `count` |
-| `uniq="true"` on a [counter](../generators/counters.md#top)                 | exact on-disk | grows with `count` |
-| `uniq="true"` on a compound sequence (named `<gen>` fields)              | exact on-disk | grows with `count` |
-| An env-level [`<uniq>`](../constructs/unique-values.md#top) group           | exact on-disk | grows with `count` |
+| `uniq` written as                                                        | Engine        | Memory                                |
+| :----------------------------------------------------------------------- | :------------ | :------------------------------------ |
+| `uniq="true"` on one drawn column — `text`, `number`, `date`, `template` | in-memory     | grows with `count`                    |
+| `uniq="true"` on a column composed of a drawn part and `<data>` literals | in-memory     | grows with `count`                    |
+| `uniq="true"` on a [counter](../generators/counters.md#top)                 | exact on-disk | grows with `count`                    |
+| `uniq="true"` on a compound sequence (named `<gen>` fields)              | exact on-disk | **bounded** while repeats stay in hand |
+| An env-level [`<uniq>`](../constructs/unique-values.md#top) group           | exact on-disk | **bounded** while repeats stay in hand |
 
-**None of the three is bounded**, and this table used to promise all three were. The ~1 GB
-is the external sort's chunk; it is not a ceiling on the run. Measured single-threaded, peak
-resident:
+The last two are bounded, and the bound was proved by FORBIDDING the memory rather than
+watching it: each run below was given a hard heap ceiling and had to finish inside it.
 
 ```
-uniq on a counter       200 k  168 MB    4 M  822 MB   10 M  1.9 GB   20 M  3.0 GB
-uniq on a compound      100 k  160 MB  400 k  990 MB  800 k  1.4 GB and still climbing
-env-level <uniq> group  100 k  495 MB  400 k  1.0 GB  800 k  1.7 GB
+env-level <uniq> group   4,800,000 rows   finished with the heap capped at 256 MB
+compound uniq            4,800,000 rows   finished with the heap capped at 256 MB
+env-level <uniq> group  10,000,000 rows   finished with the heap capped at 512 MB
 ```
 
-These are the rows people size a machine from, so they are worth being exact about.
+Watching instead of forbidding is what made this table wrong before. Left uncapped, the
+4,800,000-row group peaks around 850 MB — but it completes in 256 MB when it is not allowed
+more, because a garbage-collected runtime takes the room it is given. Peak resident measures
+what the runtime CHOSE; the ceiling measures what the run NEEDS.
 
-The compound form is also where the slowness warning above bites hardest: that 800 k run
-took over 23 minutes on one core and had not finished when it was stopped. Reach for it
-when you need the exactness, not when you need the rows.
+**What breaks the bound is repeats, not rows.** The repair works on the rows whose tuples
+collide, and it holds them; past `max(20,000, count / 1000)` of them it stops and hands the
+run to the in-memory engine, where memory follows `count` again. Same 4,800,000 rows, two
+value spaces:
+
+```
+20,000 x 20,000 values → about 28,800 repeats, over the cap → failed even at 512 MB
+40,000 x 40,000 values → about  7,200 repeats, under it     → finished inside 256 MB
+```
+
+So the number to reason about is how many tuples your values can make against how many rows
+you asked for — not the row count on its own. Widen a column and the same run fits.
+
+The two in-memory rows are the ones that genuinely follow `count`, and
+[`TDC299`](../reference/errors.md#top) warns about them from 100,000 rows up. A `uniq` counter
+does too: 2,000,000 rows needed 512 MB and 4,000,000 needed 1 GB, measured the same way.
 
 **No form of `uniq` runs on the fast streaming engine.** It refuses `uniq` by name, so a
 config that asked for streaming is told rather than handed data that quietly repeats:
