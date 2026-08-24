@@ -195,7 +195,7 @@ export function buildLazyRegistry(
       // Same rule as the env-level groups above: only the exact engine can
       // rearrange a finished column.
       if (!exactUniq) throw unsupported('uniq (a whole-column rearrangement)', spec.name);
-      Object.assign(registry, buildExactCompoundUniq(spec, count, seed));
+      Object.assign(registry, buildExactCompoundUniq(spec, count, seed, options));
       continue;
     }
 
@@ -1256,6 +1256,7 @@ function buildExactCompoundUniq(
   spec: SequenceSpec,
   count: number,
   seed: string,
+  options: SequenceBuildOptions,
 ): Record<string, Sequence> {
   // A simple uniq draws WITHOUT REPLACEMENT over the whole column — state the
   // streaming engines cannot hold row by row. The router sends auto/disk mode
@@ -1281,5 +1282,20 @@ function buildExactCompoundUniq(
         : values.map(() => 100 / values.length);
     return { id: `${spec.name}.${f.name}`, values, percents };
   });
-  return arrangeExactUniq(fields, count, seed, `"${spec.name}"`);
+  /*
+   * The same options the env-level groups get, and for the same three reasons.
+   *
+   * This used to be called with none, which meant a compound `uniq` quietly kept
+   * the OLD carrier while every other uniq moved on: no fingerprint buckets, so
+   * the tuples went through the text external sort rather than 13-byte records;
+   * and no `onProgress`, so a run of it reported nothing at all and looked
+   * hung. The ports pass both — this was the reference lagging its own ports,
+   * not leading them.
+   */
+  return arrangeExactUniq(fields, count, seed, `"${spec.name}"`, {
+    ...(options.uniqFingerprintBuckets !== undefined && options.uniqFingerprintBuckets > 1
+      ? { fingerprintBuckets: options.uniqFingerprintBuckets }
+      : {}),
+    ...(options.onProgress !== undefined ? { onProgress: options.onProgress } : {}),
+  });
 }

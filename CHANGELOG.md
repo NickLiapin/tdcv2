@@ -17,6 +17,19 @@ page — is tracked in that implementation's own changelog:
 
 ### Added
 
+<!-- covers: uniq compound -->
+
+- **A compound `uniq="true"` gets the fingerprint carrier it was supposed to have.** Every
+  other shape of uniq moved to 13-byte fingerprints and a disk ledger; this one quietly did
+  not, because the builder called the arranger with **no options at all** — no fingerprint
+  buckets, so the tuples still went through the older text external sort, and no progress
+  callback, so a long run of it reported nothing and looked hung. The four ports passed both
+  through, which made this the reference lagging its own ports rather than leading them.
+
+  Measured on 1,200,000 rows: 19 s → 15 s, all four phases now reported, byte-identical to
+  Java before and after. Nothing about the data changed — the fingerprint path verifies every
+  candidate against the true tuples, so it finds the same duplicates the text sort found.
+
 <!-- covers: uniq jobs -->
 
 - **An env-level `<uniq>` group splits across `--jobs` in all five.** It ran on one thread
