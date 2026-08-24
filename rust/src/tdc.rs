@@ -532,16 +532,18 @@ impl Tdc {
         Ok(self.parquet_bytes()?)
     }
 
-    /// The Parquet bytes, told to report if anyone asked.
+    /// The Parquet bytes of a run that is ALREADY built, told to report if
+    /// anyone asked.
     ///
-    /// A watcher sees the `render` percent climb TWICE on a Parquet run here,
-    /// and both climbs are real work: this implementation materialises the run
-    /// before it encodes anything — `StreamRows` holds the values because the
-    /// `RowSource` trait hands out borrowed `&str` — so the rows are walked once
-    /// to build them and once to lay them into row groups. The other four
-    /// implementations encode straight off a lazy row source and climb once.
-    /// Making this one match means giving Parquet a row source it can consume
-    /// lazily, which is a change to the trait and not to this function.
+    /// This one re-reads what a `Tdc` is holding, because by the time a `Tdc`
+    /// exists the run has been materialised — `StreamRows` keeps the values,
+    /// since `RowSource` hands out borrowed `&str`. A watcher therefore sees the
+    /// `render` percent climb twice: once while the run was built, once here.
+    ///
+    /// The command line does not come this way. [`Plan::write_parquet`] encodes
+    /// straight off the engine before any of that happens, which is one pass and
+    /// bounded memory; this is what remains for a caller holding a built run and
+    /// asking it for Parquet.
     fn parquet_bytes(&self) -> crate::engine::EngineResult<Vec<u8>> {
         let hook = self.on_progress.clone();
         let report =
@@ -747,6 +749,79 @@ impl Plan {
         }
         rendered?;
         Ok(true)
+    }
+
+    /// Write a Parquet file straight off the engine, without materialising the
+    /// run first.
+    ///
+    /// Separate from [`Plan::write_streaming`] for the same reason that one is
+    /// separate from [`Tdc::write_file`]: by the time a `Tdc` exists the whole
+    /// run is in memory — every column, plus the text output a Parquet export
+    /// never writes — and encoding from one can only re-read what is already
+    /// there. This walks the rows ONCE.
+    ///
+    /// It is not streaming, and does not claim to be: Parquet's footer carries
+    /// the offset of every row group, so the encoded file is held until the last
+    /// group exists. What is no longer held is the run behind it.
+    ///
+    /// Returns `false` when this run cannot take the path — a target that is not
+    /// Parquet, the in-memory engine (which holds the run by design), or a config
+    /// the streaming builder refuses and nobody forced. The caller then builds
+    /// and writes the ordinary way; nothing here changes what the bytes are.
+    pub fn write_parquet(&self, target: &Path) -> Result<bool, TdcError> {
+        let parquet = target
+            .extension()
+            .is_some_and(|e| e.eq_ignore_ascii_case("parquet"));
+        if !parquet || self.engine == 1 {
+            return Ok(false);
+        }
+
+        // Engine 3 is this engine with `uniq` built exactly and verified; engine
+        // 2 is the same code with that one setting off.
+        let built = crate::engine::stream::StreamEngine::build_with(
+            &self.config,
+            &self.packs,
+            self.now_millis,
+            self.base_dir.as_deref(),
+            self.engine == 3,
+            None,
+        );
+        let engine = match built {
+            Ok(engine) => engine,
+            Err(e) => return self.parquet_fallback(e),
+        };
+
+        let hook = self.on_progress.clone();
+        let report =
+            hook.map(|h| move |phase: &str, done: usize, total: usize| (h.0)(phase, done, total));
+        let bytes = match crate::output::parquet_output::to_bytes_from_engine(
+            &self.config,
+            &engine,
+            report.as_ref().map(|f| f as &dyn Fn(&str, usize, usize)),
+        ) {
+            Ok(bytes) => bytes,
+            Err(e) => return self.parquet_fallback(e),
+        };
+
+        std::fs::write(target, bytes)
+            .map_err(|e| TdcError::Io(format!("cannot write \"{}\": {e}", target.display())))?;
+        Ok(true)
+    }
+
+    /// A refusal the caller can recover from, or one it cannot.
+    ///
+    /// The streaming builder declines configs it cannot answer a row at a time,
+    /// and the exact one declines a uniq group too tight to repair. When nobody
+    /// NAMED an engine, both mean "do it in memory instead" — which the caller
+    /// does by taking the ordinary path. A named engine gets the refusal,
+    /// because refusing is what naming one asks for.
+    fn parquet_fallback(&self, error: crate::engine::EngineError) -> Result<bool, TdcError> {
+        if matches!(error, crate::engine::EngineError::Unsupported(_))
+            && !crate::engine::engine_was_named(&self.config)
+        {
+            return Ok(false);
+        }
+        Err(error.into())
     }
 
     /// Produce the rows.

@@ -197,6 +197,8 @@ itself unless you say otherwise.
 A [Parquet](../guides/typed-output-parquet.md#top) run reports too, once per row group of
 fifty thousand rows. Coarser than the text path on purpose: a row group is the unit that
 writer works in, and there is no moment inside one where a partial group means anything.
+If the percent ever runs to the end and then starts again, that is a run being walked
+twice — worth reporting as a bug rather than living with.
 
 The same channel is on the library in every implementation, as a callback taking
 `(phase, done, total)`.

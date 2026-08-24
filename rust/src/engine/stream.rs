@@ -2184,6 +2184,22 @@ impl StreamEngine<'_> {
 // ── evaluating one cell ──────────────────────────────────────────────────────
 
 impl StreamEngine<'_> {
+    /// The three questions an output format asks of a run, without the run
+    /// having to exist first. See `output::parquet_output::Cells`.
+    pub fn row_count(&self) -> usize {
+        self.count.max(0) as usize
+    }
+
+    /// The declared sequence names, in declaration order.
+    pub fn names(&self) -> &[String] {
+        &self.sequence_names
+    }
+
+    /// One cell, addressed the way a materialised run would be addressed.
+    pub fn cell(&self, name: &str, row: usize) -> EngineResult<Option<String>> {
+        self.value_at(name, row as i32)
+    }
+
     fn value_at(&self, name: &str, row: i32) -> EngineResult<Option<String>> {
         match self.columns.get(name) {
             Some(column) => self.value_of(column, row),

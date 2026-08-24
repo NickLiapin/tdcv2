@@ -302,6 +302,21 @@ fn generate(
     // engines — falls through to the ordinary route below, which produces the
     // same bytes by a costlier road.
     if let Some(path) = &options.output {
+        // Parquet first: it has its own way of avoiding the materialisation,
+        // and `write_streaming` declines it outright.
+        match plan.write_parquet(std::path::Path::new(path)) {
+            Ok(true) => {
+                if let Some(file) = &status {
+                    file.finish();
+                }
+                return Ok(0);
+            }
+            Ok(false) => {}
+            Err(e) => {
+                fail(stderr, &e.to_string(), false)?;
+                return Ok(1);
+            }
+        }
         match plan.write_streaming(std::path::Path::new(path)) {
             Ok(true) => {
                 if let Some(file) = &status {

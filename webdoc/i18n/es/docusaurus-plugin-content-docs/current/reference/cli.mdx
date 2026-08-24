@@ -193,7 +193,9 @@ su cuenta salvo que se indique otra cosa.
 Una salida [Parquet](../guides/typed-output-parquet.mdx) también informa, una vez por grupo
 de filas, es decir cada cincuenta mil. Más grueso que en el camino de texto y a propósito:
 un grupo de filas es la unidad con la que trabaja ese escritor, y dentro de uno no hay
-ningún momento en el que un grupo a medias signifique algo.
+ningún momento en el que un grupo a medias signifique algo. Si el porcentaje llega al final
+y vuelve a empezar, es que la ejecución se está recorriendo dos veces: convendría
+reportarlo como un fallo en vez de convivir con ello.
 
 El mismo canal está en la biblioteca en todas las implementaciones, como una devolución de
 llamada que recibe `(phase, done, total)`.

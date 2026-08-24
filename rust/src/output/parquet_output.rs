@@ -23,6 +23,98 @@ use crate::output::parquet::writer::{self, Cell, Column};
 /// where it sits in the file.
 pub const ROW_GROUP_ROWS: usize = 50_000;
 
+/// What this writer needs from a run: how many rows, which names exist on a
+/// given row, and one value at a time — OWNED.
+///
+/// [`RowSource`] cannot serve here, and that is the whole point of this trait
+/// existing: it hands out `&str` borrowed from the run, so anything that
+/// implements it has to HOLD the run first. A Parquet export therefore used to
+/// materialise every column — and the text output it never wrote — before it
+/// encoded a single row group. The engine answers all three questions without
+/// holding anything.
+pub trait Cells {
+    /// The number of records.
+    fn count(&self) -> usize;
+
+    /// Whether this row has a column by that name. Per ROW, not per run: a
+    /// column filtered out by its parent is absent on some rows and present on
+    /// others, and `has` is what decides whether a template writes a blank.
+    fn has(&self, name: &str, row: usize) -> bool;
+
+    /// The value, or `None` when the column does not apply to that row.
+    fn value(&self, name: &str, row: usize) -> Option<String>;
+}
+
+/// A run already in memory, seen through that window.
+struct SourceCells<'a>(&'a dyn RowSource);
+
+impl Cells for SourceCells<'_> {
+    fn count(&self) -> usize {
+        self.0.count()
+    }
+
+    fn has(&self, name: &str, row: usize) -> bool {
+        self.0.value(name, row).is_some() || self.0.sequence_names().iter().any(|n| n == name)
+    }
+
+    fn value(&self, name: &str, row: usize) -> Option<String> {
+        self.0.value(name, row).map(str::to_string)
+    }
+}
+
+/// The streaming engine, asked one cell at a time.
+///
+/// A column here can fail where a materialised one cannot — the run was never
+/// walked, so a bad expression is met for the first time mid-encode. The
+/// [`Cells`] methods have nowhere to put an error, so the first one is set
+/// aside and raised by [`to_bytes_from_engine`] the moment the writer returns.
+pub struct EngineCells<'a> {
+    engine: &'a crate::engine::stream::StreamEngine<'a>,
+    failure: std::cell::RefCell<Option<EngineError>>,
+}
+
+impl<'a> EngineCells<'a> {
+    fn new(engine: &'a crate::engine::stream::StreamEngine<'a>) -> Self {
+        Self {
+            engine,
+            failure: std::cell::RefCell::new(None),
+        }
+    }
+
+    fn note(&self, error: EngineError) {
+        let mut held = self.failure.borrow_mut();
+        if held.is_none() {
+            *held = Some(error);
+        }
+    }
+}
+
+impl Cells for EngineCells<'_> {
+    fn count(&self) -> usize {
+        self.engine.row_count()
+    }
+
+    fn has(&self, name: &str, row: usize) -> bool {
+        match self.engine.cell(name, row) {
+            Ok(found) => found.is_some() || self.engine.names().iter().any(|n| n == name),
+            Err(e) => {
+                self.note(e);
+                false
+            }
+        }
+    }
+
+    fn value(&self, name: &str, row: usize) -> Option<String> {
+        match self.engine.cell(name, row) {
+            Ok(found) => found,
+            Err(e) => {
+                self.note(e);
+                None
+            }
+        }
+    }
+}
+
 /// Everything decided before a single row is rendered.
 struct Plan {
     declared: Vec<Declared>,
@@ -31,7 +123,7 @@ struct Plan {
     separators: Vec<Option<String>>,
 }
 
-/// The whole file in memory.
+/// The whole file in memory, from a run that is already there.
 pub fn to_bytes(config: &Config, rows: &dyn RowSource) -> EngineResult<Vec<u8>> {
     to_bytes_watched(config, rows, None)
 }
@@ -40,6 +132,34 @@ pub fn to_bytes(config: &Config, rows: &dyn RowSource) -> EngineResult<Vec<u8>> 
 pub fn to_bytes_watched(
     config: &Config,
     rows: &dyn RowSource,
+    on_progress: crate::engine::Watch<'_>,
+) -> EngineResult<Vec<u8>> {
+    encode(config, &SourceCells(rows), on_progress)
+}
+
+/// The same file, taken straight off the engine — one pass over the rows.
+///
+/// The run is never materialised: values are asked for as each row group is
+/// laid down and released with it. What is still held is the encoded FILE,
+/// because Parquet's footer carries the offset of every row group and cannot be
+/// written until the last one exists.
+pub fn to_bytes_from_engine(
+    config: &Config,
+    engine: &crate::engine::stream::StreamEngine<'_>,
+    on_progress: crate::engine::Watch<'_>,
+) -> EngineResult<Vec<u8>> {
+    let cells = EngineCells::new(engine);
+    let bytes = encode(config, &cells, on_progress);
+    // A cell that failed mid-encode beats whatever the writer made of the gap.
+    if let Some(error) = cells.failure.into_inner() {
+        return Err(error);
+    }
+    bytes
+}
+
+fn encode(
+    config: &Config,
+    rows: &dyn Cells,
     on_progress: crate::engine::Watch<'_>,
 ) -> EngineResult<Vec<u8>> {
     let plan = build_plan(config)?;
@@ -167,7 +287,7 @@ fn build_plan(config: &Config) -> EngineResult<Plan> {
 fn build_batch(
     plan: &Plan,
     config: &Config,
-    rows: &dyn RowSource,
+    rows: &dyn Cells,
     start: usize,
     end: usize,
 ) -> EngineResult<Vec<Vec<Cell>>> {
@@ -188,7 +308,7 @@ fn build_batch(
 fn cell_of(
     plan: &Plan,
     config: &Config,
-    rows: &dyn RowSource,
+    rows: &dyn Cells,
     column: &Declared,
     i: usize,
     row: usize,
@@ -217,18 +337,17 @@ fn cell_of(
 }
 
 struct RowLookup<'a> {
-    rows: &'a dyn RowSource,
+    rows: &'a dyn Cells,
     row: usize,
 }
 
 impl Lookup for RowLookup<'_> {
     fn has(&self, name: &str) -> bool {
-        self.rows.value(name, self.row).is_some()
-            || self.rows.sequence_names().iter().any(|n| n == name)
+        self.rows.has(name, self.row)
     }
 
     fn value(&self, name: &str) -> String {
-        self.rows.value(name, self.row).unwrap_or("").to_string()
+        self.rows.value(name, self.row).unwrap_or_default()
     }
 }
 

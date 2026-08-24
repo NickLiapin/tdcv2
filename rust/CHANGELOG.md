@@ -13,9 +13,19 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
-- **Parquet reports too**, once per row group. A watcher sees the percent climb twice on
-  a Parquet run here, and both climbs are real: this implementation materialises the run
-  before it encodes, where the other four encode straight off a lazy row source.
+- **Parquet reports too**, once per row group.
+
+- **A Parquet run no longer materialises the run first.** The command line now encodes
+  straight off the engine: the rows are walked ONCE and each row group is released as it
+  is written, where before every column — and the text output a Parquet export never
+  writes — was built and held first. Measured on five million rows: peak memory 1.31 GB
+  to 56 MB, 12.5 s to 10.0 s, byte for byte the same file.
+
+  `RowSource` could not be the way in, and that is why there is now a `Cells` trait
+  beside it: `RowSource` hands out `&str` borrowed from the run, so anything implementing
+  it has to hold the run. `Cells` asks for one owned value at a time, which the engine can
+  answer without holding anything. A caller that already has a built run and asks it for
+  `to_parquet()` still re-reads what it is holding — there is nothing to save there.
 
 - **A Parquet file is no longer built twice.** The writer's callback cannot report a bad
   cell, so a failure was swallowed and the WHOLE run converted a second time afterwards

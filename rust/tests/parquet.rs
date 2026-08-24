@@ -92,3 +92,89 @@ fn every_pinned_file_is_written_byte_for_byte() {
     }
     assert!(wrong.is_empty(), "{} file(s) differ", wrong.len());
 }
+
+/// The command line's Parquet route agrees with the library's, byte for byte.
+///
+/// They are two different walks over the same run and they have to end in the
+/// same file. `Tdc::to_parquet` re-reads a run that is already in memory;
+/// `Plan::write_parquet` encodes straight off the engine without ever building
+/// one — which is the whole point of it, and also the whole risk: a lazy source
+/// that answered even one cell differently would produce a valid Parquet file
+/// full of the wrong data, and nothing else here would notice.
+///
+/// The pinned fixture above cannot catch that. It goes through the library route
+/// only, so the route the command line actually takes was untested until this.
+#[test]
+fn the_streaming_route_writes_the_same_file_as_the_built_one() {
+    // One of each shape that decides which engine runs: plain (engine 2), a uniq
+    // group (engine 3), and a running total (refused by both, so the fallback to
+    // memory has to produce the file rather than nothing).
+    let configs = [
+        (
+            "plain",
+            "<tdc><env count=\"120000\" seed=\"pqs\" local=\"en\">\
+             <sequence name=\"A\"><gen type=\"text\" value=\"x,y,z\"/></sequence>\
+             <sequence name=\"B\"><gen type=\"number\" value=\"1..900\"/></sequence></env>\
+             <block><line><data name=\"a\">${{A}}</data>\
+             <data name=\"b\" type=\"int64\">${{B}}</data></line></block></tdc>",
+        ),
+        (
+            "uniq group",
+            "<tdc><env count=\"300\" seed=\"pqu\" local=\"en\"><uniq>\
+             <sequence name=\"A\"><gen type=\"text\" value=\"a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t\"/></sequence>\
+             <sequence name=\"B\"><gen type=\"number\" value=\"1..30\"/></sequence></uniq></env>\
+             <block><line><data name=\"a\">${{A}}</data>\
+             <data name=\"b\" type=\"int64\">${{B}}</data></line></block></tdc>",
+        ),
+        (
+            "running total",
+            "<tdc><env count=\"500\" seed=\"pqr\" local=\"en\">\
+             <sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence>\
+             <sequence name=\"T\"><gen type=\"running\" of=\"N\" accumulate=\"sum\"/></sequence></env>\
+             <block><line><data name=\"n\" type=\"int64\">${{N}}</data>\
+             <data name=\"t\" type=\"int64\">${{T}}</data></line></block></tdc>",
+        ),
+    ];
+
+    let dir = std::env::temp_dir().join(format!("tdc-parquet-routes-{}", std::process::id()));
+    std::fs::create_dir_all(&dir).expect("a temp directory");
+
+    for (name, source) in configs {
+        let target = dir.join(format!("{}.parquet", name.replace(' ', "-")));
+
+        let plan = tdcv2::Tdc::plan(tdcv2::Options {
+            config_string: Some(source.to_string()),
+            now_millis: Some(NOW_MILLIS),
+            ..tdcv2::Options::default()
+        })
+        .unwrap_or_else(|e| panic!("{name}: {e}"));
+        let streamed = plan
+            .write_parquet(&target)
+            .unwrap_or_else(|e| panic!("{name}: {e}"));
+
+        let built = tdcv2::Tdc::plan(tdcv2::Options {
+            config_string: Some(source.to_string()),
+            now_millis: Some(NOW_MILLIS),
+            ..tdcv2::Options::default()
+        })
+        .and_then(tdcv2::Plan::build)
+        .and_then(|tdc| tdc.to_parquet())
+        .unwrap_or_else(|e| panic!("{name}: {e}"));
+
+        if streamed {
+            let written = std::fs::read(&target).expect("the written file");
+            assert_eq!(
+                written, built,
+                "{name}: the two routes wrote different files"
+            );
+        } else {
+            // Declined, which is an answer and not a failure — but only for the
+            // config that BOTH engines refuse. A plain one taking the slow road
+            // would mean the fast one had quietly stopped being used.
+            assert_eq!(name, "running total", "{name} should have streamed");
+        }
+        assert!(!built.is_empty(), "{name}: the file is empty");
+    }
+
+    let _ = std::fs::remove_dir_all(&dir);
+}
