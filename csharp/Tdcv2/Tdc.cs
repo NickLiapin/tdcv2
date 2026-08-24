@@ -504,9 +504,11 @@ public sealed class Tdc
             return;
         }
 
+        // Which engine the config asks for travels with it: a <uniq> group needs engine 3,
+        // and a worker told to build it any other way would answer a different question.
         ParallelWrite.WriteFile(
             _config, PacksForWorker, _nowMillis, _baseDir, target, resolved, _config.Count,
-            _onProgress);
+            _onProgress, Engine == 3);
     }
 
     /// <summary>The records one at a time, without building a list of them.</summary>

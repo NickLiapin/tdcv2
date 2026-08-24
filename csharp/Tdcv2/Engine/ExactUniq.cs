@@ -107,6 +107,22 @@ internal static class ExactUniq
     /// <summary>One uniq column: where it lands in the registry, its values, and their shares.</summary>
     internal sealed record Field(string Id, IReadOnlyList<string> Values, double[] Percents);
 
+    /// <summary>
+    /// How an arrangement travels between the thread that works it out and the ones that do not.
+    /// </summary>
+    /// <remarks>
+    /// Deciding which rows a uniq group moves where is a pass over every row to find the
+    /// collisions and a second to learn which tuples are taken — the expensive half of a uniq
+    /// run, and the same answer every time for a given config and seed. <c>OnComputed</c> hands
+    /// the result out; <c>Preset</c> hands it back in, and a worker holding one skips the
+    /// analysis entirely. That is what lets several threads render different row ranges of one
+    /// uniq config instead of each repeating the whole hunt. The result is small — only the rows
+    /// that actually moved — so it crosses a thread boundary for nothing.
+    /// </remarks>
+    internal sealed record Plan(
+        Dictionary<int, List<string>>? Preset,
+        Action<Dictionary<int, List<string>>>? OnComputed);
+
     /// <summary>A column of the finished arrangement: the value it gives a row.</summary>
     internal delegate string Resolver(int row);
 
@@ -116,7 +132,7 @@ internal static class ExactUniq
     /// <returns>One resolver per field, in the order they were given.</returns>
     internal static IReadOnlyDictionary<string, Resolver> Arrange(
         IReadOnlyList<Field> fields, int count, string seed, string label, string tmpDir,
-        Progress? onProgress = null)
+        Progress? onProgress = null, Plan? plan = null)
     {
         var columnCounts = new List<IReadOnlyList<int>>();
         var counts = new List<int[]>();
@@ -150,10 +166,12 @@ internal static class ExactUniq
         // handful of integers, and a serial-number column makes it true.
         if (counts.Any(c => c.All(v => v <= 1)))
         {
+            // Nothing moves, and a worker waiting to be told must hear that rather than wait.
+            plan?.OnComputed?.Invoke(new Dictionary<int, List<string>>());
             return RegistryOf(IdsOf(fields), resolvers);
         }
 
-        return Repair(IdsOf(fields), resolvers, count, label, tmpDir, null, onProgress);
+        return Repair(IdsOf(fields), resolvers, count, label, tmpDir, null, onProgress, plan);
     }
 
     private static IReadOnlyList<string> IdsOf(IReadOnlyList<Field> fields) =>
@@ -188,8 +206,14 @@ internal static class ExactUniq
     /// </remarks>
     internal static IReadOnlyDictionary<string, Resolver> Repair(
         IReadOnlyList<string> ids, IReadOnlyList<Resolver> resolvers, int count, string label,
-        string tmpDir, Func<int, string>? blockOf, Progress? onProgress = null)
+        string tmpDir, Func<int, string>? blockOf, Progress? onProgress = null, Plan? plan = null)
     {
+        // Told rather than worked out: the whole point of a plan. Nothing below this line runs.
+        if (plan?.Preset is not null)
+        {
+            return ApplyOverride(ids, resolvers, plan.Preset);
+        }
+
         // How the duplicates are hunted: by fingerprint on a large run, by tuple text on a small
         // one. The carrier is all that differs — the rows found are the same either way, because a
         // matching fingerprint is verified against the true tuples before it is believed.
@@ -215,6 +239,7 @@ internal static class ExactUniq
         if (excess.Count == 0)
         {
             scan?.Drop();
+            plan?.OnComputed?.Invoke(new Dictionary<int, List<string>>());
             return RegistryOf(ids, resolvers);
         }
 
@@ -387,8 +412,20 @@ internal static class ExactUniq
             scan?.Drop();
         }
 
+        plan?.OnComputed?.Invoke(overrides);
+        return ApplyOverride(ids, resolvers, overrides);
+    }
+
+    /// <summary>
+    /// Columns that answer from the override where there is one and from the original resolver
+    /// everywhere else — which is all a repaired uniq column IS.
+    /// </summary>
+    private static IReadOnlyDictionary<string, Resolver> ApplyOverride(
+        IReadOnlyList<string> ids, IReadOnlyList<Resolver> resolvers,
+        Dictionary<int, List<string>> overrides)
+    {
         var result = new Dictionary<string, Resolver>(StringComparer.Ordinal);
-        for (int j = 0; j < k; j++)
+        for (int j = 0; j < ids.Count; j++)
         {
             int column = j;
             Resolver baseResolver = resolvers[j];

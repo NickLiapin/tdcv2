@@ -13,6 +13,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -75,9 +76,28 @@ public final class Parallel {
     return defaultWorkers();
   }
 
-  /** Whether this run can be split at all. */
+  /**
+   * Whether this run can be split at all.
+   *
+   * <p>Engine 1 holds the whole run and has nothing to split. Everything else resolves a row
+   * from its own number — that is what the seekable generator buys — EXCEPT {@code uniq="true"}
+   * on a sequence, which rearranges the generators inside one compound column: a worker
+   * resolving a row on its own cannot reproduce that.
+   *
+   * <p>An env-level {@code <uniq>} group is not in that class and used to be excluded anyway,
+   * because this asked for engine 2 and every uniq routes to engine 3. It splits now: the
+   * coordinator works the arrangement out once and hands it to the workers.
+   */
   public static boolean canSplit(Config config, DataPacks packs) {
-    return EngineRouter.resolve(config, packs) == 2;
+    if (EngineRouter.resolve(config, packs) == 1) {
+      return false;
+    }
+    for (Config.SequenceSpec spec : config.sequences()) {
+      if (spec.uniq()) {
+        return false;
+      }
+    }
+    return true;
   }
 
   /** Contiguous, balanced ranges covering {@code [0, count)}; the first few get one extra row. */
@@ -128,7 +148,59 @@ public final class Parallel {
       int workers,
       int count,
       Progress onProgress) {
+    writeFile(config, packsFor, nowMillis, baseDir, target, workers, count, onProgress, false);
+  }
+
+  /**
+   * The same, told which engine the config asks for.
+   *
+   * <p>Engine 3 — {@code exactUniq} — is the one a {@code <uniq>} group needs, and it brings
+   * the analysis with it. That is worked out here, once, and handed to every worker; eleven of
+   * them each repeating it would make splitting the file slower than not splitting it.
+   */
+  public static void writeFile(
+      Config config,
+      java.util.function.Supplier<DataPacks> packsFor,
+      long nowMillis,
+      Path baseDir,
+      Path target,
+      int workers,
+      int count,
+      Progress onProgress,
+      boolean exactUniq) {
+    writeFile(
+        config, packsFor, nowMillis, baseDir, target, workers, count, onProgress, exactUniq, null);
+  }
+
+  /**
+   * The same, with an arrangement handed in rather than worked out here.
+   *
+   * <p>{@code null} — the ordinary case — means "work it out", which is what the coordinator does
+   * before it starts anybody. Handing one in is for a caller that already has it, and for the test
+   * that proves the workers actually OBEY it: told something false, the run has to come out
+   * different, or the arrangement was never used.
+   */
+  static void writeFile(
+      Config config,
+      java.util.function.Supplier<DataPacks> packsFor,
+      long nowMillis,
+      Path baseDir,
+      Path target,
+      int workers,
+      int count,
+      Progress onProgress,
+      boolean exactUniq,
+      Map<String, Map<Integer, List<String>>> given) {
     List<int[]> ranges = shards(count, workers);
+    // Worked out ONCE, before a single worker exists. Empty for the configs that have no
+    // env-level group, which is most of them, and then this costs one build of the columns.
+    Map<String, Map<Integer, List<String>>> uniqPlan = new java.util.LinkedHashMap<>();
+    if (given != null) {
+      uniqPlan.putAll(given);
+    } else if (!config.envUniqGroups().isEmpty()) {
+      StreamEngine.planUniq(
+          config, packsFor.get(), nowMillis, baseDir, exactUniq, onProgress, uniqPlan::put);
+    }
     // One slot per worker, so a later report REPLACES that worker's earlier one instead of being
     // added to it. Reporting deltas would lose ground the moment a report went missing.
     java.util.concurrent.atomic.AtomicLongArray rendered =
@@ -176,7 +248,9 @@ public final class Parallel {
                         out,
                         range[0],
                         range[1],
-                        perWorker);
+                        perWorker,
+                        exactUniq,
+                        uniqPlan);
                   }
                   return piece;
                 }));

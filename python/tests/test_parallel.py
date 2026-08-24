@@ -14,6 +14,7 @@ import pytest
 
 from tdcv2 import TDC
 from tdcv2.engine import parallel
+from tdcv2.engine import stream as stream_engine
 
 NOW = 1776945600000
 
@@ -29,6 +30,22 @@ CONFIG = """<tdc>
   </env>
   <block>
     <line><data>${{Id}},${{Name}}</data></line>
+  </block>
+</tdc>
+"""
+
+
+# An env-level <uniq> group: the shape whose arrangement has to travel from the parent to the
+# shards. Tight enough that rows really do move — a group that never collides would prove nothing.
+UNIQ_CONFIG = """<tdc>
+  <env count="400" seed="pu" local="en">
+    <uniq>
+      <sequence name="A"><gen type="text" value="a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t"/></sequence>
+      <sequence name="B"><gen type="number" value="1..40"/></sequence>
+    </uniq>
+  </env>
+  <block>
+    <line><data>${{A}}-${{B}}</data></line>
   </block>
 </tdc>
 """
@@ -101,6 +118,46 @@ class TestParallelWriteFile:
         parallel.write_file(config, split, {"now": NOW}, workers=4, count=500)
 
         assert split.read_bytes() == single.read_bytes()
+
+    def test_a_uniq_group_splits_and_the_bytes_do_not_change(self, tmp_path: Path) -> None:
+        """The arrangement is worked out once by the parent and OBEYED by every shard.
+
+        Two directions, because only the pair says anything. With the right arrangement the split
+        run must be byte-identical to the single one; with a deliberately wrong arrangement it
+        must NOT be — a shard that quietly worked the answer out for itself would pass the first
+        check and fail this one, and that is exactly the bug worth catching. Repeating the hunt in
+        every process is correct and slow, which is the failure that hides.
+        """
+        config = tmp_path / "uniq.tdc"
+        config.write_text(UNIQ_CONFIG, encoding="utf-8")
+        single, split, wrong = (tmp_path / n for n in ("one.csv", "many.csv", "wrong.csv"))
+
+        TDC(config, now=NOW).write_file(single)
+
+        plan: dict = {}
+        data = TDC(config, now=NOW)
+        stream_engine.plan_uniq(
+            data._config,
+            data._packs,
+            NOW,
+            None,
+            data.engine() == 3,
+            None,
+            lambda label, moved: plan.__setitem__(label, moved),
+        )
+        assert plan, "an env-level <uniq> group must produce an arrangement to hand out"
+
+        parallel.write_file(config, split, {"now": NOW}, workers=4, count=400, uniq_plan=plan)
+        assert split.read_bytes() == single.read_bytes()
+
+        # The same run told something false. Every row in the arrangement is sent to one tuple,
+        # which cannot be what the honest analysis produced.
+        label = next(iter(plan))
+        forged = {label: {row: ["zzz", "1"] for row in plan[label]} or {0: ["zzz", "1"]}}
+        parallel.write_file(config, wrong, {"now": NOW}, workers=4, count=400, uniq_plan=forged)
+        assert wrong.read_bytes() != single.read_bytes(), (
+            "the shards ignored the arrangement they were handed"
+        )
 
     def test_a_worker_that_fails_is_reported(self, tmp_path: Path) -> None:
         config = write_config(tmp_path, 100)

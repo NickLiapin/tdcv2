@@ -22,6 +22,10 @@ the next build, and nothing else is edited.
 
 ### Added
 
+- **A `<uniq>` group splits across threads.** The coordinator works the arrangement out once
+  and hands it to the workers instead of each repeating the hunt. 10.2 s to 6.9 s on three
+  million rows, same bytes.
+
 - **Parquet reports too**, once per row group.
 
 - **`--progress` counts a parallel run whole.** Every worker thread reports the rows of

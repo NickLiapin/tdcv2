@@ -133,10 +133,12 @@ class StreamEngine:
         "exact_uniq",
         "now_millis",
         "on_progress",
+        "on_uniq_plan",
         "packs",
         "parents",
         "pool_tables",
         "seed",
+        "uniq_plan",
     )
 
     def __init__(
@@ -147,7 +149,11 @@ class StreamEngine:
         base_dir: Path | None,
         exact_uniq: bool = False,
         on_progress=None,
+        uniq_plan=None,
+        on_uniq_plan=None,
     ) -> None:
+        self.uniq_plan = uniq_plan
+        self.on_uniq_plan = on_uniq_plan
         self.config = config
         self.packs = packs
         self.now_millis = now_millis
@@ -1537,8 +1543,27 @@ class StreamEngine:
                 column(row) or "" for column in keyed
             )
 
+        # Told rather than worked out, when a coordinator already did it — and told back when
+        # this IS the coordinator. The label is the key on both sides.
+        plan = None
+        if self.uniq_plan is not None or self.on_uniq_plan is not None:
+            plan = exact_uniq.Plan(
+                preset=(self.uniq_plan or {}).get(label),
+                on_computed=(
+                    None
+                    if self.on_uniq_plan is None
+                    else (lambda moved, key=label: self.on_uniq_plan(key, moved))
+                ),
+            )
         repaired = exact_uniq.repair(
-            members, resolvers, self.count, f'"{label}"', self.base_dir, block_of, self.on_progress
+            members,
+            resolvers,
+            self.count,
+            f'"{label}"',
+            self.base_dir,
+            block_of,
+            self.on_progress,
+            plan,
         )
         for name in members:
             self.columns[name] = repaired[name]
@@ -1735,6 +1760,8 @@ def rows(
     base_dir: Path | None = None,
     exact_uniq: bool = False,
     on_progress=None,
+    uniq_plan=None,
+    on_uniq_plan=None,
 ) -> StreamEngine:
     """The run as addressable records, computed on demand.
 
@@ -1745,7 +1772,26 @@ def rows(
     combinations, which is all this engine can promise on its own; true builds each column to its
     exact quota instead and verifies the result on disk.
     """
-    return StreamEngine(config, packs, now_millis, base_dir, exact_uniq, on_progress)
+    return StreamEngine(
+        config, packs, now_millis, base_dir, exact_uniq, on_progress, uniq_plan, on_uniq_plan
+    )
+
+
+def plan_uniq(
+    config: Config,
+    packs: DataPacks,
+    now_millis: int,
+    base_dir: Path | None,
+    exact_uniq: bool,
+    on_progress,
+    on_uniq_plan,
+) -> None:
+    """Work out every env-level ``<uniq>`` arrangement and produce not one row.
+
+    Building the columns IS the analysis — that is where the collisions are found and the
+    rearrangement decided — so this costs exactly one pass and hands each answer over as it lands.
+    """
+    StreamEngine(config, packs, now_millis, base_dir, exact_uniq, on_progress, None, on_uniq_plan)
 
 
 # ── small helpers ───────────────────────────────────────────────────────────────────────────

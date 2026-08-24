@@ -68,8 +68,35 @@ public static class ParallelWrite
     }
 
     /// <summary>Whether this run can be split at all.</summary>
-    public static bool CanSplit(Config config, DataPacks packs) =>
-        EngineRouter.Resolve(config, packs) == 2;
+    /// <summary>Whether this run can be split at all.</summary>
+    /// <remarks>
+    /// Engine 1 holds the whole run and has nothing to split. Everything else resolves a row
+    /// from its own number — that is what the seekable generator buys — EXCEPT <c>uniq="true"</c>
+    /// on a sequence, which rearranges the generators inside one compound column: a worker
+    /// resolving a row on its own cannot reproduce that.
+    /// <para>
+    /// An env-level <c>&lt;uniq&gt;</c> group is not in that class and used to be excluded
+    /// anyway, because this asked for engine 2 and every uniq routes to engine 3. It splits now:
+    /// the coordinator works the arrangement out once and hands it to the workers.
+    /// </para>
+    /// </remarks>
+    public static bool CanSplit(Config config, DataPacks packs)
+    {
+        if (EngineRouter.Resolve(config, packs) == 1)
+        {
+            return false;
+        }
+
+        foreach (SequenceSpec spec in config.Sequences)
+        {
+            if (spec.Uniq)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
 
     /// <summary>Contiguous, balanced ranges covering <c>[0, count)</c>; the first few get one extra row.</summary>
     public static IReadOnlyList<(int Start, int End)> Shards(int count, int workers)
@@ -103,9 +130,31 @@ public static class ParallelWrite
         string target,
         int workers,
         int count,
-        Progress? onProgress = null)
+        Progress? onProgress = null,
+        bool exactUniq = false,
+        IReadOnlyDictionary<string, Dictionary<int, List<string>>>? given = null)
     {
         IReadOnlyList<(int Start, int End)> ranges = Shards(count, workers);
+        // Worked out ONCE, before a single worker exists. Empty for the configs that have no
+        // env-level group, which is most of them, and then this costs one build of the columns.
+        //
+        // `given` is for a caller that already holds one, and for the test that proves the
+        // workers actually OBEY it: told something false, the run has to come out different, or
+        // the arrangement was never used.
+        var uniqPlan = new Dictionary<string, Dictionary<int, List<string>>>(StringComparer.Ordinal);
+        if (given is not null)
+        {
+            foreach (KeyValuePair<string, Dictionary<int, List<string>>> entry in given)
+            {
+                uniqPlan[entry.Key] = entry.Value;
+            }
+        }
+        else if (config.EnvUniqGroups.Count > 0)
+        {
+            StreamEngine.PlanUniq(
+                config, packsFor(), nowMillis, baseDir, exactUniq, onProgress,
+                (label, moved) => uniqPlan[label] = moved);
+        }
         // One slot per worker, so a later report REPLACES that worker's earlier one instead of
         // being added to it. Reporting deltas would lose ground the moment a report went missing.
         // Without any of this a parallel run said nothing until the moment it ended — and above a
@@ -145,7 +194,8 @@ public static class ParallelWrite
                     using var writer = new StreamWriter(
                         piece, append: false, new UTF8Encoding(false), 1 << 16);
                     StreamEngine.RenderRows(
-                        config, packsFor(), nowMillis, baseDir, writer, start, end, perWorker);
+                        config, packsFor(), nowMillis, baseDir, writer, start, end, perWorker,
+                        exactUniq, uniqPlan);
                 });
             }
 

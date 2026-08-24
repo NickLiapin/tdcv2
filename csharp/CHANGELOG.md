@@ -13,6 +13,10 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- **A `<uniq>` group splits across threads.** The coordinator works the arrangement out once
+  and hands it to the workers instead of each repeating the hunt. 21.4 s to 17.5 s on three
+  million rows, same bytes.
+
 - **Parquet reports too**, once per row group.
 
 - **`--progress` counts a parallel run whole.** Every worker task reports the rows of

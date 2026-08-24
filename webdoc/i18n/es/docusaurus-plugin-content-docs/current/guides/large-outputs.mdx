@@ -55,9 +55,15 @@ configuración**:
   aquí la memoria crece con el número de filas en todas las formas, y nada lo advierte.
 
   La unicidad es una promesa sobre el **conjunto terminado**, no sobre una fila, y no se
-  puede resolver fila a fila. Por eso mismo `--jobs` se niega a repartir una configuración
-  que la pide: un worker sólo ve su propio rango de filas, y no distinguiría un duplicado
-  fuera de ese rango de un valor que nunca ha visto.
+  puede resolver fila a fila. Un worker sólo ve su propio rango de filas y no distinguiría un
+  duplicado fuera de ese rango de un valor que nunca ha visto — así que no se le pregunta. La
+  disposición se calcula UNA vez, antes de que arranque ningún worker, y se les entrega hecha;
+  los workers sólo colocan las filas que les tocaron. Por eso un grupo `<uniq>` a nivel de
+  `<env>` se reparte con `--jobs` como cualquier otra cosa, en las cinco implementaciones.
+
+  `uniq="true"` sobre una secuencia no, y no puede: reordena los generadores dentro de una
+  columna compuesta, algo que un worker que resuelve una fila por su cuenta no puede
+  reproducir. Esa forma se queda en un solo hilo y lo dice.
 
 El modo disco tiene un tercer destino, y es el que conviene conocer: ocho formas de
 configuración mandan la corrida de vuelta al motor pequeño en memoria, donde la memoria

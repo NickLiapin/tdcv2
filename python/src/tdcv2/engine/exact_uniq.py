@@ -85,6 +85,25 @@ class RepairNeededError(RuntimeError):
 
 
 @dataclass(frozen=True, slots=True)
+class Plan:
+    """How an arrangement travels between the process that works it out and the ones that do not.
+
+    Deciding which rows a uniq group moves where is a pass over every row to find the collisions
+    and a second to learn which tuples are taken — the expensive half of a uniq run, and the same
+    answer every time for a given config and seed. ``on_computed`` hands the result out;
+    ``preset`` hands it back in, and a worker holding one skips the analysis entirely. That is what
+    lets several processes render different row ranges of one uniq config instead of each
+    repeating the whole hunt.
+
+    The result is small — only the rows that actually moved — so it crosses a process boundary as
+    JSON for nothing.
+    """
+
+    preset: dict[int, list[str]] | None = None
+    on_computed: Callable[[dict[int, list[str]]], None] | None = None
+
+
+@dataclass(frozen=True, slots=True)
 class Field:
     """One uniq column: where it lands in the registry, its values, and their shares."""
 
@@ -103,6 +122,7 @@ def arrange(
     label: str,
     tmp_dir: Path | None = None,
     on_progress=None,
+    plan: Plan | None = None,
 ) -> dict[str, Resolver]:
     """The uniq columns built with exact shares, and their tuples verified really distinct."""
     counts = [
@@ -132,9 +152,14 @@ def arrange(
     # of integers, and a serial-number column makes it true.
     for column_counts in counts:
         if all(c <= 1 for c in column_counts):
+            # Nothing moves, and a worker waiting to be told must hear that rather than wait.
+            if plan is not None and plan.on_computed is not None:
+                plan.on_computed({})
             return _registry([f.id for f in fields], resolvers)
 
-    return repair([f.id for f in fields], resolvers, count, label, tmp_dir, None, on_progress)
+    return repair(
+        [f.id for f in fields], resolvers, count, label, tmp_dir, None, on_progress, plan
+    )
 
 
 def _registry(ids: list[str], resolvers: list[Resolver]) -> dict[str, Resolver]:
@@ -149,6 +174,7 @@ def repair(
     tmp_dir: Path | None = None,
     block_of: Callable[[int], str] | None = None,
     on_progress=None,
+    plan: Plan | None = None,
 ) -> dict[str, Resolver]:
     """Verified, and whatever the construction left colliding repaired.
 
@@ -161,6 +187,10 @@ def repair(
     female row is allowed to hold; without this the repair would keep the tuple unique and stop the
     record making sense. Absent means one block holding everything, which is the ordinary case.
     """
+    # Told rather than worked out: the whole point of a plan. Nothing below this line runs.
+    if plan is not None and plan.preset is not None:
+        return _apply_override(ids, resolvers, plan.preset)
+
     # How the duplicates are hunted: by fingerprint on a large run, by tuple text on a small one.
     # The carrier is all that differs — the rows found are the same rows either way, because a
     # matching fingerprint is verified against the true tuples before it is believed.
@@ -176,6 +206,8 @@ def repair(
     if not excess:
         if scan is not None:
             scan.drop()
+        if plan is not None and plan.on_computed is not None:
+            plan.on_computed({})
         return _registry(ids, resolvers)
     if len(excess) > max_repair_rows_for(count):
         if scan is not None:
@@ -271,6 +303,18 @@ def repair(
         if scan is not None:
             scan.drop()
 
+    if plan is not None and plan.on_computed is not None:
+        plan.on_computed(override)
+    return _apply_override(ids, resolvers, override)
+
+
+def _apply_override(
+    ids: list[str], resolvers: list[Resolver], override: dict[int, list[str]]
+) -> dict[str, Resolver]:
+    """Columns that answer from the override where there is one, and from the resolver elsewhere.
+
+    Which is all a repaired uniq column IS.
+    """
     out: dict[str, Resolver] = {}
     for j, name in enumerate(ids):
         base = resolvers[j]

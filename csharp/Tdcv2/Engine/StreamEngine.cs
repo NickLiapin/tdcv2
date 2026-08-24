@@ -118,13 +118,21 @@ public sealed class StreamEngine
     private readonly Dictionary<string, IParentCapable> _parents = new(StringComparer.Ordinal);
     private readonly bool _exactUniq;
     private readonly Progress? _onProgress;
+    /// <summary>Arrangements worked out elsewhere, keyed by the group's label.</summary>
+    private readonly IReadOnlyDictionary<string, Dictionary<int, List<string>>>? _uniqPlan;
+    /// <summary>Where an arrangement worked out HERE goes, so the others need not repeat it.</summary>
+    private readonly Action<string, Dictionary<int, List<string>>>? _onUniqPlan;
 
     private StreamEngine(
         Config config, DataPacks packs, long nowMillis, string? baseDir, bool exactUniq,
-        Progress? onProgress)
+        Progress? onProgress,
+        IReadOnlyDictionary<string, Dictionary<int, List<string>>>? uniqPlan = null,
+        Action<string, Dictionary<int, List<string>>>? onUniqPlan = null)
     {
         _exactUniq = exactUniq;
         _onProgress = onProgress;
+        _uniqPlan = uniqPlan;
+        _onUniqPlan = onUniqPlan;
         _config = config;
         _packs = packs;
         _nowMillis = nowMillis;
@@ -200,11 +208,38 @@ public sealed class StreamEngine
         TextWriter output,
         int from,
         int to,
-        Progress? onProgress = null)
+        Progress? onProgress = null,
+        bool exactUniq = false,
+        IReadOnlyDictionary<string, Dictionary<int, List<string>>>? uniqPlan = null)
     {
-        var engine = new StreamEngine(config, packs, nowMillis, baseDir, false, onProgress);
+        // Both extra arguments matter for a <uniq> group: such a config runs on engine 3, so a
+        // worker has to be told to build it exactly, and deciding which rows the group moves
+        // where is a pass over every row — a worker that repeated it would make splitting the
+        // file slower than not splitting it. The coordinator works it out once and hands it down.
+        var engine = new StreamEngine(
+            config, packs, nowMillis, baseDir, exactUniq, onProgress, uniqPlan);
         engine.BuildColumns();
         engine.Write(output, from, to);
+    }
+
+    /// <summary>Work out every env-level <c>&lt;uniq&gt;</c> arrangement and produce not one row.</summary>
+    /// <remarks>
+    /// Building the columns IS the analysis — that is where the collisions are found and the
+    /// rearrangement decided — so this costs exactly one pass and hands each answer over as it
+    /// lands.
+    /// </remarks>
+    public static void PlanUniq(
+        Config config,
+        DataPacks packs,
+        long nowMillis,
+        string? baseDir,
+        bool exactUniq,
+        Progress? onProgress,
+        Action<string, Dictionary<int, List<string>>> onUniqPlan)
+    {
+        var engine = new StreamEngine(
+            config, packs, nowMillis, baseDir, exactUniq, onProgress, null, onUniqPlan);
+        engine.BuildColumns();
     }
 
     private sealed class StreamRows : IRowSource
@@ -608,9 +643,18 @@ public sealed class StreamEngine
                 ExactUniq.Join, keyed.Select(column => column(row) ?? string.Empty));
         }
 
+        // Told rather than worked out, when a coordinator already did it — and told back when
+        // this IS the coordinator. The label is the key on both sides.
+        ExactUniq.Plan? plan = _uniqPlan is null && _onUniqPlan is null
+            ? null
+            : new ExactUniq.Plan(
+                _uniqPlan is not null && _uniqPlan.TryGetValue(label, out Dictionary<int, List<string>>? known)
+                    ? known
+                    : null,
+                _onUniqPlan is null ? null : moved => _onUniqPlan(label, moved));
         IReadOnlyDictionary<string, ExactUniq.Resolver> repaired = ExactUniq.Repair(
             members, resolvers, _count, $"\"{label}\"", _baseDir ?? Path.GetTempPath(), blockOf,
-            _onProgress);
+            _onProgress, plan);
         foreach (string name in members)
         {
             ExactUniq.Resolver resolver = repaired[name];

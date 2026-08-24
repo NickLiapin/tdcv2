@@ -136,6 +136,10 @@ public final class StreamEngine {
   private final Map<String, ParentCapable> parents = new LinkedHashMap<>();
   private final boolean exactUniq;
   private final Progress onProgress;
+  /** Arrangements worked out elsewhere, keyed by the group's label. */
+  private final Map<String, Map<Integer, List<String>>> uniqPlan;
+  /** Where an arrangement worked out HERE goes, so the others need not repeat it. */
+  private final java.util.function.BiConsumer<String, Map<Integer, List<String>>> onUniqPlan;
   private Map<String, Pool.Table> poolTables = Map.of();
 
   private StreamEngine(
@@ -144,7 +148,11 @@ public final class StreamEngine {
       long nowMillis,
       Path baseDir,
       boolean exactUniq,
-      Progress onProgress) {
+      Progress onProgress,
+      Map<String, Map<Integer, List<String>>> uniqPlan,
+      java.util.function.BiConsumer<String, Map<Integer, List<String>>> onUniqPlan) {
+    this.uniqPlan = uniqPlan;
+    this.onUniqPlan = onUniqPlan;
     this.config = config;
     this.packs = packs;
     this.nowMillis = nowMillis;
@@ -163,7 +171,7 @@ public final class StreamEngine {
    */
   public static void render(
       Config config, DataPacks packs, long nowMillis, Path baseDir, Appendable out) {
-    StreamEngine engine = new StreamEngine(config, packs, nowMillis, baseDir, false, null);
+    StreamEngine engine = new StreamEngine(config, packs, nowMillis, baseDir, false, null, null, null);
     engine.buildColumns();
     engine.write(out, 0, engine.count);
   }
@@ -200,9 +208,53 @@ public final class StreamEngine {
       int start,
       int stop,
       Progress onProgress) {
-    StreamEngine engine = new StreamEngine(config, packs, nowMillis, baseDir, false, onProgress);
+    renderRows(config, packs, nowMillis, baseDir, out, start, stop, onProgress, false, null);
+  }
+
+  /**
+   * The same again, on the engine the config asks for and holding an arrangement it was
+   * given rather than working one out.
+   *
+   * <p>Both matter for a {@code <uniq>} group. Such a config runs on engine 3, so a worker
+   * has to be told to build it exactly; and deciding which rows the group moves where is a
+   * pass over every row, so a worker that repeated it would make splitting the file slower
+   * than not splitting it. The coordinator works it out once and hands it down.
+   */
+  public static void renderRows(
+      Config config,
+      DataPacks packs,
+      long nowMillis,
+      Path baseDir,
+      Appendable out,
+      int start,
+      int stop,
+      Progress onProgress,
+      boolean exactUniq,
+      Map<String, Map<Integer, List<String>>> uniqPlan) {
+    StreamEngine engine =
+        new StreamEngine(config, packs, nowMillis, baseDir, exactUniq, onProgress, uniqPlan, null);
     engine.buildColumns();
     engine.write(out, start, Math.min(stop, engine.count));
+  }
+
+  /**
+   * Work out every env-level {@code <uniq>} arrangement and produce not one row.
+   *
+   * <p>Building the columns IS the analysis — that is where the collisions are found and the
+   * rearrangement decided — so this costs exactly one pass and hands each answer to
+   * {@code onUniqPlan} as it lands.
+   */
+  public static void planUniq(
+      Config config,
+      DataPacks packs,
+      long nowMillis,
+      Path baseDir,
+      boolean exactUniq,
+      Progress onProgress,
+      java.util.function.BiConsumer<String, Map<Integer, List<String>>> onUniqPlan) {
+    StreamEngine engine =
+        new StreamEngine(config, packs, nowMillis, baseDir, exactUniq, onProgress, null, onUniqPlan);
+    engine.buildColumns();
   }
 
 
@@ -244,7 +296,7 @@ public final class StreamEngine {
       Path baseDir,
       boolean exactUniq,
       Progress onProgress) {
-    StreamEngine engine = new StreamEngine(config, packs, nowMillis, baseDir, exactUniq, onProgress);
+    StreamEngine engine = new StreamEngine(config, packs, nowMillis, baseDir, exactUniq, onProgress, null, null);
     engine.buildColumns();
     return new RowSource() {
       @Override
@@ -486,9 +538,17 @@ public final class StreamEngine {
           };
     }
 
+    // Told rather than worked out, when a coordinator already did it — and told back when
+    // this IS the coordinator. The label is the key on both sides.
+    ExactUniq.Plan plan =
+        uniqPlan == null && onUniqPlan == null
+            ? null
+            : new ExactUniq.Plan(
+                uniqPlan == null ? null : uniqPlan.get(label),
+                onUniqPlan == null ? null : moved -> onUniqPlan.accept(label, moved));
     Map<String, ExactUniq.Resolver> repaired =
         ExactUniq.repair(
-            members, resolvers, count, "\"" + label + "\"", baseDir, blockOf, onProgress);
+            members, resolvers, count, "\"" + label + "\"", baseDir, blockOf, onProgress, plan);
     for (String name : members) {
       ExactUniq.Resolver resolver = repaired.get(name);
       columns.put(name, resolver::valueAt);

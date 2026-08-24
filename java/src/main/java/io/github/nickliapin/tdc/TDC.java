@@ -412,8 +412,18 @@ public final class TDC {
               io.github.nickliapin.tdc.engine.Parallel.canSplit(config, packs),
               count);
       if (resolved > 1) {
+        // Which engine the config asks for travels with it: a <uniq> group needs engine 3,
+        // and a worker told to build it any other way would answer a different question.
         io.github.nickliapin.tdc.engine.Parallel.writeFile(
-            config, packsFactory, nowMillis, baseDir, target, resolved, count, onProgress);
+            config,
+            packsFactory,
+            nowMillis,
+            baseDir,
+            target,
+            resolved,
+            count,
+            onProgress,
+            engine() == 3);
         return;
       }
     }

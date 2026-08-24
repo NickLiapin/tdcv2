@@ -26,10 +26,11 @@ def rows(
     now_millis: int,
     base_dir: Path | None = None,
     on_progress=None,
+    uniq_plan=None,
 ):
     """The run as addressable records, exact and bounded — or in memory when it cannot be both."""
     try:
-        return stream.rows(config, packs, now_millis, base_dir, True, on_progress)
+        return stream.rows(config, packs, now_millis, base_dir, True, on_progress, uniq_plan)
     except (stream.UnsupportedError, RepairNeededError):
         return memory.build(config, packs, now_millis, base_dir, on_progress)
 

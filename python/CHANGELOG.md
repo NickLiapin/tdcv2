@@ -13,6 +13,10 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- **A `<uniq>` group splits across processes.** The parent works the arrangement out once
+  and puts it in the job file; each shard applies it instead of repeating the hunt. 184 s to
+  109 s on three million rows, same bytes.
+
 - **Parquet reports too**, once per row group.
 
 - **`--progress` counts a parallel run whole.** Workers are separate processes here, so

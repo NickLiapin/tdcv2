@@ -49,8 +49,17 @@ def main(argv: list[str]) -> int:
         tmp.write_text(str(done), encoding="utf-8")
         tmp.replace(progress_file)
 
+    # Back into row numbers: JSON keys are strings, and the engine addresses rows by int.
+    uniq_plan = {
+        label: {int(row): values for row, values in moved.items()}
+        for label, moved in job.get("uniq_plan", {}).items()
+    }
+
     run = TDC(
-        job["config_file"], on_progress=report if progress_file is not None else None, **options
+        job["config_file"],
+        on_progress=report if progress_file is not None else None,
+        uniq_plan=uniq_plan or None,
+        **options,
     )._run()
     with open(target, "w", encoding="utf-8") as out:
         run.write_rows(out.write, start, stop)

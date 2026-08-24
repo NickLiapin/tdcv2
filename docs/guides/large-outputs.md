@@ -51,9 +51,15 @@ Two engines run under "disk", and TDC picks between them **from your config**:
   grows with the row count, and nothing warns about it.
 
   Uniqueness is a promise about the **finished dataset**, not about any one row, so it
-  cannot be settled a row at a time. That is also why `--jobs` refuses a config that asks
-  for it: a worker sees only its own range of rows, and could not tell a duplicate outside
-  that range from a value it has never seen.
+  cannot be settled a row at a time. A worker sees only its own range of rows and could not
+  tell a duplicate outside that range from a value it has never seen — so nobody asks it to.
+  The arrangement is worked out ONCE, before any worker starts, and handed down; the workers
+  only lay out the rows they were given. An env-level `<uniq>` group therefore splits across
+  `--jobs` like anything else, in all five implementations.
+
+  `uniq="true"` on a sequence does not, and cannot: it rearranges the generators inside one
+  compound column, which a worker resolving a row on its own has no way to reproduce. That
+  one stays on a single thread and says so.
 
 Disk mode has a third destination, and it is the one worth knowing about: eight config
 shapes send the run back to the small in-memory engine, where memory grows with `count`.

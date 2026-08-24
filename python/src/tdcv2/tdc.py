@@ -147,6 +147,7 @@ class TDC:
         "_rendered",
         "_seed_generated",
         "_source",
+        "_uniq_plan",
     )
 
     def __init__(
@@ -163,6 +164,7 @@ class TDC:
         base_dir: Path | None = None,
         engine: int | None = None,
         on_progress=None,
+        uniq_plan=None,
     ) -> None:
         """Exactly one of ``config_file`` and ``config_string``; the rest override ``<env>``.
 
@@ -246,6 +248,7 @@ class TDC:
         self._now_millis = now if now is not None else int(time.time() * 1000)
         self._base_dir = config_dir
         self._on_progress = on_progress
+        self._uniq_plan = uniq_plan
         self._rendered = None
         self._source = source
 
@@ -295,8 +298,29 @@ class TDC:
         count = self._worker_count(workers)
         if count > 1:
             assert self._config_file is not None  # _worker_count returns 1 without a file
+            # Worked out ONCE, here, before a single process exists. Empty for the configs
+            # with no env-level group, which is most of them, and then this costs nothing.
+            plan: dict = {}
+            if self._config.env_uniq_groups:
+                from .engine import stream as stream_engine
+
+                stream_engine.plan_uniq(
+                    self._config,
+                    self._packs,
+                    self._now_millis,
+                    self._base_dir,
+                    self.engine() == 3,
+                    self._on_progress,
+                    lambda label, moved: plan.__setitem__(label, moved),
+                )
             parallel.write_file(
-                self._config_file, path, self._options, count, self.count, self._on_progress
+                self._config_file,
+                path,
+                self._options,
+                count,
+                self.count,
+                self._on_progress,
+                plan,
             )
             return
 
@@ -314,7 +338,14 @@ class TDC:
         else:
             raise ValueError(f'workers must be an int or "auto", not {workers!r}')
 
-        if asked <= 1 or self._config_file is None or self.engine() != 2:
+        # Engine 1 holds the whole run and has nothing to split. Everything else resolves a row
+        # from its own number — EXCEPT uniq="true" on a sequence, which rearranges the generators
+        # inside one compound column: a worker resolving a row on its own cannot reproduce that.
+        # An env-level <uniq> group is not in that class, and splits: the parent works the
+        # arrangement out once and hands it to the workers.
+        if asked <= 1 or self._config_file is None or self.engine() == 1:
+            return 1
+        if any(spec.uniq for spec in self._config.sequences):
             return 1
         # A worker that generates a handful of rows spends longer starting up than working.
         return max(1, min(asked, self.count // parallel.MIN_ROWS_PER_WORKER))
@@ -524,7 +555,12 @@ class TDC:
         # Routing, and recovering from a streaming refusal, live in `engine` — one place, so the
         # facade and the shared-case harness cannot come to different answers about one config.
         return engine.build(
-            self._config, self._packs, self._now_millis, self._base_dir, self._on_progress
+            self._config,
+            self._packs,
+            self._now_millis,
+            self._base_dir,
+            self._on_progress,
+            self._uniq_plan,
         )
 
 

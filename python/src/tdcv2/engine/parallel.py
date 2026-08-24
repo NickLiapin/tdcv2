@@ -99,6 +99,7 @@ def write_file(
     workers: int,
     count: int,
     on_progress=None,
+    uniq_plan: dict | None = None,
 ) -> None:
     """Write ``target`` from ``config_file`` using ``workers`` processes.
 
@@ -115,6 +116,13 @@ def write_file(
                 {
                     "config_file": str(Path(config_file).resolve()),
                     "options": {k: _plain(v) for k, v in options.items()},
+                    # Worked out once by the parent. A worker that repeated it would make
+                    # splitting the file slower than not splitting it — and the JSON is small,
+                    # because only the rows that actually moved are in it.
+                    "uniq_plan": {
+                        label: {str(row): values for row, values in moved.items()}
+                        for label, moved in (uniq_plan or {}).items()
+                    },
                 }
             ),
             encoding="utf-8",

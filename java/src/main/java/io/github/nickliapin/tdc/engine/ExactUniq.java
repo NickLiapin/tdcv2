@@ -111,6 +111,23 @@ final class ExactUniq {
   /** One uniq column: where it lands in the registry, its values, and their shares. */
   record Field(String id, List<String> values, double[] percents) {}
 
+  /**
+   * How an arrangement travels between the thread that works it out and the ones that do not.
+   *
+   * <p>Deciding which rows a uniq group moves where is a pass over every row to find the
+   * collisions and a second to learn which tuples are taken — the expensive half of a uniq run,
+   * and the same answer every time for a given config and seed. {@code onComputed} hands the
+   * result out; {@code preset} hands it back in, and a worker holding one skips the analysis
+   * entirely. That is what lets several threads render different row ranges of one uniq config
+   * instead of each repeating the whole hunt.
+   *
+   * <p>The result is small — only the rows that actually moved — so it crosses a thread boundary
+   * for nothing.
+   */
+  record Plan(
+      Map<Integer, List<String>> preset,
+      java.util.function.Consumer<Map<Integer, List<String>>> onComputed) {}
+
   /** A column of the finished arrangement: the value it gives a row. */
   interface Resolver {
     String valueAt(int row);
@@ -125,6 +142,18 @@ final class ExactUniq {
    */
   static Map<String, Resolver> arrange(
       List<Field> fields, int count, String seed, String label, Path tmpDir, Progress onProgress) {
+    return arrange(fields, count, seed, label, tmpDir, onProgress, null);
+  }
+
+  /** The same, with an arrangement handed in or handed out — see {@link Plan}. */
+  static Map<String, Resolver> arrange(
+      List<Field> fields,
+      int count,
+      String seed,
+      String label,
+      Path tmpDir,
+      Progress onProgress,
+      Plan plan) {
     List<List<Integer>> columnCounts = new ArrayList<>();
     List<int[]> counts = new ArrayList<>();
     for (Field field : fields) {
@@ -172,10 +201,14 @@ final class ExactUniq {
         }
       }
       if (injective) {
+        // Nothing moves, and a worker waiting to be told must hear that rather than wait.
+        if (plan != null && plan.onComputed() != null) {
+          plan.onComputed().accept(new HashMap<>());
+        }
         return registryOf(idsOf(fields), resolvers);
       }
     }
-    return repair(idsOf(fields), resolvers, count, label, tmpDir, null, onProgress);
+    return repair(idsOf(fields), resolvers, count, label, tmpDir, null, onProgress, plan);
   }
 
   private static Map<String, Resolver> registryOf(List<String> ids, List<Resolver> resolvers) {
@@ -215,6 +248,24 @@ final class ExactUniq {
       Path tmpDir,
       IntFunction<String> blockOf,
       Progress onProgress) {
+    return repair(ids, resolvers, count, label, tmpDir, blockOf, onProgress, null);
+  }
+
+  /** The same, with an arrangement handed in or handed out — see {@link Plan}. */
+  static Map<String, Resolver> repair(
+      List<String> ids,
+      List<Resolver> resolvers,
+      int count,
+      String label,
+      Path tmpDir,
+      IntFunction<String> blockOf,
+      Progress onProgress,
+      Plan plan) {
+    // Told rather than worked out: the whole point of a plan. Nothing below this line runs.
+    if (plan != null && plan.preset() != null) {
+      return applyOverride(ids, resolvers, plan.preset());
+    }
+
     // How the duplicates are hunted: by fingerprint on a large run, by tuple text on a small one.
     // The carrier is all that differs — the rows found are the same either way, because a matching
     // fingerprint is verified against the true tuples before it is believed.
@@ -236,6 +287,9 @@ final class ExactUniq {
     if (excess.isEmpty()) {
       if (scan != null) {
         scan.drop();
+      }
+      if (plan != null && plan.onComputed() != null) {
+        plan.onComputed().accept(new HashMap<>());
       }
       return registryOf(ids, resolvers);
     }
@@ -375,8 +429,20 @@ final class ExactUniq {
       }
     }
 
+    if (plan != null && plan.onComputed() != null) {
+      plan.onComputed().accept(override);
+    }
+    return applyOverride(ids, resolvers, override);
+  }
+
+  /**
+   * Columns that answer from the override where there is one and from the original resolver
+   * everywhere else — which is all a repaired uniq column IS.
+   */
+  private static Map<String, Resolver> applyOverride(
+      List<String> ids, List<Resolver> resolvers, Map<Integer, List<String>> override) {
     Map<String, Resolver> out = new LinkedHashMap<>();
-    for (int j = 0; j < k; j++) {
+    for (int j = 0; j < ids.size(); j++) {
       int column = j;
       Resolver base = resolvers.get(j);
       out.put(
