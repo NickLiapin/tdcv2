@@ -182,7 +182,8 @@ Las fases en orden: `uniq-scan` (se calcula el hash de la tupla de cada fila), `
 (se ordenan los montones), `uniq-repair` (se comprueban y reordenan las tuplas repetidas) y
 `render` (se escriben las filas); una ejecución sin `<uniq>` solo informa `render`. En una
 ejecución `uniq` grande la más larga de las cuatro suele ser `uniq-repair` — medida en
-6.000.000 de filas fueron 56 de 74 segundos —, así que es ahí donde hay que esperar.
+6.000.000 de filas sobre 900.000.000 de pares posibles fueron de 50 a 62 segundos de 88 a 99,
+más que las otras tres juntas —, así que es ahí donde hay que esperar.
 
 Dentro de una fase los números solo suben, y la fase termina en su propio total: una
 barra

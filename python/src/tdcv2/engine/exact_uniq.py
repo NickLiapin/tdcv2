@@ -431,10 +431,11 @@ def _fingerprint_scan(
 def _verify(resolvers: list[Resolver], candidates: list[list[int]], report=None) -> list[int]:
     """Keep only the rows whose tuples GENUINELY repeat, lowest row of each group spared.
 
-    Reported, because this is where a large run goes quiet. Every candidate group is a set of
-    rows sharing a 64-bit hash, and each costs a tuple recomputed per row to tell a real
-    duplicate from a hash collision. Measured in the reference at 6,000,000 rows: 99,852 groups
-    and tens of seconds, between the last ``uniq-sort`` and the first ``render``, saying nothing.
+    Reported, because this is part of where a large run goes quiet. Every candidate group is a
+    set of rows sharing a 64-bit hash, and each costs a tuple recomputed per row to tell a real
+    duplicate from a hash collision. Measured in the reference at 6,000,000 rows over
+    900,000,000 possible pairs: 19,851 groups in a tenth of a second — the seconds are spent
+    below, rearranging.
     """
     excess: list[int] = []
     if report is not None:

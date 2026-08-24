@@ -28,19 +28,25 @@ page — is tracked in that implementation's own changelog:
 <!-- covers: progress uniq-repair -->
 
 - **`--progress` gained a fourth phase, `uniq-repair`, and it turned out to be the biggest
-  one.** Measured on a 6,000,000-row `<uniq>` group: hashing every tuple took 13 s, sorting
-  the piles 2 s, writing the rows 1 s across eight workers — and 56 of the 74 seconds sat
-  between the last `uniq-sort` and the first `render`, reporting nothing at all. Three
-  quarters of a run, indistinguishable from a hang.
+  one.** Measured on a 6,000,000-row `<uniq>` over 900,000,000 possible pairs: hashing every
+  tuple took 13 s, sorting the piles 3 s, writing the rows 18 s — and 50 to 62 s sat between
+  the last `uniq-sort` and the first `render`, reporting nothing at all. More than the other
+  three phases together, and indistinguishable from a hang.
 
   That stretch is the repair: verifying the candidate groups the fingerprints turned up, then
   rearranging the rows that really do repeat. It now reports, in all five implementations,
   from BEFORE the first deal — the deal alone is seconds on a large pool, and a watcher that
   only heard from the sweep loop would sit on a stale `uniq-sort` throughout it.
 
-  Watching it says something worth knowing: that run handed the verifier **99,852 candidate
-  groups** where the birthday formula predicts about 11,000. Reach for the measurement, not
-  the formula.
+  Watching it also says where the time is NOT. Verifying the candidate groups — the part that
+  looked expensive — took a tenth of a second for 19,851 groups. Practically all of it is the
+  rearrangement that follows, and almost all of THAT is its first pass over a pool of 179,133
+  rows.
+
+  One trap worth writing down, because it caught this measurement twice: a config dense enough
+  to blow the repair cap throws and falls back to the in-memory engine, and every second the
+  repair spent is then thrown away with it. Timing that run measures the fallback. The numbers
+  above are from a run that stays inside the cap.
 
 - **A phase's numbers now only ever RISE, and a phase ends at its own total.** Two defects
   that only showed up once the repair had a phase to report under.

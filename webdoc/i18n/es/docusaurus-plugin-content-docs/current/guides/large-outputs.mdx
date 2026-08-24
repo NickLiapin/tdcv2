@@ -130,10 +130,10 @@ entrega la corrida al motor en memoria, donde la memoria vuelve a seguir a `coun
 
 Así que lo que hay que razonar es cuántas tuplas pueden formar sus columnas frente a cuántas
 filas pidió — no el número de filas por sí solo. Ensanche una columna y la misma corrida cabe.
-Cuántas repeticiones produce de verdad una configuración no se estima con la fórmula del
-cumpleaños: medido en una corrida de 6.000.000 de filas, el barrido de huellas entregó al
-verificador 99.852 grupos candidatos donde esa fórmula predice unos 11.000. Ejecútelo y mire
-`--progress`.
+Cuántas repeticiones produce de verdad una configuración sí la predice bien la fórmula del
+cumpleaños — una corrida de 6.000.000 de filas sobre 900.000.000 de pares posibles entregó al
+verificador 19.851 grupos candidatos donde la fórmula predice unos 20.000 —, pero lo que eso
+cuesta en tiempo no. Ejecútelo y mire `--progress`.
 
 Las que de verdad siguen a `count` son las dos filas en memoria, y
 [`TDC299`](../reference/errors.mdx) avisa de ellas a partir de 100.000 filas. Un contador

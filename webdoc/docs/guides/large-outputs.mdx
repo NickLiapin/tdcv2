@@ -123,9 +123,10 @@ value spaces:
 
 So the number to reason about is how many tuples your values can make against how many rows
 you asked for — not the row count on its own. Widen a column and the same run fits. How many
-repeats a given config actually produces is not something to estimate from the birthday
-formula: measured on a 6,000,000-row run, the fingerprint scan handed the verifier 99,852
-candidate groups where that formula predicts about 11,000. Run it and watch `--progress`.
+repeats a given config actually produces follows the birthday formula closely — a
+6,000,000-row run over 900,000,000 possible pairs handed the verifier 19,851 candidate
+groups where the formula predicts about 20,000 — but what that costs does not. Run it and
+watch `--progress`.
 
 The two in-memory rows are the ones that genuinely follow `count`, and
 [`TDC299`](../reference/errors.mdx) warns about them from 100,000 rows up. A `uniq` counter
