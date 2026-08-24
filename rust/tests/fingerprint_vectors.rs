@@ -10,8 +10,8 @@ mod common;
 use std::collections::HashSet;
 use std::path::PathBuf;
 
-use tdcv2::json::Value;
 use tdcv2::engine::fingerprint as fp;
+use tdcv2::json::Value;
 
 fn vectors() -> Value {
     common::read_fixture("fingerprint-vectors.json")
@@ -28,21 +28,48 @@ fn temp_dir(name: &str) -> PathBuf {
 fn record_width_and_index_limit_match_the_contract() {
     let v = vectors();
     assert_eq!(
-        v.get("recordBytes").expect("recordBytes").as_f64().expect("recordBytes") as u64,
+        v.get("recordBytes")
+            .expect("recordBytes")
+            .as_f64()
+            .expect("recordBytes") as u64,
         fp::RECORD_BYTES as u64
     );
-    assert_eq!(v.get("maxIndex").expect("maxIndex").as_f64().expect("maxIndex") as u64, fp::MAX_INDEX);
+    assert_eq!(
+        v.get("maxIndex")
+            .expect("maxIndex")
+            .as_f64()
+            .expect("maxIndex") as u64,
+        fp::MAX_INDEX
+    );
 }
 
 #[test]
 fn hash_and_pile_match_the_reference() {
-    for vector in vectors().get("hashes").expect("hashes").as_array().expect("hashes") {
+    for vector in vectors()
+        .get("hashes")
+        .expect("hashes")
+        .as_array()
+        .expect("hashes")
+    {
         let key = vector.get("key").expect("key").as_str().expect("key");
         let (hi, lo) = fp::hash64(key);
-        assert_eq!(vector.get("hi").expect("hi").as_f64().expect("hi") as u64, u64::from(hi), "hi of {key:?}");
-        assert_eq!(vector.get("lo").expect("lo").as_f64().expect("lo") as u64, u64::from(lo), "lo of {key:?}");
+        assert_eq!(
+            vector.get("hi").expect("hi").as_f64().expect("hi") as u64,
+            u64::from(hi),
+            "hi of {key:?}"
+        );
+        assert_eq!(
+            vector.get("lo").expect("lo").as_f64().expect("lo") as u64,
+            u64::from(lo),
+            "lo of {key:?}"
+        );
 
-        for (buckets, expected) in vector.get("buckets").expect("buckets").as_object().expect("buckets") {
+        for (buckets, expected) in vector
+            .get("buckets")
+            .expect("buckets")
+            .as_object()
+            .expect("buckets")
+        {
             let n: usize = buckets.parse().expect("pile count");
             assert_eq!(
                 expected.as_f64().expect("pile") as usize,
@@ -55,14 +82,23 @@ fn hash_and_pile_match_the_reference() {
 
 #[test]
 fn record_bytes_match_the_reference_and_read_back_as_written() {
-    for vector in vectors().get("records").expect("records").as_array().expect("records") {
+    for vector in vectors()
+        .get("records")
+        .expect("records")
+        .as_array()
+        .expect("records")
+    {
         let hi = vector.get("hi").expect("hi").as_f64().expect("hi") as u32;
         let lo = vector.get("lo").expect("lo").as_f64().expect("lo") as u32;
         let index = vector.get("index").expect("index").as_f64().expect("index") as u64;
 
         let encoded = fp::encode(hi, lo, index).expect("encodes");
         let hex: String = encoded.iter().map(|b| format!("{b:02x}")).collect();
-        assert_eq!(vector.get("bytes").expect("bytes").as_str().expect("bytes"), hex, "index {index}");
+        assert_eq!(
+            vector.get("bytes").expect("bytes").as_str().expect("bytes"),
+            hex,
+            "index {index}"
+        );
         // A reader that disagrees with its own writer is worse than one that
         // disagrees with the reference, because nothing would catch it.
         assert_eq!(index, fp::index_of(&encoded));
@@ -77,11 +113,20 @@ fn an_index_past_the_limit_is_refused_not_wrapped() {
 
 #[test]
 fn pile_count_matches_the_reference() {
-    for vector in vectors().get("pileCounts").expect("pileCounts").as_array().expect("pileCounts") {
+    for vector in vectors()
+        .get("pileCounts")
+        .expect("pileCounts")
+        .as_array()
+        .expect("pileCounts")
+    {
         let count = vector.get("count").expect("count").as_f64().expect("count") as u64;
         let cores = vector.get("cores").expect("cores").as_f64().expect("cores") as usize;
         assert_eq!(
-            vector.get("buckets").expect("buckets").as_f64().expect("buckets") as usize,
+            vector
+                .get("buckets")
+                .expect("buckets")
+                .as_f64()
+                .expect("buckets") as usize,
             fp::bucket_count_for(count, cores),
             "{count} rows / {cores} cores"
         );
@@ -114,7 +159,9 @@ fn sorting_is_byte_order_and_finds_every_repeated_fingerprint() {
     // collide in 32 bits, so without these the sort could ignore the low word
     // and still pass.
     for lo in (0..10u32).rev() {
-        writers[0].write(777, lo, 400 + u64::from(lo)).expect("write");
+        writers[0]
+            .write(777, lo, 400 + u64::from(lo))
+            .expect("write");
     }
     for writer in writers {
         writer.finish().expect("finish");

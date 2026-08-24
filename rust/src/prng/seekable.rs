@@ -55,7 +55,7 @@ fn bits_hex(value: f64) -> String {
 }
 
 /// A deterministic value in [0, 1) from a pair of numbers — `hash(n, salt)`.
-/// 
+///
 /// The key is built from the IEEE-754 BIT PATTERNS of the two arguments, not from
 /// their decimal forms: `salt` is any double, and the shortest decimal spelling of
 /// a double differs between languages, while those 64 bits are pinned by the
@@ -67,18 +67,18 @@ pub fn hash_unit(n: f64, salt: f64) -> f64 {
 }
 
 /// Smooth one-dimensional value noise — `noise(t, scale, salt)`.
-/// 
+///
 /// A drifting baseline is not three sine waves: modulate those however you like and
 /// a spectrum still shows three pure tones. Here each lattice point is an
 /// independent draw and only the interpolation between them is smooth, so the
 /// spectrum is broad.
-/// 
+///
 /// `scale` is the wavelength in rows; `salt` picks the series. The easing is the
 /// classic smoothstep, u*u*(3-2u), zero at both ends with zero slope, so no corner
 /// appears where one cell meets the next. The interpolation is a*(1-u) + b*u for
 /// the same reason `lerp` uses it: the lattice points come out EXACTLY equal to
 /// `hash` there, so a cell boundary is continuous to the last bit.
-/// 
+///
 /// A `scale` of zero divides by zero and the answer is NaN — the same answer
 /// `sqrt(-1)` gives here.
 pub fn noise_unit(t: f64, scale: f64, salt: f64) -> f64 {

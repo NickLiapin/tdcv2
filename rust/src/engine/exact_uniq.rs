@@ -331,9 +331,11 @@ pub fn repair(
     let mut forbidden: Box<dyn Membership> = match &scan {
         Some(found) => {
             let moving: HashSet<usize> = in_pool.iter().map(|row| *row as usize).collect();
-            Box::new(fingerprint::Ledger::open(&found.sorted_paths, moving).map_err(
-                |e| EngineError::Unsupported(format!("uniq fingerprint ledger: {e}")),
-            )?)
+            Box::new(
+                fingerprint::Ledger::open(&found.sorted_paths, moving).map_err(|e| {
+                    EngineError::Unsupported(format!("uniq fingerprint ledger: {e}"))
+                })?,
+            )
         }
         None => {
             let mut exact: BTreeSet<String> = BTreeSet::new();
@@ -464,18 +466,17 @@ fn fingerprint_scan(
         })
         .collect();
 
-    let raw_paths =
-        fingerprint::write_piles(
-            &functions,
-            0,
-            count as usize,
-            &directory,
-            "raw",
-            buckets,
-            &join,
-            on_progress,
-        )
-        .map_err(|e| EngineError::Unsupported(format!("uniq fingerprint scan: {e}")))?;
+    let raw_paths = fingerprint::write_piles(
+        &functions,
+        0,
+        count as usize,
+        &directory,
+        "raw",
+        buckets,
+        &join,
+        on_progress,
+    )
+    .map_err(|e| EngineError::Unsupported(format!("uniq fingerprint scan: {e}")))?;
 
     let mut sorted_paths = Vec::with_capacity(buckets);
     let mut candidates: Vec<Vec<usize>> = Vec::new();

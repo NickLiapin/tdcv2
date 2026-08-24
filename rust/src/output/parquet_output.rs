@@ -201,19 +201,19 @@ fn encode(
     let written = writer::write_to(
         &plan.columns,
         || {
-        if start >= count || failure.borrow().is_some() {
-            return None;
-        }
-        // Once per row group, which is fifty thousand rows: coarser than the
-        // text path's half-percent, and it has to be — a row group is the unit
-        // this writer works in, and there is no moment inside one where a
-        // partial group means anything.
-        if let Some(report) = on_progress {
-            report("render", start, count);
-        }
-        let end = (start + ROW_GROUP_ROWS).min(count);
-        let batch = build_batch(&plan, config, rows, start, end);
-        start = end;
+            if start >= count || failure.borrow().is_some() {
+                return None;
+            }
+            // Once per row group, which is fifty thousand rows: coarser than the
+            // text path's half-percent, and it has to be — a row group is the unit
+            // this writer works in, and there is no moment inside one where a
+            // partial group means anything.
+            if let Some(report) = on_progress {
+                report("render", start, count);
+            }
+            let end = (start + ROW_GROUP_ROWS).min(count);
+            let batch = build_batch(&plan, config, rows, start, end);
+            start = end;
             match batch {
                 Ok(batch) => Some(batch),
                 Err(e) => {

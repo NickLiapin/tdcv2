@@ -66,6 +66,10 @@ const IMPLEMENTATIONS = [
     label: 'Rust',
     cwd: 'rust',
     command: ['cargo', ['test', '--quiet']],
+    // The other four have a formatter that CI enforces; this one had a formatter nobody
+    // ran, and 55 places had drifted from it by the time anyone checked. Same lesson as
+    // ruff below: a gate nobody runs is not a gate.
+    also: [['cargo', ['fmt', '--check']]],
     install: 'https://rustup.rs',
   },
   {

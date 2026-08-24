@@ -81,9 +81,7 @@ fn the_cli_behaves_as_the_shared_contract_says() {
 fn applies_here(case: &Value) -> bool {
     match case.get("only").and_then(Value::as_array) {
         None => true,
-        Some(names) => names
-            .iter()
-            .any(|name| name.as_str() == Some("rust")),
+        Some(names) => names.iter().any(|name| name.as_str() == Some("rust")),
     }
 }
 

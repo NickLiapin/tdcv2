@@ -2927,9 +2927,7 @@ impl Validator {
                 .join(" and ");
             self.error(
                 "TDC300",
-                format!(
-                    "fit= is not read beside {listed} — those points already carry a board"
-                ),
+                format!("fit= is not read beside {listed} — those points already carry a board"),
                 "A typed point is a percentage of the 0..100 board, so 80 already means 80% of \
                  y_range and there is nothing left for fit= to place. fit= is for a drawing read \
                  from src=, whose numbers are in some other tool's units. Drop one of the two.",

@@ -518,8 +518,7 @@ pub fn rows_in_watched(
     base_dir: Option<&str>,
     on_progress: crate::engine::Watch<'_>,
 ) -> EngineResult<StreamRows> {
-    let engine =
-        StreamEngine::build_with(config, packs, now_millis, base_dir, false, on_progress)?;
+    let engine = StreamEngine::build_with(config, packs, now_millis, base_dir, false, on_progress)?;
     StreamRows::of(&engine)
 }
 

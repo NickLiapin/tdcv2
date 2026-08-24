@@ -227,7 +227,9 @@ fn generate(
             )?;
             return Ok(2);
         };
-        Some(std::rc::Rc::new(StatusFile::new(format!("{output}.progress"))))
+        Some(std::rc::Rc::new(StatusFile::new(format!(
+            "{output}.progress"
+        ))))
     } else {
         None
     };
@@ -241,9 +243,11 @@ fn generate(
         data_paths: options.data_paths.clone(),
         engine: options.engine,
         on_progress: status.clone().map(|file| {
-            crate::tdc::ProgressHook(std::rc::Rc::new(move |phase: &str, done: usize, total: usize| {
-                file.report(phase, done, total);
-            }))
+            crate::tdc::ProgressHook(std::rc::Rc::new(
+                move |phase: &str, done: usize, total: usize| {
+                    file.report(phase, done, total);
+                },
+            ))
         }),
         ..Options::default()
     };

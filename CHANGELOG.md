@@ -17,6 +17,14 @@ page — is tracked in that implementation's own changelog:
 
 ### Added
 
+<!-- covers: rust cargo fmt gate -->
+
+- **Rust is formatted by `cargo fmt`, and CI now says so.** It was the only one of the five
+  implementations whose formatter nothing ever ran, and 55 places had drifted from it — all
+  mechanical. Reformatted once and wired into the five-ways runner beside the hook that runs
+  Python's ruff, for the reason already written above that hook: a gate nobody runs is not a
+  gate.
+
 <!-- covers: progress uniq-repair -->
 
 - **`--progress` gained a fourth phase, `uniq-repair`, and it turned out to be the biggest

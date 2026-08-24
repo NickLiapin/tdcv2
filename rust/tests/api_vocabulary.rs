@@ -47,7 +47,10 @@ fn the_shared_names_are_the_ones_this_crate_answers_to() {
             _ => panic!("a member with no rust spelling"),
         })
         .collect();
-    assert_eq!(named, CALLED, "api.json and this test disagree about the names");
+    assert_eq!(
+        named, CALLED,
+        "api.json and this test disagree about the names"
+    );
 }
 
 #[test]

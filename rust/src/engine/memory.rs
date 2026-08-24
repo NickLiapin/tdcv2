@@ -348,7 +348,10 @@ fn formula_column(
             if name == own {
                 return values[row - 1].clone();
             }
-            columns.get(name).and_then(|c| c.get(row - 1).cloned()).flatten()
+            columns
+                .get(name)
+                .and_then(|c| c.get(row - 1).cloned())
+                .flatten()
         };
         let previous_ref: Option<&dyn Fn(&str) -> Option<String>> =
             if sequential { Some(&previous) } else { None };

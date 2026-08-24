@@ -258,7 +258,8 @@ fn merge_runs(runs: &[PathBuf], out_path: &Path) -> Result<(), String> {
             }
         }
         let Some(r) = best else { break };
-        out.write_all(&sources[r][at[r]]).map_err(|e| e.to_string())?;
+        out.write_all(&sources[r][at[r]])
+            .map_err(|e| e.to_string())?;
         at[r] += 1;
     }
     out.flush().map_err(|e| e.to_string())

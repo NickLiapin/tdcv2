@@ -768,7 +768,8 @@ impl Plan {
             error: None,
         };
         let hook = self.on_progress.clone();
-        let report = hook.map(|h| move |phase: &str, done: usize, total: usize| (h.0)(phase, done, total));
+        let report =
+            hook.map(|h| move |phase: &str, done: usize, total: usize| (h.0)(phase, done, total));
         let rendered = crate::engine::stream::write_in(
             &self.config,
             self.now_millis,
@@ -913,7 +914,8 @@ impl Plan {
         // must not run the generator twice, which would be both slow and — with
         // a generated seed — a different answer.
         let hook = self.on_progress.clone();
-        let report = hook.map(|h| move |phase: &str, done: usize, total: usize| (h.0)(phase, done, total));
+        let report =
+            hook.map(|h| move |phase: &str, done: usize, total: usize| (h.0)(phase, done, total));
         let run = engine::run_in_watched(
             &self.config,
             &self.packs,

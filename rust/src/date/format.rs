@@ -32,7 +32,9 @@ const NAMED_FORMATS: [&str; 6] = ["LLLL", "LLL", "LL", "L", "ISO_TIME", "ISO"];
 /// carrying them was written by somebody expecting them to work. Letters outside this set
 /// — the `o` and `f` of `of`, the `t` and `e` of `date:` — are ordinary words, and a word
 /// beside a date is a reasonable thing to write unbracketed.
-const TOKEN_LETTERS: [char; 13] = ['Y', 'M', 'D', 'd', 'H', 'h', 'm', 's', 'S', 'Z', 'A', 'a', 'L'];
+const TOKEN_LETTERS: [char; 13] = [
+    'Y', 'M', 'D', 'd', 'H', 'h', 'm', 's', 'S', 'Z', 'A', 'a', 'L',
+];
 
 pub fn locale(name: Option<&str>) -> &'static DateLocale {
     locales::resolve(name)
