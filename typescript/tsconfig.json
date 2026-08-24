@@ -29,6 +29,7 @@
     "test/**/*",
     "vitest.config.ts",
     "vitest.pack.config.ts",
+    "vitest.heavy.config.ts",
     "eslint.config.mjs"
   ],
   "exclude": ["node_modules", "dist", "coverage"]

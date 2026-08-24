@@ -83,6 +83,7 @@
     "pretest": "npm run generate",
     "test": "vitest run",
     "test:pack": "vitest run --config vitest.pack.config.ts",
+    "test:heavy": "vitest run --config vitest.heavy.config.ts",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "lint": "eslint .",
