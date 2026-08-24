@@ -63,13 +63,21 @@ class Entry:
         return self.generator is not None
 
 
-class DuplicateAddressError(ValueError):
-    """Two files claim one address.
+class ResolvedButUnusableError(ValueError):
+    """The address found a file, and the file cannot be used.
 
-    Its own type because :meth:`DataPacks.exists` has to tell it apart from "no such address":
-    a collision RESOLVES, and reporting it as a misspelling sends the reader hunting for a typo
-    that is not there.
+    Its own type because :meth:`DataPacks.exists` has to tell these apart from "no such address".
+    The address RESOLVES; reporting it as a misspelling sends the reader hunting for a typo that
+    is not there, while the file it should be looking at sits in the folder.
     """
+
+
+class DuplicateAddressError(ResolvedButUnusableError):
+    """Two files claim one address."""
+
+
+class EmptyPackError(ResolvedButUnusableError):
+    """A pack that lists nothing."""
 
 
 class DataPacks:
@@ -204,15 +212,42 @@ class DataPacks:
             # every address matches its path never pays for it.
             placed = self._addresses().get(self._absolute(dotted_path, locale))
             if placed is not None:
-                entry = _parse(self.source.read_lines(placed), placed)
+                entry = self._checked(
+                    _parse(self.source.read_lines(placed), placed), dotted_path, locale, placed
+                )
                 self._cache[key] = entry
                 return entry
             raise ValueError(
                 f'unknown template path "{dotted_path}" (looked for {base}.txt in {self.source})'
             )
 
-        entry = _parse(self.source.read_lines(file), file)
+        entry = self._checked(_parse(self.source.read_lines(file), file), dotted_path, locale, file)
         self._cache[key] = entry
+        return entry
+
+    def _checked(self, entry: Entry, dotted_path: str, locale: str, file: str) -> Entry:
+        """A pack that lists nothing is refused here rather than drawn from later.
+
+        A file with a header and no lines under it parses perfectly well and yields an empty list.
+        Nothing downstream expects one: the generator picks ``values[floor(random * len(values))]``
+        and every implementation but the reference crashed on the index — an ``IndexError`` in
+        Python, a panic in Rust, an out-of-bounds in Java and C#, none of them naming the file.
+        Said the way the reference has always said it, so the sentence is one sentence in five
+        implementations.
+        """
+        located = self.source.locate(file) or file
+        if entry.generator is None and not entry.values:
+            raise EmptyPackError(
+                f'data-pack address "{self._absolute(dotted_path, locale)}" '
+                f"({located}) has no values"
+            )
+        # A `generator: tdc` pack ships a rule instead of a list, and a header with nothing under
+        # it ships neither. The four ports used to answer "pack generator body has no <gen> tag:"
+        # without naming the file, which leaves the author a folder to search by hand.
+        if entry.generator is not None and not entry.generator.strip():
+            raise EmptyPackError(
+                f'generator "{self._absolute(dotted_path, locale)}" ({located}) has an empty body'
+            )
         return entry
 
     def _absolute(self, dotted_path: str, locale: str) -> str:
@@ -339,10 +374,10 @@ class DataPacks:
         """
         try:
             self.load(dotted_path, locale)
-        except DuplicateAddressError:
-            # It resolves — twice, which is the complaint. Answering "no" here would report the
-            # collision as a misspelled address and send the reader hunting for a typo that is
-            # not there; saying yes lets the caller load it and get the real message.
+        except ResolvedButUnusableError:
+            # It resolves — twice, or to nothing at all, which IS the complaint. Answering "no"
+            # here would report it as a misspelled address and send the reader hunting for a typo
+            # that is not there; saying yes lets the caller load it and get the real message.
             return True
         except (ValueError, OSError):
             return False

@@ -907,6 +907,38 @@
       ]
     },
     {
+      "name": "a pack file that lists nothing is refused, not drawn from",
+      "note": "A header and no lines under it parses perfectly well and yields an empty list. Nothing downstream expects one: the generator picks values[floor(random * length)], and until this case existed four implementations crashed on that index — an IndexError in Python, a panic in Rust, an out-of-bounds in Java and C# — while the reference alone named the file. TDC170 was the last code `audit:fixtures` declared as a gap, on the grounds that it needs a broken pack on disk; a cli.json case carries its own files and always could. The caret differs on purpose and is not asserted: the reference raises this from the pack loader (1:1), the four ports from the validator, at the `value=` that asked for the address.",
+      "files": {
+        "packs/pl/empty/list.txt": "---\ndescription: a list that has no values\nlocale: pl\n---\n",
+        "run.tdc": "<tdc><env count=\"2\" seed=\"s\" local=\"pl\"><sequence name=\"V\"><gen type=\"template\" value=\"pl.empty.list\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>\n"
+      },
+      "argv": ["{dir}/run.tdc", "--data-path", "{dir}/packs"],
+      "exit": 1,
+      "stdout": "",
+      "stderrContains": [
+        "error[TDC170]",
+        "data-pack address \"pl.empty.list\"",
+        "has no values"
+      ]
+    },
+    {
+      "name": "a generator pack with no body is refused by name, not by a bare sentence",
+      "note": "A `generator: tdc` pack ships a rule instead of a list; a header with nothing under it ships neither. The four ports answered \"pack generator body has no <gen> tag:\" — true, and useless: no code, no address, no file, so the author has a folder to search by hand. Same code and same helper as the empty-list case above, because it is the same mistake made a different way.",
+      "files": {
+        "packs/pl/gen/thing.tdc": "---\ndescription: a generator with no body\ngenerator: tdc\nlocale: pl\n---\n",
+        "run.tdc": "<tdc><env count=\"2\" seed=\"s\" local=\"pl\"><sequence name=\"V\"><gen type=\"template\" value=\"pl.gen.thing\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>\n"
+      },
+      "argv": ["{dir}/run.tdc", "--data-path", "{dir}/packs"],
+      "exit": 1,
+      "stdout": "",
+      "stderrContains": [
+        "error[TDC170]",
+        "generator \"pl.gen.thing\"",
+        "has an empty body"
+      ]
+    },
+    {
       "name": "two files claiming one address are refused, not resolved to whichever is first",
       "note": "The extension is not part of an address, so thing.txt and thing.tdc are the same address. Picking the first would make the other dead weight its author cannot see.",
       "files": {

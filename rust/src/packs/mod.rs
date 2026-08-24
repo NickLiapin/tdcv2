@@ -19,7 +19,7 @@ use std::path::Path;
 
 use source::{discover_root, DirectorySource, EmbeddedSource, LayeredSource, PackSource};
 
-use crate::engine::{invalid, EngineResult};
+use crate::engine::{invalid, EngineError, EngineResult};
 use crate::errors::Diagnostic;
 use crate::model::config::{Case, CasePart, Gen, Item, Mix, SequenceSpec, Source, Switch};
 use crate::parser::config_builder;
@@ -243,7 +243,15 @@ impl DataPacks {
         if self.candidates(&self.base_path(dotted_path, locale)).len() > 1 {
             return true;
         }
-        self.load(dotted_path, locale).is_ok()
+        match self.load(dotted_path, locale) {
+            Ok(_) => true,
+            // It resolves — to nothing at all, which IS the complaint, and `load`
+            // is what reports it.
+            Err(EngineError::Invalid(message)) => {
+                message.ends_with(NO_VALUES_MARK) || message.ends_with(EMPTY_BODY_MARK)
+            }
+            Err(_) => false,
+        }
     }
 
     /// Where this address's files sit, extension aside.
@@ -418,7 +426,12 @@ impl DataPacks {
                 let placed = self.addresses().get(&absolute).cloned();
                 match placed.and_then(|f| self.source.read_lines(&f).map(|l| (f, l))) {
                     Some((placed_file, lines)) => {
-                        let entry = parse(&lines, &placed_file)?;
+                        let entry = self.checked(
+                            parse(&lines, &placed_file)?,
+                            dotted_path,
+                            locale,
+                            &placed_file,
+                        )?;
                         self.cache.borrow_mut().insert(key, entry.clone());
                         return Ok(entry);
                     }
@@ -432,8 +445,49 @@ impl DataPacks {
             }
         };
 
-        let entry = parse(&lines, &file)?;
+        let entry = self.checked(parse(&lines, &file)?, dotted_path, locale, &file)?;
         self.cache.borrow_mut().insert(key, entry.clone());
+        Ok(entry)
+    }
+
+    /// A pack that lists nothing is refused here rather than drawn from later.
+    ///
+    /// A file with a header and no lines under it parses perfectly well and
+    /// yields an empty list. Nothing downstream expects one: the generator picks
+    /// `values[floor(random * len)]` and every implementation but the reference
+    /// crashed on the index — a subtract overflow here, an IndexError in Python,
+    /// an out-of-bounds in Java and C# — none of them naming the file. Said the
+    /// way the reference has always said it, so the sentence is one sentence in
+    /// five implementations.
+    fn checked(
+        &self,
+        entry: Entry,
+        dotted_path: &str,
+        locale: &str,
+        file: &str,
+    ) -> EngineResult<Entry> {
+        if entry.generator.is_none() && entry.values.is_empty() {
+            return invalid(&format!(
+                "data-pack address \"{}\" ({}){NO_VALUES_MARK}",
+                self.absolute_address(dotted_path, locale),
+                self.source.locate(file).unwrap_or_else(|| file.to_string()),
+            ));
+        }
+        // A `generator: tdc` pack ships a rule instead of a list, and a header
+        // with nothing under it ships neither. This used to answer "pack
+        // generator body has no <gen> tag:" without naming the file, which
+        // leaves the author a folder to search by hand.
+        if entry
+            .generator
+            .as_deref()
+            .is_some_and(|b| b.trim().is_empty())
+        {
+            return invalid(&format!(
+                "generator \"{}\" ({}){EMPTY_BODY_MARK}",
+                self.absolute_address(dotted_path, locale),
+                self.source.locate(file).unwrap_or_else(|| file.to_string()),
+            ));
+        }
         Ok(entry)
     }
     /// The address as the index holds it: locale-prefixed unless already absolute.
@@ -645,6 +699,16 @@ fn header_of(lines: &[String]) -> BTreeMap<String, String> {
     }
     header
 }
+
+/// The tail of the "lists nothing" refusal, so `exists` can recognise it.
+///
+/// The other four implementations give that refusal its own exception type;
+/// here the error is a message, and the codebase already tells one refusal from
+/// another this way (see `REPAIR_NEEDED_MARK`).
+const NO_VALUES_MARK: &str = " has no values";
+
+/// The same, for a `generator:` pack whose body is missing.
+const EMPTY_BODY_MARK: &str = " has an empty body";
 
 fn parse(lines: &[String], file: &str) -> EngineResult<Entry> {
     let mut header: BTreeMap<String, String> = BTreeMap::new();

@@ -17,6 +17,32 @@ page — is tracked in that implementation's own changelog:
 
 ### Added
 
+<!-- covers: TDC170 empty pack -->
+
+- **A data pack that lists nothing is refused by name instead of crashing four of the five
+  implementations.** A pack file with a header and no lines under it parses perfectly well and
+  yields an empty list. Nothing downstream expects one: the generator picks
+  `values[floor(random × length)]`. The reference had always said
+  `data-pack address "pl.empty.list" (…/list.txt) has no values`; Python raised `IndexError`,
+  Rust panicked on a subtract overflow, Java and C# went out of bounds — and none of the four
+  named the file, so the author was left with a stack trace and a folder to search by hand.
+
+  All four now say the reference's sentence, word for word, and `exists()` in each of them
+  knows the difference between "no such address" and "that address found a file that lists
+  nothing" — reporting the second as a misspelling would send the reader hunting for a typo
+  while the real file sits next to them.
+
+  The same mistake made a different way is fixed with it: a `generator:` pack whose body is
+  missing. All four used to answer `pack generator body has no <gen> tag:` — true, and useless.
+  No code, no address, no file, so the author had a folder to search by hand. They now say what
+  the reference says: `generator "pl.gen.thing" (…/thing.tdc) has an empty body`.
+
+  Found because `TDC170` was the last diagnostic `audit:fixtures` still excused as "needs a
+  malformed data-pack file on disk". A `cli.json` case carries its own files and always could.
+  The exemption was not documenting a limitation, it was hiding a four-way crash — which is
+  what the note above that list already said every exemption eventually does. The list is
+  empty now.
+
 <!-- covers: uniq repair cap early stop -->
 
 - **A `<uniq>` too tight for the bounded repair gives up sooner, and stops guessing at a

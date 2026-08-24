@@ -116,8 +116,13 @@ const PROBE = {
  * could. The exemption had outlived its reason and was quietly protecting a real
  * gap, which is what every exemption eventually tries to do — so this list is
  * worth re-reading whenever the fixtures gain a capability.
+ *
+ * TDC170 was the last entry, on the same grounds — "needs a malformed data-pack
+ * file on disk" — and it was protecting the same kind of thing: a pack listing
+ * nothing crashed four implementations on an index. The list is empty now, and
+ * an empty list is the point. Adding to it should feel expensive.
  */
-const DECLARED_GAPS = new Map([['TDC170', 'needs a malformed data-pack file on disk']]);
+const DECLARED_GAPS = new Map();
 
 let missingTotal = 0;
 const report = [];

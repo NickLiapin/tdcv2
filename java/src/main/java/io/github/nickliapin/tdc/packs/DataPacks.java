@@ -49,6 +49,22 @@ public final class DataPacks {
    * the pack is a generator rather than a list — some packs describe how to build a value
    * instead of listing values, because listing every UUID is not a thing anyone can do.
    */
+  /**
+   * The address found a file, and the file cannot be used.
+   *
+   * <p>Its own type because {@link #exists} has to tell it apart from "no such address". The
+   * address RESOLVES; reporting it as a misspelling sends the reader hunting for a typo that is
+   * not there, while the file it should be looking at sits in the folder.
+   */
+  static final class EmptyPack extends IllegalArgumentException {
+
+    private static final long serialVersionUID = 1L;
+
+    EmptyPack(String message) {
+      super(message);
+    }
+  }
+
   public record Entry(List<String> values, double[] percents, String generator) {
     public boolean weighted() {
       return percents != null;
@@ -296,6 +312,9 @@ public final class DataPacks {
     try {
       load(dottedPath, locale);
       return true;
+    } catch (EmptyPack e) {
+      // It resolves — to nothing at all, which IS the complaint. `load` is what reports it.
+      return true;
     } catch (RuntimeException e) {
       return false;
     }
@@ -491,13 +510,46 @@ public final class DataPacks {
                 + source
                 + ")");
       }
-      Entry placedEntry = parse(source.readLines(placed), placed);
+      Entry placedEntry =
+          checked(parse(source.readLines(placed), placed), dottedPath, locale, placed);
       cache.put(key, placedEntry);
       return placedEntry;
     }
 
-    Entry entry = parse(source.readLines(file), file);
+    Entry entry = checked(parse(source.readLines(file), file), dottedPath, locale, file);
     cache.put(key, entry);
+    return entry;
+  }
+
+  /**
+   * A pack that lists nothing is refused here rather than drawn from later.
+   *
+   * <p>A file with a header and no lines under it parses perfectly well and yields an empty list.
+   * Nothing downstream expects one: the generator picks {@code values[floor(random * size)]} and
+   * every implementation but the reference crashed on the index — an out-of-bounds here, an
+   * IndexError in Python, a panic in Rust — none of them naming the file. Said the way the
+   * reference has always said it, so the sentence is one sentence in five implementations.
+   */
+  private Entry checked(Entry entry, String dottedPath, String locale, String file) {
+    if (entry.generator() == null && entry.values().isEmpty()) {
+      throw new EmptyPack(
+          "data-pack address \""
+              + absoluteAddress(dottedPath, locale)
+              + "\" ("
+              + locateOr(file)
+              + ") has no values");
+    }
+    // A `generator: tdc` pack ships a rule instead of a list, and a header with nothing under it
+    // ships neither. This used to answer "pack generator body has no <gen> tag:" without naming
+    // the file, which leaves the author a folder to search by hand.
+    if (entry.generator() != null && entry.generator().isBlank()) {
+      throw new EmptyPack(
+          "generator \""
+              + absoluteAddress(dottedPath, locale)
+              + "\" ("
+              + locateOr(file)
+              + ") has an empty body");
+    }
     return entry;
   }
 

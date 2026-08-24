@@ -44,6 +44,20 @@ public sealed class DataPacks
     /// is a generator rather than a list — some packs describe how to build a value instead of
     /// listing values, because listing every UUID is not a thing anyone can do.
     /// </remarks>
+    /// <summary>The address found a file, and the file cannot be used.</summary>
+    /// <remarks>
+    /// Its own type because <see cref="Exists"/> has to tell it apart from "no such address". The
+    /// address RESOLVES; reporting it as a misspelling sends the reader hunting for a typo that is
+    /// not there, while the file it should be looking at sits in the folder.
+    /// </remarks>
+    internal sealed class EmptyPackException : ArgumentException
+    {
+        internal EmptyPackException(string message)
+            : base(message)
+        {
+        }
+    }
+
     public sealed record Entry(
         IReadOnlyList<string> Values, double[]? Percents, string? Generator)
     {
@@ -231,10 +245,45 @@ public sealed class DataPacks
             Load(dottedPath, locale);
             return true;
         }
+        catch (EmptyPackException)
+        {
+            // It resolves — to nothing at all, which IS the complaint. Load is what reports it.
+            return true;
+        }
         catch (Exception e) when (e is ArgumentException or IOException)
         {
             return false;
         }
+    }
+
+    /// <summary>A pack that lists nothing is refused here rather than drawn from later.</summary>
+    /// <remarks>
+    /// A file with a header and no lines under it parses perfectly well and yields an empty list.
+    /// Nothing downstream expects one: the generator picks <c>values[floor(random * count)]</c>
+    /// and every implementation but the reference crashed on the index — an out-of-range here, an
+    /// IndexError in Python, a panic in Rust — none of them naming the file. Said the way the
+    /// reference has always said it, so the sentence is one sentence in five implementations.
+    /// </remarks>
+    private Entry Checked(Entry entry, string dottedPath, string? locale, string file)
+    {
+        if (entry.Generator is null && entry.Values.Count == 0)
+        {
+            throw new EmptyPackException(
+                $"data-pack address \"{AbsoluteAddress(dottedPath, locale)}\" "
+                    + $"({LocateOr(file)}) has no values");
+        }
+
+        // A `generator: tdc` pack ships a rule instead of a list, and a header with nothing under
+        // it ships neither. This used to answer "pack generator body has no <gen> tag:" without
+        // naming the file, which leaves the author a folder to search by hand.
+        if (entry.Generator is not null && string.IsNullOrWhiteSpace(entry.Generator))
+        {
+            throw new EmptyPackException(
+                $"generator \"{AbsoluteAddress(dottedPath, locale)}\" "
+                    + $"({LocateOr(file)}) has an empty body");
+        }
+
+        return entry;
     }
 
     /// <summary>Where this address's files sit, extension aside.</summary>
@@ -490,12 +539,13 @@ public sealed class DataPacks
                     $"unknown template path \"{dottedPath}\" (looked for {@base}.txt in {Source})");
             }
 
-            Entry placedEntry = Parse(Source.ReadLines(placed), placed);
+            Entry placedEntry = Checked(
+                Parse(Source.ReadLines(placed), placed), dottedPath, locale, placed);
             _cache[key] = placedEntry;
             return placedEntry;
         }
 
-        Entry entry = Parse(Source.ReadLines(file), file);
+        Entry entry = Checked(Parse(Source.ReadLines(file), file), dottedPath, locale, file);
         _cache[key] = entry;
         return entry;
     }
