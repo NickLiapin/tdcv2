@@ -205,10 +205,21 @@ export class ExactUniqRepairNeeded extends Error {
   constructor(
     readonly collisions: number,
     label: string,
+    /**
+     * The count is a floor, not a total — say so rather than round it down.
+     *
+     * The scan that finds repeats stops as soon as it is past the cap, because
+     * nothing it could find afterwards changes the answer. What it gives up is
+     * the exact figure, and a number that is quietly 20,001 where the truth is
+     * 1,618,803 is worse than no number: it invites someone to widen a column
+     * by a little.
+     */
+    atLeast = false,
   ) {
+    const rows = atLeast ? `more than ${String(collisions)} rows` : `${String(collisions)} row(s)`;
     super(
       `uniq ${label} is too tight to repair without holding the whole table ` +
-        `(${String(collisions)} row(s) couldn't be placed) — run without mode="stream" ` +
+        `(${rows} couldn't be placed) — run without mode="stream" ` +
         `so the in-memory engine can arrange it.`,
     );
     this.name = 'ExactUniqRepairNeeded';
@@ -323,6 +334,8 @@ interface FingerprintScan {
   readonly sorted: readonly string[];
   readonly ownDir?: string;
   readonly excess: readonly number[];
+  /** True when the verify stopped at the cap, so `excess` is a floor. */
+  readonly partial?: boolean;
 }
 
 /**
@@ -346,6 +359,9 @@ function resolveFingerprints(
   options: DuplicateScanOptions,
   report?: RepairReport,
 ): FingerprintScan | undefined {
+  // Past the cap the caller refuses whatever the exact figure is, so the verify
+  // is told where the answer stops mattering.
+  const stopAfter = maxRepairRowsFor(count);
   if (
     options.fingerprintFiles !== undefined &&
     options.fingerprintFiles.length > 0 &&
@@ -380,11 +396,8 @@ function resolveFingerprints(
     for (const group of candidateGroups(out)) candidates.push(group);
   }
 
-  return {
-    sorted,
-    ownDir: dir,
-    excess: verifyCandidates(resolvers, candidates, report),
-  };
+  const excess = verifyCandidates(resolvers, candidates, report, stopAfter);
+  return { sorted, ownDir: dir, excess, partial: excess.length > stopAfter };
 }
 
 /**
@@ -444,6 +457,17 @@ export function verifyCandidates(
   resolvers: readonly UniqResolver[],
   candidates: readonly (readonly number[])[],
   report?: RepairReport,
+  /**
+   * Stop once the excess is past this, because the answer cannot change.
+   *
+   * Above the repair cap the run falls back to the in-memory engine whatever
+   * the exact figure is, and finding it out costs a tuple recomputed per row
+   * for every remaining candidate group: measured on a config that misses the
+   * cap by two orders of magnitude — 1,618,803 rows against 20,000 — that was
+   * 1,298,015 groups and 37 seconds, spent to learn something already known
+   * after the first twenty thousand.
+   */
+  stopAfter?: number,
 ): number[] {
   const excess: number[] = [];
   /*
@@ -475,6 +499,7 @@ export function verifyCandidates(
         if (row !== undefined) excess.push(row);
       }
     }
+    if (stopAfter !== undefined && excess.length > stopAfter) break;
   }
   excess.sort((a, b) => a - b);
   return excess;
@@ -618,9 +643,13 @@ export function repairExactUniq(
   // Collisions grow as the square of the run; the cap grows with the run too.
   // Tripping it on a run small enough for the in-memory engine falls back
   // there; past that the caller refuses honestly (see exact-disk.ts).
-  if (excess.length > maxRepairRowsFor(count)) {
+  const cap = maxRepairRowsFor(count);
+  if (excess.length > cap) {
     dropFingerprints();
-    throw new ExactUniqRepairNeeded(excess.length, label);
+    // The fingerprint path stops counting once it is past the cap, so the figure
+    // it hands over is a floor. Said as a floor; everywhere else it is exact.
+    const partial = fingerprint?.partial === true;
+    throw new ExactUniqRepairNeeded(partial ? cap : excess.length, label, partial);
   }
   excess.sort((a, b) => a - b);
 

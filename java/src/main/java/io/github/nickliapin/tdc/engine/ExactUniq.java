@@ -98,12 +98,24 @@ final class ExactUniq {
     private static final long serialVersionUID = 1L;
 
     RepairNeeded(int collisions, String label) {
+      this(collisions, label, false);
+    }
+
+    /**
+     * {@code atLeast} says the count is a floor, not a total.
+     *
+     * <p>The scan that finds repeats stops as soon as it is past the cap, because nothing it
+     * could find afterwards changes the answer. What it gives up is the exact figure, and a
+     * number that is quietly 20,001 where the truth is 1,618,803 is worse than no number: it
+     * invites someone to widen a column by a little.
+     */
+    RepairNeeded(int collisions, String label, boolean atLeast) {
       super(
           "uniq "
               + label
               + " is too tight to repair without holding the whole table ("
-              + collisions
-              + " row(s) couldn't be placed) — run without mode=\"stream\" so the in-memory "
+              + (atLeast ? "more than " + collisions + " rows" : collisions + " row(s)")
+              + " couldn't be placed) — run without mode=\"stream\" so the in-memory "
               + "engine can arrange it.");
     }
   }
@@ -294,11 +306,15 @@ final class ExactUniq {
       }
       return registryOf(ids, resolvers);
     }
-    if (excess.size() > maxRepairRowsFor(count)) {
+    int cap = maxRepairRowsFor(count);
+    if (excess.size() > cap) {
       if (scan != null) {
         scan.drop();
       }
-      throw new RepairNeeded(excess.size(), label);
+      // The fingerprint path stops counting once it is past the cap, so its figure is a floor.
+      // Said as a floor; everywhere else it is exact.
+      boolean partial = scan != null && scan.partial();
+      throw new RepairNeeded(partial ? cap : excess.size(), label, partial);
     }
 
     // The colliding rows on their own often lack the variety to move — a lone duplicate can only
@@ -468,7 +484,9 @@ final class ExactUniq {
    * row — no record has to be parsed to be compared.
    */
   /** What the fingerprint hunt produced: the sorted piles, their home, and the verified rows. */
-  private record FingerprintScan(List<Path> sortedPaths, Path directory, List<Integer> excess) {
+  /** {@code partial} is true when the verify stopped at the cap, so {@code excess} is a floor. */
+  private record FingerprintScan(
+      List<Path> sortedPaths, Path directory, List<Integer> excess, boolean partial) {
     void drop() {
       for (Path path : sortedPaths) {
         try {
@@ -533,7 +551,11 @@ final class ExactUniq {
       sortedPaths.add(out);
       candidates.addAll(Fingerprint.candidateGroups(out));
     }
-    return new FingerprintScan(sortedPaths, directory, verify(resolvers, candidates, report));
+    // Past the cap the caller refuses whatever the exact figure is, so the verify is told where
+    // the answer stops mattering.
+    int stopAfter = maxRepairRowsFor(count);
+    List<Integer> excess = verify(resolvers, candidates, report, stopAfter);
+    return new FingerprintScan(sortedPaths, directory, excess, excess.size() > stopAfter);
   }
 
   /**
@@ -594,7 +616,7 @@ final class ExactUniq {
 
   /** Keep only the rows whose tuples GENUINELY repeat, lowest row of each group spared. */
   private static List<Integer> verify(
-      List<Resolver> resolvers, List<List<Long>> candidates, RepairReport report) {
+      List<Resolver> resolvers, List<List<Long>> candidates, RepairReport report, int stopAfter) {
     List<Integer> excess = new ArrayList<>();
     report.step(candidates.size());
     // Reported, because this is where a large run goes quiet: every candidate group costs a
@@ -624,6 +646,13 @@ final class ExactUniq {
         }
         java.util.Collections.sort(rows);
         excess.addAll(rows.subList(1, rows.size()));
+      }
+      // Past the cap the run falls back to the in-memory engine whatever the exact figure is,
+      // and finding it out costs a tuple recomputed per row for every remaining group. On a
+      // config that misses the cap by two orders of magnitude — 1,618,803 rows against 20,000 —
+      // the reference measured 6.79 s to finish counting against 0.08 s to stop here.
+      if (excess.size() > stopAfter) {
+        break;
       }
     }
     java.util.Collections.sort(excess);

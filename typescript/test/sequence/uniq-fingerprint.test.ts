@@ -19,6 +19,7 @@ import { describe, expect, it } from 'vitest';
 import {
   countDuplicates,
   repairExactUniq,
+  ExactUniqRepairNeeded,
   verifyCandidates,
 } from '../../src/sequence/exact-uniq.js';
 
@@ -149,5 +150,39 @@ describe('fingerprints find and fix what text finds and fixes', () => {
       },
     ); // clean
     expect(countDirs()).toBe(before);
+  });
+  /*
+   * The scan that finds repeats stops as soon as it is past the cap, because
+   * nothing it could find afterwards changes the answer — on a config that
+   * misses the cap by two orders of magnitude that was 6.79 s of counting
+   * against 0.08 s of stopping. What it gives up is the exact figure, so the
+   * sentence has to stop claiming one. The wording is shared by five
+   * implementations; this pins both halves of it.
+   */
+  it('names the count as a floor when the verify stopped at the cap', () => {
+    expect(new ExactUniqRepairNeeded(20_000, '"A × B"', true).message).toBe(
+      'uniq "A × B" is too tight to repair without holding the whole table ' +
+        '(more than 20000 rows couldn\'t be placed) — run without mode="stream" ' +
+        'so the in-memory engine can arrange it.',
+    );
+  });
+
+  it('names it exactly when the count is exact', () => {
+    expect(new ExactUniqRepairNeeded(1, '"A × B"').message).toBe(
+      'uniq "A × B" is too tight to repair without holding the whole table ' +
+        '(1 row(s) couldn\'t be placed) — run without mode="stream" ' +
+        'so the in-memory engine can arrange it.',
+    );
+  });
+
+  it('stops the verify once the excess is past the point it is asked to stop at', () => {
+    // Ten groups of two identical rows: nine would be found without the stop.
+    const rows = Array.from({ length: 20 }, (_, i) => Math.floor(i / 2));
+    const resolvers = [
+      { id: 'A', name: 'A', values: [], resolve: (i: number) => `a${String(rows[i] ?? 0)}` },
+    ];
+    const candidates = Array.from({ length: 10 }, (_, g) => [g * 2, g * 2 + 1]);
+    expect(verifyCandidates(resolvers, candidates)).toHaveLength(10);
+    expect(verifyCandidates(resolvers, candidates, undefined, 3)).toHaveLength(4);
   });
 });

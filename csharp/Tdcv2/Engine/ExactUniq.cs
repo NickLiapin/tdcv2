@@ -96,9 +96,23 @@ internal static class ExactUniq
     internal sealed class RepairNeeded : InvalidOperationException
     {
         internal RepairNeeded(int collisions, string label)
+            : this(collisions, label, false)
+        {
+        }
+
+        /// <param name="collisions">How many rows could not be placed.</param>
+        /// <param name="label">The group, named the way the config names it.</param>
+        /// <param name="atLeast">
+        /// Says the count is a floor, not a total. The scan that finds repeats stops as soon as it
+        /// is past the cap, because nothing it could find afterwards changes the answer. What it
+        /// gives up is the exact figure, and a number that is quietly 20,001 where the truth is
+        /// 1,618,803 is worse than no number: it invites someone to widen a column by a little.
+        /// </param>
+        internal RepairNeeded(int collisions, string label, bool atLeast)
             : base(
-                $"uniq {label} is too tight to repair without holding the whole table ({collisions} "
-                + "row(s) couldn't be placed) — run without mode=\"stream\" so the in-memory engine "
+                $"uniq {label} is too tight to repair without holding the whole table ("
+                + (atLeast ? $"more than {collisions} rows" : $"{collisions} row(s)")
+                + " couldn't be placed) — run without mode=\"stream\" so the in-memory engine "
                 + "can arrange it.")
         {
         }
@@ -244,10 +258,14 @@ internal static class ExactUniq
             return RegistryOf(ids, resolvers);
         }
 
-        if (excess.Count > MaxRepairRowsFor(count))
+        int cap = MaxRepairRowsFor(count);
+        if (excess.Count > cap)
         {
             scan?.Drop();
-            throw new RepairNeeded(excess.Count, label);
+            // The fingerprint path stops counting once it is past the cap, so its figure is a
+            // floor. Said as a floor; everywhere else it is exact.
+            bool partial = scan?.Partial ?? false;
+            throw new RepairNeeded(partial ? cap : excess.Count, label, partial);
         }
 
         // The colliding rows on their own often lack the variety to move — a lone duplicate can
@@ -506,7 +524,9 @@ internal static class ExactUniq
         private static int Fits(long value) => value > int.MaxValue ? int.MaxValue : (int)value;
     }
 
-    private sealed record FingerprintScan(List<string> SortedPaths, string Directory, List<int> Excess)
+    /// <param name="Partial">True when the verify stopped at the cap, so <c>Excess</c> is a floor.</param>
+    private sealed record FingerprintScan(
+        List<string> SortedPaths, string Directory, List<int> Excess, bool Partial)
     {
         internal void Drop()
         {
@@ -565,13 +585,19 @@ internal static class ExactUniq
             candidates.AddRange(Fingerprint.CandidateGroups(outPath));
         }
 
-        return new FingerprintScan(
-            sortedPaths, directory, Verify(resolvers, candidates, report));
+        // Past the cap the caller refuses whatever the exact figure is, so the verify is told
+        // where the answer stops mattering.
+        int stopAfter = MaxRepairRowsFor(count);
+        List<int> excess = Verify(resolvers, candidates, report, stopAfter);
+        return new FingerprintScan(sortedPaths, directory, excess, excess.Count > stopAfter);
     }
 
     /// <summary>Keep only the rows whose tuples GENUINELY repeat, lowest row of each group spared.</summary>
     private static List<int> Verify(
-        IReadOnlyList<Resolver> resolvers, List<List<int>> candidates, RepairReport report)
+        IReadOnlyList<Resolver> resolvers,
+        List<List<int>> candidates,
+        RepairReport report,
+        int stopAfter)
     {
         var excess = new List<int>();
         report.Step(candidates.Count);
@@ -621,6 +647,15 @@ internal static class ExactUniq
 
                 rows.Sort();
                 excess.AddRange(rows.GetRange(1, rows.Count - 1));
+            }
+
+            // Past the cap the run falls back to the in-memory engine whatever the exact figure
+            // is, and finding it out costs a tuple recomputed per row for every remaining group.
+            // On a config that misses the cap by two orders of magnitude — 1,618,803 rows against
+            // 20,000 — the reference measured 6.79 s to finish counting against 0.08 s to stop.
+            if (excess.Count > stopAfter)
+            {
+                break;
             }
         }
 

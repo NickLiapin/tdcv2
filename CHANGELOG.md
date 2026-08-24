@@ -17,6 +17,21 @@ page — is tracked in that implementation's own changelog:
 
 ### Added
 
+<!-- covers: uniq repair cap early stop -->
+
+- **A `<uniq>` too tight for the bounded repair gives up sooner, and stops guessing at a
+  number it no longer knows.** The scan that confirms which rows really repeat used to walk
+  every candidate group before anyone looked at the repair cap — on a config that misses the
+  cap by two orders of magnitude (1,618,803 rows needing repair against a cap of 20,000) that
+  was 1,298,015 groups and **6.79 seconds** spent learning something already settled after the
+  first twenty thousand. It now stops there: **0.078 seconds**.
+
+  What it gives up is the exact figure, so the refusal says `more than 20000 rows couldn't be
+placed` rather than naming a total it stopped counting. A number quietly reading 20,001 where
+  the truth is 1,618,803 is worse than no number — it invites someone to widen a column by a
+  little. Below a million rows there is no fingerprint scan and the count stays exact, so the
+  sentence people usually see is unchanged.
+
 <!-- covers: uniq deal stock heap -->
 
 - **A large `<uniq>` run is more than twice as fast, and every byte of its output is where it

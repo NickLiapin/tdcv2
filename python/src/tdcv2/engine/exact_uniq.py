@@ -76,10 +76,18 @@ class RepairNeededError(RuntimeError):
     fallback that did not occur.
     """
 
-    def __init__(self, collisions: int, label: str) -> None:
+    def __init__(self, collisions: int, label: str, at_least: bool = False) -> None:
+        """``at_least`` says the count is a floor, not a total.
+
+        The scan that finds repeats stops as soon as it is past the cap, because nothing it could
+        find afterwards changes the answer. What it gives up is the exact figure, and a number
+        that is quietly 20,001 where the truth is 1,618,803 is worse than no number: it invites
+        someone to widen a column by a little.
+        """
+        rows = f"more than {collisions} rows" if at_least else f"{collisions} row(s)"
         super().__init__(
             f"uniq {label} is too tight to repair without holding the whole table "
-            f"({collisions} row(s) couldn't be placed) — run without mode=\"stream\" "
+            f"({rows} couldn't be placed) — run without mode=\"stream\" "
             "so the in-memory engine can arrange it."
         )
 
@@ -247,10 +255,14 @@ def repair(
         if plan is not None and plan.on_computed is not None:
             plan.on_computed({})
         return _registry(ids, resolvers)
-    if len(excess) > max_repair_rows_for(count):
+    cap = max_repair_rows_for(count)
+    if len(excess) > cap:
         if scan is not None:
             scan.drop()
-        raise RepairNeededError(len(excess), label)
+        # The fingerprint path stops counting once it is past the cap, so its figure is a floor.
+        # Said as a floor; everywhere else it is exact.
+        partial = scan is not None and scan.partial
+        raise RepairNeededError(cap if partial else len(excess), label, partial)
     excess.sort()
 
     # The colliding rows on their own often lack the variety to move — a lone duplicate can only
@@ -387,6 +399,8 @@ class _FingerprintScan:
     sorted_paths: list[Path]
     directory: Path
     excess: list[int]
+    #: True when the verify stopped at the cap, so ``excess`` is a floor.
+    partial: bool = False
 
     def drop(self) -> None:
         for path in self.sorted_paths:
@@ -425,10 +439,19 @@ def _fingerprint_scan(
         sorted_paths.append(out)
         candidates.extend(fingerprint.candidate_groups(out))
 
-    return _FingerprintScan(sorted_paths, directory, _verify(resolvers, candidates, report))
+    # Past the cap the caller refuses whatever the exact figure is, so the verify is told where
+    # the answer stops mattering.
+    stop_after = max_repair_rows_for(count)
+    excess = _verify(resolvers, candidates, report, stop_after)
+    return _FingerprintScan(sorted_paths, directory, excess, len(excess) > stop_after)
 
 
-def _verify(resolvers: list[Resolver], candidates: list[list[int]], report=None) -> list[int]:
+def _verify(
+    resolvers: list[Resolver],
+    candidates: list[list[int]],
+    report=None,
+    stop_after: int | None = None,
+) -> list[int]:
     """Keep only the rows whose tuples GENUINELY repeat, lowest row of each group spared.
 
     Reported, because this is part of where a large run goes quiet. Every candidate group is a
@@ -453,6 +476,12 @@ def _verify(resolvers: list[Resolver], candidates: list[list[int]], report=None)
                 continue  # a hash collision, not a duplicate
             rows.sort()
             excess.extend(rows[1:])
+        # Past the cap the run falls back to the in-memory engine whatever the exact figure is,
+        # and finding it out costs a tuple recomputed per row for every remaining group. On a
+        # config that misses the cap by two orders of magnitude — 1,618,803 rows against 20,000
+        # — the reference measured 6.79 s to finish counting against 0.08 s to stop here.
+        if stop_after is not None and len(excess) > stop_after:
+            break
     excess.sort()
     return excess
 

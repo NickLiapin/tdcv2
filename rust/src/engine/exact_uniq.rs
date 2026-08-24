@@ -118,8 +118,24 @@ impl Resolver {
 /// Its own error rather than a message, because the disk engine catches exactly
 /// this and hands the config to the in-memory engine.
 pub fn repair_needed(collisions: usize, label: &str) -> EngineError {
+    repair_needed_at_least(collisions, label, false)
+}
+
+/// The same refusal, with the count named as a FLOOR rather than a total.
+///
+/// The scan that finds repeats stops as soon as it is past the cap, because
+/// nothing it could find afterwards changes the answer. What it gives up is the
+/// exact figure, and a number that is quietly 20,001 where the truth is
+/// 1,618,803 is worse than no number: it invites someone to widen a column by a
+/// little.
+pub fn repair_needed_at_least(collisions: usize, label: &str, at_least: bool) -> EngineError {
+    let rows = if at_least {
+        format!("more than {collisions} rows")
+    } else {
+        format!("{collisions} row(s)")
+    };
     EngineError::Unsupported(format!(
-        "uniq {label} is too tight to repair without holding the whole table ({collisions} row(s) \
+        "uniq {label} is too tight to repair without holding the whole table ({rows} \
          couldn't be placed) — run without mode=\"stream\" so the in-memory engine can arrange it."
     ))
 }
@@ -256,11 +272,16 @@ pub fn repair(
         }
         return Ok(Overrides::new());
     }
-    if excess.len() > max_repair_rows_for(count) {
+    let cap = max_repair_rows_for(count);
+    if excess.len() > cap {
         if let Some(found) = &scan {
             found.drop_files();
         }
-        return Err(repair_needed(excess.len(), label));
+        // The fingerprint path stops counting once it is past the cap, so its
+        // figure is a floor. Said as a floor; everywhere else it is exact.
+        let partial = scan.as_ref().is_some_and(|found| found.partial);
+        let named = if partial { cap } else { excess.len() };
+        return Err(repair_needed_at_least(named, label, partial));
     }
     excess.sort_unstable();
 
@@ -424,6 +445,8 @@ struct FingerprintScan {
     sorted_paths: Vec<PathBuf>,
     directory: PathBuf,
     excess: Vec<i32>,
+    /// True when the verify stopped at the cap, so `excess` is a floor.
+    partial: bool,
 }
 
 impl FingerprintScan {
@@ -495,11 +518,16 @@ fn fingerprint_scan(
         sorted_paths.push(out);
     }
 
-    let excess = verify_candidates(sources, &candidates, report);
+    // Past the cap the caller refuses whatever the exact figure is, so the verify
+    // is told where the answer stops mattering.
+    let stop_after = max_repair_rows_for(count);
+    let excess = verify_candidates(sources, &candidates, report, stop_after);
+    let partial = excess.len() > stop_after;
     Ok(Some(FingerprintScan {
         sorted_paths,
         directory,
         excess,
+        partial,
     }))
 }
 
@@ -558,6 +586,7 @@ fn verify_candidates(
     sources: &[Source<'_>],
     candidates: &[Vec<usize>],
     report: &mut RepairReport<'_>,
+    stop_after: usize,
 ) -> Vec<i32> {
     let mut excess: Vec<i32> = Vec::new();
     report.step(candidates.len());
@@ -586,6 +615,14 @@ fn verify_candidates(
             }
             rows.sort_unstable();
             excess.extend(rows.into_iter().skip(1));
+        }
+        // Past the cap the run falls back to the in-memory engine whatever the
+        // exact figure is, and finding it out costs a tuple recomputed per row for
+        // every remaining group. On a config that misses the cap by two orders of
+        // magnitude — 1,618,803 rows against 20,000 — the reference measured
+        // 6.79 s to finish counting against 0.08 s to stop here.
+        if excess.len() > stop_after {
+            break;
         }
     }
     excess.sort_unstable();
