@@ -518,13 +518,55 @@ impl Tdc {
             .extension()
             .is_some_and(|e| e.eq_ignore_ascii_case("parquet"));
 
-        let bytes = if parquet {
-            self.parquet_bytes()?
-        } else {
-            self.text().into_bytes()
-        };
-        std::fs::write(target, bytes)
+        if parquet {
+            // Page by page, not all at once. The run is held either way — this
+            // object IS the run — but the encoded file need not be held on top
+            // of it, and a `.parquet` target used to cost its own size again.
+            return self.write_parquet_file(target);
+        }
+        std::fs::write(target, self.text().into_bytes())
             .map_err(|e| TdcError::Io(format!("cannot write \"{}\": {e}", target.display())))
+    }
+
+    /// The Parquet file, streamed to disk from the run this object holds.
+    fn write_parquet_file(&self, target: &Path) -> Result<(), TdcError> {
+        use std::io::Write as _;
+
+        let file = std::fs::File::create(target)
+            .map_err(|e| TdcError::Io(format!("cannot write \"{}\": {e}", target.display())))?;
+        let mut out = std::io::BufWriter::new(file);
+        let mut io_error: Option<std::io::Error> = None;
+
+        let hook = self.on_progress.clone();
+        let report =
+            hook.map(|h| move |phase: &str, done: usize, total: usize| (h.0)(phase, done, total));
+        let written = crate::output::parquet_output::write_watched(
+            &self.config,
+            self.run.as_ref(),
+            report.as_ref().map(|f| f as &dyn Fn(&str, usize, usize)),
+            &mut |bytes| {
+                if io_error.is_none() {
+                    if let Err(e) = out.write_all(bytes) {
+                        io_error = Some(e);
+                    }
+                }
+            },
+        );
+        if io_error.is_none() {
+            if let Err(e) = out.flush() {
+                io_error = Some(e);
+            }
+        }
+        drop(out);
+
+        if let Some(e) = io_error {
+            return Err(TdcError::Io(format!(
+                "cannot write \"{}\": {e}",
+                target.display()
+            )));
+        }
+        written?;
+        Ok(())
     }
 
     /// The run as a Parquet file, whatever the target is called.
@@ -760,9 +802,10 @@ impl Plan {
     /// never writes — and encoding from one can only re-read what is already
     /// there. This walks the rows ONCE.
     ///
-    /// It is not streaming, and does not claim to be: Parquet's footer carries
-    /// the offset of every row group, so the encoded file is held until the last
-    /// group exists. What is no longer held is the run behind it.
+    /// Nothing whole is held: the rows are asked for as each row group is laid
+    /// down, and the encoded pages go to the file and are dropped. What stays is
+    /// the row-group index the footer is made of — a few numbers per group,
+    /// which is the one thing Parquet cannot be written without.
     ///
     /// Returns `false` when this run cannot take the path — a target that is not
     /// Parquet, the in-memory engine (which holds the run by design), or a config
@@ -791,20 +834,52 @@ impl Plan {
             Err(e) => return self.parquet_fallback(e),
         };
 
+        use std::io::Write as _;
+
+        let file = std::fs::File::create(target)
+            .map_err(|e| TdcError::Io(format!("cannot write \"{}\": {e}", target.display())))?;
+        let mut out = std::io::BufWriter::new(file);
+        // The sink keeps the FIRST failure and stops writing. The writer has no
+        // error channel of its own by design — the reason the OS gave is the
+        // better message, and it lives here.
+        let mut io_error: Option<std::io::Error> = None;
+
         let hook = self.on_progress.clone();
         let report =
             hook.map(|h| move |phase: &str, done: usize, total: usize| (h.0)(phase, done, total));
-        let bytes = match crate::output::parquet_output::to_bytes_from_engine(
+        let written = crate::output::parquet_output::write_from_engine(
             &self.config,
             &engine,
             report.as_ref().map(|f| f as &dyn Fn(&str, usize, usize)),
-        ) {
-            Ok(bytes) => bytes,
-            Err(e) => return self.parquet_fallback(e),
-        };
+            &mut |bytes| {
+                if io_error.is_none() {
+                    if let Err(e) = out.write_all(bytes) {
+                        io_error = Some(e);
+                    }
+                }
+            },
+        );
+        if io_error.is_none() {
+            if let Err(e) = out.flush() {
+                io_error = Some(e);
+            }
+        }
+        drop(out);
 
-        std::fs::write(target, bytes)
-            .map_err(|e| TdcError::Io(format!("cannot write \"{}\": {e}", target.display())))?;
+        if let Some(e) = io_error {
+            return Err(TdcError::Io(format!(
+                "cannot write \"{}\": {e}",
+                target.display()
+            )));
+        }
+        if let Err(e) = written {
+            // The half-written file goes FIRST, so a config handed back to the
+            // ordinary path cannot leave a truncated run looking finished.
+            std::fs::remove_file(target).map_err(|e| {
+                TdcError::Io(format!("cannot remove \"{}\": {e}", target.display()))
+            })?;
+            return self.parquet_fallback(e);
+        }
         Ok(true)
     }
 

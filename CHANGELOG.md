@@ -191,8 +191,10 @@ page — is tracked in that implementation's own changelog:
   Parquet output reports too, once per row group of fifty thousand rows — coarser
   than the text path because a row group is the unit that writer works in. Watching
   that percent is what showed the Rust implementation walking every row twice for a
-  Parquet file, and then holding the whole run while it did: it now encodes straight
-  off the engine, at 1.31 GB to 56 MB on five million rows for the same bytes.
+  Parquet file, and then holding both the whole run and the whole encoded file while
+  it did. It now encodes straight off the engine and writes each page out as it is
+  made: 60,000,000 rows and a 375 MB file finish inside 30 MB of memory, where the
+  cost used to follow the size of the output.
 
   A phase's LAST report is always written, throttle or not. Forty-four piles can finish
   inside one second, and the once-a-second throttle then dropped every report after the

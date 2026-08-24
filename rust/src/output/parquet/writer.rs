@@ -67,15 +67,27 @@ struct GroupMeta {
     num_rows: i64,
 }
 
-/// The whole file in memory.
+/// The file, written a page at a time.
 ///
-/// One batch per call to `next`, `None` when there are no more — the seam that
-/// keeps peak memory at one row group however long the file is.
-pub fn to_bytes(
+/// One batch per call to `next`, `None` when there are no more, and every page
+/// handed to `out` and dropped. Peak memory is one row group plus the row-group
+/// INDEX — a few numbers per group, which the footer cannot be written without.
+///
+/// It used to collect the pages into a `Vec` and return the whole file, under a
+/// comment claiming peak memory was one row group. The seam was real but it
+/// bounded the wrong thing: what stayed small was the batch being built, while
+/// the encoded output grew to the size of the file. A ten-gigabyte export needed
+/// ten gigabytes of memory, in the one implementation of five that did that.
+///
+/// `out` cannot fail here on purpose. The caller owns the error channel and
+/// keeps the reason the OS gave, which is a better message than "a write
+/// refused" — the same arrangement the text path's `FileSink` uses.
+pub fn write_to(
     columns: &[Column],
     mut next: impl FnMut() -> Option<Vec<Vec<Cell>>>,
-) -> EngineResult<Vec<u8>> {
-    let mut out = Vec::from(MAGIC);
+    out: &mut dyn FnMut(&[u8]),
+) -> EngineResult<()> {
+    out(&MAGIC);
     let mut offset = MAGIC.len() as i64;
     let mut groups: Vec<GroupMeta> = Vec::new();
     let mut num_rows = 0i64;
@@ -85,7 +97,7 @@ pub fn to_bytes(
             continue;
         };
         for page in &block.pages {
-            out.extend_from_slice(page);
+            out(page);
         }
         groups.push(GroupMeta {
             chunks: shift(block.chunks, offset),
@@ -95,8 +107,19 @@ pub fn to_bytes(
         num_rows += block.num_rows;
     }
 
-    out.extend_from_slice(&footer(columns, &groups, num_rows)?);
-    Ok(out)
+    out(&footer(columns, &groups, num_rows)?);
+    Ok(())
+}
+
+/// The whole file in memory — for a caller that wants the bytes rather than a
+/// file, and for the tests that pin them.
+pub fn to_bytes(
+    columns: &[Column],
+    next: impl FnMut() -> Option<Vec<Vec<Cell>>>,
+) -> EngineResult<Vec<u8>> {
+    let mut buffer: Vec<u8> = Vec::new();
+    write_to(columns, next, &mut |bytes| buffer.extend_from_slice(bytes))?;
+    Ok(buffer)
 }
 
 /// One row group, encoded and ready to be placed anywhere in a file.

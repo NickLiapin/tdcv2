@@ -134,34 +134,54 @@ pub fn to_bytes_watched(
     rows: &dyn RowSource,
     on_progress: crate::engine::Watch<'_>,
 ) -> EngineResult<Vec<u8>> {
-    encode(config, &SourceCells(rows), on_progress)
+    let mut buffer: Vec<u8> = Vec::new();
+    encode(config, &SourceCells(rows), on_progress, &mut |bytes| {
+        buffer.extend_from_slice(bytes);
+    })?;
+    Ok(buffer)
 }
 
-/// The same file, taken straight off the engine — one pass over the rows.
+/// A run that is already in memory, written a page at a time.
 ///
-/// The run is never materialised: values are asked for as each row group is
-/// laid down and released with it. What is still held is the encoded FILE,
-/// because Parquet's footer carries the offset of every row group and cannot be
-/// written until the last one exists.
-pub fn to_bytes_from_engine(
+/// The run itself is held either way — the caller has one — but the encoded file
+/// need not be, and this is what keeps a `.parquet` target from costing its own
+/// size in memory on top.
+pub fn write_watched(
+    config: &Config,
+    rows: &dyn RowSource,
+    on_progress: crate::engine::Watch<'_>,
+    out: &mut dyn FnMut(&[u8]),
+) -> EngineResult<()> {
+    encode(config, &SourceCells(rows), on_progress, out)
+}
+
+/// The file, taken straight off the engine and written a page at a time.
+///
+/// Nothing whole is ever held: the run is not materialised — values are asked
+/// for as each row group is laid down — and the encoded pages go to `out` and
+/// are dropped. What is kept is the row-group index the footer is made of, which
+/// is a few numbers per group.
+pub fn write_from_engine(
     config: &Config,
     engine: &crate::engine::stream::StreamEngine<'_>,
     on_progress: crate::engine::Watch<'_>,
-) -> EngineResult<Vec<u8>> {
+    out: &mut dyn FnMut(&[u8]),
+) -> EngineResult<()> {
     let cells = EngineCells::new(engine);
-    let bytes = encode(config, &cells, on_progress);
+    let written = encode(config, &cells, on_progress, out);
     // A cell that failed mid-encode beats whatever the writer made of the gap.
     if let Some(error) = cells.failure.into_inner() {
         return Err(error);
     }
-    bytes
+    written
 }
 
 fn encode(
     config: &Config,
     rows: &dyn Cells,
     on_progress: crate::engine::Watch<'_>,
-) -> EngineResult<Vec<u8>> {
+    out: &mut dyn FnMut(&[u8]),
+) -> EngineResult<()> {
     let plan = build_plan(config)?;
     let count = rows.count();
     let mut start = 0usize;
@@ -178,7 +198,9 @@ fn encode(
      */
     let failure: std::cell::RefCell<Option<EngineError>> = std::cell::RefCell::new(None);
 
-    let bytes = writer::to_bytes(&plan.columns, || {
+    let written = writer::write_to(
+        &plan.columns,
+        || {
         if start >= count || failure.borrow().is_some() {
             return None;
         }
@@ -192,18 +214,20 @@ fn encode(
         let end = (start + ROW_GROUP_ROWS).min(count);
         let batch = build_batch(&plan, config, rows, start, end);
         start = end;
-        match batch {
-            Ok(batch) => Some(batch),
-            Err(e) => {
-                *failure.borrow_mut() = Some(e);
-                None
+            match batch {
+                Ok(batch) => Some(batch),
+                Err(e) => {
+                    *failure.borrow_mut() = Some(e);
+                    None
+                }
             }
-        }
-    });
+        },
+        out,
+    );
     if let Some(error) = failure.into_inner() {
         return Err(error);
     }
-    bytes
+    written
 }
 
 /// The resolved schema, for telling the user which types were chosen.

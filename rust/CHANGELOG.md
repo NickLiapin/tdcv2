@@ -15,17 +15,30 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - **Parquet reports too**, once per row group.
 
-- **A Parquet run no longer materialises the run first.** The command line now encodes
-  straight off the engine: the rows are walked ONCE and each row group is released as it
-  is written, where before every column — and the text output a Parquet export never
-  writes — was built and held first. Measured on five million rows: peak memory 1.31 GB
-  to 56 MB, 12.5 s to 10.0 s, byte for byte the same file.
+- **A Parquet run holds neither the run nor the file.** Two things were being kept whole,
+  and both are gone.
 
-  `RowSource` could not be the way in, and that is why there is now a `Cells` trait
-  beside it: `RowSource` hands out `&str` borrowed from the run, so anything implementing
-  it has to hold the run. `Cells` asks for one owned value at a time, which the engine can
-  answer without holding anything. A caller that already has a built run and asks it for
-  `to_parquet()` still re-reads what it is holding — there is nothing to save there.
+  The run was materialised before anything was encoded — every column, plus the text
+  output a Parquet export never writes. `RowSource` could not be the way in, which is why
+  there is now a `Cells` trait beside it: `RowSource` hands out `&str` borrowed from the
+  run, so anything implementing it has to hold the run, while `Cells` asks for one owned
+  value at a time and the engine answers without holding anything.
+
+  The encoded file was kept too. The writer collected its pages into a `Vec` and returned
+  the lot, under a comment claiming peak memory was one row group — the seam was real but
+  it bounded the batch being built, not the output. It now writes each page to a sink and
+  drops it, keeping only the row-group index the footer is made of.
+
+  Measured, same bytes throughout:
+
+  |       rows |   file |      peak memory |
+  | ---------: | -----: | ---------------: |
+  |  5,000,000 |  31 MB |  1.31 GB → 56 MB |
+  | 20,000,000 | 125 MB | 155 MB → 28.8 MB |
+  | 60,000,000 | 375 MB |      — → 29.7 MB |
+
+  The last row is the point: the file tripled and the memory did not move. `to_parquet()`
+  still returns the whole file, because that is what it is for.
 
 - **A Parquet file is no longer built twice.** The writer's callback cannot report a bad
   cell, so a failure was swallowed and the WHOLE run converted a second time afterwards
