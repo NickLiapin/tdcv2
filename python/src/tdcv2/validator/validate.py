@@ -2098,12 +2098,15 @@ class _Validator:
             return
         self._warn(
             "TDC299",
-            f'uniq on "{name or "?"}" holds all {self.env_count:,} values in memory '
-            f"for the whole run — about {_megabytes(self.env_count * _UNIQ_BYTES_PER_VALUE)}",
-            "Drawing without replacement means remembering what has been drawn, so this "
-            "cannot stream: the config runs on the in-memory engine whatever mode= asks "
-            "for. Measured at about 250 bytes a value. It works — it is worth being "
-            "deliberate about at this size.",
+            f'uniq on "{name or "?"}" costs about '
+            f"{_megabytes(self.env_count * _UNIQ_BYTES_PER_VALUE)} at {self.env_count:,} rows "
+            f"— memory that follows the row count",
+            "Keeping a promise about the finished column costs memory that follows count, on "
+            "every engine — the cost belongs to the promise, not to one of them. About 250 "
+            "bytes a value, measured; a compound uniq measures higher still. A single drawn "
+            "column pays twice: drawing without replacement cannot be done a row at a time, so "
+            "that shape also runs in memory whatever mode= asks for. It works — it is worth "
+            "being deliberate about at this size.",
             _line(open_el),
             _column(open_el),
         )

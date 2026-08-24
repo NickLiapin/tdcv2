@@ -163,6 +163,22 @@ page — is tracked in that implementation's own changelog:
 
 ### Changed
 
+<!-- covers: TDC299 -->
+
+- **`TDC299` no longer explains its warning with a mechanism that only fits one shape of
+  `uniq`.** It said the whole column stays in memory and "the run cannot stream: the config
+  runs on the in-memory engine whatever `mode=` asks for". That is true of a single drawn
+  column, which is what it was written for. It is not true of the other two: the router sends
+  a compound `uniq` and a `uniq` counter to the exact on-disk engine, measured.
+
+  The number was never the problem, and the fix does not touch it. A `uniq` counter at
+  4,000,000 rows measured 940 MB against the 954 MB the warning predicts, and a compound
+  `uniq` at 2,400,000 rows measured 851 MB against 572 MB predicted — so if anything it
+  UNDERSTATES. The warning now says what is true of all three: the memory follows `count` on
+  every engine, because the cost belongs to the promise rather than to one engine, and a
+  single drawn column pays twice by being pinned to memory as well. Five implementations,
+  the error reference in three languages.
+
 <!-- covers: uniq engines -->
 
 - **Uniqueness at scale: the disk engines carry uniq tuples as fingerprints.** On runs

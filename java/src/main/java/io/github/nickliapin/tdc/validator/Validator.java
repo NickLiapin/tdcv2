@@ -2376,12 +2376,14 @@ public final class Validator {
         ? String.format(java.util.Locale.ROOT, "%.1f GB", mb / 1024)
         : grouped((long) Math.round(mb)) + " MB";
     warn("TDC299",
-        "uniq on \"" + (name == null ? "?" : name) + "\" holds all " + grouped(envCount)
-            + " values in memory for the whole run — about " + size,
-        "Drawing without replacement means remembering what has been drawn, so this cannot "
-            + "stream: the config runs on the in-memory engine whatever mode= asks for. Measured "
-            + "at about 250 bytes a value. It works — it is worth being deliberate about at this "
-            + "size.",
+        "uniq on \"" + (name == null ? "?" : name) + "\" costs about " + size + " at "
+            + grouped(envCount) + " rows — memory that follows the row count",
+        "Keeping a promise about the finished column costs memory that follows count, on every "
+            + "engine — the cost belongs to the promise, not to one of them. About 250 bytes a "
+            + "value, measured; a compound uniq measures higher still. A single drawn column pays "
+            + "twice: drawing without replacement cannot be done a row at a time, so that shape "
+            + "also runs in memory whatever mode= asks for. It works — it is worth being "
+            + "deliberate about at this size.",
         line(open), column(open));
   }
 
