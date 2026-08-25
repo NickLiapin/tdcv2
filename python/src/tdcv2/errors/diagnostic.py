@@ -33,14 +33,25 @@ class Diagnostic:
     hint: str
     line: int
     column: int
+    #: The near name, when there is one: ``did you mean "person.male.firstName"?``
+    #:
+    #: Its own line rather than a sentence folded into the hint, because it is the one part a
+    #: reader can act on without reading anything else — and because the reference prints it as
+    #: ``help:``, above the ``note:``. Folded in, it arrived buried; left out, the reader was
+    #: told a name is wrong and not what the right one is.
+    suggestion: str = ""
 
     @staticmethod
-    def error(code: str, message: str, hint: str, line: int, column: int) -> Diagnostic:
-        return Diagnostic(Severity.ERROR, code, message, hint, line, column)
+    def error(
+        code: str, message: str, hint: str, line: int, column: int, suggestion: str = ""
+    ) -> Diagnostic:
+        return Diagnostic(Severity.ERROR, code, message, hint, line, column, suggestion)
 
     @staticmethod
-    def warning(code: str, message: str, hint: str, line: int, column: int) -> Diagnostic:
-        return Diagnostic(Severity.WARNING, code, message, hint, line, column)
+    def warning(
+        code: str, message: str, hint: str, line: int, column: int, suggestion: str = ""
+    ) -> Diagnostic:
+        return Diagnostic(Severity.WARNING, code, message, hint, line, column, suggestion)
 
     def signature(self) -> str:
         """The shape the shared fixtures record: severity, code and position — never wording."""
@@ -93,3 +104,43 @@ def summarize(diagnostics: list[Diagnostic]) -> str:
     if warnings:
         parts.append(f"{warnings} warning{'' if warnings == 1 else 's'}")
     return f"{', '.join(parts)}; first: {first.message} (line {first.line}, col {first.column + 1})"
+
+
+def closest_match(needle: str, candidates, max_distance: int = 3) -> str:
+    """The candidate nearest ``needle``, or "" when nothing is near enough.
+
+    Ported from the reference: a case-only difference always wins, and a best distance past
+    ``max_distance`` — or past about half the needle's length — is not a typo but a different
+    word, where saying "did you mean" is worse than saying nothing.
+    """
+    names = list(candidates)
+    if not needle or not names:
+        return ""
+    limit = min(max_distance, max(1, len(needle) // 2 + 1))
+    lower = needle.lower()
+    for candidate in names:
+        if candidate.lower() == lower and candidate != needle:
+            return candidate
+    best, best_distance = "", None
+    for candidate in names:
+        d = _distance(needle, candidate)
+        if best_distance is None or d < best_distance:
+            best, best_distance = candidate, d
+    return best if best_distance is not None and best_distance <= limit else ""
+
+
+def _distance(a: str, b: str) -> int:
+    """Levenshtein, the same two-row walk the reference uses."""
+    m, n = len(a), len(b)
+    if m == 0:
+        return n
+    if n == 0:
+        return m
+    prev = list(range(n + 1))
+    for i in range(1, m + 1):
+        curr = [i] + [0] * n
+        for j in range(1, n + 1):
+            cost = 0 if a[i - 1] == b[j - 1] else 1
+            curr[j] = min(curr[j - 1] + 1, prev[j] + 1, prev[j - 1] + cost)
+        prev = curr
+    return prev[n]

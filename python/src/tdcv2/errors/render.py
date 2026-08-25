@@ -56,6 +56,10 @@ def format_diagnostic(
 
     if source:
         lines.extend(_snippet(diagnostic, source, colors))
+    # `help` before `note`, as the reference prints them: the near name first, the explanation
+    # after it.
+    if diagnostic.suggestion:
+        lines.append(f"{_colorize('help', _CYAN, colors)}: {diagnostic.suggestion}")
     if diagnostic.hint:
         lines.append(f"{_colorize('note', _CYAN, colors)}: {diagnostic.hint}")
 

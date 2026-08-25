@@ -377,6 +377,29 @@ placed` rather than naming a total it stopped counting. A number quietly reading
   produces their sum in Python, Java, C# and Rust, where it produced their digits run together.
   TypeScript is unchanged.
 
+- **The four ports never said "did you mean".** The reference prints the near name on its own
+  `help:` line above the note — the one part of a diagnostic a reader can act on without reading
+  anything else — and the ports had no field for it. Some left it out; some folded it into the
+  front of the hint, where it read as part of the explanation. All four now carry a `suggestion`,
+  render it as `help:`, and compute the near name the way the reference does: a case-only
+  difference always wins, and a distance past three — or past about half the typo's length — is
+  a different word rather than a slip, where saying "did you mean" is worse than saying nothing.
+
+- **A formula's refusal called the formula "a parameter".** `TDC240` on an `expr=` said "a
+  parameter reads a column that already exists" in all four ports, because one routine serves
+  both `expr=` and the distribution parameters. The note is the half a reader acts on, so it has
+  to be about the thing in front of them: a formula now reads "a formula is computed from columns
+  that already exist", as the reference has it.
+
+- **`TDC193` gave one answer to three different mistakes.** `${{P.gone}}` where `P` is a compound
+  said "is not a declared sequence" — sending the reader to `<env>` to declare a `P` that is
+  declared right there. The reference separates them: a known root with fields gets "is not a
+  field of P" and the list of the fields it does have; a known root with none gets "P has no
+  fields" and the reason (only a compound or composed `<sequence>` has any); an unknown root
+  keeps the original. All four now do. The field list is in DECLARATION order, which cost Python,
+  Rust and C# a companion list — their name stores are sets, and a set has no order to lend a
+  message.
+
 - **A refusal printed its own template instead of its sentence.** `A[0] == 1` in an `if=` gave
   `computed member access is not supported in {article} {label}` in Rust and C# — the two braces
   reaching the user as literal text because the message was written as a plain string where the

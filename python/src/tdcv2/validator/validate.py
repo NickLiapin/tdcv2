@@ -29,6 +29,7 @@ from ..date.plain import Precision
 from ..distribution import percent_mask
 from ..engine.memory import RESERVED_TEMPLATE_ATTRS
 from ..errors import Diagnostic
+from ..errors.diagnostic import closest_match
 from ..expr import parse as expr_parse
 from ..expr.match_key import match_key
 from ..expr.parse import (
@@ -314,6 +315,11 @@ POOL_MAX_MEMBERS = 1_000_000
 # name in the language, so writing any of them on a <gen> passed in silence
 # while the reference refused it — a config that ran differently depending on
 # which implementation you happened to use.
+def _did_you_mean(name: str) -> str:
+    """The `help:` line for a near name, or "" when nothing was near enough."""
+    return f'did you mean "{name}"?' if name else ""
+
+
 def _candidates(names, most: int = 6) -> str:
     """A list of allowed names, truncated the way the reference truncates every long one.
 
@@ -793,6 +799,7 @@ class _Validator:
         "current_sequence",
         "declared_names",
         "declared_order",
+        "declared_fields",
         "diagnostics",
         "document_regex_max_length",
         "env_count",
@@ -827,6 +834,13 @@ class _Validator:
         # Every sequence name the config declares — what an interpolation may refer to.
         self.declared_names: set[str] = set()
         self.declared_order: list[str] = []
+        #: Dotted field names in DECLARATION order — `P.zeta`, `P.alpha`, not sorted.
+        #:
+        #: `declared_names` is a set, and a set has no order to lend a message. The reference
+        #: lists a compound's fields the way the config writes them, so a reader matching the
+        #: note against the <sequence> above reads down the same list; sorted, `zeta, alpha`
+        #: came back as `alpha, zeta` and stopped being that list.
+        self.declared_fields: list[str] = []
         # The sequence being walked right now, if it has a name. `declared_order`
         # deliberately excludes it — that is what makes "declared above" mean what it
         # says — so a check needing to know whose column this is cannot read it there.
@@ -1468,6 +1482,7 @@ class _Validator:
             self._check_pool_filter(gen, pool_name, fields, attrs)
             for field_name in fields:
                 self.declared_names.add(f"{name}.{field_name}")
+                self.declared_fields.append(f"{name}.{field_name}")
             # The reference itself is a record, not a value: it has nothing to print.
             self.valueless_names.add(name)
             self.pool_references.add(name)
@@ -2151,6 +2166,7 @@ class _Validator:
                     constant = _attrs(data.attr()).get("name")
                     if constant and constant.strip():
                         self.declared_names.add(f"{name}.{constant}")
+                        self.declared_fields.append(f"{name}.{constant}")
                 continue
             self_closing = child.selfClosingElement()
             if self_closing is not None and self_closing.name.text == "gen":
@@ -2158,6 +2174,7 @@ class _Validator:
                 field = gen_attrs.get("name")
                 if field is not None and field.strip():
                     self.declared_names.add(f"{name}.{field}")
+                    self.declared_fields.append(f"{name}.{field}")
                 # anomaly_flag= sits on the <gen>, not on the <sequence>, and names a real column
                 # — referencing it must not read as a typo for a sequence nobody declared.
                 gen_flag = gen_attrs.get("anomaly_flag")
@@ -4512,6 +4529,7 @@ class _Validator:
                 else "Declared above: " + ", ".join(self.declared_order) + ".",
                 at_line,
                 at_column,
+                _did_you_mean(closest_match(value, self.declared_order)),
             )
 
     def _expression_names(self, gen, attribute: str, source: str) -> None:
@@ -4545,15 +4563,25 @@ class _Validator:
             if checks.is_builtin(name) or name in self.declared_order or name in own_prev:
                 continue
             line, column = _at(gen, attribute)
+            # The sentence follows what this attribute IS. `expr=` is the formula itself, and
+            # calling it "a parameter" described something else entirely — the note is the half
+            # a reader acts on, so it has to be about the thing in front of them.
+            nothing_above = (
+                "A formula is computed from columns that already exist, so the columns it "
+                "reads have to come first."
+                if attribute == "expr"
+                else "A parameter reads a column that already exists, so the column it reads "
+                "has to come first."
+            )
             self._error(
                 "TDC240",
                 f'"{name}" in {attribute}= is not a sequence declared above this one',
-                "A parameter reads a column that already exists, so the column it reads has to "
-                "come first."
+                nothing_above
                 if not self.declared_order
                 else "Declared above: " + ", ".join(self.declared_order) + ".",
                 line,
                 column,
+                _did_you_mean(closest_match(name, self.declared_order)),
             )
 
     def _check_formula(self, gen, attrs: dict[str, str], type_: str | None) -> None:
@@ -4758,6 +4786,7 @@ class _Validator:
                 else "Declared above: " + ", ".join(self.declared_order) + ".",
                 at_line,
                 at_column,
+                _did_you_mean(closest_match(of, self.declared_order)),
             )
 
     #: Attributes that place a date generator's OWN draw, and so say nothing once `of=` has
@@ -4833,21 +4862,21 @@ class _Validator:
 
         if of and of not in self.declared_order:
             at_line, at_column = _at(gen, "of")
-            near = _nearest(of, self.declared_order)
+            # The near name goes on its OWN line — `help:` above the `note:` — rather than being
+            # folded into the front of the hint, where it read as part of the explanation.
             hint = (
                 "A date is measured from a column that already exists, so the column it reads "
                 "has to come first."
                 if not self.declared_order
                 else "Declared above: " + ", ".join(self.declared_order) + "."
             )
-            if near:
-                hint = f'Did you mean "{near}"? ' + hint
             self._error(
                 "TDC240",
                 f'of="{of}" is not a sequence declared above this one',
                 hint,
                 at_line,
                 at_column,
+                _did_you_mean(closest_match(of, self.declared_order)),
             )
 
     def _check_weight(self, gen, attrs: dict[str, str], type_: str | None) -> None:
@@ -5363,14 +5392,45 @@ class _Validator:
                 )
                 continue
             if name and name not in self.declared_names and not checks.is_builtin(name):
-                self._error(
-                    "TDC193",
-                    f'"{name}" is not a declared sequence — it would be printed literally',
-                    "Declare it in <env>, or change the inject= pattern if the text is meant to "
-                    "be literal.",
-                    line,
-                    column,
-                )
+                # A dot with a KNOWN root is a field mistake, and saying so beats repeating the
+                # whole reference back: the reader already knows the sequence exists. Collapsed
+                # into "is not a declared sequence", the message sent someone to <env> to declare
+                # a `P` that is declared right there — the field name is the typo, and it is the
+                # likelier of the two, because a sequence name is written once in <env> while
+                # field names are invented as you go.
+                dot = name.find(".")
+                root = name if dot < 0 else name[:dot]
+                if dot >= 0 and (root in self.declared_names or checks.is_builtin(root)):
+                    # Declaration order, not set order: the reference lists a compound's fields
+                    # the way the config writes them, and a reader matching the note against the
+                    # <sequence> above reads down the same list.
+                    fields = [
+                        n[len(root) + 1 :]
+                        for n in self.declared_fields
+                        if n.startswith(f"{root}.") and n in self.declared_names
+                    ]
+                    self._error(
+                        "TDC193",
+                        f'"{name}" — "{root}" has no fields, so this would be printed literally'
+                        if not fields
+                        else f'"{name}" is not a field of "{root}" — it would be printed literally',
+                        f"Reference it as ${{{{{root}}}}}. Only a compound or composed <sequence> "
+                        "has fields to address after a dot — a <mix>, a <switch> and a built-in "
+                        "have none."
+                        if not fields
+                        else f'Fields of "{root}": {", ".join(fields)}.',
+                        line,
+                        column,
+                    )
+                else:
+                    self._error(
+                        "TDC193",
+                        f'"{name}" is not a declared sequence — it would be printed literally',
+                        "Declare it in <env>, or set a different inject= pattern if you really "
+                        "want the text ${{…}} in the output.",
+                        line,
+                        column,
+                    )
             for filter_text in parts[1:]:
                 colon = filter_text.find(":")
                 kind = (filter_text if colon < 0 else filter_text[:colon]).strip()
@@ -5903,8 +5963,18 @@ class _Validator:
 
     # ── reporting ───────────────────────────────────────────────────────────────────────────
 
-    def _error(self, code: str, message: str, hint: str, line: int, column: int) -> None:
-        self.diagnostics.append(Diagnostic.error(code, message, hint, line, column))
+    def _error(
+        self,
+        code: str,
+        message: str,
+        hint: str,
+        line: int,
+        column: int,
+        suggestion: str = "",
+    ) -> None:
+        self.diagnostics.append(
+            Diagnostic.error(code, message, hint, line, column, suggestion)
+        )
 
     def _warn(self, code: str, message: str, hint: str, line: int, column: int) -> None:
         """Worth saying, not worth stopping for: the run still produces usable data."""

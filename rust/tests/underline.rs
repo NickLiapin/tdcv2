@@ -15,6 +15,7 @@ fn carets(source: &str, line: i32, column: i32) -> String {
         hint: String::new(),
         line,
         column,
+        suggestion: String::new(),
     };
     render::one(&d, Some(source), "t.tdc", false)
         .lines()

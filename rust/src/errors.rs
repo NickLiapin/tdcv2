@@ -33,6 +33,13 @@ pub struct Diagnostic {
     pub line: i32,
     /// 0-based, as an editor counts.
     pub column: i32,
+    /// The near name, when there is one: `did you mean "person.male.firstName"?`
+    ///
+    /// Its own line rather than a sentence folded into the hint, because it is the one part a
+    /// reader can act on without reading anything else — and because the reference prints it as
+    /// `help:`, above the `note:`. Folded in, it arrived buried; left out, the reader was told a
+    /// name is wrong and not what the right one is.
+    pub suggestion: String,
 }
 
 impl Diagnostic {
@@ -52,9 +59,86 @@ impl Diagnostic {
             hint: hint.to_string(),
             line: at.line,
             column: at.column,
+            suggestion: String::new(),
         }
     }
 
+    /// The same diagnostic carrying a near name.
+    #[must_use]
+    pub fn suggesting(mut self, suggestion: String) -> Self {
+        self.suggestion = suggestion;
+        self
+    }
+}
+
+/// The `help:` line for a near name, or "" when nothing was near enough.
+#[must_use]
+pub fn did_you_mean(name: &str) -> String {
+    if name.is_empty() {
+        String::new()
+    } else {
+        format!("did you mean \"{name}\"?")
+    }
+}
+
+/// The candidate nearest `needle`, or "" when nothing is near enough.
+///
+/// Ported from the reference: a case-only difference always wins, and a best distance past
+/// `max_distance` — or past about half the needle's length — is not a typo but a different word,
+/// where saying "did you mean" is worse than saying nothing.
+#[must_use]
+pub fn closest_match(needle: &str, candidates: &[String]) -> String {
+    const MAX_DISTANCE: usize = 3;
+    if needle.is_empty() || candidates.is_empty() {
+        return String::new();
+    }
+    let limit = MAX_DISTANCE.min((needle.chars().count() / 2 + 1).max(1));
+    let lower = needle.to_lowercase();
+    for candidate in candidates {
+        if candidate.to_lowercase() == lower && candidate != needle {
+            return candidate.clone();
+        }
+    }
+    let mut best = String::new();
+    let mut best_distance = usize::MAX;
+    for candidate in candidates {
+        let d = edit_distance(needle, candidate);
+        if d < best_distance {
+            best_distance = d;
+            best = candidate.clone();
+        }
+    }
+    if best_distance <= limit {
+        best
+    } else {
+        String::new()
+    }
+}
+
+/// Levenshtein, the same two-row walk the reference uses.
+fn edit_distance(a: &str, b: &str) -> usize {
+    let a: Vec<char> = a.chars().collect();
+    let b: Vec<char> = b.chars().collect();
+    if a.is_empty() {
+        return b.len();
+    }
+    if b.is_empty() {
+        return a.len();
+    }
+    let mut prev: Vec<usize> = (0..=b.len()).collect();
+    let mut curr = vec![0usize; b.len() + 1];
+    for i in 1..=a.len() {
+        curr[0] = i;
+        for j in 1..=b.len() {
+            let cost = usize::from(a[i - 1] != b[j - 1]);
+            curr[j] = (curr[j - 1] + 1).min(prev[j] + 1).min(prev[j - 1] + cost);
+        }
+        std::mem::swap(&mut prev, &mut curr);
+    }
+    prev[b.len()]
+}
+
+impl Diagnostic {
     /// The shape the shared diagnostic fixtures record: severity and code, never
     /// the wording.
     pub fn signature(&self) -> String {
@@ -150,6 +234,15 @@ pub mod render {
 
         if let Some(source) = source.filter(|s| !s.is_empty()) {
             lines.extend(snippet(diagnostic, source, colors));
+        }
+        // `help` before `note`, as the reference prints them: the near name first, the
+        // explanation after it.
+        if !diagnostic.suggestion.is_empty() {
+            lines.push(format!(
+                "{}: {}",
+                colorize("help", CYAN, colors),
+                diagnostic.suggestion
+            ));
         }
         if !diagnostic.hint.is_empty() {
             lines.push(format!(

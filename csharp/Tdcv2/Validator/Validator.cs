@@ -532,6 +532,15 @@ public sealed class Validator
     private readonly HashSet<string> _declaredNames = new(StringComparer.Ordinal);
 
     /// <summary>
+    /// Dotted field names in DECLARATION order — <c>P.zeta</c>, <c>P.alpha</c>, not sorted.
+    ///
+    /// <c>_declaredNames</c> is a HashSet, and a set has no order to lend a message. The
+    /// reference lists a compound's fields the way the config writes them, so a reader matching
+    /// the note against the &lt;sequence&gt; above reads down the same list.
+    /// </summary>
+    private readonly List<string> _declaredFields = new();
+
+    /// <summary>
     /// Of those, the ones declared at the TOP level — which is what a <c>filter=</c> compares
     /// against. A pool's members share no namespace with the run's, so a pool holding an
     /// <c>id</c> must not collide with the run's <c>id</c>, nor look like an ambiguity.
@@ -2010,6 +2019,7 @@ public sealed class Validator
             foreach (string field in fields)
             {
                 _declaredNames.Add($"{name}.{field}");
+                _declaredFields.Add($"{name}.{field}");
             }
 
             // The reference itself is a record, not a value: nothing to print.
@@ -2649,6 +2659,7 @@ public sealed class Validator
                 if (!string.IsNullOrWhiteSpace(constantName))
                 {
                     _declaredNames.Add(name + "." + constantName);
+                    _declaredFields.Add(name + "." + constantName);
                 }
 
                 continue;
@@ -2662,6 +2673,7 @@ public sealed class Validator
                 if (!string.IsNullOrWhiteSpace(field))
                 {
                     _declaredNames.Add(name + "." + field);
+                    _declaredFields.Add(name + "." + field);
                 }
 
                 // anomaly_flag= sits on the <gen>, not on the <sequence>, and names a real column —
@@ -5257,13 +5269,19 @@ public sealed class Validator
             }
 
             (int line, int column) = At(gen, param);
-            Error(
+            // The sentence follows what this attribute IS. `expr=` is the formula itself, and
+            // calling it "a parameter" described something else entirely — the note is the half a
+            // reader acts on, so it has to be about the thing in front of them.
+            ErrorNear(
                 "TDC240", $"\"{name}\" in {param}= is not a sequence declared above this one",
                 _declaredOrder.Count == 0
-                    ? "A parameter reads a column that already exists, so the column it reads "
-                      + "has to come first."
+                    ? param == "expr"
+                        ? "A formula is computed from columns that already exist, so the columns "
+                          + "it reads have to come first."
+                        : "A parameter reads a column that already exists, so the column it reads "
+                          + "has to come first."
                     : "Declared above: " + string.Join(", ", _declaredOrder) + ".",
-                line, column);
+                line, column, Diagnostic.ClosestMatch(name, _declaredOrder));
         }
     }
 
@@ -5436,13 +5454,13 @@ public sealed class Validator
             }
 
             (int line, int column) = At(gen, name);
-            Error(
+            ErrorNear(
                 "TDC240", $"{name}=\"{value}\" is not a sequence declared above this one",
                 _declaredOrder.Count == 0
                     ? "A running total is built from a column that already exists, so the "
                       + "column it reads has to come first."
                     : "Declared above: " + string.Join(", ", _declaredOrder) + ".",
-                line, column);
+                line, column, Diagnostic.ClosestMatch(value, _declaredOrder));
         }
     }
 
@@ -5560,13 +5578,13 @@ public sealed class Validator
         if (of.Length != 0 && !_declaredOrder.Contains(of, StringComparer.Ordinal))
         {
             (int line, int column) = At(gen, "of");
-            Error(
+            ErrorNear(
                 "TDC240", $"of=\"{of}\" is not a sequence declared above this one",
                 _declaredOrder.Count == 0
                     ? "A statistic is built from a column that already exists, so the column it "
                       + "reads has to come first."
                     : "Declared above: " + string.Join(", ", _declaredOrder) + ".",
-                line, column);
+                line, column, Diagnostic.ClosestMatch(of, _declaredOrder));
         }
     }
 
@@ -5654,13 +5672,13 @@ public sealed class Validator
         if (of.Length != 0 && !_declaredOrder.Contains(of, StringComparer.Ordinal))
         {
             (int line, int column) = At(gen, "of");
-            Error(
+            ErrorNear(
                 "TDC240", $"of=\"{of}\" is not a sequence declared above this one",
                 _declaredOrder.Count == 0
                     ? "A date is measured from a column that already exists, so the column it "
                       + "reads has to come first."
                     : "Declared above: " + string.Join(", ", _declaredOrder) + ".",
-                line, column);
+                line, column, Diagnostic.ClosestMatch(of, _declaredOrder));
         }
     }
 
@@ -6404,12 +6422,43 @@ public sealed class Validator
 
             if (name.Length > 0 && !_declaredNames.Contains(name) && !Checks.IsBuiltin(name))
             {
-                Error(
-                    "TDC193",
-                    $"\"{name}\" is not a declared sequence — it would be printed literally",
-                    "Declare it in <env>, or change the inject= pattern if the text is meant to be "
-                    + "literal.",
-                    line, column);
+                // A dot with a KNOWN root is a field mistake, and saying so beats repeating
+                // the whole reference back: the reader already knows the sequence exists.
+                // Collapsed into "is not a declared sequence", the message sent someone to <env>
+                // to declare a `P` that is declared right there — and the field name is the
+                // likelier typo of the two, because a sequence name is written once in <env>
+                // while field names are invented as you go.
+                int dot = name.IndexOf('.', StringComparison.Ordinal);
+                string root = dot < 0 ? name : name[..dot];
+                if (dot >= 0 && (_declaredNames.Contains(root) || Checks.IsBuiltin(root)))
+                {
+                    string prefix = root + ".";
+                    List<string> fields = _declaredFields
+                        .Where(n => n.StartsWith(prefix, StringComparison.Ordinal)
+                                    && _declaredNames.Contains(n))
+                        .Select(n => n[prefix.Length..])
+                        .ToList();
+                    Error(
+                        "TDC193",
+                        fields.Count == 0
+                            ? $"\"{name}\" — \"{root}\" has no fields, so this would be printed literally"
+                            : $"\"{name}\" is not a field of \"{root}\" — it would be printed literally",
+                        fields.Count == 0
+                            ? $"Reference it as ${{{{{root}}}}}. Only a compound or composed <sequence> "
+                              + "has fields to address after a dot — a <mix>, a <switch> and a "
+                              + "built-in have none."
+                            : $"Fields of \"{root}\": {string.Join(", ", fields)}.",
+                        line, column);
+                }
+                else
+                {
+                    Error(
+                        "TDC193",
+                        $"\"{name}\" is not a declared sequence — it would be printed literally",
+                        "Declare it in <env>, or set a different inject= pattern if you really "
+                        + "want the text ${{…}} in the output.",
+                        line, column);
+                }
             }
 
             for (int i = 1; i < parts.Length; i++)
@@ -7225,6 +7274,15 @@ public sealed class Validator
 
     private void Error(string code, string message, string hint, int line, int column) =>
         _diagnostics.Add(Diagnostic.Error(code, message, hint, line, column));
+
+    /// <summary>The same complaint, carrying the near name on its own <c>help:</c> line.</summary>
+    private void ErrorNear(
+        string code, string message, string hint, int line, int column, string near) =>
+        _diagnostics.Add(
+            Diagnostic.Error(code, message, hint, line, column) with
+            {
+                Suggestion = Diagnostic.DidYouMean(near),
+            });
 
     /// <summary>Worth saying, not worth stopping for: the run still produces usable data.</summary>
     /// <summary>A value that is declared and can never be drawn.</summary>

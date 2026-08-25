@@ -104,6 +104,13 @@ struct Validator {
     /// Every sequence name the config declares — what an interpolation may refer
     /// to.
     declared_names: BTreeSet<String>,
+    /// Dotted field names in DECLARATION order — `P.zeta`, `P.alpha`, not sorted.
+    ///
+    /// `declared_names` is a set, and a set has no order to lend a message. The reference lists
+    /// a compound's fields the way the config writes them, so a reader matching the note against
+    /// the `<sequence>` above reads down the same list; sorted, `zeta, alpha` came back as
+    /// `alpha, zeta` and stopped being that list.
+    declared_fields: Vec<String>,
     /// Of those, the ones declared at the TOP level — which is what a `filter=`
     /// compares against. A pool's members share no namespace with the run's.
     env_names: BTreeSet<String>,
@@ -269,6 +276,14 @@ impl Validator {
     fn error(&mut self, code: &str, message: String, hint: &str, at: Pos) {
         self.diagnostics
             .push(Diagnostic::error(code, message, hint, at));
+    }
+
+    /// The same complaint, carrying the near name on its own `help:` line.
+    fn error_near(&mut self, code: &str, message: String, hint: &str, at: Pos, near: &str) {
+        self.diagnostics.push(
+            Diagnostic::error(code, message, hint, at)
+                .suggesting(crate::errors::did_you_mean(near)),
+        );
     }
 
     fn warn(&mut self, code: &str, message: String, hint: &str, at: Pos) {
@@ -1409,6 +1424,7 @@ impl Validator {
             self.check_pool_filter(child, pool_name, &fields);
             for field in &fields {
                 self.declared_names.insert(format!("{name}.{field}"));
+                self.declared_fields.push(format!("{name}.{field}"));
             }
             // The reference itself is a record, not a value: nothing to print.
             self.valueless_names.insert(name.to_string());
@@ -1801,6 +1817,7 @@ impl Validator {
             if is_gen(child) {
                 if let Some(field) = child.attr_value("name").filter(|f| !f.trim().is_empty()) {
                     self.declared_names.insert(format!("{name}.{field}"));
+                    self.declared_fields.push(format!("{name}.{field}"));
                 }
                 // anomaly_flag= sits on the <gen>, not on the <sequence>, and
                 // names a real column — referencing it must not read as a typo
@@ -1824,6 +1841,7 @@ impl Validator {
             if child.name == "data" {
                 if let Some(field) = child.attr_value("name").filter(|f| !f.trim().is_empty()) {
                     self.declared_names.insert(format!("{name}.{field}"));
+                    self.declared_fields.push(format!("{name}.{field}"));
                 }
                 continue;
             }
@@ -2607,11 +2625,12 @@ impl Validator {
             } else {
                 format!("Declared above: {}.", self.declared_order.join(", "))
             };
-            self.error(
+            self.error_near(
                 "TDC240",
                 format!("{name}=\"{value}\" is not a sequence declared above this one"),
                 &hint,
                 gen.at(name),
+                &crate::errors::closest_match(value, &self.declared_order),
             );
         }
     }
@@ -2670,11 +2689,12 @@ impl Validator {
             } else {
                 format!("Declared above: {}.", self.declared_order.join(", "))
             };
-            self.error(
+            self.error_near(
                 "TDC240",
                 format!("of=\"{of}\" is not a sequence declared above this one"),
                 &hint,
                 gen.at("of"),
+                &crate::errors::closest_match(of, &self.declared_order),
             );
         }
     }
@@ -2776,11 +2796,12 @@ impl Validator {
             } else {
                 format!("Declared above: {}.", self.declared_order.join(", "))
             };
-            self.error(
+            self.error_near(
                 "TDC240",
                 format!("of=\"{of}\" is not a sequence declared above this one"),
                 &hint,
                 gen.at("of"),
+                &crate::errors::closest_match(&of, &self.declared_order),
             );
         }
     }
@@ -3684,17 +3705,27 @@ impl Validator {
                 continue;
             }
             let hint = if self.declared_order.is_empty() {
-                "A parameter reads a column that already exists, so the column it reads has \
-                 to come first."
-                    .to_string()
+                // The sentence follows what this attribute IS. `expr=` is the formula itself,
+                // and calling it "a parameter" described something else entirely — the note is
+                // the half a reader acts on, so it has to be about the thing in front of them.
+                if param == "expr" {
+                    "A formula is computed from columns that already exist, so the columns it \
+                     reads have to come first."
+                        .to_string()
+                } else {
+                    "A parameter reads a column that already exists, so the column it reads has \
+                     to come first."
+                        .to_string()
+                }
             } else {
                 format!("Declared above: {}.", self.declared_order.join(", "))
             };
-            self.error(
+            self.error_near(
                 "TDC240",
                 format!("\"{name}\" in {param}= is not a sequence declared above this one"),
                 &hint,
                 gen.at(param),
+                &crate::errors::closest_match(&name, &self.declared_order),
             );
         }
     }
@@ -5383,13 +5414,61 @@ impl Validator {
                 continue;
             }
             if !name.is_empty() && !self.declared_names.contains(&name) && !is_builtin(&name) {
-                self.error(
-                    "TDC193",
-                    format!("\"{name}\" is not a declared sequence — it would be printed literally"),
-                    "Declare it in <env>, or change the inject= pattern if the text is meant to be \
-                     literal.",
-                    at,
-                );
+                // A dot with a KNOWN root is a field mistake, and saying so beats repeating the
+                // whole reference back: the reader already knows the sequence exists. Collapsed
+                // into "is not a declared sequence", the message sent someone to <env> to declare
+                // a `P` that is declared right there — and the field name is the likelier typo of
+                // the two, because a sequence name is written once in <env> while field names are
+                // invented as you go.
+                let dot = name.find('.');
+                let root = match dot {
+                    Some(i) => name[..i].to_string(),
+                    None => name.clone(),
+                };
+                if dot.is_some() && (self.declared_names.contains(&root) || is_builtin(&root)) {
+                    let prefix = format!("{root}.");
+                    let fields: Vec<&str> = self
+                        .declared_fields
+                        .iter()
+                        .filter(|n| n.starts_with(&prefix) && self.declared_names.contains(*n))
+                        .map(|n| &n[prefix.len()..])
+                        .collect();
+                    if fields.is_empty() {
+                        self.error(
+                            "TDC193",
+                            format!(
+                                "\"{name}\" — \"{root}\" has no fields, so this would be \
+                                 printed literally"
+                            ),
+                            &format!(
+                                "Reference it as ${{{{{root}}}}}. Only a compound or composed \
+                                 <sequence> has fields to address after a dot — a <mix>, a \
+                                 <switch> and a built-in have none."
+                            ),
+                            at,
+                        );
+                    } else {
+                        self.error(
+                            "TDC193",
+                            format!(
+                                "\"{name}\" is not a field of \"{root}\" — it would be printed \
+                                 literally"
+                            ),
+                            &format!("Fields of \"{root}\": {}.", fields.join(", ")),
+                            at,
+                        );
+                    }
+                } else {
+                    self.error(
+                        "TDC193",
+                        format!(
+                            "\"{name}\" is not a declared sequence — it would be printed literally"
+                        ),
+                        "Declare it in <env>, or set a different inject= pattern if you really \
+                         want the text ${{…}} in the output.",
+                        at,
+                    );
+                }
             }
             for filter in parts {
                 let colon = filter.find(':');

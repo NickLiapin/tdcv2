@@ -34,6 +34,98 @@ public sealed record Diagnostic(
     /// </remarks>
     public bool IsPoint { get; init; }
 
+    /// <summary>
+    /// The near name, when there is one: <c>did you mean "person.male.firstName"?</c>
+    ///
+    /// Its own line rather than a sentence folded into the hint, because it is the one part a
+    /// reader can act on without reading anything else — and because the reference prints it as
+    /// <c>help:</c>, above the <c>note:</c>. Folded in, it arrived buried; left out, the reader
+    /// was told a name is wrong and not what the right one is.
+    /// </summary>
+    public string Suggestion { get; init; } = "";
+
+    /// <summary>The <c>help:</c> line for a near name, or "" when nothing was near enough.</summary>
+    public static string DidYouMean(string name) =>
+        string.IsNullOrEmpty(name) ? "" : $"did you mean \"{name}\"?";
+
+    /// <summary>
+    /// The candidate nearest <paramref name="needle"/>, or "" when nothing is near enough.
+    ///
+    /// Ported from the reference: a case-only difference always wins, and a best distance past
+    /// the maximum — or past about half the needle's length — is not a typo but a different word,
+    /// where saying "did you mean" is worse than saying nothing.
+    /// </summary>
+    public static string ClosestMatch(string needle, IEnumerable<string> candidates)
+    {
+        const int maxDistance = 3;
+        List<string> names = candidates.ToList();
+        if (string.IsNullOrEmpty(needle) || names.Count == 0)
+        {
+            return "";
+        }
+
+        int limit = Math.Min(maxDistance, Math.Max(1, (needle.Length / 2) + 1));
+        string lower = needle.ToLowerInvariant();
+        foreach (string candidate in names)
+        {
+            if (candidate.ToLowerInvariant() == lower && candidate != needle)
+            {
+                return candidate;
+            }
+        }
+
+        string best = "";
+        int bestDistance = int.MaxValue;
+        foreach (string candidate in names)
+        {
+            int d = EditDistance(needle, candidate);
+            if (d < bestDistance)
+            {
+                bestDistance = d;
+                best = candidate;
+            }
+        }
+
+        return bestDistance <= limit ? best : "";
+    }
+
+    /// <summary>Levenshtein, the same two-row walk the reference uses.</summary>
+    private static int EditDistance(string a, string b)
+    {
+        int m = a.Length;
+        int n = b.Length;
+        if (m == 0)
+        {
+            return n;
+        }
+
+        if (n == 0)
+        {
+            return m;
+        }
+
+        int[] prev = new int[n + 1];
+        int[] curr = new int[n + 1];
+        for (int j = 0; j <= n; j++)
+        {
+            prev[j] = j;
+        }
+
+        for (int i = 1; i <= m; i++)
+        {
+            curr[0] = i;
+            for (int j = 1; j <= n; j++)
+            {
+                int cost = a[i - 1] == b[j - 1] ? 0 : 1;
+                curr[j] = Math.Min(Math.Min(curr[j - 1] + 1, prev[j] + 1), prev[j - 1] + cost);
+            }
+
+            (prev, curr) = (curr, prev);
+        }
+
+        return prev[n];
+    }
+
     public static Diagnostic Error(string code, string message, string hint, int line, int column) =>
         new(Severity.Error, code, message, hint, line, column);
 

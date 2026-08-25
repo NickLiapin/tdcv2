@@ -60,6 +60,11 @@ public final class DiagnosticRenderer {
     if (source != null && !source.isEmpty()) {
       lines.addAll(snippet(diagnostic, source, colors));
     }
+    // `help` before `note`, as the reference prints them: the near name first, the explanation
+    // after it.
+    if (diagnostic.suggestion() != null && !diagnostic.suggestion().isEmpty()) {
+      lines.add(colorize("help", CYAN, colors) + ": " + diagnostic.suggestion());
+    }
     if (diagnostic.hint() != null && !diagnostic.hint().isEmpty()) {
       lines.add(colorize("note", CYAN, colors) + ": " + diagnostic.hint());
     }

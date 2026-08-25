@@ -55,6 +55,13 @@ public static class DiagnosticRenderer
             lines.AddRange(Snippet(diagnostic, source, colors));
         }
 
+        // `help` before `note`, as the reference prints them: the near name first, the
+        // explanation after it.
+        if (!string.IsNullOrEmpty(diagnostic.Suggestion))
+        {
+            lines.Add(Colorize("help", Cyan, colors) + ": " + diagnostic.Suggestion);
+        }
+
         if (!string.IsNullOrEmpty(diagnostic.Hint))
         {
             lines.Add(Colorize("note", Cyan, colors) + ": " + diagnostic.Hint);

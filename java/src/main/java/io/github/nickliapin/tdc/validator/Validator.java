@@ -2128,14 +2128,20 @@ public final class Validator {
         continue;
       }
       int[] at = at(gen, param);
-      error(
+      // The sentence follows what this attribute IS. `expr=` is the formula itself, and calling
+      // it "a parameter" described something else entirely — the note is the half a reader acts
+      // on, so it has to be about the thing in front of them.
+      errorNear(
           "TDC240",
           "\"" + name + "\" in " + param + "= is not a sequence declared above this one",
           declaredOrder.isEmpty()
-              ? "A parameter reads a column that already exists, so the column it reads has to "
-                  + "come first."
+              ? ("expr".equals(param)
+                  ? "A formula is computed from columns that already exist, so the columns it "
+                      + "reads have to come first."
+                  : "A parameter reads a column that already exists, so the column it reads has "
+                      + "to come first.")
               : "Declared above: " + String.join(", ", declaredOrder) + ".",
-          at[0], at[1]);
+          at[0], at[1], Diagnostic.closestMatch(name, declaredOrder));
     }
   }
 
@@ -4215,12 +4221,12 @@ public final class Validator {
     }
 
     if (!of.isEmpty() && !declaredOrder.contains(of)) {
-      error("TDC240", "of=\"" + of + "\" is not a sequence declared above this one",
+      errorNear("TDC240", "of=\"" + of + "\" is not a sequence declared above this one",
           declaredOrder.isEmpty()
               ? "A date is measured from a column that already exists, so the column it reads has "
                   + "to come first."
               : "Declared above: " + String.join(", ", declaredOrder) + ".",
-          at(gen, "of")[0], at(gen, "of")[1]);
+          at(gen, "of")[0], at(gen, "of")[1], Diagnostic.closestMatch(of, declaredOrder));
     }
   }
 
@@ -4798,12 +4804,12 @@ public final class Validator {
       if (value.isEmpty() || declaredOrder.contains(value)) {
         continue;
       }
-      error("TDC240", name + "=\"" + value + "\" is not a sequence declared above this one",
+      errorNear("TDC240", name + "=\"" + value + "\" is not a sequence declared above this one",
           declaredOrder.isEmpty()
               ? "A running total is built from a column that already exists, so the column it "
                   + "reads has to come first."
               : "Declared above: " + String.join(", ", declaredOrder) + ".",
-          at(gen, name)[0], at(gen, name)[1]);
+          at(gen, name)[0], at(gen, name)[1], Diagnostic.closestMatch(value, declaredOrder));
     }
   }
 
@@ -4882,12 +4888,12 @@ public final class Validator {
           at(gen, "decimals")[0], at(gen, "decimals")[1]);
     }
     if (!of.isEmpty() && !declaredOrder.contains(of)) {
-      error("TDC240", "of=\"" + of + "\" is not a sequence declared above this one",
+      errorNear("TDC240", "of=\"" + of + "\" is not a sequence declared above this one",
           declaredOrder.isEmpty()
               ? "A statistic is built from a column that already exists, so the column it reads "
                   + "has to come first."
               : "Declared above: " + String.join(", ", declaredOrder) + ".",
-          at(gen, "of")[0], at(gen, "of")[1]);
+          at(gen, "of")[0], at(gen, "of")[1], Diagnostic.closestMatch(of, declaredOrder));
     }
   }
 
@@ -5451,9 +5457,46 @@ public final class Validator {
         continue;
       }
       if (!name.isEmpty() && !declaredNames.contains(name) && !Checks.isBuiltin(name)) {
-        error("TDC193", "\"" + name + "\" is not a declared sequence — it would be printed literally",
-            "Declare it in <env>, or change the inject= pattern if the text is meant to be literal.",
-            line, column);
+        // A dot with a KNOWN root is a field mistake, and saying so beats repeating the whole
+        // reference back: the reader already knows the sequence exists. Collapsed into "is not a
+        // declared sequence", the message sent someone to <env> to declare a `P` that is declared
+        // right there — and the field name is the likelier typo of the two, because a sequence
+        // name is written once in <env> while field names are invented as you go.
+        //
+        // `declaredNames` is a LinkedHashSet, so the fields come out in DECLARATION order, the
+        // way the config writes them and the way the reference lists them.
+        int dot = name.indexOf('.');
+        String root = dot < 0 ? name : name.substring(0, dot);
+        if (dot >= 0 && (declaredNames.contains(root) || Checks.isBuiltin(root))) {
+          String prefix = root + ".";
+          List<String> fields = new ArrayList<>();
+          for (String declared : declaredNames) {
+            if (declared.startsWith(prefix)) {
+              fields.add(declared.substring(prefix.length()));
+            }
+          }
+          if (fields.isEmpty()) {
+            error("TDC193",
+                "\"" + name + "\" — \"" + root + "\" has no fields, so this would be printed"
+                    + " literally",
+                "Reference it as ${{" + root + "}}. Only a compound or composed <sequence> has"
+                    + " fields to address after a dot — a <mix>, a <switch> and a built-in have"
+                    + " none.",
+                line, column);
+          } else {
+            error("TDC193",
+                "\"" + name + "\" is not a field of \"" + root + "\" — it would be printed"
+                    + " literally",
+                "Fields of \"" + root + "\": " + String.join(", ", fields) + ".",
+                line, column);
+          }
+        } else {
+          error("TDC193",
+              "\"" + name + "\" is not a declared sequence — it would be printed literally",
+              "Declare it in <env>, or set a different inject= pattern if you really want the"
+                  + " text ${{…}} in the output.",
+              line, column);
+        }
       }
       for (int i = 1; i < parts.length; i++) {
         String filter = parts[i];
@@ -6127,6 +6170,14 @@ public final class Validator {
 
   private void error(String code, String message, String hint, int line, int column) {
     diagnostics.add(Diagnostic.error(code, message, hint, line, column));
+  }
+
+  /** The same complaint, carrying the near name on its own {@code help:} line. */
+  private void errorNear(
+      String code, String message, String hint, int line, int column, String near) {
+    diagnostics.add(
+        Diagnostic.error(code, message, hint, line, column)
+            .suggesting(Diagnostic.didYouMean(near)));
   }
 
   /** Worth saying, not worth stopping for: the run still produces usable data. */
