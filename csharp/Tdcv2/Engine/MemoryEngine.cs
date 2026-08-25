@@ -2436,6 +2436,24 @@ public static class MemoryEngine
             return produced;
         }
 
+        if (spec.IsMix)
+        {
+            // A `<mix percent>` is how a pack declares a share of its OWN — 60% of Spanish
+            // surnames are two words. The '#switch' suffix is the key the streaming engine
+            // spells, and a pack body is built there too: the two engines have to agree on the
+            // key or they disagree on the value. Without this branch the sequence was not built
+            // at all and the `spec.Gen!` below took the run down with a null reference.
+            IReadOnlyList<string> mixed = MixValues(
+                spec.Mix!,
+                count,
+                prng,
+                new bool[count],
+                ctx,
+                new PerRow.Stream(ctx.Config.Seed, spec.Name + "#switch", null));
+            produced.Add((spec.Name, mixed.ToArray()));
+            return produced;
+        }
+
         // Keyed by its own name, exactly as a config's sequence is. The body used to be a
         // nested build with no stream of its own, so no whole-column layout could fire inside it.
         IReadOnlyList<string> single = ColumnValues(

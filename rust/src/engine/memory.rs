@@ -3556,7 +3556,16 @@ fn materialize_local(
     // generated column, which is why a config that draws from such a pack is
     // routed here in the first place.
     if let Source::Mix(mix) = &spec.source {
-        let values = mix_values(mix, count, prng, None, env, None, &BTreeMap::new())?
+        // Keyed by its own name off the body's seed, exactly as the plain-gen branch below is
+        // and as a config's sequence is. Passing no stream left the mix and everything inside
+        // it drawing off the shared prng, so a `<gen type="template">` inside a `<case>` landed
+        // on a different value here than in the other four — the only shape that showed it,
+        // because the case SELECTION agreed and a plain `<data>` or `text` case draws nothing.
+        // "#switch" is the suffix the streaming engine keys a top-level mix by, and a pack body
+        // is built there too — the two engines have to agree on the key or they disagree on the
+        // value.
+        let stream = per_row::Stream::new(body_seed, &format!("{}#switch", spec.name));
+        let values = mix_values(mix, count, prng, None, env, Some(&stream), &BTreeMap::new())?
             .into_iter()
             .map(Some)
             .collect();

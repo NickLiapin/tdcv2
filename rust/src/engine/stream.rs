@@ -348,6 +348,9 @@ enum Column {
         columns: BTreeMap<String, Column>,
         output: String,
         inject: Option<String>,
+        /// The seed the nested engine BUILT these columns with. Carried because they are
+        /// evaluated by the outer engine, which has a different one — see `body_seeds`.
+        seed: std::rc::Rc<str>,
     },
     /// A literal piece of a `<case>` body.
     Text(String),
@@ -424,7 +427,18 @@ pub struct StreamEngine<'a> {
     env: Env<'a>,
     /// What this run says about itself while it is still going, if anyone asked.
     on_progress: crate::engine::Watch<'a>,
-    seed: String,
+    seed: std::rc::Rc<str>,
+    /// The seed a value is drawn with RIGHT NOW, when it is not the run's own.
+    ///
+    /// A pack body is built by a nested engine with its own seed — `{run seed}|{column}` — but
+    /// the columns it produced are handed back to THIS engine to evaluate, because a nested
+    /// engine cannot be kept alive beside its parent here. So everything the body decided at
+    /// BUILD time was keyed correctly and everything it drew at VALUE time was keyed by the
+    /// outer seed, which is no seed of the body's at all. Measured: a `<mix>` inside a pack body
+    /// gave the same six values whatever the column was called, and the same six a plain config
+    /// gives — the body seed reached nothing. A stack rather than one slot, because a pack body
+    /// may draw from a pack whose body is one too.
+    body_seeds: std::cell::RefCell<Vec<std::rc::Rc<str>>>,
     count: i32,
     columns: BTreeMap<String, Column>,
     order: Vec<String>,
@@ -628,7 +642,8 @@ impl<'a> StreamEngine<'a> {
         let mut engine = StreamEngine {
             env: Env::new(config, packs, now_millis, base_dir),
             on_progress,
-            seed: config.seed.clone(),
+            seed: std::rc::Rc::from(config.seed.as_str()),
+            body_seeds: std::cell::RefCell::new(Vec::new()),
             count: config.count,
             columns: BTreeMap::new(),
             order: Vec::new(),
@@ -2264,6 +2279,7 @@ impl StreamEngine<'_> {
             columns,
             output: body.output.clone(),
             inject: self.env.config.inject.clone(),
+            seed: std::rc::Rc::from(inner_config.seed.as_str()),
         })))
     }
 
@@ -2286,7 +2302,7 @@ impl StreamEngine<'_> {
     ) -> EngineResult<usize> {
         if filter.is_empty() {
             return Ok(pool::pick_member(
-                &self.seed,
+                &self.drawing_seed(),
                 reference,
                 table,
                 row as usize,
@@ -2331,7 +2347,7 @@ impl StreamEngine<'_> {
             ));
         }
         let slot = seekable::next_int(
-            &self.seed,
+            &self.drawing_seed(),
             &pool::ref_stream(reference),
             row,
             eligible.len() as i32,
@@ -2373,6 +2389,18 @@ impl StreamEngine<'_> {
             );
         }
         Ok(())
+    }
+
+    /// The seed to draw THIS value with: a pack body's own while one is being evaluated, the
+    /// run's otherwise.
+    ///
+    /// An `Rc` rather than a `String` because this is read once per seeded draw per row, and a
+    /// clone of the text would be an allocation on the hot path of a billion-row run.
+    fn drawing_seed(&self) -> std::rc::Rc<str> {
+        match self.body_seeds.borrow().last() {
+            Some(seed) => seed.clone(),
+            None => self.seed.clone(),
+        }
     }
 
     fn value_of(&self, column: &Column, row: i32) -> EngineResult<Option<String>> {
@@ -2478,7 +2506,8 @@ impl StreamEngine<'_> {
                     return Ok(None);
                 };
                 let z = if spec.has_noise() {
-                    let u = seekable::uniforms(&self.seed, &format!("{stream}:ts"), row, 2);
+                    let u =
+                        seekable::uniforms(&self.drawing_seed(), &format!("{stream}:ts"), row, 2);
                     timeseries::standard_normal(u[0], u[1])
                 } else {
                     0.0
@@ -2503,7 +2532,7 @@ impl StreamEngine<'_> {
                     1.0
                 };
                 let u = if drawing.draws() {
-                    seekable::uniforms(&self.seed, &format!("{stream}:pat"), row, 1)[0]
+                    seekable::uniforms(&self.drawing_seed(), &format!("{stream}:pat"), row, 1)[0]
                 } else {
                     0.0
                 };
@@ -2520,7 +2549,8 @@ impl StreamEngine<'_> {
                 let Some(_) = self.pop_index_at(domain, row)? else {
                     return Ok(None);
                 };
-                let index = seekable::next_int(&self.seed, stream, row, source.rows.len() as i32);
+                let index =
+                    seekable::next_int(&self.drawing_seed(), stream, row, source.rows.len() as i32);
                 let value = file::cell_at(source, index.max(0) as usize);
                 self.modify(modifier, row, Some(value), 0)
             }
@@ -2631,12 +2661,18 @@ impl StreamEngine<'_> {
                 }
                 if *inline {
                     if *missing > 0.0
-                        && seekable::uniforms(&self.seed, &format!("{stream}#miss"), row, 1)[0]
-                            < *missing
+                        && seekable::uniforms(
+                            &self.drawing_seed(),
+                            &format!("{stream}#miss"),
+                            row,
+                            1,
+                        )[0] < *missing
                     {
                         return Ok(Some(bool_text(false)));
                     }
-                    let u = seekable::uniforms(&self.seed, &format!("{stream}#anom"), row, 1)[0];
+                    let u =
+                        seekable::uniforms(&self.drawing_seed(), &format!("{stream}#anom"), row, 1)
+                            [0];
                     let numeric = match raw {
                         None => false,
                         Some(column) => self
@@ -2757,13 +2793,20 @@ impl StreamEngine<'_> {
                 columns,
                 output,
                 inject,
+                seed,
             } => {
+                // The body's own seed for as long as its columns are being read, then off again:
+                // everything inside was keyed by it when the nested engine planned it, and the
+                // draws it left until value time have to agree with that.
+                self.body_seeds.borrow_mut().push(seed.clone());
                 let lookup = BodyLookup {
                     engine: self,
                     columns,
                     row,
                 };
-                interpolate::apply(output, inject.as_deref(), &lookup).map(Some)
+                let result = interpolate::apply(output, inject.as_deref(), &lookup).map(Some);
+                self.body_seeds.borrow_mut().pop();
+                result
             }
 
             Column::Formula { expr, decimals } => formula::value_at_row(
@@ -2857,7 +2900,7 @@ impl StreamEngine<'_> {
             };
             let raw = &quota.values[run_for(&quota.cum_hi, slot)];
             let draws = seekable::uniforms(
-                &self.seed,
+                &self.drawing_seed(),
                 &format!("{}#anom", modifier.stream),
                 row,
                 modifier.element_draws,
@@ -2905,7 +2948,7 @@ impl StreamEngine<'_> {
         // the same values.
         if spec.distinct {
             let draws = seekable::uniforms(
-                &self.seed,
+                &self.drawing_seed(),
                 &format!("{}#dist", quota.stream_id),
                 row,
                 spec.max as usize,
@@ -2952,7 +2995,7 @@ impl StreamEngine<'_> {
         row: i32,
         flags: Option<&mut [bool]>,
     ) -> EngineResult<String> {
-        let mut prng = seekable::generator(&self.seed, stream_id, row);
+        let mut prng = seekable::generator(&self.drawing_seed(), stream_id, row);
         // The row this value belongs to, and this engine's own registry to read siblings
         // from — what a distribution parameter written as an expression needs. Nothing
         // else looks at it, and a generator without one costs no lookup.
@@ -3002,7 +3045,7 @@ impl StreamEngine<'_> {
         };
         if let Some(anomaly) = &modifier.anomaly {
             let u = seekable::uniforms(
-                &self.seed,
+                &self.drawing_seed(),
                 &format!("{}#anom", modifier.stream),
                 row,
                 modifier.element_draws,
@@ -3013,7 +3056,7 @@ impl StreamEngine<'_> {
         }
         if let Some(missing) = &modifier.missing {
             let u = seekable::uniforms(
-                &self.seed,
+                &self.drawing_seed(),
                 &format!("{}#miss", modifier.stream),
                 row,
                 modifier.element_draws,

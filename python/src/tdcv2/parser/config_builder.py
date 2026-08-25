@@ -539,6 +539,19 @@ def parse_pack_body(body: str) -> PackGenerator:
                 raise ValueError(refused)
             sequences.append(_sequence(open_el))
             continue
+        # A standalone `<mix name="…">` or `<switch name="…">` is a SEQUENCE, declared beside
+        # the others rather than inside one — the same reading the config parser gives it two
+        # functions up. Skipping them here left the `${{name}}` in the output template with
+        # nothing to resolve against, so the pack emitted its own placeholder as data:
+        # `${{p}}` on every row, exit 0, and `check` calling it valid. It is a documented shape
+        # ("Exact percentages inside a generator") and two shipped packs use it.
+        if open_el is not None and open_el.name.text in ("mix", "switch"):
+            sequences.append(
+                _mix_sequence(open_el)
+                if open_el.name.text == "mix"
+                else _switch_sequence(open_el)
+            )
+            continue
         data = child.dataElement()
         if isinstance(data, TDCParser.DataWithBodyContext):
             output = paired_data.restore(data.dataContent().getText())

@@ -2984,6 +2984,21 @@ public final class MemoryEngine {
       }
       return produced;
     }
+    if (spec.isMix()) {
+      // A `<mix percent>` is how a pack declares a share of its OWN — 60% of Spanish surnames
+      // are two words. The '#switch' suffix is the key the streaming engine spells, and a pack
+      // body is built there too: the two engines have to agree on the key or they disagree on
+      // the value. Without this branch the sequence was not built at all, and the `spec.gen()`
+      // below took the run down with a null dereference.
+      List<String> mixed =
+          mixValues(
+              spec.mix(), count, prng, packs, config, nowMillis, baseDir, rowLinks,
+              new boolean[count],
+              new PerRow.Stream(config.seed(), spec.name() + "#switch", allRows(count)),
+              new LinkedHashMap<>());
+      produced.put(spec.name(), mixed.toArray(new String[0]));
+      return produced;
+    }
     List<String> values =
         columnValues(
             spec.gen(),

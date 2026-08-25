@@ -2319,6 +2319,15 @@ def _materialize_local(
         if spec.distinct_groups:
             _enforce_distinct(spec, by_field, count, run, shared_prng=True)
         return {f"{name}.{field.name}": list(by_field[field.name]) for field in spec.fields}
+    if spec.is_mix:
+        assert spec.mix is not None
+        # A `<mix percent>` is how a pack declares a share of its OWN — 60% of Spanish surnames
+        # are two words. The '#switch' suffix is the key the streaming engine spells, and a pack
+        # body is built there too: the two engines have to agree on the key or they disagree on
+        # the value. Without this branch the sequence was not built at all and the assertion
+        # below took the run down with a stack trace.
+        mix_run = per_row.with_rows(run, f"{name}#switch", list(range(count)))
+        return {name: list(_mix_values(spec.mix, count, mix_run, [False] * count))}
     assert spec.gen is not None
     # Keyed by its own name, exactly as a config's sequence is. Without this the body's
     # sequences had no stream of their own and no whole-column layout could fire inside one.

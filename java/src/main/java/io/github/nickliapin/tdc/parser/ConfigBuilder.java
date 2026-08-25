@@ -316,6 +316,17 @@ public final class ConfigBuilder {
         sequences.add(sequence(open));
         continue;
       }
+      // A standalone `<mix name="…">` or `<switch name="…">` is a SEQUENCE, declared beside the
+      // others rather than inside one — the same reading the config parser gives it above.
+      // Skipping them here left the `${{name}}` in the output template with nothing to resolve
+      // against, so the pack emitted its own placeholder as data: `${{p}}` on every row, exit 0,
+      // and `check` calling it valid. It is a documented shape ("Exact percentages inside a
+      // generator") and two shipped packs use it.
+      if (open != null && ("mix".equals(open.name.getText()) || "switch".equals(open.name.getText()))) {
+        sequences.add(
+            "mix".equals(open.name.getText()) ? mixSequence(open) : switchSequence(open));
+        continue;
+      }
       TDCParser.DataElementContext data = child.dataElement();
       if (data instanceof TDCParser.DataWithBodyContext withBody) {
         output = PairedData.restore(withBody.dataContent().getText());

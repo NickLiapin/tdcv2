@@ -803,6 +803,18 @@ public static class ConfigBuilder
                 continue;
             }
 
+            // A standalone `<mix name="…">` or `<switch name="…">` is a SEQUENCE, declared beside
+            // the others rather than inside one — the same reading the config parser gives it
+            // above. Skipping them here left the `${{name}}` in the output template with nothing
+            // to resolve against, so the pack emitted its own placeholder as data: `${{p}}` on
+            // every row, exit 0, and `check` calling it valid. It is a documented shape ("Exact
+            // percentages inside a generator") and two shipped packs use it.
+            if (open is not null && open.name.Text is "mix" or "switch")
+            {
+                sequences.Add(open.name.Text == "mix" ? MixSequence(open) : SwitchSequence(open));
+                continue;
+            }
+
             if (child.dataElement() is TDCParser.DataWithBodyContext withBody)
             {
                 output = PairedData.Restore(withBody.dataContent().GetText());

@@ -377,6 +377,31 @@ placed` rather than naming a total it stopped counting. A number quietly reading
   produces their sum in Python, Java, C# and Rust, where it produced their digits run together.
   TypeScript is unchanged.
 
+- **A `<mix percent>` inside a pack generator: five implementations, three answers.** It is a
+  documented shape — `data-packs/writing-your-own` documents it under "Exact percentages inside a
+  generator" — and two shipped packs use it. **Python, Java and C# emitted the pack's own
+  interpolation placeholder as data**: `${{p}}` on every row, exit 0, `check` valid. Their pack
+  parsers collected only `<sequence>` children, and a standalone `<mix name="…">` is a SEQUENCE
+  declared beside the others, exactly as it is in a config; skipped, it left the `${{p}}` in the
+  output template with nothing to resolve against. And **Rust disagreed with the reference**
+  wherever a `<gen type="template">` sat inside a `<case>`.
+
+  Rust's cause was its own: a pack body is built by a nested engine with its own seed —
+  `{run seed}|{column}` — but the columns it produces are handed back to the outer engine to
+  evaluate, because a nested engine cannot be kept alive beside its parent there. So everything
+  the body decided at BUILD time was keyed correctly and everything it left until VALUE time was
+  keyed by the outer seed, which is no seed of the body's at all. Measured: the values did not
+  change when the column was renamed, and were the same six a plain config gives. The seed now
+  travels with the columns. The memory engine had the second half of it — a pack-body `<mix>`
+  built with no stream, and under a key missing the `#switch` suffix the streaming engine spells.
+
+  Fixing the parsers then exposed a crash the placeholder had been hiding: with a `<mix>` finally
+  reaching them, Python, Java and C# took `--engine 1` down with a raw stack trace
+  (`AssertionError`, `NullPointerException`, `NullReferenceException`) because their pack-body
+  materialisers had no branch for one. All three have it now.
+
+  Seven pack shapes across five implementations and three engines: all five agree everywhere.
+
 - **An interpolated template address threw away the pack's weights, in all five.**
   `value="person.${{Sex}}.firstName"` — TDC's parent→child-by-name, the whole point of the
   coherent-data guide — drew UNIFORMLY in TypeScript and handed every row the SAME value in
