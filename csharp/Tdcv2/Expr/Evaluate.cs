@@ -806,7 +806,22 @@ public static class Evaluate
     {
         var (a, b) = BothWhole(left, right);
         if (a.HasValue) return Checked(() => checked(a.Value + b!.Value), () => (BigInteger)a.Value + b!.Value);
-        // `+` adds when either side is already a number and joins otherwise, as in JavaScript.
+        // Both sides read as numbers -> ADD them. The old rule asked whether an operand was
+        // ALREADY a double, which a column value never is: every column is text, so `A + B` on
+        // two decimal columns took the JavaScript escape hatch and CONCATENATED. Measured:
+        // 1.5 + 2.25 gave "1.52.25", and the ECG guide's `P + Q + R + S + TW + Drift + Noise`
+        // printed the seven addends glued together where the reference printed their sum.
+        //
+        // Silent, and plausible: "1.52.25" looks like a number in a CSV until someone tries to
+        // add it. Adding two fractional columns is also the most common thing anyone does with
+        // numbers, and `+` was the ONE operator with this hole -- `-`, `*`, `/` and `%` all go
+        // through AsNumber and were always right, which is why nothing else showed it.
+        //
+        // Joining stays for genuine text ("a" + "b"), the only case the escape hatch was ever
+        // meant to serve.
+        double? ln = NumericOperand(left);
+        double? rn = NumericOperand(right);
+        if (ln.HasValue && rn.HasValue) return ln.Value + rn.Value;
         return left is double || right is double
             ? AsNumber(left) + AsNumber(right)
             : Text(left) + Text(right);
@@ -846,6 +861,23 @@ public static class Evaluate
         bool b => b ? 1 : 0,
         _ => double.NaN,
     };
+
+    /// <summary>The value as a number when it reads as one, else null — the <c>+</c> rule's test.</summary>
+    private static double? NumericOperand(object? v)
+    {
+        if (v is double d) return d;
+        if (v is long n) return n;
+        if (v is int i) return i;
+        if (v is string s)
+        {
+            string t = s.Trim();
+            if (t.Length == 0) return null;
+            double parsed = JsNumber(t);
+            return double.IsNaN(parsed) ? null : parsed;
+        }
+
+        return null;
+    }
 
     /// <summary><c>Number(x)</c> as JavaScript defines it: blank is zero, unreadable is NaN.</summary>
     private static double JsNumber(string raw)

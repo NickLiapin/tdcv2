@@ -78,6 +78,13 @@ const IMPLEMENTATIONS = [
     label: "C#",
     artefact: "csharp/Tdcv2.Cli.Tool/bin/Release/net6.0/Tdcv2.Cli.dll",
     sources: "csharp/Tdcv2",
+    // The engine lives in a DIFFERENT assembly from the command line that loads it, so the
+    // freshness question has to be asked of the engine's own copy. `Tdcv2.Cli.dll` is built
+    // from `Tdcv2.Cli.Tool/`, which an engine edit never touches: it kept its old mtime while
+    // the engine beside it was rebuilt, and the audit read that as a stale build and refused
+    // to run. Measured 2026-08-25: Tdcv2.Cli.dll 13:59, Tdcv2.dll 14:32, the edit 14:31 —
+    // the CLI was running the new code and being called stale for it.
+    freshness: "csharp/Tdcv2.Cli.Tool/bin/Release/net6.0/Tdcv2.dll",
     command: [
       "dotnet",
       [join(REPO, "csharp/Tdcv2.Cli.Tool/bin/Release/net6.0/Tdcv2.Cli.dll")],
@@ -124,7 +131,10 @@ const jsonPath = jsonAt === -1 ? null : args[jsonAt + 1];
 
 const chosen = IMPLEMENTATIONS.filter((i) => !only || only.has(i.id));
 const missing = chosen.filter(
-  (i) => !i.artefact || !existsSync(join(REPO, i.artefact)),
+  (i) =>
+    !i.artefact ||
+    !existsSync(join(REPO, i.artefact)) ||
+    (i.freshness && !existsSync(join(REPO, i.freshness))),
 );
 if (missing.length > 0) {
   console.error(
@@ -134,12 +144,32 @@ if (missing.length > 0) {
   process.exit(2);
 }
 
-/** The newest mtime anywhere under a directory. */
+/**
+ * Directories that live among the sources but are OUTPUT, and so must not be read as
+ * sources: a build writes into them, which would make every project permanently newer
+ * than its own build. `csharp/Tdcv2/obj/` did exactly that — `dotnet test` builds Debug,
+ * Debug writes `obj/Debug/net6.0/refint/Tdcv2.dll`, and from then on the audit reported
+ * the Release build as stale no matter how recently it was made. Running the tests
+ * disabled the audit.
+ */
+const OUTPUT_DIRS = new Set([
+  "bin",
+  "obj",
+  "target",
+  "dist",
+  "build",
+  "node_modules",
+  "__pycache__",
+  ".venv",
+]);
+
+/** The newest mtime anywhere under a directory, build output excluded. */
 function newestUnder(dir) {
   let newest = 0;
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
     const path = join(dir, entry.name);
     if (entry.isDirectory()) {
+      if (OUTPUT_DIRS.has(entry.name)) continue;
       newest = Math.max(newest, newestUnder(path));
     } else if (entry.isFile()) {
       newest = Math.max(newest, statSync(path).mtimeMs);
@@ -154,11 +184,32 @@ function newestUnder(dir) {
 // build. That is exactly what happened while preparing 0.2.1 — the Rust release
 // binary was a day old, and this audit blamed the engine for a bug that had been
 // fixed hours earlier.
+//
+// One implementation is exempt, and not as a favour: an EDITABLE Python install
+// (`pip install -e`) puts a console script in the venv that imports the sources
+// where they lie, so it runs the current code the moment the code changes — and
+// its own mtime never moves again. Comparing the two therefore refuses forever
+// after the first edit, which is why this audit sat unrunnable rather than
+// unrun: reinstalling silenced it until the next keystroke. Measured on
+// 2026-08-25: script 3 August, source 25 August, `__editable__.tdcv2-0.1.5.pth`
+// in site-packages, and the CLI answering with the day's work in it.
+const editable = (i) =>
+  i.id === "python" &&
+  existsSync(join(REPO, i.artefact)) &&
+  readdirSync(join(REPO, "python/.venv/lib")).some(
+    (v) =>
+      existsSync(join(REPO, "python/.venv/lib", v, "site-packages")) &&
+      readdirSync(join(REPO, "python/.venv/lib", v, "site-packages")).some(
+        (f) => f.startsWith("__editable__") && f.includes("tdcv2"),
+      ),
+  );
+
 const stale = chosen.filter(
   (i) =>
     i.sources &&
+    !editable(i) &&
     newestUnder(join(REPO, i.sources)) >
-      statSync(join(REPO, i.artefact)).mtimeMs,
+      statSync(join(REPO, i.freshness ?? i.artefact)).mtimeMs,
 );
 if (stale.length > 0) {
   console.error(

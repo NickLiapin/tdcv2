@@ -191,6 +191,24 @@ public final class Evaluate {
         if (w != null) {
           yield checked(() -> Math.addExact(w[0], w[1]), () -> big(w[0]).add(big(w[1])));
         }
+        // Both sides read as numbers -> ADD them. The old rule asked whether an operand was
+        // ALREADY a Double, which a column value never is: every column is text, so `A + B` on
+        // two decimal columns took the JavaScript escape hatch and CONCATENATED. Measured:
+        // 1.5 + 2.25 gave "1.52.25", and the ECG guide's `P + Q + R + S + TW + Drift + Noise`
+        // printed the seven addends glued together where the reference printed their sum.
+        //
+        // Silent, and plausible: "1.52.25" looks like a number in a CSV until someone tries to
+        // add it. Adding two fractional columns is also the most common thing anyone does with
+        // numbers, and `+` was the ONE operator with this hole -- `-`, `*`, `/` and `%` all go
+        // through asNumber and were always right, which is why nothing else showed it.
+        //
+        // Joining stays for genuine text ("a" + "b"), the only case the escape hatch was ever
+        // meant to serve.
+        Double ln = numericOperand(left);
+        Double rn = numericOperand(right);
+        if (ln != null && rn != null) {
+          yield (Object) (ln + rn);
+        }
         yield left instanceof Double || right instanceof Double
             ? (Object) (asNumber(left) + asNumber(right))
             : text(left) + text(right);
@@ -896,6 +914,28 @@ public final class Evaluate {
   }
 
   /** Both operands as exact whole numbers, or null if either is not one. */
+  /** The value as a number when it reads as one, else null -- the {@code +} rule's test. */
+  private static Double numericOperand(Object v) {
+    if (v instanceof Double d) {
+      return d;
+    }
+    if (v instanceof Long n) {
+      return (double) n;
+    }
+    if (v instanceof Integer n) {
+      return (double) n;
+    }
+    if (v instanceof String s) {
+      String t = s.trim();
+      if (t.isEmpty()) {
+        return null;
+      }
+      double n = jsNumber(t);
+      return Double.isNaN(n) ? null : n;
+    }
+    return null;
+  }
+
   private static long[] bothWhole(Object left, Object right) {
     Long a = asExactInt(left);
     if (a == null) {

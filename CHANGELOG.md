@@ -351,6 +351,41 @@ placed` rather than naming a total it stopped counting. A number quietly reading
   the naive spelling misses `b` at t=1 in 41 per cent of them. `t` outside [0, 1]
   extrapolates.
 
+### Fixed
+
+<!-- covers: TDC E13, `+` on two decimal columns -->
+
+- **Adding two fractional columns CONCATENATED them in Python, Java, C# and Rust.** `A=1.5`,
+  `B=2.25`, `C = "A + B"` gave `3.7500` in TypeScript and **`1.52.25`** in the other four, with
+  `decimals=` ignored along with the arithmetic. Referencing a plain `number` column was fine
+  everywhere, so it showed only when a formula added other formulas — which is the shape every
+  real signal has. The `signals-from-formulas` guide's ECG config sums seven addends into one
+  millivolt column, and on four of five implementations that column printed the seven numbers
+  glued end to end for all 2500 rows.
+
+  All four had inherited a JavaScript escape hatch — "add if one side is ALREADY a number,
+  otherwise join" — and a column value never IS a number: every column is text. So `+` fell
+  through to joining. The reference had already been fixed and carried a comment recording the
+  same symptom (`10.00 + 5.00` giving `"10.005.00"`); the fix was never carried across. `+` was
+  also the only operator with the hole — `-`, `*`, `/` and `%` all convert first, and were
+  always right, which is why nothing else exposed it.
+
+  Now all five ask whether both sides READ as numbers, and add when they do. Joining is left to
+  genuine text, the one case the escape hatch was meant for: `"a" + "b"` is still `ab`.
+
+  **Byte change:** any config where a formula adds columns holding fractional numbers now
+  produces their sum in Python, Java, C# and Rust, where it produced their digits run together.
+  TypeScript is unchanged.
+
+- **The five-way documentation audit refused to run for two reasons of its own making.** It
+  compares each build against its sources, and for C# it compared the ENGINE's sources against
+  the COMMAND LINE's assembly — a file that an engine edit never rebuilds, so an up-to-date C#
+  build reported as stale (measured: CLI 13:59, engine 14:32, the edit 14:31). It also walked
+  `bin/` and `obj/` as if they were sources, so running `dotnet test` — which builds Debug, and
+  writes into `obj/` — left every later Release build looking older than its own "sources".
+  Running the tests disabled the audit. It now compares against the engine assembly the CLI
+  actually loads, and skips build output when reading source times.
+
 ### Changed
 
 <!-- covers: TDC299 -->

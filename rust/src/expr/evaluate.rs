@@ -546,18 +546,36 @@ fn binary_op(op: &str, left: &V, right: &V) -> EngineResult<V> {
         }),
         "&&" => V::Bool(to_boolean(left) && to_boolean(right)),
         "||" => V::Bool(to_boolean(left) || to_boolean(right)),
-        // `+` adds when either side is already a number and joins otherwise, as
-        // in JavaScript.
         "+" => match both_whole(left, right) {
             Some((a, b)) => V::Int(checked_int(
                 a.checked_add(b),
                 i128::from(a) + i128::from(b),
             )?),
             None => {
-                if matches!(left, V::Num(_)) || matches!(right, V::Num(_)) {
-                    V::Num(as_number(left) + as_number(right))
-                } else {
-                    V::Str(text(left) + &text(right))
+                // Both sides read as numbers -> ADD them. The old rule asked whether an
+                // operand was ALREADY a number, which a column value never is: every
+                // column is text, so `A + B` on two decimal columns took the JavaScript
+                // escape hatch and CONCATENATED. Measured: 1.5 + 2.25 gave "1.52.25",
+                // and the ECG guide's `P + Q + R + S + TW + Drift + Noise` printed the
+                // seven addends glued together where the reference printed their sum.
+                //
+                // Silent, and plausible: "1.52.25" looks like a number in a CSV until
+                // someone tries to add it. Adding two fractional columns is also the most
+                // common thing anyone does with numbers, and `+` was the ONE operator with
+                // this hole -- `-`, `*`, `/` and `%` all go through `as_number` and were
+                // always right, which is why nothing else showed it.
+                //
+                // Joining stays for genuine text (`"a" + "b"`), the only case the escape
+                // hatch was ever meant to serve.
+                match (numeric_operand(left), numeric_operand(right)) {
+                    (Some(a), Some(b)) => V::Num(a + b),
+                    _ => {
+                        if matches!(left, V::Num(_)) || matches!(right, V::Num(_)) {
+                            V::Num(as_number(left) + as_number(right))
+                        } else {
+                            V::Str(text(left) + &text(right))
+                        }
+                    }
                 }
             }
         },
@@ -790,6 +808,27 @@ fn as_number(v: &V) -> f64 {
         }
         V::Null => f64::NAN,
         V::Lst(_) => f64::NAN,
+    }
+}
+
+/// The value as a number when it reads as one, else `None` -- the `+` rule's test.
+fn numeric_operand(v: &V) -> Option<f64> {
+    match v {
+        V::Num(d) => Some(*d),
+        V::Int(n) => Some(*n as f64),
+        V::Str(s) => {
+            let t = s.trim();
+            if t.is_empty() {
+                return None;
+            }
+            let n = js_number(t);
+            if n.is_nan() {
+                None
+            } else {
+                Some(n)
+            }
+        }
+        _ => None,
     }
 }
 

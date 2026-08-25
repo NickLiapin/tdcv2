@@ -488,6 +488,23 @@ def _as_exact_int(v):
     return None
 
 
+def _numeric_operand(value):
+    """The value as a number when it reads as one, else None — the `+` rule's test."""
+    if isinstance(value, bool):
+        return None
+    if isinstance(value, (int, float)):
+        return float(value)
+    if isinstance(value, str):
+        text = value.strip()
+        if not text:
+            return None
+        try:
+            return float(text)
+        except ValueError:
+            return None
+    return None
+
+
 def _both_whole(left, right):
     """Both operands as exact whole numbers, or None if either is not one."""
     a = _as_exact_int(left)
@@ -533,7 +550,23 @@ def _binary(op: str, left, right):
     if op == "+":
         if whole:
             return _checked_int(whole[0] + whole[1])
-        # Adds when either side is already a number, joins otherwise, as in JavaScript.
+        # Both sides read as numbers → ADD them. The old rule asked whether an operand was
+        # already a float, which a column value never is: every column is text, so `A + B` on
+        # two decimal columns took the JavaScript escape hatch and CONCATENATED. Measured:
+        # 1.5 + 2.25 gave "1.52.25", and the ECG guide's `P + Q + R + S + TW + Drift + Noise`
+        # printed the seven addends glued together where the reference printed their sum.
+        #
+        # Silent, and plausible: "1.52.25" looks like a number in a CSV until someone tries to
+        # add it. Adding two fractional columns is also the most common thing anyone does with
+        # numbers, and it was the ONE operator with this hole — `-`, `*`, `/` and `%` all go
+        # through `as_number` and were always right, which is why nothing else showed it.
+        #
+        # Concatenation stays for genuine text (`"a" + "b"`), the only case the escape hatch
+        # was ever meant to serve.
+        ln = _numeric_operand(left)
+        rn = _numeric_operand(right)
+        if ln is not None and rn is not None:
+            return ln + rn
         if isinstance(left, float) or isinstance(right, float):
             return as_number(left) + as_number(right)
         return _text(left) + _text(right)
