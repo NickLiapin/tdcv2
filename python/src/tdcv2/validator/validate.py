@@ -642,39 +642,70 @@ def _is_derived(type_: str | None, attrs: dict[str, str]) -> bool:
     return type_ == "date" and bool((attrs.get("of") or "").strip())
 
 
-def _identifiers_of(node) -> set[str]:
-    """Every bare name an expression mentions, root of a dotted path included.
+def _identifiers_of(node, bare_words_allowed: bool = False) -> set[str]:
+    """Every COLUMN name an expression reads, root of a dotted path included.
 
-    A parameter is a NUMBER, so every identifier in one has to be a column — unlike `if=`, where
-    an unknown name is a legitimate bare word. That is what makes checking them all correct here
-    and wrong there.
+    Most identifiers in a formula are columns: the whole expression is arithmetic whose answer
+    is printed, so a name that is not a column is a typo rather than a word.
+
+    Two places are the exception, and they are the same two ``if=`` has. The right-hand side of a
+    COMPARISON may be a bare word — ``Gender == Male`` — and so may both branches of a TERNARY,
+    which is how a formula writes a LABEL rather than a number:
+    ``expr="BMI > 25 ? over : normal"``. Reading those as columns refused the formula page's own
+    headline example with TDC240, on a config the reference runs.
+
+    Walking the tree by guessed FIELD NAMES also missed whole node kinds, because this parser's
+    nodes are not the reference's: a unary holds ``operand`` and not ``argument``, an array holds
+    ``items`` and not ``elements``, and a dotted reference is a ``Member`` with no child node at
+    all. So ``-Typo`` and ``Person.Age`` walked straight through a green ``check`` and died at run
+    time with "the expression has no number as its answer" — a sentence that names neither the
+    column nor the typo. Matched on node TYPE now, which cannot drift out of step with the parser
+    the way a list of attribute names did.
     """
     found: set[str] = set()
 
-    def walk(n) -> None:
+    def walk(n, bare: bool) -> None:
         if isinstance(n, Name):
-            found.add(n.value.split(".")[0])
+            if not bare:
+                found.add(n.value.split(".")[0])
             return
-        for attr in ("left", "right", "argument", "test", "consequent", "alternate", "object"):
-            child = getattr(n, attr, None)
-            if child is not None:
-                walk(child)
-        # `args` as well as `arguments`: the Call node in this parser spells it the
-        # short way, so this walker descended into no function call at all. Every
-        # identifier inside one escaped the declaration-order rule — `abs(Typo)`
-        # passed `check` here and was refused by the reference, then failed at run
-        # time with "the expression has no number as its answer", which names
-        # neither the column nor the typo. Found while porting `prev()`; older than
-        # it by a long way.
-        for attr in ("arguments", "args", "elements"):
-            children = getattr(n, attr, None)
-            if children:
-                for child in children:
-                    walk(child)
+        if isinstance(n, Member):
+            # `Person.Age` — the ROOT is the column; the tail is its field, and a field cannot
+            # be known from the config alone.
+            if not bare:
+                found.add(n.dotted.split(".")[0])
+            return
+        if isinstance(n, Binary):
+            if n.op in ("&&", "||"):
+                walk(n.left, bare)
+                walk(n.right, bare)
+                return
+            # The right of a comparison may be a bare word, the same reading `if=` gives it.
+            # Arithmetic has no such case: both sides are numbers.
+            compare = n.op in ("==", "!=", "===", "!==", "<", ">", "<=", ">=")
+            walk(n.left, False)
+            walk(n.right, compare or bare)
+            return
+        if isinstance(n, Unary):
+            walk(n.operand, bare)
+            return
+        if isinstance(n, Conditional):
+            walk(n.test, False)
+            # Both branches may be labels — see the note above.
+            walk(n.consequent, True)
+            walk(n.alternate, True)
+            return
+        if isinstance(n, Call):
+            for arg in n.args:
+                walk(arg, False)
+            return
+        if isinstance(n, Array):
+            for item in n.items:
+                walk(item, True)
+            return
 
-    walk(node)
+    walk(node, bare_words_allowed)
     return found
-
 
 
 def _prev_targets(node) -> set[str]:

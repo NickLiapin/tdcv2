@@ -5260,27 +5260,58 @@ public sealed class Validator
         }
     }
 
-    private static void CollectIdentifiers(Expr.Expr node, ISet<string> found)
+    /// <summary>
+    /// Every COLUMN name an expression reads.
+    ///
+    /// Most identifiers in a formula are columns: the whole expression is arithmetic whose
+    /// answer is printed, so a name that is not a column is a typo rather than a word.
+    ///
+    /// Two places are the exception, and they are the same two <c>if=</c> has. The right-hand
+    /// side of a COMPARISON may be a bare word — <c>Gender == Male</c> — and so may both
+    /// branches of a TERNARY, which is how a formula writes a LABEL rather than a number:
+    /// <c>expr="BMI &gt; 25 ? over : normal"</c>. Collecting those as columns refused the
+    /// formula page's own headline example with TDC240, on a config the reference runs.
+    /// </summary>
+    private static void CollectIdentifiers(
+        Expr.Expr node, ISet<string> found, bool bareWordsAllowed = false)
     {
         switch (node)
         {
             case Expr.Expr.Name n:
-                found.Add(n.Value);
+                if (!bareWordsAllowed)
+                {
+                    found.Add(n.Value);
+                }
+
                 break;
             case Expr.Expr.Member m:
-                found.Add(m.Dotted.Split('.')[0]);
+                // `Person.Age` — the ROOT is the column; the tail is its field, and a field
+                // cannot be known from the config alone.
+                if (!bareWordsAllowed)
+                {
+                    found.Add(m.Dotted.Split('.')[0]);
+                }
+
                 break;
             case Expr.Expr.Unary u:
-                CollectIdentifiers(u.Operand, found);
+                CollectIdentifiers(u.Operand, found, bareWordsAllowed);
+                break;
+            case Expr.Expr.Binary b when b.Op is "&&" or "||":
+                CollectIdentifiers(b.Left, found, bareWordsAllowed);
+                CollectIdentifiers(b.Right, found, bareWordsAllowed);
                 break;
             case Expr.Expr.Binary b:
+                // The right of a comparison may be a bare word, the same reading `if=` gives
+                // it. Arithmetic has no such case: both sides are numbers.
+                bool compare = b.Op is "==" or "!=" or "===" or "!==" or "<" or ">" or "<=" or ">=";
                 CollectIdentifiers(b.Left, found);
-                CollectIdentifiers(b.Right, found);
+                CollectIdentifiers(b.Right, found, compare || bareWordsAllowed);
                 break;
             case Expr.Expr.Conditional t:
                 CollectIdentifiers(t.Test, found);
-                CollectIdentifiers(t.Consequent, found);
-                CollectIdentifiers(t.Alternate, found);
+                // Both branches may be labels — see the note above.
+                CollectIdentifiers(t.Consequent, found, true);
+                CollectIdentifiers(t.Alternate, found, true);
                 break;
             case Expr.Expr.Call c:
                 foreach (Expr.Expr arg in c.Args)
@@ -5292,7 +5323,7 @@ public sealed class Validator
             case Expr.Expr.Arr a:
                 foreach (Expr.Expr item in a.Items)
                 {
-                    CollectIdentifiers(item, found);
+                    CollectIdentifiers(item, found, true);
                 }
 
                 break;

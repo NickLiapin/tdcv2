@@ -377,6 +377,26 @@ placed` rather than naming a total it stopped counting. A number quietly reading
   produces their sum in Python, Java, C# and Rust, where it produced their digits run together.
   TypeScript is unchanged.
 
+- **The formula page's own headline example was refused by all four ports.**
+  `expr="BMI > 25 ? over : normal"` ran in TypeScript and was refused with `TDC240: "normal" in
+expr= is not a sequence declared above this one` in Python, Rust, Java and C# — on the English,
+  Russian and Spanish copies of the page, and on any config that labels a row.
+
+  A formula is arithmetic whose answer is printed, so a name in one is normally a column and a
+  name that is not a column is a typo. Two places are the exception, and they are the same two
+  `if=` has: the right-hand side of a COMPARISON may be a bare word (`Gender == Male`), and so
+  may both branches of a TERNARY — which is how a formula writes a LABEL instead of a number, and
+  how a training set gets its target column. The four ports collected every identifier in the
+  tree, so the labels read as undeclared columns.
+
+  Two more holes came out of the same walk in Python, in the other direction: it descended by
+  guessed FIELD NAMES, and this parser's nodes are not the reference's — a unary holds `operand`
+  and not `argument`, a dotted reference is a leaf with no child node at all. `-Typo` and
+  `Person.Age * 2` therefore walked through a green `check` and died at run time with "the
+  expression has no number as its answer", which names neither the column nor the typo. All five
+  now match on node TYPE, which cannot drift out of step with the parser the way a list of
+  attribute names did.
+
 - **`local=` on a `<gen>` was ignored by Python, Java and C#, and the column came out a
   CONSTANT.** `<gen type="template" value="person.lastName" local="de"/>` gave
   Voigt/Riedel/Winkelmann in TypeScript and Rust, and `Smith Smith Smith` in the other three.

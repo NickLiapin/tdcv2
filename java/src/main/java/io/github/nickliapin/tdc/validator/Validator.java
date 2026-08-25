@@ -2087,35 +2087,66 @@ public final class Validator {
     }
   }
 
-  /**
-   * Every bare name an expression mentions, the root of a dotted path included.
-   *
-   * <p>A distribution parameter is a NUMBER, so every identifier in one has to be a column —
-   * unlike {@code if=}, where an unknown name is a legitimate bare word. That is what makes
-   * checking them all correct here and wrong there.
-   */
   private static void collectIdentifiers(
       io.github.nickliapin.tdc.expr.Expr node, java.util.Set<String> found) {
+    collectIdentifiers(node, found, false);
+  }
+
+  /**
+   * Every COLUMN name an expression reads, the root of a dotted path included.
+   *
+   * <p>Most identifiers in a formula are columns: the whole expression is arithmetic whose
+   * answer is printed, so a name that is not a column is a typo rather than a word.
+   *
+   * <p>Two places are the exception, and they are the same two {@code if=} has. The right-hand
+   * side of a COMPARISON may be a bare word — {@code Gender == Male} — and so may both branches
+   * of a TERNARY, which is how a formula writes a LABEL rather than a number:
+   * {@code expr="BMI > 25 ? over : normal"}. Collecting those as columns refused the formula
+   * page's own headline example with TDC240, on a config the reference runs.
+   */
+  private static void collectIdentifiers(
+      io.github.nickliapin.tdc.expr.Expr node,
+      java.util.Set<String> found,
+      boolean bareWordsAllowed) {
     if (node instanceof io.github.nickliapin.tdc.expr.Expr.Name n) {
-      found.add(n.value());
+      if (!bareWordsAllowed) {
+        found.add(n.value());
+      }
     } else if (node instanceof io.github.nickliapin.tdc.expr.Expr.Member m) {
-      found.add(m.dotted().split("\\.", 2)[0]);
+      // `Person.Age` — the ROOT is the column; the tail is its field, and a field cannot be
+      // known from the config alone.
+      if (!bareWordsAllowed) {
+        found.add(m.dotted().split("\\.", 2)[0]);
+      }
     } else if (node instanceof io.github.nickliapin.tdc.expr.Expr.Unary u) {
-      collectIdentifiers(u.operand(), found);
+      collectIdentifiers(u.operand(), found, bareWordsAllowed);
     } else if (node instanceof io.github.nickliapin.tdc.expr.Expr.Binary b) {
-      collectIdentifiers(b.left(), found);
-      collectIdentifiers(b.right(), found);
+      if ("&&".equals(b.op()) || "||".equals(b.op())) {
+        collectIdentifiers(b.left(), found, bareWordsAllowed);
+        collectIdentifiers(b.right(), found, bareWordsAllowed);
+      } else {
+        // The right of a comparison may be a bare word, the same reading `if=` gives it.
+        // Arithmetic has no such case: both sides are numbers.
+        boolean compare =
+            switch (b.op()) {
+              case "==", "!=", "===", "!==", "<", ">", "<=", ">=" -> true;
+              default -> false;
+            };
+        collectIdentifiers(b.left(), found, false);
+        collectIdentifiers(b.right(), found, compare || bareWordsAllowed);
+      }
     } else if (node instanceof io.github.nickliapin.tdc.expr.Expr.Conditional t) {
-      collectIdentifiers(t.test(), found);
-      collectIdentifiers(t.consequent(), found);
-      collectIdentifiers(t.alternate(), found);
+      collectIdentifiers(t.test(), found, false);
+      // Both branches may be labels — see the note above.
+      collectIdentifiers(t.consequent(), found, true);
+      collectIdentifiers(t.alternate(), found, true);
     } else if (node instanceof io.github.nickliapin.tdc.expr.Expr.Call c) {
       for (io.github.nickliapin.tdc.expr.Expr arg : c.args()) {
-        collectIdentifiers(arg, found);
+        collectIdentifiers(arg, found, false);
       }
     } else if (node instanceof io.github.nickliapin.tdc.expr.Expr.Arr a) {
       for (io.github.nickliapin.tdc.expr.Expr item : a.items()) {
-        collectIdentifiers(item, found);
+        collectIdentifiers(item, found, true);
       }
     }
   }
