@@ -744,6 +744,10 @@ export function prepareRender(
       buildOptions,
       envUniqGroups,
       envDistinctGroups,
+      // Named rather than routed to: `--engine 3` and `engine="3"` say WHICH
+      // engine, so a config too tight for it is refused instead of handed to
+      // another. `mode="disk"` says what the run may cost, and still falls back.
+      'forced' in env.engineSelection,
     );
   } else {
     registry = buildSequences(sequenceSpecs, env.count, prng, env.locale, now, {

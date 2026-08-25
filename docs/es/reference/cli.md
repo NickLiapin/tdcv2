@@ -158,7 +158,9 @@ por su cuenta si paralelizar. En resumen:
   ([determinismo](../core-concepts/determinism.md#top)); simplemente mantiene cada columna en
   RAM en vez de transmitirla.
 - **`--engine 1|2|3`** — fuerza un motor específico; `--stream` es un alias heredado de
-  `--engine 2`.
+  `--engine 2`. Nombrar un motor significa que **rechaza** en vez de ejecutar otro en silencio,
+  así que una medición mide lo que dice medir. `--mode` describe un coste, y una ejecución que
+  describe un coste todavía puede acabar en otro motor.
 
 TDC calcula cuántos hilos caben en la RAM de esta máquina y toma esa cantidad — en una
 máquina débil la corrida simplemente va más lenta, no se cae a la mitad. Todo el detalle

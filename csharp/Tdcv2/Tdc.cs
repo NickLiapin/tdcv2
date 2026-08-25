@@ -231,9 +231,12 @@ public sealed class Tdc
         /// Run on one named engine — 1 in memory, 2 streaming, 3 exact on disk.
         /// </summary>
         /// <remarks>
-        /// Overrides everything the config says and refuses rather than falling back when the named
-        /// engine cannot do what the config asks. That is what makes it useful for a benchmark and
-        /// wrong for ordinary use.
+        /// Overrides everything the config says. NAMING an engine means it refuses rather than
+        /// quietly running another — including engine 3 on a <c>&lt;uniq&gt;</c> too tight for its
+        /// bounded repair, which used to fall back to the in-memory engine without a word, so a
+        /// benchmark of engine 3 was a benchmark of engine 1. <c>mode="disk"</c> says what the run
+        /// may COST instead, and a config that says that may still be handed to another engine.
+        /// Naming one is what makes this useful for a benchmark and wrong for ordinary use.
         /// </remarks>
         public int? Engine { get; set; }
 

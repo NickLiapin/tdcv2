@@ -151,7 +151,9 @@ itself whether to parallelize. In short:
   ([determinism](../core-concepts/determinism.mdx)); it simply holds every column in RAM
   instead of streaming it.
 - **`--engine 1|2|3`** — force a specific engine; `--stream` is a legacy alias for
-  `--engine 2`.
+  `--engine 2`. Naming an engine means it **refuses** rather than quietly running another, so
+  a measurement measures what it says it does. `--mode` describes a cost instead, and a run
+  that describes a cost may still be handed to a different engine.
 
 TDC works out how many threads fit in this machine's RAM and uses that many, so on a weak
 machine a run just takes longer instead of dying halfway through. Full details in

@@ -17,6 +17,34 @@ page — is tracked in that implementation's own changelog:
 
 ### Added
 
+<!-- covers: engine 3 named refuses -->
+
+- **`--engine 3` no longer runs engine 1 behind your back.** Naming an engine says WHICH engine
+  to run, so quietly running another hides exactly what the author asked to be told — the rule
+  the streaming engine has followed all along, written in its own source. Engine 3 was never
+  wired to it, and the gap was not theoretical: on a `<uniq>` too tight for engine 3's bounded
+  repair, `--engine 3` and `--engine 1` wrote **byte-identical files**, while the same config
+  inside the cap wrote different ones. Anyone measuring engine 3 on a tight config was measuring
+  engine 1. It happened three times in one day to the person who wrote the fallback.
+
+  A named engine 3 now refuses, and the sentence says what to do: remove the engine choice and a
+  uniq this tight goes to the in-memory engine — which is what was happening anyway.
+  `mode="disk"` describes a COST rather than naming an engine, so a config that says that still
+  falls back and still gets its rows. Both halves are pinned by shared cases.
+
+  Narrow on purpose: only the repair cap refuses. A shape the lazy path cannot express at all —
+  a weighted pack generator, say — means engine 3 never got to run the config, and covering that
+  is what engine 3 IS. Writing the refusal too broadly failed tests in three implementations,
+  which is how the line came to be drawn where it is.
+
+  Fixed alongside: `IN_MEMORY_FALLBACK_MAX_ROWS` was **declared in all four ports and used in
+  none**. Past 20,000,000 rows the reference refuses rather than falling back, because there the
+  fallback is not a fallback — it is half an hour of materialising, out of memory, nothing
+  written. The four now do the same.
+
+  The three API docs that promised "refuses rather than falling back" were telling the truth
+  about `--engine 2` and not about `--engine 3`; all five now state the rule and the exception.
+
 <!-- covers: TDC170 empty pack -->
 
 - **A data pack that lists nothing is refused by name instead of crashing four of the five

@@ -173,8 +173,12 @@ class TDC:
         otherwise produce different data tomorrow.
 
         ``engine`` runs on one named engine (1 in memory, 2 streaming, 3 exact on disk), overriding
-        everything the config says and refusing rather than falling back. That is what makes it
-        useful for a benchmark and wrong for ordinary use.
+        everything the config says. NAMING an engine means it refuses rather than quietly running
+        another — including engine 3 on a ``<uniq>`` too tight for its bounded repair, which used
+        to fall back to the in-memory engine without a word, so a benchmark of engine 3 was a
+        benchmark of engine 1. ``mode="disk"`` says what the run may COST instead, and a config
+        that says that may still be handed to another engine. Naming one is what makes this useful
+        for a benchmark and wrong for ordinary use.
 
         ``on_progress(phase, done, total)`` is called as the run advances, so a caller with a long
         run can say more than "working". Phases: ``uniq-scan`` (every row's tuple hashed),

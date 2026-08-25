@@ -40,6 +40,7 @@
     "badMode": "<tdc><env count=\"2\" seed=\"w\" local=\"en\" mode=\"nonsense\"><sequence name=\"T\"><gen type=\"increment\" value=\"1\"/></sequence></env><block><line><data>${{T}}</data></line></block></tdc>",
     "badEngine": "<tdc><env count=\"2\" seed=\"w\" local=\"en\" engine=\"9\"><sequence name=\"T\"><gen type=\"increment\" value=\"1\"/></sequence></env><block><line><data>${{T}}</data></line></block></tdc>",
     "sequentialVsEngine": "<tdc><env count=\"2\" seed=\"w\" local=\"en\" mode=\"sequential\" engine=\"2\"><sequence name=\"T\"><gen type=\"increment\" value=\"1\"/></sequence></env><block><line><data>${{T}}</data></line></block></tdc>",
+    "tightUniq": "<tdc><env count=\"75000\" seed=\"t\" local=\"en\" mode=\"disk\"><uniq><sequence name=\"A\"><gen type=\"number\" value=\"1..300\"/></sequence><sequence name=\"B\"><gen type=\"number\" value=\"1..300\"/></sequence></uniq></env><block><line><data>${{A}}-${{B}}</data></line></block></tdc>",
     "impossibleUniq": "<tdc><env count=\"1000000000\" seed=\"s\"><uniq><sequence name=\"A\"><gen type=\"text\" value=\"a,b,c\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"x,y,z\"/></sequence></uniq></env><block><line><data>${{A}}${{B}}</data></line></block></tdc>"
   },
   "cases": [
@@ -1136,6 +1137,33 @@
       "stderrContains": [
         "uniq: group \"A × B\" cannot produce 1000000000 unique combinations"
       ]
+    },
+    {
+      "name": "a named engine 3 refuses a uniq too tight for it, instead of running engine 1",
+      "note": "75,000 rows over 90,000 possible pairs — feasible, and past the repair cap: the bounded repair cannot place some 25,000 of them. The config says `mode=\"disk\"`, which is a COST, so the router may hand it to the in-memory engine; `--engine 3` says WHICH engine, and then quietly running another hides exactly what the author asked to be told. That is the rule the streaming engine has always followed and engine 3 never was. Narrow on purpose: only the repair CAP refuses. A shape the lazy path cannot express at all — a weighted pack generator, say — means engine 3 never got to run the config, and covering that is what engine 3 IS; every implementation has tests saying so, and three of them failed when this refusal was first written too broadly. Measured before this case existed: `--engine 3` and `--engine 1` wrote byte-identical files here while the same config inside the cap wrote different ones, so a benchmark of engine 3 was a benchmark of engine 1, silently. The case below is the other half — the same file, no engine named, still produces its rows.",
+      "files": {
+        "tight.tdc": "@tightUniq"
+      },
+      "argv": ["{dir}/tight.tdc", "--engine", "3"],
+      "exit": 1,
+      "stdout": "",
+      "stderrContains": [
+        "uniq \"A × B\" is too tight to repair without holding the whole table",
+        "engine 3 was asked for by name, so it refuses rather than quietly running another engine"
+      ]
+    },
+    {
+      "name": "the same config runs when nothing named an engine",
+      "note": "The other half of the rule, and the reason the refusal above is safe to add: `mode=\"disk\"` describes a cost rather than naming an engine, so this caller still gets their data. The router picks engine 3, engine 3 gives up, the in-memory engine finishes — which is exactly what `--engine 3` was doing before, minus the silence. Kept as its own case so a refusal made unconditional by accident breaks something.",
+      "files": {
+        "tight.tdc": "@tightUniq"
+      },
+      "argv": ["{dir}/tight.tdc", "-o", "{dir}/out.txt"],
+      "exit": 0,
+      "stdout": "",
+      "wroteContains": {
+        "out.txt": ["-"]
+      }
     },
     {
       "name": "an impossible uniq group is refused on engine 3, not attempted",

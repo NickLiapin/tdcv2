@@ -43,8 +43,11 @@ public static class Engines
 
         if (engine == 3)
         {
-            // Engine 3 falls back on its own, so a config it cannot do exactly still renders.
-            return DiskEngine.Rows(config, resolved, now, baseDir, onProgress);
+            // Engine 3 falls back on its own, so a config it cannot do exactly still renders —
+            // unless the engine was NAMED, in which case the refusal is the answer, exactly as it
+            // is for the streaming engine below.
+            return DiskEngine.Rows(
+                config, resolved, now, baseDir, onProgress, EngineRouter.Forced(config));
         }
 
         try

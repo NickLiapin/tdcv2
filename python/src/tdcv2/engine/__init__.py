@@ -55,8 +55,10 @@ def render(config: Config, packs: DataPacks, now_millis: int, base_dir: Path | N
     if engine == 1:
         return memory.render(config, packs, now_millis, base_dir)
     if engine == 3:
-        # Engine 3 falls back on its own, so a config it cannot do exactly still renders.
-        return disk.render(config, packs, now_millis, base_dir)
+        # Engine 3 falls back on its own, so a config it cannot do exactly still renders —
+        # unless the engine was NAMED, in which case the refusal is the answer, exactly as it
+        # is for the streaming engine below.
+        return disk.render(config, packs, now_millis, base_dir, engine_was_named(config))
     try:
         return stream.render(config, packs, now_millis, base_dir)
     except stream.UnsupportedError:
@@ -86,7 +88,9 @@ def build(
     if engine == 1:
         return memory.build(config, packs, now_millis, base_dir, on_progress)
     if engine == 3:
-        return disk.rows(config, packs, now_millis, base_dir, on_progress, uniq_plan)
+        return disk.rows(
+            config, packs, now_millis, base_dir, on_progress, uniq_plan, engine_was_named(config)
+        )
     try:
         return stream.rows(config, packs, now_millis, base_dir, False, on_progress, uniq_plan)
     except stream.UnsupportedError:

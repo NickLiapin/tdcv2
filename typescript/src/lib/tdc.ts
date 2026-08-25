@@ -121,7 +121,15 @@ export interface TdcOptions {
   readonly stream?: boolean;
   /** User mode: "memory" (Engine 1) or "disk" (Engine 2/3 auto). Overrides `<env mode>`. */
   readonly mode?: 'memory' | 'disk';
-  /** Advanced: force a specific engine (1/2/3). Highest precedence. */
+  /**
+   * Advanced: force a specific engine (1/2/3). Highest precedence.
+   *
+   * NAMING an engine means it refuses rather than quietly running another —
+   * including engine 3 on a `<uniq>` too tight for its bounded repair, which
+   * used to fall back to the in-memory engine without a word, so a benchmark of
+   * engine 3 was a benchmark of engine 1. `mode` says what the run may COST
+   * instead, and a config that says that may still be handed to another engine.
+   */
   readonly engine?: 1 | 2 | 3;
 }
 

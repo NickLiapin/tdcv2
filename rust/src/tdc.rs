@@ -149,6 +149,13 @@ pub struct Options {
     /// the memory profile. It exists for the command line's `--engine` and for
     /// the tests that compare one engine against another; a config should say
     /// what it needs and let the router decide.
+    ///
+    /// NAMING an engine means it refuses rather than quietly running another —
+    /// including engine 3 on a `<uniq>` too tight for its bounded repair, which
+    /// used to fall back to the in-memory engine without a word, so a benchmark
+    /// of engine 3 was a benchmark of engine 1. `mode="disk"` says what the run
+    /// may COST instead, and a config that says that may still be handed to
+    /// another engine.
     pub engine: Option<u8>,
     /// Called as the run advances — see [`ProgressHook`].
     pub on_progress: Option<ProgressHook>,

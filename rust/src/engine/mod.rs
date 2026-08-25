@@ -171,7 +171,15 @@ pub fn render_in(config: &Config, now_millis: i64, base_dir: Option<&str>) -> En
                 Some(found) => found,
                 None => DataPacks::discover()?,
             };
-            disk::render_in(config, &packs, now_millis, base_dir)
+            // Named rather than routed to: the refusal is the answer, exactly as
+            // it is for the streaming engine above.
+            disk::render_in(
+                config,
+                &packs,
+                now_millis,
+                base_dir,
+                engine_was_named(config),
+            )
         }
         other => invalid(&format!("engine {other} does not exist")),
     }
@@ -233,7 +241,14 @@ pub fn run_in_watched(
             )?)),
             Err(e) => Err(e),
         },
-        3 => disk::rows_in_watched(config, packs, now_millis, base_dir, on_progress),
+        3 => disk::rows_in_named(
+            config,
+            packs,
+            now_millis,
+            base_dir,
+            on_progress,
+            engine_was_named(config),
+        ),
         other => invalid(&format!("engine {other} does not exist")),
     }
 }

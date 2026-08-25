@@ -252,9 +252,12 @@ public final class TDC {
     /**
      * Run on one named engine — 1 in memory, 2 streaming, 3 exact on disk.
      *
-     * <p>Overrides everything the config says, and refuses rather than falling back when the
-     * engine cannot do what the config asks. That is what makes it useful for a benchmark and
-     * wrong for ordinary use, where {@code <env mode>} lets the router choose.
+     * <p>Overrides everything the config says. NAMING an engine means it refuses rather than
+     * quietly running another — including engine 3 on a {@code <uniq>} too tight for its bounded
+     * repair, which used to fall back to the in-memory engine without a word, so a benchmark of
+     * engine 3 was a benchmark of engine 1. {@code <env mode="disk">} says what the run may COST
+     * instead, and a config that says that may still be handed to another engine. Naming one is
+     * what makes this useful for a benchmark and wrong for ordinary use.
      */
     public Options engine(int value) {
       this.engine = value;
@@ -729,8 +732,10 @@ public final class TDC {
       return MemoryEngine.build(config, packs, nowMillis, baseDir, onProgress);
     }
     if (engine == 3) {
-      // Engine 3 falls back on its own, so a config it cannot do exactly still renders.
-      return DiskEngine.rows(config, packs, nowMillis, baseDir, onProgress);
+      // Engine 3 falls back on its own, so a config it cannot do exactly still renders — unless
+      // the engine was NAMED, in which case the refusal is the answer, exactly as it is for the
+      // streaming engine below.
+      return DiskEngine.rows(config, packs, nowMillis, baseDir, onProgress, forcedEngine());
     }
     try {
       return StreamEngine.rows(config, packs, nowMillis, baseDir, onProgress);
