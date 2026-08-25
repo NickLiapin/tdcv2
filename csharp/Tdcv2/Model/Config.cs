@@ -372,6 +372,46 @@ public sealed class Config
                 Pools,
                 Asserts);
 
+    /// <summary>The same config under a different seed.</summary>
+    /// <remarks>
+    /// One caller: a pack generator, whose body is seeded from the column that draws it rather
+    /// than from the run, so the same pack in two columns is two draws instead of one repeated.
+    /// </remarks>
+    public Config WithSeed(string newSeed) =>
+        new(
+            Count,
+            newSeed,
+            Locale,
+            Inject,
+            RegexMaxLength,
+            Sequences,
+            Block,
+            Fixtures,
+            Mode,
+            Engine,
+            EnvUniqGroups,
+            EnvDistinctGroups,
+            Pools,
+            Asserts);
+
+    /// <summary>The same config with another set of sequences: a pack body's, in place of the run's.</summary>
+    public Config WithSequences(IReadOnlyList<SequenceSpec> newSequences) =>
+        new(
+            Count,
+            Seed,
+            Locale,
+            Inject,
+            RegexMaxLength,
+            newSequences,
+            Block,
+            Fixtures,
+            Mode,
+            Engine,
+            EnvUniqGroups,
+            EnvDistinctGroups,
+            Pools,
+            Asserts);
+
     private static IReadOnlyList<IReadOnlyList<string>> DeepCopy(
         IReadOnlyList<IReadOnlyList<string>>? groups) =>
         groups is null

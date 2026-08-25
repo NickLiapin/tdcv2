@@ -338,6 +338,17 @@ enum Column {
         /// path costs nothing.
         witness: Option<Box<Column>>,
     },
+    /// A pack body planned over the whole column: its own sequences as columns of
+    /// their own, and the text they are assembled into.
+    ///
+    /// The body's columns are OWNED data, which is what makes this possible at
+    /// all — a nested engine cannot be kept alive beside its parent here, but the
+    /// columns it built can be taken from it and evaluated by this one.
+    PackBody {
+        columns: BTreeMap<String, Column>,
+        output: String,
+        inject: Option<String>,
+    },
     /// A literal piece of a `<case>` body.
     Text(String),
     /// One column of an exact-uniq arrangement: its quota walk, plus whatever
@@ -1109,6 +1120,14 @@ impl StreamEngine<'_> {
                     .packs
                     .needs_whole_column(address, self.locale_of(attrs))
             {
+                // …unless this engine can plan the body over the column itself,
+                // which it now can: the body's own sequences are built at the
+                // COLUMN's count, so the share is apportioned over the column and
+                // each row mapped into it, exactly as a top-level `percent=`
+                // sequence has always been.
+                if let Some(built) = self.whole_column_pack_body(gen, stream_id)? {
+                    return Ok(built);
+                }
                 return unsupported(&format!(
                     "a pack generator (\"{stream_id}\") whose value is apportioned across the \
                      whole column — by its own percent=, or by the weighted list its body draws \
@@ -2199,6 +2218,55 @@ impl StreamEngine<'_> {
         self.value_at(name, row as i32)
     }
 
+    /// A share-declaring pack body, built here over the column rather than refused.
+    ///
+    /// A nested engine over the body's own sequences, at this column's count and
+    /// under a seed salted with this column's name — the same seed the in-memory
+    /// engine gives the body, so the two assemble the same rows. The nested
+    /// engine is dropped as soon as its columns are taken from it: a `Column` is
+    /// owned data, so the parent can evaluate them without keeping a borrow of a
+    /// config that only lived for this call.
+    ///
+    /// `None` for the shapes still left to the in-memory engine: a body carrying
+    /// its own `<valid>`, where rejecting a row and redrawing it is a
+    /// whole-column decision with no lazy form yet.
+    fn whole_column_pack_body(&self, gen: &Gen, stream_id: &str) -> EngineResult<Option<Built>> {
+        let address = gen.attr_or("value", "");
+        let Ok(entry) = self.env.packs.load(address, self.locale_of(&gen.attrs)) else {
+            return Ok(None);
+        };
+        let Some(source) = entry.generator.as_deref() else {
+            return Ok(None);
+        };
+        if !source.contains("<sequence") && !source.contains("<data") {
+            return Ok(None);
+        }
+        let Ok(body) = crate::parser::config_builder::parse_pack_body(source) else {
+            return Ok(None);
+        };
+        if body.validate.is_some() {
+            return Ok(None);
+        }
+
+        let mut inner_config = self.env.config.clone();
+        inner_config.seed = format!("{}|{stream_id}", self.seed);
+        inner_config.sequences = body.sequences.clone();
+        let inner = StreamEngine::build_with(
+            &inner_config,
+            self.env.packs,
+            self.env.now_millis,
+            self.env.base_dir,
+            false,
+            None,
+        )?;
+        let columns = inner.columns.clone();
+        Ok(Some(Built::plain(Column::PackBody {
+            columns,
+            output: body.output.clone(),
+            inject: self.env.config.inject.clone(),
+        })))
+    }
+
     fn value_at(&self, name: &str, row: i32) -> EngineResult<Option<String>> {
         match self.columns.get(name) {
             Some(column) => self.value_of(column, row),
@@ -2685,6 +2753,19 @@ impl StreamEngine<'_> {
                     .map_err(|e| EngineError::Invalid(e.message))
             }
 
+            Column::PackBody {
+                columns,
+                output,
+                inject,
+            } => {
+                let lookup = BodyLookup {
+                    engine: self,
+                    columns,
+                    row,
+                };
+                interpolate::apply(output, inject.as_deref(), &lookup).map(Some)
+            }
+
             Column::Formula { expr, decimals } => formula::value_at_row(
                 expr,
                 *decimals,
@@ -2880,7 +2961,19 @@ impl StreamEngine<'_> {
             rows: &here,
             siblings: self,
         };
-        let drawn = memory::generate_into(gen, 1, &mut prng, &self.env, None, Some(&scope))?;
+        // The COLUMN's name and row travel with the one-row build, because the
+        // in-memory engine's own one-row path carries them and anything derived
+        // from them has to come out the same on both engines. A pack generator is
+        // the case that showed it: its body is seeded from the column's identity.
+        let drawn = memory::generate_in_column(
+            gen,
+            1,
+            &mut prng,
+            &self.env,
+            None,
+            Some(&scope),
+            Some((stream_id, Some(here[0]))),
+        )?;
         let mut own = [false];
         let finished = memory::finish(
             drawn,
@@ -3174,6 +3267,52 @@ impl evaluate::Scope for StreamLookup<'_, '_> {
 struct StreamFields<'a, 'b> {
     engine: &'a StreamEngine<'b>,
     row: i32,
+}
+
+/// One row of a pack body's own columns, for the text they assemble into and for
+/// a `<compute>` inside the body that reads its siblings.
+///
+/// A body's names are private to it, so they are resolved against the body's map
+/// rather than the run's. Everything else about a column is self-contained, so
+/// the parent engine evaluates it unchanged — only a `<compute>` asks for a
+/// sibling by name, and that is what this exists for.
+struct BodyLookup<'a, 'b> {
+    engine: &'a StreamEngine<'b>,
+    columns: &'a BTreeMap<String, Column>,
+    row: i32,
+}
+
+impl BodyLookup<'_, '_> {
+    fn value(&self, name: &str) -> Option<String> {
+        let column = self.columns.get(name)?;
+        match column {
+            Column::Compute(tree) => {
+                let fields = BodyFields { body: self };
+                compute::evaluate(tree, &fields).ok()
+            }
+            other => self.engine.value_of(other, self.row).ok().flatten(),
+        }
+    }
+}
+
+impl interpolate::Lookup for BodyLookup<'_, '_> {
+    fn has(&self, name: &str) -> bool {
+        self.columns.contains_key(name)
+    }
+
+    fn value(&self, name: &str) -> String {
+        BodyLookup::value(self, name).unwrap_or_default()
+    }
+}
+
+struct BodyFields<'a, 'b, 'c> {
+    body: &'a BodyLookup<'b, 'c>,
+}
+
+impl compute::Fields for BodyFields<'_, '_, '_> {
+    fn get(&self, name: &str) -> Option<String> {
+        self.body.value(name)
+    }
 }
 
 impl compute::Fields for StreamFields<'_, '_> {

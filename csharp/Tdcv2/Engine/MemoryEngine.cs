@@ -58,7 +58,14 @@ public static class MemoryEngine
         // learning about the other. `Has` is separate from the value because an ABSENT name is
         // not an empty one — an unresolved bare word evaluates to the WORD.
         Func<string, bool>? HasSibling = null,
-        Func<string, int, string?>? SiblingAt = null)
+        Func<string, int, string?>? SiblingAt = null,
+        // The column this build belongs to, when the caller is a one-row resolver with no stream
+        // of its own to lend. Only a pack generator reads it: its body is seeded from the
+        // column's identity. Under its own name rather than as a stream, because giving a
+        // one-row build a stream switches on every whole-column layout inside it.
+        string? ColumnStreamId = null,
+        // The absolute row a one-row build is standing on, for the same reason.
+        int? ColumnRow = null)
     {
         internal int RegexMax => Config.RegexMaxLength;
 
@@ -2230,6 +2237,24 @@ public static class MemoryEngine
             }
         }
 
+        /*
+         * The body gets a SEED and a stream identity, like every other sequence.
+         *
+         * It used to get neither, and the body's local sequences drew off the prng they were
+         * handed. So a weighted pack column MOVED when an unrelated sequence was added in front
+         * of it, the same pack in two columns drew alike, and with no stream identity the body
+         * could not be planned over a column at all — which is why every share-declaring pack
+         * went to this engine.
+         *
+         * The ROW is part of the salt when the body is being built for ONE row: a pack that does
+         * not need the whole column is built per row, and handed a column-wide seed at count 1
+         * the body's own exact-layout machinery plans one slot and gives it to one value, so
+         * every row would draw the same.
+         */
+        string bodySeed = ctx.Config.Seed + "|" + (ctx.ColumnStreamId ?? string.Empty)
+            + (count == 1 && ctx.ColumnRow is int only ? "|" + only.ToString(CultureInfo.InvariantCulture) : string.Empty);
+        ctx = ctx with { Config = ctx.Config.WithSeed(bodySeed), ColumnStreamId = null, ColumnRow = null };
+
         if (body is Gen packGen)
         {
             return Generate(packGen, count, prng, ctx);
@@ -2308,8 +2333,15 @@ public static class MemoryEngine
             var byField = new Dictionary<string, List<string>>(StringComparer.Ordinal);
             foreach (Field field in spec.Fields)
             {
-                IReadOnlyList<string> drawn = Generate(field.Gen, count, prng, ctx);
-                byField[field.Name] = Finish(drawn, field.Gen.Attrs, prng).ToList();
+                IReadOnlyList<string> drawn = ColumnValues(
+                    field.Gen,
+                    count,
+                    prng,
+                    ctx,
+                    new PerRow.Stream(ctx.Config.Seed, spec.Name + "." + field.Name, null),
+                    new bool[count],
+                    new Dictionary<string, PerRow.ExactLayout>(StringComparer.Ordinal));
+                byField[field.Name] = drawn.ToList();
             }
 
             // After every field exists, never during: a group's members must all be there before
@@ -2327,8 +2359,17 @@ public static class MemoryEngine
             return produced;
         }
 
-        IReadOnlyList<string> single = Generate(spec.Gen!, count, prng, ctx);
-        produced.Add((spec.Name, Finish(single, spec.Gen!.Attrs, prng).ToArray()));
+        // Keyed by its own name, exactly as a config's sequence is. The body used to be a
+        // nested build with no stream of its own, so no whole-column layout could fire inside it.
+        IReadOnlyList<string> single = ColumnValues(
+            spec.Gen!,
+            count,
+            prng,
+            ctx,
+            new PerRow.Stream(ctx.Config.Seed, spec.Name, null),
+            new bool[count],
+            new Dictionary<string, PerRow.ExactLayout>(StringComparer.Ordinal));
+        produced.Add((spec.Name, single.ToArray()));
         return produced;
     }
 
@@ -3154,7 +3195,13 @@ public static class MemoryEngine
                 List<long?>? scratch = instants is null ? null : new List<long?>(1);
                 int here = stream.RowAt(i);
                 IReadOnlyList<string> done = Finish(
-                    Generate(gen, 1, rowPrng, ctx, scratch, _ => here),
+                    Generate(
+                        gen,
+                        1,
+                        rowPrng,
+                        ctx with { ColumnStreamId = stream.Id, ColumnRow = here },
+                        scratch,
+                        _ => here),
                     gen.Attrs, rowPrng, one, scratch);
                 built.Add(done.Count > 0 ? done[0] : "");
                 if (anomalyFlags is not null)
@@ -3169,7 +3216,14 @@ public static class MemoryEngine
         }
 
         return FinishKeyed(
-            Generate(gen, count, prng, ctx, null, stream.RowAt), gen, prng, anomalyFlags, stream);
+            Generate(
+                gen,
+                count,
+                prng,
+                ctx with { ColumnStreamId = stream.Id, ColumnRow = count == 1 ? stream.RowAt(0) : null },
+                null,
+                stream.RowAt),
+            gen, prng, anomalyFlags, stream);
     }
 
     /// <summary>

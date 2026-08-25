@@ -4980,7 +4980,7 @@
         "lines": [
           "Paris -> Lyon",
           "Lyon -> Rome",
-          "Rome -> Lyon",
+          "Rome -> Paris",
           "Lyon -> Paris",
           "Paris -> Rome",
           "Rome -> Paris",
@@ -4994,7 +4994,7 @@
         "lines": [
           "Paris -> Lyon",
           "Lyon -> Rome",
-          "Rome -> Lyon",
+          "Rome -> Paris",
           "Lyon -> Paris",
           "Paris -> Rome",
           "Rome -> Paris",
@@ -5007,10 +5007,10 @@
     },
     "uniq-distinct/env-distinct-three-members": {
       "engine2": {
-        "lines": ["241", "342", "124", "134", "421", "412", "234", "312"]
+        "lines": ["243", "341", "124", "134", "421", "412", "231", "321"]
       },
       "engine3": {
-        "lines": ["241", "342", "124", "134", "421", "412", "234", "312"]
+        "lines": ["243", "341", "124", "134", "421", "412", "231", "321"]
       }
     },
     "uniq-distinct/uniq-simple-list": {

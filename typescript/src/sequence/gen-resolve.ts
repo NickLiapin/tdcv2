@@ -27,13 +27,16 @@ export function resolveGenValueAt(
   // that reads a sibling column — a distribution parameter written as an
   // expression — asks for the right row rather than for row 0 every time.
   //
-  // `seed` and `streamId` travel with it because the in-memory builder's own
-  // one-row path carries them, and anything derived from them has to come out
-  // the same on both engines. A pack generator is the case that showed it: its
-  // body is seeded from the column's identity, and with these missing the lazy
-  // side seeded the body from an empty string while the in-memory side used the
-  // real one — same config, same seed, two different files.
-  const ctx = { ...streamCtx(options), rows: [i], seed, streamId };
+  // The column's identity travels beside it, under its OWN names. A pack
+  // generator seeds its body from the column it is building, and the in-memory
+  // engine's one-row path has `seed`/`streamId` to hand while this one does not
+  // — so without this the two engines seeded the body differently.
+  //
+  // Not as `seed`/`streamId`, deliberately: setting those switches on every
+  // whole-column layout inside a one-row build, which is not what a one-row
+  // build means. Measured — it changed what a `<distinct>` redraw answered, and
+  // `<distinct>` has nothing to do with packs.
+  const ctx = { ...streamCtx(options), rows: [i], columnSeed: seed, columnStreamId: streamId };
   return buildGenValues(gen, 1, seekableGen(seed, streamId, i), locale, now, ctx)[0] ?? '';
 }
 

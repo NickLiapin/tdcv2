@@ -1278,9 +1278,13 @@ function buildGenValuesRaw(
          * engines.
          */
         const bodyRow = count === 1 && ctx.rows?.length === 1 ? ctx.rows[0] : undefined;
+        // The streaming path carries the column's identity under its own names,
+        // because setting `seed`/`streamId` on a one-row context would switch on
+        // whole-column layouts inside it. Either way this is the same identity.
+        const columnSeed = ctx.columnSeed ?? ctx.seed ?? '';
+        const columnStream = ctx.columnStreamId ?? ctx.streamId ?? '';
         const bodySeed =
-          `${ctx.seed ?? ''}|${ctx.streamId ?? ''}` +
-          (bodyRow === undefined ? '' : `|${String(bodyRow)}`);
+          `${columnSeed}|${columnStream}` + (bodyRow === undefined ? '' : `|${String(bodyRow)}`);
         return runGenerator(packEntry.generator, count, prng, locale, now, {
           regexMaxLength: ctx.regexMaxLength,
           dataSources: ctx.dataSources,

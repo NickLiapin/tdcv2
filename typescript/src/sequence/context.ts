@@ -26,6 +26,19 @@ export interface SequenceBuildContext {
   readonly fileRowLinks: Map<string, LinkedFileRowPlan>;
   readonly packs?: PackRegistry | undefined;
   /**
+   * The column this build belongs to, when the caller is a one-row resolver that
+   * has no `seed`/`streamId` of its own to lend.
+   *
+   * Only a pack generator reads them: its body is seeded from the column's
+   * identity, and the in-memory engine's one-row path has that identity to hand
+   * while the streaming one does not. Carried under their own names rather than
+   * as `seed`/`streamId`, because setting those on a one-row context switches on
+   * every whole-column layout inside it — measured, a `<distinct>` redraw
+   * changed its answer, and `<distinct>` has nothing to do with packs.
+   */
+  readonly columnSeed?: string | undefined;
+  readonly columnStreamId?: string | undefined;
+  /**
    * Set by the streaming engines, which resolve one row at a time. Anything that
    * is only correct across a whole column must refuse to run here rather than
    * quietly compute its quota over a single row.

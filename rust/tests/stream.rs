@@ -148,20 +148,31 @@ fn a_uniq_asking_for_more_rows_than_combinations_says_so() {
 }
 
 #[test]
-fn a_pack_whose_quota_spans_the_column_is_refused_here_rather_than_answered_wrongly() {
-    // `hu.person.male.fullName` draws two weighted lists. Each is an exact quota
-    // over the run, and this engine asks the pack for one row at a time — a quota
-    // over a column of one goes wholly to the largest share, which is how eight
-    // Hungarian names came out `Nagy László` eight times. The router keeps such a
-    // config away from here; when somebody names the engine anyway, saying so is
-    // the only honest answer left.
+fn a_pack_whose_quota_spans_the_column_is_planned_here_rather_than_refused() {
+    // `hu.person.male.fullName` draws two weighted lists, each an exact quota over
+    // the run. This used to be a refusal, and for a real reason: asked for one row
+    // at a time, a quota over a column of one goes wholly to the largest share, and
+    // eight Hungarian names came out `Nagy László` eight times.
+    //
+    // It is not a refusal any more, because the cause is gone: the body's own
+    // sequences are built here at the COLUMN's count, so the share is apportioned
+    // over the column and each row mapped into it. What the refusal protected
+    // against is checked directly — the names, and that this engine agrees with
+    // the one that never had the problem.
     let weighted = pack_config("hu", "hu.person.male.fullName").with_engine("2");
-    let message = engine::render(&weighted, 0)
-        .expect_err("a whole-column pack cannot stream")
-        .message()
-        .to_string();
-    assert!(message.contains("pack generator (\"V\")"), "{message}");
-    assert!(message.contains("whole column"), "{message}");
+    let streamed = engine::render(&weighted, 0).expect("a whole-column pack is planned here");
+    let names: std::collections::BTreeSet<String> = streamed.lines().map(str::to_string).collect();
+    assert!(names.len() > 1, "hu streamed one repeated name: {names:?}");
+
+    let in_memory = engine::render(
+        &pack_config("hu", "hu.person.male.fullName").with_engine("1"),
+        0,
+    )
+    .expect("the in-memory engine builds it");
+    assert_eq!(
+        streamed, in_memory,
+        "the two engines disagree on a weighted pack"
+    );
 
     // The counter-case, and the reason this is not simply refused for every pack
     // generator: German name lists carry no weights, so the identical pack shape

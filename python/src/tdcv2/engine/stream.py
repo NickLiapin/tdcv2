@@ -778,7 +778,12 @@ class StreamEngine:
                 group = length_choices[_run_for(cum_hi, permute.permute(r, domain.size, key))]
                 pinned = Gen(type_, number.pin_length(attrs, group))
                 return _first(
-                    self._gen_values(pinned, seekable.generator(self.seed, stream_id, row), None, stream_id=stream_id)
+                    self._gen_values(
+                        pinned,
+                        seekable.generator(self.seed, stream_id, row),
+                        None,
+                        stream_id=stream_id,
+                    )
                 )
 
             return self._inline_built(mod, by_length, stream_id, gen, domain)
@@ -868,7 +873,9 @@ class StreamEngine:
             if r is None:
                 return None
             return _first(
-                self._gen_values(gen, seekable.generator(self.seed, stream_id, row), None, row, stream_id)
+                self._gen_values(
+                    gen, seekable.generator(self.seed, stream_id, row), None, row, stream_id
+                )
             )
 
         return Built(
@@ -931,7 +938,9 @@ class StreamEngine:
                 raw = None if raw_at is None else raw_at(row)
                 return str(drawn < p and _is_number(raw)).lower()
             spiked = [False]
-            self._gen_values(gen, seekable.generator(self.seed, stream_id, row), spiked, stream_id=stream_id)
+            self._gen_values(
+                gen, seekable.generator(self.seed, stream_id, row), spiked, stream_id=stream_id
+            )
             return str(spiked[0]).lower()
 
         return flag
@@ -960,12 +969,13 @@ class StreamEngine:
             self.base_dir,
             prng,
             rows=None if row is None else [row],
-            # The COLUMN's name travels with the one-row run, because the in-memory engine's own
-            # one-row path carries it and anything derived from it has to come out the same on
-            # both engines. A pack generator is the case that showed it: its body is seeded from
-            # the column's identity, and without this the streaming side seeded the body from an
-            # empty string while the in-memory side used the real one.
-            stream_id=stream_id,
+            # The COLUMN's name travels with the one-row run under its OWN name, because the
+            # in-memory engine's one-row path has it and anything derived from it has to come out
+            # the same on both engines. A pack generator is the case that showed it: its body is
+            # seeded from the column's identity. Not as ``stream_id``, deliberately — that would
+            # switch on every whole-column layout inside a one-row build, and it changed what a
+            # ``<distinct>`` redraw answered.
+            column_stream_id=stream_id,
             value_at=lambda name, r: (
                 (self.columns[name](r) or "") if name in self.columns else None
             ),
@@ -1031,7 +1041,9 @@ class StreamEngine:
 
         def column(row: int) -> str | None:
             return interpolate.apply(
-                output, inject, lambda name: (inner.columns[name](row) if name in inner.columns else None)
+                output,
+                inject,
+                lambda name: (inner.columns[name](row) if name in inner.columns else None),
             )
 
         self.columns[spec.name] = column
@@ -1485,7 +1497,12 @@ class StreamEngine:
                             )
                         key = f"{spec.name}.{field_name}#d{attempt}"
                         value = _first(
-                            self._gen_values(gen, seekable.generator(self.seed, key, row), None, stream_id=key)
+                            self._gen_values(
+                                gen,
+                                seekable.generator(self.seed, key, row),
+                                None,
+                                stream_id=key,
+                            )
                         )
                     values[field_name] = value
                     seen.add(value)

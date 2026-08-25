@@ -110,6 +110,12 @@ class _Run:
     # field. It is the stream name the per-row derivation hashes, and it must be the SAME string
     # the streaming engine passes, or the two key their randomness differently.
     stream_id: str | None = None
+    #: The column this build belongs to, when the caller is a one-row resolver with no
+    #: ``stream_id`` of its own to lend. Only a pack generator reads it: its body is seeded from
+    #: the column's identity. Carried under its own name rather than as ``stream_id``, because
+    #: setting that on a one-row run switches on every whole-column layout inside it — measured,
+    #: a ``<distinct>`` redraw changed its answer, and ``<distinct>`` has nothing to do with packs.
+    column_stream_id: str | None = None
     # The ABSOLUTE row each drawn position belongs to, when the column does not cover every row.
     # See `per_row.for_stream` for why a parented column needs it.
     rows: list[int] | None = None
@@ -1904,8 +1910,15 @@ def _generate(
             if exact is not None:
                 return exact
             return hamilton.distribute(count, entry.values, entry.percents or [], prng)
-        values = entry.values
-        percent = ""
+        # A PLAIN pack stays a uniform pick — never the exact layout a literal list gets.
+        #
+        # The two used to agree by accident: a pack drawn inside a body had no column name, so
+        # the layout bailed out and fell through to this same pick. Once bodies were given a
+        # stream identity the layout started firing, and at one row it plans one slot and hands
+        # it to one value — `usa.geo.streetNamed` came out as "Woodland" on all six rows. The
+        # rule is the reference's, stated in its own source: a weighted pack is laid out
+        # exactly, a plain one is picked uniformly.
+        return [entry.values[math.floor(prng.next() * len(entry.values))] for _ in range(count)]
     else:
         raise EngineError(f'generator type "{gen.type}" is not ported yet')
 
@@ -2181,7 +2194,7 @@ def _run_pack_generator(
     # column-wide seed at count 1 the body's own exact-layout machinery plans one slot and gives
     # it to one value, so every row draws the same.
     body_row = run.rows[0] if count == 1 and run.rows is not None and len(run.rows) == 1 else None
-    body_seed = f"{run.config.seed}|{run.stream_id or ''}" + (
+    body_seed = f"{run.config.seed}|{run.stream_id or run.column_stream_id or ''}" + (
         "" if body_row is None else f"|{body_row}"
     )
     run = replace(

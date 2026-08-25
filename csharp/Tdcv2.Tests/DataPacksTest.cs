@@ -130,21 +130,23 @@ public class WeightedPackGeneratorTest
     }
 
     /// <summary>
-    /// Asked for the streaming engine outright, such a pack is refused rather than repeated.
+    /// Every engine apportions such a pack itself, and they all land on the same rows.
     /// </summary>
     /// <remarks>
-    /// The two halves of one rule. Engine 2 cannot apportion a quota row by row, and a caller who
-    /// named that engine asked to be told so — emitting one value six times would hide exactly what
-    /// they asked about. Engine 3 named no engine: it catches the refusal while the column is being
-    /// built and finishes the run in memory, which is why the refusal has to be raised there and not
-    /// inside the per-row resolver, where it would arrive after the fallback's catch is gone.
+    /// This used to be a refusal, for a real reason: the streaming engine could not apportion a
+    /// quota row by row, so it would have emitted one value six times. It is not a refusal any
+    /// more, because the cause is gone — the pack's body is built by the streaming engine at the
+    /// COLUMN's count, so the share is planned over the column and each row mapped into it, the
+    /// same thing a top-level <c>percent=</c> has always done. What the refusal protected against
+    /// is checked directly now: the rows, on every engine, rather than that an error was raised.
     /// </remarks>
     [Theory]
     [MemberData(nameof(DrawsWeights))]
-    public void StreamingRefusesItAndTheExactEngineFallsBack(string locale, string address)
+    public void EveryEngineApportionsItAndAgrees(string locale, string address)
     {
-        Assert.Throws<StreamEngine.UnsupportedHere>(() => Probe(locale, address, 2).ToString());
-        Assert.Equal(Probe(locale, address).ToString(), Probe(locale, address, 3).ToString());
+        string inMemory = Probe(locale, address).ToString();
+        Assert.Equal(inMemory, Probe(locale, address, 2).ToString());
+        Assert.Equal(inMemory, Probe(locale, address, 3).ToString());
     }
 
     [Theory]
