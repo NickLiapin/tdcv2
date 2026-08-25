@@ -39,7 +39,7 @@ note: Declare it in <env>, or set a different inject= pattern if you really want
 Validation runs before generation, so a config with errors produces no data at all rather
 than half a file. Almost every diagnostic here is an **error** and stops the run: if the
 config asked for something it wouldn't actually get, TDC refuses rather than handing back
-data that looks right but isn't. The exceptions are eleven **warnings** that let the run finish: `TDC136` (a malformed
+data that looks right but isn't. The exceptions are twelve **warnings** that let the run finish: `TDC136` (a malformed
 `<map>` row is skipped and the valid rows still apply), `TDC171` (a pack file whose header
 puts it at no address), `TDC200` (a memory estimate that is large but still fits),
 `TDC216` (an expression that is always true or always false), `TDC221` (a `<uniq>` or
@@ -49,7 +49,8 @@ reads), `TDC234` (a pool over
 follows the row count — its second meaning, a pool declared out of order, is an error) `TDC251` (a `percent` share
 that asks for less than one row), `TDC272` (a locale that is a fine source of names and
 ships no month names, so the dates come out English) and `TDC284` (a `secret=` written into
-the config as a literal — a key travels wherever the config does). Each says
+the config as a literal — a key travels wherever the config does) and `TDC301` (a share list
+that leaves a declared value at 0%, so it can never be drawn). Each says
 as much in its row below.
 
 The numbers run roughly in the order a config is checked — structure first, then
@@ -238,7 +239,7 @@ and [`<gen type="running">`](../generators/running.md#top).
 | `TDC150` | Only one of `from` / `to` is given       | Give both endpoints or neither                                      |
 | `TDC151` | The date value doesn't parse             | `value="2020-01-01..2025-12-31"`, `"birth"`, `"today"`, `"now"`     |
 | `TDC152` | A `format` token is unknown              | See the [token table](../generators/date.md#formatting-the-output) |
-| `TDC153` | `local` names a locale with no date data | Built in: `ar`, `de`, `el`, `en`, `es`, `fr`, `it`, `pl`, `pt`, `ru`, `zh-cn`, plus three-letter aliases |
+| `TDC153` | `local` names a locale with no date data | Built in, twenty-four of them: `ar`, `cs`, `de`, `el`, `en`, `es`, `fi`, `fr`, `hi`, `hu`, `id`, `it`, `ja`, `ko`, `nl`, `pl`, `pt`, `ru`, `sv`, `th`, `tr`, `uk`, `vi`, `zh-cn`. Nineteen also answer to a three-letter alias (`ara`, `ces`, `deu`, `ell`, `eng`, `spa`, `fin`, `fra`, `hun`, `ind`, `ita`, `jpn`, `kor`, `nld`, `pol`, `por`, `tur`, `ukr`, `vie`); `hi`, `ru`, `sv`, `th`, `zh-cn` have none |
 | `TDC154` | `precision` isn't a supported step       | See [precision](../generators/date.md#top)                             |
 
 ## While rendering
@@ -316,7 +317,7 @@ but the combination it asks for can't be carried out.
 | `TDC269` | `if=` on a `<gen>` inside a `<case>` | A case body is several parts joined into one value, so a condition on one part has no value to fall back to. It was accepted and ignored, and the part appeared on every row — including the ones the condition excluded. Put the condition on the branch: `<case if="…">` |
 | `TDC270` | `<tdc>` holds a second `<env>` or `<block>` | Both are read by taking the FIRST of their kind, so a second one is discarded whole — every sequence it declares, every line it lays out — while the run finishes looking healthy. Reported on the second one |
 | `TDC271` | `percent=` beside `order="sequential"` | Walking the list in order fixes which value each row gets, so there is no share left to apportion. The percentage was accepted and dropped: `percent="98,1,1"` over a hundred rows came out 34 / 33 / 33 |
-| `TDC272` (warning) | `<env local=…>` names a locale with no date translations | The locale is a fine source of NAMES and ships no month names, so the dates render in English. Refused outright on `<gen type="date" local=…>` (TDC153) and silent here until now. Fires only when the format reads the locale — `format="YYYY-MM-DD"` is the same in every language |
+| `TDC272` | _(warning)_ `<env local=…>` names a locale with no date translations | The locale is a fine source of NAMES and ships no month names, so the dates render in English. Refused outright on `<gen type="date" local=…>` (TDC153) and silent here until now. Fires only when the format reads the locale — `format="YYYY-MM-DD"` is the same in every language |
 | `TDC273` | a filter argument the filter cannot use | `slice:5,2` ends before it starts and empties the column; `slice:abc`, `group:abc`, `group:0`, `compact:1` and `compact:99` leave the value untouched. `group` and `compact` with NO argument keep their documented defaults (3, base 36) |
 | `TDC274` | an argument on a filter that reads none | `trim`, `sql`, `upper`, `lower`, `capitalize` and `title` are whole transforms; `${{X\|trim:junk}}` silently ignored the `junk`. Chain instead: `${{X\|trim\|upper}}` |
 | `TDC275` | `replace` with nothing to look for | `${{X\|replace}}` and `${{X\|replace:,to}}` change nothing at all. Write both parts: `${{X\|replace:from,to}}` |
@@ -328,7 +329,7 @@ but the combination it asks for can't be carried out.
 | `TDC281` | a date range that ends before it starts | The draw took the min and max of the two ends, so `from="2020-01-01" to="2010-01-01"` produced perfectly plausible dates from a range nobody wrote. `plus="10..3d"` has been refused as a typo rather than swapped since it was written; this is the same typo |
 | `TDC282` | `order="sequential"` on only some members of a `row=` link                                           | Either give every member of the link `order="sequential"`, or drop it — a mixed link stops reading one line per record                                                          |
 | `TDC283` | `anomaly_flag` on a `<gen>` that is only one part of its `<sequence>` | The flag records which ROWS were made outliers, and a sequence built from several parts — a second `<gen>`, a `<data>` literal, or a `name=` that makes this gen a field — has no row-level column to put it in. Move the `<gen>` into a `<sequence>` of its own; that also gives you the value as its own column. The same reasoning as `TDC246`, one level out |
-| `TDC284` | `secret=` written into the config, or an empty one | A key in a config travels wherever the config does — into version control with it. `secret="env:TDC_HTTP_SECRET"` reads it from the environment, `secret="file:~/.tdc/service.key"` from a file the repository does not hold. A literal is a WARNING, because a service on 127.0.0.1 for an afternoon is a real use; `secret=""` is an error, because signing with nothing produces a signature anyone could forge |
+| `TDC284` | _(warning)_ `secret=` written into the config, or an empty one | A key in a config travels wherever the config does — into version control with it. `secret="env:TDC_HTTP_SECRET"` reads it from the environment, `secret="file:~/.tdc/service.key"` from a file the repository does not hold. A literal is a WARNING, because a service on 127.0.0.1 for an afternoon is a real use; `secret=""` is an error, because signing with nothing produces a signature anyone could forge |
 | `TDC285` | A drawing attribute whose value is not one of its words, or not a number | `mode=`, `interp=`, `spread=` and `decimals=` were read only at render time, so `check` called `mode="banana"` valid and the run then refused it — the one place `check` did not answer "would this run?". Allowed: `mode="signal|density"`, `interp="linear|smooth|step"`, a non-negative `spread=`, a non-negative whole `decimals=` |
 | `TDC286` | `<is_digit>` or `<encode>` was handed `<field name="_count">` or `<field name="_total">` | Those two fields arrive as NUMBERS; both tags want one character of text. `<is_digit>` answered "no" on every row — including the rows where the count is a single digit — and `check` said nothing; `<encode>` stopped the run with "expected a single-character string", naming no file and no line, on a config `check` had also called valid. Compare the number with `<equals>` or `<less_than>`, wrap it in `<concat>` for `<encode>`, or put the character you mean into a `<str>` |
 | `TDC287` | `<equals>`, `<greater_than>` or `<less_than>` was given a `<str>` literal that is not a number | The three comparisons work on numbers. A `<str>` holding digits is read as the number it spells — `<equals><str v="7"/><int v="7"/></equals>` is true — so only a literal that is not a number is refused. That one used to stop the run with "expected an integer in `<equals>`, got the string …", naming no file and no line, on a config `check` had called valid. Only literals are checked: what a `<field>` will hold is not known before the run |

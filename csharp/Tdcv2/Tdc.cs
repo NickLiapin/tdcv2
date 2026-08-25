@@ -99,6 +99,11 @@ public sealed class Tdc
     private readonly bool _seedGenerated;
 
     /// <summary>One record: its sequences, addressable by the names the config gave them.</summary>
+    /// <summary>Why a parse failure is the only thing reported.</summary>
+    private const string ParseFailedHint =
+        "The document did not parse, so the structural and semantic checks were skipped. Fix "
+        + "this first — anything they reported would be describing the torn tree, not your config.";
+
     public sealed class Row
     {
         private readonly IRowSource _source;
@@ -288,9 +293,14 @@ public sealed class Tdc
         {
             // Thrown as diagnostics rather than as prose so that a caller can render the offending
             // line instead of only quoting the message.
+            // The hint goes on the FIRST problem only: it explains why nothing ELSE was reported,
+            // and repeating it under every line of a torn document would bury the errors it is
+            // introducing. Without it a reader with one unclosed tag sees a single complaint and
+            // takes it for the whole story -- the validator never ran.
             throw new TdcDiagnosticException(
                 parsed.Problems
-                    .Select(p => Diagnostic.ErrorAt("TDC001", p.Message, "", p.Line, p.Column))
+                    .Select((p, i) => Diagnostic.ErrorAt(
+                        "TDC001", p.Message, i == 0 ? ParseFailedHint : "", p.Line, p.Column))
                     .ToList(),
                 Source);
         }

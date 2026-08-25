@@ -377,6 +377,15 @@ placed` rather than naming a total it stopped counting. A number quietly reading
   produces their sum in Python, Java, C# and Rust, where it produced their digits run together.
   TypeScript is unchanged.
 
+- **Nine diagnostics said what was wrong and nothing about what to do, in all four ports.** The
+  reference explains a parse failure with the sentence that matters — "the document did not
+  parse, so the structural and semantic checks were skipped; fix this first, anything they
+  reported would be describing the torn tree" — and the ports printed the bare complaint. A
+  reader with one unclosed tag saw a single error and took it for the whole story; the validator
+  had never run. `TDC180` was the same shape: "unknown compute tag" with no list of the tags a
+  `<compute>` does take, on the one diagnostic whose whole job is to point at it. Measured across
+  the 383 shared cases: 9 note-less diagnostics in each of Python, Rust, Java and C#, now 0.
+
 - **`TDC196` was written, documented twice, and never the code anyone saw.** `repeat=` or
   `separator=` on a `<mix>` produced two refusals: the generic `TDC015: <mix> has no "repeat"
 attribute` FIRST, and `TDC196` — the one written for the case — second. Only the first is read,

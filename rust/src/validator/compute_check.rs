@@ -90,6 +90,19 @@ const KNOWN_TAGS: [&str; 48] = [
 
 /// Tags the compute spec describes but this version does not ship, so the
 /// diagnostic explains the gap instead of reading like a typo.
+/// A list of allowed names, truncated the way every long list in a diagnostic is.
+fn candidates(names: &[&str]) -> String {
+    const MOST: usize = 6;
+    if names.len() <= MOST {
+        return names.join(", ");
+    }
+    format!(
+        "{}, … ({} more)",
+        names[..MOST].join(", "),
+        names.len() - MOST
+    )
+}
+
 fn hint_for(tag: &str) -> &'static str {
     match tag {
         "param" => {
@@ -269,11 +282,25 @@ impl<'a> ComputeCheck<'a> {
             return;
         }
         if !KNOWN_TAGS.contains(&name) {
+            // The reference falls back to naming the tags a <compute> takes when the unknown
+            // one has no note of its own. Without the fallback the refusal said only that the
+            // tag is unknown, and left the reader to go and find the list -- on the one
+            // diagnostic whose whole job is to point at it.
+            let own = hint_for(name);
+            let fallback;
+            let hint = if own.is_empty() {
+                let mut names: Vec<&str> = KNOWN_TAGS.to_vec();
+                names.sort_unstable();
+                fallback = format!("Allowed inside <compute>: {}.", candidates(&names));
+                fallback.as_str()
+            } else {
+                own
+            };
             self.report(
                 node,
                 "TDC180",
                 format!("unknown compute tag <{name}>"),
-                hint_for(name),
+                hint,
             );
             return;
         }

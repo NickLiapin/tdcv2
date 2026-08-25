@@ -23,6 +23,15 @@ namespace Tdcv2.Validation;
 /// </remarks>
 internal sealed class ComputeCheck
 {
+    /// <summary>A list of allowed names, truncated the way every long list in a diagnostic is.</summary>
+    private static string Candidates(IReadOnlyList<string> names)
+    {
+        const int most = 6;
+        return names.Count <= most
+            ? string.Join(", ", names)
+            : string.Join(", ", names.Take(most)) + $", … ({names.Count - most} more)";
+    }
+
     private static readonly HashSet<string> Encodings = new(StringComparer.Ordinal)
     {
         "base36", "ascii", "unicode", "hex", "binary", "octal",
@@ -282,7 +291,12 @@ internal sealed class ComputeCheck
         {
             Report(
                 node, "TDC180", $"unknown compute tag <{node.Name}>",
-                HintsByTag.GetValueOrDefault(node.Name));
+                // The reference falls back to naming the tags a <compute> takes when the unknown
+                // one has no note of its own. Without the fallback the refusal said only that the
+                // tag is unknown, and left the reader to go and find the list -- on the one
+                // diagnostic whose whole job is to point at it.
+                HintsByTag.GetValueOrDefault(node.Name)
+                    ?? $"Allowed inside <compute>: {Candidates(KnownTags.OrderBy(t => t, StringComparer.Ordinal).ToList())}.");
             return;
         }
 

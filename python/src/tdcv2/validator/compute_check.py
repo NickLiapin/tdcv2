@@ -42,6 +42,13 @@ _KNOWN_TAGS = frozenset(
 
 # Tags the compute spec describes but this version does not ship, so the diagnostic explains the
 # gap instead of reading like a typo.
+def _candidates(names: list[str], most: int = 6) -> str:
+    """A list of allowed names, truncated the way every long list in a diagnostic is."""
+    if len(names) <= most:
+        return ", ".join(names)
+    return ", ".join(names[:most]) + f", … ({len(names) - most} more)"
+
+
 #: Tags that used to be called something else.
 #:
 #: Without this a renamed tag falls through to "unknown compute tag", which tells a reader
@@ -213,7 +220,17 @@ class ComputeCheck:
             self._report(node, "TDC288", f"<{name}> has been renamed to <{renamed[0]}>", renamed[1])
             return
         if name not in _KNOWN_TAGS:
-            self._report(node, "TDC180", f"unknown compute tag <{name}>", _HINTS_BY_TAG.get(name))
+            # The reference falls back to naming the tags a <compute> takes when the unknown one
+            # has no note of its own. Without the fallback the refusal said only that the tag is
+            # unknown, and left the reader to go and find the list -- on the one diagnostic whose
+            # whole job is to point at it.
+            self._report(
+                node,
+                "TDC180",
+                f"unknown compute tag <{name}>",
+                _HINTS_BY_TAG.get(name)
+                or f"Allowed inside <compute>: {_candidates(sorted(_KNOWN_TAGS))}.",
+            )
             return
 
         if name in ("current", "current_index"):

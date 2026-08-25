@@ -62,6 +62,16 @@ final class ComputeCheck {
             + "the new name says. Rename the tag; the name= attribute is unchanged."
       });
 
+  /** A list of allowed names, truncated the way every long list in a diagnostic is. */
+  private static String candidates(java.util.Collection<String> names) {
+    final int most = 6;
+    if (names.size() <= most) {
+      return String.join(", ", names);
+    }
+    List<String> all = new ArrayList<>(names);
+    return String.join(", ", all.subList(0, most)) + ", … (" + (all.size() - most) + " more)";
+  }
+
   private static final Set<String> KNOWN_TAGS =
       Set.of(
           // literals and references
@@ -222,8 +232,15 @@ final class ComputeCheck {
       return;
     }
     if (!KNOWN_TAGS.contains(node.name())) {
+      // The reference falls back to naming the tags a <compute> takes when the unknown one has no
+      // note of its own. Without the fallback the refusal said only that the tag is unknown, and
+      // left the reader to go and find the list -- on the one diagnostic whose whole job is to
+      // point at it.
+      String own = HINTS_BY_TAG.get(node.name());
       report(node, "TDC180", "unknown compute tag <" + node.name() + ">",
-          HINTS_BY_TAG.get(node.name()));
+          own != null ? own
+              : "Allowed inside <compute>: "
+                  + candidates(new java.util.TreeSet<>(KNOWN_TAGS)) + ".");
       return;
     }
 

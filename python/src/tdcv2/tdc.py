@@ -45,6 +45,13 @@ BYTES_PER_CELL = 40
 BYTES_PER_RENDERED_CARD = 200
 
 # Past half the memory the run is worth a word; past nine tenths it is worth stopping for.
+#: Why a parse failure is the only thing reported.
+_PARSE_FAILED_HINT = (
+    "The document did not parse, so the structural and semantic checks were skipped. "
+    "Fix this first — anything they reported would be describing the torn tree, not "
+    "your config."
+)
+
 WARN_RATIO = 0.5
 ERROR_RATIO = 0.9
 
@@ -202,8 +209,19 @@ class TDC:
         if not parsed.ok:
             # Raised as diagnostics rather than as prose so that a caller — the command line
             # above all — can render the offending line instead of only quoting the message.
+            # The hint goes on the FIRST problem only: it explains why nothing ELSE was
+            # reported, and repeating it under every line of a torn document would bury the
+            # errors it is introducing. Without it a reader with one unclosed tag sees a single
+            # complaint and takes it for the whole story — the validator never ran.
             syntax = [
-                Diagnostic.error("TDC001", p.message, "", p.line, p.column) for p in parsed.problems
+                Diagnostic.error(
+                    "TDC001",
+                    p.message,
+                    _PARSE_FAILED_HINT if i == 0 else "",
+                    p.line,
+                    p.column,
+                )
+                for i, p in enumerate(parsed.problems)
             ]
             raise TdcError(summarize(syntax), syntax, source)
 

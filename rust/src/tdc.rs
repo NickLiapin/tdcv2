@@ -36,6 +36,15 @@ use crate::parser::{self, config_builder};
 use crate::validator;
 
 /// Why a run could not be built.
+/// Why a parse failure is the only thing reported.
+/// The hint goes on the FIRST problem only: it explains why nothing ELSE was reported, and
+/// repeating it under every line of a torn document would bury the errors it is introducing.
+/// Without it a reader with one unclosed tag sees a single complaint and takes it for the whole
+/// story -- the validator never ran.
+const PARSE_FAILED_HINT: &str = "The document did not parse, so the structural and semantic \
+                                 checks were skipped. Fix this first — anything they reported \
+                                 would be describing the torn tree, not your config.";
+
 #[derive(Clone, Debug)]
 pub enum TdcError {
     /// The config was refused.
@@ -359,11 +368,12 @@ impl Tdc {
                 diagnostics: parsed
                     .problems
                     .iter()
-                    .map(|p| {
+                    .enumerate()
+                    .map(|(i, p)| {
                         Diagnostic::error(
                             "TDC001",
                             p.message.clone(),
-                            "",
+                            if i == 0 { PARSE_FAILED_HINT } else { "" },
                             Pos {
                                 line: p.line,
                                 column: p.column,
