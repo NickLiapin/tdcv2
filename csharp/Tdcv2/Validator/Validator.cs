@@ -4077,7 +4077,14 @@ public sealed class Validator
                     return;
                 }
 
-                if (_packs.Exists(path, _locale))
+                // `local=` on the <gen> picks the pack, so it decides which locale this check
+                // asks about. Reading only the env locale validated a DIFFERENT config than the
+                // one that would run: `local="zh"` on a path zh does not ship passed `check`, and
+                // the run then died with a raw "unknown template path" from the pack reader.
+                string? genLocal = attrs.GetValueOrDefault("local");
+                string tLocale = string.IsNullOrWhiteSpace(genLocal) ? _locale : genLocal.Trim();
+
+                if (_packs.Exists(path, tLocale))
                 {
                     // The address resolves; whether the file behind it is usable is a separate
                     // question, and one worth answering now. A pack a user wrote themselves is
@@ -4085,7 +4092,7 @@ public sealed class Validator
                     // the run.
                     try
                     {
-                        _packs.Load(path, _locale);
+                        _packs.Load(path, tLocale);
                     }
                     catch (Exception e) when (e is ArgumentException or IOException)
                     {
@@ -4100,11 +4107,11 @@ public sealed class Validator
                     // The path may be real and only missing DATA for this locale. Said as its
                     // own code because "unknown template path" reads as a typo and sends the
                     // reader hunting for one that is not there.
-                    if (_locale != "en" && _packs.Exists(path, "en"))
+                    if (tLocale != "en" && _packs.Exists(path, "en"))
                     {
                         Error(
                             "TDC217",
-                            $"template path \"{value}\" has no data for locale \"{_locale}\"",
+                            $"template path \"{value}\" has no data for locale \"{tLocale}\"",
                             "The \"en\" pack ships it. Set local=\"…\" on this <gen> or on <env>, "
                             + "or choose a path your locale ships.", line, column);
                     }

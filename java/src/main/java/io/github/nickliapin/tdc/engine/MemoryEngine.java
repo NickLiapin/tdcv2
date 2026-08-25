@@ -2445,15 +2445,31 @@ public final class MemoryEngine {
    * <p>A synthetic address ({@code person.b_day} and its kind) is resolved inside the generator and
    * has no pack file behind it, so asking the registry would throw rather than answer.
    */
+  /**
+   * The locale a pack address resolves in: {@code local=} on the {@code <gen>} when it carries
+   * one, the run's locale otherwise -- the same rule {@code <env local=>} follows.
+   *
+   * <p>Reading only the run's locale made a gen-level {@code local=} a NO-OP. Measured:
+   * {@code <gen type="template" value="person.lastName" local="de"/>} gave Voigt/Riedel/Winkelmann
+   * in the reference and {@code Smith Smith Smith} here. Not merely the wrong language --
+   * {@code Smith} is the heaviest line of the weighted ENGLISH file, so the column came out a
+   * CONSTANT, and {@code check} called it valid.
+   */
+  private static String packLocale(Config.Gen gen, Config config) {
+    String local = gen.attrs().get("local");
+    return local == null || local.isBlank() ? config.locale() : local;
+  }
+
   private static Listed weightedTemplatePack(Config.Gen gen, DataPacks packs, Config config) {
     if (!"template".equals(gen.type())) {
       return null;
     }
     String path = gen.attr("value", "");
-    if (path.isEmpty() || !packs.exists(path, config.locale())) {
+    String locale = packLocale(gen, config);
+    if (path.isEmpty() || !packs.exists(path, locale)) {
       return null;
     }
-    DataPacks.Entry entry = packs.load(path, config.locale());
+    DataPacks.Entry entry = packs.load(path, locale);
     return entry.weighted() ? new Listed(entry.values(), entry.percents()) : null;
   }
 
@@ -2466,9 +2482,10 @@ public final class MemoryEngine {
       return false;
     }
     String path = gen.attr("value", "");
+    String locale = packLocale(gen, config);
     return !path.isEmpty()
-        && packs.exists(path, config.locale())
-        && packs.needsWholeColumn(path, config.locale());
+        && packs.exists(path, locale)
+        && packs.needsWholeColumn(path, locale);
   }
 
   /**
@@ -3490,7 +3507,7 @@ public final class MemoryEngine {
         if ("date.range".equals(path)) {
           return DateGen.legacyRange(gen.attrs(), locale, nowMillis, count, prng);
         }
-        DataPacks.Entry entry = packs.load(path, locale);
+        DataPacks.Entry entry = packs.load(path, packLocale(gen, config));
         if (entry.isGenerator()) {
           // The pack ships a rule rather than a list. Two shapes: a lone <gen>, or local
           // sequences feeding an output template — which is how an identifier with a check

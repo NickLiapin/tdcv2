@@ -170,7 +170,11 @@ public final class UniqSimple {
         if ("person.b_day".equals(path) || "date.range".equals(path)) {
           throw notAList(name, path);
         }
-        DataPacks.Entry entry = packs.load(path, locale);
+        // `local=` on the <gen> picks the pack here too -- a unique draw over a German
+        // surname list must enumerate the German file, not the English one.
+        String local = gen.attrs().get("local");
+        DataPacks.Entry entry =
+            packs.load(path, local == null || local.isBlank() ? locale : local);
         if (entry.isGenerator() || entry.values().isEmpty()) {
           throw notAList(name, path);
         }

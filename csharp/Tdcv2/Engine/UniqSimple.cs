@@ -190,7 +190,11 @@ internal static class UniqSimple
             {
                 throw NotAList(name, path);
             }
-            DataPacks.Entry entry = packs.Load(path, locale);
+            // `local=` on the <gen> picks the pack here too — a unique draw over a German
+            // surname list must enumerate the German file, not the English one.
+            string? packLocal = gen.Attr("local");
+            DataPacks.Entry entry =
+                packs.Load(path, string.IsNullOrWhiteSpace(packLocal) ? locale : packLocal);
             if (entry.IsGenerator || entry.Values.Count == 0)
             {
                 throw NotAList(name, path);

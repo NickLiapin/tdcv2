@@ -377,6 +377,35 @@ placed` rather than naming a total it stopped counting. A number quietly reading
   produces their sum in Python, Java, C# and Rust, where it produced their digits run together.
   TypeScript is unchanged.
 
+- **`local=` on a `<gen>` was ignored by Python, Java and C#, and the column came out a
+  CONSTANT.** `<gen type="template" value="person.lastName" local="de"/>` gave
+  Voigt/Riedel/Winkelmann in TypeScript and Rust, and `Smith Smith Smith` in the other three.
+  Not merely the wrong language: `Smith` is the heaviest line of the weighted ENGLISH file, so
+  a config that asked for German surnames got one English surname repeated down the column,
+  exit 0, and `check` calling it valid.
+
+  Those three read the run's locale where the address was resolved, never the generator's own.
+  It showed on some locales and not others because the WEIGHTED path resolved the address for
+  itself and was always right: every locale whose `person/lastName.txt` declares
+  `weighted: true` (`ru`, `uk`, `nl`, `sv`, `ja`, `en`) worked, and every locale without one
+  (`de`, `fr`, `es`, `it`, `pl`, `pt`, `ar`) fell back to English. All twelve now agree across
+  the five.
+
+  The same attribute was missing from the VALIDATOR in all four ports, which is why the failure
+  was silent rather than loud: `check` asked about the env locale, so it validated a different
+  config than the one about to run. `local="zh"` on a path `zh` does not ship passed `check`
+  and the run then died with a raw "unknown template path" out of the pack reader — a message
+  that reads as a typo for a path that is spelled correctly. All five now raise `TDC217` before
+  a row is generated. A unique draw (`<uniq>`) over a `local=`-pinned list enumerated the wrong
+  file in the same three, and is fixed with it.
+
+  In Java the raw message also named a Java object identity
+  (`PackSource$Layered@2812cbfa`) where the other four name a directory: the layered pack
+  source had no `toString()`.
+
+  **Byte change:** any config using `local=` on a `<gen>` whose target pack is not weighted now
+  draws from the locale it names, in Python, Java and C#.
+
 - **The five-way documentation audit refused to run for two reasons of its own making.** It
   compares each build against its sources, and for C# it compared the ENGINE's sources against
   the COMMAND LINE's assembly — a file that an engine edit never rebuilds, so an up-to-date C#

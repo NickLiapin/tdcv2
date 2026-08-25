@@ -119,6 +119,17 @@ public interface PackSource {
       this.sources = List.copyOf(sources);
     }
 
+    /**
+     * Where the packs came from, for the "looked for … in …" of a failed lookup. Without it the
+     * layered source fell back to {@code Object.toString()} and the message named a Java identity
+     * — {@code io.github.nickliapin.tdc.packs.PackSource$Layered@2812cbfa} — where the other four
+     * implementations name a directory. Each layer already knows how to describe itself.
+     */
+    @Override
+    public String toString() {
+      return sources.stream().map(Object::toString).collect(java.util.stream.Collectors.joining(", "));
+    }
+
     private PackSource owning(String relativePath) {
       for (int i = sources.size() - 1; i >= 0; i--) {
         if (sources.get(i).has(relativePath)) {

@@ -142,7 +142,9 @@ def _pool_of(name: str, gen, run) -> tuple[list[str], list[float]]:
                 f'uniq: sequence "{name}" — template "{path}" does not resolve to a value '
                 "list, so its values cannot be enumerated for a unique draw"
             )
-        entry = run.packs.load(path, run.config.locale)
+        # `local=` on the <gen> picks the pack here too -- a unique draw over a German
+        # surname list must enumerate the German file, not the English one.
+        entry = run.packs.load(path, gen.attrs.get("local") or run.config.locale)
         if entry.is_generator or not entry.values:
             raise UniqSimpleError(
                 f'uniq: sequence "{name}" — template "{path}" does not resolve to a value '

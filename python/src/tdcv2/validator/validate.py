@@ -3419,21 +3419,26 @@ class _Validator:
             if address in BUILTIN_TEMPLATE_PATHS or self.packs is None:
                 return
             line, column = _at(gen, "value")
-            if self.packs.exists(address, self.locale):
+            # `local=` on the <gen> picks the pack, so it decides which locale this check asks
+            # about. Reading only the env locale here validated a DIFFERENT config than the one
+            # that would run: `local="zh"` on a path zh does not ship passed `check`, and the run
+            # then died with a raw "unknown template path" from inside the pack reader.
+            locale = (attrs.get("local") or "").strip() or self.locale
+            if self.packs.exists(address, locale):
                 # The address resolves; whether the file behind it is usable is a separate
                 # question, and one worth answering now. A pack a user wrote themselves is exactly
                 # the kind that is malformed, and finding out on the first row wastes the run.
                 try:
-                    self.packs.load(address, self.locale)
+                    self.packs.load(address, locale)
                 except (ValueError, OSError) as e:
                     self._error("TDC170", str(e), f'Data pack file for "{address}".', line, column)
-            elif self.locale != "en" and self.packs.exists(address, "en"):
+            elif locale != "en" and self.packs.exists(address, "en"):
                 # The path is real — the DATA for this locale is missing. Said as
                 # its own code because "unknown template path" reads as a typo and
                 # sends the reader hunting for one that is not there.
                 self._error(
                     "TDC217",
-                    f'template path "{value}" has no data for locale "{self.locale}"',
+                    f'template path "{value}" has no data for locale "{locale}"',
                     'The "en" pack ships it. Set local="…" on this <gen> or on <env>, '
                     "or choose a path your locale ships.",
                     line,

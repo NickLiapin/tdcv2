@@ -1248,7 +1248,7 @@ public static class MemoryEngine
             return DateGen.LegacyRange(gen.Attrs, ctx.Locale, ctx.NowMillis, count, prng);
         }
 
-        DataPacks.Entry entry = ctx.Packs.Load(path, ctx.Locale);
+        DataPacks.Entry entry = ctx.Packs.Load(path, PackLocale(gen, ctx));
 
         if (entry.IsGenerator)
         {
@@ -3342,12 +3342,13 @@ public static class MemoryEngine
         }
 
         string path = gen.Attr("value") ?? "";
-        if (path.Length == 0 || !ctx.Packs.Exists(path, ctx.Locale))
+        string locale = PackLocale(gen, ctx);
+        if (path.Length == 0 || !ctx.Packs.Exists(path, locale))
         {
             return null;
         }
 
-        DataPacks.Entry entry = ctx.Packs.Load(path, ctx.Locale);
+        DataPacks.Entry entry = ctx.Packs.Load(path, locale);
         return entry.Weighted && entry.Percents is not null
             ? (entry.Values, entry.Percents)
             : null;
@@ -3365,10 +3366,28 @@ public static class MemoryEngine
         }
 
         string path = gen.Attr("value") ?? "";
+        string locale = PackLocale(gen, ctx);
         return path.Length != 0
-            && ctx.Packs.Exists(path, ctx.Locale)
-            && ctx.Packs.NeedsWholeColumn(path, ctx.Locale);
+            && ctx.Packs.Exists(path, locale)
+            && ctx.Packs.NeedsWholeColumn(path, locale);
     }
+
+    /// <summary>
+    /// The locale a pack address resolves in: <c>local=</c> on the <c>&lt;gen&gt;</c> when it
+    /// carries one, the run's locale otherwise — the same rule <c>&lt;env local=&gt;</c> follows.
+    ///
+    /// Reading only the run's locale made a gen-level <c>local=</c> a NO-OP. Measured:
+    /// <c>&lt;gen type="template" value="person.lastName" local="de"/&gt;</c> gave
+    /// Voigt/Riedel/Winkelmann in the reference and <c>Smith Smith Smith</c> here. Not merely the
+    /// wrong language — <c>Smith</c> is the heaviest line of the weighted ENGLISH file, so the
+    /// column came out a CONSTANT, and <c>check</c> called it valid.
+    /// </summary>
+    private static string PackLocale(Gen gen, Ctx ctx)
+    {
+        string? local = gen.Attr("local");
+        return string.IsNullOrWhiteSpace(local) ? ctx.Locale : local;
+    }
+
 
     /// <summary>
     /// <c>&lt;gen type="timeseries" noise=…&gt;</c> keyed by the row.

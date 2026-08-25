@@ -3733,6 +3733,12 @@ public final class Validator {
         }
       }
       case "template" -> {
+        // `local=` on the <gen> picks the pack, so it decides which locale this check asks
+        // about. Reading only the env locale validated a DIFFERENT config than the one that
+        // would run: `local="zh"` on a path zh does not ship passed `check`, and the run then
+        // died with a raw "unknown template path" from inside the pack reader.
+        String genLocal = attrs.get("local");
+        String tLocale = genLocal == null || genLocal.isBlank() ? locale : genLocal.trim();
         if (missing) {
           error("TDC070", "<gen type=\"template\"> requires a \"value\" attribute",
               "Use a known template path, e.g. person.male.firstName.", line(gen), column(gen));
@@ -3742,12 +3748,12 @@ public final class Validator {
           return;
         } else if (!BUILTIN_TEMPLATE_PATHS.contains(value.trim())
             && packs != null
-            && packs.exists(value.trim(), locale)) {
+            && packs.exists(value.trim(), tLocale)) {
           // The address resolves; whether the file behind it is usable is a separate question,
           // and one worth answering now. A pack a user wrote themselves is exactly the kind that
           // is malformed, and finding out on the first row wastes the run.
           try {
-            packs.load(value.trim(), locale);
+            packs.load(value.trim(), tLocale);
           } catch (RuntimeException e) {
             error("TDC170", e.getMessage(),
                 "Data pack file for \"" + value.trim() + "\".",
@@ -3755,13 +3761,13 @@ public final class Validator {
           }
         } else if (!BUILTIN_TEMPLATE_PATHS.contains(value.trim())
             && packs != null
-            && !packs.exists(value.trim(), locale)) {
+            && !packs.exists(value.trim(), tLocale)) {
           // The path may be real and only missing DATA for this locale. Said as
           // its own code because "unknown template path" reads as a typo and sends
           // the reader hunting for one that is not there.
-          if (!"en".equals(locale) && packs.exists(value.trim(), "en")) {
+          if (!"en".equals(tLocale) && packs.exists(value.trim(), "en")) {
             error("TDC217",
-                "template path \"" + value + "\" has no data for locale \"" + locale + "\"",
+                "template path \"" + value + "\" has no data for locale \"" + tLocale + "\"",
                 "The \"en\" pack ships it. Set local=\"…\" on this <gen> or on <env>, or choose "
                     + "a path your locale ships.",
                 at(gen, "value")[0], at(gen, "value")[1]);

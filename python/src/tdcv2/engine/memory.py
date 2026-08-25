@@ -1884,6 +1884,15 @@ def _generate(
         percent = gen.attr("percent")
     elif gen.type == "template":
         path = gen.attr("value")
+        # `local=` on the <gen> picks the pack, exactly as it does on the <env>. Reading only
+        # the env locale here made a gen-level `local=` a NO-OP for every pack file that does
+        # not declare `weighted: true` -- the weighted path resolves the address for itself
+        # and was always right, which is why half the locales worked and half did not.
+        # Measured: `<gen type="template" value="person.lastName" local="de"/>` gave
+        # Voigt/Riedel/Winkelmann in the reference and `Smith Smith Smith` here. Not merely
+        # the wrong language: `Smith` is the heaviest line of the weighted ENGLISH file, so
+        # the column was a constant, and `check` called it valid.
+        locale = attrs.get("local") or locale
         # Two template paths are generators rather than lists. They are resolved before the pack
         # registry is consulted, which is why no pack file is named after them.
         if path == "person.b_day":

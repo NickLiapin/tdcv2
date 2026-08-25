@@ -3487,17 +3487,27 @@ impl Validator {
                 let Some(packs) = &self.packs else {
                     return;
                 };
-                if !packs.exists(path, &self.locale) {
+                // `local=` on the <gen> picks the pack, so it decides which locale this
+                // check asks about. Reading only the env locale validated a DIFFERENT
+                // config than the one that would run: `local="zh"` on a path zh does not
+                // ship passed `check`, and the run then died with a raw "unknown template
+                // path" from inside the pack reader.
+                let gen_local = gen.attr("local").map(|a| a.value().trim().to_string());
+                let locale = match gen_local {
+                    Some(ref l) if !l.is_empty() => l.clone(),
+                    _ => self.locale.clone(),
+                };
+                if !packs.exists(path, &locale) {
                     // The path may be real and only missing DATA for this locale.
                     // Said as its own code because "unknown template path" reads
                     // as a typo and sends the reader hunting for one that is not
                     // there.
-                    if self.locale != "en" && packs.exists(path, "en") {
+                    if locale != "en" && packs.exists(path, "en") {
                         self.error(
                             "TDC217",
                             format!(
                                 "template path \"{value}\" has no data for locale \"{}\"",
-                                self.locale
+                                locale
                             ),
                             "The \"en\" pack ships it. Set local=\"…\" on this <gen> or on \
                              <env>, or choose a path your locale ships.",
@@ -3511,7 +3521,7 @@ impl Validator {
                         "Check the address against the packs you have.",
                         gen.at("value"),
                     );
-                } else if let Err(e) = packs.load(path, &self.locale) {
+                } else if let Err(e) = packs.load(path, &locale) {
                     // The address resolves; whether the file behind it is usable
                     // is a separate question, and one worth answering now. A pack
                     // a user wrote themselves is exactly the kind that is
