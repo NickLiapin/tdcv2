@@ -26,7 +26,14 @@ export function resolveGenValueAt(
   // `rows: [i]` tells the one-row build which ABSOLUTE row it is, so anything
   // that reads a sibling column — a distribution parameter written as an
   // expression — asks for the right row rather than for row 0 every time.
-  const ctx = { ...streamCtx(options), rows: [i] };
+  //
+  // `seed` and `streamId` travel with it because the in-memory builder's own
+  // one-row path carries them, and anything derived from them has to come out
+  // the same on both engines. A pack generator is the case that showed it: its
+  // body is seeded from the column's identity, and with these missing the lazy
+  // side seeded the body from an empty string while the in-memory side used the
+  // real one — same config, same seed, two different files.
+  const ctx = { ...streamCtx(options), rows: [i], seed, streamId };
   return buildGenValues(gen, 1, seekableGen(seed, streamId, i), locale, now, ctx)[0] ?? '';
 }
 

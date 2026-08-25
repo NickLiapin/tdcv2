@@ -22,8 +22,6 @@
  */
 
 import { StreamUnsupportedError } from './stream-errors.js';
-import { wholeColumnTemplatePack } from './stream-weighted.js';
-import type { PackEntry } from '../data-pack/load.js';
 import type { SequenceSpec } from './types.js';
 
 /**
@@ -34,11 +32,7 @@ import type { SequenceSpec } from './types.js';
  * anything else, and a pack generator is refused for its quota rather than for
  * being a template.
  */
-export function refuseIfWholeColumn(
-  spec: SequenceSpec,
-  packs: ReadonlyMap<string, PackEntry> | undefined,
-  locale: string,
-): void {
+export function refuseIfWholeColumn(spec: SequenceSpec): void {
   const gen = spec.gen;
   if (gen === undefined) return;
 
@@ -76,18 +70,19 @@ export function refuseIfWholeColumn(
     );
   }
 
-  // A pack generator whose value is a whole-column quota — because its body
-  // declares a share, or because it DRAWS from a weighted list. Either way the
-  // apportionment belongs to the run, and computed a row at a time it hands
-  // every row to the largest share: six rows of `hu.person.male.fullName` came
-  // out as six copies of "Nagy László", on every engine, for every seed.
-  if (wholeColumnTemplatePack(gen, packs, locale)) {
-    throw new StreamUnsupportedError(
-      `a pack generator ("${spec.name}") whose value is apportioned across the whole column ` +
-        'cannot be resolved one row at a time — every row would take the largest share; the ' +
-        'in-memory engine handles it (run without a forced streaming engine)',
-    );
-  }
+  /*
+   * A pack whose body apportions a share over the whole column used to be
+   * refused here, for a real reason: computed a row at a time it handed every
+   * row to the largest share — six rows of `hu.person.male.fullName` came out as
+   * six copies of "Nagy László".
+   *
+   * The refusal is gone because the cause is. The body is now built by this same
+   * lazy builder at the COLUMN's count, so the share is planned over the column
+   * and each row is mapped into it, exactly as a top-level `percent=` sequence
+   * has always been. A body carrying its own `<valid>` is the one shape still
+   * left to the in-memory engine; `wholeColumnPackBody` hands back nothing for
+   * it, and the per-row backstop in `build.ts` refuses it there.
+   */
 
   // A network call is not a draw: it is neither reproducible from a row index
   // nor answerable synchronously, which is what a lazy per-row resolver needs.

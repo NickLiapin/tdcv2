@@ -356,6 +356,12 @@ class StreamEngine:
             # router already sends such a config to memory; this is the backstop for a forced
             # streaming engine, and its absence is what let the wrong answer out.
             if self._pack_needs_whole_column(spec.gen):
+                # …unless this engine can plan the body over the column itself, which it now
+                # can: the body's own sequences are built by a nested engine at the COLUMN's
+                # count, so the share is apportioned over the column and each row mapped into
+                # it, exactly as a top-level `percent=` sequence has always been.
+                if self._build_whole_column_pack(spec):
+                    continue
                 raise UnsupportedError(
                     f'a pack generator ("{spec.name}") whose value is apportioned across the '
                     "whole column cannot be resolved one row at a time — every row would take "
@@ -772,7 +778,7 @@ class StreamEngine:
                 group = length_choices[_run_for(cum_hi, permute.permute(r, domain.size, key))]
                 pinned = Gen(type_, number.pin_length(attrs, group))
                 return _first(
-                    self._gen_values(pinned, seekable.generator(self.seed, stream_id, row), None)
+                    self._gen_values(pinned, seekable.generator(self.seed, stream_id, row), None, stream_id=stream_id)
                 )
 
             return self._inline_built(mod, by_length, stream_id, gen, domain)
@@ -800,6 +806,7 @@ class StreamEngine:
                                 single,
                                 seekable.generator(self.seed, f"{stream_id}#e{k}{suffix}", row),
                                 None,
+                                stream_id=f"{stream_id}#e{k}{suffix}",
                             )
                         )
 
@@ -836,6 +843,7 @@ class StreamEngine:
                                     single,
                                     seekable.generator(self.seed, f"{stream_id}#e{k}{s}", row),
                                     None,
+                                    stream_id=f"{stream_id}#e{k}{s}",
                                 )
                             )
 
@@ -846,6 +854,7 @@ class StreamEngine:
                         single,
                         seekable.generator(self.seed, f"{stream_id}#e{k}{suffix}", row),
                         spiked,
+                        stream_id=f"{stream_id}#e{k}{suffix}",
                     )
                     flags.append(str(spiked[0]).lower())
                 return repeat.separator.join(flags)
@@ -859,7 +868,7 @@ class StreamEngine:
             if r is None:
                 return None
             return _first(
-                self._gen_values(gen, seekable.generator(self.seed, stream_id, row), None, row)
+                self._gen_values(gen, seekable.generator(self.seed, stream_id, row), None, row, stream_id)
             )
 
         return Built(
@@ -922,13 +931,18 @@ class StreamEngine:
                 raw = None if raw_at is None else raw_at(row)
                 return str(drawn < p and _is_number(raw)).lower()
             spiked = [False]
-            self._gen_values(gen, seekable.generator(self.seed, stream_id, row), spiked)
+            self._gen_values(gen, seekable.generator(self.seed, stream_id, row), spiked, stream_id=stream_id)
             return str(spiked[0]).lower()
 
         return flag
 
     def _gen_values(
-        self, gen: Gen, prng, flags_out: list[bool] | None, row: int | None = None
+        self,
+        gen: Gen,
+        prng,
+        flags_out: list[bool] | None,
+        row: int | None = None,
+        stream_id: str | None = None,
     ) -> list[str]:
         """One row's worth of an independently-drawn generator.
 
@@ -946,6 +960,12 @@ class StreamEngine:
             self.base_dir,
             prng,
             rows=None if row is None else [row],
+            # The COLUMN's name travels with the one-row run, because the in-memory engine's own
+            # one-row path carries it and anything derived from it has to come out the same on
+            # both engines. A pack generator is the case that showed it: its body is seeded from
+            # the column's identity, and without this the streaming side seeded the body from an
+            # empty string while the in-memory side used the real one.
+            stream_id=stream_id,
             value_at=lambda name, r: (
                 (self.columns[name](r) or "") if name in self.columns else None
             ),
@@ -966,6 +986,56 @@ class StreamEngine:
                 memory._generate(gen, slots, run), gen.attrs, prng, [False] * slots
             ),
         )
+
+    def _build_whole_column_pack(self, spec) -> bool:
+        """Build a share-declaring pack body here, over the column, rather than refusing it.
+
+        A nested engine over the body's own sequences, at this column's count and under a seed
+        salted with this column's name — the same seed the in-memory engine gives the body, so
+        the two assemble the same rows. Returns False for the one shape still left to memory: a
+        body carrying its own ``<valid>``, where rejecting a row and redrawing it is a
+        whole-column decision with no lazy form yet.
+        """
+        from dataclasses import replace as _replace
+
+        from ..parser import config_builder
+
+        gen = spec.gen
+        address = gen.attrs.get("value", "")
+        locale = gen.attrs.get("local") or self.config.locale
+        try:
+            entry = self.packs.load(address, locale)
+        except (ValueError, OSError):
+            return False
+        source = entry.generator or ""
+        if "<sequence" not in source and "<data" not in source:
+            return False
+        body = config_builder.parse_pack_body(source)
+        if body.validate is not None:
+            return False
+
+        inner = StreamEngine(
+            _replace(
+                self.config,
+                sequences=list(body.sequences),
+                seed=f"{self.seed}|{spec.name}",
+                count=self.count,
+            ),
+            self.packs,
+            self.now_millis,
+            self.base_dir,
+        )
+        inner._build_columns()
+        output = body.output
+        inject = self.config.inject
+
+        def column(row: int) -> str | None:
+            return interpolate.apply(
+                output, inject, lambda name: (inner.columns[name](row) if name in inner.columns else None)
+            )
+
+        self.columns[spec.name] = column
+        return True
 
     def _pack_needs_whole_column(self, gen: Gen | None) -> bool:
         """Is this ``<gen>`` a pack generator that only answers correctly over a whole column?"""
@@ -1415,7 +1485,7 @@ class StreamEngine:
                             )
                         key = f"{spec.name}.{field_name}#d{attempt}"
                         value = _first(
-                            self._gen_values(gen, seekable.generator(self.seed, key, row), None)
+                            self._gen_values(gen, seekable.generator(self.seed, key, row), None, stream_id=key)
                         )
                     values[field_name] = value
                     seen.add(value)
@@ -1474,6 +1544,7 @@ class StreamEngine:
                             gen_by_name[name],
                             seekable.generator(self.seed, f"{name}#ed{attempt}", row),
                             None,
+                            stream_id=f"{name}#ed{attempt}",
                         )
                     )
                 values[name] = value

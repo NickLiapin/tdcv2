@@ -6,12 +6,12 @@
       "description": "A mod-10 check digit, from a composed pack",
       "config": "<tdc><env count=\"6\" seed=\"packs\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"template\" value=\"usa.finance.aba_routing\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": [
-        "712545125",
-        "634135147",
-        "271641227",
-        "727481685",
-        "657563039",
-        "718685733"
+        "800254519",
+        "707413518",
+        "029164121",
+        "715748165",
+        "237756305",
+        "077868576"
       ]
     },
     {

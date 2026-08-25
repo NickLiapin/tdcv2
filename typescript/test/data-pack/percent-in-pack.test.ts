@@ -70,13 +70,31 @@ describe('a share declared inside a pack generator', () => {
     expect(tally(out)).toEqual({ AAA: 600, BBB: 400 });
   });
 
-  it('refuses rather than silently misallocating when streaming is forced', () => {
-    // Matched on the CONSEQUENCE, not on "declares a share". A pack earns this
-    // refusal two ways — a percent= in its body, or a weighted list its body
-    // draws from — and the old wording named only the first, so it described
-    // twelve full-name packs wrongly the day the second one started refusing.
-    expect(() => render(parseStrict(config('')), { now: NOW, packs, engine: 2 })).toThrow(
-      /apportioned across the whole column/,
+  it('is apportioned exactly by the streaming engines too, which no longer refuse it', () => {
+    /*
+     * This used to be a refusal: a share declared inside a pack body could only
+     * be honoured over the whole column, and the streaming builder resolved one
+     * row at a time, so it would have handed every row the largest share.
+     *
+     * It is not a refusal any more, because the body is built by the streaming
+     * builder itself at the COLUMN's count — the share is planned over the
+     * column and each row mapped into it, exactly as a top-level `percent=` has
+     * always been. What the refusal protected against is checked here directly:
+     * the tally, on every engine, not merely that an error was raised.
+     */
+    for (const engine of [1, 2, 3] as const) {
+      const out = render(parseStrict(config('')), { now: NOW, packs, engine });
+      expect(tally(out), `engine ${String(engine)}`).toEqual({ AAA: 600, BBB: 400 });
+    }
+  });
+
+  it('gives all three engines the same rows, not merely the same tally', () => {
+    // A tally can be right while the rows are in a different order, and a
+    // config's bytes are the product. One seed, one file, whichever engine.
+    const texts = [1, 2, 3].map((engine) =>
+      render(parseStrict(config('')), { now: NOW, packs, engine: engine as 1 | 2 | 3 }),
     );
+    expect(texts[1]).toBe(texts[0]);
+    expect(texts[2]).toBe(texts[0]);
   });
 });

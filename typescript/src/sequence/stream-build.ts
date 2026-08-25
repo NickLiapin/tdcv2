@@ -35,6 +35,7 @@ import { advancedRegexHasWeightedChoice } from '../generators/advanced-regex.js'
 import { evaluateCompute } from '../compute/index.js';
 import { applyEnvUniq } from './stream-uniq.js';
 import { computeCountsPerValue } from '../distribution/hamilton.js';
+import { interpolate } from '../processor/interpolate.js';
 import { evaluateIf } from '../expr/evaluate.js';
 import { expandPercentMask } from '../distribution/percent-mask.js';
 import { patternGenDraws, patternGenValue } from '../generators/pattern.js';
@@ -79,7 +80,13 @@ import {
   withoutRepeat,
 } from './repeat.js';
 import type { NumberLengthChoice } from '../generators/number.js';
-import { numberLengthChoicesOf, pinLength, weightedTemplatePack } from './stream-weighted.js';
+import { paramOverrides } from './build.js';
+import {
+  numberLengthChoicesOf,
+  pinLength,
+  weightedTemplatePack,
+  wholeColumnPackBody,
+} from './stream-weighted.js';
 import { StreamUnsupportedError } from './stream-errors.js';
 import { refuseIfWholeColumn } from './stream-refusals.js';
 
@@ -178,7 +185,7 @@ export function buildLazyRegistry(
     // The timing is the point: engine 3 falls back to memory by catching this
     // around the registry build, and a refusal raised later, at the row that
     // reads the value, arrives after that catch has already returned.
-    refuseIfWholeColumn(spec, baseOptions.packs, locale);
+    refuseIfWholeColumn(spec);
 
     // A formula STREAMS. Row i is computed from row i and nothing else, which is
     // exactly the property the lazy registry is built on — so it is the one of
@@ -627,6 +634,30 @@ function buildValueSequence(
     raw.at = resolve;
     return lazy(streamId, mod ? (i) => mod(i, resolve(i)) : resolve);
   };
+
+  /*
+   * A pack whose BODY apportions a share over the whole column — the shape that
+   * used to be refused outright, so every such config went to the in-memory
+   * engine even when the caller had named engine 3.
+   *
+   * It is not a special case; it is this builder called again. The body's own
+   * sequences get the same lazy treatment the top-level ones get, at the
+   * COLUMN's count — which is the whole point, because planned one row at a
+   * time a 50/30/20 body gives that row to the 50 and prints one value for the
+   * column: six rows of `hu.person.male.fullName` came out as six copies of
+   * "Nagy László". The seed is the one the in-memory builder gives the body, so
+   * the two engines assemble the same rows.
+   */
+  const packBody = wholeColumnPackBody(gen, options.packs, locale);
+  if (packBody) {
+    const inner = buildLazyRegistry(packBody.sequences, size, `${seed}|${streamId}`, locale, now, {
+      ...options,
+      overrides: paramOverrides(gen.attrs),
+    });
+    return {
+      sequence: wrapLazy((i) => interpolate(packBody.output, packBody.inject, i, inner)),
+    };
+  }
 
   // order="sequential": row i → the (population index mod N)-th list/file value,
   // in order (looping). Index-based, so it resolves seekably like the counters.
