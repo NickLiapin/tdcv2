@@ -3262,12 +3262,70 @@ public final class MemoryEngine {
                   return v == null ? "" : v;
                 }
               });
+      DataPacks.Entry weighted = dynamicWeightedEntry(address, locale, packs);
+      if (weighted != null) {
+        out.add(weightedPick(prng, weighted.values(), weighted.percents()));
+        continue;
+      }
       Config.Gen resolved = new Config.Gen("template", withValue(gen.attrs(), address));
       List<String> built =
           generate(resolved, 1, prng, packs, config, nowMillis, baseDir, new LinkedHashMap<>());
       out.add(built.isEmpty() ? "" : built.get(0));
     }
     return out;
+  }
+
+  /**
+   * A WEIGHTED list pack behind an interpolated address, or {@code null} when this is not one.
+   *
+   * <p>A weighted pack keeps its weights here. The address is not known until the row is, so
+   * there is no column to lay an exact quota over — but the shares are still the shares, and a
+   * per-row draw can honour them. Sent through the generic build at a count of ONE it went the
+   * other way entirely: the exact layout planned a single slot and gave it to the heaviest
+   * value, so {@code person.${{Sex}}.firstName} was {@code Mary} and {@code James} on every row,
+   * on 389 shipped packs that declare {@code weighted: true}, while the SAME file read by a
+   * FIXED address was exact to the row.
+   */
+  private static DataPacks.Entry dynamicWeightedEntry(
+      String address, String locale, DataPacks packs) {
+    if (address.isEmpty() || packs == null || !packs.exists(address, locale)) {
+      return null;
+    }
+    DataPacks.Entry entry;
+    try {
+      entry = packs.load(address, locale);
+    } catch (RuntimeException e) {
+      return null;
+    }
+    return entry.isGenerator() || !entry.weighted() ? null : entry;
+  }
+
+  /**
+   * One value from a weighted list, on ONE draw.
+   *
+   * <p>A running subtraction rather than a cumulative table: the same arithmetic in the same
+   * order in all five implementations, so one seed gives one row everywhere. Shares that sum to
+   * zero fall back to a uniform pick rather than to the last value.
+   */
+  private static String weightedPick(Prng.Sfc32 prng, List<String> values, double[] percents) {
+    if (values.isEmpty()) {
+      return "";
+    }
+    double total = 0;
+    for (double p : percents) {
+      total += p;
+    }
+    if (!(total > 0)) {
+      return values.get((int) (prng.next() * values.size()));
+    }
+    double r = prng.next() * total;
+    for (int i = 0; i < values.size(); i++) {
+      r -= i < percents.length ? percents[i] : 0;
+      if (r < 0) {
+        return values.get(i);
+      }
+    }
+    return values.get(values.size() - 1);
   }
 
   /** The same attributes with {@code value} replaced by an address already resolved. */

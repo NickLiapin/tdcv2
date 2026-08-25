@@ -1519,6 +1519,13 @@ public static class MemoryEngine
 
             string address = Interpolate.Apply(
                 template, ctx.Config.Inject, new RowLookup(columns, row));
+            DataPacks.Entry? weighted = DynamicWeightedEntry(address, locale ?? "", ctx);
+            if (weighted is not null)
+            {
+                result.Add(WeightedPick(prng, weighted.Values, weighted.Percents!));
+                continue;
+            }
+
             var attrs = new Dictionary<string, string>(gen.Attrs, StringComparer.Ordinal)
             {
                 ["value"] = address,
@@ -1530,6 +1537,76 @@ public static class MemoryEngine
         }
 
         return result;
+    }
+
+    /// <summary>
+    /// A WEIGHTED list pack behind an interpolated address, or null when this is not one.
+    ///
+    /// A weighted pack keeps its weights here. The address is not known until the row is, so
+    /// there is no column to lay an exact quota over — but the shares are still the shares, and
+    /// a per-row draw can honour them. Sent through the generic build at a count of ONE it went
+    /// the other way entirely: the exact layout planned a single slot and gave it to the
+    /// heaviest value, so <c>person.${{Sex}}.firstName</c> was <c>Mary</c> and <c>James</c> on
+    /// every row, on 389 shipped packs that declare <c>weighted: true</c>, while the SAME file
+    /// read by a FIXED address was exact to the row.
+    /// </summary>
+    private static DataPacks.Entry? DynamicWeightedEntry(string address, string locale, Ctx ctx)
+    {
+        if (address.Length == 0 || ctx.Packs is null || !ctx.Packs.Exists(address, locale))
+        {
+            return null;
+        }
+
+        DataPacks.Entry entry;
+        try
+        {
+            entry = ctx.Packs.Load(address, locale);
+        }
+        catch (Exception e) when (e is ArgumentException or IOException)
+        {
+            return null;
+        }
+
+        return entry.IsGenerator || !entry.Weighted ? null : entry;
+    }
+
+    /// <summary>
+    /// One value from a weighted list, on ONE draw.
+    ///
+    /// A running subtraction rather than a cumulative table: the same arithmetic in the same
+    /// order in all five implementations, so one seed gives one row everywhere. Shares that sum
+    /// to zero fall back to a uniform pick rather than to the last value.
+    /// </summary>
+    private static string WeightedPick(
+        Sfc32 prng, IReadOnlyList<string> values, double[] percents)
+    {
+        if (values.Count == 0)
+        {
+            return "";
+        }
+
+        double total = 0;
+        foreach (double p in percents)
+        {
+            total += p;
+        }
+
+        if (!(total > 0))
+        {
+            return values[(int)(prng.Next() * values.Count)];
+        }
+
+        double r = prng.Next() * total;
+        for (int i = 0; i < values.Count; i++)
+        {
+            r -= i < percents.Length ? percents[i] : 0;
+            if (r < 0)
+            {
+                return values[i];
+            }
+        }
+
+        return values[values.Count - 1];
     }
 
     // ── uniq and distinct ────────────────────────────────────────────────────────────────────

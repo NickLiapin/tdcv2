@@ -377,6 +377,30 @@ placed` rather than naming a total it stopped counting. A number quietly reading
   produces their sum in Python, Java, C# and Rust, where it produced their digits run together.
   TypeScript is unchanged.
 
+- **An interpolated template address threw away the pack's weights, in all five.**
+  `value="person.${{Sex}}.firstName"` — TDC's parent→child-by-name, the whole point of the
+  coherent-data guide — drew UNIFORMLY in TypeScript and handed every row the SAME value in
+  Python, Rust, Java and C#. Six rows of the guide's own shape came out `Mary James James Mary
+James Mary`: `Mary` and `James` are the heaviest lines of the two weighted files. 389 shipped
+  pack files declare `weighted: true`, so any of them behind an interpolated address hit this.
+  Nothing warned; `check` said valid; every run exited 0.
+
+  The same file read by a FIXED address was exact to the row — 400 rows of a 100/50/25/10 pack
+  gave 216/108/54/22 — which is what made the fault hard to see: the page's own showroom example
+  (`common.vehicle.model.${{Brand}}`) reads UNWEIGHTED model lists, so all five agreed on it.
+
+  Two different causes, one symptom. The four ports sent the resolved address through the generic
+  build at a count of ONE, where the exact-quota layout planned a single slot and gave it to the
+  largest share — the failure the router's own comment describes, still live on this path. The
+  reference took a different route and simply dropped the shares.
+
+  An address that is not known until the row is has no column to lay a quota over, but the
+  shares are still the shares: all five now draw per row WITH them. Measured on the same 400
+  rows: 217/102/60/21 against the quota's 216/108/54/22, identical in all five.
+
+  **Byte change:** any config whose interpolated template address lands on a weighted pack.
+  An unweighted one is unaffected.
+
 - **The formula page's own headline example was refused by all four ports.**
   `expr="BMI > 25 ? over : normal"` ran in TypeScript and was refused with `TDC240: "normal" in
 expr= is not a sequence declared above this one` in Python, Rust, Java and C# — on the English,

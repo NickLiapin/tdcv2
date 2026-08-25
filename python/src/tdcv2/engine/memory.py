@@ -861,10 +861,58 @@ def _dynamic_template(gen: Gen, rows: list[int], columns, run: _Run) -> list[str
     out: list[str] = []
     for row in rows:
         address = interpolate.apply(template, run.config.inject, _row_lookup(columns, row))
+        weighted = _dynamic_weighted_values(address, locale, run)
+        if weighted is not None:
+            out.append(_weighted_pick(run.prng, *weighted))
+            continue
         resolved = Gen("template", {**gen.attrs, "value": address, "local": locale})
         built = _generate(resolved, 1, run)
         out.append(built[0] if built else "")
     return out
+
+
+def _dynamic_weighted_values(
+    address: str, locale: str, run: _Run
+) -> tuple[list[str], list[float]] | None:
+    """The values and shares of a WEIGHTED list pack, or ``None`` when this is not one.
+
+    A weighted pack keeps its weights behind an interpolated address. The address is not known
+    until the row is, so there is no column to lay an exact quota over — but the shares are
+    still the shares, and a per-row draw can honour them. Sent through the generic build at a
+    count of ONE it went the other way entirely: the exact layout planned a single slot and gave
+    it to the heaviest value, so `person.${{Sex}}.firstName` was `Mary` and `James` on every
+    row, on 389 shipped packs that declare `weighted: true`, while the SAME file read by a fixed
+    address was exact to the row.
+    """
+    try:
+        if not run.packs.exists(address, locale):
+            return None
+        entry = run.packs.load(address, locale)
+    except (ValueError, OSError):
+        return None
+    if entry.is_generator or not entry.weighted or not entry.percents:
+        return None
+    return list(entry.values), list(entry.percents)
+
+
+def _weighted_pick(prng, values: list[str], percents: list[float]) -> str:
+    """One value from a weighted list, on ONE draw.
+
+    A running subtraction rather than a cumulative table: the same arithmetic in the same order
+    in all five implementations, so one seed gives one row everywhere. Shares that sum to zero
+    fall back to a uniform pick rather than to the last value.
+    """
+    total = 0.0
+    for p in percents:
+        total += p
+    if not total > 0:
+        return values[int(prng.next() * len(values))] if values else ""
+    r = prng.next() * total
+    for i, value in enumerate(values):
+        r -= percents[i]
+        if r < 0:
+            return value
+    return values[-1] if values else ""
 
 
 def _spread(rows: list[int], produced: list[str], count: int) -> list[str | None]:

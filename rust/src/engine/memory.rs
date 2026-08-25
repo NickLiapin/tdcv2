@@ -3193,6 +3193,11 @@ fn dynamic_template(
         let lookup = RowLookup { columns, row };
         let address = interpolate::apply(&template, env.config.inject.as_deref(), &lookup)?;
 
+        if let Some((values, percents)) = dynamic_weighted_values(&address, &locale, env) {
+            result.push(weighted_pick(prng, &values, &percents));
+            continue;
+        }
+
         let mut attrs = gen.attrs.clone();
         attrs.insert("value".to_string(), address);
         attrs.insert("local".to_string(), locale.clone());
@@ -3202,6 +3207,60 @@ fn dynamic_template(
         result.push(built.into_iter().next().unwrap_or_default());
     }
     Ok(result)
+}
+
+/// The values and shares of a WEIGHTED list pack, or `None` when this is not one.
+///
+/// A weighted pack keeps its weights behind an interpolated address. The address is not known
+/// until the row is, so there is no column to lay an exact quota over — but the shares are still
+/// the shares, and a per-row draw can honour them. Sent through the generic build at a count of
+/// ONE it went the other way entirely: the exact layout planned a single slot and gave it to the
+/// heaviest value, so `person.${{Sex}}.firstName` was `Mary` and `James` on every row, on 389
+/// shipped packs that declare `weighted: true`, while the SAME file read by a fixed address was
+/// exact to the row.
+fn dynamic_weighted_values(
+    address: &str,
+    locale: &str,
+    env: &Env,
+) -> Option<(Vec<String>, Vec<f64>)> {
+    if address.is_empty() || !env.packs.exists(address, locale) {
+        return None;
+    }
+    let entry = env.packs.load(address, locale).ok()?;
+    if entry.generator.is_some() || !entry.weighted() {
+        return None;
+    }
+    entry
+        .percents
+        .clone()
+        .map(|percents| (entry.values.clone(), percents))
+}
+
+/// One value from a weighted list, on ONE draw.
+///
+/// A running subtraction rather than a cumulative table: the same arithmetic in the same order in
+/// all five implementations, so one seed gives one row everywhere. Shares that sum to zero fall
+/// back to a uniform pick rather than to the last value.
+fn weighted_pick(prng: &mut Sfc32, values: &[String], percents: &[f64]) -> String {
+    if values.is_empty() {
+        return String::new();
+    }
+    let mut total = 0.0;
+    for p in percents {
+        total += *p;
+    }
+    if !(total > 0.0) {
+        let index = (prng.next() * values.len() as f64) as usize;
+        return values.get(index).cloned().unwrap_or_default();
+    }
+    let mut r = prng.next() * total;
+    for (i, value) in values.iter().enumerate() {
+        r -= percents.get(i).copied().unwrap_or(0.0);
+        if r < 0.0 {
+            return value.clone();
+        }
+    }
+    values[values.len() - 1].clone()
 }
 
 /// Which rows a column applies to.

@@ -52,7 +52,18 @@ export function buildDynamicTemplateValues(
       continue;
     }
     if (packEntry?.values) {
-      out.push(textUniform(packEntry.values)(1, prng)[0] ?? '');
+      // A WEIGHTED pack keeps its weights here. The address is not known until the row is, so
+      // there is no column to lay an exact quota over — but the shares are still the shares,
+      // and a per-row draw can honour them. Uniform dropped them: `person.${{Sex}}.firstName`
+      // handed out `Mary` and `James` as often as the rarest name in the file, on 389 shipped
+      // packs that declare `weighted: true`, while the same file read by a FIXED address was
+      // exact to the row. The page promising this — coherent-data — says in as many words that
+      // the makes "show up in realistic proportions".
+      out.push(
+        packEntry.percents === undefined
+          ? (textUniform(packEntry.values)(1, prng)[0] ?? '')
+          : weightedPick(prng, packEntry.values, packEntry.percents),
+      );
       continue;
     }
     const source = resolveTemplate(address);
@@ -64,4 +75,27 @@ export function buildDynamicTemplateValues(
     out.push(source(prng, gen.attrs, locale, now));
   }
   return out;
+}
+
+/**
+ * One value from a weighted list, on ONE draw.
+ *
+ * A running subtraction rather than a cumulative table: the same arithmetic in the same order
+ * in all five implementations, so one seed gives one row everywhere. Shares that sum to zero
+ * (a pack whose counts are all zero) fall back to a uniform pick rather than to the last value.
+ */
+function weightedPick(
+  prng: () => number,
+  values: readonly string[],
+  percents: readonly number[],
+): string {
+  let total = 0;
+  for (const p of percents) total += p;
+  if (!(total > 0)) return textUniform(values)(1, prng)[0] ?? '';
+  let r = prng() * total;
+  for (let i = 0; i < values.length; i++) {
+    r -= percents[i] ?? 0;
+    if (r < 0) return values[i] ?? '';
+  }
+  return values[values.length - 1] ?? '';
 }
