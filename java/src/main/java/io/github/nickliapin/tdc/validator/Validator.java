@@ -4972,6 +4972,15 @@ public final class Validator {
    * and has nowhere of its own to put a flag.
    */
   /** Every attribute on a closed tag, checked against what that tag actually reads. */
+  /**
+   * Attributes the closed-tag pass must stay quiet about, because a check of their own already
+   * refuses them with a code that says more. Listed here rather than added to the tag's
+   * attribute set: they are NOT attributes of the tag, they are attributes with a better
+   * complaint.
+   */
+  private static final Set<String> HAS_ITS_OWN_REFUSAL =
+      Set.of("mix:repeat", "mix:separator");
+
   private void checkClosedTagAttrs(
       String tag, List<TDCParser.AttrContext> attrs, int line, int column) {
     Set<String> known = CLOSED_TAG_ATTRIBUTES.get(tag);
@@ -4981,6 +4990,14 @@ public final class Validator {
     for (Map.Entry<String, String> attr : attributes(attrs).entrySet()) {
       if (!known.contains(attr.getKey())) {
         int[] where = at(attrs, attr.getKey(), line, column);
+        // An attribute with a check of its OWN is not also an unknown one. repeat= on a <mix> has
+        // TDC196, which says the useful thing -- a mix picks one BRANCH, so there is no list for
+        // repeat= to make -- and this pass reported TDC015 ahead of it. Both were emitted; only
+        // the first is read, and the first says "typo", sending someone to look for the correct
+        // spelling of an attribute a <mix> is never going to have.
+        if (HAS_ITS_OWN_REFUSAL.contains(tag + ":" + attr.getKey())) {
+          continue;
+        }
         error("TDC015", "<" + tag + "> has no \"" + attr.getKey() + "\" attribute",
             "Attributes of <" + tag + ">: " + String.join(", ", new java.util.TreeSet<>(known)) + ".",
             where[0], where[1]);

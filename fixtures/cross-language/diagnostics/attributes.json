@@ -97,7 +97,7 @@
       "demonstrates": "TDC196",
       "description": "repeat on a mix, which picks one branch rather than a list",
       "config": "<tdc><env count=\"2\" seed=\"s\"><mix name=\"M\" percent=\"50,50\" repeat=\"2\"><case><data>a</data></case><case><data>b</data></case></mix></env><block><line><data>x</data></line></block></tdc>",
-      "expected": ["error TDC015 1:67", "error TDC196 1:67"]
+      "expected": ["error TDC196 1:67"]
     },
     {
       "name": "flag-on-a-nested-mix",

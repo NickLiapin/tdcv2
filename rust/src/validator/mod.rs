@@ -151,6 +151,11 @@ struct Validator {
     row_link_gens: Vec<(String, String, Pos)>,
 }
 
+/// Attributes the closed-tag pass must stay quiet about, because a check of their own already
+/// refuses them with a code that says more. Listed here rather than added to the tag's attribute
+/// set: they are NOT attributes of the tag, they are attributes with a better complaint.
+const HAS_ITS_OWN_REFUSAL: &[&str] = &["mix:repeat", "mix:separator"];
+
 impl Validator {
     /// One invented tag, one answer — wherever it turns up.
     ///
@@ -2305,6 +2310,15 @@ impl Validator {
         };
         for (key, _) in element.attr_map() {
             if !known.contains(&key.as_str()) {
+                // An attribute with a check of its OWN is not also an unknown one. `repeat=` on
+                // a <mix> has TDC196, which says the useful thing -- a mix picks one BRANCH, so
+                // there is no list for repeat= to make -- and this pass reported TDC015 ahead
+                // of it. Both were emitted; only the first is read, and the first says "typo",
+                // sending someone to look for the correct spelling of an attribute a <mix> is
+                // never going to have.
+                if HAS_ITS_OWN_REFUSAL.contains(&format!("{tag}:{key}").as_str()) {
+                    continue;
+                }
                 self.error(
                     "TDC015",
                     format!("<{tag}> has no \"{key}\" attribute"),

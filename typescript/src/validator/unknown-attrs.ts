@@ -798,6 +798,13 @@ const TEMPLATE_WRAPPERS: ReadonlySet<string> = new Set([
   'count',
 ]);
 
+/**
+ * Attributes this pass must stay quiet about, because a check of their own already refuses them
+ * with a code that says more. Listed here rather than added to the tag's attribute set: they are
+ * NOT attributes of the tag, they are attributes with a better complaint.
+ */
+const HAS_ITS_OWN_REFUSAL: ReadonlySet<string> = new Set(['mix:repeat', 'mix:separator']);
+
 /** The literal text of an attribute value, without its quotes. */
 function attrValueText(a: AttrContext): string {
   return (a._attrValue?.text ?? '').replace(/^"|"$/g, '');
@@ -815,6 +822,14 @@ export function checkUnknownAttrs(
   for (const attr of attrs) {
     const name = attr._attrName?.text;
     if (name === undefined || known.has(name)) continue;
+
+    // An attribute with a check of its OWN is not also an unknown one. `repeat=` on a <mix>
+    // has `TDC196`, which says the useful thing — a mix picks one BRANCH, so there is no list
+    // for repeat= to make — and this pass reported `TDC015: <mix> has no "repeat" attribute`
+    // ahead of it. Both were emitted; only the first is read, and the first says "typo",
+    // sending someone to look for the correct spelling of an attribute a <mix> is never going
+    // to have. Skipped here so the code that was written for the case is the code that speaks.
+    if (HAS_ITS_OWN_REFUSAL.has(`${tag}:${name}`)) continue;
 
     const misplaced = MISPLACED.get(`${tag}:${name}`);
     const suggestion = misplaced ? undefined : closestMatch(name, [...known]);

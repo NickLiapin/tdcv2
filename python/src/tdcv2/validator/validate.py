@@ -74,6 +74,12 @@ TDC_CHILDREN = frozenset({"env", "block"})
 # silently did not get, which is indistinguishable from a typo — and the data comes out looking
 # fine either way. `comment` is accepted everywhere: it is documented as a note that never
 # renders, and refusing it on a tag that happens not to list it would be a pointless trap.
+#: Attributes the closed-tag pass must stay quiet about, because a check of their own already
+#: refuses them with a code that says more. Listed here rather than added to the tag's attribute
+#: set: they are NOT attributes of the tag, they are attributes with a better complaint.
+_HAS_ITS_OWN_REFUSAL = frozenset({"mix:repeat", "mix:separator"})
+
+
 CLOSED_TAG_ATTRIBUTES = {
     "env": {"count", "seed", "local", "inject", "mode", "engine", "comment"},
     "sequence": {"name", "parent", "uniq", "comment"},
@@ -4913,9 +4919,17 @@ class _Validator:
         for key in _attrs(attrs):
             if key not in known:
                 where = _at_attrs(attrs, key, line, column)
+                # An attribute with a check of its OWN is not also an unknown one. `repeat=` on
+                # a <mix> has TDC196, which says the useful thing -- a mix picks one BRANCH, so
+                # there is no list for repeat= to make -- and this pass reported TDC015 ahead of
+                # it. Both were emitted; only the first is read, and the first says "typo",
+                # sending someone to look for the correct spelling of an attribute a <mix> is
+                # never going to have.
+                if f"{tag}:{key}" in _HAS_ITS_OWN_REFUSAL:
+                    continue
                 self._error(
                     "TDC015",
-                    f'<{tag}> does not read "{key}" — it is ignored',
+                    f'<{tag}> has no "{key}" attribute',
                     f"Attributes of <{tag}>: {', '.join(sorted(known))}.",
                     where[0],
                     where[1],

@@ -377,6 +377,14 @@ placed` rather than naming a total it stopped counting. A number quietly reading
   produces their sum in Python, Java, C# and Rust, where it produced their digits run together.
   TypeScript is unchanged.
 
+- **`TDC196` was written, documented twice, and never the code anyone saw.** `repeat=` or
+  `separator=` on a `<mix>` produced two refusals: the generic `TDC015: <mix> has no "repeat"
+attribute` FIRST, and `TDC196` — the one written for the case — second. Only the first is read,
+  and the first says "typo": it sends the reader hunting for the correct spelling of an attribute
+  a `<mix>` is never going to have, when what they need is the sentence `TDC196` carries — a mix
+  picks one BRANCH, so there is no list for `repeat=` to make. The generic pass now stays quiet
+  about an attribute that has a check of its own. One diagnostic, the useful one, in all five.
+
 - **A `<mix percent>` inside a pack generator: five implementations, three answers.** It is a
   documented shape — `data-packs/writing-your-own` documents it under "Exact percentages inside a
   generator" — and two shipped packs use it. **Python, Java and C# emitted the pack's own
