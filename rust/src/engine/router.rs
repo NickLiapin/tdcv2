@@ -100,14 +100,17 @@ pub fn resolve(config: &Config, packs: Option<&DataPacks>) -> EngineResult<u8> {
         return Ok(1);
     }
 
-    // A pack generator that declares its own shares apportions them over the
-    // whole column, and the file it declares them in is the only place they are
-    // written down.
-    if let Some(packs) = packs {
-        if any_gen(config, |gen| declares_shares(gen, config, packs)) {
-            return Ok(1);
-        }
-    }
+    // A pack generator that declares its own shares used to be routed here, and for
+    // a real reason: resolved a row at a time the quota was computed over a single
+    // row and every row went to the largest share. The streaming builder plans such
+    // a body over the COLUMN now, so the reason is gone — and keeping the rule after
+    // the refusal went was worse than nothing, because the config still landed on
+    // the engine that holds the whole table. Measured on a 5,000,000-row
+    // `hu.person.male.fullName` column: the in-memory engine wanted 2 GB and died
+    // under a 512 MB cap, while the streaming path finished it inside 512 MB.
+    //
+    // One shape still belongs here — a body carrying its own `<valid>` — and it
+    // arrives the way every other unstreamable config does: refused by name.
 
     // A network call is not reproducible, so it never runs on the reproducible
     // path.
@@ -325,17 +328,6 @@ fn is_weighted_advanced_regex(gen: &Gen) -> bool {
 ///
 /// A dynamic address is left to the rule above it — the pack it names is not
 /// known here, and that config is already on its way to engine 1.
-fn declares_shares(gen: &Gen, config: &Config, packs: &DataPacks) -> bool {
-    if gen.gen_type != "template" {
-        return false;
-    }
-    let path = gen.attr_or("value", "");
-    if path.is_empty() || is_dynamic(path) {
-        return false;
-    }
-    let locale = trim_to_none(gen.attr("local")).unwrap_or_else(|| config.locale_or_default());
-    packs.needs_whole_column(path, locale)
-}
 
 /// `common.vehicle.model.${{Brand}}` — an address not known until the row is.
 fn is_dynamic(value: &str) -> bool {

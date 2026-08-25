@@ -48,6 +48,18 @@ page — is tracked in that implementation's own changelog:
   whose body computes (`usa.finance.aba_routing`), produces different values for the same seed.
   Two shared cases and one runtime fixture moved with it.
 
+  **And the router had to be told.** Removing the streaming refusal was not enough: every
+  implementation's router still sent a config naming such a pack to the in-memory engine, so the
+  run landed on the engine that holds the whole table anyway and the new lazy path was never
+  reached. Measured on a 5,000,000-row `hu.person.male.fullName` column: the in-memory engine
+  wanted **2 GB** and died under a 512 MB cap, while the streaming path finished the same run
+  **inside 512 MB**. The rule is gone from all five.
+
+  Verified at size, with the heap capped rather than measured: 70,000,000 rows of an env-level
+  `<uniq>` — a 1.0 GB file — inside a **1 GB** heap in 137 seconds, every one of the 70,000,000
+  rows distinct. And the two together, `<uniq>` beside a weighted pack, 5,000,000 rows inside
+  **512 MB**.
+
   One shape stays with the in-memory engine: a body carrying its own `<valid>`, where rejecting
   a row and redrawing it is a whole-column decision with no lazy form yet.
 

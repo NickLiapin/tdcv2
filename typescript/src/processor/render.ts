@@ -642,13 +642,7 @@ export function prepareRender(
   // Engine 2 normally, Engine 3 when the config needs exact percentages AND
   // uniqueness together (Engine 2 can't do that lazily). Deterministic — same
   // config → same engine everywhere.
-  const engine = resolveRenderEngine(
-    env.engineSelection,
-    sequenceSpecs,
-    envUniqGroups,
-    buildOptions.packs,
-    env.locale,
-  );
+  const engine = resolveRenderEngine(env.engineSelection, sequenceSpecs, envUniqGroups);
   // Engine 2 is a lazy registry (O(#sequences) memory). Engine 1 materializes
   // in RAM. Engine 3 (exact-on-disk) is built in stages — see exact-disk.ts.
   // Only the AUTO-routed default (mode="disk") falls back to Engine 1 when the
@@ -1009,8 +1003,6 @@ export function resolveRenderEngine(
   selection: EngineSelection,
   specs: readonly SequenceSpec[],
   envUniqGroups: readonly (readonly string[])[],
-  packs?: PackRegistry,
-  locale?: string,
 ): EngineId {
   if ('forced' in selection) return selection.forced;
   if (selection.mode === 'memory') return 1;
@@ -1024,11 +1016,23 @@ export function resolveRenderEngine(
   // in-memory engine does it; the streaming engines can't weight a per-card row
   // draw without the global total, so route it to Engine 1 too.
   if (specsUseWeightedRowLink(specs)) return 1;
-  // A pack generator that declares a share (`<mix percent>` inside the pack file)
-  // apportions its quota over the whole column. Resolved a row at a time — which
-  // is what the streaming engines do — the quota is computed over a single row
-  // and every row goes to the largest share, silently. Route it to Engine 1.
-  if (specsUsePercentPack(specs, packs, locale)) return 1;
+  /*
+   * A pack generator that declares a share used to be routed to Engine 1, and
+   * for a real reason: resolved a row at a time the quota was computed over a
+   * single row and every row went to the largest share, silently.
+   *
+   * The streaming builder plans such a body over the COLUMN now, so the reason
+   * is gone — and keeping the routing rule after the refusal went was worse than
+   * doing nothing, because the config still landed on the engine that holds the
+   * whole table. Measured on a 5,000,000-row `hu.person.male.fullName` column:
+   * Engine 1 wanted 2 GB and died under a 512 MB cap, while the streaming path
+   * finished the same run inside 512 MB.
+   *
+   * One shape still belongs here: a body carrying its own `<valid>`, where
+   * rejecting a row and redrawing it is a whole-column decision with no lazy
+   * form. `wholeColumnPackBody` hands that one back unbuilt and the streaming
+   * builder refuses it, which routes it here the way every other refusal does.
+   */
   // `uniq="true"` on a simple sequence draws WITHOUT REPLACEMENT — the pool
   // and the taken-set span the whole column, which the streaming engines
   // cannot hold row by row. The in-memory engine does it.
@@ -1223,24 +1227,6 @@ function specsUseDynamicTemplate(specs: readonly SequenceSpec[]): boolean {
     specs,
     (g) => g.type === 'template' && isDynamicTemplateValue(g.attrs['value'] ?? ''),
   );
-}
-
-/** Any `<gen type="template">` naming a pack generator that declares a share. */
-function specsUsePercentPack(
-  specs: readonly SequenceSpec[],
-  packs: PackRegistry | undefined,
-  locale: string | undefined,
-): boolean {
-  if (!packs) return false;
-  return anyGen(specs, (g) => {
-    if (g.type !== 'template') return false;
-    const path = g.attrs['value'] ?? '';
-    if (path === '' || isDynamicTemplateValue(path)) return false;
-    return (
-      packs.get(resolvePackAddress(path, g.attrs['local'] ?? locale ?? 'en', packs))
-        ?.needsWholeColumn === true
-    );
-  });
 }
 
 /**

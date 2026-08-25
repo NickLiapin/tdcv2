@@ -75,9 +75,16 @@ def resolve(config: Config, packs: DataPacks | None = None) -> int:
         ),
     ):
         return 1
-    # A pack generator that declares its own shares apportions them over the whole column.
-    if packs is not None and _any_gen(config, lambda gen: _declares_shares(gen, config, packs)):
-        return 1
+    # A pack generator that declares its own shares used to be routed here, and for a real
+    # reason: resolved a row at a time the quota was computed over a single row and every row went
+    # to the largest share. The streaming builder plans such a body over the COLUMN now, so the
+    # reason is gone — and keeping the rule after the refusal went was worse than nothing, because
+    # the config still landed on the engine that holds the whole table. Measured on a 5,000,000-row
+    # `hu.person.male.fullName` column: the in-memory engine wanted 2 GB and died under a 512 MB
+    # cap, while the streaming path finished the same run inside 512 MB.
+    #
+    # One shape still belongs here — a body carrying its own `<valid>` — and it arrives the way
+    # every other unstreamable config does: the streaming builder refuses it by name.
     # uniq on a DRAWN value takes WITHOUT REPLACEMENT — simple or composed alike — the pool and the
     # taken-set span the whole column, which only the in-memory engine holds.
     if any(
@@ -235,20 +242,6 @@ def _is_weighted_advanced_regex(gen: Gen) -> bool:
 
 def _has_percent(gen: Gen) -> bool:
     return bool(gen.attrs.get("percent"))
-
-
-def _declares_shares(gen: Gen, config: Config, packs: DataPacks) -> bool:
-    if gen.type != "template":
-        return False
-    path = gen.attr("value")
-    if not path or _is_dynamic(path):
-        return False
-    locale = gen.attrs.get("local") or config.locale
-    try:
-        return _needs_whole_column(packs, path, locale)
-    except (ValueError, OSError):
-        # An address that does not resolve is the validator's problem, not the router's.
-        return False
 
 
 def _needs_whole_column(packs: DataPacks, path: str, locale: str) -> bool:

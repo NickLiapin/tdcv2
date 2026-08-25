@@ -80,18 +80,22 @@ fn three_things_pull_a_disk_config_back_into_memory() {
 }
 
 #[test]
-fn a_pack_that_declares_its_own_shares_pulls_the_config_into_memory() {
-    // The share is written inside the pack file, so nothing in the config says
-    // this is a whole-column question — which is exactly why the router has to
-    // open the pack. `china.geo.streetName` splits its street types 60/20/15/5;
-    // resolved a row at a time the quota is computed over one row and every row
-    // takes the largest share, producing a column of one value that looks like
-    // data.
+fn a_pack_that_declares_its_own_shares_streams_like_any_other() {
+    // The share is written inside the pack file — `china.geo.streetName` splits
+    // its street types 60/20/15/5 — and this used to pull the whole config into
+    // memory, because resolved a row at a time the quota was computed over one
+    // row and every row took the largest share.
+    //
+    // The streaming builder plans such a body over the COLUMN now, so the config
+    // stays where its shape puts it. Keeping the old rule after the refusal went
+    // was worse than nothing: it still landed the run on the engine that holds
+    // the whole table, and on a 5,000,000-row column that engine wanted 2 GB
+    // where the streaming path finished inside 512 MB.
     let percent_pack =
         r#"<sequence name="V"><gen type="template" value="china.geo.streetName"/></sequence>"#;
-    assert_eq!(engine_for(r#"local="zh-cn""#, percent_pack), 1);
+    assert_eq!(engine_for(r#"local="zh-cn""#, percent_pack), 2);
 
-    // A pack that declares no share has no such question and streams.
+    // A pack that declares no share never had the question, and still streams.
     let plain_pack =
         r#"<sequence name="V"><gen type="template" value="china.geo.streetNamed"/></sequence>"#;
     assert_eq!(engine_for(r#"local="zh-cn""#, plain_pack), 2);

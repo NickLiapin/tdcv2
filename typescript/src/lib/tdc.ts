@@ -363,13 +363,7 @@ export class TDC {
     // before this fix: the same weight=+row= config produced 50,000 rows and
     // then, at 100,000, exited 1 with zero rows and a message telling the reader
     // to "run without a forced streaming engine" they had never asked for.
-    return resolveRenderEngine(
-      selection,
-      extractSequenceSpecs(envEl),
-      extractEnvUniqGroups(envEl),
-      this.packs,
-      this.options.locale,
-    );
+    return resolveRenderEngine(selection, extractSequenceSpecs(envEl), extractEnvUniqGroups(envEl));
   }
 
   /** Resolved card count (CLI/API override beats env). Public for the parallel CLI. */

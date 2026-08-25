@@ -119,9 +119,13 @@ public class WeightedPackGeneratorTest
             DataPacks.Discover().NeedsWholeColumn(address, locale),
             address + " draws from a weighted list and must be marked whole-column");
 
-        // The mark is only useful if it reaches the router: a config naming this pack belongs to
-        // the engine that holds the column, not to one that resolves a row at a time.
-        Assert.Equal(1, Probe(locale, address).Engine);
+        // The mark used to send the whole config to the engine that holds the column. It no
+        // longer does: the streaming builder plans such a body over the COLUMN itself, so the
+        // config stays where its shape puts it. Keeping the routing rule after the refusal went
+        // was worse than nothing — the run still landed on the engine that holds the whole
+        // table, and on a 5,000,000-row column that engine wanted 2 GB where the streaming path
+        // finished inside 512 MB.
+        Assert.Equal(2, Probe(locale, address).Engine);
 
         // And the point of all of it — eight rows that are not eight copies of one name.
         Assert.True(

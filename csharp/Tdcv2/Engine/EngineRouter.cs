@@ -126,11 +126,17 @@ public static class EngineRouter
             return 1;
         }
 
-        // A pack generator that declares its own shares apportions them over the whole column.
-        if (packs is not null && AnyGen(config, gen => DeclaresShares(gen, config, packs)))
-        {
-            return 1;
-        }
+        // A pack generator that declares its own shares used to be routed here, and for
+        // a real reason: resolved a row at a time the quota was computed over a single
+        // row and every row went to the largest share. The streaming builder plans such
+        // a body over the COLUMN now, so the reason is gone — and keeping the rule after
+        // the refusal went was worse than nothing, because the config still landed on
+        // the engine that holds the whole table. Measured on a 5,000,000-row
+        // `hu.person.male.fullName` column: the in-memory engine wanted 2 GB and died
+        // under a 512 MB cap, while the streaming path finished it inside 512 MB.
+        //
+        // One shape still belongs here — a body carrying its own `<valid>` — and it
+        // arrives the way every other unstreamable config does: refused by name.
 
         // A network call is not reproducible, so it never runs on the reproducible path.
         // uniq on a DRAWN value takes WITHOUT REPLACEMENT — simple or composed alike — the pool and the
@@ -360,31 +366,7 @@ public static class EngineRouter
     private static bool HasPercent(Gen gen) =>
         !string.IsNullOrEmpty(gen.Attrs.GetValueOrDefault("percent"));
 
-    private static bool DeclaresShares(Gen gen, Config config, DataPacks packs)
-    {
-        if (gen.Type != "template")
-        {
-            return false;
-        }
 
-        string path = gen.Attr("value") ?? "";
-        if (path.Length == 0 || IsDynamic(path))
-        {
-            return false;
-        }
-
-        string? locale = gen.Attrs.GetValueOrDefault("local");
-        try
-        {
-            return packs.NeedsWholeColumn(
-                path, string.IsNullOrWhiteSpace(locale) ? config.Locale : locale);
-        }
-        catch (Exception e) when (e is ArgumentException or IOException)
-        {
-            // An address that does not resolve is the validator's problem, not the router's.
-            return false;
-        }
-    }
 
     /// <summary><c>common.vehicle.model.${{Brand}}</c> — an address not known until the row is.</summary>
     private static bool IsDynamic(string value) => value.Contains("${{");
