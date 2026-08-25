@@ -1237,7 +1237,15 @@ function buildGenValuesRaw(
         // that carry no percent= anywhere. Engine selection routes such a config
         // to the in-memory engine and `buildLazyRegistry` refuses it up front;
         // this is the last backstop, for a path that reaches here anyway.
-        if (ctx.perRow && packEntry.needsWholeColumn === true) {
+        // A body the lazy builder can plan over the column no longer needs this
+        // backstop; one carrying its own `<valid>` still does, because rejecting
+        // a row and redrawing it is a whole-column decision with no lazy form.
+        if (
+          ctx.perRow &&
+          packEntry.needsWholeColumn === true &&
+          packEntry.generator.kind === 'composed' &&
+          packEntry.generator.validate !== undefined
+        ) {
           throw new StreamUnsupportedError(
             `pack generator "${path}" has a value apportioned across the whole column — ` +
               'either a share its body declares or a weighted list its body draws from — ' +
@@ -1245,11 +1253,44 @@ function buildGenValuesRaw(
               'the engine override.',
           );
         }
+        /*
+         * The body gets a SEED and a stream identity, like every other sequence.
+         *
+         * It used to get neither, and the body's inner sequences keyed their
+         * draws off the empty string while taking their tie-breaks from the
+         * shared sequential prng. So a weighted pack column MOVED when an
+         * unrelated sequence was added in front of it — measured on x,y,z at
+         * 50/30/20, seed `s`: `y y x x y y …` alone against `x y x x x y …`
+         * behind a `<uniq>` — and with no stream identity the body could not be
+         * planned over a column at all, which is why every whole-column pack
+         * went to the in-memory engine.
+         *
+         * The ROW is part of the salt when this body is being built for one row,
+         * and that is not a detail. A pack that does NOT need the whole column
+         * is built per row at `count = 1` — the outer `<gen type="template">` is
+         * itself a per-row type. Handed a column-wide seed at count 1, the
+         * body's own exact-layout machinery plans one slot and gives it to one
+         * value, so every row draws the same: `usa.finance.aba_routing` came out
+         * as six numbers all starting `27`, where its 37-value prefix list
+         * should vary. Salting with the row keeps each one-row build its own
+         * draw; a body planned over the whole column has no row to salt with and
+         * gets the column's seed, which is what makes it identical on all three
+         * engines.
+         */
+        const bodyRow = count === 1 && ctx.rows?.length === 1 ? ctx.rows[0] : undefined;
+        // The streaming path carries the column's identity under its own names,
+        // because setting `seed`/`streamId` on a one-row context would switch on
+        // whole-column layouts inside it. Either way this is the same identity.
+        const columnSeed = ctx.columnSeed ?? ctx.seed ?? '';
+        const columnStream = ctx.columnStreamId ?? ctx.streamId ?? '';
+        const bodySeed =
+          `${columnSeed}|${columnStream}` + (bodyRow === undefined ? '' : `|${String(bodyRow)}`);
         return runGenerator(packEntry.generator, count, prng, locale, now, {
           regexMaxLength: ctx.regexMaxLength,
           dataSources: ctx.dataSources,
           packs: ctx.packs,
           overrides: paramOverrides(gen.attrs),
+          seed: bodySeed,
         }).slice();
       }
       if (packEntry?.values) {

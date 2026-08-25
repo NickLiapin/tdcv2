@@ -2328,7 +2328,7 @@ public final class MemoryEngine {
             finish(
                 generate(
                     gen, 1, rowPrng, packs, config, nowMillis, baseDir, rowLinks, scratch,
-                    siblings, position -> here),
+                    siblings, position -> here, stream.id()),
                 gen.attrs(),
                 rowPrng,
                 one,
@@ -2347,7 +2347,7 @@ public final class MemoryEngine {
     return finishKeyed(
         generate(
             gen, count, prng, packs, config, nowMillis, baseDir, rowLinks, null, siblings,
-            stream::rowAt),
+            stream::rowAt, stream.id()),
         gen,
         prng,
         anomalyFlags,
@@ -2932,16 +2932,27 @@ public final class MemoryEngine {
       return produced;
     }
     if (spec.fields() != null) {
-      // Declaration order off the shared prng: a pack body is a nested build with no stream of
-      // its own, so the fields of one row draw one after another rather than each keying itself
-      // — which is what pairs a given name with the surname beside it.
+      // Each field keyed by its own name, exactly as a config's compound field is. The body
+      // used to be a nested build with no stream of its own, so its fields drew one after
+      // another off the shared prng — and no whole-column layout could fire inside one.
       Map<String, List<String>> byField = new LinkedHashMap<>();
       for (Config.Field field : spec.fields()) {
         List<String> values =
-            generate(field.gen(), count, prng, packs, config, nowMillis, baseDir, rowLinks);
-        byField.put(
-            field.name(),
-            new ArrayList<>(finish(values, field.gen().attrs(), prng, new boolean[count])));
+            columnValues(
+                field.gen(),
+                count,
+                prng,
+                packs,
+                config,
+                nowMillis,
+                baseDir,
+                rowLinks,
+                new PerRow.Stream(config.seed(), spec.name() + "." + field.name(), allRows(count)),
+                new boolean[count],
+                new LinkedHashMap<>(),
+                null,
+                null);
+        byField.put(field.name(), new ArrayList<>(values));
       }
       // After every field exists, never during: a group's members must all be there before the
       // constraint between them means anything.
@@ -2956,10 +2967,32 @@ public final class MemoryEngine {
       }
       return produced;
     }
-    List<String> values = generate(spec.gen(), count, prng, packs, config, nowMillis, baseDir, rowLinks);
-    produced.put(
-        spec.name(), finish(values, spec.gen().attrs(), prng, new boolean[count]).toArray(new String[0]));
+    List<String> values =
+        columnValues(
+            spec.gen(),
+            count,
+            prng,
+            packs,
+            config,
+            nowMillis,
+            baseDir,
+            rowLinks,
+            new PerRow.Stream(config.seed(), spec.name(), allRows(count)),
+            new boolean[count],
+            new LinkedHashMap<>(),
+            null,
+            null);
+    produced.put(spec.name(), values.toArray(new String[0]));
     return produced;
+  }
+
+  /** Every row of a body's own column, which covers the whole of it. */
+  private static List<Integer> allRows(int count) {
+    List<Integer> rows = new ArrayList<>(count);
+    for (int i = 0; i < count; i++) {
+      rows.add(i);
+    }
+    return rows;
   }
 
   private static String computeRow(Config.SequenceSpec spec, Map<String, String[]> local, int row) {
@@ -3294,6 +3327,31 @@ public final class MemoryEngine {
       List<Long> instants,
       Siblings siblings,
       java.util.function.IntUnaryOperator rowAt) {
+    return generate(
+        gen, count, prng, packs, config, nowMillis, baseDir, rowLinks, instants, siblings, rowAt,
+        "");
+  }
+
+  /**
+   * The same, told which COLUMN it is building.
+   *
+   * <p>Only one thing reads it: a pack generator, whose body is seeded from the column's
+   * identity. Everything else keys off the prng it was handed, which the caller already derived
+   * from that same identity.
+   */
+  static List<String> generate(
+      Config.Gen gen,
+      int count,
+      Prng.Sfc32 prng,
+      DataPacks packs,
+      Config config,
+      long nowMillis,
+      Path baseDir,
+      Map<String, RowLinkPlan> rowLinks,
+      List<Long> instants,
+      Siblings siblings,
+      java.util.function.IntUnaryOperator rowAt,
+      String streamId) {
     String locale = config.locale();
 
     // order="sequential" comes before everything else: it replaces the draw entirely, so the
@@ -3437,8 +3495,36 @@ public final class MemoryEngine {
           // The pack ships a rule rather than a list. Two shapes: a lone <gen>, or local
           // sequences feeding an output template — which is how an identifier with a check
           // digit is expressed as editable data instead of as engine code.
+          /*
+           * The body gets a SEED and a stream identity, like every other sequence.
+           *
+           * It used to get neither, and the body's local sequences drew off the prng they were
+           * handed. So a weighted pack column MOVED when an unrelated sequence was added in
+           * front of it, the same pack in two columns drew alike, and with no stream identity
+           * the body could not be planned over a column at all — which is why every
+           * share-declaring pack went to this engine.
+           *
+           * The ROW is part of the salt when the body is being built for ONE row, and that is
+           * not a detail: a pack that does not need the whole column is built per row, and
+           * handed a column-wide seed at count 1 the body's own exact-layout machinery plans one
+           * slot and gives it to one value, so every row would draw the same.
+           */
+          String bodySeed =
+              config.seed()
+                  + "|"
+                  + streamId
+                  + (count == 1 && rowAt != null ? "|" + rowAt.applyAsInt(0) : "");
           return runPackGenerator(
-              entry, path, count, prng, packs, config, nowMillis, baseDir, rowLinks, gen.attrs());
+              entry,
+              path,
+              count,
+              prng,
+              packs,
+              config.override(null, bodySeed, null),
+              nowMillis,
+              baseDir,
+              rowLinks,
+              gen.attrs());
         }
         if (entry.weighted()) {
           // A weighted pack is laid out exactly, not sampled: the counts in the file are

@@ -956,6 +956,16 @@ public sealed class StreamEngine
         // after that catch has gone.
         if (type == "template" && WholeColumnPack(gen))
         {
+            // …unless this engine can plan the body over the column itself, which it now can:
+            // the body's own sequences are built by a nested engine at the COLUMN's count, so
+            // the share is apportioned over the column and each row mapped into it, exactly as
+            // a top-level `percent=` sequence has always been.
+            Built? planned = WholeColumnPackBody(gen, streamId);
+            if (planned is not null)
+            {
+                return planned;
+            }
+
             throw new UnsupportedHere(
                 $"a pack generator (\"{streamId}\") whose value is apportioned across the whole "
                 + "column cannot be resolved one row at a time — every row would take the largest "
@@ -1184,7 +1194,7 @@ public sealed class StreamEngine
                 NumberGen.LengthChoice group =
                     lengthChoices[RunFor(cumHi, Permute.Apply(r.Value, domain.Size, key))];
                 var pinned = new Gen(type, NumberGen.PinLength(attrs, group));
-                return First(GenValues(pinned, Seekable.Generator(_seed, streamId, row), null, row));
+                return First(GenValues(pinned, Seekable.Generator(_seed, streamId, row), null, row, streamId));
             }, streamId, gen, domain);
         }
 
@@ -1283,7 +1293,7 @@ public sealed class StreamEngine
             int? r = domain.PopIndexAt(row);
             return r is null
                 ? null
-                : First(GenValues(gen, Seekable.Generator(_seed, streamId, row), null, row));
+                : First(GenValues(gen, Seekable.Generator(_seed, streamId, row), null, row, streamId));
         };
         return new Built(plain, null, AnomalyFlagName(attrs), AnomalyFlagColumn(streamId, gen, domain));
     }
@@ -1343,7 +1353,7 @@ public sealed class StreamEngine
             }
 
             var spiked = new bool[1];
-            GenValues(gen, Seekable.Generator(_seed, streamId, row), spiked, row);
+            GenValues(gen, Seekable.Generator(_seed, streamId, row), spiked, row, streamId);
             return spiked[0] ? "true" : "false";
         };
     }
@@ -1374,7 +1384,8 @@ public sealed class StreamEngine
     /// read the columns beside it. Nothing else looks at it, and a generator without one costs no
     /// lookup.
     /// </param>
-    private IReadOnlyList<string> GenValues(Gen gen, Sfc32 prng, bool[]? flagsOut, int row = 0)
+    private IReadOnlyList<string> GenValues(
+        Gen gen, Sfc32 prng, bool[]? flagsOut, int row = 0, string? streamId = null)
     {
         var ctx = new MemoryEngine.Ctx(
             _config, _packs, _nowMillis, _baseDir,
@@ -1386,7 +1397,13 @@ public sealed class StreamEngine
             // below it — so this never asks the registry to build a column that is asking for
             // this one.
             _columns.ContainsKey,
-            (name, at) => ValueAt(name, at));
+            (name, at) => ValueAt(name, at),
+            // The COLUMN's name and row travel with the one-row build under their own names,
+            // because the in-memory engine's one-row path has them and anything derived from
+            // them has to come out the same on both engines. A pack generator is the case that
+            // showed it: its body is seeded from the column's identity.
+            streamId,
+            row);
 
         Repeat.Spec? repeat = Repeat.Parse(gen.Attrs);
         if (repeat is null)
@@ -1435,6 +1452,70 @@ public sealed class StreamEngine
     /// BODY to a quota, because the body is handed a count and computes its own apportionment from
     /// it.
     /// </remarks>
+    /// <summary>A share-declaring pack body, built here over the column rather than refused.</summary>
+    /// <remarks>
+    /// A nested engine over the body's own sequences, at this column's count and under a seed
+    /// salted with this column's name — the same seed the in-memory engine gives the body, so the
+    /// two assemble the same rows. Null for the one shape still left to memory: a body carrying
+    /// its own <c>&lt;valid&gt;</c>, where rejecting a row and redrawing it is a whole-column
+    /// decision with no lazy form yet.
+    /// </remarks>
+    private Built? WholeColumnPackBody(Gen gen, string streamId)
+    {
+        string address = gen.Attrs.GetValueOrDefault("value", "");
+        DataPacks.Entry entry;
+        try
+        {
+            entry = _packs.Load(address, LocaleOf(gen.Attrs));
+        }
+        catch (Exception e) when (e is ArgumentException or IOException)
+        {
+            return null;
+        }
+
+        string? source = entry.Generator;
+        if (source is null || (!source.Contains("<sequence") && !source.Contains("<data")))
+        {
+            return null;
+        }
+
+        Parser.ConfigBuilder.PackGenerator body = Parser.ConfigBuilder.ParsePackBody(source);
+        if (body.Validate is not null)
+        {
+            return null;
+        }
+
+        var inner = new StreamEngine(
+            _config.WithSeed(_seed + "|" + streamId).WithSequences(body.Sequences),
+            _packs,
+            _nowMillis,
+            _baseDir,
+            false,
+            null);
+        inner.BuildColumns();
+        string output = body.Output;
+        string inject = _config.Inject;
+        return new Built(row => Interpolate.Apply(output, inject, new BodyLookup(inner, row)));
+    }
+
+    /// <summary>One row of a pack body's nested columns, as the interpolator reads them.</summary>
+    private sealed class BodyLookup : Interpolate.ILookup
+    {
+        private readonly StreamEngine _inner;
+        private readonly int _row;
+
+        internal BodyLookup(StreamEngine inner, int row)
+        {
+            _inner = inner;
+            _row = row;
+        }
+
+        public bool Has(string name) => _inner._columns.ContainsKey(name);
+
+        public string Value(string name) =>
+            _inner._columns.TryGetValue(name, out Column? column) ? column(_row) ?? "" : "";
+    }
+
     private bool WholeColumnPack(Gen gen)
     {
         string address = gen.Attrs.GetValueOrDefault("value", "");

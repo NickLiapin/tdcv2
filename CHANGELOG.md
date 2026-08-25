@@ -17,6 +17,40 @@ page — is tracked in that implementation's own changelog:
 
 ### Added
 
+<!-- covers: pack body seed, engine 3 whole-column packs -->
+
+- **Engine 3 builds a share-declaring data pack itself instead of handing the run to the
+  in-memory engine — and a determinism bug goes with it.** Twelve shipped full-name packs
+  (`hu.person.male.fullName` and its kind) declare a share inside their own body. The streaming
+  path refused them, so `--engine 3` quietly became engine 1 for any config that used one.
+
+  The cause was one missing argument. The pack-generator call ran the body without a `seed`, so
+  the body's own sequences keyed their draws off the empty string and took their tie-breaks from
+  the shared sequential prng. Three things followed. The body could not be planned over a column
+  at all, which is what the refusal was about. Two different packs, and the same pack in two
+  columns, drew alike — the address and the column never entered the key. And **the values
+  MOVED when an unrelated sequence was added to the config**: `x,y,z` at 50/30/20 under seed
+  `s` came out `y y x x y y …` alone and `x y x x x y …` behind a `<uniq>`, because the
+  neighbour had advanced the shared stream. Same seed, same pack, same count.
+
+  A pack body now gets a seed and a stream identity like every other sequence, and the
+  streaming builder runs the body itself at the COLUMN's count — the share is apportioned over
+  the column and each row mapped into it, exactly as a top-level `percent=` has always been. All
+  three engines produce the same rows; `hu.person.male.fullName` gives six distinct names where
+  a per-row plan would have given six copies of the largest share.
+
+  The ROW is part of the body's seed when the body is built for one row, and that is not a
+  detail: a pack that does NOT need the whole column is built per row, and handed a column-wide
+  seed at count 1 the body's own exact-layout machinery plans one slot and gives it to one value.
+  Without the row salt `usa.finance.aba_routing` came out as six numbers all starting `27`.
+
+  **Byte change, once:** any config drawing from a pack whose body declares a share, or from one
+  whose body computes (`usa.finance.aba_routing`), produces different values for the same seed.
+  Two shared cases and one runtime fixture moved with it.
+
+  One shape stays with the in-memory engine: a body carrying its own `<valid>`, where rejecting
+  a row and redrawing it is a whole-column decision with no lazy form yet.
+
 <!-- covers: engine 3 named refuses -->
 
 - **`--engine 3` no longer runs engine 1 behind your back.** Naming an engine says WHICH engine

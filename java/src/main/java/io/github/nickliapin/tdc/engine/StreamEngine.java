@@ -921,6 +921,14 @@ public final class StreamEngine {
     // try/catch — so engine 3 falls back to memory for this the way it already does for the other
     // refusals, instead of handing the error to the caller after the fallback had finished.
     if (wholeColumnTemplatePack(gen)) {
+      // …unless this engine can plan the body over the column itself, which it now can: the
+      // body's own sequences are built by a nested engine at the COLUMN's count, so the share
+      // is apportioned over the column and each row mapped into it, exactly as a top-level
+      // `percent=` sequence has always been.
+      Built planned = wholeColumnPackBody(gen, streamId);
+      if (planned != null) {
+        return planned;
+      }
       throw new Unsupported(
           "pack generator \""
               + attrs.getOrDefault("value", "")
@@ -1163,7 +1171,7 @@ public final class StreamEngine {
                 NumberGen.LengthChoice group =
                     lengthChoices.get(runFor(cumHi, Permute.permute(r, domain.size(), key)));
                 Config.Gen pinned = new Config.Gen(type, NumberGen.pinLength(attrs, group));
-                return first(genValues(pinned, Seekable.generator(seed, streamId, row), null, row));
+                return first(genValues(pinned, Seekable.generator(seed, streamId, row), null, row, streamId));
               },
           streamId,
           gen,
@@ -1254,7 +1262,11 @@ public final class StreamEngine {
     Column column =
         row -> {
           Integer r = domain.popIndexAt().apply(row);
-          return r == null ? null : first(genValues(gen, Seekable.generator(seed, streamId, row), null, row));
+          return r == null
+                    ? null
+                    : first(
+                        genValues(
+                            gen, Seekable.generator(seed, streamId, row), null, row, streamId));
         };
     return new Built(
         column, null, anomalyFlagName(attrs), anomalyFlagColumn(streamId, gen, domain));
@@ -1303,7 +1315,7 @@ public final class StreamEngine {
             Seekable.uniforms(seed, streamId + "#anom", row, 1)[0] < p && isNumber(raw, row));
       }
       boolean[] spiked = new boolean[1];
-      genValues(gen, Seekable.generator(seed, streamId, row), spiked, row);
+      genValues(gen, Seekable.generator(seed, streamId, row), spiked, row, streamId);
       return String.valueOf(spiked[0]);
     };
   }
@@ -1361,6 +1373,19 @@ public final class StreamEngine {
    * a parameter naming a column declared below it.
    */
   private List<String> genValues(Config.Gen gen, Prng.Sfc32 prng, boolean[] flagsOut, int row) {
+    return genValues(gen, prng, flagsOut, row, "");
+  }
+
+  /**
+   * The same, told which COLUMN it is building.
+   *
+   * <p>The in-memory engine's own one-row path carries the column's name, and anything derived
+   * from it has to come out the same on both engines. A pack generator is the case that showed
+   * it: its body is seeded from the column's identity, and without this the streaming side
+   * seeded the body from an empty string while the in-memory side used the real one.
+   */
+  private List<String> genValues(
+      Config.Gen gen, Prng.Sfc32 prng, boolean[] flagsOut, int row, String streamId) {
     MemoryEngine.Siblings siblings =
         new MemoryEngine.Siblings(columns::containsKey, (name, at) -> valueAt(name, at));
     Repeat.Spec repeat = Repeat.parse(gen.attrs());
@@ -1368,7 +1393,7 @@ public final class StreamEngine {
       return MemoryEngine.finish(
           MemoryEngine.generate(
               gen, 1, prng, packs, config, nowMillis, baseDir, new LinkedHashMap<>(), null,
-              siblings, position -> row),
+              siblings, position -> row, streamId),
           gen.attrs(),
           prng,
           flagsOut == null ? new boolean[1] : flagsOut);
@@ -1381,7 +1406,7 @@ public final class StreamEngine {
             MemoryEngine.finish(
                 MemoryEngine.generate(
                     gen, slots, prng, packs, config, nowMillis, baseDir, new LinkedHashMap<>(),
-                    null, siblings, position -> row),
+                    null, siblings, position -> row, streamId),
                 gen.attrs(),
                 prng,
                 new boolean[slots]));
@@ -1392,6 +1417,78 @@ public final class StreamEngine {
    * quota. Its values are computed rather than listed, so there is no list to lay out and the
    * streaming engines have nothing to seek into.
    */
+  /**
+   * A share-declaring pack body, built here over the column rather than refused.
+   *
+   * <p>A nested engine over the body's own sequences, at this column's count and under a seed
+   * salted with this column's name — the same seed the in-memory engine gives the body, so the
+   * two assemble the same rows. Returns null for the one shape still left to memory: a body
+   * carrying its own {@code <valid>}, where rejecting a row and redrawing it is a whole-column
+   * decision with no lazy form yet.
+   */
+  private Built wholeColumnPackBody(Config.Gen gen, String streamId) {
+    String address = gen.attrs().getOrDefault("value", "");
+    DataPacks.Entry entry;
+    try {
+      entry = packs.load(address, localeOf(gen.attrs()));
+    } catch (RuntimeException e) {
+      return null;
+    }
+    String source = entry.generator();
+    if (source == null || (!source.contains("<sequence") && !source.contains("<data"))) {
+      return null;
+    }
+    io.github.nickliapin.tdc.parser.ConfigBuilder.PackGenerator body =
+        io.github.nickliapin.tdc.parser.ConfigBuilder.parsePackBody(source);
+    if (body.validate() != null) {
+      return null;
+    }
+
+    StreamEngine inner =
+        new StreamEngine(
+            bodyConfig(config.override(null, seed + "|" + streamId, null), body.sequences()),
+            packs,
+            nowMillis,
+            baseDir,
+            false,
+            null,
+            null,
+            null);
+    inner.buildColumns();
+    String output = body.output();
+    String inject = config.inject();
+    return new Built(
+        row ->
+            Interpolate.apply(
+                output,
+                inject,
+                new Interpolate.Lookup() {
+                  @Override
+                  public boolean has(String name) {
+                    return inner.columns.containsKey(name);
+                  }
+
+                  @Override
+                  public String value(String name) {
+                    Column column = inner.columns.get(name);
+                    return column == null ? null : column.valueAt(row);
+                  }
+                }));
+  }
+
+  /** The same config with the pack body's sequences in place of the run's own. */
+  private static Config bodyConfig(Config base, java.util.List<Config.SequenceSpec> sequences) {
+    return new Config(
+        base.count(),
+        base.seed(),
+        base.locale(),
+        base.inject(),
+        base.regexMaxLength(),
+        sequences,
+        base.block(),
+        base.fixtures());
+  }
+
   private boolean wholeColumnTemplatePack(Config.Gen gen) {
     if (!"template".equals(gen.type())) {
       return false;

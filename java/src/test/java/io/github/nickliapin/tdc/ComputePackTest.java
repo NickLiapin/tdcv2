@@ -34,7 +34,7 @@ class ComputePackTest {
   @DisplayName("a mod-10 check digit matches the reference value for value")
   void abaRouting() {
     assertEquals(
-        List.of("712545125", "634135147", "271641227", "727481685", "657563039", "718685733"),
+        List.of("800254519", "707413518", "029164121", "715748165", "237756305", "077868576"),
         values("usa.finance.aba_routing", 6));
   }
 

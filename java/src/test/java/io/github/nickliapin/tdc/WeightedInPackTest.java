@@ -1,5 +1,6 @@
 package io.github.nickliapin.tdc;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -197,21 +198,26 @@ class WeightedInPackTest {
   }
 
   /**
-   * A streaming engine cannot apportion a quota row by row, so a config that NAMES one must be told
-   * rather than quietly handed forty copies of the same name. The refusal is the answer here: an
-   * engine asked for by name that silently ran somewhere else would hide what was asked about.
+   * This used to be a refusal, and for a real reason: a streaming engine could not apportion a
+   * quota row by row, so a config naming one would have been handed forty copies of the same name.
+   *
+   * <p>It is not a refusal any more, because the cause is gone. The pack's body is built by the
+   * streaming engine itself at the COLUMN's count, so the share is planned over the column and
+   * each row mapped into it — the same thing a top-level {@code percent=} has always done. What
+   * the refusal protected against is checked here directly: the names, not merely that an error
+   * was raised.
    */
   @Test
-  @DisplayName("engine 2 refuses rather than repeating one name")
-  void streamingEngineRefuses() {
-    RuntimeException refusal =
-        assertThrows(
-            RuntimeException.class,
-            () -> TDC.options().configString(FORCED).engine(2).build().toString(),
-            "the streaming engine accepted a whole-column quota");
-    assertTrue(
-        String.valueOf(refusal.getMessage()).contains("whole column"),
-        "unexpected refusal: " + refusal.getMessage());
+  @DisplayName("engine 2 apportions the quota itself instead of refusing")
+  void streamingEngineApportionsIt() {
+    Set<String> rows =
+        new LinkedHashSet<>(
+            List.of(TDC.options().configString(FORCED).engine(2).build().toString().split("\n")));
+    assertTrue(rows.size() > 1, "the streaming engine repeated one name: " + rows);
+    assertEquals(
+        TDC.options().configString(FORCED).engine(1).build().toString(),
+        TDC.options().configString(FORCED).engine(2).build().toString(),
+        "the streaming engine and the in-memory engine disagree on a whole-column pack");
   }
 
   /**

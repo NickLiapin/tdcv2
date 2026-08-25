@@ -2125,7 +2125,15 @@ pub(super) fn column_values_into(
                 rows: &here,
                 siblings: env,
             };
-            let drawn = generate_into(gen, 1, &mut row_prng, env, scratch.as_mut(), Some(&scope))?;
+            let drawn = generate_in_column(
+                gen,
+                1,
+                &mut row_prng,
+                env,
+                scratch.as_mut(),
+                Some(&scope),
+                Some((stream.id.as_str(), Some(here[0]))),
+            )?;
             let mut one = [false];
             let done = finish_into(
                 drawn,
@@ -2150,7 +2158,22 @@ pub(super) fn column_values_into(
         rows: &here,
         siblings: env,
     };
-    let drawn = generate_into(gen, count, prng, env, None, Some(&scope))?;
+    let drawn = generate_in_column(
+        gen,
+        count,
+        prng,
+        env,
+        None,
+        Some(&scope),
+        Some((
+            stream.id.as_str(),
+            if count == 1 {
+                Some(stream.row_at(0))
+            } else {
+                None
+            },
+        )),
+    )?;
     finish_keyed(drawn, gen, prng, anomaly_flags, Some(stream))
 }
 
@@ -2330,6 +2353,25 @@ pub(super) fn generate_into(
     instants: Option<&mut Vec<Option<i64>>>,
     scope: Option<&SiblingScope>,
 ) -> EngineResult<Vec<String>> {
+    generate_in_column(gen, count, prng, env, instants, scope, None)
+}
+
+/// The same, told which COLUMN it is building and which row it is standing on.
+///
+/// Only one thing reads them: a pack generator, whose body is seeded from the
+/// column's identity so that the same pack in two columns is two draws rather
+/// than one repeated. Everything else keys off the prng it was handed, which the
+/// caller already derived from that same identity.
+#[allow(clippy::too_many_arguments)]
+pub(super) fn generate_in_column(
+    gen: &Gen,
+    count: usize,
+    prng: &mut Sfc32,
+    env: &Env,
+    instants: Option<&mut Vec<Option<i64>>>,
+    scope: Option<&SiblingScope>,
+    column: Option<(&str, Option<usize>)>,
+) -> EngineResult<Vec<String>> {
     // Attributes that change what a generator produces are refused before the
     // generator runs, so a column never silently ignores one it was given.
     // `anomaly`, `missing`, `case` and `mask` are NOT here: those are passes over
@@ -2401,7 +2443,7 @@ pub(super) fn generate_into(
         ),
         "symbol" => symbol::generate(&gen.attrs, count, prng),
         "timeseries" => timeseries::generate(&gen.attrs, count, prng),
-        "template" => template_values(gen, count, prng, env),
+        "template" => template_values(gen, count, prng, env, column),
         // Filled in a second pass, after every ordinary column exists: an http
         // gen may read another sequence through in=, and that sequence has to
         // be there first. It draws nothing here, which is also what keeps the
@@ -3156,7 +3198,7 @@ fn dynamic_template(
         attrs.insert("local".to_string(), locale.clone());
         let resolved = Gen::new("template", attrs);
 
-        let built = template_values(&resolved, 1, prng, env)?;
+        let built = template_values(&resolved, 1, prng, env, None)?;
         result.push(built.into_iter().next().unwrap_or_default());
     }
     Ok(result)
@@ -3373,6 +3415,7 @@ fn pack_generator(
     prng: &mut Sfc32,
     env: &Env,
     caller: Option<&Gen>,
+    body_seed: &str,
 ) -> EngineResult<Vec<String>> {
     // A body holding <sequence> or <data> is composed; anything else is a lone
     // <gen>.
@@ -3401,13 +3444,15 @@ fn pack_generator(
             pinned.insert(spec.name.clone(), value);
             continue;
         }
-        for (name, values) in materialize_local(spec, count, prng, env, &local)? {
+        for (name, values) in materialize_local(spec, count, prng, env, &local, body_seed)? {
             local.insert(name, values);
         }
     }
 
     if let Some(valid) = &pack.validate {
-        enforce_valid(&pack, valid, &mut local, count, prng, env, &pinned)?;
+        enforce_valid(
+            &pack, valid, &mut local, count, prng, env, &pinned, body_seed,
+        )?;
     }
 
     let mut rendered = Vec::with_capacity(count);
@@ -3437,6 +3482,7 @@ fn materialize_local(
     prng: &mut Sfc32,
     env: &Env,
     local: &BTreeMap<String, Vec<Option<String>>>,
+    body_seed: &str,
 ) -> EngineResult<Vec<(String, Vec<Option<String>>)>> {
     if let Source::Compute(tree) = &spec.source {
         let mut values = Vec::with_capacity(count);
@@ -3459,17 +3505,15 @@ fn materialize_local(
     }
 
     if let Source::Fields(fields) = &spec.source {
-        // Declaration order off the shared prng: a pack body is a nested build
-        // with no stream of its own, so the fields of one row draw one after
-        // another rather than each keying itself — which is what pairs a given
-        // name with the surname beside it.
+        // Each field keyed by its own name, exactly as a config's compound field
+        // is. The body used to be a nested build with no stream of its own, so
+        // its fields drew one after another off the shared prng and no
+        // whole-column layout could fire inside one.
         let mut by_field: Vec<(String, Vec<String>)> = Vec::with_capacity(fields.len());
         for field in fields {
-            let values = generate(&field.gen, count, prng, env)?;
-            by_field.push((
-                field.name.clone(),
-                finish(values, &field.gen.attrs, prng, None)?,
-            ));
+            let stream = per_row::Stream::new(body_seed, &format!("{}.{}", spec.name, field.name));
+            let values = column_values(&field.gen, count, prng, env, Some(&stream), None, None)?;
+            by_field.push((field.name.clone(), values));
         }
         // After every field exists, never during: a group's members must all be
         // there before the constraint between them means anything.
@@ -3490,11 +3534,9 @@ fn materialize_local(
     let Some(gen) = spec.gen() else {
         return not_ported("a pack sequence that is neither a <gen>, a <mix> nor a <compute>");
     };
-    let produced = generate(gen, count, prng, env)?;
-    let values = finish(produced, &gen.attrs, prng, None)?
-        .into_iter()
-        .map(Some)
-        .collect();
+    let stream = per_row::Stream::new(body_seed, &spec.name);
+    let produced = column_values(gen, count, prng, env, Some(&stream), None, None)?;
+    let values = produced.into_iter().map(Some).collect();
     Ok(vec![(spec.name.clone(), values)])
 }
 
@@ -3514,6 +3556,7 @@ fn enforce_valid(
     prng: &mut Sfc32,
     env: &Env,
     pinned: &BTreeMap<String, String>,
+    body_seed: &str,
 ) -> EngineResult<()> {
     // A PINNED sequence is never redrawn. A caller parameter replaces a local sequence
     // with a constant, and redrawing it threw that constant away: a config asking for a
@@ -3560,7 +3603,7 @@ fn enforce_valid(
                 if pinned.contains_key(&spec.name) {
                     continue;
                 }
-                for (name, mut values) in materialize_local(spec, 1, prng, env, local)? {
+                for (name, mut values) in materialize_local(spec, 1, prng, env, local, body_seed)? {
                     let replacement = values.remove(0);
                     if let Some(column) = local.get_mut(&name) {
                         column[row] = replacement;
@@ -3594,6 +3637,7 @@ fn template_values(
     count: usize,
     prng: &mut Sfc32,
     env: &Env,
+    column: Option<(&str, Option<usize>)>,
 ) -> EngineResult<Vec<String>> {
     let path = gen.attr_or("value", "");
 
@@ -3630,7 +3674,28 @@ fn template_values(
     let entry = env.packs.load(path, locale)?;
 
     if let Some(body) = &entry.generator {
-        return pack_generator(body, count, prng, env, Some(gen));
+        /*
+         * The body gets a SEED and a stream identity, like every other sequence.
+         *
+         * It used to get neither, and the body's local sequences drew off the
+         * prng they were handed. So a weighted pack column MOVED when an
+         * unrelated sequence was added in front of it, the same pack in two
+         * columns drew alike, and with no stream identity the body could not be
+         * planned over a column at all — which is why every share-declaring pack
+         * went to this engine.
+         *
+         * The ROW is part of the salt when the body is being built for ONE row:
+         * a pack that does not need the whole column is built per row, and
+         * handed a column-wide seed at count 1 the body's own exact-layout
+         * machinery plans one slot and gives it to one value, so every row would
+         * draw the same.
+         */
+        let (column_id, column_row) = column.unwrap_or(("", None));
+        let body_seed = match column_row {
+            Some(row) if count == 1 => format!("{}|{column_id}|{row}", env.config.seed),
+            _ => format!("{}|{column_id}", env.config.seed),
+        };
+        return pack_generator(body, count, prng, env, Some(gen), &body_seed);
     }
 
     if let Some(percents) = &entry.percents {

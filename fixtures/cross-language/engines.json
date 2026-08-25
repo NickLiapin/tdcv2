@@ -422,22 +422,22 @@
     "compute/compute-aba-routing": {
       "engine2": {
         "lines": [
-          "712545125",
-          "634135147",
-          "271641227",
-          "727481685",
-          "657563039",
-          "718685733"
+          "800254519",
+          "707413518",
+          "029164121",
+          "715748165",
+          "237756305",
+          "077868576"
         ]
       },
       "engine3": {
         "lines": [
-          "712545125",
-          "634135147",
-          "271641227",
-          "727481685",
-          "657563039",
-          "718685733"
+          "800254519",
+          "707413518",
+          "029164121",
+          "715748165",
+          "237756305",
+          "077868576"
         ]
       }
     },
@@ -2042,16 +2042,23 @@
     },
     "generators/template-composed-tdc-pack-weighted": {
       "engine2": {
-        "refused": "a pack generator (\"V\") whose value is apportioned across the whole column cannot be resolved one row at a time — every row would take the largest share; the in-memory engine handles it (run without a forced streaming engine)"
+        "lines": [
+          "Tóth József",
+          "Nagy László",
+          "Varga Sándor",
+          "Kovács Zoltán",
+          "Horváth János",
+          "Szabó István"
+        ]
       },
       "engine3": {
         "lines": [
-          "Kovács István",
-          "Varga József",
-          "Horváth Zoltán",
+          "Tóth József",
           "Nagy László",
-          "Tóth Sándor",
-          "Szabó János"
+          "Varga Sándor",
+          "Kovács Zoltán",
+          "Horváth János",
+          "Szabó István"
         ]
       }
     },

@@ -110,6 +110,12 @@ class _Run:
     # field. It is the stream name the per-row derivation hashes, and it must be the SAME string
     # the streaming engine passes, or the two key their randomness differently.
     stream_id: str | None = None
+    #: The column this build belongs to, when the caller is a one-row resolver with no
+    #: ``stream_id`` of its own to lend. Only a pack generator reads it: its body is seeded from
+    #: the column's identity. Carried under its own name rather than as ``stream_id``, because
+    #: setting that on a one-row run switches on every whole-column layout inside it — measured,
+    #: a ``<distinct>`` redraw changed its answer, and ``<distinct>`` has nothing to do with packs.
+    column_stream_id: str | None = None
     # The ABSOLUTE row each drawn position belongs to, when the column does not cover every row.
     # See `per_row.for_stream` for why a parented column needs it.
     rows: list[int] | None = None
@@ -1749,7 +1755,11 @@ def _column_values(
     out: list[str] = []
     for i in range(count):
         row = per_row.absolute_row(run, i)
-        one = replace(run, prng=seekable.generator(seed, stream_id, row))
+        # `rows=[row]` tells the one-row build which ABSOLUTE row it is, the way the reference's
+        # own one-row path does. Anything derived from the row inside — a pack body's seed, a
+        # distribution parameter written as an expression — otherwise reads position 0 and
+        # answers for the first row on every row.
+        one = replace(run, prng=seekable.generator(seed, stream_id, row), rows=[row])
         single = [False]
         # One row's instant lands in its own scratch list: the inner call knows nothing of `i`,
         # and handing it `instants_out` would append rows that a later `missing=` pass could no
@@ -1900,8 +1910,15 @@ def _generate(
             if exact is not None:
                 return exact
             return hamilton.distribute(count, entry.values, entry.percents or [], prng)
-        values = entry.values
-        percent = ""
+        # A PLAIN pack stays a uniform pick — never the exact layout a literal list gets.
+        #
+        # The two used to agree by accident: a pack drawn inside a body had no column name, so
+        # the layout bailed out and fell through to this same pick. Once bodies were given a
+        # stream identity the layout started firing, and at one row it plans one slot and hands
+        # it to one value — `usa.geo.streetNamed` came out as "Woodland" on all six rows. The
+        # rule is the reference's, stated in its own source: a weighted pack is laid out
+        # exactly, a plain one is picked uniformly.
+        return [entry.values[math.floor(prng.next() * len(entry.values))] for _ in range(count)]
     else:
         raise EngineError(f'generator type "{gen.type}" is not ported yet')
 
@@ -2165,11 +2182,24 @@ def param_overrides(attrs: dict[str, str]) -> dict[str, str]:
 def _run_pack_generator(
     entry, path: str, count: int, run: _Run, attrs: dict[str, str] | None = None
 ) -> list[str]:
-    # A pack body is a NESTED build with no column of its own: its local sequences draw off the
-    # prng it was handed, in order, exactly as they always did. Leaving the caller's stream name
-    # on the run would let each of them key itself independently, and an identifier assembled
-    # from several of them would come out of a different set of digits.
-    run = per_row.redraw(run)
+    # The body gets a SEED and a stream identity, like every other sequence.
+    #
+    # It used to get neither, and the body's local sequences drew off the prng they were handed.
+    # So a weighted pack column MOVED when an unrelated sequence was added in front of it, the
+    # same pack in two columns drew alike, and with no stream identity the body could not be
+    # planned over a column at all — which is why every whole-column pack went to this engine.
+    #
+    # The ROW is part of the salt when the body is being built for ONE row, and that is not a
+    # detail: a pack that does not need the whole column is built per row, and handed a
+    # column-wide seed at count 1 the body's own exact-layout machinery plans one slot and gives
+    # it to one value, so every row draws the same.
+    body_row = run.rows[0] if count == 1 and run.rows is not None and len(run.rows) == 1 else None
+    body_seed = f"{run.config.seed}|{run.stream_id or run.column_stream_id or ''}" + (
+        "" if body_row is None else f"|{body_row}"
+    )
+    run = replace(
+        per_row.redraw(run), config=replace(run.config, seed=body_seed)
+    )
     body = _PACK_BODIES.get(path)
     if body is None:
         source = entry.generator
@@ -2225,7 +2255,7 @@ def _materialize_local(
         # itself — which is what pairs a given name with the surname beside it.
         by_field: dict[str, list[str]] = {}
         for field in spec.fields:
-            values = _generate(field.gen, count, run)
+            values = _generate(field.gen, count, replace(run, stream_id=f"{name}.{field.name}"))
             by_field[field.name] = list(_finish(values, field.gen.attrs, run.prng, [False] * count))
         # After every field exists, never during: a group's members must all be there before
         # the constraint between them means anything.
@@ -2233,7 +2263,9 @@ def _materialize_local(
             _enforce_distinct(spec, by_field, count, run, shared_prng=True)
         return {f"{name}.{field.name}": list(by_field[field.name]) for field in spec.fields}
     assert spec.gen is not None
-    produced_values = _generate(spec.gen, count, run)
+    # Keyed by its own name, exactly as a config's sequence is. Without this the body's
+    # sequences had no stream of their own and no whole-column layout could fire inside one.
+    produced_values = _generate(spec.gen, count, replace(run, stream_id=name))
     return {name: list(_finish(produced_values, spec.gen.attrs, run.prng, [False] * count))}
 
 

@@ -26,7 +26,17 @@ export function resolveGenValueAt(
   // `rows: [i]` tells the one-row build which ABSOLUTE row it is, so anything
   // that reads a sibling column — a distribution parameter written as an
   // expression — asks for the right row rather than for row 0 every time.
-  const ctx = { ...streamCtx(options), rows: [i] };
+  //
+  // The column's identity travels beside it, under its OWN names. A pack
+  // generator seeds its body from the column it is building, and the in-memory
+  // engine's one-row path has `seed`/`streamId` to hand while this one does not
+  // — so without this the two engines seeded the body differently.
+  //
+  // Not as `seed`/`streamId`, deliberately: setting those switches on every
+  // whole-column layout inside a one-row build, which is not what a one-row
+  // build means. Measured — it changed what a `<distinct>` redraw answered, and
+  // `<distinct>` has nothing to do with packs.
+  const ctx = { ...streamCtx(options), rows: [i], columnSeed: seed, columnStreamId: streamId };
   return buildGenValues(gen, 1, seekableGen(seed, streamId, i), locale, now, ctx)[0] ?? '';
 }
 

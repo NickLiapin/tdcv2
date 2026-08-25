@@ -13,7 +13,7 @@ import { weightedPackValues } from '../generators/weighted.js';
 import { resolvePackAddress } from '../data-pack/locales.js';
 import type { PackEntry } from '../data-pack/load.js';
 
-import type { GenSpec } from './types.js';
+import type { GenSpec, SequenceSpec } from './types.js';
 
 /**
  * The length groups of a weighted `<gen type="number" length="A,B-C"
@@ -53,15 +53,37 @@ export function pinLength(gen: GenSpec, group: NumberLengthChoice): GenSpec {
  * address the same way the in-memory builder does, so both engines draw the
  * same pack by the same quota.
  */
-/** A pack generator whose value only comes out right over a WHOLE column. */
-export function wholeColumnTemplatePack(
+/**
+ * A pack whose BODY apportions a share over the whole column, as the parts the
+ * lazy builder needs to run it: the body's own sequences and the text they are
+ * assembled into.
+ *
+ * A single `<gen percent="…">` body comes back as a one-sequence body under a
+ * fixed name, so both shapes take one road from here. A body carrying its own
+ * `<valid>` comes back as nothing: rejecting a row and redrawing it is a
+ * whole-column decision with no lazy form yet, and the caller refuses it.
+ */
+export function wholeColumnPackBody(
   gen: GenSpec,
   packs: ReadonlyMap<string, PackEntry> | undefined,
   locale: string,
-): boolean {
-  if (gen.type !== 'template') return false;
+): { sequences: readonly SequenceSpec[]; output: string; inject: string } | undefined {
+  if (gen.type !== 'template') return undefined;
   const address = resolvePackAddress(gen.attrs['value'] ?? '', gen.attrs['local'] ?? locale);
-  return packs?.get(address)?.needsWholeColumn === true;
+  const entry = packs?.get(address);
+  if (entry?.needsWholeColumn !== true) return undefined;
+  const body = entry.generator;
+  if (body === undefined) return undefined;
+  if (body.kind === 'composed') {
+    if (body.validate !== undefined) return undefined;
+    return { sequences: body.sequences, output: body.output, inject: body.inject };
+  }
+  const name = 'value';
+  return {
+    sequences: [{ name, items: [{ kind: 'anon', gen: body.gen }] } as unknown as SequenceSpec],
+    output: `\${{${name}}}`,
+    inject: '',
+  };
 }
 
 export function weightedTemplatePack(
