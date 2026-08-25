@@ -323,6 +323,55 @@ pub fn resolve(src: &str, base_dir: Option<&str>, roots: &[String]) -> EngineRes
     Ok(first_readable(&attempts))
 }
 
+/// Every path [`resolve`] would look at, in the order it looks — for the refusal to name.
+///
+/// "Paths are relative to the config file's own folder" is advice; the paths actually tried are
+/// an answer. A reader whose data path was not picked up cannot tell the two apart until the
+/// message names what was searched.
+pub fn attempts(src: &str, base_dir: Option<&str>, roots: &[String]) -> Vec<String> {
+    let text = src.trim();
+    if let Some(rest) = text.strip_prefix("file://") {
+        return vec![rest.to_string()];
+    }
+    if let Some(alias) = text.strip_prefix(DATA_ALIAS) {
+        let alias = alias.trim();
+        if alias.is_empty() {
+            return Vec::new();
+        }
+        return roots
+            .iter()
+            .rev()
+            .map(|root| normalize(&Path::new(root).join(alias)))
+            .collect();
+    }
+    if Path::new(text).is_absolute() {
+        return vec![text.to_string()];
+    }
+    let beside = match base_dir {
+        None => text.to_string(),
+        Some(dir) => normalize(&Path::new(dir).join(text)),
+    };
+    if Path::new(&beside).is_file() || roots.is_empty() {
+        return vec![beside];
+    }
+    let mut out = vec![beside];
+    out.extend(
+        roots
+            .iter()
+            .rev()
+            .map(|root| normalize(&Path::new(root).join(text))),
+    );
+    out
+}
+
+/// The refusal's note: what was searched, in the order it was searched.
+pub fn format_attempts(paths: &[String]) -> String {
+    if paths.is_empty() {
+        return "No candidate paths were available.".to_string();
+    }
+    format!("Tried: {}", paths.join("; "))
+}
+
 /// Absolute, with `.` and `..` folded away — without touching the filesystem, so
 /// a path that does not exist still normalises and the error names something
 /// readable.

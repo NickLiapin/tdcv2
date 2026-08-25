@@ -264,6 +264,36 @@ def resolve(src: str, base_dir: Path | None, roots: list[Path] | None = None) ->
     return _first_readable([beside, *(root / path for root in candidates)])
 
 
+def attempts(src: str, base_dir: Path | None, roots: list[Path] | None = None) -> list[Path]:
+    """Every path ``resolve`` would look at, in the order it looks — for the refusal to name.
+
+    "Paths are relative to the config file's own folder" is advice; the paths actually tried are
+    an answer. A reader whose `--data-path` was not picked up cannot tell the two apart until
+    the message names what was searched.
+    """
+    text = src.strip()
+    candidates = list(reversed(roots or []))
+    if text.startswith("file://"):
+        return [Path(url2pathname(urlparse(text).path))]
+    if text.startswith(DATA_ALIAS):
+        alias = text[len(DATA_ALIAS) :].strip()
+        return [root / alias for root in candidates] if alias else []
+    path = Path(text)
+    if path.is_absolute():
+        return [path]
+    beside = Path(os.path.normpath(base_dir / path)) if base_dir is not None else path
+    if beside.is_file() or not candidates:
+        return [beside]
+    return [beside, *(root / path for root in candidates)]
+
+
+def format_attempts(paths: list[Path]) -> str:
+    """The refusal's note: what was searched, in the order it was searched."""
+    if not paths:
+        return "No candidate paths were available."
+    return "Tried: " + "; ".join(str(p) for p in paths)
+
+
 def _first_readable(attempts: list[Path]) -> Path:
     """The first candidate that exists, or the first one tried so the error names something real."""
     for candidate in attempts:

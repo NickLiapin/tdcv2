@@ -47,7 +47,9 @@ pub const ENV_GROUP_CHILDREN: [&str; 3] = ["sequence", "mix", "switch"];
 
 /// What may sit inside `<pool>`. Deliberately generous: too SHORT a list refuses
 /// configs that work, while too long a one merely leaves a little silence.
-pub const POOL_CHILDREN: [&str; 5] = ["sequence", "mix", "switch", "uniq", "distinct"];
+// A `<data>` inside a `<pool>` is accepted, so the refusal for a WRONG child has to name
+// it among the allowed ones.
+pub const POOL_CHILDREN: [&str; 6] = ["sequence", "mix", "switch", "uniq", "distinct", "data"];
 
 /// What a fixture (`<before>`, `<after>`, the delimiters) holds: literal text.
 /// A fixture body is made of `<line>`s and nothing else.

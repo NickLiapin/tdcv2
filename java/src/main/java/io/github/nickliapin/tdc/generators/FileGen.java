@@ -397,6 +397,63 @@ public final class FileGen {
     return firstReadable(attempts);
   }
 
+  /**
+   * Every path {@link #resolve} would look at, in the order it looks — for the refusal to name.
+   *
+   * <p>"Paths are relative to the config file's own folder" is advice; the paths actually tried
+   * are an answer. A reader whose data path was not picked up cannot tell the two apart until
+   * the message names what was searched.
+   */
+  public static List<Path> attempts(String src, Path baseDir, List<Path> roots) {
+    String text = src.trim();
+    List<Path> candidates = new ArrayList<>(roots == null ? List.<Path>of() : roots);
+    Collections.reverse(candidates);
+
+    if (text.startsWith("file://")) {
+      return List.of(Path.of(URI.create(text)));
+    }
+    if (text.startsWith(DATA_ALIAS)) {
+      String alias = text.substring(DATA_ALIAS.length()).trim();
+      if (alias.isEmpty()) {
+        return List.of();
+      }
+      List<Path> out = new ArrayList<>();
+      for (Path root : candidates) {
+        out.add(root.resolve(alias).normalize());
+      }
+      return out;
+    }
+    Path path = Path.of(text);
+    if (path.isAbsolute()) {
+      return List.of(path);
+    }
+    Path beside = baseDir == null ? path : baseDir.resolve(path).normalize();
+    if (Files.isRegularFile(beside) || candidates.isEmpty()) {
+      return List.of(beside);
+    }
+    List<Path> out = new ArrayList<>();
+    out.add(beside);
+    for (Path root : candidates) {
+      out.add(root.resolve(path).normalize());
+    }
+    return out;
+  }
+
+  /** The refusal's note: what was searched, in the order it was searched. */
+  public static String formatAttempts(List<Path> paths) {
+    if (paths.isEmpty()) {
+      return "No candidate paths were available.";
+    }
+    StringBuilder out = new StringBuilder("Tried: ");
+    for (int i = 0; i < paths.size(); i++) {
+      if (i > 0) {
+        out.append("; ");
+      }
+      out.append(paths.get(i));
+    }
+    return out.toString();
+  }
+
   /** The first candidate that exists, or the first tried so the error names something real. */
   private static Path firstReadable(List<Path> attempts) {
     for (Path candidate : attempts) {

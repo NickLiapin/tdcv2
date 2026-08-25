@@ -84,17 +84,17 @@ hand. The rest of this page walks through each family of templates with real out
 
 | Path                      | Produces                                         | Locale-aware |
 | :------------------------ | :----------------------------------------------- | :----------: |
-| `person.male.firstName`   | A male first name                                | 10 + `zh-cn` |
-| `person.female.firstName` | A female first name                              | 10 + `zh-cn` |
-| `person.lastName`         | A last name (male + locale-common surnames)      | 10 + `zh-cn` |
-| `person.male.diagnosis`   | A male diagnosis + common ones                   |      10      |
-| `person.female.diagnosis` | A female diagnosis + common ones                 |      10      |
-| `person.gender`           | A random gender; the label comes from the locale |      10      |
+| `person.male.firstName`   | A male first name                                |      86      |
+| `person.female.firstName` | A female first name                              |      86      |
+| `person.lastName`         | A last name (male + locale-common surnames)      |      86      |
+| `person.male.diagnosis`   | A male diagnosis + common ones                   |      86      |
+| `person.female.diagnosis` | A female diagnosis + common ones                 |      86      |
+| `person.gender`           | A random gender; the label comes from the locale |      86      |
 | `person.b_day`            | A birthday in the format you specify             | format only  |
 
-The ten are `ar`, `de`, `el`, `en`, `es`, `fr`, `it`, `pl`, `pt` and `ru` — the language
-packs that are filled rather than stubs. `zh-cn` carries names but not yet the rest. Any
-other locale gets [TDC217](../reference/errors.mdx), which names the locales that do ship
+All six ship in every one of the **86 language packs** the registry carries — see the
+[catalogue](../data-packs/catalogue.mdx) for the list. Any other locale gets
+[TDC217](../reference/errors.mdx), which names the locales that do ship
 the path rather than letting the run guess.
 
 :::note[Why `lastName` mixes two pools]
@@ -198,7 +198,7 @@ whichever data pack the locale selects. English is the default under `local="en"
 
 | Path               | Produces       | Locale-aware |
 | :----------------- | :------------- | :----------: |
-| `location.country` | A country name | all 10 packs |
+| `location.country` | A country name | all 86 packs |
 
 ```xml
 <sequence name="C"><gen type="template" value="location.country"/></sequence>
@@ -217,9 +217,9 @@ The list is localized: `local="ru"` yields `Греция`, `Никарагуа`,
 `local="es"` yields `Surinam`, `Burundi`, `Guyana`.
 
 :::note[Every locale that has a pack]
-`location.country` ships in all eleven language packs the registry carries — **ar**,
-**de**, **el**, **en**, **es**, **fr**, **it**, **pl**, **pt**, **ru** and **zh-cn** —
-each with the same 233 countries and territories (English carries 237). A locale with no pack has
+`location.country` ships in all **86** language packs the registry carries. The lists are not
+all the same length — a pack names the countries its own language has names for, so they run
+from 23 entries to 247, with 206 in the middle and 237 in English. A locale with no pack has
 no list either: the path raises an error there instead of falling back to English.
 :::
 
@@ -287,15 +287,16 @@ itself: **a country pack names its subdivisions the way that country names them.
 
 | Leaf              | Country packs that ship it |
 | :---------------- | :------------------------- |
-| `geo.city`        | 93 of 111                  |
-| `geo.region`      | 52                         |
-| `geo.streetName`  | 36 (plus 37 with `geo.streetNamed`) |
-| `geo.postalCode`  | 24                         |
-| `geo.province`    | 19                         |
+| `geo.city`        | 147 of 152                 |
+| `geo.postalCode`  | 76                         |
+| `geo.region`      | 68                         |
+| `geo.streetName`  | 45 (plus 38 with `geo.streetNamed`) |
+| `geo.province`    | 35                         |
+| `geo.municipality`| 21                         |
+| `geo.district`    | 21                         |
 | `geo.zip`         | 16                         |
-| `geo.municipality`| 13                         |
 
-Some subdivision exists in 95 of the 111 country packs and a postal code in 46 — under
+Some subdivision exists in 137 of the 152 country packs and a postal code in 92 — under
 names that include `department`, `canton`, `governorate`, `voivodeship`, `prefecture`,
 `zip`, `postalCode`, `eircode`, `cep`, `cap` and `cpa`. So `usa.geo.province` is not a path: the United States has
 `usa.geo.state` and `usa.geo.zip`.

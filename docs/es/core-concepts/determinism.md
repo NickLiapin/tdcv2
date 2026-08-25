@@ -193,9 +193,11 @@ Andre          Andre
 ### La excepción: los diseños que abarcan toda la ejecución
 
 Los generadores que acomodan valores a lo largo de **toda** la ejecución se
-**recalculan** cuando `count` cambia: sus columnas _no_ son un prefijo. Cuatro funciones
+**recalculan** cuando `count` cambia: sus columnas _no_ son un prefijo. Cinco funciones
 trabajan así: las proporciones exactas (`percent` en [`text`](../generators/text.md#top) y en
-`<mix>`, por el método de Hamilton), la unicidad
+`<mix>`, por el método de Hamilton), **una lista `text` simple sin `percent` alguno** —
+una cuota pareja sigue siendo una cuota, así que `value="A,B,C"` a 4 filas y a 8 filas no
+comparten prefijo —, la unicidad
 ([`uniq`](../constructs/unique-values.md#top)), un pack
 [`template`](../generators/template.md#top) **ponderado**, y las **longitudes de lista** de
 [`repeat="min..max"`](../constructs/multiple-values.md#top) — allí un rango es una cuota
@@ -222,11 +224,13 @@ count=8:   A C A B A B B C
 Las primeras cuatro filas difieren: el acomodo se rebalanceó para el nuevo total. Los
 generadores posicionales (number, un template sin ponderar, counter, regex) sí seguirían
 siendo un prefijo aquí; la maquinaria de proporciones, unicidad, packs ponderados y
-longitudes de `repeat` se reacomoda.
+longitudes de `repeat` se reacomoda. Y una lista `text` simple también: el mismo
+`value="A,B,C"` da `C A B C` con cuatro filas y `B B A B C C C A` con ocho, y ninguna es
+prefijo de la otra.
 
 La regla práctica: **una corrida pequeña le dice la forma, no las filas.** Depure con
 `count="3"` para revisar el formato, las proporciones y que los campos concuerden — pero
-si alguna de las cuatro funciones de arriba está en la configuración, no espere que la
+si alguna de las cinco funciones de arriba está en la configuración, no espere que la
 fila 3 de la corrida pequeña sea la fila 3 de la grande.
 
 ### Nombres integrados que dependen del total

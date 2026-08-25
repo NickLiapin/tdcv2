@@ -191,9 +191,11 @@ on `count="3"` knowing those first records will be identical at `count="1000"`.
 ### The exception: whole-run layouts
 
 Generators that lay their values out across the **entire** run get **recomputed** when
-`count` changes, so their columns are _not_ a prefix. Four features work this way:
+`count` changes, so their columns are _not_ a prefix. Five features work this way:
 exact proportions (`percent` on [`text`](../generators/text.md#top) and on `<mix>`, via the
-Hamilton method), uniqueness ([`uniq`](../constructs/unique-values.md#top)), a
+Hamilton method), **a plain `text` list with no `percent` at all** — an even quota is
+still a quota, so `value="A,B,C"` over 4 rows and over 8 rows share no prefix —
+uniqueness ([`uniq`](../constructs/unique-values.md#top)), a
 **weighted** [`template`](../generators/template.md#top) pack, and the **list lengths** of
 [`repeat="min..max"`](../constructs/multiple-values.md#top) — a range there is a quota over
 the run, not a die rolled per row, so 200 rows of `repeat="1..4"` come out
@@ -219,11 +221,12 @@ count=8:   A C A B A B B C
 The first four rows differ, because the layout was rebalanced for the new total.
 Positional generators (number, an unweighted template, counter, regex) would still be a
 prefix here; the proportion, uniqueness, weighted-pack and `repeat`-length machinery
-reshuffles.
+reshuffles. So does a plain `text` list — the same `value="A,B,C"` gives `C A B C` at
+four rows and `B B A B C C C A` at eight, and neither is a prefix of the other.
 
 The practical rule: **a small run tells you the shape, not the rows.** Debug on
 `count="3"` to check the format, the proportions and that the fields agree — but if any
-of the four features above is in the config, don't expect row 3 of the small run to be
+of the five features above is in the config, don't expect row 3 of the small run to be
 row 3 of the big one.
 
 ### Built-ins that depend on the total

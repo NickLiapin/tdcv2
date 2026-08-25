@@ -377,6 +377,30 @@ placed` rather than naming a total it stopped counting. A number quietly reading
   produces their sum in Python, Java, C# and Rust, where it produced their digits run together.
   TypeScript is unchanged.
 
+- **A refusal printed its own template instead of its sentence.** `A[0] == 1` in an `if=` gave
+  `computed member access is not supported in {article} {label}` in Rust and C# — the two braces
+  reaching the user as literal text because the message was written as a plain string where the
+  reference builds it from the site. It now says "in an if expression", like the other three.
+
+- **The four ports' diagnostics said the same things in different words, and some said less.**
+  The shared contract pins the CODE and the position, so 383 cases could match while the sentence
+  a reader actually acts on drifted. Measured against the reference across those cases: 12–18
+  differing MESSAGES and 101–113 differing notes per port. Three groups closed here, and each was
+  information rather than phrasing:
+  - `TDC015` had one generic sentence for every unknown attribute. The reference keeps a table of
+    the ones that are not typos at all — `count=` on a `<gen>` is `<env count=>` or `repeat=`,
+    `flag=` belongs to a `<mix>`, `parent=` to the `<sequence>`, `phase=` is spelled `peak_at=`,
+    `percent=` on a `<switch>` splits nothing. All four now carry it, so the message says where
+    the attribute belongs instead of telling the reader to check a spelling that was never wrong.
+  - `TDC010`/`TDC013` printed allowed-child lists three different ways ("Allowed children: …",
+    "Allowed inside <X>: …") and none of the ports truncated a long one — a fifteen-name `<env>`
+    list buried the name being looked for. One wording, and the reference's six-then-"(N more)"
+    cut, in all four. The reference's `<pool>` list gained `data`, which every implementation
+    accepts and none of them named.
+  - `TDC061` said "paths are relative to the config file's own folder", which is advice; the
+    reference names the paths it actually TRIED, which is an answer. A reader whose `--data-path`
+    was not picked up cannot tell those apart. All four now list the candidates in search order.
+
 - **Nine diagnostics said what was wrong and nothing about what to do, in all four ports.** The
   reference explains a parse failure with the sentence that matters — "the document did not
   parse, so the structural and semantic checks were skipped; fix this first, anything they

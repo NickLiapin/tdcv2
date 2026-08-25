@@ -59,10 +59,16 @@ red
 blue`}
 </Terminal>
 
-Sin `percent`, la elección es **uniforme**: todas las opciones son igual de
-probables, y el mismo `seed` siempre reproduce la misma secuencia. Los valores pueden
+Sin `percent`, las opciones se reparten **por partes iguales** — y por partes iguales
+significa una cuota exacta sobre toda la ejecución, no un dado por fila. Tres valores en
+300 filas salen 100 / 100 / 100 fila a fila, y en 301 filas uno se lleva la extra. El
+mismo `seed` siempre reproduce la misma secuencia. Los valores pueden
 repetirse libremente de una fila a otra (`green` dos veces arriba); si necesita que
 cada fila sea distinta, vea [Valores únicos](../constructs/unique-values.mdx).
+
+Al ser una cuota, la columna se acomoda contra el **total**: se recalcula cuando `count`
+cambia, y una corrida corta no es prefijo de una larga. Vea
+[Determinismo](../core-concepts/determinism.mdx).
 
 ¿Quiere las opciones en el orden estricto de la lista en vez de al azar? Agregue
 `order="sequential"` — vea [Resumen de generadores](overview.mdx).

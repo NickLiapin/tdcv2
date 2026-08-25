@@ -59,10 +59,16 @@ red
 blue`}
 </Terminal>
 
-With no `percent`, the choice is **uniform** — every option is equally likely,
-and the same `seed` always reproduces the same sequence. Values may repeat
+With no `percent`, the options are shared out **evenly** — and evenly means an exact
+quota over the whole run, not a die rolled per row. Three values over 300 rows come out
+100 / 100 / 100 to the row, and over 301 rows one value takes the extra one. The same
+`seed` always reproduces the same sequence. Values may repeat
 freely from row to row (`green` twice above); if you need every row to differ,
 see [Unique values](../constructs/unique-values.mdx).
+
+Because it is a quota, the column is laid out against the **total** — so it is recomputed
+when `count` changes, and a short run is not a prefix of a long one. See
+[Determinism](../core-concepts/determinism.mdx).
 
 For strict list order instead of random picks, add
 `order="sequential"` — see [Generators overview](overview.mdx).

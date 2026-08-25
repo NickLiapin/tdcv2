@@ -314,12 +314,58 @@ POOL_MAX_MEMBERS = 1_000_000
 # name in the language, so writing any of them on a <gen> passed in silence
 # while the reference refused it — a config that ran differently depending on
 # which implementation you happened to use.
-#: `parent=` selects which rows a whole <sequence> or <mix> builds on; a <gen> inside one is
-#: already filtered by it, so on the <gen> itself nothing reads it.
-_MISPLACED_GEN_PARENT = (
-    "parent= selects which rows a whole <sequence> or <mix> builds on; move it there. "
-    "A <gen> inside one is already filtered by it."
-)
+def _candidates(names, most: int = 6) -> str:
+    """A list of allowed names, truncated the way the reference truncates every long one.
+
+    Six then "… (N more)". Printed in full, a fifteen-name list buries the one the reader is
+    scanning for, and each implementation cut it at a different place — or not at all.
+    """
+    names = list(names)
+    if len(names) <= most:
+        return ", ".join(names)
+    return ", ".join(names[:most]) + f", … ({len(names) - most} more)"
+
+
+#: Attributes whose refusal has a SENTENCE of its own, keyed `tag:attribute`.
+#:
+#: The generic complaint — check the spelling — is right about a typo and useless about a word
+#: written in the wrong place, which is what these are. `count=` on a <gen> is not a misspelling
+#: of anything; it is `<env count=>` or `repeat=`, and saying so is the difference between a
+#: reader fixing it and a reader hunting for a spelling that was never wrong.
+_MISPLACED = {
+    "gen:parent": (
+        "parent= selects which rows a whole <sequence> or <mix> builds on; move it there. "
+        "A <gen> inside one is already filtered by it."
+    ),
+    # Not a misplacement but the same failure: a word readers reach for that the language
+    # spells differently. The nearest accepted string to `phase` is `case`, which sends
+    # someone shifting a seasonal wave off to look at branching.
+    "gen:phase": (
+        'A seasonal wave is shifted with peak_at=, which names the ROW the wave peaks on '
+        'rather than an angle: peak_at="182" over period="365" puts the peak at the first '
+        "of July."
+    ),
+    # `count` belongs to <env> (rows in the run) and to <pool> (members in the table). On a
+    # <gen> nothing reads it, and it looks exactly like a way to ask for several values —
+    # which is `repeat=`.
+    "gen:count": (
+        "count= is the size of the run on <env> and the size of the table on <pool>. "
+        "For several values in ONE row use repeat=."
+    ),
+    # `flag` names the ground-truth column of a <mix>. The nearest thing on a <gen> is
+    # anomaly_flag=, and someone reaching for `flag` there wants it.
+    "gen:flag": (
+        "flag= names the branch-recording column of a <mix>. The <gen> equivalent is "
+        "anomaly_flag=, which records which rows were made outliers."
+    ),
+    "switch:percent": (
+        "percent= splits rows between the branches of a <mix>. A <switch> chooses its case "
+        "from the value of on=, so there is nothing here to split."
+    ),
+}
+
+#: The generic complaint, for an attribute with no sentence of its own.
+_UNKNOWN_GEN_ATTR = "Check the spelling, or see the attributes reference for what a generator takes."
 
 #: Attributes a <gen> may carry that are NOT pack parameters, so a pack-parameter check must not
 #: mistake them for typos. They are each reported by their own rule instead — `parent=` belongs on
@@ -948,7 +994,7 @@ class _Validator:
                 self._error(
                     "TDC010",
                     f'unknown child of <tdc>: "<{name}>"',
-                    "Allowed children: env, block.",
+                    f"Allowed inside <tdc>: {_candidates(sorted(TDC_CHILDREN))}.",
                     _line(self_closing),
                     _column(self_closing),
                 )
@@ -958,7 +1004,7 @@ class _Validator:
                 self._error(
                     "TDC010",
                     f'unknown child of <tdc>: "<{open_el.name.text}>"',
-                    "Allowed children: env, block.",
+                    f"Allowed inside <tdc>: {_candidates(sorted(TDC_CHILDREN))}.",
                     _line(open_el),
                     _column(open_el),
                 )
@@ -3182,7 +3228,7 @@ class _Validator:
             self._error(
                 "TDC061",
                 f'cannot read file "{src}"',
-                "Paths are relative to the config file's own folder.",
+                file_gen.format_attempts(file_gen.attempts(src.strip(), self.base_dir, self._roots())),
                 line,
                 column,
             )
@@ -3217,8 +3263,8 @@ class _Validator:
             # here — but which type reads `order=` does not depend on the pack, and that half is
             # why `order=` and `parent=` sat on a template generator doing nothing.
             for name in attrs:
-                if name == "parent":
-                    self._ignored(gen, name, _MISPLACED_GEN_PARENT)
+                if f"gen:{name}" in _MISPLACED:
+                    self._ignored(gen, name, _MISPLACED[f"gen:{name}"])
                     continue
                 # A name the pack may claim is the pack's business, and the pack-parameter
                 # check judges it with the registry in hand. The line is drawn by what the
@@ -3242,7 +3288,7 @@ class _Validator:
         order = (attrs.get("order") or "").strip()
         for name in attrs:
             if name not in GEN_ATTRS:
-                self._ignored(gen, name, "Check the spelling against the generator's attributes.")
+                self._ignored(gen, name, _MISPLACED.get(f"gen:{name}", _UNKNOWN_GEN_ATTR))
                 continue
             # A distribution parameter with no distribution asked for shapes nothing.
             if name in DISTRIBUTION_PARAMS and not has_distribution:
@@ -3323,7 +3369,7 @@ class _Validator:
             for name in attrs:
                 if name not in GEN_ATTRS:
                     self._ignored(
-                        gen, name, "Check the spelling against the generator's attributes."
+                        gen, name, _MISPLACED.get(f"gen:{name}", _UNKNOWN_GEN_ATTR)
                     )
             return
 
@@ -5793,7 +5839,7 @@ class _Validator:
         their own (TDC230) and so must not be reported here — but must not be offered
         as allowed either.
         """
-        listed = ", ".join(sorted(shown if shown is not None else allowed))
+        listed = _candidates(sorted(shown if shown is not None else allowed))
         if content is None:
             return
         for child in content.element() or []:

@@ -340,6 +340,55 @@ public static class FileGen
         return FirstReadable(attempts);
     }
 
+    /// <summary>
+    /// Every path <see cref="Resolve"/> would look at, in the order it looks — for the refusal
+    /// to name.
+    ///
+    /// "Paths are relative to the config file's own folder" is advice; the paths actually tried
+    /// are an answer. A reader whose data path was not picked up cannot tell the two apart until
+    /// the message names what was searched.
+    /// </summary>
+    public static IReadOnlyList<string> Attempts(
+        string src, string? baseDir, IReadOnlyList<string>? roots)
+    {
+        string text = src.Trim();
+        IReadOnlyList<string> candidates = (roots ?? Array.Empty<string>()).Reverse().ToList();
+
+        if (text.StartsWith("file://", StringComparison.Ordinal))
+        {
+            return new[] { new Uri(text).LocalPath };
+        }
+
+        if (text.StartsWith(DataAlias, StringComparison.Ordinal))
+        {
+            string alias = text[DataAlias.Length..].Trim();
+            return alias.Length == 0
+                ? Array.Empty<string>()
+                : candidates.Select(root => Normalize(Path.Combine(root, alias))).ToList();
+        }
+
+        if (Path.IsPathRooted(text))
+        {
+            return new[] { text };
+        }
+
+        string beside = baseDir is null ? text : Normalize(Path.Combine(baseDir, text));
+        if (File.Exists(beside) || candidates.Count == 0)
+        {
+            return new[] { beside };
+        }
+
+        var all = new List<string> { beside };
+        all.AddRange(candidates.Select(root => Normalize(Path.Combine(root, text))));
+        return all;
+    }
+
+    /// <summary>The refusal's note: what was searched, in the order it was searched.</summary>
+    public static string FormatAttempts(IReadOnlyList<string> paths) =>
+        paths.Count == 0
+            ? "No candidate paths were available."
+            : "Tried: " + string.Join("; ", paths);
+
     private static string Normalize(string path) => Path.GetFullPath(path);
 
     /// <summary>The first candidate that exists, or the first tried so the error names something real.</summary>

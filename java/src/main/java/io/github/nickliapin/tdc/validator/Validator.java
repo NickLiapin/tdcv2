@@ -427,10 +427,60 @@ public final class Validator {
    * was one flat union of every attribute name in the language, so writing any of them on a
    * {@code <gen>} passed in silence here while the reference refused it.
    */
-  /** parent= belongs on the <sequence>; count= and flag= belong to other tags entirely. */
-  private static final String MISPLACED_GEN_PARENT =
-      "parent= selects which rows a whole <sequence> or <mix> builds on; move it there. "
-          + "A <gen> inside one is already filtered by it.";
+  /**
+   * A list of allowed names, truncated the way the reference truncates every long one.
+   *
+   * <p>Six then "… (N more)". Printed in full, a fifteen-name list buries the one the reader is
+   * scanning for, and each implementation cut it at a different place — or not at all.
+   */
+  private static String candidates(java.util.Collection<String> names) {
+    final int most = 6;
+    List<String> all = new ArrayList<>(new java.util.TreeSet<>(names));
+    if (all.size() <= most) {
+      return String.join(", ", all);
+    }
+    return String.join(", ", all.subList(0, most)) + ", … (" + (all.size() - most) + " more)";
+  }
+
+  /**
+   * Attributes whose refusal has a SENTENCE of its own, keyed {@code tag:attribute}.
+   *
+   * <p>The generic complaint — check the spelling — is right about a typo and useless about a
+   * word written in the wrong place, which is what these are. {@code count=} on a {@code <gen>}
+   * is not a misspelling of anything; it is {@code <env count=>} or {@code repeat=}, and saying
+   * so is the difference between a reader fixing it and a reader hunting for a spelling that was
+   * never wrong.
+   */
+  private static final Map<String, String> MISPLACED =
+      Map.of(
+          "gen:parent",
+              "parent= selects which rows a whole <sequence> or <mix> builds on; move it there."
+                  + " A <gen> inside one is already filtered by it.",
+          // Not a misplacement but the same failure: a word readers reach for that the language
+          // spells differently. The nearest accepted string to `phase` is `case`, which sends
+          // someone shifting a seasonal wave off to look at branching.
+          "gen:phase",
+              "A seasonal wave is shifted with peak_at=, which names the ROW the wave peaks on"
+                  + " rather than an angle: peak_at=\"182\" over period=\"365\" puts the peak at"
+                  + " the first of July.",
+          // `count` belongs to <env> (rows in the run) and to <pool> (members in the table). On
+          // a <gen> nothing reads it, and it looks exactly like a way to ask for several values
+          // — which is `repeat=`.
+          "gen:count",
+              "count= is the size of the run on <env> and the size of the table on <pool>. For"
+                  + " several values in ONE row use repeat=.",
+          // `flag` names the ground-truth column of a <mix>. The nearest thing on a <gen> is
+          // anomaly_flag=, and someone reaching for `flag` there wants it.
+          "gen:flag",
+              "flag= names the branch-recording column of a <mix>. The <gen> equivalent is"
+                  + " anomaly_flag=, which records which rows were made outliers.",
+          "switch:percent",
+              "percent= splits rows between the branches of a <mix>. A <switch> chooses its case"
+                  + " from the value of on=, so there is nothing here to split.");
+
+  /** The generic complaint, for an attribute with no sentence of its own. */
+  private static final String UNKNOWN_GEN_ATTR =
+      "Check the spelling, or see the attributes reference for what a generator takes.";
 
   /** Attributes a &lt;gen&gt; may carry that are not pack parameters. */
   private static final Set<String> NOT_A_PACK_PARAM = Set.of("parent", "count", "flag");
@@ -740,13 +790,15 @@ public final class Validator {
           continue;
         }
         error("TDC010", "unknown child of <tdc>: \"<" + name + ">\"",
-            "Allowed children: env, block.", line(self), column(self));
+            "Allowed inside <tdc>: " + candidates(TDC_CHILDREN) + ".",
+            line(self), column(self));
         continue;
       }
       TDCParser.OpenCloseElementContext open = child.openCloseElement();
       if (open != null && !TDC_CHILDREN.contains(open.name.getText())) {
         error("TDC010", "unknown child of <tdc>: \"<" + open.name.getText() + ">\"",
-            "Allowed children: env, block.", line(open), column(open));
+            "Allowed inside <tdc>: " + candidates(TDC_CHILDREN) + ".",
+            line(open), column(open));
       }
     }
   }
@@ -2670,7 +2722,7 @@ public final class Validator {
       }
       int l = inner != null ? line(inner) : line(self);
       int c = inner != null ? column(inner) : column(self);
-      error("TDC124", "unknown child of <mix>: \"<" + tag + ">\"", "Allowed children: case.", l, c);
+      error("TDC124", "unknown child of <mix>: \"<" + tag + ">\"", "Allowed inside <mix>: case.", l, c);
     }
     if (cases > 0) {
       checkPercentMask(attributes(open.attr()).get("percent"), cases,
@@ -3255,7 +3307,9 @@ public final class Validator {
     }
     if (!java.nio.file.Files.isReadable(path)) {
       error("TDC061", "cannot read file \"" + src + "\"",
-          "Paths are relative to the config file's own folder.", at(gen, "src")[0], at(gen, "src")[1]);
+          io.github.nickliapin.tdc.generators.FileGen.formatAttempts(
+              io.github.nickliapin.tdc.generators.FileGen.attempts(src, baseDir, dataRoots())),
+          at(gen, "src")[0], at(gen, "src")[1]);
       return;
     }
     if (attrs.get("column") == null) {
@@ -3289,8 +3343,8 @@ public final class Validator {
       // here — but which type reads order= does not depend on the pack, and that half is why
       // order= and parent= sat on a template generator doing nothing.
       for (String name : attrs.keySet()) {
-        if ("parent".equals(name)) {
-          ignored(gen, name, MISPLACED_GEN_PARENT);
+        if (MISPLACED.containsKey("gen:" + name)) {
+          ignored(gen, name, MISPLACED.get("gen:" + name));
           continue;
         }
         // A name the pack may claim is the pack's business, and the pack-parameter check
@@ -3319,7 +3373,7 @@ public final class Validator {
 
     for (String name : attrs.keySet()) {
       if (!GEN_ATTRS.contains(name)) {
-        ignored(gen, name, "Check the spelling against the generator's attributes.");
+        ignored(gen, name, MISPLACED.getOrDefault("gen:" + name, UNKNOWN_GEN_ATTR));
         continue;
       }
       // A distribution parameter with no distribution asked for shapes nothing.
@@ -3397,7 +3451,7 @@ public final class Validator {
       }
       for (String name : attrs.keySet()) {
         if (!GEN_ATTRS.contains(name)) {
-          ignored(gen, name, "Check the spelling against the generator's attributes.");
+          ignored(gen, name, MISPLACED.getOrDefault("gen:" + name, UNKNOWN_GEN_ATTR));
         }
       }
       return;
@@ -5078,7 +5132,7 @@ public final class Validator {
         continue;
       }
       error("TDC125", "unknown child of <case>: \"<" + open.name.getText() + ">\"",
-          "Allowed children: data, gen, mix, switch.", line(open), column(open));
+          "Allowed inside <case>: data, gen, mix, switch.", line(open), column(open));
     }
   }
 
@@ -5998,20 +6052,20 @@ public final class Validator {
       if (hint != null) {
         error("TDC013", "<" + name + "> is not allowed directly inside <" + parent + ">",
             hint + " Allowed inside <" + parent + ">: "
-                + String.join(", ", new java.util.TreeSet<>(shown)) + ".",
+                + candidates(shown) + ".",
             line, column);
       } else if ("TDC013".equals(code)) {
         // TDC013 means "a tag this language knows, in the wrong place" and TDC010 "a tag
         // nobody has heard of", so the sentence follows the code rather than the call site.
         error("TDC013", "<" + name + "> is not allowed directly inside <" + parent + ">",
             "Allowed inside <" + parent + ">: "
-                + String.join(", ", new java.util.TreeSet<>(shown)) + ".",
+                + candidates(shown) + ".",
             line, column);
       } else {
         // The note is what a reader acts on, so every container says it the same way.
         error(code, "unknown child of <" + parent + ">: \"<" + name + ">\"",
             "Allowed inside <" + parent + ">: "
-                + String.join(", ", new java.util.TreeSet<>(shown)) + ".",
+                + candidates(shown) + ".",
             line, column);
       }
     }

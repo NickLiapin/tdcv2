@@ -410,10 +410,65 @@ public sealed class Validator
     /// attribute name in the language, so writing any of them on a <c>&lt;gen&gt;</c> passed in
     /// silence here while the reference refused it.
     /// </summary>
-    /// <summary>parent= belongs on the &lt;sequence&gt;; count= and flag= belong to other tags.</summary>
-    private const string MisplacedGenParent =
-        "parent= selects which rows a whole <sequence> or <mix> builds on; move it there. "
-        + "A <gen> inside one is already filtered by it.";
+    /// <summary>
+    /// A list of allowed names, truncated the way the reference truncates every long one.
+    ///
+    /// Six then "… (N more)". Printed in full, a fifteen-name list buries the one the reader is
+    /// scanning for, and each implementation cut it at a different place — or not at all.
+    /// </summary>
+    private static string Candidates(IEnumerable<string> names)
+    {
+        const int most = 6;
+        List<string> all = names.OrderBy(a => a, StringComparer.Ordinal).ToList();
+        return all.Count <= most
+            ? string.Join(", ", all)
+            : string.Join(", ", all.Take(most)) + $", … ({all.Count - most} more)";
+    }
+
+    /// <summary>
+    /// Attributes whose refusal has a SENTENCE of its own, keyed <c>tag:attribute</c>.
+    ///
+    /// The generic complaint — check the spelling — is right about a typo and useless about a
+    /// word written in the wrong place, which is what these are. <c>count=</c> on a
+    /// <c>&lt;gen&gt;</c> is not a misspelling of anything; it is <c>&lt;env count=&gt;</c> or
+    /// <c>repeat=</c>, and saying so is the difference between a reader fixing it and a reader
+    /// hunting for a spelling that was never wrong.
+    /// </summary>
+    private static readonly Dictionary<string, string> Misplaced = new(StringComparer.Ordinal)
+    {
+        ["gen:parent"] =
+            "parent= selects which rows a whole <sequence> or <mix> builds on; move it there. "
+            + "A <gen> inside one is already filtered by it.",
+
+        // Not a misplacement but the same failure: a word readers reach for that the language
+        // spells differently. The nearest accepted string to `phase` is `case`, which sends
+        // someone shifting a seasonal wave off to look at branching.
+        ["gen:phase"] =
+            "A seasonal wave is shifted with peak_at=, which names the ROW the wave peaks on "
+            + "rather than an angle: peak_at=\"182\" over period=\"365\" puts the peak at the "
+            + "first of July.",
+
+        // `count` belongs to <env> (rows in the run) and to <pool> (members in the table). On a
+        // <gen> nothing reads it, and it looks exactly like a way to ask for several values —
+        // which is `repeat=`.
+        ["gen:count"] =
+            "count= is the size of the run on <env> and the size of the table on <pool>. For "
+            + "several values in ONE row use repeat=.",
+
+        // `flag` names the ground-truth column of a <mix>. The nearest thing on a <gen> is
+        // anomaly_flag=, and someone reaching for `flag` there wants it.
+        ["gen:flag"] =
+            "flag= names the branch-recording column of a <mix>. The <gen> equivalent is "
+            + "anomaly_flag=, which records which rows were made outliers.",
+
+        ["switch:percent"] =
+            "percent= splits rows between the branches of a <mix>. A <switch> chooses its case "
+            + "from the value of on=, so there is nothing here to split.",
+    };
+
+    /// <summary>The generic complaint, for an attribute with no sentence of its own.</summary>
+    private const string UnknownGenAttr =
+        "Check the spelling, or see the attributes reference for what a generator takes.";
 
     /// <summary>Attributes a &lt;gen&gt; may carry that are not pack parameters.</summary>
     private static readonly IReadOnlySet<string> NotAPackParam =
@@ -759,7 +814,8 @@ public sealed class Validator
 
                 Error(
                     "TDC010", $"unknown child of <tdc>: \"<{name}>\"",
-                    "Allowed children: env, block.", Line(self), Column(self));
+                    $"Allowed inside <tdc>: {Candidates(TdcChildren)}.",
+                    Line(self), Column(self));
                 continue;
             }
 
@@ -768,7 +824,8 @@ public sealed class Validator
             {
                 Error(
                     "TDC010", $"unknown child of <tdc>: \"<{open.name.Text}>\"",
-                    "Allowed children: env, block.", Line(open), Column(open));
+                    $"Allowed inside <tdc>: {Candidates(TdcChildren)}.",
+                    Line(open), Column(open));
             }
         }
     }
@@ -2996,7 +3053,7 @@ public sealed class Validator
 
             int l = inner is not null ? Line(inner) : Line(self);
             int c = inner is not null ? Column(inner) : Column(self);
-            Error("TDC124", $"unknown child of <mix>: \"<{tag}>\"", "Allowed children: case.", l, c);
+            Error("TDC124", $"unknown child of <mix>: \"<{tag}>\"", "Allowed inside <mix>: case.", l, c);
         }
 
         IReadOnlyDictionary<string, string> mixAttrs = Attributes(open.attr());
@@ -3721,7 +3778,7 @@ public sealed class Validator
             (int line, int column) = At(gen, "src");
             Error(
                 "TDC061", $"cannot read file \"{src}\"",
-                "Paths are relative to the config file's own folder.", line, column);
+                FileGen.FormatAttempts(FileGen.Attempts(src, _baseDir, DataRoots)), line, column);
             return;
         }
 
@@ -3767,9 +3824,9 @@ public sealed class Validator
             // why order= and parent= sat on a template generator doing nothing.
             foreach (string name in attrs.Keys)
             {
-                if (name == "parent")
+                if (Misplaced.TryGetValue("gen:" + name, out string? why))
                 {
-                    Ignored(gen, name, MisplacedGenParent);
+                    Ignored(gen, name, why);
                 }
                 else if (ReservedTemplateAttrs.Contains(name)
                     && AttributeOwners.TryGetValue(name, out IReadOnlySet<string>? owns)
@@ -3797,7 +3854,8 @@ public sealed class Validator
         {
             if (!GenAttrs.Contains(name))
             {
-                Ignored(gen, name, "Check the spelling against the generator's attributes.");
+                Ignored(
+                    gen, name, Misplaced.GetValueOrDefault("gen:" + name, UnknownGenAttr));
                 continue;
             }
 
@@ -3895,7 +3953,8 @@ public sealed class Validator
             {
                 if (!GenAttrs.Contains(name))
                 {
-                    Ignored(gen, name, "Check the spelling against the generator's attributes.");
+                    Ignored(
+                        gen, name, Misplaced.GetValueOrDefault("gen:" + name, UnknownGenAttr));
                 }
             }
 
@@ -5937,7 +5996,7 @@ public sealed class Validator
 
             Error(
                 "TDC125", $"unknown child of <case>: \"<{open.name.Text}>\"",
-                "Allowed children: data, gen, mix, switch.", Line(open), Column(open));
+                "Allowed inside <case>: data, gen, mix, switch.", Line(open), Column(open));
         }
     }
 
@@ -6979,7 +7038,12 @@ public sealed class Validator
 
             case Expr.Expr.Computed computed:
                 Error(
-                    "TDC103", "computed member access is not supported in {article} {label}",
+                // The message is BUILT from the site, like every other complaint in this walk:
+                // `article` and `label` are the caller's ("an if expression", "a mean=
+                // parameter"). Written as a literal it printed the two braces themselves --
+                // "not supported in {article} {label}" -- reaching the user as the template
+                // rather than the sentence.
+                    "TDC103", $"computed member access is not supported in {article} {label}",
                     "Use plain dotted access like Gender.Male or Person.FirstName.", line, column);
                 CheckExprNode(computed.Object, line, column, label, article);
                 return;
@@ -7082,7 +7146,7 @@ public sealed class Validator
         TDCParser.ContentContext? content, string parent, IReadOnlySet<string> allowed,
         string code, IReadOnlySet<string> shown)
     {
-        string listed = string.Join(", ", shown.OrderBy(a => a, StringComparer.Ordinal));
+        string listed = Candidates(shown);
         if (content is null)
         {
             return;

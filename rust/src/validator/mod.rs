@@ -153,6 +153,67 @@ struct Validator {
 
 /// Attributes the closed-tag pass must stay quiet about, because a check of their own already
 /// refuses them with a code that says more. Listed here rather than added to the tag's attribute
+/// A list of allowed names, truncated the way the reference truncates every long one.
+///
+/// Six then "… (N more)". Printed in full, a fifteen-name list buries the one the reader is
+/// scanning for, and each implementation cut it at a different place — or not at all.
+fn candidates(names: &[&str]) -> String {
+    const MOST: usize = 6;
+    if names.len() <= MOST {
+        return names.join(", ");
+    }
+    format!(
+        "{}, … ({} more)",
+        names[..MOST].join(", "),
+        names.len() - MOST
+    )
+}
+
+/// Attributes whose refusal has a SENTENCE of its own, keyed by tag and name.
+///
+/// The generic complaint — check the spelling — is right about a typo and useless about a word
+/// written in the wrong place, which is what these are. `count=` on a `<gen>` is not a
+/// misspelling of anything; it is `<env count=>` or `repeat=`, and saying so is the difference
+/// between a reader fixing it and a reader hunting for a spelling that was never wrong.
+fn misplaced(tag: &str, name: &str) -> Option<&'static str> {
+    match (tag, name) {
+        ("gen", "parent") => Some(
+            "parent= selects which rows a whole <sequence> or <mix> builds on; move it there. \
+             A <gen> inside one is already filtered by it.",
+        ),
+        // Not a misplacement but the same failure: a word readers reach for that the language
+        // spells differently. The nearest accepted string to `phase` is `case`, which sends
+        // someone shifting a seasonal wave off to look at branching.
+        ("gen", "phase") => Some(
+            "A seasonal wave is shifted with peak_at=, which names the ROW the wave peaks on \
+             rather than an angle: peak_at=\"182\" over period=\"365\" puts the peak at the \
+             first of July.",
+        ),
+        // `count` belongs to <env> (rows in the run) and to <pool> (members in the table). On a
+        // <gen> nothing reads it, and it looks exactly like a way to ask for several values —
+        // which is `repeat=`.
+        ("gen", "count") => Some(
+            "count= is the size of the run on <env> and the size of the table on <pool>. For \
+             several values in ONE row use repeat=.",
+        ),
+        // `flag` names the ground-truth column of a <mix>. The nearest thing on a <gen> is
+        // anomaly_flag=, and someone reaching for `flag` there wants it.
+        ("gen", "flag") => Some(
+            "flag= names the branch-recording column of a <mix>. The <gen> equivalent is \
+             anomaly_flag=, which records which rows were made outliers.",
+        ),
+        ("switch", "percent") => Some(
+            "percent= splits rows between the branches of a <mix>. A <switch> chooses its case \
+             from the value of on=, so there is nothing here to split.",
+        ),
+        _ => None,
+    }
+}
+
+/// The generic complaint, for an attribute with no sentence of its own.
+const UNKNOWN_GEN_ATTR: &str =
+    "Check the spelling, or see the attributes reference for what a generator takes.";
+
 /// set: they are NOT attributes of the tag, they are attributes with a better complaint.
 const HAS_ITS_OWN_REFUSAL: &[&str] = &["mix:repeat", "mix:separator"];
 
@@ -168,7 +229,7 @@ impl Validator {
         // for a name finds it faster in a list that has an order.
         let mut names: Vec<&str> = allowed.to_vec();
         names.sort_unstable();
-        let hint = format!("Allowed inside <{parent}>: {}.", names.join(", "));
+        let hint = format!("Allowed inside <{parent}>: {}.", candidates(&names));
         self.error(
             code,
             format!("unknown child of <{parent}>: \"<{name}>\""),
@@ -196,7 +257,7 @@ impl Validator {
                 self.error(
                     "TDC013",
                     format!("<{name}> is not allowed directly inside <{parent}>"),
-                    &format!("Allowed inside <{parent}>: {}.", names.join(", ")),
+                    &format!("Allowed inside <{parent}>: {}.", candidates(&names)),
                     pos,
                 );
             } else {
@@ -338,7 +399,11 @@ impl Validator {
                 self.error(
                     "TDC010",
                     format!("unknown child of <tdc>: \"<{name}>\""),
-                    "Allowed children: env, block.",
+                    &{
+                        let mut names: Vec<&str> = tables::TDC_CHILDREN.to_vec();
+                        names.sort_unstable();
+                        format!("Allowed inside <tdc>: {}.", candidates(&names))
+                    },
                     child.pos,
                 );
                 continue;
@@ -347,7 +412,11 @@ impl Validator {
                 self.error(
                     "TDC010",
                     format!("unknown child of <tdc>: \"<{name}>\""),
-                    "Allowed children: env, block.",
+                    &{
+                        let mut names: Vec<&str> = tables::TDC_CHILDREN.to_vec();
+                        names.sort_unstable();
+                        format!("Allowed inside <tdc>: {}.", candidates(&names))
+                    },
                     child.pos,
                 );
             }
@@ -2297,7 +2366,11 @@ impl Validator {
                 None => self.error(
                     "TDC010",
                     format!("unknown child of <{parent_name}>: \"<{}>\"", child.name),
-                    &format!("Allowed children: {}.", sorted(allowed).join(", ")),
+                    &{
+                        let names = sorted(allowed);
+                        let refs: Vec<&str> = names.iter().map(String::as_str).collect();
+                        format!("Allowed inside <{parent_name}>: {}.", candidates(&refs))
+                    },
                     child.pos,
                 ),
             }
@@ -3091,7 +3164,7 @@ impl Validator {
             self.error(
                 "TDC061",
                 format!("cannot read file \"{src}\""),
-                "Paths are relative to the config file's own folder.",
+                &file::format_attempts(&file::attempts(src, self.base_dir.as_deref(), &roots)),
                 gen.at("src"),
             );
             return;
@@ -3153,13 +3226,8 @@ impl Validator {
             // sat on a template generator doing nothing.
             let written: Vec<String> = gen.attrs.iter().map(|a| a.name.clone()).collect();
             for name in &written {
-                if name == "parent" {
-                    self.ignored(
-                        gen,
-                        name,
-                        "parent= selects which rows a whole <sequence> or <mix> builds on; move \
-                         it there. A <gen> inside one is already filtered by it.",
-                    );
+                if let Some(why) = misplaced("gen", name) {
+                    self.ignored(gen, name, why);
                 } else if let Some(owners) = tables::lookup(&tables::ATTRIBUTE_OWNERS, name)
                     .filter(|_| tables::RESERVED_TEMPLATE_ATTRS.contains(&name.as_str()))
                 {
@@ -3201,7 +3269,7 @@ impl Validator {
                 self.ignored(
                     gen,
                     name,
-                    "Check the spelling against the generator's attributes.",
+                    misplaced("gen", name).unwrap_or(UNKNOWN_GEN_ATTR),
                 );
                 continue;
             }
@@ -3322,7 +3390,7 @@ impl Validator {
                     self.ignored(
                         gen,
                         name,
-                        "Check the spelling against the generator's attributes.",
+                        misplaced("gen", name).unwrap_or(UNKNOWN_GEN_ATTR),
                     );
                 }
             }
@@ -4798,7 +4866,7 @@ impl Validator {
             self.error(
                 "TDC124",
                 format!("unknown child of <mix>: \"<{}>\"", child.name),
-                "Allowed children: case.",
+                "Allowed inside <mix>: case.",
                 child.pos,
             );
         }
@@ -4913,7 +4981,7 @@ impl Validator {
             self.error(
                 "TDC125",
                 format!("unknown child of <case>: \"<{}>\"", child.name),
-                "Allowed children: data, gen, mix, switch.",
+                "Allowed inside <case>: data, gen, mix, switch.",
                 child.pos,
             );
         }
@@ -5876,7 +5944,12 @@ impl Validator {
             expr::Expr::Computed(inner) => {
                 self.error(
                     "TDC103",
-                    "computed member access is not supported in {article} {label}".to_string(),
+                    // The message is BUILT from the site, like every other complaint in this
+                    // walk: `article` and `label` are the caller's ("an if expression", "a
+                    // mean= parameter"). Written as a literal it printed the two braces
+                    // themselves -- "not supported in {article} {label}" -- reaching the user
+                    // as the template rather than the sentence.
+                    format!("computed member access is not supported in {article} {label}"),
                     "Use plain dotted access like Gender.Male or Person.FirstName.",
                     at,
                 );

@@ -87,16 +87,16 @@ plantillas con salida real.
 
 | Ruta                      | Produce                                         | Depende del locale |
 | :------------------------ | :---------------------------------------------- | :----------------: |
-| `person.male.firstName`   | Un nombre de pila masculino                     |   10 + `zh-cn`     |
-| `person.female.firstName` | Un nombre de pila femenino                      |   10 + `zh-cn`     |
-| `person.lastName`         | Un apellido (masculinos + comunes del locale)   |   10 + `zh-cn`     |
-| `person.male.diagnosis`   | Un diagnóstico masculino + los comunes          |        10          |
-| `person.female.diagnosis` | Un diagnóstico femenino + los comunes           |        10          |
-| `person.gender`           | Un género al azar; la etiqueta viene del locale |        10          |
+| `person.male.firstName`   | Un nombre de pila masculino                     |         86         |
+| `person.female.firstName` | Un nombre de pila femenino                      |         86         |
+| `person.lastName`         | Un apellido (masculinos + comunes del locale)   |         86         |
+| `person.male.diagnosis`   | Un diagnóstico masculino + los comunes          |         86         |
+| `person.female.diagnosis` | Un diagnóstico femenino + los comunes           |         86         |
+| `person.gender`           | Un género al azar; la etiqueta viene del locale |         86         |
 | `person.b_day`            | Una fecha de nacimiento en el formato dado      |  solo el formato   |
 
-Los diez son `ar`, `de`, `el`, `en`, `es`, `fr`, `it`, `pl`, `pt` y `ru` — los paquetes de
-idioma que están llenos y no son esbozos. `zh-cn` trae nombres pero todavía no el resto.
+Las seis vienen en cada uno de los **86 paquetes de idioma** del registro — la lista está en
+el [catálogo](../data-packs/catalogue.mdx).
 Cualquier otro locale recibe [TDC217](../reference/errors.mdx), que nombra los locales que
 sí traen la ruta en lugar de dejar que la corrida adivine.
 
@@ -208,7 +208,7 @@ es el predeterminado si no pone `local`.
 
 | Ruta               | Produce           | Depende del locale |
 | :----------------- | :---------------- | :----------------: |
-| `location.country` | Un nombre de país |  los 10 paquetes   |
+| `location.country` | Un nombre de país |  los 86 paquetes   |
 
 ```xml
 <sequence name="C"><gen type="template" value="location.country"/></sequence>
@@ -224,15 +224,15 @@ Kazajistán`}
 </Terminal>
 
 El nombre sale en el idioma del locale activo — `Kirguistán` bajo `es`, `Kyrgyzstan`
-bajo `en`, `Киргизия` bajo `ru`. Ojo: `en` lleva cuatro países más que
-los demás (237 frente a 233), así que una misma semilla no cae en el mismo país en los tres
-locales; lo que se conserva es la reproducibilidad dentro de cada uno.
+bajo `en`, `Киргизия` bajo `ru`. Ojo: las listas no miden lo mismo — cada paquete nombra los
+países para los que su idioma tiene nombre —, así que una misma semilla no cae en el mismo
+país en los tres locales; lo que se conserva es la reproducibilidad dentro de cada uno.
 
 :::note[Cada locale que tiene un paquete]
-`location.country` viene en los once paquetes de idioma que trae el registro — **ar**,
-**de**, **el**, **en**, **es**, **fr**, **it**, **pl**, **pt**, **ru** y **zh-cn** — cada uno con
-los mismos 233 países y territorios (el inglés trae 237). Un locale sin paquete tampoco
-tiene lista: ahí la ruta da un error en vez de caer al inglés.
+`location.country` viene en los **86** paquetes de idioma que trae el registro. Las listas no
+son todas del mismo largo: un paquete nombra los países para los que su idioma tiene nombre,
+así que van de 23 entradas a 247, con 206 en medio y 237 en inglés. Un locale sin paquete
+tampoco tiene lista: ahí la ruta da un error en vez de caer al inglés.
 :::
 
 No existe `location.city`. Las ciudades, las regiones y los códigos postales viven bajo
@@ -300,15 +300,16 @@ tema mismo: **un paquete de país nombra sus divisiones como las nombra ese paí
 
 | Hoja              | Paquetes de país que la traen |
 | :---------------- | :---------------------------- |
-| `geo.city`        | 93 de 111                     |
-| `geo.region`      | 52                            |
-| `geo.streetName`  | 36 (más 37 con `geo.streetNamed`) |
-| `geo.postalCode`  | 24                            |
-| `geo.province`    | 19                            |
+| `geo.city`        | 147 de 152                    |
+| `geo.postalCode`  | 76                            |
+| `geo.region`      | 68                            |
+| `geo.streetName`  | 45 (más 38 con `geo.streetNamed`) |
+| `geo.province`    | 35                            |
+| `geo.municipality`| 21                            |
+| `geo.district`    | 21                            |
 | `geo.zip`         | 16                            |
-| `geo.municipality`| 13                            |
 
-Alguna división existe en 95 de los 111 paquetes de país y un código postal en 46, bajo
+Alguna división existe en 137 de los 152 paquetes de país y un código postal en 92, bajo
 nombres como `department`, `canton`, `governorate`, `voivodeship`, `prefecture`, `zip`,
 `postalCode`, `eircode`, `cep`, `cap` y `cpa`. Por eso `usa.geo.province` no es una ruta: Estados Unidos tiene
 `usa.geo.state` y `usa.geo.zip`.

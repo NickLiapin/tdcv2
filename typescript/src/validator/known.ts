@@ -370,6 +370,10 @@ export const KNOWN_POOL_CHILDREN: readonly string[] = [
   'switch',
   'uniq',
   'distinct',
+  // A `<data>` inside a `<pool>` is accepted — by this implementation and by all four ports —
+  // and was named by no list here, so the refusal for a WRONG child of a pool printed a set of
+  // allowed names that left out one of them. The ports carried it and this list did not.
+  'data',
 ] as const;
 
 /** Tag names valid inside a fixture (`<before>`, `<after>`, the delimiters…). */
