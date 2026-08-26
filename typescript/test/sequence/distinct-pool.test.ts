@@ -132,6 +132,58 @@ describe('<distinct> over pool references', () => {
   });
 });
 
+describe('<distinct> over pool references — rows a parent= leaves out', () => {
+  // A reference under a `parent=` covers only the rows its parent selected; on
+  // the others it prints nothing. Those rows must not take a member: an absent
+  // column narrowing the visible one beside it is a distribution skew nobody
+  // asked for, and on a pool with no slack it is a refusal nobody deserves.
+  const withParent = (poolCount: number, count: number): string => `
+    <tdc>
+      <env count="${String(count)}" seed="s">
+        <pool name="Doctors" count="${String(poolCount)}">
+          <sequence name="name" uniq="true"><gen type="text" value="Adams,Brooks,Chase,Dunn"/></sequence>
+        </pool>
+        <mix name="Kind" percent="50">
+          <case><gen type="text" value="ward"/></case>
+          <case><gen type="text" value="clinic"/></case>
+        </mix>
+        <distinct>
+          <sequence name="A"><gen type="pool" value="Doctors"/></sequence>
+          <sequence name="B" parent="Kind.ward"><gen type="pool" value="Doctors"/></sequence>
+        </distinct>
+      </env>
+      <block><line><data>\${{Kind}}|\${{A.name}}|\${{B.name}}</data></line></block>
+    </tdc>`;
+
+  it('still keeps the two apart on the rows that carry both', () => {
+    const lines = run(withParent(4, 600), 1);
+    const both = lines.filter((l) => (l.split('|')[2] ?? '') !== '');
+    expect(both.length).toBeGreaterThan(0);
+    for (const line of both) {
+      const [, a, b] = line.split('|');
+      expect(a).not.toBe(b);
+    }
+  });
+
+  it('does not skew the present column on rows where the other is absent', () => {
+    const lines = run(withParent(4, 600), 1);
+    const alone = lines.filter((l) => (l.split('|')[2] ?? '') === '').map((l) => l.split('|')[1]);
+    const counts = new Map<string, number>();
+    for (const name of alone) counts.set(name ?? '', (counts.get(name ?? '') ?? 0) + 1);
+    // All four members appear. Before the parent mask was honoured the absent
+    // reference took one away, so on a pool of two the survivor was pinned.
+    expect(counts.size).toBe(4);
+    const smallest = Math.min(...counts.values());
+    expect(smallest).toBeGreaterThan(alone.length / 8);
+  });
+
+  it('a pool of two survives a group whose second member is often absent', () => {
+    // Two references, two members: every row that carries both uses them up.
+    // A row carrying only one must not be refused for want of the other.
+    expect(() => run(withParent(2, 200), 1)).not.toThrow();
+  });
+});
+
 describe('<uniq> over pool references', () => {
   const pairUniq = (count: number, poolCount: number): string => `
     <tdc>

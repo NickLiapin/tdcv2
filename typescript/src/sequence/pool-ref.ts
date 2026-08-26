@@ -34,7 +34,7 @@ export function registerPoolRef(
    * Absent for a reference in no group, which is every reference until one is
    * written — the plain pick then stands, bit for bit as before.
    */
-  groupPick?: ((i: number) => number)  ,
+  groupPick?: (i: number) => number,
 ): void {
   const table = pools?.[poolName];
   if (!table || table.count < 1) return; // unknown pool — the validator reports it
@@ -43,7 +43,7 @@ export function registerPoolRef(
   // One pick per ROW, shared by every field: this is what makes the first name
   // and the last name in a row belong to the same doctor. Not one pick per
   // field, which is exactly how "Дмитрий Иванова" would get out.
-  const memberAt = groupPick ?? memberPicker(spec, poolName, table, registry, seed).pick;
+  const memberAt = groupPick ?? memberPicker(spec, poolName, table, registry, seed, count).pick;
   const members = new Array<number>(count);
   for (let i = 0; i < count; i++) members[i] = mask[i] ? memberAt(i) : -1;
 
@@ -79,7 +79,7 @@ export function lazyPoolRefColumns(
   pools: PoolTables | undefined,
   seed: string,
   /** See `registerPoolRef`: the group's say in this reference's pick, if any. */
-  groupPick?: ((i: number) => number)  ,
+  groupPick?: (i: number) => number,
 ): Record<string, Sequence> {
   const table = pools?.[poolName];
   if (!table || table.count < 1) return {};

@@ -22,6 +22,7 @@ import {
   rowValuesDetail,
   parseEqualityFilter,
 } from './pool-filter.js';
+import { computeParentMask } from './assemble.js';
 import { poolRefName, poolRefStream, type PoolTable, type PoolTables } from './pool.js';
 import { arrangeUnique, uniqGroupMessage } from './uniq.js';
 import { sequenceValueAt } from './types.js';
@@ -41,6 +42,16 @@ export interface MemberPicker {
   candidates: (i: number) => readonly number[];
   /** The member row `i` takes, with no group repair applied. */
   pick: (i: number) => number;
+  /**
+   * Whether row `i` gets a member at all.
+   *
+   * `parent=` narrows a reference to the rows its parent selected; the others
+   * print nothing. A group must not count those rows, or an invisible column
+   * takes a doctor away from the visible one beside it — measured on a pool of
+   * two, where it pinned the second reference to the other member on every row
+   * the first was absent from.
+   */
+  active: (i: number) => boolean;
 }
 
 /** Draw one of `candidates` for row `i`, on the reference's own stream. */
@@ -66,11 +77,34 @@ export function memberPicker(
   table: PoolTable,
   registry: Record<string, Sequence>,
   seed: string,
+  /**
+   * How many rows the run has — only ever read to size a `parent=` mask.
+   *
+   * `undefined` from the streaming path, which has no row count to give and
+   * needs none: it refuses a pool reference with `parent=` before it gets here,
+   * so `active` is the constant true there.
+   */
+  count?: number,
 ): MemberPicker {
+  // Lazily, because the parent's column is registered in declaration order and
+  // this picker may be built before the loop reaches it. By the time a row is
+  // asked for, the parent is there.
+  let mask: readonly boolean[] | undefined;
+  const active = (i: number): boolean => {
+    if (spec.parent === undefined || count === undefined) return true;
+    mask ??= computeParentMask(spec, registry, count);
+    return mask[i] ?? false;
+  };
+
   const filter = (spec.gen?.attrs['filter'] ?? '').trim();
   const all = Array.from({ length: table.count }, (_, m) => m);
   if (filter === '') {
-    return { table, candidates: () => all, pick: (i) => drawFrom(seed, spec.name, all, i) };
+    return {
+      table,
+      candidates: () => all,
+      pick: (i) => drawFrom(seed, spec.name, all, i),
+      active,
+    };
   }
 
   // `field == Column` is bucketed once; a row then costs a map lookup instead of
@@ -104,7 +138,12 @@ export function memberPicker(
     return eligible;
   };
 
-  return { table, candidates, pick: (i) => drawFrom(seed, spec.name, candidates(i), i) };
+  return {
+    table,
+    candidates,
+    pick: (i) => drawFrom(seed, spec.name, candidates(i), i),
+    active,
+  };
 }
 
 /**
@@ -148,6 +187,9 @@ export function poolGroupPickers(
       for (const name of members) {
         const picker = pickers.get(name);
         if (!picker) continue;
+        // A row this reference does not cover prints nothing, so it takes
+        // nothing: counting it would let an absent column narrow a present one.
+        if (!picker.active(i)) continue;
         const candidates = picker.candidates(i);
         let pick = drawFrom(seed, name, candidates, i);
         if (taken.includes(pick)) {
@@ -189,6 +231,7 @@ export function poolPickers(
   registry: Record<string, Sequence>,
   pools: PoolTables | undefined,
   seed: string,
+  count: number,
 ): Map<string, MemberPicker> {
   const pickers = new Map<string, MemberPicker>();
   for (const spec of specs) {
@@ -196,7 +239,7 @@ export function poolPickers(
     if (poolName === undefined) continue;
     const table = pools?.[poolName];
     if (!table || table.count < 1) continue;
-    pickers.set(spec.name, memberPicker(spec, poolName, table, registry, seed));
+    pickers.set(spec.name, memberPicker(spec, poolName, table, registry, seed, count));
   }
   return pickers;
 }
@@ -226,16 +269,31 @@ export function poolUniqPicks(
     const members = group.filter((name) => pickers.has(name));
     if (members.length < 2) continue;
 
+    // Only rows every member covers carry the tuple, exactly as the scalar path
+    // decides: a row where one reference is absent has no combination to keep
+    // unique.
+    const rows: number[] = [];
+    for (let i = 0; i < count; i++) {
+      if (members.every((name) => pickers.get(name)?.active(i) ?? false)) rows.push(i);
+    }
+    if (rows.length === 0) continue;
+
     const columns = members.map((name) => {
       const picker = pickers.get(name);
-      return Array.from({ length: count }, (_, i) => String(picker ? picker.pick(i) : -1));
+      return rows.map((i) => String(picker ? picker.pick(i) : -1));
     });
     const { columns: arranged, distinct } = arrangeUnique(columns);
-    if (distinct < count) throw new Error(uniqGroupMessage(members.join(' × '), count, distinct));
+    if (distinct < rows.length) {
+      throw new Error(uniqGroupMessage(members.join(' × '), rows.length, distinct));
+    }
 
     members.forEach((name, m) => {
       const column = arranged[m] ?? [];
-      out.set(name, (i) => Number(column[i] ?? -1));
+      const byRow = new Map<number, number>();
+      rows.forEach((row, k) => byRow.set(row, Number(column[k] ?? -1)));
+      const picker = pickers.get(name);
+      // A row outside the arrangement keeps the pick it would have had.
+      out.set(name, (i) => byRow.get(i) ?? (picker ? picker.pick(i) : -1));
     });
   }
   return out;
@@ -262,7 +320,7 @@ export function poolGroupPicks(
   const hasDistinct = (groups.distinct?.length ?? 0) > 0;
   const hasUniq = (groups.uniq?.length ?? 0) > 0;
   if (!hasDistinct && !hasUniq) return new Map();
-  const pickers = poolPickers(specs, registry, pools, seed);
+  const pickers = poolPickers(specs, registry, pools, seed, count);
   if (pickers.size === 0) return new Map();
   const picks = poolGroupPickers(groups.distinct ?? [], pickers, seed);
   for (const [name, pick] of poolUniqPicks(groups.uniq, pickers, count)) {
