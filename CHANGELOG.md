@@ -377,6 +377,18 @@ placed` rather than naming a total it stopped counting. A number quietly reading
   produces their sum in Python, Java, C# and Rust, where it produced their digits run together.
   TypeScript is unchanged.
 
+- **One shared percent-mask checker, three questions.** A `<mix>` mask is checked against its
+  `<case>` children, a `text` mask against its value list, and everything else is about the
+  numbers written in the mask — and the ports had one sentence for all three, so two of the three
+  answered a question nobody asked. Told apart by the code now, as the reference tells them apart
+  by the site.
+
+- `TDC294` said "needs `expr=…`" where the reference says what is missing — "does not say what to
+  compute". Java's `TDC130` printed `70.0` for a pattern that asks for `70`, the same
+  double-formatting slip as `TDC123`. Rust listed the types an attribute belongs to in table
+  order and offered `data` as something a fixture takes — it passes there, because it has a
+  complaint of its own, but it is not a child a fixture accepts.
+
 - **Two more notes served two mistakes each.** A `<mix>` percent mask is checked against its
   `<case>` children and a number's against its value list, and both got "filled positions split
   the remaining percent" — an answer to the second question only, so a reader with too many mix

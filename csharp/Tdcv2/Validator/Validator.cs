@@ -2564,7 +2564,7 @@ public sealed class Validator
             // caret on the one thing written correctly.
             (int line, int column) = (Line(gen), Column(gen));
             Error(
-                "TDC294", "<gen type=\"formula\"> needs expr=\"\u2026\"",
+                "TDC294", "<gen type=\"formula\"> does not say what to compute",
                 "Add expr=\"…\" — the arithmetic this column is, written the way an if= condition is written: expr=\"0.75 * Height - 58\".",
                 line, column);
             return;
@@ -6175,10 +6175,14 @@ public sealed class Validator
                 _ => codes[2],
             };
             // The sentence follows the CODE, not the kind of mask error: a `<mix>` percent mask is checked against its <case> children and a number's against its value list, so "filled positions split the remaining percent" answers the second question only.
-            string hint = code == "TDC121"
-                ? "The mix percent mask must have no more entries than there are <case> children."
-                : "Filled positions must be non-negative numbers. Empty positions split the "
-                + "remaining percent equally.";
+            string hint = code switch
+            {
+                "TDC121" => "The mix percent mask must have no more entries than there are <case> children.",
+                "TDC051" => "Percent masks may be shorter than value only when missing positions "
+                    + "can be inferred. They may never be longer than value.",
+                _ => "Filled positions must be non-negative numbers. Empty positions split the "
+                    + "remaining percent equally.",
+            };
             Error(code, e.Message, hint, line, column);
         }
         catch (ArgumentException e)

@@ -5288,11 +5288,14 @@ class _Validator:
                 percent_mask.Kind.SUM: codes[2],
             }[e.kind]
             # The sentence follows the CODE, not the kind of mask error: a `<mix>` percent mask is checked against its <case> children and a number's against its value list, so "filled positions split the remaining percent" is an answer to the second question only. One sentence for both told a reader with too many mix percentages about positions that are not there.
-            hint = (
-                "The mix percent mask must have no more entries than there are <case> children."
-                if code == "TDC121"
-                else "Filled positions must be non-negative numbers. Empty positions split the "
-                "remaining percent equally."
+            hint = {
+                "TDC121": "The mix percent mask must have no more entries than there are <case> children.",
+                "TDC051": "Percent masks may be shorter than value only when missing positions "
+                "can be inferred. They may never be longer than value.",
+            }.get(
+                code,
+                "Filled positions must be non-negative numbers. Empty positions split the "
+                "remaining percent equally.",
             )
             self._error(code, str(e), hint, line, column)
         except ValueError as e:

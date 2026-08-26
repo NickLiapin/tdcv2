@@ -271,6 +271,22 @@ impl Validator {
     /// "a tag nobody has heard of", so the sentence follows the code rather than
     /// the call site — otherwise a reader gets one code and the other's wording.
     fn check_contained(&mut self, el: &Element, parent: &str, code: &str, allowed: &[&str]) {
+        self.check_contained_shown(el, parent, code, allowed, allowed);
+    }
+
+    /// `allowed` is what PASSES; `shown` is what the note offers.
+    ///
+    /// They differ where a tag has a complaint of its own — a `<data>` in a fixture is refused
+    /// by its own diagnostic, so it must not be reported here AND must not be offered as
+    /// something a fixture takes.
+    fn check_contained_shown(
+        &mut self,
+        el: &Element,
+        parent: &str,
+        code: &str,
+        allowed: &[&str],
+        shown: &[&str],
+    ) {
         let bad: Vec<(String, Pos)> = el
             .children
             .iter()
@@ -279,7 +295,7 @@ impl Validator {
             .collect();
         for (name, pos) in bad {
             if code == "TDC013" {
-                let mut names: Vec<&str> = allowed.to_vec();
+                let mut names: Vec<&str> = shown.to_vec();
                 names.sort_unstable();
                 self.error(
                     "TDC013",
@@ -288,7 +304,7 @@ impl Validator {
                     pos,
                 );
             } else {
-                self.unknown_child(parent, &name, code, allowed, pos);
+                self.unknown_child(parent, &name, code, shown, pos);
             }
         }
     }
@@ -1704,7 +1720,7 @@ impl Validator {
         if source.is_empty() {
             self.error(
                 "TDC294",
-                "<gen type=\"formula\"> needs expr=\"\u{2026}\"".to_string(),
+                "<gen type=\"formula\"> does not say what to compute".to_string(),
                 "Add expr=\"…\" — the arithmetic this column is, written the way an if= condition is written: expr=\"0.75 * Height - 58\".",
                 // An ABSENT attribute has no value to underline, so the tag is the
                 // target — as for every other missing-attribute refusal. Pointing at
@@ -3305,11 +3321,15 @@ impl Validator {
                     // The line is drawn by what the ENGINE reads before the pack
                     // runs; everything else is handed to the pack as an override.
                     if !owners.contains(&"template") {
-                        let belongs = owners
-                            .iter()
-                            .map(|t| format!("type=\"{t}\""))
-                            .collect::<Vec<_>>()
-                            .join(", ");
+                        // Sorted, and truncated the way every list in a diagnostic is: the
+                        // table's own order is the order it was written in, which is no order
+                        // to a reader scanning for a type.
+                        let mut types: Vec<&str> = owners.to_vec();
+                        types.sort_unstable();
+                        let quoted: Vec<String> =
+                            types.iter().map(|t| format!("type=\"{t}\"")).collect();
+                        let refs: Vec<&str> = quoted.iter().map(String::as_str).collect();
+                        let belongs = candidates(&refs);
                         self.ignored(
                             gen,
                             name,
@@ -4907,6 +4927,9 @@ impl Validator {
         // The sentence follows the CODE, not the kind of mask error: a `<mix>` percent mask is checked against its <case> children and a number's against its value list, so "filled positions split the remaining percent" answers the second question only.
         let hint = if code == "TDC121" {
             "The mix percent mask must have no more entries than there are <case> children."
+        } else if code == "TDC051" {
+            "Percent masks may be shorter than value only when missing positions can be \
+             inferred. They may never be longer than value."
         } else {
             "Filled positions must be non-negative numbers. Empty positions split the remaining \
              percent equally."
@@ -5114,12 +5137,14 @@ impl Validator {
                 );
             }
         }
+        // `data` PASSES here — it has its own complaint above — but is never offered as an
+        // allowed child, because it is not one.
         let allowed: Vec<&str> = tables::FIXTURE_CHILDREN
             .iter()
             .copied()
             .chain(std::iter::once("data"))
             .collect();
-        self.check_contained(&f, &tag, "TDC131", &allowed);
+        self.check_contained_shown(&f, &tag, "TDC131", &allowed, &tables::FIXTURE_CHILDREN);
     }
 
     fn check_case_gen(&mut self, gen: &Element) {

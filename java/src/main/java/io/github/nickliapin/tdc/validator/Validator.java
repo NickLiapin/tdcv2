@@ -2329,7 +2329,7 @@ public final class Validator {
       // thing written correctly.
       int[] at = {line(gen), column(gen)};
       error(
-          "TDC294", "<gen type=\"formula\"> needs expr=\"\u2026\"",
+          "TDC294", "<gen type=\"formula\"> does not say what to compute",
           "Add expr=\"…\" — the arithmetic this column is, written the way an if= condition is written: expr=\"0.75 * Height - 58\".",
           at[0], at[1]);
       return;
@@ -5292,8 +5292,11 @@ public final class Validator {
       String hint =
           "TDC121".equals(code)
               ? "The mix percent mask must have no more entries than there are <case> children."
-              : "Filled positions must be non-negative numbers. Empty positions split the "
-                  + "remaining percent equally.";
+              : "TDC051".equals(code)
+                  ? "Percent masks may be shorter than value only when missing positions can be"
+                      + " inferred. They may never be longer than value."
+                  : "Filled positions must be non-negative numbers. Empty positions split the "
+                      + "remaining percent equally.";
       error(code, e.getMessage(), hint, line, column);
     } catch (RuntimeException e) {
       error(codes[2], e.getMessage(), "", line, column);

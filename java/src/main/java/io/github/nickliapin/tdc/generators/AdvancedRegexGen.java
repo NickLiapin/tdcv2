@@ -459,7 +459,14 @@ public final class AdvancedRegexGen {
             sum += branch.percent();
           }
           if (Math.abs(sum - 100) > 0.0001) {
-            throw error("weighted choice percentages sum to " + sum + ", expected 100");
+            // Through the shared number-to-text, not Java's own: `String.valueOf(70.0)` prints
+            // the trailing `.0`, so the refusal said the pattern asks for `70.0` where it asks
+            // for `70` — the number in a message about a number has to be the one that was
+            // written.
+            throw error(
+                "weighted choice percentages sum to "
+                    + io.github.nickliapin.tdc.lib.Numbers.toText(sum)
+                    + ", expected 100");
           }
           weightedChoiceCount++;
           return new Weighted(List.copyOf(choices));
