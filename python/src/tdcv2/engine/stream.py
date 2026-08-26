@@ -124,6 +124,24 @@ class Built:
     flag: Column | None = None
 
 
+def _draw_pool_member(
+    seed: str, ref_name: str, candidates: list[int], row: int, attempt: int
+) -> int:
+    """Draw one of ``candidates`` for ``row``, on the reference's own stream.
+
+    Attempt 0 is the plain stream, so a reference in no group produces exactly what it always
+    did. A repair draw is a NEW stream named for the attempt. Both names are part of the
+    cross-language contract.
+    """
+    stream = (
+        pool_mod.ref_stream(ref_name)
+        if attempt == 0
+        else f"{pool_mod.ref_stream(ref_name)}#ed{attempt}"
+    )
+    slot = seekable.next_int(seed, stream, row, len(candidates))
+    return candidates[slot] if slot < len(candidates) else 0
+
+
 class StreamEngine:
     __slots__ = (
         "base_dir",
@@ -252,6 +270,94 @@ class StreamEngine:
 
     # ── pools ───────────────────────────────────────────────────────────────────────────────
 
+    def _pool_candidates(self, params, row: int) -> list[int]:
+        """The members row ``row`` may draw from: all of them, or what a ``filter=`` leaves."""
+        _, pool_name, table, expression, equality, buckets = params
+        if not expression:
+            return list(range(table.count))
+        if equality and buckets is not None:
+            driver = self.columns.get(equality[1])
+            wanted = driver(row) if driver else ""
+            eligible = buckets.get(match_key(wanted or ""), [])
+            detail = f''' ({equality[1]}="{wanted or ""}")'''
+        else:
+            read: dict[str, str] = {}
+            eligible = pool_mod.eligible_members(
+                expression,
+                table,
+                lambda n, r=row: (self.columns[n](r) or "") if n in self.columns else None,
+                read,
+            )
+            detail = pool_mod.row_values_detail(read)
+        if not eligible:
+            raise ValueError(pool_mod.no_candidate_message(pool_name, expression, row, detail))
+        return eligible
+
+    def _pool_member_alone(self, params, row: int) -> int:
+        """This reference's own pick, with no group having a say."""
+        return _draw_pool_member(
+            self.config.seed, params[0], self._pool_candidates(params, row), row, 0
+        )
+
+    def _pool_member_in_group(self, group, wanted: str, row: int) -> int:
+        """Walk the group in declaration order; a member already taken is drawn again."""
+        taken: list[int] = []
+        for params in group:
+            ref_name = params[0]
+            candidates = self._pool_candidates(params, row)
+            pick = _draw_pool_member(self.config.seed, ref_name, candidates, row, 0)
+            if pick in taken:
+                free = [m for m in candidates if m not in taken]
+                if not free:
+                    raise ValueError(
+                        f"<distinct> across sequences: row {row} has no member left for "
+                        f'"{ref_name}" — the sequences in this group have taken every candidate '
+                        f"the pool offers. A group of {len(group)} references needs "
+                        f"{len(group)} members to choose from."
+                    )
+                pick = _draw_pool_member(self.config.seed, ref_name, free, row, 1)
+            if ref_name == wanted:
+                return pick
+            taken.append(pick)
+        return 0
+
+    def _pool_group(self, spec, params):
+        """The `<distinct>` group this reference belongs to, whole, or ``None``."""
+        name = spec.name or ""
+        group = next(
+            (g for g in self.config.env_distinct_groups if name in g),
+            None,
+        )
+        if group is None:
+            return None
+        members = []
+        for other_name in group:
+            if other_name == name:
+                members.append(params)
+                continue
+            other = next((s for s in self.config.sequences if s.name == other_name), None)
+            if other is None or other.gen is None or other.gen.type != "pool":
+                continue
+            other_pool = (other.gen.attrs.get("value") or "").strip()
+            other_table = self.pool_tables.get(other_pool)
+            if other_table is None or other_table.count < 1:
+                continue
+            other_expr = (other.gen.attrs.get("filter") or "").strip()
+            other_eq = (
+                None
+                if not other_expr
+                else pool_mod.parse_equality_filter(
+                    other_expr, other_table, lambda n: n in self.columns
+                )
+            )
+            other_buckets = (
+                pool_mod.bucket_by_field(other_table, other_eq[0]) if other_eq else None
+            )
+            members.append(
+                (other_name, other_pool, other_table, other_expr, other_eq, other_buckets)
+            )
+        return members if len(members) >= 2 else None
+
     def _build_pool_reference(self, spec) -> None:
         """A pool reference as LAZY columns.
 
@@ -274,29 +380,17 @@ class StreamEngine:
         )
         buckets = pool_mod.bucket_by_field(table, equality[0]) if equality else None
 
+        params = (name, pool_name, table, expression, equality, buckets)
+        # If a config-level `<distinct>` holds this reference, remember the whole group
+        # against its name. Built from the config, because a sibling's pick is not a column.
+        group = self._pool_group(spec, params)
+
         def member_at(row: int) -> int:
-            if not expression:
-                return pool_mod.pick_member(self.config.seed, name, table, row)
-            if equality and buckets is not None:
-                driver = self.columns.get(equality[1])
-                wanted = driver(row) if driver else ""
-                eligible = buckets.get(match_key(wanted or ""), [])
-                detail = f''' ({equality[1]}="{wanted or ""}")'''
-            else:
-                read: dict[str, str] = {}
-                eligible = pool_mod.eligible_members(
-                    expression,
-                    table,
-                    lambda n, r=row: (self.columns[n](r) or "") if n in self.columns else None,
-                    read,
-                )
-                detail = pool_mod.row_values_detail(read)
-            if not eligible:
-                raise ValueError(pool_mod.no_candidate_message(pool_name, expression, row, detail))
-            slot = seekable.next_int(
-                self.config.seed, pool_mod.ref_stream(name), row, len(eligible)
-            )
-            return eligible[slot]
+            # Inside a group the answer is not this reference's alone: the ones declared
+            # before it have already taken members out of this row.
+            if group is not None:
+                return self._pool_member_in_group(group, name, row)
+            return self._pool_member_alone(params, row)
 
         for field_name in table.fields:
             column = table.columns.get(field_name, [])
@@ -326,6 +420,14 @@ class StreamEngine:
             if spec.gen is not None and spec.gen.type == "pool":
                 if spec.parent:
                     raise unsupported("a pool reference with parent=", spec.name)
+                # A `<uniq>` over references keeps its promise by REARRANGING the picks, and
+                # an arrangement cannot be found a row at a time — it needs the whole column.
+                # `<distinct>` is settled per row and streams fine; this one goes to memory,
+                # the same way a running total does.
+                if any(spec.name in g for g in self.config.env_uniq_groups):
+                    raise unsupported(
+                        "a pool reference inside a config-level <uniq>", spec.name
+                    )
                 self._build_pool_reference(spec)
                 continue
             # A running total is the one construct that genuinely cannot be answered from a

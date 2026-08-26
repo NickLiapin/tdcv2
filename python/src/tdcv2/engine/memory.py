@@ -299,6 +299,180 @@ def _stat(spec: SequenceSpec, columns: dict[str, list[str | None]], count: int) 
     columns[spec.name or ""] = [answer] * count
 
 
+def _ref_candidates(
+    expression: str,
+    equality: tuple[str, str] | None,
+    buckets: dict[str, list[int]] | None,
+    pool_name: str,
+    table: pool_mod.PoolTable,
+    columns: dict[str, list[str | None]],
+    count: int,
+    row: int,
+) -> list[int]:
+    """The members row ``row`` may draw from: all of them, or what a ``filter=`` leaves.
+
+    Its own function because three callers need the same answer — the reference itself, and a
+    config-level ``<distinct>`` or ``<uniq>`` deciding which member each of its references may
+    still take. The group draws again from what this returns MINUS what the row has already
+    given away, which is why the set matters and not just the pick.
+    """
+    if not expression:
+        return list(range(table.count))
+    if equality and buckets is not None:
+        wanted = (columns.get(equality[1]) or [None] * count)[row] or ""
+        eligible = buckets.get(match_key(wanted), [])
+        detail = f' ({equality[1]}="{wanted}")'
+    else:
+        read: dict[str, str] = {}
+        eligible = pool_mod.eligible_members(
+            expression,
+            table,
+            lambda n, r=row: (columns[n][r] or "") if n in columns else None,
+            read,
+        )
+        detail = pool_mod.row_values_detail(read)
+    if not eligible:
+        raise ValueError(pool_mod.no_candidate_message(pool_name, expression, row, detail))
+    return eligible
+
+
+def _draw_member(seed: str, ref_name: str, candidates: list[int], row: int, attempt: int) -> int:
+    """Draw one of ``candidates`` for ``row``, on the reference's own stream.
+
+    Attempt 0 is the plain stream, so a reference in no group produces exactly what it always
+    did. A repair draw is a NEW stream named for the attempt. Both names are part of the
+    cross-language contract.
+    """
+    stream = (
+        pool_mod.ref_stream(ref_name)
+        if attempt == 0
+        else f"{pool_mod.ref_stream(ref_name)}#ed{attempt}"
+    )
+    slot = seekable.next_int(seed, stream, row, len(candidates))
+    return candidates[slot] if slot < len(candidates) else 0
+
+
+class _GroupRef:
+    """What one reference in a group needs to answer for itself, gathered once."""
+
+    __slots__ = ("buckets", "equality", "expression", "mask", "name", "pool", "table")
+
+    def __init__(self, name, pool, table, expression, equality, buckets, mask):
+        self.name = name
+        self.pool = pool
+        self.table = table
+        self.expression = expression
+        self.equality = equality
+        self.buckets = buckets
+        self.mask = mask
+
+
+def _group_refs(group, config, columns, count, tables) -> list[_GroupRef]:
+    """The references a config-level group holds, or nothing when it holds fewer than two."""
+    refs: list[_GroupRef] = []
+    for name in group:
+        spec = next((s for s in config.sequences if s.name == name), None)
+        if spec is None or spec.gen is None or spec.gen.type != "pool":
+            continue
+        pool_name = (spec.gen.attrs.get("value") or "").strip()
+        table = tables.get(pool_name)
+        if table is None or table.count < 1:
+            continue
+        expression = (spec.gen.attrs.get("filter") or "").strip()
+        equality = (
+            None
+            if not expression
+            else pool_mod.parse_equality_filter(expression, table, lambda n: n in columns)
+        )
+        buckets = pool_mod.bucket_by_field(table, equality[0]) if equality else None
+        refs.append(
+            _GroupRef(
+                name,
+                pool_name,
+                table,
+                expression,
+                equality,
+                buckets,
+                _parent_mask(spec, columns, count),
+            )
+        )
+    return refs if len(refs) >= 2 else []
+
+
+def _pool_distinct_picks(refs, columns, count, seed) -> dict[str, list[int]]:
+    """``<distinct>`` around two or more references to the same pool.
+
+    A record has no value of its own to compare — ``${{Doctor}}`` is not a string — so the group
+    keeps its promise by IDENTITY: no two of its references hand one row the same member.
+    Settled here, while the members are being picked, rather than on the finished columns: a
+    column declared after the group must read the repaired value, not the one about to collide.
+
+    A collision is not retried blindly. The candidate set is known, so the member is drawn again
+    from the candidates this row has not already given away.
+    """
+    out = {r.name: [-1] * count for r in refs}
+    for row in range(count):
+        taken: list[int] = []
+        for r in refs:
+            # A row this reference does not cover prints nothing, so it takes nothing:
+            # counting it would let an absent column narrow a present one.
+            if not r.mask[row]:
+                continue
+            candidates = _ref_candidates(
+                r.expression, r.equality, r.buckets, r.pool, r.table, columns, count, row
+            )
+            pick = _draw_member(seed, r.name, candidates, row, 0)
+            if pick in taken:
+                free = [m for m in candidates if m not in taken]
+                if not free:
+                    raise EngineError(
+                        f"<distinct> across sequences: row {row} has no member left for "
+                        f'"{r.name}" — the sequences in this group have taken every candidate '
+                        f"the pool offers. A group of {len(refs)} references needs "
+                        f"{len(refs)} members to choose from."
+                    )
+                pick = _draw_member(seed, r.name, free, row, 1)
+            taken.append(pick)
+            out[r.name][row] = pick
+    return out
+
+
+def _pool_uniq_picks(refs, columns, count, seed) -> dict[str, list[int]]:
+    """``<uniq>`` around two or more references to the same pool.
+
+    One axis further out than ``<distinct>``: no two ROWS take the same combination of members.
+    Kept by rearranging the sequence of picks rather than redrawing, so every reference keeps
+    its multiset — and the fields follow for free, because a field is a pure function of the
+    member. A row that receives another row's pick receives that member whole.
+    """
+    plain: dict[str, list[int]] = {}
+    for r in refs:
+        column = [-1] * count
+        for row in range(count):
+            if not r.mask[row]:
+                continue
+            candidates = _ref_candidates(
+                r.expression, r.equality, r.buckets, r.pool, r.table, columns, count, row
+            )
+            column[row] = _draw_member(seed, r.name, candidates, row, 0)
+        plain[r.name] = column
+
+    # Only rows every reference covers carry a combination to keep unique.
+    rows = [i for i in range(count) if all(plain[r.name][i] >= 0 for r in refs)]
+    if not rows:
+        return plain
+
+    picked = [[str(plain[r.name][i]) for i in rows] for r in refs]
+    arranged = uniq_lib.arrange(picked)
+    if arranged.distinct < len(rows):
+        label = " × ".join(r.name for r in refs)
+        raise EngineError(_uniq_group_message(label, len(rows), arranged.distinct))
+    for m, r in enumerate(refs):
+        for k, row in enumerate(rows):
+            plain[r.name][row] = int(arranged.columns[m][k])
+    return plain
+
+
 def _pool_reference(
     spec: SequenceSpec,
     columns: dict[str, list[str | None]],
@@ -306,6 +480,8 @@ def _pool_reference(
     count: int,
     tables: dict[str, pool_mod.PoolTable],
     seed: str,
+    config: Config | None = None,
+    group_picks: dict[str, list[int]] | None = None,
 ) -> None:
     """Publish one member of a pool per row, under ``Ref.field`` for every field it has.
 
@@ -327,31 +503,45 @@ def _pool_reference(
     )
     buckets = pool_mod.bucket_by_field(table, equality[0]) if equality else None
 
-    members: list[int] = []
+    # A `<distinct>` or `<uniq>` around this reference decides its picks, and decides them for
+    # the whole group at once — a later member needs the ones before it, and a pick is not a
+    # column anybody could read back.
+    if config is not None and group_picks is not None and name not in group_picks:
+        for groups, is_uniq in (
+            (config.env_distinct_groups, False),
+            (config.env_uniq_groups, True),
+        ):
+            for group in groups:
+                if name not in group:
+                    continue
+                refs = _group_refs(group, config, columns, count, tables)
+                if not refs:
+                    continue
+                settled = (
+                    _pool_uniq_picks(refs, columns, count, seed)
+                    if is_uniq
+                    else _pool_distinct_picks(refs, columns, count, seed)
+                )
+                group_picks.update(settled)
+
+    if group_picks is not None and name in group_picks:
+        members = list(group_picks[name])
+        for field_name in table.fields:
+            column = table.columns.get(field_name, [])
+            columns[f"{name}.{field_name}"] = [
+                None if m < 0 else (column[m] if m < len(column) else "") for m in members
+            ]
+        return
+
+    members = []
     for row in range(count):
         if not mask[row]:
             members.append(-1)
             continue
-        if not expression:
-            members.append(pool_mod.pick_member(seed, name, table, row))
-            continue
-        if equality and buckets is not None:
-            wanted = (columns.get(equality[1]) or [None] * count)[row] or ""
-            eligible = buckets.get(match_key(wanted), [])
-            detail = f' ({equality[1]}="{wanted}")'
-        else:
-            read: dict[str, str] = {}
-            eligible = pool_mod.eligible_members(
-                expression,
-                table,
-                lambda n, r=row: (columns[n][r] or "") if n in columns else None,
-                read,
-            )
-            detail = pool_mod.row_values_detail(read)
-        if not eligible:
-            raise ValueError(pool_mod.no_candidate_message(pool_name, expression, row, detail))
-        slot = seekable.next_int(seed, pool_mod.ref_stream(name), row, len(eligible))
-        members.append(eligible[slot])
+        eligible = _ref_candidates(
+            expression, equality, buckets, pool_name, table, columns, count, row
+        )
+        members.append(_draw_member(seed, name, eligible, row, 0))
 
     for field_name in table.fields:
         column = table.columns.get(field_name, [])
@@ -382,6 +572,10 @@ def _build_columns(
     check_env_uniq_capacity(config, count)
 
     columns: dict[str, list[str | None]] = {}
+    # A config-level group over pool references settles every one of its members at once,
+    # the first time any of them is reached: a later member needs the picks of the ones
+    # before it, and a pick is not a column to read back.
+    pool_group_picks: dict[str, list[int]] = {}
     # The REAL value behind a date column's text, for the columns some offset measures from.
     #
     # A date cell holds a PRESENTATION: `02/03/2026` in an en locale, `03.02.2026` in a ru one,
@@ -439,7 +633,9 @@ def _build_columns(
         # published under `Ref.field`. Resolved HERE, in declaration order, so a later
         # `<switch on="Doc.city">` finds the field already registered.
         if spec.gen is not None and spec.gen.type == "pool":
-            _pool_reference(spec, columns, mask, count, tables, config.seed)
+            _pool_reference(
+                spec, columns, mask, count, tables, config.seed, config, pool_group_picks
+            )
             continue
 
         # A running total down a column. Resolved HERE, in declaration order, so it reads a

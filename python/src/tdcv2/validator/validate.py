@@ -2044,6 +2044,7 @@ class _Validator:
                         self._check_env_group_member(wrapped, tag)
                         out.append(wrapped)
                 self._check_group_size(open_el, tag, members)
+                self._check_group_pool_members(open_el, tag, env)
         return out
 
     def _check_group_size(self, wrapper, tag: str, members: int) -> None:
@@ -2184,6 +2185,106 @@ class _Validator:
                 column,
             )
             return
+
+    def _check_group_pool_members(self, wrapper, tag: str, env) -> None:
+        """A group whose members draw from a ``<pool>``.
+
+        The group's promise is kept by member IDENTITY here — no two of them hand one row the
+        same member — because a record has no value of its own to compare. That works, and
+        these are the three shapes it cannot mean:
+
+        * a reference beside an ordinary sequence: one holds a record and the other a string,
+          and there is no field the comparison would be about;
+        * references to two DIFFERENT pools: a doctor is never the same record as a ward, so
+          the group would be satisfied without doing anything;
+        * more references than the pool has members: no arrangement exists.
+
+        All three used to be accepted and then do nothing at all.
+        """
+        counts: dict[str, int] = {}
+        for child in _elements(env):
+            open_child = child.openCloseElement()
+            if open_child is None or open_child.name.text != "pool":
+                continue
+            attrs = _attrs(open_child.attr())
+            name = attrs.get("name")
+            raw = attrs.get("count")
+            if name is None or raw is None:
+                continue
+            try:
+                n = int(str(raw).strip())
+            except ValueError:
+                continue
+            if n > 0:
+                counts[name] = n
+
+        pooled: list[tuple[str, str]] = []
+        plain: list[tuple[str, object]] = []
+        for inner in _elements(wrapper):
+            member = inner.openCloseElement()
+            if member is None or member.name.text != "sequence":
+                continue
+            name = _attrs(member.attr()).get("name") or "?"
+            gens = [
+                g.selfClosingElement()
+                for g in _elements(member)
+                if g.selfClosingElement() is not None
+                and g.selfClosingElement().name.text == "gen"
+            ]
+            pool = None
+            if len(gens) == 1:
+                gen_attrs = _attrs(gens[0].attr())
+                if gen_attrs.get("type") == "pool":
+                    pool = (gen_attrs.get("value") or "").strip()
+            if pool is None:
+                plain.append((name, member))
+            else:
+                pooled.append((name, pool))
+        if not pooled:
+            return
+
+        if plain:
+            plain_name, node = plain[0]
+            ref_name, ref_pool = pooled[0]
+            self._error(
+                "TDC302",
+                f'<{tag}> mixes <sequence name="{plain_name}">, which draws a value, with '
+                f'<sequence name="{ref_name}">, which draws a whole member of pool '
+                f'"{ref_pool}" — there is nothing the two can be compared on',
+                f"A <{tag}> over pool references compares WHICH MEMBER each row took; over "
+                "ordinary sequences it compares the value. One group does one of the two. To "
+                "keep a value away from a member's field, filter instead: <gen type=\"pool\" "
+                'filter="field != Other"/>.',
+                _line(node),
+                _column(node),
+            )
+            return
+
+        pools = list(dict.fromkeys(p for _, p in pooled))
+        if len(pools) > 1:
+            self._error(
+                "TDC302",
+                f"<{tag}> holds references to {len(pools)} different pools "
+                f"({', '.join(pools)}) — a member of one is never a member of another, so the "
+                "group would be satisfied without changing anything",
+                "Group the references that draw from the SAME pool. Two pools cannot collide.",
+                _line(wrapper),
+                _column(wrapper),
+            )
+            return
+
+        pool = pools[0]
+        available = counts.get(pool)
+        if available is not None and available < len(pooled):
+            self._error(
+                "TDC302",
+                f'<{tag}> puts {len(pooled)} references on pool "{pool}", which has '
+                f"{available} members — one row cannot give each of them a different one",
+                f'Raise count= on <pool name="{pool}"> to at least {len(pooled)}, or take a '
+                "reference out of the group.",
+                _line(wrapper),
+                _column(wrapper),
+            )
 
     def _check_env_group_member(self, sequence, tag: str) -> None:
         """A member of an env-level group has to produce one value per row.
