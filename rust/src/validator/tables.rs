@@ -350,6 +350,23 @@ pub const TEMPLATE_COMMON_ATTRS: [&str; 8] = [
 ];
 
 /// Template paths that are generators rather than pack files.
+/// The nine builtin template paths, in the order the reference lists them.
+///
+/// Named here rather than derived from the pack registry: this is the list a REFUSAL offers when
+/// no path was given at all, and it has to be the same nine everywhere. Offering one example
+/// where the reference offers three told a reader the language is narrower than it is.
+pub const KNOWN_TEMPLATE_PATHS: [&str; 9] = [
+    "person.male.firstName",
+    "person.female.firstName",
+    "person.lastName",
+    "person.male.diagnosis",
+    "person.female.diagnosis",
+    "person.gender",
+    "person.b_day",
+    "location.country",
+    "date.range",
+];
+
 pub const BUILTIN_TEMPLATE_PATHS: [&str; 2] = ["person.b_day", "date.range"];
 
 pub const PLACEMENT_HINTS: [(&str, &str); 8] = [

@@ -38,6 +38,20 @@ namespace Tdcv2.Validation;
 public sealed class Validator
 {
     /// <summary>What may sit directly inside <c>&lt;tdc&gt;</c>.</summary>
+    /// <summary>The nine builtin template paths, in the order the reference lists them.</summary>
+    private static readonly IReadOnlyList<string> KnownTemplatePaths = new[]
+    {
+        "person.male.firstName",
+        "person.female.firstName",
+        "person.lastName",
+        "person.male.diagnosis",
+        "person.female.diagnosis",
+        "person.gender",
+        "person.b_day",
+        "location.country",
+        "date.range",
+    };
+
     private static readonly IReadOnlySet<string> TdcChildren = Set("env", "block");
 
     /// <summary>
@@ -416,10 +430,19 @@ public sealed class Validator
     /// Six then "… (N more)". Printed in full, a fifteen-name list buries the one the reader is
     /// scanning for, and each implementation cut it at a different place — or not at all.
     /// </summary>
-    private static string Candidates(IEnumerable<string> names)
+    private static string Candidates(IEnumerable<string> names) =>
+        Candidates(names.OrderBy(a => a, StringComparer.Ordinal), 6);
+
+    /// <summary>
+    /// The same, cut at a caller-chosen length and in the order GIVEN.
+    ///
+    /// Sorting is right for a set of tag names and wrong for a list whose order is the answer:
+    /// the alphabets read general-first, and sorted they would open with <c>arabic.letters</c>
+    /// on a list the refusal then cuts at eight.
+    /// </summary>
+    private static string Candidates(IEnumerable<string> names, int most)
     {
-        const int most = 6;
-        List<string> all = names.OrderBy(a => a, StringComparer.Ordinal).ToList();
+        List<string> all = names.ToList();
         return all.Count <= most
             ? string.Join(", ", all)
             : string.Join(", ", all.Take(most)) + $", … ({all.Count - most} more)";
@@ -817,7 +840,9 @@ public sealed class Validator
                         "TDC014",
                         $"<{name}/> cannot be self-closing — its attributes and children would be "
                         + "ignored",
-                        $"Write <{name}> … </{name}>.", Line(self), Column(self));
+                        $"Write <{name}> … </{name}>. A self-closing <{name}/> silently "
+                        + "discards count, seed and everything inside.",
+                        Line(self), Column(self));
                     continue;
                 }
 
@@ -4159,7 +4184,7 @@ public sealed class Validator
                 {
                     Error(
                         "TDC070", "<gen type=\"template\"> requires a \"value\" attribute",
-                        "Use a known template path, e.g. person.male.firstName.",
+                        $"Use a known template path, e.g. {Candidates(KnownTemplatePaths, 3)}.",
                         Line(gen), Column(gen));
                     return;
                 }
@@ -4243,7 +4268,7 @@ public sealed class Validator
                 {
                     Error(
                         "TDC128", "<gen type=\"advanced_regex\"> requires a \"value\" attribute",
-                        "Provide a finite pattern, optionally with a weighted choice.",
+                        "Provide a finite advanced regex pattern, e.g. value=\"(?%{70:RU;30:US})-[0-9]{6}\".",
                         Line(gen), Column(gen));
                 }
 
@@ -4564,9 +4589,10 @@ public sealed class Validator
         bool hasValue = !string.IsNullOrEmpty(value);
         bool hasAlphabet = !string.IsNullOrEmpty(alphabet);
 
-        const string hint =
-            "Use value=\"[a-z]\" for an inline set, or alphabet=\"cyrillic.ru.letters\" for a "
-            + "named one.";
+        string hint =
+            "Inline: value=\"[a-z]\" or value=\"कखगघ\". Named, e.g. "
+            + "alphabet=\"cyrillic.ru.letters\". Known: "
+            + Candidates(Checks.AlphabetNames(), 8) + ".";
 
         if (hasValue && hasAlphabet)
         {
@@ -4852,7 +4878,7 @@ public sealed class Validator
             Error(
                 "TDC150",
                 "<gen type=\"date\"> requires both \"from\" and \"to\" when either is used",
-                "Use from=\"2020-01-01\" to=\"2025-12-31\", or value=\"2020-01-01..2025-12-31\".",
+                "Use from=\"2020-01-01\" to=\"2025-12-31\" or value=\"2020-01-01..2025-12-31\".",
                 Line(gen), Column(gen));
         }
 
@@ -4866,7 +4892,7 @@ public sealed class Validator
             (int line, int column) = At(gen, "local");
             Error(
                 "TDC153", $"unknown date locale \"{local}\"",
-                "A date locale has to be translated deliberately — month names inflect.",
+                $"Known date locales: {Candidates(DateLocales.Names, 6)}.",
                 line, column);
         }
 
@@ -4927,7 +4953,7 @@ public sealed class Validator
             "TDC272",
             $"<env local=\"{_locale}\"> ships no date translations, so this date renders in "
             + "English",
-            $"Date locales: {string.Join(", ", DateLocales.Names)}. Use format=\"YYYY-MM-DD\" "
+            $"Date locales: {Candidates(DateLocales.Names, 6)}. Use format=\"YYYY-MM-DD\" "
             + "\u2014 or any format without month or weekday names \u2014 to get the same text "
             + "in every language, or accept the English month names.",
             Line(gen), Column(gen));
@@ -5779,8 +5805,7 @@ public sealed class Validator
                 (int line, int column) = At(gen, "repeat");
                 Error(
                     "TDC204", $"\"repeat\" is not supported on <gen type=\"{type}\"> — {reason}",
-                    "Its value comes from the row index, which a variable-length list makes "
-                    + "unknowable.",
+                    "Only increment, decrement, timeseries and pattern refuse it, and all four for the same reason: their value is decided by the row index, which a list of unknown length leaves undecided. Every other generator repeats, text included.",
                     line, column);
             }
         }
@@ -6220,7 +6245,7 @@ public sealed class Validator
             Error(
                 "TDC211",
                 $"\"weight\" applies to <gen type=\"file\">, not type=\"{type ?? ""}\"",
-                "For inline values, percent= states the shares.", line, column);
+                "For inline values the equivalent is percent=. weight= reads the shares from a CSV column.", line, column);
             return;
         }
 
@@ -6295,7 +6320,7 @@ public sealed class Validator
                 (int l, int c) = At(line, "each");
                 Error(
                     "TDC206", "each=\"\" names no sequence",
-                    "Give it the name of a repeating sequence, or drop the attribute.", l, c);
+                    "Point it at a repeating sequence: <line each=\"Orders\">.", l, c);
             }
             else if (_declaredNames.Contains(each) && !_repeatingNames.Contains(each))
             {
@@ -6304,7 +6329,7 @@ public sealed class Validator
                 (int l, int c) = At(line, "each");
                 Error(
                     "TDC207", $"each=\"{each}\" — that sequence holds one value, not a list",
-                    "Add repeat= to its <gen>, e.g. repeat=\"1..5\", or drop each=.", l, c);
+                    "Add repeat= to its <gen>, e.g. <gen … repeat=\"1..5\"/>, or drop each=.", l, c);
             }
 
             // A typed column is collected once per record, and an each= line emits several. The two

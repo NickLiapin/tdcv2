@@ -377,6 +377,16 @@ placed` rather than naming a total it stopped counting. A number quietly reading
   produces their sum in Python, Java, C# and Rust, where it produced their digits run together.
   TypeScript is unchanged.
 
+- **Ten more diagnostics say what the reference says.** Each was a sentence that told the reader
+  less: `TDC098` named one alphabet where the reference names eight and shows both spellings,
+  `TDC070` offered one template path where the reference offers three, `TDC153` explained WHY a
+  date locale has to be translated instead of naming the ones that are, `TDC204` gave half the
+  rule for `repeat=` on a counter, `TDC211` named `percent=` without saying what `weight=` reads,
+  `TDC014` left out what a self-closing `<env/>` actually discards. Rust's alphabet list also
+  came out of a sorted map, so the eight a reader is shown opened with `arabic.letters` where
+  every other implementation opens with `latin.lower` — the order is the answer on a list that
+  gets cut, so it is written down now rather than inherited from the container.
+
 - **Two more refusals printed their own source instead of their advice.** Python's `TDC280` —
   the one diagnostic about writing a date range two ways — gave the note
   `+ repr(HINT_SPELL) +`: a triple-quoted string that was meant to be a concatenation, so the

@@ -165,14 +165,19 @@ struct Validator {
 /// Six then "… (N more)". Printed in full, a fifteen-name list buries the one the reader is
 /// scanning for, and each implementation cut it at a different place — or not at all.
 fn candidates(names: &[&str]) -> String {
-    const MOST: usize = 6;
-    if names.len() <= MOST {
+    candidates_max(names, 6)
+}
+
+/// The same, cut at a caller-chosen length — the reference shows three template paths and eight
+/// alphabets where six is its usual.
+fn candidates_max(names: &[&str], most: usize) -> String {
+    if names.len() <= most {
         return names.join(", ");
     }
     format!(
         "{}, … ({} more)",
-        names[..MOST].join(", "),
-        names.len() - MOST
+        names[..most].join(", "),
+        names.len() - most
     )
 }
 
@@ -406,7 +411,10 @@ impl Validator {
                             "<{name}/> cannot be self-closing — its attributes and children would \
                              be ignored"
                         ),
-                        &format!("Write <{name}> … </{name}>."),
+                        &format!(
+                            "Write <{name}> … </{name}>. A self-closing <{name}/> silently \
+                             discards count, seed and everything inside."
+                        ),
                         child.pos,
                     );
                     continue;
@@ -3575,7 +3583,10 @@ impl Validator {
                     self.error(
                         "TDC070",
                         "<gen type=\"template\"> requires a \"value\" attribute".to_string(),
-                        "Use a known template path, e.g. person.male.firstName.",
+                        &format!(
+                            "Use a known template path, e.g. {}.",
+                            candidates_max(&tables::KNOWN_TEMPLATE_PATHS, 3)
+                        ),
                         gen.pos,
                     );
                     return;
@@ -3656,7 +3667,7 @@ impl Validator {
                     self.error(
                         "TDC128",
                         "<gen type=\"advanced_regex\"> requires a \"value\" attribute".to_string(),
-                        "Provide a finite pattern, optionally with a weighted choice.",
+                        "Provide a finite advanced regex pattern, e.g. value=\"(?%{70:RU;30:US})-[0-9]{6}\".",
                         gen.pos,
                     );
                 }
@@ -4017,8 +4028,12 @@ impl Validator {
         if gen_type != Some("symbol") {
             return;
         }
-        const HINT: &str = "Use value=\"[a-z]\" for an inline set, or \
-                            alphabet=\"cyrillic.ru.letters\" for a named one.";
+        let owned = format!(
+            "Inline: value=\"[a-z]\" or value=\"कखगघ\". Named, e.g. \
+             alphabet=\"cyrillic.ru.letters\". Known: {}.",
+            candidates_max(&crate::unicode::names(), 8)
+        );
+        let hint = owned.as_str();
 
         let value = attrs.get("value").filter(|v| !v.is_empty());
         let alphabet = attrs.get("alphabet").filter(|a| !a.is_empty());
@@ -4028,7 +4043,7 @@ impl Validator {
                 "TDC098",
                 "<gen type=\"symbol\"> accepts either \"value\" or \"alphabet\", not both"
                     .to_string(),
-                HINT,
+                hint,
                 gen.at("value"),
             ),
             // Neither an inline set nor a named one: there is nothing to draw a
@@ -4038,7 +4053,7 @@ impl Validator {
                 "TDC098",
                 "<gen type=\"symbol\"> requires a \"value\" (inline set) or \"alphabet\" (named)"
                     .to_string(),
-                HINT,
+                hint,
                 gen.pos,
             ),
             (None, Some(name)) if unicode::chars(name).is_none() => self.error(
@@ -4303,7 +4318,7 @@ impl Validator {
                 "TDC150",
                 "<gen type=\"date\"> requires both \"from\" and \"to\" when either is used"
                     .to_string(),
-                "Use from=\"2020-01-01\" to=\"2025-12-31\", or value=\"2020-01-01..2025-12-31\".",
+                "Use from=\"2020-01-01\" to=\"2025-12-31\" or value=\"2020-01-01..2025-12-31\".",
                 gen.pos,
             );
         }
@@ -4317,7 +4332,7 @@ impl Validator {
                 self.error(
                     "TDC153",
                     format!("unknown date locale \"{local}\""),
-                    "A date locale has to be translated deliberately — month names inflect.",
+                    &format!("Known date locales: {}.", candidates(&date::locales::NAMES)),
                     gen.at("local"),
                 );
             }
@@ -4378,7 +4393,7 @@ impl Validator {
                 "Date locales: {}. Use format=\"YYYY-MM-DD\" \u{2014} or any format without \
                  month or weekday names \u{2014} to get the same text in every language, or \
                  accept the English month names.",
-                date::locales::NAMES.join(", ")
+                candidates(&date::locales::NAMES)
             ),
             gen.pos,
         );
@@ -4665,8 +4680,7 @@ impl Validator {
                         "\"repeat\" is not supported on <gen type=\"{}\"> — {reason}",
                         gen_type.unwrap_or("")
                     ),
-                    "Its value comes from the row index, which a variable-length list makes \
-                     unknowable.",
+                    "Only increment, decrement, timeseries and pattern refuse it, and all four for the same reason: their value is decided by the row index, which a list of unknown length leaves undecided. Every other generator repeats, text included.",
                     gen.at("repeat"),
                 );
             }
@@ -4774,7 +4788,7 @@ impl Validator {
                     "\"weight\" applies to <gen type=\"file\">, not type=\"{}\"",
                     gen_type.unwrap_or("")
                 ),
-                "For inline values, percent= states the shares.",
+                "For inline values the equivalent is percent=. weight= reads the shares from a CSV column.",
                 gen.at("weight"),
             );
             return;
@@ -5274,7 +5288,7 @@ impl Validator {
                 self.error(
                     "TDC206",
                     "each=\"\" names no sequence".to_string(),
-                    "Give it the name of a repeating sequence, or drop the attribute.",
+                    "Point it at a repeating sequence: <line each=\"Orders\">.",
                     line.at("each"),
                 );
             } else if self.declared_names.contains(&each) && !self.repeating_names.contains(&each) {
@@ -5283,7 +5297,7 @@ impl Validator {
                 self.error(
                     "TDC207",
                     format!("each=\"{each}\" — that sequence holds one value, not a list"),
-                    "Add repeat= to its <gen>, e.g. repeat=\"1..5\", or drop each=.",
+                    "Add repeat= to its <gen>, e.g. <gen … repeat=\"1..5\"/>, or drop each=.",
                     line.at("each"),
                 );
             }

@@ -40,6 +40,19 @@ import org.antlr.v4.runtime.tree.ParseTree;
 public final class Validator {
 
   /** What may sit directly inside {@code <tdc>}. */
+  /** The nine builtin template paths, in the order the reference lists them. */
+  private static final List<String> KNOWN_TEMPLATE_PATHS =
+      List.of(
+          "person.male.firstName",
+          "person.female.firstName",
+          "person.lastName",
+          "person.male.diagnosis",
+          "person.female.diagnosis",
+          "person.gender",
+          "person.b_day",
+          "location.country",
+          "date.range");
+
   private static final Set<String> TDC_CHILDREN = Set.of("env", "block");
 
   /**
@@ -434,8 +447,18 @@ public final class Validator {
    * scanning for, and each implementation cut it at a different place — or not at all.
    */
   private static String candidates(java.util.Collection<String> names) {
-    final int most = 6;
-    List<String> all = new ArrayList<>(new java.util.TreeSet<>(names));
+    return candidates(new java.util.TreeSet<>(names), 6);
+  }
+
+  /**
+   * The same, cut at a caller-chosen length and in the order GIVEN.
+   *
+   * <p>Sorting is right for a set of tag names and wrong for a list whose order is the answer:
+   * the alphabets read general-first, and sorted they would open with {@code arabic.letters} on
+   * a list the refusal then cuts at eight.
+   */
+  private static String candidates(java.util.Collection<String> names, int most) {
+    List<String> all = new ArrayList<>(names);
     if (all.size() <= most) {
       return String.join(", ", all);
     }
@@ -786,7 +809,9 @@ public final class Validator {
         if ("env".equals(name) || "block".equals(name)) {
           error("TDC014",
               "<" + name + "/> cannot be self-closing — its attributes and children would be ignored",
-              "Write <" + name + "> … </" + name + ">.", line(self), column(self));
+              "Write <" + name + "> … </" + name + ">. A self-closing <" + name
+                  + "/> silently discards count, seed and everything inside.",
+              line(self), column(self));
           continue;
         }
         error("TDC010", "unknown child of <tdc>: \"<" + name + ">\"",
@@ -3862,7 +3887,8 @@ public final class Validator {
         String tLocale = genLocal == null || genLocal.isBlank() ? locale : genLocal.trim();
         if (missing) {
           error("TDC070", "<gen type=\"template\"> requires a \"value\" attribute",
-              "Use a known template path, e.g. person.male.firstName.", line(gen), column(gen));
+              "Use a known template path, e.g. " + candidates(KNOWN_TEMPLATE_PATHS, 3) + ".",
+              line(gen), column(gen));
         } else if (value.contains("${{")) {
           // An address that names a field is not known until the row is, so there is nothing
           // to look up here. The engine resolves it per row and reports what it cannot find.
@@ -3909,7 +3935,7 @@ public final class Validator {
       case "advanced_regex" -> {
         if (missing) {
           error("TDC128", "<gen type=\"advanced_regex\"> requires a \"value\" attribute",
-              "Provide a finite pattern, optionally with a weighted choice.",
+              "Provide a finite advanced regex pattern, e.g. value=\"(?%{70:RU;30:US})-[0-9]{6}\".",
               line(gen), column(gen));
         }
       }
@@ -4161,7 +4187,9 @@ public final class Validator {
 
     if (hasValue && hasAlphabet) {
       error("TDC098", "<gen type=\"symbol\"> accepts either \"value\" or \"alphabet\", not both",
-          "Use value=\"[a-z]\" for an inline set, or alphabet=\"cyrillic.ru.letters\" for a named one.",
+          "Inline: value=\"[a-z]\" or value=\"कखगघ\". Named, e.g."
+              + " alphabet=\"cyrillic.ru.letters\". Known: "
+              + candidates(Checks.alphabetNames(), 8) + ".",
           at(gen, "value")[0], at(gen, "value")[1]);
       return;
     }
@@ -4169,7 +4197,9 @@ public final class Validator {
       // Neither an inline set nor a named one: there is nothing to draw a character from, and the
       // generator would produce empty strings for the whole run.
       error("TDC098", "<gen type=\"symbol\"> requires a \"value\" (inline set) or \"alphabet\" (named)",
-          "Use value=\"[a-z]\" for an inline set, or alphabet=\"cyrillic.ru.letters\" for a named one.",
+          "Inline: value=\"[a-z]\" or value=\"कखगघ\". Named, e.g."
+              + " alphabet=\"cyrillic.ru.letters\". Known: "
+              + candidates(Checks.alphabetNames(), 8) + ".",
           line(gen), column(gen));
       return;
     }
@@ -4488,7 +4518,7 @@ public final class Validator {
     boolean openAxis = walked && from && !to;
     if (!openAxis && from != to) {
       error("TDC150", "<gen type=\"date\"> requires both \"from\" and \"to\" when either is used",
-          "Use from=\"2020-01-01\" to=\"2025-12-31\", or value=\"2020-01-01..2025-12-31\".",
+          "Use from=\"2020-01-01\" to=\"2025-12-31\" or value=\"2020-01-01..2025-12-31\".",
           line(gen), column(gen));
     }
     checkDatePlusWithoutOf(gen, attrs);
@@ -4497,7 +4527,8 @@ public final class Validator {
     String local = attrs.get("local");
     if (local != null && !local.isBlank() && !Checks.isKnownDateLocale(local)) {
       error("TDC153", "unknown date locale \"" + local + "\"",
-          "A date locale has to be translated deliberately — month names inflect.",
+          "Known date locales: "
+              + candidates(io.github.nickliapin.tdc.date.DateLocales.NAMES, 6) + ".",
           at(gen, "local")[0], at(gen, "local")[1]);
     }
     checkEnvLocaleHasDates(gen, attrs);
@@ -4554,7 +4585,9 @@ public final class Validator {
     warn("TDC272",
         "<env local=\"" + locale + "\"> ships no date translations, so this date renders in "
             + "English",
-        "Date locales: " + String.join(", ", io.github.nickliapin.tdc.date.DateLocales.NAMES) + ". Use format=\"YYYY-MM-DD\" "
+        "Date locales: "
+            + candidates(io.github.nickliapin.tdc.date.DateLocales.NAMES, 6)
+            + ". Use format=\"YYYY-MM-DD\" "
             + "\u2014 or any format without month or weekday names \u2014 to get the same text "
             + "in every language, or accept the English month names.",
         line(gen), column(gen));
@@ -4973,7 +5006,7 @@ public final class Validator {
       String reason = Checks.repeatUnsupportedReason(type);
       if (reason != null) {
         error("TDC204", "\"repeat\" is not supported on <gen type=\"" + type + "\"> — " + reason,
-            "Its value comes from the row index, which a variable-length list makes unknowable.",
+            "Only increment, decrement, timeseries and pattern refuse it, and all four for the same reason: their value is decided by the row index, which a list of unknown length leaves undecided. Every other generator repeats, text included.",
             at(gen, "repeat")[0], at(gen, "repeat")[1]);
       }
     } else if (attrs.get("separator") != null) {
@@ -5306,7 +5339,7 @@ public final class Validator {
     }
     if (!"file".equals(type)) {
       error("TDC211", "\"weight\" applies to <gen type=\"file\">, not type=\"" + (type == null ? "" : type) + "\"",
-          "For inline values, percent= states the shares.", at(gen, "weight")[0], at(gen, "weight")[1]);
+          "For inline values the equivalent is percent=. weight= reads the shares from a CSV column.", at(gen, "weight")[0], at(gen, "weight")[1]);
       return;
     }
     if (attrs.get("column") == null || attrs.get("column").isBlank()) {
@@ -5358,13 +5391,13 @@ public final class Validator {
     if (each != null) {
       if (each.isBlank()) {
         error("TDC206", "each=\"\" names no sequence",
-            "Give it the name of a repeating sequence, or drop the attribute.",
+            "Point it at a repeating sequence: <line each=\"Orders\">.",
             at(line, "each")[0], at(line, "each")[1]);
       } else if (declaredNames.contains(each) && !repeatingNames.contains(each)) {
         // Walking a scalar would emit one line and look like it worked, which is the kind of
         // near-miss that survives review.
         error("TDC207", "each=\"" + each + "\" — that sequence holds one value, not a list",
-            "Add repeat= to its <gen>, e.g. repeat=\"1..5\", or drop each=.",
+            "Add repeat= to its <gen>, e.g. <gen … repeat=\"1..5\"/>, or drop each=.",
             at(line, "each")[0], at(line, "each")[1]);
       }
       // A typed column is collected once per record, and an each= line emits several. The two

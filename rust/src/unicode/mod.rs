@@ -80,6 +80,28 @@ pub fn chars(name: &str) -> Option<&'static [char]> {
     registry().get(name).map(Vec::as_slice)
 }
 
+/// The alphabet names, in the order the reference declares them — general first, then by script.
+///
+/// The registry is a map and hands its keys back sorted, which puts `arabic.letters` at the head
+/// of a list that a refusal then CUTS at eight. The eight a reader sees have to be the same eight
+/// everywhere, so the order is written down rather than inherited from the container.
 pub fn names() -> Vec<&'static str> {
-    registry().keys().copied().collect()
+    vec![
+        "latin.lower",
+        "latin.upper",
+        "latin.letters",
+        "digits.ascii",
+        "digits.fullwidth",
+        "cyrillic.ru.lower",
+        "cyrillic.ru.upper",
+        "cyrillic.ru.letters",
+        "greek.letters",
+        "hebrew.letters",
+        "arabic.letters",
+        "kana.hiragana",
+        "kana.katakana",
+        "cjk.unified.basic",
+        "roman.upper",
+        "roman.lower",
+    ]
 }

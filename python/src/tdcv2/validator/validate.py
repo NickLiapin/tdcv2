@@ -597,6 +597,23 @@ GEN_TYPES = frozenset(
 
 # Template paths that are generators rather than pack files. No pack is named after them, so
 # looking them up on disk would report a missing address for the two paths that always work.
+#: The nine builtin template paths, in the order the reference lists them.
+#:
+#: Named here rather than derived from the pack registry: this is the list a REFUSAL offers when
+#: no path was given at all, and it has to be the same nine everywhere. Offering one example
+#: where the reference offers three told a reader the language is narrower than it is.
+KNOWN_TEMPLATE_PATHS = (
+    "person.male.firstName",
+    "person.female.firstName",
+    "person.lastName",
+    "person.male.diagnosis",
+    "person.female.diagnosis",
+    "person.gender",
+    "person.b_day",
+    "location.country",
+    "date.range",
+)
+
 BUILTIN_TEMPLATE_PATHS = frozenset({"person.b_day", "date.range"})
 
 # The document versions this runtime understands.
@@ -1000,7 +1017,8 @@ class _Validator:
                         "TDC014",
                         f"<{name}/> cannot be self-closing — its attributes and children would "
                         "be ignored",
-                        f"Write <{name}> … </{name}>.",
+                        f"Write <{name}> … </{name}>. A self-closing <{name}/> silently "
+                        "discards count, seed and everything inside.",
                         _line(self_closing),
                         _column(self_closing),
                     )
@@ -3536,7 +3554,8 @@ class _Validator:
                 self._error(
                     "TDC070",
                     '<gen type="template"> requires a "value" attribute',
-                    "Use a known template path, e.g. person.male.firstName.",
+                    f"Use a known template path, e.g. "
+                    f"{_candidates(list(KNOWN_TEMPLATE_PATHS), 3)}.",
                     _line(gen),
                     _column(gen),
                 )
@@ -3595,7 +3614,7 @@ class _Validator:
             self._error(
                 "TDC128",
                 '<gen type="advanced_regex"> requires a "value" attribute',
-                "Provide a finite pattern, optionally with a weighted choice.",
+                "Provide a finite advanced regex pattern, e.g. value=\"(?%{70:RU;30:US})-[0-9]{6}\".",
                 _line(gen),
                 _column(gen),
             )
@@ -3849,8 +3868,9 @@ class _Validator:
             self._error(
                 "TDC098",
                 '<gen type="symbol"> accepts either "value" or "alphabet", not both',
-                'Use value="[a-z]" for an inline set, or alphabet="cyrillic.ru.letters" for a '
-                "named one.",
+                'Inline: value="[a-z]" or value="कखगघ". Named, e.g. '
+                'alphabet="cyrillic.ru.letters". Known: '
+                f"{_candidates(checks.alphabet_names(), 8)}.",
                 line,
                 column,
             )
@@ -3861,8 +3881,9 @@ class _Validator:
             self._error(
                 "TDC098",
                 '<gen type="symbol"> requires a "value" (inline set) or "alphabet" (named)',
-                'Use value="[a-z]" for an inline set, or alphabet="cyrillic.ru.letters" for a '
-                "named one.",
+                'Inline: value="[a-z]" or value="कखगघ". Named, e.g. '
+                'alphabet="cyrillic.ru.letters". Known: '
+                f"{_candidates(checks.alphabet_names(), 8)}.",
                 _line(gen),
                 _column(gen),
             )
@@ -3974,7 +3995,7 @@ class _Validator:
             self._error(
                 "TDC150",
                 '<gen type="date"> requires both "from" and "to" when either is used',
-                'Use from="2020-01-01" to="2025-12-31", or value="2020-01-01..2025-12-31".',
+                'Use from=\"2020-01-01\" to=\"2025-12-31\" or value=\"2020-01-01..2025-12-31\".',
                 _line(gen),
                 _column(gen),
             )
@@ -3984,7 +4005,7 @@ class _Validator:
             self._error(
                 "TDC153",
                 f'unknown date locale "{local}"',
-                "A date locale has to be translated deliberately — month names inflect.",
+                f"Known date locales: {_candidates(list(date_locales.NAMES))}.",
                 line,
                 column,
             )
@@ -4101,7 +4122,7 @@ class _Validator:
             "TDC272",
             f'<env local="{self.locale}"> ships no date translations, so this date renders in '
             "English",
-            f'Date locales: {", ".join(date_locales.NAMES)}. Use format="YYYY-MM-DD" '
+            f'Date locales: {_candidates(list(date_locales.NAMES))}. Use format="YYYY-MM-DD" '
             "\u2014 or any format without month or weekday names \u2014 to get the same text in "
             "every language, or accept the English month names.",
             _line(gen),
@@ -4430,8 +4451,7 @@ class _Validator:
                 self._error(
                     "TDC204",
                     f'"repeat" is not supported on <gen type="{type_}"> — {reason}',
-                    "Its value comes from the row index, which a variable-length list makes "
-                    "unknowable.",
+                    "Only increment, decrement, timeseries and pattern refuse it, and all four for the same reason: their value is decided by the row index, which a list of unknown length leaves undecided. Every other generator repeats, text included.",
                     line,
                     column,
                 )
@@ -4921,7 +4941,7 @@ class _Validator:
             self._error(
                 "TDC211",
                 f'"weight" applies to <gen type="file">, not type="{type_ or ""}"',
-                "For inline values, percent= states the shares.",
+                "For inline values the equivalent is percent=. weight= reads the shares from a CSV column.",
                 line,
                 column,
             )
@@ -5293,7 +5313,7 @@ class _Validator:
                 self._error(
                     "TDC206",
                     'each="" names no sequence',
-                    "Give it the name of a repeating sequence, or drop the attribute.",
+                    "Point it at a repeating sequence: <line each=\"Orders\">.",
                     line,
                     column,
                 )
@@ -5303,7 +5323,7 @@ class _Validator:
                 self._error(
                     "TDC207",
                     f'each="{each}" — that sequence holds one value, not a list',
-                    'Add repeat= to its <gen>, e.g. repeat="1..5", or drop each=.',
+                    'Add repeat= to its <gen>, e.g. <gen … repeat=\"1..5\"/>, or drop each=.',
                     line,
                     column,
                 )
