@@ -354,7 +354,14 @@ public final class TDC {
         options.baseDir != null
             ? options.baseDir
             : options.configFile != null ? options.configFile.toAbsolutePath().getParent() : null;
-    List<Diagnostic> problems = Validator.validate(parsed.tree(), configDir, packs);
+    // `--count` decides how many rows there will be, so the warnings that are arithmetic over
+    // the count have to be about that number and not the one in <env>.
+    List<Diagnostic> problems =
+        Validator.validate(
+            parsed.tree(),
+            configDir,
+            packs,
+            options.count == null ? null : Long.valueOf(options.count.longValue()));
     if (Diagnostic.hasErrors(problems)) {
       throw new TdcDiagnosticException(problems, source);
     }

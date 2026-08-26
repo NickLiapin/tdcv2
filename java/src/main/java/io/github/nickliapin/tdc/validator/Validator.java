@@ -595,6 +595,15 @@ public final class Validator {
    * million.
    */
   private long envCount = 0;
+
+  /**
+   * {@code --count}, when the caller has one.
+   *
+   * <p>Several warnings are arithmetic over the count — a share that rounds to less than one
+   * record, a {@code uniq} column too wide to hold — and one computed over the declared value
+   * while the run uses another is describing a run that is not happening.
+   */
+  private Long countOverride;
   /** Every sequence name the config declares — what an interpolation may refer to. */
   private final Set<String> declaredNames = new LinkedHashSet<>();
   /** Those of them that produce a list, which is what each= may walk. */
@@ -710,9 +719,13 @@ public final class Validator {
   private static final java.util.regex.Pattern PLAIN_NAME =
       java.util.regex.Pattern.compile("[A-Za-z_][A-Za-z0-9_]*");
 
-  private Validator(java.nio.file.Path baseDir, io.github.nickliapin.tdc.packs.DataPacks packs) {
+  private Validator(
+      java.nio.file.Path baseDir,
+      io.github.nickliapin.tdc.packs.DataPacks packs,
+      Long countOverride) {
     this.baseDir = baseDir;
     this.packs = packs;
+    this.countOverride = countOverride;
   }
 
   public static List<Diagnostic> validate(TDCParser.DocumentContext document) {
@@ -726,7 +739,19 @@ public final class Validator {
       TDCParser.DocumentContext document,
       java.nio.file.Path baseDir,
       io.github.nickliapin.tdc.packs.DataPacks packs) {
-    Validator v = new Validator(baseDir, packs);
+    return validate(document, baseDir, packs, null);
+  }
+
+  /**
+   * The same, plus the row count the run will ACTUALLY use when {@code --count} overrides the
+   * one in {@code <env>}.
+   */
+  public static List<Diagnostic> validate(
+      TDCParser.DocumentContext document,
+      java.nio.file.Path baseDir,
+      io.github.nickliapin.tdc.packs.DataPacks packs,
+      Long count) {
+    Validator v = new Validator(baseDir, packs, count);
     v.run(document);
     List<Diagnostic> found = new java.util.ArrayList<>(v.diagnostics);
     // A pack file the address scan read and could not place — TDC171. Reported after the walk
@@ -1193,6 +1218,12 @@ public final class Validator {
         error("TDC020", "invalid count \"" + count + "\" — expected a non-negative integer",
             "", at(env, "count")[0], at(env, "count")[1]);
       }
+    }
+
+    // Applied after the declared value is read, because the declared one still has to parse —
+    // an override does not excuse `count="x"`.
+    if (countOverride != null) {
+      envCount = countOverride;
     }
 
     // The renderer splits on `(.+)%(.+)`, so the pattern needs a `%` with something on BOTH

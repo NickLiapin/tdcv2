@@ -59,10 +59,28 @@ pub fn validate_in(
     packs: Option<DataPacks>,
     base_dir: Option<&str>,
 ) -> Vec<Diagnostic> {
+    validate_counted(document, packs, base_dir, None)
+}
+
+/// The same again, plus the row count the run will ACTUALLY use.
+///
+/// Several warnings are arithmetic over the count — a share that rounds to less
+/// than one record, a `uniq` column too wide to hold — and one computed over the
+/// declared value while the run uses another is describing a run that is not
+/// happening. Measured before this existed: `--count 1000` on a `count="3"`
+/// config warned about 3 rows and generated 1000, and the mirror image said
+/// nothing at all about a run that really did ask for 0.99 of a record.
+pub fn validate_counted(
+    document: &Document,
+    packs: Option<DataPacks>,
+    base_dir: Option<&str>,
+    count: Option<i64>,
+) -> Vec<Diagnostic> {
     let mut v = Validator {
         packs,
         base_dir: base_dir.map(str::to_string),
         document_max_length: regex::DEFAULT_MAX_LENGTH,
+        count_override: count,
         ..Validator::default()
     };
     v.run(document);
@@ -94,6 +112,8 @@ struct Validator {
     /// depends on SIZE rather than shape — a `uniq` column costs nothing at a
     /// hundred rows and gigabytes at ten million.
     env_count: i64,
+    /// `--count`, when the caller has one. See `validate_counted`.
+    count_override: Option<i64>,
     /// The packs a template address is looked up in, when the caller has them.
     /// Absent means addresses are taken on trust — a check that cannot be made
     /// is better skipped than guessed.
@@ -794,6 +814,11 @@ impl Validator {
                     env.at("count"),
                 );
             }
+        }
+        // Applied after the declared value is read, because the declared one still
+        // has to parse — an override does not excuse `count="x"`.
+        if let Some(n) = self.count_override {
+            self.env_count = n;
         }
 
         // A share below one whole row: its own pass, because the denominator of a

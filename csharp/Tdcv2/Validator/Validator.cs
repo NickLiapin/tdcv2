@@ -598,6 +598,14 @@ public sealed class Validator
     /// </summary>
     private long _envCount;
 
+    /// <summary><c>--count</c>, when the caller has one.</summary>
+    /// <remarks>
+    /// Several warnings are arithmetic over the count — a share that rounds to less than one
+    /// record, a <c>uniq</c> column too wide to hold — and one computed over the declared value
+    /// while the run uses another is describing a run that is not happening.
+    /// </remarks>
+    private long? _countOverride;
+
     /// <summary>Every sequence name the config declares — what an interpolation may refer to.</summary>
     private readonly HashSet<string> _declaredNames = new(StringComparer.Ordinal);
 
@@ -719,10 +727,11 @@ public sealed class Validator
     private readonly List<(int At, string Expression, string Pool, string Field, string Other,
         int Line, int Column)> _pendingPoolFilters = new();
 
-    private Validator(string? baseDir, DataPacks? packs)
+    private Validator(string? baseDir, DataPacks? packs, long? countOverride)
     {
         _baseDir = baseDir;
         _packs = packs;
+        _countOverride = countOverride;
     }
 
     public static IReadOnlyList<Diagnostic> Validate(TDCParser.DocumentContext document) =>
@@ -730,9 +739,17 @@ public sealed class Validator
 
     /// <param name="baseDir">Where a relative <c>src=</c> resolves from — the config file's own folder.</param>
     public static IReadOnlyList<Diagnostic> Validate(
-        TDCParser.DocumentContext document, string? baseDir, DataPacks? packs)
+        TDCParser.DocumentContext document, string? baseDir, DataPacks? packs) =>
+        Validate(document, baseDir, packs, null);
+
+    /// <summary>
+    /// The same, plus the row count the run will ACTUALLY use when <c>--count</c> overrides the
+    /// one in <c>&lt;env&gt;</c>.
+    /// </summary>
+    public static IReadOnlyList<Diagnostic> Validate(
+        TDCParser.DocumentContext document, string? baseDir, DataPacks? packs, long? count)
     {
-        var v = new Validator(baseDir, packs);
+        var v = new Validator(baseDir, packs, count);
         v.Run(document);
         if (packs is null)
         {
@@ -1337,6 +1354,13 @@ public sealed class Validator
             Error(
                 "TDC020", $"invalid count \"{count}\" — expected a non-negative integer",
                 "", line, column);
+        }
+
+        // Applied after the declared value is read, because the declared one still has to
+        // parse — an override does not excuse `count="x"`.
+        if (_countOverride is not null)
+        {
+            _envCount = _countOverride.Value;
         }
 
         // The renderer splits on `(.+)%(.+)`, so the pattern needs a `%` with something on

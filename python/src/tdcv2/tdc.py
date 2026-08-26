@@ -253,7 +253,9 @@ class TDC:
         # Validated before building. A config the reference refuses must be refused here too, or
         # the two implementations disagree about which configs are legal — which is a portability
         # bug even when every value either of them produces is right.
-        problems = validate(parsed.tree, config_dir, self._packs)
+        # `--count` decides how many rows there will be, so the warnings that are
+        # arithmetic over the count have to be about that number and not <env>'s.
+        problems = validate(parsed.tree, config_dir, self._packs, count)
         if has_errors(problems):
             raise TdcError(summarize(problems), problems, source)
         self._diagnostics = problems

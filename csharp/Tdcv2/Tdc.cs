@@ -322,7 +322,9 @@ public sealed class Tdc
         // Validate before building. A config the reference refuses must be refused here too, or the
         // two implementations disagree about which configs are legal — which is a portability bug
         // even when every value either of them produces is right.
-        Diagnostics = Validator.Validate(parsed.Tree, _baseDir, _packs);
+        // `--count` decides how many rows there will be, so the warnings that are arithmetic
+        // over the count have to be about that number and not the one in <env>.
+        Diagnostics = Validator.Validate(parsed.Tree, _baseDir, _packs, options.Count);
         if (Diagnostic.HasErrors(Diagnostics))
         {
             throw new TdcDiagnosticException(Diagnostics, Source);

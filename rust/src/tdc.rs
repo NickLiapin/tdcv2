@@ -422,13 +422,16 @@ impl Tdc {
         // refused here too, or the two disagree about which configs are legal —
         // a portability bug even when every value either of them produces is
         // right.
-        let diagnostics = validator::validate_in(
+        // `--count` decides how many rows there will be, so the warnings that are
+        // arithmetic over the count have to be about that number and not <env>'s.
+        let diagnostics = validator::validate_counted(
             &parsed.tree,
             Some(DataPacks::for_project(
                 search_from.as_deref(),
                 &options.data_paths,
             )?),
             base_dir.as_deref(),
+            options.count.map(|n| n as i64),
         );
         if has_errors(&diagnostics) {
             return Err(TdcError::Refused {

@@ -143,6 +143,19 @@ export interface ValidationOptions {
    * Only the ones that can be PROVEN are here; the rest are simply absent.
    */
   readonly packParamWidths?: PackParamWidths | undefined;
+  /**
+   * The row count the run will ACTUALLY use, when `--count` overrides the one
+   * in `<env>`.
+   *
+   * Several warnings are arithmetic over the count — a share that rounds to
+   * less than one record, a `uniq` column too wide to hold in memory — and a
+   * warning computed over the declared count while the run uses another is
+   * describing a run that is not happening. Measured before this existed:
+   * `--count 1000` on a `count="3"` config warned about 3 rows and generated
+   * 1000, and the mirror image said nothing at all about a run that really did
+   * ask for 0.99 of a record.
+   */
+  readonly count?: number | undefined;
 }
 
 export function validate(tree: DocumentContext, options: ValidationOptions = {}): ValidationResult {
@@ -170,6 +183,7 @@ export function validate(tree: DocumentContext, options: ValidationOptions = {})
     options.packAddresses ?? [],
     options.packParams,
     options.packParamWidths,
+    options.count,
   );
 
   checkOneEnvOneBlock(tdc, diags);
@@ -375,6 +389,8 @@ class Ctx {
     public readonly packAddresses: readonly string[],
     public readonly packParams: PackParams | undefined,
     public readonly packParamWidths: PackParamWidths | undefined,
+    /** `--count`, when the caller has one. See `ValidationOptions.count`. */
+    public readonly countOverride?: number | undefined,
   ) {}
 
   public known(name: string): boolean {
@@ -401,6 +417,10 @@ function checkEnv(envEl: OpenCloseElementContext, ctx: Ctx): void {
     const raw = attrMap['count'] ?? '';
     const n = Number(raw);
     if (Number.isFinite(n) && Number.isInteger(n) && n >= 0) ctx.count = n;
+    // `--count` decides what the run does, so it decides what the arithmetic
+    // warnings are about. Applied after the declared value is read, because the
+    // declared one still has to parse — an override does not excuse `count="x"`.
+    if (ctx.countOverride !== undefined) ctx.count = ctx.countOverride;
     if (!Number.isFinite(n) || !Number.isInteger(n) || n < 0) {
       ctx.diagnostics.push({
         severity: 'error',

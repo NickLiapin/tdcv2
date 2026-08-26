@@ -227,6 +227,10 @@ export class TDC {
       packAddresses: [...this.packs.keys()],
       packParams: packParameterNames(this.packs),
       packParamWidths: packParameterWidths(this.packs),
+      // `--count` decides how many rows there will be, so the warnings that are
+      // arithmetic over the count have to be about that number and not the one
+      // in <env>.
+      ...(effective.count !== undefined ? { count: effective.count } : {}),
     });
     const combined: Diagnostic[] = [...packScan.diagnostics, ...validation.diagnostics];
     if (hasErrors(combined)) {

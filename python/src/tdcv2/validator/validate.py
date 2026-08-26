@@ -669,12 +669,21 @@ def _gen_element(child):
     return el if el is not None and el.name.text == "gen" else None
 
 
-def validate(document, base_dir: Path | None = None, packs: DataPacks | None = None):
+def validate(
+    document,
+    base_dir: Path | None = None,
+    packs: DataPacks | None = None,
+    count: int | None = None,
+):
     """Every diagnostic the config earns, in the order they were found.
 
     ``base_dir`` is where a relative ``src=`` resolves from — the config file's own folder.
+
+    ``count`` is the row count the run will ACTUALLY use, when ``--count`` overrides the one
+    in ``<env>``. Several warnings are arithmetic over the count, and one computed over the
+    declared value while the run uses another is describing a run that is not happening.
     """
-    v = _Validator(base_dir, packs)
+    v = _Validator(base_dir, packs, count)
     v.run(document)
     found = list(v.diagnostics)
     # A pack file the address scan read and could not place — TDC171. Reported after the walk
@@ -859,6 +868,7 @@ class _Validator:
         "declared_fields",
         "diagnostics",
         "document_regex_max_length",
+        "count_override",
         "env_count",
         "env_names",
         "expr_scope",
@@ -878,7 +888,12 @@ class _Validator:
         "valueless_names",
     )
 
-    def __init__(self, base_dir: Path | None, packs: DataPacks | None) -> None:
+    def __init__(
+        self,
+        base_dir: Path | None,
+        packs: DataPacks | None,
+        count_override: int | None = None,
+    ) -> None:
         self.diagnostics: list[Diagnostic] = []
         self.base_dir = base_dir
         self.packs = packs
@@ -888,6 +903,10 @@ class _Validator:
         # depends on SIZE rather than shape — what a uniq column costs is
         # nothing at a hundred rows and gigabytes at ten million.
         self.env_count = 0
+        # `--count` decides how many rows the run makes, so it decides what the
+        # arithmetic warnings are about. A warning computed over the declared
+        # count while the run uses another describes a run that is not happening.
+        self.count_override = count_override
         # Every sequence name the config declares — what an interpolation may refer to.
         self.declared_names: set[str] = set()
         self.declared_order: list[str] = []
@@ -1315,6 +1334,10 @@ class _Validator:
                     line,
                     column,
                 )
+        # Applied after the declared value is read, because the declared one still
+        # has to parse — an override does not excuse `count="x"`.
+        if self.count_override is not None:
+            self.env_count = self.count_override
 
         # The renderer splits on `(.+)%(.+)`, so the pattern needs a `%` with something on
         # BOTH sides. Counting the `%` alone let "%%" and "%x" through: they have one, they
