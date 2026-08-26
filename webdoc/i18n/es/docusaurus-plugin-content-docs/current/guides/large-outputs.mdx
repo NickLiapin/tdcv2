@@ -488,9 +488,29 @@ máquina de 12 núcleos:
 | auto     | 1.69 s |        ×4.1 |
 
 Dos lecciones. **Más hilos no siempre es más rápido:** doce hilos en doce núcleos pierden
-contra ocho — se pelean por los mismos núcleos y el mismo disco. Y **por lo general no hay
-nada que ajustar:** auto toma `núcleos − 1` y se queda a ~8 % del mejor resultado, lo cual
-no vale el alboroto.
+contra ocho — se pelean por los mismos núcleos y el mismo disco. Y **los números de arriba
+son de esa máquina**, no de TDC.
+
+Donde más importa es en una máquina cuyos núcleos no son todos iguales. Auto toma
+`núcleos − 1`, y en un Apple M2 Max — 12 núcleos, pero 8 de rendimiento y 4 de eficiencia —
+eso alcanza a los cuatro lentos. La misma configuración de seis campos, medida aquí:
+
+| `--jobs` | tiempo |
+| :------- | -----: |
+| 1        | 8,82 s |
+| 2        | 6,57 s |
+| 4        | **5,00 s** |
+| 8        | 5,63 s |
+| 12       | 6,40 s |
+| auto     | 6,07 s |
+
+Auto queda 21 % del mejor, y el pico es ×1,8 en vez de ×4,4. En una columna cara en CPU
+puede ir peor: una `formula` con `sin`, `log` y `gauss` sobre 1 000 000 de filas tomó 3,05 s
+en un hilo y 4,71 s en auto — más lenta en tiempo y seis veces la CPU.
+
+Así que: en una máquina con núcleos uniformes déjelo estar, y si una corrida importa,
+tómele el tiempo con varios valores de `--jobs` en la máquina que la va a hacer. Lo que no
+cambia nunca son los datos: todas esas corridas produjeron los mismos bytes.
 
 La aceleración depende de qué tan cara sea una fila. En una configuración de verdad barata
 (dos campos, un contador y `M,F`) la ganancia es de apenas ~×1.6 — levantar hilos cuesta

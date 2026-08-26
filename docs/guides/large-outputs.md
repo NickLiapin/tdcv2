@@ -488,9 +488,29 @@ column, a normal distribution, a date), a 74 MB file, on a 12-core machine:
 | auto     | 1.69 s |     ×4.1 |
 
 Two lessons. **More threads isn't always faster:** twelve threads on twelve cores lose to
-eight — they fight over the same cores and the same disk. And **there's usually nothing to
-tune:** auto takes `cores − 1` and lands within ~8% of the best result, which isn't worth
-chasing.
+eight — they fight over the same cores and the same disk. And **the numbers above belong to
+that machine**, not to TDC.
+
+Where that matters most is a machine whose cores are not all the same. Auto takes
+`cores − 1`, and on an Apple M2 Max — 12 cores, but 8 performance and 4 efficiency — that
+reaches into the slow four. The same six-field config, measured here:
+
+| `--jobs` |   time |
+| :------- | -----: |
+| 1        | 8.82 s |
+| 2        | 6.57 s |
+| 4        | **5.00 s** |
+| 8        | 5.63 s |
+| 12       | 6.40 s |
+| auto     | 6.07 s |
+
+Auto is 21% off the best, and the peak win is ×1.8 rather than ×4.4. On a CPU-heavy column
+it can go further wrong: a `formula` doing `sin`, `log` and `gauss` over 1,000,000 rows took
+3.05 s on one thread and 4.71 s on auto — slower in wall time and six times the CPU.
+
+So: leave it alone on a machine with uniform cores, and if a run matters, time it at a few
+values of `--jobs` on the machine that will do it. What never changes is the data — every
+one of those runs produced the same bytes.
 
 The speedup depends on how expensive a row is. On a truly cheap config (two fields, a
 counter and `M,F`) the win is only ~×1.6 — spinning up threads costs time, and on light
