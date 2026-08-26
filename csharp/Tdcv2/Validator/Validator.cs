@@ -38,6 +38,28 @@ namespace Tdcv2.Validation;
 public sealed class Validator
 {
     /// <summary>What may sit directly inside <c>&lt;tdc&gt;</c>.</summary>
+    /// <summary>The generator types in the order the reference lists them.</summary>
+    private static readonly IReadOnlyList<string> GenTypeOrder = new[]
+    {
+        "text",
+        "file",
+        "template",
+        "number",
+        "regex",
+        "advanced_regex",
+        "symbol",
+        "date",
+        "increment",
+        "decrement",
+        "timeseries",
+        "pattern",
+        "http",
+        "pool",
+        "running",
+        "stat",
+        "formula",
+    };
+
     /// <summary>The nine builtin template paths, in the order the reference lists them.</summary>
     private static readonly IReadOnlyList<string> KnownTemplatePaths = new[]
     {
@@ -901,8 +923,8 @@ public sealed class Validator
         if (versionAttr is not null && shortAttr is not null)
         {
             Error(
-                "TDC003", "both \"version\" and \"v\" are present on <tdc>",
-                "Use one of them. They mean the same thing.", Line(tdc), Column(tdc));
+                "TDC003", "<tdc> declares both \"version\" and \"v\"",
+                "Use one root version attribute. Prefer the canonical form: <tdc version=\"0.1.0\">.", Line(tdc), Column(tdc));
             return;
         }
 
@@ -968,7 +990,7 @@ public sealed class Validator
             (int line, int column) = At(tdc, "regex_max_length");
             Error(
                 "TDC096", $"regex_max_length must be a positive integer, got \"{raw}\"",
-                "It caps how long a generated regex value may be.", line, column);
+                "Use a positive integer, e.g. regex_max_length=\"64\".", line, column);
         }
     }
 
@@ -1436,7 +1458,7 @@ public sealed class Validator
             {
                 Error(
                     "TDC030", $"<{tag}> is missing a required \"name\" attribute",
-                    "A sequence is referenced by name, so it needs one.", Line(open), Column(open));
+                    "Every sequence needs a unique name for interpolation, e.g. <sequence name=\"Gender\">.", Line(open), Column(open));
             }
             else if (Checks.IsBuiltin(name))
             {
@@ -1453,14 +1475,14 @@ public sealed class Validator
                 (int line, int column) = At(open, "name");
                 Error(
                     "TDC031", $"sequence name \"{name}\" starts with \"_\" — reserved for builtins",
-                    "User sequences should avoid the leading underscore.", line, column);
+                    "Builtin names: _count, _first, _last, _total. User sequences should avoid the leading underscore.", line, column);
             }
             else if (!this.poolMemberNodes.Contains(open) && !names.Add(name))
             {
                 (int line, int column) = At(open, "name");
                 Error(
                     "TDC032", $"duplicate sequence name \"{name}\"",
-                    "Two sequences cannot share a name — the second would shadow the first.",
+                    "Each <sequence>/<mix> must declare a unique name; rename or remove the duplicate.",
                     line, column);
             }
 
@@ -1485,8 +1507,7 @@ public sealed class Validator
                     Error(
                         "TDC035",
                         $"parent sequence \"{parentName}\" is not declared before this sequence",
-                        "Move the parent above it. A child is built over the rows its parent "
-                        + "selected.",
+                        "Parent sequences must be declared earlier in the same <env>. Forward references and cycles are not supported.",
                         line, column);
                 }
                 else if (_valuelessNames.Contains(parentName))
@@ -2933,7 +2954,7 @@ public sealed class Validator
         {
             Error(
                 "TDC036", $"<sequence name=\"{name ?? "?"}\"> has no <gen> child",
-                "A sequence needs at least one <gen type=\"…\"/> describing how values are made.",
+                "A sequence needs at least one <gen type=\"…\"/> describing how values are produced. For a percentage distribution use a standalone <mix name=\"…\"> in <env>.",
                 Line(open), Column(open));
             return;
         }
@@ -3366,14 +3387,14 @@ public sealed class Validator
             (int line, int column) = At(gen, "name");
             Error(
                 "TDC040", "<gen> is missing a required \"type\" attribute",
-                "Every generator names what it generates.", line, column);
+                "Allowed types: text, file, template, number, regex, advanced_regex, … (11 more).", line, column);
         }
         else if (!GenTypes.Contains(type))
         {
             (int line, int column) = At(gen, "type");
             Error(
                 "TDC041", $"unknown gen type \"{type}\"",
-                "Known types: " + string.Join(", ", GenTypes.OrderBy(t => t, StringComparer.Ordinal)) + ".",
+                "Allowed types: " + Candidates(GenTypeOrder, 6) + ".",
                 line, column);
         }
 
@@ -4390,7 +4411,7 @@ public sealed class Validator
             (int line, int column) = At(gen, "value");
             Error(
                 "TDC081", $"invalid number range \"{value}\"",
-                "Expected \"bit\", \"MIN..MAX\", or a list like \"[0..9],[20..29]\".", line, column);
+                "Expected \"bit\", \"MIN..MAX\", or a comma-separated range list like \"[0..100],[345..678]\".", line, column);
         }
 
         string? firstZero = attrs.GetValueOrDefault("first_zero");
@@ -4399,7 +4420,7 @@ public sealed class Validator
             (int line, int column) = At(gen, "first_zero");
             Error(
                 "TDC082", $"invalid first_zero \"{firstZero}\" — expected \"true\" or \"false\"",
-                "It decides whether a generated digit string may start with a zero.", line, column);
+                "", line, column);
         }
 
         string? length = attrs.GetValueOrDefault("length");
@@ -4409,7 +4430,7 @@ public sealed class Validator
             Error(
                 "TDC083",
                 $"invalid length \"{length}\" — expected a positive integer, range, or "
-                + "comma-separated list",
+                + "comma-separated length groups",
                 "Examples: length=\"10\", length=\"2-10\", length=\"2,10-12\".", line, column);
         }
 
@@ -6461,7 +6482,7 @@ public sealed class Validator
                     "TDC132",
                     $"a <{open.name.Text}> is not allowed inside <line> — the output block is for "
                     + "formatting only",
-                    "Move it into <env>.", Line(open), Column(open));
+                    "Declare it in <env> and reference it here with ${{Name}}. See https://nickliapin.github.io/tdcv2/docs/constructs/mix", Line(open), Column(open));
             }
         }
     }

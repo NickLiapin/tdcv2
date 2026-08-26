@@ -40,6 +40,27 @@ import org.antlr.v4.runtime.tree.ParseTree;
 public final class Validator {
 
   /** What may sit directly inside {@code <tdc>}. */
+  /** The generator types in the order the reference lists them — the common ones first. */
+  private static final List<String> GEN_TYPE_ORDER =
+      List.of(
+          "text",
+          "file",
+          "template",
+          "number",
+          "regex",
+          "advanced_regex",
+          "symbol",
+          "date",
+          "increment",
+          "decrement",
+          "timeseries",
+          "pattern",
+          "http",
+          "pool",
+          "running",
+          "stat",
+          "formula");
+
   /** The nine builtin template paths, in the order the reference lists them. */
   private static final List<String> KNOWN_TEMPLATE_PATHS =
       List.of(
@@ -857,8 +878,8 @@ public final class Validator {
     String shortAttr = attrs.get("v");
 
     if (versionAttr != null && shortAttr != null) {
-      error("TDC003", "both \"version\" and \"v\" are present on <tdc>",
-          "Use one of them. They mean the same thing.", line(tdc), column(tdc));
+      error("TDC003", "<tdc> declares both \"version\" and \"v\"",
+          "Use one root version attribute. Prefer the canonical form: <tdc version=\"0.1.0\">.", line(tdc), column(tdc));
       return;
     }
     String raw = versionAttr != null ? versionAttr : shortAttr;
@@ -911,7 +932,7 @@ public final class Validator {
       }
     } catch (NumberFormatException e) {
       error("TDC096", "regex_max_length must be a positive integer, got \"" + raw + "\"",
-          "It caps how long a generated regex value may be.", at(tdc, "regex_max_length")[0], at(tdc, "regex_max_length")[1]);
+          "Use a positive integer, e.g. regex_max_length=\"64\".", at(tdc, "regex_max_length")[0], at(tdc, "regex_max_length")[1]);
     }
   }
 
@@ -1271,7 +1292,7 @@ public final class Validator {
       String name = attrs.get("name");
       if (name == null || name.isBlank()) {
         error("TDC030", "<" + tag + "> is missing a required \"name\" attribute",
-            "A sequence is referenced by name, so it needs one.", line(open), column(open));
+            "Every sequence needs a unique name for interpolation, e.g. <sequence name=\"Gender\">.", line(open), column(open));
       } else if (Checks.isBuiltin(name)) {
         error("TDC033", "sequence name \"" + name + "\" collides with a builtin",
             "Builtins: " + String.join(", ", new java.util.TreeSet<>(Checks.BUILTINS)) + ".",
@@ -1280,10 +1301,10 @@ public final class Validator {
         // The leading underscore is the engine's namespace. Letting a config into it means a
         // future builtin would silently shadow somebody's column.
         error("TDC031", "sequence name \"" + name + "\" starts with \"_\" — reserved for builtins",
-            "User sequences should avoid the leading underscore.", at(open, "name")[0], at(open, "name")[1]);
+            "Builtin names: _count, _first, _last, _total. User sequences should avoid the leading underscore.", at(open, "name")[0], at(open, "name")[1]);
       } else if (!poolMemberNodes.contains(open) && !names.add(name)) {
         error("TDC032", "duplicate sequence name \"" + name + "\"",
-            "Two sequences cannot share a name — the second would shadow the first.",
+            "Each <sequence>/<mix> must declare a unique name; rename or remove the duplicate.",
             at(open, "name")[0], at(open, "name")[1]);
       }
 
@@ -1298,7 +1319,7 @@ public final class Validator {
               at(open, "parent")[0], at(open, "parent")[1]);
         } else if (!declared.contains(parentName)) {
           error("TDC035", "parent sequence \"" + parentName + "\" is not declared before this sequence",
-              "Move the parent above it. A child is built over the rows its parent selected.",
+              "Parent sequences must be declared earlier in the same <env>. Forward references and cycles are not supported.",
               at(open, "parent")[0], at(open, "parent")[1]);
         } else if (valuelessNames.contains(parentName)) {
           // A parent selects rows by the VALUE it produced. A compound is a group of fields and
@@ -2625,7 +2646,7 @@ public final class Validator {
 
     if (gens.isEmpty() && !hasCompute && misplaced == 0) {
       error("TDC036", "<sequence name=\"" + (name == null ? "?" : name) + "\"> has no <gen> child",
-          "A sequence needs at least one <gen type=\"…\"/> describing how values are made.",
+          "A sequence needs at least one <gen type=\"…\"/> describing how values are produced. For a percentage distribution use a standalone <mix name=\"…\"> in <env>.",
           line(open), column(open));
       return;
     }
@@ -2964,10 +2985,10 @@ public final class Validator {
 
     if (type == null || type.isBlank()) {
       error("TDC040", "<gen> is missing a required \"type\" attribute",
-          "Every generator names what it generates.", at(gen, "name")[0], at(gen, "name")[1]);
+          "Allowed types: text, file, template, number, regex, advanced_regex, … (11 more).", at(gen, "name")[0], at(gen, "name")[1]);
     } else if (!GEN_TYPES.contains(type)) {
       error("TDC041", "unknown gen type \"" + type + "\"",
-          "Known types: " + String.join(", ", new java.util.TreeSet<>(GEN_TYPES)) + ".",
+          "Allowed types: " + candidates(GEN_TYPE_ORDER, 6) + ".",
           at(gen, "type")[0], at(gen, "type")[1]);
     }
 
@@ -4028,7 +4049,7 @@ public final class Validator {
       String problem = Checks.numberRangeProblem(value);
       if (problem != null) {
         error("TDC081", "invalid number range \"" + value + "\"",
-            "Expected \"bit\", \"MIN..MAX\", or a list like \"[0..9],[20..29]\".",
+            "Expected \"bit\", \"MIN..MAX\", or a comma-separated range list like \"[0..100],[345..678]\".",
             at(gen, "value")[0], at(gen, "value")[1]);
       }
     }
@@ -4036,14 +4057,14 @@ public final class Validator {
     String firstZero = attrs.get("first_zero");
     if (firstZero != null && !Checks.isBooleanText(firstZero)) {
       error("TDC082", "invalid first_zero \"" + firstZero + "\" — expected \"true\" or \"false\"",
-          "It decides whether a generated digit string may start with a zero.",
+          "",
           at(gen, "first_zero")[0], at(gen, "first_zero")[1]);
     }
 
     String length = attrs.get("length");
     if (length != null && !Checks.isValidLength(length)) {
       error("TDC083",
-          "invalid length \"" + length + "\" — expected a positive integer, range, or comma-separated list",
+          "invalid length \"" + length + "\" — expected a positive integer, range, or comma-separated length groups",
           "Examples: length=\"10\", length=\"2-10\", length=\"2,10-12\".",
           at(gen, "length")[0], at(gen, "length")[1]);
     }
@@ -5500,7 +5521,7 @@ public final class Validator {
       if (open != null && !"data".equals(open.name.getText())) {
         error("TDC132",
             "a <" + open.name.getText() + "> is not allowed inside <line> — the output block is for formatting only",
-            "Move it into <env>.", line(open), column(open));
+            "Declare it in <env> and reference it here with ${{Name}}. See https://nickliapin.github.io/tdcv2/docs/constructs/mix", line(open), column(open));
       }
     }
   }

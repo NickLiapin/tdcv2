@@ -350,6 +350,29 @@ pub const TEMPLATE_COMMON_ATTRS: [&str; 8] = [
 ];
 
 /// Template paths that are generators rather than pack files.
+/// The generator types in the order the reference lists them — the common ones first.
+///
+/// The order is the answer on a list the refusal CUTS: sorted, the six a reader is shown open with `advanced_regex` where the reference opens with `text`. Declaration order — the common types first — is what the reference prints.
+pub const GEN_TYPE_ORDER: [&str; 17] = [
+    "text",
+    "file",
+    "template",
+    "number",
+    "regex",
+    "advanced_regex",
+    "symbol",
+    "date",
+    "increment",
+    "decrement",
+    "timeseries",
+    "pattern",
+    "http",
+    "pool",
+    "running",
+    "stat",
+    "formula",
+];
+
 /// The nine builtin template paths, in the order the reference lists them.
 ///
 /// Named here rather than derived from the pack registry: this is the list a REFUSAL offers when

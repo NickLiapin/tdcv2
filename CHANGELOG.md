@@ -377,6 +377,15 @@ placed` rather than naming a total it stopped counting. A number quietly reading
   produces their sum in Python, Java, C# and Rust, where it produced their digits run together.
   TypeScript is unchanged.
 
+- **Fifteen more diagnostics say what the reference says**, and two of them were lists whose
+  ORDER is the answer: the generator types printed sorted, so the six a reader is shown opened
+  with `advanced_regex` where the reference opens with `text` — the common types first is the
+  point of the list. `TDC072` had the same shape for a pack's parameters. The rest are sentences
+  that told less: `TDC036` left out what to write for a percentage distribution, `TDC031` and
+  `TDC033` did not name the builtins, `TDC035` said "move it above" without saying that forward
+  references and cycles are unsupported, `TDC132` did not say where to declare the construct,
+  `TDC030`, `TDC032`, `TDC040`, `TDC041`, `TDC082`, `TDC083`, `TDC096`, `TDC003`.
+
 - **`TDC194` offered column types the engine refuses.** The ports listed `uint8`, `uint16`,
   `uint32`, `uint64`, `float`, `float16` and `enum` among the types a `<data type=…>` takes;
   every implementation refuses all seven. The reference's list is the true one and all four now

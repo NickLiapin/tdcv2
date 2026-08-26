@@ -471,8 +471,8 @@ impl Validator {
         if version.is_some() && short.is_some() {
             self.error(
                 "TDC003",
-                "both \"version\" and \"v\" are present on <tdc>".to_string(),
-                "Use one of them. They mean the same thing.",
+                "<tdc> declares both \"version\" and \"v\"".to_string(),
+                "Use one root version attribute. Prefer the canonical form: <tdc version=\"0.1.0\">.",
                 tdc.pos,
             );
             return;
@@ -523,7 +523,7 @@ impl Validator {
         self.error(
             "TDC096",
             format!("regex_max_length must be a positive integer, got \"{raw}\""),
-            "It caps how long a generated regex value may be.",
+            "Use a positive integer, e.g. regex_max_length=\"64\".",
             tdc.at("regex_max_length"),
         );
     }
@@ -921,7 +921,7 @@ impl Validator {
                 None => self.error(
                     "TDC030",
                     format!("<{tag}> is missing a required \"name\" attribute"),
-                    "A sequence is referenced by name, so it needs one.",
+                    "Every sequence needs a unique name for interpolation, e.g. <sequence name=\"Gender\">.",
                     open.pos,
                 ),
                 Some(n) if is_builtin(n) => self.error(
@@ -936,13 +936,13 @@ impl Validator {
                 Some(n) if n.starts_with('_') => self.error(
                     "TDC031",
                     format!("sequence name \"{n}\" starts with \"_\" — reserved for builtins"),
-                    "User sequences should avoid the leading underscore.",
+                    "Builtin names: _count, _first, _last, _total. User sequences should avoid the leading underscore.",
                     open.at("name"),
                 ),
                 Some(n) if !in_pool && !names.insert(n.to_string()) => self.error(
                     "TDC032",
                     format!("duplicate sequence name \"{n}\""),
-                    "Two sequences cannot share a name — the second would shadow the first.",
+                    "Each <sequence>/<mix> must declare a unique name; rename or remove the duplicate.",
                     open.at("name"),
                 ),
                 Some(_) => {}
@@ -974,8 +974,7 @@ impl Validator {
                             "parent sequence \"{parent_name}\" is not declared before this \
                              sequence"
                         ),
-                        "Move the parent above it. A child is built over the rows its parent \
-                         selected.",
+                        "Parent sequences must be declared earlier in the same <env>. Forward references and cycles are not supported.",
                         open.at("parent"),
                     );
                 } else if self.valueless_names.contains(parent_name) {
@@ -1987,7 +1986,7 @@ impl Validator {
                     "<sequence name=\"{}\"> has no <gen> child",
                     name.unwrap_or("?")
                 ),
-                "A sequence needs at least one <gen type=\"…\"/> describing how values are made.",
+                "A sequence needs at least one <gen type=\"…\"/> describing how values are produced. For a percentage distribution use a standalone <mix name=\"…\"> in <env>.",
                 open.pos,
             );
             return;
@@ -2499,13 +2498,13 @@ impl Validator {
             None => self.error(
                 "TDC040",
                 "<gen> is missing a required \"type\" attribute".to_string(),
-                "Every generator names what it generates.",
+                "Allowed types: text, file, template, number, regex, advanced_regex, … (11 more).",
                 gen.at("name"),
             ),
             Some(t) if !tables::GEN_TYPES.contains(&t) => self.error(
                 "TDC041",
                 format!("unknown gen type \"{t}\""),
-                &format!("Known types: {}.", sorted(&tables::GEN_TYPES).join(", ")),
+                &format!("Allowed types: {}.", candidates(&tables::GEN_TYPE_ORDER)),
                 gen.at("type"),
             ),
             Some(_) => {}
@@ -3839,7 +3838,7 @@ impl Validator {
                 self.error(
                     "TDC081",
                     format!("invalid number range \"{value}\""),
-                    "Expected \"bit\", \"MIN..MAX\", or a list like \"[0..9],[20..29]\".",
+                    "Expected \"bit\", \"MIN..MAX\", or a comma-separated range list like \"[0..100],[345..678]\".",
                     gen.at("value"),
                 );
             }
@@ -3850,7 +3849,7 @@ impl Validator {
                 self.error(
                     "TDC082",
                     format!("invalid first_zero \"{first_zero}\" — expected \"true\" or \"false\""),
-                    "It decides whether a generated digit string may start with a zero.",
+                    "",
                     gen.at("first_zero"),
                 );
             }
@@ -3862,7 +3861,7 @@ impl Validator {
                     "TDC083",
                     format!(
                         "invalid length \"{length}\" — expected a positive integer, range, or \
-                         comma-separated list"
+                         comma-separated length groups"
                     ),
                     "Examples: length=\"10\", length=\"2-10\", length=\"2,10-12\".",
                     gen.at("length"),
@@ -5424,7 +5423,7 @@ impl Validator {
                          only",
                         child.name
                     ),
-                    "Move it into <env>.",
+                    "Declare it in <env> and reference it here with ${{Name}}. See https://nickliapin.github.io/tdcv2/docs/constructs/mix",
                     child.pos,
                 );
             }

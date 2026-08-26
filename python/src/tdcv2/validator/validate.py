@@ -631,6 +631,29 @@ KNOWN_TEMPLATE_PATHS = (
     "date.range",
 )
 
+#: The generator types in the order the reference lists them — the common ones first.
+#:
+#: The order is the answer on a list the refusal CUTS: sorted, the six a reader is shown open with `advanced_regex` where the reference opens with `text`. Declaration order — the common types first — is what the reference prints.
+GEN_TYPE_ORDER = (
+    "text",
+    "file",
+    "template",
+    "number",
+    "regex",
+    "advanced_regex",
+    "symbol",
+    "date",
+    "increment",
+    "decrement",
+    "timeseries",
+    "pattern",
+    "http",
+    "pool",
+    "running",
+    "stat",
+    "formula",
+)
+
 BUILTIN_TEMPLATE_PATHS = frozenset({"person.b_day", "date.range"})
 
 # The document versions this runtime understands.
@@ -1067,8 +1090,8 @@ class _Validator:
         if version_attr is not None and short_attr is not None:
             self._error(
                 "TDC003",
-                'both "version" and "v" are present on <tdc>',
-                "Use one of them. They mean the same thing.",
+                '<tdc> declares both "version" and "v"',
+                "Use one root version attribute. Prefer the canonical form: <tdc version=\"0.1.0\">.",
                 _line(tdc),
                 _column(tdc),
             )
@@ -1117,7 +1140,7 @@ class _Validator:
             self._error(
                 "TDC096",
                 f'regex_max_length must be a positive integer, got "{raw}"',
-                "It caps how long a generated regex value may be.",
+                "Use a positive integer, e.g. regex_max_length=\"64\".",
                 line,
                 column,
             )
@@ -1367,7 +1390,7 @@ class _Validator:
                 self._error(
                     "TDC030",
                     f'<{tag}> is missing a required "name" attribute',
-                    "A sequence is referenced by name, so it needs one.",
+                    "Every sequence needs a unique name for interpolation, e.g. <sequence name=\"Gender\">.",
                     _line(open_el),
                     _column(open_el),
                 )
@@ -1387,7 +1410,7 @@ class _Validator:
                 self._error(
                     "TDC031",
                     f'sequence name "{name}" starts with "_" — reserved for builtins',
-                    "User sequences should avoid the leading underscore.",
+                    "Builtin names: _count, _first, _last, _total. User sequences should avoid the leading underscore.",
                     line,
                     column,
                 )
@@ -1398,7 +1421,7 @@ class _Validator:
                 self._error(
                     "TDC032",
                     f'duplicate sequence name "{name}"',
-                    "Two sequences cannot share a name — the second would shadow the first.",
+                    "Each <sequence>/<mix> must declare a unique name; rename or remove the duplicate.",
                     line,
                     column,
                 )
@@ -1423,8 +1446,7 @@ class _Validator:
                     self._error(
                         "TDC035",
                         f'parent sequence "{parent_name}" is not declared before this sequence',
-                        "Move the parent above it. A child is built over the rows its parent "
-                        "selected.",
+                        "Parent sequences must be declared earlier in the same <env>. Forward references and cycles are not supported.",
                         line,
                         column,
                     )
@@ -2345,7 +2367,7 @@ class _Validator:
             self._error(
                 "TDC036",
                 f'<sequence name="{label}"> has no <gen> child',
-                'A sequence needs at least one <gen type="…"/> describing how values are made.',
+                'A sequence needs at least one <gen type="…"/> describing how values are produced. For a percentage distribution use a standalone <mix name="…"> in <env>.',
                 _line(open_el),
                 _column(open_el),
             )
@@ -2919,7 +2941,7 @@ class _Validator:
             self._error(
                 "TDC040",
                 '<gen> is missing a required "type" attribute',
-                "Every generator names what it generates.",
+                "Allowed types: text, file, template, number, regex, advanced_regex, … (11 more).",
                 line,
                 column,
             )
@@ -2928,7 +2950,7 @@ class _Validator:
             self._error(
                 "TDC041",
                 f'unknown gen type "{type_}"',
-                f"Known types: {', '.join(sorted(GEN_TYPES))}.",
+                f"Allowed types: {_candidates(list(GEN_TYPE_ORDER))}.",
                 line,
                 column,
             )
@@ -3694,7 +3716,7 @@ class _Validator:
             self._error(
                 "TDC081",
                 f'invalid number range "{value}"',
-                'Expected "bit", "MIN..MAX", or a list like "[0..9],[20..29]".',
+                'Expected "bit", "MIN..MAX", or a comma-separated range list like "[0..100],[345..678]".',
                 line,
                 column,
             )
@@ -3705,7 +3727,7 @@ class _Validator:
             self._error(
                 "TDC082",
                 f'invalid first_zero "{first_zero}" — expected "true" or "false"',
-                "It decides whether a generated digit string may start with a zero.",
+                "",
                 line,
                 column,
             )
@@ -3716,7 +3738,7 @@ class _Validator:
             self._error(
                 "TDC083",
                 f'invalid length "{length}" — expected a positive integer, range, or '
-                "comma-separated list",
+                "comma-separated length groups",
                 'Examples: length="10", length="2-10", length="2,10-12".',
                 line,
                 column,
@@ -5428,7 +5450,7 @@ class _Validator:
                     "TDC132",
                     f"a <{open_el.name.text}> is not allowed inside <line> — the output block is "
                     "for formatting only",
-                    "Move it into <env>.",
+                    "Declare it in <env> and reference it here with ${{Name}}. See https://nickliapin.github.io/tdcv2/docs/constructs/mix",
                     _line(open_el),
                     _column(open_el),
                 )
