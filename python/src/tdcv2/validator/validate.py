@@ -320,6 +320,23 @@ def _did_you_mean(name: str) -> str:
     return f'did you mean "{name}"?' if name else ""
 
 
+def _locales_having(packs, path: str) -> list[str]:
+    """The locales that ship this path, sorted — what the refusal offers instead of guessing.
+
+    "The `en` pack ships it" was true and narrow: a path may live in eighty-six locales, and
+    naming one told a reader to write `local="en"` when the locale they wanted was there all
+    along.
+    """
+    if packs is None:
+        return []
+    found = set()
+    for address in packs.addresses():
+        dot = address.find(".")
+        if dot > 0 and address[dot + 1 :] == path:
+            found.add(address[:dot])
+    return sorted(found)
+
+
 def _candidates(names, most: int = 6) -> str:
     """A list of allowed names, truncated the way the reference truncates every long one.
 
@@ -3588,8 +3605,9 @@ class _Validator:
                 self._error(
                     "TDC217",
                     f'template path "{value}" has no data for locale "{locale}"',
-                    'The "en" pack ships it. Set local="…" on this <gen> or on <env>, '
-                    "or choose a path your locale ships.",
+                    f"It exists in: {_candidates(_locales_having(self.packs, address))}. "
+                    'Set local="…" on this <gen> or on <env>, or choose a path your locale '
+                    "ships.",
                     line,
                     column,
                 )
@@ -3597,7 +3615,7 @@ class _Validator:
                 self._error(
                     "TDC071",
                     f'unknown template path "{value}"',
-                    "Check the address against the packs you have.",
+                    "Known paths: person.male.firstName, person.female.firstName, person.lastName, person.male.diagnosis, person.female.diagnosis, person.gender, … (3 more).",
                     line,
                     column,
                 )
@@ -3841,7 +3859,7 @@ class _Validator:
                 self._error(
                     "TDC097",
                     f"invalid regex generator pattern: {problem}",
-                    "The subset is finite: no * or +, and every pattern has a longest output.",
+                    "Use finite regex: bounded quantifiers such as {n} or {n,m}; unbounded *, +, and {n,} are rejected.",
                     line,
                     column,
                 )
@@ -3852,7 +3870,7 @@ class _Validator:
                 self._error(
                     "TDC130",
                     f"invalid advanced_regex generator pattern: {problem}",
-                    "Weighted branches must sum to 100.",
+                    "Use finite advanced regex. Weighted choice syntax is (?%{70:A;30:B}); branch percentages must sum to 100.",
                     line,
                     column,
                 )
@@ -4461,7 +4479,7 @@ class _Validator:
             self._error(
                 "TDC198",
                 '"separator" has no effect without "repeat"',
-                'separator joins the values a repeating gen produces. Add repeat="N", or drop it.',
+                'separator joins the values a repeating gen produces. Add repeat="N" or repeat="A..B".',
                 line,
                 column,
             )
@@ -5032,7 +5050,7 @@ class _Validator:
             self._error(
                 "TDC191",
                 f'unknown order "{order}"',
-                "Supported: random (the default), sequential.",
+                "Supported: random (default), sequential.",
                 line,
                 column,
             )
@@ -5263,8 +5281,7 @@ class _Validator:
             self._error(
                 "TDC194",
                 str(e),
-                "Types: bool, int32, int64, uint8/16/32/64, float, float16, double, string, enum, "
-                "date, timestamp, decimal(p,s), uuid, json; []T for a list; |null to allow NULL.",
+                "Supported: bool, int32, int64, double, string, date, timestamp, decimal(p,s), uuid, json — plus |null, and []T for a list (e.g. []int64, []string|null).",
                 where[0],
                 where[1],
             )

@@ -430,6 +430,31 @@ public sealed class Validator
     /// Six then "… (N more)". Printed in full, a fifteen-name list buries the one the reader is
     /// scanning for, and each implementation cut it at a different place — or not at all.
     /// </summary>
+    /// <summary>
+    /// The locales that ship this path, sorted — what the refusal offers instead of guessing.
+    /// "The `en` pack ships it" was true and narrow: a path may live in eighty-six locales, and
+    /// naming one told a reader to write local="en" when the locale they wanted was there all along.
+    /// </summary>
+    private static IReadOnlyList<string> LocalesHaving(DataPacks? packs, string path)
+    {
+        if (packs is null)
+        {
+            return Array.Empty<string>();
+        }
+
+        var found = new SortedSet<string>(StringComparer.Ordinal);
+        foreach (string address in packs.AddressList())
+        {
+            int dot = address.IndexOf('.', StringComparison.Ordinal);
+            if (dot > 0 && address[(dot + 1)..] == path)
+            {
+                found.Add(address[..dot]);
+            }
+        }
+
+        return found.ToList();
+    }
+
     private static string Candidates(IEnumerable<string> names) =>
         Candidates(names.OrderBy(a => a, StringComparer.Ordinal), 6);
 
@@ -4238,14 +4263,15 @@ public sealed class Validator
                         Error(
                             "TDC217",
                             $"template path \"{value}\" has no data for locale \"{tLocale}\"",
-                            "The \"en\" pack ships it. Set local=\"…\" on this <gen> or on <env>, "
-                            + "or choose a path your locale ships.", line, column);
+                            $"It exists in: {Candidates(LocalesHaving(_packs, path), 6)}. "
+                            + "Set local=\"…\" on this <gen> or on <env>, or choose a path "
+                            + "your locale ships.", line, column);
                     }
                     else
                     {
                         Error(
                             "TDC071", $"unknown template path \"{value}\"",
-                            "Check the address against the packs you have.", line, column);
+                            "Known paths: person.male.firstName, person.female.firstName, person.lastName, person.male.diagnosis, person.female.diagnosis, person.gender, … (3 more).", line, column);
                     }
                 }
 
@@ -4558,7 +4584,7 @@ public sealed class Validator
                 (int line, int column) = At(gen, "value");
                 Error(
                     "TDC097", $"invalid regex generator pattern: {problem}",
-                    "The subset is finite: no * or +, and every pattern has a longest output.",
+                    "Use finite regex: bounded quantifiers such as {n} or {n,m}; unbounded *, +, and {n,} are rejected.",
                     line, column);
             }
         }
@@ -4570,7 +4596,7 @@ public sealed class Validator
                 (int line, int column) = At(gen, "value");
                 Error(
                     "TDC130", $"invalid advanced_regex generator pattern: {problem}",
-                    "Weighted branches must sum to 100.", line, column);
+                    "Use finite advanced regex. Weighted choice syntax is (?%{70:A;30:B}); branch percentages must sum to 100.", line, column);
             }
         }
     }
@@ -5815,7 +5841,7 @@ public sealed class Validator
             (int line, int column) = At(gen, "separator");
             Error(
                 "TDC198", "\"separator\" has no effect without \"repeat\"",
-                "separator joins the values a repeating gen produces. Add repeat=\"N\", or drop it.",
+                "separator joins the values a repeating gen produces. Add repeat=\"N\" or repeat=\"A..B\".",
                 line, column);
         }
     }
@@ -6137,7 +6163,7 @@ public sealed class Validator
             (int line, int column) = At(gen, "order");
             Error(
                 "TDC191", $"unknown order \"{order}\"",
-                "Supported: random (the default), sequential.", line, column);
+                "Supported: random (default), sequential.", line, column);
         }
     }
 
@@ -6209,8 +6235,7 @@ public sealed class Validator
         {
             Error(
                 "TDC194", e.Message,
-                "Types: bool, int32, int64, uint8/16/32/64, float, float16, double, string, enum, "
-                + "date, timestamp, decimal(p,s), uuid, json; []T for a list; |null to allow NULL.",
+                "Supported: bool, int32, int64, double, string, date, timestamp, decimal(p,s), uuid, json — plus |null, and []T for a list (e.g. []int64, []string|null).",
                 l, c);
         }
     }

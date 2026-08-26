@@ -164,6 +164,21 @@ struct Validator {
 ///
 /// Six then "… (N more)". Printed in full, a fifteen-name list buries the one the reader is
 /// scanning for, and each implementation cut it at a different place — or not at all.
+/// The locales that ship this path, sorted — what the refusal offers instead of guessing.
+/// "The `en` pack ships it" was true and narrow: a path may live in eighty-six locales, and
+/// naming one told a reader to write local="en" when the locale they wanted was there all along.
+fn locales_having(packs: &crate::packs::DataPacks, path: &str) -> Vec<String> {
+    let mut found: std::collections::BTreeSet<String> = std::collections::BTreeSet::new();
+    for address in packs.address_list() {
+        if let Some(dot) = address.find('.') {
+            if dot > 0 && &address[dot + 1..] == path {
+                found.insert(address[..dot].to_string());
+            }
+        }
+    }
+    found.into_iter().collect()
+}
+
 fn candidates(names: &[&str]) -> String {
     candidates_max(names, 6)
 }
@@ -3627,8 +3642,16 @@ impl Validator {
                                 "template path \"{value}\" has no data for locale \"{}\"",
                                 locale
                             ),
-                            "The \"en\" pack ships it. Set local=\"…\" on this <gen> or on \
-                             <env>, or choose a path your locale ships.",
+                            &format!(
+                                "It exists in: {}. Set local=\"…\" on this <gen> or on <env>, \
+                                 or choose a path your locale ships.",
+                                candidates(
+                                    &locales_having(packs, path)
+                                        .iter()
+                                        .map(String::as_str)
+                                        .collect::<Vec<_>>()
+                                )
+                            ),
                             gen.at("value"),
                         );
                         return;
@@ -3636,7 +3659,7 @@ impl Validator {
                     self.error(
                         "TDC071",
                         format!("unknown template path \"{value}\""),
-                        "Check the address against the packs you have.",
+                        "Known paths: person.male.firstName, person.female.firstName, person.lastName, person.male.diagnosis, person.female.diagnosis, person.gender, … (3 more).",
                         gen.at("value"),
                     );
                 } else if let Err(e) = packs.load(path, &locale) {
@@ -4008,7 +4031,7 @@ impl Validator {
                 self.error(
                     "TDC097",
                     format!("invalid regex generator pattern: {}", e.message()),
-                    "The subset is finite: no * or +, and every pattern has a longest output.",
+                    "Use finite regex: bounded quantifiers such as {n} or {n,m}; unbounded *, +, and {n,} are rejected.",
                     gen.at("value"),
                 );
             }
@@ -4017,7 +4040,7 @@ impl Validator {
                 self.error(
                     "TDC130",
                     format!("invalid advanced_regex generator pattern: {}", e.message()),
-                    "Weighted branches must sum to 100.",
+                    "Use finite advanced regex. Weighted choice syntax is (?%{70:A;30:B}); branch percentages must sum to 100.",
                     gen.at("value"),
                 );
             }
@@ -4690,7 +4713,7 @@ impl Validator {
             self.error(
                 "TDC198",
                 "\"separator\" has no effect without \"repeat\"".to_string(),
-                "separator joins the values a repeating gen produces. Add repeat=\"N\", or drop it.",
+                "separator joins the values a repeating gen produces. Add repeat=\"N\" or repeat=\"A..B\".",
                 gen.at("separator"),
             );
         }
@@ -4880,7 +4903,7 @@ impl Validator {
                 self.error(
                     "TDC191",
                     format!("unknown order \"{order}\""),
-                    "Supported: random (the default), sequential.",
+                    "Supported: random (default), sequential.",
                     gen.at("order"),
                 );
             }
@@ -5434,8 +5457,7 @@ impl Validator {
             self.error(
                 "TDC194",
                 e.0,
-                "Types: bool, int32, int64, uint8/16/32/64, float, float16, double, string, enum, \
-                 date, timestamp, decimal(p,s), uuid, json; []T for a list; |null to allow NULL.",
+                "Supported: bool, int32, int64, double, string, date, timestamp, decimal(p,s), uuid, json — plus |null, and []T for a list (e.g. []int64, []string|null).",
                 at,
             );
         }

@@ -446,6 +446,26 @@ public final class Validator {
    * <p>Six then "… (N more)". Printed in full, a fifteen-name list buries the one the reader is
    * scanning for, and each implementation cut it at a different place — or not at all.
    */
+  /**
+   * The locales that ship this path, sorted — what the refusal offers instead of guessing.
+   * "The `en` pack ships it" was true and narrow: a path may live in eighty-six locales, and
+   * naming one told a reader to write local="en" when the locale they wanted was there all along.
+   */
+  private static List<String> localesHaving(
+      io.github.nickliapin.tdc.packs.DataPacks packs, String path) {
+    if (packs == null) {
+      return List.of();
+    }
+    java.util.TreeSet<String> found = new java.util.TreeSet<>();
+    for (String address : packs.addressList()) {
+      int dot = address.indexOf('.');
+      if (dot > 0 && address.substring(dot + 1).equals(path)) {
+        found.add(address.substring(0, dot));
+      }
+    }
+    return new ArrayList<>(found);
+  }
+
   private static String candidates(java.util.Collection<String> names) {
     return candidates(new java.util.TreeSet<>(names), 6);
   }
@@ -3915,12 +3935,13 @@ public final class Validator {
           if (!"en".equals(tLocale) && packs.exists(value.trim(), "en")) {
             error("TDC217",
                 "template path \"" + value + "\" has no data for locale \"" + tLocale + "\"",
-                "The \"en\" pack ships it. Set local=\"…\" on this <gen> or on <env>, or choose "
-                    + "a path your locale ships.",
+                "It exists in: " + candidates(localesHaving(packs, value.trim()), 6)
+                    + ". Set local=\"…\" on this <gen> or on <env>, or choose a path your"
+                    + " locale ships.",
                 at(gen, "value")[0], at(gen, "value")[1]);
           } else {
             error("TDC071", "unknown template path \"" + value + "\"",
-                "Check the address against the packs you have.",
+                "Known paths: person.male.firstName, person.female.firstName, person.lastName, person.male.diagnosis, person.female.diagnosis, person.gender, … (3 more).",
                 at(gen, "value")[0], at(gen, "value")[1]);
           }
         }
@@ -4163,14 +4184,14 @@ public final class Validator {
       String problem = Checks.regexProblem(value, limit);
       if (problem != null) {
         error("TDC097", "invalid regex generator pattern: " + problem,
-            "The subset is finite: no * or +, and every pattern has a longest output.",
+            "Use finite regex: bounded quantifiers such as {n} or {n,m}; unbounded *, +, and {n,} are rejected.",
             at(gen, "value")[0], at(gen, "value")[1]);
       }
     } else if ("advanced_regex".equals(type)) {
       String problem = Checks.advancedRegexProblem(value, limit);
       if (problem != null) {
         error("TDC130", "invalid advanced_regex generator pattern: " + problem,
-            "Weighted branches must sum to 100.", at(gen, "value")[0], at(gen, "value")[1]);
+            "Use finite advanced regex. Weighted choice syntax is (?%{70:A;30:B}); branch percentages must sum to 100.", at(gen, "value")[0], at(gen, "value")[1]);
       }
     }
   }
@@ -5012,7 +5033,7 @@ public final class Validator {
     } else if (attrs.get("separator") != null) {
       // A separator with nothing to separate is a request that silently does nothing.
       error("TDC198", "\"separator\" has no effect without \"repeat\"",
-          "separator joins the values a repeating gen produces. Add repeat=\"N\", or drop it.",
+          "separator joins the values a repeating gen produces. Add repeat=\"N\" or repeat=\"A..B\".",
           at(gen, "separator")[0], at(gen, "separator")[1]);
     }
   }
@@ -5256,7 +5277,7 @@ public final class Validator {
     String order = attrs.get("order");
     if (order != null && !"random".equals(order) && !"sequential".equals(order)) {
       error("TDC191", "unknown order \"" + order + "\"",
-          "Supported: random (the default), sequential.",
+          "Supported: random (default), sequential.",
           at(gen, "order")[0], at(gen, "order")[1]);
     }
   }
@@ -5312,8 +5333,7 @@ public final class Validator {
       io.github.nickliapin.tdc.output.ColumnType.parseOutput(rawType);
     } catch (RuntimeException e) {
       error("TDC194", e.getMessage(),
-          "Types: bool, int32, int64, uint8/16/32/64, float, float16, double, string, enum, "
-              + "date, timestamp, decimal(p,s), uuid, json; []T for a list; |null to allow NULL.",
+          "Supported: bool, int32, int64, double, string, date, timestamp, decimal(p,s), uuid, json — plus |null, and []T for a list (e.g. []int64, []string|null).",
           where[0], where[1]);
     }
   }

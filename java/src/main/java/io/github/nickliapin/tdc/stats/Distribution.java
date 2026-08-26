@@ -277,7 +277,8 @@ public final class Distribution {
     double n = required(attrs, key, dist);
     if (!(n > 0)) {
       throw new IllegalArgumentException(
-          "distribution \"" + dist + "\": \"" + key + "\" must be a positive number (got " + n + ")");
+          "distribution \"" + dist + "\": \"" + key + "\" must be a positive number (got "
+              + io.github.nickliapin.tdc.lib.Numbers.toText(n) + ")");
     }
     return n;
   }

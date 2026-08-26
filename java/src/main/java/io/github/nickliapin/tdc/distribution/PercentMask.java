@@ -79,11 +79,18 @@ public final class PercentMask {
     }
 
     if (fixedSum > 100 + TOLERANCE) {
-      throw new MaskException("percent values sum to " + fixedSum + ", expected <= 100", Kind.SUM);
+      // Through the shared number-to-text, not Java's own: `String.valueOf(120.0)` prints the trailing `.0`, so the refusal said the config wrote `120.0` where it wrote `120` — and the number in a message about a number has to be the one the reader typed.
+      throw new MaskException(
+          "percent values sum to " + io.github.nickliapin.tdc.lib.Numbers.toText(fixedSum)
+              + ", expected <= 100",
+          Kind.SUM);
     }
     if (blanks.isEmpty()) {
       if (Math.abs(fixedSum - 100) > TOLERANCE) {
-        throw new MaskException("percent values sum to " + fixedSum + ", expected 100", Kind.SUM);
+        throw new MaskException(
+            "percent values sum to " + io.github.nickliapin.tdc.lib.Numbers.toText(fixedSum)
+                + ", expected 100",
+            Kind.SUM);
       }
       return fixed;
     }

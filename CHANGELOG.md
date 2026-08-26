@@ -377,6 +377,24 @@ placed` rather than naming a total it stopped counting. A number quietly reading
   produces their sum in Python, Java, C# and Rust, where it produced their digits run together.
   TypeScript is unchanged.
 
+- **`TDC194` offered column types the engine refuses.** The ports listed `uint8`, `uint16`,
+  `uint32`, `uint64`, `float`, `float16` and `enum` among the types a `<data type=…>` takes;
+  every implementation refuses all seven. The reference's list is the true one and all four now
+  print it.
+
+- **`TDC217` said "the `en` pack ships it" whatever the pack.** True and narrow: a path may live
+  in eighty-six locales, and naming one told a reader to write `local="en"` when the locale they
+  wanted was there all along. All four now name the locales that DO have it, the way the
+  reference does — measured on `person.lastName` under `local="zh"`: "It exists in: af, ar, az,
+  be, bg, bn, … (82 more)".
+
+- **Java printed `120.0` where the config wrote `120`.** `TDC123` and `TDC089` built their
+  message with Java's own `double` printing, so the refusal about a number named a number the
+  reader had not typed. Both go through the shared number-to-text now, which is what every other
+  value in the language already uses.
+
+- Seven more sentences: `TDC198`, `TDC130`, `TDC097`, `TDC191`, `TDC071`, `TDC121` and `TDC084`.
+
 - **Ten more diagnostics say what the reference says.** Each was a sentence that told the reader
   less: `TDC098` named one alphabet where the reference names eight and shows both spellings,
   `TDC070` offered one template path where the reference offers three, `TDC153` explained WHY a
