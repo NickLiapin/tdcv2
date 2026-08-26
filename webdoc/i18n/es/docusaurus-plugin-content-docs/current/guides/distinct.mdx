@@ -247,6 +247,53 @@ note: A <distinct> around sequences uses one value per sequence. Use a simple
 de una secuencia, envuelva directamente los campos `<gen>` (la forma de nivel 1 de
 arriba); en el nivel `<env>`, mantenga cada secuencia agrupada en un solo valor.
 
+### Dos referencias a un mismo `<pool>` — comparadas por REGISTRO, no por valor
+
+Una secuencia con `<gen type="pool">` es la excepción, y es justo el caso para el que más
+se escribe el grupo: dos personas sacadas del mismo pool que no deben ser la misma.
+
+Una referencia guarda un miembro entero, así que no hay valor que comparar — el grupo
+compara **qué miembro tomó la fila**. Ponga las referencias en el grupo y ninguna fila
+entrega el mismo registro a dos de ellas:
+
+```xml
+<pool name="Doctors" count="6">
+  <sequence name="name" uniq="true"><gen type="text" value="Adams,Brooks,Chase,Dunn,Ellis,Frost"/></sequence>
+</pool>
+<distinct>
+  <sequence name="Duty"><gen type="pool" value="Doctors"/></sequence>
+  <sequence name="Seen"><gen type="pool" value="Doctors"/></sequence>
+</distinct>
+```
+
+<Terminal title="./run clinic.tdc (6 filas, seed=clinic)">
+{`on duty: Chase | seen by: Ellis
+on duty: Brooks | seen by: Frost
+on duty: Brooks | seen by: Chase
+on duty: Dunn | seen by: Brooks
+on duty: Ellis | seen by: Frost
+on duty: Adams | seen by: Frost`}
+</Terminal>
+
+La comparación es por identidad, no por apellido: dos miembros que coincidieran en algún
+campo seguirían siendo dos registros distintos, y el grupo los separa por eso.
+
+Se combina con `filter=`. El filtro decide qué miembros puede tener esta fila; el grupo
+reparte a cada referencia uno distinto de ésos. Ambas promesas se cumplen a la vez.
+
+Tres formas se rechazan con `TDC302`, porque ninguna puede significar nada:
+
+- una referencia junto a una secuencia corriente — una guarda un registro y la otra una
+  cadena, y no hay campo sobre el que comparar;
+- referencias a pools **distintos** — un médico nunca es el mismo registro que una sala,
+  así que el grupo se cumpliría sin hacer nada;
+- más referencias que miembros tiene el pool — no existe tal disposición.
+
+`<uniq>` en el nivel `<env>` trabaja con referencias del mismo modo, un eje más allá:
+ninguna **fila** toma la misma combinación de miembros. Un pool de 6 ofrece 36 pares
+ordenados, de modo que una ejecución más larga que los pares que produjo el sorteo se
+rechaza de antemano en vez de repetirse en silencio.
+
 ## `<distinct>` frente a `uniq`, de un vistazo
 
 | Mecanismo    | Eje        | Alcance         | Significado                                              |

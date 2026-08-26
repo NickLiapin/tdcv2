@@ -246,6 +246,53 @@ note: A <distinct> around sequences uses one value per sequence. Use a simple
 wrap the `<gen>` fields directly (the level-1 form above); at the `<env>` level, keep
 each grouped sequence down to a single value.
 
+### Two references to one `<pool>` — compared by RECORD, not by value
+
+A `<gen type="pool">` sequence is the exception, and the case the group is most often
+written for: two people drawn from the same pool who must not be the same person.
+
+A reference holds a whole member, so there is no value to compare — the group compares
+**which member the row took** instead. Put the references in the group and no row hands
+two of them the same record:
+
+```xml
+<pool name="Doctors" count="6">
+  <sequence name="name" uniq="true"><gen type="text" value="Adams,Brooks,Chase,Dunn,Ellis,Frost"/></sequence>
+</pool>
+<distinct>
+  <sequence name="Duty"><gen type="pool" value="Doctors"/></sequence>
+  <sequence name="Seen"><gen type="pool" value="Doctors"/></sequence>
+</distinct>
+```
+
+<Terminal title="./run clinic.tdc (6 rows, seed=clinic)">
+{`on duty: Chase | seen by: Ellis
+on duty: Brooks | seen by: Frost
+on duty: Brooks | seen by: Chase
+on duty: Dunn | seen by: Brooks
+on duty: Ellis | seen by: Frost
+on duty: Adams | seen by: Frost`}
+</Terminal>
+
+The comparison is by identity, not by name: two members that happened to share a field
+would still be two different records, and the group keeps them apart on that basis.
+
+It composes with `filter=`. The filter decides which members this row may have; the group
+then hands each reference a different one of those. Both promises hold at once.
+
+Three shapes are refused with `TDC302`, because none of them can mean anything:
+
+- a reference beside an ordinary sequence — one holds a record and the other a string,
+  and there is no field the comparison would be about;
+- references to two **different** pools — a doctor is never the same record as a ward, so
+  the group would be satisfied without doing anything;
+- more references than the pool has members — no arrangement exists.
+
+`<uniq>` at the `<env>` level works over references the same way, one axis over: no two
+**rows** take the same combination of members. A pool of 6 offers 36 ordered pairs, so a
+run longer than the pairs the draw produced is refused up front rather than quietly
+repeating.
+
 ## `<distinct>` vs. `uniq` at a glance
 
 | Mechanism    | Axis       | Scope    | Meaning                                        |
