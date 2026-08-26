@@ -112,14 +112,14 @@ One edge worth knowing: −2⁶³ can be reached by arithmetic but not written a
 | comparison | `== != === !== < > <= >=`        |
 | logic      | `&& \|\| !`                      |
 | arithmetic | `+ - * / %`                      |
+| membership | `in`                             |
+| choice     | `a ? b : c`                      |
 
 `+` **adds** whenever both sides read as numbers, and every column reads as text, so
 `Price + Delivery` on two decimal columns is arithmetic and not a joined string. It
 concatenates only when a side is genuinely not a number — `'a' + 'b'` is `ab`. To join
 values deliberately, put them next to each other where they are printed:
 `${{First}} ${{Last}}`.
-| membership | `in`                             |
-| choice     | `a ? b : c`                      |
 
 `==` asks whether both sides are the same **number**; `===` asks whether they print the same
 **characters**. Every column is text, so the two questions are genuinely different — see
@@ -352,8 +352,11 @@ What the mode costs, and what it refuses:
 - `mode="sequential"` together with `engine="2"` or `engine="3"` is refused, naming both
   attributes. Those engines resolve any row without the one before it — that is their
   design — so the two cannot both be honoured.
-- `prev()` inside an `if=` is refused as well. An `if=` is a choice made per row, and the
-  engine answering it may take the rows in any order.
+- `prev()` inside an `if=` is refused as well, and so is `prev()` inside a `filter=` or an
+  assert — a condition is answered per row, and the engine answering it may take the rows in
+  any order. The refusal says so rather than pointing at `mode="sequential"`, which in this
+  case is already there. Compute the lookback in a `<gen type="formula">` and test that
+  column instead.
 
 Everything else still works beside it: `percent=`, `uniq` and `distinct` are unaffected,
 because columns are registered in declaration order and that is the same order `prev()`

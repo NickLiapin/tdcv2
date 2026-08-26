@@ -24,7 +24,13 @@ translate the method names on the way.
 | Written to a file            | `writeFile()` | `write_file()` | `writeFile()` | `WriteFile()` | `write_file()` |
 | The seed actually used       | `seedInfo()`  | `seed_info()`  | `seedInfo()`  | `SeedInfo()`  | `seed_info()`  |
 | What the run will cost       | `preflight()` | `preflight()`  | `preflight()` | `Preflight()` | `preflight()`  |
-| How many records it produces | `count()`     | `count()`      | `count()`     | `Count()`     | `count()`      |
+| How many records it produces | `count()`     | `count`        | `count()`     | `Count`       | `count()`      |
+
+`count` is the one row where the parentheses do not carry across. It reads a number the
+config already fixed rather than computing anything, so Python and C# expose it the way
+those languages expose a read — as a property, written without `()`. Every other row is a
+method in all five. Written `data.count()` in Python it raises `TypeError: 'int' object is
+not callable`; written `data.count` it answers.
 
 ## Your language's own spelling still works
 

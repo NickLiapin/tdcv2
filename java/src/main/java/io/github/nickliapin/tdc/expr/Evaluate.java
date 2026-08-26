@@ -47,6 +47,43 @@ public final class Evaluate {
     default boolean hasPrevious() {
       return false;
     }
+
+    /**
+     * Whether this scope is a CONDITION — an {@code if=}, a {@code filter=}, an assert.
+     *
+     * <p>Only the refusal message reads it, and only to keep one note from answering two
+     * questions: a condition refuses {@code prev()} even WITH {@code mode="sequential"}, so
+     * telling its reader to add an attribute their config already carries is worse than
+     * saying nothing. See {@code ConditionScope}.
+     */
+    default boolean inCondition() {
+      return false;
+    }
+  }
+
+  /**
+   * A scope seen through a condition.
+   *
+   * <p>A wrapper rather than a flag on every implementor: what makes a {@code prev()}
+   * unanswerable here is the CALL — {@code asCondition} — not the data behind it, and the same
+   * scope answers {@code prev()} fine when a formula asks. Delegates everything; the one thing
+   * it changes is which refusal a reader gets.
+   */
+  private record ConditionScope(Scope inner) implements Scope {
+    @Override
+    public boolean has(String name) {
+      return inner.has(name);
+    }
+
+    @Override
+    public String value(String name) {
+      return inner.value(name);
+    }
+
+    @Override
+    public boolean inCondition() {
+      return true;
+    }
   }
 
   private static final Map<String, Expr> CACHE = new ConcurrentHashMap<>();
@@ -55,7 +92,7 @@ public final class Evaluate {
 
   public static boolean asCondition(String source, Scope scope) {
     Expr ast = CACHE.computeIfAbsent(source, Expr::parse);
-    return toBoolean(eval(ast, scope));
+    return toBoolean(eval(ast, new ConditionScope(scope)));
   }
 
   /**
@@ -1036,6 +1073,12 @@ public final class Evaluate {
               + "prev(RR, 700)");
     }
     if (!scope.hasPrevious()) {
+      if (scope.inCondition()) {
+        throw new IllegalArgumentException(
+            "prev() cannot be read from a condition — an if=, filter= or assert is answered "
+                + "per row and the engine may take the rows in any order. Compute the lookback "
+                + "in a <gen type=\"formula\"> and test that column instead.");
+      }
       throw new IllegalArgumentException(
           "prev() needs rows computed in order — add mode=\"sequential\" to <env>. Without it "
               + "the engine may compute any row without the one before it.");

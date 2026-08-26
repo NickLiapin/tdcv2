@@ -25,7 +25,7 @@ covered where that tag is explained — see the [compute reference](compute.md#t
 | `seed`          | RNG seed, for reproducibility                 | [Determinism](../core-concepts/determinism.md#top)               |
 | `local`         | Locale for template data — on `<env>` for the whole run, and on one `<gen type="template">` to override it for that sequence alone | [Template](../generators/template.md#top)                        |
 | `inject`        | Custom interpolation marker                   | [Output & formatting](../core-concepts/output-formatting.md#top) |
-| `mode`          | `memory` / `disk` — which engine family; `stream` is a legacy alias that forces engine 2 | [Large outputs](../guides/large-outputs.md#top)                  |
+| `mode`          | `memory` / `disk` — which engine family; `stream` is a legacy alias that forces engine 2; `sequential` is a fourth value that `prev()` requires | [Large outputs](../guides/large-outputs.md#top), [Expressions](expressions.md#a-column-that-reads-its-own-past) |
 | `engine`        | `1` / `2` / `3` — force one engine (advanced) | [Large outputs](../guides/large-outputs.md#top)                  |
 | `comment`       | Free-form comment                             | [Configuration](../core-concepts/configuration.md#comment)   |
 
@@ -121,8 +121,13 @@ and `max`. Each is explained, with a histogram, on the
 | `spread`          | Widen the line into a band of ±N                     | [Pattern](../generators/pattern.md#top) |
 | `ink_threshold`   | How dark a PNG pixel has to be to count as ink       | [Pattern](../generators/pattern.md#top) |
 
-`mode` is really two different attributes that share a name: on `<env>` it picks the
-engine family; on a `pattern` generator it picks what you're asking the drawing for.
+`mode` is really three different readings that share a name. On `<env>` it does two jobs:
+`memory` / `disk` pick the engine family, while `sequential` is a promise about row ORDER —
+row N is computed after row N−1, which is what `prev()` needs and what pins the run to
+engine 1. On a `pattern` generator it picks what you're asking the drawing for.
+
+The CLI's `--mode` covers only the engine-family half: `--mode memory` and `--mode disk` are
+the whole set, so `sequential` is reachable from the config and nowhere else.
 
 ## Files & CSV
 

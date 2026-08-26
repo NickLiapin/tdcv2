@@ -369,7 +369,7 @@ Male,Obstructive Sleep Apnea
 Теперь `check` говорит об этом до прогона и сам считает арифметику — по разу на
 каждую ветку:
 
-`./run diagnosis.tdc --check`
+`tdcv2 check diagnosis.tdc`
 
 ```
 warning[TDC251]: percent="10" over 5 rows asks for 0.5 records — the result is 0 or 1, and the seed decides which

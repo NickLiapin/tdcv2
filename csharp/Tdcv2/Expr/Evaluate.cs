@@ -38,12 +38,43 @@ public static class Evaluate
 
         /// <summary>That column on the PREVIOUS row, or null when this is the first one.</summary>
         string? Previous(string name) => null;
+
+        /// <summary>
+        /// Whether this scope is a CONDITION — an <c>if=</c>, a <c>filter=</c>, an assert.
+        /// </summary>
+        /// <remarks>
+        /// Only the refusal message reads it, and only to keep one note from answering two
+        /// questions: a condition refuses <c>prev()</c> even WITH <c>mode="sequential"</c>, so
+        /// telling its reader to add an attribute their config already carries is worse than
+        /// saying nothing. See <see cref="ConditionScope"/>.
+        /// </remarks>
+        bool InCondition => false;
+    }
+
+    /// <summary>A scope seen through a condition.</summary>
+    /// <remarks>
+    /// A wrapper rather than a flag on every implementor: what makes a <c>prev()</c>
+    /// unanswerable here is the CALL — <see cref="AsCondition"/> — not the data behind it, and
+    /// the same scope answers <c>prev()</c> fine when a formula asks. Delegates everything; the
+    /// one thing it changes is which refusal a reader gets.
+    /// </remarks>
+    private sealed class ConditionScope : IScope
+    {
+        private readonly IScope _inner;
+
+        internal ConditionScope(IScope inner) => _inner = inner;
+
+        public bool Has(string name) => _inner.Has(name);
+
+        public string Value(string name) => _inner.Value(name);
+
+        public bool InCondition => true;
     }
 
     private static readonly ConcurrentDictionary<string, Expr> Cache = new();
 
     public static bool AsCondition(string source, IScope scope) =>
-        ToBoolean(Eval(Cache.GetOrAdd(source, Expr.Parse), scope));
+        ToBoolean(Eval(Cache.GetOrAdd(source, Expr.Parse), new ConditionScope(scope)));
 
     /// <summary>The expression's VALUE rather than its truth.</summary>
     /// <remarks>
@@ -118,6 +149,14 @@ public static class Evaluate
 
         if (!scope.HasPrevious)
         {
+            if (scope.InCondition)
+            {
+                throw new ArgumentException(
+                    "prev() cannot be read from a condition — an if=, filter= or assert is answered "
+                    + "per row and the engine may take the rows in any order. Compute the lookback "
+                    + "in a <gen type=\"formula\"> and test that column instead.");
+            }
+
             throw new ArgumentException(
                 "prev() needs rows computed in order — add mode=\"sequential\" to <env>. Without it "
                 + "the engine may compute any row without the one before it.");

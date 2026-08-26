@@ -452,12 +452,12 @@ The string is shorthand for `value=`. Pass an **object** to reach every other at
 and `.many(n, …)` works on generators exactly as it does on addresses:
 
 ```typescript
-tdc.gen.date({ from: '2020-01-01', to: '2020-12-31', format: 'DD.MM.YYYY' }); // 12.07.2020
-tdc.gen.number({ distribution: 'normal', mean: '170', sd: '10' }); // 163
-tdc.gen.number.many(5, '1..9'); // [ '5', '4', '8', '2', '6' ]
+tdc.gen.date({ from: '2020-01-01', to: '2020-12-31', format: 'DD.MM.YYYY' }); // 11.10.2020
+tdc.gen.number({ distribution: 'normal', mean: '170', sd: '10' }); // 172
+tdc.gen.number.many(5, '1..9'); // [ '7', '6', '8', '6', '3' ]
 ```
 
-An address takes parameters the same way — `tdc.usa.docs.ssn({ dashes: 'false' })`.
+An address takes parameters the same way, where the pack declares any — `tdc.country.usa.finance.aba_routing({ prefix: '12' })` pins the two leading digits and lets the pack draw and check the rest. An address that declares none refuses an unknown one by name rather than ignoring it.
 
 Every generator and its attributes are in [the generators
 reference](../generators/number.md#top).

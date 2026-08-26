@@ -168,9 +168,10 @@ in place, `[]` is a hole. Three columns, 20 rows:
 </Terminal>
 
 Count the empty `[]` down each column: `0.1` → 2 holes out of 20, `0.3` → 5,
-`0.6` → 10. Raise the rate and the holes multiply. You won't get exactly
-2 / 6 / 12: because each value is dropped independently, the count over 20 rows
-varies around the expected number.
+`0.6` → 10. Raise the rate and the holes multiply. The rate × 20 would be
+2 / 6 / 12, and only the first column landed on it: each value is dropped
+independently, so over 20 rows the count varies around the expected number
+rather than hitting it. Over 20,000 rows it lands much closer.
 
 ## Missing across several fields
 

@@ -166,9 +166,10 @@ presente, `[]` es un hueco. Tres columnas, 20 filas:
 </Terminal>
 
 Cuente los `[]` vacíos de cada columna: `0.1` → 2 huecos de 20, `0.3` → 5, `0.6` → 10.
-Suba la tasa y los huecos se multiplican. No va a obtener exactamente 2 / 6 / 12: como
-cada valor se descarta de forma independiente, el conteo sobre 20 filas ronda la cifra
-esperada.
+Suba la tasa y los huecos se multiplican. La tasa × 20 daría 2 / 6 / 12, y solo la primera
+columna cayó justo ahí: como cada valor se descarta de forma independiente, el conteo sobre
+20 filas ronda la cifra esperada en vez de acertarla. Sobre 20 000 filas se acerca mucho
+más.
 
 ## Faltantes en varios campos
 

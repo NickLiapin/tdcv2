@@ -504,12 +504,12 @@ La cadena es una forma corta de `value=`. Pase un **objeto** para llegar a todos
 atributos, y `.many(n, …)` funciona en generadores igual que en direcciones:
 
 ```typescript
-tdc.gen.date({ from: '2020-01-01', to: '2020-12-31', format: 'DD.MM.YYYY' }); // 12.07.2020
-tdc.gen.number({ distribution: 'normal', mean: '170', sd: '10' }); // 163
-tdc.gen.number.many(5, '1..9'); // [ '5', '4', '8', '2', '6' ]
+tdc.gen.date({ from: '2020-01-01', to: '2020-12-31', format: 'DD.MM.YYYY' }); // 11.10.2020
+tdc.gen.number({ distribution: 'normal', mean: '170', sd: '10' }); // 172
+tdc.gen.number.many(5, '1..9'); // [ '7', '6', '8', '6', '3' ]
 ```
 
-Una dirección toma parámetros de la misma forma — `tdc.usa.docs.ssn({ dashes: 'false' })`.
+Una dirección toma parámetros de la misma forma, cuando el paquete declara alguno — `tdc.country.usa.finance.aba_routing({ prefix: '12' })` fija los dos primeros dígitos y deja que el paquete genere y verifique el resto. Una dirección que no declara ninguno rechaza un parámetro desconocido por su nombre en lugar de ignorarlo.
 
 Cada generador y sus atributos están en [la referencia de
 generadores](../generators/number.mdx).

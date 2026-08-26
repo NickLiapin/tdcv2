@@ -34,6 +34,19 @@ from .parse import (
 _CACHE: dict[str, Node] = {}
 
 
+def _prev_in_condition(_name: str) -> str | None:
+    """``prev()`` reached from a condition — ``if=``, ``filter=``, ``assert that=``.
+
+    Telling a reader to add an attribute their config already carries is worse than not
+    answering, so the two reasons a previous row is unavailable get two messages.
+    """
+    raise ValueError(
+        "prev() cannot be read from a condition — an if=, filter= or assert is answered "
+        "per row and the engine may take the rows in any order. Compute the lookback in a "
+        '<gen type="formula"> and test that column instead.'
+    )
+
+
 def as_condition(source: str, has: Callable[[str], bool], value: Callable[[str], str]) -> bool:
     """Whether ``source`` holds on this row.
 
@@ -45,9 +58,10 @@ def as_condition(source: str, has: Callable[[str], bool], value: Callable[[str],
         ast = parse(source)
         _CACHE[source] = ast
     # No previous row here on purpose: an `if=` is a per-row choice, and the engine that
-    # answers it may compute rows in any order. `prev()` inside one is refused by name,
-    # exactly as it is outside `mode="sequential"` — the same refusal, not a crash.
-    return to_boolean(_eval(ast, has, value, None))
+    # answers it may compute rows in any order. `_prev_in_condition` rather than ``None``
+    # because "absent" already means something else — the run is not sequential, so add
+    # `mode="sequential"` — and a condition refuses `prev()` even WITH that mode.
+    return to_boolean(_eval(ast, has, value, _prev_in_condition))
 
 
 def as_value(

@@ -374,7 +374,7 @@ estable, reproducible y no corresponde a la proporción que usted pidió.
 Ahora `check` lo dice antes de correr, y hace la cuenta por usted — una vez por
 rama:
 
-`./run diagnosis.tdc --check`
+`tdcv2 check diagnosis.tdc`
 
 ```
 warning[TDC251]: percent="10" over 5 rows asks for 0.5 records — the result is 0 or 1, and the seed decides which

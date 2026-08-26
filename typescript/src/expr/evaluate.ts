@@ -88,9 +88,25 @@ export type ExprScope = (name: string) => string | undefined;
  */
 export type PrevScope = (name: string) => string | undefined;
 
+/**
+ * `prev()` reached from a condition — `if=`, `filter=`, `assert that=`.
+ *
+ * A `PrevScope` rather than a missing one, because "absent" already means
+ * something else here: the run is not sequential, so add `mode="sequential"`.
+ * A condition refuses `prev()` even WITH that mode, and telling a reader to add
+ * an attribute their config already carries is worse than not answering.
+ */
+const PREV_IN_CONDITION: PrevScope = () => {
+  throw new Error(
+    'prev() cannot be read from a condition — an if=, filter= or assert is answered ' +
+      'per row and the engine may take the rows in any order. Compute the lookback in a ' +
+      '<gen type="formula"> and test that column instead.',
+  );
+};
+
 /** Evaluate `expr` with names resolved by `scope`, as a boolean. */
 export function evaluateInScope(expr: string, scope: ExprScope): boolean {
-  return toBoolean(walk(compile(expr), scope));
+  return toBoolean(walk(compile(expr), scope, PREV_IN_CONDITION));
 }
 
 /**

@@ -43,6 +43,38 @@ pub trait Scope {
     fn has_previous(&self) -> bool {
         false
     }
+
+    /// Whether this scope is a CONDITION — an `if=`, a `filter=`, an `assert that=`.
+    ///
+    /// Only the refusal message reads it, and only to keep one note from answering two
+    /// questions: a condition refuses `prev()` even WITH `mode="sequential"`, so telling
+    /// its reader to add an attribute their config already carries is worse than saying
+    /// nothing. See `ConditionScope`.
+    fn in_condition(&self) -> bool {
+        false
+    }
+}
+
+/// A scope seen through a condition.
+///
+/// A wrapper rather than a flag on every implementor: what makes a `prev()` unanswerable
+/// here is the CALL — `as_condition` — not the data behind it, and the same scope answers
+/// `prev()` fine when a formula asks. Delegates everything; the one thing it changes is
+/// which refusal a reader gets.
+struct ConditionScope<'a>(&'a dyn Scope);
+
+impl Scope for ConditionScope<'_> {
+    fn has(&self, name: &str) -> bool {
+        self.0.has(name)
+    }
+
+    fn value(&self, name: &str) -> String {
+        self.0.value(name)
+    }
+
+    fn in_condition(&self) -> bool {
+        true
+    }
 }
 
 /// The three types an expression works in.
@@ -81,7 +113,7 @@ pub fn as_condition(source: &str, scope: &dyn Scope) -> EngineResult<bool> {
     // Parsed on every call. The reference caches; caching here would need a lock
     // or a per-run map and buys nothing measurable at the sizes an `if=` runs at.
     let expr = super::parse(source)?;
-    Ok(to_boolean(&eval(&expr, scope)?))
+    Ok(to_boolean(&eval(&expr, &ConditionScope(scope))?))
 }
 
 /// What `source` evaluates TO on this row, rather than whether it holds.
@@ -877,6 +909,13 @@ fn eval_prev(args: &[Expr], scope: &dyn Scope) -> EngineResult<V> {
         );
     };
     if !scope.has_previous() {
+        if scope.in_condition() {
+            return invalid(
+                "prev() cannot be read from a condition — an if=, filter= or assert is \
+                 answered per row and the engine may take the rows in any order. Compute the \
+                 lookback in a <gen type=\"formula\"> and test that column instead.",
+            );
+        }
         return invalid(
             "prev() needs rows computed in order — add mode=\"sequential\" to <env>. Without it \
              the engine may compute any row without the one before it.",
