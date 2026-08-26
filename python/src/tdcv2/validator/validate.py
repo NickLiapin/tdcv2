@@ -388,7 +388,9 @@ _MISPLACED = {
 }
 
 #: The generic complaint, for an attribute with no sentence of its own.
-_UNKNOWN_GEN_ATTR = "Check the spelling, or see the attributes reference for what a generator takes."
+_UNKNOWN_GEN_ATTR = (
+    "Check the spelling, or see the attributes reference for what a generator takes."
+)
 
 #: Attributes a <gen> may carry that are NOT pack parameters, so a pack-parameter check must not
 #: mistake them for typos. They are each reported by their own rule instead — `parent=` belongs on
@@ -633,7 +635,9 @@ KNOWN_TEMPLATE_PATHS = (
 
 #: The generator types in the order the reference lists them — the common ones first.
 #:
-#: The order is the answer on a list the refusal CUTS: sorted, the six a reader is shown open with `advanced_regex` where the reference opens with `text`. Declaration order — the common types first — is what the reference prints.
+#: The order is the answer on a list the refusal CUTS: sorted, the six a reader is shown open with
+#: `advanced_regex` where the reference opens with `text`. Declaration order — the common types
+#: first — is what the reference prints.
 GEN_TYPE_ORDER = (
     "text",
     "file",
@@ -862,13 +866,13 @@ def _prev_targets(node) -> set[str]:
 class _Validator:
     __slots__ = (
         "base_dir",
+        "count_override",
         "current_sequence",
+        "declared_fields",
         "declared_names",
         "declared_order",
-        "declared_fields",
         "diagnostics",
         "document_regex_max_length",
-        "count_override",
         "env_count",
         "env_names",
         "expr_scope",
@@ -1110,7 +1114,8 @@ class _Validator:
             self._error(
                 "TDC003",
                 '<tdc> declares both "version" and "v"',
-                "Use one root version attribute. Prefer the canonical form: <tdc version=\"0.1.0\">.",
+                "Use one root version attribute. Prefer the canonical form: <tdc "
+                "version=\"0.1.0\">.",
                 _line(tdc),
                 _column(tdc),
             )
@@ -1425,7 +1430,8 @@ class _Validator:
                 self._error(
                     "TDC030",
                     f'<{tag}> is missing a required "name" attribute',
-                    "Every sequence needs a unique name for interpolation, e.g. <sequence name=\"Gender\">.",
+                    "Every sequence needs a unique name for interpolation, e.g. <sequence "
+                    "name=\"Gender\">.",
                     _line(open_el),
                     _column(open_el),
                 )
@@ -1445,7 +1451,8 @@ class _Validator:
                 self._error(
                     "TDC031",
                     f'sequence name "{name}" starts with "_" — reserved for builtins',
-                    "Builtin names: _count, _first, _item, _item_id, _last, _total. User sequences should avoid the leading underscore.",
+                    "Builtin names: _count, _first, _item, _item_id, _last, _total. User sequences "
+                    "should avoid the leading underscore.",
                     line,
                     column,
                 )
@@ -1456,7 +1463,8 @@ class _Validator:
                 self._error(
                     "TDC032",
                     f'duplicate sequence name "{name}"',
-                    "Each <sequence>/<mix> must declare a unique name; rename or remove the duplicate.",
+                    "Each <sequence>/<mix> must declare a unique name; rename or remove the "
+                    "duplicate.",
                     line,
                     column,
                 )
@@ -1481,7 +1489,8 @@ class _Validator:
                     self._error(
                         "TDC035",
                         f'parent sequence "{parent_name}" is not declared before this sequence',
-                        "Parent sequences must be declared earlier in the same <env>. Forward references and cycles are not supported.",
+                        "Parent sequences must be declared earlier in the same <env>. Forward "
+                        "references and cycles are not supported.",
                         line,
                         column,
                     )
@@ -2503,7 +2512,8 @@ class _Validator:
             self._error(
                 "TDC036",
                 f'<sequence name="{label}"> has no <gen> child',
-                'A sequence needs at least one <gen type="…"/> describing how values are produced. For a percentage distribution use a standalone <mix name="…"> in <env>.',
+                'A sequence needs at least one <gen type="…"/> describing how values are produced. '
+                'For a percentage distribution use a standalone <mix name="…"> in <env>.',
                 _line(open_el),
                 _column(open_el),
             )
@@ -3468,7 +3478,9 @@ class _Validator:
             self._error(
                 "TDC061",
                 f'cannot read file "{src}"',
-                file_gen.format_attempts(file_gen.attempts(src.strip(), self.base_dir, self._roots())),
+                file_gen.format_attempts(
+                    file_gen.attempts(src.strip(), self.base_dir, self._roots())
+                ),
                 line,
                 column,
             )
@@ -3806,7 +3818,8 @@ class _Validator:
                 self._error(
                     "TDC071",
                     f'unknown template path "{value}"',
-                    "Known paths: person.male.firstName, person.female.firstName, person.lastName, person.male.diagnosis, person.female.diagnosis, person.gender, … (3 more).",
+                    "Known paths: person.male.firstName, person.female.firstName, person.lastName, "
+                    "person.male.diagnosis, person.female.diagnosis, person.gender, … (3 more).",
                     line,
                     column,
                 )
@@ -3823,7 +3836,8 @@ class _Validator:
             self._error(
                 "TDC128",
                 '<gen type="advanced_regex"> requires a "value" attribute',
-                "Provide a finite advanced regex pattern, e.g. value=\"(?%{70:RU;30:US})-[0-9]{6}\".",
+                "Provide a finite advanced regex pattern, e.g. "
+                "value=\"(?%{70:RU;30:US})-[0-9]{6}\".",
                 _line(gen),
                 _column(gen),
             )
@@ -3885,7 +3899,8 @@ class _Validator:
             self._error(
                 "TDC081",
                 f'invalid number range "{value}"',
-                'Expected "bit", "MIN..MAX", or a comma-separated range list like "[0..100],[345..678]".',
+                'Expected "bit", "MIN..MAX", or a comma-separated range list like '
+                '"[0..100],[345..678]".',
                 line,
                 column,
             )
@@ -4050,7 +4065,8 @@ class _Validator:
                 self._error(
                     "TDC097",
                     f"invalid regex generator pattern: {problem}",
-                    "Use finite regex: bounded quantifiers such as {n} or {n,m}; unbounded *, +, and {n,} are rejected.",
+                    "Use finite regex: bounded quantifiers such as {n} or {n,m}; unbounded *, +, "
+                    "and {n,} are rejected.",
                     line,
                     column,
                 )
@@ -4061,7 +4077,8 @@ class _Validator:
                 self._error(
                     "TDC130",
                     f"invalid advanced_regex generator pattern: {problem}",
-                    "Use finite advanced regex. Weighted choice syntax is (?%{70:A;30:B}); branch percentages must sum to 100.",
+                    "Use finite advanced regex. Weighted choice syntax is (?%{70:A;30:B}); branch "
+                    "percentages must sum to 100.",
                     line,
                     column,
                 )
@@ -4661,7 +4678,10 @@ class _Validator:
                 self._error(
                     "TDC204",
                     f'"repeat" is not supported on <gen type="{type_}"> — {reason}',
-                    "Only increment, decrement, timeseries and pattern refuse it, and all four for the same reason: their value is decided by the row index, which a list of unknown length leaves undecided. Every other generator repeats, text included.",
+                    "Only increment, decrement, timeseries and pattern refuse it, and all four "
+                    "for the same reason: their value is decided by the row index, which a list "
+                    "of unknown length leaves undecided. Every other generator repeats, text "
+                    "included.",
                     line,
                     column,
                 )
@@ -4671,7 +4691,8 @@ class _Validator:
             self._error(
                 "TDC198",
                 '"separator" has no effect without "repeat"',
-                'separator joins the values a repeating gen produces. Add repeat="N" or repeat="A..B".',
+                'separator joins the values a repeating gen produces. Add repeat="N" or '
+                'repeat="A..B".',
                 line,
                 column,
             )
@@ -4863,7 +4884,8 @@ class _Validator:
             self._error(
                 "TDC294",
                 '<gen type="formula"> does not say what to compute',
-                'Add expr="…" — the arithmetic this column is, written the way an if= condition is written: expr="0.75 * Height - 58".',
+                'Add expr="…" — the arithmetic this column is, written the way an if= condition is '
+                'written: expr="0.75 * Height - 58".',
                 line,
                 column,
             )
@@ -4963,7 +4985,9 @@ class _Validator:
             self._error(
                 "TDC297",
                 f'{name}= cannot be combined with read="quantile": {why}',
-                "Keep one of the two readings. A countable value — a city, a status, a number of orders — wants weight= and its exact quota; a measured one wants the quantile read, which also fills in the values "
+                "Keep one of the two readings. A countable value — a city, a status, a number of "
+                "orders — wants weight= and its exact quota; a measured one wants the quantile "
+                "read, which also fills in the values "
                 "between the observations."
                 if name == "weight"
                 else "To keep a record together, read the file as lines with row= and leave "
@@ -5154,7 +5178,8 @@ class _Validator:
             self._error(
                 "TDC211",
                 f'"weight" applies to <gen type="file">, not type="{type_ or ""}"',
-                "For inline values the equivalent is percent=. weight= reads the shares from a CSV column.",
+                "For inline values the equivalent is percent=. weight= reads the shares from a CSV "
+                "column.",
                 line,
                 column,
             )
@@ -5268,7 +5293,10 @@ class _Validator:
                 # never going to have.
                 if f"{tag}:{key}" in _HAS_ITS_OWN_REFUSAL:
                     continue
-                # An attribute written on the wrong TAG has a sentence of its own too, not only one written on a <gen>: `percent=` on a <switch> is not a misspelling, and "Attributes of <switch>: comment, name, on" leaves the reader to work out for themselves that shares belong to a <mix>.
+                # An attribute written on the wrong TAG has a sentence of its own too, not only one
+                # written on a <gen>: `percent=` on a <switch> is not a misspelling, and "Attributes
+                # of <switch>: comment, name, on" leaves the reader to work out for themselves that
+                # shares belong to a <mix>.
                 self._error(
                     "TDC015",
                     f'<{tag}> has no "{key}" attribute',
@@ -5415,9 +5443,14 @@ class _Validator:
                 percent_mask.Kind.NUMBER: codes[1],
                 percent_mask.Kind.SUM: codes[2],
             }[e.kind]
-            # The sentence follows the CODE, not the kind of mask error: a `<mix>` percent mask is checked against its <case> children and a number's against its value list, so "filled positions split the remaining percent" is an answer to the second question only. One sentence for both told a reader with too many mix percentages about positions that are not there.
+            # The sentence follows the CODE, not the kind of mask error: a `<mix>` percent mask is
+            # checked against its <case> children and a number's against its value list, so "filled
+            # positions split the remaining percent" is an answer to the second question only. One
+            # sentence for both told a reader with too many mix percentages about positions that are
+            # not there.
             hint = {
-                "TDC121": "The mix percent mask must have no more entries than there are <case> children.",
+                "TDC121": "The mix percent mask must have no more entries than there are "
+                "<case> children.",
                 "TDC051": "Percent masks may be shorter than value only when missing positions "
                 "can be inferred. They may never be longer than value.",
             }.get(
@@ -5483,7 +5516,8 @@ class _Validator:
             self._error(
                 "TDC194",
                 str(e),
-                "Supported: bool, int32, int64, double, string, date, timestamp, decimal(p,s), uuid, json — plus |null, and []T for a list (e.g. []int64, []string|null).",
+                "Supported: bool, int32, int64, double, string, date, timestamp, decimal(p,s), "
+                "uuid, json — plus |null, and []T for a list (e.g. []int64, []string|null).",
                 where[0],
                 where[1],
             )

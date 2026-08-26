@@ -343,7 +343,9 @@ class DataPacks:
             # "unknown": an attribute aimed at one does nothing, and an attribute that
             # does nothing is indistinguishable from a typo.
             return []
-        # DECLARATION order, not a set: the names go straight into a refusal that lists them, and a pack that declares `user` then `domain` was reported as "domain, user" — the reader matching the note against the pack body reads down a different list than the one there.
+        # DECLARATION order, not a set: the names go straight into a refusal that lists them, and a
+        # pack that declares `user` then `domain` was reported as "domain, user" — the reader
+        # matching the note against the pack body reads down a different list than the one there.
         seen: dict[str, None] = {}
         for m in _SEQUENCE_NAME.finditer(entry.generator):
             seen[m.group(1)] = None

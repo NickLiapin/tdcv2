@@ -48,7 +48,9 @@ BYTES_PER_RENDERED_CARD = 200
 def _absolute(path: Path) -> Path:
     """The path made absolute, with symlinks left alone.
 
-    Absolute, not RESOLVED: `Path.resolve()` follows symlinks, and the refusal that names what it searched then printed a path the config never mentions — `/private/tmp/x.csv` for a file the author wrote as `/tmp/x.csv`. The reference makes the path absolute and stops there.
+    Absolute, not RESOLVED: `Path.resolve()` follows symlinks, and the refusal that names what
+    it searched then printed a path the config never mentions — `/private/tmp/x.csv` for a file
+    the author wrote as `/tmp/x.csv`. The reference makes the path absolute and stops there.
     """
     return Path(os.path.abspath(path))
 

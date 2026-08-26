@@ -67,7 +67,7 @@ def _enclosing_open_tag(recognizer) -> str | None:
     ``None`` when no such rule is on the stack, in which case ANTLR's message stands — a
     wrong guess about which tag is open would be worse than jargon.
     """
-    ctx = recognizer._ctx  # noqa: SLF001 - the current rule context is ANTLR's own name
+    ctx = recognizer._ctx
     while ctx is not None:
         rule = recognizer.ruleNames[ctx.getRuleIndex()]
         if rule in _TAG_RULES:

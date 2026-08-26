@@ -228,7 +228,7 @@ def parse(source: str) -> Node:
     return result
 
 
-class _RanOut(ValueError):
+class _RanOutError(ValueError):
     """The expression ended where a value was expected, and WHERE it ended.
 
     Its own type rather than a message: the caller knows which operator the value was missing
@@ -296,7 +296,7 @@ class _Parser:
             # and a reader with `if="A >= "` needs to know which half is missing.
             try:
                 right = self.expression(PRECEDENCE[op] + 1)
-            except _RanOut as e:
+            except _RanOutError as e:
                 raise ValueError(
                     f"Expected expression after {op} at character {e.at}"
                 ) from None
@@ -327,7 +327,7 @@ class _Parser:
     def _primary(self) -> Node:
         self.skip_space()
         if self.done():
-            raise _RanOut(self.pos)
+            raise _RanOutError(self.pos)
         c = self.src[self.pos]
 
         if c == "(":
@@ -335,7 +335,7 @@ class _Parser:
             self.pos += 1
             try:
                 inner = self.ternary(0)
-            except _RanOut:
+            except _RanOutError:
                 raise ValueError(f"Unclosed ( at character {len(self.src)}") from None
             self.skip_space()
             if self.done() or self.src[self.pos] != ")":
