@@ -42,6 +42,10 @@ pub struct Stream {
     pub id: String,
     /// `None` means the column covers every row, so position and row are the same number.
     pub rows: Option<Vec<usize>>,
+    /// This stream belongs to a ONE-ROW build — a pack generator's body, built for a single row
+    /// of the column that names it. Anything only correct across a whole column has to refuse
+    /// here rather than plan a quota over one row.
+    pub one_row: bool,
 }
 
 impl Stream {
@@ -50,7 +54,15 @@ impl Stream {
             seed: seed.to_string(),
             id: id.to_string(),
             rows: None,
+            one_row: false,
         }
+    }
+
+    /// The same stream, marked as one row of a bigger build.
+    #[must_use]
+    pub fn for_one_row(mut self) -> Self {
+        self.one_row = true;
+        self
     }
 
     /// The same stream under a different name, keeping the row list.
@@ -59,6 +71,7 @@ impl Stream {
             seed: self.seed.clone(),
             id: id.to_string(),
             rows: self.rows.clone(),
+            one_row: self.one_row,
         }
     }
 
@@ -70,6 +83,7 @@ impl Stream {
             seed: seed.to_string(),
             id: id.to_string(),
             rows: Some(rows),
+            one_row: false,
         }
     }
 
@@ -121,11 +135,24 @@ pub fn is_inline_anomaly(gen_type: &str) -> bool {
     INLINE_ANOMALY_TYPES.contains(&gen_type)
 }
 
-/// Can this generator be built row by row? `count <= 1` is already one row.
+/// Can this generator be built row by row?
+///
+/// A one-row build is refused, and only that: `one_row` says we are ALREADY inside one, not
+/// that this column happens to hold a single row. The test used to be `count <= 1`, which
+/// refused a genuine one-row column too — a run of `count="1"`, or a `<mix>` case whose quota
+/// came to a single row. Those fell back to the threaded PRNG while the streaming engines drew
+/// from the seekable stream, so one config produced two different datasets depending on which
+/// engine ran it.
 ///
 /// `weighted` and `whole_column` are decided by the caller, which is the only place that can
 /// reach the pack registry without this module depending on it.
-pub fn per_row_buildable(gen: &Gen, count: usize, weighted: bool, whole_column: bool) -> bool {
+pub fn per_row_buildable(
+    gen: &Gen,
+    count: usize,
+    weighted: bool,
+    whole_column: bool,
+    one_row: bool,
+) -> bool {
     // `sample="exact"` on a quantile read is a PLAN too: every row takes its own point on
     // the sorted sample, and which point follows from a scatter over the whole column.
     // Built a row at a time it would see a count of one and hand every row the median.
@@ -133,7 +160,7 @@ pub fn per_row_buildable(gen: &Gen, count: usize, weighted: bool, whole_column: 
         return false;
     }
 
-    if count <= 1 || !PER_ROW_TYPES.contains(&gen.gen_type.as_str()) {
+    if count == 0 || one_row || !PER_ROW_TYPES.contains(&gen.gen_type.as_str()) {
         return false;
     }
     let attrs = &gen.attrs;

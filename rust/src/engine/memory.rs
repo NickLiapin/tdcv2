@@ -2402,7 +2402,7 @@ pub(super) fn column_values_into(
         || (gen.gen_type == "advanced_regex"
             && advanced_regex::has_weighted_choice(gen.attr_or("value", "")));
     let whole_column = pack_needs_whole_column(gen, env);
-    if per_row::per_row_buildable(gen, count, weighted, whole_column) {
+    if per_row::per_row_buildable(gen, count, weighted, whole_column, stream.one_row) {
         let mut out = Vec::with_capacity(count);
         let mut flags = anomaly_flags;
         for i in 0..count {
@@ -3310,6 +3310,7 @@ fn nested_switch_values(
                 seed: env.config.seed.clone(),
                 id: id.clone(),
                 rows: stream.and_then(|s| s.rows.clone()),
+                one_row: stream.is_some_and(|s| s.one_row),
             };
             let whole = case_values(case, count, prng, env, Some(&sub), columns)?;
             for &i in positions {
@@ -3765,6 +3766,10 @@ fn pack_generator(
     env: &Env,
     caller: Option<&Gen>,
     body_seed: &str,
+    // The body is being built for ONE row of the column that named it. The row is already
+    // folded into `body_seed`; a body that ALSO planned per row would draw from a stream the
+    // salt never meant.
+    one_row: bool,
 ) -> EngineResult<Vec<String>> {
     // A body holding <sequence> or <data> is composed; anything else is a lone
     // <gen>.
@@ -3793,7 +3798,8 @@ fn pack_generator(
             pinned.insert(spec.name.clone(), value);
             continue;
         }
-        for (name, values) in materialize_local(spec, count, prng, env, &local, body_seed)? {
+        for (name, values) in materialize_local(spec, count, prng, env, &local, body_seed, one_row)?
+        {
             local.insert(name, values);
         }
     }
@@ -3825,6 +3831,7 @@ fn pack_generator(
 /// — the same shape it has in a config, because the reference runs a pack body
 /// through the very sequence builder a config goes through. Every `.tdc` pack
 /// that ships is written this way.
+#[allow(clippy::too_many_arguments)]
 fn materialize_local(
     spec: &SequenceSpec,
     count: usize,
@@ -3832,7 +3839,19 @@ fn materialize_local(
     env: &Env,
     local: &BTreeMap<String, Vec<Option<String>>>,
     body_seed: &str,
+    one_row: bool,
 ) -> EngineResult<Vec<(String, Vec<Option<String>>)>> {
+    /// Every stream a body sequence opens inherits whether the body is one row.
+    macro_rules! body_stream {
+        ($id:expr) => {{
+            let s = per_row::Stream::new(body_seed, &$id);
+            if one_row {
+                s.for_one_row()
+            } else {
+                s
+            }
+        }};
+    }
     if let Source::Compute(tree) = &spec.source {
         let mut values = Vec::with_capacity(count);
         for row in 0..count {
@@ -3854,7 +3873,7 @@ fn materialize_local(
         // "#switch" is the suffix the streaming engine keys a top-level mix by, and a pack body
         // is built there too — the two engines have to agree on the key or they disagree on the
         // value.
-        let stream = per_row::Stream::new(body_seed, &format!("{}#switch", spec.name));
+        let stream = body_stream!(format!("{}#switch", spec.name));
         let values = mix_values(mix, count, prng, None, env, Some(&stream), &BTreeMap::new())?
             .into_iter()
             .map(Some)
@@ -3869,7 +3888,7 @@ fn materialize_local(
         // whole-column layout could fire inside one.
         let mut by_field: Vec<(String, Vec<String>)> = Vec::with_capacity(fields.len());
         for field in fields {
-            let stream = per_row::Stream::new(body_seed, &format!("{}.{}", spec.name, field.name));
+            let stream = body_stream!(format!("{}.{}", spec.name, field.name));
             let values = column_values(&field.gen, count, prng, env, Some(&stream), None, None)?;
             by_field.push((field.name.clone(), values));
         }
@@ -3892,7 +3911,7 @@ fn materialize_local(
     let Some(gen) = spec.gen() else {
         return not_ported("a pack sequence that is neither a <gen>, a <mix> nor a <compute>");
     };
-    let stream = per_row::Stream::new(body_seed, &spec.name);
+    let stream = body_stream!(spec.name.clone());
     let produced = column_values(gen, count, prng, env, Some(&stream), None, None)?;
     let values = produced.into_iter().map(Some).collect();
     Ok(vec![(spec.name.clone(), values)])
@@ -3961,7 +3980,10 @@ fn enforce_valid(
                 if pinned.contains_key(&spec.name) {
                     continue;
                 }
-                for (name, mut values) in materialize_local(spec, 1, prng, env, local, body_seed)? {
+                // One row redrawn is a one-row build whatever the body around it was.
+                for (name, mut values) in
+                    materialize_local(spec, 1, prng, env, local, body_seed, true)?
+                {
                     let replacement = values.remove(0);
                     if let Some(column) = local.get_mut(&name) {
                         column[row] = replacement;
@@ -4053,7 +4075,15 @@ fn template_values(
             Some(row) if count == 1 => format!("{}|{column_id}|{row}", env.config.seed),
             _ => format!("{}|{column_id}", env.config.seed),
         };
-        return pack_generator(body, count, prng, env, Some(gen), &body_seed);
+        return pack_generator(
+            body,
+            count,
+            prng,
+            env,
+            Some(gen),
+            &body_seed,
+            column_row.is_some() && count == 1,
+        );
     }
 
     if let Some(percents) = &entry.percents {

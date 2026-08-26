@@ -62,11 +62,24 @@ final class PerRow {
    * The column a build belongs to: the seed it derives from, its name on the wire, and — when it
    * does not cover every row — the ABSOLUTE row each drawn position belongs to.
    */
-  record Stream(String seed, String id, List<Integer> rows) {
+  record Stream(String seed, String id, List<Integer> rows, boolean oneRow) {
+
+    /** A stream over a whole column — the ordinary case. */
+    Stream(String seed, String id, List<Integer> rows) {
+      this(seed, id, rows, false);
+    }
 
     /** The same stream under a different name, keeping the row list. */
     Stream named(String other) {
-      return new Stream(seed, other, rows);
+      return new Stream(seed, other, rows, oneRow);
+    }
+
+    /**
+     * The same stream, marked as ONE ROW of a bigger build — a pack generator's body, built for
+     * a single row of the column that names it.
+     */
+    Stream forOneRow() {
+      return new Stream(seed, id, rows, true);
     }
 
     /**
@@ -96,19 +109,27 @@ final class PerRow {
   }
 
   /**
-   * Can this generator be built row by row? {@code count <= 1} is already one row.
+   * Can this generator be built row by row?
+   *
+   * <p>A one-row build is refused, and only that: {@code oneRow} says we are ALREADY inside one,
+   * not that this column happens to hold a single row. The test used to be {@code count <= 1},
+   * which refused a genuine one-row column too — a run of {@code count="1"}, or a {@code <mix>}
+   * case whose quota came to a single row. Those fell back to the threaded PRNG while the
+   * streaming engines drew from the seekable stream, so one config produced two different
+   * datasets depending on which engine ran it.
    *
    * <p>{@code weighted} and {@code wholeColumn} are decided by the caller, which is the only place
    * that can reach the pack registry without this class depending on it.
    */
-  static boolean perRowBuildable(Config.Gen gen, int count, boolean weighted, boolean wholeColumn) {
+  static boolean perRowBuildable(
+      Config.Gen gen, int count, boolean weighted, boolean wholeColumn, boolean oneRow) {
     // `sample="exact"` on a quantile read is a PLAN too: every row takes its own point on the
     // sorted sample, and which point follows from a scatter over the whole column. Built a row at
     // a time it would see a count of one and hand every row the median.
     if ("exact".equals(gen.attrs().getOrDefault("sample", "").trim())) {
       return false;
     }
-    if (count <= 1 || !PER_ROW_TYPES.contains(gen.type())) {
+    if (count == 0 || oneRow || !PER_ROW_TYPES.contains(gen.type())) {
       return false;
     }
     Map<String, String> attrs = gen.attrs();

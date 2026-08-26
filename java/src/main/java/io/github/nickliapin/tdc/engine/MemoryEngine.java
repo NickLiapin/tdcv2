@@ -2570,7 +2570,8 @@ public final class MemoryEngine {
         weightedTemplatePack(gen, packs, config) != null
             || ("advanced_regex".equals(gen.type())
                 && AdvancedRegexGen.hasWeightedChoice(gen.attr("value", "")));
-    if (PerRow.perRowBuildable(gen, count, weighted, packNeedsWholeColumn(gen, packs, config))) {
+    if (PerRow.perRowBuildable(
+        gen, count, weighted, packNeedsWholeColumn(gen, packs, config), stream.oneRow())) {
       List<String> out = new ArrayList<>(count);
       for (int i = 0; i < count; i++) {
         Prng.Sfc32 rowPrng = PerRow.rowGenerator(stream, stream.rowAt(i));
@@ -3125,7 +3126,11 @@ public final class MemoryEngine {
       long nowMillis,
       Path baseDir,
       Map<String, RowLinkPlan> rowLinks,
-      Map<String, String> callerAttrs) {
+      Map<String, String> callerAttrs,
+      // The body is being built for ONE row of the column that named it. The row is already
+      // folded into the body seed; a body that ALSO planned per row would draw from a stream
+      // the salt never meant.
+      boolean oneRow) {
     Object body =
         PACK_BODIES.computeIfAbsent(
             path,
@@ -3161,7 +3166,8 @@ public final class MemoryEngine {
         continue;
       }
       local.putAll(
-          materializeLocal(spec, count, prng, packs, config, nowMillis, baseDir, rowLinks, local));
+          materializeLocal(
+              spec, count, prng, packs, config, nowMillis, baseDir, rowLinks, local, oneRow));
     }
 
     if (pack.validate() != null) {
@@ -3174,6 +3180,12 @@ public final class MemoryEngine {
       out.add(Interpolate.apply(pack.output(), config.inject(), lookup(local, row)));
     }
     return out;
+  }
+
+  /** A stream for one sequence of a pack body, carrying whether the body is a single row. */
+  private static PerRow.Stream bodyStream(String seed, String id, int count, boolean oneRow) {
+    PerRow.Stream stream = new PerRow.Stream(seed, id, allRows(count));
+    return oneRow ? stream.forOneRow() : stream;
   }
 
   /**
@@ -3193,7 +3205,8 @@ public final class MemoryEngine {
       long nowMillis,
       Path baseDir,
       Map<String, RowLinkPlan> rowLinks,
-      Map<String, String[]> local) {
+      Map<String, String[]> local,
+      boolean oneRow) {
     Map<String, String[]> produced = new LinkedHashMap<>();
     if (spec.isComputed()) {
       String[] values = new String[count];
@@ -3219,7 +3232,7 @@ public final class MemoryEngine {
                 nowMillis,
                 baseDir,
                 rowLinks,
-                new PerRow.Stream(config.seed(), spec.name() + "." + field.name(), allRows(count)),
+                bodyStream(config.seed(), spec.name() + "." + field.name(), count, oneRow),
                 new boolean[count],
                 new LinkedHashMap<>(),
                 null,
@@ -3249,7 +3262,7 @@ public final class MemoryEngine {
           mixValues(
               spec.mix(), count, prng, packs, config, nowMillis, baseDir, rowLinks,
               new boolean[count],
-              new PerRow.Stream(config.seed(), spec.name() + "#switch", allRows(count)),
+              bodyStream(config.seed(), spec.name() + "#switch", count, oneRow),
               new LinkedHashMap<>());
       produced.put(spec.name(), mixed.toArray(new String[0]));
       return produced;
@@ -3264,7 +3277,7 @@ public final class MemoryEngine {
             nowMillis,
             baseDir,
             rowLinks,
-            new PerRow.Stream(config.seed(), spec.name(), allRows(count)),
+            bodyStream(config.seed(), spec.name(), count, oneRow),
             new boolean[count],
             new LinkedHashMap<>(),
             null,
@@ -3869,7 +3882,8 @@ public final class MemoryEngine {
               nowMillis,
               baseDir,
               rowLinks,
-              gen.attrs());
+              gen.attrs(),
+              count == 1 && rowAt != null);
         }
         if (entry.weighted()) {
           // A weighted pack is laid out exactly, not sampled: the counts in the file are

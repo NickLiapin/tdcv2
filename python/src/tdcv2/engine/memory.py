@@ -126,6 +126,12 @@ class _Run:
     # its subject up in. A nested switch is not a column and never reaches the registry, so it
     # cannot be resolved the way the env-level form is.
     value_at: Callable[[str, int], str | None] | None = None
+    #: This build is ONE ROW of a bigger one. Set by every caller that narrows to a single row on
+    #: purpose — the per-row loop below, one element of a repeat list, a redraw, a pack body built
+    #: for one row — and by the streaming engine on its own one-row runs. Two things read it:
+    #: the per-row loop, which must not re-enter itself, and anything that is only correct across
+    #: a whole column, which must refuse rather than plan a quota over a single row.
+    per_row: bool = False
 
 
 def render(config: Config, packs: DataPacks, now_millis: int, base_dir: Path | None = None) -> str:
@@ -1062,7 +1068,7 @@ def _dynamic_template(gen: Gen, rows: list[int], columns, run: _Run) -> list[str
             out.append(_weighted_pick(run.prng, *weighted))
             continue
         resolved = Gen("template", {**gen.attrs, "value": address, "local": locale})
-        built = _generate(resolved, 1, run)
+        built = _generate(resolved, 1, replace(run, per_row=True))
         out.append(built[0] if built else "")
     return out
 
@@ -1586,7 +1592,7 @@ def _enforce_distinct(
                             ),
                         )
                     )
-                    value = _generate(gen, 1, one)[0]
+                    value = _generate(gen, 1, replace(one, per_row=True))[0]
                 values[i] = value
                 seen.add(value)
 
@@ -1931,6 +1937,9 @@ def _one_scalar(spec: SequenceSpec, run: _Run, columns=None, row: int = 0) -> st
     the cell: colliding rows came out BLANK, with no diagnostic, from a config the docs describe
     as supported.
     """
+    # One row, so no whole-column plan may run over it — the same mark the streaming engine
+    # puts on its one-row runs.
+    run = replace(run, per_row=True)
     if spec.gen is not None:
         built = _finish(_generate(spec.gen, 1, run), spec.gen.attrs, run.prng, [False])
         return built[0] if built else ""
@@ -2003,7 +2012,9 @@ def _column_values(
         # own one-row path does. Anything derived from the row inside — a pack body's seed, a
         # distribution parameter written as an expression — otherwise reads position 0 and
         # answers for the first row on every row.
-        one = replace(run, prng=seekable.generator(seed, stream_id, row), rows=[row])
+        one = replace(
+            run, prng=seekable.generator(seed, stream_id, row), rows=[row], per_row=True
+        )
         single = [False]
         # One row's instant lands in its own scratch list: the inner call knows nothing of `i`,
         # and handing it `instants_out` would append rows that a later `missing=` pass could no
@@ -2450,8 +2461,11 @@ def _run_pack_generator(
     body_seed = f"{run.config.seed}|{run.stream_id or run.column_stream_id or ''}" + (
         "" if body_row is None else f"|{body_row}"
     )
+    # The body inherits whether it is inside a one-row build. The row is already folded into
+    # `body_seed` above; a body that ALSO planned per row would draw from a stream the salt
+    # never meant.
     run = replace(
-        per_row.redraw(run), config=replace(run.config, seed=body_seed)
+        per_row.redraw(run), config=replace(run.config, seed=body_seed), per_row=run.per_row
     )
     body = _PACK_BODIES.get(path)
     if body is None:
@@ -2572,7 +2586,12 @@ def _enforce_valid(pack, local, count: int, run: _Run, overrides: dict[str, str]
                         "pack generator <valid> requires simple <gen> base sequences; sequence "
                         f'"{spec.name}" is not supported'
                     )
-                one = _finish(_generate(spec.gen, 1, run), spec.gen.attrs, run.prng, [False])
+                one = _finish(
+                    _generate(spec.gen, 1, replace(run, per_row=True)),
+                    spec.gen.attrs,
+                    run.prng,
+                    [False],
+                )
                 local[spec.name][row] = one[0]
             # Derived values follow their inputs, in declaration order.
             for spec in pack.sequences:

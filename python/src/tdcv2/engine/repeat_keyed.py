@@ -73,7 +73,14 @@ def build_draws(
             # sampling on fresh sub-streams — the same ids the reference uses, so the two
             # agree value for value.
             def draw_at(suffix: str, k: int = k, flags: list[bool] = flags, row: int = row) -> str:
-                one = replace(run, prng=seekable.generator(seed, f"{stream_id}#e{k}{suffix}", row))
+                one = replace(
+                    run,
+                    prng=seekable.generator(seed, f"{stream_id}#e{k}{suffix}", row),
+                    # One element of one row, off the element's own stream. Without this the
+                    # build would take the whole-column per-row path and redraw from the
+                    # COLUMN's stream, losing the `#e{k}` the streaming engine uses.
+                    per_row=True,
+                )
                 value = finish(generate(single, 1, one), single.attrs, one.prng, flags)
                 return value[0] if value else ""
 

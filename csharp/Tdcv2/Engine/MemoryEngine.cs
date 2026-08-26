@@ -65,7 +65,11 @@ public static class MemoryEngine
         // one-row build a stream switches on every whole-column layout inside it.
         string? ColumnStreamId = null,
         // The absolute row a one-row build is standing on, for the same reason.
-        int? ColumnRow = null)
+        int? ColumnRow = null,
+        // This build is ONE ROW of a bigger one — a pack generator's body, built for a single
+        // row of the column that names it. The row is already folded into the body's seed; a
+        // body that ALSO planned per row would draw from a stream the salt never meant.
+        bool OneRow = false)
     {
         internal int RegexMax => Config.RegexMaxLength;
 
@@ -2621,7 +2625,13 @@ public static class MemoryEngine
          */
         string bodySeed = ctx.Config.Seed + "|" + (ctx.ColumnStreamId ?? string.Empty)
             + (count == 1 && ctx.ColumnRow is int only ? "|" + only.ToString(CultureInfo.InvariantCulture) : string.Empty);
-        ctx = ctx with { Config = ctx.Config.WithSeed(bodySeed), ColumnStreamId = null, ColumnRow = null };
+        ctx = ctx with
+        {
+            Config = ctx.Config.WithSeed(bodySeed),
+            ColumnStreamId = null,
+            ColumnRow = null,
+            OneRow = count == 1 && ctx.ColumnRow is not null,
+        };
 
         if (body is Gen packGen)
         {
@@ -2821,7 +2831,7 @@ public static class MemoryEngine
                     }
 
                     foreach ((string name, string[] values) in
-                        MaterializeLocal(spec, 1, prng, ctx, local))
+                        MaterializeLocal(spec, 1, prng, ctx with { OneRow = true }, local))
                     {
                         local[name][row] = values[0];
                     }
@@ -3569,7 +3579,8 @@ public static class MemoryEngine
         bool weighted = WeightedTemplatePack(gen, ctx) is not null
             || (gen.Type == "advanced_regex"
                 && AdvancedRegexGen.HasWeightedChoice(gen.Attr("value") ?? ""));
-        if (PerRow.PerRowBuildable(gen, count, weighted, PackNeedsWholeColumn(gen, ctx)))
+        if (PerRow.PerRowBuildable(
+            gen, count, weighted, PackNeedsWholeColumn(gen, ctx), ctx.OneRow))
         {
             var built = new List<string>(count);
             for (int i = 0; i < count; i++)

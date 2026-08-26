@@ -1078,6 +1078,7 @@ class StreamEngine:
             # switch on every whole-column layout inside a one-row build, and it changed what a
             # ``<distinct>`` redraw answered.
             column_stream_id=stream_id,
+            per_row=True,
             value_at=lambda name, r: (
                 (self.columns[name](r) or "") if name in self.columns else None
             ),

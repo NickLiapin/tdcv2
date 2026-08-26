@@ -102,11 +102,20 @@ internal static class PerRow
     /// Can this generator be built row by row? <c>count &lt;= 1</c> is already one row.
     /// </summary>
     /// <remarks>
+    /// A one-row build is refused, and only that: <paramref name="oneRow"/> says we are ALREADY
+    /// inside one, not that this column happens to hold a single row. The test used to be
+    /// <c>count &lt;= 1</c>, which refused a genuine one-row column too — a run of
+    /// <c>count="1"</c>, or a <c>&lt;mix&gt;</c> case whose quota came to a single row. Those
+    /// fell back to the threaded PRNG while the streaming engines drew from the seekable stream,
+    /// so one config produced two different datasets depending on which engine ran it.
+    /// </para>
+    /// <para>
     /// <paramref name="weighted"/> and <paramref name="wholeColumn"/> are decided by the caller,
     /// which is the only place that can reach the pack registry without this class depending on
     /// it.
     /// </remarks>
-    internal static bool PerRowBuildable(Gen gen, int count, bool weighted, bool wholeColumn)
+    internal static bool PerRowBuildable(
+        Gen gen, int count, bool weighted, bool wholeColumn, bool oneRow)
     {
         // `sample="exact"` on a quantile read is a PLAN too: every row takes its own point on
         // the sorted sample, and which point follows from a scatter over the whole column. Built
@@ -116,7 +125,7 @@ internal static class PerRow
             return false;
         }
 
-        if (count <= 1 || !PerRowTypes.Contains(gen.Type))
+        if (count == 0 || oneRow || !PerRowTypes.Contains(gen.Type))
         {
             return false;
         }

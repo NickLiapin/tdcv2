@@ -76,7 +76,7 @@ def redraw(run: _Run) -> _Run:
     hand back the same value it was trying to replace. The caller supplies the stream through
     the PRNG it passes.
     """
-    return replace(run, stream_id=None, rows=None, layouts=None)
+    return replace(run, stream_id=None, rows=None, layouts=None, per_row=True)
 
 
 def rows_of(mask: list[bool]) -> list[int]:
@@ -142,8 +142,18 @@ def weighted_template_pack(gen: Gen, run: _Run) -> tuple[list[str], list[float]]
 
 
 def per_row_buildable(gen: Gen, count: int, run: _Run) -> bool:
-    """Can this generator be built row by row? ``count <= 1`` is already one row."""
-    if count <= 1 or run.stream_id is None:
+    """Can this generator be built row by row?
+
+    The recursion stops on ``run.per_row``, not on the count. The per-row loop builds each row by
+    calling the generator again with a count of one, and that inner call must take the ordinary
+    path or the loop never ends. It used to stop on ``count <= 1`` instead, which refused a
+    GENUINE one-row column along with it — a run of ``count="1"``, or a ``<mix>`` case whose
+    quota came to a single row. Those fell back to the threaded PRNG while the streaming engines
+    drew from the seekable stream, so one config produced two different datasets depending on
+    which engine ran it. A one-row build is one row either way; what tells the two apart is
+    whether we are already inside one.
+    """
+    if count <= 0 or run.stream_id is None or run.per_row:
         return False
     if gen.type not in PER_ROW_TYPES:
         return False

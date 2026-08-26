@@ -199,7 +199,11 @@ fn a_ring_of_generators_stops_the_walk_instead_of_ending_the_process() {
     // it is; this question has no reason to recurse into it, and a walk that did
     // would take the whole test binary down with a stack overflow rather than
     // fail one assertion.
-    let root = std::env::temp_dir().join("tdc-packs-ring");
+    // Named for THIS process, like every other temp path in the suite. A fixed name is shared
+    // with whatever else is running, and the directory this test wipes on the way in is one
+    // another run may be writing into: `five-ways.mjs` runs the suites together and this test
+    // failed there with "write pack: NotFound" while passing on its own.
+    let root = std::env::temp_dir().join(format!("tdc-packs-ring-{}", std::process::id()));
     let ring = root.join("ring");
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(&ring).expect("temp packs");
