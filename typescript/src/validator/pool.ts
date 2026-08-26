@@ -36,6 +36,30 @@ import { matchKey } from '../expr/match-key.js';
 import { checkIfExpression, exprSite } from './expr-check.js';
 
 /**
+ * How many members each pool declares, by name.
+ *
+ * Read from the attribute rather than counted, because that IS the count — a
+ * pool's `count=` is how many members it builds. Wanted by the group checks: a
+ * `<distinct>` over three references to a pool of two cannot be kept, and that
+ * is provable before a row exists.
+ */
+export function collectPoolCounts(env: OpenCloseElementContext | undefined): Map<string, number> {
+  const counts = new Map<string, number>();
+  if (!env) return counts;
+  for (const child of contentElements(env.content())) {
+    const k = elementKind(child);
+    if (k?.kind !== 'open' || elementName(k.node) !== 'pool') continue;
+    const attrs = extractAttrs(k.node.attr());
+    const name = attrs['name'];
+    const raw = attrs['count'];
+    if (name === undefined || raw === undefined) continue;
+    const n = Number(raw);
+    if (Number.isInteger(n) && n > 0) counts.set(name, n);
+  }
+  return counts;
+}
+
+/**
  * The field names each pool declares, collected before the members are walked.
  *
  * A pre-pass rather than a running tally, so a reference is understood wherever

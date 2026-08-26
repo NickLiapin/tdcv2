@@ -96,6 +96,7 @@ import { enforceUniqRedrawing } from './enforce-uniq.js';
 import { enforceEnvDistinct, enforceEnvUniq } from './env-groups.js';
 import { checkEnvUniqCapacity } from './uniq-capacity.js';
 import { poolRefName, type PoolTables } from './pool.js';
+import { poolDistinctPicks } from './pool-member.js';
 import { registerPoolRef } from './pool-ref.js';
 import { isDateOffset, offsetOf } from './date-offset.js';
 import { registerDerivedColumn } from './derived.js';
@@ -382,6 +383,19 @@ export function buildSequences(
     },
   };
 
+  // A config-level `<distinct>` over references to a pool is settled at PICK
+  // time, not on finished columns: a record has no value to compare, so the
+  // group compares which member the row took. Built before the loop because a
+  // reference needs the picks of the ones declared before it, and a pick is not
+  // a column anybody could read back.
+  const poolGroupPicks = poolDistinctPicks(
+    options.envDistinctGroups,
+    specs,
+    registry,
+    options.pools,
+    options.seed ?? '',
+  );
+
   for (const spec of specs) {
     // Parameter override (pack generators): a caller attribute whose name
     // matches this local sequence replaces it with a constant column. Consumes
@@ -398,7 +412,15 @@ export function buildSequences(
     // field of a compound declared above it.
     const refPool = poolRefName(spec);
     if (refPool !== undefined) {
-      registerPoolRef(spec, refPool, registry, count, options.pools, options.seed ?? '');
+      registerPoolRef(
+        spec,
+        refPool,
+        registry,
+        count,
+        options.pools,
+        options.seed ?? '',
+        poolGroupPicks.get(spec.name),
+      );
       continue;
     }
     // A column derived from other columns — running, stat, formula, a date

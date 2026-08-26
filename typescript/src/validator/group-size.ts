@@ -146,3 +146,109 @@ export function checkGroupDerivedMember(
     }
   }
 }
+
+/**
+ * What a `<sequence>` inside a group is, for the group's purposes.
+ *
+ * `pool` — it draws a whole MEMBER; the group compares which member.
+ * `value` — it draws a value; the group compares the value.
+ */
+function groupMemberKind(
+  seq: OpenCloseElementContext,
+): { kind: 'pool'; pool: string } | { kind: 'value' } {
+  const gens = collectSequenceGens(seq).nodes;
+  if (gens.length !== 1) return { kind: 'value' };
+  const attrs = extractAttrs(gens[0]?.attr() ?? []);
+  if (attrs['type'] !== 'pool') return { kind: 'value' };
+  return { kind: 'pool', pool: (attrs['value'] ?? '').trim() };
+}
+
+/**
+ * A group whose members draw from a `<pool>`.
+ *
+ * The group's promise is kept by member IDENTITY here — no two of them hand one
+ * row the same member of the pool — because a record has no value of its own to
+ * compare. That works, and these are the three shapes it cannot mean:
+ *
+ *   - a reference beside an ordinary sequence: one holds a record and the other
+ *     a string, and there is no field the comparison would be about;
+ *   - references to two DIFFERENT pools: a doctor is never the same record as a
+ *     ward, so the group would be satisfied without doing anything;
+ *   - more references than the pool has members: no arrangement exists.
+ *
+ * All three used to be accepted and then do nothing at all — the config asked
+ * for a constraint, the engine agreed, and the constraint was not there.
+ */
+export function checkGroupPoolMembers(
+  wrapper: OpenCloseElementContext,
+  diagnostics: Diagnostic[],
+  tag: string,
+  poolCounts: ReadonlyMap<string, number>,
+): void {
+  const pooled: { node: OpenCloseElementContext; name: string; pool: string }[] = [];
+  const plain: { node: OpenCloseElementContext; name: string }[] = [];
+  for (const el of contentElements(wrapper.content())) {
+    const k = elementKind(el);
+    if (k?.kind !== 'open' || elementName(k.node) !== 'sequence') continue;
+    const name = extractAttrs(k.node.attr())['name'] ?? '?';
+    const kind = groupMemberKind(k.node);
+    if (kind.kind === 'pool') pooled.push({ node: k.node, name, pool: kind.pool });
+    else plain.push({ node: k.node, name });
+  }
+  if (pooled.length === 0) return;
+
+  if (plain.length > 0) {
+    const first = plain[0];
+    if (first) {
+      diagnostics.push({
+        severity: 'error',
+        source: 'validator',
+        ...nodeRange(first.node),
+        message:
+          `<${tag}> mixes <sequence name="${first.name}">, which draws a value, with ` +
+          `<sequence name="${pooled[0]?.name ?? '?'}">, which draws a whole member of pool ` +
+          `"${pooled[0]?.pool ?? '?'}" — there is nothing the two can be compared on`,
+        hint:
+          `A <${tag}> over pool references compares WHICH MEMBER each row took; over ordinary ` +
+          `sequences it compares the value. One group does one of the two. To keep a value ` +
+          `away from a member's field, filter instead: <gen type="pool" ` +
+          `filter="field != Other"/>.`,
+        code: 'TDC302',
+      });
+    }
+    return;
+  }
+
+  const pools = [...new Set(pooled.map((p) => p.pool))];
+  if (pools.length > 1) {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...nodeRange(wrapper),
+      message:
+        `<${tag}> holds references to ${String(pools.length)} different pools ` +
+        `(${pools.join(', ')}) — a member of one is never a member of another, so the group ` +
+        `would be satisfied without changing anything`,
+      hint: `Group the references that draw from the SAME pool. Two pools cannot collide.`,
+      code: 'TDC302',
+    });
+    return;
+  }
+
+  const pool = pools[0] ?? '';
+  const available = poolCounts.get(pool);
+  if (available !== undefined && available < pooled.length) {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...nodeRange(wrapper),
+      message:
+        `<${tag}> puts ${String(pooled.length)} references on pool "${pool}", which has ` +
+        `${String(available)} members — one row cannot give each of them a different one`,
+      hint:
+        `Raise count= on <pool name="${pool}"> to at least ${String(pooled.length)}, or take a ` +
+        `reference out of the group.`,
+      code: 'TDC302',
+    });
+  }
+}

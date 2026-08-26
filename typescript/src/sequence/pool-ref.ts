@@ -8,18 +8,9 @@
  * import from pointing back.
  */
 
-import { matchKey } from '../expr/match-key.js';
-import { seekableInt } from '../prng/seekable.js';
 import { computeParentMask } from './assemble.js';
-import {
-  bucketByField,
-  eligibleMembers,
-  noCandidateMessage,
-  rowValuesDetail,
-  parseEqualityFilter,
-} from './pool-filter.js';
-import { pickMember, poolRefStream, type PoolTable, type PoolTables } from './pool.js';
-import { sequenceValueAt } from './types.js';
+import { memberPicker } from './pool-member.js';
+import { type PoolTables } from './pool.js';
 import type { Sequence, SequenceSpec } from './types.js';
 
 /**
@@ -38,6 +29,12 @@ export function registerPoolRef(
   count: number,
   pools: PoolTables | undefined,
   seed: string,
+  /**
+   * The pick this reference makes when a config-level `<distinct>` has a say.
+   * Absent for a reference in no group, which is every reference until one is
+   * written — the plain pick then stands, bit for bit as before.
+   */
+  groupPick?: ((i: number) => number)  ,
 ): void {
   const table = pools?.[poolName];
   if (!table || table.count < 1) return; // unknown pool — the validator reports it
@@ -46,15 +43,9 @@ export function registerPoolRef(
   // One pick per ROW, shared by every field: this is what makes the first name
   // and the last name in a row belong to the same doctor. Not one pick per
   // field, which is exactly how "Дмитрий Иванова" would get out.
-  const filter = (spec.gen?.attrs['filter'] ?? '').trim();
+  const memberAt = groupPick ?? memberPicker(spec, poolName, table, registry, seed).pick;
   const members = new Array<number>(count);
-  if (filter === '') {
-    for (let i = 0; i < count; i++) {
-      members[i] = mask[i] ? pickMember(seed, spec.name, table, i) : -1;
-    }
-  } else {
-    pickFilteredMembers(spec, poolName, filter, table, registry, count, mask, seed, members);
-  }
+  for (let i = 0; i < count; i++) members[i] = mask[i] ? memberAt(i) : -1;
 
   for (const field of table.fields) {
     const column = table.columns[field];
@@ -65,62 +56,6 @@ export function registerPoolRef(
       values[i] = m < 0 ? undefined : (column[m] ?? '');
     }
     registry[`${spec.name}.${field}`] = { name: `${spec.name}.${field}`, values };
-  }
-}
-
-/**
- * Pick a member per row when the reference carries a `filter=`.
- *
- * The draw stays uniform over the members that PASS — not "the first match",
- * which would hand every eligible row the same doctor and quietly destroy the
- * spread the pool was built to have.
- */
-function pickFilteredMembers(
-  spec: SequenceSpec,
-  poolName: string,
-  filter: string,
-  table: PoolTable,
-  registry: Record<string, Sequence>,
-  count: number,
-  mask: readonly boolean[],
-  seed: string,
-  members: number[],
-): void {
-  const rowValue = (i: number) => (name: string) => {
-    const seq = registry[name];
-    return seq ? (sequenceValueAt(seq, i) ?? '') : undefined;
-  };
-
-  // `field == Column` is bucketed once; a row then costs a map lookup instead
-  // of a walk over every member. Everything else is a scan per row, which is
-  // honest and linear — and the reason a pool has a size ceiling at all.
-  const equality = parseEqualityFilter(filter, table, (n) => registry[n] !== undefined);
-  const buckets = equality ? bucketByField(table, equality.field) : undefined;
-
-  for (let i = 0; i < count; i++) {
-    if (!mask[i]) {
-      members[i] = -1;
-      continue;
-    }
-    let eligible: readonly number[];
-    let detail = '';
-    if (equality && buckets) {
-      const driver = registry[equality.column];
-      const wanted = driver ? (sequenceValueAt(driver, i) ?? '') : '';
-      eligible = buckets.get(matchKey(wanted)) ?? [];
-      detail = ` (${equality.column}="${wanted}")`;
-    } else {
-      const read = new Map<string, string>();
-      eligible = eligibleMembers(filter, table, rowValue(i), read);
-      detail = rowValuesDetail(read);
-    }
-    if (eligible.length === 0) {
-      throw new Error(noCandidateMessage(poolName, filter, i, detail));
-    }
-    // Same stream as an unfiltered reference, so adding a filter changes WHICH
-    // members are on offer without disturbing anything else in the run.
-    const slot = seekableInt(seed, poolRefStream(spec.name), i, eligible.length);
-    members[i] = eligible[slot] ?? -1;
   }
 }
 
@@ -143,44 +78,13 @@ export function lazyPoolRefColumns(
   registry: Record<string, Sequence>,
   pools: PoolTables | undefined,
   seed: string,
+  /** See `registerPoolRef`: the group's say in this reference's pick, if any. */
+  groupPick?: ((i: number) => number)  ,
 ): Record<string, Sequence> {
   const table = pools?.[poolName];
   if (!table || table.count < 1) return {};
 
-  const filter = (spec.gen?.attrs['filter'] ?? '').trim();
-  const equality =
-    filter === ''
-      ? undefined
-      : parseEqualityFilter(filter, table, (n) => registry[n] !== undefined);
-  const buckets = equality ? bucketByField(table, equality.field) : undefined;
-
-  const memberAt = (i: number): number => {
-    if (filter === '') return pickMember(seed, spec.name, table, i);
-    let eligible: readonly number[];
-    let detail = '';
-    if (equality && buckets) {
-      const driver = registry[equality.column];
-      const wanted = driver ? (sequenceValueAt(driver, i) ?? '') : '';
-      eligible = buckets.get(matchKey(wanted)) ?? [];
-      detail = ` (${equality.column}="${wanted}")`;
-    } else {
-      const read = new Map<string, string>();
-      eligible = eligibleMembers(
-        filter,
-        table,
-        (name) => {
-          const seq = registry[name];
-          return seq ? (sequenceValueAt(seq, i) ?? '') : undefined;
-        },
-        read,
-      );
-      detail = rowValuesDetail(read);
-    }
-    if (eligible.length === 0) {
-      throw new Error(noCandidateMessage(poolName, filter, i, detail));
-    }
-    return eligible[seekableInt(seed, poolRefStream(spec.name), i, eligible.length)] ?? 0;
-  };
+  const memberAt = groupPick ?? memberPicker(spec, poolName, table, registry, seed).pick;
 
   const columns: Record<string, Sequence> = {};
   for (const field of table.fields) {

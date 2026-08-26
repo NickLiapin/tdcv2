@@ -75,7 +75,7 @@ import { checkSwitchCaseAttrs, checkSwitchMap } from './switch-body.js';
 import { checkRowLinkOrder, checkRowLinkSource } from './row-link-order.js';
 import { checkSequentialRepeat } from './sequential-repeat.js';
 import { checkCompute } from './compute.js';
-import { checkGroupDerivedMember, checkGroupSize } from './group-size.js';
+import { checkGroupDerivedMember, checkGroupPoolMembers, checkGroupSize } from './group-size.js';
 import { checkAssertTag } from './assert.js';
 import { checkSmallShares } from './small-share.js';
 import { checkGenBody, checkGroupBody, openChild } from './container-children.js';
@@ -84,6 +84,7 @@ import {
   checkPoolIsRead,
   checkPoolRefHasNoIf,
   collectPoolFieldValues,
+  collectPoolCounts,
   collectPoolFields,
   collectPoolReferences,
   registerPoolReference,
@@ -299,6 +300,9 @@ class Ctx {
    */
   public poolFields: ReadonlyMap<string, readonly string[]> = new Map();
 
+  /** How many members each pool declares — see `collectPoolCounts`. */
+  public poolCounts: ReadonlyMap<string, number> = new Map();
+
   /** Of those fields, the ones whose value list the config writes down — TDC225. */
   public poolFieldValues: ReadonlyMap<string, ReadonlyMap<string, readonly string[]>> = new Map();
 
@@ -462,6 +466,7 @@ function checkEnv(envEl: OpenCloseElementContext, ctx: Ctx): void {
   // names, and complaining about an unknown field in that case would report a
   // problem the author does not have.
   ctx.poolFields = collectPoolFields(envEl);
+  ctx.poolCounts = collectPoolCounts(envEl);
   ctx.poolFieldValues = collectPoolFieldValues(envEl);
   const poolsRead = collectPoolReferences(envEl);
 
@@ -506,6 +511,7 @@ function checkEnv(envEl: OpenCloseElementContext, ctx: Ctx): void {
       checkGroupBody({ node: k.node }, name, KNOWN_ENV_GROUP_CHILDREN, ctx);
       checkGroupSize(k.node, ctx.diagnostics, name);
       checkGroupDerivedMember(k.node, ctx.diagnostics, name);
+      checkGroupPoolMembers(k.node, ctx.diagnostics, name, ctx.poolCounts);
       checkEnvSequenceGroup(k.node, ctx.diagnostics, name, memberCheckers(ctx));
       continue;
     }
