@@ -252,7 +252,51 @@ public static class TdcParserFacade
             int line,
             int charPositionInLine,
             string msg,
-            RecognitionException e) => _problems.Add(new SyntaxProblem(line, charPositionInLine, msg));
+            RecognitionException e)
+        {
+            string message = msg;
+            if (recognizer is Antlr4.Runtime.Parser parser && offendingSymbol?.Type == TokenConstants.EOF)
+            {
+                string? open = EnclosingOpenTag(parser);
+                if (open is not null)
+                {
+                    message = $"<{open}> is never closed";
+                }
+            }
+
+            _problems.Add(new SyntaxProblem(line, charPositionInLine, message));
+        }
+
+        /// <summary>The tag that was still open when the input ended.</summary>
+        /// <remarks>
+        /// ANTLR's own words for this are <c>mismatched input '&lt;EOF&gt;' expecting '&lt;/data&gt;'</c>
+        /// and <c>missing END_TAG at '&lt;EOF&gt;'</c> — the first names the tag in a shape a reader
+        /// has to decode, the second does not name it at all. The parser knows which rule it was
+        /// inside and that rule carries the tag's name, so the question is answerable: walk out to
+        /// the nearest tag-opening rule and read it. <c>null</c> when no such rule is on the stack,
+        /// in which case ANTLR's message stands — a wrong guess would be worse than jargon.
+        /// </remarks>
+        private static string? EnclosingOpenTag(Antlr4.Runtime.Parser parser)
+        {
+            for (RuleContext? ctx = parser.Context; ctx is not null; ctx = ctx.Parent)
+            {
+                switch (parser.RuleNames[ctx.RuleIndex])
+                {
+                    case "dataElement":
+                        return "data";
+                    case "mapElement":
+                        return "map";
+                    case "openCloseElement":
+                        // `openCloseElement : LT name=NAME attr* GT content endTag=END_TAG`
+                        IToken? named = ((TDCParser.OpenCloseElementContext)ctx).name;
+                        return string.IsNullOrEmpty(named?.Text) ? null : named!.Text;
+                    default:
+                        break; // Not a tag-opening rule; keep walking out.
+                }
+            }
+
+            return null;
+        }
 
         public void SyntaxError(
             TextWriter output,

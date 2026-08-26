@@ -12,7 +12,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 
-from antlr4 import CommonTokenStream, InputStream
+from antlr4 import CommonTokenStream, InputStream, Token
 from antlr4.error.ErrorListener import ErrorListener
 from antlr4.tree.Tree import ParseTreeListener
 
@@ -50,6 +50,36 @@ class Result:
         return not self.problems
 
 
+# The grammar rules that open a tag, and what the tag is called. ``None`` means the rule
+# carries its own ``name=NAME`` and the name is read off the context.
+_TAG_RULES = {"openCloseElement": None, "dataElement": "data", "mapElement": "map"}
+
+
+def _enclosing_open_tag(recognizer) -> str | None:
+    """The tag that was still open when the input ended.
+
+    ANTLR's own words for this are ``mismatched input '<EOF>' expecting '</data>'`` and
+    ``missing END_TAG at '<EOF>'`` — the first names the tag in a shape a reader has to
+    decode, the second does not name it at all. The parser knows which rule it was inside
+    and that rule carries the tag's name, so the question is answerable: walk out to the
+    nearest tag-opening rule and read it.
+
+    ``None`` when no such rule is on the stack, in which case ANTLR's message stands — a
+    wrong guess about which tag is open would be worse than jargon.
+    """
+    ctx = recognizer._ctx  # noqa: SLF001 - the current rule context is ANTLR's own name
+    while ctx is not None:
+        rule = recognizer.ruleNames[ctx.getRuleIndex()]
+        if rule in _TAG_RULES:
+            fixed = _TAG_RULES[rule]
+            if fixed is not None:
+                return fixed
+            named = getattr(ctx, "name", None)
+            return named.text if named is not None and named.text else None
+        ctx = ctx.parentCtx
+    return None
+
+
 class _Collector(ErrorListener):
     """Gathers syntax errors instead of writing them to the console."""
 
@@ -60,6 +90,14 @@ class _Collector(ErrorListener):
     def syntaxError(  # noqa: N802 - the name is ANTLR's
         self, recognizer, offending_symbol, line, column, msg, e
     ) -> None:
+        if (
+            getattr(recognizer, "ruleNames", None)
+            and offending_symbol is not None
+            and offending_symbol.type == Token.EOF
+        ):
+            open_tag = _enclosing_open_tag(recognizer)
+            if open_tag is not None:
+                msg = f"<{open_tag}> is never closed"
         self.problems.append(SyntaxProblem(line, column, msg))
 
 

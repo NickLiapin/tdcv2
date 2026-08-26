@@ -7,8 +7,11 @@ import java.util.List;
 import org.antlr.v4.runtime.BaseErrorListener;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
+import org.antlr.v4.runtime.RuleContext;
+import org.antlr.v4.runtime.Token;
 
 /**
  * Turns TDC source text into a parse tree.
@@ -197,6 +200,8 @@ public final class TdcParserFacade {
       problems.add(new SyntaxProblem(problem.line(), problem.column(), problem.message()));
     }
 
+    // See enclosingOpenTag: ANTLR's EOF messages either name the unclosed tag in a shape a
+    // reader has to decode, or do not name it at all.
     BaseErrorListener collector =
         new BaseErrorListener() {
           @Override
@@ -207,7 +212,16 @@ public final class TdcParserFacade {
               int charPositionInLine,
               String msg,
               RecognitionException e) {
-            fromAntlr.add(new SyntaxProblem(line, charPositionInLine, msg));
+            String message = msg;
+            if (recognizer instanceof Parser parser
+                && offendingSymbol instanceof Token token
+                && token.getType() == Token.EOF) {
+              String open = enclosingOpenTag(parser);
+              if (open != null) {
+                message = "<" + open + "> is never closed";
+              }
+            }
+            fromAntlr.add(new SyntaxProblem(line, charPositionInLine, message));
           }
         };
 
@@ -240,5 +254,40 @@ public final class TdcParserFacade {
   private static TDCParser.DocumentContext emptyDocument() {
     return new TDCParser(new CommonTokenStream(new TDCLexer(CharStreams.fromString(""))))
         .document();
+  }
+
+  /**
+   * The tag that was still open when the input ended.
+   *
+   * <p>ANTLR's own words for this are {@code mismatched input '<EOF>' expecting '</data>'} and
+   * {@code missing END_TAG at '<EOF>'} — the first names the tag in a shape a reader has to
+   * decode, the second does not name it at all. The parser knows which rule it was inside and
+   * that rule carries the tag's name, so the question is answerable: walk out to the nearest
+   * tag-opening rule and read it.
+   *
+   * <p>{@code null} when no such rule is on the stack, in which case ANTLR's message stands — a
+   * wrong guess about which tag is open would be worse than jargon.
+   */
+  private static String enclosingOpenTag(Parser parser) {
+    for (RuleContext ctx = parser.getContext(); ctx != null; ctx = ctx.parent) {
+      String rule = parser.getRuleNames()[ctx.getRuleIndex()];
+      switch (rule) {
+        case "dataElement" -> {
+          return "data";
+        }
+        case "mapElement" -> {
+          return "map";
+        }
+        case "openCloseElement" -> {
+          // `openCloseElement : LT name=NAME attr* GT content endTag=END_TAG`
+          Token named = ((TDCParser.OpenCloseElementContext) ctx).name;
+          return named == null || named.getText().isEmpty() ? null : named.getText();
+        }
+        default -> {
+          // Not a tag-opening rule; keep walking out.
+        }
+      }
+    }
+    return null;
   }
 }
