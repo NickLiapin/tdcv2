@@ -1466,9 +1466,126 @@ public final class Validator {
           }
         }
         checkGroupSize(open, tag, members);
+        checkGroupPoolMembers(open, tag, env);
       }
     }
     return out;
+  }
+
+  /**
+   * A group whose members draw from a {@code <pool>}.
+   *
+   * <p>The group's promise is kept by member IDENTITY here — no two of them hand one row the same
+   * member — because a record has no value of its own to compare. That works, and these are the
+   * three shapes it cannot mean: a reference beside an ordinary sequence (a record and a string
+   * have no field to be compared on), references to two DIFFERENT pools (satisfied without doing
+   * anything), and more references than the pool has members (no arrangement exists).
+   *
+   * <p>All three used to be accepted and then do nothing at all.
+   */
+  private void checkGroupPoolMembers(
+      TDCParser.OpenCloseElementContext wrapper, String tag, TDCParser.OpenCloseElementContext env) {
+    Map<String, Integer> counts = new java.util.LinkedHashMap<>();
+    for (TDCParser.ElementContext child : env.content().element()) {
+      TDCParser.OpenCloseElementContext pool = child.openCloseElement();
+      if (pool == null || !"pool".equals(pool.name.getText())) {
+        continue;
+      }
+      Map<String, String> attrs = attributes(pool.attr());
+      String name = attrs.get("name");
+      String raw = attrs.get("count");
+      if (name == null || raw == null) {
+        continue;
+      }
+      try {
+        int n = Integer.parseInt(raw.trim());
+        if (n > 0) {
+          counts.put(name, n);
+        }
+      } catch (NumberFormatException ignored) {
+        // not a literal count — nothing provable here
+      }
+    }
+
+    List<String[]> pooled = new ArrayList<>();
+    List<TDCParser.OpenCloseElementContext> plain = new ArrayList<>();
+    List<String> plainNames = new ArrayList<>();
+    for (TDCParser.ElementContext inner : wrapper.content().element()) {
+      TDCParser.OpenCloseElementContext member = inner.openCloseElement();
+      if (member == null || !"sequence".equals(member.name.getText())) {
+        continue;
+      }
+      String name = attributes(member.attr()).getOrDefault("name", "?");
+      List<TDCParser.SelfClosingElementContext> gens = new ArrayList<>();
+      for (TDCParser.ElementContext g : member.content().element()) {
+        TDCParser.SelfClosingElementContext self = g.selfClosingElement();
+        if (self != null && "gen".equals(self.name.getText())) {
+          gens.add(self);
+        }
+      }
+      String pool = null;
+      if (gens.size() == 1) {
+        Map<String, String> genAttrs = attributes(gens.get(0).attr());
+        if ("pool".equals(genAttrs.get("type"))) {
+          pool = genAttrs.getOrDefault("value", "").trim();
+        }
+      }
+      if (pool == null) {
+        plain.add(member);
+        plainNames.add(name);
+      } else {
+        pooled.add(new String[] {name, pool});
+      }
+    }
+    if (pooled.isEmpty()) {
+      return;
+    }
+
+    if (!plain.isEmpty()) {
+      error(
+          "TDC302",
+          "<" + tag + "> mixes <sequence name=\"" + plainNames.get(0) + "\">, which draws a value,"
+              + " with <sequence name=\"" + pooled.get(0)[0] + "\">, which draws a whole member of"
+              + " pool \"" + pooled.get(0)[1] + "\" — there is nothing the two can be compared on",
+          "A <" + tag + "> over pool references compares WHICH MEMBER each row took; over ordinary"
+              + " sequences it compares the value. One group does one of the two. To keep a value"
+              + " away from a member's field, filter instead: <gen type=\"pool\""
+              + " filter=\"field != Other\"/>.",
+          line(plain.get(0)),
+          column(plain.get(0)));
+      return;
+    }
+
+    List<String> pools = new ArrayList<>();
+    for (String[] entry : pooled) {
+      if (!pools.contains(entry[1])) {
+        pools.add(entry[1]);
+      }
+    }
+    if (pools.size() > 1) {
+      error(
+          "TDC302",
+          "<" + tag + "> holds references to " + pools.size() + " different pools ("
+              + String.join(", ", pools) + ") — a member of one is never a member of another, so"
+              + " the group would be satisfied without changing anything",
+          "Group the references that draw from the SAME pool. Two pools cannot collide.",
+          line(wrapper),
+          column(wrapper));
+      return;
+    }
+
+    String pool = pools.get(0);
+    Integer available = counts.get(pool);
+    if (available != null && available < pooled.size()) {
+      error(
+          "TDC302",
+          "<" + tag + "> puts " + pooled.size() + " references on pool \"" + pool + "\", which has "
+              + available + " members — one row cannot give each of them a different one",
+          "Raise count= on <pool name=\"" + pool + "\"> to at least " + pooled.size()
+              + ", or take a reference out of the group.",
+          line(wrapper),
+          column(wrapper));
+    }
   }
 
   /** The member declarations of one pool, flattened out of any {@code <uniq>} wrapper. */

@@ -376,13 +376,263 @@ public final class MemoryEngine {
    * name in a row belong to the same doctor. Not one pick per field, which is exactly how
    * "Дмитрий Иванова" would get out.
    */
+  /**
+   * The members row {@code row} may draw from: all of them, or what a {@code filter=} leaves.
+   *
+   * <p>Its own method because three callers need the same answer — the reference itself, and a
+   * config-level {@code <distinct>} or {@code <uniq>} deciding which member each of its
+   * references may still take. The group draws again from what this returns MINUS what the row
+   * has already given away, which is why the set matters and not just the pick.
+   */
+  private static List<Integer> refCandidates(
+      String expression,
+      String[] equality,
+      Map<String, List<Integer>> buckets,
+      String poolName,
+      Pool.Table table,
+      Map<String, String[]> columns,
+      int row) {
+    if (expression.isEmpty()) {
+      List<Integer> all = new ArrayList<>(table.count());
+      for (int m = 0; m < table.count(); m++) {
+        all.add(m);
+      }
+      return all;
+    }
+    List<Integer> eligible;
+    String detail;
+    if (equality != null) {
+      String[] driver = columns.get(equality[1]);
+      String wanted = driver == null || driver[row] == null ? "" : driver[row];
+      eligible = buckets.getOrDefault(MatchKey.of(wanted), List.of());
+      detail = " (" + equality[1] + "=\"" + wanted + "\")";
+    } else {
+      eligible = new ArrayList<>();
+      Map<String, String> read = new java.util.LinkedHashMap<>();
+      for (int m = 0; m < table.count(); m++) {
+        if (Evaluate.asCondition(expression, new MemberScope(columns, table, m, row, read))) {
+          eligible.add(m);
+        }
+      }
+      detail = Pool.rowValuesDetail(read);
+    }
+    if (eligible.isEmpty()) {
+      throw new IllegalStateException(Pool.noCandidateMessage(poolName, expression, row, detail));
+    }
+    return eligible;
+  }
+
+  /**
+   * Draw one of {@code candidates} for {@code row}, on the reference's own stream.
+   *
+   * <p>Attempt 0 is the plain stream, so a reference in no group produces exactly what it always
+   * did. A repair draw is a NEW stream named for the attempt. Both names are part of the
+   * cross-language contract.
+   */
+  private static int drawMember(
+      String seed, String refName, List<Integer> candidates, int row, int attempt) {
+    String stream =
+        attempt == 0 ? Pool.refStream(refName) : Pool.refStream(refName) + "#ed" + attempt;
+    int slot = Seekable.nextInt(seed, stream, row, candidates.size());
+    return slot < candidates.size() ? candidates.get(slot) : 0;
+  }
+
+  /** What one reference in a group needs to answer for itself, gathered once. */
+  private record GroupRef(
+      String name,
+      String pool,
+      Pool.Table table,
+      String expression,
+      String[] equality,
+      Map<String, List<Integer>> buckets,
+      boolean[] mask) {}
+
+  /** The references a config-level group holds, or nothing when it holds fewer than two. */
+  private static List<GroupRef> groupRefs(
+      List<String> group,
+      Config config,
+      Map<String, String[]> columns,
+      int count,
+      Map<String, Pool.Table> tables) {
+    List<GroupRef> refs = new ArrayList<>();
+    for (String name : group) {
+      Config.SequenceSpec spec = null;
+      for (Config.SequenceSpec s : config.sequences()) {
+        if (name.equals(s.name())) {
+          spec = s;
+          break;
+        }
+      }
+      if (spec == null || spec.gen() == null || !"pool".equals(spec.gen().type())) {
+        continue;
+      }
+      String poolName = spec.gen().attr("value", "").trim();
+      Pool.Table table = tables.get(poolName);
+      if (table == null || table.count() < 1) {
+        continue;
+      }
+      String expression = spec.gen().attr("filter", "").trim();
+      String[] equality =
+          expression.isEmpty()
+              ? null
+              : Pool.parseEqualityFilter(expression, table, columns::containsKey);
+      Map<String, List<Integer>> buckets =
+          equality == null ? null : Pool.bucketByField(table, equality[0]);
+      refs.add(
+          new GroupRef(
+              name,
+              poolName,
+              table,
+              expression,
+              equality,
+              buckets,
+              parentMask(spec, columns, count)));
+    }
+    return refs.size() < 2 ? List.of() : refs;
+  }
+
+  /**
+   * {@code <distinct>} around two or more references to the same pool.
+   *
+   * <p>A record has no value of its own to compare — {@code ${{Doctor}}} is not a string — so the
+   * group keeps its promise by IDENTITY: no two of its references hand one row the same member.
+   * Settled here, while the members are being picked, rather than on the finished columns: a
+   * column declared after the group must read the repaired value, not the one about to collide.
+   *
+   * <p>A collision is not retried blindly. The candidate set is known, so the member is drawn
+   * again from the candidates this row has not already given away.
+   */
+  private static Map<String, int[]> poolDistinctPicks(
+      List<GroupRef> refs, Map<String, String[]> columns, int count, String seed) {
+    Map<String, int[]> out = new java.util.LinkedHashMap<>();
+    for (GroupRef r : refs) {
+      int[] column = new int[count];
+      java.util.Arrays.fill(column, -1);
+      out.put(r.name(), column);
+    }
+    for (int row = 0; row < count; row++) {
+      List<Integer> taken = new ArrayList<>();
+      for (GroupRef r : refs) {
+        // A row this reference does not cover prints nothing, so it takes nothing: counting it
+        // would let an absent column narrow a present one.
+        if (!r.mask()[row]) {
+          continue;
+        }
+        List<Integer> candidates =
+            refCandidates(
+                r.expression(), r.equality(), r.buckets(), r.pool(), r.table(), columns, row);
+        int pick = drawMember(seed, r.name(), candidates, row, 0);
+        if (taken.contains(pick)) {
+          List<Integer> free = new ArrayList<>();
+          for (int m : candidates) {
+            if (!taken.contains(m)) {
+              free.add(m);
+            }
+          }
+          if (free.isEmpty()) {
+            throw new IllegalStateException(
+                "<distinct> across sequences: row "
+                    + row
+                    + " has no member left for \""
+                    + r.name()
+                    + "\" — the sequences in this group have taken every candidate the pool "
+                    + "offers. A group of "
+                    + refs.size()
+                    + " references needs "
+                    + refs.size()
+                    + " members to choose from.");
+          }
+          pick = drawMember(seed, r.name(), free, row, 1);
+        }
+        taken.add(pick);
+        out.get(r.name())[row] = pick;
+      }
+    }
+    return out;
+  }
+
+  /**
+   * {@code <uniq>} around two or more references to the same pool.
+   *
+   * <p>One axis further out than {@code <distinct>}: no two ROWS take the same combination of
+   * members. Kept by rearranging the sequence of picks rather than redrawing, so every reference
+   * keeps its multiset — and the fields follow for free, because a field is a pure function of
+   * the member.
+   */
+  private static Map<String, int[]> poolUniqPicks(
+      List<GroupRef> refs, Map<String, String[]> columns, int count, String seed) {
+    Map<String, int[]> plain = new java.util.LinkedHashMap<>();
+    for (GroupRef r : refs) {
+      int[] column = new int[count];
+      java.util.Arrays.fill(column, -1);
+      for (int row = 0; row < count; row++) {
+        if (!r.mask()[row]) {
+          continue;
+        }
+        List<Integer> candidates =
+            refCandidates(
+                r.expression(), r.equality(), r.buckets(), r.pool(), r.table(), columns, row);
+        column[row] = drawMember(seed, r.name(), candidates, row, 0);
+      }
+      plain.put(r.name(), column);
+    }
+
+    // Only rows every reference covers carry a combination to keep unique.
+    List<Integer> rows = new ArrayList<>();
+    for (int row = 0; row < count; row++) {
+      boolean all = true;
+      for (GroupRef r : refs) {
+        if (plain.get(r.name())[row] < 0) {
+          all = false;
+          break;
+        }
+      }
+      if (all) {
+        rows.add(row);
+      }
+    }
+    if (rows.isEmpty()) {
+      return plain;
+    }
+
+    List<List<String>> grid = new ArrayList<>();
+    for (GroupRef r : refs) {
+      List<String> column = new ArrayList<>(rows.size());
+      for (int row : rows) {
+        column.add(String.valueOf(plain.get(r.name())[row]));
+      }
+      grid.add(column);
+    }
+    Uniq.Arrangement arranged = Uniq.arrange(grid);
+    if (arranged.distinct() < rows.size()) {
+      StringBuilder label = new StringBuilder();
+      for (GroupRef r : refs) {
+        if (label.length() > 0) {
+          label.append(" × ");
+        }
+        label.append(r.name());
+      }
+      throw new IllegalStateException(
+          uniqGroupMessage(label.toString(), rows.size(), arranged.distinct()));
+    }
+    for (int m = 0; m < refs.size(); m++) {
+      int[] column = plain.get(refs.get(m).name());
+      for (int k = 0; k < rows.size(); k++) {
+        column[rows.get(k)] = Integer.parseInt(arranged.columns().get(m).get(k));
+      }
+    }
+    return plain;
+  }
+
   private static void poolReference(
       Config.SequenceSpec spec,
       Map<String, String[]> columns,
       boolean[] mask,
       int count,
       Map<String, Pool.Table> tables,
-      String seed) {
+      String seed,
+      Config config,
+      Map<String, int[]> groupPicks) {
     String poolName = spec.gen().attr("value", "").trim();
     Pool.Table table = tables.get(poolName);
     if (table == null || table.count() < 1) {
@@ -397,40 +647,40 @@ public final class MemoryEngine {
     Map<String, List<Integer>> buckets =
         equality == null ? null : Pool.bucketByField(table, equality[0]);
 
-    int[] members = new int[count];
-    for (int row = 0; row < count; row++) {
+    // A `<distinct>` or `<uniq>` around this reference decides its picks, and decides them for
+    // the whole group at once — a later member needs the ones before it, and a pick is not a
+    // column anybody could read back.
+    if (config != null && groupPicks != null && !groupPicks.containsKey(spec.name())) {
+      for (int kind = 0; kind < 2; kind++) {
+        List<List<String>> groups =
+            kind == 0 ? config.envDistinctGroups() : config.envUniqGroups();
+        for (List<String> group : groups) {
+          if (!group.contains(spec.name())) {
+            continue;
+          }
+          List<GroupRef> refs = groupRefs(group, config, columns, count, tables);
+          if (refs.isEmpty()) {
+            continue;
+          }
+          groupPicks.putAll(
+              kind == 0
+                  ? poolDistinctPicks(refs, columns, count, seed)
+                  : poolUniqPicks(refs, columns, count, seed));
+        }
+      }
+    }
+
+    // A group settled this reference's picks; take them and draw nothing.
+    int[] settled = groupPicks == null ? null : groupPicks.get(spec.name());
+    int[] members = settled != null ? settled : new int[count];
+    for (int row = 0; settled == null && row < count; row++) {
       if (!mask[row]) {
         members[row] = -1;
         continue;
       }
-      if (expression.isEmpty()) {
-        members[row] = Pool.pickMember(seed, spec.name(), table, row);
-        continue;
-      }
-      List<Integer> eligible;
-      String detail = "";
-      if (equality != null) {
-        String[] driver = columns.get(equality[1]);
-        String wanted = driver == null || driver[row] == null ? "" : driver[row];
-        eligible = buckets.getOrDefault(MatchKey.of(wanted), List.of());
-        detail = " (" + equality[1] + "=\"" + wanted + "\")";
-      } else {
-        eligible = new ArrayList<>();
-        Map<String, String> read = new java.util.LinkedHashMap<>();
-        for (int m = 0; m < table.count(); m++) {
-          if (Evaluate.asCondition(expression, new MemberScope(columns, table, m, row, read))) {
-            eligible.add(m);
-          }
-        }
-        detail = Pool.rowValuesDetail(read);
-      }
-      if (eligible.isEmpty()) {
-        throw new IllegalStateException(
-            Pool.noCandidateMessage(poolName, expression, row, detail));
-      }
-      members[row] =
-          eligible.get(
-              Seekable.nextInt(seed, Pool.refStream(spec.name()), row, eligible.size()));
+      List<Integer> eligible =
+          refCandidates(expression, equality, buckets, poolName, table, columns, row);
+      members[row] = drawMember(seed, spec.name(), eligible, row, 0);
     }
 
     for (String field : table.fields()) {
@@ -511,6 +761,10 @@ public final class MemoryEngine {
     checkEnvUniqCapacity(config, count);
 
     Map<String, String[]> columns = new LinkedHashMap<>();
+    // A config-level group over pool references settles every one of its members at once, the
+    // first time any of them is reached: a later member needs the picks of the ones before it,
+    // and a pick is not a column to read back.
+    Map<String, int[]> poolGroupPicks = new LinkedHashMap<>();
     // The REAL value behind a date column's text, for the columns some offset measures from.
     //
     // A date cell holds a PRESENTATION: `02/03/2026` in an en locale, `03.02.2026` in a ru one,
@@ -569,7 +823,8 @@ public final class MemoryEngine {
       // published under `Ref.field`. Resolved HERE, in declaration order, so a later
       // `<switch on="Doc.city">` finds the field already registered.
       if (spec.gen() != null && "pool".equals(spec.gen().type())) {
-        poolReference(spec, columns, mask, count, tables, config.seed());
+        poolReference(
+            spec, columns, mask, count, tables, config.seed(), config, poolGroupPicks);
         continue;
       }
 

@@ -413,6 +413,15 @@ public final class StreamEngine {
         if (trimToNull(spec.parent()) != null) {
           throw unsupported("a pool reference with parent=", spec.name());
         }
+        // A `<uniq>` over references keeps its promise by REARRANGING the picks, and an
+        // arrangement cannot be found a row at a time — it needs the whole column.
+        // `<distinct>` is settled per row and streams fine; this one goes to memory, the same
+        // way a running total does.
+        for (List<String> g : config.envUniqGroups()) {
+          if (g.contains(spec.name())) {
+            throw unsupported("a pool reference inside a config-level <uniq>", spec.name());
+          }
+        }
         buildPoolReference(spec);
         continue;
       }
@@ -643,6 +652,146 @@ public final class StreamEngine {
    * And because the member pick is seekable by row, row 900,000 gets its doctor without the
    * 899,999 before it existing.
    */
+  /** Everything one reference needs to answer "which member for this row". */
+  private record RefParams(
+      String name,
+      String pool,
+      Pool.Table table,
+      String expression,
+      String[] equality,
+      Map<String, List<Integer>> buckets) {}
+
+  /** The members row {@code row} may draw from: all of them, or what a filter leaves. */
+  private List<Integer> poolCandidates(RefParams p, int row) {
+    if (p.expression().isEmpty()) {
+      List<Integer> all = new ArrayList<>(p.table().count());
+      for (int m = 0; m < p.table().count(); m++) {
+        all.add(m);
+      }
+      return all;
+    }
+    List<Integer> eligible;
+    String detail;
+    if (p.equality() != null) {
+      String wanted = valueAt(p.equality()[1], row);
+      if (wanted == null) {
+        wanted = "";
+      }
+      eligible = p.buckets().getOrDefault(MatchKey.of(wanted), List.of());
+      detail = " (" + p.equality()[1] + "=\"" + wanted + "\")";
+    } else {
+      eligible = new ArrayList<>();
+      Map<String, String> read = new java.util.LinkedHashMap<>();
+      for (int m = 0; m < p.table().count(); m++) {
+        if (Evaluate.asCondition(
+            p.expression(), new StreamMemberScope(p.table(), m, row, read))) {
+          eligible.add(m);
+        }
+      }
+      detail = Pool.rowValuesDetail(read);
+    }
+    if (eligible.isEmpty()) {
+      throw new IllegalStateException(
+          Pool.noCandidateMessage(p.pool(), p.expression(), row, detail));
+    }
+    return eligible;
+  }
+
+  /**
+   * Draw one of {@code candidates} for {@code row}, on the reference's own stream.
+   *
+   * <p>Attempt 0 is the plain stream, so a reference in no group produces exactly what it always
+   * did. A repair draw is a NEW stream named for the attempt — both names are contract.
+   */
+  private int drawFrom(String refName, List<Integer> candidates, int row, int attempt) {
+    String stream =
+        attempt == 0 ? Pool.refStream(refName) : Pool.refStream(refName) + "#ed" + attempt;
+    int slot = Seekable.nextInt(seed, stream, row, candidates.size());
+    return slot < candidates.size() ? candidates.get(slot) : 0;
+  }
+
+  /** Walk the group in declaration order; a member already taken is drawn again. */
+  private int memberInGroup(List<RefParams> group, String wanted, int row) {
+    List<Integer> taken = new ArrayList<>();
+    for (RefParams p : group) {
+      List<Integer> candidates = poolCandidates(p, row);
+      int pick = drawFrom(p.name(), candidates, row, 0);
+      if (taken.contains(pick)) {
+        List<Integer> free = new ArrayList<>();
+        for (int m : candidates) {
+          if (!taken.contains(m)) {
+            free.add(m);
+          }
+        }
+        if (free.isEmpty()) {
+          throw new IllegalStateException(
+              "<distinct> across sequences: row "
+                  + row
+                  + " has no member left for \""
+                  + p.name()
+                  + "\" — the sequences in this group have taken every candidate the pool "
+                  + "offers. A group of "
+                  + group.size()
+                  + " references needs "
+                  + group.size()
+                  + " members to choose from.");
+        }
+        pick = drawFrom(p.name(), free, row, 1);
+      }
+      if (p.name().equals(wanted)) {
+        return pick;
+      }
+      taken.add(pick);
+    }
+    return 0;
+  }
+
+  /** The {@code <distinct>} group this reference belongs to, whole, or {@code null}. */
+  private List<RefParams> poolGroup(Config.SequenceSpec spec, RefParams self) {
+    List<String> group = null;
+    for (List<String> g : config.envDistinctGroups()) {
+      if (g.contains(spec.name())) {
+        group = g;
+        break;
+      }
+    }
+    if (group == null) {
+      return null;
+    }
+    List<RefParams> members = new ArrayList<>();
+    for (String name : group) {
+      if (name.equals(spec.name())) {
+        members.add(self);
+        continue;
+      }
+      Config.SequenceSpec other = null;
+      for (Config.SequenceSpec s : config.sequences()) {
+        if (name.equals(s.name())) {
+          other = s;
+          break;
+        }
+      }
+      if (other == null || other.gen() == null || !"pool".equals(other.gen().type())) {
+        continue;
+      }
+      String otherPool = other.gen().attr("value", "").trim();
+      Pool.Table otherTable = poolTables.get(otherPool);
+      if (otherTable == null || otherTable.count() < 1) {
+        continue;
+      }
+      String otherExpr = other.gen().attr("filter", "").trim();
+      String[] otherEq =
+          otherExpr.isEmpty()
+              ? null
+              : Pool.parseEqualityFilter(otherExpr, otherTable, columns::containsKey);
+      Map<String, List<Integer>> otherBuckets =
+          otherEq == null ? null : Pool.bucketByField(otherTable, otherEq[0]);
+      members.add(
+          new RefParams(name, otherPool, otherTable, otherExpr, otherEq, otherBuckets));
+    }
+    return members.size() < 2 ? null : members;
+  }
+
   private void buildPoolReference(Config.SequenceSpec spec) {
     String poolName = spec.gen().attr("value", "").trim();
     Pool.Table table = poolTables.get(poolName);
@@ -658,37 +807,18 @@ public final class StreamEngine {
     Map<String, List<Integer>> buckets =
         equality == null ? null : Pool.bucketByField(table, equality[0]);
 
+    RefParams params = new RefParams(spec.name(), poolName, table, expression, equality, buckets);
+    // If a config-level `<distinct>` holds this reference, remember the whole group. Built from
+    // the config, because a sibling's pick is not a column.
+    List<RefParams> group = poolGroup(spec, params);
+
     IntFunction<Integer> memberAt =
-        row -> {
-          if (expression.isEmpty()) {
-            return Pool.pickMember(seed, spec.name(), table, row);
-          }
-          List<Integer> eligible;
-          String detail = "";
-          if (equality != null) {
-            String wanted = valueAt(equality[1], row);
-            if (wanted == null) {
-              wanted = "";
-            }
-            eligible = buckets.getOrDefault(MatchKey.of(wanted), List.of());
-            detail = " (" + equality[1] + "=\"" + wanted + "\")";
-          } else {
-            eligible = new ArrayList<>();
-            Map<String, String> read = new java.util.LinkedHashMap<>();
-            for (int m = 0; m < table.count(); m++) {
-              if (Evaluate.asCondition(expression, new StreamMemberScope(table, m, row, read))) {
-                eligible.add(m);
-              }
-            }
-            detail = Pool.rowValuesDetail(read);
-          }
-          if (eligible.isEmpty()) {
-            throw new IllegalStateException(
-                Pool.noCandidateMessage(poolName, expression, row, detail));
-          }
-          return eligible.get(
-              Seekable.nextInt(seed, Pool.refStream(spec.name()), row, eligible.size()));
-        };
+        row ->
+            // Inside a group the answer is not this reference's alone: the ones declared before
+            // it have already taken members out of this row.
+            group == null
+                ? drawFrom(params.name(), poolCandidates(params, row), row, 0)
+                : memberInGroup(group, params.name(), row);
 
     for (String field : table.fields()) {
       List<String> column = table.columns().getOrDefault(field, List.of());
