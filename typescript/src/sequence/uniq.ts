@@ -810,3 +810,12 @@ export function arrangeUnique(columns: readonly (readonly string[])[]): ArrangeR
   const distinct = distinctIds.size === N ? N : new Set(rows.map((r) => r.join(SEP))).size;
   return { columns: out, distinct, builtDistinct: distinctIds.size };
 }
+
+/** The message a group refusal carries: what was asked for, and what the data allows. */
+export function uniqGroupMessage(name: string, requested: number, achievable: number): string {
+  return (
+    `uniq: group "${name}" cannot produce ${String(requested)} unique combinations — ` +
+    `the values drawn for these sequences allow at most ${String(achievable)} distinct ` +
+    'rows. Add more values to a member (more distinct names, wider ranges…) or lower the count.'
+  );
+}

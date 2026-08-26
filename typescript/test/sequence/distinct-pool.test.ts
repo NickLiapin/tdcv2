@@ -46,8 +46,9 @@ const LOOSE = `
   <sequence name="B"><gen type="pool" value="Doctors"/></sequence>`;
 
 const ENGINES = [1, 2, 3] as const;
+type Engine = (typeof ENGINES)[number];
 
-function run(config: string, engine: number): string[] {
+function run(config: string, engine: Engine): string[] {
   return render(parseStrict(config), { now: FIXED_NOW, engine }).split('\n').filter(Boolean);
 }
 
@@ -127,6 +128,47 @@ describe('<distinct> over pool references', () => {
         expect(a?.split('/')[1]).toBe(want);
         expect(b?.split('/')[1]).toBe(want);
       }
+    }
+  });
+});
+
+describe('<uniq> over pool references', () => {
+  const pairUniq = (count: number, poolCount: number): string => `
+    <tdc>
+      <env count="${String(count)}" seed="clinic">
+        <pool name="Doctors" count="${String(poolCount)}">
+          <sequence name="name" uniq="true">
+            <gen type="text" value="Adams,Brooks,Chase,Dunn,Ellis,Frost,Gray,Hale"/>
+          </sequence>
+        </pool>
+        <uniq>
+          <sequence name="A"><gen type="pool" value="Doctors"/></sequence>
+          <sequence name="B"><gen type="pool" value="Doctors"/></sequence>
+        </uniq>
+      </env>
+      <block><line><data>\${{A.name}}|\${{B.name}}</data></line></block>
+    </tdc>`;
+
+  it('no two rows take the same pair of members', () => {
+    for (const engine of ENGINES) {
+      const lines = run(pairUniq(30, 8), engine);
+      expect(lines).toHaveLength(30);
+      expect(new Set(lines).size).toBe(30);
+    }
+  });
+
+  it('all three engines produce the same bytes', () => {
+    const [one, two, three] = ENGINES.map((e) => run(pairUniq(30, 8), e).join('\n'));
+    expect(two).toBe(one);
+    expect(three).toBe(one);
+  });
+
+  it('refuses more rows than the pool can pair, rather than running short', () => {
+    // 8 members give 64 ordered pairs at the very most; 300 rows cannot be met.
+    // Before this worked the run produced 300 rows with 63 distinct pairs and
+    // said nothing — the infeasibility refusal simply never reached a pool.
+    for (const engine of ENGINES) {
+      expect(() => run(pairUniq(300, 8), engine)).toThrow(/cannot produce 300 unique/);
     }
   });
 });

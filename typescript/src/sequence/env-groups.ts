@@ -25,20 +25,11 @@ import { buildGenValues } from './build.js';
 import type { SequenceBuildContext } from './context.js';
 import { buildCaseValues, buildMixValues } from './mix-values.js';
 import { redrawCtx } from './per-row.js';
-import { arrangeUnique, uniqUpperBound, valueCounts } from './uniq.js';
+import { arrangeUnique, uniqGroupMessage, uniqUpperBound, valueCounts } from './uniq.js';
 import { type Sequence, type SequenceSpec, type SwitchSpec, sequenceValueAt } from './types.js';
 
 /** Maximum redraws for one field of a `<distinct>` group before giving up. */
 const DISTINCT_FUSE = 1000;
-
-/** The message a refusal carries: what was asked for, and what the data allows. */
-export function uniqGroupMessage(name: string, requested: number, achievable: number): string {
-  return (
-    `uniq: group "${name}" cannot produce ${String(requested)} unique combinations — ` +
-    `the values drawn for these sequences allow at most ${String(achievable)} distinct ` +
-    'rows. Add more values to a member (more distinct names, wider ranges…) or lower the count.'
-  );
-}
 
 /** A sequence yields a single value per row (not a compound of fields). */
 export function isScalarSpec(spec: SequenceSpec): boolean {

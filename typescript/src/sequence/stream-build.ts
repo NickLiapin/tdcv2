@@ -56,7 +56,7 @@ import { lazy } from './stream-lazy.js';
 import { lazyFormula } from './formula.js';
 import { redrawUntilFresh, redrawUntilFreshAt } from './repeat-distinct.js';
 import { poolRefName } from './pool.js';
-import { poolDistinctPicks } from './pool-member.js';
+import { poolGroupPicks } from './pool-member.js';
 import { lazyPoolRefColumns } from './pool-ref.js';
 import { createPrng } from '../prng/prng.js';
 import { resolveExistingDataSourcePath } from '../data-source/index.js';
@@ -171,7 +171,7 @@ export function buildLazyRegistry(
   // The same repair the in-memory engine applies, from the same function: a
   // `<distinct>` over pool references is settled by WHICH MEMBER the row took,
   // and a pick is seekable, so a row's group replays with no column anywhere.
-  const picks = poolDistinctPicks(envGroups.distinct, specs, registry, baseOptions.pools, seed);
+  const picks = poolGroupPicks(envGroups, specs, registry, baseOptions.pools, seed, count);
 
   for (const spec of specs) {
     // A reference to a <pool>. The table was computed before the run, so only

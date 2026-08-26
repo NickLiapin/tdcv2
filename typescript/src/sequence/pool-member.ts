@@ -23,6 +23,7 @@ import {
   parseEqualityFilter,
 } from './pool-filter.js';
 import { poolRefName, poolRefStream, type PoolTable, type PoolTables } from './pool.js';
+import { arrangeUnique, uniqGroupMessage } from './uniq.js';
 import { sequenceValueAt } from './types.js';
 import type { Sequence, SequenceSpec } from './types.js';
 
@@ -177,21 +178,18 @@ export function poolGroupPickers(
 }
 
 /**
- * The repaired picks for every pool reference that a config-level `<distinct>`
- * has a say over — the one entry point the engines call.
+ * Every pool reference in `specs`, opened up so a group can have a say.
  *
- * Empty when no group holds two references, which is every config that does not
- * ask for this. The engines then use each reference's plain pick and the run is
- * what it was.
+ * Cheap: a picker is a closure over the pool table, not a column. Nothing is
+ * drawn until a group asks, and a config with no group over references never
+ * asks, so its run is what it was.
  */
-export function poolDistinctPicks(
-  groups: readonly (readonly string[])[] | undefined,
+export function poolPickers(
   specs: readonly SequenceSpec[],
   registry: Record<string, Sequence>,
   pools: PoolTables | undefined,
   seed: string,
-): Map<string, (i: number) => number> {
-  if (!groups || groups.length === 0) return new Map();
+): Map<string, MemberPicker> {
   const pickers = new Map<string, MemberPicker>();
   for (const spec of specs) {
     const poolName = poolRefName(spec);
@@ -200,5 +198,75 @@ export function poolDistinctPicks(
     if (!table || table.count < 1) continue;
     pickers.set(spec.name, memberPicker(spec, poolName, table, registry, seed));
   }
-  return poolGroupPickers(groups, pickers, seed);
+  return pickers;
+}
+
+/**
+ * `<uniq>` around two or more references to the same pool.
+ *
+ * The group asks that no two ROWS take the same combination of members. For
+ * scalars that promise is kept by rearranging finished columns — every column
+ * keeps its multiset, so nothing about the data changes except which row holds
+ * what. Here the thing rearranged is the sequence of MEMBER PICKS, and the
+ * fields follow for free: a field is a pure function of the member, so a row
+ * that receives another row's pick receives that member whole and stays a
+ * coherent record.
+ *
+ * Whole-column work by nature — an arrangement cannot be found a row at a time
+ * — which is the same shape the scalar path already has on every engine.
+ */
+export function poolUniqPicks(
+  groups: readonly (readonly string[])[] | undefined,
+  pickers: ReadonlyMap<string, MemberPicker>,
+  count: number,
+): Map<string, (i: number) => number> {
+  const out = new Map<string, (i: number) => number>();
+  if (!groups) return out;
+  for (const group of groups) {
+    const members = group.filter((name) => pickers.has(name));
+    if (members.length < 2) continue;
+
+    const columns = members.map((name) => {
+      const picker = pickers.get(name);
+      return Array.from({ length: count }, (_, i) => String(picker ? picker.pick(i) : -1));
+    });
+    const { columns: arranged, distinct } = arrangeUnique(columns);
+    if (distinct < count) throw new Error(uniqGroupMessage(members.join(' × '), count, distinct));
+
+    members.forEach((name, m) => {
+      const column = arranged[m] ?? [];
+      out.set(name, (i) => Number(column[i] ?? -1));
+    });
+  }
+  return out;
+}
+
+/**
+ * Both group kinds at once — the one entry point the engines call.
+ *
+ * `<distinct>` is settled per row and `<uniq>` across rows, so they cannot both
+ * own the same reference; a sequence lives inside one wrapper element, and that
+ * element decides which of the two it is.
+ */
+export function poolGroupPicks(
+  groups: {
+    readonly distinct?: readonly (readonly string[])[] | undefined;
+    readonly uniq?: readonly (readonly string[])[] | undefined;
+  },
+  specs: readonly SequenceSpec[],
+  registry: Record<string, Sequence>,
+  pools: PoolTables | undefined,
+  seed: string,
+  count: number,
+): Map<string, (i: number) => number> {
+  const hasDistinct = (groups.distinct?.length ?? 0) > 0;
+  const hasUniq = (groups.uniq?.length ?? 0) > 0;
+  if (!hasDistinct && !hasUniq) return new Map();
+  const pickers = poolPickers(specs, registry, pools, seed);
+  if (pickers.size === 0) return new Map();
+  const picks = poolGroupPickers(groups.distinct ?? [], pickers, seed);
+  for (const [name, pick] of poolUniqPicks(groups.uniq, pickers, count)) {
+    picks.set(name, pick);
+  }
+  return picks;
 }

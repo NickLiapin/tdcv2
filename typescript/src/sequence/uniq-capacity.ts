@@ -28,7 +28,8 @@
 
 import { parseNumberRanges } from '../generators/number.js';
 import type { SequenceSpec } from './types.js';
-import { isScalarSpec, uniqGroupMessage } from './env-groups.js';
+import { isScalarSpec } from './env-groups.js';
+import { uniqGroupMessage } from './uniq.js';
 
 /** The most distinct values this spec can produce, or `undefined` when unknowable. */
 function staticCapacity(spec: SequenceSpec): number | undefined {
