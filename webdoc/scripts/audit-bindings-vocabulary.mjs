@@ -70,11 +70,15 @@ if (shared === null) {
       }
       // `getAt(i)` in the table, `getAt` in the fixture: the call shape is the page's,
       // the NAME is the contract.
+      //
+      // The parenthesis is optional because not every member is a method: `count` is a
+      // property in Python and C#, and `data.count()` there raises rather than answering.
+      // Requiring `(` made the check demand the one spelling that does not run.
       const cell = row[column + 1] ?? '';
-      const written = /^`([A-Za-z_][A-Za-z_0-9]*)\(/.exec(cell)?.[1];
+      const written = /^`([A-Za-z_][A-Za-z_0-9]*)\(?/.exec(cell)?.[1];
       if (written !== name) {
         problems.push(
-          `row ${index + 1} (${member.concept}), ${language}: page says ${cell || '(nothing)'}, api.json says \`${name}()\``,
+          `row ${index + 1} (${member.concept}), ${language}: page says ${cell || '(nothing)'}, api.json says \`${name}\``,
         );
       }
     });

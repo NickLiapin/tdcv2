@@ -163,6 +163,13 @@ fails, which is the point of forcing it:
 {`tdcv2: a statistic ("Avg") is computed over every row of the run, including the ones after this one, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)`}
 </Terminal>
 
+A forced `--engine 3` is the exception, and worth knowing before you measure anything:
+it refuses only a `uniq` too tight for its bounded repair, and on every other shape in the
+list above it falls back to the in-memory engine and prints its bytes — exit 0, no message.
+Deliberately so, because those shapes are the ones the lazy path cannot express at all and
+covering them is what engine 3 is for. It does mean a memory reading taken with
+`--engine 3` on one of them is a reading of engine 1.
+
 ### What streams that you might expect not to
 
 Two constructs read the columns beside them and still stream, because each needs only
@@ -476,11 +483,19 @@ single-threaded); the output is identical either way:
 npx tdcv2 customers.tdc --jobs 8 -o customers.csv
 ```
 
-Sometimes parallelism does **not** kick in. Only the fast streaming engine splits a run
-across cores, so anything [routed away from it](#which-engine-runs-your-config) — any
-`uniq`, an `http` generator, a weighted row link — runs single-threaded. Auto stays quiet
-about it, but if you asked for `--jobs` explicitly, TDC tells you why. The output is
-correct either way.
+Sometimes parallelism does **not** kick in, and the rule is narrower than it looks. Both
+row-at-a-time engines split a run across cores — the fast streaming one and the exact
+on-disk one — so a config that only fell back from engine 2 to engine 3 still uses every
+core. What cannot be split is a run on the **in-memory** engine, and one shape in
+particular: `uniq="true"` on a sequence, which rearranges the generators inside a compound
+column, and a worker resolving a row on its own cannot reproduce that.
+
+An `<uniq>` GROUP at the `<env>` level is not that shape and does parallelise. Measured on
+1,500,000 rows: `--jobs 1` spent 17.4 s of CPU, `--jobs 8` spent 52.0 s across eight
+workers, and the two files are byte-identical, exactly as `--jobs` promises.
+
+Auto stays quiet when it cannot split, but if you asked for `--jobs` explicitly, TDC tells
+you why. The output is correct either way.
 
 **Nor does it below 100,000 rows.** Under that, spawning the threads and joining the
 pieces costs more than the split saves, so auto stays on one. The number is worth knowing

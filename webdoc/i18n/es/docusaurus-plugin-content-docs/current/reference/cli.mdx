@@ -152,9 +152,17 @@ por su cuenta si paralelizar. En resumen:
   ([determinismo](../core-concepts/determinism.mdx)); simplemente mantiene cada columna en
   RAM en vez de transmitirla.
 - **`--engine 1|2|3`** — fuerza un motor específico; `--stream` es un alias heredado de
-  `--engine 2`. Nombrar un motor significa que **rechaza** en vez de ejecutar otro en silencio,
-  así que una medición mide lo que dice medir. `--mode` describe un coste, y una ejecución que
-  describe un coste todavía puede acabar en otro motor.
+  `--engine 2`. `--mode` describe un coste, y una ejecución que describe un coste todavía
+  puede acabar en otro motor.
+
+  `--engine 2` **rechaza** todo lo que no puede transmitir, así que una medición mide lo que
+  dice medir. `--engine 3` rechaza en un solo caso — un `uniq` demasiado ajustado para su
+  reparación acotada — y en los demás cae al motor en memoria e imprime sus bytes: código 0 y
+  ni una palabra. Es angosto a propósito: las formas en las que el motor 3 cae son justo las
+  que el camino perezoso no puede expresar, y cubrirlas es para lo que existe. Eso sí implica
+  que una medición de memoria hecha con `--engine 3` sobre un `stat`, un total acumulado o un
+  `uniq` simple es una medición del motor 1. [Qué motor ejecuta su
+  configuración](../guides/large-outputs.mdx#qué-motor-corre-su-configuración) lista las formas.
 
 TDC calcula cuántos hilos caben en la RAM de esta máquina y toma esa cantidad — en una
 máquina débil la corrida simplemente va más lenta, no se cae a la mitad. Todo el detalle

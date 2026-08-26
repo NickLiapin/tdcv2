@@ -151,9 +151,17 @@ itself whether to parallelize. In short:
   ([determinism](../core-concepts/determinism.mdx)); it simply holds every column in RAM
   instead of streaming it.
 - **`--engine 1|2|3`** — force a specific engine; `--stream` is a legacy alias for
-  `--engine 2`. Naming an engine means it **refuses** rather than quietly running another, so
-  a measurement measures what it says it does. `--mode` describes a cost instead, and a run
-  that describes a cost may still be handed to a different engine.
+  `--engine 2`. `--mode` describes a cost instead, and a run that describes a cost may still
+  be handed to a different engine.
+
+  `--engine 2` **refuses** anything it cannot stream, so a measurement measures what it says
+  it does. `--engine 3` refuses in one case only — a `uniq` too tight for its bounded repair
+  — and otherwise falls back to the in-memory engine and prints its bytes, exit 0 and no
+  message. That is narrow on purpose: the shapes engine 3 falls back on are the ones the
+  lazy path cannot express at all, and covering them is what engine 3 is for. It does mean a
+  memory measurement taken with `--engine 3` on a `stat`, a running total or a simple `uniq`
+  is a measurement of engine 1. [Which engine runs your
+  config](../guides/large-outputs.mdx#which-engine-runs-your-config) lists the shapes.
 
 TDC works out how many threads fit in this machine's RAM and uses that many, so on a weak
 machine a run just takes longer instead of dying halfway through. Full details in

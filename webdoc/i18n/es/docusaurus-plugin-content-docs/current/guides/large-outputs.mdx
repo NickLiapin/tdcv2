@@ -174,6 +174,13 @@ falla, que es justamente el punto de forzarlo:
 {`tdcv2: a statistic ("Avg") is computed over every row of the run, including the ones after this one, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)`}
 </Terminal>
 
+Un `--engine 3` forzado es la excepción, y conviene saberlo antes de medir nada: rechaza
+solo un `uniq` demasiado ajustado para su reparación acotada, y en las demás formas de la
+lista de arriba cae al motor en memoria e imprime sus bytes — código 0, ni una palabra. Es
+deliberado: esas formas son justo las que el camino perezoso no puede expresar, y cubrirlas
+es para lo que existe el motor 3. Eso sí implica que una lectura de memoria tomada con
+`--engine 3` sobre alguna de ellas es una lectura del motor 1.
+
 ### Lo que sí hace streaming aunque no lo parezca
 
 Dos construcciones leen las columnas de al lado y aun así hacen streaming, porque cada
@@ -497,11 +504,20 @@ hilo); la salida es idéntica de cualquier forma:
 npx tdcv2 customers.tdc --jobs 8 -o customers.csv
 ```
 
-A veces el paralelismo **no** entra en acción. Solo el motor rápido de streaming reparte
-una corrida entre núcleos, así que todo lo que [se rutea fuera de
-él](#qué-motor-corre-su-configuración) — cualquier `uniq`, un generador `http`, un enlace
-de fila ponderado — corre en un solo hilo. Auto se queda callado al respecto, pero si pidió
-`--jobs` explícitamente TDC le dice por qué. La salida es correcta de cualquier forma.
+A veces el paralelismo **no** entra en acción, y la regla es más angosta de lo que parece.
+Los dos motores fila a fila reparten una corrida entre núcleos — el rápido de streaming y el
+exacto en disco — así que una configuración que solo cayó del motor 2 al 3 sigue usando
+todos los núcleos. Lo que no se puede repartir es una corrida en el motor **en memoria**, y
+una forma en particular: `uniq="true"` sobre una secuencia, que reordena los generadores
+dentro de una columna compuesta, y un worker que resuelve una fila por su cuenta no puede
+reproducir eso.
+
+Un GRUPO `<uniq>` a nivel de `<env>` no es esa forma y sí se paraleliza. Medido sobre
+1 500 000 filas: `--jobs 1` gastó 17,4 s de CPU, `--jobs 8` gastó 52,0 s repartidos entre
+ocho workers, y los dos archivos son idénticos byte a byte, tal como promete `--jobs`.
+
+Auto se queda callado cuando no puede repartir, pero si pidió `--jobs` explícitamente TDC
+le dice por qué. La salida es correcta de cualquier forma.
 
 **Tampoco entra por debajo de 100 000 filas.** Por debajo de esa cifra levantar los hilos y
 unir las piezas cuesta más de lo que ahorra el reparto, así que auto se queda en uno. Vale
