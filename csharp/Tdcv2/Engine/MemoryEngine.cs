@@ -2624,13 +2624,15 @@ public static class MemoryEngine
          * every row would draw the same.
          */
         string bodySeed = ctx.Config.Seed + "|" + (ctx.ColumnStreamId ?? string.Empty)
-            + (count == 1 && ctx.ColumnRow is int only ? "|" + only.ToString(CultureInfo.InvariantCulture) : string.Empty);
+            + (ctx.OneRow && count == 1 && ctx.ColumnRow is int only
+                ? "|" + only.ToString(CultureInfo.InvariantCulture)
+                : string.Empty);
         ctx = ctx with
         {
             Config = ctx.Config.WithSeed(bodySeed),
             ColumnStreamId = null,
             ColumnRow = null,
-            OneRow = count == 1 && ctx.ColumnRow is not null,
+            OneRow = ctx.OneRow,
         };
 
         if (body is Gen packGen)
@@ -3596,7 +3598,7 @@ public static class MemoryEngine
                         gen,
                         1,
                         rowPrng,
-                        ctx with { ColumnStreamId = stream.Id, ColumnRow = here },
+                        ctx with { ColumnStreamId = stream.Id, ColumnRow = here, OneRow = true },
                         scratch,
                         _ => here),
                     gen.Attrs, rowPrng, one, scratch);
@@ -3617,7 +3619,17 @@ public static class MemoryEngine
                 gen,
                 count,
                 prng,
-                ctx with { ColumnStreamId = stream.Id, ColumnRow = count == 1 ? stream.RowAt(0) : null },
+                // `OneRow` is NOT set here: this is the whole-column path, and a pack that
+                // needs the WHOLE column in a run of count="1" is a column-wide build that
+                // happens to hold one row. Salting its body's seed with that row made this
+                // engine answer differently from the streaming ones. The row is still carried,
+                // because a pack body built for one row runs its own sequences through this
+                // same path and inherits `OneRow` from the build around it.
+                ctx with
+                {
+                    ColumnStreamId = stream.Id,
+                    ColumnRow = count == 1 ? stream.RowAt(0) : null,
+                },
                 null,
                 stream.RowAt),
             gen, prng, anomalyFlags, stream);

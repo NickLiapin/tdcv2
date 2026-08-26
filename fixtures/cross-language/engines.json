@@ -3020,6 +3020,30 @@
         ]
       }
     },
+    "one-row/a-whole-column-pack-in-a-run-of-one-row": {
+      "engine2": {
+        "lines": ["19753918362857186"]
+      },
+      "engine3": {
+        "lines": ["19753918362857186"]
+      }
+    },
+    "one-row/a-whole-column-pack-is-the-same-run-at-any-count": {
+      "engine2": {
+        "lines": ["19753998362857186", "19960218509279671", "19416014693894457"]
+      },
+      "engine3": {
+        "lines": ["19753998362857186", "19960218509279671", "19416014693894457"]
+      }
+    },
+    "one-row/a-whole-column-pack-with-a-compound-body": {
+      "engine2": {
+        "lines": ["កែប 1TI-0355"]
+      },
+      "engine3": {
+        "lines": ["កែប 1TI-0355"]
+      }
+    },
     "ordering/sequential-text-loops": {
       "engine2": {
         "lines": ["Jan", "Feb", "Mar", "Jan", "Feb", "Mar", "Jan"]

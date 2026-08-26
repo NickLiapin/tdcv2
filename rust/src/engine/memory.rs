@@ -2455,9 +2455,16 @@ pub(super) fn column_values_into(
         env,
         None,
         Some(&scope),
+        // The row goes with the build only when the build IS one row of the run — which the
+        // count alone does not say. A pack that needs the WHOLE column, in a run of count="1",
+        // comes through here as a column-wide build that happens to hold one row; salted there,
+        // this engine answered differently from engines 2 and 3 on 73 of the 121 bundled
+        // whole-column packs. `one_row` is carried on the stream and INHERITED, because a pack
+        // body built for one row runs its own sequences through this same path, and those are
+        // still one row of the run: flattened away, every e-mail in a column got one domain.
         Some((
             stream.id.as_str(),
-            if count == 1 {
+            if stream.one_row && count == 1 {
                 Some(stream.row_at(0))
             } else {
                 None

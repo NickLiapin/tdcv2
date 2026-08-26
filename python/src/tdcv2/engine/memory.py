@@ -2457,7 +2457,16 @@ def _run_pack_generator(
     # detail: a pack that does not need the whole column is built per row, and handed a
     # column-wide seed at count 1 the body's own exact-layout machinery plans one slot and gives
     # it to one value, so every row draws the same.
-    body_row = run.rows[0] if count == 1 and run.rows is not None and len(run.rows) == 1 else None
+    #
+    # `run.per_row` is in the test, not the count alone. A count of one does not make a build
+    # per-row: a pack that needs the WHOLE column, in a run of count="1", is a column-wide build
+    # that happens to hold a single row. Salted there, this engine answered a config differently
+    # from the streaming ones, which build such a body their own way and never salt it.
+    body_row = (
+        run.rows[0]
+        if run.per_row and count == 1 and run.rows is not None and len(run.rows) == 1
+        else None
+    )
     body_seed = f"{run.config.seed}|{run.stream_id or run.column_stream_id or ''}" + (
         "" if body_row is None else f"|{body_row}"
     )
@@ -2522,8 +2531,14 @@ def _materialize_local(
         # itself — which is what pairs a given name with the surname beside it.
         by_field: dict[str, list[str]] = {}
         for field in spec.fields:
-            values = _generate(field.gen, count, replace(run, stream_id=f"{name}.{field.name}"))
-            by_field[field.name] = list(_finish(values, field.gen.attrs, run.prng, [False] * count))
+            # Through the COLUMN builder, not the raw dispatch: a body sequence is a column
+            # like any other, and the builder is what takes the per-row path off its own stream.
+            # Calling `_generate` here left every pack body drawing from the threaded prng while
+            # the other four implementations drew per row, so this engine disagreed with the
+            # streaming ones on every whole-column pack, at every count.
+            by_field[field.name] = list(
+                _column_values(field.gen, count, replace(run, stream_id=f"{name}.{field.name}"))
+            )
         # After every field exists, never during: a group's members must all be there before
         # the constraint between them means anything.
         if spec.distinct_groups:
@@ -2541,8 +2556,8 @@ def _materialize_local(
     assert spec.gen is not None
     # Keyed by its own name, exactly as a config's sequence is. Without this the body's
     # sequences had no stream of their own and no whole-column layout could fire inside one.
-    produced_values = _generate(spec.gen, count, replace(run, stream_id=name))
-    return {name: list(_finish(produced_values, spec.gen.attrs, run.prng, [False] * count))}
+    # The column builder, for the reason given in the compound branch above.
+    return {name: list(_column_values(spec.gen, count, replace(run, stream_id=name)))}
 
 
 def _enforce_valid(pack, local, count: int, run: _Run, overrides: dict[str, str]) -> None:

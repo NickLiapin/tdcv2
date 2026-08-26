@@ -2584,7 +2584,7 @@ public final class MemoryEngine {
             finish(
                 generate(
                     gen, 1, rowPrng, packs, config, nowMillis, baseDir, rowLinks, scratch,
-                    siblings, position -> here, stream.id()),
+                    siblings, position -> here, stream.id(), true),
                 gen.attrs(),
                 rowPrng,
                 one,
@@ -2603,7 +2603,11 @@ public final class MemoryEngine {
     return finishKeyed(
         generate(
             gen, count, prng, packs, config, nowMillis, baseDir, rowLinks, null, siblings,
-            stream::rowAt, stream.id()),
+            // INHERITED, not false: this is the whole-column path, but a pack body built for
+            // one row runs its own sequences through it, and those are still one row of the run.
+            // Flattened to false, a nested pack body lost the row from its seed — the domain
+            // half of every generated e-mail moved.
+            stream::rowAt, stream.id(), stream.oneRow()),
         gen,
         prng,
         anomalyFlags,
@@ -3687,7 +3691,7 @@ public final class MemoryEngine {
       java.util.function.IntUnaryOperator rowAt) {
     return generate(
         gen, count, prng, packs, config, nowMillis, baseDir, rowLinks, instants, siblings, rowAt,
-        "");
+        "", false);
   }
 
   /**
@@ -3709,7 +3713,12 @@ public final class MemoryEngine {
       List<Long> instants,
       Siblings siblings,
       java.util.function.IntUnaryOperator rowAt,
-      String streamId) {
+      String streamId,
+      // This build is ONE ROW of a bigger one. A count of one does not say so on its own: a
+      // pack that needs the WHOLE column, in a run of count="1", is a column-wide build that
+      // happens to hold a single row, and salting its body's seed with that row made engine 1
+      // answer differently from engines 2 and 3.
+      boolean perRow) {
     String locale = config.locale();
 
     // order="sequential" comes before everything else: it replaces the draw entirely, so the
@@ -3871,7 +3880,7 @@ public final class MemoryEngine {
               config.seed()
                   + "|"
                   + streamId
-                  + (count == 1 && rowAt != null ? "|" + rowAt.applyAsInt(0) : "");
+                  + (perRow && count == 1 && rowAt != null ? "|" + rowAt.applyAsInt(0) : "");
           return runPackGenerator(
               entry,
               path,
@@ -3883,7 +3892,7 @@ public final class MemoryEngine {
               baseDir,
               rowLinks,
               gen.attrs(),
-              count == 1 && rowAt != null);
+              perRow && count == 1 && rowAt != null);
         }
         if (entry.weighted()) {
           // A weighted pack is laid out exactly, not sampled: the counts in the file are

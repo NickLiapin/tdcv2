@@ -1312,8 +1312,16 @@ function buildGenValuesRaw(
          * draw; a body planned over the whole column has no row to salt with and
          * gets the column's seed, which is what makes it identical on all three
          * engines.
+         *
+         * Which is why `perRow` is in the test and not `count === 1` alone. A
+         * count of one does not make a build per-row: a pack that needs the
+         * WHOLE column, in a run of `count="1"`, is a column-wide build that
+         * happens to hold one row. Salted there, engine 1 answered a config
+         * differently from engines 2 and 3 — which build such a body their own
+         * way and never salted it — and only at that one count.
          */
-        const bodyRow = count === 1 && ctx.rows?.length === 1 ? ctx.rows[0] : undefined;
+        const bodyRow =
+          ctx.perRow === true && count === 1 && ctx.rows?.length === 1 ? ctx.rows[0] : undefined;
         // The streaming path carries the column's identity under its own names,
         // because setting `seed`/`streamId` on a one-row context would switch on
         // whole-column layouts inside it. Either way this is the same identity.

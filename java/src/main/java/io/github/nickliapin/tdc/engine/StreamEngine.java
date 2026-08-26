@@ -1523,7 +1523,7 @@ public final class StreamEngine {
       return MemoryEngine.finish(
           MemoryEngine.generate(
               gen, 1, prng, packs, config, nowMillis, baseDir, new LinkedHashMap<>(), null,
-              siblings, position -> row, streamId),
+              siblings, position -> row, streamId, true),
           gen.attrs(),
           prng,
           flagsOut == null ? new boolean[1] : flagsOut);
@@ -1536,7 +1536,7 @@ public final class StreamEngine {
             MemoryEngine.finish(
                 MemoryEngine.generate(
                     gen, slots, prng, packs, config, nowMillis, baseDir, new LinkedHashMap<>(),
-                    null, siblings, position -> row, streamId),
+                    null, siblings, position -> row, streamId, true),
                 gen.attrs(),
                 prng,
                 new boolean[slots]));

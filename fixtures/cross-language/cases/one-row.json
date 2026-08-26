@@ -51,6 +51,28 @@
         "C",
         "A"
       ]
+    },
+    {
+      "name": "a-whole-column-pack-in-a-run-of-one-row",
+      "description": "A pack generator whose body declares a share is a WHOLE-COLUMN build: its quota is cut from the run, not drawn per row. In a run of count=\"1\" that build holds a single row, and the count was read as \"this is a per-row build\" — so the body's seed was salted with the row, which a column-wide build must never be. 73 of the 121 bundled whole-column packs answered differently on the in-memory engine than on the streaming ones because of it.",
+      "config": "<tdc><env count=\"1\" seed=\"wc\" local=\"en\" mode=\"memory\"><sequence name=\"A\"><gen type=\"template\" value=\"bangladesh.docs.nid\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["19753918362857186"]
+    },
+    {
+      "name": "a-whole-column-pack-is-the-same-run-at-any-count",
+      "description": "The same pack over three rows. A whole-column quota does depend on how many rows there are — that is what makes it whole-column — so this pins the arrangement rather than the single value, and it is the case the one above is measured against.",
+      "config": "<tdc><env count=\"3\" seed=\"wc\" local=\"en\" mode=\"memory\"><sequence name=\"A\"><gen type=\"template\" value=\"bangladesh.docs.nid\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": [
+        "19753998362857186",
+        "19960218509279671",
+        "19416014693894457"
+      ]
+    },
+    {
+      "name": "a-whole-column-pack-with-a-compound-body",
+      "description": "The compound branch of a pack body — one column per field — took the same wrong turn in one implementation and not the others, so it is pinned separately from the plain one.",
+      "config": "<tdc><env count=\"1\" seed=\"wc\" local=\"en\" mode=\"memory\"><sequence name=\"A\"><gen type=\"template\" value=\"cambodia.vehicle.plate\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["កែប 1TI-0355"]
     }
   ]
 }

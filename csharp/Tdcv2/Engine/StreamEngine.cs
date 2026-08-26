@@ -1565,7 +1565,9 @@ public sealed class StreamEngine
             // them has to come out the same on both engines. A pack generator is the case that
             // showed it: its body is seeded from the column's identity.
             streamId,
-            row);
+            row,
+            // One row of the run, which is what lets a pack body's seed carry the row.
+            true);
 
         Repeat.Spec? repeat = Repeat.Parse(gen.Attrs);
         if (repeat is null)
