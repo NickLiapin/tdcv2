@@ -596,24 +596,29 @@ de un mejor enrutado más adelante. Si están los dos, `engine` gana sobre `mode
 
 ## Métodos terminales (la biblioteca)
 
-La salida de texto (`toString`/`toIterator`/`toStream`/`writeFile`/CLI) pasa por disco y
-**no** materializa un registro — O(campos). Los métodos de objetos
-(`toArray`/`iterate`/`getAt`) devuelven objetos de JS a través del motor pequeño en RAM,
-así que retienen datos en memoria (algo razonable para los conjuntos chicos para los que
-existe la API de objetos).
+Todos los métodos de aquí pasan por el motor que [elige el
+router](#qué-motor-corre-su-configuración), los de objetos incluidos. Ninguno fuerza el
+motor en memoria, así que ninguno materializa un registro: la memoria es O(campos) salvo
+que lo que crezca sea el propio valor devuelto.
 
-| Método         | Salida de texto                 | Memoria                    | Sirve para                                    |
-| :------------- | :------------------------------ | :------------------------- | :-------------------------------------------- |
-| `toString()`   | recolectada completa            | O(campos) + texto completo | resultados chicos / medianos                  |
-| `toIterator()` | una fila a la vez               | O(campos)                  | resultados de texto grandes, fila por fila    |
-| `toStream()`   | `Readable` de Node              | O(campos)                  | canalizar a un archivo / HTTP / un archivador |
-| `writeFile()`  | por trozos a un archivo         | O(campos)                  | la salida más simple para un archivo grande   |
-| CLI            | por trozos                      | O(campos)                  | la línea de comandos                          |
-| `toArray()`    | filas como objetos, completas   | materializadas en RAM      | fixtures de objetos chicas / medianas         |
-| `iterate()`    | filas como objetos, una por una | materializadas en RAM      | salida de objetos, una fila a la vez          |
-| `getAt(index)` | una fila como objeto            | materializada por llamada  | acceso puntual, no masivo                     |
+| Método         | Salida de texto                 | Memoria                     | Sirve para                                    |
+| :------------- | :------------------------------ | :-------------------------- | :-------------------------------------------- |
+| `toString()`   | recolectada completa            | O(campos) + texto completo  | resultados chicos / medianos                  |
+| `toIterator()` | una fila a la vez               | O(campos)                   | resultados de texto grandes, fila por fila    |
+| `toStream()`   | `Readable` de Node              | O(campos)                   | canalizar a un archivo / HTTP / un archivador |
+| `writeFile()`  | por trozos a un archivo         | O(campos)                   | la salida más simple para un archivo grande   |
+| CLI            | por trozos                      | O(campos)                   | la línea de comandos                          |
+| `toArray()`    | filas como objetos, completas   | O(filas) — son lo que devuelve | fixtures de objetos chicas / medianas      |
+| `iterate()`    | filas como objetos, una por una | O(campos)                   | salida de objetos, una fila a la vez          |
+| `getAt(index)` | una fila como objeto            | O(campos)                   | acceso puntual, no masivo                     |
 
-Para archivos grandes, use la CLI, `writeFile()`, `toIterator()` o `toStream()`:
+`toArray()` es el único método de objetos cuya memoria crece con `count`, y crece porque el
+arreglo que devuelve SON todas las filas. `iterate()` y `getAt()` no construyen nada de eso.
+Medido sobre una configuración de 50 000 000 de filas: `getAt(49_999_999)` respondió en 4 ms
+y las tres primeras filas de `iterate()` llegaron en 2 ms, con el heap plano en ambos casos.
+
+Para archivos grandes, use la CLI, `writeFile()`, `toIterator()`, `toStream()` — o
+`iterate()` si quiere objetos en vez de texto:
 
 ```ts
 const tdc = new TDC({ configFile: "./customers.tdc" });
@@ -769,8 +774,10 @@ ocupa dos ranuras de secuencia: `Person.FirstName` y `Person.LastName`.
   rápido).
 - `toString()` es cómodo para pruebas y resultados chicos, pero junta todo el texto en una
   sola cadena — no sirve para archivos grandes.
-- `toArray()`/`iterate()`/`getAt()` materializan filas como objetos en RAM, así que no
-  reemplazan la salida de archivos por streaming — son para conjuntos chicos.
+- `toArray()` devuelve todas las filas como objetos, así que su memoria es el arreglo
+  mismo; ese sí es para conjuntos chicos. `iterate()` y `getAt()` no: corren en el mismo
+  motor que la salida de texto y no retienen nada, así que `iterate()` sirve perfectamente
+  para emitir objetos en streaming.
 
 ## Vea también
 

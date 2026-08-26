@@ -45,7 +45,9 @@ exactamente la misma salida.
 :::note[La misma salida, sea cual sea el motor]
 TDC tiene tres motores y elige uno según la configuración: el de streaming rápido por
 omisión, el exacto en disco para la unicidad, y el pequeño en RAM bajo `mode="memory"` y
-detrás del API de objetos. **Los tres producen los mismos valores con la misma semilla.** El
+para las formas que necesitan una columna entera de una vez. El API de objetos no es una de
+ellas: `toArray`, `iterate` y `getAt` corren en el motor que eligió el router, igual que la
+salida de texto. **Los tres producen los mismos valores con la misma semilla.** El
 valor de una fila se deriva de `(seed, nombre de la columna, número de fila)`, así que no
 depende de qué motor lo calculó, ni de lo que sacaron las columnas vecinas, ni de cuántos
 hilos escribieron el archivo.

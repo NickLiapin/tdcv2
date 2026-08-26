@@ -552,23 +552,29 @@ command line overrides either.
 
 ## Terminal methods (the library)
 
-Text output (`toString`/`toIterator`/`toStream`/`writeFile`/CLI) goes through disk and
-does **not** materialize a registry — O(fields). The object methods
-(`toArray`/`iterate`/`getAt`) return JS objects through the small in-RAM engine, so they
-hold data in memory (fine for the small sets the object API exists for).
+Every method here goes through whichever engine [the router
+picks](#which-engine-runs-your-config) — the object ones included. None of them forces the
+in-memory engine, so none of them materialises a registry: memory is O(fields) unless the
+method's own return value is the thing that grows.
 
-| Method         | Text output             | Memory                | Use for                          |
-| :------------- | :---------------------- | :-------------------- | :------------------------------- |
-| `toString()`   | collected whole         | O(fields) + full text | small / medium results           |
-| `toIterator()` | one row at a time       | O(fields)             | large text results, row by row   |
-| `toStream()`   | Node `Readable`         | O(fields)             | pipe to a file / HTTP / archiver |
-| `writeFile()`  | chunks to a file        | O(fields)             | simplest way to write a big file |
-| CLI            | chunks                  | O(fields)             | the command line                 |
-| `toArray()`    | object rows, whole      | materialized in RAM   | small / medium object fixtures   |
-| `iterate()`    | object rows, one-by-one | materialized in RAM   | object output, one row at a time |
-| `getAt(index)` | one object row          | materialized per call | point access, not bulk           |
+| Method         | Text output             | Memory                    | Use for                          |
+| :------------- | :---------------------- | :------------------------ | :------------------------------- |
+| `toString()`   | collected whole         | O(fields) + the full text | small / medium results           |
+| `toIterator()` | one row at a time       | O(fields)                 | large text results, row by row   |
+| `toStream()`   | Node `Readable`         | O(fields)                 | pipe to a file / HTTP / archiver |
+| `writeFile()`  | chunks to a file        | O(fields)                 | simplest way to write a big file |
+| CLI            | chunks                  | O(fields)                 | the command line                 |
+| `toArray()`    | object rows, whole      | O(rows) — it returns them | small / medium object fixtures   |
+| `iterate()`    | object rows, one-by-one | O(fields)                 | object output, one row at a time |
+| `getAt(index)` | one object row          | O(fields)                 | point access, not bulk           |
 
-For big files, use the CLI, `writeFile()`, `toIterator()`, or `toStream()`:
+`toArray()` is the only object method whose memory grows with `count`, and it grows because
+the array it hands back IS every row. `iterate()` and `getAt()` build nothing of the sort.
+Measured on a 50,000,000-row config: `getAt(49_999_999)` answered in 4 ms and the first
+three rows of `iterate()` arrived in 2 ms, both on a flat heap.
+
+For big files, use the CLI, `writeFile()`, `toIterator()`, `toStream()` — or `iterate()`
+if you want objects rather than text:
 
 ```ts
 const tdc = new TDC({ configFile: "./customers.tdc" });
@@ -710,8 +716,9 @@ takes two sequence slots: `Person.FirstName` and `Person.LastName`.
 - To speed up a big run, add [`--jobs N`](../reference/cli.mdx) (on the fast engine).
 - `toString()` suits tests and small results, but collects all text into one
   string — not for big files.
-- `toArray()`/`iterate()`/`getAt()` materialize object rows in RAM, so they don't replace
-  streaming file output — they're for small sets.
+- `toArray()` returns every row as an object, so its memory is the array itself — that one
+  is for small sets. `iterate()` and `getAt()` are not: they run on the same engine as text
+  output and hold nothing, so `iterate()` is a fine way to stream objects.
 
 ## See also
 

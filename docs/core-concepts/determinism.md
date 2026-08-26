@@ -46,9 +46,10 @@ the same seed and the same config always produce exactly the same output.
 > **The same output, whichever engine runs**
 >
 > TDC has three engines and picks one from your config — the fast streaming one by
-> default, the exact on-disk one for uniqueness, the small in-RAM one under
-> `mode="memory"` and behind the object API. **They all produce the same values from the
-> same seed.** A row's value is derived from `(seed, column name, row number)`, so it does
+> default, the exact on-disk one for uniqueness, the small in-RAM one under `mode="memory"`
+> and for the shapes that need a whole column at once. The object API is not one of those
+> shapes: `toArray`, `iterate` and `getAt` run on whichever engine the router picked, the
+> same as text output. **They all produce the same values from the same seed.** A row's value is derived from `(seed, column name, row number)`, so it does
 > not depend on which engine computed it, on what the columns beside it drew, or on how
 > many threads wrote the file.
 >
