@@ -572,7 +572,7 @@ public sealed class DataPacks
     /// syntax error at the caller's line.
     /// </para>
     /// </remarks>
-    public IReadOnlySet<string>? ParameterNames(string dottedPath, string? locale)
+    public IReadOnlyList<string>? ParameterNames(string dottedPath, string? locale)
     {
         Entry entry;
         try
@@ -584,7 +584,8 @@ public sealed class DataPacks
             return null;
         }
 
-        var names = new HashSet<string>(StringComparer.Ordinal);
+        // DECLARATION order: the names go into a refusal that lists them, and a pack declaring `user` then `domain` was reported as "domain, user".
+        var names = new List<string>();
         if (entry.Generator is null)
         {
             // A plain list of values has no parameters at all, which is not the same as
@@ -595,7 +596,10 @@ public sealed class DataPacks
 
         foreach (System.Text.RegularExpressions.Match m in SequenceName.Matches(entry.Generator))
         {
-            names.Add(m.Groups[1].Value);
+            if (!names.Contains(m.Groups[1].Value, StringComparer.Ordinal))
+            {
+                names.Add(m.Groups[1].Value);
+            }
         }
 
         return names;

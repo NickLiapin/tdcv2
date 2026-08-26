@@ -2876,7 +2876,7 @@ public final class Validator {
     String on = attrs.get("on");
     if (on == null || on.isBlank()) {
       error("TDC133", "<switch> is missing a required \"on\" attribute",
-          "A switch looks a value up; \"on\" names the sequence it looks up.", line(open), column(open));
+          "Name the subject sequence to look up, e.g. <switch name=\"Currency\" on=\"Country\">.", line(open), column(open));
     } else if (!declared.contains(on)) {
       // A dot with a KNOWN root is a field mistake. Reported as an unknown sequence it sent the
       // reader off to check a name that is declared right above.
@@ -2924,7 +2924,7 @@ public final class Validator {
         String is = attributes(inner.attr()).get("is");
         if (is == null || is.isBlank()) {
           error("TDC137", "<case> inside <switch> is missing a required \"is\" attribute",
-              "A switch case matches a value; \"is\" is the value it matches.",
+              "Give the match key(s): <case is=\"US\"> or multi-key <case is=\"US|CA|MX\">.",
               line(inner), column(inner));
         }
         checkCaseBody(inner);
@@ -2935,7 +2935,7 @@ public final class Validator {
     }
     if (entries == 0) {
       error("TDC135", "<switch> has no entries",
-          "Add a <map>, a <case is=\"…\">, or a <default>.", line(open), column(open));
+          "Add a <map>KEY:VALUE, …</map> table and/or <case is=\"…\">…</case> entries.", line(open), column(open));
     }
   }
 
@@ -3875,9 +3875,8 @@ public final class Validator {
               ? "This generator takes no parameters — it produces a fixed shape. Value passed: \""
                   + attr.getValue()
                   + "\"."
-              : "Parameters of this generator: "
-                  + String.join(", ", new java.util.TreeSet<>(declared))
-                  + ".";
+              // DECLARATION order: the names go into a refusal that lists them, and a pack declaring `user` then `domain` was reported as "domain, user".
+              : "Parameters of this generator: " + candidates(declared, 6) + ".";
       error(
           "TDC072",
           "\"" + attr.getKey() + "\" is not a parameter of \"" + path + "\" — it would be ignored",

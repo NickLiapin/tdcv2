@@ -512,13 +512,10 @@ impl DataPacks {
     /// Read by scanning for `<sequence name="…">` rather than by parsing the
     /// body: the validator asks before anything is built, and parsing here would
     /// report a pack author's syntax error at the caller's line.
-    pub fn parameter_names(
-        &self,
-        dotted_path: &str,
-        locale: &str,
-    ) -> Option<std::collections::BTreeSet<String>> {
+    pub fn parameter_names(&self, dotted_path: &str, locale: &str) -> Option<Vec<String>> {
         let entry = self.load(dotted_path, locale).ok()?;
-        let mut names = std::collections::BTreeSet::new();
+        // DECLARATION order, not sorted: the names go straight into a refusal that lists them, and a pack that declares `user` then `domain` was reported as "domain, user" -- the reader matching the note against the pack body reads down a different list than the one there.
+        let mut names: Vec<String> = Vec::new();
         // A plain list of values has no parameters at all, which is not the same
         // as "unknown": an attribute aimed at one does nothing, and an attribute
         // that does nothing is indistinguishable from a typo.
@@ -533,7 +530,10 @@ impl DataPacks {
             if let Some(name_at) = tag.find("name=\"") {
                 let after = &tag[name_at + 6..];
                 if let Some(close) = after.find('"') {
-                    names.insert(after[..close].to_string());
+                    let name = after[..close].to_string();
+                    if !names.contains(&name) {
+                        names.push(name);
+                    }
                 }
             }
             rest = &rest[end..];

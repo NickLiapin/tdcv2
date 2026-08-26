@@ -3246,7 +3246,7 @@ public sealed class Validator
         {
             Error(
                 "TDC133", "<switch> is missing a required \"on\" attribute",
-                "A switch looks a value up; \"on\" names the sequence it looks up.",
+                "Name the subject sequence to look up, e.g. <switch name=\"Currency\" on=\"Country\">.",
                 Line(open), Column(open));
         }
         else if (!declared.Contains(on))
@@ -3308,7 +3308,7 @@ public sealed class Validator
                 {
                     Error(
                         "TDC137", "<case> inside <switch> is missing a required \"is\" attribute",
-                        "A switch case matches a value; \"is\" is the value it matches.",
+                        "Give the match key(s): <case is=\"US\"> or multi-key <case is=\"US|CA|MX\">.",
                         Line(inner), Column(inner));
                 }
 
@@ -3325,7 +3325,7 @@ public sealed class Validator
         {
             Error(
                 "TDC135", "<switch> has no entries",
-                "Add a <map>, a <case is=\"…\">, or a <default>.", Line(open), Column(open));
+                "Add a <map>KEY:VALUE, …</map> table and/or <case is=\"…\">…</case> entries.", Line(open), Column(open));
         }
     }
 
@@ -4111,7 +4111,7 @@ public sealed class Validator
             return false;
         }
 
-        IReadOnlySet<string>? declared = _packs.ParameterNames(path, _locale);
+        IReadOnlyList<string>? declared = _packs.ParameterNames(path, _locale);
         if (declared is null)
         {
             return false;
@@ -4159,8 +4159,7 @@ public sealed class Validator
             }
 
             string hint = declared.Count > 0
-                ? "Parameters of this generator: "
-                    + string.Join(", ", declared.OrderBy(n => n, StringComparer.Ordinal)) + "."
+                ? "Parameters of this generator: " + Candidates(declared, 6) + "."
                 : "This generator takes no parameters — it produces a fixed shape. "
                     + $"Value passed: \"{attr.Value}\".";
             (int line, int column) = At(gen, attr.Key);

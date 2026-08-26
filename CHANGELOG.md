@@ -377,6 +377,12 @@ placed` rather than naming a total it stopped counting. A number quietly reading
   produces their sum in Python, Java, C# and Rust, where it produced their digits run together.
   TypeScript is unchanged.
 
+- **A pack's parameters were listed in the wrong order, at the source.** `parameter_names`
+  returned a SET in Python, Rust and C#, so a pack declaring `user` then `domain` was reported
+  as "domain, user" — a reader matching the note against the pack body read down a different
+  list than the one in front of them. All three keep declaration order now, and the three
+  `<switch>` refusals say what to write rather than what the attribute means.
+
 - **Fifteen more diagnostics say what the reference says**, and two of them were lists whose
   ORDER is the answer: the generator types printed sorted, so the six a reader is shown opened
   with `advanced_regex` where the reference opens with `text` — the common types first is the

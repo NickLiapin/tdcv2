@@ -320,7 +320,7 @@ class DataPacks:
         """
         return list(self._addresses())
 
-    def parameter_names(self, dotted_path: str, locale: str) -> set[str] | None:
+    def parameter_names(self, dotted_path: str, locale: str) -> list[str] | None:
         """The parameters a generator pack accepts, or ``None`` when it is not one.
 
         A pack's parameters ARE its local ``<sequence>`` names: writing
@@ -342,8 +342,12 @@ class DataPacks:
             # A plain list of values has no parameters at all, which is not the same as
             # "unknown": an attribute aimed at one does nothing, and an attribute that
             # does nothing is indistinguishable from a typo.
-            return set()
-        return {m.group(1) for m in _SEQUENCE_NAME.finditer(entry.generator)}
+            return []
+        # DECLARATION order, not a set: the names go straight into a refusal that lists them, and a pack that declares `user` then `domain` was reported as "domain, user" — the reader matching the note against the pack body reads down a different list than the one there.
+        seen: dict[str, None] = {}
+        for m in _SEQUENCE_NAME.finditer(entry.generator):
+            seen[m.group(1)] = None
+        return list(seen)
 
     def parameter_widths(self, dotted_path: str, locale: str) -> dict[str, int]:
         """How many characters each parameter's own sequence produces, where that is a FACT.

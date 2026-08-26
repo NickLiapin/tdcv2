@@ -3537,7 +3537,7 @@ impl Validator {
                 )
             } else {
                 let names: Vec<&str> = declared.iter().map(String::as_str).collect();
-                format!("Parameters of this generator: {}.", names.join(", "))
+                format!("Parameters of this generator: {}.", candidates(&names))
             };
             let at = gen.at(&name);
             self.error(
@@ -5134,7 +5134,7 @@ impl Validator {
             None => self.error(
                 "TDC133",
                 "<switch> is missing a required \"on\" attribute".to_string(),
-                "A switch looks a value up; \"on\" names the sequence it looks up.",
+                "Name the subject sequence to look up, e.g. <switch name=\"Currency\" on=\"Country\">.",
                 open.pos,
             ),
             // A dot with a KNOWN root is a field mistake. Reported as an unknown sequence it
@@ -5208,7 +5208,7 @@ impl Validator {
                             "TDC137",
                             "<case> inside <switch> is missing a required \"is\" attribute"
                                 .to_string(),
-                            "A switch case matches a value; \"is\" is the value it matches.",
+                            "Give the match key(s): <case is=\"US\"> or multi-key <case is=\"US|CA|MX\">.",
                             child.pos,
                         );
                     }
@@ -5234,7 +5234,7 @@ impl Validator {
             self.error(
                 "TDC135",
                 "<switch> has no entries".to_string(),
-                "Add a <map>, a <case is=\"…\">, or a <default>.",
+                "Add a <map>KEY:VALUE, …</map> table and/or <case is=\"…\">…</case> entries.",
                 open.pos,
             );
         }

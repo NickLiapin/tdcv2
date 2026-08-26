@@ -2819,7 +2819,7 @@ class _Validator:
             self._error(
                 "TDC133",
                 '<switch> is missing a required "on" attribute',
-                'A switch looks a value up; "on" names the sequence it looks up.',
+                'Name the subject sequence to look up, e.g. <switch name="Currency" on="Country">.',
                 _line(open_el),
                 _column(open_el),
             )
@@ -2878,7 +2878,7 @@ class _Validator:
                     self._error(
                         "TDC137",
                         '<case> inside <switch> is missing a required "is" attribute',
-                        'A switch case matches a value; "is" is the value it matches.',
+                        'Give the match key(s): <case is="US"> or multi-key <case is="US|CA|MX">.',
                         _line(inner),
                         _column(inner),
                     )
@@ -2890,7 +2890,7 @@ class _Validator:
             self._error(
                 "TDC135",
                 "<switch> has no entries",
-                'Add a <map>, a <case is="…">, or a <default>.',
+                'Add a <map>KEY:VALUE, …</map> table and/or <case is="…">…</case> entries.',
                 _line(open_el),
                 _column(open_el),
             )
@@ -3534,7 +3534,7 @@ class _Validator:
                 continue
             line, column = _at(gen, name)
             if declared:
-                hint = "Parameters of this generator: " + ", ".join(sorted(declared)) + "."
+                hint = "Parameters of this generator: " + _candidates(list(declared)) + "."
             else:
                 hint = (
                     "This generator takes no parameters — it produces a fixed shape. "
