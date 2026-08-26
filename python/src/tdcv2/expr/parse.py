@@ -228,6 +228,20 @@ def parse(source: str) -> Node:
     return result
 
 
+class _RanOut(ValueError):
+    """The expression ended where a value was expected, and WHERE it ended.
+
+    Its own type rather than a message: the caller knows which operator the value was missing
+    after, and only the caller can say so. A subclass of ValueError, not a bare Exception —
+    nothing catches it above the parser, so escaping uncaught it would leave the run with no
+    diagnostic at all where it used to have one.
+    """
+
+    def __init__(self, at: int) -> None:
+        super().__init__(f"Expected expression at character {at}")
+        self.at = at
+
+
 class _Parser:
     """Precedence climbing over a hand-written tokenizer."""
 
@@ -261,7 +275,8 @@ class _Parser:
         consequent = self.ternary(0)
         self.skip_space()
         if self.done() or self.src[self.pos] != ":":
-            raise ValueError(f'if expression: a ? without its : in "{self.src}"')
+            # Named by what is missing and where, like every other parse failure.
+            raise ValueError(f"Expected : at character {self.pos}")
         self.pos += 1
         return Conditional(test, consequent, self.ternary(0))
 
@@ -274,7 +289,17 @@ class _Parser:
                 return left
             self.pos += len(op)
             # Left-associative: the right operand stops at anything this loop can handle itself.
-            right = self.expression(PRECEDENCE[op] + 1)
+            #
+            # A missing right operand is named by the OPERATOR it is missing after, and by where
+            # the expression ran out: "Expected expression after >= at character 4" rather than
+            # one sentence for every way a parse can end early. The reference says it that way
+            # and a reader with `if="A >= "` needs to know which half is missing.
+            try:
+                right = self.expression(PRECEDENCE[op] + 1)
+            except _RanOut as e:
+                raise ValueError(
+                    f"Expected expression after {op} at character {e.at}"
+                ) from None
             left = Binary(op, left, right)
 
     def _unary(self) -> Node:
@@ -302,15 +327,22 @@ class _Parser:
     def _primary(self) -> Node:
         self.skip_space()
         if self.done():
-            raise ValueError("if expression: ends where a value was expected")
+            raise _RanOut(self.pos)
         c = self.src[self.pos]
 
         if c == "(":
+            opened = self.pos
             self.pos += 1
-            inner = self.ternary(0)
+            try:
+                inner = self.ternary(0)
+            except _RanOut:
+                raise ValueError(f"Unclosed ( at character {len(self.src)}") from None
             self.skip_space()
             if self.done() or self.src[self.pos] != ")":
+                if self.done():
+                    raise ValueError(f"Unclosed ( at character {len(self.src)}")
                 raise ValueError(f'if expression: unbalanced parentheses in "{self.src}"')
+            del opened
             self.pos += 1
             return inner
 

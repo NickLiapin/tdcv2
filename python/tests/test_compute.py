@@ -294,5 +294,9 @@ def test_a_bare_word_is_a_name() -> None:
 
 @pytest.mark.parametrize("expr", ["(1 + 2", "'unterminated", "1 +", "a[0", "1 $$ 2"])
 def test_a_malformed_expression_is_refused(expr: str) -> None:
-    with pytest.raises(ValueError, match="if expression"):
+    # The refusal is what is tested, not its wording: the parser used to prefix every message
+    # with "if expression" and now names what is missing and where — "Expected expression after
+    # + at character 3" — which is the reference's phrasing and carries no prefix. The caller
+    # wraps it in `invalid if expression "…": …`, so the prefix was never the parser's to add.
+    with pytest.raises(ValueError):
         parse(expr)

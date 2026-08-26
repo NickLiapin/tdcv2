@@ -191,8 +191,8 @@ public sealed interface Expr {
       Expr consequent = ternary(0);
       skipSpace();
       if (done() || src.charAt(pos) != ':') {
-        throw new IllegalArgumentException(
-            "if expression: a ? without its : in \"" + src + "\"");
+        // Named by what is missing and where, like every other parse failure.
+        throw new IllegalArgumentException("Expected : at character " + pos);
       }
       pos++;
       return new Conditional(test, consequent, ternary(0));
@@ -212,7 +212,16 @@ public sealed interface Expr {
         }
         pos += op.length();
         // Left-associative: the right operand stops at anything this loop can handle itself.
-        Expr right = expression(precedence + 1);
+        //
+        // A missing right operand is named by the OPERATOR it is missing after: a reader with
+        // `if="A >= "` needs to know which half is gone, not merely that something ended.
+        Expr right;
+        try {
+          right = expression(precedence + 1);
+        } catch (RanOut e) {
+          throw new IllegalArgumentException(
+              "Expected expression after " + op + " at character " + e.at);
+        }
         left = new Binary(op, left, right);
       }
     }
@@ -249,10 +258,28 @@ public sealed interface Expr {
       return pos + 1 < src.length() && Character.isDigit(src.charAt(pos + 1));
     }
 
+    /**
+     * The expression ended where a value was expected, and WHERE it ended.
+     *
+     * <p>An {@code IllegalArgumentException} like every other parse failure, so nothing above the
+     * parser has to know about it: escaping uncaught still produces the same diagnostic. Callers
+     * that know what the value was missing after — a binary operator, an open paren — catch it and
+     * say so; on its own it is still an answer.
+     */
+    private static final class RanOut extends IllegalArgumentException {
+      private static final long serialVersionUID = 1L;
+      final int at;
+
+      RanOut(int at) {
+        super("Expected expression at character " + at);
+        this.at = at;
+      }
+    }
+
     private Expr primary() {
       skipSpace();
       if (done()) {
-        throw new IllegalArgumentException("if expression: ends where a value was expected");
+        throw new RanOut(pos);
       }
       char c = src.charAt(pos);
 
@@ -287,9 +314,17 @@ public sealed interface Expr {
 
       if (c == '(') {
         pos++;
-        Expr inner = ternary(0);
+        Expr inner;
+        try {
+          inner = ternary(0);
+        } catch (RanOut e) {
+          throw new IllegalArgumentException("Unclosed ( at character " + src.length());
+        }
         skipSpace();
-        if (done() || src.charAt(pos) != ')') {
+        if (done()) {
+          throw new IllegalArgumentException("Unclosed ( at character " + src.length());
+        }
+        if (src.charAt(pos) != ')') {
           throw new IllegalArgumentException("if expression: unbalanced parentheses in \"" + src + "\"");
         }
         pos++;

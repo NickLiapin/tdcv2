@@ -220,7 +220,8 @@ public abstract record Expr
             SkipSpace();
             if (Done || _src[_pos] != ':')
             {
-                throw new ArgumentException($"if expression: a ? without its : in \"{_src}\"");
+                // Named by what is missing and where, like every other parse failure.
+                throw new ArgumentException($"Expected : at character {_pos}");
             }
 
             _pos++;
@@ -247,7 +248,19 @@ public abstract record Expr
 
                 _pos += op.Length;
                 // Left-associative: the right operand stops at anything this loop can handle.
-                Expr right = Expression(precedence + 1);
+                //
+                // A missing right operand is named by the OPERATOR it is missing after: a reader
+                // with `if="A >= "` needs to know which half is gone, not merely that it ended.
+                Expr right;
+                try
+                {
+                    right = Expression(precedence + 1);
+                }
+                catch (RanOutException e)
+                {
+                    throw new ArgumentException(
+                        $"Expected expression after {op} at character {e.At}");
+                }
                 left = new Binary(op, left, right);
             }
         }
@@ -287,12 +300,32 @@ public abstract record Expr
         /// <summary>A leading <c>-</c> belongs to the number when a digit follows it directly.</summary>
         private bool IsNumberStart() => _pos + 1 < _src.Length && char.IsDigit(_src[_pos + 1]);
 
+        /// <summary>
+        /// The expression ended where a value was expected, and WHERE it ended.
+        /// </summary>
+        /// <remarks>
+        /// An <see cref="ArgumentException"/> like every other parse failure, so nothing above the
+        /// parser has to know about it: escaping uncaught still produces the same diagnostic.
+        /// Callers that know what the value was missing after — a binary operator, an open paren —
+        /// catch it and say so; on its own it is still an answer.
+        /// </remarks>
+        private sealed class RanOutException : ArgumentException
+        {
+            internal RanOutException(int at)
+                : base($"Expected expression at character {at}")
+            {
+                At = at;
+            }
+
+            internal int At { get; }
+        }
+
         private Expr Primary()
         {
             SkipSpace();
             if (Done)
             {
-                throw new ArgumentException("if expression: ends where a value was expected");
+                throw new RanOutException(_pos);
             }
 
             char c = _src[_pos];
@@ -300,9 +333,23 @@ public abstract record Expr
             if (c == '(')
             {
                 _pos++;
-                Expr inner = Ternary(0);
+                Expr inner;
+                try
+                {
+                    inner = Ternary(0);
+                }
+                catch (RanOutException)
+                {
+                    throw new ArgumentException($"Unclosed ( at character {_src.Length}");
+                }
+
                 SkipSpace();
-                if (Done || _src[_pos] != ')')
+                if (Done)
+                {
+                    throw new ArgumentException($"Unclosed ( at character {_src.Length}");
+                }
+
+                if (_src[_pos] != ')')
                 {
                     throw new ArgumentException(
                         $"if expression: unbalanced parentheses in \"{_src}\"");

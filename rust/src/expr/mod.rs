@@ -185,10 +185,8 @@ impl Parser<'_> {
         let consequent = self.ternary(0)?;
         self.skip_space();
         if self.peek() != Some(':') {
-            return invalid(&format!(
-                "if expression: a ? without its : in \"{}\"",
-                self.raw
-            ));
+            // Named by what is missing and where, like every other parse failure.
+            return invalid(&format!("Expected : at character {}", self.pos));
         }
         self.pos += 1;
         let alternate = self.ternary(0)?;
@@ -213,7 +211,17 @@ impl Parser<'_> {
             self.pos += op.len();
             // Left-associative: the right operand stops at anything this loop
             // can handle.
-            let right = self.expression(p + 1)?;
+            //
+            // A missing right operand is named by the OPERATOR it is missing after: a reader
+            // with `if="A >= "` needs to know which half is gone, not that something ended.
+            let right = match self.expression(p + 1) {
+                Ok(right) => right,
+                Err(e) if e.message().starts_with("Expected expression at character ") => {
+                    let at = e.message().rsplit(' ').next().unwrap_or("0").to_string();
+                    return invalid(&format!("Expected expression after {op} at character {at}"));
+                }
+                Err(e) => return Err(e),
+            };
             left = Expr::Binary(op.to_string(), Box::new(left), Box::new(right));
         }
     }
@@ -249,13 +257,26 @@ impl Parser<'_> {
     fn primary(&mut self) -> EngineResult<Expr> {
         self.skip_space();
         let Some(c) = self.peek() else {
-            return invalid("if expression: ends where a value was expected");
+            // Named by WHERE the expression ran out. The caller — the binary loop — knows which
+            // operator the value was missing after and turns this into "Expected expression
+            // after >= at character 4"; on its own it is still an answer, and the reference
+            // words it the same way.
+            return invalid(&format!("Expected expression at character {}", self.pos));
         };
 
         if c == '(' {
             self.pos += 1;
-            let inner = self.ternary(0)?;
+            let inner = match self.ternary(0) {
+                Ok(inner) => inner,
+                Err(e) if e.message().starts_with("Expected expression at character ") => {
+                    return invalid(&format!("Unclosed ( at character {}", self.src.len()));
+                }
+                Err(e) => return Err(e),
+            };
             self.skip_space();
+            if self.peek().is_none() {
+                return invalid(&format!("Unclosed ( at character {}", self.src.len()));
+            }
             if self.peek() != Some(')') {
                 return invalid(&format!(
                     "if expression: unbalanced parentheses in \"{}\"",
