@@ -493,11 +493,299 @@ pub fn build_pool_tables(env: &Env) -> EngineResult<BTreeMap<String, PoolTable>>
     Ok(tables)
 }
 
+/// The members row `row` may draw from: all of them, or the ones a `filter=`
+/// leaves standing.
+///
+/// Its own function because three callers need the same answer — the reference
+/// itself, and a config-level `<distinct>` or `<uniq>` deciding which member
+/// each of its references may still take. The group draws again from what this
+/// returns MINUS what the row has already given away, which is why the set
+/// matters and not just the pick.
+#[allow(clippy::too_many_arguments)]
+fn ref_candidates(
+    expression: &str,
+    equality: &Option<(String, String)>,
+    buckets: &Option<BTreeMap<String, Vec<usize>>>,
+    pool_name: &str,
+    table: &PoolTable,
+    columns: &BTreeMap<String, Vec<Option<String>>>,
+    row: usize,
+) -> EngineResult<Vec<usize>> {
+    if expression.is_empty() {
+        return Ok((0..table.count).collect());
+    }
+    let (eligible, detail) = match (equality, buckets) {
+        (Some((_, column)), Some(buckets)) => {
+            let wanted = columns
+                .get(column)
+                .and_then(|c| c.get(row).cloned().flatten())
+                .unwrap_or_default();
+            let found = buckets
+                .get(&match_key(&wanted))
+                .cloned()
+                .unwrap_or_default();
+            (found, format!(" ({column}=\"{wanted}\")"))
+        }
+        _ => {
+            let scope = RowScope {
+                columns,
+                table,
+                row,
+                read: std::cell::RefCell::new(BTreeMap::new()),
+            };
+            let mut found = Vec::new();
+            for m in 0..table.count {
+                let member_scope = MemberScope {
+                    outer: &scope,
+                    member: m,
+                };
+                if expr::as_condition(expression, &member_scope)? {
+                    found.push(m);
+                }
+            }
+            let detail = pool::row_values_detail(&scope.read.borrow());
+            (found, detail)
+        }
+    };
+    if eligible.is_empty() {
+        return invalid(&pool::no_candidate_message(
+            pool_name, expression, row, &detail,
+        ));
+    }
+    Ok(eligible)
+}
+
+/// Draw one of `candidates` for row `row`, on the reference's own stream.
+///
+/// Attempt 0 is the plain stream, so a config that never collides produces
+/// exactly what it produced before groups could reach a reference at all. A
+/// repair draw is a NEW stream named for the attempt — the same shape
+/// `<distinct>` already uses for scalars, appended rather than woven in.
+///
+/// The stream names are part of the cross-language contract.
+fn draw_member(
+    seed: &str,
+    ref_name: &str,
+    candidates: &[usize],
+    row: usize,
+    attempt: usize,
+) -> usize {
+    let stream = if attempt == 0 {
+        pool::ref_stream(ref_name)
+    } else {
+        format!("{}#ed{attempt}", pool::ref_stream(ref_name))
+    };
+    let slot = seekable::next_int(seed, &stream, row as i32, candidates.len() as i32) as usize;
+    candidates.get(slot).copied().unwrap_or(0)
+}
+
+/// What one reference in a group needs to answer for itself, gathered once.
+struct GroupRef<'a> {
+    name: String,
+    pool: String,
+    table: &'a PoolTable,
+    expression: String,
+    equality: Option<(String, String)>,
+    buckets: Option<BTreeMap<String, Vec<usize>>>,
+    /// Which rows this reference covers at all — a `parent=` narrows it.
+    mask: Vec<bool>,
+}
+
+/// The references a config-level group holds, or nothing when it holds fewer
+/// than two — in which case the run is what it always was.
+fn group_refs<'a>(
+    group: &[String],
+    env: &Env,
+    columns: &BTreeMap<String, Vec<Option<String>>>,
+    count: usize,
+    tables: &'a BTreeMap<String, PoolTable>,
+) -> EngineResult<Vec<GroupRef<'a>>> {
+    let mut refs = Vec::new();
+    for name in group {
+        let Some(spec) = env.config.sequence(name) else {
+            continue;
+        };
+        let Source::Gen(gen) = &spec.source else {
+            continue;
+        };
+        if gen.gen_type != "pool" {
+            continue;
+        }
+        let pool = gen.attr_or("value", "").trim().to_string();
+        let Some(table) = tables.get(&pool) else {
+            continue;
+        };
+        if table.count == 0 {
+            continue;
+        }
+        let expression = gen.attr_or("filter", "").trim().to_string();
+        let equality = if expression.is_empty() {
+            None
+        } else {
+            pool::parse_equality_filter(&expression, table, &|n| columns.contains_key(n))
+        };
+        let buckets = equality
+            .as_ref()
+            .map(|(field, _)| pool::bucket_by_field(table, field));
+        refs.push(GroupRef {
+            name: name.clone(),
+            pool,
+            table,
+            expression,
+            equality,
+            buckets,
+            mask: parent_mask(spec, columns, count)?,
+        });
+    }
+    Ok(if refs.len() < 2 { Vec::new() } else { refs })
+}
+
+/// `<distinct>` around two or more references to the same pool.
+///
+/// A record has no value of its own to compare — `${{Doctor}}` is not a string
+/// — so the group keeps its promise by IDENTITY: no two of its references hand
+/// one row the same member. Settled here, while the members are being picked,
+/// rather than on the finished columns: a column declared after the group must
+/// read the repaired value, not the one that was about to collide.
+///
+/// A collision is not retried blindly. The candidate set is known, so the
+/// member is drawn again from the candidates this row has not already given
+/// away — uniform over what remains, and it either succeeds or proves there was
+/// nothing left to take.
+fn pool_distinct_picks(
+    refs: &[GroupRef<'_>],
+    columns: &BTreeMap<String, Vec<Option<String>>>,
+    count: usize,
+    seed: &str,
+) -> EngineResult<BTreeMap<String, Vec<isize>>> {
+    let mut out: BTreeMap<String, Vec<isize>> = refs
+        .iter()
+        .map(|r| (r.name.clone(), vec![-1isize; count]))
+        .collect();
+
+    for row in 0..count {
+        let mut taken: Vec<usize> = Vec::new();
+        for r in refs {
+            // A row this reference does not cover prints nothing, so it takes
+            // nothing: counting it would let an absent column narrow a present
+            // one, which is a skew nobody asked for.
+            if !r.mask.get(row).copied().unwrap_or(false) {
+                continue;
+            }
+            let candidates = ref_candidates(
+                &r.expression,
+                &r.equality,
+                &r.buckets,
+                &r.pool,
+                r.table,
+                columns,
+                row,
+            )?;
+            let mut pick = draw_member(seed, &r.name, &candidates, row, 0);
+            if taken.contains(&pick) {
+                let free: Vec<usize> = candidates
+                    .iter()
+                    .copied()
+                    .filter(|m| !taken.contains(m))
+                    .collect();
+                if free.is_empty() {
+                    return invalid(&format!(
+                        "<distinct> across sequences: row {row} has no member left for \
+                         \"{}\" — the sequences in this group have taken every candidate the \
+                         pool offers. A group of {} references needs {} members to choose from.",
+                        r.name,
+                        refs.len(),
+                        refs.len()
+                    ));
+                }
+                pick = draw_member(seed, &r.name, &free, row, 1);
+            }
+            taken.push(pick);
+            if let Some(column) = out.get_mut(&r.name) {
+                column[row] = pick as isize;
+            }
+        }
+    }
+    Ok(out)
+}
+
+/// `<uniq>` around two or more references to the same pool.
+///
+/// One axis further out than `<distinct>`: no two ROWS take the same
+/// combination of members. Kept by rearranging the sequence of picks rather
+/// than redrawing, so every reference keeps its multiset — and the fields
+/// follow for free, because a field is a pure function of the member. A row
+/// that receives another row's pick receives that member whole.
+fn pool_uniq_picks(
+    refs: &[GroupRef<'_>],
+    columns: &BTreeMap<String, Vec<Option<String>>>,
+    count: usize,
+    seed: &str,
+) -> EngineResult<BTreeMap<String, Vec<isize>>> {
+    let mut plain: Vec<Vec<isize>> = Vec::with_capacity(refs.len());
+    for r in refs {
+        let mut column = vec![-1isize; count];
+        for (row, slot) in column.iter_mut().enumerate() {
+            if !r.mask.get(row).copied().unwrap_or(false) {
+                continue;
+            }
+            let candidates = ref_candidates(
+                &r.expression,
+                &r.equality,
+                &r.buckets,
+                &r.pool,
+                r.table,
+                columns,
+                row,
+            )?;
+            *slot = draw_member(seed, &r.name, &candidates, row, 0) as isize;
+        }
+        plain.push(column);
+    }
+
+    // Only rows every reference covers carry a combination to keep unique.
+    let rows: Vec<usize> = (0..count)
+        .filter(|row| plain.iter().all(|c| c[*row] >= 0))
+        .collect();
+    let mut out: BTreeMap<String, Vec<isize>> = refs
+        .iter()
+        .zip(plain.iter())
+        .map(|(r, c)| (r.name.clone(), c.clone()))
+        .collect();
+    if rows.is_empty() {
+        return Ok(out);
+    }
+
+    let picked: Vec<Vec<String>> = plain
+        .iter()
+        .map(|c| rows.iter().map(|row| c[*row].to_string()).collect())
+        .collect();
+    let arranged = uniq::arrange(&picked);
+    if arranged.distinct < rows.len() {
+        let label = refs
+            .iter()
+            .map(|r| r.name.clone())
+            .collect::<Vec<_>>()
+            .join(" × ");
+        return invalid(&uniq_group_message(&label, rows.len(), arranged.distinct));
+    }
+    for (m, r) in refs.iter().enumerate() {
+        let Some(column) = out.get_mut(&r.name) else {
+            continue;
+        };
+        for (k, row) in rows.iter().enumerate() {
+            column[*row] = arranged.columns[m][k].parse::<isize>().unwrap_or(-1);
+        }
+    }
+    Ok(out)
+}
+
 /// Publish one member of a pool per row, under `Ref.field` for every field.
 ///
 /// One pick per ROW, shared by every field: that is what makes the first name
 /// and the last name in a row belong to the same doctor. Not one pick per field,
 /// which is exactly how "Дмитрий Иванова" would get out.
+#[allow(clippy::too_many_arguments)]
 fn pool_reference(
     spec: &SequenceSpec,
     gen: &Gen,
@@ -506,6 +794,10 @@ fn pool_reference(
     count: usize,
     tables: &BTreeMap<String, PoolTable>,
     seed: &str,
+    env: &Env,
+    // `group_picks`: what a config-level group has already settled, computed the
+    // first time any of its references is reached and kept for the rest.
+    group_picks: &mut BTreeMap<String, Vec<isize>>,
 ) -> EngineResult<()> {
     let pool_name = gen.attr_or("value", "").trim().to_string();
     let table = match tables.get(&pool_name) {
@@ -523,64 +815,56 @@ fn pool_reference(
         .as_ref()
         .map(|(field, _)| pool::bucket_by_field(table, field));
 
-    let mut members: Vec<isize> = Vec::with_capacity(count);
+    // A `<distinct>` or `<uniq>` around this reference decides its picks, and
+    // decides them for the whole group at once — a later member needs the ones
+    // before it, and a pick is not a column anybody could read back.
+    if !group_picks.contains_key(&spec.name) {
+        for (groups, uniq) in [
+            (&env.config.env_distinct_groups, false),
+            (&env.config.env_uniq_groups, true),
+        ] {
+            for group in groups {
+                if !group.contains(&spec.name) {
+                    continue;
+                }
+                let refs = group_refs(group, env, columns, count, tables)?;
+                if refs.is_empty() {
+                    continue;
+                }
+                let settled = if uniq {
+                    pool_uniq_picks(&refs, columns, count, seed)?
+                } else {
+                    pool_distinct_picks(&refs, columns, count, seed)?
+                };
+                group_picks.extend(settled);
+            }
+        }
+    }
+
+    // A group settled this reference's picks; take them and draw nothing.
+    let mut members: Vec<isize> = match group_picks.get(&spec.name) {
+        Some(settled) => settled.clone(),
+        None => Vec::with_capacity(count),
+    };
+    let settled_by_group = !members.is_empty();
     for row in 0..count {
+        if settled_by_group {
+            break; // settled above — every row at once, or none at all.
+        }
         if !mask.get(row).copied().unwrap_or(false) {
             members.push(-1);
             continue;
         }
-        if expression.is_empty() {
-            members.push(pool::pick_member(seed, &spec.name, table, row) as isize);
-            continue;
-        }
-        let (eligible, detail) = match (&equality, &buckets) {
-            (Some((_, column)), Some(buckets)) => {
-                let wanted = columns
-                    .get(column)
-                    .and_then(|c| c.get(row).cloned().flatten())
-                    .unwrap_or_default();
-                let found = buckets
-                    .get(&match_key(&wanted))
-                    .cloned()
-                    .unwrap_or_default();
-                (found, format!(" ({column}=\"{wanted}\")"))
-            }
-            _ => {
-                let scope = RowScope {
-                    columns,
-                    table,
-                    row,
-                    read: std::cell::RefCell::new(BTreeMap::new()),
-                };
-                let mut found = Vec::new();
-                for m in 0..table.count {
-                    let member_scope = MemberScope {
-                        outer: &scope,
-                        member: m,
-                    };
-                    if expr::as_condition(&expression, &member_scope)? {
-                        found.push(m);
-                    }
-                }
-                let detail = pool::row_values_detail(&scope.read.borrow());
-                (found, detail)
-            }
-        };
-        if eligible.is_empty() {
-            return invalid(&pool::no_candidate_message(
-                &pool_name,
-                &expression,
-                row,
-                &detail,
-            ));
-        }
-        let slot = seekable::next_int(
-            seed,
-            &pool::ref_stream(&spec.name),
-            row as i32,
-            eligible.len() as i32,
-        ) as usize;
-        members.push(eligible[slot] as isize);
+        let eligible = ref_candidates(
+            &expression,
+            &equality,
+            &buckets,
+            &pool_name,
+            table,
+            columns,
+            row,
+        )?;
+        members.push(draw_member(seed, &spec.name, &eligible, row, 0) as isize);
     }
 
     for field in &table.fields {
@@ -671,6 +955,10 @@ fn build_columns_with(
 ) -> EngineResult<BTreeMap<String, Vec<Option<String>>>> {
     let count = env.config.count.max(0) as usize;
     let mut columns: BTreeMap<String, Vec<Option<String>>> = BTreeMap::new();
+    // A config-level group over pool references settles every one of its members
+    // at once, the first time any of them is reached: a later member needs the
+    // picks of the ones before it, and a pick is not a column to read back.
+    let mut pool_group_picks: BTreeMap<String, Vec<isize>> = BTreeMap::new();
     // The REAL value behind a date column's text, for the columns some offset reads.
     //
     // A date cell holds a PRESENTATION: `02/03/2026` in an en locale, `03.02.2026`
@@ -760,6 +1048,8 @@ fn build_columns_with(
                     count,
                     &tables,
                     &env.config.seed,
+                    env,
+                    &mut pool_group_picks,
                 )?;
                 continue;
             }

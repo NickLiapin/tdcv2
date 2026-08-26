@@ -917,6 +917,8 @@ impl Validator {
             }
         }
 
+        self.check_group_pool_members(env);
+
         let mut names: BTreeSet<String> = BTreeSet::new();
         let mut declared: Vec<String> = Vec::new();
         self.declared_order.clear();
@@ -1647,6 +1649,129 @@ impl Validator {
                 ),
                 sequence.pos,
             );
+        }
+    }
+
+    /// A group whose members draw from a `<pool>`.
+    ///
+    /// The group's promise is kept by member IDENTITY here — no two of them hand
+    /// one row the same member — because a record has no value of its own to
+    /// compare. That works, and these are the three shapes it cannot mean:
+    ///
+    ///   * a reference beside an ordinary sequence: one holds a record and the
+    ///     other a string, and there is no field the comparison would be about;
+    ///   * references to two DIFFERENT pools: a doctor is never the same record
+    ///     as a ward, so the group would be satisfied without doing anything;
+    ///   * more references than the pool has members: no arrangement exists.
+    ///
+    /// All three used to be accepted and then do nothing at all.
+    fn check_group_pool_members(&mut self, env: &Element) {
+        let mut counts: BTreeMap<String, usize> = BTreeMap::new();
+        for child in &env.children {
+            if child.kind != Kind::OpenClose || child.name != "pool" {
+                continue;
+            }
+            if let (Some(name), Some(raw)) = (child.attr_value("name"), child.attr_value("count")) {
+                if let Ok(n) = raw.trim().parse::<usize>() {
+                    if n > 0 {
+                        counts.insert(name.to_string(), n);
+                    }
+                }
+            }
+        }
+
+        for wrapper in &env.children {
+            if wrapper.kind != Kind::OpenClose
+                || (wrapper.name != "distinct" && wrapper.name != "uniq")
+            {
+                continue;
+            }
+            let tag = wrapper.name.clone();
+            let mut pooled: Vec<(String, String)> = Vec::new();
+            let mut plain: Vec<(String, Pos)> = Vec::new();
+            for member in &wrapper.children {
+                if member.kind != Kind::OpenClose || member.name != "sequence" {
+                    continue;
+                }
+                let name = member.attr_value("name").unwrap_or("?").to_string();
+                let gens: Vec<&Element> = member.children.iter().filter(|c| is_gen(c)).collect();
+                let pool = match gens.as_slice() {
+                    [one] if one.attr_value("type") == Some("pool") => {
+                        Some(one.attr_value("value").unwrap_or("").trim().to_string())
+                    }
+                    _ => None,
+                };
+                match pool {
+                    Some(pool) => pooled.push((name, pool)),
+                    None => plain.push((name, member.pos)),
+                }
+            }
+            if pooled.is_empty() {
+                continue;
+            }
+
+            if let Some((plain_name, pos)) = plain.first().cloned() {
+                let (ref_name, ref_pool) = pooled[0].clone();
+                self.error(
+                    "TDC302",
+                    format!(
+                        "<{tag}> mixes <sequence name=\"{plain_name}\">, which draws a value, \
+                         with <sequence name=\"{ref_name}\">, which draws a whole member of \
+                         pool \"{ref_pool}\" — there is nothing the two can be compared on"
+                    ),
+                    &format!(
+                        "A <{tag}> over pool references compares WHICH MEMBER each row took; \
+                         over ordinary sequences it compares the value. One group does one of \
+                         the two. To keep a value away from a member's field, filter instead: \
+                         <gen type=\"pool\" filter=\"field != Other\"/>."
+                    ),
+                    pos,
+                );
+                continue;
+            }
+
+            let mut pools: Vec<String> = pooled.iter().map(|(_, p)| p.clone()).collect();
+            pools.dedup();
+            let unique: BTreeSet<&String> = pools.iter().collect();
+            if unique.len() > 1 {
+                let names = unique
+                    .iter()
+                    .map(|p| p.as_str())
+                    .collect::<Vec<_>>()
+                    .join(", ");
+                self.error(
+                    "TDC302",
+                    format!(
+                        "<{tag}> holds references to {} different pools ({names}) — a member of \
+                         one is never a member of another, so the group would be satisfied \
+                         without changing anything",
+                        unique.len()
+                    ),
+                    "Group the references that draw from the SAME pool. Two pools cannot collide.",
+                    wrapper.pos,
+                );
+                continue;
+            }
+
+            let pool = pooled[0].1.clone();
+            if let Some(available) = counts.get(&pool) {
+                if *available < pooled.len() {
+                    self.error(
+                        "TDC302",
+                        format!(
+                            "<{tag}> puts {} references on pool \"{pool}\", which has {available} \
+                             members — one row cannot give each of them a different one",
+                            pooled.len()
+                        ),
+                        &format!(
+                            "Raise count= on <pool name=\"{pool}\"> to at least {}, or take a \
+                             reference out of the group.",
+                            pooled.len()
+                        ),
+                        wrapper.pos,
+                    );
+                }
+            }
         }
     }
 

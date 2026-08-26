@@ -180,6 +180,41 @@ struct Quota {
     modifier: Option<Modifier>,
 }
 
+/// Draw one of `candidates` for `row`, on the reference's own stream.
+///
+/// Attempt 0 is the plain stream, so a reference in no group produces exactly
+/// what it always did. A repair draw is a NEW stream named for the attempt.
+/// Both names are part of the cross-language contract.
+fn draw_pool_member(
+    seed: &str,
+    reference: &str,
+    candidates: &[usize],
+    row: i32,
+    attempt: usize,
+) -> usize {
+    let stream = if attempt == 0 {
+        pool::ref_stream(reference)
+    } else {
+        format!("{}#ed{attempt}", pool::ref_stream(reference))
+    };
+    let slot = seekable::next_int(seed, &stream, row, candidates.len() as i32) as usize;
+    candidates.get(slot).copied().unwrap_or(0)
+}
+
+/// Everything one reference needs to answer "which member for this row".
+///
+/// Cloned into a group so a sibling can be replayed without going back to the
+/// config: the group asks each reference before it what it took, and that is a
+/// question about the pick, not about any column.
+#[derive(Clone)]
+struct PoolRefParams {
+    name: String,
+    table: std::rc::Rc<PoolTable>,
+    filter: String,
+    equality: Option<(String, String)>,
+    buckets: Option<std::rc::Rc<BTreeMap<String, Vec<usize>>>>,
+}
+
 #[derive(Clone, Debug)]
 enum Column {
     Count,
@@ -455,6 +490,14 @@ pub struct StreamEngine<'a> {
     exact_uniq: bool,
     /// Every pool, computed before anything streams.
     pool_tables: BTreeMap<String, std::rc::Rc<PoolTable>>,
+    /// For a reference inside a config-level `<distinct>`, the whole group in
+    /// declaration order — including itself.
+    ///
+    /// A record has no value of its own to compare, so the group keeps its
+    /// promise by IDENTITY: no two of its references hand one row the same
+    /// member. Replayed per row rather than materialised, because a pick is a
+    /// pure function of the row and bounded memory is the whole point here.
+    pool_groups: BTreeMap<String, std::rc::Rc<Vec<PoolRefParams>>>,
     /// The first failure a lookup swallowed, waiting to be re-raised.
     ///
     /// Interpolation and the expression layer cannot return a `Result` — they
@@ -653,6 +696,7 @@ impl<'a> StreamEngine<'a> {
             // Pools are computed before anything streams — small, and off a
             // derived seed, so bounded memory is untouched and no other column
             // moves.
+            pool_groups: BTreeMap::new(),
             pool_tables: super::memory::build_pool_tables(&Env::new(
                 config, packs, now_millis, base_dir,
             ))?
@@ -714,7 +758,19 @@ impl<'a> StreamEngine<'a> {
                     if spec.parent.is_some() {
                         return here("a pool reference with parent=", &spec.name);
                     }
-                    self.build_pool_reference(spec, gen)?;
+                    // A `<uniq>` over references keeps its promise by REARRANGING
+                    // the picks, and an arrangement cannot be found a row at a
+                    // time — it needs the whole column. `<distinct>` is settled
+                    // per row and streams fine; this one goes to memory, the
+                    // same way a running total does.
+                    if config
+                        .env_uniq_groups
+                        .iter()
+                        .any(|g| g.contains(&spec.name))
+                    {
+                        return here("a pool reference inside a config-level <uniq>", &spec.name);
+                    }
+                    self.build_pool_reference(spec, gen, config)?;
                     continue;
                 }
                 // A running total is the one construct that genuinely cannot be
@@ -2300,13 +2356,86 @@ impl StreamEngine<'_> {
         buckets: &Option<std::rc::Rc<BTreeMap<String, Vec<usize>>>>,
         row: i32,
     ) -> EngineResult<usize> {
+        // Inside a config-level `<distinct>` the answer is not this reference's
+        // alone: the ones declared before it have already taken members out of
+        // this row, and none of them may be taken twice.
+        if let Some(group) = self.pool_groups.get(reference).cloned() {
+            return self.pool_member_in_group(&group, reference, row);
+        }
+        self.pool_member_alone(table, reference, filter, equality, buckets, row)
+    }
+
+    /// This reference's own pick, with no group having a say.
+    fn pool_member_alone(
+        &self,
+        table: &PoolTable,
+        reference: &str,
+        filter: &str,
+        equality: &Option<(String, String)>,
+        buckets: &Option<std::rc::Rc<BTreeMap<String, Vec<usize>>>>,
+        row: i32,
+    ) -> EngineResult<usize> {
+        let candidates = self.pool_candidates(table, filter, equality, buckets, row)?;
+        Ok(draw_pool_member(
+            &self.drawing_seed(),
+            reference,
+            &candidates,
+            row,
+            0,
+        ))
+    }
+
+    /// Walk the group in declaration order; a member already taken this row is
+    /// drawn again from what the row has left.
+    fn pool_member_in_group(
+        &self,
+        group: &[PoolRefParams],
+        wanted: &str,
+        row: i32,
+    ) -> EngineResult<usize> {
+        let mut taken: Vec<usize> = Vec::new();
+        for r in group {
+            let candidates =
+                self.pool_candidates(&r.table, &r.filter, &r.equality, &r.buckets, row)?;
+            let mut pick = draw_pool_member(&self.drawing_seed(), &r.name, &candidates, row, 0);
+            if taken.contains(&pick) {
+                let free: Vec<usize> = candidates
+                    .iter()
+                    .copied()
+                    .filter(|m| !taken.contains(m))
+                    .collect();
+                if free.is_empty() {
+                    return invalid(&format!(
+                        "<distinct> across sequences: row {row} has no member left for \
+                         \"{}\" — the sequences in this group have taken every candidate the \
+                         pool offers. A group of {} references needs {} members to choose from.",
+                        r.name,
+                        group.len(),
+                        group.len()
+                    ));
+                }
+                pick = draw_pool_member(&self.drawing_seed(), &r.name, &free, row, 1);
+            }
+            if r.name == wanted {
+                return Ok(pick);
+            }
+            taken.push(pick);
+        }
+        Ok(0)
+    }
+
+    /// The members row `row` may draw from: all of them, or what a `filter=`
+    /// leaves standing.
+    fn pool_candidates(
+        &self,
+        table: &PoolTable,
+        filter: &str,
+        equality: &Option<(String, String)>,
+        buckets: &Option<std::rc::Rc<BTreeMap<String, Vec<usize>>>>,
+        row: i32,
+    ) -> EngineResult<Vec<usize>> {
         if filter.is_empty() {
-            return Ok(pool::pick_member(
-                &self.drawing_seed(),
-                reference,
-                table,
-                row as usize,
-            ));
+            return Ok((0..table.count).collect());
         }
         let (eligible, detail) = match (equality, buckets) {
             (Some((_, column)), Some(buckets)) => {
@@ -2346,16 +2475,15 @@ impl StreamEngine<'_> {
                 &detail,
             ));
         }
-        let slot = seekable::next_int(
-            &self.drawing_seed(),
-            &pool::ref_stream(reference),
-            row,
-            eligible.len() as i32,
-        ) as usize;
-        Ok(eligible[slot])
+        Ok(eligible)
     }
 
-    fn build_pool_reference(&mut self, spec: &SequenceSpec, gen: &Gen) -> EngineResult<()> {
+    fn build_pool_reference(
+        &mut self,
+        spec: &SequenceSpec,
+        gen: &Gen,
+        config: &Config,
+    ) -> EngineResult<()> {
         let pool_name = gen.attr_or("value", "").trim().to_string();
         let Some(table) = self.pool_tables.get(&pool_name).cloned() else {
             return Ok(()); // unknown pool — the validator reports it
@@ -2374,6 +2502,18 @@ impl StreamEngine<'_> {
             .as_ref()
             .map(|(field, _)| std::rc::Rc::new(pool::bucket_by_field(&table, field)));
 
+        // If a config-level `<distinct>` holds this reference, remember the whole
+        // group against every one of its names. Built from the config rather
+        // than from columns, because a sibling's pick is not a column.
+        let params = PoolRefParams {
+            name: spec.name.clone(),
+            table: table.clone(),
+            filter: filter.clone(),
+            equality: equality.clone(),
+            buckets: buckets.clone(),
+        };
+        self.remember_pool_group(spec, &params, &known, config);
+
         for field in table.fields.clone() {
             let key = format!("{}.{}", spec.name, field);
             self.put(
@@ -2389,6 +2529,74 @@ impl StreamEngine<'_> {
             );
         }
         Ok(())
+    }
+
+    /// Record the `<distinct>` group this reference belongs to, if any.
+    ///
+    /// Every member's parameters are read off the config, so the group is whole
+    /// the first time any of its references is built — a later sibling has not
+    /// been reached yet, and the group needs it all the same.
+    fn remember_pool_group(
+        &mut self,
+        spec: &SequenceSpec,
+        params: &PoolRefParams,
+        known: &[String],
+        config: &Config,
+    ) {
+        let Some(group) = config
+            .env_distinct_groups
+            .iter()
+            .find(|g| g.contains(&spec.name))
+            .cloned()
+        else {
+            return;
+        };
+        let mut members: Vec<PoolRefParams> = Vec::new();
+        for name in &group {
+            if name == &spec.name {
+                members.push(params.clone());
+                continue;
+            }
+            let Some(other) = config.sequences.iter().find(|s| &s.name == name) else {
+                continue;
+            };
+            let Source::Gen(gen) = &other.source else {
+                continue;
+            };
+            if gen.gen_type != "pool" {
+                continue;
+            }
+            let pool_name = gen.attr_or("value", "").trim().to_string();
+            let Some(table) = self.pool_tables.get(&pool_name).cloned() else {
+                continue;
+            };
+            if table.count == 0 {
+                continue;
+            }
+            let filter = gen.attr_or("filter", "").trim().to_string();
+            let equality = if filter.is_empty() {
+                None
+            } else {
+                pool::parse_equality_filter(&filter, &table, &|n| known.iter().any(|k| k == n))
+            };
+            let buckets = equality
+                .as_ref()
+                .map(|(field, _)| std::rc::Rc::new(pool::bucket_by_field(&table, field)));
+            members.push(PoolRefParams {
+                name: name.clone(),
+                table,
+                filter,
+                equality,
+                buckets,
+            });
+        }
+        if members.len() < 2 {
+            return;
+        }
+        let shared = std::rc::Rc::new(members);
+        for m in shared.iter() {
+            self.pool_groups.insert(m.name.clone(), shared.clone());
+        }
     }
 
     /// The seed to draw THIS value with: a pack body's own while one is being evaluated, the
