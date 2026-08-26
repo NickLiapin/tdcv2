@@ -288,6 +288,185 @@ public sealed class StreamEngine
     /// And because the member pick is seekable by row, row 900,000 gets its doctor without the
     /// 899,999 before it existing.
     /// </summary>
+    /// <summary>Everything one reference needs to answer "which member for this row".</summary>
+    private sealed record RefParams(
+        string Name,
+        string Pool,
+        PoolTable Table,
+        string Expression,
+        (string Field, string Column)? Equality,
+        Dictionary<string, List<int>>? Buckets);
+
+    /// <summary>The members row <c>row</c> may draw from, or what a filter leaves.</summary>
+    private List<int> PoolCandidates(RefParams p, int row)
+    {
+        if (p.Expression.Length == 0)
+        {
+            var all = new List<int>(p.Table.Count);
+            for (int m = 0; m < p.Table.Count; m++)
+            {
+                all.Add(m);
+            }
+
+            return all;
+        }
+
+        List<int> eligible;
+        string detail;
+        if (p.Equality is not null && p.Buckets is not null)
+        {
+            string wanted = _columns.TryGetValue(p.Equality.Value.Column, out Column? driver)
+                ? driver(row) ?? ""
+                : "";
+            eligible = p.Buckets.TryGetValue(MatchKey.Of(wanted), out List<int>? found)
+                ? found
+                : new List<int>();
+            detail = $" ({p.Equality.Value.Column}=\"{wanted}\")";
+        }
+        else
+        {
+            eligible = new List<int>();
+            var read = new Dictionary<string, string>(StringComparer.Ordinal);
+            for (int m = 0; m < p.Table.Count; m++)
+            {
+                if (Evaluate.AsCondition(
+                    p.Expression, new StreamMemberScope(this, p.Table, m, row, read)))
+                {
+                    eligible.Add(m);
+                }
+            }
+
+            detail = Pool.RowValuesDetail(read);
+        }
+
+        if (eligible.Count == 0)
+        {
+            throw new InvalidOperationException(
+                Pool.NoCandidateMessage(p.Pool, p.Expression, row, detail));
+        }
+
+        return eligible;
+    }
+
+    /// <summary>Draw one of <c>candidates</c> for <c>row</c>, on the reference's own stream.</summary>
+    /// <remarks>
+    /// Attempt 0 is the plain stream, so a reference in no group produces exactly what it always
+    /// did. A repair draw is a NEW stream named for the attempt — both names are contract.
+    /// </remarks>
+    private int DrawFrom(string refName, List<int> candidates, int row, int attempt)
+    {
+        string stream = attempt == 0
+            ? Pool.RefStream(refName)
+            : $"{Pool.RefStream(refName)}#ed{attempt}";
+        int slot = Seekable.NextInt(_seed, stream, row, candidates.Count);
+        return slot < candidates.Count ? candidates[slot] : 0;
+    }
+
+    /// <summary>Walk the group in order; a member already taken is drawn again.</summary>
+    private int MemberInGroup(List<RefParams> group, string wanted, int row)
+    {
+        var taken = new List<int>();
+        foreach (RefParams p in group)
+        {
+            List<int> candidates = PoolCandidates(p, row);
+            int pick = DrawFrom(p.Name, candidates, row, 0);
+            if (taken.Contains(pick))
+            {
+                var free = new List<int>();
+                foreach (int m in candidates)
+                {
+                    if (!taken.Contains(m))
+                    {
+                        free.Add(m);
+                    }
+                }
+
+                if (free.Count == 0)
+                {
+                    throw new InvalidOperationException(
+                        $"<distinct> across sequences: row {row} has no member left for "
+                        + $"\"{p.Name}\" — the sequences in this group have taken every "
+                        + $"candidate the pool offers. A group of {group.Count} references "
+                        + $"needs {group.Count} members to choose from.");
+                }
+
+                pick = DrawFrom(p.Name, free, row, 1);
+            }
+
+            if (string.Equals(p.Name, wanted, StringComparison.Ordinal))
+            {
+                return pick;
+            }
+
+            taken.Add(pick);
+        }
+
+        return 0;
+    }
+
+    /// <summary>The <c>&lt;distinct&gt;</c> group this reference belongs to, or null.</summary>
+    private List<RefParams>? PoolGroup(SequenceSpec spec, RefParams self)
+    {
+        IReadOnlyList<string>? group = null;
+        foreach (IReadOnlyList<string> g in _config.EnvDistinctGroups)
+        {
+            if (g.Contains(spec.Name))
+            {
+                group = g;
+                break;
+            }
+        }
+
+        if (group is null)
+        {
+            return null;
+        }
+
+        var members = new List<RefParams>();
+        foreach (string name in group)
+        {
+            if (string.Equals(name, spec.Name, StringComparison.Ordinal))
+            {
+                members.Add(self);
+                continue;
+            }
+
+            SequenceSpec? other = null;
+            foreach (SequenceSpec s in _config.Sequences)
+            {
+                if (string.Equals(s.Name, name, StringComparison.Ordinal))
+                {
+                    other = s;
+                    break;
+                }
+            }
+
+            if (other?.Gen is null
+                || !string.Equals(other.Gen.Type, "pool", StringComparison.Ordinal))
+            {
+                continue;
+            }
+
+            string otherPool = (other.Gen.Attr("value") ?? "").Trim();
+            if (!_poolTables.TryGetValue(otherPool, out PoolTable? otherTable)
+                || otherTable.Count < 1)
+            {
+                continue;
+            }
+
+            string otherExpr = (other.Gen.Attr("filter") ?? "").Trim();
+            (string Field, string Column)? otherEq = otherExpr.Length == 0
+                ? null
+                : Pool.ParseEqualityFilter(otherExpr, otherTable, _columns.ContainsKey);
+            Dictionary<string, List<int>>? otherBuckets =
+                otherEq is null ? null : Pool.BucketByField(otherTable, otherEq.Value.Field);
+            members.Add(new RefParams(
+                name, otherPool, otherTable, otherExpr, otherEq, otherBuckets));
+        }
+
+        return members.Count < 2 ? null : members;
+    }
+
     private void BuildPoolReference(SequenceSpec spec)
     {
         string poolName = (spec.Gen!.Attr("value") ?? "").Trim();
@@ -303,47 +482,17 @@ public sealed class StreamEngine
         Dictionary<string, List<int>>? buckets =
             equality is null ? null : Pool.BucketByField(table, equality.Value.Field);
 
-        int MemberAt(int row)
-        {
-            if (expression.Length == 0)
-            {
-                return Pool.PickMember(_seed, spec.Name, table, row);
-            }
+        var self = new RefParams(spec.Name, poolName, table, expression, equality, buckets);
+        // If a config-level `<distinct>` holds this reference, remember the whole group. Built
+        // from the config, because a sibling's pick is not a column.
+        List<RefParams>? group = PoolGroup(spec, self);
 
-            List<int> eligible;
-            string detail = "";
-            if (equality is not null && buckets is not null)
-            {
-                string wanted = _columns.TryGetValue(equality.Value.Column, out Column? driver)
-                    ? driver(row) ?? ""
-                    : "";
-                eligible = buckets.TryGetValue(MatchKey.Of(wanted), out List<int>? found) ? found : new List<int>();
-                detail = $" ({equality.Value.Column}=\"{wanted}\")";
-            }
-            else
-            {
-                eligible = new List<int>();
-                var read = new Dictionary<string, string>(StringComparer.Ordinal);
-                for (int m = 0; m < table.Count; m++)
-                {
-                    if (Evaluate.AsCondition(
-                        expression, new StreamMemberScope(this, table, m, row, read)))
-                    {
-                        eligible.Add(m);
-                    }
-                }
-
-                detail = Pool.RowValuesDetail(read);
-            }
-
-            if (eligible.Count == 0)
-            {
-                throw new InvalidOperationException(
-                    Pool.NoCandidateMessage(poolName, expression, row, detail));
-            }
-
-            return eligible[Seekable.NextInt(_seed, Pool.RefStream(spec.Name), row, eligible.Count)];
-        }
+        int MemberAt(int row) =>
+            // Inside a group the answer is not this reference's alone: the ones declared before
+            // it have already taken members out of this row.
+            group is null
+                ? DrawFrom(self.Name, PoolCandidates(self, row), row, 0)
+                : MemberInGroup(group, self.Name, row);
 
         foreach (string field in table.Fields)
         {
@@ -510,6 +659,19 @@ public sealed class StreamEngine
                 if (!string.IsNullOrWhiteSpace(spec.Parent))
                 {
                     throw Unsupported("a pool reference with parent=", spec.Name);
+                }
+
+                // A `<uniq>` over references keeps its promise by REARRANGING the picks, and an
+                // arrangement cannot be found a row at a time — it needs the whole column.
+                // `<distinct>` is settled per row and streams fine; this one goes to memory, the
+                // same way a running total does.
+                foreach (IReadOnlyList<string> g in _config.EnvUniqGroups)
+                {
+                    if (g.Contains(spec.Name))
+                    {
+                        throw Unsupported(
+                            "a pool reference inside a config-level <uniq>", spec.Name);
+                    }
                 }
 
                 BuildPoolReference(spec);

@@ -408,13 +408,303 @@ public static class MemoryEngine
     /// name in a row belong to the same doctor. Not one pick per field, which is exactly how
     /// "Дмитрий Иванова" would get out.
     /// </summary>
+    /// <summary>
+    /// The members row <c>row</c> may draw from: all of them, or what a <c>filter=</c> leaves.
+    /// </summary>
+    /// <remarks>
+    /// Its own method because three callers need the same answer — the reference itself, and a
+    /// config-level <c>&lt;distinct&gt;</c> or <c>&lt;uniq&gt;</c> deciding which member each of
+    /// its references may still take. The group draws again from what this returns MINUS what the
+    /// row has already given away, which is why the set matters and not just the pick.
+    /// </remarks>
+    private static List<int> RefCandidates(
+        string expression,
+        (string Field, string Column)? equality,
+        Dictionary<string, List<int>>? buckets,
+        string poolName,
+        PoolTable table,
+        Dictionary<string, string[]> columns,
+        int row)
+    {
+        if (expression.Length == 0)
+        {
+            var all = new List<int>(table.Count);
+            for (int m = 0; m < table.Count; m++)
+            {
+                all.Add(m);
+            }
+
+            return all;
+        }
+
+        List<int> eligible;
+        string detail;
+        if (equality is not null && buckets is not null)
+        {
+            string wanted = columns.TryGetValue(equality.Value.Column, out string[]? driver)
+                ? driver[row] ?? ""
+                : "";
+            eligible = buckets.TryGetValue(MatchKey.Of(wanted), out List<int>? found)
+                ? found
+                : new List<int>();
+            detail = $" ({equality.Value.Column}=\"{wanted}\")";
+        }
+        else
+        {
+            eligible = new List<int>();
+            var read = new Dictionary<string, string>(StringComparer.Ordinal);
+            for (int m = 0; m < table.Count; m++)
+            {
+                if (Evaluate.AsCondition(expression, new MemberScope(columns, table, m, row, read)))
+                {
+                    eligible.Add(m);
+                }
+            }
+
+            detail = Pool.RowValuesDetail(read);
+        }
+
+        if (eligible.Count == 0)
+        {
+            throw new InvalidOperationException(
+                Pool.NoCandidateMessage(poolName, expression, row, detail));
+        }
+
+        return eligible;
+    }
+
+    /// <summary>Draw one of <c>candidates</c> for <c>row</c>, on the reference's own stream.</summary>
+    /// <remarks>
+    /// Attempt 0 is the plain stream, so a reference in no group produces exactly what it always
+    /// did. A repair draw is a NEW stream named for the attempt. Both names are part of the
+    /// cross-language contract.
+    /// </remarks>
+    private static int DrawMember(
+        string seed, string refName, List<int> candidates, int row, int attempt)
+    {
+        string stream = attempt == 0
+            ? Pool.RefStream(refName)
+            : $"{Pool.RefStream(refName)}#ed{attempt}";
+        int slot = Seekable.NextInt(seed, stream, row, candidates.Count);
+        return slot < candidates.Count ? candidates[slot] : 0;
+    }
+
+    /// <summary>What one reference in a group needs to answer for itself, gathered once.</summary>
+    private sealed record GroupRef(
+        string Name,
+        string Pool,
+        PoolTable Table,
+        string Expression,
+        (string Field, string Column)? Equality,
+        Dictionary<string, List<int>>? Buckets,
+        bool[] Mask);
+
+    /// <summary>The references a group holds, or nothing when it holds fewer than two.</summary>
+    private static List<GroupRef> GroupRefs(
+        IReadOnlyList<string> group,
+        Config config,
+        Dictionary<string, string[]> columns,
+        int count,
+        IReadOnlyDictionary<string, PoolTable> tables)
+    {
+        var refs = new List<GroupRef>();
+        foreach (string name in group)
+        {
+            SequenceSpec? spec = null;
+            foreach (SequenceSpec s in config.Sequences)
+            {
+                if (string.Equals(s.Name, name, StringComparison.Ordinal))
+                {
+                    spec = s;
+                    break;
+                }
+            }
+
+            if (spec?.Gen is null || !string.Equals(spec.Gen.Type, "pool", StringComparison.Ordinal))
+            {
+                continue;
+            }
+
+            string poolName = (spec.Gen.Attr("value") ?? "").Trim();
+            if (!tables.TryGetValue(poolName, out PoolTable? table) || table.Count < 1)
+            {
+                continue;
+            }
+
+            string expression = (spec.Gen.Attr("filter") ?? "").Trim();
+            (string Field, string Column)? equality = expression.Length == 0
+                ? null
+                : Pool.ParseEqualityFilter(expression, table, columns.ContainsKey);
+            Dictionary<string, List<int>>? buckets =
+                equality is null ? null : Pool.BucketByField(table, equality.Value.Field);
+            refs.Add(new GroupRef(
+                name, poolName, table, expression, equality, buckets,
+                ParentMask(spec, columns, count)));
+        }
+
+        return refs.Count < 2 ? new List<GroupRef>() : refs;
+    }
+
+    /// <summary><c>&lt;distinct&gt;</c> around two or more references to the same pool.</summary>
+    /// <remarks>
+    /// A record has no value of its own to compare, so the group keeps its promise by IDENTITY:
+    /// no two of its references hand one row the same member. Settled while the members are being
+    /// picked, not on the finished columns — a column declared after the group must read the
+    /// repaired value. A collision draws again from what the row has not already given away.
+    /// </remarks>
+    private static Dictionary<string, int[]> PoolDistinctPicks(
+        List<GroupRef> refs, Dictionary<string, string[]> columns, int count, string seed)
+    {
+        var outPicks = new Dictionary<string, int[]>(StringComparer.Ordinal);
+        foreach (GroupRef r in refs)
+        {
+            var column = new int[count];
+            Array.Fill(column, -1);
+            outPicks[r.Name] = column;
+        }
+
+        for (int row = 0; row < count; row++)
+        {
+            var taken = new List<int>();
+            foreach (GroupRef r in refs)
+            {
+                // A row this reference does not cover prints nothing, so it takes nothing:
+                // counting it would let an absent column narrow a present one.
+                if (!r.Mask[row])
+                {
+                    continue;
+                }
+
+                List<int> candidates = RefCandidates(
+                    r.Expression, r.Equality, r.Buckets, r.Pool, r.Table, columns, row);
+                int pick = DrawMember(seed, r.Name, candidates, row, 0);
+                if (taken.Contains(pick))
+                {
+                    var free = new List<int>();
+                    foreach (int m in candidates)
+                    {
+                        if (!taken.Contains(m))
+                        {
+                            free.Add(m);
+                        }
+                    }
+
+                    if (free.Count == 0)
+                    {
+                        throw new InvalidOperationException(
+                            $"<distinct> across sequences: row {row} has no member left for "
+                            + $"\"{r.Name}\" — the sequences in this group have taken every "
+                            + $"candidate the pool offers. A group of {refs.Count} references "
+                            + $"needs {refs.Count} members to choose from.");
+                    }
+
+                    pick = DrawMember(seed, r.Name, free, row, 1);
+                }
+
+                taken.Add(pick);
+                outPicks[r.Name][row] = pick;
+            }
+        }
+
+        return outPicks;
+    }
+
+    /// <summary><c>&lt;uniq&gt;</c> around two or more references to the same pool.</summary>
+    /// <remarks>
+    /// One axis further out than <c>&lt;distinct&gt;</c>: no two ROWS take the same combination
+    /// of members. Kept by rearranging the picks rather than redrawing, so every reference keeps
+    /// its multiset — and the fields follow, because a field is a pure function of the member.
+    /// </remarks>
+    private static Dictionary<string, int[]> PoolUniqPicks(
+        List<GroupRef> refs, Dictionary<string, string[]> columns, int count, string seed)
+    {
+        var plain = new Dictionary<string, int[]>(StringComparer.Ordinal);
+        foreach (GroupRef r in refs)
+        {
+            var column = new int[count];
+            Array.Fill(column, -1);
+            for (int row = 0; row < count; row++)
+            {
+                if (!r.Mask[row])
+                {
+                    continue;
+                }
+
+                List<int> candidates = RefCandidates(
+                    r.Expression, r.Equality, r.Buckets, r.Pool, r.Table, columns, row);
+                column[row] = DrawMember(seed, r.Name, candidates, row, 0);
+            }
+
+            plain[r.Name] = column;
+        }
+
+        // Only rows every reference covers carry a combination to keep unique.
+        var rows = new List<int>();
+        for (int row = 0; row < count; row++)
+        {
+            bool all = true;
+            foreach (GroupRef r in refs)
+            {
+                if (plain[r.Name][row] < 0)
+                {
+                    all = false;
+                    break;
+                }
+            }
+
+            if (all)
+            {
+                rows.Add(row);
+            }
+        }
+
+        if (rows.Count == 0)
+        {
+            return plain;
+        }
+
+        var grid = new List<List<string>>();
+        foreach (GroupRef r in refs)
+        {
+            var column = new List<string>(rows.Count);
+            foreach (int row in rows)
+            {
+                column.Add(plain[r.Name][row].ToString(CultureInfo.InvariantCulture));
+            }
+
+            grid.Add(column);
+        }
+
+        Uniq.Arrangement arranged = Uniq.Arrange(grid);
+        if (arranged.Distinct < rows.Count)
+        {
+            string label = string.Join(" × ", refs.ConvertAll(r => r.Name));
+            throw new InvalidOperationException(
+                UniqGroupMessage(label, rows.Count, arranged.Distinct));
+        }
+
+        for (int m = 0; m < refs.Count; m++)
+        {
+            int[] column = plain[refs[m].Name];
+            for (int k = 0; k < rows.Count; k++)
+            {
+                column[rows[k]] = int.Parse(
+                    arranged.Columns[m][k], CultureInfo.InvariantCulture);
+            }
+        }
+
+        return plain;
+    }
+
     private static void PoolReference(
         SequenceSpec spec,
         Dictionary<string, string[]> columns,
         bool[] mask,
         int count,
         IReadOnlyDictionary<string, PoolTable> tables,
-        string seed)
+        string seed,
+        Config? config,
+        Dictionary<string, int[]>? groupPicks)
     {
         string poolName = (spec.Gen!.Attr("value") ?? "").Trim();
         if (!tables.TryGetValue(poolName, out PoolTable? table) || table.Count < 1)
@@ -429,8 +719,44 @@ public static class MemoryEngine
         Dictionary<string, List<int>>? buckets =
             equality is null ? null : Pool.BucketByField(table, equality.Value.Field);
 
-        var members = new int[count];
-        for (int row = 0; row < count; row++)
+        // A `<distinct>` or `<uniq>` around this reference decides its picks, and decides them
+        // for the whole group at once — a later member needs the ones before it, and a pick is
+        // not a column anybody could read back.
+        if (config is not null && groupPicks is not null && !groupPicks.ContainsKey(spec.Name))
+        {
+            for (int kind = 0; kind < 2; kind++)
+            {
+                IReadOnlyList<IReadOnlyList<string>> groups =
+                    kind == 0 ? config.EnvDistinctGroups : config.EnvUniqGroups;
+                foreach (IReadOnlyList<string> group in groups)
+                {
+                    if (!group.Contains(spec.Name))
+                    {
+                        continue;
+                    }
+
+                    List<GroupRef> refs = GroupRefs(group, config, columns, count, tables);
+                    if (refs.Count == 0)
+                    {
+                        continue;
+                    }
+
+                    Dictionary<string, int[]> settled = kind == 0
+                        ? PoolDistinctPicks(refs, columns, count, seed)
+                        : PoolUniqPicks(refs, columns, count, seed);
+                    foreach (KeyValuePair<string, int[]> entry in settled)
+                    {
+                        groupPicks[entry.Key] = entry.Value;
+                    }
+                }
+            }
+        }
+
+        // A group settled this reference's picks; take them and draw nothing.
+        int[]? settledPicks = groupPicks is null ? null
+            : groupPicks.TryGetValue(spec.Name, out int[]? found) ? found : null;
+        var members = settledPicks ?? new int[count];
+        for (int row = 0; settledPicks is null && row < count; row++)
         {
             if (!mask[row])
             {
@@ -438,49 +764,9 @@ public static class MemoryEngine
                 continue;
             }
 
-            if (expression.Length == 0)
-            {
-                members[row] = Pool.PickMember(seed, spec.Name, table, row);
-                continue;
-            }
-
-            List<int> eligible;
-            string detail = "";
-            if (equality is not null && buckets is not null)
-            {
-                string wanted = columns.TryGetValue(equality.Value.Column, out string[]? driver)
-                    ? driver[row] ?? ""
-                    : "";
-                eligible = buckets.TryGetValue(MatchKey.Of(wanted), out List<int>? found)
-                    ? found
-                    : new List<int>();
-                detail = $" ({equality.Value.Column}=\"{wanted}\")";
-            }
-            else
-            {
-                eligible = new List<int>();
-                var read = new Dictionary<string, string>(StringComparer.Ordinal);
-                for (int m = 0; m < table.Count; m++)
-                {
-                    if (Evaluate.AsCondition(
-                        expression, new MemberScope(columns, table, m, row, read)))
-                    {
-                        eligible.Add(m);
-                    }
-                }
-
-                detail = Pool.RowValuesDetail(read);
-            }
-
-            if (eligible.Count == 0)
-            {
-                throw new InvalidOperationException(
-                    Pool.NoCandidateMessage(poolName, expression, row, detail));
-            }
-
-            int slot = Seekable.NextInt(
-                seed, Pool.RefStream(spec.Name), row, eligible.Count);
-            members[row] = eligible[slot];
+            List<int> eligible =
+                RefCandidates(expression, equality, buckets, poolName, table, columns, row);
+            members[row] = DrawMember(seed, spec.Name, eligible, row, 0);
         }
 
         foreach (string field in table.Fields)
@@ -580,6 +866,10 @@ public static class MemoryEngine
         CheckEnvUniqCapacity(config, count);
 
         var columns = new Dictionary<string, string[]>();
+        // A config-level group over pool references settles every one of its members at once,
+        // the first time any of them is reached: a later member needs the picks of the ones
+        // before it, and a pick is not a column to read back.
+        var poolGroupPicks = new Dictionary<string, int[]>(StringComparer.Ordinal);
         // The REAL value behind a date column's text, for the columns some offset measures from.
         //
         // A date cell holds a PRESENTATION: `02/03/2026` in an en locale, `03.02.2026` in a ru
@@ -659,7 +949,8 @@ public static class MemoryEngine
             // `<switch on="Doc.city">` finds the field already registered.
             if (spec.Gen is not null && spec.Gen.Type == "pool")
             {
-                PoolReference(spec, columns, mask, count, tables, config.Seed);
+                PoolReference(
+                    spec, columns, mask, count, tables, config.Seed, config, poolGroupPicks);
                 continue;
             }
 

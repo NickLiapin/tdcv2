@@ -2398,6 +2398,7 @@ public sealed class Validator
                 }
 
                 CheckGroupSize(open, tag, members);
+                CheckGroupPoolMembers(open, tag, env);
             }
         }
 
@@ -2412,6 +2413,140 @@ public sealed class Validator
     /// run drew repeats anyway. A warning rather than an error — the config
     /// still runs, it just does not do what it was written for.
     /// </remarks>
+    /// <summary>A group whose members draw from a <c>&lt;pool&gt;</c>.</summary>
+    /// <remarks>
+    /// The group's promise is kept by member IDENTITY here — no two of them hand one row the same
+    /// member — because a record has no value of its own to compare. That works, and these are
+    /// the three shapes it cannot mean: a reference beside an ordinary sequence, references to
+    /// two DIFFERENT pools, and more references than the pool has members. All three used to be
+    /// accepted and then do nothing at all.
+    /// </remarks>
+    private void CheckGroupPoolMembers(
+        TDCParser.OpenCloseElementContext wrapper,
+        string tag,
+        TDCParser.OpenCloseElementContext env)
+    {
+        var counts = new Dictionary<string, int>(StringComparer.Ordinal);
+        foreach (TDCParser.ElementContext child in env.content().element())
+        {
+            TDCParser.OpenCloseElementContext? pool = child.openCloseElement();
+            if (pool is null || pool.name.Text != "pool")
+            {
+                continue;
+            }
+
+            IReadOnlyDictionary<string, string> attrs = Attributes(pool.attr());
+            string? name = attrs.GetValueOrDefault("name");
+            string? raw = attrs.GetValueOrDefault("count");
+            if (name is null || raw is null)
+            {
+                continue;
+            }
+
+            if (int.TryParse(raw.Trim(), out int n) && n > 0)
+            {
+                counts[name] = n;
+            }
+        }
+
+        var pooled = new List<(string Name, string Pool)>();
+        var plain = new List<(string Name, TDCParser.OpenCloseElementContext Node)>();
+        foreach (TDCParser.ElementContext inner in wrapper.content().element())
+        {
+            TDCParser.OpenCloseElementContext? member = inner.openCloseElement();
+            if (member is null || member.name.Text != "sequence")
+            {
+                continue;
+            }
+
+            string name = Attributes(member.attr()).GetValueOrDefault("name") ?? "?";
+            var gens = new List<TDCParser.SelfClosingElementContext>();
+            foreach (TDCParser.ElementContext g in member.content().element())
+            {
+                TDCParser.SelfClosingElementContext? self = g.selfClosingElement();
+                if (self is not null && self.name.Text == "gen")
+                {
+                    gens.Add(self);
+                }
+            }
+
+            string? pool = null;
+            if (gens.Count == 1)
+            {
+                IReadOnlyDictionary<string, string> genAttrs = Attributes(gens[0].attr());
+                if (genAttrs.GetValueOrDefault("type") == "pool")
+                {
+                    pool = (genAttrs.GetValueOrDefault("value") ?? "").Trim();
+                }
+            }
+
+            if (pool is null)
+            {
+                plain.Add((name, member));
+            }
+            else
+            {
+                pooled.Add((name, pool));
+            }
+        }
+
+        if (pooled.Count == 0)
+        {
+            return;
+        }
+
+        if (plain.Count > 0)
+        {
+            Error(
+                "TDC302",
+                $"<{tag}> mixes <sequence name=\"{plain[0].Name}\">, which draws a value, with "
+                + $"<sequence name=\"{pooled[0].Name}\">, which draws a whole member of pool "
+                + $"\"{pooled[0].Pool}\" — there is nothing the two can be compared on",
+                $"A <{tag}> over pool references compares WHICH MEMBER each row took; over "
+                + "ordinary sequences it compares the value. One group does one of the two. To "
+                + "keep a value away from a member's field, filter instead: <gen type=\"pool\" "
+                + "filter=\"field != Other\"/>.",
+                Line(plain[0].Node),
+                Column(plain[0].Node));
+            return;
+        }
+
+        var pools = new List<string>();
+        foreach ((_, string pool) in pooled)
+        {
+            if (!pools.Contains(pool))
+            {
+                pools.Add(pool);
+            }
+        }
+
+        if (pools.Count > 1)
+        {
+            Error(
+                "TDC302",
+                $"<{tag}> holds references to {pools.Count} different pools "
+                + $"({string.Join(", ", pools)}) — a member of one is never a member of another, "
+                + "so the group would be satisfied without changing anything",
+                "Group the references that draw from the SAME pool. Two pools cannot collide.",
+                Line(wrapper),
+                Column(wrapper));
+            return;
+        }
+
+        string only = pools[0];
+        if (counts.TryGetValue(only, out int available) && available < pooled.Count)
+        {
+            Error(
+                "TDC302",
+                $"<{tag}> puts {pooled.Count} references on pool \"{only}\", which has "
+                + $"{available} members — one row cannot give each of them a different one",
+                $"Raise count= on <pool name=\"{only}\"> to at least {pooled.Count}, or take a "
+                + "reference out of the group.",
+                Line(wrapper),
+                Column(wrapper));
+        }
+    }
+
     private void CheckGroupSize(TDCParser.OpenCloseElementContext wrapper, string tag, int members)
     {
         if (members >= 2)
