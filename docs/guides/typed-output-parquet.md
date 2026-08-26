@@ -347,7 +347,14 @@ now:                            1.99 MB      <- nearly a third the size
 
 Compression is chosen **per column, and only when it wins**. Snappy has overhead bytes,
 and on a very small page they cost more than they save — TDC leaves such a column
-uncompressed. The file never grows from an attempt to shrink it.
+uncompressed. A 5-value city column over 50,000 rows takes that route: 18,839 bytes in,
+18,839 out, codec `UNCOMPRESSED`. A uuid column over the same rows goes the other way and
+snappy saves 209 KB of 2 MB.
+
+The decision is made on the page, not on the chunk, so a chunk that compresses to almost
+nothing can still end a couple of bytes larger than it went in — one measured case is 99
+bytes in and 101 out. Two bytes on a file that is otherwise a third of its raw size; worth
+knowing, not worth avoiding.
 
 It's implemented in TDC's own code, with no third-party library — and not just to keep the
 dependency list short: two snappy implementations can emit **different** (though equally

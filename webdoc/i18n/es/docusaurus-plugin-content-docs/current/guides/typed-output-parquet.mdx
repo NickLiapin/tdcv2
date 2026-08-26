@@ -345,7 +345,14 @@ now:                            1.99 MB      <- casi la tercera parte del tamañ
 
 La compresión se elige **por columna, y solo cuando conviene**. Snappy tiene bytes de
 sobrecarga, y en una página muy chica cuestan más de lo que ahorran — TDC deja esa
-columna sin comprimir. El archivo nunca crece por intentar encogerlo.
+columna sin comprimir. Una columna de ciudad con 5 valores sobre 50 000 filas toma ese
+camino: 18 839 bytes de entrada, 18 839 de salida, códec `UNCOMPRESSED`. Una columna uuid
+sobre las mismas filas va al revés y snappy ahorra 209 KB de 2 MB.
+
+La decisión se toma sobre la página, no sobre el fragmento, así que un fragmento que se
+comprime a casi nada puede terminar un par de bytes más grande de lo que entró — un caso
+medido es 99 bytes de entrada y 101 de salida. Dos bytes en un archivo que de todos modos
+es un tercio de su tamaño crudo: conviene saberlo, no conviene evitarlo.
 
 Está implementada en el propio código de TDC, sin bibliotecas de terceros — y no solo por
 el bien de las dependencias: dos implementaciones de snappy pueden emitir bytes

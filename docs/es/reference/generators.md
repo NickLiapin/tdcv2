@@ -53,8 +53,10 @@ partir de ahí se separan: `order=`/`cycle=` se RECHAZAN en los demás casos, mi
 - `anomaly=` — empuja una parte de los valores fuera del rango multiplicándolos. La
   regla es sobre el **valor**, no sobre el generador: se multiplica todo lo que se lea
   como número, incluida una cadena numérica de [`text`](../generators/text.md#top),
-  [`file`](../generators/file.md#top) o un pack. Lo demás — un nombre, una ciudad — pasa sin
-  cambios y **sin aviso**, porque para eso no existe un «más afuera».
+  [`file`](../generators/file.md#top) o un pack. Un valor no numérico junto a otros que sí lo
+  son — un nombre en una lista mixta — pasa sin cambios, porque para eso no existe un «más
+  afuera». Una lista **sin** ningún número se rechaza ([TDC243](errors.md#top)): allí nada
+  podría empujarse fuera de rango, así que el atributo no haría nada en ninguna fila.
   Vea [Anomalías y valores faltantes](../guides/anomalies.md#top).
 
 Vea también la [descripción general de los generadores](../generators/overview.md#top).

@@ -229,8 +229,10 @@ or thousands of digits long.
 2876831899
 ```
 
-Here `first_zero="true"` allows a leading zero (see the third line, `0220609313`).
-Without it, the first digit in this mode is never zero.
+Here `first_zero="true"` allows a leading zero. None of these five happen to start with
+one — a leading zero is one draw in ten, so a short sample often has none. Over 200 rows
+it appears 16 times; without the attribute, 0 times. That is the whole of what it does:
+the first digit in this mode is never zero unless you ask for it.
 
 ### Variable length
 
