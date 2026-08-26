@@ -774,7 +774,7 @@ impl Validator {
                 self.error(
                     "TDC020",
                     format!("invalid count \"{count}\" — expected a non-negative integer"),
-                    "count is how many records to generate.",
+                    "",
                     env.at("count"),
                 );
             }
@@ -1705,7 +1705,7 @@ impl Validator {
             self.error(
                 "TDC294",
                 "<gen type=\"formula\"> needs expr=\"\u{2026}\"".to_string(),
-                "The expression is what the column IS: expr=\"Weight / (Height * Height)\".",
+                "Add expr=\"…\" — the arithmetic this column is, written the way an if= condition is written: expr=\"0.75 * Height - 58\".",
                 // An ABSENT attribute has no value to underline, so the tag is the
                 // target — as for every other missing-attribute refusal. Pointing at
                 // type= put the caret on the one thing written correctly.
@@ -1809,8 +1809,7 @@ impl Validator {
                 "weight= puts the shares in a COLUMN beside the values, and read=\"quantile\" \
                  says the values are the distribution themselves \u{2014} how often one appears \
                  in the file IS its share",
-                "Keep one of the two readings. A countable value wants weight= and its exact \
-                 quota; a measured one wants the quantile read, which also fills in the values \
+                "Keep one of the two readings. A countable value — a city, a status, a number of orders — wants weight= and its exact quota; a measured one wants the quantile read, which also fills in the values \
                  between the observations.",
             ),
             (
@@ -4588,12 +4587,7 @@ impl Validator {
         }
         if let Some(precision) = attrs.get("precision") {
             if let Err(e) = date::gen::parse_precision(Some(precision), date::gen::Precision::Day) {
-                self.error(
-                    "TDC154",
-                    e.message().to_string(),
-                    "Supported: day, second, millisecond.",
-                    gen.at("precision"),
-                );
+                self.error("TDC154", e.message().to_string(), "", gen.at("precision"));
             }
         }
     }
@@ -4840,7 +4834,7 @@ impl Validator {
             self.error(
                 "TDC212",
                 "\"weight\" needs \"column\" — the weights live in a second CSV column".to_string(),
-                "Name the value column too.",
+                "Name both: column=\"name\" weight=\"count\".",
                 gen.at("weight"),
             );
         }
@@ -4897,8 +4891,7 @@ impl Validator {
             _ => codes[2],
         };
         let hint = if e.kind == percent_mask::MaskKind::Length {
-            "Percent masks may be shorter than value only when missing positions can be inferred. \
-             They may never be longer than value."
+            "Filled positions must be non-negative numbers. Empty positions split the remaining percent equally."
         } else {
             "Filled positions must be non-negative numbers. Empty positions split the remaining \
              percent equally."
@@ -5092,7 +5085,26 @@ impl Validator {
     fn check_fixture_children(&mut self, fixture: &Element) {
         let f = fixture.clone();
         let tag = fixture.name.clone();
-        self.check_contained(&f, &tag, "TDC131", &tables::FIXTURE_CHILDREN);
+        // A `<data>` written straight into a fixture is not an unknown child -- the tag is known and the placement is what is wrong. The renderer only ever walks <line> children, so the text was dropped without a word. Named rather than rendered: a bare <data> would have to invent whether it ends the line, and <line><data> already says.
+        for child in &f.children {
+            if child.name == "data" {
+                self.error(
+                    "TDC131",
+                    format!("<data> directly inside <{tag}> renders nothing"),
+                    &format!(
+                        "A fixture body is made of <line>s. Wrap it: \
+                         <{tag}><line><data>…</data></line></{tag}>."
+                    ),
+                    child.pos,
+                );
+            }
+        }
+        let allowed: Vec<&str> = tables::FIXTURE_CHILDREN
+            .iter()
+            .copied()
+            .chain(std::iter::once("data"))
+            .collect();
+        self.check_contained(&f, &tag, "TDC131", &allowed);
     }
 
     fn check_case_gen(&mut self, gen: &Element) {
@@ -6011,7 +6023,12 @@ impl Validator {
                         clip(expression),
                         e.message()
                     ),
-                    "Supported: comparison, && || !, and arithmetic.",
+                    // The reference checks the NESTING before it parses, so the two have separate notes: a condition nested past the ceiling is a generated one, and a condition that will not parse wants the operator table. Here both arrive as one parser error, so they are told apart by what the parser said.
+                    if e.message().contains("nests deeper than") {
+                        "A real condition nests a handful of parentheses; this looks generated."
+                    } else {
+                        "See the operator table: https://nickliapin.github.io/tdcv2/docs/core-concepts/output-formatting"
+                    },
                     at,
                 ),
                 Some((found, means)) => self.error(

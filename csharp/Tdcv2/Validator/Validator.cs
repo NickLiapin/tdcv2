@@ -1336,7 +1336,7 @@ public sealed class Validator
             (int line, int column) = At(env, "count");
             Error(
                 "TDC020", $"invalid count \"{count}\" — expected a non-negative integer",
-                "count is how many records to generate.", line, column);
+                "", line, column);
         }
 
         // The renderer splits on `(.+)%(.+)`, so the pattern needs a `%` with something on
@@ -1418,7 +1418,13 @@ public sealed class Validator
             if (FixtureTagNames.Contains(tag))
             {
                 // A fixture holds text and <line>s; anything else was ignored in silence.
-                CheckChildren(el.content(), tag, FixtureChildren, "TDC131", FixtureChildren);
+                // A `<data>` written straight into a fixture is not an unknown child -- the tag is known and the placement is what is wrong. The renderer only ever walks <line> children, so the text was dropped without a word. Named rather than rendered: a bare <data> would have to invent whether it ends the line, and <line><data> already says.
+                CheckFixtureData(el, tag);
+                var passes = new HashSet<string>(FixtureChildren, StringComparer.Ordinal)
+                {
+                    "data",
+                };
+                CheckChildren(el.content(), tag, passes, "TDC131", FixtureChildren);
             }
             else if (tag == "pool")
             {
@@ -2559,7 +2565,7 @@ public sealed class Validator
             (int line, int column) = (Line(gen), Column(gen));
             Error(
                 "TDC294", "<gen type=\"formula\"> needs expr=\"\u2026\"",
-                "The expression is what the column IS: expr=\"Weight / (Height * Height)\".",
+                "Add expr=\"…\" — the arithmetic this column is, written the way an if= condition is written: expr=\"0.75 * Height - 58\".",
                 line, column);
             return;
         }
@@ -2663,8 +2669,7 @@ public sealed class Validator
                 "weight= puts the shares in a COLUMN beside the values, and read=\"quantile\" "
                 + "says the values are the distribution themselves \u2014 how often one appears "
                 + "in the file IS its share",
-                "Keep one of the two readings. A countable value wants weight= and its exact "
-                + "quota; a measured one wants the quantile read, which also fills in the values "
+                "Keep one of the two readings. A countable value — a city, a status, a number of orders — wants weight= and its exact quota; a measured one wants the quantile read, which also fills in the values "
                 + "between the observations."),
             ("row",
                 "row= links several columns to one LINE of the file, and a quantile answer is not "
@@ -5219,7 +5224,7 @@ public sealed class Validator
             catch (ArgumentException e)
             {
                 (int line, int column) = At(gen, "precision");
-                Error("TDC154", e.Message, "Supported: day, second, millisecond.", line, column);
+                Error("TDC154", e.Message, "", line, column);
             }
         }
     }
@@ -6164,8 +6169,7 @@ public sealed class Validator
                 _ => codes[2],
             };
             string hint = e.Kind == MaskKind.Length
-                ? "Percent masks may be shorter than value only when missing positions can be "
-                + "inferred. They may never be longer than value."
+                ? "Filled positions must be non-negative numbers. Empty positions split the remaining percent equally."
                 : "Filled positions must be non-negative numbers. Empty positions split the "
                 + "remaining percent equally.";
             Error(code, e.Message, hint, line, column);
@@ -6311,7 +6315,7 @@ public sealed class Validator
             (int line, int column) = At(gen, "weight");
             Error(
                 "TDC212", "\"weight\" needs \"column\" — the weights live in a second CSV column",
-                "Name the value column too.", line, column);
+                "Name both: column=\"name\" weight=\"count\".", line, column);
         }
 
         if (attrs.ContainsKey("order"))
@@ -7070,9 +7074,13 @@ public sealed class Validator
             var entity = XmlEntity(expression);
             if (entity is null)
             {
+                // The reference checks the NESTING before it parses, so the two have separate notes: a condition nested past the ceiling is a generated one, and a condition that will not parse wants the operator table. Here both arrive as one parser error, so they are told apart by what the parser said.
                 Error(
                     "TDC100", $"invalid {label} \"{Clip(expression)}\": {e.Message}",
-                    "Supported: comparison, && || !, and arithmetic.", line, column);
+                    e.Message.Contains("nests deeper than", StringComparison.Ordinal)
+                        ? "A real condition nests a handful of parentheses; this looks generated."
+                        : "See the operator table: https://nickliapin.github.io/tdcv2/docs/core-concepts/output-formatting",
+                    line, column);
             }
             else
             {
@@ -7903,6 +7911,29 @@ public sealed class Validator
     /// nothing at all. The list is what the "Allowed inside" note prints, so it has to say what
     /// the renderer actually does.
     /// </remarks>
+    /// <summary>A <c>&lt;data&gt;</c> with no <c>&lt;line&gt;</c> around it, in a fixture.</summary>
+    private void CheckFixtureData(TDCParser.OpenCloseElementContext fixture, string tag)
+    {
+        if (fixture.content() is null)
+        {
+            return;
+        }
+
+        foreach (TDCParser.ElementContext child in fixture.content().element())
+        {
+            if (child.dataElement() is not { } data)
+            {
+                continue;
+            }
+
+            Error(
+                "TDC131", $"<data> directly inside <{tag}> renders nothing",
+                $"A fixture body is made of <line>s. Wrap it: <{tag}><line><data>…</data>"
+                + $"</line></{tag}>.",
+                data.Start.Line, data.Start.Column);
+        }
+    }
+
     private static readonly IReadOnlySet<string> FixtureChildren =
         new HashSet<string> { "line" };
 

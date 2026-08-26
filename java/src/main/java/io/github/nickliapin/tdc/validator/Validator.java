@@ -1191,7 +1191,7 @@ public final class Validator {
         envCount = Long.parseLong(count.trim());
       } catch (NumberFormatException e) {
         error("TDC020", "invalid count \"" + count + "\" — expected a non-negative integer",
-            "count is how many records to generate.", at(env, "count")[0], at(env, "count")[1]);
+            "", at(env, "count")[0], at(env, "count")[1]);
       }
     }
 
@@ -1260,7 +1260,11 @@ public final class Validator {
       String tag = el.name.getText();
       if (FIXTURE_TAG_NAMES.contains(tag)) {
         // A fixture holds text and <line>s; anything else was ignored in silence.
-        checkChildren(el.content(), tag, FIXTURE_CHILDREN, "TDC131", FIXTURE_CHILDREN);
+        // A `<data>` written straight into a fixture is not an unknown child -- the tag is known and the placement is what is wrong. The renderer only ever walks <line> children, so the text was dropped without a word. Named rather than rendered: a bare <data> would have to invent whether it ends the line, and <line><data> already says.
+        checkFixtureData(el, tag);
+        Set<String> passes = new java.util.HashSet<>(FIXTURE_CHILDREN);
+        passes.add("data");
+        checkChildren(el.content(), tag, passes, "TDC131", FIXTURE_CHILDREN);
       } else if ("pool".equals(tag)) {
         // Tags with a reason of their own keep TDC230, which says far more; they pass
         // this check but are never offered as allowed.
@@ -2326,7 +2330,7 @@ public final class Validator {
       int[] at = {line(gen), column(gen)};
       error(
           "TDC294", "<gen type=\"formula\"> needs expr=\"\u2026\"",
-          "The expression is what the column IS: expr=\"Weight / (Height * Height)\".",
+          "Add expr=\"…\" — the arithmetic this column is, written the way an if= condition is written: expr=\"0.75 * Height - 58\".",
           at[0], at[1]);
       return;
     }
@@ -2414,7 +2418,7 @@ public final class Validator {
         "weight= puts the shares in a COLUMN beside the values, and read=\"quantile\" says the "
             + "values are the distribution themselves \u2014 how often one appears in the file IS "
             + "its share",
-        "Keep one of the two readings. A countable value wants weight= and its exact quota; a "
+        "Keep one of the two readings. A countable value — a city, a status, a number of orders — wants weight= and its exact quota; a "
             + "measured one wants the quantile read, which also fills in the values between the "
             + "observations."
       },
@@ -4801,7 +4805,7 @@ public final class Validator {
         io.github.nickliapin.tdc.date.DateGen.precision(
             attrs.get("precision"), io.github.nickliapin.tdc.date.DateGen.Precision.DAY);
       } catch (RuntimeException e) {
-        error("TDC154", e.getMessage(), "Supported: day, second, millisecond.",
+        error("TDC154", e.getMessage(), "",
             at(gen, "precision")[0], at(gen, "precision")[1]);
       }
     }
@@ -5283,8 +5287,7 @@ public final class Validator {
           };
       String hint =
           e.kind() == PercentMask.Kind.LENGTH
-              ? "Percent masks may be shorter than value only when missing positions can be "
-                  + "inferred. They may never be longer than value."
+              ? "Filled positions must be non-negative numbers. Empty positions split the remaining percent equally."
               : "Filled positions must be non-negative numbers. Empty positions split the "
                   + "remaining percent equally.";
       error(code, e.getMessage(), hint, line, column);
@@ -5395,7 +5398,7 @@ public final class Validator {
     }
     if (attrs.get("column") == null || attrs.get("column").isBlank()) {
       error("TDC212", "\"weight\" needs \"column\" — the weights live in a second CSV column",
-          "Name the value column too.", at(gen, "weight")[0], at(gen, "weight")[1]);
+          "Name both: column=\"name\" weight=\"count\".", at(gen, "weight")[0], at(gen, "weight")[1]);
     }
     if (attrs.get("order") != null) {
       error("TDC213", "\"weight\" cannot be combined with \"order\" — that walks rows by position, not by share",
@@ -5965,8 +5968,12 @@ public final class Validator {
     } catch (RuntimeException e) {
       String[] entity = xmlEntity(expression);
       if (entity == null) {
+        // The reference checks the NESTING before it parses, so the two have separate notes: a condition nested past the ceiling is a generated one, and a condition that will not parse wants the operator table. Here both arrive as one parser error, so they are told apart by what the parser said.
         error("TDC100", "invalid " + label + " \"" + clip(expression) + "\": " + e.getMessage(),
-            "Supported: comparison, && || !, and arithmetic.", line, column);
+            e.getMessage() != null && e.getMessage().contains("nests deeper than")
+                ? "A real condition nests a handful of parentheses; this looks generated."
+                : "See the operator table: https://nickliapin.github.io/tdcv2/docs/core-concepts/output-formatting",
+            line, column);
       } else {
         error("TDC100",
             "invalid " + label + " \"" + clip(expression) + "\": TDC does not expand XML entities,"
@@ -6492,6 +6499,23 @@ public final class Validator {
    * what the "Allowed inside" note prints, so it has to say what the renderer actually does.
    */
   private static final Set<String> FIXTURE_CHILDREN = Set.of("line");
+
+  /** A {@code <data>} with no {@code <line>} around it, inside a fixture body. */
+  private void checkFixtureData(TDCParser.OpenCloseElementContext fixture, String tag) {
+    if (fixture.content() == null) {
+      return;
+    }
+    for (TDCParser.ElementContext child : fixture.content().element()) {
+      TDCParser.DataElementContext data = child.dataElement();
+      if (data == null) {
+        continue;
+      }
+      error("TDC131", "<data> directly inside <" + tag + "> renders nothing",
+          "A fixture body is made of <line>s. Wrap it: <" + tag + "><line><data>…</data></line></"
+              + tag + ">.",
+          data.getStart().getLine(), data.getStart().getCharPositionInLine());
+    }
+  }
 
   /** What may sit directly inside {@code <switch>}. */
   private static final Set<String> SWITCH_CHILDREN = Set.of("map", "case", "default");

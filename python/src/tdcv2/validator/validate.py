@@ -1311,7 +1311,7 @@ class _Validator:
                 self._error(
                     "TDC020",
                     f'invalid count "{count}" — expected a non-negative integer',
-                    "count is how many records to generate.",
+                    "",
                     line,
                     column,
                 )
@@ -1368,7 +1368,19 @@ class _Validator:
         for child in _elements(env):
             inner = child.openCloseElement()
             if inner is not None and inner.name.text in FIXTURE_TAGS:
-                self._check_children(inner.content(), inner.name.text, FIXTURE_CHILDREN, "TDC131")
+                # A `<data>` written straight into a fixture is not an unknown child — the
+                # tag is known and the placement is what is wrong, and the renderer only ever
+                # walks <line> children, so the text was dropped without a word. Named rather
+                # than rendered: a bare <data> would have to invent whether it ends the line,
+                # and <line><data> already says.
+                self._check_fixture_data(inner)
+                self._check_children(
+                    inner.content(),
+                    inner.name.text,
+                    FIXTURE_CHILDREN | frozenset({"data"}),
+                    "TDC131",
+                    shown=FIXTURE_CHILDREN,
+                )
         self._check_closed_tag_attrs("env", env.attr(), _line(env), _column(env))
 
         names: set[str] = set()
@@ -2722,7 +2734,7 @@ class _Validator:
             self._error(
                 "TDC124",
                 f'unknown child of <mix>: "<{tag}>"',
-                "Allowed children: case.",
+                "Allowed inside <mix>: case.",
                 _line(node),
                 _column(node),
             )
@@ -3564,6 +3576,24 @@ class _Validator:
             _did_you_mean(near if near != name else ""),
         )
 
+    def _check_fixture_data(self, fixture) -> None:
+        """`<data>` with no `<line>` around it, inside a fixture body."""
+        content = fixture.content()
+        if content is None:
+            return
+        for child in content.element() or []:
+            data_el = child.dataElement()
+            if data_el is None:
+                continue
+            self._error(
+                "TDC131",
+                f"<data> directly inside <{fixture.name.text}> renders nothing",
+                f"A fixture body is made of <line>s. Wrap it: <{fixture.name.text}><line>"
+                f"<data>…</data></line></{fixture.name.text}>.",
+                _line(data_el),
+                _column(data_el),
+            )
+
     def _check_required_value(self, gen, attrs: dict[str, str], type_: str | None) -> None:
         """Every generator that cannot work without one particular attribute."""
         value = attrs.get("value")
@@ -4381,7 +4411,7 @@ class _Validator:
                 date_gen.parse_precision(attrs["precision"], Precision.DAY)
             except ValueError as e:
                 line, column = _at(gen, "precision")
-                self._error("TDC154", str(e), "Supported: day, second, millisecond.", line, column)
+                self._error("TDC154", str(e), "", line, column)
 
     def _check_birth_ages(self, gen, attrs: dict[str, str]) -> None:
         """``oldest``/``youngest`` on a birth date: whole ages, and in that order."""
@@ -4703,8 +4733,8 @@ class _Validator:
             line, column = _line(gen), _column(gen)
             self._error(
                 "TDC294",
-                '<gen type="formula"> needs expr="…"',
-                'The expression is what the column IS: expr="Weight / (Height * Height)".',
+                '<gen type="formula"> does not say what to compute',
+                'Add expr="…" — the arithmetic this column is, written the way an if= condition is written: expr="0.75 * Height - 58".',
                 line,
                 column,
             )
@@ -4804,8 +4834,7 @@ class _Validator:
             self._error(
                 "TDC297",
                 f'{name}= cannot be combined with read="quantile": {why}',
-                "Keep one of the two readings. A countable value wants weight= and its exact "
-                "quota; a measured one wants the quantile read, which also fills in the values "
+                "Keep one of the two readings. A countable value — a city, a status, a number of orders — wants weight= and its exact quota; a measured one wants the quantile read, which also fills in the values "
                 "between the observations."
                 if name == "weight"
                 else "To keep a record together, read the file as lines with row= and leave "
@@ -5005,7 +5034,7 @@ class _Validator:
             self._error(
                 "TDC212",
                 '"weight" needs "column" — the weights live in a second CSV column',
-                "Name the value column too.",
+                "Name both: column=\"name\" weight=\"count\".",
                 line,
                 column,
             )
@@ -5197,7 +5226,7 @@ class _Validator:
             self._error(
                 "TDC125",
                 f'unknown child of <case>: "<{open_el.name.text}>"',
-                "Allowed children: data, gen, mix, switch.",
+                "Allowed inside <case>: data, gen, mix, switch.",
                 _line(open_el),
                 _column(open_el),
             )
@@ -5254,8 +5283,7 @@ class _Validator:
                 percent_mask.Kind.SUM: codes[2],
             }[e.kind]
             hint = (
-                "Percent masks may be shorter than value only when missing positions can be "
-                "inferred. They may never be longer than value."
+                "Filled positions must be non-negative numbers. Empty positions split the remaining percent equally."
                 if e.kind is percent_mask.Kind.LENGTH
                 else "Filled positions must be non-negative numbers. Empty positions split the "
                 "remaining percent equally."
@@ -5833,8 +5861,18 @@ class _Validator:
         except ValueError as e:
             entity = _xml_entity(expression)
             if entity is None:
+                # The reference checks the NESTING before it parses, so the two have separate
+                # notes: a condition nested past the ceiling is a generated one, and a condition
+                # that will not parse wants the operator table. Here both arrive as one parser
+                # error, so they are told apart by what the parser said — one hint for both meant
+                # the reader of a malformed `if=` was told their parentheses look generated.
                 message = f'invalid {label} "{_clip(expression)}": {e}'
-                hint = "Supported: comparison, && || !, and arithmetic."
+                hint = (
+                    "A real condition nests a handful of parentheses; this looks generated."
+                    if "nests deeper than" in str(e)
+                    else "See the operator table: "
+                    "https://nickliapin.github.io/tdcv2/docs/core-concepts/output-formatting"
+                )
             else:
                 found, means = entity
                 message = (

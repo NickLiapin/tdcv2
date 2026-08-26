@@ -377,6 +377,20 @@ placed` rather than naming a total it stopped counting. A number quietly reading
   produces their sum in Python, Java, C# and Rust, where it produced their digits run together.
   TypeScript is unchanged.
 
+- **A `<data>` written straight into a fixture was reported as an unknown child.** The tag is
+  known; the PLACEMENT is what is wrong, and the renderer only walks `<line>` children, so the
+  text was dropped. The reference says so — "`<data>` directly inside `<before>` renders nothing"
+  — and shows the wrapping. All four ports now do, and an invented tag in a fixture is still
+  refused as an unknown child.
+
+- **One note served two different mistakes in `TDC100`.** The reference checks the NESTING before
+  it parses, so a condition nested past the ceiling and a condition that will not parse get
+  different advice. In the ports both arrive as one parser error and shared one hint, so a reader
+  with a malformed `if=` was told their parentheses look generated. Told apart now by what the
+  parser said.
+
+- Twelve more sentences, and one more list whose order was the answer.
+
 - **The last five "did you mean" lines.** `TDC215` on a bare word, `TDC216` on a value a
   sequence never produces, `TDC101` on an operator the little language does not have, `TDC262`
   on a statistic that is not one, and `TDC015` on a misspelled `<gen>` attribute all knew the
