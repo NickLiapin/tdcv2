@@ -4177,7 +4177,18 @@ public sealed class Validator
     private void Ignored(TDCParser.SelfClosingElementContext gen, string name, string why)
     {
         (int line, int column) = At(gen, name);
-        Error("TDC015", $"<gen> has no \"{name}\" attribute", why, line, column);
+
+        // No near name when the attribute has a sentence of its OWN: `count=` is not a
+        // misspelling of anything, and offering `case` beside an explanation of where count=
+        // belongs is two answers to one question. Sorted, because two candidates can tie on
+        // edit distance and the FIRST one wins.
+        string near = Misplaced.ContainsKey("gen:" + name)
+            ? ""
+            : Diagnostic.ClosestMatch(
+                name, GenAttrs.OrderBy(a => a, StringComparer.Ordinal));
+        ErrorNear(
+            "TDC015", $"<gen> has no \"{name}\" attribute", why, line, column,
+            near == name ? "" : near);
     }
 
     private void CheckRequiredValue(
@@ -5656,9 +5667,10 @@ public sealed class Validator
             catch (StatException e)
             {
                 (int line, int column) = At(gen, "op");
-                Error(
+                ErrorNear(
                     "TDC262", e.Message, "One of: " + string.Join(", ", Stat.Ops) + ".",
-                    line, column);
+                    line, column,
+                    Diagnostic.ClosestMatch(attrs.GetValueOrDefault("op", "").Trim(), Stat.Ops));
             }
         }
 
@@ -6892,13 +6904,14 @@ public sealed class Validator
                     + "<env>, or compare against the word: Gender == Male."
                 : "Name a sequence declared in <env>. A word on the RIGHT of a comparison is a "
                     + "literal and needs no declaration.";
-            Error(
+            ErrorNear(
                 "TDC215",
                 "\"" + path + "\" is not a declared sequence — the condition reads it as the "
                 + "literal text \"" + path + "\"",
                 hint,
                 line,
-                column);
+                column,
+                Diagnostic.ClosestMatch(path, _declaredNames));
             return;
         }
 
@@ -6918,13 +6931,15 @@ public sealed class Validator
                 return;
             }
 
-            Warn(
+            string nearValue = Diagnostic.ClosestMatch(tail, values);
+            WarnNear(
                 "TDC216",
                 "\"" + path + "\" — \"" + root + "\" never produces \"" + tail
                 + "\", so this branch can never be taken",
                 "\"" + root + "\" produces: " + string.Join(", ", values) + ".",
                 line,
-                column);
+                column,
+                nearValue.Length == 0 ? "" : root + "." + nearValue);
             return;
         }
 
@@ -6939,14 +6954,16 @@ public sealed class Validator
             .Where(n => n.StartsWith(root + ".", StringComparison.Ordinal))
             .Select(n => n[(root.Length + 1)..])
             .ToList();
-        Error(
+        string nearField = Diagnostic.ClosestMatch(field, fields);
+        ErrorNear(
             "TDC215",
             "\"" + path + "\" is not a field of \"" + root + "\" — the condition can never be true",
             fields.Count == 0
                 ? "\"" + root + "\" has no fields."
                 : "Fields of \"" + root + "\": " + string.Join(", ", fields) + ".",
             line,
-            column);
+            column,
+            nearField.Length == 0 ? "" : root + "." + nearField);
     }
 
     /// <summary>
@@ -7120,7 +7137,8 @@ public sealed class Validator
 
                 if (!SupportedBinaryOperators.Contains(binary.Op))
                 {
-                    Error(
+                    string nearOp = Diagnostic.ClosestMatch(binary.Op, SupportedBinaryOperators);
+                    ErrorNear(
                         "TDC101", $"unsupported operator \"{binary.Op}\" in {article} {label}",
                         "Supported binary operators: "
                         + string.Join(" ", SupportedBinaryOperators)
@@ -7128,7 +7146,7 @@ public sealed class Validator
                         + ". Anything an expression cannot say, a <compute> sequence can — it has "
                         + "integer division, remainders, string surgery and checksums — and the "
                         + "sequence it produces is what if= then compares.",
-                        line, column);
+                        line, column, nearOp == binary.Op ? "" : nearOp);
                 }
 
                 CheckExprNode(binary.Left, line, column, label, article);
@@ -7426,6 +7444,15 @@ public sealed class Validator
 
     private void Warn(string code, string message, string hint, int line, int column) =>
         _diagnostics.Add(Diagnostic.Warning(code, message, hint, line, column));
+
+    /// <summary>The same warning, carrying the near name on its own <c>help:</c> line.</summary>
+    private void WarnNear(
+        string code, string message, string hint, int line, int column, string near) =>
+        _diagnostics.Add(
+            Diagnostic.Warning(code, message, hint, line, column) with
+            {
+                Suggestion = Diagnostic.DidYouMean(near),
+            });
 
     /// <summary>
     /// Where an attribute's value sits, for a complaint that is about that value.

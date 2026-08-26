@@ -377,6 +377,17 @@ placed` rather than naming a total it stopped counting. A number quietly reading
   produces their sum in Python, Java, C# and Rust, where it produced their digits run together.
   TypeScript is unchanged.
 
+- **The last five "did you mean" lines.** `TDC215` on a bare word, `TDC216` on a value a
+  sequence never produces, `TDC101` on an operator the little language does not have, `TDC262`
+  on a statistic that is not one, and `TDC015` on a misspelled `<gen>` attribute all knew the
+  near name and did not say it. The candidate list has to be in a settled ORDER to do it: `seed`
+  is two edits from both `sd` and `read`, and an unordered set handed back whichever the hash
+  put first, so Java answered `sd` where every other implementation answers `read`.
+
+  `TDC015` deliberately says nothing when the attribute has a sentence of its own: `count=` is
+  not a misspelling of anything, and offering `case` beside an explanation of where `count=`
+  belongs is two answers to one question.
+
 - **A pack's parameters were listed in the wrong order, at the source.** `parameter_names`
   returned a SET in Python, Rust and C#, so a pack declaring `user` then `domain` was reported
   as "domain, user" — a reader matching the note against the pack body read down a different

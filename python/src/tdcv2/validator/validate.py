@@ -3551,7 +3551,18 @@ class _Validator:
 
     def _ignored(self, gen, name: str, why: str) -> None:
         line, column = _at(gen, name)
-        self._error("TDC015", f'<gen> has no "{name}" attribute', why, line, column)
+        # No near name when the attribute has a sentence of its OWN: `count=` is not a
+        # misspelling of anything, and offering `case` beside an explanation of where count=
+        # belongs is two answers to one question.
+        near = "" if f"gen:{name}" in _MISPLACED else closest_match(name, sorted(GEN_ATTRS))
+        self._error(
+            "TDC015",
+            f'<gen> has no "{name}" attribute',
+            why,
+            line,
+            column,
+            _did_you_mean(near if near != name else ""),
+        )
 
     def _check_required_value(self, gen, attrs: dict[str, str], type_: str | None) -> None:
         """Every generator that cannot work without one particular attribute."""
@@ -4850,11 +4861,15 @@ class _Validator:
                 stat_gen.parse_op(attrs)
             except stat_gen.StatError as err:
                 at_line, at_column = _at(gen, "op")
-                # This Diagnostic carries no suggestion field, so the near name goes in the
-                # hint — the fixtures pin severity, code and position, never wording.
-                near = _nearest(raw_op, stat_gen.OPS)
                 hint = "One of: " + ", ".join(stat_gen.OPS) + "."
-                self._error("TDC262", str(err), hint, at_line, at_column)
+                self._error(
+                    "TDC262",
+                    str(err),
+                    hint,
+                    at_line,
+                    at_column,
+                    _did_you_mean(closest_match(raw_op, list(stat_gen.OPS))),
+                )
         try:
             stat_gen.parse_decimals(attrs)
         except stat_gen.StatError as err:
@@ -5759,6 +5774,7 @@ class _Validator:
                 hint,
                 line,
                 column,
+                _did_you_mean(closest_match(path, sorted(self.declared_names))),
             )
             return
 
@@ -5772,24 +5788,28 @@ class _Validator:
             values = self.finite_values.get(root)
             if values is None or tail in values:
                 return
+            near = closest_match(tail, list(values))
             self._warn(
                 "TDC216",
                 f'"{path}" — "{root}" never produces "{tail}", so this branch can never be taken',
                 f'"{root}" produces: {", ".join(values)}.',
                 line,
                 column,
+                _did_you_mean(f"{root}.{near}" if near else ""),
             )
             return
         field = tail.split(".")[0]
         if f"{root}.{field}" in self.declared_names:
             return
         fields = sorted(n[len(root) + 1 :] for n in self.declared_names if n.startswith(f"{root}."))
+        near = closest_match(field, fields)
         self._error(
             "TDC215",
             f'"{path}" is not a field of "{root}" — the condition can never be true',
             f'Fields of "{root}": {", ".join(fields)}.' if fields else f'"{root}" has no fields.',
             line,
             column,
+            _did_you_mean(f"{root}.{near}" if near else ""),
         )
 
     def _check_if_expression(
@@ -5872,6 +5892,7 @@ class _Validator:
                     "sequence it produces is what if= then compares.",
                     line,
                     column,
+                    _did_you_mean(closest_match(node.op, list(SUPPORTED_BINARY))),
                 )
             self._check_expr_node(node.left, line, column, label, article)
             self._check_expr_node(node.right, line, column, label, article)
@@ -6069,9 +6090,19 @@ class _Validator:
             Diagnostic.error(code, message, hint, line, column, suggestion)
         )
 
-    def _warn(self, code: str, message: str, hint: str, line: int, column: int) -> None:
+    def _warn(
+        self,
+        code: str,
+        message: str,
+        hint: str,
+        line: int,
+        column: int,
+        suggestion: str = "",
+    ) -> None:
         """Worth saying, not worth stopping for: the run still produces usable data."""
-        self.diagnostics.append(Diagnostic.warning(code, message, hint, line, column))
+        self.diagnostics.append(
+            Diagnostic.warning(code, message, hint, line, column, suggestion)
+        )
 
 
 # ── plumbing ────────────────────────────────────────────────────────────────────────────────

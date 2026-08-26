@@ -311,6 +311,14 @@ impl Validator {
             .push(Diagnostic::warning(code, message, hint, at));
     }
 
+    /// The same warning, carrying the near name on its own `help:` line.
+    fn warn_near(&mut self, code: &str, message: String, hint: &str, at: Pos, near: &str) {
+        self.diagnostics.push(
+            Diagnostic::warning(code, message, hint, at)
+                .suggesting(crate::errors::did_you_mean(near)),
+        );
+    }
+
     fn run(&mut self, document: &Document) {
         let Some(tdc) = document.child("tdc") else {
             self.error(
@@ -2690,11 +2698,14 @@ impl Validator {
                 gen.pos,
             );
         } else if let Err(message) = stat::parse_op(attrs) {
-            self.error(
+            let raw = attrs.get("op").map(|s| s.trim()).unwrap_or("");
+            let ops: Vec<String> = stat::OPS.iter().map(|o| (*o).to_string()).collect();
+            self.error_near(
                 "TDC262",
                 message,
                 &format!("One of: {}.", stat::OPS.join(", ")),
                 gen.at("op"),
+                &crate::errors::closest_match(raw, &ops),
             );
         }
         if let Err(message) = stat::parse_decimals(attrs) {
@@ -3551,11 +3562,21 @@ impl Validator {
     }
 
     fn ignored(&mut self, gen: &Element, name: &str, why: &str) {
-        self.error(
+        // No near name when the attribute has a sentence of its OWN: `count=` is not a
+        // misspelling of anything, and offering `case` beside an explanation of where count=
+        // belongs is two answers to one question.
+        let near = if misplaced("gen", name).is_some() {
+            String::new()
+        } else {
+            let known: Vec<String> = tables::GEN_ATTRS.iter().map(|a| (*a).to_string()).collect();
+            crate::errors::closest_match(name, &known)
+        };
+        self.error_near(
             "TDC015",
             format!("<gen> has no \"{name}\" attribute"),
             why,
             gen.at(name),
+            if near == name { "" } else { &near },
         );
     }
 
@@ -5828,7 +5849,8 @@ impl Validator {
                 "Name a sequence declared in <env>. A word on the RIGHT of a comparison is a \
                  literal and needs no declaration."
             };
-            self.error(
+            let names: Vec<String> = self.declared_names.iter().cloned().collect();
+            self.error_near(
                 "TDC215",
                 format!(
                     "\"{path}\" is not a declared sequence — the condition reads it as the \
@@ -5836,6 +5858,7 @@ impl Validator {
                 ),
                 hint,
                 at,
+                &crate::errors::closest_match(path, &names),
             );
             return;
         }
@@ -5854,7 +5877,9 @@ impl Validator {
                 return;
             }
             let produces = values.join(", ");
-            self.warn(
+            let owned: Vec<String> = values.iter().map(|v| (*v).to_string()).collect();
+            let near = crate::errors::closest_match(tail, &owned);
+            self.warn_near(
                 "TDC216",
                 format!(
                     "\"{path}\" — \"{root}\" never produces \"{tail}\", so this branch can \
@@ -5862,6 +5887,11 @@ impl Validator {
                 ),
                 &format!("\"{root}\" produces: {produces}."),
                 at,
+                &if near.is_empty() {
+                    String::new()
+                } else {
+                    format!("{root}.{near}")
+                },
             );
             return;
         }
@@ -5881,11 +5911,17 @@ impl Validator {
         } else {
             format!("Fields of \"{root}\": {}.", fields.join(", "))
         };
-        self.error(
+        let near = crate::errors::closest_match(field, &fields);
+        self.error_near(
             "TDC215",
             format!("\"{path}\" is not a field of \"{root}\" — the condition can never be true"),
             &hint,
             at,
+            &if near.is_empty() {
+                String::new()
+            } else {
+                format!("{root}.{near}")
+            },
         );
     }
 
@@ -6037,7 +6073,7 @@ impl Validator {
                     }
                 }
                 if !tables::SUPPORTED_BINARY_OPERATORS.contains(&op.as_str()) {
-                    self.error(
+                    self.error_near(
                         "TDC101",
                         format!("unsupported operator \"{op}\" in {article} {label}"),
                         &format!(
@@ -6049,6 +6085,18 @@ impl Validator {
                             tables::EXPR_FUNCTION_NAMES.join(", ")
                         ),
                         at,
+                        &{
+                            let ops: Vec<String> = tables::SUPPORTED_BINARY_OPERATORS
+                                .iter()
+                                .map(|o| (*o).to_string())
+                                .collect();
+                            let near = crate::errors::closest_match(op, &ops);
+                            if near == *op {
+                                String::new()
+                            } else {
+                                near
+                            }
+                        },
                     );
                 }
                 self.check_expr_node(left, at, label, article);

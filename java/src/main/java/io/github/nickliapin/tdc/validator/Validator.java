@@ -3888,8 +3888,18 @@ public final class Validator {
   }
 
   private void ignored(TDCParser.SelfClosingElementContext gen, String name, String why) {
-    error("TDC015", "<gen> has no \"" + name + "\" attribute", why,
-        at(gen, name)[0], at(gen, name)[1]);
+    // No near name when the attribute has a sentence of its OWN: `count=` is not a misspelling
+    // of anything, and offering `case` beside an explanation of where count= belongs is two
+    // answers to one question.
+    String near =
+        MISPLACED.containsKey("gen:" + name)
+            ? ""
+            // Sorted, because two candidates can tie on edit distance and the FIRST one wins:
+            // `seed` is two edits from both `sd` and `read`, and an unordered set handed back
+            // whichever the hash put first.
+            : Diagnostic.closestMatch(name, new java.util.TreeSet<>(GEN_ATTRS));
+    errorNear("TDC015", "<gen> has no \"" + name + "\" attribute", why,
+        at(gen, name)[0], at(gen, name)[1], near.equals(name) ? "" : near);
   }
 
   private void checkRequiredValue(
@@ -4979,8 +4989,9 @@ public final class Validator {
       try {
         Stat.parse(attrs);
       } catch (Stat.StatError e) {
-        error("TDC262", e.getMessage(), "One of: " + String.join(", ", Stat.OPS) + ".",
-            at(gen, "op")[0], at(gen, "op")[1]);
+        errorNear("TDC262", e.getMessage(), "One of: " + String.join(", ", Stat.OPS) + ".",
+            at(gen, "op")[0], at(gen, "op")[1],
+            Diagnostic.closestMatch(attrs.getOrDefault("op", "").trim(), Stat.OPS));
       }
     }
     try {
@@ -5865,10 +5876,10 @@ public final class Validator {
               + "or compare against the word: Gender == Male."
           : "Name a sequence declared in <env>. A word on the RIGHT of a comparison is a literal "
               + "and needs no declaration.";
-      error("TDC215",
+      errorNear("TDC215",
           "\"" + path + "\" is not a declared sequence — the condition reads it as the literal "
               + "text \"" + path + "\"",
-          hint, line, column);
+          hint, line, column, Diagnostic.closestMatch(path, declaredNames));
       return;
     }
 
@@ -5884,11 +5895,12 @@ public final class Validator {
       if (values == null || values.contains(tail)) {
         return;
       }
-      warn("TDC216",
+      String nearValue = Diagnostic.closestMatch(tail, values);
+      warnNear("TDC216",
           "\"" + path + "\" — \"" + root + "\" never produces \"" + tail
               + "\", so this branch can never be taken",
           "\"" + root + "\" produces: " + String.join(", ", values) + ".",
-          line, column);
+          line, column, nearValue.isEmpty() ? "" : root + "." + nearValue);
       return;
     }
     int inner = tail.indexOf('.');
@@ -5902,12 +5914,13 @@ public final class Validator {
         fields.add(name.substring(root.length() + 1));
       }
     }
-    error("TDC215",
+    String nearField = Diagnostic.closestMatch(field, fields);
+    errorNear("TDC215",
         "\"" + path + "\" is not a field of \"" + root + "\" — the condition can never be true",
         fields.isEmpty()
             ? "\"" + root + "\" has no fields."
             : "Fields of \"" + root + "\": " + String.join(", ", fields) + ".",
-        line, column);
+        line, column, nearField.isEmpty() ? "" : root + "." + nearField);
   }
 
   /**
@@ -6002,13 +6015,15 @@ public final class Validator {
         return;
       }
       if (!SUPPORTED_BINARY_OPERATORS.contains(binary.op())) {
-        error("TDC101", "unsupported operator \"" + binary.op() + "\" in " + article + " " + label,
+        String nearOp = Diagnostic.closestMatch(binary.op(), SUPPORTED_BINARY_OPERATORS);
+        errorNear("TDC101",
+            "unsupported operator \"" + binary.op() + "\" in " + article + " " + label,
             "Supported binary operators: " + String.join(" ", SUPPORTED_BINARY_OPERATORS)
                 + ". Functions: " + String.join(", ", new java.util.TreeSet<>(EXPR_FUNCTION_NAMES))
                 + ". Anything an expression cannot say, a <compute> sequence can — it has integer "
                 + "division, remainders, string surgery and checksums — and the sequence it "
                 + "produces is what if= then compares.",
-            line, column);
+            line, column, nearOp.equals(binary.op()) ? "" : nearOp);
       }
       checkExprNode(binary.left(), line, column, label, article);
       checkExprNode(binary.right(), line, column, label, article);
@@ -6329,6 +6344,14 @@ public final class Validator {
 
   private void warn(String code, String message, String hint, int line, int column) {
     diagnostics.add(Diagnostic.warning(code, message, hint, line, column));
+  }
+
+  /** The same warning, carrying the near name on its own {@code help:} line. */
+  private void warnNear(
+      String code, String message, String hint, int line, int column, String near) {
+    diagnostics.add(
+        Diagnostic.warning(code, message, hint, line, column)
+            .suggesting(Diagnostic.didYouMean(near)));
   }
 
   /**
