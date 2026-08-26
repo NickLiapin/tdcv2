@@ -785,9 +785,12 @@ impl Validator {
                 self.error(
                     "TDC021",
                     message,
+                    // A PLAIN string, not a format one: `{{` is two literal braces here, not an
+                    // escape. Doubled as if it were, the advice printed `inject="${{{{%}}}}"`
+                    // and `inject="%{{%}}%"` — patterns that would not do what the sentence says.
                     "The `%` is where the sequence name goes, and it needs an opening and a \
-                     closing part around it: inject=\"${{{{%}}}}\", inject=\"[%]\", \
-                     inject=\"%{{%}}%\".",
+                     closing part around it: inject=\"${{%}}\", inject=\"[%]\", \
+                     inject=\"%{%}%\".",
                     env.at("inject"),
                 );
             } else if holes > 1 {
@@ -801,7 +804,7 @@ impl Validator {
                      The engine reads the rightmost, so the others stay as a literal `%` in the \
                      wrapper and your text would have to contain one to match. Write a single \
                      hole — inject=\"[%]\" — and repeat the name in the <data> instead: \
-                     <data>[Id]-[Id]</data>. inject=\"%{{%}}%\" is fine, because only its \
+                     <data>[Id]-[Id]</data>. inject=\"%{%}%\" is fine, because only its \
                      middle `%` has text on both sides.",
                     env.at("inject"),
                 );

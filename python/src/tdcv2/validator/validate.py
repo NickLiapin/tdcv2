@@ -4022,7 +4022,12 @@ class _Validator:
             "TDC280",
             f'<gen type="date"> carries {listed} — they are {count} of the same range, and '
             "only the first is read",
-            """ + repr(HINT_SPELL) + """,
+            # Written once as source rather than as a sentence: a triple-quoted `""" +
+            # repr(HINT_SPELL) + """` reached the user as those very characters, so the one
+            # diagnostic about writing a range two ways gave no advice about either.
+            'Keep one: value="2020-01-01..2025-12-31", or from="2020-01-01" to="2025-12-31", '
+            'or range="2020-01-01..2025-12-31". `value="today"`, `"now"` and `"birth"` are '
+            "spellings too, so they cannot carry a from/to either.",
             _line(gen),
             _column(gen),
         )

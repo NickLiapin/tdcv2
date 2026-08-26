@@ -377,6 +377,17 @@ placed` rather than naming a total it stopped counting. A number quietly reading
   produces their sum in Python, Java, C# and Rust, where it produced their digits run together.
   TypeScript is unchanged.
 
+- **Two more refusals printed their own source instead of their advice.** Python's `TDC280` —
+  the one diagnostic about writing a date range two ways — gave the note
+  `+ repr(HINT_SPELL) +`: a triple-quoted string that was meant to be a concatenation, so the
+  characters reached the user verbatim and the complaint carried no advice at all. And Rust's
+  `TDC021` doubled its braces as if a plain string were a format one, advising
+  `inject="${{{{%}}}}"` and `inject="%{{%}}%"` — two patterns that would not do what the sentence
+  says. Both now read as they were meant to.
+
+- `TDC212` told the reader to "name the value column too" where the reference names both
+  attributes: `column="name" weight="count"`.
+
 - **Rust's list of expression functions was eight names short of what Rust runs.** The refusal
   for an unknown function names the ones that exist, and `at`, `count`, `join`, `mean`, `median`,
   `split`, `stddev` and `sum` were implemented and left off it — so the message offered a smaller
