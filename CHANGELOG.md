@@ -377,6 +377,16 @@ placed` rather than naming a total it stopped counting. A number quietly reading
   produces their sum in Python, Java, C# and Rust, where it produced their digits run together.
   TypeScript is unchanged.
 
+- **A pack folder was searched for `src=` files in Rust and C#.** It is a pack SOURCE, and it
+  was registered as a data root as well — so a `src="x.txt"` the config's own folder does not
+  hold went looking inside `data/packs`, and a mistyped path could quietly find a pack file.
+  Packs are addressed by `template value=`; `src=` is a file path, and the two are separate now,
+  as they are in the reference. A file named by `--data-path` is still found in all five.
+
+- **Two refusals named a path the config never mentions.** Python and Rust RESOLVED the config's
+  own folder, which follows symlinks: a file written as `/tmp/x.csv` was reported as
+  `/private/tmp/x.csv`. Both make the path absolute and stop there now.
+
 - **A `<data>` written straight into a fixture was reported as an unknown child.** The tag is
   known; the PLACEMENT is what is wrong, and the renderer only walks `<line>` children, so the
   text was dropped. The reference says so — "`<data>` directly inside `<before>` renders nothing"

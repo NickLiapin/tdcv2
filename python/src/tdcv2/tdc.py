@@ -45,6 +45,14 @@ BYTES_PER_CELL = 40
 BYTES_PER_RENDERED_CARD = 200
 
 # Past half the memory the run is worth a word; past nine tenths it is worth stopping for.
+def _absolute(path: Path) -> Path:
+    """The path made absolute, with symlinks left alone.
+
+    Absolute, not RESOLVED: `Path.resolve()` follows symlinks, and the refusal that names what it searched then printed a path the config never mentions — `/private/tmp/x.csv` for a file the author wrote as `/tmp/x.csv`. The reference makes the path absolute and stops there.
+    """
+    return Path(os.path.abspath(path))
+
+
 #: Why a parse failure is the only thing reported.
 _PARSE_FAILED_HINT = (
     "The document did not parse, so the structural and semantic checks were skipped. "
@@ -231,14 +239,16 @@ class TDC:
             DataPacks(packs_dir)
             if packs_dir is not None
             else DataPacks.for_project(
-                path.resolve().parent if path is not None else Path.cwd(), data_paths
+                _absolute(path).parent if path is not None else Path.cwd(), data_paths
             )
         )
 
         # With a config file, a relative src= is relative to that file. With a config string there
         # is no file to be relative to, so the caller says where — and if they do not, the working
         # directory is the only honest answer left.
-        config_dir = base_dir if base_dir is not None else (path.resolve().parent if path else None)
+        config_dir = (
+            base_dir if base_dir is not None else (_absolute(path).parent if path else None)
+        )
 
         # Validated before building. A config the reference refuses must be refused here too, or
         # the two implementations disagree about which configs are legal — which is a portability

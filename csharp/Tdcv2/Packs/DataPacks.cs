@@ -101,8 +101,16 @@ public sealed class DataPacks
         DataRoots = dataRoots?.ToArray() ?? Array.Empty<string>();
     }
 
+    /// <summary>
+    /// The pack folder is a pack SOURCE, not a <c>src=</c> data root.
+    ///
+    /// Registered as both, a <c>src="x.txt"</c> that the config's own folder does not hold went
+    /// looking inside <c>data/packs</c> — so a mistyped path could quietly find a pack file, and
+    /// the refusal that names what it searched listed a folder the reference never looks in.
+    /// Packs are addressed by <c>template value=</c>; <c>src=</c> is a file path.
+    /// </summary>
     public DataPacks(string root)
-        : this(new DirectorySource(root), new[] { root })
+        : this(new DirectorySource(root), Array.Empty<string>())
     {
     }
 

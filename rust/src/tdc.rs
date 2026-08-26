@@ -390,7 +390,17 @@ impl Tdc {
                 .config_file
                 .as_deref()
                 .map(Path::new)
-                .and_then(|file| std::fs::canonicalize(file).ok())
+                // Absolute, not CANONICAL: `canonicalize` follows symlinks, and the refusal
+                // that names what it searched then printed a path the config never mentions —
+                // `/private/tmp/x.csv` for a file the author wrote as `/tmp/x.csv`. The
+                // reference makes the path absolute and stops there.
+                .map(|file| {
+                    if file.is_absolute() {
+                        file.to_path_buf()
+                    } else {
+                        std::env::current_dir().unwrap_or_default().join(file)
+                    }
+                })
                 .as_deref()
                 .and_then(Path::parent)
                 .map(|dir| dir.to_string_lossy().into_owned())

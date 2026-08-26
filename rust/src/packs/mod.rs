@@ -176,7 +176,12 @@ impl DataPacks {
     }
 
     pub fn from_root(root: &str) -> Self {
-        Self::new(Box::new(DirectorySource::new(root)), vec![root.to_string()])
+        // The pack folder is a pack SOURCE, not a `src=` data root. Registered as both, a
+        // `src="x.txt"` that the config's own folder does not hold went looking inside
+        // `data/packs` — so a mistyped path could quietly find a pack file, and the refusal
+        // that names what it searched listed a folder the reference never looks in. Packs are
+        // addressed by `template value=`; `src=` is a file path, and the two are separate.
+        Self::new(Box::new(DirectorySource::new(root)), Vec::new())
     }
 
     /// The packs found without being told where they are.
