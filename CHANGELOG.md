@@ -377,6 +377,19 @@ placed` rather than naming a total it stopped counting. A number quietly reading
   produces their sum in Python, Java, C# and Rust, where it produced their digits run together.
   TypeScript is unchanged.
 
+- **Two more notes served two mistakes each.** A `<mix>` percent mask is checked against its
+  `<case>` children and a number's against its value list, and both got "filled positions split
+  the remaining percent" — an answer to the second question only, so a reader with too many mix
+  percentages was told about positions that are not there. And `TDC098` gave the whole
+  sixteen-name alphabet list to someone who had written BOTH `value=` and `alphabet=` and simply
+  needs to drop one.
+
+- **`percent=` on a `<switch>` was reported as a spelling mistake.** The table of attributes
+  written on the wrong tag was consulted for a `<gen>` and not for anything else, so the reader
+  got "Attributes of `<switch>`: comment, name, on" and had to work out for themselves that
+  shares belong to a `<mix>`. Rust's `TDC013` also carried only half its note — where the tag
+  SHOULD go, without what this parent WILL take.
+
 - **A pack folder was searched for `src=` files in Rust and C#.** It is a pack SOURCE, and it
   was registered as a data root as well — so a `src="x.txt"` the config's own folder does not
   hold went looking inside `data/packs`, and a mistyped path could quietly find a pack file.

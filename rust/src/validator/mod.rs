@@ -2405,15 +2405,25 @@ impl Validator {
                 .iter()
                 .find(|(k, _)| *k == child.name)
             {
-                Some((_, hint)) => self.error(
-                    "TDC013",
-                    format!(
-                        "<{}> is not allowed directly inside <{parent_name}>",
-                        child.name
-                    ),
-                    hint,
-                    child.pos,
-                ),
+                // TWO halves, and the second is the one a reader acts on: where this tag
+                // SHOULD go, then what this parent WILL take. Carrying only the first left
+                // someone told a <gen> belongs in a <sequence> and not what an <env> holds.
+                Some((_, hint)) => {
+                    let names = sorted(allowed);
+                    let refs: Vec<&str> = names.iter().map(String::as_str).collect();
+                    self.error(
+                        "TDC013",
+                        format!(
+                            "<{}> is not allowed directly inside <{parent_name}>",
+                            child.name
+                        ),
+                        &format!(
+                            "{hint} Allowed inside <{parent_name}>: {}.",
+                            candidates(&refs)
+                        ),
+                        child.pos,
+                    );
+                }
                 None => self.error(
                     "TDC010",
                     format!("unknown child of <{parent_name}>: \"<{}>\"", child.name),
@@ -2443,10 +2453,12 @@ impl Validator {
                 if HAS_ITS_OWN_REFUSAL.contains(&format!("{tag}:{key}").as_str()) {
                     continue;
                 }
+                // An attribute written on the wrong TAG has a sentence of its own too, not only one written on a <gen>: `percent=` on a <switch> is not a misspelling, and "Attributes of <switch>: comment, name, on" leaves the reader to work out that shares belong to a <mix>.
+                let generic = format!("Attributes of <{tag}>: {}.", sorted(known).join(", "));
                 self.error(
                     "TDC015",
                     format!("<{tag}> has no \"{key}\" attribute"),
-                    &format!("Attributes of <{tag}>: {}.", sorted(known).join(", ")),
+                    misplaced(tag, &key).unwrap_or(&generic),
                     element.at(&key),
                 );
             }
@@ -4085,7 +4097,9 @@ impl Validator {
                 "TDC098",
                 "<gen type=\"symbol\"> accepts either \"value\" or \"alphabet\", not both"
                     .to_string(),
-                hint,
+                // The SHORT sentence here: the reader has both spellings in front of them and needs to drop one, not a list of the sixteen named sets.
+                "Use `value=\"[a-z]\"` for an inline set, or \
+                 `alphabet=\"cyrillic.ru.letters\"` for a named one.",
                 gen.at("value"),
             ),
             // Neither an inline set nor a named one: there is nothing to draw a
@@ -4101,7 +4115,7 @@ impl Validator {
             (None, Some(name)) if unicode::chars(name).is_none() => self.error(
                 "TDC099",
                 format!("unknown alphabet \"{name}\""),
-                &format!("Known alphabets: {}.", unicode::names().join(", ")),
+                &format!("Known alphabets: {}.", candidates(&unicode::names())),
                 gen.at("alphabet"),
             ),
             _ => {}
@@ -4486,7 +4500,7 @@ impl Validator {
             format!(
                 "<gen type=\"date\"> carries {listed} — they are {count} of the same range, and only the first is read"
             ),
-            "Keep one: value=\"2020-01-01..2025-12-31\", or from=\"2020-01-01\" to=\"2025-12-31\", or range=\"2020-01-01..2025-12-31\". value=\"today\", \"now\" and \"birth\" are spellings too, so they cannot carry a from/to either.",
+            "Keep one: value=\"2020-01-01..2025-12-31\", or from=\"2020-01-01\" to=\"2025-12-31\", or range=\"2020-01-01..2025-12-31\". `value=\"today\"`, `\"now\"` and `\"birth\"` are spellings too, so they cannot carry a from/to either.",
             gen.pos,
         );
     }
@@ -4890,8 +4904,9 @@ impl Validator {
             percent_mask::MaskKind::Number => codes[1],
             _ => codes[2],
         };
-        let hint = if e.kind == percent_mask::MaskKind::Length {
-            "Filled positions must be non-negative numbers. Empty positions split the remaining percent equally."
+        // The sentence follows the CODE, not the kind of mask error: a `<mix>` percent mask is checked against its <case> children and a number's against its value list, so "filled positions split the remaining percent" answers the second question only.
+        let hint = if code == "TDC121" {
+            "The mix percent mask must have no more entries than there are <case> children."
         } else {
             "Filled positions must be non-negative numbers. Empty positions split the remaining \
              percent equally."

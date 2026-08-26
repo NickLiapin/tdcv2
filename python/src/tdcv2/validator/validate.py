@@ -3949,9 +3949,10 @@ class _Validator:
             self._error(
                 "TDC098",
                 '<gen type="symbol"> accepts either "value" or "alphabet", not both',
-                'Inline: value="[a-z]" or value="कखगघ". Named, e.g. '
-                'alphabet="cyrillic.ru.letters". Known: '
-                f"{_candidates(checks.alphabet_names(), 8)}.",
+                # The SHORT sentence here: the reader has both spellings in front of them and
+                # needs to drop one, not a list of the sixteen named sets.
+                'Use `value="[a-z]"` for an inline set, or '
+                '`alphabet="cyrillic.ru.letters"` for a named one.',
                 line,
                 column,
             )
@@ -3974,7 +3975,7 @@ class _Validator:
             self._error(
                 "TDC099",
                 f'unknown alphabet "{alphabet}"',
-                f"Known alphabets: {', '.join(checks.alphabet_names())}.",
+                f"Known alphabets: {_candidates(checks.alphabet_names())}.",
                 line,
                 column,
             )
@@ -5139,10 +5140,14 @@ class _Validator:
                 # never going to have.
                 if f"{tag}:{key}" in _HAS_ITS_OWN_REFUSAL:
                     continue
+                # An attribute written on the wrong TAG has a sentence of its own too, not only one written on a <gen>: `percent=` on a <switch> is not a misspelling, and "Attributes of <switch>: comment, name, on" leaves the reader to work out for themselves that shares belong to a <mix>.
                 self._error(
                     "TDC015",
                     f'<{tag}> has no "{key}" attribute',
-                    f"Attributes of <{tag}>: {', '.join(sorted(known))}.",
+                    _MISPLACED.get(
+                        f"{tag}:{key}",
+                        f"Attributes of <{tag}>: {', '.join(sorted(known))}.",
+                    ),
                     where[0],
                     where[1],
                 )
@@ -5282,9 +5287,10 @@ class _Validator:
                 percent_mask.Kind.NUMBER: codes[1],
                 percent_mask.Kind.SUM: codes[2],
             }[e.kind]
+            # The sentence follows the CODE, not the kind of mask error: a `<mix>` percent mask is checked against its <case> children and a number's against its value list, so "filled positions split the remaining percent" is an answer to the second question only. One sentence for both told a reader with too many mix percentages about positions that are not there.
             hint = (
-                "Filled positions must be non-negative numbers. Empty positions split the remaining percent equally."
-                if e.kind is percent_mask.Kind.LENGTH
+                "The mix percent mask must have no more entries than there are <case> children."
+                if code == "TDC121"
                 else "Filled positions must be non-negative numbers. Empty positions split the "
                 "remaining percent equally."
             )

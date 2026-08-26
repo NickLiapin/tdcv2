@@ -4241,10 +4241,10 @@ public final class Validator {
     boolean hasAlphabet = alphabet != null && !alphabet.isEmpty();
 
     if (hasValue && hasAlphabet) {
+      // The SHORT sentence here: the reader has both spellings in front of them and needs to drop one, not a list of the sixteen named sets.
       error("TDC098", "<gen type=\"symbol\"> accepts either \"value\" or \"alphabet\", not both",
-          "Inline: value=\"[a-z]\" or value=\"कखगघ\". Named, e.g."
-              + " alphabet=\"cyrillic.ru.letters\". Known: "
-              + candidates(Checks.alphabetNames(), 8) + ".",
+          "Use `value=\"[a-z]\"` for an inline set, or `alphabet=\"cyrillic.ru.letters\"` for a"
+              + " named one.",
           at(gen, "value")[0], at(gen, "value")[1]);
       return;
     }
@@ -4260,7 +4260,7 @@ public final class Validator {
     }
     if (hasAlphabet && !Checks.isKnownAlphabet(alphabet)) {
       error("TDC099", "unknown alphabet \"" + alphabet + "\"",
-          "Known alphabets: " + String.join(", ", Checks.alphabetNames()) + ".",
+          "Known alphabets: " + candidates(Checks.alphabetNames(), 6) + ".",
           at(gen, "alphabet")[0], at(gen, "alphabet")[1]);
     }
   }
@@ -4686,8 +4686,7 @@ public final class Validator {
         "<gen type=\"date\"> carries " + listed + " — they are " + count
             + " of the same range, and only the first is read",
         "Keep one: value=\"2020-01-01..2025-12-31\", or from=\"2020-01-01\" to=\"2025-12-31\", "
-            + "or range=\"2020-01-01..2025-12-31\". value=\"today\", \"now\" and \"birth\" are "
-            + "spellings too, so they cannot carry a from/to either.",
+            + "or range=\"2020-01-01..2025-12-31\". `value=\"today\"`, `\"now\"` and `\"birth\"` are spellings too, so they cannot carry a from/to either.",
         line(gen), column(gen));
   }
 
@@ -5177,8 +5176,12 @@ public final class Validator {
         if (HAS_ITS_OWN_REFUSAL.contains(tag + ":" + attr.getKey())) {
           continue;
         }
+        // An attribute written on the wrong TAG has a sentence of its own too, not only one written on a <gen>: `percent=` on a <switch> is not a misspelling, and "Attributes of <switch>: comment, name, on" leaves the reader to work out that shares belong to a <mix>.
         error("TDC015", "<" + tag + "> has no \"" + attr.getKey() + "\" attribute",
-            "Attributes of <" + tag + ">: " + String.join(", ", new java.util.TreeSet<>(known)) + ".",
+            MISPLACED.getOrDefault(
+                tag + ":" + attr.getKey(),
+                "Attributes of <" + tag + ">: "
+                    + String.join(", ", new java.util.TreeSet<>(known)) + "."),
             where[0], where[1]);
       }
     }
@@ -5285,9 +5288,10 @@ public final class Validator {
             case NUMBER -> codes[1];
             case SUM -> codes[2];
           };
+      // The sentence follows the CODE, not the kind of mask error: a `<mix>` percent mask is checked against its <case> children and a number's against its value list, so "filled positions split the remaining percent" answers the second question only.
       String hint =
-          e.kind() == PercentMask.Kind.LENGTH
-              ? "Filled positions must be non-negative numbers. Empty positions split the remaining percent equally."
+          "TDC121".equals(code)
+              ? "The mix percent mask must have no more entries than there are <case> children."
               : "Filled positions must be non-negative numbers. Empty positions split the "
                   + "remaining percent equally.";
       error(code, e.getMessage(), hint, line, column);

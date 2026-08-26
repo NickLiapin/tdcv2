@@ -4661,7 +4661,10 @@ public sealed class Validator
             (int line, int column) = At(gen, "value");
             Error(
                 "TDC098", "<gen type=\"symbol\"> accepts either \"value\" or \"alphabet\", not both",
-                hint, line, column);
+                // The SHORT sentence here: the reader has both spellings in front of them and needs to drop one, not a list of the sixteen named sets.
+                "Use `value=\"[a-z]\"` for an inline set, or `alphabet=\"cyrillic.ru.letters\"` "
+                + "for a named one.",
+                line, column);
             return;
         }
 
@@ -4681,7 +4684,8 @@ public sealed class Validator
             (int line, int column) = At(gen, "alphabet");
             Error(
                 "TDC099", $"unknown alphabet \"{alphabet}\"",
-                "Known alphabets: " + string.Join(", ", Checks.AlphabetNames()) + ".", line, column);
+                "Known alphabets: " + Candidates(Checks.AlphabetNames(), 6) + ".",
+                line, column);
         }
     }
 
@@ -5068,8 +5072,7 @@ public sealed class Validator
             $"<gen type=\"date\"> carries {listed} — they are {count} of the same range, and "
             + "only the first is read",
             "Keep one: value=\"2020-01-01..2025-12-31\", or from=\"2020-01-01\" to=\"2025-12-31\", "
-                + "or range=\"2020-01-01..2025-12-31\". value=\"today\", \"now\" and \"birth\" are "
-                + "spellings too, so they cannot carry a from/to either.",
+                + "or range=\"2020-01-01..2025-12-31\". `value=\"today\"`, `\"now\"` and `\"birth\"` are spellings too, so they cannot carry a from/to either.",
             Line(gen), Column(gen));
     }
 
@@ -6011,10 +6014,13 @@ public sealed class Validator
                     continue;
                 }
 
+                // An attribute written on the wrong TAG has a sentence of its own too, not only one written on a <gen>: `percent=` on a <switch> is not a misspelling, and "Attributes of <switch>: comment, name, on" leaves the reader to work out that shares belong to a <mix>.
                 Error(
                     "TDC015", $"<{tag}> has no \"{attr.Key}\" attribute",
-                    $"Attributes of <{tag}>: "
-                    + string.Join(", ", known.OrderBy(k => k, StringComparer.Ordinal)) + ".",
+                    Misplaced.GetValueOrDefault(
+                        tag + ":" + attr.Key,
+                        $"Attributes of <{tag}>: "
+                        + string.Join(", ", known.OrderBy(k => k, StringComparer.Ordinal)) + "."),
                     l, c);
             }
         }
@@ -6168,8 +6174,9 @@ public sealed class Validator
                 MaskKind.Number => codes[1],
                 _ => codes[2],
             };
-            string hint = e.Kind == MaskKind.Length
-                ? "Filled positions must be non-negative numbers. Empty positions split the remaining percent equally."
+            // The sentence follows the CODE, not the kind of mask error: a `<mix>` percent mask is checked against its <case> children and a number's against its value list, so "filled positions split the remaining percent" answers the second question only.
+            string hint = code == "TDC121"
+                ? "The mix percent mask must have no more entries than there are <case> children."
                 : "Filled positions must be non-negative numbers. Empty positions split the "
                 + "remaining percent equally.";
             Error(code, e.Message, hint, line, column);
