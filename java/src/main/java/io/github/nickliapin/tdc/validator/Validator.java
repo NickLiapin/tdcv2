@@ -1299,13 +1299,14 @@ public final class Validator {
             "Every sequence needs a unique name for interpolation, e.g. <sequence name=\"Gender\">.", line(open), column(open));
       } else if (Checks.isBuiltin(name)) {
         error("TDC033", "sequence name \"" + name + "\" collides with a builtin",
-            "Builtins: " + String.join(", ", new java.util.TreeSet<>(Checks.BUILTINS)) + ".",
+            "Builtins: " + String.join(", ", new java.util.TreeSet<>(Checks.BUILTINS))
+                + ". Pick a different name.",
             at(open, "name")[0], at(open, "name")[1]);
       } else if (name.startsWith("_")) {
         // The leading underscore is the engine's namespace. Letting a config into it means a
         // future builtin would silently shadow somebody's column.
         error("TDC031", "sequence name \"" + name + "\" starts with \"_\" — reserved for builtins",
-            "Builtin names: _count, _first, _last, _total. User sequences should avoid the leading underscore.", at(open, "name")[0], at(open, "name")[1]);
+            "Builtin names: _count, _first, _item, _item_id, _last, _total. User sequences should avoid the leading underscore.", at(open, "name")[0], at(open, "name")[1]);
       } else if (!poolMemberNodes.contains(open) && !names.add(name)) {
         error("TDC032", "duplicate sequence name \"" + name + "\"",
             "Each <sequence>/<mix> must declare a unique name; rename or remove the duplicate.",

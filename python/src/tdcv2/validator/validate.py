@@ -1411,7 +1411,7 @@ class _Validator:
                 self._error(
                     "TDC033",
                     f'sequence name "{name}" collides with a builtin',
-                    f"Builtins: {', '.join(sorted(checks.BUILTINS))}.",
+                    f"Builtins: {', '.join(sorted(checks.BUILTINS))}. Pick a different name.",
                     line,
                     column,
                 )
@@ -1422,7 +1422,7 @@ class _Validator:
                 self._error(
                     "TDC031",
                     f'sequence name "{name}" starts with "_" — reserved for builtins',
-                    "Builtin names: _count, _first, _last, _total. User sequences should avoid the leading underscore.",
+                    "Builtin names: _count, _first, _item, _item_id, _last, _total. User sequences should avoid the leading underscore.",
                     line,
                     column,
                 )

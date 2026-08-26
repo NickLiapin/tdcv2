@@ -274,6 +274,25 @@ export const BUILTIN_SEQUENCES: readonly string[] = [
 ] as const;
 
 /**
+ * Every name a `<sequence>` may NOT take, alphabetically.
+ *
+ * Wider than `BUILTIN_SEQUENCES` because the two lists answer different
+ * questions. That one is "what resolves HERE", and `_item` / `_item_id` resolve
+ * only inside an `each=` line, so they are handed in separately where a
+ * reference is checked. This one is "what is RESERVED", and a name is reserved
+ * everywhere or nowhere — a config that declares `<sequence name="_item">` and
+ * later writes an `each=` line has taken a name the engine needs.
+ */
+export const RESERVED_SEQUENCE_NAMES: readonly string[] = [
+  '_count',
+  '_first',
+  '_item',
+  '_item_id',
+  '_last',
+  '_total',
+] as const;
+
+/**
  * Tag names valid as direct children of `<env>`.
  *
  * `switch`, `uniq` and `distinct` are handled by their own branches before the

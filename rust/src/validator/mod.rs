@@ -951,7 +951,7 @@ impl Validator {
                 Some(n) if is_builtin(n) => self.error(
                     "TDC033",
                     format!("sequence name \"{n}\" collides with a builtin"),
-                    &format!("Builtins: {}.", BUILTINS.join(", ")),
+                    &format!("Builtins: {}. Pick a different name.", BUILTINS.join(", ")),
                     open.at("name"),
                 ),
                 // The leading underscore is the engine's namespace. Letting a
@@ -960,7 +960,7 @@ impl Validator {
                 Some(n) if n.starts_with('_') => self.error(
                     "TDC031",
                     format!("sequence name \"{n}\" starts with \"_\" — reserved for builtins"),
-                    "Builtin names: _count, _first, _last, _total. User sequences should avoid the leading underscore.",
+                    "Builtin names: _count, _first, _item, _item_id, _last, _total. User sequences should avoid the leading underscore.",
                     open.at("name"),
                 ),
                 Some(n) if !in_pool && !names.insert(n.to_string()) => self.error(
@@ -6550,7 +6550,7 @@ fn split_count(value: &str) -> usize {
 }
 
 /// Names the engine owns; a sequence may not claim one.
-pub const BUILTINS: [&str; 6] = ["_count", "_first", "_last", "_item", "_item_id", "_total"];
+pub const BUILTINS: [&str; 6] = ["_count", "_first", "_item", "_item_id", "_last", "_total"];
 
 pub fn is_builtin(name: &str) -> bool {
     BUILTINS.contains(&name)

@@ -1471,7 +1471,8 @@ public sealed class Validator
                 (int line, int column) = At(open, "name");
                 Error(
                     "TDC033", $"sequence name \"{name}\" collides with a builtin",
-                    "Builtins: " + string.Join(", ", Checks.Builtins.OrderBy(b => b, StringComparer.Ordinal)) + ".",
+                    "Builtins: " + string.Join(", ", Checks.Builtins.OrderBy(b => b, StringComparer.Ordinal))
+                    + ". Pick a different name.",
                     line, column);
             }
             else if (name.StartsWith('_'))
@@ -1481,7 +1482,7 @@ public sealed class Validator
                 (int line, int column) = At(open, "name");
                 Error(
                     "TDC031", $"sequence name \"{name}\" starts with \"_\" — reserved for builtins",
-                    "Builtin names: _count, _first, _last, _total. User sequences should avoid the leading underscore.", line, column);
+                    "Builtin names: _count, _first, _item, _item_id, _last, _total. User sequences should avoid the leading underscore.", line, column);
             }
             else if (!this.poolMemberNodes.Contains(open) && !names.Add(name))
             {

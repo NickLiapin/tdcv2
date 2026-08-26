@@ -52,6 +52,7 @@ import { checkSequenceDataAttrs, finiteTextValues, sequenceShape } from './seque
 
 import {
   BUILTIN_SEQUENCES,
+  RESERVED_SEQUENCE_NAMES,
   KNOWN_CASE_CHILDREN,
   KNOWN_DISTINCT_CHILDREN,
   KNOWN_ENV_GROUP_CHILDREN,
@@ -622,13 +623,13 @@ function checkDeclName(
         hint: 'Each <sequence>/<mix> must declare a unique name; rename or remove the duplicate.',
         code: 'TDC032',
       });
-    } else if (BUILTIN_SEQUENCES.includes(name)) {
+    } else if (RESERVED_SEQUENCE_NAMES.includes(name)) {
       ctx.diagnostics.push({
         severity: 'error',
         source: 'validator',
         ...attrValueRange(nameAttr),
         message: `sequence name "${name}" collides with a builtin`,
-        hint: `Builtins: ${formatCandidates(BUILTIN_SEQUENCES)}. Pick a different name.`,
+        hint: `Builtins: ${formatCandidates(RESERVED_SEQUENCE_NAMES)}. Pick a different name.`,
         code: 'TDC033',
       });
     } else if (name.startsWith('_')) {
@@ -639,7 +640,7 @@ function checkDeclName(
         source: 'validator',
         ...attrValueRange(nameAttr),
         message: `sequence name "${name}" starts with "_" — reserved for builtins`,
-        hint: `Builtin names: ${formatCandidates(BUILTIN_SEQUENCES)}. User sequences should avoid the leading underscore.`,
+        hint: `Builtin names: ${formatCandidates(RESERVED_SEQUENCE_NAMES)}. User sequences should avoid the leading underscore.`,
         code: 'TDC031',
       });
     }

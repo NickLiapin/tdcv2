@@ -16,6 +16,13 @@
       "expected": ["error TDC033 1:45"]
     },
     {
+      "name": "builtin-collision-each-only",
+      "demonstrates": "TDC033",
+      "description": "_item exists only inside an each= line and is still reserved everywhere — the collision code, not the leading-underscore one",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"_item\"><gen type=\"text\" value=\"a\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC033 1:45"]
+    },
+    {
       "name": "invalid-parent-reference",
       "demonstrates": "TDC034",
       "description": "A parent reference with no name before the dot",
