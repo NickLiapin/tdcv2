@@ -239,8 +239,11 @@ function produceOneScalar(
   registry: Record<string, Sequence>,
   row: number,
 ): string {
-  if (spec.gen) return buildGenValues(spec.gen, 1, prng, locale, now, ctx)[0] ?? '';
-  if (spec.mixSpec) return buildMixValues(spec.mixSpec, 1, prng, locale, now, ctx)[0] ?? '';
+  // One row, so the build must not reach for a whole-column plan — `perRow`
+  // is the same mark the streaming engines put on their one-row contexts.
+  const oneRow = { ...ctx, perRow: true };
+  if (spec.gen) return buildGenValues(spec.gen, 1, prng, locale, now, oneRow)[0] ?? '';
+  if (spec.mixSpec) return buildMixValues(spec.mixSpec, 1, prng, locale, now, oneRow)[0] ?? '';
   if (spec.switchSpec)
     return produceOneSwitch(spec.switchSpec, prng, locale, now, ctx, registry, row);
   return '';

@@ -2938,6 +2938,88 @@
         ]
       }
     },
+    "one-row/a-run-of-one-row": {
+      "engine2": {
+        "lines": ["aba"]
+      },
+      "engine3": {
+        "lines": ["aba"]
+      }
+    },
+    "one-row/a-run-of-one-row-holds-for-numbers-too": {
+      "engine2": {
+        "lines": ["2256"]
+      },
+      "engine3": {
+        "lines": ["2256"]
+      }
+    },
+    "one-row/the-first-two-rows-of-a-run-are-not-two-runs-of-one": {
+      "engine2": {
+        "lines": ["aba", "ddd"]
+      },
+      "engine3": {
+        "lines": ["aba", "ddd"]
+      }
+    },
+    "one-row/a-mix-case-that-comes-to-one-row": {
+      "engine2": {
+        "lines": ["d", "C", "M", "C", "A", "A"]
+      },
+      "engine3": {
+        "lines": ["d", "C", "M", "C", "A", "A"]
+      }
+    },
+    "one-row/a-nested-mix-two-levels-down": {
+      "engine2": {
+        "lines": [
+          "A",
+          "C",
+          "M",
+          "A",
+          "19",
+          "C",
+          "C",
+          "A",
+          "A",
+          "A",
+          "48",
+          "A",
+          "A",
+          "A",
+          "C",
+          "A",
+          "60",
+          "M",
+          "C",
+          "A"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "A",
+          "C",
+          "M",
+          "A",
+          "19",
+          "C",
+          "C",
+          "A",
+          "A",
+          "A",
+          "48",
+          "A",
+          "A",
+          "A",
+          "C",
+          "A",
+          "60",
+          "M",
+          "C",
+          "A"
+        ]
+      }
+    },
     "ordering/sequential-text-loops": {
       "engine2": {
         "lines": ["Jan", "Feb", "Mar", "Jan", "Feb", "Mar", "Jan"]

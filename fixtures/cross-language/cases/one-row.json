@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "a-run-of-one-row",
+      "description": "One row is still a row. Engine 1 used to refuse the per-row derivation at count=\"1\" — a build of one row looked to it like the inner call its own loop makes — and fell back to the threaded PRNG, so a single-row run came out different from the same run on engines 2 and 3.",
+      "config": "<tdc><env count=\"1\" seed=\"one\" local=\"en\" mode=\"memory\"><sequence name=\"X\"><gen type=\"regex\" value=\"[a-e]{3}\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["aba"]
+    },
+    {
+      "name": "a-run-of-one-row-holds-for-numbers-too",
+      "description": "The same refusal, on a different generator: nothing about it was regex-specific.",
+      "config": "<tdc><env count=\"1\" seed=\"one\" local=\"en\" mode=\"memory\"><sequence name=\"N\"><gen type=\"number\" value=\"1000..9999\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["2256"]
+    },
+    {
+      "name": "the-first-two-rows-of-a-run-are-not-two-runs-of-one",
+      "description": "count=\"1\" and count=\"2\" draw the same first row. They must: the row's value comes from (seed, column, row) and nothing else, so how many rows follow it cannot change it.",
+      "config": "<tdc><env count=\"2\" seed=\"one\" local=\"en\" mode=\"memory\"><sequence name=\"X\"><gen type=\"regex\" value=\"[a-e]{3}\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["aba", "ddd"]
+    },
+    {
+      "name": "a-mix-case-that-comes-to-one-row",
+      "description": "A <mix> case is a column of its own, over whichever rows the percentages gave it. When that came to a single row the in-memory engine took the same wrong turn as a count=\"1\" run, and only that row's value differed — the case SELECTION agreed, which is what made it so quiet.",
+      "config": "<tdc><env count=\"6\" seed=\"7\" local=\"en\" mode=\"memory\"><mix name=\"P\" percent=\"34,33\"><case><data>A</data></case><case><mix percent=\"50\"><case><gen type=\"regex\" value=\"[a-e]\"/></case><case><data>M</data></case></mix></case><case><data>C</data></case></mix></env><block><line><data>${{P}}</data></line></block></tdc>",
+      "expected": ["d", "C", "M", "C", "A", "A"]
+    },
+    {
+      "name": "a-nested-mix-two-levels-down",
+      "description": "The same shape at a larger count, so the inner case holds more than one row and the arrangement is exercised rather than the single-row edge alone.",
+      "config": "<tdc><env count=\"20\" seed=\"7\" local=\"en\" mode=\"memory\"><mix name=\"P\" percent=\"50,25\"><case><data>A</data></case><case><mix percent=\"50\"><case><gen type=\"number\" value=\"10..99\"/></case><case><data>M</data></case></mix></case><case><data>C</data></case></mix></env><block><line><data>${{P}}</data></line></block></tdc>",
+      "expected": [
+        "A",
+        "C",
+        "M",
+        "A",
+        "19",
+        "C",
+        "C",
+        "A",
+        "A",
+        "A",
+        "48",
+        "A",
+        "A",
+        "A",
+        "C",
+        "A",
+        "60",
+        "M",
+        "C",
+        "A"
+      ]
+    }
+  ]
+}

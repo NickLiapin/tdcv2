@@ -115,6 +115,13 @@ export type UniqPlan = Readonly<Record<string, UniqArrangement>>;
 
 export interface SequenceBuildOptions {
   /**
+   * This build is ONE ROW of a bigger one — a pack generator's body, built for
+   * a single row of the column that names it. Carried through so the body's own
+   * sequences know it too: a one-row build has no column to plan over, and
+   * without this they would each start planning one.
+   */
+  readonly perRow?: boolean | undefined;
+  /**
    * Arrangements worked out elsewhere, so this build does not work them out
    * again.
    *
@@ -286,6 +293,7 @@ export function runGenerator(
       dataSources: options.dataSources ?? {},
       packs: options.packs,
       fileRowLinks: new Map<string, LinkedFileRowPlan>(),
+      perRow: options.perRow,
     });
   }
 
@@ -332,6 +340,7 @@ export function buildSequences(
     fileRowLinks: new Map<string, LinkedFileRowPlan>(),
     httpDeferred: options.httpDeferred,
     seed: options.seed,
+    perRow: options.perRow,
     layouts: new Map(),
     // Read lazily, so a nested <switch> sees the subject column whatever order
     // the registry filled up in — the validator has already made sure the
@@ -981,7 +990,11 @@ export function buildGenValues(
       // expression — answered "the first" on every row. The streaming path
       // already narrowed this way (`resolveGenValueAt`), and the two engines
       // disagreeing about the same question is what made it visible.
-      const rowCtx = { ...ctx, rows: [row] };
+      // `perRow` marks this as a ONE-ROW build, the way the streaming engines
+      // mark theirs. It stops the call below from re-entering this loop, and it
+      // holds anything that is only correct over a whole column to the same
+      // refusal it meets on engines 2 and 3.
+      const rowCtx = { ...ctx, rows: [row], perRow: true };
       out[i] =
         buildGenValues(
           gen,
@@ -1314,6 +1327,11 @@ function buildGenValuesRaw(
           packs: ctx.packs,
           overrides: paramOverrides(gen.attrs),
           seed: bodySeed,
+          // A body built for ONE row is inside a one-row build, and its own
+          // sequences have to know: the row is already in `bodySeed` above, and
+          // a body that planned per row on top of that would draw from a
+          // different stream than the salt intends.
+          perRow: ctx.perRow,
         }).slice();
       }
       if (packEntry?.values) {

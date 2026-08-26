@@ -39,9 +39,10 @@ export interface SequenceBuildContext {
   readonly columnSeed?: string | undefined;
   readonly columnStreamId?: string | undefined;
   /**
-   * Set by the streaming engines, which resolve one row at a time. Anything that
-   * is only correct across a whole column must refuse to run here rather than
-   * quietly compute its quota over a single row.
+   * Set on a ONE-ROW build — by the streaming engines, which resolve every row
+   * that way, and by the in-memory engine inside its own per-row loop. Anything
+   * that is only correct across a whole column must refuse to run here rather
+   * than quietly compute its quota over a single row.
    */
   readonly perRow?: boolean | undefined;
   /** The run's seed, for anything that derives a stream of its own. */

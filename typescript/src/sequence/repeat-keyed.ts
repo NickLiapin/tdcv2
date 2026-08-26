@@ -82,9 +82,14 @@ export function buildKeyedRepeatDraws(
       // A drawn generator has no pool to draw down, so `distinct` is rejection
       // sampling on fresh sub-streams — the shared helper, so this engine and
       // the streaming one run the identical loop over identical stream ids.
+      // `perRow` says what this call IS: one element of one row, off the
+      // element's own stream. Without it the build below would take the
+      // whole-column per-row path and redraw from the COLUMN's stream instead,
+      // losing the `#e{k}` the streaming engine draws each element from.
+      const oneRow = { ...ctx, perRow: true };
       const drawAt = (suffix: string): string => {
         const draw = seekableGen(seed, `${streamId}#e${String(k)}${suffix}`, row);
-        return buildGenValues(single, 1, draw, locale, now, ctx, flags)[0] ?? '';
+        return buildGenValues(single, 1, draw, locale, now, oneRow, flags)[0] ?? '';
       };
       const value = spec.distinct ? redrawUntilFresh(parts, gen.type, drawAt) : drawAt('');
       parts.push(value);

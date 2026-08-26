@@ -117,14 +117,27 @@ const PER_ROW_TYPES: ReadonlySet<string> = new Set([
   'advanced_regex',
 ]);
 
-/** Can this generator be built row by row? `count <= 1` is already one row. */
+/**
+ * Can this generator be built row by row?
+ *
+ * The recursion stops on `ctx.perRow`, not on the count. The per-row loop builds
+ * each row by calling the generator again with a count of one, and that inner
+ * call must take the ordinary path or the loop never ends. It used to stop on
+ * `count <= 1` instead, which refused a GENUINE one-row column along with it —
+ * a run of `count="1"`, or a `<mix>` case whose quota came to a single row.
+ * Those fell back to the threaded PRNG while engines 2 and 3 drew from the
+ * seekable stream, so one config produced two different datasets depending on
+ * which engine ran it. A one-row build is one row either way; what tells the
+ * two apart is whether we are already inside one.
+ */
 export function perRowBuildable(
   gen: GenSpec,
   count: number,
   ctx: SequenceBuildContext,
   locale: string,
 ): boolean {
-  if (count <= 1 || ctx.seed === undefined || ctx.streamId === undefined) return false;
+  if (count <= 0 || ctx.seed === undefined || ctx.streamId === undefined) return false;
+  if (ctx.perRow === true) return false;
   if (!PER_ROW_TYPES.has(gen.type)) return false;
   // `order="sequential"` reads the position, never the randomness.
   if (gen.attrs['order'] === 'sequential') return false;

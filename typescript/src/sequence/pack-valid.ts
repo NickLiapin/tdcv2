@@ -82,13 +82,15 @@ export function enforceValid(
         }
         const seq = registry[spec.name];
         if (seq)
+          // One row redrawn, off the PRNG this retry carries — a one-row
+          // build, and marked as one so no whole-column plan runs over it.
           (seq.values as (string | undefined)[])[i] = buildGenValues(
             spec.gen,
             1,
             prng,
             locale,
             now,
-            ctx,
+            { ...ctx, perRow: true },
           )[0];
       }
       // Recompute derived sequences for this row, in declaration order.
