@@ -57,10 +57,10 @@ Two engines run under "disk", and TDC picks between them **from your config**:
   compound column, which a worker resolving a row on its own has no way to reproduce. That
   one stays on a single thread and says so.
 
-Disk mode has a third destination, and it is the one worth knowing about: eight config
+Disk mode has a third destination, and it is the one worth knowing about: seven config
 shapes send the run back to the small in-memory engine, where memory grows with `count`.
 One of them is the commonest way of writing `uniq`. [Which engine runs your
-config](#which-engine-runs-your-config) lists all eight.
+config](#which-engine-runs-your-config) lists all seven.
 
 The choice is **deterministic — based on the config, not the hardware** — so the same
 config gives the same result on every machine (reproducibility across machines is a core
@@ -69,19 +69,23 @@ TDC guarantee).
 ## Which engine runs your config
 
 `mode="disk"` asks for bounded memory. It does not always get it. TDC reads the config
-first, and eight shapes route the run to the **small in-memory engine**, whose memory grows
+first, and seven shapes route the run to the **small in-memory engine**, whose memory grows
 with the row count. They are checked in this order.
 
 | Shape                                                                                                                                                                | Why it cannot stream                                                                                                                           |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
 | A [`template`](../generators/template.md#top) `value` that interpolates a field — `common.vehicle.model.${{Brand}}`                                                     | The address is not known until the sibling column has a value, so it has to be resolved per row against the other sequences.                   |
 | [`weight=`](../generators/file.md#top) and [`row=`](../generators/file.md#top) on the same `file` generator                                                                | Weighting a linked row draw to an exact quota needs the file's totals up front. **`weight=` on its own streams** — it is the pair that cannot.                                                                |
-| A [pack generator that declares its own shares](../data-packs/writing-your-own.md#exact-percentages-inside-a-generator--mix--percent) — `percent=` in the pack file | The share is a quota over the whole column. Computed a row at a time it becomes a quota over one row, and every row goes to the largest share. |
 | `uniq="true"` on a single drawn column, alone or beside literal text                                                                                                 | The draw is **without replacement**, so the pool and the set already taken both span the whole column.                                         |
 | [`type="http"`](../generators/http.md#top) — a network call                                                                                                             | It is neither reproducible nor synchronous, and resolves in an async pass after the rest of the registry is built.                             |
 | A `percent=` inside a [`<switch>`](../constructs/switch.md#a-share-inside-a-branch) branch keyed on several values — `is="US\|CA\|MX"` — or inside `<default>`      | The share is a quota over the branch's own rows, and those rows are a union of subsets, or what every other branch left behind. Neither can be numbered one row at a time. |
 | A column **derived from another column** — a [running total](../generators/running.md#top), a [statistic](../generators/stat.md#top), a [date measured from another column](../generators/date.md#top), a formula | Each reads a column that has to exist first, which the streaming builder refuses by name. |
 | A bare [`parent="Name"`](../guides/hierarchical-dependencies.md#top) with no value                                                                                       | It narrows a column to the rows where the parent produced anything, and that is not knowable without the parent's whole column. |
+
+One more shape reaches the same engine without being on this list: a pack body carrying
+its own `<valid>`. Rejecting a drawn row and drawing again is a decision about the whole
+column with no row-at-a-time form, so the streaming builder refuses it by name — and a
+refusal routes here the way every other refusal does.
 
 Whatever is left that asks about the finished column goes to the exact on-disk engine, and
 everything else streams.
@@ -143,7 +147,7 @@ tdcv2: stream mode: uniq (a whole-column rearrangement) ("K") is not supported y
 You normally never see a message like that. The router picks the engine itself, and a
 refusal only surfaces when a config _names_ a streaming engine and so has asked to be told.
 
-A downgrade is not a bug. Each of the eight shapes is a promise about a whole column, and an
+A downgrade is not a bug. Each of the seven shapes is a promise about a whole column, and an
 engine that answered it from one row would emit data that looks right and is not. What it
 costs is memory: on the in-memory engine the whole column is held, so a run using one of
 these shapes is bounded by RAM rather than by disk. [`preflight()`](#preflight--a-memory-risk-estimate)

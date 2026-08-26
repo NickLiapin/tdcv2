@@ -3578,10 +3578,14 @@ class _Validator:
             # table because the name IS a general wrapper — it works on almost every type,
             # and these two resolve before the layer that applies it.
             if type_ is not None and name in WRAPPERS_NOT_READ.get(type_, frozenset()):
+                # A pool reference is the odd one here: it hands the row a whole MEMBER,
+                # not a number. The note said "its number" because the sentence was written
+                # for `running` and `stat` and then templated over the type name.
+                held = "the member it drew" if type_ == "pool" else "its number"
                 self._ignored(
                     gen,
                     name,
-                    f'a type="{type_}" generator publishes its number as it stands — the '
+                    f'a type="{type_}" generator publishes {held} as it stands — the '
                     "formatting layer does not run for it. Apply it where the value is "
                     "printed instead: ${{Total|mask:x}}, ${{Total|upper}}.",
                 )

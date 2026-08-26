@@ -33,10 +33,18 @@ Todos los valores de `type` para [`<gen>`](../generators/overview.md#top). Cada 
 
 ## Atributos transversales
 
-Estos funcionan con **cualquier** generador (vea [Máscaras y mayúsculas](../guides/masks-and-case.md#top)):
+Estos funcionan con casi cualquier generador (vea [Máscaras y mayúsculas](../guides/masks-and-case.md#top)):
 
 - `case=` / `mask=` — mayúsculas/minúsculas y máscaras de despliegue;
 - `missing=` — deja en blanco una parte de las celdas.
+
+Cuatro tipos los rechazan los tres ([TDC015](errors.md#top)), y por una sola razón:
+[`formula`](../generators/formula.md#top), [`running`](../generators/running.md#top) y
+[`stat`](../generators/stat.md#top) se resuelven en orden de declaración, antes de que corra
+la capa de formato, y [`pool`](../pools/overview.md#top) entrega a la fila un miembro entero
+y no un valor propio. Se rechazan en vez de ignorarse porque la respuesta existe un paso
+después y es mejor: el filtro de interpolación corre donde el valor se IMPRIME, así que
+`${{Weight|mask:x}}` y `${{Doctor.name|upper}}` ya funcionan hoy.
 
 Estos dos necesitan que el generador produzca algo sobre lo que puedan actuar, y a
 partir de ahí se separan: `order=`/`cycle=` se RECHAZAN en los demás casos, mientras que

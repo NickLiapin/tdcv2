@@ -3574,11 +3574,20 @@ impl Validator {
                 if tables::lookup(&tables::WRAPPERS_NOT_READ, t)
                     .is_some_and(|names| names.contains(&name.as_str()))
                 {
+                    // A pool reference is the odd one here: it hands the row a whole
+                    // MEMBER, not a number. The note said "its number" because the
+                    // sentence was written for `running` and `stat` and then templated
+                    // over the type name.
+                    let held = if t == "pool" {
+                        "the member it drew"
+                    } else {
+                        "its number"
+                    };
                     self.ignored(
                         gen,
                         name,
                         &format!(
-                            "a type=\"{t}\" generator publishes its number as it stands — the \
+                            "a type=\"{t}\" generator publishes {held} as it stands — the \
                              formatting layer does not run for it. Apply it where the value is \
                              printed instead: ${{{{Total|mask:x}}}}, ${{{{Total|upper}}}}."
                         ),

@@ -33,10 +33,18 @@ Every `type` for [`<gen>`](../generators/overview.md#top). Each one links to its
 
 ## Cross-cutting attributes
 
-These work on **any** generator (see [Masks & case](../guides/masks-and-case.md#top)):
+These work on almost any generator (see [Masks & case](../guides/masks-and-case.md#top)):
 
 - `case=` / `mask=` — letter case and display masks.
 - `missing=` — leave a share of the cells blank.
+
+Four types refuse all three ([TDC015](errors.md#top)), and for one reason:
+[`formula`](../generators/formula.md#top), [`running`](../generators/running.md#top) and
+[`stat`](../generators/stat.md#top) are resolved in declaration order, before the formatting
+layer runs, and [`pool`](../pools/overview.md#top) hands the row a whole member rather than a
+value of its own. Refused rather than ignored, because the answer exists one step later
+and is better: the interpolation filter runs where the value is PRINTED, so
+`${{Weight|mask:x}}` and `${{Doctor.name|upper}}` work today.
 
 The next two only work when the generator produces something they can act on — and they
 part ways on what happens elsewhere: `order=`/`cycle=` are REFUSED, `anomaly=` is about the

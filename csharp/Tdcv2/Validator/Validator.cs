@@ -4188,9 +4188,13 @@ public sealed class Validator
                 && WrappersNotRead.TryGetValue(type, out IReadOnlySet<string>? unread)
                 && unread.Contains(name))
             {
+                // A pool reference is the odd one here: it hands the row a whole MEMBER,
+                // not a number. The note said "its number" because the sentence was written
+                // for `running` and `stat` and then templated over the type name.
+                string held = type == "pool" ? "the member it drew" : "its number";
                 Ignored(
                     gen, name,
-                    $"a type=\"{type}\" generator publishes its number as it stands — the "
+                    $"a type=\"{type}\" generator publishes {held} as it stands — the "
                     + "formatting layer does not run for it. Apply it where the value is printed "
                     + "instead: ${{Total|mask:x}}, ${{Total|upper}}.");
                 continue;

@@ -676,10 +676,15 @@ export function checkGenAttrs(attrs: readonly AttrContext[], diagnostics: Diagno
     // ownership table because the name IS a general wrapper — it works on
     // almost every type, and these two resolve before the layer that applies it.
     if (type !== undefined && WRAPPERS_NOT_READ.get(type)?.has(name) === true) {
+      // A pool reference is the odd one here: it hands the row a whole MEMBER,
+      // not a number, and the note said "its number" because the sentence was
+      // written for `running` and `stat` and then templated over the type name.
+      // A reader looking at a record was told it was a number.
+      const held = type === 'pool' ? 'the member it drew' : 'its number';
       reportIgnored(
         attr,
         name,
-        `a type="${type}" generator publishes its number as it stands — the formatting ` +
+        `a type="${type}" generator publishes ${held} as it stands — the formatting ` +
           'layer does not run for it. Apply it where the value is printed instead: ' +
           '${{Total|mask:x}}, ${{Total|upper}}.',
         [...GEN_ATTRIBUTES],

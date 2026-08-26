@@ -3668,8 +3668,12 @@ public final class Validator {
       // because the name IS a general wrapper — it works on almost every type, and these two
       // resolve before the layer that applies it.
       if (type != null && WRAPPERS_NOT_READ.getOrDefault(type, java.util.Set.of()).contains(name)) {
+        // A pool reference is the odd one here: it hands the row a whole MEMBER, not a
+        // number. The note said "its number" because the sentence was written for
+        // `running` and `stat` and then templated over the type name.
+        String held = "pool".equals(type) ? "the member it drew" : "its number";
         ignored(gen, name,
-            "a type=\"" + type + "\" generator publishes its number as it stands — the "
+            "a type=\"" + type + "\" generator publishes " + held + " as it stands — the "
                 + "formatting layer does not run for it. Apply it where the value is printed "
                 + "instead: ${{Total|mask:x}}, ${{Total|upper}}.");
         continue;
