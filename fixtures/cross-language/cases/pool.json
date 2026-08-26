@@ -72,6 +72,51 @@
       "description": "`field == Column` is bucketed rather than evaluated, and the bucket used to be keyed by raw text. A pool holding 01,02,03 against a column producing 1,2,3 was REFUSED by TDC225 as unmatchable, while the same filter with one term that changes nothing matched every row.",
       "config": "<tdc><env count=\"3\" seed=\"p\" local=\"en\" mode=\"memory\"><pool name=\"Codes\" count=\"3\"><sequence name=\"code\"><gen type=\"text\" value=\"01,02,03\" order=\"sequential\"/></sequence><sequence name=\"label\"><gen type=\"text\" value=\"alpha,beta,gamma\" order=\"sequential\"/></sequence></pool><sequence name=\"Want\"><gen type=\"text\" value=\"1,2,3\" order=\"sequential\"/></sequence><sequence name=\"Hit\"><gen type=\"pool\" value=\"Codes\" filter=\"code == Want\"/></sequence></env><block><line><data>${{Want}} -> ${{Hit.label}}</data></line></block></tdc>",
       "expected": ["1 -> alpha", "2 -> beta", "3 -> gamma"]
+    },
+    {
+      "name": "distinct-over-two-references-to-one-pool",
+      "description": "A config-level <distinct> around two references to the same <pool> is kept by member IDENTITY: no row hands both of them the same doctor. A reference holds a whole record, so there is no value to compare — the group compares WHICH MEMBER the row took. Before this worked the config was accepted and did nothing at all, and the run was byte for byte the same as one without the group.",
+      "config": "<tdc><env count=\"8\" seed=\"clinic\" local=\"en\" mode=\"memory\"><pool name=\"Doctors\" count=\"4\"><sequence name=\"name\" uniq=\"true\"><gen type=\"text\" value=\"Adams,Brooks,Chase,Dunn\"/></sequence></pool><distinct><sequence name=\"Duty\"><gen type=\"pool\" value=\"Doctors\"/></sequence><sequence name=\"Seen\"><gen type=\"pool\" value=\"Doctors\"/></sequence></distinct></env><block><line><data>${{Duty.name}}|${{Seen.name}}</data></line></block></tdc>",
+      "expected": [
+        "Brooks|Dunn",
+        "Adams|Chase",
+        "Adams|Brooks",
+        "Dunn|Adams",
+        "Dunn|Chase",
+        "Brooks|Chase",
+        "Chase|Adams",
+        "Dunn|Brooks"
+      ]
+    },
+    {
+      "name": "distinct-over-references-composes-with-filter",
+      "description": "The repair draws from the candidates a filter= leaves standing, so both promises hold at once: every row's two doctors are different people AND both are in the department the row asked for. That is why the candidate SET is what the group works with, not just the pick.",
+      "config": "<tdc><env count=\"8\" seed=\"clinic\" local=\"en\" mode=\"memory\"><pool name=\"Doctors\" count=\"6\"><sequence name=\"name\" uniq=\"true\"><gen type=\"text\" value=\"Adams,Brooks,Chase,Dunn,Ellis,Frost\"/></sequence><sequence name=\"dept\"><gen type=\"text\" value=\"cardio,neuro\" order=\"sequential\"/></sequence></pool><sequence name=\"Want\"><gen type=\"text\" value=\"cardio,neuro\"/></sequence><distinct><sequence name=\"A\"><gen type=\"pool\" value=\"Doctors\" filter=\"dept == Want\"/></sequence><sequence name=\"B\"><gen type=\"pool\" value=\"Doctors\" filter=\"dept == Want\"/></sequence></distinct></env><block><line><data>${{Want}}|${{A.name}}|${{B.name}}</data></line></block></tdc>",
+      "expected": [
+        "cardio|Dunn|Chase",
+        "cardio|Brooks|Dunn",
+        "neuro|Adams|Frost",
+        "cardio|Chase|Brooks",
+        "neuro|Frost|Adams",
+        "neuro|Adams|Ellis",
+        "neuro|Frost|Adams",
+        "cardio|Brooks|Chase"
+      ]
+    },
+    {
+      "name": "uniq-over-two-references-to-one-pool",
+      "description": "A config-level <uniq> around references is one axis further out than <distinct>: no two ROWS take the same combination of members. Kept by rearranging the picks rather than redrawing, so each reference keeps its multiset and the fields follow — a field is a pure function of the member. Rows may still repeat a member within themselves; that is <distinct>'s job, not this one.",
+      "config": "<tdc><env count=\"8\" seed=\"clinic\" local=\"en\" mode=\"memory\"><pool name=\"Doctors\" count=\"5\"><sequence name=\"name\" uniq=\"true\"><gen type=\"text\" value=\"Adams,Brooks,Chase,Dunn,Ellis\"/></sequence></pool><uniq><sequence name=\"A\"><gen type=\"pool\" value=\"Doctors\"/></sequence><sequence name=\"B\"><gen type=\"pool\" value=\"Doctors\"/></sequence></uniq></env><block><line><data>${{A.name}}|${{B.name}}</data></line></block></tdc>",
+      "expected": [
+        "Chase|Adams",
+        "Chase|Ellis",
+        "Chase|Chase",
+        "Adams|Adams",
+        "Adams|Chase",
+        "Chase|Dunn",
+        "Dunn|Chase",
+        "Brooks|Ellis"
+      ]
     }
   ]
 }

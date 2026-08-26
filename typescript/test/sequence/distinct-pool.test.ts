@@ -201,17 +201,24 @@ describe('<uniq> over pool references', () => {
       <block><line><data>\${{A.name}}|\${{B.name}}</data></line></block>
     </tdc>`;
 
+  // Engine 2 is not in this list on purpose. An arrangement needs the whole
+  // column, so the streaming builder refuses this shape by name and the router
+  // hands it to the in-memory engine — the same route a running total takes.
+  // Engine 3 reaches memory the same way, which is why it belongs here.
   it('no two rows take the same pair of members', () => {
-    for (const engine of ENGINES) {
+    for (const engine of [1, 3] as const) {
       const lines = run(pairUniq(30, 8), engine);
       expect(lines).toHaveLength(30);
       expect(new Set(lines).size).toBe(30);
     }
   });
 
-  it('all three engines produce the same bytes', () => {
-    const [one, two, three] = ENGINES.map((e) => run(pairUniq(30, 8), e).join('\n'));
-    expect(two).toBe(one);
+  it('the streaming builder declines it by name rather than materialising a column', () => {
+    expect(() => run(pairUniq(30, 8), 2)).toThrow(/config-level <uniq>/);
+  });
+
+  it('the engines that do run it produce the same bytes', () => {
+    const [one, three] = [1, 3].map((e) => run(pairUniq(30, 8), e as Engine).join('\n'));
     expect(three).toBe(one);
   });
 
@@ -219,7 +226,7 @@ describe('<uniq> over pool references', () => {
     // 8 members give 64 ordered pairs at the very most; 300 rows cannot be met.
     // Before this worked the run produced 300 rows with 63 distinct pairs and
     // said nothing — the infeasibility refusal simply never reached a pool.
-    for (const engine of ENGINES) {
+    for (const engine of [1, 3] as const) {
       expect(() => run(pairUniq(300, 8), engine)).toThrow(/cannot produce 300 unique/);
     }
   });

@@ -182,6 +182,14 @@ export function buildLazyRegistry(
     const refPool = poolRefName(spec);
     if (refPool !== undefined) {
       if (spec.parent) throw unsupported('a pool reference with parent=', spec.name);
+      // A `<uniq>` over references keeps its promise by REARRANGING the picks, and
+      // an arrangement cannot be found a row at a time — it needs the whole column.
+      // Materialising one here would spend the memory this engine exists to save,
+      // so the config goes to the in-memory engine by name, the way a running
+      // total does. `<distinct>` is settled per row and streams fine.
+      if (envGroups.uniq.some((g) => g.includes(spec.name))) {
+        throw unsupported('a pool reference inside a config-level <uniq>', spec.name);
+      }
       const pick = picks.get(spec.name);
       Object.assign(
         registry,

@@ -294,6 +294,10 @@ ninguna **fila** toma la misma combinación de miembros. Un pool de 6 ofrece 36 
 ordenados, de modo que una ejecución más larga que los pares que produjo el sorteo se
 rechaza de antemano en vez de repetirse en silencio.
 
+`uniq` cumple esa promesa reordenando los sorteos, y un reordenamiento necesita la columna
+entera — no se puede hallar fila a fila. Por eso esta forma corre en el motor en memoria,
+igual que un total acumulado; `<distinct>` se resuelve por fila y fluye sin problema.
+
 ## `<distinct>` frente a `uniq`, de un vistazo
 
 | Mecanismo    | Eje        | Alcance         | Significado                                              |

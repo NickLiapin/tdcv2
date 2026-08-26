@@ -3414,6 +3414,75 @@
         "lines": ["1 -> alpha", "2 -> beta", "3 -> gamma"]
       }
     },
+    "pool/distinct-over-two-references-to-one-pool": {
+      "engine2": {
+        "lines": [
+          "Brooks|Dunn",
+          "Adams|Chase",
+          "Adams|Brooks",
+          "Dunn|Adams",
+          "Dunn|Chase",
+          "Brooks|Chase",
+          "Chase|Adams",
+          "Dunn|Brooks"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "Brooks|Dunn",
+          "Adams|Chase",
+          "Adams|Brooks",
+          "Dunn|Adams",
+          "Dunn|Chase",
+          "Brooks|Chase",
+          "Chase|Adams",
+          "Dunn|Brooks"
+        ]
+      }
+    },
+    "pool/distinct-over-references-composes-with-filter": {
+      "engine2": {
+        "lines": [
+          "cardio|Dunn|Chase",
+          "cardio|Brooks|Dunn",
+          "neuro|Adams|Frost",
+          "cardio|Chase|Brooks",
+          "neuro|Frost|Adams",
+          "neuro|Adams|Ellis",
+          "neuro|Frost|Adams",
+          "cardio|Brooks|Chase"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "cardio|Dunn|Chase",
+          "cardio|Brooks|Dunn",
+          "neuro|Adams|Frost",
+          "cardio|Chase|Brooks",
+          "neuro|Frost|Adams",
+          "neuro|Adams|Ellis",
+          "neuro|Frost|Adams",
+          "cardio|Brooks|Chase"
+        ]
+      }
+    },
+    "pool/uniq-over-two-references-to-one-pool": {
+      "engine2": {
+        "refused": "stream mode: a pool reference inside a config-level <uniq> (\"A\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+      },
+      "engine3": {
+        "lines": [
+          "Chase|Adams",
+          "Chase|Ellis",
+          "Chase|Chase",
+          "Adams|Adams",
+          "Adams|Chase",
+          "Chase|Dunn",
+          "Dunn|Chase",
+          "Brooks|Ellis"
+        ]
+      }
+    },
     "quantile-shape/the-sweep-at-count-equals-n-is-a-permutation-of-the-sample": {
       "engine2": {
         "lines": ["38", "31", "25", "25", "12", "12", "19", "12", "47", "56"]

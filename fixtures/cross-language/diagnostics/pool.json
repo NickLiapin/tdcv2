@@ -151,6 +151,27 @@
       "description": "The other direction of the same scope: a member reads its pool's own fields, which the engine resolves, so this must not be refused.",
       "config": "<tdc><env count=\"6\" seed=\"po\" local=\"en\"><pool name=\"Doctors\" count=\"6\"><sequence name=\"role\"><gen type=\"text\" value=\"surgeon,nurse\"/></sequence><sequence name=\"scalpel\"><gen type=\"text\" value=\"yes\" if=\"role == surgeon\"/></sequence></pool><sequence name=\"Seen\"><gen type=\"pool\" value=\"Doctors\"/></sequence></env><block><line><data>${{Seen.role}} s[${{Seen.scalpel}}]</data></line></block></tdc>",
       "expected": []
+    },
+    {
+      "name": "group-mixes-a-reference-with-an-ordinary-sequence",
+      "demonstrates": "TDC302",
+      "description": "A <distinct> over pool references compares WHICH MEMBER the row took; over ordinary sequences it compares the value. One group does one of the two — a record and a string have no field the comparison would be about. Accepted and silently inert before this.",
+      "config": "<tdc><env count=\"10\" seed=\"s\" local=\"en\"><pool name=\"Doctors\" count=\"4\"><sequence name=\"name\" uniq=\"true\"><gen type=\"text\" value=\"Adams,Brooks,Chase,Dunn\"/></sequence></pool><distinct><sequence name=\"A\"><gen type=\"pool\" value=\"Doctors\"/></sequence><sequence name=\"Plain\"><gen type=\"text\" value=\"Adams,Brooks\"/></sequence></distinct></env><block><line><data>${{A.name}}|${{Plain}}</data></line></block></tdc>",
+      "expected": ["error TDC302 1:248"]
+    },
+    {
+      "name": "group-holds-references-to-two-different-pools",
+      "demonstrates": "TDC302",
+      "description": "A member of one pool is never a member of another, so the group would be satisfied without changing anything — the silent no-op the code path had all along, now named.",
+      "config": "<tdc><env count=\"10\" seed=\"s\" local=\"en\"><pool name=\"Doctors\" count=\"4\"><sequence name=\"name\" uniq=\"true\"><gen type=\"text\" value=\"Adams,Brooks,Chase,Dunn\"/></sequence></pool><pool name=\"Wards\" count=\"4\"><sequence name=\"no\" uniq=\"true\"><gen type=\"text\" value=\"101,102,103,104\"/></sequence></pool><distinct><sequence name=\"A\"><gen type=\"pool\" value=\"Doctors\"/></sequence><sequence name=\"W\"><gen type=\"pool\" value=\"Wards\"/></sequence></distinct></env><block><line><data>${{A.name}}|${{W.no}}</data></line></block></tdc>",
+      "expected": ["error TDC302 1:295"]
+    },
+    {
+      "name": "group-puts-more-references-on-a-pool-than-it-has-members",
+      "demonstrates": "TDC302",
+      "description": "Three references cannot each take a different member of a pool of two. Provable before a row exists, so it is refused there rather than on the first row that cannot be satisfied.",
+      "config": "<tdc><env count=\"10\" seed=\"s\" local=\"en\"><pool name=\"Doctors\" count=\"2\"><sequence name=\"name\" uniq=\"true\"><gen type=\"text\" value=\"Adams,Brooks\"/></sequence></pool><distinct><sequence name=\"A\"><gen type=\"pool\" value=\"Doctors\"/></sequence><sequence name=\"B\"><gen type=\"pool\" value=\"Doctors\"/></sequence><sequence name=\"C\"><gen type=\"pool\" value=\"Doctors\"/></sequence></distinct></env><block><line><data>${{A.name}}|${{B.name}}|${{C.name}}</data></line></block></tdc>",
+      "expected": ["error TDC302 1:163"]
     }
   ]
 }

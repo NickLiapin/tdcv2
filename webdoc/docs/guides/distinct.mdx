@@ -293,6 +293,11 @@ Three shapes are refused with `TDC302`, because none of them can mean anything:
 run longer than the pairs the draw produced is refused up front rather than quietly
 repeating.
 
+`uniq` keeps that promise by rearranging the picks, and an arrangement needs the whole
+column — it cannot be found a row at a time. So this one shape runs on the in-memory
+engine, the way a running total does; `<distinct>` is settled per row and streams
+normally.
+
 ## `<distinct>` vs. `uniq` at a glance
 
 | Mechanism    | Axis       | Scope    | Meaning                                        |
