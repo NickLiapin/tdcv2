@@ -89,6 +89,8 @@ mode**, and the `X-TDC-Count` header says how many values to invent.
 The engine speaks one small protocol and expects nothing else back:
 
 - **`POST`** to `src`, with a header **`X-TDC-Count: N`** — how many values are wanted.
+- **`Content-Type: text/plain`**, exactly that, with no charset parameter. All five
+  implementations send the same string, so a service may match it literally.
 - The **body** is the `N` input values, **one per line**, in row order. With no `in`,
   the body is empty and `N` comes from the header.
 - **`X-TDC-Input: N`** travels whenever `in` is present, and says how many input lines the

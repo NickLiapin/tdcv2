@@ -163,7 +163,9 @@ fn post(
         .arg("--request")
         .arg("POST")
         .arg("--header")
-        .arg("Content-Type: text/plain; charset=utf-8")
+        // Bare, without a charset: the four other implementations send exactly this, and a
+        // service matching the header would have rejected the longer form.
+        .arg("Content-Type: text/plain")
         .arg("--header")
         .arg(format!("X-TDC-Count: {count}"));
     if let Some(seed) = seed {

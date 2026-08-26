@@ -90,6 +90,8 @@ fuente**, y la cabecera `X-TDC-Count` dice cuántos valores inventar.
 El motor habla un protocolo pequeño y no espera nada más de vuelta:
 
 - **`POST`** a `src`, con una cabecera **`X-TDC-Count: N`** — cuántos valores se quieren.
+- **`Content-Type: text/plain`**, exactamente eso, sin parámetro charset. Las cinco
+  implementaciones envían la misma cadena, así que un servicio puede compararla al pie de la letra.
 - El **cuerpo** son los `N` valores de entrada, **uno por línea**, en orden de fila. Sin
   `in`, el cuerpo está vacío y `N` viene de la cabecera.
 - **`X-TDC-Input: N`** viaja siempre que hay `in`, y dice cuántas líneas de entrada trae el

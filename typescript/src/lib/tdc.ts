@@ -387,7 +387,13 @@ export class TDC {
     return this.resolveCount();
   }
 
-  /** Whether this run uses Engine 2 (streaming) — required for parallel generation. */
+  /**
+   * Whether this run uses Engine 2 (streaming) — required for parallel generation.
+   *
+   * @internal Engine choice is a cost, not a contract: it changes as the router learns,
+   * and a caller branching on it would break on a release that only got faster. The CLI
+   * asks `usesSeekableEngine` for the same reason and nothing else asks this one.
+   */
   public usesStreamEngine(): boolean {
     return this.isStreamEngine();
   }
@@ -400,6 +406,9 @@ export class TDC {
    * whole-file run produces there. Engine 3 was left out of that for a while
    * and it cost every percent-plus-uniq config the ability to split at all,
    * which is exactly the kind of config large enough to want it.
+   *
+   * @internal Used by the CLI to decide whether `--jobs` can split the run; not part of
+   * the published API, for the reason `usesStreamEngine` gives.
    */
   public usesSeekableEngine(): boolean {
     return this.resolveEngine() !== 1;

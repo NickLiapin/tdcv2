@@ -408,6 +408,12 @@ from the config, so `tdcv2 check` catches it; a pack file or a CSV column is
 read while generating, so the refusal has to wait until then. Either way it is a
 refusal, never a short cell.
 
+The run-time refusal has a number behind it: the draw gives up after **64** tries at
+finding another value the cell has not already used, and says so. A generator with more
+than 64 values but a heavy skew — a regex that almost always produces the same string —
+can hit that even though its pool is large enough on paper. `check` calls such a config
+valid, because whether the pool is reachable is not knowable from the config.
+
 ## Where `repeat` won't work
 
 A few generators tie each value to the **row number**, and `repeat` can't apply

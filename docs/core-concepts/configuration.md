@@ -176,10 +176,22 @@ is where they go.
 | Attribute | Default  | What it sets                                                    |
 | :-------- | :------- | :-------------------------------------------------------------- |
 | `count`   | `10`     | How many records to generate                                    |
-| `seed`    | random   | Seed for the random number generator                            |
+| `seed`    | random   | Seed for the random number generator — a run without one prints the one it chose, on **stderr** |
 | `local`   | `en`     | Locale for [`type="template"`](../generators/template.md#top) data |
 | `inject`  | `${{%}}` | The interpolation pattern for values                            |
 | `comment` | —        | Free-form comment, ignored by the engine                        |
+
+> [!TIP]
+> **A run with no seed still tells you how to repeat it**
+>
+> Leave `seed` out and TDC picks one, then writes it to **stderr** before the data:
+>
+> ```
+> tdcv2: no seed specified — using random seed "0.5936281006498847". Re-run with --seed "0.5936281006498847" to reproduce this exact output.
+> ```
+>
+> The data goes to stdout, so `tdcv2 people.tdc > people.csv` keeps the note on screen and
+> `2>/dev/null` throws away the only record of how to make that file again.
 
 > [!NOTE]
 > **CLI overrides win**

@@ -163,10 +163,21 @@ todos viven aquí.
 | Atributo  | Por omisión | Qué define                                                               |
 | :-------- | :---------- | :----------------------------------------------------------------------- |
 | `count`   | `10`        | Cuántos registros generar                                                |
-| `seed`    | aleatorio   | Semilla del generador de números aleatorios                              |
+| `seed`    | aleatorio   | Semilla del generador de números aleatorios — una corrida sin ella imprime la que eligió, en **stderr** |
 | `local`   | `en`        | Locale para los datos de [`type="template"`](../generators/template.mdx) |
 | `inject`  | `${{%}}`    | El patrón de interpolación de valores                                    |
 | `comment` | —           | Comentario libre, ignorado por el motor                                  |
+
+:::tip[Una corrida sin semilla igual le dice cómo repetirla]
+Omita `seed` y TDC elige una, y la escribe en **stderr** antes de los datos:
+
+```
+tdcv2: no seed specified — using random seed "0.5936281006498847". Re-run with --seed "0.5936281006498847" to reproduce this exact output.
+```
+
+Los datos van a stdout, así que `tdcv2 people.tdc > people.csv` deja la nota en pantalla y
+`2>/dev/null` tira el único registro de cómo volver a hacer ese archivo.
+:::
 
 :::note[Lo que se pasa por CLI manda]
 `--count`, `--seed` y `--locale` en la línea de comandos tienen prioridad sobre los

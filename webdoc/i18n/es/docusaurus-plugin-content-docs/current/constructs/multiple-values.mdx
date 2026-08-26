@@ -416,6 +416,12 @@ configuración, así que la detecta `tdcv2 check`; un archivo de pack o una colu
 mientras se genera, de modo que el rechazo tiene que esperar. En ambos casos es un rechazo,
 nunca una celda corta.
 
+Detrás del rechazo en tiempo de corrida hay un número: el sorteo se rinde tras **64**
+intentos de hallar otro valor que la celda no haya usado ya, y lo dice. Un generador con más
+de sesenta y cuatro valores pero muy sesgado — una regex que casi siempre produce la misma
+cadena — puede toparse con eso aunque sobre el papel su reserva alcance. `check` llama válida
+a esa configuración, porque si la reserva es alcanzable no se ve desde la configuración.
+
 ## Dónde `repeat` no funciona
 
 Unos cuantos generadores atan cada valor al **número de fila**, y `repeat` no se les puede

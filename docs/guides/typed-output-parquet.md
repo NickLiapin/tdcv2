@@ -331,7 +331,10 @@ it. The decision is automatic, made from the data. On 50,000 rows:
 
 A dictionary would only hurt a column of unique values, so TDC doesn't build one there.
 The rule is simple: use a dictionary when the distinct count is at most half the row
-count.
+count — **except a `bool`, which never gets one**. A boolean already costs a bit, so a
+dictionary could only add a page. Two distinct values over 2,000 rows is well under half
+and still gets `PLAIN` alone, where an `int64` and a `string` beside it both get
+`RLE_DICTIONARY`.
 
 ## Compression
 

@@ -181,6 +181,10 @@ tdcv2 demo.tdc -o out.csv --progress
 { "phase": "render", "done": 4200000, "total": 10000000, "percent": 42, "pid": 51234 }
 ```
 
+Each refresh writes `<output>.progress.tmp` and renames it over `<output>.progress`, so a
+reader never catches a half-written file. The `.tmp` is visible beside the output while the
+run lasts. `tdcv2 format -w` does the same with `<file>.tmp`.
+
 The phases in order: `uniq-scan` (every row's tuple hashed), `uniq-sort` (the piles
 sorted), `uniq-repair` (the tuples that repeat checked and rearranged) and `render` (rows
 written); a run without a `<uniq>` only ever reports `render`. On a large `uniq` run

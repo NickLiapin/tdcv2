@@ -341,7 +341,10 @@ chico que apunta a ella. La decisión es automática, tomada a partir de los dat
 
 A una columna de valores únicos un diccionario solo le haría daño, así que TDC no aplica
 ninguno ahí. La regla es simple: use diccionario cuando la cantidad de valores distintos
-sea la mitad del número de filas o menos.
+sea la mitad del número de filas o menos — **salvo un `bool`, que nunca recibe uno**. Un
+booleano ya cuesta un bit, así que un diccionario solo podría añadir una página. Dos
+valores distintos sobre 2000 filas están muy por debajo de la mitad y aun así quedan en
+`PLAIN` a secas, mientras que un `int64` y un `string` al lado reciben `RLE_DICTIONARY`.
 
 ## Compresión
 

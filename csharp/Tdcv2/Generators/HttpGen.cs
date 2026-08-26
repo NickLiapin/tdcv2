@@ -126,10 +126,13 @@ public static class HttpGen
 
         string body = inputs is null ? "" : string.Join("\n", inputs);
 
-        using var request = new HttpRequestMessage(HttpMethod.Post, src)
-        {
-            Content = new StringContent(body, Encoding.UTF8, "text/plain"),
-        };
+        // The header is set after the fact, not through StringContent's mediaType: that
+        // overload appends "; charset=utf-8", and the four other implementations send a bare
+        // "text/plain". A service matching the header exactly would have rejected this one.
+        var content = new StringContent(body, Encoding.UTF8, "text/plain");
+        content.Headers.ContentType =
+            new System.Net.Http.Headers.MediaTypeHeaderValue("text/plain");
+        using var request = new HttpRequestMessage(HttpMethod.Post, src) { Content = content };
         request.Headers.TryAddWithoutValidation(
             "X-TDC-Count", count.ToString(CultureInfo.InvariantCulture));
         if (seed is not null)
