@@ -834,8 +834,11 @@ public final class Validator {
     if (compareVersions(raw, SUPPORTED_VERSION) > 0) {
       int[] where = at(tdc, versionAttr != null ? "version" : "v");
       error("TDC005",
-          "document version \"" + raw + "\" is newer than this runtime supports (" + SUPPORTED_VERSION + ")",
-          "Update the library, or lower the version attribute.", where[0], where[1]);
+          "TDC document version \"" + raw + "\" is newer than this runtime ("
+              + SUPPORTED_VERSION + ")",
+          "Update TDC before processing this file; newer DSL features may not exist in this"
+              + " runtime.",
+          where[0], where[1]);
     }
   }
 
@@ -2809,8 +2812,34 @@ public final class Validator {
       error("TDC133", "<switch> is missing a required \"on\" attribute",
           "A switch looks a value up; \"on\" names the sequence it looks up.", line(open), column(open));
     } else if (!declared.contains(on)) {
-      error("TDC134", "<switch on=\"" + on + "\"> refers to an unknown sequence",
-          "Declare the subject sequence above the switch.", at(open, "on")[0], at(open, "on")[1]);
+      // A dot with a KNOWN root is a field mistake. Reported as an unknown sequence it sent the
+      // reader off to check a name that is declared right above.
+      int dot = on.indexOf('.');
+      String root = dot < 0 ? on : on.substring(0, dot);
+      boolean fieldMistake = dot >= 0 && (declared.contains(root) || Checks.isBuiltin(root));
+      if (fieldMistake) {
+        String prefix = root + ".";
+        List<String> fields = new ArrayList<>();
+        for (String name : declaredNames) {
+          if (name.startsWith(prefix)) {
+            fields.add(name.substring(prefix.length()));
+          }
+        }
+        String leaf = on.substring(dot + 1);
+        String near = Diagnostic.closestMatch(leaf, fields);
+        errorNear("TDC134",
+            "<switch on=\"" + on + "\"> refers to \"" + leaf + "\", which is not a field of \""
+                + root + "\"",
+            fields.isEmpty()
+                ? "\"" + root + "\" has no fields — switch on it directly, or on a sequence that"
+                    + " has some."
+                : "Fields of \"" + root + "\": " + String.join(", ", fields) + ".",
+            at(open, "on")[0], at(open, "on")[1], near.isEmpty() ? "" : root + "." + near);
+      } else {
+        errorNear("TDC134", "<switch on=\"" + on + "\"> refers to an unknown sequence",
+            "The `on` subject must be a sequence declared earlier in the same <env>.",
+            at(open, "on")[0], at(open, "on")[1], Diagnostic.closestMatch(on, declared));
+      }
     }
 
     int entries = 0;
@@ -3806,7 +3835,8 @@ public final class Validator {
       case "text" -> {
         if (missing) {
           error("TDC050", "<gen type=\"text\"> requires a \"value\" attribute",
-              "It is the comma-separated list to pick from.", line(gen), column(gen));
+              "Provide comma-separated values, e.g. value=\"Male,Female\".",
+              line(gen), column(gen));
         }
       }
       case "file" -> {
@@ -5359,7 +5389,8 @@ public final class Validator {
       TDCParser.SelfClosingElementContext self = child.selfClosingElement();
       if (self != null && "gen".equals(self.name.getText())) {
         error("TDC131", "a <gen> is not allowed inside <line> — the output block is for formatting only",
-            "Declare it as a <sequence> in <env> and reference it with ${{Name}}.",
+            "Declare a named <sequence> in <env> and reference it here with ${{Name}}. See"
+                + " https://nickliapin.github.io/tdcv2/docs/core-concepts/sequences",
             line(self), column(self));
         continue;
       }
@@ -5900,7 +5931,7 @@ public final class Validator {
       if (!SUPPORTED_BINARY_OPERATORS.contains(binary.op())) {
         error("TDC101", "unsupported operator \"" + binary.op() + "\" in " + article + " " + label,
             "Supported binary operators: " + String.join(" ", SUPPORTED_BINARY_OPERATORS)
-                + ". Functions: " + String.join(", ", EXPR_FUNCTION_NAMES)
+                + ". Functions: " + String.join(", ", new java.util.TreeSet<>(EXPR_FUNCTION_NAMES))
                 + ". Anything an expression cannot say, a <compute> sequence can — it has integer "
                 + "division, remainders, string surgery and checksums — and the sequence it "
                 + "produces is what if= then compares.",
@@ -5923,9 +5954,18 @@ public final class Validator {
                     + "the libms disagree in the last bit and a comparison turns that bit into a "
                     + "different row. So " + call.callee() + " arrives once it has been built and "
                     + "pinned to its bits in all five implementations, not before. Available "
-                    + "today: " + String.join(", ", EXPR_FUNCTION_NAMES) + "."
-                : "Available: " + String.join(", ", EXPR_FUNCTION_NAMES) + ".",
+                    + "today: " + String.join(", ", new java.util.TreeSet<>(EXPR_FUNCTION_NAMES)) + "."
+                : "Available: " + String.join(", ", new java.util.TreeSet<>(EXPR_FUNCTION_NAMES)) + ".",
             line, column);
+        if (!planned) {
+          // Not available, and not a typo either: someone writing `airy(x)` knows what they
+          // meant, and "did you mean abs?" is worse than saying nothing.
+          Diagnostic last = diagnostics.remove(diagnostics.size() - 1);
+          diagnostics.add(
+              last.suggesting(
+                  Diagnostic.didYouMean(
+                      Diagnostic.closestMatch(call.callee(), EXPR_FUNCTION_NAMES))));
+        }
         return;
       }
       int given = call.args().size();

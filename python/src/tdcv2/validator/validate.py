@@ -1062,9 +1062,10 @@ class _Validator:
             line, column = _at(tdc, key)
             self._error(
                 "TDC005",
-                f'document version "{raw}" is newer than this runtime supports '
+                f'TDC document version "{raw}" is newer than this runtime '
                 f"({SUPPORTED_VERSION})",
-                "Update the library, or lower the version attribute.",
+                "Update TDC before processing this file; newer DSL features may not exist in "
+                "this runtime.",
                 line,
                 column,
             )
@@ -2767,13 +2768,42 @@ class _Validator:
             )
         elif on not in declared:
             line, column = _at(open_el, "on")
-            self._error(
-                "TDC134",
-                f'<switch on="{on}"> refers to an unknown sequence',
-                "Declare the subject sequence above the switch.",
-                line,
-                column,
-            )
+            # A dot with a KNOWN root is a field mistake. Reported as an unknown sequence it sent
+            # the reader off to check a name that is declared right above.
+            dot = on.find(".")
+            root = on if dot < 0 else on[:dot]
+            field_mistake = dot >= 0 and (root in declared or checks.is_builtin(root))
+            # Against `declared_names`, not the local scope: a compound's FIELDS are registered
+            # there, and filtering by the switch's own scope threw them all away, so a real field
+            # mistake was told the subject "has no fields".
+            fields = [
+                n[len(root) + 1 :]
+                for n in self.declared_fields
+                if n.startswith(f"{root}.") and n in self.declared_names
+            ]
+            if field_mistake:
+                near = closest_match(on[dot + 1 :], fields)
+                self._error(
+                    "TDC134",
+                    f'<switch on="{on}"> refers to "{on[dot + 1:]}", which is not a field of '
+                    f'"{root}"',
+                    f'"{root}" has no fields — switch on it directly, or on a sequence that has '
+                    "some."
+                    if not fields
+                    else f'Fields of "{root}": {", ".join(fields)}.',
+                    line,
+                    column,
+                    _did_you_mean(f"{root}.{near}" if near else ""),
+                )
+            else:
+                self._error(
+                    "TDC134",
+                    f'<switch on="{on}"> refers to an unknown sequence',
+                    "The `on` subject must be a sequence declared earlier in the same <env>.",
+                    line,
+                    column,
+                    _did_you_mean(closest_match(on, sorted(declared))),
+                )
 
         entries = 0
         for child in _elements(open_el):
@@ -3476,7 +3506,7 @@ class _Validator:
                 self._error(
                     "TDC050",
                     '<gen type="text"> requires a "value" attribute',
-                    "It is the comma-separated list to pick from.",
+                    'Provide comma-separated values, e.g. value="Male,Female".',
                     _line(gen),
                     _column(gen),
                 )
@@ -4759,8 +4789,6 @@ class _Validator:
                 # hint — the fixtures pin severity, code and position, never wording.
                 near = _nearest(raw_op, stat_gen.OPS)
                 hint = "One of: " + ", ".join(stat_gen.OPS) + "."
-                if near:
-                    hint = f'Did you mean "{near}"? ' + hint
                 self._error("TDC262", str(err), hint, at_line, at_column)
         try:
             stat_gen.parse_decimals(attrs)
@@ -5298,7 +5326,8 @@ class _Validator:
                     "TDC131",
                     "a <gen> is not allowed inside <line> — the output block is for formatting "
                     "only",
-                    "Declare it as a <sequence> in <env> and reference it with ${{Name}}.",
+                    "Declare a named <sequence> in <env> and reference it here with ${{Name}}. "
+                    "See https://nickliapin.github.io/tdcv2/docs/core-concepts/sequences",
                     _line(self_closing),
                     _column(self_closing),
                 )
@@ -5802,11 +5831,11 @@ class _Validator:
                         "and pinned to its bits in all five implementations, not before. "
                         f"Available today: {', '.join(EXPR_FUNCTION_NAMES)}."
                         if planned
-                        else (f'Did you mean "{near}"? ' if near else "")
-                        + f"Available: {', '.join(EXPR_FUNCTION_NAMES)}."
+                        else f"Available: {', '.join(EXPR_FUNCTION_NAMES)}."
                     ),
                     line,
                     column,
+                    _did_you_mean(near or ""),
                 )
                 return
             low, high = spec

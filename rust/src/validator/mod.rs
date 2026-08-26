@@ -480,10 +480,11 @@ impl Validator {
             self.error(
                 "TDC005",
                 format!(
-                    "document version \"{raw}\" is newer than this runtime supports \
+                    "TDC document version \"{raw}\" is newer than this runtime \
                      ({SUPPORTED_VERSION})"
                 ),
-                "Update the library, or lower the version attribute.",
+                "Update TDC before processing this file; newer DSL features may not exist \
+                 in this runtime.",
                 tdc.at(key),
             );
         }
@@ -3542,7 +3543,7 @@ impl Validator {
                     self.error(
                         "TDC050",
                         "<gen type=\"text\"> requires a \"value\" attribute".to_string(),
-                        "It is the comma-separated list to pick from.",
+                        "Provide comma-separated values, e.g. value=\"Male,Female\".",
                         gen.pos,
                     );
                 }
@@ -5097,12 +5098,59 @@ impl Validator {
                 "A switch looks a value up; \"on\" names the sequence it looks up.",
                 open.pos,
             ),
-            Some(on) if !declared.iter().any(|d| d == on) => self.error(
-                "TDC134",
-                format!("<switch on=\"{on}\"> refers to an unknown sequence"),
-                "Declare the subject sequence above the switch.",
-                open.at("on"),
-            ),
+            // A dot with a KNOWN root is a field mistake. Reported as an unknown sequence it
+            // sent the reader off to check a name that is declared right above.
+            Some(on) if !declared.iter().any(|d| d == on) => {
+                let dot = on.find('.');
+                let root: String = match dot {
+                    Some(i) => on[..i].to_string(),
+                    None => (*on).to_string(),
+                };
+                let field_mistake =
+                    dot.is_some() && (declared.iter().any(|d| *d == root) || is_builtin(&root));
+                if field_mistake {
+                    let prefix = format!("{root}.");
+                    let fields: Vec<&str> = self
+                        .declared_fields
+                        .iter()
+                        .filter(|n| n.starts_with(&prefix) && self.declared_names.contains(*n))
+                        .map(|n| &n[prefix.len()..])
+                        .collect();
+                    let leaf = &on[dot.unwrap_or(0) + 1..];
+                    let owned: Vec<String> = fields.iter().map(|f| (*f).to_string()).collect();
+                    let near = crate::errors::closest_match(leaf, &owned);
+                    self.error_near(
+                        "TDC134",
+                        format!(
+                            "<switch on=\"{on}\"> refers to \"{leaf}\", which is not a field \
+                             of \"{root}\""
+                        ),
+                        &if fields.is_empty() {
+                            format!(
+                                "\"{root}\" has no fields — switch on it directly, or on a \
+                                 sequence that has some."
+                            )
+                        } else {
+                            format!("Fields of \"{root}\": {}.", fields.join(", "))
+                        },
+                        open.at("on"),
+                        &if near.is_empty() {
+                            String::new()
+                        } else {
+                            format!("{root}.{near}")
+                        },
+                    );
+                } else {
+                    let names: Vec<String> = declared.iter().map(|d| (*d).to_string()).collect();
+                    self.error_near(
+                        "TDC134",
+                        format!("<switch on=\"{on}\"> refers to an unknown sequence"),
+                        "The `on` subject must be a sequence declared earlier in the same <env>.",
+                        open.at("on"),
+                        &crate::errors::closest_match(on, &names),
+                    );
+                }
+            }
             Some(_) => {}
         }
 
@@ -5263,7 +5311,9 @@ impl Validator {
                     "TDC131",
                     "a <gen> is not allowed inside <line> — the output block is for formatting only"
                         .to_string(),
-                    "Declare it as a <sequence> in <env> and reference it with ${{Name}}.",
+                    "Declare a named <sequence> in <env> and reference it here with \
+                     ${{Name}}. See \
+                     https://nickliapin.github.io/tdcv2/docs/core-concepts/sequences",
                     child.pos,
                 );
                 continue;
@@ -5970,7 +6020,7 @@ impl Validator {
                 match tables::EXPR_FUNCTIONS.iter().find(|(n, _, _)| n == name) {
                     None => {
                         let planned = tables::PLANNED_EXPR_FUNCTIONS.contains(&name.as_str());
-                        self.error(
+                        self.error_near(
                             "TDC257",
                             if planned {
                                 format!("{name}() is not available yet in {article} {label}")
@@ -5990,6 +6040,18 @@ impl Validator {
                                 format!("Available: {}.", tables::EXPR_FUNCTION_NAMES.join(", "))
                             },
                             at,
+                            &if planned {
+                                // Not available, and not a typo either. Someone writing `airy(x)`
+                                // knows what they meant, and "did you mean abs?" is worse than
+                                // saying nothing.
+                                String::new()
+                            } else {
+                                let names: Vec<String> = tables::EXPR_FUNCTION_NAMES
+                                    .iter()
+                                    .map(|n| (*n).to_string())
+                                    .collect();
+                                crate::errors::closest_match(name, &names)
+                            },
                         );
                         return;
                     }

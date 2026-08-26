@@ -377,6 +377,23 @@ placed` rather than naming a total it stopped counting. A number quietly reading
   produces their sum in Python, Java, C# and Rust, where it produced their digits run together.
   TypeScript is unchanged.
 
+- **Rust's list of expression functions was eight names short of what Rust runs.** The refusal
+  for an unknown function names the ones that exist, and `at`, `count`, `join`, `mean`, `median`,
+  `split`, `stddev` and `sum` were implemented and left off it — so the message offered a smaller
+  language than the one running, and a reader looking for `count` in the list concluded it does
+  not exist. Java and C# had all sixty-one and printed them in map order, where the reference
+  prints them sorted; a reader scans an alphabetical list and reads sixty-one of anything else.
+
+- **`<switch on="P.gone">` said the subject was unknown when `P` is declared right above it.**
+  Same shape as the dotted-reference fix: a dot with a KNOWN root is a field mistake, and the
+  reference says which field and lists the ones that exist. All four ports now do.
+
+- Five more sentences brought to the reference's: `TDC005` (the version refusal named the
+  library, not TDC, and told the reader to lower the version attribute rather than update),
+  `TDC050`, `TDC131` twice (a `<data>` in a fixture body, a `<gen>` in a `<line>` — the
+  reference's version links to the page that explains it), and `TDC257`, whose near name was
+  glued to the front of the note instead of standing on its own line.
+
 - **The four ports never said "did you mean".** The reference prints the near name on its own
   `help:` line above the note — the one part of a diagnostic a reader can act on without reading
   anything else — and the ports had no field for it. Some left it out; some folded it into the

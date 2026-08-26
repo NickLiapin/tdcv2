@@ -881,9 +881,10 @@ public sealed class Validator
             (int line, int column) = At(tdc, versionAttr is not null ? "version" : "v");
             Error(
                 "TDC005",
-                $"document version \"{raw}\" is newer than this runtime supports "
+                $"TDC document version \"{raw}\" is newer than this runtime "
                 + $"({SupportedVersion})",
-                "Update the library, or lower the version attribute.", line, column);
+                "Update TDC before processing this file; newer DSL features may not exist in "
+                + "this runtime.", line, column);
         }
     }
 
@@ -3180,9 +3181,37 @@ public sealed class Validator
         else if (!declared.Contains(on))
         {
             (int line, int column) = At(open, "on");
-            Error(
-                "TDC134", $"<switch on=\"{on}\"> refers to an unknown sequence",
-                "Declare the subject sequence above the switch.", line, column);
+            // A dot with a KNOWN root is a field mistake. Reported as an unknown sequence it
+            // sent the reader off to check a name that is declared right above.
+            int dot = on.IndexOf('.', StringComparison.Ordinal);
+            string root = dot < 0 ? on : on[..dot];
+            bool fieldMistake = dot >= 0 && (declared.Contains(root) || Checks.IsBuiltin(root));
+            if (fieldMistake)
+            {
+                string prefix = root + ".";
+                List<string> fields = _declaredFields
+                    .Where(n => n.StartsWith(prefix, StringComparison.Ordinal)
+                                && _declaredNames.Contains(n))
+                    .Select(n => n[prefix.Length..])
+                    .ToList();
+                string leaf = on[(dot + 1)..];
+                string near = Diagnostic.ClosestMatch(leaf, fields);
+                ErrorNear(
+                    "TDC134",
+                    $"<switch on=\"{on}\"> refers to \"{leaf}\", which is not a field of \"{root}\"",
+                    fields.Count == 0
+                        ? $"\"{root}\" has no fields — switch on it directly, or on a sequence "
+                          + "that has some."
+                        : $"Fields of \"{root}\": {string.Join(", ", fields)}.",
+                    line, column, near.Length == 0 ? "" : root + "." + near);
+            }
+            else
+            {
+                ErrorNear(
+                    "TDC134", $"<switch on=\"{on}\"> refers to an unknown sequence",
+                    "The `on` subject must be a sequence declared earlier in the same <env>.",
+                    line, column, Diagnostic.ClosestMatch(on, declared));
+            }
         }
 
         int entries = 0;
@@ -4094,7 +4123,8 @@ public sealed class Validator
                 {
                     Error(
                         "TDC050", "<gen type=\"text\"> requires a \"value\" attribute",
-                        "It is the comma-separated list to pick from.", Line(gen), Column(gen));
+                        "Provide comma-separated values, e.g. value=\"Male,Female\".",
+                        Line(gen), Column(gen));
                 }
 
                 return;
@@ -6308,7 +6338,8 @@ public sealed class Validator
                 Error(
                     "TDC131",
                     "a <gen> is not allowed inside <line> — the output block is for formatting only",
-                    "Declare it as a <sequence> in <env> and reference it with ${{Name}}.",
+                    "Declare a named <sequence> in <env> and reference it here with ${{Name}}. "
+                    + "See https://nickliapin.github.io/tdcv2/docs/core-concepts/sequences",
                     Line(self), Column(self));
                 continue;
             }
@@ -7023,7 +7054,7 @@ public sealed class Validator
                         "TDC101", $"unsupported operator \"{binary.Op}\" in {article} {label}",
                         "Supported binary operators: "
                         + string.Join(" ", SupportedBinaryOperators)
-                        + ". Functions: " + string.Join(", ", ExprFunctionNames)
+                        + ". Functions: " + string.Join(", ", ExprFunctionNames.OrderBy(n => n, StringComparer.Ordinal))
                         + ". Anything an expression cannot say, a <compute> sequence can — it has "
                         + "integer division, remainders, string surgery and checksums — and the "
                         + "sequence it produces is what if= then compares.",
@@ -7052,9 +7083,21 @@ public sealed class Validator
                               + $"comparison turns that bit into a different row. So {call.Callee} "
                               + "arrives once it has been built and pinned to its bits in all five "
                               + "implementations, not before. Available today: "
-                              + string.Join(", ", ExprFunctionNames) + "."
-                            : "Available: " + string.Join(", ", ExprFunctionNames) + ".",
+                              + string.Join(", ", ExprFunctionNames.OrderBy(n => n, StringComparer.Ordinal)) + "."
+                            : "Available: " + string.Join(", ", ExprFunctionNames.OrderBy(n => n, StringComparer.Ordinal)) + ".",
                         line, column);
+                    if (!planned)
+                    {
+                        // Not available, and not a typo either: someone writing `airy(x)` knows
+                        // what they meant, and "did you mean abs?" is worse than saying nothing.
+                        Diagnostic last = _diagnostics[^1];
+                        _diagnostics[^1] = last with
+                        {
+                            Suggestion = Diagnostic.DidYouMean(
+                                Diagnostic.ClosestMatch(call.Callee, ExprFunctionNames)),
+                        };
+                    }
+
                     return;
                 }
 

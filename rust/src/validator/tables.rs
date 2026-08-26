@@ -461,12 +461,17 @@ pub const EXPR_FUNCTIONS: [(&str, usize, usize); 61] = [
     ("zeta", 1, 1),
 ];
 
-pub const EXPR_FUNCTION_NAMES: [&str; 53] = [
+// Every name is one the evaluator answers to. Eight were implemented and left off this
+// list -- `at`, `count`, `join`, `mean`, `median`, `split`, `stddev`, `sum` -- so the
+// refusal for an unknown function offered a shorter language than the one that runs, and
+// a reader looking for `count` in it concluded it does not exist.
+pub const EXPR_FUNCTION_NAMES: [&str; 61] = [
     "abs",
     "acos",
     "acosh",
     "asin",
     "asinh",
+    "at",
     "atan",
     "atan2",
     "atanh",
@@ -477,6 +482,7 @@ pub const EXPR_FUNCTION_NAMES: [&str; 53] = [
     "contains",
     "cos",
     "cosh",
+    "count",
     "degrees",
     "digamma",
     "ends_with",
@@ -488,10 +494,9 @@ pub const EXPR_FUNCTION_NAMES: [&str; 53] = [
     "gamma",
     "gauss",
     "hash",
-    "noise",
-    "prev",
     "hypot",
     "is_empty",
+    "join",
     "len",
     "lerp",
     "lgamma",
@@ -501,15 +506,22 @@ pub const EXPR_FUNCTION_NAMES: [&str; 53] = [
     "log2",
     "lower",
     "max",
+    "mean",
+    "median",
     "min",
+    "noise",
     "pow",
+    "prev",
     "radians",
     "round",
     "sign",
     "sin",
     "sinh",
+    "split",
     "sqrt",
     "starts_with",
+    "stddev",
+    "sum",
     "tan",
     "tanh",
     "trunc",
