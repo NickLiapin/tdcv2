@@ -122,6 +122,13 @@ PLACEMENT_HINTS = {
     "default": "A <default> belongs inside a <switch>.",
     "line": "A <line> belongs inside a <block> (or a before/after fixture).",
     "sequence": "A <sequence> belongs directly inside <env>.",
+    # A <data> has no value of its own: it JOINS the value of the thing around it. Written
+    # where there is nothing to join — straight into <tdc>, <env>, <block> or <pool> — it
+    # rendered nothing and said nothing.
+    "data": (
+        "A <data> joins the value of the <line>, <sequence> or <case> it sits in — "
+        "on its own there is nothing for it to join."
+    ),
 }
 
 # The binary operators the evaluator implements. Anything else is refused, not ignored.
@@ -266,7 +273,9 @@ ENV_GROUP_CHILDREN = frozenset({"sequence", "mix", "switch"})
 
 # Deliberately generous: too SHORT a list refuses configs that work, while too long a one
 # merely leaves a little of the old silence in place.
-POOL_CHILDREN = frozenset({"sequence", "mix", "switch", "uniq", "distinct", "data"})
+# No "data". A pool publishes NAMED fields — ${{Ref.a}} — and a bare <data> has no name, so
+# nothing can address it. The composed form works one level in, inside the member's <sequence>.
+POOL_CHILDREN = frozenset({"sequence", "mix", "switch", "uniq", "distinct"})
 
 # A fixture holds literal text and <line>s.
 #: A fixture body is made of ``<line>``s and nothing else.
@@ -280,7 +289,7 @@ FIXTURE_CHILDREN = frozenset({"line"})
 SWITCH_CHILDREN = frozenset({"map", "case", "default"})
 
 # What may sit directly inside <block> and <line>.
-BLOCK_CHILDREN = frozenset({"line", "data"})
+BLOCK_CHILDREN = frozenset({"line"})
 LINE_CHILDREN = frozenset({"data", "gen", "mix", "switch"})
 
 FIXTURE_TAGS = frozenset(
@@ -1086,23 +1095,46 @@ class _Validator:
                         _column(self_closing),
                     )
                     continue
+                self._misplaced_at_tdc(name, _line(self_closing), _column(self_closing))
+                continue
+            data_el = child.dataElement()
+            if data_el is not None:
+                # Its own node in the grammar, so this walk stepped over it in silence and the
+                # text was dropped without a word.
                 self._error(
-                    "TDC010",
-                    f'unknown child of <tdc>: "<{name}>"',
-                    f"Allowed inside <tdc>: {_candidates(sorted(TDC_CHILDREN))}.",
-                    _line(self_closing),
-                    _column(self_closing),
+                    "TDC013",
+                    "<data> is not allowed directly inside <tdc>",
+                    f"{PLACEMENT_HINTS['data']} Allowed inside <tdc>: "
+                    f"{_candidates(sorted(TDC_CHILDREN))}.",
+                    _line(data_el),
+                    _column(data_el),
                 )
                 continue
             open_el = child.openCloseElement()
             if open_el is not None and open_el.name.text not in TDC_CHILDREN:
-                self._error(
-                    "TDC010",
-                    f'unknown child of <tdc>: "<{open_el.name.text}>"',
-                    f"Allowed inside <tdc>: {_candidates(sorted(TDC_CHILDREN))}.",
-                    _line(open_el),
-                    _column(open_el),
-                )
+                self._misplaced_at_tdc(open_el.name.text, _line(open_el), _column(open_el))
+
+    def _misplaced_at_tdc(self, name: str, line: int, column: int) -> None:
+        """A stray tag at document level.
+
+        Two different mistakes, two different fixes — the same split every other container
+        makes. A construct this language KNOWS is in the wrong place and needs moving (TDC013,
+        with where it belongs); a tag nobody has heard of is a typo (TDC010). This walk used to
+        call both unknown, so a <sequence> written at document level was reported as a tag that
+        does not exist.
+        """
+        takes = f"Allowed inside <tdc>: {_candidates(sorted(TDC_CHILDREN))}."
+        hint = PLACEMENT_HINTS.get(name)
+        if hint is not None:
+            self._error(
+                "TDC013",
+                f"<{name}> is not allowed directly inside <tdc>",
+                f"{hint} {takes}",
+                line,
+                column,
+            )
+        else:
+            self._error("TDC010", f'unknown child of <tdc>: "<{name}>"', takes, line, column)
 
     def _check_version(self, tdc) -> None:
         self._check_closed_tag_attrs("tdc", tdc.attr(), _line(tdc), _column(tdc))

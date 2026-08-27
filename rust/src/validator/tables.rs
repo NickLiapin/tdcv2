@@ -49,7 +49,9 @@ pub const ENV_GROUP_CHILDREN: [&str; 3] = ["sequence", "mix", "switch"];
 /// configs that work, while too long a one merely leaves a little silence.
 // A `<data>` inside a `<pool>` is accepted, so the refusal for a WRONG child has to name
 // it among the allowed ones.
-pub const POOL_CHILDREN: [&str; 6] = ["sequence", "mix", "switch", "uniq", "distinct", "data"];
+// No "data". A pool publishes NAMED fields — ${{Ref.a}} — and a bare <data> has no name, so
+// nothing can address it. The composed form works one level in, inside the member's <sequence>.
+pub const POOL_CHILDREN: [&str; 5] = ["sequence", "mix", "switch", "uniq", "distinct"];
 
 /// What a fixture (`<before>`, `<after>`, the delimiters) holds: literal text.
 /// A fixture body is made of `<line>`s and nothing else.
@@ -61,7 +63,7 @@ pub const POOL_CHILDREN: [&str; 6] = ["sequence", "mix", "switch", "uniq", "dist
 pub const FIXTURE_CHILDREN: [&str; 1] = ["line"];
 
 /// What may sit directly inside `<block>` and `<line>`.
-pub const BLOCK_CHILDREN: [&str; 2] = ["line", "data"];
+pub const BLOCK_CHILDREN: [&str; 1] = ["line"];
 pub const LINE_CHILDREN: [&str; 4] = ["data", "gen", "mix", "switch"];
 
 /// What may sit directly inside `<switch>`.
@@ -392,7 +394,7 @@ pub const KNOWN_TEMPLATE_PATHS: [&str; 9] = [
 
 pub const BUILTIN_TEMPLATE_PATHS: [&str; 2] = ["person.b_day", "date.range"];
 
-pub const PLACEMENT_HINTS: [(&str, &str); 8] = [
+pub const PLACEMENT_HINTS: [(&str, &str); 9] = [
     (
         "gen",
         "A <gen> lives inside a <sequence> (or a <case> of a <mix>/<switch>).",
@@ -414,6 +416,14 @@ pub const PLACEMENT_HINTS: [(&str, &str); 8] = [
         "A <line> belongs inside a <block> (or a before/after fixture).",
     ),
     ("sequence", "A <sequence> belongs directly inside <env>."),
+    // A <data> has no value of its own: it JOINS the value of the thing around it. Written
+    // where there is nothing to join — straight into <tdc>, <env>, <block> or <pool> — it
+    // rendered nothing and said nothing.
+    (
+        "data",
+        "A <data> joins the value of the <line>, <sequence> or <case> it sits in — on its own \
+         there is nothing for it to join.",
+    ),
 ];
 
 /// The binary operators the evaluator implements. Anything else is refused, not

@@ -478,29 +478,11 @@ impl Validator {
                     );
                     continue;
                 }
-                self.error(
-                    "TDC010",
-                    format!("unknown child of <tdc>: \"<{name}>\""),
-                    &{
-                        let mut names: Vec<&str> = tables::TDC_CHILDREN.to_vec();
-                        names.sort_unstable();
-                        format!("Allowed inside <tdc>: {}.", candidates(&names))
-                    },
-                    child.pos,
-                );
+                self.misplaced_at_tdc(&name, child.pos);
                 continue;
             }
             if !tables::TDC_CHILDREN.contains(&name.as_str()) {
-                self.error(
-                    "TDC010",
-                    format!("unknown child of <tdc>: \"<{name}>\""),
-                    &{
-                        let mut names: Vec<&str> = tables::TDC_CHILDREN.to_vec();
-                        names.sort_unstable();
-                        format!("Allowed inside <tdc>: {}.", candidates(&names))
-                    },
-                    child.pos,
-                );
+                self.misplaced_at_tdc(&name, child.pos);
             }
         }
     }
@@ -1445,7 +1427,6 @@ impl Validator {
                 !tables::POOL_CHILDREN.contains(&c.name.as_str())
                     && forbidden_in_pool(&c.name).is_none()
                     && c.name != "comment"
-                    && c.name != "data"
             })
             .map(|c| (c.name.clone(), c.pos))
             .collect();
@@ -1453,7 +1434,22 @@ impl Validator {
             // Neither branch below said anything about a name it did not know, and
             // the `kind != OpenClose` skip meant a self-closing invention was not
             // even looked at. Tags with a reason of their own keep TDC230.
-            self.unknown_child("pool", &name, "TDC010", &tables::POOL_CHILDREN, pos);
+            // A `<data>` is not unknown here, it is misplaced: a pool publishes NAMED fields,
+            // so a tag with no name has nothing to address it. It used to be skipped outright
+            // and dropped without a word.
+            match tables::PLACEMENT_HINTS.iter().find(|(k, _)| *k == name) {
+                Some((_, hint)) => {
+                    let names = sorted(&tables::POOL_CHILDREN);
+                    let refs: Vec<&str> = names.iter().map(String::as_str).collect();
+                    self.error(
+                        "TDC013",
+                        format!("<{name}> is not allowed directly inside <pool>"),
+                        &format!("{hint} Allowed inside <pool>: {}.", candidates(&refs)),
+                        pos,
+                    );
+                }
+                None => self.unknown_child("pool", &name, "TDC010", &tables::POOL_CHILDREN, pos),
+            }
         }
 
         for child in &node.children {
@@ -2555,6 +2551,33 @@ impl Validator {
                     attr.at(),
                 );
             }
+        }
+    }
+
+    /// A stray tag at document level.
+    ///
+    /// Two different mistakes, two different fixes — the same split every other container
+    /// makes. A construct this language KNOWS is in the wrong place and needs moving (TDC013,
+    /// with where it belongs); a tag nobody has heard of is a typo (TDC010). This walk used to
+    /// call both unknown, so a `<sequence>` written at document level was reported as a tag
+    /// that does not exist.
+    fn misplaced_at_tdc(&mut self, name: &str, pos: Pos) {
+        let mut names: Vec<&str> = tables::TDC_CHILDREN.to_vec();
+        names.sort_unstable();
+        let takes = format!("Allowed inside <tdc>: {}.", candidates(&names));
+        match tables::PLACEMENT_HINTS.iter().find(|(k, _)| *k == name) {
+            Some((_, hint)) => self.error(
+                "TDC013",
+                format!("<{name}> is not allowed directly inside <tdc>"),
+                &format!("{hint} {takes}"),
+                pos,
+            ),
+            None => self.error(
+                "TDC010",
+                format!("unknown child of <tdc>: \"<{name}>\""),
+                &takes,
+                pos,
+            ),
         }
     }
 

@@ -341,6 +341,11 @@ public sealed class Validator
             ["default"] = "A <default> belongs inside a <switch>.",
             ["line"] = "A <line> belongs inside a <block> (or a before/after fixture).",
             ["sequence"] = "A <sequence> belongs directly inside <env>.",
+            // A <data> has no value of its own: it JOINS the value of the thing around it.
+            // Written where there is nothing to join — straight into <tdc>, <env>, <block> or
+            // <pool> — it rendered nothing and said nothing.
+            ["data"] = "A <data> joins the value of the <line>, <sequence> or <case> it sits in "
+                + "— on its own there is nothing for it to join.",
         };
 
     /// <summary>The binary operators the evaluator implements. Anything else is refused, not ignored.</summary>
@@ -863,6 +868,29 @@ public sealed class Validator
     /// discarded: the run silently falls back to a default count on a random seed. Half-honouring it
     /// is worse than refusing it.
     /// </remarks>
+    /// <summary>A stray tag at document level.</summary>
+    /// <remarks>
+    /// Two different mistakes, two different fixes — the same split every other container makes.
+    /// A construct this language KNOWS is in the wrong place and needs moving (TDC013, with where
+    /// it belongs); a tag nobody has heard of is a typo (TDC010). This walk used to call both
+    /// unknown, so a <c>&lt;sequence&gt;</c> written at document level was reported as a tag that
+    /// does not exist.
+    /// </remarks>
+    private void MisplacedAtTdc(string name, int line, int column)
+    {
+        string takes = $"Allowed inside <tdc>: {Candidates(TdcChildren)}.";
+        if (PlacementHints.TryGetValue(name, out string? hint))
+        {
+            Error(
+                "TDC013", $"<{name}> is not allowed directly inside <tdc>",
+                $"{hint} {takes}", line, column);
+        }
+        else
+        {
+            Error("TDC010", $"unknown child of <tdc>: \"<{name}>\"", takes, line, column);
+        }
+    }
+
     private void CheckTdcChildren(TDCParser.OpenCloseElementContext tdc)
     {
         // Both containers are read by taking the FIRST of their kind, so a second one is dropped
@@ -910,20 +938,26 @@ public sealed class Validator
                     continue;
                 }
 
+                MisplacedAtTdc(name, Line(self), Column(self));
+                continue;
+            }
+
+            TDCParser.DataElementContext data = child.dataElement();
+            if (data is not null)
+            {
+                // Its own node in the grammar, so this walk stepped over it in silence and the
+                // text was dropped without a word.
                 Error(
-                    "TDC010", $"unknown child of <tdc>: \"<{name}>\"",
-                    $"Allowed inside <tdc>: {Candidates(TdcChildren)}.",
-                    Line(self), Column(self));
+                    "TDC013", "<data> is not allowed directly inside <tdc>",
+                    $"{PlacementHints["data"]} Allowed inside <tdc>: {Candidates(TdcChildren)}.",
+                    data.Start.Line, data.Start.Column);
                 continue;
             }
 
             TDCParser.OpenCloseElementContext open = child.openCloseElement();
             if (open is not null && !TdcChildren.Contains(open.name.Text))
             {
-                Error(
-                    "TDC010", $"unknown child of <tdc>: \"<{open.name.Text}>\"",
-                    $"Allowed inside <tdc>: {Candidates(TdcChildren)}.",
-                    Line(open), Column(open));
+                MisplacedAtTdc(open.name.Text, Line(open), Column(open));
             }
         }
     }
@@ -8071,9 +8105,12 @@ public sealed class Validator
     private static readonly IReadOnlySet<string> DistinctChildren = new HashSet<string> { "gen" };
 
     /// <summary>Deliberately generous: too short a list refuses configs that work today.</summary>
+    // No "data". A pool publishes NAMED fields — ${{Ref.a}} — and a bare <data> has no name, so
+    // nothing can address it. The composed form works one level in, inside the member's
+    // own <sequence>.
     private static readonly IReadOnlySet<string> PoolChildren = new HashSet<string>
     {
-        "sequence", "mix", "switch", "uniq", "distinct", "data",
+        "sequence", "mix", "switch", "uniq", "distinct",
     };
 
     /// <summary>A fixture holds literal text and <c>&lt;line&gt;</c>s.</summary>
@@ -8118,7 +8155,7 @@ public sealed class Validator
 
     /// <summary>What may sit directly inside <c>&lt;block&gt;</c> and <c>&lt;line&gt;</c>.</summary>
     private static readonly IReadOnlySet<string> BlockChildren =
-        new HashSet<string> { "line", "data" };
+        new HashSet<string> { "line" };
 
     private static readonly IReadOnlySet<string> LineChildren =
         new HashSet<string> { "data", "gen", "mix", "switch" };

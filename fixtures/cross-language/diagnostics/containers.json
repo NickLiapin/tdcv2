@@ -116,6 +116,13 @@
       "description": "The outermost of the four. Same rule: a <data> joins the value around it, and at document level there is none.",
       "config": "<tdc><data>loose</data><env count=\"2\" seed=\"s\"><sequence name=\"a\"><gen type=\"text\" value=\"x,y\"/></sequence></env><block><line><data>${{a}}</data></line></block></tdc>",
       "expected": ["error TDC013 1:5"]
+    },
+    {
+      "name": "a-known-construct-at-document-level",
+      "demonstrates": "TDC013",
+      "description": "A <sequence> written straight into <tdc>. Found while closing the loose-<data> hole: the document-level walk called every stray tag UNKNOWN in four of the five, so a construct the language knows was reported as one that does not exist. TDC013 says where it belongs; TDC010 is for a typo.",
+      "config": "<tdc><sequence name=\"loose\"><gen type=\"text\" value=\"a,b\"/></sequence><env count=\"2\" seed=\"s\"><sequence name=\"a\"><gen type=\"text\" value=\"x,y\"/></sequence></env><block><line><data>${{a}}</data></line></block></tdc>",
+      "expected": ["error TDC013 1:5"]
     }
   ]
 }

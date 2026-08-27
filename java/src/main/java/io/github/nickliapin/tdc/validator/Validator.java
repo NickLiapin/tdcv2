@@ -316,7 +316,13 @@ public final class Validator {
           "map", "A <map> belongs inside a <switch>.",
           "default", "A <default> belongs inside a <switch>.",
           "line", "A <line> belongs inside a <block> (or a before/after fixture).",
-          "sequence", "A <sequence> belongs directly inside <env>.");
+          "sequence", "A <sequence> belongs directly inside <env>.",
+          // A <data> has no value of its own: it JOINS the value of the thing around it.
+          // Written where there is nothing to join — straight into <tdc>, <env>, <block> or
+          // <pool> — it rendered nothing and said nothing.
+          "data",
+          "A <data> joins the value of the <line>, <sequence> or <case> it sits in — on its "
+              + "own there is nothing for it to join.");
 
   /** The binary operators the evaluator implements. Anything else is refused, not ignored. */
   /** Operators whose right side may be a bare word rather than a name. */
@@ -880,16 +886,22 @@ public final class Validator {
               line(self), column(self));
           continue;
         }
-        error("TDC010", "unknown child of <tdc>: \"<" + name + ">\"",
-            "Allowed inside <tdc>: " + candidates(TDC_CHILDREN) + ".",
-            line(self), column(self));
+        misplacedAtTdc(name, line(self), column(self));
+        continue;
+      }
+      TDCParser.DataElementContext data = child.dataElement();
+      if (data != null) {
+        // Its own node in the grammar, so this walk stepped over it in silence and the text was
+        // dropped without a word.
+        error("TDC013", "<data> is not allowed directly inside <tdc>",
+            PLACEMENT_HINTS.get("data") + " Allowed inside <tdc>: " + candidates(TDC_CHILDREN)
+                + ".",
+            data.getStart().getLine(), data.getStart().getCharPositionInLine());
         continue;
       }
       TDCParser.OpenCloseElementContext open = child.openCloseElement();
       if (open != null && !TDC_CHILDREN.contains(open.name.getText())) {
-        error("TDC010", "unknown child of <tdc>: \"<" + open.name.getText() + ">\"",
-            "Allowed inside <tdc>: " + candidates(TDC_CHILDREN) + ".",
-            line(open), column(open));
+        misplacedAtTdc(open.name.getText(), line(open), column(open));
       }
     }
   }
@@ -6646,9 +6658,15 @@ public final class Validator {
    */
   private static final Set<String> DISTINCT_CHILDREN = Set.of("gen");
 
-  /** Deliberately generous: too short a list refuses configs that work today. */
+  /**
+   * Deliberately generous: too short a list refuses configs that work today.
+   *
+   * <p>No {@code data}. A pool publishes NAMED fields — {@code ${{Ref.a}}} — and a bare
+   * {@code <data>} has no name, so nothing can address it. The composed form works one level in,
+   * inside the member's own {@code <sequence>}.
+   */
   private static final Set<String> POOL_CHILDREN =
-      Set.of("sequence", "mix", "switch", "uniq", "distinct", "data");
+      Set.of("sequence", "mix", "switch", "uniq", "distinct");
 
   /** A fixture holds literal text and {@code <line>}s. */
   /**
@@ -6661,6 +6679,25 @@ public final class Validator {
   private static final Set<String> FIXTURE_CHILDREN = Set.of("line");
 
   /** A {@code <data>} with no {@code <line>} around it, inside a fixture body. */
+  /**
+   * A stray tag at document level.
+   *
+   * <p>Two different mistakes, two different fixes — the same split every other container makes.
+   * A construct this language KNOWS is in the wrong place and needs moving (TDC013, with where it
+   * belongs); a tag nobody has heard of is a typo (TDC010). This walk used to call both unknown,
+   * so a {@code <sequence>} written at document level was reported as a tag that does not exist.
+   */
+  private void misplacedAtTdc(String name, int line, int column) {
+    String takes = "Allowed inside <tdc>: " + candidates(TDC_CHILDREN) + ".";
+    String hint = PLACEMENT_HINTS.get(name);
+    if (hint != null) {
+      error("TDC013", "<" + name + "> is not allowed directly inside <tdc>", hint + " " + takes,
+          line, column);
+    } else {
+      error("TDC010", "unknown child of <tdc>: \"<" + name + ">\"", takes, line, column);
+    }
+  }
+
   private void checkFixtureData(TDCParser.OpenCloseElementContext fixture, String tag) {
     if (fixture.content() == null) {
       return;
@@ -6681,7 +6718,7 @@ public final class Validator {
   private static final Set<String> SWITCH_CHILDREN = Set.of("map", "case", "default");
 
   /** What may sit directly inside {@code <block>} and {@code <line>}. */
-  private static final Set<String> BLOCK_CHILDREN = Set.of("line", "data");
+  private static final Set<String> BLOCK_CHILDREN = Set.of("line");
 
   private static final Set<String> LINE_CHILDREN = Set.of("data", "gen", "mix", "switch");
 
