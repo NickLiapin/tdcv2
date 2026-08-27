@@ -287,9 +287,7 @@ class DataPacks:
                     if not declared_locale:
                         if _has_header(lines):
                             dropped.append(
-                                _unaddressable_warning(
-                                    self.source.locate(file) or file, address
-                                )
+                                _unaddressable_warning(self.source.locate(file) or file, address)
                             )
                         continue
                     address = f"{declared_locale}.{address}"

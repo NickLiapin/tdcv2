@@ -127,9 +127,9 @@ def load_weighted(
         if not value:
             raise ValueError(
                 f'file generator: column "{column}" is empty on value row {position + 1} '
-                '— a blank cell would drop that row from the values and quietly change the '
-                'proportions. Fill it in, remove the row, or point column= at a column that '
-                'is complete.'
+                "— a blank cell would drop that row from the values and quietly change the "
+                "proportions. Fill it in, remove the row, or point column= at a column that "
+                "is complete."
             )
         weight = _weight_of(row, weight_index, weight_column, value)
         # A zero weight means never drawn, so carrying it costs memory and buys nothing.
@@ -420,8 +420,8 @@ def _csv_column(content: str, column: str, attrs: dict[str, str], path: Path) ->
             raise ValueError(
                 f'file generator: column "{column}" is empty on value row {position + 1} of '
                 f'"{path}" — a blank cell would drop that row from the values and quietly '
-                'change the proportions. Fill it in, remove the row, or point column= at a '
-                'column that is complete.'
+                "change the proportions. Fill it in, remove the row, or point column= at a "
+                "column that is complete."
             )
     if not values:
         raise ValueError(f'file generator: CSV column "{column}" at "{path}" has no values')

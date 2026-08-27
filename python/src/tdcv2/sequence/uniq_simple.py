@@ -28,6 +28,7 @@ class UniqSimpleError(RuntimeError):
     importing this module — hence a class of our own rather than a cycle).
     """
 
+
 _INT_RANGE = re.compile(r"^\s*(-?\d+)\s*\.\.\s*(-?\d+)\s*$")
 
 # The two template paths that are generators rather than lists — resolved before the
@@ -110,7 +111,7 @@ def unsupported_reason(gen) -> str:
     """Why this gen cannot take the without-replacement path, for the refusal."""
     if gen.type == "number":
         return (
-            "its values are not a plain integer range — uniq supports value=\"a..b\" "
+            'its values are not a plain integer range — uniq supports value="a..b" '
             "without decimals=, distribution=, include=, exclude= or first_zero="
         )
     return (

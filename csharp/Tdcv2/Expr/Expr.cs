@@ -25,6 +25,12 @@ namespace Tdcv2.Expr;
 /// </remarks>
 public abstract record Expr
 {
+    /// <summary>What the parser says when an expression is complete and the input is
+    /// not — <c>A B</c>, <c>A , B</c>, <c>A ;</c>. Agreed beside the only place that
+    /// writes it, so the validator gives the same sentence the other four
+    /// implementations give without matching prose.</summary>
+    public const string NotOneExpression = "this is not a single expression";
+
     public sealed record Num(double Value) : Expr;
 
     /// <summary>
@@ -164,7 +170,7 @@ public abstract record Expr
         if (!parser.Done)
         {
             throw new ArgumentException(
-                $"if expression: unexpected \"{parser.Rest}\" in \"{source}\"");
+                NotOneExpression);
         }
 
         return result;

@@ -620,11 +620,22 @@ describe('validator — if-expression checks', () => {
     expect(r.diagnostics.find((d) => d.code === 'TDC101')).toBeDefined();
   });
 
-  it('errors on unsupported expression constructs', () => {
-    // Two expressions with nothing joining them — jsep calls it a Compound, and
-    // there is no one value for the condition to be.
+  it('errors on two expressions with nothing joining them', () => {
+    // There is no one value for the condition to be. The parser library calls
+    // this a "Compound" and the message used to repeat that word, which names
+    // an internal detail rather than the mistake.
     const r = run(wrap('if="Gender Male"'));
-    expect(r.diagnostics.find((d) => d.code === 'TDC103')).toBeDefined();
+    const d = r.diagnostics.find((x) => x.code === 'TDC100');
+    expect(d?.message).toContain('this is not a single expression');
+  });
+
+  it('errors on a stray separator left after an expression', () => {
+    // The parser library DROPS a trailing `;` and hands back the expression
+    // before it, so this used to validate and run — while all four ports
+    // refused the same file, because their parsers stop at the leftover.
+    const r = run(wrap('if="Gender ;"'));
+    const d = r.diagnostics.find((x) => x.code === 'TDC100');
+    expect(d?.message).toContain('this is not a single expression');
   });
 
   it('accepts the ternary and a list on the right of in', () => {

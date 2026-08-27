@@ -521,39 +521,111 @@ UK = DateLocale(
     ("січ", "лют", "бер", "квіт", "трав", "черв", "лип", "серп", "вер", "жовт", "лист", "груд"),
     ("неділя", "понеділок", "вівторок", "середа", "четвер", "п'ятниця", "субота"),
     ("нд", "пн", "вт", "ср", "чт", "пт", "сб"),
-    {"L": "DD.MM.YYYY", "LL": "D MMMM YYYY", "LLL": "D MMMM YYYY HH:mm", "LLLL": "dddd, D MMMM YYYY HH:mm"},
-    months_in_date=("січня", "лютого", "березня", "квітня", "травня", "червня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня")
+    {
+        "L": "DD.MM.YYYY",
+        "LL": "D MMMM YYYY",
+        "LLL": "D MMMM YYYY HH:mm",
+        "LLLL": "dddd, D MMMM YYYY HH:mm",
+    },
+    months_in_date=(
+        "січня",
+        "лютого",
+        "березня",
+        "квітня",
+        "травня",
+        "червня",
+        "липня",
+        "серпня",
+        "вересня",
+        "жовтня",
+        "листопада",
+        "грудня",
+    ),
 )
 
 # Turkish month names do not inflect, and are capitalised as proper nouns.
 TR = DateLocale(
     "tr",
-    ("Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"),
+    (
+        "Ocak",
+        "Şubat",
+        "Mart",
+        "Nisan",
+        "Mayıs",
+        "Haziran",
+        "Temmuz",
+        "Ağustos",
+        "Eylül",
+        "Ekim",
+        "Kasım",
+        "Aralık",
+    ),
     ("Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"),
     ("Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"),
     ("Paz", "Pzt", "Sal", "Çar", "Per", "Cum", "Cmt"),
-    {"L": "DD.MM.YYYY", "LL": "D MMMM YYYY", "LLL": "D MMMM YYYY HH:mm", "LLLL": "dddd, D MMMM YYYY HH:mm"},
+    {
+        "L": "DD.MM.YYYY",
+        "LL": "D MMMM YYYY",
+        "LLL": "D MMMM YYYY HH:mm",
+        "LLLL": "dddd, D MMMM YYYY HH:mm",
+    },
 )
 
 # Indonesian month and weekday names do not inflect, and are capitalised.
 ID = DateLocale(
     "id",
-    ("Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"),
+    (
+        "Januari",
+        "Februari",
+        "Maret",
+        "April",
+        "Mei",
+        "Juni",
+        "Juli",
+        "Agustus",
+        "September",
+        "Oktober",
+        "November",
+        "Desember",
+    ),
     ("Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"),
     ("Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"),
     ("Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"),
-    {"L": "DD/MM/YYYY", "LL": "D MMMM YYYY", "LLL": "D MMMM YYYY HH:mm", "LLLL": "dddd, D MMMM YYYY HH:mm"},
+    {
+        "L": "DD/MM/YYYY",
+        "LL": "D MMMM YYYY",
+        "LLL": "D MMMM YYYY HH:mm",
+        "LLLL": "dddd, D MMMM YYYY HH:mm",
+    },
 )
 
 # Vietnamese names months by number — "tháng 10", not a word of its own — and a full date
 # reads "ngày 9 tháng 10 năm 2026", so the long formats carry those three words as literals.
 VI = DateLocale(
     "vi",
-    ("tháng 1", "tháng 2", "tháng 3", "tháng 4", "tháng 5", "tháng 6", "tháng 7", "tháng 8", "tháng 9", "tháng 10", "tháng 11", "tháng 12"),
+    (
+        "tháng 1",
+        "tháng 2",
+        "tháng 3",
+        "tháng 4",
+        "tháng 5",
+        "tháng 6",
+        "tháng 7",
+        "tháng 8",
+        "tháng 9",
+        "tháng 10",
+        "tháng 11",
+        "tháng 12",
+    ),
     ("Th1", "Th2", "Th3", "Th4", "Th5", "Th6", "Th7", "Th8", "Th9", "Th10", "Th11", "Th12"),
     ("Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"),
     ("CN", "T2", "T3", "T4", "T5", "T6", "T7"),
-    {"L": "DD/MM/YYYY", "LL": "[ngày] D MMMM [năm] YYYY", "LLL": "[ngày] D MMMM [năm] YYYY HH:mm", "LLLL": "dddd, [ngày] D MMMM [năm] YYYY HH:mm"},
+    {
+        "L": "DD/MM/YYYY",
+        "LL": "[ngày] D MMMM [năm] YYYY",
+        "LLL": "[ngày] D MMMM [năm] YYYY HH:mm",
+        "LLLL": "dddd, [ngày] D MMMM [năm] YYYY HH:mm",
+    },
 )
 
 # Japanese names months by number, so MMMM is already "10月" and the long formats use the numeric M with 年/月/日 as literals.
@@ -563,7 +635,12 @@ JA = DateLocale(
     ("1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"),
     ("日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"),
     ("日", "月", "火", "水", "木", "金", "土"),
-    {"L": "YYYY/MM/DD", "LL": "YYYY[年]M[月]D[日]", "LLL": "YYYY[年]M[月]D[日] HH:mm", "LLLL": "YYYY[年]M[月]D[日] dddd HH:mm"},
+    {
+        "L": "YYYY/MM/DD",
+        "LL": "YYYY[年]M[月]D[日]",
+        "LLL": "YYYY[年]M[月]D[日] HH:mm",
+        "LLLL": "YYYY[年]M[月]D[日] dddd HH:mm",
+    },
 )
 
 # Korean names months by number, and a written date reads "2026년 10월 9일" with 년/월/일 as literals.
@@ -573,47 +650,137 @@ KO = DateLocale(
     ("1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"),
     ("일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"),
     ("일", "월", "화", "수", "목", "금", "토"),
-    {"L": "YYYY. MM. DD.", "LL": "YYYY[년] M[월] D[일]", "LLL": "YYYY[년] M[월] D[일] HH:mm", "LLLL": "YYYY[년] M[월] D[일] dddd HH:mm"},
+    {
+        "L": "YYYY. MM. DD.",
+        "LL": "YYYY[년] M[월] D[일]",
+        "LLL": "YYYY[년] M[월] D[일] HH:mm",
+        "LLLL": "YYYY[년] M[월] D[일] dddd HH:mm",
+    },
 )
 
 # Dutch writes month and weekday names in lower case, unlike its German neighbour.
 NL = DateLocale(
     "nl",
-    ("januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"),
+    (
+        "januari",
+        "februari",
+        "maart",
+        "april",
+        "mei",
+        "juni",
+        "juli",
+        "augustus",
+        "september",
+        "oktober",
+        "november",
+        "december",
+    ),
     ("jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"),
     ("zondag", "maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag"),
     ("zo", "ma", "di", "wo", "do", "vr", "za"),
-    {"L": "DD-MM-YYYY", "LL": "D MMMM YYYY", "LLL": "D MMMM YYYY HH:mm", "LLLL": "dddd D MMMM YYYY HH:mm"},
+    {
+        "L": "DD-MM-YYYY",
+        "LL": "D MMMM YYYY",
+        "LLL": "D MMMM YYYY HH:mm",
+        "LLLL": "dddd D MMMM YYYY HH:mm",
+    },
 )
 
 # Swedish writes month and weekday names in lower case, and Sweden is an ISO-8601 country: the short date is YYYY-MM-DD.
 SV = DateLocale(
     "sv",
-    ("januari", "februari", "mars", "april", "maj", "juni", "juli", "augusti", "september", "oktober", "november", "december"),
+    (
+        "januari",
+        "februari",
+        "mars",
+        "april",
+        "maj",
+        "juni",
+        "juli",
+        "augusti",
+        "september",
+        "oktober",
+        "november",
+        "december",
+    ),
     ("jan", "feb", "mar", "apr", "maj", "jun", "jul", "aug", "sep", "okt", "nov", "dec"),
     ("söndag", "måndag", "tisdag", "onsdag", "torsdag", "fredag", "lördag"),
     ("sön", "mån", "tis", "ons", "tors", "fre", "lör"),
-    {"L": "YYYY-MM-DD", "LL": "D MMMM YYYY", "LLL": "D MMMM YYYY HH:mm", "LLLL": "dddd D MMMM YYYY HH:mm"},
+    {
+        "L": "YYYY-MM-DD",
+        "LL": "D MMMM YYYY",
+        "LLL": "D MMMM YYYY HH:mm",
+        "LLLL": "dddd D MMMM YYYY HH:mm",
+    },
 )
 
 # Hindi names the Gregorian months with borrowed forms and the weekdays after the planets; the week starts on Sunday.
 HI = DateLocale(
     "hi",
-    ("जनवरी", "फ़रवरी", "मार्च", "अप्रैल", "मई", "जून", "जुलाई", "अगस्त", "सितंबर", "अक्तूबर", "नवंबर", "दिसंबर"),
+    (
+        "जनवरी",
+        "फ़रवरी",
+        "मार्च",
+        "अप्रैल",
+        "मई",
+        "जून",
+        "जुलाई",
+        "अगस्त",
+        "सितंबर",
+        "अक्तूबर",
+        "नवंबर",
+        "दिसंबर",
+    ),
     ("जन.", "फ़र.", "मार्च", "अप्रैल", "मई", "जून", "जुल.", "अग.", "सित.", "अक्तू.", "नव.", "दिस."),
     ("रविवार", "सोमवार", "मंगलवार", "बुधवार", "गुरुवार", "शुक्रवार", "शनिवार"),
     ("रवि", "सोम", "मंगल", "बुध", "गुरु", "शुक्र", "शनि"),
-    {"L": "DD/MM/YYYY", "LL": "D MMMM YYYY", "LLL": "D MMMM YYYY HH:mm", "LLLL": "dddd, D MMMM YYYY HH:mm"},
+    {
+        "L": "DD/MM/YYYY",
+        "LL": "D MMMM YYYY",
+        "LLL": "D MMMM YYYY HH:mm",
+        "LLLL": "dddd, D MMMM YYYY HH:mm",
+    },
 )
 
 # Thailand counts years in the Buddhist Era, 543 ahead of the Common Era: 2026 CE is 2569. The formatter does NOT convert — the year a config supplies is the year printed — so a caller that wants the BE year adds 543 itself. The pack says so in its own date descriptions rather than leaving a silent 543-year error.
 TH = DateLocale(
     "th",
-    ("มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"),
-    ("ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."),
+    (
+        "มกราคม",
+        "กุมภาพันธ์",
+        "มีนาคม",
+        "เมษายน",
+        "พฤษภาคม",
+        "มิถุนายน",
+        "กรกฎาคม",
+        "สิงหาคม",
+        "กันยายน",
+        "ตุลาคม",
+        "พฤศจิกายน",
+        "ธันวาคม",
+    ),
+    (
+        "ม.ค.",
+        "ก.พ.",
+        "มี.ค.",
+        "เม.ย.",
+        "พ.ค.",
+        "มิ.ย.",
+        "ก.ค.",
+        "ส.ค.",
+        "ก.ย.",
+        "ต.ค.",
+        "พ.ย.",
+        "ธ.ค.",
+    ),
     ("วันอาทิตย์", "วันจันทร์", "วันอังคาร", "วันพุธ", "วันพฤหัสบดี", "วันศุกร์", "วันเสาร์"),
     ("อา.", "จ.", "อ.", "พ.", "พฤ.", "ศ.", "ส."),
-    {"L": "DD/MM/YYYY", "LL": "D MMMM YYYY", "LLL": "D MMMM YYYY HH:mm", "LLLL": "dddd D MMMM YYYY HH:mm"},
+    {
+        "L": "DD/MM/YYYY",
+        "LL": "D MMMM YYYY",
+        "LLL": "D MMMM YYYY HH:mm",
+        "LLLL": "dddd D MMMM YYYY HH:mm",
+    },
 )
 
 # Czech, like Russian and Polish, inflects the month name inside a date: the standalone nominative is "leden" but a date reads "5. ledna 2026". These are the genitive forms the formatter needs; the nominative list lives in the pack at cs/date/month.txt. Month and weekday names are lower case.
@@ -636,18 +803,67 @@ CS = DateLocale(
     ("led", "úno", "bře", "dub", "kvě", "čvn", "čvc", "srp", "zář", "říj", "lis", "pro"),
     ("neděle", "pondělí", "úterý", "středa", "čtvrtek", "pátek", "sobota"),
     ("ne", "po", "út", "st", "čt", "pá", "so"),
-    {"L": "DD.MM.YYYY", "LL": "D. MMMM YYYY", "LLL": "D. MMMM YYYY HH:mm", "LLLL": "dddd D. MMMM YYYY HH:mm"},
-    months_in_date=("ledna", "února", "března", "dubna", "května", "června", "července", "srpna", "září", "října", "listopadu", "prosince")
+    {
+        "L": "DD.MM.YYYY",
+        "LL": "D. MMMM YYYY",
+        "LLL": "D. MMMM YYYY HH:mm",
+        "LLLL": "dddd D. MMMM YYYY HH:mm",
+    },
+    months_in_date=(
+        "ledna",
+        "února",
+        "března",
+        "dubna",
+        "května",
+        "června",
+        "července",
+        "srpna",
+        "září",
+        "října",
+        "listopadu",
+        "prosince",
+    ),
 )
 
 # Hungarian writes a date big-endian — year, month, day — and puts a full stop after EVERY part, the day included: "2026. 10. 09." is a complete date and "2026. 10. 09" is a typo. Month and weekday names are lower case, and the weekday follows the date rather than leading it.
 HU = DateLocale(
     "hu",
-    ("január", "február", "március", "április", "május", "június", "július", "augusztus", "szeptember", "október", "november", "december"),
-    ("jan.", "febr.", "márc.", "ápr.", "máj.", "jún.", "júl.", "aug.", "szept.", "okt.", "nov.", "dec."),
+    (
+        "január",
+        "február",
+        "március",
+        "április",
+        "május",
+        "június",
+        "július",
+        "augusztus",
+        "szeptember",
+        "október",
+        "november",
+        "december",
+    ),
+    (
+        "jan.",
+        "febr.",
+        "márc.",
+        "ápr.",
+        "máj.",
+        "jún.",
+        "júl.",
+        "aug.",
+        "szept.",
+        "okt.",
+        "nov.",
+        "dec.",
+    ),
     ("vasárnap", "hétfő", "kedd", "szerda", "csütörtök", "péntek", "szombat"),
     ("V", "H", "K", "Sze", "Cs", "P", "Szo"),
-    {"L": "YYYY.MM.DD.", "LL": "YYYY. MMMM D.", "LLL": "YYYY. MMMM D. HH:mm", "LLLL": "YYYY. MMMM D., dddd HH:mm"},
+    {
+        "L": "YYYY.MM.DD.",
+        "LL": "YYYY. MMMM D.",
+        "LLL": "YYYY. MMMM D. HH:mm",
+        "LLLL": "YYYY. MMMM D., dddd HH:mm",
+    },
 )
 
 # Finnish, like Czech, inflects the month name inside a date: the month is "tammikuu" but the date reads "5. tammikuuta 2026". These are the partitive forms the formatter needs; the nominative list lives in the pack at fi/date/month.txt. The day number keeps a full stop after it because it is an ordinal, and the time separator is a full stop rather than a colon — 14.30, not 14:30.
@@ -667,11 +883,42 @@ FI = DateLocale(
         "marraskuu",
         "joulukuu",
     ),
-    ("tammi", "helmi", "maalis", "huhti", "touko", "kesä", "heinä", "elo", "syys", "loka", "marras", "joulu"),
+    (
+        "tammi",
+        "helmi",
+        "maalis",
+        "huhti",
+        "touko",
+        "kesä",
+        "heinä",
+        "elo",
+        "syys",
+        "loka",
+        "marras",
+        "joulu",
+    ),
     ("sunnuntai", "maanantai", "tiistai", "keskiviikko", "torstai", "perjantai", "lauantai"),
     ("su", "ma", "ti", "ke", "to", "pe", "la"),
-    {"L": "D.M.YYYY", "LL": "D. MMMM YYYY", "LLL": "D. MMMM YYYY HH.mm", "LLLL": "dddd D. MMMM YYYY HH.mm"},
-    months_in_date=("tammikuuta", "helmikuuta", "maaliskuuta", "huhtikuuta", "toukokuuta", "kesäkuuta", "heinäkuuta", "elokuuta", "syyskuuta", "lokakuuta", "marraskuuta", "joulukuuta")
+    {
+        "L": "D.M.YYYY",
+        "LL": "D. MMMM YYYY",
+        "LLL": "D. MMMM YYYY HH.mm",
+        "LLLL": "dddd D. MMMM YYYY HH.mm",
+    },
+    months_in_date=(
+        "tammikuuta",
+        "helmikuuta",
+        "maaliskuuta",
+        "huhtikuuta",
+        "toukokuuta",
+        "kesäkuuta",
+        "heinäkuuta",
+        "elokuuta",
+        "syyskuuta",
+        "lokakuuta",
+        "marraskuuta",
+        "joulukuuta",
+    ),
 )
 
 _BY_NAME: dict[str, DateLocale] = {
@@ -721,7 +968,32 @@ _BY_NAME: dict[str, DateLocale] = {
     "fin": FI,
 }
 
-NAMES = ("ar", "cs", "de", "el", "en", "es", "fi", "fr", "hu", "id", "it", "ja", "ko", "hi", "nl", "pl", "pt", "ru", "sv", "th", "tr", "uk", "vi", "zh-cn")
+NAMES = (
+    "ar",
+    "cs",
+    "de",
+    "el",
+    "en",
+    "es",
+    "fi",
+    "fr",
+    "hu",
+    "id",
+    "it",
+    "ja",
+    "ko",
+    "hi",
+    "nl",
+    "pl",
+    "pt",
+    "ru",
+    "sv",
+    "th",
+    "tr",
+    "uk",
+    "vi",
+    "zh-cn",
+)
 
 
 def resolve(name: str | None) -> DateLocale:

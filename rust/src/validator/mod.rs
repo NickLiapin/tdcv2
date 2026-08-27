@@ -6236,6 +6236,27 @@ impl Validator {
     fn check_expression_at(&mut self, expression: &str, at: Pos, label: &str, article: &str) {
         match expr::parse(expression) {
             Ok(parsed) => self.check_expr_node(&parsed, at, label, article),
+            // An expression that is complete and then continues — `A B`, `A , B`, `A ;` — is
+            // not a condition. The reference used to hand it to its parser library and repeat
+            // whatever that called the node; worse, the library dropped a trailing `;` and let
+            // `if="A ;"` RUN. One sentence for the shape now, in all five.
+            //
+            // An entity still explains it first when there is one: `A &gt; 5` is one mistake
+            // with one cause, and which half of it a given parser trips over is an accident of
+            // that parser.
+            Err(e) if e.message() == expr::NOT_ONE_EXPRESSION && xml_entity(expression).is_none() => {
+                self.error(
+                    "TDC100",
+                    format!(
+                        "invalid {label} \"{}\": {}",
+                        clip(expression),
+                        expr::NOT_ONE_EXPRESSION
+                    ),
+                    "Write ONE condition. Two expressions side by side, or a stray \";\" or \",\" \
+                     left after one, is not something TDC reads.",
+                    at,
+                );
+            }
             Err(e) => match xml_entity(expression) {
                 None => self.error(
                     "TDC100",
@@ -6256,7 +6277,7 @@ impl Validator {
                 Some((found, means)) => self.error(
                     "TDC100",
                     format!(
-                        "invalid {} \"{}\": TDC does not expand XML entities, \
+                        "invalid {} \"{}\": nothing is expanded here, \
                          so \"{}\" is {} literal characters, not \"{}\"",
                         label,
                         clip(expression),
@@ -6265,7 +6286,7 @@ impl Validator {
                         means
                     ),
                     &format!(
-                        "write {means} directly — the config is XML-shaped but it is not XML, \
+                        "write {means} directly — TDC reads the characters as typed, \
                          and the raw character is what the expression parser reads"
                     ),
                     at,

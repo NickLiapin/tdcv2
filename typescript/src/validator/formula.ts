@@ -70,8 +70,8 @@ export function checkGenFormula(
       severity: 'error',
       source: 'validator',
       ...at,
-      message: `expr="${expr}": TDC does not expand XML entities, so "${entity.found}" is ${String(entity.found.length)} literal characters, not "${entity.means}"`,
-      hint: `Write ${entity.means} directly — the config is XML-shaped but it is not XML, and the raw character is what the expression parser reads.`,
+      message: `expr="${expr}": nothing is expanded here, so "${entity.found}" is ${String(entity.found.length)} literal characters, not "${entity.means}"`,
+      hint: `Write ${entity.means} directly — TDC reads the characters as typed, and the raw character is what the expression parser reads.`,
       code: 'TDC294',
     });
     return;

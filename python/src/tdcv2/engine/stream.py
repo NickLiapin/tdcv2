@@ -350,9 +350,7 @@ class StreamEngine:
                     other_expr, other_table, lambda n: n in self.columns
                 )
             )
-            other_buckets = (
-                pool_mod.bucket_by_field(other_table, other_eq[0]) if other_eq else None
-            )
+            other_buckets = pool_mod.bucket_by_field(other_table, other_eq[0]) if other_eq else None
             members.append(
                 (other_name, other_pool, other_table, other_expr, other_eq, other_buckets)
             )
@@ -425,9 +423,7 @@ class StreamEngine:
                 # `<distinct>` is settled per row and streams fine; this one goes to memory,
                 # the same way a running total does.
                 if any(spec.name in g for g in self.config.env_uniq_groups):
-                    raise unsupported(
-                        "a pool reference inside a config-level <uniq>", spec.name
-                    )
+                    raise unsupported("a pool reference inside a config-level <uniq>", spec.name)
                 self._build_pool_reference(spec)
                 continue
             # A running total is the one construct that genuinely cannot be answered from a
@@ -1146,7 +1142,7 @@ class StreamEngine:
             return interpolate.apply(
                 output,
                 inject,
-                lambda name: (inner.columns[name](row) if name in inner.columns else None),
+                lambda name: inner.columns[name](row) if name in inner.columns else None,
             )
 
         self.columns[spec.name] = column
@@ -1717,9 +1713,7 @@ class StreamEngine:
             return
         label = " × ".join(members)
 
-        resolvers = [
-            (lambda row, column=self.columns[name]: column(row) or "") for name in members
-        ]
+        resolvers = [(lambda row, column=self.columns[name]: column(row) or "") for name in members]
 
         # The columns a switch member is keyed by. Empty for an ordinary group, and then every row
         # may trade with every other, as it always could.

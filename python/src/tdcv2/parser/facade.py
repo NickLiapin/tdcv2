@@ -106,8 +106,7 @@ class _ElementDepthError(Exception):
 
     def __init__(self, line: int, column: int) -> None:
         super().__init__(
-            f"elements nested deeper than {MAX_ELEMENT_DEPTH} levels — "
-            "refusing a runaway document"
+            f"elements nested deeper than {MAX_ELEMENT_DEPTH} levels — refusing a runaway document"
         )
         self.line = line
         self.column = column

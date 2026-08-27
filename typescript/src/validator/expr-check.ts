@@ -162,12 +162,48 @@ export function checkIfExpression(
       message:
         entity === undefined
           ? `invalid ${site.label} "${clip(expr)}": ${msg}`
-          : `invalid ${site.label} "${clip(expr)}": TDC does not expand XML entities, ` +
+          : `invalid ${site.label} "${clip(expr)}": nothing is expanded here, ` +
             `so "${entity.found}" is ${String(entity.found.length)} literal characters, not "${entity.means}"`,
       hint:
         entity === undefined
           ? 'See the operator table: https://nickliapin.github.io/tdcv2/docs/core-concepts/output-formatting'
-          : `write ${entity.means} directly — the config is XML-shaped but it is not XML, and ` +
+          : `write ${entity.means} directly — TDC reads the characters as typed, and ` +
+            'the raw character is what the expression parser reads',
+      code: 'TDC100',
+    });
+    return;
+  }
+
+  // ONE expression, or none. Two of them side by side — `A B`, `A , B`, and the
+  // `A &gt; 5` an editor writes for `A > 5` — are not a condition, and neither is
+  // one with a stray separator hanging off it.
+  //
+  // Both halves of this were holes. The first was reported as
+  // `unsupported expression construct "Compound"`, which is the parser
+  // library's own name for the node and tells the author nothing. The second was
+  // not reported at all: the library drops a trailing `;` or `,` and hands back
+  // the expression before it, so `if="A ;"` VALIDATED AND RAN — and none of the
+  // four ports would take it, because their own parsers stop at the leftover.
+  const stray = expr.trimEnd().slice(-1);
+  if (ast.type === 'Compound' || stray === ';' || stray === ',') {
+    // An entity explains it BEFORE anything else does, and the same order holds in
+    // the four ports: `A &gt; 5` is one mistake with one cause, and which half of
+    // it a given parser trips over first is an accident of that parser.
+    sink.diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...valRange,
+      message:
+        entity === undefined
+          ? `invalid ${site.label} "${clip(expr)}": this is not a single expression`
+          : `invalid ${site.label} "${clip(expr)}": nothing is expanded here, ` +
+            `so "${entity.found}" is ${String(entity.found.length)} literal characters, ` +
+            `not "${entity.means}"`,
+      hint:
+        entity === undefined
+          ? 'Write ONE condition. Two expressions side by side, or a stray ";" or "," ' +
+            'left after one, is not something TDC reads.'
+          : `write ${entity.means} directly — TDC reads the characters as typed, and ` +
             'the raw character is what the expression parser reads',
       code: 'TDC100',
     });

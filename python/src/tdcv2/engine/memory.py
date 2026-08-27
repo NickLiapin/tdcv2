@@ -2012,9 +2012,7 @@ def _column_values(
         # own one-row path does. Anything derived from the row inside — a pack body's seed, a
         # distribution parameter written as an expression — otherwise reads position 0 and
         # answers for the first row on every row.
-        one = replace(
-            run, prng=seekable.generator(seed, stream_id, row), rows=[row], per_row=True
-        )
+        one = replace(run, prng=seekable.generator(seed, stream_id, row), rows=[row], per_row=True)
         single = [False]
         # One row's instant lands in its own scratch list: the inner call knows nothing of `i`,
         # and handing it `instants_out` would append rows that a later `missing=` pass could no

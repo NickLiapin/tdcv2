@@ -57,9 +57,7 @@ def pick_member(seed: str, ref_name: str, table: PoolTable, row: int) -> int:
     return seekable.next_int(seed, ref_stream(ref_name), row, table.count)
 
 
-def parse_equality_filter(
-    expression: str, table: PoolTable, is_column
-) -> tuple[str, str] | None:
+def parse_equality_filter(expression: str, table: PoolTable, is_column) -> tuple[str, str] | None:
     """Recognise ``field == Column`` (either way round), and nothing else.
 
     BOTH sides must be what they look like. Without the ``is_column`` test,
@@ -100,8 +98,10 @@ def _name(text: str) -> bool:
 
 
 def _plain(text: str) -> bool:
-    return bool(text) and (text[0].isalpha() or text[0] == "_") and all(
-        c.isalnum() or c == "_" for c in text
+    return (
+        bool(text)
+        and (text[0].isalpha() or text[0] == "_")
+        and all(c.isalnum() or c == "_" for c in text)
     )
 
 

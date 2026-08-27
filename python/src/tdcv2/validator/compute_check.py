@@ -40,6 +40,7 @@ _KNOWN_TAGS = frozenset(
     }
 )  # fmt: skip
 
+
 # Tags the compute spec describes but this version does not ship, so the diagnostic explains the
 # gap instead of reading like a typo.
 def _candidates(names: list[str], most: int = 6) -> str:

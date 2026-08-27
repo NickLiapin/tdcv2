@@ -169,7 +169,6 @@ def _at(args: list, index: int):
     return args[index]
 
 
-
 def _clamp(x: float, lo: float, hi: float) -> float:
     """x held inside [lo, hi] as min(max(x, lo), hi).
 
@@ -179,6 +178,7 @@ def _clamp(x: float, lo: float, hi: float) -> float:
     """
     floored = x if x > lo else lo
     return floored if floored < hi else hi
+
 
 def _num(args: list, index: int) -> float:
     return as_number(_at(args, index))

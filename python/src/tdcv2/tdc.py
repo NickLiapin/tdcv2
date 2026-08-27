@@ -44,6 +44,7 @@ BYTES_PER_CELL = 40
 # A rendered record, roughly — enough to notice a run that will not fit.
 BYTES_PER_RENDERED_CARD = 200
 
+
 # Past half the memory the run is worth a word; past nine tenths it is worth stopping for.
 def _absolute(path: Path) -> Path:
     """The path made absolute, with symlinks left alone.
@@ -129,7 +130,6 @@ class Row:
         return repr(self.to_dict())
 
 
-
 def _as_finite_numbers(text: list[str | None]) -> list[float] | None:
     """Every cell as a finite float, or ``None`` when even one of them is not.
 
@@ -148,6 +148,7 @@ def _as_finite_numbers(text: list[str | None]) -> list[float] | None:
             return None
         out.append(number)
     return out
+
 
 class TDC:
     """A configured run. Everything is decided here; the values are produced on first use."""

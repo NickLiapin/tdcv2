@@ -223,7 +223,7 @@ def candidate_groups(sorted_path: Path) -> Iterator[list[int]]:
 
 
 class Ledger:
-    """"Is this tuple already taken?" — answered by binary search on the sorted piles.
+    """ "Is this tuple already taken?" — answered by binary search on the sorted piles.
 
     The sorted fingerprints ARE the ledger; a lookup is about twenty-five record-sized reads and no
     resident memory. Rows being reassigned have their old tuples freed, so a match counts only if

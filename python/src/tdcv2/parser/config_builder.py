@@ -58,7 +58,6 @@ class PackGenerator:
     validate: Any = None
 
 
-
 def _gen_of(child):
     """A ``<gen>``, whichever way it was punctuated.
 
@@ -69,6 +68,7 @@ def _gen_of(child):
     """
     el = child.selfClosingElement() or child.openCloseElement()
     return el if el is not None and el.name.text == "gen" else None
+
 
 def build(document: TDCParser.DocumentContext, default_locale: str | None = None) -> Config:
     """The whole config, as the engines need it.
@@ -228,7 +228,6 @@ def _wrapped_sequences(wrapper, sequences: list[SequenceSpec]) -> list[str]:
     return names
 
 
-
 def _is_true(raw: str | None) -> bool:
     """A boolean attribute, read the way every other one in the DSL is read.
 
@@ -237,6 +236,7 @@ def _is_true(raw: str | None) -> bool:
     did nothing — a column with duplicates that ``check`` had already called valid.
     """
     return (raw or "").strip().lower() == "true"
+
 
 def _sequence(element) -> SequenceSpec:
     attrs = attributes(element.attr())
@@ -547,9 +547,7 @@ def parse_pack_body(body: str) -> PackGenerator:
         # ("Exact percentages inside a generator") and two shipped packs use it.
         if open_el is not None and open_el.name.text in ("mix", "switch"):
             sequences.append(
-                _mix_sequence(open_el)
-                if open_el.name.text == "mix"
-                else _switch_sequence(open_el)
+                _mix_sequence(open_el) if open_el.name.text == "mix" else _switch_sequence(open_el)
             )
             continue
         data = child.dataElement()

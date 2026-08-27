@@ -182,6 +182,7 @@ def _probability(raw: str, label: str) -> float:
         raise ValueError(f'{label}: probability "{raw}" must be a number in [0, 1]')
     return p
 
+
 def is_spikeable(value: str) -> bool:
     """Whether ``spike`` would actually change this value: it is a finite number.
 

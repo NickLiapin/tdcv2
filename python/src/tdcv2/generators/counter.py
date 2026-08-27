@@ -29,8 +29,7 @@ def generate(attrs: dict[str, str], count: int, ascending: bool) -> list[str]:
     start = _fraction(raw_start, 0.0)
     step = _fraction(raw_step, 1.0)
     return [
-        numbers.to_text(start + step * i if ascending else start - step * i)
-        for i in range(count)
+        numbers.to_text(start + step * i if ascending else start - step * i) for i in range(count)
     ]
 
 
@@ -75,6 +74,4 @@ def value_at(attrs: dict[str, str], index: int, ascending: bool) -> str:
         return str(start + step * index if ascending else start - step * index)
     start_f = _fraction(raw_start, 0.0)
     step_f = _fraction(raw_step, 1.0)
-    return numbers.to_text(
-        start_f + step_f * index if ascending else start_f - step_f * index
-    )
+    return numbers.to_text(start_f + step_f * index if ascending else start_f - step_f * index)

@@ -44,6 +44,7 @@ SEP = "\x00"
 # Enough digits for any run: the index is padded so byte order is also numeric order.
 INDEX_WIDTH = 16
 
+
 # The pool repair is quadratic; past this many collisions, the config is pathological.
 def max_repair_rows_for(count: int) -> int:
     """How many colliding rows the bounded repair takes on, for a run of ``count``.
@@ -87,7 +88,7 @@ class RepairNeededError(RuntimeError):
         rows = f"more than {collisions} rows" if at_least else f"{collisions} row(s)"
         super().__init__(
             f"uniq {label} is too tight to repair without holding the whole table "
-            f"({rows} couldn't be placed) — run without mode=\"stream\" "
+            f'({rows} couldn\'t be placed) — run without mode="stream" '
             "so the in-memory engine can arrange it."
         )
 
@@ -165,9 +166,7 @@ def arrange(
                 plan.on_computed({})
             return _registry([f.id for f in fields], resolvers)
 
-    return repair(
-        [f.id for f in fields], resolvers, count, label, tmp_dir, None, on_progress, plan
-    )
+    return repair([f.id for f in fields], resolvers, count, label, tmp_dir, None, on_progress, plan)
 
 
 def _registry(ids: list[str], resolvers: list[Resolver]) -> dict[str, Resolver]:
@@ -424,9 +423,7 @@ def _fingerprint_scan(
         return None
 
     directory = Path(tempfile.mkdtemp(prefix="tdc-fp-", dir=tmp_dir))
-    raw_paths = fingerprint.write_piles(
-        resolvers, 0, count, directory, "raw", buckets, on_progress
-    )
+    raw_paths = fingerprint.write_piles(resolvers, 0, count, directory, "raw", buckets, on_progress)
 
     sorted_paths: list[Path] = []
     candidates: list[list[int]] = []

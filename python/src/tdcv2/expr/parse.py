@@ -18,6 +18,11 @@ from dataclasses import dataclass
 
 from ..lib import text
 
+#: What the parser says when an expression is complete and the input is not — `A B`,
+#: `A , B`, `A ;`. Agreed beside the only place that writes it, so the validator can
+#: give the same sentence the other four implementations give without matching prose.
+NOT_ONE_EXPRESSION = "this is not a single expression"
+
 # jsep's binary precedence, verbatim. Higher binds tighter.
 #
 # The bitwise and shift operators are here even though the engine implements none of them, and
@@ -224,7 +229,7 @@ def parse(source: str) -> Node:
     result = parser.ternary(0)
     parser.skip_space()
     if not parser.done():
-        raise ValueError(f'if expression: unexpected "{parser.rest()}" in "{source}"')
+        raise ValueError(NOT_ONE_EXPRESSION)
     return result
 
 
@@ -297,9 +302,7 @@ class _Parser:
             try:
                 right = self.expression(PRECEDENCE[op] + 1)
             except _RanOutError as e:
-                raise ValueError(
-                    f"Expected expression after {op} at character {e.at}"
-                ) from None
+                raise ValueError(f"Expected expression after {op} at character {e.at}") from None
             left = Binary(op, left, right)
 
     def _unary(self) -> Node:

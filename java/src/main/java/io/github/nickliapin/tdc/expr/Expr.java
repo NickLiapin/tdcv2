@@ -21,6 +21,9 @@ import java.util.Map;
  */
 public sealed interface Expr {
 
+  /** What the parser says when an expression is complete and the input is not — {@code A B}, {@code A , B}, {@code A ;}. Agreed beside the only place that writes it, so the validator gives the same sentence the other four implementations give without matching prose. */
+  String NOT_ONE_EXPRESSION = "this is not a single expression";
+
   record Num(double value) implements Expr {}
 
   /**
@@ -147,7 +150,7 @@ public sealed interface Expr {
     parser.skipSpace();
     if (!parser.done()) {
       throw new IllegalArgumentException(
-          "if expression: unexpected \"" + parser.rest() + "\" in \"" + source + "\"");
+          NOT_ONE_EXPRESSION);
     }
     return result;
   }

@@ -290,9 +290,7 @@ def delete_owned_paths(store: Path, paths: Sequence[str]) -> None:
         prune_empty_dirs(target.parent, store)
 
 
-def plan_extract(
-    archive: bytes, bundle_id: str, store: Path
-) -> tuple[list[str], dict[str, bytes]]:
+def plan_extract(archive: bytes, bundle_id: str, store: Path) -> tuple[list[str], dict[str, bytes]]:
     """What a bundle's zip would put where, decided before a single byte is written.
 
     The archive nests everything under ``<id>/packs/``, which is the bundler's business and
@@ -452,8 +450,7 @@ def migrate_store(store: Path, config_path: Path) -> StoreMigration | None:
             # Landing inside another bundle's old folder would move a file out from under a
             # move still to come.
             if any(
-                other != bundle_id
-                and is_path_inside(destination, store / other / BUNDLE_PACKS_DIR)
+                other != bundle_id and is_path_inside(destination, store / other / BUNDLE_PACKS_DIR)
                 for other in ids
             ):
                 conflicts.append(f"{rel}: it would land inside another bundle's old folder")

@@ -6141,17 +6141,25 @@ public final class Validator {
       String[] entity = xmlEntity(expression);
       if (entity == null) {
         // The reference checks the NESTING before it parses, so the two have separate notes: a condition nested past the ceiling is a generated one, and a condition that will not parse wants the operator table. Here both arrive as one parser error, so they are told apart by what the parser said.
+        // An expression that is complete and then continues gets one sentence for the shape,
+        // in all five — see NOT_ONE_EXPRESSION beside the parser.
+        String note;
+        if (io.github.nickliapin.tdc.expr.Expr.NOT_ONE_EXPRESSION.equals(e.getMessage())) {
+          note = "Write ONE condition. Two expressions side by side, or a stray \";\" or \",\""
+              + " left after one, is not something TDC reads.";
+        } else if (e.getMessage() != null && e.getMessage().contains("nests deeper than")) {
+          note = "A real condition nests a handful of parentheses; this looks generated.";
+        } else {
+          note = "See the operator table: https://nickliapin.github.io/tdcv2/docs/core-concepts/output-formatting";
+        }
         error("TDC100", "invalid " + label + " \"" + clip(expression) + "\": " + e.getMessage(),
-            e.getMessage() != null && e.getMessage().contains("nests deeper than")
-                ? "A real condition nests a handful of parentheses; this looks generated."
-                : "See the operator table: https://nickliapin.github.io/tdcv2/docs/core-concepts/output-formatting",
-            line, column);
+            note, line, column);
       } else {
         error("TDC100",
-            "invalid " + label + " \"" + clip(expression) + "\": TDC does not expand XML entities,"
+            "invalid " + label + " \"" + clip(expression) + "\": nothing is expanded here,"
                 + " so \"" + entity[0] + "\" is " + entity[0].length()
                 + " literal characters, not \"" + entity[1] + "\"",
-            "write " + entity[1] + " directly — the config is XML-shaped but it is not XML,"
+            "write " + entity[1] + " directly — TDC reads the characters as typed,"
                 + " and the raw character is what the expression parser reads",
             line, column);
       }

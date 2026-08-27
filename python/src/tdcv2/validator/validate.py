@@ -33,6 +33,7 @@ from ..errors.diagnostic import closest_match
 from ..expr import parse as expr_parse
 from ..expr.match_key import match_key
 from ..expr.parse import (
+    NOT_ONE_EXPRESSION,
     Array,
     Binary,
     Bool,
@@ -317,6 +318,7 @@ FORBIDDEN_IN_POOL = {
 POOL_WARN_MEMBERS = 100_000
 POOL_MAX_MEMBERS = 1_000_000
 
+
 # Everything a <gen> may carry, whatever its type.
 # These eight are NOT here, and their absence is deliberate: seed, engine,
 # version, inject belong to <env> or <tdc>; uniq to <sequence>; is to <case>;
@@ -373,7 +375,7 @@ _MISPLACED = {
     # spells differently. The nearest accepted string to `phase` is `case`, which sends
     # someone shifting a seasonal wave off to look at branching.
     "gen:phase": (
-        'A seasonal wave is shifted with peak_at=, which names the ROW the wave peaks on '
+        "A seasonal wave is shifted with peak_at=, which names the ROW the wave peaks on "
         'rather than an angle: peak_at="182" over period="365" puts the peak at the first '
         "of July."
     ),
@@ -872,6 +874,7 @@ def _prev_targets(node) -> set[str]:
     walk(node)
     return found
 
+
 class _Validator:
     __slots__ = (
         "base_dir",
@@ -1146,8 +1149,7 @@ class _Validator:
             self._error(
                 "TDC003",
                 '<tdc> declares both "version" and "v"',
-                "Use one root version attribute. Prefer the canonical form: <tdc "
-                "version=\"0.1.0\">.",
+                'Use one root version attribute. Prefer the canonical form: <tdc version="0.1.0">.',
                 _line(tdc),
                 _column(tdc),
             )
@@ -1176,8 +1178,7 @@ class _Validator:
             line, column = _at(tdc, key)
             self._error(
                 "TDC005",
-                f'TDC document version "{raw}" is newer than this runtime '
-                f"({SUPPORTED_VERSION})",
+                f'TDC document version "{raw}" is newer than this runtime ({SUPPORTED_VERSION})',
                 "Update TDC before processing this file; newer DSL features may not exist in "
                 "this runtime.",
                 line,
@@ -1196,7 +1197,7 @@ class _Validator:
             self._error(
                 "TDC096",
                 f'regex_max_length must be a positive integer, got "{raw}"',
-                "Use a positive integer, e.g. regex_max_length=\"64\".",
+                'Use a positive integer, e.g. regex_max_length="64".',
                 line,
                 column,
             )
@@ -1463,7 +1464,7 @@ class _Validator:
                     "TDC030",
                     f'<{tag}> is missing a required "name" attribute',
                     "Every sequence needs a unique name for interpolation, e.g. <sequence "
-                    "name=\"Gender\">.",
+                    'name="Gender">.',
                     _line(open_el),
                     _column(open_el),
                 )
@@ -2292,8 +2293,7 @@ class _Validator:
             gens = [
                 g.selfClosingElement()
                 for g in _elements(member)
-                if g.selfClosingElement() is not None
-                and g.selfClosingElement().name.text == "gen"
+                if g.selfClosingElement() is not None and g.selfClosingElement().name.text == "gen"
             ]
             pool = None
             if len(gens) == 1:
@@ -2317,7 +2317,7 @@ class _Validator:
                 f'"{ref_pool}" — there is nothing the two can be compared on',
                 f"A <{tag}> over pool references compares WHICH MEMBER each row took; over "
                 "ordinary sequences it compares the value. One group does one of the two. To "
-                "keep a value away from a member's field, filter instead: <gen type=\"pool\" "
+                'keep a value away from a member\'s field, filter instead: <gen type="pool" '
                 'filter="field != Other"/>.',
                 _line(node),
                 _column(node),
@@ -3020,7 +3020,7 @@ class _Validator:
                 near = closest_match(on[dot + 1 :], fields)
                 self._error(
                     "TDC134",
-                    f'<switch on="{on}"> refers to "{on[dot + 1:]}", which is not a field of '
+                    f'<switch on="{on}"> refers to "{on[dot + 1 :]}", which is not a field of '
                     f'"{root}"',
                     f'"{root}" has no fields — switch on it directly, or on a sequence that has '
                     "some."
@@ -3656,9 +3656,7 @@ class _Validator:
                 return
             for name in attrs:
                 if name not in GEN_ATTRS:
-                    self._ignored(
-                        gen, name, _MISPLACED.get(f"gen:{name}", _UNKNOWN_GEN_ATTR)
-                    )
+                    self._ignored(gen, name, _MISPLACED.get(f"gen:{name}", _UNKNOWN_GEN_ATTR))
             return
 
         for name in attrs:
@@ -3868,8 +3866,7 @@ class _Validator:
             self._error(
                 "TDC128",
                 '<gen type="advanced_regex"> requires a "value" attribute',
-                "Provide a finite advanced regex pattern, e.g. "
-                "value=\"(?%{70:RU;30:US})-[0-9]{6}\".",
+                'Provide a finite advanced regex pattern, e.g. value="(?%{70:RU;30:US})-[0-9]{6}".',
                 _line(gen),
                 _column(gen),
             )
@@ -4254,7 +4251,7 @@ class _Validator:
             self._error(
                 "TDC150",
                 '<gen type="date"> requires both "from" and "to" when either is used',
-                'Use from=\"2020-01-01\" to=\"2025-12-31\" or value=\"2020-01-01..2025-12-31\".',
+                'Use from="2020-01-01" to="2025-12-31" or value="2020-01-01..2025-12-31".',
                 _line(gen),
                 _column(gen),
             )
@@ -5220,7 +5217,7 @@ class _Validator:
             self._error(
                 "TDC212",
                 '"weight" needs "column" — the weights live in a second CSV column',
-                "Name both: column=\"name\" weight=\"count\".",
+                'Name both: column="name" weight="count".',
                 line,
                 column,
             )
@@ -5598,7 +5595,7 @@ class _Validator:
                 self._error(
                     "TDC206",
                     'each="" names no sequence',
-                    "Point it at a repeating sequence: <line each=\"Orders\">.",
+                    'Point it at a repeating sequence: <line each="Orders">.',
                     line,
                     column,
                 )
@@ -5608,7 +5605,7 @@ class _Validator:
                 self._error(
                     "TDC207",
                     f'each="{each}" — that sequence holds one value, not a list',
-                    'Add repeat= to its <gen>, e.g. <gen … repeat=\"1..5\"/>, or drop each=.',
+                    'Add repeat= to its <gen>, e.g. <gen … repeat="1..5"/>, or drop each=.',
                     line,
                     column,
                 )
@@ -6070,22 +6067,30 @@ class _Validator:
                 # error, so they are told apart by what the parser said — one hint for both meant
                 # the reader of a malformed `if=` was told their parentheses look generated.
                 message = f'invalid {label} "{_clip(expression)}": {e}'
-                hint = (
-                    "A real condition nests a handful of parentheses; this looks generated."
-                    if "nests deeper than" in str(e)
-                    else "See the operator table: "
-                    "https://nickliapin.github.io/tdcv2/docs/core-concepts/output-formatting"
-                )
+                if str(e) == NOT_ONE_EXPRESSION:
+                    # An expression that is complete and then continues. One sentence for the
+                    # shape, in all five — see the constant beside the parser.
+                    hint = (
+                        'Write ONE condition. Two expressions side by side, or a stray ";" '
+                        'or "," left after one, is not something TDC reads.'
+                    )
+                elif "nests deeper than" in str(e):
+                    hint = "A real condition nests a handful of parentheses; this looks generated."
+                else:
+                    hint = (
+                        "See the operator table: "
+                        "https://nickliapin.github.io/tdcv2/docs/core-concepts/output-formatting"
+                    )
             else:
                 found, means = entity
                 message = (
-                    f'invalid {label} "{_clip(expression)}": TDC does not expand '
-                    f'XML entities, so "{found}" is {len(found)} literal characters, '
+                    f'invalid {label} "{_clip(expression)}": nothing is expanded here, '
+                    f'so "{found}" is {len(found)} literal characters, '
                     f'not "{means}"'
                 )
                 hint = (
-                    f"write {means} directly — the config is XML-shaped but it is not "
-                    "XML, and the raw character is what the expression parser reads"
+                    f"write {means} directly — TDC reads the characters as typed, "
+                    "and the raw character is what the expression parser reads"
                 )
             self._error("TDC100", message, hint, line, column)
             return
@@ -6327,9 +6332,7 @@ class _Validator:
         column: int,
         suggestion: str = "",
     ) -> None:
-        self.diagnostics.append(
-            Diagnostic.error(code, message, hint, line, column, suggestion)
-        )
+        self.diagnostics.append(Diagnostic.error(code, message, hint, line, column, suggestion))
 
     def _warn(
         self,
@@ -6341,9 +6344,7 @@ class _Validator:
         suggestion: str = "",
     ) -> None:
         """Worth saying, not worth stopping for: the run still produces usable data."""
-        self.diagnostics.append(
-            Diagnostic.warning(code, message, hint, line, column, suggestion)
-        )
+        self.diagnostics.append(Diagnostic.warning(code, message, hint, line, column, suggestion))
 
 
 # ── plumbing ────────────────────────────────────────────────────────────────────────────────

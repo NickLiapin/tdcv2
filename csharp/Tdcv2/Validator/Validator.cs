@@ -7284,21 +7284,35 @@ public sealed class Validator
             if (entity is null)
             {
                 // The reference checks the NESTING before it parses, so the two have separate notes: a condition nested past the ceiling is a generated one, and a condition that will not parse wants the operator table. Here both arrive as one parser error, so they are told apart by what the parser said.
+                // An expression that is complete and then continues gets one sentence for the
+                // shape, in all five — see NotOneExpression beside the parser.
+                string note;
+                if (e.Message == Tdcv2.Expr.Expr.NotOneExpression)
+                {
+                    note = "Write ONE condition. Two expressions side by side, or a stray \";\" "
+                        + "or \",\" left after one, is not something TDC reads.";
+                }
+                else if (e.Message.Contains("nests deeper than", StringComparison.Ordinal))
+                {
+                    note = "A real condition nests a handful of parentheses; this looks generated.";
+                }
+                else
+                {
+                    note = "See the operator table: https://nickliapin.github.io/tdcv2/docs/core-concepts/output-formatting";
+                }
+
                 Error(
                     "TDC100", $"invalid {label} \"{Clip(expression)}\": {e.Message}",
-                    e.Message.Contains("nests deeper than", StringComparison.Ordinal)
-                        ? "A real condition nests a handful of parentheses; this looks generated."
-                        : "See the operator table: https://nickliapin.github.io/tdcv2/docs/core-concepts/output-formatting",
-                    line, column);
+                    note, line, column);
             }
             else
             {
                 Error(
                     "TDC100",
-                    $"invalid {label} \"{Clip(expression)}\": TDC does not expand XML entities, "
+                    $"invalid {label} \"{Clip(expression)}\": nothing is expanded here, "
                         + $"so \"{entity.Value.Found}\" is {entity.Value.Found.Length} literal characters, "
                         + $"not \"{entity.Value.Means}\"",
-                    $"write {entity.Value.Means} directly — the config is XML-shaped but it is not XML, "
+                    $"write {entity.Value.Means} directly — TDC reads the characters as typed, "
                         + "and the raw character is what the expression parser reads",
                     line, column);
             }

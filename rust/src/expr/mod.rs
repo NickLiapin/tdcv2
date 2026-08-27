@@ -131,13 +131,17 @@ pub fn parse(source: &str) -> EngineResult<Expr> {
     let result = parser.ternary(0)?;
     parser.skip_space();
     if !parser.done() {
-        return invalid(&format!(
-            "if expression: unexpected \"{}\" in \"{source}\"",
-            parser.rest()
-        ));
+        return invalid(NOT_ONE_EXPRESSION);
     }
     Ok(result)
 }
+
+/// What the parser says when an expression is complete and the input is not — `A B`, `A , B`,
+/// `A ;`, and the `A &gt; 5` an editor writes for `A > 5`.
+///
+/// Agreed here, beside the only place that writes it, so the validator can turn it into the
+/// same sentence the other four implementations give without matching prose.
+pub const NOT_ONE_EXPRESSION: &str = "this is not a single expression";
 
 /// Precedence climbing over a hand-written tokenizer.
 struct Parser<'a> {
