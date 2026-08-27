@@ -7,9 +7,9 @@ generator: tdc
 <sequence name="dob"><gen type="date" from="1950-01-01" to="2012-12-31" format="YYMMDD"/></sequence>
 <sequence name="expiry"><gen type="date" from="2026-01-01" to="2036-12-31" format="YYMMDD"/></sequence>
 <sequence name="sex"><gen type="text" value="M,F"/></sequence>
-<!-- Fourteen ICAO filler characters. It comes from a data file rather than a
-     <str v="&lt;"/> literal because this engine does not decode XML entities —
-     see myanmar.docs.mrzFiller. -->
+<!-- Fourteen ICAO filler characters, drawn by address rather than written out
+     here, so the width is stated in one place — see myanmar.docs.mrzFiller. A literal
+     would work too: `<` is an ordinary character in an attribute value. -->
 <sequence name="fill"><gen type="template" value="myanmar.docs.mrzFiller"/></sequence>
 <sequence name="mrz"><compute>
   <!-- 1-9: the document number, left-aligned in nine columns and padded with
