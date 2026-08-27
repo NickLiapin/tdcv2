@@ -52,7 +52,18 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
+      # The whole history, tags included.
+      #
+      # `build-pack-catalogue.mjs --check` asks `git describe --tags` which
+      # release a pack shipped in, so it can mark the ones newer than the last
+      # one as "next release". A default checkout is shallow and carries no
+      # tags, so the lookup failed, every pack came back as released, and the
+      # rebuilt catalogue differed from the committed one — reported as "the
+      # docs would describe a catalogue the project no longer ships", which is
+      # true of the CI copy and of nothing else.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
