@@ -83,6 +83,17 @@ jobs:
       - name: Build the engine
         run: npm --workspace typescript run build
 
+      # And the bundles, because the catalogue page prints their SIZES.
+      #
+      # `build-pack-catalogue.mjs` reads them from `build/data-packs/index.json`,
+      # a build artifact that is not committed. Without it every size comes back
+      # null, the rebuilt catalogue differs from the committed one in 86 places,
+      # and `--check` reports the committed copy stale when it is the CI copy
+      # that is short. Four seconds, and the sizes on the page get checked like
+      # everything else.
+      - name: Build the data packs
+        run: npm --workspace typescript run build:data-packs
+
       - name: Check the docs before publishing them
         run: npm run docs:check
 
