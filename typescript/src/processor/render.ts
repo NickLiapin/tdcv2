@@ -72,7 +72,11 @@ import {
   StreamUnsupportedError,
   sequenceValueAt,
 } from '../sequence/index.js';
-import { ExactUniqRepairNeeded, IN_MEMORY_FALLBACK_MAX_ROWS } from '../sequence/exact-uniq.js';
+import {
+  ExactUniqRepairNeeded,
+  IN_MEMORY_FALLBACK_MAX_ROWS,
+  withoutTail,
+} from '../sequence/exact-uniq.js';
 import { extractPoolSpecs } from '../sequence/pool.js';
 import type { UniqArrangement, UniqPlan } from '../sequence/build.js';
 import { bucketCountFor } from '../sequence/fingerprint.js';
@@ -707,7 +711,7 @@ export function prepareRender(
       // can hold, the fallback is a slow crash, not a fallback.
       if (err instanceof ExactUniqRepairNeeded && env.count > IN_MEMORY_FALLBACK_MAX_ROWS) {
         throw new Error(
-          `${err.message.replace(/ — .*$/, '')} — and at ${String(env.count)} rows the ` +
+          `${withoutTail(err.message)} — and at ${String(env.count)} rows the ` +
             `in-memory engine cannot take over. Widen the uniq columns' values ` +
             `(more distinct names, wider ranges…) or lower the count.`,
         );

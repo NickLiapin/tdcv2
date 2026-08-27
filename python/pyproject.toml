@@ -105,8 +105,15 @@ pythonpath = ["src"]
 [tool.ruff]
 line-length = 100
 target-version = "py310"
-# The generated parser is not ours to style, and regenerating it would undo any edit anyway.
-extend-exclude = ["src/tdcv2/parser/generated"]
+# Generated files are not ours to style, and regenerating one would undo any edit anyway.
+#
+# `examples_generated.py` earns its place here the hard way: the generator writes each example
+# on one line, the formatter wraps it, and then `generate-examples.mjs --check` reports the file
+# stale — so running the formatter over the tree broke a gate that has nothing to do with style.
+extend-exclude = [
+    "src/tdcv2/parser/generated",
+    "src/tdcv2/cli/examples_generated.py",
+]
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "N", "UP", "B", "SIM", "RUF"]

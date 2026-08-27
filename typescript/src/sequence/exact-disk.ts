@@ -20,7 +20,7 @@
  */
 
 import { buildSequences, type SequenceBuildOptions } from './build.js';
-import { ExactUniqRepairNeeded, IN_MEMORY_FALLBACK_MAX_ROWS } from './exact-uniq.js';
+import { ExactUniqRepairNeeded, IN_MEMORY_FALLBACK_MAX_ROWS, withoutTail } from './exact-uniq.js';
 import { buildLazyRegistry, StreamUnsupportedError } from './stream-build.js';
 import type { SequenceRegistry, SequenceSpec } from './types.js';
 
@@ -76,7 +76,7 @@ export function buildExactDiskRegistry(
        */
       if (count > IN_MEMORY_FALLBACK_MAX_ROWS) {
         throw new Error(
-          `${err.message.replace(/ — .*$/, '')} — and at ${String(count)} rows the ` +
+          `${withoutTail(err.message)} — and at ${String(count)} rows the ` +
             `in-memory engine cannot take over. Widen the uniq columns' values ` +
             `(more distinct names, wider ranges…) or lower the count.`,
         );
@@ -95,7 +95,7 @@ export function buildExactDiskRegistry(
       // this engine to get. That is the substitution worth refusing.
       if (named && err instanceof ExactUniqRepairNeeded) {
         throw new Error(
-          `${err.message.replace(/ — .*$/, '')} — and engine 3 was asked for by name, ` +
+          `${withoutTail(err.message)} — and engine 3 was asked for by name, ` +
             `so it refuses rather than quietly running another engine. Remove the engine ` +
             `choice to let a uniq this tight go to the in-memory engine, which is what has ` +
             `been happening here all along.`,

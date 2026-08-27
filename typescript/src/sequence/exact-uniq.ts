@@ -201,6 +201,25 @@ export interface ExactUniqField {
  * the whole table is the one thing that user asked not to happen, so the text
  * says what to change rather than claiming a fallback happened.
  */
+/**
+ * A refusal's message with its "— and therefore…" tail cut off.
+ *
+ * The messages here are written in two halves: WHAT could not be done, an em
+ * dash, then what the caller may do about it. A caller that has a better second
+ * half — it knows the row count, or that the engine was named — keeps the first
+ * and writes its own.
+ *
+ * Read by hand rather than with `/ — .*$/`. That regex has to try `.*$` again
+ * at every place ` — ` could start, which is quadratic in the length of a
+ * message whose middle is a value out of someone's config. CodeQL called it
+ * three times over, and it was the same expression copied three times, so it
+ * lives here once.
+ */
+export function withoutTail(message: string): string {
+  const dash = message.indexOf(' \u2014 ');
+  return dash < 0 ? message : message.slice(0, dash);
+}
+
 export class ExactUniqRepairNeeded extends Error {
   constructor(
     readonly collisions: number,

@@ -6,6 +6,7 @@ import {
   type ExactUniqField,
   findDuplicateGroups,
   type KeyedRow,
+  withoutTail,
 } from '../../src/sequence/exact-uniq.js';
 
 const keyed = (keys: readonly string[]): KeyedRow[] => keys.map((key, index) => ({ index, key }));
@@ -125,5 +126,32 @@ describe('arrangeExactUniq (stage 3 — exact-% construction + verify)', () => {
       expect(tuples.size).toBe(count); // uniqueness restored
       expect(aTally).toEqual(aExpect); // marginal preserved exactly
     }
+  });
+});
+
+describe('withoutTail', () => {
+  // The refusals are written in two halves — WHAT could not be done, an em dash,
+  // then what to do about it. A caller with a better second half keeps the first.
+  it('cuts everything from the first em dash on', () => {
+    expect(withoutTail('cannot be satisfied — widen the columns')).toBe('cannot be satisfied');
+  });
+
+  it('leaves a message that has no tail alone', () => {
+    expect(withoutTail('no dash here at all')).toBe('no dash here at all');
+    expect(withoutTail('')).toBe('');
+  });
+
+  it('cuts at the FIRST dash, not the last', () => {
+    expect(withoutTail('first — second — third')).toBe('first');
+  });
+
+  it('reads the message by hand rather than by regex', () => {
+    // ` — .*$` has to retry `.*$` at every place ` — ` could start, which is
+    // quadratic in a message whose middle came out of someone's config. This is
+    // the shape that made it quadratic; it has to stay linear and stay correct.
+    const long = `${Array.from({ length: 20000 }, () => 'x — ').join('')}end`;
+    const started = performance.now();
+    expect(withoutTail(long)).toBe('x');
+    expect(performance.now() - started).toBeLessThan(1000);
   });
 });
