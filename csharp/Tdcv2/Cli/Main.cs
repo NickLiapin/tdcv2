@@ -233,8 +233,43 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
         private readonly string _path;
         private readonly long _startedAt = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
         private long _lastWrite;
+        /// <summary>The last object written, so the heartbeat can repeat it with a fresh stamp.</summary>
+        private string? _last;
+        private readonly System.Threading.Timer _beat;
 
-        internal StatusFile(string path) => _path = path;
+        internal StatusFile(string path)
+        {
+            _path = path;
+            // The file exists from the first moment, under a phase that is TRUE. A watcher that
+            // finds no file cannot tell "not started yet" from "died", and this moment used to be
+            // marked `render` — a phase still ahead of the work.
+            Write(
+                $"{{\"phase\":\"starting\",\"percent\":0,\"startedAt\":{_startedAt}," +
+                $"\"updatedAt\":{_startedAt},\"pid\":{Environment.ProcessId}}}");
+
+            /*
+             * The heartbeat, which used to be a promise the file could not keep.
+             *
+             * Nothing wrote unless a phase reported, and a phase that is working reports nothing,
+             * so a healthy run could leave the file untouched for over two minutes — long enough
+             * for a watcher following the reference page to call it dead. The last state is
+             * rewritten with a fresh `updatedAt` whenever a second passes with no report.
+             */
+            _beat = new System.Threading.Timer(
+                _ =>
+                {
+                    string? payload = _last;
+                    long now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+                    if (payload is null || now - _lastWrite < 1000)
+                    {
+                        return;
+                    }
+
+                    Write(System.Text.RegularExpressions.Regex.Replace(
+                        payload, ",\"updatedAt\":[0-9]+", $",\"updatedAt\":{now}"));
+                },
+                null, 1000, 1000);
+        }
 
         private void Write(string payload)
         {
@@ -248,6 +283,9 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
             {
                 // A status file nobody can write is not a reason to lose the run it describes.
             }
+
+            _lastWrite = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+            _last = payload;
         }
 
         internal void Report(string phase, int done, int total)
@@ -261,7 +299,6 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
                 return;
             }
 
-            _lastWrite = now;
             // AwayFromZero, not the default: .NET rounds midpoints to even, so a percent
             // landing exactly on a half — 812.5 — would go to 812 where the reference's
             // Math.round gives 813. One field, two answers.
@@ -276,6 +313,7 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
 
         internal void Finish()
         {
+            _beat.Dispose();
             long now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
             Write(
                 $"{{\"phase\":\"done\",\"percent\":100,\"startedAt\":{_startedAt}," +

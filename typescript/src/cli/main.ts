@@ -321,11 +321,47 @@ function statusFileWriter(path: string): {
 } {
   const startedAt = Date.now();
   let lastWrite = 0;
+  let last: Record<string, unknown> | undefined;
   const write = (payload: Record<string, unknown>): void => {
     const tmp = `${path}.tmp`;
     writeFileSync(tmp, `${JSON.stringify(payload)}\n`);
     renameSync(tmp, path);
+    lastWrite = Date.now();
+    last = payload;
   };
+
+  /*
+   * The file exists from the first moment, under a phase that is TRUE.
+   *
+   * It used to be primed by the parallel coordinators, which wrote
+   * `render 0 of count` before spawning anything — so the first thing a
+   * watcher read named a phase still two stages away, and a bar drawn from
+   * `percent` went 0 → 68 → 100 → 0 → 100 on one run. The reason for priming
+   * was sound: a watcher that finds no file cannot tell "not started yet" from
+   * "died". `starting` says exactly that and nothing more, and saying it here
+   * covers every path rather than the two that remembered to.
+   */
+  write({ phase: 'starting', percent: 0, startedAt, updatedAt: startedAt, pid: process.pid });
+
+  /*
+   * The heartbeat, which used to be a promise the file could not keep.
+   *
+   * Nothing wrote unless a phase reported, and a phase that is working reports
+   * nothing: on a 4,000,000-row run the file sat unchanged for 50 seconds and
+   * then for 2 minutes 16, both times while the process was perfectly healthy
+   * and on its way to finishing. The reference page told a reader that a file
+   * which has not moved for minutes means the process is gone — so a watcher
+   * following the documentation would have declared that run dead twice.
+   *
+   * Now the last state is rewritten with a fresh `updatedAt` whenever a second
+   * passes with no report. Unreferenced, so it never holds the process open,
+   * and skipped whenever a real write has just happened.
+   */
+  const beat = setInterval(() => {
+    if (last && Date.now() - lastWrite >= 1000) write({ ...last, updatedAt: Date.now() });
+  }, 1000);
+  beat.unref();
+
   return {
     report: (p): void => {
       const now = Date.now();
@@ -339,7 +375,6 @@ function statusFileWriter(path: string): {
        * write per phase.
        */
       if (p.done !== p.total && now - lastWrite < 1000) return;
-      lastWrite = now;
       write({
         phase: p.phase,
         done: p.done,
@@ -351,6 +386,7 @@ function statusFileWriter(path: string): {
       });
     },
     finish: (): void => {
+      clearInterval(beat);
       write({
         phase: 'done',
         percent: 100,

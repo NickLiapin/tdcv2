@@ -184,16 +184,35 @@ tdcv2 demo.tdc -o out.csv --progress
 ```
 
 ```json
-{ "phase": "render", "done": 4200000, "total": 10000000, "percent": 42, "pid": 51234 }
+{
+  "phase": "render",
+  "done": 4200000,
+  "total": 10000000,
+  "percent": 42,
+  "startedAt": 1787871050458,
+  "updatedAt": 1787871083822,
+  "pid": 51234
+}
 ```
+
+`startedAt` and `updatedAt` are milliseconds since the epoch. `updatedAt` is the one to
+watch: it moves on every write, so a poller can tell a live run from a stopped one without
+asking the filesystem for a modification time.
 
 Each refresh writes `<output>.progress.tmp` and renames it over `<output>.progress`, so a
 reader never catches a half-written file. The `.tmp` is visible beside the output while the
 run lasts. `tdcv2 format -w` does the same with `<file>.tmp`.
 
-The phases in order: `uniq-scan` (every row's tuple hashed), `uniq-sort` (the piles
+The first write is `{"phase":"starting"}`, before any work has a number to report. It is
+there so the file EXISTS from the first moment: a watcher that finds no file cannot tell
+"not started yet" from "died", and starting a dozen workers on a large config takes
+seconds.
+
+Then the phases in order: `uniq-scan` (every row's tuple hashed), `uniq-sort` (the piles
 sorted), `uniq-repair` (the tuples that repeat checked and rearranged) and `render` (rows
-written); a run without a `<uniq>` only ever reports `render`. On a large `uniq` run
+written); a run without a `<uniq>` only ever reports `render`. `uniq-repair` carries no
+`done`/`total` on a parallel run — the arrangement is worked out in one call there rather
+than in steps that could be counted — so it reports the phase alone. On a large `uniq` run
 No one of them dominates: measured at 6,000,000 rows over 900,000,000 possible pairs,
 writing the rows took 17 seconds, hashing every tuple 12, sorting the piles 3 and the repair
 7, of about 40 in all.
@@ -207,8 +226,16 @@ The last write is `{"phase":"done","percent":100,...}` with the wall-clock secon
 took.
 
 Two things make it safe to poll. The file is replaced atomically, so a reader never sees
-half a JSON object. And its **modification time is the heartbeat**: a file that has not
-moved for minutes means the process is gone, whatever the content still says.
+half a JSON object. And it is **rewritten at least once a second** whether or not the work
+has anything new to say — the last state again, with a fresh `updatedAt` — so a file that
+has not moved for minutes means the process is gone, whatever the content still says.
+
+That heartbeat is best-effort, and worth knowing precisely. It is a timer inside the same
+process, so a stretch of uninterrupted computation can hold it off: measured on a
+1,500,000-row `uniq` run, the longest silence was 10.9 seconds, during the repair. Before
+the timer existed the same shape of run went 2 minutes 16 seconds without a write while
+perfectly healthy — long enough for a watcher following this page to call it dead. Judge
+liveness in minutes, not seconds, and it holds.
 
 It needs `-o` — the status file lives beside the output, so without an output there is
 nowhere to put it, and the command says so rather than accepting the flag and dropping it.

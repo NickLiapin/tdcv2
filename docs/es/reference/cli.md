@@ -185,8 +185,20 @@ tdcv2 demo.tdc -o out.csv --progress
 ```
 
 ```json
-{ "phase": "render", "done": 4200000, "total": 10000000, "percent": 42, "pid": 51234 }
+{
+  "phase": "render",
+  "done": 4200000,
+  "total": 10000000,
+  "percent": 42,
+  "startedAt": 1787871050458,
+  "updatedAt": 1787871083822,
+  "pid": 51234
+}
 ```
+
+`startedAt` y `updatedAt` son milisegundos desde la época. El que conviene mirar es
+`updatedAt`: se mueve en cada escritura, así que distingue una corrida viva de una detenida
+sin preguntarle al sistema de archivos por la hora de modificación.
 
 Cada refresco escribe `<output>.progress.tmp` y lo renombra sobre `<output>.progress`, así
 que un lector nunca alcanza un archivo a medio escribir. El `.tmp` queda visible junto a la
@@ -209,10 +221,25 @@ conocida de antemano.
 La última escritura es `{"phase":"done","percent":100,...}` con los
 segundos de reloj que duró la ejecución.
 
+La primera escritura es `{"phase":"starting"}`, antes de que el trabajo tenga un número que
+informar. Está ahí para que el archivo EXISTA desde el primer momento: quien no encuentra
+archivo no puede distinguir "aún no empezó" de "murió", y levantar una docena de workers en
+una configuración grande lleva segundos. En una corrida paralela `uniq-repair` no trae
+`done`/`total`: allí el arreglo se calcula en una sola llamada y no en pasos contables.
+
 Dos cosas hacen que sea seguro consultarlo. El archivo se reemplaza de forma atómica, así
-que quien lo lee nunca ve medio JSON. Y su **hora de modificación es el latido**: un archivo
-que no se mueve durante minutos significa que el proceso ya no está, diga lo que diga su
-contenido.
+que quien lo lee nunca ve medio JSON. Y se **reescribe al menos una vez por segundo** —el
+mismo estado otra vez, con un `updatedAt` fresco— tenga o no el trabajo algo nuevo que
+decir. Por eso un archivo que no se mueve durante minutos significa que el proceso ya no
+está, diga lo que diga su contenido.
+
+Ese latido es en la medida de lo posible, y conviene saberlo con precisión. El temporizador
+vive en el mismo proceso, así que un tramo de cómputo ininterrumpido puede retenerlo: medido
+en una corrida de 1.500.000 filas con `<uniq>`, el silencio más largo fue de 10,9 segundos,
+durante el arreglo. Antes de que existiera el temporizador, la misma corrida pasó 2 minutos
+16 segundos sin escribir estando perfectamente sana, suficiente para que quien siguiera esta
+página la diera por muerta. Juzgue la vida en minutos y no en segundos, y la regla se
+sostiene.
 
 Necesita `-o`: el archivo de estado vive junto a la salida, así que sin salida no hay dónde
 ponerlo, y el comando lo dice en vez de aceptar la bandera y descartarla.

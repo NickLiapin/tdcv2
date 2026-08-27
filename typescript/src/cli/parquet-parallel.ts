@@ -116,9 +116,6 @@ export async function runParquetParallel(params: ParquetParallelParams): Promise
 
   const dir = mkdtempSync(join(tmpdir(), 'tdc-parquet-'));
   const tmpPaths = ranges.map((_, k) => join(dir, `group-${String(k)}.bin`));
-  // Said before anything is spawned, so the status file exists from the first
-  // moment — see the note in the text coordinator.
-  params.onProgress?.({ phase: 'render', done: 0, total: params.count });
   // One slot per worker: a later report REPLACES that worker's earlier one.
   const rendered = new Array<number>(ranges.length).fill(0);
 

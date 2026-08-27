@@ -129,23 +129,82 @@ pub fn missing_config_message(file: &str) -> String {
 /// The `--progress` status file: one small JSON object, rewritten in place.
 ///
 /// Written atomically (temp + rename) so a poller never reads half a JSON, and
-/// throttled to about once a second so watching costs nothing. The file itself
-/// is the heartbeat — an mtime that stops moving for minutes means the process
-/// is gone, whatever the content says. On success the last write says
-/// `"phase":"done"` with the wall-clock seconds the run took.
+/// throttled to about once a second so watching costs nothing. On success the
+/// last write says `"phase":"done"` with the wall-clock seconds the run took.
+///
+/// REWRITTEN at least once a second whether or not the work has anything new to
+/// say — the last state again, with a fresh `updatedAt` — so that a file which
+/// has not moved for minutes really does mean the process is gone. It used to
+/// mean no such thing: nothing wrote unless a phase reported, and a phase that
+/// is working reports nothing, so a healthy run could leave the file untouched
+/// for over two minutes.
 struct StatusFile {
     path: String,
     started_at: u128,
-    last_write: std::cell::Cell<u128>,
+    /// Shared with the heartbeat thread: when the last write happened, and what
+    /// it said, so the beat can repeat it with a fresh stamp.
+    state: std::sync::Arc<std::sync::Mutex<(u128, Option<String>)>>,
+    stop: std::sync::Arc<std::sync::atomic::AtomicBool>,
 }
 
 impl StatusFile {
     fn new(path: String) -> Self {
-        Self {
+        let started_at = millis_now();
+        let file = Self {
             path,
-            started_at: millis_now(),
-            last_write: std::cell::Cell::new(0),
-        }
+            started_at,
+            state: std::sync::Arc::new(std::sync::Mutex::new((0, None))),
+            stop: std::sync::Arc::new(std::sync::atomic::AtomicBool::new(false)),
+        };
+        // The file exists from the first moment, under a phase that is TRUE. A
+        // watcher that finds no file cannot tell "not started yet" from "died",
+        // and this moment used to be marked `render` — a phase still ahead.
+        file.write(&format!(
+            "{{\"phase\":\"starting\",\"percent\":0,\"startedAt\":{started_at},\
+             \"updatedAt\":{started_at},\"pid\":{}}}",
+            std::process::id()
+        ));
+
+        let path = file.path.clone();
+        let state = std::sync::Arc::clone(&file.state);
+        let stop = std::sync::Arc::clone(&file.stop);
+        std::thread::spawn(move || {
+            while !stop.load(std::sync::atomic::Ordering::Relaxed) {
+                std::thread::sleep(std::time::Duration::from_millis(1000));
+                if stop.load(std::sync::atomic::Ordering::Relaxed) {
+                    break;
+                }
+                let now = millis_now();
+                let mut guard = match state.lock() {
+                    Ok(guard) => guard,
+                    Err(_) => break,
+                };
+                if now - guard.0 < 1000 {
+                    continue;
+                }
+                let Some(last) = guard.1.clone() else {
+                    continue;
+                };
+                // The same object with a new stamp: `updatedAt` is the last field
+                // before `pid`, so the tail is rebuilt rather than parsed.
+                let refreshed = match last.rfind(",\"updatedAt\":") {
+                    Some(cut) => format!(
+                        "{}{}{}",
+                        &last[..cut],
+                        format_args!(",\"updatedAt\":{now}"),
+                        &last[cut..][last[cut..].find(",\"pid\"").unwrap_or(0)..]
+                    ),
+                    None => last,
+                };
+                let tmp = format!("{path}.tmp");
+                if std::fs::write(&tmp, format!("{refreshed}\n")).is_ok() {
+                    let _ = std::fs::rename(&tmp, &path);
+                }
+                guard.0 = now;
+                guard.1 = Some(refreshed);
+            }
+        });
+        file
     }
 
     fn write(&self, payload: &str) {
@@ -154,14 +213,22 @@ impl StatusFile {
         if std::fs::write(&tmp, format!("{payload}\n")).is_ok() {
             let _ = std::fs::rename(&tmp, &self.path);
         }
+        if let Ok(mut guard) = self.state.lock() {
+            guard.0 = millis_now();
+            guard.1 = Some(payload.to_string());
+        }
     }
 
     fn report(&self, phase: &str, done: usize, total: usize) {
         let now = millis_now();
-        if now - self.last_write.get() < 1000 {
+        // A finished phase is always written, throttle or not — the same rule the
+        // reference and Python keep. Several piles can finish inside one second,
+        // and the throttle then dropped every report after the first, leaving the
+        // file saying "1 of 44" while the run had moved on.
+        let last_write = self.state.lock().map(|guard| guard.0).unwrap_or(0);
+        if done != total && now - last_write < 1000 {
             return;
         }
-        self.last_write.set(now);
         let percent = if total > 0 {
             (done as f64 / total as f64 * 1000.0).round() / 10.0
         } else {
@@ -177,6 +244,7 @@ impl StatusFile {
     }
 
     fn finish(&self) {
+        self.stop.store(true, std::sync::atomic::Ordering::Relaxed);
         let now = millis_now();
         self.write(&format!(
             "{{\"phase\":\"done\",\"percent\":100,\"startedAt\":{},\"updatedAt\":{now},\

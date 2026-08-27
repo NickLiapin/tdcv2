@@ -223,10 +223,39 @@ public final class Main {
 
     private final Path path;
     private final long startedAt = System.currentTimeMillis();
-    private long lastWrite;
+    private volatile long lastWrite;
+    /** The last object written, so the heartbeat can repeat it with a fresh stamp. */
+    private volatile String last;
+    private final java.util.Timer beat = new java.util.Timer("tdc-progress", true);
 
     StatusFile(Path path) {
       this.path = path;
+      // The file exists from the first moment, under a phase that is TRUE. A watcher that finds
+      // no file cannot tell "not started yet" from "died", and this moment used to be marked
+      // `render` — a phase still ahead of the work.
+      write("{\"phase\":\"starting\",\"percent\":0,\"startedAt\":" + startedAt
+          + ",\"updatedAt\":" + startedAt + ",\"pid\":" + ProcessHandle.current().pid() + "}");
+      /*
+       * The heartbeat, which used to be a promise the file could not keep.
+       *
+       * Nothing wrote unless a phase reported, and a phase that is working reports nothing, so a
+       * healthy run could leave the file untouched for over two minutes — long enough for a
+       * watcher following the reference page to call it dead. The last state is rewritten with a
+       * fresh `updatedAt` whenever a second passes with no report.
+       */
+      beat.scheduleAtFixedRate(new java.util.TimerTask() {
+        @Override
+        public void run() {
+          String payload = last;
+          long now = System.currentTimeMillis();
+          if (payload == null || now - lastWrite < 1000) {
+            return;
+          }
+          write(payload.replaceFirst(
+              ",\"updatedAt\":[0-9]+", java.util.regex.Matcher.quoteReplacement(
+                  ",\"updatedAt\":" + now)));
+        }
+      }, 1000L, 1000L);
     }
 
     private void write(String payload) {
@@ -237,6 +266,8 @@ public final class Main {
       } catch (java.io.IOException e) {
         // A status file nobody can write is not a reason to lose the run it describes.
       }
+      lastWrite = System.currentTimeMillis();
+      last = payload;
     }
 
     void report(String phase, int done, int total) {
@@ -247,7 +278,6 @@ public final class Main {
       if (done != total && now - lastWrite < 1000) {
         return;
       }
-      lastWrite = now;
       double percent = total > 0 ? Math.round((double) done / total * 1000) / 10.0 : 0;
       write(
           "{\"phase\":\"" + phase + "\",\"done\":" + done + ",\"total\":" + total
@@ -256,6 +286,7 @@ public final class Main {
     }
 
     void finish() {
+      beat.cancel();
       long now = System.currentTimeMillis();
       write(
           "{\"phase\":\"done\",\"percent\":100,\"startedAt\":" + startedAt

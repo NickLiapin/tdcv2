@@ -21,6 +21,7 @@ import json
 import math
 import os
 import sys
+import threading
 import time
 from pathlib import Path
 from typing import TYPE_CHECKING
@@ -215,9 +216,14 @@ class _StatusFile:
     """The ``--progress`` status file: one small JSON object, rewritten in place.
 
     Written atomically (temp + rename) so a poller never reads half a JSON, and throttled to about
-    once a second so watching costs nothing. The file itself is the heartbeat — an mtime that stops
-    moving for minutes means the process is gone, whatever the content says. On success the last
-    write says ``"phase":"done"`` with the wall-clock seconds the run took.
+    once a second so watching costs nothing. On success the last write says ``"phase":"done"`` with
+    the wall-clock seconds the run took.
+
+    The file is REWRITTEN at least once a second whether or not the work has anything new to say —
+    the last state again, with a fresh ``updatedAt`` — so that a file which has not moved for
+    minutes really does mean the process is gone. It used to mean no such thing: nothing wrote
+    unless a phase reported, and a phase that is working reports nothing, so a healthy run could
+    leave the file untouched for over two minutes.
 
     A run split across workers is counted whole: every shard reports the rows it has written and
     the parent adds them up, so the percent is the FILE's, not one worker's.
@@ -227,11 +233,37 @@ class _StatusFile:
         self._path = path
         self._started_at = int(time.time() * 1000)
         self._last_write = 0
+        self._last: dict | None = None
+        self._lock = threading.Lock()
+        self._stop = threading.Event()
+        # The file exists from the first moment, under a phase that is TRUE. A watcher that finds
+        # no file cannot tell "not started yet" from "died", and the opening moment used to be
+        # marked `render` — a phase still two stages away.
+        self._write(
+            {
+                "phase": "starting",
+                "percent": 0,
+                "startedAt": self._started_at,
+                "updatedAt": self._started_at,
+                "pid": os.getpid(),
+            }
+        )
+        self._beat = threading.Thread(target=self._pulse, daemon=True)
+        self._beat.start()
+
+    def _pulse(self) -> None:
+        """Rewrite the last state every second that passes without a report."""
+        while not self._stop.wait(1.0):
+            with self._lock:
+                if self._last is not None and int(time.time() * 1000) - self._last_write >= 1000:
+                    self._write({**self._last, "updatedAt": int(time.time() * 1000)})
 
     def _write(self, payload: dict) -> None:
         tmp = self._path.with_name(self._path.name + ".tmp")
         tmp.write_text(json.dumps(payload, separators=(",", ":")) + "\n", encoding="utf-8")
         tmp.replace(self._path)
+        self._last_write = int(time.time() * 1000)
+        self._last = payload
 
     def report(self, phase: str, done: int, total: int) -> None:
         now = int(time.time() * 1000)
@@ -240,18 +272,18 @@ class _StatusFile:
         # saying "1 of 44" while the run had moved on.
         if done != total and now - self._last_write < 1000:
             return
-        self._last_write = now
-        self._write(
-            {
-                "phase": phase,
-                "done": done,
-                "total": total,
-                "percent": self._percent(done, total),
-                "startedAt": self._started_at,
-                "updatedAt": now,
-                "pid": os.getpid(),
-            }
-        )
+        with self._lock:
+            self._write(
+                {
+                    "phase": phase,
+                    "done": done,
+                    "total": total,
+                    "percent": self._percent(done, total),
+                    "startedAt": self._started_at,
+                    "updatedAt": now,
+                    "pid": os.getpid(),
+                }
+            )
 
     @staticmethod
     def _percent(done: int, total: int) -> float | int:
@@ -270,6 +302,7 @@ class _StatusFile:
         return int(value) if value == int(value) else value
 
     def finish(self) -> None:
+        self._stop.set()
         now = int(time.time() * 1000)
         self._write(
             {

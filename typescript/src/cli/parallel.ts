@@ -194,10 +194,10 @@ function planUniq(
 }
 
 export async function runParallel(params: ParallelParams): Promise<void> {
-  // Said before anything is spawned, so the status file EXISTS from the first
-  // moment. Starting a dozen workers takes seconds on a large config, and a
-  // watcher that finds no file cannot tell "not started yet" from "died".
-  params.onProgress?.({ phase: 'render', done: 0, total: params.count });
+  // No priming report here any more. Making the file exist early was right —
+  // a watcher that finds no file cannot tell "not started yet" from "died" —
+  // but naming that moment `render` announced a phase two stages away. The
+  // status writer now opens the file itself on `starting`, for every path.
   const ranges = partitionRows(params.count, params.jobs);
   const dir = mkdtempSync(join(tmpdir(), 'tdc-parallel-'));
   const scanDir = join(dir, 'scan');
@@ -220,13 +220,22 @@ export async function runParallel(params: ParallelParams): Promise<void> {
     // Verification recomputes the true tuples for those few rows, so a hash
     // collision costs a lookup and never a false duplicate.
     const found = await excessFromPiles(params, piles, scanDir);
-    uniqPlan = planUniq(params, found.fingerprints, found.excess);
 
-    // Phase two: the rows themselves, every worker holding the arrangement.
-    // The analysis is over and the rows are about to start. Said by the
-    // coordinator, because the stretch between the last pile and the first
-    // worker report is the repair — real work with no phase of its own, and
-    // without this mark the file would sit on "uniq-sort" through all of it.
+    // The repair, under its own name.
+    //
+    // The stretch between the last pile and the first worker report IS the
+    // repair: real work, and long. It used to be marked `render 0 of count`
+    // for want of anything better, which said the rows had started when they
+    // had not — the same untruth the opening record used to tell. `uniq-repair`
+    // is the phase this actually is, and the four-phase list in the reference
+    // page is finally reachable on this path: a watcher that never saw it was
+    // not missing a rare case, it was watching the repair wear another name.
+    //
+    // No counters: the arrangement is worked out in one call rather than in
+    // steps that could be counted, and a total invented here would be a bar
+    // that stalls rather than one that fills.
+    params.onProgress?.({ phase: 'uniq-repair', done: 0, total: 0 });
+    uniqPlan = planUniq(params, found.fingerprints, found.excess);
     params.onProgress?.({ phase: 'render', done: 0, total: params.count });
     const rendered = new Array<number>(ranges.length).fill(0);
     await Promise.all(
