@@ -661,6 +661,14 @@
         ]
       }
     },
+    "containers/a-data-joins-the-value-around-it": {
+      "engine2": {
+        "lines": ["test 1 end id-y!", "test 1 end id-y!", "test 2 end id-x!"]
+      },
+      "engine3": {
+        "lines": ["test 1 end id-y!", "test 1 end id-y!", "test 2 end id-x!"]
+      }
+    },
     "date-offset/an-interval-drawn-per-row": {
       "engine2": {
         "refused": "a date measured from another column (\"Discharged\") reads that column as the row is built, and the streaming path has no way to do that yet; the in-memory engine handles it (run without a forced streaming engine)"

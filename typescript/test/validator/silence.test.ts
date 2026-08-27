@@ -96,7 +96,36 @@ describe('a known tag in the wrong container', () => {
       '<block><row><line><data>${{A}}</data></line></row></block></tdc>';
     // "Move <row> to a valid location" does not say where. TDC010 in the same
     // situation prints the list, and that list is what gets read and acted on.
-    expect(report(misplaced)[0]).toContain('Allowed inside <block>: data, line.');
+    expect(report(misplaced)[0]).toContain('Allowed inside <block>: line.');
+  });
+
+  it('refuses a <data> written where nothing renders it', () => {
+    // Four containers took a `<data>` child and dropped it without a word:
+    // <tdc>, <env>, <block> and <pool>. A `<data>` has no value of its own —
+    // it joins the value of the thing around it — and those four have none.
+    const seq = '<sequence name="A"><gen type="number" value="1..9"/></sequence>';
+    const loose: Record<string, string> = {
+      tdc: `<tdc><data>x</data><env count="3" seed="p" local="en">${seq}</env><block><line><data>\${{A}}</data></line></block></tdc>`,
+      env: `<tdc><env count="3" seed="p" local="en"><data>x</data>${seq}</env><block><line><data>\${{A}}</data></line></block></tdc>`,
+      block: `<tdc><env count="3" seed="p" local="en">${seq}</env><block><data>x</data><line><data>\${{A}}</data></line></block></tdc>`,
+      pool: `<tdc><env count="3" seed="p" local="en"><pool name="P" count="2"><data>x</data><sequence name="a"><gen type="text" value="x,y"/></sequence></pool><sequence name="R"><gen type="pool" value="P"/></sequence></env><block><line><data>\${{R.a}}</data></line></block></tdc>`,
+    };
+    for (const [container, config] of Object.entries(loose)) {
+      const first = report(config)[0] ?? '';
+      expect(first, container).toContain(
+        `TDC013: <data> is not allowed directly inside <${container}>`,
+      );
+    }
+  });
+
+  it('leaves the <data> that DOES join a value alone', () => {
+    // The shape the four refusals must not catch: parts of a sequence compose
+    // into one value, which is what a `<data>` beside a `<gen>` is for.
+    const composed =
+      '<tdc><env count="2" seed="p" local="en">' +
+      '<sequence name="X"><data>test </data><gen type="text" value="1,2"/><data> end</data></sequence>' +
+      '</env><block><line><data>${{X}}</data></line></block></tdc>';
+    expect(report(composed)).toEqual([]);
   });
 });
 

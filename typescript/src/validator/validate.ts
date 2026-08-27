@@ -66,6 +66,7 @@ import {
   childNode,
   childTagName,
   isKnownConstruct,
+  reportLooseData,
   reportMisplaced,
   reportUnknownChild,
 } from './placement.js';
@@ -208,8 +209,8 @@ export function validate(tree: DocumentContext, options: ValidationOptions = {})
       continue;
     }
     const k = elementKind(child);
-    if (!k || k.kind === 'data') continue;
-    const childName = elementName(k.node);
+    if (!k || reportLooseData(child, 'tdc', ctx)) continue;
+    const childName = childTagName(child) ?? '';
 
     // `<env count="3" seed="demo"/>` parses, and then every attribute on it is
     // discarded: the run silently falls back to the default count on a random
@@ -503,8 +504,8 @@ function checkEnv(envEl: OpenCloseElementContext, ctx: Ctx): void {
       continue;
     }
     const k = elementKind(child);
-    if (!k || k.kind === 'data') continue;
-    const name = elementName(k.node);
+    if (!k || reportLooseData(child, 'env', ctx)) continue;
+    const name = childTagName(child) ?? '';
     if (!name) continue;
 
     if (name === 'sequence' && k.kind === 'self') {
@@ -1020,7 +1021,7 @@ function checkGen(
 function checkBlock(blockEl: OpenCloseElementContext, ctx: Ctx): void {
   for (const el of contentElements(blockEl.content())) {
     const name = childTagName(el);
-    if (name === null || name === 'data') continue; // whitespace / stray text ignored
+    if (name === null) continue; // whitespace between tags is not an element
     if (name === 'line') {
       const k = elementKind(el);
       if (k?.kind === 'open') {
@@ -1033,8 +1034,7 @@ function checkBlock(blockEl: OpenCloseElementContext, ctx: Ctx): void {
       }
       continue;
     }
-    // A <block> holds only <line>s — anything else (a loose <gen>, <case>,
-    // <sequence>, <map>…) is misplaced.
+    // A <block> holds only <line>s; anything else is misplaced, <data> included.
     reportMisplaced(el, name, 'block', ctx);
   }
 }

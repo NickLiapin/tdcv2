@@ -25,7 +25,7 @@ import { nodeRange } from '../errors/source-map.js';
 import { checkGroupSize } from './group-size.js';
 import { type PendingExpression, scopePending } from './expr-check.js';
 import { KNOWN_POOL_CHILDREN } from './known.js';
-import { reportUnknownChild } from './placement.js';
+import { reportLooseData, reportUnknownChild } from './placement.js';
 import { checkPool, checkPoolMemberRefs } from './pool.js';
 
 /**
@@ -112,7 +112,11 @@ export function checkPoolMembers(
   const outerNames = declaredSequences.length;
   for (const child of contentElements(pool.content())) {
     const k = elementKind(child);
-    if (!k || k.kind === 'data') continue;
+    if (!k) continue;
+    if (k.kind === 'data') {
+      reportLooseData(child, 'pool', { diagnostics });
+      continue;
+    }
     const name = elementName(k.node);
     // Neither branch below used to say anything about a name it did not know,
     // so an invented tag inside a <pool> passed in silence whichever way it was

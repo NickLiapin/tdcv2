@@ -59,6 +59,12 @@
         "] }",
         "last=5002"
       ]
+    },
+    {
+      "name": "a-data-joins-the-value-around-it",
+      "description": "The shape the four loose-<data> refusals must NOT catch. A <data> beside a <gen> inside a <sequence> composes ONE value, and the same works inside a pool member — which is why the refusals name the containers that have no value to join (tdc, env, block, pool) rather than the tag.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"X\"><data>test </data><gen type=\"text\" value=\"1,2\"/><data> end</data></sequence><pool name=\"P\" count=\"2\"><sequence name=\"a\"><data>id-</data><gen type=\"text\" value=\"x,y\"/><data>!</data></sequence></pool><sequence name=\"R\"><gen type=\"pool\" value=\"P\"/></sequence></env><block><line><data>${{X}} ${{R.a}}</data></line></block></tdc>",
+      "expected": ["test 1 end id-y!", "test 1 end id-y!", "test 2 end id-x!"]
     }
   ]
 }

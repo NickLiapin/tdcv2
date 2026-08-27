@@ -88,6 +88,34 @@
         "error TDC010 1:184",
         "warning TDC221 1:160"
       ]
+    },
+    {
+      "name": "a-data-loose-in-a-pool",
+      "demonstrates": "TDC013",
+      "description": "A pool publishes NAMED fields, so a bare <data> has nothing to address it and rendered nothing at all. The composed form works one level in, inside the member's own <sequence>.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><pool name=\"P\" count=\"2\"><data>lead-</data><sequence name=\"a\"><gen type=\"text\" value=\"x,y\"/></sequence></pool><sequence name=\"R\"><gen type=\"pool\" value=\"P\"/></sequence></env><block><line><data>${{R.a}}</data></line></block></tdc>",
+      "expected": ["error TDC013 1:54"]
+    },
+    {
+      "name": "a-data-loose-in-env",
+      "demonstrates": "TDC013",
+      "description": "The same in <env>: nothing renders it, and the walk used to skip a <data> child before any check ran.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><data>loose</data><sequence name=\"a\"><gen type=\"text\" value=\"x,y\"/></sequence></env><block><line><data>${{a}}</data></line></block></tdc>",
+      "expected": ["error TDC013 1:29"]
+    },
+    {
+      "name": "a-data-loose-in-a-block",
+      "demonstrates": "TDC013",
+      "description": "A <block> holds <line>s. A <data> beside them rendered nothing while the page promised it was an error.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"a\"><gen type=\"text\" value=\"x,y\"/></sequence></env><block><data>loose</data><line><data>${{a}}</data></line></block></tdc>",
+      "expected": ["error TDC013 1:102"]
+    },
+    {
+      "name": "a-data-loose-in-tdc",
+      "demonstrates": "TDC013",
+      "description": "The outermost of the four. Same rule: a <data> joins the value around it, and at document level there is none.",
+      "config": "<tdc><data>loose</data><env count=\"2\" seed=\"s\"><sequence name=\"a\"><gen type=\"text\" value=\"x,y\"/></sequence></env><block><line><data>${{a}}</data></line></block></tdc>",
+      "expected": ["error TDC013 1:5"]
     }
   ]
 }

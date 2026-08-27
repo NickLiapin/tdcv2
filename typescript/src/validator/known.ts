@@ -353,7 +353,7 @@ export const KNOWN_SEQUENCE_CHILDREN: readonly string[] = [
 ] as const;
 
 /** Tag names valid as direct children of `<block>`. */
-export const KNOWN_BLOCK_CHILDREN: readonly string[] = ['line', 'data'] as const;
+export const KNOWN_BLOCK_CHILDREN: readonly string[] = ['line'] as const;
 
 /**
  * `<distinct>` and `<uniq>` mean two different things depending on where they
@@ -389,10 +389,10 @@ export const KNOWN_POOL_CHILDREN: readonly string[] = [
   'switch',
   'uniq',
   'distinct',
-  // A `<data>` inside a `<pool>` is accepted — by this implementation and by all four ports —
-  // and was named by no list here, so the refusal for a WRONG child of a pool printed a set of
-  // allowed names that left out one of them. The ports carried it and this list did not.
-  'data',
+  // No `<data>`. A pool publishes NAMED fields — `${{Ref.a}}` — and a bare `<data>` has no
+  // name, so nothing can address it: all five accepted one and dropped it without a word. The
+  // composed form people want works one level in, inside the member's own <sequence>, where
+  // the field name is.
 ] as const;
 
 /** Tag names valid inside a fixture (`<before>`, `<after>`, the delimiters…). */

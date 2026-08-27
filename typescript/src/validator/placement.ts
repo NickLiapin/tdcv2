@@ -41,11 +41,38 @@ const PLACEMENT_HINT: Record<string, string> = {
   default: 'A <default> belongs inside a <switch>.',
   line: 'A <line> belongs inside a <block> (or a before/after fixture).',
   sequence: 'A <sequence> belongs directly inside <env>.',
+  // A <data> has no value of its own: it JOINS the value of the thing around
+  // it. Written where there is nothing to join — straight into <tdc>, <env>,
+  // <block> or <pool> — it rendered nothing and said nothing, which is the
+  // silent loss this project refuses everywhere else.
+  data:
+    'A <data> joins the value of the <line>, <sequence> or <case> it sits in — ' +
+    'on its own there is nothing for it to join.',
 };
 
 /** True for a known construct that simply belongs somewhere else. */
 export function isKnownConstruct(name: string): boolean {
   return PLACEMENT_HINT[name] !== undefined;
+}
+
+/**
+ * A `<data>` written where nothing renders it.
+ *
+ * `<tdc>`, `<env>`, `<block>` and `<pool>` each used to skip a `<data>` child
+ * before any check ran, so the text was dropped without a word — the config
+ * said something and got nothing. A `<data>` has no value of its own; it joins
+ * the value of the thing around it, and those four have no value to join.
+ * `<pool>` is the one worth spelling out: it publishes NAMED fields, so a tag
+ * with no name could not be addressed even if it were kept.
+ */
+export function reportLooseData(
+  el: ElementContext,
+  parent: string,
+  sink: { diagnostics: Diagnostic[] },
+): boolean {
+  if (elementKind(el)?.kind !== 'data') return false;
+  reportMisplaced(el, 'data', parent, sink);
+  return true;
 }
 
 /** Report a known tag sitting in a parent that doesn't allow it. */
