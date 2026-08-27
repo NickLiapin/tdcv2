@@ -2462,11 +2462,11 @@ def _run_pack_generator(
     # per-row: a pack that needs the WHOLE column, in a run of count="1", is a column-wide build
     # that happens to hold a single row. Salted there, this engine answered a config differently
     # from the streaming ones, which build such a body their own way and never salt it.
-    body_row = (
-        run.rows[0]
-        if run.per_row and count == 1 and run.rows is not None and len(run.rows) == 1
-        else None
-    )
+    # `absolute_row`, not `run.rows[0]`: a build whose positions ARE its rows carries no row
+    # list at all, and reading one off it left a NESTED body — a pack naming a second pack —
+    # without the row on its seed. The reference's inner body is seeded `…|domain|0`; this one
+    # was seeded `…|domain`, and a column of e-mail addresses came out with one domain repeated.
+    body_row = per_row.absolute_row(run, 0) if run.per_row and count == 1 else None
     body_seed = f"{run.config.seed}|{run.stream_id or run.column_stream_id or ''}" + (
         "" if body_row is None else f"|{body_row}"
     )

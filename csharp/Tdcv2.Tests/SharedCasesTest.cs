@@ -4,6 +4,7 @@ using System.Text.Json;
 using Tdcv2.Engine;
 using Tdcv2.Model;
 using Tdcv2.Errors;
+using Tdcv2.Packs;
 using Tdcv2.Parser;
 using Tdcv2.Validation;
 
@@ -85,7 +86,11 @@ public class SharedCasesTest
         // Rendering straight off the parse tree skips that presumption, so a port whose validator
         // refuses an attribute the reference reads passes here while `tdcv2 check` on the same file
         // fails. That is how `base=` on <gen type="running"> stayed refused in three ports.
-        var refusals = Validator.Validate(parsed.Tree, PrngVectorsTest.BaseDirOf(node), null)
+        // With the PACKS, as the command line has them. A pack declares its own parameters —
+        // `domain=` on `common.internet.email` is one — and a validator that cannot see the pack
+        // reports the parameter as an unknown attribute, so no shared case could ever name one.
+        var refusals = Validator
+            .Validate(parsed.Tree, PrngVectorsTest.BaseDirOf(node), DataPacks.Discover())
             .Where(d => d.Severity == Severity.Error)
             .ToList();
         if (refusals.Count > 0)

@@ -135,12 +135,18 @@ pub fn config_of(case: &Case) -> Result<Config, EngineError> {
     // `tdcv2 check` on the same file fails. That is how `base=` on
     // <gen type="running"> stayed refused in three ports.
     let base_dir = base_dir_of(case);
-    let refusals: Vec<String> =
-        tdcv2::validator::validate_in(&parsed.tree, None, base_dir.as_deref())
-            .into_iter()
-            .filter(|d| d.severity == Severity::Error)
-            .map(|d| format!("{} {}", d.code, d.message))
-            .collect();
+    // With the PACKS, as the command line has them. A pack declares its own parameters —
+    // `domain=` on `common.internet.email` is one — and a validator that cannot see the pack
+    // reports the parameter as an unknown attribute, so no shared case could name one.
+    let refusals: Vec<String> = tdcv2::validator::validate_in(
+        &parsed.tree,
+        tdcv2::packs::DataPacks::discover().ok(),
+        base_dir.as_deref(),
+    )
+    .into_iter()
+    .filter(|d| d.severity == Severity::Error)
+    .map(|d| format!("{} {}", d.code, d.message))
+    .collect();
     if !refusals.is_empty() {
         return Err(EngineError::Invalid(format!(
             "the validator refuses a shared case: {}",

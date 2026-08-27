@@ -3044,6 +3044,38 @@
         "lines": ["កែប 1TI-0355"]
       }
     },
+    "one-row/a-pack-that-names-another-pack": {
+      "engine2": {
+        "lines": [
+          "imafud2cvh@atlas-vouxo1.example",
+          "bxq99b35bv@synthetic-w4ouif.test",
+          "lzkbq624yi@demo-v5z96f.test"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "imafud2cvh@atlas-vouxo1.example",
+          "bxq99b35bv@synthetic-w4ouif.test",
+          "lzkbq624yi@demo-v5z96f.test"
+        ]
+      }
+    },
+    "one-row/a-pack-that-names-another-pack-with-a-parameter": {
+      "engine2": {
+        "lines": [
+          "imafud2cvh@example.test e7uhixew8f@sample-07urwg.test",
+          "bxq99b35bv@example.test yj7txz25i_@sample-3zpnva.invalid",
+          "lzkbq624yi@example.test x1lkrcqp1u@demo-grvfo3.example"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "imafud2cvh@example.test e7uhixew8f@sample-07urwg.test",
+          "bxq99b35bv@example.test yj7txz25i_@sample-3zpnva.invalid",
+          "lzkbq624yi@example.test x1lkrcqp1u@demo-grvfo3.example"
+        ]
+      }
+    },
     "ordering/sequential-text-loops": {
       "engine2": {
         "lines": ["Jan", "Feb", "Mar", "Jan", "Feb", "Mar", "Jan"]

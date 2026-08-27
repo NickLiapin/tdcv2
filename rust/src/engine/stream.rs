@@ -3223,7 +3223,7 @@ impl StreamEngine<'_> {
             &self.env,
             None,
             Some(&scope),
-            Some((stream_id, Some(here[0]))),
+            Some((self.env.config.seed.as_str(), stream_id, Some(here[0]))),
         )?;
         let mut own = [false];
         let finished = memory::finish(

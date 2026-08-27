@@ -2422,7 +2422,7 @@ pub(super) fn column_values_into(
                 env,
                 scratch.as_mut(),
                 Some(&scope),
-                Some((stream.id.as_str(), Some(here[0]))),
+                Some((stream.seed.as_str(), stream.id.as_str(), Some(here[0]))),
             )?;
             let mut one = [false];
             let done = finish_into(
@@ -2463,6 +2463,7 @@ pub(super) fn column_values_into(
         // body built for one row runs its own sequences through this same path, and those are
         // still one row of the run: flattened away, every e-mail in a column got one domain.
         Some((
+            stream.seed.as_str(),
             stream.id.as_str(),
             if stream.one_row && count == 1 {
                 Some(stream.row_at(0))
@@ -2667,7 +2668,7 @@ pub(super) fn generate_in_column(
     env: &Env,
     instants: Option<&mut Vec<Option<i64>>>,
     scope: Option<&SiblingScope>,
-    column: Option<(&str, Option<usize>)>,
+    column: Option<(&str, &str, Option<usize>)>,
 ) -> EngineResult<Vec<String>> {
     // Attributes that change what a generator produces are refused before the
     // generator runs, so a column never silently ignores one it was given.
@@ -4024,7 +4025,7 @@ fn template_values(
     count: usize,
     prng: &mut Sfc32,
     env: &Env,
-    column: Option<(&str, Option<usize>)>,
+    column: Option<(&str, &str, Option<usize>)>,
 ) -> EngineResult<Vec<String>> {
     let path = gen.attr_or("value", "");
 
@@ -4077,10 +4078,16 @@ fn template_values(
          * machinery plans one slot and gives it to one value, so every row would
          * draw the same.
          */
-        let (column_id, column_row) = column.unwrap_or(("", None));
+        // The ENCLOSING seed, which is the run's for a top-level column and the parent BODY's
+        // for a sequence inside a pack body. Read off `env.config.seed` instead, a pack naming
+        // another pack seeded the inner body from the run — so it drew the same value on every
+        // row while the parent's own draws moved, and a column of e-mail addresses came out
+        // with one domain repeated behind varying tokens.
+        let (column_seed, column_id, column_row) =
+            column.unwrap_or((env.config.seed.as_str(), "", None));
         let body_seed = match column_row {
-            Some(row) if count == 1 => format!("{}|{column_id}|{row}", env.config.seed),
-            _ => format!("{}|{column_id}", env.config.seed),
+            Some(row) if count == 1 => format!("{column_seed}|{column_id}|{row}"),
+            _ => format!("{column_seed}|{column_id}"),
         };
         return pack_generator(
             body,

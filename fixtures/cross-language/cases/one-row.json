@@ -73,6 +73,26 @@
       "description": "The compound branch of a pack body — one column per field — took the same wrong turn in one implementation and not the others, so it is pinned separately from the plain one.",
       "config": "<tdc><env count=\"1\" seed=\"wc\" local=\"en\" mode=\"memory\"><sequence name=\"A\"><gen type=\"template\" value=\"cambodia.vehicle.plate\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
       "expected": ["កែប 1TI-0355"]
+    },
+    {
+      "name": "a-pack-that-names-another-pack",
+      "description": "`common.internet.email` draws its domain from `common.internet.domain` — a pack body naming a second pack. The inner body must be seeded from the OUTER BODY's seed, not from the run's: seeded from the run it lands on the same value for every row, so a column of addresses came out as one domain repeated behind varying tokens. Three rows, because a single row cannot show a value that fails to move.",
+      "config": "<tdc><env count=\"3\" seed=\"pp\" local=\"en\" mode=\"memory\"><sequence name=\"E\"><gen type=\"template\" value=\"common.internet.email\"/></sequence></env><block><line><data>${{E}}</data></line></block></tdc>",
+      "expected": [
+        "imafud2cvh@atlas-vouxo1.example",
+        "bxq99b35bv@synthetic-w4ouif.test",
+        "lzkbq624yi@demo-v5z96f.test"
+      ]
+    },
+    {
+      "name": "a-pack-that-names-another-pack-with-a-parameter",
+      "description": "The same, with the outer pack parameterised — `domain=` replaces the sequence that would have drawn from the inner pack. The parameter draws nothing, so everything after it must land exactly where it would have without one.",
+      "config": "<tdc><env count=\"3\" seed=\"pp\" local=\"en\" mode=\"memory\"><sequence name=\"E\"><gen type=\"template\" value=\"common.internet.email\" domain=\"example.test\"/></sequence><sequence name=\"P\"><gen type=\"template\" value=\"common.internet.email\"/></sequence></env><block><line><data>${{E}} ${{P}}</data></line></block></tdc>",
+      "expected": [
+        "imafud2cvh@example.test e7uhixew8f@sample-07urwg.test",
+        "bxq99b35bv@example.test yj7txz25i_@sample-3zpnva.invalid",
+        "lzkbq624yi@example.test x1lkrcqp1u@demo-grvfo3.example"
+      ]
     }
   ]
 }
