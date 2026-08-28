@@ -1614,69 +1614,77 @@ public final class MemoryEngine {
 
     int total = column.size();
     List<List<String>> out = new ArrayList<>();
-    List<Integer> room = new ArrayList<>();
-    for (int size : sizes) {
+    for (int i = 0; i < sizes.size(); i++) {
       out.add(new ArrayList<>());
-      room.add(size);
+    }
+    if (total == 0) {
+      return out;
     }
 
-    for (String value : order) {
-      int want = counts.getOrDefault(value, 0);
-      double[] exact = new double[sizes.size()];
-      int[] share = new int[sizes.size()];
-      int given = 0;
-      for (int i = 0; i < sizes.size(); i++) {
-        exact[i] = total == 0 ? 0.0 : (double) want * sizes.get(i) / total;
-        share[i] = Math.min(room.get(i), (int) Math.floor(exact[i]));
-        given += share[i];
+    // Two phases, both global. FLOORS first: value v owes block b floor(want*size/total), and
+    // the floors of one block can never exceed its size, because the exact shares of one block
+    // sum to the size itself. Then the LEFTOVER UNITS: every claim a value holds on a block —
+    // its fractional remainder there — goes into one list, sorted by remainder, ties by value
+    // order then block order, and the walk assigns a unit wherever the value still has copies
+    // to place and the block still has room.
+    //
+    // Assigning per VALUE was tried twice and starved a block both times. With equal blocks
+    // every remainder is a tie, and "ties to block 0" filled it before the last value arrived
+    // — [1,4] where a fair split is [2,3]. A room tie-break cured the ties and left the
+    // non-ties: an ODD count cuts blocks 13/12, every value's remainder favours the 13, and
+    // the fifth value landed [1,4] again — the whole difference between "count 25 collects"
+    // and "at most 24". The global walk cannot starve anyone: it hands out exactly each
+    // block's deficit, and a filled block simply stops winning claims.
+    int valueCount = order.size();
+    int blockCount = sizes.size();
+    int[][] floors = new int[valueCount][blockCount];
+    int[] leftover = new int[valueCount];
+    int[] room = new int[blockCount];
+    for (int b = 0; b < blockCount; b++) {
+      room[b] = sizes.get(b);
+    }
+    for (int v = 0; v < valueCount; v++) {
+      int want = counts.getOrDefault(order.get(v), 0);
+      int placed = 0;
+      for (int b = 0; b < blockCount; b++) {
+        int f = (int) Math.floor((double) want * sizes.get(b) / total);
+        floors[v][b] = f;
+        placed += f;
+        room[b] -= f;
       }
+      leftover[v] = want - placed;
+    }
 
-      // The remainder goes to the blocks with the largest fraction owed; a tie is broken by the
-      // most room left, then block order. Equal blocks make every remainder a tie, and "ties to
-      // block 0" starved the LAST value there — the final value came out [1,4] where a fair
-      // split is [2,3], and that was the difference between a group that collects 24 and one
-      // refused at 24. Room as the tie-break is self-balancing: each odd copy shrinks the room
-      // that attracted it, so the next tie goes the other way.
-      Integer[] owed = new Integer[sizes.size()];
-      for (int i = 0; i < owed.length; i++) {
-        owed[i] = i;
+    record Claim(double rem, int v, int b) {}
+    List<Claim> claims = new ArrayList<>(valueCount * blockCount);
+    for (int v = 0; v < valueCount; v++) {
+      int want = counts.getOrDefault(order.get(v), 0);
+      for (int b = 0; b < blockCount; b++) {
+        claims.add(new Claim((double) want * sizes.get(b) / total - floors[v][b], v, b));
       }
-      final double[] frac = new double[exact.length];
-      final int[] free = new int[exact.length];
-      for (int i = 0; i < exact.length; i++) {
-        frac[i] = exact[i] - Math.floor(exact[i]);
-        free[i] = room.get(i) - share[i];
+    }
+    claims.sort(
+        (a, c) -> {
+          int byRem = Double.compare(c.rem(), a.rem());
+          if (byRem != 0) {
+            return byRem;
+          }
+          int byValue = Integer.compare(a.v(), c.v());
+          return byValue != 0 ? byValue : Integer.compare(a.b(), c.b());
+        });
+    for (Claim claim : claims) {
+      if (leftover[claim.v()] > 0 && room[claim.b()] > 0) {
+        floors[claim.v()][claim.b()]++;
+        leftover[claim.v()]--;
+        room[claim.b()]--;
       }
-      java.util.Arrays.sort(owed, (a, b) -> {
-        int byFrac = Double.compare(frac[b], frac[a]);
-        if (byFrac != 0) {
-          return byFrac;
-        }
-        int byRoom = Integer.compare(free[b], free[a]);
-        return byRoom != 0 ? byRoom : Integer.compare(a, b);
-      });
-      for (int i : owed) {
-        if (given >= want) {
-          break;
-        }
-        if (share[i] < room.get(i)) {
-          share[i]++;
-          given++;
-        }
-      }
-      // A block that filled up sends its share on to the next with room.
-      for (int i = 0; i < share.length && given < want; i++) {
-        while (given < want && share[i] < room.get(i)) {
-          share[i]++;
-          given++;
-        }
-      }
+    }
 
-      for (int i = 0; i < share.length; i++) {
-        for (int k = 0; k < share[i]; k++) {
-          out.get(i).add(value);
+    for (int b = 0; b < blockCount; b++) {
+      for (int v = 0; v < valueCount; v++) {
+        for (int k = 0; k < floors[v][b]; k++) {
+          out.get(b).add(order.get(v));
         }
-        room.set(i, room.get(i) - share[i]);
       }
     }
     return out;

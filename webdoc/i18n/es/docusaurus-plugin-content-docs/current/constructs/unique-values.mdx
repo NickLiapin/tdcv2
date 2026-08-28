@@ -319,38 +319,31 @@ El multiconjunto no se toca, solo se distribuye, así que cada `percent=` que us
 declaró sobrevive exacto. Y nada cruza un bloque: la columna conmutada se queda
 donde está, y el sujeto por el que se cortaron los bloques también.
 
-#### Hasta dónde llega un grupo, y por qué el borde superior es irregular
+#### Hasta dónde llega un grupo
 
 Un grupo reordena los valores que sacó; no vuelve a sacarlos para que encajen.
 Las listas mismas se disponen en partes exactas — una lista `text` siempre fue
-así, y un pack simple o una lista de archivo ahora toman el mismo camino —, de
-modo que un `count` PAR alcanza el techo real del grupo desde cualquier semilla.
-El borde irregular que queda es de los counts impares: una corrida impar corta
-los bloques 13/12, la parte justa de un valor —2,6 y 2,4 filas— tiene que
-redondearse en algún lado, y cerca del techo esos redondeos pueden dejar a un
-bloque a una fila de cubrirse. Medido sobre una forma —dos sujetos, tres
-nombres cada uno, cinco valores compartidos, con `seed="blocks"`:
-
-| count | 2–24 | 25  | 26  | 27  | 28–30 | 31+ |
-| ----- | ---- | --- | --- | --- | ----- | --- |
-|       | ✅   | ❌  | ✅  | ❌  | ✅    | ❌  |
-
-Todo count hasta 24 se genera, y el techo también; los dos impares justo debajo
-quedan a una fila en esta semilla y se completan en otras. Si un count cerca
-del límite es rechazado, el arreglo honesto es más valores en algún miembro,
-que mueve el rango entero en lugar de un punto.
+así, y un pack simple o una lista de archivo ahora toman el mismo camino —, y el
+reparto que divide una columna libre entre los bloques del `<switch>` entrega
+sus unidades sobrantes por una lista global de reclamos, de modo que ningún
+bloque se queda sin un valor. El resultado es un borde limpio: medido sobre una
+forma —dos sujetos, tres nombres cada uno, cinco valores compartidos— **todo
+count hasta el techo de 30 se genera, desde cualquier semilla, y todo count por
+encima se rechaza**. La semilla decide qué disposición le toca, nunca si existe
+una.
 
 El rechazo dice qué permitían los datos:
 
 <Terminal title="./run tight.tdc">
-{`tdcv2: uniq: group "G × F × L" cannot produce 25 unique combinations — the values
-drawn for these sequences allow at most 24 distinct rows. Add more values to a
+{`tdcv2: uniq: group "G × F × L" cannot produce 31 unique combinations — the values
+drawn for these sequences allow at most 30 distinct rows. Add more values to a
 member (more distinct names, wider ranges…) or lower the count.`}
 </Terminal>
 
-La cifra es el alcance del **grupo entero**: los bloques en que lo cortó el
-`<switch>`, sumados. Por eso queda a lo sumo a una fila del mejor count que sí
-se genera.
+La cifra es el alcance del **grupo entero** — los bloques en que lo cortó el
+`<switch>`, sumados — y es exactamente el count más alto que sí se genera. Si un
+count es rechazado, el arreglo es más valores en algún miembro: más nombres
+distintos, rangos más anchos.
 
 :::note[No es un id único]
 Se trata de la unicidad de una **combinación de campos**, no de un contador. Para un

@@ -2032,78 +2032,83 @@ fn subjects_of(members: &[String], config: &Config) -> Vec<String> {
 /// untouched — the same values in the same numbers, only distributed — so every
 /// declared percentage survives exactly.
 fn deal_across_blocks(column: &[String], block_sizes: &[usize]) -> Vec<Vec<String>> {
-    let mut order: Vec<String> = Vec::new();
-    let mut counts: BTreeMap<String, usize> = BTreeMap::new();
+    let mut order: Vec<&String> = Vec::new();
+    let mut counts: BTreeMap<&String, usize> = BTreeMap::new();
     for value in column {
         if !counts.contains_key(value) {
-            order.push(value.clone());
+            order.push(value);
         }
-        *counts.entry(value.clone()).or_insert(0) += 1;
+        *counts.entry(value).or_insert(0) += 1;
     }
 
     let total = column.len();
-    let mut out: Vec<Vec<String>> = block_sizes.iter().map(|_| Vec::new()).collect();
+    if total == 0 {
+        return block_sizes.iter().map(|_| Vec::new()).collect();
+    }
+
+    // Two phases, both global. FLOORS first: value v owes block b
+    // floor(want·size/total), and the floors of one block can never exceed its
+    // size, because the exact shares of one block sum to the size itself. Then
+    // the LEFTOVER UNITS: every claim a value holds on a block — its fractional
+    // remainder there — goes into one list, sorted by remainder, ties by value
+    // order then block order, and the walk assigns a unit wherever the value
+    // still has copies to place and the block still has room.
+    //
+    // Assigning per VALUE was tried twice and starved a block both times. With
+    // equal blocks every remainder is a tie, and "ties to block 0" filled it
+    // before the last value arrived — [1,4] where a fair split is [2,3]. A room
+    // tie-break cured the ties and left the non-ties: an ODD count cuts blocks
+    // 13/12, every value's remainder favours the 13 (.6 against .4), and the
+    // fifth value landed [1,4] again — the whole difference between "count 25
+    // collects" and "at most 24". The global walk cannot starve anyone: it
+    // hands out exactly each block's deficit, and a filled block simply stops
+    // winning claims.
+    let value_count = order.len();
+    let mut floors: Vec<Vec<usize>> = Vec::with_capacity(value_count);
+    let mut leftover: Vec<usize> = Vec::with_capacity(value_count);
     let mut room: Vec<usize> = block_sizes.to_vec();
-
     for value in &order {
-        let want = *counts.get(value).unwrap_or(&0);
-        let exact: Vec<f64> = block_sizes
-            .iter()
-            .map(|size| {
-                if total == 0 {
-                    0.0
-                } else {
-                    (want * size) as f64 / total as f64
-                }
-            })
-            .collect();
-        let mut share: Vec<usize> = exact
-            .iter()
-            .enumerate()
-            .map(|(i, e)| room[i].min(e.floor() as usize))
-            .collect();
-        let mut given: usize = share.iter().sum();
-
-        // The remainder goes to the blocks with the largest fraction owed; a tie
-        // is broken by the most room left, then block order. Equal blocks make
-        // every remainder a tie, and "ties to block 0" starved the LAST value
-        // there — the final value came out [1,4] where a fair split is [2,3],
-        // and that was the difference between a group that collects 24 and one
-        // refused at 24. Room as the tie-break is self-balancing: each odd copy
-        // shrinks the room that attracted it, so the next tie goes the other way.
-        let mut owed: Vec<usize> = (0..exact.len()).collect();
-        owed.sort_by(|a, b| {
-            let ra = exact[*a] - exact[*a].floor();
-            let rb = exact[*b] - exact[*b].floor();
-            let fa = room[*a].saturating_sub(share[*a]);
-            let fb = room[*b].saturating_sub(share[*b]);
-            rb.partial_cmp(&ra)
-                .unwrap_or(std::cmp::Ordering::Equal)
-                .then(fb.cmp(&fa))
-                .then(a.cmp(b))
-        });
-        for i in owed {
-            if given >= want {
-                break;
-            }
-            if share[i] < room[i] {
-                share[i] += 1;
-                given += 1;
-            }
+        let want = *counts.get(*value).unwrap_or(&0);
+        let mut row: Vec<usize> = Vec::with_capacity(block_sizes.len());
+        let mut placed = 0usize;
+        for (b, size) in block_sizes.iter().enumerate() {
+            let f = ((want * size) as f64 / total as f64).floor() as usize;
+            row.push(f);
+            placed += f;
+            room[b] -= f;
         }
-        // A block that filled up sends its share on to the next with room.
-        for i in 0..share.len() {
-            while given < want && share[i] < room[i] {
-                share[i] += 1;
-                given += 1;
-            }
-        }
+        floors.push(row);
+        leftover.push(want - placed);
+    }
 
-        for (i, n) in share.iter().enumerate() {
-            for _ in 0..*n {
-                out[i].push(value.clone());
+    let mut claims: Vec<(f64, usize, usize)> = Vec::with_capacity(value_count * block_sizes.len());
+    for (v, value) in order.iter().enumerate() {
+        let want = *counts.get(*value).unwrap_or(&0);
+        for (b, size) in block_sizes.iter().enumerate() {
+            let rem = (want * size) as f64 / total as f64 - floors[v][b] as f64;
+            claims.push((rem, v, b));
+        }
+    }
+    claims.sort_by(|a, c| {
+        c.0.partial_cmp(&a.0)
+            .unwrap_or(std::cmp::Ordering::Equal)
+            .then(a.1.cmp(&c.1))
+            .then(a.2.cmp(&c.2))
+    });
+    for (_rem, v, b) in claims {
+        if leftover[v] > 0 && room[b] > 0 {
+            floors[v][b] += 1;
+            leftover[v] -= 1;
+            room[b] -= 1;
+        }
+    }
+
+    let mut out: Vec<Vec<String>> = block_sizes.iter().map(|_| Vec::new()).collect();
+    for (b, target) in out.iter_mut().enumerate() {
+        for (v, value) in order.iter().enumerate() {
+            for _ in 0..floors[v][b] {
+                target.push((*value).clone());
             }
-            room[i] -= n;
         }
     }
     out
@@ -4795,17 +4800,34 @@ mod deal_tests {
         );
     }
 
-    /// Both values are owed half a row in each block. Ties used to go to block 0 every time,
-    /// which starved the LAST value there — the room tie-break sends `a`'s odd copy to the
-    /// roomier block 1, then `b`'s to block 0, whose room is now the greater. Self-balancing.
+    /// Both values are owed half a row in each block; `a`'s claim on block 0 is walked first
+    /// (equal remainders, value order), takes the block's one free slot, and `b`'s unit goes to
+    /// block 1. Assigning per VALUE was tried twice and starved a block both times.
     #[test]
-    fn a_remainder_tie_goes_to_the_block_with_the_most_room() {
+    fn leftover_units_are_handed_out_globally_strongest_claim_first() {
         assert_eq!(
             deal(&["a", "a", "b", "b"], &[1, 3]),
             vec![
-                vec!["b".to_string()],
-                vec!["a".to_string(), "a".to_string(), "b".to_string()]
+                vec!["a".to_string()],
+                vec!["a".to_string(), "b".to_string(), "b".to_string()]
             ]
         );
+    }
+
+    /// Five values × 5 over blocks [13, 12] — the shape an ODD count cuts. A per-value deal
+    /// dumped the fifth value [1, 4] and "count 25" was refused saying "at most 24"; the
+    /// global walk lands every value [3, 2] or [2, 3].
+    #[test]
+    fn unequal_blocks_do_not_starve_the_last_value() {
+        let column: Vec<&str> = (0..25)
+            .map(|i| ["v0", "v1", "v2", "v3", "v4"][i % 5])
+            .collect();
+        let dealt = deal(&column, &[13, 12]);
+        for v in ["v0", "v1", "v2", "v3", "v4"] {
+            let a = dealt[0].iter().filter(|x| x.as_str() == v).count();
+            let b = dealt[1].iter().filter(|x| x.as_str() == v).count();
+            assert_eq!(a + b, 5, "{v}");
+            assert_eq!(a.abs_diff(b), 1, "{v}");
+        }
     }
 }

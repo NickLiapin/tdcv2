@@ -55,8 +55,20 @@ def test_a_value_short_of_a_whole_share_still_lands_somewhere():
     assert deal(["x", "x", "x", "y"], [2, 2]) == [["x", "x"], ["x", "y"]]
 
 
-def test_a_remainder_tie_goes_to_the_block_with_the_most_room():
-    # Both values are owed half a row in each block. Ties used to go to block 0 every time,
-    # which starved the LAST value there — the room tie-break sends `a`'s odd copy to the
-    # roomier block 1, then `b`'s to block 0, whose room is now the greater. Self-balancing.
-    assert deal(["a", "a", "b", "b"], [1, 3]) == [["b"], ["a", "a", "b"]]
+def test_leftover_units_are_handed_out_globally_strongest_claim_first():
+    # Both values are owed half a row in each block; `a`'s claim on block 0 is walked first
+    # (equal remainders, value order), takes the block's one free slot, and `b`'s unit goes to
+    # block 1. Assigning per VALUE was tried twice and starved a block both times.
+    assert deal(["a", "a", "b", "b"], [1, 3]) == [["a"], ["a", "b", "b"]]
+
+
+def test_unequal_blocks_do_not_starve_the_last_value():
+    # Five values × 5 over blocks [13, 12] — the shape an ODD count cuts. A per-value deal
+    # dumped the fifth value [1, 4] and "count 25" was refused saying "at most 24"; the global
+    # walk lands every value [3, 2] or [2, 3].
+    dealt = deal([f"v{i % 5}" for i in range(25)], [13, 12])
+    for v in range(5):
+        a = dealt[0].count(f"v{v}")
+        b = dealt[1].count(f"v{v}")
+        assert a + b == 5
+        assert abs(a - b) == 1

@@ -384,6 +384,23 @@ placed` rather than naming a total it stopped counting. A number quietly reading
   never the problem. Every block is now measured before any is refused, and the figure is the
   sum over the blocks — within one row of the largest count that renders.
 
+<!-- covers: uniq deal global walk -->
+
+- **The last trace of the seed lottery is gone: an odd count near a group's ceiling collects
+  on every seed.** The tie-break above cured the ties and left the non-ties. An odd count cuts
+  the blocks 13/12, so every value's remainder favours the bigger block — .6 against .4, no tie
+  for the room rule to break — and block 0 filled after four values again: the fifth landed
+  `[1,4]`, the block of 12 reached 11 of its rows, and `count="25"` was refused saying "at most
+  24" on most seeds. The deal now works in two global phases: floors first (the floors of one
+  block can never exceed its size, because one block's exact shares sum to the size itself),
+  then every leftover unit handed out from ONE list of claims sorted by remainder — a walk that
+  distributes exactly each block's deficit, so no block can be starved by arrival order.
+  Measured on the documented shape, 232 runs — every count 2–30 on eight seeds: every one
+  renders its full complement of distinct, subject-coherent rows, and 31 is refused by all. The
+  top edge is a clean line now, and the docs section explaining why it was ragged is gone,
+  replaced by the sentence it always wanted to say: the seed decides which arrangement you get,
+  never whether one exists.
+
 <!-- covers: uniq deal tie-break -->
 
 - **Whether a tight `<uniq>` collected used to depend on the seed. It no longer does.**

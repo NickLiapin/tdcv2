@@ -92,14 +92,34 @@ describe('the block dealer', () => {
     ]);
   });
 
-  it('breaks a remainder tie toward the block with the most room', () => {
-    // Both values are owed half a row in each block. Ties used to go to block 0
-    // every time, which starved the LAST value there — the room tie-break sends
-    // `a`'s odd copy to the roomier block 1, and then `b`'s to block 0, whose
-    // room is now the greater. Self-balancing: each odd copy shrinks the room
-    // that attracted it. Measured on the shape this cured: whether a count near
-    // the ceiling collected used to depend on the seed; now every seed reaches
-    // the true ceiling.
-    expect(dealAcrossBlocks(['a', 'a', 'b', 'b'], [1, 3])).toEqual([['b'], ['a', 'a', 'b']]);
+  it('hands the leftover units out globally, strongest claim first', () => {
+    // Both values are owed half a row in each block; `a`'s claim on block 0 is
+    // walked first (equal remainders, value order), takes the block's one free
+    // slot, and `b`'s unit goes to block 1. Assigning per VALUE instead was
+    // tried twice and starved a block both times — see the odd-blocks test.
+    expect(dealAcrossBlocks(['a', 'a', 'b', 'b'], [1, 3])).toEqual([['a'], ['a', 'b', 'b']]);
+  });
+
+  it('does not starve the last value when the blocks are unequal', () => {
+    // Five values × 5 over blocks [13, 12] — the shape an ODD count cuts. Every
+    // value's remainder favours the 13 (.6 against .4), so a per-value deal
+    // filled block 0 after four values and dumped the fifth [1, 4]: the block
+    // of 12 held [2,2,2,2,4], reached 11 of its 12 rows, and "count 25" was
+    // refused saying "at most 24". The global walk hands block 0 exactly its
+    // three spare slots and the rest go to block 1: every value lands [3,2] or
+    // [2,3], and 25 collects on every seed.
+    const dealt = dealAcrossBlocks(
+      Array.from({ length: 25 }, (_, i) => `v${String(i % 5)}`),
+      [13, 12],
+    );
+    const countIn = (block: readonly string[], value: string): number =>
+      block.filter((x) => x === value).length;
+    for (let v = 0; v < 5; v++) {
+      const a = countIn(dealt[0] ?? [], `v${String(v)}`);
+      const b = countIn(dealt[1] ?? [], `v${String(v)}`);
+      expect([a, b], `value v${String(v)}`).toContain(2);
+      expect(a + b).toBe(5);
+      expect(Math.abs(a - b)).toBe(1);
+    }
   });
 });

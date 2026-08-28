@@ -391,6 +391,38 @@
         "pear|x",
         "apple|x"
       ]
+    },
+    {
+      "name": "an-odd-count-near-the-ceiling-collects",
+      "description": "An odd count cuts the blocks 13/12, and a per-value deal starved the smaller one: every value's remainder favours the 13, block 0 filled after four values, the fifth landed [1,4], and count 25 was refused saying 'at most 24' — on most seeds. The deal now hands its leftover units out globally, strongest claim first, so no block can be starved, and 25 collects on every seed.",
+      "config": "<tdc><env count=\"25\" seed=\"blocks\" local=\"en\"><uniq><sequence name=\"G\"><gen type=\"text\" value=\"M,F\" percent=\"50,50\"/></sequence><switch name=\"F\" on=\"G\"><case is=\"M\"><gen type=\"text\" value=\"m1,m2,m3\"/></case><case is=\"F\"><gen type=\"text\" value=\"f1,f2,f3\"/></case></switch><sequence name=\"L\"><gen type=\"text\" value=\"a,b,c,d,e\"/></sequence></uniq></env><block><line><data>${{G}}|${{F}}|${{L}}</data></line></block></tdc>",
+      "expected": [
+        "F|f1|b",
+        "M|m3|a",
+        "F|f1|d",
+        "M|m1|a",
+        "M|m2|a",
+        "F|f1|c",
+        "F|f1|a",
+        "M|m3|b",
+        "M|m1|b",
+        "M|m3|c",
+        "M|m1|c",
+        "M|m2|c",
+        "F|f2|e",
+        "F|f2|b",
+        "F|f2|d",
+        "F|f2|c",
+        "F|f3|a",
+        "F|f3|e",
+        "M|m3|d",
+        "M|m2|d",
+        "M|m3|e",
+        "M|m1|e",
+        "M|m2|e",
+        "F|f3|b",
+        "F|f3|d"
+      ]
     }
   ]
 }

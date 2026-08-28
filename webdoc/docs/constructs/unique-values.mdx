@@ -315,36 +315,28 @@ The multiset is never touched, only distributed, so every `percent=` you declare
 survives exactly. And nothing crosses a block: the switched column stays where it
 is, and so does the subject the blocks were cut by.
 
-#### How far a group reaches, and why the top edge is ragged
+#### How far a group reaches
 
 A group rearranges the values it drew; it does not draw again to fit. The lists
 themselves are laid out in exact shares — a plain text list always was, and a
-plain pack or file list now takes the same road — so an EVEN `count` reaches the
-group's true ceiling from any seed. The top edge that remains belongs to the odd
-counts: an odd run splits the blocks 13/12, a value's fair share of 2.6 and 2.4
-rows has to round somewhere, and near the ceiling those roundings can leave one
-block a single row short. Measured on one shape — two subjects, three names
-each, five shared values, at `seed="blocks"`:
-
-| count | 2–24 | 25  | 26  | 27  | 28–30 | 31+ |
-| ----- | ---- | --- | --- | --- | ----- | --- |
-|       | ✅   | ❌  | ✅  | ❌  | ✅    | ❌  |
-
-Every count up to 24 renders, and so does the ceiling itself; the two odd counts
-just under it fall one row short on this seed and collect on others. If a count
-near the limit is refused, the honest fix is more values in a member, which
-moves the whole range rather than one point of it.
+plain pack or file list now takes the same road — and the deal that spreads a
+free column across a `<switch>`'s blocks hands its leftover units out globally,
+so no block can be starved of a value. The result is a clean edge: measured on
+one shape — two subjects, three names each, five shared values — **every count
+up to the ceiling of 30 renders, from every seed, and every count above it is
+refused**. The seed decides which arrangement you get, never whether one exists.
 
 The refusal says what the data allowed:
 
 <Terminal title="./run tight.tdc">
-{`tdcv2: uniq: group "G × F × L" cannot produce 25 unique combinations — the values
-drawn for these sequences allow at most 24 distinct rows. Add more values to a
+{`tdcv2: uniq: group "G × F × L" cannot produce 31 unique combinations — the values
+drawn for these sequences allow at most 30 distinct rows. Add more values to a
 member (more distinct names, wider ranges…) or lower the count.`}
 </Terminal>
 
 The figure is the reach of the **whole group** — the blocks a `<switch>` cut it
-into, added up — so it sits within one row of the largest count that renders.
+into, added up — and it is exactly the largest count that renders. If a count is
+refused, the fix is more values in a member: more distinct names, wider ranges.
 
 :::note[Not a "unique id"]
 This is about the uniqueness of a **combination of fields**, not a counter. For a

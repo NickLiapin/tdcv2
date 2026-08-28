@@ -102,15 +102,37 @@ class BlockDealTest {
   }
 
   /**
-   * Both values are owed half a row in each block. Ties used to go to block 0 every time, which
-   * starved the LAST value there — the room tie-break sends {@code a}'s odd copy to the roomier
-   * block 1, then {@code b}'s to block 0, whose room is now the greater. Self-balancing.
+   * Both values are owed half a row in each block; {@code a}'s claim on block 0 is walked first
+   * (equal remainders, value order), takes the block's one free slot, and {@code b}'s unit goes
+   * to block 1. Assigning per VALUE was tried twice and starved a block both times.
    */
   @Test
-  @DisplayName("a remainder tie goes to the block with the most room")
-  void aRemainderTieGoesToTheBlockWithTheMostRoom() {
+  @DisplayName("leftover units are handed out globally, strongest claim first")
+  void leftoverUnitsAreHandedOutGloballyStrongestClaimFirst() {
     assertEquals(
-        List.of(List.of("b"), List.of("a", "a", "b")),
+        List.of(List.of("a"), List.of("a", "b", "b")),
         MemoryEngine.dealAcrossBlocks(Arrays.asList("a", "a", "b", "b"), List.of(1, 3)));
+  }
+
+  /**
+   * Five values × 5 over blocks [13, 12] — the shape an ODD count cuts. A per-value deal dumped
+   * the fifth value [1, 4] and "count 25" was refused saying "at most 24"; the global walk
+   * lands every value [3, 2] or [2, 3].
+   */
+  @Test
+  @DisplayName("unequal blocks do not starve the last value")
+  void unequalBlocksDoNotStarveTheLastValue() {
+    List<String> column = new ArrayList<>();
+    for (int i = 0; i < 25; i++) {
+      column.add("v" + (i % 5));
+    }
+    List<List<String>> dealt = MemoryEngine.dealAcrossBlocks(column, List.of(13, 12));
+    for (int v = 0; v < 5; v++) {
+      String value = "v" + v;
+      long a = dealt.get(0).stream().filter(value::equals).count();
+      long b = dealt.get(1).stream().filter(value::equals).count();
+      assertEquals(5, a + b, value);
+      assertEquals(1, Math.abs(a - b), value);
+    }
   }
 }

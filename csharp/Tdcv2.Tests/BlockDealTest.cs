@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Tdcv2.Engine;
@@ -128,20 +129,45 @@ public class BlockDealTest
     }
 
     /// <summary>
-    /// Both values are owed half a row in each block. Ties used to go to block 0 every time,
-    /// which starved the LAST value there — the room tie-break sends <c>a</c>'s odd copy to the
-    /// roomier block 1, then <c>b</c>'s to block 0, whose room is now the greater.
+    /// Both values are owed half a row in each block; <c>a</c>'s claim on block 0 is walked
+    /// first (equal remainders, value order), takes the block's one free slot, and <c>b</c>'s
+    /// unit goes to block 1. Assigning per VALUE was tried twice and starved a block both times.
     /// </summary>
     [Fact]
-    public void ARemainderTieGoesToTheBlockWithTheMostRoom()
+    public void LeftoverUnitsAreHandedOutGloballyStrongestClaimFirst()
     {
         Assert.Equal(
             new List<List<string>>
             {
-                new() { "b" },
-                new() { "a", "a", "b" },
+                new() { "a" },
+                new() { "a", "b", "b" },
             },
             MemoryEngine.DealAcrossBlocks(
                 new List<string> { "a", "a", "b", "b" }, new List<int> { 1, 3 }));
+    }
+
+    /// <summary>
+    /// Five values × 5 over blocks [13, 12] — the shape an ODD count cuts. A per-value deal
+    /// dumped the fifth value [1, 4] and "count 25" was refused saying "at most 24"; the
+    /// global walk lands every value [3, 2] or [2, 3].
+    /// </summary>
+    [Fact]
+    public void UnequalBlocksDoNotStarveTheLastValue()
+    {
+        var column = new List<string>();
+        for (int i = 0; i < 25; i++)
+        {
+            column.Add("v" + (i % 5));
+        }
+
+        List<List<string>> dealt = MemoryEngine.DealAcrossBlocks(column, new List<int> { 13, 12 });
+        for (int v = 0; v < 5; v++)
+        {
+            string value = "v" + v;
+            int a = dealt[0].Count(x => x == value);
+            int b = dealt[1].Count(x => x == value);
+            Assert.Equal(5, a + b);
+            Assert.Equal(1, Math.Abs(a - b));
+        }
     }
 }

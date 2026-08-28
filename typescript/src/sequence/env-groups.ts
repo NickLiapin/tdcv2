@@ -116,46 +116,72 @@ export function dealAcrossBlocks(
   }
 
   const total = column.length;
-  const out: string[][] = blockSizes.map(() => []);
+  if (total === 0) return blockSizes.map(() => []);
+
+  /*
+   * Two phases, both global. FLOORS first: value v owes block b
+   * floor(want_v · size_b / total), and the floors of one block can never
+   * exceed its size, because the exact shares of one block sum to the size
+   * itself. Then the LEFTOVER UNITS: every claim a value holds on a block —
+   * its fractional remainder there — goes into one list, sorted by remainder,
+   * ties by value order then block order, and the walk assigns a unit wherever
+   * the value still has copies to place and the block still has room.
+   *
+   * Assigning per VALUE was tried twice and starved a block both times. With
+   * equal blocks every remainder is a tie, and "ties to block 0" filled it
+   * before the last value arrived — [1,4] where a fair split is [2,3]. A room
+   * tie-break cured the ties and left the non-ties: an ODD count cuts blocks
+   * 13/12, every value's remainder favours the 13 (.6 against .4), block 0
+   * filled after four values again, and the fifth landed [1,4] — measured, the
+   * whole difference between "count 25 collects" and "at most 24". The global
+   * walk cannot starve anyone: it hands out exactly each block's deficit, and
+   * a filled block simply stops winning claims.
+   */
+  const valueCount = order.length;
+  const floors: number[][] = [];
+  const leftover: number[] = [];
   const room = [...blockSizes];
-
-  for (const value of order) {
-    const want = counts.get(value) ?? 0;
-    const exact = blockSizes.map((size) => (total === 0 ? 0 : (want * size) / total));
-    const share = exact.map((e, i) => Math.min(room[i] ?? 0, Math.floor(e)));
-    let given = share.reduce((a, b) => a + b, 0);
-
-    // The remainder goes to the blocks with the largest fraction owed; a tie is
-    // broken by the most room left, then block order. Equal blocks make every
-    // remainder a tie, and "ties to block 0" starved the LAST value there:
-    // earlier values each dropped their odd copy into block 0 until it was
-    // full, and the final value came out [1,4] where a fair split is [2,3] —
-    // measured, and it was the difference between a group that collects 24 and
-    // one refused at 24. Room as the tie-break is self-balancing: each odd copy
-    // shrinks the room that attracted it, so the next tie goes the other way.
-    const owed = exact
-      .map((e, i) => ({ i, rem: e - Math.floor(e), free: (room[i] ?? 0) - (share[i] ?? 0) }))
-      .sort((a, b) => b.rem - a.rem || b.free - a.free || a.i - b.i);
-    for (const { i } of owed) {
-      if (given >= want) break;
-      if ((share[i] ?? 0) < (room[i] ?? 0)) {
-        share[i] = (share[i] ?? 0) + 1;
-        given += 1;
-      }
+  for (let v = 0; v < valueCount; v++) {
+    const want = counts.get(order[v] ?? '') ?? 0;
+    const row: number[] = [];
+    let placed = 0;
+    for (let b = 0; b < blockSizes.length; b++) {
+      const f = Math.floor((want * (blockSizes[b] ?? 0)) / total);
+      row.push(f);
+      placed += f;
+      room[b] = (room[b] ?? 0) - f;
     }
-    // A block that filled up sends its share on to the next with room. Without
-    // this the last value would have nowhere to go and the deal would lose it.
-    for (let i = 0; given < want && i < share.length; i++) {
-      while (given < want && (share[i] ?? 0) < (room[i] ?? 0)) {
-        share[i] = (share[i] ?? 0) + 1;
-        given += 1;
-      }
-    }
+    floors.push(row);
+    leftover.push(want - placed);
+  }
 
-    share.forEach((n, i) => {
-      for (let k = 0; k < n; k++) out[i]?.push(value);
-      room[i] = (room[i] ?? 0) - n;
-    });
+  const claims: { rem: number; v: number; b: number }[] = [];
+  for (let v = 0; v < valueCount; v++) {
+    const want = counts.get(order[v] ?? '') ?? 0;
+    for (let b = 0; b < blockSizes.length; b++) {
+      claims.push({
+        rem: (want * (blockSizes[b] ?? 0)) / total - (floors[v]?.[b] ?? 0),
+        v,
+        b,
+      });
+    }
+  }
+  claims.sort((a, c) => c.rem - a.rem || a.v - c.v || a.b - c.b);
+  for (const { v, b } of claims) {
+    if ((leftover[v] ?? 0) > 0 && (room[b] ?? 0) > 0) {
+      const row = floors[v];
+      if (row) row[b] = (row[b] ?? 0) + 1;
+      leftover[v] = (leftover[v] ?? 0) - 1;
+      room[b] = (room[b] ?? 0) - 1;
+    }
+  }
+
+  const out: string[][] = blockSizes.map(() => []);
+  for (let b = 0; b < blockSizes.length; b++) {
+    for (let v = 0; v < valueCount; v++) {
+      const n = floors[v]?.[b] ?? 0;
+      for (let k = 0; k < n; k++) out[b]?.push(order[v] ?? '');
+    }
   }
   return out;
 }

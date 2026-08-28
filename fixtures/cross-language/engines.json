@@ -5520,6 +5520,14 @@
           "apple|x"
         ]
       }
+    },
+    "uniq-distinct/an-odd-count-near-the-ceiling-collects": {
+      "engine2": {
+        "refused": "uniq \"G × F × L\" is too tight to repair without holding the whole table (8 row(s) couldn't be placed) — run without mode=\"stream\" so the in-memory engine can arrange it."
+      },
+      "engine3": {
+        "refused": "uniq \"G × F × L\" is too tight to repair without holding the whole table (8 row(s) couldn't be placed) — and engine 3 was asked for by name, so it refuses rather than quietly running another engine. Remove the engine choice to let a uniq this tight go to the in-memory engine, which is what has been happening here all along."
+      }
     }
   }
 }

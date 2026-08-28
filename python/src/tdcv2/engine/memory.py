@@ -1939,16 +1939,20 @@ def _subjects_of(members: list[str], by_name) -> list[str]:
 def _deal_across_blocks(column: list[str], block_sizes: list[int]) -> list[list[str]]:
     """Spread one member's values across the blocks before anything is arranged inside them.
 
-    A ``text`` list is laid out in exact shares over the WHOLE column, and then a ``<switch>``
-    cuts the rows into blocks — so a block gets whichever values happened to fall there, not a
-    fair share of them. Measured on a group of four over 29 rows: the male block came out
-    ``[7,3,4]`` and ``[6,5,3]`` where an even deal is ``[5,5,4]`` and ``[5,5,4]``, and that is
-    the difference between 13 achievable tuples and 14. The run was refused for want of data it
-    had.
+    Two phases, both global. FLOORS first: value v owes block b ``floor(want*size/total)``, and
+    the floors of one block can never exceed its size, because the exact shares of one block sum
+    to the size itself. Then the LEFTOVER UNITS: every claim a value holds on a block — its
+    fractional remainder there — goes into one list, sorted by remainder, ties by value order
+    then block order, and the walk assigns a unit wherever the value still has copies to place
+    and the block still has room.
 
-    Each value is split over the blocks in proportion to their sizes, largest remainder first,
-    clamped to the room a block has left. The MULTISET is untouched — the same values in the
-    same numbers, only distributed — so every declared percentage survives exactly.
+    Assigning per VALUE was tried twice and starved a block both times. With equal blocks every
+    remainder is a tie, and "ties to block 0" filled it before the last value arrived — [1,4]
+    where a fair split is [2,3]. A room tie-break cured the ties and left the non-ties: an ODD
+    count cuts blocks 13/12, every value's remainder favours the 13 (.6 against .4), block 0
+    filled after four values again, and the fifth landed [1,4] — measured, the whole difference
+    between "count 25 collects" and "at most 24". The global walk cannot starve anyone: it hands
+    out exactly each block's deficit, and a filled block simply stops winning claims.
     """
     order: list[str] = []
     counts: dict[str, int] = {}
@@ -1958,40 +1962,40 @@ def _deal_across_blocks(column: list[str], block_sizes: list[int]) -> list[list[
         counts[value] = counts.get(value, 0) + 1
 
     total = len(column)
-    out: list[list[str]] = [[] for _ in block_sizes]
-    room = list(block_sizes)
+    if total == 0:
+        return [[] for _ in block_sizes]
 
+    floors: list[list[int]] = []
+    leftover: list[int] = []
+    room = list(block_sizes)
     for value in order:
         want = counts[value]
-        exact = [0.0 if total == 0 else want * size / total for size in block_sizes]
-        share = [min(room[i], math.floor(e)) for i, e in enumerate(exact)]
-        given = sum(share)
+        row: list[int] = []
+        placed = 0
+        for b, size in enumerate(block_sizes):
+            f = math.floor(want * size / total)
+            row.append(f)
+            placed += f
+            room[b] -= f
+        floors.append(row)
+        leftover.append(want - placed)
 
-        # The remainder goes to the blocks with the largest fraction owed; a tie is broken by
-        # the most room left, then block order. Equal blocks make every remainder a tie, and
-        # "ties to block 0" starved the LAST value there — the final value came out [1,4] where
-        # a fair split is [2,3], and that was the difference between a group that collects 24
-        # and one refused at 24. Room as the tie-break is self-balancing: each odd copy shrinks
-        # the room that attracted it, so the next tie goes the other way.
-        owed = sorted(
-            range(len(exact)),
-            key=lambda i: (-(exact[i] - math.floor(exact[i])), -(room[i] - share[i]), i),
-        )
-        for i in owed:
-            if given >= want:
-                break
-            if share[i] < room[i]:
-                share[i] += 1
-                given += 1
-        # A block that filled up sends its share on to the next with room.
-        for i in range(len(share)):
-            while given < want and share[i] < room[i]:
-                share[i] += 1
-                given += 1
+    claims: list[tuple[float, int, int]] = []
+    for v, value in enumerate(order):
+        want = counts[value]
+        for b, size in enumerate(block_sizes):
+            claims.append((-(want * size / total - floors[v][b]), v, b))
+    claims.sort()
+    for _neg_rem, v, b in claims:
+        if leftover[v] > 0 and room[b] > 0:
+            floors[v][b] += 1
+            leftover[v] -= 1
+            room[b] -= 1
 
-        for i, n in enumerate(share):
-            out[i].extend([value] * n)
-            room[i] -= n
+    out: list[list[str]] = [[] for _ in block_sizes]
+    for b in range(len(block_sizes)):
+        for v, value in enumerate(order):
+            out[b].extend([value] * floors[v][b])
     return out
 
 

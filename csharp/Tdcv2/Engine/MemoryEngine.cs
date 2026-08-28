@@ -2581,84 +2581,103 @@ public static class MemoryEngine
                 order.Add(value);
             }
 
-            counts[value] = counts.TryGetValue(value, out int n) ? n + 1 : 1;
+            counts[value] = counts.GetValueOrDefault(value) + 1;
         }
 
         int total = column.Count;
         var outp = new List<List<string>>();
-        var room = new List<int>();
-        foreach (int size in sizes)
+        for (int i = 0; i < sizes.Count; i++)
         {
             outp.Add(new List<string>());
-            room.Add(size);
         }
 
-        foreach (string value in order)
+        if (total == 0)
         {
-            int want = counts.TryGetValue(value, out int c) ? c : 0;
-            double[] exact = new double[sizes.Count];
-            int[] share = new int[sizes.Count];
-            int given = 0;
-            for (int i = 0; i < sizes.Count; i++)
+            return outp;
+        }
+
+        /*
+         * Two phases, both global. FLOORS first: value v owes block b floor(want·size/total),
+         * and the floors of one block can never exceed its size, because the exact shares of
+         * one block sum to the size itself. Then the LEFTOVER UNITS: every claim a value holds
+         * on a block — its fractional remainder there — goes into one list, sorted by
+         * remainder, ties by value order then block order, and the walk assigns a unit
+         * wherever the value still has copies to place and the block still has room.
+         *
+         * Assigning per VALUE was tried twice and starved a block both times. With equal
+         * blocks every remainder is a tie, and "ties to block 0" filled it before the last
+         * value arrived — [1,4] where a fair split is [2,3]. A room tie-break cured the ties
+         * and left the non-ties: an ODD count cuts blocks 13/12, every value's remainder
+         * favours the 13, and the fifth value landed [1,4] again — the whole difference
+         * between "count 25 collects" and "at most 24". The global walk cannot starve anyone:
+         * it hands out exactly each block's deficit, and a filled block simply stops winning
+         * claims.
+         */
+        int valueCount = order.Count;
+        int blockCount = sizes.Count;
+        int[][] floors = new int[valueCount][];
+        int[] leftover = new int[valueCount];
+        int[] room = new int[blockCount];
+        for (int b = 0; b < blockCount; b++)
+        {
+            room[b] = sizes[b];
+        }
+
+        for (int v = 0; v < valueCount; v++)
+        {
+            int want = counts.GetValueOrDefault(order[v]);
+            floors[v] = new int[blockCount];
+            int placed = 0;
+            for (int b = 0; b < blockCount; b++)
             {
-                exact[i] = total == 0 ? 0.0 : (double)want * sizes[i] / total;
-                share[i] = Math.Min(room[i], (int)Math.Floor(exact[i]));
-                given += share[i];
+                int f = (int)Math.Floor((double)want * sizes[b] / total);
+                floors[v][b] = f;
+                placed += f;
+                room[b] -= f;
             }
 
-            // The remainder goes to the blocks with the largest fraction owed; a tie is broken
-            // by the most room left, then block order. Equal blocks make every remainder a tie,
-            // and "ties to block 0" starved the LAST value there — the final value came out
-            // [1,4] where a fair split is [2,3], and that was the difference between a group
-            // that collects 24 and one refused at 24. Room as the tie-break is self-balancing:
-            // each odd copy shrinks the room that attracted it, so the next tie goes the other
-            // way.
-            int[] owed = Enumerable.Range(0, sizes.Count).ToArray();
-            double[] frac = exact.Select(e => e - Math.Floor(e)).ToArray();
-            int[] free = Enumerable.Range(0, sizes.Count).Select(i => room[i] - share[i]).ToArray();
-            Array.Sort(owed, (a, b) =>
-            {
-                int byFrac = frac[b].CompareTo(frac[a]);
-                if (byFrac != 0)
-                {
-                    return byFrac;
-                }
+            leftover[v] = want - placed;
+        }
 
-                int byRoom = free[b].CompareTo(free[a]);
-                return byRoom != 0 ? byRoom : a.CompareTo(b);
-            });
-            foreach (int i in owed)
+        var claims = new List<(double Rem, int V, int B)>(valueCount * blockCount);
+        for (int v = 0; v < valueCount; v++)
+        {
+            int want = counts.GetValueOrDefault(order[v]);
+            for (int b = 0; b < blockCount; b++)
             {
-                if (given >= want)
-                {
-                    break;
-                }
+                claims.Add((((double)want * sizes[b] / total) - floors[v][b], v, b));
+            }
+        }
 
-                if (share[i] < room[i])
-                {
-                    share[i]++;
-                    given++;
-                }
+        claims.Sort((a, c) =>
+        {
+            int byRem = c.Rem.CompareTo(a.Rem);
+            if (byRem != 0)
+            {
+                return byRem;
             }
 
-            // A block that filled up sends its share on to the next with room.
-            for (int i = 0; i < share.Length && given < want; i++)
+            int byValue = a.V.CompareTo(c.V);
+            return byValue != 0 ? byValue : a.B.CompareTo(c.B);
+        });
+        foreach ((double _, int v, int b) in claims)
+        {
+            if (leftover[v] > 0 && room[b] > 0)
             {
-                while (given < want && share[i] < room[i])
-                {
-                    share[i]++;
-                    given++;
-                }
+                floors[v][b]++;
+                leftover[v]--;
+                room[b]--;
             }
+        }
 
-            for (int i = 0; i < share.Length; i++)
+        for (int b = 0; b < blockCount; b++)
+        {
+            for (int v = 0; v < valueCount; v++)
             {
-                for (int k = 0; k < share[i]; k++)
+                for (int k = 0; k < floors[v][b]; k++)
                 {
-                    outp[i].Add(value);
+                    outp[b].Add(order[v]);
                 }
-
-                room[i] -= share[i];
             }
         }
 
