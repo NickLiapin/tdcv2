@@ -102,14 +102,15 @@ class BlockDealTest {
   }
 
   /**
-   * Block 0 has room for one row and {@code a} fills it, so both {@code b}s go to block 1 even
-   * though the proportional split would have handed block 0 one of them.
+   * Both values are owed half a row in each block. Ties used to go to block 0 every time, which
+   * starved the LAST value there — the room tie-break sends {@code a}'s odd copy to the roomier
+   * block 1, then {@code b}'s to block 0, whose room is now the greater. Self-balancing.
    */
   @Test
-  @DisplayName("a full block passes its share on")
-  void aFullBlockPassesItsShareOn() {
+  @DisplayName("a remainder tie goes to the block with the most room")
+  void aRemainderTieGoesToTheBlockWithTheMostRoom() {
     assertEquals(
-        List.of(List.of("a"), List.of("a", "b", "b")),
+        List.of(List.of("b"), List.of("a", "a", "b")),
         MemoryEngine.dealAcrossBlocks(Arrays.asList("a", "a", "b", "b"), List.of(1, 3)));
   }
 }

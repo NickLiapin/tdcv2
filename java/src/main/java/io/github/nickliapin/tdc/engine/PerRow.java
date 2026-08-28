@@ -62,16 +62,30 @@ final class PerRow {
    * The column a build belongs to: the seed it derives from, its name on the wire, and — when it
    * does not cover every row — the ABSOLUTE row each drawn position belongs to.
    */
-  record Stream(String seed, String id, List<Integer> rows, boolean oneRow) {
+  record Stream(String seed, String id, List<Integer> rows, boolean oneRow, boolean inBody) {
 
     /** A stream over a whole column — the ordinary case. */
     Stream(String seed, String id, List<Integer> rows) {
-      this(seed, id, rows, false);
+      this(seed, id, rows, false, false);
+    }
+
+    Stream(String seed, String id, List<Integer> rows, boolean oneRow) {
+      this(seed, id, rows, oneRow, false);
     }
 
     /** The same stream under a different name, keeping the row list. */
     Stream named(String other) {
-      return new Stream(seed, other, rows, oneRow);
+      return new Stream(seed, other, rows, oneRow, inBody);
+    }
+
+    /**
+     * The same stream, marked as building a sequence INSIDE a pack body. The reference gives a
+     * body's inner sequences no stream identity, so its plain-list layout never fires there — a
+     * plain pack or file drawn inside a body stays a per-row pick, and this flag is how the same
+     * rule is stated here.
+     */
+    Stream forBody() {
+      return new Stream(seed, id, rows, oneRow, true);
     }
 
     /**
@@ -79,7 +93,7 @@ final class PerRow {
      * a single row of the column that names it.
      */
     Stream forOneRow() {
-      return new Stream(seed, id, rows, true);
+      return new Stream(seed, id, rows, true, inBody);
     }
 
     /**

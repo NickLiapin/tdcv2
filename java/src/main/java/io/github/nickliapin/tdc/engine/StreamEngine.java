@@ -1254,9 +1254,12 @@ public final class StreamEngine {
           domain);
     }
 
-    // An exact quota: text, a weighted file column, or a weighted pack. All three say what
-    // share of the run each value takes, and all three honour it the same way.
-    if ("text".equals(type) || weightColumn != null || weightedPack != null) {
+    // An exact quota: text, a weighted file column, a weighted pack — and now a PLAIN pack or
+    // a PLAIN file list, in equal shares, exactly as a plain text list. A per-row pick left
+    // every value's count to chance, and inside a <uniq> that chance decided whether the run
+    // collects. A quantile read is a distribution, not a bag, and keeps its own path.
+    List<String> plainList = plainList(gen, weightColumn != null);
+    if ("text".equals(type) || weightColumn != null || weightedPack != null || plainList != null) {
       List<String> values;
       double[] percents;
       if (weightColumn != null) {
@@ -1266,6 +1269,9 @@ public final class StreamEngine {
       } else if (weightedPack != null) {
         values = weightedPack.values();
         percents = weightedPack.percents();
+      } else if (plainList != null) {
+        values = plainList;
+        percents = evenly(plainList.size());
       } else {
         values = splitText(attrs.getOrDefault("value", ""));
         String percentAttr = attrs.get("percent");
@@ -1634,6 +1640,36 @@ public final class StreamEngine {
   }
 
   /** A {@code <gen type="template">} pointing at a pack that carries its own shares. */
+  /** The value list of a PLAIN pack or a PLAIN file — no weights, no rows, no quantile. */
+  private List<String> plainList(Config.Gen gen, boolean hasWeight) {
+    if ("template".equals(gen.type())) {
+      String address = gen.attr("value", "");
+      String locale = localeOf(gen.attrs());
+      if (address.isEmpty() || !packs.exists(address, locale)) {
+        return null;
+      }
+      DataPacks.Entry entry = packs.load(address, locale);
+      if (entry.generator() != null || entry.weighted() || entry.values().isEmpty()) {
+        return null;
+      }
+      return entry.values();
+    }
+    if ("file".equals(gen.type())
+        && !hasWeight
+        && !"sequential".equals(gen.attrs().get("order"))
+        && (gen.attrs().get("row") == null || gen.attrs().get("row").trim().isEmpty())
+        && !Quantile.isQuantile(gen.attrs())) {
+      try {
+        List<String> values = FileGen.load(gen.attrs(), baseDir, packs.dataRoots());
+        return values.isEmpty() ? null : values;
+      } catch (RuntimeException e) {
+        // An unreadable file is the row's failure to report, not the plan's.
+        return null;
+      }
+    }
+    return null;
+  }
+
   private FileGen.Weighted weightedTemplatePack(Config.Gen gen) {
     if (!"template".equals(gen.type())) {
       return null;

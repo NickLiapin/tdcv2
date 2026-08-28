@@ -1631,19 +1631,29 @@ public final class MemoryEngine {
         given += share[i];
       }
 
-      // The remainder goes to the blocks with the largest fraction owed, ties by block order —
-      // the same largest-remainder rule the percentages use.
+      // The remainder goes to the blocks with the largest fraction owed; a tie is broken by the
+      // most room left, then block order. Equal blocks make every remainder a tie, and "ties to
+      // block 0" starved the LAST value there — the final value came out [1,4] where a fair
+      // split is [2,3], and that was the difference between a group that collects 24 and one
+      // refused at 24. Room as the tie-break is self-balancing: each odd copy shrinks the room
+      // that attracted it, so the next tie goes the other way.
       Integer[] owed = new Integer[sizes.size()];
       for (int i = 0; i < owed.length; i++) {
         owed[i] = i;
       }
       final double[] frac = new double[exact.length];
+      final int[] free = new int[exact.length];
       for (int i = 0; i < exact.length; i++) {
         frac[i] = exact[i] - Math.floor(exact[i]);
+        free[i] = room.get(i) - share[i];
       }
       java.util.Arrays.sort(owed, (a, b) -> {
         int byFrac = Double.compare(frac[b], frac[a]);
-        return byFrac != 0 ? byFrac : Integer.compare(a, b);
+        if (byFrac != 0) {
+          return byFrac;
+        }
+        int byRoom = Integer.compare(free[b], free[a]);
+        return byRoom != 0 ? byRoom : Integer.compare(a, b);
       });
       for (int i : owed) {
         if (given >= want) {
@@ -2682,7 +2692,13 @@ public final class MemoryEngine {
           instants);
     }
 
-    Listed listed = listedValues(gen, packs, config, baseDir);
+    // A body's inner sequences get NO plain-list layout: the reference gives them no stream
+    // identity, so its layout never fires there, and a plain pack or file inside a body stays a
+    // per-row pick. Text and weighted lists keep their existing body behaviour.
+    Listed listed =
+        stream.inBody()
+            ? listedWeightedOrText(gen, packs, config, baseDir)
+            : listedValues(gen, packs, config, baseDir);
     if (listed != null) {
       return finishKeyed(
           PerRow.exactTextLayout(listed.values(), listed.percents(), count, stream, layouts),
@@ -2729,6 +2745,7 @@ public final class MemoryEngine {
     // share: 100% RU, not 70/20/10.
     boolean weighted =
         weightedTemplatePack(gen, packs, config) != null
+            || plainListedValues(gen, packs, config, baseDir) != null
             || ("advanced_regex".equals(gen.type())
                 && AdvancedRegexGen.hasWeightedChoice(gen.attr("value", "")));
     if (PerRow.perRowBuildable(
@@ -2838,6 +2855,21 @@ public final class MemoryEngine {
   /** The value list and the shares a column lays out, when its values are LISTED. */
   private static Listed listedValues(
       Config.Gen gen, DataPacks packs, Config config, Path baseDir) {
+    Listed listed = listedWeightedOrText(gen, packs, config, baseDir);
+    if (listed != null) {
+      return listed;
+    }
+    // A PLAIN pack and a PLAIN file list take the same road as a plain text list: laid out in
+    // equal shares over the column and permuted, not picked row by row. A per-row pick leaves
+    // every value's count to chance, and inside a <uniq> that chance decided whether the run
+    // collects.
+    List<String> plain = plainListedValues(gen, packs, config, baseDir);
+    return plain == null ? null : new Listed(plain, PerRow.sharesOf("", plain.size()));
+  }
+
+  /** The weighted-or-text half of {@link #listedValues} — what a pack body may lay out. */
+  private static Listed listedWeightedOrText(
+      Config.Gen gen, DataPacks packs, Config config, Path baseDir) {
     if ("sequential".equals(gen.attrs().get("order"))) {
       return null;
     }
@@ -2858,6 +2890,37 @@ public final class MemoryEngine {
     }
     List<String> values = splitText(gen.attr("value", ""));
     return new Listed(values, PerRow.sharesOf(gen.attr("percent", ""), values.size()));
+  }
+
+  /** The value list of a PLAIN pack or a PLAIN file — no weights, no rows, no quantile. */
+  private static List<String> plainListedValues(
+      Config.Gen gen, DataPacks packs, Config config, Path baseDir) {
+    if ("template".equals(gen.type())) {
+      String path = gen.attr("value", "");
+      String locale = packLocale(gen, config);
+      if (path.isEmpty() || !packs.exists(path, locale)) {
+        return null;
+      }
+      DataPacks.Entry entry = packs.load(path, locale);
+      if (entry.generator() != null || entry.weighted() || entry.values().isEmpty()) {
+        return null;
+      }
+      return entry.values();
+    }
+    if ("file".equals(gen.type())
+        && !"sequential".equals(gen.attrs().get("order"))
+        && !gen.attrs().containsKey("weight")
+        && trimToNull(gen.attrs().get("row")) == null
+        && !Quantile.isQuantile(gen.attrs())) {
+      try {
+        List<String> values = FileGen.load(gen.attrs(), baseDir, packs.dataRoots());
+        return values.isEmpty() ? null : values;
+      } catch (RuntimeException e) {
+        // An unreadable file is the row's failure to report, not the plan's.
+        return null;
+      }
+    }
+    return null;
   }
 
   /**
@@ -3349,7 +3412,7 @@ public final class MemoryEngine {
 
   /** A stream for one sequence of a pack body, carrying whether the body is a single row. */
   private static PerRow.Stream bodyStream(String seed, String id, int count, boolean oneRow) {
-    PerRow.Stream stream = new PerRow.Stream(seed, id, allRows(count));
+    PerRow.Stream stream = new PerRow.Stream(seed, id, allRows(count)).forBody();
     return oneRow ? stream.forOneRow() : stream;
   }
 
