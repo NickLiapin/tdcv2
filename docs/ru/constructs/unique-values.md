@@ -355,14 +355,13 @@ but 5 were requested. Widen a column's values or lower count.
 
 ```
 tdcv2: uniq: group "G × F × L" cannot produce 24 unique combinations — the values
-drawn for these sequences allow at most 11 distinct rows. Add more values to a
+drawn for these sequences allow at most 23 distinct rows. Add more values to a
 member (more distinct names, wider ranges…) or lower the count.
 ```
 
-Число в отказе — это то, что позволила **вытяжка именно этого прогона**, поэтому
-оно может оказаться ниже счётчика, который тот же конфиг спокойно выдаёт: на
-`count="23"` группа даёт 23 различные строки, а вытяжка на 24 достаёт только до 11. Читать это надо как «здесь не повезло с вытяжкой», а не как потолок
-конфига.
+Число в отказе — это охват **всей группы**: блоки, на которые её разрезал
+`<switch>`, сложенные вместе. Поэтому оно сходится с самым большим счётчиком,
+который проходит: здесь 23, и ровно 23 строки даёт `count="23"`.
 
 > [!NOTE]
 > **Это не «уникальный id»**

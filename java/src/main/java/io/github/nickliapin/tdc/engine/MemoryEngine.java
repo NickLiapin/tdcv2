@@ -1351,10 +1351,16 @@ public final class MemoryEngine {
         }
       }
 
+      // Every block is measured BEFORE any of them is refused, because the number the refusal
+      // carries has to describe the run the user asked for. Refusing inside the loop reported one
+      // block's ceiling against the whole run's count, which halves the answer on a two-subject
+      // group: a shape that renders 23 rows was refused at 24 saying "at most 11", 11 being what
+      // one of its two blocks holds. The reach of a cut group is the SUM over its blocks, so that
+      // is what gets reported.
+      List<List<List<String>>> grids = new ArrayList<>();
       for (int bi = 0; bi < blocks.size(); bi++) {
         List<Integer> block = blocks.get(bi);
         List<List<String>> grid = new ArrayList<>();
-        List<List<Integer>> counts = new ArrayList<>();
         for (int m = 0; m < members.size(); m++) {
           String name = members.get(m);
           List<String> column;
@@ -1367,18 +1373,47 @@ public final class MemoryEngine {
             }
           }
           grid.add(column);
+        }
+        grids.add(grid);
+      }
+
+      // Cheap: value counts, no arrangement. So every block can be measured before any of them
+      // is refused.
+      int reach = 0;
+      boolean tooTight = false;
+      for (int bi = 0; bi < blocks.size(); bi++) {
+        List<List<Integer>> counts = new ArrayList<>();
+        for (List<String> column : grids.get(bi)) {
           counts.add(Uniq.valueCounts(column));
         }
-
         int upper = Uniq.upperBound(counts);
-        if (block.size() > upper) {
-          throw new IllegalStateException(uniqGroupMessage(label, rows.size(), upper));
+        reach += upper;
+        if (blocks.get(bi).size() > upper) {
+          tooTight = true;
         }
-        Uniq.Arrangement arranged = Uniq.arrange(grid);
-        if (arranged.distinct() < block.size()) {
-          throw new IllegalStateException(
-              uniqGroupMessage(label, rows.size(), arranged.distinct()));
+      }
+      if (tooTight) {
+        throw new IllegalStateException(uniqGroupMessage(label, rows.size(), reach));
+      }
+
+      List<Uniq.Arrangement> arrangements = new ArrayList<>();
+      int reached = 0;
+      boolean shortOfIt = false;
+      for (int bi = 0; bi < blocks.size(); bi++) {
+        Uniq.Arrangement arranged = Uniq.arrange(grids.get(bi));
+        arrangements.add(arranged);
+        reached += arranged.distinct();
+        if (arranged.distinct() < blocks.get(bi).size()) {
+          shortOfIt = true;
         }
+      }
+      if (shortOfIt) {
+        throw new IllegalStateException(uniqGroupMessage(label, rows.size(), reached));
+      }
+
+      for (int bi = 0; bi < blocks.size(); bi++) {
+        List<Integer> block = blocks.get(bi);
+        Uniq.Arrangement arranged = arrangements.get(bi);
         for (int k = 0; k < block.size(); k++) {
           List<String> tuple = new ArrayList<>(members.size());
           for (int m = 0; m < members.size(); m++) {

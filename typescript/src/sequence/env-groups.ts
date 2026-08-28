@@ -220,18 +220,45 @@ export function enforceEnvUniq(
         : undefined,
     );
 
-    blocks.forEach((block, bi) => {
-      const columns = members.map(
-        (name, m) => dealt[m]?.[bi] ?? block.map((i) => registry[name]?.values[i] ?? ''),
+    /*
+     * Every block is measured BEFORE any of them is refused, because the number
+     * the refusal carries has to describe the run the user asked for. Refusing
+     * inside the loop reported one block's ceiling against the whole run's
+     * count, which halves the answer on a two-subject group: a shape that
+     * renders 23 rows was refused at 24 saying "at most 11" — 11 being what one
+     * of its two blocks holds. The reach of a cut group is the SUM over its
+     * blocks, so that is what gets reported.
+     */
+    const blockColumns = blocks.map((block, bi) =>
+      members.map((name, m) => dealt[m]?.[bi] ?? block.map((i) => registry[name]?.values[i] ?? '')),
+    );
+
+    // Cheap: value counts, no arrangement. So every block can be measured before
+    // any of them is refused.
+    const uppers = blockColumns.map((columns) => uniqUpperBound(columns.map(valueCounts)));
+    if (blocks.some((block, bi) => block.length > (uppers[bi] ?? 0))) {
+      throw new Error(
+        uniqGroupMessage(
+          label,
+          rows.length,
+          uppers.reduce((a, b) => a + b, 0),
+        ),
       );
-      const upper = uniqUpperBound(columns.map(valueCounts));
-      if (block.length > upper) {
-        throw new Error(uniqGroupMessage(label, rows.length, upper));
-      }
-      const { columns: arranged, distinct } = arrangeUnique(columns);
-      if (distinct < block.length) {
-        throw new Error(uniqGroupMessage(label, rows.length, distinct));
-      }
+    }
+
+    const arrangements = blockColumns.map((columns) => arrangeUnique(columns));
+    if (arrangements.some((a, bi) => a.distinct < (blocks[bi]?.length ?? 0))) {
+      throw new Error(
+        uniqGroupMessage(
+          label,
+          rows.length,
+          arrangements.reduce((a, r) => a + r.distinct, 0),
+        ),
+      );
+    }
+
+    blocks.forEach((block, bi) => {
+      const arranged = arrangements[bi]?.columns ?? [];
       block.forEach((row, k) => {
         arrangedByRow.set(
           row,

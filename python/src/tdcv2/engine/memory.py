@@ -1792,19 +1792,37 @@ def _enforce_env_uniq(config: Config, columns, count: int) -> None:
             for name in members
         ]
 
-        for bi, block in enumerate(blocks):
-            grid = [
+        # Every block is measured BEFORE any of them is refused, because the number the refusal
+        # carries has to describe the run the user asked for. Refusing inside the loop reported
+        # one block's ceiling against the whole run's count, which halves the answer on a
+        # two-subject group: a shape that renders 23 rows was refused at 24 saying "at most 11",
+        # 11 being what one of its two blocks holds. The reach of a cut group is the SUM over
+        # its blocks, so that is what gets reported.
+        grids = [
+            [
                 dealt[m][bi] if dealt[m] is not None else [columns[name][row] for row in block]
                 for m, name in enumerate(members)
             ]
-            counts = [uniq_lib.value_counts(column) for column in grid]
+            for bi, block in enumerate(blocks)
+        ]
 
-            upper = uniq_lib.upper_bound(counts)
-            if len(block) > upper:
-                raise EngineError(_uniq_group_message(label, len(rows), upper))
-            arranged = uniq_lib.arrange(grid)
-            if arranged.distinct < len(block):
-                raise EngineError(_uniq_group_message(label, len(rows), arranged.distinct))
+        # Cheap: value counts, no arrangement. So every block can be measured before any of
+        # them is refused.
+        uppers = [
+            uniq_lib.upper_bound([uniq_lib.value_counts(column) for column in grid])
+            for grid in grids
+        ]
+        if any(len(block) > uppers[bi] for bi, block in enumerate(blocks)):
+            raise EngineError(_uniq_group_message(label, len(rows), sum(uppers)))
+
+        arrangements = [uniq_lib.arrange(grid) for grid in grids]
+        if any(a.distinct < len(blocks[bi]) for bi, a in enumerate(arrangements)):
+            raise EngineError(
+                _uniq_group_message(label, len(rows), sum(a.distinct for a in arrangements))
+            )
+
+        for bi, block in enumerate(blocks):
+            arranged = arrangements[bi]
             for k, row in enumerate(block):
                 by_row[row] = [arranged.columns[m][k] for m in range(len(members))]
 

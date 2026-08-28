@@ -353,14 +353,13 @@ The refusal says what the data allowed:
 
 ```
 tdcv2: uniq: group "G × F × L" cannot produce 24 unique combinations — the values
-drawn for these sequences allow at most 11 distinct rows. Add more values to a
+drawn for these sequences allow at most 23 distinct rows. Add more values to a
 member (more distinct names, wider ranges…) or lower the count.
 ```
 
-The figure it reports is what **that run's draw** allowed, so it can sit below a
-count the same config renders: this group produces 23 distinct rows at
-`count="23"`, and the draw it gets at 24 reaches only 11. Read it as "this draw
-was unlucky", not as the config's ceiling.
+The figure is the reach of the **whole group** — the blocks a `<switch>` cut it
+into, added up — so it lines up with the largest count that renders: 23 here, and
+23 is what `count="23"` produces.
 
 > [!NOTE]
 > **Not a "unique id"**

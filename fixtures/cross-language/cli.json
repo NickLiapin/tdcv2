@@ -41,7 +41,8 @@
     "badEngine": "<tdc><env count=\"2\" seed=\"w\" local=\"en\" engine=\"9\"><sequence name=\"T\"><gen type=\"increment\" value=\"1\"/></sequence></env><block><line><data>${{T}}</data></line></block></tdc>",
     "sequentialVsEngine": "<tdc><env count=\"2\" seed=\"w\" local=\"en\" mode=\"sequential\" engine=\"2\"><sequence name=\"T\"><gen type=\"increment\" value=\"1\"/></sequence></env><block><line><data>${{T}}</data></line></block></tdc>",
     "tightUniq": "<tdc><env count=\"75000\" seed=\"t\" local=\"en\" mode=\"disk\"><uniq><sequence name=\"A\"><gen type=\"number\" value=\"1..300\"/></sequence><sequence name=\"B\"><gen type=\"number\" value=\"1..300\"/></sequence></uniq></env><block><line><data>${{A}}-${{B}}</data></line></block></tdc>",
-    "impossibleUniq": "<tdc><env count=\"1000000000\" seed=\"s\"><uniq><sequence name=\"A\"><gen type=\"text\" value=\"a,b,c\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"x,y,z\"/></sequence></uniq></env><block><line><data>${{A}}${{B}}</data></line></block></tdc>"
+    "impossibleUniq": "<tdc><env count=\"1000000000\" seed=\"s\"><uniq><sequence name=\"A\"><gen type=\"text\" value=\"a,b,c\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"x,y,z\"/></sequence></uniq></env><block><line><data>${{A}}${{B}}</data></line></block></tdc>",
+    "blockCutUniq": "<tdc><env count=\"24\" seed=\"blocks\" local=\"en\"><uniq><sequence name=\"G\"><gen type=\"text\" value=\"M,F\" percent=\"50,50\"/></sequence><switch name=\"F\" on=\"G\"><case is=\"M\"><gen type=\"text\" value=\"m1,m2,m3\"/></case><case is=\"F\"><gen type=\"text\" value=\"f1,f2,f3\"/></case></switch><sequence name=\"L\"><gen type=\"text\" value=\"a,b,c,d,e\"/></sequence></uniq></env><block><line><data>${{G}}|${{F}}|${{L}}</data></line></block></tdc>"
   },
   "cases": [
     {
@@ -1136,6 +1137,19 @@
       "exit": 1,
       "stderrContains": [
         "uniq: group \"A × B\" cannot produce 1000000000 unique combinations"
+      ]
+    },
+    {
+      "name": "a uniq cut into blocks reports the reach of the whole group",
+      "note": "A <switch> in the group cuts the rows into blocks by its subject, and each block is arranged on its own. The refusal used to report ONE block's ceiling against the WHOLE run's count, which on this two-subject shape is half the truth: it renders 23 rows and was refused at 24 saying \"at most 11\". A figure below what the config demonstrably reaches sends the reader off to widen data that was never the problem. Pinned here because the number is the whole value of the message, and nothing in a byte comparison would catch it drifting.",
+      "files": {
+        "cut.tdc": "@blockCutUniq"
+      },
+      "argv": ["{dir}/cut.tdc"],
+      "exit": 1,
+      "stderrContains": [
+        "uniq: group \"G × F × L\" cannot produce 24 unique combinations",
+        "allow at most 23 distinct rows"
       ]
     },
     {

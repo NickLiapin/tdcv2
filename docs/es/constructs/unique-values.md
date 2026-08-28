@@ -357,15 +357,13 @@ El rechazo dice qué permitían los datos:
 
 ```
 tdcv2: uniq: group "G × F × L" cannot produce 24 unique combinations — the values
-drawn for these sequences allow at most 11 distinct rows. Add more values to a
+drawn for these sequences allow at most 23 distinct rows. Add more values to a
 member (more distinct names, wider ranges…) or lower the count.
 ```
 
-La cifra que informa es lo que permitió **el sorteo de esa corrida**, así que
-puede quedar por debajo de un count que la misma configuración sí genera: este
-grupo produce 23 filas distintas con `count="23"`, y el sorteo que le toca en 24
-solo llega a 11. Léalo como «este sorteo tuvo mala suerte», no como el techo de
-la configuración.
+La cifra es el alcance del **grupo entero**: los bloques en que lo cortó el
+`<switch>`, sumados. Por eso coincide con el count más alto que sí se genera: 23
+aquí, y 23 filas es lo que produce `count="23"`.
 
 > [!NOTE]
 > **No es un id único**

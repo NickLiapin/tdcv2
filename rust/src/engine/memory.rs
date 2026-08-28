@@ -1795,34 +1795,64 @@ fn enforce_env_uniq(
             })
             .collect();
 
+        // Every block is measured BEFORE any of them is refused, because the
+        // number the refusal carries has to describe the run the user asked for.
+        // Refusing inside the loop reported one block's ceiling against the whole
+        // run's count, which halves the answer on a two-subject group: a shape
+        // that renders 23 rows was refused at 24 saying "at most 11", 11 being
+        // what one of its two blocks holds. The reach of a cut group is the SUM
+        // over its blocks, so that is what gets reported.
+        let grids: Vec<Vec<Vec<String>>> = blocks
+            .iter()
+            .enumerate()
+            .map(|(bi, block)| {
+                members
+                    .iter()
+                    .enumerate()
+                    .map(|(m, name)| {
+                        dealt[m].as_ref().map_or_else(
+                            || {
+                                block
+                                    .iter()
+                                    .map(|row| columns[name][*row].clone().unwrap_or_default())
+                                    .collect()
+                            },
+                            |d| d[bi].clone(),
+                        )
+                    })
+                    .collect()
+            })
+            .collect();
+
+        // Cheap: value counts, no arrangement. So every block can be measured
+        // before any of them is refused.
+        let uppers: Vec<usize> = grids
+            .iter()
+            .map(|grid| {
+                let counts: Vec<Vec<usize>> = grid.iter().map(|c| uniq::value_counts(c)).collect();
+                uniq::upper_bound(&counts)
+            })
+            .collect();
+        if blocks
+            .iter()
+            .enumerate()
+            .any(|(bi, b)| b.len() > uppers[bi])
+        {
+            return invalid(&uniq_group_message(&label, rows.len(), uppers.iter().sum()));
+        }
+
+        let arrangements: Vec<uniq::Arrangement> = grids.iter().map(|g| uniq::arrange(g)).collect();
+        if arrangements
+            .iter()
+            .enumerate()
+            .any(|(bi, a)| a.distinct < blocks[bi].len())
+        {
+            let reached: usize = arrangements.iter().map(|a| a.distinct).sum();
+            return invalid(&uniq_group_message(&label, rows.len(), reached));
+        }
+
         for (bi, block) in blocks.iter().enumerate() {
-            let grid: Vec<Vec<String>> = members
-                .iter()
-                .enumerate()
-                .map(|(m, name)| {
-                    dealt[m].as_ref().map_or_else(
-                        || {
-                            block
-                                .iter()
-                                .map(|row| columns[name][*row].clone().unwrap_or_default())
-                                .collect()
-                        },
-                        |d| d[bi].clone(),
-                    )
-                })
-                .collect();
-            let counts: Vec<Vec<usize>> = grid.iter().map(|c| uniq::value_counts(c)).collect();
-
-            let upper = uniq::upper_bound(&counts);
-            if block.len() > upper {
-                return invalid(&uniq_group_message(&label, rows.len(), upper));
-            }
-
-            let arranged = uniq::arrange(&grid);
-            if arranged.distinct < block.len() {
-                return invalid(&uniq_group_message(&label, rows.len(), arranged.distinct));
-            }
-
+            let arranged = &arrangements[bi];
             for (k, row) in block.iter().enumerate() {
                 by_row.insert(
                     *row,

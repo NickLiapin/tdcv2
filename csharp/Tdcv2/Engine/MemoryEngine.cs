@@ -2273,34 +2273,78 @@ public static class MemoryEngine
                     : null);
             }
 
+            /*
+             * Every block is measured BEFORE any of them is refused, because the number the
+             * refusal carries has to describe the run the user asked for. Refusing inside the
+             * loop reported one block's ceiling against the whole run's count, which halves the
+             * answer on a two-subject group: a shape that renders 23 rows was refused at 24
+             * saying "at most 11", 11 being what one of its two blocks holds. The reach of a cut
+             * group is the SUM over its blocks, so that is what gets reported.
+             */
+            var grids = new List<List<IReadOnlyList<string>>>();
             for (int bi = 0; bi < blocks.Count; bi++)
             {
                 List<int> block = blocks[bi];
                 var grid = new List<IReadOnlyList<string>>();
-                var counts = new List<IReadOnlyList<int>>();
                 for (int m = 0; m < members.Count; m++)
                 {
                     string name = members[m];
-                    List<string> column = dealt[m] is { } d
+                    grid.Add(dealt[m] is { } d
                         ? d[bi]
-                        : block.Select(row => columns[name][row]).ToList();
-                    grid.Add(column);
+                        : block.Select(row => columns[name][row]).ToList());
+                }
+
+                grids.Add(grid);
+            }
+
+            // Cheap: value counts, no arrangement. So every block can be measured before any of
+            // them is refused.
+            int reach = 0;
+            bool tooTight = false;
+            for (int bi = 0; bi < blocks.Count; bi++)
+            {
+                var counts = new List<IReadOnlyList<int>>();
+                foreach (IReadOnlyList<string> column in grids[bi])
+                {
                     counts.Add(Uniq.ValueCounts(column));
                 }
 
                 int upper = Uniq.UpperBound(counts);
-                if (block.Count > upper)
+                reach += upper;
+                if (blocks[bi].Count > upper)
                 {
-                    throw new InvalidOperationException(UniqGroupMessage(label, rows.Count, upper));
+                    tooTight = true;
                 }
+            }
 
-                Uniq.Arrangement arranged = Uniq.Arrange(grid);
-                if (arranged.Distinct < block.Count)
+            if (tooTight)
+            {
+                throw new InvalidOperationException(UniqGroupMessage(label, rows.Count, reach));
+            }
+
+            var arrangements = new List<Uniq.Arrangement>();
+            int reached = 0;
+            bool shortOfIt = false;
+            for (int bi = 0; bi < blocks.Count; bi++)
+            {
+                Uniq.Arrangement arranged = Uniq.Arrange(grids[bi]);
+                arrangements.Add(arranged);
+                reached += arranged.Distinct;
+                if (arranged.Distinct < blocks[bi].Count)
                 {
-                    throw new InvalidOperationException(
-                        UniqGroupMessage(label, rows.Count, arranged.Distinct));
+                    shortOfIt = true;
                 }
+            }
 
+            if (shortOfIt)
+            {
+                throw new InvalidOperationException(UniqGroupMessage(label, rows.Count, reached));
+            }
+
+            for (int bi = 0; bi < blocks.Count; bi++)
+            {
+                List<int> block = blocks[bi];
+                Uniq.Arrangement arranged = arrangements[bi];
                 for (int k = 0; k < block.Count; k++)
                 {
                     var tuple = new string[members.Count];

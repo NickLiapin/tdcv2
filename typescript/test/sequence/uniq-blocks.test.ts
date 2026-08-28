@@ -221,6 +221,28 @@ describe.each(SHAPES)('a uniq group cut into blocks — $name', (shape) => {
     expect(() => rowsOf(shape, shape.ceiling + 1)).toThrow(/cannot produce/);
   });
 
+  /*
+   * The refusal used to report ONE BLOCK's ceiling against the WHOLE RUN's
+   * count, which on a two-subject group reads as half the truth — a shape that
+   * renders 23 rows was refused at 24 saying "at most 11". A number below what
+   * the config demonstrably reaches sends the reader off to widen data that was
+   * never the problem, so the contract is: never understate, and stay under
+   * what was asked for (or the refusal contradicts itself).
+   */
+  it('reports a reach at least as large as the shape truly has', () => {
+    let message = '';
+    try {
+      rowsOf(shape, shape.ceiling + 1);
+    } catch (error) {
+      message = (error as Error).message;
+    }
+    const found = /at most (\d+) distinct/.exec(message);
+    expect(found, message).not.toBeNull();
+    const reported = Number(found?.[1] ?? 0);
+    expect(reported).toBeGreaterThanOrEqual(shape.ceiling);
+    expect(reported).toBeLessThan(shape.ceiling + 1);
+  });
+
   it('gives the same bytes for the same seed, and different for another', () => {
     const half = Math.max(2, shape.ceiling >> 1);
     expect(rowsOf(shape, half)).toEqual(rowsOf(shape, half));
