@@ -339,31 +339,37 @@ donde está, y el sujeto por el que se cortaron los bloques también.
 #### Hasta dónde llega un grupo, y por qué el borde superior es irregular
 
 Un grupo reordena los valores que sacó; no vuelve a sacarlos para que encajen.
-Por eso el alcance depende de lo que ese `count` sacó, y la parte alta del rango
-es irregular en vez de una línea limpia. Medido sobre una forma —dos sujetos,
-tres nombres cada uno, cinco valores compartidos, con `seed="blocks"`:
+Las listas mismas se disponen en partes exactas — una lista `text` siempre fue
+así, y un pack simple o una lista de archivo ahora toman el mismo camino —, de
+modo que un `count` PAR alcanza el techo real del grupo desde cualquier semilla.
+El borde irregular que queda es de los counts impares: una corrida impar corta
+los bloques 13/12, la parte justa de un valor —2,6 y 2,4 filas— tiene que
+redondearse en algún lado, y cerca del techo esos redondeos pueden dejar a un
+bloque a una fila de cubrirse. Medido sobre una forma —dos sujetos, tres
+nombres cada uno, cinco valores compartidos, con `seed="blocks"`:
 
-| count | 2–23 | 24–28 | 29  | 30  | 31+ |
-| ----- | ---- | ----- | --- | --- | --- |
-|       | ✅   | ❌    | ✅  | ✅  | ❌  |
+| count | 2–24 | 25  | 26  | 27  | 28–30 | 31+ |
+| ----- | ---- | --- | --- | --- | ----- | --- |
+|       | ✅   | ❌  | ✅  | ❌  | ✅    | ❌  |
 
-Todo count hasta 23 se genera; por encima, unos sí y otros no. Si un count cerca
-del límite es rechazado, otro cercano puede funcionar — pero el arreglo honesto
-es más valores en algún miembro, que mueve el rango entero en lugar de un punto.
+Todo count hasta 24 se genera, y el techo también; los dos impares justo debajo
+quedan a una fila en esta semilla y se completan en otras. Si un count cerca
+del límite es rechazado, el arreglo honesto es más valores en algún miembro,
+que mueve el rango entero en lugar de un punto.
 
 El rechazo dice qué permitían los datos:
 
 `./run tight.tdc`
 
 ```
-tdcv2: uniq: group "G × F × L" cannot produce 24 unique combinations — the values
-drawn for these sequences allow at most 23 distinct rows. Add more values to a
+tdcv2: uniq: group "G × F × L" cannot produce 25 unique combinations — the values
+drawn for these sequences allow at most 24 distinct rows. Add more values to a
 member (more distinct names, wider ranges…) or lower the count.
 ```
 
 La cifra es el alcance del **grupo entero**: los bloques en que lo cortó el
-`<switch>`, sumados. Por eso coincide con el count más alto que sí se genera: 23
-aquí, y 23 filas es lo que produce `count="23"`.
+`<switch>`, sumados. Por eso queda a lo sumo a una fila del mejor count que sí
+se genera.
 
 > [!NOTE]
 > **No es un id único**
