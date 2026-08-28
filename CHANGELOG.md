@@ -17,6 +17,25 @@ page — is tracked in that implementation's own changelog:
 
 ### Added
 
+<!-- covers: svg shape primitives -->
+
+- **`<rect>`, `<circle>` and `<ellipse>` are read from an SVG — as the docs always promised.**
+  They were not: a file holding only them was refused with "the SVG has no `<path>`… to read a
+  curve from", and next to a `<path>` they were silently dropped — draw in Figma and shapes
+  vanish without a word, which is the worse half. All three read now as the closed outlines
+  they draw: a rounded `<rect>` follows its corner arcs (`rx`/`ry` per the SVG spec, a missing
+  one copying the other, both clamped to half a side) and a `<circle>`/`<ellipse>` is two
+  half-turns of the same endpoint-parametrized arc the path reader has always used, so all five
+  implementations produce identical points.
+
+  One rule tells the shapes apart, now stated in the docs. Reading a single LINE, the
+  primitives count as furniture — a chart export's frame is a `<rect>` and its background
+  another, and "the widest shape" must not hand the graph to the frame — so anything actually
+  drawn outranks them, and a file holding ONLY primitives reads the widest of them. In a BAND
+  every shape counts, because the drawing is the region. `<polygon>` was always read and is
+  now in the docs beside the rest. Found by a reader checking the docs against the engine,
+  which is the second time that method has paid.
+
 <!-- covers: pack body seed, engine 3 whole-column packs -->
 
 - **Engine 3 builds a share-declaring data pack itself instead of handing the run to the
@@ -353,6 +372,44 @@ placed` rather than naming a total it stopped counting. A number quietly reading
 
 ### Fixed
 
+<!-- covers: uniq reach reported per block -->
+
+- **A `<uniq>` refusal reported ONE block's ceiling against the WHOLE run's count.** A
+  `<switch>` in a group cuts the rows into blocks by its subject, and each block is arranged
+  on its own; the refusal fired inside that loop, so on a two-subject group the number it
+  carried was half the truth. Measured: a shape that renders 23 rows was refused at 24 saying
+  "at most 11" — 11 being what one of its two blocks holds — and the medical demo config was
+  refused at 8,000,000 saying "at most 3,914,577" when its actual reach is 7,905,584. A figure
+  below what the config demonstrably produces sends the reader off to widen data that was
+  never the problem. Every block is now measured before any is refused, and the figure is the
+  sum over the blocks — within one row of the largest count that renders.
+
+<!-- covers: uniq deal tie-break -->
+
+- **Whether a tight `<uniq>` collected used to depend on the seed. It no longer does.**
+  Measured on one shape at `count="24"`: four seeds of eight collected and four refused —
+  same config, same data, a coin flip. The deal that spreads a free column across a
+  `<switch>`'s blocks gave every remainder tie to block 0, and equal blocks make every
+  remainder a tie: earlier values dropped their odd copy into block 0 until it filled, and
+  the last value landed `[1,4]` where a fair split is `[2,3]` — the difference between a
+  group that collects and one refused. Ties now break by the most room left, which is
+  self-balancing: each odd copy shrinks the room that attracted it, so the next tie goes the
+  other way. Every seed now reaches that shape's true ceiling of 30 and every seed refuses 31. What remains, and is documented rather than hidden: a tight ODD count can still fall
+  one row short on some seeds, because an odd run splits the blocks 13/12 and a fair share
+  of 2.6 rows has to round somewhere.
+
+<!-- covers: svg vertical edge step -->
+
+- **A vertical edge in a pattern SVG became a wedge as long as the flat stretch before it.**
+  The envelope measured one value per position, so a cliff poured its whole height into its
+  one x, and the interpolation to the PREVIOUS vertex — for a long flat stretch, its far end —
+  turned the cliff into a ramp. Measured on a car silhouette: the flat ground ahead of the car
+  spread 0..23 from the very first row, where the drawing holds one exact value. The envelope
+  now takes two limits per position, approaching from the left and leaving to the right; where
+  they differ the curve carries two points at one x — a step. The flat stretch is exact to the
+  last row before the edge, the band starts exactly at it, and a vertical segment belongs to
+  neither limit because its span IS the jump between them.
+
 <!-- covers: TDC E13, `+` on two decimal columns -->
 
 - **Adding two fractional columns CONCATENATED them in Python, Java, C# and Rust.** `A=1.5`,
@@ -680,6 +737,39 @@ expr= is not a sequence declared above this one` in Python, Rust, Java and C# �
   actually loads, and skips build output when reading source times.
 
 ### Changed
+
+<!-- covers: uniq deal across switch blocks -->
+
+- **A free column in a `<uniq>` group is dealt across the `<switch>`'s blocks before anything
+  is arranged inside them.** The cut used to hand each block whichever values happened to fall
+  there: measured on a group of four over 29 rows, the male block came out `[7,3,4]` where an
+  even deal is `[5,5,4]`, and that was the difference between 13 achievable tuples and 14 —
+  the run was refused for want of data it had. Each value is now split over the blocks in
+  proportion to their sizes, largest remainder first, clamped to the room a block has left.
+  The multiset is untouched — the same values in the same numbers, only distributed — so every
+  declared `percent=` survives exactly; the subject column and any switched column stay where
+  they are, or the deal would put a male first name on a female row. Measured ceilings rose
+  across every shape that has one: two subjects 7→12, three 11→18, four 20→32, a long free
+  list 24→30, a switched mix 27→30. Swept 11 shapes × 6 seeds × counts 2–80: 1,207 runs, not
+  one row out of place. A `<uniq>` group with a `<switch>` arranges differently than before —
+  same values, same shares, different rows for a pinned seed.
+
+<!-- covers: plain pack and file exact layout -->
+
+- **A plain data pack and a plain file list are laid out in exact equal shares over the
+  column, the way a plain text list always was.** They drew per row, uniform — ±√N noise in
+  every value's count — and inside a `<uniq>` that noise decided whether the run collects: a
+  pack column that refused at 12 rows saying "at most 10" collects all 12 once the counts are
+  even. The weighted cousins (`percent=`, `weight=`, a weighted pack) were already exact;
+  this closes the gap for the unweighted ones, with one mechanism and one arrangement on all
+  three engines — engine 1 and the streaming pair now byte-agree on such columns where they
+  used to differ. Three escapes, each measured into place: a ONE-ROW build keeps its keyed
+  pick (a layout planned over one row hands its single slot to one value — a `<mix>` branch's
+  whole 40,000 rows came out as one diagnosis); a quantile read keeps its per-row draw,
+  because it is a distribution rather than a bag; and a pack BODY's inner sequences keep
+  their picks in the in-memory engine, matching the reference, which gives bodies no stream
+  identity at all. Every config drawing a plain pack or file list produces different bytes
+  for the same seed — the beta window is what such a change is for.
 
 <!-- covers: TDC299 -->
 

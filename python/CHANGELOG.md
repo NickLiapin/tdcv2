@@ -40,6 +40,16 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   no guard on this surface before, which is why it drifted at all — each choice was
   reasonable in its own language and wrong for a reader crossing between them.
 
+### Fixed
+
+- **The engines test suite entered engine 3 through the wrong door.** The shared fixture
+  `engines.json` records what an engine does when asked for BY NAME — for engine 3, refusing
+  a `<uniq>` too tight for its bounded repair instead of quietly handing the run to the
+  in-memory engine. The suite called the disk builder directly with `named` left at its
+  default, so all 319 shared cases were exercising the fallback rather than the engine the
+  fixture names, and the named refusal had no test at all. The harness now passes
+  `named=True`, the way the fixture was generated.
+
 ## [0.2.2] — 2026-08-15
 
 ### Fixed
