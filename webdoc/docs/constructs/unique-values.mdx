@@ -304,12 +304,12 @@ the group's reach is the sum of what each block can hold, not the product of
 every column.
 
 The other members are free to move anywhere, and they are **dealt across the
-blocks in equal shares** before anything is arranged inside them. That matters
+blocks in proportion to their sizes** before anything is arranged inside them. That matters
 more than it sounds. A `text` list is laid out in exact shares over the whole
 column; the cut then hands one block whichever values happened to fall there. On
-one shape the male block came out with seven of one value and three of another
-where an even deal is five and five — and that was the difference between
-refusing a run and rendering it.
+one shape the male block came out with seven of one value, three of another and
+four of a third, where an even deal is five, five and four — and that was the
+difference between refusing a run and rendering it.
 
 The multiset is never touched, only distributed, so every `percent=` you declared
 survives exactly. And nothing crosses a block: the switched column stays where it
@@ -320,23 +320,28 @@ is, and so does the subject the blocks were cut by.
 A group rearranges the values it drew; it does not draw again to fit. So the
 reach depends on what a given `count` happened to draw, and the top of the range
 is uneven rather than a clean line. Measured on one shape — two subjects, three
-names each, five shared values:
+names each, five shared values, at `seed="blocks"`:
 
-| count | 2–24 | 25 | 26 | 27 | 28 | 29 | 30 | 31+ |
-| ----- | ---- | -- | -- | -- | -- | -- | -- | --- |
-|       | ✅   | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ | ❌  |
+| count | 2–23 | 24–28 | 29  | 30  | 31+ |
+| ----- | ---- | ----- | --- | --- | --- |
+|       | ✅   | ❌    | ✅  | ✅  | ❌  |
 
-Every count up to 24 renders; above it some do and some do not. If a count near
+Every count up to 23 renders; above it some do and some do not. If a count near
 the limit is refused, a slightly different one may work — but the honest fix is
 more values in a member, which moves the whole range rather than one point of it.
 
 The refusal says what the data allowed:
 
 <Terminal title="./run tight.tdc">
-{`tdcv2: uniq: group "G × F × L" cannot produce 25 unique combinations — the values
+{`tdcv2: uniq: group "G × F × L" cannot produce 24 unique combinations — the values
 drawn for these sequences allow at most 11 distinct rows. Add more values to a
 member (more distinct names, wider ranges…) or lower the count.`}
 </Terminal>
+
+The figure it reports is what **that run's draw** allowed, so it can sit below a
+count the same config renders: this group produces 23 distinct rows at
+`count="23"`, and the draw it gets at 24 reaches only 11. Read it as "this draw
+was unlucky", not as the config's ceiling.
 
 :::note[Not a "unique id"]
 This is about the uniqueness of a **combination of fields**, not a counter. For a

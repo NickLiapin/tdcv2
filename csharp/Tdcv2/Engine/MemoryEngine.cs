@@ -2517,8 +2517,11 @@ public static class MemoryEngine
     /// <para>Each value is split over the blocks in proportion to their sizes, largest remainder
     /// first, clamped to the room a block has left. The MULTISET is untouched — the same values in
     /// the same numbers, only distributed — so every declared percentage survives exactly.</para>
+    /// <para>Internal rather than private so <c>BlockDealTest</c> can pin the rule itself. The
+    /// arrangement IS the output, so it deserves a test that names the values it expects rather
+    /// than only the shapes that happen to exercise it.</para>
     /// </remarks>
-    private static List<List<string>> DealAcrossBlocks(
+    internal static List<List<string>> DealAcrossBlocks(
         IReadOnlyList<string> column, IReadOnlyList<int> sizes)
     {
         var order = new List<string>();

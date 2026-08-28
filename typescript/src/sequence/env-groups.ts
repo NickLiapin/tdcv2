@@ -98,7 +98,16 @@ function partitionRows(
  * are uneven before any block exists, and dealing an already-random column
  * across two blocks leaves it just as random.
  */
-function dealAcrossBlocks(column: readonly string[], blockSizes: readonly number[]): string[][] {
+/**
+ * One column dealt across the blocks a `<switch>` cut the group into.
+ *
+ * Exported for its own tests: the arrangement IS the output, so the rule deserves to be pinned
+ * directly rather than only through the shapes that happen to exercise it.
+ */
+export function dealAcrossBlocks(
+  column: readonly string[],
+  blockSizes: readonly number[],
+): string[][] {
   const order: string[] = [];
   const counts = new Map<string, number>();
   for (const value of column) {

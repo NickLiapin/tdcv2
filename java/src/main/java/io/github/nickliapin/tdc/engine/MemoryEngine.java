@@ -1562,8 +1562,12 @@ public final class MemoryEngine {
    * <p>Each value is split over the blocks in proportion to their sizes, largest remainder first,
    * clamped to the room a block has left. The MULTISET is untouched — the same values in the same
    * numbers, only distributed — so every declared percentage survives exactly.
+   *
+   * <p>Package-private rather than private so {@code BlockDealTest} can pin the rule itself. The
+   * arrangement IS the output, so it deserves a test that names the values it expects rather than
+   * only the shapes that happen to exercise it.
    */
-  private static List<List<String>> dealAcrossBlocks(List<String> column, List<Integer> sizes) {
+  static List<List<String>> dealAcrossBlocks(List<String> column, List<Integer> sizes) {
     List<String> order = new ArrayList<>();
     Map<String, Integer> counts = new LinkedHashMap<>();
     for (String value : column) {

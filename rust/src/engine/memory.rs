@@ -4595,3 +4595,114 @@ impl Lookup for RowLookup<'_> {
             .unwrap_or_default()
     }
 }
+
+#[cfg(test)]
+mod deal_tests {
+    use super::deal_across_blocks;
+
+    /// The shapes, and the arrangement the reference makes of each. Measured, not derived by
+    /// hand: a deal that is merely valid is a different product for everyone holding a seed.
+    fn shapes() -> Vec<(Vec<&'static str>, Vec<usize>, Vec<Vec<&'static str>>)> {
+        vec![
+            (
+                vec!["a", "a", "b", "b"],
+                vec![2, 2],
+                vec![vec!["a", "b"], vec!["a", "b"]],
+            ),
+            (
+                vec!["a", "a", "a", "b"],
+                vec![2, 2],
+                vec![vec!["a", "a"], vec!["a", "b"]],
+            ),
+            (
+                vec!["x", "x", "x", "y"],
+                vec![1, 3],
+                vec![vec!["x"], vec!["x", "x", "y"]],
+            ),
+            (
+                vec!["a", "b", "a", "b"],
+                vec![4],
+                vec![vec!["a", "a", "b", "b"]],
+            ),
+            (
+                vec!["p", "q", "r", "p", "q", "r", "p", "q", "r", "p", "q", "r"],
+                vec![5, 4, 3],
+                vec![
+                    vec!["p", "p", "q", "q", "r"],
+                    vec!["p", "q", "r", "r"],
+                    vec!["p", "q", "r"],
+                ],
+            ),
+            (vec![], vec![0], vec![vec![]]),
+            (
+                vec!["z", "z", "z"],
+                vec![0, 3],
+                vec![vec![], vec!["z", "z", "z"]],
+            ),
+        ]
+    }
+
+    fn deal(column: &[&str], sizes: &[usize]) -> Vec<Vec<String>> {
+        let owned: Vec<String> = column.iter().map(|s| (*s).to_string()).collect();
+        deal_across_blocks(&owned, sizes)
+    }
+
+    #[test]
+    fn the_deal_is_the_arrangement_the_reference_makes() {
+        for (column, sizes, want) in shapes() {
+            let got = deal(&column, &sizes);
+            let want: Vec<Vec<String>> = want
+                .iter()
+                .map(|b| b.iter().map(|s| (*s).to_string()).collect())
+                .collect();
+            assert_eq!(got, want, "column {column:?} over blocks {sizes:?}");
+        }
+    }
+
+    #[test]
+    fn every_block_gets_exactly_the_rows_it_has() {
+        for (column, sizes, _) in shapes() {
+            let got = deal(&column, &sizes);
+            let lengths: Vec<usize> = got.iter().map(|b| b.len()).collect();
+            assert_eq!(lengths, sizes, "column {column:?}");
+        }
+    }
+
+    #[test]
+    fn nothing_is_lost_and_nothing_is_invented() {
+        for (column, sizes, _) in shapes() {
+            let mut got: Vec<String> = deal(&column, &sizes).into_iter().flatten().collect();
+            let mut want: Vec<String> = column.iter().map(|s| (*s).to_string()).collect();
+            got.sort();
+            want.sort();
+            assert_eq!(got, want, "column {column:?} over blocks {sizes:?}");
+        }
+    }
+
+    /// One `y` against three `x`s over two blocks: `y` is owed a quarter of a row in one and
+    /// three quarters in the other, and gets a whole one. A value that rounds to nothing
+    /// everywhere would otherwise be dropped.
+    #[test]
+    fn a_value_short_of_a_whole_share_still_lands_somewhere() {
+        assert_eq!(
+            deal(&["x", "x", "x", "y"], &[2, 2]),
+            vec![
+                vec!["x".to_string(), "x".to_string()],
+                vec!["x".to_string(), "y".to_string()]
+            ]
+        );
+    }
+
+    /// Block 0 has room for one row and `a` fills it, so both `b`s go to block 1 even though the
+    /// proportional split would have handed block 0 one of them.
+    #[test]
+    fn a_full_block_passes_its_share_on() {
+        assert_eq!(
+            deal(&["a", "a", "b", "b"], &[1, 3]),
+            vec![
+                vec!["a".to_string()],
+                vec!["a".to_string(), "b".to_string(), "b".to_string()]
+            ]
+        );
+    }
+}

@@ -325,12 +325,12 @@ entre sí, las femeninas entre sí— y el alcance del grupo es la suma de lo qu
 cabe en cada bloque, no el producto de todas las columnas.
 
 Los demás miembros se mueven libremente, y ahora se **reparten entre los bloques
-en partes iguales** antes de ordenar nada dentro de ellos. Importa más de lo que
+en proporción a su tamaño** antes de ordenar nada dentro de ellos. Importa más de lo que
 parece. Una lista `text` se dispone en partes exactas sobre la columna entera; el
 corte le entrega luego a un bloque los valores que allí cayeron. En una forma el
-bloque masculino salió con siete de un valor y tres de otro donde un reparto
-parejo es cinco y cinco, y esa fue la diferencia entre rechazar una corrida y
-generarla.
+bloque masculino salió con siete de un valor, tres de otro y cuatro de un tercero
+donde un reparto parejo es cinco, cinco y cuatro, y esa fue la diferencia entre
+rechazar una corrida y generarla.
 
 El multiconjunto no se toca, solo se distribuye, así que cada `percent=` que usted
 declaró sobrevive exacto. Y nada cruza un bloque: la columna conmutada se queda
@@ -341,13 +341,13 @@ donde está, y el sujeto por el que se cortaron los bloques también.
 Un grupo reordena los valores que sacó; no vuelve a sacarlos para que encajen.
 Por eso el alcance depende de lo que ese `count` sacó, y la parte alta del rango
 es irregular en vez de una línea limpia. Medido sobre una forma —dos sujetos,
-tres nombres cada uno, cinco valores compartidos:
+tres nombres cada uno, cinco valores compartidos, con `seed="blocks"`:
 
-| count | 2–24 | 25 | 26 | 27 | 28 | 29 | 30 | 31+ |
-| ----- | ---- | -- | -- | -- | -- | -- | -- | --- |
-|       | ✅   | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ | ❌  |
+| count | 2–23 | 24–28 | 29  | 30  | 31+ |
+| ----- | ---- | ----- | --- | --- | --- |
+|       | ✅   | ❌    | ✅  | ✅  | ❌  |
 
-Todo count hasta 24 se genera; por encima, unos sí y otros no. Si un count cerca
+Todo count hasta 23 se genera; por encima, unos sí y otros no. Si un count cerca
 del límite es rechazado, otro cercano puede funcionar — pero el arreglo honesto
 es más valores en algún miembro, que mueve el rango entero en lugar de un punto.
 
@@ -356,10 +356,16 @@ El rechazo dice qué permitían los datos:
 `./run tight.tdc`
 
 ```
-tdcv2: uniq: group "G × F × L" cannot produce 25 unique combinations — the values
+tdcv2: uniq: group "G × F × L" cannot produce 24 unique combinations — the values
 drawn for these sequences allow at most 11 distinct rows. Add more values to a
 member (more distinct names, wider ranges…) or lower the count.
 ```
+
+La cifra que informa es lo que permitió **el sorteo de esa corrida**, así que
+puede quedar por debajo de un count que la misma configuración sí genera: este
+grupo produce 23 filas distintas con `count="23"`, y el sorteo que le toca en 24
+solo llega a 11. Léalo como «este sorteo tuvo mala suerte», no como el techo de
+la configuración.
 
 > [!NOTE]
 > **No es un id único**
