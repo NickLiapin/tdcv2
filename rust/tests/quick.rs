@@ -18,7 +18,7 @@ fn agrees_with_the_typescript_implementation() {
     let mut tdc = demo();
     assert_eq!(tdc.get("person.lastName").unwrap(), "Jones");
     assert_eq!(tdc.get("person.male.firstName").unwrap(), "Robert");
-    assert_eq!(tdc.get("company.industry").unwrap(), "Pharmaceuticals");
+    assert_eq!(tdc.get("company.industry").unwrap(), "Mining");
     assert_eq!(
         tdc.get("common.id.uuid").unwrap(),
         "3ff6ff76-6ea7-4fad-8b99-3075a14cc7e9"

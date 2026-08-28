@@ -1399,11 +1399,19 @@ impl StreamEngine<'_> {
             }
         }
 
-        // An exact quota: text, a weighted file column, or a pack that carries
-        // its own shares. All three say what share of the run each value takes,
-        // and all three honour it the same way.
+        // An exact quota: text, a weighted file column, a weighted pack — and now
+        // a PLAIN pack or a PLAIN file list, in equal shares, exactly as a plain
+        // text list. A per-row pick left every value's count to chance, and
+        // inside a <uniq> that chance decided whether the run collects. A
+        // quantile read is a distribution, not a bag, and keeps its own path;
+        // an unreadable file is the row's failure to report, not the plan's.
         let weighted_pack = self.weighted_template_pack(gen)?;
-        if gen_type == "text" || weight_column.is_some() || weighted_pack.is_some() {
+        let plain_list = self.plain_list(gen, weight_column.is_some())?;
+        if gen_type == "text"
+            || weight_column.is_some()
+            || weighted_pack.is_some()
+            || plain_list.is_some()
+        {
             let (values, percents) = match weighted_pack {
                 Some(pack) => pack,
                 None if weight_column.is_some() => {
@@ -1411,6 +1419,11 @@ impl StreamEngine<'_> {
                         file::load_weighted(attrs, self.env.base_dir, self.env.packs.data_roots())?
                             .expect("weight= was just read from the same attributes");
                     (weighted.values, weighted.percents)
+                }
+                None if plain_list.is_some() => {
+                    let values = plain_list.unwrap_or_default();
+                    let percents = evenly(values.len());
+                    (values, percents)
                 }
                 None => {
                     let values = memory::split_text(gen.attr_or("value", ""));
@@ -2244,6 +2257,31 @@ impl StreamEngine<'_> {
     }
 
     /// A `<gen type="template">` pointing at a pack that carries its own shares.
+    /// The value list of a PLAIN pack or a PLAIN file — no weights, no linked
+    /// rows, no quantile read — or `None` when the gen is not that.
+    fn plain_list(&self, gen: &Gen, has_weight: bool) -> EngineResult<Option<Vec<String>>> {
+        if gen.gen_type == "template" {
+            let address = gen.attr_or("value", "");
+            if address.is_empty() || !self.env.packs.exists(address, self.locale_of(&gen.attrs)) {
+                return Ok(None);
+            }
+            let entry = self.env.packs.load(address, self.locale_of(&gen.attrs))?;
+            if entry.generator.is_some() || entry.weighted() || entry.values.is_empty() {
+                return Ok(None);
+            }
+            return Ok(Some(entry.values.clone()));
+        }
+        if gen.gen_type == "file"
+            && !has_weight
+            && gen.attr("row").map(str::trim).unwrap_or("").is_empty()
+            && gen.attr("read").map(str::trim) != Some("quantile")
+            && gen.attr("order") != Some("sequential")
+        {
+            return Ok(file::load(&gen.attrs, self.env.base_dir, self.env.packs.data_roots()).ok());
+        }
+        Ok(None)
+    }
+
     fn weighted_template_pack(&self, gen: &Gen) -> EngineResult<Option<(Vec<String>, Vec<f64>)>> {
         if gen.gen_type != "template" {
             return Ok(None);

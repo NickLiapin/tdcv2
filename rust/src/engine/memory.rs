@@ -2523,7 +2523,16 @@ pub(super) fn column_values_into(
         return finish_into(drawn, &gen.attrs, prng, anomaly_flags, instants);
     };
 
-    if let Some((values, percents)) = listed_values(gen, env)? {
+    // A body's inner sequences get NO plain-list layout: the reference gives
+    // them no stream identity, so its layout never fires there, and a plain
+    // pack or file inside a body stays a per-row pick. Text and weighted lists
+    // keep their existing body behaviour — parity has always held for those.
+    let listed = if stream.in_body {
+        listed_values_weighted_or_text(gen, env)?
+    } else {
+        listed_values(gen, env)?
+    };
+    if let Some((values, percents)) = listed {
         let laid = per_row::exact_text_layout(&values, &percents, count, stream, layouts);
         return finish_keyed(laid, gen, prng, anomaly_flags, Some(stream));
     }
@@ -2780,13 +2789,15 @@ fn finish_keyed(
     }
 }
 
-/// The value list and the shares a column lays out, when its values are LISTED.
-fn listed_values(gen: &Gen, env: &Env) -> EngineResult<Option<(Vec<String>, Vec<f64>)>> {
+/// The weighted-or-text half of [`listed_values`] — what a body may lay out.
+fn listed_values_weighted_or_text(
+    gen: &Gen,
+    env: &Env,
+) -> EngineResult<Option<(Vec<String>, Vec<f64>)>> {
     if gen.attr("order") == Some("sequential") {
         return Ok(None);
     }
     if gen.attrs.contains_key("weight") {
-        // `row=` links whole rows of the file; the choice is not this column's.
         if !gen.attr("row").map(str::trim).unwrap_or("").is_empty() {
             return Ok(None);
         }
@@ -2794,6 +2805,19 @@ fn listed_values(gen: &Gen, env: &Env) -> EngineResult<Option<(Vec<String>, Vec<
     }
     if let Some(pack) = weighted_template_pack(gen, env)? {
         return Ok(Some(pack));
+    }
+    if gen.gen_type != "text" {
+        return Ok(None);
+    }
+    let values = split_text(gen.attr_or("value", ""));
+    let shares = per_row::shares_of(gen.attr("percent"), values.len());
+    Ok(Some((values, shares)))
+}
+
+/// The value list and the shares a column lays out, when its values are LISTED.
+fn listed_values(gen: &Gen, env: &Env) -> EngineResult<Option<(Vec<String>, Vec<f64>)>> {
+    if let Some(listed) = listed_values_weighted_or_text(gen, env)? {
+        return Ok(Some(listed));
     }
     // A PLAIN pack and a PLAIN file list take the same road as a plain text
     // list: laid out in equal shares over the column and permuted, not picked
@@ -2805,12 +2829,7 @@ fn listed_values(gen: &Gen, env: &Env) -> EngineResult<Option<(Vec<String>, Vec<
         let shares = per_row::shares_of(None, values.len());
         return Ok(Some((values, shares)));
     }
-    if gen.gen_type != "text" {
-        return Ok(None);
-    }
-    let values = split_text(gen.attr_or("value", ""));
-    let shares = per_row::shares_of(gen.attr("percent"), values.len());
-    Ok(Some((values, shares)))
+    Ok(None)
 }
 
 /// The value list of a PLAIN pack or a PLAIN file — one that declares no
@@ -2832,6 +2851,7 @@ fn plain_listed_values(gen: &Gen, env: &Env) -> EngineResult<Option<Vec<String>>
         return Ok(Some(entry.values.clone()));
     }
     if gen.gen_type == "file"
+        && gen.attr("order") != Some("sequential")
         && !gen.attrs.contains_key("weight")
         && gen.attr("row").map(str::trim).unwrap_or("").is_empty()
         && !quantile::is_quantile(&gen.attrs)
@@ -3535,6 +3555,7 @@ fn nested_switch_values(
         }
         if !case_carries_percent(case) {
             let sub = per_row::Stream {
+                in_body: stream.is_some_and(|s| s.in_body),
                 seed: env.config.seed.clone(),
                 id: id.clone(),
                 rows: stream.and_then(|s| s.rows.clone()),
@@ -4072,7 +4093,7 @@ fn materialize_local(
     /// Every stream a body sequence opens inherits whether the body is one row.
     macro_rules! body_stream {
         ($id:expr) => {{
-            let s = per_row::Stream::new(body_seed, &$id);
+            let s = per_row::Stream::new(body_seed, &$id).for_body();
             if one_row {
                 s.for_one_row()
             } else {

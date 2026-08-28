@@ -46,11 +46,17 @@ pub struct Stream {
     /// of the column that names it. Anything only correct across a whole column has to refuse
     /// here rather than plan a quota over one row.
     pub one_row: bool,
+    /// This stream builds a sequence INSIDE a pack body. The reference gives a
+    /// body's inner sequences no stream identity, so its plain-list layout never
+    /// fires there — a plain pack or file drawn inside a body stays a per-row
+    /// pick, and this flag is how the same rule is stated here.
+    pub in_body: bool,
 }
 
 impl Stream {
     pub fn new(seed: &str, id: &str) -> Self {
         Self {
+            in_body: false,
             seed: seed.to_string(),
             id: id.to_string(),
             rows: None,
@@ -65,9 +71,16 @@ impl Stream {
         self
     }
 
+    /// The same stream, marked as building inside a pack body.
+    pub fn for_body(mut self) -> Self {
+        self.in_body = true;
+        self
+    }
+
     /// The same stream under a different name, keeping the row list.
     pub fn named(&self, id: &str) -> Self {
         Self {
+            in_body: self.in_body,
             seed: self.seed.clone(),
             id: id.to_string(),
             rows: self.rows.clone(),
@@ -80,6 +93,7 @@ impl Stream {
     /// percentage layout gave it.
     pub fn with_rows(seed: &str, id: &str, rows: Vec<usize>) -> Self {
         Self {
+            in_body: false,
             seed: seed.to_string(),
             id: id.to_string(),
             rows: Some(rows),
