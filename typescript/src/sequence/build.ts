@@ -25,12 +25,11 @@ import type { PackRegistry } from '../data-pack/index.js';
 import { interpolate } from '../processor/interpolate.js';
 import { distributeByPercent } from '../distribution/hamilton.js';
 import { expandPercentMask } from '../distribution/percent-mask.js';
-import { resolveExistingDataSourcePath, type DataSourceOptions } from '../data-source/index.js';
+import { type DataSourceOptions } from '../data-source/index.js';
 import { advancedRegexGenerator } from '../generators/advanced-regex.js';
 import { decrementGenerator, incrementGenerator } from '../generators/counter.js';
 import { dateAxis, dateGenerator } from '../generators/date.js';
 import { toEpochMillis } from '../date/index.js';
-import { loadCsvColumnFile, loadListFile } from '../generators/file.js';
 
 import { applyAnomaly, keepShape, parseAnomaly } from '../generators/anomaly.js';
 import { applyMissing, parseMissing } from '../generators/missing.js';
@@ -54,6 +53,7 @@ import { openUnit, seekableGen, seekableUniforms } from '../prng/seekable.js';
 import {
   absoluteRow,
   exactTextLayout,
+  plainListLayout,
   forStreamOf,
   redrawCtx,
   INLINE_ANOMALY_TYPES,
@@ -63,7 +63,9 @@ import {
   withRows,
 } from './per-row.js';
 export { patternGenForGen } from './pattern-source.js';
+export { pickSequential, sequentialIndex, sequentialList } from './sequential.js';
 import { patternGenForGen } from './pattern-source.js';
+import { pickSequential, sequentialIndex, sequentialList } from './sequential.js';
 import { evaluateIf } from '../expr/evaluate.js';
 
 import { genFormatter } from '../format/transforms.js';
@@ -1146,52 +1148,6 @@ function buildGenValuesOnce(
   return fmt ? withMissing.map((v) => fmt(v)) : withMissing;
 }
 
-/**
- * The ordered value list of a list-backed generator, for `order="sequential"`:
- * `text` splits its `value`, `file` loads its lines (or a CSV column) as-is.
- */
-export function sequentialList(gen: GenSpec, dataSources: DataSourceOptions): string[] {
-  if (gen.type === 'file') {
-    const resolved = resolveExistingDataSourcePath(gen.attrs['src'] ?? '', dataSources).path;
-    const column = gen.attrs['column'];
-    const options = { column, header: gen.attrs['header'], delimiter: gen.attrs['delimiter'] };
-    return column && column.trim().length > 0
-      ? loadCsvColumnFile(resolved, options)
-      : loadListFile(resolved);
-  }
-  return (gen.attrs['value'] ?? '').split(',').map((s) => s.trim());
-}
-
-/**
- * Which of `size` values row `index` gets: `index mod size` (loop), or an error
- * past the end when `cycle=false`.
- *
- * The one place that decides, so a text list, a file column and a walked date
- * range answer the same way — and say the same thing when they run out. A date
- * range never becomes a list (a century by the second is not a list anyone
- * should hold), which is why this takes a SIZE rather than the values.
- */
-export function sequentialIndex(size: number, index: number, cycle: boolean): number {
-  if (size <= 0) return 0;
-  if (!cycle && index >= size) {
-    // Say which ROW ran out, not how many rows were asked for: the streaming path
-    // resolves one row at a time and does not know the run's size here. The old
-    // wording read "only 4 values for 5 rows" on a config that said count="6",
-    // so the one number a reader would take to their config was the wrong one.
-    throw new Error(
-      `order="sequential" cycle="false": the source has only ${String(size)} values, ` +
-        `so row ${String(index + 1)} has none — shorten count= or lengthen the source`,
-    );
-  }
-  return index % size;
-}
-
-/** Pick element `index mod N` (loop), or error past the end when `cycle=false`. */
-export function pickSequential(list: readonly string[], index: number, cycle: boolean): string {
-  if (list.length === 0) return '';
-  return list[sequentialIndex(list.length, index, cycle)] ?? '';
-}
-
 function buildGenValuesRaw(
   gen: GenSpec,
   count: number,
@@ -1345,7 +1301,18 @@ function buildGenValuesRaw(
       if (packEntry?.values) {
         // A WEIGHTED pack is drawn to an exact Hamilton quota — the same path
         // `percent=` and `weight=` use — so `Smith` gets its Census share, not
-        // a uniform one. A plain pack stays a uniform pick.
+        // a uniform one. A PLAIN pack now takes the same road with equal
+        // shares, exactly as `<gen type="text">` without `percent=` does: laid
+        // out over the column (or a branch's own rows) and permuted, not picked
+        // row by row. A per-row pick leaves every value's count to chance —
+        // ±√N noise per value — and inside a `<uniq>` that chance decided
+        // whether the run collects: the same config collected on four seeds of
+        // eight, and capped the medical demo at ~6.2M rows when its data holds
+        // ~195M combinations. One mechanism for both kinds of pack, one output
+        // on every engine, and the seed decides order, never fate.
+        //
+        // EXCEPT a one-row build, which keeps the keyed pick — the guard and
+        // its story live on `plainListLayout`.
         return packEntry.percents
           ? (exactTextLayout(packEntry.values, undefined, count, ctx, packEntry.percents) ??
               distributeByPercent({
@@ -1354,7 +1321,8 @@ function buildGenValuesRaw(
                 percents: [...packEntry.percents],
                 prng,
               }))
-          : textUniform(packEntry.values)(count, prng).slice();
+          : (plainListLayout(packEntry.values, count, ctx) ??
+              textUniform(packEntry.values)(count, prng).slice());
       }
       const source = resolveTemplate(path);
       if (!source) {

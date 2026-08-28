@@ -12,14 +12,14 @@
       "First name": "Joseph",
       "Last name": "Williams"
       "B-day": "April 9, 2002"
-      "Diagnosis": "Cryptorchism"
+      "Diagnosis": "Varicocele"
     },
     {
       ID: 3,
       "First name": "James",
       "Last name": "Rodriguez"
       "B-day": "March 20, 2006"
-      "Diagnosis": "Chronic pancreatitis"
+      "Diagnosis": "Phimosis"
     },
     {
       ID: 4,
@@ -33,42 +33,42 @@
       "First name": "Charles",
       "Last name": "Martinez"
       "B-day": "September 15, 1981"
-      "Diagnosis": "Rectal cancer"
+      "Diagnosis": "Chronic pancreatitis"
     },
     {
       ID: 6,
       "First name": "Michael",
       "Last name": "Miller"
       "B-day": "October 29, 2006"
-      "Diagnosis": "Rectal cancer"
+      "Diagnosis": "Central retinal artery embolism"
     },
     {
       ID: 7,
       "First name": "David",
       "Last name": "Davis"
       "B-day": "September 26, 1961"
-      "Diagnosis": "Prostate adenoma"
+      "Diagnosis": "Chlamydia"
     },
     {
       ID: 8,
       "First name": "John",
       "Last name": "Smith"
       "B-day": "October 6, 2010"
-      "Diagnosis": "Chlamydia"
+      "Diagnosis": "Chronic arthritis"
     },
     {
       ID: 9,
       "First name": "Richard",
       "Last name": "Johnson"
       "B-day": "June 17, 1972"
-      "Diagnosis": "Rectal cancer"
+      "Diagnosis": "Prostate adenoma"
     },
     {
       ID: 10,
       "First name": "William",
       "Last name": "Brown"
       "B-day": "April 28, 1993"
-      "Diagnosis": "Chronic pancreatitis"
+      "Diagnosis": "Rectal cancer"
     },
   ]
 }

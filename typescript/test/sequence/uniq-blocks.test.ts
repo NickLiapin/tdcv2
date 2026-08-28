@@ -282,6 +282,32 @@ describe('what the deal bought, counted', () => {
   });
 });
 
+describe('the seed decides order, never fate', () => {
+  /*
+   * Before the deal's tie-break went by room, WHETHER a count near the ceiling
+   * collected depended on the seed: measured on the shape below at count 24,
+   * four seeds of eight collected and four refused. Same config, same data, a
+   * coin flip. The multiset a block receives no longer depends on where the
+   * ties happened to fall, so every seed reaches the same ceiling — the seed
+   * still picks WHICH arrangement, never whether one exists.
+   */
+  const shape = SHAPES[0]!;
+
+  const seeds = ['blocks', 's1', 's2', 's3', 's4', 's5', 's6', 's7'];
+
+  it('every seed reaches the ceiling', () => {
+    for (const seed of seeds) {
+      expect(rowsOf(shape, shape.ceiling, seed), seed).toHaveLength(shape.ceiling);
+    }
+  });
+
+  it('every seed refuses past it', () => {
+    for (const seed of seeds) {
+      expect(() => rowsOf(shape, shape.ceiling + 1, seed), seed).toThrow(/cannot produce/);
+    }
+  });
+});
+
 describe('what the deal must not disturb', () => {
   it('keeps the subject share exact', () => {
     const shape = SHAPES[0]!;

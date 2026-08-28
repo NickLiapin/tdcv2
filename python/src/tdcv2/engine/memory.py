@@ -1967,10 +1967,16 @@ def _deal_across_blocks(column: list[str], block_sizes: list[int]) -> list[list[
         share = [min(room[i], math.floor(e)) for i, e in enumerate(exact)]
         given = sum(share)
 
-        # The remainder goes to the blocks with the largest fraction owed, ties by block order —
-        # the same largest-remainder rule the percentages use, so two implementations cannot
-        # disagree about who gets the odd one.
-        owed = sorted(range(len(exact)), key=lambda i: (-(exact[i] - math.floor(exact[i])), i))
+        # The remainder goes to the blocks with the largest fraction owed; a tie is broken by
+        # the most room left, then block order. Equal blocks make every remainder a tie, and
+        # "ties to block 0" starved the LAST value there — the final value came out [1,4] where
+        # a fair split is [2,3], and that was the difference between a group that collects 24
+        # and one refused at 24. Room as the tie-break is self-balancing: each odd copy shrinks
+        # the room that attracted it, so the next tie goes the other way.
+        owed = sorted(
+            range(len(exact)),
+            key=lambda i: (-(exact[i] - math.floor(exact[i])), -(room[i] - share[i]), i),
+        )
         for i in owed:
             if given >= want:
                 break
@@ -2208,6 +2214,14 @@ def _generate(
             if exact is not None:
                 return exact
             return hamilton.distribute(count, weighted.values, weighted.percents, prng)
+        # A plain file list takes the same road as a plain text list and a plain pack: laid
+        # out in equal shares over the column and permuted, not picked row by row. Same guard
+        # as the pack path — one row of a run keeps the uniform pick.
+        if not (run.per_row and count == 1):
+            plain = file_gen.load(attrs, run.base_dir, run.packs.data_roots)
+            exact = per_row.exact_text_layout(plain, None, count, run)
+            if exact is not None:
+                return exact
         return file_gen.generate(attrs, count, run.base_dir, prng, run.packs.data_roots)
     if gen.type == "pattern":
         return _pattern(attrs, count, run)
@@ -2264,14 +2278,18 @@ def _generate(
             if exact is not None:
                 return exact
             return hamilton.distribute(count, entry.values, entry.percents or [], prng)
-        # A PLAIN pack stays a uniform pick — never the exact layout a literal list gets.
+        # A PLAIN pack takes the same road as a plain text list: laid out in equal shares over
+        # the column and permuted, not picked row by row. A per-row pick leaves every value's
+        # count to chance, and inside a <uniq> that chance decided whether the run collects.
         #
-        # The two used to agree by accident: a pack drawn inside a body had no column name, so
-        # the layout bailed out and fell through to this same pick. Once bodies were given a
-        # stream identity the layout started firing, and at one row it plans one slot and hands
-        # it to one value — `usa.geo.streetNamed` came out as "Woodland" on all six rows. The
-        # rule is the reference's, stated in its own source: a weighted pack is laid out
-        # exactly, a plain one is picked uniformly.
+        # EXCEPT a one-row build — the same `per_row and count == 1` test the pack-generator
+        # body uses for its row salt. A layout planned over one row hands its single slot to
+        # one value — `usa.geo.streetNamed` came out as "Woodland" on all six rows when this
+        # fired inside a body — so one row of a run keeps the uniform pick.
+        if not (run.per_row and count == 1):
+            exact = per_row.exact_text_layout(list(entry.values), None, count, run)
+            if exact is not None:
+                return exact
         return [entry.values[math.floor(prng.next() * len(entry.values))] for _ in range(count)]
     else:
         raise EngineError(f'generator type "{gen.type}" is not ported yet')

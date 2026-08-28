@@ -22,7 +22,7 @@
       "locale": "en",
       "address": "company.industry",
       "count": 2,
-      "expected": ["Pharmaceuticals", "Entertainment"]
+      "expected": ["Mining", "Nonprofit"]
     },
     {
       "seed": "demo",
@@ -682,14 +682,14 @@
       "locale": "fr",
       "address": "person.lastName",
       "count": 3,
-      "expected": ["Metivier", "Fauchon", "Pouget"]
+      "expected": ["Perrin", "Vernet", "Jourdain"]
     },
     {
       "seed": "demo",
       "locale": "ar",
       "address": "person.lastName",
       "count": 3,
-      "expected": ["بوعزيزي", "لطفي", "نصيري"]
+      "expected": ["الرشيدي", "اليمني", "هنيدي"]
     },
     {
       "seed": "demo",

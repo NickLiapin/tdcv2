@@ -317,6 +317,80 @@
         "M|m2|a|g1",
         "F|f2|a|g1"
       ]
+    },
+    {
+      "name": "every-seed-reaches-the-ceiling-the-data-holds",
+      "description": "The deal's remainder tie used to go to block 0 every time, so WHETHER a count near the top collected depended on the seed: this exact shape at 24 collected on four seeds of eight. Ties now break by the most room left, and the shape's true ceiling — 3 names × 5 letters per block, 30 rows — is reached from any seed. Pinned at the ceiling itself, where every misdeal shows.",
+      "config": "<tdc><env count=\"30\" seed=\"blocks\" local=\"en\"><uniq><sequence name=\"G\"><gen type=\"text\" value=\"M,F\" percent=\"50,50\"/></sequence><switch name=\"F\" on=\"G\"><case is=\"M\"><gen type=\"text\" value=\"m1,m2,m3\"/></case><case is=\"F\"><gen type=\"text\" value=\"f1,f2,f3\"/></case></switch><sequence name=\"L\"><gen type=\"text\" value=\"a,b,c,d,e\"/></sequence></uniq></env><block><line><data>${{G}}|${{F}}|${{L}}</data></line></block></tdc>",
+      "expected": [
+        "F|f1|c",
+        "M|m1|c",
+        "F|f1|a",
+        "M|m1|a",
+        "M|m1|e",
+        "F|f1|e",
+        "F|f1|b",
+        "M|m1|b",
+        "M|m1|d",
+        "M|m2|c",
+        "M|m2|a",
+        "M|m2|e",
+        "M|m2|b",
+        "F|f1|d",
+        "F|f2|c",
+        "M|m2|d",
+        "F|f2|a",
+        "F|f2|e",
+        "M|m3|c",
+        "F|f2|b",
+        "F|f2|d",
+        "M|m3|a",
+        "M|m3|e",
+        "F|f3|c",
+        "F|f3|a",
+        "F|f3|e",
+        "M|m3|b",
+        "F|f3|b",
+        "M|m3|d",
+        "F|f3|d"
+      ]
+    },
+    {
+      "name": "a-plain-pack-is-laid-out-not-picked",
+      "description": "A plain pack — a value list with no weights — is laid out in equal shares over the column and permuted, exactly as a plain text list is. A per-row pick left every value's count to chance, and inside a <uniq> that chance decided whether the run collects: this shape used to refuse at 12 saying 'at most 10'. 16 directions × 2 gives 32 combinations; 12 rows collect from any draw that is actually even.",
+      "config": "<tdc><env count=\"12\" seed=\"p\" local=\"en\"><uniq><sequence name=\"C\"><gen type=\"template\" value=\"geo.direction\"/></sequence><sequence name=\"D\"><gen type=\"text\" value=\"1,2\"/></sequence></uniq></env><block><line><data>${{C}}|${{D}}</data></line></block></tdc>",
+      "expected": [
+        "West|1",
+        "North-Northeast|2",
+        "Northeast|1",
+        "Northwest|2",
+        "Southeast|1",
+        "South-Southwest|1",
+        "North-Northwest|1",
+        "East-Northeast|2",
+        "South-Southeast|2",
+        "Southwest|2",
+        "West-Southwest|1",
+        "North|2"
+      ]
+    },
+    {
+      "name": "a-plain-file-list-is-laid-out-not-picked",
+      "description": "A plain file list takes the same exact-layout road as a plain text list and a plain pack. Five fruits over ten rows is exactly two of each; a per-row pick gave some fruit four rows and another none, and a <uniq> over this shape was a coin flip.",
+      "dataPath": "data",
+      "config": "<tdc><env count=\"10\" seed=\"f\" local=\"en\"><uniq><sequence name=\"A\"><gen type=\"file\" src=\"five-fruits.txt\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"x,y\"/></sequence></uniq></env><block><line><data>${{A}}|${{B}}</data></line></block></tdc>",
+      "expected": [
+        "fig|y",
+        "date|y",
+        "date|x",
+        "plum|y",
+        "fig|x",
+        "apple|y",
+        "pear|y",
+        "plum|x",
+        "pear|x",
+        "apple|x"
+      ]
     }
   ]
 }

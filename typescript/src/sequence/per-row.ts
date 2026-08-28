@@ -162,7 +162,19 @@ export function perRowBuildable(
   // A pack GENERATOR may declare a share too. Its values are computed rather
   // than listed, so there is no list to lay out — the whole column is built at
   // once or the quota is wrong, and the streaming engine refuses it outright.
-  if (packEntryFor(gen, ctx, locale)?.needsWholeColumn === true) return false;
+  const packEntry = packEntryFor(gen, ctx, locale);
+  if (packEntry?.needsWholeColumn === true) return false;
+  // A PLAIN pack — a value list with no weights — is laid out over the whole
+  // column now, exactly as a plain text list is, so it must not be drawn per
+  // row either. A per-row pick leaves every value's count to chance, and
+  // inside a `<uniq>` that chance decided whether the run collects.
+  if (packEntry?.values !== undefined && packEntry.generator === undefined) return false;
+  // A PLAIN file list, same reason — its weighted cousin is already excluded
+  // by the `weight=` test above, and `row=`-linked reads by the test below. A
+  // quantile read stays per-row: it is a distribution, not a bag — each row
+  // draws its own point, and the streaming engine expects it to arrive a row
+  // at a time and answer the same way.
+  if (gen.type === 'file' && (gen.attrs['read'] ?? '').trim() !== 'quantile') return false;
   // `row=` links several columns to ONE row of a file. That choice belongs to
   // the row as a whole, not to any single column reading from it.
   if ((gen.attrs['row'] ?? '').trim() !== '') return false;
@@ -277,6 +289,23 @@ function packEntryFor(
  * Returns undefined when this run cannot do it — no seed or no column name (an
  * inline generator, or a nested build) — and the caller keeps the old draw.
  */
+/**
+ * `exactTextLayout` with equal shares, guarded against one-row builds — the
+ * same `perRow && count === 1` test the pack-generator body uses for its row
+ * salt. A keyed `<mix>` branch builds each of its rows separately WITH the
+ * column's seed, and a layout planned over one row hands its single slot to
+ * one value: measured, a branch's whole 40,000 rows came out as one diagnosis.
+ * One row of a run has no column to lay out; the caller keeps its keyed pick.
+ */
+export function plainListLayout(
+  values: readonly string[],
+  count: number,
+  ctx: SequenceBuildContext,
+): string[] | undefined {
+  if (ctx.perRow === true && count === 1 && ctx.rows?.length === 1) return undefined;
+  return exactTextLayout(values, undefined, count, ctx);
+}
+
 export function exactTextLayout(
   values: readonly string[],
   percentAttr: string | undefined,

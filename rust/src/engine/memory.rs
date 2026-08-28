@@ -2064,14 +2064,22 @@ fn deal_across_blocks(column: &[String], block_sizes: &[usize]) -> Vec<Vec<Strin
             .collect();
         let mut given: usize = share.iter().sum();
 
-        // The remainder goes to the blocks with the largest fraction owed, ties
-        // by block order — the same largest-remainder rule the percentages use.
+        // The remainder goes to the blocks with the largest fraction owed; a tie
+        // is broken by the most room left, then block order. Equal blocks make
+        // every remainder a tie, and "ties to block 0" starved the LAST value
+        // there — the final value came out [1,4] where a fair split is [2,3],
+        // and that was the difference between a group that collects 24 and one
+        // refused at 24. Room as the tie-break is self-balancing: each odd copy
+        // shrinks the room that attracted it, so the next tie goes the other way.
         let mut owed: Vec<usize> = (0..exact.len()).collect();
         owed.sort_by(|a, b| {
             let ra = exact[*a] - exact[*a].floor();
             let rb = exact[*b] - exact[*b].floor();
+            let fa = room[*a].saturating_sub(share[*a]);
+            let fb = room[*b].saturating_sub(share[*b]);
             rb.partial_cmp(&ra)
                 .unwrap_or(std::cmp::Ordering::Equal)
+                .then(fb.cmp(&fa))
                 .then(a.cmp(b))
         });
         for i in owed {
@@ -2568,6 +2576,7 @@ pub(super) fn column_values_into(
     // the column like any other share. Decided one row at a time it awards every row to the
     // largest share: 100% RU, not 70/20/10.
     let weighted = weighted_template_pack(gen, env)?.is_some()
+        || plain_listed_values(gen, env)?.is_some()
         || (gen.gen_type == "advanced_regex"
             && advanced_regex::has_weighted_choice(gen.attr_or("value", "")));
     let whole_column = pack_needs_whole_column(gen, env);
@@ -2786,12 +2795,54 @@ fn listed_values(gen: &Gen, env: &Env) -> EngineResult<Option<(Vec<String>, Vec<
     if let Some(pack) = weighted_template_pack(gen, env)? {
         return Ok(Some(pack));
     }
+    // A PLAIN pack and a PLAIN file list take the same road as a plain text
+    // list: laid out in equal shares over the column and permuted, not picked
+    // row by row. A per-row pick leaves every value's count to chance, and
+    // inside a <uniq> that chance decided whether the run collects. One-row
+    // builds never reach this path — they go through generate_in_column and
+    // keep the uniform pick, the same escape the reference takes.
+    if let Some(values) = plain_listed_values(gen, env)? {
+        let shares = per_row::shares_of(None, values.len());
+        return Ok(Some((values, shares)));
+    }
     if gen.gen_type != "text" {
         return Ok(None);
     }
     let values = split_text(gen.attr_or("value", ""));
     let shares = per_row::shares_of(gen.attr("percent"), values.len());
     Ok(Some((values, shares)))
+}
+
+/// The value list of a PLAIN pack or a PLAIN file — one that declares no
+/// weights and links no rows — or `None` when the gen is not that.
+fn plain_listed_values(gen: &Gen, env: &Env) -> EngineResult<Option<Vec<String>>> {
+    if gen.gen_type == "template" {
+        let path = gen.attr_or("value", "");
+        let locale = gen
+            .attr("local")
+            .or(env.config.locale.as_deref())
+            .unwrap_or("en");
+        if path.is_empty() || !env.packs.exists(path, locale) {
+            return Ok(None);
+        }
+        let entry = env.packs.load(path, locale)?;
+        if entry.generator.is_some() || entry.weighted() || entry.values.is_empty() {
+            return Ok(None);
+        }
+        return Ok(Some(entry.values.clone()));
+    }
+    if gen.gen_type == "file"
+        && !gen.attrs.contains_key("weight")
+        && gen.attr("row").map(str::trim).unwrap_or("").is_empty()
+        && !quantile::is_quantile(&gen.attrs)
+    {
+        let values = file::load(&gen.attrs, env.base_dir, env.packs.data_roots())?;
+        if values.is_empty() {
+            return Ok(None);
+        }
+        return Ok(Some(values));
+    }
+    Ok(None)
 }
 
 pub(super) fn generate(
@@ -4723,15 +4774,16 @@ mod deal_tests {
         );
     }
 
-    /// Block 0 has room for one row and `a` fills it, so both `b`s go to block 1 even though the
-    /// proportional split would have handed block 0 one of them.
+    /// Both values are owed half a row in each block. Ties used to go to block 0 every time,
+    /// which starved the LAST value there — the room tie-break sends `a`'s odd copy to the
+    /// roomier block 1, then `b`'s to block 0, whose room is now the greater. Self-balancing.
     #[test]
-    fn a_full_block_passes_its_share_on() {
+    fn a_remainder_tie_goes_to_the_block_with_the_most_room() {
         assert_eq!(
             deal(&["a", "a", "b", "b"], &[1, 3]),
             vec![
-                vec!["a".to_string()],
-                vec!["a".to_string(), "b".to_string(), "b".to_string()]
+                vec!["b".to_string()],
+                vec!["a".to_string(), "a".to_string(), "b".to_string()]
             ]
         );
     }

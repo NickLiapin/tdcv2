@@ -55,7 +55,8 @@ def test_a_value_short_of_a_whole_share_still_lands_somewhere():
     assert deal(["x", "x", "x", "y"], [2, 2]) == [["x", "x"], ["x", "y"]]
 
 
-def test_a_full_block_passes_its_share_on():
-    # Block 0 has room for one row and `a` fills it, so both `b`s go to block 1 even though the
-    # proportional split would have given block 0 one of them.
-    assert deal(["a", "a", "b", "b"], [1, 3]) == [["a"], ["a", "b", "b"]]
+def test_a_remainder_tie_goes_to_the_block_with_the_most_room():
+    # Both values are owed half a row in each block. Ties used to go to block 0 every time,
+    # which starved the LAST value there — the room tie-break sends `a`'s odd copy to the
+    # roomier block 1, then `b`'s to block 0, whose room is now the greater. Self-balancing.
+    assert deal(["a", "a", "b", "b"], [1, 3]) == [["b"], ["a", "a", "b"]]

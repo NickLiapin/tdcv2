@@ -1,11 +1,11 @@
 FirstName,LastName,BDay,Diagnosis
 Thomas,Garcia,June 27, 1971,Cryptorchism
-Joseph,Williams,April 9, 2002,Cryptorchism
-James,Rodriguez,March 20, 2006,Chronic pancreatitis
+Joseph,Williams,April 9, 2002,Varicocele
+James,Rodriguez,March 20, 2006,Phimosis
 Robert,Jones,May 6, 2001,Prostatitis
-Charles,Martinez,September 15, 1981,Rectal cancer
-Michael,Miller,October 29, 2006,Rectal cancer
-David,Davis,September 26, 1961,Prostate adenoma
-John,Smith,October 6, 2010,Chlamydia
-Richard,Johnson,June 17, 1972,Rectal cancer
-William,Brown,April 28, 1993,Chronic pancreatitis
+Charles,Martinez,September 15, 1981,Chronic pancreatitis
+Michael,Miller,October 29, 2006,Central retinal artery embolism
+David,Davis,September 26, 1961,Chlamydia
+John,Smith,October 6, 2010,Chronic arthritis
+Richard,Johnson,June 17, 1972,Prostate adenoma
+William,Brown,April 28, 1993,Rectal cancer

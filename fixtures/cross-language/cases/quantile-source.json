@@ -73,21 +73,21 @@
       "config": "<tdc><env count=\"16\" seed=\"picks\" local=\"en\"><sequence name=\"OUT\"><gen type=\"file\" src=\"sample-ages.txt\"/></sequence></env><block><line><data>${{OUT}}</data></line></block></tdc>",
       "expected": [
         "41",
-        "29",
-        "23",
         "41",
-        "23",
         "34",
         "31",
         "52",
-        "52",
         "23",
-        "31",
         "38",
-        "29",
-        "34",
+        "47",
+        "47",
         "41",
-        "41"
+        "23",
+        "41",
+        "38",
+        "52",
+        "41",
+        "29"
       ],
       "dataPath": "data"
     }

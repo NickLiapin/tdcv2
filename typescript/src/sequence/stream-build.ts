@@ -59,7 +59,6 @@ import { poolRefName } from './pool.js';
 import { poolGroupPicks } from './pool-member.js';
 import { lazyPoolRefColumns } from './pool-ref.js';
 import { createPrng } from '../prng/prng.js';
-import { resolveExistingDataSourcePath } from '../data-source/index.js';
 
 import {
   patternGenForGen,
@@ -70,7 +69,7 @@ import {
 } from './build.js';
 import { dateAxis } from '../generators/date.js';
 import { resolveGenAnomalyFlagTextAt, resolveGenValueAt } from './gen-resolve.js';
-import { loadWeightedValues, weightColumnOf } from '../generators/weighted.js';
+import { weightColumnOf } from '../generators/weighted.js';
 import {
   joinParts,
   joinPartsOpt,
@@ -85,6 +84,8 @@ import { paramOverrides } from './build.js';
 import {
   numberLengthChoicesOf,
   pinLength,
+  plainListOf,
+  weightedListOf,
   weightedTemplatePack,
   wholeColumnPackBody,
 } from './stream-weighted.js';
@@ -776,22 +777,26 @@ function buildValueSequence(
     };
   }
 
-  if (gen.type === 'text' || weightColumn !== undefined || weightedPack !== undefined) {
-    const weighted =
-      weightColumn === undefined
-        ? weightedPack
-        : loadWeightedValues(
-            resolveExistingDataSourcePath(gen.attrs['src'] ?? '', options.dataSources ?? {}).path,
-            {
-              column: gen.attrs['column'],
-              header: gen.attrs['header'],
-              delimiter: gen.attrs['delimiter'],
-            },
-            weightColumn,
-          );
+  // A PLAIN pack and a PLAIN file list take the same exact-layout road as a
+  // plain text list: equal shares over the column, permuted. A quantile read
+  // is a distribution, not a bag, and keeps its own path; a file that cannot
+  // be read is NOT this plan's to report — the lazy contract says a missing
+  // source fails when a row first touches it, so the per-row path keeps it.
+  const plainList =
+    weightedPack === undefined
+      ? plainListOf(gen, options.packs, locale, weightColumn, options.dataSources ?? {})
+      : undefined;
+
+  if (
+    gen.type === 'text' ||
+    weightColumn !== undefined ||
+    weightedPack !== undefined ||
+    plainList !== undefined
+  ) {
+    const weighted = weightedListOf(gen, weightColumn, weightedPack, options.dataSources ?? {});
     const values = weighted
       ? weighted.values
-      : (gen.attrs['value'] ?? '').split(',').map((s) => s.trim());
+      : (plainList ?? (gen.attrs['value'] ?? '').split(',').map((s) => s.trim()));
     const percentAttr = gen.attrs['percent'];
     const percents = weighted
       ? weighted.percents

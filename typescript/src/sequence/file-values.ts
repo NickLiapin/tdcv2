@@ -33,7 +33,7 @@ import { permuteKey } from '../prng/permute.js';
 import { loadFileValues } from '../generators/file.js';
 
 import type { SequenceBuildContext } from './context.js';
-import { exactTextLayout, keyedDraws } from './per-row.js';
+import { exactTextLayout, keyedDraws, plainListLayout } from './per-row.js';
 import { normalizeRowLink } from './row-link.js';
 import type { GenSpec } from './types.js';
 
@@ -105,7 +105,20 @@ export function buildFileValues(
     );
   }
 
-  if (!rowKey) return fileUniform(resolvedSrc, options)(count, prng).slice();
+  if (!rowKey) {
+    // A plain file list takes the same road as a plain text list and a plain
+    // pack: laid out in equal shares over the column and permuted, not picked
+    // row by row. Same mechanism, same output on every engine — and inside a
+    // `<uniq>` the multiset stops depending on the seed.
+    const values = loadFileValues(resolvedSrc, options);
+    if (values.length === 0) {
+      throw new Error(`file generator: list at "${src}" is empty`);
+    }
+    // One-row builds keep the keyed pick — the guard lives on `plainListLayout`.
+    return (
+      plainListLayout(values, count, ctx) ?? fileUniform(resolvedSrc, options)(count, prng).slice()
+    );
+  }
 
   if (!options.column || options.column.trim().length === 0) {
     throw new Error('sequence: row-linked file generator requires a CSV "column" attribute');

@@ -125,12 +125,17 @@ export function dealAcrossBlocks(
     const share = exact.map((e, i) => Math.min(room[i] ?? 0, Math.floor(e)));
     let given = share.reduce((a, b) => a + b, 0);
 
-    // The remainder goes to the blocks with the largest fraction owed, ties by
-    // block order — the same largest-remainder rule the percentages use, so two
-    // implementations cannot disagree about who gets the odd one.
+    // The remainder goes to the blocks with the largest fraction owed; a tie is
+    // broken by the most room left, then block order. Equal blocks make every
+    // remainder a tie, and "ties to block 0" starved the LAST value there:
+    // earlier values each dropped their odd copy into block 0 until it was
+    // full, and the final value came out [1,4] where a fair split is [2,3] —
+    // measured, and it was the difference between a group that collects 24 and
+    // one refused at 24. Room as the tie-break is self-balancing: each odd copy
+    // shrinks the room that attracted it, so the next tie goes the other way.
     const owed = exact
-      .map((e, i) => ({ i, rem: e - Math.floor(e) }))
-      .sort((a, b) => b.rem - a.rem || a.i - b.i);
+      .map((e, i) => ({ i, rem: e - Math.floor(e), free: (room[i] ?? 0) - (share[i] ?? 0) }))
+      .sort((a, b) => b.rem - a.rem || b.free - a.free || a.i - b.i);
     for (const { i } of owed) {
       if (given >= want) break;
       if ((share[i] ?? 0) < (room[i] ?? 0)) {

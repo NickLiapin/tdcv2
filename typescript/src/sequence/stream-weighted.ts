@@ -9,11 +9,14 @@
  */
 
 import { type NumberLengthChoice, parseNumberLengthChoices } from '../generators/number.js';
-import { weightedPackValues } from '../generators/weighted.js';
+import { loadWeightedValues, weightedPackValues } from '../generators/weighted.js';
 import { resolvePackAddress } from '../data-pack/locales.js';
 import type { PackEntry } from '../data-pack/load.js';
 
 import type { GenSpec, SequenceSpec } from './types.js';
+import type { DataSourceOptions } from '../data-source/resolve.js';
+import { sequentialList } from './build.js';
+import { resolveExistingDataSourcePath } from '../data-source/resolve.js';
 
 /**
  * The length groups of a weighted `<gen type="number" length="A,B-C"
@@ -84,6 +87,85 @@ export function wholeColumnPackBody(
     output: `\${{${name}}}`,
     inject: '',
   };
+}
+
+/**
+ * The value list of a PLAIN pack — one that declares no weights — or undefined
+ * when the gen is not that. Laid out in equal shares over the column exactly as
+ * a plain text list is; a per-row pick left every value's count to chance, and
+ * inside a `<uniq>` that chance decided whether the run collects.
+ */
+export function plainTemplatePack(
+  gen: GenSpec,
+  packs: ReadonlyMap<string, PackEntry> | undefined,
+  locale: string,
+): string[] | undefined {
+  if (gen.type !== 'template') return undefined;
+  const entry = packs?.get(
+    resolvePackAddress(gen.attrs['value'] ?? '', gen.attrs['local'] ?? locale, packs),
+  );
+  return entry?.values !== undefined &&
+    entry.generator === undefined &&
+    entry.percents === undefined
+    ? [...entry.values]
+    : undefined;
+}
+
+/**
+ * The value list of a PLAIN file — no weights, no quantile read — or undefined.
+ * An unreadable file is deferred, not reported: the lazy contract says a
+ * missing source fails when a row first touches it, never at plan time.
+ */
+export function plainFileList(
+  gen: GenSpec,
+  weightColumn: string | undefined,
+  dataSources: DataSourceOptions,
+): string[] | undefined {
+  if (
+    gen.type !== 'file' ||
+    weightColumn !== undefined ||
+    (gen.attrs['read'] ?? '').trim() === 'quantile'
+  ) {
+    return undefined;
+  }
+  try {
+    return sequentialList(gen, dataSources);
+  } catch {
+    return undefined;
+  }
+}
+
+/**
+ * The weighted list a column lays out — the pack's own, or the file's when a
+ * `weight=` column names one — or undefined for a plain list.
+ */
+export function weightedListOf(
+  gen: GenSpec,
+  weightColumn: string | undefined,
+  weightedPack: { values: string[]; percents: number[] } | undefined,
+  dataSources: DataSourceOptions,
+): { values: string[]; percents: number[] } | undefined {
+  if (weightColumn === undefined) return weightedPack;
+  return loadWeightedValues(
+    resolveExistingDataSourcePath(gen.attrs['src'] ?? '', dataSources).path,
+    {
+      column: gen.attrs['column'],
+      header: gen.attrs['header'],
+      delimiter: gen.attrs['delimiter'],
+    },
+    weightColumn,
+  );
+}
+
+/** A plain pack's or plain file's value list — whichever the gen is — or undefined. */
+export function plainListOf(
+  gen: GenSpec,
+  packs: ReadonlyMap<string, PackEntry> | undefined,
+  locale: string,
+  weightColumn: string | undefined,
+  dataSources: DataSourceOptions,
+): string[] | undefined {
+  return plainTemplatePack(gen, packs, locale) ?? plainFileList(gen, weightColumn, dataSources);
 }
 
 export function weightedTemplatePack(

@@ -1,0 +1,5 @@
+apple
+pear
+plum
+fig
+date

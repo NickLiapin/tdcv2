@@ -92,9 +92,14 @@ describe('the block dealer', () => {
     ]);
   });
 
-  it('passes a full block’s share on to the next with room', () => {
-    // Block 0 holds one row and `a` fills it, so both `b`s go to block 1 even though the
-    // proportional split would have handed block 0 one of them.
-    expect(dealAcrossBlocks(['a', 'a', 'b', 'b'], [1, 3])).toEqual([['a'], ['a', 'b', 'b']]);
+  it('breaks a remainder tie toward the block with the most room', () => {
+    // Both values are owed half a row in each block. Ties used to go to block 0
+    // every time, which starved the LAST value there — the room tie-break sends
+    // `a`'s odd copy to the roomier block 1, and then `b`'s to block 0, whose
+    // room is now the greater. Self-balancing: each odd copy shrinks the room
+    // that attracted it. Measured on the shape this cured: whether a count near
+    // the ceiling collected used to depend on the seed; now every seed reaches
+    // the true ceiling.
+    expect(dealAcrossBlocks(['a', 'a', 'b', 'b'], [1, 3])).toEqual([['b'], ['a', 'a', 'b']]);
   });
 });
