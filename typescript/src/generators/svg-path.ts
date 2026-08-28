@@ -304,6 +304,76 @@ export interface SvgCurve {
   readonly points: Pt[];
   /** Horizontal extent — used to pick the graph line among decorations. */
   readonly width: number;
+  /**
+   * A shape PRIMITIVE — `<rect>`, `<circle>`, `<ellipse>` — rather than a drawn
+   * curve. In a chart export these are frames and backgrounds, so the
+   * one-line reading ranks them below anything actually drawn; in a band they
+   * count like every other shape, because the drawing IS the region.
+   */
+  readonly primitive: boolean;
+}
+
+/**
+ * `<rect>` as the closed outline it draws. `rx`/`ry` round the corners the way
+ * the SVG spec says (missing one copies the other; both clamp to half a side),
+ * and each rounded corner is the same elliptical arc the path reader follows,
+ * so a Figma rounded card reads as drawn rather than as a sharp box.
+ */
+function rectPoints(tag: string): Pt[] | undefined {
+  const x = Number(ATTR(tag, 'x') ?? '0');
+  const y = Number(ATTR(tag, 'y') ?? '0');
+  const w = Number(ATTR(tag, 'width') ?? NaN);
+  const h = Number(ATTR(tag, 'height') ?? NaN);
+  if (![x, y, w, h].every(Number.isFinite) || w <= 0 || h <= 0) return undefined;
+  const rxRaw = ATTR(tag, 'rx');
+  const ryRaw = ATTR(tag, 'ry');
+  let rx = rxRaw === undefined ? NaN : Number(rxRaw);
+  let ry = ryRaw === undefined ? NaN : Number(ryRaw);
+  if (!Number.isFinite(rx)) rx = Number.isFinite(ry) ? ry : 0;
+  if (!Number.isFinite(ry)) ry = rx;
+  rx = Math.min(Math.max(rx, 0), w / 2);
+  ry = Math.min(Math.max(ry, 0), h / 2);
+  if (rx === 0 || ry === 0) {
+    return [
+      [x, y],
+      [x + w, y],
+      [x + w, y + h],
+      [x, y + h],
+      [x, y],
+    ];
+  }
+  const out: Pt[] = [[x + rx, y]];
+  const arcTo = (to: Pt): void => {
+    const from = out[out.length - 1] ?? to;
+    for (const p of arcPoints(from, rx, ry, 0, false, true, to)) out.push(p);
+  };
+  out.push([x + w - rx, y]);
+  arcTo([x + w, y + ry]);
+  out.push([x + w, y + h - ry]);
+  arcTo([x + w - rx, y + h]);
+  out.push([x + rx, y + h]);
+  arcTo([x, y + h - ry]);
+  out.push([x, y + ry]);
+  arcTo([x + rx, y]);
+  return out;
+}
+
+/**
+ * `<circle>`/`<ellipse>` as a closed curve: two half-turns of the same
+ * endpoint-parametrized arc the path reader uses, so both read as drawn.
+ */
+function ellipsePoints(tag: string, circle: boolean): Pt[] | undefined {
+  const cx = Number(ATTR(tag, 'cx') ?? '0');
+  const cy = Number(ATTR(tag, 'cy') ?? '0');
+  const rx = circle ? Number(ATTR(tag, 'r') ?? NaN) : Number(ATTR(tag, 'rx') ?? NaN);
+  const ry = circle ? rx : Number(ATTR(tag, 'ry') ?? NaN);
+  if (![cx, cy, rx, ry].every(Number.isFinite) || rx <= 0 || ry <= 0) return undefined;
+  const west: Pt = [cx - rx, cy];
+  const east: Pt = [cx + rx, cy];
+  const out: Pt[] = [west];
+  for (const p of arcPoints(west, rx, ry, 0, false, true, east)) out.push(p);
+  for (const p of arcPoints(east, rx, ry, 0, false, true, west)) out.push(p);
+  return out;
 }
 
 /** Read `points="x,y x,y"` (polyline/polygon) into pairs. */
@@ -365,8 +435,13 @@ export function collectSvgCurves(svg: string): SvgCurve[] {
           [x2, y2],
         ];
       }
+    } else if (name === 'rect') {
+      raw = rectPoints(whole);
+    } else if (name === 'circle' || name === 'ellipse') {
+      raw = ellipsePoints(whole, name === 'circle');
     }
     if (!raw || raw.length < 2) continue;
+    const primitive = name === 'rect' || name === 'circle' || name === 'ellipse';
     const points = raw.map((p) => apply(local, p));
     let min = points[0]?.[0] ?? 0;
     let max = min;
@@ -374,7 +449,7 @@ export function collectSvgCurves(svg: string): SvgCurve[] {
       if (x < min) min = x;
       if (x > max) max = x;
     }
-    found.push({ points, width: max - min });
+    found.push({ points, width: max - min, primitive });
   }
   return found;
 }
@@ -390,11 +465,16 @@ export function svgGraphPoints(svg: string): Pt[] {
   const curves = collectSvgCurves(svg);
   if (curves.length === 0) {
     throw new Error(
-      'pattern: the SVG has no <path>/<polyline>/<polygon>/<line> to read a curve from',
+      'pattern: the SVG has no <path>/<polyline>/<polygon>/<line>/<rect>/<circle>/<ellipse> ' +
+        'to read a curve from',
     );
   }
+  // Drawn curves outrank primitives: a chart export's frame is a <rect> and
+  // its background another, and "the widest shape" must not hand the graph to
+  // the furniture. A file holding ONLY primitives reads the widest of them.
+  const ranked = curves.some((c) => !c.primitive) ? curves.filter((c) => !c.primitive) : curves;
   let best: SvgCurve | undefined;
-  for (const c of curves) if (!best || c.width > best.width) best = c;
+  for (const c of ranked) if (!best || c.width > best.width) best = c;
   if (!best || best.points.length < 2 || best.width <= 0) {
     throw new Error('pattern: the SVG curve has no horizontal extent to stretch over the cards');
   }
@@ -418,7 +498,8 @@ export function svgEnvelope(svg: string, samples = 600): { top: Pt[]; bottom: Pt
   const curves = collectSvgCurves(svg);
   if (curves.length === 0) {
     throw new Error(
-      'pattern: the SVG has no <path>/<polyline>/<polygon>/<line> to read a curve from',
+      'pattern: the SVG has no <path>/<polyline>/<polygon>/<line>/<rect>/<circle>/<ellipse> ' +
+        'to read a curve from',
     );
   }
   // Flip once: SVG grows downward, a graph grows upward.
@@ -453,11 +534,29 @@ export function svgEnvelope(svg: string, samples = 600): { top: Pt[]; bottom: Pt
     axis = [...new Set(thinned)].sort((a, b) => a - b);
   }
 
+  /*
+   * Two measurements per position, not one: the envelope approaching x from the
+   * LEFT and leaving it to the RIGHT. Measured as a single value, a vertical
+   * edge poured its whole height into its one x, and the interpolation to the
+   * PREVIOUS vertex turned a sharp cliff into a wedge spanning however long the
+   * flat stretch before it was — measured, flat ground ahead of a drawn car
+   * spread 0..23 from the very first row. Where the two limits differ the curve
+   * gets two points at the same x — a step — and the flat stretch stays exact
+   * to the final row before the edge.
+   *
+   * A vertical segment belongs to NEITHER limit: it has no extent on either
+   * side, and its span is exactly the jump between them.
+   */
   const top: Pt[] = [];
   const bottom: Pt[] = [];
+  const EPS = 1e-9;
   for (const x of axis) {
-    let lo = Infinity;
-    let hi = -Infinity;
+    let leftLo = Infinity;
+    let leftHi = -Infinity;
+    let rightLo = Infinity;
+    let rightHi = -Infinity;
+    let atLo = Infinity;
+    let atHi = -Infinity;
     for (const s of shapes) {
       for (let k = 1; k < s.length; k++) {
         const a = s[k - 1];
@@ -465,19 +564,50 @@ export function svgEnvelope(svg: string, samples = 600): { top: Pt[]; bottom: Pt
         if (!a || !b) continue;
         const [ax, ay] = a;
         const [bx, by] = b;
-        if (x < Math.min(ax, bx) || x > Math.max(ax, bx)) continue;
+        const min = Math.min(ax, bx);
+        const max = Math.max(ax, bx);
+        if (x < min || x > max) continue;
         const dx = bx - ax;
-        // A vertical segment covers a whole span of values at this x.
-        const ys = dx === 0 ? [ay, by] : [ay + ((x - ax) / dx) * (by - ay)];
-        for (const y of ys) {
-          if (y < lo) lo = y;
-          if (y > hi) hi = y;
+        if (dx === 0) {
+          // A vertical segment covers a whole span of values at this x.
+          if (Math.min(ay, by) < atLo) atLo = Math.min(ay, by);
+          if (Math.max(ay, by) > atHi) atHi = Math.max(ay, by);
+          continue;
         }
+        const y = ay + ((x - ax) / dx) * (by - ay);
+        if (min < x) {
+          if (y < leftLo) leftLo = y;
+          if (y > leftHi) leftHi = y;
+        }
+        if (x < max) {
+          if (y < rightLo) rightLo = y;
+          if (y > rightHi) rightHi = y;
+        }
+        if (y < atLo) atLo = y;
+        if (y > atHi) atHi = y;
       }
     }
-    if (lo === Infinity) continue; // nothing drawn at this x
-    top.push([x, hi]);
-    bottom.push([x, lo]);
+    const hasLeft = leftLo !== Infinity;
+    const hasRight = rightLo !== Infinity;
+    if (hasLeft && hasRight) {
+      if (Math.abs(leftHi - rightHi) <= EPS && Math.abs(leftLo - rightLo) <= EPS) {
+        top.push([x, leftHi]);
+        bottom.push([x, leftLo]);
+      } else {
+        top.push([x, leftHi], [x, rightHi]);
+        bottom.push([x, leftLo], [x, rightLo]);
+      }
+    } else if (hasLeft) {
+      top.push([x, leftHi]);
+      bottom.push([x, leftLo]);
+    } else if (hasRight) {
+      top.push([x, rightHi]);
+      bottom.push([x, rightLo]);
+    } else if (atLo !== Infinity) {
+      // Only vertical ink at this x — an isolated edge keeps its full span.
+      top.push([x, atHi]);
+      bottom.push([x, atLo]);
+    }
   }
   if (top.length < 2) {
     throw new Error('pattern: the SVG has too little geometry to read a curve from');

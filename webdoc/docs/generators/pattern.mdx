@@ -67,10 +67,14 @@ single line with `points`, or a band with `upper` / `lower`:
 Two formats are read, and both end up as the same thing internally — a vector
 outline:
 
-- **SVG** — read from its real geometry: `<path>`, `<polyline>`, `<line>`,
-  `<rect>`, `<circle>`, `<ellipse>`. Bezier curves and arcs are followed as drawn,
-  and `transform` on a shape or on any enclosing `<g>` is applied. Draw in
-  Illustrator, Figma, Inkscape, or by hand — export and go.
+- **SVG** — read from its real geometry: `<path>`, `<polyline>`, `<polygon>`,
+  `<line>`, `<rect>` (rounded corners included), `<circle>`, `<ellipse>`. Bezier
+  curves and arcs are followed as drawn, and `transform` on a shape or on any
+  enclosing `<g>` is applied. Draw in Illustrator, Figma, Inkscape, or by hand —
+  export and go. One rule tells the shapes apart: when a single line is being
+  read, the primitives (`rect`, `circle`, `ellipse`) count as furniture — a
+  chart export's frame and background — and anything actually drawn outranks
+  them; in a band every shape counts, because the drawing is the region.
 - **PNG with a transparent background** — the drawn pixels are the shape and the
   transparency is empty space. That's what a screenshot cropped to a chart, or a
   brush stroke exported from any raster editor, looks like. A PNG with a solid
@@ -269,15 +273,15 @@ about somebody's export settings.
 
 What it scales is the **canvas**, not the ink:
 
-| the drawing came from | canvas floor | canvas ceiling |
-| :-------------------- | :----------- | :------------- |
-| a **PNG** | bottom of the image | top of the image |
-| a **vector** file (SVG) | the drawing's own lowest point | the drawing's own highest point |
+| the drawing came from        | canvas floor                         | canvas ceiling                       |
+| :--------------------------- | :----------------------------------- | :----------------------------------- |
+| a **PNG**                    | bottom of the image                  | top of the image                     |
+| a **vector** file (SVG)      | the drawing's own lowest point       | the drawing's own highest point      |
 | `points` / `upper` / `lower` | `0`, grown down if you drew below it | `100`, grown up if you drew above it |
 
 For a typed-in drawing the canvas is a **percentage board**: 0..100 by default, and it
 only ever grows to hold what you drew outside it — it never shrinks. That is what makes
-a flat line at 50 the *middle* of whatever range you ask for. Measured against the ink
+a flat line at 50 the _middle_ of whatever range you ask for. Measured against the ink
 instead, that same line would be the highest thing present, and so the top.
 
 The three rows differ because the three inputs carry different things. A PNG is exactly
@@ -335,10 +339,10 @@ or `-5..3e6`. The shape survives; the placement is what you declared.
 Leave `fit` out and the drawing **fills `y_range`**: lowest to the floor, highest to the
 ceiling. That is a stated convention rather than a guess — it invents no information.
 
-| | canvas (what gets mapped) | `fit` absent | `fit` present |
-| :-- | :-- | :-- | :-- |
-| a **vector** file | the drawing itself | it fills `y_range` | its ends land on the band |
-| a **PNG** | the image frame | the frame fills `y_range` | the frame lands on the band |
+|                   | canvas (what gets mapped) | `fit` absent              | `fit` present               |
+| :---------------- | :------------------------ | :------------------------ | :-------------------------- |
+| a **vector** file | the drawing itself        | it fills `y_range`        | its ends land on the band   |
+| a **PNG**         | the image frame           | the frame fills `y_range` | the frame lands on the band |
 
 Under `mode="density"` it follows the same axis `y_range` does. There the value axis is
 the drawing's **width**, not its height, so `fit` places its left and right edge instead

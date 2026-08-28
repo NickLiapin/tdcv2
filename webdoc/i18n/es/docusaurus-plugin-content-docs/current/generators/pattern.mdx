@@ -70,10 +70,14 @@ Se leen dos formatos, y los dos terminan siendo internamente lo mismo: un contor
 vectorial.
 
 - **SVG** — se lee por su geometría real: `<path>`, `<polyline>`, `<line>`,
-  `<rect>`, `<circle>`, `<ellipse>`. Las curvas de Bézier y los arcos se recorren tal
-  como están dibujados, y el `transform` de una figura o de cualquier `<g>` que la
-  contenga se aplica. Dibuje en Illustrator, Figma, Inkscape o a mano — exporte y
-  listo.
+  `<polygon>`, `<rect>` (esquinas redondeadas incluidas), `<circle>`,
+  `<ellipse>`. Las curvas de Bézier y los arcos se recorren tal como están
+  dibujados, y el `transform` de una figura o de cualquier `<g>` que la contenga
+  se aplica. Dibuje en Illustrator, Figma, Inkscape o a mano — exporte y listo.
+  Una sola regla distingue las figuras: al leer una línea única, los primitivos
+  (`rect`, `circle`, `ellipse`) cuentan como mobiliario — el marco y el fondo de
+  un gráfico exportado — y todo lo realmente dibujado los supera; en una banda
+  cuenta cada figura, porque el dibujo es la región.
 - **PNG con fondo transparente** — los píxeles dibujados son la forma y la
   transparencia es espacio vacío. Así se ve una captura recortada a un gráfico, o un
   trazo de pincel exportado desde cualquier editor de mapa de bits. Un PNG que en
@@ -277,15 +281,15 @@ respuesta sería una conjetura sobre los ajustes de exportación de alguien más
 
 Lo que se escala es el **lienzo**, no la tinta:
 
-| de dónde viene el dibujo | piso del lienzo | techo del lienzo |
-| :----------------------- | :-------------- | :--------------- |
-| un **PNG** | la base de la imagen | el tope de la imagen |
-| un archivo **vectorial** (SVG) | el punto más bajo del propio dibujo | el punto más alto del propio dibujo |
-| `points` / `upper` / `lower` | `0`, crece hacia abajo si dibujó más abajo | `100`, crece hacia arriba si dibujó más arriba |
+| de dónde viene el dibujo       | piso del lienzo                            | techo del lienzo                               |
+| :----------------------------- | :----------------------------------------- | :--------------------------------------------- |
+| un **PNG**                     | la base de la imagen                       | el tope de la imagen                           |
+| un archivo **vectorial** (SVG) | el punto más bajo del propio dibujo        | el punto más alto del propio dibujo            |
+| `points` / `upper` / `lower`   | `0`, crece hacia abajo si dibujó más abajo | `100`, crece hacia arriba si dibujó más arriba |
 
 Para un dibujo escrito a mano el lienzo es un **tablero porcentual**: 0..100 por
 omisión, y sólo crece para contener lo que usted dibujó fuera de él — nunca se encoge.
-Eso es lo que hace que una línea plana en 50 sea el *medio* del rango que pida. Medida
+Eso es lo que hace que una línea plana en 50 sea el _medio_ del rango que pida. Medida
 contra la tinta, esa misma línea sería lo más alto que hay, y por tanto el techo.
 
 Las tres filas difieren porque las tres entradas traen cosas distintas. Un PNG mide
@@ -344,10 +348,10 @@ o `-5..3e6`. La forma sobrevive; la colocación es la que usted declaró.
 Omita `fit` y el dibujo **llena el `y_range`**: lo más bajo al piso, lo más alto al
 techo. Eso es una convención declarada, no una conjetura: no inventa información.
 
-| | lienzo (lo que se mapea) | sin `fit` | con `fit` |
-| :-- | :-- | :-- | :-- |
-| archivo **vectorial** | el dibujo mismo | llena el `y_range` | sus extremos caen en la banda |
-| un **PNG** | el marco de la imagen | el marco llena el `y_range` | el marco cae en la banda |
+|                       | lienzo (lo que se mapea) | sin `fit`                   | con `fit`                     |
+| :-------------------- | :----------------------- | :-------------------------- | :---------------------------- |
+| archivo **vectorial** | el dibujo mismo          | llena el `y_range`          | sus extremos caen en la banda |
+| un **PNG**            | el marco de la imagen    | el marco llena el `y_range` | el marco cae en la banda      |
 
 Con `mode="density"` sigue el mismo eje que `y_range`. Allí el eje de valores es el
 **ancho** del dibujo, no su altura, así que `fit` coloca su borde izquierdo y su borde

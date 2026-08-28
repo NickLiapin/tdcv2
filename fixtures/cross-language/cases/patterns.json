@@ -211,6 +211,48 @@
         "61.3",
         "64.3"
       ]
+    },
+    {
+      "name": "a-rect-reads-as-a-closed-outline",
+      "description": "A lone <rect> used to be an error — the docs promised it, the engine refused it. It reads now as the closed outline it draws: a corridor spanning the rect's height across its width.",
+      "dataPath": "data",
+      "config": "<tdc><env count=\"6\" seed=\"rect\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" src=\"pattern-rect.svg\" y_range=\"0..100\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["1", "0", "90", "81", "64", "26"]
+    },
+    {
+      "name": "a-vertical-edge-is-a-step-not-a-wedge",
+      "description": "Flat ground, a cliff, a roof, a cliff back down. The envelope used to pour the cliff's whole height into its one x and interpolate the wedge back to the START of the flat stretch — flat ground ahead of a drawn car spread from the very first row. Two limits per position now: the flat stretch is exact to the last row before the edge, and the roof band starts exactly at it.",
+      "dataPath": "data",
+      "config": "<tdc><env count=\"20\" seed=\"car\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" src=\"pattern-car.svg\" y_range=\"0..100\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "52",
+        "21",
+        "76",
+        "40",
+        "42",
+        "18",
+        "66",
+        "53",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "primitives-are-furniture-while-anything-is-drawn",
+      "description": "A frame <rect> and a decorative <circle> around a drawn data line: in a band every shape counts, so the corridor spans the frame — the rule is stated in the docs, and this pins that all five read the primitives the same way.",
+      "dataPath": "data",
+      "config": "<tdc><env count=\"8\" seed=\"frame\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" src=\"pattern-framed.svg\" y_range=\"0..100\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["29", "66", "73", "73", "94", "94", "58", "48"]
     }
   ]
 }
