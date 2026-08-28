@@ -204,9 +204,25 @@ Cada refresco escribe `<output>.progress.tmp` y lo renombra sobre `<output>.prog
 que un lector nunca alcanza un archivo a medio escribir. El `.tmp` queda visible junto a la
 salida mientras dura la corrida. `tdcv2 format -w` hace lo mismo con `<file>.tmp`.
 
-Las fases en orden: `uniq-scan` (se calcula el hash de la tupla de cada fila), `uniq-sort`
-(se ordenan los montones), `uniq-repair` (se comprueban y reordenan las tuplas repetidas) y
-`render` (se escriben las filas); una ejecución sin `<uniq>` solo informa `render`. En una
+Las fases, en este orden cuando ocurren: `uniq-scan` (se calcula el hash de la tupla de cada
+fila), `uniq-sort` (se ordenan los montones), `uniq-repair` (se comprueban y reordenan las
+tuplas repetidas) y `render` (se escriben las filas).
+
+**Cuáles informa una corrida depende del motor y no se sabe de antemano.** Medido sobre una
+configuración con `<uniq>`: el motor en memoria informa solo `render`; el de streaming a
+300.000 filas informa `uniq-repair` y luego `render`; la misma configuración a 1.500.000
+filas, donde la corrida se reparte entre workers, informa las cuatro. Y el plan no queda
+fijo ni siquiera al arrancar: el motor de streaming puede encontrar una configuración que no
+sabe expresar, rendirse a mitad de camino y entregarle la corrida entera al motor en
+memoria, que informa `render` y nada más.
+
+Por eso el archivo no trae un NÚMERO de fases. Una "fase 2 de 4" publicada al principio
+sería un número al que esta corrida quizá nunca llegue, y una barra construida sobre él
+saltaría, que es lo único que una barra no debe hacer. Dibuje la fase y sus propios números:
+esos siempre son ciertos.
+
+`uniq-repair` no trae `done`/`total` en una corrida paralela: allí el arreglo se calcula en
+una sola llamada y no en pasos contables. En una
 ejecución `uniq` grande ninguna de ellas domina: medida en 6.000.000 de filas sobre
 900.000.000 de pares posibles, escribir las filas llevó 17 segundos, calcular el hash de cada
 tupla 12, ordenar los montones 3 y la reparación 7, de unos 40 en total.

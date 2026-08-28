@@ -208,11 +208,26 @@ there so the file EXISTS from the first moment: a watcher that finds no file can
 "not started yet" from "died", and starting a dozen workers on a large config takes
 seconds.
 
-Then the phases in order: `uniq-scan` (every row's tuple hashed), `uniq-sort` (the piles
-sorted), `uniq-repair` (the tuples that repeat checked and rearranged) and `render` (rows
-written); a run without a `<uniq>` only ever reports `render`. `uniq-repair` carries no
-`done`/`total` on a parallel run — the arrangement is worked out in one call there rather
-than in steps that could be counted — so it reports the phase alone. On a large `uniq` run
+Then the phases, in this order when they occur: `uniq-scan` (every row's tuple hashed),
+`uniq-sort` (the piles sorted), `uniq-repair` (the tuples that repeat checked and
+rearranged) and `render` (rows written).
+
+**Which of them a run reports depends on the engine, and cannot be known in advance.**
+Measured on one config with a `<uniq>`: the in-memory engine reports `render` alone; the
+streaming engine at 300,000 rows reports `uniq-repair` then `render`; the same config at
+1,500,000 rows, where the run splits across workers, reports all four. And the plan is not
+even fixed once it starts — the streaming engine can find a config it cannot express, give
+up part way, and hand the whole run to the in-memory engine, which reports `render` and
+nothing else.
+
+That is why the file carries no phase COUNT. A "phase 2 of 4" published at the start would
+be a number this run might never reach, and a progress bar built on it would jump — which
+is the one thing a progress bar must not do. Draw the phase and its own numbers; they are
+always true.
+
+`uniq-repair` carries no `done`/`total` on a parallel run — the arrangement is worked out
+in one call there rather than in steps that could be counted — so it reports the phase
+alone. On a large `uniq` run
 No one of them dominates: measured at 6,000,000 rows over 900,000,000 possible pairs,
 writing the rows took 17 seconds, hashing every tuple 12, sorting the piles 3 and the repair
 7, of about 40 in all.
