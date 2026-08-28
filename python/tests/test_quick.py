@@ -30,7 +30,7 @@ class TestValues:
     def test_agrees_with_the_typescript_implementation(self, demo) -> None:
         assert demo.person.lastName() == "Jones"
         assert demo.person.male.firstName() == "Robert"
-        assert demo.company.industry() == "Pharmaceuticals"
+        assert demo.company.industry() == "Mining"
         assert demo.common.id.uuid() == "3ff6ff76-6ea7-4fad-8b99-3075a14cc7e9"
         assert demo.common.finance.iban() == "DE62299399441396459682"
         assert demo.country.usa.docs.ssn() == "699209702"

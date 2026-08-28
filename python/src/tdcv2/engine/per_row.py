@@ -178,6 +178,17 @@ def per_row_buildable(gen: Gen, count: int, run: _Run) -> bool:
     # wrong, and the streaming engine refuses it outright.
     if gen.type == "template" and _pack_needs_whole_column(gen, run):
         return False
+    # A PLAIN pack — a value list with no weights — is laid out over the whole column now,
+    # exactly as a plain text list is, so it must not be drawn per row either. A per-row pick
+    # leaves every value's count to chance, and inside a <uniq> that chance decided whether
+    # the run collects.
+    if gen.type == "template" and _plain_pack_values(gen, run) is not None:
+        return False
+    # A PLAIN file list, same reason — its weighted cousin is excluded by `weight=` above, a
+    # `row=`-linked read below, and a quantile read stays per-row: it is a distribution, not
+    # a bag, and the streaming engine expects it to arrive a row at a time.
+    if gen.type == "file" and (attrs.get("read") or "").strip() != "quantile":
+        return False
     # A weighted choice inside an advanced_regex — `(?%{RU:70|US:20|DE:10})` — is a quota over
     # the column like any other share. Decided one row at a time it awards every row to the
     # largest share: 100% RU, not 70/20/10.
@@ -194,6 +205,18 @@ def per_row_buildable(gen: Gen, count: int, run: _Run) -> bool:
     # `repeat=` apportions the LENGTHS exactly across the column — how many rows get two
     # elements, how many get five. That plan is separate, and taking this path would skip it.
     return attrs.get("repeat") is None
+
+
+def _plain_pack_values(gen: Gen, run: _Run) -> list[str] | None:
+    """The value list of a PLAIN pack — no weights, no generator body — or ``None``."""
+    address = gen.attrs.get("value", "")
+    locale = gen.attrs.get("local") or run.config.locale
+    if not address or not run.packs.exists(address, locale):
+        return None
+    entry = run.packs.load(address, locale)
+    if entry.is_generator or entry.weighted or not entry.values:
+        return None
+    return list(entry.values)
 
 
 def _pack_needs_whole_column(gen: Gen, run: _Run) -> bool:

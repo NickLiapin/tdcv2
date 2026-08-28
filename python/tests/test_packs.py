@@ -137,9 +137,7 @@ def test_registering_a_pack_root_writes_it_relative_when_it_sits_below(tmp_path:
 
     # Registering the same root twice does not duplicate it.
     project_config.register(config, [tmp_path / "tdcv2-packs" / "ru" / "packs"])
-    assert json.loads(config.read_text(encoding="utf-8"))["dataPaths"] == [
-        "./tdcv2-packs/ru/packs"
-    ]
+    assert json.loads(config.read_text(encoding="utf-8"))["dataPaths"] == ["./tdcv2-packs/ru/packs"]
 
 
 # ── the registry ────────────────────────────────────────────────────────────────────────────

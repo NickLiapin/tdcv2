@@ -41,7 +41,7 @@ class QuickTest {
     Quick tdc = demo();
     assertEquals("Jones", tdc.get("person.lastName"));
     assertEquals("Robert", tdc.get("person.male.firstName"));
-    assertEquals("Pharmaceuticals", tdc.get("company.industry"));
+    assertEquals("Mining", tdc.get("company.industry"));
     assertEquals("3ff6ff76-6ea7-4fad-8b99-3075a14cc7e9", tdc.get("common.id.uuid"));
     assertEquals("DE62299399441396459682", tdc.get("common.finance.iban"));
     assertEquals("699209702", tdc.get("usa.docs.ssn"));

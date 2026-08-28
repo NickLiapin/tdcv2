@@ -4,7 +4,7 @@ from tdcv2.engine.exact_uniq import RepairNeededError
 
 SENTENCE = (
     'uniq "A × B" is too tight to repair without holding the whole table '
-    "({rows} couldn't be placed) — run without mode=\"stream\" "
+    '({rows} couldn\'t be placed) — run without mode="stream" '
     "so the in-memory engine can arrange it."
 )
 

@@ -834,15 +834,26 @@ class StreamEngine:
 
             return Built(_wrap(mod, linked))
 
-        # An exact quota: text, a weighted file column, or a weighted pack. All three say what
-        # share of the run each value takes, and all three honour it the same way.
-        if type_ == "text" or weight_column is not None or weighted_pack is not None:
+        # An exact quota: text, a weighted file column, a weighted pack — and now a PLAIN pack
+        # or a PLAIN file list, in equal shares, exactly as a plain text list. A per-row pick
+        # left every value's count to chance, and inside a <uniq> that chance decided whether
+        # the run collects. A quantile read is a distribution, not a bag, and keeps its own
+        # path; an unreadable file is the row's failure to report, not the plan's.
+        plain_list = self._plain_list(gen, weight_column)
+        if (
+            type_ == "text"
+            or weight_column is not None
+            or weighted_pack is not None
+            or plain_list is not None
+        ):
             if weight_column is not None:
                 weighted = file_gen.load_weighted(attrs, self.base_dir, self.packs.data_roots)
                 assert weighted is not None
                 values, percents = weighted.values, weighted.percents
             elif weighted_pack is not None:
                 values, percents = weighted_pack
+            elif plain_list is not None:
+                values, percents = plain_list, _evenly(len(plain_list))
             else:
                 values = _split_text(attrs.get("value", ""))
                 percent_attr = attrs.get("percent")
@@ -1165,6 +1176,30 @@ class StreamEngine:
         except (ValueError, OSError):
             # An address that does not resolve is the validator's problem, not this one's.
             return False
+
+    def _plain_list(self, gen: Gen, weight_column: str | None) -> list[str] | None:
+        """The value list of a PLAIN pack or a PLAIN file — no weights, no rows, no quantile."""
+        if gen.type == "template":
+            address = gen.attrs.get("value", "")
+            locale = gen.attrs.get("local") or self.config.locale
+            if not address or not self.packs.exists(address, locale):
+                return None
+            entry = self.packs.load(address, locale)
+            if entry.is_generator or entry.weighted or not entry.values:
+                return None
+            return list(entry.values)
+        if (
+            gen.type == "file"
+            and weight_column is None
+            and not (gen.attrs.get("row") or "").strip()
+            and (gen.attrs.get("read") or "").strip() != "quantile"
+            and gen.attrs.get("order") != "sequential"
+        ):
+            try:
+                return file_gen.load(gen.attrs, self.base_dir, self.packs.data_roots)
+            except Exception:
+                return None
+        return None
 
     def _weighted_template_pack(self, gen: Gen) -> tuple[list[str], list[float]] | None:
         """A ``<gen type="template">`` pointing at a pack that carries its own shares."""

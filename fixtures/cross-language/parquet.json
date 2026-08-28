@@ -50,8 +50,8 @@
       "description": "read=\"quantile\" is numeric by construction; an ordinary file read stays text",
       "config": "<tdc><env count=\"8\" seed=\"pq-quantile\" inject=\"${{%}}\">\n<sequence name=\"A\"><gen type=\"file\" src=\"sample-amounts.txt\" read=\"quantile\"/></sequence>\n<sequence name=\"G\"><gen type=\"file\" src=\"sample-ages.txt\" read=\"quantile\" decimals=\"0\"/></sequence>\n<sequence name=\"B\"><gen type=\"file\" src=\"sample-ages.txt\"/></sequence>\n</env><block><line>\n<data name=\"amount\">${{A}}</data><data name=\"age\">${{G}}</data><data name=\"raw\">${{B}}</data>\n</line></block></tdc>",
       "dataPath": "data",
-      "size": 430,
-      "sha256": "839b3cc6c89e85c59a9009dd3276b32a03ac88b45309bd0444cf9a7c08656024"
+      "size": 433,
+      "sha256": "8cc4fd480db26a106dc63f4010f96b21865cccfc503503a8b92263c147226bbb"
     },
     {
       "name": "two-row-groups",

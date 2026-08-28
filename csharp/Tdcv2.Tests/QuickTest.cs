@@ -25,7 +25,7 @@ public class QuickTest
         dynamic demo = Demo();
         Assert.Equal("Jones", demo.person.lastName());
         Assert.Equal("Robert", demo.person.male.firstName());
-        Assert.Equal("Pharmaceuticals", demo.company.industry());
+        Assert.Equal("Mining", demo.company.industry());
         Assert.Equal("3ff6ff76-6ea7-4fad-8b99-3075a14cc7e9", demo.common.id.uuid());
         Assert.Equal("DE62299399441396459682", demo.common.finance.iban());
         Assert.Equal("699209702", demo.country.usa.docs.ssn());
