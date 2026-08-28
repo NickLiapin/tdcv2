@@ -128,17 +128,18 @@ public class BlockDealTest
     }
 
     /// <summary>
-    /// Block 0 has room for one row and <c>a</c> fills it, so both <c>b</c>s go to block 1 even
-    /// though the proportional split would have handed block 0 one of them.
+    /// Both values are owed half a row in each block. Ties used to go to block 0 every time,
+    /// which starved the LAST value there — the room tie-break sends <c>a</c>'s odd copy to the
+    /// roomier block 1, then <c>b</c>'s to block 0, whose room is now the greater.
     /// </summary>
     [Fact]
-    public void AFullBlockPassesItsShareOn()
+    public void ARemainderTieGoesToTheBlockWithTheMostRoom()
     {
         Assert.Equal(
             new List<List<string>>
             {
-                new() { "a" },
-                new() { "a", "b", "b" },
+                new() { "b" },
+                new() { "a", "a", "b" },
             },
             MemoryEngine.DealAcrossBlocks(
                 new List<string> { "a", "a", "b", "b" }, new List<int> { 1, 3 }));

@@ -1300,9 +1300,13 @@ public sealed class StreamEngine
             }, streamId, gen, domain);
         }
 
-        // An exact quota: text, a weighted file column, or a weighted pack. All three say what
-        // share of the run each value takes, and all three honour it the same way.
-        if (type == "text" || weightColumn is not null || weightedPack is not null)
+        // An exact quota: text, a weighted file column, a weighted pack — and now a PLAIN pack
+        // or a PLAIN file list, in equal shares, exactly as a plain text list. A per-row pick
+        // left every value's count to chance, and inside a <uniq> that chance decided whether
+        // the run collects. A quantile read is a distribution, not a bag, and keeps its path.
+        IReadOnlyList<string>? plainList = PlainList(gen, weightColumn is not null);
+        if (type == "text" || weightColumn is not null || weightedPack is not null
+            || plainList is not null)
         {
             IReadOnlyList<string> values;
             double[] percents;
@@ -1317,6 +1321,11 @@ public sealed class StreamEngine
             {
                 values = weightedPack.Values;
                 percents = weightedPack.Percents;
+            }
+            else if (plainList is not null)
+            {
+                values = plainList;
+                percents = Evenly(plainList.Count);
             }
             else
             {
@@ -1585,6 +1594,48 @@ public sealed class StreamEngine
     }
 
     /// <summary>A <c>&lt;gen type="template"&gt;</c> pointing at a pack that carries its own shares.</summary>
+    /// <summary>The value list of a PLAIN pack or a PLAIN file — no weights, no rows, no quantile.</summary>
+    private IReadOnlyList<string>? PlainList(Gen gen, bool hasWeight)
+    {
+        if (gen.Type == "template")
+        {
+            string address = gen.Attrs.GetValueOrDefault("value", "");
+            string? locale = LocaleOf(gen.Attrs);
+            if (address.Length == 0 || !_packs.Exists(address, locale))
+            {
+                return null;
+            }
+
+            DataPacks.Entry entry = _packs.Load(address, locale);
+            if (entry.Generator is not null || entry.Weighted || entry.Values.Count == 0)
+            {
+                return null;
+            }
+
+            return entry.Values;
+        }
+
+        if (gen.Type == "file"
+            && !hasWeight
+            && gen.Attrs.GetValueOrDefault("order") != "sequential"
+            && string.IsNullOrWhiteSpace(gen.Attrs.GetValueOrDefault("row"))
+            && !Quantile.IsQuantile(gen.Attrs))
+        {
+            try
+            {
+                IReadOnlyList<string> values = FileGen.Load(gen.Attrs, _baseDir, _packs.DataRoots);
+                return values.Count == 0 ? null : values;
+            }
+            catch (Exception)
+            {
+                // An unreadable file is the row's failure to report, not the plan's.
+                return null;
+            }
+        }
+
+        return null;
+    }
+
     private FileGen.Weighted? WeightedTemplatePack(Gen gen)
     {
         if (gen.Type != "template")

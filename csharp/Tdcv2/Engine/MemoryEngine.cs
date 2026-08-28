@@ -69,7 +69,11 @@ public static class MemoryEngine
         // This build is ONE ROW of a bigger one — a pack generator's body, built for a single
         // row of the column that names it. The row is already folded into the body's seed; a
         // body that ALSO planned per row would draw from a stream the salt never meant.
-        bool OneRow = false)
+        bool OneRow = false,
+        // This build is INSIDE a pack body. The reference gives a body's inner sequences no
+        // stream identity, so its plain-list layout never fires there — a plain pack or file
+        // drawn inside a body stays a per-row pick, and this flag states the same rule here.
+        bool InBody = false)
     {
         internal int RegexMax => Config.RegexMaxLength;
 
@@ -2602,14 +2606,26 @@ public static class MemoryEngine
                 given += share[i];
             }
 
-            // The remainder goes to the blocks with the largest fraction owed, ties by block
-            // order — the same largest-remainder rule the percentages use.
+            // The remainder goes to the blocks with the largest fraction owed; a tie is broken
+            // by the most room left, then block order. Equal blocks make every remainder a tie,
+            // and "ties to block 0" starved the LAST value there — the final value came out
+            // [1,4] where a fair split is [2,3], and that was the difference between a group
+            // that collects 24 and one refused at 24. Room as the tie-break is self-balancing:
+            // each odd copy shrinks the room that attracted it, so the next tie goes the other
+            // way.
             int[] owed = Enumerable.Range(0, sizes.Count).ToArray();
             double[] frac = exact.Select(e => e - Math.Floor(e)).ToArray();
+            int[] free = Enumerable.Range(0, sizes.Count).Select(i => room[i] - share[i]).ToArray();
             Array.Sort(owed, (a, b) =>
             {
                 int byFrac = frac[b].CompareTo(frac[a]);
-                return byFrac != 0 ? byFrac : a.CompareTo(b);
+                if (byFrac != 0)
+                {
+                    return byFrac;
+                }
+
+                int byRoom = free[b].CompareTo(free[a]);
+                return byRoom != 0 ? byRoom : a.CompareTo(b);
             });
             foreach (int i in owed)
             {
@@ -2808,6 +2824,7 @@ public static class MemoryEngine
             ColumnStreamId = null,
             ColumnRow = null,
             OneRow = ctx.OneRow,
+            InBody = true,
         };
 
         if (body is Gen packGen)
@@ -3709,7 +3726,12 @@ public static class MemoryEngine
                 Generate(gen, count, prng, ctx, instants), gen.Attrs, prng, anomalyFlags, instants);
         }
 
-        (IReadOnlyList<string> Values, double[] Percents)? listed = ListedValues(gen, ctx);
+        // A body's inner sequences get NO plain-list layout: the reference gives them no stream
+        // identity, so its layout never fires there, and a plain pack or file inside a body
+        // stays a per-row pick. Text and weighted lists keep their existing body behaviour.
+        (IReadOnlyList<string> Values, double[] Percents)? listed = ctx.InBody
+            ? ListedWeightedOrText(gen, ctx)
+            : ListedValues(gen, ctx);
         if (listed is { } list)
         {
             string[] laid = PerRow.ExactTextLayout(
@@ -3754,6 +3776,7 @@ public static class MemoryEngine
         // over the column like any other share. Decided one row at a time it awards every row to
         // the largest share: 100% RU, not 70/20/10.
         bool weighted = WeightedTemplatePack(gen, ctx) is not null
+            || PlainListedValues(gen, ctx) is not null
             || (gen.Type == "advanced_regex"
                 && AdvancedRegexGen.HasWeightedChoice(gen.Attr("value") ?? ""));
         if (PerRow.PerRowBuildable(
@@ -3876,6 +3899,66 @@ public static class MemoryEngine
     /// The value list and the shares a column lays out, when its values are LISTED.
     /// </summary>
     private static (IReadOnlyList<string> Values, double[] Percents)? ListedValues(Gen gen, Ctx ctx)
+    {
+        (IReadOnlyList<string> Values, double[] Percents)? listed = ListedWeightedOrText(gen, ctx);
+        if (listed is not null)
+        {
+            return listed;
+        }
+
+        // A PLAIN pack and a PLAIN file list take the same road as a plain text list: laid out
+        // in equal shares over the column and permuted, not picked row by row. A per-row pick
+        // leaves every value's count to chance, and inside a <uniq> that chance decided whether
+        // the run collects.
+        IReadOnlyList<string>? plain = PlainListedValues(gen, ctx);
+        return plain is null ? null : (plain, PerRow.SharesOf(null, plain.Count));
+    }
+
+    /// <summary>The value list of a PLAIN pack or a PLAIN file — no weights, no rows, no quantile.</summary>
+    private static IReadOnlyList<string>? PlainListedValues(Gen gen, Ctx ctx)
+    {
+        if (gen.Type == "template")
+        {
+            string address = gen.Attr("value") ?? "";
+            string? locale = PackLocale(gen, ctx);
+            if (address.Length == 0 || !ctx.Packs.Exists(address, locale))
+            {
+                return null;
+            }
+
+            DataPacks.Entry entry = ctx.Packs.Load(address, locale);
+            if (entry.Generator is not null || entry.Weighted || entry.Values.Count == 0)
+            {
+                return null;
+            }
+
+            return entry.Values;
+        }
+
+        if (gen.Type == "file"
+            && gen.Attrs.GetValueOrDefault("order") != "sequential"
+            && !gen.Attrs.ContainsKey("weight")
+            && string.IsNullOrWhiteSpace(gen.Attrs.GetValueOrDefault("row"))
+            && !Quantile.IsQuantile(gen.Attrs))
+        {
+            try
+            {
+                IReadOnlyList<string> values = FileGen.Load(gen.Attrs, ctx.BaseDir, ctx.Packs.DataRoots);
+                return values.Count == 0 ? null : values;
+            }
+            catch (Exception)
+            {
+                // An unreadable file is the row's failure to report, not the plan's.
+                return null;
+            }
+        }
+
+        return null;
+    }
+
+    /// <summary>The weighted-or-text half of <see cref="ListedValues"/> — what a body may lay out.</summary>
+    private static (IReadOnlyList<string> Values, double[] Percents)? ListedWeightedOrText(
+        Gen gen, Ctx ctx)
     {
         if (gen.Attrs.GetValueOrDefault("order") == "sequential")
         {
