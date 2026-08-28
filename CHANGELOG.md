@@ -384,6 +384,20 @@ placed` rather than naming a total it stopped counting. A number quietly reading
   never the problem. Every block is now measured before any is refused, and the figure is the
   sum over the blocks — within one row of the largest count that renders.
 
+<!-- covers: uniq cost linear -->
+
+- **A large `<uniq>` group costs linear time now, certified against the numbers that said
+  otherwise.** The medical demo config — four members, two switch blocks, weighted name packs —
+  measured 232 s at 4,000,000 rows and 1,207 s at 6,000,000 on the in-memory engine, a curve
+  bending hard well below the data's ceiling. Re-measured after the exact layouts and the global
+  deal: 43 s and 69 s, with 1M/2M/3M at 12/23/34 s — five points on a straight 11–12 s per
+  million. No arranger code was touched to get this; the superlinear part was the swap-repair,
+  which only runs when the builder leaves duplicate rows, and the builder only left duplicates
+  because per-row draws handed it noisy multisets. Probed directly at 500,000 rows over
+  zipf-weighted 1000×1000×98 columns: the builder now reaches 500,000 distinct on its own,
+  repair work zero, in half a second. The repair stays, for the genuinely tight shapes — it
+  just has nothing to do on the wide ones.
+
 <!-- covers: uniq deal global walk -->
 
 - **The last trace of the seed lottery is gone: an odd count near a group's ceiling collects
