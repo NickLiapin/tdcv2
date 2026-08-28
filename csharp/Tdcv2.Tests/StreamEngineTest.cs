@@ -55,12 +55,18 @@ public class StreamEngineTest
         }
         catch (Exception e) when (e is NotSupportedException
                                   or StreamEngine.UnsupportedHere
-                                  or ArgumentException)
+                                  or ArgumentException
+                                  or ExactUniq.RepairNeeded
+                                  or InvalidOperationException)
         {
             // Not reached yet, or genuinely not this engine's work. Loud in the code, silent here.
             // ArgumentException belongs here too: a refusal raised by the expression layer rather
             // than the streaming builder — `prev()` without mode="sequential" — is still a refusal,
-            // and WHAT is refused is the contract, not which exception carries it.
+            // and WHAT is refused is the contract, not which exception carries it. RepairNeeded is
+            // a uniq the bounded repair cannot place; InvalidOperationException is the same thing
+            // reaching a named engine 3, which will not hand the run to another engine behind the
+            // caller's back. A case that does not parse throws XunitException instead, so widening
+            // this list cannot turn a broken fixture into a silent pass.
             return;
         }
 
@@ -97,7 +103,7 @@ public class StreamEngineTest
             TdcParserFacade.Parse(node.GetProperty("config").GetString()!);
         if (!parsed.Ok)
         {
-            throw new InvalidOperationException(
+            throw new Xunit.Sdk.XunitException(
                 "does not parse: " + string.Join("; ", parsed.Problems));
         }
 
@@ -122,7 +128,10 @@ public class StreamEngineTest
         string baseDir = PrngVectorsTest.BaseDirOf(node);
         return engine == 2
             ? StreamEngine.Rows(final, DataPacks.Discover(), now, baseDir).Text()
-            : DiskEngine.Rows(final, DataPacks.Discover(), now, baseDir).Text();
+            // named: true — the fixture asked for engine 3 by name, so a uniq the bounded repair
+            // cannot place is a refusal, not a quiet handover to the in-memory engine. Without it
+            // this harness would silently test a different engine than the one the fixture names.
+            : DiskEngine.Rows(final, DataPacks.Discover(), now, baseDir, null, true).Text();
     }
 
     /// <summary>How far the streaming engine has got, as a number rather than an impression.</summary>

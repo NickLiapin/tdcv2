@@ -257,6 +257,66 @@
         "q x [z]",
         "p z [y]"
       ]
+    },
+    {
+      "name": "a-uniq-group-a-switch-cuts-into-blocks",
+      "description": "A <switch> in a <uniq> cuts the rows into blocks by its subject, and the free members are DEALT across those blocks in equal shares before anything is arranged inside them. Without the deal a block gets whichever values fell into it — one came out [7,3,4] where an even share is [5,5,4] — and the run is refused for want of data it has. Three counts here: one the old builder managed, and two it did not.",
+      "config": "<tdc><env count=\"20\" seed=\"blocks\" local=\"en\" mode=\"memory\"><uniq><sequence name=\"G\"><gen type=\"text\" value=\"M,F\" percent=\"50,50\"/></sequence><switch name=\"N\" on=\"G\"><case is=\"M\"><gen type=\"text\" value=\"m1,m2,m3\"/></case><case is=\"F\"><gen type=\"text\" value=\"f1,f2,f3\"/></case></switch><sequence name=\"L\"><gen type=\"text\" value=\"a,b,c,d,e\"/></sequence></uniq></env><block><line><data>${{G}}|${{N}}|${{L}}</data></line></block></tdc>",
+      "expected": [
+        "F|f2|a",
+        "M|m1|a",
+        "F|f3|a",
+        "M|m3|a",
+        "M|m1|b",
+        "M|m2|b",
+        "M|m3|c",
+        "F|f1|b",
+        "F|f2|b",
+        "M|m1|c",
+        "M|m2|d",
+        "M|m3|d",
+        "F|f3|c",
+        "M|m1|e",
+        "F|f1|c",
+        "F|f2|d",
+        "F|f3|d",
+        "F|f1|e",
+        "M|m2|e",
+        "F|f2|e"
+      ]
+    },
+    {
+      "name": "the-block-order-is-the-order-the-subjects-appear",
+      "description": "The deal breaks a tie by BLOCK ORDER, so the order the blocks are made in is part of the contract. It was not until the deal existed — each block used to be arranged from its own values, so their order never showed — and one implementation was keeping them sorted by subject instead. An odd count is what tells the two apart: the block that appears first gets the extra value.",
+      "config": "<tdc><env count=\"7\" seed=\"blocks\" local=\"en\" mode=\"memory\"><uniq><sequence name=\"G\"><gen type=\"text\" value=\"M,F\" percent=\"50,50\"/></sequence><switch name=\"N\" on=\"G\"><case is=\"M\"><gen type=\"text\" value=\"m1,m2\"/></case><case is=\"F\"><gen type=\"text\" value=\"f1,f2\"/></case></switch><sequence name=\"L\"><gen type=\"text\" value=\"a,b,c,d\"/></sequence></uniq></env><block><line><data>${{G}}|${{N}}|${{L}}</data></line></block></tdc>",
+      "expected": [
+        "M|m1|d",
+        "M|m1|c",
+        "M|m2|a",
+        "M|m2|b",
+        "F|f1|d",
+        "F|f1|a",
+        "F|f2|b"
+      ]
+    },
+    {
+      "name": "a-switched-mix-inside-a-uniq-group",
+      "description": "The shape Studio's medical demo has: the group holds a <switch> whose branches are each a <mix> with shares of their own. The deal must leave both alone — the switched column and the subject the blocks were cut by — while still giving the free member a fair share.",
+      "config": "<tdc><env count=\"12\" seed=\"blocks\" local=\"en\" mode=\"memory\"><uniq><sequence name=\"G\"><gen type=\"text\" value=\"M,F\" percent=\"50,50\"/></sequence><switch name=\"N\" on=\"G\"><case is=\"M\"><gen type=\"text\" value=\"m1,m2\"/></case><case is=\"F\"><gen type=\"text\" value=\"f1,f2\"/></case></switch><sequence name=\"L\"><gen type=\"text\" value=\"a,b,c\"/></sequence><switch name=\"D\" on=\"G\"><case is=\"M\"><mix percent=\"50\"><case><gen type=\"text\" value=\"dm\"/></case><case><gen type=\"text\" value=\"g1\"/></case></mix></case><case is=\"F\"><mix percent=\"50\"><case><gen type=\"text\" value=\"df\"/></case><case><gen type=\"text\" value=\"g1\"/></case></mix></case></switch></uniq></env><block><line><data>${{G}}|${{N}}|${{L}}|${{D}}</data></line></block></tdc>",
+      "expected": [
+        "F|f1|b|df",
+        "M|m1|b|dm",
+        "F|f1|c|g1",
+        "M|m1|c|g1",
+        "M|m1|a|dm",
+        "M|m2|b|g1",
+        "F|f1|a|df",
+        "M|m2|c|dm",
+        "F|f2|b|g1",
+        "F|f2|c|df",
+        "M|m2|a|g1",
+        "F|f2|a|g1"
+      ]
     }
   ]
 }

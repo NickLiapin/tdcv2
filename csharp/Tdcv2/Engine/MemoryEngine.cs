@@ -2247,13 +2247,43 @@ public static class MemoryEngine
             string label = string.Join(" × ", members);
             var byRow = new Dictionary<int, string[]>();
 
-            foreach (List<int> block in PartitionRows(rows, SubjectsOf(members, byName), columns))
+            List<string> subjects = SubjectsOf(members, byName);
+            List<List<int>> blocks = PartitionRows(rows, subjects, columns);
+            List<int> blockSizes = blocks.Select(b => b.Count).ToList();
+
+            /*
+             * Dealt before any block is looked at, so each one gets a fair share of every value
+             * rather than whichever ones fell into it.
+             *
+             * TWO members are held back, for two different reasons. A `<switch>` answers the
+             * subject of its own row, so moving it would put a male name in a female row. And the
+             * SUBJECT itself is what the blocks were cut by: deal it and the block no longer
+             * describes the rows in it. One block means nothing was cut and the deal is skipped —
+             * it is NOT a no-op there, it regroups the column by value and so changes the
+             * arrangement.
+             */
+            var dealt = new List<List<List<string>>?>();
+            foreach (string name in members)
             {
+                bool free = byName.TryGetValue(name, out SequenceSpec? spec)
+                    && spec.SwitchSpec is null
+                    && !subjects.Contains(name, StringComparer.Ordinal);
+                dealt.Add(blocks.Count > 1 && free
+                    ? DealAcrossBlocks(rows.Select(row => columns[name][row]).ToList(), blockSizes)
+                    : null);
+            }
+
+            for (int bi = 0; bi < blocks.Count; bi++)
+            {
+                List<int> block = blocks[bi];
                 var grid = new List<IReadOnlyList<string>>();
                 var counts = new List<IReadOnlyList<int>>();
-                foreach (string name in members)
+                for (int m = 0; m < members.Count; m++)
                 {
-                    List<string> column = block.Select(row => columns[name][row]).ToList();
+                    string name = members[m];
+                    List<string> column = dealt[m] is { } d
+                        ? d[bi]
+                        : block.Select(row => columns[name][row]).ToList();
                     grid.Add(column);
                     counts.Add(Uniq.ValueCounts(column));
                 }
@@ -2472,6 +2502,104 @@ public static class MemoryEngine
         }
 
         return subjects;
+    }
+
+    /// <summary>
+    /// Spread one member's values across the blocks before anything is arranged inside them.
+    /// </summary>
+    /// <remarks>
+    /// <para>A <c>text</c> list is laid out in exact shares over the WHOLE column, and then a
+    /// <c>&lt;switch&gt;</c> cuts the rows into blocks — so a block gets whichever values happened
+    /// to fall there, not a fair share of them. Measured on a group of four over 29 rows: the male
+    /// block came out <c>[7,3,4]</c> and <c>[6,5,3]</c> where an even deal is <c>[5,5,4]</c> and
+    /// <c>[5,5,4]</c>, and that is the difference between 13 achievable tuples and 14. The run was
+    /// refused for want of data it had.</para>
+    /// <para>Each value is split over the blocks in proportion to their sizes, largest remainder
+    /// first, clamped to the room a block has left. The MULTISET is untouched — the same values in
+    /// the same numbers, only distributed — so every declared percentage survives exactly.</para>
+    /// </remarks>
+    private static List<List<string>> DealAcrossBlocks(
+        IReadOnlyList<string> column, IReadOnlyList<int> sizes)
+    {
+        var order = new List<string>();
+        var counts = new Dictionary<string, int>(StringComparer.Ordinal);
+        foreach (string value in column)
+        {
+            if (!counts.ContainsKey(value))
+            {
+                order.Add(value);
+            }
+
+            counts[value] = counts.TryGetValue(value, out int n) ? n + 1 : 1;
+        }
+
+        int total = column.Count;
+        var outp = new List<List<string>>();
+        var room = new List<int>();
+        foreach (int size in sizes)
+        {
+            outp.Add(new List<string>());
+            room.Add(size);
+        }
+
+        foreach (string value in order)
+        {
+            int want = counts.TryGetValue(value, out int c) ? c : 0;
+            double[] exact = new double[sizes.Count];
+            int[] share = new int[sizes.Count];
+            int given = 0;
+            for (int i = 0; i < sizes.Count; i++)
+            {
+                exact[i] = total == 0 ? 0.0 : (double)want * sizes[i] / total;
+                share[i] = Math.Min(room[i], (int)Math.Floor(exact[i]));
+                given += share[i];
+            }
+
+            // The remainder goes to the blocks with the largest fraction owed, ties by block
+            // order — the same largest-remainder rule the percentages use.
+            int[] owed = Enumerable.Range(0, sizes.Count).ToArray();
+            double[] frac = exact.Select(e => e - Math.Floor(e)).ToArray();
+            Array.Sort(owed, (a, b) =>
+            {
+                int byFrac = frac[b].CompareTo(frac[a]);
+                return byFrac != 0 ? byFrac : a.CompareTo(b);
+            });
+            foreach (int i in owed)
+            {
+                if (given >= want)
+                {
+                    break;
+                }
+
+                if (share[i] < room[i])
+                {
+                    share[i]++;
+                    given++;
+                }
+            }
+
+            // A block that filled up sends its share on to the next with room.
+            for (int i = 0; i < share.Length && given < want; i++)
+            {
+                while (given < want && share[i] < room[i])
+                {
+                    share[i]++;
+                    given++;
+                }
+            }
+
+            for (int i = 0; i < share.Length; i++)
+            {
+                for (int k = 0; k < share[i]; k++)
+                {
+                    outp[i].Add(value);
+                }
+
+                room[i] -= share[i];
+            }
+        }
+
+        return outp;
     }
 
     /// <summary>

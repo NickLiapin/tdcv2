@@ -5316,6 +5316,72 @@
           "p z [y]"
         ]
       }
+    },
+    "uniq-distinct/a-uniq-group-a-switch-cuts-into-blocks": {
+      "engine2": {
+        "refused": "uniq \"G × N × L\" is too tight to repair without holding the whole table (6 row(s) couldn't be placed) — run without mode=\"stream\" so the in-memory engine can arrange it."
+      },
+      "engine3": {
+        "refused": "uniq \"G × N × L\" is too tight to repair without holding the whole table (6 row(s) couldn't be placed) — and engine 3 was asked for by name, so it refuses rather than quietly running another engine. Remove the engine choice to let a uniq this tight go to the in-memory engine, which is what has been happening here all along."
+      }
+    },
+    "uniq-distinct/the-block-order-is-the-order-the-subjects-appear": {
+      "engine2": {
+        "lines": [
+          "M|m2|d",
+          "M|m2|c",
+          "M|m1|d",
+          "M|m1|a",
+          "F|f1|b",
+          "F|f2|b",
+          "F|f1|a"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "M|m2|d",
+          "M|m2|c",
+          "M|m1|d",
+          "M|m1|a",
+          "F|f1|b",
+          "F|f2|b",
+          "F|f1|a"
+        ]
+      }
+    },
+    "uniq-distinct/a-switched-mix-inside-a-uniq-group": {
+      "engine2": {
+        "lines": [
+          "F|f1|b|df",
+          "M|m1|a|dm",
+          "F|f1|c|df",
+          "M|m1|c|dm",
+          "M|m1|c|g1",
+          "M|m2|a|dm",
+          "F|f1|b|g1",
+          "M|m2|a|g1",
+          "F|f2|a|df",
+          "F|f2|b|g1",
+          "M|m2|b|g1",
+          "F|f2|c|g1"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "F|f1|b|df",
+          "M|m1|a|dm",
+          "F|f1|c|df",
+          "M|m1|c|dm",
+          "M|m1|c|g1",
+          "M|m2|a|dm",
+          "F|f1|b|g1",
+          "M|m2|a|g1",
+          "F|f2|a|df",
+          "F|f2|b|g1",
+          "M|m2|b|g1",
+          "F|f2|c|g1"
+        ]
+      }
     }
   }
 }

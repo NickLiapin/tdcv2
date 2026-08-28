@@ -50,7 +50,10 @@ def _run(case: dict, engine: int) -> str:
     base_dir = CASES / data_path if data_path else None
     if engine == 2:
         return stream.render(config, _PACKS, now, base_dir)
-    return disk.render(config, _PACKS, now, base_dir)
+    # `named=True`: the fixture asked for engine 3 by name, so a uniq the bounded repair cannot
+    # place is a refusal, not a quiet handover to the in-memory engine. Without the flag this
+    # harness would silently test a different engine than the one the fixture names.
+    return disk.render(config, _PACKS, now, base_dir, named=True)
 
 
 @pytest.mark.parametrize(("name", "case"), ALL, ids=[name for name, _ in ALL])
@@ -65,7 +68,15 @@ def test_a_streaming_engine_matches_the_reference(name: str, case: dict, engine:
         # Java runner simply catches RuntimeException here, and this list is the same idea
         # spelled out.
         with pytest.raises(
-            (stream.UnsupportedError, stream.StreamError, RepairNeededError, ValueError)
+            (
+                stream.UnsupportedError,
+                stream.StreamError,
+                RepairNeededError,
+                ValueError,
+                # A named engine 3 that will not hand a too-tight uniq to the in-memory engine
+                # says so with a RuntimeError; the refusal is the contract, the class is not.
+                RuntimeError,
+            )
         ):
             _run(case, engine)
         return

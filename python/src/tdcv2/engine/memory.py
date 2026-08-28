@@ -1774,8 +1774,29 @@ def _enforce_env_uniq(config: Config, columns, count: int) -> None:
         label = " × ".join(members)
         by_row: dict[int, list[str]] = {}
 
-        for block in _partition_rows(rows, _subjects_of(members, by_name), columns):
-            grid = [[columns[name][row] for row in block] for name in members]
+        subjects = _subjects_of(members, by_name)
+        blocks = _partition_rows(rows, subjects, columns)
+        block_sizes = [len(b) for b in blocks]
+        # Dealt before any block is looked at, so each one gets a fair share of every value
+        # rather than whichever ones fell into it.
+        #
+        # TWO members are held back, for two different reasons. A `<switch>` answers the subject
+        # of its own row, so moving it would put a male name in a female row. And the SUBJECT
+        # itself is what the blocks were cut by: deal it and the block no longer describes the
+        # rows in it. One block means nothing was cut and the deal is skipped — it is NOT a
+        # no-op there, it regroups the column by value and so changes the arrangement.
+        dealt: list[list[list[str]] | None] = [
+            _deal_across_blocks([columns[name][i] for i in rows], block_sizes)
+            if len(blocks) > 1 and by_name[name].switch_spec is None and name not in subjects
+            else None
+            for name in members
+        ]
+
+        for bi, block in enumerate(blocks):
+            grid = [
+                dealt[m][bi] if dealt[m] is not None else [columns[name][row] for row in block]
+                for m, name in enumerate(members)
+            ]
             counts = [uniq_lib.value_counts(column) for column in grid]
 
             upper = uniq_lib.upper_bound(counts)
@@ -1895,6 +1916,59 @@ def _subjects_of(members: list[str], by_name) -> list[str]:
         if on is not None and on not in subjects:
             subjects.append(on)
     return subjects
+
+
+def _deal_across_blocks(column: list[str], block_sizes: list[int]) -> list[list[str]]:
+    """Spread one member's values across the blocks before anything is arranged inside them.
+
+    A ``text`` list is laid out in exact shares over the WHOLE column, and then a ``<switch>``
+    cuts the rows into blocks — so a block gets whichever values happened to fall there, not a
+    fair share of them. Measured on a group of four over 29 rows: the male block came out
+    ``[7,3,4]`` and ``[6,5,3]`` where an even deal is ``[5,5,4]`` and ``[5,5,4]``, and that is
+    the difference between 13 achievable tuples and 14. The run was refused for want of data it
+    had.
+
+    Each value is split over the blocks in proportion to their sizes, largest remainder first,
+    clamped to the room a block has left. The MULTISET is untouched — the same values in the
+    same numbers, only distributed — so every declared percentage survives exactly.
+    """
+    order: list[str] = []
+    counts: dict[str, int] = {}
+    for value in column:
+        if value not in counts:
+            order.append(value)
+        counts[value] = counts.get(value, 0) + 1
+
+    total = len(column)
+    out: list[list[str]] = [[] for _ in block_sizes]
+    room = list(block_sizes)
+
+    for value in order:
+        want = counts[value]
+        exact = [0.0 if total == 0 else want * size / total for size in block_sizes]
+        share = [min(room[i], math.floor(e)) for i, e in enumerate(exact)]
+        given = sum(share)
+
+        # The remainder goes to the blocks with the largest fraction owed, ties by block order —
+        # the same largest-remainder rule the percentages use, so two implementations cannot
+        # disagree about who gets the odd one.
+        owed = sorted(range(len(exact)), key=lambda i: (-(exact[i] - math.floor(exact[i])), i))
+        for i in owed:
+            if given >= want:
+                break
+            if share[i] < room[i]:
+                share[i] += 1
+                given += 1
+        # A block that filled up sends its share on to the next with room.
+        for i in range(len(share)):
+            while given < want and share[i] < room[i]:
+                share[i] += 1
+                given += 1
+
+        for i, n in enumerate(share):
+            out[i].extend([value] * n)
+            room[i] -= n
+    return out
 
 
 def _partition_rows(rows: list[int], subjects: list[str], columns) -> list[list[int]]:

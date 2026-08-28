@@ -1320,13 +1320,51 @@ public final class MemoryEngine {
       String label = String.join(" × ", members);
       Map<Integer, List<String>> byRow = new LinkedHashMap<>();
 
-      for (List<Integer> block : partitionRows(rows, subjectsOf(members, byName), columns)) {
+      List<String> subjects = subjectsOf(members, byName);
+      List<List<Integer>> blocks = partitionRows(rows, subjects, columns);
+      List<Integer> blockSizes = new ArrayList<>();
+      for (List<Integer> b : blocks) {
+        blockSizes.add(b.size());
+      }
+      /*
+       * Dealt before any block is looked at, so each one gets a fair share of every value rather
+       * than whichever ones fell into it.
+       *
+       * TWO members are held back, for two different reasons. A `<switch>` answers the subject of
+       * its own row, so moving it would put a male name in a female row. And the SUBJECT itself is
+       * what the blocks were cut by: deal it and the block no longer describes the rows in it. One
+       * block means nothing was cut and the deal is skipped — it is NOT a no-op there, it regroups
+       * the column by value and so changes the arrangement.
+       */
+      List<List<List<String>>> dealt = new ArrayList<>();
+      for (String name : members) {
+        Config.SequenceSpec spec = byName.get(name);
+        boolean free = spec != null && spec.switchSpec() == null && !subjects.contains(name);
+        if (blocks.size() > 1 && free) {
+          List<String> whole = new ArrayList<>(rows.size());
+          for (int row : rows) {
+            whole.add(columns.get(name)[row]);
+          }
+          dealt.add(dealAcrossBlocks(whole, blockSizes));
+        } else {
+          dealt.add(null);
+        }
+      }
+
+      for (int bi = 0; bi < blocks.size(); bi++) {
+        List<Integer> block = blocks.get(bi);
         List<List<String>> grid = new ArrayList<>();
         List<List<Integer>> counts = new ArrayList<>();
-        for (String name : members) {
-          List<String> column = new ArrayList<>(block.size());
-          for (int row : block) {
-            column.add(columns.get(name)[row]);
+        for (int m = 0; m < members.size(); m++) {
+          String name = members.get(m);
+          List<String> column;
+          if (dealt.get(m) != null) {
+            column = dealt.get(m).get(bi);
+          } else {
+            column = new ArrayList<>(block.size());
+            for (int row : block) {
+              column.add(columns.get(name)[row]);
+            }
           }
           grid.add(column);
           counts.add(Uniq.valueCounts(column));
@@ -1509,6 +1547,90 @@ public final class MemoryEngine {
       }
     }
     return subjects;
+  }
+
+  /**
+   * Spread one member's values across the blocks before anything is arranged inside them.
+   *
+   * <p>A {@code text} list is laid out in exact shares over the WHOLE column, and then a
+   * {@code <switch>} cuts the rows into blocks — so a block gets whichever values happened to
+   * fall there, not a fair share of them. Measured on a group of four over 29 rows: the male
+   * block came out {@code [7,3,4]} and {@code [6,5,3]} where an even deal is {@code [5,5,4]} and
+   * {@code [5,5,4]}, and that is the difference between 13 achievable tuples and 14. The run was
+   * refused for want of data it had.
+   *
+   * <p>Each value is split over the blocks in proportion to their sizes, largest remainder first,
+   * clamped to the room a block has left. The MULTISET is untouched — the same values in the same
+   * numbers, only distributed — so every declared percentage survives exactly.
+   */
+  private static List<List<String>> dealAcrossBlocks(List<String> column, List<Integer> sizes) {
+    List<String> order = new ArrayList<>();
+    Map<String, Integer> counts = new LinkedHashMap<>();
+    for (String value : column) {
+      if (!counts.containsKey(value)) {
+        order.add(value);
+      }
+      counts.merge(value, 1, Integer::sum);
+    }
+
+    int total = column.size();
+    List<List<String>> out = new ArrayList<>();
+    List<Integer> room = new ArrayList<>();
+    for (int size : sizes) {
+      out.add(new ArrayList<>());
+      room.add(size);
+    }
+
+    for (String value : order) {
+      int want = counts.getOrDefault(value, 0);
+      double[] exact = new double[sizes.size()];
+      int[] share = new int[sizes.size()];
+      int given = 0;
+      for (int i = 0; i < sizes.size(); i++) {
+        exact[i] = total == 0 ? 0.0 : (double) want * sizes.get(i) / total;
+        share[i] = Math.min(room.get(i), (int) Math.floor(exact[i]));
+        given += share[i];
+      }
+
+      // The remainder goes to the blocks with the largest fraction owed, ties by block order —
+      // the same largest-remainder rule the percentages use.
+      Integer[] owed = new Integer[sizes.size()];
+      for (int i = 0; i < owed.length; i++) {
+        owed[i] = i;
+      }
+      final double[] frac = new double[exact.length];
+      for (int i = 0; i < exact.length; i++) {
+        frac[i] = exact[i] - Math.floor(exact[i]);
+      }
+      java.util.Arrays.sort(owed, (a, b) -> {
+        int byFrac = Double.compare(frac[b], frac[a]);
+        return byFrac != 0 ? byFrac : Integer.compare(a, b);
+      });
+      for (int i : owed) {
+        if (given >= want) {
+          break;
+        }
+        if (share[i] < room.get(i)) {
+          share[i]++;
+          given++;
+        }
+      }
+      // A block that filled up sends its share on to the next with room.
+      for (int i = 0; i < share.length && given < want; i++) {
+        while (given < want && share[i] < room.get(i)) {
+          share[i]++;
+          given++;
+        }
+      }
+
+      for (int i = 0; i < share.length; i++) {
+        for (int k = 0; k < share[i]; k++) {
+          out.get(i).add(value);
+        }
+        room.set(i, room.get(i) - share[i]);
+      }
+    }
+    return out;
   }
 
   /**

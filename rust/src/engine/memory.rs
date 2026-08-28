@@ -1762,14 +1762,53 @@ fn enforce_env_uniq(
         let label = members.join(" × ");
         let mut by_row: BTreeMap<usize, Vec<String>> = BTreeMap::new();
 
-        for block in partition_rows(&rows, &subjects_of(&members, config), columns) {
+        let subjects = subjects_of(&members, config);
+        let blocks = partition_rows(&rows, &subjects, columns);
+        let block_sizes: Vec<usize> = blocks.iter().map(Vec::len).collect();
+        /*
+         * Dealt before any block is looked at, so each one gets a fair share of
+         * every value rather than whichever ones fell into it.
+         *
+         * TWO members are held back, for two different reasons. A `<switch>`
+         * answers the subject of its own row, so moving it would put a male
+         * name in a female row. And the SUBJECT itself is what the blocks were
+         * cut by: deal it and the block no longer describes the rows in it. One
+         * block means nothing was cut and the deal is skipped — it is NOT a
+         * no-op there, it regroups the column by value and so changes the
+         * arrangement.
+         */
+        let dealt: Vec<Option<Vec<Vec<String>>>> = members
+            .iter()
+            .map(|name| {
+                let is_switch = config
+                    .sequence(name)
+                    .is_some_and(|spec| matches!(spec.source, Source::Switch(_)));
+                if blocks.len() > 1 && !is_switch && !subjects.contains(name) {
+                    let column: Vec<String> = rows
+                        .iter()
+                        .map(|i| columns[name][*i].clone().unwrap_or_default())
+                        .collect();
+                    Some(deal_across_blocks(&column, &block_sizes))
+                } else {
+                    None
+                }
+            })
+            .collect();
+
+        for (bi, block) in blocks.iter().enumerate() {
             let grid: Vec<Vec<String>> = members
                 .iter()
-                .map(|name| {
-                    block
-                        .iter()
-                        .map(|row| columns[name][*row].clone().unwrap_or_default())
-                        .collect()
+                .enumerate()
+                .map(|(m, name)| {
+                    dealt[m].as_ref().map_or_else(
+                        || {
+                            block
+                                .iter()
+                                .map(|row| columns[name][*row].clone().unwrap_or_default())
+                                .collect()
+                        },
+                        |d| d[bi].clone(),
+                    )
                 })
                 .collect();
             let counts: Vec<Vec<usize>> = grid.iter().map(|c| uniq::value_counts(c)).collect();
@@ -1948,6 +1987,90 @@ fn subjects_of(members: &[String], config: &Config) -> Vec<String> {
     subjects
 }
 
+/// Spread one member's values across the blocks before anything is arranged
+/// inside them.
+///
+/// A `text` list is laid out in exact shares over the WHOLE column, and then a
+/// `<switch>` cuts the rows into blocks — so a block gets whichever values
+/// happened to fall there, not a fair share of them. Measured on a group of
+/// four over 29 rows: the male block came out `[7,3,4]` and `[6,5,3]` where an
+/// even deal is `[5,5,4]` and `[5,5,4]`, and that is the difference between 13
+/// achievable tuples and 14. The run was refused for want of data it had.
+///
+/// Each value is split over the blocks in proportion to their sizes, largest
+/// remainder first, clamped to the room a block has left. The MULTISET is
+/// untouched — the same values in the same numbers, only distributed — so every
+/// declared percentage survives exactly.
+fn deal_across_blocks(column: &[String], block_sizes: &[usize]) -> Vec<Vec<String>> {
+    let mut order: Vec<String> = Vec::new();
+    let mut counts: BTreeMap<String, usize> = BTreeMap::new();
+    for value in column {
+        if !counts.contains_key(value) {
+            order.push(value.clone());
+        }
+        *counts.entry(value.clone()).or_insert(0) += 1;
+    }
+
+    let total = column.len();
+    let mut out: Vec<Vec<String>> = block_sizes.iter().map(|_| Vec::new()).collect();
+    let mut room: Vec<usize> = block_sizes.to_vec();
+
+    for value in &order {
+        let want = *counts.get(value).unwrap_or(&0);
+        let exact: Vec<f64> = block_sizes
+            .iter()
+            .map(|size| {
+                if total == 0 {
+                    0.0
+                } else {
+                    (want * size) as f64 / total as f64
+                }
+            })
+            .collect();
+        let mut share: Vec<usize> = exact
+            .iter()
+            .enumerate()
+            .map(|(i, e)| room[i].min(e.floor() as usize))
+            .collect();
+        let mut given: usize = share.iter().sum();
+
+        // The remainder goes to the blocks with the largest fraction owed, ties
+        // by block order — the same largest-remainder rule the percentages use.
+        let mut owed: Vec<usize> = (0..exact.len()).collect();
+        owed.sort_by(|a, b| {
+            let ra = exact[*a] - exact[*a].floor();
+            let rb = exact[*b] - exact[*b].floor();
+            rb.partial_cmp(&ra)
+                .unwrap_or(std::cmp::Ordering::Equal)
+                .then(a.cmp(b))
+        });
+        for i in owed {
+            if given >= want {
+                break;
+            }
+            if share[i] < room[i] {
+                share[i] += 1;
+                given += 1;
+            }
+        }
+        // A block that filled up sends its share on to the next with room.
+        for i in 0..share.len() {
+            while given < want && share[i] < room[i] {
+                share[i] += 1;
+                given += 1;
+            }
+        }
+
+        for (i, n) in share.iter().enumerate() {
+            for _ in 0..*n {
+                out[i].push(value.clone());
+            }
+            room[i] -= n;
+        }
+    }
+    out
+}
+
 /// Split the rows into blocks that may be shuffled among themselves.
 ///
 /// With no switch member there is one block holding every row — the old
@@ -1962,7 +2085,17 @@ fn partition_rows(
     if subjects.is_empty() {
         return vec![rows.to_vec()];
     }
-    let mut blocks: BTreeMap<Vec<String>, Vec<usize>> = BTreeMap::new();
+    // In the order the subjects FIRST APPEAR, which is what the reference does.
+    //
+    // A sorted map put the blocks in alphabetical order instead, and that was
+    // invisible until the deal arrived: each block used to be arranged from its
+    // own values, so their order never showed. The deal splits a value over the
+    // blocks with ties broken by block order, so `F` before `M` hands the odd
+    // one to the other block and the run comes out different from the other
+    // four — caught by a shared case, `M-bob-3` where the reference says
+    // `M-bob-1`.
+    let mut at: BTreeMap<Vec<String>, usize> = BTreeMap::new();
+    let mut blocks: Vec<Vec<usize>> = Vec::new();
     for row in rows {
         let key: Vec<String> = subjects
             .iter()
@@ -1973,9 +2106,15 @@ fn partition_rows(
                     .unwrap_or_default()
             })
             .collect();
-        blocks.entry(key).or_default().push(*row);
+        match at.get(&key) {
+            Some(i) => blocks[*i].push(*row),
+            None => {
+                at.insert(key, blocks.len());
+                blocks.push(vec![*row]);
+            }
+        }
     }
-    blocks.into_values().collect()
+    blocks
 }
 
 fn scalar_members(
