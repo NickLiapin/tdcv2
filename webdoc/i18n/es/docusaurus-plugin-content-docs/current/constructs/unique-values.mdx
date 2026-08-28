@@ -299,6 +299,49 @@ Cuando los campos viven en secuencias **distintas**, envuélvalos en `<uniq>…<
 En el grupo solo pueden ir secuencias de un valor (un [`<gen>`](../generators/overview.mdx)
 simple, un `<mix>` o un `<switch>`); una secuencia compuesta no puede.
 
+#### Un `<switch>` en el grupo lo corta en bloques
+
+Un valor conmutado responde al sujeto de su propia fila: un nombre masculino
+pertenece a una fila masculina y a ninguna otra. Así que un grupo con un
+`<switch>` queda dividido por ese sujeto —las filas masculinas se intercambian
+entre sí, las femeninas entre sí— y el alcance del grupo es la suma de lo que
+cabe en cada bloque, no el producto de todas las columnas.
+
+Los demás miembros se mueven libremente, y ahora se **reparten entre los bloques
+en partes iguales** antes de ordenar nada dentro de ellos. Importa más de lo que
+parece. Una lista `text` se dispone en partes exactas sobre la columna entera; el
+corte le entrega luego a un bloque los valores que allí cayeron. En una forma el
+bloque masculino salió con siete de un valor y tres de otro donde un reparto
+parejo es cinco y cinco, y esa fue la diferencia entre rechazar una corrida y
+generarla.
+
+El multiconjunto no se toca, solo se distribuye, así que cada `percent=` que usted
+declaró sobrevive exacto. Y nada cruza un bloque: la columna conmutada se queda
+donde está, y el sujeto por el que se cortaron los bloques también.
+
+#### Hasta dónde llega un grupo, y por qué el borde superior es irregular
+
+Un grupo reordena los valores que sacó; no vuelve a sacarlos para que encajen.
+Por eso el alcance depende de lo que ese `count` sacó, y la parte alta del rango
+es irregular en vez de una línea limpia. Medido sobre una forma —dos sujetos,
+tres nombres cada uno, cinco valores compartidos:
+
+| count | 2–24 | 25 | 26 | 27 | 28 | 29 | 30 | 31+ |
+| ----- | ---- | -- | -- | -- | -- | -- | -- | --- |
+|       | ✅   | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ | ❌  |
+
+Todo count hasta 24 se genera; por encima, unos sí y otros no. Si un count cerca
+del límite es rechazado, otro cercano puede funcionar — pero el arreglo honesto
+es más valores en algún miembro, que mueve el rango entero en lugar de un punto.
+
+El rechazo dice qué permitían los datos:
+
+<Terminal title="./run tight.tdc">
+{`tdcv2: uniq: group "G × F × L" cannot produce 25 unique combinations — the values
+drawn for these sequences allow at most 11 distinct rows. Add more values to a
+member (more distinct names, wider ranges…) or lower the count.`}
+</Terminal>
+
 :::note[No es un id único]
 Se trata de la unicidad de una **combinación de campos**, no de un contador. Para un
 número corrido, use [`increment`](../generators/counters.mdx).

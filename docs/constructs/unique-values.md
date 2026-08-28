@@ -312,6 +312,51 @@ When the fields live in **different** sequences, wrap them in `<uniq>…</uniq>`
 Only single-value sequences (a plain [`<gen>`](../generators/overview.md#top), a
 `<mix>` or a `<switch>`) can go in the group; a compound sequence can't.
 
+#### A `<switch>` in the group cuts it into blocks
+
+A switched value answers the subject of its own row: a male first name belongs on
+a male row and nowhere else. So a group holding a `<switch>` is split by that
+subject — male rows trade among themselves, female rows among themselves — and
+the group's reach is the sum of what each block can hold, not the product of
+every column.
+
+The other members are free to move anywhere, and they are **dealt across the
+blocks in equal shares** before anything is arranged inside them. That matters
+more than it sounds. A `text` list is laid out in exact shares over the whole
+column; the cut then hands one block whichever values happened to fall there. On
+one shape the male block came out with seven of one value and three of another
+where an even deal is five and five — and that was the difference between
+refusing a run and rendering it.
+
+The multiset is never touched, only distributed, so every `percent=` you declared
+survives exactly. And nothing crosses a block: the switched column stays where it
+is, and so does the subject the blocks were cut by.
+
+#### How far a group reaches, and why the top edge is ragged
+
+A group rearranges the values it drew; it does not draw again to fit. So the
+reach depends on what a given `count` happened to draw, and the top of the range
+is uneven rather than a clean line. Measured on one shape — two subjects, three
+names each, five shared values:
+
+| count | 2–24 | 25 | 26 | 27 | 28 | 29 | 30 | 31+ |
+| ----- | ---- | -- | -- | -- | -- | -- | -- | --- |
+|       | ✅   | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ | ❌  |
+
+Every count up to 24 renders; above it some do and some do not. If a count near
+the limit is refused, a slightly different one may work — but the honest fix is
+more values in a member, which moves the whole range rather than one point of it.
+
+The refusal says what the data allowed:
+
+`./run tight.tdc`
+
+```
+tdcv2: uniq: group "G × F × L" cannot produce 25 unique combinations — the values
+drawn for these sequences allow at most 11 distinct rows. Add more values to a
+member (more distinct names, wider ranges…) or lower the count.
+```
+
 > [!NOTE]
 > **Not a "unique id"**
 >
