@@ -193,9 +193,9 @@ así que el JSON cierra bien:
 
 ```
 [
-  {"id": 1, "name": "Anselmo"},
-  {"id": 2, "name": "Fructuoso"},
-  {"id": 3, "name": "Emiliano"}
+  {"id": 1, "name": "Amadeo"},
+  {"id": 2, "name": "Vidal"},
+  {"id": 3, "name": "Casimiro"}
 ]
 ```
 
@@ -532,9 +532,9 @@ CREATE TABLE customers (
   name  TEXT NOT NULL,
   city  TEXT NOT NULL
 );
-INSERT INTO customers VALUES (1, 'Blas Núñez', 'Mérida');
-INSERT INTO customers VALUES (2, 'Rigoberto Ornelas', 'Monterrey');
-INSERT INTO customers VALUES (3, 'Serafín Aldana', 'Guadalajara');
+INSERT INTO customers VALUES (1, 'Salvador Oviedo', 'Mérida');
+INSERT INTO customers VALUES (2, 'Justino Salvador', 'Monterrey');
+INSERT INTO customers VALUES (3, 'Celso Medrano', 'Guadalajara');
 ```
 
 ### Envuélvalo en una sola transacción

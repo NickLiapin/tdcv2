@@ -286,10 +286,10 @@ mismo tipo de paquete:
 `./run es-people.tdc (4 filas)`
 
 ```
-Ernesto Castañeda Guerrero
-Saturnino Ovalle Escobar
-Ladislao Velasco Portela
-Leoncio Cárdenas Cárdenas
+Sergio Rendón Revilla
+Servando Galindo Cortés
+Ubaldo Escobar Mejía
+Pablo Soto Bueno
 ```
 
 La última fila saca **el mismo** apellido dos veces (`Cárdenas Cárdenas`): `Last1` y

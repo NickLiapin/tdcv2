@@ -503,11 +503,11 @@ Combine `==`, `&&`, `>=` y `!(…)` en una sola línea:
 `./run combined.tdc (6 filas)`
 
 ```
-Brígida (Mujer, 36) — no es hombre
-Ignacio (Hombre, 10)
-Adoración (Mujer, 32) — no es hombre
-Olga (Mujer, 14) — no es hombre
-Alfonso (Hombre, 16)
+Elena (Mujer, 36) — no es hombre
+Guillermo (Hombre, 10)
+Elvira (Mujer, 32) — no es hombre
+Librada (Mujer, 14) — no es hombre
+Daniel (Hombre, 16)
 Isidro (Hombre, 20) — hombre adulto
 ```
 
