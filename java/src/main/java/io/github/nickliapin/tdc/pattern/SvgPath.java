@@ -39,7 +39,7 @@ public final class SvgPath {
       Pattern.compile("[MmLlHhVvCcSsQqTtAaZz]|-?\\d*\\.?\\d+(?:[eE][+-]?\\d+)?");
 
   /** One curve found in the document, already in user space. */
-  private record Curve(List<double[]> points, double width) {}
+  private record Curve(List<double[]> points, double width, boolean primitive) {}
 
   private SvgPath() {}
 
@@ -53,13 +53,24 @@ public final class SvgPath {
     List<Curve> curves = collect(svg);
     if (curves.isEmpty()) {
       throw new IllegalArgumentException(
-          "pattern: the SVG has no <path>/<polyline>/<polygon>/<line> to read a curve from");
+          "pattern: the SVG has no <path>/<polyline>/<polygon>/<line>/<rect>/<circle>/<ellipse>"
+              + " to read a curve from");
     }
-    Curve best = curves.get(0);
+    // Drawn curves outrank primitives: a chart export's frame is a <rect> and its
+    // background another, and "the widest shape" must not hand the graph to the
+    // furniture. A file holding ONLY primitives reads the widest of them.
+    boolean anyDrawn = curves.stream().anyMatch(c -> !c.primitive());
+    Curve best = null;
     for (Curve c : curves) {
-      if (c.width() > best.width()) {
+      if (anyDrawn && c.primitive()) {
+        continue;
+      }
+      if (best == null || c.width() > best.width()) {
         best = c;
       }
+    }
+    if (best == null) {
+      best = curves.get(0);
     }
     if (best.points().size() < 2 || best.width() <= 0) {
       throw new IllegalArgumentException(
@@ -83,7 +94,8 @@ public final class SvgPath {
     List<Curve> curves = collect(svg);
     if (curves.isEmpty()) {
       throw new IllegalArgumentException(
-          "pattern: the SVG has no <path>/<polyline>/<polygon>/<line> to read a curve from");
+          "pattern: the SVG has no <path>/<polyline>/<polygon>/<line>/<rect>/<circle>/<ellipse>"
+              + " to read a curve from");
     }
     List<List<double[]>> shapes = new ArrayList<>();
     for (Curve c : curves) {
@@ -125,30 +137,71 @@ public final class SvgPath {
 
     List<double[]> top = new ArrayList<>();
     List<double[]> bottom = new ArrayList<>();
+    // Two measurements per position, not one: the envelope approaching x from the LEFT and
+    // leaving it to the RIGHT. Measured as a single value, a vertical edge poured its whole
+    // height into its one x, and the interpolation to the PREVIOUS vertex turned a sharp cliff
+    // into a wedge as long as the flat stretch before it. Where the two limits differ the curve
+    // gets two points at the same x — a step. A vertical segment belongs to NEITHER limit: its
+    // span is exactly the jump between them.
+    double eps = 1e-9;
     for (double x : axis) {
-      double lo = Double.POSITIVE_INFINITY;
-      double hi = Double.NEGATIVE_INFINITY;
+      double leftLo = Double.POSITIVE_INFINITY;
+      double leftHi = Double.NEGATIVE_INFINITY;
+      double rightLo = Double.POSITIVE_INFINITY;
+      double rightHi = Double.NEGATIVE_INFINITY;
+      double atLo = Double.POSITIVE_INFINITY;
+      double atHi = Double.NEGATIVE_INFINITY;
       for (List<double[]> s : shapes) {
         for (int k = 1; k < s.size(); k++) {
           double[] a = s.get(k - 1);
           double[] b = s.get(k);
-          if (x < Math.min(a[0], b[0]) || x > Math.max(a[0], b[0])) {
+          double low = Math.min(a[0], b[0]);
+          double high = Math.max(a[0], b[0]);
+          if (x < low || x > high) {
             continue;
           }
           double dx = b[0] - a[0];
-          // A vertical segment covers a whole span of values at this x.
-          double[] ys = dx == 0 ? new double[] {a[1], b[1]} : new double[] {a[1] + (x - a[0]) / dx * (b[1] - a[1])};
-          for (double y : ys) {
-            lo = Math.min(lo, y);
-            hi = Math.max(hi, y);
+          if (dx == 0) {
+            atLo = Math.min(atLo, Math.min(a[1], b[1]));
+            atHi = Math.max(atHi, Math.max(a[1], b[1]));
+            continue;
           }
+          double y = a[1] + (x - a[0]) / dx * (b[1] - a[1]);
+          if (low < x) {
+            leftLo = Math.min(leftLo, y);
+            leftHi = Math.max(leftHi, y);
+          }
+          if (x < high) {
+            rightLo = Math.min(rightLo, y);
+            rightHi = Math.max(rightHi, y);
+          }
+          atLo = Math.min(atLo, y);
+          atHi = Math.max(atHi, y);
         }
       }
-      if (lo == Double.POSITIVE_INFINITY) {
-        continue;
+      boolean hasLeft = leftLo != Double.POSITIVE_INFINITY;
+      boolean hasRight = rightLo != Double.POSITIVE_INFINITY;
+      if (hasLeft && hasRight) {
+        if (Math.abs(leftHi - rightHi) <= eps && Math.abs(leftLo - rightLo) <= eps) {
+          top.add(new double[] {x, leftHi});
+          bottom.add(new double[] {x, leftLo});
+        } else {
+          top.add(new double[] {x, leftHi});
+          top.add(new double[] {x, rightHi});
+          bottom.add(new double[] {x, leftLo});
+          bottom.add(new double[] {x, rightLo});
+        }
+      } else if (hasLeft) {
+        top.add(new double[] {x, leftHi});
+        bottom.add(new double[] {x, leftLo});
+      } else if (hasRight) {
+        top.add(new double[] {x, rightHi});
+        bottom.add(new double[] {x, rightLo});
+      } else if (atLo != Double.POSITIVE_INFINITY) {
+        // Only vertical ink at this x — an isolated edge keeps its full span.
+        top.add(new double[] {x, atHi});
+        bottom.add(new double[] {x, atLo});
       }
-      top.add(new double[] {x, hi});
-      bottom.add(new double[] {x, lo});
     }
     if (top.size() < 2) {
       throw new IllegalArgumentException(
@@ -217,10 +270,16 @@ public final class SvgPath {
         if (x1 != null && y1 != null && x2 != null && y2 != null) {
           raw = List.of(new double[] {x1, y1}, new double[] {x2, y2});
         }
+      } else if ("rect".equals(name)) {
+        raw = rectPoints(whole);
+      } else if ("circle".equals(name) || "ellipse".equals(name)) {
+        raw = ellipsePoints(whole, "circle".equals(name));
       }
       if (raw == null || raw.size() < 2) {
         continue;
       }
+      boolean primitive =
+          "rect".equals(name) || "circle".equals(name) || "ellipse".equals(name);
 
       List<double[]> points = new ArrayList<>(raw.size());
       for (double[] p : raw) {
@@ -232,7 +291,7 @@ public final class SvgPath {
         min = Math.min(min, p[0]);
         max = Math.max(max, p[0]);
       }
-      found.add(new Curve(points, max - min));
+      found.add(new Curve(points, max - min, primitive));
     }
     return found;
   }
@@ -503,6 +562,79 @@ public final class SvgPath {
     double[] c1 = {p0[0] + 2.0 / 3 * (p1[0] - p0[0]), p0[1] + 2.0 / 3 * (p1[1] - p0[1])};
     double[] c2 = {p2[0] + 2.0 / 3 * (p1[0] - p2[0]), p2[1] + 2.0 / 3 * (p1[1] - p2[1])};
     return cubic(p0, c1, c2, p2);
+  }
+
+  /**
+   * A {@code <rect>} as the closed outline it draws. {@code rx}/{@code ry} round the corners the
+   * way the SVG spec says (a missing one copies the other; both clamp to half a side), and each
+   * rounded corner is the same elliptical arc the path reader follows.
+   */
+  private static List<double[]> rectPoints(String tag) {
+    Double x = numberOr(attribute(tag, "x"), 0.0);
+    Double y = numberOr(attribute(tag, "y"), 0.0);
+    Double w = number(attribute(tag, "width"));
+    Double h = number(attribute(tag, "height"));
+    if (x == null || y == null || w == null || h == null || w <= 0 || h <= 0) {
+      return null;
+    }
+    Double rxRaw = number(attribute(tag, "rx"));
+    Double ryRaw = number(attribute(tag, "ry"));
+    double rx = rxRaw != null ? rxRaw : (ryRaw != null ? ryRaw : 0.0);
+    double ry = ryRaw != null ? ryRaw : rx;
+    rx = Math.min(Math.max(rx, 0.0), w / 2);
+    ry = Math.min(Math.max(ry, 0.0), h / 2);
+    List<double[]> out = new ArrayList<>();
+    if (rx == 0 || ry == 0) {
+      out.add(new double[] {x, y});
+      out.add(new double[] {x + w, y});
+      out.add(new double[] {x + w, y + h});
+      out.add(new double[] {x, y + h});
+      out.add(new double[] {x, y});
+      return out;
+    }
+    out.add(new double[] {x + rx, y});
+    out.add(new double[] {x + w - rx, y});
+    arcInto(out, rx, ry, new double[] {x + w, y + ry});
+    out.add(new double[] {x + w, y + h - ry});
+    arcInto(out, rx, ry, new double[] {x + w - rx, y + h});
+    out.add(new double[] {x + rx, y + h});
+    arcInto(out, rx, ry, new double[] {x, y + h - ry});
+    out.add(new double[] {x, y + ry});
+    arcInto(out, rx, ry, new double[] {x + rx, y});
+    return out;
+  }
+
+  private static void arcInto(List<double[]> out, double rx, double ry, double[] to) {
+    double[] from = out.get(out.size() - 1);
+    out.addAll(arc(from, rx, ry, 0, false, true, to));
+  }
+
+  /**
+   * A {@code <circle>}/{@code <ellipse>} as a closed curve: two half-turns of the same
+   * endpoint-parametrized arc the path reader uses.
+   */
+  private static List<double[]> ellipsePoints(String tag, boolean circle) {
+    Double cx = numberOr(attribute(tag, "cx"), 0.0);
+    Double cy = numberOr(attribute(tag, "cy"), 0.0);
+    Double rx = circle ? number(attribute(tag, "r")) : number(attribute(tag, "rx"));
+    Double ry = circle ? rx : number(attribute(tag, "ry"));
+    if (cx == null || cy == null || rx == null || ry == null || rx <= 0 || ry <= 0) {
+      return null;
+    }
+    double[] west = {cx - rx, cy};
+    double[] east = {cx + rx, cy};
+    List<double[]> out = new ArrayList<>();
+    out.add(west);
+    out.addAll(arc(west, rx, ry, 0, false, true, east));
+    out.addAll(arc(east, rx, ry, 0, false, true, west));
+    return out;
+  }
+
+  private static Double numberOr(String raw, double fallback) {
+    if (raw == null) {
+      return fallback;
+    }
+    return number(raw);
   }
 
   private static List<double[]> arc(

@@ -38,9 +38,15 @@ def graph_points(svg: str) -> list[Point]:
     curves = collect(svg)
     if not curves:
         raise ValueError(
-            "pattern: the SVG has no <path>/<polyline>/<polygon>/<line> to read a curve from"
+            "pattern: the SVG has no <path>/<polyline>/<polygon>/<line>/<rect>/<circle>/"
+            "<ellipse> to read a curve from"
         )
-    best_points, best_width = max(curves, key=lambda c: c[1])
+    # Drawn curves outrank primitives: a chart export's frame is a <rect> and its
+    # background another, and "the widest shape" must not hand the graph to the
+    # furniture. A file holding ONLY primitives reads the widest of them.
+    drawn = [c for c in curves if not c[2]]
+    ranked = drawn if drawn else curves
+    best_points, best_width, _ = max(ranked, key=lambda c: c[1])
     if len(best_points) < 2 or best_width <= 0:
         raise ValueError(
             "pattern: the SVG curve has no horizontal extent to stretch over the cards"
@@ -59,10 +65,11 @@ def envelope(svg: str, samples: int = 600) -> tuple[list[Point], list[Point]]:
     curves = collect(svg)
     if not curves:
         raise ValueError(
-            "pattern: the SVG has no <path>/<polyline>/<polygon>/<line> to read a curve from"
+            "pattern: the SVG has no <path>/<polyline>/<polygon>/<line>/<rect>/<circle>/"
+            "<ellipse> to read a curve from"
         )
     # Flipped once: SVG grows downward, a graph grows upward.
-    shapes = [[(x, 0.0 if y == 0 else -y) for x, y in points] for points, _ in curves]
+    shapes = [[(x, 0.0 if y == 0 else -y) for x, y in points] for points, _, _ in curves]
 
     xs = [x for shape in shapes for x, _ in shape]
     x_min, x_max = min(xs), max(xs)
@@ -83,40 +90,73 @@ def envelope(svg: str, samples: int = 600) -> tuple[list[Point], list[Point]]:
         thinned.append(x_max)
         axis = sorted(set(thinned))
 
+    # Two measurements per position, not one: the envelope approaching x from the LEFT and
+    # leaving it to the RIGHT. Measured as a single value, a vertical edge poured its whole
+    # height into its one x, and the interpolation to the PREVIOUS vertex turned a sharp
+    # cliff into a wedge spanning however long the flat stretch before it was. Where the two
+    # limits differ the curve gets two points at the same x — a step — and the flat stretch
+    # stays exact to the final row before the edge. A vertical segment belongs to NEITHER
+    # limit: its span is exactly the jump between them.
+    eps = 1e-9
     top: list[Point] = []
     bottom: list[Point] = []
     for x in axis:
-        lo = math.inf
-        hi = -math.inf
+        left_lo = right_lo = at_lo = math.inf
+        left_hi = right_hi = at_hi = -math.inf
         for shape in shapes:
             for k in range(1, len(shape)):
                 ax, ay = shape[k - 1]
                 bx, by = shape[k]
-                if x < min(ax, bx) or x > max(ax, bx):
+                low, high = min(ax, bx), max(ax, bx)
+                if x < low or x > high:
                     continue
                 dx = bx - ax
-                # A vertical segment covers a whole span of values at this x.
-                ys = [ay, by] if dx == 0 else [ay + (x - ax) / dx * (by - ay)]
-                lo = min(lo, *ys)
-                hi = max(hi, *ys)
-        if lo == math.inf:
-            continue  # nothing drawn at this x
-        top.append((x, hi))
-        bottom.append((x, lo))
+                if dx == 0:
+                    at_lo = min(at_lo, ay, by)
+                    at_hi = max(at_hi, ay, by)
+                    continue
+                y = ay + (x - ax) / dx * (by - ay)
+                if low < x:
+                    left_lo = min(left_lo, y)
+                    left_hi = max(left_hi, y)
+                if x < high:
+                    right_lo = min(right_lo, y)
+                    right_hi = max(right_hi, y)
+                at_lo = min(at_lo, y)
+                at_hi = max(at_hi, y)
+        has_left = left_lo != math.inf
+        has_right = right_lo != math.inf
+        if has_left and has_right:
+            if abs(left_hi - right_hi) <= eps and abs(left_lo - right_lo) <= eps:
+                top.append((x, left_hi))
+                bottom.append((x, left_lo))
+            else:
+                top.extend([(x, left_hi), (x, right_hi)])
+                bottom.extend([(x, left_lo), (x, right_lo)])
+        elif has_left:
+            top.append((x, left_hi))
+            bottom.append((x, left_lo))
+        elif has_right:
+            top.append((x, right_hi))
+            bottom.append((x, right_lo))
+        elif at_lo != math.inf:
+            # Only vertical ink at this x — an isolated edge keeps its full span.
+            top.append((x, at_hi))
+            bottom.append((x, at_lo))
 
     if len(top) < 2:
         raise ValueError("pattern: the SVG has too little geometry to read a curve from")
     return top, bottom
 
 
-def collect(svg: str) -> list[tuple[list[Point], float]]:
+def collect(svg: str) -> list[tuple[list[Point], float, bool]]:
     """Every curve in the document, in user space, each with its horizontal extent.
 
     A hand-rolled tag scan rather than an XML parser: only element names, their attributes and the
     nesting of ``<g>`` matter here, and an editor's export is full of namespaces and metadata a
     strict parser would have opinions about.
     """
-    found: list[tuple[list[Point], float]] = []
+    found: list[tuple[list[Point], float, bool]] = []
     stack: list[Matrix] = [IDENTITY]
 
     for hit in _TAG.finditer(svg):
@@ -140,9 +180,14 @@ def collect(svg: str) -> list[tuple[list[Point], float]]:
         raw = _shape_points(whole, name)
         if raw is None or len(raw) < 2:
             continue
+        # A shape PRIMITIVE — rect, circle, ellipse — rather than a drawn curve. In a
+        # chart export these are frames and backgrounds, so the one-line reading ranks
+        # them below anything actually drawn; in a band they count like every shape,
+        # because the drawing IS the region.
+        primitive = name in ("rect", "circle", "ellipse")
         points = [apply(local, p) for p in raw]
         column = [p[0] for p in points]
-        found.append((points, max(column) - min(column)))
+        found.append((points, max(column) - min(column), primitive))
     return found
 
 
@@ -308,7 +353,77 @@ def _shape_points(tag: str, name: str) -> list[Point] | None:
         if any(math.isnan(c) or math.isinf(c) for c in coords):
             return None
         return [(coords[0], coords[1]), (coords[2], coords[3])]
+    if name == "rect":
+        return _rect_points(tag)
+    if name in ("circle", "ellipse"):
+        return _ellipse_points(tag, name == "circle")
     return None
+
+
+def _number_attr(tag: str, name: str, fallback: float | None = None) -> float | None:
+    raw = _attr(tag, name)
+    if raw is None:
+        return fallback
+    try:
+        value = float(raw)
+    except ValueError:
+        return None
+    return None if math.isnan(value) or math.isinf(value) else value
+
+
+def _rect_points(tag: str) -> list[Point] | None:
+    """A ``<rect>`` as the closed outline it draws.
+
+    ``rx``/``ry`` round the corners the way the SVG spec says (a missing one copies the
+    other; both clamp to half a side), and each rounded corner is the same elliptical arc
+    the path reader follows, so a Figma rounded card reads as drawn.
+    """
+    x = _number_attr(tag, "x", 0.0)
+    y = _number_attr(tag, "y", 0.0)
+    w = _number_attr(tag, "width")
+    h = _number_attr(tag, "height")
+    if x is None or y is None or w is None or h is None or w <= 0 or h <= 0:
+        return None
+    rx = _number_attr(tag, "rx")
+    ry = _number_attr(tag, "ry")
+    if rx is None:
+        rx = ry if ry is not None else 0.0
+    if ry is None:
+        ry = rx
+    rx = min(max(rx, 0.0), w / 2)
+    ry = min(max(ry, 0.0), h / 2)
+    if rx == 0 or ry == 0:
+        return [(x, y), (x + w, y), (x + w, y + h), (x, y + h), (x, y)]
+    out: list[Point] = [(x + rx, y)]
+
+    def arc_to(to: Point) -> None:
+        out.extend(_arc(out[-1], rx, ry, 0.0, False, True, to))
+
+    out.append((x + w - rx, y))
+    arc_to((x + w, y + ry))
+    out.append((x + w, y + h - ry))
+    arc_to((x + w - rx, y + h))
+    out.append((x + rx, y + h))
+    arc_to((x, y + h - ry))
+    out.append((x, y + ry))
+    arc_to((x + rx, y))
+    return out
+
+
+def _ellipse_points(tag: str, circle: bool) -> list[Point] | None:
+    """A ``<circle>``/``<ellipse>`` as a closed curve: two half-turns of the path reader's arc."""
+    cx = _number_attr(tag, "cx", 0.0)
+    cy = _number_attr(tag, "cy", 0.0)
+    rx = _number_attr(tag, "r") if circle else _number_attr(tag, "rx")
+    ry = rx if circle else _number_attr(tag, "ry")
+    if cx is None or cy is None or rx is None or ry is None or rx <= 0 or ry <= 0:
+        return None
+    west: Point = (cx - rx, cy)
+    east: Point = (cx + rx, cy)
+    out: list[Point] = [west]
+    out.extend(_arc(west, rx, ry, 0.0, False, True, east))
+    out.extend(_arc(east, rx, ry, 0.0, False, True, west))
+    return out
 
 
 def _points_attr(raw: str) -> list[Point]:

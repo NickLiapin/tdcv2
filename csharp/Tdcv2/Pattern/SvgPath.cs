@@ -65,7 +65,8 @@ public static class SvgPath
         if (curves.Count == 0)
         {
             throw new ArgumentException(
-                "pattern: the SVG has no <path>/<polyline>/<polygon>/<line> to read a curve from");
+                "pattern: the SVG has no <path>/<polyline>/<polygon>/<line>/<rect>/<circle>/<ellipse>"
+                + " to read a curve from");
         }
 
         var shapes = new List<List<double[]>>(curves.Count);
@@ -121,19 +122,32 @@ public static class SvgPath
             axis.Sort();
         }
 
+        // Two measurements per position, not one: the envelope approaching x from the LEFT and
+        // leaving it to the RIGHT. Measured as a single value, a vertical edge poured its whole
+        // height into its one x, and the interpolation to the PREVIOUS vertex turned a sharp
+        // cliff into a wedge as long as the flat stretch before it. Where the two limits differ
+        // the curve gets two points at the same x — a step. A vertical segment belongs to
+        // NEITHER limit: its span is exactly the jump between them.
+        const double Eps = 1e-9;
         var top = new List<double[]>();
         var bottom = new List<double[]>();
         foreach (double x in axis)
         {
-            double lo = double.PositiveInfinity;
-            double hi = double.NegativeInfinity;
+            double leftLo = double.PositiveInfinity;
+            double leftHi = double.NegativeInfinity;
+            double rightLo = double.PositiveInfinity;
+            double rightHi = double.NegativeInfinity;
+            double atLo = double.PositiveInfinity;
+            double atHi = double.NegativeInfinity;
             foreach (List<double[]> s in shapes)
             {
                 for (int k = 1; k < s.Count; k++)
                 {
                     double[] a = s[k - 1];
                     double[] b = s[k];
-                    if (x < Math.Min(a[0], b[0]) || x > Math.Max(a[0], b[0]))
+                    double low = Math.Min(a[0], b[0]);
+                    double high = Math.Max(a[0], b[0]);
+                    if (x < low || x > high)
                     {
                         continue;
                     }
@@ -141,26 +155,62 @@ public static class SvgPath
                     double dx = b[0] - a[0];
                     if (dx == 0)
                     {
-                        // A vertical segment covers a whole span of values at this x.
-                        lo = Math.Min(lo, Math.Min(a[1], b[1]));
-                        hi = Math.Max(hi, Math.Max(a[1], b[1]));
+                        atLo = Math.Min(atLo, Math.Min(a[1], b[1]));
+                        atHi = Math.Max(atHi, Math.Max(a[1], b[1]));
+                        continue;
                     }
-                    else
+
+                    double y = a[1] + ((x - a[0]) / dx * (b[1] - a[1]));
+                    if (low < x)
                     {
-                        double y = a[1] + ((x - a[0]) / dx * (b[1] - a[1]));
-                        lo = Math.Min(lo, y);
-                        hi = Math.Max(hi, y);
+                        leftLo = Math.Min(leftLo, y);
+                        leftHi = Math.Max(leftHi, y);
                     }
+
+                    if (x < high)
+                    {
+                        rightLo = Math.Min(rightLo, y);
+                        rightHi = Math.Max(rightHi, y);
+                    }
+
+                    atLo = Math.Min(atLo, y);
+                    atHi = Math.Max(atHi, y);
                 }
             }
 
-            if (double.IsPositiveInfinity(lo))
+            bool hasLeft = !double.IsPositiveInfinity(leftLo);
+            bool hasRight = !double.IsPositiveInfinity(rightLo);
+            if (hasLeft && hasRight)
             {
-                continue;
+                if (Math.Abs(leftHi - rightHi) <= Eps && Math.Abs(leftLo - rightLo) <= Eps)
+                {
+                    top.Add(new[] { x, leftHi });
+                    bottom.Add(new[] { x, leftLo });
+                }
+                else
+                {
+                    top.Add(new[] { x, leftHi });
+                    top.Add(new[] { x, rightHi });
+                    bottom.Add(new[] { x, leftLo });
+                    bottom.Add(new[] { x, rightLo });
+                }
             }
-
-            top.Add(new[] { x, hi });
-            bottom.Add(new[] { x, lo });
+            else if (hasLeft)
+            {
+                top.Add(new[] { x, leftHi });
+                bottom.Add(new[] { x, leftLo });
+            }
+            else if (hasRight)
+            {
+                top.Add(new[] { x, rightHi });
+                bottom.Add(new[] { x, rightLo });
+            }
+            else if (!double.IsPositiveInfinity(atLo))
+            {
+                // Only vertical ink at this x — an isolated edge keeps its full span.
+                top.Add(new[] { x, atHi });
+                bottom.Add(new[] { x, atLo });
+            }
         }
 
         if (top.Count < 2)
@@ -253,6 +303,14 @@ public static class SvgPath
                         new[] { x2.Value, y2.Value },
                     };
                 }
+            }
+            else if (name == "rect")
+            {
+                raw = RectPoints(whole);
+            }
+            else if (name == "circle" || name == "ellipse")
+            {
+                raw = EllipsePoints(whole, name == "circle");
             }
 
             if (raw is null || raw.Count < 2)
@@ -642,6 +700,80 @@ public static class SvgPath
         double[] c1 = { p0[0] + (2.0 / 3 * (p1[0] - p0[0])), p0[1] + (2.0 / 3 * (p1[1] - p0[1])) };
         double[] c2 = { p2[0] + (2.0 / 3 * (p1[0] - p2[0])), p2[1] + (2.0 / 3 * (p1[1] - p2[1])) };
         return Cubic(p0, c1, c2, p2);
+    }
+
+    /// <summary>
+    /// A <c>&lt;rect&gt;</c> as the closed outline it draws. <c>rx</c>/<c>ry</c> round the
+    /// corners the way the SVG spec says (a missing one copies the other; both clamp to half a
+    /// side), and each rounded corner is the same elliptical arc the path reader follows.
+    /// </summary>
+    private static List<double[]>? RectPoints(string tag)
+    {
+        double x = ParseNumber(Attribute(tag, "x")) ?? 0;
+        double y = ParseNumber(Attribute(tag, "y")) ?? 0;
+        double? w = ParseNumber(Attribute(tag, "width"));
+        double? h = ParseNumber(Attribute(tag, "height"));
+        if (w is null || h is null || w <= 0 || h <= 0)
+        {
+            return null;
+        }
+
+        double? rxRaw = ParseNumber(Attribute(tag, "rx"));
+        double? ryRaw = ParseNumber(Attribute(tag, "ry"));
+        double rx = rxRaw ?? ryRaw ?? 0;
+        double ry = ryRaw ?? rx;
+        rx = Math.Min(Math.Max(rx, 0), w.Value / 2);
+        ry = Math.Min(Math.Max(ry, 0), h.Value / 2);
+        var outp = new List<double[]>();
+        if (rx == 0 || ry == 0)
+        {
+            outp.Add(new[] { x, y });
+            outp.Add(new[] { x + w.Value, y });
+            outp.Add(new[] { x + w.Value, y + h.Value });
+            outp.Add(new[] { x, y + h.Value });
+            outp.Add(new[] { x, y });
+            return outp;
+        }
+
+        outp.Add(new[] { x + rx, y });
+        outp.Add(new[] { x + w.Value - rx, y });
+        ArcInto(outp, rx, ry, new[] { x + w.Value, y + ry });
+        outp.Add(new[] { x + w.Value, y + h.Value - ry });
+        ArcInto(outp, rx, ry, new[] { x + w.Value - rx, y + h.Value });
+        outp.Add(new[] { x + rx, y + h.Value });
+        ArcInto(outp, rx, ry, new[] { x, y + h.Value - ry });
+        outp.Add(new[] { x, y + ry });
+        ArcInto(outp, rx, ry, new[] { x + rx, y });
+        return outp;
+    }
+
+    private static void ArcInto(List<double[]> outp, double rx, double ry, double[] to)
+    {
+        double[] from = outp[outp.Count - 1];
+        outp.AddRange(Arc(from, rx, ry, 0, false, true, to));
+    }
+
+    /// <summary>
+    /// A <c>&lt;circle&gt;</c>/<c>&lt;ellipse&gt;</c> as a closed curve: two half-turns of the
+    /// same endpoint-parametrized arc the path reader uses.
+    /// </summary>
+    private static List<double[]>? EllipsePoints(string tag, bool circle)
+    {
+        double cx = ParseNumber(Attribute(tag, "cx")) ?? 0;
+        double cy = ParseNumber(Attribute(tag, "cy")) ?? 0;
+        double? rx = circle ? ParseNumber(Attribute(tag, "r")) : ParseNumber(Attribute(tag, "rx"));
+        double? ry = circle ? rx : ParseNumber(Attribute(tag, "ry"));
+        if (rx is null || ry is null || rx <= 0 || ry <= 0)
+        {
+            return null;
+        }
+
+        double[] west = { cx - rx.Value, cy };
+        double[] east = { cx + rx.Value, cy };
+        var outp = new List<double[]> { west };
+        outp.AddRange(Arc(west, rx.Value, ry.Value, 0, false, true, east));
+        outp.AddRange(Arc(east, rx.Value, ry.Value, 0, false, true, west));
+        return outp;
     }
 
     private static List<double[]> Arc(

@@ -39,7 +39,8 @@ pub fn envelope(svg: &str, samples: usize) -> EngineResult<Envelope> {
     let curves = collect(svg);
     if curves.is_empty() {
         return invalid(
-            "pattern: the SVG has no <path>/<polyline>/<polygon>/<line> to read a curve from",
+            "pattern: the SVG has no <path>/<polyline>/<polygon>/<line>/<rect>/<circle>/<ellipse> \
+             to read a curve from",
         );
     }
     let shapes: Vec<Vec<[f64; 2]>> = curves.iter().map(|c| flip(c)).collect();
@@ -75,34 +76,74 @@ pub fn envelope(svg: &str, samples: usize) -> EngineResult<Envelope> {
         axis = thinned;
     }
 
+    // Two measurements per position, not one: the envelope approaching x from
+    // the LEFT and leaving it to the RIGHT. Measured as a single value, a
+    // vertical edge poured its whole height into its one x, and the
+    // interpolation to the PREVIOUS vertex turned a sharp cliff into a wedge as
+    // long as the flat stretch before it. Where the two limits differ the curve
+    // gets two points at the same x — a step — and the flat stretch stays exact
+    // to the final row before the edge. A vertical segment belongs to NEITHER
+    // limit: its span is exactly the jump between them.
+    const EPS: f64 = 1e-9;
     let mut top: Vec<[f64; 2]> = Vec::new();
     let mut bottom: Vec<[f64; 2]> = Vec::new();
     for x in axis {
-        let mut lo = f64::INFINITY;
-        let mut hi = f64::NEG_INFINITY;
+        let mut left_lo = f64::INFINITY;
+        let mut left_hi = f64::NEG_INFINITY;
+        let mut right_lo = f64::INFINITY;
+        let mut right_hi = f64::NEG_INFINITY;
+        let mut at_lo = f64::INFINITY;
+        let mut at_hi = f64::NEG_INFINITY;
         for shape in &shapes {
             for pair in shape.windows(2) {
                 let (a, b) = (pair[0], pair[1]);
-                if x < a[0].min(b[0]) || x > a[0].max(b[0]) {
+                let low = a[0].min(b[0]);
+                let high = a[0].max(b[0]);
+                if x < low || x > high {
                     continue;
                 }
                 let dx = b[0] - a[0];
                 if dx == 0.0 {
-                    // A vertical segment covers a whole span of values at this x.
-                    lo = lo.min(a[1]).min(b[1]);
-                    hi = hi.max(a[1]).max(b[1]);
-                } else {
-                    let y = a[1] + (x - a[0]) / dx * (b[1] - a[1]);
-                    lo = lo.min(y);
-                    hi = hi.max(y);
+                    at_lo = at_lo.min(a[1]).min(b[1]);
+                    at_hi = at_hi.max(a[1]).max(b[1]);
+                    continue;
                 }
+                let y = a[1] + (x - a[0]) / dx * (b[1] - a[1]);
+                if low < x {
+                    left_lo = left_lo.min(y);
+                    left_hi = left_hi.max(y);
+                }
+                if x < high {
+                    right_lo = right_lo.min(y);
+                    right_hi = right_hi.max(y);
+                }
+                at_lo = at_lo.min(y);
+                at_hi = at_hi.max(y);
             }
         }
-        if lo == f64::INFINITY {
-            continue;
+        let has_left = left_lo != f64::INFINITY;
+        let has_right = right_lo != f64::INFINITY;
+        if has_left && has_right {
+            if (left_hi - right_hi).abs() <= EPS && (left_lo - right_lo).abs() <= EPS {
+                top.push([x, left_hi]);
+                bottom.push([x, left_lo]);
+            } else {
+                top.push([x, left_hi]);
+                top.push([x, right_hi]);
+                bottom.push([x, left_lo]);
+                bottom.push([x, right_lo]);
+            }
+        } else if has_left {
+            top.push([x, left_hi]);
+            bottom.push([x, left_lo]);
+        } else if has_right {
+            top.push([x, right_hi]);
+            bottom.push([x, right_lo]);
+        } else if at_lo != f64::INFINITY {
+            // Only vertical ink at this x — an isolated edge keeps its full span.
+            top.push([x, at_hi]);
+            bottom.push([x, at_lo]);
         }
-        top.push([x, hi]);
-        bottom.push([x, lo]);
     }
     if top.len() < 2 {
         return invalid("pattern: the SVG has too little geometry to read a curve from");
@@ -165,6 +206,8 @@ fn collect(svg: &str) -> Vec<Vec<[f64; 2]>> {
                 (Some(x1), Some(y1), Some(x2), Some(y2)) => Some(vec![[x1, y1], [x2, y2]]),
                 _ => None,
             },
+            "rect" => rect_points(&tag.whole),
+            "circle" | "ellipse" => ellipse_points(&tag.whole, tag.name == "circle"),
             _ => None,
         };
         let Some(raw) = raw.filter(|points| points.len() >= 2) else {
@@ -174,6 +217,69 @@ fn collect(svg: &str) -> Vec<Vec<[f64; 2]>> {
         found.push(raw.iter().map(|p| apply(local, *p)).collect());
     }
     found
+}
+
+/// A `<rect>` as the closed outline it draws. `rx`/`ry` round the corners the
+/// way the SVG spec says (a missing one copies the other; both clamp to half a
+/// side), and each rounded corner is the same elliptical arc the path reader
+/// follows, so a Figma rounded card reads as drawn rather than as a sharp box.
+fn rect_points(tag: &str) -> Option<Vec<[f64; 2]>> {
+    let x = number(attribute(tag, "x")).unwrap_or(0.0);
+    let y = number(attribute(tag, "y")).unwrap_or(0.0);
+    let w = number(attribute(tag, "width"))?;
+    let h = number(attribute(tag, "height"))?;
+    if w <= 0.0 || h <= 0.0 {
+        return None;
+    }
+    let rx_raw = number(attribute(tag, "rx"));
+    let ry_raw = number(attribute(tag, "ry"));
+    let mut rx = rx_raw.or(ry_raw).unwrap_or(0.0);
+    let mut ry = ry_raw.or(rx_raw).unwrap_or(0.0);
+    rx = rx.clamp(0.0, w / 2.0);
+    ry = ry.clamp(0.0, h / 2.0);
+    if rx == 0.0 || ry == 0.0 {
+        return Some(vec![[x, y], [x + w, y], [x + w, y + h], [x, y + h], [x, y]]);
+    }
+    let mut out: Vec<[f64; 2]> = vec![[x + rx, y]];
+    let mut arc_to = |out: &mut Vec<[f64; 2]>, to: [f64; 2]| {
+        let from = *out.last().unwrap_or(&to);
+        out.extend(arc(from, rx, ry, 0.0, false, true, to));
+    };
+    out.push([x + w - rx, y]);
+    arc_to(&mut out, [x + w, y + ry]);
+    out.push([x + w, y + h - ry]);
+    arc_to(&mut out, [x + w - rx, y + h]);
+    out.push([x + rx, y + h]);
+    arc_to(&mut out, [x, y + h - ry]);
+    out.push([x, y + ry]);
+    arc_to(&mut out, [x + rx, y]);
+    Some(out)
+}
+
+/// A `<circle>`/`<ellipse>` as a closed curve: two half-turns of the same
+/// endpoint-parametrized arc the path reader uses.
+fn ellipse_points(tag: &str, circle: bool) -> Option<Vec<[f64; 2]>> {
+    let cx = number(attribute(tag, "cx")).unwrap_or(0.0);
+    let cy = number(attribute(tag, "cy")).unwrap_or(0.0);
+    let rx = if circle {
+        number(attribute(tag, "r"))?
+    } else {
+        number(attribute(tag, "rx"))?
+    };
+    let ry = if circle {
+        rx
+    } else {
+        number(attribute(tag, "ry"))?
+    };
+    if rx <= 0.0 || ry <= 0.0 {
+        return None;
+    }
+    let west = [cx - rx, cy];
+    let east = [cx + rx, cy];
+    let mut out = vec![west];
+    out.extend(arc(west, rx, ry, 0.0, false, true, east));
+    out.extend(arc(east, rx, ry, 0.0, false, true, west));
+    Some(out)
 }
 
 struct Tag {
