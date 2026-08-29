@@ -1,0 +1,16 @@
+---
+address: malawi.education.university
+description: Malawian universities. The University of Malawi was for decades the only one and was federal — a single university with constituent colleges in different towns — until 2021, when it was broken up: Chancellor College in Zomba kept the University of Malawi name, the Polytechnic in Blantyre became MUBAS, and the medical school and college of nursing became KUHeS. A dataset of Malawian graduates therefore holds institution names that no longer exist for anyone who studied before 2021, and the mapping is not one-to-one.
+locale: en
+---
+University of Malawi
+Malawi University of Business and Applied Sciences
+Kamuzu University of Health Sciences
+Lilongwe University of Agriculture and Natural Resources
+Mzuzu University
+Malawi University of Science and Technology
+Catholic University of Malawi
+University of Livingstonia
+Daeyang University
+African Bible College
+Malawi Adventist University

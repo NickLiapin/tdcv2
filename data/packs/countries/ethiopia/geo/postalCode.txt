@@ -1,0 +1,22 @@
+---
+address: ethiopia.geo.postalCode
+description: Ethiopian postal codes. Delivery in Ethiopia is overwhelmingly to a PO box rather than to a street address — Ethiopian Postal Service boxes are the normal business address, and buildings outside central Addis frequently have no number at all — so a postal code here identifies a post office rather than a delivery walk. 1000 is central Addis Ababa. The codes below are the principal offices; a full Ethiopian address in practice reads as a sub-city, a kebele number and a PO box.
+locale: en
+---
+1000
+1110
+1176
+1250
+1400
+1888
+2000
+2020
+3000
+3020
+4000
+5000
+5500
+6000
+7000
+8000
+9000

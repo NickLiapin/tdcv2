@@ -1,0 +1,17 @@
+---
+address: afghanistan.finance.bank
+description: Afghan banks. Da Afghanistan Bank is the central bank and issues the afghani; the commercial list is short because the sector is. Azizi and Afghanistan International Bank are the two largest private banks, Bank-e-Millie Afghan (1933) is the oldest bank in the country and Pashtany Bank the other state-owned one. Kabul Bank appears in no list here on purpose: it collapsed in 2010 in what was then one of the largest banking frauds in the world relative to a country's economy, and its successor New Kabul Bank was later merged away. Most Afghans move money through hawala rather than through any of these.
+locale: en
+---
+Da Afghanistan Bank
+Azizi Bank
+Afghanistan International Bank
+Bank-e-Millie Afghan
+Pashtany Bank
+Ghazanfar Bank
+Maiwand Bank
+Islamic Bank of Afghanistan
+First MicroFinance Bank
+Bakhtar Bank
+Afghan United Bank
+National Bank of Pakistan Kabul

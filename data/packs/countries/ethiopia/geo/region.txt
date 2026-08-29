@@ -1,0 +1,19 @@
+---
+address: ethiopia.geo.region
+description: Ethiopia's first-level divisions: twelve regional states and two chartered city administrations (Addis Ababa, Dire Dawa). The list is current rather than historical, and the difference is large. The Southern Nations, Nationalities and Peoples' Region — for decades the country's most populous and most linguistically varied unit — no longer exists: Sidama left it in June 2020 after a referendum, South West Ethiopia Peoples' followed in 2021, and in 2023 what remained split into Central Ethiopia and South Ethiopia. A dataset built from a pre-2020 gazetteer will show SNNPR and no Sidama, and a reader comparing the two will think one of them is broken. Both are right for their moment; this file is the present one.
+locale: en
+---
+Oromia
+Amhara
+Somali
+South Ethiopia
+Central Ethiopia
+Tigray
+Sidama
+Afar
+South West Ethiopia Peoples'
+Benishangul-Gumuz
+Gambela
+Harari
+Addis Ababa
+Dire Dawa

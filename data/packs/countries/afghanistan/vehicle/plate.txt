@@ -1,0 +1,10 @@
+---
+address: afghanistan.vehicle.plate
+description: Afghan civilian licence plate: a serial, a Latin letter and the province code. Plates carry both Dari and Latin script and the province is written out on the plate itself, so the code below stands for what a reader sees spelled in words. Kabul-registered vehicles dominate any real sample by a wide margin because the capital holds most of the registered fleet.
+generator: tdc
+locale: en
+---
+<sequence name="serial"><gen type="number" value="1000..99999" length="5" first_zero="true"/></sequence>
+<sequence name="letter"><gen type="text" value="A,B,C,D,E,F,G,H,K,L,M,N,P,R,S,T"/></sequence>
+<sequence name="prov"><gen type="text" value="KBL,KDR,HRT,BLK,NGR,KDZ,HLM,GZN,BGL,FRB,TKR,BDK,PRN,KST,KNR" percent="40,9,9,8,7,5,4,3,3,3,2,2,2,1,2"/></sequence>
+<data>${{serial}}-${{letter}} ${{prov}}</data>

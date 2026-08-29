@@ -1,0 +1,9 @@
+---
+address: afghanistan.phone
+description: Afghan mobile number in E.164 form — +93 and nine digits, of which the first two are the operator. The allocation is real: 70 and 79 are Afghan Wireless (AWCC, the first operator, 2002), 77 and 78 Roshan, 72 and 73 Etisalat Afghanistan, 74 MTN Afghanistan, 75 Salaam (the state operator). Written nationally the number starts 0 instead of +93. Mobile penetration ran ahead of fixed lines by an enormous margin — there was almost no working fixed network to inherit in 2001 — so an Afghan contact record with a landline in it is unusual enough to be worth a second look.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="70,79,77,78,72,73,74,75" percent="18,17,16,16,12,10,7,4"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{7}"/></sequence>
+<data>+93${{prefix}}${{line}}</data>

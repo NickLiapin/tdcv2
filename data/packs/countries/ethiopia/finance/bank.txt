@@ -1,0 +1,29 @@
+---
+address: ethiopia.finance.bank
+description: Ethiopian banks. The shape of this list is the story: the Commercial Bank of Ethiopia is state-owned and holds a share of deposits no private bank comes close to, and the private sector below it did not exist before 1994, when Awash Bank opened as the first private bank after the Derg. The newest names are interest-free banks — Zamzam and Hijra were licensed in 2021 as full Islamic banks after years of window-only service — and regional banks raised from the shareholders of one region: Amhara Bank, Siinqee (from Oromia's microfinance institution), Tsehay. Enat Bank was founded in 2013 by women shareholders to lend to women. The National Bank of Ethiopia is the central bank and is included because it appears in payment records, not because anyone holds an account there.
+locale: en
+---
+Commercial Bank of Ethiopia
+Awash Bank
+Dashen Bank
+Bank of Abyssinia
+Wegagen Bank
+Hibret Bank
+Nib International Bank
+Cooperative Bank of Oromia
+Zemen Bank
+Berhan Bank
+Bunna Bank
+Abay Bank
+Addis International Bank
+Debub Global Bank
+Enat Bank
+Oromia Bank
+Amhara Bank
+Siinqee Bank
+Tsehay Bank
+Hijra Bank
+ZamZam Bank
+Goh Betoch Bank
+Development Bank of Ethiopia
+National Bank of Ethiopia

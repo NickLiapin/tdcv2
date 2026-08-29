@@ -610,6 +610,15 @@
       "packs": ["packs/zh-cn"]
     },
     {
+      "id": "afghanistan",
+      "name": "Afghanistan (country)",
+      "description": "Data specific to Afghanistan: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "afghanistan",
+      "regions": ["asia"],
+      "point": [66, 34],
+      "packs": ["packs/countries/afghanistan"]
+    },
+    {
       "id": "albania",
       "name": "Albania (country)",
       "description": "Data specific to Albania: docs, education, finance, geo, government, holiday, phone, sport, tax, telecom, vehicle.",
@@ -1006,6 +1015,15 @@
       "packs": ["packs/countries/estonia"]
     },
     {
+      "id": "ethiopia",
+      "name": "Ethiopia (country)",
+      "description": "Data specific to Ethiopia: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "ethiopia",
+      "regions": ["africa"],
+      "point": [39.5, 9],
+      "packs": ["packs/countries/ethiopia"]
+    },
+    {
       "id": "finland",
       "name": "Finland (country)",
       "description": "Data specific to Finland: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
@@ -1337,6 +1355,15 @@
       "regions": ["africa"],
       "point": [46.8, -19],
       "packs": ["packs/countries/madagascar"]
+    },
+    {
+      "id": "malawi",
+      "name": "Malawi (country)",
+      "description": "Data specific to Malawi: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "malawi",
+      "regions": ["africa"],
+      "point": [34, -13.5],
+      "packs": ["packs/countries/malawi"]
     },
     {
       "id": "malaysia",
@@ -1967,6 +1994,15 @@
       "regions": ["asia"],
       "point": [47, 15.5],
       "packs": ["packs/countries/yemen"]
+    },
+    {
+      "id": "zambia",
+      "name": "Zambia (country)",
+      "description": "Data specific to Zambia: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "zambia",
+      "regions": ["africa"],
+      "point": [28, -14],
+      "packs": ["packs/countries/zambia"]
     },
     {
       "id": "zimbabwe",

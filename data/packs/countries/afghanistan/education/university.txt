@@ -1,0 +1,25 @@
+---
+address: afghanistan.education.university
+description: Afghan universities. Kabul University (1932) is the oldest and Kabul Polytechnic (1963, built with Soviet assistance) the country's engineering school; the regional universities in Herat, Balkh, Nangarhar and Kandahar are the four that matter outside the capital. The American University of Afghanistan, founded 2006, is included because it appears in any dataset of Afghan graduates from that period, and Kabul Medical University trains most of the country's doctors. Enrolment at all of them changed sharply after 2021, which a dataset covering both sides of that year should not smooth over.
+locale: en
+---
+Kabul University
+Kabul Polytechnic University
+Herat University
+Balkh University
+Nangarhar University
+Kandahar University
+Kabul University of Medical Sciences
+American University of Afghanistan
+Kabul Education University
+Jawzjan University
+Bamyan University
+Khost University
+Parwan University
+Takhar University
+Badakhshan University
+Alberoni University
+Paktia University
+Kunduz University
+Faryab University
+Ghazni University

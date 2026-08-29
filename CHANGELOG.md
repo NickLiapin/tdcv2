@@ -32,6 +32,24 @@ page — is tracked in that implementation's own changelog:
   pack words exactly as the env's does, `TDC153` accepts what the packs actually know, and
   `TDC272` warns only for a locale that truly carries no date words — Bambara, not Afrikaans.
 
+<!-- covers: four country packs -->
+
+- **Four country packs written: Ethiopia, Afghanistan, Malawi, Zambia.** Chosen by population
+  rather than by alphabet — between them they hold 210 million of the 319 million people the
+  country corpus was missing, so country coverage goes from 96.1% to **98.7% of the world's
+  population** while the pack count moves only from 152 to 156. Each carries what a country
+  pack is for: its own subdivisions (Ethiopia's regions are the post-2020 set, so SNNPR is gone
+  and Sidama is there; Afghanistan's 34 provinces; Malawi's 28 districts; Zambia's 10), cities,
+  universities, banks, public holidays, football clubs, operator-accurate phone numbers, licence
+  plates, and the identity and tax numbers a record needs — Ethiopia's 12-digit Fayda and
+  10-digit TIN, Afghanistan's volume-page-record tazkira, Malawi's 8-character national ID,
+  Zambia's `123456/78/1` NRC with the district code in the middle. Registered in
+  `CANONICAL_COUNTRIES`, in `bundles.json` with map geography so the picker can place them, and
+  verified the way shipping has to be verified: the bundles were built, `ethiopia.zip` was
+  unpacked into an empty store, and a run reading nothing but that store rendered Ethiopian
+  cities, banks and phone numbers. All five implementations produce identical bytes from all
+  four packs.
+
 <!-- covers: variant locale fallback -->
 
 - **`local="en-gb"` renders British-shaped English instead of refusing — a regional variant now

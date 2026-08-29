@@ -1,0 +1,7 @@
+---
+address: ethiopia.tax.tin
+description: Ethiopian Taxpayer Identification Number — ten digits, issued by the Ministry of Revenues to individuals and businesses alike. The TIN is the hinge of the formal economy here in a way it is not everywhere: it is required to open a business bank account, to clear goods through customs, to bid for a government contract and to register a vehicle, so a business record without one is either informal or incomplete.
+generator: tdc
+locale: en
+---
+<gen type="number" value="1000000000..9999999999" length="10"/>

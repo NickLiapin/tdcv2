@@ -1,0 +1,15 @@
+---
+address: zambia.geo.province
+description: The ten provinces of Zambia. Muchinga was split from Northern Province in 2011 and is the newest, so a list of nine provinces is a pre-2011 one rather than an error. Copperbelt is the outlier in every dataset: it is small, it is the most urbanised part of the country, and the copper mines there have driven Zambian migration, employment and public finances since the 1930s — when the copper price moves, Copperbelt's numbers move with it and the rest of the country's follow a year later.
+locale: en
+---
+Lusaka
+Copperbelt
+Southern
+Eastern
+Central
+Northern
+Luapula
+North-Western
+Western
+Muchinga

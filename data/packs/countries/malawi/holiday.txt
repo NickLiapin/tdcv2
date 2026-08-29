@@ -1,0 +1,17 @@
+---
+address: malawi.holiday
+description: Malawian public holidays. Four commemorate people and dates specific to the country: John Chilembwe Day (15 January) marks the 1915 uprising against colonial rule, Martyrs' Day (3 March) the 1959 Nkhata Bay killings, Kamuzu Day (14 May) the first president's birthday, and Mother's Day (15 October) is a public holiday here rather than a greeting-card occasion. Independence is 6 July 1964 and Republic Day the same date in 1966, so the two share one holiday. Eid al-Fitr moves with the lunar calendar and is gazetted each year.
+locale: en
+---
+New Year's Day
+John Chilembwe Day
+Martyrs' Day
+Good Friday
+Easter Monday
+Labour Day
+Kamuzu Day
+Eid al-Fitr
+Independence Day
+Mother's Day
+Christmas Day
+Boxing Day

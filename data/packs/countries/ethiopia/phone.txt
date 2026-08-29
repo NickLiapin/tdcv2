@@ -1,0 +1,9 @@
+---
+address: ethiopia.phone
+description: Ethiopian mobile number in E.164 form. Ethio Telecom was a state monopoly until 2021 and still holds the 09xx block that every Ethiopian mobile number used to start with; Safaricom Ethiopia, the first competitor, launched in October 2022 on 07xx. Written nationally the same number starts 0 rather than +251, so +251911234567 is dialled 0911234567. The split here is weighted towards 09xx because the subscriber base is: Safaricom Ethiopia passed a few million subscribers in its first years against Ethio Telecom's tens of millions.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="91,92,93,94,90,70,71,72" percent="22,20,16,14,12,6,5,5"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{7}"/></sequence>
+<data>+251${{prefix}}${{line}}</data>

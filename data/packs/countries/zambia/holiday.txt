@@ -1,0 +1,19 @@
+---
+address: zambia.holiday
+description: Zambian public holidays. Several are unusual enough to be worth naming: Youth Day (12 March), Kenneth Kaunda Day (28 April, added in 2022 after the first president's death), Africa Freedom Day (25 May), and a Sunday in July gazetted as National Day of Prayer — Zambia declared itself a Christian nation in its 1996 constitution and the holiday follows from that. Heroes' Day and Unity Day are the first Monday and Tuesday of July and always fall together. Independence is 24 October 1964.
+locale: en
+---
+New Year's Day
+Youth Day
+Good Friday
+Holy Saturday
+Easter Monday
+Kenneth Kaunda Day
+Labour Day
+Africa Freedom Day
+Heroes' Day
+Unity Day
+Farmers' Day
+National Day of Prayer
+Independence Day
+Christmas Day

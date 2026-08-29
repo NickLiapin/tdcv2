@@ -1,0 +1,23 @@
+---
+address: ethiopia.sport.team
+description: Clubs of the Ethiopian Premier League. Saint George (Kidus Giorgis, founded 1935 during the Italian occupation) and Ethiopian Coffee (Buna, the coffee marketing enterprise's side) are the two the country divides over. As in much of the region the league is full of institutional rather than civic sides — Defence Force is the army's, Ethiopian Insurance the insurer's, Ethio Electric the utility's — while the regional clubs carry their region's name as a badge of it: Fasil Kenema is Gondar's, Sidama Bunna is Sidama's coffee, Bahir Dar Kenema is Amhara's lake city.
+locale: en
+---
+Saint George
+Ethiopian Coffee
+Fasil Kenema
+Sidama Bunna
+Bahir Dar Kenema
+Mekelle 70 Enderta
+Wolaita Dicha
+Hadiya Hossana
+Adama City
+Defence Force
+Ethiopian Insurance
+Jimma Aba Jifar
+Dire Dawa City
+Hawassa City
+Arba Minch City
+Sebeta City
+Ethio Electric
+Welwalo Adigrat University

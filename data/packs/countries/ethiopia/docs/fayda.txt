@@ -1,0 +1,7 @@
+---
+address: ethiopia.docs.fayda
+description: Fayda Identification Number — the 12-digit number of Ethiopia's national digital ID, run by the National ID Program since 2022. Fayda is the country's first population-wide identifier: before it an Ethiopian proved identity with a kebele card issued by the local administration, which was paper, locally numbered, and not unique nationally, so two people in different woredas could hold the same number and nothing joined them up. Registration is biometric and enrolment is still in progress, so a dataset of Ethiopian people today contains a mix of those who have a Fayda number and those who do not — modelling every row as having one overstates coverage.
+generator: tdc
+locale: en
+---
+<gen type="number" value="100000000000..999999999999" length="12"/>

@@ -1,0 +1,35 @@
+---
+address: ethiopia.geo.city
+description: Ethiopian cities and principal towns, roughly by population. Addis Ababa is far larger than anything else and holds the African Union, so it appears in datasets with a weight no other Ethiopian city has. Several entries carry two names in ordinary use because Amharic and Oromo name the same place differently — Adama is Nazret, Bishoftu is Debre Zeit, Hawassa is Awasa in older spellings — and which name a document uses often says more about when it was written than about where it points. Harar is walled and is the only Ethiopian city that is also a region.
+locale: en
+---
+Addis Ababa
+Dire Dawa
+Mekelle
+Gondar
+Adama
+Hawassa
+Bahir Dar
+Dessie
+Jimma
+Jijiga
+Shashamane
+Bishoftu
+Sodo
+Arba Minch
+Hosaena
+Harar
+Dilla
+Nekemte
+Debre Birhan
+Asella
+Debre Markos
+Kombolcha
+Adigrat
+Weldiya
+Ambo
+Aksum
+Gambela
+Assosa
+Semera
+Wolkite

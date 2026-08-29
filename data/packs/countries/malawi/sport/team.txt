@@ -1,0 +1,17 @@
+---
+address: malawi.sport.team
+description: Clubs of the Malawi Super League. Nyasa Big Bullets and Mighty Mukuru Wanderers are the Blantyre pair the country divides over, and both carry a sponsor's name in front of a much older one — Bullets have been Bullets since 1967. Silver Strikers belong to the Reserve Bank and Civil Service United to the civil service, the same institutional pattern the region shares; Moyale Barracks and Mafco are army sides.
+locale: en
+---
+Nyasa Big Bullets
+Mighty Mukuru Wanderers
+Silver Strikers
+Moyale Barracks
+Civil Service United
+Mafco
+Karonga United
+Ektu Chitipa United
+Dedza Dynamos
+Blue Eagles
+Mighty Tigers
+Kamuzu Barracks

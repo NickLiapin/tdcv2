@@ -1,0 +1,7 @@
+---
+address: afghanistan.tax.tin
+description: Afghan Taxpayer Identification Number — ten digits, issued by the Afghanistan Revenue Department. A TIN is required to hold a business licence, to clear customs and to be paid by a government contract, which in an economy where most transactions are informal makes the TIN a fairly precise marker of the formal sector rather than a universal identifier.
+generator: tdc
+locale: en
+---
+<gen type="number" value="1000000000..9999999999" length="10"/>

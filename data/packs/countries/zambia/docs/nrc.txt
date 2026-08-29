@@ -1,0 +1,10 @@
+---
+address: zambia.docs.nrc
+description: National Registration Card number — the Zambian NRC, and the format is unusual enough to trip most validators. It is three parts: a six-digit serial, a two-digit district code for the district that issued it, and a single check-like suffix digit, written 123456/78/1. The middle pair is geography, so two NRCs issued in the same district share it. The NRC is required to vote, to open a bank account and to register a SIM, and it is issued at 16.
+generator: tdc
+locale: en
+---
+<sequence name="serial"><gen type="number" value="100000..999999" length="6"/></sequence>
+<sequence name="district"><gen type="number" value="1..99" length="2" first_zero="true"/></sequence>
+<sequence name="suffix"><gen type="number" value="1..9" length="1"/></sequence>
+<data>${{serial}}/${{district}}/${{suffix}}</data>

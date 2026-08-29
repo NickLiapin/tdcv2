@@ -1,0 +1,30 @@
+---
+address: afghanistan.geo.city
+description: Afghan cities, roughly by population. Kabul dwarfs the rest and grew several times over between 2001 and 2021 as people moved to it; Kandahar, Herat and Mazar-i-Sharif are the regional capitals that anchor the south, west and north. Herat's trade looks to Iran and Mazar's to Uzbekistan, which is visible in their currencies and their goods long before it is visible in any map. Several names carry a definite geographic sense rather than being arbitrary labels — Sar-e Pol is 'head of the bridge', Pul-e Khumri is 'bridge of Khumri'.
+locale: en
+---
+Kabul
+Kandahar
+Herat
+Mazar-i-Sharif
+Jalalabad
+Kunduz
+Ghazni
+Lashkargah
+Taloqan
+Pul-e Khumri
+Khost
+Charikar
+Sheberghan
+Sar-e Pol
+Maimana
+Zaranj
+Farah
+Bamyan
+Gardez
+Asadabad
+Baghlan
+Mehtar Lam
+Aybak
+Qalat
+Nili

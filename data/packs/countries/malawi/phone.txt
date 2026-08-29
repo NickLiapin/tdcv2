@@ -1,0 +1,9 @@
+---
+address: malawi.phone
+description: Malawian mobile number in E.164 form — +265 and nine digits. Two operators hold the mobile blocks: Airtel Malawi on 099x and 088x, TNM (Telekom Networks Malawi) on 088x and 031x. Written nationally the number starts 0 rather than +265. The 1xxx fixed block belongs to MTL and is small; Malawi went mobile-first and never built out copper.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="991,992,993,994,995,996,997,998,999,881,882,883,884,885,886,887,888" percent="8,8,8,8,8,8,7,7,7,4,4,4,4,4,3,3,3"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+265${{prefix}}${{line}}</data>

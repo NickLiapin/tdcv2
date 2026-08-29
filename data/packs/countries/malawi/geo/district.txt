@@ -1,0 +1,33 @@
+---
+address: malawi.geo.district
+description: The 28 districts of Malawi, the country's first-level administrative division, grouped into three regions. The district is the unit that matters in a Malawian address and in almost every government dataset; the region above it is used for statistics and for the football league but has no administration of its own. Likoma is the smallest by a wide margin — it is an island in Lake Malawi, closer to the Mozambican shore than to the Malawian one, and it is a district all the same.
+locale: en
+---
+Lilongwe
+Blantyre
+Mzimba
+Zomba
+Machinga
+Mangochi
+Thyolo
+Mulanje
+Kasungu
+Salima
+Dedza
+Ntcheu
+Nkhotakota
+Nkhata Bay
+Rumphi
+Karonga
+Chitipa
+Mzuzu
+Balaka
+Chikwawa
+Chiradzulu
+Dowa
+Mwanza
+Neno
+Nsanje
+Ntchisi
+Phalombe
+Likoma

@@ -1,0 +1,19 @@
+---
+address: zambia.sport.team
+description: Clubs of the Zambian Super League. The institutional pattern here is stronger than almost anywhere: Zesco United belongs to the electricity utility, Power Dynamos to the Copperbelt Energy Corporation, Green Buffaloes to the army, Green Eagles to the air force, Zanaco to the bank, Red Arrows to the air force as well, and Nkana and Mufulira Wanderers were the mine sides of Kitwe and Mufulira. Zambian football is largely played by the payroll it belongs to, which is why club fortunes track the copper price.
+locale: en
+---
+Zesco United
+Nkana
+Power Dynamos
+Green Buffaloes
+Zanaco
+Red Arrows
+Green Eagles
+Forest Rangers
+Kabwe Warriors
+Mufulira Wanderers
+Lusaka Dynamos
+Napsa Stars
+Buildcon
+Circuit City

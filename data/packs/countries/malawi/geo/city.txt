@@ -1,0 +1,23 @@
+---
+address: malawi.geo.city
+description: Malawian cities and towns. Only four places hold city status — Lilongwe, Blantyre, Mzuzu and Zomba — and the split between the first two is the country's defining urban fact: Zomba was the colonial capital, Blantyre grew as the commercial one, and Lilongwe was made the capital in 1975 by Hastings Banda, who wanted it in the centre. Government sits in Lilongwe and business still largely sits in Blantyre.
+locale: en
+---
+Lilongwe
+Blantyre
+Mzuzu
+Zomba
+Kasungu
+Mangochi
+Karonga
+Salima
+Nkhotakota
+Liwonde
+Nsanje
+Rumphi
+Balaka
+Dedza
+Mchinji
+Luchenza
+Monkey Bay
+Chitipa

@@ -1,0 +1,18 @@
+---
+address: zambia.finance.bank
+description: Zambian banks. Zanaco began as the state commercial bank and is still the one with the widest branch network; Stanbic, Absa and Standard Chartered are the regional and international names that dominate corporate lending. The Bank of Zambia is the central bank and issues the kwacha, which was redenominated in 2013 at 1000 to 1 — a Zambian financial dataset spanning that year holds amounts three orders of magnitude apart with no unit change to signal it.
+locale: en
+---
+Zanaco
+Stanbic Bank Zambia
+Absa Bank Zambia
+Standard Chartered Zambia
+First National Bank Zambia
+Indo Zambia Bank
+Atlas Mara Bank Zambia
+Citi Bank Zambia
+Ecobank Zambia
+Access Bank Zambia
+Investrust Bank
+United Bank for Africa Zambia
+Bank of Zambia

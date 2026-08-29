@@ -1,0 +1,9 @@
+---
+address: zambia.vehicle.plate
+description: Zambian licence plate — three letters and four digits, issued in sequence nationally rather than by province, so unlike Malawi or Kenya a Zambian plate says nothing about where the vehicle lives. Personalised plates exist and break the pattern; government vehicles carry GRZ.
+generator: tdc
+locale: en
+---
+<sequence name="letters"><gen type="regex" value="[A-Z]{3}"/></sequence>
+<sequence name="serial"><gen type="number" value="1..9999" length="4" first_zero="true"/></sequence>
+<data>${{letters}} ${{serial}}</data>

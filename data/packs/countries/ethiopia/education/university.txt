@@ -1,0 +1,35 @@
+---
+address: ethiopia.education.university
+description: Ethiopian public universities. Addis Ababa University (1950, as the University College of Addis Ababa) and Haramaya (1954, founded as an agricultural college with Oklahoma State) are the two old ones; almost everything else on this list was built in two waves of expansion after 2000, which took the country from two universities to more than forty in twenty years. The naming rule is geographic — a university is called after the town it stands in — so the list doubles as a list of regional centres.
+locale: en
+---
+Addis Ababa University
+Haramaya University
+Jimma University
+Bahir Dar University
+Mekelle University
+Hawassa University
+University of Gondar
+Arba Minch University
+Adama Science and Technology University
+Addis Ababa Science and Technology University
+Wollo University
+Debre Berhan University
+Wolaita Sodo University
+Dire Dawa University
+Jigjiga University
+Bule Hora University
+Ambo University
+Aksum University
+Debre Markos University
+Mizan-Tepi University
+Assosa University
+Mettu University
+Woldia University
+Semera University
+Dilla University
+Wolkite University
+Wachemo University
+Adigrat University
+Gambella University
+Kotebe University of Education

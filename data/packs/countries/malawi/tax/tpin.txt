@@ -1,0 +1,7 @@
+---
+address: malawi.tax.tpin
+description: Malawi Taxpayer Identification Number — eight digits, issued by the Malawi Revenue Authority. Required for a business licence, for customs clearance and for any payment from government, and increasingly for employment, since PAYE is filed against it.
+generator: tdc
+locale: en
+---
+<gen type="number" value="10000000..99999999" length="8"/>

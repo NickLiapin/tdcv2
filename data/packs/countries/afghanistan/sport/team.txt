@@ -1,0 +1,17 @@
+---
+address: afghanistan.sport.team
+description: Afghan sports sides. Cricket comes first here and that is not a stylistic choice: the national cricket team, built largely by players who learned the game in refugee camps in Pakistan, reached the ICC full-member table in 2017 and is the most successful thing Afghan sport has done. The five Shpageeza Cricket League franchises are named for regions. Below them are the football clubs of the Afghan Premier League, which is organised on the same regional-franchise model rather than around city clubs with long histories.
+locale: en
+---
+Band-e-Amir Dragons
+Kabul Eagles
+Boost Defenders
+Speen Ghar Tigers
+Amo Sharks
+Shaheen Asmayee
+De Maiwand Atalan
+Simorgh Alborz
+Toofan Harirod
+De Abasin Sape
+Oqaban Hindukush
+Mawjhai Amu

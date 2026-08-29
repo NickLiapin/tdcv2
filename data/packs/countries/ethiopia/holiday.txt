@@ -1,0 +1,18 @@
+---
+address: ethiopia.holiday
+description: Ethiopian public holidays, in the English forms the Federal Negarit Gazeta prints. Ethiopia keeps its own calendar — thirteen months, seven to eight years behind the Gregorian one — so the dates a reader expects are all shifted: Christmas (Genna) is 7 January, Epiphany (Timkat) is 19 January, and the New Year (Enkutatash) falls on 11 September. Adwa Victory Day marks the 1896 defeat of the Italian army, the one African victory over a European colonial power that held; Patriots' Victory Day marks the end of the 1936-41 occupation; Derg Downfall Day marks 1991. Easter (Fasika) follows the Orthodox computation and so drifts against Western Easter, and the three Islamic holidays follow the lunar sighting — Ethiopia is roughly a third Muslim and they are national holidays, not regional ones.
+locale: en
+---
+Genna
+Timkat
+Adwa Victory Day
+Good Friday
+Fasika
+International Labour Day
+Patriots' Victory Day
+Derg Downfall Day
+Eid al-Fitr
+Eid al-Adha
+Enkutatash
+Meskel
+Mawlid

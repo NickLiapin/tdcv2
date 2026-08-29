@@ -1,0 +1,6 @@
+---
+address: afghanistan.finance.currency
+description: The afghani, subdivided into 100 puls. Redenominated in 2002 at 1000 old to 1 new, which retired the two competing currencies then circulating — the Northern Alliance and Taliban administrations had each been issuing their own afghani notes with different serial prefixes, and the new issue replaced both.
+locale: en
+---
+Afghan afghani

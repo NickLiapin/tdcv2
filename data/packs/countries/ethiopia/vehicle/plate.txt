@@ -1,0 +1,10 @@
+---
+address: ethiopia.vehicle.plate
+description: Ethiopian civilian licence plate. The leading digit is the REGION the vehicle is registered in and the letter is the plate class — A private, B commercial, C government — followed by a five-digit serial. The region codes are worth a note: they were assigned to the region set as it stood before 2020, so Sidama, South West Ethiopia, Central Ethiopia and South Ethiopia — all created between 2020 and 2023 — have no code of their own and their vehicles still carry the code of the region they left. A plate is therefore evidence of an administrative map that no longer exists, which is exactly the kind of lag a test dataset should reproduce rather than tidy away.
+generator: tdc
+locale: en
+---
+<sequence name="region"><gen type="text" value="1,2,3,4,5,6,7,8,9,10,11"/></sequence>
+<sequence name="class"><gen type="text" value="A,B,C" percent="70,25,5"/></sequence>
+<sequence name="serial"><gen type="number" value="1..99999" length="5" first_zero="true"/></sequence>
+<data>${{region}}-${{class}}${{serial}}</data>

@@ -1,0 +1,7 @@
+---
+address: zambia.tax.tpin
+description: Zambian Taxpayer Identification Number — ten digits, issued by the Zambia Revenue Authority. Required for a business licence, a customs declaration, a government contract and, since the TPIN was linked to the NRC, for a growing list of ordinary transactions.
+generator: tdc
+locale: en
+---
+<gen type="number" value="1000000000..9999999999" length="10"/>

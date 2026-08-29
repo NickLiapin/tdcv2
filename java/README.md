@@ -109,7 +109,7 @@ against the active locale; write `ru.person.lastName` to name a pack outright.
 
 **Why a string and not `tdc.person().lastName()`.** That shape needs a generated
 method per address, and a generated surface can only ever cover the packs inside
-the jar. Most packs are downloaded at runtime — 86 languages, 152
+the jar. Most packs are downloaded at runtime — 86 languages, 156
 countries — so `tdc.lang().ru()` would not exist for the pack a user had just
 installed, while `get("ru.person.lastName")` works the moment the download
 finishes.

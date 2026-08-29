@@ -1,0 +1,39 @@
+---
+address: afghanistan.geo.province
+description: The 34 provinces (wilayat) of Afghanistan. The set has been stable since 2004, when Panjshir and Daykundi were carved out of Parwan and Uruzgan — which matters for datasets, because a list of 32 provinces is not wrong, it is simply from before that. Several names are spelled more than one way in English because they are transliterated from Dari or Pashto rather than translated: Kandahar is Qandahar, Herat is Hirat, Faryab is Fariab, Nimroz is Nimruz. This file uses the forms the Afghan Central Statistics Organisation prints in English.
+locale: en
+---
+Kabul
+Kandahar
+Herat
+Balkh
+Nangarhar
+Kunduz
+Helmand
+Ghazni
+Baghlan
+Faryab
+Takhar
+Badakhshan
+Parwan
+Khost
+Kunar
+Jowzjan
+Laghman
+Paktia
+Paktika
+Sar-e Pol
+Badghis
+Bamyan
+Daykundi
+Farah
+Ghor
+Kapisa
+Logar
+Nimroz
+Nuristan
+Panjshir
+Samangan
+Uruzgan
+Wardak
+Zabul

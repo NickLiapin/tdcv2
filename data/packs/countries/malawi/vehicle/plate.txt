@@ -1,0 +1,10 @@
+---
+address: malawi.vehicle.plate
+description: Malawian licence plate — two letters for the registering district, four digits and a check letter. BT is Blantyre, LL Lilongwe, MZ Mzuzu, ZA Zomba; the rest follow the district. The plate is one of the few pieces of Malawian data that carries geography in a fixed position, which makes it useful for testing address-matching logic that has to agree with a registration.
+generator: tdc
+locale: en
+---
+<sequence name="district"><gen type="text" value="BT,LL,MZ,ZA,KU,MG,SA,NB,KK,DZ,NU,MH" percent="26,30,10,7,5,5,4,3,3,3,2,2"/></sequence>
+<sequence name="serial"><gen type="number" value="1..9999" length="4" first_zero="true"/></sequence>
+<sequence name="check"><gen type="text" value="A,B,C,D,E,F,G,H,J,K,L,M,N,P,R,S,T,U,V,W,X,Y,Z"/></sequence>
+<data>${{district}} ${{serial}} ${{check}}</data>

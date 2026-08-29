@@ -206,6 +206,7 @@ function readLocaleName(dir, id) {
  * light the right spot on a map a hundred characters wide, and no more precise than that.
  */
 const GEOGRAPHY = {
+  afghanistan: { regions: ['asia'], point: [66, 34] },
   albania: { regions: ['europe'], point: [20, 41] },
   algeria: { regions: ['africa'], point: [3, 28] },
   angola: { regions: ['africa'], point: [17, -12] },
@@ -250,6 +251,7 @@ const GEOGRAPHY = {
   el_salvador: { regions: ['north'], point: [-88.9, 13.8] },
   equatorial_guinea: { regions: ['africa'], point: [10.5, 1.6] },
   estonia: { regions: ['europe'], point: [25.5, 58.6] },
+  ethiopia: { regions: ['africa'], point: [39.5, 9] },
   finland: { regions: ['europe'], point: [26, 64] },
   france: { regions: ['europe'], point: [2.5, 46.5] },
   gabon: { regions: ['africa'], point: [11.8, -0.8] },
@@ -287,6 +289,7 @@ const GEOGRAPHY = {
   luxembourg: { regions: ['europe'], point: [6.1, 49.8] },
   macau: { regions: ['asia'], point: [113.55, 22.2] },
   madagascar: { regions: ['africa'], point: [46.8, -19] },
+  malawi: { regions: ['africa'], point: [34, -13.5] },
   malaysia: { regions: ['asia'], point: [102, 4.2] },
   maldives: { regions: ['asia'], point: [73.2, 3.2] },
   mali: { regions: ['africa'], point: [-3, 17.5] },
@@ -357,6 +360,7 @@ const GEOGRAPHY = {
   venezuela: { regions: ['south'], point: [-66, 7] },
   vietnam: { regions: ['asia'], point: [108.3, 14.1] },
   yemen: { regions: ['asia'], point: [47, 15.5] },
+  zambia: { regions: ['africa'], point: [28, -14] },
   zimbabwe: { regions: ['africa'], point: [29.2, -19] },
 };
 

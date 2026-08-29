@@ -1,0 +1,13 @@
+---
+address: afghanistan.holiday
+description: Afghan public holidays. Two calendars run at once. Nowruz opens the Solar Hijri year on 21 March and is the country's largest civil holiday; the Islamic holidays — the two Eids, Ashura, Mawlid — follow the lunar calendar and so move about eleven days earlier each Gregorian year. Independence Day on 19 August marks the 1919 treaty that ended British control of Afghan foreign policy, not a colonial independence, which is why Afghans date their sovereignty to a treaty rather than to a flag-lowering. The list is the set of days on which offices close; which of them are officially observed has changed with each government, and a dataset spanning 2021 will contain both observances.
+locale: en
+---
+Nowruz
+Eid al-Fitr
+Eid al-Adha
+Ashura
+Mawlid
+Independence Day
+First Day of Ramadan
+Day of Arafah

@@ -1,0 +1,8 @@
+---
+address: malawi.geo.region
+description: Malawi's three regions — Northern, Central and Southern. They carry no administration of their own but they organise the country's statistics, its football and, persistently, its politics: Malawian election maps have been read by region since 1994, and a dataset of Malawian people that ignores the region loses the single strongest predictor in it.
+locale: en
+---
+Southern
+Central
+Northern

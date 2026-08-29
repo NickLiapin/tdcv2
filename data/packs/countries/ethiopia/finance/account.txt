@@ -1,0 +1,7 @@
+---
+address: ethiopia.finance.account
+description: Commercial Bank of Ethiopia account number — 13 digits. Ethiopia has no IBAN: the country is not in the IBAN registry, so a domestic transfer is addressed by bank name plus account number and an international one goes through SWIFT with the account number in the free-text field. Account-number length is not standardised across banks — CBE's 13 digits are the most common shape in any Ethiopian dataset simply because CBE holds the most accounts — so a validator that assumes one length will reject perfectly good numbers from the private banks.
+generator: tdc
+locale: en
+---
+<gen type="number" value="1000000000000..9999999999999" length="13"/>

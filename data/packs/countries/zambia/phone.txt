@@ -1,0 +1,9 @@
+---
+address: zambia.phone
+description: Zambian mobile number in E.164 form — +260 and nine digits. Three operators: Airtel Zambia on 097x, MTN Zambia on 096x, and Zamtel — the state operator — on 095x. Written nationally the number starts 0 instead of +260. The prefix is a reliable operator marker here, which matters because mobile money in Zambia is operator-bound: an Airtel Money transfer to a 096 number is a cross-network transaction with different fees.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="97,96,95" percent="42,40,18"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{7}"/></sequence>
+<data>+260${{prefix}}${{line}}</data>

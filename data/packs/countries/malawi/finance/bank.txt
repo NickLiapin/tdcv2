@@ -1,0 +1,14 @@
+---
+address: malawi.finance.bank
+description: Malawian banks. The Reserve Bank of Malawi is the central bank. National Bank of Malawi and Standard Bank are the two largest commercial banks and are both listed on the Malawi Stock Exchange, which is small enough that the banks make up much of it. NBS Bank began as a building society and converted; FDH grew out of a discount house. Mobile money — Airtel Money and Mpamba — moves more transactions than the branch network does, and a Malawian payment dataset that only models banks will miss most of the volume.
+locale: en
+---
+National Bank of Malawi
+Standard Bank Malawi
+NBS Bank
+FDH Bank
+First Capital Bank
+CDH Investment Bank
+Ecobank Malawi
+Centenary Bank
+Reserve Bank of Malawi

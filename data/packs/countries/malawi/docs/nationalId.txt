@@ -1,0 +1,7 @@
+---
+address: malawi.docs.nationalId
+description: Malawi national ID number — eight alphanumeric characters on the card the National Registration Bureau began issuing in 2017. The 2017-18 mass registration was unusually complete for the region: it enrolled most of the adult population in a matter of months and the ID is now required to register a SIM card, to open a bank account and to vote, which makes it one of the few African national IDs that a dataset can reasonably assume almost every adult holds.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[0-9A-Z]{8}"/>

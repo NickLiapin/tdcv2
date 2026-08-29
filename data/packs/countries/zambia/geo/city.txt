@@ -1,0 +1,25 @@
+---
+address: zambia.geo.city
+description: Zambian cities and towns. The shape of this list is the Copperbelt: Kitwe, Ndola, Chingola, Mufulira, Luanshya and Kalulushi are all mining towns within an hour of each other, and together they hold a share of the urban population that rivals Lusaka. Livingstone is the tourist town at Victoria Falls and was the capital until 1935. Kabwe, once Broken Hill, gave its name to a famous hominin skull and to one of the worst lead-contamination sites in the world.
+locale: en
+---
+Lusaka
+Kitwe
+Ndola
+Kabwe
+Chingola
+Mufulira
+Livingstone
+Luanshya
+Kasama
+Chipata
+Solwezi
+Mongu
+Kafue
+Mazabuka
+Choma
+Mansa
+Kalulushi
+Monze
+Samfya
+Nakonde

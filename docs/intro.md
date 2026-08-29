@@ -25,7 +25,7 @@
 > [!IMPORTANT]
 > **This documentation**
 >
-> Covers TDC **0.2.2**, last updated **28 August 2026** — the date of the newest
+> Covers TDC **0.2.2**, last updated **29 August 2026** — the date of the newest
 > change to any page, not the date this site was built.
 
 TDC generates internally consistent test data. Within each row, names match gender
@@ -272,7 +272,7 @@ byte-for-byte match with the output shown above.
 
 - **[Locale and country packs](data-packs/overview.md#top).** Generate data for people,
   places, medical records, and documents in 86 languages. Country packs
-  also support national ID formats for 152 countries, with the
+  also support national ID formats for 156 countries, with the
   appropriate check-digit rule for each format.
 
 ## Where TDC is used
@@ -346,7 +346,7 @@ registry produces the same bytes for the same config and seed.
 
 Every published package carries a starter set of data packs, so it works with
 nothing else installed; the other 86 languages and
-152 country packs are
+156 country packs are
 [a download away](data-packs/installing-packs.md#top).
 
 ## Where to start

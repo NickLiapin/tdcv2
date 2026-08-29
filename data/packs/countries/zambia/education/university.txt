@@ -1,0 +1,19 @@
+---
+address: zambia.education.university
+description: Zambian universities. The University of Zambia opened in 1966, two years after independence, and the Copperbelt University in Kitwe followed to serve the mining region; between them they trained most of the country's professionals for thirty years. The private sector arrived in the 1990s and grew quickly, which is why several names on this list are twenty years old at most.
+locale: en
+---
+University of Zambia
+Copperbelt University
+Mulungushi University
+Kwame Nkrumah University
+Chalimbana University
+Mukuba University
+Palabana University
+Zambian Open University
+Cavendish University Zambia
+University of Lusaka
+Texila American University
+Rusangu University
+Eden University
+Northrise University
