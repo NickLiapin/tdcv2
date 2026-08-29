@@ -3,22 +3,32 @@ description: Diagnosis restricted to male patients, in Galician. Kept beside per
 locale: gl
 ---
 Hiperplasia benigna de próstata
-Cancro de próstata
 Prostatite
-Disfunción eréctil
-Hipogonadismo masculino
+Cancro de próstata
+Cancro de testículo
+Torsión testicular
 Varicocele
 Hidrocele
+Epididimite
+Criptorquidia
 Fimose
 Balanite
-Epididimite
-Orquite
-Torsión testicular
-Cancro de testículo
-Criptorquidia
-Xinecomastia
+Disfunción eréctil
 Enfermidade de Peyronie
-Azoospermia
-Esterilidade masculina
-Uretrite
+Infertilidade masculina
+Xinecomastia
+Hipogonadismo masculino
+Priapismo
+Espermatocele
+Alopecia masculina
+Hernia escrotal
 Cancro de pene
+Orquite
+Estenose uretral
+Síndrome de Klinefelter
+Azoospermia
+Exaculación precoz
+Parafimose
+Absceso prostático
+Vesiculite seminal
+Hematospermia

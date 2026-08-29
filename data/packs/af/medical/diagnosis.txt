@@ -3,32 +3,29 @@ description: Diagnosis, in Afrikaans. Four entries near the top are what makes t
 locale: af
 ---
 Hipertensie
-Tipe 2-diabetes mellitus
-MIV-infeksie
-Tuberkulose
-Multimiddelweerstandige tuberkulose
+Tipe 2-diabetes
 Asma
 Akute brongitis
 Griep
 Migraine
 Veralgemeende angsversteuring
-Major depressiewe versteuring
+Major depressie
 Osteoartritis
 Rumatoïede artritis
 Gastro-esofageale refluksiekte
-Ystertekortanemie
-Hipotiroïdisme
+Ystertekort-anemie
+Hipotireose
 Urienweginfeksie
 Longontsteking
 Chroniese niersiekte
-Koronêre arteriesiekte
+Koronêre hartsiekte
 Atriale fibrillasie
-Kongestiewe hartversaking
-Iskemiese beroerte
+Chroniese hartversaking
+Isgemiese beroerte
 Epilepsie
 Parkinson se siekte
 Alzheimer se siekte
-Multipele sklerose
+Veelvuldige sklerose
 Psoriase
 Atopiese dermatitis
 Allergiese rinitis
@@ -40,7 +37,7 @@ Gloukoom
 Blindedermontsteking
 Galblaasontsteking
 Divertikulitis
-Prikkelbaredermsindroom
+Prikkelbare-dermsindroom
 Crohn se siekte
 Ulseratiewe kolitis
 Chroniese hepatitis B
@@ -49,46 +46,139 @@ Akute pankreatitis
 Jig
 Osteoporose
 Fibromialgie
-Isjias
-Diskusprolaps
-Karpaletonnelsindroom
+Isgias
+Skyfbreuk
+Karpale tonnelsindroom
 Tendinitis
 Chroniese obstruktiewe longsiekte
-Silikose
-Pneumokoniose
+Tuberkulose
 Leukemie
 Limfoom
 Melanoom
-Basaalselkarsinoom
 Hiperlipidemie
 Vetsug
 Obstruktiewe slaapapnee
-Slapeloosheid
+Slaaploosheid
 Bipolêre versteuring
-Aandagafleibaarheid-hiperaktiwiteitsversteuring
+ADHD
 Seliakie
 Sistemiese lupus erythematosus
 Duiseligheid
-Oorsuisings
+Tinnitus
 Aambeie
 Spatare
-Diepveneuse trombose
-Longembolie
+Diepveentrombose
+Longembolisme
 Nierstene
 Anemie
-Hipertiroïdisme
-Maagsweer
+Hipertireose
+Peptiese ulkus
 Gastritis
-Sellulitis
+Infektiewe sellulitis
 Sepsis
 Borskanker
 Akute gastro-enteritis
 Vitamien D-tekort
-Chroniese veneuse onvoldoendheid
+Chroniese veneuse ontoereikendheid
+Tipe 1-diabetes
+Miokardiale infarksie
+Angina pectoris
+Perifere arteriële siekte
+Gedilateerde kardiomiopatie
+Miokarditis
+Perikarditis
+Infektiewe endokarditis
+Aortastenose
+Mitraalklepprolaps
+Abdominale aorta-aneurisme
+Chroniese brongitis
+Emfiseem
+Pleurale effusie
+Longfibrose
+Pulmonale hipertensie
+Brongiëktase
+Laringitis
+Faringitis
+Mangelontsteking
+Esofagitis
+Barrett se esofagus
+Maagkanker
+Kolorektale kanker
+Anale fissuur
+Nie-alkoholiese vetterige lewersiekte
+Chroniese hepatitis C
+Hiatusbreuk
+Lieskbreuk
+Akute nierbesering
+Glomerulonefritis
+Piëlonefritis
+Blaasontsteking
+Urininkontinensie
+Blaaskanker
+Nierselkarsinoom
+Verbygaande isgemiese aanval
+Spanningshoofpyn
+Bondelhoofpyn
+Trigeminusneuralgie
+Bell se verlamming
+Perifere neuropatie
+Rustelose-bene-sindroom
+Essensiële bewing
+Miastenia gravis
+Guillain-Barré-sindroom
+Panieksteuring
+Obsessief-kompulsiewe versteuring
+Posttraumatiese stresversteuring
+Sosiale angsversteuring
+Anorexia nervosa
+Bulimia nervosa
+Skisofrenie
+Alkoholafhanklikheid
+Hashimoto se tiroïeditis
+Graves se siekte
+Cushing se sindroom
+Addison se siekte
+Hiperparatireose
+Metaboliese sindroom
+Vitamien B12-tekort
+Skildkliernodule
+Trombositopenie
+Polisitemia vera
+Longkanker
+Pankreaskanker
+Skildklierkanker
+Veelvuldige miëloom
+Bursitis
+Plantare fasciitis
+Rotatormanchetskeur
+Ankiloserende spondilitis
+Skoliose
+Osteomiëlitis
+Aknee
+Rosasea
+Vitiligo
+Alopecia areata
+Netelroos
+Kontakdermatitis
+Gordelroos
+Naelswam
+Makulêre degenerasie
+Diabetiese retinopatie
+Retinale loslating
+Uveïtis
+Droëoogsindroom
+Ménière se siekte
+Sensorineurale gehoorverlies
+Neuspoliepe
+Infektiewe mononukleose
+Lyme se siekte
 Malaria
-Bilharzia
-Fetale alkoholsindroom
-Rumatiese hartsiekte
-Sekelselsiekte
-Alkoholgebruiksversteuring
-Slukdermkanker
+Denguekoors
+Salmonellose
+Hepatitis A
+MIV-infeksie
+Herpes simplex-infeksie
+Masels
+Waterpokkies
+Bakteriële meningitis
+Virale enkefalitis

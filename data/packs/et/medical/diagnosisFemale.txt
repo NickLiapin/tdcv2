@@ -2,29 +2,39 @@
 description: Medical diagnosis that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
 locale: et
 ---
-endometrioos
-polütsüstiliste munasarjade sündroom
-emaka müoom
-munasarja tsüst
-munasarjavähk
-emakakaelavähk
-emakakaela düsplaasia
-tservitsiit
-endometriit
-emaka limaskesta vähk
-väikevaagna põletikuline haigus
-bakteriaalne vaginoos
-vulvovaginaalne kandidoos
-menorraagia
-düsmenorröa
-amenorröa
-preeklampsia
-rasedusdiabeet
-raseduse liigoksendamine
-emakaväline rasedus
-sünnitusjärgne verejooks
-mastiit
-rinna fibrotsüstiline muutus
-menopausi sündroom
-premenstruaalne düsfooriline häire
-emaka allavaje
+Endometrioos
+Polütsüstiliste munasarjade sündroom
+Emaka müoomid
+Munasarjatsüst
+Munasarjavähk
+Emakakaelavähk
+Emakakaela düsplaasia
+Emakakaelapõletik
+Emaka limaskesta põletik
+Emakakehavähk
+Vaagnapõletik
+Bakteriaalne vaginoos
+Tupe kandidoos
+Vererohke menstruatsioon
+Valulik menstruatsioon
+Menstruatsiooni puudumine
+Preeklampsia
+Rasedusdiabeet
+Raseduse raske iiveldus
+Emakaväline rasedus
+Sünnitusjärgne verejooks
+Rinnapõletik
+Fibrotsüstiline rinnahaigus
+Menopausi sündroom
+Premenstruaalne düsfooriline häire
+Emaka allavaje
+Adenomüoos
+Munasarja pöördumine
+Eesasetsev platsenta
+Platsenta enneaegne irdumine
+Häbemevähk
+Tupevähk
+Bartholini tsüst
+Atroofiline tupepõletik
+Turneri sündroom
+Naiste viljatus

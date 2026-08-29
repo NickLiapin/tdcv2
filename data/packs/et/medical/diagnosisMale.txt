@@ -2,23 +2,33 @@
 description: Medical diagnosis that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
 locale: et
 ---
-eesnäärme healoomuline suurenemine
-prostatiit
-eesnäärmevähk
-munandivähk
-munandiväändumine
-varikotseele
-hüdrotseele
-munandimanuse põletik
-laskumata munand
-fimoos
-balaniit
-erektsioonihäire
+Eesnäärme healoomuline suurenemine
+Eesnäärmepõletik
+Eesnäärmevähk
+Munandivähk
+Munandiväät
+Varikotseele
+Hüdrotseele
+Munandimanusepõletik
+Krüptorhism
+Fimoos
+Balaniit
+Erektsioonihäire
 Peyronie tõbi
-meeste viljatus
-günekomastia
-meeste hüpogonadism
-priapism
-spermatotseele
-meestüüpi kiilaspäisus
-munandikoti song
+Meeste viljatus
+Günekomastia
+Meeste hüpogonadism
+Priapism
+Spermatotseele
+Meestüüpi kiilaspäisus
+Munandikoti song
+Peenisevähk
+Munandipõletik
+Kusiti striktuur
+Klinefelteri sündroom
+Azoospermia
+Enneaegne seemnepurse
+Parafimoos
+Eesnäärme abstsess
+Seemnepõiekeste põletik
+Veri spermas

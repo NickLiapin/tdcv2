@@ -3,82 +3,182 @@ description: Diagnosis (Catalan). Fibril-lacio auricular, al-lergia and rinitis 
 locale: ca
 ---
 Hipertensió arterial
-Diabetis mellitus tipus 2
-Diabetis mellitus tipus 1
+Diabetis de tipus 2
 Asma
-Malaltia pulmonar obstructiva crònica
-Insuficiència cardíaca
-Fibril·lació auricular
-Angina de pit
-Infart agut de miocardi
-Ictus isquèmic
+Bronquitis aguda
+Grip
 Migranya
+Trastorn d'ansietat generalitzada
+Depressió major
+Artrosi
+Artritis reumatoide
+Malaltia per reflux gastroesofàgic
+Anèmia ferropènica
+Hipotiroïdisme
+Infecció urinària
+Pneumònia
+Malaltia renal crònica
+Cardiopatia isquèmica
+Fibril·lació auricular
+Insuficiència cardíaca crònica
+Ictus isquèmic
 Epilèpsia
 Malaltia de Parkinson
 Malaltia d'Alzheimer
 Esclerosi múltiple
-Depressió major
-Trastorn d'ansietat generalitzada
-Trastorn bipolar
-Esquizofrènia
-Insomni crònic
-Apnea obstructiva del son
-Anèmia ferropènica
-Hipotiroïdisme
-Hipertiroïdisme
-Osteoporosi
-Artrosi
-Artritis reumatoide
-Gota
-Lumbàlgia mecànica
-Hèrnia discal
-Fibromiàlgia
-Reflux gastroesofàgic
-Úlcera pèptica
-Gastritis crònica
-Malaltia celíaca
+Psoriasi
+Dermatitis atòpica
+Rinitis al·lèrgica
+Sinusitis crònica
+Otitis mitjana
+Conjuntivitis
+Cataracta
+Glaucoma
+Apendicitis
+Colecistitis
+Diverticulitis
+Síndrome de l'intestí irritable
 Malaltia de Crohn
 Colitis ulcerosa
-Síndrome de l'intestí irritable
-Litiasi biliar
-Hepatitis crònica
+Hepatitis B crònica
 Cirrosi hepàtica
 Pancreatitis aguda
-Insuficiència renal crònica
-Litiasi renal
-Infecció urinària
-Hiperplàsia benigna de pròstata
-Dermatitis atòpica
-Psoriasi
-Urticària
-Acne
-Èczema de contacte
+Gota
+Osteoporosi
+Fibromiàlgia
+Ciàtica
+Hèrnia discal
+Síndrome del túnel carpià
+Tendinitis
+Malaltia pulmonar obstructiva crònica
+Tuberculosi
+Leucèmia
+Limfoma
 Melanoma
-Càncer de pulmó
-Càncer de mama
-Càncer colorectal
-Càncer de pròstata
-Limfoma no Hodgkin
-Leucèmia limfoblàstica aguda
+Hiperlipidèmia
 Obesitat
-Dislipèmia
-Síndrome metabòlica
-Al·lèrgia estacional
-Rinitis al·lèrgica
-Sinusitis
-Otitis mitjana
-Amigdalitis
-Bronquitis aguda
-Pneumònia
-Grip
-COVID-19
-Conjuntivitis
-Cataractes
-Glaucoma
-Degeneració macular associada a l'edat
-Hipoacúsia
-Vertigen posicional paroxístic
-Insuficiència venosa crònica
+Apnea obstructiva del son
+Insomni
+Trastorn bipolar
+TDAH
+Celiaquia
+Lupus eritematós sistèmic
+Vertigen
+Acúfens
+Hemorroides
+Varius
 Trombosi venosa profunda
+Embòlia pulmonar
+Càlculs renals
+Anèmia
+Hipertiroïdisme
+Úlcera pèptica
+Gastritis
+Cel·lulitis infecciosa
+Sèpsia
+Càncer de mama
+Gastroenteritis aguda
+Dèficit de vitamina D
+Insuficiència venosa crònica
+Diabetis de tipus 1
+Infart de miocardi
+Angina de pit
+Malaltia arterial perifèrica
+Miocardiopatia dilatada
+Miocarditis
+Pericarditis
+Endocarditis infecciosa
+Estenosi aòrtica
+Prolapse de la vàlvula mitral
+Aneurisma d'aorta abdominal
+Bronquitis crònica
+Emfisema pulmonar
+Vessament pleural
+Fibrosi pulmonar
+Hipertensió pulmonar
+Bronquièctasis
+Laringitis
+Faringitis
+Amigdalitis
+Esofagitis
+Esòfag de Barrett
+Càncer d'estómac
+Càncer colorectal
+Fissura anal
+Fetge gras no alcohòlic
+Hepatitis C crònica
+Hèrnia de hiat
+Hèrnia inguinal
+Lesió renal aguda
+Glomerulonefritis
+Pielonefritis
+Cistitis
+Incontinència urinària
+Càncer de bufeta
+Carcinoma de cèl·lules renals
+Accident isquèmic transitori
+Cefalea tensional
+Cefalea en raïms
+Neuràlgia del trigemin
+Paràlisi de Bell
+Neuropatia perifèrica
+Síndrome de les cames inquietes
+Tremolor essencial
+Miastènia greu
+Síndrome de Guillain-Barré
+Trastorn de pànic
+Trastorn obsessivocompulsiu
+Trastorn per estrès posttraumàtic
+Fòbia social
+Anorèxia nerviosa
+Bulímia nerviosa
+Esquizofrènia
+Dependència de l'alcohol
+Tiroïditis de Hashimoto
+Malaltia de Graves
+Síndrome de Cushing
+Malaltia d'Addison
+Hiperparatiroïdisme
+Síndrome metabòlica
+Dèficit de vitamina B12
+Nòdul tiroïdal
+Trombocitopènia
+Policitèmia vera
+Càncer de pulmó
+Càncer de pàncrees
+Càncer de tiroide
+Mieloma múltiple
+Bursitis
+Fasciïtis plantar
+Ruptura del manegot dels rotatoris
+Espondilitis anquilosant
+Escoliosi
+Osteomielitis
+Acne
+Rosàcia
+Vitiligen
+Alopècia areata
+Urticària
+Dermatitis de contacte
 Herpes zòster
-Anèmia per dèficit de vitamina B12
+Onicomicosi
+Degeneració macular
+Retinopatia diabètica
+Despreniment de retina
+Uveïtis
+Síndrome de l'ull sec
+Malaltia de Ménière
+Hipoacúsia neurosensorial
+Pòlips nasals
+Mononucleosi infecciosa
+Malaltia de Lyme
+Malària
+Febre del dengue
+Salmonel·losi
+Hepatitis A
+Infecció per VIH
+Infecció per herpes simple
+Xarampió
+Varicel·la
+Meningitis bacteriana
+Encefalitis vírica

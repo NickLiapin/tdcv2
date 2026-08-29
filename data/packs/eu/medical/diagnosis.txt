@@ -2,80 +2,183 @@
 description: Medical diagnosis in Basque that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale / diagnosisFemale and ancestry-linked ones in diagnosisByAncestry. Basque medical vocabulary is a standardised technical register maintained alongside the Latin-Greek international terms, so most names here are the Basque form of the international one rather than a folk word.
 locale: eu
 ---
-hipertentsio arteriala
+Hipertentsioa
 2 motako diabetesa
+Asma
+Bronkitis akutua
+Gripea
+Migraina
+Antsietate orokortuaren nahasmendua
+Depresio nagusia
+Artrosia
+Artritis erreumatoidea
+Errefluxu gastroesofagikoaren gaixotasuna
+Burdin gabeziazko anemia
+Hipotiroidismoa
+Gernubideetako infekzioa
+Pneumonia
+Giltzurruneko gaixotasun kronikoa
+Kardiopatia iskemikoa
+Aurikula-fibrilazioa
+Bihotz-gutxiegitasun kronikoa
+Iktus iskemikoa
+Epilepsia
+Parkinsonen gaixotasuna
+Alzheimerren gaixotasuna
+Esklerosi anizkoitza
+Psoriasia
+Dermatitis atopikoa
+Errinitis alergikoa
+Sinusitis kronikoa
+Erdiko belarriko otitisa
+Konjuntibitisa
+Katarata
+Glaukoma
+Apendizitisa
+Kolezistitisa
+Dibertikulitisa
+Heste narritagarriaren sindromea
+Crohnen gaixotasuna
+Kolitis ultzeraduna
+B hepatitis kronikoa
+Gibel-zirrosia
+Pankreatitis akutua
+Hezueria
+Osteoporosia
+Fibromialgia
+Ziatika
+Diskoko hernia
+Karpo-tuneleko sindromea
+Tendinitisa
+Biriketako gaixotasun buxatzaile kronikoa
+Tuberkulosia
+Leuzemia
+Linfoma
+Melanoma
+Hiperlipidemia
+Obesitatea
+Loaren apnea buxatzailea
+Insomnioa
+Nahasmendu bipolarra
+AGHN
+Zeliakia
+Lupus eritematoso sistemikoa
+Bertigoa
+Akufenoak
+Hemorroideak
+Barizeak
+Zain sakoneko tronbosia
+Biriketako enbolia
+Giltzurruneko harriak
+Anemia
+Hipertiroidismoa
+Ultzera peptikoa
+Gastritisa
+Zelulitis infekziosoa
+Sepsia
+Bularreko minbizia
+Gastroenteritis akutua
+D bitaminaren gabezia
+Zain-gutxiegitasun kronikoa
 1 motako diabetesa
-hiperkolesterolemia
-obesitatea
-asma
-biriketako gaixotasun buxatzaile kronikoa
-bronkitis kronikoa
-pneumonia
-gripea
-sinusitisa
-faringitisa
-otitisa
-konjuntibitisa
-migraina
-tentsio-buruko mina
-epilepsia
-iktusa
-miokardio infartua
-angina pektorea
-bihotz-gutxiegitasuna
-arritmia
-fibrilazio aurikularra
-barize-zainak
-tronbosi benoso sakona
-anemia ferropenikoa
-hipotiroidismoa
-hipertiroidismoa
-gastritisa
-ultzera peptikoa
-errefluxu gastroesofagikoa
-Crohn gaixotasuna
-kolitis ultzerosoa
-heste narritakorraren sindromea
-apendizitisa
-behazun-harriak
-hepatitisa
-gibeleko zirrosia
-pankreatitisa
-giltzurruneko harriak
-giltzurruneko gutxiegitasun kronikoa
-gernu-bideetako infekzioa
-zistitisa
-artrosia
-artritis erreumatoidea
-osteoporosia
-lunbalgia
-ziatika
-tendinitisa
-diskoaren hernia
-karpo-tunelaren sindromea
-psoriasia
-dermatitis atopikoa
-aknea
-urtikaria
-onddo-infekzioa
-depresioa
-antsietate-nahastea
-nahaste bipolarra
-eskizofrenia
-insomnioa
-dementzia
-Alzheimer gaixotasuna
-Parkinson gaixotasuna
-esklerosi anizkoitza
-gaixotasun zeliakoa
-errinitis alergikoa
-gutxiegitasun benoso kronikoa
-kataratak
-glaukoma
-gorreria
-tuberkulosia
+Miokardio-infartua
+Bularreko angina
+Arteria periferikoen gaixotasuna
+Miokardiopatia dilatatua
+Miokarditisa
+Perikarditisa
+Endokarditis infekziosoa
+Aorta-estenosia
+Balbula mitralaren prolapsoa
+Sabeleko aortaren aneurisma
+Bronkitis kronikoa
+Biriketako enfisema
+Isuri pleurala
+Biriketako fibrosia
+Biriketako hipertentsioa
+Bronkiektasiak
+Laringitisa
+Faringitisa
+Amigdalitisa
+Esofagitisa
+Barretten esofagoa
+Urdaileko minbizia
+Minbizi kolorrektala
+Uzki-fisura
+Alkoholik gabeko gibel gantzatsua
+C hepatitis kronikoa
+Hiato-hernia
+Iztaiko hernia
+Giltzurruneko lesio akutua
+Glomerulonefritisa
+Pielonefritisa
+Zistitisa
+Gernu-inkontinentzia
+Maskuriko minbizia
+Giltzurrun-zelulen kartzinoma
+Iragaite iskemiko iragankorra
+Tentsio-zefalea
+Multzokako zefalea
+Trigeminoaren neuralgia
+Bellen paralisia
+Neuropatia periferikoa
+Hanka urduri sindromea
+Dardara esentziala
+Miastenia grave
+Guillain-Barré sindromea
+Izu-nahasmendua
+Nahasmendu obsesibo-konpultsiboa
+Trauma osteko estres-nahasmendua
+Fobia soziala
+Anorexia nerbiosoa
+Bulimia nerbiosoa
+Eskizofrenia
+Alkoholarekiko mendekotasuna
+Hashimotoren tiroiditisa
+Gravesen gaixotasuna
+Cushingen sindromea
+Addisonen gaixotasuna
+Hiperparatiroidismoa
+Sindrome metabolikoa
+B12 bitaminaren gabezia
+Tiroideko noduloa
+Tronbozitopenia
+Polizitemia vera
+Biriketako minbizia
+Pankreako minbizia
+Tiroideko minbizia
+Mieloma anizkoitza
+Bursitisa
+Oin-zoluko faszitisa
+Errotatzaileen mahukaren haustura
+Espondilitis ankilosatzailea
+Eskoliosia
+Osteomielitisa
+Aknea
+Errosazea
+Bitiligoa
+Alopezia areata
+Urtikaria
+Kontaktuzko dermatitisa
+Herpes zoster
+Onikomikosia
+Makularen endekapena
+Erretinopatia diabetikoa
+Erretina-askatzea
+Ubeitisa
+Begi lehorraren sindromea
+Ménièreren gaixotasuna
+Entzumen-galera neurosentsoriala
+Sudurreko polipoak
+Mononukleosi infekziosoa
 Lyme gaixotasuna
-gota
-fibromialgia
-lupus eritematoso sistemikoa
-laktosa-intolerantzia
+Malaria
+Dengue sukarra
+Salmonelosia
+A hepatitisa
+GIB infekzioa
+Herpes sinplearen infekzioa
+Elgorria
+Barizela
+Meningitis bakterianoa
+Entzefalitis birikoa

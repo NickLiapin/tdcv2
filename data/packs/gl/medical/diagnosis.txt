@@ -3,16 +3,16 @@ description: Diagnosis, named in Galician clinical usage.
 locale: gl
 ---
 Hipertensión arterial
-Diabetes mellitus tipo 2
+Diabetes de tipo 2
 Asma
 Bronquite aguda
 Gripe
-Xaqueca
+Migraña
 Trastorno de ansiedade xeneralizada
-Trastorno depresivo maior
+Depresión maior
 Artrose
 Artrite reumatoide
-Refluxo gastroesofáxico
+Enfermidade por refluxo gastroesofáxico
 Anemia ferropénica
 Hipotiroidismo
 Infección urinaria
@@ -20,7 +20,7 @@ Pneumonía
 Enfermidade renal crónica
 Cardiopatía isquémica
 Fibrilación auricular
-Insuficiencia cardíaca
+Insuficiencia cardíaca crónica
 Ictus isquémico
 Epilepsia
 Enfermidade de Parkinson
@@ -60,22 +60,125 @@ Obesidade
 Apnea obstrutiva do sono
 Insomnio
 Trastorno bipolar
-Trastorno por déficit de atención e hiperactividade
-Enfermidade celíaca
+TDAH
+Celiaquía
 Lupus eritematoso sistémico
 Vertixe
-Acufenos
+Acúfenos
 Hemorroides
 Varices
 Trombose venosa profunda
 Embolia pulmonar
-Nefrolitíase
+Cálculos renais
 Anemia
 Hipertiroidismo
 Úlcera péptica
 Gastrite
 Celulite infecciosa
 Sepse
+Cancro de mama
 Gastroenterite aguda
-Deficiencia de vitamina D
+Déficit de vitamina D
 Insuficiencia venosa crónica
+Diabetes de tipo 1
+Infarto de miocardio
+Anxina de peito
+Enfermidade arterial periférica
+Miocardiopatía dilatada
+Miocardite
+Pericardite
+Endocardite infecciosa
+Estenose aórtica
+Prolapso da válvula mitral
+Aneurisma de aorta abdominal
+Bronquite crónica
+Enfisema pulmonar
+Derramo pleural
+Fibrose pulmonar
+Hipertensión pulmonar
+Bronquiectasias
+Larinxite
+Farinxite
+Amigdalite
+Esofaxite
+Esófago de Barrett
+Cancro de estómago
+Cancro colorrectal
+Fisura anal
+Fígado graxo non alcohólico
+Hepatite C crónica
+Hernia de hiato
+Hernia inguinal
+Lesión renal aguda
+Glomerulonefrite
+Pielonefrite
+Cistite
+Incontinencia urinaria
+Cancro de vexiga
+Carcinoma de células renais
+Accidente isquémico transitorio
+Cefalea tensional
+Cefalea en acios
+Neuralxia do trixémino
+Parálise de Bell
+Neuropatía periférica
+Síndrome das pernas inquedas
+Tremor esencial
+Miastenia grave
+Síndrome de Guillain-Barré
+Trastorno de pánico
+Trastorno obsesivo-compulsivo
+Trastorno por estrés postraumático
+Fobia social
+Anorexia nerviosa
+Bulimia nerviosa
+Esquizofrenia
+Dependencia do alcohol
+Tiroidite de Hashimoto
+Enfermidade de Graves
+Síndrome de Cushing
+Enfermidade de Addison
+Hiperparatiroidismo
+Síndrome metabólica
+Déficit de vitamina B12
+Nódulo tiroideo
+Trombocitopenia
+Policitemia vera
+Cancro de pulmón
+Cancro de páncreas
+Cancro de tiroide
+Mieloma múltiple
+Bursite
+Fascite plantar
+Rotura do manguito rotador
+Espondilite anquilosante
+Escoliose
+Osteomielite
+Acne
+Rosácea
+Vitilixe
+Alopecia areata
+Urticaria
+Dermatite de contacto
+Herpes zóster
+Onicomicose
+Dexeneración macular
+Retinopatía diabética
+Desprendemento de retina
+Uveíte
+Síndrome do ollo seco
+Enfermidade de Ménière
+Hipoacusia neurosensorial
+Pólipos nasais
+Mononucleose infecciosa
+Enfermidade de Lyme
+Malaria
+Febre do dengue
+Salmonelose
+Hepatite A
+Infección por VIH
+Infección por herpes simple
+Sarampelo
+Varicela
+Meninxite bacteriana
+Encefalite vírica

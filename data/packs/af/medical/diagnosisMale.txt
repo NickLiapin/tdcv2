@@ -2,15 +2,15 @@
 description: Diagnosis specific to male anatomy, in Afrikaans.
 locale: af
 ---
-Goedaardige prostaathiperplasie
+Goedaardige prostaatvergroting
 Prostatitis
 Prostaatkanker
-Testikulêre kanker
-Testikulêre torsie
+Testiskanker
+Testistorsie
 Varikoseel
 Hidroseel
 Epididimitis
-Kriptorgidisme
+Kriptorgisme
 Fimose
 Balanitis
 Erektiele disfunksie
@@ -20,5 +20,15 @@ Ginekomastie
 Manlike hipogonadisme
 Priapisme
 Spermatoseel
-Manlike patroonkaalheid
+Manlike kaalheid
 Skrotale breuk
+Peniskanker
+Orgitis
+Uretrale striktuur
+Klinefelter-sindroom
+Azoöspermie
+Voortydige ejakulasie
+Parafimose
+Prostaatabses
+Saadblasieontsteking
+Bloed in die semen

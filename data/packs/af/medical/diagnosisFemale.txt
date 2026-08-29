@@ -4,27 +4,37 @@ locale: af
 ---
 Endometriose
 Polisistiese ovariumsindroom
-Baarmoedervesels
-Ovariumsist
-Ovariumkanker
-Baarmoederhalskanker
+Uterusfibroïede
+Eierstoksist
+Eierstokkanker
+Servikale kanker
 Servikale displasie
 Servisitis
 Endometritis
-Endometriumkanker
-Bekkeninflammatoriese siekte
+Endometriale kanker
+Pelviese inflammatoriese siekte
 Bakteriële vaginose
-Vulvovaginale kandidose
-Menorragie
-Dismenorree
-Amenorree
+Vaginale candidiase
+Menoragie
+Dismenoree
+Amenoree
 Pre-eklampsie
 Swangerskapsdiabetes
 Hiperemesis gravidarum
-Buitebaarmoederlike swangerskap
-Postpartum bloeding
+Ektopiese swangerskap
+Nageboortelike bloeding
 Mastitis
-Fibrosistiese borsverandering
+Fibrosistiese borssiekte
 Menopousale sindroom
 Premenstruele disforiese versteuring
-Baarmoederverzakking
+Uterusprolaps
+Adenomiose
+Ovariale torsie
+Placenta praevia
+Plasenta-abrupsie
+Vulvakanker
+Vaginale kanker
+Bartholin se sist
+Atrofiese vaginitis
+Turner-sindroom
+Vroulike onvrugbaarheid

@@ -2,83 +2,183 @@
 description: Medical diagnosis that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale and diagnosisFemale, ancestry-linked ones in diagnosisByAncestry. Two entries near the end are Estonian public-health facts rather than filler: puukentsefaliit and puukborrelioos, tick-borne encephalitis and Lyme disease, are common enough here that vaccination against the first is routine and the tick season is reported on the news.
 locale: et
 ---
-hüpertensioon
+Hüpertensioon
 2. tüüpi diabeet
-astma
-äge bronhiit
-gripp
-migreen
-generaliseerunud ärevushäire
-depressioon
-osteoartriit
-reumatoidartriit
-gastroösofageaalne reflukshaigus
-rauavaegusaneemia
-hüpotüreoos
-kuseteede infektsioon
-kopsupõletik
-krooniline neeruhaigus
-südame isheemiatõbi
-kodade virvendusarütmia
-südamepuudulikkus
-isheemiline insult
-epilepsia
+Astma
+Äge bronhiit
+Gripp
+Migreen
+Generaliseerunud ärevushäire
+Raske depressioon
+Osteoartroos
+Reumatoidartriit
+Gastroösofageaalne reflukshaigus
+Rauavaegusaneemia
+Hüpotüreoos
+Kuseteede infektsioon
+Kopsupõletik
+Krooniline neeruhaigus
+Südame isheemiatõbi
+Kodade virvendus
+Krooniline südamepuudulikkus
+Isheemiline insult
+Epilepsia
 Parkinsoni tõbi
 Alzheimeri tõbi
-hulgiskleroos
-psoriaas
-atoopiline dermatiit
-allergiline riniit
-krooniline sinusiit
-keskkõrvapõletik
-konjunktiviit
-katarakt
-glaukoom
-apenditsiit
-koletsüstiit
-divertikuliit
-ärritatud soole sündroom
+Hulgiskleroos
+Psoriaas
+Atoopiline dermatiit
+Allergiline nohu
+Krooniline põskkoopapõletik
+Keskkõrvapõletik
+Konjunktiviit
+Katarakt
+Glaukoom
+Pimesoolepõletik
+Sapipõiepõletik
+Divertikuliit
+Ärritunud soole sündroom
 Crohni tõbi
-haavandiline koliit
-krooniline B-hepatiit
-maksatsirroos
-äge pankreatiit
-podagra
-osteoporoos
-fibromüalgia
-ishias
-lülivaheketta song
-karpaalkanali sündroom
-tendiniit
-krooniline obstruktiivne kopsuhaigus
-tuberkuloos
-leukeemia
-lümfoom
-melanoom
-hüperlipideemia
-rasvumine
-obstruktiivne uneapnoe
-unetus
-bipolaarne häire
-aktiivsus- ja tähelepanuhäire
-tsöliaakia
-süsteemne erütematoosluupus
-peapööritus
-tinnitus
-hemorroidid
-veenilaiendid
-süvaveenitromboos
-kopsuemboolia
-neerukivitõbi
-aneemia
-hüpertüreoos
-peptiline haavand
-gastriit
-erüsiipel
-sepsis
-rinnavähk
-äge gastroenteriit
-D-vitamiini puudus
-krooniline veenipuudulikkus
-puukentsefaliit
-puukborrelioos
+Haavandiline koliit
+Krooniline B-hepatiit
+Maksatsirroos
+Äge pankreatiit
+Podagra
+Osteoporoos
+Fibromüalgia
+Ishias
+Lülivaheketta song
+Karpaalkanali sündroom
+Kõõlusepõletik
+Krooniline obstruktiivne kopsuhaigus
+Tuberkuloos
+Leukeemia
+Lümfoom
+Melanoom
+Hüperlipideemia
+Rasvumine
+Obstruktiivne uneapnoe
+Unetus
+Bipolaarne häire
+ATH
+Tsöliaakia
+Süsteemne erütematoosluupus
+Peapööritus
+Kohin kõrvus
+Hemorroidid
+Veenilaiendid
+Süvaveenitromboos
+Kopsuemboolia
+Neerukivid
+Aneemia
+Hüpertüreoos
+Peptiline haavand
+Gastriit
+Nakkuslik tselluliit
+Sepsis
+Rinnavähk
+Äge gastroenteriit
+D-vitamiini vaegus
+Krooniline venoosne puudulikkus
+1. tüüpi diabeet
+Müokardiinfarkt
+Stenokardia
+Perifeersete arterite haigus
+Dilatatiivne kardiomüopaatia
+Müokardiit
+Perikardiit
+Nakkuslik endokardiit
+Aordistenoos
+Mitraalklapi prolaps
+Kõhuaordi aneurüsm
+Krooniline bronhiit
+Kopsuemfüseem
+Pleuraefusioon
+Kopsufibroos
+Pulmonaalne hüpertensioon
+Bronhiektaasid
+Larüngiit
+Farüngiit
+Tonsilliit
+Ösofagiit
+Barretti söögitoru
+Maovähk
+Kolorektaalvähk
+Pärakulõhe
+Mittealkohoolne rasvmaks
+Krooniline C-hepatiit
+Hiataalsong
+Kubemesong
+Äge neerukahjustus
+Glomerulonefriit
+Püelonefriit
+Põiepõletik
+Uriinipidamatus
+Kusepõievähk
+Neerurakk-kartsinoom
+Transitoorne isheemiline atakk
+Pingetüüpi peavalu
+Kobarpeavalu
+Kolmiknärvi neuralgia
+Belli halvatus
+Perifeerne neuropaatia
+Rahutute jalgade sündroom
+Essentsiaalne treemor
+Myasthenia gravis
+Guillain-Barré sündroom
+Paanikahäire
+Obsessiiv-kompulsiivne häire
+Posttraumaatiline stressihäire
+Sotsiaalfoobia
+Anorexia nervosa
+Bulimia nervosa
+Skisofreenia
+Alkoholisõltuvus
+Hashimoto türeoidiit
+Gravesi tõbi
+Cushingi sündroom
+Addisoni tõbi
+Hüperparatüreoos
+Metaboolne sündroom
+B12-vitamiini vaegus
+Kilpnäärme sõlm
+Trombotsütopeenia
+Tõeline polütsüteemia
+Kopsuvähk
+Kõhunäärmevähk
+Kilpnäärmevähk
+Hulgimüeloom
+Bursiit
+Plantaarfastsiit
+Rotaatormanseti rebend
+Anküloseeriv spondüliit
+Skolioos
+Osteomüeliit
+Akne
+Rosaatsea
+Vitiliigo
+Pesakondlik alopeetsia
+Nõgestõbi
+Kontaktdermatiit
+Vöötohatis
+Küüneseen
+Maakula degeneratsioon
+Diabeetiline retinopaatia
+Võrkkesta irdumine
+Uveiit
+Kuiva silma sündroom
+Ménière'i tõbi
+Sensorineuraalne kuulmislangus
+Ninapolüübid
+Nakkuslik mononukleoos
+Puukborrelioos
+Malaaria
+Denguepalavik
+Salmonelloos
+A-hepatiit
+HIV-nakkus
+Herpes simplex'i nakkus
+Leetrid
+Tuulerõuged
+Bakteriaalne meningiit
+Viiruslik entsefaliit

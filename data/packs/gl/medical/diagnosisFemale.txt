@@ -3,28 +3,38 @@ description: Diagnosis restricted to female patients, in Galician. Kept beside p
 locale: gl
 ---
 Endometriose
-Síndrome de ovario poliquístico
+Síndrome do ovario poliquístico
 Miomas uterinos
-Cancro de mama
+Quiste ovárico
 Cancro de ovario
-Cancro de colo do útero
+Cancro de colo de útero
+Displasia cervical
+Cervicite
+Endometrite
 Cancro de endometrio
+Enfermidade inflamatoria pélvica
 Vaxinose bacteriana
 Candidíase vaxinal
-Enfermidade inflamatoria pélvica
+Menorraxia
 Dismenorrea
 Amenorrea
-Menorraxia
-Menopausa
-Perimenopausa
-Prolapso uterino
-Quiste ovárico
-Mastite
-Mastopatía fibroquística
 Preeclampsia
 Diabetes xestacional
 Hiperémese gravídica
-Aborto espontáneo
 Embarazo ectópico
-Depresión posparto
+Hemorraxia posparto
+Mastite
+Enfermidade fibroquística da mama
+Síndrome da menopausa
+Trastorno disfórico premenstrual
+Prolapso uterino
+Adenomiose
+Torsión ovárica
+Placenta previa
+Desprendemento de placenta
+Cancro de vulva
+Cancro de vaxina
+Quiste de Bartholin
 Vaxinite atrófica
+Síndrome de Turner
+Infertilidade feminina
