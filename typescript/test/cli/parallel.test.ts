@@ -278,6 +278,44 @@ describe('--jobs end-to-end (real worker threads)', () => {
     expect(new Set(rows).size).toBe(400); // what uniq promised
   }, 120_000);
 
+  it('--engine 3 refuses a too-tight uniq under --jobs the way it does single-threaded', () => {
+    /*
+     * The named-engine rule has to survive the split. `--engine 3` on a uniq
+     * too tight for the bounded repair refuses single-threaded — and the
+     * parallel coordinator used to render everything with `mode: "disk"`,
+     * dropping the FORCED selection on the floor. The repair refusal then
+     * took exact-disk's silent in-memory fallback in the coordinator and in
+     * every worker: `--engine 3 --jobs 2` wrote engine 1's bytes and exited 0,
+     * and on a shape engine 1 could arrange (the medical demo at 8,000,000)
+     * that silence was a 16 GB engine-1 run dying on a 4 GB default heap —
+     * reported as "engine 3 runs out of memory" when engine 3 never ran.
+     */
+    const cfg = join(dir, 'tight.tdc');
+    writeFileSync(
+      cfg,
+      `<tdc><env count="4" seed="env-u" local="en"><uniq>` +
+        `<sequence name="A"><gen type="text" value="x,y" percent="70,30"/></sequence>` +
+        `<sequence name="B"><gen type="text" value="m,n"/></sequence>` +
+        `</uniq></env><block><line><data>\${{A}}\${{B}}</data></line></block></tdc>`,
+    );
+    const out = join(dir, 'tight.csv');
+    let stderr = '';
+    let failed = false;
+    try {
+      execFileSync('node', [distMain, cfg, '--engine', '3', '--jobs', '2', '-o', out], {
+        stdio: ['ignore', 'ignore', 'pipe'],
+      });
+    } catch (err) {
+      failed = true;
+      const e = err as { stderr?: Buffer | string };
+      stderr = typeof e.stderr === 'string' ? e.stderr : (e.stderr?.toString() ?? '');
+    }
+    expect(failed).toBe(true);
+    // The NAMED refusal — not engine 1's capacity message, which would mean
+    // the in-memory engine ran under a flag that named a different one.
+    expect(stderr).toContain('asked for by name');
+  }, 120_000);
+
   /**
    * The config's OWN settings have to reach the worker, and for a long time
    * they did not. The coordinator built worker parameters from the command

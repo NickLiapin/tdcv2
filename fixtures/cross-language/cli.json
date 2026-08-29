@@ -777,6 +777,19 @@
       ]
     },
     {
+      "name": "the named-engine refusal survives --jobs: engine 3 refuses a tight uniq in parallel too",
+      "note": "Naming an engine is a promise about refusals, and the parallel coordinator has to keep it. It renders the plan, the scan and the workers itself, and the reference's coordinator used to do all of that with mode=\"disk\" — dropping the FORCED selection on the floor. The repair refusal then took exact-disk's silent in-memory fallback in every worker: --engine 3 --jobs 2 wrote engine 1's bytes and exited 0, and at 8,000,000 medical rows that silence was a 16 GB engine-1 run dying on a 4 GB default heap, reported as \"engine 3 runs out of memory\" when engine 3 never ran. Java and C# lost only the wording (their plan surfaced the streaming advice about a mode nobody wrote); Python and Rust were right all along. One sentence, five front ends, --jobs or not.",
+      "files": {
+        "tight.tdc": "<tdc><env count=\"4\" seed=\"env-u\" local=\"en\"><uniq><sequence name=\"A\"><gen type=\"text\" value=\"x,y\" percent=\"70,30\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"m,n\"/></sequence></uniq></env><block><line><data>${{A}}${{B}}</data></line></block></tdc>\n"
+      },
+      "argv": ["{dir}/tight.tdc", "--engine", "3", "--jobs", "2"],
+      "exit": 1,
+      "stdout": "",
+      "stderrContains": [
+        "tdcv2: uniq \"A × B\" is too tight to repair without holding the whole table (1 row(s) couldn't be placed) — and engine 3 was asked for by name, so it refuses rather than quietly running another engine. Remove the engine choice to let a uniq this tight go to the in-memory engine, which is what has been happening here all along."
+      ]
+    },
+    {
       "name": "--progress writes a status file beside the output, ending in done",
       "note": "The channel a watcher polls. A long run is silent for minutes and silence reads the same as a hang, so the run writes what it is doing into <output>.progress: a small JSON object, rewritten in place about once a second. Only the LAST write can be asserted on here — a three-row run finishes before the first throttled report is due — and it is the one that matters: `done` with the wall-clock seconds is what tells a poller the run ended rather than died. The intermediate phases are covered by the reference's local heavy test, which runs long enough to see them.",
       "files": {

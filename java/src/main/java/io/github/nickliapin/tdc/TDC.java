@@ -452,7 +452,8 @@ public final class TDC {
             resolved,
             count,
             onProgress,
-            engine() == 3);
+            engine() == 3,
+            forcedEngine() && engine() == 3);
         return;
       }
     }

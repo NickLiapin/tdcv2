@@ -271,6 +271,7 @@ export class TDC {
     readonly defaultLocale: string | undefined;
     readonly dataPaths: readonly string[] | undefined;
     readonly baseDir: string;
+    readonly engine: 1 | 2 | 3 | undefined;
   } {
     return {
       source: this.source,
@@ -280,6 +281,12 @@ export class TDC {
       defaultLocale: this.options.defaultLocale,
       dataPaths: this.options.dataPaths,
       baseDir: this.baseDir,
+      // A FORCED engine, or undefined for "whatever the config allows". The
+      // distinction is behavioural, not cosmetic: a run that NAMED an engine
+      // must refuse what that engine cannot do, and a coordinator that renders
+      // with `mode: "disk"` instead turns the refusal into a silent fallback —
+      // in every worker at once.
+      engine: this.options.engine ?? (this.options.stream === true ? 2 : undefined),
     };
   }
 

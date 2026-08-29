@@ -169,7 +169,32 @@ public final class Parallel {
       Progress onProgress,
       boolean exactUniq) {
     writeFile(
-        config, packsFor, nowMillis, baseDir, target, workers, count, onProgress, exactUniq, null);
+        config, packsFor, nowMillis, baseDir, target, workers, count, onProgress, exactUniq, false,
+        null);
+  }
+
+  /**
+   * The same, told whether the caller NAMED the engine.
+   *
+   * <p>Naming an engine is a promise about refusals: a uniq too tight for engine 3's bounded
+   * repair must refuse under {@code --engine 3} exactly as it does single-threaded. The plan
+   * below is the parallel run's registry build — the place that refusal fires — and it used to
+   * surface the raw streaming message here, advice about a {@code mode="stream"} nobody wrote.
+   */
+  public static void writeFile(
+      Config config,
+      java.util.function.Supplier<DataPacks> packsFor,
+      long nowMillis,
+      Path baseDir,
+      Path target,
+      int workers,
+      int count,
+      Progress onProgress,
+      boolean exactUniq,
+      boolean named) {
+    writeFile(
+        config, packsFor, nowMillis, baseDir, target, workers, count, onProgress, exactUniq, named,
+        null);
   }
 
   /**
@@ -190,6 +215,7 @@ public final class Parallel {
       int count,
       Progress onProgress,
       boolean exactUniq,
+      boolean named,
       Map<String, Map<Integer, List<String>>> given) {
     List<int[]> ranges = shards(count, workers);
     // Worked out ONCE, before a single worker exists. Empty for the configs that have no
@@ -198,8 +224,15 @@ public final class Parallel {
     if (given != null) {
       uniqPlan.putAll(given);
     } else if (!config.envUniqGroups().isEmpty()) {
-      StreamEngine.planUniq(
-          config, packsFor.get(), nowMillis, baseDir, exactUniq, onProgress, uniqPlan::put);
+      try {
+        StreamEngine.planUniq(
+            config, packsFor.get(), nowMillis, baseDir, exactUniq, onProgress, uniqPlan::put);
+      } catch (ExactUniq.RepairNeeded e) {
+        // The named refusal (and the past-the-fallback-cap one) must not change wording just
+        // because the run went parallel; the single-threaded path words both in DiskEngine.
+        DiskEngine.refuseIfItMust(e, config.count(), named);
+        throw e;
+      }
     }
     // One slot per worker, so a later report REPLACES that worker's earlier one instead of being
     // added to it. Reporting deltas would lose ground the moment a report went missing.

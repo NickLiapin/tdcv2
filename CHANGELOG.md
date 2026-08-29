@@ -401,7 +401,23 @@ placed` rather than naming a total it stopped counting. A number quietly reading
 
 ### Fixed
 
-<!-- covers: uniq reach reported per block -->
+<!-- covers: named engine under --jobs -->
+
+- **`--engine 3 --jobs N` kept the named-engine promise only at N=1.** Naming an engine is a
+  promise about refusals: a `<uniq>` too tight for engine 3's bounded repair refuses under
+  `--engine 3` instead of quietly running the in-memory engine — single-threaded, it did.
+  The parallel coordinator renders the plan, the scan and every worker itself, and it rendered
+  all of them with `mode="disk"`, dropping the FORCED selection on the floor. In the reference
+  the repair refusal then took exact-disk's silent in-memory fallback in the coordinator and
+  in each worker at once: `--engine 3 --jobs 2` wrote engine 1's bytes and exited 0, and at
+  8,000,000 medical rows that silence was a 16 GB engine-1 run dying on the default 4 GB heap
+  — reported as "engine 3 runs out of memory" when engine 3 never ran. Found by exactly that
+  report. Java and C# lost only the wording (their parallel plan surfaced the streaming advice
+  about a `mode="stream"` nobody wrote); Python and Rust were right all along. The forced
+  engine now travels into every render the parallel run makes, the refusal fires in the
+  coordinator before a single worker is spawned, and a shared CLI fixture pins the sentence in
+  all five, `--jobs` or not. The auto-routed path (`mode="disk"`, no engine named) is
+  byte-identical to before.
 
 - **A `<uniq>` refusal reported ONE block's ceiling against the WHOLE run's count.** A
   `<switch>` in a group cuts the rows into blocks by its subject, and each block is arranged

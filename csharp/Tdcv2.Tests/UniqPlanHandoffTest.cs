@@ -55,7 +55,7 @@ public class UniqPlanHandoffTest
 
             string many = Path.Combine(dir, "many.txt");
             ParallelWrite.WriteFile(
-                config, DataPacks.Discover, Now, null, many, Workers, 400, null, true, plan);
+                config, DataPacks.Discover, Now, null, many, Workers, 400, null, true, given: plan);
             Assert.Equal(File.ReadAllBytes(single), File.ReadAllBytes(many));
 
             // The same run told something false: every moved row sent to one tuple, which cannot
@@ -74,7 +74,7 @@ public class UniqPlanHandoffTest
 
             string wrong = Path.Combine(dir, "wrong.txt");
             ParallelWrite.WriteFile(
-                config, DataPacks.Discover, Now, null, wrong, Workers, 400, null, true, forged);
+                config, DataPacks.Discover, Now, null, wrong, Workers, 400, null, true, given: forged);
             Assert.NotEqual(File.ReadAllBytes(single), File.ReadAllBytes(wrong));
         }
         finally

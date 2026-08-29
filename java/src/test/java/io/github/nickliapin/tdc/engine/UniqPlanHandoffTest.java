@@ -61,7 +61,7 @@ class UniqPlanHandoffTest {
 
       Path many = dir.resolve("many.txt");
       Parallel.writeFile(
-          config, DataPacks::bundled, NOW, null, many, WORKERS, 400, null, true, plan);
+          config, DataPacks::bundled, NOW, null, many, WORKERS, 400, null, true, false, plan);
       assertArrayEquals(
           Files.readAllBytes(single),
           Files.readAllBytes(many),
@@ -84,7 +84,7 @@ class UniqPlanHandoffTest {
 
       Path wrong = dir.resolve("wrong.txt");
       Parallel.writeFile(
-          config, DataPacks::bundled, NOW, null, wrong, WORKERS, 400, null, true, forged);
+          config, DataPacks::bundled, NOW, null, wrong, WORKERS, 400, null, true, false, forged);
       assertFalse(
           java.util.Arrays.equals(Files.readAllBytes(single), Files.readAllBytes(wrong)),
           "the workers ignored the arrangement they were handed");

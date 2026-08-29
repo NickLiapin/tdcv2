@@ -30,6 +30,8 @@ export interface RenderWorkerInput {
   readonly now: number;
   readonly dataPaths?: readonly string[] | undefined;
   readonly baseDir?: string | undefined;
+  /** The engine the caller FORCED; undefined routes by config (`mode: "disk"`). */
+  readonly engine?: 1 | 2 | 3 | undefined;
   readonly start: number;
   readonly end: number;
   readonly tmpPath: string;
@@ -71,8 +73,13 @@ function run(input: RenderWorkerInput): void {
        * when the config needs exact percentages and uniqueness together.
        * Forcing Engine 2 here meant every Engine 3 config was refused
        * parallelism outright, and those are the large ones.
+       *
+       * A caller-FORCED engine overrides the routing: a worker that renders
+       * `--engine 3` under `mode: "disk"` inherits disk mode's silent
+       * in-memory fallback, which is the substitution a named engine exists
+       * to refuse.
        */
-      mode: 'disk',
+      ...(input.engine !== undefined ? { engine: input.engine } : { mode: 'disk' as const }),
       ...(input.uniqPlan !== undefined ? { uniqPlan: input.uniqPlan } : {}),
       dataPaths: input.dataPaths,
       baseDir: input.baseDir,

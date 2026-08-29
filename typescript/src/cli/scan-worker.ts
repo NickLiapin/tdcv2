@@ -38,6 +38,8 @@ export interface ScanWorkerInput {
   readonly now: number;
   readonly dataPaths?: readonly string[] | undefined;
   readonly baseDir?: string | undefined;
+  /** The engine the caller FORCED; undefined routes by config (`mode: "disk"`). */
+  readonly engine?: 1 | 2 | 3 | undefined;
   /** The group's members, in the order the engine reads them. */
   readonly members: readonly string[];
   /** Scan job: hash rows `[start, end)` into pile files. */
@@ -68,7 +70,9 @@ function buildResolvers(input: ScanWorkerInput): readonly UniqResolver[] {
     ...(input.defaultLocale !== undefined ? { defaultLocale: input.defaultLocale } : {}),
     packs: scanPacks(roots).registry,
     now: input.now,
-    mode: 'disk',
+    // The caller's forced engine when there is one — the columns a scan reads
+    // must be the ones the named engine would draw, not disk-mode's pick.
+    ...(input.engine !== undefined ? { engine: input.engine } : { mode: 'disk' as const }),
     skipEnvUniq: true,
     dataPaths: input.dataPaths,
     baseDir: input.baseDir,

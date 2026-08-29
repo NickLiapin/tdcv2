@@ -528,7 +528,7 @@ public sealed class Tdc
         // and a worker told to build it any other way would answer a different question.
         ParallelWrite.WriteFile(
             _config, PacksForWorker, _nowMillis, _baseDir, target, resolved, _config.Count,
-            _onProgress, Engine == 3);
+            _onProgress, Engine == 3, EngineRouter.Forced(_config) && Engine == 3);
     }
 
     /// <summary>The records one at a time, without building a list of them.</summary>

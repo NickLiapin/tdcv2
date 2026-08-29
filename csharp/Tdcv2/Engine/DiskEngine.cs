@@ -60,7 +60,7 @@ public static class DiskEngine
     /// DID run this config, got most of the way, and gave up on a memory budget — the very
     /// property the caller named this engine to get.
     /// </remarks>
-    private static void RefuseIfItMust(Exception error, int count, bool named)
+    internal static void RefuseIfItMust(Exception error, int count, bool named)
     {
         // The refusals share a first half — up to the em dash — and differ in the advice after it.
         string said = error.Message.Split(" — ", 2)[0];

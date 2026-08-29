@@ -132,6 +132,7 @@ public static class ParallelWrite
         int count,
         Progress? onProgress = null,
         bool exactUniq = false,
+        bool named = false,
         IReadOnlyDictionary<string, Dictionary<int, List<string>>>? given = null)
     {
         IReadOnlyList<(int Start, int End)> ranges = Shards(count, workers);
@@ -151,9 +152,20 @@ public static class ParallelWrite
         }
         else if (config.EnvUniqGroups.Count > 0)
         {
-            StreamEngine.PlanUniq(
-                config, packsFor(), nowMillis, baseDir, exactUniq, onProgress,
-                (label, moved) => uniqPlan[label] = moved);
+            try
+            {
+                StreamEngine.PlanUniq(
+                    config, packsFor(), nowMillis, baseDir, exactUniq, onProgress,
+                    (label, moved) => uniqPlan[label] = moved);
+            }
+            catch (ExactUniq.RepairNeeded e)
+            {
+                // The named refusal (and the past-the-fallback-cap one) must not change wording
+                // just because the run went parallel; the single-threaded path words both in
+                // DiskEngine.
+                DiskEngine.RefuseIfItMust(e, config.Count, named);
+                throw;
+            }
         }
         // One slot per worker, so a later report REPLACES that worker's earlier one instead of
         // being added to it. Reporting deltas would lose ground the moment a report went missing.

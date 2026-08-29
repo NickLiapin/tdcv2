@@ -58,6 +58,17 @@ export interface ParallelParams {
   readonly now: number;
   readonly dataPaths?: readonly string[] | undefined;
   readonly baseDir?: string | undefined;
+  /**
+   * The engine the caller FORCED (`--engine N`, `--stream`), or undefined for
+   * "whatever the config allows". It has to reach every render this run makes
+   * — the plan, the scan, the workers — because naming an engine is a promise
+   * about refusals: a uniq too tight for engine 3's bounded repair must refuse
+   * under `--engine 3`, exactly as it does single-threaded. Rendering with
+   * `mode: "disk"` here instead is what turned that refusal into a silent
+   * in-memory fallback per worker — and, at 8,000,000 medical rows, into an
+   * out-of-memory crash reported against an engine that never ran.
+   */
+  readonly engine?: 1 | 2 | 3 | undefined;
   readonly jobs: number;
   /** Destination file descriptor (1 for stdout, or an opened output file). */
   readonly destFd: number;
@@ -177,7 +188,9 @@ function planUniq(
     ...(params.defaultLocale !== undefined ? { defaultLocale: params.defaultLocale } : {}),
     packs: scanPacks(roots).registry,
     now: params.now,
-    mode: 'disk',
+    // The caller's forced engine, when there is one — this render is where a
+    // named engine's refusal has to fire, before any worker is spawned.
+    ...(params.engine !== undefined ? { engine: params.engine } : { mode: 'disk' as const }),
     dataPaths: params.dataPaths,
     baseDir: params.baseDir,
     source: params.source,
@@ -249,6 +262,7 @@ export async function runParallel(params: ParallelParams): Promise<void> {
           now: params.now,
           dataPaths: params.dataPaths,
           baseDir: params.baseDir,
+          engine: params.engine,
           start,
           end,
           tmpPath: tmpPaths[k] ?? join(dir, `range-${String(k)}.txt`),
@@ -319,6 +333,7 @@ async function scanInParallel(
             now: params.now,
             dataPaths: params.dataPaths,
             baseDir: params.baseDir,
+            engine: params.engine,
             members,
             start,
             end,
@@ -411,6 +426,7 @@ async function excessFromPiles(
       now: params.now,
       dataPaths: params.dataPaths,
       baseDir: params.baseDir,
+      engine: params.engine,
       members: label.split(' × '),
       verifyIndices: rows,
     });

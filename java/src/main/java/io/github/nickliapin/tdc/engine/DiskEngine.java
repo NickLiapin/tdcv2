@@ -70,7 +70,7 @@ public final class DiskEngine {
    * this config, got most of the way, and gave up on a memory budget — the very property the
    * caller named this engine to get.
    */
-  private static void refuseIfItMust(RuntimeException error, int count, boolean named) {
+  static void refuseIfItMust(RuntimeException error, int count, boolean named) {
     // The refusals share a first half — up to the em dash — and differ in the advice after it.
     String said = error.getMessage().split(" — ", 2)[0];
     if (count > ExactUniq.IN_MEMORY_FALLBACK_MAX_ROWS) {
