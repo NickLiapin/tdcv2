@@ -5,20 +5,30 @@ locale: id
 Pembesaran prostat jinak
 Prostatitis
 Kanker prostat
+Kanker testis
+Torsio testis
 Varikokel
 Hidrokel
+Epididimitis
 Kriptorkismus
 Fimosis
-Parafimosis
-Balanopostitis
-Orkitis
-Epididimitis
-Torsio testis
-Kanker testis
+Balanitis
 Disfungsi ereksi
 Penyakit Peyronie
 Infertilitas pria
-Hipogonadisme
-Hernia inguinalis
-Azoospermia
 Ginekomastia
+Hipogonadisme pria
+Priapismus
+Spermatokel
+Kebotakan pola pria
+Hernia skrotalis
+Kanker penis
+Orkitis
+Striktur uretra
+Sindrom Klinefelter
+Azoospermia
+Ejakulasi dini
+Parafimosis
+Abses prostat
+Vesikulitis seminalis
+Hematospermia

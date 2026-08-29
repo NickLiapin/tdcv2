@@ -3,28 +3,38 @@ description: Medical diagnosis in Indonesian that requires female anatomy — it
 locale: id
 ---
 Endometriosis
-Mioma uteri
-Adenomiosis
-Kista ovarium
 Sindrom ovarium polikistik
-Dismenore
-Amenore
-Sindrom pramenstruasi
-Sindrom menopause
-Vaginitis
+Mioma uteri
+Kista ovarium
+Kanker ovarium
+Kanker serviks
+Displasia serviks
+Servisitis
+Endometritis
+Kanker endometrium
+Penyakit radang panggul
 Vaginosis bakterial
 Kandidiasis vulvovaginal
-Servisitis
-Erosi serviks
-Displasia serviks
-Kanker serviks
-Kanker ovarium
-Kanker endometrium
-Fibrokistik payudara
-Mastitis
-Kanker payudara
-Infertilitas wanita
-Kehamilan ektopik
-Preeklampsia
+Menoragia
+Dismenore
+Amenore
+Preeklamsia
 Diabetes gestasional
-Depresi pascapersalinan
+Hiperemesis gravidarum
+Kehamilan ektopik
+Perdarahan pascapersalinan
+Mastitis
+Perubahan fibrokistik payudara
+Sindrom klimakterik
+Gangguan disforik pramenstruasi
+Prolaps uteri
+Adenomiosis
+Torsio ovarium
+Plasenta previa
+Solusio plasenta
+Kanker vulva
+Kanker vagina
+Kista Bartholin
+Vaginitis atrofi
+Sindrom Turner
+Infertilitas wanita

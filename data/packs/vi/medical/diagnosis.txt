@@ -3,85 +3,182 @@ description: Medical diagnosis in Vietnamese that can occur in any patient — n
 locale: vi
 ---
 Tăng huyết áp
-Bệnh mạch vành
-Cơn đau thắt ngực
-Nhồi máu cơ tim
-Rung nhĩ
-Suy tim
-Bệnh cơ tim
-Viêm cơ tim
-Xơ vữa động mạch
-Suy giãn tĩnh mạch
-Huyết khối tĩnh mạch sâu
-Thuyên tắc phổi
-Đột quỵ
-Cơn thiếu máu não thoáng qua
+Đái tháo đường típ 2
+Hen phế quản
+Viêm phế quản cấp
+Cúm
 Đau nửa đầu
-Động kinh
-Xơ cứng rải rác
-Bệnh Parkinson
-Sa sút trí tuệ
-Bệnh thần kinh ngoại biên
-Bệnh rễ thần kinh
-Thoái hóa cột sống
-Thoát vị đĩa đệm
+Rối loạn lo âu lan tỏa
+Rối loạn trầm cảm nặng
 Thoái hóa khớp
 Viêm khớp dạng thấp
-Bệnh gút
-Loãng xương
-Vẹo cột sống
-Hen phế quản
-Bệnh phổi tắc nghẽn mạn tính
-Viêm phế quản mạn
+Bệnh trào ngược dạ dày thực quản
+Thiếu máu thiếu sắt
+Suy giáp
+Nhiễm trùng đường tiết niệu
 Viêm phổi
-Viêm màng phổi
-Lao phổi
-Sarcoidosis
-Ngưng thở khi ngủ
-Viêm xoang cấp
-Viêm amidan mạn
+Bệnh thận mạn
+Bệnh động mạch vành
+Rung nhĩ
+Suy tim mạn
+Đột quỵ thiếu máu não
+Động kinh
+Bệnh Parkinson
+Bệnh Alzheimer
+Xơ cứng rải rác
+Vảy nến
+Viêm da cơ địa
+Viêm mũi dị ứng
+Viêm xoang mạn
 Viêm tai giữa
-Viêm thanh quản
-Viêm dạ dày
-Loét dạ dày
-Trào ngược dạ dày thực quản
+Viêm kết mạc
+Đục thủy tinh thể
+Tăng nhãn áp
+Viêm ruột thừa
+Viêm túi mật
+Viêm túi thừa
 Hội chứng ruột kích thích
 Bệnh Crohn
 Viêm loét đại tràng
-Bệnh Celiac
-Viêm tụy mạn
-Sỏi mật
-Viêm túi mật
-Viêm gan A
-Viêm gan B
-Viêm gan C
+Viêm gan B mạn
 Xơ gan
-Gan nhiễm mỡ
-Bệnh thận mạn
-Viêm thận bể thận
-Viêm cầu thận
-Sỏi thận
-Nhiễm khuẩn đường tiết niệu
-Đái tháo đường type 1
-Đái tháo đường type 2
-Suy giáp
-Cường giáp
+Viêm tụy cấp
+Bệnh gút
+Loãng xương
+Đau cơ xơ hóa
+Đau thần kinh tọa
+Thoát vị đĩa đệm
+Hội chứng ống cổ tay
+Viêm gân
+Bệnh phổi tắc nghẽn mạn tính
+Lao
+Bệnh bạch cầu
+U lympho
+U hắc tố
+Rối loạn lipid máu
 Béo phì
+Ngưng thở khi ngủ do tắc nghẽn
+Mất ngủ
+Rối loạn lưỡng cực
+Rối loạn tăng động giảm chú ý
+Bệnh celiac
+Lupus ban đỏ hệ thống
+Chóng mặt
+Ù tai
+Trĩ
+Giãn tĩnh mạch
+Huyết khối tĩnh mạch sâu
+Thuyên tắc phổi
+Sỏi thận
+Thiếu máu
+Cường giáp
+Loét dạ dày tá tràng
+Viêm dạ dày
+Viêm mô tế bào
+Nhiễm khuẩn huyết
+Ung thư vú
+Viêm dạ dày ruột cấp
+Thiếu vitamin D
+Suy tĩnh mạch mạn
+Đái tháo đường típ 1
+Nhồi máu cơ tim
+Đau thắt ngực
+Bệnh động mạch ngoại biên
+Bệnh cơ tim giãn
+Viêm cơ tim
+Viêm màng ngoài tim
+Viêm nội tâm mạc nhiễm khuẩn
+Hẹp van động mạch chủ
+Sa van hai lá
+Phình động mạch chủ bụng
+Viêm phế quản mạn
+Khí phế thũng
+Tràn dịch màng phổi
+Xơ phổi
+Tăng áp động mạch phổi
+Giãn phế quản
+Viêm thanh quản
+Viêm họng
+Viêm amidan
+Viêm thực quản
+Thực quản Barrett
+Ung thư dạ dày
+Ung thư đại trực tràng
+Nứt kẽ hậu môn
+Gan nhiễm mỡ không do rượu
+Viêm gan C mạn
+Thoát vị hoành
+Thoát vị bẹn
+Tổn thương thận cấp
+Viêm cầu thận
+Viêm thận bể thận
+Viêm bàng quang
+Tiểu không tự chủ
+Ung thư bàng quang
+Ung thư biểu mô tế bào thận
+Cơn thiếu máu não thoáng qua
+Đau đầu do căng thẳng
+Đau đầu từng cụm
+Đau dây thần kinh sinh ba
+Liệt Bell
+Bệnh thần kinh ngoại biên
+Hội chứng chân không yên
+Run vô căn
+Nhược cơ
+Hội chứng Guillain-Barré
+Rối loạn hoảng sợ
+Rối loạn ám ảnh cưỡng chế
+Rối loạn stress sau sang chấn
+Rối loạn lo âu xã hội
+Chán ăn tâm thần
+Ăn ói tâm thần
+Tâm thần phân liệt
+Rối loạn sử dụng rượu
+Viêm giáp Hashimoto
+Bệnh Graves
+Hội chứng Cushing
+Bệnh Addison
+Cường cận giáp
 Hội chứng chuyển hóa
-Thiếu máu thiếu sắt
-Thiếu máu thiếu B12
-Sốt xuất huyết
+Thiếu vitamin B12
+Nhân tuyến giáp
+Giảm tiểu cầu
+Đa hồng cầu nguyên phát
+Ung thư phổi
+Ung thư tụy
+Ung thư tuyến giáp
+Đa u tủy xương
+Viêm bao hoạt dịch
+Viêm cân gan chân
+Rách chóp xoay
+Viêm cột sống dính khớp
+Vẹo cột sống
+Viêm tủy xương
+Trứng cá thông thường
+Trứng cá đỏ
+Bạch biến
+Rụng tóc từng vùng
+Mề đay
+Viêm da tiếp xúc
+Zona
+Nấm móng
+Thoái hóa điểm vàng
+Bệnh võng mạc đái tháo đường
+Bong võng mạc
+Viêm màng bồ đào
+Hội chứng khô mắt
+Bệnh Ménière
+Nghe kém tiếp nhận
+Polyp mũi
+Tăng bạch cầu đơn nhân nhiễm khuẩn
+Bệnh Lyme
 Sốt rét
-Thương hàn
-Tay chân miệng
-Viêm da cơ địa
-Vảy nến
-Chàm
-Mày đay
-Trứng cá
-Viêm mũi dị ứng
-Viêm kết mạc
-Đục thủy tinh thể
-Glôcôm
-Giai đoạn trầm cảm
-Rối loạn lo âu lan tỏa
+Sốt xuất huyết dengue
+Nhiễm Salmonella
+Viêm gan A
+Nhiễm HIV
+Nhiễm herpes simplex
+Sởi
+Thủy đậu
+Viêm màng não do vi khuẩn
+Viêm não do virus

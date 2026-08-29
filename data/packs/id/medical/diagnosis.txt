@@ -3,85 +3,182 @@ description: Medical diagnosis in Indonesian that can occur in any patient — n
 locale: id
 ---
 Hipertensi
-Penyakit jantung koroner
-Angina pektoris
-Infark miokard
-Fibrilasi atrium
-Gagal jantung
-Kardiomiopati
-Miokarditis
-Aterosklerosis
-Varises
-Trombosis vena dalam
-Emboli paru
-Stroke
-Serangan iskemik sementara
+Diabetes melitus tipe 2
+Asma
+Bronkitis akut
+Influenza
 Migrain
-Epilepsi
-Multipel sklerosis
-Penyakit Parkinson
-Demensia
-Neuropati perifer
-Radikulopati
-Degenerasi tulang belakang
-Hernia nukleus pulposus
+Gangguan kecemasan umum
+Gangguan depresi mayor
 Osteoartritis
 Artritis reumatoid
-Asam urat
-Osteoporosis
-Skoliosis
-Asma
-Penyakit paru obstruktif kronis
-Bronkitis kronis
-Pneumonia
-Pleuritis
-Tuberkulosis paru
-Sarkoidosis
-Apnea tidur
-Sinusitis akut
-Tonsilitis kronis
-Otitis
-Laringitis
-Gastritis
-Tukak lambung
-Penyakit refluks gastroesofageal
-Sindrom iritasi usus
-Penyakit Crohn
-Kolitis ulseratif
-Penyakit celiac
-Pankreatitis kronis
-Batu empedu
-Kolesistitis
-Hepatitis A
-Hepatitis B
-Hepatitis C
-Sirosis hati
-Perlemakan hati
-Penyakit ginjal kronis
-Pielonefritis
-Glomerulonefritis
-Batu ginjal
-Infeksi saluran kemih
-Diabetes melitus tipe 1
-Diabetes melitus tipe 2
-Hipotiroidisme
-Hipertiroidisme
-Obesitas
-Sindrom metabolik
+Penyakit refluks gastroesofagus
 Anemia defisiensi besi
-Anemia defisiensi B12
-Demam berdarah dengue
-Malaria
-Tifus
-Leptospirosis
-Dermatitis atopik
+Hipotiroidisme
+Infeksi saluran kemih
+Pneumonia
+Penyakit ginjal kronis
+Penyakit jantung koroner
+Fibrilasi atrium
+Gagal jantung kronis
+Stroke iskemik
+Epilepsi
+Penyakit Parkinson
+Penyakit Alzheimer
+Sklerosis multipel
 Psoriasis
-Eksim
-Urtikaria
-Akne
+Dermatitis atopik
 Rinitis alergi
+Sinusitis kronis
+Otitis media
 Konjungtivitis
 Katarak
 Glaukoma
-Episode depresi
-Gangguan cemas menyeluruh
+Apendisitis
+Kolesistitis
+Divertikulitis
+Sindrom iritasi usus
+Penyakit Crohn
+Kolitis ulseratif
+Hepatitis B kronis
+Sirosis hati
+Pankreatitis akut
+Asam urat
+Osteoporosis
+Fibromialgia
+Skiatika
+Hernia nukleus pulposus
+Sindrom lorong karpal
+Tendinitis
+Penyakit paru obstruktif kronis
+Tuberkulosis
+Leukemia
+Limfoma
+Melanoma
+Hiperlipidemia
+Obesitas
+Apnea tidur obstruktif
+Insomnia
+Gangguan bipolar
+Gangguan pemusatan perhatian dan hiperaktivitas
+Penyakit seliak
+Lupus eritematosus sistemik
+Vertigo
+Tinitus
+Wasir
+Varises
+Trombosis vena dalam
+Emboli paru
+Batu ginjal
+Anemia
+Hipertiroidisme
+Tukak lambung
+Gastritis
+Selulitis
+Sepsis
+Kanker payudara
+Gastroenteritis akut
+Defisiensi vitamin D
+Insufisiensi vena kronis
+Diabetes melitus tipe 1
+Infark miokard
+Angina pektoris
+Penyakit arteri perifer
+Kardiomiopati dilatasi
+Miokarditis
+Perikarditis
+Endokarditis infektif
+Stenosis aorta
+Prolaps katup mitral
+Aneurisma aorta abdominal
+Bronkitis kronis
+Emfisema
+Efusi pleura
+Fibrosis paru
+Hipertensi pulmonal
+Bronkiektasis
+Laringitis
+Faringitis
+Tonsilitis
+Esofagitis
+Esofagus Barrett
+Kanker lambung
+Kanker kolorektal
+Fisura ani
+Perlemakan hati non-alkoholik
+Hepatitis C kronis
+Hernia hiatus
+Hernia inguinalis
+Gagal ginjal akut
+Glomerulonefritis
+Pielonefritis
+Sistitis
+Inkontinensia urin
+Kanker kandung kemih
+Karsinoma sel ginjal
+Serangan iskemik transien
+Sakit kepala tegang
+Sakit kepala klaster
+Neuralgia trigeminal
+Kelumpuhan Bell
+Neuropati perifer
+Sindrom kaki gelisah
+Tremor esensial
+Miastenia gravis
+Sindrom Guillain-Barré
+Gangguan panik
+Gangguan obsesif-kompulsif
+Gangguan stres pascatrauma
+Gangguan kecemasan sosial
+Anoreksia nervosa
+Bulimia nervosa
+Skizofrenia
+Gangguan penggunaan alkohol
+Tiroiditis Hashimoto
+Penyakit Graves
+Sindrom Cushing
+Penyakit Addison
+Hiperparatiroidisme
+Sindrom metabolik
+Defisiensi vitamin B12
+Nodul tiroid
+Trombositopenia
+Polisitemia vera
+Kanker paru
+Kanker pankreas
+Kanker tiroid
+Mieloma multipel
+Bursitis
+Fasciitis plantaris
+Robekan rotator cuff
+Spondilitis ankilosa
+Skoliosis
+Osteomielitis
+Jerawat
+Rosasea
+Vitiligo
+Alopesia areata
+Biduran
+Dermatitis kontak
+Herpes zoster
+Onikomikosis
+Degenerasi makula
+Retinopati diabetik
+Ablasi retina
+Uveitis
+Sindrom mata kering
+Penyakit Ménière
+Tuli sensorineural
+Polip hidung
+Mononukleosis infeksiosa
+Penyakit Lyme
+Malaria
+Demam berdarah dengue
+Salmonelosis
+Hepatitis A
+Infeksi HIV
+Infeksi herpes simpleks
+Campak
+Cacar air
+Meningitis bakterial
+Ensefalitis viral

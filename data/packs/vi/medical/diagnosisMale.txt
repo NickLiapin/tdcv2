@@ -5,20 +5,30 @@ locale: vi
 Phì đại tuyến tiền liệt lành tính
 Viêm tuyến tiền liệt
 Ung thư tuyến tiền liệt
+Ung thư tinh hoàn
+Xoắn tinh hoàn
 Giãn tĩnh mạch thừng tinh
 Tràn dịch màng tinh hoàn
+Viêm mào tinh hoàn
 Tinh hoàn ẩn
 Hẹp bao quy đầu
-Nghẹt bao quy đầu
 Viêm quy đầu
-Viêm tinh hoàn
-Viêm mào tinh hoàn
-Xoắn tinh hoàn
-Ung thư tinh hoàn
 Rối loạn cương dương
 Bệnh Peyronie
 Vô sinh nam
-Suy sinh dục
-Thoát vị bẹn
+Nữ hóa tuyến vú
+Suy sinh dục nam
+Cương đau dương vật kéo dài
+Nang mào tinh
+Hói đầu kiểu nam
+Thoát vị bìu
+Ung thư dương vật
+Viêm tinh hoàn
+Hẹp niệu đạo
+Hội chứng Klinefelter
 Không có tinh trùng
-Vú to ở nam giới
+Xuất tinh sớm
+Nghẹt bao quy đầu
+Áp xe tuyến tiền liệt
+Viêm túi tinh
+Máu trong tinh dịch

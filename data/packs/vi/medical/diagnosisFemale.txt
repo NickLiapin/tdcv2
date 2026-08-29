@@ -3,28 +3,38 @@ description: Medical diagnosis in Vietnamese that requires female anatomy — it
 locale: vi
 ---
 Lạc nội mạc tử cung
-U xơ tử cung
-Lạc tuyến trong cơ tử cung
-U nang buồng trứng
 Hội chứng buồng trứng đa nang
+U xơ tử cung
+Nang buồng trứng
+Ung thư buồng trứng
+Ung thư cổ tử cung
+Loạn sản cổ tử cung
+Viêm cổ tử cung
+Viêm nội mạc tử cung
+Ung thư nội mạc tử cung
+Bệnh viêm vùng chậu
+Viêm âm đạo do vi khuẩn
+Nấm candida âm hộ âm đạo
+Rong kinh
 Thống kinh
 Vô kinh
-Hội chứng tiền kinh nguyệt
-Hội chứng mãn kinh
-Viêm âm đạo
-Viêm âm đạo do vi khuẩn
-Nhiễm nấm âm đạo
-Viêm cổ tử cung
-Lộ tuyến cổ tử cung
-Loạn sản cổ tử cung
-Ung thư cổ tử cung
-Ung thư buồng trứng
-Ung thư nội mạc tử cung
-Bệnh xơ nang tuyến vú
-Viêm tuyến vú
-Ung thư vú
-Vô sinh nữ
-Thai ngoài tử cung
 Tiền sản giật
 Đái tháo đường thai kỳ
-Trầm cảm sau sinh
+Nôn nghén nặng
+Thai ngoài tử cung
+Băng huyết sau sinh
+Viêm vú
+Thay đổi sợi bọc tuyến vú
+Hội chứng mãn kinh
+Rối loạn tâm trạng tiền kinh nguyệt
+Sa tử cung
+Lạc nội mạc trong cơ tử cung
+Xoắn buồng trứng
+Nhau tiền đạo
+Nhau bong non
+Ung thư âm hộ
+Ung thư âm đạo
+Nang tuyến Bartholin
+Viêm âm đạo teo
+Hội chứng Turner
+Vô sinh nữ
