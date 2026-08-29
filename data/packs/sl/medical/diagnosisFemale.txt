@@ -2,30 +2,39 @@
 description: Diagnosis found only in, or overwhelmingly in, women (Slovene). Same content as person/female/diagnosis, addressed from the medical tree.
 locale: sl
 ---
-rak dojke
-rak materničnega vratu
-rak jajčnikov
-rak maternice
-endometrioza
-sindrom policističnih jajčnikov
-miom maternice
-cista na jajčniku
-vnetje medeničnih organov
-zunajmaternična nosečnost
-spontani splav
-preeklampsija
-nosečnostna sladkorna bolezen
-placenta previa
-poporodna depresija
-mastitis
-fibrocistična bolezen dojk
-menopavza
-predmenstrualni sindrom
-dismenoreja
-amenoreja
-neplodnost
-vaginalna kandidoza
-bakterijska vaginoza
-prolaps maternice
-urinska inkontinenca
-osteoporoza po menopavzi
+Endometrioza
+Sindrom policističnih jajčnikov
+Miomi maternice
+Cista na jajčniku
+Rak jajčnikov
+Rak materničnega vratu
+Cervikalna displazija
+Cervicitis
+Endometritis
+Rak endometrija
+Medenična vnetna bolezen
+Bakterijska vaginoza
+Vaginalna kandidoza
+Menoragija
+Dismenoreja
+Amenoreja
+Preeklampsija
+Nosečnostna sladkorna bolezen
+Hiperemeza gravidarum
+Zunajmaternična nosečnost
+Poporodna krvavitev
+Mastitis
+Fibrocistična bolezen dojke
+Menopavzni sindrom
+Predmenstrualna disforična motnja
+Zdrs maternice
+Adenomioza
+Torzija jajčnika
+Predležeča posteljica
+Abrupcija posteljice
+Rak zunanjega spolovila
+Rak nožnice
+Bartholinova cista
+Atrofični vaginitis
+Turnerjev sindrom
+Ženska neplodnost

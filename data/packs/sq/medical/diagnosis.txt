@@ -2,83 +2,183 @@
 description: Diagnosis (Albanian). Two entries are not ballast in this locale: TALASEMI BETA is genuinely common along the Albanian coast and in Kosovo, screened for at birth, and ETHE REUMATIZMALE has not disappeared here the way it has in western Europe.
 locale: sq
 ---
-Hipertension arterial
-Diabet i tipit 2
-Astmë bronkiale
-Bronkit akut
-Grip
-Migrenë
-Çrregullim i ankthit të përgjithësuar
-Çrregullim depresiv madhor
-Osteoartrit
-Artrit reumatoid
-Sëmundje e refluksit gastroezofageal
-Anemi nga mungesa e hekurit
-Hipotiroidizëm
-Infeksion i traktit urinar
-Pneumoni
-Sëmundje kronike e veshkave
-Sëmundje koronare
-Fibrilacion atrial
-Insuficiencë kardiake
-Aksident cerebrovaskular ishemik
-Epilepsi
+Hipertensioni
+Diabeti i tipit 2
+Astma
+Bronkiti akut
+Gripi
+Migrena
+Çrregullimi i ankthit të përgjithësuar
+Depresioni madhor
+Osteoartriti
+Artriti reumatoid
+Sëmundja e refluksit gastroezofageal
+Anemia nga mungesa e hekurit
+Hipotiroidizmi
+Infeksioni i traktit urinar
+Pneumonia
+Sëmundja kronike e veshkave
+Sëmundja koronare e zemrës
+Fibrilacioni atrial
+Insuficienca kronike e zemrës
+Goditja ishemike në tru
+Epilepsia
 Sëmundja e Parkinsonit
 Sëmundja e Alzheimerit
-Sklerozë e shumëfishtë
-Psoriazë
-Dermatit atopik
-Rinit alergjik
-Sinuzit kronik
-Otit i mesëm
-Konjunktivit
-Katarakt
-Glaukomë
-Apendicit
-Kolecistit
-Divertikulit
-Sindromi i zorrës së irrituar
+Skleroza multiple
+Psoriaza
+Dermatiti atopik
+Riniti alergjik
+Sinusiti kronik
+Otiti i veshit të mesëm
+Konjuktiviti
+Katarakta
+Glaukoma
+Apendiciti
+Kolecistiti
+Divertikuliti
+Sindroma e zorrës së irrituar
 Sëmundja e Crohnit
-Kolit ulceroz
-Hepatit kronik B
-Cirrozë hepatike
-Pankreatit akut
-Përdhes
-Osteoporozë
-Fibromialgji
-Shiatikë
-Hernie diskale
-Sindromi i tunelit karpal
-Tendinit
-Sëmundje pulmonare obstruktive kronike
-Tuberkuloz
-Leuçemi
-Limfomë
-Melanomë
-Hiperlipidemi
-Obezitet
-Apne obstruktive e gjumit
-Pagjumësi
-Çrregullim bipolar
-Çrregullim i vëmendjes dhe hiperaktivitetit
+Koliti ulceroz
+Hepatiti kronik B
+Cirroza e mëlçisë
+Pankreatiti akut
+Përdhesa
+Osteoporoza
+Fibromialgjia
+Ishiasi
+Hernia e diskut
+Sindroma e tunelit karpal
+Tendiniti
+Sëmundja pulmonare obstruktive kronike
+Tuberkulozi
+Leuçemia
+Limfoma
+Melanoma
+Hiperlipidemia
+Obeziteti
+Apnea obstruktive e gjumit
+Pagjumësia
+Çrregullimi bipolar
+ADHD
 Sëmundja celiake
-Lupus eritematoz sistemik
-Vertigo
-Tinitus
-Hemorroide
-Variçe
-Trombozë e venave të thella
-Emboli pulmonare
-Gurë në veshka
-Anemi
-Hipertiroidizëm
-Ulçerë peptike
-Gastrit
-Celulit
-Sepsë
-Kancer i gjirit
-Gastroenterit akut
-Mungesë e vitaminës D
-Insuficiencë venoze kronike
-Talasemi beta
-Ethe reumatizmale
+Lupusi eritematoz sistemik
+Marrje mendsh
+Zhurmë në veshë
+Hemorroidet
+Venat me variçe
+Tromboza venoze e thellë
+Embolia pulmonare
+Gurët në veshka
+Anemia
+Hipertiroidizmi
+Ulçera peptike
+Gastriti
+Celuliti infektiv
+Sepsisi
+Kanceri i gjirit
+Gastroenteriti akut
+Mungesa e vitaminës D
+Insuficienca venoze kronike
+Diabeti i tipit 1
+Infarkti i miokardit
+Angina pektoris
+Sëmundja arteriale periferike
+Kardiomiopatia dilatative
+Miokarditi
+Perikarditi
+Endokarditi infektiv
+Stenoza e aortës
+Prolapsi i valvulës mitrale
+Aneurizma e aortës abdominale
+Bronkiti kronik
+Emfizema pulmonare
+Derdhja pleurale
+Fibroza pulmonare
+Hipertensioni pulmonar
+Bronkiektazia
+Laringiti
+Faringiti
+Tonsiliti
+Ezofagiti
+Ezofagu i Barrettit
+Kanceri i stomakut
+Kanceri kolorektal
+Fisura anale
+Mëlçia e yndyrshme joalkoolike
+Hepatiti kronik C
+Hernia hiatale
+Hernia inguinale
+Dëmtimi akut i veshkave
+Glomerulonefriti
+Pielonefriti
+Cistiti
+Inkontinenca urinare
+Kanceri i fshikëzës urinare
+Karcinoma e qelizave renale
+Ataku ishemik kalimtar
+Dhimbja e kokës nga tensioni
+Dhimbja e kokës cluster
+Nevralgjia e trigeminusit
+Paraliza e Bellit
+Neuropatia periferike
+Sindroma e këmbëve të shqetësuara
+Tremori esencial
+Miastenia gravis
+Sindroma Guillain-Barré
+Çrregullimi i panikut
+Çrregullimi obsesiv-kompulsiv
+Çrregullimi i stresit posttraumatik
+Fobia sociale
+Anoreksia nervore
+Bulimia nervore
+Skizofrenia
+Varësia nga alkooli
+Tiroiditi i Hashimotos
+Sëmundja e Graves
+Sindroma e Cushingut
+Sëmundja e Addisonit
+Hiperparatiroidizmi
+Sindroma metabolike
+Mungesa e vitaminës B12
+Nyja e tiroides
+Trombocitopenia
+Policitemia vera
+Kanceri i mushkërive
+Kanceri i pankreasit
+Kanceri i tiroides
+Mieloma multiple
+Bursiti
+Fasciti plantar
+Këputja e manshetës rrotulluese
+Spondiliti ankilozant
+Skolioza
+Osteomieliti
+Aknet
+Rozacea
+Vitiligo
+Alopecia areata
+Urtikaria
+Dermatiti i kontaktit
+Herpes zoster
+Onikomikoza
+Degjenerimi makular
+Retinopatia diabetike
+Shkëputja e retinës
+Uveiti
+Sindroma e syrit të thatë
+Sëmundja e Ménière
+Humbja sensorineurale e dëgjimit
+Polipet e hundës
+Mononukleoza infektive
+Sëmundja e Lyme
+Malaria
+Ethet denge
+Salmoneloza
+Hepatiti A
+Infeksioni HIV
+Infeksioni me herpes simplex
+Fruthi
+Lija e dhenve
+Meningjiti bakterial
+Encefaliti viral

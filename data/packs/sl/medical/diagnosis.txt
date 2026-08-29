@@ -2,81 +2,183 @@
 description: Diagnosis (Slovene), across specialties. Slovene names diabetes SLADKORNA BOLEZEN, literally the sugar disease, and cataract and glaucoma SIVA MRENA and ZELENA MRENA, the grey and the green film — the everyday Slovene terms are native compounds rather than Latin, and they are what a Slovene discharge letter puts beside the Latin. Klopni meningoencefalitis is here because Slovenia has one of the highest tick-borne encephalitis rates in Europe and vaccination against it is an ordinary part of Slovene primary care.
 locale: sl
 ---
-arterijska hipertenzija
-sladkorna bolezen tipa 2
-sladkorna bolezen tipa 1
-debelost
-hiperholesterolemija
-metabolni sindrom
-angina pektoris
-miokardni infarkt
-srčno popuščanje
-atrijska fibrilacija
-možganska kap
-periferna arterijska bolezen
-globoka venska tromboza
-pljučna embolija
-astma
-kronična obstruktivna pljučna bolezen
-pljučnica
-akutni bronhitis
-sinuzitis
-gripa
-covid-19
-klopni meningoencefalitis
-lymska borelioza
-anemija
-pomanjkanje železa
-revmatoidni artritis
-osteoartroza
-osteoporoza
-protin
-fibromialgija
-hernija medvretenčne ploščice
-išias
-sindrom karpalnega kanala
-migrena
-epilepsija
-demenca
-Alzheimerjeva bolezen
+Hipertenzija
+Sladkorna bolezen tipa 2
+Astma
+Akutni bronhitis
+Gripa
+Migrena
+Generalizirana anksiozna motnja
+Huda depresija
+Osteoartroza
+Revmatoidni artritis
+Gastroezofagealna refluksna bolezen
+Anemija zaradi pomanjkanja železa
+Hipotiroza
+Okužba sečil
+Pljučnica
+Kronična ledvična bolezen
+Koronarna bolezen
+Atrijska fibrilacija
+Kronično srčno popuščanje
+Ishemična možganska kap
+Epilepsija
 Parkinsonova bolezen
-multipla skleroza
-depresija
-anksiozna motnja
-nespečnost
-panična motnja
-gastritis
-razjeda želodca
-refluksna bolezen požiralnika
-sindrom razdražljivega črevesa
+Alzheimerjeva bolezen
+Multipla skleroza
+Luskavica
+Atopijski dermatitis
+Alergijski rinitis
+Kronični sinuzitis
+Vnetje srednjega ušesa
+Konjunktivitis
+Siva mrena
+Glavkom
+Vnetje slepiča
+Vnetje žolčnika
+Divertikulitis
+Sindrom razdražljivega črevesa
 Crohnova bolezen
-ulcerozni kolitis
-celiakija
-žolčni kamni
-maščobna jetra
-ciroza jeter
-ledvični kamni
-okužba sečil
-kronična ledvična bolezen
-hipotiroza
-hipertiroza
+Ulcerozni kolitis
+Kronični hepatitis B
+Jetrna ciroza
+Akutni pankreatitis
+Protin
+Osteoporoza
+Fibromialgija
+Išias
+Hernija medvretenčne ploščice
+Sindrom zapestnega prehoda
+Tendinitis
+Kronična obstruktivna pljučna bolezen
+Tuberkuloza
+Levkemija
+Limfom
+Melanom
+Hiperlipidemija
+Debelost
+Obstruktivna apneja v spanju
+Nespečnost
+Bipolarna motnja
+ADHD
+Celiakija
+Sistemski eritematozni lupus
+Vrtoglavica
+Šumenje v ušesih
+Hemoroidi
+Krčne žile
+Globoka venska tromboza
+Pljučna embolija
+Ledvični kamni
+Anemija
+Hipertiroza
+Peptična razjeda
+Gastritis
+Celulitis kože
+Sepsa
+Rak dojke
+Akutni gastroenteritis
+Pomanjkanje vitamina D
+Kronična venska insuficienca
+Sladkorna bolezen tipa 1
+Miokardni infarkt
+Angina pektoris
+Periferna arterijska bolezen
+Dilatativna kardiomiopatija
+Miokarditis
+Perikarditis
+Infekcijski endokarditis
+Aortna stenoza
+Prolaps mitralne zaklopke
+Anevrizma trebušne aorte
+Kronični bronhitis
+Pljučni emfizem
+Plevralni izliv
+Pljučna fibroza
+Pljučna hipertenzija
+Bronhiektazije
+Laringitis
+Faringitis
+Tonzilitis
+Ezofagitis
+Barrettov požiralnik
+Rak želodca
+Rak debelega črevesa in danke
+Analna fisura
+Nealkoholna zamaščenost jeter
+Kronični hepatitis C
+Hiatalna hernija
+Dimeljska kila
+Akutna ledvična okvara
+Glomerulonefritis
+Pielonefritis
+Cistitis
+Urinska inkontinenca
+Rak sečnega mehurja
+Ledvičnocelični karcinom
+Prehodni ishemični napad
+Tenzijski glavobol
+Glavobol v rafalih
+Nevralgija trivejnega živca
+Bellova ohromelost
+Periferna nevropatija
+Sindrom nemirnih nog
+Esencialni tremor
+Miastenija gravis
+Guillain-Barréjev sindrom
+Panična motnja
+Obsesivno-kompulzivna motnja
+Posttravmatska stresna motnja
+Socialna fobija
+Anoreksija nervoza
+Bulimija nervoza
+Shizofrenija
+Odvisnost od alkohola
 Hashimotov tiroiditis
-alergijski rinitis
-atopijski dermatitis
-luskavica
-ekcem
-urtikarija
-akne
-siva mrena
-zelena mrena
-starostna degeneracija rumene pege
-naglušnost
-tinitus
-rak dojke
-rak debelega črevesa in danke
-rak pljuč
-rak prostate
-melanom
-limfom
-levkemija
-obstruktivna apneja med spanjem
+Gravesova bolezen
+Cushingov sindrom
+Addisonova bolezen
+Hiperparatiroidizem
+Metabolični sindrom
+Pomanjkanje vitamina B12
+Gomolj ščitnice
+Trombocitopenija
+Policitemija vera
+Pljučni rak
+Rak trebušne slinavke
+Rak ščitnice
+Diseminirani plazmocitom
+Burzitis
+Plantarni fasciitis
+Ruptura rotatorne manšete
+Ankilozirajoči spondilitis
+Skolioza
+Osteomielitis
+Akne
+Rozacea
+Vitiligo
+Areatna alopecija
+Urtikarija
+Kontaktni dermatitis
+Herpes zoster
+Onihomikoza
+Makularna degeneracija
+Diabetična retinopatija
+Odstop mrežnice
+Uveitis
+Sindrom suhega očesa
+Ménièrova bolezen
+Zaznavna izguba sluha
+Nosni polipi
+Infekcijska mononukleoza
+Lymska borelioza
+Malarija
+Mrzlica denga
+Salmoneloza
+Hepatitis A
+Okužba s HIV
+Okužba s herpesom simpleksom
+Ošpice
+Norice
+Bakterijski meningitis
+Virusni encefalitis

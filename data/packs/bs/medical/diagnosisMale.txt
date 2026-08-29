@@ -3,22 +3,32 @@ description: Diagnosis recorded only or overwhelmingly in men. PROSTATA is the p
 locale: bs
 ---
 Benigna hiperplazija prostate
-Karcinom prostate
 Prostatitis
-Erektilna disfunkcija
+Rak prostate
+Rak testisa
+Torzija testisa
 Varikokela
 Hidrokela
-Torzija testisa
-Karcinom testisa
 Epididimitis
+Kriptorhizam
 Fimoza
-Muška neplodnost
-Androgena alopecija
-Ginekomastija
-Hipogonadizam
-Ingvinalna hernija
-Peyronieva bolest
 Balanitis
-Retencija urina
-Nedostatak testosterona
-Karcinom penisa
+Erektilna disfunkcija
+Peyronieva bolest
+Muška neplodnost
+Ginekomastija
+Muški hipogonadizam
+Prijapizam
+Spermatokela
+Muška ćelavost
+Skrotalna kila
+Rak penisa
+Orhitis
+Striktura uretre
+Klinefelterov sindrom
+Azoospermija
+Prijevremena ejakulacija
+Parafimoza
+Apsces prostate
+Vezikulitis
+Hematospermija

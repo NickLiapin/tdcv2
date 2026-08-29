@@ -2,23 +2,33 @@
 description: Diagnosis specific to male anatomy (Albanian).
 locale: sq
 ---
-Hiperplazi beninje e prostatës
-Prostatit
-Kancer i prostatës
-Kancer i testikujve
-Torsion i testikulit
-Varikocelë
-Hidrocelë
-Epididimit
-Kriptorkidizëm
-Fimozë
-Balanit
-Disfunksion erektil
-Sëmundja e Peyronie-t
-Infertilitet mashkullor
-Ginekomasti
-Hipogonadizëm mashkullor
-Priapizëm
-Spermatocelë
-Tullaci i tipit mashkullor
-Hernie skrotale
+Hiperplazia beninje e prostatës
+Prostatiti
+Kanceri i prostatës
+Kanceri i testikujve
+Torsioni i testikulit
+Varikocela
+Hidrocela
+Epididimiti
+Kriptorkidizmi
+Fimoza
+Balaniti
+Disfunksioni erektil
+Sëmundja e Peyronie
+Infertiliteti mashkullor
+Gjinekomastia
+Hipogonadizmi mashkullor
+Priapizmi
+Spermatocela
+Rënia e flokëve tek meshkujt
+Hernia skrotale
+Kanceri i penisit
+Orkiti
+Striktura e uretrës
+Sindroma Klinefelter
+Azoospermia
+Ejakulimi i parakohshëm
+Parafimoza
+Abscesi i prostatës
+Vezikuliti
+Hematospermia

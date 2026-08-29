@@ -5,7 +5,7 @@ locale: lv
 Endometrioze
 Policistisko olnīcu sindroms
 Dzemdes miomas
-Olnīcu cista
+Olnīcas cista
 Olnīcu vēzis
 Dzemdes kakla vēzis
 Dzemdes kakla displāzija
@@ -14,17 +14,27 @@ Endometrīts
 Endometrija vēzis
 Iegurņa iekaisuma slimība
 Bakteriāla vaginoze
-Vulvovagināla kandidoze
+Maksts kandidoze
 Menorāģija
 Dismenoreja
 Amenoreja
 Preeklampsija
-Gestācijas cukura diabēts
+Gestācijas diabēts
 Grūtnieču pārmērīga vemšana
 Ārpusdzemdes grūtniecība
 Pēcdzemdību asiņošana
 Mastīts
-Fibrocistiskas krūts izmaiņas
+Fibrocistiska krūts slimība
 Menopauzes sindroms
 Premenstruālie disforiskie traucējumi
 Dzemdes noslīdējums
+Adenomioze
+Olnīcas savērpšanās
+Placentas priekšguļa
+Placentas atslāņošanās
+Vulvas vēzis
+Maksts vēzis
+Bartolīni dziedzera cista
+Atrofisks vaginīts
+Tērnera sindroms
+Sieviešu neauglība

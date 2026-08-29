@@ -6,7 +6,7 @@ Labdabīga prostatas hiperplāzija
 Prostatīts
 Prostatas vēzis
 Sēklinieku vēzis
-Sēklinieka vērpe
+Sēklinieka savērpšanās
 Varikocēle
 Hidrocēle
 Epididimīts
@@ -20,5 +20,15 @@ Ginekomastija
 Vīriešu hipogonādisms
 Priapisms
 Spermatocēle
-Vīriešu tipa plikpaurība
+Vīriešu plikpaurība
 Sēklinieku maisiņa trūce
+Dzimumlocekļa vēzis
+Orhīts
+Urīnizvadkanāla striktūra
+Klainfeltera sindroms
+Azoospermija
+Priekšlaicīga ejakulācija
+Parafimoze
+Prostatas abscess
+Sēklas pūslīšu iekaisums
+Asinis spermā

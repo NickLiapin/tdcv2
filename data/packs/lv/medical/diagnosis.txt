@@ -4,25 +4,23 @@ locale: lv
 ---
 Hipertensija
 2. tipa cukura diabēts
-1. tipa cukura diabēts
 Astma
 Akūts bronhīts
 Gripa
 Migrēna
-Ģeneralizēti trauksmes traucējumi
-Depresija
-Osteoartrīts
+Ģeneralizēta trauksme
+Smaga depresija
+Osteoartroze
 Reimatoīdais artrīts
 Gastroezofageālā atviļņa slimība
 Dzelzs deficīta anēmija
 Hipotireoze
-Hipertireoze
 Urīnceļu infekcija
 Pneimonija
 Hroniska nieru slimība
 Koronārā sirds slimība
 Priekškambaru mirdzēšana
-Sirds mazspēja
+Hroniska sirds mazspēja
 Išēmisks insults
 Epilepsija
 Parkinsona slimība
@@ -39,11 +37,10 @@ Glaukoma
 Apendicīts
 Holecistīts
 Divertikulīts
-Kairinātās zarnas sindroms
+Kairinātu zarnu sindroms
 Krona slimība
 Čūlainais kolīts
 Hronisks B hepatīts
-Hronisks C hepatīts
 Aknu ciroze
 Akūts pankreatīts
 Podagra
@@ -55,34 +52,133 @@ Karpālā kanāla sindroms
 Tendinīts
 Hroniska obstruktīva plaušu slimība
 Tuberkuloze
-Ērču encefalīts
-Laimas slimība
 Leikēmija
 Limfoma
 Melanoma
-Plaušu vēzis
-Resnās zarnas vēzis
-Kuņģa vēzis
 Hiperlipidēmija
 Aptaukošanās
 Obstruktīva miega apnoja
 Bezmiegs
-Bipolāri afektīvie traucējumi
-Uzmanības deficīta un hiperaktivitātes sindroms
+Bipolāri traucējumi
+UDHS
 Celiakija
 Sistēmiskā sarkanā vilkēde
-Vertigo
+Reibonis
 Troksnis ausīs
 Hemoroīdi
 Varikozas vēnas
 Dziļo vēnu tromboze
-Plaušu artērijas trombembolija
-Nefrolitiāze
+Plaušu embolija
+Nierakmeņi
 Anēmija
+Hipertireoze
 Peptiska čūla
 Gastrīts
-Celulīts
+Infekciozs celulīts
 Sepse
+Krūts vēzis
 Akūts gastroenterīts
 D vitamīna deficīts
 Hroniska vēnu mazspēja
+1. tipa cukura diabēts
+Miokarda infarkts
+Stenokardija
+Perifēro artēriju slimība
+Dilatācijas kardiomiopātija
+Miokardīts
+Perikardīts
+Infekciozs endokardīts
+Aortas stenoze
+Mitrālā vārstuļa prolapss
+Vēdera aortas aneirisma
+Hronisks bronhīts
+Plaušu emfizēma
+Pleiras izsvīdums
+Plaušu fibroze
+Pulmonāla hipertensija
+Bronhektāzes
+Laringīts
+Faringīts
+Tonsilīts
+Ezofagīts
+Bareta barības vads
+Kuņģa vēzis
+Kolorektālais vēzis
+Anālā plaisa
+Nealkohola taukainā aknu slimība
+Hronisks C hepatīts
+Hiatāla trūce
+Cirkšņa trūce
+Akūts nieru bojājums
+Glomerulonefrīts
+Pielonefrīts
+Cistīts
+Urīna nesaturēšana
+Urīnpūšļa vēzis
+Nieru šūnu karcinoma
+Pārejoša išēmiska lēkme
+Saspringuma galvassāpes
+Klastera galvassāpes
+Trijzaru nerva neiralģija
+Bella trieka
+Perifēra neiropātija
+Nemierīgo kāju sindroms
+Esenciāls tremors
+Myasthenia gravis
+Gijēna-Barē sindroms
+Panikas traucējumi
+Obsesīvi kompulsīvi traucējumi
+Posttraumatiskā stresa sindroms
+Sociālā fobija
+Nervozā anoreksija
+Nervozā bulīmija
+Šizofrēnija
+Atkarība no alkohola
+Hašimoto tireoidīts
+Greivsa slimība
+Kušinga sindroms
+Adisona slimība
+Hiperparatireoze
+Metaboliskais sindroms
+B12 vitamīna deficīts
+Vairogdziedzera mezgls
+Trombocitopēnija
+Īstā policitēmija
+Plaušu vēzis
+Aizkuņģa dziedzera vēzis
+Vairogdziedzera vēzis
+Multiplā mieloma
+Bursīts
+Plantārais fascīts
+Rotatoru manšetes plīsums
+Ankilozējošais spondilīts
+Skolioze
+Osteomielīts
+Pinnes
+Rozācija
+Vitiligo
+Perēkļveida alopēcija
+Nātrene
+Kontaktdermatīts
+Jostas roze
+Nagu sēnīte
+Makulas deģenerācija
+Diabētiskā retinopātija
+Tīklenes atslāņošanās
+Uveīts
+Sauso acu sindroms
+Menjēra slimība
+Sensoneirāls dzirdes zudums
+Deguna polipi
+Infekciozā mononukleoze
+Laimas slimība
+Malārija
+Denges drudzis
+Salmoneloze
+A hepatīts
+HIV infekcija
+Herpes simplex infekcija
+Masalas
+Vējbakas
+Bakteriāls meningīts
+Vīrusu encefalīts

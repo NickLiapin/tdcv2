@@ -2,84 +2,183 @@
 description: Medical diagnosis in Lithuanian that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale/diagnosisFemale; ancestry-linked ones in diagnosisByAncestry.
 locale: lt
 ---
-Arterinė hipertenzija
+Hipertenzija
 2 tipo cukrinis diabetas
-1 tipo cukrinis diabetas
-Hiperlipidemija
-Nutukimas
-Metabolinis sindromas
-Išeminė širdies liga
-Miokardo infarktas
-Širdies nepakankamumas
-Prieširdžių virpėjimas
-Aritmija
-Išeminis galvos smegenų insultas
-Praeinantis smegenų išemijos priepuolis
-Bronchinė astma
-Lėtinė obstrukcinė plaučių liga
-Pneumonija
+Astma
 Ūminis bronchitas
-Lėtinis bronchitas
-Tuberkuliozė
-Plaučių arterijos embolija
-Obstrukcinė miego apnėja
-Gastroezofaginio refliukso liga
-Gastritas
-Skrandžio opa
-Dirgliosios žarnos sindromas
-Celiakija
-Krono liga
-Opinis kolitas
-Divertikulitas
-Ūminis apendicitas
-Tulžies akmenligė
-Ūminis pankreatitas
-Kepenų cirozė
-Riebalinė kepenų liga
-Virusinis hepatitas B
-Virusinis hepatitas C
-Lėtinė inkstų liga
-Inkstų akmenligė
-Šlapimo takų infekcija
-Pielonefritas
-Cistitas
-Glomerulonefritas
-Osteoartritas
-Reumatoidinis artritas
-Osteoporozė
-Podagra
-Išialgija
-Nugaros skausmas
-Tarpslankstelinio disko išvarža
-Riešo kanalo sindromas
-Skoliozė
-Fibromialgija
+Gripas
 Migrena
-Įtampos tipo galvos skausmas
+Generalizuotas nerimo sutrikimas
+Sunki depresija
+Osteoartrozė
+Reumatoidinis artritas
+Gastroezofaginio refliukso liga
+Geležies stokos anemija
+Hipotirozė
+Šlapimo takų infekcija
+Plaučių uždegimas
+Lėtinė inkstų liga
+Išeminė širdies liga
+Prieširdžių virpėjimas
+Lėtinis širdies nepakankamumas
+Išeminis insultas
 Epilepsija
 Parkinsono liga
 Alzheimerio liga
 Išsėtinė sklerozė
-Periferinė neuropatija
-Vertigo
-Pasikartojantis depresijos sutrikimas
-Generalizuotas nerimo sutrikimas
-Panikos sutrikimas
-Bipolinis afektinis sutrikimas
-Nemiga
-Hipotirozė
-Hipertirozė
-Hašimoto tiroiditas
-Geležies stokos anemija
-Vitamino D stoka
-B12 vitamino stoka
-Psoriazė
+Žvynelinė
 Atopinis dermatitas
-Dilgėlinė
 Alerginis rinitas
-Konjunktyvitas
+Lėtinis sinusitas
 Vidurinės ausies uždegimas
-Sinusitas
+Konjunktyvitas
 Katarakta
 Glaukoma
+Apendicitas
+Cholecistitas
+Divertikulitas
+Dirgliosios žarnos sindromas
+Krono liga
+Opinis kolitas
+Lėtinis hepatitas B
+Kepenų cirozė
+Ūminis pankreatitas
+Podagra
+Osteoporozė
+Fibromialgija
+Išialgija
+Tarpslankstelinio disko išvarža
+Riešo kanalo sindromas
+Tendinitas
+Lėtinė obstrukcinė plaučių liga
+Tuberkuliozė
+Leukemija
+Limfoma
 Melanoma
+Hiperlipidemija
+Nutukimas
+Obstrukcinė miego apnėja
+Nemiga
+Bipolinis sutrikimas
+ADHD
+Celiakija
+Sisteminė raudonoji vilkligė
+Galvos svaigimas
+Spengimas ausyse
+Hemorojus
+Venų varikozė
+Giliųjų venų trombozė
+Plaučių embolija
+Inkstų akmenligė
+Anemija
+Hipertirozė
+Pepsinė opa
+Gastritas
+Infekcinis celiulitas
+Sepsis
+Krūties vėžys
+Ūminis gastroenteritas
+Vitamino D stoka
+Lėtinis venų nepakankamumas
+1 tipo cukrinis diabetas
+Miokardo infarktas
+Krūtinės angina
+Periferinių arterijų liga
+Dilatacinė kardiomiopatija
+Miokarditas
+Perikarditas
+Infekcinis endokarditas
+Aortos stenozė
+Mitralinio vožtuvo prolapsas
+Pilvo aortos aneurizma
+Lėtinis bronchitas
+Plaučių emfizema
+Pleuros eksudatas
+Plaučių fibrozė
+Plautinė hipertenzija
+Bronchektazės
+Laringitas
+Faringitas
+Tonzilitas
+Ezofagitas
+Bareto stemplė
+Skrandžio vėžys
+Storosios žarnos vėžys
+Išangės įtrūkimas
+Nealkoholinė riebalinė kepenų liga
+Lėtinis hepatitas C
+Hiatalinė išvarža
+Kirkšnies išvarža
+Ūminis inkstų pažeidimas
+Glomerulonefritas
+Pielonefritas
+Cistitas
+Šlapimo nelaikymas
+Šlapimo pūslės vėžys
+Inkstų ląstelių karcinoma
+Praeinantis smegenų išemijos priepuolis
+Įtampos tipo galvos skausmas
+Klasterinis galvos skausmas
+Trišakio nervo neuralgija
+Belo paralyžius
+Periferinė neuropatija
+Neramių kojų sindromas
+Esencinis tremoras
+Sunkioji miastenija
+Guillain-Barré sindromas
+Panikos sutrikimas
+Obsesinis-kompulsinis sutrikimas
+Potrauminio streso sutrikimas
+Socialinė fobija
+Nervinė anoreksija
+Nervinė bulimija
+Šizofrenija
+Priklausomybė nuo alkoholio
+Hašimoto tiroiditas
+Greivso liga
+Kušingo sindromas
+Adisono liga
+Hiperparatirozė
+Metabolinis sindromas
+Vitamino B12 stoka
+Skydliaukės mazgas
+Trombocitopenija
+Tikroji policitemija
+Plaučių vėžys
+Kasos vėžys
+Skydliaukės vėžys
+Dauginė mieloma
+Bursitas
+Padikaulio fascijos uždegimas
+Rotatorių manžetės plyšimas
+Ankilozinis spondilitas
+Skoliozė
+Osteomielitas
+Aknė
+Rožinė
+Vitiligas
+Židininis nuplikimas
+Dilgėlinė
+Kontaktinis dermatitas
+Juosiančioji pūslelinė
+Nagų grybelis
+Geltonosios dėmės degeneracija
+Diabetinė retinopatija
+Tinklainės atšoka
+Uveitas
+Sausų akių sindromas
+Menjero liga
+Sensorineurinis klausos praradimas
+Nosies polipai
+Infekcinė mononukleozė
+Laimo liga
+Maliarija
+Dengės karštligė
+Salmoneliozė
+Hepatitas A
+ŽIV infekcija
+Paprastosios pūslelinės infekcija
+Tymai
+Vėjaraupiai
+Bakterinis meningitas
+Virusinis encefalitas

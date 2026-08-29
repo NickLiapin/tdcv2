@@ -3,28 +3,38 @@ description: Medical diagnosis in Lithuanian that requires female anatomy — it
 locale: lt
 ---
 Endometriozė
-Gimdos mioma
 Policistinių kiaušidžių sindromas
-Krūties vėžys
-Gimdos kaklelio vėžys
-Gimdos kūno vėžys
-Kiaušidžių vėžys
+Gimdos miomos
 Kiaušidės cista
-Adenomiozė
+Kiaušidžių vėžys
+Gimdos kaklelio vėžys
+Gimdos kaklelio displazija
+Cervicitas
+Endometritas
+Endometriumo vėžys
+Dubens uždegiminė liga
+Bakterinė vaginozė
+Makšties kandidozė
+Menoragija
 Dismenorėja
 Amenorėja
-Menoragija
-Premenstruacinis sindromas
-Menopauzė
-Priešlaikinis kiaušidžių nepakankamumas
-Gestacinis diabetas
 Preeklampsija
-Eklampsija
-Nėštumo cholestazė
-Persileidimas
+Nėštumo diabetas
+Nėščiųjų hiperemezė
 Negimdinis nėštumas
+Pogimdyminis kraujavimas
 Mastitas
-Mastopatija
-Vulvovaginitas
-Bakterinė vaginozė
-Dubens organų nusileidimas
+Fibrocistinė krūties liga
+Menopauzės sindromas
+Priešmenstruacinis disforinis sutrikimas
+Gimdos prolapsas
+Adenomiozė
+Kiaušidės užsisukimas
+Placentos pirmeiga
+Placentos atšoka
+Vulvos vėžys
+Makšties vėžys
+Bartolinio liaukos cista
+Atrofinis vaginitas
+Ternerio sindromas
+Moterų nevaisingumas

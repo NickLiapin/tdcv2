@@ -2,29 +2,33 @@
 description: Diagnosis found only in, or overwhelmingly in, men (Slovene). Same content as person/male/diagnosis, addressed from the medical tree.
 locale: sl
 ---
-rak prostate
-benigna hiperplazija prostate
-prostatitis
-erektilna disfunkcija
-rak mod
-torzija testisa
-hidrokela
-varikokela
-fimoza
-parafimoza
-epididimitis
-moška neplodnost
-hipogonadizem
-ginekomastija
-androgena alopecija
+Benigna hiperplazija prostate
+Prostatitis
+Rak prostate
+Rak mod
+Torzija moda
+Varikokela
+Hidrokela
+Epididimitis
+Kriptorhizem
+Fimoza
+Balanitis
+Erektilna disfunkcija
 Peyroniejeva bolezen
-balanitis
-hemofilija A
-barvna slepota
-Duchennova mišična distrofija
+Moška neplodnost
+Ginekomastija
+Moški hipogonadizem
+Priapizem
+Spermatokela
+Moška plešavost
+Skrotalna kila
+Rak penisa
+Orhitis
+Zožitev sečnice
 Klinefelterjev sindrom
-obstruktivna apneja med spanjem
-anevrizma trebušne aorte
-protin
-rak sečnega mehurja
-hipospadija
+Azoospermija
+Prezgodnji izliv
+Parafimoza
+Absces prostate
+Vezikulitis
+Hematospermija
