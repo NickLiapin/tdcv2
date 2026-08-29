@@ -2,10 +2,10 @@
 description: Medical diagnosis in Italian that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
 locale: it
 ---
-Ipertrofia prostatica benigna
+Iperplasia prostatica benigna
 Prostatite
 Carcinoma della prostata
-Tumore del testicolo
+Carcinoma del testicolo
 Torsione testicolare
 Varicocele
 Idrocele
@@ -14,11 +14,21 @@ Criptorchidismo
 Fimosi
 Balanite
 Disfunzione erettile
-Induratio penis plastica
+Malattia di Peyronie
 Infertilità maschile
 Ginecomastia
 Ipogonadismo maschile
 Priapismo
 Spermatocele
-Alopecia androgenetica maschile
+Alopecia androgenetica
 Ernia scrotale
+Carcinoma del pene
+Orchite
+Stenosi uretrale
+Sindrome di Klinefelter
+Azoospermia
+Eiaculazione precoce
+Parafimosi
+Ascesso prostatico
+Vesciculite seminale
+Emospermia

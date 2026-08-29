@@ -5,21 +5,30 @@ locale: nl
 Benigne prostaathyperplasie
 Prostatitis
 Prostaatkanker
-Zaadbalkanker
+Teelbalkanker
 Torsio testis
-Varicocele
-Hydrocele
+Varicocèle
+Hydrocèle
 Epididymitis
 Cryptorchisme
-Hypospadie
-Phimosis
+Fimose
 Balanitis
 Erectiestoornis
 Ziekte van Peyronie
 Mannelijke onvruchtbaarheid
 Gynaecomastie
-Hypogonadisme bij de man
+Mannelijk hypogonadisme
 Priapisme
-Spermatocele
-Androgenetische alopecia
+Spermatocèle
+Androgene alopecia
 Scrotale hernia
+Peniskanker
+Orchitis
+Urethrastrictuur
+Klinefelter-syndroom
+Azoöspermie
+Voortijdige zaadlozing
+Parafimose
+Prostaatabces
+Zaadblaasjesontsteking
+Hematospermie

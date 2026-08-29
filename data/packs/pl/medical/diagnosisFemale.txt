@@ -11,11 +11,11 @@ Rak szyjki macicy
 Dysplazja szyjki macicy
 Zapalenie szyjki macicy
 Zapalenie błony śluzowej macicy
-Rak endometrium
+Rak trzonu macicy
 Zapalenie narządów miednicy mniejszej
-Waginoza bakteryjna
+Bakteryjne zapalenie pochwy
 Kandydoza sromu i pochwy
-Obfite krwawienia miesiączkowe
+Obfite miesiączki
 Bolesne miesiączkowanie
 Brak miesiączki
 Stan przedrzucawkowy
@@ -23,8 +23,18 @@ Cukrzyca ciążowa
 Niepowściągliwe wymioty ciężarnych
 Ciąża pozamaciczna
 Krwotok poporodowy
-Zapalenie gruczołu piersiowego
+Zapalenie piersi
 Zmiany włóknisto-torbielowate piersi
 Zespół klimakteryczny
 Przedmiesiączkowe zaburzenie dysforyczne
 Wypadanie macicy
+Adenomioza
+Skręt jajnika
+Łożysko przodujące
+Przedwczesne odklejenie łożyska
+Rak sromu
+Rak pochwy
+Torbiel gruczołu Bartholina
+Zanikowe zapalenie pochwy
+Zespół Turnera
+Niepłodność żeńska

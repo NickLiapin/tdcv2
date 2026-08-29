@@ -6,7 +6,7 @@ Hipertensión arterial
 Diabetes mellitus tipo 2
 Asma
 Bronquitis aguda
-Influenza
+Gripe
 Migraña
 Trastorno de ansiedad generalizada
 Trastorno depresivo mayor
@@ -15,13 +15,13 @@ Artritis reumatoide
 Enfermedad por reflujo gastroesofágico
 Anemia ferropénica
 Hipotiroidismo
-Infección de vías urinarias
+Infección urinaria
 Neumonía
 Enfermedad renal crónica
 Enfermedad coronaria
 Fibrilación auricular
-Insuficiencia cardíaca congestiva
-Accidente cerebrovascular isquémico
+Insuficiencia cardíaca crónica
+Ictus isquémico
 Epilepsia
 Enfermedad de Parkinson
 Enfermedad de Alzheimer
@@ -37,7 +37,7 @@ Glaucoma
 Apendicitis
 Colecistitis
 Diverticulitis
-Síndrome de intestino irritable
+Síndrome del intestino irritable
 Enfermedad de Crohn
 Colitis ulcerosa
 Hepatitis B crónica
@@ -66,7 +66,7 @@ Lupus eritematoso sistémico
 Vértigo
 Acúfenos
 Hemorroides
-Várices
+Varices
 Trombosis venosa profunda
 Embolia pulmonar
 Litiasis renal
@@ -79,3 +79,106 @@ Sepsis
 Cáncer de mama
 Gastroenteritis aguda
 Deficiencia de vitamina D
+Insuficiencia venosa crónica
+Diabetes mellitus tipo 1
+Infarto de miocardio
+Angina de pecho
+Enfermedad arterial periférica
+Miocardiopatía dilatada
+Miocarditis
+Pericarditis
+Endocarditis infecciosa
+Estenosis aórtica
+Prolapso de la válvula mitral
+Aneurisma de aorta abdominal
+Bronquitis crónica
+Enfisema pulmonar
+Derrame pleural
+Fibrosis pulmonar
+Hipertensión pulmonar
+Bronquiectasias
+Laringitis
+Faringitis
+Amigdalitis
+Esofagitis
+Esófago de Barrett
+Cáncer gástrico
+Cáncer colorrectal
+Fisura anal
+Enfermedad del hígado graso no alcohólico
+Hepatitis C crónica
+Hernia de hiato
+Hernia inguinal
+Insuficiencia renal aguda
+Glomerulonefritis
+Pielonefritis
+Cistitis
+Incontinencia urinaria
+Cáncer de vejiga
+Carcinoma de células renales
+Accidente isquémico transitorio
+Cefalea tensional
+Cefalea en racimos
+Neuralgia del trigémino
+Parálisis de Bell
+Neuropatía periférica
+Síndrome de las piernas inquietas
+Temblor esencial
+Miastenia grave
+Síndrome de Guillain-Barré
+Trastorno de pánico
+Trastorno obsesivo-compulsivo
+Trastorno de estrés postraumático
+Trastorno de ansiedad social
+Anorexia nerviosa
+Bulimia nerviosa
+Esquizofrenia
+Trastorno por consumo de alcohol
+Tiroiditis de Hashimoto
+Enfermedad de Graves
+Síndrome de Cushing
+Enfermedad de Addison
+Hiperparatiroidismo
+Síndrome metabólico
+Deficiencia de vitamina B12
+Nódulo tiroideo
+Trombocitopenia
+Policitemia vera
+Cáncer de pulmón
+Cáncer de páncreas
+Cáncer de tiroides
+Mieloma múltiple
+Bursitis
+Fascitis plantar
+Rotura del manguito rotador
+Espondilitis anquilosante
+Escoliosis
+Osteomielitis
+Acné vulgar
+Rosácea
+Vitíligo
+Alopecia areata
+Urticaria
+Dermatitis de contacto
+Herpes zóster
+Onicomicosis
+Degeneración macular
+Retinopatía diabética
+Desprendimiento de retina
+Uveítis
+Síndrome del ojo seco
+Enfermedad de Menière
+Hipoacusia neurosensorial
+Pólipos nasales
+Mononucleosis infecciosa
+Enfermedad de Lyme
+Malaria
+Dengue
+Salmonelosis
+Hepatitis A
+Infección por VIH
+Infección por herpes simple
+Sarampión
+Varicela
+Meningitis bacteriana
+Encefalitis viral

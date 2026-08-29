@@ -8,7 +8,7 @@ Asma
 Bronchite acuta
 Influenza
 Emicrania
-Disturbo d'ansia generalizzato
+Disturbo d'ansia generalizzata
 Disturbo depressivo maggiore
 Artrosi
 Artrite reumatoide
@@ -17,10 +17,10 @@ Anemia sideropenica
 Ipotiroidismo
 Infezione delle vie urinarie
 Polmonite
-Insufficienza renale cronica
-Cardiopatia ischemica
+Malattia renale cronica
+Coronaropatia
 Fibrillazione atriale
-Scompenso cardiaco congestizio
+Insufficienza cardiaca cronica
 Ictus ischemico
 Epilessia
 Malattia di Parkinson
@@ -46,7 +46,7 @@ Pancreatite acuta
 Gotta
 Osteoporosi
 Fibromialgia
-Sciatica
+Sciatalgia
 Ernia del disco
 Sindrome del tunnel carpale
 Tendinite
@@ -64,7 +64,7 @@ Disturbo da deficit di attenzione e iperattività
 Celiachia
 Lupus eritematoso sistemico
 Vertigine
-Acufeni
+Acufene
 Emorroidi
 Vene varicose
 Trombosi venosa profonda
@@ -76,6 +76,109 @@ Ulcera peptica
 Gastrite
 Cellulite infettiva
 Sepsi
+Carcinoma mammario
 Gastroenterite acuta
-Ipovitaminosi D
+Carenza di vitamina D
 Insufficienza venosa cronica
+Diabete mellito di tipo 1
+Infarto del miocardio
+Angina pectoris
+Arteriopatia periferica
+Cardiomiopatia dilatativa
+Miocardite
+Pericardite
+Endocardite infettiva
+Stenosi aortica
+Prolasso della valvola mitrale
+Aneurisma dell'aorta addominale
+Bronchite cronica
+Enfisema polmonare
+Versamento pleurico
+Fibrosi polmonare
+Ipertensione polmonare
+Bronchiectasie
+Laringite
+Faringite
+Tonsillite
+Esofagite
+Esofago di Barrett
+Carcinoma gastrico
+Carcinoma colorettale
+Ragade anale
+Steatosi epatica non alcolica
+Epatite C cronica
+Ernia iatale
+Ernia inguinale
+Insufficienza renale acuta
+Glomerulonefrite
+Pielonefrite
+Cistite
+Incontinenza urinaria
+Carcinoma della vescica
+Carcinoma a cellule renali
+Attacco ischemico transitorio
+Cefalea tensiva
+Cefalea a grappolo
+Nevralgia del trigemino
+Paralisi di Bell
+Neuropatia periferica
+Sindrome delle gambe senza riposo
+Tremore essenziale
+Miastenia grave
+Sindrome di Guillain-Barré
+Disturbo di panico
+Disturbo ossessivo-compulsivo
+Disturbo da stress post-traumatico
+Disturbo d'ansia sociale
+Anoressia nervosa
+Bulimia nervosa
+Schizofrenia
+Disturbo da uso di alcol
+Tiroidite di Hashimoto
+Morbo di Basedow
+Sindrome di Cushing
+Morbo di Addison
+Iperparatiroidismo
+Sindrome metabolica
+Carenza di vitamina B12
+Nodulo tiroideo
+Trombocitopenia
+Policitemia vera
+Carcinoma polmonare
+Carcinoma del pancreas
+Carcinoma della tiroide
+Mieloma multiplo
+Borsite
+Fascite plantare
+Rottura della cuffia dei rotatori
+Spondilite anchilosante
+Scoliosi
+Osteomielite
+Acne volgare
+Rosacea
+Vitiligine
+Alopecia areata
+Orticaria
+Dermatite da contatto
+Herpes zoster
+Onicomicosi
+Degenerazione maculare
+Retinopatia diabetica
+Distacco di retina
+Uveite
+Sindrome dell'occhio secco
+Malattia di Menière
+Ipoacusia neurosensoriale
+Polipi nasali
+Mononucleosi infettiva
+Malattia di Lyme
+Malaria
+Dengue
+Salmonellosi
+Epatite A
+Infezione da HIV
+Infezione da herpes simplex
+Morbillo
+Varicella
+Meningite batterica
+Encefalite virale

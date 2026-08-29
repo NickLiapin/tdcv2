@@ -2,44 +2,39 @@
 description: Medical diagnosis in Dutch that can occur in any patient - no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale/diagnosisFemale; ancestry-linked ones in diagnosisByAncestry. Terms follow what a huisarts actually records (NHG usage), so native compounds such as Hoge bloeddruk, Herseninfarct, Galstenen and Constitutioneel eczeem stand beside Latinate ones, and Dutch keeps the international abbreviations COPD and ADHD untranslated.
 locale: nl
 ---
-Hoge bloeddruk
+Arteriële hypertensie
 Diabetes mellitus type 2
 Astma
 Acute bronchitis
 Griep
 Migraine
 Gegeneraliseerde angststoornis
-Depressie
-Burn-out
+Depressieve stoornis
 Artrose
 Reumatoïde artritis
-Refluxziekte
+Gastro-oesofageale refluxziekte
 IJzergebreksanemie
-Bloedarmoede
 Hypothyreoïdie
-Hyperthyreoïdie
 Urineweginfectie
 Longontsteking
-Chronische nierschade
+Chronische nierziekte
 Coronaire hartziekte
-Hartinfarct
 Atriumfibrilleren
-Hartfalen
-Herseninfarct
+Chronisch hartfalen
+Ischemisch herseninfarct
 Epilepsie
 Ziekte van Parkinson
 Ziekte van Alzheimer
 Multiple sclerose
 Psoriasis
-Constitutioneel eczeem
-Hooikoorts
-Chronische rhinosinusitis
+Atopisch eczeem
+Allergische rinitis
+Chronische sinusitis
 Middenoorontsteking
 Conjunctivitis
 Cataract
 Glaucoom
 Blindedarmontsteking
-Galstenen
 Galblaasontsteking
 Diverticulitis
 Prikkelbaredarmsyndroom
@@ -52,37 +47,138 @@ Jicht
 Osteoporose
 Fibromyalgie
 Ischias
-Hernia nuclei pulposi
-Aspecifieke lagerugpijn
+Hernia
 Carpaletunnelsyndroom
-Peesontsteking
-COPD
+Tendinitis
+Chronische obstructieve longziekte
 Tuberculose
 Leukemie
 Lymfoom
 Melanoom
-Hypercholesterolemie
+Hyperlipidemie
 Obesitas
 Obstructief slaapapneu
 Slapeloosheid
 Bipolaire stoornis
-ADHD
+Aandachtstekortstoornis met hyperactiviteit
 Coeliakie
 Systemische lupus erythematodes
-Vertigo
+Duizeligheid
 Oorsuizen
 Aambeien
 Spataderen
-Chronische veneuze insufficiëntie
-Diepveneuze trombose
+Diepe veneuze trombose
 Longembolie
 Nierstenen
+Anemie
+Hyperthyreoïdie
 Maagzweer
 Gastritis
 Wondroos
-Gordelroos
-Ziekte van Lyme
 Sepsis
 Borstkanker
 Acute gastro-enteritis
 Vitamine D-tekort
+Chronische veneuze insufficiëntie
+Diabetes mellitus type 1
+Hartinfarct
+Angina pectoris
+Perifeer arterieel vaatlijden
+Gedilateerde cardiomyopathie
+Myocarditis
+Pericarditis
+Infectieuze endocarditis
+Aortaklepstenose
+Mitralisklepprolaps
+Aneurysma van de buikaorta
+Chronische bronchitis
+Longemfyseem
+Pleuravocht
+Longfibrose
+Pulmonale hypertensie
+Bronchiëctasieën
+Laryngitis
+Faryngitis
+Tonsillitis
+Oesofagitis
+Barrett-oesofagus
+Maagkanker
+Colorectale kanker
+Anale fissuur
+Niet-alcoholische leververvetting
+Chronische hepatitis C
+Hiatushernia
+Liesbreuk
+Acute nierschade
+Glomerulonefritis
+Pyelonefritis
+Blaasontsteking
+Urine-incontinentie
+Blaaskanker
+Niercelcarcinoom
+Transient ischemic attack
+Spanningshoofdpijn
+Clusterhoofdpijn
+Trigeminusneuralgie
+Aangezichtsverlamming van Bell
+Perifere neuropathie
+Rustelozebenensyndroom
+Essentiële tremor
+Myasthenia gravis
+Guillain-Barré-syndroom
+Paniekstoornis
+Obsessieve-compulsieve stoornis
+Posttraumatische stressstoornis
+Sociale angststoornis
+Anorexia nervosa
+Boulimia nervosa
+Schizofrenie
+Alcoholgebruiksstoornis
+Hashimoto-thyreoïditis
+Ziekte van Graves
+Syndroom van Cushing
+Ziekte van Addison
+Hyperparathyreoïdie
+Metabool syndroom
+Vitamine B12-tekort
+Schildkliernodus
+Trombocytopenie
+Polycythaemia vera
+Longkanker
+Alvleesklierkanker
+Schildklierkanker
+Multipel myeloom
+Slijmbeursontsteking
+Fasciitis plantaris
+Rotatorcuffruptuur
+Ziekte van Bechterew
+Scoliose
+Osteomyelitis
+Acne vulgaris
+Rosacea
+Vitiligo
+Alopecia areata
+Netelroos
+Contacteczeem
+Gordelroos
+Schimmelnagel
+Maculadegeneratie
+Diabetische retinopathie
+Netvliesloslating
+Uveïtis
+Droge-ogensyndroom
+Ziekte van Menière
+Perceptief gehoorverlies
+Neuspoliepen
+Klierkoorts
+Ziekte van Lyme
+Malaria
+Knokkelkoorts
+Salmonellose
+Hepatitis A
+Hiv-infectie
+Herpes simplex-infectie
+Mazelen
+Waterpokken
+Bacteriële meningitis
+Virale encefalitis

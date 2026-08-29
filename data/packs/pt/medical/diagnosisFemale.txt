@@ -19,7 +19,7 @@ Menorragia
 Dismenorreia
 Amenorreia
 Pré-eclâmpsia
-Diabetes mellitus gestacional
+Diabetes gestacional
 Hiperêmese gravídica
 Gravidez ectópica
 Hemorragia pós-parto
@@ -28,3 +28,13 @@ Alteração fibrocística da mama
 Síndrome climatérica
 Transtorno disfórico pré-menstrual
 Prolapso uterino
+Adenomiose
+Torção ovariana
+Placenta prévia
+Descolamento prematuro da placenta
+Câncer de vulva
+Câncer de vagina
+Cisto de Bartholin
+Vaginite atrófica
+Síndrome de Turner
+Infertilidade feminina

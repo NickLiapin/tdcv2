@@ -4,12 +4,12 @@ locale: pl
 ---
 Nadciśnienie tętnicze
 Cukrzyca typu 2
-Astma oskrzelowa
+Astma
 Ostre zapalenie oskrzeli
 Grypa
 Migrena
-Zaburzenie lękowe uogólnione
-Zaburzenie depresyjne nawracające
+Zespół lęku uogólnionego
+Duża depresja
 Choroba zwyrodnieniowa stawów
 Reumatoidalne zapalenie stawów
 Choroba refluksowa przełyku
@@ -18,9 +18,9 @@ Niedoczynność tarczycy
 Zakażenie układu moczowego
 Zapalenie płuc
 Przewlekła choroba nerek
-Choroba niedokrwienna serca
+Choroba wieńcowa
 Migotanie przedsionków
-Niewydolność serca
+Przewlekła niewydolność serca
 Udar niedokrwienny mózgu
 Padaczka
 Choroba Parkinsona
@@ -29,14 +29,14 @@ Stwardnienie rozsiane
 Łuszczyca
 Atopowe zapalenie skóry
 Alergiczny nieżyt nosa
-Przewlekłe zapalenie zatok przynosowych
+Przewlekłe zapalenie zatok
 Zapalenie ucha środkowego
 Zapalenie spojówek
 Zaćma
 Jaskra
 Zapalenie wyrostka robaczkowego
 Zapalenie pęcherzyka żółciowego
-Zapalenie uchyłków jelita grubego
+Zapalenie uchyłków
 Zespół jelita drażliwego
 Choroba Leśniowskiego-Crohna
 Wrzodziejące zapalenie jelita grubego
@@ -63,19 +63,122 @@ Choroba afektywna dwubiegunowa
 Zespół nadpobudliwości psychoruchowej z deficytem uwagi
 Celiakia
 Toczeń rumieniowaty układowy
-Zawroty głowy pochodzenia błędnikowego
+Zawroty głowy
 Szumy uszne
-Żylaki odbytu
-Żylaki kończyn dolnych
+Hemoroidy
+Żylaki
 Zakrzepica żył głębokich
 Zatorowość płucna
 Kamica nerkowa
 Niedokrwistość
 Nadczynność tarczycy
-Choroba wrzodowa żołądka i dwunastnicy
+Choroba wrzodowa
 Zapalenie błony śluzowej żołądka
-Zapalenie tkanki łącznej skóry
+Zapalenie tkanki łącznej
 Sepsa
 Rak piersi
-Ostre zapalenie żołądka i jelit
+Ostry nieżyt żołądkowo-jelitowy
 Niedobór witaminy D
+Przewlekła niewydolność żylna
+Cukrzyca typu 1
+Zawał mięśnia sercowego
+Dusznica bolesna
+Miażdżyca tętnic kończyn dolnych
+Kardiomiopatia rozstrzeniowa
+Zapalenie mięśnia sercowego
+Zapalenie osierdzia
+Infekcyjne zapalenie wsierdzia
+Zwężenie zastawki aortalnej
+Wypadanie płatka zastawki mitralnej
+Tętniak aorty brzusznej
+Przewlekłe zapalenie oskrzeli
+Rozedma płuc
+Wysięk opłucnowy
+Włóknienie płuc
+Nadciśnienie płucne
+Rozstrzenie oskrzeli
+Zapalenie krtani
+Zapalenie gardła
+Zapalenie migdałków
+Zapalenie przełyku
+Przełyk Barretta
+Rak żołądka
+Rak jelita grubego
+Szczelina odbytu
+Niealkoholowa stłuszczeniowa choroba wątroby
+Przewlekłe wirusowe zapalenie wątroby typu C
+Przepuklina rozworu przełykowego
+Przepuklina pachwinowa
+Ostre uszkodzenie nerek
+Kłębuszkowe zapalenie nerek
+Odmiedniczkowe zapalenie nerek
+Zapalenie pęcherza moczowego
+Nietrzymanie moczu
+Rak pęcherza moczowego
+Rak nerkowokomórkowy
+Przemijający atak niedokrwienny
+Napięciowy ból głowy
+Klasterowy ból głowy
+Neuralgia nerwu trójdzielnego
+Porażenie Bella
+Neuropatia obwodowa
+Zespół niespokojnych nóg
+Drżenie samoistne
+Miastenia
+Zespół Guillaina-Barrégo
+Zespół lęku napadowego
+Zaburzenie obsesyjno-kompulsyjne
+Zespół stresu pourazowego
+Fobia społeczna
+Jadłowstręt psychiczny
+Bulimia
+Schizofrenia
+Zaburzenie używania alkoholu
+Zapalenie tarczycy Hashimoto
+Choroba Gravesa-Basedowa
+Zespół Cushinga
+Choroba Addisona
+Nadczynność przytarczyc
+Zespół metaboliczny
+Niedobór witaminy B12
+Guzek tarczycy
+Małopłytkowość
+Czerwienica prawdziwa
+Rak płuca
+Rak trzustki
+Rak tarczycy
+Szpiczak mnogi
+Zapalenie kaletki maziowej
+Zapalenie rozcięgna podeszwowego
+Uszkodzenie stożka rotatorów
+Zesztywniające zapalenie stawów kręgosłupa
+Skolioza
+Zapalenie kości i szpiku
+Trądzik pospolity
+Trądzik różowaty
+Bielactwo
+Łysienie plackowate
+Pokrzywka
+Kontaktowe zapalenie skóry
+Półpasiec
+Grzybica paznokci
+Zwyrodnienie plamki żółtej
+Retinopatia cukrzycowa
+Odwarstwienie siatkówki
+Zapalenie błony naczyniowej oka
+Zespół suchego oka
+Choroba Meniere'a
+Niedosłuch czuciowo-nerwowy
+Polipy nosa
+Mononukleoza zakaźna
+Borelioza
+Malaria
+Denga
+Salmonelloza
+Wirusowe zapalenie wątroby typu A
+Zakażenie HIV
+Zakażenie wirusem opryszczki
+Odra
+Ospa wietrzna
+Bakteryjne zapalenie opon mózgowo-rdzeniowych
+Wirusowe zapalenie mózgu

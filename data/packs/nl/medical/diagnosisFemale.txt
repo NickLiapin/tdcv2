@@ -5,18 +5,16 @@ locale: nl
 Endometriose
 Polycysteus-ovariumsyndroom
 Vleesbomen
-Eierstokcyste
+Ovariumcyste
 Eierstokkanker
 Baarmoederhalskanker
 Cervicale dysplasie
 Cervicitis
 Endometritis
 Baarmoederkanker
-Bekkenontsteking
-Bartholinitis
+Bekkenontstekingsziekte
 Bacteriële vaginose
 Vulvovaginale candidiasis
-Vulvodynie
 Menorragie
 Dysmenorroe
 Amenorroe
@@ -24,9 +22,19 @@ Pre-eclampsie
 Zwangerschapsdiabetes
 Hyperemesis gravidarum
 Buitenbaarmoederlijke zwangerschap
-Fluxus post partum
+Postpartumbloeding
 Mastitis
-Fibrocysteuze mastopathie
-Overgangsklachten
-Premenstrueel dysfoor syndroom
-Uterusprolaps
+Fibrocysteuze borstafwijking
+Climacterisch syndroom
+Premenstruele dysfore stoornis
+Baarmoederverzakking
+Adenomyose
+Ovariumtorsie
+Placenta praevia
+Placentaloslating
+Vulvakanker
+Vaginakanker
+Bartholin-cyste
+Atrofische vaginitis
+Turner-syndroom
+Vrouwelijke onvruchtbaarheid

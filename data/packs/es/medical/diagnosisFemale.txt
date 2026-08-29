@@ -4,7 +4,7 @@ locale: es
 ---
 Endometriosis
 Síndrome de ovario poliquístico
-Miomatosis uterina
+Miomas uterinos
 Quiste ovárico
 Cáncer de ovario
 Cáncer de cuello uterino
@@ -12,14 +12,14 @@ Displasia cervical
 Cervicitis
 Endometritis
 Cáncer de endometrio
-Enfermedad pélvica inflamatoria
+Enfermedad inflamatoria pélvica
 Vaginosis bacteriana
 Candidiasis vulvovaginal
 Menorragia
 Dismenorrea
 Amenorrea
 Preeclampsia
-Diabetes mellitus gestacional
+Diabetes gestacional
 Hiperémesis gravídica
 Embarazo ectópico
 Hemorragia posparto
@@ -28,3 +28,13 @@ Mastopatía fibroquística
 Síndrome climatérico
 Trastorno disfórico premenstrual
 Prolapso uterino
+Adenomiosis
+Torsión ovárica
+Placenta previa
+Desprendimiento de placenta
+Cáncer de vulva
+Cáncer de vagina
+Quiste de Bartolino
+Vaginitis atrófica
+Síndrome de Turner
+Infertilidad femenina
