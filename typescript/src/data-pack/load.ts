@@ -309,7 +309,7 @@ function parseDateLocale(content: string, name: string): DateLocale | string {
   };
   const list = (value: unknown, length: number): string[] | undefined =>
     Array.isArray(value) && value.length === length && value.every((x) => typeof x === 'string')
-      ? (value)
+      ? value
       : undefined;
   const months = list(table.months, 12);
   const monthsShort = list(table.monthsShort, 12);
