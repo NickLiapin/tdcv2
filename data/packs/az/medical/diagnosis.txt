@@ -3,80 +3,182 @@ description: Medical diagnosis in Azerbaijani that can occur in any patient — 
 locale: az
 ---
 Hipertoniya
-Koronar arteriya xəstəliyi
-Gərginlik stenokardiyası
-Miokard infarktı
-Qulaqcıq fibrilyasiyası
-Ürək çatışmazlığı
-Kardiomiopatiya
-Miokardit
-Ateroskleroz
-Varikoz genişlənmə
-Dərin vena trombozu
-Ağciyər emboliyası
-İnsult
-Keçici işemik atak
+2-ci tip şəkərli diabet
+Astma
+Kəskin bronxit
+Qrip
 Miqren
-Epilepsiya
-Dağınıq skleroz
-Parkinson xəstəliyi
-Demensiya
-Periferik neyropatiya
-Radikulopatiya
-Onurğa deqenerasiyası
-Disk yırtığı
-Osteoartrit
+Generalizə olunmuş narahatlıq pozuntusu
+Ağır depressiya
+Osteoartroz
 Revmatoid artrit
-Podaqra
-Osteoporoz
-Skolioz
-Bronxial astma
-XOAX
-Xroniki bronxit
-Pnevmoniya
-Plevrit
-Ağciyər vərəmi
-Sarkoidoz
-Yuxu apnoesi
-Kəskin sinusit
-Xroniki tonzillit
-Otit
-Larinqit
-Qastrit
-Mədə xorası
-Reflüks xəstəliyi
-Qıcıqlanmış bağırsaq sindromu
-Kron xəstəliyi
-Xoralı kolit
-Seliakiya
-Xroniki pankreatit
-Öd daşı
-Xolesistit
-Hepatit B
-Hepatit C
-Qaraciyər sirrozu
-Qaraciyərin piylənməsi
-Xroniki böyrək xəstəliyi
-Pielonefrit
-Qlomerulonefrit
-Böyrək daşı
-Sidik yolları infeksiyası
-1-ci tip diabet
-2-ci tip diabet
-Hipotireoz
-Hipertireoz
-Piylənmə
-Metabolik sindrom
+Qastroezofageal reflüks xəstəliyi
 Dəmir çatışmazlığı anemiyası
-B12 çatışmazlığı anemiyası
-Atopik dermatit
+Hipotireoz
+Sidik yolları infeksiyası
+Pnevmoniya
+Xroniki böyrək xəstəliyi
+Ürəyin işemik xəstəliyi
+Qulaqcıq fibrilyasiyası
+Xroniki ürək çatışmazlığı
+İşemik insult
+Epilepsiya
+Parkinson xəstəliyi
+Alzheimer xəstəliyi
+Dağınıq skleroz
 Psoriaz
-Ekzema
-Övrə
-Sızanaq
+Atopik dermatit
 Allergik rinit
+Xroniki sinusit
+Orta otit
 Konyunktivit
 Katarakta
 Qlaukoma
-Depressiv epizod
-Ümumiləşmiş narahatlıq pozuntusu
+Appendisit
+Xolesistit
+Divertikulit
+Qıcıqlanmış bağırsaq sindromu
+Kron xəstəliyi
+Xoralı kolit
+Xroniki B hepatiti
+Qaraciyər sirrozu
+Kəskin pankreatit
+Podaqra
+Osteoporoz
+Fibromialgiya
+İşias
+Fəqərəarası disk yırtığı
+Bilək kanalı sindromu
+Tendinit
+Ağciyərin xroniki obstruktiv xəstəliyi
+Vərəm
+Leykemiya
+Limfoma
+Melanoma
+Hiperlipidemiya
+Piylənmə
+Obstruktiv yuxu apnoesi
+Yuxusuzluq
+Bipolyar pozuntu
+DEHB
+Seliakiya
+Sistem qırmızı qurd eşənəyi
+Başgicəllənmə
+Qulaqlarda küy
+Babasil
+Varikoz genişlənmə
+Dərin venaların trombozu
+Ağciyər emboliyası
+Böyrək daşları
+Anemiya
+Hipertireoz
+Peptik xora
+Qastrit
+İnfeksion sellülit
+Sepsis
+Süd vəzisi xərçəngi
+Kəskin qastroenterit
+D vitamini çatışmazlığı
+Xroniki venoz çatışmazlıq
+1-ci tip şəkərli diabet
+Miokard infarktı
+Stenokardiya
+Periferik arteriya xəstəliyi
+Dilatasion kardiomiopatiya
+Miokardit
+Perikardit
+İnfeksion endokardit
+Aorta stenozu
+Mitral qapağın prolapsı
+Qarın aortasının anevrizması
+Xroniki bronxit
+Ağciyər emfizeması
+Plevral maye toplanması
+Ağciyər fibrozu
+Ağciyər hipertenziyası
+Bronxektaziya
+Laringit
+Faringit
+Tonzillit
+Ezofagit
+Barrett yemək borusu
+Mədə xərçəngi
+Kolorektal xərçəng
+Anal çat
+Qeyri-alkoqol yağlı qaraciyər xəstəliyi
+Xroniki C hepatiti
+Diafraqma yırtığı
+Qasıq yırtığı
+Kəskin böyrək zədələnməsi
+Qlomerulonefrit
+Pielonefrit
+Sistit
+Sidik saxlamazlığı
+Sidik kisəsi xərçəngi
+Böyrək hüceyrəli karsinoma
+Tranzitor işemik həmlə
+Gərginlik baş ağrısı
+Klaster baş ağrısı
+Üçlü sinir nevralgiyası
+Bell iflici
+Periferik neyropatiya
+Narahat ayaqlar sindromu
+Essensial tremor
+Miasteniya qravis
+Giyen-Barre sindromu
+Panika pozuntusu
+Obsessiv-kompulsiv pozuntu
+Posttravmatik stress pozuntusu
+Sosial fobiya
+Nevroz anoreksiyası
+Nevroz bulimiyası
+Şizofreniya
+Alkoqol asılılığı
+Haşimoto tireoiditi
+Qreyvs xəstəliyi
+Kuşinq sindromu
+Addison xəstəliyi
+Hiperparatireoz
+Metabolik sindrom
+B12 vitamini çatışmazlığı
+Qalxanabənzər vəzi düyünü
+Trombositopeniya
+Həqiqi polisitemiya
+Ağciyər xərçəngi
+Mədəaltı vəzi xərçəngi
+Qalxanabənzər vəzi xərçəngi
+Çoxsaylı mieloma
+Bursit
+Daban fassiiti
+Fırlanan manjetin cırılması
+Ankilozlaşdırıcı spondilit
+Skolioz
+Osteomielit
+Sızanaq
+Rozasea
+Vitiliqo
+Ocaqlı alopesiya
+Övrə
+Kontakt dermatiti
+Kəmərləyici dəmrov
+Onixomikoz
+Makulyar degenerasiya
+Diabetik retinopatiya
+Torlu qişanın qopması
+Uveit
+Quru göz sindromu
+Menyer xəstəliyi
+Sensonevral eşitmə itkisi
+Burun polipləri
+İnfeksion mononukleoz
+Laym xəstəliyi
+Malyariya
+Denge qızdırması
+Salmonellyoz
+A hepatiti
+İİV infeksiyası
+Sadə herpes infeksiyası
+Qızılca
+Su çiçəyi
+Bakterial meningit
+Virus ensefaliti

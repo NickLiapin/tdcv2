@@ -2,91 +2,183 @@
 description: Medical diagnosis that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale/diagnosisFemale, ancestry-linked ones in diagnosisByAncestry. Turkmen clinical vocabulary is a deliberate mixture: native names survive for the long-known diseases (suyji keseli 'the sweet disease' for diabetes, demgysma for asthma, incekesel for tuberculosis) while everything named after the nineteenth century arrives through Russian.
 locale: tk
 ---
-Arterial gipertenziýa
+Gipertoniýa
 2-nji görnüşli süýji keseli
-1-nji görnüşli süýji keseli
 Demgysma
 Ýiti bronhit
-Dowamly bronhit
 Dümew
-Ýiti respirator ýokançlyk
 Migren
-Aladaly bozulma
-Depressiýa
+Umumylaşan howsala bozulmasy
+Agyr depressiýa
 Osteoartroz
 Rewmatoid artrit
-Gastroezofagal reflýuks keseli
-Demir ýetmezçilikli ganazlyk
-Ganazlyk
+Gastroezofageal reflýuks keseli
+Demir ýetmezçilikli azganlylyk
 Gipotireoz
-Gipertireoz
 Peşew ýollarynyň ýokançlygy
 Öýken sowuklamasy
-Böwrekleriň dowamly keseli
-Ýürek täji arteriýasynyň keseli
-Ýürek ritminiň bozulmagy
-Ýürek ýetmezçiligi
-Miokard infarkty
+Dowamly böwrek keseli
+Ýüregiň işemiýa keseli
+Ýürekçe fibrillýasiýasy
+Dowamly ýürek ýetmezçiligi
 Işemik insult
-Garaguş keseli
+Epilepsiýa
 Parkinson keseli
 Alsgeýmer keseli
-Köpsanly skleroz
+Dagynyk skleroz
 Psoriaz
-Atopiki dermatit
-Ekzema
-Akne
-Allergiki rinit
+Atopik dermatit
+Allergik rinit
 Dowamly sinusit
 Orta gulak sowuklamasy
 Konýunktiwit
 Katarakta
 Glaukoma
 Appendisit
-Öt haltasynyň sowuklamasy
-Öt haltasynyň daşlary
+Holesistit
 Diwertikulit
 Gyjyndyrylan içege sindromy
 Kron keseli
-Ýaraly kolit
+Baş içege ýarasy
 Dowamly B gepatiti
-Bagryň sirrozy
+Bagyr sirrozy
 Ýiti pankreatit
-Dowamly pankreatit
 Podagra
 Osteoporoz
 Fibromialgiýa
-Radikulit
-Oňurga diskiniň süýşmegi
+Işias
+Oňurgara disk ingisi
 Bilek kanaly sindromy
 Tendinit
 Öýkeniň dowamly obstruktiw keseli
 Inçekesel
-Brusellýoz
-Ehinokokkoz
-Talassemiýa
-Leýkoz
+Leýkemiýa
 Limfoma
 Melanoma
 Giperlipidemiýa
 Semizlik
-Ukudaky dem saklanmasy
+Obstruktiw uky apnoesi
 Ukusyzlyk
 Bipolýar bozulma
-Ünsi jemläp bilmezlik bozulmasy
-Selýakiýa
-Ulgamlaýyn gyzyl wolçanka
-Başaýlanma
-Gulak şaňlamasy
-Gemorroý
-Warikoz damarlar
+ÜDGB
+Seliakiýa
+Ulgamlaýyn gyzyl gurt keseli
+Baş aýlanma
+Gulakda ses
+Babasyl
+Warikoz giňelme
 Çuň wenalaryň trombozy
 Öýken emboliýasy
-Böwrek daşy keseli
-Aşgazan ýarasy
+Böwrek daşlary
+Azganlylyk
+Gipertireoz
+Peptik ýara
 Gastrit
-Deriniň ýokançlygy
+Ýokançly sellýulit
 Sepsis
+Göwüs ragy
 Ýiti gastroenterit
-D witamininiň ýetmezçiligi
-Wenalaryň dowamly ýetmezçiligi
+D witamini ýetmezçiligi
+Dowamly wena ýetmezçiligi
+1-nji görnüşli süýji keseli
+Miokard infarkty
+Stenokardiýa
+Çet arteriýa keseli
+Dilatasion kardiomiopatiýa
+Miokardit
+Perikardit
+Ýokançly endokardit
+Aorta stenozy
+Mitral gapagyň prolapsy
+Garyn aortasynyň anewrizmasy
+Dowamly bronhit
+Öýken emfizemasy
+Plewra suwuklygynyň ýygnanmagy
+Öýken fibrozy
+Öýken gipertenziýasy
+Bronhoektazlar
+Laringit
+Faringit
+Tonzillit
+Ezofagit
+Barrett gyzylödegi
+Aşgazan ragy
+Kolorektal rak
+Anal jaýryk
+Alkogolsyz ýagly bagyr keseli
+Dowamly C gepatiti
+Diafragma ingisi
+Gasyk ingisi
+Ýiti böwrek şikesi
+Glomerulonefrit
+Piýelonefrit
+Sistit
+Peşew saklap bilmezlik
+Peşew haltasynyň ragy
+Böwrek öýjükli karsinoma
+Geçip gidýän işemik hüjüm
+Dartgynlylyk kellagyrysy
+Klaster kellagyrysy
+Üçleýin nerw newralgiýasy
+Bell ysmazy
+Çet neýropatiýa
+Ynjalyksyz aýaklar sindromy
+Essensial titreme
+Miasteniýa grawis
+Giýen-Barre sindromy
+Howsala bozulmasy
+Obsessiw-kompulsiw bozulma
+Trawmadan soňky stres bozulmasy
+Sosial fobiýa
+Nerw anoreksiýasy
+Nerw bulimiýasy
+Şizofreniýa
+Alkogola garaşlylyk
+Haşimoto tireoidity
+Greýws keseli
+Kuşing sindromy
+Addison keseli
+Giperparatireoz
+Metabolik sindrom
+B12 witamini ýetmezçiligi
+Galkan şekilli mäziň düwni
+Trombositopeniýa
+Hakyky polisitemiýa
+Öýken ragy
+Aşgazanasty mäziň ragy
+Galkan şekilli mäziň ragy
+Köpsanly miýeloma
+Bursit
+Daban fassiiti
+Aýlaýjy manžetiň ýyrtylmagy
+Ankilozlaýjy spondilit
+Skolioz
+Osteomiýelit
+Düwürtik
+Rozasea
+Witiligo
+Ojakly saç düşme
+Gijilewük örgün
+Kontakt dermatiti
+Guşaklaýyn ýara
+Onihomikoz
+Makulýar degenerasiýa
+Diabetik retinopatiýa
+Torly gatlagyň gopmagy
+Uweit
+Gury göz sindromy
+Menýer keseli
+Sensonewral eşidiş ýitgisi
+Burun polipleri
+Ýokançly mononukleoz
+Laým keseli
+Gyzzyrma
+Denge gyzdyrmasy
+Salmonellýoz
+A gepatiti
+AIW ýokançlygy
+Ýönekeý gerpes ýokançlygy
+Gyzamyk
+Suwçeçek
+Bakterial meningit
+Wirusly ensefalit

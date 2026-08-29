@@ -2,85 +2,183 @@
 description: Medical diagnosis in Uzbek that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale / diagnosisFemale, ancestry-linked ones in diagnosisByAncestry. The clinical vocabulary is Russian-mediated Latin, which is why it reads closer to a Russian chart than to a Turkish one. Sil kasalligi (tuberculosis), echinococcosis and brucellosis stay on a working Uzbek list in a way they no longer do on a Western European one.
 locale: uz-latn
 ---
-Arterial gipertenziya
-Yurak ishemik kasalligi
-Miokard infarkti
-Stenokardiya
-Yurak yetishmovchiligi
-Aritmiya
-Ateroskleroz
-Insult
+Gipertoniya
+2-turdagi qandli diabet
+Astma
+O'tkir bronxit
+Gripp
 Migren
-Epilepsiya
-Nevropatiya
-Radikulit
-Bel osteoxondrozi
-Vertigo
-1-tur qandli diabet
-2-tur qandli diabet
-Gipotireoz
-Gipertireoz
-Endemik boʻqoq
-Semizlik
-Metabolik sindrom
-Podagra
-Osteoporoz
+Umumlashgan xavotir buzilishi
+Og'ir depressiya
 Osteoartroz
 Revmatoid artrit
-Skolioz
-Umurtqa churrasi
-Suyak sinishi
-Surunkali gastrit
-Oshqozon yarasi
-Gastroezofageal reflyuks
-Oʻt-tosh kasalligi
-Xoletsistit
-Pankreatit
-Yogʻli gepatoz
-Jigar sirrozi
-Gepatit A
-Gepatit B
-Gepatit C
-Yaraviy kolit
-Surunkali buyrak yetishmovchiligi
-Glomerulonefrit
-Pielonefrit
-Buyrak toshi kasalligi
-Siydik yoʻllari infeksiyasi
-Bronxial astma
-Surunkali obstruktiv oʻpka kasalligi
-Oʻtkir bronxit
-Pnevmoniya
-Sil kasalligi
-Oʻpka emfizemasi
-Plevrit
-Allergik rinit
-Sinusit
-Otit
-Tonzillit
-Faringit
-Gripp
-Oʻtkir respirator infeksiya
-Kovid-19
-Ich terlama
-Dizenteriya
-Salmonellyoz
-Bruselyoz
-Exinokokkoz
-Gijja invaziyasi
-Kuydirgi
-Anemiya
+Gastroezofageal reflyuks kasalligi
 Temir tanqisligi anemiyasi
-Leykoz
-Limfoma
-Depressiya
-Tashvish buzilishi
-Uyqusizlik
-Atopik dermatit
+Gipotireoz
+Siydik yo'llari infeksiyasi
+Pnevmoniya
+Surunkali buyrak kasalligi
+Yurakning ishemik kasalligi
+Bo'lmacha fibrillyatsiyasi
+Surunkali yurak yetishmovchiligi
+Ishemik insult
+Epilepsiya
+Parkinson kasalligi
+Altsgeymer kasalligi
+Tarqoq skleroz
 Psoriaz
-Ekzema
-Konyunktivit
+Atopik dermatit
+Allergik rinit
+Surunkali sinusit
+O'rta otit
+Kon'yunktivit
 Katarakta
 Glaukoma
-Miyopiya
-Karlik
+Appenditsit
+Xoletsistit
+Divertikulit
+Ta'sirchan ichak sindromi
+Kron kasalligi
+Yarali kolit
+Surunkali B gepatiti
+Jigar sirrozi
+O'tkir pankreatit
+Podagra
+Osteoporoz
+Fibromialgiya
+Ishias
+Umurtqalararo disk churrasi
+Bilak kanali sindromi
+Tendinit
+O'pkaning surunkali obstruktiv kasalligi
+Sil
+Leykemiya
+Limfoma
+Melanoma
+Giperlipidemiya
+Semizlik
+Obstruktiv uyqu apnoesi
+Uyqusizlik
+Bipolyar buzilish
+DEGB
+Seliakiya
+Tizimli qizil yugurik
+Bosh aylanishi
+Quloqdagi shovqin
+Bavosil
+Varikoz kengayish
+Chuqur venalar trombozi
+O'pka emboliyasi
+Buyrak toshlari
+Anemiya
+Gipertireoz
+Peptik yara
+Gastrit
+Infeksion sellyulit
+Sepsis
+Ko'krak bezi saratoni
+O'tkir gastroenterit
+D vitamini tanqisligi
+Surunkali venoz yetishmovchilik
+1-turdagi qandli diabet
+Miokard infarkti
+Stenokardiya
+Chekka arteriyalar kasalligi
+Dilatatsion kardiomiopatiya
+Miokardit
+Perikardit
+Infeksion endokardit
+Aorta stenozi
+Mitral qopqoq prolapsi
+Qorin aortasi anevrizmasi
+Surunkali bronxit
+O'pka emfizemasi
+Plevra suyuqligi to'planishi
+O'pka fibrozi
+O'pka gipertenziyasi
+Bronxoektazlar
+Laringit
+Faringit
+Tonzillit
+Ezofagit
+Barrett qizilo'ngachi
+Oshqozon saratoni
+Kolorektal saraton
+Anal yoriq
+Alkogolsiz yog'li jigar kasalligi
+Surunkali C gepatiti
+Diafragma churrasi
+Chov churrasi
+O'tkir buyrak shikastlanishi
+Glomerulonefrit
+Piyelonefrit
+Sistit
+Siydik tuta olmaslik
+Qovuq saratoni
+Buyrak hujayrali karsinoma
+Tranzitor ishemik xuruj
+Zo'riqish bosh og'rig'i
+Klaster bosh og'rig'i
+Uch shoxli nerv nevralgiyasi
+Bell falaji
+Chekka neyropatiya
+Bezovta oyoqlar sindromi
+Essensial tremor
+Miasteniya gravis
+Giyen-Barre sindromi
+Vahima buzilishi
+Obsessiv-kompulsiv buzilish
+Travmadan keyingi stress buzilishi
+Ijtimoiy fobiya
+Nerv anoreksiyasi
+Nerv bulimiyasi
+Shizofreniya
+Alkogolga qaramlik
+Xashimoto tireoiditi
+Greyvs kasalligi
+Kushing sindromi
+Addison kasalligi
+Giperparatireoz
+Metabolik sindrom
+B12 vitamini tanqisligi
+Qalqonsimon bez tuguni
+Trombotsitopeniya
+Haqiqiy politsitemiya
+O'pka saratoni
+Oshqozon osti bezi saratoni
+Qalqonsimon bez saratoni
+Ko'p sonli miyeloma
+Bursit
+Tovon fastsiiti
+Aylantiruvchi manjet yirtilishi
+Ankilozlovchi spondilit
+Skolioz
+Osteomiyelit
+Husnbuzar
+Rozatsea
+Vitiligo
+O'choqli alopetsiya
+Eshakemi
+Kontakt dermatiti
+Belbog' temiratki
+Onixomikoz
+Makulyar degeneratsiya
+Diabetik retinopatiya
+To'r parda ko'chishi
+Uveit
+Quruq ko'z sindromi
+Menyer kasalligi
+Sensonevral eshitish yo'qotilishi
+Burun poliplari
+Infeksion mononukleoz
+Laym kasalligi
+Bezgak
+Denge isitmasi
+Salmonellyoz
+A gepatiti
+OIV infeksiyasi
+Oddiy gerpes infeksiyasi
+Qizamiq
+Suvchechak
+Bakterial meningit
+Virusli ensefalit

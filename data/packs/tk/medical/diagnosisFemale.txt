@@ -4,27 +4,37 @@ locale: tk
 ---
 Endometrioz
 Polikistoz ýumurtgalyk sindromy
-Ýatgy miomasy
+Ýatgy miomalary
 Ýumurtgalyk kistasy
 Ýumurtgalyk ragy
 Ýatgy boýunjygynyň ragy
 Ýatgy boýunjygynyň displaziýasy
 Serwisit
 Endometrit
-Ýatgynyň ragy
+Endometriý ragy
 Kiçi çanaklygyň sowuklama keseli
 Bakterial waginoz
-Wulwowaginal kandidoz
+Waginal kandidoz
 Menorragiýa
 Dismenoreýa
 Amenoreýa
 Preeklampsiýa
-Göwrelilik süýji keseli
-Göwreliligiň aşa gaýtarmasy
+Göwrelilik diabeti
+Göwrelileriň agyr gusmagy
 Ýatgydan daşary göwrelilik
-Dogrumdan soňky gan akma
+Dogumdan soňky gan akma
 Mastit
-Süýt mäziniň fibrokistoz üýtgemesi
-Klimakteriki sindrom
-Menstruasiýadan öňki disforiki bozulma
-Ýatgynyň düşmegi
+Göwsüň fibroz-kistoz keseli
+Menopauza sindromy
+Aýbaşydan öňki disforik bozulma
+Ýatgynyň sallanmagy
+Adenomioz
+Ýumurtgalygyň towlanmagy
+Çaga ýoldaşynyň öňde ýatmagy
+Çaga ýoldaşynyň gopmagy
+Wulwa ragy
+Waginanyň ragy
+Bartolin mäziniň kistasy
+Atrofik waginit
+Terner sindromy
+Aýal önelgesizligi

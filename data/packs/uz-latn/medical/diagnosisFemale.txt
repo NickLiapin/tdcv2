@@ -3,28 +3,38 @@ description: Medical diagnosis in Uzbek that requires female anatomy — it cann
 locale: uz-latn
 ---
 Endometrioz
-Bachadon miomasi
-Adenomioz
-Tuxumdon kistasi
 Polikistoz tuxumdon sindromi
-Sut bezi fibrokistoz kasalligi
-Sut bezi saratoni
-Bachadon boʻyni saratoni
-Bachadon tanasi saratoni
+Bachadon miomalari
+Tuxumdon kistasi
 Tuxumdon saratoni
-Bachadon tushishi
-Ayollar bepushtligi
-Gestatsion diabet
-Preeklampsiya
-Eklampsiya
-Homiladorlik anemiyasi
-Muddatidan oldin tugʻish xavfi
-Bachadondan tashqari homiladorlik
-Klimakterik sindrom
-Disfunksional bachadon qonashi
-Amenoreya
-Dismenoreya
-Vulvovaginit
-Mastopatiya
-Mastit
+Bachadon bo'yni saratoni
+Bachadon bo'yni displaziyasi
 Servitsit
+Endometrit
+Endometriy saratoni
+Kichik chanoq yallig'lanish kasalligi
+Bakterial vaginoz
+Vaginal kandidoz
+Menorragiya
+Dismenoreya
+Amenoreya
+Preeklampsiya
+Homiladorlik diabeti
+Homiladorlarning og'ir qusishi
+Bachadondan tashqari homiladorlik
+Tug'ruqdan keyingi qon ketish
+Mastit
+Ko'krakning fibroz-kistoz kasalligi
+Menopauza sindromi
+Hayzdan oldingi disforik buzilish
+Bachadonning tushishi
+Adenomioz
+Tuxumdonning buralishi
+Yo'ldoshning oldinda yotishi
+Yo'ldoshning ko'chishi
+Vulva saratoni
+Qin saratoni
+Bartolin bezi kistasi
+Atrofik vaginit
+Terner sindromi
+Ayol bepushtligi

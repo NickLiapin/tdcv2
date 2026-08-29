@@ -2,23 +2,33 @@
 description: Medical diagnosis in Azerbaijani that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
 locale: az
 ---
-Prostatın xoşxassəli hiperplaziyası
+Prostat vəzinin xoşxassəli hiperplaziyası
 Prostatit
 Prostat xərçəngi
+Xaya xərçəngi
+Xayanın burulması
 Varikosele
 Hidrosele
-Enməmiş xaya
-Fimoz
-Parafimoz
-Balanopostit
-Orxit
 Epididimit
-Xaya burulması
-Xaya xərçəngi
+Kriptorxizm
+Fimoz
+Balanit
 Erektil disfunksiya
 Peyroni xəstəliyi
 Kişi sonsuzluğu
-Hipoqonadizm
-Qasıq yırtığı
-Azoospermiya
 Ginekomastiya
+Kişi hipoqonadizmi
+Priapizm
+Spermatosele
+Kişi tipli keçəllik
+Xayalıq yırtığı
+Cinsiyyət üzvünün xərçəngi
+Orxit
+Sidik kanalının darlığı
+Klaynfelter sindromu
+Azoospermiya
+Vaxtından əvvəl eyakulyasiya
+Parafimoz
+Prostat absesi
+Vezikulit
+Spermada qan
