@@ -22,21 +22,21 @@ formato.
 
 ## De un vistazo
 
-| Atributo              | Qué hace                                                                               |
-| :-------------------- | :------------------------------------------------------------------------------------- |
-| `value`               | `birth`, `today`, `now`, una fecha suelta o un rango `START..END`                      |
-| `range`               | Un rango `START..END` — una escritura más nueva de la misma idea                       |
-| `from` / `to`         | Los dos extremos de un rango, dados por separado                                       |
-| `order`               | `sequential` recorre el rango en vez de sortear de él — vea [Un eje de fechas](#un-eje-de-fechas-recorrer-el-rango-en-vez-de-sortear-de-él) |
-| `step`                | Cuánto avanza cada fila en un eje recorrido: `15m`, `1h30m`, `2d`, `3mo`, `1y`          |
-| `weekdays`            | Qué días de la semana conserva un eje recorrido: `mon..fri`, `sun,wed`                 |
-| `cycle`               | `false` rechaza en vez de dar la vuelta cuando un rango ACOTADO recorrido se agota      |
-| `format`              | Formato de salida (vea [Formato de la salida](#formato-de-la-salida)); por omisión `L` |
+| Atributo              | Qué hace                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| :-------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `value`               | `birth`, `today`, `now`, una fecha suelta o un rango `START..END`                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `range`               | Un rango `START..END` — una escritura más nueva de la misma idea                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `from` / `to`         | Los dos extremos de un rango, dados por separado                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `order`               | `sequential` recorre el rango en vez de sortear de él — vea [Un eje de fechas](#un-eje-de-fechas-recorrer-el-rango-en-vez-de-sortear-de-él)                                                                                                                                                                                                                                                                                                                                     |
+| `step`                | Cuánto avanza cada fila en un eje recorrido: `15m`, `1h30m`, `2d`, `3mo`, `1y`                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `weekdays`            | Qué días de la semana conserva un eje recorrido: `mon..fri`, `sun,wed`                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `cycle`               | `false` rechaza en vez de dar la vuelta cuando un rango ACOTADO recorrido se agota                                                                                                                                                                                                                                                                                                                                                                                              |
+| `format`              | Formato de salida (vea [Formato de la salida](#formato-de-la-salida)); por omisión `L`                                                                                                                                                                                                                                                                                                                                                                                          |
 | `local`               | Veinticuatro: `ar`, `cs`, `de`, `el`, `en`, `es`, `fi`, `fr`, `hi`, `hu`, `id`, `it`, `ja`, `ko`, `nl`, `pl`, `pt`, `ru`, `sv`, `th`, `tr`, `uk`, `vi`, `zh-cn`. Diecinueve responden también a un alias de tres letras — `ara`, `ces`, `deu`, `ell`, `eng`, `spa`, `fin`, `fra`, `hun`, `ind`, `ita`, `jpn`, `kor`, `nld`, `pol`, `por`, `tur`, `ukr`, `vie` —, y `hi`, `ru`, `sv`, `th`, `zh-cn` no tienen ninguno. Se hereda de [`<env>`](../reference/tags.mdx) si se omite |
-| `oldest` / `youngest` | Ventana de edad en años para `value="birth"` (por omisión `80` y `10`)                 |
-| `precision`           | `day`, `second` o `millisecond`                                                        |
-| `of`                  | Medir desde otra columna de fechas en vez de sortear — vea «Un intervalo» más abajo    |
-| `plus`                | Cuánto desde ella: `7d`, `3..10d`, `1..3mo`, `-10..-3d`                                |
+| `oldest` / `youngest` | Ventana de edad en años para `value="birth"` (por omisión `80` y `10`)                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `precision`           | `day`, `second` o `millisecond`                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `of`                  | Medir desde otra columna de fechas en vez de sortear — vea «Un intervalo» más abajo                                                                                                                                                                                                                                                                                                                                                                                             |
+| `plus`                | Cuánto desde ella: `7d`, `3..10d`, `1..3mo`, `-10..-3d`                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
 Solo uno de `value`, `range` o el par `from`/`to` se usa para describir un rango — son
 tres escrituras de lo mismo. No dé ninguno y el rango va de `1970-01-01` al momento
@@ -193,14 +193,14 @@ así que el rango no cuesta memoria por largo que sea.
 
 Por omisión, un día. `step` toma un número y una unidad, y las unidades se suman:
 
-| Escrito     | Significa             | Grupo     |
-| :---------- | :-------------------- | :-------- |
-| `15m`       | 15 minutos            | fijo      |
-| `1h30m`     | 90 minutos            | fijo      |
-| `2` o `2d`  | 2 días                | fijo      |
-| `1w`        | 7 días                | fijo      |
-| `3mo`       | 3 meses de calendario | calendario |
-| `1y6mo`     | 18 meses de calendario | calendario |
+| Escrito    | Significa              | Grupo      |
+| :--------- | :--------------------- | :--------- |
+| `15m`      | 15 minutos             | fijo       |
+| `1h30m`    | 90 minutos             | fijo       |
+| `2` o `2d` | 2 días                 | fijo       |
+| `1w`       | 7 días                 | fijo       |
+| `3mo`      | 3 meses de calendario  | calendario |
+| `1y6mo`    | 18 meses de calendario | calendario |
 
 `m` es el **minuto**, como en toda notación de esta forma. El mes es `mo`, porque `m` ya
 está tomado; y no `M`, porque una diferencia de cuarenta y cuatro mil entre tres minutos y
@@ -291,7 +291,7 @@ filtro coincidiría con todas las filas o con ninguna — una columna llena o un
 decir nada al respecto. Eso se mide sobre el largo del paso, así que `14d` se rechaza
 igual que `2w`, mientras que `10d` pasa.
 
-Un **paso de calendario** — `1mo`, `3mo`, `1y` — se rechaza por la razón opuesta: *no*
+Un **paso de calendario** — `1mo`, `3mo`, `1y` — se rechaza por la razón opuesta: _no_
 fija el día de la semana. El día 15 recorre jueves, domingo, domingo, miércoles, viernes
 y lunes a lo largo de la primera mitad de 2026. Qué filas sobrevivirían al filtro lo
 decidiría el calendario y no lo que dice la configuración, así que el paso y el filtro
@@ -418,7 +418,7 @@ fecha y hora) cuando necesite resolución por debajo del segundo.
 Los registros reales están llenos de parejas: ingreso y alta, pedido y envío,
 emisión y caducidad, el principio y el final de un turno. La segunda fecha no es
 independiente de la primera — es la primera más una duración — y dos rangos
-separados no pueden decirlo. Ponen el alta *antes* del ingreso en buena parte de
+separados no pueden decirlo. Ponen el alta _antes_ del ingreso en buena parte de
 las filas.
 
 `of` nombra la columna desde la que medir y `plus` dice cuánto:
@@ -441,19 +441,19 @@ las filas.
 2026-01-08  2026-01-14`}
 </Terminal>
 
-Cada alta es posterior a su propio ingreso, entre 2 y 14 días — y la *duración*
+Cada alta es posterior a su propio ingreso, entre 2 y 14 días — y la _duración_
 de cada estancia se sortea por fila, que es justo lo que dos rangos
 independientes tiran a la basura.
 
 ### `plus` — la distancia
 
-| Escrito como | Significa                                                       |
-| :----------- | :--------------------------------------------------------------- |
-| `7d`         | exactamente siete días, en cada fila                             |
+| Escrito como | Significa                                                         |
+| :----------- | :---------------------------------------------------------------- |
+| `7d`         | exactamente siete días, en cada fila                              |
 | `3..10d`     | de tres a diez días, sorteado por fila (ambos extremos incluidos) |
-| `1..3mo`     | de uno a tres meses, por el calendario                           |
-| `-10..-3d`   | de tres a diez días **antes** de la fuente                       |
-| `45`         | un número a secas significa días                                 |
+| `1..3mo`     | de uno a tres meses, por el calendario                            |
+| `-10..-3d`   | de tres a diez días **antes** de la fuente                        |
+| `45`         | un número a secas significa días                                  |
 
 Las unidades son las que [`step`](#step--cuánto-avanza-cada-fila) ya usa:
 `s`, `m`, `h`, `d`, `w`, `mo`, `y` — y como allí, `m` es el minuto y `mo` el mes.
@@ -484,7 +484,7 @@ Meses y años avanzan por el calendario y no por un número fijo de días, así 
 
 ### El desplazamiento lee el valor, no el texto impreso
 
-Una columna de fechas imprime una *representación* de su fecha. `03/02/2026` es
+Una columna de fechas imprime una _representación_ de su fecha. `03/02/2026` es
 el 3 de febrero con `local="en"` y el 2 de marzo con `local="ru"`, y
 `format="MMMM D"` tira el año por completo. Por eso el desplazamiento no lee la
 celda en absoluto: la columna desde la que mide guarda la fecha que generó, y la
@@ -596,33 +596,33 @@ Todos los tokens sobre un mismo instante fijo — **martes 5 de marzo de 2024,
 09:04:07**. El día y el mes son de una cifra a propósito, para que las parejas
 «con cero / sin cero» se distingan a simple vista:
 
-| Token  | Significa                         | Ejemplo                        |
-| :----- | :-------------------------------- | :----------------------------- |
-| `YYYY` | año de 4 dígitos                  | `2024`                         |
-| `YY`   | año de 2 dígitos                  | `24`                           |
-| `MMMM` | nombre completo del mes           | `March`                        |
-| `MMM`  | nombre corto del mes              | `Mar`                          |
-| `MM`   | mes de 2 dígitos                  | `03`                           |
-| `M`    | mes sin cero inicial              | `3`                            |
-| `DD`   | día de 2 dígitos                  | `05`                           |
-| `D`    | día sin cero inicial              | `5`                            |
-| `dddd` | nombre completo del día           | `Tuesday`                      |
-| `ddd`  | nombre corto del día              | `Tue`                          |
-| `HH`   | hora de 2 dígitos (24 h)          | `09`                           |
-| `H`    | hora sin cero inicial             | `9`                            |
-| `mm`   | minuto de 2 dígitos               | `04`                           |
-| `m`    | minuto sin cero inicial           | `4`                            |
-| `ss`   | segundo de 2 dígitos              | `07`                           |
-| `s`    | segundo sin cero inicial          | `7`                            |
-| `SSS`  | milisegundos                      | `000`                          |
-| `Z`    | desplazamiento UTC con dos puntos | `+00:00`                       |
-| `ZZ`   | desplazamiento UTC sin dos puntos | `+0000`                        |
-| `ISO`  | fecha en formato ISO 8601         | `2024-03-05`                   |
-| `ISO_TIME` | fecha y hora en ISO 8601      | `2024-03-05T09:04:07`          |
-| `L`    | fecha corta según el locale       | `03/05/2024`                   |
-| `LL`   | fecha larga según el locale       | `March 5, 2024`                |
-| `LLL`  | fecha larga con la hora           | `March 5, 2024 09:04`          |
-| `LLLL` | la misma, con el día de la semana | `Tuesday, March 5, 2024 09:04` |
+| Token      | Significa                         | Ejemplo                        |
+| :--------- | :-------------------------------- | :----------------------------- |
+| `YYYY`     | año de 4 dígitos                  | `2024`                         |
+| `YY`       | año de 2 dígitos                  | `24`                           |
+| `MMMM`     | nombre completo del mes           | `March`                        |
+| `MMM`      | nombre corto del mes              | `Mar`                          |
+| `MM`       | mes de 2 dígitos                  | `03`                           |
+| `M`        | mes sin cero inicial              | `3`                            |
+| `DD`       | día de 2 dígitos                  | `05`                           |
+| `D`        | día sin cero inicial              | `5`                            |
+| `dddd`     | nombre completo del día           | `Tuesday`                      |
+| `ddd`      | nombre corto del día              | `Tue`                          |
+| `HH`       | hora de 2 dígitos (24 h)          | `09`                           |
+| `H`        | hora sin cero inicial             | `9`                            |
+| `mm`       | minuto de 2 dígitos               | `04`                           |
+| `m`        | minuto sin cero inicial           | `4`                            |
+| `ss`       | segundo de 2 dígitos              | `07`                           |
+| `s`        | segundo sin cero inicial          | `7`                            |
+| `SSS`      | milisegundos                      | `000`                          |
+| `Z`        | desplazamiento UTC con dos puntos | `+00:00`                       |
+| `ZZ`       | desplazamiento UTC sin dos puntos | `+0000`                        |
+| `ISO`      | fecha en formato ISO 8601         | `2024-03-05`                   |
+| `ISO_TIME` | fecha y hora en ISO 8601          | `2024-03-05T09:04:07`          |
+| `L`        | fecha corta según el locale       | `03/05/2024`                   |
+| `LL`       | fecha larga según el locale       | `March 5, 2024`                |
+| `LLL`      | fecha larga con la hora           | `March 5, 2024 09:04`          |
+| `LLLL`     | la misma, con el día de la semana | `Tuesday, March 5, 2024 09:04` |
 
 :::note[Son tokens, y un casi-token se rechaza]
 Cada nombre de la tabla se combina con los demás. `LL [at] HH:mm` da
@@ -682,6 +682,16 @@ texto fijo:
 `MMM`, `dddd` y `ddd`. El locale por omisión es `en`. Las plantillas
 numéricas como `YYYY-MM-DD` y `DD.MM.YYYY` nunca dependen del locale — solo de la
 plantilla que se escribe.
+
+De dónde salen las palabras: veinticuatro locales vienen integrados en el motor, y
+cualquier otro cuyo pack de datos incluya un `DATE_LOCALE.json` — setenta lo hacen —
+traduce sus fechas en cuanto el pack es visible. El georgiano, el letón, el kazajo y
+los suyos imprimen ahora sus propios meses y días de la semana, incluida la forma del
+mes dentro de una fecha (`15 იანვარს`); antes caían al inglés sin decir palabra. Un
+archivo trae `L` y `LL`; `LLL` y `LLLL` se toman de él cuando los escribe y se derivan
+si no — `LL` más la hora, el día de la semana delante. Un locale sin palabras de fecha
+sigue imprimiendo inglés, y el validador lo dice en voz alta en lugar de dejarlo pasar
+en silencio.
 
 Aquí está la fecha fija `2024-03-15` con `format="LL"`, primero en el locale inglés por
 omisión y luego la misma fecha renderizada de nuevo con `local="ru"` para mostrar el

@@ -67,6 +67,21 @@ pub trait PackSource: std::fmt::Debug {
     /// to look inside every file.
     fn list_files(&self) -> Vec<String>;
 
+    /// Every top-level folder this source can serve — the locale and country
+    /// names. Derived from the file list; a source with a cheaper way may
+    /// override it.
+    fn list_top_level_names(&self) -> Vec<String> {
+        let mut out: Vec<String> = Vec::new();
+        for path in self.list_files() {
+            if let Some(first) = path.split('/').next() {
+                if !first.is_empty() && !out.iter().any(|x| x == first) {
+                    out.push(first.to_string());
+                }
+            }
+        }
+        out
+    }
+
     fn has_top_level(&self, name: &str) -> bool;
 
     /// Whether `countries/<name>` exists.
@@ -114,6 +129,21 @@ impl DirectorySource {
 impl PackSource for DirectorySource {
     fn has(&self, relative_path: &str) -> bool {
         self.resolve(relative_path).is_file()
+    }
+
+    fn list_top_level_names(&self) -> Vec<String> {
+        // One readdir, not the whole walk `list_files` does.
+        let Ok(entries) = std::fs::read_dir(&self.root) else {
+            return Vec::new();
+        };
+        let mut out: Vec<String> = entries
+            .flatten()
+            .filter(|e| e.path().is_dir())
+            .map(|e| e.file_name().to_string_lossy().to_string())
+            .filter(|name| !is_ignored_entry(name))
+            .collect();
+        out.sort();
+        out
     }
 
     fn read_lines(&self, relative_path: &str) -> Option<Vec<String>> {
@@ -218,6 +248,25 @@ impl PackSource for EmbeddedSource {
         Self::find(relative_path).is_some()
     }
 
+    fn list_top_level_names(&self) -> Vec<String> {
+        // Computed once: the embedded list never changes, and a DataPacks is
+        // constructed often.
+        static NAMES: std::sync::OnceLock<Vec<String>> = std::sync::OnceLock::new();
+        NAMES
+            .get_or_init(|| {
+                let mut out: Vec<String> = Vec::new();
+                for (path, _) in super::bundled_files::FILES {
+                    if let Some(first) = path.split('/').next() {
+                        if !first.is_empty() && !out.iter().any(|x| x == first) {
+                            out.push(first.to_string());
+                        }
+                    }
+                }
+                out
+            })
+            .clone()
+    }
+
     fn read_lines(&self, relative_path: &str) -> Option<Vec<String>> {
         // Split the same way DirectorySource does, so an embedded pack and a
         // pack on disk give the identical list of values — including the
@@ -289,6 +338,21 @@ impl LayeredSource {
 impl PackSource for LayeredSource {
     fn has(&self, relative_path: &str) -> bool {
         self.owning(relative_path).is_some()
+    }
+
+    fn list_top_level_names(&self) -> Vec<String> {
+        // The union of the children's own cheap listings, not the default's
+        // full file walk — a DataPacks is constructed often, and this runs
+        // each time.
+        let mut out: Vec<String> = Vec::new();
+        for source in &self.sources {
+            for name in source.list_top_level_names() {
+                if !out.contains(&name) {
+                    out.push(name);
+                }
+            }
+        }
+        out
     }
 
     fn read_lines(&self, relative_path: &str) -> Option<Vec<String>> {

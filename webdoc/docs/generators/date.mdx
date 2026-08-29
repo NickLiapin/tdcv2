@@ -19,21 +19,21 @@ can differ by core version. What stays fixed is the shape and the format.
 
 ## At a glance
 
-| Attribute             | What it does                                                                             |
-| :-------------------- | :--------------------------------------------------------------------------------------- |
-| `value`               | `birth`, `today`, `now`, a single date, or a range `START..END`                          |
-| `range`               | A range `START..END` — a newer spelling of the same idea                                 |
-| `from` / `to`         | The two endpoints of a range, given separately                                           |
-| `order`               | `sequential` walks the range instead of drawing from it — see [A date axis](#a-date-axis-walking-the-range-instead-of-drawing-from-it) |
-| `step`                | How far each row moves on a walked axis: `15m`, `1h30m`, `2d`, `3mo`, `1y`               |
-| `weekdays`            | Which weekdays a walked axis keeps: `mon..fri`, `sun,wed`                                |
-| `cycle`               | `false` refuses instead of looping when a walked BOUNDED range runs out                  |
-| `format`              | Output format (see [Formatting the output](#formatting-the-output)); default `L`         |
+| Attribute             | What it does                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| :-------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `value`               | `birth`, `today`, `now`, a single date, or a range `START..END`                                                                                                                                                                                                                                                                                                                                                                                                |
+| `range`               | A range `START..END` — a newer spelling of the same idea                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `from` / `to`         | The two endpoints of a range, given separately                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `order`               | `sequential` walks the range instead of drawing from it — see [A date axis](#a-date-axis-walking-the-range-instead-of-drawing-from-it)                                                                                                                                                                                                                                                                                                                         |
+| `step`                | How far each row moves on a walked axis: `15m`, `1h30m`, `2d`, `3mo`, `1y`                                                                                                                                                                                                                                                                                                                                                                                     |
+| `weekdays`            | Which weekdays a walked axis keeps: `mon..fri`, `sun,wed`                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `cycle`               | `false` refuses instead of looping when a walked BOUNDED range runs out                                                                                                                                                                                                                                                                                                                                                                                        |
+| `format`              | Output format (see [Formatting the output](#formatting-the-output)); default `L`                                                                                                                                                                                                                                                                                                                                                                               |
 | `local`               | Twenty-four: `ar`, `cs`, `de`, `el`, `en`, `es`, `fi`, `fr`, `hi`, `hu`, `id`, `it`, `ja`, `ko`, `nl`, `pl`, `pt`, `ru`, `sv`, `th`, `tr`, `uk`, `vi`, `zh-cn`. Nineteen also answer to a three-letter alias — `ara`, `ces`, `deu`, `ell`, `eng`, `spa`, `fin`, `fra`, `hun`, `ind`, `ita`, `jpn`, `kor`, `nld`, `pol`, `por`, `tur`, `ukr`, `vie` — and `hi`, `ru`, `sv`, `th`, `zh-cn` have none. Inherited from [`<env>`](../reference/tags.mdx) if omitted |
-| `oldest` / `youngest` | Age window in years for `value="birth"` (defaults `80` and `10`)                         |
-| `precision`           | `day`, `second`, or `millisecond`                                                        |
-| `of`                  | Measure from another date column instead of drawing — see [An interval](#an-interval-a-date-measured-from-another-date) |
-| `plus`                | How far from it: `7d`, `3..10d`, `1..3mo`, `-10..-3d`                                    |
+| `oldest` / `youngest` | Age window in years for `value="birth"` (defaults `80` and `10`)                                                                                                                                                                                                                                                                                                                                                                                               |
+| `precision`           | `day`, `second`, or `millisecond`                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `of`                  | Measure from another date column instead of drawing — see [An interval](#an-interval-a-date-measured-from-another-date)                                                                                                                                                                                                                                                                                                                                        |
+| `plus`                | How far from it: `7d`, `3..10d`, `1..3mo`, `-10..-3d`                                                                                                                                                                                                                                                                                                                                                                                                          |
 
 Use only one of `value`, `range`, or the `from`/`to` pair to describe a range — they
 are three spellings of the same thing. Give none of them and the range runs from
@@ -188,14 +188,14 @@ into a list, so the range costs no memory however long it is.
 
 The default is one day. `step` takes a number and a unit, and units add up:
 
-| Written    | Means                | Group    |
-| :--------- | :------------------- | :------- |
-| `15m`      | 15 minutes           | fixed    |
-| `1h30m`    | 90 minutes           | fixed    |
-| `2` or `2d`| 2 days               | fixed    |
-| `1w`       | 7 days               | fixed    |
-| `3mo`      | 3 calendar months    | calendar |
-| `1y6mo`    | 18 calendar months   | calendar |
+| Written     | Means              | Group    |
+| :---------- | :----------------- | :------- |
+| `15m`       | 15 minutes         | fixed    |
+| `1h30m`     | 90 minutes         | fixed    |
+| `2` or `2d` | 2 days             | fixed    |
+| `1w`        | 7 days             | fixed    |
+| `3mo`       | 3 calendar months  | calendar |
+| `1y6mo`     | 18 calendar months | calendar |
 
 `m` is the **minute**, as it is in every notation of this shape. The month is `mo`,
 because `m` is taken — and not `M`, since a difference of forty-four thousand between
@@ -286,7 +286,7 @@ way. That is measured on the step's length, so `14d` is refused exactly as `2w` 
 `10d` is fine.
 
 A **calendar step** — `1mo`, `3mo`, `1y` — is refused for the opposite reason: it does
-*not* fix the weekday. The 15th walks Thursday, Sunday, Sunday, Wednesday, Friday, Monday
+_not_ fix the weekday. The 15th walks Thursday, Sunday, Sunday, Wednesday, Friday, Monday
 across the first half of 2026. Which rows survive a weekday filter would follow the
 calendar rather than anything written in the config, so the step and the filter are asked
 to be one or the other.
@@ -410,7 +410,7 @@ sub-second resolution.
 Real records are full of pairs: admitted and discharged, ordered and shipped,
 issued and expires, the start and the end of a shift. The second date is not
 independent of the first — it is the first plus a length — and two separate
-ranges cannot say so. They put the discharge *before* the admission on a good
+ranges cannot say so. They put the discharge _before_ the admission on a good
 share of the rows.
 
 `of` names the column to measure from and `plus` says how far:
@@ -433,19 +433,19 @@ share of the rows.
 2026-01-08  2026-01-14`}
 </Terminal>
 
-Every discharge is after its own admission, by 2 to 14 days — and the *length*
+Every discharge is after its own admission, by 2 to 14 days — and the _length_
 of each stay is drawn per row, which is the thing two independent ranges throw
 away.
 
 ### `plus` — the distance
 
-| Written as   | Means                                                     |
-| :----------- | :-------------------------------------------------------- |
-| `7d`         | exactly seven days, on every row                          |
-| `3..10d`     | three to ten days, drawn per row (both ends inclusive)    |
-| `1..3mo`     | one to three months, by the calendar                      |
-| `-10..-3d`   | three to ten days **before** the source                   |
-| `45`         | a bare number means days                                  |
+| Written as | Means                                                  |
+| :--------- | :----------------------------------------------------- |
+| `7d`       | exactly seven days, on every row                       |
+| `3..10d`   | three to ten days, drawn per row (both ends inclusive) |
+| `1..3mo`   | one to three months, by the calendar                   |
+| `-10..-3d` | three to ten days **before** the source                |
+| `45`       | a bare number means days                               |
 
 The units are the ones [`step`](#step--how-far-each-row-moves) already uses:
 `s`, `m`, `h`, `d`, `w`, `mo`, `y` — and as there, `m` is the minute and `mo` is
@@ -476,7 +476,7 @@ Months and years move by the calendar rather than by a fixed number of days, so
 
 ### The offset reads the value, not the printed text
 
-A date column prints a *rendering* of its date. `03/02/2026` is the 3rd of
+A date column prints a _rendering_ of its date. `03/02/2026` is the 3rd of
 February under `local="en"` and the 2nd of March under `local="ru"`, and
 `format="MMMM D"` throws the year away entirely. So the offset does not read the
 cell at all: the column it measures from keeps the date it generated, and the
@@ -584,33 +584,33 @@ Here is every token, applied to one fixed moment: **Tuesday, March 5, 2024,
 09:04:07**. The day and the month are single-digit on purpose, so the padded and
 unpadded pairs differ visibly:
 
-| Token  | Means                         | Example                        |
-| :----- | :---------------------------- | :----------------------------- |
-| `YYYY` | 4-digit year                  | `2024`                         |
-| `YY`   | 2-digit year                  | `24`                           |
-| `MMMM` | full month name               | `March`                        |
-| `MMM`  | short month name              | `Mar`                          |
-| `MM`   | 2-digit month                 | `03`                           |
-| `M`    | month, no leading zero        | `3`                            |
-| `DD`   | 2-digit day                   | `05`                           |
-| `D`    | day, no leading zero          | `5`                            |
-| `dddd` | full weekday name             | `Tuesday`                      |
-| `ddd`  | short weekday name            | `Tue`                          |
-| `HH`   | 2-digit hour (24h)            | `09`                           |
-| `H`    | hour, no leading zero         | `9`                            |
-| `mm`   | 2-digit minute                | `04`                           |
-| `m`    | minute, no leading zero       | `4`                            |
-| `ss`   | 2-digit second                | `07`                           |
-| `s`    | second, no leading zero       | `7`                            |
-| `SSS`  | milliseconds                  | `000`                          |
-| `Z`    | UTC offset with a colon       | `+00:00`                       |
-| `ZZ`   | UTC offset without a colon    | `+0000`                        |
-| `ISO`  | ISO 8601 date                 | `2024-03-05`                   |
-| `ISO_TIME` | ISO 8601 date and time    | `2024-03-05T09:04:07`          |
-| `L`    | locale-aware short date       | `03/05/2024`                   |
-| `LL`   | locale-aware long date        | `March 5, 2024`                |
-| `LLL`  | locale-aware long date + time | `March 5, 2024 09:04`          |
-| `LLLL` | the same, with the weekday    | `Tuesday, March 5, 2024 09:04` |
+| Token      | Means                         | Example                        |
+| :--------- | :---------------------------- | :----------------------------- |
+| `YYYY`     | 4-digit year                  | `2024`                         |
+| `YY`       | 2-digit year                  | `24`                           |
+| `MMMM`     | full month name               | `March`                        |
+| `MMM`      | short month name              | `Mar`                          |
+| `MM`       | 2-digit month                 | `03`                           |
+| `M`        | month, no leading zero        | `3`                            |
+| `DD`       | 2-digit day                   | `05`                           |
+| `D`        | day, no leading zero          | `5`                            |
+| `dddd`     | full weekday name             | `Tuesday`                      |
+| `ddd`      | short weekday name            | `Tue`                          |
+| `HH`       | 2-digit hour (24h)            | `09`                           |
+| `H`        | hour, no leading zero         | `9`                            |
+| `mm`       | 2-digit minute                | `04`                           |
+| `m`        | minute, no leading zero       | `4`                            |
+| `ss`       | 2-digit second                | `07`                           |
+| `s`        | second, no leading zero       | `7`                            |
+| `SSS`      | milliseconds                  | `000`                          |
+| `Z`        | UTC offset with a colon       | `+00:00`                       |
+| `ZZ`       | UTC offset without a colon    | `+0000`                        |
+| `ISO`      | ISO 8601 date                 | `2024-03-05`                   |
+| `ISO_TIME` | ISO 8601 date and time        | `2024-03-05T09:04:07`          |
+| `L`        | locale-aware short date       | `03/05/2024`                   |
+| `LL`       | locale-aware long date        | `March 5, 2024`                |
+| `LLL`      | locale-aware long date + time | `March 5, 2024 09:04`          |
+| `LLLL`     | the same, with the weekday    | `Tuesday, March 5, 2024 09:04` |
 
 :::note[These are tokens, and a near-miss is refused]
 Every name in the table composes with the others. `LL [at] HH:mm` gives
@@ -670,6 +670,16 @@ fixed text:
 `local` on [`<env>`](../reference/tags.mdx)) — as do the name tokens `MMMM`, `MMM`,
 `dddd` and `ddd`. The default locale is `en`. Numeric templates like `YYYY-MM-DD` and
 `DD.MM.YYYY` never depend on the locale — only on the template you write.
+
+Where the words come from: twenty-four locales are built into the engine, and any
+other locale whose data pack ships a `DATE_LOCALE.json` — seventy do — translates
+its dates the moment the pack is visible. Georgian, Latvian, Kazakh and their kind
+render their own months and weekdays now, including the in-a-date month form
+(`15 იანვარს`), where they used to fall back to English without a word. A shipped
+file carries `L` and `LL`; `LLL` and `LLLL` are taken from it when it writes them
+and derived otherwise — `LL` plus the time, the weekday in front. A locale with no
+date words at all still renders English, and the validator says so rather than
+letting it pass silently.
 
 Here is the fixed date `2024-03-15` under `format="LL"`, first in the default English
 locale, then re-rendered with `local="ru"` to show the localized month name and

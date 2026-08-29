@@ -166,6 +166,7 @@ impl std::fmt::Debug for DataPacks {
 
 impl DataPacks {
     pub fn new(source: Box<dyn PackSource + Send + Sync>, data_roots: Vec<String>) -> Self {
+        register_date_locales(&*source);
         Self {
             source,
             data_roots,
@@ -675,6 +676,88 @@ fn unaddressable_warning(file: &str, address: &str) -> Diagnostic {
 /// A file with no header at all stays silent when it cannot be placed: it is
 /// probably a raw `@data` source that happens to sit in a pack folder, not a
 /// pack somebody meant to publish.
+/// The date words each locale ships — `DATE_LOCALE.json` beside its name lists.
+///
+/// Months (with the in-a-date form every shipped file carries), weekdays, and
+/// the `L`/`LL` layouts. `LLL`/`LLLL` are taken when the file writes them and
+/// derived otherwise — `LL` plus the time, the weekday in front — because a
+/// derived long form in the right language beats the fully English date these
+/// locales rendered before this loader existed. A file that cannot be parsed
+/// registers nothing: the built-in fallback to English then stands, and the
+/// validator's warning says so.
+fn register_date_locales(source: &(dyn PackSource + Send + Sync)) {
+    // Once per SOURCE IDENTITY, not per construction: tests build thousands of
+    // `DataPacks` over the same folder, and re-reading seventy files each time
+    // is what turned a three-minute suite into twenty-five.
+    static DONE: std::sync::OnceLock<std::sync::Mutex<std::collections::BTreeSet<String>>> =
+        std::sync::OnceLock::new();
+    let done = DONE.get_or_init(|| std::sync::Mutex::new(std::collections::BTreeSet::new()));
+    {
+        let mut seen = done.lock().expect("date-locale sources");
+        if !seen.insert(source.describe()) {
+            return;
+        }
+    }
+    for name in source.list_top_level_names() {
+        let Some(lines) = source.read_lines(&format!("{name}/DATE_LOCALE.json")) else {
+            continue;
+        };
+        let content = lines.join("\n");
+        let mut hash: u64 = 1469598103934665603;
+        for byte in content.as_bytes() {
+            hash ^= u64::from(*byte);
+            hash = hash.wrapping_mul(1099511628211);
+        }
+        let Ok(raw) = crate::json::parse(&content) else {
+            continue;
+        };
+        let strings = |key: &str, len: usize| -> Option<Vec<String>> {
+            let values = raw.get(key)?.as_array()?;
+            if values.len() != len {
+                return None;
+            }
+            values
+                .iter()
+                .map(|v| v.as_str().map(str::to_string))
+                .collect()
+        };
+        let fmt = |key: &str| -> Option<String> {
+            raw.get("formats")?.get(key)?.as_str().map(str::to_string)
+        };
+        let (Some(months), Some(months_short), Some(weekdays), Some(weekdays_short)) = (
+            strings("months", 12),
+            strings("monthsShort", 12),
+            strings("weekdays", 7),
+            strings("weekdaysShort", 7),
+        ) else {
+            continue;
+        };
+        let (Some(l), Some(ll)) = (fmt("L"), fmt("LL")) else {
+            continue;
+        };
+        let lll = fmt("LLL").unwrap_or_else(|| format!("{ll} HH:mm"));
+        let llll = fmt("LLLL").unwrap_or_else(|| format!("dddd, {ll} HH:mm"));
+        let into12 = |v: Vec<String>| -> [String; 12] {
+            v.try_into()
+                .unwrap_or_else(|_| unreachable!("length checked"))
+        };
+        let into7 =
+            |v: Vec<String>| -> [String; 7] { v.try_into().unwrap_or_else(|_| unreachable!()) };
+        crate::date::locales::register_pack_locale(
+            &name,
+            hash,
+            crate::date::locales::PackDateLocale {
+                months: into12(months),
+                months_in_date: strings("monthsInDate", 12).map(into12),
+                months_short: into12(months_short),
+                weekdays: into7(weekdays),
+                weekdays_short: into7(weekdays_short),
+                formats: [l, ll, lll, llll],
+            },
+        );
+    }
+}
+
 fn has_header(lines: &[String]) -> bool {
     lines.first().map(|l| l.trim()) == Some("---")
 }

@@ -190,7 +190,9 @@ function checkDateCommonAttrs(attrs: readonly AttrContext[], diagnostics: Diagno
       ...attrValueRange(localAttr),
       message: `unknown date locale "${local}"`,
       ...(suggestion ? { suggestion: `did you mean "${suggestion}"?` } : {}),
-      hint: `Known date locales: ${formatCandidates(DATE_LOCALE_NAMES)}.`,
+      hint:
+        `Built-in date locales: ${formatCandidates(DATE_LOCALE_NAMES)} — and any locale ` +
+        'whose data pack ships a DATE_LOCALE.json is known once its packs are installed.',
       code: 'TDC153',
     });
   }
@@ -435,7 +437,11 @@ function checkEnvLocaleHasDates(
     source: 'validator',
     ...nodeRange(gen),
     message: `<env local="${envLocale}"> ships no date translations, so this date renders in English`,
-    hint: `Date locales: ${formatCandidates(DATE_LOCALE_NAMES)}. Use format="YYYY-MM-DD" — or any format without month or weekday names — to get the same text in every language, or accept the English month names.`,
+    hint:
+      `Built-in date locales: ${formatCandidates(DATE_LOCALE_NAMES)} — and any locale whose ` +
+      'data pack ships a DATE_LOCALE.json translates its dates too. Use format="YYYY-MM-DD" — ' +
+      'or any format without month or weekday names — to get the same text in every language, ' +
+      'or accept the English month names.',
     code: 'TDC272',
   });
 }

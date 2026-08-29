@@ -996,6 +996,33 @@ NAMES = (
 )
 
 
+# Date locales a DATA PACK ships, reached through a PROVIDER the packs register.
+#
+# Seventy locales carry a DATE_LOCALE.json beside their name lists, and for years the engine
+# never read one: local="ka" drew Georgian names and printed English months, with the right
+# words sitting in the pack the whole time. ``DataPacks`` sets the provider when it is built;
+# a locale is probed the first time a date asks for it and the answer is cached. The BUILT-IN
+# tables always win, so the locales the engine always knew keep their bytes, and the packs
+# only fill the gap.
+_PROVIDER: object | None = None
+_PACK_LOCALES: dict[str, DateLocale | None] = {}
+
+
+def set_pack_provider(provider) -> None:
+    """``DataPacks`` hands over "read this locale's DATE_LOCALE.json, or None"."""
+    global _PROVIDER
+    _PROVIDER = provider
+    _PACK_LOCALES.clear()
+
+
+def _from_packs(name: str) -> DateLocale | None:
+    if name in _PACK_LOCALES:
+        return _PACK_LOCALES[name]
+    found = _PROVIDER(name) if callable(_PROVIDER) else None
+    _PACK_LOCALES[name] = found
+    return found
+
+
 def resolve(name: str | None) -> DateLocale:
     """The named locale, falling back to English.
 
@@ -1003,8 +1030,9 @@ def resolve(name: str | None) -> DateLocale:
     table of its own yet, and refusing to render a date over that would be a worse answer than
     English month names.
     """
-    return _BY_NAME.get(name or "en", EN)
+    key = name or "en"
+    return _BY_NAME.get(key) or _from_packs(key) or EN
 
 
 def is_known(name: str) -> bool:
-    return name in _BY_NAME
+    return name in _BY_NAME or _from_packs(name) is not None

@@ -76,6 +76,29 @@ public interface IPackSource
     bool HasTopLevel(string name);
 
     /// <summary>
+    /// Every top-level folder this source can serve — the locale and country names. Derived
+    /// from the file list; a source with a cheaper way may override it.
+    /// </summary>
+    IReadOnlyList<string> ListTopLevelNames()
+    {
+        var outp = new List<string>();
+        foreach (string path in ListFiles())
+        {
+            int slash = path.IndexOf('/', StringComparison.Ordinal);
+            if (slash > 0)
+            {
+                string first = path[..slash];
+                if (!outp.Contains(first))
+                {
+                    outp.Add(first);
+                }
+            }
+        }
+
+        return outp;
+    }
+
+    /// <summary>
     /// Whether <c>countries/&lt;name&gt;</c> exists.
     /// </summary>
     /// <remarks>
@@ -106,6 +129,22 @@ public sealed class DirectorySource : IPackSource
         Path.Combine(_root, relativePath.Replace('/', Path.DirectorySeparatorChar));
 
     public bool Has(string relativePath) => File.Exists(Resolve(relativePath));
+
+    public IReadOnlyList<string> ListTopLevelNames()
+    {
+        // One directory listing, not the whole walk ListFiles does.
+        if (!Directory.Exists(_root))
+        {
+            return Array.Empty<string>();
+        }
+
+        return Directory.EnumerateDirectories(_root)
+            .Select(Path.GetFileName)
+            .OfType<string>()
+            .Where(name => !IPackSource.IsIgnoredEntry(name))
+            .OrderBy(name => name, StringComparer.Ordinal)
+            .ToList();
+    }
 
     public IReadOnlyList<string> ReadLines(string relativePath) =>
         File.ReadAllLines(Resolve(relativePath));
@@ -207,6 +246,25 @@ public sealed class LayeredSource : IPackSource
     public string? Locate(string relativePath) => Owning(relativePath)?.Locate(relativePath);
 
     public override string ToString() => string.Join(", ", _sources);
+
+    public IReadOnlyList<string> ListTopLevelNames()
+    {
+        // The union of the children's own cheap listings, not the default's full file walk —
+        // a DataPacks is constructed often, and this runs each time.
+        var outp = new List<string>();
+        foreach (IPackSource source in _sources)
+        {
+            foreach (string name in source.ListTopLevelNames())
+            {
+                if (!outp.Contains(name))
+                {
+                    outp.Add(name);
+                }
+            }
+        }
+
+        return outp;
+    }
 }
 
 /// <summary>

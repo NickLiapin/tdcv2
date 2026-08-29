@@ -1628,8 +1628,37 @@ public static class DateLocales
     /// table of its own yet, and refusing to render a date over that would be a worse answer than
     /// English month names.
     /// </remarks>
-    public static DateLocale Resolve(string? name) =>
-        name is not null && ByName.TryGetValue(name, out DateLocale? locale) ? locale : EN;
+    /// <summary>
+    /// Date locales a DATA PACK shipped, registered by <c>DataPacks</c> when it is built.
+    /// </summary>
+    /// <remarks>
+    /// Seventy locales carry a <c>DATE_LOCALE.json</c> beside their name lists, and for years
+    /// the engine never read one: <c>local="ka"</c> drew Georgian names and printed English
+    /// months, with the right words sitting in the pack the whole time. The BUILT-IN tables
+    /// always win, so the locales the engine always knew keep their bytes, and the registry
+    /// only fills the gap.
+    /// </remarks>
+    private static readonly System.Collections.Concurrent.ConcurrentDictionary<string, DateLocale>
+        PackLocales = new(StringComparer.Ordinal);
 
-    public static bool IsKnown(string name) => ByName.ContainsKey(name);
+    public static void RegisterPackLocale(string name, DateLocale locale) =>
+        PackLocales[name] = locale;
+
+    public static DateLocale Resolve(string? name)
+    {
+        if (name is null)
+        {
+            return EN;
+        }
+
+        if (ByName.TryGetValue(name, out DateLocale? builtIn))
+        {
+            return builtIn;
+        }
+
+        return PackLocales.TryGetValue(name, out DateLocale? fromPack) ? fromPack : EN;
+    }
+
+    public static bool IsKnown(string name) =>
+        ByName.ContainsKey(name) || PackLocales.ContainsKey(name);
 }

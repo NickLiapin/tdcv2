@@ -1068,6 +1068,36 @@
         ]
       }
     },
+    "dates/a-pack-date-locale-translates-the-months": {
+      "engine2": {
+        "lines": ["13 ნოემბერს 2026", "19 დეკემბერს 2026", "20 იანვარს 2026"]
+      },
+      "engine3": {
+        "lines": ["13 ნოემბერს 2026", "19 დეკემბერს 2026", "20 იანვარს 2026"]
+      }
+    },
+    "dates/a-gen-level-local-reaches-the-pack-date-locale-too": {
+      "engine2": {
+        "lines": ["2026. gada 13. novembrī", "2026. gada 19. decembrī"]
+      },
+      "engine3": {
+        "lines": ["2026. gada 13. novembrī", "2026. gada 19. decembrī"]
+      }
+    },
+    "dates/a-long-format-a-pack-file-does-not-write-is-derived": {
+      "engine2": {
+        "lines": [
+          "პარასკევი, 13 ნოემბერს 2026 00:00",
+          "შაბათი, 19 დეკემბერს 2026 00:00"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "პარასკევი, 13 ნოემბერს 2026 00:00",
+          "შაბათი, 19 დეკემბერს 2026 00:00"
+        ]
+      }
+    },
     "derived-columns/a-formula-over-two-columns": {
       "engine2": {
         "lines": [

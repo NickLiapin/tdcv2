@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import io.github.nickliapin.tdc.date.DateLocales;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -112,6 +113,93 @@ public final class DataPacks {
   public DataPacks(PackSource source, List<Path> dataRoots) {
     this.source = source;
     this.dataRoots = List.copyOf(dataRoots);
+    registerDateLocales(source);
+  }
+
+  /**
+   * The date words each locale ships — {@code DATE_LOCALE.json} beside its name lists.
+   *
+   * <p>Months (with the in-a-date form every shipped file carries), weekdays, and the {@code L}/
+   * {@code LL} layouts. {@code LLL}/{@code LLLL} are taken when the file writes them and derived
+   * otherwise — {@code LL} plus the time, the weekday in front — because a derived long form in
+   * the right language beats the fully English date these locales rendered before this loader
+   * existed. A file that cannot be parsed registers nothing: the built-in fallback to English
+   * then stands, and the validator's warning says so.
+   */
+  /** Sources already harvested, by their own description — see the note inside. */
+  private static final java.util.Set<String> DATE_LOCALE_SOURCES =
+      java.util.concurrent.ConcurrentHashMap.newKeySet();
+
+  private static void registerDateLocales(PackSource source) {
+    // Once per SOURCE IDENTITY, not per construction: tests build thousands of DataPacks over
+    // the same folder, and re-reading seventy files each time is what turned a one-minute
+    // suite into twenty.
+    if (!DATE_LOCALE_SOURCES.add(source.toString())) {
+      return;
+    }
+    for (String name : source.listTopLevelNames()) {
+      List<String> lines = null;
+      if (source.has(name + "/DATE_LOCALE.json")) {
+        lines = source.readLines(name + "/DATE_LOCALE.json");
+      }
+      if (lines == null) {
+        continue;
+      }
+      Object raw;
+      try {
+        raw = Json.parse(String.join("\n", lines));
+      } catch (RuntimeException e) {
+        continue;
+      }
+      if (!(raw instanceof Map<?, ?> table)) {
+        continue;
+      }
+      List<String> months = stringList(table.get("months"), 12);
+      List<String> monthsShort = stringList(table.get("monthsShort"), 12);
+      List<String> weekdays = stringList(table.get("weekdays"), 7);
+      List<String> weekdaysShort = stringList(table.get("weekdaysShort"), 7);
+      Object formatsRaw = table.get("formats");
+      String l = formatsRaw instanceof Map<?, ?> f && f.get("L") instanceof String v ? v : null;
+      String ll = formatsRaw instanceof Map<?, ?> f && f.get("LL") instanceof String v ? v : null;
+      if (months == null
+          || monthsShort == null
+          || weekdays == null
+          || weekdaysShort == null
+          || l == null
+          || ll == null) {
+        continue;
+      }
+      String lll =
+          formatsRaw instanceof Map<?, ?> f && f.get("LLL") instanceof String v ? v : ll + " HH:mm";
+      String llll =
+          formatsRaw instanceof Map<?, ?> f && f.get("LLLL") instanceof String v
+              ? v
+              : "dddd, " + ll + " HH:mm";
+      List<String> monthsInDate = stringList(table.get("monthsInDate"), 12);
+      DateLocales.registerPackLocale(
+          name,
+          new io.github.nickliapin.tdc.date.DateFormatter.DateLocale(
+              months,
+              monthsShort,
+              weekdays,
+              weekdaysShort,
+              Map.of("L", l, "LL", ll, "LLL", lll, "LLLL", llll),
+              monthsInDate));
+    }
+  }
+
+  private static List<String> stringList(Object value, int length) {
+    if (!(value instanceof List<?> list) || list.size() != length) {
+      return null;
+    }
+    List<String> out = new java.util.ArrayList<>(length);
+    for (Object item : list) {
+      if (!(item instanceof String text)) {
+        return null;
+      }
+      out.add(text);
+    }
+    return out;
   }
 
   public DataPacks(PackSource source) {

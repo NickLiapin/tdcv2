@@ -85,6 +85,24 @@ public interface PackSource {
   boolean hasTopLevel(String name);
 
   /**
+   * Every top-level folder this source can serve — the locale and country names. Derived from
+   * the file list; a source with a cheaper way may override it.
+   */
+  default List<String> listTopLevelNames() {
+    List<String> out = new java.util.ArrayList<>();
+    for (String path : listFiles()) {
+      int slash = path.indexOf('/');
+      if (slash > 0) {
+        String first = path.substring(0, slash);
+        if (!out.contains(first)) {
+          out.add(first);
+        }
+      }
+    }
+    return out;
+  }
+
+  /**
    * Whether {@code countries/<name>} exists.
    *
    * <p>The {@code countries/} folder is a physical grouping, not part of an address: a pack at
@@ -128,6 +146,21 @@ public interface PackSource {
     @Override
     public String toString() {
       return sources.stream().map(Object::toString).collect(java.util.stream.Collectors.joining(", "));
+    }
+
+    @Override
+    public List<String> listTopLevelNames() {
+      // The union of the children's own cheap listings, not the default's full file walk —
+      // a DataPacks is constructed often, and this runs each time.
+      List<String> out = new java.util.ArrayList<>();
+      for (PackSource source : sources) {
+        for (String name : source.listTopLevelNames()) {
+          if (!out.contains(name)) {
+            out.add(name);
+          }
+        }
+      }
+      return out;
     }
 
     private PackSource owning(String relativePath) {
@@ -205,6 +238,21 @@ public interface PackSource {
     @Override
     public boolean has(String relativePath) {
       return Files.exists(root.resolve(relativePath));
+    }
+
+    @Override
+    public List<String> listTopLevelNames() {
+      // One directory listing, not the whole walk listFiles does.
+      try (var entries = Files.list(root)) {
+        return entries
+            .filter(Files::isDirectory)
+            .map(path -> path.getFileName().toString())
+            .filter(name -> !PackSource.isIgnoredEntry(name))
+            .sorted()
+            .toList();
+      } catch (java.io.IOException e) {
+        return List.of();
+      }
     }
 
     @Override

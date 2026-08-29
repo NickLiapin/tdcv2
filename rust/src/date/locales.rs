@@ -1083,16 +1083,83 @@ pub static NAMES: [&str; 24] = [
 /// A fallback rather than an error: a config may name a country pack whose
 /// language has no date table of its own yet, and refusing to render a date over
 /// that would be a worse answer than English month names.
+/*
+ * Date locales a DATA PACK shipped, registered by `DataPacks` when it is built.
+ *
+ * Seventy locales carry a `DATE_LOCALE.json` beside their name lists, and for
+ * years the engine never read one: `local="ka"` drew Georgian names and printed
+ * English months, with the right words sitting in the pack the whole time. The
+ * BUILT-IN tables above always win, so the locales the engine always knew keep
+ * their bytes, and the registry only fills the gap.
+ *
+ * The tables hold `&'static str`, so a loaded locale is leaked once — and only
+ * once: the entry keeps a hash of the file it came from, and re-registering the
+ * same content (every test that builds a `DataPacks` does) reuses the leaked
+ * copy instead of growing.
+ */
+static PACK_LOCALES: std::sync::OnceLock<
+    std::sync::Mutex<std::collections::BTreeMap<String, (u64, &'static DateLocale)>>,
+> = std::sync::OnceLock::new();
+
+fn pack_locales(
+) -> &'static std::sync::Mutex<std::collections::BTreeMap<String, (u64, &'static DateLocale)>> {
+    PACK_LOCALES.get_or_init(|| std::sync::Mutex::new(std::collections::BTreeMap::new()))
+}
+
+pub struct PackDateLocale {
+    pub months: [String; 12],
+    pub months_in_date: Option<[String; 12]>,
+    pub months_short: [String; 12],
+    pub weekdays: [String; 7],
+    pub weekdays_short: [String; 7],
+    pub formats: [String; 4],
+}
+
+pub fn register_pack_locale(name: &str, content_hash: u64, parsed: PackDateLocale) {
+    let mut map = pack_locales().lock().expect("date-locale registry");
+    if let Some((hash, _)) = map.get(name) {
+        if *hash == content_hash {
+            return; // the same file again — the leaked copy already serves it
+        }
+    }
+    fn leak(s: String) -> &'static str {
+        Box::leak(s.into_boxed_str())
+    }
+    fn leak12(a: [String; 12]) -> [&'static str; 12] {
+        a.map(leak)
+    }
+    fn leak7(a: [String; 7]) -> [&'static str; 7] {
+        a.map(leak)
+    }
+    let locale: &'static DateLocale = Box::leak(Box::new(DateLocale {
+        months: leak12(parsed.months),
+        months_in_date: parsed.months_in_date.map(leak12),
+        months_short: leak12(parsed.months_short),
+        weekdays: leak7(parsed.weekdays),
+        weekdays_short: leak7(parsed.weekdays_short),
+        formats: parsed.formats.map(leak),
+    }));
+    map.insert(name.to_string(), (content_hash, locale));
+}
+
+fn from_packs(name: &str) -> Option<&'static DateLocale> {
+    pack_locales()
+        .lock()
+        .expect("date-locale registry")
+        .get(name)
+        .map(|(_, locale)| *locale)
+}
+
 pub fn resolve(name: Option<&str>) -> &'static DateLocale {
     let Some(name) = name else {
         return &EN;
     };
-    BY_NAME
-        .iter()
-        .find(|(key, _)| *key == name)
-        .map_or(&EN, |(_, locale)| *locale)
+    if let Some(found) = BY_NAME.iter().find(|(key, _)| *key == name) {
+        return found.1;
+    }
+    from_packs(name).unwrap_or(&EN)
 }
 
 pub fn is_known(name: &str) -> bool {
-    BY_NAME.iter().any(|(key, _)| *key == name)
+    BY_NAME.iter().any(|(key, _)| *key == name) || from_packs(name).is_some()
 }

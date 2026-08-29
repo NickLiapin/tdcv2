@@ -24,6 +24,8 @@ import { dirname, extname, join, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import type { Diagnostic } from '../errors/index.js';
+import { registerPackDateLocales } from '../date/locale.js';
+import type { DateLocale } from '../date/locale-tables.js';
 import { loadFileValues, parseDelimiter } from '../generators/file.js';
 import { loadWeightedValues } from '../generators/weighted.js';
 import { templatePathKnown } from '../validator/known.js';
@@ -141,13 +143,18 @@ function scanPacksFromDisk(roots: readonly string[]): ScanResult {
   // one. A collision WITHIN a single root is still a real mistake and errors.
   const rootOf = new Map<string, number>();
 
+  const dateLocales = new Map<string, DateLocale>();
   roots.forEach((root, rootIndex) => {
     if (!isDirectory(root)) return;
     loadLocaleManifests(root, locales);
+    // Later roots shadow earlier ones here exactly as they do for addresses: a
+    // project's own DATE_LOCALE.json overrides the installed bundle's.
+    loadDateLocales(root, dateLocales, diagnostics);
     for (const file of walkFiles(root)) {
       loadOne(root, rootIndex, file, registry, rootOf, diagnostics);
     }
   });
+  registerPackDateLocales(dateLocales);
 
   // Second pass: now that every address is registered, validate generator
   // references — each must resolve to a data list, another generator, or a
@@ -239,6 +246,97 @@ function loadLocaleManifests(root: string, into: Map<string, LocaleManifest>): v
     }
     into.set(entry.name, parseLocaleManifest(content, entry.name));
   }
+}
+
+/**
+ * The date words a locale ships — `DATE_LOCALE.json` beside its name lists.
+ *
+ * Months (with the in-a-date form every shipped file carries), weekdays, and
+ * the `L`/`LL` layouts. `LLL`/`LLLL` are taken when the file writes them and
+ * derived otherwise — `LL` plus the time, the weekday in front — because a
+ * derived long form in the right language beats the fully English date these
+ * locales rendered before this loader existed. A file that cannot be read is
+ * said out loud: the silent version of that is exactly the years `local="ka"`
+ * printed English months with the Georgian ones sitting in the pack.
+ */
+function loadDateLocales(
+  root: string,
+  into: Map<string, DateLocale>,
+  diagnostics: Diagnostic[],
+): void {
+  let entries: Dirent[];
+  try {
+    entries = readdirSync(root, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue;
+    const path = resolve(root, entry.name, 'DATE_LOCALE.json');
+    let content: string;
+    try {
+      content = readFileSync(path, 'utf8');
+    } catch {
+      continue; // most locale folders ship none, and that is fine
+    }
+    const parsed = parseDateLocale(content, entry.name);
+    if (typeof parsed === 'string') {
+      diagnostics.push(packError(parsed, path));
+      continue;
+    }
+    into.set(entry.name, parsed);
+  }
+}
+
+/** The parsed locale, or the complaint to raise. */
+function parseDateLocale(content: string, name: string): DateLocale | string {
+  let raw: unknown;
+  try {
+    raw = JSON.parse(content);
+  } catch (error) {
+    return (
+      `DATE_LOCALE.json for "${name}" is not valid JSON (${(error as Error).message}); ` +
+      'dates in this locale render in English until it is fixed'
+    );
+  }
+  const table = raw as {
+    months?: unknown;
+    monthsInDate?: unknown;
+    monthsShort?: unknown;
+    weekdays?: unknown;
+    weekdaysShort?: unknown;
+    formats?: Record<string, unknown>;
+  };
+  const list = (value: unknown, length: number): string[] | undefined =>
+    Array.isArray(value) && value.length === length && value.every((x) => typeof x === 'string')
+      ? (value)
+      : undefined;
+  const months = list(table.months, 12);
+  const monthsShort = list(table.monthsShort, 12);
+  const weekdays = list(table.weekdays, 7);
+  const weekdaysShort = list(table.weekdaysShort, 7);
+  const L = typeof table.formats?.['L'] === 'string' ? table.formats['L'] : undefined;
+  const LL = typeof table.formats?.['LL'] === 'string' ? table.formats['LL'] : undefined;
+  if (!months || !monthsShort || !weekdays || !weekdaysShort || !L || !LL) {
+    return (
+      `DATE_LOCALE.json for "${name}" is missing a required field ` +
+      '(months, monthsShort ×12, weekdays, weekdaysShort ×7, formats.L, formats.LL); ' +
+      'dates in this locale render in English until it is fixed'
+    );
+  }
+  const monthsInDate = list(table.monthsInDate, 12);
+  const LLL = typeof table.formats?.['LLL'] === 'string' ? table.formats['LLL'] : `${LL} HH:mm`;
+  const LLLL =
+    typeof table.formats?.['LLLL'] === 'string' ? table.formats['LLLL'] : `dddd, ${LL} HH:mm`;
+  return {
+    name,
+    months,
+    ...(monthsInDate ? { monthsInDate } : {}),
+    monthsShort,
+    weekdays,
+    weekdaysShort,
+    formats: { L, LL, LLL, LLLL },
+  };
 }
 
 function validateGeneratorReferences(

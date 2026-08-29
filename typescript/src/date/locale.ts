@@ -104,10 +104,27 @@ export const DATE_LOCALE_NAMES: readonly string[] = [
   'zh-cn',
 ];
 
+/*
+ * Date locales a DATA PACK shipped, keyed by locale name.
+ *
+ * Seventy locales carry a `DATE_LOCALE.json` beside their name lists, and for
+ * years the engine never read one: `local="ka"` drew Georgian names and printed
+ * English months, with the right words sitting in the pack the whole time. The
+ * pack scan parses them and registers them here; the BUILT-IN tables above
+ * always win, so the twenty-four locales the engine always knew keep their
+ * bytes, and the registry only fills the gap.
+ */
+const PACK_LOCALES = new Map<string, DateLocale>();
+
+export function registerPackDateLocales(entries: ReadonlyMap<string, DateLocale>): void {
+  for (const [name, locale] of entries) PACK_LOCALES.set(name, locale);
+}
+
 export function resolveDateLocale(name: string | undefined): DateLocale {
-  return LOCALES.get(name ?? 'en') ?? EN;
+  const key = name ?? 'en';
+  return LOCALES.get(key) ?? PACK_LOCALES.get(key) ?? EN;
 }
 
 export function isKnownDateLocale(name: string): boolean {
-  return LOCALES.has(name);
+  return LOCALES.has(name) || PACK_LOCALES.has(name);
 }

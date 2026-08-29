@@ -1,5 +1,8 @@
 using System.Globalization;
+using System.Text.Json;
 using Tdcv2.Errors;
+
+using Tdcv2.Date;
 
 namespace Tdcv2.Packs;
 
@@ -99,6 +102,122 @@ public sealed class DataPacks
     {
         Source = source;
         DataRoots = dataRoots?.ToArray() ?? Array.Empty<string>();
+        RegisterDateLocales(source);
+    }
+
+    /// <summary>
+    /// The date words each locale ships — <c>DATE_LOCALE.json</c> beside its name lists.
+    /// </summary>
+    /// <remarks>
+    /// Months (with the in-a-date form every shipped file carries), weekdays, and the
+    /// <c>L</c>/<c>LL</c> layouts. <c>LLL</c>/<c>LLLL</c> are taken when the file writes them
+    /// and derived otherwise — <c>LL</c> plus the time, the weekday in front — because a
+    /// derived long form in the right language beats the fully English date these locales
+    /// rendered before this loader existed. A file that cannot be parsed registers nothing:
+    /// the built-in fallback to English then stands, and the validator's warning says so.
+    /// </remarks>
+    /// <summary>Sources already harvested, by their own description — see the note inside.</summary>
+    private static readonly System.Collections.Concurrent.ConcurrentDictionary<string, bool>
+        DateLocaleSources = new(StringComparer.Ordinal);
+
+    private static void RegisterDateLocales(IPackSource source)
+    {
+        // Once per SOURCE IDENTITY, not per construction: tests build thousands of DataPacks
+        // over the same folder, and re-reading seventy files each time is a visible slowdown.
+        if (!DateLocaleSources.TryAdd(source.ToString() ?? "", true))
+        {
+            return;
+        }
+
+        foreach (string name in source.ListTopLevelNames())
+        {
+            string relative = name + "/DATE_LOCALE.json";
+            if (!source.Has(relative))
+            {
+                continue;
+            }
+
+            JsonDocument document;
+            try
+            {
+                document = JsonDocument.Parse(string.Join("\n", source.ReadLines(relative)));
+            }
+            catch (JsonException)
+            {
+                continue;
+            }
+
+            using (document)
+            {
+                JsonElement rootElement = document.RootElement;
+                IReadOnlyList<string>? months = Strings(rootElement, "months", 12);
+                IReadOnlyList<string>? monthsShort = Strings(rootElement, "monthsShort", 12);
+                IReadOnlyList<string>? weekdays = Strings(rootElement, "weekdays", 7);
+                IReadOnlyList<string>? weekdaysShort = Strings(rootElement, "weekdaysShort", 7);
+                string? l = Format(rootElement, "L");
+                string? ll = Format(rootElement, "LL");
+                if (months is null
+                    || monthsShort is null
+                    || weekdays is null
+                    || weekdaysShort is null
+                    || l is null
+                    || ll is null)
+                {
+                    continue;
+                }
+
+                string lll = Format(rootElement, "LLL") ?? ll + " HH:mm";
+                string llll = Format(rootElement, "LLLL") ?? "dddd, " + ll + " HH:mm";
+                DateLocales.RegisterPackLocale(
+                    name,
+                    new DateLocale(
+                        months,
+                        monthsShort,
+                        weekdays,
+                        weekdaysShort,
+                        new Dictionary<string, string>(StringComparer.Ordinal)
+                        {
+                            ["L"] = l,
+                            ["LL"] = ll,
+                            ["LLL"] = lll,
+                            ["LLLL"] = llll,
+                        },
+                        Strings(rootElement, "monthsInDate", 12)));
+            }
+        }
+    }
+
+    private static IReadOnlyList<string>? Strings(JsonElement rootElement, string key, int length)
+    {
+        if (!rootElement.TryGetProperty(key, out JsonElement value)
+            || value.ValueKind != JsonValueKind.Array
+            || value.GetArrayLength() != length)
+        {
+            return null;
+        }
+
+        var outp = new List<string>(length);
+        foreach (JsonElement item in value.EnumerateArray())
+        {
+            if (item.ValueKind != JsonValueKind.String)
+            {
+                return null;
+            }
+
+            outp.Add(item.GetString() ?? "");
+        }
+
+        return outp;
+    }
+
+    private static string? Format(JsonElement rootElement, string key)
+    {
+        return rootElement.TryGetProperty("formats", out JsonElement formats)
+                && formats.ValueKind == JsonValueKind.Object
+                && formats.TryGetProperty(key, out JsonElement value)
+                && value.ValueKind == JsonValueKind.String
+            ? value.GetString()
+            : null;
     }
 
     /// <summary>

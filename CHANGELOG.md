@@ -17,6 +17,21 @@ page — is tracked in that implementation's own changelog:
 
 ### Added
 
+<!-- covers: pack date locales -->
+
+- **A data pack's `DATE_LOCALE.json` is read — `local="ka"` renders Georgian months instead of
+  silently falling back to English.** Seventy locales ship the file beside their name lists, and
+  the engine never opened one: names came out Georgian, dates came out English, and the warning
+  claimed the pack "ships no date translations" while the translations sat in the pack. All five
+  implementations load the file now, the moment the packs are visible: months (including the
+  in-a-date form every shipped file carries — `15 იანვარს`), weekdays, and the `L`/`LL` layouts,
+  with `LLL`/`LLLL` taken from the file when it writes them and derived otherwise — `LL` plus
+  the time, the weekday in front, because a derived long form in the right language beats the
+  fully English date these locales rendered before. The twenty-four built-in locales always win,
+  so their bytes do not move; the packs only fill the gap. `local=` on the `<gen>` reaches the
+  pack words exactly as the env's does, `TDC153` accepts what the packs actually know, and
+  `TDC272` warns only for a locale that truly carries no date words — Bambara, not Afrikaans.
+
 <!-- covers: svg shape primitives -->
 
 - **`<rect>`, `<circle>` and `<ellipse>` are read from an SVG — as the docs always promised.**

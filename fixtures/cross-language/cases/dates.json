@@ -213,6 +213,27 @@
       "expected": [
         "LL March 5, 2024 at 00:00 | 2024-03-05T00:00:00 | Tuesday, March 5, 2024 00:00"
       ]
+    },
+    {
+      "name": "a-pack-date-locale-translates-the-months",
+      "description": "Seventy locales ship a DATE_LOCALE.json beside their name lists, and for years the engine never read one: local=\"ka\" drew Georgian names and printed English months, with the right words sitting in the pack the whole time. The pack scan loads them now; built-in locales still win, the pack fills the gap — and Georgian even gets its in-a-date month form, because every shipped file carries monthsInDate.",
+      "config": "<tdc><env count=\"3\" seed=\"d\" local=\"ka\"><sequence name=\"D\"><gen type=\"date\" value=\"2026-01-01..2026-12-31\" format=\"LL\"/></sequence></env><block><line><data>${{D}}</data></line></block></tdc>",
+      "expected": ["13 ნოემბერს 2026", "19 დეკემბერს 2026", "20 იანვარს 2026"]
+    },
+    {
+      "name": "a-gen-level-local-reaches-the-pack-date-locale-too",
+      "description": "local= on the <gen> picks the date locale exactly as it picks a pack — Latvian writes the year first (2026. gada …), which only the shipped file knows.",
+      "config": "<tdc><env count=\"2\" seed=\"d\" local=\"en\"><sequence name=\"D\"><gen type=\"date\" value=\"2026-01-01..2026-12-31\" format=\"LL\" local=\"lv\"/></sequence></env><block><line><data>${{D}}</data></line></block></tdc>",
+      "expected": ["2026. gada 13. novembrī", "2026. gada 19. decembrī"]
+    },
+    {
+      "name": "a-long-format-a-pack-file-does-not-write-is-derived",
+      "description": "The shipped files carry L and LL; LLL and LLLL are derived — LL plus the time, the weekday in front — because a derived long form in the right language beats the fully English date these locales rendered before. A file that writes its own LLL/LLLL keeps them.",
+      "config": "<tdc><env count=\"2\" seed=\"d\" local=\"ka\"><sequence name=\"D\"><gen type=\"date\" value=\"2026-01-01..2026-12-31\" format=\"LLLL\"/></sequence></env><block><line><data>${{D}}</data></line></block></tdc>",
+      "expected": [
+        "პარასკევი, 13 ნოემბერს 2026 00:00",
+        "შაბათი, 19 დეკემბერს 2026 00:00"
+      ]
     }
   ]
 }

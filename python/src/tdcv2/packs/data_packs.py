@@ -8,10 +8,12 @@ name file contains precisely as many Jameses as the census says, not approximate
 
 from __future__ import annotations
 
+import json
 import re
 from dataclasses import dataclass
 from pathlib import Path
 
+from ..date import locales as date_locales
 from ..errors import Diagnostic
 from . import project_config, source
 
@@ -105,6 +107,9 @@ class DataPacks:
         #: Folders searched by ``src="@data/…"``, and by a relative ``src=`` the config's own
         #: folder does not hold. Highest priority last, as the layers are.
         self.data_roots: list[Path] = list(data_roots or [])
+        # Dates ask for their locale words through a provider rather than a scan: this object is
+        # lazy by design, and a run that renders no date in ka never reads ka/DATE_LOCALE.json.
+        date_locales.set_pack_provider(self.date_locale)
 
     @staticmethod
     def bundled() -> DataPacks:
@@ -169,6 +174,72 @@ class DataPacks:
         # path inside that single folder, so there is no per-bundle root left to name.
         project_config.register(config_path or config_dir / project_config.CONFIG_NAME, [store])
         return DataPacks.for_project(project)
+
+    def date_locale(self, name: str) -> date_locales.DateLocale | None:
+        """The date words a locale ships — ``DATE_LOCALE.json`` beside its name lists — or None.
+
+        Months (with the in-a-date form every shipped file carries), weekdays, and the ``L``/
+        ``LL`` layouts. ``LLL``/``LLLL`` are taken when the file writes them and derived
+        otherwise — ``LL`` plus the time, the weekday in front — because a derived long form in
+        the right language beats the fully English date these locales rendered before. A file
+        that cannot be parsed is said out loud: the silent version of that is exactly the years
+        ``local="ka"`` printed English months with the Georgian ones sitting in the pack.
+        """
+        relative = f"{name}/DATE_LOCALE.json"
+        if "/" in name or not self.source.has(relative):
+            return None
+        content = "\n".join(self.source.read_lines(relative))
+        try:
+            raw = json.loads(content)
+        except ValueError as error:
+            raise ValueError(
+                f'DATE_LOCALE.json for "{name}" is not valid JSON ({error}); '
+                "dates in this locale render in English until it is fixed"
+            ) from error
+
+        def strings(value: object, length: int) -> tuple[str, ...] | None:
+            if (
+                isinstance(value, list)
+                and len(value) == length
+                and all(isinstance(x, str) for x in value)
+            ):
+                return tuple(value)
+            return None
+
+        formats = raw.get("formats") if isinstance(raw, dict) else None
+        months = strings(raw.get("months"), 12) if isinstance(raw, dict) else None
+        months_short = strings(raw.get("monthsShort"), 12) if isinstance(raw, dict) else None
+        weekdays = strings(raw.get("weekdays"), 7) if isinstance(raw, dict) else None
+        weekdays_short = strings(raw.get("weekdaysShort"), 7) if isinstance(raw, dict) else None
+        fmt_l = formats.get("L") if isinstance(formats, dict) else None
+        fmt_ll = formats.get("LL") if isinstance(formats, dict) else None
+        if (
+            months is None
+            or months_short is None
+            or weekdays is None
+            or weekdays_short is None
+            or not isinstance(fmt_l, str)
+            or not isinstance(fmt_ll, str)
+        ):
+            raise ValueError(
+                f'DATE_LOCALE.json for "{name}" is missing a required field '
+                "(months, monthsShort ×12, weekdays, weekdaysShort ×7, formats.L, formats.LL); "
+                "dates in this locale render in English until it is fixed"
+            )
+        months_in_date = strings(raw.get("monthsInDate"), 12)
+        fmt_lll = formats.get("LLL") if isinstance(formats.get("LLL"), str) else f"{fmt_ll} HH:mm"
+        fmt_llll = (
+            formats.get("LLLL") if isinstance(formats.get("LLLL"), str) else f"dddd, {fmt_ll} HH:mm"
+        )
+        return date_locales.DateLocale(
+            name=name,
+            months=months,
+            months_short=months_short,
+            weekdays=weekdays,
+            weekdays_short=weekdays_short,
+            formats={"L": fmt_l, "LL": fmt_ll, "LLL": fmt_lll, "LLLL": fmt_llll},
+            months_in_date=months_in_date,
+        )
 
     def load(self, dotted_path: str, locale: str) -> Entry:
         """A dotted address resolved against a locale, and loaded.

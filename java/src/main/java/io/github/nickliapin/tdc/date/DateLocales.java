@@ -1424,11 +1424,32 @@ public final class DateLocales {
    * no date table of its own yet, and refusing to render a date over that would be a worse
    * answer than English month names.
    */
+  /**
+   * Date locales a DATA PACK shipped, registered by {@code DataPacks} when it is built.
+   *
+   * <p>Seventy locales carry a {@code DATE_LOCALE.json} beside their name lists, and for years
+   * the engine never read one: {@code local="ka"} drew Georgian names and printed English
+   * months, with the right words sitting in the pack the whole time. The BUILT-IN tables always
+   * win, so the locales the engine always knew keep their bytes, and the registry only fills
+   * the gap.
+   */
+  private static final java.util.concurrent.ConcurrentHashMap<String, DateFormatter.DateLocale>
+      PACK_LOCALES = new java.util.concurrent.ConcurrentHashMap<>();
+
+  public static void registerPackLocale(String name, DateFormatter.DateLocale locale) {
+    PACK_LOCALES.put(name, locale);
+  }
+
   public static DateFormatter.DateLocale resolve(String name) {
-    return BY_NAME.getOrDefault(name == null ? "en" : name, EN);
+    String key = name == null ? "en" : name;
+    DateFormatter.DateLocale builtIn = BY_NAME.get(key);
+    if (builtIn != null) {
+      return builtIn;
+    }
+    return PACK_LOCALES.getOrDefault(key, EN);
   }
 
   public static boolean isKnown(String name) {
-    return BY_NAME.containsKey(name);
+    return BY_NAME.containsKey(name) || PACK_LOCALES.containsKey(name);
   }
 }
