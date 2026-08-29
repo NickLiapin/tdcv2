@@ -3,22 +3,32 @@ description: Medical diagnosis in Czech that requires male anatomy - it cannot o
 locale: cs
 ---
 Benigní hyperplazie prostaty
-Zánět prostaty
+Prostatitida
 Karcinom prostaty
-Nádor varlete
+Karcinom varlete
 Torze varlete
 Varikokéla
 Hydrokéla
-Zánět nadvarlete
+Epididymitida
 Kryptorchismus
 Fimóza
 Balanitida
 Erektilní dysfunkce
-Peyronieova choroba
+Peyronieho nemoc
 Mužská neplodnost
 Gynekomastie
 Mužský hypogonadismus
 Priapismus
-Cysta nadvarlete
+Spermatokéla
 Androgenní alopecie
 Skrotální kýla
+Karcinom penisu
+Orchitida
+Striktura uretry
+Klinefelterův syndrom
+Azoospermie
+Předčasná ejakulace
+Parafimóza
+Absces prostaty
+Vezikulitida
+Hematospermie

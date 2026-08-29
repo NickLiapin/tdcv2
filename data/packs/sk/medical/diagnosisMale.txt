@@ -3,13 +3,13 @@ description: Medical diagnosis in Slovak that requires male anatomy - it cannot 
 locale: sk
 ---
 Benígna hyperplázia prostaty
-Zápal prostaty
+Prostatitída
 Karcinóm prostaty
-Nádor semenníka
+Karcinóm semenníka
 Torzia semenníka
 Varikokéla
 Hydrokéla
-Zápal nadsemenníka
+Epididymitída
 Kryptorchizmus
 Fimóza
 Balanitída
@@ -19,6 +19,16 @@ Mužská neplodnosť
 Gynekomastia
 Mužský hypogonadizmus
 Priapizmus
-Cysta nadsemenníka
+Spermatokéla
 Androgénna alopécia
-Skrotálna hernia
+Skrotálna prietrž
+Karcinóm penisu
+Orchitída
+Striktúra uretry
+Klinefelterov syndróm
+Azoospermia
+Predčasná ejakulácia
+Parafimóza
+Absces prostaty
+Vezikulitída
+Hematospermia

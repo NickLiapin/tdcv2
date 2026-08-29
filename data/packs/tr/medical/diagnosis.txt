@@ -2,81 +2,183 @@
 description: Medical diagnosis in Turkish that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale/diagnosisFemale; ancestry-linked ones in diagnosisByAncestry.
 locale: tr
 ---
-Hipertansiyon
-Koroner arter hastalığı
-Efor anjini
-Miyokard enfarktüsü
-Atriyal fibrilasyon
-Kalp yetmezliği
-Kardiyomiyopati
-Miyokardit
-Ateroskleroz
-Varis
-Derin ven trombozu
-Pulmoner emboli
-İnme
-Geçici iskemik atak
+Arteriyel hipertansiyon
+Tip 2 diyabet
+Astım
+Akut bronşit
+Grip
 Migren
-Epilepsi
-Multipl skleroz
-Parkinson hastalığı
-Demans
-Periferik nöropati
-Radikülopati
-Omurga dejenerasyonu
-Disk hernisi
+Yaygın anksiyete bozukluğu
+Majör depresif bozukluk
 Osteoartrit
 Romatoid artrit
-Gut hastalığı
-Osteoporoz
-Skolyoz
-Astım
-KOAH
-Kronik bronşit
-Zatürre
-Plörezi
-Akciğer tüberkülozu
-Sarkoidoz
-Uyku apnesi
-Akut sinüzit
-Kronik tonsillit
-Otit
-Larenjit
-Gastrit
-Mide ülseri
-Reflü hastalığı
-İrritabl bağırsak sendromu
-Crohn hastalığı
-Ülseratif kolit
-Çölyak hastalığı
-Kronik pankreatit
-Safra taşı
-Kolesistit
-Hepatit B
-Hepatit C
-Karaciğer sirozu
-Karaciğer yağlanması
-Kronik böbrek hastalığı
-Piyelonefrit
-Glomerülonefrit
-Böbrek taşı
-İdrar yolu enfeksiyonu
-Tip 1 diyabet
-Tip 2 diyabet
-Hipotiroidi
-Hipertiroidi
-Obezite
-Metabolik sendrom
+Gastroözofageal reflü hastalığı
 Demir eksikliği anemisi
-B12 eksikliği anemisi
-Atopik dermatit
+Hipotiroidi
+İdrar yolu enfeksiyonu
+Pnömoni
+Kronik böbrek hastalığı
+Koroner arter hastalığı
+Atriyal fibrilasyon
+Kronik kalp yetmezliği
+İskemik inme
+Epilepsi
+Parkinson hastalığı
+Alzheimer hastalığı
+Multipl skleroz
 Sedef hastalığı
-Egzama
-Ürtiker
-Akne
+Atopik dermatit
 Alerjik rinit
+Kronik sinüzit
+Orta kulak iltihabı
 Konjonktivit
 Katarakt
 Glokom
-Depresif atak
-Yaygın anksiyete bozukluğu
+Apandisit
+Kolesistit
+Divertikülit
+İrritabl bağırsak sendromu
+Crohn hastalığı
+Ülseratif kolit
+Kronik hepatit B
+Karaciğer sirozu
+Akut pankreatit
+Gut
+Osteoporoz
+Fibromiyalji
+Siyatik
+Bel fıtığı
+Karpal tünel sendromu
+Tendinit
+Kronik obstrüktif akciğer hastalığı
+Tüberküloz
+Lösemi
+Lenfoma
+Melanom
+Hiperlipidemi
+Obezite
+Obstrüktif uyku apnesi
+Uykusuzluk
+Bipolar bozukluk
+Dikkat eksikliği hiperaktivite bozukluğu
+Çölyak hastalığı
+Sistemik lupus eritematozus
+Vertigo
+Kulak çınlaması
+Hemoroid
+Varis
+Derin ven trombozu
+Pulmoner emboli
+Böbrek taşı
+Anemi
+Hipertiroidi
+Peptik ülser
+Gastrit
+Selülit
+Sepsis
+Meme kanseri
+Akut gastroenterit
+D vitamini eksikliği
+Kronik venöz yetmezlik
+Tip 1 diyabet
+Miyokard enfarktüsü
+Anjina pektoris
+Periferik arter hastalığı
+Dilate kardiyomiyopati
+Miyokardit
+Perikardit
+Enfektif endokardit
+Aort darlığı
+Mitral kapak prolapsusu
+Abdominal aort anevrizması
+Kronik bronşit
+Amfizem
+Plevral efüzyon
+Akciğer fibrozu
+Pulmoner hipertansiyon
+Bronşektazi
+Larenjit
+Farenjit
+Bademcik iltihabı
+Özofajit
+Barrett özofagusu
+Mide kanseri
+Kolorektal kanser
+Anal fissür
+Alkole bağlı olmayan yağlı karaciğer hastalığı
+Kronik hepatit C
+Hiatal herni
+Kasık fıtığı
+Akut böbrek hasarı
+Glomerülonefrit
+Piyelonefrit
+Sistit
+İdrar kaçırma
+Mesane kanseri
+Renal hücreli karsinom
+Geçici iskemik atak
+Gerilim tipi baş ağrısı
+Küme baş ağrısı
+Trigeminal nevralji
+Bell felci
+Periferik nöropati
+Huzursuz bacak sendromu
+Esansiyel tremor
+Miyastenia gravis
+Guillain-Barré sendromu
+Panik bozukluk
+Obsesif kompulsif bozukluk
+Travma sonrası stres bozukluğu
+Sosyal anksiyete bozukluğu
+Anoreksiya nervoza
+Bulimia nervoza
+Şizofreni
+Alkol kullanım bozukluğu
+Hashimoto tiroiditi
+Graves hastalığı
+Cushing sendromu
+Addison hastalığı
+Hiperparatiroidi
+Metabolik sendrom
+B12 vitamini eksikliği
+Tiroid nodülü
+Trombositopeni
+Polisitemia vera
+Akciğer kanseri
+Pankreas kanseri
+Tiroid kanseri
+Multipl miyelom
+Bursit
+Plantar fasiit
+Rotator manşet yırtığı
+Ankilozan spondilit
+Skolyoz
+Osteomiyelit
+Akne vulgaris
+Rozasea
+Vitiligo
+Alopesi areata
+Ürtiker
+Kontakt dermatit
+Zona
+Tırnak mantarı
+Makula dejenerasyonu
+Diyabetik retinopati
+Retina dekolmanı
+Üveit
+Kuru göz sendromu
+Meniere hastalığı
+Sensörinöral işitme kaybı
+Burun polipleri
+Enfeksiyöz mononükleoz
+Lyme hastalığı
+Sıtma
+Dang humması
+Salmonelloz
+Hepatit A
+HIV enfeksiyonu
+Herpes simpleks enfeksiyonu
+Kızamık
+Suçiçeği
+Bakteriyel menenjit
+Viral ensefalit

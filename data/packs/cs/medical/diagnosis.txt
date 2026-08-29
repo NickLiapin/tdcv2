@@ -4,23 +4,23 @@ locale: cs
 ---
 Arteriální hypertenze
 Diabetes mellitus 2. typu
-Bronchiální astma
+Astma
 Akutní bronchitida
 Chřipka
 Migréna
 Generalizovaná úzkostná porucha
-Depresivní porucha
-Artróza
+Velká depresivní porucha
+Osteoartróza
 Revmatoidní artritida
 Refluxní choroba jícnu
-Sideropenická anémie
+Anémie z nedostatku železa
 Hypotyreóza
 Infekce močových cest
 Pneumonie
 Chronické onemocnění ledvin
 Ischemická choroba srdeční
 Fibrilace síní
-Srdeční selhání
+Chronické srdeční selhání
 Ischemická cévní mozková příhoda
 Epilepsie
 Parkinsonova nemoc
@@ -52,31 +52,133 @@ Syndrom karpálního tunelu
 Tendinitida
 Chronická obstrukční plicní nemoc
 Tuberkulóza
-Leukemie
+Leukémie
 Lymfom
 Melanom
-Hyperlipidemie
+Hyperlipidémie
 Obezita
-Syndrom obstrukční spánkové apnoe
+Obstrukční spánková apnoe
 Nespavost
-Bipolární afektivní porucha
+Bipolární porucha
 Porucha pozornosti s hyperaktivitou
 Celiakie
 Systémový lupus erythematodes
-Vertigo
+Závrať
 Tinnitus
 Hemoroidy
-Varixy dolních končetin
+Křečové žíly
 Hluboká žilní trombóza
 Plicní embolie
-Nefrolitiáza
+Ledvinové kameny
 Anémie
 Hypertyreóza
-Vředová choroba žaludku a dvanáctníku
+Peptický vřed
 Gastritida
-Celulitida kůže
+Flegmóna
 Sepse
+Karcinom prsu
 Akutní gastroenteritida
-Deficit vitaminu D
-Klíšťová encefalitida
+Nedostatek vitaminu D
+Chronická žilní nedostatečnost
+Diabetes mellitus 1. typu
+Infarkt myokardu
+Angina pectoris
+Ischemická choroba dolních končetin
+Dilatační kardiomyopatie
+Myokarditida
+Perikarditida
+Infekční endokarditida
+Aortální stenóza
+Prolaps mitrální chlopně
+Aneurysma břišní aorty
+Chronická bronchitida
+Plicní emfyzém
+Pleurální výpotek
+Plicní fibróza
+Plicní hypertenze
+Bronchiektázie
+Laryngitida
+Faryngitida
+Tonzilitida
+Ezofagitida
+Barrettův jícen
+Karcinom žaludku
+Kolorektální karcinom
+Anální fisura
+Nealkoholová tuková choroba jater
+Chronická hepatitida C
+Hiátová hernie
+Tříselná kýla
+Akutní poškození ledvin
+Glomerulonefritida
+Pyelonefritida
+Cystitida
+Inkontinence moči
+Karcinom močového měchýře
+Renální karcinom
+Tranzitorní ischemická ataka
+Tenzní bolest hlavy
+Cluster headache
+Neuralgie trojklaného nervu
+Bellova obrna
+Periferní neuropatie
+Syndrom neklidných nohou
+Esenciální tremor
+Myasthenia gravis
+Syndrom Guillain-Barré
+Panická porucha
+Obsedantně-kompulzivní porucha
+Posttraumatická stresová porucha
+Sociální fobie
+Mentální anorexie
+Mentální bulimie
+Schizofrenie
+Porucha užívání alkoholu
+Hashimotova tyreoiditida
+Gravesova-Basedowova nemoc
+Cushingův syndrom
+Addisonova nemoc
+Hyperparatyreóza
+Metabolický syndrom
+Nedostatek vitaminu B12
+Uzel štítné žlázy
+Trombocytopenie
+Pravá polycytémie
+Karcinom plic
+Karcinom slinivky břišní
+Karcinom štítné žlázy
+Mnohočetný myelom
+Burzitida
+Plantární fasciitida
+Ruptura rotátorové manžety
+Ankylozující spondylitida
+Skolióza
+Osteomyelitida
+Acne vulgaris
+Růžovka
+Vitiligo
+Alopecia areata
+Kopřivka
+Kontaktní dermatitida
+Pásový opar
+Onychomykóza
+Makulární degenerace
+Diabetická retinopatie
+Odchlípení sítnice
+Uveitida
+Syndrom suchého oka
+Menièrova nemoc
+Percepční nedoslýchavost
+Nosní polypy
+Infekční mononukleóza
 Lymeská borelióza
+Malárie
+Horečka dengue
+Salmonelóza
+Hepatitida A
+Infekce HIV
+Infekce herpes simplex
+Spalničky
+Plané neštovice
+Bakteriální meningitida
+Virová encefalitida

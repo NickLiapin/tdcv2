@@ -7,15 +7,15 @@ Syndrom polycystických ovarií
 Děložní myomy
 Ovariální cysta
 Karcinom vaječníku
-Karcinom děložního čípku
-Dysplazie děložního čípku
-Zánět děložního čípku
-Zánět děložní sliznice
+Karcinom děložního hrdla
+Cervikální dysplazie
+Cervicitida
+Endometritida
 Karcinom endometria
-Zánět pánevních orgánů
+Pánevní zánětlivá nemoc
 Bakteriální vaginóza
 Vulvovaginální kandidóza
-Silné menstruační krvácení
+Menoragie
 Dysmenorea
 Amenorea
 Preeklampsie
@@ -24,7 +24,17 @@ Hyperemesis gravidarum
 Mimoděložní těhotenství
 Poporodní krvácení
 Mastitida
-Fibrocystické změny prsu
+Fibrocystická mastopatie
 Klimakterický syndrom
 Premenstruační dysforická porucha
 Prolaps dělohy
+Adenomyóza
+Torze vaječníku
+Placenta praevia
+Abrupce placenty
+Karcinom vulvy
+Karcinom pochvy
+Bartholinská cysta
+Atrofická vaginitida
+Turnerův syndrom
+Ženská neplodnost

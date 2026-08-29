@@ -3,28 +3,38 @@ description: Medical diagnosis in Slovak that requires female anatomy - it canno
 locale: sk
 ---
 Endometrióza
-Syndróm polycystických vaječníkov
-Myómy maternice
-Cysta vaječníka
+Syndróm polycystických ovárií
+Maternicové myómy
+Ovariálna cysta
 Karcinóm vaječníka
 Karcinóm krčka maternice
-Dysplázia krčka maternice
-Zápal krčka maternice
-Zápal sliznice maternice
+Cervikálna dysplázia
+Cervicitída
+Endometritída
 Karcinóm endometria
-Zápal panvových orgánov
+Panvová zápalová choroba
 Bakteriálna vaginóza
 Vulvovaginálna kandidóza
-Silné menštruačné krvácanie
+Menorágia
 Dysmenorea
 Amenorea
 Preeklampsia
 Gestačný diabetes
 Hyperemesis gravidarum
-Mimomaternicová gravidita
+Mimomaternicové tehotenstvo
 Popôrodné krvácanie
 Mastitída
-Fibrocystické zmeny prsníka
+Fibrocystická mastopatia
 Klimakterický syndróm
 Premenštruačná dysforická porucha
 Prolaps maternice
+Adenomyóza
+Torzia vaječníka
+Placenta praevia
+Abrupcia placenty
+Karcinóm vulvy
+Karcinóm pošvy
+Bartholinská cysta
+Atrofická vaginitída
+Turnerov syndróm
+Ženská neplodnosť

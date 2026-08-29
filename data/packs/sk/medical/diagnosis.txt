@@ -4,23 +4,23 @@ locale: sk
 ---
 Artériová hypertenzia
 Diabetes mellitus 2. typu
-Bronchiálna astma
+Astma
 Akútna bronchitída
 Chrípka
 Migréna
 Generalizovaná úzkostná porucha
-Depresívna porucha
-Artróza
+Veľká depresívna porucha
+Osteoartróza
 Reumatoidná artritída
-Refluxná choroba pažeráka
-Sideropenická anémia
+Refluxová choroba pažeráka
+Anémia z nedostatku železa
 Hypotyreóza
 Infekcia močových ciest
 Pneumónia
-Chronické ochorenie obličiek
+Chronická choroba obličiek
 Ischemická choroba srdca
 Fibrilácia predsiení
-Zlyhávanie srdca
+Chronické srdcové zlyhávanie
 Ischemická cievna mozgová príhoda
 Epilepsia
 Parkinsonova choroba
@@ -47,7 +47,7 @@ Dna
 Osteoporóza
 Fibromyalgia
 Ischias
-Výhrez medzistavcovej platničky
+Hernia medzistavcovej platničky
 Syndróm karpálneho tunela
 Tendinitída
 Chronická obštrukčná choroba pľúc
@@ -57,26 +57,128 @@ Lymfóm
 Melanóm
 Hyperlipidémia
 Obezita
-Syndróm obštrukčného spánkového apnoe
+Obštrukčné spánkové apnoe
 Nespavosť
-Bipolárna afektívna porucha
+Bipolárna porucha
 Porucha pozornosti s hyperaktivitou
 Celiakia
 Systémový lupus erythematosus
-Vertigo
-Tinitus
+Závrat
+Tinnitus
 Hemoroidy
-Kŕčové žily dolných končatín
+Kŕčové žily
 Hlboká žilová trombóza
 Pľúcna embólia
-Nefrolitiáza
+Obličkové kamene
 Anémia
 Hypertyreóza
-Vredová choroba žalúdka a dvanástnika
+Peptický vred
 Gastritída
-Celulitída kože
+Flegmóna
 Sepsa
+Karcinóm prsníka
 Akútna gastroenteritída
-Deficit vitamínu D
-Kliešťová encefalitída
+Nedostatok vitamínu D
+Chronická žilová nedostatočnosť
+Diabetes mellitus 1. typu
+Infarkt myokardu
+Angina pectoris
+Ischemická choroba dolných končatín
+Dilatačná kardiomyopatia
+Myokarditída
+Perikarditída
+Infekčná endokarditída
+Aortálna stenóza
+Prolaps mitrálnej chlopne
+Aneuryzma brušnej aorty
+Chronická bronchitída
+Pľúcny emfyzém
+Pleurálny výpotok
+Pľúcna fibróza
+Pľúcna hypertenzia
+Bronchiektázie
+Laryngitída
+Faryngitída
+Tonzilitída
+Ezofagitída
+Barrettov pažerák
+Karcinóm žalúdka
+Kolorektálny karcinóm
+Análna fisúra
+Nealkoholová tuková choroba pečene
+Chronická hepatitída C
+Hiátová hernia
+Slabinová prietrž
+Akútne poškodenie obličiek
+Glomerulonefritída
+Pyelonefritída
+Cystitída
+Inkontinencia moču
+Karcinóm močového mechúra
+Renálny karcinóm
+Tranzitórny ischemický atak
+Tenzná bolesť hlavy
+Klastrová bolesť hlavy
+Neuralgia trojklaného nervu
+Bellova obrna
+Periférna neuropatia
+Syndróm nepokojných nôh
+Esenciálny tremor
+Myasthenia gravis
+Guillainov-Barrého syndróm
+Panická porucha
+Obsedantno-kompulzívna porucha
+Posttraumatická stresová porucha
+Sociálna fóbia
+Mentálna anorexia
+Mentálna bulímia
+Schizofrénia
+Porucha užívania alkoholu
+Hashimotova tyreoiditída
+Gravesova-Basedowova choroba
+Cushingov syndróm
+Addisonova choroba
+Hyperparatyreóza
+Metabolický syndróm
+Nedostatok vitamínu B12
+Uzol štítnej žľazy
+Trombocytopénia
+Pravá polycytémia
+Karcinóm pľúc
+Karcinóm pankreasu
+Karcinóm štítnej žľazy
+Mnohopočetný myelóm
+Burzitída
+Plantárna fasciitída
+Ruptúra rotátorovej manžety
+Ankylozujúca spondylitída
+Skolióza
+Osteomyelitída
+Acne vulgaris
+Ružovka
+Vitiligo
+Alopecia areata
+Žihľavka
+Kontaktná dermatitída
+Pásový opar
+Onychomykóza
+Makulárna degenerácia
+Diabetická retinopatia
+Odlúpenie sietnice
+Uveitída
+Syndróm suchého oka
+Menièrova choroba
+Percepčná nedoslýchavosť
+Nosové polypy
+Infekčná mononukleóza
 Lymská borelióza
+Malária
+Horúčka dengue
+Salmonelóza
+Hepatitída A
+Infekcia HIV
+Infekcia herpes simplex
+Osýpky
+Ovčie kiahne
+Bakteriálna meningitída
+Vírusová encefalitída

@@ -3,28 +3,38 @@ description: Medical diagnosis in Turkish that requires female anatomy — it ca
 locale: tr
 ---
 Endometriozis
-Rahim miyomu
-Adenomiyozis
-Yumurtalık kisti
 Polikistik over sendromu
+Rahim miyomu
+Yumurtalık kisti
+Yumurtalık kanseri
+Rahim ağzı kanseri
+Servikal displazi
+Servisit
+Endometrit
+Endometriyum kanseri
+Pelvik inflamatuar hastalık
+Bakteriyel vajinoz
+Vulvovajinal kandidiyaz
+Menoraji
 Dismenore
 Amenore
-Premenstrüel sendrom
-Menopoz sendromu
-Vajinit
-Bakteriyel vajinozis
-Mantar enfeksiyonu
-Servisit
-Rahim ağzı erozyonu
-Servikal displazi
-Rahim ağzı kanseri
-Yumurtalık kanseri
-Endometriyum kanseri
-Meme fibrokistik hastalığı
-Mastit
-Meme kanseri
-Kadın kısırlığı
-Dış gebelik
 Preeklampsi
-Gebelik diyabeti
-Doğum sonrası depresyon
+Gestasyonel diyabet
+Hiperemezis gravidarum
+Dış gebelik
+Doğum sonrası kanama
+Mastit
+Fibrokistik meme değişikliği
+Klimakterik sendrom
+Premenstrüel disforik bozukluk
+Rahim sarkması
+Adenomiyozis
+Over torsiyonu
+Plasenta previa
+Plasenta dekolmanı
+Vulva kanseri
+Vajina kanseri
+Bartholin kisti
+Atrofik vajinit
+Turner sendromu
+Kadın infertilitesi

@@ -2,23 +2,33 @@
 description: Medical diagnosis in Turkish that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
 locale: tr
 ---
-İyi huylu prostat büyümesi
+Benign prostat hiperplazisi
 Prostatit
 Prostat kanseri
+Testis kanseri
+Testis torsiyonu
 Varikosel
 Hidrosel
-İnmemiş testis
-Fimozis
-Parafimozis
-Balanopostit
-Orşit
 Epididimit
-Testis torsiyonu
-Testis kanseri
+Kriptorşidizm
+Fimozis
+Balanit
 Erektil disfonksiyon
 Peyronie hastalığı
-Erkek kısırlığı
-Hipogonadizm
-Kasık fıtığı
-Azospermi
+Erkek infertilitesi
 Jinekomasti
+Erkek hipogonadizmi
+Priapizm
+Spermatosel
+Androgenetik alopesi
+Skrotal herni
+Penis kanseri
+Orşit
+Üretra darlığı
+Klinefelter sendromu
+Azoospermi
+Erken boşalma
+Parafimozis
+Prostat apsesi
+Seminal vezikülit
+Hematospermi
