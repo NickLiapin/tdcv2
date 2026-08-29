@@ -1098,6 +1098,22 @@
         ]
       }
     },
+    "dates/a-regional-variant-draws-its-base-language": {
+      "engine2": {
+        "lines": ["Brown", "Williams", "Johnson", "Smith"]
+      },
+      "engine3": {
+        "lines": ["Brown", "Williams", "Johnson", "Smith"]
+      }
+    },
+    "dates/a-variant-reads-its-base-languages-calendar": {
+      "engine2": {
+        "lines": ["März"]
+      },
+      "engine3": {
+        "lines": ["März"]
+      }
+    },
     "derived-columns/a-formula-over-two-columns": {
       "engine2": {
         "lines": [

@@ -1,0 +1,5 @@
+---
+description: Currency of Kamboja, named in Javanese.
+locale: jv
+---
+Riel

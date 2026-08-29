@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of Algir. Codes are international and identical in every locale.
+locale: jv
+---
+DZD

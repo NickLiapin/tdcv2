@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of Uzbekistan. Codes are international and identical in every locale.
+locale: jv
+---
+UZS

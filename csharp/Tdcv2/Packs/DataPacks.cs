@@ -430,6 +430,23 @@ public sealed class DataPacks
         return entry;
     }
 
+    /// <summary>The base language of a regional variant — <c>en-gb</c> to <c>en</c>.</summary>
+    /// <remarks>
+    /// One step, deliberately. A variant defers to the language it is a variant OF and to nothing
+    /// else; falling all the way back to English would hand a reader silently correct-looking
+    /// output in the wrong language, which is the failure this project exists to prevent.
+    /// </remarks>
+    public static string? BaseLocale(string? locale)
+    {
+        if (locale is null)
+        {
+            return null;
+        }
+
+        int dash = locale.IndexOf('-');
+        return dash > 0 ? locale[..dash] : null;
+    }
+
     /// <summary>Where this address's files sit, extension aside.</summary>
     private string BasePath(string dottedPath, string? locale)
     {
@@ -679,6 +696,27 @@ public sealed class DataPacks
             if (!Addresses().TryGetValue(AbsoluteAddress(dottedPath, locale), out string? placed)
                 || !Source.Has(placed))
             {
+                // A regional variant answers for itself where it ships something, and defers to
+                // its base language everywhere else — the rule RFC 4647 lookup and moment's own
+                // `en-gb` -> `en` follow. One step, never a chain: `zh-tw` reaches `zh` (which
+                // ships nothing) and stops rather than walking on to `zh-cn` and handing
+                // Traditional readers Simplified data. An absolute address never gets here: its
+                // first segment already named the locale.
+                string? fallback = BaseLocale(locale);
+                if (fallback is not null)
+                {
+                    try
+                    {
+                        Entry inherited = Load(dottedPath, fallback);
+                        _cache[key] = inherited;
+                        return inherited;
+                    }
+                    catch (ArgumentException)
+                    {
+                        // fall through to the refusal below, which names what was asked for
+                    }
+                }
+
                 throw new ArgumentException(
                     $"unknown template path \"{dottedPath}\" (looked for {@base}.txt in {Source})");
             }

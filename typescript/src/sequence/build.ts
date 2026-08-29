@@ -1219,7 +1219,9 @@ function buildGenValuesRaw(
       // (gen or env) locale; a locale-prefixed address is absolute. Data-pack
       // addresses take precedence over builtin template paths. A pack
       // GENERATOR runs its stored <gen> spec; a pack DATA list is a uniform pick.
-      const packEntry = ctx.packs?.get(resolvePackAddress(path, gen.attrs['local'] ?? locale));
+      const packEntry = ctx.packs?.get(
+        resolvePackAddress(path, gen.attrs['local'] ?? locale, ctx.packs),
+      );
       if (packEntry?.generator) {
         // A whole-column quota inside the pack — a `percent=` its body declares,
         // or a weighted list its body DRAWS from. Row at a time, the quota is

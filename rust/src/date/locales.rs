@@ -1157,9 +1157,27 @@ pub fn resolve(name: Option<&str>) -> &'static DateLocale {
     if let Some(found) = BY_NAME.iter().find(|(key, _)| *key == name) {
         return found.1;
     }
-    from_packs(name).unwrap_or(&EN)
+    if let Some(found) = from_packs(name) {
+        return found;
+    }
+    // A variant reads its base language's calendar before it reads English: `de-at` is
+    // Austrian German, and a run that says so should not be handed January and February.
+    if let Some(base) = crate::packs::base_locale(name) {
+        if let Some(found) = BY_NAME.iter().find(|(key, _)| *key == base) {
+            return found.1;
+        }
+        if let Some(found) = from_packs(base) {
+            return found;
+        }
+    }
+    &EN
 }
 
 pub fn is_known(name: &str) -> bool {
-    BY_NAME.iter().any(|(key, _)| *key == name) || from_packs(name).is_some()
+    if BY_NAME.iter().any(|(key, _)| *key == name) || from_packs(name).is_some() {
+        return true;
+    }
+    crate::packs::base_locale(name).is_some_and(|base| {
+        BY_NAME.iter().any(|(key, _)| *key == base) || from_packs(base).is_some()
+    })
 }

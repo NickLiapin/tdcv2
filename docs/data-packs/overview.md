@@ -196,6 +196,28 @@ A file that ends up at none of them — a header, but no `address:`, no `locale:
 path starting with no locale, country or `common` — is not addressable and is left out.
 The CLI says so at load time with a `TDC171` warning rather than letting it vanish.
 
+#### A regional variant falls back to its base language
+
+`en-gb`, `pt-br` and `de-at` are locales like any other, and most of them ship nothing of
+their own. A run that names one gets its base language: `local="en-gb"` draws from `en`,
+`local="pt-br"` from `pt`. Dates take the same step, so `de-at` reads `März` rather than
+`March`.
+
+That is what makes a variant pack cheap to write — it carries only what actually differs.
+Drop a single `en-gb/geo/city.txt` in, and British cities win while every other address
+still comes from `en`:
+
+```text
+packs/
+  en-gb/
+    geo/
+      city.txt      ← only this differs
+```
+
+The step is taken **once**, and never as far as English. `zh-tw` looks for `zh`, finds
+nothing, and refuses — because handing a Traditional Chinese run Simplified data from
+`zh-cn` would be worse than saying so.
+
 #### An external file as the body — `file:`, `column:`, `delimiter:`
 
 Instead of an inline body, a header can point at an existing file — useful for large

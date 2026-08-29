@@ -17,6 +17,7 @@ import type {
 } from '../generated/TDCParser.js';
 
 import { extractAttrs } from '../processor/walk.js';
+import { baseLocale } from '../data-pack/locales.js';
 import { nodeRange } from '../errors/source-map.js';
 import { closestMatch } from '../errors/suggestions.js';
 import { isBlank } from './blank-value.js';
@@ -81,6 +82,10 @@ export function checkTemplateLocale(
   const havers = localesHavingPath(path, ctx.packAddresses);
   if (havers.length === 0) return; // not a soft path at all — TDC071 covered it
   if (havers.includes(locale)) return;
+  // A variant inherits from its base language at render time, so `check` has to
+  // accept what the run will actually serve — or it refuses a config that works.
+  const base = baseLocale(locale);
+  if (base !== undefined && havers.includes(base)) return;
 
   ctx.diagnostics.push({
     severity: 'error',

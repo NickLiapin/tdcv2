@@ -1446,10 +1446,30 @@ public final class DateLocales {
     if (builtIn != null) {
       return builtIn;
     }
-    return PACK_LOCALES.getOrDefault(key, EN);
+    DateFormatter.DateLocale fromPacks = PACK_LOCALES.get(key);
+    if (fromPacks != null) {
+      return fromPacks;
+    }
+    // A variant reads its base language's calendar before it reads English: `de-at` is Austrian
+    // German, and a run that says so should not be handed January and February.
+    String base = io.github.nickliapin.tdc.packs.DataPacks.baseLocale(key);
+    if (base != null) {
+      DateFormatter.DateLocale inherited = BY_NAME.get(base);
+      if (inherited == null) {
+        inherited = PACK_LOCALES.get(base);
+      }
+      if (inherited != null) {
+        return inherited;
+      }
+    }
+    return EN;
   }
 
   public static boolean isKnown(String name) {
-    return BY_NAME.containsKey(name) || PACK_LOCALES.containsKey(name);
+    if (BY_NAME.containsKey(name) || PACK_LOCALES.containsKey(name)) {
+      return true;
+    }
+    String base = io.github.nickliapin.tdc.packs.DataPacks.baseLocale(name);
+    return base != null && (BY_NAME.containsKey(base) || PACK_LOCALES.containsKey(base));
   }
 }

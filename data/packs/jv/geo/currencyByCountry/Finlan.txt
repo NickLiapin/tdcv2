@@ -1,0 +1,5 @@
+---
+description: Currency of Finlan, named in Javanese.
+locale: jv
+---
+Euro

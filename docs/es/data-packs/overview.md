@@ -204,6 +204,28 @@ una ruta cuyo primer segmento no es un locale, un país ni `common` — no es di
 y se omite. La CLI lo dice al cargar con una advertencia `TDC171`, en vez de dejarlo
 desaparecer.
 
+#### Una variante regional hereda de su idioma base
+
+`en-gb`, `pt-br` y `de-at` son locales como cualquier otra, y casi ninguna trae datos
+propios. Una ejecución que nombra una de ellas recibe los de su idioma base:
+`local="en-gb"` toma de `en`, `local="pt-br"` de `pt`. Las fechas dan el mismo paso, así
+que `de-at` escribe `März` y no `March`.
+
+Eso es lo que abarata escribir un paquete de variante: solo lleva lo que de verdad
+difiere. Ponga un único `en-gb/geo/city.txt` y las ciudades británicas ganan, mientras
+todas las demás direcciones siguen viniendo de `en`:
+
+```text
+packs/
+  en-gb/
+    geo/
+      city.txt      ← solo esto difiere
+```
+
+El paso se da **una sola vez**, y nunca llega hasta el inglés. `zh-tw` busca `zh`, no
+encuentra nada y rechaza — porque entregar datos simplificados de `zh-cn` a una ejecución
+en chino tradicional sería peor que decirlo.
+
 #### Un archivo externo como cuerpo — `file:`, `column:`, `delimiter:`
 
 En lugar de un cuerpo integrado, un encabezado puede apuntar a un archivo existente:

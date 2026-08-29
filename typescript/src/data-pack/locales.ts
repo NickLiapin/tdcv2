@@ -385,6 +385,21 @@ function headsOf(registry: ReadonlyMap<string, unknown>): ReadonlySet<string> {
   return heads;
 }
 
+/**
+ * The base language of a regional variant — `en-gb` → `en`, `en` → undefined.
+ *
+ * One step, deliberately. A variant defers to the language it is a variant OF
+ * and to nothing else: `zh-tw` reaches `zh` (which ships nothing) and stops,
+ * rather than walking on to `zh-cn` and handing Traditional readers Simplified
+ * data. Falling all the way back to English would be worse still — silently
+ * correct-looking output in the wrong language is the failure this project
+ * exists to prevent.
+ */
+export function baseLocale(locale: string): string | undefined {
+  const dash = locale.indexOf('-');
+  return dash > 0 ? locale.slice(0, dash) : undefined;
+}
+
 export function resolvePackAddress(
   path: string,
   locale: string,
@@ -409,7 +424,17 @@ export function resolvePackAddress(
     discoveredNamespaces.has(first) ||
     (registry !== undefined && headsOf(registry).has(first)) ||
     CANONICAL_COUNTRIES.has(first);
-  return isHard ? path : `${locale}.${path}`;
+  if (isHard) return path;
+  const own = `${locale}.${path}`;
+  // A variant answers for itself where it ships something, and defers to its
+  // base language everywhere else — the rule RFC 4647 lookup and moment's own
+  // `en-gb` → `en` follow. Only decidable with a registry to ask; callers
+  // without one (there are a few) keep the plain locale-first address.
+  if (registry === undefined || registry.has(own)) return own;
+  const base = baseLocale(locale);
+  if (base === undefined) return own;
+  const inherited = `${base}.${path}`;
+  return registry.has(inherited) ? inherited : own;
 }
 
 export interface LocaleManifest {

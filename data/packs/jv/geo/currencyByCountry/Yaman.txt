@@ -1,0 +1,5 @@
+---
+description: Currency of Yaman, named in Javanese.
+locale: jv
+---
+Rial Yaman

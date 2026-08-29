@@ -589,6 +589,22 @@ public final class DataPacks {
       // then live anywhere at all — which is how someone keeps a flat folder of their own lists.
       String placed = addresses().get(absoluteAddress(dottedPath, locale));
       if (placed == null || !source.has(placed)) {
+        // A regional variant answers for itself where it ships something, and defers to its
+        // base language everywhere else — the rule RFC 4647 lookup and moment's own
+        // `en-gb` -> `en` follow. One step, never a chain: `zh-tw` reaches `zh` (which ships
+        // nothing) and stops rather than walking on to `zh-cn` and handing Traditional readers
+        // Simplified data. An absolute address never gets here: its first segment already
+        // named the locale.
+        String fallback = baseLocale(locale);
+        if (fallback != null) {
+          try {
+            Entry inherited = load(dottedPath, fallback);
+            cache.put(key, inherited);
+            return inherited;
+          } catch (RuntimeException ignored) {
+            // fall through to the refusal below, which names what was actually asked for
+          }
+        }
         throw new IllegalArgumentException(
             "unknown template path \""
                 + dottedPath
@@ -664,6 +680,21 @@ public final class DataPacks {
       }
     }
     return entry;
+  }
+
+  /**
+   * The base language of a regional variant — {@code en-gb} to {@code en}, {@code en} to null.
+   *
+   * <p>One step, deliberately. A variant defers to the language it is a variant OF and to nothing
+   * else; falling all the way back to English would hand a reader silently correct-looking output
+   * in the wrong language, which is the failure this project exists to prevent.
+   */
+  public static String baseLocale(String locale) {
+    if (locale == null) {
+      return null;
+    }
+    int dash = locale.indexOf('-');
+    return dash > 0 ? locale.substring(0, dash) : null;
   }
 
   /** Where this address's files sit, extension aside. */

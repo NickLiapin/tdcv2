@@ -1,0 +1,5 @@
+---
+description: Currency of Honggari, named in Javanese.
+locale: jv
+---
+Forint

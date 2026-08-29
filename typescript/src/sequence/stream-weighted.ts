@@ -72,7 +72,7 @@ export function wholeColumnPackBody(
   locale: string,
 ): { sequences: readonly SequenceSpec[]; output: string; inject: string } | undefined {
   if (gen.type !== 'template') return undefined;
-  const address = resolvePackAddress(gen.attrs['value'] ?? '', gen.attrs['local'] ?? locale);
+  const address = resolvePackAddress(gen.attrs['value'] ?? '', gen.attrs['local'] ?? locale, packs);
   const entry = packs?.get(address);
   if (entry?.needsWholeColumn !== true) return undefined;
   const body = entry.generator;
@@ -174,6 +174,6 @@ export function weightedTemplatePack(
   locale: string,
 ): { values: string[]; percents: number[] } | undefined {
   if (gen.type !== 'template') return undefined;
-  const address = resolvePackAddress(gen.attrs['value'] ?? '', gen.attrs['local'] ?? locale);
+  const address = resolvePackAddress(gen.attrs['value'] ?? '', gen.attrs['local'] ?? locale, packs);
   return weightedPackValues(packs?.get(address));
 }

@@ -1,0 +1,5 @@
+---
+description: Ibukutha Kolombia — the capital of Kolombia, as Javanese names it. the capital of Walanda, as Javanese names it. Note the Dutch-derived city names that follow the country names: Moskou for Moscow, Warschau for Warsaw, Wenen for Vienna, Kopenhagen for Copenhagen, Atena for Athens, Kairo for Cairo, Lisabon for Lisbon. Kutha is the Javanese word for a city, which is why Mexico City is Kutha Meksiko.
+locale: jv
+---
+Bogota

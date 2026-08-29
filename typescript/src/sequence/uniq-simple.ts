@@ -198,7 +198,9 @@ function poolOf(name: string, gen: GenSpec, locale: string, ctx: SequenceBuildCo
   }
   if (kind === 'template') {
     const path = gen.attrs['value'] ?? '';
-    const packEntry = ctx.packs?.get(resolvePackAddress(path, gen.attrs['local'] ?? locale));
+    const packEntry = ctx.packs?.get(
+      resolvePackAddress(path, gen.attrs['local'] ?? locale, ctx.packs),
+    );
     if (packEntry?.values) {
       return mergeDuplicates([...packEntry.values], packEntry.percents && [...packEntry.percents]);
     }

@@ -1,0 +1,5 @@
+---
+description: Currency of Korea Lor, named in Javanese.
+locale: jv
+---
+Won Korea Lor

@@ -1,0 +1,5 @@
+---
+description: Currency of Kolombia, named in Javanese.
+locale: jv
+---
+Peso Kolombia

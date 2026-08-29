@@ -1,0 +1,5 @@
+---
+description: Currency of Ceylon, named in Javanese.
+locale: jv
+---
+Rupee Ceylon

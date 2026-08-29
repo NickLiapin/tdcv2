@@ -1,0 +1,5 @@
+---
+description: Currency of Suriname, named in Javanese.
+locale: jv
+---
+Dolar Suriname

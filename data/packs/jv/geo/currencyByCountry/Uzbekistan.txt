@@ -1,0 +1,5 @@
+---
+description: Currency of Uzbekistan, named in Javanese.
+locale: jv
+---
+Som

@@ -1,0 +1,5 @@
+---
+description: Currency of Timor Wetan, named in Javanese.
+locale: jv
+---
+Dolar Amerika

@@ -1656,9 +1656,39 @@ public static class DateLocales
             return builtIn;
         }
 
-        return PackLocales.TryGetValue(name, out DateLocale? fromPack) ? fromPack : EN;
+        if (PackLocales.TryGetValue(name, out DateLocale? fromPack))
+        {
+            return fromPack;
+        }
+
+        // A variant reads its base language's calendar before it reads English: `de-at` is
+        // Austrian German, and a run that says so should not be handed January and February.
+        string? logicalBase = Packs.DataPacks.BaseLocale(name);
+        if (logicalBase is not null)
+        {
+            if (ByName.TryGetValue(logicalBase, out DateLocale? inherited))
+            {
+                return inherited;
+            }
+
+            if (PackLocales.TryGetValue(logicalBase, out DateLocale? inheritedPack))
+            {
+                return inheritedPack;
+            }
+        }
+
+        return EN;
     }
 
-    public static bool IsKnown(string name) =>
-        ByName.ContainsKey(name) || PackLocales.ContainsKey(name);
+    public static bool IsKnown(string name)
+    {
+        if (ByName.ContainsKey(name) || PackLocales.ContainsKey(name))
+        {
+            return true;
+        }
+
+        string? logicalBase = Packs.DataPacks.BaseLocale(name);
+        return logicalBase is not null
+            && (ByName.ContainsKey(logicalBase) || PackLocales.ContainsKey(logicalBase));
+    }
 }

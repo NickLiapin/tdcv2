@@ -82,6 +82,17 @@ class EmptyPackError(ResolvedButUnusableError):
     """A pack that lists nothing."""
 
 
+def base_locale(locale: str) -> str | None:
+    """The base language of a regional variant — ``en-gb`` -> ``en``, ``en`` -> None.
+
+    One step, deliberately. A variant defers to the language it is a variant OF and to nothing
+    else; falling all the way back to English would hand a reader silently correct-looking output
+    in the wrong language, which is the failure this project exists to prevent.
+    """
+    dash = locale.find("-")
+    return locale[:dash] if dash > 0 else None
+
+
 class DataPacks:
     """Where a run's data comes from: the packs, and the folders a file source may name.
 
@@ -288,6 +299,21 @@ class DataPacks:
                 )
                 self._cache[key] = entry
                 return entry
+            # A regional variant answers for itself where it ships something, and defers to
+            # its base language everywhere else — the rule RFC 4647 lookup and moment's own
+            # ``en-gb`` -> ``en`` follow. One step, never a chain: ``zh-tw`` reaches ``zh``
+            # (which ships nothing) and stops rather than walking on to ``zh-cn`` and handing
+            # Traditional readers Simplified data. An absolute address never gets here, because
+            # its first segment already named the locale.
+            fallback = base_locale(locale)
+            if fallback is not None:
+                try:
+                    entry = self.load(dotted_path, fallback)
+                except (ValueError, OSError):
+                    entry = None
+                if entry is not None:
+                    self._cache[key] = entry
+                    return entry
             raise ValueError(
                 f'unknown template path "{dotted_path}" (looked for {base}.txt in {self.source})'
             )

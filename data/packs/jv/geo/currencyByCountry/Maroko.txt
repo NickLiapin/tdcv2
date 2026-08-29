@@ -1,0 +1,5 @@
+---
+description: Currency of Maroko, named in Javanese.
+locale: jv
+---
+Dirham Maroko

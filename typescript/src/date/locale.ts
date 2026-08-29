@@ -27,6 +27,7 @@ import {
 import { RU, PL, UK, EL, CS, FI } from './locale-tables-inflected.js';
 
 import type { DateLocale } from './locale-tables.js';
+import { baseLocale } from '../data-pack/locales.js';
 
 export type { DateLocale } from './locale-tables.js';
 
@@ -122,9 +123,21 @@ export function registerPackDateLocales(entries: ReadonlyMap<string, DateLocale>
 
 export function resolveDateLocale(name: string | undefined): DateLocale {
   const key = name ?? 'en';
-  return LOCALES.get(key) ?? PACK_LOCALES.get(key) ?? EN;
+  const own = LOCALES.get(key) ?? PACK_LOCALES.get(key);
+  if (own !== undefined) return own;
+  // A variant reads its base language's calendar before it reads English:
+  // `de-at` is Austrian German, and a run that says so should not be handed
+  // January and February. Same one step the pack addresses take.
+  const base = baseLocale(key);
+  if (base !== undefined) {
+    const inherited = LOCALES.get(base) ?? PACK_LOCALES.get(base);
+    if (inherited !== undefined) return inherited;
+  }
+  return EN;
 }
 
 export function isKnownDateLocale(name: string): boolean {
-  return LOCALES.has(name) || PACK_LOCALES.has(name);
+  if (LOCALES.has(name) || PACK_LOCALES.has(name)) return true;
+  const base = baseLocale(name);
+  return base !== undefined && (LOCALES.has(base) || PACK_LOCALES.has(base));
 }

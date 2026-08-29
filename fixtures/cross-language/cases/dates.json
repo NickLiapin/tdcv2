@@ -234,6 +234,18 @@
         "პარასკევი, 13 ნოემბერს 2026 00:00",
         "შაბათი, 19 დეკემბერს 2026 00:00"
       ]
+    },
+    {
+      "name": "a-regional-variant-draws-its-base-language",
+      "description": "en-gb, pt-br and de-at are canonical locales with `_locale.json` and no data of their own, and a config that named one was refused outright — with a note listing 82 other locales that never mentioned `en`. A variant now answers for itself where it ships something and defers to its base language everywhere else: the rule RFC 4647 lookup and moment's own en-gb -> en follow. One step and no further, so nothing silently lands on English.",
+      "config": "<tdc><env count=\"4\" seed=\"v\" local=\"en-gb\"><sequence name=\"N\"><gen type=\"template\" value=\"person.lastName\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["Brown", "Williams", "Johnson", "Smith"]
+    },
+    {
+      "name": "a-variant-reads-its-base-languages-calendar",
+      "description": "The same one step on the date side. de-at is Austrian German; before this it read English month names, because the variant is not among the built-in date locales and the lookup fell straight through to EN.",
+      "config": "<tdc><env count=\"1\" seed=\"d\" local=\"de-at\"><sequence name=\"D\"><gen type=\"date\" value=\"2024-03-01..2024-03-01\" format=\"MMMM\"/></sequence></env><block><line><data>${{D}}</data></line></block></tdc>",
+      "expected": ["März"]
     }
   ]
 }

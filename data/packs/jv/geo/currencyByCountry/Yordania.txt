@@ -1,0 +1,5 @@
+---
+description: Currency of Yordania, named in Javanese.
+locale: jv
+---
+Dinar Yordania

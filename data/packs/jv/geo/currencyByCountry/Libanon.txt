@@ -1,0 +1,5 @@
+---
+description: Currency of Libanon, named in Javanese.
+locale: jv
+---
+Pound Libanon

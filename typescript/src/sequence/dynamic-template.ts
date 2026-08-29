@@ -39,7 +39,7 @@ export function buildDynamicTemplateValues(
   const out: string[] = [];
   for (const i of rows) {
     const address = interpolate(template, '${{%}}', i, registry);
-    const packEntry = ctx.packs?.get(resolvePackAddress(address, localeAttr));
+    const packEntry = ctx.packs?.get(resolvePackAddress(address, localeAttr, ctx.packs));
     if (packEntry?.generator) {
       out.push(
         runGenerator(packEntry.generator, 1, prng, locale, now, {

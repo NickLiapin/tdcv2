@@ -1,0 +1,5 @@
+---
+description: Currency of Papua Niu Guinea, named in Javanese.
+locale: jv
+---
+Kina

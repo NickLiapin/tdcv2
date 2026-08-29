@@ -1031,8 +1031,21 @@ def resolve(name: str | None) -> DateLocale:
     English month names.
     """
     key = name or "en"
-    return _BY_NAME.get(key) or _from_packs(key) or EN
+    own = _BY_NAME.get(key) or _from_packs(key)
+    if own is not None:
+        return own
+    # A variant reads its base language's calendar before it reads English: ``de-at`` is Austrian
+    # German, and a run that says so should not be handed January and February.
+    dash = key.find("-")
+    if dash > 0:
+        inherited = _BY_NAME.get(key[:dash]) or _from_packs(key[:dash])
+        if inherited is not None:
+            return inherited
+    return EN
 
 
 def is_known(name: str) -> bool:
-    return name in _BY_NAME or _from_packs(name) is not None
+    if name in _BY_NAME or _from_packs(name) is not None:
+        return True
+    dash = name.find("-")
+    return dash > 0 and (name[:dash] in _BY_NAME or _from_packs(name[:dash]) is not None)

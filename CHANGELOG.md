@@ -32,6 +32,38 @@ page — is tracked in that implementation's own changelog:
   pack words exactly as the env's does, `TDC153` accepts what the packs actually know, and
   `TDC272` warns only for a locale that truly carries no date words — Bambara, not Afrikaans.
 
+<!-- covers: variant locale fallback -->
+
+- **`local="en-gb"` renders British-shaped English instead of refusing — a regional variant now
+  defers to its base language.** Thirty-six variant folders — `en-gb pt-br es-mx de-at fr-ca
+ar-sa nl-be…` — were canonical locales in every sense the project uses the word: canonical
+  codes, `_locale.json`, names the date layer knows. What they never had was data, so the most
+  natural thing in the world to write was answered with "template path has no data for locale
+  en-gb" and a note listing 82 other locales that never once mentioned `en`. A variant now
+  answers for itself where it ships something and defers to its base language everywhere else,
+  which is the rule RFC 4647 lookup and moment's own `en-gb` → `en` already follow. Two
+  consequences worth stating: a variant pack only ever has to carry its DIFFERENCES — drop
+  `en-gb/geo/city.txt` in and British cities win while every other address still comes from
+  `en` — and dates take the same step, so `de-at` reads `März` where it used to read `March`.
+  Exactly one step, never a chain and never as far as English: `zh-tw` reaches `zh`, which
+  ships nothing, and still refuses, because handing Traditional readers Simplified data would
+  be worse than the refusal. Twenty-seven of the thirty-six variants have a base with data and
+  work from this release; nine (`zh-hk zh-mo zh-tw gom-deva gom-latn oc-lnc tl-ph tzm-latn
+x-pseudo`) do not, and say so. No working config changes by a byte — only refused ones start
+  answering.
+
+<!-- covers: coherent children complete -->
+
+- **A coherent child folder can no longer promise a value it has no file for.** `jv/geo` listed
+  73 countries and shipped 44 children, so a Javanese run drawing `Suriah` died partway through
+  with "resolved to unknown address" — not at check time, not on row one, but on whatever row
+  happened to draw it. The 29 missing Javanese triples (capital, currency, ISO code) are
+  written, and `ru/geo` gained the five countries — Бангладеш, Пакистан, Нигерия, Сингапур,
+  Новая Зеландия — whose children no parent value could reach. All 58 locales carrying that
+  folder now match exactly. `data/scripts/check-coherent-children.mjs` runs in `npm run
+packs:generated` and walks all 607 coherent folders, so the next one is caught before it
+  ships rather than by a user's half-finished file.
+
 <!-- covers: medical diagnosis expansion -->
 
 - **The medical lists grew until the demo's 8,000,000 rows exist — in every one of the 86

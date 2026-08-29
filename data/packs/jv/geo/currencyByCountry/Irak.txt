@@ -1,0 +1,5 @@
+---
+description: Currency of Irak, named in Javanese.
+locale: jv
+---
+Dinar Irak
