@@ -2,99 +2,183 @@
 description: Medical diagnosis in Romanian that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale / diagnosisFemale; ancestry-linked ones in diagnosisByAncestry.
 locale: ro
 ---
-Hipertensiune arterială esențială
-Diabet zaharat tip 1
-Diabet zaharat tip 2
-Dislipidemie
-Obezitate
-Sindrom metabolic
-Cardiopatie ischemică
-Angină pectorală
-Infarct miocardic
-Insuficiență cardiacă
-Fibrilație atrială
-Bloc atrioventricular
-Cardiomiopatie dilatativă
-Valvulopatie mitrală
-Tromboză venoasă profundă
-Embolie pulmonară
-Varice ale membrelor inferioare
-Accident vascular cerebral
-Atac ischemic tranzitoriu
+Hipertensiune arterială
+Diabet zaharat de tip 2
+Astm bronșic
+Bronșită acută
+Gripă
 Migrenă
+Tulburare de anxietate generalizată
+Depresie majoră
+Artroză
+Poliartrită reumatoidă
+Boală de reflux gastroesofagian
+Anemie feriprivă
+Hipotiroidism
+Infecție urinară
+Pneumonie
+Boală cronică de rinichi
+Cardiopatie ischemică
+Fibrilație atrială
+Insuficiență cardiacă cronică
+Accident vascular cerebral ischemic
 Epilepsie
 Boala Parkinson
-Scleroză multiplă
-Neuropatie periferică
-Nevralgie de trigemen
-Demență
 Boala Alzheimer
-Astm bronșic
-Bronhopneumopatie obstructivă cronică
-Pneumonie
-Bronșită acută
-Rinită alergică
-Sinuzită cronică
-Apnee de somn
-Tuberculoză pulmonară
-Reflux gastroesofagian
-Gastrită cronică
-Ulcer gastric
-Ulcer duodenal
-Infecție cu Helicobacter pylori
-Boala Crohn
-Rectocolită ulcerohemoragică
-Sindrom de intestin iritabil
-Boală celiacă
-Litiază biliară
-Colecistită
-Pancreatită acută
-Steatoză hepatică
-Ciroză hepatică
-Hepatită cronică cu virus B
-Hepatită cronică cu virus C
-Litiază renală
-Infecție urinară
-Pielonefrită
-Boală cronică de rinichi
-Insuficiență renală acută
-Hipotiroidism
-Hipertiroidism
-Tiroidită Hashimoto
-Gușă nodulară
-Osteoporoză
-Osteoartroză
-Poliartrită reumatoidă
-Spondilită anchilozantă
-Lupus eritematos sistemic
-Fibromialgie
-Gută
-Hernie de disc lombară
-Scolioză
-Entorsă de gleznă
-Fractură de radius
-Anemie feriprivă
-Anemie megaloblastică
-Trombocitopenie
-Leucemie acută
-Limfom Hodgkin
-Cancer colorectal
-Cancer pulmonar
-Cancer gastric
-Melanom malign
+Scleroză multiplă
 Psoriazis
 Dermatită atopică
-Urticarie cronică
-Acnee vulgară
+Rinită alergică
+Sinuzită cronică
+Otită medie
+Conjunctivită
 Cataractă
 Glaucom
-Conjunctivită
-Otită medie
-Hipoacuzie neurosenzorială
-Depresie majoră
-Tulburare de anxietate generalizată
+Apendicită
+Colecistită
+Diverticulită
+Sindrom de intestin iritabil
+Boala Crohn
+Colită ulcerativă
+Hepatită cronică B
+Ciroză hepatică
+Pancreatită acută
+Gută
+Osteoporoză
+Fibromialgie
+Sciatică
+Hernie de disc
+Sindrom de tunel carpian
+Tendinită
+Bronhopneumopatie obstructivă cronică
+Tuberculoză
+Leucemie
+Limfom
+Melanom
+Hiperlipidemie
+Obezitate
+Apnee obstructivă în somn
+Insomnie
 Tulburare bipolară
+ADHD
+Boală celiacă
+Lupus eritematos sistemic
+Vertij
+Tinitus
+Hemoroizi
+Varice
+Tromboză venoasă profundă
+Embolie pulmonară
+Litiază renală
+Anemie
+Hipertiroidism
+Ulcer peptic
+Gastrită
+Celulită infecțioasă
+Sepsis
+Cancer de sân
+Gastroenterită acută
+Deficit de vitamina D
+Insuficiență venoasă cronică
+Diabet zaharat de tip 1
+Infarct miocardic
+Angină pectorală
+Arteriopatie periferică
+Cardiomiopatie dilatativă
+Miocardită
+Pericardită
+Endocardită infecțioasă
+Stenoză aortică
+Prolaps de valvă mitrală
+Anevrism de aortă abdominală
+Bronșită cronică
+Emfizem pulmonar
+Revărsat pleural
+Fibroză pulmonară
+Hipertensiune pulmonară
+Bronșiectazie
+Laringită
+Faringită
+Amigdalită
+Esofagită
+Esofag Barrett
+Cancer gastric
+Cancer colorectal
+Fisură anală
+Ficat gras non-alcoolic
+Hepatită cronică C
+Hernie hiatală
+Hernie inghinală
+Insuficiență renală acută
+Glomerulonefrită
+Pielonefrită
+Cistită
+Incontinență urinară
+Cancer de vezică urinară
+Carcinom renal
+Atac ischemic tranzitoriu
+Cefalee de tensiune
+Cefalee în ciorchine
+Nevralgie de trigemen
+Paralizie Bell
+Neuropatie periferică
+Sindromul picioarelor neliniștite
+Tremor esențial
+Miastenia gravis
+Sindrom Guillain-Barré
+Tulburare de panică
+Tulburare obsesiv-compulsivă
+Tulburare de stres posttraumatic
+Fobie socială
+Anorexie nervoasă
+Bulimie nervoasă
 Schizofrenie
-Tulburare de somn
 Dependență de alcool
-Dependență de nicotină
+Tiroidită Hashimoto
+Boala Graves
+Sindrom Cushing
+Boala Addison
+Hiperparatiroidism
+Sindrom metabolic
+Deficit de vitamina B12
+Nodul tiroidian
+Trombocitopenie
+Policitemia vera
+Cancer pulmonar
+Cancer pancreatic
+Cancer tiroidian
+Mielom multiplu
+Bursită
+Fasciită plantară
+Ruptură de coafă a rotatorilor
+Spondilită anchilozantă
+Scolioză
+Osteomielită
+Acnee
+Rozacee
+Vitiligo
+Alopecie areată
+Urticarie
+Dermatită de contact
+Zona zoster
+Onicomicoză
+Degenerescență maculară
+Retinopatie diabetică
+Dezlipire de retină
+Uveită
+Sindrom de ochi uscat
+Boala Ménière
+Hipoacuzie neurosenzorială
+Polipi nazali
+Mononucleoză infecțioasă
+Borelioză
+Malarie
+Febră denga
+Salmoneloză
+Hepatită A
+Infecție HIV
+Infecție cu herpes simplex
+Rujeolă
+Varicelă
+Meningită bacteriană
+Encefalită virală

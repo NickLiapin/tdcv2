@@ -3,28 +3,38 @@ description: Medical diagnosis in Romanian that requires female anatomy — it c
 locale: ro
 ---
 Endometrioză
-Fibrom uterin
 Sindromul ovarelor polichistice
+Fibrom uterin
 Chist ovarian
-Cancer de col uterin
 Cancer ovarian
+Cancer de col uterin
+Displazie cervicală
+Cervicită
+Endometrită
 Cancer endometrial
-Cancer de sân
-Displazie de col uterin
-Vaginită
-Vaginoză bacteriană
-Candidoză vulvovaginală
 Boală inflamatorie pelvină
-Prolaps uterin
-Dismenoree
+Vaginoză bacteriană
+Candidoză vaginală
 Menoragie
+Dismenoree
 Amenoree
-Menopauză precoce
-Sindrom premenstrual
-Infertilitate de cauză tubară
-Sarcină extrauterină
 Preeclampsie
 Diabet gestațional
-Avort spontan
+Hiperemeză gravidică
+Sarcină extrauterină
+Hemoragie postpartum
 Mastită
 Mastopatie fibrochistică
+Sindrom de menopauză
+Tulburare disforică premenstruală
+Prolaps uterin
+Adenomioză
+Torsiune ovariană
+Placenta praevia
+Dezlipire de placentă
+Cancer vulvar
+Cancer vaginal
+Chist Bartholin
+Vaginită atrofică
+Sindrom Turner
+Infertilitate feminină

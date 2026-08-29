@@ -9,25 +9,25 @@ Heveny hörghurut
 Influenza
 Migrén
 Generalizált szorongásos zavar
-Visszatérő depresszió
-Ízületi kopás
+Súlyos depresszió
+Artrózis
 Reumatoid artritisz
-Refluxbetegség
+Gastrooesophagealis refluxbetegség
 Vashiányos vérszegénység
 Pajzsmirigy-alulműködés
 Húgyúti fertőzés
 Tüdőgyulladás
-Krónikus veseelégtelenség
+Krónikus vesebetegség
 Koszorúér-betegség
 Pitvarfibrilláció
-Szívelégtelenség
+Krónikus szívelégtelenség
 Iszkémiás stroke
 Epilepszia
 Parkinson-kór
 Alzheimer-kór
 Szklerózis multiplex
 Pikkelysömör
-Atópiás bőrgyulladás
+Atópiás dermatitisz
 Allergiás nátha
 Krónikus arcüreggyulladás
 Középfülgyulladás
@@ -36,12 +36,12 @@ Szürkehályog
 Zöldhályog
 Vakbélgyulladás
 Epehólyag-gyulladás
-Vastagbél-divertikulitisz
+Divertikulitisz
 Irritábilis bél szindróma
 Crohn-betegség
 Fekélyes vastagbélgyulladás
-Krónikus B-hepatitis
-Májzsugorodás
+Krónikus B-hepatitisz
+Májzsugor
 Heveny hasnyálmirigy-gyulladás
 Köszvény
 Csontritkulás
@@ -49,24 +49,24 @@ Fibromialgia
 Isiász
 Porckorongsérv
 Kéztőalagút-szindróma
-Ínhüvelygyulladás
+Íngyulladás
 Krónikus obstruktív tüdőbetegség
 Tuberkulózis
 Leukémia
 Limfóma
 Melanóma
-Magas koleszterinszint
+Hiperlipidémia
 Elhízás
-Obstruktív alvási apnoé
+Obstruktív alvási apnoe
 Álmatlanság
 Bipoláris zavar
-Figyelemhiányos hiperaktivitás-zavar
+ADHD
 Cöliákia
-Szisztémás lupusz
-Egyensúlyszervi szédülés
+Szisztémás lupus erythematosus
+Szédülés
 Fülzúgás
 Aranyér
-Visszértágulat
+Visszér
 Mélyvénás trombózis
 Tüdőembólia
 Vesekő
@@ -74,8 +74,111 @@ Vérszegénység
 Pajzsmirigy-túlműködés
 Gyomorfekély
 Gyomorhurut
-Bőr alatti kötőszövet gyulladása
+Orbánc
 Szepszis
 Emlőrák
 Heveny gyomor-bélhurut
 D-vitamin-hiány
+Krónikus vénás elégtelenség
+1-es típusú cukorbetegség
+Szívinfarktus
+Angina pectoris
+Perifériás verőérbetegség
+Tágulásos kardiomiopátia
+Szívizomgyulladás
+Szívburokgyulladás
+Fertőzéses szívbelhártya-gyulladás
+Aortabillentyű-szűkület
+Mitrális billentyű prolapsus
+Hasi aorta aneurizma
+Krónikus hörghurut
+Tüdőtágulat
+Mellűri folyadékgyülem
+Tüdőfibrózis
+Pulmonális hipertónia
+Hörgőtágulat
+Gégegyulladás
+Garatgyulladás
+Mandulagyulladás
+Nyelőcsőgyulladás
+Barrett-nyelőcső
+Gyomorrák
+Vastag- és végbélrák
+Végbélrepedés
+Nem alkoholos zsírmáj
+Krónikus C-hepatitisz
+Rekeszsérv
+Lágyéksérv
+Heveny vesekárosodás
+Glomerulonefritisz
+Vesemedence-gyulladás
+Húgyhólyaghurut
+Vizelet-inkontinencia
+Húgyhólyagrák
+Vesesejtes rák
+Átmeneti agyi keringészavar
+Tenziós fejfájás
+Cluster fejfájás
+Trigeminus-neuralgia
+Bell-féle bénulás
+Perifériás neuropátia
+Nyugtalan láb szindróma
+Esszenciális tremor
+Myasthenia gravis
+Guillain-Barré-szindróma
+Pánikbetegség
+Kényszerbetegség
+Poszttraumás stressz zavar
+Szociális fóbia
+Anorexia nervosa
+Bulimia nervosa
+Szkizofrénia
+Alkoholfüggőség
+Hashimoto-féle pajzsmirigygyulladás
+Basedow-kór
+Cushing-szindróma
+Addison-kór
+Mellékpajzsmirigy-túlműködés
+Metabolikus szindróma
+B12-vitamin-hiány
+Pajzsmirigygöb
+Trombocitopénia
+Polycythaemia vera
+Tüdőrák
+Hasnyálmirigyrák
+Pajzsmirigyrák
+Mielóma multiplex
+Nyáktömlőgyulladás
+Talpi fasciitis
+Rotátorköpeny-szakadás
+Bechterew-kór
+Gerincferdülés
+Csontvelőgyulladás
+Pattanásos bőr
+Rozácea
+Vitiligo
+Foltos hajhullás
+Csalánkiütés
+Kontakt dermatitisz
+Övsömör
+Körömgomba
+Makuladegeneráció
+Diabéteszes retinopátia
+Retinaleválás
+Uveitisz
+Szárazszem-szindróma
+Ménière-betegség
+Idegi eredetű halláscsökkenés
+Orrpolip
+Mononukleózis
+Lyme-kór
+Malária
+Dengue-láz
+Szalmonellózis
+A-hepatitisz
+HIV-fertőzés
+Herpes simplex fertőzés
+Kanyaró
+Bárányhimlő
+Bakteriális agyhártyagyulladás
+Vírusos agyvelőgyulladás

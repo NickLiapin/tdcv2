@@ -2,23 +2,33 @@
 description: Diagnosis found only in, or overwhelmingly in, men (Croatian). Same content as person/male/diagnosis, addressed from the medical tree.
 locale: hr
 ---
-Rak prostate
 Benigna hiperplazija prostate
 Prostatitis
+Rak prostate
 Rak testisa
 Torzija testisa
 Varikokela
 Hidrokela
 Epididimitis
-Erektilna disfunkcija
-Muška neplodnost
+Kriptorhizam
 Fimoza
 Balanitis
-Peyroniejeva bolest
+Erektilna disfunkcija
+Peyronieva bolest
+Muška neplodnost
 Ginekomastija
-Androgena alopecija
-Klinefelterov sindrom
-Hemofilija A
-Duchenneova mišićna distrofija
-Kriptorhizam
+Muški hipogonadizam
+Prijapizam
+Spermatokela
+Muška ćelavost
+Skrotalna kila
 Rak penisa
+Orhitis
+Striktura uretre
+Klinefelterov sindrom
+Azoospermija
+Prijevremena ejakulacija
+Parafimoza
+Apsces prostate
+Vezikulitis
+Hematospermija

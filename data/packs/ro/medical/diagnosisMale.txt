@@ -3,22 +3,32 @@ description: Medical diagnosis in Romanian that requires male anatomy — it can
 locale: ro
 ---
 Hiperplazie benignă de prostată
-Prostatită cronică
+Prostatită
 Cancer de prostată
 Cancer testicular
+Torsiune testiculară
 Varicocel
 Hidrocel
 Epididimită
-Orhită
-Torsiune testiculară
+Criptorhidie
 Fimoză
-Parafimoză
 Balanită
 Disfuncție erectilă
-Ejaculare precoce
-Hipogonadism masculin
-Ginecomastie
-Infertilitate masculină
-Criptorhidie
 Boala Peyronie
+Infertilitate masculină
+Ginecomastie
+Hipogonadism masculin
 Priapism
+Spermatocel
+Alopecie androgenică masculină
+Hernie scrotală
+Cancer penian
+Orhită
+Strictură uretrală
+Sindrom Klinefelter
+Azoospermie
+Ejaculare precoce
+Parafimoză
+Abces prostatic
+Veziculită seminală
+Hematospermie

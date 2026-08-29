@@ -2,80 +2,183 @@
 description: Diagnosis (Croatian), across specialties. Croatian clinical records commonly carry the Latin form alongside the Croatian one; this list gives the Croatian.
 locale: hr
 ---
-Arterijska hipertenzija
-Angina pektoris
-Infarkt miokarda
-Zatajivanje srca
-Fibrilacija atrija
-Aritmija
-Kardiomiopatija
-Ateroskleroza
-Moždani udar
-Tranzitorna ishemijska ataka
-Epilepsija
+Hipertenzija
+Dijabetes tipa 2
+Astma
+Akutni bronhitis
+Gripa
 Migrena
-Multipla skleroza
+Generalizirani anksiozni poremećaj
+Velika depresija
+Osteoartritis
+Reumatoidni artritis
+Gastroezofagealna refluksna bolest
+Anemija zbog manjka željeza
+Hipotireoza
+Urinarna infekcija
+Upala pluća
+Kronična bubrežna bolest
+Koronarna bolest srca
+Fibrilacija atrija
+Kronično zatajenje srca
+Ishemijski moždani udar
+Epilepsija
 Parkinsonova bolest
 Alzheimerova bolest
-Demencija
-Periferna neuropatija
-Vrtoglavica
-Rak pluća
-Rak dojke
-Rak debelog crijeva
-Rak prostate
-Rak želuca
-Rak gušterače
-Melanom
-Limfom
-Leukemija
-Atopijski dermatitis
+Multipla skleroza
 Psorijaza
+Atopijski dermatitis
+Alergijski rinitis
+Kronični sinusitis
+Upala srednjeg uha
+Konjunktivitis
+Katarakta
+Glaukom
+Upala slijepog crijeva
+Upala žučnog mjehura
+Divertikulitis
+Sindrom iritabilnog crijeva
+Crohnova bolest
+Ulcerozni kolitis
+Kronični hepatitis B
+Ciroza jetre
+Akutni pankreatitis
+Giht
+Osteoporoza
+Fibromialgija
+Išijas
+Hernija diska
+Sindrom karpalnog tunela
+Tendinitis
+Kronična opstruktivna plućna bolest
+Tuberkuloza
+Leukemija
+Limfom
+Melanom
+Hiperlipidemija
+Pretilost
+Opstruktivna apneja u snu
+Nesanica
+Bipolarni poremećaj
+ADHD
+Celijakija
+Sistemski eritemski lupus
+Vrtoglavica
+Šum u ušima
+Hemoroidi
+Proširene vene
+Duboka venska tromboza
+Plućna embolija
+Bubrežni kamenci
+Anemija
+Hipertireoza
+Peptički ulkus
+Gastritis
+Celulitis kože
+Sepsa
+Rak dojke
+Akutni gastroenteritis
+Manjak vitamina D
+Kronična venska insuficijencija
+Dijabetes tipa 1
+Infarkt miokarda
+Angina pektoris
+Periferna arterijska bolest
+Dilatacijska kardiomiopatija
+Miokarditis
+Perikarditis
+Infektivni endokarditis
+Aortna stenoza
+Prolaps mitralnog zaliska
+Aneurizma trbušne aorte
+Kronični bronhitis
+Emfizem pluća
+Pleuralni izljev
+Plućna fibroza
+Plućna hipertenzija
+Bronhiektazije
+Laringitis
+Faringitis
+Tonzilitis
+Ezofagitis
+Barrettov jednjak
+Rak želuca
+Kolorektalni rak
+Analna fisura
+Nealkoholna masna jetra
+Kronični hepatitis C
+Hijatalna hernija
+Preponska kila
+Akutno oštećenje bubrega
+Glomerulonefritis
+Pijelonefritis
+Cistitis
+Urinarna inkontinencija
+Rak mokraćnog mjehura
+Karcinom bubrežnih stanica
+Tranzitorna ishemijska ataka
+Tenzijska glavobolja
+Cluster glavobolja
+Neuralgija trigeminusa
+Bellova paraliza
+Periferna neuropatija
+Sindrom nemirnih nogu
+Esencijalni tremor
+Mijastenija gravis
+Guillain-Barréov sindrom
+Panični poremećaj
+Opsesivno-kompulzivni poremećaj
+Posttraumatski stresni poremećaj
+Socijalna fobija
+Anoreksija nervoza
+Bulimija nervoza
+Shizofrenija
+Ovisnost o alkoholu
+Hashimotov tireoiditis
+Gravesova bolest
+Cushingov sindrom
+Addisonova bolest
+Hiperparatireoidizam
+Metabolički sindrom
+Manjak vitamina B12
+Čvor na štitnjači
+Trombocitopenija
+Policitemija vera
+Rak pluća
+Rak gušterače
+Rak štitnjače
+Multipli mijelom
+Burzitis
+Plantarni fasciitis
+Ruptura rotatorne manšete
+Ankilozantni spondilitis
+Skolioza
+Osteomijelitis
 Akne
+Rozaceja
+Vitiligo
+Areatna alopecija
 Urtikarija
 Kontaktni dermatitis
 Herpes zoster
-Gljivična infekcija kože
-Refluksna bolest jednjaka
-Čir na želucu
-Gastritis
-Crohnova bolest
-Ulcerozni kolitis
-Sindrom iritabilnog crijeva
-Celijakija
-Masna jetra
-Ciroza jetre
-Žučni kamenci
-Pankreatitis
-Šećerna bolest tipa 1
-Šećerna bolest tipa 2
-Hipotireoza
-Hipertireoza
-Gušavost
-Osteoporoza
-Pretilost
-Giht
-Astma
-Kronična opstruktivna plućna bolest
-Upala pluća
-Bronhitis
-Plućna embolija
-Apneja u snu
-Tuberkuloza
-Artroza koljena
-Artroza kuka
-Reumatoidni artritis
-Hernija diska
-Skolioza
-Sindrom karpalnog tunela
-Prijelom
-Depresivni poremećaj
-Anksiozni poremećaj
-Bipolarni poremećaj
-Shizofrenija
-Nesanica
-Kronična bubrežna bolest
-Infekcija mokraćnog sustava
-Bubrežni kamenci
-Anemija
-Alergijski rinitis
+Onikomikoza
+Makularna degeneracija
+Dijabetička retinopatija
+Ablacija mrežnice
+Uveitis
+Sindrom suhog oka
+Ménièreova bolest
+Zamjedbeni gubitak sluha
+Nosni polipi
+Infektivna mononukleoza
+Lajmska borelioza
+Malarija
+Denga groznica
+Salmoneloza
+Hepatitis A
+HIV infekcija
+Infekcija herpes simpleksom
+Ospice
+Vodene kozice
+Bakterijski meningitis
+Virusni encefalitis

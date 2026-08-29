@@ -2,29 +2,39 @@
 description: Diagnosis found only in, or overwhelmingly in, women (Croatian). Same content as person/female/diagnosis, addressed from the medical tree.
 locale: hr
 ---
-Rak dojke
-Rak vrata maternice
-Rak jajnika
-Rak maternice
 Endometrioza
 Sindrom policističnih jajnika
 Miomi maternice
-Adenomioza
-Cista jajnika
+Cista na jajniku
+Rak jajnika
+Rak vrata maternice
+Cervikalna displazija
+Cervicitis
+Endometritis
+Rak endometrija
 Zdjelična upalna bolest
-Vaginitis
 Bakterijska vaginoza
+Vaginalna kandidijaza
 Menoragija
 Dismenoreja
 Amenoreja
 Preeklampsija
 Gestacijski dijabetes
-Hiperemeza u trudnoći
+Hiperemeza gravidarum
 Izvanmaternična trudnoća
-Postporođajna depresija
+Poslijeporođajno krvarenje
 Mastitis
-Postmenopauzalna osteoporoza
-Prijevremena insuficijencija jajnika
+Fibrocistična bolest dojke
+Menopauzalni sindrom
+Predmenstrualni disforični poremećaj
 Prolaps maternice
-Inkontinencija urina
+Adenomioza
+Torzija jajnika
+Placenta previja
+Abrupcija posteljice
+Rak stidnice
+Rak rodnice
+Bartholinova cista
+Atrofični vaginitis
+Turnerov sindrom
 Ženska neplodnost
