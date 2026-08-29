@@ -2,91 +2,183 @@
 description: Medical diagnosis in Malay that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale and diagnosisFemale, ancestry-linked ones in diagnosisByAncestry. Malay clinical vocabulary differs from Indonesian on the organs themselves, not just the disease names: the kidney is BUAH PINGGANG in Malaysia and ginjal in Indonesia, an infection is a JANGKITAN and not an infeksi, cancer is KANSER (through English) and not kanker (through Dutch), and abstract nouns take -ITI where Indonesian takes -itas, so obesity is obesiti not obesitas. Everyday Malaysians say darah tinggi for hypertension, kencing manis for diabetes and tibi for tuberculosis, and those forms appear on public health posters beside the clinical ones. DEMAM DENGGI is first among the infections for a reason: dengue is endemic in Malaysia, notifiable, and the largest single infectious-disease burden in the country. Thalassaemia is also unusually common here and is screened for.
 locale: ms
 ---
-Hipertensi
 Darah tinggi
-Penyakit jantung koronari
-Angina pektoris
-Infarksi miokardium
-Fibrilasi atrium
-Kegagalan jantung
-Kardiomiopati
-Miokarditis
-Aterosklerosis
-Urat varikos
-Trombosis vena dalam
-Embolisme pulmonari
-Strok
-Serangan iskemia sementara
+Diabetes jenis 2
+Asma
+Bronkitis akut
+Influenza
 Migrain
-Epilepsi
-Sklerosis multipel
-Penyakit Parkinson
-Demensia
-Neuropati periferi
-Radikulopati
-Degenerasi tulang belakang
-Prolaps diskus intervertebra
+Gangguan kebimbangan umum
+Kemurungan major
 Osteoartritis
 Artritis reumatoid
-Gout
-Osteoporosis
-Skoliosis
-Asma
-Penyakit paru-paru obstruktif kronik
-Bronkitis kronik
-Radang paru-paru
-Pleuritis
-Tibi paru-paru
-Sarkoidosis
-Apnea tidur
-Sinusitis akut
-Tonsilitis kronik
-Otitis media
-Laringitis
-Gastritis
-Ulser peptik
 Penyakit refluks gastroesofagus
+Anemia kekurangan zat besi
+Hipotiroidisme
+Jangkitan saluran kencing
+Radang paru-paru
+Penyakit buah pinggang kronik
+Penyakit jantung koronari
+Fibrilasi atrium
+Kegagalan jantung kronik
+Strok iskemia
+Epilepsi
+Penyakit Parkinson
+Penyakit Alzheimer
+Sklerosis multipel
+Psoriasis
+Dermatitis atopik
+Rinitis alahan
+Sinusitis kronik
+Jangkitan telinga tengah
+Konjunktivitis
+Katarak
+Glaukoma
+Apendisitis
+Kolesistitis
+Divertikulitis
 Sindrom usus rengsa
 Penyakit Crohn
 Kolitis ulseratif
-Penyakit seliak
-Pankreatitis kronik
-Batu karang hempedu
-Kolesistitis
-Hepatitis A
-Hepatitis B
-Hepatitis C
+Hepatitis B kronik
 Sirosis hati
-Penyakit hati berlemak
-Penyakit buah pinggang kronik
-Pielonefritis
-Glomerulonefritis
-Batu karang buah pinggang
-Jangkitan saluran kencing
-Diabetes mellitus jenis 1
-Diabetes mellitus jenis 2
-Kencing manis
-Hipotiroidisme
-Hipertiroidisme
+Pankreatitis akut
+Gout
+Osteoporosis
+Fibromialgia
+Sciatica
+Kegelinciran cakera
+Sindrom terowong karpal
+Tendinitis
+Penyakit pulmonari obstruktif kronik
+Batuk kering
+Leukemia
+Limfoma
+Melanoma
+Hiperlipidemia
 Obesiti
+Apnea tidur obstruktif
+Insomnia
+Gangguan bipolar
+ADHD
+Penyakit seliak
+Lupus eritematosus sistemik
+Vertigo
+Tinitus
+Buasir
+Urat varikos
+Trombosis vena dalam
+Embolisme pulmonari
+Batu karang buah pinggang
+Anemia
+Hipertiroidisme
+Ulser peptik
+Gastritis
+Selulitis berjangkit
+Sepsis
+Kanser payudara
+Gastroenteritis akut
+Kekurangan vitamin D
+Ketidakcukupan vena kronik
+Diabetes jenis 1
+Serangan jantung
+Angina
+Penyakit arteri periferi
+Kardiomiopati dilatasi
+Miokarditis
+Perikarditis
+Endokarditis berjangkit
+Stenosis aorta
+Prolaps injap mitral
+Aneurisma aorta abdomen
+Bronkitis kronik
+Emfisema
+Efusi pleura
+Fibrosis paru-paru
+Hipertensi pulmonari
+Bronkiektasis
+Laringitis
+Faringitis
+Tonsilitis
+Esofagitis
+Esofagus Barrett
+Kanser perut
+Kanser kolorektum
+Fisur dubur
+Penyakit hati berlemak bukan alkohol
+Hepatitis C kronik
+Hernia hiatus
+Hernia inguinal
+Kecederaan buah pinggang akut
+Glomerulonefritis
+Pielonefritis
+Sistitis
+Inkontinensia kencing
+Kanser pundi kencing
+Karsinoma sel buah pinggang
+Serangan iskemia sementara
+Sakit kepala tegang
+Sakit kepala kluster
+Neuralgia trigeminal
+Lumpuh Bell
+Neuropati periferi
+Sindrom kaki resah
+Tremor esensial
+Miastenia gravis
+Sindrom Guillain-Barré
+Gangguan panik
+Gangguan obsesif-kompulsif
+Gangguan tekanan pasca trauma
+Fobia sosial
+Anoreksia nervosa
+Bulimia nervosa
+Skizofrenia
+Ketagihan alkohol
+Tiroiditis Hashimoto
+Penyakit Graves
+Sindrom Cushing
+Penyakit Addison
+Hiperparatiroidisme
 Sindrom metabolik
-Anemia kekurangan zat besi
-Anemia kekurangan B12
-Talasemia
-Demam denggi
-Denggi berdarah
-Malaria
-Demam kepialu
-Leptospirosis
-Chikungunya
-Dermatitis atopik
-Psoriasis
-Ekzema
-Urtikaria
+Kekurangan vitamin B12
+Nodul tiroid
+Trombositopenia
+Polisitemia vera
+Kanser paru-paru
+Kanser pankreas
+Kanser tiroid
+Mieloma multipel
+Bursitis
+Fasciitis plantar
+Koyakan kaf pemutar
+Spondilitis ankilosa
+Skoliosis
+Osteomielitis
 Jerawat
-Rinitis alahan
-Konjungtivitis
-Katarak
-Glaukoma
-Episod kemurungan
-Gangguan keresahan
+Rosacea
+Vitiligo
+Alopesia areata
+Gatal-gatal ruam
+Dermatitis sentuhan
+Kayap
+Kulat kuku
+Degenerasi makula
+Retinopati diabetes
+Pelepasan retina
+Uveitis
+Sindrom mata kering
+Penyakit Ménière
+Kehilangan pendengaran sensorineural
+Polip hidung
+Mononukleosis berjangkit
+Penyakit Lyme
+Malaria
+Demam denggi
+Salmonelosis
+Hepatitis A
+Jangkitan HIV
+Jangkitan herpes simpleks
+Campak
+Cacar air
+Meningitis bakteria
+Ensefalitis virus

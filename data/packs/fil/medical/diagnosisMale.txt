@@ -2,23 +2,33 @@
 description: Diagnosis specific to male anatomy, in Filipino.
 locale: fil
 ---
-Benign prostatic hyperplasia
-Prostatitis
-Kanser sa prostate
+Paglaki ng prostata na hindi kanser
+Pamamaga ng prostata
+Kanser sa prostata
 Kanser sa bayag
-Testicular torsion
-Varicocele
-Hydrocele
-Epididymitis
-Cryptorchidism
-Phimosis
-Balanitis
-Erectile dysfunction
-Peyronie disease
-Kawalan ng katabaan sa lalaki
-Gynecomastia
-Male hypogonadism
-Priapism
-Spermatocele
-Pagkakalbo
-Luslos
+Pagkapilipit ng bayag
+Namamagang ugat sa bayag
+Tubig sa bayag
+Pamamaga ng epididymis
+Hindi bumabang bayag
+Masikip na balat ng ari
+Pamamaga ng ulo ng ari
+Hindi paninigas ng ari
+Sakit na Peyronie
+Pagkabaog ng lalaki
+Lumaking suso ng lalaki
+Kulang na hormone ng lalaki
+Hindi humuhupang paninigas
+Bukol na may semilya sa bayag
+Pagkakalbo ng lalaki
+Luslos sa supot ng bayag
+Kanser sa ari ng lalaki
+Pamamaga ng bayag
+Sikip na daanan ng ihi
+Klinefelter syndrome
+Walang tamud sa semilya
+Mabilis na paglabas
+Naipit na balat ng ari
+Nana sa prostata
+Pamamaga ng supot ng semilya
+Dugo sa semilya

@@ -3,28 +3,38 @@ description: Diagnosis specific to female anatomy, in Filipino. Cervical cancer 
 locale: fil
 ---
 Endometriosis
-Polycystic ovary syndrome
-Myoma sa matris
+Polycystic na obaryo
+Bukol sa matris
 Cyst sa obaryo
 Kanser sa obaryo
-Kanser sa cervix
-Cervical dysplasia
-Cervicitis
-Endometritis
-Kanser sa endometrium
-Pelvic inflammatory disease
-Bacterial vaginosis
-Impeksiyon sa puwerta
-Malakas na regla
+Kanser sa serbiks
+Abnormal na selula sa serbiks
+Pamamaga ng serbiks
+Pamamaga ng loob ng matris
+Kanser sa matris
+Impeksyon sa balakang
+Bacterial na impeksyon sa ari
+Fungus sa ari ng babae
+Sobrang daming regla
 Masakit na regla
-Walang regla
-Preeclampsia
-Dyabetis sa pagbubuntis
-Hyperemesis gravidarum
-Ectopic pregnancy
-Pagdurugo pagkapanganak
-Mastitis
-Fibrocystic breast change
-Menopause syndrome
-Premenstrual dysphoric disorder
-Pagbaba ng matris
+Nawalang regla
+Altapresyon sa pagbubuntis
+Diyabetes sa pagbubuntis
+Matinding pagsusuka sa pagbubuntis
+Buntis sa labas ng matris
+Pagdurugo pagkatapos manganak
+Pamamaga ng suso
+Bukol-bukol na suso
+Sintomas ng menopause
+Matinding sumpong bago magregla
+Bumabang matris
+Adenomyosis
+Pagkapilipit ng obaryo
+Nakaharang na inunan
+Maagang natuklap na inunan
+Kanser sa labas ng ari ng babae
+Kanser sa ari ng babae
+Bartholin cyst
+Tuyong pamamaga ng ari
+Turner syndrome
+Pagkabaog ng babae

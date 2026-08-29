@@ -2,29 +2,39 @@
 description: Diagnosis specific to female anatomy or to pregnancy, in the Indonesian clinical vocabulary Javanese medicine is written in.
 locale: jv
 ---
-kehamilan normal
-hiperemesis gravidarum
-preeklampsia
-eklampsia
-diabetes gestasional
-anemia dalam kehamilan
-abortus spontan
-kehamilan ektopik
-plasenta previa
-endometriosis
-mioma uteri
-kista ovarium
-sindrom ovarium polikistik
-menorrhagia
-dismenore
-amenore
-menopause
-vaginitis
-servisitis
-kanker serviks
-kanker payudara
-kanker ovarium
-mastitis
-infeksi saluran kemih
-osteoporosis pascamenopause
-infertilitas
+Endometriosis
+Sindrom indhung endhog polikistik
+Miom rahim
+Kista indhung endhog
+Kanker indhung endhog
+Kanker gulu rahim
+Displasia gulu rahim
+Radhang gulu rahim
+Radhang lapisan rahim
+Kanker rahim
+Penyakit radhang panggul
+Vaginosis bakteri
+Jamur pawadonan
+Getih haid akeh banget
+Haid lara
+Ora haid
+Preeklampsia
+Diabetes nalika meteng
+Mutah-mutah abot nalika meteng
+Meteng njaba rahim
+Getih metu akeh sawise nglairake
+Radhang payudara
+Payudara kista serat
+Sindrom menopause
+Gangguan atine sadurunge haid
+Rahim mlorot
+Adenomiosis
+Indhung endhog kepuntir
+Ari-ari nutupi dalan lair
+Ari-ari ucul luwih dhisik
+Kanker lambe pawadonan
+Kanker pawadonan
+Kista Bartholin
+Radhang pawadonan garing
+Sindrom Turner
+Gabug wadon

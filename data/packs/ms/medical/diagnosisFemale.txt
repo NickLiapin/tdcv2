@@ -3,28 +3,38 @@ description: Medical diagnosis in Malay that requires female anatomy — it cann
 locale: ms
 ---
 Endometriosis
-Fibroid rahim
-Adenomiosis
-Sista ovari
 Sindrom ovari polisistik
+Fibroid rahim
+Sista ovari
+Kanser ovari
+Kanser serviks
+Displasia serviks
+Servisitis
+Endometritis
+Kanser endometrium
+Penyakit radang pelvis
+Vaginosis bakteria
+Kandidiasis faraj
+Menoragia
 Dismenorea
 Amenorea
-Sindrom prahaid
-Sindrom menopaus
-Vaginitis
-Vaginosis bakteria
-Kandidiasis vulvovagina
-Servisitis
-Erosi serviks
-Displasia serviks
-Kanser serviks
-Kanser ovari
-Kanser endometrium
-Perubahan fibrokistik payudara
-Mastitis
-Kanser payudara
-Kemandulan wanita
-Kehamilan ektopik
-Preeklampsia
+Praeklampsia
 Diabetes semasa hamil
-Kemurungan selepas bersalin
+Hiperemesis gravidarum
+Kehamilan ektopik
+Pendarahan selepas bersalin
+Mastitis
+Penyakit payudara fibrosistik
+Sindrom menopaus
+Gangguan disforik pramenstruasi
+Prolaps rahim
+Adenomiosis
+Kilasan ovari
+Plasenta previa
+Pemisahan plasenta
+Kanser vulva
+Kanser faraj
+Sista Bartholin
+Vaginitis atrofik
+Sindrom Turner
+Kemandulan wanita

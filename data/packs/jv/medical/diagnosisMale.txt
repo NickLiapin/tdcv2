@@ -2,23 +2,33 @@
 description: Diagnosis specific to male anatomy, in the Indonesian clinical vocabulary Javanese medicine is written in.
 locale: jv
 ---
-hiperplasia prostat jinak
-kanker prostat
-prostatitis
-kanker testis
-varikokel
-hidrokel
-epididimitis
-fimosis
-disfungsi ereksi
-infertilitas pria
-hernia inguinalis
-ginekomastia
-torsio testis
-uretritis
-balanitis
-orkitis
-kriptorkidismus
-penyakit Peyronie
-kalvitia androgenik
-gout
+Prostat gedhe ora mbebayani
+Radhang prostat
+Kanker prostat
+Kanker pringsilan
+Pringsilan kepuntir
+Varikokel
+Hidrokel
+Radhang epididimis
+Pringsilan ora mudhun
+Fimosis
+Radhang pucuk palanangan
+Ora bisa ngaceng
+Penyakit Peyronie
+Gabug lanang
+Susu lanang gedhe
+Hormon lanang kurang
+Ngaceng terus ora mari
+Spermatokel
+Gundhul lanang
+Hernia kantong pringsilan
+Kanker palanangan
+Radhang pringsilan
+Saluran uyuh ciyut
+Sindrom Klinefelter
+Ora ana sperma
+Kebacut cepet metu
+Parafimosis
+Prostat abses
+Radhang kantong mani
+Getih ing mani

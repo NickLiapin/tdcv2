@@ -3,80 +3,182 @@ description: Diagnosis, in Filipino. THE PHILIPPINE DISEASE BURDEN IS NOT THE EU
 locale: fil
 ---
 Altapresyon
-Dyabetis uri 2
+Type 2 na diyabetes
 Hika
+Matinding brongkitis
 Trangkaso
-Sipon
-Ubo
-Pulmonya
-Tuberkulosis
-Dengue
-Leptospirosis
-Malarya
-Schistosomiasis
-Tipus
-Amoebiasis
-Cholera
-Impeksiyon sa bituka
-Bulate
-Hepatitis A
-Hepatitis B
-Sirosis ng atay
-Hyperacidity
-Ulser sa tiyan
-Gastritis
-Almuranas
-Bato sa bato
-Impeksiyon sa ihi
-Talamak na sakit sa bato
-Sakit sa puso
-Atake sa puso
-Stroke
-Atrial fibrillation
-Hyperlipidemia
-Anemya
-Kakulangan sa iron
-Goiter
-Hyperthyroidism
-Hypothyroidism
-Sobrang timbang
-Malnutrisyon
-Kakulangan sa bitamina A
-Rayuma
-Osteoarthritis
-Gout
-Osteoporosis
-Sakit sa likod
-Sciatica
 Migraine
+Pangkalahatang pagkabalisa
+Matinding depresyon
+Rayuma sa buto
+Rayumang rheumatoid
+Sakit sa pag-akyat ng asido sa sikmura
+Anemya mula sa kakulangan ng iron
+Mahinang thyroid
+Impeksyon sa daanan ng ihi
+Pulmonya
+Malalang sakit sa bato
+Sakit sa ugat ng puso
+Hindi regular na tibok ng puso
+Malalang pagpalya ng puso
+Stroke mula sa baradong ugat
 Epilepsya
 Sakit na Parkinson
 Sakit na Alzheimer
-Depresyon
-Pagkabalisa
-Insomnia
-Bipolar disorder
-Skisoprenya
+Multiple sclerosis
 Psoriasis
-Eksema
-Buni
-An-an
-Galis
-Taghiyawat
-Bungang-araw
-Cellulitis
-Allergic rhinitis
-Sinusitis
-Otitis media
-Conjunctivitis
+Atopic na pamamaga ng balat
+Sipon mula sa alerhiya
+Malalang sinusitis
+Impeksyon sa gitnang tainga
+Sore eyes
 Katarata
-Glaucoma
-Sakit sa ngipin
-Vertigo
-Tinnitus
-Kanser sa baga
+Glawkoma
+Apendisitis
+Pamamaga ng apdo
+Diverticulitis
+Iritableng bituka
+Sakit na Crohn
+Ulcerative colitis
+Malalang hepatitis B
+Sirosis ng atay
+Matinding pamamaga ng lapay
+Gota
+Marupok na buto
+Fibromyalgia
+Sciatica
+Nausling disc sa gulugod
+Carpal tunnel syndrome
+Pamamaga ng litid
+Malalang bara sa baga
+Tuberkulosis
+Kanser sa dugo
+Lymphoma
+Melanoma
+Mataas na taba sa dugo
+Labis na katabaan
+Paghinto ng paghinga habang natutulog
+Hirap makatulog
+Bipolar na karamdaman
+ADHD
+Sakit na celiac
+Lupus sa buong katawan
+Pagkahilo
+Ugong sa tainga
+Almuranas
+Namamagang ugat sa binti
+Namuong dugo sa malalim na ugat
+Barado ang ugat sa baga
+Bato sa bato
+Anemya
+Sobrang aktibong thyroid
+Ulser sa sikmura
+Pamamaga ng sikmura
+Impeksyon sa ilalim ng balat
+Lason sa dugo
 Kanser sa suso
-Kanser sa atay
-Leukemia
-Sepsis
-COVID-19
+Matinding pagtatae at pagsusuka
+Kulang sa bitamina D
+Malalang panghihina ng ugat
+Type 1 na diyabetes
+Atake sa puso
+Paninikip ng dibdib
+Sakit sa ugat ng paa't kamay
+Lumaking kalamnan ng puso
+Pamamaga ng kalamnan ng puso
+Pamamaga ng balot ng puso
+Impeksyon sa loob ng puso
+Sikip na balbula ng aorta
+Maluwag na mitral valve
+Lumobong aorta sa tiyan
+Malalang brongkitis
+Emphysema
+Tubig sa balot ng baga
+Pagkapilat ng baga
+Altapresyon sa baga
+Lumuwang na daanan ng hangin
+Pamamaga ng lalamunan sa boses
+Pamamaga ng lalamunan
+Pamamaga ng tonsil
+Pamamaga ng lalaugan
+Barrett na lalaugan
+Kanser sa sikmura
+Kanser sa malaking bituka
+Bitak sa puwit
+Mataba ang atay na hindi mula sa alak
+Malalang hepatitis C
+Hiatal hernia
+Luslos sa singit
+Biglaang pinsala sa bato
+Pamamaga ng salaan ng bato
+Impeksyon sa bato
+Pamamaga ng pantog
+Hindi mapigil ang pag-ihi
+Kanser sa pantog
+Kanser sa selula ng bato
+Panandaliang bara ng dugo sa utak
+Sakit ng ulo mula sa tensyon
+Cluster na sakit ng ulo
+Matinding kirot ng nerbiyo sa mukha
+Pagkaparalisa ng mukha
+Sakit sa nerbiyo ng paa't kamay
+Hindi mapakaling binti
+Likas na panginginig
+Myasthenia gravis
+Guillain-Barré syndrome
+Panic na karamdaman
+Obsessive-compulsive na karamdaman
+Stress mula sa trauma
+Takot sa lipunan
+Anorexia nervosa
+Bulimia nervosa
+Schizophrenia
+Pagkalulong sa alak
+Hashimoto thyroiditis
+Sakit na Graves
+Cushing syndrome
+Sakit na Addison
+Sobrang aktibong parathyroid
+Metabolic syndrome
+Kulang sa bitamina B12
+Bukol sa thyroid
+Kulang na platelet
+Sobrang daming pulang selula ng dugo
+Kanser sa baga
+Kanser sa lapay
+Kanser sa thyroid
+Multiple myeloma
+Pamamaga ng bursa sa kasukasuan
+Pamamaga ng talampakan
+Punit na kalamnan ng balikat
+Pagdirikit ng buto sa gulugod
+Baluktot na gulugod
+Impeksyon sa buto
+Tagihawat
+Rosacea
+Puting batik sa balat
+Pagkalagas ng buhok nang pabilog
+Pantal-pantal
+Pamamaga ng balat sa nadikitan
+Kulebra
+Fungus sa kuko
+Pagkasira ng gitna ng paningin
+Sira ang retina mula sa diyabetes
+Natuklap na retina
+Pamamaga ng gitnang bahagi ng mata
+Tuyong mata
+Sakit na Ménière
+Pagkabingi mula sa nerbiyo
+Sagabal na laman sa ilong
+Impeksyong mononucleosis
+Sakit na Lyme
+Malarya
+Dengue
+Impeksyong salmonella
+Hepatitis A
+Impeksyong HIV
+Impeksyong herpes simplex
+Tigdas
+Bulutong-tubig
+Bacterial na pamamaga ng balot ng utak
+Viral na pamamaga ng utak
