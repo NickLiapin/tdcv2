@@ -2,92 +2,183 @@
 description: Medical diagnosis (Welsh), as NHS Wales writes them bilingually. Two entries are here because of Welsh industrial history rather than to fill the list: NIWMOCONIOSIS, coalworkers' pneumoconiosis, has an ordinary Welsh name — CLEFYD Y LLWCH, "the disease of the dust" — because it was the commonest occupational killer in the south Wales coalfield for a century, and silicosis did the same in the slate quarries of the north.
 locale: cy
 ---
-Diabetes math 1
-Diabetes math 2
-Cyn-ddiabetes
 Pwysedd gwaed uchel
-Colesterol uchel
-Clefyd y galon
-Trawiad ar y galon
-Methiant y galon
-Ffibriliad atrïaidd
-Angina
-Strôc
-Pwl isgemig dros dro
-Clefyd rhydwelïau ymylol
-Thrombosis gwythiennau dwfn
-Emboledd ysgyfeiniol
+Diabetes math 2
 Asthma
-COPD
-Broncitis
-Niwmonia
-Ffibrosis systig
-Twbercwlosis
-Niwmoconiosis
-Clefyd y llwch
-Silicosis
-Apnoea cwsg
+Broncitis acíwt
 Ffliw
-COVID-19
-Canser yr ysgyfaint
-Canser y fron
-Canser y coluddyn
-Canser y prostad
-Canser y croen
-Melanoma
-Lewcemia
-Lymffoma
-Anemia
-Anemia diffyg haearn
-Arthritis
+Meigryn
+Anhwylder gorbryder cyffredinol
+Iselder difrifol
 Osteoarthritis
 Arthritis gwynegol
-Osteoporosis
-Gowt
-Ffibromyalgia
-Poen cefn cronig
-Disg llithredig
-Clefyd Alzheimer
-Dementia
-Clefyd Parkinson
-Epilepsi
-Meigryn
-Sglerosis ymledol
-Clefyd niwronau motor
-Niwropathi
-Iselder
-Gorbryder
-Anhwylder deubegwn
-Sgitsoffrenia
-Anhwylder straen wedi trawma
-ADHD
-Awtistiaeth
-Dyslecsia
-Clefyd coeliag
-Clefyd Crohn
-Colitis briwiol
-Syndrom coluddyn llidus
-Wlser stumog
-Adlif asid
-Clefyd yr afu brasterog
-Hepatitis
-Sirosis
-Cerrig bustl
-Pancreatitis
-Clefyd yr arennau cronig
-Cerrig yr arennau
-Haint y llwybr wrinol
-Gorthyroidedd
+Clefyd adlif gastro-oesoffagaidd
+Anemia diffyg haearn
 Isthyroidedd
+Haint y llwybr wrinol
+Niwmonia
+Clefyd cronig yr arennau
+Clefyd coronaidd y galon
+Ffibriliad atrïaidd
+Methiant cronig y galon
+Strôc isgemig
+Epilepsi
+Clefyd Parkinson
+Clefyd Alzheimer
+Sglerosis ymledol
 Soriasis
-Ecsema
-Wrticaria
-Clefyd Lyme
+Dermatitis atopig
+Rhinitis alergaidd
+Sinwsitis cronig
+Llid y glust ganol
+Llid yr amrannau
 Cataract
 Glawcoma
-Dirywiad macwlaidd
-Colli clyw
-Tinitws
-Clefyd Ménière
+Llid y pendics
+Llid coden y bustl
+Difertigwlitis
+Syndrom coluddyn llidus
+Clefyd Crohn
+Colitis briwiol
+Hepatitis B cronig
+Sirosis yr afu
+Pancreatitis acíwt
+Gowt
+Osteoporosis
+Ffibromyalgia
+Sciatica
+Disg lithredig
+Syndrom twnnel carpal
+Tendinitis
+Clefyd rhwystrol cronig yr ysgyfaint
+Twbercwlosis
+Lewcemia
+Lymffoma
+Melanoma
+Hyperlipidemia
 Gordewdra
+Apnoea cwsg rhwystrol
+Anhunedd
+Anhwylder deubegynol
+ADHD
+Clefyd seliag
+Lwpws erythematosus systemig
+Pendro
+Tinitws
+Clwyf y marchogion
+Gwythiennau chwyddedig
+Thrombosis gwythiennau dwfn
+Emboledd ysgyfeiniol
+Cerrig arennau
+Anemia
+Gorthyroidedd
+Wlser peptig
+Gastritis
+Llid isgroenol heintus
+Sepsis
+Canser y fron
+Gastroenteritis acíwt
 Diffyg fitamin D
+Annigonolrwydd gwythiennol cronig
+Diabetes math 1
+Cnawdnychiad myocardaidd
+Angina
+Clefyd rhydwelïol perifferol
+Cardiomyopathi ymledol
+Myocarditis
+Pericarditis
+Endocarditis heintus
+Culhad aortig
+Prolaps y falf feitral
+Ymlediad aorta'r abdomen
+Broncitis cronig
+Emffysema
+Trallwysiad plewrol
+Ffibrosis yr ysgyfaint
+Gorbwysedd ysgyfeiniol
+Bronciectasis
+Laryngitis
+Ffaryngitis
+Llid y tonsiliau
+Oesoffagitis
+Oesoffagws Barrett
+Canser y stumog
+Canser colorefrol
+Hollt refrol
+Clefyd afu brasterog analcoholaidd
+Hepatitis C cronig
+Torgest hiatws
+Torgest y forddwyd
+Anaf acíwt i'r arennau
+Glomerwloneffritis
+Pyeloneffritis
+Llid y bledren
+Anymataliaeth wrinol
+Canser y bledren
+Carsinoma celloedd arennol
+Pwl isgemig dros dro
+Cur pen tyndra
+Cur pen clwstwr
+Niwralgia'r trigeminws
+Parlys Bell
+Niwropathi perifferol
+Syndrom coesau aflonydd
+Cryndod hanfodol
+Myasthenia gravis
+Syndrom Guillain-Barré
+Anhwylder panig
+Anhwylder gorfodaeth obsesiynol
+Anhwylder straen wedi trawma
+Ffobia cymdeithasol
+Anorecsia nerfosa
+Bwlimia nerfosa
+Sgitsoffrenia
+Dibyniaeth ar alcohol
+Thyroiditis Hashimoto
+Clefyd Graves
+Syndrom Cushing
+Clefyd Addison
+Gorbarathyroidedd
+Syndrom metabolaidd
+Diffyg fitamin B12
+Nodwl thyroid
+Thrombocytopenia
+Polycythemia vera
+Canser yr ysgyfaint
+Canser y pancreas
+Canser y thyroid
+Myeloma lluosog
+Bwrsitis
+Ffasgitis gwadnol
+Rhwyg cyffion cylchdroi
+Sbondylitis ymasiol
+Sgoliosis
+Osteomyelitis
+Acne
+Rosasea
+Fitiligo
+Alopesia areata
+Llid y croen
+Dermatitis cyffwrdd
+Yr eryr
+Ffwng ewinedd
+Dirywiad macwlaidd
+Retinopathi diabetig
+Datgysylltiad y retina
+Wfeitis
+Syndrom llygaid sych
+Clefyd Ménière
+Colled clyw synhwyraidd
+Polypau trwynol
+Mononwcleosis heintus
+Clefyd Lyme
+Malaria
+Twymyn dengue
+Salmonelosis
+Hepatitis A
+Haint HIV
+Haint herpes simplex
+Y frech goch
+Brech yr ieir
+Llid yr ymennydd bacterol
+Enseffalitis firaol

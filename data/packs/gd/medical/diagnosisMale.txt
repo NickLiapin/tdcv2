@@ -2,21 +2,33 @@
 description: Diagnosis specific to male patients. AILLSE plus the organ in the genitive is the Gaelic pattern; the internationally named conditions keep their names.
 locale: gd
 ---
+Meudachadh neo-chronail na prostait
+Prostataìteas
 Aillse na prostait
-Fàs-mhòr na prostait
-Prostatitis
-Aillse nam magairlean
-Toinneamh na magairle
-Hydrocele
+Aillse magairle
+Toinneamh magairle
 Varicocele
-Epididymitis
-Neo-chomas gnè
-Neo-thorachas fireann
-Hypogonadism
-Gynecomastia
+Hydrocele
+Epididymaìteas
+Magairlean gun teàrnadh
 Phimosis
-Balanitis
-Maoile fhireann
-Galar Peyronie
-Aillse a' bhuill-ghine
-Fàilligeadh testosterone
+Balanaìteas
+Mì-ghnìomhachd èirigh
+Galar Pheyronie
+Neo-thorrachas fireann
+Gynecomastia
+Hypogonadachd fhireann
+Priapism
+Spermatocele
+Maoile pàtran fireann
+Màm an sporain
+Aillse a' bhuill
+Orchaìteas
+Cumhangachadh urethra
+Syndrome Klinefelter
+Azoospermia
+Sileadh ro-luath
+Paraphimosis
+Neasgaid na prostait
+Èisleach nam poca sìl
+Fuil san t-sìol

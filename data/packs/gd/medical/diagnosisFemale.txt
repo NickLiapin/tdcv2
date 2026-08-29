@@ -2,28 +2,39 @@
 description: Diagnosis specific to female patients. MACHLAG is the womb and UGHAG the ovary, both old Gaelic words, so those compounds are native rather than coined.
 locale: gd
 ---
-Aillse a' bhroillich
-Aillse na machlaig
-Aillse nan ughagan
-Aillse amhach na machlaig
 Endometriosis
-Syndrome nan ughagan ioma-chisteach
-Fibroidean machlaig
-Cyst ughaige
-Stad-mìosaich
-Neo-thorachas boireann
-Torrachas iomrallach
-Breith an-abaich
-Preeclampsia
-An tinneas-siùcair torrachais
-Trom-inntinn iar-bhreith
-Mastitis
-Vaginitis
-Tuiteam na machlaig
-Amenorrhoea
-Dysmenorrhoea
-Anemia iarainn-dhìth
-Cnàmhan brisg iar-mhìosaich
-Hyperemesis gravidarum
+Syndrome ugh-lann ioma-chisteach
+Fibroidean na machlaig
+Ciste ugh-lainn
+Aillse ugh-lainn
+Aillse amhach na machlaig
+Dysplasia ceirbheacsach
+Ceirbhicìteas
+Endometraìteas
+Aillse endometrial
+Galar sèididh na maodail
 Vaginosis bacteriach
-Cystitis
+Candidiasis pit-ghinidh
+Menorrhagia
+Dysmenorrhea
+Amenorrhea
+Ro-eclampsia
+Tinneas siùcair torrachais
+Hyperemesis gravidarum
+Torrachas ectopach
+Sileadh fala an dèidh breith
+Mastaìteas
+Galar fibro-chisteach a' bhroillich
+Syndrome stad na mìosach
+Eas-òrdugh diosforach ro-mhìosail
+Prolapse na machlaig
+Adenomyosis
+Toinneamh ugh-lainn
+Placenta praevia
+Dealachadh na placenta
+Aillse a' phit-ghinidh
+Aillse na faighe
+Ciste Bhartholin
+Vaginaìteas seacte
+Syndrome Turner
+Neo-thorrachas boireann

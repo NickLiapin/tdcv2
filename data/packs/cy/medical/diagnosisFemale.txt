@@ -5,26 +5,36 @@ locale: cy
 Endometriosis
 Syndrom ofari polysystig
 Ffibroidau'r groth
-Coden ar yr ofari
+Systiau ofari
 Canser yr ofari
 Canser ceg y groth
-Dysplasia ceg y groth
-Serfigitis
+Dysplasia serfigol
+Serfisitis
 Endometritis
-Canser yr endometriwm
+Canser endometraidd
 Clefyd llidiol y pelfis
-Faginosis bacteriol
-Candidiasis y fagina
-Mislif trwm
-Poen mislif
-Diffyg mislif
+Faginosis bacterol
+Candidiasis y wain
+Menorragia
+Dysmenorrhea
+Amenorrhea
 Cyn-eclampsia
-Diabetes yn ystod beichiogrwydd
-Chwydu gormodol mewn beichiogrwydd
+Diabetes beichiogrwydd
+Hyperemesis gravidarum
 Beichiogrwydd ectopig
-Gwaedu ar ôl geni
+Gwaedlif ôl-enedigol
 Mastitis
-Newid ffibrocystig y fron
+Clefyd ffibrosystig y fron
 Syndrom y menopos
-Anhwylder dysfforig cyn-fislifol
-Cwymp y groth
+Anhwylder dysfforig cyn mislif
+Prolaps y groth
+Adenomyosis
+Dirdro'r ofari
+Placenta praevia
+Ymwahaniad y brych
+Canser y fwlfa
+Canser y wain
+Systiau Bartholin
+Faginitis atroffig
+Syndrom Turner
+Anffrwythlondeb benywaidd

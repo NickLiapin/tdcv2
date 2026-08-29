@@ -2,80 +2,183 @@
 description: Diagnosis (Irish clinical terminology)
 locale: ga
 ---
-hipirtheannas
-diaibéiteas mellitus cineál 2
-diaibéiteas mellitus cineál 1
-asma
-galar scamhógach bacainneach ainsealach
-galar artaire corónaí
-cliseadh croí plódaitheach
-fibrileacht atriach
-stróc
-mígréin
-titimeas
-galar Parkinson
-galar Alzheimer
-ilscléaróis
-dúlagar mór
-neamhord imní ginearálaithe
-scitsifréine
-neamhord délchodach
-neamhord struis iarthrámaigh
-oistéaairtríteas
-airtríteas réamatóideach
-oistéapóróis
-gúta
-lúpas
-soiriáis
-eachma
-aicne
-róis
-urtacáire
-deirmitíteas teagmhála
-meileanóma
-carcanóma cille basaí
-ailse bhrollaigh
-ailse scamhóg
-ailse chóilín
-ailse phróstatach
-leoicéime
-liomfóma
-anaeime easnaimh iarainn
-haemacrómatóis
-fiobróis chodánach
-galar céiliach
-galar Crohn
-coilíteas othrasach
-siondróm putóige greannaithe
-galar athshrutha gaistreisifigigh
-othras peipteach
-clocha domlais
-pancraitíteas
-hepatitis
-cioróis
-galar duán ainsealach
-clocha duán
-ionfhabhtú conaire fuail
-hipiteoróideacht
-hipearteoróideacht
-galar Graves
-teoróidíteas Hashimoto
-murtall
-apnae codlata
-niúmóine
-broincíteas
-eitinn
-sinuisíteas
-aimeagdalaíteas
-otitis media
-cataracht
-glácóma
-meathlú maicealach
-sindróm chanáil an charpais
-leithscar diosca
-scoilióis
-briseadh
-ainéime
-hipirlipidéime
-galar soithíoch imeallach
-féitheacha borrtha
+Brú fola ard
+Diaibéiteas cineál 2
+Asma
+Broincíteas géar
+Fliú
+Mígréin
+Neamhord imní ginearálaithe
+Dúlagar mór
+Oistéa-airtríteas
+Airtríteas réamatóideach
+Galar aife gastra-éasafagaí
+Anaemacht easpa iarainn
+Hipitíoróideachas
+Ionfhabhtú an chonair fuail
+Niúmóine
+Galar ainsealach na nduán
+Galar corónach croí
+Fibrileacht aitriamach
+Cliseadh croí ainsealach
+Stróc isceimeach
+Titimeas
+Galar Parkinson
+Galar Alzheimer
+Ilscléaróis
+Psóiríáis
+Deirmitíteas atópach
+Riníteas ailléirgeach
+Sínísíteas ainsealach
+Athlasadh na cluaise láir
+Toinníteas súl
+Fionn na súl
+Glácóma
+Aipindicíteas
+Athlasadh an mháilín domlais
+Diverticulíteas
+Siondróm putóige greannaithe
+Galar Crohn
+Coilíteas othrasach
+Heipitíteas B ainsealach
+Cioróis an ae
+Paincréitíteas géar
+Gúta
+Oistéaporóis
+Fibrimiailge
+Sciatica
+Diosca sciorrtha
+Siondróm tollán carpach
+Teanndinníteas
+Galar scamhógach bacainneach ainsealach
+Eitinn
+Leoicéime
+Liomfóma
+Meileanóma
+Hipirlipidéime
+Murtall
+Apnoea codlata bacainneach
+Neamhchodladh
+Neamhord dépholach
+ADHD
+Galar céiliach
+Lúpas eiritéamatach sistéamach
+Meadhrán
+Tinníteas
+Fíocas
+Féitheacha borrtha
+Trombóis féitheacha domhain
+Eambólacht scamhógach
+Clocha duáin
+Anaemacht
+Hipirtíoróideachas
+Othras peipteach
+Gaistríteas
+Ceallailíteas ionfhabhtaíoch
+Seipsis
+Ailse chíche
+Gaistreintríteas géar
+Easpa vitimín D
+Neamhdhóthanacht féitheach ainsealach
+Diaibéiteas cineál 1
+Taom croí
+Aingíne
+Galar artairiach forimeallach
+Cairdimiopaite leata
+Miócairdíteas
+Peireacairdíteas
+Eindeacairdíteas ionfhabhtaíoch
+Caolú aortach
+Titim na comhla mítrí
+Ainéaras aorta bhoilg
+Broincíteas ainsealach
+Eimfiséime
+Eisiltiú pleorach
+Fiobróis scamhógach
+Hipirtheannas scamhógach
+Broincieachtáis
+Larainngíteas
+Farainngíteas
+Toinsilíteas
+Éasafaigíteas
+Éasafagas Barrett
+Ailse ghoile
+Ailse cholaireicteach
+Scoilt anasach
+Galar ae shailleach neamh-alcólach
+Heipitíteas C ainsealach
+Maidhm hiatais
+Maidhm bléine
+Gortú géar duáin
+Glóimearúilinifríteas
+Pióilinifríteas
+Cistíteas
+Neamhchoinneálacht fuail
+Ailse lamhnáin
+Carcanóma duánchille
+Ionsaí isceimeach neamhbhuan
+Tinneas cinn teannais
+Tinneas cinn braisle
+Néarailge an trigeiminis
+Pairilis Bell
+Néaraipite fhorimeallach
+Siondróm na gcos míshuaimhneach
+Creathán riachtanach
+Miasteinia gravis
+Siondróm Guillain-Barré
+Neamhord scaoill
+Neamhord obséiseach-áiteach
+Neamhord struis iarthrámaigh
+Fóibe shóisialta
+Anoireicse néaróiseach
+Búilíme néaróiseach
+Scitsifréine
+Spleáchas ar alcól
+Tíoróidíteas Hashimoto
+Galar Graves
+Siondróm Cushing
+Galar Addison
+Hipearpharaitíoróideachas
+Siondróm meitibileach
+Easpa vitimín B12
+Nódúil tíoróideach
+Trombaicítipéine
+Polaicitéime vera
+Ailse scamhóg
+Ailse phaincréis
+Ailse thíoróideach
+Miolóma iolrach
+Bursíteas
+Faiscíteas plantach
+Réabadh mhufta an rothlaithe
+Spondailíteas ancalóiseach
+Scolóis
+Oistéimiailíteas
+Aicne
+Rósaicne
+Vitiligo
+Alopecia areata
+Aodh thochais
+Deirmitíteas teagmhála
+Deir
+Fungas ingne
+Meathlú macúlach
+Reitineapaite dhiaibéiteach
+Scaradh reitine
+Úivéíteas
+Siondróm na súl tirim
+Galar Ménière
+Caillteanas éisteachta céadfach-néarach
+Polaipí sróine
+Mónainúicléóis ionfhabhtaíoch
+Galar Lyme
+Maláire
+Fiabhras dengue
+Salmonellóis
+Heipitíteas A
+Ionfhabhtú VEID
+Ionfhabhtú heirpéas simplex
+Bruitíneach
+Deilgneach
+Meiningíteas baictéarach
+Einceifilíteas víreasach

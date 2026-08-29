@@ -2,11 +2,11 @@
 description: Medical diagnosis that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
 locale: cy
 ---
-Chwyddiant anfalaen y prostad
+Chwyddiant anfalaen y brostad
 Prostatitis
-Canser y prostad
+Canser y brostad
 Canser y ceilliau
-Dirdroad y gaill
+Dirdro'r gaill
 Faricosel
 Hydrosel
 Epididymitis
@@ -18,7 +18,17 @@ Clefyd Peyronie
 Anffrwythlondeb gwrywaidd
 Gynecomastia
 Hypogonadedd gwrywaidd
-Priapedd
+Priapism
 Spermatosel
 Moelni patrwm gwrywaidd
-Torgest y sgrotwm
+Torgest y ceillgwd
+Canser y pidyn
+Orcitis
+Culhad yr wrethra
+Syndrom Klinefelter
+Azoospermia
+Alldaflu cynamserol
+Paraffimosis
+Crawniad y brostad
+Llid y chwarennau semenol
+Gwaed yn y semen

@@ -2,29 +2,39 @@
 description: Diagnosis specific to female patients (Irish)
 locale: ga
 ---
-endaiméadraíos
-sindróm na n-oibríní ilchisteacha
-fiobróidigh útaracha
-meanapás
-réamh-mheanapás
-dismeanoiré
-aiméanoiré
-meanoraiche
-ailse bhrollaigh
-ailse cheirbheacsach
-ailse ubhagáin
-ailse útarach
-cisteanna ubhagáin
-galar athlastach pheilbheach
-vaigíníteas
-candaidiáis vaigíneach
-prolapsa útarach
-toircheas eachtópach
-réamheicleampsacht
-diaibéiteas iompair
-hipearmheisis toirchis
-dúlagar iarbhreithe
-maistíteas
-neamhthorthúlacht bhaineann
-sindróm réamh-mhíosta
-oistéapóróis iarmheanapásach
+Eindiméitríóis
+Siondróm ubhagáin pholaicisteach
+Fiobróidigh útarais
+Cist ubhagáin
+Ailse ubhagáin
+Ailse cheirbheacs
+Displaise cheirbheacsach
+Ceirbhicíteas
+Eindiméitríteas
+Ailse eindiméitriamach
+Galar athlastach peilbheach
+Vaigineoís bhaictéarach
+Candidíáis faighne
+Meinearaige
+Dismeinearaige
+Aimeinearaige
+Réamh-eaclaimpse
+Diaibéiteas iompair clainne
+Hipiréimeasas gravidarum
+Toircheas eachtópach
+Fuiliú iarbhreithe
+Maistíteas
+Galar fiobracisteach cíche
+Siondróm sos míostraithe
+Neamhord disfóireach réamh-mhíostraithe
+Titim útarais
+Adéineamióis
+Casadh ubhagáin
+Placenta praevia
+Scaradh broghais
+Ailse bholba
+Ailse faighne
+Cist Bartholin
+Faighníteas atrófach
+Siondróm Turner
+Neamhthorthúlacht baineann

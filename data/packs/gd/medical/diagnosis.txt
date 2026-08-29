@@ -2,84 +2,183 @@
 description: Diagnosis. Read the first block before using this list: MANY GAELIC DISEASE NAMES ARE LEXICALISED WITH THEIR ARTICLE and are not words without it — A' CHUING is asthma, A' CHAITHEAMH consumption, A' BHUIDHEACH jaundice, AN CNATAN the common cold, AN T-TRIUTHACH whooping cough, A' GHRIÙTHRACH measles, AN LÒINIDH rheumatism, AN TINNEAS-SIÙCAIR diabetes. A config that strips the article to make the list uniform destroys the word. That old stratum is followed by transparent compounds built on AILLSE (cancer), GALAR (disease), FÀILLIGEADH (failure) and CLACH (stone), which is how Gaelic names a condition it has no single word for, and finally by the eponyms and international terms, kept exactly as written because they are names rather than descriptions.
 locale: gd
 ---
-An tinneas-siùcair
-A' chuing
-A' chaitheamh
-A' bhuidheach
-An cnatan
-An cnatan mòr
-A' ghriùthrach
-An t-triuthach
-A' bhreac-òtraich
-An teasach
-Am buinneach
-An lòinidh
-An tinneas-tuiteamach
-An t-sac
 Bruthadh-fala àrd
-Grèim-cridhe
-Stròc
-Galar-cridhe corònach
-Fàilligeadh-cridhe
-Sgleog-cridhe
-Àrd-lipideachd
-At nan alt
-Airtritis rheumatoid
-Cnàmhan brisg
-Aillse
-Aillse an sgamhain
-Aillse a' bhroillich
-Aillse a' chaolain
-Aillse na prostait
-Aillse na goile
-Aillse a' chraicinn
-Bàn-ghalar
-Lymphoma
-Melanoma
-Trom-inntinn
-Iomagain choitcheann
-Galar dà-phòlach
-Sgitsifreinia
-Galar itheannaich
-Galar iar-thrauma
-Miogràn
+Tinneas an t-siùcair seòrsa 2
+A' chuing
+Broncaìteas geur
+An cnatan mòr
+Migrein
+Eas-òrdugh iomagain choitcheann
+Trom-inntinn mhòr
+Osteo-airtriteas
+Airtriteas reumatach
+Galar ath-shruthadh gastro-esofagach
+Cion-fala dìth iarainn
+Hipo-thioroideachd
+Gabhaltachd slighe an fhuail
+Grèim mòr
+Galar dubhaig leantainneach
+Galar cridhe coronach
+Fibrileachadh atriach
+Fàilligeadh cridhe leantainneach
+Stròc isgeimeach
+An tuiteamas
+Galar Pharkinson
 Galar Alzheimer
-Galar Parkinson
-Sglerosis Ioma-fhillte
-Nearbh-ghalar iomallach
-Galar-àirne leantainneach
-Clach-àirne
-Clach-dhomblais
-Fàilligeadh-àirne obann
-Cnàmh-lot
-Losgadh-bràghad
-Galar Crohn
-Colitis Ulcerach
-Caolan Frionasach
-Cirrhosis an grùthain
-Galar Coeliac
-Neo-fhulangas lactois
-Fàireag-sgòrnain fo-ghnìomhach
-Fàireag-sgòrnain os-ghnìomhach
-Galar-sgamhain bacte leantainneach
-Bronchitis
-Niumonia
-Sinusitis
-Amhach ghoirt streptococcach
-Cluas ghoirt
+Ioma-sglerois
 Psoriasis
-Deirmeatiteas atopach
+Dearmataìteas atopach
+Rinìteas aileirgeach
+Sinusaìteas leantainneach
+Èisleach na cluaise mheadhanaich
+Conjunctivitis
+Cataract
+Glàcoma
+Aipeindicìteas
+Èisleach a' bhalgain-dhomblais
+Diverticulìteas
+Syndrome caolan frionasach
+Galar Chrohn
+Colìteas othrasach
+Heapataìteas B leantainneach
+Ciorrhois a' ghrùthain
+Pancreataìteas geur
+An gùta
+Osteoporosis
+Fibromyalgia
+Sciatica
+Clàr-droma air sgiorradh
+Syndrome tunail charpail
+Teanndanaìteas
+Galar sgamhain bacach leantainneach
+A' chaitheamh
+Leucemia
+Liomfoma
+Melanoma
+Hyperlipidemia
+Reamhrachd
+Apnea cadail bacach
+Cion-cadail
+Eas-òrdugh dà-phòlach
+ADHD
+Galar ceiliach
+Lupus erythematosus siostamach
+Tuainealaich
+Gliongartaich sna cluasan
+Neasgaidean-fala
+Cuislean borrach
+Trombois dhomhainn nan cuislean
+Emboileachd sgamhain
+Clachan dubhaig
+Cion-fala
+Hyper-thioroideachd
+Othras peiptach
+Gastraìteas
+Ceallalaìteas gabhaltach
+Sepsis
+Aillse broilleach
+Gastro-enteraìteas geur
+Dìth vitimín D
+Neo-fhoghainteachd chuislean leantainneach
+Tinneas an t-siùcair seòrsa 1
+Grèim cridhe
+Angina
+Galar artairidhean iomallach
+Cairdiomiopataidh sgaoilte
+Miocairdìteas
+Pearagairdìteas
+Endocairdìteas gabhaltach
+Cumhangachadh aortach
+Prolapse na comhla mitral
+Aneurysm aorta na broinne
+Broncaìteas leantainneach
+Emphysema
+Sileadh pleurach
+Fibrois sgamhain
+Bruthadh-fala àrd sgamhain
+Bronchiectasis
+Larynxaìteas
+Pharynxaìteas
+Èisleach nan tonsailean
+Esofagaìteas
+Esofagas Bharrett
+Aillse stamaig
+Aillse coloireactach
+Sgàineadh anasach
+Galar grùthan sailleach neo-dheochach
+Heapataìteas C leantainneach
+Màm hiatas
+Màm loch-bhlèin
+Dochann geur dubhaig
+Glomerulonephritis
+Pyelonephritis
+Cystaìteas
+Neo-chumail fuail
+Aillse an aotromain
+Carcinoma cheallan dubhaig
+Ionnsaigh isgeimeach sealach
+Ceann goirt teannachaidh
+Ceann goirt bagaid
+Neuralgia an trigeminus
+Pairilis Bell
+Neuropataidh iomallach
+Syndrome nan casan an-fhoiseil
+Crith riatanach
+Myasthenia gravis
+Syndrome Guillain-Barré
+Eas-òrdugh clisgidh
+Eas-òrdugh beachd-èiginneach
+Eas-òrdugh cuideim an dèidh leòin
+Fòbia sòisealta
+Anorexia nervosa
+Bulimia nervosa
+Sgitsofrèinia
+Eisimeileachd air deoch-làidir
+Tioroidìteas Hashimoto
+Galar Graves
+Syndrome Chushing
+Galar Addison
+Hyper-pharathioroideachd
+Syndrome meatabolach
+Dìth vitimín B12
+Nodal tioroideach
+Thrombocytopenia
+Polycythemia vera
+Aillse sgamhain
+Aillse a' bhrisgein-mhilis
+Aillse tioroideach
+Myeloma iomadach
+Bursaìteas
+Fasciaìteas bonn na coise
+Reubadh cufa cuairteachaidh
+Spondylaìteas ancylosach
+Scoliosis
+Osteomyelaìteas
 Guirean
 Rosacea
-Eczema
-Anemia iarainn-dhìth
-Gùt
-Glaucoma
-Sgleò-sùla
-Fibrosis Cistach
-Haemochromatosis oighreachail
-Galar Wilson
-Sciatica
-Clàr-dhruim sgàinte
-Syndrome Trannsa a' Chàrpais
-Tinneas na mara
+Vitiligo
+Alopecia areata
+Broth feanntagach
+Dearmataìteas suathaidh
+An deir
+Fungas ìnean
+Crìonadh macular
+Reitineopataidh an t-siùcair
+Dealachadh an reitine
+Uveaìteas
+Syndrome nan sùilean tioram
+Galar Ménière
+Call èisteachd mothachail-nearbhach
+Poilipean sròine
+Mononucleosis gabhaltach
+Galar Lyme
+Malaria
+Fiabhras dengue
+Salmonellosis
+Heapataìteas A
+Gabhaltachd HIV
+Gabhaltachd herpes simplex
+A' ghriùthlach
+A' bhreac-òtraich
+Meiningìteas bacteriach
+Encephalaìteas bhìorasach

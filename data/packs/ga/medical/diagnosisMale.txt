@@ -2,23 +2,33 @@
 description: Diagnosis specific to male patients (Irish)
 locale: ga
 ---
-hipearpláis neamhurchóideach próstataigh
-ailse phróstatach
-próstatíteas
-ailse na magairlí
-casadh magairle
-eipidideimíteas
-hidriséile
-vairicséile
-neamhábaltacht éireachtála
-hipeagónadachas fireann
-gínéacomaistia
-fimóis
-parafimóis
-galar Peyronie
-neamhthorthúlacht fhireann
-azoospermia
-hearnia inguineach
-cripteorcachas
-ailse an bhod
-maoile fireann
+Hipearpláis neamhurchóideach próstataigh
+Próstaitíteas
+Ailse phróstataigh
+Ailse mhagairle
+Casadh magairle
+Varicocele
+Hidricéile
+Eipididimíteas
+Magairlí gan tuirlingt
+Fíomóis
+Balaıníteas
+Mífheidhm adharcach
+Galar Peyronie
+Neamhthorthúlacht fireann
+Ginéacómaistia
+Hipeagónadachas fireann
+Priapas
+Spearmaitéile
+Maol patrún fireann
+Maidhm scrataim
+Ailse bhoid
+Oirchíteas
+Caolú úiréadrach
+Siondróm Klinefelter
+Asóspeirme
+Eisileadh roimh am
+Parafíomóis
+Easpa phróstataigh
+Athlasadh na veisicíní seamhan
+Fuil sa seamhan
