@@ -32,6 +32,20 @@ page — is tracked in that implementation's own changelog:
   pack words exactly as the env's does, `TDC153` accepts what the packs actually know, and
   `TDC272` warns only for a locale that truly carries no date words — Bambara, not Afrikaans.
 
+<!-- covers: medical diagnosis expansion -->
+
+- **The medical lists grew until the demo's 8,000,000 rows exist — in every one of the 86
+  languages.** The English pack's `medical/diagnosis.txt` went 78→180, `diagnosisMale.txt`
+  20→30, `diagnosisFemale.txt` 26→36, all real, common, clinically plain conditions. The
+  binding constraint was never the combination count (~200M) but the DRAW under Census
+  weights: the most common male first name takes 3.15% of 4,000,000 male rows — 126,000
+  copies, each needing a distinct (surname, diagnosis) partner — against 98,000 partners the
+  old lists offered. At 210 male-visible diagnoses the demo renders 8,000,000 rows, each one
+  verified distinct. Then the same 180/30/36 set was translated into the other 85 locales,
+  line for line in the reference's order — from Swedish to Uyghur — so the capacity holds in
+  whatever language the config asks for. `diagnosisByAncestry/` (12 ancestry groups) already
+  shipped everywhere and is untouched.
+
 <!-- covers: svg shape primitives -->
 
 - **`<rect>`, `<circle>` and `<ellipse>` are read from an SVG — as the docs always promised.**

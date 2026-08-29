@@ -46,8 +46,8 @@ function render(address: string, count = 30, seed = 'med'): string[] {
 
 describe.each(LOCALES)('%s medical split', (locale) => {
   it('carries the canonical counts', () => {
-    expect(entries(locale, 'diagnosisMale.txt')).toHaveLength(20);
-    expect(entries(locale, 'diagnosisFemale.txt')).toHaveLength(26);
+    expect(entries(locale, 'diagnosisMale.txt')).toHaveLength(30);
+    expect(entries(locale, 'diagnosisFemale.txt')).toHaveLength(36);
     expect(entries(locale, 'ancestry.txt')).toHaveLength(12);
   });
 
