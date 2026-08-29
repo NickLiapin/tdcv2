@@ -3,28 +3,38 @@ description: Diagnoses recorded for women.
 locale: lb
 ---
 Endometriose
-Myom
-Ovarialzyst
-Polyzystescht Ovarialsyndrom
-Brustkriibs
+Polyzystescht Ovarsyndrom
+Gebärmuttermyomen
+Eierstockzyst
+Eierstockkriibs
 Gebärmutterhalskriibs
-Eierstackkriibs
-Menstruatiounsstéierung
+Zervikal Dysplasie
+Zervizitis
+Endometritis
+Endometriumkriibs
+Becken-Entzündungskrankheet
+Bakteriell Vaginose
+Vaginal Candidose
+Menorrhagie
 Dysmenorrhoe
 Amenorrhoe
-Menopaus
-Preeklampsie
-Schwangerschaftsdiabeetes
-Fehlgebuert
-Extra-uterin Schwangerschaft
+Präeklampsie
+Schwangerschaftsdiabetes
+Hyperemesis gravidarum
+Baussegebärmutterschwangerschaft
+Nogebuertsblutung
 Mastitis
-Mastopathie
-Vaginitis
-Vulvodynie
-Zervizitis
-Blosenentzündung
-Inkontinenz
-Osteoporose no der Menopaus
-Anämie duerch Reegel
-Onfruchtbarkeet
-Postnatal Depressioun
+Fibrozystesch Broschtkrankheet
+Menopaussyndrom
+Prämenstruell dysphoresch Stéierung
+Gebärmuttervirfall
+Adenomyose
+Eierstocktorsioun
+Placenta praevia
+Plazentaoflésung
+Vulvakriibs
+Vaginalkriibs
+Bartholin-Zyst
+Atrophesch Vaginitis
+Turner-Syndrom
+Weiblech Onfruchtbarkeet

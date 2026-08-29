@@ -2,23 +2,33 @@
 description: Diagnoses recorded for men.
 locale: lb
 ---
-Prostatavergréisserung
-Prostatakriibs
+Benign Prostatavergréisserung
 Prostatitis
+Prostatakriibs
 Hodenkriibs
-Hodenentzündung
-Erektiounsstéierung
-Phimose
+Hodentorsioun
 Varikozele
 Hydrozele
-Gynäkomastie
-Onfruchtbarkeet
-Testosteronmangel
-Leescht-Hernie
-Peyronie
+Nebenhodenentzündung
+Kryptorchismus
+Phimose
 Balanitis
-Andropaus
-Männlech Kalvitéit
-Hodentorsioun
-Epididymitis
-Urethritis
+Erektil Dysfunktioun
+Peyronie-Krankheet
+Männlech Onfruchtbarkeet
+Gynäkomastie
+Männlechen Hypogonadismus
+Priapismus
+Spermatozele
+Männleche Kaalkapp
+Skrotalhernie
+Peniskriibs
+Hodenentzündung
+Harnröhrenverengung
+Klinefelter-Syndrom
+Azoospermie
+Virzäitegen Aussoss
+Paraphimose
+Prostataabszess
+Somblosenentzündung
+Blutt am Som

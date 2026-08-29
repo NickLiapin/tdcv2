@@ -2,23 +2,33 @@
 description: Medical diagnosis that requires male anatomy - it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
 locale: fo
 ---
-Góðkynjað prostatastórvøkstur
-Prostatitt
-Prostatakrabbamein
-Testikkelkrabbamein
-Varikocela
-Hydrocela
-Epididymitt
-Fimosa
-Parafimosa
-Kryptorkismi
-Erektil dysfunktión
-Testosterontrot
-Gynekomasti
+Góðkynjað prostatastækkan
+Prostatabruni
+Prostatakrabbi
+Kynknøttakrabbi
+Kynknøttasnúgving
+Æðraknútar í punginum
+Vatnbrek í punginum
+Hjákynknøttabruni
+Óniðurfarnir kynknøttar
+Trong forhúð
+Kortabruni
+Reisingartrupulleikar
 Peyronies sjúka
-Testikkelsnúningur
-Balanitt
-Sáðleiðaratrot
-Ufrukt hjá monnum
-Prostatasteinar
-Penilt krabbamein
+Óburðføri hjá monnum
+Bróstvøkstur hjá monnum
+Kynkirtlaveikleiki hjá monnum
+Sístaða
+Sáðblöðra
+Sköllutheit hjá monnum
+Pungbrek
+Limkrabbi
+Kynknøttabruni
+Tvagrørstrongd
+Klinefelters heilkenni
+Sáðfrumuloysi
+Ov skjót sáðlát
+Forhúðarklemma
+Prostatakýl
+Sáðblöðrubruni
+Blóð í sáði

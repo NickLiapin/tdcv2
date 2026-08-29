@@ -2,81 +2,183 @@
 description: Diagnoses, in Luxembourgish. Where the LOD carries a native word (Kriibs, Gripp, Zocker for diabetes) it is used; where medicine's own Latin term is what a Luxembourgish doctor writes, that term stands unchanged, because translating it would be inventing a vocabulary the profession does not use.
 locale: lb
 ---
-Gripp
-Erkältung
-Bronchitis
-Longenentzündung
+Héije Blutdrock
+Typ-2-Diabetes
 Asthma
-Sinusitis
-Angina
-Otitis
-Migräne
-Häerzinfarkt
-Hiereschlag
-Blutthéichdrock
-Arrhythmie
-Häerzschwächt
-Arteriosklerose
-Thrombose
-Embolie
-Varizen
-Anämie
-Diabeetes
-Schilddrüsenënnerfunktioun
-Schilddrüseniwwerfunktioun
-Gicht
-Osteoporose
+Akut Bronchitis
+Gripp
+Migrän
+Generaliséiert Angschtstéierung
+Schwéier Depressioun
 Arthrose
-Arthritis
-Rheuma
-Bandscheifvirfall
-Ischias
-Fraktur
-Verstauchung
-Zerrung
-Brandwonn
-Infektioun
-Entzündung
-Allergie
-Ekzem
-Psoriasis
-Urtikaria
-Akne
-Gastritis
-Magengeschwir
-Reflux
-Reizdarm
-Colitis
-Crohn
-Appendizitis
-Gallesteng
-Nierensteng
-Nierenentzündung
-Blosenentzündung
-Prostatavergréisserung
-Zystitis
-Hepatitis
-Liewerzirrhos
-Pankreatitis
-Kriibs
-Longekriibs
-Darmkriibs
-Hautkriibs
-Leukämie
-Lymphom
-Depressioun
-Angschtstéierung
-Burn-out
-Schlofapnoe
-Insomnie
-Demenz
-Alzheimer
-Parkinson
+Rheumatoid Arthritis
+Gastroösophageal Refluxkrankheet
+Eisemangel-Anämie
+Hypothyreose
+Harnweeër-Infektioun
+Longenentzündung
+Chronesch Nierekrankheet
+Koronar Häerzkrankheet
+Virkammerflimmeren
+Chronesch Häerzinsuffizienz
+Ischämeschen Schlaganfall
 Epilepsie
-Multiple Sklerose
-Neuropathie
+Parkinson-Krankheet
+Alzheimer-Krankheet
+Multipel Sklerose
+Psoriasis
+Atopesch Dermatitis
+Allergesche Schnapp
+Chronesch Sinusitis
+Mëttelouerentzündung
+Konjunktivitis
 Katarakt
 Glaukom
-Konjunktivitis
+Blannedarmentzündung
+Gallenblosenentzündung
+Divertikulitis
+Reizdarmsyndrom
+Crohn-Krankheet
+Colitis ulcerosa
+Chronesch Hepatitis B
+Liewerzirrhose
+Akut Pankreatitis
+Giicht
+Osteoporose
+Fibromyalgie
+Ischias
+Bandscheiwevirfall
+Karpaltunnelsyndrom
+Sehnenentzündung
+Chronesch obstruktiv Longenkrankheet
+Tuberkulos
+Leukämie
+Lymphom
+Melanom
+Hyperlipidämie
+Adipositas
+Obstruktiv Schlofapnoe
+Schloflosegkeet
+Bipolar Stéierung
+ADHS
+Zöliakie
+Systemesche Lupus erythematodes
+Schwindel
 Tinnitus
-Schwéierhéieregkeet
+Hämorrhoiden
+Krampfoderen
+Déif Venenthrombose
+Longenembolie
+Nierestengt
+Anämie
+Hyperthyreose
+Peptescht Geschwier
+Gastritis
+Infektiéis Cellulitis
+Sepsis
+Broschtkriibs
+Akut Gastroenteritis
+Vitamin-D-Mangel
+Chronesch Veneninsuffizienz
+Typ-1-Diabetes
+Häerzinfarkt
+Angina pectoris
+Peripher arteriell Krankheet
+Dilatativ Kardiomyopathie
+Myokarditis
+Perikarditis
+Infektiéis Endokarditis
+Aortestenose
+Mitralklappeprolaps
+Bauchaorten-Aneurysma
+Chronesch Bronchitis
+Emphysem
+Pleuraerguss
+Longenfibrose
+Pulmonal Hypertonie
+Bronchiektasen
+Laryngitis
+Pharyngitis
+Mandelentzündung
+Ösophagitis
+Barrett-Speiseröhre
+Mokriibs
+Kolorektale Kriibs
+Analfissur
+Net-alkoholesch Fettliewer
+Chronesch Hepatitis C
+Hiatushernie
+Leistenhernie
+Akut Niereschued
+Glomerulonephritis
+Pyelonephritis
+Blosenentzündung
+Harninkontinenz
+Blosekriibs
+Nierenzellkarzinom
+Transitoresch ischämesch Attack
+Spannungskappwéi
+Cluster-Kappwéi
+Trigeminusneuralgie
+Bell-Lähmung
+Peripher Neuropathie
+Restless-Legs-Syndrom
+Essentiellen Tremor
+Myasthenia gravis
+Guillain-Barré-Syndrom
+Panikstéierung
+Zwangsstéierung
+Posttraumatesch Stressstéierung
+Sozial Phobie
+Anorexia nervosa
+Bulimia nervosa
+Schizophrenie
+Alkoholofhängegkeet
+Hashimoto-Thyreoiditis
+Graves-Krankheet
+Cushing-Syndrom
+Addison-Krankheet
+Hyperparathyreoidismus
+Metabolescht Syndrom
+Vitamin-B12-Mangel
+Schilddrüsenknuet
+Thrombozytopenie
+Polycythaemia vera
+Longekriibs
+Bauchspeicheldrüsenkriibs
+Schilddrüsenkriibs
+Multipel Myelom
+Bursitis
+Plantarfasziitis
+Rotatorenmanschetteriss
+Ankyloséierend Spondylitis
+Skoliose
+Osteomyelitis
+Akne
+Rosacea
+Vitiligo
+Alopecia areata
+Nesselsucht
+Kontaktdermatitis
+Gürtelrose
+Neelpilz
+Makuladegeneratioun
+Diabetesch Retinopathie
+Netzhautoflésung
+Uveitis
+Dréchen-Aen-Syndrom
+Ménière-Krankheet
+Sensorineuralen Héierverloscht
+Nuesepolypen
+Infektiéis Mononukleose
+Lyme-Borreliose
+Malaria
+Dengue-Féiwer
+Salmonellose
+Hepatitis A
+HIV-Infektioun
+Herpes-simplex-Infektioun
+Maselen
+Wandpouken
+Bakteriell Meningitis
+Viral Enzephalitis

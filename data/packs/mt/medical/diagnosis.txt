@@ -9,18 +9,18 @@ Bronkite akuta
 Influwenza
 Emigranja
 Disturb ta' ansjetà ġeneralizzata
-Depressjoni maġġuri
+Dipressjoni maġġuri
 Osteoartrite
 Artrite rewmatojde
-Rifluss gastroesofagew
+Marda ta' rifluss gastro-esofagali
 Anemija minn nuqqas ta' ħadid
 Ipotirojdiżmu
 Infezzjoni fl-apparat urinarju
 Pulmonite
-Mard kroniku tal-kliewi
-Mard tal-arterji koronarji
+Marda kronika tal-kliewi
+Marda koronarja tal-qalb
 Fibrillazzjoni atrijali
-Insuffiċjenza kardijaka
+Insuffiċjenza kronika tal-qalb
 Puplesija iskemika
 Epilessija
 Marda ta' Parkinson
@@ -35,9 +35,9 @@ Konġuntivite
 Katarretta
 Glawkoma
 Appendiċite
-Kolelitjasi
+Koleċistite
 Divertikulite
-Sindromu tal-imsaren irritabbli
+Sindromu tal-musrana irritabbli
 Marda ta' Crohn
 Kolite ulċerattiva
 Epatite B kronika
@@ -45,39 +45,140 @@ Epatite B kronika
 Pankreatite akuta
 Gotta
 Osteoporożi
-Fibromijalġija
-Xjatika
-Diska erniata
+Fibromijalġja
+Xjatka
+Diska mibruża
 Sindromu tal-mina karpali
 Tendinite
-Mard pulmonari ostruttiv kroniku
+Marda pulmonari ostruttiva kronika
 Tuberkulożi
 Lewkimja
-Limfoma
+Linfoma
 Melanoma
 Iperlipidemija
 Obeżità
-Apnea ostruttiva tal-irqad
+Apneja ostruttiva tal-irqad
 Nuqqas ta' rqad
 Disturb bipolari
-Disturb ta' defiċit tal-attenzjoni
+ADHD
 Marda ċeljaka
-Lupus eritematuż sistemiku
+Lupus eritematożi sistemiku
 Sturdament
-Żanżin fil-widnejn
+Żarżir fil-widnejn
 Murliti
 Vini varikużi
-Trombożi fil-vini fondi
-Emboliżmu pulmonari
+Trombożi tal-vini fondi
+Embolija pulmonari
 Ġebel fil-kliewi
 Anemija
 Ipertirojdiżmu
 Ulċera peptika
 Gastrite
-Ċellulite
+Ċellulite infettiva
 Sepsi
 Kanċer tas-sider
 Gastroenterite akuta
 Nuqqas ta' vitamina D
-Nuqqas ta' G6PD
-Talassemija beta
+Insuffiċjenza venuża kronika
+Dijabete tat-tip 1
+Attakk tal-qalb
+Anġina
+Marda arterjali periferali
+Kardjomijopatija dilatata
+Mijokardite
+Perikardite
+Endokardite infettiva
+Stenożi aortika
+Prolass tal-valvola mitrali
+Anewriżma tal-aorta addominali
+Bronkite kronika
+Enfisema
+Effużjoni plewrali
+Fibrożi pulmonari
+Ipertensjoni pulmonari
+Bronkjectasi
+Larinġite
+Farinġite
+Tonsillite
+Esofaġite
+Esofagu ta' Barrett
+Kanċer tal-istonku
+Kanċer kolorettali
+Fissura anali
+Fwied xaħmi mhux alkoħoliku
+Epatite C kronika
+Ftuq ijatali
+Ftuq ingwinali
+Ħsara akuta fil-kliewi
+Glomerulonefrite
+Pijelonefrite
+Ċistite
+Inkontinenza urinarja
+Kanċer tal-bużżieqa tal-awrina
+Karċinoma taċ-ċelluli renali
+Attakk iskemiku transitorju
+Uġigħ ta' ras minn tensjoni
+Uġigħ ta' ras cluster
+Newralġija tat-triġeminu
+Paraliżi ta' Bell
+Newropatija periferali
+Sindromu tas-saqajn irrikweti
+Rogħda essenzjali
+Mijastenija gravi
+Sindromu ta' Guillain-Barré
+Disturb ta' paniku
+Disturb ossessiv-kompulsiv
+Disturb ta' stress post-trawmatiku
+Fobija soċjali
+Anoreksja nervuża
+Bulimija nervuża
+Skiżofrenija
+Dipendenza fuq l-alkoħol
+Tirojdite ta' Hashimoto
+Marda ta' Graves
+Sindromu ta' Cushing
+Marda ta' Addison
+Iperparatirojdiżmu
+Sindromu metaboliku
+Nuqqas ta' vitamina B12
+Nodulu tat-tirojde
+Tromboċitopenija
+Poliċitemija vera
+Kanċer tal-pulmun
+Kanċer tal-frixa
+Kanċer tat-tirojde
+Mijeloma multipla
+Bursite
+Faxxite plantari
+Tiċrita tal-cuff rotatur
+Spondilite ankilosanti
+Skoljożi
+Osteomijelite
+Akne
+Rosaċea
+Vitiliġo
+Alopeċja areata
+Ħorriqija
+Dermatite tal-kuntatt
+Ħruq ta' Sant'Antnin
+Fungu tad-dwiefer
+Deġenerazzjoni makulari
+Retinopatija dijabetika
+Distakk tar-retina
+Uveite
+Sindromu tal-għajn xotta
+Marda ta' Ménière
+Telf tas-smigħ sensorinewrali
+Polipi tal-imnieħer
+Mononuklejożi infettiva
+Marda ta' Lyme
+Malarja
+Deni dengue
+Salmonellożi
+Epatite A
+Infezzjoni tal-HIV
+Infezzjoni tal-herpes simplex
+Ħosba
+Ġidri r-riħ
+Meninġite batterika
+Enċefalite virali

@@ -2,79 +2,183 @@
 description: Medical diagnosis that can occur in any patient - no sex or ancestry restriction. A note on the language, because it explains the mixture: Faroese clinical practice runs on Danish and Latin terminology. Doctors and nurses train in Denmark, the records are kept in that vocabulary, and Faroese has established native words for the everyday conditions (sukursjúka, høgur blóðtrýstur, krabbamein) but not for the specific ones. Inventing Faroese names for the rest would produce words no Faroese clinician has ever written, so the international terms stand. KARNITINTROT is here for a real reason: primary carnitine deficiency is far more common in the Faroe Islands than anywhere else on earth - roughly one person in three hundred carries the defect against about one in forty thousand elsewhere - and after a run of sudden cardiac deaths the islands screened the whole population for it. It is the one diagnosis a Faroese dataset should not omit.
 locale: fo
 ---
-Høgur blóðtrýstur
-Sukursjúka
-Sukursjúka týpa 1
+Hægt blóðtrýst
+Diabetes av slagi 2
 Astma
-Karnitintrot
-Multipul sklerosa
-Krabbamein
-Lungnabruni
-Bronkitis
-KOL
-Hjartatilburður
-Hjartabilan
-Atrieflimmer
-Angina pectoris
-Heilablóðfall
+Brá bronkitt
+Krím
 Migrena
-Epilepsi
-Parkinsonssjúka
-Alzheimerssjúka
-Depressión
-Angist
-Bipolar sjúka
-Skisofreni
-Svøvntrot
-Gigt
-Slitgigt
-Reumatoid artritt
-Beinskjørleiki
-Beinbrot
-Skiveprolaps
-Ryggverkur
-Karpaltunnilssyndrom
+Vanlig ótta-órógv
+Tung tunglyndi
+Slitgikt
+Giktfeber
+Gastroøsofageal afturløgusjúka
+Jarntrot-bloðoysi
+Lágt virksemi í skjaldkirtli
+Landnyrðingssjúka í tvagvegi
+Lungnabruni
+Langvarandi nýrasjúka
+Kransæðrasjúka
+Forkamarflótta
+Langvarandi hjartabrek
+Iskemiskt heilablóðfall
+Brotfall
+Parkinsons sjúka
+Alzheimers sjúka
+Fjølbrotin herðing
 Psoriasis
-Eksem
-Akne
-Rosacea
-Nældufeber
-Sárkyklasjúka
-Magasár
-Refluks
+Atopiskt eksem
+Ovurviðkvæmisnev
+Langvarandi nasaholubruni
+Miðoyrabruni
+Eygnahvarmabruni
+Stara
+Grønstara
+Botnlangabruni
+Gallblöðrubruni
+Divertikulitt
+Órógvin tarmur
 Crohns sjúka
-Ulcerøs kolitt
-Irritabul tarmur
-Gallsteinar
-Livrabruni
-Nýrusteinar
-Langvarandi nýrusjúka
-Blørubruni
-Skjaldkirtilstrot
-Ovvirkin skjaldkirtil
-Blóðmangul
-Jarntrot
+Sárkolitt
+Langvarandi B-heptitt
+Livurherðing
+Brá brisbruni
+Ikt
+Beinskrøkni
+Fibromyalgi
+Ishias
+Diskbrek
+Armliðsgongdarheilkenni
+Sinabruni
+Langvarandi forðandi lungnasjúka
+Tuberklar
+Hvítbloðkrabbi
+Lymfukrabbi
+Melanom
+Høg blóðfeitt
+Ovurvekt
+Forðandi svøvnandaleysi
+Svøvnloysi
+Tvípóla órógv
+ATV-órógv
+Glutenóþol
+Reyðir úlvar
+Svimman
+Oyrasúsan
+Æðraknútar
+Æðrabrek
+Djúp blóðtøppun
+Lungnablóðtøppun
+Nýrasteinar
+Bloðoysi
+Høgt virksemi í skjaldkirtli
+Magasár
+Magabruni
+Smittandi húðbruni
+Blóðeitran
+Bróstkrabbi
+Brá maga- og tarmbruni
 D-vitamintrot
-B12-trot
-Ovfeiti
-Høgt kolesterol
-Gikt
-Bindivevssjúka
-Allergiskur rinitt
-Bihulubruni
-Oyrabruni
-Hálsbruni
-Influensa
-Covid-19
-Sárklovningur
-Sólbrenning
-Svimil
-Tinnitus
-Grár stjarni
-Grønur stjarni
-Nærsýni
-Fjarsýni
-Sukursjúkur fótur
-Æðrabólgnan
-Blóðklumpur
-Lungnablóðklumpur
+Langvarandi æðrabrek
+Diabetes av slagi 1
+Hjartatilburður
+Hjartakrampi
+Útjaðara æðrasjúka
+Víðkað hjartavöðvasjúka
+Hjartavöðvabruni
+Hjartaposabruni
+Smittandi hjartaholdbruni
+Aortaþrengsli
+Mitralvirðisbrek
+Kviðaorta-víðkan
+Langvarandi bronkitt
+Lungnaþemba
+Væta í lungnahinnu
+Lungnaherðing
+Hægt trýst í lungnaæðrum
+Víðkaðar bronkjur
+Barkakýlisbruni
+Kokbruni
+Kirtlabruni
+Vælindisbruni
+Barretts vælindi
+Magakrabbi
+Tarmkrabbi
+Bakraparerivur
+Óalkoholisk feitlivur
+Langvarandi C-heptitt
+Miðskiljubrek
+Ljóskubrek
+Brá nýraskaði
+Nýragrúlubruni
+Nýraskálabruni
+Blöðrubruni
+Tvagleki
+Blöðrukrabbi
+Nýrakrabbi
+Fyribilsfarandi heilabloðoysi
+Spenningshøvuðpína
+Klasahøvuðpína
+Trígreinataugapína
+Bells lamni
+Útjaðara taugasjúka
+Órógvin bein
+Vanligur skjálvti
+Vöðvamáttloysi
+Guillain-Barrés heilkenni
+Ræðslu-órógv
+Trongdar-órógv
+Órógv eftir sálarligt brek
+Sosial ræðsla
+Matarnoktan
+Átugla
+Sinnisklovni
+Alkoholbundinskapur
+Hashimotos skjaldkirtilbruni
+Graves sjúka
+Cushings heilkenni
+Addisons sjúka
+Ovurvirkin kalkkirtlar
+Evnaskiftisheilkenni
+B12-vitamintrot
+Skjaldkirtilsknútur
+Blóðflagnatrot
+Reyðbloðkyksemi
+Lungnakrabbi
+Briskrabbi
+Skjaldkirtilskrabbi
+Mergæxli
+Liðposabruni
+Iljasinabruni
+Akslasinaslit
+Rygggikt
+Ryggskeivleiki
+Beinmergsbruni
+Filipensar
+Rósufilipensar
+Hvítflekkir
+Flekkasköllutheit
+Nøkuroysla
+Nertieksem
+Heltubrandur
+Neglasoppur
+Gulaflekkja-avlagan
+Diabetes eygnasjúka
+Nethinnuleyslát
+Æðrahinnubruni
+Turr eygu
+Ménières sjúka
+Kenslutauga hoyrimissur
+Nasasepar
+Kossasótt
+Lyme-sjúka
+Koldusótt
+Dengue-hiti
+Salmonellusótt
+A-heptitt
+HIV-smitta
+Herpes simplex-smitta
+Meslingar
+Barnabólur
+Baktriu heilahinnubruni
+Virus heilabruni

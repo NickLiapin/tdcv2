@@ -2,29 +2,39 @@
 description: Diagnosis specific to female anatomy (Maltese).
 locale: mt
 ---
-Endometrjożi
+Endometrijożi
 Sindromu tal-ovarji poliċistiċi
-Fibrojdi uterini
-Ċisti fl-ovarju
-Kanċer tal-ovarju
-Kanċer tal-għonq tal-utru
+Fibrojdi tal-utru
+Ċesta fl-ovarju
+Kanċer tal-ovarji
+Kanċer taċ-ċerviċi
 Displasija ċervikali
 Ċerviċite
 Endometrite
-Kanċer endometrijali
+Kanċer tal-endometriju
 Marda infjammatorja pelvika
 Vaġinożi batterika
-Kandidjasi vulvovaġinali
+Kandidjasi vaġinali
 Menorraġija
-Dismenorrea
-Amenorrea
-Preeklampsja
-Dijabete ġestazzjonali
+Dismenorreja
+Amenorreja
+Preeklampsija
+Dijabete gestazzjonali
 Iperemesi gravidika
 Tqala ektopika
-Emorraġija wara t-twelid
+Emorraġija wara l-ħlas
 Mastite
-Bidla fibroċistika tas-sider
-Sindromu menopawżali
-Disturb disforiku premenstruwali
+Marda fibroċistika tas-sider
+Sindromu tal-menopawża
+Disturb disforiku premestrwali
 Prolass tal-utru
+Adenomijożi
+Torsjoni tal-ovarju
+Plaċenta previa
+Distakk tal-plaċenta
+Kanċer tal-vulva
+Kanċer tal-vaġina
+Ċesta ta' Bartholin
+Vaġinite atrofika
+Sindromu ta' Turner
+Infertilità femminili

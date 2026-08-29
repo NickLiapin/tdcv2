@@ -2,29 +2,39 @@
 description: Medical diagnosis that requires female anatomy - it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis. Terminology is the Danish-Latin one Faroese clinical records use.
 locale: fo
 ---
-Endometriosa
-Polycystiskt eggjastokkasyndrom
+Livmóðurslímhinna á skeivum stað
+Fjølblöðru eggjastokkaheilkenni
 Livmóðurknútar
-Eggjastokkacysta
-Livmóðurhálsdysplasi
-Livmóðurhálskrabbamein
-Livmóðurkrabbamein
-Eggjastokkakrabbamein
-Brjóstakrabbamein
-Brjóstafibroadenom
-Mastitt
-Amenoré
-Dysmenoré
-Ov nógv blæðing
-Klimakteriskar plágur
-Ufrukt
-Svangskapssukursjúka
-Preeklampsi
-Abortur
-Utanlívmóðursvangskapur
+Eggjastokkablöðra
+Eggjastokkakrabbi
+Livmóðurhálskrabbi
+Frumubroytingar í livmóðurhálsi
+Livmóðurhálsbruni
+Livmóðurslímhinnubruni
+Livmóðurkrabbi
+Mjadnarholsbruni
+Baktriu skeiðarórógv
+Soppasmitta í skeiðini
+Nógv mánaðarblóðing
+Mánaðarpínur
+Burturverandi mánaðarblóðing
+Barnburðareitran
+Barnburðardiabetes
+Nógv barnburðarspýggjan
+Uttanlivmóður viðgonga
+Blóðing eftir barnburð
+Bróstbruni
+Bandvevsblöðrur í bróstum
+Broytingarskeiðsórógvir
+Órógv undan mánaðarblóðing
 Livmóðursig
-Trush
-Bakteriell vaginosa
-Blørubruni í svangskapi
-Brjóstamjólkartrot
-Eftirføðingardepressión
+Livmóðurveggslímhinnubrek
+Eggjastokkasnúgving
+Fyriliggjandi móðurkaka
+Móðurkakuleyslát
+Ytri kynlimakrabbi
+Skeiðarkrabbi
+Bartholins blöðra
+Turrur skeiðarbruni
+Turners heilkenni
+Óburðføri hjá kvinnum
