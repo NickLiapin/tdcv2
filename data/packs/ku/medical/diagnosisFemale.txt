@@ -2,30 +2,39 @@
 description: Medical diagnosis that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
 locale: ku
 ---
-ئەندۆمیترۆز
-سەندرۆمی هێلکەدانی کیسیلەیی
-فیبرۆیدی منداڵدان
-کیسیلەی هێلکەدان
-شێرپەنجەی هێلکەدان
-شێرپەنجەی ملی منداڵدان
-گۆڕانی خانەی ملی منداڵدان
-هەوکردنی ملی منداڵدان
-هەوکردنی ناوەوەی منداڵدان
-شێرپەنجەی ناوەوەی منداڵدان
-هەوکردنی حەوزی
-ڤاجینۆزی بەکتریایی
-کاندیدای زێ
-خوێنبەربوونی زۆری سووڕی مانگانە
-ئێشی سووڕی مانگانە
-نەهاتنی سووڕی مانگانە
-پێش-ئێکلامپسیا
-شەکرەی دووگیانی
-ڕشانەوەی زۆری دووگیانی
-دووگیانیی دەرەوەی منداڵدان
-خوێنبەربوونی دوای منداڵبوون
-هەوکردنی مەمک
-گۆڕانی کیسیلەیی مەمک
-سەندرۆمی وەستانی سووڕ
-شڵەژانی پێش سووڕی مانگانە
-دابەزینی منداڵدان
-نازۆکیی ژنانە
+Endometrîoz
+Sendroma hêkdankên pirkîsik
+Girêkên malzarokê
+Kîsika hêkdankê
+Penceşêra hêkdankê
+Penceşêra stûyê malzarokê
+Guherîna şaneyên stûyê malzarokê
+Werimîna stûyê malzarokê
+Werimîna hundirê malzarokê
+Penceşêra malzarokê
+Nexweşiya werimîna kemaxê
+Enfeksiyona bakteriyan a zê
+Kivarka zê
+Xwîna zêde ya ayborê
+Aybora bi êş
+Rawestana ayborê
+Jehrbûna ducaniyê
+Şekirê ducaniyê
+Vereşîna giran a ducaniyê
+Ducaniya derveyî malzarokê
+Xwînçûna piştî zayînê
+Werimîna memikê
+Nexweşiya girêkên memikan
+Nîşanên rawestana ayborê
+Tengasiya beriya ayborê
+Daketina malzarokê
+Mezinbûna perdeyê di dîwarê malzarokê de
+Zivirîna hêkdankê
+Hevalçûk li ber derî
+Veqetîna hevalçûkê ya zû
+Penceşêra derveyî zê
+Penceşêra zê
+Kîsika Bartholin
+Werimîna zê ya zuwa
+Sendroma Turner
+Nezayîna jinan
