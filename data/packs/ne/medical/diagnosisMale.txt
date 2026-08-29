@@ -2,25 +2,33 @@
 description: Diagnoses recorded for men, in Nepali. Two entries are Nepal-specific rather than generic male medicine: खैनीजन्य मुख रोग and मुखको क्यान्सर are here because chewing tobacco (खैनी, सुर्ती, गुट्खा) is a predominantly male habit in Nepal and oral cancer is accordingly one of the commonest cancers in Nepali men, well ahead of its rank in Europe; and सिलिकोसिस because it is the occupational disease of the stone-crushing and mining work that Nepali men do at home and as migrant labour in the Gulf. मदिराजन्य कलेजो रोग likewise: alcoholic liver disease is a leading cause of male death in Nepal and home-brewed रक्सी is not measured in any survey.
 locale: ne
 ---
-प्रोस्टेट वृद्धि
+प्रोस्टेटको सामान्य वृद्धि
+प्रोस्टेट सुजन
 प्रोस्टेट क्यान्सर
 अण्डकोष क्यान्सर
-इरेक्टाइल डिस्फंक्सन
+अण्डकोष बटारिने
+अण्डकोषका सुन्निएका नसा
+अण्डकोषमा पानी जम्ने
+उप-अण्डकोष सुजन
+नझरेको अण्डकोष
+खलाँटी साँघुरो हुने
+लिंगको टुप्पोको सुजन
+लिंग नउठ्ने समस्या
+पेरोनी रोग
 पुरुष बाँझोपन
-फाइमोसिस
-हाइड्रोसिल
-भेरिकोसिल
-इन्गुइनल हर्निया
-गाइनेकोमास्टिया
-मुखको क्यान्सर
-फोक्सोको क्यान्सर
-मदिराजन्य कलेजो रोग
-खैनीजन्य मुख रोग
-सिलिकोसिस
-मुटुरोग
-उच्च रक्तचाप
-मधुमेह
-क्रोनिक ब्रोन्काइटिस
-गाउट
-मृगौलाको पत्थरी
-कम्मर दुखाइ
+पुरुषको छाती बढ्ने
+पुरुष हर्मोनको कमी
+लगातार लिंग उठिरहने रोग
+वीर्यको गिर्खा
+पुरुष तालुखुइले
+अण्डकोष थैलीको हर्निया
+लिंगको क्यान्सर
+अण्डकोष सुजन
+पिसाब नली साँघुरिने
+क्लाइनफेल्टर सिन्ड्रोम
+वीर्यमा शुक्रकीट नहुने
+छिटो वीर्य खस्ने
+खलाँटी अड्किने
+प्रोस्टेटको पीप थैली
+वीर्य थैली सुजन
+वीर्यमा रगत
