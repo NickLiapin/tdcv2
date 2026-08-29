@@ -254,7 +254,11 @@ impl DataPacks {
             // It resolves — to nothing at all, which IS the complaint, and `load`
             // is what reports it.
             Err(EngineError::Invalid(message)) => {
-                message.ends_with(NO_VALUES_MARK) || message.ends_with(EMPTY_BODY_MARK)
+                message.ends_with(NO_VALUES_MARK)
+                    || message.ends_with(EMPTY_BODY_MARK)
+                    // A generator whose body does not parse: resolved, on disk,
+                    // and broken — `load` carries the sentence saying how.
+                    || message.starts_with("generator \"")
             }
             Err(_) => false,
         }
@@ -493,6 +497,24 @@ impl DataPacks {
                 self.absolute_address(dotted_path, locale),
                 self.source.locate(file).unwrap_or_else(|| file.to_string()),
             ));
+        }
+        // A body that does not PARSE is the same mistake made a different way,
+        // and it used to be found on the first row — or, on the streaming
+        // engine, reported as an unknown path for a file plainly on disk. The
+        // grammar is checked here, once per (address, locale) thanks to the
+        // cache above, so `check` names the file and the problem before a run.
+        if let Some(body) = entry.generator.as_deref() {
+            let parsed = crate::parser::parse(body);
+            if !parsed.ok() {
+                let problems: Vec<String> =
+                    parsed.problems.iter().map(ToString::to_string).collect();
+                return invalid(&format!(
+                    "generator \"{}\" ({}): {}",
+                    self.absolute_address(dotted_path, locale),
+                    self.source.locate(file).unwrap_or_else(|| file.to_string()),
+                    problems.join("; "),
+                ));
+            }
         }
         Ok(entry)
     }

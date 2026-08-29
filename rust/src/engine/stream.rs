@@ -527,7 +527,22 @@ pub fn render(config: &Config, now_millis: i64) -> EngineResult<String> {
 /// The same, resolving a relative `src=` against the config file's own folder.
 pub fn render_in(config: &Config, now_millis: i64, base_dir: Option<&str>) -> EngineResult<String> {
     let packs = DataPacks::discover()?;
-    let engine = StreamEngine::build(config, &packs, now_millis, base_dir)?;
+    render_in_packs(config, &packs, now_millis, base_dir)
+}
+
+/// The same, over packs the caller already holds.
+///
+/// The caller's packs carry the PROJECT's layers — `tdcv2.config.json` and
+/// `--data-path` — and rediscovering here silently dropped them: a generator
+/// pack in the user's own folder came back "unknown template path (looked for
+/// …)" naming only the bundled root, from engine 2 alone.
+pub fn render_in_packs(
+    config: &Config,
+    packs: &DataPacks,
+    now_millis: i64,
+    base_dir: Option<&str>,
+) -> EngineResult<String> {
+    let engine = StreamEngine::build(config, packs, now_millis, base_dir)?;
     engine.text_result()
 }
 
@@ -541,14 +556,13 @@ pub fn render_in(config: &Config, now_millis: i64, base_dir: Option<&str>) -> En
 /// a gigabyte to produce seventy megabytes.
 pub fn write_in<W: std::fmt::Write>(
     config: &Config,
+    packs: &DataPacks,
     now_millis: i64,
     base_dir: Option<&str>,
     out: &mut W,
     on_progress: crate::engine::Watch<'_>,
 ) -> EngineResult<()> {
-    let packs = DataPacks::discover()?;
-    let engine =
-        StreamEngine::build_with(config, &packs, now_millis, base_dir, false, on_progress)?;
+    let engine = StreamEngine::build_with(config, packs, now_millis, base_dir, false, on_progress)?;
     engine.write_result(out)
 }
 

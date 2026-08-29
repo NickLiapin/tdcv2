@@ -51,6 +51,16 @@ export interface PackEntry {
    */
   readonly values?: readonly string[] | undefined;
   /**
+   * The file resolved but cannot be used — an empty list, an empty or broken
+   * generator body — and this is the sentence saying why. An entry carrying it
+   * has neither values nor a generator; the validator reports the sentence as
+   * TDC170 at the `value="…"` that asked for the address, which is where the
+   * four ports have always reported it. Registering the address (instead of
+   * pushing an eager error at 1:1) is also what keeps TDC071 from calling a
+   * path that plainly exists on disk "unknown".
+   */
+  readonly unusable?: string | undefined;
+  /**
    * Per-value share in percent, parallel to `values`, summing to 100. Present
    * only for a WEIGHTED data list (header `weighted: true`, or `file:` with a
    * `weight:` column). When set, the pack is drawn to an exact Hamilton quota
@@ -570,25 +580,26 @@ function loadOne(
     generator?: GeneratorBody;
     references?: readonly string[];
     needsWholeColumn?: boolean;
+    unusable?: string;
   };
   if (parsed.header['generator'] !== undefined) {
     const body = parsed.values.join('\n').trim();
     if (body.length === 0) {
-      diagnostics.push(packError(`generator "${address}" (${file}) has an empty body`, file));
-      return;
+      payload = { unusable: `generator "${address}" (${file}) has an empty body` };
+    } else {
+      const result = parseGeneratorSpec(body, parsed.header['inject']);
+      if (result.generator === undefined) {
+        payload = {
+          unusable: `generator "${address}" (${file}): ${result.error ?? 'invalid body'}`,
+        };
+      } else {
+        payload = {
+          generator: result.generator.body,
+          references: result.generator.references,
+          needsWholeColumn: result.generator.needsWholeColumn,
+        };
+      }
     }
-    const result = parseGeneratorSpec(body, parsed.header['inject']);
-    if (result.generator === undefined) {
-      diagnostics.push(
-        packError(`generator "${address}" (${file}): ${result.error ?? 'invalid body'}`, file),
-      );
-      return;
-    }
-    payload = {
-      generator: result.generator.body,
-      references: result.generator.references,
-      needsWholeColumn: result.generator.needsWholeColumn,
-    };
   } else {
     let values: readonly string[];
     let percents: readonly number[] | undefined;
@@ -659,10 +670,10 @@ function loadOne(
       values = parsed.values;
     }
     if (values.length === 0) {
-      diagnostics.push(packError(`data-pack address "${address}" (${file}) has no values`, file));
-      return;
+      payload = { unusable: `data-pack address "${address}" (${file}) has no values` };
+    } else {
+      payload = percents ? { values, percents } : { values };
     }
-    payload = percents ? { values, percents } : { values };
   }
 
   const existing = registry.get(address);

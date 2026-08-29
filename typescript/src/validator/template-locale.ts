@@ -47,6 +47,8 @@ function findAttr(attrs: readonly AttrContext[], name: string): AttrContext | un
 export interface TemplateLocaleCtx {
   readonly diagnostics: Diagnostic[];
   readonly packAddresses: readonly string[];
+  /** Address → why that pack file cannot be used. See `PackEntry.unusable`. */
+  readonly packUnusable?: ReadonlyMap<string, string> | undefined;
   readonly locale: string;
   readonly packParams: PackParams | undefined;
   readonly packParamWidths: PackParamWidths | undefined;
@@ -117,6 +119,23 @@ export function checkGenTemplate(
   // no static path to check here (the field it names is validated as a sequence
   // reference elsewhere).
   if (isDynamicTemplateValue(path)) return;
+  // A path whose FILE resolved but cannot be used — empty list, empty or
+  // broken generator body. One TDC170, here, at the value= that asked: the
+  // position the four ports have always used, and the only place a reader can
+  // act on. Checked under the hard spelling and the locale-prefixed one, the
+  // same two roads the render's own resolution walks.
+  const local = (attrMap['local'] ?? '').trim() || ctx.locale;
+  const unusable = ctx.packUnusable?.get(path) ?? ctx.packUnusable?.get(`${local}.${path}`);
+  if (unusable !== undefined) {
+    ctx.diagnostics.push({
+      severity: 'error',
+      source: 'pack',
+      ...attrValueRange(valueAttr),
+      message: unusable,
+      code: 'TDC170',
+    });
+    return;
+  }
   // Valid if a builtin, a hard pack address, or a soft shape (some locale has
   // it). The concrete locale is resolved against the env at render time.
   if (!templatePathKnown(path, ctx.packAddresses)) {

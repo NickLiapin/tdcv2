@@ -193,8 +193,12 @@ describe('data-pack generators — loading', () => {
       ].join('\n'),
       'utf8',
     );
-    const { diagnostics } = scanPacks([root]);
-    expect(diagnostics.some((d) => d.source === 'pack')).toBe(true);
+    // Registered as unusable rather than reported eagerly: the validator says
+    // the sentence at the value= that references the address — the position
+    // the four ports have always used.
+    const { registry, diagnostics } = scanPacks([root]);
+    expect(diagnostics).toEqual([]);
+    expect(registry.get('common.bad')?.unusable).toContain('generator "common.bad"');
   });
 });
 

@@ -162,10 +162,22 @@ pub fn render_in(config: &Config, now_millis: i64, base_dir: Option<&str>) -> En
     let packs = DataPacks::discover().ok();
     match router::resolve(config, packs.as_ref())? {
         1 => memory::render_in(config, now_millis, base_dir),
-        2 => match stream::render_in(config, now_millis, base_dir) {
-            Err(e) if recoverable(config, &e) => memory::render_in(config, now_millis, base_dir),
-            other => other,
-        },
+        2 => {
+            let owned;
+            let packs = match packs.as_ref() {
+                Some(found) => found,
+                None => {
+                    owned = DataPacks::discover()?;
+                    &owned
+                }
+            };
+            match stream::render_in_packs(config, packs, now_millis, base_dir) {
+                Err(e) if recoverable(config, &e) => {
+                    memory::render_in(config, now_millis, base_dir)
+                }
+                other => other,
+            }
+        }
         3 => {
             let packs = match packs {
                 Some(found) => found,

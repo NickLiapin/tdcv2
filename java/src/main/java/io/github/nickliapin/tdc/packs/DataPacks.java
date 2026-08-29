@@ -638,6 +638,31 @@ public final class DataPacks {
               + locateOr(file)
               + ") has an empty body");
     }
+    // A body that does not PARSE is the same mistake made a different way, and it used to be
+    // found on the first row, as "pack generator did not parse:" — no code, no address, no
+    // file. The grammar is checked here, once per (address, locale) thanks to the cache, so
+    // `check` names the file and the problem before a run — worded the way the reference
+    // words it.
+    if (entry.generator() != null) {
+      io.github.nickliapin.tdc.parser.TdcParserFacade.Result parsed =
+          io.github.nickliapin.tdc.parser.TdcParserFacade.parse(entry.generator());
+      if (!parsed.ok()) {
+        StringBuilder problems = new StringBuilder();
+        for (Object problem : parsed.problems()) {
+          if (problems.length() > 0) {
+            problems.append("; ");
+          }
+          problems.append(problem);
+        }
+        throw new EmptyPack(
+            "generator \""
+                + absoluteAddress(dottedPath, locale)
+                + "\" ("
+                + locateOr(file)
+                + "): "
+                + problems);
+      }
+    }
     return entry;
   }
 

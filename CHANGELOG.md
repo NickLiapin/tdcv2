@@ -401,6 +401,26 @@ placed` rather than naming a total it stopped counting. A number quietly reading
 
 ### Fixed
 
+<!-- covers: broken pack reported once, at the value that asked -->
+
+- **A pack file that resolves but cannot be used is ONE error, at the `value="…"` that asked —
+  in all five implementations, whichever way the file is broken.** Three faces of one mistake,
+  four different answers before this. An empty list: the reference said it twice — TDC170 from
+  the eager scan pointing at 1:1, the top of the config, plus a TDC071 "unknown template path"
+  for an address plainly on disk — where the four ports, probing lazily, said one true sentence
+  at the value. The reference now registers the address as _resolved but unusable_ and the
+  validator says the sentence where the ports say it; a broken pack nobody references stays
+  silent, as it always has in the four. A generator body that does not PARSE was worse: the
+  reference alone named it properly; Java and C# answered `pack generator did not parse:` with
+  no code, no address, no file; Python dumped a raw `SyntaxProblem(...)` repr; and Rust called
+  it an **unknown path** — its streaming engine's entry points rediscovered the bundled packs
+  and silently dropped the project's `--data-path`/config layers, so the user's own file "did
+  not exist". The layers now ride into the stream engine, the grammar is checked where the
+  file is loaded (once per address, cached), and all five say
+  `error[TDC170]: generator "addr" (file): <the parser's own words>` at the value. The parser
+  text is each grammar's own voice and deliberately unpinned; the code, address, file and
+  caret are the contract, held by a new shared CLI fixture.
+
 <!-- covers: named engine under --jobs -->
 
 - **`--engine 3 --jobs N` kept the named-engine promise only at N=1.** Naming an engine is a

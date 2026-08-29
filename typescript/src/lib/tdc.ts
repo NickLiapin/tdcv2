@@ -41,6 +41,7 @@ import {
   scanPacks,
 } from '../data-pack/index.js';
 import { type Diagnostic, TdcDiagnosticError, hasErrors } from '../errors/index.js';
+
 import { estimateMemoryUsage, memoryWarning } from '../errors/memory-estimate.js';
 import type { DocumentContext, OpenCloseElementContext } from '../generated/TDCParser.js';
 import { renderParquetChunks, renderParquetChunksAsync } from '../output/render-parquet.js';
@@ -72,6 +73,17 @@ import {
  * memory bounded (the buffer, not the whole output).
  */
 export const WRITE_BATCH_BYTES = 1 << 20;
+
+/** Address → the sentence saying why its file cannot be used. See `PackEntry.unusable`. */
+function unusablePacks(
+  packs: ReadonlyMap<string, { readonly unusable?: string | undefined }>,
+): ReadonlyMap<string, string> {
+  const out = new Map<string, string>();
+  for (const [address, entry] of packs) {
+    if (entry.unusable !== undefined) out.set(address, entry.unusable);
+  }
+  return out;
+}
 
 export interface TdcOptions {
   /**
@@ -225,6 +237,7 @@ export class TDC {
     const validation = validate(parseResult.tree, {
       dataSources: { baseDir: resolved.baseDir, dataPaths: effective.dataPaths },
       packAddresses: [...this.packs.keys()],
+      packUnusable: unusablePacks(this.packs),
       packParams: packParameterNames(this.packs),
       packParamWidths: packParameterWidths(this.packs),
       // `--count` decides how many rows there will be, so the warnings that are

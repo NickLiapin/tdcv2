@@ -80,12 +80,16 @@ describe('scanPacks', () => {
     expect(dup?.source).toBe('pack');
   });
 
-  it('flags an empty list', () => {
+  it('registers an empty list as unusable — reported where it is referenced, not here', () => {
+    // The scan used to push TDC170 at 1:1 eagerly. The four ports report only
+    // on lookup, at the value= that asked — so the scan now REGISTERS the
+    // address with the sentence, and the validator says it at the reference.
     const root = tmpRoot('tdc-pack-empty-');
     mkdirSync(join(root, 'ru'), { recursive: true });
     writeFileSync(join(root, 'ru', 'empty.txt'), '\n\n', 'utf8');
-    const { diagnostics } = scanPacks([root]);
-    expect(diagnostics.some((d) => d.message.includes('has no values'))).toBe(true);
+    const { registry, diagnostics } = scanPacks([root]);
+    expect(diagnostics).toEqual([]);
+    expect(registry.get('ru.empty')?.unusable).toContain('has no values');
   });
 
   it('skips non-existent roots silently', () => {

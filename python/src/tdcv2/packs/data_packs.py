@@ -319,6 +319,20 @@ class DataPacks:
             raise EmptyPackError(
                 f'generator "{self._absolute(dotted_path, locale)}" ({located}) has an empty body'
             )
+        # A body that does not PARSE is the same mistake made a different way, and it used to
+        # be found on the first row, as "pack generator did not parse:" — no code, no address,
+        # no file. The grammar is checked here, once per (address, locale) thanks to the cache,
+        # so ``check`` names the file and the problem before a run — worded the way the
+        # reference words it.
+        if entry.generator is not None:
+            from ..parser.facade import parse as parse_dsl
+
+            result = parse_dsl(entry.generator)
+            if not result.ok:
+                problems = "; ".join(str(problem) for problem in result.problems)
+                raise EmptyPackError(
+                    f'generator "{self._absolute(dotted_path, locale)}" ({located}): {problems}'
+                )
         return entry
 
     def _absolute(self, dotted_path: str, locale: str) -> str:

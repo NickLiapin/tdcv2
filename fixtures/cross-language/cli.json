@@ -967,6 +967,18 @@
       ]
     },
     {
+      "name": "a generator pack whose body does not parse is refused by name, at the value that asked",
+      "note": "The third face of the same mistake, and the one that got FOUR different answers. The reference said it right but pointed at 1:1 and echoed a TDC071 for a path plainly on disk; Java and C# said 'pack generator did not parse:' with no code, no address, no file; Python dumped a raw SyntaxProblem repr; and Rust's engine 2 called it an unknown path, because its stream entry points rediscovered the bundled packs and dropped the project layers on the floor. Now the grammar is checked where the file is loaded, once per address thanks to the cache, and all five say error[TDC170]: generator \"addr\" (file): <the parser's own words> at the value= that asked. The parser text after the colon is each grammar's own and is deliberately not pinned — five parsers, five voices; the code, the address, the file and the caret are the contract.",
+      "files": {
+        "packs/pl/gen/broken.tdc": "---\ndescription: a generator whose body does not parse\ngenerator: tdc\nlocale: pl\n---\n<gen type=\"text\" value=\"a,b\"\n",
+        "run.tdc": "<tdc><env count=\"2\" seed=\"s\" local=\"pl\"><sequence name=\"V\"><gen type=\"template\" value=\"pl.gen.broken\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>\n"
+      },
+      "argv": ["{dir}/run.tdc", "--data-path", "{dir}/packs"],
+      "exit": 1,
+      "stdout": "",
+      "stderrContains": ["error[TDC170]", "generator \"pl.gen.broken\" ("]
+    },
+    {
       "name": "two files claiming one address are refused, not resolved to whichever is first",
       "note": "The extension is not part of an address, so thing.txt and thing.tdc are the same address. Picking the first would make the other dead weight its author cannot see.",
       "files": {

@@ -802,6 +802,7 @@ impl Plan {
             hook.map(|h| move |phase: &str, done: usize, total: usize| (h.0)(phase, done, total));
         let rendered = crate::engine::stream::write_in(
             &self.config,
+            &self.packs,
             self.now_millis,
             self.base_dir.as_deref(),
             &mut sink,

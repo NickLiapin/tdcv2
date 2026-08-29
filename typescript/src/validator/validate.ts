@@ -52,7 +52,6 @@ import { checkSequenceDataAttrs, finiteTextValues, sequenceShape } from './seque
 
 import {
   BUILTIN_SEQUENCES,
-  RESERVED_SEQUENCE_NAMES,
   KNOWN_CASE_CHILDREN,
   KNOWN_DISTINCT_CHILDREN,
   KNOWN_ENV_GROUP_CHILDREN,
@@ -112,7 +111,7 @@ import { EACH_BUILTINS } from '../processor/each.js';
 import { checkGenWeight } from './weight.js';
 import { checkGenMask } from './mask.js';
 import { checkAnomalyFlag, checkGenIfInCase, checkGenImperfections } from './imperfections.js';
-import { checkParentRef } from './parent-ref.js';
+import { checkDeclName } from './decl-name.js';
 import { checkAllUnknownAttrs, checkUnknownAttrs } from './unknown-attrs.js';
 import { checkAttrInterpolation } from './interpolation.js';
 import { FIXTURE_TAGS, checkFixture } from './fixture.js';
@@ -134,6 +133,8 @@ export interface ValidationOptions {
    * values so pack addresses aren't flagged as unknown template paths.
    */
   readonly packAddresses?: readonly string[] | undefined;
+  /** Address → why that pack file cannot be used. See `PackEntry.unusable`. */
+  readonly packUnusable?: ReadonlyMap<string, string> | undefined;
   /**
    * Address → the parameter names a generator pack accepts (its `<sequence>`
    * names). Lets the validator catch an attribute the pack cannot act on.
@@ -182,6 +183,7 @@ export function validate(tree: DocumentContext, options: ValidationOptions = {})
     checkRootRegexMaxLength(tdc, diags),
     options.dataSources ?? {},
     options.packAddresses ?? [],
+    options.packUnusable,
     options.packParams,
     options.packParamWidths,
     options.count,
@@ -388,6 +390,7 @@ class Ctx {
     public readonly regexMaxLength: number,
     public readonly dataSources: DataSourceOptions,
     public readonly packAddresses: readonly string[],
+    public readonly packUnusable: ReadonlyMap<string, string> | undefined,
     public readonly packParams: PackParams | undefined,
     public readonly packParamWidths: PackParamWidths | undefined,
     /** `--count`, when the caller has one. See `ValidationOptions.count`. */
@@ -614,72 +617,6 @@ function memberCheckers(ctx: Ctx): MemberCheckers {
 // -----------------------------------------------------------------------
 // <sequence>
 // -----------------------------------------------------------------------
-
-/**
- * Validate the `name` (required, unique, non-builtin, non-`_`-prefixed) and
- * `parent` (declared earlier) attributes shared by `<sequence>` and `<mix>` —
- * both declare a named env-level value. Pushes diagnostics only; the caller
- * registers the name into `ctx.declaredSequences` afterwards.
- */
-function checkDeclName(
-  el: OpenCloseElementContext,
-  ctx: Ctx,
-  tag: 'sequence' | 'mix' | 'switch',
-): void {
-  const attrs = el.attr();
-  const attrMap = extractAttrs(attrs);
-  const name = attrMap['name'];
-  const nameAttr = findAttr(attrs, 'name');
-
-  if (!name) {
-    ctx.diagnostics.push({
-      severity: 'error',
-      source: 'validator',
-      ...nodeRange(el),
-      message: `<${tag}> is missing a required "name" attribute`,
-      hint: `Every ${tag} needs a unique name for interpolation, e.g. <${tag} name="Gender">.`,
-      code: 'TDC030',
-    });
-  } else if (nameAttr) {
-    if (ctx.declaredSequences.includes(name)) {
-      ctx.diagnostics.push({
-        severity: 'error',
-        source: 'validator',
-        ...attrValueRange(nameAttr),
-        message: `duplicate sequence name "${name}"`,
-        hint: 'Each <sequence>/<mix> must declare a unique name; rename or remove the duplicate.',
-        code: 'TDC032',
-      });
-    } else if (RESERVED_SEQUENCE_NAMES.includes(name)) {
-      ctx.diagnostics.push({
-        severity: 'error',
-        source: 'validator',
-        ...attrValueRange(nameAttr),
-        message: `sequence name "${name}" collides with a builtin`,
-        hint: `Builtins: ${formatCandidates(RESERVED_SEQUENCE_NAMES)}. Pick a different name.`,
-        code: 'TDC033',
-      });
-    } else if (name.startsWith('_')) {
-      // Only warn about reserved prefix when it isn't already a harder
-      // error (collision / duplicate) — avoid double-reporting the same token.
-      ctx.diagnostics.push({
-        severity: 'error',
-        source: 'validator',
-        ...attrValueRange(nameAttr),
-        message: `sequence name "${name}" starts with "_" — reserved for builtins`,
-        hint: `Builtin names: ${formatCandidates(RESERVED_SEQUENCE_NAMES)}. User sequences should avoid the leading underscore.`,
-        code: 'TDC031',
-      });
-    }
-  }
-
-  checkParentRef(el, {
-    diagnostics: ctx.diagnostics,
-    declared: ctx.declaredSequences,
-    valueless: ctx.valuelessSequences,
-    finiteValues: ctx.finiteValues,
-  });
-}
 
 function checkSequence(seqEl: OpenCloseElementContext, ctx: Ctx): void {
   const previousSequence = ctx.currentSequence;
