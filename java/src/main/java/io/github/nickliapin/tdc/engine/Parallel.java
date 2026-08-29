@@ -46,6 +46,19 @@ import java.util.concurrent.Future;
 public final class Parallel {
 
   /**
+   * The bounded repair cannot arrange this run: only the whole table in memory can.
+   *
+   * <p>Thrown instead of splitting, so the caller can render single-threaded — ONCE — through
+   * the same door {@code writeFile(target, 1)} uses. Splitting anyway would take the in-memory
+   * fallback once per worker: measured on a 2,000,000-row run, twelve whole tables at once.
+   */
+  public static final class NeedsWholeTable extends RuntimeException {
+    NeedsWholeTable(Throwable cause) {
+      super(cause.getMessage(), cause);
+    }
+  }
+
+  /**
    * Below this, a thread costs more to start than its rows cost to generate.
    *
    * <p>Threads are cheaper than the processes Python needs, but a worker still parses the config
@@ -231,7 +244,7 @@ public final class Parallel {
         // The named refusal (and the past-the-fallback-cap one) must not change wording just
         // because the run went parallel; the single-threaded path words both in DiskEngine.
         DiskEngine.refuseIfItMust(e, config.count(), named);
-        throw e;
+        throw new NeedsWholeTable(e);
       }
     }
     // One slot per worker, so a later report REPLACES that worker's earlier one instead of being

@@ -419,6 +419,26 @@ placed` rather than naming a total it stopped counting. A number quietly reading
   all five, `--jobs` or not. The auto-routed path (`mode="disk"`, no engine named) is
   byte-identical to before.
 
+<!-- covers: coordinator in-memory fallback -->
+
+- **Same config, same seed: three implementations produced data and two produced an error —
+  the worst divergence class there is, and it lived in the parallel coordinators.** When
+  `mode="disk"` auto-routes to engine 3 and the bounded repair cannot arrange the run, the
+  in-memory engine is the documented answer (`disk` promises a cost, not an engine). The
+  single-threaded paths of all five kept that promise, byte-identically — verified on the
+  1,000,000-row medical demo before fixing anything. The parallel paths did not. Java's and
+  C#'s coordinators had no fallback at all, so `tdcv2 medical.tdc -o out` above their
+  auto-parallel threshold surfaced the raw streaming refusal while TypeScript, Python and Rust
+  wrote 92,970,648 identical bytes from the same command. The reference had the opposite
+  disease: its coordinator took the fallback in the planning render AND in every worker —
+  twelve whole in-memory tables at once, ~6 GB where one costs two, and at 8,000,000 rows a
+  certain out-of-memory death. Now every coordinator does the same one thing: the planning
+  render asks for the repair refusal typed, catches it, and renders the run single-threaded
+  through the very door `--jobs 1` uses. All five produce identical bytes with no flags at
+  1,000,000 rows; the reference's peak memory dropped ~3× there; `--engine 3` still refuses by
+  name; and a second shared CLI fixture pins the fallback's own proof — engine 1's capacity
+  sentence, identical in five languages, from a `--jobs 2` run.
+
 - **A `<uniq>` refusal reported ONE block's ceiling against the WHOLE run's count.** A
   `<switch>` in a group cuts the rows into blocks by its subject, and each block is arranged
   on its own; the refusal fired inside that loop, so on a two-subject group the number it

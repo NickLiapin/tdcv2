@@ -517,18 +517,32 @@ public sealed class Tdc
         bool canSplit = ParallelWrite.CanSplit(_config, _packs);
         int resolved = ParallelWrite.ResolveWorkers(
             workers <= 0 ? null : workers, canSplit, _config.Count);
-        if (resolved <= 1)
+        if (resolved > 1)
         {
-            using var writer = new StreamWriter(target, append: false);
-            _run.Value.WriteTo(writer);
-            return;
+            try
+            {
+                // Which engine the config asks for travels with it: a <uniq> group needs
+                // engine 3, and a worker told to build it any other way would answer a
+                // different question.
+                ParallelWrite.WriteFile(
+                    _config, PacksForWorker, _nowMillis, _baseDir, target, resolved,
+                    _config.Count, _onProgress, Engine == 3,
+                    EngineRouter.Forced(_config) && Engine == 3);
+                return;
+            }
+            catch (ExactUniq.RepairNeeded)
+            {
+                // The bounded repair cannot arrange this run and nothing named an engine: the
+                // in-memory engine has to build the table, and it must build it ONCE. Fall
+                // through to the single-threaded write below — the same door
+                // WriteFile(target, 1) uses — instead of letting every worker take the
+                // fallback separately. A NAMED engine 3 never lands here: the coordinator
+                // words its refusal and throws it as its answer.
+            }
         }
 
-        // Which engine the config asks for travels with it: a <uniq> group needs engine 3,
-        // and a worker told to build it any other way would answer a different question.
-        ParallelWrite.WriteFile(
-            _config, PacksForWorker, _nowMillis, _baseDir, target, resolved, _config.Count,
-            _onProgress, Engine == 3, EngineRouter.Forced(_config) && Engine == 3);
+        using var single = new StreamWriter(target, append: false);
+        _run.Value.WriteTo(single);
     }
 
     /// <summary>The records one at a time, without building a list of them.</summary>

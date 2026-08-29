@@ -441,20 +441,28 @@ public final class TDC {
               io.github.nickliapin.tdc.engine.Parallel.canSplit(config, packs),
               count);
       if (resolved > 1) {
-        // Which engine the config asks for travels with it: a <uniq> group needs engine 3,
-        // and a worker told to build it any other way would answer a different question.
-        io.github.nickliapin.tdc.engine.Parallel.writeFile(
-            config,
-            packsFactory,
-            nowMillis,
-            baseDir,
-            target,
-            resolved,
-            count,
-            onProgress,
-            engine() == 3,
-            forcedEngine() && engine() == 3);
-        return;
+        try {
+          // Which engine the config asks for travels with it: a <uniq> group needs engine 3,
+          // and a worker told to build it any other way would answer a different question.
+          io.github.nickliapin.tdc.engine.Parallel.writeFile(
+              config,
+              packsFactory,
+              nowMillis,
+              baseDir,
+              target,
+              resolved,
+              count,
+              onProgress,
+              engine() == 3,
+              forcedEngine() && engine() == 3);
+          return;
+        } catch (io.github.nickliapin.tdc.engine.Parallel.NeedsWholeTable e) {
+          // The bounded repair cannot arrange this run and nothing named an engine: the
+          // in-memory engine has to build the table, and it must build it ONCE. Fall through
+          // to the single-threaded write below — the same door writeFile(target, 1) uses —
+          // instead of letting every worker take the fallback separately. A NAMED engine 3
+          // never lands here: the coordinator words its refusal and throws it as its answer.
+        }
       }
     }
     try {

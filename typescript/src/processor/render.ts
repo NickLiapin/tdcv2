@@ -135,6 +135,16 @@ export interface RenderOptions {
   readonly onProgress?: ((progress: RenderProgress) => void) | undefined;
   /** Build the uniq members without making them unique — for the threads that compute the scan. */
   readonly skipEnvUniq?: true;
+  /**
+   * Throw the uniq-repair refusal instead of taking the in-memory fallback.
+   *
+   * For the parallel coordinator's planning render. The fallback is right for
+   * a single-threaded `mode="disk"` run — one table, one cost. Taken inside a
+   * coordinator it repeats per worker: every one of them builds the whole
+   * table to render its own slice. The coordinator sets this, catches the
+   * typed refusal, and renders the run single-threaded instead.
+   */
+  readonly refuseUniqFallback?: true;
   /** Fingerprint piles for the uniq hunt; auto-set for the disk engines. See `fingerprint.ts`. */
   readonly uniqFingerprintBuckets?: number | undefined;
   /** Sorted fingerprint files computed elsewhere, per uniq group — the parallel coordinator's. */
@@ -629,6 +639,7 @@ export function prepareRender(
     ...(options.uniqPlan !== undefined ? { uniqPlan: options.uniqPlan } : {}),
     ...(options.onUniqPlan !== undefined ? { onUniqPlan: options.onUniqPlan } : {}),
     ...(options.skipEnvUniq ? { skipEnvUniq: true as const } : {}),
+    ...(options.refuseUniqFallback ? { refuseUniqFallback: true as const } : {}),
     ...(options.uniqExcess !== undefined ? { uniqExcess: options.uniqExcess } : {}),
     ...(options.uniqFingerprintBuckets !== undefined
       ? { uniqFingerprintBuckets: options.uniqFingerprintBuckets }

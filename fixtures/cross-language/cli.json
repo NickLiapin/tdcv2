@@ -790,6 +790,19 @@
       ]
     },
     {
+      "name": "a uniq the bounded repair cannot arrange falls back to the in-memory engine ONCE under --jobs",
+      "note": "The auto half of the named-engine case above. mode=\"disk\" promises a cost, not an engine, so a repair refusal on an unforced run is answered by the in-memory engine — and under --jobs that fallback must happen ONCE, single-threaded, in the coordinator, not once per worker. The reference used to take it in the plan AND in every worker (twelve whole tables at 7 GB where one costs two, measured at 2,000,000 rows); Java and C# took it nowhere and surfaced the raw streaming refusal, so three implementations produced data where two produced an error — the worst class there is. Now all five walk the same road: coordinator catches the typed refusal, renders single-threaded, and on THIS config the in-memory engine's own capacity check is the answer. One sentence, five front ends — and it is engine 1's sentence, which is the proof the fallback ran.",
+      "files": {
+        "tight.tdc": "<tdc><env count=\"4\" seed=\"env-u\" local=\"en\"><uniq><sequence name=\"A\"><gen type=\"text\" value=\"x,y\" percent=\"70,30\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"m,n\"/></sequence></uniq></env><block><line><data>${{A}}${{B}}</data></line></block></tdc>\n"
+      },
+      "argv": ["{dir}/tight.tdc", "--jobs", "2"],
+      "exit": 1,
+      "stdout": "",
+      "stderrContains": [
+        "tdcv2: uniq: group \"A × B\" cannot produce 4 unique combinations — the values drawn for these sequences allow at most 3 distinct rows. Add more values to a member (more distinct names, wider ranges…) or lower the count."
+      ]
+    },
+    {
       "name": "--progress writes a status file beside the output, ending in done",
       "note": "The channel a watcher polls. A long run is silent for minutes and silence reads the same as a hang, so the run writes what it is doing into <output>.progress: a small JSON object, rewritten in place about once a second. Only the LAST write can be asserted on here — a three-row run finishes before the first throttled report is due — and it is the one that matters: `done` with the wall-clock seconds is what tells a poller the run ended rather than died. The intermediate phases are covered by the reference's local heavy test, which runs long enough to see them.",
       "files": {

@@ -36,6 +36,7 @@ import type { RenderWorkerInput } from './render-worker.js';
 import type { ScanWorkerInput } from './scan-worker.js';
 import type { PileWorkerInput } from './pile-worker.js';
 import { bucketCountFor } from '../sequence/fingerprint.js';
+import { ExactUniqRepairNeeded } from '../sequence/exact-uniq.js';
 
 const WORKER_PATH = fileURLToPath(new URL('./render-worker.js', import.meta.url));
 const SCAN_WORKER_PATH = fileURLToPath(new URL('./scan-worker.js', import.meta.url));
@@ -173,7 +174,7 @@ function planUniq(
   params: ParallelParams,
   fingerprints: Readonly<Record<string, readonly string[]>>,
   excess: Readonly<Record<string, readonly number[]>>,
-): UniqPlan | undefined {
+): UniqPlan | undefined | 'in-memory' {
   const document = parseStrict(params.source);
   if (!hasUniqueness(document)) return undefined;
 
@@ -181,29 +182,84 @@ function planUniq(
     (p): p is string => p !== undefined,
   );
   const plan: Record<string, UniqArrangement> = {};
-  for (const _chunk of renderStream(document, {
+  const render = (): Generator<string, void, void> =>
+    renderStream(document, {
+      seed: params.seed,
+      count: params.count,
+      ...(params.locale !== undefined ? { locale: params.locale } : {}),
+      ...(params.defaultLocale !== undefined ? { defaultLocale: params.defaultLocale } : {}),
+      packs: scanPacks(roots).registry,
+      now: params.now,
+      // The caller's forced engine, when there is one — this render is where a
+      // named engine's refusal has to fire, before any worker is spawned.
+      ...(params.engine !== undefined ? { engine: params.engine } : { mode: 'disk' as const }),
+      dataPaths: params.dataPaths,
+      baseDir: params.baseDir,
+      source: params.source,
+      range: { start: 0, end: 0 },
+      ...(Object.keys(fingerprints).length > 0 ? { uniqFingerprintFiles: fingerprints } : {}),
+      ...(Object.keys(excess).length > 0 ? { uniqExcess: excess } : {}),
+      // On an auto run the too-tight refusal comes back TYPED instead of being
+      // swallowed by the in-memory fallback — which, taken here and then again
+      // in every worker, builds the whole table once per thread. A forced
+      // engine keeps its own refusal wording and throws below.
+      ...(params.engine === undefined ? { refuseUniqFallback: true as const } : {}),
+      onUniqPlan: (group, arrangement) => {
+        plan[group] = arrangement;
+      },
+    });
+  try {
+    for (const _chunk of render()) {
+      // Nothing is asked for; the registry is what this call is here to build.
+    }
+  } catch (err) {
+    // The bounded repair cannot arrange this run and nothing named an engine:
+    // the answer is the in-memory engine, ONCE, single-threaded — the same
+    // table a `--jobs 1` run of this config builds.
+    if (err instanceof ExactUniqRepairNeeded) return 'in-memory';
+    throw err;
+  }
+  return plan;
+}
+
+/**
+ * The whole run, on this thread, through the same door `--jobs 1` uses.
+ *
+ * Reached when the uniq analysis found the run too tight for the bounded
+ * repair: the in-memory engine has to build the table, and it must build it
+ * ONCE. Handing the ranges to workers here would build it once per worker —
+ * measured, a 2,000,000-row run held twelve whole tables at 7 GB where one
+ * costs two.
+ */
+function renderWholeRunHere(params: ParallelParams): void {
+  const document = parseStrict(params.source);
+  const roots = [bundledPacksDir(), ...(params.dataPaths ?? [])].filter(
+    (p): p is string => p !== undefined,
+  );
+  let done = 0;
+  const reportEvery = Math.max(1, Math.floor(params.count / 200));
+  for (const chunk of renderStream(document, {
     seed: params.seed,
     count: params.count,
     ...(params.locale !== undefined ? { locale: params.locale } : {}),
     ...(params.defaultLocale !== undefined ? { defaultLocale: params.defaultLocale } : {}),
     packs: scanPacks(roots).registry,
     now: params.now,
-    // The caller's forced engine, when there is one — this render is where a
-    // named engine's refusal has to fire, before any worker is spawned.
-    ...(params.engine !== undefined ? { engine: params.engine } : { mode: 'disk' as const }),
+    mode: 'disk',
     dataPaths: params.dataPaths,
     baseDir: params.baseDir,
     source: params.source,
-    range: { start: 0, end: 0 },
-    ...(Object.keys(fingerprints).length > 0 ? { uniqFingerprintFiles: fingerprints } : {}),
-    ...(Object.keys(excess).length > 0 ? { uniqExcess: excess } : {}),
-    onUniqPlan: (group, arrangement) => {
-      plan[group] = arrangement;
+    onProgress: (progress) => {
+      if (progress.phase !== 'render') return;
+      done = progress.done;
+      if (done % reportEvery < 1) {
+        params.onProgress?.({ phase: 'render', done, total: params.count });
+      }
     },
   })) {
-    // Nothing is asked for; the registry is what this call is here to build.
+    writeAllSync(params.destFd, Buffer.from(chunk, 'utf8'));
   }
-  return plan;
+  params.onProgress?.({ phase: 'render', done: params.count, total: params.count });
 }
 
 export async function runParallel(params: ParallelParams): Promise<void> {
@@ -248,8 +304,13 @@ export async function runParallel(params: ParallelParams): Promise<void> {
     // steps that could be counted, and a total invented here would be a bar
     // that stalls rather than one that fills.
     params.onProgress?.({ phase: 'uniq-repair', done: 0, total: 0 });
-    uniqPlan = planUniq(params, found.fingerprints, found.excess);
+    const planned = planUniq(params, found.fingerprints, found.excess);
     params.onProgress?.({ phase: 'render', done: 0, total: params.count });
+    if (planned === 'in-memory') {
+      renderWholeRunHere(params);
+      return;
+    }
+    uniqPlan = planned;
     const rendered = new Array<number>(ranges.length).fill(0);
     await Promise.all(
       ranges.map(([start, end], k) => {

@@ -22,6 +22,13 @@ the next build, and nothing else is edited.
 
 ### Added
 
+- **`Parallel.NeedsWholeTable`.** Thrown by the parallel coordinator when a `<uniq>` run is
+  too tight for the bounded repair and no engine was named: only the whole table in memory can
+  arrange it, and it must be built ONCE. `TDC.writeFile` catches it and writes the run
+  single-threaded through the same door `writeFile(target, 1)` uses; a caller driving
+  `Parallel.writeFile` directly can do the same. Before this, that run surfaced the raw
+  streaming refusal — an error where the other implementations produced data.
+
 - **A `<uniq>` group splits across threads.** The coordinator works the arrangement out once
   and hands it to the workers instead of each repeating the hunt. 10.2 s to 6.9 s on three
   million rows, same bytes.

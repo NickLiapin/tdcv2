@@ -146,6 +146,8 @@ export interface SequenceBuildOptions {
    * works on — so applying the analysis to get it would be circular.
    */
   readonly skipEnvUniq?: true;
+  /** Throw the uniq-repair refusal instead of the in-memory fallback — see `RenderOptions`. */
+  readonly refuseUniqFallback?: true;
   /** Colliding rows already found elsewhere, per uniq group. See `DuplicateScanOptions.knownExcess`. */
   readonly uniqExcess?: Readonly<Record<string, readonly number[]>> | undefined;
   /** Fingerprint piles for the hunt — Engine 5. See `DuplicateScanOptions.fingerprintBuckets`. */

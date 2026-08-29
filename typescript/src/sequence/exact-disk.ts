@@ -93,6 +93,10 @@ export function buildExactDiskRegistry(
       // The cap is the other case: engine 3 DID run this config, got most of the
       // way, and gave up on a memory budget — the very property the caller named
       // this engine to get. That is the substitution worth refusing.
+      // The coordinator's planning render asks for the refusal TYPED, so it can
+      // catch it and render the run single-threaded — once — instead of letting
+      // every worker take this fallback separately.
+      if (options.refuseUniqFallback && err instanceof ExactUniqRepairNeeded) throw err;
       if (named && err instanceof ExactUniqRepairNeeded) {
         throw new Error(
           `${withoutTail(err.message)} — and engine 3 was asked for by name, ` +
