@@ -2,40 +2,40 @@
 description: Medical diagnosis in German that can occur in any patient - no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale/diagnosisFemale; ancestry-linked ones in diagnosisByAncestry.
 locale: de
 ---
-Bluthochdruck
+Arterielle Hypertonie
 Diabetes mellitus Typ 2
 Asthma bronchiale
 Akute Bronchitis
-Grippe
+Influenza
 Migräne
 Generalisierte Angststörung
-Depression
+Major Depression
 Arthrose
 Rheumatoide Arthritis
 Gastroösophageale Refluxkrankheit
 Eisenmangelanämie
-Schilddrüsenunterfunktion
+Hypothyreose
 Harnwegsinfektion
-Lungenentzündung
-Chronische Niereninsuffizienz
+Pneumonie
+Chronische Nierenerkrankung
 Koronare Herzkrankheit
 Vorhofflimmern
-Herzinsuffizienz
+Chronische Herzinsuffizienz
 Ischämischer Schlaganfall
 Epilepsie
 Parkinson-Krankheit
 Alzheimer-Krankheit
 Multiple Sklerose
-Schuppenflechte
-Neurodermitis
+Psoriasis
+Atopische Dermatitis
 Allergische Rhinitis
 Chronische Sinusitis
 Mittelohrentzündung
-Bindehautentzündung
-Grauer Star
-Grüner Star
-Blinddarmentzündung
-Gallenblasenentzündung
+Konjunktivitis
+Katarakt
+Glaukom
+Appendizitis
+Cholezystitis
 Divertikulitis
 Reizdarmsyndrom
 Morbus Crohn
@@ -46,10 +46,10 @@ Akute Pankreatitis
 Gicht
 Osteoporose
 Fibromyalgie
-Ischias
+Ischialgie
 Bandscheibenvorfall
 Karpaltunnelsyndrom
-Sehnenentzündung
+Tendinitis
 Chronisch obstruktive Lungenerkrankung
 Tuberkulose
 Leukämie
@@ -58,7 +58,7 @@ Melanom
 Hyperlipidämie
 Adipositas
 Obstruktive Schlafapnoe
-Schlaflosigkeit
+Insomnie
 Bipolare Störung
 Aufmerksamkeitsdefizit-Hyperaktivitätsstörung
 Zöliakie
@@ -69,13 +69,116 @@ Hämorrhoiden
 Krampfadern
 Tiefe Venenthrombose
 Lungenembolie
-Nierensteine
-Blutarmut
-Schilddrüsenüberfunktion
+Nierensteinleiden
+Anämie
+Hyperthyreose
 Magengeschwür
 Gastritis
-Erysipel
+Zellulitis
 Sepsis
 Brustkrebs
 Akute Gastroenteritis
 Vitamin-D-Mangel
+Chronische Veneninsuffizienz
+Diabetes mellitus Typ 1
+Myokardinfarkt
+Angina pectoris
+Periphere arterielle Verschlusskrankheit
+Dilatative Kardiomyopathie
+Myokarditis
+Perikarditis
+Infektiöse Endokarditis
+Aortenstenose
+Mitralklappenprolaps
+Bauchaortenaneurysma
+Chronische Bronchitis
+Lungenemphysem
+Pleuraerguss
+Lungenfibrose
+Pulmonale Hypertonie
+Bronchiektasie
+Laryngitis
+Pharyngitis
+Tonsillitis
+Ösophagitis
+Barrett-Ösophagus
+Magenkrebs
+Kolorektales Karzinom
+Analfissur
+Nichtalkoholische Fettlebererkrankung
+Chronische Hepatitis C
+Hiatushernie
+Leistenhernie
+Akutes Nierenversagen
+Glomerulonephritis
+Pyelonephritis
+Zystitis
+Harninkontinenz
+Blasenkrebs
+Nierenzellkarzinom
+Transitorische ischämische Attacke
+Spannungskopfschmerz
+Clusterkopfschmerz
+Trigeminusneuralgie
+Bell-Lähmung
+Periphere Neuropathie
+Restless-Legs-Syndrom
+Essentieller Tremor
+Myasthenia gravis
+Guillain-Barré-Syndrom
+Panikstörung
+Zwangsstörung
+Posttraumatische Belastungsstörung
+Soziale Angststörung
+Anorexia nervosa
+Bulimia nervosa
+Schizophrenie
+Alkoholkonsumstörung
+Hashimoto-Thyreoiditis
+Morbus Basedow
+Cushing-Syndrom
+Morbus Addison
+Hyperparathyreoidismus
+Metabolisches Syndrom
+Vitamin-B12-Mangel
+Schilddrüsenknoten
+Thrombozytopenie
+Polycythaemia vera
+Lungenkrebs
+Bauchspeicheldrüsenkrebs
+Schilddrüsenkrebs
+Multiples Myelom
+Bursitis
+Plantarfasziitis
+Rotatorenmanschettenriss
+Morbus Bechterew
+Skoliose
+Osteomyelitis
+Akne vulgaris
+Rosazea
+Vitiligo
+Alopecia areata
+Urtikaria
+Kontaktdermatitis
+Herpes zoster
+Onychomykose
+Makuladegeneration
+Diabetische Retinopathie
+Netzhautablösung
+Uveitis
+Trockenes Auge
+Morbus Menière
+Schallempfindungsschwerhörigkeit
+Nasenpolypen
+Infektiöse Mononukleose
+Lyme-Borreliose
+Malaria
+Denguefieber
+Salmonellose
+Hepatitis A
+HIV-Infektion
+Herpes-simplex-Infektion
+Masern
+Windpocken
+Bakterielle Meningitis
+Virale Enzephalitis

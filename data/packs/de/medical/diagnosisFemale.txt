@@ -6,15 +6,15 @@ Endometriose
 Polyzystisches Ovarialsyndrom
 Uterusmyome
 Ovarialzyste
-Ovarialkarzinom
-Zervixkarzinom
+Eierstockkrebs
+Gebärmutterhalskrebs
 Zervikale Dysplasie
 Zervizitis
 Endometritis
 Endometriumkarzinom
-Adnexitis
+Entzündliche Beckenerkrankung
 Bakterielle Vaginose
-Vulvovaginalkandidose
+Vulvovaginale Kandidose
 Menorrhagie
 Dysmenorrhoe
 Amenorrhoe
@@ -27,4 +27,14 @@ Mastitis
 Fibrozystische Mastopathie
 Klimakterisches Syndrom
 Prämenstruelle dysphorische Störung
-Uterusprolaps
+Gebärmuttervorfall
+Adenomyose
+Ovarialtorsion
+Placenta praevia
+Plazentalösung
+Vulvakarzinom
+Vaginalkarzinom
+Bartholin-Zyste
+Atrophische Vaginitis
+Turner-Syndrom
+Weibliche Infertilität

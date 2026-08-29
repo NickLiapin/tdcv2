@@ -80,3 +80,105 @@ Breast Cancer
 Acute Gastroenteritis
 Vitamin D Deficiency
 Chronic Venous Insufficiency
+Type 1 Diabetes Mellitus
+Myocardial Infarction
+Angina Pectoris
+Peripheral Artery Disease
+Dilated Cardiomyopathy
+Myocarditis
+Pericarditis
+Infective Endocarditis
+Aortic Stenosis
+Mitral Valve Prolapse
+Abdominal Aortic Aneurysm
+Chronic Bronchitis
+Emphysema
+Pleural Effusion
+Pulmonary Fibrosis
+Pulmonary Hypertension
+Bronchiectasis
+Laryngitis
+Pharyngitis
+Tonsillitis
+Esophagitis
+Barrett Esophagus
+Gastric Cancer
+Colorectal Cancer
+Anal Fissure
+Non-Alcoholic Fatty Liver Disease
+Chronic Hepatitis C
+Hiatal Hernia
+Inguinal Hernia
+Acute Kidney Injury
+Glomerulonephritis
+Pyelonephritis
+Cystitis
+Urinary Incontinence
+Bladder Cancer
+Renal Cell Carcinoma
+Transient Ischemic Attack
+Tension Headache
+Cluster Headache
+Trigeminal Neuralgia
+Bell Palsy
+Peripheral Neuropathy
+Restless Legs Syndrome
+Essential Tremor
+Myasthenia Gravis
+Guillain-Barré Syndrome
+Panic Disorder
+Obsessive-Compulsive Disorder
+Post-Traumatic Stress Disorder
+Social Anxiety Disorder
+Anorexia Nervosa
+Bulimia Nervosa
+Schizophrenia
+Alcohol Use Disorder
+Hashimoto Thyroiditis
+Graves Disease
+Cushing Syndrome
+Addison Disease
+Hyperparathyroidism
+Metabolic Syndrome
+Vitamin B12 Deficiency
+Thyroid Nodule
+Thrombocytopenia
+Polycythemia Vera
+Lung Cancer
+Pancreatic Cancer
+Thyroid Cancer
+Multiple Myeloma
+Bursitis
+Plantar Fasciitis
+Rotator Cuff Tear
+Ankylosing Spondylitis
+Scoliosis
+Osteomyelitis
+Acne Vulgaris
+Rosacea
+Vitiligo
+Alopecia Areata
+Urticaria
+Contact Dermatitis
+Herpes Zoster
+Onychomycosis
+Macular Degeneration
+Diabetic Retinopathy
+Retinal Detachment
+Uveitis
+Dry Eye Syndrome
+Meniere Disease
+Sensorineural Hearing Loss
+Nasal Polyps
+Infectious Mononucleosis
+Lyme Disease
+Malaria
+Dengue Fever
+Salmonellosis
+Hepatitis A
+HIV Infection
+Herpes Simplex Infection
+Measles
+Varicella
+Bacterial Meningitis
+Viral Encephalitis

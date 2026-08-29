@@ -5,35 +5,180 @@ locale: fr
 Hypertension artérielle
 Diabète de type 2
 Asthme
-Bronchite
+Bronchite aiguë
 Grippe
-Angine
-Otite
-Sinusite
 Migraine
-Lombalgie
+Trouble anxieux généralisé
+Trouble dépressif majeur
 Arthrose
-Gastro-entérite
+Polyarthrite rhumatoïde
 Reflux gastro-œsophagien
 Anémie ferriprive
 Hypothyroïdie
-Eczéma
-Psoriasis
-Dépression
-Trouble anxieux
-Insomnie
-Rhinite allergique
-Conjonctivite
 Infection urinaire
-Cystite
-Tendinite
-Entorse
-Fracture
-Hypercholestérolémie
+Pneumonie
+Maladie rénale chronique
+Maladie coronarienne
+Fibrillation auriculaire
+Insuffisance cardiaque chronique
+Accident vasculaire cérébral ischémique
+Épilepsie
+Maladie de Parkinson
+Maladie d'Alzheimer
+Sclérose en plaques
+Psoriasis
+Dermatite atopique
+Rhinite allergique
+Sinusite chronique
+Otite moyenne
+Conjonctivite
+Cataracte
+Glaucome
+Appendicite
+Cholécystite
+Diverticulite
+Syndrome de l'intestin irritable
+Maladie de Crohn
+Rectocolite hémorragique
+Hépatite B chronique
+Cirrhose hépatique
+Pancréatite aiguë
 Goutte
 Ostéoporose
-Bronchite chronique
-Pneumonie
-Colopathie fonctionnelle
+Fibromyalgie
+Sciatique
 Hernie discale
+Syndrome du canal carpien
+Tendinite
+Bronchopneumopathie chronique obstructive
+Tuberculose
+Leucémie
+Lymphome
+Mélanome
+Hyperlipidémie
+Obésité
+Apnée obstructive du sommeil
+Insomnie
+Trouble bipolaire
+Trouble du déficit de l'attention avec hyperactivité
+Maladie cœliaque
+Lupus érythémateux disséminé
+Vertige
+Acouphènes
+Hémorroïdes
+Varices
+Thrombose veineuse profonde
+Embolie pulmonaire
+Lithiase urinaire
+Anémie
+Hyperthyroïdie
+Ulcère gastroduodénal
+Gastrite
+Cellulite infectieuse
+Sepsis
+Cancer du sein
+Gastro-entérite aiguë
+Carence en vitamine D
+Insuffisance veineuse chronique
+Diabète de type 1
+Infarctus du myocarde
+Angine de poitrine
+Artériopathie oblitérante des membres inférieurs
+Cardiomyopathie dilatée
+Myocardite
+Péricardite
+Endocardite infectieuse
+Sténose aortique
+Prolapsus de la valve mitrale
+Anévrisme de l'aorte abdominale
+Bronchite chronique
+Emphysème pulmonaire
+Épanchement pleural
+Fibrose pulmonaire
+Hypertension pulmonaire
+Bronchectasie
+Laryngite
+Pharyngite
+Amygdalite
+Œsophagite
+Œsophage de Barrett
+Cancer de l'estomac
+Cancer colorectal
+Fissure anale
+Stéatose hépatique non alcoolique
+Hépatite C chronique
+Hernie hiatale
+Hernie inguinale
+Insuffisance rénale aiguë
+Glomérulonéphrite
+Pyélonéphrite
+Cystite
+Incontinence urinaire
+Cancer de la vessie
+Carcinome à cellules rénales
+Accident ischémique transitoire
+Céphalée de tension
+Algie vasculaire de la face
+Névralgie du trijumeau
+Paralysie de Bell
+Neuropathie périphérique
+Syndrome des jambes sans repos
+Tremblement essentiel
+Myasthénie grave
+Syndrome de Guillain-Barré
+Trouble panique
+Trouble obsessionnel compulsif
+Trouble de stress post-traumatique
+Trouble d'anxiété sociale
+Anorexie mentale
+Boulimie nerveuse
+Schizophrénie
+Trouble de l'usage de l'alcool
+Thyroïdite de Hashimoto
+Maladie de Basedow
+Syndrome de Cushing
+Maladie d'Addison
+Hyperparathyroïdie
+Syndrome métabolique
+Carence en vitamine B12
+Nodule thyroïdien
+Thrombopénie
+Polyglobulie de Vaquez
+Cancer du poumon
+Cancer du pancréas
+Cancer de la thyroïde
+Myélome multiple
+Bursite
+Fasciite plantaire
+Rupture de la coiffe des rotateurs
+Spondylarthrite ankylosante
+Scoliose
+Ostéomyélite
+Acné vulgaire
+Rosacée
+Vitiligo
+Pelade
+Urticaire
+Dermatite de contact
 Zona
+Onychomycose
+Dégénérescence maculaire
+Rétinopathie diabétique
+Décollement de la rétine
+Uvéite
+Syndrome de l'œil sec
+Maladie de Menière
+Surdité de perception
+Polypes nasaux
+Mononucléose infectieuse
+Maladie de Lyme
+Paludisme
+Dengue
+Salmonellose
+Hépatite A
+Infection par le VIH
+Infection à herpès simplex
+Rougeole
+Varicelle
+Méningite bactérienne
+Encéphalite virale

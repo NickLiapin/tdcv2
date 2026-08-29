@@ -12,9 +12,9 @@ Dysplasie cervicale
 Cervicite
 Endométrite
 Cancer de l'endomètre
-Infection génitale haute
+Maladie inflammatoire pelvienne
 Vaginose bactérienne
-Candidose vulvo-vaginale
+Candidose vulvovaginale
 Ménorragie
 Dysménorrhée
 Aménorrhée
@@ -28,3 +28,13 @@ Mastopathie fibrokystique
 Syndrome climatérique
 Trouble dysphorique prémenstruel
 Prolapsus utérin
+Adénomyose
+Torsion ovarienne
+Placenta praevia
+Décollement placentaire
+Cancer de la vulve
+Cancer du vagin
+Kyste de Bartholin
+Vaginite atrophique
+Syndrome de Turner
+Infertilité féminine

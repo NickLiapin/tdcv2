@@ -4,8 +4,8 @@ locale: de
 ---
 Benigne Prostatahyperplasie
 Prostatitis
-Prostatakarzinom
-Hodenkarzinom
+Prostatakrebs
+Hodenkrebs
 Hodentorsion
 Varikozele
 Hydrozele
@@ -14,7 +14,7 @@ Kryptorchismus
 Phimose
 Balanitis
 Erektile Dysfunktion
-Induratio penis plastica
+Peyronie-Krankheit
 Männliche Infertilität
 Gynäkomastie
 Männlicher Hypogonadismus
@@ -22,3 +22,13 @@ Priapismus
 Spermatozele
 Androgenetische Alopezie
 Skrotalhernie
+Peniskarzinom
+Orchitis
+Harnröhrenstriktur
+Klinefelter-Syndrom
+Azoospermie
+Vorzeitige Ejakulation
+Paraphimose
+Prostataabszess
+Samenblasenentzündung
+Hämatospermie

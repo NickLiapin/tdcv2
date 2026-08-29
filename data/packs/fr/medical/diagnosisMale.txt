@@ -2,11 +2,11 @@
 description: Medical diagnosis in French that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
 locale: fr
 ---
-Hypertrophie bénigne de la prostate
+Hyperplasie bénigne de la prostate
 Prostatite
 Cancer de la prostate
 Cancer du testicule
-Torsion du testicule
+Torsion testiculaire
 Varicocèle
 Hydrocèle
 Épididymite
@@ -14,11 +14,21 @@ Cryptorchidie
 Phimosis
 Balanite
 Dysfonction érectile
-Maladie de Lapeyronie
+Maladie de La Peyronie
 Infertilité masculine
 Gynécomastie
 Hypogonadisme masculin
 Priapisme
 Spermatocèle
-Alopécie androgénétique masculine
-Hernie inguino-scrotale
+Alopécie androgénétique
+Hernie scrotale
+Cancer du pénis
+Orchite
+Sténose de l'urètre
+Syndrome de Klinefelter
+Azoospermie
+Éjaculation précoce
+Paraphimosis
+Abcès prostatique
+Vésiculite séminale
+Hémospermie
