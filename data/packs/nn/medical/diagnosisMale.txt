@@ -2,23 +2,33 @@
 description: Diagnoses that apply to male anatomy, in Nynorsk. godarta for godartet, forstørring for forstørrelse, ikkje- for ikke-, mannleg for mannlig, arveleg for arvelig and sjukdom for sykdom are the divergences; the Latin names are shared.
 locale: nn
 ---
-godarta prostataforstørring
-prostatitt
-prostatakreft
-testikkelkreft
-testikkeltorsjon
-varikocele
-hydrocele
-bitestikkelbetennelse
-ikkje-descendert testikkel
-forhudsforsnevring
-balanitt
-ereksjonssvikt
+Godarta prostataforstørring
+Prostatitt
+Prostatakreft
+Testikkelkreft
+Testikkeltorsjon
+Varikocele
+Hydrocele
+Bitestikkelbetennelse
+Kryptorkisme
+Trong forhud
+Betennelse i penishovudet
+Ereksjonssvikt
 Peyronies sjukdom
-mannleg infertilitet
-gynekomasti
-testosteronmangel
-priapisme
-spermatocele
-arveleg hårtap hos menn
-pungbrokk
+Mannleg infertilitet
+Gynekomasti
+Mannleg hypogonadisme
+Priapisme
+Spermatocele
+Mannleg hårtap
+Pungbrokk
+Peniskreft
+Testikkelbetennelse
+Urinrøyrsforsnevring
+Klinefelters syndrom
+Azoospermi
+For tidleg sædavgang
+Parafimose
+Prostataabscess
+Sædblærebetennelse
+Blod i sæden

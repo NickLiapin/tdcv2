@@ -2,83 +2,183 @@
 description: Medical diagnosis that can occur in any patient — no sex or ancestry restriction; sex-specific conditions are in diagnosisMale/diagnosisFemale and ancestry-linked ones in diagnosisByAncestry. Three entries are Norwegian rather than translated: kols is the ordinary Norwegian word for COPD and is written lowercase like a common noun even though it began as an acronym; grå stær and grønn stær are cataract and glaucoma, literally "grey" and "green staring". Borreliose and vinterdepresjon are on the list because tick-borne disease and seasonal affective disorder are both markedly commoner at Norwegian latitudes than the reference list implies.
 locale: nb
 ---
-hypertensjon
-diabetes type 2
-astma
-akutt bronkitt
-influensa
-migrene
-generalisert angstlidelse
-depresjon
-vinterdepresjon
-artrose
-leddgikt
-gastroøsofageal refluks
-jernmangelanemi
-hypotyreose
-urinveisinfeksjon
-lungebetennelse
-kronisk nyresykdom
-koronarsykdom
-atrieflimmer
-hjertesvikt
-hjerneinfarkt
-epilepsi
+Høyt blodtrykk
+Type 2-diabetes
+Astma
+Akutt bronkitt
+Influensa
+Migrene
+Generalisert angstlidelse
+Alvorlig depresjon
+Artrose
+Revmatoid artritt
+Gastroøsofageal reflukssykdom
+Jernmangelanemi
+Lavt stoffskifte
+Urinveisinfeksjon
+Lungebetennelse
+Kronisk nyresykdom
+Koronarsykdom
+Atrieflimmer
+Kronisk hjertesvikt
+Iskemisk hjerneslag
+Epilepsi
 Parkinsons sykdom
 Alzheimers sykdom
-multippel sklerose
-psoriasis
-atopisk eksem
-allergisk rhinitt
-kronisk bihulebetennelse
-mellomørebetennelse
-konjunktivitt
-grå stær
-grønn stær
-blindtarmbetennelse
-galleblærebetennelse
-divertikulitt
-irritabel tarm
+Multippel sklerose
+Psoriasis
+Atopisk eksem
+Allergisk rinitt
+Kronisk bihulebetennelse
+Mellomørebetennelse
+Øyekatarr
+Grå stær
+Grønn stær
+Blindtarmbetennelse
+Galleblærebetennelse
+Divertikulitt
+Irritabel tarm
 Crohns sykdom
-ulcerøs kolitt
-kronisk hepatitt B
-levercirrhose
-akutt pankreatitt
-urinsyregikt
-benskjørhet
-fibromyalgi
-isjias
-skiveprolaps
-karpaltunnelsyndrom
-senebetennelse
-kols
-tuberkulose
-leukemi
-lymfom
-føflekkreft
-hyperlipidemi
-fedme
-søvnapné
-insomni
-bipolar lidelse
+Ulcerøs kolitt
+Kronisk hepatitt B
+Levercirrhose
+Akutt pankreatitt
+Urinsyregikt
+Benskjørhet
+Fibromyalgi
+Isjias
+Skiveprolaps
+Karpaltunnelsyndrom
+Senebetennelse
+Kronisk obstruktiv lungesykdom
+Tuberkulose
+Leukemi
+Lymfom
+Føflekkreft
+Høyt kolesterol
+Fedme
+Obstruktiv søvnapné
+Søvnløshet
+Bipolar lidelse
 ADHD
-cøliaki
-systemisk lupus erythematosus
-svimmelhet
-tinnitus
-hemoroider
-åreknuter
-dyp venetrombose
-lungeemboli
-nyrestein
-anemi
-hypertyreose
-magesår
-gastritt
-erysipelas
-sepsis
-brystkreft
-akutt gastroenteritt
+Cøliaki
+Systemisk lupus erythematosus
+Svimmelhet
+Øresus
+Hemoroider
+Åreknuter
+Dyp venetrombose
+Lungeemboli
+Nyrestein
+Anemi
+Høyt stoffskifte
+Magesår
+Gastritt
+Rosen
+Sepsis
+Brystkreft
+Akutt omgangssyke
 D-vitaminmangel
-borreliose
-kronisk venøs insuffisiens
+Kronisk venøs insuffisiens
+Type 1-diabetes
+Hjerteinfarkt
+Angina pectoris
+Perifer arteriesykdom
+Dilatert kardiomyopati
+Myokarditt
+Perikarditt
+Infeksiøs endokarditt
+Aortastenose
+Mitralklaffprolaps
+Abdominalt aortaaneurisme
+Kronisk bronkitt
+Emfysem
+Pleuravæske
+Lungefibrose
+Pulmonal hypertensjon
+Bronkiektasier
+Strupehodebetennelse
+Svelgbetennelse
+Halsbetennelse
+Spiserørsbetennelse
+Barretts øsofagus
+Magekreft
+Tykk- og endetarmskreft
+Analfissur
+Ikke-alkoholisk fettleversykdom
+Kronisk hepatitt C
+Hiatushernie
+Lyskebrokk
+Akutt nyreskade
+Glomerulonefritt
+Nyrebekkenbetennelse
+Blærekatarr
+Urinlekkasje
+Blærekreft
+Nyrecellekreft
+Transitorisk iskemisk anfall
+Spenningshodepine
+Klasehodepine
+Trigeminusnevralgi
+Bells parese
+Perifer nevropati
+Rastløse bein
+Essensiell tremor
+Myasthenia gravis
+Guillain-Barrés syndrom
+Panikklidelse
+Tvangslidelse
+Posttraumatisk stresslidelse
+Sosial angstlidelse
+Anorexia nervosa
+Bulimia nervosa
+Schizofreni
+Alkoholbrukslidelse
+Hashimotos tyreoiditt
+Graves' sykdom
+Cushings syndrom
+Addisons sykdom
+Hyperparatyreoidisme
+Metabolsk syndrom
+B12-mangel
+Knute i skjoldkjertelen
+Trombocytopeni
+Polycytemia vera
+Lungekreft
+Bukspyttkjertelkreft
+Skjoldkjertelkreft
+Myelomatose
+Slimposebetennelse
+Plantar fasciitt
+Rotatorcuff-ruptur
+Bekhterevs sykdom
+Skoliose
+Osteomyelitt
+Akne
+Rosacea
+Vitiligo
+Flekkvis håravfall
+Elveblest
+Kontakteksem
+Helvetesild
+Neglesopp
+Makuladegenerasjon
+Diabetisk retinopati
+Netthinneløsning
+Uveitt
+Tørre øyne
+Menières sykdom
+Sensorinevralt hørselstap
+Nesepolypper
+Kyssesyken
+Borreliose
+Malaria
+Denguefeber
+Salmonellose
+Hepatitt A
+HIV-infeksjon
+Herpes simplex-infeksjon
+Meslinger
+Vannkopper
+Bakteriell meningitt
+Viral encefalitt

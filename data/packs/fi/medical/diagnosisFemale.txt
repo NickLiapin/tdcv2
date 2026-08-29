@@ -3,28 +3,38 @@ description: Medical diagnosis in Finnish that requires female anatomy — it ca
 locale: fi
 ---
 Endometrioosi
-Monirakkulaisten munasarjojen oireyhtymä
-Kohdun myooma
+Munasarjojen monirakkulaoireyhtymä
+Kohdun lihaskasvaimet
 Munasarjakysta
-Kivulias kuukautisvuoto
-Runsas kuukautisvuoto
-Premenstruaalioireyhtymä
-Premenstruaalinen dysforinen häiriö
-Vaihdevuosioireet
-Kohdunkaulan syöpä
 Munasarjasyöpä
-Kohdunrungon syöpä
-Rintasyöpä
-Rintatulehdus
-Kohdun laskeuma
-Lantionpohjan toimintahäiriö
-Vulvodynia
+Kohdunkaulan syöpä
+Kohdunkaulan solumuutokset
+Kohdunkaulan tulehdus
+Kohdun limakalvon tulehdus
+Kohdun runko-osan syöpä
+Sisäsynnytintulehdus
 Bakteerivaginoosi
 Emättimen hiivatulehdus
-Raskausdiabetes
+Runsaat kuukautiset
+Kivuliaat kuukautiset
+Kuukautisten poisjääminen
 Pre-eklampsia
-Synnytyksen jälkeinen masennus
-Raskauspahoinvointi
-Keskenmeno
+Raskausdiabetes
+Raskauspahoinvoinnin vaikea muoto
 Kohdunulkoinen raskaus
-Kohdunkaulan solumuutokset
+Synnytyksen jälkeinen verenvuoto
+Rintatulehdus
+Rintojen fibrokystinen muutos
+Vaihdevuosioireet
+Kuukautisia edeltävä dysforinen häiriö
+Kohdun laskeuma
+Adenomyoosi
+Munasarjan kiertymä
+Etinen istukka
+Istukan ennenaikainen irtoaminen
+Ulkosynnytinsyöpä
+Emätinsyöpä
+Bartholinin kysta
+Emättimen limakalvon surkastuminen
+Turnerin oireyhtymä
+Naisen hedelmättömyys

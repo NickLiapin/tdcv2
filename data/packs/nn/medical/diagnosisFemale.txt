@@ -2,29 +2,39 @@
 description: Diagnoses that apply to female anatomy, in Nynorsk. livmora is the Nynorsk feminine definite where Bokmål writes livmoren — the single clearest grammatical difference between the standards, because Nynorsk keeps a real feminine gender that Bokmål lets writers avoid. bløding for blødning, forgifting for forgiftning, liding for lidelse, alvorleg for alvorlig and utanfor for utenfor are the rest.
 locale: nn
 ---
-endometriose
-polycystisk ovariesyndrom
-myom i livmora
-ovarialcyste
-eggstokkreft
-livmorhalskreft
-celleforandringar i livmorhalsen
-cervicitt
-endometritt
-livmorkreft
-bekkeninfeksjon
-bakteriell vaginose
-soppinfeksjon i skjeden
-kraftige menstruasjonsblødingar
-menstruasjonssmerter
-uteblitt menstruasjon
-svangerskapsforgifting
-svangerskapsdiabetes
-alvorleg svangerskapskvalme
-svangerskap utanfor livmora
-bløding etter fødsel
-brystbetennelse
-fibroadenom i bryst
-overgangsplager
-premenstruell dysforisk liding
-livmorframfall
+Endometriose
+Polycystisk ovariesyndrom
+Muskelknutar i livmora
+Eggstokkcyste
+Eggstokkreft
+Livmorhalskreft
+Celleforandringar i livmorhalsen
+Livmorhalsbetennelse
+Livmorslimhinnebetennelse
+Livmorkreft
+Bekkeninfeksjon
+Bakteriell vaginose
+Sopp i underlivet
+Kraftig menstruasjon
+Menstruasjonssmerter
+Utebliven menstruasjon
+Svangerskapsforgifting
+Svangerskapsdiabetes
+Alvorleg svangerskapskvalme
+Svangerskap utanfor livmora
+Bløding etter fødsel
+Brystbetennelse
+Fibrocystisk brystforandring
+Overgangsplager
+Premenstruell dysforisk liding
+Livmorframfall
+Adenomyose
+Eggstokktorsjon
+Framforliggande morkake
+Morkakeløysing
+Kreft i ytre kjønnsorgan
+Skjedekreft
+Bartholins cyste
+Tørr skjedeslimhinne
+Turners syndrom
+Kvinneleg infertilitet

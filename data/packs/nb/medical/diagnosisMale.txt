@@ -2,23 +2,33 @@
 description: Medical diagnosis that requires male anatomy — it cannot occur in a female patient. Draw from this only for male rows; general conditions are in medical/diagnosis.
 locale: nb
 ---
-godartet prostataforstørrelse
-prostatitt
-prostatakreft
-testikkelkreft
-testikkeltorsjon
-varikocele
-hydrocele
-bitestikkelbetennelse
-ikke-descendert testikkel
-forhudsforsnevring
-balanitt
-ereksjonssvikt
+Godartet prostataforstørrelse
+Prostatitt
+Prostatakreft
+Testikkelkreft
+Testikkeltorsjon
+Varikocele
+Hydrocele
+Bitestikkelbetennelse
+Kryptorkisme
+Trang forhud
+Betennelse i penishodet
+Ereksjonssvikt
 Peyronies sykdom
-mannlig infertilitet
-gynekomasti
-testosteronmangel
-priapisme
-spermatocele
-arvelig hårtap hos menn
-pungbrokk
+Mannlig infertilitet
+Gynekomasti
+Mannlig hypogonadisme
+Priapisme
+Spermatocele
+Mannlig håravfall
+Pungbrokk
+Peniskreft
+Testikkelbetennelse
+Urinrørsforsnevring
+Klinefelters syndrom
+Azoospermi
+For tidlig sædavgang
+Parafimose
+Prostataabscess
+Sædblærebetennelse
+Blod i sæden

@@ -2,9 +2,9 @@
 description: Diagnosis that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
 locale: is
 ---
-Blöðruhálskirtilsstækkun
+Góðkynja stækkun blöðruhálskirtils
 Blöðruhálskirtilsbólga
-Krabbamein í blöðruhálskirtli
+Blöðruhálskirtilskrabbamein
 Eistnakrabbamein
 Eistnasnúningur
 Æðahnútar í pung
@@ -12,13 +12,23 @@ Vatnshaull
 Eistnalyppubólga
 Launeista
 Forhúðarþrengsli
-Reðurbólga
+Reðurhúfubólga
 Ristruflanir
-Sáðlátsröskun
-Ófrjósemi karla
-Kviðslit í nára
-Blöðruhálskirtilsígerð
-Krabbamein í reðri
 Peyronie-sjúkdómur
-Lágt testósterón
+Ófrjósemi karla
 Brjóstastækkun karla
+Kynkirtlavanseyting karla
+Sístaða reðurs
+Sáðblaðra
+Skallamyndun karla
+Pungshaull
+Reðurkrabbamein
+Eistnabólga
+Þvagrásarþrengsli
+Klinefelter-heilkenni
+Sáðfrumuleysi
+Bráðasáðlát
+Forhúðarklemma
+Graftarkýli í blöðruhálskirtli
+Sáðblöðrubólga
+Blóð í sæði

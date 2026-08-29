@@ -2,23 +2,33 @@
 description: Medical diagnosis in Danish that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
 locale: da
 ---
-Godartet forstørret prostata
+Godartet prostataforstørrelse
 Prostatitis
 Prostatakræft
 Testikelkræft
-Rejsningsproblemer
-Forhudsforsnævring
 Testikeltorsion
-Bitestikelbetændelse
-Varicocele
+Varikocele
 Hydrocele
-Gynækomasti
-Peniskræft
-Testosteronmangel
+Bitestikelbetændelse
+Kryptorkisme
+Forhudsforsnævring
+Betændelse i penishovedet
+Rejsningsproblemer
 Peyronies sygdom
 Mandlig infertilitet
-Balanitis
-Urinretention
+Gynækomasti
+Mandlig hypogonadisme
+Priapisme
 Spermatocele
-Hypospadi
-Manglende nedsynkning af testikel
+Mandligt hårtab
+Pungbrok
+Peniskræft
+Testikelbetændelse
+Urinrørsforsnævring
+Klinefelters syndrom
+Azoospermi
+For tidlig sædafgang
+Parafimose
+Prostataabsces
+Sædblærebetændelse
+Blod i sæden

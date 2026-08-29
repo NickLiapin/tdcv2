@@ -2,29 +2,39 @@
 description: Medical diagnosis that requires female anatomy — it cannot occur in a male patient. Draw from this only for female rows; general conditions are in medical/diagnosis.
 locale: nb
 ---
-endometriose
-polycystisk ovariesyndrom
-myomer i livmoren
-ovarialcyste
-eggstokkreft
-livmorhalskreft
-celleforandringer i livmorhalsen
-cervicitt
-endometritt
-livmorkreft
-bekkeninfeksjon
-bakteriell vaginose
-soppinfeksjon i skjeden
-kraftige menstruasjonsblødninger
-menstruasjonssmerter
-uteblitt menstruasjon
-svangerskapsforgiftning
-svangerskapsdiabetes
-alvorlig svangerskapskvalme
-svangerskap utenfor livmoren
-blødning etter fødsel
-brystbetennelse
-fibroadenom i bryst
-overgangsplager
-premenstruell dysforisk lidelse
-livmorframfall
+Endometriose
+Polycystisk ovariesyndrom
+Muskelknuter i livmoren
+Eggstokkcyste
+Eggstokkreft
+Livmorhalskreft
+Celleforandringer i livmorhalsen
+Livmorhalsbetennelse
+Livmorslimhinnebetennelse
+Livmorkreft
+Bekkeninfeksjon
+Bakteriell vaginose
+Sopp i underlivet
+Kraftig menstruasjon
+Menstruasjonssmerter
+Uteblitt menstruasjon
+Svangerskapsforgiftning
+Svangerskapsdiabetes
+Alvorlig svangerskapskvalme
+Svangerskap utenfor livmoren
+Blødning etter fødsel
+Brystbetennelse
+Fibrocystisk brystforandring
+Overgangsplager
+Premenstruell dysforisk lidelse
+Livmorframfall
+Adenomyose
+Eggstokktorsjon
+Forliggende morkake
+Morkakeløsning
+Kreft i ytre kjønnsorganer
+Skjedekreft
+Bartholins cyste
+Tørr skjedeslimhinne
+Turners syndrom
+Kvinnelig infertilitet

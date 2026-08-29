@@ -2,83 +2,183 @@
 description: Medical diagnosis in Finnish that can occur in any patient — no sex or ancestry restriction. Three are specifically Finnish clinical facts: borrelioosi and puutiaisaivotulehdus are tick-borne and routine in Finnish primary care, with TBE covered by a regional vaccination programme, and D-vitamiinin puutos is common enough at this latitude that Finland fortifies milk and margarine by national decision. Sex-specific conditions live in diagnosisMale/diagnosisFemale; ancestry-linked ones in diagnosisByAncestry.
 locale: fi
 ---
-Kohonnut verenpaine
+Verenpainetauti
 Tyypin 2 diabetes
-Tyypin 1 diabetes
-Rasva-aineenvaihdunnan häiriö
-Lihavuus
 Astma
-Keuhkoahtaumatauti
-Allerginen nuha
-Krooninen keuhkoputkentulehdus
-Keuhkokuume
-Uniapnea
-Sydämen vajaatoiminta
-Eteisvärinä
-Angina pectoris
-Sydäninfarkti
-Aivoinfarkti
-TIA-kohtaus
-Syvä laskimotukos
-Keuhkoembolia
-Suonikohjut
-Migreeni
-Jännityspäänsärky
-Epilepsia
-Huimaus
-Tinnitus
-Kuulon alenema
-Harmaakaihi
-Glaukooma
-Kuivasilmäisyys
-Masennus
-Yleistynyt ahdistuneisuushäiriö
-Paniikkihäiriö
-Työuupumus
-Unettomuus
-ADHD
-Autismikirjon häiriö
-Muistisairaus
-Alzheimerin tauti
-Parkinsonin tauti
-MS-tauti
-Nivelreuma
-Nivelrikko
-Osteoporoosi
-Kihti
-Fibromyalgia
-Iskias
-Välilevyn pullistuma
-Rannekanavaoireyhtymä
-Atooppinen ihottuma
-Psoriaasi
-Akne
-Ruusufinni
-Nokkosihottuma
-Vyöruusu
-Vesirokko
-Mononukleoosi
+Äkillinen keuhkoputkentulehdus
 Influenssa
-Covid-19
-Nielutulehdus
-Poskiontelotulehdus
-Välikorvatulehdus
-Virtsatietulehdus
-Munuaiskivi
-Krooninen munuaisten vajaatoiminta
-Sappikivi
-Mahahaava
-Mahakatarri
+Migreeni
+Yleistynyt ahdistuneisuushäiriö
+Vakava masennus
+Nivelrikko
+Nivelreuma
 Refluksitauti
-Keliakia
+Raudanpuuteanemia
+Kilpirauhasen vajaatoiminta
+Virtsatieinfektio
+Keuhkokuume
+Krooninen munuaistauti
+Sepelvaltimotauti
+Eteisvärinä
+Krooninen sydämen vajaatoiminta
+Aivoinfarkti
+Epilepsia
+Parkinsonin tauti
+Alzheimerin tauti
+MS-tauti
+Psoriaasi
+Atooppinen ihottuma
+Allerginen nuha
+Krooninen poskiontelotulehdus
+Välikorvatulehdus
+Sidekalvotulehdus
+Kaihi
+Glaukooma
+Umpilisäkkeen tulehdus
+Sappirakon tulehdus
+Divertikuliitti
+Ärtyvän suolen oireyhtymä
 Crohnin tauti
 Haavainen paksusuolentulehdus
-Ärtyvän suolen oireyhtymä
-Kilpirauhasen vajaatoiminta
+Krooninen B-hepatiitti
+Maksakirroosi
+Äkillinen haimatulehdus
+Kihti
+Osteoporoosi
+Fibromyalgia
+Iskias
+Välilevytyrä
+Rannekanavaoireyhtymä
+Jännetulehdus
+Keuhkoahtaumatauti
+Tuberkuloosi
+Leukemia
+Lymfooma
+Melanooma
+Hyperlipidemia
+Lihavuus
+Obstruktiivinen uniapnea
+Unettomuus
+Kaksisuuntainen mielialahäiriö
+ADHD
+Keliakia
+SLE-tauti
+Huimaus
+Tinnitus
+Peräpukamat
+Suonikohjut
+Syvä laskimotukos
+Keuhkoembolia
+Munuaiskivet
+Anemia
 Kilpirauhasen liikatoiminta
-Raudanpuuteanemia
-B12-vitamiinin puutos
+Maha- tai pohjukaissuolihaava
+Mahakatarri
+Selluliitti-infektio
+Sepsis
+Rintasyöpä
+Äkillinen maha-suolitulehdus
 D-vitamiinin puutos
+Krooninen laskimoiden vajaatoiminta
+Tyypin 1 diabetes
+Sydäninfarkti
+Angina pectoris
+Perifeerinen valtimotauti
+Laajentava kardiomyopatia
+Sydänlihastulehdus
+Sydänpussitulehdus
+Infektioendokardiitti
+Aorttastenoosi
+Hiippaläpän prolapsi
+Vatsa-aortan aneurysma
+Krooninen keuhkoputkentulehdus
+Keuhkolaajentuma
+Keuhkopussin nestekertymä
+Keuhkofibroosi
+Keuhkoverenpainetauti
+Keuhkoputkien laajentuma
+Kurkunpäätulehdus
+Nielutulehdus
+Nielurisatulehdus
+Ruokatorvitulehdus
+Barrettin ruokatorvi
+Mahasyöpä
+Paksu- ja peräsuolisyöpä
+Peräaukon haavauma
+Ei-alkoholiperäinen rasvamaksa
+Krooninen C-hepatiitti
+Palleatyrä
+Nivustyrä
+Äkillinen munuaisvaurio
+Munuaiskerästulehdus
+Munuaisallastulehdus
+Virtsarakkotulehdus
+Virtsankarkailu
+Virtsarakkosyöpä
+Munuaissyöpä
+Ohimenevä aivoverenkiertohäiriö
+Jännityspäänsärky
+Sarjoittainen päänsärky
+Kolmoishermosärky
+Bellin pareesi
+Ääreishermoston sairaus
+Levottomat jalat -oireyhtymä
+Essentiaalinen vapina
+Myasthenia gravis
+Guillain-Barrén oireyhtymä
+Paniikkihäiriö
+Pakko-oireinen häiriö
+Traumaperäinen stressihäiriö
+Sosiaalisten tilanteiden pelko
+Laihuushäiriö
+Ahmimishäiriö
+Skitsofrenia
+Alkoholin käyttöhäiriö
+Hashimoton tyreoidiitti
+Basedowin tauti
+Cushingin oireyhtymä
+Addisonin tauti
+Lisäkilpirauhasen liikatoiminta
+Metabolinen oireyhtymä
+B12-vitamiinin puutos
+Kilpirauhasen kyhmy
+Trombosytopenia
+Polysytemia vera
+Keuhkosyöpä
+Haimasyöpä
+Kilpirauhassyöpä
+Multippeli myelooma
+Limapussin tulehdus
+Jalkapohjan kalvotulehdus
+Kiertäjäkalvosimen repeämä
+Selkärankareuma
+Skolioosi
+Luutulehdus
+Akne
+Ruusufinni
+Valkopälvi
+Pälvikalju
+Nokkosihottuma
+Kosketusihottuma
+Vyöruusu
+Kynsisieni
+Silmänpohjan rappeuma
+Diabeettinen retinopatia
+Verkkokalvon irtauma
+Uveiitti
+Kuivasilmäisyys
+Ménièren tauti
+Sisäkorvaperäinen kuulonalenema
+Nenäpolyypit
+Mononukleoosi
 Borrelioosi
-Puutiaisaivotulehdus
-Norovirusinfektio
+Malaria
+Denguekuume
+Salmonelloosi
+A-hepatiitti
+HIV-infektio
+Herpes simplex -infektio
+Tuhkarokko
+Vesirokko
+Bakteerien aiheuttama aivokalvontulehdus
+Virusaivotulehdus

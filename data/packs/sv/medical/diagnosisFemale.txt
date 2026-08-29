@@ -3,28 +3,38 @@ description: Medical diagnosis in Swedish that requires female anatomy — it ca
 locale: sv
 ---
 Endometrios
-PCOS
-Myom i livmodern
+Polycystiskt ovarialsyndrom
+Muskelknutor i livmodern
 Äggstockscysta
-Dysmenorré
-Kraftig menstruationsblödning
-PMS
-PMDS
-Klimakteriebesvär
-Livmoderhalscancer
 Äggstockscancer
+Livmoderhalscancer
+Cellförändringar i livmoderhalsen
+Cervicit
+Endometrit
 Livmodercancer
-Bröstcancer
-Bröstinflammation
-Framfall
-Bäckenbottendysfunktion
-Vulvodyni
+Bäckeninflammation
 Bakteriell vaginos
 Svampinfektion i underlivet
-Graviditetsdiabetes
+Riklig menstruation
+Smärtsam menstruation
+Utebliven menstruation
 Havandeskapsförgiftning
-Förlossningsdepression
-Graviditetsillamående
-Missfall
+Graviditetsdiabetes
+Svår graviditetsillamående
 Utomkvedshavandeskap
-Cellförändringar i livmoderhalsen
+Blödning efter förlossning
+Bröstinflammation
+Fibrocystisk bröstförändring
+Klimakteriebesvär
+Premenstruellt dysforiskt syndrom
+Livmoderframfall
+Adenomyos
+Äggstockstorsion
+Föreliggande moderkaka
+Moderkaksavlossning
+Vulvacancer
+Vaginalcancer
+Bartholins cysta
+Atrofisk vaginit
+Turners syndrom
+Kvinnlig infertilitet

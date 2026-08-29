@@ -4,81 +4,181 @@ locale: da
 ---
 Forhøjet blodtryk
 Type 2-diabetes
-Type 1-diabetes
-Forhøjet kolesterol
-Svær overvægt
 Astma
-KOL
-Høfeber
-Kronisk bronkitis
-Lungebetændelse
-Søvnapnø
-Hjertesvigt
-Atrieflimren
-Angina pectoris
-Blodprop i hjertet
-Blodprop i hjernen
-Hjerneblødning
-TCI
-Dyb venetrombose
-Blodprop i lungen
-Åreknuder
+Akut bronkitis
+Influenza
 Migræne
-Spændingshovedpine
+Generaliseret angst
+Svær depression
+Slidgigt
+Leddegigt
+Gastroøsofageal reflukssygdom
+Jernmangelanæmi
+Lavt stofskifte
+Urinvejsinfektion
+Lungebetændelse
+Kronisk nyresygdom
+Iskæmisk hjertesygdom
+Atrieflimren
+Kronisk hjertesvigt
+Iskæmisk apopleksi
 Epilepsi
-Svimmelhed
-Tinnitus
-Nedsat hørelse
+Parkinsons sygdom
+Alzheimers sygdom
+Dissemineret sklerose
+Psoriasis
+Atopisk eksem
+Allergisk snue
+Kronisk bihulebetændelse
+Mellemørebetændelse
+Øjenbetændelse
 Grå stær
 Grøn stær
-Tørre øjne
-Depression
-Generaliseret angst
-Panikangst
-Belastningsreaktion
-Søvnbesvær
-ADHD
-Autismespektrumforstyrrelse
-Demens
-Alzheimers sygdom
-Parkinsons sygdom
-Dissemineret sklerose
-Leddegigt
-Slidgigt
+Blindtarmsbetændelse
+Galdeblærebetændelse
+Divertikulitis
+Irritabel tyktarm
+Crohns sygdom
+Colitis ulcerosa
+Kronisk hepatitis B
+Levercirrose
+Akut pankreatitis
+Podagra
 Knogleskørhed
-Urinsyregigt
 Fibromyalgi
 Iskias
 Diskusprolaps
 Karpaltunnelsyndrom
-Atopisk eksem
-Psoriasis
-Akne
-Rosacea
-Nældefeber
-Helvedesild
-Skoldkopper
-Mononukleose
-Influenza
-Covid-19
-Halsbetændelse
-Bihulebetændelse
-Mellemørebetændelse
-Blærebetændelse
+Senebetændelse
+Kronisk obstruktiv lungesygdom
+Tuberkulose
+Leukæmi
+Lymfom
+Modermærkekræft
+Forhøjet kolesterol
+Fedme
+Obstruktiv søvnapnø
+Søvnløshed
+Bipolar lidelse
+ADHD
+Cøliaki
+Systemisk lupus erythematosus
+Svimmelhed
+Tinnitus
+Hæmorider
+Åreknuder
+Dyb venetrombose
+Lungeemboli
 Nyresten
-Kronisk nyresvigt
-Galdesten
+Anæmi
+Højt stofskifte
 Mavesår
 Gastritis
-Sure opstød
-Cøliaki
-Crohns sygdom
-Colitis ulcerosa
-Irritabel tyktarm
-For lavt stofskifte
-For højt stofskifte
-Jernmangelanæmi
-B12-mangel
+Rosen
+Sepsis
+Brystkræft
+Akut roskildesyge
 D-vitaminmangel
+Kronisk venøs insufficiens
+Type 1-diabetes
+Blodprop i hjertet
+Hjertekrampe
+Perifer arteriel sygdom
+Dilateret kardiomyopati
+Myokarditis
+Perikarditis
+Infektiøs endokarditis
+Aortastenose
+Mitralklapprolaps
+Aortaaneurisme i bughulen
+Kronisk bronkitis
+Emfysem
+Pleuraekssudat
+Lungefibrose
+Pulmonal hypertension
+Bronkiektasier
+Strubehovedbetændelse
+Svælgkatar
+Halsbetændelse
+Spiserørsbetændelse
+Barretts øsofagus
+Mavekræft
+Tyk- og endetarmskræft
+Analfissur
+Ikke-alkoholisk fedtlever
+Kronisk hepatitis C
+Hiatushernie
+Lyskebrok
+Akut nyreskade
+Glomerulonefritis
+Nyrebækkenbetændelse
+Blærebetændelse
+Urininkontinens
+Blærekræft
+Nyrecellekræft
+Transitorisk cerebral iskæmi
+Spændingshovedpine
+Hortons hovedpine
+Trigeminusneuralgi
+Bells parese
+Perifer neuropati
+Uro i benene
+Essentiel tremor
+Myasthenia gravis
+Guillain-Barrés syndrom
+Panikangst
+Obsessiv-kompulsiv tilstand
+Posttraumatisk belastningsreaktion
+Socialfobi
+Nervøs spisevægring
+Nervøs overspisning
+Skizofreni
+Alkoholafhængighed
+Hashimotos thyroiditis
+Graves' sygdom
+Cushings syndrom
+Addisons sygdom
+Hyperparatyreoidisme
+Metabolisk syndrom
+B12-vitaminmangel
+Knude i skjoldbruskkirtlen
+Trombocytopeni
+Polycytæmia vera
+Lungekræft
+Kræft i bugspytkirtlen
+Kræft i skjoldbruskkirtlen
+Myelomatose
+Slimsæksbetændelse
+Svangsenebetændelse
+Rotatorcuff-læsion
+Rygsøjlegigt
+Skoliose
+Knoglemarvsbetændelse
+Akne
+Rosacea
+Vitiligo
+Pletvis hårtab
+Nældefeber
+Kontakteksem
+Helvedesild
+Neglesvamp
+Makuladegeneration
+Diabetisk retinopati
+Nethindeløsning
+Uveitis
+Tørre øjne
+Menières sygdom
+Sensorineuralt høretab
+Næsepolypper
+Mononukleose
 Borreliose
-Roskildesyge
+Malaria
+Denguefeber
+Salmonellose
+Hepatitis A
+HIV-infektion
+Herpes simplex-infektion
+Mæslinger
+Skoldkopper
+Bakteriel meningitis
+Viral encefalitis

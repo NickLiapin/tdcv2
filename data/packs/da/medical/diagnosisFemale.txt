@@ -3,28 +3,38 @@ description: Medical diagnosis in Danish that requires female anatomy — it can
 locale: da
 ---
 Endometriose
-PCOS
+Polycystisk ovariesyndrom
 Muskelknuder i livmoderen
 Cyste på æggestokken
-Menstruationssmerter
-Kraftig menstruationsblødning
-PMS
-PMDS
-Overgangsalderens gener
-Livmoderhalskræft
 Æggestokkræft
+Livmoderhalskræft
+Celleforandringer i livmoderhalsen
+Livmoderhalsbetændelse
+Livmoderslimhindebetændelse
 Livmoderkræft
-Brystkræft
-Brystbetændelse
-Nedsynkning af underlivet
-Bækkenbundsdysfunktion
-Vulvodyni
+Underlivsbetændelse
 Bakteriel vaginose
-Svampeinfektion i skeden
-Graviditetsdiabetes
+Svamp i skeden
+Kraftig menstruation
+Menstruationssmerter
+Udebleven menstruation
 Svangerskabsforgiftning
-Fødselsdepression
-Graviditetskvalme
-Spontan abort
+Graviditetsdiabetes
+Svær graviditetskvalme
 Graviditet uden for livmoderen
-Celleforandringer på livmoderhalsen
+Blødning efter fødslen
+Brystbetændelse
+Fibrocystisk brystforandring
+Overgangsalderens gener
+Præmenstruel dysfori
+Nedsunken livmoder
+Adenomyose
+Æggestokstorsion
+Foranliggende moderkage
+Moderkageløsning
+Kræft i de ydre kønsdele
+Skedekræft
+Bartholins cyste
+Tør skedeslimhinde
+Turners syndrom
+Kvindelig infertilitet

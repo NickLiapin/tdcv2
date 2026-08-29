@@ -4,81 +4,181 @@ locale: sv
 ---
 Hypertoni
 Typ 2-diabetes
-Typ 1-diabetes
-Förhöjda blodfetter
-Fetma
 Astma
-KOL
-Allergisk rinit
-Kronisk bronkit
-Lunginflammation
-Sömnapné
-Hjärtsvikt
-Förmaksflimmer
-Kärlkramp
-Hjärtinfarkt
-Stroke
-TIA
-Djup ventrombos
-Lungemboli
-Åderbråck
+Akut bronkit
+Influensa
 Migrän
-Spänningshuvudvärk
-Epilepsi
-Yrsel
-Tinnitus
-Hörselnedsättning
-Grå starr
-Glaukom
-Torra ögon
-Depression
 Generaliserat ångestsyndrom
-Paniksyndrom
-Utmattningssyndrom
-Sömnstörning
-ADHD
-Autismspektrumtillstånd
-Demens
-Alzheimers sjukdom
-Parkinsons sjukdom
-Multipel skleros
-Reumatoid artrit
+Egentlig depression
 Artros
-Osteoporos
+Reumatoid artrit
+Gastroesofageal refluxsjukdom
+Järnbristanemi
+Hypotyreos
+Urinvägsinfektion
+Lunginflammation
+Kronisk njursjukdom
+Kranskärlssjukdom
+Förmaksflimmer
+Kronisk hjärtsvikt
+Ischemisk stroke
+Epilepsi
+Parkinsons sjukdom
+Alzheimers sjukdom
+Multipel skleros
+Psoriasis
+Atopiskt eksem
+Allergisk rinit
+Kronisk sinuit
+Mellanöreinflammation
+Konjunktivit
+Katarakt
+Glaukom
+Blindtarmsinflammation
+Gallblåseinflammation
+Divertikulit
+Irritabel tarm
+Crohns sjukdom
+Ulcerös kolit
+Kronisk hepatit B
+Levercirros
+Akut pankreatit
 Gikt
+Osteoporos
 Fibromyalgi
 Ischias
 Diskbråck
 Karpaltunnelsyndrom
-Atopiskt eksem
-Psoriasis
-Akne
-Rosacea
-Nässelutslag
-Bältros
-Vattkoppor
-Körtelfeber
-Influensa
-Covid-19
-Halsfluss
-Bihåleinflammation
-Öroninflammation
-Urinvägsinfektion
+Tendinit
+Kroniskt obstruktiv lungsjukdom
+Tuberkulos
+Leukemi
+Lymfom
+Melanom
+Hyperlipidemi
+Fetma
+Obstruktiv sömnapné
+Sömnlöshet
+Bipolär sjukdom
+ADHD
+Celiaki
+Systemisk lupus erythematosus
+Yrsel
+Tinnitus
+Hemorrojder
+Åderbråck
+Djup ventrombos
+Lungemboli
 Njursten
-Kronisk njursvikt
-Gallsten
+Anemi
+Hypertyreos
 Magsår
 Gastrit
-Refluxsjukdom
-Celiaki
-Crohns sjukdom
-Ulcerös kolit
-IBS
-Hypotyreos
-Hypertyreos
-Järnbristanemi
-B12-brist
+Rosfeber
+Sepsis
+Bröstcancer
+Akut gastroenterit
 D-vitaminbrist
-Borreliainfektion
-TBE
-Vinterkräksjuka
+Kronisk venös insufficiens
+Typ 1-diabetes
+Hjärtinfarkt
+Kärlkramp
+Perifer artärsjukdom
+Dilaterad kardiomyopati
+Myokardit
+Perikardit
+Infektiös endokardit
+Aortastenos
+Mitralisklaffprolaps
+Bukaortaaneurysm
+Kronisk bronkit
+Emfysem
+Pleuravätska
+Lungfibros
+Pulmonell hypertension
+Bronkiektasier
+Laryngit
+Faryngit
+Tonsillit
+Esofagit
+Barretts esofagus
+Magsäckscancer
+Kolorektal cancer
+Analfissur
+Icke-alkoholorsakad fettleversjukdom
+Kronisk hepatit C
+Hiatushernia
+Ljumskbråck
+Akut njurskada
+Glomerulonefrit
+Pyelonefrit
+Cystit
+Urininkontinens
+Urinblåsecancer
+Njurcellscancer
+Transitorisk ischemisk attack
+Spänningshuvudvärk
+Hortons huvudvärk
+Trigeminusneuralgi
+Bells pares
+Perifer neuropati
+Restless legs-syndrom
+Essentiell tremor
+Myastenia gravis
+Guillain-Barrés syndrom
+Paniksyndrom
+Tvångssyndrom
+Posttraumatiskt stressyndrom
+Social fobi
+Anorexia nervosa
+Bulimia nervosa
+Schizofreni
+Alkoholberoende
+Hashimotos tyreoidit
+Graves sjukdom
+Cushings syndrom
+Addisons sjukdom
+Hyperparatyreoidism
+Metabola syndromet
+B12-brist
+Tyreoideaknöl
+Trombocytopeni
+Polycytemia vera
+Lungcancer
+Bukspottkörtelcancer
+Sköldkörtelcancer
+Multipelt myelom
+Bursit
+Plantarfasciit
+Rotatorkuffruptur
+Ankyloserande spondylit
+Skolios
+Osteomyelit
+Akne
+Rosacea
+Vitiligo
+Alopecia areata
+Nässelutslag
+Kontakteksem
+Bältros
+Nagelsvamp
+Makuladegeneration
+Diabetesretinopati
+Näthinneavlossning
+Uveit
+Torra ögon
+Ménières sjukdom
+Sensorineural hörselnedsättning
+Näspolyper
+Körtelfeber
+Borrelia
+Malaria
+Denguefeber
+Salmonellos
+Hepatit A
+HIV-infektion
+Herpes simplex-infektion
+Mässling
+Vattkoppor
+Bakteriell meningit
+Viral encefalit
