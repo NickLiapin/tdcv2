@@ -3,99 +3,182 @@ description: Medical diagnosis in Swahili that can occur in any patient — no s
 locale: sw
 ---
 Shinikizo la damu
-Ugonjwa wa mishipa ya moyo
-Angina
-Shambulizi la moyo
-Mapigo ya moyo yasiyo ya kawaida
-Kushindwa kwa moyo
-Ugonjwa wa misuli ya moyo
-Uvimbe wa misuli ya moyo
-Kuziba kwa mishipa ya damu
-Mishipa ya miguu kuvimba
-Kuganda kwa damu kwenye mishipa ya kina
-Kuziba kwa mshipa wa mapafu
-Kiharusi
-Shambulizi dogo la kiharusi
-Kipandauso
-Kifafa
-Ugonjwa wa sclerosis nyingi
-Ugonjwa wa Parkinson
-Upotevu wa kumbukumbu
-Uharibifu wa neva za pembeni
-Maumivu ya neva ya uti wa mgongo
-Kuchakaa kwa uti wa mgongo
-Diski ya uti wa mgongo kuteleza
-Ugonjwa wa viungo kuchakaa
-Baridi yabisi
-Gauti
-Ulegevu wa mifupa
-Uti wa mgongo kupinda
+Kisukari cha aina ya 2
 Pumu
-Ugonjwa sugu wa kuziba njia ya hewa
-Mkamba sugu
-Nimonia
-Uvimbe wa utando wa mapafu
-Kifua kikuu
-Sarcoidosis
-Kukatika kwa pumzi usingizini
-Uvimbe wa sinasi
-Uvimbe sugu wa tonsili
-Uvimbe wa sikio
-Uvimbe wa koo
-Uvimbe wa tumbo
-Vidonda vya tumbo
-Kiungulia sugu
-Ugonjwa wa utumbo kuwashwa
-Ugonjwa wa Crohn
-Ugonjwa wa vidonda vya utumbo mpana
-Ugonjwa wa celiac
-Uvimbe sugu wa kongosho
-Mawe kwenye nyongo
-Uvimbe wa nyongo
-Homa ya ini A
-Homa ya ini B
-Homa ya ini C
-Ini kuharibika
-Mafuta kwenye ini
-Ugonjwa sugu wa figo
-Uvimbe wa figo
-Uvimbe wa vichujio vya figo
-Mawe kwenye figo
+Mkamba mkali
+Mafua makali
+Kipandauso
+Ugonjwa wa wasiwasi wa jumla
+Sonona kuu
+Ugonjwa wa kuchakaa kwa viungo
+Baridi yabisi
+Ugonjwa wa kurudi kwa tindikali ya tumbo
+Upungufu wa damu wa ukosefu wa madini chuma
+Upungufu wa homoni ya tezi shingo
 Maambukizi ya njia ya mkojo
-Kisukari aina ya 1
-Kisukari aina ya 2
-Upungufu wa homoni ya tezi
-Wingi wa homoni ya tezi
-Unene uliopitiliza
+Nimonia
+Ugonjwa sugu wa figo
+Ugonjwa wa mishipa ya moyo
+Mapigo ya moyo yasiyo ya kawaida
+Kushindwa kwa moyo kwa muda mrefu
+Kiharusi cha kuziba damu
+Kifafa
+Ugonjwa wa Parkinson
+Ugonjwa wa Alzheimer
+Ugonjwa wa kukakamaa kwa mishipa ya fahamu
+Psoriasi
+Ukurutu wa mzio
+Mafua ya mzio
+Ugonjwa sugu wa vipenyo vya pua
+Maambukizi ya sikio la kati
+Macho mekundu
+Mtoto wa jicho
+Presha ya macho
+Kuvimba kwa kibole
+Kuvimba kwa kibofu cha nyongo
+Kuvimba kwa vifuko vya utumbo
+Ugonjwa wa utumbo wenye hasira
+Ugonjwa wa Crohn
+Kuvimba kwa utumbo mpana wenye vidonda
+Homa ya ini B sugu
+Ugonjwa wa kusinyaa kwa ini
+Kuvimba kwa kongosho kwa ghafla
+Jongo
+Kupungua kwa uzito wa mifupa
+Maumivu ya misuli mwili mzima
+Maumivu ya neva ya nyonga
+Kuteleza kwa gegedu la uti wa mgongo
+Ugonjwa wa mfereji wa kiwiko cha mkono
+Kuvimba kwa kano
+Ugonjwa sugu wa kuziba kwa mapafu
+Kifua kikuu
+Saratani ya damu
+Saratani ya tezi za limfu
+Saratani ya ngozi ya melanoma
+Mafuta mengi kwenye damu
+Unene uliokithiri
+Kukatika kwa pumzi usingizini
+Kukosa usingizi
+Ugonjwa wa hisia mbili
+Ugonjwa wa upungufu wa makini
+Ugonjwa wa celiac
+Ugonjwa wa lupus wa mwili mzima
+Kizunguzungu
+Mlio masikioni
+Bawasiri
+Mishipa ya damu iliyovimba
+Kuganda kwa damu kwenye mishipa ya ndani
+Kuziba kwa mshipa wa mapafu
+Mawe ya figo
+Upungufu wa damu
+Homoni nyingi za tezi shingo
+Kidonda cha tumbo
+Kuvimba kwa tumbo
+Maambukizi ya ngozi ya ndani
+Sumu kwenye damu
+Saratani ya matiti
+Kuhara na kutapika kwa ghafla
+Upungufu wa vitamini D
+Udhaifu sugu wa mishipa ya damu
+Kisukari cha aina ya 1
+Shambulizi la moyo
+Maumivu ya kifua ya moyo
+Ugonjwa wa mishipa ya pembezoni
+Kupanuka kwa misuli ya moyo
+Kuvimba kwa misuli ya moyo
+Kuvimba kwa kifuko cha moyo
+Maambukizi ya ndani ya moyo
+Kubana kwa vali ya aota
+Kulegea kwa vali ya mitral
+Kuvimba kwa aota ya tumbo
+Mkamba sugu
+Kuvimba kwa vifuko vya hewa mapafuni
+Maji kwenye utando wa mapafu
+Kovu kwenye mapafu
+Shinikizo la damu la mapafu
+Kupanuka kwa njia za hewa
+Kuvimba kwa koromeo la sauti
+Kuvimba kwa koo
+Kuvimba kwa tezi za koo
+Kuvimba kwa umio
+Umio wa Barrett
+Saratani ya tumbo
+Saratani ya utumbo mpana
+Mpasuko wa njia ya haja kubwa
+Ini lenye mafuta bila pombe
+Homa ya ini C sugu
+Ngiri ya juu ya tumbo
+Ngiri ya kinena
+Kuharibika kwa figo kwa ghafla
+Kuvimba kwa vichujio vya figo
+Maambukizi ya figo
+Kuvimba kwa kibofu cha mkojo
+Kushindwa kuzuia mkojo
+Saratani ya kibofu cha mkojo
+Saratani ya seli za figo
+Kiharusi cha muda mfupi
+Maumivu ya kichwa ya msongo
+Maumivu ya kichwa ya makundi
+Maumivu ya neva ya uso
+Kupooza kwa uso kwa Bell
+Ugonjwa wa neva za pembezoni
+Ugonjwa wa miguu isiyotulia
+Mtetemeko wa asili
+Udhaifu mkubwa wa misuli
+Ugonjwa wa Guillain-Barré
+Ugonjwa wa hofu ya ghafla
+Ugonjwa wa mawazo ya kulazimisha
+Msongo wa baada ya majanga
+Hofu ya jamii
+Ugonjwa wa kukataa chakula
+Ugonjwa wa kula na kutapika
+Skizofrenia
+Uraibu wa pombe
+Kuvimba kwa tezi shingo kwa Hashimoto
+Ugonjwa wa Graves
+Ugonjwa wa Cushing
+Ugonjwa wa Addison
+Homoni nyingi za tezi za paratiroidi
 Ugonjwa wa kimetaboliki
-Upungufu wa damu wa madini ya chuma
-Upungufu wa damu wa vitamini B12
-Selimundu
+Upungufu wa vitamini B12
+Kivimbe cha tezi shingo
+Upungufu wa chembe za kugandisha damu
+Wingi wa chembe nyekundu za damu
+Saratani ya mapafu
+Saratani ya kongosho
+Saratani ya tezi shingo
+Saratani ya uboho wa mifupa
+Kuvimba kwa vifuko vya viungo
+Kuvimba kwa wayo
+Kuchanika kwa misuli ya bega
+Kukakamaa kwa mifupa ya mgongo
+Kupinda kwa uti wa mgongo
+Maambukizi ya mfupa
+Chunusi
+Uwekundu wa uso
+Mabaka meupe ya ngozi
+Kunyonyoka nywele kwa mviringo
+Mizinga
+Ukurutu wa mgusano
+Mkanda wa jeshi
+Fangasi wa kucha
+Kuharibika kwa katikati ya jicho
+Ugonjwa wa retina wa kisukari
+Kubanduka kwa retina
+Kuvimba kwa tabaka la kati la jicho
+Ukavu wa macho
+Ugonjwa wa Ménière
+Uziwi wa neva
+Vinyama vya puani
+Maambukizi ya mononucleosis
+Ugonjwa wa Lyme
 Malaria
-Homa ya matumbo
-Kipindupindu
 Homa ya dengue
-Kichocho
-Minyoo
-Matende
-Ukimwi
+Maambukizi ya salmonella
+Homa ya ini A
 Maambukizi ya VVU
+Maambukizi ya herpes simplex
 Surua
 Tetekuwanga
-Matubwitubwi
-Kifaduro
-Pepopunda
-Homa ya manjano
-Ukurutu
-Psoriasis
-Upele
-Fangasi ya ngozi
-Vipele vya mzio
-Chunusi
-Mzio wa pua
-Uvimbe wa jicho
-Mtoto wa jicho
-Shinikizo la jicho
-Uziwi
-Sonona
-Wasiwasi uliokithiri
+Homa ya uti wa mgongo ya bakteria
+Kuvimba kwa ubongo kwa virusi

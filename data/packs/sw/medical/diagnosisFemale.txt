@@ -2,30 +2,39 @@
 description: Medical diagnosis in Swahili that requires female anatomy — it cannot occur in a male patient. Fistula ya uzazi is on the list because obstetric fistula is a real and under-recorded burden in Tanzania, not a historical footnote. Draw from this list only for female rows; general conditions live in medical/diagnosis.
 locale: sw
 ---
-Endometriosis
-Uvimbe wa nyama kwenye mfuko wa uzazi
-Adenomyosis
-Uvimbe kwenye mayai ya uzazi
-Ugonjwa wa mayai ya uzazi yenye vifuko
-Maumivu makali ya hedhi
-Kukosa hedhi
-Dalili za kabla ya hedhi
-Dalili za kukoma hedhi
-Uvimbe wa uke
-Maambukizi ya bakteria ukeni
-Fangasi ya ukeni
-Uvimbe wa mlango wa kizazi
-Vidonda vya mlango wa kizazi
-Mabadiliko ya seli za mlango wa kizazi
-Saratani ya mlango wa kizazi
-Saratani ya mayai ya uzazi
+Ugonjwa wa utando wa mfuko wa uzazi kukua nje
+Ugonjwa wa vifuko vingi vya mayai
+Vivimbe vya mfuko wa uzazi
+Kifuko cha maji cha ovari
+Saratani ya ovari
+Saratani ya shingo ya kizazi
+Mabadiliko ya seli za shingo ya kizazi
+Kuvimba kwa shingo ya kizazi
+Kuvimba kwa utando wa mfuko wa uzazi
 Saratani ya mfuko wa uzazi
-Uvimbe wa matiti usio na madhara
-Uvimbe wa titi
-Saratani ya matiti
-Ugumba kwa mwanamke
-Mimba nje ya kizazi
+Ugonjwa wa uvimbe wa nyonga
+Maambukizi ya bakteria ukeni
+Fangasi wa ukeni
+Hedhi nzito kupita kiasi
+Hedhi yenye maumivu
+Kukosa hedhi
 Kifafa cha mimba
 Kisukari cha ujauzito
-Sonona baada ya kujifungua
-Fistula ya uzazi
+Kutapika kupita kiasi kwa ujauzito
+Mimba nje ya mfuko wa uzazi
+Kutokwa damu baada ya kujifungua
+Kuvimba kwa titi
+Vivimbe laini vya matiti
+Dalili za kukoma hedhi
+Msongo mkali kabla ya hedhi
+Kushuka kwa mfuko wa uzazi
+Utando kukua ndani ya ukuta wa mfuko wa uzazi
+Kujisokota kwa ovari
+Kondo la nyuma kuziba njia
+Kondo la nyuma kubanduka mapema
+Saratani ya sehemu ya nje ya uke
+Saratani ya uke
+Kifuko cha tezi ya Bartholin
+Ukavu na kuvimba kwa uke
+Ugonjwa wa Turner
+Ugumba wa mwanamke

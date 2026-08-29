@@ -2,76 +2,183 @@
 description: Diagnosis (Maori). HOW THIS LIST IS BUILT, because a medical list must say. Where te reo Maori has an ESTABLISHED term it is used: HUANGO is asthma, REWHAREWHA influenza, MATE HUKA diabetes ("sugar sickness"), MATE PUKUPUKU cancer, HUKIHUKI epilepsy, MATE KOHI tuberculosis, MATE WAREWARE dementia, PAPOURI depression, AWANGAWANGA anxiety, PAIPAI a sexually transmitted infection. Where it does not, the value uses the transparent MATE + organ or MATE + cause pattern te reo actually builds diagnoses with — mate whatukuhu is kidney disease, mate pukahukahu lung disease, pehanga toto teitei high blood pressure. NO SINGLE-WORD TERM HAS BEEN COINED HERE: an invented medical word is undetectable later and would be the worst kind of fabrication in a data pack. A clinical system must take its vocabulary from Te Reo Hapai, the standardised Maori glossary for the health and disability sector, and not from this file.
 locale: mi
 ---
-Mate huka
-Mate huka momo 1
+Pēhanga toto tiketike
 Mate huka momo 2
-Mate manawa
-Pēhanga toto teitei
-Huango
-Mate pukupuku
-Mate pukupuku pūkahukahu
-Mate pukupuku ate
-Mate pukupuku puku
-Mate pukupuku whēkau
-Mate pukupuku kiri
-Mate pukupuku toto
+Huangō
+Pokenga ngutungutu hā kaha
+Rewharewha nui
+Ānini pito rua
+Mate āwangawanga whānui
+Pōuritanga hinengaro nui
+Kaikai kōiwi
+Rūmātiki pona
+Mate hoki whakamuri o te waikawa puku
+Toto ngoikore nā te kore rino
+Ngoikoretanga repe tenga
+Pokenga ara mimi
+Niumōnia
+Mate whatukuhu mauroa
+Mate ia toto ngākau
+Kapakapa ngākau kore rite
+Ngoikoretanga ngākau mauroa
+Ikura roro nā te aukati toto
+Hukihuki
+Mate Parkinson
+Mate Alzheimer
+Mate whakamārō io pūnaha nui
+Mate kiri unahi
+Mate kiri kārawarawa
+Ihu tere nā te pāwera
+Pokenga ana ihu mauroa
+Pokenga taringa waenga
+Karu whero
+Karu pūātea
+Pēhanga karu
+Pokenga hope whēkau
+Pokenga pūkoro au
+Pokenga pūkoro whēkau
+Mate whēkau hōhā
+Mate Crohn
+Pokenga whēkau nui me te maiao
+Mate ate B mauroa
+Whakamārōtanga ate
+Pokenga repe huka ohorere
+Mate tona waewae
+Kōiwi pūhungahunga
+Mamae uaua puta noa
+Mamae io hope
+Kōpere tuarā paheke
+Mate ara ō-ringa
+Pokenga uaua here
+Mate aukati hā mauroa
 Mate kohi
-Rewharewha
-Mate rewharewha nui
-Mate pūkahukahu
-Mate korokoro
-Mate ihu
-Mate taringa
-Mate karu
-Mate niho
-Mate kiri
-Kiritona
-Mate hukihuki
-Mate wareware
-Mate roro
-Mate ia toto roro
-Mate ate
-Mate ate waipiro
-Mate whatukuhu
-Mate kōhatu whatukuhu
-Mate mimi
-Mate puku
-Mate whēkau ngau
-Mate kōpiro
-Mate hūkiki
-Rūmātiki
-Mate manawa rūmātiki
-Mate kōiwi
-Kōiwi ngoikore
-Mate pona
-Mate uaua
-Mate tuarā
-Pāpōuri
-Āwangawanga
-Mate hinengaro
-Mate moe
-Mate ngenge roa
-Mate ārai
-Kore whakawai miraka
-Kore whakawai kirihi
-Mate ārai kai
-Taumaha rawa
-Mate hikohiko manawa
-Mate toto
-Toto iti
-Mate repe
-Mate repe kakī
-Paipai
-Mate whakapoke
+Mate pukupuku toto
+Pukupuku repe waitinana
+Pukupuku kiri pango
+Hinu nui i te toto
+Mōmona rawa
+Kati hā i te moe
+Kore moe
+Mate hinengaro rua
+Mate aro poto
+Mate celiac
+Mate lupus puta noa
+Ānini āwhiowhio
+Tangi taringa
+Mate tero puta
+Ia toto pupuhi
+Toto whakatetepe i te ia hōhonu
+Aukati ia toto pūkahukahu
+Kōhatu whatukuhu
+Toto ngoikore
+Mahi nui rawa o te repe tenga
+Maiao puku
+Pokenga puku
+Pokenga kiri hōhonu
+Paihana toto
+Pukupuku ū
+Pokenga puku whēkau ohorere
+Kore huaora D
+Ngoikoretanga ia toto mauroa
+Mate huka momo 1
+Hē ngākau ohorere
+Mamae poho ngākau
+Mate ia toto tawhiti
+Whakanuitanga uaua ngākau
+Pokenga uaua ngākau
+Pokenga kōpaki ngākau
+Pokenga roto ngākau
+Whāitinga kūwaha aorta
+Tautanga kūwaha mitral
+Pupuhitanga ia toto nui puku
+Pokenga ngutungutu hā mauroa
+Pūkahukahu pupuhi
+Wai i te kōpaki pūkahukahu
+Whakamārōtanga pūkahukahu
+Pēhanga toto pūkahukahu
+Whakawhānuitanga ara hā
+Pokenga pūkoro reo
+Pokenga korokoro
+Pokenga repe korokoro
+Pokenga ara kai
+Ara kai Barrett
+Pukupuku puku
+Pukupuku whēkau nui
+Ngatata tero
+Ate hinu kore waipiro
+Mate ate C mauroa
+Puta puku ki runga
+Puta whēkau kūhā
+Whara whatukuhu ohorere
+Pokenga tātari whatukuhu
+Pokenga whatukuhu
+Pokenga tōngāmimi
+Kore pupuri mimi
+Pukupuku tōngāmimi
+Pukupuku pūtau whatukuhu
+Aukati toto roro poto
+Ānini nā te taumaha
+Ānini kāhui
+Mamae io kanohi toru
+Ngoikoretanga kanohi Bell
+Mate io tawhiti
+Waewae okioki kore
+Wiri māori
+Ngoikoretanga uaua nui
+Mate Guillain-Barré
+Mate mataku ohorere
+Mate whakaaro herehere
+Taumahatanga i muri i te wheako kino
+Mataku i te iwi
+Kore hiakai mate
+Kai me te ruaki mate
+Mate hinengaro wehe
+Waranga waipiro
+Pokenga repe tenga Hashimoto
+Mate Graves
+Mate Cushing
+Mate Addison
+Mahi nui rawa o ngā repe iti tenga
+Mate tinana whakawhiti kai
+Kore huaora B12
+Puku repe tenga
+Iti rawa ngā papa toto
+Nui rawa ngā pūtau toto whero
+Pukupuku pūkahukahu
+Pukupuku repe huka
+Pukupuku repe tenga
+Pukupuku wheua roto
+Pokenga pūkoro pona
+Pokenga kapu waewae
+Pakaru uaua pokohiwi
+Whakapiritanga kōiwi tuarā
+Piko tuarā
+Pokenga wheua
+Huahua kiri
+Mate kanohi whero
+Wāhi mā o te kiri
+Makawe ngahoro porowhita
+Kiri pupuhi kārawarawa
+Pokenga kiri nā te pā
+Mate hōpai
+Harore maikuku
+Paheketanga waenga karu
+Mate karu huka
+Wehenga papa karu
+Pokenga papa waenga karu
+Karu maroke
+Mate Ménière
+Turi io
+Kiko tupu i te ihu
+Pokenga mononucleosis
+Mate Lyme
+Mate maremare nui
+Kirikā dengue
+Pokenga salmonella
+Mate ate A
+Pokenga HIV
+Pokenga herpes simplex
 Mate karawaka
-Mate kirikā
-Mate hakihaki
-Mate mamae ūpoko
-Mate ānini
-Mate wairua
-Mate waipiro
-Mate tarukino
-Mate toto kōpiko
-Ngoikore huaora D
-Mate huaketo
-Mate huakita
+Mate koroputaputa wai
+Pokenga kōpaki roro nā te huakita
+Pokenga roro nā te wheori

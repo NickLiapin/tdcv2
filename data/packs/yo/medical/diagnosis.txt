@@ -2,57 +2,183 @@
 description: Medical diagnosis that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale / diagnosisFemale, ancestry-linked ones in diagnosisByAncestry. IBÀ leads the list because it leads the real one: malaria is the commonest diagnosis in Nigeria by a wide margin, and "ibà" is the word for both the parasite disease and a fever generally, so a Yoruba speaker saying they have ibà may mean either. A note on method that applies to every medical file in this pack: NIGERIAN CLINICAL RECORDS ARE WRITTEN IN ENGLISH, because English is the language of Nigerian medical training and of the hospital card. Yoruba does have established names for the conditions people talk about — ibà (malaria), àtọ̀gbẹ (diabetes), ẹ̀jẹ̀ ríru (hypertension), jẹjẹrẹ (cancer), wárápá (epilepsy), jẹ̀dọ̀jẹ̀dọ̀ (hepatitis), àtọ̀sí (gonorrhoea), ẹ̀tẹ̀ (leprosy), ikọ́ fée (tuberculosis), ọgbẹ́ inú (peptic ulcer), àìtó ẹ̀jẹ̀ (anaemia) — and those are used here. Where the language has no settled term, the entry is either a transparent Yoruba description built from ordinary words (àrùn kíndìnrín, "kidney disease") or the clinical English, which is what a Yoruba speaker actually reads on their own file. Nothing has been coined to make the list look more Yoruba than the language is.
 locale: yo
 ---
-Ibà
-Ibà ńlá
-Tayfọ́ìdì
 Ẹ̀jẹ̀ ríru
-Àtọ̀gbẹ
-Ikọ́ fée
-Ikọ́ àyà
-Àrùn ẹ̀dọ̀fóró
-Ikọ́ ẹ̀mí
-Ìgbẹ́ gbuuru
-Kọ́lẹ́rà
-Jẹ̀dọ̀jẹ̀dọ̀
-Àìtó ẹ̀jẹ̀
-Ọgbẹ́ inú
-Ìyọnu inú
-Àrùn ẹ̀dọ̀
-Àrùn kíndìnrín
-Àrùn ọkàn
-Rọpárọsẹ̀
-Ẹ̀gbà
-Jẹjẹrẹ
-Jẹjẹrẹ ẹ̀dọ̀fóró
-Jẹjẹrẹ ìfun
-Èèmọ̀
+Àtọ̀gbẹ oríṣi kejì
+Ikọ́ féèé
+Àìsàn ọ̀nà ẹ̀dọ̀fóró gbígbóná ńlá
+Àrùn gágá
+Ẹ̀fọ́rí apá kan
+Àìsàn ìdààmú ọkàn gbogbogbò
+Ìrẹ̀wẹ̀sì ọkàn ńlá
+Àrùn oríkèé gbígbẹ
+Làkúrègbé oríkèé
+Àìsàn omi kíkan inú àpò oúnjẹ tí ń gòkè
+Àìtó ẹ̀jẹ̀ nítorí àìní irin
+Àìtó iṣẹ́ ẹṣẹ́ tairoidi
+Àkóràn ọ̀nà ìtọ̀
+Àìsàn ẹ̀dọ̀fóró gbígbóná
+Àrùn kíndìnrín gígùn
+Àrùn ohun èlò ẹ̀jẹ̀ ọkàn
+Ìlù ọkàn àìdéédé
+Àìlera ọkàn gígùn
+Ẹ̀gbà nítorí dídí ẹ̀jẹ̀
 Wárápá
-Ẹ̀fọ́rí ńlá
-Ìsoríkọ́
-Àníyàn
-Àrùn ọpọlọ
-Àìsùn
-Àrùn oríkèé
-Ìrora ẹ̀yìn
-Ọ̀gbẹ́ egungun
-Àrùn awọ ara
-Èèkánná àrùn
-Àrùn ojú
-Ìfọ́jú
-Àdití
-Àrùn etí
-Àtọ̀sí
-Ẹ̀tẹ̀
-Àrùn àkóràn
-HIV
+Àrùn Parkinson
+Àrùn Alzheimer
+Àrùn líle ẹ̀ka ọpọlọ púpọ̀
+Àrùn awọ ẹlẹ́gbẹ́
+Àrùn awọ yíyún ti ara korira
+Ìmú sísàn ti ara korira
+Àrùn ihò imú gígùn
+Àkóràn etí àárín
+Ojú pupa
+Ojú dídì
+Àrùn ìfúnpá ojú
+Àfikun ìfun gbígbóná
+Àpò òróró ẹ̀dọ̀ gbígbóná
+Àrùn àpò kékeré ìfun gbígbóná
+Àrùn ìfun oníbínú
+Àrùn Crohn
+Ìfun ńlá gbígbóná pẹ̀lú egbò
+Àrùn ẹ̀dọ̀ B gígùn
+Ẹ̀dọ̀ líle
+Àrùn ẹṣẹ́ oúnjẹ gbígbóná òjijì
+Làkúrègbé gout
+Egungun ríro
+Ìrora iṣan gbogbo ara
+Ìrora iṣan ẹ̀yìn itan
+Eegun ẹ̀yìn yíyẹ̀
+Àrùn ọ̀nà ọwọ́-ọrùn
+Iṣan ríro
+Àrùn dídí ẹ̀dọ̀fóró gígùn
+Ikọ́ ẹ̀gbẹ
+Àrùn jẹjẹrẹ ẹ̀jẹ̀
+Jẹjẹrẹ ẹṣẹ́ omi ara
+Jẹjẹrẹ awọ dúdú
+Òróró púpọ̀ nínú ẹ̀jẹ̀
+Ìsanra jọ̀kọ̀tọ̀
+Ìmí dídúró nígbà oorun
+Àìlè sùn
+Àìsàn ọkàn oníhà méjì
+Àìsàn àìlè fọkàn sí nǹkan
+Àrùn celiac
+Àrùn lupus gbogbo ara
+Òyì ojú
+Ariwo etí
+Jẹdíjẹdí
+Iṣan ẹ̀jẹ̀ wíwú
+Ẹ̀jẹ̀ dídì nínú iṣan jíjìn
+Dídí ohun èlò ẹ̀jẹ̀ ẹ̀dọ̀fóró
+Òkúta kíndìnrín
+Àìtó ẹ̀jẹ̀
+Iṣẹ́ ẹṣẹ́ tairoidi tí ó pọ̀jù
+Egbò inú àpò oúnjẹ
+Àpò oúnjẹ gbígbóná
+Àkóràn abẹ́ awọ
+Àkóràn inú ẹ̀jẹ̀
+Jẹjẹrẹ ọyàn
+Ìgbẹ́ gbuuru àti èébì òjijì
+Àìní vitamin D
+Àìlera iṣan ẹ̀jẹ̀ gígùn
+Àtọ̀gbẹ oríṣi kìíní
+Ìkọlù ọkàn
+Ìrora àyà ọkàn
+Àrùn ohun èlò ẹ̀jẹ̀ ẹ̀gbẹ́
+Ọkàn gbígbòòrò
+Iṣan ọkàn gbígbóná
+Àpò ọkàn gbígbóná
+Àkóràn inú ọkàn
+Ẹnu ọ̀nà aorta fífún
+Ẹnu ọ̀nà mitral líle
+Ohun èlò ẹ̀jẹ̀ ńlá inú ikùn wíwú
+Àìsàn ọ̀nà ẹ̀dọ̀fóró gígùn
+Ẹ̀dọ̀fóró gbígbòòrò
+Omi nínú àpò ẹ̀dọ̀fóró
+Ẹ̀dọ̀fóró líle
+Ẹ̀jẹ̀ ríru ẹ̀dọ̀fóró
+Ọ̀nà ẹ̀mí gbígbòòrò
+Àpótí ohùn gbígbóná
+Ọ̀fun gbígbóná
+Ẹṣẹ́ ọ̀fun gbígbóná
+Ọ̀nà oúnjẹ gbígbóná
+Ọ̀nà oúnjẹ Barrett
+Jẹjẹrẹ àpò oúnjẹ
+Jẹjẹrẹ ìfun ńlá
+Ìya ọ̀nà ìgbẹ́
+Ẹ̀dọ̀ olóròó láìsí ọtí
+Àrùn ẹ̀dọ̀ C gígùn
+Àpò oúnjẹ gòkè sí àyà
+Ipá ọ̀nà itan
+Kíndìnrín bíbàjẹ́ òjijì
+Àsẹ́ kíndìnrín gbígbóná
+Àkóràn kíndìnrín
+Àpò ìtọ̀ gbígbóná
+Àìlè dá ìtọ̀ dúró
+Jẹjẹrẹ àpò ìtọ̀
+Jẹjẹrẹ sẹ́ẹ̀lì kíndìnrín
+Ẹ̀gbà ìgbà díẹ̀
+Ẹ̀fọ́rí ìnira
+Ẹ̀fọ́rí àkójọ
+Ìrora ẹ̀ka ọpọlọ ojú mẹ́ta
+Ẹ̀gbà ojú Bell
+Àrùn ẹ̀ka ọpọlọ ẹ̀gbẹ́
+Àìsàn ẹsẹ̀ àìsinmi
+Ìwárìrì àdámọ́
+Àìlera iṣan ńlá
+Àìsàn Guillain-Barré
+Àìsàn ìbẹ̀rù òjijì
+Àìsàn ìrònú àti ìwà àtúnṣe
+Ìdààmú lẹ́yìn ìpayà
+Ìbẹ̀rù àwùjọ
+Àìsàn kíkọ oúnjẹ
+Àìsàn jíjẹ àti èébì
+Àrùn ọpọlọ schizophrenia
+Ìmutípara bí àṣà
+Ẹṣẹ́ tairoidi gbígbóná Hashimoto
+Àrùn Graves
+Àìsàn Cushing
+Àrùn Addison
+Iṣẹ́ ẹṣẹ́ paratiroidi tí ó pọ̀jù
+Àìsàn ìṣèlọ́po ara
+Àìní vitamin B12
+Kókó ẹṣẹ́ tairoidi
+Àìtó pátákó ẹ̀jẹ̀
+Ẹ̀jẹ̀ pupa púpọ̀jù
+Jẹjẹrẹ ẹ̀dọ̀fóró
+Jẹjẹrẹ ẹṣẹ́ oúnjẹ
+Jẹjẹrẹ ẹṣẹ́ tairoidi
+Jẹjẹrẹ inú egungun
+Àpò oríkèé gbígbóná
+Àtẹ́lẹsẹ̀ gbígbóná
+Iṣan èjìká yíya
+Eegun ẹ̀yìn líle pọ̀
+Eegun ẹ̀yìn wíwọ́
+Àkóràn egungun
+Ìrorẹ́
+Ojú pupa rosacea
+Àbàwọ́n funfun awọ
+Irun yíyọ ní àyíká
+Ara yíyún
+Awọ gbígbóná nípa ìfarakanra
+Ìgbóná àyíká ara
+Èékánná olú
+Àárín ojú bíbàjẹ́
+Àrùn ojú àtọ̀gbẹ
+Awọ ojú yíyọ
+Àárín ìpele ojú gbígbóná
+Ojú gbígbẹ
+Àrùn Ménière
+Etí dídi ti ẹ̀ka ọpọlọ
+Ẹran inú imú
+Àkóràn mononucleosis
+Àrùn Lyme
+Ibà
+Ibà dengue
+Àkóràn salmonella
+Àrùn ẹ̀dọ̀ A
+Àkóràn HIV
+Àkóràn herpes simplex
 Ìgbóná ara
-Àìsàn kòkòrò
-Àrùn ẹ̀gbin awọ
-Ìnira ẹ̀mí mímí
-Ìwúwo àpọ̀jù
-Àìjẹunrekánú
-Àrùn eyín
-Ọgbẹ́ ara
-Ìjàǹbá ọkọ̀
-Ìjóná
-Májèlé oúnjẹ
+Ràntàntà
+Àkóràn àpò ọpọlọ ti kòkòrò
+Ọpọlọ gbígbóná ti fáírọ́ọ̀sì
