@@ -1,0 +1,81 @@
+---
+description: Hobby or interest in Frisian, and six of these are practised almost nowhere outside this province. Fierljeppen is vaulting a canal on a pole, and the part that surprises people who have only heard it described is that the athlete has to climb the pole hand over hand while it is falling, so it is a sprint, a vault and a rope climb in one movement; the world record board has lived in Fryslân since the sport was codified. Keatsen is Frisian handball, one of the oldest ball games still played in Europe, three players to a partoer, and the PC in Frjentsjer is its oldest annual fixture. Skûtsjesilen races the flat-bottomed cargo barges that once carried freight through canals too shallow for anything else, sailed now by the same village and family names that owned them as working boats. Reedriden is skating, and in Fryslân it is not a rink sport but a road system - the Alvestêdetocht, the two-hundred-kilometre tour of the eleven cities, runs only when the natural ice holds fifteen centimetres the whole way, which has happened fifteen times since 1909 and not once since 4 January 1997. Frysk damjen is draughts on the ordinary hundred-square board with quite different capture rules: pieces have values and a player must take the most valuable capture available rather than the longest chain, which produces a game a Dutch draughts player cannot simply walk into. Aaisykjen is the oldest of them and the most changed - it is the search for the season's first ljipaai, the first lapwing egg, and since a 2016 court ruling the eggs may no longer be taken, so the practice continues as neisoarch, nest protection, with the finder of the first egg still honoured by the province and the egg itself left where it lies. Note the endings, because they are not a spelling variant of the Dutch ones. West Frisian is one of the few Germanic languages that still keeps two infinitives and both are in play here: the short form in -e or -je follows a modal (ik kin keatse, I can play keatsen), while the long form in -en or -jen is the verbal noun and is what names an activity, which is why every entry below reads keatsen, skilderjen and kuierjen rather than keatse, skilderje and kuierje. The monosyllables sjen, dwaan, gean and stean are irregular and have one form for both, so Fûgels sjen does not lengthen.
+locale: fy
+---
+Lêzen
+Kuierjen
+Fotografy
+Itensieden
+Túnkjen
+Folkstúnkjen
+Skilderjen
+Tekenjen
+Hurdfytsen
+Mountainbiken
+Fytstochten meitsjen
+Reedriden
+Keunstriden
+Silen
+Skûtsjesilen
+Roeien
+Kanofarren
+Surfen
+Kitesurfen
+Swimmen
+Hurdrinnen
+Fuotbaljen
+Keatsen
+Fierljeppen
+Tennisjen
+Golfen
+Hynsteriden
+Fiskjen
+Fûgels sjen
+Aaisykjen
+Waadrinnen
+Klimmen
+Yoga
+Fitness
+Dûnsjen
+Styldûnsjen
+Sjongen
+Sjongen yn in koar
+Muzyk meitsjen
+Piano spyljen
+Gitaar spyljen
+Fanfare
+Toanielspyljen
+Fideospultsjes
+Boerdspultsjes
+Skaken
+Frysk damjen
+Klaverjassen
+Puzeljen
+Breidzjen
+Heakjen
+Naaien
+Borduerjen
+Houtbewurking
+Modelbou
+Postsegels sammeljen
+Munten sammeljen
+Genealogy
+Skiednis
+Stjerrekunde
+Flinters sjen
+Imkerjen
+Bakken
+Brouwen
+Wyn priuwen
+Reizgjen
+Kampearjen
+Blomskikken
+Pottebakken
+Keramyk
+Kalligrafy
+Skriuwen
+Bloggen
+Programmearjen
+Elektroanika
+Motorriden
+Dowen hâlden

@@ -1,0 +1,12 @@
+---
+description: How ore or stone is taken out of the ground. The list is a technical vocabulary rather than a description of Timorese practice, and the gap between the two is the point: apart from offshore petroleum there is no industrial mining in Timor-Leste, and what the National Petroleum and Minerals Authority actually licenses on land is quarrying — marble, limestone, river sand and gravel — worked by small operators, so Kuak loke and Ke'e tuir tira cover most of what happens while Hasai foho nia ulun is on the list as a named method and not as anything anyone does here. Ke'e is the plain Tetum verb for digging and hasai for taking out or removing, and both keep their native form where the surrounding technical nouns are Portuguese. Liuhusi is through or by way of, a compound of liu, to pass, and husi, from, and it is how Tetum expresses a means. Frente luan is longwall, luan being simply wide: the native adjective follows the noun it modifies, as every Tetum modifier does.
+locale: tet
+---
+Kuak loke
+Subteráneu
+Ke'e tuir tira
+Aluviál
+Hasai foho nia ulun
+Liuhusi posu vertikál
+Liuhusi galeria
+Frente luan

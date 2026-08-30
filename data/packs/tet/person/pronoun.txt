@@ -1,0 +1,12 @@
+---
+description: Personal pronouns in Tetum, and this is the file where the language is least like the Portuguese it borrows half its vocabulary from. Two things happen here that a Romance or English pronoun set cannot do. First, nia is he, she and it at once — one word, no gender, so a config cannot derive a pronoun from a gender column the way it can in pt or en, and a sentence about a person carries no clue to their sex unless a noun supplies it. Second, the first person plural splits by CLUSIVITY: ami is we-without-you and ita is we-including-you, a distinction the speaker is obliged to make every time and one that Austronesian languages across the Pacific and Southeast Asia make routinely while Portuguese and English have no way to express it at all. Ita then does double duty as the polite singular you, the way vocês and você drifted in Portuguese, while o (also written ó) is the familiar you said to friends, children and juniors, and imi is the plain plural you. Ita-boot is the respectful you and is literally big you — boot is the ordinary adjective for large, following its noun as every Tetum modifier does. Sira closes the set as they, and is the same particle that marks plural on any noun: labarik sira, the children.
+locale: tet
+---
+ha'u
+ita
+o
+nia
+ami
+ita-boot
+imi
+sira

@@ -1,0 +1,10 @@
+---
+description: Full male name in Mali: one given name and one jamu, given name first (Modibo Keïta, Amadou Traoré). Mali carries a single surname, not the two-surname Spanish form, and no patronymic — except in the far north, where Tuareg and Moorish names are patronymic and read Ag or Ould plus the father's name. Note that the jamu is drawn from bm.person.lastName, the same list a woman's is drawn from, because Malian surnames do not inflect for gender.
+generator: tdc
+locale: bm
+---
+<sequence name="p">
+  <gen name="f" type="template" value="bm.person.male.firstName"/>
+  <gen name="l" type="template" value="bm.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

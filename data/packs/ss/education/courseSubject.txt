@@ -1,0 +1,24 @@
+---
+description: School subject in Eswatini. The curriculum runs to the Eswatini General Certificate of Secondary Education, localised from Cambridge in 2009, and siSwati is examined as a subject in its own right alongside English. The switch is the fact worth knowing: siSwati is the language of instruction for the first years of primary school and English takes over from about the fourth, so a Swazi child learns to read in one language and is then examined in another for the rest of their life. Tekwenta ngetandla and tekuhlela kudla, practical and home subjects, carry more weight in Eswatini's schools than they would in Europe, and tekulima is examined at secondary level because agriculture is what most of the country does.
+locale: ss
+---
+siSwati
+siNgisi
+Tibalo
+Sayensi
+Ifiziksi
+Ikhemistri
+Ibhayoloji
+Umlandvo
+Ijografi
+Tekuphatsa
+Tekubalwa kwetimali
+Temnotfo
+Tekulima
+Tekhompiyutha
+Tekuhlela kudla
+Tekwenta ngetandla
+Umculo
+Kudweba
+Temidlalo
+Temfundvo yenkholo

@@ -1,0 +1,13 @@
+---
+description: Cable types by function. Куч кабели carries power, назорат кабели control signals, and оптик толали кабел is fibre. Зирҳли кабел is the armoured cable used underground; юқори кучланишли кабел is the high voltage one.
+locale: uz
+---
+куч кабели
+назорат кабели
+алоқа кабели
+оптик толали кабел
+коаксиал кабел
+зирҳли кабел
+ер ости кабели
+ҳаво кабели
+юқори кучланишли кабел

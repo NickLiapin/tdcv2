@@ -1,0 +1,46 @@
+---
+description: Legal forms of an Uzbek company, abbreviations first and then the full names they stand for. МЧЖ is масъулияти чекланган жамият, the limited liability company that most private firms use; АЖ is the joint-stock company; ЯТТ is the individual entrepreneur. The abbreviations are built from Cyrillic initials, so МЧЖ in Cyrillic is MChJ in Latin — three letters becoming four.
+locale: uz
+---
+МЧЖ
+АЖ
+ХК
+ҚК
+ОК
+ДУК
+ЯТТ
+Масъулияти чекланган жамият
+Акциядорлик жамияти
+Хусусий корхона
+Қўшма корхона
+Оилавий корхона
+Давлат унитар корхонаси
+Якка тартибдаги тадбиркор
+Кооператив
+Ширкат
+Уюшма
+Ассоциация
+Иттифоқ
+Палата
+Фонд
+Жамғарма
+Ҳолдинг
+Гуруҳ
+Компаниялар гуруҳи
+Концерн
+Концессия
+Комбинат
+Заводи
+Фабрикаси
+Корхонаси
+Маркази
+Институти
+Агентлиги
+Бюроси
+Филиали
+Ваколатхонаси
+Саноат
+Савдо
+Логистика
+Консалтинг
+Технологиялари

@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (West Frisian, two letters, lowercase, no full stop). Five of the seven are the first two letters of the word, but Saturday and Sunday cannot be: sneon and snein both begin sn, so the pair would collide and the abbreviations take the vowel that separates them instead - so for sneon and si for snein. That is why the Frisian week does not end za, zo the way the Dutch one does, and why code that derives these by slicing the first two characters of date/weekday will produce the same string twice.
+locale: fy
+---
+mo
+ti
+wo
+to
+fr
+so
+si

@@ -1,0 +1,36 @@
+---
+description: Kind of building, in Tetum. Uma Lulik is the entry that has no European counterpart and it is not a monument: the sacred house, thatched and raised on posts, is the physical anchor of a lineage, it holds the ancestral objects, it is rebuilt collectively when it falls, and the obligations a family owes it — to contribute to the rebuilding, to bring the animals for the ceremony — are live claims that can outweigh a salary. Uma Lisan is the same institution named by custom rather than by sanctity, Uma Kakuluk is the thatched dwelling proper, and Uma alone is house, the base word of all of them. Two loan layers show clearly. The Indonesian one supplies Warung, the roadside food stall, and Kios, the small goods booth, and both are still what the things are called a generation after the occupation ended. The Portuguese one arrives through the respelling rules, and the cleanest illustration is the loss of a word-initial h: hospital gives Ospitál and hotel gives Otél, with the acute marking the stressed final syllable that Tetum requires; alongside them escola gives Eskola, edifício gives Edifísiu, barraca gives Barraka, farmácia gives Farmásia and armazém gives Armazén. Kantór, office, comes from Indonesian kantor rather than from Portuguese. Kompaun is a UN-era word for the walled compound the international presence built and businesses now use. Uma Jerador looks trivial and is not: grid electricity outside Dili is intermittent, so the generator shed is a standard structure on any compound, clinic or hotel, and its fuel is a line item in the budget.
+locale: tet
+---
+Uma
+Uma Lulik
+Uma Kakuluk
+Uma Lisan
+Barraka
+Kompaun
+Apartamentu
+Edifísiu
+Loja
+Kios
+Warung
+Merkadu
+Armazén
+Fábrika
+Kantór
+Banku
+Igreja
+Kapela
+Semináriu
+Konventu
+Eskola
+Liseu
+Universidade
+Ospitál
+Postu Saúde
+Farmásia
+Otél
+Restaurante
+Estádiu
+Kuartél
+Terminál
+Uma Jerador

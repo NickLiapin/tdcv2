@@ -1,0 +1,22 @@
+---
+description: Room types. The numbers are the interesting part: Duplu ho kama rua is a twin room, literally double with bed two, and it shows the two rules that govern a Tetum noun phrase — the numeral follows the noun it counts rather than preceding it, and ho, meaning with, does the work of a preposition Portuguese would spell de. Kuartu família is a family room with no linking particle at all, because Tetum compounds by simply placing one noun after another. Vista ba tasi is sea view, with ba, to or toward, and tasi, the sea; the north coast a Dili hotel looks out on is the tasi feto, the woman sea, calm and reef-fringed, as against the tasi mane on the south side, which takes the Timor Sea swell.
+locale: tet
+---
+Standard
+Superiór
+Suite
+Suite júniór
+Suite prezidensiál
+Individuál
+Duplu
+Duplu ho kama rua
+Kazál
+Triplu
+Kuádruplu
+Kuartu família
+Estúdiu
+Apartamentu
+Bungalo
+Kuartu asesível
+Kuartu ho vista ba tasi
+Kobertura

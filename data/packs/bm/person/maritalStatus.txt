@@ -1,0 +1,18 @@
+---
+description: Marital status in Bambara, built on `furu`, marriage. The suffixes do the work: `furubali` is unmarried, with the negative -bali that means without-the-thing; `furulen` is married, with the resultative -len; `furusalen` is divorced, from `furu sa`, the marriage died. `Cɛ` is a husband and `muso` a wife, so `Cɛ salen` is a woman whose husband has died and `Muso salen` a man whose wife has — Bambara has no single word for widow because it has no gender to hang one on, and it says whose spouse died instead. The pair `Muso kelen furu` and `Muso caman furu`, one-wife and many-wives marriage, is not sociology but a legal field: Mali's Code des personnes et de la famille makes a couple choose monogamy or polygyny in front of the registrar, and the choice is recorded. `Furu sɛbɛnbali` is the unregistered marriage, and it matters because religious and customary marriages are extremely common and frequently never entered in the civil register at all.
+locale: bm
+---
+Furubali
+Furulen
+Furusalen
+Cɛ salen
+Muso salen
+Muso kelen furu
+Muso caman furu
+Furu layidu
+Sigilen ɲɔgɔn fɛ
+Bɔlen ɲɔgɔn na
+Sariya furu
+Diinɛ furu
+Laada furu
+Furu sɛbɛnbali

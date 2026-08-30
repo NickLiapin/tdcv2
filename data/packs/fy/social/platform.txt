@@ -1,0 +1,21 @@
+---
+description: Social platform used in Fryslân. Every value is a trade name and none of them is translated, which makes this file a good test of whether a pipeline is applying locale transforms where it should not. WhatsApp is dominant here to a degree that surprises people from outside the Netherlands - it is how a village committee, a school class and a keatsferiening all organise themselves - so a realistic Frisian dataset should not treat it as one option among seventeen. Facebook has carried a Frisian-language interface since a volunteer translation campaign in the early 2010s, one of very few minority languages to get one, so a Frisian speaker can use the platform in the language even though the platform names itself in English.
+locale: fy
+---
+WhatsApp
+Facebook
+Instagram
+TikTok
+YouTube
+X
+LinkedIn
+Snapchat
+Pinterest
+Reddit
+Twitch
+Discord
+Threads
+Telegram
+Mastodon
+Bluesky
+Tumblr

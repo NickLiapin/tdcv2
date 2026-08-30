@@ -1,0 +1,16 @@
+---
+description: Manufacturing jobs in Eswatini. Tekukhicita is "matters of producing", from kukhicita, to manufacture or bring forth. Almost all of it happens in one place: the Matsapha industrial estate between Manzini and the airport strip, which holds the textile and garment factories, the food processors, the brewery and the concentrate plant. Two entries carry unusual weight. Umsebenti wasefektri yeshukela is the sugar mill worker, and sugar is the country's largest export and largest private employer. Umenti webhiya covers a plant most visitors never guess at: Eswatini produces soft-drink concentrate for a large part of Africa, and concentrate has for years been among the country's top exports by value.
+locale: ss
+---
+Umsebenti wasefektri
+Umphatsi wemkhicito
+Umtfungi
+Umhloli wekhwalithi
+Umphatsi wemshini
+Umlungisi wemishini
+Umhlanganisi wetimphahla
+Umsebenti wekupakisha
+Umenti wesinkhwa
+Umenti webhiya
+Umsebenti wasefektri yeshukela
+Umcwaningi wemikhicito

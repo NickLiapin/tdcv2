@@ -1,0 +1,16 @@
+---
+description: Mobile plan type in Eswatini. The first two split the market almost entirely: kukhokha ngaphambili, prepaid, covers the overwhelming majority of connections here as it does across Africa, because it needs no bank account, no credit check and no address — three things a contract requires and a great many Swazi customers do not have. Note the daily and weekly bundles, luhlelo lwelilanga and lwaliviki, which are not a marketing curiosity but the normal unit of purchase: airtime and data are bought in small amounts as cash allows rather than committed to monthly. Luhlelo is class 11 with lu-, from kuhlela, to arrange, and it does duty for a plan, a programme and a schedule alike.
+locale: ss
+---
+Kukhokha ngaphambili
+Kukhokha ekugcineni
+Luhlelo lwelilanga
+Luhlelo lweliviki
+Luhlelo lwenyanga
+Luhlelo lwedatha
+Luhlelo lwemakholi
+Luhlelo lwemiyalezo
+Luhlelo lwemndeni
+Luhlelo lwebhizinisi
+Luhlelo lwe-inthanethi yasekhaya
+Luhlelo lwesikhashana

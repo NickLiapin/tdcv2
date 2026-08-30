@@ -1,0 +1,27 @@
+---
+description: Metals. Uzbekistan is a serious producer of the first several — it is among the world's top ten gold miners and a major uranium exporter — so олтин, кумуш, мис and уран are industrial nouns here, not jewellery words. Симоб is mercury and марганец manganese.
+locale: uz
+---
+олтин
+кумуш
+мис
+темир
+пўлат
+чўян
+қалай
+қўрғошин
+рух
+алюминий
+никел
+хром
+волфрам
+молибден
+титан
+платина
+палладий
+уран
+симоб
+марганец
+магний
+латун
+бронза

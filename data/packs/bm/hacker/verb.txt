@@ -1,0 +1,32 @@
+---
+description: Technical verbs in the infinitive, in French. `Téléverser` is the entry a French reader from Europe may not expect: it is the francophone term for upload, coined against télécharger for download, and it is what Malian technical documentation and interfaces use where an English text would say upload. `Déboguer` is likewise the fully naturalised French spelling of debug, complete with the -guer that keeps the hard g. The whole list is a reminder that Mali's technical vocabulary is inherited from French standardisation rather than from English directly, which is why some of it diverges from what an anglophone developer would guess.
+locale: bm
+---
+compiler
+indexer
+chiffrer
+déchiffrer
+compresser
+décompresser
+télécharger
+téléverser
+sauvegarder
+restaurer
+analyser
+filtrer
+router
+transférer
+synchroniser
+redémarrer
+déployer
+migrer
+formater
+partitionner
+authentifier
+autoriser
+journaliser
+surveiller
+optimiser
+déboguer
+tester
+publier

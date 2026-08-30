@@ -1,0 +1,11 @@
+---
+description: Number of people in the household. The values are digits and so they are the same in every locale, but what they count is not. The Timorese census unit is the uma kain, literally a piece of house, which is a group who cook and eat from the same hearth rather than a nuclear family occupying a dwelling; several uma kain can sit inside one compound and answer to one lineage. Household size here is among the largest in Southeast Asia — the national average has run near five and stayed there across successive censuses, and the tail is long, with households of ten and more perfectly ordinary in Ermera and Oecusse. So the distribution behind this list is not the European one: a config that treats 1 and 2 as the common cases and 7+ as an outlier is modelling Portugal. Note also that the household commonly includes an aunt, a nephew or a cousin's child sent in to attend school in town, so the column and a family-relationship column will disagree far more often than they would in a pt dataset.
+locale: tet
+---
+1
+2
+3
+4
+5
+6
+7+

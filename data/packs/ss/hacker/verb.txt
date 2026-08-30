@@ -1,0 +1,32 @@
+---
+description: Technical verb in siSwati, all in the class 15 infinitive with ku-, which is the only form in which the language can name an action. Not one of these is a borrowing: every operation a computer performs turned out to be something siSwati already had a verb for, because they are all things people do to objects — kufaka to put in, kukhipha to take out, kususa to remove, kugcina to keep, kubuyisela to put back, kutfumela to send, kwamukela to receive. The pair kuvula and kuvala, to open and to close, differ by one letter and are among the most frequently confused words in the language for a learner, which matters here because they name opposite operations.
+locale: ss
+---
+Kungena
+Kuphuma
+Kubhala
+Kufundza
+Kugcina
+Kubuyisela
+Kucedza
+Kuhlanganisa
+Kwehlukanisa
+Kutfumela
+Kwamukela
+Kucubungula
+Kuvikela
+Kuhlela
+Kulungisa
+Kususa
+Kwengeta
+Kutjintja
+Kuvula
+Kuvala
+Kubuka
+Kucwaninga
+Kukhipha
+Kufaka
+Kubuta
+Kuphendvula
+Kuhlola
+Kuqinisekisa

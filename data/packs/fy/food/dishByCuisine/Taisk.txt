@@ -1,0 +1,18 @@
+---
+description: Thai dishes. The curries are the only entries that take Frisian words, and both colours they take have already been met elsewhere in this pack. Griene is the grien of griene tsiis, the green cheese in the tongue-twister Frisians use to catch out a non-Frisian, and reade is read, the English red standing against Dutch rood. Neither is neutral vocabulary here: the provincial flag is seven red pompeblêden across blue and white diagonals, and read is the word for that red. Swietsûre, in the spring-roll line, is sweet-sour with the swiet that English keeps as sweet. Everything else on the list is Thai and untranslated, because this cuisine arrived complete, in restaurants and in supermarket curry pastes, inside a single generation.
+locale: fy
+---
+Pad thai
+Griene curry
+Reade curry
+Massaman curry
+Tom yum sop
+Tom kha kai
+Som tam
+Larb
+Khao pad
+Satay mei pindasaus
+Pad krapow
+Mango sticky rice
+Loempia's mei swietsûre saus
+Panang curry

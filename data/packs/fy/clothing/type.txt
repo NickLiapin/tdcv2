@@ -1,0 +1,33 @@
+---
+description: Garment type (West Frisian). The list splits cleanly into what the language has always had and what it has bought, and the split is visible at a glance. The old words are the ones that look least like Dutch: hânskuon, gloves, is hand-shoes, built on skuon, the irregular plural of skoech; learzens, boots, is built on lear, which is leather; mûtse is the knitted cap; and boesgroen is the ordinary everyday word for a man's shirt, the same word Dutch has as boezeroen but keeps only for a workman's smock. A second group shows routine sound differences rather than different words - fest where Dutch has vest, because Frisian does not begin words with v; reinjas where Dutch has regenjas, the g having dropped out of rein; spikerbroek and koarte broek with the Frisian vowels. And everything modern arrives untouched: T-shirt, hoodie, sneakers, pyjama, which is what happens to clothing vocabulary in any small language whose shops belong to a bigger one. Klompen are on the list as working footwear and not as a souvenir - on a dairy farm they are still what you put on to cross the yard.
+locale: fy
+---
+T-shirt
+Spikerbroek
+Broek
+Koarte broek
+Jurk
+Rok
+Blouse
+Boesgroen
+Trui
+Fest
+Hoodie
+Jas
+Reinjas
+Kolbert
+Pak
+Pyjama
+Sokken
+Hânskuon
+Sjaal
+Mûtse
+Pet
+Hoed
+Riem
+Stropdas
+Sneakers
+Learzens
+Sandalen
+Pantoffels
+Klompen

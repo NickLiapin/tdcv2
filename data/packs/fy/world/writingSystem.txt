@@ -1,0 +1,24 @@
+---
+description: Writing system (West Frisian). Frisian is written in the Latin alphabet and always has been in the modern period, but it is one of a very short list of languages with a runic tradition of its own, and the runes it used were not the Scandinavian ones. The Anglo-Frisian futhorc has extra letters - ac, os, aesc - that Old English also has and the Norse futhark does not, which is the same North Sea Germanic split that puts Frisian beside English rather than beside Danish. The objects survive: an inscribed yew stick from Westeremden, another from Britsum, a comb from Ferwert, a staff from Bernsterburen, all from roughly the sixth to the eighth century and all found in Frisian terp soil. So a Frisian writing-system list is Latin in practice and futhorc in its own archaeology. Note the word itself: skrift, with sk- where Dutch has schr-, the same cluster as in skoalle, skip and skriuwe. A syllabary is a wurdlidskrift, from wurdlid, a syllable.
+locale: fy
+---
+Latynsk skrift
+Syrillysk skrift
+Gryksk skrift
+Arabysk skrift
+Hebriuwsk skrift
+Armeensk skrift
+Georgysk skrift
+Sineesk skrift (Han)
+Hiragana
+Katakana
+Hangul
+Devanagari
+Taisk skrift
+Tibetaansk skrift
+Etiopysk skrift (Ge'ez)
+Cherokee-wurdlidskrift
+Mayaskrift
+Bengaalsk skrift
+Tamylskrift
+Glagolitysk skrift

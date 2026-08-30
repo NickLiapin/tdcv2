@@ -1,0 +1,238 @@
+---
+description: Country name as written in Eswatini. Only a dozen have established siSwati forms and they are the ones this country has had to name for itself: eSwatini, its own, where the locative e- means "at the place of" and is the reason the name carries no article in English either; iNingizimu Afrika, South Africa, "the south of Africa", which surrounds Eswatini on three sides; Mozambiki on the fourth; Gibhithe for Egypt, an old borrowing through the Bible; and the colonial and trading powers — iBhrithani, iFulentji, iJelimane, iRashiya, iShayina, iNdiya, iJaphani, iMelika. The rest stand in the international form, because siSwati has not coined names for them and a pack that invented some would be putting words in the language. The initial i- on the siSwati forms is a class 9 prefix and part of the word, so it cannot be trimmed to make a shorter label.
+locale: ss
+---
+eSwatini
+iNingizimu Afrika
+Mozambiki
+Zimbabwe
+Botswana
+Namibia
+Lesotho
+Zambia
+Malawi
+Angola
+Tanzania
+Kenya
+Uganda
+Rwanda
+Burundi
+Democratic Republic of the Congo
+Republic of the Congo
+Gabon
+Equatorial Guinea
+Cameroon
+Central African Republic
+Chad
+Nigeria
+Niger
+Benin
+Togo
+Ghana
+Cote d'Ivoire
+Liberia
+Sierra Leone
+Guinea
+Guinea-Bissau
+Senegal
+Gambia
+Mali
+Burkina Faso
+Mauritania
+Cape Verde
+Sao Tome and Principe
+Gibhithe
+Sudan
+South Sudan
+Eritrea
+Ethiopia
+Djibouti
+Somalia
+Libya
+Tunisia
+Algeria
+Morocco
+Western Sahara
+Madagascar
+Mauritius
+Seychelles
+Comoros
+Mayotte
+Reunion
+Saint Helena
+iBhrithani
+Ireland
+iFulentji
+iJelimane
+Netherlands
+Belgium
+Luxembourg
+Switzerland
+Austria
+Italy
+Spain
+Portugal
+Andorra
+Monaco
+San Marino
+Vatican City
+Malta
+Greece
+Cyprus
+Turkey
+Bulgaria
+Romania
+Moldova
+Ukraine
+Belarus
+Poland
+Czechia
+Slovakia
+Hungary
+Slovenia
+Croatia
+Bosnia and Herzegovina
+Serbia
+Montenegro
+Kosovo
+North Macedonia
+Albania
+Denmark
+Norway
+Sweden
+Finland
+Iceland
+Estonia
+Latvia
+Lithuania
+iRashiya
+Georgia
+Armenia
+Azerbaijan
+Kazakhstan
+Uzbekistan
+Turkmenistan
+Kyrgyzstan
+Tajikistan
+Afghanistan
+Pakistan
+iNdiya
+Nepal
+Bhutan
+Bangladesh
+Sri Lanka
+Maldives
+iShayina
+Hong Kong
+Macau
+Taiwan
+iJaphani
+South Korea
+North Korea
+Mongolia
+Vietnam
+Laos
+Cambodia
+Thailand
+Myanmar
+Malaysia
+Singapore
+Indonesia
+Brunei
+Philippines
+Timor-Leste
+Papua New Guinea
+Australia
+New Zealand
+Fiji
+Solomon Islands
+Vanuatu
+New Caledonia
+Samoa
+American Samoa
+Tonga
+Tuvalu
+Kiribati
+Nauru
+Marshall Islands
+Micronesia
+Palau
+Guam
+French Polynesia
+Cook Islands
+Iran
+Iraq
+Syria
+Lebanon
+Israel
+Palestine
+Jordan
+Saudi Arabia
+Yemen
+Oman
+United Arab Emirates
+Qatar
+Bahrain
+Kuwait
+iMelika
+Canada
+Mexico
+Guatemala
+Belize
+Honduras
+El Salvador
+Nicaragua
+Costa Rica
+Panama
+Cuba
+Jamaica
+Haiti
+Dominican Republic
+Puerto Rico
+Bahamas
+Barbados
+Trinidad and Tobago
+Saint Lucia
+Grenada
+Saint Vincent and the Grenadines
+Antigua and Barbuda
+Saint Kitts and Nevis
+Dominica
+Aruba
+Curacao
+Bermuda
+Cayman Islands
+Turks and Caicos Islands
+British Virgin Islands
+US Virgin Islands
+Anguilla
+Montserrat
+Brazil
+Argentina
+Chile
+Uruguay
+Paraguay
+Bolivia
+Peru
+Ecuador
+Colombia
+Venezuela
+Guyana
+Suriname
+French Guiana
+Falkland Islands
+Greenland
+Faroe Islands
+Isle of Man
+Jersey
+Guernsey
+Gibraltar
+Liechtenstein
+Svalbard
+Aland Islands
+Christmas Island
+Norfolk Island
+Niue
+Tokelau
+Wallis and Futuna
+Pitcairn Islands

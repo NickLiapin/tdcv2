@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list behind it; each value is the filename of a list in work/jobByIndustry. Four of the ten repay a second look. Hoareka is the Frisian spelling of horeca, the ordinary word for the whole hospitality trade, contracted from hotel, restaurant and cafe and used as one word rather than as an abbreviation. Sûnenssoarch is health care, built from sûn, healthy, plus the -ens ending Frisian uses where Dutch uses -heid, and soarch, care. Ferfier is transport, from fiere, to carry. Detailhannel is retail, on hannel, trade, the same root that gives the effektenhanneler in the job title list. Bou is construction with no w on the end, because the Frisian -ou answers the Dutch -ouw throughout, and Yndustry shows the y that replaces every Dutch initial i in this spelling.
+locale: fy
+---
+Technology
+Sûnenssoarch
+Finânsjes
+Bou
+Ûnderwiis
+Hoareka
+Yndustry
+Detailhannel
+Ferfier
+Rjocht

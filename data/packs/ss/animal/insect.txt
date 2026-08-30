@@ -1,0 +1,24 @@
+---
+description: Small crawling and flying creature in siSwati. The category is wider than the English word insect, and deliberately so: siSwati groups sicabucabu the spider, umkhaza the tick and umnenke the snail with the true insects, because the folk taxonomy is built on size and habit rather than on the number of legs, and a list that excluded them would be classifying in a way no speaker does. Tinyosi, bees, are the entry with the most attached to them — beekeeping is a common rural sideline, wild honey is taken from rock crevices, and the swarm is treated with a respect that shows in the language. Umhlwa, the termite, is both a pest that eats a thatched roof and a food: the winged alates that emerge after the first rains are collected and fried, and they are a seasonal delicacy rather than a curiosity.
+locale: ss
+---
+Tinyosi
+Umnyovu
+Intfutfwane
+Sibonkolo
+Umhlwa
+Impukane
+Umiyane
+Intetse
+Sikhonyane
+Sicabucabu
+Imbungulu
+Intwala
+Umkhaza
+Iphela
+Umbungu
+Livivane
+Inyendle
+Libhungane
+Impukane yenkhomo
+Umnenke

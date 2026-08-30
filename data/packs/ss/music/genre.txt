@@ -1,0 +1,39 @@
+---
+description: Music genre in Eswatini. Sibhaca comes first because it is the country's own: a men's stamping dance performed in lines with a high raised knee and a hard downward foot, done in teams and competitively, and one of the clearest markers of Swazi as against Zulu performance. Ingoma is the massed unaccompanied song and dance of Umhlanga and Incwala. Below them sits everything that crossed the South African border and now dominates the radio — kwaito in the nineties, then gqom, then amapiano, which has been the sound of Eswatini's clubs and kombis for years. Maskandi and isicathamiya are Zulu forms with a substantial Swazi following, isicathamiya being the tiptoe close-harmony choral style that Ladysmith Black Mambazo took worldwide, and umculo webandla, church music, has the largest participation of anything on this list.
+locale: ss
+---
+Sibhaca
+Ingoma
+Umculo wemasiko
+Umculo webandla
+Igospel
+Maskandi
+Mbaqanga
+Isicathamiya
+Kwaito
+Amapiano
+Gqom
+Iafro pop
+Iafro soul
+Ihouse
+Ideep house
+Ihip hop
+Irap
+IR&B
+Ijazz
+Iblues
+Isoul
+Ifunk
+Ireggae
+Idancehall
+Irhumba
+Ipop
+Irock
+Imetali
+Ipunk
+Ikhantri
+Ifolk
+Iklasikhi
+I-opera
+Ielectronic
+Itechno

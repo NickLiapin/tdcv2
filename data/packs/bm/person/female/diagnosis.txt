@@ -1,0 +1,31 @@
+---
+description: Conditions recorded only for female patients, in French, the register of the Malian health system. The obstetric weighting is not stylistic: Mali's maternal mortality ratio is among the highest in the world, the fertility rate is around six children per woman, and most of this list is what actually kills or maims women here — post-partum haemorrhage, eclampsia, obstructed labour and the obstetric fistula that follows days of it, which leaves a woman incontinent and very often abandoned, and for which Mali runs dedicated repair campaigns. Malaria in pregnancy has its own line because it is treated as a distinct clinical entity with its own preventive protocol. Gestational anaemia and iron deficiency are close to universal. The reproductive-cancer entries are under-recorded rather than rare: cervical cancer is the leading cancer of Malian women and there is very little screening outside Bamako.
+locale: bm
+---
+Grossesse à haut risque
+Pré-éclampsie
+Éclampsie
+Hémorragie du post-partum
+Fistule obstétricale
+Dystocie
+Anémie de la grossesse
+Paludisme gestationnel
+Avortement spontané
+Grossesse extra-utérine
+Infection puerpérale
+Mastite
+Cancer du sein
+Cancer du col de l'utérus
+Fibrome utérin
+Kyste ovarien
+Endométriose
+Syndrome des ovaires polykystiques
+Infertilité féminine
+Ménopause précoce
+Aménorrhée
+Dysménorrhée
+Prolapsus génital
+Infection urinaire
+Vaginose bactérienne
+Séquelles d'excision
+Carence martiale

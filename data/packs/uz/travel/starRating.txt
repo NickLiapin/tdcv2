@@ -1,0 +1,9 @@
+---
+description: Hotel star ratings, one to five, each with the word юлдуз. Uzbek does not pluralise a noun after a numeral — 5 юлдуз, not 5 юлдузлар — which is why the word is identical in all five values.
+locale: uz
+---
+1 юлдуз
+2 юлдуз
+3 юлдуз
+4 юлдуз
+5 юлдуз

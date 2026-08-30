@@ -1,0 +1,14 @@
+---
+description: French food, which in Mali is not a foreign cuisine so much as an administrative layer. `Baguette` is the one that matters: bread baked in the French style is eaten across urban Mali every morning, sold from wooden stalls and bicycle baskets, and the price of it is politically sensitive in the way the price of fuel is. The rest of the list belongs to hotel dining rooms, the ministries' quarter and the expatriate restaurants of the Hippodrome, and it is the register in which a Malian formal occasion is catered — which is why the French colonial kitchen outlived the colony by a long way.
+locale: bm
+---
+Steak-frites
+Poulet rôti
+Quiche lorraine
+Salade niçoise
+Croque-monsieur
+Ratatouille
+Soupe à l'oignon
+Bœuf bourguignon
+Crêpes
+Baguette

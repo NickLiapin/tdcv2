@@ -1,0 +1,15 @@
+---
+description: Loan type. Read stean is an authorised current-account overdraft and the Frisian repays a literal reading - to stand red - with read the ordinary word for the colour, one of the falling ea diphthongs that Dutch does not have at all and that also gives brea for bread and beam for a tree. Stúdzjeliening is not a bank product: student debt in the Netherlands is lent by DUO, a government agency, on terms no bank would offer, and it is the one large debt that sits outside the BKR credit register. The provincial history behind the rest is real and recent. Friesland Bank in Ljouwert was the last independent provincial bank left in the country and was absorbed by Rabobank in 2012, closing a line of local banking that ran back into the nineteenth century. Rabobank itself grew out of the boerenleenbanken, farmers' credit cooperatives of exactly the kind this province was built on - the first cooperative dairy factory in the Netherlands opened at Wergea in Fryslân in 1886, and the credit cooperative and the dairy cooperative were one idea applied twice. Hypoteek shows a small spelling rule worth carrying: Frisian drops the h out of Greek th, which is also why a library is a biblioteek and a theatre a teater.
+locale: fy
+---
+Hypoteek
+Twadde hypoteek
+Persoanlike liening
+Trochrinnend kredyt
+Autoliening
+Stúdzjeliening
+Saaklike liening
+Read stean
+Private lease
+Ferbouwingsliening
+Mikrokredyt

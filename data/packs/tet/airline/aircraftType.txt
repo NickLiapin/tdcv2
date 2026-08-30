@@ -1,0 +1,30 @@
+---
+description: Aircraft types. The set is filtered by one physical fact: Presidente Nicolau Lobato International Airport at Comoro in Dili has a runway of about 1,850 metres wedged between the hills and the sea, which is too short for a loaded wide-body, so the aircraft that actually land in Timor-Leste are turboprops and small narrow-bodies — the ATR 72 on the Denpasar and Darwin runs, the Embraer and the Airbus A319 and A320 on the Singapore and Bali services, the Dash 8 and the Cessna Caravan on the strips at Baucau, Suai, Oecusse and Atauro. The large Boeings and Airbuses on the list are what a Timorese passenger meets on the second leg out of Bali or Singapore, and the Antonov is the freighter that turns up for outsized cargo. Baucau's airfield, built by the Portuguese and lengthened by the Indonesian air force, has the longest runway in the country and is the one that could take a wide-body if it were reopened to civil traffic.
+locale: tet
+---
+Airbus A220
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A321neo
+Airbus A330
+Airbus A350
+Airbus A380
+Boeing 737
+Boeing 737 MAX
+Boeing 747
+Boeing 767
+Boeing 777
+Boeing 787 Dreamliner
+Embraer E175
+Embraer E190
+Embraer E195
+Bombardier CRJ900
+ATR 42
+ATR 72
+De Havilland Dash 8
+Fokker 100
+Cessna Caravan
+Beechcraft King Air
+Antonov An-26

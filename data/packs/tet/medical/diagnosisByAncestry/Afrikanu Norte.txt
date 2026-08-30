@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of North African ancestry, named in Tetum. The overlap with the Mediterranean file is heavy and deliberate — the sea joined these populations rather than dividing them, and a map of variant frequencies around the basin pays no attention to the coastline. Xeroderma pigmentozu is the outlier and the reason the file is worth keeping separate: a recessive failure of DNA repair that makes ordinary sunlight carcinogenic, reported from the Maghreb at some of the highest frequencies recorded anywhere, and the sort of diagnosis that only becomes thinkable once ancestry is written on the chart at all.
+locale: tet
+---
+Defisiénsia G6PD
+Trasu beta-talasemia
+Febre familiár Mediteráneu
+Doensa Behçet
+Intoleránsia laktoze
+Xeroderma pigmentozu

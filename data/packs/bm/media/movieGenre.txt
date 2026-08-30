@@ -1,0 +1,23 @@
+---
+description: Film genres in French, the language of Malian cinema-going and of the country's own film industry — which is not a small thing: Souleymane Cissé's Yeelen took the Jury Prize at Cannes in 1987, Cheick Oumar Sissoko and Abderrahmane Sissako have both won major prizes, and Sissako's Timbuktu was nominated for the Oscar. Bamako's cinemas have mostly closed and viewing has moved to television, DVDs and phones, where the dominant imports are Indian films, Nigerian Nollywood and Latin American telenovelas dubbed into French — which is why `Drame` and `Romance` carry far more weight in a Malian dataset than the action-heavy list an American pack would produce.
+locale: bm
+---
+Action
+Aventure
+Comédie
+Drame
+Romance
+Policier
+Thriller
+Horreur
+Science-fiction
+Fantastique
+Guerre
+Historique
+Western
+Documentaire
+Animation
+Musical
+Biopic
+Film familial
+Court métrage

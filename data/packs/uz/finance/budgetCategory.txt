@@ -1,0 +1,32 @@
+---
+description: Household budget lines. Three of them are specific to how money moves here: тўй харажатлари (wedding costs, which can be a household's largest single outlay), қариндошларга ёрдам (support sent to relatives) and садақа ва хайрия (alms and charity). Коммунал тўловлар covers the utilities as one line, the way a bill arrives.
+locale: uz
+---
+озиқ-овқат
+коммунал тўловлар
+электр энергияси
+табиий газ
+сув
+уй-жой ижараси
+ипотека тўлови
+транспорт
+ёқилғи
+мобил алоқа
+интернет
+кийим-кечак
+соғлиқни сақлаш
+дорилар
+таълим
+болалар харажатлари
+маиший эҳтиёжлар
+уй-рўзғор буюмлари
+тўй харажатлари
+қариндошларга ёрдам
+садақа ва хайрия
+дам олиш
+саёҳат
+спорт ва кўнгилочар
+жамғарма
+кредит тўлови
+суғурта
+солиқлар

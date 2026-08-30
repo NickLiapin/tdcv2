@@ -1,0 +1,18 @@
+---
+description: Type of leave, carrying the statutory Dutch names in Frisian spelling. Dutch law splits birth leave more finely than most systems do, and each split has its own pay rate: swangerskipsferlof is the leave taken before the birth, befallingsferlof the leave after it, berteferlof the partner's week at full pay and oanfoljend berteferlof the partner's five further weeks at seventy per cent. The Frisian shows two endings at once in that group - -skip where Dutch has -schap, giving swangerskip and âlderskip, the same suffix as English -ship; and berte for a birth, a short native word where Dutch has geboorte. Kalamiteitenferlof is short emergency leave for a burst pipe or a child sent home from school, and soarchferlof exists in a short and a long statutory form with different entitlements.
+locale: fy
+---
+Fakânsjeferlof
+Syktefersom
+Swangerskipsferlof
+Befallingsferlof
+Berteferlof
+Oanfoljend berteferlof
+Âlderskipsferlof
+Kalamiteitenferlof
+Koartduorjend soarchferlof
+Langduorjend soarchferlof
+Adopsjeferlof
+Ûnbetelle ferlof
+Bûtengewoan ferlof
+Studzjeferlof

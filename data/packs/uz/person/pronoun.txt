@@ -1,0 +1,12 @@
+---
+description: Personal pronouns. There are only eight, and none of them is gendered: у is he, she and it at once, and сиз is both the plural you and the polite singular. Ўз and ўзи are the reflexive, meaning self, and both start with ў.
+locale: uz
+---
+мен
+сен
+у
+биз
+сиз
+улар
+ўз
+ўзи

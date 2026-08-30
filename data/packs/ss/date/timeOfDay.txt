@@ -1,0 +1,12 @@
+---
+description: Time of day in siSwati. Most of these are locatives rather than nouns — ekuseni, emini, ebusuku all carry the e- prefix that means "at" — which is why they cannot be used as the subject of a sentence without rebuilding them. Two of the eight are whole verb phrases: ekuphumeni kwelilanga is "at the coming out of the sun" and ekushoneni kwelilanga "at the sinking of the sun", built on the infinitives kuphuma and kushona with a possessive linking them to lilanga. Lilanga means both the sun and the day, which is the same word that gives Eswatini's currency its name, the lilangeni, and gives the Swazi their epithet bantfu bemalanga, people of the sun.
+locale: ss
+---
+Ekuseni kakhulu
+Ekuphumeni kwelilanga
+Ekuseni
+Emini
+Ntsambama
+Ekushoneni kwelilanga
+Kusihlwa
+Ebusuku

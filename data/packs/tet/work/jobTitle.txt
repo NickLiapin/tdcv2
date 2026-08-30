@@ -1,0 +1,221 @@
+---
+description: Occupations in Timor-Leste, and the list is built around a word-forming device with no European counterpart. Na'in means owner of, master of, the one who holds a thing, and it attaches to almost any noun to produce an agent noun: to'os is the dry garden plot cut into a hillside and to'os-na'in is the farmer who works it, natar is the irrigated paddy and natar-na'in the man who floods it, tais is the woven cloth and tais na'in the weaver, kafé gives kafé-na'in, tua the palm spirit gives tua-na'in, masin the salt gives masin-na'in. It is the most productive suffix in the language, and it is the reason a Tetum occupation list cannot be produced by translating a Portuguese one. Lia-na'in is the same construction on lia, word or speech — the master of the word, the elder who holds a lineage's oral history and speaks for it when a barlake is negotiated or a reconciliation is opened — and it names a genuine office rather than a personal quality. Beside him stand Liurai, the traditional ruler, and Matan dook, literally the far-seeing one, the diviner consulted before a house is raised or a quarrel settled. Xefe Suku and Xefe Aldeia belong on an employment list because they are salaried elected offices with a term and a stipend, not honorifics. Katekista is the largest religious occupation in the country: in a nation this Catholic, with far more chapels than resident priests, the catechist leads the Sunday service, prepares the sacraments and keeps the register in parishes a priest reaches a few times a year. Over the Austronesian base sit three imported layers. Portuguese supplies the professions and the trades wholesale, from Enjeñeiru and Farmaséutiku down to Pedreiru and Telladór. Indonesian supplies the transport words and Xofer, kept for the driver of a mikrolet, an angguna or an ojek, while Motorista is reserved for the salaried professional driver — one job, two registers, and a Timorese reader hears the difference at once. English supplies the aid economy, which is a real employer and not a curiosity: Jestór projetu, Ofisiál programa, Koordenadór klaster, Ofisiál M&A for monitoring and evaluation, Ofisiál WASH for water and sanitation, Mobilizadór komunitáriu, Tradutór, Interprete and Motorista ONG are ordinary lines on a Dili curriculum vitae. The state closes the formal economy with Funsionáriu públiku, Administradór postu, Ofisiál PNTL and Soldadu F-FDTL — and the informal one, Nain kios, Fa'an-na'in merkadu, Vendedór ambulante, Peskadór and Hakiak animál, carries more people than everything else on the list put together.
+locale: tet
+---
+Enjeñeiru software
+Dezenvolvedór web
+Analista dadus
+Administradór sistema
+Enjeñeiru rede
+Tékniku informátika
+Tékniku suporte
+Programadór
+Jestór baze dadus
+Ofisiál TIK
+Dezeñadór gráfiku
+Tékniku telekomunikasaun
+Tékniku fibra ótika
+Operadór rádiu
+Médiku jerál
+Sirurjiaun
+Pediatra
+Ginekolojista
+Anestesista
+Dentista
+Enfermeiru
+Parteira
+Parteira tradisionál
+Farmaséutiku
+Tékniku farmásia
+Tékniku laboratóriu
+Tékniku radiolojia
+Nutrisionista
+Fizioterapeuta
+Paramédiku
+Ajente saúde komunitáriu
+Vasinadór
+Veterináriu
+Psikólogu
+Eletrisista
+Kanalizadór
+Soldadór
+Karpinteiru
+Pedreiru
+Pintór
+Tékniku ar kondisionadu
+Mekániku kareta
+Mekániku motorizada
+Mekániku dízel
+Operadór tornu
+Xaveiru
+Vidraseiru
+Telladór
+Estukadór
+Mestre obras
+Operáriu konstrusaun
+Topógrafu
+Fiskál obra
+Operadór makina todan
+Operadór grua
+Operadór eskavadora
+Mineiru
+Operadór perfurasaun
+Tékniku detonasaun
+Traballadór pedreira
+Operadór sentrál elétrika
+Operadór estasaun trata bee
+Instaladór painél solár
+Tékniku jeradór
+Leitór medidór
+Tékniku gás
+Motorista kamiaun
+Motorista distánsia naruk
+Xofer mikrolet
+Xofer angguna
+Xofer taksi
+Xofer ojek
+Motorista ONG
+Motorista bis
+Entregadór
+Operadór forklift
+Operadór armazén
+Koordenadór lojístika
+Despaxante
+Ajente karga
+Kontroladór tráfegu aéreu
+Pilotu komersiál
+Asistente bordu
+Kapitaun ró
+To'os-na'in
+Natar-na'in
+Kolledór kafé
+Prosesadór kafé
+Kafé-na'in
+Hakiak animál
+Hakiak manu
+Peskadór
+Tékniku akuakultura
+Ekstensionista agrikultura
+Apikultór
+Jardineiru
+Kortadór ai
+Tua-na'in
+Masin-na'in
+Tais na'in
+Nain kios
+Fa'an-na'in merkadu
+Vendedór
+Vendedór ambulante
+Jerente loja
+Kaixa
+Repozitór
+Kompradór
+Reprezentante atendimentu kliente
+Atendente call center
+Xefe kuziña
+Kuziñeiru
+Padeiru
+Barista
+Barman
+Garsón
+Lava bikan
+Jerente otél
+Resesionista otél
+Gia turizmu
+Kontabilista
+Ajudante kontabilidade
+Analista finanseiru
+Auditór
+Konsultór impostu
+Kaixa banku
+Ofisiál kréditu
+Ajente seguru
+Reprezentante vendas
+Jerente marketing
+Espesialista rekursus umanus
+Rekrutadór
+Jerente operasoens
+Jestór projetu
+Analista negósiu
+Asistente exekutivu
+Jerente eskritóriu
+Resesionista
+Ajudante administrativu
+Espesialista kompras
+Ekonomista
+Ajente imobiliáriu
+Ofisiál programa
+Koordenadór klaster
+Ofisiál M&A
+Ofisiál finansas
+Mobilizadór komunitáriu
+Ofisiál jéneru
+Ofisiál WASH
+Tradutór
+Interprete
+Voluntáriu
+Funsionáriu públiku
+Administradór postu
+Xefe Suku
+Xefe Aldeia
+Ofisiál PNTL
+Soldadu F-FDTL
+Ofisiál migrasaun
+Ofisiál alfándega
+Ajente protesaun sivíl
+Bombeiru
+Guarda prizionál
+Karteiru
+Koletór lixu
+Vijilante
+Inspetór saúde
+Ofisiál eleitorál
+Profesór ensinu báziku
+Profesór ensinu sekundáriu
+Profesór universidade
+Diretór eskola
+Ajudante ensinu
+Edukadór infantíl
+Orientadór eskolár
+Bibliotekáriu
+Peskizadór
+Tutór
+Formadór
+Alfabetizadór
+Juís
+Prokuradór
+Advogadu
+Defensór públiku
+Asistente jurídiku
+Eskrivaun judisiál
+Notáriu
+Jornalista
+Editór
+Fotógrafu
+Kameraman
+Redatór konteúdu
+Lokutór rádiu
+Arkitetu
+Dezeñadór interiór
+Enjeñeiru sivíl
+Enjeñeiru mekániku
+Enjeñeiru elétriku
+Enjeñeiru kímiku
+Múziku
+Atór
+Asistente sosiál
+Liurai
+Lia-na'in
+Matan dook
+Katekista
+Amu Lulik
+Madre
+Sakristaun
+Seminarista
+Empregadu doméstiku
+Barbeiru
+Kabeleireiru
+Alfaiate
+Sapateiru
+Mekániku ró
+Traballadór rurál

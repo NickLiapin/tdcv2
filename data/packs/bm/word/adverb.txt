@@ -1,0 +1,36 @@
+---
+description: Bambara adverbs and adverbial phrases, and half of this list is really the postpositional system in disguise. Bambara has no prepositions at all: where French puts sur, dans, derrière and devant in front of a noun, Bambara puts `kan`, `kɔnɔ`, `kɔ fɛ` and `ɲɛ fɛ` AFTER it — `tabali kan` is table-on, `so kɔnɔ` is house-inside. Several entries here are those postpositions standing alone as adverbs. The time words are worth a second look too: `bi` today, `sini` tomorrow and `kunun` yesterday are single morphemes, while anything further out is built by compounding, and `sini` also supplies the ordinary word for the future. `Dɔɔni dɔɔni` — little by little — is reduplicated, which is the standard Bambara way of making a manner adverb out of a quantity.
+locale: bm
+---
+sisan
+bi
+sini
+kunun
+sɔgɔma
+wula
+su
+tuma bɛɛ
+tuma dɔ
+abada
+joona
+sɔɔni
+kɔfɛ
+fɔlɔ
+yan
+yen
+yɔrɔ bɛɛ
+kosɛbɛ
+dɔɔni dɔɔni
+tigitigi
+ka teli
+tugun
+halibi
+kɛrɛ fɛ
+kɔnɔ
+kan
+duguma
+sanfɛ
+kɔ fɛ
+ɲɛ fɛ
+ka ɲɛ
+dɔrɔn

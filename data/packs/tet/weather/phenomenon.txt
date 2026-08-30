@@ -1,0 +1,19 @@
+---
+description: The events, as against the everyday conditions, and the order is roughly how much damage each does in an ordinary year. Udan-mota is the flash flood, mota being river: a dry stone bed fills in an hour during the rains and takes out the crossing, which is why so many journeys in Timor-Leste are planned around whether a particular mota will be passable. Rai-halai is the landslide — literally the earth runs — and it closes the mountain roads to Ainaro, Maubisse and Ermera every wet season, cutting the coffee districts off from the port for days at a time. Rai-nakdoko is the earthquake, and the island sits where the Australian plate is driving under the Banda arc, which is also why tsunami is on this list. Bailoron naruk is the long dry, drought, and it is the one that reaches furthest, because a failed rain means a failed maize crop and a longer hungry season rather than merely an inconvenient one. Lalehan nakukun is the darkened sky that precedes the rest. Note the Portuguese entries, all rewritten: monção gives monsaun, furacão gives furakaun, inundação gives inundasaun, and calor gives kalór with an acute on the stressed final syllable.
+locale: tet
+---
+Udan-mota
+Rai-halai
+Rai-nakdoko
+Bailoron naruk
+Siklone
+Udan-fatuk
+Lalehan nakukun
+Rai-tarutu
+Relámpagu
+Tsunami
+Monsaun
+Inundasaun
+Onda kalór
+Tornadu
+Furakaun

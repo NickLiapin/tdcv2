@@ -1,0 +1,16 @@
+---
+description: Property listing status in siSwati. The first two values split what English calls "listed" into selling and letting, and they do it with the causative: kutsenga is to buy, kutsengisa to sell — literally to cause buying — and the same -isa suffix turns kurenta into kurentisa. That derivation runs through the whole language and is the single most productive way siSwati makes new verbs. Iyatsengiswa ngendlela yekukhwelisana is auction, described rather than named, because siSwati has no single word for one and the practice is uncommon outside repossession sales. Note that a very large share of Eswatini's land is Swazi Nation Land, held in trust by chiefs and allocated rather than sold, so none of these statuses apply to it at all.
+locale: ss
+---
+Iyatsengiswa
+Iyarentiswa
+Ivuliwe kutsi bukwe
+Kunetsicelo letifakiwe
+Kulindzelwe kucinisekiswa
+Ibanjiwe
+Iyatsengiswa ngendlela yekukhwelisana
+Itsengisiwe
+Irentisiwe
+Ikhishiwe
+Kubuyiselwe emakethe
+Ayikho emakethe

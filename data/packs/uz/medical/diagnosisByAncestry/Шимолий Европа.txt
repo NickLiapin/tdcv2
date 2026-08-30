@@ -1,0 +1,10 @@
+---
+description: Conditions carried more often in Northern European populations. Гемохроматоз — iron overload — is the most common single-gene disorder in people of Irish and Scandinavian descent. Lactose intolerance is listed as being *low* here, which is the point: the persistence mutation spread from this population.
+locale: uz
+---
+Гемохроматоз
+Муковисцидоз
+Лактоза интолеранси камлиги
+Фенилкетонурия
+Тери меланомаси
+Алфа-1 антитрипсин етишмовчилиги

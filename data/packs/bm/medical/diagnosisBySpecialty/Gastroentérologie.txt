@@ -1,0 +1,10 @@
+---
+description: Hepatitis B is hyperendemic in Mali and is usually caught in early childhood, so the cirrhosis it causes presents in patients in their thirties and forties rather than their sixties. The two parasitic entries are the ones a stool or rectal sample actually returns here.
+locale: bm
+---
+Amibiase intestinale
+Hépatite B chronique
+Cirrhose du foie
+Ulcère gastroduodénal
+Reflux gastro-œsophagien
+Schistosomiase intestinale

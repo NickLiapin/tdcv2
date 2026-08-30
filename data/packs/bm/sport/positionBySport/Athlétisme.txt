@@ -1,0 +1,14 @@
+---
+description: Athletics specialities in Bambara, built on three agent nouns: `bolila` a runner from `boli` to run, `panbaga` a jumper from `pan` to jump, and `filibaga` a thrower from `fili` to throw. `Bolila balanw kan` is the hurdler, running on the obstacles. `Kabakuru filibaga` throws the stone, which is the shot. Athletics carries Malian school competition — the sport scolaire calendar is built on it, because a track needs no equipment and a sand pit needs less — so this is vocabulary children actually hear. Two values keep a French word inside the Bambara frame: `Maratɔn` and `Javelot` are event names with no Bambara equivalent, and inventing one would be coining rather than recording.
+locale: bm
+---
+Bolila teliman
+Bolila cɛmancɛ
+Bolila jan
+Maratɔn bolila
+Bolila balanw kan
+Panbaga janya la
+Panbaga sanfɛ
+Kabakuru filibaga
+Javelot filibaga
+Taamabaga

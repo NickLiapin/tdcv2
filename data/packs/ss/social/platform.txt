@@ -1,0 +1,20 @@
+---
+description: Social platform used in Eswatini, in something close to the real order of use. WhatsApp is first by a wide margin and it is not merely a messaging app here: it is where business is done, where school groups run, where a church congregation is organised and where a funeral is announced, and mobile operators sell bundles priced for it specifically. Facebook is the public square, and in Eswatini as across much of Africa a great many users reach it through the same phone and the same data bundle rather than through a browser. The order below them is roughly the order of adoption, with the professional and desktop-shaped platforms at the bottom because desktop computing is not how most people here are online at all.
+locale: ss
+---
+WhatsApp
+Facebook
+Facebook Messenger
+TikTok
+Instagram
+YouTube
+X
+Telegram
+Snapchat
+LinkedIn
+Threads
+Pinterest
+Reddit
+Signal
+Zoom
+Skype

@@ -1,0 +1,17 @@
+---
+description: Case type in Eswatini. Licala is the head word and it carries a usefully wide meaning: a court case, an offence, and also simply a fault or blame, so to say a person has a licala is to say they are at fault before any court is involved. Licala lemhlaba, the land case, is the commonest civil matter to reach a Swazi National Court and it is rarely about ownership, because Swazi Nation Land is not owned — it is about allocation, boundaries between homesteads, and which chief a household belongs to, and those are exactly the questions the customary system exists to answer. Licala lekondla bantfwana, maintenance, is the commonest matter in the magistrates' courts.
+locale: ss
+---
+Licala lekweba
+Licala lekubulala
+Licala lekulimata
+Licala lekushaya
+Licala lekudlwengula
+Licala lemphahla
+Licala lemhlaba
+Licala lekuhlukanisa umshado
+Licala lekondla bantfwana
+Licala lesivumelwane
+Licala lekukhokha tikweleti
+Licala lekusebenta
+Licala lekwephula umtsetfo wetimoto

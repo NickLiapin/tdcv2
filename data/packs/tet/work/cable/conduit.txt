@@ -1,0 +1,11 @@
+---
+description: How a cable run is protected and carried. The list is short because the installed base is young: almost nothing in Timor-Leste's fixed network predates 1999, so what is in the ground is plain duct and direct burial rather than the layered legacy of an old grid. Hakoi direta iha rai uses hakoi, the ordinary Tetum verb for putting a thing into the ground — it is the same verb used of a body at a funeral and of a seedling in a garden, and no loan ever displaced it. Besi, iron, comes from Malay rather than Portuguese, one of the trade words that reached Timor centuries before the occupation of 1975 delivered the rest of the Indonesian layer. Polietilenu densidade aas shows the commonest shape of a Tetum technical phrase: a borrowed head noun with a plain native word doing the qualifying, aas being simply high. Nothing armoured, fire-rated or ducted-and-jointed appears here, because that is not what gets installed.
+locale: tet
+---
+PVC
+Besi rijidu
+Polietilenu densidade aas
+Hakoi direta iha rai
+Eletrodutu iha uma laran
+Kalla ba kabu
+Kabu mensajeiru aéreu

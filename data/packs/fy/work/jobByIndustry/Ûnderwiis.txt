@@ -1,0 +1,16 @@
+---
+description: Jobs in education. Frysk-dosint stands on this list because Frisian is a compulsory subject in every primary and secondary school in the province, and teaching it needs a qualification of its own; beyond that there are the trijetalige skoallen, the three-language schools that run their teaching in Frisian, Dutch and English by turns, which is a staffing model that exists nowhere else in the country. Yntern begelieder is the primary-school learning-support coordinator, a named Dutch post with a caseload rather than a class, and dekaan here means the secondary-school careers and study-choice adviser, not a university dean - a false friend that catches English readers every time.
+locale: fy
+---
+Learkrêft basisûnderwiis
+Dosint fuortset ûnderwiis
+Heechlearaar
+Ûnderwiisassistint
+Bibliotekaris
+Skoaldirekteur
+Learaar spesjaal ûnderwiis
+Dekaan
+Yntern begelieder
+Pedagogysk meiwurker
+Frysk-dosint
+Ûndersiker

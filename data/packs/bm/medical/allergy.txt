@@ -1,0 +1,26 @@
+---
+description: Allergens, and the file splits where the Malian consultation splits. The first eleven are Bambara because they are food and dust — what a patient names — and they are Malian food: `tiga` groundnut, which is in the sauce at almost every meal, `sumbala` the fermented néré condiment, `si tulu` shea butter, `woro` kola, `nɔnɔ` milk, `kili` egg, `jɛgɛ` fish, `buguri` dust. `Buguri` earns its place: the harmattan carries so much Saharan dust between December and February that respiratory presentations rise every year with it. The second half stays French because it is pharmacy: penicillin, sulfonamides, chloroquine and quinine are named on the packet and in the register in French, and a drug allergy is recorded by a health worker rather than described by a patient. Chloroquine and quinine are on the list at all because antimalarials are the most-dispensed drugs in the country.
+locale: bm
+---
+Tiga
+Nɔnɔ
+Kili
+Jɛgɛ
+Sogo
+Sumbala
+Si tulu
+Woro
+Jaba
+Foronto
+Buguri
+Pénicilline
+Amoxicilline
+Sulfamides
+Cotrimoxazole
+Aspirine
+Chloroquine
+Quinine
+Iode
+Latex
+Acariens
+Pollen de graminées

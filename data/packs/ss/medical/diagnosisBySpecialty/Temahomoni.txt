@@ -1,0 +1,10 @@
+---
+description: Endocrinology diagnosis in Eswatini. Temahomoni is the one specialty on this list named after a loanword rather than a body part — ihomoni with the class 6 plural emahomoni — because the gland system has no traditional siSwati anatomy behind it to name it from, and inventing one would be pretending otherwise. Type 2 diabetes is the entry that matters most: it has risen sharply in Eswatini within a generation as diet shifted from sishwala and umbidvo toward refined maize meal and sugar, and the country's own sugar industry sits awkwardly beside that fact. Adrenal insufficiency is on the list partly for a local reason — tuberculosis of the adrenal glands is still a cause of it here, which it has not been in Europe for decades.
+locale: ss
+---
+Sifo sashukela sesigaba sesibili
+Sifo sashukela sesigaba sekucala
+I-hypothyroidism
+I-hyperthyroidism
+I-adrenal insufficiency
+I-polycystic ovary syndrome

@@ -1,0 +1,10 @@
+---
+description: Gastroenterology diagnosis in Eswatini. Tesisu is "matters of the stomach", and sisu is a usefully broad word — it means the stomach, the belly and, in the right phrase, a pregnancy, so kuphuphuma kwesisu is a miscarriage rather than anything digestive. Hepatitis B carriage is far commoner here than in Europe and is usually acquired in early childhood rather than in adulthood, which is why it appears on a gastroenterology list at all and why the cirrhosis behind it tends to present in people who never drank. Luhudvo lolungapheli, persistent diarrhoea, is a named clinical entity in this setting because in a patient with advanced HIV it is a staging criterion rather than a symptom.
+locale: ss
+---
+Silondza sesisu
+I-hepatitis B
+I-cirrhosis
+Luhudvo lolungapheli
+I-appendicitis
+Ematje esinyeni senyongo

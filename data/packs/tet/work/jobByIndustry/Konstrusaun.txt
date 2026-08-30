@@ -1,0 +1,13 @@
+---
+description: Building trades, and every single title on this list is Portuguese. That is not laziness in the vocabulary: Timorese building before the colonial period used timber, bamboo, palm thatch and lashing rather than mortared stone, and the crafts that raised an uma lulik have their own words, but the trades that put up a concrete-framed office have none — so the mason, the plumber, the plasterer and the roofer are all named by borrowing. Mestre obras is the site foreman and it is the pivotal role in a Timorese project, because much of what gets built is contracted out through small firms to crews assembled locally, with the foreman rather than an engineer holding the work together. Construction is the largest formal-sector wage employer after the state itself, since the rebuilding that began in 1999 turned into a permanent programme of roads, schools, clinics and public buildings funded from the national budget, and the sector rises and falls with that budget rather than with private demand.
+locale: tet
+---
+Eletrisista
+Kanalizadór
+Karpinteiru
+Pedreiru
+Pintór
+Mestre obras
+Operáriu konstrusaun
+Topógrafu
+Operadór makina todan

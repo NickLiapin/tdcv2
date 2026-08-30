@@ -1,0 +1,18 @@
+---
+description: The states an online order passes through, in order. Uzbek marks most of them with the past-tense passive -ди ending: қабул қилинди, тасдиқланди, жўнатилди, етказилди. The two that break the pattern are progressive — тўлов кутилмоқда and йиғилмоқда — because they describe something still happening.
+locale: uz
+---
+янги
+қабул қилинди
+тўлов кутилмоқда
+тўланди
+тасдиқланди
+йиғилмоқда
+қадоқланди
+жўнатилди
+йўлда
+етказилди
+қайтарилди
+бекор қилинди
+рад этилди
+кутиш режимида

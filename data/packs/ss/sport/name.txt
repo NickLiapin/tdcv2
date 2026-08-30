@@ -1,0 +1,59 @@
+---
+description: Sport in Eswatini. Libhola alone, with no qualifier, means football, and the national side is Sihlangu Semnikati, "the King's Shield"; netibhola, netball, is the leading women's sport and is played at every high school in the country. Ragbhi has a genuine following here, and Eswatini has fielded a national side since the 1990s. Kwekhwela intsaba is on the list for a specific reason: the annual Sibebe Survivor walk up the granite dome above Mbabane draws thousands and is one of the largest participatory sporting events in the country. Note the -bhola family — libhola, netibhola, volibhola, softibhola, bhasikhidi — where an English ball game keeps the word ball and takes a siSwati class prefix, and note also that ice sports and winter sports are entirely absent, which is honest for a country that does not freeze.
+locale: ss
+---
+Libhola
+Netibhola
+Ragbhi
+Ragbhi lesevini
+Hhokhi
+Softibhola
+Ibhesibholi
+Bhasikhidi
+Volibhola
+Khilikithi
+Ihendibholo
+Libhola lasendlini
+Iathletiksi
+Kugijima
+Kugijima libanga lelidze
+Kugijima emamayela lamanyenti
+Ikhrosi khantri
+Ithrayathloni
+Kwekhwela intsaba
+Kubhukusha
+Kubhukusha kwelibanga lelidze
+Ipholo yasemantini
+Kugwedla
+Thenisi
+Ithenisi yelitafula
+Ibhadminthoni
+Isikwashi
+Igolfu
+Ibhowuling
+Isnukha
+Ibhokisi
+Ikhikhibhokisi
+Ikharathe
+Ijudo
+Ithekwondo
+Kubambana
+Kuphakamisa tisindvo
+Kutivocavoca
+Ijimnastiki
+Kusina
+Ichess
+Idrafthi
+Kugibela emahhashi
+Umjaho wemahhashi
+Ipholo
+Kugibela libhayisikili
+Kugibela libhayisikili entsabeni
+Umjaho wemabhayisikili
+Umjaho wetimoto
+Umjaho wetitfutfutfu
+Isikethibhodi
+Kudubula
+Kucibisela
+Kudoba
+Kutingela

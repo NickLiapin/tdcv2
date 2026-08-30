@@ -1,0 +1,33 @@
+---
+description: Technical verbs in the -моқ citation form. This is the dictionary shape of an Uzbek verb and it is what a wordlist stores; a real sentence would use a conjugated form. The file pairs one-to-one with ingverb, which holds the same actions as nouns.
+locale: uz
+---
+уланмоқ
+узмоқ
+юбормоқ
+қабул қилмоқ
+юкламоқ
+юклаб олмоқ
+сақламоқ
+ўчирмоқ
+нусхаламоқ
+кўчирмоқ
+қайта ишламоқ
+таҳлил қилмоқ
+текширмоқ
+синовдан ўтказмоқ
+шифрламоқ
+дешифрламоқ
+компиляция қилмоқ
+ишга туширмоқ
+тўхтатмоқ
+қайта ишга туширмоқ
+созламоқ
+ўрнатмоқ
+янгиламоқ
+захираламоқ
+тикламоқ
+индексламоқ
+филтрламоқ
+сараламоқ
+бирлаштирмоқ

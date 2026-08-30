@@ -1,0 +1,16 @@
+---
+description: Technology jobs in Eswatini. Buchwepheshe is the class 14 abstract noun for skill, craft and cleverness, and it now carries the whole meaning of technology — the same root gives umchwepheshe, an expert. Every job title below it is built the same way, from a verb: kubhala, to write, gives umbhali, so a programmer is umbhali wetinhlelo tekhompiyutha, "a writer of computer arrangements". The sector in Eswatini is small and concentrated: the mobile operators, the banks' systems, the Eswatini Revenue Service, the University of Eswatini at Kwaluseni, and a handful of firms in Mbabane and Matsapha. Mobile money reached Eswatini early and widely, which is why the jobs behind it exist here in numbers a country this size would not otherwise support.
+locale: ss
+---
+Umbhali wetinhlelo tekhompiyutha
+Umhloli wetinhlelo
+Umcwaningi wemininingwane
+Umgcini wemininingwane
+Umdvwebi wemasayithi
+Umsizi wetekhompiyutha
+Umnjiniyela wetekuchumana
+Umhleli wekuphepha kwemininingwane
+Umphatsi wetinhlelo
+Umlungisi wemakhompiyutha
+Umhleli wemaneti
+Umcwaningi wetebuchwepheshe

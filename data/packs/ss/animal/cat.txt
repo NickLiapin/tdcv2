@@ -1,0 +1,22 @@
+---
+description: Cat breed as recognised in Eswatini, which is to say almost entirely as an imported vocabulary. Likati lasekhaya, the household cat, is first because it is the only one of these that most Swazi households would name: pedigree cats are a small-town and expatriate matter here, registered through South African bodies, and there is no Eswatini cat registry. The breed names take the class 9 i- prefix and keep their foreign spelling, which is the standard treatment for a recent unassimilated loan. Note the word likati itself, which is class 5 with the plural emakati — unusual for an animal, since most take class 9 — and which entered Nguni from Portuguese or Dutch along with the animal, cats not being native to southern Africa.
+locale: ss
+---
+Likati lasekhaya
+Ipheshiya
+Isiyami
+Imeyini Khuni
+Ibhengali
+Iburma
+Iragidoli
+Isifinksi
+Ibhritishi Shothiheya
+Iabhisiniya
+Irashiya Bhulu
+Inoweji Fores Khethi
+Iskotishi Foldi
+Ikhorati
+Ibhombeyi
+Isavana
+Ithekishi Angora
+Imankisi

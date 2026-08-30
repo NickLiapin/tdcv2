@@ -1,0 +1,30 @@
+---
+description: Book genres. Fiksaun is Portuguese ficção put through two rules at once — the cc becomes ks and the -ção becomes -saun — and its opposite is built with la'ós, the Tetum for is not, rather than with a borrowed prefix. Literatura ba foin-sa'e is young-adult writing, and foin-sa'e is worth pausing on: it means newly risen, the same sa'e that gives Lorosa'e its rising sun, and Timorese use it as the ordinary word for a young person. Two genres carry more weight here than a European list would suggest. Memória and Biografia are the largest category of Tetum-language publishing after schoolbooks and liturgy, because the resistance generation has been writing down what happened between 1975 and 1999, and Istória covers a shelf that in this country is still being assembled rather than revised.
+locale: tet
+---
+Fiksaun
+La'ós fiksaun
+Mistériu
+Suspense
+Romanse
+Fiksaun sientífika
+Fantazia
+Teror
+Biografia
+Istória
+Ajuda-an
+Poezia
+Literatura ba foin-sa'e
+Romanse istóriku
+Romanse polisiál
+Aventura
+Memória
+Filozofia
+Viajen
+Livru kuziña
+Romanse gráfiku
+Distopia
+Ensaiu
+Kontu
+Realizmu májiku
+Livru labarik

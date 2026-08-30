@@ -1,0 +1,10 @@
+---
+description: Conditions more frequent in people of Eastern European descent, mostly founder variants that newborn screening programmes in the region were built around. Phenylketonuria is the clearest case: it is treatable by diet alone if caught in the first weeks, and undetectable by looking at the child.
+locale: bm
+---
+Hémochromatose héréditaire
+Phénylcétonurie
+Hypercholestérolémie familiale
+Maladie alcoolique du foie
+Mucoviscidose
+Maladie de Wilson

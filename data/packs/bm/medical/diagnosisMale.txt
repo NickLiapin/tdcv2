@@ -1,0 +1,34 @@
+---
+description: Diagnoses that require male anatomy; general conditions live in medical/diagnosis. Three entries carry particular Malian weight. Priapisme is a classic complication of sickle-cell disease, which is why it belongs in a Malian record and not only in a urology textbook. Hydrocèle is the visible late sign of lymphatic filariasis, a disease Mali has been driving out through mass ivermectin and albendazole rounds, and hydrocelectomy is counted as a public-health surgical target rather than an elective procedure. Rétrécissement de l'urètre after untreated gonococcal urethritis is still common enough on its own to keep a urology theatre busy.
+locale: bm
+---
+Hypertrophie bénigne de la prostate
+Prostatite
+Cancer de la prostate
+Cancer du testicule
+Torsion du testicule
+Varicocèle
+Hydrocèle
+Épididymite
+Cryptorchidie
+Phimosis
+Paraphimosis
+Balanite
+Dysfonction érectile
+Maladie de La Peyronie
+Infertilité masculine
+Gynécomastie
+Hypogonadisme masculin
+Priapisme
+Spermatocèle
+Alopécie androgénétique
+Hernie scrotale
+Cancer du pénis
+Orchite
+Rétrécissement de l'urètre
+Syndrome de Klinefelter
+Azoospermie
+Éjaculation précoce
+Abcès prostatique
+Vésiculite séminale
+Hémospermie

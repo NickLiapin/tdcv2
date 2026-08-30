@@ -1,0 +1,16 @@
+---
+description: Law, and the split here is not stylistic but jurisdictional. The Bambara titles belong to the customary system that settles most Malian disputes before any court hears them: a `dugutigi` is the village chief, who allocates land and judges what happens on it; a `bɛnkan ɲɛminɛbaga` is a mediator, from `bɛnkan` an agreement; a `kiitigɛla` is one who cuts a judgement, the older word for a judge. Sanankuya joking kinship is used deliberately to open negotiations these people conduct. The French titles belong to the state courts, and the moment a matter enters one the register switches entirely — a litigant may need an interpreter to follow proceedings about his own field.
+locale: bm
+---
+Kiitigɛla
+Dugutigi
+Bɛnkan ɲɛminɛbaga
+Sariya karamɔgɔ
+Avocat
+Procureur
+Greffier
+Huissier de justice
+Notaire
+Juriste d'entreprise
+Magistrat
+Officier d'état civil

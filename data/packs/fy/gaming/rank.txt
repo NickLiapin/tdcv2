@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (West Frisian). The ladder is the usual metals-then-gems progression, and the Frisian forms are the ones from nature/metal and nature/gemstone: izer for iron, with a single i and no Dutch IJ digraph, brûns, sulver. Master and grutmaster sit above the gems, and útdager, the challenger, tops it - útdaagje is to challenge, built on út and daagje, the same daagje that means to dawn, so the word carries the sense of calling someone out into the open.
+locale: fy
+---
+Izer
+Brûns
+Sulver
+Goud
+Platina
+Smaragd
+Diamant
+Master
+Grutmaster
+Útdager

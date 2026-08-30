@@ -1,0 +1,14 @@
+---
+description: Turkish dishes, spelled as Uzbek hears them: дўнер, кебап, лаҳмажун, пиде, кофте. Uzbek and Turkish are close relatives, so these words are half-familiar — Turkish börek is Uzbek бўрек, and both languages call yoghurt drink айрон.
+locale: uz
+---
+дўнер
+кебап
+лаҳмажун
+пиде
+менемен
+баклава
+кофте
+чорба
+бўрек
+айрон

@@ -1,0 +1,14 @@
+---
+description: Conditions more frequent in people of Northern European descent. Lactase persistence is on the list as a trait rather than a disorder: it is the derived state, common in this population and rare in most others, so a dataset that treats lactose intolerance as the abnormality has the biology backwards.
+locale: bm
+---
+Mucoviscidose
+Hémochromatose héréditaire
+Déficit en alpha-1 antitrypsine
+Phénylcétonurie
+Maladie cœliaque
+Sclérose en plaques
+Diabète de type 1
+Maladie de Dupuytren
+Carcinome basocellulaire
+Persistance de la lactase

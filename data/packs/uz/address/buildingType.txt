@@ -1,0 +1,44 @@
+---
+description: Kinds of building an Uzbek address can point at, from a Soviet-era block of flats to a walled family courtyard. Note the two words for student housing: ётоқхона is the native compound (bed + house) and общежитие is the Russian word still painted over many doors. The list also sets that word against its opposite, ҳовли — the courtyard house that most of the country still lives in, where the address is the gate, not a flat.
+locale: uz
+---
+турар-жой биноси
+кўп қаватли бино
+хонадон
+хусусий уй
+ҳовли
+дала ҳовли
+дача
+вилла
+коттеж
+таунҳаус
+ётоқхона
+общежитие
+меҳмонхона
+офис биноси
+маъмурий бино
+савдо маркази
+дўкон
+бозор растаси
+чойхона
+ошхона
+омборхона
+ангар
+завод
+фабрика
+цех
+гараж
+автотураргоҳ
+мактаб биноси
+боғча
+поликлиника
+касалхона
+масжид
+мадраса
+черков
+музей
+театр
+кутубхона
+спорт мажмуаси
+ҳаммом
+тегирмон

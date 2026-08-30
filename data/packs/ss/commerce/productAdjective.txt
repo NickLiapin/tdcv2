@@ -1,0 +1,58 @@
+---
+description: Product adjective in siSwati, and the leading lo- is the part that must not be dropped. siSwati has almost no true adjectives; what looks like one is a RELATIVE CLAUSE, and lo- is the concord agreeing with the noun it describes. Every value here agrees with a class 1 or class 3 noun, so lomusha describes umbhedze, a new bed. Attach the same qualifier to a class 9 noun and the concord changes — imoto lensha, not lomusha — and to a class 5 noun it changes again. A config that joins any of these to a random product noun will produce agreement errors in most of its rows, which a siSwati reader notices instantly. Three of the values carry a marketing claim that a shopper in Eswatini reads as meaningful: lowentiwe eSwatini, made in Eswatini, is a real preference in a market otherwise filled by South African goods.
+locale: ss
+---
+Lomusha
+Lomdzala
+Lomkhulu
+Lomkhulukati
+Lomncane
+Loncane kakhulu
+Lomdze
+Lomfishane
+Lomubanti
+Lomcinane
+Lomuhle
+Lomubi
+Lomnandzi
+Lobabako
+Lomunyu
+Loshisako
+Lobandzako
+Lolula
+Losindzako
+Lolukhuni
+Lotsambile
+Lobushelelezi
+Lohlantekile
+Longcolile
+Lomanti
+Lomile
+Lophelele
+Lolungile
+Lonemandla
+Lobutsakatsaka
+Lokhanyako
+Losheshako
+Lonensako
+Lobitako
+Loshibhile
+Lobalulekile
+Lomsulwa
+Lomdzabu
+Lowentiwe ngesandla
+Lowentiwe ngemshini
+Lowentiwe eSwatini
+Longakasetjentiswa
+Losetjentisiwe
+Lolungisiwe
+Longakavulwa
+Lovikelekile
+Lonetinhlobonhlobo
+Losalula
+Loyingcweti
+Longabhidliki
+Longaboli
+Lonemibala
+Lonemphumela
+Lodvumile

@@ -1,0 +1,10 @@
+---
+description: A full West Frisian male name - one given name and one surname (Sjoerd Dijkstra). What makes the pair worth a template of its own is that its two halves are written in two different orthographies at once. Family names were fixed in the civil registry in 1811 in Dutch spelling and have never been respelled, so a Frisian family writes Dijkstra and not Dykstra, Sijtsma and not Sytsma, Bruinsma and Zijlstra with the Dutch ij; given names, by contrast, are chosen fresh by each generation of parents and are registered in genuinely Frisian form, with y for ij and the tsj- and sk- clusters intact. Sjoerd Dijkstra, Wytse Hoekstra, Tsjeard Zijlstra are therefore perfectly ordinary names in which the first word obeys Frisian spelling and the second obeys Dutch - so a validator that expects one consistent orthography across the field will reject real people, and a transliteration pass applied to the whole string will produce names nobody holds. As in Dutch the name carries a single surname, and where it opens with a tussenvoegsel the particle stays lowercase after the given name, which is exactly the form person/lastName.txt stores, so this template needs no special casing.
+generator: tdc
+locale: fy
+---
+<sequence name="p">
+  <gen name="f" type="template" value="fy.person.male.firstName"/>
+  <gen name="l" type="template" value="fy.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

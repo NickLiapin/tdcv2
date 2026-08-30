@@ -1,0 +1,12 @@
+---
+description: American food came with the United Nations administration and the aid sector, and the list shows a spelling boundary that runs right through it. The English-era words arrive whole — hamburger, cheeseburger, hot dog — because they entered a country that was already writing in Latin script and had no need to reshape them, while the older Portuguese items on the same menu were rewritten by rule: sanduíche gives sanduíxe with x for ch, panqueca gives pankeka with k for qu, and the salad is salada Sézar because that is how the name is said. Manu fritu and batata frita are half-native, with the Tetum noun first and the Portuguese participle after it, which is the normal Tetum order of noun then modifier. There is one more American thing on the country's tables that this list cannot show: the currency. Timor-Leste has used the US dollar since 2000, so the prices next to these dishes are in dollars and the small change is in Timorese centavu coins.
+locale: tet
+---
+Hamburger
+Cheeseburger
+Hot dog
+Manu fritu
+Batata frita
+Sanduíxe klube
+Salada Sézar
+Pankeka

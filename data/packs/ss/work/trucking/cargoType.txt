@@ -1,0 +1,17 @@
+---
+description: Freight carried by road in Eswatini, and the order is roughly the order of tonnage. Umoba, sugar cane, moves from the fields to the mills at Big Bend, Mhlume and Simunye during the crush from April to December in a volume nothing else on this list approaches; shukela and imolasi move out again to Durban and Maputo for export. Tingodvo, timber, comes down from the Usutu plantations at Bhunya and from Piggs Peak. Lilahle is coal from Maloma. The country is landlocked with no railway to a port of its own for containers, so essentially all of this is trucked, and the two roads it is trucked on — to Durban through Ngwenya or Lavumisa, and to Maputo through Lomahasha — are the country's economic arteries.
+locale: ss
+---
+Umoba
+Shukela
+Imolasi
+Tingodvo
+Lilahle
+Titselo
+Likotini
+Timphahla tekugcoka
+Emafutsa
+Tifuyo
+Timphahla tekwakha
+Kudla lokubandzako
+Timphahla letiyingoti

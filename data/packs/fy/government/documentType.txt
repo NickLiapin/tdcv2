@@ -1,0 +1,23 @@
+---
+description: Official document type. Since the Wet gebruik Friese taal a document drawn up in Frisian by an authority in Fryslân has the same legal force as a Dutch one, and the registries here will draw up a berteakte or a houliksakte in Frisian on request and conduct the ceremony in it - though a body elsewhere in the country will normally ask for a certified Dutch version, so the choice has consequences that outlast the day. The contrast worth noticing is that the state's own identity documents run the other way: a Dutch passport is printed in Dutch, English and French and in nothing else, so the most official thing a Frisian citizen carries is the one document where the language has no place at all. Carrying a paspoart, identiteitskaart or rydbewiis is required by law from the age of fourteen, which is why the identity card is held far more widely here than in countries where it is optional. The boargertsjinstnûmer is the single citizen number every public body uses, and although the words are Frisian - boarger a citizen, tsjinst a service - the abbreviation stays BSN. DigiD is not paper and belongs here anyway, since nearly every dealing with a Dutch authority now runs through it. Ferbliuwsfergunning shows the Frisian iu where Dutch writes ij, from bliuwe, to stay, against Dutch blijven.
+locale: fy
+---
+Paspoart
+Identiteitskaart
+Rydbewiis
+Ferbliuwsfergunning
+Útreksel BRP
+Boargertsjinstnûmer
+DigiD
+Ferklearring Omtrint it Gedrach
+Berteakte
+Houliksakte
+Ferstjerrensakte
+Útreksel Kadaster
+Útreksel Hannelsregister
+Kentekenbewiis
+Belestingoanjefte
+Omjouwingsfergunning
+Fisum
+Diploma
+Soarchpas

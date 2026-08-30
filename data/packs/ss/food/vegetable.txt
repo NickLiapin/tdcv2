@@ -1,0 +1,34 @@
+---
+description: Vegetable in siSwati. The first two entries are the same plant twice and that is the point: litsanga is the pumpkin and tintsanga is its leaves, and in Eswatini the leaves are the more important food, picked young through the growing season and cooked with groundnuts as umbidvo wetintsanga long before the fruit is ready. Imifino is the general word for wild greens gathered from the field rather than planted, and umsobo, imbuya and ligusha are three of them by name — a whole category of vegetable that a supermarket list has no slot for and that feeds a great many rural households through the wet season. Tindlubu, the jugo or bambara bean, is a southern African domesticate that fixes its own nitrogen and survives drought, which is why it outlasts the maize beside it in a bad year. Umoba, sugar cane, is on the list because it is Eswatini's largest crop by far, though a stick of it is chewed rather than cooked.
+locale: ss
+---
+Litsanga
+Tintsanga
+Umbila
+Emabhontjisi
+Tindlubu
+Bhatata
+Litapula
+Emadvumbe
+Litamatisi
+Anyanisi
+Likhabishi
+Sipinashi
+Likherotsi
+Ubhithiruthi
+Ligusha
+Imbuya
+Umsobo
+Lipelepele leluhlata
+Likomkomere
+Lisaladi
+Ibhrokholi
+Ikholiflawa
+Emakhowe
+Ligalikhi
+Likhabishi lelibovu
+Imifino
+Umoba
+Emabhinsi laluhlata
+Ilikhi
+Iselari

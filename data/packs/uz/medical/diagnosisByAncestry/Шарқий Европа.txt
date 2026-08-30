@@ -1,0 +1,10 @@
+---
+description: Conditions carried more often in Eastern European populations. Муковисцидоз — cystic fibrosis — and фенилкетонурия are both screened for at birth across the region. Вилсон касаллиги is the copper storage disorder.
+locale: uz
+---
+Муковисцидоз
+Фенилкетонурия
+Вилсон касаллиги
+Гемохроматоз
+Туғма қалқонсимон без етишмовчилиги
+Конгенитал адренал гиперплазия

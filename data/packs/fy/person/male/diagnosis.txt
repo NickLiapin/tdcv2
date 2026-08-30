@@ -1,0 +1,30 @@
+---
+description: Diagnoses that occur only or overwhelmingly in men, in West Frisian. The vocabulary repays reading closely, because Frisian does not borrow medical loanwords whole - it nativises them by rule, and every rule is visible here: Dutch -tie becomes -sje (erectie to ereksje, torsie to torsje), -ie becomes -y (gynaecomastie to gynekomasty, azoöspermie to azoöspermy), -uur becomes -uer (strictuur to striktuer), -osis becomes -oaze (fimoaze), an initial v becomes f (varicocele to farikosele), c becomes k (cryptorchisme to kryptorchisme, abces to abses) and the abstract suffix -heid becomes -ens, which is why male infertility is manlike ûnfruchtberens. Sykte, in Sykte fan Peyronie, is the ordinary word for a disease and is the same word as English sick - one of the many places where Frisian sides with English against Dutch ziekte and German Krankheit. Three entries drop the Greek in favour of a transparent native compound: bybalûntstekking is epididymitis, from bybal, the epididymis, literally the by-testicle; ikelûntstekking is balanitis, from ikel, the glans; and manlik hierferlies is male pattern baldness, hier being hair and ferlies loss. One thing a config cannot infer: Fryslân's hospitals keep their records in Dutch, so these are the terms a Frisian speaker uses in the consulting room rather than what is printed on the discharge letter, and they belong in a patient-facing field rather than a clinical coding one.
+locale: fy
+---
+Prostaatkanker
+Goedaardige prostaatfergrutting
+Prostaatûntstekking
+Ereksjesteuring
+Testikelkanker
+Farikosele
+Hydrosele
+Bybalûntstekking
+Ikelûntstekking
+Fimoaze
+Sykte fan Peyronie
+Testikeltorsje
+Manlike ûnfruchtberens
+Gynekomasty
+Hypogonadisme
+Syndroam fan Klinefelter
+Manlik hierferlies
+Kryptorchisme
+Priapisme
+Leech testosteron
+Peniskanker
+Manlike boarstkanker
+Azoöspermy
+Oligospermy
+Prostaatabses
+Urethrastriktuer

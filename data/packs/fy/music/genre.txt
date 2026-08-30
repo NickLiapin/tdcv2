@@ -1,0 +1,42 @@
+---
+description: Music genre (West Frisian). Frysktalige pop is not a niche label but the reason a Frisian music list is worth keeping separate: songs written and sung in Frisian have reached the Dutch national charts, and Twarres took Wêr bisto to number one in 2000 with a record in Frisian throughout, which is the only time a minority language of the Netherlands has done that. De Kast, Nynke Laverman, Piter Wilkens and Gurbe Douwstra work in the same field. Two entries below are village institutions rather than genres a streaming service would recognise. Korpsmuzyk is the brass band or fanfare, and almost every Frisian village of any size has kept one, with its own uniform and its own contest. Shantykoar is the sea-shanty choir, a Wadden-coast form built out of former harbour towns like Harns and Makkum, and there are dozens of them. Libbensliet is the sentimental sung ballad - libben is life and liet is a song, so it is literally a life-song - and the smartlap is its unashamed tearjerker form. Gabber and hardstyle arrived from Rotterdam and kept their names; loanword genres keep their real spelling throughout.
+locale: fy
+---
+Rock
+Pop
+Jazz
+Klassike muzyk
+Hiphop
+Country
+Elektroanyske muzyk
+Blues
+Reggae
+Heavy metal
+Folk
+R&B
+Soul
+Funk
+Punk
+Disco
+House
+Techno
+Trance
+Hardstyle
+Gabber
+Drum and bass
+Dubstep
+Indie
+Gospel
+Ambient
+Ska
+Alternatyve rock
+Progressive metal
+Filmmuzyk
+Wrâldmuzyk
+Frysktalige pop
+Fryske hiphop
+Libbensliet
+Smartlap
+Schlager
+Korpsmuzyk
+Shantykoar

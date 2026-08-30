@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (West Frisian). Fytsferhier belongs on any realistic list here - bicycle hire is a standard amenity rather than a novelty, and on the Waadeilannen it is effectively the transport, since Skiermûntseach and Flylân are closed to visitors' cars altogether. Note fleanfjildshuttle, on fleanfjild, an airport, built from fleane, to fly, and fjild, a field; moarnsiten for breakfast, morning-food; and fergees for free of charge, which is a different word from frij, free as in unbound, so a Frisian listing that says fergees parkearje means parking at no cost and never parking that is available. Seesicht matters on this coast: the sea in question is the Waadsee, a tidal flat that is water twice a day and mud twice a day, so the view changes completely between check-in and breakfast.
+locale: fy
+---
+Fergees wifi
+Swimbad
+Ferwaarme swimbad
+Spa
+Fitnessromte
+Restaurant
+Bar
+Roomservice
+Fleanfjildshuttle
+Moarnsiten ynbegrepen
+Fergees parkearje
+Húsdieren tastien
+Businesscenter
+Consjerzjeservice
+Waskservice
+Bubbelbad
+Dakterras
+Airconditioning
+Kluis op 'e keamer
+24-oersresepsje
+Gearkomstseal
+Lift
+Minibar
+Rolstoeltagonklik
+Bagaazjeopslach
+Fytsferhier
+Berneboartershoeke
+Sauna
+Seesicht
+Folslein ynrjochte keuken

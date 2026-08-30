@@ -1,0 +1,13 @@
+---
+description: Indian food in Dili is served by a handful of restaurants and by the canteens of the international organisations, and it is also older than that: curry reached the island through Portuguese Goa, which is why the general Tetum word for it is karil, from Portuguese caril, and not the English curry. Xatni is chutney with ch written x. Manu tanduri puts the Tetum manu in front, as every dish name built here does, because the animal and its meat share one word and the borrowed part only names the method. Naan is listed alone rather than as bread-plus-name, since paun is already spoken for by the Portuguese roll and no Tetum speaker would call a naan by that word.
+locale: tet
+---
+Tikka masala
+Biryani
+Samosa
+Dal
+Naan
+Palak paneer
+Rogan josh
+Manu tanduri
+Xatni

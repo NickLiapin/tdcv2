@@ -1,0 +1,9 @@
+---
+description: Volleyball positions in French. The sport travels well in Mali because it needs almost nothing — a net strung between two posts on the swept sand of a kɛnɛ, and a ball — so it is a fixture of school and youth-centre sport across the country in a way that equipment-heavy games are not. `Libéro` is the defensive specialist in the differently coloured shirt who may not attack, and `Pointu` is the opposite hitter; both are French terms a config should not attempt to render into Bambara, since no Bambara register for them exists.
+locale: bm
+---
+Passeur
+Central
+Réceptionneur-attaquant
+Pointu
+Libéro

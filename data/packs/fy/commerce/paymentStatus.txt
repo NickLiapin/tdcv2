@@ -1,0 +1,14 @@
+---
+description: Payment status (West Frisian). Three of these ten are built on werom, which is the Frisian for back: Werombetelle is refunded, Weromboeking is a chargeback, and Foar in part werombetelle is a partial refund. Dutch does all three with terug, a word Frisian does not use at all, so a substitution table assembled from Dutch stems will miss every one of them and a search for the refund states will come back empty. The other pattern to notice is the loan-verb class: Frisian takes a foreign verb into -earje and its past participle ends in -earre, so autoriseren and annuleren arrive here as Autorisearre and Annulearre. And Dutch in- is Frisian yn-, which is why both waiting states open with Yn - Yn ôfwachting for a payment not yet attempted, Yn beoardieling for one held back for a fraud or risk check.
+locale: fy
+---
+Yn ôfwachting
+Autorisearre
+Betelle
+Mislearre
+Werombetelle
+Foar in part werombetelle
+Weromboeking
+Annulearre
+Wegere
+Yn beoardieling

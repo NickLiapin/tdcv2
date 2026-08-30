@@ -1,0 +1,11 @@
+---
+description: Household size, banded for Mali rather than for Europe, which is why the last two buckets are wide. The mean Malian household is around six people and the median is larger than any European country's, but the deeper problem is that the unit being counted is contested: the residential unit is the `du`, a walled compound holding several married brothers, their wives and all their children behind one gate, and it can easily run past twenty. A census may count that as one household or as several `foyers` depending on who cooks separately. A dataset that tops out at seven is quietly deleting the top third of Malian domestic arrangements.
+locale: bm
+---
+1
+2
+3
+4
+5
+6-10
+11+

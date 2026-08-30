@@ -1,0 +1,24 @@
+---
+description: Telecommunications operator reachable in Eswatini. The first four are the country's own and the shape of the market is unusual: EPTC, the state Posts and Telecommunications corporation, held the fixed line and was for years a shareholder in the only mobile network, MTN Eswatini, which meant the regulator, the incumbent and the operator were tangled together. Eswatini Mobile arrived as a second network only in 2017 and broke that arrangement. The southern African operators after them are on the list because Eswatini is 200 kilometres across, roaming onto a South African or Mozambican network happens without leaving a border town, and a great many Swazi households hold a South African SIM as well as a local one for exactly that reason.
+locale: ss
+---
+MTN Eswatini
+Eswatini Mobile
+Eswatini Posts and Telecommunications
+EPTC Fixed Line
+Swazi.net
+Real Image Internet
+Posix Systems
+Vodacom
+MTN South Africa
+Cell C
+Telkom
+Rain
+Vodacom Mozambique
+Tmcel
+Movitel
+Econet Wireless
+NetOne
+Mascom
+Orange Botswana
+Vodacom Lesotho

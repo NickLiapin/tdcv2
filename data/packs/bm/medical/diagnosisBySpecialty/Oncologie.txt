@@ -1,0 +1,10 @@
+---
+description: The two cancers at the top are the ones a Malian oncologist sees most and a European one sees least: cancer of the cervix, because organised screening barely reaches the districts, and hepatocellular carcinoma, which here follows chronic hepatitis B acquired in early childhood rather than alcohol or hepatitis C.
+locale: bm
+---
+Cancer du col de l'utérus
+Carcinome hépatocellulaire
+Cancer du sein
+Lymphome
+Leucémie aiguë
+Cancer de la prostate

@@ -1,0 +1,20 @@
+---
+description: Seniority levels in an Uzbek organisation, from intern to founder. The мутахассис ladder — кичик, plain, катта, етакчи, бош — is the standard specialist grading and is used in the civil service and in private companies alike. Раис is a chairman, and раиси ўринбосари his deputy.
+locale: uz
+---
+стажёр
+амалиётчи
+кичик мутахассис
+мутахассис
+катта мутахассис
+етакчи мутахассис
+бош мутахассис
+гуруҳ раҳбари
+бўлим бошлиғи
+бошқарма бошлиғи
+директор ўринбосари
+директор
+бош директор
+раис
+раиси ўринбосари
+муассис

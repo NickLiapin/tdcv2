@@ -1,0 +1,30 @@
+---
+description: Diagnoses recorded for male patients in Tetum. The urological block at the top is straight Portuguese with the standard substitutions applied: qu and c before a back vowel both go to k, giving kriptorkidia and kálkulu; hérnia loses its silent h to give érnia; and -ose is written -oze, so fimose is fimoze and tuberculose is tuberkuloze. Tuberkuloze pulmonár earns its place rather than being copied across from a European list — Timor-Leste carries one of the heaviest tuberculosis burdens in Southeast Asia, on the order of five hundred cases per hundred thousand people a year, and TB is a routine entry in a district clinic register rather than a rarity. A second thing the list quietly encodes: the two sex-specific diagnosis files exist because the diagnosis is sex-specific, not because the language is. Nothing in the Tetum wording changes between this file and its female counterpart, so the shared conditions in the lower half are written identically in both, and it is the record's gender column, not any grammatical marking, that decides which file a row is drawn from.
+locale: tet
+---
+Varikosele
+Kriptorkidia
+Fimoze
+Adenoma próstata
+Prostatite
+Iperplazia prostátiku benignu
+Idrosele
+Orkite
+Epididimite
+Kankru próstata
+Kankru testíkulu
+Érnia inguinál
+Kálkulu renál
+Tuberkuloze pulmonár
+Pankreatite króniku
+Klamídia
+Artrite króniku
+Gastrite króniku
+Ipertensaun arteriál
+Diabetes mellitus tipu 2
+Azma brónkiku
+Bronkite króniku
+Enxakeka
+Anemia ferropéniku
+Ipotiroidizmu
+Kankru retu

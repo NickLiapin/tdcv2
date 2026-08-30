@@ -1,0 +1,22 @@
+---
+description: Hotel room types. Люкс and ярим люкс are the post-Soviet grades still used on the tariff board. Ҳовлига қараган хона and боққа қараган хона — courtyard-facing and garden-facing — are what a Bukhara or Khiva guest house actually offers, and юрта is a yurt, which is a bookable room in the Kyzylkum desert camps.
+locale: uz
+---
+бир кишилик хона
+икки кишилик хона
+уч кишилик хона
+оилавий хона
+люкс
+ярим люкс
+студия
+апартамент
+миллий услубдаги хона
+ҳовлига қараган хона
+боғга қараган хона
+балконли хона
+уланадиган хоналар
+умумий ётоқхона
+меҳмон уйи хонаси
+юрта
+бир кеча учун хона
+узоқ муддатли хона

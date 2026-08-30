@@ -1,0 +1,12 @@
+---
+description: Brazil is a lusophone partner rather than a neighbour — its cooperation programmes staff schools and courts here, and its television reaches further than either. Because the dish names arrive in Portuguese, this is the file where the Tetum spelling rules are most visible, and every entry but one has been rewritten. Churrasco gives xurrasku, ch written x and both c before a and unstressed final o resolved. Picanha and coxinha give pikaña and koxiña, nh written ñ. Moqueca gives mokeka, qu written k. Pão de queijo gives paun de keju, the nasal ending -ão written -aun. Acarajé gives akarajé, keeping the acute it already had. Farofa needs no change at all, which is why it is the odd one out and worth noticing: a Portuguese word only changes when a rule has something to bite on.
+locale: tet
+---
+Pikaña
+Xurrasku
+Mokeka
+Paun de keju
+Brigadeiru
+Farofa
+Akarajé
+Koxiña

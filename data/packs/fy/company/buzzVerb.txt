@@ -1,0 +1,62 @@
+---
+description: Business buzz verb (West Frisian, infinitive). Frisian runs every borrowed Latinate management verb through -earje and never through the Dutch -eren: optimalisearje, yntegrearje, digitalisearje, sertifisearje, konsolidearje. The native verbs beside them show what the language does with prefixes - gear- is the Frisian for together, so gearbringe is to bring together and gearwurkje is to cooperate, where Dutch uses samen-; wer- is the repeat prefix, giving werdefiniearje and werwurdearje; and ûnt- opens or undoes, as in ûntslute, ûntwerpe and ûntregelje. Oandriuwe and bine show the consonants moving: Dutch drijven and binden lose the v to a w and the nd to an n. Polderje and boargje come straight out of the working culture rather than out of English - to polder is to negotiate everyone present into a compromise, and to boargje a change is to make it stick in the organisation permanently, which English can only render as a phrase.
+locale: fy
+---
+benutte
+optimalisearje
+streamlynje
+orkestrearje
+fersterkje
+mooglik meitsje
+opskale
+transformearje
+ûntregelje
+ynnovearje
+iterearje
+yntegrearje
+útrolje
+ûntslute
+fersnelle
+fermannichfâldigje
+ûntwerpe
+benchmarke
+ûntwikkelje
+oandriuwe
+evoluearje
+fasilitearje
+generearje
+motivearje
+monetisearje
+operasjonalisearje
+werdefiniearje
+werwurdearje
+revolusjonearje
+oanstjoere
+standerdisearje
+migrearje
+unifoarmearje
+maksimalisearje
+minimalisearje
+konsolidearje
+gearbringe
+digitalisearje
+automatisearje
+útbestede
+ynternalisearje
+segmintearje
+prioritearje
+ôfstimme
+artikulearje
+kapitalisearje
+dynamisearje
+bine
+posysjonearje
+ferstivigje
+rendabel meitsje
+systematisearje
+profesjonalisearje
+sichtber meitsje
+sertifisearje
+polderje
+boargje
+ferankerje

@@ -1,0 +1,59 @@
+---
+description: Industry sector in Tetum, as a business register or a job advertisement names it, and the order of the first entries is not alphabetical but economic. Kafé leads because coffee is the dominant non-oil export and the largest source of rural cash income, grown as arabica under shade in Ermera, Letefoho, Maubisse and Aileu; the Hibridu de Timor, a natural arabica-canephora cross found on this island, is the ancestor of a great deal of the world's leaf-rust-resistant coffee, so the plant matters far beyond the country that produced it. Petróleu no Gás is second because Timor Sea revenue, held in the Petroleum Fund, has funded most of the state budget since independence while employing very few people, which is exactly the shape a config author should expect when weighting sectors against headcount. ONG no Dezenvolvimentu is on the list as a serious category rather than a courtesy: the aid and development sector is a genuine employer of skilled Timorese and has been since 1999, and a register that omitted it would misrepresent the labour market. Tais no Artezanatu is the handwoven cloth trade, in which the pattern identifies a region and a house, and Mikrofinansas is separated from banking because the institutions are distinct and reach households that no bank branch does. The respellings are worth reading across the list: retalho gives Komérsiu Retallu with lh to ll, hotelaria gives Otelaria and recursos humanos gives Rekursu Umanu with the word-initial h dropped in both, engenharia gives Enjeñaria with g before e to j and nh to ñ, and desempenho behaves the same way elsewhere. Bee no Saneamentu uses the Tetum word for water rather than Portuguese água, and Hahán no Bebida the Tetum word for food, because in both cases the native term is the everyday one and no loan displaced it.
+locale: tet
+---
+Kafé
+Petróleu no Gás
+Peska
+Agrikultura
+Konstrusaun
+Turizmu
+Mikrofinansas
+Tais no Artezanatu
+Transporte Marítimu
+Telekomunikasaun
+ONG no Dezenvolvimentu
+Pekuária
+Silvikultura
+Akuakultura
+Minerasaun
+Komérsiu Retallu
+Komérsiu Grosista
+Transporte Terrestre
+Aviasaun
+Lojístika
+Teknolojia Informasaun
+Software
+Servisu Bankáriu
+Seguru
+Imobiliáriu
+Saúde
+Edukasaun
+Otelaria
+Restaurasaun
+Media
+Publisidade
+Konsultoria
+Servisu Jurídiku
+Kontabilidade
+Rekursu Umanu
+Hahán no Bebida
+Téxtil
+Kímika
+Metalurjia
+Eletrónika
+Enerjia Renovável
+Eletrisidade
+Bee no Saneamentu
+Jestaun Rezíduu
+Arkitetura
+Enjeñaria
+Peskiza Sientífika
+Administrasaun Públika
+Defeza
+Seguransa Privada
+Desportu
+Kultura
+Farmaséutika
+Bioteknolojia
+Komérsiu Eletróniku

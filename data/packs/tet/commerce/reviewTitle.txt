@@ -1,0 +1,29 @@
+---
+description: Product review headlines in Tetum. Two small words do most of the evaluative work in this file and both of them follow what they modify, as every Tetum modifier does. Tebes is the intensifier — di'ak tebes is really good, and it is the ordinary way to raise a term, since Tetum has no adverb-forming suffix answering to Portuguese -mente. Liu is the comparative, and a comparison is built as adjective plus liu plus duke: di'ak liu duke hau hanoin is better than I thought. Uitoan is a little and softens a complaint into karun uitoan, a bit expensive, which is how a criticism is usually delivered. Two entries are the stock phrases of a market where a listing is photographed once and stocked loosely afterwards: kór la hanesan foto's sibling complaint appears in the return-reason file, and sasán orijinál, la'ós falsu — genuine goods, not fake — is what a seller and a satisfied buyer both say, because the counterfeit trade over the Indonesian land border is the standing worry with electronics and medicine. La'ós is the negator used for identity, distinct from la which negates a verb.
+locale: tet
+---
+Produtu di'ak tebes!
+Hau rekomenda ba imi hotu
+La vale ho nia folin
+Liu hau nia espektativa
+Normál deit
+Sei sosa fali
+Hau dezapontadu
+Kualidade di'ak tebes
+Sai at lalais
+Perfeitu ba folin ne'e
+Di'ak liu duke hau hanoin
+Hau la rekomenda
+Hau gosta tebes!
+Karun uitoan
+Hanesan ne'ebé deskreve
+Halo nia servisu di'ak
+Folin di'ak ba kualidade
+To'o lalais liu fali
+Materiál la di'ak
+Ne'e mak hau buka
+Instrusaun konfuzu
+Fasil atu uza
+La'ós ne'ebé hau hein
+Atendimentu di'ak
+Sasán orijinál, la'ós falsu

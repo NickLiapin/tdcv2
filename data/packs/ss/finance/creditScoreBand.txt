@@ -1,0 +1,9 @@
+---
+description: Credit rating band in siSwati. The five values are relative constructions with the loku- concord, agreeing with a class 15 or class 17 noun rather than with a person — siSwati is describing the RATING as a thing that is good or poor, not the borrower, and a config that reaches for a class 1 concord to describe a customer will produce the wrong word. Worth knowing about the underlying thing: Eswatini has a credit bureau and a central bank register, but a large share of adults have no formal credit history at all and borrow instead through a stokvel, a rotating savings club, or from a rural general dealer's ledger, so a credit band here classifies a smaller slice of the population than the same field would in Europe.
+locale: ss
+---
+Lokuhle kakhulu
+Lokuhle
+Lokusemkhatsini
+Lokuphansi
+Lokuphansi kakhulu

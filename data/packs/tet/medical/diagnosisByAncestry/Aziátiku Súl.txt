@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of South Asian ancestry, named in Tetum. The first three entries describe one real and clinically awkward pattern rather than three separate facts: coronary disease and type 2 diabetes appear roughly a decade earlier and at a substantially lower body mass index than in European populations, so a South Asian patient can meet every metabolic criterion while sitting comfortably inside a normal weight range, and a threshold calibrated on European bodies will simply not see them. Several national guidelines now lower the obesity cut-off for South Asian patients for exactly that reason. Presose is Portuguese precoce with both its c sounds resolved to s, the rule that a c before e or i is always written s.
+locale: tet
+---
+Diabetes tipu 2 inísiu presose
+Doensa arteriál koronária presose
+Obezidade sentrál ho IMC normál
+Defisiénsia vitamina D
+Trasu beta-talasemia
+Síndrome metabóliku
+Defisiénsia G6PD
+Doensa kardíaka reumátika

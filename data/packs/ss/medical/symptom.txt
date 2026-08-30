@@ -1,0 +1,42 @@
+---
+description: Presenting symptom in siSwati, and almost every value is a VERB rather than a noun. siSwati does not have a stock of symptom nouns the way clinical English does; it says what the body is doing. Kukhwehlela is "to cough", kuhlanta "to vomit", kujuluka ebusuku "to sweat at night", kudzinwa "to be tired" — all class 15 infinitives standing in for nouns. Where a part of the body hurts, the construction is buhlungu plus a possessive: buhlungu benhloko is "the pain of the head". This has a practical consequence for anyone building forms from this list, because these values cannot be pluralised or counted; a patient does not have three kukhwehlela. Kujuluka ebusuku, night sweats, sits high on a real Eswatini list rather than low, because in a country with this much tuberculosis it is a screening question rather than a curiosity.
+locale: ss
+---
+Buhlungu benhloko
+Umkhuhlane
+Kushisa umtimba
+Kukhwehlela
+Kukhwehlela ingati
+Kuphelelwa ngumoya
+Buhlungu besifuba
+Kushaya ngemandla kwenhlitiyo
+Sicanucanu
+Kuhlanta
+Luhudvo
+Kubopha kwesisu
+Buhlungu besisu
+Buhlungu bemhlane
+Buhlungu bemadvolo
+Buhlungu bematfambo
+Kudzinwa
+Kudumbelela
+Kwehla kwesisindvo
+Kukhula kwesisindvo
+Kungalali kahle
+Kudangala
+Kuvevetela
+Kubandza umtimba
+Kujuluka ebusuku
+Kuvuvukala kwemalunga
+Kuluma kwesikhumba
+Kuvela kwemabala esikhumbeni
+Kukhukhumala kwemehlo
+Kungaboni kahle
+Kungeva kahle
+Kuvaleka kwemakhala
+Kubuhlungu kwemphimbo
+Kungakhoni kugwinya
+Kuchama kanyenti
+Kuchama kubuhlungu
+Kudideka
+Kuwa nekuquleka

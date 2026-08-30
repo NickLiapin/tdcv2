@@ -1,0 +1,11 @@
+---
+description: Household size as a survey records it, one through seven-plus. Uzbekistan's average household is large by European standards and multi-generational households are ordinary, which is why the bucket at the top is 7+ rather than 5+.
+locale: uz
+---
+1
+2
+3
+4
+5
+6
+7+

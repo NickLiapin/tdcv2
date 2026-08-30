@@ -1,0 +1,35 @@
+---
+description: Bird (West Frisian), and no other file in this pack is as far from its Dutch counterpart. Frisian bird names are mostly not Dutch words respelled but different words entirely: the stork is an earrebarre, the starling a protter, the magpie an aakster, the jackdaw a ka, the lapwing a ljip and the black-tailed godwit a skries. The oystercatcher is a strânljip, a beach-lapwing. Two of these are provincial business rather than ornithology. The ljip is the emblem of Fryslân, and finding the first lapwing egg of the year was a competition the province ran, with the finder presented to the King's Commissioner; the taking of eggs was stopped in 2016, but aaisykjen survives as neisoarch, organised nest protection carried out by the same people. And the skries is the bird Frisian meadow farming is judged by: the Netherlands holds the great majority of the West European population of black-tailed godwits and Fryslân holds the great majority of that, so the state of this one species is the argument about how the grassland is managed. Note goes for goose, the Ingvaeonic form English also has, where Dutch says gans.
+locale: fy
+---
+Skries
+Ljip
+Strânljip
+Tsjirk
+Klút
+Leppelbek
+Blauwe ryger
+Earrebarre
+Skolfer
+Berchein
+Smjunt
+Wylde ein
+Grize goes
+Knobbelswan
+Markol
+Wetterhoen
+Fút
+Sulvermiuw
+Fiskdief
+Hûsmosk
+Koalmies
+Pimpelmies
+Swarte klyster
+Protter
+Boekfink
+Readboarstke
+Aakster
+Ka
+Mûzefalk
+Toerfalk
+Boeresweltsje

@@ -1,0 +1,31 @@
+---
+description: Book genre (West Frisian). Frisian is one of the smallest languages in Europe with a full literary apparatus of its own - a standard board, a literary prize, a publisher and a canon - and the whole of it fits in a province of 650,000 people. Gysbert Japicx, who died in 1666, is the writer who proved Frisian could carry poetry at all, and the province's biennial literary prize carries his name. Streekroman, the regional novel set in a named piece of countryside, is a bookshop shelf category here with no English equivalent, and it is a genre Fryslân both produces and is the setting of. Note the Frisian forms: skiednis for history, on skiede, to separate or to come to pass, where Dutch has geschiedenis; berneboek for a children's book, on bern; and koart ferhaal for a short story. English publishing loans - thriller, fantasy, graphic novel - are used unchanged, as they are in Dutch.
+locale: fy
+---
+Literêre fiksje
+Non-fiksje
+Detektive
+Thriller
+Romantyk
+Sciencefiction
+Fantasy
+Horror
+Biografy
+Skiednis
+Selshelp
+Poëzy
+Jeugdliteratuer
+Histoaryske roman
+Misdiedroman
+Aventoereroman
+Memoires
+Filosofy
+Reisferhaal
+Kookboek
+Graphic novel
+Dystopy
+Essay
+Koart ferhaal
+Berneboek
+Streekroman
+Magysk realisme

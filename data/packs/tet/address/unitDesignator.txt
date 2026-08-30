@@ -1,0 +1,27 @@
+---
+description: Interior and sub-address designator in Tetum, written before a number. The list should be read with a warning attached, because the assumption underneath a European address dataset — that a dwelling is reached by street name plus house number, and that a postcode narrows it — barely holds in Timor-Leste. There is no residential postcode system in general use and delivery to a private house is essentially absent; post goes to a box, an office or an organisation. What identifies a house instead is administrative and geographic: the municipality, then the Postu Administrativu, then the Suku and the Aldeia, and then a landmark, which is why Suku and Aldeia appear on a list of unit designators at all and why they do more work here than Apto. or Bloku. Km. is the other genuinely local entry: along the numbered Estrada Nasionál a business states its position as a distance from Dili rather than as a number on a street, and Km. 5 or Km. 12 is a complete address that a driver can act on. The Portuguese-derived designators behave as expected under the respelling rules — piso gives Pizu with the intervocalic s voiced to z, escritório gives Eskritóriu, escada gives Eskada, bloco gives Bloku with c to k and unstressed final o to u, and andar takes an acute on its stressed final syllable to give Andár. R/C, rés-do-chão, is kept in its Portuguese abbreviation because that is how it is printed. Kintál, the yard, is included because in a compound of related households the yard is the shared address and the houses off it are not separately numbered.
+locale: tet
+---
+Apto.
+Apartamentu
+Bl.
+Bloku
+Andár
+Pizu
+Sala
+Kuartu
+Lj.
+Loja
+Ed.
+Edifísiu
+Esc.
+Eskritóriu
+Uma
+Lote
+Kintál
+Porta
+Eskada
+R/C
+Suku
+Aldeia
+Km.

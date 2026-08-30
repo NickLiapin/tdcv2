@@ -1,0 +1,13 @@
+---
+description: Cable types as a Timorese network technician names them, and four of the nine are deliberately not Tetum. Cat5e, Cat6, Cat6a and Ethernet are catalogue codes, and a technical vocabulary takes a code whole rather than translating it, so they sit unrespelled beside words that have been through every sound rule the language has. Fibra ótika shows what a respelled word looks like by contrast: Portuguese óptica loses the p of its consonant cluster because Tetum does not build a syllable that way. Iha rai okos is buried cable and it is assembled the way Tetum assembles every spatial expression — a relational noun placed after the thing, rai okos being the underneath of the ground, with no preposition anywhere in it. The list carries more weight than nine values suggest: international bandwidth reached this country by satellite for most of its independent history, which kept connectivity expensive and thin, and the domestic copper and fibre named here is what was built in the meantime.
+locale: tet
+---
+Fibra ótika
+Koaxiál
+Par tresadu
+Cat5e
+Cat6
+Cat6a
+Ethernet
+Aéreu
+Iha rai okos

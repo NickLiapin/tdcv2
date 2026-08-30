@@ -1,0 +1,11 @@
+---
+description: Kijkwijzer age classification, the Dutch content-rating system, which applies in Fryslân exactly as it does everywhere else in the Netherlands - the province has its own language and its own broadcaster but not its own film board, so this is one of the files where the correct Frisian answer is the Dutch one unchanged. AL is alle leeftiden, all ages; the numbers are minimum advised ages. Do NOT substitute MPAA codes (G/PG/PG-13/R): they mean nothing here. Kijkwijzer also shows six content pictograms beside the age symbol - geweld, angst, seks, discriminatie, drugs- en alcoholmisbruik, grof taalgebruik - but those are content warnings rather than age ratings and are deliberately not mixed into this list.
+locale: fy
+---
+AL
+6
+9
+12
+14
+16
+18

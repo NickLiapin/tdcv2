@@ -1,0 +1,11 @@
+---
+description: Conduit and containment for cable runs in Eswatini. Ipayipi, the pipe, and umsele, the channel or furrow, are the two head words and umsele is the older of them: it is the word for an irrigation furrow dug across a field, and the same noun serves for a cable trench without any sense of metaphor, because both are a channel cut in the ground. Insika yemagetsi, the power pole, is on a conduit list rather than a structure list because in Eswatini most distribution outside the towns is overhead on wooden poles rather than buried, so the pole IS the containment. Rural electrification here has run since the 1990s and reaches a majority of homesteads, which is a recent and rapid change.
+locale: ss
+---
+Ipayipi yepulasitiki
+Ipayipi yensimbi
+Ipayipi lelivikela emanti
+Umsele wemhlabatsi
+Umsele wesitezi
+Ibhokisi yentsambo
+Insika yemagetsi

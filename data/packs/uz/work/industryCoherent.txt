@@ -1,0 +1,14 @@
+---
+description: The ten industries this pack ships job titles for. Each value names a file in jobByIndustry, so a coherent record can pick an industry and then a job that really belongs to it. The selection reflects where Uzbeks actually work: agriculture, textiles and mining come before finance and IT.
+locale: uz
+---
+Қишлоқ хўжалиги
+Тўқимачилик
+Кончилик
+Қурилиш
+Таълим
+Соғлиқни сақлаш
+Савдо
+Транспорт
+Ахборот технологиялари
+Молия

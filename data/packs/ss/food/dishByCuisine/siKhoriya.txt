@@ -1,0 +1,12 @@
+---
+description: Korean dishes. The connection to Eswatini is thinner than for most cuisines on this list and runs mainly through the small number of Swazi students and workers who have spent time in Asia and through the South African restaurant scene. Ikimchi is worth noting beside the Swazi ferments in this pack — incwancwa, emahewu, emasi and umcombotsi are all lactic fermentations of a staple, and kimchi is the same biology applied to a vegetable instead of a grain or milk. Neither tradition borrowed from the other; both arrived at the same preservation method because it is what works without refrigeration.
+locale: ss
+---
+Ikimchi
+Ibibimbap
+Ibulgogi
+Itteokbokki
+Ijapchae
+Isamgyeopsal
+Ikimchi jjigae
+Ihaemul pajeon

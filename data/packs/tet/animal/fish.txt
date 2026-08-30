@@ -1,0 +1,29 @@
+---
+description: Fish, and the ikan running down the left of this list is doing real work: it is the noun, and what follows it names the kind, so the list reads as a series of noun-plus-modifier phrases in the ordinary Tetum order rather than as a set of single words. The waters justify the length of the list. The reefs off Atauro, the island visible from the Dili waterfront, were surveyed and found to hold the highest average reef-fish diversity of any site measured anywhere, and the deep water of the Timor Sea between the island and Australia carries tuna and the migrating whales. Ikan sabuko is the small oily fish of the everyday plate and the one that goes into saboko. The middle of the list is Malay and Indonesian — kakap, bubara, tenggiri, kembung, baronang, teri, pari, buntal — which is the market layer, learned from the traders and fixed in place by the occupation years. Ikan kakatua is the parrotfish and shares its name with the cockatoo for the obvious reason. The Portuguese tail shows two rules: tubarão becomes tubaraun and salmão becomes salmaun on the nasal ending, and agulha becomes agulla on the lh rule.
+locale: tet
+---
+Ikan sabuko
+Ikan tuna
+Ikan lafatik
+Ikan kakap
+Ikan bubara
+Ikan mero
+Ikan tenggiri
+Ikan baronang
+Ikan kembung
+Ikan teri
+Ikan pari
+Ikan tubaraun
+Ikan agulla
+Ikan espadarte
+Ikan salmaun
+Ikan doradu
+Ikan manta
+Ikan kakatua
+Ikan buntal
+Ikan barakuda
+Ikan sardiña
+Kamaraun
+Lokum
+Meti
+Karangueju

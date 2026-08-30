@@ -1,0 +1,14 @@
+---
+description: The subset of medical/specialty for which this pack ships a diagnosis list, and the parent of medical/diagnosisBySpecialty — every value here is also a filename in that folder, character for character, so renaming one means renaming both. Ten rather than the full thirty-six: a coherent list is a promise that the diagnoses behind the name are the ones that department actually sees, and behind these ten they are Malian rather than generic.
+locale: bm
+---
+Cardiologie
+Neurologie
+Oncologie
+Dermatologie
+Gastroentérologie
+Endocrinologie
+Pneumologie
+Orthopédie
+Psychiatrie
+Néphrologie

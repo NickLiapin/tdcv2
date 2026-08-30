@@ -1,0 +1,23 @@
+---
+description: Vocabulary of a court file. Даъво is the claim and даъвогар the claimant, both carrying the тутуқ белгиси that Latin writes as an apostrophe. Ҳакамлар ҳайъати is the panel of arbitrators. Ижро варақаси is the writ of execution that turns a judgment into a collection.
+locale: uz
+---
+даъво
+даъвогар
+жавобгар
+гувоҳ
+адвокат
+прокурор
+судя
+ҳакамлар ҳайъати
+суд мажлиси
+ҳукм
+қарор
+ажрим
+апелляция шикояти
+кассация шикояти
+ижро варақаси
+суд ижрочиси
+нотариал тасдиқлаш
+ишончнома
+давлат божи

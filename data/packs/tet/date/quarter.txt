@@ -1,0 +1,8 @@
+---
+description: Fiscal quarters, written with Tetum ordinals rather than the T1 to T4 of the Portuguese list. This is where a reader meets the da- prefix: Tetum builds an ordinal by putting da- on the cardinal, so rua two becomes daruak second, tolu three becomes datoluk third and haat four becomes dahaat fourth. First is the exception, dahuluk, built not on ida one but on uluk, meaning before or in front. Timor-Leste's financial year is the calendar year, 1 January to 31 December, fixed by the annual State Budget law, so unlike Pakistan or India or Japan the first quarter here really is January to March and a Timorese annual report lines up with a calendar one.
+locale: tet
+---
+Trimestre Dahuluk
+Trimestre Daruak
+Trimestre Datoluk
+Trimestre Dahaat

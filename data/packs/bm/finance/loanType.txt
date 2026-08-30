@@ -1,0 +1,14 @@
+---
+description: Kinds of credit, in Bambara, on `juru` — a word that means a rope and a debt at once, which is a fair account of the relationship. `Juru misɛn` is microcredit, and microfinance institutions serve far more Malians than banks do. `Sɛnɛwaati juru` is seasonal credit advanced against the coming harvest, which the cotton company has run for growers for decades and which ties the farmer to the buyer. Two values keep their French names because they are named instruments rather than ordinary speech: Warrantage is the Sahelian inventory-credit scheme where a farmer deposits grain in a sealed community store and borrows against it, so he need not sell everything at the post-harvest price floor — it exists for a specific problem, that a smallholder's whole year of income arrives in one week and is worth least exactly then — and Crédit-bail is leasing.
+locale: bm
+---
+Juru misɛn
+Sɛnɛ juru
+Sɛnɛwaati juru
+So sanni juru
+Mɔbili sanni juru
+Sannifɛnw juru
+Banki juru
+Kalan juru
+Warrantage
+Crédit-bail

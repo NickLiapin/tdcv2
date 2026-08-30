@@ -1,0 +1,22 @@
+---
+description: What an employer adds to the wage. Two entries show Tetum building a word rather than borrowing one. Bónus tinan-tinan is the annual bonus, and tinan-tinan is tinan, year, simply said twice: reduplication is how the language makes a distributive or habitual sense, so loron-loron is daily, fulan-fulan monthly and dala-dala now and then, and there is no separate adverb to learn. Lisensa ba inan-aman is parental leave, and inan-aman is a coordinate compound of the two kin roots, mother-father, which is the ordinary Tetum word for parents — the language builds a great many of its nouns by pairing opposites this way, as in feto-mane for people of both sexes. Seguru matan uses matan, eye, and Ajuda hahán uses hahán, food, both native words that no Portuguese loan ever pushed aside. The list as a whole belongs to a narrow slice of the labour market: the civil service, the banks, the telecoms operators and the international organisations offer packages of roughly this shape, and almost no other employer in the country offers any of it.
+locale: tet
+---
+Planu saúde
+Planu dentáriu
+Seguru matan
+Planu reforma
+Férias ho saláriu
+Servisu husi uma
+Oráriu flexível
+Opsaun asoens
+Seguru moris
+Lisensa ba inan-aman
+Subsídiu jinázia
+Reembolsu estudu
+Ajuda transporte
+Programa bem-estar
+Ajuda hahán
+Bónus tinan-tinan
+Loron pesoál
+Formasaun

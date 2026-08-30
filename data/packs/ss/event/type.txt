@@ -1,0 +1,24 @@
+---
+description: Event type in Eswatini, and the ceremonies in the middle are public holidays rather than private occasions. Umhlanga, the reed dance, runs for eight days in late August when unmarried girls cut reeds and carry them to the Queen Mother at Ludzidzini. Incwala, the kingship ritual, runs around the December solstice with the Little Incwala at the new moon, the Big Incwala at the full, the day of the black bull and the burning of the ceremonial bedding, and no one may harvest the first fruits before the King has. Buganu is the marula festival in February, presided over by the Queen Mother and belonging to women. Umcwasho is the chastity rite periodically reimposed on young women by royal decree. Umcimbi wekugcotjwa kwenkhosi, the installation of a chief, is the event that reorganises a whole chiefdom.
+locale: ss
+---
+Umshado
+Umngcwabo
+Umcimbi wekukhumbula
+Umcimbi wekutalwa
+Umcimbi wekwemukela umntfwana
+Umcimbi wekuphotfula
+Umhlanga
+Incwala
+Buganu
+Umcwasho
+Umcimbi wekugcotjwa kwenkhosi
+Umhlangano wesive
+Umcimbi wesive
+Umcimbi wemculo
+Umdlalo wemidlalo
+Umcimbi wetemabhizinisi
+Umhlangano wemphakatsi
+Umcimbi wesikolo
+Umcimbi wesontfo
+Umcimbi wekuvula sitolo

@@ -1,0 +1,12 @@
+---
+description: Finance jobs, and what is missing from this list defines it. There is no stock exchange in Timor-Leste and no domestic securities market, so the trader, the broker and the investment banker who head a European finance list have nothing here to trade and do not appear. What finance work exists is overwhelmingly about public money and about credit at the bottom of the market: budget execution and procurement in the ministries, the audit of public accounts, a small tax administration, a handful of commercial banks, and a microfinance and credit-union sector that reaches households no bank branch will ever open for. Kaixa banku, the teller, and Ofisiál kréditu, the loan officer, are the two most numerous jobs on this list by a wide margin, and both are concentrated in Dili and the municipal capitals. Kontabilista and Auditór are in genuine short supply, which is why accountancy qualifications are among the most portable credentials a Timorese graduate can hold.
+locale: tet
+---
+Kontabilista
+Analista finanseiru
+Auditór
+Kaixa banku
+Ofisiál kréditu
+Ajente seguru
+Konsultór impostu
+Ajudante kontabilidade

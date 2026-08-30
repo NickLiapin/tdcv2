@@ -1,0 +1,16 @@
+---
+description: Cardiology diagnoses. Артериал гипертензия leads because it is the single most recorded adult diagnosis in the country. Миокард инфаркти and стенокардия follow the ischaemic track; the last four are structural rather than vascular.
+locale: uz
+---
+Артериал гипертензия
+Юрак ишемик касаллиги
+Миокард инфаркти
+Стенокардия
+Юрак етишмовчилиги
+Аритмия
+Бўлмачалар фибрилацияси
+Кардиомиопатия
+Миокардит
+Юрак нуқсони
+Атеросклероз
+Перикардит

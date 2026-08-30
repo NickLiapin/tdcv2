@@ -1,0 +1,9 @@
+---
+description: Positions in ice hockey (West Frisian). Five values, because ice hockey names lines rather than places and a line is a centre and two wings in front of two defencemen. The Frisian word to notice is wjuk, a wing - the wing of a bird, of a windmill and of a hockey line all at once, and the same word that gives the Frisian windmill its wjukken. Dutch uses vleugel for all three; Frisian keeps wjuk, which stands closer to the English wing. Note the spelling of the sport itself: Frisian writes iis for ice with a double i where Dutch writes ijs, so the file is Iishockey and never IJshockey.
+locale: fy
+---
+Doelman
+Ferdigener
+Center
+Linkerwjuk
+Rjochterwjuk

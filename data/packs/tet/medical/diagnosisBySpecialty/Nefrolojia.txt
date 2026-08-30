@@ -1,0 +1,14 @@
+---
+description: Nephrology diagnoses in Tetum. Glomerulonefrite pós-estreptokóksika is placed ahead of the conditions a European unit would list first because it follows the same streptococcus that colonises skin and throats here in quantity: the child who had impetigo in the wet season is the child who arrives a fortnight later with dark urine and a swollen face, and in this country that sequence is common enough to be expected rather than remarked on. Behind it sits doensa renál kronika, the newer diabetic and hypertensive kind. What genuinely distinguishes the specialty in Timor-Leste is what can be offered afterwards: haemodialysis arrived late and remains concentrated in Dili, transplantation is not performed in the country at all, and a diagnosis that is a managed chronic condition elsewhere is much closer to a terminal one here. Rin is the Tetum form of Portuguese rim, with the final nasal written n, while the technical adjective renál is borrowed unchanged beside it — the language regularly takes a noun and its adjective from two different depths of the same source.
+locale: tet
+---
+Glomerulonefrite pós-estreptokóksika
+Doensa renál kronika
+Lezaun renál akuda
+Nefropatia diabétika
+Síndrome nefrótiku
+Pielonefrite
+Infesaun urinária
+Kálkulu renál
+Nefrite intersticiál
+Doensa renál polikístika

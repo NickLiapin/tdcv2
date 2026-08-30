@@ -1,0 +1,16 @@
+---
+description: Retail and trade jobs in Eswatini. Tekutsengisa is "matters of selling", from kutsengisa — which is the causative of kutsenga, to buy, so the seller is literally the one who causes buying. That pair is a good illustration of how siSwati builds vocabulary: add -isa to a verb and you get the causative, so kudla to eat gives kudlisa to feed, and kufundza to learn gives kufundzisa to teach. Retail in Eswatini divides sharply between the South African chain stores in the Manzini and Ezulwini malls and the market traders at the Manzini bus rank, and the second group is far larger by headcount and almost entirely outside any payroll this list describes.
+locale: ss
+---
+Umtsengisi
+Umtsengisi wasesitolo
+Umphatsi wetitolo
+Umgcini wetimphahla
+Umsebenti wesitoreji
+Umnikimali wasesitolo
+Umkhangisi wemikhicito
+Umhloli wetintsengo
+Umsebenti wekupakisha timphahla
+Umgcini wemasango esitolo
+Umeluleki wemakhasimende
+Umphatsi wetitolo letinyenti

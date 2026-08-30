@@ -1,0 +1,20 @@
+---
+description: Weather condition in siSwati. Eswatini fits four sharply different climates into 200 kilometres: the cool wet Highveld around Mbabane, which catches mist and can frost; the Middleveld; the hot dry Lowveld at Big Bend and Simunye, where summer runs past 40 degrees; and the Lubombo plateau along the Mozambique border. A single national forecast is therefore always wrong somewhere, and the same day is honestly described by several of these lines at once. Note the two grammatical types mixed here: nouns like imvula and inkhungu, and infinitives like kubalela and kushisa, which name a condition as an activity the weather is doing rather than a thing it is.
+locale: ss
+---
+Kushisa
+Kubalela
+Lilanga
+Emafu
+Emafu lamnyama
+Sibhakabhaka lesicwebile
+Imvula
+Imvula lencane
+Imvula lenkhulu
+Sichotho
+Umbani
+Kudvuma kwelitulu
+Sivunguvungu
+Inkhungu
+Umoya lomkhulu
+Likhaza

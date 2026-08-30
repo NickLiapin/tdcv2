@@ -1,0 +1,11 @@
+---
+description: Netball positions in siSwati — seven of them, which is the whole team, because netball puts every player in a named position and lets none of them cross the whole court. This is the most widely played women's sport in Eswatini, taught at every high school and played in workplace and church leagues, and the national side competes regionally. The naming here is unusually clean: kudubula, to shoot, gives umdubuli for the goal shooter; the wing positions are named for the phiko, the wing of a bird, which is also the word for the flank of a formation of regiments. Note that the same seven positions in English are abbreviated to two letters on a bib, and siSwati has no equivalent shorthand.
+locale: ss
+---
+Umdubuli wemagoli
+Umhlaseli wemagoli
+Umdlali wephiko lohlaselako
+Umdlali wangekhatsi
+Umdlali wephiko lovikelako
+Umvikeli wemagoli
+Umgcini wemagoli

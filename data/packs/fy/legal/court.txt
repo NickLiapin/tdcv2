@@ -1,0 +1,20 @@
+---
+description: Court of the Dutch judiciary under Frisian names, with Ljouwert as the anchor. Fryslân is served by Rjochtbank Noard-Nederlân, whose principal seat is in Ljouwert, and appeals from the whole north go to Gerjochtshôf Arnhem-Ljouwert, which also sits in the city - so a Frisian litigant can reach two levels of the system without leaving the province, and that geography is what makes the right to speak Frisian in court worth having in practice rather than only on paper. Two absences shape the list as much as its contents. The Netherlands has no constitutional court: article 120 of the constitution forbids any court from testing an Act of Parliament against it, so nothing here answers to a German or Polish constitutional tribunal. And there is no jury anywhere in the system - professional judges decide fact and law together, sitting alone in an inkelfâldige keamer, where the plysjerjochter takes minor crime and the bernerjochter juvenile cases, or in threes in a mearfâldige keamer for anything serious. The Hege Ried hears kassaasje on law only and does not reopen the facts. The vocabulary rewards attention: ried is a council where Dutch has raad, keamer is a chamber where Dutch has kamer, and bern is a child - the same word as Scots and northern English bairn, which Dutch, with kind, simply does not possess.
+locale: fy
+---
+Rjochtbank
+Kantonrjochter
+Gerjochtshôf
+Hege Ried fan Nederlân
+Ried fan Steat
+Sintrale Ried fan Berop
+Kolleezje fan Berop foar it bedriuwslibben
+Foarsjenningerjochter
+Plysjerjochter
+Bernerjochter
+Ûndernimmingskeamer
+Pachtkeamer
+Militêre keamer
+Mearfâldige keamer
+Inkelfâldige keamer
+Tuchtkolleezje

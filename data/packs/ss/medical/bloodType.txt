@@ -1,0 +1,12 @@
+---
+description: ABO and Rhesus blood group, written in the international notation the Eswatini National Blood Transfusion Service uses on every unit and every card. There is deliberately no siSwati form: a blood group label is read across borders and under pressure, blood crosses from South Africa when Eswatini's stock runs short, and translating A positive into a local phrase would introduce exactly the ambiguity the notation exists to remove. The distribution is worth knowing even though it is not encoded here — O positive is by a wide margin the commonest group in southern Africa and AB negative the rarest, so a data set that draws these eight uniformly will produce a blood bank no African hospital would recognise.
+locale: ss
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

@@ -1,0 +1,40 @@
+---
+description: Diagnoses in West Frisian that require female anatomy and cannot occur in a male patient; general conditions live in medical/diagnosis, and breast cancer is deliberately absent because it occurs in men too. The Frisian for the uterus is liifmoer, body-mother, assembled from different halves than Dutch baarmoeder and the root of both Liifmoerkanker and Liifmoerhalskanker. Fleesbeammen is fibroids read literally as meat-trees, and its second half shows brekking, the vowel change that turns beam into beammen in the plural. Swangerskip ends in -skip, the suffix English writes -ship where Dutch writes -schap, and Aaistokkanker keeps aai, the Frisian egg, where Dutch has ei.
+locale: fy
+---
+Endometrioaze
+Polysysteus-ovariumsyndroom
+Fleesbeammen
+Ovariumsyste
+Aaistokkanker
+Liifmoerhalskanker
+Servikale dysplasy
+Servisitis
+Endometritis
+Liifmoerkanker
+Bekkenûntstekkingssykte
+Bakteriële faginoaze
+Fulvofaginale kandidiasis
+Menorragy
+Dysmenorroe
+Amenorroe
+Pre-eklampsy
+Swangerskipsdiabetes
+Hyperemesis gravidarum
+Bûtenliifmoerlike swangerskip
+Postpartumbloeding
+Mastitis
+Fibrosysteuze boarstôfwiking
+Klimakterysk syndroom
+Premenstruele dysfore steuring
+Liifmoerfersakking
+Adenomyoaze
+Ovariumtorsje
+Placenta praevia
+Placentaloslitting
+Fulvakanker
+Faginakanker
+Bartholin-syste
+Atrofyske faginitis
+Turner-syndroom
+Froulike ûnfruchtberens

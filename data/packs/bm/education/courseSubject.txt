@@ -1,0 +1,24 @@
+---
+description: School subjects, and the Bambara ones are not decorative. Mali ran one of Africa's most serious mother-tongue education experiments, the écoles à pédagogie convergente, teaching the first years of the école fondamentale in a national language before switching to French, with measurably better results and chronic funding trouble — and in those classrooms the subjects have Bambara names: `kalan` reading, `sɛbɛnni` writing, `jatebɔ` arithmetic from `jate` to count, `tariku` history through Arabic, `farikoloɲɛnajɛ` physical education from `farikolo` the body. `Bamanankan` is a subject in its own right, and the 2023 constitution made the national languages official while demoting French to a working language, so the balance of this list may not survive the decade. The upper-secondary subjects stay French because the national exams are set and marked in it.
+locale: bm
+---
+Bamanankan
+Kalan
+Sɛbɛnni
+Jatebɔ
+Tariku
+Dugukolo kalan
+Kɛnɛya kalan
+Sɛnɛ kalan
+Farikoloɲɛnajɛ
+Français
+Anglais
+Arabe
+Mathématiques
+Sciences physiques
+Sciences naturelles
+Histoire
+Géographie
+Éducation civique et morale
+Informatique
+Philosophie

@@ -1,0 +1,12 @@
+---
+description: Mexican food is the thinnest of these cuisines on the ground — a couple of Dili places and the cooking of the international staff — but the names are among the most thoroughly rewritten, because Spanish and Portuguese share enough shape that the Tetum rules apply to them without adjustment. Tacos gives takus, nachos gives naxos, enchilada gives enxilada, chile gives xile, guacamole gives guakamole and quesadilla gives kezadilla: c before a and qu both become k, ch becomes x, and the unstressed final o becomes u. Note that the double l of kezadilla is a Spanish digraph left standing, not the Tetum ll that renders Portuguese lh, so the two look identical on the page and are not the same thing.
+locale: tet
+---
+Takus
+Burritu
+Kezadilla
+Enxilada
+Guakamole
+Naxos
+Fajitas
+Xile kon karne

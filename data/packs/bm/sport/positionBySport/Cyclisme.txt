@@ -1,0 +1,14 @@
+---
+description: Rider roles in cycling, in French. This is a role list rather than a position list, and it is here because cycling in Mali is real: the Tour du Mali is a long-standing stage race, the country sends riders to the Tour du Faso next door, and outside the racing calendar the bicycle is ordinary transport — a `nɛgɛso`, an iron horse, is what a great many Malians own instead of a motorbike. The vocabulary is imported wholesale from French racing, `domestique` and `poisson-pilote` included, because the sport arrived that way.
+locale: bm
+---
+Sprinteur
+Grimpeur
+Rouleur
+Puncheur
+Poisson-pilote
+Équipier
+Leader
+Contre-la-montriste
+Coureur d'échappée
+Domestique

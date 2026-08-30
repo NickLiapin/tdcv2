@@ -1,0 +1,10 @@
+---
+description: Psychiatric diagnosis in Eswatini. The specialty is tengcondvo, "matters of the mind", built on ingcondvo — deliberately NOT on buchopho, the physical brain, which names neurology instead; siSwati draws the same line between mind and brain that the two specialties draw, and the two words are not interchangeable. Eswatini has one psychiatric hospital, the National Psychiatric Referral Hospital in Manzini, and a handful of psychiatrists for 1.2 million people, so most of what is on this list is managed at clinic level or not at all. Alcohol use disorder is a large share of that workload, and the country's admission figures have reflected it for decades.
+locale: ss
+---
+Kudangala
+I-schizophrenia
+I-bipolar disorder
+I-post-traumatic stress disorder
+Butsatsi bebutjwala
+I-anxiety disorder

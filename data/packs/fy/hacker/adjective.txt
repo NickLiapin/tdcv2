@@ -1,0 +1,32 @@
+---
+description: Technical adjective in West Frisian, and a compact demonstration of how Frisian re-shapes international suffixes instead of borrowing them flat. Dutch -isch comes out -ysk (optysk, haptysk), Dutch -ief comes out -yf (adaptyf), Dutch -air comes out -êr (primêr, sekundêr, modulêr), Dutch -oon comes out -oan (asynchroan, by the same rule that gives telefoan and persoan), and Dutch -baar comes out -ber (skaalber, heechbeskikber). Two entries show that Frisian does not write v at the start of a word at all: virtual is firtueel and encrypted is fersifere, because Frisian turned inherited and borrowed initial v into f across the board, the same rule that makes Dutch van into fan and vijf into fiif. The one wholly native item is triedleas, wireless, built from tried, a thread, plus the suffix -leas, which is the direct cognate of English -less where Dutch has -loos - so the Frisian word is put together exactly like the English one and not at all like the Dutch one. Settled loans are left alone: realtime, opensource and cloudbasearre are what a Frisian developer actually writes.
+locale: fy
+---
+digitaal
+firtueel
+primêr
+sekundêr
+redundant
+triedleas
+optysk
+neuraal
+haptysk
+platfoarmûnôfhinklik
+distribuearre
+fersifere
+ekstern
+mobyl
+yntegrearre
+skaalber
+asynchroan
+bidireksjoneel
+opensource
+modulêr
+fouttolerant
+realtime
+heechbeskikber
+adaptyf
+autonoom
+ferbûn
+cloudbasearre
+kreftich

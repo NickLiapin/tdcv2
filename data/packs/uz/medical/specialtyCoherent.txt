@@ -1,0 +1,14 @@
+---
+description: The ten specialties this pack ships diagnoses for, which is a subset of the full specialty list. Every value here names a file in diagnosisBySpecialty, so a coherent record can pick a department and then a diagnosis that really belongs to it. Use specialty.txt when you only need a department name.
+locale: uz
+---
+Кардиология
+Дерматология
+Эндокринология
+Гастроэнтерология
+Нефрология
+Неврология
+Онкология
+Ортопедия
+Психиатрия
+Пулмонология

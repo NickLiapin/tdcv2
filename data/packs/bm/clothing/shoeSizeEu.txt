@@ -1,0 +1,16 @@
+---
+description: Shoe sizes on the French and European scale, which is the one Mali uses — the word at a Bamako shoe stall is pointure, and the numbers run the same as in France because the footwear arrives through the same trade. The range is left where the Serbian pack has it rather than widened, since a data set should not imply a stock depth that a market stall does not have. Sabara is the Bambara for a shoe, and the sandals cut from truck tyre and the tooled leather ones are made by the garanke, the leatherworking caste, who take a measurement rather than a size.
+locale: bm
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

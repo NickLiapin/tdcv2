@@ -1,0 +1,24 @@
+---
+description: Reasons Malians travel, in French, and tourism is well down the list. `Retour au village` is the largest category and the one a foreign-built schema will not have: urban Malians keep an active relationship with the family village, return for the farming season, for ceremonies, for funerals and for the annual holidays, and the coach stations empty Bamako at those moments. `Cérémonie familiale` and `Funérailles` are separate lines because attendance is a social obligation that overrides work and cost. `Pèlerinage à La Mecque` and `Omra` are organised in state-supervised quotas and are the trip of a lifetime for many. `Migration de travail` sends Malians to Côte d'Ivoire, Senegal, Spain and France, and the remittances that come back are a pillar of the economy.
+locale: bm
+---
+Voyage d'affaires
+Mission
+Séminaire
+Formation
+Visite familiale
+Retour au village
+Cérémonie familiale
+Mariage
+Funérailles
+Pèlerinage à La Mecque
+Omra
+Tourisme
+Découverte du pays dogon
+Croisière sur le Niger
+Safari
+Randonnée
+Voyage scolaire
+Soins médicaux
+Commerce
+Migration de travail

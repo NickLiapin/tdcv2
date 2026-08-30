@@ -1,0 +1,14 @@
+---
+description: Neurology diagnoses in Tetum. Neurosistiserkoze is the entry that separates this list most sharply from a European one. Timorese households keep pigs close to the house and often free-ranging, sanitation outside the towns is limited, and the larval stage of the pork tapeworm lodging in brain tissue is a leading identifiable cause of adult-onset epilepsy across this region — which is why epilepsy heads the file and cysticercosis stands directly beneath it rather than appearing as a curiosity at the bottom. Malária serebrál stays on a neurology list even after local transmission ended, because it remains the diagnosis a clinician must exclude in an unconscious febrile patient who has been across the border. Meninjite tuberkuloza is filed here rather than under infections because that is the door it walks through: a child with fever and a stiff neck reaches the ward long before anyone has thought about lungs.
+locale: tet
+---
+Epilepsia
+Neurosistiserkoze
+Meninjite tuberkuloza
+Malária serebrál
+AVC iskémiku
+AVC emorájiku
+Enxakeka
+Neuropatia periférika
+Paralizia Bell
+Doensa Parkinson

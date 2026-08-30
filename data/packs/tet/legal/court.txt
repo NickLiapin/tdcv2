@@ -1,0 +1,18 @@
+---
+description: Where a matter is heard, and the striking thing is how few places that is. Timor-Leste has four district courts — Dili, Baucau, Suai and Oecusse — for the whole country, so a litigant from Lospalos or Maliana travels a long way over bad roads to reach one. Above them sits the Tribunál Rekursu, the Court of Appeal, and it does double duty: the constitution provides for a Supremu Tribunál de Justisa at the top of the judiciary, but that court has never been constituted, and the Court of Appeal has exercised its powers in the meantime for the whole life of the republic — which is why the supreme court that heads a Portuguese list is missing from this one, and why its absence is the accurate thing to record. Beneath the formal system sits the forum that settles most disputes in fact. Biti boot is the big mat: the parties, their kin and the elders sit down on it and stay until the matter is resolved and compensation agreed, and the phrase for opening such a hearing is nahe biti boot, to unroll the big mat. Konsellu Suku is the village council, which has a statutory role in prevention and mediation and disposes of a great deal of neighbourhood conflict that never reaches a judge.
+locale: tet
+---
+Tribunál Rekursu
+Tribunál Distritál Dili
+Tribunál Distritál Baucau
+Tribunál Distritál Suai
+Tribunál Distritál Oe-Cusse
+Tribunál Administrativu Fiskál no Kontas
+Tribunál Militár
+Seksaun Krime
+Seksaun Sivíl
+Seksaun Laborál
+Seksaun Menór
+Justisa Tradisionál
+Biti boot
+Konsellu Suku

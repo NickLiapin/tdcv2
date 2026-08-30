@@ -1,0 +1,12 @@
+---
+description: Fulbe food, the one genuinely different kitchen inside Mali, given here in the Bambara a Bamanan speaker uses for it. The Fulbe are herders — the largest pastoral people in the world — and their diet is built on milk in a way no other Malian cuisine is: `Nɔnɔ kumu` is soured milk, `Misi tulu` cow butter, `Ɲɔ moni` millet gruel that the milk is poured over, `Sogo jalan` dried meat, `Saga sogo jɛnnen` grilled mutton. `Kossam` and `Nono` keep their Fulfulde names because that is what they are called even in Bambara, the way a borrowed dish keeps its own word everywhere. The exchange with the farming villages is ancient and exact — milk and butter traded for grain, cattle let onto harvested fields to manure them — and it is also, in the Inner Niger Delta today, a source of real and violent conflict over land and water.
+locale: bm
+---
+Kossam
+Nono
+Nɔnɔ kumu
+Fromage peul
+Misi tulu
+Ɲɔ moni
+Sogo jalan
+Saga sogo jɛnnen

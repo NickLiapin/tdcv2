@@ -1,0 +1,31 @@
+---
+description: Mobile and broadband carrier available in Fryslân; brand names keep their real spelling and casing, including the deliberately lower-case hollandsnieuwe. The Frisian entry is Kabelnoord: a cable and fibre operator founded and owned by the municipalities of northeast Fryslân and run from Dokkum, which laid glass across a countryside too thinly populated for the national operators to bother with, and Kabeltex on Texel is the same idea one island west. Odido is T-Mobile Netherlands renamed in 2023; T-Mobile and Telfort are kept because they run through years of historical records and a dataset covering more than the present needs them. XS4ALL, absorbed into KPN, is in the list for the same reason. The Belgian operators that a Netherlands-and-Flanders list carries are dropped here: they are not sold in this market, and drawing them would put Belgian data in a Frisian file.
+locale: fy
+---
+KPN
+VodafoneZiggo
+Vodafone
+Ziggo
+Odido
+T-Mobile
+Telfort
+Simyo
+Ben
+Youfone
+Tele2
+hollandsnieuwe
+Simpel
+Budget Mobiel
+Lebara
+Lycamobile
+Delta
+Caiway
+XS4ALL
+Kabelnoord
+Kabeltex
+Solcon
+Freedom Internet
+Online.nl
+Kliksafe
+Trined
+Plinq

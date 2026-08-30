@@ -1,0 +1,41 @@
+---
+description: Technical nouns. Most are Portuguese put through the standard changes — controlador to kontroladór with the stressed final syllable taking an acute, chave to xave because ch is written x, cópia de segurança to kópia seguransa with the cedilla going to s and the Portuguese linking de simply dropped. That dropping is systematic and worth a config author's attention: Tetum builds a compound by juxtaposition, so base de dados becomes baze dadus, largura de banda becomes largura banda and pacote de rede becomes pakote rede, with no particle between the two nouns. Where a possessor needs marking Tetum uses nia, its possessive particle, not a preposition. Router, firewall, pixel, cache, pipeline and plugin are kept from English untouched, which is what the aid-sector and IT register does with anything that arrived after 1999.
+locale: tet
+---
+kontroladór
+protokolu
+largura banda
+painél
+mikroxipe
+programa
+porta
+plaka
+matris
+interfase
+sistema
+sensór
+firewall
+diska rígidu
+pixel
+alarme
+fluksu dadus
+monitór
+aplikasaun
+transmisór
+barramentu
+sirkuitu
+kondensadór
+baze dadus
+pipeline
+servidór
+router
+komutadór
+memória cache
+núkleu
+biblioteka
+plugin
+kontentór
+kópia seguransa
+rede neuronál
+xave enkriptasaun
+pakote rede

@@ -1,0 +1,22 @@
+---
+description: Event types, and two of them exist nowhere in the Portuguese list. Barlake is the marriage settlement between two houses, an exchange in which the groom's side brings buffalo, horses and silver belak and the bride's side returns tais and pigs; it is a separate event from the church wedding, it is negotiated over months, and a couple can be barlake-married without being civilly or sacramentally married at all, which is why any Timorese record that models marriage as a single dated event will be wrong. Tara bandu is the ceremony at which a customary prohibition is enacted, and the name is literal — tara means to hang and bandu a ban, so the community hangs a sign, usually a woven marker on a post, closing a stretch of reef, forbidding a harvest before a set date or banning cutting on a hillside; the liurai, the parish priest and the administrator all attend, animals are killed, and the fine for breach is set in livestock. Since independence the state has leaned on it as environmental law. Batizmu keeps its own line because in a country this Catholic a baptism is a household's largest gathering after a funeral.
+locale: tet
+---
+Konferénsia
+Kongresu
+Kazamentu
+Barlake
+Konsertu
+Festivál
+Ofisina
+Seminar
+Webinar
+Feira komersiál
+Ezpozisaun
+Angaria fundu
+Lansamentu produtu
+Gala
+Festa aniversáriu
+Formatura
+Batizmu
+Tara bandu

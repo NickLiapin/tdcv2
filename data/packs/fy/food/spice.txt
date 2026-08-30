@@ -1,0 +1,39 @@
+---
+description: Spice and herb (West Frisian). Krûdneil, the clove, is nail-herb, and it is the one entry on this list that names a product of the province: Fryske nagelkaas is farmhouse cheese studded with cloves and cumin, which is nothing like the plain gouda a foreign reader will picture when a config says Dutch cheese. The seed words end in -sied, English seed against Dutch zaad, so finkelsied and mostersied read across to English more easily than to the neighbour language. Bieslok carries the same -lok as knyflok, the -look Dutch writes and the leek English kept. Two entries are ready-made blends with no English name and no fixed recipe, sold in every supermarket for baking: spekulaaskrûden and koekekrûden are what make spekulaas and krûdkoeke taste the way they do. And krûd itself is the reason this file has one name for two things - a herb and a spice are both krûd, and a weed is ûnkrûd, un-herb.
+locale: fy
+---
+Piper
+Swarte piper
+Wite piper
+Cayennepiper
+Paprikapoeier
+Sâlt
+Kaneel
+Krûdneil
+Nútmuskaat
+Foelje
+Gember
+Kardemom
+Komyn
+Koriander
+Kurkuma
+Karwy
+Anys
+Steranys
+Finkelsied
+Laurier
+Tym
+Rosemaryn
+Salje
+Oregano
+Basilikum
+Petersielje
+Bieslok
+Dille
+Dragon
+Jeneverbei
+Spekulaaskrûden
+Koekekrûden
+Kerrypoeier
+Sambal
+Mostersied

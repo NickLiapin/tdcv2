@@ -1,0 +1,14 @@
+---
+description: Positions in baseball (West Frisian). The sport arrived through the Netherlands and kept the calque honkbal, a honk being the base, but the position names go over into Frisian cleanly because they are all ordinary verbs and numbers: smite is to throw and gives smiter for the pitcher, fange is to catch and gives fanger, koart is short, and earste, twadde and tredde are one, two and three. Bûtenfjilders are outfielders. The designated hitter is the oanwiisde slachman - oanwize is to point out or designate, and a slach is a blow, so a slachman is a man who strikes. Note tredde for third: Frisian has tredde where Dutch has derde, and it is the same form as English third with the r and the vowel the other way round.
+locale: fy
+---
+Smiter
+Fanger
+Earste honkman
+Twadde honkman
+Tredde honkman
+Koarte stop
+Linksfjilder
+Middenfjilder
+Rjochtsfjilder
+Oanwiisde slachman

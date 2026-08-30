@@ -1,0 +1,14 @@
+---
+description: Fuel, in the naturalised loans a Malian pump attendant uses: `Esansi` from essence, `Gazoli` from gasoil, `Petoroli` from pétrole. Gasoil rather than diesel is what the sign says and what the lorries and the generators burn. `Petoroli` is kerosene and belongs on any honest Malian list — it lights the lamps and fires the stoves of households off the grid, which is most of the country outside the towns, and its price is politically sensitive for exactly that reason. `Kuran` is electricity and `Tilekuran` solar, from `tile` the sun. Mali imports every litre of the liquid fuels by road from Dakar and Abidjan, which is why they cost what they do. Diesel, Hybride and GPL keep their international spellings as technical categories written on an import declaration rather than said at a pump.
+locale: bm
+---
+Esansi
+Super
+Gazoli
+Petoroli
+Gazi butani
+Kuran
+Tilekuran
+Diesel
+Hybride
+GPL

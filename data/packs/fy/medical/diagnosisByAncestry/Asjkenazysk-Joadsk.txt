@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Ashkenazi Jewish descent, in West Frisian. A prevalence signal, not an exclusive one. Nearly every entry is a founder mutation — one ancestral variant carried forward by a population that stayed demographically small for centuries — and two of them are named for that effect outright. Foundermutaasje shows the standard Frisian treatment of a Dutch -atie ending, which becomes -aasje right across the language, as in organisaasje, situaasje and ynformaasje. Mukolipidoaze shows the other two regular changes in one word: c to k, and -ose to -oaze.
+locale: fy
+---
+Sykte fan Tay-Sachs
+Sykte fan Gaucher type 1
+Famyljêre dysautonomy
+Sykte fan Canavan
+Sykte fan Niemann-Pick type A
+Syndroom fan Bloom
+Faktor XI-brek
+BRCA1-foundermutaasje
+BRCA2-foundermutaasje
+Mukolipidoaze type IV
+Sykte fan Crohn
+Torsjedystony

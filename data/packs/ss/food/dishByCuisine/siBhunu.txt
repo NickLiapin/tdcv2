@@ -1,0 +1,14 @@
+---
+description: Afrikaner dishes, and they are not foreign food in Eswatini. The border with South Africa is a few hours from anywhere in the country, the two economies are joined at the currency, and the farm and mining culture that produced this cooking reached the Swazi middleveld with the settlers who took concessions there in the 1880s. Ibhrayi, the braai, is the shared institution — an open wood fire with meat over it, which is also how a Swazi homestead has always cooked, so the word rather than the practice is what crossed. Ipapa is the same stiff maize porridge as sishwala under an Afrikaans name, and the fact that both words are in ordinary use in Eswatini for the same dish is a small map of the country's two culinary vocabularies. Note that these loans take the class 9 i- prefix rather than the li- that older borrowings took.
+locale: ss
+---
+Ibhrayi
+Iboerewors
+Ipapa
+Ipotjiekos
+Ibhiltongi
+Imelktert
+Ikoeksister
+Ivetkoek
+Ichakalaka
+Ibobotie

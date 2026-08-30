@@ -1,0 +1,15 @@
+---
+description: Diagnoses seen in orthopaedics, in West Frisian, which makes the file a short catalogue of Frisian body parts. Ilbôge is the elbow, skouder the shoulder, hakke the heel and rêch the back, and Tennisilbôge puts the loanword and the native one together in a single compound. Foarstekrúsbânruptuer is the anterior cruciate ligament tear, with krús for cross and bân for band or ligament. Iskias is sciatica carrying the Frisian sk- where Dutch writes sch-, the same signature that gives skiep, skoalle, skip and skriuwe.
+locale: fy
+---
+Artroaze
+Reumatoïde artritis
+Hernia nuclei pulposi
+Iskias
+Karpaletunnelsyndroom
+Tennisilbôge
+Rotatorcuffruptuer
+Skouderimpingement
+Foarstekrúsbânruptuer
+Meniskusletsel
+Hakkespoar

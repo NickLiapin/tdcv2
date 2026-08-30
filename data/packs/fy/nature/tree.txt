@@ -1,0 +1,32 @@
+---
+description: Tree (West Frisian). The list is headed by the knotwylch, the pollarded willow, because it is a management form rather than a species and it is what a Frisian roadside looks like. But the real fact this file records is that Fryslân is two landscapes with two different tree counts. The east and southeast are De Wâlden, the woods: sandy ground where every field is bounded by an elzesingel, a raised bank planted with alder, so the horizon is a grid of hedgerows and alder is the tree those hedgerows are made of. The northwest is De Klaai, the sea clay, reclaimed and almost treeless, where a farm is visible for kilometres and a stand of trees means a house. A Frisian who says he is from de Wâlden or fan de Klaai has told you which of these two files of trees he grew up with. Note the names that stand nearer English than Dutch: esk against Dutch es and English ash, wylch against wilg and willow, bjirk against berk and birch, and beam, the general word for tree, which is English beam - the same word, before it narrowed in English to the piece of timber.
+locale: fy
+---
+Knotwylch
+Wylch
+Treurwylch
+Popelier
+Yp
+Beuk
+Iik
+Esk
+Bjirk
+Els
+Linde
+Ahoarn
+Grouwe den
+Spar
+Lariks
+Haachbeuk
+Hazzelnútbeam
+Meidoarn
+Flearbeam
+Lysterbei
+Hynstekastanje
+Plataan
+Walnút
+Swiete kers
+Taks
+Hulst
+Seder
+Magnolia

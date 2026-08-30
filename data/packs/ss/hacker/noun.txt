@@ -1,0 +1,41 @@
+---
+description: Technical noun in siSwati, and the file shows the two strategies the language uses side by side. Where an old word can stretch, it does: sikhiya is a key for a door and a key in a database, inkhumbulo is memory in a person and in a machine, indlela is a path on the ground and a path in a filesystem, sikhala is a gap and a field. Where nothing stretches, siSwati borrows and prefixes: iseva, ikheshi, ifayela, ikhode. The most telling entry is ligciwane lekhompiyutha, a computer virus — ligciwane is the ordinary word for a pathogen, the same one used of HIV in this pack's medical files, and English made exactly the same metaphor from exactly the same source, independently.
+locale: ss
+---
+Iseva
+Ikhompiyutha
+Ilaptop
+Idatha
+Imininingwane
+Sigcini semininingwane
+Lithebula
+Umbuto
+Sikhiya
+Umbhalo
+Sikhala
+Ifayela
+Indzawo yekugcina
+Indlela
+Inkhumbulo
+Ikheshi
+Sicubunguli
+Ikhode
+Inhlelo
+Luhlelo
+Inetiwekhi
+Umgomo wekuchumana
+I-inthanethi
+Lisayithi
+Ligama lekungena
+Libitofihlo
+Umyalezo
+Iphutsa
+Sivikelo
+Ligciwane lekhompiyutha
+Inkhomba
+Ibhathoni
+Sikrini
+Ikhibhodi
+Imawusi
+Umshini wekuprinta
+Ikhilawudi

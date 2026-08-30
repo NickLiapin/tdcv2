@@ -1,0 +1,39 @@
+---
+description: Playing position in siSwati, drawn from across the sports this pack covers. Every value is an agent noun in um- built from a verb, which is how the language names a role: kuvikela, to defend, gives umvikeli; kuhlasela, to attack, gives umhlaseli; kugcina, to keep, gives umgcini. That derivation is why a goalkeeper is umgcini welisango, "the keeper of the gate", and why the same word serves for a shopkeeper elsewhere in this pack. The left and right qualifiers are worth noting: wangasencele is "of the left" and wangasekudla "of the right", and the second is built on kudla, to eat, because the right hand is the eating hand — a body-based direction system rather than an abstract one. Kaputeni and unompempe, the captain and the referee, are loans, the second from the sound of the whistle.
+locale: ss
+---
+Umgcini welisango
+Umvikeli
+Umvikeli wangekhatsi
+Umvikeli wangekhatsi lomkhulu
+Umvikeli wangekhatsi lomncane
+Umvikeli wangasekudla
+Umvikeli wangasencele
+Umvikeli wekugcina
+Umdlali wangekhatsi
+Umdlali wangekhatsi lovikelako
+Umdlali wangekhatsi lohlaselako
+Umdlali wangekhatsi wangasekudla
+Umdlali wangekhatsi wangasencele
+Umhlaseli
+Umhlaseli wangekhatsi
+Umhlaseli wangasekudla
+Umhlaseli wangasencele
+Umhlaseli wephiko
+Umdlali wephiko
+Umdlali wephiko lohlaselako
+Umdlali wephiko lovikelako
+Umdubuli wemagoli
+Umhlaseli wemagoli
+Umvikeli wemagoli
+Umgcini wemagoli
+Umshaya
+Umjikijeli
+Umgcini wetinsika
+Umbambi
+Umdlali wetintfo tonkhe
+Umdlali wemuva
+Umcondzisi wemdlalo
+Umdlali losetjentiswa esikhundleni
+Kaputeni
+Unompempe

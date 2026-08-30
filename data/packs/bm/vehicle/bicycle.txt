@@ -1,0 +1,21 @@
+---
+description: Bicycles. `Nɛgɛso` is the Bambara word and the compound is worth unpacking: `nɛgɛ` iron plus `so` horse, the iron horse — the same metaphor a dozen languages reached for independently, and in Bambara it is the ordinary everyday word rather than a poetic one. The qualifiers behind it work the way Bambara qualifiers do, following the noun: `Nɛgɛso kura` a new one, `Nɛgɛso kɔrɔ` an old one, `Kulu nɛgɛso` a hill bicycle, `Doni nɛgɛso` a load-carrying one. `Sinuwa nɛgɛso` and `Nɛgɛso kɔrɔ` are the two categories that matter commercially, since most bicycles here arrive either as cheap new imports or in the second-hand containers that also bring the clothes. Three keep French names as racing and design categories with no Malian equivalent: Vélo pliant, Vélo de piste, Draisienne.
+locale: bm
+---
+Nɛgɛso
+Nɛgɛso kura
+Nɛgɛso kɔrɔ
+Dugu kɔnɔ nɛgɛso
+Kulu nɛgɛso
+Boli nɛgɛso
+Sira jugu nɛgɛso
+Doni nɛgɛso
+Denmisɛn nɛgɛso
+Kuran nɛgɛso
+Mɔgɔ fila nɛgɛso
+Sen saba nɛgɛso
+Lase nɛgɛso
+Sinuwa nɛgɛso
+Vélo pliant
+Vélo de piste
+Draisienne

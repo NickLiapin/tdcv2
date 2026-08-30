@@ -1,0 +1,11 @@
+---
+description: Household size in siSwati. The numbers are relative forms agreeing with class 2, the people class, which is why they open with laba- rather than standing as bare numerals: labatsatfu is "those who are three", not "three". The counting words themselves change shape with the class of what is counted, so these values cannot be reused for three cattle or three days. The categories are also wrong for Eswatini in a way worth knowing: the census unit here is the homestead, umuti, which can hold several married sons with their own wives and children under one head, and rural homesteads of ten and more people are ordinary. A seven-plus top band flattens exactly the part of the distribution that distinguishes this country from a European one.
+locale: ss
+---
+Munye
+Lababili
+Labatsatfu
+Labane
+Labasihlanu
+Labasitfupha
+Labasikhombisa nangetulu

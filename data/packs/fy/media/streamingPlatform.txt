@@ -1,0 +1,16 @@
+---
+description: Streaming service actually available in Fryslân; brand names keep their real spelling and are never translated. The entry a Netherlands-wide list would not carry is Omrop Fryslân, the provincial public broadcaster, which puts everything on demand and has made television in the language since 1994, Frisian-language radio going back to 1946: it is the only broadcaster anywhere whose entire output is in Frisian, and it is the reason a Frisian speaker can watch news, drama and children's programmes in the language at all. The Flemish services in the Dutch list - Streamz and VRT MAX - are dropped here, because they are not available in this market and a Frisian dataset drawing them would be describing Belgium.
+locale: fy
+---
+Netflix
+Videoland
+NPO Start
+Omrop Fryslân
+Ziggo GO
+KPN
+Pathé Thuis
+Disney+
+Prime Video
+HBO Max
+Apple TV+
+YouTube

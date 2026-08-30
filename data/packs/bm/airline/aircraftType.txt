@@ -1,0 +1,30 @@
+---
+description: Aircraft types, kept in the manufacturer's own designation because Bambara has no aviation register at all — the word for an aeroplane is awiyɔn, straight from avion, and the type is read off the ticket in French. The turboprops in the middle of the list are the ones that matter locally. Mali is twice the size of France with a handful of paved runways, so the domestic network to Kayes, Mopti, Timbuktu and Gao is flown by ATRs, Dash 8s and Beech 1900s onto short strips, while the widebodies only ever appear on the Paris, Istanbul and Casablanca legs into Bamako-Sénou. The Ilyushin closes the list because Bamako has been a humanitarian and cargo hub for over a decade, and heavy Soviet-built freighters are a normal sight on the apron there in a way they are not in Europe.
+locale: bm
+---
+Boeing 737-800
+Boeing 737-700
+Boeing 737 MAX 8
+Boeing 787-8 Dreamliner
+Boeing 787-9 Dreamliner
+Boeing 777-300ER
+Boeing 767-300F
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A330-200
+Airbus A330-900neo
+Airbus A350-900
+Airbus A220-300
+ATR 72-500
+ATR 72-600
+ATR 42-500
+Embraer E170
+Embraer E190
+Bombardier CRJ200
+Bombardier CRJ900
+De Havilland Dash 8 Q400
+Beechcraft 1900D
+Cessna 208 Caravan
+Ilyushin Il-76

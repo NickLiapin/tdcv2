@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list beside it — the parent of medical/diagnosisBySpecialty, so every value here is also the name of a file in that folder, character for character. Frisian turns the Dutch -ie of a discipline name into -y, which is what gives Kardiology, Onkology, Nefrology, Psychiatry and Ortopedy their endings. Mage-term-leversykten is gastroenterology named the Dutch way, after three organs rather than after Greek, so hepatology sits inside the same specialty instead of beside it; the middle element is term, the Frisian word for the intestine where Dutch says darm, and sykten is the plural of sykte, disease.
+locale: fy
+---
+Kardiology
+Neurology
+Onkology
+Dermatology
+Mage-term-leversykten
+Endokrinology
+Longsykten
+Ortopedy
+Psychiatry
+Nefrology

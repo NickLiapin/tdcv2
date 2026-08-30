@@ -1,0 +1,14 @@
+---
+description: Payment status in siSwati. Every value is a verb in a completed tense rather than an adjective, which means these describe an EVENT and not a state of the record: kukhokhelwe is "it has been paid", not "paid". The distinction matters for anyone building a status column, because siSwati has no participle that can sit beside a noun the way English "paid invoice" does — that has to be rebuilt as a relative clause. Two entries split what English would call refunded: kubuyiselwe imali is the whole amount returned and kubuyiselwe imali ingcosana a part of it, and there is no single word covering both.
+locale: ss
+---
+Kukhokhelwe
+Kulindzelwe
+Kukhokhelwe kancane
+Kucinisekisiwe
+Kugcinwe
+Kwehlulekile
+Sikhatsi sekukhokha siphelile
+Kubuyiselwe imali
+Kubuyiselwe imali ingcosana
+Kukhanselwe

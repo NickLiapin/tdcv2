@@ -1,0 +1,27 @@
+---
+description: Organs of the Timorese state, named as they are named on their own letterhead — which is to say in Portuguese. That is the first thing to understand about this list: the constitution, the organic statutes and the official gazette are written in Portuguese, so an institution's legal name is a Portuguese string even though the counter you queue at, the phone that answers and the meeting inside all run in Tetum. A Tetum-language record therefore carries Portuguese institution names without any inconsistency, and respelling them would be wrong. Several entries have no analogue in a generic list. The Autoridade Rejiaun Administrativa Espesiál Oe-Cusse Ambeno governs a region under its own authority with powers no other municipality has. The Autoridade Nasionál Petróleu no Minerál regulates the offshore fields and licenses the onshore quarries, which is why petroleum and gravel are administered by the same body. SERVE is the one-stop business registry, SAMES the agency that procures and distributes the country's medicines, and STAE the technical secretariat that physically runs an election while the Komisaun Nasionál Eleisoens supervises it — two separate bodies for one process, a distinction that matters on any electoral record. Alfándega, the everyday word for customs, is Portuguese alfândega with the nasal â resolved to a plain á.
+locale: tet
+---
+Parlamentu Nasionál
+Prezidénsia da Repúblika
+Tribunál Rekursu
+Ministériu Públiku
+Provedór ba Direitus Umanus no Justisa
+Polísia Nasionál Timór-Leste
+F-FDTL
+Sentru Nasionál Xanana Gusmão
+Autoridade Rejiaun Administrativa Espesiál Oe-Cusse Ambeno
+Banku Sentrál Timor-Leste
+Autoridade Nasionál Petróleu no Minerál
+SERVE
+SAMES
+Direksaun Nasionál Estatístika
+Komisaun Nasionál Eleisoens
+STAE
+Servisu Migrasaun
+Autoridade Aduaneira
+Ministériu Saúde
+Ministériu Edukasaun
+Ministériu Finansas
+Ministériu Obras Públikas
+Ministériu Agrikultura no Peskas

@@ -1,0 +1,13 @@
+---
+description: Algerian food, and the connection is the Sahara itself. Southern Algeria and northern Mali are one social space rather than two — the Kel Tamasheq move across it, Malian traders and migrants have gone north to Tamanrasset and Algiers for generations, and a great deal of what enters Gao and Kidal comes down that road rather than up from Bamako. `Chorba` is the soup that breaks the fast in Ramadan on both sides of the border. `Merguez` has travelled furthest of all, arriving in Bamako through France rather than directly across the desert.
+locale: bm
+---
+Couscous
+Chorba
+Tajine zitoune
+Chakhchouka
+Bourek
+Mhadjeb
+Rechta
+Merguez
+Makroud

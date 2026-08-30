@@ -1,0 +1,17 @@
+---
+description: Social content type (West Frisian). Tried is the entry worth stopping on: it is a thread, and it is the same word as English thread where Dutch has draad - the -ie- against the Dutch -aa- is regular, the same alternation as stien for steen and bien for been. Berjocht is a message or a piece of news, and it is the ordinary word a Frisian interface uses for a post; fermelding is a mention; dield berjocht a shared post. Frisian has real presence on social platforms out of proportion to its speaker numbers, because the written language has no daily newspaper of its own and the informal writing that would go into one goes here instead.
+locale: fy
+---
+Berjocht
+Reaksje
+Antwurd
+Story
+Reel
+Peiling
+Livestream
+Dield berjocht
+Tried
+Fermelding
+Privéberjocht
+Koarte fideo
+Fotoalbum

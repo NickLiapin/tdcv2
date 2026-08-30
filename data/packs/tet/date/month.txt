@@ -1,0 +1,16 @@
+---
+description: Month names, and there is no shorter demonstration of Tetum's whole borrowing system than these twelve words. All of them are Portuguese, and every one of the pack's respelling rules shows up in the set: março loses its cedilla to plain s and its final o to u, giving Marsu; junho turns the Portuguese nh into the single letter ñ, giving Juñu; julho turns lh into ll, giving Jullu; abril carries its stress on the last syllable and so takes an acute, giving Abríl. Note the capitals. Portuguese writes janeiro and fevereiro in lower case and pt/date/month.txt follows that rule; Tetum capitalises its months, so a dataset that lower-cases Tetum month names to match its Portuguese sibling is wrong. Timorese speakers also count months natively, fulan ida through fulan sanulu-resin-rua, and a village record may date an event that way rather than by name.
+locale: tet
+---
+Janeiru
+Fevereiru
+Marsu
+Abríl
+Maiu
+Juñu
+Jullu
+Agostu
+Setembru
+Outubru
+Novembru
+Dezembru

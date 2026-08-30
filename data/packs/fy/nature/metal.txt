@@ -1,0 +1,26 @@
+---
+description: Metal (West Frisian). This list is the exact place to see a spelling trap disappear. Dutch writes IJzer for iron, and IJ is a single Dutch digraph whose two letters capitalise together, so 'Ijzer' is an error and any case transform applied to Dutch has to know it. Frisian has no IJ digraph at all: iron is izer, ice is iis, white is wyt and a dyke is a dyk, so the rule that a Dutch pipeline needs here is simply not needed for Frisian - and a pipeline that applies it anyway will produce IIzer. Two of these names also sit closer to English than to Dutch: lead is lead, spelled and meaning exactly as in English against Dutch lood, and stiel is steel against staal. Sulver, goud and koper are the three that turn up as surnames and street names all over the province.
+locale: fy
+---
+Goud
+Sulver
+Platina
+Koper
+Izer
+Aluminium
+Titaan
+Sink
+Nikkel
+Lead
+Tin
+Brûns
+Messing
+Stiel
+Palladium
+Kobalt
+Chroom
+Wolfraam
+Kwik
+Magnesium
+Lithium
+Mangaan

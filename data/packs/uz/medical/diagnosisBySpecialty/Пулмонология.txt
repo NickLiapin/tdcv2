@@ -1,0 +1,16 @@
+---
+description: Lung diagnoses. Сил касаллиги — tuberculosis — is high in this list rather than at the bottom, and ўпка сили асорати records its sequelae as a separate entry, because post-tuberculous lung damage is a long-term burden in Central Asia.
+locale: uz
+---
+Бронхиал астма
+Сурункали обструктив ўпка касаллиги
+Ўткир бронхит
+Пневмония
+Сил касаллиги
+Бронхоэктаз
+Ўпка эмфиземаси
+Плеврит
+Ўпка фибрози
+Уйқу апноэси
+Аллергик ринит
+Ўпка сили асорати

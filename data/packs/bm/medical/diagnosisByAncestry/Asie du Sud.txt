@@ -1,0 +1,12 @@
+---
+description: Conditions more frequent in people of South Asian descent. Several entries are one story: cardiometabolic risk arrives at a lower body-mass index than the standard thresholds assume, so the early diabetes, the early coronary disease and the central obesity at a normal BMI are the same finding seen from three angles.
+locale: bm
+---
+Diabète de type 2 précoce
+Cardiopathie ischémique précoce
+Obésité centrale à indice de masse corporelle normal
+Carence en vitamine D
+Trait bêta-thalassémique
+Syndrome métabolique
+Déficit en G6PD
+Cardiopathie rhumatismale

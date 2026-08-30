@@ -1,0 +1,23 @@
+---
+description: Mined mineral or commodity. Three entries carry Bambara names and the rest are French, and the split is historical rather than arbitrary: sanu for gold, kɔgɔ for salt and nɛgɛ for iron are the metals and minerals that had names here centuries before any concession was granted, because they were the trans-Saharan trade — gold going north from the Bambouk and Bouré fields, salt coming south in slabs. Taoudénit still cuts those slabs by hand, and the azalai camel caravan that carried them to Timbuktu ran within living memory. Sanu leads the list because gold is the country's first export by value. Lithium is here for Goulamina in the Bougouni area, phosphate for the Bourem deposit, and limestone for the cement works; uranium and diamond are prospects rather than producers.
+locale: bm
+---
+Sanu
+Kɔgɔ
+Nɛgɛ
+Argent
+Lithium
+Phosphate
+Calcaire
+Marbre
+Kaolin
+Bauxite
+Manganèse
+Uranium
+Diamant
+Cuivre
+Plomb
+Zinc
+Gypse
+Sable
+Gravier

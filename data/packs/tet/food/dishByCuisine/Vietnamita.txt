@@ -1,0 +1,12 @@
+---
+description: Vietnamese cooking is a Dili restaurant cuisine of the last two decades. The names are left in their Vietnamese romanisation without the tone marks, which is how they are printed on menus here and how a Tetum speaker would read them aloud; the diacritics that matter in Tetum are the acutes marking final stress, and a Vietnamese tone mark carries no information in that system, so it is dropped rather than kept as ornament. Kafé sua da is the exception on the list, and the first word is Portuguese café respelled: coffee is the one thing Timor exports and the one loan every speaker owns, so a Vietnamese iced coffee is named with a Tetum word and a Vietnamese one side by side. Note that Vietnamita is invariable — Tetum does not inflect an adjective for the gender of what it describes.
+locale: tet
+---
+Pho
+Banh mi
+Goi cuon
+Bun cha
+Cha gio
+Com tam
+Bun bo Hue
+Kafé sua da

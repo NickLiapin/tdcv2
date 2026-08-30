@@ -1,0 +1,27 @@
+---
+description: Unit or interior designator on a Frisian address. As in the rest of the Netherlands, a flat is normally numbered with a bare letter or digit welded straight onto the house number - 'Tsjerkestrjitte 12A', 'Tsjerkestrjitte 12-3' - so a spelled-out designator like these turns up mostly on business, institutional and reply post rather than on domestic mail. Two of them repay a look. Souder is the attic, and it is the same word as Dutch zolder and as English solar, the upper chamber of a medieval house, all three descended from Latin solarium, the sun room. Heech and leech are the high and low floors, showing the Frisian vowel against Dutch hoog and laag - but leech is a genuine trap for anyone reading Frisian through Dutch, because it also means empty, so a leech ferdjipping can be the bottom floor or an unoccupied one and Frisians reach for ûnderste when they mean the first of those. Antwurdnûmer is not a floor at all but the business reply number, a postal address whose owner pays for the delivery, which is why a national institution ends up in the same field as a room number.
+locale: fy
+---
+App.
+Appartemint
+Wente
+Keamer
+Etaazje
+Ferdjipping
+Begeane grûn
+Souterrain
+Souder
+Heech
+Leech
+Efter
+Foar
+Bus
+Yngong
+Portyk
+Treppehûs
+Gebou
+Fleugel
+Unit
+Kantoar
+Postbus
+Antwurdnûmer

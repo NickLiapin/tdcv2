@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Ashkenazi Jewish ancestry, named in Tetum. This is the population whose founder mutations are the best characterised of any on earth, and not because the variants are unusual in kind: a defined recessive panel was screened at community scale from the 1970s onward, with counselling offered before marriage rather than after a diagnosis, which is why so many entries here are named diseases rather than named genes. Mutasaun fundadora BRCA1 and BRCA2 are written out as founder mutations instead of as breast cancer because that is the clinically useful thing to record — the same small set of variants recurs, testing for them is cheap, and a negative founder panel is emphatically not a negative gene.
+locale: tet
+---
+Doensa Tay-Sachs
+Doensa Gaucher tipu 1
+Disautonomia familiár
+Doensa Canavan
+Doensa Niemann-Pick tipu A
+Síndrome Bloom
+Defisiénsia fatór XI
+Mutasaun fundadora BRCA1
+Mutasaun fundadora BRCA2
+Mukolipidoze tipu IV
+Doensa Crohn
+Distonia torsaun

@@ -1,0 +1,13 @@
+---
+description: Chinese dishes. Eswatini has had formal diplomatic relations with Taiwan since 1968 and is the last state in Africa to maintain them, which has meant Taiwanese agricultural missions, a technical mission at Malkerns and a small but long-established Chinese-speaking community, alongside more recent mainland Chinese construction and trading firms. Between them they put Chinese restaurants in Mbabane, Manzini and Ezulwini out of proportion to the country's size. The dish names come through English rather than directly from Chinese, which is why the transliterations here follow English spelling with a siSwati class prefix attached rather than pinyin.
+locale: ss
+---
+Ichow mein
+Ifried rice
+Isweet and sour
+Ispring roll
+Idumpling
+Ikung pao inkhukhu
+Iwonton soup
+Ipeking duck
+Imapo tofu

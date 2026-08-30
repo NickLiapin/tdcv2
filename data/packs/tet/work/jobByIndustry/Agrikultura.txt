@@ -1,0 +1,12 @@
+---
+description: Farming jobs, and the first two values encode a distinction the language keeps and English does not. A to'os is a dry garden cut into a hillside, cleared with fire and a bush knife and planted to maize, cassava, beans and coffee; a natar is a flat irrigated paddy planted to rice. They are two different technologies, on two different kinds of ground, with two different calendars, and a great many Timorese households work both — a plot up the slope and a share of paddy below — which is why to'os-na'in and natar-na'in are separate occupations rather than two words for a farmer. Kolledór kafé is seasonal by definition: the harvest pulls families back to Ermera and Letefoho for a few months and empties parts of Dili while it lasts, so an agricultural employment record here is not a year-round one. Ekstensionista agrikultura is the government extension officer posted to a suku, a salaried public job at the point where the ministry meets a subsistence farm, and Tékniku akuakultura belongs to a small but deliberately grown sector of fish ponds and seaweed.
+locale: tet
+---
+To'os-na'in
+Natar-na'in
+Kolledór kafé
+Prosesadór kafé
+Peskadór
+Hakiak animál
+Ekstensionista agrikultura
+Tékniku akuakultura

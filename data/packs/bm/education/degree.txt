@@ -1,0 +1,20 @@
+---
+description: Malian qualifications, which follow the French system and its vocabulary exactly. The `DEF`, the Diplôme d'Études Fondamentales, is the one to know: it closes the nine years of école fondamentale and is the gate to any secondary schooling at all, so it is the qualification most Malians who have a qualification have. The `BAC` follows it and Malian bac results are national news. The LMD reform brought Licence, Master and Doctorat in alongside the older Maîtrise, DEA and DESS, which is why both generations of names appear here — a Malian CV can carry either depending on when its owner studied. `Diplôme d'État` covers the professional health qualifications, which is how most nurses and midwives are certified.
+locale: bm
+---
+DEF
+BAC
+CAP
+BT
+BTS
+DUT
+Licence
+Master
+Doctorat
+Maîtrise
+DEA
+DESS
+Diplôme d'ingénieur
+Diplôme d'État
+Certificat
+Attestation

@@ -1,0 +1,12 @@
+---
+description: Mauritanian food, which is the food of the desert edge and of the Moorish communities who live on both sides of a border that means very little to them. `Zrig` is camel or goat milk thinned with water and sugar, drunk in quantity and offered to a guest before anything else. `Thiéré` is steamed millet couscous, `dattes` come down from the oases, and the meat is roasted whole because a slaughtered animal in a camp has to be eaten. The Malian towns where you will actually meet this cooking are Nioro du Sahel, Timbuktu and Nara, along the old salt and cattle routes.
+locale: bm
+---
+Méchoui de chameau
+Couscous mauritanien
+Thiéré
+Lait de chamelle
+Zrig
+Dattes
+Thé mauritanien
+Poisson séché

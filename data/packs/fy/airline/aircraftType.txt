@@ -1,0 +1,30 @@
+---
+description: Aircraft type. Manufacturer designations are product codes rather than words, so Airbus A320neo and Boeing 787 Dreamliner are written in Frisian exactly as they are everywhere else, and only the vocabulary around them changes - but it changes completely. A fleantúch is an aeroplane, built from fleane, to fly, plus túch, gear or tackle, the same second element that gives wurktúch for a tool; the plural breaks the vowel to fleantugen, which is the ordinary Frisian pattern that also turns beam into beammen and foet into fuotten. The list is deliberately civil, and that is a choice with a local edge, because the only hard runway in Fryslân is Ljouwert Air Base, home to the Royal Netherlands Air Force squadron that flew F-16s for decades and converted to the F-35A from 2019; the noise it makes over the province is a standing item in provincial politics, and none of it belongs in a passenger record. The small end of the list is the part that fits the north: ATR turboprops and Embraer regional jets are the aircraft that actually work Groningen Eelde, and anything with a widebody designation means Schiphol.
+locale: fy
+---
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A321neo
+Airbus A330
+Airbus A330neo
+Airbus A350
+Airbus A380
+Airbus A220
+Boeing 737
+Boeing 737 MAX
+Boeing 747
+Boeing 757
+Boeing 767
+Boeing 777
+Boeing 787 Dreamliner
+Embraer E175
+Embraer E190
+Embraer E195
+Bombardier CRJ200
+Bombardier CRJ900
+ATR 42
+ATR 72
+Cessna Citation
+Beechcraft King Air

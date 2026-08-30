@@ -1,0 +1,20 @@
+---
+description: Social platforms in Mali, ordered by what people actually use. WhatsApp and Facebook are not merely first, they are most of the internet here: many prepaid data bundles are sold specifically for them, so for a large number of users the open web is expensive and those two apps are cheap, which shapes what circulates and how. `Imo` earns its place — it is a video-calling app with almost no Western presence and heavy use across West Africa and among the diaspora, because it works on thin connections. The absence of a Malian platform is itself the fact: every name on this list is foreign, and the country's digital public sphere runs entirely on infrastructure owned elsewhere.
+locale: bm
+---
+WhatsApp
+Facebook
+Messenger
+TikTok
+Instagram
+X
+Snapchat
+YouTube
+Telegram
+LinkedIn
+Imo
+Viber
+Signal
+Likee
+Skype
+Zoom

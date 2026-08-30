@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Mediterranean ancestry, named in Tetum. The group is drawn geographically rather than by nationality because that is how these conditions genuinely distribute: familial Mediterranean fever and the thalassaemias ring the whole basin, northern shore and southern alike, and respect no modern border, which is also why this file overlaps so heavily with the North African and Middle Eastern ones. Favismu is listed beside defisiénsia G6PD rather than folded into it because it is the same enzyme defect meeting one particular trigger, the broad bean, and naming the food was how the condition came to be recognised centuries before anyone could name the enzyme.
+locale: tet
+---
+Beta-talasemia
+Trasu beta-talasemia
+Defisiénsia G6PD
+Febre familiár Mediteráneu
+Doensa Behçet
+Alfa-talasemia
+Favizmu

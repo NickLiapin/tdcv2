@@ -1,0 +1,17 @@
+---
+description: Categories of court case as Uzbek procedure divides them. Фуқаролик иши, жиноят иши and маъмурий иш are the three main tracks; иқтисодий низо goes to the economic court. Ер низоси — land dispute — is a live category in a country where most land is state-owned and held on long lease.
+locale: uz
+---
+фуқаролик иши
+жиноят иши
+маъмурий иш
+иқтисодий низо
+меҳнат низоси
+оилавий низо
+ажрашиш иши
+мерос иши
+уй-жой низоси
+ер низоси
+солиқ низоси
+шартнома бузилиши
+интеллектуал мулк низоси

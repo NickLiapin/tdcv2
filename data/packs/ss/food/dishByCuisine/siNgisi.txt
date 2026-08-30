@@ -1,0 +1,13 @@
+---
+description: English dishes. Eswatini was a British protectorate from 1903 until independence in 1968, and what the administration left behind in the kitchen is narrow but durable: the hotel breakfast, the scone with tea, the roast on a Sunday, and fish and chips in every town. English is still one of the country's two official languages and the language of its courts and its schools, so these dish names are not translated on a menu here — they appear in English exactly as written, which is why this file borrows less than the others do. The custard-and-cake trifle and the steak and kidney pie survive in the older Mbabane hotels and in the golf club at Ezulwini rather than in Swazi homes.
+locale: ss
+---
+Ifish and chips
+Ishepherd's pie
+Iroast beef
+Iyorkshire pudding
+Ifull breakfast
+Iscone
+Ibangers and mash
+Isteak and kidney pie
+Itrifle

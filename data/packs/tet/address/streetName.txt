@@ -1,0 +1,159 @@
+---
+description: Street qualifiers as Timor-Leste forms them; compose after address/streetSuffix, which carries the generic noun. Four wells feed this list. The first is a calendar, and it is a resistance calendar rather than a royal or republican one: 28 de Novembru is the 1975 declaration of independence, which lasted nine days before the invasion, 7 de Dezembru is the invasion itself, 12 de Novembru is the 1991 Santa Cruz cemetery massacre that put the occupation on foreign television and turned international opinion, 30 de Agostu is the 1999 referendum, 20 de Agostu is Falintil's founding and is now veterans' day, and 20 de Maiu is the restoration of independence in 2002 and the national day. The second is the map: the thirteen municipalities and their towns, the mountains — Ramelau, called Tatamailau in Mambai and at 2,986 metres the highest point in the country — and the rivers Loes, Laclo, Seical and Bebui, which run dry for half the year and cut roads in two for the other half. The third is Dili's own quarters, which are what a city address actually names. Mercado Lama, old market, is a good specimen of the layering: Portuguese noun, Indonesian adjective. The fourth is the church, in a country that is around ninety-seven per cent Catholic, and here the respelling shows plainly — saints go through the Tetum rules to give San Antóniu, Saun Jozé, Santu Agostiñu with nh to ñ, Sagradu Korasaun and Imaculada Konseisaun from coração and conceição by the ão-to-aun rule — while the municipality names beside them keep their conventional colonial spelling, so Liquiçá and Viqueque are not respelled and are not expected to be. Named individuals are deliberately almost absent. The resistance produced figures whose names are on real streets, but a specific national figure belongs to a country pack rather than to a language, and a Tetum list has no business asserting them for every Tetum-speaking record.
+locale: tet
+---
+20 de Maiu
+28 de Novembru
+30 de Agostu
+12 de Novembru
+7 de Dezembru
+20 de Agostu
+Ramelau
+Tatamailau
+Matebian
+Kablaki
+Cablac
+Loes
+Laclo
+Seical
+Bebui
+Baucau
+Maliana
+Suai
+Lospalos
+Same
+Ainaro
+Viqueque
+Oecusse
+Liquiçá
+Manatuto
+Ermera
+Aileu
+Gleno
+Maubisse
+Letefoho
+Balibo
+Batugade
+Venilale
+Ossu
+Laga
+Baguia
+Tutuala
+Com
+Atauro
+Jaco
+Hera
+Metinaro
+Bobonaro
+Atsabe
+Hatolia
+Hatobuilico
+Fatubessi
+Railaco
+Remexio
+Laulara
+Turiscai
+Alas
+Betano
+Natarbora
+Laleia
+Vemasse
+Quelicai
+Lacluta
+Uatolari
+Uatucarbau
+Iliomar
+Luro
+Fuiloro
+Mehara
+Pante Macassar
+Oesilo
+Passabe
+Nitibe
+Bazartete
+Maubara
+Zumalai
+Tilomar
+Colmera
+Lecidere
+Bidau
+Comoro
+Fatuhada
+Bebonuk
+Audian
+Taibesi
+Becora
+Tasi Tolu
+Metiaut
+Manleuana
+Farol
+Vila Verde
+Kampung Alor
+Mandarin
+Motael
+Balide
+Caicoli
+Mercado Lama
+Lahane
+Mascarenhas
+Fomento
+Bemori
+Camea
+Culuhun
+Aimutin
+Bairro Pite
+Santa Cruz
+San Antóniu
+Nosa Senyora Fátima
+Imaculada Konseisaun
+Santu Agostiñu
+Sagradu Korasaun
+Kristu Rei
+Santa Maria
+Saun Jozé
+Saun Juaun
+Saun Pedru
+Lafaek
+Tais
+Uma Lulik
+Ai-Kameli
+Kafé
+Nuu
+Hudi
+Akadiru
+Bee Mos
+Foho
+Tasi
+Rai Foun
+Loro
+Fitun
+Manu Fuik
+Karau
+Ai Funan
+Bee Matan
+Loron Foun
+Fulan
+Naroman
+Nakroman
+Ai Laran
+Tasi Ibun
+Independénsia
+Liberdade
+Unidade
+Dame
+Ukun Rasik An
+Hakotu
+Esperansa
+Fitun Matak
+Konstituisaun
+Demokrasia
+Justisa
+Solidariedade
+Amizade
+Progresu
+Kultura
+Edukasaun
+Juventude
+Repúblika
+Vitória
+Nasionál

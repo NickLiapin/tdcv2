@@ -1,0 +1,44 @@
+---
+description: Medical specialties in West Frisian, following the register the Dutch specialist system actually recognises rather than the English names. Three compounds repay a close reading. Hielkunde is general surgery, from hiel-, to heal, so Eachhielkunde is ophthalmology with each, the Frisian eye, and Kiel-noas-earhielkunde is ENT built from three plain body words — throat, nose and ear, the last spelt exactly as in English. Bernegenêskunde is paediatrics from bern, the child, the word English keeps in Scots bairn. Âldereingenêskunde is elderly-care medicine, from âlderein, the old folk, and it is a separately registered specialty that exists in the Netherlands and almost nowhere else. Fryslân has no academic hospital of its own: its general hospitals stand in Ljouwert, Snits, Drachten and It Hearrenfean, and the nearest university clinic is over the provincial border in Grins.
+locale: fy
+---
+Húsdoktersgenêskunde
+Ynterne genêskunde
+Kardiology
+Longsykten
+Mage-term-leversykten
+Nefrology
+Endokrinology
+Hematology
+Onkology
+Reumatology
+Klinyske ymmunology
+Allergology
+Ynfeksjesykten
+Neurology
+Psychiatry
+Dermatology
+Eachhielkunde
+Kiel-noas-earhielkunde
+Urology
+Gynekology en ferloskunde
+Bernegenêskunde
+Neonatology
+Klinyske geriatry
+Âldereingenêskunde
+Ortopedy
+Hielkunde
+Plastyske sjirurgy
+Faatsjirurgy
+Kardiotorakale sjirurgy
+Neurosjirurgy
+Kakesjirurgy
+Anestesiology
+Spoedeaskjende genêskunde
+Revalidaasjegenêskunde
+Radiology
+Nukleêre genêskunde
+Patology
+Medyske mikrobiology
+Klinyske genetika
+Bedriuwsgenêskunde

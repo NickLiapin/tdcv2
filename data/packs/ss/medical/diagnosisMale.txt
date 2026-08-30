@@ -1,0 +1,34 @@
+---
+description: Diagnosis recorded for a male patient in Eswatini. The occupational block at the end is what distinguishes this list from its counterpart in any European pack. For more than a century Swazi men left for the gold and platinum mines of the Witwatersrand and the Bushveld on annual contracts, and silicosis, mining tuberculosis and noise-induced hearing loss came back with them; a class action settled against South African gold producers in 2019 covers claimants living in Eswatini, and district hospitals here still see the disease in men who last worked underground decades ago. Alcohol-related liver disease is on the list for a related social reason rather than a genetic one, and both facts are properly part of what a male health record in this country contains. Note the register split: a condition with a siSwati name takes one, and a syndrome that arrived with the clinic keeps its English name behind the class 9 i- prefix.
+locale: ss
+---
+Umdlavuza we-prostate
+Kukhula kwe-prostate lokungesiwo umdlavuza
+I-prostatitis
+Umdlavuza wemasende
+I-testicular torsion
+I-epididymitis
+I-varicocele
+I-hydrocele
+I-phimosis
+I-balanitis
+Kugoba kwelitfo lebudvodza
+Kuvaleka kwemtsambo wemchamo
+Kungakhoni kuma kwelitfo lebudvodza
+Kwehla kwe-testosterone
+Sifo sekungatfoli umntfwana kwendvodza
+I-gynaecomastia
+I-Klinefelter syndrome
+I-male breast cancer
+Kuphelelwa tinwele
+I-gout
+I-haemophilia
+Kungaboni imibala
+I-Duchenne muscular dystrophy
+I-abdominal aortic aneurysm
+Umfutfo wengati lophakeme
+Sifo sesibindzi lesibangwa butjwala
+Umdlavuza wemaphaphu
+I-hernia yasesinyeni
+I-silicosis
+Kulahlekelwa kuva kwendlebe emsebentini

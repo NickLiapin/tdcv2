@@ -1,0 +1,11 @@
+---
+description: Handball positions in French, listed in the order a Malian coach names them across the court from left to right behind the goalkeeper. Handball is a school and university sport in Mali rather than a mass spectator one, run through the fédération and played mostly in Bamako and the regional capitals, and the women's game is stronger than the men's. Note that `Pivot` appears here and in basketball meaning two entirely different roles — the handball pivot works with his back to goal inside the defensive wall.
+locale: bm
+---
+Gardien
+Ailier gauche
+Arrière gauche
+Demi-centre
+Pivot
+Arrière droit
+Ailier droit

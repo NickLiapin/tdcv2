@@ -1,0 +1,48 @@
+---
+description: Core verbs in the -моқ dictionary form. Бўлмоқ (to be) and қилмоқ (to do) head the list and between them build a large part of the language: Uzbek forms hundreds of compound verbs by putting a noun in front of қилмоқ. The -моқ ending is the citation form only; a real sentence never uses it bare.
+locale: uz
+---
+бўлмоқ
+қилмоқ
+бермоқ
+олмоқ
+келмоқ
+бормоқ
+кетмоқ
+турмоқ
+ўтирмоқ
+ётмоқ
+юрмоқ
+югурмоқ
+кўрмоқ
+қарамоқ
+эшитмоқ
+тингламоқ
+гапирмоқ
+айтмоқ
+сўрамоқ
+жавоб бермоқ
+билмоқ
+ўрганмоқ
+ўқимоқ
+ёзмоқ
+ишламоқ
+ўйнамоқ
+емоқ
+ичмоқ
+пиширмоқ
+ювмоқ
+киймоқ
+ечмоқ
+очмоқ
+ёпмоқ
+бошламоқ
+тугатмоқ
+кутмоқ
+топмоқ
+йўқотмоқ
+сотмоқ
+сотиб олмоқ
+ташимоқ
+қўймоқ
+кўтармоқ

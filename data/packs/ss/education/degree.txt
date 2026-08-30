@@ -1,0 +1,20 @@
+---
+description: Qualification awarded in Eswatini. Almost every value is a loan and that is honest: the University of Eswatini at Kwaluseni and Luyengo, Eswatini Medical Christian University and the technical colleges confer degrees under English names, and no siSwati equivalent has been coined or would be recognised on a certificate. The list runs from the trade certificate upward rather than from the doctorate down, because that is the order of the numbers: far more Swazi students leave with a trade certificate or a teaching certificate than with a bachelor's degree, and the country's scholarship scheme has historically sent its postgraduates abroad, mostly to South Africa and the United Kingdom.
+locale: ss
+---
+Sitifiketi sekuphotfula libanga leshumi
+Sitifiketi
+Sitifiketi sekusebenta ngetandla
+Sitifiketi lesiphakeme
+Sitifiketi sekufundzisa
+Sitifiketi sekwelapha
+Idiploma
+Idiploma yebunesi
+Idiploma lephakeme
+Iasosiyethi digri
+Ibhaselozi
+Ibhaselozi lenehonasi
+Iposigraduweyithi diploma
+Imastasi
+Imastasi yetekuphatsa
+IPhD

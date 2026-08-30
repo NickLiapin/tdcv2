@@ -1,0 +1,34 @@
+---
+description: Spice and culinary herb in Eswatini. Most of this list is loanwords and that is honest rather than lazy: traditional Swazi cooking seasons with salt, with the sourness of fermentation and with the fat of the meat itself, and the spice rack arrived with Indian traders, Portuguese Mozambique and the supermarket. Three entries are genuinely local and they are the interesting ones. Umsuzwane is fever tea, Lippia javanica, brewed as an infusion and burned to keep mosquitoes off. Umhlonyane is African wormwood, Artemisia afra, the most widely used medicinal plant in southern Africa. Impepho, everlasting, is not cooked at all — it is burned as incense to call on the ancestors, and it appears on this list because it is a dried plant kept in the same place in the house, not because it flavours food. Ipelepele lasePeri is the Mozambican bird's-eye chilli that crosses the border with the peri-peri chicken it is made into.
+locale: ss
+---
+Pelepele lomnyama
+Pelepele lobovu
+Ligalikhi lelogayiwe
+Ijinja
+Ikhari
+Isinamoni
+Ikhlovu
+Ikhadamomu
+Inatimegi
+Ithamu
+Licembe lelibhayi
+Iromari
+Iseji
+Iphasili
+Ikhoriyanda
+Ikhumini
+Iphaprika
+Itumeriki
+Ifenela
+Imasitedi
+Isafroni
+Umsuzwane
+Iminti
+Ibhesili
+Iorigano
+Imbewu yesesame
+Umhlonyane
+Impepho
+Ipelepele lasePeri
+Sawoti lenetinongo

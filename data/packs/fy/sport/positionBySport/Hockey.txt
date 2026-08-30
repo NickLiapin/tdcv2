@@ -1,0 +1,15 @@
+---
+description: Positions in field hockey (West Frisian). Hockey borrows its shape from football, so the names are the football ones with two differences: the goalkeeper is the keeper rather than the doelman, because the English word came in with the sport and stayed, and the sweeper behind the defence is the lêste man, literally the last man - lêste is the Frisian for last, cognate with English last where Dutch has laatst. Hockey in Fryslân is a town sport rather than a village one, concentrated in Ljouwert, Drachten and It Hearrenfean, which is why it has no Frisian-only vocabulary the way keatsen does.
+locale: fy
+---
+Keeper
+Lêste man
+Sintrale ferdigener
+Rjochtsback
+Linksback
+Kontrolearjende middenfjilder
+Sintrale middenfjilder
+Oanfallende middenfjilder
+Rjochtsbûten
+Linksbûten
+Spits

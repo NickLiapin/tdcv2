@@ -1,0 +1,13 @@
+---
+description: Italian dishes reaching Tetum through Portuguese, which is why they are spelled the way they are rather than the way an Italian would write them. Lasanha becomes lasaña and bolonhesa becomes boloñeza, both on the rule that writes the Portuguese digraph nh as ñ. Espageti keeps the Portuguese esparguete only loosely, since the word was reshaped by ear. Calzone becomes kalzone, c before a written k, the same step that turns casa into kaza. Rizotu ends in -u because Tetum has no unstressed final o and every Portuguese word ending that way is rewritten. Pizza is left alone: it came late enough, and through enough English, to survive intact, and it is now the standard order at the pizzerias along the Dili waterfront.
+locale: tet
+---
+Pizza
+Espageti boloñeza
+Lasaña
+Karbonara
+Rizotu
+Ravioli
+Minestrone
+Tiramisú
+Kalzone

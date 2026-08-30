@@ -1,0 +1,20 @@
+---
+description: French dishes, and this is the one file in the folder that comes out identical to its Dutch counterpart line for line - not through laziness but because French dish names travel as French through every language in Europe, Frisian included. The reason is worth naming, because it explains the whole folder. This vocabulary arrived in a written trade: a menu is a written object, and the written surface of catering in Fryslân is Dutch or French and never Frisian, so no coq au vin was ever going to be reshaped into a Frisian compound. Set that against the farm and kitchen words that keep turning up in the other files here - brea, hin, sop, fleis, bûter, tsiis - which were spoken for a thousand years before anyone in this province wrote them down, and which are precisely the words that differ most from Dutch. What a language writes it borrows whole; what it eats it names itself.
+locale: fy
+---
+Coq au vin
+Boeuf bourguignon
+Ratatouille
+Quiche lorraine
+Soupe a l'oignon
+Bouillabaisse
+Cassoulet
+Confit de canard
+Steak tartaar
+Croque monsieur
+Gratin dauphinois
+Moules marinieres
+Creme brulee
+Tarte tatin
+Profiteroles
+Escargots

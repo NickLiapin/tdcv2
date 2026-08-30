@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Sub-Saharan African ancestry, named in Tetum. A prevalence signal and not an exclusive one — anyone can carry any of these, and most patients of this ancestry carry none of them. Anemia falsiforme and trasu falsiforme head the file because they are the clearest case of the mechanism that produces almost every list in this folder: a variant that is dangerous in two copies protects against falciparum malaria in one, so it rose to high frequency exactly where malaria was worst and stayed there, and the same bargain governs the thalassaemias in the Mediterranean, Southeast Asian and Melanesian files beside it. Trasu is Portuguese traço with the ç written s, and it is the ordinary Tetum word for a trait or a carrier state, which is the distinction this file most needs its reader to keep.
+locale: tet
+---
+Anemia falsiforme
+Trasu falsiforme
+Defisiénsia G6PD
+Nefropatia APOL1
+Kelóide
+Sarkoidoze
+Nefroskleroze ipertensiva
+Mioma uterinu
+Neutropenia étnika benigna
+Intoleránsia laktoze
+Pseudofolikulite barba
+Vitiligu

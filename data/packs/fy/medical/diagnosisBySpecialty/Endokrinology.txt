@@ -1,0 +1,15 @@
+---
+description: Diagnoses seen in endocrinology, in West Frisian. The plain Frisian name for diabetes is sûkersykte, sugar disease, and it is what a patient in Fryslân actually says; the register form Diabetes mellitus is what the file stores, and this list keeps the register form precisely because that gap is the thing the pack is trying to record. Krop is goitre, an ordinary word rather than a clinical one, of the kind that survives in a language spoken far more than it is written. Skyldklier is the thyroid, the shield gland, with the y Frisian writes where Dutch writes ij.
+locale: fy
+---
+Diabetes mellitus type 2
+Diabetes mellitus type 1
+Hypotyreoïdy
+Hypertyreoïdy
+Hashimoto-tyreoïditis
+Krop
+Osteoporoaze
+Syndroom fan Cushing
+Bynierskors-ynsuffisjinsje
+Polysysteus-ovariumsyndroom
+Akromegaly

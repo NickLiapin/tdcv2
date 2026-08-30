@@ -1,0 +1,14 @@
+---
+description: Chinese dishes as an Uzbek menu writes them. Димсам and бао came through English and Russian respectively; цзиаоцзи is a direct rendering of the Mandarin. Пекин ўрдаги is Peking duck with the Uzbek possessive attached to ўрдак.
+locale: uz
+---
+димсам
+пекин ўрдаги
+гунбао товуқ
+чумиза
+кукси
+бао
+сичуан қозони
+цзиаоцзи
+шарбатли товуқ
+япроқли чой

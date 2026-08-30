@@ -1,0 +1,29 @@
+---
+description: Dog breeds. Asu is the dog, one of the oldest words in the language, but the breed vocabulary is entirely borrowed and arrives in two waves that are visible in the spelling. The Portuguese-mediated names are rewritten: caniche gives kanixe and chihuahua gives xiuaua, both on the rule that writes ch as x, with the silent Portuguese hu of the second simply written u; pastor-alemão gives pastór alemaun, an acute on the stressed final syllable and -ão written -aun; São Bernardo gives Saun Bernardu by the same nasal rule plus the unstressed final o; galgo, mastim and buldogue give galgu, mastín and buldoge. The English-era names — Beagle, Boxer, Border collie, Shih tzu, Bull terrier, Golden retriever — come in whole and unaltered, because they arrived after 1999 through a written register that had no reason to adapt them. That split down the middle of a single list is the clearest picture in this pack of how a loan's age shows in its spelling.
+locale: tet
+---
+Labradór retriever
+Pastór alemaun
+Golden retriever
+Buldoge fransés
+Buldoge inglés
+Kanixe
+Beagle
+Rottweiler
+Dachshund
+Boxer
+Husky siberianu
+Doge alemaun
+Dobermann
+Pastór australianu
+Border collie
+Xiuaua
+Shih tzu
+Lulu Pomeránia
+Korgi
+Boiadeiru Berna
+Galgu
+Mastín
+Bull terrier
+Saun Bernardu
+Dálmata

@@ -1,0 +1,13 @@
+---
+description: Italian dishes. Ipizza and ipasta are the two entries on this whole set of files that a Swazi child is most likely to name without prompting, because they arrived through South African franchises rather than through Italian migration and are now ordinary town food. The loanword shape is worth a look: siSwati permits no consonant cluster at the start of a syllable and no word-final consonant, so spaghetti keeps its shape only because it already ends in a vowel, while a word like risotto passes through unchanged for the same reason. Words that do not fit acquire a vowel, which is why so many borrowings in this pack end in one that the source language never had.
+locale: ss
+---
+Ipasta
+Ipizza
+Ilasagne
+Irisotto
+Ispaghetti bolognese
+Iminestrone
+Ignocchi
+Icarbonara
+Itiramisu

@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Indigenous American descent, in West Frisian. A prevalence signal, not an exclusive one. Ynheems is the Frisian for indigenous and it opens with yn-, the regular Frisian treatment of a Dutch or Latin in-, the same prefix that gives ynformaasje, ynfeksje and ynterne. What is gathered here is metabolic rather than single-gene: gallstones, fatty liver, type 2 diabetes and the kidney disease that follows it travel together, and they travel with diet and body weight quite as much as with descent. Galstiennen shows stien, the Frisian stone, whose plural breaks its vowel to stiennen.
+locale: fy
+---
+Diabetes mellitus type 2
+Galstiennen
+Diabetyske nefropaty
+Reumatoïde artritis
+Net-alkoholyske leverferfetting
+Metabool syndroom

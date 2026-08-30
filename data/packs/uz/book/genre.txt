@@ -1,0 +1,30 @@
+---
+description: Book genres in Uzbek, with the classical forms first. Достон is the long narrative poem, ғазал the lyric form Navoiy perfected, and рубоий the quatrain. These are not historical curiosities in a school syllabus; they are live categories in a bookshop. Халқ оғзаки ижоди — oral folk creation — is the shelf that holds the epics.
+locale: uz
+---
+роман
+қисса
+ҳикоя
+шеърий тўплам
+достон
+ғазал
+рубоий
+драма
+эссе
+мемуар
+таржимаи ҳол
+тарихий роман
+детектив
+саргузашт
+фантастика
+фантазия
+қўрқинчли адабиёт
+севги романи
+болалар адабиёти
+эртаклар
+халқ оғзаки ижоди
+дарслик
+илмий адабиёт
+илмий-оммабоп адабиёт
+луғат
+диний адабиёт

@@ -1,0 +1,31 @@
+---
+description: Diagnoses for a female patient record, a shorter working list than the full female diagnosis file. It mixes the gynaecological core with the general conditions that dominate women's health statistics in Uzbekistan: iron deficiency anaemia, thyroid hyperplasia, and type 2 diabetes.
+locale: uz
+---
+Эндометриоз
+Бачадон миомаси
+Аденомиоз
+Тухумдон кистаси
+Поликистоз тухумдон синдроми
+Сут бези фиброкистоз касаллиги
+Сут бези саратони
+Бачадон бўйни саратони
+Тухумдон саратони
+Бачадон тушиши
+Аёллар бепуштлиги
+Гестацион диабет
+Преэклампсия
+Ҳомиладорлик анемияси
+Климактерик синдром
+Остеопороз
+Дисфункционал бачадон қонаши
+Вулвовагинит
+Мастопатия
+Артериал гипертензия
+Қалқонсимон без гиперплазияси
+Темир танқислиги анемияси
+Сурункали цистит
+Мигрен
+Ревматоид артрит
+Веналар варикози
+2-тур қандли диабет

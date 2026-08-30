@@ -1,0 +1,34 @@
+---
+description: Seasonings, and the Malian ones at the head are not spices in the European sense. `Sumbala` is fermented néré, `Nɛrɛmugu` is the sweet yellow flour from inside the same pod, and `Foronto` is chilli — between them they do most of the work that a European spice rack does, alongside salt and onion. `Kɔgɔ`, salt, has a history the others do not: it came south by camel in slabs cut at the Saharan mines of Taghaza and later Taoudénit, was worth its weight against gold at the Timbuktu end of the trade, and the azalai caravan that carries it still runs. `Bouillon cube` is on the list because it belongs there — the stock cube arrived in the twentieth century and has become genuinely universal in West African cooking, to the point that its brand names are household words.
+locale: bm
+---
+Foronto
+Kɔgɔ
+Nɛrɛmugu
+Sumbala
+Poivre
+Piment en poudre
+Gingembre
+Ail en poudre
+Cumin
+Coriandre
+Curry
+Cannelle
+Clou de girofle
+Muscade
+Poivre de Guinée
+Oseille de Guinée
+Laurier
+Thym
+Persil
+Menthe
+Basilic
+Anis
+Fenouil
+Sésame
+Tamarin en poudre
+Bouillon cube
+Vinaigre
+Moutarde
+Safran
+Kinkeliba

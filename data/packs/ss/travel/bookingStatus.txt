@@ -1,0 +1,15 @@
+---
+description: Booking status in siSwati. Every value is a verb in a completed tense rather than an adjective, which is how the language reports a state: kucinisekisiwe is "it has been made certain", from kucina, to be firm, through the causative kucinisekisa. Note kungeniwe and kuphunyuliwe for check-in and check-out — literally "there has been entering" and "there has been leaving", impersonal forms with no subject at all, which siSwati uses where English needs a dummy "it". Akazange afike, "he or she did not arrive", is the one value with a person in it, and it carries no gender, because siSwati marks none anywhere in its pronoun or verb system.
+locale: ss
+---
+Kucinisekisiwe
+Kulindzelwe
+Kulindzelwe kukhokha
+Kuhleliwe eluhlwini lwekulindza
+Kungeniwe
+Kuphunyuliwe
+Kucedziwe
+Lusuku lutjintjiwe
+Kukhanselwe
+Imali ibuyiselwe
+Akazange afike

@@ -1,0 +1,12 @@
+---
+description: Australia is the nearest neighbour, the largest source of aid and the country where much of the diaspora spent the occupation years, so Australian food here is not a novelty but a returning habit: Darwin is a shorter flight from Dili than Jakarta, and families move between the two. Meat pie, fish and chips and the barbecue came with the troops of 1999 and with the contractors after them, and they kept their English names because the whole English layer of Tetum did. Lamingtón is the one entry rewritten, taking the acute that Tetum puts on a stressed final syllable. Flat white is on the list on purpose: Timorese arabica from Ermera and Maubisse is roasted and poured in Australian cafés, and the country's best-known export comes back to it as a menu item.
+locale: tet
+---
+Meat pie
+Fish and chips
+Barbecue
+Steak sandwich
+Lamingtón
+Pavlova
+Vegemite
+Flat white

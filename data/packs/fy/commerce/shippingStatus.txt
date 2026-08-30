@@ -1,0 +1,16 @@
+---
+description: Shipping status (West Frisian). Ôfjûn by de buorlju is a normal successful outcome and not an exception: a Dutch carrier hands a parcel to a neighbour by default when nobody answers the door, and the tracking page reports it as delivered. Buorlju is worth a note of its own - lju is the Frisian word for people, an old plural that has no singular behind it and turns up again in wurklju, workmen, and jonge lju, young people, where Dutch would need mensen. Adres ferkeard is where a Frisian dataset needs care a Dutch one does not: place names in Fryslân exist in a Frisian and a Dutch form and both are official, with several municipalities having registered the Frisian form as the legal one, so a parcel to Frjentsjer, Ljouwert or Snits is the same parcel as one to Franeker, Leeuwarden or Sneek, and an address checker loaded with only one of the two lists will reject perfectly valid addresses as unknown.
+locale: fy
+---
+Label oanmakke
+Ûnderweis
+Wurdt hjoed levere
+Levere
+Ôfjûn by de buorlju
+Probleem by it ferfier
+Retoer ôfstjoerder
+Klear om op te heljen
+Fertrage
+By de dûane
+Adres ferkeard
+Besoargingspoging mislearre

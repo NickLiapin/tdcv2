@@ -1,0 +1,23 @@
+---
+description: Legal term in siSwati. The pair ummangali and ummangalelwa is the clearest lesson in the file: both are built on kumangala, to complain or to be astonished, with the class 1 um- prefix, and the second adds the applied-passive ending -elwa so that it means "the one complained about". Plaintiff and defendant are therefore one word apart in siSwati, differing only by that suffix, where English uses two unrelated Latin borrowings — and a config that truncates either value produces the other party. Umtsetfo wesiko, customary law, and umtsetfosisekelo, the constitution, name the two authorities that Eswatini's dual legal system runs on; the second is a compound of umtsetfo, law, and sisekelo, foundation.
+locale: ss
+---
+Ummeli
+Umahluleli
+Ummangali
+Ummangalelwa
+Fakazi
+Ubufakazi
+Sifungo
+Licala
+Sicelo
+Sitatimende
+Sinqumo
+Sigwebo
+Kuboshwa
+Kuhlawuliswa
+Inkhululeko ngebheyili
+Kwedluliselwa kwelicala
+Sivumelwane
+Umtsetfo wesiko
+Umtsetfosisekelo

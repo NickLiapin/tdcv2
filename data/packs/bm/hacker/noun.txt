@@ -1,0 +1,41 @@
+---
+description: Technical nouns. The first four are the loans that HAVE been naturalised into Bambara, and they show the reshaping rule clearly: French ordinateur becomes `ɔridinatɛri` and téléphone becomes `telefɔni`, because Bambara syllables end in a vowel or a nasal and a cluster like -rd- has to be broken with an epenthetic vowel; internet becomes `ɛntɛrinɛti` for the same reason. Those four exist in Bambara because ordinary people talk about them. Everything below stays French because only specialists talk about it, and the specialists were trained in French — there is no Bambara word for a load balancer because there is no Bambara conversation that needs one.
+locale: bm
+---
+Ɔridinatɛri
+Ɛntɛrinɛti
+Telefɔni
+Pɔrogaramu
+serveur
+client
+base de données
+table
+requête
+index
+clé
+enregistrement
+champ
+fichier
+répertoire
+chemin
+mémoire
+cache
+processeur
+cœur
+fil
+processus
+bus
+réseau
+protocole
+port
+paquet
+routeur
+commutateur
+pare-feu
+mandataire
+charge
+bande passante
+latence
+sauvegarde
+conteneur
+grappe

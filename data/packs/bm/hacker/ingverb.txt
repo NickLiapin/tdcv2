@@ -1,0 +1,32 @@
+---
+description: Technical verbs in the present participle, for progress messages and log lines, in French. The form is worth a note for anyone comparing this file with its English counterpart: French makes the participle in -ant where English makes it in -ing, and Bambara does neither — a Bambara progressive is built with the predicate marker `bɛ` before the verb and the postposition `la` after it, so what English packs into one word and French into one suffix, Bambara spreads across the clause. That is the structural reason this file is not in Bambara: a Bambara progressive is not a word and cannot be a list entry.
+locale: bm
+---
+compilant
+indexant
+chiffrant
+déchiffrant
+compressant
+décompressant
+téléchargeant
+téléversant
+sauvegardant
+restaurant
+analysant
+filtrant
+routant
+transférant
+synchronisant
+redémarrant
+déployant
+migrant
+formatant
+partitionnant
+authentifiant
+autorisant
+journalisant
+surveillant
+optimisant
+déboguant
+testant
+publiant

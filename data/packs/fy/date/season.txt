@@ -1,0 +1,8 @@
+---
+description: Season (West Frisian, lowercase). Maitiid is literally May-time, and it is the ordinary word for spring where Dutch has lente and English has a word for a water source; Frisian keeps the month inside the season. As in Dutch there is a second pair built on jier, foarjier and neijier, used in weather reports and business language (neijiersnota, foarjiersskjinmeitsjen) beside maitiid and hjerst in speech, but only the four canonical values are listed here. Simmer and winter are the plain North Sea Germanic words and sit closer to English summer and winter than to Dutch zomer, and hjerst against Dutch herfst shows the je-glide that runs right through Frisian and never appears in Dutch at all - the same one in hjoed (today), hjir (here) and tsjerke (church).
+locale: fy
+---
+maitiid
+simmer
+hjerst
+winter

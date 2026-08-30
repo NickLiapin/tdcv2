@@ -1,0 +1,32 @@
+---
+description: Trees, and ai-kameli is first because sandalwood is why anyone outside the archipelago ever wrote the name of this island down. Chinese traders were coming for Timorese sandalwood by the fourteenth century and Portuguese ships followed them for it in the sixteenth; the fragrant heartwood went to India and China for incense, carving and oil, and four hundred years of cutting stripped the stands almost completely, so that the tree is now protected, scarce, and slow enough growing that replanting is measured in generations rather than seasons. Ai-kafé took its place as the export: arabica planted on the Portuguese estates of Ermera and Letefoho is the country's dominant non-oil earner, and the Hibridu de Timor found growing here — a natural cross of arabica with the robusta species — is the ancestor of much of the world's leaf-rust-resistant coffee. Akadiru is the lontar palm, tapped for the sap that becomes tua mutin and distilled into tua sabu, and its leaves are the material of the woven pouch and the roof. Au is bamboo, the tube that tukir is cooked in and the frame of the uma lulik. Note the prefix ai-, tree, at the head of half these names; where it is absent — nuu, hudi, kulu, akadiru, sukaer, mangas — the word is old enough to have never needed it. The final block is the introduced and the European, respelled from Portuguese: carvalho gives karvallu, pinheiro gives piñeiru, cerejeira gives serejeira and castanheiro gives kastañeiru.
+locale: tet
+---
+Ai-kameli
+Ai-kafé
+Akadiru
+Nuu
+Hudi
+Ai-teka
+Ai-dila
+Sukaer
+Ai-samtuku
+Ai-bubur
+Mangas
+Ai-parak
+Ai-nitas
+Eukaliptu
+Kazuarina
+Mangue
+Kulu
+Au
+Karvallu
+Piñeiru
+Sedru
+Salgueiru
+Oliveira
+Laranjeira
+Serejeira
+Kastañeiru
+Palmeira
+Figueira

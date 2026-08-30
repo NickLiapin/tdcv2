@@ -1,0 +1,21 @@
+---
+description: Video-game genres in French. The order is not alphabetical and not arbitrary: football sits third because in Mali it is not a subgenre of sport but the category itself. FIFA and PES are what the salles de jeux run, what the tournaments are played on, and what the word game means to most young Malians — a genre list that buries football inside sport is describing somewhere else. Everything below simulation is a minority taste played mostly on phones, since the platform that reached Mali at scale is Android and not the console.
+locale: bm
+---
+Action
+Aventure
+Football
+Sport
+Course
+Tir
+Stratégie
+Rôle
+Combat
+Plateforme
+Réflexion
+Simulation
+Gestion
+Survie
+Horreur
+Musique
+Éducatif

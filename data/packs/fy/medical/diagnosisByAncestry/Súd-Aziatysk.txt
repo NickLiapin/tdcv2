@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of South Asian descent, in West Frisian. A prevalence signal, not an exclusive one. The first three entries carry the clinical point of the whole file: coronary disease and type 2 diabetes arrive roughly a decade earlier and at a lower body weight in South Asian patients than in the northwest European patients a Frisian clinic is calibrated on, which is why abdominal obesity at a normal body-mass index is listed as a line of its own. Betiid is the Frisian for early, one of the words that parts company with Dutch vroeg entirely rather than by a letter or two.
+locale: fy
+---
+Betiid optredende diabetes mellitus type 2
+Betide koronêre hertsykte
+Abdominale obesitas by in normale body-mass-index
+Metabool syndroom
+Fitamine D-brek
+Bèta-talassemy minor
+Glukoaze-6-fosfaatdehydrogenasebrek
+Reumatyske hertsykte

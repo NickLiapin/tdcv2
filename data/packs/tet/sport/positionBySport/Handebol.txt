@@ -1,0 +1,11 @@
+---
+description: Handball positions. Seven on court, hence seven entries. Handball reached Timor-Leste through the school curriculum rather than through any club tradition, which is why the vocabulary is textbook Portuguese and why the sport is played almost entirely by students. The list shows Tetum's left and right doing duty twice over, on the backs and on the wings — laterál karuk and ponta karuk against laterál loos and ponta loos — and it is a compact illustration that a Tetum modifier always follows its noun, never precedes it.
+locale: tet
+---
+Guarda-redes
+Laterál karuk
+Laterál loos
+Sentrál
+Ponta karuk
+Ponta loos
+Pivó

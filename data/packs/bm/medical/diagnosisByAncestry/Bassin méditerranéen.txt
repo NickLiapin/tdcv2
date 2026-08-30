@@ -1,0 +1,11 @@
+---
+description: Conditions more frequent around the Mediterranean basin. The thalassaemia and G6PD entries share one cause: both variants persist because they blunt falciparum malaria, which was endemic along these coasts until the twentieth century — the same selective pressure that shaped the sub-Saharan list, acting on different genes.
+locale: bm
+---
+Bêta-thalassémie
+Trait bêta-thalassémique
+Déficit en G6PD
+Fièvre méditerranéenne familiale
+Maladie de Behçet
+Alpha-thalassémie
+Favisme

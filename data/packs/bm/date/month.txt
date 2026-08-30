@@ -1,0 +1,16 @@
+---
+description: The months in Bambara, and every one of them is French respelled to Bambara phonology by the 1967 orthography — janvier becomes zanwuye because Bambara has no v and no final r, avril becomes awirili, octobre becomes ɔkutɔburu. That is honest rather than lazy: the Gregorian calendar arrived with the colonial administration and the school, and there was no Bambara solar month to borrow, because the year was reckoned by the four agricultural seasons and by the Islamic lunar months. They stay lowercase, as month names do in French and as Bambara treats common nouns. In running speech a Malian usually appends `kalo`, the word for both moon and month, so zanwuyekalo, the month of January.
+locale: bm
+---
+zanwuye
+feburuye
+marisi
+awirili
+mɛ
+zuwɛn
+zuluye
+uti
+sɛtanburu
+ɔkutɔburu
+nowanburu
+desanburu

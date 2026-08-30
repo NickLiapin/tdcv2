@@ -1,0 +1,12 @@
+---
+description: How a book is physically issued. Қаттиқ муқовали and юмшоқ муқовали are hard and soft cover; чўнтак нашри is the pocket edition. Қўлёзма — manuscript — is last but not ornamental: Uzbekistan's manuscript collections are among the largest in the Islamic world and a library catalogue really does use this value.
+locale: uz
+---
+қаттиқ муқовали
+юмшоқ муқовали
+чўнтак нашри
+электрон китоб
+аудиокитоб
+совғабоп нашр
+суратли нашр
+қўлёзма

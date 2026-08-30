@@ -1,0 +1,24 @@
+---
+description: Transport jobs. Учувчи is the pilot and бортпроводник the cabin crew member. Темирйўлчи is the railway worker as a single word, and божхона брокери the customs broker — a large profession in a doubly landlocked country where everything crosses at least two borders.
+locale: uz
+---
+ҳайдовчи
+юк машинаси ҳайдовчиси
+автобус ҳайдовчиси
+такси ҳайдовчиси
+машинист
+темирйўлчи
+учувчи
+бортпроводник
+диспетчер
+логист
+экспедитор
+божхона брокери
+автомеханик
+шинамонтаж устаси
+кран оператори
+юк ортувчи
+йўл назоратчиси
+транспорт менежери
+маршрут тузувчи
+автопарк бошлиғи

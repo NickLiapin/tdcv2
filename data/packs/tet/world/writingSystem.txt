@@ -1,0 +1,24 @@
+---
+description: Writing systems. Tetum uses the first entry on the list, and the version it uses was only settled recently: the Instituto Nacional de Linguística fixed the standard orthography in 2004, after decades in which Tetum was written to Portuguese conventions by the Church and to Indonesian ones by the schools, which is why older Tetum texts spell the same word three ways. The standard uses the acute accent to mark a stressed final syllable (ospitál, kafé, profesór), the letter ñ for the sound Portuguese writes nh, doubled ll for Portuguese lh, and the apostrophe for a glottal stop, which is a real consonant in Tetum and distinguishes words — be'e water is not bee. The letters c, q, w and y appear only inside unassimilated foreign names, so a Tetum word with a c in it is either a place name or a spelling from before 2004.
+locale: tet
+---
+Alfabetu latinu
+Alfabetu siríliku
+Alfabetu gregu
+Alfabetu árabe
+Alfabetu ebraiku
+Alfabetu armeniu
+Alfabetu jorjianu
+Eskrita xinéza (han)
+Hiragana
+Katakana
+Hangul
+Devanágari
+Eskrita tailandeza
+Eskrita tibetana
+Eskrita etíope (ge'ez)
+Silabáriu xeroki
+Eskrita maia
+Eskrita bengali
+Eskrita tamil
+Alfabetu glagolítiku

@@ -1,0 +1,31 @@
+---
+description: Diagnoses that occur only or overwhelmingly in women, in West Frisian. Four words carry most of the lesson. Baarmoer is the womb: Frisian drops the -der that Dutch keeps in baarmoeder, so cervical cancer is baarmoerhalskanker and a prolapse is fersakking fan 'e baarmoer, written with the elided article 'e that Frisian uses after a preposition. Swangerskip is pregnancy, and its ending is the point - Frisian -skip is the same suffix as English -ship, as in freonskip and friendship, where Dutch has -schap, so gestational diabetes is swangerskipsdiabetes. Skede, the vagina, opens with the sk- cluster Frisian kept and Dutch turned into sch-, the same opening as skiep (sheep), skoalle (school) and skip (ship). And fleisbeammen, literally flesh-trees, is the vernacular name for uterine fibroids; its plural shows brekking, the vowel alternation Frisian makes between singular and plural, so one is a beam and several are beammen, never beamen. Aaistok, the ovary, is built on aai, an egg. The remaining forms follow the regular loan rules: v becomes f (vulvodynie to fulvodyny), c becomes k or s (pre-eclampsie to pre-eklampsy, polycysteus to polysysteus), -ssie becomes -sje (depressie to depresje), -ie becomes -y and Dutch oo becomes oa (syndroom to syndroam, dysfoor to dysfoar, endometriose to endometrioaze). Boarst is the breast, which is why the cancer is boarstkanker and mastitis boarstûntstekking.
+locale: fy
+---
+Baarmoerhalskanker
+Aaistokkanker
+Baarmoerkanker
+Boarstkanker
+Endometrioaze
+Fleisbeammen
+Polysysteus-ovariumsyndroam
+Bekkenûntstekking
+Skedeûntstekking
+Bakteriële faginoaze
+Fulvodyny
+Menopauze
+Oergongsklachten
+Premenstrueel syndroam
+Premenstrueel dysfoar syndroam
+Dysmenorroe
+Menorragy
+Amenorroe
+Swangerskipsdiabetes
+Pre-eklampsy
+Hyperemesis gravidarum
+Postpartumdepresje
+Boarstûntstekking
+Fersakking fan 'e baarmoer
+Ûnfruchtberens by de frou
+Bûtenbaarmoerlike swangerskip
+Fibrosysteuze boarstôfwiking

@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in siSwati, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories. Almost every value opens with ase-, which is the locative e- fused with the possessive -a-: it means "of the place", and it is the same e- that gives the country its name, since eSwatini is "at the place of the Swazi" and needs no separate word for "the". Two values step outside the pattern because the population is not named by a place: EmaJuda ase-Ashkenazi takes the class 6 people-prefix ema-, and Bomdzabu base-Amelika uses bo- with mdzabu, origin or root, for the indigenous peoples of the Americas.
+locale: ss
+---
+Ase-Afrika lengaphansi kweSahara
+Ase-Afrika lesenyakatfo
+AseMedithera
+AseMbindzi-Mpumalanga
+AseYurophu lesenyakatfo
+AseYurophu lesempumalanga
+EmaJuda ase-Ashkenazi
+Ase-Asia leseningizimu
+Ase-Asia lesempumalanga
+Ase-Asia lesempumalanga-ningizimu
+Bomdzabu base-Amelika
+AseTichingini teLwandle iPasifiki

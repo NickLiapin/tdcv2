@@ -1,0 +1,21 @@
+---
+description: Video game genres in Uzbek. Native words do most of the work — отишма for shooter, пойга for racing, жумбоқ for puzzle, омон қолиш for survival — while ролли ўйин and симулятор came through Russian. Кўп ўйинчили онлайн is the local phrasing for multiplayer online.
+locale: uz
+---
+ҳаракат
+саргузашт
+ролли ўйин
+стратегия
+симулятор
+спорт ўйини
+пойга
+жангари
+отишма
+жумбоқ
+платформер
+омон қолиш
+очиқ дунё
+кўп ўйинчили онлайн
+карточка ўйини
+мантиқий ўйин
+қўрқинчли ўйин

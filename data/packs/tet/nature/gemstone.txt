@@ -1,0 +1,29 @@
+---
+description: Gemstones, and the honest thing to say about this list is that it is a borrowed vocabulary for a borrowed category. Timor has no cutting trade and no tradition of faceted stones; the objects a family keeps locked in the uma lulik and brings out for a marriage are metal and shell — the belak, a silver or gold chest disc, the kaibauk crescent worn on the head, and morteen, the old coral and glass trade beads that were currency in the sandalwood years and are still counted out in a barlake settlement. Those are not on this list because they are not gemstones in the sense the list means, and their absence is the point. Two entries were built in Tetum rather than borrowed: fatuk-fulan is the moonstone, fatuk stone and fulan moon, and agua-mariña is aquamarine with marinha rewritten as mariña on the nh rule. Otherwise the rules run as usual — topázio gives topáziu, citrino gives sitrinu, turquesa gives turkeza, zircão gives zirkaun, quartzo gives kuartzu, and coral takes an acute on its stressed final syllable to give korál.
+locale: tet
+---
+Diamante
+Rubí
+Safira
+Esmeralda
+Ametista
+Topáziu
+Opala
+Granada
+Agua-mariña
+Peridotu
+Turkeza
+Jade
+Ónix
+Pérola
+Sitrinu
+Tanzanita
+Turmalina
+Fatuk-fulan
+Zirkaun
+Lápis-lazúli
+Ámbar
+Korál
+Malakite
+Kuartzu roza
+Obsidiana

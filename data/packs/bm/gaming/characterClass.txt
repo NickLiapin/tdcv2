@@ -1,0 +1,28 @@
+---
+description: Character classes, in French, and the reason there is no Bambara here is worth stating plainly: this vocabulary arrived fully formed with imported games and has never been translated, because the games themselves are played in French or English. Where Malians play is more interesting than what they play — the household console is rare and the shared one is not, so a great deal of gaming happens in a `salle de jeux`, a room with a television and a PlayStation charging by the half-hour, and on phones. FIFA and PES dominate to a degree that makes the fantasy vocabulary below a minority interest.
+locale: bm
+---
+Guerrier
+Mage
+Archer
+Voleur
+Paladin
+Prêtre
+Chasseur
+Assassin
+Barbare
+Nécromancien
+Druide
+Moine
+Sorcier
+Chevalier
+Berserker
+Éclaireur
+Ingénieur
+Alchimiste
+Invocateur
+Tireur d'élite
+Tank
+Soigneur
+Soutien
+Chasseur de primes

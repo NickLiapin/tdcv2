@@ -1,0 +1,14 @@
+---
+description: Fuel type (West Frisian). Pumps here are labelled by octane rather than by brand words - Euro 95, now sold as E10, and Euro 98 are the two petrol grades and benzine is the generic - and LPG is still ordinary in the Netherlands while it has almost vanished from most of Europe. Two Frisian words carry their own weight: wetterstof is hydrogen, literally water-stuff, the same calque Dutch and German make but built on the Frisian wetter that stands beside English water; and ierdgas is earth-gas, on ierde, the earth, the same first element as in ierappel, the potato. Gas is not a neutral word in this province, either: the Grinzer gas field next door and the drilling under the Waadsee are a live political argument here rather than an energy statistic.
+locale: fy
+---
+Benzine
+Euro 95 (E10)
+Euro 98
+Diesel
+Elektrysk
+Hybride
+Plug-in hybride
+Wetterstof
+LPG
+CNG (ierdgas)

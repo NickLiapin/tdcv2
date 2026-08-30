@@ -1,0 +1,16 @@
+---
+description: Month abbreviation in siSwati. Two of the twelve nearly collide: iNdlovana and iNdlovulenkhulu, February and March, share their first six letters because they are the little and the great elephant of the same wet season, so the cut has to fall at the seventh — Ndlova against Ndlovu — where an ordinary three-letter abbreviation would produce the same string twice and silently merge two months. Bhimbidvwane and Mabasa keep their own initial letters because neither takes a class prefix; the rest are cut from the stem after the initial vowel, which is the part that carries the meaning.
+locale: ss
+---
+Bhim
+Ndlova
+Ndlovu
+Mab
+Nkhwe
+Nhla
+Khol
+Ngci
+Nyoni
+Mpha
+Lweti
+Ngon

@@ -1,0 +1,30 @@
+---
+description: Diagnoses for a male patient record. The urological core comes first — prostate, testes, fertility — followed by the general conditions with a male skew in Uzbek statistics: ischaemic heart disease, gastric ulcer, gout, chronic bronchitis, tuberculosis.
+locale: uz
+---
+Простата бези гиперплазияси
+Простатит
+Простата бези саратони
+Мояк саратони
+Варикоцеле
+Гидроцеле
+Фимоз
+Крипторхизм
+Эректил дисфункция
+Эркаклар бепуштлиги
+Гипогонадизм
+Пейрони касаллиги
+Артериал гипертензия
+Юрак ишемик касаллиги
+2-тур қандли диабет
+Сурункали гастрит
+Ошқозон яраси
+Подагра
+Буйрак тоши касаллиги
+Сурункали бронхит
+Ўпка эмфиземаси
+Бел остеохондрози
+Анемия
+Гепатит B
+Сил касаллиги
+Ёғли гепатоз

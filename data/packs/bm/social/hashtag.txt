@@ -1,0 +1,34 @@
+---
+description: Hashtag words a Malian post actually carries, given without the # so a template can add it. They are written in the French spelling of Malian names rather than in the official Bambara orthography, and that is deliberate and true to practice: a hashtag has to be typeable, and ɛ ɔ ɲ ŋ are not on a default phone keyboard, so #Segou reaches people and #Segu does not. The same pressure has kept Malian written Bambara online in an improvised French-based spelling for twenty years, quite separate from the 1967 standard taught in literacy classes. `MaliKura` — the new Mali — is a real and heavily contested political slogan rather than a tourism tag.
+locale: bm
+---
+Mali
+Bamako
+Ségou
+Mopti
+Tombouctou
+MaliKura
+Faso
+Jamana
+Wasulu
+Mandingue
+Ntolatan
+AiglesDuMali
+StadeMalien
+Djoliba
+Ataya
+Grin
+Bogolan
+Bazin
+Sumu
+Tabaski
+Ramadan
+Sanankuya
+Jeliya
+Kora
+Sikasso
+Kayes
+Gao
+Niger
+Sahel
+Bamanankan

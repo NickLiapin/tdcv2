@@ -1,0 +1,16 @@
+---
+description: Jobs in transport. Skipper is on this list for a reason a road map hides: Fryslân was moved by water long before it was moved by tarmac, the province is laced with fearten and meren that were dug or joined as freight routes, and inland skippers still work charter and cargo out of Ljouwert and Snits. Loftferkearslieder, the air traffic controller, is built on loft, the Frisian for air, and lieder, a leader, and the province has the traffic to justify it: the air base at Ljouwert is one of the two Dutch F-35 stations. Masinist covers a train driver as well as any machine operator, and it comes from masine, where Frisian writes a plain s for the French ch that Dutch keeps in machine.
+locale: fy
+---
+Frachtweinsjauffeur
+Logistyk koördinator
+Loftferkearslieder
+Transportplanner
+Ferkearspiloat
+Magazynmeiwurker
+Bussjauffeur
+Masinist
+Ekspediteur
+Heftruksjauffeur
+Koerier
+Skipper

@@ -1,0 +1,44 @@
+---
+description: Languages as named in Tetum, and the list is a map of one of the sharpest linguistic seams on earth. The constitution gives Tetun and Portugés official status, names Indonézia and Inglés as working languages, and then recognises around fifteen further national languages, all of which appear here. Most of them are Austronesian, kin to Tetum and through it to Malay, Malagasy and Hawaiian — Mambai, Kemak, Tokodede, Galoli, Baikeno, Idalaka, Naueti, Waima'a, Kairui, Midiki, Habun, Lolein, and the Atauru island varieties Rahesuk, Resuk, Raklungu and Dadu'a. But Fataluku, Makasae, Bunak and Makalero are not. They are Papuan languages, part of the Timor-Alor-Pantar family, related to the languages of New Guinea and not to Tetum at all, and they are spoken by hundreds of thousands of people in Lautém, Baucau, Viqueque and the Bobonaro highlands. Two unrelated language families interleaved across an island the size of Wales is why Timor is a genuine seam rather than a dialect continuum, and it is why a Timorese speaker's second language is so often Tetum by necessity: it is nobody's rival and everybody's bridge. Tetun Terik is listed apart from the Tetun of this pack because they are not the same register — Terik is the older rural variety of the south coast, morphologically fuller and not the creolised city speech of Dili. The world languages that close the list are the ones a Timorese form would actually offer, led by the neighbours and the diaspora destinations.
+locale: tet
+---
+Tetun
+Tetun Terik
+Portugés
+Indonézia
+Inglés
+Mambai
+Makasae
+Baikeno
+Kemak
+Bunak
+Tokodede
+Fataluku
+Galoli
+Idalaka
+Naueti
+Waima'a
+Kairui
+Midiki
+Makalero
+Makuva
+Habun
+Rahesuk
+Raklungu
+Resuk
+Dadu'a
+Sa'ani
+Lolein
+Xinés
+Hakka
+Malaiu
+Filipinu
+Koreanu
+Japonés
+Fransés
+Espanyol
+Árabe
+Hindi
+Tailandés
+Vietnamita
+Alemaun

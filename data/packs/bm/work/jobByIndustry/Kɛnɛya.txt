@@ -1,0 +1,16 @@
+---
+description: Health jobs, and the file splits exactly where the Malian health system does. The Bambara half is the community tier: `sigida kɛnɛya baarakɛla` is the village health worker who staffs the CSCom, `denwolo dɛmɛbaga` is the birth attendant — the matrone, who delivers most babies outside the towns — `furakɛlikɛla` is a healer and `fura feerekɛla` the medicine seller in the market, who is where a great many Malians go first. The French half is the certified tier: `Médecin`, `Sage-femme`, `Infirmier`, `Pharmacien` and the rest are diplomas issued in French by the USTTB in Bamako, written in French on a badge, and they stay that way here because that is what the qualification is called.
+locale: bm
+---
+Dɔgɔtɔrɔ
+Furakɛlikɛla
+Fura feerekɛla
+Denwolo dɛmɛbaga
+Kɛnɛya baarakɛla
+Sigida kɛnɛya baarakɛla
+Médecin généraliste
+Chirurgien
+Sage-femme
+Infirmier
+Pharmacien
+Technicien de laboratoire

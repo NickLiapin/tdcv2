@@ -1,0 +1,17 @@
+---
+description: Mobile and broadband plan type (West Frisian). Sim only is the dominant contract form in this market and the reason is legal rather than commercial: since 2016 a phone bundled into a subscription counts as consumer credit under Dutch law and has to be registered with the credit bureau, which pushed almost everyone into buying the handset separately. Alles-yn-1 is the standard bundle of internet, television and telephony. The Frisian forms to note are ûnbeheind for unlimited, on the ûn- prefix that does the work of Dutch on- and English un-, gesinsbondel for a family plan, and opwurdearje, to top up - literally to up-value, the same verb Frisian uses for revaluing anything.
+locale: fy
+---
+Prepaid
+Abonnemint
+Sim only
+Ûnbeheind
+Allinne data
+Gesinsbondel
+Dielde bondel
+Saaklik abonnemint
+Betelje per gebrûk
+Fêst taryf
+Moannebondel
+Opwurdearje
+Alles-yn-1

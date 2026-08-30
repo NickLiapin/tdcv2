@@ -1,0 +1,26 @@
+---
+description: Metal in siSwati. Two of these have indigenous names and the rest are loans, which is exactly what the archaeology predicts. Insimbi is iron, and it is an old word carried south with Bantu-speaking farmers who brought smelting into the region before the first millennium was out; the same word now also means a bell and, in a common extension, any hard metal thing. Litfusi is copper, worked and traded long before Europeans arrived. Everything after them entered with the mining industry and the chemistry classroom and takes the class 9 i- prefix. Eswatini's own mineral history sits behind this list: iron ore at Ngwenya, gold at Piggs Peak and Forbes Reef, asbestos at Bulembu, coal at Maloma, and a century of Swazi men on contract in the gold and platinum mines across the border.
+locale: ss
+---
+Igolide
+Isiliva
+Litfusi
+Insimbi
+Insimbi lecinile
+Ialuminiyamu
+Ithini
+Ilothi
+Izinki
+Inikeli
+Ikhrome
+Imanganizi
+Ikhobalti
+Ithithaniyamu
+Iplathinamu
+Ipaladiyamu
+Imekhuri
+Ibhrasi
+Ibhronzi
+Iyureniyamu
+Ithangsteni
+Ilithiyamu

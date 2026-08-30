@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Sub-Saharan African descent, in West Frisian. A prevalence signal and not an exclusive one: anyone can have these, and most patients of this ancestry have none of them. Sikkelselsykte and Sikkelseldragerskip show two pieces of the language at once — sel is the cell, with the borrowed c gone the way every Frisian c goes, and -skip is the state-of suffix that English writes -ship, so carrier status comes out as carrier-ship. Brek at the end of a name is simply the Frisian for a shortage, and it does in four letters the work Dutch spends deficiëntie on.
+locale: fy
+---
+Sikkelselsykte
+Sikkelseldragerskip
+Glukoaze-6-fosfaatdehydrogenasebrek
+APOL1-assosjearre nefropaty
+Keloïdfoarming
+Sarkoïdoaze
+Hypertensive nefroskleroaze
+Fleesbeammen
+Benigne etnyske neutropeny
+Laktoaze-yntolerânsje
+Pseudofolliculitis barbae
+Vitiligo

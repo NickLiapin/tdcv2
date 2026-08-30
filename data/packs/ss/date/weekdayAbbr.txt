@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation in siSwati. The abbreviation has to cut into the STEM rather than the prefix, because the prefix is the part every ordinal day shares: Lesibili, Lesitsatfu, Lesine and Lesihlanu are identical for their first three letters, so an abbreviation taken from the front would give four identical columns. Cutting after the concord — Sib, Sits, Sine, Sihl — keeps them apart. Monday and Saturday abbreviate from their own stems, and liSontfo is shortened to Son, the same three letters that abbreviate the week itself, since liviki and liSontfo both do duty for "week" in ordinary speech.
+locale: ss
+---
+Mso
+Sib
+Sits
+Sine
+Sihl
+Mgci
+Son

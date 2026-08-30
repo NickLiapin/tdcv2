@@ -1,0 +1,24 @@
+---
+description: Household budget category in Eswatini. Two lines here would not appear on a European list and they are among the largest real items in a Swazi household. Kutfumela imali ekhaya is remittance — money sent from a worker in Manzini or across the border in South Africa to the rural homestead that raised them, and for a great many families it is the main income rather than a transfer out of surplus. Imicimbi nemingcwabo, ceremonies and funerals, is a standing budget line rather than an occasional shock: funerals are large, frequent and expensive obligations, and the burial societies that spread the cost are among the most widespread savings institutions in the country. Iphalafini negesi is on the list because a majority of rural homesteads cook and light with one or the other rather than with electricity.
+locale: ss
+---
+Kudla
+Kurenta indlu
+Emagetsi
+Emanti
+Iphalafini negesi
+Kuhamba
+Emafutsa etimoto
+Imfundvo
+Temphilo
+Timphahla tekugcoka
+Ifoni ne-inthanethi
+Umshuwalense
+Kukhokha sikweleti
+Kugcinwa kwemali
+Impesheni
+Kutfumela imali ekhaya
+Imicimbi nemingcwabo
+Kutivocavoca nekuphumula
+Kunakekelwa kwemuti
+Intsela

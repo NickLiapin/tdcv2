@@ -1,0 +1,23 @@
+---
+description: Types of property. Ҳовли — the walled courtyard house — is first because it is the most common form of Uzbek housing, and хусусий уй is the detached house without the courtyard plan. Янги қурилган квартира and иккиламчи бозор квартираси split the flat market into new build and resale, which is how it is advertised.
+locale: uz
+---
+ҳовли
+хусусий уй
+квартира
+студия квартира
+янги қурилган квартира
+иккиламчи бозор квартираси
+таунҳаус
+коттеж
+дала ҳовли
+ер участкаси
+томорқа
+офис
+дўкон
+савдо майдони
+омбор
+ишлаб чиқариш биноси
+гараж
+меҳмонхона биноси
+қурилиши тугалланмаган объект

@@ -1,0 +1,19 @@
+---
+description: Order return reason (West Frisian). Under the EU and Dutch herroepingsrjocht a buyer may send an online purchase back within fourteen days without giving any reason at all, so Fan gedachten feroare is a legally complete entry here rather than the thin excuse it would read as elsewhere. Three lines carry Frisian words a Dutch reader will misjudge. Flater is the ordinary, neutral word for a fault or defect where Dutch would say fout, so fabrikaazjeflater is a manufacturing fault; Dutch does have flater, but it means a public blunder, which makes it a false friend rather than a shared word. Earne oars is somewhere else, built on earne, a word for somewhere that Dutch lost and replaced with ergens. And let is late - the English word, against Dutch laat - so Te let levere is a delivery running behind and has nothing to do with the Dutch laten it looks like.
+locale: fy
+---
+Skansearre oankommen
+Ferkeard produkt ûntfongen
+Komt net oerien mei de omskriuwing
+Ferkearde maat
+Fan gedachten feroare
+Earne oars goedkeaper fûn
+Fabrikaazjeflater
+Ûnderdielen ûntbrekke
+Te let levere
+Net mear nedich
+Per ûngelok besteld
+Kwaliteit falt tsjin
+Kleur wykt ôf fan de foto
+Net kompatibel
+Dûbele bestelling

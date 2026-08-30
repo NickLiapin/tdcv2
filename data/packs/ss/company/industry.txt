@@ -1,0 +1,59 @@
+---
+description: Industry in siSwati — the FULL list, of which work/industryCoherent is the ten-value subset this pack ships job titles for. Every value is the te- possessive, "matters of", attached to an infinitive or a noun, which is the construction Eswatini uses for a government ministry and has carried into every sector name. The composition of the list is the country's: tekulima kwemoba, sugar cane growing, is separated from general agriculture because sugar is Eswatini's largest export, largest private employer and the reason three company towns exist; tekwenta shukela is the milling that follows it; tekugawula tihlahla is the Usutu pine and eucalyptus plantations; and tekumba covers coal at Maloma, iron at Ngwenya and the quarries, which is what remains of a mining industry that once ran an asbestos mine at Bulembu among the largest in the world.
+locale: ss
+---
+Tekulima
+Tekulima kwemoba
+Tekulima titselo
+Tekufuya
+Tekugawula tihlahla
+Tekumba
+Tekukhicita
+Tekwenta shukela
+Tekwenta emafutsa
+Tekwenta emaphepha
+Tekwenta tinsimbi
+Tekwenta tipulasitiki
+Tekutfunga
+Tekwakha
+Tekwakha imigwaco
+Tekulinganisa umhlaba
+Tekutsengisa
+Tekutsengisa kudla
+Tekutsengisa timoto
+Tekutsengisa tindlu
+Tekutsengisa emafutsa
+Tekutsengiselana nemave langaphandle
+Tetimali
+Tekubhanga
+Tekushuwalensa
+Tekubalwa kwetimali
+Tekuhamba
+Tekutfutfwa kwemphahla
+Tekugcina timphahla
+Tekuvakasha
+Tekuhlala kwetivakashi
+Tekudla netiphuzo
+Tekuhlela imicimbi
+Temfundvo
+Temphilo
+Temitsi
+Tekuchumana
+Buchwepheshe
+Tekusakata
+Temaphephandzaba
+Tekushicilela
+Tekukhangisa
+Temtsetfo
+Tekweluleka
+Tekuphatsa timphahla
+Temagetsi
+Temanti
+Tekuhlanta indzawo
+Tekulungisa imishini
+Tekulungisa timoto
+Tekuphepha
+Tekugadza
+Tekuhlanganisa imininingwane
+Tekucwaninga
+Tembusave

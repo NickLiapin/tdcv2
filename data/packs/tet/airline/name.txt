@@ -1,0 +1,54 @@
+---
+description: Airlines. The head of the list is short because Timor-Leste's connectivity is: Aero Dili and Air Timor are the national carriers, and scheduled international service out of Dili has for most of the last two decades meant Denpasar, Singapore and Darwin and nothing else — three doors, all of them narrow, which is why a Timorese itinerary to Lisbon runs to five sectors and why the diaspora in Portugal travels rarely. Airnorth's Darwin service is the shortest hop, under ninety minutes, and it is the route the country's medical evacuations use. The Indonesian carriers below them matter more than their share of Dili slots suggests, because the overland crossing at Batugade and the Oecusse ferry feed passengers into Kupang and onward on domestic Indonesian tickets. The rest are the second-leg carriers a Timorese passenger connects to at Bali, Singapore and Darwin.
+locale: tet
+---
+Aero Dili
+Air Timor
+Airnorth
+Qantas
+Jetstar
+Citilink
+Batik Air
+Lion Air
+Wings Air
+Sriwijaya Air
+NAM Air
+TransNusa
+Garuda Indonesia
+Super Air Jet
+Singapore Airlines
+Scoot
+Malaysia Airlines
+AirAsia
+Cebu Pacific
+Philippine Airlines
+Thai Airways
+Bangkok Airways
+Vietnam Airlines
+VietJet Air
+Cathay Pacific
+China Airlines
+EVA Air
+Korean Air
+Asiana Airlines
+All Nippon Airways
+Japan Airlines
+Air China
+China Southern Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+Turkish Airlines
+TAP Air Portugal
+Lufthansa
+Air France
+KLM
+British Airways
+Virgin Australia
+Rex Airlines
+Air New Zealand
+Fiji Airways
+Air Niugini
+Nauru Airlines
+Solomon Airlines
+United Airlines

@@ -1,0 +1,23 @@
+---
+description: Film genre in siSwati, built the same way as the game genres: emafilimu plus a possessive saying what the films are of. Emafilimu emasiko, films of custom, is a category with no European counterpart and a real audience here — dramatised documentary and feature work about Umhlanga, Incwala, lobola and chieftaincy, made for local broadcast. Emafilimu edzaba lelicinisile, "films of the true story", is documentary, and the phrase says something about how the form is understood. Note that Eswatini's own film production is very small; most of what a Swazi audience watches is South African, Nigerian or American, and Nollywood in particular has an audience here out of proportion to anything the categories on this list suggest.
+locale: ss
+---
+Emafilimu ekuhlekisa
+Emafilimu ekulwa
+Emafilimu elutsandvo
+Emafilimu ekwesabisa
+Emafilimu ekulindzela
+Emafilimu ekuphenya emacala
+Emafilimu emlandvo
+Emafilimu esayensi
+Emafilimu enganekwane
+Emafilimu ebantfwana
+Emafilimu emidvwebo
+Emafilimu edzaba lelicinisile
+Emafilimu emculo
+Emafilimu elimphi
+Emafilimu enhlalo
+Emafilimu etingoti
+Emafilimu emasiko
+Emafilimu ekukhutsata
+Emafilimu enkholo

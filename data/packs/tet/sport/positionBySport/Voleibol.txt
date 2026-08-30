@@ -1,0 +1,9 @@
+---
+description: Volleyball positions. This is the sport with the widest geographic spread in Timor-Leste, because it needs a net, a ball and a patch of level ground and nothing else, and a net strung between two posts is one of the commonest sights in a village square from Maliana to Lospalos; church and school teams play it and so do the mixed teams at a suku festival. Líberu is the defensive specialist in the different shirt, and the word is Portuguese líbero with the unstressed final o written u, the change that runs through this whole pack.
+locale: tet
+---
+Levantadór
+Ponteiru
+Sentrál
+Opostu
+Líberu

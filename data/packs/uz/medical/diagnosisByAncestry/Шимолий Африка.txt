@@ -1,0 +1,10 @@
+---
+description: Conditions carried more often in North African populations. G6PD deficiency and beta thalassaemia are frequent along the whole Mediterranean coast, and familial Mediterranean fever reaches from here to the Caucasus.
+locale: uz
+---
+Г6ФД етишмовчилиги
+Бета талассемия
+Оилавий Ўрта ер денгизи иситмаси
+Ўроқсимон ҳужайрали белги
+Лактоза интолеранси
+Фенилкетонурия

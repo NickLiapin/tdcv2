@@ -1,0 +1,32 @@
+---
+description: Verbs in the progressive, and the mechanism is the whole reason this file is interesting. Tetum has no participle and no -ndo ending; it marks an action in progress by putting the particle hela after the verb, so kopia hela is copying and kompila hela is compiling. Hela on its own means to stay or to remain, and the grammar is transparent: the action stays. Because the verb itself never changes shape, every line here is the corresponding line of hacker/verb.txt with one word added, which is exactly what a Portuguese or English list cannot do — comprimir and comprimindo differ in the stem, komprime and komprime hela do not. Note that hela follows the whole verb phrase, so backup, borrowed straight from English, sits inside it: halo backup hela.
+locale: tet
+---
+halo backup hela
+kontorna hela
+hakea hela
+anula hela
+komprime hela
+kopia hela
+navega hela
+indexa hela
+konekta hela
+jera hela
+kuantifika hela
+kalkula hela
+sintetiza hela
+introdús hela
+transmite hela
+programa hela
+reinisia hela
+analiza hela
+enkripta hela
+dezenkripta hela
+implementa hela
+kompila hela
+depura hela
+otimiza hela
+sinkroniza hela
+virtualiza hela
+enkamiña hela
+monitoriza hela

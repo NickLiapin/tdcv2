@@ -1,0 +1,24 @@
+---
+description: Mining jobs. Uzbekistan's mining sector is built around Muruntau, one of the largest open pit gold mines in the world, and the titles reflect open-cast work: карьер устаси, экскаватор машинисти, самосвал ҳайдовчиси. Маркшайдер is the mine surveyor, a German word that came through Russian.
+locale: uz
+---
+кон муҳандиси
+геолог
+маркшайдер
+бурғуловчи
+портлатувчи
+бойитиш оператори
+кончи
+карьер устаси
+лаборант
+металлург
+минералог
+гидрогеолог
+кон электрчиси
+экскаватор машинисти
+самосвал ҳайдовчиси
+техника хавфсизлиги муҳандиси
+смена бошлиғи
+кончилик технологи
+намуна олувчи
+кон диспетчери

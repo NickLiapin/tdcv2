@@ -1,0 +1,16 @@
+---
+description: Hospitality and tourism jobs in Eswatini. Tekuvakasha is "matters of visiting", from kuvakasha, to pay a visit — which is a gentler and more social root than the English tourism, and it covers a relative arriving for a funeral as readily as a foreigner arriving for a holiday. The industry is real and concentrated: the Ezulwini valley between Mbabane and Lobamba holds most of the hotels and the casinos, Mlilwane, Hlane and Mkhaya hold the game, Mantenga holds the cultural village, and the whole sector's biggest weeks of the year are Umhlanga in late August and the Bushfire festival at Malkerns in May. Note umgcini wemasango, the gatekeeper, which is a real post at every reserve and every lodge rather than a metaphor.
+locale: ss
+---
+Umphatsi wehhotela
+Umamukeli wetivakashi
+Umpheki
+Umpheki lomkhulu
+Umsizi wempheki
+Umphakeli wekudla
+Umgcini webha
+Umhlanti wetindlu
+Umkhombisi wetivakashi
+Umeluleki wetekuvakasha
+Umphatsi wendlu yekudlela
+Umgcini wemasango

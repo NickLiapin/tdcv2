@@ -1,0 +1,54 @@
+---
+description: Airlines an Uzbek passenger meets, with the home carriers first. Company names are registered trademarks and keep their Latin spelling on the ticket and the tail fin, so this file stays Latin even in a Cyrillic pack. The domestic block reflects a market that only opened after 2019, when the national carrier lost its monopoly.
+locale: uz
+---
+Uzbekistan Airways
+Qanot Sharq
+Centrum Air
+Silk Avia
+Turkish Airlines
+Aeroflot
+S7 Airlines
+Ural Airlines
+Pobeda
+Air Astana
+FlyArystan
+Somon Air
+Turkmenistan Airlines
+Azerbaijan Airlines
+Georgian Airways
+Belavia
+flydubai
+Emirates
+Qatar Airways
+Etihad Airways
+Air Arabia
+Saudia
+Korean Air
+Asiana Airlines
+China Southern Airlines
+Air China
+Lufthansa
+Jazeera Airways
+LOT Polish Airlines
+Wizz Air
+Ryanair
+easyJet
+British Airways
+Air France
+KLM
+Iberia
+ITA Airways
+Austrian Airlines
+Swiss International Air Lines
+Finnair
+SAS
+Aegean Airlines
+Pegasus Airlines
+IndiGo
+Air India
+Thai Airways
+Singapore Airlines
+Japan Airlines
+Vietnam Airlines
+Malaysia Airlines

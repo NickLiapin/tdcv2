@@ -1,0 +1,16 @@
+---
+description: Jobs in Mali's technology sector, and the register is almost entirely French because the sector is: the training, the documentation and the client contracts are all in it, and there is no Bambara word for a systems administrator because there is no Bambara conversation that has needed one. The three Bambara values at the head are the part of the trade that meets the public — `Ɔridinatɛri dilanbaga` and `Telefɔni dilanbaga` are the repairers whose stalls line every Bamako market, working on machines nobody in Europe would still be mending, and `Ɛntɛrinɛti feerekɛla` is the seller of data bundles and airtime, which is how most Malians buy their connectivity, in small prepaid amounts from a person rather than a portal.
+locale: bm
+---
+Ɔridinatɛri dilanbaga
+Telefɔni dilanbaga
+Ɛntɛrinɛti feerekɛla
+Développeur logiciel
+Développeur web
+Administrateur systèmes
+Administrateur réseau
+Analyste de données
+Technicien informatique
+Webmaster
+Infographiste
+Chef de projet informatique

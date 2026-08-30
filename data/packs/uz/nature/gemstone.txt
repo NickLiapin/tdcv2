@@ -1,0 +1,29 @@
+---
+description: Gemstones and ornamental stones. Фируза — turquoise — leads, and it is the stone of the region: the domes of Samarkand are its colour and the name of the colour in most European languages comes from the trade route. Ложувард is lapis lazuli, mined just across the Afghan border at Sar-e-Sang for six thousand years.
+locale: uz
+---
+фируза
+ложувард
+ақиқ
+яшма
+марварид
+олмос
+зумрад
+ёқут
+лаъл
+аметист
+топаз
+гранат
+малахит
+опал
+сапфир
+оникс
+маржон
+каҳрабо
+турмалин
+цитрин
+нефрит
+обсидиан
+йўлбарс кўзи
+хризолит
+тоғ хрустали

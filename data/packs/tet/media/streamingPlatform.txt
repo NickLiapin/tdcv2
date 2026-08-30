@@ -1,0 +1,16 @@
+---
+description: Streaming services. The set differs from a Portuguese one because Timor-Leste's media market is fed from Southeast Asia rather than from Europe or Brazil: Vidio and Viu are the Indonesian and pan-Asian services that carry the dubbed drama a Timorese audience actually watches, and they sit here where a pt list carries Globoplay and Pluto TV. The practical caveat is bandwidth. Fixed broadband barely exists outside Dili, mobile data is bought in small prepaid increments, and most video consumption is therefore downloaded, side-loaded from a memory card or watched on someone else's connection, so a Timorese streaming record models an intention more than a habit.
+locale: tet
+---
+Netflix
+Disney+
+Amazon Prime Video
+Max
+Apple TV+
+Paramount+
+YouTube
+Vidio
+Viu
+Crunchyroll
+Spotify
+Twitch

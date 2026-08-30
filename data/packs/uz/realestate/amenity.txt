@@ -1,0 +1,26 @@
+---
+description: What a property listing advertises. The utilities come first because they cannot be taken for granted: марказий сув таъминоти against қудуқ суви, марказий иситиш against индивидуал иситиш. Тандир and ҳовуз are selling points on a courtyard house, and узумзор — a vine trellis — genuinely appears in listings.
+locale: uz
+---
+марказий сув таъминоти
+қудуқ суви
+канализация
+табиий газ
+марказий иситиш
+индивидуал иситиш
+кондиционер
+иссиқ сув
+электр қуввати
+телефон линияси
+интернет
+ҳовли
+боғ
+томорқа
+узумзор
+гараж
+автотураргоҳ
+айвон
+тандир
+сауна
+ҳовуз
+қўриқланадиган ҳудуд

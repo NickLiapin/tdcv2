@@ -1,0 +1,16 @@
+---
+description: The state of a property listing. Сотувда and ижарага берилади are the two active states; банд қилинган is reserved. Шошилинч сотув flags an urgent sale, and алмаштирилади offers an exchange rather than a sale, which is still a normal way to move house here.
+locale: uz
+---
+сотувда
+ижарага берилади
+банд қилинган
+захирада
+сотилди
+ижарага берилди
+нарх туширилди
+шошилинч сотув
+алмаштирилади
+текширилмоқда
+эълон тўхтатилди
+архивда

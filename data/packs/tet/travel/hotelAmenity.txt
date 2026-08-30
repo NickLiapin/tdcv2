@@ -1,0 +1,34 @@
+---
+description: Hotel amenities, and two of them are advertised in Timor-Leste for reasons a European list would not produce. Jerador reserva, a standby generator, is a headline feature rather than a footnote: the national grid runs on heavy-fuel-oil plants at Hera and Betano and outages are ordinary, so a hotel that can keep the lights and the air conditioning on says so first. Ekipamentu mergullu is here because diving is the country's real tourism product — the reefs off Atauro island were measured to hold the highest average reef-fish diversity of any site surveyed anywhere, and the dive operators along the Dili waterfront are what brings most leisure visitors in. Matabixu is worth its own note: it is breakfast, and it comes from Portuguese mata-bicho, kill-the-beast, an old colloquialism for the first thing eaten or drunk in the morning that Tetum kept long after Portugal let it fade.
+locale: tet
+---
+Wi-Fi gratuita
+Pisina
+Ar kondisionadu
+Jerador reserva
+Restaurante
+Bar
+Servisu kuartu
+Transporte aeroportu
+Matabixu inklui
+Estasionamentu gratuitu
+Simu animál
+Sentru negósiu
+Portaria
+Servisu lavandaria
+Jakuzi
+Terrasu panorámiku
+Kofre
+Resesaun oras 24
+Sala reuniaun
+Elevadór
+Minibar
+Asesu ba ema ho defisiénsia
+Depózitu bagajen
+Aluga bisikleta
+Zona labarik
+Sauna
+Vista ba tasi
+Kuziña kompletu
+Ekipamentu mergullu
+Gináziu

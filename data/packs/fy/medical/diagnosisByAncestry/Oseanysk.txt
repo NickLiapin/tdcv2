@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Pacific Islander descent, in West Frisian. A prevalence signal, not an exclusive one. Gout is the entry that surprises a European reader: urate handling in Polynesian populations produces some of the highest hyperuricaemia rates measured anywhere, and Jicht, the Frisian name for it, is one of the very few disease words this language and Dutch share unchanged. Reumatyske hertsykte belongs on a modern list because untreated childhood streptococcal throat infection still scars heart valves across the Pacific, a cause that has all but vanished from practice in Fryslân.
+locale: fy
+---
+Diabetes mellitus type 2
+Obesitas-relatearre hege bloeddruk
+Jicht
+Hyperurikemy
+Reumatyske hertsykte
+Kroanyske nierskea

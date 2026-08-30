@@ -1,0 +1,12 @@
+---
+description: Volleyball positions. Боғловчи is the setter — literally the one who ties things together — and either it or разводящий is used depending on the club. Либеро keeps the Italian term the international game uses. Диагонал ҳужумчи is the opposite hitter.
+locale: uz
+---
+боғловчи
+диагонал ҳужумчи
+марказий блокчи
+қанот ҳужумчиси
+либеро
+захира ўйинчи
+бош мураббий
+ҳакам

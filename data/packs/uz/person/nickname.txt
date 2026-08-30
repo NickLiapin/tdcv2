@@ -1,0 +1,28 @@
+---
+description: Short forms and pet names. Uzbek clips a long name to its first syllable and often adds a vowel: Мамат from Муҳаммад, Раҳмат from Раҳматулла, Зулфи from Зулфия. Алик and Рустик carry a Russian diminutive -ик. Жоним and Акажон are affectionate address rather than names.
+locale: uz
+---
+Мамат
+Абди
+Али
+Бахти
+Дони
+Раҳмат
+Хайри
+Зулфи
+Зеби
+Нилу
+Ноди
+Шаҳри
+Тоши
+Холи
+Гуля
+Диля
+Алик
+Рустик
+Бек
+Боти
+Жоним
+Бобо
+Ойи
+Акажон

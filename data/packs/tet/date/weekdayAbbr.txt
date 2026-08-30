@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviations. Tetum cuts to three letters and, as with the months, writes no closing full stop. Kua and Kin carry the k that replaced the Portuguese qu of quarta and quinta, so the substitution survives the clipping, while Ter would hide the s of Tersa and is therefore written Ters here. Sáb keeps its acute because the stress it marks falls inside the clipped form.
+locale: tet
+---
+Dom
+Seg
+Ters
+Kua
+Kin
+Ses
+Sáb

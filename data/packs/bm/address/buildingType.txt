@@ -1,0 +1,36 @@
+---
+description: Building types as a Malian address meets them. The unit that matters is the du, the walled family compound holding several houses round one swept courtyard, and a residential address in Mali points at a du rather than at a flat. So is a house and bon a single room or hut, both ordinary Bambara; bugu is the straw shelter that gave every Bamako quarter ending in -bougou its name. The rest are French, because schools, banks, factories and hospitals arrived with the colonial administration and kept its vocabulary, reshaped to Bambara sound — lakɔli from l'école, lopitali from l'hôpital, farimasi from pharmacie, magazɛn from magasin.
+locale: bm
+---
+So
+Du
+Bon
+Bugu
+Villa
+Immeuble
+Appartement
+Studio
+Bureau
+Hangar
+Butiki
+Magazɛn
+Sugu
+Marché
+Lakɔli
+Kalanso
+Lycée
+Lopitali
+Dɔgɔtɔrɔso
+Farimasi
+Misiri
+Église
+Oteli
+Resitoran
+Banki
+Garasi
+Atelier
+Usine
+Stade
+Bibliothèque
+Musée
+Baarayɔrɔ

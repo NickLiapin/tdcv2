@@ -1,0 +1,16 @@
+---
+description: Legal jobs in Eswatini. Temtsetfo is "matters of the law", from umtsetfo — and note the tf where Zulu writes th in umthetho, one of the clearest markers of this language. Eswatini runs a DUAL legal system and every job on this list sits inside it: Roman-Dutch common law inherited from the protectorate, administered by the High Court and the Supreme Court, alongside Swazi law and custom, administered by chiefs and by the Swazi National Courts under the authority of the King. A dispute over land held in trust by a chief is heard in one system and a commercial contract in the other, so a Swazi lawyer works in two traditions at once. Umahluleli, the judge, is from kwehlulela, to judge or decide, and the same word names a chief hearing a case at his umphakatsi.
+locale: ss
+---
+Ummeli
+Umahluleli
+Umbhali wenkantolo
+Umsolimphikiswano
+Umeluleki wemtsetfo
+Umhloli wemitsetfo
+Liphoyisa
+Umphenyi wemacala
+Umgadzi wejele
+Umbhali wetitsembiso temtsetfo
+Umtolikisi wenkantolo
+Umeluleki wemalungelo ebantfu

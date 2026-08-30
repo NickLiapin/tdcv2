@@ -1,0 +1,12 @@
+---
+description: Time of day (West Frisian). The trap here is moarn, which means both the morning and tomorrow, exactly as Dutch morgen does; Frisian resolves it in speech with moarns for in the morning and moarntiid for the morning itself, so a value drawn from this list beside a date can read as either unless the surrounding text pins it down. Middei is midday and the early afternoon together, jûn is the evening and also the word for a social evening out, and midsnacht is midnight built on mids rather than on midden. Skimer is the half-light at either end of the day and is used far more in Frisian than schemering is in Dutch, because a province of open greide and water has a long one.
+locale: fy
+---
+moarn
+foarmiddei
+middei
+neimiddei
+jûn
+nacht
+midsnacht
+skimer

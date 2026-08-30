@@ -1,0 +1,20 @@
+---
+description: Venue types. Uma lulik is on the list because it belongs there: the sacred house is not a monument but a working building, and a lineage's marriages, reconciliations and harvest rituals are held at it or in the cleared ground in front of it. Tasi-ibun, the beach, is literally sea-mouth or sea-lip, from ibun, the mouth — Tetum forms a great many place words this way, with a body part standing for an edge. The Portuguese-derived entries respell as usual: salão to salaun by the -ão rule, terraço to terrasu with the cedilla going to s, armazém to armazén. What the list does not show is scale: outside Dili and Baucau there is no purpose-built venue of any size, and a conference, a wedding and a funeral will all be held under a tarpaulin erected in a courtyard for the day.
+locale: tet
+---
+Salaun otél
+Sentru konvensaun
+Estádiu
+Teatru
+Salaun banketi
+Terrasu
+Jardín
+Armazén industriál
+Auditóriu
+Diskoteka
+Sala reuniaun
+Uma lulik
+Igreja
+Tasi-ibun
+Muzeu
+Sentru kulturál

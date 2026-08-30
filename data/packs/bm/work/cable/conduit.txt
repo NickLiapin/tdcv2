@@ -1,0 +1,11 @@
+---
+description: How a cable run is carried — the conduit or installation method an electrician or telecom technician records on a job sheet. In Mali distribution is overwhelmingly overhead: EDM-SA strings its low-voltage network on concrete and wooden poles down the middle of the street, and buried runs appear only in ACI 2000, the ministries and the newer Bamako subdivisions, because a trench costs many times what a pole line does. The vocabulary is French throughout, since the trade is taught at the IFP and inspected in French and no Bambara register for it exists; the one Bambara entry is the phrase a crew actually uses, sanfɛ juru, from sanfɛ meaning above and juru meaning cord or wire.
+locale: bm
+---
+Tube PVC
+Goulotte
+Chemin de câbles
+Caniveau
+Regard de câbles
+Tranchée souterraine
+Sanfɛ juru

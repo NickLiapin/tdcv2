@@ -1,0 +1,24 @@
+---
+description: What actually carries a parcel in Timor-Leste, which is why half this list is a vehicle rather than a company. The integrators at the top serve Dili and little else. Below them the list is the real freight network: the mikrolet is the painted minibus that runs fixed city routes and will take a box for a dollar, the angguna is the open pickup that carries sacks, livestock and passengers together up the mountain roads to the districts, the bis is the long-distance coach, and the motorizada does last-mile work in Dili where a van cannot turn. Berlin-Nakroma is the state ferry and it is on a carrier list for a structural reason: Oecusse is an exclave, a piece of Timor-Leste sitting inside Indonesian West Timor with no land route from the rest of the country that does not cross an international border, so freight for Pante Macassar goes by sea from Dili, and the same run serves Atauro. The road network does the rest badly — the coast road washes out in the wet season and a district delivery is measured in days, not hours, which is why entrega loron-hanesan applies inside Dili and nowhere else.
+locale: tet
+---
+Correios Timor-Leste
+DHL
+FedEx
+UPS
+TNT
+Aramex
+Toll
+Berlin-Nakroma
+Dragon Star Shipping
+Ró karga
+Airnorth
+Aviaun karga
+Kamiaun
+Angguna
+Mikrolet
+Bis
+Motorizada
+Pick-up
+Entrega ho liman
+Entrega loron-hanesan

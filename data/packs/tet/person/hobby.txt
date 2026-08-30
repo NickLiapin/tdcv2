@@ -1,0 +1,81 @@
+---
+description: Leisure and interests in Tetum. Most entries are verb phrases rather than nouns, because Tetum forms an activity with halo (do, make), toka (play an instrument), kaer (catch, hold) or sa'e (climb, ride) plus an object, and none of those verbs inflect — halo toos is to garden whoever does it and whenever. Four entries are Timorese dances and they are not folklore exhibits: dahur is the circle dance sung round a courtyard through the night, tebe-tebe the stamping dance that opens and closes ceremonies, likurai the women's drum dance of the Bobonaro border country, and the babadok is the small hand drum all of them are kept in time by. Soru tais is weaving on a backstrap loom, a skill a great many women hold and the source of the cloth that is given at every birth, marriage and death. Futu manu is cockfighting, which is not a curiosity here but one of the most widely attended pastimes in the country, with a betting economy attached to it. Sa'e akadiru is climbing the lontar palm to tap it, the source of tua mutin and of the distilled tua sabu. Kuda kafé and torra kafé are on the list because coffee is the dominant non-oil export and the arabica hillsides of Ermera, Letefoho and Maubisse are where much of the rural population spends the harvest. Arte marsiál is included with a caveat a config author should know: the martial arts groups were a mass youth movement that the state banned in 2013 after they were implicated in organised violence, so the value is real but historically loaded.
+locale: tet
+---
+Futebol
+Futsál
+Voleibol
+Basketbol
+Badminton
+Ténis meza
+Atletizmu
+Korida
+La'o ain
+Bisikleta
+Ginázia
+Boksu
+Arte marsiál
+Karaté
+Taekwondo
+Nani iha tasi
+Mergullu
+Sa'e foho
+La'o ba tasi-ibun
+Akampamentu
+Sa'e motorizada
+Ba ró iha tasi
+Kaer ikan
+Halo bubu
+Futu manu
+Hakiak manu
+Hakiak bibi
+Hakiak karau
+Halo toos
+Kuda modo
+Kuda ai
+Kuda kafé
+Torra kafé
+Hemu kafé
+Sa'e akadiru
+Halo tua mutin
+Te'in
+Halo bolu
+Soru tais
+Suru morteen
+Halo artesanatu
+Halo eskultura ai
+Halo tali
+Pinta
+Dezeña
+Fotografia
+Hakerek poezia
+Hakerek istória
+Lee livru
+Lee jornál
+Aprende lian estranjeiru
+Tuir kursu
+Toka viola
+Toka gitara
+Toka babadok
+Toka orgaun
+Kanta iha koru
+Karaoke
+Rona múzika
+Rona rádiu
+Haree televizaun
+Haree filme
+Dansa
+Dahur
+Tebe-tebe
+Likurai
+Teatru
+Tuir misa
+Halo voluntáriu
+Grupu juventude
+Jogu domino
+Jogu kartas
+Xadrez
+Billar
+Video jogu
+Rede sosiál
+Halo jardín

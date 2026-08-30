@@ -1,0 +1,16 @@
+---
+description: Moving people and goods. Three of the Bambara titles are named after the vehicle: a `sotramabolila` drives the green minibus that is Bamako's real public transport, a `jakartabolila` rides the motorbike taxi, and a `kurunbolila` poles or steers a boat on the Niger — `boli` is to run, and `-la` makes the agent. `Doni tabaga` is the load-taker, the bagagiste who straps parcels to the roof of a coach and is, in effect, the national parcel service. `Wotorobolila` drives a cart, which by number is still the commonest freight vehicle in the country. The French titles are the licensed and bonded end of the business, where a `Transitaire` clears customs on a landlocked country's imports.
+locale: bm
+---
+Mɔbilibolila
+Sotramabolila
+Jakartabolila
+Kurunbolila
+Wotorobolila
+Doni tabaga
+Chauffeur poids lourd
+Convoyeur
+Mécanicien
+Agent de gare routière
+Transitaire
+Pilote de ligne

@@ -1,0 +1,28 @@
+---
+description: Qualifiers written after a Malian name. The first six are Bambara and they solve a real problem: because a first son is routinely given his grandfather's name, a single compound can hold several living people called Mamadou Traoré, and they are told apart by `ba` big and `nin` little, `kɔrɔ` elder and `dɔgɔ` younger — Mamadou ba is the senior of that name in the household and Mamadou nin the junior, exactly the work that Junior and Senior do in English and that the French Fils and Père do on a Malian letterhead. The academic block that follows is French, because Malian qualifications are French: a Diplômé d'État, a DEA or a BTS names a specific rung of the national system, and the anglophone PhD and MBA appear only on the CVs of people who studied abroad.
+locale: bm
+---
+ba
+nin
+kɔrɔ
+dɔgɔ
+den
+fitini
+Fils
+Père
+Junior
+Sénior
+II
+III
+IV
+Dr
+Pr
+Ing.
+Me
+Diplômé d'État
+DEA
+BTS
+CAP
+PhD
+MBA
+MSc

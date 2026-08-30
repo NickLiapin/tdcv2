@@ -1,0 +1,16 @@
+---
+description: Kinds of meeting, in Bambara, on one root: `ɲɔgɔnye`, from `ɲɔgɔn` one another plus `ye` to see — a meeting is a seeing-of-each-other, and the word covers everything from two colleagues to a village assembly. `Ɲɔgɔnye ba` is the big one, the general assembly. `Kunnafoni` is information, so `Baara kunnafoni` is the briefing. `Atelier` is the one value left in French: it is the development sector's word for a workshop, it is said in French inside otherwise Bambara sentences all over Bamako, and it carries a specific format — per diems, a hotel room, a restitution at the end — that the Bambara word would not convey.
+locale: bm
+---
+Ɲɔgɔnye
+Ɲɔgɔnye ba
+Sɔgɔma ɲɔgɔnye
+Dɔgɔkun ɲɔgɔnye
+Kalo ɲɔgɔnye
+Baara kunnafoni
+Ɲɛtaa lajɛ
+Atelier
+Kalanni ɲɔgɔnye
+Ɲɛmɔgɔw ka ɲɔgɔnye
+Baarakɛlaw ka ɲɔgɔnye
+Telefɔni kan ɲɔgɔnye

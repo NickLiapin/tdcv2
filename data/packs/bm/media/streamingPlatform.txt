@@ -1,0 +1,16 @@
+---
+description: Where Malians watch and listen. `Canal+` heads any honest list — the French satellite operator is the dominant paid broadcaster across francophone Africa, sold by decoder and prepaid card, and its African channels carry the football that fills the maquis on a Saturday. `ORTM` is the state broadcaster and still the only channel that reaches the whole country. What is missing matters as much as what is here: bandwidth is expensive and sold in small prepaid bundles, so a great deal of Malian media consumption is not streamed at all but sideloaded — films and music copied between phones by Bluetooth and on memory cards sold at the market, which no platform list can show.
+locale: bm
+---
+Canal+
+Canal+ Afrique
+ORTM
+Netflix
+YouTube
+TikTok
+Facebook
+Showmax
+Prime Video
+Trace
+Deezer
+Spotify

@@ -1,0 +1,11 @@
+---
+description: Weekday names, lower case. They are Persian and they are numbered: душанба is day two, сешанба day three, чоршанба day four, пайшанба day five. Жума (Arabic, the Friday prayer) and шанба break the count, and якшанба is day one. The Uzbek working week starts on Monday even though the list is ordered Sunday first.
+locale: uz
+---
+якшанба
+душанба
+сешанба
+чоршанба
+пайшанба
+жума
+шанба

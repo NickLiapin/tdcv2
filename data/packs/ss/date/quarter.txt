@@ -1,0 +1,8 @@
+---
+description: Financial quarter in siSwati. Kota is the English "quarter" taken as a class 9 loan, and the ordinal that follows it is a possessive phrase — yekucala "of the beginning", yesibili "of the second" — where ye- is the class 9 possessive agreeing with kota. Change the head noun and the concord has to change with it, so the same ordinals appear as lekucala or sekucala elsewhere in this pack; the agreement is not decoration and a config that swaps the noun without swapping the concord produces something no siSwati speaker would write. Eswatini's government financial year runs April to March, following South Africa's, so Kota yekucala here is not January to March.
+locale: ss
+---
+Kota yekucala
+Kota yesibili
+Kota yesitsatfu
+Kota yesine

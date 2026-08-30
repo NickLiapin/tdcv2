@@ -1,0 +1,16 @@
+---
+description: The home kitchen. Timor-oan means literally child-of-Timor, and oan is the same morpheme used for a person's own child, so the name of the cuisine says it belongs to the people of the place rather than to the place. Batar da'an is the national dish and the only entry here that a Timorese would name without prompting. The list is short on purpose: this is a cuisine of few techniques applied to whatever the garden gave, and three of those techniques are visible in the names — tunu is grilling over the fire, da'an is boiling in a pot, and the palm-leaf wrapping in katupa and saboko is a third way of cooking that needs no pot at all. Karau timur and bibi manas are the meat dishes of a household that owns buffalo and goats and eats them rarely, since a karau is wealth, is what a family gives in the barlake exchange, and is not slaughtered casually. Budu is the sharp fermented note that goes on everything. Modo tahan and fore rai fill out the rest, which is what a plate here mostly is: greens and a legume beside a mound of maize.
+locale: tet
+---
+Batar da'an
+Katupa
+Saboko
+Tukir
+Budu
+Ikan sabuko
+Bibi manas
+Bibi sarabee
+Fahi tunu
+Karau timur
+Modo tahan
+Fore rai tunu

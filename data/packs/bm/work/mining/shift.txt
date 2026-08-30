@@ -1,0 +1,9 @@
+---
+description: Work shift at a mine. The industrial gold mines run without stopping, in twelve-hour posts, and because the pits sit far out in Kayes and Sikasso most staff live on site and travel in from Bamako on a three-week cycle, so the rotation is itself a scheduling category alongside the shift. Nothing of the kind exists on the artisanal side: an orpaillage camp works by daylight, and the season stops it outright, since the rains from June to September flood the shafts and send the diggers back to their fields — most of them are farmers who mine in the dry months.
+locale: bm
+---
+Équipe du matin
+Équipe du soir
+Équipe de nuit
+Poste de 12 heures
+Rotation 3 semaines

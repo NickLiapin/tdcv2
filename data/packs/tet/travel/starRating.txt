@@ -1,0 +1,9 @@
+---
+description: Star ratings, written with Tetum's own word for a star and its own numerals rather than with digits. Fitun is a star, and the counting words are ida one, rua two, tolu three, haat four and lima five — lima is also the ordinary word for a hand, which is the giveaway that this is a base-five body-counting system of great age, shared across the Austronesian languages from Madagascar to Rapa Nui. The numeral comes after the noun, as every Tetum modifier does, so five stars is fitun lima and not lima fitun. No Timorese body awards these stars; the ratings on a Dili hotel are self-declared or come from the booking sites.
+locale: tet
+---
+Fitun ida
+Fitun rua
+Fitun tolu
+Fitun haat
+Fitun lima

@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised frequency in Indigenous American ancestry. The pattern here is dominated by a very narrow founding bottleneck: the Americas were settled by a small population crossing from Beringia, so genetic diversity is low and specific variants are correspondingly concentrated. The thrifty-genotype hypothesis once offered to explain the extremely high type 2 diabetes rates in some communities is now regarded as unproven and probably wrong, and the far better documented drivers are the collapse of traditional diets and forced sedentarisation within a few generations; the association remains real while the explanation has changed. Gallstone disease is one of the strongest ancestry associations recorded anywhere, reaching rates in some Indigenous North American populations several times the continental average. Ancestry associations, not statements about individuals.
+locale: ss
+---
+Sifo sashukela sesigaba sesibili
+Ematje esinyeni senyongo
+I-lactase non-persistence
+I-Navajo neurohepatopathy
+I-albinism
+I-rheumatoid arthritis

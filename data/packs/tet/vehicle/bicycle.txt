@@ -1,0 +1,21 @@
+---
+description: Bicycle types. Portuguese bicicleta comes across as bisikleta, the c before i going to s and the final a staying, and the qualifier that follows it is where Tetum does its own work: a road bike is bisikleta dalan, from dalan the road, and a mountain bike is bisikleta foho, from foho the mountain or hill — the same foho that names half the villages in the interior. English terms that never had a Portuguese route in, gravel and BMX and tandem, are simply kept. Bicycles are a minority vehicle here and the reason is topography: outside the coastal strip from Dili to Manatuto the country is close to vertical, and the motorizada rather than the bicycle is what a household buys first.
+locale: tet
+---
+Bisikleta dalan
+Bisikleta foho
+Bisikleta ibridu
+Bisikleta pasiu
+Bisikleta gravel
+Bisikleta BMX
+Bisikleta elétrika
+Bisikleta dobra
+Bisikleta viajen
+Bisikleta siklokrose
+Bisikleta pista
+Bisikleta reklinada
+Bisikleta karga
+Bisikleta tun
+Bisikleta labarik
+Trisiklu
+Tandem

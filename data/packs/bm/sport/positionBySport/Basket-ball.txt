@@ -1,0 +1,9 @@
+---
+description: Basketball positions in French. Basketball is Mali's strongest sport after football and by some measures its most successful: the women's national team has won the African championship and reached World Cup quarter-finals, the men's youth teams have taken continental titles, and Bamako hosts the NBA-backed academy that has fed players into the American college system. The five positions here are the standard ones, numbered one to five in Malian coaching exactly as in French, and the `Pivot` is what English calls the center.
+locale: bm
+---
+Meneur
+Arrière
+Ailier
+Ailier fort
+Pivot

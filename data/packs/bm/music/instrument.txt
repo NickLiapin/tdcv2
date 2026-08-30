@@ -1,0 +1,35 @@
+---
+description: Instruments, and the first eight are Mali's own. The `kora` is a twenty-one-string harp-lute with a calabash body, played only by griot families and tuned by leather rings around the neck. The `ngoni` is the small skin-bodied lute that crossed the Atlantic in the slave ships and became the banjo — the lineage is not folklore but traceable organology. The `bala` is the gourd-resonated xylophone, and its ancestor, the Sosso-Bala kept at Niagassola on the Mali-Guinea border, is said to have been taken from the sorcerer-king Soumaoro Kanté after Soundiata defeated him at Kirina in 1235 and has been guarded by one Dokala Kouyaté family ever since. The `jembe` is the goblet drum the world now plays. `Tama` is the talking drum, squeezed under the arm to bend its pitch across the tones of the language. `Kamalen ngoni`, the young man's ngoni, is the Wassoulou instrument invented in the twentieth century and the reason that music sounds the way it does.
+locale: bm
+---
+Kora
+Ngoni
+Kamalen ngoni
+Bala
+Jembe
+Tama
+Dunun
+Bolon
+Soku
+Karinyan
+Bara
+Calebasse
+Flûte peule
+Tambour d'aisselle
+Sistre
+Balafon
+Guitare
+Guitare électrique
+Basse
+Batterie
+Clavier
+Synthétiseur
+Violon
+Saxophone
+Trompette
+Accordéon
+Harmonica
+Piano
+Maracas
+Cloche
+Tambour d'eau

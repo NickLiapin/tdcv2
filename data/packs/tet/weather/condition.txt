@@ -1,0 +1,20 @@
+---
+description: Weather as it is spoken about here, which means two seasons and not four. Tempu udan is the rains, roughly November to April, and tempu bailoron is the dry, roughly May to October; those two phrases do the work that spring, summer, autumn and winter do elsewhere, and a Tetum speaker plants, travels and repairs a roof by them. The list is built out of a small stock of nouns and a modifier after each, which is the ordinary Tetum order: udan is rain, so udan boot is heavy rain and udan ki'ik is light rain; anin is wind and anin makaas is strong wind; kalohan is cloud and kalohan barak is many clouds, since Tetum marks quantity with a separate word rather than a plural ending. Rai is land or earth and it doubles as the ambient world, so rai-manas is hot weather and rai-malirin is cold weather, said of the air and not of the ground. Abu-abu is the mist that sits on the Maubisse and Letefoho slopes most mornings of the dry season and is the reason coffee grows there. Lalehan moos is a clear sky, moos being clean rather than empty. Úmidu is the one Portuguese entry, from húmido with the initial h dropped as always.
+locale: tet
+---
+Tempu udan
+Tempu bailoron
+Loro-matan
+Loron manas
+Lalehan moos
+Kalohan
+Kalohan barak
+Udan
+Udan boot
+Udan ki'ik
+Anin
+Anin makaas
+Abu-abu
+Rai-manas
+Rai-malirin
+Úmidu

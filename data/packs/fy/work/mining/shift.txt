@@ -1,0 +1,9 @@
+---
+description: Work shift. Tsjinst does the work of the Dutch dienst and carries the palatal cluster that is the plainest fingerprint of the language: the shift that turns kerk into tsjerke and kaas into tsiis also turns dienst into tsjinst, which is why the old test rhyme about bûter, brea en griene tsiis is half-intelligible to an English ear and opaque to a German one. Ploech is a shift team as well as a plough, so a rotating rota is a ploechtsjinst, and dei and nacht in deitsjinst and nachttsjinst are the Frisian day and night, both standing closer to their English cognates than to the Dutch dag and nacht.
+locale: fy
+---
+Iere tsjinst
+Lette tsjinst
+Nachttsjinst
+Deitsjinst
+Ploechtsjinst

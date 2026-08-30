@@ -1,0 +1,40 @@
+---
+description: Diagnosis recorded for a female patient in Eswatini. Cervical cancer and the lesions that precede it occupy more of this list than they would anywhere in Europe, and that is not an editorial choice: Eswatini has one of the highest cervical cancer incidence rates recorded anywhere, because human papillomavirus progresses far faster in women living with HIV and this country has extraordinary HIV prevalence among women in their twenties and thirties. Screening and the HPV vaccine are consequently the largest single women's health programme the ministry runs, which is why staged findings like I-CIN 2 appear on a general list rather than only in a specialist one. The obstetric block reflects a service where most deliveries happen at a clinic rather than a hospital, so the emergencies that a clinic must recognise and refer — pre-eclampsia, placenta praevia, postpartum haemorrhage — are the ones a record most often carries.
+locale: ss
+---
+Kukhulelwa
+Kukhulelwa lokunetingoti
+Kukhulelwa kwangaphandle kwesibeletfo
+Kuphuphuma kwesisu
+I-pre-eclampsia
+I-eclampsia
+I-placenta praevia
+I-placental abruption
+Sifo sashukela sekukhulelwa
+I-hyperemesis gravidarum
+I-anaemia yekukhulelwa
+Kubeleka ngaphambi kwesikhatsi
+Kubeleka ngekuhlintwa
+Kuphuphuma kwengati emuva kwekubeleka
+Kudangala emuva kwekubeleka
+I-mastitis
+Umdlavuza wesibeletfo
+I-CIN 2
+I-HPV
+Umdlavuza webele
+Sifo semabele lesingesiwo umdlavuza
+Umdlavuza we-ovari
+I-endometriosis
+Ema-fibroids esibeletfweni
+I-uterine prolapse
+I-polycystic ovary syndrome
+Kungefiki kwesikhatsi senyanga
+Buhlungu besikhatsi senyanga
+Kopha kakhulu esikhatsini senyanga
+Kuma kwesikhatsi senyanga
+Kuncipha kwematfambo emuva kwekuma kwesikhatsi senyanga
+Sifo sekungatfoli umntfwana
+I-vaginal candidiasis
+I-bacterial vaginosis
+Kutseleleka kwesibeletfo
+Kutseleleka kwendlela yemchamo

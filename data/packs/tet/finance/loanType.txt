@@ -1,0 +1,14 @@
+---
+description: Loan types. Two entries carry the weight in Timor-Leste. Mikrokréditu is the real consumer finance sector — Moris Rasik, Kaebauk Investimentu no Finansas and the credit unions lend small sums on group guarantee to women running market stalls, and they reach far more households than the commercial banks do. The one immediately above it, a loan secured on house and land, is the one that mostly cannot happen: land titling was left unresolved by two colonial administrations and a war, competing Portuguese-era, Indonesian-era and customary claims sit on the same parcels, and a bank cannot take security over a title nobody can produce. That single fact shapes Timorese credit more than any interest rate does. Note ho garantia uma-rai, built with ho, the Tetum for with, on the compound uma-rai, house-and-land, which is how property is named here.
+locale: tet
+---
+Uma
+Kareta
+Pesoál
+Estudante
+Ho garantia uma-rai
+Empreza
+Liña kréditu
+Konsolidasaun dívida
+Penyór
+Mikrokréditu

@@ -1,0 +1,16 @@
+---
+description: Mobile plans in Mali, in French, and the shape of the list is the shape of a prepaid economy. Almost nobody is on contract: credit is bought in small paper scratch cards or transferred by an agent, and the products that matter are the short passes — a day of internet, a week, a bundle that only opens WhatsApp and Facebook. That last kind, the `Pass réseaux sociaux`, is why those two applications are effectively the internet for a large number of Malians: they are cheap in a way the open web is not, so what circulates is what fits through them. `Recharge crédit` is its own product because transferring airtime between handsets is a payment method in its own right.
+locale: bm
+---
+Prépayé
+Postpayé
+Forfait voix
+Forfait SMS
+Pass Internet journalier
+Pass Internet hebdomadaire
+Pass Internet mensuel
+Pass réseaux sociaux
+Pass WhatsApp
+Illimité nuit
+Forfait entreprise
+Recharge crédit

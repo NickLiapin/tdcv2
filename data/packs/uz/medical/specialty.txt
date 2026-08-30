@@ -1,0 +1,40 @@
+---
+description: Medical specialties as an Uzbek hospital organises them. Фтизиатрия — the tuberculosis specialty — is a separate department here, as it is across the post-Soviet world and almost nowhere else. Оилавий тиббиёт is family medicine, introduced by the primary care reform of the late 1990s.
+locale: uz
+---
+Терапия
+Оилавий тиббиёт
+Кардиология
+Неврология
+Нейрохирургия
+Умумий жарроҳлик
+Травматология
+Ортопедия
+Урология
+Гинекология
+Акушерлик
+Педиатрия
+Неонатология
+Эндокринология
+Гастроэнтерология
+Гепатология
+Нефрология
+Пулмонология
+Фтизиатрия
+Аллергология
+Иммунология
+Ревматология
+Гематология
+Онкология
+Радиология
+Дерматология
+Венерология
+Офталмология
+Оториноларингология
+Стоматология
+Ортодонтия
+Психиатрия
+Наркология
+Анестезиология
+Реаниматология
+Инфекцион касалликлар

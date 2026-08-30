@@ -1,0 +1,15 @@
+---
+description: Contract types, and the honest thing to say about this list is what it excludes. Every value here describes formal wage employment, and formal wage employment is the minority experience in Timor-Leste: most working people farm their own land, sell in a market, drive, fish or build with no contract of any kind, so the modal Timorese worker has no value on this list at all, and a dataset that assigns one to everybody is describing the small salaried country sitting inside the larger one. Tuir oras is by the hour, built on tuir, to follow or to go according to, and oras, the reshaped Portuguese hora, which in Tetum means both an hour and time in general — mai iha oras is come on time. Freelancer arrived with the consultancy and aid economy and is used untouched. Efetivu earns its own line because in the civil service it is the distinction that matters most: a permanent officer on the establishment and a contracted one may do identical work on entirely different terms.
+locale: tet
+---
+Tempu kompletu
+Tempu parsiál
+Kontratu
+Temporáriu
+Estájiu
+Freelancer
+Sazonál
+Tuir oras
+Aprendizajen
+Efetivu
+Empreitada

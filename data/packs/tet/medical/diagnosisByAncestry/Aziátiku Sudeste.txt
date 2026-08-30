@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Southeast Asian ancestry, named in Tetum, and the file in this folder with the most direct bearing on a Timorese record. Haemoglobin E runs in a belt through mainland Southeast Asia and out into the islands, reaching a third of the population in places, and where it meets beta-thalassaemia the combined state can be as severe as thalassaemia major — which is why both are listed and why the carrier states matter as much as the diseases. Karsinoma nazofarinje is here for a different kind of reason: its distribution tracks Epstein-Barr virus, salted preserved fish in the diet and an inherited susceptibility locus all at once, a useful corrective to reading any of these files as purely genetic. Emoglobina drops the Portuguese h in the ordinary way.
+locale: tet
+---
+Doensa emoglobina E
+Alfa-talasemia
+Beta-talasemia
+Defisiénsia G6PD
+Karsinoma nazofarinje
+Síndrome Brugada
+Intoleránsia laktoze

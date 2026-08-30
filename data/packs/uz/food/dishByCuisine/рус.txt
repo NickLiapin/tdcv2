@@ -1,0 +1,14 @@
+---
+description: Russian dishes on an Uzbek table, and a good test of the transliteration: борщ and щи both carry щ, a letter that Latin Uzbek can only spell as shch, four characters for one. Оливье needs a soft sign before its final vowel. Гречка and квас are as ordinary in an Uzbek shop as anywhere in the former union.
+locale: uz
+---
+борщ
+щи
+пелмен
+блин
+окрошка
+оливье салати
+селд шубада
+гречка бўтқаси
+котлет
+квас

@@ -1,0 +1,19 @@
+---
+description: Why something goes back, phrased the way a customer says it at the stall rather than the way a form would. Most of these are whole clauses, because Bambara does not have a stock of abstract nouns for this and a complaint is a sentence: `Baara tɛ kɛ` is it does not work, `Bonya ma bɛn` is the size did not fit, `A ma bɛn ja ma` is it does not match the photo. `Nkalon fɛn`, a false thing, is the counterfeit line, and it sits high because Mali is landlocked and its goods arrive overland through several borders — fake medicines, chargers, engine oil, seed and fertiliser are a serious problem rather than a consumer annoyance. `Fɔrɔkɔ` is the sack or wrapping. Note that returns as a formal process barely exist outside a few modern retailers; in the market the mechanism is renegotiation with the person who sold it to you.
+locale: bm
+---
+Fɛn tiɲɛnen
+Baara tɛ kɛ
+Bonya ma bɛn
+Kulɛri ma bɛn
+A ma bɛn fɔlen ma
+A ma bɛn ja ma
+Komandi fili
+Lasera kɔfɛ
+Fɛn dɔ tɛ yen
+Nkalon fɛn
+Waati tɛmɛnen
+Miiri yɛlɛmana
+Sɔngɔ ka ca
+Fɛn kelen nana siɲɛ fila
+Fɔrɔkɔ tiɲɛnen

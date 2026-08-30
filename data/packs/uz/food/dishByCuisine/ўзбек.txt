@@ -1,0 +1,22 @@
+---
+description: The Uzbek subset of the dish list, held separately so that a coherent record can name a cuisine and then a dish that really belongs to it. Палов and тўй оши lead; ачичук — the tomato and onion salad — is the thing that is always on the table beside them.
+locale: uz
+---
+палов
+тўй оши
+чучвара
+манти
+сомса
+лағмон
+шўрва
+мастава
+мошхўрда
+димлама
+норин
+хасип
+қозон кабоб
+тандир кабоб
+хоним
+ачичук
+оби нон
+сумалак

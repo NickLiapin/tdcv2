@@ -1,0 +1,26 @@
+---
+description: Property feature in Eswatini, and the ordering says something about the country. Emanti langekhatsi and emagetsi, running water and electricity, are listed as FEATURES rather than assumed, because a large minority of homes still have neither; umtfombo wemanti, a borehole, and emaphaneli elilanga, solar panels, are what a property offers instead, and ijenaretha, a generator, is what a business advertises because the supply is not always steady. Sibaya, the cattle byre, and indlu yetinkhukhu, the fowl run, appear on a residential listing here without any sense of being agricultural extras: a homestead is expected to hold stock. Indlu yetisebenti, the domestic worker's quarters, is a standard feature of a built house in this part of the world and is advertised as one.
+locale: ss
+---
+Emanti langekhatsi
+Umtfombo wemanti
+Ithange lemanti
+Emagetsi
+Emaphaneli elilanga
+Ijenaretha
+Emanti lashisako
+Indlu yangasese yangekhatsi
+Ikhondishina
+I-inthanethi
+Ligalaji
+Sikhala sekupaka
+Lugcogco lwelucingo
+Lisango lelinemagetsi
+Umgadzi
+Ikhamera yekuphepha
+Sivandze
+Umbhukusho
+Insimu
+Sibaya
+Indlu yetinkhukhu
+Indlu yetisebenti

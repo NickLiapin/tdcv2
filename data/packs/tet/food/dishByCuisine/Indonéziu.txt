@@ -1,0 +1,14 @@
+---
+description: What the occupation left and nobody gave back. Between 1975 and 1999 Indonesian was the language of the school, the office and the shop, and the food came with it; when the troops went the food stayed, and these ten dishes are now sold in warung across Dili by people who fought the army that brought them. None of the names has been respelled, which is itself the datum: Portuguese loans were adapted to Tetum spelling over four centuries, while Indonesian words entered within living memory and are still written the Indonesian way, so goreng keeps its g and es teh keeps its h. Nasi goreng and mie goreng are the default cheap meal of the capital. Bakso is the meatball soup sold from a handcart, and the cart's bell is a street noise Timorese and Indonesian cities share. Es teh, iced tea, belongs on a dish list here because in a warung it is ordered in the same breath as the food. Note also that nasi, cooked rice, sits beside Tetum etu with the same meaning — the pair is a clean case of a loan that never displaced its native equivalent because each stayed inside its own kind of sentence.
+locale: tet
+---
+Nasi goreng
+Mie goreng
+Bakso
+Soto
+Gado-gado
+Sate
+Tempe goreng
+Tahu
+Rendang
+Es teh

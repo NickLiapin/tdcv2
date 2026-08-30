@@ -1,0 +1,16 @@
+---
+description: Reasons an employee is away. The category that a European list underweights and that dominates here is bereavement. A death draws the whole extended family from across the country, the wake and the burial run over days, and then the obligation does not end: kore metan, literally to untie the black, is the ceremony that lifts mourning and releases the family from wearing it, and it is held months or even a year later, with animals killed and the household's kin fed again. Both occasions take people off work, and Lisensa tanba mate — leave because of a death, with tanba, because — should be expected as a recurring absence type rather than a rare one. Lisensa la selu is unpaid leave and it is built the way Tetum negates anything: la is the preverbal negator and it negates the verb selu, to pay, so the phrase is leave that does not pay rather than leave without payment. Inan and aman, mother and father, are Austronesian roots and stand alone here as the two parental leaves, while Lisensa parentál beside them is the modern statutory category borrowed whole.
+locale: tet
+---
+Férias
+Lisensa moras
+Lisensa parentál
+Lisensa ba inan
+Lisensa ba aman
+Lisensa tanba mate
+Lisensa la selu
+Tinan sabátiku
+Folga pesoál
+Dispensa médika
+Lisensa kazamentu
+Lisensa ba estudu

@@ -1,0 +1,12 @@
+---
+description: Mining method. Mali is among Africa's three largest gold producers and the list splits the way the industry itself does. On one side the permitted mines — Loulo-Gounkoto and Sadiola in the west, Syama and Morila in the south, Fekola near the Senegalese border — which work open pits, sink shafts where the grade justifies it, and recover the metal by heap leach or by carbon-in-leach. On the other side orpaillage, the artisanal digging that employs several hundred thousand people and far more than every industrial mine combined: the damang is the hand-sunk shaft with galleries driven off it, and alluvial panning works the river gravels in the dry season. Carrière covers the limestone and laterite quarries that feed cement and road building.
+locale: bm
+---
+Mine à ciel ouvert
+Mine souterraine
+Lixiviation en tas
+Lixiviation CIL
+Orpaillage artisanal
+Orpaillage alluvionnaire
+Damang
+Carrière

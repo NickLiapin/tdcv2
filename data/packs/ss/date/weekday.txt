@@ -1,0 +1,11 @@
+---
+description: Weekday in siSwati. Only two days carry a name of their own — uMsombuluko, Monday, and uMgcibelo, Saturday — and liSontfo, Sunday, is named for the church bell that rings it. Everything between is counted: Lesibili is "the second", Lesitsatfu "the third", Lesine "the fourth", Lesihlanu "the fifth". The count starts at Sunday, so the numeral inside a siSwati weekday name is always one HIGHER than the position an English-speaking config would assign it — Lesibili is Tuesday, not the second working day. The le- opening those four is a relative concord, not part of the numeral, which is why the bare -bili cannot stand alone as a day name.
+locale: ss
+---
+uMsombuluko
+Lesibili
+Lesitsatfu
+Lesine
+Lesihlanu
+uMgcibelo
+liSontfo

@@ -1,0 +1,23 @@
+---
+description: Kinds of property, and the first value is the one a foreign schema will not have. A `Du` is the walled family compound — a gate, a courtyard, and several separate rooms or small houses around it, often housing brothers and their families together — and it is the standard unit of residence, so a Malian address identifies a du rather than a flat. `Bɔgɔso` is a house of banco, sun-dried mud brick, cooler than concrete and replastered after every rainy season. `Foro` is a field and `Dugukolo` the land itself, from `dugu` earth plus `kolo` bone. Six values keep French names because they name products of the formal built market that arrived with it: Villa, Célibatérium — the single rented room, named for the unmarried men it was built for, and what most new arrivals in Bamako live in — Studio, Appartement, Chambre-salon, Immeuble and Ferme.
+locale: bm
+---
+Du
+So
+Bɔgɔso
+So sanfɛ
+Butiki
+Depo
+Biro
+Foro
+Nakɔ
+Dugukolo
+Dugukolo labɛnnen
+Magasin
+Villa
+Célibatérium
+Studio
+Appartement
+Chambre-salon
+Immeuble
+Ferme

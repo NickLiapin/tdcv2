@@ -1,0 +1,504 @@
+---
+description: Filler sentences in Tetun Dili, the lorem-ipsum prose of this pack, compiled by hand because the corpus builder in data/scripts/build-text-corpus.mjs carries no Tetum title and Project Gutenberg holds no public-domain book in the language to cut lines from. The one thing to read here is the verb: it never changes shape. Ba is go for every person and every tense, and the work Portuguese does with endings is done in Tetum by small words standing beside the verb — ona for something finished (nia ba ona, he has gone), sei for what has not happened yet (nia sei ba), hela for something still under way (nia servisu hela), seidauk for not yet, la for plain negation, atu for purpose, katak to open a reported clause. Portuguese vou, fui, irei and ia all land on the same two letters here. The vocabulary is Portuguese in large part but the spelling is not: escola hardens the c before o into k and comes out eskola, while hospital drops its word-initial h and takes an acute on the final stressed syllable to give ospitál; the same two habits produce kuziña, kamiaun, kartaun, konstrusaun, kolleita and baunilla. Three loan layers sit on one Austronesian frame — Portuguese from the colony (igreja, semana, governu, sidade, merkadu), Indonesian from the 1975-1999 occupation (kantór, buku, guru, susu, meza, toko, kios), English from the UN administration and the aid sector after it (projetu, workshop, relatóriu, internet, donór, staff) — while the bones of every sentence stay native: uma, be'e, hahán, labarik, foho, tasi, rai, loron, tinan, karau, ikan. The apostrophe is a letter and not punctuation; it writes a glottal stop, so be'e water, ki'ik small, di'ak good, lorosa'e east and ha'u I are simply misspelled without it. Every person and place named in these lines is Timorese.
+locale: tet
+---
+Ha'u nia inan halo hahán dadeer sedu ba família tomak.
+Uma ne'e ki'ik maibé ema hitu hela hamutuk iha laran.
+Labarik sira toba ona bainhira ami fila husi festa.
+Nia aman servisu iha Dili no fila ba knua kada fulan.
+Ferik ida ne'e hela mesak iha uma tuan besik igreja.
+Ami nia uma iha be'e maibé seidauk iha eletrisidade.
+Maria fase ropa iha sábadu no hamaran sira iha kintál.
+Domingos nia oan mane sei tama eskola iha tinan oin mai.
+Ita hotu tenke tulun inan bainhira nia moras.
+Sira nia avó konta istória kona-ba tempu okupasaun nian.
+Bin Filomena sunu ahi iha kuziña atu tein etu.
+Ha'u nia alin ki'ik seidauk hatene lee no hakerek.
+Uma laran nakonu ho ema bainhira família mai vizita.
+Aman fó osan ki'ik ba labarik sira atu sosa paun.
+Ami han hamutuk iha meza boot iha loron domingu.
+Nia hela ho nia maun iha Becora tanba renda karu iha sentru.
+Feto sira tesi modo iha kuziña no mane sira sunu ahi.
+Labarik ne'e halai ba kintál atu halimar ho asu.
+Ha'u haree ha'u nia bin fila mai husi be'e-matan.
+Sira nia uma iha Fatuhada iha kuartu tolu deit.
+Katuas ne'e hakarak hela besik nia oan sira iha Baucau.
+Ita nia família boot tebes no ema hotu koñese malu.
+Inan soru tais ba nia oan feto nia kazamentu.
+Kada dadeer nia hader iha tuku lima atu tein.
+Labarik sira fó be'e ba manu antes sira ba eskola.
+Ha'u la iha tempu atu haree televizaun iha kalan.
+Uma boot ne'e sira harii iha tinan rua liu ba.
+Ami nia viziñu fó modo mai ami kada semana.
+Nia oan feto tulun fase bikan hafoin han.
+Iha loron feriadu família barak fila ba sira nia knua.
+Filomena tau ropa iha armáriu tuan iha kuartu laran.
+Ha'u nia aman hanorin ha'u atu servisu makaas.
+Sira sosa meza foun tanba meza tuan at ona.
+Labarik ki'ik ne'e hemu susu antes toba.
+Ita bele hela iha ami nia uma to'o aban.
+Nia inan la fó lisensa ba nia atu sai iha kalan.
+Uma nia oda-matan taka ona bainhira ha'u to'o.
+Ami nia kintál iha ai-hudi lima no aidila rua.
+Maun Aleixo lori nia oan ba merkadu ho motór.
+Feto ne'e hakerek karta ba nia la'en iha Oecusse.
+Ha'u haluha tau masin iha hahán ohin dadeer.
+Sira nia labarik sira hotu moris iha Maliana.
+Kalan ne'e ami sei toba iha ami nia avó nia uma.
+Nia bin sosa sabaun no gula iha kios besik dalan.
+Ami hotu ba misa iha dadeer no fila mai atu han.
+Ha'u nia oan mane hakarak sai doutór iha futuru.
+Inan Domingas tein batar ho fahi-na'an ba bainaka sira.
+Labarik sira nain haat toba iha kuartu ida deit.
+Ha'u la bele fila ohin tanba ha'u nia kareta at ona.
+Ita hotu hein nia mai husi Lospalos ho anguna.
+Ami nia uma besik tasi tan ne'e anin malirin loron-loron.
+Nia hakarak sosa uma rasik maibé folin karu tebes.
+Feto ne'e kuda ai-funan iha uma oin.
+Ha'u nia maun sei kaben iha fulan Setembru.
+Merkadu Taibesi loke husi dadeer sedu to'o loro-kraik.
+Ikan ida ne'e folin dolar tolu deit iha Comoro.
+Ha'u la iha sentavu ona atu sosa foos ohin.
+Feto sira fa'an modo matak iha dalan ninin.
+Ita bele hetan hudi barak iha merkadu Maubisse.
+Osan ne'e la to'o atu selu eskola no aimoruk.
+Nia fa'an tais iha Dili no hetan lukru di'ak.
+Ema barak sosa sasán iha loja sira iha sidade laran.
+Folin batar sa'e tanba udan la monu tinan ne'e.
+Sira selu ho dolar tanba Timor-Leste la iha osan rasik.
+Ha'u sosa masin ho gula iha kios besik uma.
+Mane ne'e fa'an manu moris iha merkadu kada sábadu.
+Ita tenke husu folin uluk molok sosa.
+Negósiu ki'ik sira taka bainhira udan boot monu.
+Ha'u fó dolar ida no nia fó troku ho sentavu.
+Feto Baucau nian lori sira nia modo ba Dili ho anguna.
+Osan husi kafé mak selu labarik sira nia eskola.
+Merkadu Lecidere nakonu ho ema iha loron domingu.
+Nia hakarak sosa motór maibé banku la fó kréditu.
+Sasán husi Indonézia baratu liu duke sasán husi Austrália.
+Ita sosa ikan iha Hera bainhira ró sira fila mai.
+Ha'u la fiar folin ne'e tanba karu liu.
+Sira fa'an tua mutin iha tenda besik dalan ba Aileu.
+Fa'an-na'in sira komesa hein kliente iha tuku neen dadeer.
+Nia sosa jam foun ida iha toko ida iha Colmera.
+Nia rai osan iha banku tanba uma la seguru.
+Ami sosa foos saku ida ba fulan ida tomak.
+Loja ne'e taka iha loron feriadu nasionál.
+Ita nia sentavu koin sira mak Timor nian rasik.
+Mane ne'e fa'an be'e iha botir iha dalan ninin.
+Folin gasolina sa'e fali iha fulan ne'e.
+Ha'u hetan modo baratu iha Maubisse duke iha Dili.
+Sira la simu kartaun; ita tenke selu ho osan.
+Ami tenke selu renda uma dolar atus ida kada fulan.
+Feto ferik ne'e fa'an bua-malus iha merkadu oin.
+Osan barak lakon bainhira ema la hakerek kontas.
+Ita sosa aimoruk iha farmásia besik ospitál.
+Nia hola ropa foun ba nia oan iha loja Audian.
+Kada tinan folin sasán sa'e maibé salariu nafatin.
+Ha'u sosa kafé kilu ida husi Ermera atu lori ba Dili.
+Merkadu Suai ki'ik liu maibé hahán baratu.
+Sira konta osan hafoin taka tenda iha kalan.
+Ita bele troka dolar iha banku iha Farol.
+Buat hotu iha merkadu ne'e mai husi to'os besik.
+Nia haruka osan ba nia família iha Viqueque kada fulan.
+Eskola iha knua ne'e iha sala haat deit.
+Labarik sira ba eskola iha tuku hitu dadeer.
+Guru ne'e hanorin matemátika ho lian Portugés.
+Estudante sira lee buku iha biblioteka UNTL nian.
+Ha'u nia oan seidauk hatene hakerek nia naran.
+Eskola taka iha fulan Dezembru ba ferias boot.
+Mestre Domingos hanorin iha Baucau tinan sanulu ona.
+Alunu sira tenke tama sala molok sinu tuku.
+Universidade Nasionál Timór Lorosa'e iha Dili laran.
+Labarik barak la'o ain husi knua ba eskola.
+Ita hanorin lian Tetun no lian Portugés iha eskola primária.
+Buku sira ne'e mai husi Portugál no folin karu.
+Nia estuda jeografia tanba nia hakarak sai guru.
+Sala aula nakonu ho estudante nain tolunulu.
+Exame sei komesa iha semana oin mai.
+Ha'u haluha lori ha'u nia kaderneta ba eskola.
+Guru sira husu ba inan-aman atu mai ba reuniaun.
+Labarik sira hakerek iha kuadru ho giz mutin.
+Eskola sekundária iha Same simu estudante husi suku barak.
+Nia uza internet dahuluk bainhira nia tama universidade.
+Estudante sira lee testu ida kona-ba istória Timor nian.
+Ami sei halo exame matemátika iha loron kinta.
+Guru ne'e hatene lian haat: Tetun, Portugés, Indonézia no Inglés.
+Labarik ki'ik sira halimar iha kintál eskola bainhira intervalu.
+Nia la ba eskola ohin tanba nia isin manas.
+Nia nota di'ak tebes iha siénsia no jeografia.
+Eskola foun iha Maliana simu estudante atus rua.
+Ha'u nia guru dehan katak ha'u tenke estuda barak liu.
+Buku istória ne'e ko'alia kona-ba tinan 1975.
+Alunu sira hamriik hodi kanta hino nasionál iha dadeer.
+Meza eskola sira tuan ona no balun at.
+Ita presiza guru barak liu iha suku sira iha foho.
+Labarik ne'e lakon nia kaneta iha dalan ba uma.
+Universidade fó bolsa ba estudante husi família kiak.
+Nia hakerek relatóriu eskola nian to'o kalan boot.
+Estudante sira husi Oecusse tenke sa'e ró atu to'o Dili.
+Guru feto ne'e mai husi Ermera no hela iha Comoro.
+Eskola iha Atauro ki'ik maibé labarik sira barak.
+Ha'u lee buku ida kona-ba lafaek ba ha'u nia alin.
+Aula komesa fali iha fulan Janeiru hafoin ferias.
+Igreja Motael nakonu ho ema iha misa dadeer nian.
+Padre reza iha lian Tetun no ema hotu tuir.
+Natál mak festa boot liu iha tinan tomak.
+Família sira hotu fila ba knua iha Semana Santa.
+Sinu igreja tuku iha tuku neen kalan.
+Ami ba misa iha domingu no hafoin vizita família.
+Ema Timor-Leste nian barak liu mak katóliku.
+Iha fulan Novembru ema ba rate hodi hanoin matebian sira.
+Festa suku nian iha Maubisse la'o loron tolu.
+Labarik sira simu batizmu iha kapela ki'ik iha knua.
+Nia halo promesa ba Nossa Senhora bainhira nia oan moras.
+Misa kazamentu sei komesa iha tuku sanulu dadeer.
+Ema Lospalos sira halo festa boot ba sira nia padroeiru.
+Igreja iha Balibo sira harii iha tempu Portugés.
+Ami kanta iha koru igreja nian kada domingu.
+Padre ne'e mai husi Filipinas no ko'alia Tetun di'ak.
+Ema barak la'o husi Dili ba Aitara iha fulan Outubru.
+Iha Páskua ema hotu hein misa iha kalan.
+Kruz boot iha Cristo Rei haree ba tasi.
+Nia tuur iha igreja laran no reza mesak.
+Festa Natál nian kontinua to'o loron primeiru Janeiru.
+Madre sira hanorin labarik sira iha eskola katóliku.
+Ami lori ai-funan ba rate iha loron Finadu.
+Katedrál iha Dili boot liu iha nasaun tomak.
+Ema hotu hatais ropa foun bainhira ba misa Natál.
+Nia simu batizmu iha Baucau ho naran Maria Filomena.
+Serimónia kaben nian halo iha igreja no hafoin iha uma.
+Bispu Belo simu Prémiu Nobel iha tinan 1996.
+Iha loron 20 Maiu ita selebra restaurasaun independénsia nian.
+Ema barak reza tersu iha uma kada kalan.
+Kapela ki'ik ne'e iha foho leten besik Maubisse.
+Padre fó bensa ba família foun iha igreja oin.
+Festa igreja nian lori ema husi suku hotu mai hamutuk.
+Ami hein Natál ho fahi ida no tua sabu.
+Nia halo jejun iha fulan Kuaresma tomak.
+Labarik sira simu komuñaun dahuluk iha fulan Maiu.
+Ema iha Oecusse selebra festa iha Pante Macassar.
+Iha loron 12 Novembru ema hanoin ema Santa Cruz nian.
+Misa iha Ainaro komesa hafoin ema hotu to'o husi foho.
+Igreja fó tulun ba família kiak iha tempu udan.
+Kafé husi Ermera di'ak liu iha nasaun tomak.
+Ami kuda batar bainhira udan komesa monu.
+To'os ne'e iha foho leten no dook husi dalan boot.
+Kafé-fuan mean ona no ema komesa kuru.
+Hibridu de Timor mosu iha rai ne'e no la'o ba mundu tomak.
+Mane sira ba to'os iha dadeer sedu antes loron manas.
+Ami kuru kafé husi fulan Maiu to'o fulan Agostu.
+Rai iha Letefoho di'ak ba kafé arábika.
+Karau sira sama natar molok ema kuda hare.
+Udan la monu tinan ne'e no batar hotu maran.
+Nia fa'an nia kafé ba kooperativa iha Gleno.
+Ami tesi ai iha to'os atu halo uma nia ain.
+Labarik sira tulun sira nia aman iha to'os iha sábadu.
+Foos husi natar Manatuto nian di'ak liu duke foos importadu.
+Bibi sira han duut iha foho ninin loron tomak.
+Ami kuda modo, aidila no hudi iha kintál kotuk.
+Tempu bailoron rai maran no to'os la bele halo buat ida.
+Kafé-hun sira presiza mahon husi ai boot.
+Sira lori kafé saku ba Dili ho kamiaun iha kalan.
+To'os-na'in sira hein folin kafé sa'e iha merkadu internasionál.
+Ami hamaran kafé-fuan iha loron matan durante loron tolu.
+Batar foun mak hahán prinsipál iha tempu udan.
+Rai iha Aileu di'ak maibé dalan ba to'os aat.
+Fahi sira tama to'os no han modo hotu.
+Ema Maubisse kuda hortalisa no fa'an ba Dili.
+Ita presiza mákina foun atu hasai kafé-fuan nia kulit.
+Tinan ne'e kolleita kafé menus tanba udan boot demais.
+Mane katuas ne'e hatene tempu di'ak atu kuda batar.
+Ai-manas ho tomate moris di'ak iha rai Ainaro nian.
+Ami hakiak manu no bibi hodi hetan osan ki'ik.
+To'os iha foho tenke halo tuir eskada atu rai la lakon.
+Nuu-hun barak iha rai tetuk besik tasi.
+Sira sunu duut molok kuda batar tuir lisan tuan.
+Kafé Timor nian iha naran di'ak iha Estadus Unidus.
+Loron kolleita nian família tomak ba to'os hamutuk.
+Ami la uza adubu kímiku iha ami nia to'os kafé.
+Karau ida folin dolar atus lima iha suku ne'e.
+Hare iha natar sai kinur ona no besik atu kuru.
+Ai-fuan sira monu husi ai bainhira anin makaas.
+To'os-na'in balun komesa kuda kakau ho baunilla.
+Ró ki'ik sira sai ba tasi iha kalan boot.
+Ikan husi Atauro di'ak liu iha merkadu Dili nian.
+Tasi iha Com kalma tebes iha tempu bailoron.
+Mane sira soe redi iha dadeer sedu.
+Peskadór sira la sai bainhira anin makaas.
+Ami sosa ikan boot rua iha tasi-ibun Hera nian.
+Ikan oioin barak hela iha Atauro nia tasi.
+Nia hatene nani husi labarik ona.
+Laloran boot monu ba fatuk iha Metiaut.
+Ró boot husi Oecusse to'o Dili hafoin kalan ida.
+Sira hamaran ikan ho masin atu bele rai kleur.
+Ikan ne'e sira kaer ohin dadeer iha tasi laran.
+Tara bandu taka tasi ne'e to'o fulan Outubru.
+Labarik sira nani iha tasi hafoin eskola.
+Peskadór katuas ne'e hatene fulan ida-idak nia laloran.
+Ami ba Jaco maibé ema la bele toba iha ne'ebá.
+Redi sira at ona no presiza sosa foun.
+Tasi iha parte sul makaas liu duke iha parte norte.
+Ikan mean ho ikan mutin nia folin la hanesan.
+Sira sunu ahi iha tasi-ibun atu hein ró fila mai.
+Anin husi tasi lori malirin mai sidade iha kalan.
+Ró motór ida lori ema ba Atauro kada sábadu.
+Ha'u haree tasi nakukun bainhira udan sei mai.
+Bainhira fulan foun, tasi sa'e to'o dalan ninin.
+Ema Com sira kaer ikan boot iha tasi klean.
+Ikan tasi nian midar liu duke ikan mota nian.
+Sira fa'an ikan iha dalan ninin husi Hera to'o Manatuto.
+Tasi lorosa'e nia be'e matak no klean tebes.
+Ami toba iha ró leten to'o dadeer.
+Peskadór sira uza ahi ki'ik atu bolu ikan iha kalan.
+Karik aban tasi kalma no ami bele ba Atauro.
+Ró tuan ne'e sira harii ho ai husi foho.
+Be'e-masin sunu ha'u nia matan bainhira ha'u nani.
+Tasi besik Tasi Tolu kalma iha dadeer sedu.
+Ró husi Hera fila mai nakonu ho ikan ohin dadeer.
+Tempu udan komesa iha fulan Dezembru no remata iha Abril.
+Iha tempu bailoron mota sira maran hotu.
+Udan boot monu kalan tomak no dalan sai aat.
+Loron ohin manas tebes iha Dili laran.
+Anin husi foho lori malirin mai Maubisse iha kalan.
+Kalohan metan taka foho Ramelau iha loro-kraik.
+Udan la monu iha fulan haat no ema komesa presiza be'e.
+Bainhira udan monu, mota Comoro sai boot no perigozu.
+Iha Maubisse malirin tebes iha kalan tanba foho leten.
+Rai nakdoko ki'ik iha kalan maibé ema barak la hatene.
+Tempu bailoron di'ak atu hamaran kafé ho ikan.
+Loron naruk liu iha fulan Dezembru no kalan badak.
+Udan ne'e mai ho anin makaas husi tasi.
+Ami hein udan atu kuda batar iha to'os.
+Iha Ainaro udan monu barak liu duke iha Dili.
+Bainhira loron manas, ema hotu buka mahon iha ai okos.
+Kalohan mutin la'o lalais iha lalehan.
+Iha foho Ramelau nia leten malirin tebes iha kalan.
+Tempu udan lori moras dengue mai sidade.
+Rai maran no duut sai kinur iha to'os.
+Anin boot lori uma balun nia kakuluk lakon.
+Loron ne'e nakukun no karik udan sei monu.
+Iha fulan Agostu anin monu husi lorosa'e loron-loron.
+Be'e-matan iha knua maran bainhira tempu bailoron kleur.
+Udan dadeer nian halo dalan ba eskola susar.
+Kalan ohin fulan naroman no ema bele la'o sem ahi.
+Iha tempu udan ró sira ba Atauro para dala barak.
+Loron matan makaas iha loro-kraik iha tasi ninin.
+Anin malirin husi Ramelau to'o Aileu iha dadeer.
+Udan boot lori rai husi foho tun ba mota.
+Ami la bele hakur mota tanba be'e boot demais.
+Tempu udan halo dalan ba Viqueque taka fulan ida.
+Karik tinan oin mai udan sei mai sedu liu.
+Kalohan tun ba foho no ami la haree buat ida.
+Dalan husi Dili ba Baucau naruk oras tolu ho kareta.
+Mikrolet sira la'o husi Comoro to'o Becora loron tomak.
+Anguna ba Maliana sai husi terminál Tasi Tolu iha dadeer.
+Dalan ba Ainaro aat tebes hafoin udan boot.
+Ami sa'e ró husi Dili ba Oecusse tanba dalan rai laran taka.
+Nia lori motór husi Same to'o Suai iha oras rua.
+Ponte iha mota Loes at ona no ema la bele hakur.
+Viajen ba Lospalos naruk maibé rai furak tebes.
+Kareta sira para iha dalan tanba fatuk monu husi foho.
+Ami sai husi Dili iha tuku lima no to'o Viqueque loro-kraik.
+Dalan ba Maubisse iha kurva barak no ema balun moras.
+Aeroportu Nicolau Lobato simu aviaun husi Bali no Darwin.
+Ha'u hein anguna iha dalan ninin durante oras ida.
+Motór mak transporte di'ak liu iha suku sira iha foho.
+Dalan foun ne'e sira harii ho tulun husi rai liur.
+Ami la'o ain husi knua to'o dalan boot iha oras ida.
+Kareta ne'e nakonu ho ema no sasán husi merkadu.
+Viajen husi Baucau ba Lospalos naruk liu oras tolu.
+Nia sai husi Dili sedu atu la hetan udan iha dalan.
+Dalan besik Comoro nakonu ho kareta iha dadeer.
+Ró ba Atauro sai iha tuku hitu no fila iha loro-kraik.
+Ita tenke sosa billete uluk molok sa'e ró.
+Anguna nia motorista hatene dalan hotu iha Bobonaro.
+Ami hakur mota Laclo bainhira be'e ki'ik.
+Dalan ba Ermera sa'e ba foho no anin malirin liu.
+Kamiaun sira lori kafé tun ba Dili iha kalan.
+Ema barak la'o ain iha dalan tanba anguna la mai.
+Nia haluha nia sasán iha mikrolet no lakon tiha.
+Dalan husi Batugade to'o Balibo besik fronteira.
+Ami para iha Manatuto atu han no hemu kafé.
+Bus sira komesa la'o husi tuku lima dadeer.
+Viajen ba Ossu susar iha tempu udan tanba dalan bokon.
+Motorista ne'e la'o neineik tanba labarik sira iha dalan.
+Ita bele to'o Gleno iha oras ida deit husi Dili.
+Sira lori moras-na'in ba Dili ho ambulánsia iha kalan.
+Dalan tun ba Suai lori loron ida tomak ho kareta tuan.
+Ha'u la iha osan ba pasajen ba Baucau ohin.
+Aviaun ki'ik ida ba Oecusse iha segunda no kinta.
+Ema husi Atauro tenke hein tasi kalma atu fila.
+Terminál Taibesi nakonu ho ema iha loron sábadu.
+Ha'u nia kantór iha Farol no ha'u la'o ain ba servisu.
+Reuniaun sei komesa iha tuku sia dadeer.
+Nia hakerek relatóriu ba donór iha lian Inglés.
+Projetu be'e mós nian sei komesa iha Ermera.
+Funsionáriu sira simu salariu iha loron 25 kada fulan.
+Workshop ne'e la'o loron rua iha otél iha Lecidere.
+Internet iha kantór neineik tebes iha loro-kraik.
+Xefe husu relatóriu ne'e antes semana ne'e remata.
+Ami servisu ho ONG ida husi Austrália iha Bobonaro.
+Nia haruka email ba ministériu maibé seidauk simu resposta.
+Governu loke kantór foun iha Pante Macassar.
+Ha'u servisu husi tuku walu dadeer to'o tuku lima loro-kraik.
+Kontratu ne'e remata iha fulan Dezembru no ami seidauk hatene tan.
+Komputadór iha kantór at ona no ami presiza ida foun.
+Staff sira hotu tenke tuir training ida iha Dili.
+Ami hakerek proposta ba projetu agrikultura nian.
+Nia sai direktór iha kompañia konstrusaun ida.
+Reuniaun ne'e la'o iha lian Tetun no Portugés.
+Budget projetu nian ki'ik liu duke ami hein.
+Ami tenke haruka relatóriu ba Dili kada fulan tolu.
+Sekretáriu ne'e hakerek karta ba Parlamentu Nasionál.
+Servisu iha governu seguru liu duke servisu iha projetu.
+Ha'u nia kolega sira ba almosu iha warung besik kantór.
+Papél sira ne'e presiza asina husi direktór uluk.
+Nia servisu iha banku sentrál iha tinan lima ona.
+Kantór taka iha loron feriadu 20 Maiu.
+Meeting ho donór sei la'o iha semana oin mai.
+Ami la bele haruka email tanba internet la iha.
+Projetu ne'e fó servisu ba ema atus ida iha Maliana.
+Funsionáriu foun sira komesa servisu iha fulan Fevereiru.
+Ha'u tenke ba Baucau ba servisu semana oin mai.
+Relatóriu ne'e presiza dadus husi suku hotu iha munisípiu.
+Xefe kantór nian mai husi Viqueque no ko'alia lian Makasae.
+Sira uza laptop no telefone atu haruka informasaun ba Dili.
+Servisu iha konstrusaun makaas maibé selu di'ak liu.
+Ami rai dokumentu hotu iha armáriu iha sala kotuk.
+Nia hetan servisu foun iha ministériu edukasaun nian.
+Partisipante workshop nian mai husi munisípiu sanulu resin tolu.
+Ha'u la iha tempu atu han tanba servisu barak.
+Kompañia ne'e halo dalan foun iha Manufahi.
+Ospitál Guido Valadares iha Dili simu moras-na'in husi munisípiu hotu.
+Postu saúde iha suku ne'e loke dala rua kada semana.
+Doutór ne'e mai husi Kuba no ko'alia Tetun ki'ik.
+Ha'u isin manas husi horiseik kalan.
+Enfermeiru fó injesaun ba labarik sira iha postu saúde.
+Aimoruk malária la iha ona iha farmásia ne'e.
+Nia lori nia inan ba klínika iha Becora.
+Labarik ne'e kabun moras tanba hemu be'e la mós.
+Labarik sira tenke simu vasina antes tinan ida.
+Konsulta iha postu saúde la selu buat ida.
+Dengue mosu barak liu iha tempu udan.
+Nia ulun moras loron tolu ona no seidauk di'ak.
+Ambulánsia to'o tarde tanba dalan ba knua aat.
+Feto ne'e tuur hein iha ospitál oin husi dadeer.
+Aimoruk ne'e tenke hemu dala tolu kada loron.
+Doutór dehan katak nia tenke deskansa semana ida.
+Klínika ki'ik iha Same la iha mákina raiu-X.
+Ami lori be'e mós ba knua atu hamenus moras kabun.
+Enfermeira ne'e servisu iha Lospalos tinan sanulu ona.
+Moras-na'in barak mai husi foho ho motór.
+Nia mate iha ospitál hafoin moras kleur.
+Governu haruka doutór foun ba munisípiu Covalima.
+Ha'u la bele han buat ida tanba ha'u nia kabun moras.
+Postu saúde presiza aimoruk no materiál barak liu.
+Labarik barak seidauk hetan hahán sufisiente iha suku balun.
+Nia sente di'ak liu hafoin hemu aimoruk.
+Ema katuas sira presiza konsulta kada fulan ida.
+Farmásia besik merkadu loke to'o tuku walu kalan.
+Doutór husu ba nia atu fila mai iha semana oin.
+Moras ne'e la'o husi ema ida ba ema seluk lalais.
+Ita tenke fase liman antes han hodi la moras.
+Ospitál Baucau simu ema husi Lautém no Viqueque mós.
+Nia hetan asidente iha dalan no kanek iha ain.
+Aimoruk tradisionál husi ai-tahan sira sei uza nafatin iha knua.
+Feto isin-rua sira ba konsulta kada fulan iha postu saúde.
+Tais husi Lospalos nia dezeñu la hanesan tais husi Suai.
+Uma lulik iha suku ne'e sira harii fali tinan kotuk.
+Barlake presiza karau, tais no belak husi mane nia família.
+Tara bandu taka foho ne'e ba ema atu la tesi ai.
+Ema sira tebe-tebe iha uma lulik oin kalan tomak.
+Babadok tuku no ema hotu komesa dahur.
+Tais mak sasán prinsipál iha serimónia hotu-hotu.
+Liurai nia oan simu belak no kaibauk husi nia aman.
+Biti boot mak fatin atu rezolve problema entre uma lulik rua.
+Multa tara bandu nian selu ho fahi ka karau.
+Feto sira soru tais durante fulan tolu.
+Uma lulik nia kakuluk halo ho duut maran.
+Serimónia ne'e presiza fahi tolu no tua sabu barak.
+Matan dook ne'e hatene tempu di'ak atu komesa serimónia.
+Sira tara sinál iha ai atu hatudu katak rai ne'e taka.
+Tais mutin ho mean sira uza iha serimónia mate nian.
+Kaibauk osan-mutin nian mai husi bei-ala sira.
+Família rua ko'alia kona-ba barlake durante kalan tomak.
+Lisan dehan katak ita tenke fó tais ba bainaka.
+Ema hotu hatais tais bainhira sira dahur iha festa.
+Uma lulik ne'e nia ain sira halo husi ai metan.
+Ema hotu tuur iha biti no rona lia-na'in ko'alia.
+Serimónia uma lulik nian bolu família hotu fila ba knua.
+Likurai mak dansa feto sira nian ho babadok ki'ik.
+Surik no morteen sira rai iha uma lulik laran.
+Ema hotu kontribui osan ka animál ba serimónia boot.
+Bainhira ema mate, família taka nia isin ho tais.
+Tara bandu iha Atauro ajuda ikan sira aumenta fali.
+Barlake la'ós sosa feto; ne'e liga uma lulik rua.
+Sira halo serimónia molok komesa harii uma foun.
+Tua mutin husi akadiru sira uza iha serimónia lisan nian.
+Tais nia kór ho dezeñu hatudu ema ne'e husi ne'ebé.
+Kultura Timor nian rai iha lisan, la'ós iha buku.
+Serimónia kore metan halo tinan ida hafoin ema mate.
+Governu uza tara bandu atu proteje ai-laran no tasi.
+Belak iha peitu hatudu katak nia husi família liurai.
+Festa lisan nian lori ema mai husi Dili no rai liur.
+Feto ferik sira mak hatene soru dezeñu tuan sira.
+Ema sira kesi karau iha uma lulik oin molok serimónia.
+Dili sai boot lalais tanba ema barak mai husi munisípiu.
+Colmera nakonu ho loja no ema iha loro-kraik.
+Ema barak la'o iha tasi ninin Lecidere iha kalan.
+Estátua Cristo Rei hamriik iha foho ninin besik Metiaut.
+Comoro nia merkadu boot liu iha sidade tomak.
+Ami hela iha Bebonuk maibé ami servisu iha Farol.
+Dili nakonu ho kareta iha dadeer no iha loro-kraik.
+Iha Tasi Tolu manu-fuik barak mai iha tempu udan.
+Palásiu Governu iha tasi ninin besik Farol.
+Ema barak halai iha tasi ninin iha dadeer sedu.
+Becora dook husi sentru maibé renda uma baratu liu.
+Merkadu Taibesi mak fatin ne'ebé ema foho fa'an sira nia modo.
+Dili nia kalan manas no ema tuur iha uma oin.
+Universidade iha Dili simu estudante husi munisípiu hotu.
+Aeroportu iha Comoro besik tasi no ki'ik tebes.
+Bidau ho Audian iha uma tuan husi tempu Portugés.
+Ami ba jantar iha restaurante ida iha Vila Verde.
+Dili nia be'e la to'o ba bairu hotu iha tempu bailoron.
+Ema foin mai husi Baucau buka servisu iha Dili.
+Manleuana sai bairu foun ho uma barak.
+Kareta sira taka dalan besik merkadu iha loro-kraik.
+Iha Farol iha kantór governu no embaixada barak.
+Ha'u koñese Dili di'ak tanba ha'u moris iha ne'e.
+Hera besik Dili no iha ne'ebá ró peskadór barak.
+Sidade ne'e nakukun bainhira eletrisidade lakon.
+Kampung Alor nia dalan kloot no nakonu ho tenda.
+Fatuhada ho Comoro liga malu ho dalan boot ida.
+Ema Dili nian barak liu mai husi fatin seluk.
+Tasi ninin iha Dili nakonu ho ema iha loron domingu.
+Lafaek sira hela iha mota Comoro nia ibun.
+Ema Timor bolu lafaek nu'udar avó tanba istória bei-ala nian.
+Karau sira toba iha rai bokon besik natar.
+Foho Ramelau mak fatin aas liu iha rai ne'e.
+Asu sira hakilar kalan tomak iha knua.
+Manu-fuik barak hela iha ai-laran Lautém nian.
+Kuda sira la'o iha dalan foho leten iha Ainaro.
+Busa ki'ik ne'e toba iha kadeira loron tomak.
+Bibi sira sa'e foho atu buka duut foun.
+Samea naruk ida tama uma iha tempu udan.
+Rai iha Oecusse maran liu duke rai iha Ermera.
+Ai-laran iha Matebian sei iha ai boot barak.
+Fahi sira la'o livre iha knua no han buat hotu.
+Manu sira hakilar iha tuku haat dadeer.
+Mota Laclo naruk liu iha rai ne'e.
+Ai-hun tuan ne'e ema la bele tesi tanba lulik.
+Lafaek boot ida sira haree iha Tasi Tolu tinan kotuk.
+Rai Timor nia forma hanesan lafaek nia kotuk.
+Duut sai matak fali bainhira udan komesa monu.
+Kuda husi Timor ki'ik maibé forte iha dalan foho.
+Manu-lulik ida semo aas iha foho Kablaki nia leten.
+Karau sira mak riku-soin prinsipál ba família iha suku.
+Ai-funan mean sira moris iha dalan ninin ba Maubisse.
+Asu ne'e tuir nia na'in ba to'os loron-loron.
+Foho Matebian iha naran boot iha istória funu nian.
+Rai tetuk ki'ik deit iha Timor; foho mak barak liu.
+Ai-kameli mak sasán ne'ebé lori komersiante mai Timor uluk.
+Tasi no foho hamutuk halo rai ne'e furak tebes.
+Loron ida ha'u sei fila ba foho atu haree fali rai tuan.

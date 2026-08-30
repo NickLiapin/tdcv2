@@ -1,0 +1,24 @@
+---
+description: Agricultural jobs. Пахтакор — cotton grower — is third on the list, and ирригатор and сувчи are two different water jobs: the irrigation engineer and the person who actually opens and closes the channel gates. Пиллачи rears silkworms, a seasonal household job across the Fergana valley.
+locale: uz
+---
+агроном
+фермер
+пахтакор
+деҳқон
+боғбон
+сабзавотчи
+узумчи
+пиллачи
+чорвадор
+чўпон
+ветеринар
+ирригатор
+сувчи
+комбайн ҳайдовчиси
+тракторчи
+селекционер
+агрокимёгар
+қишлоқ хўжалиги муҳандиси
+дон қабул қилувчи
+иссиқхона устаси

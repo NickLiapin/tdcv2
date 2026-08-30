@@ -1,0 +1,13 @@
+---
+description: Age ratings as shown on Uzbek television and streaming. The numeric marks 0+ through 18+ follow the Russian system adopted in the 2010s; the phrases after them are what a listing prints instead when there is room. Ота-она назорати тавсия этилади is the parental guidance line.
+locale: uz
+---
+0+
+6+
+12+
+16+
+18+
+оилавий кўриш учун
+катталар учун
+ота-она назорати тавсия этилади
+чекловсиз

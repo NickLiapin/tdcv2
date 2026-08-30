@@ -1,0 +1,32 @@
+---
+description: Technical adjectives. Two entries here are built out of Tetum rather than borrowed and they are the ones worth noticing. Wireless is la iha kabu, literally does-not-have cable, because Tetum negates with the particle la placed before the verb and has no prefix answering to Portuguese sem- or English un-. Open source is kódigu nakloke, from nakloke, open — a native word carrying a foreign idea. High-speed and high-performance both use a'as, the Tetum for high or tall, placed after the noun, because a Tetum modifier follows what it modifies: velosidade a'as is speed-high, not high-speed. The rest are Portuguese loans on the standard rules, digital to dijitál with an acute on the stressed final syllable, óptico to ótiku, encriptado to enkriptadu.
+locale: tet
+---
+auksiliár
+primáriu
+sekundáriu
+dijitál
+virtuál
+redundante
+la iha kabu
+ótiku
+neuronál
+áptiku
+multiplataforma
+distribuidu
+enkriptadu
+remotu
+móvel
+integradu
+eskalável
+asínkronu
+bidiresionál
+kódigu nakloke
+estadu sólidu
+velosidade a'as
+dezempeñu a'as
+iha nuvem
+online
+offline
+64 bits
+8 bits

@@ -1,0 +1,15 @@
+---
+description: Gaming platform (West Frisian). Hardware brand names are kept exactly as marketed and are never translated - PlayStation, Xbox and Nintendo Switch are trade marks, not descriptions - so the only two values in this file that change at all are the generic ones: mobyl for a phone, with the Frisian y where Dutch writes ie, and browser, which stays. That is the whole Frisian content of the list, and it is worth knowing that a locale file can legitimately be almost entirely untranslated: a config that runs these through a case transform or a spellchecker tuned for Frisian will damage every line.
+locale: fy
+---
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox Series S
+Xbox One
+Nintendo Switch
+PC
+Steam Deck
+Meta Quest
+Mobyl
+Browser

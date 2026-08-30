@@ -1,0 +1,16 @@
+---
+description: Kinds of meeting. Планерка is the short stand-up planning meeting, a Russian word that survived into Uzbek office life intact. Бир-бир суҳбат is the one-to-one. Ҳашар is last and is not really a meeting: it is the collective volunteer work day, and a workplace that calls one expects everybody to turn up with a shovel.
+locale: uz
+---
+йиғилиш
+кенгаш
+планерка
+кундалик йиғилиш
+ҳафталик йиғилиш
+ойлик ҳисобот йиғилиши
+лойиҳа муҳокамаси
+бир-бир суҳбат
+жамоа учрашуви
+мижоз билан учрашув
+видеоконференсия
+ҳашар

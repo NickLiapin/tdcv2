@@ -1,0 +1,16 @@
+---
+description: Ancestry groups used to make a plausible medical record, each naming a file in diagnosisByAncestry. These are population-genetic groupings, not nationalities: Ўрта ер денгизи covers the Mediterranean rim, Ашкенази яҳудийлари the Ashkenazi population. The child files hold the conditions each group carries more often.
+locale: uz
+---
+Шимолий Европа
+Шарқий Европа
+Ўрта ер денгизи
+Ашкенази яҳудийлари
+Яқин Шарқ
+Шимолий Африка
+Саҳрои Кабирдан жанубий Африка
+Шарқий Осиё
+Жанубий Осиё
+Жануби-Шарқий Осиё
+Америка тубжой халқлари
+Тинч океани ороллари

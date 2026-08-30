@@ -1,0 +1,16 @@
+---
+description: Jobs in hospitality. Hoareka is the Frisian spelling of the contraction hotel-restaurant-cafe and names the whole trade in one word, treated as an ordinary noun rather than an abbreviation. The Frisian season has an unusual shape: the trade's year turns on water rather than on sun, with the Waddeneilannen and the lakes filling from May, the skûtsje racing fortnight taking August, and a winter that empties the province entirely unless the ice comes - which is why so much of the work here is seasonal and why the staffing collapses in November. Sjef-kok and sous-sjef keep the French kitchen hierarchy, spelled with the sj- that Frisian uses for the French ch, the same digraph as in sjauffeur and sjoernalist.
+locale: fy
+---
+Sjef-kok
+Sous-sjef
+Kok
+Ober
+Barman
+Sommelier
+Hotelmanager
+Hotelresepsjonist
+Konsjerzje
+Evenemintemanager
+Bedriuwslieder restaurant
+Banketbakker

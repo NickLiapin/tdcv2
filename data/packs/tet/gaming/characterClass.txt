@@ -1,0 +1,28 @@
+---
+description: Fantasy character classes, a vocabulary that reached Tetum entirely through screens and therefore shows the borrowing rules working on words no colonial administrator ever used. Guerreiro becomes gerreiru because Tetum writes the hard g of gue- as plain g and drops the silent u; caçador becomes kasadór with c to k, ç to s and an acute on the stressed final syllable; feiticeiro becomes feitiseiru; engenheiro becomes enjeñeiru with the g before e going to j and nh written ñ. Xamán keeps its x for the sh sound, which is the same x that turns chave into xave. Kavaleiru Mate is the death knight, and mate is Tetum's own word for death, so the compound is half borrowed and half not — a pattern this pack shows again and again.
+locale: tet
+---
+Gerreiru
+Magu
+Ladinu
+Paladinu
+Kasadór
+Saserdote
+Bruxu
+Druida
+Monje
+Xamán
+Kavaleiru Mate
+Kasadór Demóniu
+Bárbaru
+Nekromante
+Bardu
+Asasinu
+Klériku
+Feitiseiru
+Esploradór
+Templáriu
+Berserker
+Invokadór
+Alkimista
+Enjeñeiru

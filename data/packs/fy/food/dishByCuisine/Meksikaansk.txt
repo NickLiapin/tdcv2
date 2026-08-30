@@ -1,0 +1,18 @@
+---
+description: Mexican dishes, and the cuisine name is where all the work happens: Meksikaansk spells with k what Dutch spells with c and Spanish with x, because standard Frisian orthography does not use c for the k sound anywhere. The same rule turns cacao into kakao, chocolade into sûkelade, speculaas into spekulaas and nectarine into nektarine, so a config that leaves c's in a Frisian value is nearly always wrong. The dish names themselves are Spanish and are left alone, which is the rule across this folder, and here it matters more than usual: tacos, burritos and quesadillas reached Fryslân as supermarket kit boxes and chain-restaurant menus rather than through any Mexican community, so there was never a household version for the language to name. This is the one cuisine in the folder that arrived as a product rather than as a kitchen.
+locale: fy
+---
+Tacos al pastor
+Burrito
+Quesadilla
+Enchiladas
+Guacamole
+Nachos
+Fajitas
+Chili con carne
+Tamales
+Pozole
+Ceviche
+Elote
+Churros
+Salsa verde

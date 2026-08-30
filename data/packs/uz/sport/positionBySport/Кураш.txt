@@ -1,0 +1,16 @@
+---
+description: Roles and weight categories in кураш, the Uzbek jacket wrestling codified for international competition in the 1990s. Полвон is the wrestler. The weight bands run from 60 kg upward in the international kurash scheme, and тоифаси is the word for a category.
+locale: uz
+---
+полвон
+60 кг тоифаси
+66 кг тоифаси
+73 кг тоифаси
+81 кг тоифаси
+90 кг тоифаси
+100 кг тоифаси
+100 кг дан юқори
+бош ҳакам
+ён ҳакам
+мураббий
+секундант

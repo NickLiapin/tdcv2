@@ -1,0 +1,12 @@
+---
+description: Thai dishes. The chilli heat these are known for arrived in Thailand exactly as it arrived in Mozambique and in Eswatini, on a Portuguese ship in the sixteenth century carrying an American plant, which is why the fiercest cooking of two continents dates from the same decade. Isom tam, green papaya salad, uses a fruit that also grows in Eswatini's lowveld and is on this pack's fruit list as liphapaya, though nobody here eats it unripe. Where a Thai dish name has no vowel-final shape, siSwati leaves it as it is behind the class 9 prefix rather than reshaping it, which is what marks these as recent and unassimilated borrowings.
+locale: ss
+---
+Ipad thai
+Itom yum
+Igreen curry
+Isom tam
+Imassaman curry
+Ipad krapow
+Imango sticky rice
+Itom kha gai

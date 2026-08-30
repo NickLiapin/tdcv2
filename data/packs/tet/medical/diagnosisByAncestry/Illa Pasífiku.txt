@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Pacific Island ancestry, named in Tetum. Gota and iperurisemia are listed together because serum urate genuinely runs higher in these populations for inherited reasons involving the renal urate transporters, so gout begins earlier and hits harder than a European reference range would predict, and treating the number rather than the person goes wrong here more often than elsewhere. The remainder of the file is the metabolic cluster that arrived across the Pacific with imported food inside two generations — one of the fastest population-level shifts in disease burden ever documented anywhere, and recognisably the shift that Timor-Leste's own towns have now started.
+locale: tet
+---
+Diabetes tipu 2
+Ipertensaun ligada ba obezidade
+Gota
+Iperurisemia
+Doensa kardíaka reumátika
+Doensa renál kronika

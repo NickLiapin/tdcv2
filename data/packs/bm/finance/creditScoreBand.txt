@@ -1,0 +1,9 @@
+---
+description: Standing of a borrower as a label, because Mali has no consumer credit score and nothing that yields a three-digit number. The BCEAO, central bank of the eight-country West African monetary union, licenses a credit information bureau that records a borrower's outstanding obligations and any default, and a lender reads that as a standing rather than as a figure. In practice most lending decisions rest on things no score would capture: a guarantor who signs, a payslip from an employer the branch knows, a share held in a village bank of a network such as Kafo Jiginew or Nyèsigiso, or a record of honouring one's turn in a tontine. A config that prints one of these labels beside an invented numeric score is asserting an institution the country does not have.
+locale: bm
+---
+Insuffisant
+Faible
+Moyen
+Bon
+Excellent

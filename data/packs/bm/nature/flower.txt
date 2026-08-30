@@ -1,0 +1,32 @@
+---
+description: Flowers. Dabileni opens the list because it is the one on this list that Malians actually consume rather than admire — the red hibiscus whose dried calyx makes the deep crimson drink sold on every street, called bissap in French. The flamboyant is Bamako's calendar, coming into full scarlet at the end of the hot dry season just before the first rains, and the nénuphar is the water lily of the Inner Niger Delta, whose seed is ground into flour in the months before the harvest when the granaries are lowest. Worth knowing for a config writer that Bambara names a plant by what it does and what it yields, and rarely names the bloom apart from the plant, so the cut-flower vocabulary here is French and belongs to the florists, hotels and ministries that buy them.
+locale: bm
+---
+dabileni
+bougainvillier
+hibiscus
+flamboyant
+frangipanier
+laurier-rose
+jasmin
+rose
+allamanda
+ixora
+pervenche de Madagascar
+tournesol
+œillet
+lys
+marguerite
+gerbera
+orchidée
+souci
+zinnia
+cosmos
+capucine
+balsamine
+amarante
+datura
+nénuphar
+lotus
+bauhinia
+cassia

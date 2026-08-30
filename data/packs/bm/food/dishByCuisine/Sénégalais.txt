@@ -1,0 +1,13 @@
+---
+description: Senegalese food, which reaches Mali by two routes that have run for a very long time: the Dakar-Bamako railway, built by 1904 and the main artery of the colony, and the enormous Malian community in Senegal. `Thiéboudienne` — rice, fish and vegetables cooked in one pot — is Senegal's national dish and a Bamako restaurant fixture. `Mafé` is the same groundnut sauce Malians call tigadɛgɛna, which is a fair illustration of how little the border means to a kitchen. `Yassa`, onions and mustard and lime, is the other export that has travelled everywhere.
+locale: bm
+---
+Thiéboudienne
+Yassa poulet
+Mafé
+Thiakry
+Pastels
+Soupou kandia
+Domoda
+Fataya
+Ceebu yapp

@@ -1,0 +1,12 @@
+---
+description: The eight sports this pack ships positions for. Each value names a file in positionBySport, so a coherent record can pick a sport and then a position that belongs to it. The list is deliberately shorter than sport/name.txt: it holds only the sports with a real position vocabulary in Uzbek.
+locale: uz
+---
+Футбол
+Кураш
+Кўпкари
+Бокс
+Жудо
+Волейбол
+Баскетбол
+Оғир атлетика

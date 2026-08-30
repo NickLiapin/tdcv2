@@ -1,0 +1,54 @@
+---
+description: Uzbek dishes. Палов leads, and тўй оши is the wedding version cooked in a cauldron for hundreds. Then the dumplings and soups — чучвара, манти, лағмон, шўрва, мастава — the breads, and the sweets. Сумалак is made once a year from sprouted wheat for Наврўз and is cooked overnight by a group of women taking turns at the cauldron.
+locale: uz
+---
+палов
+тўй оши
+тандир палов
+чучвара
+манти
+сомса
+кўк сомса
+лағмон
+кесма
+шўрва
+мастава
+мошхўрда
+мошкичири
+димлама
+қовурма
+норин
+хасип
+кабоб
+шашлик
+тандир кабоб
+қозон кабоб
+жизза
+дўлма
+хоним
+гумма
+тухумбарак
+ҳалим
+сутли шўрва
+ачичук
+аччиқ-чучук
+оби нон
+патир
+ғиждувон нони
+кулча
+катлама
+чалпак
+боғирсоқ
+сумалак
+нишолда
+ҳолвайтар
+наввот
+парварда
+ҳалво
+чак-чак
+қаймоқ
+сузма
+қурт
+айрон
+кўк чой
+қора чой

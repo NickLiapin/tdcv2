@@ -1,0 +1,36 @@
+---
+description: Vehicle types. Маршрут такси is the shared-route minibus that carries much of the country's urban traffic. Цистерна and самосвал — tanker and tipper — came through Russian, and цистерна is one of the words where Cyrillic ц is written s in Latin. От-арава, the horse cart, is last and is still on rural roads.
+locale: uz
+---
+енгил автомобил
+седан
+хетчбек
+универсал
+кроссовер
+йўлтанламас автомобил
+пикап
+микроавтобус
+автобус
+шаҳар автобуси
+маршрут такси
+такси
+юк машинаси
+тиркама
+ярим тиркама
+цистерна
+рефрижератор
+самосвал
+трактор
+комбайн
+экскаватор
+автокран
+тез ёрдам машинаси
+ўт ўчириш машинаси
+мотоцикл
+мопед
+скутер
+велосипед
+электросамокат
+аравача
+от-арава
+трамвай

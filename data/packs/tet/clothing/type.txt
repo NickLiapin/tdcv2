@@ -1,0 +1,30 @@
+---
+description: Garments, and the list leads with the tais because it would be false to lead with anything else. The tais is the handwoven cloth of Timor-Leste, made on a backstrap loom, and its pattern and colours say which municipality and which house the weaver belongs to; it is draped over a guest's shoulders in welcome, exchanged between families in the barlake marriage settlement, and wrapped around a coffin. Tais feto is the women's form, a tube stepped into and worn as a skirt, and tais mane the men's, a wide panel worn as a wrap or over one shoulder — the distinction is in how the cloth is worn, not in any grammatical gender, because Tetum has none. Sarung and kebaya come from the Indonesian layer and are still standard formal wear for women at church and at state ceremonies. Xinelu, the rubber flip-flop, is the footwear of the whole country. The Portuguese loans respell as usual: camisa to kamiza, calças to kalsa, chapéu to xapeu with ch becoming x, sapato to sapatu.
+locale: tet
+---
+Tais
+Tais feto
+Tais mane
+Kamiseta
+Kamiza
+Kalsa
+Kalsa badak
+Kalsa jeans
+Vestidu
+Saia
+Sarung
+Kebaya
+Bluza
+Jaketa
+Pulóver
+Kapa udan
+Pijama
+Meia
+Sinta
+Gravata
+Xapéu
+Boné
+Xinelu
+Sandália
+Sapatu
+Bota

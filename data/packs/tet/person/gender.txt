@@ -1,0 +1,6 @@
+---
+description: Gender label in Tetum. Two values, and they are nouns rather than adjectives — mane is a man, feto is a woman, and they attach to another noun to specify it, as in labarik-mane a boy and labarik-feto a girl. The reason this column matters more here than the pt one is that Tetum has no grammatical gender whatsoever: there are no gendered articles, adjectives never agree, a single form serves both rows of every other list in this pack, and the third person pronoun nia stands for he, she and it alike. So the information a Romance language leaks through every determiner and every word ending, Tetum states only when someone chooses to state it, which means a Timorese record's gender column is carrying data the grammar around it never does. Keep the list at two: this is what `parent="Gender.Mane"` filters on, and a longer list leaves most rows without a name.
+locale: tet
+---
+Mane
+Feto

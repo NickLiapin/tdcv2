@@ -1,0 +1,12 @@
+---
+description: Vietnamese dishes. Ipho, the beef noodle soup, is one of the few names on all seventeen of these files that consists of a single short syllable, and it shows what siSwati does with such a word: the class 9 i- prefix is not optional, because a bare pho would have no grammatical class and could not take a concord, so it could not be the subject of a sentence or be counted. That is why every borrowed dish name in this pack carries a prefix even when the source language needs none. Ibanh mi is the other entry with a visible history in it, being a French baguette filled with Vietnamese ingredients, which is a colonial inheritance not unlike the iscone on this pack's English list.
+locale: ss
+---
+Ipho
+Ibanh mi
+Igoi cuon
+Ibun cha
+Icom tam
+Ica kho to
+Ibanh xeo
+Ibun bo hue

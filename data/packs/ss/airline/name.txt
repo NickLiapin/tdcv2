@@ -1,0 +1,54 @@
+---
+description: Airline known in Eswatini. Two are the country's own and they bracket fifty years. Royal Swazi National Airways flew from 1978 and collapsed in the 1990s, and its Fokker and BAe aircraft out of Matsapha are still remembered. Eswatini Air launched in 2023 from King Mswati III International Airport at Sikhuphe, the airport built in the bush near Big Bend that stood almost unused for a decade after opening. Between them Airlink from Johannesburg carried nearly all of the country's air traffic, and still carries most of it: Eswatini's practical connection to the world is a 45-minute hop to OR Tambo and a connection there, which is why the list below is dominated by carriers a Swazi traveller meets in a South African transit lounge rather than on a Swazi apron.
+locale: ss
+---
+Eswatini Air
+Royal Swazi National Airways
+Airlink
+South African Airways
+FlySafair
+Lift
+CemAir
+Mango
+Kulula
+Comair
+LAM Mozambique Airlines
+Air Botswana
+Air Zimbabwe
+Air Namibia
+Malawi Airlines
+Zambia Airways
+Proflight Zambia
+Fastjet
+Kenya Airways
+Ethiopian Airlines
+RwandAir
+Uganda Airlines
+Precision Air
+Air Tanzania
+TAAG Angola Airlines
+Congo Airways
+Camair-Co
+ASKY Airlines
+Air Peace
+Arik Air
+Egyptair
+Royal Air Maroc
+Badr Airlines
+Air Mauritius
+Air Seychelles
+Emirates
+Qatar Airways
+Etihad Airways
+Turkish Airlines
+British Airways
+Virgin Atlantic
+KLM
+Air France
+Lufthansa
+Swiss International Air Lines
+TAP Air Portugal
+Delta Air Lines
+United Airlines
+Singapore Airlines
+Cathay Pacific

@@ -1,0 +1,9 @@
+---
+description: Cricket roles in siSwati. Five rather than eleven, because cricket names ROLES rather than fixed positions: a fielder moves to wherever the captain puts him and the place he stands has a name in English that siSwati has never had occasion to borrow. Umshaya is from kushaya, to strike, umjikijeli from kujikijela, to throw. Umgcini wetinsika, the wicketkeeper, is "the keeper of the posts", tinsika being the pillars of a building — the same word that appears in this pack's company name list. Cricket in Eswatini is small, run through the Eswatini Cricket Association and played mainly in the schools around Mbabane and Manzini, so the vocabulary has stayed shallow.
+locale: ss
+---
+Umshaya
+Umjikijeli
+Umgcini wetinsika
+Umdlali wetintfo tonkhe
+Umbambi

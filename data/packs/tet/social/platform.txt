@@ -1,0 +1,21 @@
+---
+description: Social platforms. One of them is not merely first but is, for a large share of Timorese users, the whole internet: Facebook arrived with cheap Android handsets and zero-rated data bundles and became the default public square, the place where government notices, church announcements, job adverts and market prices circulate, and where many people have an account without having a browser habit at all. WhatsApp sits beside it for the same reason of cost. The Asian entries at the tail are here because the country's diaspora and its trade run east and south rather than west: Line and WeChat come with the Chinese-Timorese business community and the Indonesian and Singaporean supply chains.
+locale: tet
+---
+Facebook
+WhatsApp
+TikTok
+Instagram
+YouTube
+Messenger
+X
+LinkedIn
+Telegram
+Snapchat
+Pinterest
+Reddit
+Twitch
+Discord
+Threads
+Line
+WeChat

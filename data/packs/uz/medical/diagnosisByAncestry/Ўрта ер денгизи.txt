@@ -1,0 +1,10 @@
+---
+description: Conditions carried more often around the Mediterranean rim. Beta thalassaemia is named for this sea. Оилавий Ўрта ер денгизи иситмаси — familial Mediterranean fever — is the periodic fever syndrome of Armenian, Turkish, Arab and Sephardi populations.
+locale: uz
+---
+Бета талассемия
+Ўроқсимон ҳужайрали анемия
+Г6ФД етишмовчилиги
+Оилавий Ўрта ер денгизи иситмаси
+Лактоза интолеранси
+Гемохроматоз

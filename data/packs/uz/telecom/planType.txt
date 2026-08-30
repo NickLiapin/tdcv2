@@ -1,0 +1,16 @@
+---
+description: Mobile tariff types. Олдиндан тўлов and кейин тўлов are prepaid and postpaid, and prepaid dominates the Uzbek market by a wide margin. Пакетли тариф is the bundle, and the daily, weekly and monthly packets after it are how most subscribers actually buy data.
+locale: uz
+---
+олдиндан тўлов
+кейин тўлов
+чекланмаган интернет
+пакетли тариф
+кунлик пакет
+ҳафталик пакет
+ойлик пакет
+оилавий тариф
+корпоратив тариф
+талабалар тарифи
+халқаро қўнғироқлар пакети
+роуминг пакети

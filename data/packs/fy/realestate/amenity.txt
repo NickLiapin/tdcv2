@@ -1,0 +1,30 @@
+---
+description: Property amenity as a Frisian listing writes it. Berging - a lockable private store, usually on the ground floor - and fytsestalling are near-universal features and are always named in an advertisement; sinnepanielen and dûbel glês are selling points rather than extras, because a listing must state an energy label and insulation is what moves it. Three words are worth the file on their own. Iepen hurd is the open fireplace, and hurd is a hearth, the same word as English hearth where Dutch has haard. Flier is a floor, standing beside English floor against Dutch vloer, so flierferwaarming is underfloor heating. And glês is glass, with the circumflex, one of the pack's clean Anglo-Frisian pairs.
+locale: fy
+---
+Swimbad
+Garaazje
+Iepen hurd
+Airconditioning
+Houten flier
+Flierferwaarming
+Sintrale ferwaarming
+Ynrinkast
+Balkon
+Dakterras
+Tún
+Achterom
+Fitnessromte
+Lift
+Parkearplak
+Fytsestalling
+Berging
+Kelder
+Ôfwaskmasine
+Waskromte
+Húsdieren tastien
+Alarmsysteem
+Sinnepanielen
+Dûbel glês
+Meubilearre
+Resepsje

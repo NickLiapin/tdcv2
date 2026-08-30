@@ -1,0 +1,16 @@
+---
+description: Conditions with a raised frequency in sub-Saharan African ancestry — the population this pack's own speakers belong to, which makes it the one file here written from the inside. Most of these entries exist because of malaria. Sickle cell trait, the single-copy form, protects against severe falciparum malaria and was selected for across the malaria belt, which is exactly why the two-copy disease persists at the cost it does; G6PD deficiency arose under the same pressure, and Duffy-negative red cells, near universal in West and Central Africa, block Plasmodium vivax entirely. The APOL1 kidney risk variants tell the same story about a different parasite: they protect against the trypanosome that causes sleeping sickness and raise the risk of kidney failure severalfold in people who carry two. These are ancestry associations as clinical genetics states them, not statements about individuals.
+locale: ss
+---
+I-sickle cell disease
+I-sickle cell trait
+I-G6PD deficiency
+I-APOL1 kidney disease
+Umfutfo wengati lophakeme
+Sifo sashukela sesigaba sesibili
+I-keloid scarring
+Ema-fibroids esibeletfweni
+I-lactase non-persistence
+I-hepatitis B carriage
+I-glaucoma
+I-Duffy-negative malaria resistance

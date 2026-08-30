@@ -1,0 +1,18 @@
+---
+description: Marital status in Tetum, and the reason this list is longer in substance than a European one is that three separate authorities can marry a Timorese couple and they do not agree with each other. Kaben iha lisan is marriage under custom, completed by barlake — the exchange between the two houses of buffalo, tais, silver belak discs and pigs, negotiated over months and sometimes paid off across years — and it is what most rural couples mean when they say they are married, though it leaves no entry in any state register. Kaben iha igreja is the church wedding, which in a country that is around ninety-seven per cent Catholic is the ceremony the community recognises. Kaben iha estadu is civil registration at the conservatória, which is what a passport or an inheritance case actually runs on. A couple may have one, two or all three, in any order and years apart, so hela hamutuk (living together) frequently describes people the village considers thoroughly married. Note the grammar: nothing here inflects for the person's sex, so unlike the pt list there is no solteiro/solteira pair and one value serves every row. Faluk is widowed for a man or a woman alike; soe malu is separated and is literally to throw each other away.
+locale: tet
+---
+Klosan
+Seidauk kaben
+Noivu
+Kaben ona
+Kaben iha igreja
+Kaben iha estadu
+Kaben iha lisan
+Kaben barlake
+Hela hamutuk
+Kaben dala-rua
+Soe malu
+Divórsiu
+Anulasaun kaben
+Faluk

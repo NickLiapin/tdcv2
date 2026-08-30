@@ -1,0 +1,15 @@
+---
+description: Diagnoses seen in psychiatry, in West Frisian. Twangsteuring is obsessive-compulsive disorder, and it shows a sound change that runs through the whole language: Frisian has tw- where Dutch has dw-, so twang is Dutch dwang, twa is twee and twinge is dwingen. Steuring does throughout this file the work Dutch gives to stoornis. Burn-out is on the list untranslated because Dutch practice treats overspanning and burn-out as a formal diagnosis with a guideline of its own rather than as a complaint, and a Frisian record inherits that classification whole.
+locale: fy
+---
+Depresje
+Generalisearre eangststeuring
+Paniksteuring
+Bipolêre steuring
+Skizofreny
+Twangsteuring
+Posttraumatyske stress-steuring
+Anorexia nervosa
+Ferslaving
+Burn-out
+Sliepsteuring

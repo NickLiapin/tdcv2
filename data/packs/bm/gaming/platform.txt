@@ -1,0 +1,15 @@
+---
+description: Where games are played in Mali, and the last two values are the ones that matter. A `salle de jeux` is a neighbourhood room with a television, a console and a queue, rented by the game or the half-hour, and for most young Malians it is the console — household ownership is thin and shared access is not. Android is the other real platform, because the smartphone reached Mali long before the games console did and mobile data is sold in small sachets of megabytes. The older PlayStation models stay on this list because they stay in the salles: hardware here has a much longer working life than a Western release calendar assumes.
+locale: bm
+---
+PC
+PlayStation
+PlayStation 4
+PlayStation 5
+Xbox
+Xbox Series X
+Nintendo Switch
+Android
+iOS
+Navigateur
+Salle de jeux

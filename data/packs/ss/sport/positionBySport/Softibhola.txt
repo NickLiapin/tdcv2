@@ -1,0 +1,14 @@
+---
+description: Softball positions in siSwati. Softball is played in Eswatini's schools and workplaces where baseball is not played at all, which is why this file exists and a baseball one does not. The bases are called tisekelo, foundations, from kusekela, to support — the same word used for the foundation of a building and for the base of an argument — so a first baseman is umbambi wesisekelo sekucala, "the catcher of the first foundation". Umbambi is from kubamba, to catch or to hold, and it does duty for every fielder. Umshaya lokhetsiwe, the designated hitter, is literally "the chosen striker", and kukhetsa, to choose, is the same verb used of an election.
+locale: ss
+---
+Umjikijeli
+Umbambi wangemuva
+Umbambi wesisekelo sekucala
+Umbambi wesisekelo sesibili
+Umbambi wesisekelo sesitsatfu
+Umbambi lophakatsi kwetisekelo
+Umbambi wangasencele
+Umbambi wangekhatsi
+Umbambi wangasekudla
+Umshaya lokhetsiwe

@@ -1,0 +1,16 @@
+---
+description: Month abbreviations. Tetum clips the month to three letters and, unlike Portuguese, writes no full stop after the clip — pt/date/monthAbbr.txt carries jan. and fev. with the point, and the Tetum forms carry none. Two of these hide their respelling because the change falls after the cut: Jun is Juñu with its ñ off the end and Jul is Jullu with its double l gone, so the abbreviations look more Portuguese than the full names do. Abr keeps no accent because the acute in Abríl marks a stress that the shortened form no longer carries.
+locale: tet
+---
+Jan
+Fev
+Mar
+Abr
+Mai
+Jun
+Jul
+Ago
+Set
+Out
+Nov
+Dez

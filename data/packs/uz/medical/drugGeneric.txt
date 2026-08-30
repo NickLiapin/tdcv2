@@ -1,0 +1,45 @@
+---
+description: Generic drug names as an Uzbek prescription writes them, grouped by class: analgesics, gastric drugs, antibiotics, antihistamines, steroids, cardiovascular, endocrine. Но-шпа is here under its brand name because nobody in the region asks for drotaverine, which is listed right after it. The spellings follow the Russian pharmacopoeia.
+locale: uz
+---
+парацетамол
+ибупрофен
+аналгин
+аспирин
+диклофенак
+кеторолак
+нимесулид
+но-шпа
+дротаверин
+папаверин
+омепразол
+ранитидин
+алмагел
+лоперамид
+мезим
+панкреатин
+урсодезоксихол кислотаси
+амоксициллин
+азитромицин
+цефазолин
+цефтриаксон
+ципрофлоксацин
+метронидазол
+нистатин
+флуконазол
+ацикловир
+супрастин
+лоратадин
+цетиризин
+дексаметазон
+преднизолон
+салбутамол
+будесонид
+эналаприл
+лизиноприл
+амлодипин
+бисопролол
+фуросемид
+метформин
+инсулин
+левотироксин

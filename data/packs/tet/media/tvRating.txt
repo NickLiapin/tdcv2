@@ -1,0 +1,14 @@
+---
+description: Broadcast content ratings, written out in Tetum rather than abbreviated, because Timor-Leste has no domestic classification board and no letter code of its own: RTTL, the state broadcaster, and the private channels carry material already classified in Indonesia, Portugal or Australia, and the on-screen label a Timorese viewer sees depends on where the programme came from. The phrasing here shows two ordinary pieces of Tetum. Mai kraik is literally coming-down and does the work of under or below, so tinan 12 mai kraik is under twelve years. Inan-aman is parents, a compound of inan mother and aman father — Tetum has no separate word for the pair and simply names both, and the same construction gives maun-alin for siblings and avó-avô for grandparents.
+locale: tet
+---
+Livre ba ema hotu
+La rekomenda ba tinan 10 mai kraik
+La rekomenda ba tinan 12 mai kraik
+La rekomenda ba tinan 14 mai kraik
+La rekomenda ba tinan 16 mai kraik
+La rekomenda ba tinan 18 mai kraik
+Presiza akompaña husi inan-aman
+Ba adultu deit
+Ba labarik
+Ba foin-sa'e

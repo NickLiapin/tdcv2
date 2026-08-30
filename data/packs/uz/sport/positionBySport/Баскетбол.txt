@@ -1,0 +1,12 @@
+---
+description: Basketball positions in Uzbek. Uzbek describes them by function rather than by number: марказий ўйинчи for the centre, оғир форвард and енгил форвард for the power and small forward. Разводящий, the point guard, keeps its Russian name because that is what the coaches say.
+locale: uz
+---
+марказий ўйинчи
+оғир форвард
+енгил форвард
+ҳимоя ўйинчиси
+ҳужум ўйинчиси
+разводящий
+захира ўйинчи
+бош мураббий

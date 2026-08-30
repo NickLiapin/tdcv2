@@ -1,0 +1,23 @@
+---
+description: Film genres. One entry is Tetum and it is the one that carries weight here: funu is war, and it is not a neutral word — funu is what Timorese call the twenty-four years between the 1975 invasion and the 1999 referendum, the resistance fighters were funu-nain, people of the war, and the country's own documentary and feature output is dominated by it. Beatriz's War, made in Tetum in 2013 and the first Timorese feature film, is a funu film. The rest respell from Portuguese: comédia to komédia, ficção científica to fiksaun sientífika with cc going to ks and ç to s, documentário to dokumentáriu, biográfico to biográfiku.
+locale: tet
+---
+Asaun
+Komédia
+Drama
+Teror
+Suspense
+Romanse
+Fiksaun sientífika
+Fantazia
+Dokumentáriu
+Animasaun
+Aventura
+Krime
+Mistériu
+Faroeste
+Musikál
+Funu
+Biográfiku
+Noir
+Komédia romántika

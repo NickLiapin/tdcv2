@@ -1,0 +1,39 @@
+---
+description: Malian music, which is one of the things the country is unambiguously first at. `Jeliya` is the art of the griot — hereditary praise-singing, genealogy and history, performed by the nyamakala families whose names are Kouyaté, Diabaté, Sissoko and Soumano — and `fasa` is the praise song itself. `Wasulu` is the music of the Wassoulou country south of Bamako, sung mostly by women over the six-string kamalen ngoni, and Oumou Sangaré made it international. `Takamba` is the Songhai music of the Niger bend and `assouf` the Tuareg guitar style that the world calls desert blues. `Balani show` is the Bamako street phenomenon, a small balafon played through a PA at deafening volume for the young at a wedding, and `sumu` is the wedding itself. `Donsoya` is the hunters' music, initiatory and half-secret. The imported genres at the end are real but they arrive into a country that exports more music than it imports.
+locale: bm
+---
+Wasulu
+Mandingue
+Jeliya
+Fasa
+Sumu
+Balani show
+Takamba
+Assouf
+Blues du désert
+Didadi
+Donsoya
+Bara
+Sogoninkun
+Rap malien
+Rap
+Hip-hop
+Reggae
+Zouk
+Coupé-décalé
+Afrobeat
+Afrobeats
+Ndombolo
+Mbalax
+Salsa
+Jazz
+Blues
+Rock
+Pop
+R&B
+Slam
+Gospel
+Chant religieux
+Musique classique
+Variété française
+Musique folklorique

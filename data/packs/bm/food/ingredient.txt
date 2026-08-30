@@ -1,0 +1,44 @@
+---
+description: What a Malian kitchen actually holds. `Sumbala` is the one that defines the taste: néré seeds boiled for a day, fermented for several more and pressed into black balls with a smell that clears a room and a flavour that is the base note of almost every sauce in the country — it is Mali's equivalent of fish sauce or miso, and it is made and sold by women. `Si tulu` is shea butter, pressed from the nuts of the karité tree by women's cooperatives, used for cooking and for skin alike. `Malo`, `Ɲɔ`, `Kaba` and `Fini` are rice, millet, maize and fonio, and fonio deserves the note: it is the oldest cultivated cereal in West Africa, ripens in six weeks on poor soil, and is the grain that carries a household through the hungry season before the millet is ready. `Nɔnɔ` is milk. Note that `Sumbala` and `Soumbala` both appear — the Bambara spelling and the French one, and Malian packaging uses both.
+locale: bm
+---
+Sumbala
+Si tulu
+Malo
+Ɲɔ
+Kaba
+Fini
+Tiga
+Kɔgɔ
+Nɔnɔ
+Riz
+Mil
+Sorgho
+Maïs
+Fonio
+Arachide
+Beurre de karité
+Soumbala
+Huile d'arachide
+Huile de palme
+Sel
+Sucre
+Farine
+Semoule
+Pâte d'arachide
+Lait
+Lait caillé
+Lait en poudre
+Œuf
+Viande de bœuf
+Viande de mouton
+Poulet
+Poisson séché
+Poisson fumé
+Bouillon cube
+Concentré de tomate
+Ail
+Oignon
+Piment
+Feuille de baobab
+Beurre

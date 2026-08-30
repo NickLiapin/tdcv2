@@ -1,0 +1,15 @@
+---
+description: Football positions in siSwati, numbered as a Swazi coach would run them out from the back. Umgcini welisango is "the keeper of the gate", lisango being the word for the gateway into a homestead as well as a goal — which is not a translation of the English word but the same picture arrived at independently. The left and right qualifiers repay attention: wangasekudla, "of the right", is built on kudla, to eat, because the right hand is the eating hand, so the direction is named from the body rather than from an abstract axis. Football is Eswatini's dominant sport and its national side is Sihlangu Semnikati, "the King's Shield", named for the great oxhide shield of the regiments.
+locale: ss
+---
+Umgcini welisango
+Umvikeli wangasekudla
+Umvikeli wangekhatsi lomkhulu
+Umvikeli wangekhatsi lomncane
+Umvikeli wangasencele
+Umdlali wangekhatsi lovikelako
+Umdlali wangekhatsi
+Umdlali wangekhatsi lohlaselako
+Umhlaseli wangasekudla
+Umhlaseli wangasencele
+Umhlaseli

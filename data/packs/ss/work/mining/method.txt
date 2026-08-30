@@ -1,0 +1,12 @@
+---
+description: Mining method in siSwati, and every value is an infinitive built on kumba, to dig, with a manner phrase after it — the language names a method by how the digging is done rather than by a technical noun. Kumba ngetandla, digging by hand, is not a historical entry: it is what was done at Lion Cavern on Ngwenya mountain about 43,000 years ago with stone tools, cutting haematite out of the hillside for pigment, and that makes it the oldest documented mining anywhere. Kumba ngaphandle, open cast, is what took the same mountain apart for iron ore from 1964. Kumba emfuleni, alluvial working, is how gold was won at Piggs Peak and Forbes Reef, and kumba ngaphansi kwemhlaba is what generations of Swazi men went across the border to do in South Africa.
+locale: ss
+---
+Kumba ngetandla
+Kumba ngaphandle
+Kumba ngaphansi kwemhlaba
+Kumba emfuleni
+Kumba ngemshini
+Kumba ngekuqhumisa
+Kumba ngekugubha imigodzi
+Kumba ngekugeza inhlabatsi

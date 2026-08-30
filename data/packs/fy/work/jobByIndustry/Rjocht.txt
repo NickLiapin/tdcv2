@@ -1,0 +1,16 @@
+---
+description: Jobs in law. Rjocht is both a right and the law, and it is the same word as English right with the vowel broken and the g gone to ch, so a judge is a rjochter and a court a gerjocht. The language has a formal standing inside these jobs that no other regional language in the Netherlands has: a party, a witness or an advocate may speak Frisian in any court sitting in Fryslân and may file documents in it, a right written into the Wet gebrûk Fryske taal, which is also why interpreters are on call in Ljouwert. Gerjochtsdoarwarder is the bailiff, literally the keeper of the court's door, and notarisklerk is a clerk in a notary's office, a Dutch profession with statutory duties in conveyancing and inheritance rather than a filing job.
+locale: fy
+---
+Advokaat
+Juridysk meiwurker
+Rjochter
+Griffier
+Compliance officer
+Notaris
+Offisier fan justysje
+Bedriuwsjurist
+Oktroaigemachtige
+Gerjochtsdoarwarder
+Mediator
+Notarisklerk

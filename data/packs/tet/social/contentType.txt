@@ -1,0 +1,17 @@
+---
+description: Social media content types. The vocabulary is a clean cross-section of the three loan layers: Publikasaun, Komentáriu, Resposta and Mensajen come through Portuguese and respell by rule, while Story, Reel and the rest are English kept whole because they arrived as product names and were never translated. Transmisaun direta, live broadcast, is the one built rather than borrowed. Mensajen direta shows the pack's usual handling of Portuguese -gem, which becomes -jen, and the parallel viagem to viajen appears in the travel files.
+locale: tet
+---
+Publikasaun
+Komentáriu
+Resposta
+Story
+Reel
+Enkuesta
+Transmisaun direta
+Repostajen
+Tópiku
+Mensaun
+Mensajen direta
+Vídeu badak
+Álbum foto

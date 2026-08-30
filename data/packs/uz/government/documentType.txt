@@ -1,0 +1,32 @@
+---
+description: Kinds of official document. Uzbek forms most of them with -нома, a Persian suffix meaning written thing: гувоҳнома a certificate, ишончнома a power of attorney, васиятнома a will, далолатнома a formal act. Меҳнат дафтарчаси is the Soviet-era work book that still records an employment history.
+locale: uz
+---
+гувоҳнома
+маълумотнома
+буйруқ
+қарор
+фармон
+низом
+қоида
+йўриқнома
+шартнома
+битим
+баённома
+далолатнома
+ариза
+шикоят
+тушунтириш хати
+ҳисобот
+лицензия
+рухсатнома
+сертификат
+диплом
+аттестат
+тавсифнома
+тавсиянома
+ишончнома
+васиятнома
+никоҳ гувоҳномаси
+туғилганлик ҳақидаги гувоҳнома
+меҳнат дафтарчаси

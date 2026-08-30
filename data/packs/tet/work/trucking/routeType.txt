@@ -1,0 +1,11 @@
+---
+description: How a haul is classified. Two of these are built from native words and both show Tetum putting the modifier after the noun: Distánsia naruk, long distance, from naruk, long, and Dalan ikus, from dalan, road or way, and ikus, last. Dalan ikus is where a European list says last mile, and the mile is exactly what Tetum cannot use — Timor-Leste is metric and no unit called a mile exists in the language, so the idea has to be rebuilt out of road rather than out of distance. That turns out to fit the country better than the metric version would, because a Timorese haul is quoted in hours and not in kilometres: the surface, the river crossings and the season decide the journey, not the map distance, and Dili to Suai across the mountains and Dili to Suai around the coast are the same trip in kilometres and nothing like it in time. Motorista rua is team driving, two drivers, and it shows the numeral following the noun as every modifier does — uma rua is two houses, never rua uma.
+locale: tet
+---
+Distánsia naruk
+Entre-sidade
+Rejionál
+Lokál
+Dedikada
+Motorista rua
+Dalan ikus

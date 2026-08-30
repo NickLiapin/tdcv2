@@ -1,0 +1,14 @@
+---
+description: Endocrinology diagnoses in Tetum. Bósiu endémiku is a live entry and not a historical one: iodine deficiency was severe in the mountain districts, universal salt iodisation is the countermeasure, and loose unfortified salt is still sold in markets away from the sealed roads, so goitre persists exactly where the road does not go. The rest of the file is the newer problem. Diabetes has followed urbanisation, imported white rice and sweetened drinks into Dili inside a single generation, in a population whose grandparents were farming. Ain diabétiku is listed on its own line — ain is the Tetum word for foot — because it is what actually arrives at the hospital rather than what the textbook describes: a wound the patient could not feel, found weeks late, in a health system where an amputation is far easier to provide than the foot care that would have made it unnecessary.
+locale: tet
+---
+Diabetes tipu 2
+Diabetes tipu 1
+Ain diabétiku
+Bósiu endémiku
+Ipotiroidizmu
+Ipertiroidizmu
+Doensa Graves
+Osteoporoze
+Síndrome metabóliku
+Síndrome Cushing

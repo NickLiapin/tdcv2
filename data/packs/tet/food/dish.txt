@@ -1,0 +1,44 @@
+---
+description: Dishes as a Timorese kitchen actually cooks them. Batar da'an opens the list because it is the national dish and because it explains the country's diet: maize, not rice, is the staple through most of the interior, and batar da'an is maize simmered slowly with mung beans and pumpkin leaves until the pot thickens. The calendar behind that is real — the months before the maize comes in are the tempu hamlaha, the hungry season, an annual event rather than a figure of speech, and the dried, stored and fermented things on this list exist because of it. Tukir is meat sealed inside a length of green bamboo and laid in the fire, so the tube cooks the meat and is thrown away after. Katupa is rice woven into a pouch of young palm leaf and boiled, made for Christmas and for feast days. Saboko is fish pounded with tamarind and chilli, wrapped in palm leaf and grilled. Budu is both the fermented fish sauce and the raw chilli-and-lime relish set beside it. Note tunu, which recurs down the list: it is the verb for cooking over an open flame, and like every Tetum modifier it follows its noun, so fahi tunu is roast pig — the ceremonial meat, killed for a funeral or the blessing of a house rather than for an ordinary dinner. The last third of the list is what the two occupations left on the table, and none of it is thought foreign any more.
+locale: tet
+---
+Batar da'an
+Katupa
+Saboko
+Tukir
+Ikan pepes
+Ikan sabuko
+Budu
+Bibi manas
+Bibi sarabee
+Fahi tunu
+Karau timur
+Manu tunu
+Ikan tunu
+Ikan masin
+Etu ho modo
+Koto ho etu
+Fore rai tunu
+Modo tahan
+Modo kankun
+Aidila matak
+Fehuk tunu
+Batar tunu
+Sagu
+Akadiru
+Kafé Timor
+Tua mutin
+Tua sabu
+Bakalyau
+Feijoada
+Kaldeirada
+Karil manu
+Sopa kaldu verde
+Karne asada
+Sardiña tunu
+Paun
+Nasi goreng
+Mie goreng
+Bakso
+Sate
+Gado-gado

@@ -1,0 +1,16 @@
+---
+description: Shoe size in Eswatini, given in the Continental numbering. This is worth stating plainly because it is a genuine trap: shoes sold in Eswatini come through South Africa, and South African footwear is normally sized in UK numbers, which run about one and a half sizes BELOW the Continental figure for the same foot — a UK 7 is roughly a 41 here. Both numbers appear on boxes in a Manzini shop, sometimes on the same box, and a data set that mixes them without saying which is which is describing two different feet. The values are plain numerals because siSwati has no numeral above ten that is short enough to write on a label; a spoken forty-one is emashumi lamane nakunye.
+locale: ss
+---
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47

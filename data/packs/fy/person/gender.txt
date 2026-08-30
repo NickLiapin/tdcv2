@@ -1,0 +1,6 @@
+---
+description: Gender label in Frisian. Two values, matching en, nl, de and pl, because this list is what parent="Gender.Man" filters on and a longer one silently leaves most rows without a name; identity options beyond the pair belong in a file of their own. The pair also happens to be a compact demonstration of where Frisian sits in the family tree. Man is spelled identically in Frisian, Dutch, German and English, an inherited Germanic word none of them has touched. Frou is not: Dutch has vrouw, German Frau, and Frisian frou, and the difference is the initial letter, because Frisian writes f where Dutch writes v at the start of a word - fjouwer for vier, fiif for vijf, fan for van, fisk for vis - and drops the final w that Dutch keeps. Frou is also the ordinary address form for a woman, so unlike English woman and Mrs, the same word does duty in this file and in person/prefix.txt.
+locale: fy
+---
+Man
+Frou

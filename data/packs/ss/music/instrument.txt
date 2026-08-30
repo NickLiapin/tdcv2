@@ -1,0 +1,35 @@
+---
+description: Musical instrument in Eswatini. Makhweyane is the one to know: a braced gourd bow, a single string divided by a wire loop with a resonating calabash pressed against the player's chest, played mostly by women, and it is Eswatini's own instrument in a way nothing else on this list is — the name comes from the woman said to have brought it from the Nguni south. Umrhube is the mouth bow, played against the lips with the mouth as resonator. Impalampala is the kudu horn, blown to summon people. Emafahlawane are the seed-pod rattles tied to the ankles for sibhaca and ingoma, and they are an instrument rather than a costume: the dance is scored for them. Everything after sigingci is a loan, and the class 9 i- on each of them marks how recently it arrived.
+locale: ss
+---
+Sigubhu
+Ingungu
+Emadramu
+Makhweyane
+Umrhube
+Sitfolotfolo
+Umtshingo
+Ligemfe
+Impalampala
+Emafahlawane
+Sigingci
+Ibhesi
+Ipiyano
+Ikhibhodi
+Iogani
+Isinthesayiza
+Iaccordion
+Iharmonika
+Ivayolini
+Iselo
+Ihapha
+Ifluthi
+Iklarinethi
+Isaksofoni
+Ithrampethi
+Ithrombhoni
+Ihonini
+Imarimba
+Isimbali
+Ithamburini
+Ibhanjo

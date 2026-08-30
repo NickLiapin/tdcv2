@@ -1,0 +1,32 @@
+---
+description: Technical verb in the infinitive; line for line this is the base form of hacker/ingverb.txt. West Frisian is one of the very few Germanic languages that still runs two living weak conjugation classes, and every verb here belongs to one of them: class I ends in -e (ferbine, oerskriuwe, útrôlje, hacke) and class II in -je (befeiligje, berekkenje, monitorje), and the two inflect differently right through the paradigm, so class II keeps its j before a vowel while class I does not. Borrowed verbs are never replaced, only conjugated, and the ending that swallows almost every new technical verb the language takes in is -earje, which is why komprimearje, analysearje, kompilearje and optimalisearje all end the same way. Two entries repay a second look. Werstarte is built on wer, again, which is a different word from wêr, where - the circumflex is the only thing separating them, and getting it wrong changes the sentence. And ûntsiferje is the negative partner of fersiferje, because Frisian turns the Dutch prefix ont- into ûnt-, one of a family of yn-, ûn- and ûnt- prefixes that mark this pack out from a Dutch one on sight.
+locale: fy
+---
+befeiligje
+omsile
+hacke
+oerskriuwe
+komprimearje
+kopiearje
+navigearje
+yndeksearje
+ferbine
+generearje
+kwantifisearje
+berekkenje
+syntetisearje
+ynfiere
+oerdrage
+programmearje
+werstarte
+analysearje
+fersiferje
+ûntsiferje
+útrôlje
+kompilearje
+debugge
+optimalisearje
+synchronisearje
+firtualisearje
+routearje
+monitorje

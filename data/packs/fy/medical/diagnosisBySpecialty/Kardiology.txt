@@ -1,0 +1,15 @@
+---
+description: Diagnoses seen in cardiology, in West Frisian. Hert is the heart, spelt with the e of English heart against Dutch hart — one of the vowel differences that runs right through the two languages, as it does in bern for child and stien for stone. Hege bloeddruk opens the list in plain Frisian rather than as hypertinsje, because that is the form a patient hears across the desk; the Latinate names further down are the ones the letter back to the húsdokter will use.
+locale: fy
+---
+Hege bloeddruk
+Koronêre hertsykte
+Angina pectoris
+Hertynfarkt
+Atriumfibrillearjen
+Hertfalen
+Hyperkolesterolemy
+Aortaklepstenoaze
+Kardiomyopaty
+Perikarditis
+Endokarditis

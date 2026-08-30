@@ -1,0 +1,22 @@
+---
+description: What a Malian job pays beyond the wage. `Sara` is the wage itself, and `Kalo tan ni sabanan sara` is the thirteenth month, an extra month's pay customary in formal Malian employment. The allowances below it are the ones that matter in a country where the wage alone does not cover the distance to work or the price of a sack of rice: `Dumuni sara`, `Sigiyɔrɔ sara`, `Taama sara`. `Hiji dɛmɛ` — help towards the pilgrimage — is a real benefit in a country that is ninety-five per cent Muslim and where the hajj is the expense of a lifetime. Two values keep imported names: `INPS sɛbɛnni` is registration with the Institut National de Prévoyance Sociale, a named institution, and `asiransi` is French assurance reshaped to Bambara phonology, which is what people actually say.
+locale: bm
+---
+Sara
+Kalo tan ni sabanan sara
+Dumuni sara
+Sigiyɔrɔ sara
+Taama sara
+Kɛnɛya asiransi
+INPS sɛbɛnni
+Furakɛli sara
+Lafiɲɛ sara ye
+Denw ka kalan dɛmɛ
+Baara fini
+Telefɔni sara
+Mɔbili baara kama
+Kalanni
+Hiji dɛmɛ
+Denwolo lafiɲɛ
+Juru nɔgɔman
+Baara banni sara

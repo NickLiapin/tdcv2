@@ -1,0 +1,16 @@
+---
+description: Jobs in construction. Leadjitter, the plumber, is literally a lead-pourer, from lead - where Frisian keeps the English word and Dutch has lood - and jitte, to pour, a trade name left over from the centuries of lead pipe and lead flashing that the job has long outlived. Heimasinist, the pile-driver operator, is a full trade in this province rather than a specialism, because almost nothing in Fryslân can be founded on the ground it stands on: sea clay over peat will not carry a building, so piles go down through both to the sand, which is the same problem the terp solved before dykes existed by raising the house instead of sinking the footing.
+locale: fy
+---
+Timmerman
+Metselder
+Elektrisiën
+Leadjitter
+Dakdekker
+Stukadoar
+Útfierder
+Boufakker
+Kraanmasinist
+Boukundich tekener
+Strjitmakker
+Heimasinist

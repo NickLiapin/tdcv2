@@ -1,0 +1,24 @@
+---
+description: Purpose of travel in Eswatini, and the top of the list is not tourism. The three ceremonies move more people than anything else in the country: kuya eMhlangeni, going to the reed dance, brings tens of thousands of young women to Ludzidzini every August, many of them travelling home from South Africa to do it; kuya eNcwaleni does the same in December; and Buganu in February belongs to the married women. Umngcwabo, the funeral, is the single commonest reason a Swazi person makes a long journey, and it is why the kombis fill on a Friday. Kutsenga ngesheya kwemkhawulo, cross-border shopping, is a trip type in its own right in a country where the nearest large supermarket may be through a border post. Note the locative forms — eMhlangeni, eNcwaleni — where the ceremony name takes e- ... -ini to become a destination.
+locale: ss
+---
+Umngcwabo
+Kuvakashela tihlobo
+Kubuyela ekhaya emcimbini wesive
+Kuya eMhlangeni
+Kuya eNcwaleni
+Kuya eBuganu
+Umshado
+Luhambo lwenkholo
+Luhambo lwemsebenti
+Umhlangano wetemabhizinisi
+Luhambo lwekufundza
+Luhambo lwekwelashwa
+Kutsenga ngesheya kwemkhawulo
+Kuvakashela tigodzi tetilwane
+Luhambo lwekuphumula
+Luhambo lwemndeni
+Hani mun
+Luhambo lwemidlalo
+Kuya emcimbini wemculo
+Kutfutsa

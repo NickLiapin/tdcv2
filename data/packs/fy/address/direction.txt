@@ -1,0 +1,19 @@
+---
+description: Directional qualifier appended to a Frisian street name or town district (Ringwei Noard, Drachten-Súdeast). East is the entry to notice: Frisian spells it exactly as English does, against Dutch oost and German Ost, and the same holds for the whole compass in compounds - Noardeast, Súdeast. These are not only street furniture. Since the municipal mergers that began in 2011 the province's councils have been registering their official names in Frisian, so Súdwest-Fryslân and Noardeast-Fryslân are the legal names of two Frisian municipalities in the national register and their Dutch equivalents are the translations, not the other way round. Binnenstêd is the inner town, and the stêd in it is the word behind Alvestêden, the eleven cities of Fryslân - eleven places that hold city rights, several of which are villages of a few thousand people, and whose order is fixed for good because it is the route of the skating tour.
+locale: fy
+---
+Noard
+Súd
+East
+West
+Noardeast
+Noardwest
+Súdeast
+Súdwest
+Midden
+Sintrum
+Binnenstêd
+Noarden
+Súden
+Easten
+Westen

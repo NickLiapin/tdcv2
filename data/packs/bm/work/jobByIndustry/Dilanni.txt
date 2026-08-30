@@ -1,0 +1,16 @@
+---
+description: Making things. The Bambara half is the artisan economy and two of its names are castes rather than occupations: a `numu` is a blacksmith by birth, one of the nyamakala lineages that marry within themselves and hold a kind of dangerous authority — the smith forges, carves the masks and circumcises the boys — and the trade is not something one takes up. `Fininyɛla` weaves, `Kalalikɛla` sews, `Bɔgɔlanfini dilanbaga` makes mud cloth, `Sumbala dilanbaga` and `Si tulu dilanbaga` ferment néré and press shea, both women's trades that carry real income. The French titles belong to the factory floor — the cotton gins of Koutiala, the oil mills, the rice hullers — where the machinery and its vocabulary arrived together.
+locale: bm
+---
+Numu
+Fininyɛla
+Kalalikɛla
+Bɔgɔlanfini dilanbaga
+Si tulu dilanbaga
+Sumbala dilanbaga
+Ingénieur de production
+Technicien de maintenance
+Opérateur de machine
+Opérateur d'égrenage
+Soudeur
+Contrôleur de qualité

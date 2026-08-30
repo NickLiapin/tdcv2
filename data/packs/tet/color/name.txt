@@ -1,0 +1,60 @@
+---
+description: Colour names, and the first five lines are the whole native system: mutin white, metan black, mean red, kinur yellow, matak green. Everything after them is borrowed, and that boundary is the most important fact in this file. Matak carries more than a colour — it is also raw, unripe, fresh and uncooked, so the same word describes a leaf, an unpicked mango and a fish that has not been near the fire, and a Tetum speaker hears the colour sense only from what the word is attached to. There is no native basic term for blue at all: azúl is Portuguese azul, and older and rural speakers extend matak across the blue-green range instead, so sea and foliage fall under one word — the classic Austronesian grue pattern, and the reason a Tetum colour list cannot be mapped one-to-one onto an English one. The middle block is Portuguese put through the ordinary spelling rules: vermelho gives vermellu on lh written ll, castanho gives kastañu on nh written ñ, cinzento gives sinzentu and ciano gives sianu on c before e and i written s, magenta gives majenta on g before e written j, salmão gives salmaun, chocolate gives xokolate, fúcsia gives fúksia, and preto and branco give pretu and branku on the unstressed final o. The last six are the Timorese way of naming a shade for the thing that carries it, with kór, from Portuguese cor, in front and the object after: the red of the chilli, the brown of coffee, the green of cooked leaf, the white of coconut flesh, the blue-grey of the sea and the deep yellow of turmeric.
+locale: tet
+---
+Mutin
+Metan
+Mean
+Kinur
+Matak
+Azúl
+Kastañu
+Laranja
+Roxu
+Roza
+Sinza
+Sinzentu
+Violeta
+Turkeza
+Douradu
+Prateadu
+Vermellu
+Verde
+Amarelu
+Pretu
+Branku
+Sianu
+Majenta
+Beje
+Marfin
+Karmezin
+Índigu
+Eskarlate
+Púrpura
+Lilás
+Kreme
+Oliva
+Bordó
+Fúksia
+Salmaun
+Bronze
+Kobre
+Okre
+Terrakota
+Esmeralda
+Rubí
+Safira
+Ámbar
+Karmin
+Anil
+Azúl-mariñu
+Lavanda
+Kaki
+Xokolate
+Mostarda
+Kór ai-manas
+Kór kafé
+Kór modo-tahan
+Kór nuu
+Kór tasi
+Kór kunyit

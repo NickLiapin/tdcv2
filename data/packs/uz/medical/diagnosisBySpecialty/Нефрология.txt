@@ -1,0 +1,16 @@
+---
+description: Kidney diagnoses. Буйрак тоши касаллиги — kidney stones — is unusually common in Uzbekistan's hot dry climate, where fluid loss concentrates the urine. Гемодиализ ҳолати and буйрак кўчириб ўтказилган ҳолат are recorded as states rather than diseases, which is how a registry stores them.
+locale: uz
+---
+Сурункали буйрак етишмовчилиги
+Ўткир буйрак етишмовчилиги
+Гломерулонефрит
+Пиелонефрит
+Буйрак тоши касаллиги
+Нефротик синдром
+Поликистоз буйрак
+Буйрак амилоидози
+Гемодиализ ҳолати
+Буйрак кўчириб ўтказилган ҳолат
+Сийдик йўллари инфекцияси
+Нефропатия

@@ -1,0 +1,240 @@
+---
+description: What Malians do for a living, and the file is split down the middle on purpose because a Malian CV is. The first hundred values are Bambara, and they cover the work most of the country actually does: `sɛnɛkɛla` a farmer, `begɛnmarabaga` a herder, `mɔnnikɛla` a fisherman, `jagokɛla` a trader, `numu` a blacksmith, `garanke` a leatherworker, `jeli` a griot, `karamɔgɔ` a teacher or Qur'anic master, `donsokɛ` a hunter, `baarakɛla` a worker. Seven or eight Malians in ten live from farming, herding and fishing, so `sɛnɛkɛla` alone outweighs everything in the second half. Note how these are built: `-kɛla` is one who does, `-baga` is one who acts, `-la` marks the agent, `-tigi` the owner — so `feere` to sell gives `feerekɛla`, `dilan` to make or mend gives `dilanbaga`, `butiki` a shop gives `butikitigi`. The second half stays French, and that is not laziness: a `développeur logiciel`, a `sage-femme`, a `magistrat`, a `transitaire` and a `contrôleur de gestion` are jobs that arrived in Mali under those names, are certified by a French-language diploma, and appear in French on the payroll of anyone who holds them. There is no Bambara word for them because there is no Bambara conversation that has needed one.
+locale: bm
+---
+Sɛnɛkɛla
+Sɛnɛkɛlaba
+Kɔɔri sɛnɛkɛla
+Malo sɛnɛkɛla
+Ɲɔ sɛnɛkɛla
+Mangoro sɛnɛkɛla
+Nakɔbaarakɛla
+Begɛnmarabaga
+Misimarabaga
+Sagamarabaga
+Falimarabaga
+Mɔnnikɛla
+Jɛgɛ jalanbaga
+Donsokɛ
+Kungo kɔlɔsibaga
+Suman tigɛbaga
+Foro baarakɛla
+Sɛnɛ dɛmɛbaga
+Numu
+Garanke
+Jeli
+Jelimuso
+Funɛ
+Kalalikɛla
+Fininyɛla
+Bɔgɔlanfini dilanbaga
+Basin gosibaga
+Sanbara dilanbaga
+Daba dilanbaga
+Kurun dilanbaga
+Bololabaarakɛla
+Kabakuru tigɛbaga
+Bɔgɔdilanbaga
+Masɔn
+Jagokɛla
+Jagokɛlaba
+Butikitigi
+Feerekɛla
+Sugu feerekɛla
+Feerekɛla yaalayaala
+Woro feerekɛla
+Fini feerekɛla
+Sogo feerekɛla
+Jɛgɛ feerekɛla
+Nɔnɔ feerekɛla
+Fura feerekɛla
+Wari falenbaga
+Juru dibaga
+Tobilikɛla
+Burutobila
+Ŋɔmi tobilikɛla
+Ataya feerekɛla
+Sumbala dilanbaga
+Si tulu dilanbaga
+Dumunikɛyɔrɔ baarakɛla
+Ji feerekɛla
+Mɔbilibolila
+Sotramabolila
+Jakartabolila
+Kurunbolila
+Wotorobolila
+Mɔbili dilanbaga
+Nɛgɛso dilanbaga
+Telefɔni dilanbaga
+Ɔridinatɛri dilanbaga
+Doni tabaga
+Karamɔgɔ
+Lakɔlikaramɔgɔ
+Kalanso kuntigi
+Medersa karamɔgɔ
+Dɔgɔtɔrɔ
+Furakɛlikɛla
+Denwolo dɛmɛbaga
+Sigida kɛnɛya baarakɛla
+Kɛnɛya baarakɛla
+Imamu
+Kiitigɛla
+Dugutigi
+Bɛnkan ɲɛminɛbaga
+Sariya karamɔgɔ
+Dɔnkilidala
+Fɔlikɛla
+Korafɔla
+Balafɔla
+Ngonifɔla
+Jembefɔla
+Dɔnkɛla
+Ja tabaga
+Kunnafonidibaga
+Sɛbɛnnikɛla
+Baarakɛla
+Kɔlɔsibaga
+So saniyabaga
+Denmisɛnw lamɔbaga
+Fini kolibaga
+Kuranbaarakɛla
+Nɛgɛ baarakɛla
+Kapanti
+Jɛkulu kuntigi
+Ɲɛmɔgɔ
+Directeur général
+Directeur adjoint
+Secrétaire général
+Chef de service
+Chef de division
+Chef de bureau
+Assistant de direction
+Secrétaire
+Standardiste
+Archiviste
+Agent administratif
+Coordinateur
+Chargé de mission
+Conseiller technique
+Inspecteur
+Contrôleur
+Auditeur interne
+Comptable
+Chef comptable
+Contrôleur de gestion
+Trésorier
+Caissier
+Analyste financier
+Analyste crédit
+Chargé de clientèle
+Agent de microfinance
+Agent de transfert d'argent
+Directeur d'agence
+Commissaire aux comptes
+Développeur logiciel
+Développeur web
+Développeur mobile
+Administrateur systèmes
+Administrateur réseau
+Administrateur base de données
+Ingénieur logiciel
+Analyste de données
+Data scientist
+Technicien informatique
+Webmaster
+Infographiste
+Chef de projet informatique
+Médecin généraliste
+Médecin spécialiste
+Chirurgien
+Pédiatre
+Gynécologue
+Cardiologue
+Anesthésiste
+Radiologue
+Sage-femme
+Infirmier
+Aide-soignant
+Pharmacien
+Technicien de laboratoire
+Nutritionniste
+Instituteur
+Professeur de collège
+Professeur de lycée
+Enseignant-chercheur
+Directeur d'école
+Conseiller pédagogique
+Surveillant général
+Bibliothécaire
+Formateur
+Éducateur spécialisé
+Avocat
+Notaire
+Huissier de justice
+Greffier
+Magistrat
+Procureur
+Juriste d'entreprise
+Officier d'état civil
+Préfet
+Sous-préfet
+Maire
+Douanier
+Gendarme
+Policier
+Ingénieur civil
+Ingénieur en génie rural
+Ingénieur des mines
+Géologue
+Géomètre
+Architecte
+Conducteur de travaux
+Métreur
+Topographe
+Dessinateur industriel
+Soudeur
+Peintre en bâtiment
+Plombier
+Électricien
+Frigoriste
+Technicien de maintenance
+Agronome
+Ingénieur agroalimentaire
+Zootechnicien
+Vétérinaire
+Technicien d'élevage
+Agent de développement rural
+Forestier
+Hydrologue
+Météorologue
+Environnementaliste
+Commercial
+Représentant
+Chef de rayon
+Acheteur
+Approvisionneur
+Magasinier
+Logisticien
+Transitaire
+Déclarant en douane
+Gestionnaire de stock
+Responsable des achats
+Chargé de marketing
+Journaliste
+Reporter
+Présentateur
+Cameraman
+Monteur
+Réalisateur
+Traducteur
+Interprète
+Attaché de presse
+Chargé de communication
+Chauffeur poids lourd
+Convoyeur
+Mécanicien auto
+Pilote de ligne
+Hôtesse de l'air
+Agent d'escale
+Agent de gare routière
+Contrôleur technique

@@ -1,0 +1,12 @@
+---
+description: Book format (West Frisian). Harkboek is the word to keep: it is the audiobook, and harkje is the Frisian verb to listen - the same word as English hark, which Dutch lost entirely and replaced with luisteren, so a Frisian audiobook is a hark-book and a Dutch one a listen-book. Bûn is the hardback, from bine, to bind. Grutletterboek, large print, is a standard library category rather than a specialist one, and the Frisian public libraries carry a Frisian-language shelf as a matter of provincial policy rather than of market demand, which is why formats that would be uneconomic for 450,000 speakers exist here at all: the Afûk publishes and the province underwrites.
+locale: fy
+---
+Bûn
+Paperback
+E-boek
+Harkboek
+Pocket
+Grutletterboek
+Yllustrearre edysje
+Biblioteekedysje

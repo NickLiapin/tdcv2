@@ -1,0 +1,38 @@
+---
+description: Field of study, named the way the institutions a Frisian student actually applies to name them. No university has its seat in Fryslân: the province has NHL Stenden and Van Hall Larenstein in Ljouwert, both universities of applied sciences, plus Campus Fryslân, the faculty the University of Groningen opened in Ljouwert in 2018, and anything beyond that means leaving for Grins, Amsterdam or Twente. One entry replaces the national default and is the reason this is not a Dutch list with the spelling changed: where a Netherlands-wide list carries Dutch language and culture, Fryslân carries Fryske taal en kultuer, a real programme with a chair at the University of Groningen and a fixed place in the province's language policy. The suffixes teach the rest of the file - Dutch -ie is Frisian -y throughout (ekonomy, psychology, farmasy, filosofy), Dutch -iek is -yk (technyk, elektrotechnyk), Dutch -isch is -ysk (grafysk, pedagogysk). Wittenskip, science, is built on witte, to know, the same root as English wit; skiekunde and skiednis both carry the Frisian sk-; loft in loft- en romtefearttechnyk is the ordinary Frisian word for air, cognate with English aloft; and bistegenêskunde is veterinary medicine, from bist, the everyday Frisian word for an animal where Dutch says dier.
+locale: fy
+---
+Ynformatika
+Keunstmjittige yntelliginsje
+Data science
+Bedriuwskunde
+Technyske bedriuwskunde
+Bedriuwsekonomy
+Ekonomy
+Accountancy
+Marketing
+Rjochtsgeleardheid
+Fiskaal rjocht
+Genêskunde
+Bistegenêskunde
+Farmasy
+Ferpleechkunde
+Psychology
+Pedagogyske wittenskippen
+Sosjology
+Politikology
+Kommunikaasjewittenskip
+Skiednis
+Filosofy
+Fryske taal en kultuer
+Biology
+Skiekunde
+Natuerkunde
+Wiskunde
+Wurktúchboukunde
+Elektrotechnyk
+Sivile technyk
+Boukunde
+Loft- en romtefearttechnyk
+Miljeukunde
+Grafysk ûntwerpen

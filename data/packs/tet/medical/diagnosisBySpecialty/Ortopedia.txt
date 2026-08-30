@@ -1,0 +1,14 @@
+---
+description: Orthopaedic and trauma diagnoses in Tetum, and three entries here are Timorese rather than generic. Mordedura lafaek is crocodile attack, a genuinely recorded cause of injury and death in this country and not a decorative addition: saltwater crocodiles concentrate along the south coast and the eastern end, in Lautém and Viqueque, attacks on people fishing, washing and crossing rivers have risen markedly since independence, and the response is constrained by lisan as much as by wildlife policy — the crocodile is avô lafaek, grandfather, the ancestor whose body became the island in the founding story, which makes culling a spiritual question here in a way it is nowhere else. Kortadu husi katana is the machete wound that comes with clearing ground and harvesting, husi being the Tetum for from. Asidente motorizada is the motorcycle, which carries most of the country's traffic and most of its trauma. Piomiozite tropikál, a deep abscess inside a muscle that a temperate orthopaedic list would never carry, is ordinary wherever skin infection is ordinary.
+locale: tet
+---
+Fratura osu
+Asidente motorizada
+Kortadu husi katana
+Mordedura lafaek
+Luksasaun ombru
+Piomiozite tropikál
+Osteomielite
+Osteoartroze
+Artrite reumatoide
+Érnia disku

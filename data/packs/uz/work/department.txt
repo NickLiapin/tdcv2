@@ -1,0 +1,26 @@
+---
+description: Departments inside an Uzbek company. Кадрлар бўлими is the HR department, using the Soviet-era word кадрлар for personnel. Бухгалтерия is kept separate from молия бўлими, because accounting and finance are distinct functions in the post-Soviet corporate structure and report to different people.
+locale: uz
+---
+кадрлар бўлими
+бухгалтерия
+молия бўлими
+юридик бўлим
+савдо бўлими
+маркетинг бўлими
+ишлаб чиқариш бўлими
+таъминот бўлими
+логистика бўлими
+омбор хўжалиги
+ахборот технологиялари бўлими
+техник қўллаб-қувватлаш
+сифат назорати бўлими
+меҳнат муҳофазаси бўлими
+илмий-тадқиқот бўлими
+лойиҳалаш бўлими
+хавфсизлик хизмати
+котибият
+иш юритиш бўлими
+ташқи алоқалар бўлими
+матбуот хизмати
+ички аудит

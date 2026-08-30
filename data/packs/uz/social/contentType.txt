@@ -1,0 +1,17 @@
+---
+description: Kinds of social media post. Матнли пост, расм, видео and жонли эфир are the basic four. Тарих is the calqued name for a story, сўровнома a poll, and репост a share. Reels keeps its Latin form because it is a product name rather than a word.
+locale: uz
+---
+матнли пост
+расм
+расмлар тўплами
+видео
+қисқа видео
+жонли эфир
+тарих
+сўровнома
+ҳавола
+reels
+подкаст
+аудио хабар
+репост

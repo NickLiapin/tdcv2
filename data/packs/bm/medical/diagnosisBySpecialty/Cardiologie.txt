@@ -1,0 +1,10 @@
+---
+description: Rheumatic heart disease is not a historical footnote in Mali: untreated streptococcal sore throat in childhood still produces valve damage, so it stands beside hypertension at the head of a Malian cardiology list rather than below coronary disease, and it fills heart-failure beds with patients in their twenties.
+locale: bm
+---
+Hypertension artérielle
+Cardiopathie rhumatismale
+Insuffisance cardiaque
+Cardiomyopathie dilatée
+Fibrillation auriculaire
+Infarctus du myocarde

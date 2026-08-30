@@ -1,0 +1,24 @@
+---
+description: Insects. Soso, the mosquito, has to come first and it is not a squeamish choice — malaria is holoendemic across southern Mali and is a leading cause of death among children under five, and sumaya, the Bambara word, covers both the fever and the disease. Ntumu is the worm or caterpillar and bunteni the scorpion, the one nobody in a compound needs explained. The rest are in French because the register that talks about insects in Mali is the public-health and agricultural-extension register and it works in French. Two of them are national events rather than nuisances — the criquet pèlerin, the desert locust, whose swarms out of the Sahara are tracked by an international warning system, and the fourmi magnan, the driver ant column that empties a house for an afternoon and is generally thought worth the loss.
+locale: bm
+---
+soso
+ntumu
+bunteni
+mouche
+mouche tsé-tsé
+abeille
+guêpe
+frelon
+fourmi
+fourmi magnan
+termite
+cafard
+papillon
+criquet pèlerin
+sauterelle
+libellule
+punaise
+puce
+pou
+tique

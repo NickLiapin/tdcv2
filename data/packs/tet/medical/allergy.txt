@@ -1,0 +1,26 @@
+---
+description: Allergens as a Timorese clinic records them, which is to say the substance itself rather than the reaction it caused. The drug names at the head of the list show the borrowing machinery plainly: Portuguese penicilina gives Penisilina because a c before e or i is written s, and camarão gives Kamaraun because every Portuguese -ão is resolved to -aun. Ikan tasi works the other way and from an older layer — ikan is the Malay word for fish, arrived through centuries of trade long before the occupation made Indonesian a school language, while tasi is the Austronesian word for sea, and the compound means the reef catch that Atauro and the north coast live on. Susu, milk, is Malay as well; manu, bird or chicken, and bani, the bee, are the native stratum. Two habits of the list are worth knowing before drawing from it: peanut and tree-nut allergy sit far lower in a Timorese caseload than a European list would lead a clinician to expect, and the column names the allergen and not the event, so Bani is the bee rather than the sting.
+locale: tet
+---
+Penisilina
+Amoksisilina
+Sulfa
+Aspirina
+Iodu
+Kontraste iodadu
+Latex
+Níkel
+Ikan tasi
+Kamaraun
+Amendoim
+Kaju
+Ovu
+Susu
+Trigu
+Glúten
+Manga
+Ákaru
+Rai-rahun
+Pólen
+Manu fulun
+Bani

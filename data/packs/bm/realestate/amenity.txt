@@ -1,0 +1,26 @@
+---
+description: What a Malian property advertises, in Bambara, and the top of the list is utilities rather than luxuries. `Ji bɛ so kɔnɔ` — water is in the house — is a feature because a great many properties have neither piped water nor a connection, and the alternative is the `Kɔlɔn`, the well in the yard, or a `Forazi`, a borehole. `Kuran masin` and `Tilekuran` are the generator and the solar array, and they are what make a house usable where the grid load-sheds. `Kogo lamininen` and `Da nɛgɛma` are near-universal: the Malian house faces inward onto its own courtyard and shows a blank wall to the street, so the wall is the building rather than an extra. `Ɲɛgɛn` is the latrine. Three values stay French — Climatisation, Terrasse, Balcon — as fittings that arrived with concrete construction and are advertised under those names.
+locale: bm
+---
+Ji bɛ so kɔnɔ
+Kuran
+Kuran masin
+Tilekuran
+Ji marayɔrɔ
+Kɔlɔn
+Forazi
+Fiɲɛlan
+Karo dalen
+Kogo lamininen
+Da nɛgɛma
+Kɔlɔsibaga
+Mɔbili bilayɔrɔ
+Nakɔ
+Tobiliyɔrɔ
+Ko yɔrɔ
+Ɲɛgɛn
+Ɲɛgɛn dinge
+Sanfɛ so
+Climatisation
+Terrasse
+Balcon

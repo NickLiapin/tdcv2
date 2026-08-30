@@ -1,0 +1,242 @@
+---
+description: Country and territory names in West Frisian, kept in the same order as the Dutch list so the two can be read line against line. The differences are systematic, not cosmetic. Every -land becomes -lân with a circumflex: Dútslân, Ierlân, Iislân, Finlân, Switserlân, Gryklân, Estlân, Letlân, Tailân, Nij-Seelân, and Nederlân itself. Dutch v- and z- become f- and s- at the front of a word, which turns Verenigde Staten into Feriene Steaten, Vietnam into Fietnam, Zweden into Sweden, Zambia into Sambia and Zimbabwe into Simbabwe. Dutch -ië gives Frisian -je (Itaalje, Brazylje, Argentinje, Sloveenje, Somaalje), -iek gives -yk (Frankryk, Eastenryk, Feriene Keninkryk, Republyk), and c is written k or s (Kanada, Kolombia, Sina, Sily, Syprus). Two whole words change rather than shift: stad becomes stêd, so Vatican City is Fatikaanstêd, and burg becomes boarch, so Luxembourg is Lúksemboarch. The thing a country list cannot show is where the language actually lives. Fryslân is a province, not a country, and so is correctly absent from this file - but so is every other place Frisian is spoken, because the Frisian language area does not follow borders: North Frisian on the German coast and the islands, and Saterland Frisian in three villages of Lower Saxony, both sit inside Dútslân, which appears here as one line and tells you nothing about them. A country field is the wrong shape for a language, and this list is a list of states.
+locale: fy
+---
+Afganistan
+Albaanje
+Algerije
+Amerikaansk-Samoa
+Andorra
+Angola
+Anguilla
+Antarktika
+Antigua en Barbuda
+Argentinje
+Armeenje
+Aruba
+Austraalje
+Eastenryk
+Azerbeidzjan
+Bahama's
+Bahrein
+Bangladesh
+Barbados
+Belarus
+Belgje
+Belize
+Benin
+Bermuda
+Bhutan
+Bolivia
+Bonaire
+Bosnje en Herzegovina
+Botswana
+Brazylje
+Brunei
+Bulgarije
+Burkina Faso
+Burundi
+Kambodja
+Kameroen
+Kanada
+Kaapverdje
+Kaaimaneilannen
+Sintraal-Afrikaanske Republyk
+Tsjaad
+Sily
+Sina
+Krysteilân
+Kokoseilannen
+Kolombia
+Komoaren
+Demokratyske Republyk Kongo
+Republyk Kongo
+Cookeilannen
+Costa Rica
+Ivoarkust
+Kroaasje
+Kuba
+Curaçao
+Syprus
+Tsjechje
+Denemarken
+Djibouti
+Dominika
+Dominikaanske Republyk
+East-Timor
+Ekwador
+Egypte
+El Salvador
+Ekwatoriaal-Guinea
+Eritrea
+Estlân
+Etioopje
+Falklâneilannen
+Faeröer
+Fiji
+Finlân
+Frankryk
+Frânsk-Guyana
+Frânsk-Polyneezje
+Frânske Súdlike Gebieten
+Gabon
+Gambia
+Georgje
+Dútslân
+Ghana
+Gibraltar
+Gryklân
+Grienlân
+Grenada
+Guadeloupe
+Guam
+Guatemala
+Guinee
+Guinee-Bissau
+Guyana
+Haïti
+Hillige Stoel
+Honduras
+Hongkong
+Hongarije
+Iislân
+Yndia
+Yndoneezje
+Iran
+Irak
+Ierlân
+Israël
+Itaalje
+Jamaika
+Japan
+Jordaanje
+Kazachstan
+Kenia
+Kiribati
+Noard-Korea
+Súd-Korea
+Kosovo
+Koeweit
+Kirgyzje
+Laos
+Letlân
+Libanon
+Lesotho
+Liberia
+Libje
+Liechtenstein
+Litouwen
+Lúksemboarch
+Makau
+Madagaskar
+Malawi
+Maleizje
+Maldiven
+Mali
+Malta
+Marshalleilannen
+Martinique
+Mauretaanje
+Mauritius
+Mayotte
+Meksiko
+Mikroneezje
+Moldaavje
+Monako
+Mongoalje
+Montenegro
+Montserrat
+Marokko
+Mosambyk
+Myanmar
+Namibje
+Nauru
+Nepal
+Nederlân
+Nederlânske Antillen
+Nij-Kaledoanje
+Nij-Seelân
+Nikaragua
+Niger
+Nigeria
+Niue
+Noard-Masedoanje
+Noardlike Marianen
+Noarwegen
+Oman
+Pakistan
+Palau
+Palestynske Gebieten
+Panama
+Papoea-Nij-Guinea
+Paraguay
+Peru
+Filipinen
+Pitcairneilannen
+Poalen
+Portugal
+Puerto Rico
+Qatar
+Réunion
+Roemeenje
+Ruslân
+Rwanda
+Saint Kitts en Nevis
+Saint Lucia
+Saint Vincent en de Grenadines
+Samoa
+San Marino
+Sao Tomé en Principe
+Saoedy-Araabje
+Senegal
+Servje
+Seychellen
+Sierra Leone
+Singapore
+Sint Maarten
+Slowakije
+Sloveenje
+Salomonseilannen
+Somaalje
+Súd-Afrika
+Súd-Soedan
+Spanje
+Sri Lanka
+Soedan
+Suriname
+Eswatini
+Sweden
+Switserlân
+Syrje
+Taiwan
+Tadzjikistan
+Tanzania
+Tailân
+Tibet
+Togo
+Tokelau
+Tonga
+Trinidad en Tobago
+Tuneezje
+Turkije
+Turkmenistan
+Turks- en Caicoseilannen
+Tuvalu
+Oeganda
+Oekraïne
+Feriene Arabyske Emiraten
+Feriene Keninkryk
+Feriene Steaten
+Uruguay
+Oezbekistan
+Vanuatu
+Fatikaanstêd
+Venezuela
+Fietnam
+Britske Maagdeneilannen
+Amerikaanske Maagdeneilannen
+Wallis en Futuna
+Westlike Sahara
+Jemen
+Sambia
+Simbabwe

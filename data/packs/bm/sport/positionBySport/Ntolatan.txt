@@ -1,0 +1,15 @@
+---
+description: Football positions in Bambara, which football genuinely has here — ORTM commentary is broadcast in Bambara and this is the vocabulary it uses. The system is spatial and completely regular: `kɔfɛla` is the one behind, `cɛmancɛla` the one in the middle, `ɲɛfɛla` the one in front, and `kinin fɛ` and `numan fɛ` are on the right and on the left. `Gɔlkipa` is the one loan, English goalkeeper by way of French, and it is what everyone says. `Ntolatan` itself is the game: `ntola` a ball plus `tan` to kick.
+locale: bm
+---
+Gɔlkipa
+Kɔfɛla kinin fɛ
+Kɔfɛla numan fɛ
+Cɛmancɛ kɔfɛla
+Kɔfɛlaw kuntigi
+Cɛmancɛla kɔfɛ
+Cɛmancɛla
+Cɛmancɛla ɲɛfɛ
+Ɲɛfɛla kinin fɛ
+Ɲɛfɛla numan fɛ
+Ɲɛfɛla cɛmancɛ

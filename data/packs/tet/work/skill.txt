@@ -1,0 +1,46 @@
+---
+description: Skills as a Timorese employer advertises for them, and the four language entries are the ones to read first. Koalia is to speak, and a Dili applicant routinely claims four languages because the country genuinely runs on four — but which of them a person can actually write is set almost entirely by when they were born. Someone schooled between 1975 and 1999 was educated in Indonesian and writes it best; someone schooled since independence has Tetum and school Portuguese; anyone working in the aid sector needs English; and the older senior official and the younger junior officer in the same room may share no written language comfortably at all. A four-language row here is therefore ordinary rather than exceptional, and treating language skills as independent of birth year would produce impossible people. Kondús, from Portuguese conduzir, is a scarce and valuable skill rather than a background assumption, and a job advertisement will name it beside a licence category. Soru tais, backstrap weaving, and Kultiva kafé are on a professional skills list and not a hobby list because both are paid work for large numbers of people. Servisu ho ekipa shows a distinction Tetum keeps and English collapses: ho is with in the sense of accompaniment, which is what teamwork is, where no is the and that merely joins two nouns. The technical head of the list is English or Portuguese throughout, since none of it existed here in either language before the machines arrived.
+locale: tet
+---
+Python
+JavaScript
+SQL
+Java
+Komputasaun iha nuvem
+Aprendizajen makina
+Analiza dadus
+Jestaun projetu
+Metodolojia ájil
+Hakerek relatóriu
+Koalia iha públiku
+Atendimentu kliente
+Vendas
+Kontabilidade
+Modelasaun finanseira
+Dezeñu asistidu ho komputadór
+Modelasaun 3D
+Dezeñu gráfiku
+Hakerek publisidade
+Soldajen
+Instalasaun elétrika
+Kanalizasaun
+Karpintaria
+Lee planta
+Operasaun tornu
+Operasaun forklift
+Operasaun makina todan
+Kondús
+Primeiru sokoru
+Reanimasaun kardiopulmonár
+Seguransa hahán
+Koalia Tetun
+Koalia Portugés
+Koalia Indonézia
+Koalia Inglés
+Negosiasaun
+Lidera ekipa
+Jestaun tempu
+Rezolve problema
+Servisu ho ekipa
+Soru tais
+Kultiva kafé

@@ -1,0 +1,30 @@
+---
+description: Literary genre in siSwati. The first two are the oldest and neither is a book. Tinganekwane are the folktales told at night by a grandmother, always opened with a formula and always with an animal trickster in them; the word is the plural of lunganekwane and the form is spoken rather than written. Tibongo are praise poems, the izibongo of the Nguni world, composed for a king or a chief and recited from memory by a praise singer at ceremony — a genre with a professional performer, a fixed occasion and no author. siSwati's written literature is young by comparison: the orthography was standardised in the twentieth century and the first novels and poetry collections in the language date from the 1960s onward, which is why the categories below tibongo look borrowed from a school syllabus. They largely are.
+locale: ss
+---
+Tinganekwane
+Tibongo
+Tinkhondlo
+Indzaba lehlelekile
+Indzaba lemfishane
+Umdlalo
+Umlandvo
+Incwadzi yemasiko
+Incwadzi yemphilo yemuntfu
+Incwadzi yemphilo yakhe
+Incwadzi yekuphenya emacala
+Incwadzi yenkholo
+Libhayibheli
+Incwadzi yelulwimi
+Isichazamagama
+Incwadzi yesayensi
+Incwadzi yetibalo
+Incwadzi yetekwelapha
+Incwadzi yemtsetfo
+Incwadzi yetekulima
+Incwadzi yekupheka
+Incwadzi yetemidlalo
+Incwadzi yekutfutfukisa umuntfu
+Incwadzi yekuhamba
+Incwadzi yetitfombe
+Incwadzi yebantfwana

@@ -1,0 +1,29 @@
+---
+description: Telecom operator types followed by real operator brands. The generic terms are Uzbek — уяли алоқа оператори for a mobile operator, оптик толали провайдер for a fibre provider — and the brands keep their Latin trademarks. The named operators are regional rather than Uzbek-only; Uzbekistan's own carriers belong in a country pack.
+locale: uz
+---
+уяли алоқа оператори
+стационар алоқа оператори
+интернет-провайдер
+сунъий йўлдош алоқаси оператори
+виртуал оператор
+оптик толали провайдер
+кабелли телевидение оператори
+халқаро оператор
+Vodafone
+MTS
+Beeline
+Megafon
+Tele2
+Kcell
+Kyivstar
+T-Mobile
+Orange
+Turkcell
+China Mobile
+Etisalat
+Zain
+STC
+Airtel
+Jio
+NTT Docomo

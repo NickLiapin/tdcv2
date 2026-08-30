@@ -1,0 +1,12 @@
+---
+description: The international letter sizes, used unchanged in Mali, but worth knowing what they are attached to. They appear on two things only — new imported ready-to-wear, and the graded bales of second-hand European clothing that Malians call the fripe and that clothe a large part of the country. The garment a Malian actually dresses up in carries no size at all, because a bazin boubou is cut by a tailor from a measurement taken off the wearer, and a taafe wrapper is a length of cloth that fits whoever ties it.
+locale: bm
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

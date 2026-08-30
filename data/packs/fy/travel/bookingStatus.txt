@@ -1,0 +1,15 @@
+---
+description: Booking status (West Frisian, agreeing with de boeking). The Frisian participle is the thing to get right in a status list: it takes no ge- prefix where the verb already begins with an unstressed syllable, so befêstigje gives befêstige and not gebefêstigd, and reservearje gives reservearre with the double r that marks the -earje class. Werombetelle is refunded, built as back-paid on werom, which is the same word as English rearward rather than the Dutch terug.
+locale: fy
+---
+Befêstige
+Yn behanneling
+Ôfsein
+Op wachtlist
+Yncheckt
+Útcheckt
+Net ferskynd
+Wizige
+Werombetelle
+Ferrûn
+Garandearre

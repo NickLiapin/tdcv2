@@ -1,0 +1,16 @@
+---
+description: Transport jobs in Eswatini. Tekuhamba is "matters of going", from kuhamba, to walk or travel, and it is the name of the transport ministry. Umshayeli, the driver, comes from kushayela, which is literally to strike or beat — the same verb used of driving cattle, extended to a vehicle. The first specific driver on the list is the one that matters most: umshayeli welikhombi, the minibus driver, because the kombi is how the country actually moves and the ranks at Manzini and Mbabane are its transport hubs rather than any station. Umbhali welimikhawulo, the border clerk, is here because a landlocked country's freight lives or dies on customs paperwork at Ngwenya, Lavumisa and Lomahasha.
+locale: ss
+---
+Umshayeli
+Umshayeli welikhombi
+Umshayeli wemabhasi
+Umshayeli weloli
+Umshayeli welithengi
+Umhleli wemzila wekuhamba
+Umphatsi wetekutfutfwa
+Umhloli wetimoto
+Umlungisi wetimoto
+Umbhali welimikhawulo
+Umsebenti wasenkhundleni yetindiza
+Umhleli wetimphahla

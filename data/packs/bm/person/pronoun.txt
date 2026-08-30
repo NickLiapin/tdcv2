@@ -1,0 +1,12 @@
+---
+description: The Bambara personal pronouns, and the single most important fact a config writer can take from this pack is sitting in the third value. `A` means he, she AND it — Bambara marks no gender on the pronoun, on the verb, or anywhere else — so a Bambara sentence cannot be branched on the row's sex the way a Serbian or a Polish one must be, and a template that tries to pick a pronoun from a gender column has nothing to pick. The six short forms are the ordinary ones: `n` I, `i` you, `a` he/she/it, `an` we, `aw` you plural and also the polite singular to an elder, `u` they. `Ne` and `ale` are the emphatic forms, used to put weight on the subject, roughly as if to say as for me, as for him. Note that `aw` doing double duty as plural and polite is the only social distinction the pronoun system makes at all.
+locale: bm
+---
+n
+i
+a
+an
+aw
+u
+ne
+ale

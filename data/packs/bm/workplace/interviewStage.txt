@@ -1,0 +1,15 @@
+---
+description: Stages of hiring, in Bambara. `Ɲininkali` is questioning, from `ɲininka` to ask, and it is the ordinary word for an interview — Bambara does not distinguish an interview from an interrogation lexically, which is closer to how the encounter feels than the French entretien suggests. `Kɔrɔbɔli` is testing, from `kɔrɔbɔ` to try someone out. `Seereyabagaw ɲininkali` is the reference check, and `seereya` is the same word for legal testimony that legal/term carries — a referee in Mali is a witness, and the check is very often a phone call to somebody both parties know rather than a form. `Sara kan bɛn` is agreeing the wage, with `bɛn`, to come to terms, the same verb that names a peace settlement.
+locale: bm
+---
+Sɛbɛn cili
+Sɛbɛnw lajɛli
+Telefɔni kan ɲininkali
+Ɲininkali fɔlɔ
+Ɲininkali filanan
+Kɔrɔbɔli
+Baara kɔrɔbɔli
+Ɲɛmɔgɔw ɲɛkɔrɔ
+Seereyabagaw ɲininkali
+Sara kan bɛn
+Baara dilen

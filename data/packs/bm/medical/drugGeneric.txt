@@ -1,0 +1,45 @@
+---
+description: Generic names as a Malian pharmacy dispenses them: by DCI — dénomination commune internationale, the French rendering of the INN — printed in French on the box. The list follows Mali's national essential medicines list rather than a European formulary. Artéméther-luméfantrine is first-line for uncomplicated malaria and artésunate for the severe form. Sulfadoxine-pyriméthamine with amodiaquine is not an ordinary prescription at all: it is the monthly seasonal malaria chemoprevention handed to every under-five through the rainy months, one of the largest such campaigns anywhere. Praziquantel and ivermectine likewise move by mass administration round, not by prescription. Hydroxyurée is here for sickle-cell disease, managed at the CRLD in Bamako, and sels de réhydratation orale with sulfate de zinc is the standard pairing for a child with diarrhoea.
+locale: bm
+---
+Paracétamol
+Ibuprofène
+Acide acétylsalicylique
+Diclofénac
+Tramadol
+Artéméther-luméfantrine
+Artésunate
+Sulfadoxine-pyriméthamine
+Amodiaquine
+Quinine
+Amoxicilline
+Amoxicilline-acide clavulanique
+Ceftriaxone
+Ciprofloxacine
+Doxycycline
+Gentamicine
+Métronidazole
+Cotrimoxazole
+Isoniazide
+Rifampicine
+Pyrazinamide
+Éthambutol
+Ténofovir
+Lamivudine
+Dolutégravir
+Praziquantel
+Ivermectine
+Albendazole
+Sels de réhydratation orale
+Sulfate de zinc
+Sulfate ferreux
+Acide folique
+Hydroxyurée
+Oxytocine
+Sulfate de magnésium
+Salbutamol
+Phénobarbital
+Metformine
+Glibenclamide
+Amlodipine
+Énalapril

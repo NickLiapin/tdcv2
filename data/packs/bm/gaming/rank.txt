@@ -1,0 +1,14 @@
+---
+description: Competitive tiers, in French, following the metal ladder that international games use and that Malian players read on the screen untranslated. The one culturally sharp thing about the list is that its top metal is the wrong way round for the country: `Or` sits third here, below Platine and Diamant, whereas gold in Mali is the actual measure of wealth — the metal that funded the empire, that Mansa Moussa spent in Cairo in 1324, and that is still the country's first export. A ranking that puts gold in third place is a small imported inversion of Malian value.
+locale: bm
+---
+Débutant
+Bronze
+Argent
+Or
+Platine
+Diamant
+Maître
+Grand maître
+Challenger
+Vétéran

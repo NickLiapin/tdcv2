@@ -1,0 +1,34 @@
+---
+description: Vegetables, and the four Bambara names at the head are the four things that go into almost every Malian sauce. `Jaba` is onion, `Foronto` chilli, `Tomati` tomato and `Gan` okra — and okra is not a side vegetable here but a thickener, sliced into the pot to give the sauce the ropy consistency that makes it cling to a ball of tô. The leaf entries are the other half of the story: `Feuille de baobab` dried and powdered is the everyday sauce green of the Sahel, and the manioc leaf is the equivalent further south. `Échalote de Bandiagara` is a protected speciality — the Dogon grow shallots in tiny irrigated garden plots between the rocks of the escarpment, pound them and dry them into balls that are traded across West Africa.
+locale: bm
+---
+Jaba
+Foronto
+Gan
+Tomati
+Oignon
+Piment
+Gombo
+Tomate
+Aubergine
+Aubergine africaine
+Chou
+Carotte
+Pomme de terre
+Patate douce
+Igname
+Manioc
+Taro
+Concombre
+Courge
+Courgette
+Haricot vert
+Niébé
+Petits pois
+Poivron
+Laitue
+Salade
+Épinard
+Feuille de baobab
+Feuille de manioc
+Échalote de Bandiagara

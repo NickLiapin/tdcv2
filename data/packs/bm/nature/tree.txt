@@ -1,0 +1,32 @@
+---
+description: Trees, and the balanzan earns the first line twice over. It keeps the opposite calendar to every other tree in the Sahel — it puts out leaves in the dry season and drops them when the rains begin — so a millet field under balanzans gets full sun exactly when the crop is growing and a deep fall of nitrogen-rich leaf exactly when the ground is bare, which is why Malian farmers leave it standing in the middle of a field and why Ségou is called the city of the balanzans. Sira is the baobab, whose young leaves are dried and pounded into the powder that thickens a sauce and whose fruit is sold as monkey bread; si is the shea, never planted and never felled, only protected as a seedling, and its butter is money that belongs to the women who gather it; nɛrɛ is the néré, whose seeds are fermented into sumbala, the condiment without which Malian cooking does not taste like itself. Ntomi is the tamarind and ngalama the tannin tree whose leaf bath begins bɔgɔlanfini cloth. The orchard trees at the end are French because they are introductions, and the mango above all — Mali exports them, and mangoro is the borrowed word.
+locale: bm
+---
+balanzan
+sira
+si
+nɛrɛ
+ntomi
+jala
+dubalen
+toro
+sunsun
+zɛgɛnɛ
+zaban
+mangoro
+ngalama
+neem
+eucalyptus
+acacia
+gommier
+rônier
+palmier doum
+palmier dattier
+caïlcédrat
+anacardier
+papayer
+goyavier
+citronnier
+oranger
+bananier
+moringa

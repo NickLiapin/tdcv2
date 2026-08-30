@@ -1,0 +1,40 @@
+---
+description: Frisian dishes, and the first thing to say about them is that they are dairy first and everything else second. This is the province the Holstein-Friesian is named after - the black-and-white animal that became the world's standard dairy cow was bred out of these fields and shipped from these harbours - and the kitchen that grew up around it treats milk, buttermilk, butter and cheese as base ingredients rather than as garnish. Sûpe, buttermilk, is at once a drink, a cooking liquid and the body of a whole family of porridges: sûpengrottenbrij is sûpe boiled with barley grits, molkebrij is the same made with milk, rysbrij with rice, and hingop is sûpe hung up in a cloth until the whey has run out of it. The cheeses are separate traditions rather than one: Fryske nagelkaas is studded with cloves and cumin, skiepetsiis is ewes' milk, griene tsiis is the young fresh cheese, and oerbeleine tsiis is aged well past the point a Dutch shop would still call a cheese old. Which is why the old tongue-twister Frisians use to catch out a non-Frisian - bûter, brea en griene tsiis, wa't dat net sizze kin is gjin oprjochte Fries, butter, bread and green cheese, and whoever cannot say it is no true Frisian - is not a random line of nonsense: it is a shopping list, and three of the things on it are three of the things this file is mostly made of. The baking is the province's other export, sûkerbôle with lumps of sugar melted through the loaf, oranjekoek under white icing, dúmkes, and Fryske pompeblêden named for the water-lily leaves on the provincial flag. The fish come from two different waters, skol and garnalen from the Waadsee, snoekbears and iel from the lakes and canals inland. Beerenburch, the herb bitters blended in Harns, closes the list and by custom the meal.
+locale: fy
+---
+Sûkerbôle
+Oranjekoek
+Dúmkes
+Fryske drúfkes
+Krûdkoeke
+Fryske pompeblêden
+Bûterkoeke
+Iikjes
+Oaljekoeken
+Krintebôle
+Roggebôle
+Bôlepudding
+Fryske nagelkaas
+Griene tsiis
+Oerbeleine tsiis
+Skiepetsiis
+Sûpe
+Sûpengrottenbrij
+Molkebrij
+Rysbrij
+Hingop
+Poffert
+Snert
+Grauwe earten
+Brune beane-iten
+Spek en beane
+Stamppot boerekoal
+Hutspot
+Drûge woarst
+Rikke woarst
+Rikke iel
+Sâlte hjerring
+Bakte skol
+Bakte snoekbears
+Waadgarnalen
+Beerenburch

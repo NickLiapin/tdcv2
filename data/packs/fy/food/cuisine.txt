@@ -1,0 +1,22 @@
+---
+description: Cuisine (West Frisian). Every value here is the name of a file in food/dishByCuisine, so the spellings are load-bearing rather than decorative. All eighteen end in -sk, the ending Frisian gives to every nationality adjective and the same suffix English wore down to -ish and German to -isch; Frisian kept the cluster whole, which is why the list reads Frysk, Nederlânsk, Sineesk, Dútsk rather than Fries, Nederlands, Chinees. Two entries sit where a Netherlands-wide list would put something else, and that swap is the point of this pack. Frysk holds the home-cuisine slot a Dutch list gives to Nederlands, because in Fryslân the everyday kitchen is the Frisian one; Nederlânsk therefore drops into the neighbour slot a Dutch list gives to Vlaams. The order below that is by how ordinary the food is here rather than by geography: Yndonesysk and Surinaamsk come high because both arrived through the colonial and post-colonial connection and are supermarket and takeaway food rather than exotica, and Sineesk is on the high street of villages of a few hundred people, because the Chinese-Indonesian restaurant reached rural Fryslân decades before the pizzeria did.
+locale: fy
+---
+Frysk
+Nederlânsk
+Yndonesysk
+Surinaamsk
+Italjaansk
+Sineesk
+Turksk
+Marokkaansk
+Frânsk
+Japansk
+Gryksk
+Spaansk
+Taisk
+Yndysk
+Fietnameesk
+Meksikaansk
+Amerikaansk
+Libaneesk

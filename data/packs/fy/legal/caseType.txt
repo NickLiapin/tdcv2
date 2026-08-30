@@ -1,0 +1,19 @@
+---
+description: Type of case. Koart geding is a category and not a stage of one: it is a fast interim hearing before the foarsjenningerjochter that can produce an enforceable order within days, and a large share of Dutch civil disputes never goes past it, so a dataset that treats it as a step on the way to a full trial will be wrong about most of the rows. Two entries show the Frisian sk- where Dutch writes sch-, and they are easy to confuse with one another: skea is damage or loss, giving letselskea for personal injury, while skeel is a quarrel or dispute, giving kontraktskeel. Hannelssaak carries a sound change that runs right through the language: Dutch nd comes out as nn or as a long vowel with a circumflex, so handel is hannel, hand is hân, land is lân and hond is hûn - which is why so much Frisian looks a syllable shorter than its Dutch equivalent. Fêstguod is real estate, from fêst, fixed, plus guod, goods; frjemdlingesaak is an immigration case, from frjemd, strange or foreign; and bestjoersrjochtlike saak is administrative law, built on bestjoer, the Frisian for a board or an administration and the root of the name of the province's own executive.
+locale: fy
+---
+Sivile saak
+Strafsaak
+Famyljesaak
+Fallisemint
+Letselskea
+Arbeidssaak
+Hiersaak
+Kontraktskeel
+Yntellektueel eigendom
+Fêstguodsaak
+Frjemdlingesaak
+Belestingsaak
+Bestjoersrjochtlike saak
+Hannelssaak
+Koart geding

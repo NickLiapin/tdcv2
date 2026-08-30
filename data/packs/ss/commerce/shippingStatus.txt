@@ -1,0 +1,15 @@
+---
+description: Shipping status in Eswatini. Kulindze emkhawulweni welive, held at the border, is a status that a landlocked country needs and a coastal one does not: every parcel entering Eswatini clears customs at Ngwenya, Lavumisa or Lomahasha, and a hold there is the commonest single cause of delay, ahead of anything that happens in transit. Kufike endzaweni yekuhlanganisa, arrived at the hub, matters for the same reason as its counterpart in the order status list — the collection point rather than the doorstep is where most deliveries end in a country where homesteads have no street addresses. Grammatically these are all completed-tense verbs describing an event, not adjectives describing a parcel.
+locale: ss
+---
+Kulindzelwe kutfunyelwa
+Kutfunyelwe
+Kusendleleni
+Kulindze emkhawulweni welive
+Kufike endzaweni yekuhlanganisa
+Kuyaletfwa namuhla
+Kuletfwe
+Kuhlulekile kuletfwa
+Kubuyele kumtfumeli
+Kubambekile
+Kulahlekile

@@ -1,0 +1,10 @@
+---
+description: Conditions that run above baseline in people of North African descent. The Maghreb sits at the meeting point of the Mediterranean thalassaemia belt and the Middle Eastern autoinflammatory cluster, so it inherits entries from both neighbours rather than having a profile of its own.
+locale: bm
+---
+Déficit en G6PD
+Trait bêta-thalassémique
+Fièvre méditerranéenne familiale
+Maladie de Behçet
+Non-persistance de la lactase
+Xeroderma pigmentosum

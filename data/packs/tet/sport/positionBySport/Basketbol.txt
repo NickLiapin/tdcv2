@@ -1,0 +1,9 @@
+---
+description: Basketball positions. The sport's name came into Tetum through English rather than through Portuguese basquetebol, which is why it is Basketbol here, and the same is true of Voleibol; the positions, however, are Portuguese, because the coaching vocabulary arrived from the Lusophone side. Armadór is the point guard, literally the one who arms or sets up the play, and Pivó the centre. Basketball is a school and mission sport in Timor-Leste and the courts that carry it are usually the same concrete rectangles used for futsal and volleyball on other evenings.
+locale: tet
+---
+Armadór
+Ala-armadór
+Ala
+Ala-pivó
+Pivó

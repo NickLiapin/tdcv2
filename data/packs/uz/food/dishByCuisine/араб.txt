@@ -1,0 +1,14 @@
+---
+description: Arab dishes on an Uzbek table, most of them arriving through Turkey or the Gulf rather than directly. Шаурма is street food in every Uzbek town. Кнафе and кунафа are the same sweet under two transliterations, which is what happens when a word arrives twice by different routes.
+locale: uz
+---
+ҳуммус
+фалафел
+шаурма
+кабса
+мансаф
+таббула
+мутаббал
+маҳши
+кнафе
+кунафа

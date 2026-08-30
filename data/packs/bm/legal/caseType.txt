@@ -1,0 +1,17 @@
+---
+description: Categories of case before a Malian court, in French. `Litige foncier` is listed early because land disputes are the single largest source of civil litigation in the country and the reason is structural: customary tenure, in which land belongs to a lineage and is allocated by a village chief, coexists with a state system of titres fonciers and lettres d'attribution, and the two produce competing legitimate claims to the same plot — especially on the edges of Bamako, where the city is eating farmland fast. `Conciliation coutumière` is on the list because it is a real stage: village chiefs, imams and elders resolve an enormous share of disputes before anything reaches a courtroom, and sanankuya joking kinship is used deliberately to open those negotiations.
+locale: bm
+---
+Affaire civile
+Affaire pénale
+Affaire commerciale
+Affaire sociale
+Affaire administrative
+Litige foncier
+Divorce
+Succession
+Recouvrement de créance
+Contentieux du travail
+Délit routier
+Conciliation coutumière
+Affaire correctionnelle

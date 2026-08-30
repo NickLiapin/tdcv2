@@ -1,0 +1,16 @@
+---
+description: Grade labels used in Malian schooling, in French. Marking is out of ten in the école fondamentale and out of twenty in secondary and university, and the pass threshold is half — ten out of twenty — which makes `Passable` a real category rather than a euphemism and makes `Assez bien` genuinely respectable. `Ajourné` and `Redouble` carry weight the English words do not: repeating a year is extremely common in Mali, class sizes past a hundred are normal in urban fundamental schools, and a pupil who is ajourné at the DEF very often leaves education altogether rather than repeating.
+locale: bm
+---
+Excellent
+Très bien
+Bien
+Assez bien
+Passable
+Insuffisant
+Médiocre
+Faible
+Nul
+Admis
+Ajourné
+Redouble

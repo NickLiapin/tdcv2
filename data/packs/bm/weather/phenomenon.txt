@@ -1,0 +1,19 @@
+---
+description: Weather and seasons in Bambara, and the four season names are the file's reason to exist. Mali's year has four named parts, not two and not the European four: `samiya` the rains from June to September, `kawulɛ` the harvest and the end of the rains through October and November, `fonɛnɛ` the cool dry season from December to February, and `tilema` the hot dry season from March to May, when Kayes regularly passes forty-five degrees. `Fonɛnɛ fɔɲɔ` is the harmattan itself, the northeast wind off the Sahara that carries so much dust that flights are cancelled and the sun goes flat white for weeks — `Buguri dibi`, the dust darkness, is that haze. `Sanfɔɲɔ` is the squall line that brings the first rains, a wall of red dust running ahead of the water. `Ja` is drought and `Baji wulili` the Niger's flood, which in Mali is a season rather than a disaster: the water spreads across the Inner Niger Delta from August to December and the Bozo fishing year and the Fulbe herding year are both built on where it goes.
+locale: bm
+---
+Fonɛnɛ
+Fonɛnɛ fɔɲɔ
+Samiya
+Tilema
+Kawulɛ
+Sanji
+Sanpɛrɛn
+Sanfɔɲɔ
+Fɔɲɔba
+Buguri fɔɲɔ
+Buguri dibi
+Ja
+Funteniba
+Jiwulili
+Baji wulili

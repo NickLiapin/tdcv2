@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (West Frisian, lowercase, no full stop). Three of them are not what a Dutch reader expects. December abbreviates to des, not dec, because the Frisian word is desimber with an s; May abbreviates to mai rather than to the first three letters of maaie, which would give maa and read as nothing; and maart keeps the consonant skeleton mrt exactly as Dutch does, because mar is already the Frisian word for a lake and turns up all over the province's place names.
+locale: fy
+---
+jan
+feb
+mrt
+apr
+mai
+jun
+jul
+aug
+sep
+okt
+nov
+des

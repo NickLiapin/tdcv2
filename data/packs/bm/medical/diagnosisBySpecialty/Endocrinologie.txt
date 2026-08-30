@@ -1,0 +1,10 @@
+---
+description: Goitre is on this list because iodine deficiency was widespread before salt iodisation, and it persists in pockets; type 2 diabetes has since become the growth area, concentrated in Bamako, where diet and physical activity changed faster than anywhere else in the country.
+locale: bm
+---
+Diabète de type 2
+Diabète de type 1
+Hypothyroïdie
+Goitre endémique
+Syndrome métabolique
+Ostéoporose

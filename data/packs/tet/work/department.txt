@@ -1,0 +1,26 @@
+---
+description: The functional divisions of an organisation, and which language the sign on the door is written in depends on who owns the building: a ministry names its directorates in Portuguese because the statute that created them is in Portuguese, an international organisation runs in English, and a Dili company mixes the two without apology, which is why Marketing stands untranslated beside Rekursus Umanus. Operasoens carries a rule this pack rarely gets to show, the Portuguese plural ending -ões written -oens, so operações lands as operasoens and the same change gives eleisoens and habilitasoens elsewhere in the pack. Rekursus Umanus keeps a Portuguese plural -s on both of its words, which Tetum does not otherwise mark at all, because the phrase was borrowed whole as a fixed administrative label rather than assembled out of Tetum parts. A caution for anyone weighting this list against headcount: in most Timorese employers Jurídiku, Konformidade and Kontrolu Kualidade are one person or nobody, while Administrasaun and Operasoens carry the bulk of the payroll.
+locale: tet
+---
+Enjeñaria
+Produtu
+Dezeñu
+Vendas
+Marketing
+Finansas
+Kontabilidade
+Rekursus Umanus
+Operasoens
+Jurídiku
+Atendimentu ba Kliente
+Teknolojia Informasaun
+Peskiza no Dezenvolvimentu
+Kompras
+Kontrolu Kualidade
+Lojístika
+Administrasaun
+Manutensaun
+Seguransa
+Konformidade
+Komunikasaun
+Formasaun

@@ -1,0 +1,19 @@
+---
+description: Reason for returning goods in Eswatini. Every value is a full sentence with a subject concord on the verb, because siSwati cannot express "damaged on arrival" as a noun phrase — it has to say ilimele nayifika, "it was injured when it arrived", where kulimala is the same verb used of a person being hurt. That is why this list reads as prose and cannot be shortened into labels. The last entry is more relevant here than in a large market: Eswatini's retail is small and most goods cross the border from South Africa, so a shopper who finds the same item cheaper in Nelspruit or online is describing a real and common situation rather than a bargaining tactic.
+locale: ss
+---
+Yehlulekile kusebenta
+Ilimele nayifika
+Sayitfola singasiyo lebeyihleliwe
+Ubungako abukalungi
+Ayilingani
+Umbala awukalungi
+Ayifanani nesitfombe
+Sikhatsi sekusetjentiswa siphelile
+Kutfunyelwe timphahla letinyenti
+Yefike sekwedlule sikhatsi
+Sitjintje umcondvo
+Ayinatimphahla letiphelele
+Ikhwalithi ayikho ezingeni
+Yatsengwa ngephutsa
+Yatfolakala intsengo lengcono lakwenye indzawo

@@ -1,0 +1,18 @@
+---
+description: Marital status in Eswatini, and this is one of the lists where a European schema simply does not fit. Eswatini recognises TWO parallel legal marriage systems: umshado wesiko, customary marriage under Swazi law and custom, which may be polygamous and is entered by the smearing of red ochre; and civil rites marriage under the Marriage Act, which is monogamous. A person can be married under one and not the other, and the two carry different property and inheritance consequences, which is why the two are separate values here rather than one "married". Ulobolisiwe records that lobola, the bridewealth in cattle, has been paid, a stage that is socially binding well before either registration. Unebafati labanyenti, having more than one wife, is a lawful status in this country and not a remark about someone. Note the verb-based construction: most of these are complete sentences with a subject concord — ushadile is "he or she has married" — so they cannot be used as adjectives before a noun.
+locale: ss
+---
+Kungakashadwa
+Ushadile
+Ushade ngesiko
+Ushade ngemtsetfo wembuso
+Ushade ngesontfo
+Utsembisene
+Ulobolisiwe
+Unebafati labanyenti
+Uhlala nalotsandzana naye
+Bahlukene
+Uhlukanisile
+Umfelokati
+Umfelwa
+Akatiwa

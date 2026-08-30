@@ -1,0 +1,16 @@
+---
+description: Month in siSwati. These are not Latin loans the way the Zulu and Xhosa calendars often are in modern use — they are descriptive names anchored to the southern-hemisphere agricultural year, and the year they describe runs opposite to Europe's. iNdlovana and iNdlovulenkhulu, February and March, are "the little elephant" and "the great elephant", the height of the wet summer when the grass stands tallest; iNhlaba in June is named for the aloe that flowers in the dry cold; iNyoni in September is the month the birds return; iMphala in October carries the name of the impala. Note that the initial vowel is written lowercase and the stem capitalised — iNdlovana, not Indlovana — which is the standard Nguni convention for a prefix that is grammatically bound to the word.
+locale: ss
+---
+Bhimbidvwane
+iNdlovana
+iNdlovulenkhulu
+Mabasa
+iNkhwekhweti
+iNhlaba
+Kholwane
+iNgci
+iNyoni
+iMphala
+Lweti
+iNgongoni

@@ -1,0 +1,15 @@
+---
+description: Stages of a hiring process. Entrevista matan ba matan is the one to read closely: it is the in-person interview and it is built as eye to eye, matan being the eye and ba the directional particle, which is how Tetum makes a reciprocal expression where English reaches for face. The idiom is ordinary speech, not a flourish. Hasai an is withdrawal, and an is the reflexive — hasai is to take out or remove, so a candidate who withdraws takes themselves out; the same an turns almost any transitive verb reflexive, which is the whole of the machinery Tetum uses where Portuguese conjugates a pronominal verb. Entrevista tékniku shows the adjective refusing to agree with anything, because there is nothing for it to agree with. One structural note for anyone modelling a pipeline here: the shortlist very often arrives through a personal or church network before any of these stages runs, and public advertisement is the exception outside the civil service and the international organisations, both of which are legally obliged to advertise.
+locale: tet
+---
+Analiza CV
+Entrevista liuhusi telefone
+Entrevista tékniku
+Entrevista matan ba matan
+Entrevista ho painél
+Faze ikus
+Verifikasaun referénsia
+Proposta servisu
+Rejeitadu
+Simu ona
+Hasai an

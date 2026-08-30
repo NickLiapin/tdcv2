@@ -1,0 +1,10 @@
+---
+description: Neurology in Mali is largely infectious at the acute end. Neuropaludisme — cerebral malaria — is a leading cause of coma and of acquired neurological deficit in Malian children, and epidemic meningitis supplies much of the rest, which is why both sit on a neurology list here and on an infectious-disease list elsewhere.
+locale: bm
+---
+Épilepsie
+Neuropaludisme
+Accident vasculaire cérébral ischémique
+Méningite bactérienne
+Neuropathie périphérique
+Migraine

@@ -1,0 +1,40 @@
+---
+description: Medical specialty in siSwati — the FULL list, of which medical/specialtyCoherent is the subset this pack ships diagnoses for. The naming device is the class 10 possessive te-, "matters of", which is the same construction that names an Eswatini government ministry: Litiko leTemphilo is the Ministry of Health, so tetinhlitiyo, "matters of the hearts", is cardiology by exactly the grammar a citizen already reads on a letterhead. Where the specialty is defined by a body part the possessive attaches to that part; where it is defined by an activity it attaches to an infinitive, so surgery is tekuhlinta, "matters of cutting", and anaesthesia tekulala kwesigulane, "matters of the patient's sleeping". One entry has no equivalent elsewhere: te-HIV ne-TB is a specialty in its own right in Eswatini, with its own clinics, its own cadre and its own national programme, because the two diseases are managed together here as a matter of policy.
+locale: ss
+---
+Tetinhlitiyo
+Tebuchopho
+Temdlavuza
+Tesikhumba
+Tesisu
+Temahomoni
+Temaphaphu
+Tematfambo
+Tengcondvo
+Tetinso
+Tebantfwana
+Tebafati labakhulelwe
+Tetifo tebafati
+Temehlo
+Tetindlebe imphumulo nemphimbo
+Tekuhlinta
+Tekulala kwesigulane
+Tetifo letitsatselanako
+Te-HIV ne-TB
+Tekuhlolwa kwengati
+Tekuhlolwa kwemtimba
+Tetitfombe temtimba
+Tetingoti
+Temphilo yemphakatsi
+Tekuvikela tifo
+Tekwelashwa ngemitsi
+Tekudla
+Tekuvocavoca umtimba
+Tematinyo
+Tekwelapha labadzala
+Tekwelapha tinsana
+Tekwelapha ekhaya
+Tekwelapha kwemsebenti
+Tekunakekelwa kwesigulane
+Tekuhlolwa kwetakhi temtimba
+Tekulawula tinhlungu

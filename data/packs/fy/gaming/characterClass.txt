@@ -1,0 +1,28 @@
+---
+description: RPG character class (West Frisian). No game has ever shipped a Frisian localisation, so this vocabulary comes from the language's literary and folk register rather than from a menu screen, and that is what makes it interesting: tsjoender is a sorcerer, from tsjoene, to work magic, a live verb here and not an archaism; muonts is a monk; deaderidder is a death-knight on dea, death; and wâldrinner, a wood-runner, is the ranger, built on the wâld that also names half the province. Frisian players in practice say the English class names in play, the way Dutch players do, so an English list is equally defensible for chat-style data - but the words below are what a Frisian translator would reach for, and several of them exist in the language for no other reason than that the sagas needed them.
+locale: fy
+---
+Kriger
+Magiër
+Tsjoender
+Skurk
+Paladyn
+Jager
+Pryster
+Heksemaster
+Druïde
+Muonts
+Sjamaan
+Deaderidder
+Demoanejager
+Barbaar
+Deadebeswarder
+Bard
+Slûpmoardner
+Wâldrinner
+Tempelier
+Berserker
+Beswarder
+Alchemist
+Yngenieur
+Genêzer

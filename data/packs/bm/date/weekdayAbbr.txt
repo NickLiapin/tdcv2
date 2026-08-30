@@ -1,0 +1,11 @@
+---
+description: Abbreviated weekday names, cut to three letters plus a stop. `ntɛ.` keeps the open-e; `sib.` and `jum.` are unremarkable. What is worth noticing is that abbreviating these at all is a written convention imported with the French timetable — the names themselves are spoken in full, and a market woman naming the day of the weekly fair says the whole word. Several Malian towns hold their market on a fixed weekday and are known by it, so the day name and the trading calendar are the same information.
+locale: bm
+---
+kar.
+ntɛ.
+tar.
+ara.
+ala.
+jum.
+sib.

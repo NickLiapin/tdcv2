@@ -1,0 +1,16 @@
+---
+description: Kinds of meeting. Workshop is on this list untranslated and it has drifted a long way from the English word it came from: in Timor-Leste a workshop is a funded multi-day gathering, usually residential, usually with a per diem attached, and it became a recognisable institution of the aid economy rather than a format — people speak of going to a workshop the way they speak of going on a trip. Brainstorming and Sprint arrived the same way and stayed the same shape. Against them Reuniaun hahú uses hahú, the plain native verb to begin, and Reuniaun ida ba ida is the one-to-one, built on ida, one, and the directional ba, exactly as the face-to-face interview is built. Akompañamentu is Portuguese acompanhamento with nh written ñ. Reuniaun loron-loron is the daily stand-up, doubling loron, day. A note on register: the same meeting is announced in Portuguese on a ministry noticeboard, in English in an international office and in Tetum in the room itself, whichever of the three the paper was written in.
+locale: tet
+---
+Reuniaun loron-loron
+Reuniaun ida ba ida
+Reuniaun jerál
+Retrospetiva
+Planeamentu sprint
+Reuniaun hahú
+Sinkronizasaun
+Revizaun
+Workshop
+Brainstorming
+Akompañamentu
+Análize post-mortem

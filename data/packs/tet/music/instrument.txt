@@ -1,0 +1,35 @@
+---
+description: Instruments. The five at the head are Timorese: the babadok is the small two-headed drum held under the arm and struck with the hand, and it is the instrument of the tebe-tebe and the likurai; the tala is the bronze gong, played in tuned sets and counted among a house's heirloom valuables alongside the belak and the tais; the lakadou is a bamboo tube zither whose strings are lifted from the skin of the tube itself; the karau dikur is a buffalo horn blown as a signal; and the suling is the bamboo flute, under its Indonesian name. Note viola, which in Tetum means a guitar and not a bowed viola — it took the Portuguese word for the plucked instrument, so a Tetum sentence about someone playing the viola is about a guitarist. Gitarra beside it is the later English-influenced form used for an electric guitar. The rest respell from Portuguese as usual: saxofone to saksofone, acordeão to akordeaun, contrabaixo to kontrabaixu.
+locale: tet
+---
+Babadok
+Tala
+Lakadou
+Karau dikur
+Suling
+Viola
+Gitarra
+Baixu elétriku
+Pianu
+Teklado
+Violinu
+Bateria
+Saksofone
+Trompete
+Flauta
+Violonselu
+Klarinete
+Trombone
+Arpa
+Ukulele
+Banju
+Akordeaun
+Oboé
+Kontrabaixu
+Gaita
+Xilofone
+Kajón
+Marakas
+Bongó
+Kongas
+Pandeiru

@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European descent, in West Frisian. A prevalence signal, not an exclusive one. Every eponym here is joined with fan rather than the Dutch van, and that one word is the fastest test of whether a Frisian medical text has been written or merely respelled, because Frisian turns a word-initial v into f as a rule: fjouwer for four, fisk for fish, fan for of. Sykte fan Wilson stays on a list like this for a practical reason — it is copper the liver cannot excrete, and it is treatable if it is found before the liver is lost.
+locale: fy
+---
+Erflike hemokromatoaze
+Fenylketonury
+Famyljêre hyperkolesterolemy
+Alkoholyske leversykte
+Taaislymsykte
+Sykte fan Wilson

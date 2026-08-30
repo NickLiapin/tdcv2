@@ -1,0 +1,34 @@
+---
+description: Vegetables. Сабзи and сариқ сабзи are listed separately because the yellow carrot is a different vegetable in the kitchen, sweeter and drier, and it is what goes into палов. Мош is mung bean, the base of мошхўрда and мошкичири. Кўкат at the end is the collective word for fresh green herbs sold in a bunch.
+locale: uz
+---
+сабзи
+сариқ сабзи
+пиёз
+саримсоқ
+картошка
+карам
+гулкарам
+бодринг
+помидор
+бақлажон
+булғор қалампири
+аччиқ қалампир
+турп
+шолғом
+лавлаги
+қовоқ
+ошқовоқ
+қовоқча
+мош
+нўхат
+ловия
+маккажўхори
+исмалоқ
+шивит
+райҳон
+кашнич
+петрушка
+салат барги
+кўкат
+жамбил

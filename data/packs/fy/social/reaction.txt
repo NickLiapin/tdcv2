@@ -1,0 +1,15 @@
+---
+description: Social reaction in West Frisian. These are the words a Frisian speaker reaches for rather than a fixed set of button labels: the platforms that ship a Frisian interface at all use their own strings, and most do not ship one, so a Frisian user is usually reacting in Frisian through a Dutch or English UI. The vocabulary is worth the file on its own. Lulk is angry, and it is a false friend for a Dutch reader, for whom the near-identical leuk means nice. Lokwinske is a congratulation, built as luck-wish, the same formation as German Glückwunsch and nothing like Dutch felicitatie. Stipe is support, from stypje, to prop up. Nijsgjirrich is curious or interesting - literally news-greedy - and it is one of the words Frisian speakers name first when asked what their language has that Dutch does not.
+locale: fy
+---
+Fyn ik moai
+Super
+Haha
+Wow
+Fertrietlik
+Lulk
+Knuffel
+Lokwinske
+Stipe
+Ynsjochryk
+Nijsgjirrich

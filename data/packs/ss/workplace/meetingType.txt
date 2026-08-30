@@ -1,0 +1,16 @@
+---
+description: Meeting type in Eswatini. Umhlangano is from kuhlangana, to come together, and the word covers a board meeting and a village gathering with no change of register — which is not an accident of vocabulary but a fact about how decisions are made here. The largest umhlangano in the country is Sibaya, the national assembly at Lobamba, where the whole population may attend and speak in the King's cattle byre; below it the umphakatsi meets at chiefdom level and the inkhundla above that. Umhlangano wemphakatsi on this list is therefore a real institution with standing rather than a community consultation, and a workplace that calls one is borrowing the form. Note that umhlangano lowenteka ku-inthanethi has no shorter form: siSwati has not coined a single word for an online meeting and describes it instead.
+locale: ss
+---
+Umhlangano wesigaba
+Umhlangano waminyaka yonkhe
+Umhlangano wekucala kwelilanga
+Umhlangano wetisebenti
+Umhlangano webaphatsi
+Umhlangano wekuhlela
+Umhlangano wekubika
+Umhlangano wekuphepha
+Umhlangano wangefoni
+Umhlangano lowenteka ku-inthanethi
+Umhlangano wemphakatsi
+Umhlangano wesivumelwano

@@ -1,0 +1,21 @@
+---
+description: Video game genre in siSwati, and every value has to be a description because the language has no genre lexicon to borrow from — there is no siSwati word for "shooter" or "roguelike", only emageyimu ekudubula, "games of shooting". That is the honest state of the vocabulary and inventing single-word coinages for it would put words in the language that no player uses. Note that emageyimu is the class 6 plural of ligeyimu, so a genre is named in the plural throughout: a Swazi speaker classifies games as a group rather than naming a category in the abstract. Gaming in Eswatini is overwhelmingly on the phone rather than on a console, which is why the mobile-shaped genres near the end of this list are the ones with real audiences here.
+locale: ss
+---
+Emageyimu ekudubula
+Emageyimu ekulwa
+Emageyimu ekushayela
+Emageyimu emidlalo
+Emageyimu ekuhlela
+Emageyimu ekucabanga
+Emageyimu ekuhamba
+Emageyimu ekudlala indzima
+Emageyimu ekwakha
+Emageyimu ekwesabisa
+Emageyimu ebantfwana
+Emageyimu ekusindza
+Emageyimu emakhadi
+Emageyimu ekucula
+Emageyimu ekuncintisana ku-inthanethi
+Emageyimu ekugijima
+Emageyimu ekulima

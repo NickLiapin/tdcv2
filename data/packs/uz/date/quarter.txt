@@ -1,0 +1,8 @@
+---
+description: Financial and reporting quarters. The numeral stays a Roman numeral in Latin script even inside Cyrillic text — I чорак, not И чорак — which is why this is one of the few files in the pack that still shows Latin letters. Чорак is the ordinary word for a quarter of anything, including a quarter of an hour.
+locale: uz
+---
+I чорак
+II чорак
+III чорак
+IV чорак

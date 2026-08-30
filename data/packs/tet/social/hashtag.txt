@@ -1,0 +1,34 @@
+---
+description: Hashtag words, lower-cased and unspaced as a hashtag must be. A few are worth reading as vocabulary rather than as tags. Domin is love, and it is the word the Church uses from the pulpit as well as the one a teenager uses. Ksolok is joy, and the initial consonant cluster with no vowel between k and s is entirely ordinary in Tetum — kmanek, kbiit, kroat and knua all begin the same way, and a reader expecting Portuguese phonology will misread them. Furak is beautiful. Baita is for-you, ba plus ita, and stands in for the parayou of the algorithm. Morisdiak is moris di'ak, good life, with the apostrophe dropped as a hashtag requires — which is the one place in this pack where the glottal stop is deliberately not written.
+locale: tet
+---
+domin
+ksolok
+furak
+moda
+natureza
+arte
+viajen
+hahan
+desportu
+motivasaun
+estilu
+lokraik
+tendensia
+baita
+familia
+tempubailoron
+fitness
+moris
+inspirasaun
+memoria
+fotografia
+muzika
+morisdiak
+kolega
+domingu
+kafe
+busa
+asu
+lee
+timorleste

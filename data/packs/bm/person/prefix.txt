@@ -1,0 +1,36 @@
+---
+description: Forms of address written before a Malian name, and the list is three registers stacked. The French administrative titles come first because that is what a form, a summons and a payslip use. Then the Islamic ones, which carry more weight socially than any of the French ones: `El Hadj` and its feminine `Hadja` mark a person who has made the pilgrimage to Mecca and are used as a permanent part of the name afterwards, `Cheick` and `Chérif` mark religious lineage, and `Karamɔgɔ` is the master of a Qur'anic school — a title of real authority in a country where the medersa network teaches a large share of children. Last, the Manding titles of rank that history left behind and Malians still use half-seriously: `Mansa` was the emperor's title, the one Mansa Moussa carried; `Fama` a ruler; `Jatigi` a host or patron, the man a griot is attached to. `Modibo` began as the title of a learned man and became a first name — which is how Mali's first president came to be called Modibo Keïta.
+locale: bm
+---
+Monsieur
+Madame
+Mademoiselle
+M.
+Mme
+Mlle
+Docteur
+Dr
+Professeur
+Pr
+Maître
+Me
+Ingénieur
+Général
+Colonel
+Commandant
+Préfet
+Maire
+Député
+Ambassadeur
+Ministre
+El Hadj
+Hadja
+Cheick
+Chérif
+Imam
+Karamɔgɔ
+Alfa
+Modibo
+Mansa
+Fama
+Jatigi

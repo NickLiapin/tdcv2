@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised frequency in Pacific Islander ancestry. The islands were settled by successive small voyaging groups, which means each archipelago carries its own founder effects and the label covers real genetic diversity rather than one population — Polynesian, Melanesian and Micronesian histories differ. Gout is the standout association: urate transporter variants common in Polynesian populations give some of the highest recorded rates of hyperuricaemia and gout in the world, and they are independent of diet, which matters because the condition has often been misattributed to it. Rheumatic heart disease is here for a different reason, being a disease of crowding and of untreated streptococcal infection rather than of genes, and it remains among the highest in the world in Pacific communities. Ancestry associations, not statements about individuals.
+locale: ss
+---
+Kukhuluphala ngalokwedlulele
+Sifo sashukela sesigaba sesibili
+I-gout
+I-alpha-thalassaemia
+Sifo senhlitiyo lesibangwa yi-rheumatic fever
+I-G6PD deficiency

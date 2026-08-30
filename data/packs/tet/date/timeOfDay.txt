@@ -1,0 +1,12 @@
+---
+description: Parts of the day. The list is split between native Tetum and Portuguese loans, and the split is not random: the ordinary daylight divisions are Tetum's own — Dadeer morning, Lokraik afternoon, Kalan night — while the clock-bound points are Portuguese, Meiudia from meio-dia and Meianoite from meia-noite, because the twelve-hour clock arrived with the colonisers. Two entries are worth reading closely. Rai-nakukun is dusk, and it is a compound of rai, the land or the earth, with nakukun, dark: the land goes dark, not the sky. Loron-sa'e is dawn, literally the sun rises, and it is the same phrase that names the country: Timór Lorosa'e is Timor of the rising sun, which is what East Timor means in the language of the people who live there.
+locale: tet
+---
+Dadeer
+Meiudia
+Lokraik
+Rai-nakukun
+Kalan
+Meianoite
+Madrugada
+Loron-sa'e

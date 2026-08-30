@@ -1,0 +1,63 @@
+---
+description: Industry sector in West Frisian, as a chamber-of-commerce register or a job advertisement names it. This is not the national list respelled, because Fryslân's economy is grass, water and boats. Suvel and suvelferwurking stand apart from feehâlderij because milk processing is a separately registered trade here rather than a branch of farming - the province's dairy was built by farmer cooperatives and FrieslandCampina descends from them. Wetterbou and wetterbehear are two industries in a province that elects its own water authority, the Wetterskip, which raises its own tax and is answerable to no ministry. Sâltwinning is effectively one site, the works at Harns pumping brine out from under the Waadsee. Jachtbou is real manufacturing and not a hobby trade, because the lakes and the canals between the eleven cities gave the yards a market at their own door. Reiddekkerswurk is thatching, which depends on a reed harvest cut off the same wetlands. Oersetburo, a translation bureau, is an unremarkable line of business in the only officially bilingual province in the Netherlands.
+locale: fy
+---
+Lânbou
+Feehâlderij
+Suvel
+Suvelferwurking
+Túnbou
+Fiskerij
+Boskbou
+Sâltwinning
+Delfstofwinning
+Bou
+Wetterbou
+Wetterbehear
+Reiddekkerswurk
+Agraryske techniek
+Jachtbou
+Yndustry
+Metaalyndustry
+Detailhannel
+Grutthannel
+Ferfier
+Logistyk
+Ynformaasjetechnology
+Software
+Ynternethannel
+Finânsjes
+Bankwêzen
+Fersekeringen
+Fêstgoed
+Sûnenssoarch
+Âldereinsoarch
+Ûnderwiis
+Hoareka
+Toerisme
+Wettersport
+Fermaak
+Enerzjy
+Duorsume enerzjy
+Telekommunikaasje
+Loftfeart
+Skipfeart
+Farmasy
+Biotechnology
+Media
+Reklame
+Advys
+Juridyske tsjinstferliening
+Boekhâlding
+Personielstsjinsten
+Iten en drinken
+Tekstyl
+Gemy
+Papieryndustry
+Elektroanika
+Sport
+Kultuer
+Arsjitektuer
+Technyk
+Iepenbier bestjoer
+Oersetburo

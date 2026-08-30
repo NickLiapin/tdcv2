@@ -1,0 +1,64 @@
+---
+description: Business buzz noun in Tetum. The English entries on this list are not laziness and should not be translated away: the UN administration of 1999 to 2002 and the aid sector that followed installed an English-language project vocabulary in Timorese offices, and framework, workshop and budget are the words used, in Tetum sentences, by people who would never reach for a Portuguese equivalent. Donór is the same borrowing gone one step further, respelled with the acute Tetum puts on a stressed final syllable, and relatóriu and projetu come from the Portuguese side of the same register. That three-way split — Portuguese for the formal and legal, Indonesian for the market, English for the project — is the single most useful thing to know about which word a Timorese professional will produce for an abstract noun. The respellings repay attention: nicho gives Nixu, one of the few places the ch-to-x rule surfaces in commercial vocabulary; desempenho gives Dezempeñu with intervocalic s to z and nh to ñ; alinhamento gives Aliñamentu the same way; melhoramento gives Melloramentu with lh to ll; and the long -ção nouns all land on -saun, giving Orkestrasaun, Integrasaun, Migrasaun, Transformasaun, Otimizasaun, Governasaun, Inovasaun, Disrupsaun, Dijitalizasaun and Automasaun in a single run that a config author can rely on. Siklu Moris is the one compound built on a native root: moris is life, and it does the work that vida would in Portuguese. Compound nouns are juxtaposed with no linking preposition — kuota merkadu, análize dadus, tempu lansamentu — because Tetum builds a noun-noun phrase by ordering alone.
+locale: tet
+---
+sinerjia
+paradigma
+ekosistema
+framework
+fluxu servisu
+arkitetura
+infraestrutura
+plataforma
+solusaun
+estratéjia
+roteiru
+inisiativa
+metodolojia
+aliñamentu
+relatóriu
+dezempeñu
+entregável
+pontu kontaktu
+donór
+marku
+engajamentu
+orkestrasaun
+integrasaun
+migrasaun
+transformasaun
+otimizasaun
+eskalabilidade
+interoperabilidade
+governasaun
+konformidade
+rezilénsia
+obzervabilidade
+telemetria
+budget
+workshop
+kanál
+alavanka
+valór aumentadu
+propósta valór
+vantajen kompetitiva
+kuota merkadu
+segmentu
+nixu
+projetu
+portfóliu
+investimentu
+retornu
+produtividade
+efisiénsia
+inovasaun
+disrupsaun
+dijitalizasaun
+automasaun
+análize dadus
+intelijénsia negósiu
+esperiénsia kliente
+siklu moris
+tempu lansamentu
+ekonomia eskala
+melloramentu kontínuu

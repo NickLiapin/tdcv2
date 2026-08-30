@@ -1,0 +1,48 @@
+---
+description: Company legal form and name suffix in West Frisian. The legal forms themselves are not translated and must not be: a firm is entered in the Kamer van Koophandel register in Dutch, so B.V., N.V., V.O.F., C.V., Stichting, Vereniging, Coöperatie, Maatschap and Eenmanszaak are the words on the deed whatever language the company trades in. The everyday split is that a Frisian firm writes its trade name in Frisian and its legal form in Dutch - Bûter en Tsiis Bedriuwen B.V. - and a config that Frisianises the suffix produces a form no registry will recognise. Coöperatie is not a marginal entry on a Frisian list: the province's dairy was built on farmer-owned cooperatives from the 1880s onward, the model spread from here across the north, and FrieslandCampina descends directly from them. Koninklijke is not a legal form at all but a designation the monarch grants to a firm of a hundred years standing and unimpeachable reputation, and it is written in front of the name, not after it. Everything below the statutory block is an ordinary Frisian trade-name element - bruorren for brothers, & soannen for & sons, behear, tsjinsten, hannel, ferfier - and those do get written in Frisian.
+locale: fy
+---
+B.V.
+N.V.
+V.O.F.
+C.V.
+BV
+NV
+VOF
+Stichting
+Vereniging
+Coöperatie
+Maatschap
+Eenmanszaak
+Onderlinge waarborgmaatschappij
+Koninklijke
+Groep
+Holding
+Behear
+Partisipaasjes
+Ûndernimming
+Bedriuwen
+Bruorren
+& Soannen
+& Partners
+& Co.
+Ynternasjonaal
+International
+Consultancy
+Advys
+Tsjinsten
+Oplossings
+Systemen
+Technology
+Yndustry
+Hannel
+Hannelsmaatskippij
+Distribúsje
+Ynvestearrings
+Laboratoaria
+Wurken
+Fabryk
+Ferfier
+Logistyk
+Fryslân
+Nederlân

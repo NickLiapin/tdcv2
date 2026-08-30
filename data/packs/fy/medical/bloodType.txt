@@ -1,0 +1,12 @@
+---
+description: ABO and Rh group. The notation is international and is printed in Latin letters on a Dutch donor card, so nothing here is translated, and the fourth group is the letter O and never a zero. What is worth knowing about a Frisian blood-group line is where it gets written rather than what it says. Fryslân has four general hospitals — the MCL in Ljouwert, the Antonius in Snits, Nij Smellinghe in Drachten and Tjongerschans in It Hearrenfean — and in all of them the record itself is kept in Dutch while the consultation across the desk is very often held in Frisian. Frisian-language care is a live policy question in the province rather than a private courtesy, and care staff are trained for it, so the word a patient says and the word the file stores are routinely two different words.
+locale: fy
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

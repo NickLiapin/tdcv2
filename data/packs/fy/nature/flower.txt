@@ -1,0 +1,34 @@
+---
+description: Flower (West Frisian). The general word is blom, not bloem, and a bulb is a bol - the first block here is bulb flowers, because bulb growing moved north out of Holland onto the heavy sea clay of It Bilt in the twentieth century and the fields around Sint-Jabik and Sint Anne are tulip and lily country every April. Two entries are Frisian in a way no translation carries. Wetterlelje, the water lily, is the plant on the provincial flag: the seven red pompeblêden on the blue and white diagonals are its leaves, so a Frisian sees this flower on every flagpole, every sports shirt and every road sign at the provincial border. And ferjit-my-net, the forget-me-not, is one of the small class of Frisian words that is a whole sentence - forget me not - assembled the same way English does it and not the way Dutch vergeet-mij-nietje does, which adds a diminutive on the end. Sinneblom is sun-flower with the Frisian sinne, and snieklokje is snow-bell.
+locale: fy
+---
+Tulp
+Narsis
+Hyasint
+Krokus
+Gladioal
+Dahlia
+Iris
+Lelje
+Anemoan
+Fresia
+Amaryllis
+Snieklokje
+Blau drúfke
+Roas
+Sinneblom
+Madeliifke
+Margryt
+Orchidee
+Goudsblom
+Lavindel
+Pioenroas
+Anjer
+Chrysant
+Klaproas
+Fioeltsje
+Jasmyn
+Begonia
+Leltsje-fan-dalen
+Ferjit-my-net
+Wetterlelje

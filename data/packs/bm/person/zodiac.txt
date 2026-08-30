@@ -1,0 +1,16 @@
+---
+description: The Western zodiac signs, in French, which is the only form they take in Mali — they arrive through French newspapers, radio horoscopes and imported magazines and have no Bambara names. They are listed for completeness rather than because they organise anything: Malian time is kept on two other cycles entirely. Religious life runs on the Islamic lunar calendar, which is why Ramadan and Tabaski slide eleven days earlier each year, and agricultural life runs on the four named seasons in weather/phenomenon. A Malian asked their sign will very often not know it, because a great many people born outside a maternity ward have an official birth date assigned at registration rather than recorded at birth — commonly 31 December of the year in question.
+locale: bm
+---
+Bélier
+Taureau
+Gémeaux
+Cancer
+Lion
+Vierge
+Balance
+Scorpion
+Sagittaire
+Capricorne
+Verseau
+Poissons

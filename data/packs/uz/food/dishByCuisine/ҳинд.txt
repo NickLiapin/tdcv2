@@ -1,0 +1,14 @@
+---
+description: Indian dishes. Uzbekistan and the subcontinent share more than the menu suggests — Бобур, born in Andijan, founded the Mughal empire, and бирёни and палов are cousins. Панир is the fresh cheese, наан the bread whose name is the same word as Uzbek нон.
+locale: uz
+---
+бирёни
+тикка масала
+дал
+самоса
+панир
+карри
+наан
+чапати
+раита
+ласси

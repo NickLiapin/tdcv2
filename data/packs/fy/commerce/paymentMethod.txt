@@ -1,0 +1,20 @@
+---
+description: Payment method (West Frisian), most common first. iDEAL carries the bulk of online payment in the Netherlands and is not a card scheme at all but a redirect into the buyer's own bank, run by the banks themselves; it has no equivalent in most locales and a checkout list that omits it is describing a shop that does not exist here. PIN is the everyday in-person debit payment and Frisian has made a verb of it, pinne, so a shopkeeper asks whether you want to pinne. Tikkie is a payment request sent as a link over WhatsApp - a brand name that became the ordinary word for the act - while Betelfersyk is the generic term for the same thing. Akseptgiro is the paper transfer slip, dead since 2023 and everywhere in older records, and Rembours is cash on delivery. The fact a Frisian list carries that a Dutch one cannot: the province's official bilingualism reaches its government, its courts and its schools but not its banks, so a Frisian speaker says betelje and efterôf betelje aloud while reading betalen and achteraf betalen on the screen - this column is written in a language the payment page itself never uses.
+locale: fy
+---
+iDEAL
+Tikkie
+PIN
+Automatyske ynkasso
+Oerskriuwing
+Kredytkaart
+Efterôf betelje
+Klarna
+PayPal
+Apple Pay
+Google Pay
+Kontant
+Kadobon
+Betelfersyk
+Akseptgiro
+Rembours

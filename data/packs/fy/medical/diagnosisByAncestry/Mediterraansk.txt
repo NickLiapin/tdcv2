@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Mediterranean descent, in West Frisian. A prevalence signal, not an exclusive one. Favisme sits beside the G6PD shortage it belongs to because the two are one thing seen from opposite ends: the enzyme shortage is the genotype, and favism is what happens to someone carrying it who eats broad beans. Frisian writes a Greek th as a plain t in a loanword, so thalassaemia becomes talassemy, and the Dutch -ie ending becomes the -y that closes almost every Greek-built disease name in this pack.
+locale: fy
+---
+Bèta-talassemy
+Bèta-talassemy minor
+Alfa-talassemy
+Glukoaze-6-fosfaatdehydrogenasebrek
+Favisme
+Famyljêre mediterrane koarts
+Sykte fan Behçet

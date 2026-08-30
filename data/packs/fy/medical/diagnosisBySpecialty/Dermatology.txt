@@ -1,0 +1,15 @@
+---
+description: Diagnoses seen in dermatology, in West Frisian, and the clearest place in the pack to watch the two registers stand side by side. The Latin -itis names are left exactly as Latin handed them over, but the conditions a patient names for themselves are Frisian and mostly older than the clinic: Netelroas is urticaria as nettle-rose, Gurdelroas is shingles as girdle-rose, and Fuotteskimmel is athlete's foot with the plural of foet breaking its vowel to fuotten, the change Frisian calls brekking. The skin itself is the hûd, where Dutch writes huid — Frisian replaces that Dutch ui with û throughout, as in hûs for house and brûke for to use.
+locale: fy
+---
+Psoriasis
+Konstitusjoneel ekseem
+Kontaktekseem
+Akne vulgaris
+Rosacea
+Netelroas
+Gurdelroas
+Fuotteskimmel
+Melanoom
+Basaalselkarsinoom
+Vitiligo

@@ -1,0 +1,32 @@
+---
+description: Technical verb in the passive, which is siSwati's closest equivalent to the English -ing of a progress message. The passive is made by inserting -w- before the final vowel of the stem: kubhala, to write, becomes kubhalwa, to be written; kutfumela becomes kutfunyelwa, where the w also pulls the preceding consonant with it and mel becomes nyel, a regular sound change that catches every learner. The result is the natural form for a status line, because a progress message reports what is happening TO the data rather than what the machine is doing — kugcinwa, "being saved", is what a Swazi interface would show. Note kucedvwa at the end, where the passive of kucedza produces dv rather than dw, which is one of the spellings that marks this language off from Zulu.
+locale: ss
+---
+Kungeniswa
+Kubhalwa
+Kufundvwa
+Kugcinwa
+Kutfunyelwa
+Kwamukelwa
+Kucubungulwa
+Kuvikelwa
+Kuhlelwa
+Kulungiswa
+Kususwa
+Kwengetwa
+Kutjintjwa
+Kuvulwa
+Kuvalwa
+Kubukwa
+Kucwaningwa
+Kukhishwa
+Kufakwa
+Kubutwa
+Kuphendvulwa
+Kuhlolwa
+Kuqinisekiswa
+Kukopishwa
+Kuhlanganiswa
+Kwehlukaniswa
+Kubuyiselwa
+Kucedvwa

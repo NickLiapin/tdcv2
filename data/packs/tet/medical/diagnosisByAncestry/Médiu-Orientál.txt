@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Middle Eastern ancestry, named in Tetum. Marriage between cousins is common and traditionally valued across much of the region, and the consequence for a clinical genetics list is arithmetic rather than cultural: first cousins share about an eighth of their genome, so any recessive condition becomes commoner in their children, and a file like this fills up with recessive disease as a result. Febre familiár Mediteráneu leads it because it is both the most frequent and the most treatable, and because it is still diagnosed clinically — recurrent fever with abdominal or chest pain, in someone from the right place — long before a gene is ever sequenced.
+locale: tet
+---
+Febre familiár Mediteráneu
+Beta-talasemia
+Defisiénsia G6PD
+Doensa Behçet
+Defisiénsia vitamina D
+Trasu falsiforme

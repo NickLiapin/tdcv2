@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised frequency in Middle Eastern ancestry. The dominant genetic factor in this region is not a single founder variant but a marriage pattern: first-cousin marriage remains common in parts of the Gulf, the Levant and Iran, and it raises the frequency of recessive disease across the board rather than of any one disorder, which is why a whole category rather than a named syndrome appears on the list. Familial Mediterranean fever reaches its highest recorded carrier rates in Armenian, Turkish, Arab and Sephardi Jewish populations. Behcet disease follows the old Silk Road so closely that it was long called the Silk Road disease. Ancestry associations, not statements about individuals.
+locale: ss
+---
+I-familial Mediterranean fever
+I-beta-thalassaemia
+I-G6PD deficiency
+I-consanguinity-related recessive disease
+I-Behcet disease
+I-hereditary spastic paraplegia

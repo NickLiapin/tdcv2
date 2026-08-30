@@ -1,0 +1,24 @@
+---
+description: Occasions, with the Malian ones first. `Denkundi` is the naming ceremony held on the eighth day after a birth — literally the giving of the child's head — when the name is announced publicly for the first time, a sheep is killed, the child's hair is shaved and the jeli sings the family's lineage; until then the baby has no name, which is one reason Malian birth records and naming records can disagree. `Furusiri`, the tying of the marriage, is the religious ceremony, distinct from the civil registration and far more socially binding. `Sumu` is the night-long party with griots and bank notes that follows. `Sunkalo` is the fasting month and `Seli` the feast that ends it, while Tabaski, the sheep feast, is the largest expense in the Malian year for a great many households.
+locale: bm
+---
+Furusiri
+Denkundi
+Sumu
+Seli
+Sunkalo
+Tabaski
+Ramadan
+Maouloud
+Baptême
+Mariage
+Funérailles
+Concert
+Festival
+Match de football
+Conférence
+Séminaire
+Assemblée générale
+Foire
+Cérémonie officielle
+Remise de diplômes

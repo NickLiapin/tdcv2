@@ -1,0 +1,11 @@
+---
+description: Driving licence category. Mali took the French lettering and kept it, so the six categories run A to F rather than following the later European C1 and C1+E subdivisions: A is motorcycles, B is the ordinary car, C is the poids lourd above 3.5 tonnes, D is passenger transport, which is what a Sotrama or an intercity car driver must hold, E adds a trailer to whichever category it is attached to, and F covers vehicles adapted for a disabled driver. A tractor-trailer running the Dakar or Abidjan corridor therefore needs C plus E. The permis international at the end is issued in Bamako on top of a national licence and is what a driver crossing several ECOWAS borders carries.
+locale: bm
+---
+Catégorie A
+Catégorie B
+Catégorie C
+Catégorie D
+Catégorie E
+Catégorie F
+Permis international

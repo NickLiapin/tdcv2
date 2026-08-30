@@ -1,0 +1,243 @@
+---
+description: Job titles across every sector, in West Frisian, with the province's own labour market left visible in the list. Fryslân is dairy country - the Holstein-Friesian cow is named after it - so feehâlder, molkfeehâlder, feedokter, agrarysk adviseur and meiwurker suvelfabryk are ordinary entries here rather than colour. So is water: a dykwacht walks the sea dyke, the Wetterskip Fryslân is a separately elected water authority that sets the water table and employs people to do it, a sylwachter keeps a sluice, and a wadgids is a licensed qualification rather than a hobby, since guiding walkers over the tidal flats of the Waadsee needs a certificate. Skûtsjeskipper is a paid job because the racing barges are the original freight boats, one per town, and they carry a crew. Two Frisian habits run through the whole list: agent nouns take -er or -der wherever the trade word is native (metselder, makelder, skilder, fisker, oersetter), and compounds are built on Frisian roots rather than Dutch ones - toskedokter for a dentist, from tosk, the same word as English tusk; leadjitter for a plumber, literally a lead-pourer; jiskeman for a bin man, from jiske, ashes; ynkeaper from keapje, to buy; skjinmakker from skjin, clean; and fleantúchmonteur from fleane, to fly. Frysk-dosint is a real post because Frisian is a compulsory school subject in the province, and meiwurker Tresoar names a job at the provincial archive and library in Ljouwert.
+locale: fy
+---
+Softwareûntwikkelder
+Senior softwareûntwikkelder
+Frontendûntwikkelder
+Backendûntwikkelder
+Webûntwikkelder
+Mobyl-appûntwikkelder
+Data-analist
+Datawittenskipper
+Data-engineer
+Machinelearning-engineer
+DevOps-engineer
+Cloudarsjitekt
+Systeembehearder
+Netwurkbehearder
+Databasebehearder
+Ynformaasjebefeiligingsanalist
+Softwaretester
+Produktmanager
+UX-ûntwerper
+UI-ûntwerper
+ICT-supportmeiwurker
+Ynformaasje-analist
+Funksjoneel behearder
+Applikaasjebehearder
+Scrum master
+Businessanalist
+Enterprisearsjitekt
+Ferpleechkundige
+Spesjalisearre ferpleechkundige
+Wykferpleechkundige
+Fersoargjende IG
+Húsdokter
+Sjirurch
+Anestesiolooch
+Bernedokter
+Gynekolooch
+Kardiolooch
+Psychiater
+Psycholooch
+Apteker
+Aptekersassistint
+Doktersassistint
+Praktykûndersteuner
+Ambulânseferpleechkundige
+Fysioterapeut
+Ergoterapeut
+Logopedist
+Diëtist
+Mûlehygiënist
+Toskedokter
+Toskedokterassistint
+Radiodiagnostysk laborant
+Ferloskundige
+Feedokter
+Optometrist
+Elektrisiën
+Leadjitter
+Lasker
+Timmerman
+Ynstallaasjemonteur
+Cv-monteur
+Kuoltechnikus
+Ferspaner
+Piipfitter
+Metselder
+Dakdekker
+Rytdekker
+Skilder
+Stukadoar
+Tegelsetter
+Glêssetter
+Automonteur
+Frachtweinmonteur
+Fleantúchmonteur
+Liftmonteur
+Strjitmakker
+Betonflechter
+Isolaasjemonteur
+Smid
+Meubelmakker
+Boufakker
+Útfierder
+Boukundich tekener
+Boukundich ynspekteur
+Sloper
+Bekistingstimmerman
+Heimasinist
+Lânmjitter
+Mynwurker
+Feangraver
+Boarmaster
+Kraanmasinist
+Graafmasinist
+Springmaster
+Meiwurker sâltwinning
+Mynboukundige
+Frachtweinsjauffeur
+Ynternasjonaal sjauffeur
+Besoarger
+Bussjauffeur
+Taksysjauffeur
+Koerier
+Heftruksjauffeur
+Magazynmeiwurker
+Logistyk koördinator
+Transportplanner
+Ekspediteur
+Loftferkearslieder
+Ferkearspiloat
+Skûtsjeskipper
+Masinist
+Skipper
+Sylwachter
+Havenmaster
+Loads
+Monteur heechspanningsnet
+Telekommonteur
+Glêsfezelmonteur
+Kabelmonteur
+Dykwacht
+Wettersuveringstechnikus
+Wynturbinemonteur
+Sinnepanielmonteur
+Gasmonteur
+Enerzjyadviseur
+Boekhâlder
+Administratyf meiwurker
+Salarisadministrateur
+Finansjeel analist
+Accountant
+Aktuaris
+Belestingadviseur
+Controller
+Bankmeiwurker
+Hypoteekadviseur
+Fersekeringsadviseur
+Makelder
+Effektenhanneler
+Ekonoom
+Ynkeaper
+Accountmanager
+Marketingmanager
+Marketingmeiwurker
+Merkmanager
+HR-adviseur
+Recruiter
+Operasjoneel manager
+Projektmanager
+Direksjesekretaresse
+Kantoarmanager
+Resepsjonist
+Sjef-kok
+Sous-sjef
+Kok
+Bakker
+Banketbakker
+Slachter
+Barman
+Barista
+Ober
+Gasthear
+Ôfwasker
+Hotelmanager
+Wadgids
+Konsjerzje
+Evenemintemanager
+Reislieder
+Skjinmakker
+Ferkeapmeiwurker
+Filiaalmanager
+Kassameiwurker
+Fakkenfoller
+Winkelbefeiliger
+Kategorymanager
+Klantadviseur
+Callcentermeiwurker
+Befeiliger
+Hôvenier
+Learkrêft basisûnderwiis
+Dosint fuortset ûnderwiis
+Learaar spesjaal ûnderwiis
+Heechlearaar
+Ûndersiker
+Ûnderwiisassistint
+Meiwurker Tresoar
+Yntern begelieder
+Bibliotekaris
+Skoaldirekteur
+Frysk-dosint
+Pedagogysk meiwurker
+Plysjeman
+Brânwachtman
+Resjersjeur
+Penitensjêr ynrjochtingswurker
+Douane-amtner
+Bûtengewoan opspoaringsamtner
+Maatskiplik wurker
+Meiwurker Wetterskip Fryslân
+Postboade
+Jiskeman
+Beropsmilitêr
+Gemeente-amtner
+Rjochter
+Offisier fan justysje
+Notaris
+Advokaat
+Juridysk meiwurker
+Griffier
+Gerjochtsdoarwarder
+Grafysk ûntwerper
+Fotograaf
+Kameraman
+Copywriter
+Contentredakteur
+Sjoernalist
+Redakteur
+Oersetter
+Tolk
+Muzikus
+Akteur
+Arsjitekt
+Ynterieurûntwerper
+Sivyl yngenieur
+Wurktúchboukundich yngenieur
+Elektrotechnysk yngenieur
+Chemysk technolooch
+Wetterboukundich yngenieur
+Akkerbouwer
+Molkfeehâlder
+Feehâlder
+Agrarysk adviseur
+Meiwurker suvelfabryk
+Túnker
+Blommist
+Lânarbeider
+Beamfersoarger
+Fisker
+Boskarbeider
+Ymker

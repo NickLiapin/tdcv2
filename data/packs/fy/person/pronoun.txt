@@ -1,0 +1,12 @@
+---
+description: Personal pronoun set in Frisian, subject forms first and then subject/object pairs. Two things here will surprise a reader coming from Dutch. First, Frisian has two third-person plural subject pronouns and they are not interchangeable by meaning but by register: sy is what people say, hja is what people write, and hja is also the older word for she, which is why it is the natural Frisian parallel to the Dutch hen adopted for non-binary use - it is already a form that carries both a singular and a plural reading without sounding invented. Second, the object form har does double duty for her and for them, so hja/harren and sy/har overlap and a Frisian pronoun column is genuinely ambiguous in a place where a Dutch one is not; har in running text has to be resolved from the verb agreement, not from the pronoun. Note the spelling: hy and sy, not hij and zij, because Frisian writes y where Dutch writes ij and s where Dutch writes z at the start of a word. That rule holds everywhere in this pack except person/lastName.txt, where the 1811 civil registry froze the Dutch spelling into the surnames themselves.
+locale: fy
+---
+hy
+sy
+hja
+dy
+hy/him
+sy/har
+hja/harren
+dy/dy syn

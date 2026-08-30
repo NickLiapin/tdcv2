@@ -1,0 +1,8 @@
+---
+description: Gender values as an Uzbek form offers them. Uzbek has NO GRAMMATICAL GENDER — no gendered pronouns, no gendered agreement, no gendered adjective endings — so this is a data field and nothing else. Кўрсатилмаган is the not-stated option.
+locale: uz
+---
+Эркак
+Аёл
+Бошқа
+Кўрсатилмаган

@@ -1,0 +1,19 @@
+---
+description: Malian courts, in French, on the French hierarchy Mali inherited and kept. The three named Courts of Appeal are the real ones — Bamako, Kayes and Mopti — and the geography is the point: three appellate courts for a country the size of South Africa and Spain combined means the appeal is a very long way away for most litigants. The `Justice de paix à compétence étendue` is the workhorse at the bottom, a single magistrate covering a whole cercle and handling civil, criminal and commercial matters alike, and for most Malians outside the regional capitals it is the only state court there is.
+locale: bm
+---
+Cour suprême
+Cour constitutionnelle
+Cour des comptes
+Cour d'appel de Bamako
+Cour d'appel de Kayes
+Cour d'appel de Mopti
+Tribunal de grande instance
+Tribunal d'instance
+Tribunal de commerce
+Tribunal du travail
+Tribunal administratif
+Tribunal pour enfants
+Justice de paix à compétence étendue
+Cour d'assises
+Section administrative

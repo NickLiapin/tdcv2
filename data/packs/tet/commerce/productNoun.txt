@@ -1,0 +1,146 @@
+---
+description: The things sold, and the household block is where a Timorese list stops resembling a European one. Bikan is the plate, tudik the knife, kanuru the spoon and sanan the earthenware cooking pot — all native, all older than any of the Portuguese words around them, and all still what a shopper asks for. Nesun and alu are the wooden mortar and the long pestle that maize and coffee are pounded in, a pair with no single-word equivalent anywhere on the pt list. Biti is the woven palm-leaf mat that is slept on, sat on and rolled up in the morning, and it gives its name to biti boot, the big mat, which is the customary assembly where a dispute is settled. Taha is the bush knife and katana the heavier machete; between them they clear garden, split coconut and cut fodder, and they are the most widely owned tool in the country. The imported layer is legible by its source: kuali the wok and lampu the lamp come from Malay, while Portuguese supplies the shaped goods with the usual substitutions — colchão to kolxaun, espelho to espellu, toalha to toalla, chapéu to xapéu, chinelo to xinelu, mochila to moxila, chaleira to xaleira, geladeira to jeleira, fogão to fogaun. Jerador, painél solár, bidon be'e and lampu solár are stocked as staples rather than as specialities, because power and piped water are not assumptions here. Tais, belak, kaibauk, morteen and surik close the list as goods with a price, which is what they are in a Dili shop even though they are ceremonial objects everywhere else.
+locale: tet
+---
+Kadeira
+Meza
+Meza hakerek
+Sofá
+Poltrona
+Estante
+Armáriu
+Katre
+Kolxaun
+Almofada
+Manta
+Lensol
+Toalla
+Kortina
+Tapete
+Biti
+Espellu
+Lampu
+Kuadru
+Vazu
+Ventiladór
+Ar kondisionadu
+Jeleira
+Makina fase ropa
+Aspiradór
+Mikroondas
+Fogaun gás
+Butija gás
+Ferru pasa ropa
+Jerador
+Painél solár
+Lampu solár
+Lanterna
+Bateria
+Vela
+Komputadór
+Laptop
+Tablet
+Telemóvel
+Tekladu
+Mouse
+Monitór
+Impresora
+Kámara
+Fone
+Altifalante
+Karregadór
+Kabu
+Adaptadór
+Diske ríjidu
+Pen drive
+Router
+Televizaun
+Rádiu
+Antena parabólika
+Konsola jogu
+Relójiu
+Bisikleta
+Motorizada
+Kapasete
+Pneu
+Óleu motór
+Kareta
+Mikrolet
+Ró ki'ik
+Motór ró
+Bomba be'e
+Panela
+Kuali
+Sanan
+Frijideira
+Xaleira
+Kafeteira
+Torradeira
+Likidifikadór
+Bidon be'e
+Filtru be'e
+Kaneka
+Kopu
+Bikan
+Tudik
+Garfu
+Kanuru
+Katana
+Taha
+Nesun
+Alu
+Tábua kotu
+Balde
+Fósforu
+Kamiza
+T-shirt
+Kalsa
+Kalsa jeans
+Saia
+Vestidu
+Jaketa
+Kazaku
+Suéter
+Meias
+Sapatu
+Xinelu
+Bota
+Sandália
+Sarong
+Kabaia
+Tais feto
+Tais mane
+Lipa
+Sintu
+Xapéu
+Boné
+Ókulus loro-matan
+Guarda-xuva
+Mala
+Moxila
+Karteira
+Bolsa
+Relójiu liman
+Kolar
+Pulseira
+Anél
+Brinku
+Belak
+Kaibauk
+Morteen
+Surik
+Sabaun
+Xampu
+Perfume
+Kreme
+Eskova nehan
+Martelu
+Furadeira
+Eskada
+Kafé
+Foos
+Batar
+Paun
+Bee mineral
+Livru
+Kanetu

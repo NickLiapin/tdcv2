@@ -1,0 +1,54 @@
+---
+description: Store departments as a Dili retailer would sort them. Three entries belong to no European list. Tais is a department of its own because the handwoven cloth is bought constantly and not as a souvenir — it is given at a birth, draped over a guest, exchanged in a marriage settlement and wrapped round a coffin, and the pattern tells the buyer which region and which house it came from, so it is stocked by origin the way wine is stocked by region elsewhere. Kaibauk ho belak is the regalia counter, the crescent gold headpiece and the round chest disc worn for ceremony and dance. Jerador and Painél solár are separate departments rather than a shelf inside electronics, because the grid is intermittent outside the capital and much of the country runs on a generator, a solar home system or nothing; a shop that sells fridges sells the thing that keeps them running. Note what is missing against the pt list: there is no film or video-game department, because the retail trade for those never established itself here, and no separate wine department — hahán-been covers drink, with tua mutin and tua sabu coming from the palm rather than from a shop. The naming shows the mixed layers plainly, with Portuguese farmásia and konstrusaun beside native hahán, modo and ikan.
+locale: tet
+---
+Livru
+Papelaria
+Eskritóriu
+Eletróniku
+Informátika
+Telefone
+Hahán
+Hahán-been
+Kafé
+Karne
+Ikan
+Modo ho fuan
+Saúde
+Farmásia
+Beleza
+Perfumaria
+Ropa
+Sapatu
+Tais
+Artesanatu
+Kaibauk ho belak
+Joia
+Relójiu
+Óptika
+Brinkedu
+Labarik nian
+Bebé
+Móveis
+Dekorasaun
+Iluminasaun
+Eletrodoméstiku
+Kuziña
+Sasán uma nian
+Limpeza
+Konstrusaun
+Ferramenta
+Ferrajen
+Painél solár
+Jerador
+Automóvel
+Motorizada
+Peza sobresalente
+Bisikleta
+Desportu
+Desportu ai-laran
+Múzika
+Instrumentu múzika
+Fotografia
+Animál
+Agrikultura

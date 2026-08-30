@@ -1,0 +1,31 @@
+---
+description: Bicycle type (West Frisian). The list is long and finely divided because in this country a bicycle is transport rather than a hobby, and the Frisian names are family names: a beppefyts is a grandmother-bike, the upright coaster-brake city machine that is the default here, a pakefyts the grandfather's version with a crossbar, and a memmefyts a mother-bike, the long-wheelbase model with a child seat front and rear. Beppe and pake are the two Frisian words even Dutch speakers know, and this is where they turn up in a product catalogue. A bakfyts is a front-loading cargo bike, a lisfyts a recumbent from lizze, to lie, and a trijetsjiller a tricycle - trije is three and tsjil is a wheel, the same word as English wheel, palatalised the way Frisian and English palatalised together and Dutch wiel did not. Note the two legal classes at the end: a snorfyts is capped at 25 km/h and a bromfyts at 45, and they carry different plates, helmet rules and rights to the cycle path.
+locale: fy
+---
+Beppefyts
+Pakefyts
+Stedsfyts
+Transportfyts
+Bakfyts
+Memmefyts
+Fâldfyts
+Lisfyts
+Tandem
+Toerfyts
+Hybride fyts
+Racefyts
+Mountainbike
+Gravelbike
+Cyclocrossfyts
+Baanfyts
+Bernefyts
+Trijetsjiller
+Rinfyts
+Elektryske fyts
+Speed pedelec
+Fatbike
+Besoargfyts
+Rolstoelfyts
+Duofyts
+Snorfyts
+Bromfyts

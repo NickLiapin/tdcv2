@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (West Frisian). The labels are the international Q1 to Q4, which is what Frisian business writing actually uses, but the word behind them is worth knowing because it is one of the pack's clean English cognates: a quarter of a year is a fearnjier, from fearn meaning a fourth part - the same fearn that English kept in farthing, a fourthing of a penny, and that Dutch lost entirely in favour of kwart. Frisian also says fearnsjiers for quarterly and in in fearn oere for in a quarter of an hour.
+locale: fy
+---
+Q1
+Q2
+Q3
+Q4

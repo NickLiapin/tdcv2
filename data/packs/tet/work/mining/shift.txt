@@ -1,0 +1,9 @@
+---
+description: Work shifts. Tetum has no native word for a rostered turn of duty, because rostered shift work is a wage-economy institution and the language did not need one, so the head noun is borrowed — Portuguese turno, respelled turnu — and everything that qualifies it is the language's own: loron day, kalan night, lokraik the late afternoon, dadeer morning. That pairing of a borrowed noun with native modifiers is the standard shape of Tetum technical vocabulary and it is visible in miniature here. Dadeer sedu, early morning, does the work of Portuguese madrugada; sedu is early. A caveat for anyone modelling rosters: continuous shift working exists in Timor-Leste at the port, the power stations, the hospitals, the hotels and the security companies, and almost nowhere else, so a night shift is a rare draw in a general employment dataset rather than an even third of it.
+locale: tet
+---
+Turnu loron
+Turnu kalan
+Turnu lokraik
+Turnu rotativu
+Turnu dadeer sedu

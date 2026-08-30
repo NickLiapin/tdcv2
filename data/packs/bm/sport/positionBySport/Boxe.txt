@@ -1,0 +1,15 @@
+---
+description: Boxing weight categories, in French, which is how a Malian amateur card is written. These are divisions rather than positions, and the file is here because boxing is one of the sports Mali competes in internationally and one of the few with a real club structure in Bamako's quarters. The names are worth reading as vocabulary rather than as jargon: mouche is fly, coq is bantam — literally cockerel — and plume is feather, so the francophone ladder uses the same small-animal metaphors the English one does, arrived at independently.
+locale: bm
+---
+Mi-mouche
+Mouche
+Coq
+Plume
+Léger
+Super-léger
+Welter
+Moyen
+Mi-lourd
+Lourd
+Super-lourd

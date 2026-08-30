@@ -1,0 +1,12 @@
+---
+description: Parts of the day. Тонг is first light, эрталаб the morning, туш noon, кечқурун the evening and тун the night proper. Кеч and кечқурун are not interchangeable: кеч means late, кечқурун is the evening as a period. Ярим тун is midnight.
+locale: uz
+---
+тонг
+эрталаб
+туш
+тушдан кейин
+кечқурун
+кеч
+тун
+ярим тун

@@ -1,0 +1,14 @@
+---
+description: Competitive ranks, metal tiers first and then the honorific ones. Уста and катта уста are the master and grandmaster titles borrowed straight from chess, which Uzbekistan takes seriously. Афсона — legend — sits at the top.
+locale: uz
+---
+янги ўйинчи
+бронза
+кумуш
+олтин
+платина
+олмос
+уста
+катта уста
+чемпион
+афсона

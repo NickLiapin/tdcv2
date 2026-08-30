@@ -1,0 +1,10 @@
+---
+description: A full West Frisian female name - one given name and one surname (Baukje Terpstra). The two halves are written in two different orthographies at once: the surname is registry Dutch, frozen in 1811 and never respelled, while the given name is chosen fresh by each generation and registered in real Frisian, so Jeltsje Bruinsma pairs a Frisian tsj- with a Dutch ui and Tsjitske Zijlstra a Frisian tsj- with a Dutch ij. The second thing this template shows is what it does NOT do: it draws from the same person/lastName.txt as the male version, because Frisian family names do not inflect for the bearer's sex. That is worth stating because the neighbouring Slavic naming systems this project also covers do inflect - a Polish Kowalski has a sister Kowalska - and a config author who has just built a Polish pack will reach for a female surname list that deliberately does not exist here. All the sex marking in a Frisian name sits in the given name instead, where the diminutive suffixes -ke, -tsje and -je do the work: Baukje from Bauke, Jeltsje from Jelle. One given name, one surname, and where the surname opens with a tussenvoegsel the particle stays lowercase after the given name, exactly as person/lastName.txt stores it.
+generator: tdc
+locale: fy
+---
+<sequence name="p">
+  <gen name="f" type="template" value="fy.person.female.firstName"/>
+  <gen name="l" type="template" value="fy.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

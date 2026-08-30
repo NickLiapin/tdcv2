@@ -1,0 +1,19 @@
+---
+description: Directional qualifiers for a Malian district, quarter or street name. The four Bambara cardinals are worth reading closely, because two of them are named for trade goods rather than for the sky — kɔgɔdugu, the north, is salt country, after the Saharan salt mines the caravans came down from, and worodugu, the south, is kola country, after the forest belt the kola nut came up from. Kɔrɔn and tilebin are the sunrise and the sun-falling. The French cardinals sit beside them because street signs, land titles and the postal service in Mali are in French. Rive droite and rive gauche are specific to Bamako, which the Niger splits in two, and a Bamako address is often located by bank before anything else.
+locale: bm
+---
+Kɔgɔdugu
+Worodugu
+Kɔrɔn
+Tilebin
+Kɔrɔnyanfan
+Tilebinyanfan
+Cɛmancɛ
+Dugu cɛmancɛ
+Dugu kɔrɔ
+Nord
+Sud
+Est
+Ouest
+Rive droite
+Rive gauche

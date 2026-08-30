@@ -1,0 +1,12 @@
+---
+description: Korean food is the newest of the restaurant cuisines here, brought by the Korean contingents of the peacekeeping years and by the small business community that stayed. Kimxi is the only respelled entry and it is a clean demonstration of the rule at work outside its home territory: Tetum has no sh and no ch, and both are written x, so kimchi is kimxi exactly as chá is xá. Sopa kimxi takes the Portuguese sopa because Tetum built its soup vocabulary out of Portuguese and never needed a word for a stew served in its own pot. The rest keep their romanised Korean, which is how the menus print them.
+locale: tet
+---
+Kimxi
+Bibimbap
+Bulgogi
+Tteokbokki
+Japchae
+Samgyeopsal
+Mandu
+Sopa kimxi

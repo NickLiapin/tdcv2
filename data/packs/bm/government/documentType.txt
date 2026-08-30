@@ -1,0 +1,21 @@
+---
+description: Malian official documents, and `NINA` is the one that runs the country. The Numéro d'Identification NAtionale is the biometric identity number issued from the RAVEC census, it appears on the NINA card that doubles as the voter card, and without it a Malian cannot vote, cannot easily open a bank account and cannot regularise much of anything — which is why enrolment campaigns are a standing political issue. `Acte de naissance` is the other pressure point: a large share of Malian births are never declared within the legal window, so a jugement supplétif, a court judgement standing in for a birth certificate, is an ordinary step before school enrolment. `Titre foncier` and `Lettre d'attribution` are the two rungs of the land system and the difference between them is the subject of a great many of the cases in legal/caseType.
+locale: bm
+---
+Carte nationale d'identité
+Passeport
+Carte NINA
+Acte de naissance
+Acte de mariage
+Acte de décès
+Certificat de nationalité
+Certificat de résidence
+Permis de conduire
+Carte grise
+Carte consulaire
+Livret de famille
+Casier judiciaire
+Certificat de scolarité
+Attestation de travail
+Titre foncier
+Lettre d'attribution

@@ -1,0 +1,54 @@
+---
+description: Store department in Eswatini. Almost every value is a plural, because a department holds many of a thing rather than one: timphahla is the class 10 plural of imphahla, goods, and it heads a dozen of these on its own with a possessive saying what kind. That is why none of these can be made singular without changing what they mean. The list is shaped by a small retail market of South African chain stores in the Manzini and Ezulwini malls and the department names they use, and by the general dealer in a rural trading store, which carries food, paraffin, blankets, farm inputs and school shoes under one roof and is the reason the categories here are broader than a European list would draw them.
+locale: ss
+---
+Kudla
+Inyama
+Tinhlanti
+Sinkhwa
+Lubisi nemasi
+Titselo netibhidvo
+Kudla lokubandzako
+Kudla lokugcinwako
+Tiphuzo
+Tjwala
+Timphahla tekugcoka
+Timphahla tebafati
+Timphahla temadvodza
+Timphahla tebantfwana
+Timphahla tetinsana
+Ticatfulo
+Tigcebesha
+Timphahla tekuhlanta
+Insipho nemakha
+Imitsi
+Timphahla tetemphilo
+Timphahla tekupheka
+Timphahla tendlu
+Imibhedze
+Emakhabethe
+Titulo
+Timphahla temagetsi
+Emakhompiyutha
+Tifoni
+Ithelevishini nemsakato
+Timphahla tekwakha
+Emapendi
+Timphahla tetinsimbi
+Timphahla tesivandze
+Timphahla tetilwane
+Timphahla tetekulima
+Tincwadzi
+Timphahla tekubhala
+Emageyimu netintfo tekudlala
+Timphahla temidlalo
+Timphahla tekuhamba
+Emafutsa etimoto
+Timphahla tetimoto
+Timbali
+Timphahla temculo
+Timphahla tekukhanya
+Timphahla tekuhlobisa
+Timphahla tehhovisi
+Emakhadi netipho
+Timphahla temaposi

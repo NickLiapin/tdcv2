@@ -1,0 +1,11 @@
+---
+description: Conditions with a raised frequency in Southeast Asian ancestry. This is the world centre of haemoglobin E, which reaches carrier rates above half the population in parts of Thailand, Laos and Cambodia in what is called the haemoglobin E triangle; on its own it is nearly harmless, but paired with beta-thalassaemia it produces a severe transfusion-dependent anaemia, which is why the two appear together on any list for this region. Alpha-thalassaemia deletions are the other malaria-selected variant here and the reason severe hydrops fetalis is a recognised obstetric problem. HLA-B*5801, which triggers severe allopurinol hypersensitivity, is common enough in Han and Thai populations that testing before treating gout is standard practice. Ancestry associations, not statements about individuals.
+locale: ss
+---
+I-haemoglobin E
+I-alpha-thalassaemia
+I-G6PD deficiency
+I-thalassaemia intermedia
+I-lactase non-persistence
+I-HLA-B*5801 allopurinol reaction
+I-nasopharyngeal carcinoma

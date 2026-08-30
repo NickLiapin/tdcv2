@@ -1,0 +1,26 @@
+---
+description: Divisions of a Malian organisation. The Bambara names are the ones people say aloud: `jatebɔ` is accounting, from `jate` to count; `sanni` is buying and `feereli` selling; `dilanni` is making; `lajɛli` is inspection, from `lajɛ` to look something over; `kunnafoni` is information; `lakana` is protection, so `Kɛnɛya ni lakana` is health and safety. `Ɲɛmɔgɔya` is leadership, the direction générale. Five stay French — Marketing, Transport, Contrôle de gestion, Études et développement and Services généraux — because they are borrowed management functions that arrived with the organigramme itself and are written that way on it, and two of those, contrôle de gestion and services généraux, have no compact Bambara rendering that would not be a coinage.
+locale: bm
+---
+Ɲɛmɔgɔya
+Sɛbɛnnikɛyɔrɔ
+Wari ko
+Jatebɔ
+Baarakɛlaw ko
+Sariya ko
+Sanni
+Feereli
+Kunnafoni
+Dilanni
+Labɛnni
+Lajɛli
+Doni ko
+Fɛn marayɔrɔ
+Ɔridinatɛri ko
+Sannikɛlaw ladonni
+Kɛnɛya ni lakana
+Marketing
+Transport
+Contrôle de gestion
+Études et développement
+Services généraux

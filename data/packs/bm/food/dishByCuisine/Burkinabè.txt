@@ -1,0 +1,12 @@
+---
+description: Burkinabè food, from the neighbour Mali shares its longest and most-crossed border with. Much of it is recognisably the same Sahelian kitchen under different names — `sagbo` is what Bambara calls tô, `gonré` is the steamed bean cake Malians call toubani — which is a good demonstration that these cuisines are regional rather than national. `Poulet bicyclette` is the free-range village chicken, so named because it walks everywhere and is correspondingly tough and full of flavour, and the term has spread across francophone West Africa. `Dolo` is millet beer, drunk in the non-Muslim south and west.
+locale: bm
+---
+Babenda
+Sagbo
+Gonré
+Zom-koom
+Poulet bicyclette
+Riz gras
+Beignets de haricot
+Dolo

@@ -1,0 +1,14 @@
+---
+description: Loan type in Eswatini. Sikweleti is the head word and it means both a debt and a credit, from the same root as kukweleta, to owe — so the language does not lexically distinguish the money lent from the money owed, and the direction has to come from context. Sikweleti lesincane semphakatsi, the community microloan, covers the savings and credit cooperatives and the stokvel lending that reach far more Swazi borrowers than any bank does. Notice what is missing and why: there is no ordinary mortgage market across most of the country, because the majority of land is Swazi Nation Land held in trust by chiefs on behalf of the King and cannot be sold or pledged, so sikweleti sendlu applies only to the small share of land held on title deed in and around the towns.
+locale: ss
+---
+Sikweleti sendlu
+Sikweleti semoto
+Sikweleti semuntfu
+Sikweleti sebhizinisi
+Sikweleti sekufundza
+Sikweleti sekulima
+Sikweleti lesincane semphakatsi
+Sikweleti sesitolo
+Sikweleti sekulungisa indlu
+Sikweleti sekukhokha umngcwabo

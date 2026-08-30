@@ -1,0 +1,40 @@
+---
+description: Diagnoses that require female anatomy, so a config should draw from this file only on female rows — mixed into medical/diagnosis it will hand a man an obstetric complication. The obstetric half is where Mali's burden actually sits: maternal mortality is among the highest in the world, fertility is close to six children per woman, and anaemia in pregnancy is close to universal, which makes hémorragie du post-partum, prééclampsie and éclampsie ordinary entries rather than rare ones. Fistule obstétricale is on the list because prolonged obstructed labour without a caesarean still produces it and Mali runs dedicated repair campaigns for it. The CSRéf, the district referral centre, is assessed on precisely these emergencies.
+locale: bm
+---
+Endométriose
+Syndrome des ovaires polykystiques
+Fibrome utérin
+Kyste ovarien
+Cancer de l'ovaire
+Cancer du col de l'utérus
+Dysplasie cervicale
+Cervicite
+Endométrite
+Cancer de l'endomètre
+Infection génitale haute
+Vaginose bactérienne
+Candidose vaginale
+Ménorragie
+Dysménorrhée
+Aménorrhée
+Prééclampsie
+Éclampsie
+Diabète gestationnel
+Vomissements gravidiques incoercibles
+Grossesse extra-utérine
+Hémorragie du post-partum
+Mastite
+Fistule obstétricale
+Rupture utérine
+Dystocie
+Placenta praevia
+Hématome rétroplacentaire
+Prolapsus utérin
+Adénomyose
+Torsion ovarienne
+Kyste de Bartholin
+Séquelles de mutilation génitale féminine
+Syndrome ménopausique
+Infertilité féminine
+Anémie de la grossesse

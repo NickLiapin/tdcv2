@@ -1,0 +1,34 @@
+---
+description: Units of trade in Mali, with the Bambara ones at the head because the market measures really are named in Bambara even where the paperwork is French. A `bɔrɔ` is a sack, the unit grain and charcoal move in. A `filen` is a calabash cup and a `daga` a clay pot, both still used to measure milk, grain and water. The French entries at the end are the other half of the same system: a `Boîte de tomate` is the empty tin that concentrated tomato purée comes in, kept and reused as the standard volume for rice, millet, sugar and groundnuts across West African markets, so sellers own graded sets of them and quote a price per tin. A `Tas` is a heap — tomatoes, onions and okra are sold in small pyramids at a fixed price rather than by weight, and the haggling is about the size of the pyramid. A `Pagne` is a fixed length of cloth, about two yards, and is how fabric is sold; it is never cut from the roll by the metre.
+locale: bm
+---
+Kelen
+Bɔrɔ
+Filen
+Daga
+Pièce
+Unité
+Paire
+Douzaine
+Lot
+Carton
+Sac
+Sachet
+Bidon
+Bouteille
+Boîte
+Paquet
+Kilogramme
+Gramme
+Tonne
+Litre
+Mètre
+Centimètre
+Mètre carré
+Yard
+Charretée
+Louche
+Tas
+Boîte de tomate
+Calebasse
+Pagne

@@ -1,0 +1,11 @@
+---
+description: Trucking route type. Two of these are named for actual roads, because in a landlocked country the corridor is the route: Bamako-Dakar over the Senegalese border, and Bamako-Abidjan, which took most of the traffic while the Ivorian ports were the reliable ones. Ramassage de coton is the short-haul work nobody outside the cotton belt thinks about — lorries collecting seed cotton from village collection points and hauling it to the CMDT gin, concentrated into a few weeks after the harvest. Retour à vide is a route type rather than an accident: the import trade is one-directional, and a haulier who finds no southbound load runs the 1,200 km home empty and prices the outbound trip to cover it.
+locale: bm
+---
+Livraison urbaine
+Ligne régionale
+Corridor Bamako-Dakar
+Corridor Bamako-Abidjan
+Transport international
+Ramassage de coton
+Retour à vide

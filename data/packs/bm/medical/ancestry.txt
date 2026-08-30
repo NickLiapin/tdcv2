@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group as clinical genetics uses the term — geographic descent, not a social race category — and the parent of medical/diagnosisByAncestry, so every value here is also the name of a file in that folder. The labels are French because that is the register a Malian hospital record is written in. In a Malian dataset the distribution is extremely lopsided: Afrique subsaharienne covers all but a sliver of the population, and the other eleven values exist so a config can still model a diaspora cohort or a mixed international register. The clinically loaded entry is therefore the first one, and the file behind it is the one worth reading.
+locale: bm
+---
+Afrique subsaharienne
+Afrique du Nord
+Bassin méditerranéen
+Moyen-Orient
+Europe du Nord
+Europe de l'Est
+Juifs ashkénazes
+Asie du Sud
+Asie de l'Est
+Asie du Sud-Est
+Amérindiens
+Îles du Pacifique

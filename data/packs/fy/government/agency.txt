@@ -1,0 +1,29 @@
+---
+description: Body a resident of Fryslân actually deals with, and the province's own layers are at the head of the list because they are where the language law bites. Under the Wet gebruik Friese taal of 2014 Frisian is an official language of the Netherlands, and a resident may use it in writing and in person with administrative bodies whose remit lies inside the province - the Provinsje, the gemeenten, the Wetterskip - while a national agency such as the Belestingtsjinst corresponds in Dutch. Several municipalities carry officially Frisian names, among them Súdwest-Fryslân, Noardeast-Fryslân, Tytsjerksteradiel and De Fryske Marren. Wetterskip Fryslân is the entry with no counterpart abroad: the water boards are a fourth layer of Dutch government, older than the state itself, with a directly elected council, a tax of their own and sole charge of the dykes and the water table. Steaten fan Fryslân is the elected provincial parliament and Deputearre Steaten its executive - and that second name shows a real grammatical rule, because Frisian forms its past participle without a ge- prefix, so Dutch Gedeputeerde Staten loses the prefix outright rather than translating it. Tresoar in Ljouwert holds the provincial archive and library, the Fryske Akademy is the standards body for the language, and the Boargerlike Stân is the civil registry, which in this province will register a birth or a marriage in Frisian.
+locale: fy
+---
+Belestingtsjinst
+Gemeente
+Provinsje Fryslân
+Wetterskip Fryslân
+Steaten fan Fryslân
+Deputearre Steaten
+Boargerlike Stân
+UWV
+Sosjale Fersekeringsbank
+RDW
+Ymmigraasje- en Naturalisaasjetsjinst
+DUO
+CBR
+Kadaster
+Keamer fan Keaphannel
+Rykswettersteat
+Sintraal Buro foar de Statistyk
+Plysje
+Brânwacht
+Iepenbier Ministearje
+Dûane
+Autoriteit Persoansgegevens
+Tresoar
+Fryske Akademy
+Ried foar de Bernebeskerming

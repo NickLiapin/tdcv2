@@ -1,0 +1,19 @@
+---
+description: How Malians pay. Cash is still first and mobile money is a close and growing second — `Orange Money` above all, which reaches far more Malians than any bank does and functions as the country's real payment rail: salaries, school fees, market wholesale, taxi fares and remittances all move over it, through a network of agents in every quarter with a laminated sign and a phone. `Sama Money` and `Moov Money` compete with it and `Wave` undercut everyone on fees. Bank cards barely register outside Bamako hotels. The three remittance names at the end are not consumer conveniences but infrastructure: transfers from Malians in France, Spain, Côte d'Ivoire and the Gulf are a very large share of household income, and for many families they are the income.
+locale: bm
+---
+Espèces
+Orange Money
+Sama Money
+Moov Money
+Wave
+Carte bancaire
+Virement bancaire
+Chèque
+Paiement à la livraison
+Crédit boutique
+Bon de commande
+Western Union
+MoneyGram
+Ria
+Carte prépayée

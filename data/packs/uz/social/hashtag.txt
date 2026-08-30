@@ -1,0 +1,34 @@
+---
+description: Hashtags an Uzbek account actually uses, all lower case. THEY ARE IN CYRILLIC HERE AND IN LATIN IN THE OTHER PACK, and that split is real: the same topic is tagged twice on Uzbek social media and the two tag sets do not merge. The cities come first, then the cultural markers — #палов, #дўппи, #хонатлас, #мақом.
+locale: uz
+---
+#ўзбекистон
+#тошкент
+#самарқанд
+#бухоро
+#хива
+#наврўз
+#миллийтаом
+#палов
+#дўппи
+#хонатлас
+#миллийлибос
+#саёҳат
+#табиат
+#тоғлар
+#чўл
+#бозор
+#ҳунармандчилик
+#кураш
+#кўпкари
+#футбол
+#оила
+#маҳалла
+#таълим
+#китоб
+#шеърият
+#мусиқа
+#мақом
+#дутор
+#ёшлар
+#тадбиркорлик

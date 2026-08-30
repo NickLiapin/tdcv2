@@ -1,0 +1,20 @@
+---
+description: Horse breeds, in a country where the horse is a sport animal before it is a farm animal. Қорабайир is the Uzbek national breed, ахалтекин the Turkmen one, and арғумоқ is the old poetic word for a fast horse rather than a registered breed. These are the animals that run in кўпкари.
+locale: uz
+---
+қорабайир
+локай
+арғумоқ
+ахалтекин
+ёбу
+қозоқ оти
+қирғиз оти
+муғул оти
+араб оти
+инглиз зотли оти
+орёл йўрғаси
+дон оти
+будённий оти
+тарпан
+пони
+юк оти

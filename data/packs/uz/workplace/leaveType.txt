@@ -1,0 +1,16 @@
+---
+description: Types of leave under Uzbek labour law. Ҳомиладорлик ва туғиш таътили is maternity leave and бола парвариш таътили the childcare leave that follows it, which can run to three years. Ҳақ тўланмайдиган таътил is unpaid leave, and ҳарбий йиғин is military reserve training.
+locale: uz
+---
+йиллик меҳнат таътили
+қўшимча таътил
+касаллик варақаси
+ҳомиладорлик ва туғиш таътили
+бола парвариш таътили
+ўқув таътили
+ҳақ тўланмайдиган таътил
+оилавий шароит бўйича таътил
+мотам таътили
+ҳарбий йиғин
+дам олиш куни
+байрам куни

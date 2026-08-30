@@ -1,0 +1,21 @@
+---
+description: Bicycle type in siSwati. Every value is one noun followed by a relative clause, because siSwati does not stack adjectives in front of a noun the way English does: there is no way to say "mountain bike" as two words, only "the bicycle that is of the mountain", libhayisikili lasentsabeni. The la- and le- opening each qualifier are relative concords agreeing with libhayisikili, a class 5 noun, and they would change to a different letter for a noun of another class — the same qualifier attached to imoto would begin le- or ye-. That is why these values cannot be reused as a generic adjective column. Bicycles in Eswatini are working transport on the flat lowveld and around the sugar estates rather than sport; the highveld around Mbabane is too steep for them to have caught on.
+locale: ss
+---
+Libhayisikili lasemgwacweni
+Libhayisikili lasentsabeni
+Libhayisikili lelihlanganisiwe
+Libhayisikili lasedolobheni
+Libhayisikili lekuncintisana
+Libhayisikili lekukhweta
+Libhayisikili lelisongekako
+Libhayisikili lemagetsi
+Libhayisikili lekutfwala imphahla
+Libhayisikili lebantfu lababili
+Libhayisikili lebantfwana
+Libhayisikili lelinemasondvo lamatsatfu
+Libhayisikili le-BMX
+Libhayisikili lemhlabatsi
+Libhayisikili lelinesivinini sinye
+Libhayisikili lelidzala
+Libhayisikili lekutivocavoca

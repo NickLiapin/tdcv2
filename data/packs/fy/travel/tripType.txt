@@ -1,0 +1,26 @@
+---
+description: Trip type (West Frisian). Kampearfakânsje and fytsfakânsje are mainstream family holidays here rather than fringe ones, and the province is where a large share of the country takes them: the Frisian lakes, the eleven cities and the islands are the destination, not the departure point. Two things a generic list will not know. There is a cycling Alvestêdetocht as well as a skating one, ridden every Whit Monday along the same eleven-city route whether or not the canals ever freeze, and it is the reason a fytsfakânsje in this province has a fixed date in it. And waadrinnen, walking the exposed sea bed at low tide from the mainland to an island behind a licensed guide, is an ordinary summer outing here and is illegal without the guide, because the tide comes back faster than a person walks. Houliksreis is the honeymoon, on houlik, a marriage; bedefeart is a pilgrimage, a journey of prayer.
+locale: fy
+---
+Saaklike reis
+Fakânsje
+Gesinsfakânsje
+Houliksreis
+Aventoerlike reis
+Autofakânsje
+Kampearfakânsje
+Fytsfakânsje
+Cruise
+Rêchsekreis
+Stedsreis
+Strânfakânsje
+Groepsreis
+Allinne reizgje
+Kulturele reis
+Ekotoerisme
+Bedefeart
+Skoalreis
+Kulinêre reis
+Wintersportfakânsje
+Famyljebesite
+Kongres- of beursbesite

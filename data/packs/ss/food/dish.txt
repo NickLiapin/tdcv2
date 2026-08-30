@@ -1,0 +1,44 @@
+---
+description: Dish in Eswatini. Sishwala, the stiff maize porridge eaten with the hand, is the fixed point of the Swazi table and nearly everything else on this list is either what goes with it or what it is made from; sishebo is the general word for the relish beside it, so a Swazi meal is named as a pair rather than as one thing. Sidvudvu is pumpkin mashed into maize meal, umbidvo wetintsanga is pumpkin leaves cooked down with ground groundnuts, and both are older than maize itself in shape if not in ingredient, because maize only reached the region in the seventeenth century and displaced the sorghum that emabele and tinkhobe temabele still preserve. Incwancwa is soured maize porridge, fermented deliberately over days, and emahewu is the thin drinkable version of it. Buganu is the marula beer brewed by women each February from the fruit of the umganu tree, and the Buganu ceremony around it is a national event at which the Queen Mother presides.
+locale: ss
+---
+Sishwala
+Liphalishi
+Iphalishi lelinelubisi
+Incwancwa
+Sidvudvu
+Umbidvo wetintsanga
+Siphuphe setindlubu
+Tinkhobe
+Tinkhobe temabele
+Emasi netinkhobe
+Umncweba
+Inyama leyosiwe
+Inyama yenkhomo yasembiteni
+Inyama yembuti
+Inyama yengulube
+Inyama yenkhukhu
+Inhloko yenkhomo
+Tinhlanti letithosiwe
+Emakhowe
+Emabhontjisi
+Tindlubu letibilisiwe
+Ligusha
+Imbuya
+Chakalaka
+Sishebo
+Sobho
+Isaladi
+Litapula lelitfosiwe
+Litapula lelibilisiwe
+Bhatata
+Emadvumbe
+Umbila lowosiwe
+Sinkhwa sasekhaya
+Sinkhwa sembila
+Liphaphatha
+Emagwinya
+Emacandza latfosiwe
+Umcombotsi
+Emahewu
+Buganu

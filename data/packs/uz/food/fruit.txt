@@ -1,0 +1,38 @@
+---
+description: Fruit, opening with what Uzbekistan is actually famous for: қовун melons, тарвуз watermelon, узум grapes, ўрик apricots. Унноб is the jujube and долана the hawthorn, both eaten and both used medicinally. The tropical fruit at the end is all imported and all recent.
+locale: uz
+---
+қовун
+тарвуз
+узум
+ўрик
+шафтоли
+олма
+нок
+беҳи
+олча
+гилос
+олхўри
+анор
+анжир
+хурмо
+тут
+жийда
+унноб
+дўлана
+қулупнай
+малина
+смородина
+чаканда
+лимон
+апелсин
+мандарин
+грепфрут
+банан
+ананас
+киви
+манго
+авокадо
+зайтун
+кокос
+настарин меваси

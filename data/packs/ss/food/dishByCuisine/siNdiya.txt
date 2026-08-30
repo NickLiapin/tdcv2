@@ -1,0 +1,13 @@
+---
+description: Indian dishes. The Indian presence in southern Africa dates from the indentured labour brought to Natal's sugar estates from 1860, and Eswatini's own sugar industry and its trading towns drew families from that community northward; Manzini and Mbabane have had Indian-run shops and restaurants for generations. Ikhari, curry, is the loan that entered siSwati most thoroughly and is now also a spice in the spice file rather than only a dish. Note how the loans are shaped: an English or Hindi word entering siSwati takes a class prefix and loses any consonant cluster the language does not permit, so samosa becomes isamosa and roti iroti, each with the class 9 i- that unassimilated borrowings default to.
+locale: ss
+---
+Ikhari yenkhukhu
+Ibiryani
+Isamosa
+Iroti
+Inaan
+Idhal
+Ipaneer
+Ibhaji
+Ichutney

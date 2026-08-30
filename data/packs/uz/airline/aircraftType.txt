@@ -1,0 +1,32 @@
+---
+description: Aircraft type designations. Manufacturer model names are international and stay in Latin in any script, which is why this file looks the same in Cyrillic as in Latin — one of the few in the pack that does. The Soviet types at the end are not decoration: Il-76 freighters and An-2 biplanes still work Central Asian skies, and the Tu-154 flew the region's routes well into the 2010s.
+locale: uz
+---
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A321neo
+Airbus A330-200
+Airbus A330-300
+Airbus A350-900
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 757-200
+Boeing 767-300
+Boeing 777-200ER
+Boeing 777-300ER
+Boeing 787-8
+Boeing 787-9
+Embraer E175
+Embraer E190
+Bombardier CRJ-200
+ATR 72
+Sukhoi Superjet 100
+Il-76
+Il-114
+Tu-154
+An-2
+An-24
+Yak-40
+Mi-8

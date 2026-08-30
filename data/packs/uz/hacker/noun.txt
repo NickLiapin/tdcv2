@@ -1,0 +1,44 @@
+---
+description: Technical nouns. Most came through Russian and are unchanged — сервер, протокол, индекс, интерфейс — but the data words are native: маълумотлар базаси for database, жадвал for table, устун for column, қатор for row. Объект needs a hard sign in Cyrillic, which is why Latin writes it obyekt with a bare y.
+locale: uz
+---
+сервер
+мижоз
+тармоқ
+протокол
+пакет
+порт
+манзил
+домен
+сўров
+жавоб
+маълумотлар базаси
+жадвал
+устун
+қатор
+индекс
+калит
+қиймат
+массив
+объект
+функция
+ўзгарувчи
+синф
+модул
+кутубхона
+рамка
+интерфейс
+хотира
+процессор
+диск
+файл
+каталог
+жараён
+оқим
+хато
+журнал
+захира нусха
+янгиланиш
+версия
+шифрлаш
+сертификат

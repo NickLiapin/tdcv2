@@ -1,0 +1,13 @@
+---
+description: Japanese food in Dili is a restaurant cuisine, not a household one, and the names come in whole because they arrived recently and through English menus rather than through Portuguese. Two entries show what happens when a dish name has to be built rather than borrowed: manu teriyaki puts the Tetum word for chicken in front, because Tetum has no separate word for the bird and the meat, and sopa misó takes the Portuguese sopa with an acute on the borrowed Japanese stem to mark where the stress falls. Note the adjective Japonés naming this file — Tetum has no grammatical gender, so the one form serves whatever noun it is attached to, and the acute on the final syllable is obligatory because that is where the word is stressed.
+locale: tet
+---
+Sushi
+Sashimi
+Ramen
+Tempura
+Udon
+Yakitori
+Manu teriyaki
+Sopa misó
+Onigiri

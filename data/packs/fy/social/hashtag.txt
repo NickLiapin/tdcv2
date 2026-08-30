@@ -1,0 +1,34 @@
+---
+description: Hashtag word in West Frisian, lowercase (prefix with # in a template). Hashtags carry no spaces, so compounds close up, and Frisian tags are Frisian words rather than borrowed English ones - which is the point of the tag for many of the people using it, since writing Frisian in public is itself the statement. Two are provincial: fryslan, the tag under which anything about the province collects, and keatsen, which carries the summer results. Note the vocabulary against Dutch: leafde is love, gelok luck or happiness, sûnens health, freonskip friendship, oantinkens memories, iten food, and fytse to cycle - everyday life here rather than a hobby. Gesellich is the one that cannot be translated into English at all, and it is as high-frequency a tag in Frisian as its Dutch cousin is in Dutch.
+locale: fy
+---
+leafde
+gelok
+moade
+natuer
+keunst
+reizen
+iten
+sport
+fryslan
+styl
+sinne-ûndergong
+gesellich
+lekker
+famylje
+simmer
+keatsen
+libben
+ynspiraasje
+oantinkens
+fotografy
+muzyk
+sûnens
+freonskip
+snein
+kofje
+katten
+hûnen
+lêze
+freed
+fytse

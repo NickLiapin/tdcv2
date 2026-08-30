@@ -1,0 +1,14 @@
+---
+description: Loan products. Микроқарз is the small-business microloan the state has pushed since the late 2010s; ипотека кредити is the mortgage. Note the two words for a loan sitting side by side: кредит came through Russian, қарз is the older Arabic-derived word and is what people say between themselves.
+locale: uz
+---
+истеъмол кредити
+ипотека кредити
+автокредит
+таълим кредити
+микроқарз
+тадбиркорлик кредити
+қишлоқ хўжалиги кредити
+лизинг
+овердрафт
+кредит картаси

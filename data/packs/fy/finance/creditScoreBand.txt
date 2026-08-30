@@ -1,0 +1,13 @@
+---
+description: Credit standing as the Netherlands actually records it, and NOT a score band - reading these as an ordinal scale is the single mistake this file exists to prevent. There is no Dutch consumer credit score: nothing corresponds to FICO or to a numeric band, and Fryslân has no register of its own either, because what exists is one national register run by a private foundation. Stichting BKR in Tiel records every consumer credit and every arrears event as a coded registration - an A code when payments fall behind, an H code when the arrears are cured, and a bysûnderheidskoade from 1 to 5 saying what happened next - and a lender reads the presence and the code, never a number. Note that the letters do not survive the crossing into Frisian. A and H are the initials of Dutch achterstand and herstel, while Frisian says efterstân and werstel, so a Frisian sentence carries a code letter that no longer matches its own word; efter against Dutch achter is itself the older northern form, the one that also stands behind English after. Code 5 is temporary and lifts when the arrangement ends, whereas an A code stays on file for five years after the credit is settled. Treat every value as a categorical state.
+locale: fy
+---
+Gjin BKR-registraasje
+Positive registraasje sûnder efterstân
+A-kodearring (efterstânsmelding)
+H-kodearring (werstelmelding nei efterstân)
+Bysûnderheidskoade 1 (ôflossingsregeling troffen)
+Bysûnderheidskoade 2 (restantfoardering opeaskber steld)
+Bysûnderheidskoade 3 (bedrach fan € 250 of mear ôfboekt)
+Bysûnderheidskoade 4 (konsumint net te berikken)
+Bysûnderheidskoade 5 (previntive betellingsregeling hypoteek)

@@ -1,0 +1,31 @@
+---
+description: Vehicle body type (West Frisian). The Frisian element to watch is wein, a wagon or cart, which does the work that -wagen does in Dutch and stands beside English wain - a stasjonwein is an estate car, a bestelwein a van, a frachtwein a lorry and a trekker mei oplizzer an articulated tractor and semi-trailer. The last three entries are not body styles at all but legal vehicle classes, and they govern insurance, helmets and whether the machine belongs on the cycle path: a snorfyts is limited to 25 km/h on a blue plate, a bromfyts to 45 on a yellow one, and a brommobyl is a 45 km/h microcar that can be driven on a moped licence, which is why they are common in rural Fryslân where the bus goes twice a day and the driver may be fifteen or eighty.
+locale: fy
+---
+Sedan
+Hatchback
+Stasjonwein
+Coupé
+Cabriolet
+SUV
+Cross-over
+Terreinwein
+MPV
+Bestelwein
+Bestelbus
+Pick-up
+Sportauto
+Roadster
+Lytse stedsauto
+Lúkse wein
+Minibus
+Touringcar
+Bus
+Frachtwein
+Trekker mei oplizzer
+Camper
+Motorfyts
+Scooter
+Snorfyts
+Bromfyts
+Brommobyl

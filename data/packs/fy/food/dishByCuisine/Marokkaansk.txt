@@ -1,0 +1,19 @@
+---
+description: Moroccan dishes. Two Frisian words in this list repay attention. Sân, in couscous mei sân grienten, is the number seven - and it is also the word for sand, spelled and pronounced identically, so nothing but context separates them; seven is a number this locale cannot avoid, because the provincial flag carries seven red pompeblêden, the water-lily leaves, on its blue and white diagonals. And prommen, the plums in the lamb tagine, is the Frisian plural where Dutch has pruimen. Munttee ends the list, and tee is tea: mint tea poured from a height into a small glass is the part of a Moroccan meal that has travelled furthest into Dutch and Frisian houses, usually well ahead of the food it is supposed to follow.
+locale: fy
+---
+Tajine mei hin en oliven
+Tajine mei lamsfleis en prommen
+Couscous mei sân grienten
+Harira
+Bastilla
+Merguez
+Kefta
+Zaalouk
+Taktouka
+Msemen
+Harcha
+Briouat
+Chebakia
+Munttee
+Rfissa

@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list. Where English builds these names from Greek organ words — cardio-, nephro-, derma- — siSwati builds them from its own body vocabulary using the same te- possessive that names a government ministry, so tetinhlitiyo is literally "matters of the hearts" and tetinso "matters of the kidneys". The plural inside each name is not decoration: the class 9 nouns inhlitiyo, inso and inyawo take the class 10 plural in tin-, so the possessive prefix comes out as te- agreeing with that plural, which is why every value on this list begins the same way. Tengcondvo, psychiatry, uses ingcondvo, the mind, rather than buchopho, the physical brain, and that distinction is exactly the one the two specialties draw.
+locale: ss
+---
+Tetinhlitiyo
+Tebuchopho
+Temdlavuza
+Tesikhumba
+Tesisu
+Temahomoni
+Temaphaphu
+Tematfambo
+Tengcondvo
+Tetinso

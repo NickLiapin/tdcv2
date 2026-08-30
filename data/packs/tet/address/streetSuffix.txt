@@ -1,0 +1,44 @@
+---
+description: Thoroughfare and locality generic in Tetum, placed BEFORE the qualifier as in Portuguese (Avenida Independénsia, Dalan Boot Baucau). Two systems sit side by side on this list because two systems sit side by side in the country. The first is the Portuguese one, which is what Dili street signs carry, and it arrives through the standard respellings: beco becomes Beku, largo becomes Largu, praça becomes Prasa with ç to s, jardim becomes Jardín, quintal becomes Kintál with the acute that marks final stress, caminho becomes Kamiñu with nh to ñ, calçada becomes Kalsada, passagem becomes Pasajen with ss to s and g before e to j, and marginal becomes Marjinál, which in Dili names the seafront road. Estrada Nasionál is the numbered trunk network and is how a rural business states its address, usually with a kilometre rather than a number. The second system is the one that actually delivers a person to a house outside the capital, and it is administrative rather than Portuguese: a Timorese address descends from municipality to Postu Administrativu to Suku, the village-level unit with an elected chief, to Aldeia, the hamlet, and Knua is the older word for a settlement of related houses. Dalan is simply road, with Dalan Boot and Dalan Ki'ik distinguishing a main road from a small one by the ordinary adjectives for big and small. Gang is the odd one out and is Indonesian, the word for a narrow lane too small for a car; it survived the occupation because Dili's dense quarters are full of them and no Portuguese word covers the same thing.
+locale: tet
+---
+Avenida
+Rua
+Estrada
+Estrada Nasionál
+Travessa
+Beku
+Largu
+Prasa
+Rotunda
+Ponte
+Kais
+Jardín
+Parke
+Bairru
+Kintál
+Alameda
+Kamiñu
+Kalsada
+Ladeira
+Terreiru
+Pátiu
+Marjinál
+Sirkulár
+Pasajen
+Sentru
+Portu
+Via
+Rampa
+Kruzamentu
+Dalan
+Dalan Boot
+Dalan Ki'ik
+Aldeia
+Suku
+Postu Administrativu
+Knua
+Gang
+Komplexu
+Merkadu
+Kampu

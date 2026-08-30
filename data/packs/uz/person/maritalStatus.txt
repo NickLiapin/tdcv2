@@ -1,0 +1,18 @@
+---
+description: Marital status. Uzbek distinguishes the man's and the woman's side of the same event: уйланган is said of a man who has married, турмушга чиққан of a woman, and бева аёл and бева эркак are the widow and the widower. Расмий никоҳда and диний никоҳда separate the civil registration from the religious ceremony, which do not always coincide.
+locale: uz
+---
+Бўйдоқ
+Турмуш қурган
+Уйланган
+Турмушга чиққан
+Расмий никоҳда
+Диний никоҳда
+Ажрашган
+Бева аёл
+Бева эркак
+Алоҳида яшайди
+Унаштирилган
+Қайта турмуш қурган
+Никоҳсиз бирга яшайди
+Кўрсатилмаган

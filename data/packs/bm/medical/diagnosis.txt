@@ -1,0 +1,184 @@
+---
+description: Diagnoses in French, which is not an oversight: Mali's medical register is French. Doctors train in it, the Hôpital Gabriel Touré and the Point G write their notes in it, the CSCom and the CSRéf run on French forms and the national health information system reports in it — while the patient describes the illness in Bambara, as bana and dimi and farigan. A Malian consultation is routinely interpreted across that gap in the room, which is why this file is French and medical/symptom.txt is Bambara. The caseload is Mali's, not a European one: paludisme leads because malaria is the first cause of both consultation and death, followed by severe acute malnutrition, acute respiratory infection and diarrhoeal disease; méningite is here because Mali sits inside the African meningitis belt and has a defined epidemic season; schistosomiase tracks the Niger and the Office du Niger irrigation scheme; and drépanocytose is a national priority with a dedicated centre, the CRLD in Bamako. Sex-specific conditions live in diagnosisMale and diagnosisFemale, ancestry-linked ones in diagnosisByAncestry.
+locale: bm
+---
+Paludisme simple
+Paludisme grave
+Neuropaludisme
+Fièvre typhoïde
+Fièvre jaune
+Dengue
+Grippe saisonnière
+Fièvre d'origine indéterminée
+Tuberculose pulmonaire
+Tuberculose extrapulmonaire
+Infection à VIH
+Hépatite virale A
+Hépatite B chronique
+Hépatite C chronique
+Cirrhose du foie
+Méningite à méningocoque
+Méningite bactérienne du nourrisson
+Rougeole
+Coqueluche
+Tétanos
+Tétanos néonatal
+Poliomyélite
+Choléra
+Schistosomiase urinaire
+Schistosomiase intestinale
+Onchocercose
+Trachome
+Dracunculose
+Filariose lymphatique
+Lèpre
+Ulcère de Buruli
+Amibiase intestinale
+Giardiase
+Ascaridiose
+Ankylostomiase
+Téniase
+Infection respiratoire aiguë
+Pneumonie communautaire
+Bronchiolite du nourrisson
+Bronchite aiguë
+Angine
+Pharyngite
+Laryngite
+Otite moyenne aiguë
+Sinusite chronique
+Conjonctivite
+Gastro-entérite aiguë
+Shigellose
+Salmonellose
+Gale
+Teigne du cuir chevelu
+Candidose buccale
+Abcès cutané
+Cellulite cutanée
+Ostéomyélite
+Noma
+Septicémie
+Diarrhée aiguë
+Déshydratation sévère
+Rage
+Malnutrition aiguë sévère
+Malnutrition aiguë modérée
+Kwashiorkor
+Marasme
+Retard de croissance
+Carence en vitamine A
+Carence en iode
+Goitre endémique
+Rachitisme
+Carence en vitamine D
+Anémie ferriprive
+Anémie sévère
+Carence en vitamine B12
+Drépanocytose homozygote SS
+Drépanocytose SC
+Trait drépanocytaire
+Crise vaso-occlusive
+Syndrome thoracique aigu
+Déficit en G6PD
+Leucémie aiguë
+Lymphome
+Myélome multiple
+Thrombopénie
+Hypertension artérielle
+Diabète de type 2
+Diabète de type 1
+Hypothyroïdie
+Hyperlipidémie
+Obésité
+Syndrome métabolique
+Goutte
+Cardiopathie ischémique
+Infarctus du myocarde
+Angine de poitrine
+Insuffisance cardiaque
+Fibrillation auriculaire
+Cardiomyopathie dilatée
+Cardiopathie rhumatismale
+Endocardite infectieuse
+Péricardite
+Accident vasculaire cérébral ischémique
+Accident vasculaire cérébral hémorragique
+Accident ischémique transitoire
+Artériopathie des membres inférieurs
+Thrombose veineuse profonde
+Embolie pulmonaire
+Varices des membres inférieurs
+Hémorroïdes
+Asthme
+Bronchopneumopathie chronique obstructive
+Bronchite chronique
+Pleurésie
+Fibrose pulmonaire
+Apnée du sommeil
+Reflux gastro-œsophagien
+Gastrite
+Ulcère gastroduodénal
+Appendicite aiguë
+Cholécystite
+Lithiase biliaire
+Hernie inguinale
+Occlusion intestinale
+Pancréatite aiguë
+Syndrome de l'intestin irritable
+Carcinome hépatocellulaire
+Cancer de l'estomac
+Cancer colorectal
+Cancer du sein
+Cancer du poumon
+Cancer de la vessie
+Insuffisance rénale chronique
+Insuffisance rénale aiguë
+Glomérulonéphrite
+Syndrome néphrotique
+Pyélonéphrite
+Cystite
+Lithiase urinaire
+Infection urinaire
+Incontinence urinaire
+Épilepsie
+Céphalée de tension
+Migraine
+Névralgie du trijumeau
+Paralysie faciale périphérique
+Neuropathie périphérique
+Maladie de Parkinson
+Démence
+Trouble dépressif majeur
+Trouble anxieux généralisé
+Trouble bipolaire
+Schizophrénie
+Trouble de stress post-traumatique
+Trouble panique
+Insomnie
+Usage nocif de l'alcool
+Dépendance au tabac
+Arthrose
+Polyarthrite rhumatoïde
+Lombalgie
+Sciatique
+Hernie discale
+Ostéoporose
+Syndrome du canal carpien
+Tendinite
+Dermatite atopique
+Eczéma de contact
+Psoriasis
+Acné
+Urticaire
+Zona
+Vitiligo
+Cataracte
+Glaucome
+Rétinopathie diabétique
+Ptérygion
+Accident de la voie publique
+Traumatisme crânien
+Fracture du fémur
+Morsure de serpent
+Brûlure thermique

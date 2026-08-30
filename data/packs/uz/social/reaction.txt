@@ -1,0 +1,15 @@
+---
+description: Reactions to a post, as verbs and short phrases rather than as emoji names. Ёқди and ёқмади are liked and did not like; зўр is the all-purpose word for excellent. Қўллаб-қувватлайман — I support this — and Табриклайман are full first-person verbs, which is how Uzbek comments on things.
+locale: uz
+---
+ёқди
+ёқмади
+зўр
+кулгили
+ажабланарли
+қайғурдим
+ғазабландим
+қўллаб-қувватлайман
+раҳмат
+табриклайман
+сақлаб қўйдим

@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list of its own; each value is the filename of a list in sport/positionBySport. The selection is Frisian rather than generic, and one swap against the Dutch equivalent matters: keatsen takes the slot korfbal holds in a Netherlands-wide list, because keatsen is the team sport of this province and has named roles a config can draw from. Note that 'Hockey' means field hockey - ice hockey is the separate entry 'Iishockey' - and that honkbal keeps its Dutch name because the sport arrived through the Netherlands and the Frisian clubs use it unchanged.
+locale: fy
+---
+Fuotbal
+Keatsen
+Hockey
+Iishockey
+Follybal
+Hânbal
+Honkbal
+Basketbal

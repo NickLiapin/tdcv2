@@ -1,0 +1,12 @@
+---
+description: Annual household income in francs CFA (XOF), the currency Mali shares with seven other West African states, pegged to the euro at 655.957 to one. The bands are set around Malian earnings and not carried over from a Western pack: the guaranteed minimum wage is around 40,000 XOF a month, a civil servant earns roughly 150,000 to 300,000, and GNI per head is on the order of half a million francs a year — so a household in the middle of this list is doing considerably better than average, and the top band is the Bamako professional and trading class. Note that most Malian income is informal, seasonal and partly in kind, so an income field on a Malian record is an estimate in a way it is not in a salaried economy. `Jukɔrɔ` is Bambara for below and `sanfɛ` for above; thousands are grouped with a space, on the French pattern.
+locale: bm
+---
+300 000 XOF jukɔrɔ
+300 000–600 000 XOF
+600 000–1 000 000 XOF
+1 000 000–1 800 000 XOF
+1 800 000–3 000 000 XOF
+3 000 000–6 000 000 XOF
+6 000 000–12 000 000 XOF
+12 000 000 XOF sanfɛ

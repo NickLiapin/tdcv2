@@ -1,0 +1,22 @@
+---
+description: Where an event is held. Тўйхона — a hall built specifically for weddings — is the first entry because it is a whole building type in Uzbek towns. Чойхона is the teahouse that doubles as the neighbourhood's meeting room, and маҳалла гузари is the little square in front of it.
+locale: uz
+---
+тўйхона
+чойхона
+ресторан
+кафе
+меҳмонхона зали
+конференция зали
+маданият уйи
+театр
+концерт зали
+кинотеатр
+музей
+кутубхона
+стадион
+спорт мажмуаси
+кўргазма маркази
+маҳалла гузари
+ҳовли
+боғ

@@ -1,0 +1,21 @@
+---
+description: Official documents, and one of them will surprise anyone who has not modelled Timorese records before. Sertifikadu Batizmu, the baptismal certificate, is a working identity document: civil registration was patchy under the colonial administration, largely destroyed in 1999 when the registry offices burned, and thin in the districts for years afterwards, while the parish baptismal book was kept continuously by priests who stayed — so for a very large cohort of Timorese the church record is the oldest and sometimes the only written proof of who they are and when they were born, and it is accepted as such for enrolment, for a passport application and for a pension. Sertifikadu Rezidénsia works on the same principle at village level: it is a declaration of where a person lives, signed and stamped by the Xefe Suku, and it is required for a great deal of ordinary administration because the state's own address data does not reach that far. Billete Identidade is the national identity card, NIF the tax number issued for any formal transaction, and Titulu Rai the land title — an entry that should be sampled sparingly, since registered title covers only a fraction of occupied land. Pasaporte shows Portuguese passaporte with the double s written single, the language having no use for a letter it does not pronounce twice.
+locale: tet
+---
+Billete Identidade
+Pasaporte
+Sertifikadu Nasimentu
+Sertifikadu Batizmu
+Sertifikadu Kazamentu
+Sertifikadu Óbitu
+Kartaun Eleitorál
+Karta Kondusaun
+NIF
+Sertifikadu Rezidénsia
+Titulu Rai
+Rejistu Kriminál
+Vistu
+Lisensa Konstrusaun
+Alvará Komersiál
+Sertifikadu Habilitasoens
+Deklarasaun Impostu

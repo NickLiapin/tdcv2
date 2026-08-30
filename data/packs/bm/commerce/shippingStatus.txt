@@ -1,0 +1,15 @@
+---
+description: Where a parcel has got to, in Bambara, and two values are Mali's geography written into a workflow. `Bilalen mɔbili kɔnɔ` — put inside the vehicle — is the real dispatch event here, because the intercity coach lines are the national parcel network: you hand a box to the bagagiste, telephone the recipient with the plate number, and they collect it that evening. `Sera Bamakɔ` is a milestone of its own because Bamako is the only entry point that matters and a parcel for Gao travels south-west before it starts north-east. `Duwan na` keeps the naturalised loan from French douane, the customs step that consumes the time in a landlocked country whose imports clear after a thousand-kilometre road corridor. `Cibaga` is the sender, from `ci` to send plus the agent suffix -baga.
+locale: bm
+---
+Labɛnni na
+Bilalen mɔbili kɔnɔ
+Sira kan
+Sera Bamakɔ
+Duwan na
+Laseli la
+Lasera
+Laseli dɛsɛra
+Ta makɔnɔni
+Kɔsegilen cibaga ma
+Tununnen

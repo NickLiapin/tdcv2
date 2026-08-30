@@ -1,0 +1,8 @@
+---
+description: Fiscal quarters, in French, because the quarter is a French administrative unit that reached Mali with the budget cycle and has no Bambara name at all. The Malian state budget, the customs and tax returns, and every donor-funded project report run on trimestres, and a Bambara-language radio bulletin discussing them says trimestre. Note that this cycle sits awkwardly on the country it measures: the agricultural year that most Malians actually live by starts with the first rains in June and ends with the harvest around November, so the fiscal first quarter falls in the middle of the dry season when nothing is growing.
+locale: bm
+---
+1er trimestre
+2e trimestre
+3e trimestre
+4e trimestre

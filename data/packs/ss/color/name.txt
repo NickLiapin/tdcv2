@@ -1,0 +1,58 @@
+---
+description: Colour name in siSwati. Only the first nine are native words, and they are relative constructions rather than adjectives — lo- plus a stem — which is why none can be used bare. The gap they leave is famous: loluhlata covers green AND blue, and a speaker needing to separate them says loluhlata sasibhakabhaka, "green like the sky", which is a comparison rather than a colour word. This is not a poverty of the language but a different carving of the spectrum, and siSwati is extravagantly rich exactly where it matters to Swazi life: Nguni languages carry dozens of precise terms for the colour and pattern of CATTLE hides — inkone for a white-backed beast, impemvu for a white-faced one, ihlosi for a leopard-marked one — a vocabulary with no equivalent in any European language and none of it usable for a paint chart, which is why the rest of this file is borrowed.
+locale: ss
+---
+Lomnyama
+Lomhlophe
+Lobovu
+Loluhlata
+Loluhlata sasibhakabhaka
+Lomtfubi
+Lonsundvu
+Lomphunga
+Lophingi
+Lobovu lokhanyako
+Lobovu lokujulile
+Loluhlata lokujulile
+Loluhlata lokukhanyako
+I-orenji
+Laphephuli
+Ibhulu
+Ibhulu lelijulile
+Ibhulu lelikhanyako
+Ikhrimu
+Ibheji
+Igolide
+Isiliva
+Ibhronzi
+Ikhopha
+Imaroon
+Inevi
+Ithekhwoyisi
+Ikhaki
+Ibhurgandi
+Imasitedi
+Ilavenda
+Iminti
+Ikhorali
+Isamoni
+Ilayimu
+Iolivu
+Imokha
+Ishokoledi
+Ipheshi
+Ililaki
+Iindigo
+Isayani
+Imajenta
+Iphelu
+Iemeraldi
+Isafaya
+Iamber
+Iaqua
+Ichakholi
+Isandi
+Ithani
+Ipluma
+Iwayini
+Iseji

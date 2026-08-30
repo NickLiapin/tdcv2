@@ -1,0 +1,12 @@
+---
+description: Trucking route type. Stêdsdistribúsje, urban distribution, is a distinct operation in Fryslân for a reason a map does not show: the eleven stêden of the province - Ljouwert, Snits, Drylts, Sleat, Starum, Hylpen, Warkum, Boalsert, Harns, Frjentsjer and Dokkum - hold full historic city rights but several are tiny, Sleat having fewer than a thousand inhabitants, and delivering into their canal-side streets is done in small rigid vehicles under weight and access limits rather than in an artic. Duobemanning is a two-driver crew, run so the vehicle keeps moving through the tachograph rest periods rather than to share the work. Besoarging in pakketbesoarging comes from besoargje, which means both to deliver and to take care of, and fêste rûte holds fêst, the Frisian for fixed or firm.
+locale: fy
+---
+Ynternasjonaal ferfier
+Nasjonaal ferfier
+Regionaal ferfier
+Stêdsdistribúsje
+Fêste rûte
+Duobemanning
+Pakketbesoarging
+Retoerfracht

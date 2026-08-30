@@ -1,0 +1,12 @@
+---
+description: American dishes, which reach Eswatini through South African franchise chains rather than from America directly — the burger and fried chicken outlets in Manzini and at the Ezulwini malls are Johannesburg brands working from the same template. Ibarbecue ribs sits oddly next to ibhrayi on the siBhunu list and inyama leyosiwe on the Swazi one, three names for meat cooked over fire that arrived by three different routes and are kept apart on a menu here by price rather than by method. Note that every value takes the class 9 i-, the slot siSwati reserves for a loan it has not otherwise adapted.
+locale: ss
+---
+Ihamburger
+Ihot dog
+Ifried chicken
+Ibarbecue ribs
+Imacaroni and cheese
+Ipancake
+Iapple pie
+Iclam chowder

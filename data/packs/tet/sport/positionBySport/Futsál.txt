@@ -1,0 +1,9 @@
+---
+description: Futsal positions. Five to a side, which is why this file is short and why the sport is everywhere in Timor-Leste: a hard court roughly the size of a basketball floor fits into a schoolyard, a church compound or a levelled corner of a suku, and hundreds were built with post-independence development money when full pitches were not. Fixu is the defensive anchor, Pivó the forward who plays with his back to goal, and the two Ala are the wide players, distinguished here by karuk and loos. Note the acute in Futsál: the word came in through Portuguese futsal with the stress on the last syllable, and Tetum orthography requires that stress to be written.
+locale: tet
+---
+Guarda-redes
+Fixu
+Ala loos
+Ala karuk
+Pivó

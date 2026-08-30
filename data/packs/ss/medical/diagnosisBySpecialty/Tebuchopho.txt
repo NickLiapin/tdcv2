@@ -1,0 +1,10 @@
+---
+description: Neurology diagnosis in Eswatini. Tebuchopho is "matters of the brain", and it takes the possessive te- even though buchopho is a class 14 abstract noun, because the sector prefix is fixed for every specialty on this list regardless of the class of the organ. Kufa kwengcondvo, stroke, is literally "the dying of the mind" — a description of what the patient loses rather than of the vessel that blocked — which is a good illustration of how siSwati names disease by its effect. Cryptococcal and tuberculous meningitis are far more prominent in a Swazi neurology clinic than the bacterial meningitis a European list would assume, because both are complications of advanced HIV.
+locale: ss
+---
+Kufa kwengcondvo
+I-epilepsy
+Buhlungu benhloko lobucinile
+I-Parkinson disease
+I-meningitis
+I-neuropathy yesifo sashukela

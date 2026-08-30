@@ -1,0 +1,10 @@
+---
+description: Mali has a very small number of psychiatrists for a population above twenty million, nearly all of them in Bamako, so most of these diagnoses are made late or not at all; the first line of care is the family, and often a traditional healer, long before the Point G psychiatric service.
+locale: bm
+---
+Trouble dépressif majeur
+Trouble anxieux généralisé
+Trouble bipolaire
+Schizophrénie
+Trouble de stress post-traumatique
+Usage nocif de l'alcool

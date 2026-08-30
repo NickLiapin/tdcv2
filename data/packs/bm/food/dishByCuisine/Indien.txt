@@ -1,0 +1,12 @@
+---
+description: Indian food, and `Samoussa` is the entry that matters: the fried triangular pastry travelled from South Asia across the Indian Ocean and the Sahara centuries before any restaurant existed, and in Mali it is not Indian food at all but street food, sold from a glass box at a junction and eaten with chilli sauce. Everything else on the list is genuinely restaurant fare, supported by a small Indian and Pakistani business community in Bamako and by the Bollywood films that Malian television has broadcast for decades — Indian cinema reached Mali long before Indian cooking did.
+locale: bm
+---
+Poulet tikka masala
+Biryani
+Curry de légumes
+Naan
+Samoussa
+Dal
+Riz basmati
+Lassi

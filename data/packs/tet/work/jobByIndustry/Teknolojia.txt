@@ -1,0 +1,14 @@
+---
+description: Technology jobs. Ofisiál TIK is the one that carries a history: TIK is Teknolojia Informasaun no Komunikasaun, and the three-letter form was taken over ready-made from Indonesian TIK, teknologi informasi dan komunikasi, which is what the subject was called in school through the occupation years — so the acronym survived the change of country and of language because the words behind it are cognate in both. It is the standard job title in ministries and NGOs for the person who keeps the network, the laptops and the projector working, and it covers far more ground than any of the specialised titles above it. Those specialised titles exist and are real, but they are concentrated almost entirely in Dili and in a handful of employers — the telecoms operators, the banks, the ministries, the university and the international organisations — so an even geographic spread of technology jobs across the municipalities would be wrong by an order of magnitude.
+locale: tet
+---
+Enjeñeiru software
+Dezenvolvedór web
+Analista dadus
+Administradór sistema
+Enjeñeiru rede
+Tékniku informátika
+Tékniku suporte
+Programadór
+Jestór baze dadus
+Ofisiál TIK

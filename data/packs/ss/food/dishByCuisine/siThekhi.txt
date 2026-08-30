@@ -1,0 +1,12 @@
+---
+description: Turkish dishes. Turkey opened an embassy in Mbabane and has run development and scholarship programmes in Eswatini in recent years, and Turkish-run bakeries and kebab shops followed into Manzini and Mbabane, which is a genuinely recent addition to the country's food. Ikebab and idoner describe the same meat cooked two ways, which is the distinction the two words carry in Turkish and which survives the borrowing intact. Ibaklava appears on this file and on the Greek one, and the dispute over which it belongs to is old, real and not resolved by putting it in both; it is here because both cuisines serve it in Eswatini under the same name.
+locale: ss
+---
+Ikebab
+Idoner
+Ipide
+Ilahmacun
+Imenemen
+Ikofte
+Idolma
+Iborek

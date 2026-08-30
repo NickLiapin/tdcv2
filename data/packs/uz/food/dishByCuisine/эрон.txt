@@ -1,0 +1,14 @@
+---
+description: Iranian dishes. Uzbekistan's Persian connection is old and unbroken — Тожик and Iranian cooking meet in the Bukhara and Samarkand kitchens. Челов кабоб is the rice-and-kebab plate, фесенжон the walnut and pomegranate stew, and дўғ the salted yoghurt drink that Uzbek also knows as айрон.
+locale: uz
+---
+челов кабоб
+ғормасабзи
+фесенжон
+дизи
+таҳчин
+аш-и реште
+куку сабзи
+мирзағасеми
+шолезард
+дўғ

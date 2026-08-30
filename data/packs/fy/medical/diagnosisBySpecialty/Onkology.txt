@@ -1,0 +1,15 @@
+---
+description: Diagnoses seen in oncology, in West Frisian. The organ halves of these compounds are where the language sits. Term is the intestine, so colorectal cancer is Dikketermkanker, thick-intestine cancer, a word English preserved only in the dialectal tharm; mage is the stomach in Magekanker. Alfleesklierkanker is pancreatic cancer built the Dutch way but on flees, the Frisian for flesh, and the gland is named after what it looks like rather than after Greek. Kanker itself is the one word here that Frisian, Dutch and English all write nearly alike.
+locale: fy
+---
+Boarstkanker
+Longkanker
+Dikketermkanker
+Prostaatkanker
+Blaaskanker
+Magekanker
+Alfleesklierkanker
+Nierkanker
+Melanoom
+Leukemy
+Lymfoom

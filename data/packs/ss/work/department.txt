@@ -1,0 +1,26 @@
+---
+description: Department within an Eswatini organisation. Litiko is the head word for every value and it is worth knowing why: litiko is the word for a government MINISTRY — Litiko leTemphilo is the Ministry of Health, Litiko leTemfundvo neKucecesha the Ministry of Education and Training — and it has been carried across into company structure so that a firm's divisions are named with the same noun the state uses. What follows litiko is always a possessive phrase in le- plus a te- sector noun, so the construction stacks two possessives: "the ministry of the matters of money". That is why none of these values can be shortened to a single word, and why the te- form on its own, which is what work/industryCoherent holds, names the sector rather than the department.
+locale: ss
+---
+Litiko letemali
+Litiko letebasebenti
+Litiko letekutsengisa
+Litiko letekukhangisa
+Litiko letekukhicita
+Litiko letekutfutfwa
+Litiko letekuphepha
+Litiko letemakhompiyutha
+Litiko letemtsetfo
+Litiko letekucecesha
+Litiko letekwakha
+Litiko letekutsenga
+Litiko letekhwalithi
+Litiko lekucwaninga
+Litiko letekunakekela emakhasimende
+Litiko letekuhlela
+Litiko letekulawula
+Litiko letekugcina imphahla
+Litiko letekulungisa imishini
+Litiko letekuchumana
+Litiko letekuphatsa imisebenti
+Litiko letekungenisa nekutfumela ngaphandle

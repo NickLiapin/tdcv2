@@ -1,0 +1,16 @@
+---
+description: Money jobs. The Bambara ones are the informal system that reaches most Malians: `wari falenbaga` the money changer at the market edge, `juru dibaga` the lender, `tontin ɲɛmɔgɔ` the head of a rotating savings club — a group, very often women in one quarter or one trade, who each pay in a fixed sum and take the whole pot in turn, which is how a great many Malians save for anything large, entirely on trust with no institution behind it. `Banki baarakɛla` is simply a bank worker. The French titles are the formal sector, where the job is defined by a contract and a diploma, and where `Agent de microfinance` matters most: microfinance institutions serve far more Malians than banks do.
+locale: bm
+---
+Wari falenbaga
+Juru dibaga
+Tontin ɲɛmɔgɔ
+Banki baarakɛla
+Caissier
+Comptable
+Chargé de clientèle
+Agent de microfinance
+Contrôleur de gestion
+Analyste crédit
+Agent de transfert d'argent
+Directeur d'agence

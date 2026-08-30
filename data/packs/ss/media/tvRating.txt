@@ -1,0 +1,13 @@
+---
+description: Television and film age rating as used in Eswatini, which is the South African system: Eswatini has no separate classification board of its own, and the ratings on broadcast and on cinema releases come from the South African Film and Publication Board, arriving with the content itself. A is for all audiences, PG means parental guidance, the banded PG codes give an age range, and the bare numbers are hard age restrictions with X18 reserved for the most restricted material. The one siSwati value at the end is descriptive rather than official: lokungafanele bantfwana, "what is not fit for children", is what a Swazi broadcaster says on air before a programme, since the letter codes mean nothing spoken aloud.
+locale: ss
+---
+A
+PG
+7-9PG
+10-12PG
+13
+16
+18
+X18
+Lokungafanele bantfwana

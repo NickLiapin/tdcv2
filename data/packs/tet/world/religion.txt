@@ -1,0 +1,25 @@
+---
+description: Religions, and the shape of this list is a fact about Timor-Leste rather than a neutral world survey. Around ninety-seven per cent of Timorese are Catholic, the highest share of any country in Asia and among the highest anywhere, and that figure is recent: in 1975 perhaps thirty per cent were baptised. The rise happened under the occupation, because Indonesia's Pancasila required every citizen to profess one of a short list of monotheistic religions and the Catholic Church was the one institution that sheltered Timorese and that used Tetum from the pulpit — the Church's decision to say mass in Tetum rather than Portuguese or Indonesian is a large part of why the language survived as a national one at all. Fiar lulik is on this list beside Katolisizmu and not instead of it: the ancestral religion of the uma lulik, the sacred house, runs alongside the Church in most families, and the same household will attend mass on Sunday and make an offering at the house post when a roof is rebuilt. Islám is small but old, centred on the An-Nur mosque in Dili and the Kampung Alor quarter; Budizmu belongs largely to the Hakka Chinese trading families; Induizmu arrived with Indonesian civil servants.
+locale: tet
+---
+Katolisizmu
+Kristianizmu
+Protestantizmu
+Ortodoksia
+Adventista Loron-Hitu
+Asembleia de Deus
+Testemuña ba Jeová
+Islám
+Induizmu
+Budizmu
+Judaizmu
+Sikizmu
+Fé Bahá'í
+Xintoizmu
+Taoizmu
+Konfusionizmu
+Animizmu
+Fiar lulik
+Ateizmu
+Agnostisizmu
+Laduun relijiaun

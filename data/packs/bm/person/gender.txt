@@ -1,0 +1,6 @@
+---
+description: Gender label in Bambara, and exactly two values, because this list is what a `parent=` filter selects on and a longer one silently leaves rows without a name. `Cɛ` is a man, `Muso` a woman. The grammatical point behind them is the important one: Bambara has NO grammatical gender anywhere — no gendered article, no gendered adjective, no gendered agreement, and crucially a single third-person pronoun `a` covering he, she and it. These two nouns are therefore the only place in the entire language where the distinction is made at all, and a Bambara sentence about a person can be written without ever revealing their sex.
+locale: bm
+---
+Cɛ
+Muso

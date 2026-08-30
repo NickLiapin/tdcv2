@@ -1,0 +1,23 @@
+---
+description: Property types. Uma kakuluk is the traditional house under a thatch of palm or grass, kakuluk being the roof or the crown of a thing, and it is still a large share of the rural housing stock rather than a heritage category. Uma iha foho is a house up in the hills, using iha, the locative particle that covers at, in and there is, and foho, mountain — the phrase is how a Dili family describes the place they return to for Christmas and for funerals, and a great many households genuinely maintain two homes on that pattern. Rai mamuk is a vacant plot, from rai land and mamuk empty; rai is also the word for earth, soil, and country, so rai-na'in means both landowner and, in customary usage, the spiritual guardian of a place, and the ambiguity is not a coincidence.
+locale: tet
+---
+Uma família ida
+Apartamentu
+Kondomíniu
+Uma geminada
+Dupleks
+Edifísiu multifamiliár
+Vivenda
+Bungalo
+Uma kakuluk
+Loft
+Estúdiu
+Kobertura
+Uma móvel
+Fazenda
+Manzaun
+Uma iha foho
+Kintál
+Rai mamuk
+Loja komersiál

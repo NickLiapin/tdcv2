@@ -1,0 +1,27 @@
+---
+description: Religions and religious movements. Ислом first, then сунний and the ҳанафий school that Uzbekistan follows, then the four Sufi orders founded on this soil — нақшбандия, яссавия, кубровия, қодирия. Бухоро яҳудийлиги names the Bukharan Jewish community, whose presence here is more than two thousand years old.
+locale: uz
+---
+ислом
+суннийлик
+ҳанафий мазҳаби
+шиалик
+сўфийлик
+нақшбандия
+яссавия
+кубровия
+қодирия
+насронийлик
+православлик
+католиклик
+протестантлик
+армани черкови
+яҳудийлик
+бухоро яҳудийлиги
+зардуштийлик
+буддизм
+ҳиндуизм
+тангричилик
+баҳоийлик
+атеизм
+динга эътиқод қилмайдиган

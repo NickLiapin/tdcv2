@@ -1,0 +1,20 @@
+---
+description: Swazi dishes. This is the longest of the seventeen cuisine files because it is the home one, and it is built around a single pairing: sishwala, the stiff maize porridge, and whatever goes beside it. Three entries record fermentation, which is the main preservation technology of the Swazi kitchen — incwancwa is maize meal soured over two or three days, emahewu is the thin drinkable form of the same ferment carried to the fields, and umcombotsi is sorghum beer. Buganu is the marula brew of February and has a national ceremony attached to it. Umncweba is meat dried in strips in the open air, which is how a homestead keeps a slaughtered beast; the South African biltong on the siBhunu list is the same technique with vinegar and spice added. Inyama yenkhomo yasembiteni, beef from the three-legged pot, is what is cooked for a funeral, a wedding or a ceremony, in quantity and over a wood fire.
+locale: ss
+---
+Sishwala
+Sidvudvu
+Umbidvo wetintsanga
+Incwancwa
+Emasi netinkhobe
+Siphuphe setindlubu
+Umncweba
+Tinkhobe
+Emahewu
+Buganu
+Umcombotsi
+Emakhowe
+Inyama yenkhomo yasembiteni
+Liphaphatha
+Sishebo
+Emadvumbe

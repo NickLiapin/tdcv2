@@ -1,0 +1,10 @@
+---
+description: Full female name in Mali: one given name and one jamu (Aminata Coulibaly, Oumou Sangaré). The surname is drawn from bm.person.lastName, the SAME list a man's is drawn from, because Malian family names carry no gender — compare pl, whose equivalent file must read a separate feminine list. The stronger point for anyone modelling a Malian household is that a woman does NOT take her husband's name at marriage: she keeps her father's jamu for life, so a married couple in one compound have different surnames and their children carry the father's.
+generator: tdc
+locale: bm
+---
+<sequence name="p">
+  <gen name="f" type="template" value="bm.person.female.firstName"/>
+  <gen name="l" type="template" value="bm.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

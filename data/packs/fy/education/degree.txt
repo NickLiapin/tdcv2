@@ -1,0 +1,21 @@
+---
+description: Qualification as awarded in Fryslân, which is to say the Dutch ladder, because education law is national and the province runs no system of its own: vmbo, havo and vwo in secondary school, then mbo in four levels for vocational training, hbo at a university of applied sciences and wo at a research university. Those short forms are acronyms of Dutch statutory phrases and Frisian does not re-cut them, so a Frisian sentence about schooling carries Dutch initials embedded in it while every ordinary word around them is Frisian - basisûnderwiis for primary education, nivo for level, rjochten for law. One of the old titles lands better in Frisian than in Dutch. The abbreviation mr. stands for meester in de rechten, and the Frisian word for meester is master, so Master yn de rjochten makes plain the English sense of the title that the Dutch original hides; the same word is the ordinary Frisian for a schoolteacher. Propedeuse is not a degree at all but the certificate for a completed first year, and it is still written on Dutch and Frisian CVs. The pre-Bologna titles drs., ir. and ing. are still carried by everyone who earned them and still set in front of the name rather than after it.
+locale: fy
+---
+Basisûnderwiis
+Vmbo-diploma
+Havo-diploma
+Vwo-diploma
+Mbo-diploma nivo 2
+Mbo-diploma nivo 3
+Mbo-diploma nivo 4
+Propedeuse
+Associate degree
+Hbo-bachelor
+Wo-bachelor
+Master
+Doctorandus (drs.)
+Yngenieur (ir.)
+Yngenieur (ing.)
+Master yn de rjochten (mr.)
+Doktor (dr.)

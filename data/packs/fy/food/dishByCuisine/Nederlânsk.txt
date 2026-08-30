@@ -1,0 +1,28 @@
+---
+description: Dutch dishes as a Frisian names them, and the slot this file occupies is the point of it. In a Netherlands-wide pack Nederlands is the home cuisine and Vlaams is the neighbour cooking next door; in a Frisian pack the ranking inverts, Frysk becomes the home kitchen and this list becomes the neighbour cuisine - the food of the country the province is in, but not the food of the province. Most of it is snackbar food, which is genuinely national rather than regional: the kroket, the frikandel, the tsiissoufflé and the kapsalon are the same object in Ljouwert as in Rotterdam, and the counter they are sold over is the one piece of Dutch food culture that reached every village. The regional Dutch specialities keep Frisian adjective endings because -sk is how this language builds them, hence Limburchske flaai and Seeuske bolus. Trieddefleis is worth stopping on: Dutch draadjesvlees is beef stewed until it pulls apart into threads, and a thread is a tried in Frisian - the same word as English thread, where Dutch has the unrecognisable draad.
+locale: fy
+---
+Hachee
+Trieddefleis
+Sûrkoalstamppot
+Bitterballen
+Kroket
+Broadsje kroket
+Frikandel
+Frikandel spesjaal
+Tsiissoufflé
+Kibbeling
+Lekkerbek
+Hjerring mei sipel
+Útsmiter
+Tosti ham-tsiis
+Huzaresalade
+Kapsalon
+Patat mei
+Poffertsjes
+Pankoeken
+Apeltaart
+Streopwafel
+Spekulaas
+Limburchske flaai
+Seeuske bolus

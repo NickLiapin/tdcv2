@@ -1,0 +1,16 @@
+---
+description: Shoe sizes on the European scale, which is the one Timor-Leste inherited from Portuguese retail and which the Indonesian period reinforced rather than replaced, since Indonesia uses the same numbers. The practical caveat for anyone modelling Timorese data: a very large share of footwear sold here is imported second-hand or comes through the Indonesian border trade at Batugade and Salele, so a stated size is approximate, and the single most-worn item of footwear in the country is the xinelu, the rubber flip-flop, which is sold by rough length and not by this scale at all.
+locale: tet
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

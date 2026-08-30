@@ -1,0 +1,12 @@
+---
+description: Judo roles and weight bands. Татами ҳаками is the mat referee and ён ҳакам the corner judge. Judo came to Uzbekistan through the Soviet sports system, which had absorbed it into самбо first, and the vocabulary still shows that route.
+locale: uz
+---
+жудочи
+татами ҳаками
+ён ҳакам
+бош мураббий
+енгил вазн
+ўрта вазн
+оғир вазн
+захира спортчи

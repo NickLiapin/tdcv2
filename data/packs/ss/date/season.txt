@@ -1,0 +1,8 @@
+---
+description: Season in siSwati, and the leading e- is a locative rather than part of the noun: a Swazi speaker says "at summer" and "at winter" the way the country's own name eSwatini says "at the place of the Swazi". The seasons are southern, so eHlobo, summer, is December and January — which is when Incwala, the kingship ritual, falls — and eBusika, winter, is June and July, the dry cold months when the highveld around Mbabane can frost. iNtfwasahlobo is built on kutfwasa, to emerge or come into being, the same verb used of a diviner coming into their calling, so the word for spring is literally the summer beginning to break through.
+locale: ss
+---
+eHlobo
+eKwindla
+eBusika
+iNtfwasahlobo

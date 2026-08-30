@@ -1,0 +1,31 @@
+---
+description: Diagnoses recorded for female patients in Tetum. The clinical register is almost entirely Portuguese, because that is the language medicine was taught and administered in, and the entries show the two respellings that govern it. Word-initial h is silent in Portuguese and is simply dropped in Tetum spelling, so hipertensão becomes ipertensaun and hipotiroidismo becomes ipotiroidizmu — the same rule that turns hospital into ospitál and hotel into otél. Intervocalic and final -s- in Greek-derived medical endings is written z: -ose becomes -oze in endometrioze and osteoporoze, -ismo becomes -izmu. Note that adjectives do not agree, so a Portuguese crónica is written króniku here whatever noun it qualifies. What makes the list Timorese rather than European is the middle block. Anaemia in pregnancy, pre-eclampsia and malaria in pregnancy sit high because maternal health is where the country's disease burden concentrates: fertility has been among the highest in Asia within living memory, most births still happen away from a facility in the districts, and the antenatal record is often the only medical record a woman has. Isin-rua is the Tetum for pregnant and is literally two bodies.
+locale: tet
+---
+Displazia servikál
+Mioma uterinu
+Kandidiaze vajinál
+Fibroadenoma susun
+Síndrome ováriu polikístiku
+Erozaun servikál
+Endometrite
+Endometrioze
+Servisite
+Vajinoze bakteriál
+Kankru susun
+Kankru kolu-uteru
+Kistu ováriu
+Menopauza sedu
+Anemia iha isin-rua
+Pré-eklámpsia
+Malária iha isin-rua
+Klamídia
+Pankreatite króniku
+Artrite króniku
+Gastrite króniku
+Ipertensaun arteriál
+Diabetes mellitus tipu 2
+Azma brónkiku
+Enxakeka
+Anemia ferropéniku
+Ipotiroidizmu

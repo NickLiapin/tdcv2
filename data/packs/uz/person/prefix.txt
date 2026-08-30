@@ -1,0 +1,36 @@
+---
+description: Titles and forms of address, informal first. Ака and опа — older brother and older sister — are attached to a first name to address almost any adult; домла and устоз are the teacher's titles. Ҳожи is used of someone who has made the pilgrimage. The military and professional ranks at the end are capitalised.
+locale: uz
+---
+ака
+опа
+домла
+устоз
+жаноб
+хоним
+ҳожи
+қори
+мулла
+эшон
+тақсир
+бек
+бой
+хон
+Др.
+Проф.
+Доц.
+Академик
+Муҳандис
+Шифокор
+Ҳамшира
+Адвокат
+Судя
+Прокурор
+Капитан
+Маёр
+Полковник
+Генерал
+Сержант
+Лейтенант
+Раис
+Директор

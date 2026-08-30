@@ -1,0 +1,47 @@
+---
+description: Cooking ingredient (West Frisian), and the very first line is the trap. Moal is flour; blom is a flower and nothing else. Dutch lets bloem cover both senses, so a config that converts word for word will put a daisy in the cake. Three more entries are words a Dutch speaker cannot guess at all. Jittik is vinegar, unrelated to Dutch azijn and cousin to German Essig. Rjemme is cream, which is why roomboter comes out as rjemmebûter and slagroom as slachrjemme. And sûpe is buttermilk, which in this province is not a by-product to be poured away but a drink, a cooking liquid and the body of a whole family of porridges. Sûkelade is chocolate with an s where Dutch has ch, and poeier is powder where Dutch has poeder, so icing sugar is poeiersûker and baking powder bakpoeier. Aai, the egg, carries the one piece of Frisian calendar in the list: aaisykjen is the search across the wet fields for the season's first ljipaai, the first lapwing egg, and who finds it is still provincial news.
+locale: fy
+---
+Moal
+Selsriizend bakmoal
+Sûker
+Bastertsûker
+Poeiersûker
+Sâlt
+Piper
+Rjemmebûter
+Margarine
+Sinneblomoalje
+Olyfoalje
+Molke
+Sûpe
+Slachrjemme
+Creme fraiche
+Yoghurt
+Kwark
+Jonge tsiis
+Beleine tsiis
+Âlde tsiis
+Geitetsiis
+Aai
+Gist
+Bakpoeier
+Fanyljesûker
+Kakao
+Sûkelade
+Hagelslach
+Streop
+Apelstreop
+Huning
+Jittik
+Moster
+Mayonaise
+Ketjap manis
+Sambal oelek
+Bouillonblokje
+Tomatepuree
+Panearmoal
+Rys
+Pasta
+Hjouwermout
+Ûntbytkoeke

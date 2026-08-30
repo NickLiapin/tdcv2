@@ -1,0 +1,12 @@
+---
+description: French cooking exists here as a restaurant idea rather than a community, and the names came in through Portuguese menus, so they took the ordinary Tetum spelling. Croissant gives kruasán, with c before r written k and an acute on the stressed final syllable. Quiche gives kixe, which puts two rules in one short word: qu is k and ch is x. Escargot gives eskargot, croûte and crème give the kr- of krem brulé, and cebola gives the sebola of sopa sebola, c before e written s. Baget keeps only what a Tetum speaker hears of baguette. The one word not adapted is Kok au vin, left as three French words because it is read as a phrase, not as a name — a useful reminder that the respelling rules apply to words that have been taken into the language and not to quotations from another one.
+locale: tet
+---
+Kruasán
+Baget
+Kok au vin
+Ratatui
+Kixe
+Krem brulé
+Sopa sebola
+Eskargot

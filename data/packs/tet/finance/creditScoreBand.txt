@@ -1,0 +1,9 @@
+---
+description: Credit rating bands, and the two ends are native Tetum rather than borrowed: aat is bad and di'ak is good, and the intensifier tebes turns di'ak into di'ak tebes, very good — Tetum grades an adjective by putting a word after it rather than by changing its shape, which is one of the ways it differs sharply from the Portuguese most of its vocabulary comes from. Note the apostrophe in di'ak: it marks a glottal stop, which is a real consonant here and not decoration. Bands like these describe a thin reality on the ground. Formal credit scoring barely exists in Timor-Leste; the banks lend against salary deduction and the microfinance institutions against group guarantee, so most adults have no score of any kind.
+locale: tet
+---
+Aat
+Razoável
+Di'ak
+Di'ak tebes
+Ezelente

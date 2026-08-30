@@ -1,0 +1,29 @@
+---
+description: Life events and gatherings. The тўй family is the centre of it: бешик тўйи for a new baby, суннат тўйи for a circumcision, фотиҳа тўй for the engagement and никоҳ тўй for the wedding itself. Ҳашар is the collective volunteer work day a маҳалла calls, and it has no real equivalent as an event type anywhere else.
+locale: uz
+---
+бешик тўйи
+суннат тўйи
+фотиҳа тўй
+никоҳ тўй
+тўй
+келин салом
+эҳсон
+маърака
+мавлуд
+ифторлик
+ҳашар
+маҳалла йиғини
+туғилган кун
+юбилей
+битирув кечаси
+концерт
+театр намойиши
+кўргазма
+конференция
+семинар
+тренинг
+спорт мусобақаси
+фестивал
+ярмарка
+миллий байрам

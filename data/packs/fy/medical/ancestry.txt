@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in West Frisian, the parent of medical/diagnosisByAncestry. These are descent populations as clinical genetics uses them — the geography of a patient's ancestors, not social race categories — and a patient of any of them may carry none of the conditions filed underneath it. The compass words are where the language shows: Frisian noard, súd and east line up with English north, south and east rather than with Dutch noord, zuid and oost, so East-Aziatysk is spelt with the same four letters as the English word. Every group name ends in -sk, the Frisian nationality ending that also gives Frysk, Nederlânsk and Ingelsk where Dutch writes -isch or -s.
+locale: fy
+---
+Subsaharaansk-Afrikaansk
+Noard-Afrikaansk
+Mediterraansk
+Midden-Eastersk
+Noard-Europeesk
+East-Europeesk
+Asjkenazysk-Joadsk
+Súd-Aziatysk
+East-Aziatysk
+Súdeast-Aziatysk
+Ynheems-Amerikaansk
+Oseanysk

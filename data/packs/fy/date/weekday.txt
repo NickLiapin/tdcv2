@@ -1,0 +1,11 @@
+---
+description: Weekday name (West Frisian). LOWERCASE, like the months. This short list is the clearest evidence in the whole pack that Frisian sits on the English branch rather than the Dutch one. Tongersdei is Thunder's day, built on the god's name the way English Thursday is, where Dutch has donderdag from the common noun. Freed is Friday with the day-word worn clean off, the only weekday in Frisian that does not end in -dei, and it matches English Friday against Dutch vrijdag. Sneon is the real oddity: Frisian Saturday is not Saturn's day at all but Sunday-eve, from Old Frisian sunnandei-even, the same formation as German Sonnabend, so where Dutch zaterdag and English Saturday kept the Roman planet Frisian threw it out. Snein for Sunday is the sun's day worn down to one syllable. The practical consequence for anyone sorting or matching these: snein and sneon differ in one letter and are the two ends of the week, which is why the abbreviations in date/weekdayAbbr cannot both be sn.
+locale: fy
+---
+moandei
+tiisdei
+woansdei
+tongersdei
+freed
+sneon
+snein

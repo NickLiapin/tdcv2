@@ -1,0 +1,32 @@
+---
+description: Fish. Mali is landlocked and the fishery is the Niger, worked by the Bozo and the Somono, whose whole calendar is set by the flood. Jɛgɛ is the Bambara for fish and kapitɛn, from capitaine, is the Nile perch — the prestige fish of the river, grown to the size of a man, served grilled whole with rice, and the thing on the menu when a Malian meal is meant to impress. One trap for a config writer. Carpe on a Malian market slate does not mean the European carp, it means tilapia, and it is the everyday fish the way capitaine is the special one. The last twelve values from chinchard on are sea fish, and they are here because they are eaten, not because they are caught — frozen horse mackerel and sardinella arrive by refrigerated truck from Dakar and Nouakchott and are the cheapest animal protein in Bamako.
+locale: bm
+---
+jɛgɛ
+kapitɛn
+silure
+silure argenté
+machoiron
+tilapia
+carpe
+poisson-chat
+poisson-chien
+mormyre
+protoptère
+hétérotis
+labéo
+anguille
+barbeau
+sardine du Niger
+chinchard
+sardinelle
+thon
+maquereau
+dorade
+mérou
+sole
+raie
+merlu
+saumon
+bar
+mulet

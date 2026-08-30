@@ -1,0 +1,14 @@
+---
+description: Competitive rank tiers, named for metals and stones as they are everywhere, except that the gold tier is not a loanword. Tetum for gold is osan-mean, literally red money, built from osan, money or metal wealth, and mean, red — the same mean that colours Fatumean, red stone, on the map. That compound is older than coinage and it shows how Tetum names a new thing out of two old ones rather than importing a word. The tiers around it are Portuguese respelled by rule: ferro to ferru, prata unchanged, esmeralda unchanged, grão-mestre to grán-mestre with the -ão collapsing, desafiante to dezafiante with the intervocalic s written z.
+locale: tet
+---
+Ferru
+Bronze
+Prata
+Osan-mean
+Platina
+Esmeralda
+Diamante
+Mestre
+Grán-mestre
+Dezafiante

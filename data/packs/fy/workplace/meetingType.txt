@@ -1,0 +1,18 @@
+---
+description: Type of workplace meeting. Frisian keeps three words apart here where a Dutch minute book manages with two, and getting them wrong reads as badly as calling a hearing a chat. A gearkomste is a formal meeting that people come together for, gear- being the prefix that also builds gearwurkje, to cooperate, and gearfetting, a summary. An oerlis is a working consultation over a matter in hand, standing or ad hoc, and never has a chair in the constitutional sense. A petear is a conversation between people, which is why the appraisal entries end in -petear and the staff and council meetings in -gearkomste. Funksjoneringspetear and beoardielingspetear are two distinct annual conversations in Dutch practice - the first a two-way review of how the job is going, the second the employer's one-way judgement with consequences attached - and the ûndernimmingsried, the works council, is statutory in firms above fifty staff, so its gearkomste is an ordinary calendar item rather than a crisis.
+locale: fy
+---
+Wurkoerlis
+Teamoerlis
+Deistige stand-up
+Ien-op-ien-petear
+Funksjoneringspetear
+Beoardielingspetear
+Personielsgearkomste
+Sprintplanning
+Retrospective
+Kick-off-gearkomste
+Brainstormsesje
+Foarútgongsoerlis
+Direksje-oerlis
+Ûndernimmingsriedgearkomste

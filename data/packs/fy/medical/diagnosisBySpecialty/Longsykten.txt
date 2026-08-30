@@ -1,0 +1,15 @@
+---
+description: Diagnoses seen in pulmonology, which the Dutch register still calls Longziekten en tuberculose and Frisian therefore calls Longsykten — tuberculosis is written into the name of the specialty itself, a survival from the sanatorium era that nobody has taken out. COPD keeps its English initials untranslated in Frisian exactly as it does in Dutch. The verb underneath half of this file is sykhelje, to breathe, literally to fetch breath, where syk is the breath and has nothing to do with siik, the Frisian for ill, however alike the two look on the page.
+locale: fy
+---
+Astma
+COPD
+Longûntstekking
+Longemboly
+Tuberkuloaze
+Obstruktive sliepapneu
+Longfibroaze
+Sarkoïdoaze
+Bronkiëktasyen
+Pleurafocht
+Pneumotoraks

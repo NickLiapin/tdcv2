@@ -1,0 +1,17 @@
+---
+description: Kinds of post. `Ja` is an image and also a shadow and a soul, which is why photographing someone was once a serious matter. `Kumakan` is the voice — literally the sound of speech — and the voice note deserves its place near the top: typing Bambara needs ɛ ɔ ɲ ŋ that a default phone keyboard does not offer, and literacy in French is not universal, so an enormous share of Malian digital communication is spoken rather than written. `Jɛkulu` is a group, `Ɲininkali` a poll, `Tilali` a share, `Hakilina` a comment. Five values keep their platform names — Story, Statut WhatsApp, Reel, Live, Meme — because they are product features rather than concepts, and Statut WhatsApp is listed separately from Story on purpose: WhatsApp is not one app among several in Mali, it is where the internet happens, and its status is the country's most-read publishing format.
+locale: bm
+---
+Ja
+Widewo
+Sɛbɛnni
+Kumakan
+Ɲininkali
+Tilali
+Hakilina
+Jɛkulu
+Story
+Statut WhatsApp
+Reel
+Live
+Meme

@@ -1,0 +1,24 @@
+---
+description: Retail and trade jobs. Тарозичи — the person on the scales — and бозор растачиси, the market stallholder, belong to the бозор economy rather than the shop one, and both are real occupations. Мерчандайзер and категория менежери came in with the supermarket chains.
+locale: uz
+---
+сотувчи
+кассир
+дўкон мудири
+мерчандайзер
+савдо вакили
+товар билувчи
+омборчи
+етказиб берувчи
+харидлар менежери
+маркетолог
+тарозичи
+қассоб
+новвой
+бозор растачиси
+онлайн савдо менежери
+мижозлар билан ишлаш мутахассиси
+нарх белгиловчи
+инвентаризатор
+категория менежери
+савдо директори

@@ -1,0 +1,35 @@
+---
+description: Vegetables as a Dili market sells them. The list opens with modo, which is the general word for a vegetable and for greens as a class, and modo tahan, the leaf greens specifically — tahan is leaf, and the compound is the standard way to name anything cooked as a pot-herb. Kankun is water spinach, the cheapest and most eaten green in the country. Ai-farina, cassava, is worth a config author's attention: it looks native because of the ai- plant prefix but the second half is Portuguese farinha, flour, so the word is a hybrid built on the island rather than a loan taken whole. Two of the everyday names show the Portuguese lh cluster, which Tetum writes ll: alho becomes allu and ervilha becomes ervilla, and alho-francês, leek, comes across intact as allu-fransés. Sebola from cebola shows c before e read as s; senoura from cenoura does the same. Kubis and sawi are Malay and reached the market gardens long before the vegetable seed did. Batar, maize, sits in this list rather than among the grains because in Timor it is eaten young off the cob as often as it is dried for the year's staple.
+locale: tet
+---
+Modo
+Modo tahan
+Kankun
+Fehuk
+Talas
+Ai-farina
+Batar
+Koto
+Fore
+Kubis
+Sawi
+Beringela
+Sebola
+Allu
+Ai-manas
+Tomate
+Senoura
+Batata
+Pepinu
+Alfase
+Brokolis
+Kouve-flor
+Espinafre
+Ervilla
+Abóbora
+Beterraba
+Rabanete
+Kogumelu
+Nabu
+Aipu
+Allu-fransés

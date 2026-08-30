@@ -1,0 +1,9 @@
+---
+description: Mine shift patterns. Вахта усули — the rotational method — is the important one: workers live at the site for a fixed rotation and go home between them, which is how a mine in the Kyzylkum desert is staffed at all. The other four are ordinary day and night shifts.
+locale: uz
+---
+кундузги смена
+тунги смена
+эрталабки смена
+кечки смена
+вахта усули

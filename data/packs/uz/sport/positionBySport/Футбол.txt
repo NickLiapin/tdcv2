@@ -1,0 +1,16 @@
+---
+description: Football positions in Uzbek, laid out from goalkeeper to striker with left and right flanks named separately. Ҳимоячи is the defender, ярим ҳимоячи the midfielder — literally the half-defender — and ҳужумчи the attacker. Жамоа сардори is the captain.
+locale: uz
+---
+дарвозабон
+марказий ҳимоячи
+чап қанот ҳимоячиси
+ўнг қанот ҳимоячиси
+ҳимоя ярим ҳимоячиси
+марказий ярим ҳимоячи
+ҳужумкор ярим ҳимоячи
+чап қанот ҳужумчиси
+ўнг қанот ҳужумчиси
+марказий ҳужумчи
+захира ўйинчи
+жамоа сардори

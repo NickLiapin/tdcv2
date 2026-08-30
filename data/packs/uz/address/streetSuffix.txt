@@ -1,0 +1,40 @@
+---
+description: What follows the name on an Uzbek street sign, already carrying the possessive suffix: Алишер Навоий кўчаси, not кўча. Кўчаси is the everyday word; проспекти and булвари are Russian-era borrowings for the wide roads; маҳалласи and гузари name the neighbourhood and its little square rather than a road. The abbreviated forms кўч. and пр. are what actually fits on a plate.
+locale: uz
+---
+кўчаси
+кўч.
+шоҳ кўчаси
+тор кўчаси
+берк кўчаси
+хиёбони
+хиёб.
+проспекти
+пр.
+булвари
+майдони
+гузари
+мавзеси
+массиви
+квартали
+маҳалласи
+даҳаси
+йўли
+катта йўли
+ҳалқа йўли
+ўтиш йўли
+тупиги
+тармоғи
+кўприги
+бекати
+ўрмони
+боғи
+соҳили
+қирғоғи
+дарвозаси
+қатори
+растаси
+бурчаги
+сойи
+тепаси
+ёнбағри

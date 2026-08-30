@@ -1,0 +1,32 @@
+---
+description: Technical adjectives in French, which is the working language of Malian IT — the Agence des Technologies de l'Information et de la Communication, the university computing departments, the private training centres and the operators' technical documentation all run in it. Two of these describe conditions that are ordinary in Mali and exceptional elsewhere: `hors ligne` is a design requirement rather than a failure state, because connectivity is intermittent and expensive outside the cities, and `redondant` and `tolérant aux pannes` are read against a grid that load-sheds routinely, so every serious installation in Bamako has a generator and an inverter behind it.
+locale: bm
+---
+numérique
+virtuel
+distant
+local
+distribué
+sécurisé
+chiffré
+ouvert
+fermé
+statique
+dynamique
+asynchrone
+synchrone
+redondant
+obsolète
+natif
+portable
+évolutif
+tolérant aux pannes
+temps réel
+hors ligne
+en ligne
+cloisonné
+modulaire
+embarqué
+hébergé
+sauvegardé
+corrompu

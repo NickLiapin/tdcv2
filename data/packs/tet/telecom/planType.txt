@@ -1,0 +1,16 @@
+---
+description: Mobile plan types, and the last entry is the one that matters. Pulsa is the Indonesian word for prepaid airtime credit, and it survived the end of the occupation completely intact: Timorese buy pulsa at a kiosk, top up with pulsa, and talk about running out of pulsa, using a word neither Tetum nor Portuguese ever supplied. It sits here beside Portuguese-derived Pré-pagu and Pós-pagu, which show the usual final -o to -u shift, and that mixture is the Tetum telecoms register in miniature. Prepaid dominates overwhelmingly — postpaid billing needs an address and a credit history, and outside Dili most subscribers have neither — so a generated Timorese phone dataset weighted toward contracts would be wrong about the country.
+locale: tet
+---
+Pré-pagu
+Pós-pagu
+Ilimitadu
+Planu família
+Planu empreza
+Selu tuir uzu
+Dadus deit
+Planu fahe malu
+Tarifa fiksu
+Planu kontroladu
+Planu kombinadu
+Pulsa

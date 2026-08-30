@@ -1,0 +1,15 @@
+---
+description: Shipping status in Tetum. Iha carries three of these on its own: it is the verb to exist, the verb to have, and the preposition at or in, so iha dalan is in transit and reads literally as at road, iha alfándega is at customs and iha problema is there is a problem. Dalan is the native word for road or way and it is worth pausing on, because in a country where a district consignment leaves the sealed coast road within an hour of Dili the status in transit describes something considerably less determinate than it does elsewhere — a parcel iha dalan may be on a ferry, on the back of an angguna waiting for the load to fill, or on the far side of a river that the rain has put up. Alfándega appears because a great deal of retail stock is imported through Dili port or overland from Indonesian West Timor at the Batugade crossing, and clearance is a status a Timorese order genuinely sits in. Tenta entrega maibé la hetan is the failed attempt: maibé is but, hetan is to find or obtain, and with cash on delivery so common a failed delivery is simultaneously a failed payment.
+locale: tet
+---
+Etiketa kria ona
+Iha dalan
+Sai ona ba entrega
+Entrega ona
+Iha problema
+Fila ba remetente
+Hein foti
+Tarde ona
+Iha alfándega
+Enderesu sala
+Tenta entrega maibé la hetan

@@ -1,0 +1,24 @@
+---
+description: Writing systems, and Mali carries four of its own. The first is the Latin alphabet in the official bamanankan orthography fixed in 1967 and revised in 1982, with ɛ ɔ ɲ ŋ added as full letters and q, v and x absent. The second is `Ajami` — African languages written in Arabic script — which is centuries older here than the Latin one and is what a great many of the Timbuktu manuscripts are in. The third is `N'Ko`, an alphabet invented in 1949 by Solomana Kanté specifically to write Manding, running right to left, tone-marked, and spread by a network of self-organised schools with no state support at all; it is a genuine, living, indigenous script and its users regard the Latin orthography as the colonial one. The fourth is `Tifinagh`, the consonantal script of the Tuareg, used across the north and among the oldest continuously written scripts in Africa. `Adlam`, invented in Guinea in 1989 for Fulfulde, has users in Mali too.
+locale: bm
+---
+Alphabet latin
+Orthographe officielle du bamanankan
+Ajami
+N'Ko
+Tifinagh
+Adlam
+Alphabet arabe
+Alphabet cyrillique
+Alphabet grec
+Alphabet hébreu
+Syllabaire éthiopien
+Devanagari
+Alphabet arménien
+Alphabet géorgien
+Hangul
+Hiragana
+Katakana
+Sinogrammes
+Alphabet thaï
+Braille

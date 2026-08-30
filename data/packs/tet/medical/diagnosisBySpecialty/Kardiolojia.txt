@@ -1,0 +1,14 @@
+---
+description: Cardiology diagnoses in Tetum. The first two entries are why this file does not look European. Rheumatic heart disease begins as an untreated streptococcal throat or skin infection in a child, scars the heart valves quietly over years, and presents as breathlessness in a woman of twenty-five; it has all but vanished from Western practice and it is among the commonest structural heart diseases in Timor-Leste, which is why estenoze mitrál is given its own line — the mitral valve is the one it ruins — and why visiting cardiac surgical missions here spend their operating lists on valves rather than on coronary grafts. Kardiomiopatia periparto sits in the same demographic space, a heart failure of late pregnancy and the first months after it. Korasaun, the ordinary Tetum word for heart, is Portuguese coração with the ç written s and -ão resolved to -aun; the clinical register above it keeps the Latinate kardíaka, so the language uses two depths of the same borrowing at once.
+locale: tet
+---
+Doensa kardíaka reumátika
+Febre reumátika akuda
+Estenoze mitrál
+Ipertensaun arteriál
+Doensa arteriál koronária
+Infartu miokárdiu
+Insufisiénsia kardíaka kronika
+Fibrilasaun atriál
+Endokardite infesioza
+Kardiomiopatia periparto

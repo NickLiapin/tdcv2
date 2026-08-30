@@ -1,0 +1,12 @@
+---
+description: Nigerian food, which reaches Mali the way Nigerian films and Nigerian music do: through trade, through Nollywood on television, and through the enormous cultural weight of a country of two hundred million next door but one. `Jollof rice` is the same one-pot rice dish Senegal calls thiéboudienne and Mali calls riz au gras, and the argument about whose version is best is a genuine and cheerfully ferocious West African internet institution. `Suya` is the spiced grilled beef skewer sold by Hausa butchers, and it has travelled up into Mali under that name.
+locale: bm
+---
+Jollof rice
+Egusi
+Suya
+Puff-puff
+Moi-moi
+Pounded yam
+Pepper soup
+Akara

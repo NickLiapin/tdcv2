@@ -1,0 +1,9 @@
+---
+description: Basketball positions in siSwati. Five values because five is the team, and each is described by what the player does rather than by a borrowed term: umdlali locondzisako, "the player who directs", is the point guard, from kucondzisa, to aim or to steer, which is the same verb used of pointing a vehicle down a road. The two forward positions are distinguished as lomncane and lomkhulu, small and big, exactly as English does with small and power forward, arrived at independently from the same fact about how tall each of them is. Basketball in Eswatini is a school and university sport, strongest at Kwaluseni, rather than a national one.
+locale: ss
+---
+Umdlali locondzisako
+Umdlali wemuva lohlaselako
+Umdlali wephiko lomncane
+Umdlali wephiko lomkhulu
+Umdlali wangekhatsi

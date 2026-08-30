@@ -1,0 +1,14 @@
+---
+description: American dishes as an Uzbek menu lists them, spelled the way they are pronounced rather than the way they are written in English: гамбургер, чизбургер, панкейк, чизкейк, донат. This is how a borrowing enters Uzbek — through the sound, then fixed in the script.
+locale: uz
+---
+гамбургер
+ҳот-дог
+барбекю қовурға
+чизбургер
+панкейк
+клаб сендвич
+мол гўштли стек
+олма пироқ
+чизкейк
+донат

@@ -1,0 +1,24 @@
+---
+description: IT jobs. The English job titles arrived intact and are simply attached to an Uzbek head noun: frontend дастурчи, DevOps муҳандиси, UX дизайнер. 1С дастурчиси is the 1C accounting-platform developer, a real and large job category across the post-Soviet space that has no western equivalent.
+locale: uz
+---
+дастурчи
+фронтенд дастурчи
+баскенд дастурчи
+мобил илова дастурчиси
+маълумотлар базаси мутахассиси
+тизим администратори
+тармоқ муҳандиси
+DevOps муҳандиси
+сифат назорати муҳандиси
+маълумотлар таҳлилчиси
+сунъий интеллект муҳандиси
+киберхавфсизлик мутахассиси
+UX дизайнер
+веб-дизайнер
+маҳсулот менежери
+лойиҳа менежери
+техник ёзувчи
+IT қўллаб-қувватлаш мутахассиси
+1С дастурчиси
+бош технология директори

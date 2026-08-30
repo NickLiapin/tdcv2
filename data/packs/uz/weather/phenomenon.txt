@@ -1,0 +1,19 @@
+---
+description: Weather and natural events, several of them specific to this landscape. Гармсел is the hot dry wind off the desert that can destroy a crop in a day; афғон шамоли blows in from the south; шўр бўрони is the salt storm lifted off the dried Aral seabed, which is a modern phenomenon with a name of its own. Зилзила is an earthquake, and Tashkent was rebuilt after one in 1966.
+locale: uz
+---
+гармсел
+афғон шамоли
+чанг бўрони
+қум бўрони
+шўр бўрони
+қурғоқчилик
+сел
+тошқин
+қор кўчкиси
+зилзила
+сароб
+қиров
+музлаш
+иссиқлик тўлқини
+совуқ тўлқини

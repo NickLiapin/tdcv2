@@ -1,0 +1,14 @@
+---
+description: French dishes as written in Uzbek. Most came through Russian, which is why they are spelled from the Russian pronunciation: круассан, рататуй, кок-о-вен, крем-бруле, багетка. The -ка on багетка is a Russian diminutive that stuck to the word on its way east.
+locale: uz
+---
+круассан
+рататуй
+киш
+буябес
+пиёз шўрваси
+кок-о-вен
+эклер
+крем-бруле
+багетка
+мус

@@ -1,0 +1,31 @@
+---
+description: Name suffixes and post-nominal qualifications. The international ones keep their Latin form on a business card. The Uzbek ones are abbreviations of Soviet-style academic degrees: ф.ф.н. is филология фанлари номзоди, и.ф.д. иқтисодиёт фанлари доктори, and so on through the fields. Both the old candidate degree and the new PhD are current.
+locale: uz
+---
+Jr.
+Sr.
+PhD
+DSc
+MBA
+MSc
+BSc
+LL.M.
+Бакалавр
+Магистр
+ф.ф.н.
+ф.ф.д.
+и.ф.н.
+и.ф.д.
+т.ф.н.
+т.ф.д.
+б.ф.н.
+п.ф.н.
+ю.ф.н.
+тиб.ф.н.
+Профессор
+Доцент
+Академик
+Нафақадор
+Фахрий доктор
+Катта илмий ходим
+Кичик илмий ходим

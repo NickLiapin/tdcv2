@@ -1,0 +1,36 @@
+---
+description: Birds an Uzbek speaker names without thinking. Лайлак storks nest on the poles of half the country's villages, and қирғовул, каклик and бедана are the game birds of the foothills. Several names carry ғ or ў: қалдирғоч, зарғалдоқ, бойўғли, тўдақуш, ўрдак, ғоз.
+locale: uz
+---
+лайлак
+турна
+бургут
+қирғий
+лочин
+калхат
+бойўғли
+укки
+каптар
+мусича
+чумчуқ
+қалдирғоч
+зарғалдоқ
+сассиқпопишак
+булбул
+қора қарға
+зоғча
+ҳакка
+каклик
+бедана
+қирғовул
+товуқ
+хўроз
+ўрдак
+ғоз
+курка
+тўдақуш
+товус
+тутиқуш
+қора қуш
+балиқчи қуш
+оққуш

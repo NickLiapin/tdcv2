@@ -1,0 +1,10 @@
+---
+description: Cardiology diagnosis in Eswatini. Tetinhlitiyo is "matters of the hearts", built with the class 10 possessive te- on the plural of inhlitiyo. One entry does not belong on a European cardiology list at all: rheumatic heart disease, the scarring of the heart valves left behind by untreated streptococcal throat infection in childhood, has all but vanished from wealthy countries and remains a leading cause of heart failure in young adults across southern Africa, including here. Beside it sits the newer burden — hypertension, which Eswatini's own STEPS survey found in roughly a quarter of adults and most of them undiagnosed, and the heart failure and cardiomyopathy that follow it.
+locale: ss
+---
+Sifo senhlitiyo lesibangwa yi-rheumatic fever
+Kuhlaselwa yinhlitiyo
+Kuhluleka kwenhlitiyo
+Umfutfo wengati lophakeme
+I-atrial fibrillation
+I-cardiomyopathy

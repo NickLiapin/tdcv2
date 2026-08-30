@@ -1,0 +1,6 @@
+---
+description: Gender label in siSwati. Two values, matching en and ru — this list is what a parent= filter selects on, so a longer one silently leaves most rows without a name. The forms are relative constructions built on the noun bulili, sex or gender: lomdvuna is "the male one" and lomsikati "the female one", where lo- is the relative concord and the stem carries the meaning. A bare mdvuna or msikati is not a word on its own in this position, which is why the lo- cannot be dropped to make the column shorter. Note that the same two stems serve people and cattle alike; siSwati draws no lexical line there, and inkhomo lomsikati is a cow.
+locale: ss
+---
+Lomdvuna
+Lomsikati

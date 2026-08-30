@@ -1,0 +1,34 @@
+---
+description: Birds, and the first thing to know is that Tetum manu covers the chicken in the yard and the bird in the tree with one word, so the list opens with manu fuik, wild manu, which is how a speaker separates the two — fuik is wild or feral and is the same modifier used of an untended garden. Kakatua stands second because the yellow-crested cockatoo is Timor's own: it was trapped for the cage-bird trade until the wild population collapsed, and the surviving flocks on Timor and on Rote are now a large share of what is left of the species anywhere. Kuku is the dove of the dry forest. Everything after that is Portuguese put through the spelling rules, and several entries earn their place by showing one clearly: andorinha becomes andoriña and cegonha becomes segoña on the nh rule, coruja and corvo become koruja and korvu on c before o, avestruz and condor take the acute that Tetum writes on a stressed final syllable to give avestrús and kondór, and falcão becomes falkaun on the nasal ending. Martín-peskadór is the kingfisher and keeps the Portuguese compound whole, both halves respelled.
+locale: tet
+---
+Kakatua
+Manu fuik
+Pombu
+Gaivota
+Falkaun
+Koruja
+Papagaiu
+Perikitu
+Garsa
+Martín-peskadór
+Pelikanu
+Flamingu
+Sisne
+Korvu
+Andoriña
+Pardal
+Kuku
+Pinguin
+Avestrús
+Segoña
+Tukanu
+Kondór
+Kolibrí
+Pika-pau
+Kanáriu
+Rouxinól
+Patu
+Gansu
+Peru
+Pavaun

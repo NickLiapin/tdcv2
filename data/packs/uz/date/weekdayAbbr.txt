@@ -1,0 +1,11 @@
+---
+description: Short weekday forms for a calendar header or a timetable. Unlike the full names these are capitalised, and unlike the month abbreviations they vary in length — Як, Душ, Сеш, Чор, Пай, Жум, Шан — because the shanba tail has to be cut off without losing the number.
+locale: uz
+---
+Як
+Душ
+Сеш
+Чор
+Пай
+Жум
+Шан

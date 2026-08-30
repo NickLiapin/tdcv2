@@ -1,0 +1,15 @@
+---
+description: Reaction labels. Gosta is to like, from Portuguese gostar with the infinitive ending cut off — the standard way this pack takes a Portuguese verb, since a Tetum verb has no ending of its own to replace it with. Domin is love, native and unrelated to any loan. Hirus is anger, also native, and it stands where a Portuguese list writes Grr. Forsa, strength, is the reaction sent to someone in trouble and is worth noting as a genuine idiom rather than a translation: it is what Timorese write under a post about an illness or a death, and it carries more weight than the English support does.
+locale: tet
+---
+Gosta
+Domin
+Haha
+Uau
+Triste
+Hirus
+Forsa
+Selebra
+Apoia
+Interesante
+Kuriozu

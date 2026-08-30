@@ -1,0 +1,20 @@
+---
+description: Video game genres. Most are Portuguese abstractions put through the -ção to -saun rule — ação to asaun, simulação to simulasaun, sobrevivência to sobrevivénsia — and the ones that arrived in English after 1999 are simply kept, which is why RPG, MMORPG and Roguelike sit unaltered in the middle of a Tetum list. Mundu nakloke is the open-world entry and it uses Tetum's own nakloke, open, rather than a loan; the same word gives kódigu nakloke for open source. Kebra-kabesa is the puzzle genre, a calque of Portuguese quebra-cabeça, head-breaker, with the ç written s.
+locale: tet
+---
+Asaun
+Aventura
+RPG
+Estratéjia
+Simulasaun
+Desportu
+Kebra-kabesa
+Tiru
+Plataforma
+Korrida
+Luta
+Sobrevivénsia
+Mundu nakloke
+MMORPG
+Roguelike
+Teror

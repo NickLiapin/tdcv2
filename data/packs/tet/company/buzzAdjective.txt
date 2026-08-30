@@ -1,0 +1,58 @@
+---
+description: Business buzz adjective in Tetum, for corporate catch-phrases; compose with buzzNoun and buzzVerb. One form serves every context, and that is a fact about the grammar rather than a shortcut taken here: Tetum has no grammatical gender and no number agreement on the modifier, so where a Portuguese list has to declare itself masculine singular and leave the feminine to the config, this list simply has no second form to give. The modifier also follows its noun, which is why several entries are written as the phrase they occur in — impaktu aas and dezempeñu aas put aas, high, after the noun exactly as uma boot puts big after house — and why a config that prefixes an adjective to a Tetum noun will produce something no speaker would say. Ba is the preposition to or for and links the target of an attribute: sentradu ba kliente, bazeadu ba dadus, preparadu ba futuru. The loans arrive by the standard rules and one of them is a clean specimen of h-dropping in an unexpected place: holístico gives Olístiku, as homologado gives omologadu, the same loss that turns hospital into ospitál. Elsewhere ágil gives ájil with g before i becoming j, and the acute on integrál, transversál, dijitál, globál and omnikanál marks the stressed final syllable that Tetum writes wherever Portuguese leaves it unmarked. Three native adjectives sit among the loans without translation because they are the words actually used: metin is firm or solid, matak is green and raw and has been picked up for the environmental sense, and neither has a Portuguese equivalent on this list.
+locale: tet
+---
+eskalável
+ájil
+integrál
+robustu
+integradu
+distribuidu
+otimizadu
+seguru
+intelijente
+automatizadu
+unifikadu
+kolaborativu
+inovadór
+disruptivu
+modulár
+sustentável
+proativu
+adaptativu
+flexível
+reziliente
+elástiku
+extensível
+estratéjiku
+transversál
+olístiku
+omnikanál
+multikanál
+personalizadu
+sertifikadu
+omologadu
+interoperável
+rastreável
+auditável
+transparente
+efisiente
+rentável
+kompetitivu
+profisionál
+dijitál
+globál
+kriativu
+dinámiku
+matak
+avansadu
+metin
+multiplataforma
+sentradu ba kliente
+bazeadu ba dadus
+jerasaun foun
+klase mundiál
+misaun krítika
+impaktu aas
+dezempeñu a'as
+preparadu ba futuru

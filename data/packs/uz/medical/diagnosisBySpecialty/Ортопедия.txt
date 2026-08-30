@@ -1,0 +1,16 @@
+---
+description: Orthopaedic diagnoses. Остеоартроз and ревматоид артрит are the chronic pair; суяк синиши and мениск шикастланиши the acute ones. Товон шпораси — heel spur — is the calcaneal spur, and сколиоз and кифоз are the two spinal curvatures screened for at school.
+locale: uz
+---
+Остеоартроз
+Ревматоид артрит
+Подагра
+Сколиоз
+Умуртқа чурраси
+Суяк синиши
+Мениск шикастланиши
+Елка бўғими чиқиши
+Товон шпораси
+Остеомиелит
+Дисплазия
+Кифоз

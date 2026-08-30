@@ -1,0 +1,59 @@
+---
+description: Sports. The order is Timor-Leste's rather than Europe's: football first, then futsal, which may in practice be bigger because a concrete court fits inside a schoolyard where a full pitch does not, and volleyball, which needs only a net strung between two posts and is therefore the sport of every village square and every mission compound in the interior. Two entries carry a history a plain list would hide. Arte marsiál and Pencak silat are not hobbies here: the martial arts groups — PSHT, KORK, Kmanek Oan Rai Klaran and the rest — came in with the Indonesian period, recruited heavily among young men after 1999, and were banned outright by parliament in 2013 after their rivalries turned into street violence, so a Timorese record naming one is naming something politically loaded. Mergullu and Snorkeling are here because the reefs off Atauro were measured to hold the highest average reef-fish diversity of any site surveyed anywhere, and diving is the country's one export-grade tourism product. Sa'e foho, literally climb mountain, is the overnight walk up Ramelau. Hoki jelu stays on the list as a world sport and not a local one, for the obvious reason.
+locale: tet
+---
+Futebol
+Futsál
+Basketbol
+Voleibol
+Voleibol tasi-ibun
+Handebol
+Beisbol
+Softbol
+Rugby
+Rugby sevens
+Kríkete
+Hoki rai-maran
+Hoki jelu
+Ténis
+Padel
+Ténis meza
+Badminton
+Squash
+Golfe
+Natasaun
+Polo akuátiku
+Atletizmu
+Siklizmu
+Siklizmu foho
+Boksu
+Luta livre
+Judo
+Karaté
+Taekwondo
+Arte marsiál
+Pencak silat
+Esgrima
+Jinástika artístika
+Jinástika rítmika
+Alterofilizmu
+Triatlu
+Remu
+Kanoajen
+Vela
+Surf
+Mergullu
+Snorkeling
+Peska desportiva
+Eskalada desportiva
+Sa'e foho
+Tiru ho arku
+Tiru desportivu
+Ipizmu
+Automobilizmu
+Motosiklizmu
+Skate
+Boliche
+Bilyar
+Xadrez
+Domino

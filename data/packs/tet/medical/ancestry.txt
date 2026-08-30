@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry groups as clinical genetics defines them, named in Tetum, and used as the parent of diagnosisByAncestry. These are populations of geographic descent, not social race categories. Two entries are here for Timor-Leste rather than for the textbook. Melanéziu no Papua is on the list because the country is a genetic seam: the Tetum, Mambai, Kemak and Tokodede speak Austronesian languages, while the Fataluku of Lospalos, the Makasae of Baucau and the Bunak of the Bobonaro highlands speak Papuan ones, and the deep ancestry follows the languages more often than the map. Illa Pasífiku covers the Austronesian island populations Timor belongs to and shares its thalassaemia and diabetes risk profile with. The words show the usual borrowing rules: Portuguese oriental keeps its shape, mediterrâneo drops its circumflex and its final o to give Mediteráneu, and the compound is built with no, the Tetum word for and, rather than with a Portuguese e.
+locale: tet
+---
+Afrikanu Sub-Sariana
+Judeu Askenazi
+Aziátiku Leste
+Europeu Norte
+Aziátiku Súl
+Aziátiku Sudeste
+Mediteráneu
+Europeu Leste
+Melanéziu no Papua
+Illa Pasífiku
+Médiu-Orientál
+Afrikanu Norte

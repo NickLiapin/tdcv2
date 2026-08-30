@@ -1,0 +1,32 @@
+---
+description: Tree in Eswatini. Umganu, the marula, is first for good reason: it is protected by law and by custom, it may not be felled without permission, its fruit makes buganu and its kernels an oil, and the annual Buganu ceremony at which the Queen Mother receives the first brew is built around it. Umphafa, the buffalo thorn, is the tree used to fetch a spirit home from the place where a person died, and it is planted on graves. The block from iphayini onward is a different kind of fact about the country: the Usutu forest around Bhunya and the plantations above Piggs Peak are among the largest hand-planted pine and eucalyptus forests in Africa, established from the 1940s, and they cover a substantial share of the highveld with trees that have no siSwati name because they arrived with the plantation. Note the class 3 um- prefix on every indigenous tree and the class 9 i- on every introduced one; the grammar records the history.
+locale: ss
+---
+Umganu
+Umkhaya
+Umtfolo
+Umphafa
+Umnyamatsi
+Umdvoni
+Umsintsi
+Umkhiwa
+Umtfombe
+Umsasane
+Umnquma
+Umkhuhlu
+Umsimbitsi
+Umgwenya
+Umkhanyakudze
+Umtfombotsi
+Ibhawobhabhu
+Umlala
+Isundvu
+Iphayini
+Ibhulugamu
+Iwatela
+Isipresi
+Ijakaranda
+Sihlahla seligwava
+Sihlahla selimango
+Sihlahla selilamula
+Sihlahla seliavocado

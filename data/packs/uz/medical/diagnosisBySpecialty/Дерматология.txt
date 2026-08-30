@@ -1,0 +1,16 @@
+---
+description: Skin diagnoses. Атопик дерматит and псориаз head any dermatology clinic's list; чесотка is scabies, замбуруғли тери касаллиги a fungal infection. Алопеция and витилиго are the two conditions patients most often present with for cosmetic rather than medical reasons.
+locale: uz
+---
+Атопик дерматит
+Псориаз
+Экзема
+Эшакеми
+Акне
+Витилиго
+Замбуруғли тери касаллиги
+Чесотка
+Розацеа
+Алопеция
+Тери саратони
+Контакт дерматит

@@ -1,0 +1,46 @@
+---
+description: Workplace skill in siSwati, and every value is a class 15 infinitive in ku- because that is the only way the language names an ability: there is no noun "literacy", only kubhala, "to write", used as the name of the thing. Two entries record something specific about working life in Eswatini. Kukhuluma siNgisi is listed as a skill rather than assumed, because although English is an official language and the language of instruction from the fourth year of school, fluency is unevenly distributed and it is genuinely a qualification on a job advertisement here. Kushayela iloli is separate from kushayela because the licence classes are separate and because cross-border haulage to Durban and Maputo is a distinct trade. Note that these infinitives cannot be pluralised or counted, so a form asking a candidate to list three of them is asking for three phrases rather than three nouns.
+locale: ss
+---
+Kushayela imoto
+Kushayela iloli
+Kusebentisa igandaganda
+Kubhala ngekhompiyutha
+Kukhuluma siNgisi
+Kukhuluma siSwati
+Kubala timali
+Kuhlela timali
+Kwakha ngetitini
+Kubata tigodvo
+Kutfunga
+Kuluka
+Kupheka
+Kwelapha
+Kunakekela tigulane
+Kufundzisa
+Kuhlela imisebenti
+Kuphatsa bantfu
+Kutsengisa
+Kucwaninga
+Kubhala imibiko
+Kuhumusha
+Kulungisa imishini
+Kufaka emagetsi
+Kufaka emapayipi
+Kupenda
+Kulima
+Kufuya tinkhukhu
+Kwelusa tifuyo
+Kuhlanganisa imininingwane
+Kubhala tinhlelo tekhompiyutha
+Kusebentisa i-inthanethi
+Kusita ekuphepheni
+Kucima umlilo
+Kuqhumisa ematje
+Kuhlola khwalithi
+Kupakisha timphahla
+Kugcina timphahla
+Kusebentisa umshini wekutfunga
+Kukhuluma nebantfu
+Kufundza emamephu
+Kuhlela imicimbi

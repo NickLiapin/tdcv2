@@ -1,0 +1,58 @@
+---
+description: Colours as a Malian product listing names them, in French — and the contrast with color/name in this same pack is the point. Bambara has three basic colour terms and describes everything else by comparison to a thing; the moment cloth is being sold by shade, that system cannot do the work and the trade switches wholesale into French. The last two values are Malian categories rather than colours: `Bazin blanc` is undyed damask, which is what a customer buys before taking it to a dyer, and `Bogolan naturel` is the undyed brown-and-cream of mud cloth before any pattern is applied. Indigo is on the list because the indigo pits of the old dyers' quarters produced a blue so dark it reads as black.
+locale: bm
+---
+Blanc
+Blanc cassé
+Écru
+Crème
+Ivoire
+Beige
+Sable
+Kaki
+Marron
+Chocolat
+Café
+Caramel
+Bronze
+Cuivre
+Or
+Doré
+Argenté
+Gris
+Gris clair
+Gris foncé
+Anthracite
+Noir
+Rouge
+Rouge brique
+Bordeaux
+Grenat
+Rose
+Rose poudré
+Fuchsia
+Corail
+Orange
+Mandarine
+Jaune
+Jaune moutarde
+Ocre
+Vert
+Vert olive
+Vert bouteille
+Vert émeraude
+Kaki clair
+Bleu
+Bleu ciel
+Bleu roi
+Bleu marine
+Indigo
+Turquoise
+Violet
+Mauve
+Lilas
+Prune
+Multicolore
+Bicolore
+Bazin blanc
+Bogolan naturel

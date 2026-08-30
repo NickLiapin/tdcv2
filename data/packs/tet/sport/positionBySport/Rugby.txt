@@ -1,0 +1,14 @@
+---
+description: Rugby positions. The game came to Timor-Leste sideways, through Australian soldiers and aid workers after 1999 rather than through any Portuguese route, so the Tetum vocabulary is a mixture: Pilár and Talonadór and Abertura are Portuguese, while Fullback and the scrum in Médiu-scrum stayed English because they arrived that way. Númeru walu is the number eight, and walu is Tetum's own numeral — the one place on this list where the language names a position with a word of its own. Segunda liña shows the pack's handling of Portuguese linha, with nh written ñ elsewhere but ll and ñ both giving way to a plain spelling in the well-established loan liña.
+locale: tet
+---
+Pilár
+Talonadór
+Segunda liña
+Terseira liña
+Númeru walu
+Médiu-scrum
+Abertura
+Sentru
+Ponta
+Fullback

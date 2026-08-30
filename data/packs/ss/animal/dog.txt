@@ -1,0 +1,29 @@
+---
+description: Dog breed in Eswatini. The first two entries carry the real content. Inja yasekhaya is the homestead dog, kept to guard and to hunt and known by its own name rather than by a breed. I-Africanis is that same animal described formally: the indigenous southern African landrace, descended from dogs that came south with Bantu-speaking farmers more than a thousand years ago, shaped by selection for heat, disease resistance and self-sufficiency rather than by a breed standard, and recognised as a landrace only in the 1990s. Ibhoerbhulu, the boerboel, and irhodeshiyani rijibheki, the Rhodesian ridgeback, are the two breeds actually developed in this part of the world, the second from a crossing with an indigenous ridged dog of the Khoikhoi. Everything after them is an imported show or working breed registered through South Africa.
+locale: ss
+---
+Inja yasekhaya
+I-Africanis
+Ibhoerbhulu
+Irhodeshiyani Rijibheki
+IJemani Shephedi
+Ilebradori
+Igolideni Rithriva
+Ibhulu Terhiya
+Ijeki Rasela
+Ibhokisa
+Ibhuldogi
+Ibhithi Bhulu
+Idashundi
+Ibigili
+Ipudili
+Ichihuhuwa
+Idobhemani
+Irotiwela
+Igreyhawundi
+Igreyti Deyni
+Iseyinti Bhenadi
+Ihaski
+Ibhoda Kholi
+Ikhoka Speniyeli
+Imalinowa

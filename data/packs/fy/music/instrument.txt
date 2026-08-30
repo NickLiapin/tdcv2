@@ -1,0 +1,36 @@
+---
+description: Musical instrument (West Frisian). The oargel is the instrument the province actually owns: Fryslân's village churches hold an unusually dense collection of seventeenth- and eighteenth-century organs, kept because the villages were rich enough on dairy and cattle to commission them and poor enough afterwards never to replace them, and a Frisian village with two hundred people can have an instrument a city would be glad of. The beiaard, the tower carillon of the Low Countries, is UNESCO-listed as a playing tradition, and the draaioargel is the street barrel organ. Watch the spellings: a violin is a fioele and a viola an altfioele, where Dutch has viool; a mouth organ is a mûlharmonika from mûle, the mouth; a transverse flute is a dwersfluit from dwers, across; and organ is oargel with the Frisian oa that Dutch writes as plain o. Fleugel, the grand piano, is the same word as the wing it is named for.
+locale: fy
+---
+Gitaar
+Klassike gitaar
+Basgitaar
+Piano
+Fleugel
+Fioele
+Altfioele
+Cello
+Kontrabas
+Drumstel
+Saksofoan
+Trompet
+Trombone
+Dwersfluit
+Blokfluit
+Klarinet
+Hobo
+Fagot
+Harp
+Ukelele
+Banjo
+Akkordeon
+Keyboard
+Mûlharmonika
+Xylofoan
+Pauken
+Tamboeryn
+Oargel
+Doedelsek
+Draailier
+Draaioargel
+Beiaard

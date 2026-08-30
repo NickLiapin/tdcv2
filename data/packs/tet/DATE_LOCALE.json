@@ -1,0 +1,47 @@
+{
+  "months": [
+    "Janeiru",
+    "Fevereiru",
+    "Marsu",
+    "Abríl",
+    "Maiu",
+    "Juñu",
+    "Jullu",
+    "Agostu",
+    "Setembru",
+    "Outubru",
+    "Novembru",
+    "Dezembru"
+  ],
+  "monthsShort": [
+    "Jan",
+    "Fev",
+    "Mar",
+    "Abr",
+    "Mai",
+    "Jun",
+    "Jul",
+    "Ago",
+    "Set",
+    "Out",
+    "Nov",
+    "Dez"
+  ],
+  "weekdays": [
+    "Domingu",
+    "Segunda-feira",
+    "Tersa-feira",
+    "Kuarta-feira",
+    "Kinta-feira",
+    "Sesta-feira",
+    "Sábadu"
+  ],
+  "weekdaysShort": ["Dom", "Seg", "Ters", "Kua", "Kin", "Ses", "Sáb"],
+  "formats": {
+    "L": "DD/MM/YYYY",
+    "LL": "D MMMM YYYY",
+    "LLL": "D MMMM YYYY HH:mm",
+    "LLLL": "dddd, D MMMM YYYY HH:mm"
+  },
+  "notes": "Tetum takes its month names from Portuguese and respells them by its own rules — Marsu for março, Abríl for abril with the acute that marks the stressed final syllable, Juñu and Jullu for junho and julho where nh becomes ñ and lh becomes ll. The weekdays are the Portuguese counting series, segunda-feira through sesta-feira, with Domingu and Sábadu at the ends; Timor-Leste writes dates day-first as Portugal does."
+}

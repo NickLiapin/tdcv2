@@ -1,0 +1,21 @@
+---
+description: Cuisines, as a Bamako restaurant or delivery listing names them — the parent of food/dishByCuisine, so every value here has a file of that exact name beside it. The list is a portrait of who came to Mali and why. `Libanais` is high because Lebanese traders have been in Bamako since the 1890s and their descendants are Malian merchants; `Chinois` because Chinese construction firms built the bridges and the crews brought cooks; `Turc` because Turkey has expanded into West Africa hard since the 2000s and flies here daily; `Marocain` and `Algérien` because the Sahara is a road and not a wall; and the West African entries because Malians migrate to Abidjan, Dakar and Lagos in enormous numbers and the cooking comes home with them. `Peul` is the odd one and the most interesting: it is not a foreign cuisine but an internal one, the milk-based diet of Mali's own herding people, genuinely distinct from the millet-and-sauce kitchen of the farmers around them.
+locale: bm
+---
+Malien
+Sénégalais
+Ivoirien
+Libanais
+Marocain
+Chinois
+Italien
+Indien
+Turc
+Français
+Américain
+Burkinabè
+Nigérian
+Ghanéen
+Mauritanien
+Algérien
+Peul

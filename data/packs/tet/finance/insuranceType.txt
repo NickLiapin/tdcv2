@@ -1,0 +1,18 @@
+---
+description: Insurance types, and two of them show Tetum keeping its own word where the surrounding term is borrowed: dental cover is seguru nehan, from nehan a tooth, and vision cover is seguru matan, from matan an eye — the same matan that appears in matan dook, the seer, literally the far-seeing one. The pattern is general in this pack: body parts, kinship, food and land stay Austronesian while the administrative frame around them is Portuguese. What the list overstates is take-up. Insurance of any kind is rare outside Dili and outside the formal employment sector, health care is provided free at state clinics, and the customary safety net that actually absorbs a household's losses is the obligation between houses rather than a policy.
+locale: tet
+---
+Saúde
+Kareta
+Uma
+Moris
+Inkilinu
+Viajen
+Animál
+Invalides
+Nehan
+Matan
+Responsabilidade sivíl
+Asidente pesoál
+Dezempregu
+Agríkola

@@ -1,0 +1,20 @@
+---
+description: Rooms, arranged around a house that faces inward. `Lu` is the courtyard and it is the principal room in every sense that matters: cooking, eating, washing, receiving and — through the hot season — sleeping all happen there rather than indoors. `Tobiliyɔrɔ` is the cooking place, and `Kɛnɛma tobiliyɔrɔ` the outdoor one, which is the normal arrangement; a fitted indoor kitchen is a modern and relatively expensive feature. `Bulon` is the roofed entrance passage where a visitor is received before being admitted further, and it is a social boundary as much as a room. `Ɲɛgɛn` is the latrine. Four values keep French forms — Magasin, Véranda, Terrasse and the loan Salɔn — as fittings of concrete-built housing, and Salɔn is written in Bambara spelling because that is how it is said.
+locale: bm
+---
+Salɔn
+So
+So ba
+Sunɔgɔso
+Tobiliyɔrɔ
+Kɛnɛma tobiliyɔrɔ
+Ko yɔrɔ
+Ɲɛgɛn
+Fɛn marayɔrɔ
+Lu
+Bulon
+Mɔbili bilayɔrɔ
+Biro
+Magasin
+Véranda
+Terrasse

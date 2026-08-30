@@ -1,0 +1,62 @@
+---
+description: Materials, composed with the possessive particle nia or simply juxtaposed — meza ai, a wooden table. The list opens with a collision worth knowing about. Portuguese aço, steel, would respell to asu, and asu is already the Tetum word for dog, so steel is not called that: Tetum uses besi, borrowed from Malay, for iron and steel alike, and besi inoksidável for the stainless kind. Malay and Indonesian supply the other everyday materials too, rotan for rattan among them, while ai is the native word for both tree and wood and prefixes the timbers: ai-teka teak, ai-mahoni mahogany, ai-karvallu oak with carvalho's lh respelled ll. Ai-kameli is sandalwood and it is the reason outsiders came at all — Chinese and Javanese traders were buying Timorese sandalwood centuries before the Portuguese arrived in the sixteenth century to take the trade over, and the stands were cut out so thoroughly that the tree is now scarce on its own island. Au is bamboo, akadiru the lontar palm whose leaf thatches and whose sap is tapped, tali-nuu coconut fibre, rai-mean the red clay, fatuk stone. Tais sits among the fabrics as a material in its own right because a bag, a cushion or a book cover made of it is described that way and priced accordingly.
+locale: tet
+---
+besi
+besi inoksidável
+alumíniu
+kobre
+lataun
+bronze
+titániu
+zinku
+ai
+ai-teka
+ai-kameli
+ai-karvallu
+ai-nogueira
+ai-pinyu
+ai-sedru
+ai-mahoni
+au
+rotan
+akadiru
+tali-nuu
+kortisa
+plástiku
+polikarbonatu
+poliéster
+náilon
+akríliku
+rezina
+silikone
+borraxa
+espuma
+algodaun
+linyu
+seda
+kouru
+kouru sintétiku
+kamursa
+feltru
+lona
+jeans
+tais
+vidru
+kristál
+serámika
+porselana
+gres
+mármore
+granitu
+ardózia
+simentu
+fatuk
+rai-mean
+papél
+kartaun
+fibra karbonu
+fibra vidru
+neoprene
+veludu
+juta

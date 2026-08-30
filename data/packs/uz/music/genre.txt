@@ -1,0 +1,39 @@
+---
+description: Musical genres, classical Uzbek forms first. Шашмақом is the six-maqom cycle of Bukhara and Samarkand, a UNESCO-listed repertoire; мақом is the wider system it belongs to. Катта ашула is the loud unaccompanied Fergana song sung with a plate held to the face. Only after these come эстрада and the imported genres.
+locale: uz
+---
+шашмақом
+мақом
+катта ашула
+лапар
+ялла
+алла
+терма
+достон
+қўшиқ
+халқ қўшиғи
+эстрада
+замонавий поп
+ретро
+рок
+метал
+алтернатив
+хип-хоп
+реп
+электрон мусиқа
+диско
+хаус
+теҳно
+даб-степ
+жаз
+блюз
+соул
+классик мусиқа
+опера
+симфоник мусиқа
+камера мусиқаси
+хор мусиқаси
+болалар қўшиқлари
+диний қўшиқлар
+кино мусиқаси
+рақс мусиқаси

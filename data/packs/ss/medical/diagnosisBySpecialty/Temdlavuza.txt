@@ -1,0 +1,10 @@
+---
+description: Oncology diagnosis in Eswatini. Temdlavuza is "matters of the cancer", and umdlavuza is one of the few disease names siSwati built from its own roots rather than borrowing. The cancer profile here is not a European one. Kaposi sarcoma and cervical cancer are both driven by viruses that flourish under immune suppression, and in a country with this much HIV they crowd out the tumours a wealthy country's oncology service is organised around; liver cancer follows chronic hepatitis B, which is widespread and often acquired in infancy. Eswatini has no radiotherapy unit of its own, so treatment for several of these means referral across the border to South Africa, which is a fact about the pathway rather than about the diagnosis but shapes every record that carries one.
+locale: ss
+---
+Umdlavuza wesibeletfo
+Umdlavuza webele
+I-Kaposi sarcoma
+Umdlavuza wesibindzi
+Umdlavuza we-prostate
+I-lymphoma

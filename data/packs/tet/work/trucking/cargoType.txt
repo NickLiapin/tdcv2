@@ -1,0 +1,17 @@
+---
+description: What a truck is carrying. Ai is the entry to read first: it is the Austronesian word for tree and for wood alike, and it is the most productive noun in the language, heading a compound family that runs from ai-fuan fruit and ai-tahan leaf to ai-manas chilli, ai-moruk medicine and aidila papaya — so timber freight is named with a bare native monosyllable while the trailer types around it are Portuguese. Maran is dry and kraik is low, both native, both following the noun they modify, in Kaixa maran and Prancha kraik. Animál moris is livestock, literally living animals, and it is a large real category: pigs, goats and buffalo move by road constantly, tied on the tray of the same open truck that is carrying people. The value that a European list would treat as routine and that is genuinely rare here is Refrijeradu — the cold chain barely exists outside Dili and the vaccine and fish trades, so refrigerated freight should be weighted as an exception rather than as one thirteenth of the traffic.
+locale: tet
+---
+Kaixa maran
+Refrijeradu
+Plataforma
+Tanke
+Animál moris
+Materiál perigozu
+Konteinér intermodál
+Transportadór kareta
+Prancha kraik
+Plataforma eskalonada
+Kasamba baskulante
+Granél
+Ai

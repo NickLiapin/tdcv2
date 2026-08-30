@@ -1,0 +1,26 @@
+---
+description: Allergen recorded in an Eswatini clinic file, and the list is written the way the file is written — a siSwati noun where the thing has a siSwati name and an i- prefixed loan where it does not. Emantongomane, groundnuts, heads the food block because groundnuts are not an occasional snack here: they are ground into umbidvo wetintsanga, the pumpkin-leaf dish, and into siphuphe setindlubu, so a groundnut allergy in Eswatini restricts a staple rather than a treat. Kulunywa tinyosi, bee sting, matters more than it would in a city because beekeeping is a common rural sideline and swarms are handled without equipment. Note that the two sting entries are verb phrases, kulunywa meaning "to be bitten", because siSwati names the reaction by the event that caused it rather than by the substance.
+locale: ss
+---
+Emantongomane
+Tinhlavu
+Tinhlanti
+I-shellfish
+Emacandza
+Lubisi
+I-gluten
+Soya
+Uju
+Ipenicillin
+I-sulfa
+I-aspirin
+I-ibuprofen
+I-iodine
+Lutfuli lwendlu
+Impuphu yembali
+Tinwele tetilwane
+Kulunywa tinyosi
+Kulunywa tintfutfwane
+I-latex
+Insipho
+Lilanga

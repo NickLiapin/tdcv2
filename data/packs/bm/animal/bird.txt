@@ -1,0 +1,40 @@
+---
+description: Birds. Bambara names precisely what a farmer, a hunter or a cook has to deal with and leaves the rest as kɔnɔ, simply bird — kami is the helmeted guinea fowl, the commonest meat bird in a Malian village, wɔlɔ the francolin the dogs put up out of the millet, sɛgɛ the hawk that takes the chicks, and duga the vulture. Duga is worth its own line. It is also the name of the most charged praise song in the whole Mandé repertoire, which a jeli plays only for someone who has done something exceptional, and a man who has the Duga played for him is understood to be spending his reputation on it. The rest are French, which is not a gap in the language so much as a difference in what gets named. Mali's Inner Niger Delta is one of Africa's great wetlands, a wintering ground for European waterbirds, and its bird lists are kept in French and Latin by the ornithologists who compile them.
+locale: bm
+---
+kɔnɔ
+duga
+kami
+wɔlɔ
+sɛgɛ
+tourterelle
+pigeon
+tisserin
+bulbul
+gonolek
+rollier
+guêpier
+martin-pêcheur
+calao
+touraco
+huppe
+hirondelle
+engoulevent
+cigogne
+marabout
+héron
+aigrette
+ombrette
+ibis
+spatule
+jacana
+pélican
+cormoran
+flamant
+grue couronnée
+outarde
+autruche
+milan noir
+aigle pêcheur
+faucon
+chouette

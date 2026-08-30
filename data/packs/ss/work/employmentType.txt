@@ -1,0 +1,15 @@
+---
+description: Form of employment in Eswatini, and three of these describe most of the working country rather than an exception to it. Umsebenti wenkhatsi yemnyaka, seasonal work, is the sugar industry: cane cutting runs from April to December and the estates at Big Bend, Mhlume and Simunye take on thousands for the crush and lay them off after it, which makes seasonal employment a structural feature of the labour market rather than a category on the edge of it. Umsebenti welilanga, day labour, is hired at the gate in the morning and paid at the end of the day. Umsebenti lotisebentelako covers the informal trader, who on most measures is the single largest occupational group in the country and appears in no payroll at all. Note the construction: each value is umsebenti, worker, plus a possessive phrase, so the head noun is always the person rather than the contract.
+locale: ss
+---
+Umsebenti waphakadze
+Umsebenti wesivumelwane
+Umsebenti wetikhatsi tonkhe
+Umsebenti wesigamu selikhatsi
+Umsebenti wesikhashana
+Umsebenti wenkhatsi yemnyaka
+Umsebenti welilanga
+Umfundzi wemsebenti
+Umsebenti lotivolontiyile
+Umsebenti lotisebentelako
+Umsebenti wangaphandle

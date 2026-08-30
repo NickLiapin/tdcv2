@@ -1,0 +1,149 @@
+---
+description: Goods sold in Mali. The Bambara block at the head is the market register — `malo` rice, `ɲɔ` millet, `kaba` maize, `tiga` groundnuts, `kɔgɔ` salt, `nɔnɔ` milk, `sumbala` the fermented néré condiment, `si tulu` shea butter, `fini` cloth, `nɛgɛso` the bicycle — and several of them appear again below in French, because that is exactly what a Malian record looks like: the same sack of rice is malo to the woman selling it and riz on the invoice. Read as a whole the rest describes an economy. The energy block is the tell: `Panneau solaire`, `Lampe solaire`, `Groupe électrogène`, `Onduleur` and `Batterie` are mass-market consumer goods here, because the grid reaches a minority and load-sheds where it does, so a household's most consequential electrical purchase is the thing that works when the power does not. `Moustiquaire` is a public-health intervention sold in every market, in a country where malaria is the leading cause of death in children. `Charbon de bois` is what most urban Malians cook on, and its consumption is the main driver of deforestation around the cities.
+locale: bm
+---
+Malo
+Ɲɔ
+Kaba
+Tiga
+Kɔgɔ
+Nɔnɔ
+Sumbala
+Si tulu
+Fini
+Nɛgɛso
+Riz
+Mil
+Sorgho
+Maïs
+Fonio
+Arachide
+Huile
+Sucre
+Sel
+Farine
+Lait en poudre
+Thé vert
+Café
+Beurre de karité
+Tomate concentrée
+Bouillon cube
+Pâtes alimentaires
+Haricots
+Poisson séché
+Eau minérale
+Jus de bissap
+Jus de gingembre
+Boisson gazeuse
+Lait caillé
+Eau en sachet
+Thé
+Savon
+Savon de Marseille
+Détergent
+Eau de javel
+Balai
+Seau
+Bassine
+Marmite
+Assiette
+Verre
+Théière
+Réchaud
+Charbon de bois
+Bougie
+Pagne
+Bazin
+Wax
+Bogolan
+Boubou
+Chemise
+Pantalon
+Robe
+Jupe
+Tee-shirt
+Sous-vêtement
+Voile
+Foulard
+Chaussures
+Sandales
+Babouches
+Sac à main
+Ceinture
+Téléphone portable
+Smartphone
+Chargeur
+Batterie externe
+Carte SIM
+Écouteurs
+Radio
+Téléviseur
+Décodeur
+Antenne parabolique
+Ordinateur portable
+Clé USB
+Ventilateur
+Climatiseur
+Réfrigérateur
+Panneau solaire
+Lampe solaire
+Groupe électrogène
+Onduleur
+Batterie
+Ampoule
+Bidon d'essence
+Moto
+Vélo
+Pneu
+Chambre à air
+Casque
+Bidon
+Pièce détachée
+Huile moteur
+Ciment
+Fer à béton
+Brique
+Tôle
+Bois de charpente
+Peinture
+Clou
+Marteau
+Pelle
+Brouette
+Semence
+Engrais
+Pesticide
+Daba
+Charrue
+Motopompe
+Sac de jute
+Corde
+Machette
+Coupe-coupe
+Filet de pêche
+Crème
+Savon de toilette
+Parfum
+Dentifrice
+Brosse à dents
+Peigne
+Rasoir
+Serviette
+Moustiquaire
+Natte
+Matelas
+Cahier
+Stylo
+Règle
+Crayon
+Ardoise
+Craie
+Cartable
+Livre
+Bijou
+Collier
+Bracelet
+Boucles d'oreilles
+Montre
+Lunettes
+Parapluie

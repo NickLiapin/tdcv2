@@ -1,0 +1,16 @@
+---
+description: Building trades. `Masɔn` and `Kapanti` are French maçon and charpentier worn into Bambara phonology, and they are the words used on site — proof that a loan can be fully naturalised without the trade being foreign. The genuinely Bambara ones are the older crafts underneath: `Bɔgɔdilanbaga` makes the banco brick that most of Mali is still built from, sun-dried mud rendered with mud, and `Kabakuru tigɛbaga` cuts stone. `Kuranbaarakɛla` is an electrician, from `kuran`, itself French courant. The French titles at the end are the certified and supervisory roles that come with a diploma and a signature on a plan.
+locale: bm
+---
+Masɔn
+Kapanti
+Bɔgɔdilanbaga
+Kabakuru tigɛbaga
+Nɛgɛ baarakɛla
+Kuranbaarakɛla
+Baarakɛla
+Plombier
+Peintre
+Soudeur
+Conducteur de travaux
+Ingénieur en génie civil

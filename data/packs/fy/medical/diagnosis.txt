@@ -1,0 +1,184 @@
+---
+description: Diagnoses in West Frisian that can occur in any patient — sex-specific ones live in diagnosisMale and diagnosisFemale, ancestry-linked ones in diagnosisByAncestry. The list is deliberately written in two registers at once, because that is how medicine is spoken in Fryslân: the everyday name is Frisian and the clinical name is Latin, and both are in use across the same desk. So Grize stear and Griene stear stand for cataract and glaucoma, grey and green cataract, where the colour is the entire distinction; Mûzels is measles, Wetterpokken is chickenpox, Mageswolm is a stomach ulcer and Wûnroas is erysipelas, while every -itis is left in the Latin shape it arrived in. Note sykte where Dutch has ziekte and fan where Dutch has van, and that a Dutch -ie ending turns into Frisian -y throughout: Epilepsy, Leukemy, Anemy.
+locale: fy
+---
+Hege bloeddruk
+Diabetes mellitus type 2
+Astma
+Akute bronkitis
+Gryp
+Migraine
+Generalisearre eangststeuring
+Depressive steuring
+Artroaze
+Reumatoïde artritis
+Gastro-oesofageale refluks-sykte
+Izerbrekanemy
+Hypotyreoïdy
+Urinewei-ynfeksje
+Longûntstekking
+Kroanyske niersykte
+Koronêre hertsykte
+Atriumfibrillearjen
+Kroanysk hertfalen
+Iskemysk harsenynfarkt
+Epilepsy
+Sykte fan Parkinson
+Sykte fan Alzheimer
+Multiple skleroaze
+Psoriasis
+Atopysk ekseem
+Allergyske rinitis
+Kroanyske sinusitis
+Middenearûntstekking
+Konjunktivitis
+Grize stear
+Griene stear
+Blindetermûntstekking
+Galblaasûntstekking
+Divertikulitis
+Prikkelbere-termsyndroom
+Sykte fan Crohn
+Colitis ulcerosa
+Kroanyske hepatitis B
+Leversirroaze
+Akute pankreatitis
+Jicht
+Osteoporoaze
+Fibromyalgy
+Iskias
+Hernia
+Karpaletunnelsyndroom
+Tendinitis
+Kroanyske obstruktive longsykte
+Tuberkuloaze
+Leukemy
+Lymfoom
+Melanoom
+Hyperlipidemy
+Obesitas
+Obstruktive sliepapneu
+Sliepeleazens
+Bipolêre steuring
+Oandachtstekoartsteuring mei hyperaktiviteit
+Coeliaky
+Systemyske lupus erythematodes
+Dûzelichheid
+Earsûzen
+Oambeien
+Spatieren
+Djippe feneuze tromboaze
+Longemboly
+Nierstiennen
+Anemy
+Hypertyreoïdy
+Mageswolm
+Gastritis
+Wûnroas
+Sepsis
+Boarstkanker
+Akute gastro-enteritis
+Fitamine D-brek
+Kroanyske feneuze ynsuffisjinsje
+Diabetes mellitus type 1
+Hertynfarkt
+Angina pectoris
+Perifeer arterieel faatlijen
+Dilatearre kardiomyopaty
+Myokarditis
+Perikarditis
+Ynfeksjeuze endokarditis
+Aortaklepstenoaze
+Mitraalklepprolaps
+Aneurysma fan 'e búkaorta
+Kroanyske bronkitis
+Longemfyseem
+Pleurafocht
+Longfibroaze
+Pulmonale hypertinsje
+Bronkiëktasyen
+Laryngitis
+Faryngitis
+Tonsillitis
+Oesofagitis
+Barrett-oesofagus
+Magekanker
+Kolorektale kanker
+Anale fissuer
+Net-alkoholyske leverferfetting
+Kroanyske hepatitis C
+Hiatushernia
+Ljiskbreuk
+Akute nierskea
+Glomerulonefritis
+Pyelonefritis
+Blaasûntstekking
+Urine-ynkontininsje
+Blaaskanker
+Nierselkarsinoom
+Transient ischemic attack
+Spanningshollepine
+Klusterhollepine
+Trigeminusneuralgy
+Oantlitsferlamming fan Bell
+Perifere neuropaty
+Rêstleaze-skonkensyndroom
+Essinsjele tremor
+Myasthenia gravis
+Guillain-Barré-syndroom
+Paniksteuring
+Obsessyf-kompulsive steuring
+Posttraumatyske stress-steuring
+Sosjale eangststeuring
+Anorexia nervosa
+Boulimia nervosa
+Skizofreny
+Alkoholgebrûkssteuring
+Hashimoto-tyreoïditis
+Sykte fan Graves
+Syndroom fan Cushing
+Sykte fan Addison
+Hyperparatyreoïdy
+Metabool syndroom
+Fitamine B12-brek
+Skyldkliernodus
+Trombosytopeny
+Polycythaemia vera
+Longkanker
+Alfleesklierkanker
+Skyldklierkanker
+Multipel myeloom
+Slymbeursûntstekking
+Fasciitis plantaris
+Rotatorcuffruptuer
+Sykte fan Bechterew
+Skolioaze
+Osteomyelitis
+Akne vulgaris
+Rosacea
+Vitiligo
+Alopecia areata
+Netelroas
+Kontaktekseem
+Gurdelroas
+Skimmelneil
+Makuladegeneraasje
+Diabetyske retinopaty
+Netfliesloslitting
+Uveïtis
+Droege-eagensyndroom
+Sykte fan Menière
+Perseptyf gehoarferlies
+Noaspoliepen
+Klierkoarts
+Sykte fan Lyme
+Malaria
+Knokkelkoarts
+Salmonelloaze
+Hepatitis A
+Hiv-ynfeksje
+Herpes simplex-ynfeksje
+Mûzels
+Wetterpokken
+Bakteriële meningitis
+Firale ensefalitis

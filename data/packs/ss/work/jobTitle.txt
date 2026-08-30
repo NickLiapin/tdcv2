@@ -1,0 +1,240 @@
+---
+description: Job title in Eswatini. siSwati builds the name of a worker from the verb for the work, using the class 1 prefix um- and the class 2 plural ba-: kufundzisa, to teach, gives umfundzisi; kwakha, to build, gives umakhi; kulima, to plough, gives umlimi; kushayela, to drive, gives umshayeli; kwelapha, to heal, gives umelaphi. That single rule generates most of this list and it is the most useful thing in the file, because it means a Swazi speaker can name an occupation the language has never had a word for. Where a job arrived with an institution and no verb, the loan is taken honestly instead: dokotela, nesi, thishela, sokhemisi. The occupations themselves are Eswatini's — sugar at Big Bend, Mhlume and Simunye is the largest private employer in the country, forestry at Bhunya and Piggs Peak the next, textiles at Matsapha after that, and behind all three the civil service and the Tinkhundla administration with its indvuna and its bucopho. Inyanga the herbalist and sangoma the diviner are on this list as occupations because that is what they are: registered, paid and consulted alongside the clinic rather than instead of it.
+locale: ss
+---
+Thishela
+Thishela lomkhulu
+Sekela-thishela lomkhulu
+Thishela wemabanga laphansi
+Thishela wemabanga laphakeme
+Umhloli wetikolo
+Umfundzisi wasenyuvesi
+Umcwaningi wasenyuvesi
+Umgcini welayibhulari
+Umeluleki webafundzi
+Umphatsi wesikolo
+Umsizi wathishela
+Umfundzisi wemsebenti wetandla
+Umhleli wetifundvo
+Umfundzisi welulwimi
+Umnakekeli webantfwana
+Dokotela
+Dokotela wekuhlinta
+Dokotela webantfwana
+Dokotela wetinhlitiyo
+Dokotela wematinyo
+Dokotela wemehlo
+Nesi
+Nesi lomkhulu
+Umbelekisi
+Sokhemisi
+Umhloli wemtimba
+Umtsatsi wetitfombe temtimba
+Umeluleki wetemphilo
+Umsebenti wetemphilo emphakatsini
+Umnakekeli wetigulane
+Umeluleki wekudla
+Umvocavoci wemtimba
+Umphatsi wesibhedlela
+Umshayeli we-ambulensi
+Umeluleki we-HIV
+Inyanga
+Sangoma
+Umsebenti welebhu
+Umlimi
+Umlimi wemoba
+Umsiki wemoba
+Umphatsi wepulazi
+Umeluleki wetekulima
+Umhloli wetitjalo
+Umgcini wetinkhomo
+Umelusi
+Dokotela wetilwane
+Umvuni
+Umshayeli wethrekhtha
+Umsebenti wasetsimini
+Umphatsi wemshini wekunisela
+Umhloli wekhwalithi yeshukela
+Umsebenti wasefektri yeshukela
+Umlimi wetitselo
+Umfuyi wetinkhukhu
+Umfuyi wetinyosi
+Umgcini wesitolo setekulima
+Umsebenti wasehlatsini
+Umgawuli wetihlahla
+Umhlanyeli wetihlahla
+Umsebenti wasesosimili
+Umhloli wemahlatsi
+Umsebenti wasemgodzini
+Umphatsi wemgodzi
+Umhloli wemitfombo yemhlaba
+Umsebenti wasemgodzini welilahle
+Umqhumisi wematje
+Umshayeli wemshini wemgodzi
+Umhloli wekuphepha emgodzini
+Umgeologi
+Umsebenti wasekhwarini
+Umlondvolotimali wemgodzi
+Umsebenti wasefektri
+Umphatsi wemkhicito
+Umtfungi
+Umtfungi wetimphahla tekugcoka
+Umhloli wekhwalithi
+Umphatsi wemshini
+Umlungisi wemishini
+Umhlanganisi wetimphahla
+Umgcini wetimphahla
+Umsebenti wesitoreji
+Umsebenti wekupakisha
+Umenti wesinkhwa
+Umenti webhiya
+Umsebenti wasefektri yekudla
+Umcwaningi wemikhicito
+Umakhi
+Umakhi wetitini
+Umbeki wetayela
+Umbati wetigodvo
+Umpendi
+Umsebenti wemagetsi
+Umsebenti wemanti nemapayipi
+Umhloli wetakhiwo
+Umdvwebi wetakhiwo
+Umnjiniyela wetakhiwo
+Umphatsi wemsebenti wekwakha
+Umsebenti wemgwaco
+Umshayeli wegandaganda
+Umbeki wetintsambo temagetsi
+Umhloli wekuphepha kwesakhiwo
+Umshayeli
+Umshayeli welikhombi
+Umshayeli wemabhasi
+Umshayeli weloli
+Umshayeli welithengi
+Umbhali welimikhawulo
+Umhleli wetimphahla
+Umphatsi wetekutfutfwa
+Umhloli wetimoto
+Umlungisi wetimoto
+Umhleli wemzila wekuhamba
+Umsebenti wasenkhundleni yetindiza
+Umgcini wetimali
+Umbali wetimali
+Umhloli wetimali
+Umphatsi welibhange
+Umsebenti welibhange
+Umnikimali
+Umeluleki wetimali
+Umtsengisi wemshuwalense
+Umphatsi wetitolo
+Umtsengisi
+Umtsengisi wasesitolo
+Umgcini wemabhuku etimali
+Umcwaningi wemakethe
+Umhleli wemabhizinisi
+Ummeli
+Umahluleli
+Umbhali wenkantolo
+Umsolimphikiswano
+Umeluleki wemtsetfo
+Umhloli wemitsetfo
+Liphoyisa
+Liphoyisa lelikhulu
+Umphenyi wemacala
+Umgadzi wejele
+Sotja
+Sotja lesikhulu
+Umgadzi
+Umgadzi wesakhiwo
+Umcimi wemlilo
+Umsizi wetingoti
+Umhloli wetimphahla letingenako
+Umbhali wehhovisi
+Umsizi wasehhovisi
+Umamukeli wetivakashi
+Umhleli wemihlangano
+Umphatsi wetisebenti
+Umhleli wemiholo
+Umphatsi wemtimba wetisebenti
+Umeluleki wetisebenti
+Umhloli wekuphepha emsebentini
+Umphatsi wehhovisi
+Umbhali wetincwadzi
+Umhumushi
+Umtolikisi
+Umbhali wemaphephandzaba
+Umsakati wemsakato
+Umtsatsi wetitfombe
+Umhleli wemibhalo
+Umdvwebi
+Umculi
+Umdlali
+Umsini
+Umhleli wemculo
+Umenti wemafilimu
+Umphatsi wemcimbi
+Umeluleki wetekuvakasha
+Umkhombisi wetivakashi
+Umphatsi wehhotela
+Umamukeli wetivakashi ehhotela
+Umpheki
+Umpheki lomkhulu
+Umsizi wempheki
+Umphakeli wekudla
+Umgcini webha
+Umhlanti wetindlu
+Umgcini wetindlu tetivakashi
+Umphatsi wendlu yekudlela
+Umtsengisi wekudla
+Umgcini wemasango
+Umsebenti wenyuvesi
+Umcwaningi wetenhlalakahle
+Umsebenti wenhlalakahle
+Umeluleki wemphakatsi
+Umhleli wetinhlelo temphakatsi
+Indvuna
+Bucopho
+Umbhali wenkhundla
+Umphatsi wesifundza
+Umsebenti wembuso
+Umhleli wemitsetfo yembuso
+Umhloli wetintsela
+Umbhali wetibalo
+Umcwaningi wetibalo
+Umhleli wetinhlelo tembuso
+Umhloli wetentsengo
+Umbhali welisiko
+Umgcini wemyuziyamu
+Umbhali welihhovisi lemaposi
+Umsebenti wemaposi
+Umsebenti welifoni
+Umhleli wetintsambo tekuchumana
+Umnjiniyela wetekuchumana
+Umnjiniyela wemagetsi
+Umnjiniyela wemishini
+Umnjiniyela wemanti
+Umbhali wetinhlelo tekhompiyutha
+Umcwaningi wemininingwane
+Umgcini wemininingwane
+Umhloli wetinhlelo
+Umsizi wetekhompiyutha
+Umdvwebi wemasayithi
+Umphatsi wetekuchumana
+Umtsengisi wemakhompiyutha
+Umlungisi wemakhompiyutha
+Umhleli wekuphepha kwemininingwane
+Umtsengisi wetindlu
+Umhloli wemhlaba
+Umlinganisi wemhlaba
+Umbhali wetitendi
+Umphatsi wetakhiwo
+Umgcini wemasimu
+Umsebenti wesivandze
+Umhlobisi wemagceke
+Umsebenti wekutfutsa emanti
+Umsebenti wekugcina emanti
+Umhloli wemanti
+Umsebenti wekuhlanta lidolobha
+Umgcini welidamu
+Umtsengisi wemafutsa
+Umsebenti wesiteshini semafutsa
+Umhlanti wetimoto

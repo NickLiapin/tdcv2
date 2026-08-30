@@ -1,0 +1,24 @@
+---
+description: Indonesian dishes, and the spellings are the Dutch-domesticated ones - sate, ketjap, kroepoek, loempia - because that is the route the words travelled: they entered Frisian through Dutch rather than from Indonesian directly, and nobody here writes them the modern Indonesian way with c and y. What Frisian does change is its own words inside the names: beantsjes for the beans, hin for the chicken, gehak for the mince and yn for the Dutch in. None of this is exotic food. The colonial connection made nasi, bami and satesaus supermarket goods across the whole country, and in Fryslân the Chinese-Indonesian restaurant, serving both kitchens off a single laminated menu, reached villages of a few hundred people and is often the only restaurant in them - which is why a Frisian dish list has more Indonesian on it than a Frisian town has Indonesian residents.
+locale: fy
+---
+Nasi goreng
+Bami goreng
+Sate ajam mei satesaus
+Rendang
+Gado gado
+Rysttafel
+Babi pangang
+Hin pangang
+Loempia
+Sambal goreng beantsjes
+Sambal goreng telor
+Soto ajam
+Gehakbal yn ketjapsaus
+Pisang goreng
+Kroepoek
+Serundeng
+Atjar tjampoer
+Nasi rames
+Ayam ketjap
+Perkedel

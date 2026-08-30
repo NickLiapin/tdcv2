@@ -1,0 +1,34 @@
+---
+description: What a Malian lodging advertises. Most of it is Bambara because most of it is ordinary life — `ji kalan` hot water, `nakɔ` a garden, `kɔlɔsibaga` a night guard, `fini koli` laundry, `sɔgɔmafana` breakfast, `sosofini` the mosquito net in a country where malaria is the leading cause of death in children. `Kuran masin` is the generator and `tilekuran` solar, and they matter more than anything else on the list because the grid load-sheds; the air conditioner is worthless during a coupure. `Sunɔgɔyɔrɔ san fɛ` is a place to sleep on the roof, which is a real and unembarrassed line on a Malian price list from March to May. Six values stay French: Climatisation, Wi-Fi, Télévision satellite, Piscine, Terrasse, Salle de sport and Navette aéroport name imported machinery and hotel fittings that arrived under those names and have no Bambara word, and putting a coined one here would invent vocabulary rather than record it.
+locale: bm
+---
+Fiɲɛlan
+Ji kalan
+Kuran masin
+Tilekuran
+Sosofini
+Sɔgɔmafana
+Dumunikɛyɔrɔ
+Nakɔ
+Mɔbili bilayɔrɔ
+Kɔlɔsibaga
+Fini koli
+Baara so kɔnɔ
+Ladonni waati bɛɛ
+Ɲɔgɔnye bon
+Wari falen
+Mɔbili luwe
+Taama ɲɛminɛbaga
+Kurun taama Joliba kan
+Bololabaara feereyɔrɔ
+Denbaya ka so
+Denmisɛn ka dilan
+Baganw sɔnnen
+Sunɔgɔyɔrɔ san fɛ
+Climatisation
+Wi-Fi
+Télévision satellite
+Piscine
+Terrasse
+Salle de sport
+Navette aéroport

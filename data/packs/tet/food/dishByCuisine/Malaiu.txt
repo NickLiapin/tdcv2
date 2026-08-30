@@ -1,0 +1,12 @@
+---
+description: Malay food is separated from Indonesian here for a reason a config author would otherwise miss: the two arrived by different routes and at different times. Malay came as a trade language across the archipelago for centuries before 1975, which is why so much of the everyday Tetum kitchen vocabulary — susu, gula, sambal, nasi, kangkung — is Malay and feels native, while the Indonesian food words of the occupation still feel dated to their decade. The dishes on this list are the peninsular ones a Dili restaurant would advertise as Malaysian rather than the archipelago dishes that were absorbed long ago. Teh tarik closes it, the pulled tea, and the pulling is the point: it is named for the action, not the leaf.
+locale: tet
+---
+Nasi lemak
+Laksa
+Satay
+Roti canai
+Nasi kandar
+Ayam percik
+Teh tarik
+Kuih

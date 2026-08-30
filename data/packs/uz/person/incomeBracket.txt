@@ -1,0 +1,12 @@
+---
+description: Monthly household income bands in Uzbek soʻm. The figures are in millions — 15 million soʻm is roughly the low end of a formal salary — and the currency word сўм carries ў, one of the four letters that Latin has to spell with two characters. The en dash between bounds is deliberate and is not a hyphen.
+locale: uz
+---
+15 млн сўмдан кам
+15–30 млн сўм
+30–50 млн сўм
+50–80 млн сўм
+80–120 млн сўм
+120–200 млн сўм
+200–350 млн сўм
+350 млн сўмдан юқори

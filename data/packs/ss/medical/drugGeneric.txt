@@ -1,0 +1,45 @@
+---
+description: Generic drug name from Eswatini's Essential Medicines List. These are International Nonproprietary Names and they are deliberately NOT localised, in this pack or anywhere else: an INN is designed to be the same string in every language and every script precisely so that a prescription written in Mbabane can be dispensed in Manzini or Durban without a translation step, and a locale that invented siSwati forms would be introducing a medication error rather than a feature. The list is Eswatini's own rather than a generic pharmacopoeia. The first block is antiretroviral, because the country runs one of the largest treatment programmes in the world relative to its population and tenofovir with lamivudine and dolutegravir is the standard first-line combination. Then the anti-tuberculosis drugs, including bedaquiline for the drug-resistant strains; artemether with lumefantrine for the malaria that persists in the Lubombo lowveld; and praziquantel for bilharzia, which is endemic along the rivers.
+locale: ss
+---
+Tenofovir
+Lamivudine
+Dolutegravir
+Efavirenz
+Nevirapine
+Zidovudine
+Abacavir
+Rifampicin
+Isoniazid
+Pyrazinamide
+Ethambutol
+Bedaquiline
+Levofloxacin
+Cotrimoxazole
+Artemether
+Lumefantrine
+Primaquine
+Praziquantel
+Albendazole
+Amoxicillin
+Ceftriaxone
+Ciprofloxacin
+Metronidazole
+Azithromycin
+Benzathine benzylpenicillin
+Fluconazole
+Paracetamol
+Ibuprofen
+Morphine
+Metformin
+Glibenclamide
+Insulin
+Amlodipine
+Enalapril
+Hydrochlorothiazide
+Atenolol
+Simvastatin
+Salbutamol
+Prednisolone
+Oral rehydration salts
+Ferrous sulfate

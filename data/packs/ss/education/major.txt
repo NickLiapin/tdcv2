@@ -1,0 +1,32 @@
+---
+description: Field of study in Eswatini. The te- possessive names most of these, exactly as it names a ministry and an industry elsewhere in this pack, so tekwelapha is "matters of healing" and tebunjiniyela "matters of engineering". Bunesi, nursing, breaks the pattern by taking the class 14 abstract prefix bu- instead — the same prefix that gives buhle, beauty, and buchwepheshe, technology — because nursing is treated as a quality or a calling rather than a set of matters, and that is not an accident of grammar. The University of Eswatini's faculties sit behind this list: Kwaluseni holds humanities, science, commerce and education, Luyengo holds agriculture, and the health sciences run from Mbabane.
+locale: ss
+---
+Tekwelapha
+Bunesi
+Temitsi
+Tebunjiniyela
+Tebunjiniyela bemagetsi
+Tebunjiniyela bemishini
+Tekwakha
+Tekulima
+Tekufuya
+Tekulawula tebhizinisi
+Tekubalwa kwetimali
+Temnotfo
+Temtsetfo
+Tembusave
+Temfundvo
+Tetilwimi
+Tetilwimi tesiNgisi
+siSwati
+Umlandvo
+Ijografi
+Tekhompiyutha
+Tetibalo
+Ifiziksi
+Ikhemistri
+Ibhayoloji
+Tenhlalakahle
+Tetekuchumana
+Tekuvakasha

@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with an Eswatini district, road or neighbourhood name. The four cardinals are transparent compounds a learner can take apart: empumalanga, east, is "at the rising", from kuphuma, to come out, and enshonalanga, west, is "at the sinking", from kushona — both built on lilanga, the sun, which is the same word that gives the currency its name. Enyakatfo and eningizimu, north and south, do not derive from anything visible and are simply old. Every value here begins with a locative prefix and none of them can stand as a bare noun, so a config that strips the leading e- to make a shorter label produces a fragment rather than a word.
+locale: ss
+---
+Enyakatfo
+Eningizimu
+Empumalanga
+Enshonalanga
+Enyakatfo-mpumalanga
+Enyakatfo-nshonalanga
+Eningizimu-mpumalanga
+Eningizimu-nshonalanga
+Emkhatsini
+Enhla
+Ngephansi
+Ngekhatsi
+Ngephandle
+Lidolobha lelidzala
+Lidolobha lelisha

@@ -1,0 +1,16 @@
+---
+description: Jobs in technology. Frisian builds these titles by keeping the English or international head and translating only the agent noun, so ûntwikkelder for a developer and behearder for an administrator, from behear, management, sit beside an untouched engineer and an untouched tester. The circumflex in ûntwikkelder and the y in ynformaasje are the parts that vanish when a Frisian job advert is typed on a keyboard set up for Dutch, which is a common enough failure that the province's own recruitment sites carry a note about it. The provincial tech sector clusters in Ljouwert and Drachten, and it is where Frisian is least spoken at work of any industry on this list.
+locale: fy
+---
+Softwareûntwikkelder
+Datawittenskipper
+DevOps-engineer
+Produktmanager
+UX-ûntwerper
+Softwaretester
+Systeembehearder
+Frontendûntwikkelder
+Backendûntwikkelder
+Ynformaasjebefeiligingsanalist
+Cloudarsjitekt
+Funksjoneel behearder

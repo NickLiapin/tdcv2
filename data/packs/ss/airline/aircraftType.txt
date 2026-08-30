@@ -1,0 +1,30 @@
+---
+description: Aircraft type seen in Eswatini airspace. The list is skewed toward small equipment for a reason: Sikhuphe, now King Mswati III International Airport, has a runway long enough for a widebody and almost nothing that size ever lands on it, while the actual traffic is Airlink's Embraer regional jets from Johannesburg and, before them, the Jetstreams and Beechcraft that flew out of Matsapha. The Cessna Caravan and the Pilatus PC-12 are what serve the game reserves and the sugar estates. The widebodies at the top of this list are aircraft a Swazi traveller boards at OR Tambo rather than at home. Note that these designations are never localised — an aircraft type code is the same string in every language, and it has to be.
+locale: ss
+---
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 767-300
+Boeing 777-300ER
+Boeing 787-9
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A330-300
+Airbus A350-900
+Embraer E190
+Embraer E175
+Embraer ERJ-135
+Bombardier CRJ900
+Bombardier Q400
+ATR 72-600
+Fokker 100
+BAe Jetstream 41
+Beechcraft 1900D
+King Air 350
+Pilatus PC-12
+Cessna 208 Caravan
+Cessna 172
+Piper Navajo
+McDonnell Douglas MD-11

@@ -1,0 +1,16 @@
+---
+description: Endocrine diagnoses. Эндемик бўқоқ — endemic goitre — is not a historical entry: iodine deficiency was widespread in Uzbekistan's mountain districts and the salt iodisation programme is recent. The two diabetes types lead the list, as they lead the clinic.
+locale: uz
+---
+1-тур қандли диабет
+2-тур қандли диабет
+Гипотиреоз
+Гипертиреоз
+Эндемик бўқоқ
+Тиреоидит
+Семизлик
+Метаболик синдром
+Буйрак усти бези етишмовчилиги
+Гипофиз аденомаси
+Остеопороз
+D витамини етишмовчилиги

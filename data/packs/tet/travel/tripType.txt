@@ -1,0 +1,24 @@
+---
+description: Trip types. Mergullu, diving, stands where a Portuguese list carries a ski trip, which is the sort of substitution this pack makes on purpose: the country is nine degrees south of the equator and its tourism is entirely a matter of reefs, mountains and history. Peregrinasaun is not decorative either — the pilgrimage up to the Cristo Rei statue on the headland east of Dili and the Good Friday procession to Balide draw very large numbers in a country this Catholic, and the climb to the Virgin's statue on the summit of Ramelau at 2,986 metres is an overnight walk thousands make in October. Viajen mesak is solo travel, with mesak, alone, a native word; viajen itself is Portuguese viagem with -gem written -jen, the same change that gives mensajen and pasajen.
+locale: tet
+---
+Negósiu
+Lazer
+Feriadu família
+Lua-de-mel
+Aventura
+Viajen kareta
+Kruzeiru
+Viajen mochila
+Eskapada urbana
+Feriadu tasi-ibun
+Viajen grupu
+Viajen mesak
+Turizmu kulturál
+Ekoturizmu
+Peregrinasaun
+Viajen estudu
+Turizmu gastronómiku
+Mergullu
+Vizita família
+Kongresu ka feira

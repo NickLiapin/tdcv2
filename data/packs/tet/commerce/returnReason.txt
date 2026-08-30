@@ -1,0 +1,19 @@
+---
+description: Reasons given for returning an order, written as a customer writes them — which means they are full clauses rather than the noun phrases a Portuguese form would use. Tetum is strictly SVO and the subject pronoun is not dropped, so hau troka hanoin is I changed my mind with hau standing where Portuguese would let the verb ending carry the person. Sala is the workhorse word here: it means wrong, mistaken or at fault and follows what it qualifies, giving sasán sala for wrong item, tamañu sala for wrong size and enkomenda sala for ordered by mistake, where English needs three different adjectives. Liu is the comparative particle and always follows: folin di'ak liu is a better price, tarde liu is later than it should have been. La is the negator, so la hanesan is not the same as and la presiza ona is no longer needed, with ona again marking the completed change of state. Note that damage in transit sits at the top of the list rather than the bottom: goods reach the districts over unsurfaced road and by open pickup, and a crushed box is a complaint about the journey, not about the seller.
+locale: tet
+---
+Sasán mai aat ona
+Sasán sala
+La hanesan deskrisaun
+Tamañu sala
+Hau troka hanoin
+Hetan folin di'ak liu
+Defeitu husi fábrika
+Peza balun lakon
+Entrega tarde liu
+La presiza ona
+Enkomenda sala
+Kualidade menus
+Kór la hanesan foto
+La kompatível
+Sasán dupla

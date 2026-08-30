@@ -1,0 +1,34 @@
+---
+description: Hotel facilities. Чойхона sits in the list beside ресторан and бар because a guest house with a teahouse courtyard is a real category here. Миллий таомлар as an advertised amenity means the kitchen cooks Uzbek food rather than a hotel breakfast. Wi-Fi keeps its Latin form, as it does on the sign in the lobby.
+locale: uz
+---
+бепул Wi-Fi
+кондиционер
+иситиш
+нонушта
+нонушта нархга киритилган
+миллий таомлар
+ресторан
+чойхона
+бар
+автотураргоҳ
+трансфер
+аэропортга трансфер
+лифт
+хизмат кўрсатиш 24 соат
+хонага хизмат
+кир ювиш хизмати
+утуклаш
+сейф
+минибар
+телевизор
+иссиқ сув
+ҳовли
+боғ
+бассейн
+сауна
+ҳаммом
+фитнес зали
+конференция зали
+оилавий хоналар
+ногиронлар учун шароит

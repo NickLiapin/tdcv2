@@ -1,0 +1,54 @@
+---
+description: Airlines, kept in their registered Latin spelling because a Malian ticket, timetable and boarding pass are printed in French. The Malian carriers open the list and their history is the point. Air Afrique was the shared flag carrier of eleven francophone African states, founded in 1961 so that newly independent countries would not each have to build an airline, and it collapsed in 2002 leaving all of them without one. Mali had already gone its own way with Air Mali in 1960, which became the Compagnie Aérienne du Mali and then folded too, and Sky Mali is the current attempt. Everything after them reflects how a Malian traveller actually flies, which is on a foreign carrier — Air France, Turkish and Royal Air Maroc into Bamako-Sénou, ASKY and Air Côte d'Ivoire for the regional hops, and the Gulf and North African carriers for the pilgrimage and the labour routes. Defunct names are kept because Malian records still carry them.
+locale: bm
+---
+Sky Mali
+Air Mali
+Compagnie Aérienne du Mali
+Mali Air Express
+Sahel Aviation Service
+Air Afrique
+Air France
+Turkish Airlines
+Royal Air Maroc
+Ethiopian Airlines
+ASKY Airlines
+Air Côte d'Ivoire
+Air Sénégal
+Air Burkina
+Mauritania Airlines
+Air Algérie
+Tunisair
+EgyptAir
+Corsair
+Brussels Airlines
+Iberia
+TAP Air Portugal
+KLM
+Lufthansa
+Emirates
+Qatar Airways
+Kenya Airways
+RwandAir
+Camair-Co
+Air Peace
+Arik Air
+Congo Airways
+Afrijet
+Tassili Airlines
+Nouvelair
+Air Arabia Maroc
+Transavia France
+Uganda Airlines
+TAAG Angola Airlines
+Middle East Airlines
+Saudia
+AJet
+Air Ivoire
+Air Guinée
+Air Mauritanie
+Cabo Verde Airlines
+Niger Airlines
+Point Afrique
+Aigle Azur
+South African Airways

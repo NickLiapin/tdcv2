@@ -1,0 +1,16 @@
+---
+description: Founder mutations are better characterised in this population than in almost any other, which is why the list is long and specific where the others are broad — carrier screening panels have been offered here since the 1970s, so the variants have names, frequencies and testing programmes attached.
+locale: bm
+---
+Maladie de Tay-Sachs
+Maladie de Gaucher de type 1
+Dysautonomie familiale
+Maladie de Canavan
+Maladie de Niemann-Pick de type A
+Syndrome de Bloom
+Déficit en facteur XI
+Mutation fondatrice BRCA1
+Mutation fondatrice BRCA2
+Mucolipidose de type IV
+Maladie de Crohn
+Dystonie de torsion

@@ -1,0 +1,41 @@
+---
+description: Technical noun in West Frisian, mixing three layers in the proportion real technical Frisian does. Loanwords that arrived whole stay whole - server, router, switch, cache, pipeline, firewall - because nothing better was ever coined and replacing them would read as invented. The words Frisian does own are fully Frisian and are not the Dutch ones: a hard disk is a hurde skiif, carrying the sk- that Frisian shares with English ship, sheep and school against Dutch sch-; a data stream is a datastream, because Frisian stream is the same word as English stream where Dutch has stroom; a core is a kearn, a network is a netwurk since Dutch werk is Frisian wurk, and a port is a poarte. The star of the list is fersiferingskaai, an encryption key, because the Frisian for key is kaai, the direct cognate of English key, while Dutch reaches for the entirely unrelated sleutel - one of the clearest places where two neighbouring languages simply do not share a word. Note also that Frisian writes ks where Dutch writes x, so a matrix is a matriks and a pixel a piksel, and that in- is yn-, giving ynterface.
+locale: fy
+---
+stjoerprogramma
+protokol
+bânbreedte
+paniel
+mikrochip
+programma
+poarte
+kaart
+matriks
+ynterface
+systeem
+sensor
+firewall
+hurde skiif
+piksel
+alarm
+datastream
+monitor
+applikaasje
+stjoerder
+bus
+skeakeling
+kondensator
+databank
+pipeline
+server
+router
+switch
+cache
+kearn
+biblioteek
+útwreiding
+container
+back-up
+neuraal netwurk
+fersiferingskaai
+netwurkpakket

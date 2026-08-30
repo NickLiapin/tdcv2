@@ -1,0 +1,17 @@
+---
+description: Vietnamese dishes, and the country's own name teaches the rule: Frisian writes Fietnam with an f, because Frisian does not start words with v at all, and the same rule gives fisk against Dutch vis, fiif against vijf and fjouwer against vier. The single translated line, Fietnameeske iiskofje, adds two more words. Iis is ice, the same word as English ice - and no word matters more in this province, because the Alvestêdetocht, the two-hundred-kilometre skating tour of the eleven cities, needs fifteen centimetres of natural ice along its whole length and has not been held since 4 January 1997, so iis here means a thing an entire province waits for. Kofje is coffee. Everything else stays Vietnamese: this is the newest cuisine in the folder and in Fryslân it is a city cuisine, which in practice means Ljouwert.
+locale: fy
+---
+Pho bo
+Pho ga
+Banh mi
+Bun cha
+Bun bo hue
+Goi cuon
+Cha gio
+Com tam
+Banh xeo
+Ca kho to
+Bo luc lac
+Che
+Fietnameeske iiskofje

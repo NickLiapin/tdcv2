@@ -1,0 +1,19 @@
+---
+description: Compass and relative-position adjectives used inside Uzbek place and street names, in the -ий adjective form: Шимолий, Жанубий, Шарқий, Ғарбий. The pair Ички and Ташқи (inner and outer) marks ring roads and the two halves of a district. Ғарбий opens with ғ, one of the four letters that make Uzbek Cyrillic Uzbek rather than Russian.
+locale: uz
+---
+Шимолий
+Жанубий
+Шарқий
+Ғарбий
+Шимоли-шарқий
+Шимоли-ғарбий
+Жануби-шарқий
+Жануби-ғарбий
+Марказий
+Юқори
+Қуйи
+Ўрта
+Ички
+Ташқи
+Янги

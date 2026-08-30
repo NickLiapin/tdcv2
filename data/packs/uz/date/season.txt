@@ -1,0 +1,8 @@
+---
+description: The four seasons. Баҳор and куз are spring and autumn; ёз and қиш are summer and winter. In Uzbekistan the seasonal calendar is anchored to Наврўз on 21 March, which is both the spring equinox and a public holiday, so баҳор genuinely starts the year.
+locale: uz
+---
+баҳор
+ёз
+куз
+қиш

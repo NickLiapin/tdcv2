@@ -1,0 +1,14 @@
+---
+description: Baseball positions, and the file is here for completeness rather than because the game is played: baseball has almost no footing in Timor-Leste, and the vocabulary would reach a Timorese speaker through Japanese or American media rather than through any local league. What makes the list worth keeping is the numbering. The bases use Tetum ordinals — baze dahuluk, baze daruak, baze datoluk — built by putting da- on the cardinals ida, rua and tolu, with first supplied irregularly by uluk, meaning before or in front. Jardineiru, the outfielder, is literally the gardener, a calque Portuguese made and Tetum inherited whole.
+locale: tet
+---
+Lansadór
+Reseptór
+Baze dahuluk
+Baze daruak
+Baze datoluk
+Interbazes
+Jardineiru karuk
+Jardineiru sentrál
+Jardineiru loos
+Batedór dezignadu

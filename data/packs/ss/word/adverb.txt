@@ -1,0 +1,36 @@
+---
+description: Common siSwati adverb. Two devices make most of them. The prefix ka- turns a stem into a manner adverb: kahle well, kabi badly, kancane a little, kabili twice — and it is the same ka- that appears in place names meaning "at the place of", which is a locative doing double duty. The prefix nga- makes an instrumental or manner phrase: ngekushesha quickly, ngempela truly, ngeliphutsa by mistake, ngenhloso on purpose. The time words in the middle are bare nouns used adverbially without any marker at all — namuhla today, itolo yesterday, kusasa tomorrow — and kusasa is worth a second look, because it also means "in the morning", so a siSwati sentence about tomorrow and one about the morning can be the same sentence.
+locale: ss
+---
+Kahle
+Kabi
+Kancane
+Kakhulu
+Kakhulukati
+Kabili
+Kanye
+Masinyane
+Manje
+Kadzeni
+Namuhla
+Itolo
+Kusasa
+Njalo
+Futsi
+Kuphela
+Lapha
+Lapho
+Ngasese
+Obala
+Ekuseni
+Emini
+Kusihlwa
+Ebusuku
+Ngekushesha
+Ngekunensa
+Ngeliphutsa
+Ngenhloso
+Ngempela
+Mhlawumbe
+Cishe
+Nome kunjalo

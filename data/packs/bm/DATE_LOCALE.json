@@ -1,0 +1,61 @@
+{
+  "months": [
+    "zanwuye",
+    "feburuye",
+    "marisi",
+    "awirili",
+    "mɛ",
+    "zuwɛn",
+    "zuluye",
+    "uti",
+    "sɛtanburu",
+    "ɔkutɔburu",
+    "nowanburu",
+    "desanburu"
+  ],
+  "monthsInDate": [
+    "zanwuye",
+    "feburuye",
+    "marisi",
+    "awirili",
+    "mɛ",
+    "zuwɛn",
+    "zuluye",
+    "uti",
+    "sɛtanburu",
+    "ɔkutɔburu",
+    "nowanburu",
+    "desanburu"
+  ],
+  "monthsShort": [
+    "zan.",
+    "feb.",
+    "mar.",
+    "awi.",
+    "mɛ",
+    "zuw.",
+    "zul.",
+    "uti",
+    "sɛt.",
+    "ɔku.",
+    "now.",
+    "des."
+  ],
+  "weekdays": [
+    "kari",
+    "ntɛnɛn",
+    "tarata",
+    "araba",
+    "alamisa",
+    "juma",
+    "sibiri"
+  ],
+  "weekdaysShort": ["kar.", "ntɛ.", "tar.", "ara.", "ala.", "jum.", "sib."],
+  "formats": {
+    "L": "DD/MM/YYYY",
+    "LL": "D MMMM YYYY",
+    "LLL": "D MMMM YYYY HH:mm",
+    "LLLL": "dddd D MMMM YYYY HH:mm"
+  },
+  "notes": "The two rows come from opposite directions, and that is the point. Bambara month names are French, respelled to Bambara phonology by the 1967 orthography — zanwuye for janvier, awirili for avril, ɔkutɔburu for octobre — because the Gregorian calendar arrived with the colonial administration and the school. The weekday names arrived centuries earlier with Islam and are Arabic worn down by Manding mouths: ntɛnɛn from al-ithnayn, tarata from ath-thulatha, araba from al-arbaʿa, alamisa from al-khamis, juma from al-jumʿa the day of congregation, sibiri from as-sabt. Only kari, Sunday, belongs to neither borrowing. Bambara has no v, so janvier cannot keep its v and takes w; it has no capital letter convention for months, so these stay lowercase mid-sentence. Dates run day-first, as in France, and the two dotless short forms are the months whose names are already short enough not to abbreviate."
+}

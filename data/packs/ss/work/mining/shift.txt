@@ -1,0 +1,9 @@
+---
+description: Mine shift in siSwati. Sikhatsi is the head word and it means time, a period or an occasion; it is class 7 and takes tikhatsi in the plural, so a roster of shifts is tikhatsi and a single one is sikhatsi. Note that siSwati writes sikhatsi where Zulu writes isikhathi, which is one of the clearest examples of this language's ts for Zulu's th and of its habit of dropping the initial vowel in the class 7 prefix. The five values reflect a small operation rather than a deep-level mine: Eswatini's working mines are open-cast coal at Maloma, iron at Ngwenya and quarries, none of which run the continuous four-shift cycle of a South African gold mine.
+locale: ss
+---
+Sikhatsi sasekuseni
+Sikhatsi sasemini
+Sikhatsi sasebusuku
+Sikhatsi lesigcwele
+Sikhatsi sekuphumula

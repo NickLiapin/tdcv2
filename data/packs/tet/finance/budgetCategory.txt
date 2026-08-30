@@ -1,0 +1,24 @@
+---
+description: Household budget lines. One entry belongs to Timor-Leste and to almost nowhere in a European list: Kontribuisaun lisan, the customary contribution, is the money and livestock a household owes to its kin network for a barlake marriage settlement, a funeral, a house-blessing or the rebuilding of an uma lulik. It is not charity and it is not optional — it is a standing obligation between houses, it is reciprocal, and it is frequently the largest single non-food outgoing a rural family has, which is why a Timorese budget dataset that omits it will understate expenditure badly. The rest respell from Portuguese by rule: aluguer to aluguér, hipoteca to ipoteka with the initial h dropped, poupança to poupansa with the cedilla going to s, imposto to impostu.
+locale: tet
+---
+Aluguér
+Ipoteka
+Sasán supermerkadu
+Servisu bázika
+Transporte
+Divertimentu
+Saúde
+Seguru
+Restaurante
+Poupansa
+Asinatura
+Viajen
+Edukasaun
+Ropa
+Prezente
+Kuidadu labarik
+Selu dívida
+Kontribuisaun lisan
+Telefone no internet
+Impostu

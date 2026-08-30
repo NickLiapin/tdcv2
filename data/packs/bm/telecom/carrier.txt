@@ -1,0 +1,24 @@
+---
+description: Telecom operators and services in Mali, in French. The market is essentially two companies: Orange Mali, which began as Ikatel in 2003 and broke the state monopoly, and Malitel, the mobile arm of the incumbent Sotelma, now operating as Moov Africa Malitel after Maroc Telecom took control. Their mobile-money arms matter more than their voice business — `Orange Money` reaches far more Malians than the banking system does. `Télécentre`, `Cabine téléphonique` and `Cybercafé` are shared-access businesses that a European list would have retired twenty years ago and that remain genuinely useful where handsets, data and electricity are all expensive. `AMRTP` is the regulator.
+locale: bm
+---
+Orange Mali
+Malitel
+Moov Africa Malitel
+Sotelma
+Telecel Mali
+Ikatel
+Afribone
+Orange Money
+Sama Money
+Moov Money
+Wave
+Orange Fibre
+Sotelma ADSL
+Starlink
+Télécentre
+Cybercafé
+Cabine téléphonique
+AMRTP
+La Poste du Mali
+Fournisseur d'accès Internet

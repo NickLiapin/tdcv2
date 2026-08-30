@@ -1,0 +1,22 @@
+---
+description: Seniority or level label for a role. Dutch and Frisian job adverts share the ladder junior - medior - senior, and medior as a written level is a convention of this labour market that English-language adverts have no equivalent for at all. Two entries are formed on Frisian roots a Dutch reader has to stop at: ôfdielingshaad, a department head, uses haad for a head, and bestjoerder, a director in the governance sense, comes from bestjoer, the Frisian for a board or an executive, where the tsj is the same cluster that gives tsjerke and tsjinst. Staazjerinner is the Frisian for an intern, literally one who walks a placement, and learling covers both a school pupil and an apprentice on a vocational track, from leare, to learn and to teach at once - Frisian, like English of an older kind, uses one verb for both directions.
+locale: fy
+---
+Staazjerinner
+Learling
+Trainee
+Junior
+Medior
+Senior
+Meiwurker
+Erfaren meiwurker
+Spesjalist
+Ekspert
+Koördinator
+Teamlieder
+Manager
+Ôfdielingshaad
+Adjunkt-direkteur
+Direkteur
+Algemien direkteur
+Bestjoerder

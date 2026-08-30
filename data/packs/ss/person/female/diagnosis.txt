@@ -1,0 +1,31 @@
+---
+description: Condition recorded against a female patient in Eswatini, written the way a clinic file here is actually written — siSwati for what the patient reports and describes, the clinical term left in English or as an i- loan for what is coded. That mixture is not laziness: Eswatini trains its nurses and doctors in English, prescribes and codes in English, and consults in siSwati, so a real record is bilingual line by line. Umdlavuza wesibeletfo, cervical cancer, leads the list because it leads the country: Eswatini has one of the highest cervical cancer incidences in the world, driven by HPV in a population with very high HIV prevalence, and screening it is the largest women's health programme the ministry runs. Note the grammar of the reported symptoms, which are infinitives or full clauses rather than nouns — kuphuphuma kwesisu is "the stomach spilling", a miscarriage — because siSwati names a condition by what it does.
+locale: ss
+---
+Kukhulelwa
+Kukhulelwa kwangaphandle kwesibeletfo
+Kuphuphuma kwesisu
+I-pre-eclampsia
+I-eclampsia
+Sifo sashukela sekukhulelwa
+Kuphuphuma kwengati emuva kwekubeleka
+Kubeleka ngaphambi kwesikhatsi
+Umdlavuza wesibeletfo
+Umdlavuza webele
+Umdlavuza we-ovari
+I-endometriosis
+Ema-fibroids esibeletfweni
+I-polycystic ovary syndrome
+Kungefiki kwesikhatsi senyanga
+Buhlungu besikhatsi senyanga
+Kopha kakhulu esikhatsini senyanga
+Kuma kwesikhatsi senyanga
+Kuncipha kwematfambo emuva kwekuma kwesikhatsi senyanga
+Sifo sekungatfoli umntfwana
+Kutseleleka kwendlela yemchamo
+Kutseleleka kwesibeletfo
+I-HPV
+I-mastitis
+Sifo semabele lesingesiwo umdlavuza
+Kudangala emuva kwekubeleka
+Kuncipha kwematfambo

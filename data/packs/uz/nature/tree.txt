@@ -1,0 +1,32 @@
+---
+description: Trees. Чинор — the oriental plane — is first because a чинор in a village square is often several centuries old and is treated as a landmark. Тут is the mulberry that feeds the silkworms; саксовул is the desert shrub planted to hold down the sand of the dried Aral seabed. Жийда is the oleaster, whose flower scent marks late spring.
+locale: uz
+---
+чинор
+тут
+терак
+тол
+қайрағоч
+заранг
+арча
+саксовул
+жийда
+ёнғоқ
+бодом
+писта
+олма
+ўрик
+шафтоли
+нок
+беҳи
+анор
+анжир
+гилос
+акация
+эман
+қарағай
+қайин
+каштан
+магнолия
+кипарис
+зайтун

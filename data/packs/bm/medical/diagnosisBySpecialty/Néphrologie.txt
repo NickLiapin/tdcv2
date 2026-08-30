@@ -1,0 +1,9 @@
+---
+description: Haemodialysis in Mali is concentrated in a handful of Bamako units, which makes chronic kidney disease a diagnosis with a geography attached. Patients also present young: hypertensive and APOL1-linked nephropathy reach end stage decades earlier here than the European averages would predict.
+locale: bm
+---
+Insuffisance rénale chronique
+Glomérulonéphrite
+Syndrome néphrotique
+Insuffisance rénale aiguë
+Lithiase urinaire

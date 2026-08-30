@@ -1,0 +1,16 @@
+---
+description: Teaching jobs, and `karamɔgɔ` heads the list because it is the older and wider word: it means a master of learning, and it covers the teacher of a Qur'anic school as naturally as a schoolteacher — the medersa network teaches a very large share of Malian children and its masters are karamɔgɔw, not instituteurs. `Lakɔlikaramɔgɔ` is the state-school version, built on `lakɔli` from l'école. The French titles are the grades of the national system, defined by a diploma and a decree: an `Instituteur` teaches the école fondamentale, a `Professeur de lycée` the secondary, and the distinction is a pay scale rather than a description, which is why it stays in the language the pay scale is written in.
+locale: bm
+---
+Karamɔgɔ
+Lakɔlikaramɔgɔ
+Medersa karamɔgɔ
+Kalanso kuntigi
+Kalanso kɔlɔsibaga
+Kalanden ladonbaga
+Instituteur
+Professeur de collège
+Professeur de lycée
+Directeur d’école
+Conseiller pédagogique
+Surveillant général

@@ -1,0 +1,15 @@
+---
+description: Diagnoses seen in neurology, in West Frisian. Harsens, the brain, is a plural-only noun in Frisian much as brains is in colloquial English, and it drops its s inside a compound: Harsenynfarkt and Harsenbloeding, never harsensynfarkt. Rêstleaze-skonkensyndroom is restless legs assembled entirely from Frisian parts — rêst is rest, -leas is the suffix English writes -less, and skonk is the leg, where Dutch has to reach for been.
+locale: fy
+---
+Migraine
+Spanningshollepine
+Epilepsy
+Sykte fan Parkinson
+Multiple skleroaze
+Harsenynfarkt
+Harsenbloeding
+Sykte fan Alzheimer
+Perifere neuropaty
+Trigeminusneuralgy
+Rêstleaze-skonkensyndroom

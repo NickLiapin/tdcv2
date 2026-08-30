@@ -1,0 +1,21 @@
+---
+description: How a purchase is settled here. Cash leads and is not a fallback: notes in hand close the overwhelming majority of transactions, and the coin in the change is the country's own centavu even though the note is American. Osan tunai shows the Indonesian layer of the language at work — osan is the native word for money, tunai is borrowed from Indonesian, and the pair is what a Timorese cashier says rather than anything Portuguese. Bank transfer exists but through a short list of institutions: BNCTL grew out of the state microfinance body and has the widest branch network in the districts, BNU Timor is the Portuguese bank that has been in Dili since colonial times, and Bank Mandiri is Indonesian and left over from the occupation years. Card acceptance is thin — a hotel, a supermarket and a handful of restaurants in Dili take plastic and essentially nothing outside the capital does, so a dataset that spreads card payments evenly across municipalities is describing somewhere else. Kréditu iha loja is the shop ledger, an unwritten line of credit run on the shopkeeper's knowledge of the household, and troka sasán is settlement in goods, which still closes deals for maize, livestock and labour in the interior.
+locale: tet
+---
+Osan tunai USD
+Sentavu
+Selu iha entrega
+Transferénsia banku
+BNCTL
+Banku Mandiri
+BNU Timor
+Kartaun kréditu
+Kartaun débitu
+ATM
+Osan telemóvel
+Xeke
+Kartaun prezente
+Voucher
+Selu dala-dala
+Troka sasán
+Kréditu iha loja

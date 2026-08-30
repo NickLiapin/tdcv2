@@ -1,0 +1,20 @@
+---
+description: Seniority level in an Eswatini organisation. Two devices carry the whole ladder. Sekela- is a bound prefix meaning deputy and it attaches directly to the title it modifies — sekela-mphatsi, sekela-mengameli, sekela-sihlalo — so a deputy is named by compounding rather than by a separate word, and the hyphen is orthographic convention rather than a break in the word. The rest is built with relative clauses on umsebenti: lomusha "who is new", lonelwati "who has knowledge", lomkhulu "who is senior". Note that lomkhulu literally means big or elder and does the work of both, which is not an accident: seniority by age and seniority by rank are the same idea in a society organised around age regiments, and the word does not distinguish them.
+locale: ss
+---
+Umfundzi wemsebenti
+Umsizi
+Umsebenti lomusha
+Umsebenti
+Umsebenti lonelwati
+Umsebenti lomkhulu
+Sekela-mphatsi
+Umphatsi
+Umphatsi wesigaba
+Umphatsi lomkhulu
+Umphatsi wesifundza
+Sekela-mengameli
+Umengameli
+Sekela-sihlalo
+Sihlalo
+Umeluleki

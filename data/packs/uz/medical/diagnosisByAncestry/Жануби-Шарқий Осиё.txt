@@ -1,0 +1,10 @@
+---
+description: Conditions carried more often in Southeast Asian populations. Alpha thalassaemia and the haemoglobin E variant are both frequent here, and the combination of the two is a distinct condition in its own right — which is why it is listed separately.
+locale: uz
+---
+Алфа талассемия
+Гемоглобин E
+Г6ФД етишмовчилиги
+Лактоза интолеранси
+Назофарингеал саратон
+Талассемия-гемоглобин E

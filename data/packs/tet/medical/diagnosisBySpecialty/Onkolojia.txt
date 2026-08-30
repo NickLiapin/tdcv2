@@ -1,0 +1,14 @@
+---
+description: Oncology diagnoses in Tetum, ordered by what Timor-Leste actually presents with rather than by what a Western registry counts. Kansru serviks leads because cervical cancer is the commonest cancer in Timorese women, the predictable result of a young population with almost no screening behind it. Kansru ibun is second on evidence and not on style — ibun is the Tetum word for mouth, and bua malus, the areca nut wrapped in betel leaf with slaked lime, is chewed by a very large share of adults here several times a day for a lifetime; it is a Group 1 carcinogen, and oral cavity cancer follows it everywhere it is used at that scale. Kansru fígadu follows endemic chronic hepatitis B. Kansru is Portuguese câncer respelled with k for the hard c, and one structural fact shapes the whole specialty: the country has no radiotherapy unit, so every patient who needs radiation is referred abroad to Indonesia or Singapore, and any national cancer record accordingly under-counts what a service that does not exist would have found.
+locale: tet
+---
+Kansru serviks
+Kansru ibun
+Kansru fígadu
+Kansru mama
+Kansru nazofarinje
+Kansru pulmaun
+Kansru gástriku
+Kansru koloretál
+Linfoma
+Leusemia

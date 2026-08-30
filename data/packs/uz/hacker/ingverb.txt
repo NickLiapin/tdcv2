@@ -1,0 +1,32 @@
+---
+description: Technical actions as verbal nouns, which is the form a log line or a progress bar uses: уланиш, юклаш, сақлаш, шифрлаш. Uzbek makes these by dropping -моқ from the infinitive and adding -иш, so every entry here has a twin in the verb file.
+locale: uz
+---
+уланиш
+узилиш
+юбориш
+қабул қилиш
+юклаш
+юклаб олиш
+сақлаш
+ўчириш
+нусхалаш
+кўчириш
+қайта ишлаш
+таҳлил қилиш
+текшириш
+синаш
+шифрлаш
+дешифрлаш
+компиляция қилиш
+ишга тушириш
+тўхтатиш
+қайта ишга тушириш
+созлаш
+ўрнатиш
+янгилаш
+захиралаш
+тиклаш
+индекслаш
+филтрлаш
+саралаш

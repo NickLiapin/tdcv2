@@ -1,0 +1,29 @@
+---
+description: Precious and semi-precious stones. `Sanu` is gold and heads the list because Mali is among the three largest producers in Africa — the metal that funded the empire and Mansa Moussa's 1324 hajj is still the first export, mined industrially at Loulo-Gounkoto, Syama and Fekola and by hundreds of thousands of orpailleurs with pickaxes. `Warijɛ` is silver, literally white money, from `wari`, which means both silver and money; `nɛgɛ` is iron, the metal of the numu blacksmith caste. `Grenat du Mali` is a real gemmological term rather than a flourish: a green-to-honey grossular-andradite garnet found near Sandaré in the Kayes region from 1994 and known in the trade by the country's name, which almost no African deposit manages. The rest stay French, which is the language of the jewellers' quarter and of every gem certificate that has ever crossed a Malian counter.
+locale: bm
+---
+Sanu
+Warijɛ
+Nɛgɛ
+Grenat du Mali
+Grenat grossulaire
+Prehnite
+Diamant
+Émeraude
+Rubis
+Saphir
+Améthyste
+Topaze
+Opale
+Tourmaline
+Aigue-marine
+Citrine
+Péridot
+Turquoise
+Lapis-lazuli
+Malachite
+Onyx
+Agate
+Jaspe
+Cristal de roche
+Ambre

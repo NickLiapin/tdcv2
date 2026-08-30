@@ -1,0 +1,24 @@
+---
+description: Textile jobs. Атлас устаси and хонатлас устаси are the masters of the two ikat silks, and пиллакаш reels the thread off the cocoon. Каштачи is the embroiderer, гиламчи the carpet weaver, дўппи тикувчи the skullcap maker — all of them trades with names of their own rather than job descriptions.
+locale: uz
+---
+тўқувчи
+йигирувчи
+тикувчи
+модельер
+конструктор
+буёқчи
+пиллакаш
+атлас устаси
+хонатлас устаси
+наққош
+тикув цехи устаси
+сифат назоратчиси
+кесувчи
+намуна устаси
+тўқимачилик технологи
+каштачи
+гиламчи
+дўппи тикувчи
+омбор мудири
+бригадир

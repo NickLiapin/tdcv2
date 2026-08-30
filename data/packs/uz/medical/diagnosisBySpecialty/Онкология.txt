@@ -1,0 +1,16 @@
+---
+description: Oncology diagnoses, ordered roughly by how often they are registered in Uzbekistan. Ошқозон саратони comes first — stomach cancer incidence here is well above the European average — and қизилўнгач саратони, oesophageal cancer, is also elevated across the Central Asian belt.
+locale: uz
+---
+Ошқозон саратони
+Ўпка саратони
+Сут бези саратони
+Бачадон бўйни саратони
+Йўғон ичак саратони
+Жигар саратони
+Қалқонсимон без саратони
+Простата саратони
+Лейкоз
+Лимфома
+Тери меланомаси
+Қизилўнгач саратони

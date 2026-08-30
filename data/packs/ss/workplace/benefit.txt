@@ -1,0 +1,22 @@
+---
+description: Employment benefit in Eswatini. Umhlomelo is the head word for most of these and it means an addition or a supplement, from kuhloma, to attach — so an allowance is literally something fastened onto the wage. The transport and housing allowances at the top of the list are not fringe items here: most formal jobs are in Mbabane, Manzini or Matsapha while most workers live in a rural homestead under a chief, so the daily kombi fare and a room near work are the difference between a job being worth taking and not. Imali yekuncedza umndeni ekufeni, funeral assistance, is offered by nearly every serious employer in this country, because a funeral is a large, unavoidable and frequent family expense and the burial societies that carry it are one of the most widespread financial institutions in Eswatini.
+locale: ss
+---
+Umholo
+Umhlomelo wekuhamba
+Umhlomelo wendlu
+Umhlomelo wekudla
+Umshuwalense wetemphilo
+Umshuwalense wekufa
+Impesheni
+Imali yekuphumula
+Imali yekugcina umsebenti
+Bonasi yemnyaka
+Kucecesha kwamahhala
+Kwelashwa kwamahhala
+Imali yekuncedza umndeni ekufeni
+Umhlomelo wemfundvo yebantfwana
+Sikhatsi sekuphumula ngekubeleka
+Imali yekushayela imoto yenkhampani
+Ifoni yenkhampani
+Imali yekusebenta ngeliholidi

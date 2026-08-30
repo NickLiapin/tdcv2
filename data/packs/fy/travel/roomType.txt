@@ -1,0 +1,22 @@
+---
+description: Hotel room type (West Frisian). The counting words are the file's own lesson, because a room list is mostly numbers: ien, twa, trije and fjouwer give ienpersoans-, twapersoans-, trijepersoans- and fjouwerpersoanskeamer, and trije and fjouwer stand beside English three and four where Dutch has drie and vier. A keamer is a room and a bêd a bed, the same word as English bed. Gesinskeamer is the family room, on gesin, a household with children, which Frisian distinguishes from famylje, the wider relations - a distinction English collapses into family and a booking form usually gets wrong.
+locale: fy
+---
+Standertkeamer
+Superiorkeamer
+Suite
+Juniorsuite
+Presidintiële suite
+Ienpersoanskeamer
+Twapersoanskeamer
+Twinkeamer
+Keamer mei kingsizebêd
+Trijepersoanskeamer
+Fjouwerpersoanskeamer
+Gesinskeamer
+Studio
+Appartemint
+Bungalow
+Rolstoeltagonklike keamer
+Keamer mei seesicht
+Penthousesuite

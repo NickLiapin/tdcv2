@@ -1,0 +1,14 @@
+---
+description: Motor fuel as sold in Eswatini. The grades are South African, because Eswatini imports refined fuel through South Africa and prices it under a regulated formula that moves with Pretoria's: petrol comes as 93 and 95 octane unleaded, diesel as 50ppm and 500ppm sulphur. Ethanoli is on the list for a reason peculiar to this country — Eswatini distils fuel-grade ethanol from its own sugar cane at Big Bend, and cane is by a wide margin its largest crop and export. Iphalafini, paraffin, is not a motor fuel but is here because it is the household fuel a large share of rural homesteads still cook and light with, and a data set about energy in Eswatini that omits it describes a different country.
+locale: ss
+---
+Iphetulu 93
+Iphetulu 95
+Iphetulu lelinelilothi
+Idiziyili 50ppm
+Idiziyili 500ppm
+Idiziyili
+Iphalafini
+Igesi ye-LPG
+Ethanoli
+Magetsi

@@ -1,0 +1,20 @@
+---
+description: Indian dishes. Butter chicken sits on this list in English, and a Frisian reader sees straight through it: bûter is the first word of the rhyme this language uses as a password, bûter, brea en griene tsiis, and English butter is the very same word wearing different vowels. The dish keeps the English name all the same, because Indian food reached the Low Countries through Britain and through Surinamese Hindustani cooking rather than directly from India, and both of those routes carried English or Sranantongo names with them. Tandoori hin is the one line that takes a Frisian word at all. Note also that roti appears here and again on the Surinamese list, and the two are not the same object: the Indian roti is a plain flatbread, while the Surinamese roti is an entire plated meal named after the bread it is served with.
+locale: fy
+---
+Chicken tikka masala
+Butter chicken
+Rogan josh
+Palak paneer
+Dal makhani
+Chana masala
+Biryani
+Tandoori hin
+Samosa
+Naan
+Roti
+Aloo gobi
+Vindaloo
+Korma
+Raita
+Gulab jamun

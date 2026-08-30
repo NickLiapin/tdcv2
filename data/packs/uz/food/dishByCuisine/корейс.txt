@@ -1,0 +1,14 @@
+---
+description: Korean dishes as eaten in Uzbekistan, which is not the same list as in Korea. Морковча — the spiced carrot salad — was invented by deported Koryo-saram in Central Asia and does not exist in Korea at all. Чимчи and кимчи are the local and the standard name for the same thing, and both are on sale in the same market.
+locale: uz
+---
+куксу
+фунчоза
+чимчи
+морковча
+кимчи
+пигоди
+ттеок
+булгоги
+пибимпап
+кукмул

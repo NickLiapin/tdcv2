@@ -1,0 +1,14 @@
+---
+description: Azerbaijani dishes. Долма and пахлава need no explanation to an Uzbek diner; қутаб is the stuffed flatbread, and душбара the tiny dumplings that Uzbek knows as чучвара. Сабзи палов is the same word-for-word dish as an Uzbek carrot palov, cooked differently.
+locale: uz
+---
+долма
+куфта бозбаш
+қутаб
+лаванги
+душбара
+сабзи палов
+пити
+бадимжан долма
+пахлава
+шербет

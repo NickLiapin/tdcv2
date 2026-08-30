@@ -1,0 +1,20 @@
+---
+description: Where a Malian event actually happens, and the first three answers are not buildings. `Kɛnɛ` is the open ground of a quarter — swept sand, no structure — and it is where weddings, wrestling, funerals, political meetings and the balani show all take place; a Bamako family renting chairs and a canopy for a Saturday is renting them onto the kɛnɛ. `Bulon` is the roofed entrance vestibule of a compound, where a delegation is received and a marriage is negotiated. `Cour de concession` is the courtyard inside, which becomes the venue for anything smaller. The formal French venues below are real but far outnumbered: a Malian civil servant may spend a career attending seminars in hotel conference rooms and still be married on the sand.
+locale: bm
+---
+Kɛnɛ
+Bulon
+Cour de concession
+Place publique
+Misiri
+Lakɔliso
+Salle de fête
+Palais de la Culture
+Stade
+Terrain de football
+Maison des jeunes
+Centre culturel
+Hôtel
+Restaurant
+Salle de conférence
+Chapiteau

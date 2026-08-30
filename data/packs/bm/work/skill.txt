@@ -1,0 +1,46 @@
+---
+description: Professional skill — technical, trade and soft — for skill lists and profiles. A Malian CV lists languages as separate competences and the pack follows it: français écrit is one line, bamanankan sɛbɛnni is another, and they are genuinely different skills. Writing Bambara means reaching ɛ ɔ ɲ ŋ, which the AZERTY keyboard every Malian office runs on does not have, so it needs its own layout or a habit of composing characters, and the people who can do it were mostly taught in adult literacy centres rather than at school, where the medium is French. Suivi-évaluation appears because monitoring and evaluation is a named, hired-for skill across the Bamako development sector. The programming languages and office tools keep their Latin spelling, exactly as a CV prints them.
+locale: bm
+---
+Python
+JavaScript
+SQL
+Java
+PHP
+HTML
+Excel
+Word
+Bureautique
+Saisie de données
+Maintenance informatique
+Réseaux informatiques
+Infographie
+Photographie
+Comptabilité
+Gestion financière
+Gestion de projet
+Suivi-évaluation
+Rédaction de rapports
+Français écrit
+Anglais
+Arabe
+Bamanankan sɛbɛnni
+Traduction français-bambara
+Animation communautaire
+Prise de parole en public
+Encadrement d'équipe
+Négociation
+Vente
+Service clientèle
+Conduite de poids lourd
+Conduite d'engins
+Mécanique auto
+Soudure
+Électricité bâtiment
+Plomberie
+Maçonnerie
+Menuiserie
+Couture
+Techniques agricoles
+Hygiène alimentaire
+Secourisme

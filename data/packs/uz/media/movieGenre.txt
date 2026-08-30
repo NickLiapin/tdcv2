@@ -1,0 +1,23 @@
+---
+description: Film genres. Жангари филм is the action film and қўрқинчли филм the horror film, both built as adjective plus филм. Миллий драма at the end is a real domestic category: the Uzbek melodrama shot for the home market is its own industry with its own audience.
+locale: uz
+---
+драма
+комедия
+мелодрама
+тарихий филм
+биографик филм
+жангари филм
+детектив
+триллер
+қўрқинчли филм
+фантастика
+фантазия
+саргузашт
+мултфилм
+оилавий филм
+мусиқий филм
+ҳужжатли филм
+қисқа метражли филм
+ҳарбий филм
+миллий драма

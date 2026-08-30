@@ -1,0 +1,28 @@
+---
+description: Character classes for a game with an Uzbek setting, drawn from the epic tradition rather than from European fantasy. Полвон is the wrestler-strongman of the достон, чўпон the shepherd, карвонбоши the caravan master, and алп the ancient Turkic word for a hero. Сеҳргар and фолбин are the magician and the fortune teller.
+locale: uz
+---
+жангчи
+полвон
+камончи
+қиличбоз
+найзабор
+отлиқ
+чўпон
+овчи
+сеҳргар
+фолбин
+табиб
+шифокор
+қўриқчи
+ҳимоячи
+ўғри
+жосус
+савдогар
+карвонбоши
+ҳунарманд
+темирчи
+меъмор
+баҳодир
+алп
+сардор

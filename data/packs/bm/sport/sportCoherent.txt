@@ -1,0 +1,12 @@
+---
+description: The subset of sports this pack ships positions for — the parent of sport/positionBySport, so every value here has a file of that exact name beside it. The eight are chosen because Mali actually plays them, which is why there is no baseball, no ice hockey and no American football in a Sahelian pack. Two of the children hold categories rather than positions and say so: cycling lists rider roles and boxing lists weight divisions, because those sports have no fixed positions to list and leaving them out would have meant filling the file with games nobody here plays. `Ntolatan` is the Bambara for football and the only value on the list with a Bambara name, which is a fair measure of how the other seven arrived.
+locale: bm
+---
+Ntolatan
+Basket-ball
+Volley-ball
+Handball
+Cyclisme
+Athlétisme
+Boxe
+Futsal

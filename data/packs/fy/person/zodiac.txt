@@ -1,0 +1,16 @@
+---
+description: Zodiac sign in Frisian, and the animal names are where the language shows itself, because Frisian kept the native farm word in almost every case where Dutch took a different one. Liuw is the lion, against Dutch leeuw and beside English lion. Faam is Virgo and is not an archaism at all - faam is the everyday Frisian word for a girl or a young woman, still in daily use, where Dutch maagd has narrowed to maiden or virgin and would sound stilted. Bolle is Taurus and is the actual word a farmer uses for a bull in a province whose export product is the Holstein-Friesian dairy cow; Dutch stier exists in Frisian too but is not the word in the byre. Fisken is the plural of fisk, and the sk that English softened to fish and Dutch to vis is preserved here unchanged, the same sk that gives skiep for sheep, skip for ship and skoalle for school. Bôgeskutter is transparent where the Latin is not, bôge being a bow and skutter a shooter, and it carries the circumflex that Frisian uses to mark a long vowel. The trap is Raam: in Frisian a raam is a ram, the male sheep, while in Dutch raam is a window - the Frisian for a window is rút - so this is a false friend that a Dutch reader will misread on sight.
+locale: fy
+---
+Raam
+Bolle
+Twillingen
+Kreeft
+Liuw
+Faam
+Weachskaal
+Skorpioen
+Bôgeskutter
+Stienbok
+Wettermân
+Fisken

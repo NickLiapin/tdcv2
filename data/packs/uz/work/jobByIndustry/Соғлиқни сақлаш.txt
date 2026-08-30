@@ -1,0 +1,24 @@
+---
+description: Healthcare jobs. Фелдшер and акушерка are the mid-level clinical roles inherited from the Soviet system, which has no direct western equivalent: a фелдшер runs a rural health post and treats patients. Бош врач is the chief physician of a hospital, and it keeps the Russian word rather than using шифокор.
+locale: uz
+---
+шифокор
+оилавий шифокор
+жарроҳ
+педиатр
+акушер-гинеколог
+кардиолог
+невропатолог
+стоматолог
+офталмолог
+анестезиолог
+радиолог
+лаборант
+ҳамшира
+фелдшер
+акушерка
+фармацевт
+санитар
+тез ёрдам шифокори
+эпидемиолог
+бош врач

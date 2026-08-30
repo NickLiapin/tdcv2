@@ -1,0 +1,19 @@
+---
+description: Greek dishes. The only translated line is Grykske slaad, and it carries two rules at once. Gryksk takes the -sk that every Frisian nationality adjective takes and inflects to Grykske before a noun; that -sk is the same ending English wore down to -ish and German to -isch, and Frisian is the one of the three that kept the cluster intact. Slaad is the second rule: Frisian uses the one word for the leaf growing in the field and for the bowl on the table, where Dutch splits sla from salade, so a Frisian menu and a Frisian seed catalogue print the same word. Everything else is Greek and stays Greek. The Greek restaurant spread through Dutch towns in the 1970s and 1980s, and in a province of small towns it is often the second foreign kitchen to arrive, well behind the Chinese one and well ahead of everything else.
+locale: fy
+---
+Gyros
+Souvlaki
+Moussaka
+Tzatziki
+Grykske slaad
+Dolmades
+Spanakopita
+Pastitsio
+Kleftiko
+Saganaki
+Taramosalata
+Fasolada
+Baklava
+Loukoumades
+Pita gyros

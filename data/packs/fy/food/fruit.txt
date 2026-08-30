@@ -1,0 +1,42 @@
+---
+description: Fruit (West Frisian). Two of the commonest names carry their own history. Sinesappel is literally China-apple, a trade route folded into a word, and its second half is worth setting beside granaatapel: Frisian writes apel with one p where Dutch writes appel with two, so the plain apple at the head of the list and both compounds agree with each other. The berry names are where the language shows most. Anything on a bush is a -bei, and stikelbei, the gooseberry, is a prickle-berry built on the same stikel that gives the hedgehog its Frisian name, stikelbaarch; flearbei and meidoarnbei are simply the fruit of the flearbeam and the meidoarn, so they read straight across to this pack's tree list. Note also drúf for the grape - the same word that turns up as a diminutive in blau drúfke, the grape hyacinth, and in Fryske drúfkes, which are biscuits and not fruit at all. Everything from the top down to meidoarnbei grows here, on the sea clay of the north and the sand of the Wâlden alike; everything from sinesappel down is shop fruit.
+locale: fy
+---
+Apel
+Par
+Ierdbei
+Framboas
+Brambei
+Blaubei
+Reade bei
+Swarte bei
+Stikelbei
+Kers
+Prom
+Mirabel
+Kweepar
+Drúf
+Rabarber
+Flearbei
+Meidoarnbei
+Sinesappel
+Mandaryn
+Sitroen
+Limoen
+Grapefruit
+Banaan
+Ananas
+Mango
+Papaja
+Kiwi
+Meloen
+Wettermeloen
+Persik
+Nektarine
+Abrikoas
+Fyg
+Dadel
+Granaatapel
+Lychee
+Passyfrucht
+Avokado

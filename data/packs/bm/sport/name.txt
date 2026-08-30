@@ -1,0 +1,59 @@
+---
+description: Sports played in Mali, headed by the Bambara word for the one that matters. `Ntolatan` is football — ntola ball, tan to kick — and its dominance is hard to overstate: the Bamako derby between Stade Malien and Djoliba fills the Stade du 26 Mars, the Aigles' matches empty the streets, and every open patch of ground in the country has a goal scratched onto a wall at one end. Basketball is the surprise second, with a women's national team that has won Africa and a Bamako academy feeding the American college system. `Lutte traditionnelle` is the old one, wrestling at village festivals with its own drumming. `Awalé` and `Dames` are here because the board games played all afternoon under a mango tree are competitive sports in Mali with federations and national championships, and Mali has been a serious force in international francophone `Scrabble` — a genuinely unlikely national speciality.
+locale: bm
+---
+Ntolatan
+Football
+Futsal
+Football de plage
+Basket-ball
+Volley-ball
+Handball
+Athlétisme
+Course de fond
+Marathon
+Sprint
+Saut en longueur
+Saut en hauteur
+Lancer du poids
+Cyclisme
+Natation
+Boxe
+Lutte traditionnelle
+Lutte libre
+Judo
+Karaté
+Taekwondo
+Aïkido
+Kung-fu
+Escrime
+Tennis
+Tennis de table
+Badminton
+Pétanque
+Golf
+Rugby
+Cricket
+Hockey sur gazon
+Équitation
+Course de chevaux
+Tir à l’arc
+Tir sportif
+Haltérophilie
+Musculation
+Gymnastique
+Danse sportive
+Scrabble
+Dames
+Échecs
+Awalé
+Baby-foot
+Course de pirogues
+Pêche sportive
+Randonnée
+Marche athlétique
+Triathlon
+Cross-country
+Handisport
+Para-athlétisme
+Sport scolaire

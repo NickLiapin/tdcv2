@@ -1,0 +1,30 @@
+---
+description: Condition recorded against a male patient in Eswatini. Two entries at the end belong to this country in a way they belong to few others: for a century Swazi men have gone to work in South Africa's gold and platinum mines, and silicosis and occupational hearing loss came home with them in numbers large enough that compensation claims against the South African mining industry are a live matter in Eswatini's courts. That is why a male diagnosis list here reads partly like an occupational health list. Note the two grammatical registers side by side. A condition with a siSwati name gets one — kuphelelwa tinwele is "being finished by the hair" — while a syndrome that entered through the clinic keeps its English name behind an i- prefix, which is the class 9 slot siSwati puts unassimilated loans into. Neither is more correct than the other; both appear in the same file at Mbabane Government Hospital.
+locale: ss
+---
+Umdlavuza we-prostate
+Kukhula kwe-prostate lokungesiwo umdlavuza
+I-prostatitis
+Umdlavuza wemasende
+I-epididymitis
+I-varicocele
+I-hydrocele
+I-phimosis
+Kugoba kwelitfo lebudvodza
+Kuvaleka kwemtsambo wemchamo
+Kungakhoni kuma kwelitfo lebudvodza
+Kwehla kwe-testosterone
+Sifo sekungatfoli umntfwana kwendvodza
+I-gynaecomastia
+Kuphelelwa tinwele
+I-gout
+I-haemophilia
+Kungaboni imibala
+I-Duchenne muscular dystrophy
+I-abdominal aortic aneurysm
+Umfutfo wengati lophakeme
+Sifo sesibindzi lesibangwa butjwala
+Umdlavuza wemaphaphu
+I-hernia yasesinyeni
+I-silicosis
+Kulahlekelwa kuva kwendlebe emsebentini

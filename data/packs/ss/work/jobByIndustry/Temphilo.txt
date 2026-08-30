@@ -1,0 +1,16 @@
+---
+description: Health jobs in Eswatini. Temphilo, "matters of health", is the name of the ministry itself, Litiko leTemphilo. Two roles on this list are more central here than anywhere in Europe. Umsebenti wetemphilo emphakatsini, the rural health motivator, is a cadre attached to each chiefdom who traces defaulters, delivers medication and does the follow-up that keeps a national treatment programme running across homesteads with no addresses. Umeluleki we-HIV, the HIV counsellor, is a distinct trained profession rather than a duty added to a nurse's job, because testing and adherence counselling operate at a scale that requires it. Note also umbelekisi, the one who delivers a baby, built straight from kubeleka, to give birth — a word the language had long before the word for a hospital.
+locale: ss
+---
+Dokotela
+Nesi
+Umbelekisi
+Sokhemisi
+Umhloli wemtimba
+Umtsatsi wetitfombe temtimba
+Umeluleki we-HIV
+Umsebenti wetemphilo emphakatsini
+Umvocavoci wemtimba
+Umeluleki wekudla
+Umphatsi wesibhedlela
+Umshayeli we-ambulensi

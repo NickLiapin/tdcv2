@@ -1,0 +1,9 @@
+---
+description: Credit rating bands, five steps from жуда юқори to жуда паст. Uzbek grades by stacking жуда (very) on the plain adjective rather than by inventing new words, so the whole scale is built from юқори, ўртача and паст.
+locale: uz
+---
+жуда юқори
+юқори
+ўртача
+паст
+жуда паст

@@ -1,0 +1,28 @@
+---
+description: Name suffix and post-nominal as used in Eswatini. The first two are the only genuinely siSwati values and they work differently from the rest: Lomncane and Lomdzala, "the younger" and "the elder", are relative forms agreeing with class 1 and they distinguish a father and son of the same name in speech, where English writes Snr and Jnr on paper. Everything after them is written in English, because Eswatini's degrees, professional registrations and parliamentary titles are issued in English by institutions that operate in it — the University of Eswatini confers a BSc, not a siSwati equivalent, and no translated form exists or would be recognised. That mixture is normal on an Eswatini business card and is not a gap in the language.
+locale: ss
+---
+Lomncane
+Lomdzala
+Jnr
+Snr
+II
+III
+IV
+V
+Dip
+BA
+BSc
+BCom
+BEd
+LLB
+MA
+MSc
+MBA
+MEd
+PhD
+MD
+MBChB
+RN
+CA
+MP

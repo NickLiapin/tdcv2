@@ -1,0 +1,504 @@
+---
+description: Filler sentences in West Frisian, the lorem-ipsum prose of this pack, written by hand rather than cut from a book: data/scripts/build-text-corpus.mjs assembles this file and its neighbours from public-domain Project Gutenberg titles, and Gutenberg does hold Frisian ones — the Halbertsma brothers' Rimen en Teltsjes, Simke Kloosterman's Twiljocht-teltsjes, the work of Douwe Kalma — but all of them predate the 1945 spelling reform and stand in the old orthography, fen where the standard now writes fan, hjar where it writes har, and largely without the circumflexes that carry meaning today, so the same script that already refuses a pre-1918-orthography Russian book because it is not the language the locale promises would have to refuse these for exactly the same reason. What the lines are here to show is the grammar: the finite verb stands second in a main clause and last in a subordinate one opened by om't, dat, as, wylst or doe't; separable verbs come apart in the main clause and only rejoin at the end of the subordinate one, as in hy docht de doar iepen; the perfect takes hawwe or wêze according to the verb, so sy hat it boek lêzen but hy is nei hûs gien; the progressive is oan it plus a verbal noun, hja is oan it kôkjen; and negation is net for a verb but gjin for a noun. The apostrophe in yn 'e, op 'e and om't is not stray punctuation but the standard written shape of a reduced article and of a clitic t.
+locale: fy
+---
+De moarnssinne skynt troch it rút fan 'e keuken krekt op 'e tafel, en salang't dat ljocht dêr leit, hoecht der gjin lampe oan.
+Hja is oan it kôkjen en de hiele keuken rûkt nei sipels en bûter, wylst de bern boppe op 'e souder noch oan it boartsjen binne.
+Hy docht de doar iepen en lit de kâlde wyn efkes yn 'e gong.
+Om't it de hiele dei sa hurd reint, bliuwe wy hjoed mar thús by de kachel sitten en stelle wy de reis nei de stêd oant moarn út.
+Wy hawwe juster de hiele souder opromme en trije doazen fuortbrocht.
+It bêd is opmakke, mar de klean lizze noch altyd oer de stoel hinne.
+Wêr hasto de kaai fan 'e efterdoar juster jûn delein?
+Der is gjin brea mear yn 'e kast, dus ik moat aanst nei de bakker.
+De kofje stiet al klear en de bôle is fannemoarn snien.
+Sy hat de ruten wosken doe't de sinne der noch net op stie.
+De kraan yn 'e keuken drippet al in wike en nimmen makket him.
+Myn mem sette de blommen yn in kanne wetter op 'e finsterbank.
+It hûs is âld, mar de muorren binne noch altyd kurkdroech.
+Doe't wy thúskamen, brânde it ljocht noch yn 'e foarkeamer.
+Hy hat de hikke ferve en no meie de bern der net oan komme.
+De tún leit fol blêden en moarn moatte wy se byinoar harkje.
+Wa hat myn bril fan 'e tafel yn 'e keamer weinommen?
+Wy sitte jûns faak yn 'e keuken, om't dat it waarmste plak fan it hûs is.
+De kachel jout genôch waarmte foar it hiele efterhûs.
+Sy die de gerdinen ticht en stiek in kears op 'e tafel oan.
+It waar slacht om en foar it wykein wurdt der stoarm ferwachte.
+Hjoed waait it út it noardwesten en de wolken jeie oer de greide.
+Ferline nacht hat it sa hurd tongere dat alle bern wekker waarden.
+As it moarn droech bliuwt, geane wy mei de fyts nei de mar ta.
+De mist hong fannemoarn sa dik oer it lân dat wy de dyk net iens mear seagen, en dêrom binne wy rinnend nei it doarp gien.
+It hat de hiele wike reind en de sleatten steane oant de râne fol.
+Yn 'e maitiid komt de earste ljip werom en dan wit elkenien it.
+It friest hurd en moarn stappe de earste bern al op redens.
+Wannear tinksto datsto wer feilich op it natueriis stean kinst?
+De sinne sakket read achter de pleats en it wurdt daliks kâld.
+Yn 'e simmer is de loft hjir sa breed dat men de tuorren fan fjouwer doarpen tagelyk sjocht, en dochs is der gjin hichte yn it lân.
+De hjerst bringt wyn en de beammen ferlieze harren blêden yn ien wike.
+It hat snien, mar tsjin 'e middei wie de dyk alwer hielendal swart.
+It waar is hjir noait lang itselde; men nimt altyd in jas mei.
+De wolken driuwe leech oer de greide en it rûkt al nei rein.
+Doe't de bui oergie, kaam der in reinbôge boppe it doarp te stean.
+De hagel sloech sa hurd tsjin 'e ruten dat wy inoar net mear ferstiene.
+Yn 'e winter set de wyn de snie yn hege bulten tsjin 'e stekken.
+It is snijend kâld bûten, mar der beweecht gjin blêd oan 'e beam.
+Nei trije droege wiken wie de greide giel en hurd as in dyk.
+De feart rint dwers troch it doarp en einiget by de âlde syl.
+Efter de dyk leit de kwelder en dêrachter begjint de Waadsee.
+It doarp stiet op in terp, om't hjir eartiids noch gjin dyk wie en de minsken har hûzen sels in pear meter boppe it wetter opsmieten.
+De boat leit oan 'e wâl en wachtet oant it wetter heech genôch is.
+Wy binne mei it skûtsje troch de smelle feart nei Grou ta fearn, en op guon plakken siet der amper in hân romte tusken de wâl en it roer.
+It wetter yn 'e sleat is sa helder dat men de boaiem lizzen sjocht.
+De brêge giet iepen en de auto's steane te wachtsjen op 'e dyk.
+Yn De Alde Feanen sjochsto folle mear reid as lân om dy hinne.
+De mole stiet hjoed stil, want der is gjin sucht wyn te fielen.
+Hoe djip is it wetter hjir oan dizze kant fan 'e feart?
+Op 'e greide steane de kij oant har knibbels yn it wiete gers.
+De boer hat de kij fannemoarn al foar sânen molken, en doe't wy mei de fyts foarby it hiem kamen, stie de molketank alwer bûten.
+De ljippen skarrelje oer it lân en roppe de hiele middei troch.
+Twa hynders stiene stil ûnder de beam te skûljen foar de bui.
+Ús hûn rint elke moarn mei my de dyk lâns oant it stek.
+De kat sliept op 'e stoel by de kachel en beweecht gjin poat.
+De guozzen lûke yn lange rigen oer it doarp nei it suden ta, en salang't dat lûd boppe de hûzen hinget, wit elk dat de hjerst begûn is.
+De skiep binne skeard en steane no fris wyt yn it fjild.
+Yn 'e maitiid rinne de kij foar it earst wer nei bûten.
+De hinnen hawwe hjoed mar twa aaien lein en de hoanne is stil.
+Wy geane sneon nei de merk yn Ljouwert om tsiis en fisk te heljen.
+De winkel op 'e hoeke is sûnt maaie ticht en dat fielt nuver.
+De bakker set de sûkerbôle sneontemoarns altyd yn 'e etalaazje.
+Hy hat op 'e merk in kiste appels kocht foar in pear euro.
+It kafee oan 'e buorren is it iennichste plak dêr't jûns ljocht brânt.
+De tsjerketoer is fan alle kanten fan it doarp ôf te sjen.
+Op snein is it stil yn 'e strjitte en rydt der amper in auto.
+De skoalle stiet neist de tsjerke en dielt itselde âlde hiem.
+Yn 'e stêd is it drok, mar in kertier fierderop sjochsto allinne noch greide, in feart en in rige beammen dy't nei de folgjende toer wiist.
+Wêrom is de winkel op woansdeitemiddei altyd sletten?
+De master frege wa't it goede antwurd al fûn hie.
+De bern boartsje op it plein oant it te tsjuster wurdt.
+Ús jongste leart no lêzen en docht dat it leafst hurdop.
+Hja hat de hiele jûn oan har wurkstik oer de Waadsee sitten.
+Doe't de bel gie, rûnen alle bern tagelyk nei bûten ta.
+De juf skriuwt de wurden op it boerd en de klasse skriuwt se oer.
+Op dizze skoalle wurdt sawol Frysk as Nederlânsk praat.
+Hy hat syn boekentas thús ferjitten en moat no werom nei hûs.
+De learlingen fytse alle dagen tsien kilometer nei it doarp en werom, en as it út it westen waait, docht de weromreis it measte sear.
+Wat hasto hjoed op skoalle leard, en wie de master der wol?
+Hy wurket op in kantoar yn Ljouwert en riidt eltse moarn de dyk del.
+Sy is timmerman en bout it leafst mei âld en droech hout.
+De gearkomste duorre twa oeren en der kaam hielendal neat út.
+Om acht oere begjint de ploech en dan moat elk der wêze.
+Hy hat syn baan opsein, om't er fierstente lang fan hûs wie, en no wurket er tichteby foar minder jild mar mei folle mear rêst.
+De rekken leit al trije wiken op 'e tafel en is noch net betelle.
+Wy sykje ien dy't mei de hân wurkje kin en gjin hoarloazje nedich hat.
+De fabryk oan 'e feart is fuort en dêr steane no nije hûzen.
+Hoefolle oeren wurkesto tsjintwurdich eins yn 'e wike?
+Nei it wurk fisket er noch in oerke by de brêge oan 'e feart.
+Op tafel stiene brea, tsiis, bûter en in grutte panne sop.
+Snert moat earst in nacht stean, oars is it gjin echte snert.
+Sy bakt eltse sneon in oranjekoek en de bern wachtsje derop.
+De tsiis fan dizze pleats is sels yn Dútslân goed te keap.
+Wy ite jûns om sechs oere, en dêrnei rommet elk syn eigen board op, want dat is hjir yn 'e hûs altyd sa west en dat feroaret net.
+Hy drinkt syn kofje swart en set der noait sûker of molke by.
+De dúmkes lizze yn in blikken bus boppe op 'e keukenkast.
+Nim noch in stik bôle, want der is genôch foar elkenien!
+It fleis is te lang yn 'e panne bleaun en is no fierstente droech.
+Yn 'e hjerst meitsje wy sels appelmoes fan 'e appels út 'e tún.
+It iis is noch mar trije sintimeter dik en de baan bliuwt ticht.
+Doe't de froast fjouwer dagen achterinoar trochsette, waard der yn eltse kroech wer oer de Alvestêdetocht praat, mar it iis hold it net.
+Hy hat syn redens al útsocht en de riemen binne noch altyd goed.
+Wy hawwe justerjûn oant tsjuster ta op 'e Snitser Mar riden.
+De iisbaan is opspuite en jûns baarnt der ljocht boppe it iis.
+Wa't foar it earst riidt, falt gauris by de kant fan 'e baan del.
+Myn pake hat de tocht ien kear riden en praat der noch altyd oer.
+It iis kreaket ûnder de redens en dat lûd ferjitte jo net wer.
+As it in wike sa trochfriest, kin de feart hielendal ticht bliuwe.
+Nei it riden dronken wy waarme sûkelademolke yn 'e kantine.
+Op it wetter by Earnewâld lizze de skûtsjes klear foar de wedstriid.
+It skûtsje hat in flakke boaiem, om't de fearten hjir ûndjip binne en de skippen eartiids frachten bringe moasten dêr't neat oars komme koe.
+De skipper rôp dat elk fan board ôf moast foar't de wyn oanhelle.
+Hja hat de seilen strutsen doe't de swiere bui oer de mar kaam.
+Wy hawwe de hiele middei op 'e Tsjûkemar syld en gjin minske sjoen.
+It skip lei stil yn 'e slûs en wachte op it iepengean fan 'e doarren.
+Hy farret alle simmers mei syn heit troch de Fryske marren.
+De boat moat noch skildere wurde foar't wy him te wetter litte.
+Wêr leit de boat fan dyn âldste broer no eins oanlein?
+It wetter wie sa rêstich dat de seilen amper bewege woene.
+Op 'e keatsfjilden is it yn 'e simmer eltse sneon fluch drok.
+In partoer bestiet út trije keatsers, en om't elk syn eigen plak yn it perk hat, sjochst nei twa slaggen al hoe't se mei-inoar boartsje.
+De opslagger sloech de bal fier oer de efterline hinne.
+Yn Frjentsjer wurdt eltse simmer de âldste keatspartij ferkeatst.
+Hy is fierljepper en hat de pols sels fan syn heit oernommen.
+By it fierljeppen klimt de springer omheech wylst er noch fljocht.
+Ús doarp hat in eigen keatsferiening en in fjild efter de skoalle.
+Nei de wedstriid siet elkenien mei in kâld gleske yn 'e kantine.
+Sy traint twa kear yn 'e wike, ek as it hurd reint.
+Wat fynsto sels de moaiste sport om nei te sjen?
+De trein nei Ljouwert rydt eltse healoere en is faak stampfol.
+Wy binne mei de bus nei Drachten west en dêrnei fierder fytst.
+De dyk nei Harns leit hjir kilometers rjocht troch it iepen lân.
+Hy hat de fyts by it stasjon delset en is de trein yn stapt.
+De auto stiet by de garaazje, om't de rem net goed mear pakt.
+Op 'e Ofslútdyk waait it altyd, en om't it wetter oan beide kanten leit, fielt it as ridesto oer in dyk dy't nearne oan fêst sit.
+Wy geane mei de boat nei Skiermûntseach en bliuwe dêr trije dagen.
+It duorre in oere foar't wy troch it ferkear de stêd út wiene.
+Wannear giet de lêste boat nei It Amelân wer werom?
+Hja is mei de fyts nei Snits gien, hoewol't it hurd waaide.
+Yn 'e tsjerke wie it kâld en de minsken holden harren jassen oan.
+De klok fan 'e toer slacht eltse healoere, en wa't hjir opgroeid is, heart him al lang net mear oant er in nacht earne oars sliept.
+De dûmny prate koart en dêrnei song de gemeente noch twa lieten.
+Ús beppe gong har hiele libben eltse snein nei de tsjerke ta.
+It tsjerkhôf leit efter it gebou en de âlde stiennen steane skean.
+It oargel is ferline jier neisjoen en klinkt no folle better.
+Op krystjûn siet de tsjerke fol en stiene der minsken achteryn.
+De tsjerke stiet krekt op it heechste punt fan 'e âlde terp.
+Wa hat de kaai fan 'e tsjerkedoar dizze wike ûnder him?
+Nei ôfrin dronk elkenien kofje yn 'e seal neist de tsjerke.
+Wy hawwe de hiele jûn oan tafel sitten te praten oer eartiids.
+Hy seit dat er it net witten hat, mar ik leau dêr neat fan.
+Sy frege oft wy sneontejûn by har komme koene te iten.
+Doe't ik dat fertelde, waard it efkes stil om 'e tafel hinne.
+Praat asjebleaft wat stadiger, want ik kin dy sa net folgje!
+Ús buorman fertelt eltse kear itselde ferhaal oer syn âlde auto, en elkenien lit him rêstich útprate, om't der neat mis mei is.
+Ik haw him noch net sein dat wy takom jier fan hjir ferhúzje.
+Wat bedoelsto dêr no krekt en earlik mei te sizzen?
+Se hawwe oeren mei-inoar belle en dêrnei wie alles wer goed.
+Hy harke stil ta en sei úteinlik allinnich dat it wol goed kaam.
+Myn heit is boer west en myn pake ek, mar ik bin it net wurden.
+Ús famylje komt eltse simmer ien kear byinoar op 'e âlde pleats.
+De bern binne no de doar út en it hûs is folle stiller wurden.
+Hja hat trije broers en allegearre wenje se noch yn itselde doarp.
+Beppe is njoggentich wurden en wennet noch altyd op harsels, mar de buorlju dogge de boadskippen en twa kear yn 'e wike komt der help.
+Wy hawwe de âlde foto's fan 'e souder helle en se allegearre besjoen.
+Myn suster wennet yn Grins, mar praat thús noch altyd Frysk.
+Doe't ús mem ferstoar, ferkochten wy it hûs oan in jong stel.
+Hoefolle bernsbern hawwe jimme no eins byinoar?
+De jongste is krekt fjouwer wurden en giet foar it earst nei skoalle.
+Hy stapte ferkeard fan 'e ljedder ôf en hat no in sear ankel.
+De dokter sei dat er dizze wike hielendal net wurkje mocht.
+Sy hat de hiele nacht hoastje moatten en is no deawurch.
+Der leit in ferbân om syn hân en hy kin net folle dwaan.
+It is better om earst goed út te rêsten foardat jo wer oan it wurk geane, want wa't te betiid begjint, leit meastal twa wiken letter wer plat.
+De apteek yn it doarp is fuort en no moatte wy dêrfoar nei de stêd.
+Hoe giet it no mei dyn skouder nei dy swiere operaasje?
+Hy hat de pillen op 'e tafel lizzen litten en se glêd ferjitten.
+Nei twa wiken folslein rêst wie de pine hielendal fuort.
+De húsdokter komt hjir noch altyd sels by de minsken thús.
+It jild is op en de moanne is noch net iens hielendal om.
+Wy hawwe trije jier foar it nije dak sparre, en no't it jild der einlings is, blykt de timmerman oant folgjend foarjier fol te sitten.
+De hier giet alle jierren omheech en de leanen bliuwe gelyk.
+Hy telde it jild twa kear en kaam beide kearen op itselde út.
+De rekken fan 'e timmerman foel folle heger út as ôfpraat wie.
+Sy hat it hûs ferkocht en in lytser plakje yn it doarp kocht.
+Wat kostet sa'n stik tsiis by jimme op 'e merk?
+Wy betelje leaver kontant, want dan witte wy wat der oergiet.
+Om't de rinte sakke is, hawwe se de liening oernommen.
+De fersekering betellet de skea oan it dak dizze kear net.
+Hy lêst eltse jûn in oere yn bêd foar't er it ljocht útdocht.
+It boek leit al moannen op it kastke en is noch altyd net út.
+Sy skriuwt alle wiken in brief oan har freondinne yn Kanada, en om't dy gjin Frysk mear lêze kin, giet de helte fan 'e wurden ferlern.
+De krante komt hjir moarns om healwei sânen troch de bus.
+Op 'e radio wie in moai programma oer âlde Fryske ferhalen.
+Yn 'e bibleteek fan it doarp steane ek in soad Fryske boeken.
+Hy hat dat dikke boek yn mar twa jûnen hielendal útlêzen.
+Wat lêsto op it stuit sels foar in boek?
+De ferhalen dy't beppe fertelde, binne noait opskreaun.
+It hânskrift wie sa lyts dat ik it amper lêze koe.
+Wylst hy yn 'e stâl de kij melkt, makket sy yn 'e keuken it iten klear, en om healwei sânen sitte se allebeide oan deselde tafel.
+Doe't wy op it hiem kamen, stie de doar fan 'e skuorre wiid iepen.
+As jimme moarn komme, sil ik der foar soargje dat der kofje is.
+Ik bin de hiele middei oan it skjinmeitsjen west en bin no wol klear.
+Hy is oan it fervjen en wol net dat der ien tsjin him praat.
+Jo moatte de foarm earst goed ynfetsje foardat jo it daai deryn dogge.
+Do moatst dy net drok meitsje, want it komt fansels wol goed!
+Sy hawwe ús net ferteld dat se al twa moanne fan hjir fuort binne.
+Om't der gjin brânstof mear wie, moast de trekker stean bliuwe.
+Wat soesto dwaan as it moarn de hiele dei reine soe?
+De maitiid begjint hjir pas as it earste ljipaai fûn is, en dat stiet de oare deis mei namme en al yn 'e krante fan 'e provinsje.
+Yn maaie stiet it lân fol pinksterblommen en giele hynsteblommen.
+De boer hat it hea al binnen en it waar hat dit jier meiwurke.
+Yn 'e hjerst wurde de sleatten skjinmakke en de wâlkanten meand.
+Novimber is hjir de tsjusterste moanne fan it hiele jier.
+Yn 'e simmer bliuwt it hjir oant healwei alven ta ljocht.
+De earste echte froast komt meastal pas nei Sinteklaas.
+Foar de winter wurdt it hout foar de kachel efter it hûs stapele.
+De dagen wurde koarter en it ljocht giet moarns hieltyd letter oan.
+Hokker moanne fan it jier fynsto hjir sels it moaist?
+De hage moat noch knipt wurde foardat de fûgels dêryn briede.
+Wy hawwe njoggen ierappelplanten set en fjouwer binne opkommen.
+It ûnkrûd groeit hurder as alles wat ik der sels yn set haw, en as ik in wike net wjudzje, is der fan 'e rigen neat mear te sjen.
+Yn 'e kas steane de tomaten en dy binne hast ryp genôch.
+Hy hat de âlde apelbeam omseage, om't der gjin blêd mear oan kaam.
+De blommen foar it rút hawwe fannacht de froast net oerlibbe.
+Sy set eltse maitiid nij sied yn 'e bakken op 'e finsterbank.
+De hikke fan 'e tún hinget skean en moat opnij ophongen wurde.
+Efter yn 'e tún leit in stikje gers dat wy noait meane.
+Wêr hasto de skjirre foar de hage no wer delein?
+It dak lekt by de skoarstien, en dat moat foar de winter makke wurde, want as de wyn ienkear út it noardwesten komt, rint it hiele hûs wiet.
+Hy hat de flier fan 'e skuorre sels lein en dat sjochst der ek oan.
+De ferve blêderet fan 'e kezinen ôf en it hout wurdt dêrtroch wiet.
+Wy hawwe in nije kachel sette litten en it hûs is no folle waarmer.
+De timmerman komt tiisdei en bringt syn eigen ark allegearre mei.
+De muorre efter it hûs is fersakke en de stiennen sitte los.
+Sy hat de foarkeamer behongen wylst wy op fakânsje wiene.
+It slot fan 'e foardoar is stikken en de kaai draait net mear.
+Doe't de ljedder fuortglied, hold er him oan 'e goate fêst.
+It hiele hûs stiet op 'e kop, om't de skilders der dizze wike binne.
+De buorlju hawwe in nije hûn en dy blaft de hiele dei troch.
+Yn sa'n lyts doarp kent elk elkoar, en dat hat twa kanten: der is altyd ien dy't helpt, mar der is ek noait ien dy't neat sjocht.
+It doarpshûs wurdt brûkt foar de toanielferiening en de biljertklup.
+Op Keningsdei wurdt der op it plein in merke mei kreammen opboud.
+De frijwilligers ûnderhâlde it fjild en it hôf om 'e tsjerke hinne.
+Doe't de winkel ticht gie, begûn it doarp sels in lyts winkeltsje.
+De doarpsfeart wurdt eltse juny troch de bern skjinmakke.
+Wa't hjir nij komt te wenjen, wurdt gau frege foar in feriening.
+It doarpsbelang hat in brief oan 'e gemeente skreaun oer de dyk.
+Hoe hjit dy nije famylje dy't neist de tsjerke kommen is?
+Hja sjongt yn it koar en repetearret eltse tongersdeitejûn.
+Ús heit spile akkordeon en koe alle âlde ferskes út 'e holle, en as der jûns folk kaam, hoegde nimmen him twa kear te freegjen.
+Op it feest waard De âlde Friezen troch elkenien lûd meisongen.
+De muzykferiening rint mei nijjier troch de hiele buorren hinne.
+Hy learde himsels gitaar spyljen doe't er noch mar sechtjin wie.
+De fanfare oefenet yn it doarpshûs en dat heart men op strjitte.
+Sy hat in moaie stim, mar doart net allinnich te sjongen.
+Op 'e radio klonk in âld Frysk liet dat ik lang net heard hie.
+De pianolessen binne djoer, mar ús âldste wol graach trochgean.
+Watfoar muzyk draaie jimme op sa'n jûn eins it measte?
+It is al let en it hûs is stil, allinnich de klok tikket noch.
+Ik kin net sliepe, om't de wyn de hiele nacht om it hûs raast en de pannen op it dak dêr elk oere in oar lûd by meitsje.
+Hy is fannacht wol trije kear wekker wurden en wit sels net wêrom.
+Bûten baarnt gjin inkelde lantearne en it is dêr pikketsjuster.
+De moanne stiet fol boppe de greide en it hiele lân leit blau.
+De bern sliepe al en it ljocht op 'e gong bliuwt foar har oan.
+Wy binne juster fier foar tolven al op bêd gien.
+Om fjouwer oere begjinne de fûgels en dan is it dien mei sliepen.
+Foar't ik sliepen gean, set ik de wekker en doch de doar op slot.
+Wannear bisto justernacht úteinlik thúskaam?
+Doe't ik lyts wie, stiene der noch fjouwer winkels yn 'e buorren, en no moatte wy foar ien pak sûker de auto út 'e skuorre helje.
+Eartiids wie de feart de wei en de dyk kaam pas folle letter.
+Myn beppe koe gjin wurd Nederlânsk en dat wie doe hiel gewoan.
+Wy prate der noch faak oer hoe't it hjir tweintich jier lyn wie.
+It âlde stasjon is ôfbrutsen en nimmen wit noch wêr't it stien hat.
+Op dizze foto stiet de pleats noch mei it âlde reiden dak derop.
+De namme fan dat lân komt út 'e tiid dat hjir noch feangrûn lei.
+Se fûnen by it graven potskerven út 'e tiid fan 'e terpen.
+It ferhaal giet dat der ûnder dizze tsjerke in folle âldere tsjerke leit, mar nimmen hat der ea groeven en dus bliuwt it by in ferhaal.
+Hoe seach dit doarp der eins út foar't de nije dyk der kaam?
+Takom jier wolle wy it hiele hûs oan 'e bûtenkant ferve.
+Hy hat him opjûn foar in kursus en begjint dêrmei yn septimber.
+Wy sille sjen oft it slagget, mar wis binne wy der net fan.
+As alles goed giet, ferhúzje se foar de simmer nei Boalsert, want dêr hat sy wurk fûn en hy kin fan dat plak ôf oeral hinne.
+Sy hat it plan om nei har pensjoen wer it lân yn te gean.
+Der komt in nije brêge, mar nimmen wit wannear't se begjinne.
+Ik moat fanjûn noch efkes belje, oars is it moarn wer te let.
+It bestjoer beslút yn 'e maitiid oft de tocht wol trochgiet.
+Wy hawwe ôfpraat dat elk de helte fan 'e kosten betellet.
+Wat binne jimme plannen foar de fakânsje fan dit jier?
+De fisker helle de fûke op en der siet mar ien iel yn.
+Op 'e kwelder rinne yn 'e hjerst tûzenen fûgels te iten, en as der ien opfljocht, giet de hiele wolk tagelyk de loft yn.
+In hazze sprong ynienen foar de fyts wei it lân yn.
+De swellen sitte op 'e tried en dat betsjut dat de simmer om is.
+Ús kat hat fannacht in mûs midden yn 'e keuken lein.
+De ûle sit alle jûnen op 'e nok fan 'e âlde skuorre.
+Yn 'e sleat swimme jonge einen deun achter har mem oan.
+De ljip leit har aaien yn it lân en dekt se hast net ôf.
+De bijen fan 'e buorman fleane oer de hiele buert hinne.
+Hokker fûgel makket dat rare lûd yn 'e beam foar it hûs?
+Yn Ljouwert stiet de Aldehou skean en dat is er altyd west.
+Wy binne mei de trein nei Ljouwert west om ynkeapen te dwaan, en om't it dêr sa drok wie, hawwe wy de helte fan 'e list stean litten.
+It museum oan 'e gracht hie in tentoanstelling oer de terpen.
+De merk op 'e Nijstêd is freeds fan njoggenen oant fjouweren.
+Yn 'e stêd rint men samar fan 'e iene winkelstrjitte yn 'e oare.
+Snits is drok yn 'e simmer, om't alle boaten dêr trochkomme.
+Ús dochter studearret yn Grins en komt allinnich yn it wykein thús.
+Yn Dokkum is it stil en de bolwurken lizze der noch krekt sa by.
+Hoe lang docht men mei de auto fan Harns nei It Hearrenfean?
+Tresoar bewarret âlde kranten dy't nearne oars mear te finen binne.
+De slachter oan 'e dyk makket syn woarst noch altyd hielendal sels.
+By de bakker rûkt it moarns om sânen al oer de hiele strjitte, en wa't dan noch yn bêd leit, wit dochs krekt hoe let oft it is.
+De kapper hat mar twa stuollen en dochs moat men dêr wachtsje.
+De fytsemakker hat myn bân yn tsien minuten plakt.
+Yn 'e nije supermerk fynt men neat werom fan wat der earst stie.
+De post komt hjir letter as eartiids en soms hielendal net.
+It kafee hat sûnt febrewaris in nije kastlein út Warkum.
+Sy hat de skuon nei de skuonmakker brocht om se lappe te litten.
+Wat kostet sa'n doaske dúmkes hjir yn 'e winkel?
+De boer ferkeapet oan 'e dyk sels ierappels, aaien en molke.
+Hy lûkt de dikke jas oan, om't it bûten sa hurd waait.
+De wanten binne wei en no hat er allinne noch syn mûtse.
+Sy hat de klean krekt fan 'e line helle foardat de bui kaam.
+De skuon steane by de doar en de wiete sokken lizze deryn.
+It fest is fan wol en jokket sels troch it himd hinne.
+Yn 'e kast hinget noch de jas fan pake, dy't nimmen mear oanlûkt.
+Op sneon lûke se it moaie guod oan foar de tsjerke.
+De broek is te koart wurden en it bern groeit noch hieltyd troch.
+Waans jas hinget hjir noch oan 'e kapstôk yn 'e gong?
+De rein sloech dwers troch de jas hinne en alles wie wiet.
+De bern hawwe de hiele middei bûten yn 'e modder boarte.
+Ús jonge kin no fytse sûnder dat ien him fêsthâlde moat.
+It famke fan hjirneist komt eltse dei efkes by ús oan 'e doar.
+De bern moatte earst har hannen waskje foardat se oan tafel gean.
+Hy hat op syn jierdei in nije fyts fan syn beppe krigen.
+De skoalbern rinne yn in lange rige achter de juf oan.
+Doe't it hurd begûn te reinen, kamen se drippend wiet thús.
+Sy hat de hiele jûn mei har poppe op 'e skerte sitten.
+Wêrom rint dat bern sûnder skuon oer de kâlde flier?
+De jonges boartsje op it iis en de âlden roppe dat it net mei.
+Wy binne yn augustus twa wiken nei Dútslân op fakânsje west.
+Hja hat de koffer al pakt, hoewol't se pas oer trije dagen giet, en it briefke mei wat der noch by moat, hinget al in wike op 'e kast.
+Op it kampearterrein by de mar stiene wol fyftich tinten.
+It fleantúch fertrekt betiid en dêrom sliepe wy by it fleanfjild.
+Wy hiere altyd itselde húske op Skylge en wolle it net oars.
+De boat nei Flylân is fanwegen it hurde waar net útfearn.
+Nei twa dagen rein binne se mar wer gau nei hûs riden.
+Hokker kant giet dizze wei hjir op, links of rjochts?
+Op 'e weromreis stiene wy mear as trije oeren yn 'e file.
+Hy nimt noait in kaart mei en dochs riidt er altyd goed.
+De telefoan giet en nimmen yn 'e keamer nimt him op.
+Sy hat him in lang berjocht stjoerd en gjin antwurd werom krigen.
+It ynternet leit derút en dêrom kin ik it no net opsykje.
+Hy skriuwt syn brieven noch altyd mei de hân en yn it Frysk.
+De brief lei ûnder de kranten en waard pas folle letter fûn.
+Op 'e kompjûter fine se it wurd net, om't se it ferkeard skriuwe: mei in gewoane e ynstee fan in ê, en dan is it in oar wurd.
+Ik bin dyn nûmer kwyt; wolsto it my noch ien kear jaan?
+Wy hawwe justerjûn wol oardel oere sitten te beljen.
+De list mei nammen leit op it kantoar en is noch net kompleet.
+Hoe skriuwsto dat wurd yn it Frysk eins goed?
+Der stiet in panne sûpengrottenbrij op 'e kachel te sudderjen.
+De ierappels moatte noch fiif minuten en dan kin it iten op tafel.
+Sy skile de sipels en krige der triennen fan yn 'e eagen.
+It brea is sels bakt en dêrom is de koarst wat hurder wurden.
+Nim earst de sop mar, want dy wurdt oars hielendal kâld!
+De tee stiet al fierstente lang te lûken en is no bitter.
+Hy set de kofje altyd te sterk foar wa't der net oan wend is.
+Yn 'e kelder stiet noch in kiste mei ynmakke beantsjes.
+Op sneontejûn ite wy meastal wat oars as troch de wike hinne.
+Wolsto der noch molke of in bytsje sûker by hawwe?
+De trekker stiet mei de ploech achterop op it hiem te wachtsjen.
+De boer hat it lân yn 'e hjerst ploege en no leit it swart en glêd oant de dyk ta, en pas yn maart komt der wer wat grien yn.
+It hea moat trije dagen droech lizze foar't it opladen wurdt.
+De keallen steane apart yn 'e skuorre en drinke út in amer.
+Hy melkt no mei in masine, mar syn heit die it noch mei de hân.
+De mesthoop leit efter de pleats en rûkt oer it hiele hiem.
+It stek is stikken en de kij binne it oare lân yn rûn.
+Yn 'e simmer wurdt der hjir twa kear yn 'e wike meand.
+Hoefolle kij hâlde jimme hjir op dizze pleats?
+De molkweinen ride hjir alle moarnen deselde smelle dyk lâns.
+It ark hinget kreas op syn plak oan 'e muorre fan 'e skuorre, en wa't der wat ôfnimt, set it werom foardat er de doar wer útgiet.
+De seage is sa bot wurden dat er troch gjin hout mear komt.
+Hy hat de hammer earne delein en fynt him no net werom.
+De spikers lizze los yn in blikje boppe op 'e wurkbank.
+De skroeven passe net en dêrom moat er wer werom nei de winkel.
+Sy makket it tou fêst mei in knoop dy't net wer losrekket.
+It mes leit yn 'e la en is al lang net mear slipe.
+Mei dizze skjirre komsto troch dat tsjokke tou net hinne.
+Wêr leit it mjitlint dat hjir altyd yn 'e kast lei?
+De kroade stiet fol wiet sân en nimmen kin him ferpleatse.
+De doar is read ferve en falt op tusken alle wite hûzen.
+It tafelkleed is blau mei wite blokken en al hiel âld.
+De stoel by it rút is de âldste dy't wy yn hûs hawwe.
+Yn 'e kast stiet it servys dat allinnich mei krysttiid brûkt wurdt.
+De klok yn 'e gong rint fiif minuten foar en dat wit elkenien.
+Op 'e skoarstienmantel steane trije foto's en in koperen doaske.
+It skilderij oan 'e muorre lit de âlde tsjerke fan it doarp sjen.
+De lampe boppe de tafel hinget te leech foar in lange man.
+Hokker kleur woene jimme de foarkeamer dizze kear ferve?
+It kleed foar de kachel is troch de hûn hielendal stikken makke.
+Hy is lulk wurden, mar nei in oere wie it alwer oer.
+Sy fielde har net op har gemak yn dat grutte gebou.
+Ik bin bliid dat wy dat destiids sa besletten hawwe.
+Hy skammet him der net foar dat er in flater makke hat.
+It spyt my dat ik dat sein haw sûnder earst nei te tinken.
+Wy binne skrokken doe't wy dat berjocht te hearren krigen.
+Se hie der gjin nocht mear oan en is der doe mei ophâlden.
+Hy is tefreden mei in lyts hûs en in stikje tún derefter.
+Wêrom bisto hjoed de hiele middei al sa stil?
+It docht har goed dat de bern sa faak by har del komme.
+Kinne jo my sizze hoe't ik hjirwei nei it stasjon kom?
+Mei ik jo efkes steure foar ien koarte fraach?
+Tank foar de kofje, mar wy moatte no wier fierder.
+Doch de groetnis oan dyn mem ast har fanmiddei sjochst.
+Kom deroan en gean sitten, der is romte genôch oan tafel!
+Sil ik jo helpe mei dy doazen, want se lykje my swier ta.
+Wy soene it moai fine as jimme sneon ek komme koene.
+Nim my net kwea ôf, mar ik tink dat it oars moat.
+Wolle jo sa freonlik wêze om de doar efter jo ticht te dwaan?
+Sûnder jimme help hiene wy dit noait op tiid klear hân.
+De dyk is opbrutsen en it ferkear moat der hielendal omhinne.
+Op dizze smelle wei kinne twa auto's inoar amper passearje, dus ien fan beiden moat de berm yn, en dy is nei in bui hiel sêft.
+Der stiet in bôge fan âlde beammen oer de wei nei de pleats.
+It fytspaad lâns de feart is nij oanlein en rint troch nei Grou.
+Hy stiet elke moarn foar deselde brêge stil te wachtsjen.
+De bus stoppet net mear yn dit doarp en dat fielt as ferlies.
+Yn sa'n dichte mist rydt men hjir better hielendal net.
+De dyk lâns de mar is de moaiste dy't ik yn 'e provinsje ken.
+Hoe fier is it fan hjir ôf noch nei Frjentsjer?
+Efter de bocht leit in stik dyk dat eltse winter glêd is.
+Op 'e Waadsee falt it wetter twa kear deis hielendal fuort.
+Mei leech wetter rint men fan Holwert ôf nei It Amelân ta.
+De waadrinners geane allinnich mei in gids by har op paad.
+It slyk suget oan 'e learzens en eltse stap kostet krêft, sadat men nei ien oere op it Waad wurger is as nei in hiele dei rinnen.
+Op 'e sânplaten lizze de seehûnen rêstich te sinnebaaien.
+It Waad is stil, mar it wetter komt altyd wer werom.
+De fûgels sitte by tûzenen op 'e plaat te wachtsjen op leech wetter.
+Yn 'e hjerst komme de rotguozzen del op 'e kwelder efter de dyk.
+Wisto datst dêr net sûnder gids rinne meist?
+De dyk hâldt de see tsjin en dêr tinkt hjir nimmen mear oer nei.
+Hy praat Frysk mei syn bern en Nederlânsk op syn wurk.
+Yn dit doarp heart men op strjitte hast allinnich noch Frysk.
+Sy hat op har fyftichste noch leard om Frysk te skriuwen.
+It ferskil tusken wêr en wer sit allinnich yn dat lytse teken.
+Wa't Frysk lêze kin, ferstiet fan in stik âld Ingelsk mear as er ferwachtet, om't dy twa talen fan deselde kant fan 'e Noardsee komme.
+De Afûk jout kursussen foar wa't de taal skriuwe leare wol.
+Omrop Fryslân bringt it nijs yn it Frysk, moarns en jûns.
+Hy skriuwt syn eigen namme yn it Frysk en syn adres net.
+Hoe sizze jimme dat wurd by jimme yn it doarp?
+Der binne wurden dy't allinnich hjir noch brûkt wurde.
+It is fjouwer oere en de skoalle giet oer tsien minuten út.
+Wy komme moarnier om healwei achten by dy del.
+De ôfspraak stiet foar tongersdei om trije oere middeis.
+Hy is al om fiif oere fan bêd en dat is er syn libben lang wend.
+Nei healwei njoggenen wurdt der hjir net mear belle.
+Fan maaie oant septimber is de winkel op sneon langer iepen.
+De trein fan tsien oer healwei sânen is de drokste fan 'e dei.
+It duorret noch fiif wiken foardat de simmerfakânsje begjint.
+Hoe let moatte wy dêr moarntemoarn eins wêze?
+Wy hawwe noch krekt in healoere foardat de winkels tichtgeane.
+De ploech begjint mei fjouwer man en einiget mei twa.
+Hja hat de administraasje oernommen doe't har man siik waard.
+Op it bedriuw wurkje se yn twa ploegen en ien nachttsjinst.
+Hy hat tritich jier by deselde baas wurke en noait kleid.
+It wurk leit stil, om't de ûnderdielen noch net oankommen binne.
+De feriening siket in nije skriuwer, want de âlde hâldt op.
+Sy is dizze wike frij en helpt op 'e pleats fan har broer.
+Wat is dyn wurk hjir op it bedriuw krekt?
+De baas kaam sels efkes sjen hoe't it mei it wurk opsjitte woe.
+Nei fjirtich jier wurk giet er mei pensjoen en dan is der feest.
+De ljochten fan 'e stêd binne fan 'e dyk ôf goed te sjen.
+Yn 'e fierte stiet in rige mûnen mei hielendal stille wjukken.
+Alles wat men hjir sjocht, is lân, wetter en in soad loft, en dat freget fan in frjemd each earst wat tiid foardat it wat sjocht.
+De hoarizon is sa fier dat men de bôging fan 'e ierde hast leaut.
+It lânskip feroaret hjir mei eltse oere fan 'e dei.
+De pompeblêden op 'e flagge steane foar de sân Fryske seelannen.
+Yn 'e simmer stiet de flagge by hast eltse pleats út.
+It doarp leit sa leech dat de dyk der boppe út stekt.
+Wat sjochsto dêr yn 'e fierte oan 'e ein fan 'e dyk?
+De loft kleuret jûns read en dat betsjut meastal moai waar.
+Hy hat wol gelyk, mar hy hat it op 'e ferkearde toan sein.
+Wy witte noch net wat wy dwaan sille en wachtsje mar ôf.
+It is better ien kear goed as trije kear hastich te dwaan.
+Der is neat mis mei stadich, salang't it mar klear komt.
+Se hat altyd sein dat men fan wurk allinnich noait siik wurdt.
+Wa't net freget, kriget dêr ek gjin antwurd op.
+It measte giet fansels goed as men der de tiid foar nimt, mar wa't hastich is, docht itselde wurk twa kear en klaget dan oer de tiid.
+Hy leaut net alles wat er heart en dat is mar goed ek.
+Wat soesto sels dwaan as it dy oergean soe?
+It hoecht net moai te wêzen, as it mar stevich is.
+De dei is om en it wurdt bûten alwer betiid tsjuster.
+Wy hawwe hjoed net sa folle dien en dat mocht ek wolris.
+It hûs rûkt nei sop en de bern sitte al klear oan tafel.
+Bûten waait it noch altyd, mar hjirbinnen is it hearlik waarm.
+Hy sit by it rút en sjocht nei de rein dy't op 'e feart falt.
+De lampen yn 'e strjitte gean tagelyk oan en it doarp wurdt stil.
+Moarn is der wer in nije dei en dan sjogge wy wol fierder.
+Sy leit it boek del, docht it ljocht út en giet sliepen.
+Der wie fannacht hielendal gjin wyn en dat hearden wy oan 'e stilte.
+Hoe soe it moarn mei it waar hjir wêze, tinksto?

@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of East Asian ancestry, named in Tetum. Defisiénsia aldeídu dezidrojenaze 2 is the alcohol-flushing variant carried by a very large share of the population, and it earns a place on a diagnosis list because it is pharmacogenetic rather than pathological — the same enzyme that stalls on acetaldehyde also handles nitroglycerin, so the trait changes how a drug works and not only how a drink feels. Glaukoma ángulu fexadu shows a spelling rule doing visible work in the middle of a technical phrase: Portuguese fechado becomes fexadu because Tetum writes the ch sound with x, the same substitution that turns chave into xave and chá into xá.
+locale: tet
+---
+Alfa-talasemia
+Defisiénsia aldeídu dezidrojenaze 2
+Intoleránsia laktoze
+Karsinoma nazofarinje
+Kansru gástriku
+Glaukoma ángulu fexadu
+Doensa Kawasaki
+Doensa Moyamoya
+Ipersensibilidade karbamazepina
+Miopia patolójika

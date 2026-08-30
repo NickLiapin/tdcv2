@@ -1,0 +1,36 @@
+---
+description: Frisian honorific and form of address, the part of a name that goes in front. Hear and Frou are the letter forms - a Frisian letter opens Achte hear Dykstra or Achte frou De Vries, exactly where an English one opens Dear Mr and a Dutch one Geachte heer - and Hear is not a verb despite how it reads to an English eye; it is the same word as English Sir in its older sense of lord. Menear and Mefrou are the spoken forms, and Frou covers married and unmarried women alike, with Juffer now only in old records. Three entries here have no Dutch or English equivalent worth the name. Dûmny is the Protestant minister, and the word is in a Frisian list at all because the church is where written Frisian survived: the Frisian Bible of 1943 by G. A. Wumkes and E. B. Folkertsma, and the first church services held in Frisian in the 1910s, made dûmny a Frisian-speaking office in villages that otherwise did their paperwork in Dutch. Master is the village schoolteacher and is used with the surname as a title in its own right, master Hoekstra, which is why the Frisian for a teacher and the Frisian for a craftsman are the same word. Boade is the usher or beadle who serves summonses and opens the council chamber, a municipal office rather than a courtesy. Of the academic titles, note that Mr. is a lawyer and never the English Mister, Drs. is a pre-Bologna master's degree and not a doctorate, and none of these abbreviations is translated into Frisian on a diploma, because degrees are awarded nationally.
+locale: fy
+---
+Hr.
+Frou
+Juffer
+Menear
+Mefrou
+Hear
+Dr.
+Dr. ir.
+Drs.
+Ir.
+Ing.
+Mr.
+Prof.
+Prof. dr.
+Prof. mr.
+Prof. ir.
+Bc.
+BSc
+MSc
+LLM
+MA
+Sr.
+Br.
+Ds.
+Dûmny
+Pastoar
+Master
+Boade
+Kaptein
+Majoar
+Kolonel
+Generaal

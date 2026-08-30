@@ -1,0 +1,20 @@
+---
+description: Chinese dishes as they are eaten in Fryslân, which means the Dutch-Chinese restaurant menu rather than anything served in China: babi pangang, foe yong hai, tjaptjoy and koe loe yuk are Netherlands inventions or heavy adaptations, and they are spelled the way that trade has always spelled them. The Frisian shows in the plain surrounding words - bakte for fried, sop for soup, ein for duck, hin for chicken, nuten for nuts - and above all in swietsûre, sweet-sour, where swiet is the English sweet standing against Dutch zoet. This is the cuisine with the widest reach in the province by a distance: a Chinese restaurant is standard in Frisian villages far too small to support a restaurant of any other kind, and for a whole generation it was the only place in town where you could eat food you had not cooked yourself.
+locale: fy
+---
+Babi pangang
+Foe yong hai
+Tjaptjoy
+Koe loe yuk
+Bakte rys
+Mihoen
+Wan tan sop
+Peking ein
+Hin kerry
+Chow mein
+Dim sum
+Loempia
+Hin mei cashewnuten
+Swietsûre hin
+Mapo tofu
+Bakte banaan

@@ -1,0 +1,15 @@
+---
+description: Gaming platforms. Hardware and store brands keep their Latin spelling in any script, so the first nine values are unchanged here; only браузер and онлайн клуб are Uzbek. The онлайн клуб — a room of shared PCs sold by the hour — is where a large share of Uzbek gaming actually happens.
+locale: uz
+---
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Steam Deck
+Android
+iOS
+браузер
+онлайн клуб

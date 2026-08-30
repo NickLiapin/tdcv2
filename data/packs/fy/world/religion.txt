@@ -1,0 +1,27 @@
+---
+description: Religious affiliation as Frisian statistics and everyday speech word it. Fryslân is historically Protestant almost throughout, with Catholic pockets in the southwest around Blauhús, Bakhuzen and Wytmarsum, so a Dutch national list overstates the Catholic share badly if it is applied here. Doopsgesind is the entry that carries the province's own history: the Mennonites are named after Menno Simons, a priest born about 1496 in Wytmarsum in Fryslân who left the Catholic church in 1536, and the movement he gave his name to now runs from Pennsylvania to Paraguay. Within the Protestant side the herfoarme and grifformeard distinction still means something socially even though the two main churches merged into the Protestantske Tsjerke in 2004, and grifformeard is a genuinely Frisian word rather than a respelling. The other thing a generic list misses: like the rest of the Netherlands, most adults here now report no affiliation at all, so ûnleauwich, ateïst, agnost and gjin religy are majority answers rather than edge cases - leauwe is to believe and gjin is the negative article, none.
+locale: fy
+---
+Rooms-katolyk
+Protestantske Tsjerke yn Nederlân
+Nederlânsk-herfoarme
+Grifformeard
+Grifformeard frijmakke
+Kristlik grifformeard
+Evangelysk
+Pinkstergemeente
+Doopsgesind
+Remonstrantsk
+Ald-katolyk
+Ortodoks kristlik
+Jehova's tsjûge
+Islam
+Joadendom
+Hindoeïsme
+Boeddisme
+Sikhisme
+Humanistysk
+Ûnleauwich
+Ateïst
+Agnost
+Gjin religy

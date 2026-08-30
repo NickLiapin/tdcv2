@@ -1,0 +1,21 @@
+---
+description: Cuisine in siSwati, and the shape of the list is a grammar lesson. Nguni languages name a people's language, manner and cooking with the class 7 prefix si-, which is why the language itself is siSwati — si- plus the stem Swati — and why every value here opens the same way. siBhunu is the Afrikaner kitchen, present in Eswatini through a century of shared border and shared farms; siPutukezi arrives by way of Mozambique, an hour from Manzini, and is why peri-peri chicken and prawns are ordinary restaurant food here rather than exotic ones; siNgisi is on the list because English is Eswatini's other official language and the colonial protectorate left its breakfasts behind. Each value has a dishByCuisine child file.
+locale: ss
+---
+siSwati
+siBhunu
+siPutukezi
+siNdiya
+siShayina
+siTaliyane
+siNgisi
+siMelika
+siMexico
+siJaphani
+siKhoriya
+siThayi
+siVietnamu
+siGriki
+siFulentji
+siThekhi
+siLebanoni

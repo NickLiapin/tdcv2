@@ -1,0 +1,16 @@
+---
+description: Kinds of leave, in Bambara, built on one word: `lafiɲɛ`, to rest, which is also the noun for a rest and for leave. Everything here is that noun with a qualifier in front — `San lafiɲɛ` the year's leave, `Bana lafiɲɛ` sick leave, `Denwolo lafiɲɛ` maternity leave from `den` child plus `wolo` to give birth, `Sudon lafiɲɛ` bereavement leave from `su don`, the burying. `Lafiɲɛ sarabali` is unpaid leave, with the same -bali suffix that makes furubali unmarried. The last two are the Malian holiday calendar as the Code du travail sets it: the republican dates and the Islamic feasts, and `fɛti` is French fête worn into Bambara, because the concept of a scheduled public holiday came with the administration even though the feasts themselves did not.
+locale: bm
+---
+San lafiɲɛ
+Bana lafiɲɛ
+Denwolo lafiɲɛ
+Facɛya lafiɲɛ
+Bɔli yamaruya
+Sudon lafiɲɛ
+Furusiri lafiɲɛ
+Hiji lafiɲɛ
+Kalan lafiɲɛ
+Lafiɲɛ sarabali
+Jamana ka fɛti
+Diinɛ ka fɛti

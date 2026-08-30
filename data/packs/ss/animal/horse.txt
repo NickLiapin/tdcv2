@@ -1,0 +1,20 @@
+---
+description: Horse breed in Eswatini. Ibhasotho Poni is the one with a southern African history: it descends from Cape horses traded and raided into the Lesotho highlands in the nineteenth century, was bred hard for surefootedness on mountain paths, and is still the working animal of the Maloti and of the Eswatini highveld above Bulembu and Piggs Peak where a vehicle cannot go. Iboerperd is the other regional breed, developed on the Highveld farms. Horses matter less in Eswatini than cattle by a very wide margin — lihhashi is a class 5 loan, from Dutch or Afrikaans, and the animal arrived with settlers, whereas inkhomo is ancient — so this list is a sporting and recreational vocabulary rather than an agricultural one.
+locale: ss
+---
+Lihhashi lasekhaya
+Ibhasotho Poni
+Iboerperd
+Ithoroughbred
+Iarabhu
+Ikwatha Hhashi
+Iappaloosa
+Ipalomino
+Iklaydsideli
+Ipesheroni
+Ishayeri
+Iwelshi Poni
+Isheteland Poni
+Ihhanoveriyani
+Ifriziyani
+Imula

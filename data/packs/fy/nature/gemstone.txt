@@ -1,0 +1,29 @@
+---
+description: Gemstone (West Frisian). Barnstien is the one with a Frisian story rather than a jeweller's one. It is amber, and the word means burn-stone: barne is the Frisian verb to burn, the same word as English burn where Dutch has branden, and amber is called that because it does burn, with a resinous smell. It washes up on the beaches of the Waadeilannen - Skylge, It Amelân, Skiermûntseach - after a northwesterly blows, and beachcombing for it after a storm is an ordinary thing to do here rather than a curiosity. Moannestien is moon-stone built from moanne and stien, and pearel is a pearl; both keep the plain compound where the trade would use a Latin name. Diamant heads the list out of habit borrowed from the Dutch trade in Amsterdam, not because anything was ever cut in Fryslân.
+locale: fy
+---
+Diamant
+Robyn
+Saffier
+Smaragd
+Ametist
+Topaas
+Opaal
+Granaat
+Aquamaryn
+Peridoot
+Turkoais
+Jade
+Onyks
+Pearel
+Sitryn
+Tanzaniet
+Toermalyn
+Moannestien
+Sirkoon
+Lapis lazuli
+Barnstien
+Koraal
+Malachyt
+Roazekwarts
+Obsidiaan

@@ -1,0 +1,20 @@
+---
+description: Room type in siSwati. Likamelo is the head word and it is a loan, from Portuguese camara through Afrikaans kamer, taken with the class 5 li- prefix and the class 6 plural emakamelo — which tells you that the divided interior of a house is itself an introduced idea. The dwelling siSwati has its own word for, indlu, is a single round thatched room, and a homestead was a cluster of them rather than one building with partitions; a grandmother's indlu, a kitchen indlu and a sleeping indlu stood separately in the yard. That is why ikhishi, the kitchen, and indlu yangasese, the latrine, are named without likamelo while every interior division takes it: the two are still thought of as separate places rather than as rooms.
+locale: ss
+---
+Likamelo lekulala
+Likamelo lekuhlala
+Likamelo lekudlela
+Ikhishi
+Likamelo lekugezela
+Indlu yangasese
+Likamelo lekusebenta
+Likamelo lebantfwana
+Likamelo letivakashi
+Likamelo lekugcina imphahla
+Ligumbi lekuwasha
+Ivelanda
+Ipatiyo
+Ipheseji
+Sitezi sangaphansi
+Sitezi sangetulu

@@ -1,0 +1,20 @@
+---
+description: Horse breeds, and the first entry is the only one that belongs to the island. The kuda Timór is a small hardy pony, rarely over thirteen hands, bred here for centuries and shipped out across the archipelago and to Australia in numbers large enough that Timor ponies turn up in the pedigree of stock horses far from home; on the island itself the horse is a mountain animal that carries loads on paths no vehicle reaches, and it appears in barlake exchanges and in ceremony alongside the buffalo. Kuda is Malay in origin and is one of the old trade loans that displaced whatever came before it. The remaining fifteen are the international breeds as Portuguese names them, respelled: puro-sangue gives puru-sange, quarto de milha gives kuartu de milla with qu written k and lh written ll, percherão gives perxeraun with ch written x and the nasal ending written -aun, pónei gives póni, and lusitano and crioulo give luzitanu and krioulu on the unstressed final o.
+locale: tet
+---
+Kuda Timór
+Árabe
+Puru-sange inglés
+Mustang
+Clydesdale
+Appaloosa
+Kuartu de milla
+Fríziu
+Shire
+Andaluz
+Morgan
+Palominu
+Perxeraun
+Póni Shetland
+Luzitanu
+Krioulu

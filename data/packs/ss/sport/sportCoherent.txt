@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list. The list is Eswatini's, not a generic one: netibhola, netball, is the country's leading women's sport and is played at every high school, while ice hockey and baseball have no presence here at all and are absent. Libhola alone, with no qualifier, means football — the class 5 loan from English "ball" — and Eswatini's national side is Sihlangu Semnikati, "the King's shield". The rest show the loan machinery working: an English game name is taken whole and given a siSwati class prefix or simply left as a bare class 9 noun, which is what happens to hhokhi, ragbhi and khilikithi. Softibhola and volibhola keep the -bhola stem because the thing is a ball game and the word says so.
+locale: ss
+---
+Libhola
+Hhokhi
+Ragbhi
+Softibhola
+Netibhola
+Bhasikhidi
+Volibhola
+Khilikithi

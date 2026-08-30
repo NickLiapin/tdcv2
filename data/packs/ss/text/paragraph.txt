@@ -1,0 +1,154 @@
+---
+description: Filler paragraphs in siSwati, composed by hand for the same reason as the sentence file: data/scripts/build-text-corpus.mjs builds these from public-domain books and there is no siSwati text in Project Gutenberg to build from. Each paragraph runs two to four sentences on one subject, and the subjects are ordinary — the homestead at dawn, the fields through the season, the market, the clinic, the road, the ceremonies. Reading a few in succession shows the feature that most distinguishes siSwati prose from English: agreement runs right through a sentence, so that a single noun class fixes the shape of the subject concord on the verb, the relative that describes it, the possessive that follows it and the pronoun that later refers back to it. Change umuti to indlu and half the words in the sentence change with it. That is why the paragraphs cannot be reassembled from the sentence file by shuffling clauses, and why a config that stitches siSwati fragments together will produce text that is grammatical nowhere.
+locale: ss
+---
+Ekuseni umndeni uvuka lilanga lingakaphumi. Make ubasa umlilo ekhishini, babe aphume aye epulazini. Bantfwana batsatsa tikhwama tabo bahambe baye esikolweni.
+Umuti umi eceleni kwemgwaco lomkhulu. Unendlu lenkhulu, tindlu letimbili letincane nesibaya lesisemkhatsini. Tinkhomo tingena esibayeni kusihlwa.
+Emfuleni bafati bakha emanti ekuseni kakhulu. Bahamba bakhulumisana, batfwele titja etinhloko. Bantfwana bahamba nabo batfwele titja letincane.
+Insimu yakitsi igcwele umbila. Sahlanyela ngenyanga yaMabasa, imvula yana kahle. Sitawuvuna emabhontjisi ngenyanga yeNgongoni.
+Ehlobo kuyashisa kakhulu eBig Bend. Bantfu basebenta emphandzeni wemoba kusukela ekuseni. Baphumula emini nalilanga seliphakeme.
+Ebusika kuyabandza eMbabane. Sitfwatfwa siwa ekuseni, tjani bube mphunga. Bantfu babasa umlilo ngekhatsi kwendlu.
+Umhlanga wenteka umnyaka wonkhe ngenyanga yeNgci. Emantfombi asika luhlanga emifuleni bese awutfwala aye eLudzidzini. Indlovukazi iyawemukela bese kuyagidwa emalanga lamanyenti.
+Incwala ngumcimbi wenkhosi. Wenteka ehlobo, ngesikhatsi senyanga lensha. Emabutfo agida esibayeni bese kushiswa timphahla temcimbi ekugcineni.
+Buganu yenteka ngenyanga yeNdlovana. Bafati bakha titselo temganu bese benta tjwala. Indlovukazi iyabemukela bese kuba nemcimbi lomkhulu.
+Umshado ubanjelwa emutini wemndeni. Bantfu bagcoka emahiya, kuhlatjwe inkhomo. Badla bagide kuze kube kusihlwa.
+Umngcwabo wenteka ngeMgcibelo ekuseni. Umndeni nemakhelwane bahlangana emutini. Bacula bakhuleke bese bahamba bonkhe baye emathuneni.
+Lobolo lukhokhwa ngetinkhomo. Umndeni wemkhwenyana uya kubomake wemakoti. Bahlala phansi bakhulume kuze bavumelane.
+Sikolo sicala ngelihora lesikhombisa nesigamu. Bafundzi bacula ingoma yesive bese bangena emakilasini. Thishela ubhala ebhodini, bafundzi bacophelele.
+Bafundzi bafundza siSwati nesiNgisi. Emabangeni laphansi kufundziswa ngesiSwati, kutsi emabangeni laphakeme kufundziswe ngesiNgisi. Ngiko nje bantfwana bafundza kubhala ngalulwimi lolunye baphindze bahlolwe ngalolunye.
+Enyuvesi yaseKwaluseni kunebafundzi labanyenti. Labanye bafundza tekwelapha, labanye tekulawula tebhizinisi. Bahlala emahostela bese bagoduka emakhefini.
+Emakethe yaseManzini igcwele bantfu ngeMgcibelo. Bafati bahleti phansi banetitselo netibhidvo. Bantfu bayabuta ngentsengo bese bayatsenga.
+Umtsengisi ubeka emabhanana etafuleni. Ubuka bantfu labendlulako abamemete. Nakufika umtsengi bayakhulumisana ngentsengo.
+Ekuseni emakhombi agcwala eranki. Umshayeli ulindza kuze kugcwale bese uyahamba. Bantfu bakhokha imali yendlela bahlale phansi.
+Umgwaco losuka eMbabane uya eManzini. Uyagcwala ekuseni nakusihlwa. Emaloli latfwele umoba ahamba ngawo onkhe emalanga.
+Emkhawulweni waseNgwenya bantfu balindza emgceni. Bakhombisa emapasipoti abo bese bayangena eNingizimu Afrika. Labanye bayatsenga bese babuyela ekhaya ngalo lelo lilanga.
+Emtfolampilo bantfu bafika ekuseni. Nesi uhlola bonkhe bantfu ngekulandzelana. Labagulako baniketwa imitsi bese bayagoduka.
+Umsebenti wetemphilo uvakashela imiti emphakatsini. Ubuka labagulako abanike imitsi. Uphindze abhale umbiko awutfumele emtfolampilo.
+Sibhedlela saseMbabane sinemakamelo lamanyenti. Bantfu bavela etifundzeni tonkhe. Ambulensi ifika nalabalimele emgwacweni.
+Make upheka sishwala ekuseni. Uphakela bantfwana bese bahamba baye esikolweni. Kusihlwa upheka sidvudvu nemasi.
+Kudla lokujwayelekile ngusishwala nesishebo. Sishwala senteka ngempuphu yembila, sishebo sibe yimifino nome yinyama. Umndeni udla ndzawonye esitjeni lesikhulu.
+Umbidvo wetintsanga wenteka ngemacembe elitsanga. Emacembe apheswa abese ahlanganiswa nemantongomane lagayiwe. Kumnandzi kakhulu nawudliwa nesishwala.
+Incwancwa yenteka ngempuphu yembila levutfwe emalanga lamatsatfu. Emahewu enteka ngendlela lefanako kodvwa abe manti. Bantfu banatsa emahewu emini nakushisa.
+Umncweba wenteka ngenyama lesikwe yaba tinsipho. Iyaniniswa ngesawoti bese ilengiswa elangeni. Nayome bantfu bayayidla nome ngunini.
+Tinkhobe tibiliswa embiteni sikhatsi lesidze. Nativutfwa tidliwa nemasi. Loku kudla lokwadliwa kwasukela kadzeni.
+Umuntfu usenga inkhomo ekuseni kakhulu. Lubisi lugcinwa esitjeni kuze lubande. Nasekumatima lusetjentiswa kwenta emasi.
+Umelusi welusa tinkhomo elusentfweni. Uhamba nato ekuseni abuye nato kusihlwa. Uyatibala tonkhe ngembikwekutsi ativale esibayeni.
+Tinkhomo ngumnotfo wemuti. Umuntfu ubalwa ngetinkhomo latinato, hhayi ngemali lanayo. Ngiko lobolo lukhokhwa ngetinkhomo kungabi ngamaphepha.
+Umganu usihlahla lesihlonishwako. Awukagawulwa ngaphandle kwemvume. Titselo takhe tenta buganu, imbewu yakhe ikhipha emafutsa.
+Ehlatsini laseBhunya kunetihlahla letinyenti tephayini. Tahlanyelwa kusukela emnyakeni wa-1950. Bantfu labanyenti basebenta lapho.
+Ngwenya kunemgodzi lomdzala kakhulu. Bantfu bebamba khona insimbi lebovu emnyakeni longu-43 000 leyendlulile. Kutsiwa ngunye wemigodzi lemidzala kunayo yonkhe emhlabeni.
+Maloma unemalahle. Tisebenti tivuka ekuseni kakhulu tiye emgodzini. Emalahle atfwalwa ngemaloli aye eMozambiki.
+Bulembu bekungumgodzi we-asbestos lomkhulu. Wavalwa emnyakeni wa-2001. Namuhla lidolobha lisetjentiswa ngendlela lehlukile.
+Sibebe lidvwala lelikhulu ngasenyakatfo kweMbabane. Nyaka nonkhe bantfu labanyenti bayalikhwela. Kuyawuvela lidolobha lonkhe nawusetulu.
+Emlembe yintsaba lendze kunato tonkhe eSwatini. Isenyakatfo, dvute nemkhawulo. Kuyabandza kakhulu lapho ebusika.
+Lubombo lusempumalanga kwelive. Lusehlukanisa neMozambiki. Kuyashisa kakhulu ngaphansi kwalo.
+Lusutfu ngumfula lomkhulu kunayo yonkhe eSwatini. Ugeleta usuka enyakatfo-nshonalanga aye empumalanga. Ugcina ungenile elwandle eMozambiki.
+Hlane yindzawo yetilwane letinkhulu. Kunetindlovu, tinyati nembhube. Tivakashi tifika ngetimoto tibuke tilwane.
+Mlilwane iseceleni kweEzulwini. Kunetindlulamitsi, timphala netimvubu. Bantfu bangahamba ngetinyawo nome ngemabhayisikili.
+Malolotja isenyakatfo. Inetimbali letinyenti netincindzetselo temanti. Bantfu bayahamba khona ngesikhatsi sentfwasahlobo.
+Tinkhundla tingemashumi lasihlanu nemfica. Ngayinye inemphakatsi lemine kuya kulesiphohlongo. Bantfu bakhetsa bumeli babo enkhundleni.
+Umphakatsi ngamunye unesikhulu. Sikhulu sabela bantfu umhlaba. Indvuna isita sikhulu emsebentini wemalanga onkhe.
+Sibaya seLobamba yindzawo lapho sive sihlangana khona. Ingwenyama ikhuluma khona nesive. Noma ngubani angakhuluma nakafuna.
+Libandla lihlangana eLobamba. Ligcina emasiko esive. Likhuluma nenkhosi ngetintfo letitsintsa live.
+Live linetifundza letine. Hhohho isenyakatfo, Manzini isemkhatsini, Shiselweni iseningizimu, kutsi Lubombo ibe sempumalanga. Ngasinye sinelidolobha lesikhulu.
+Mbabane lidolobha lembuso. Kunemahhovisi embuso nemabhange. Kuyabandza lapho ngobe lisetulu entsabeni.
+Manzini lidolobha lekutsengiselana. Kunemakethe lenkhulu nesiteshi lesikhulu semakhombi. Bantfu bavela etindzaweni tonkhe.
+Matsapha yindzawo yetimfekthri. Kunemfekthri tekutfunga naletenta kudla. Tisebenti tivela eManzini nasetindzaweni letidvute.
+Lobamba yindzawo yenkhosi. Kukhona Sibaya, liPhalamende nendlu yeNdlovukazi. Yindzawo lehlonishwako kakhulu esiveni.
+Ezulwini yindzawo yetivakashi. Kunemahhotela, tindzawo tekudlela netitolo temisebenti yetandla. Isemkhatsini kweMbabane naseLobamba.
+Malkerns yindzawo yetitselo. Kukhicitwa emaphayinaphu netinye titselo. Kubuye kubanjelwe umcimbi wemculo lapho ngenyanga yeNkhwekhweti.
+Bantfu labanyenti bahlala emaphandleni. Bahlala emitini, balime bafuye. Bahamba baye edolobheni nabatsenga nome nabaya emsebentini.
+Umuti unetindlu letinyenti negceke lelikhulu. Bantfu labahlala kuwo bangumndeni munye. Inhloko yemuti ngiyo lekhulumako emcimbini.
+Gogo uhlala nebantfwana ekhaya. Batali babo basemsebentini emadolobheni. Batfumela imali ekhaya ngenyanga.
+Kutfumela imali ekhaya kubalulekile. Bantfu labasebenta eGoli batfumela imali emindenini yabo. Loku kudla imali lenyenti yemphilo yabo.
+Lilangeni liyalingana nerandi. Emabhizinisi asebentisa tonkhe timali letimbili. Bantfu abasakhatsateki ngekushintja.
+Bantfu bagcina imali ebhange nome esitokofelini. Sitokofela sihlanganisa bantfu labanyenti. Bakhokha inyanga nenyanga bese banikwa ngekulandzelana.
+Umuntfu utfumela imali ngefoni. Uthayipha inombolo bese atfumela. Lomunye uyayemukela ngalelo langa.
+Emafoni asetjentiswa yibo bonkhe bantfu. Bantfu bakhulumisana ku-WhatsApp. Batsenga idatha ngelilanga nome ngeliviki.
+Ku-inthanethi bantfu babuka tindzaba netitfombe. Labasha babuka emavidiyo lamfishane. Labadzala bafundza tindzaba temaphephandzaba.
+Umsakato ukhuluma ngesiSwati nangesiNgisi. Ubika ngesimo selitulu ekuseni. Bantfu bawulalela nabasebenta.
+Iphephandzaba lishicilelwa ekuseni. Bantfu balitsenga esitolo bese balifundza. Litindzaba telive nemidlalo.
+Libhola lidlalwa ndzawo tonkhe. Bafana badlala ebaleni ngetimphahla labanato. NgeliSontfo bantfu babuka imidlalo yeliginye.
+Netibhola tidlalwa ngemantfombi. Onkhe emasikolo anelithimu. Kuncintiswana kwenteka ngenyanga yeNgci.
+Sihlangu Semnikati lelithimu lelive. Lidlala eSomhlolo Stadium. Bantfu bafika ngetinkhulungwane nakudlalwa.
+Ragbhi idlalwa emasikolweni lamancane. Litimu lelive lidlala kanye ngemnyaka nemave langamakhelwane. Bantfu labanyenti abakayati kahle lomdlalo.
+Sibhaca sisinwa ngemadvodza. Bagida ngekushaya tinyawo phansi. Emafahlawane emilenteni akhala nabagida.
+Makhweyane ngumtfumo wesive. Udlalwa ngentsambo yinye nesigubhu selikhabe. Bafati bebavame kuwudlala kadzeni.
+Sigubhu sishaywa emicimbini yonkhe. Sishaywa ngesandla nome ngesigodvo. Bantfu bagida balandzela sigubhu.
+Emahiya agcokwa emicimbini. Anemibala lehlukene. Umuntfu longcokile lihiya uyabonakala kutsi uya emcimbini.
+Sidvwaba senteka ngesikhumba senkhomo. Sigcokwa ngumfati loshadile. Sitfwala umlandvo wemshado wakhe.
+Ligcebesha lentiwa ngemabhulukhulu lamancane. Lihlobisa intsamo. Bantfu bayalitsengisa etindzaweni tetivakashi.
+Sangoma uphotsa ematsambo. Utjela umuntfu kutsi kwentekani. Bantfu bayaya kuye nabakhatsatekile.
+Inyanga isebentisa tihlahla. Yenta umutsi ngemphandze nangemacembe. Bantfu bayaya kuyo nabagula.
+Bantfu bakholwa emadlotini nasenkhosini. Bakhuleka esontfweni ngeliSontfo. Baphindze bakhumbule bokhokho babo emicimbini.
+Emabandla emaZayoni manyenti eSwatini. Bantfu bagcoka emajazi lamhlophe naluhlata. Bakhuleka ngaphandle bagide bashaye tigubhu.
+Lisontfo ligcwele ngeliSontfo. Umfundzisi ushumayela, bantfu bacule. Emuva kwesontfo bantfu bakhulumisana ngaphandle.
+Imvula icala ngenyanga yaMabasa. Bantfu bahlanyela nasekunile kahle. Nayingani imvula umbila awukhuli.
+Somiso sesike sabakhona kanyenti. Tinkhomo tafa emalangeni lamabi. Bantfu batsenga umbila ngaphandle kwelive.
+Sikhukhula senteka nakuna kakhulu. Umfula uyagcwala ubuye ugcwalele. Bantfu labahlala dvute nemfula bayasuka.
+Umbani ubanika kakhulu ehlobo. Bantfu abaphumi endlini nakubanika. Tikhala tetimoto nemakhompiyutha kuyacishwa.
+Inkhungu igubuzela Mbabane ekuseni. Timoto tihamba ngekunensa. Kuvaleka konkhe kuze kuphume lilanga.
+Ekwindla emacembe ayawa. Kuyabandza ekuseni nakusihlwa. Bantfu bacala kubasa umlilo ebusuku.
+Entfwasahlobo timbali tiyakhanya. Tinyoni tiyabuya. Umoya uyafutfumala emalangeni.
+Ligwalagwala yinyoni yesive. Tinsiba tayo letibovu tigcokwa ngemndeni wenkhosi. Ihlala ehlatsini futsi ivakala kude.
+Tinyoni letinyenti tibuya ehlobo. Tenta tidleke etihlahleni. Nakwehla likhaza tiyahamba.
+Tinyosi tenta uju ematjeni. Bantfu bayalitsatsa uju ngekucophelela. Labanye sebafuya tinyosi emabhokisini.
+Umhlwa udla tigodvo tendlu. Bantfu basebentisa umutsi kuze uwuvimbe. Emalanga latsite emhlwa uyaphuma undize.
+Emakhowe akhiwa emuva kwemvula. Bantfwana bayawakha ehlatsini. Kufanele kwatiwe lamnandzi nalanetiphoso.
+Umuntfu ubasa umlilo ngetigodvo. Umlilo uyavutsa embiteni. Kudla kuvutfwa kancane kodvwa kumnandzi.
+Iphalafini isetjentiswa etibanini. Bantfu bayitsenga ngebhodlela esitolo. Emagetsi asafika etindzaweni letinyenti.
+Emagetsi afika emphakatsini emnyakeni lophelile. Bantfu bafaka tibani netifriji. Bagcina bahlanganisa imali kuze bakhokhe.
+Emanti akhiwa empompini yemphakatsi. Labanye bagubha umtfombo emutini. Emanti agcinwa ethangeni lelikhulu.
+Umgwaco wemphakatsi ulungiswa ngebantfu. Bahlangana ngeMgcibelo bawulungise. Baletsa emafosholo nemabhakete.
+Umphakatsi wakha sikolo lesincane. Bantfu bahlanganisa imali netitini. Bantfwana abasahambi libanga lelidze.
+Bantfu basitana emphakatsini. Nakukhona lofelwe bonkhe bayasita. Nakukhona loshadako bonkhe bayahlanganela.
+Umhlangano wemphakatsi wenteka esigcawini. Sikhulu sikhuluma kucala. Bantfu bese bayaphendvula ngekulandzelana.
+Bucopho umela umphakatsi enkhundleni. Ubika tidzingo tebantfu. Ubuye abuyele kubantfu netimphendvulo.
+Umuntfu lofuna umhlaba uya kusikhulu. Ukhuluma naye acele indzawo. Nakavuma umuntfu uyakwakha.
+Umhlaba wesive awutsengiswa. Wabelwa bantfu ngetikhulu. Ngiko bantfu labanyenti bangenato titifiketi temhlaba.
+Emadolobheni umhlaba unetitifiketi. Bantfu bangatsenga bakhe. Kuyabita kakhulu kunasemaphandleni.
+Umsebenti wemoba ucala ngenyanga yaMabasa. Tisebenti tisika umoba emphandzeni. Ugcina ngenyanga yeNgongoni.
+Imfekthri yeshukela isebenta busuku nemini. Shukela wenteka bese uyapakishwa. Utfunyelwa ngaphandle ngemaloli.
+Emaloli lamanyenti ahamba emgwacweni waseLavumisa. Atfwala shukela naletinye timphahla. Aya ethekwini laseDurban.
+Sitimela sikhona eSwatini kodvwa asitfwali bantfu. Sitfwala shukela, emalahle netingodvo. Siya eMozambiki naseNingizimu Afrika.
+Sikhuphe yinkhundla yetindiza lenkhulu. Yakhiwa emaphandleni ngasempumalanga. Tindiza letimbalwa tehla khona ngelilanga.
+Umuntfu logibela indiza uvamise kuya eGoli. Indiza itsatsa lihora linye. Kusuka lapho angaya nome ngukuphi emhlabeni.
+Bantfu labanyenti basebenta eNingizimu Afrika. Babuya ekhaya ngeKhisimusi nangetikhatsi temicimbi. Batfumela imali ngenyanga.
+Kadzeni emadvodza abesebenta emigodzini yeGoli. Buyayibuya nemali kodvwa nesifo semaphaphu. Loko kusabonakala emitini leminyenti nanamuhla.
+Umsebenti utfola umholo ekupheleni kwenyanga. Ukhokha kudla, sikolo nemagetsi. Lokusalako ukugcina ebhange.
+Bantfu labanyenti batisebentela. Batsengisa titselo, timphahla nome kudla. Abakho eluhlwini lwebasebenti bembuso.
+Bafati labanyenti benta tikhwama tetjani. Batsengisa etindzaweni tetivakashi. Loku kuyimali lengenako emutini.
+Umsebenti wetandla ubalulekile eSwatini. Bantfu benta tikhwama, tigcebesha netimphahla tesikhumba. Kuyatsengiswa nasemaveni langaphandle.
+Sitolo semphakatsi sitsengisa konkhe. Kunesinkhwa, insipho, iphalafini nemitsi lemincane. Umnikati wesitolo wati onkhe emakhasimende akhe.
+Bantfu batsenga kudla kwenyanga ekucaleni kwenyanga. Batsatsa impuphu, emafutsa, shukela nesawoti. Lokunye batsenga masontfo onkhe.
+Umuntfu longenamali utsenga ngesikweleti. Umnikati wesitolo ubhala ebhukwini. Nakuphela inyanga umuntfu uyakhokha.
+Emphakatsini kunemsebenti lomncane wekutfunga. Bafati bahlangana bese batfunga. Batsengisa timphahla emphakatsini.
+Umuntfu logulako uvakashelwa ngumsebenti wetemphilo. Ubuka imitsi yakhe abuye ambhalele. Nakumatima umtfumela emtfolampilo.
+Bantfu banatsa imitsi malanga onkhe. Loku kuyabasita kutsi baphile kahle. Nesi ubabuta nyanga tonkhe.
+Umntfwana ugoma emtfolampilo. Make umtsatsa amtfwale emhlane. Ubuyela ekhaya nekhadi lekugoma.
+Bantfwana labancane badinga kudla lokunemsoco. Bomake bafundziswa emtfolampilo ngekudla lokufanele. Loku kusita kutsi bantfwana bakhule kahle.
+Bantfu labanyenti balima insimu lencane. Bahlanyela umbila, emabhontjisi netindlubu. Loko kubasita kutsi badle umnyaka wonkhe.
+Umbila ugaywa uphendleke ube impuphu. Kadzeni bebagaya ngematje. Namuhla batsatsa umbila baye emshinini.
+Impuphu igcinwa esikhwameni. Ihlala inyanga letinyenti nayigcinwe kahle. Kudliwa ekuseni, emini nakusihlwa.
+Litsanga limila kahle esiveni. Emacembe alo ayadliwa, sitselo saso siyaphekwa. Imbewu yaso iyakhitshwa yomiswe.
+Tindlubu tilinywa ngebafati. Tibiliswa sikhatsi lesidze bese tiyagayiwa. Kwakhiwa siphuphe lesimnandzi.
+Bantfu bafuya tinkhukhu emitini. Titalela emacandza malanga onkhe. Nakukhona umcimbi tiyahlatjwa.
+Timbuti tifuywa etindzaweni letomile. Tidla emacembe tinganatsi kakhulu. Tiyahlatjwa emicimbini yemndeni.
+Umntfwana ucala kwelusa asemncane. Ufundza kwati tinkhomo ngamunye. Loko kumfundzisa kunakekela.
+Tinganekwane tibalisela ebusuku. Gogo uhleti nebantfwana eceleni kwemlilo. Tinganekwane tinetilwane letikhulumako.
+Tibongo tikhulunywa emcimbini. Umbongi ubonga inkhosi ngemagama lamadze. Ukhumbula onkhe emagama ngenhloko.
+Umbongi ukhuluma ngesivinini. Emagama akhe abonga umlandvo wemndeni wenkhosi. Bantfu bayamemeta nakacedza.
+Lulwimi lwesiSwati lubhalwa ngetinhlavu telatini. SiSwati sibhala tf lapho siZulu sibhala th. Loko kwenta emagama abukeke ehlukile nome anencazelo lefanako.
+SiSwati nesiZulu ayavana. UmSwati nemZulu bangakhulumisana bevana. Kodvwa emagama lamanyenti abhalwa ngendlela lehlukile.
+Emagama ebantfu anencazelo. Sipho usipho, Themba litsemba, Nomcebo ngumake wemcebo. Batali banika umntfwana ligama ngaloko lokwentekile.
+Sibongo sisho lusendvo lwemuntfu. Bantfu labanesibongo sinye batsatsana njengetihlobo. Ngiko bantfu bebabuta sibongo nabahlangana.
+Dlamini ngusibongo lesikhulu kunato tonkhe. Ngusibongo semndeni wenkhosi. Bantfu labanyenti kakhulu banaso.
+Bafati labashadile babitwa ngeLa nesibongo sabo. Umfati wakaDlamini ubitwa kutsi nguLaDlamini. Loku kubonisa lusendvo lwakubo.
+Umuntfu uhlonipha lomdzala kunaye. Akambiti ngeligama, umbita ngababe nome make. Loku kufundziswa umntfwana asemncane.
+Bantfwana bahlonipha batali babo. Bayabalalela bese bayasita ekhaya. Loko kuyimfundvo yekucala yemuntfu.
+Umuntfu lofikako emutini uyabingelela. Ubuta ngemphilo yabo bonkhe. Bese uyahlala phansi acedze kukhuluma.
+Nakuhlangenwe kudliwa ndzawonye. Kudla kubekwa esitjeni lesikhulu. Bonkhe bafaka sandla.
+Umuntfu ubonga nakaphelile kudla. Utsi ngiyabonga kubo bonkhe. Bese bayasuka etafuleni.
+Lilanga liphuma ngasempumalanga kwaLubombo. Likhanyisa lonkhe live. Nalishona libovu ngasenshonalanga.
+Ebusuku tinkhanyeti tigcwala esibhakabhakeni. Kumnyama emaphandleni ngobe kute tibani. Bantfu babona indlela ngenyanga.
+Inyanga lensha ibonakala kancane. Bantfu bayayibuka bese batjelana. Kadzeni bebabala tinyanga ngayo.

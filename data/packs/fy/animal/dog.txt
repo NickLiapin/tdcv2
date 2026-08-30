@@ -1,0 +1,29 @@
+---
+description: Dog breed (West Frisian). Two of these are Frisian breeds and their names are Frisian words: the Stabijhoun, a black-and-white gundog from the clay country, and the Wetterhoun, the water dog bred to hunt otters in the canals and lakes. Houn is the old spelling of hûn, and it is the same word as English hound where Dutch has hond - which is why the two breed names look wrong to a Dutch reader and are nevertheless the officially registered forms, unchanged since the studbooks were opened in the 1940s. Both are rare: a few thousand Stabijhounen exist worldwide and considerably fewer Wetterhounen, and the breed clubs are still run from Fryslân. The Drentsche patrijshond, the neighbouring province's gundog, is left out to make room for the Wetterhoun, because a Frisian list that carried Drenthe's breed and not its own would have the priorities backwards. The rest are the international breeds, given their Frisian form where Frisian has one and left alone where it does not.
+locale: fy
+---
+Labrador retriever
+Dútske hoeder
+Hollânske hoeder
+Golden retriever
+Frânske bulldog
+Ingelske bulldog
+Poedel
+Beagle
+Rottweiler
+Teckel
+Bokser
+Sibearyske husky
+Dútske dog
+Dobermann
+Border collie
+Chihuahua
+Shih tzu
+Welsh corgi
+Berner sennenhûn
+Dalmatiër
+Sint-bernard
+Keeshûn
+Kooikerhûntsje
+Stabijhoun
+Wetterhoun

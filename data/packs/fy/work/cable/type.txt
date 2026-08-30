@@ -1,0 +1,13 @@
+---
+description: Cable type in telecom and networking. Glêsfezel is fibre optic, and glês shows the Frisian ê where Dutch has a flat a in glas - the same vowel that keeps wêr, where, apart from wer, again, so the circumflex is not ornamental. Loftkabel and grûnkabel are the aerial and the buried run, and loft is the everyday Frisian for air and sky, which makes it a genuine false friend: Dutch lucht means air, while Dutch loft means only an attic. The category names Cat5e, Cat6 and Cat6a are international product designations and keep their spelling in every language that buys the cable.
+locale: fy
+---
+Glêsfezelkabel
+Coaxkabel
+Twisted pair
+Cat5e
+Cat6
+Cat6a
+Ethernetkabel
+Loftkabel
+Grûnkabel

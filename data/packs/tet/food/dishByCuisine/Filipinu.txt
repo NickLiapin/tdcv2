@@ -1,0 +1,12 @@
+---
+description: Filipino food arrived with Filipino workers — nurses, teachers, engineers and the staff of the missions — and it is eaten at a canteen or a shared house rather than in a restaurant. The list is instructive next to the Portugués one, because both cuisines are Austronesian bases with four centuries of Iberian rule on top, and the results rhyme: adobo, lechon and lumpia have the same relation to Spanish that bakalyau and pastél have to Portuguese. The difference is that Filipino kept its Spanish loans in Spanish spelling while Tetum rewrote its Portuguese loans by rule, so lechon stays lechon on this list and is not written lexon; the names of a foreign cuisine are not respelled, only the words that Tetum has taken into itself.
+locale: tet
+---
+Adobo
+Sinigang
+Lechon
+Pancit
+Lumpia
+Kare-kare
+Halo-halo
+Sisig

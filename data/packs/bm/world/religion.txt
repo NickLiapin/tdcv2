@@ -1,0 +1,25 @@
+---
+description: Religious affiliation in Mali, where roughly ninety-five per cent of the population is Muslim, almost all of it Sunni following the Maliki school, and where the texture inside that number is what a dataset usually loses. Malian Islam is overwhelmingly Sufi, organised in brotherhoods: the `Tidjaniyya` is the largest, brought west by El Hadj Oumar Tall in the nineteenth century; the `Qadiriyya` is older and centred on the Kounta lineages of Timbuktu; the `Hamawiyya` is a Tijani branch out of Nioro du Sahel with its own line of shaykhs. Set against them is a reformist current usually labelled wahhabite locally, which grew from the 1940s and rejects the saint-veneration the brotherhoods practise. Christianity is a small minority concentrated in Dogon and Bobo country. The traditional religion has not vanished either, and the `Komo` — a masked initiatory society of the Bamana with its own knowledge and its own smiths — coexists with Islam in the same villages and often the same families.
+locale: bm
+---
+Islam
+Islam sunnite
+Rite malékite
+Soufisme
+Tidjaniyya
+Qadiriyya
+Hamawiyya
+Courant réformiste
+Christianisme
+Catholicisme
+Protestantisme
+Évangélisme
+Religion traditionnelle
+Animisme
+Culte des ancêtres
+Komo
+Donso ton
+Bahaïsme
+Judaïsme
+Athéisme
+Sans religion

@@ -1,0 +1,18 @@
+---
+description: Employment and contract type under Dutch labour law, which applies in Fryslân unchanged. Zzp'er keeps its Dutch abbreviation deliberately: it stands for zelfstandige zonder personeel, a self-employed person with no staff, and it is a tax and social-security category defined in Dutch statute, so it is cited rather than translated even in Frisian-language contracts and payslips - the same reason a riibewiis category keeps its Dutch letter. Útstjoerkrêft, an agency worker, is literally a sent-out force, from útstjoere and krêft, where Frisian breaks the vowel that Dutch leaves flat in kracht. Opropkontrakt, nuloerenkontrakt and min-makskontrakt are the three named on-call forms and are legally distinct from one another, a learwurkplak is the paid workplace half of a BBL vocational track, and dieltiid work is the norm in this labour market rather than the exception.
+locale: fy
+---
+Fêst kontrakt
+Tydlik kontrakt
+Foltiid
+Dieltiid
+Opropkontrakt
+Nuloerenkontrakt
+Min-makskontrakt
+Útstjoerkrêft
+Payrollkontrakt
+Zzp'er
+Staazje
+Learwurkplak
+Detasjearring
+Seizoenswurk

@@ -1,0 +1,5 @@
+---
+description: The ISO 4217 code for the currency of Чили. Currency codes are three Latin capitals by international standard and stay Latin inside Cyrillic text, so this value is unchanged while the file name Чили is not.
+locale: uz
+---
+CLP

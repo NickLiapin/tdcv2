@@ -1,0 +1,5 @@
+---
+description: The currency of Бангладеш, named the way an Uzbek price list names it. The country name Бангладеш doubles as the file name, which is how a coherent record keeps the country and its money in step.
+locale: uz
+---
+Бангладеш такаси

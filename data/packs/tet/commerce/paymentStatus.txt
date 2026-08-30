@@ -1,0 +1,14 @@
+---
+description: Payment status, and unlike the order-status list beside it this one is almost pure Portuguese. That split is not accidental: Tetum takes its everyday and its physical vocabulary from the Austronesian base and from Malay, and takes finance, law and administration wholesale from Portuguese, because those are the domains that only ever existed in Portuguese in this country. So autorizadu, anuladu, rejeitadu, estornu and analize are borrowed entire, respelled by rule — c before a back vowel to k, z where Portuguese wrote s between vowels, and unstressed final -o to -u, which is what makes every one of these end in -adu rather than -ado. The one native construction is selu fila, literally pay back, for a refund, with ona to mark it done and parsiál to mark it partial. Hein hela heads the list rather than closing it because with cash on delivery and shop credit both common, a payment sitting open is the normal state of a transaction rather than an exception.
+locale: tet
+---
+Hein hela
+Autorizadu
+Selu ona
+La konsege
+Selu fila ona
+Selu fila parsiál
+Estornu
+Anuladu
+Rejeitadu
+Iha analize

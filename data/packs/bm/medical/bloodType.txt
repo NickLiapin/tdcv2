@@ -1,0 +1,12 @@
+---
+description: ABO and Rh as written in Mali, following the French convention: the O group is the letter O, not the digit 0 that Serbian and German records use. Group O is the commonest here and Rh-negative is uncommon across West Africa — a few per cent of donors — which makes Rh-negative units the standing shortage at the Centre national de transfusion sanguine in Bamako, and which is why most transfusion in Mali still runs on replacement donors the patient's own family brings in.
+locale: bm
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

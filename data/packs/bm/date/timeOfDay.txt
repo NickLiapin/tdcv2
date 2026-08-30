@@ -1,0 +1,12 @@
+---
+description: Parts of the Malian day. The divisions are not the European ones and they are anchored to two things: the sun and the five prayers. `Dugujɛ` is daybreak, literally the earth turning white, and it coincides with fajr. `Sɔgɔma` is morning and is when work happens, because by `tilerɔ`, midday, the heat in the dry season makes outdoor labour dangerous and the town goes quiet. `Wula` is the late afternoon that begins around the asr prayer and is when the grin gathers, the tea comes out and the football starts on the open ground. `Su` is night. Note that Bambara marks these with the locative suffixes -da and -fɛ when they are used as time adverbials — sɔgɔmada in the morning, sufɛ at night — which is the postpositional habit of the language showing through.
+locale: bm
+---
+Dugujɛ
+Sɔgɔmada joona
+Sɔgɔma
+Tilerɔ
+Wula
+Wulafɛ
+Su
+Su cɛmancɛ

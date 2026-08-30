@@ -1,0 +1,32 @@
+---
+description: Fish known in Eswatini, and the file splits cleanly in two because the country is landlocked. The first half is freshwater and lives in the Lusutfu, the Komati, the Mbuluzi and the Ngwavuma and in the dams behind Maguga and Luphohlo — tilapia, catfish, yellowfish, tigerfish — and these are caught and eaten locally. The second half is marine and arrives by refrigerated truck from Durban about 500 kilometres away or across the border from Maputo, which is why every name in it is a loan and why hake and snoek are supermarket words here rather than fishing words. Inhlanti is the general siSwati term, class 9 with the plural tinhlanti, and it covers the whole file; the specific names are borrowed because a landlocked language does not generate a vocabulary for fish it has never pulled out of water.
+locale: ss
+---
+Itilaphiya
+Ibhulugilili
+Ibhasi lelimnyama
+Ikhethifishi
+Iyellowfishi
+Ithayigafishi
+Ibhabheli
+Ikharipi
+Itrawuti
+Imudfishi
+Iyili
+Ihhake
+Isnoek
+Iyellowtail
+Ikhobi
+Ishadi
+Ikhingklip
+Isadini
+Itsuna
+Imekhereli
+Ianchovi
+Isole
+Isalimoni
+Ishaki
+Ihherengi
+Ikhingfishi
+Imarlini
+Imulethi

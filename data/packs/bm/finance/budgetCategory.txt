@@ -1,0 +1,24 @@
+---
+description: Where a Malian household's money goes, in Bambara. Three lines have no European counterpart. `Denbaya ɲɛnajɛw` is family ceremonies, and it is not discretionary: a naming ceremony, a marriage or a funeral obliges contributions from a wide circle of kin and the sums can dwarf a month's income. `Bolomafara` is the contribution itself, literally what is added from the hand. `Wari cili somɔgɔw ma` is money sent to relatives, which runs both ways — to the village from the city, and to the household from a brother in Abidjan or Paris, where for many families it is the largest line in the budget. `Tontin` and `Nisɔngɔ` are the two loans on the list: the first is the rotating savings club, the second is tax, and both are said in these forms rather than in any older Bambara word.
+locale: bm
+---
+Dumuni
+Sigiyɔrɔ
+So sara
+Kuran
+Ji
+Taama
+Esansi
+Telefɔni
+Kɛnɛya
+Kalan
+Fini
+Denbaya ɲɛnajɛw
+Bolomafara
+Marali
+Tontin
+Juru sarali
+Nisɔngɔ
+So labɛnni
+Ɲɛnajɛ
+Wari cili somɔgɔw ma

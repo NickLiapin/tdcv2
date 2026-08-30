@@ -1,0 +1,24 @@
+---
+description: Purposes of travel. Зиёрат is a pilgrimage to a shrine, and ҳаж and умра are the two pilgrimages to Mecca, kept separate because they are different journeys with different quotas. Меҳмондорчилик — going to stay with relatives — and тўйга бориш are ordinary reasons to cross the country.
+locale: uz
+---
+дам олиш
+саёҳат
+зиёрат
+ҳаж
+умра
+меҳмондорчилик
+тўйга бориш
+хизмат сафари
+иш сафари
+конференция
+кўргазма
+ўқиш
+малака ошириш
+даволаниш
+санаторий
+спорт мусобақаси
+тарихий жойларни кўриш
+тоғ саёҳати
+экотуризм
+транзит

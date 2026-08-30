@@ -1,0 +1,34 @@
+---
+description: Hashtag in use in Eswatini. Several carry a fact rather than a slogan. The country renamed itself from Swaziland to Eswatini in 2018 on the fiftieth anniversary of independence, so both spellings still circulate and both tags are live. Sihlangu Semnikati, "the King's Shield", is the national football team. MTN Bushfire is the music festival held at Malkerns each May and is the largest annual gathering in the country that is not a royal ceremony. SibebeSurvivor is the annual mass walk up Sibebe, the granite dome above Mbabane. BantfuBemalanga, "people of the sun", is what Swazi people call themselves, from lilanga, the sun, which is also the name of the currency.
+locale: ss
+---
+#Eswatini
+#eSwatini
+#KingdomOfEswatini
+#Swaziland
+#Swazi
+#Emaswati
+#siSwati
+#BantfuBemalanga
+#Umhlanga
+#Incwala
+#Buganu
+#Mbabane
+#Manzini
+#Lobamba
+#Ezulwini
+#Matsapha
+#Kwaluseni
+#UNESWA
+#MTNBushfire
+#Bushfire
+#SihlanguSemnikati
+#Sibebe
+#SibebeSurvivor
+#Hlane
+#Mlilwane
+#Malolotja
+#Lubombo
+#Lilangeni
+#VisitEswatini
+#EswatiniMade

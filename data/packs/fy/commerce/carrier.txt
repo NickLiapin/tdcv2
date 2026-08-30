@@ -1,0 +1,24 @@
+---
+description: Parcel and freight carriers serving Fryslân. Every value here is a registered trade name and none of them is translated - this is the one commerce column in the pack that a Frisian spelling or case transform must leave completely alone, which is exactly what a config author gets wrong. PostNL keeps its capitals and has no space in it, bpost is registered with a lowercase b and keeps it at the start of a line, and Red je Pakketje stays Dutch inside a Frisian record because that is the company's name. Two facts about the delivery map itself. The bike- and van-based last-mile networks - Homerr, Budbee, Trunkrs, Cycloon, Red je Pakketje - are city operations, so a Ljouwert address sees them and a village out in De Wâlden realistically does not, where PostNL and DHL are the whole list. And Fryslân's four inhabited Wadden islands, Skylge, It Amelân, Flylân and Skiermûntseach, are reached only by boat, so the last leg of every parcel runs on a ferry timetable and adds a day that no carrier's delivery estimate models. Sandd was the country's second postal network until PostNL absorbed it in 2019 and now appears only in historical rows.
+locale: fy
+---
+PostNL
+DHL eCommerce
+DHL Express
+DPD
+GLS
+UPS
+FedEx
+TNT
+bpost
+Homerr
+Budbee
+Trunkrs
+Cycloon
+Red je Pakketje
+Sandd
+Mondial Relay
+DSV
+Raben
+Jan de Rijk Logistics
+Vos Logistics

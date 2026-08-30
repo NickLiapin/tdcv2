@@ -1,0 +1,22 @@
+---
+description: Employee benefits. Ўн учинчи ойлик — the thirteenth salary — is an annual bonus paid as an extra month, inherited from the Soviet system and still offered. Санаторий йўлланмаси is a voucher for a stay at a sanatorium, another survival, and болалар боғчаси means the employer provides a nursery place.
+locale: uz
+---
+тиббий суғурта
+тушлик пули
+йўлкира
+мобил алоқа тўлови
+хизмат автомобили
+мукофот пули
+йиллик бонус
+ўн учинчи ойлик
+малака ошириш
+тил курслари
+спорт зали обунаси
+санаторий йўлланмаси
+болалар боғчаси
+уй-жой ёрдами
+ипотека субсидияси
+қўшимча таътил
+масофадан ишлаш
+мослашувчан иш графиги

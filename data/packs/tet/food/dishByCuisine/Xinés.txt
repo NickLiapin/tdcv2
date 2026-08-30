@@ -1,0 +1,13 @@
+---
+description: The oldest restaurant trade in the country, and the dishes are Chinese as they were carried here through the archipelago rather than as they are cooked in China. Kapsai, fuyunghai, bihun goreng, kwetiau goreng and nasi tim all reached Dili in their Indonesian-Chinese form and are named accordingly. Two entries show the Tetum spelling machinery working on a name that is not Portuguese at all: xop suei is chop suey with ch written x, the same rule that turns chave into xave, and pato Pekin uses the Portuguese word for duck because there was no other one available. Bakpau, the steamed bun, is Hokkien through Malay. The kitchens behind this list are family businesses, many of them Hakka, and the community that runs them was very nearly erased twice in the twentieth century, so the continuity of these dishes in Dili is not a small thing.
+locale: tet
+---
+Xop suei
+Kapsai
+Fuyunghai
+Bakpau
+Bihun goreng
+Kwetiau goreng
+Sopa wonton
+Nasi tim
+Pato Pekin

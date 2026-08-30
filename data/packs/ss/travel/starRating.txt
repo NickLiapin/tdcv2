@@ -1,0 +1,9 @@
+---
+description: Hotel star rating in siSwati, and the five values are a grammar lesson in miniature. Inkhanyeti, a star, is a class 9 noun and takes the class 10 plural tinkhanyeti — so the noun itself changes shape between one star and two, and the numeral has to change with it: yinye agrees with class 9, letimbili and letintsatfu with class 10. There is no way to write these as a numeral plus a fixed word, which is exactly what a template that concatenates a digit onto a noun would produce. Eswatini's hotel grading is administered by the Eswatini Tourism Authority, and the country's five-star properties are the two in the Ezulwini valley; most accommodation outside it is a guesthouse with no rating at all.
+locale: ss
+---
+Inkhanyeti yinye
+Tinkhanyeti letimbili
+Tinkhanyeti letintsatfu
+Tinkhanyeti letine
+Tinkhanyeti letisihlanu

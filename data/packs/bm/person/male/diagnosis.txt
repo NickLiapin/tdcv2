@@ -1,0 +1,30 @@
+---
+description: Conditions recorded only for male patients, in the French clinical register that every Malian hospital, CSCom and CSRéf writes in. Three entries here are Malian rather than generic. Urogenital schistosomiasis is endemic wherever the irrigation runs — the Office du Niger scheme around Niono is a textbook transmission setting — and haematuria in a boy is common enough in some villages to have been treated locally as a normal sign of puberty. Filarial hydrocele is the late consequence of lymphatic filariasis, against which Mali ran one of Africa's earliest mass drug administration programmes. And priapism appears because sickle-cell disease is common here: it is a recognised complication of the SS genotype and one of the reasons the national sickle-cell centre in Bamako sees the caseload it does.
+locale: bm
+---
+Hypertrophie bénigne de la prostate
+Cancer de la prostate
+Prostatite
+Hydrocèle
+Hydrocèle filarienne
+Varicocèle
+Hernie inguinale
+Phimosis
+Épididymite
+Orchite
+Torsion testiculaire
+Cancer du testicule
+Cryptorchidie
+Dysfonction érectile
+Infertilité masculine
+Gynécomastie
+Urétrite gonococcique
+Balanite
+Priapisme drépanocytaire
+Azoospermie
+Oligospermie
+Hypogonadisme
+Andropause
+Cancer du pénis
+Complication de circoncision
+Bilharziose uro-génitale

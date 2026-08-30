@@ -1,0 +1,184 @@
+---
+description: General diagnoses as a Timorese hospital records them, and the shape of the list is this country's epidemiology rather than a European textbook's table of contents. Two burdens sit on the same outpatient bench here. The older one has not gone: dengue arrives with every wet season and kills children in it, typhoid and cholera follow the water, soil-transmitted worms and scabies are ordinary rather than exotic, leprosy has never quite been finished off, and rabies exposure is a live risk on the land border. Malária stays on the list even though locally transmitted malaria was driven to zero here in 2021, after a decade that took the country from hundreds of thousands of cases a year to none — the diagnosis is still made, but it is now imported or historical, and a record set that quietly deletes it loses the most successful thing Timorese public health has done. The newer burden came with the towns and now fills the same clinic: diabetes, hypertension, stroke, chronic kidney disease. Doensa is Portuguese doença with the ç written s and the nasal ending resolved to -a; the word a patient actually uses is moras, which covers being ill and being in pain at once, and that is the word the symptom list next door is built out of.
+locale: tet
+---
+Tuberkuloze pulmonár
+Tuberkuloze ekstrapulmonár
+Dengue
+Dengue emorájiku
+Malária
+Febre tifóide
+Lepra
+Filaríaze linfátika
+Verme intestinál
+Askaríaze
+Amebíaze
+Skabiose
+Impetigu
+Frambézia
+Ulsera tropikál
+Diarreia akuda
+Kolera
+Disenteria
+Gastroenterite akuda
+Leptospiroze
+Rabia
+Mordedura asu
+Mordedura lafaek
+Mordedura samea
+Sarampu
+Varisela
+Sepse
+Meninjite bakteriana
+Ensefalite virál
+Neurosistiserkoze
+Hepatite A
+Infesaun HIV
+Anemia ferru menus
+Malnutrisaun kronika
+Malnutrisaun akuda severa
+Defisiénsia vitamina A
+Beriberi
+Infesaun respiratória akuda
+Pneumonia labarik
+Pneumonia
+Azma
+Bronkite akuda
+Bronkite kronika
+Doensa pulmonár obstrutiva kronika
+Enfizema pulmonár
+Derame pleurál
+Bronkiektazia
+Apneia toba nian
+Ipertensaun arteriál
+Doensa kardíaka reumátika
+Febre reumátika akuda
+Doensa arteriál koronária
+Anjina peitu
+Infartu miokárdiu
+Insufisiénsia kardíaka kronika
+Fibrilasaun atriál
+Kardiomiopatia dilatada
+Endokardite infesioza
+Perikardite
+Estenoze aórtika
+Prolapsu válvula mitrál
+Aneurisma aorta abdominál
+AVC iskémiku
+AVC emorájiku
+Ataki iskémiku transitóriu
+Tromboze venoza profunda
+Embolia pulmonár
+Varizes
+Diabetes tipu 2
+Diabetes tipu 1
+Iperlipidemia
+Síndrome metabóliku
+Obezidade
+Ipotiroidizmu
+Ipertiroidizmu
+Doensa Graves
+Bósiu endémiku
+Nódulu tiroide
+Síndrome Cushing
+Doensa Addison
+Doensa refluksu gastroezofájiku
+Gastrite
+Ulsera péptika
+Ezofajite
+Érnia iatál
+Érnia inguinál
+Apendisite
+Kolesistite
+Divertikulite
+Síndrome intestinu iritável
+Doensa Crohn
+Kolite ulserativa
+Pankreatite akuda
+Siroze fígadu
+Hepatite B kronika
+Emorroida
+Doensa renál kronika
+Lezaun renál akuda
+Glomerulonefrite
+Pielonefrite
+Sistite
+Infesaun urinária
+Kálkulu renál
+Inkontinénsia urinária
+Karsinoma sélula renál
+Enxakeka
+Ulun moras tipu tensaun
+Epilepsia
+Doensa Parkinson
+Doensa Alzheimer
+Eskleroze múltipla
+Neuraljia trijémeu
+Paralizia Bell
+Neuropatia periférika
+Síndrome túnel karpu
+Tremór esensiál
+Síndrome Guillain-Barré
+Siátika
+Érnia disku
+Perturbasaun ansiedade jeneralizada
+Depresaun maiór
+Perturbasaun bipolár
+Perturbasaun pániku
+Perturbasaun obsesivu-kompulsivu
+Perturbasaun stress pós-traumátiku
+Eskizofrenia
+Insónia
+Dependénsia alkól
+Dependénsia tabaku
+Osteoartroze
+Artrite reumatoide
+Gota
+Osteoporoze
+Fibromialjia
+Bursite
+Tendinite
+Ruptura manguitu rotadór
+Eskolioze
+Osteomielite
+Asidente motorizada
+Kortadu husi katana
+Fratura osu
+Keimadura
+Intoksikasaun tua sabu
+Kansru serviks
+Kansru mama
+Kansru fígadu
+Kansru pulmaun
+Kansru ibun
+Kansru nazofarinje
+Kansru gástriku
+Kansru koloretál
+Leusemia
+Linfoma
+Melanoma
+Selulite infesioza
+Mikoze pele
+Onikomikoze
+Dermatite atópika
+Dermatite kontaktu
+Psoríaze
+Akne vulgár
+Erpes-zóster
+Katarata
+Glaukoma
+Pteríjiu
+Konjuntivite
+Matan maran
+Uveíte
+Retinopatia diabétika
+Deskolamentu retina
+Rinite alérjika
+Sinuzite kronika
+Otite média
+Amigdalite
+Surdu neurosensoriál
+Vertijen
+Kárie dentária
+Anemia
+Lúpus eritematozu sistémiku

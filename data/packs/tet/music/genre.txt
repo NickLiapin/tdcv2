@@ -1,0 +1,39 @@
+---
+description: Musical genres, and the first six are Timor-Leste's own. Tebe-tebe is the line dance in which the whole village links arms and stamps, and it is still how a ceremony ends. Dahur is the circle dance and its call-and-response song. Likurai is the women's dance with the small drum held at the hip, danced historically to welcome warriors home. Bidu is the older courtly dance form. Musika resisténsia is a genuine genre and not a label applied afterwards: songs like Kolele Mai and Foho Ramelau were carried through the occupation by the diaspora and by cassette, and singing them inside the territory was itself an offence, which is why the country's best-known music was written to be sung rather than sold. Two entries at the far end trace the same Portuguese diaspora from opposite directions — Fadu is Lisbon's, and Kroncong is the Indonesian genre descended from the ukulele-shaped cavaquinho that Portuguese sailors left in the archipelago in the sixteenth century. Reggae and Dangdut are the two imported popular styles with real depth here, the first from the solidarity networks of the 1990s and the second straight from the occupation.
+locale: tet
+---
+Tebe-tebe
+Dahur
+Likurai
+Bidu
+Musika tradisionál
+Musika resisténsia
+Rock
+Pop
+Reggae
+Hip hop
+Rap Tetun
+Dangdut
+Kroncong
+Jazz
+Blues
+Kláziku
+Kantiga igreja
+Gospel
+Koru
+Country
+Elektróniku
+Heavy metal
+Folklore
+R&B
+Soul
+Funk
+Punk
+Disco
+House
+Techno
+Indie
+Ambiente
+Ska
+Fadu
+Bolero

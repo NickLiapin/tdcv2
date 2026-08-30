@@ -1,0 +1,16 @@
+---
+description: The one ancestry file that describes almost every row in a Malian dataset. Sickle-cell disease is the anchor: both HbS and HbC are West African variants, and HbC in particular is concentrated in this region — Mali runs a dedicated national centre for it, the CRLD in Bamako. The Duffy-negative red-cell phenotype is here as a resistance rather than a disease; it makes Plasmodium vivax malaria almost unable to establish, which is why essentially all Malian malaria is falciparum. Read the whole list as a prevalence signal, never an exclusive one: anyone can carry any of these, and most patients of this ancestry have none of them.
+locale: bm
+---
+Drépanocytose homozygote SS
+Trait drépanocytaire
+Hémoglobinose C
+Déficit en G6PD
+Phénotype Duffy négatif
+Néphropathie liée à APOL1
+Hypertension artérielle précoce
+Néphrosclérose hypertensive
+Neutropénie ethnique bénigne
+Chéloïdes
+Fibrome utérin
+Sarcoïdose

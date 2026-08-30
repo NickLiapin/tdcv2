@@ -1,0 +1,11 @@
+---
+description: Haulage route type in Eswatini. Umzila means a track, a path or a route and is the ordinary word for a lane on a road as well; class 3, plural imizila. Only one of these routes is domestic in any meaningful sense, because the country is 200 kilometres across and landlocked between South Africa and Mozambique: the two export corridors, to Durban about 500 kilometres south through the Ngwenya or Lavumisa posts and to Maputo about 200 kilometres east through Lomahasha, carry nearly everything Eswatini sells. Umzila wemapulazi emoba is separate from the rest because cane haulage runs on estate roads with its own vehicles during the crush and never touches a public highway.
+locale: ss
+---
+Umzila wangekhatsi elive
+Umzila wekuya eNingizimu Afrika
+Umzila wekuya eMozambiki
+Umzila wekuya ethekwini laseDurban
+Umzila wemadolobha
+Umzila wemaphandleni
+Umzila wemapulazi emoba

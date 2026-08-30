@@ -1,0 +1,12 @@
+---
+description: Greek dishes. The Greek community of southern Africa was substantial through the twentieth century, running cafes and corner shops across the Transvaal and into Swaziland, and the roadside cafe that sold bread, cigarettes and fried food in a small Swazi town was as often Greek-owned as anything else until the 1980s. Igyros and isouvlaki entered through those shops rather than through restaurants. Note that the Greek letter combinations in these names are transliterated through English rather than from Greek directly, so tzatziki keeps a spelling shaped by a third language before siSwati adds its prefix — a two-stage borrowing that is common throughout this pack.
+locale: ss
+---
+Imoussaka
+Isouvlaki
+Igyros
+Igreek salad
+Itzatziki
+Ispanakopita
+Idolmades
+Ibaklava

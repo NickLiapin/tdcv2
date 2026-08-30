@@ -1,0 +1,20 @@
+---
+description: Insurance product. The entry to look at is toskedokterfersekering, dental cover, because toskedokter - literally tooth-doctor - is a textbook case of the sound law Frisian shares with English and not with Dutch: before a fricative the n dropped out and the vowel lengthened, so Frisian has tosk where Dutch has tand, exactly as English has tooth where German has Zahn, and the same law gives ús for ons, fiif for vijf, goes for gans and mûle for mond. Three of the products are specific to the Dutch system rather than European defaults. Soarchfersekering, basic health cover, is compulsory by law for every resident but sold by private insurers, so everybody holds a policy and pays a premium every month. A house is insured by two separate policies and never by one - opstalfersekering for the building, ynboedelfersekering for the contents - and a tenant normally carries only the second. WA-fersekering is the compulsory third-party motor layer, while oanspraaklikheidsfersekering is general personal liability, held by most households although nothing obliges them. Libben, in libbensfersekering, is the Frisian for life and the same word as English living, where Dutch has leven.
+locale: fy
+---
+Soarchfersekering
+Oanfoljende soarchfersekering
+Autofersekering
+WA-fersekering
+Opstalfersekering
+Ynboedelfersekering
+Libbensfersekering
+Ferstjerrensrisikofersekering
+Reisfersekering
+Húsbistefersekering
+Arbeidsûngeskiktheidsfersekering
+Toskedokterfersekering
+Oanspraaklikheidsfersekering
+Rjochtsbystânfersekering
+Útfeartfersekering
+Fytsfersekering

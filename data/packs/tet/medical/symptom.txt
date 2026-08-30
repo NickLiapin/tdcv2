@@ -1,0 +1,42 @@
+---
+description: Presenting complaints in the words a patient actually uses at the clinic door, which in Tetum are overwhelmingly the native ones even though the chart written above them is Portuguese-derived almost throughout. The pattern to see is that a complaint is built as body part plus moras: ulun moras is head-hurts, kabun moras is belly, kotuk moras is back, matan moras is eye, kakorok moras is throat. Moras itself is both the noun illness and the verb to hurt, so it does alone the work Portuguese needs dor and doença for, and a clinician taking the history hears the same word for both. Isin manas, literally hot body, is fever; isin malirin, cold body, is the rigor that follows it. Mear is cough and mear ran is coughing blood, a complaint written down here far more often than in a temperate clinic. La is the negator and stands before what it negates, which is how la hakarak han means has no appetite and vizaun la klaru means blurred vision. Where no native form exists the Portuguese one is simply respelled: náusea gives Náuzea with the s between vowels written z, inchaço gives Inxasaun with ch written x, and formigamento gives Formigamentu with the unstressed final -o written -u.
+locale: tet
+---
+Isin manas
+Isin kroat
+Ulun moras
+Isin kole
+Frakeza
+Náuzea
+Muta
+Muta ran
+Diarreia
+Obstipasaun
+Kabun moras
+Peitu moras
+Iis badak
+Mear
+Mear ran
+Kakorok moras
+Koriza
+Inus taka
+Ran husi inus
+Tontura
+Vizaun la klaru
+Matan moras
+Zumbidu tilun
+Muskulu moras
+Artikulasaun moras
+Kotuk moras
+Erupsaun kulit
+Pruridu
+Inxasaun
+Dorménsia
+Formigamentu
+Palpitasaun
+La hakarak han
+Todan menus
+Suór kalan
+Isin malirin
+Kaimbra
+Konfuzaun mentál

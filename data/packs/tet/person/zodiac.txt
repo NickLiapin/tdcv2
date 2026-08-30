@@ -1,0 +1,16 @@
+---
+description: The Western zodiac in Tetum. The whole set arrived through Portuguese and every entry is a worked example of the INL respelling rules, so read the list as a spelling table. Portuguese c before a, o or u becomes k: Câncer gives Kánser and Capricórnio gives Kaprikórniu, while the c before e in the same word stays an s sound and is written s. Portuguese g before e or i becomes j: Virgem gives Virjen and Sagitário gives Sajitáriu. Final -ão becomes -aun, which turns Leão into Leaun and Escorpião into Eskorpiaun — the same rule that gives edukasaun and informasaun everywhere else in this pack. Unstressed final -o becomes -u, hence Touru and Akuáriu. Balansa is the scales, taken from balança rather than from Libra. Note what the list is not: Timorese calendar reckoning that matters socially runs on the church year and on the agricultural seasons the wet monsoon sets, and the signs here are magazine and social-media material rather than anything a lisan elder would consult.
+locale: tet
+---
+Áries
+Touru
+Jémeus
+Kánser
+Leaun
+Virjen
+Balansa
+Eskorpiaun
+Sajitáriu
+Kaprikórniu
+Akuáriu
+Peixe

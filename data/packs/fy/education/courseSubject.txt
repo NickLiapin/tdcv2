@@ -1,0 +1,26 @@
+---
+description: School subject as taught in secondary education in Fryslân, and the first line is the whole point of the file. Frisian is a compulsory subject in the province's primary schools and a recognised examination subject in secondary school, which makes it the only regional language in the Netherlands with a slot of its own on the timetable rather than an after-hours club; schools may apply to the province for a partial ûntheffing, an exemption, and enough of them do that the amount of Frisian actually taught varies a great deal from school to school. A number of primary schools go much further and run as trijetalige skoallen, working across three languages - Frisian, Dutch and English - each used as the language of instruction for part of the week instead of being merely a subject. Because that first slot had to be found somewhere, this list drops the Dutch arts-appreciation block, culturele en kunstzinnige vorming, rather than one of the sciences. The rest are the ordinary havo and vwo subjects under Frisian names: ierdrykskunde is geography, from ierde, earth; skiednis is history; maatskippijlear is civics, from maatskippij plus lear, a body of teaching; and keunst shows the eu that Frisian writes where Dutch has a bare u.
+locale: fy
+---
+Frysk
+Nederlânsk
+Ingelsk
+Dútsk
+Frânsk
+Wiskunde
+Natuerkunde
+Skiekunde
+Biology
+Ierdrykskunde
+Skiednis
+Ekonomy
+Bedriuwsekonomy
+Maatskippijlear
+Ynformatika
+Filosofy
+Latyn
+Gryksk
+Lichamelike opfieding
+Keunst
+Muzyk
+Technyk

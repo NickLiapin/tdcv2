@@ -1,0 +1,11 @@
+---
+description: Route classes for a haulage job, from a city delivery to an international run. Вилоятлараро is inter-regional and транзит is freight that only crosses the country. Uzbek builds вилоятлараро from вилоят plus -аро, the suffix that means between.
+locale: uz
+---
+шаҳар ичида
+вилоят ичида
+вилоятлараро
+халқаро
+транзит
+қайтиш рейси
+узоқ масофа

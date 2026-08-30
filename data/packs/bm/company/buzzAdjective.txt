@@ -1,0 +1,59 @@
+---
+description: Corporate and institutional adjectives in French, and the register they belong to is worth naming exactly: this is development vocabulary. Mali has hosted an enormous aid and NGO sector for decades, and its language — inclusif, participatif, structurant, porteur, durable, endogène — has soaked into ministries, banks and private firms alike, so a Malian company profile reads like a project document. `Endogène` is the tell: it means home-grown or locally generated, it is a word almost nobody uses in ordinary French, and it turns up constantly in Bamako because two generations of proposals have had to argue that a project comes from the community rather than from outside.
+locale: bm
+---
+innovant
+intégré
+durable
+digital
+stratégique
+performant
+agile
+global
+local
+inclusif
+participatif
+décentralisé
+structurant
+porteur
+dynamique
+compétitif
+résilient
+transversal
+opérationnel
+optimisé
+sécurisé
+certifié
+normalisé
+moderne
+ambitieux
+pragmatique
+efficient
+rentable
+viable
+évolutif
+collaboratif
+solidaire
+équitable
+responsable
+transparent
+redevable
+orienté résultats
+à fort impact
+à valeur ajoutée
+clé en main
+sur mesure
+multisectoriel
+communautaire
+endogène
+pilote
+novateur
+fiable
+accessible
+abordable
+professionnel
+qualifié
+spécialisé
+conforme
+pérenne
+exemplaire

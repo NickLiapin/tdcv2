@@ -1,0 +1,14 @@
+---
+description: Industries that carry a coherent job list in jobByIndustry, weighted toward the sectors that actually employ people in Timor-Leste. Agrikultura stands where a European list would put heavy manufacturing, and it belongs there: coffee is the dominant non-oil export, roughly a quarter of households have a hand in it, and the Hibridu de Timor plant that arose here by accident is the parent of much of the world's leaf-rust-resistant arabica. Konstrusaun is second because the rebuilding after 1999 never really stopped. Komérsiu retallu shows a Portuguese loan taking the Tetum lh to ll rule: retalho becomes retallu, the same change that turns filho into filu and trabalho into serbisu's rival trabalu. Otelaria, from hotelaria, drops the silent Portuguese h exactly as hospital drops it to give ospitál, and Konstrusaun and Edukasaun show the single most recognisable Tetum ending, Portuguese -ção rewritten -saun.
+locale: tet
+---
+Agrikultura
+Konstrusaun
+Teknolojia
+Saúde
+Edukasaun
+Komérsiu retallu
+Otelaria
+Transporte
+Finansas
+Jurídiku

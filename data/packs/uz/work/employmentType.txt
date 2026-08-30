@@ -1,0 +1,15 @@
+---
+description: Forms of employment contract. Муддатли and муддатсиз шартнома are the fixed-term and open-ended contracts; ўриндошлик is holding a second post alongside a main job, a formal category in Uzbek labour law. ЯТТ is the registered sole trader, and it appears here as a way of being engaged rather than employed.
+locale: uz
+---
+тўлиқ ставка
+ярим ставка
+меҳнат шартномаси
+муддатли шартнома
+муддатсиз шартнома
+фуқаролик-ҳуқуқий шартнома
+ўриндошлик
+мавсумий иш
+вақтинчалик иш
+амалиётчи
+ЯТТ

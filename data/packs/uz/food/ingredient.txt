@@ -1,0 +1,44 @@
+---
+description: Cooking ingredients. Девзира гуручи comes second because the rice variety matters for палов more than any other choice — devzira is grown around Marghilan and holds its shape in the cauldron. Думба is the fat from a fat-tailed sheep's rump and is the traditional cooking fat. Сузма and қурт are strained and dried yoghurt.
+locale: uz
+---
+гуруч
+девзира гуручи
+қўй гўшти
+мол гўшти
+товуқ гўшти
+қийма
+думба
+пахта ёғи
+зиғир ёғи
+сариёғ
+ун
+хамир
+тухум
+сут
+қаймоқ
+қатиқ
+сузма
+қурт
+пишлоқ
+творог
+асал
+шакар
+туз
+сув
+сирка
+томат пастаси
+соя соуси
+қора мурч
+зира
+кашнич уруғи
+майиз
+данак мағзи
+ёнғоқ
+бодом
+писта
+кунжут
+седана
+хамиртуруш
+сода
+крахмал

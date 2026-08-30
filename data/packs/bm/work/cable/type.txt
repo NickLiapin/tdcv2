@@ -1,0 +1,13 @@
+---
+description: Cable type, for telecom and electrical work orders. Bambara has one word for the whole family — juru, which covers rope, string, thread and any wire — and no register at all for the distinctions below, so the names stay French exactly as they are printed on the drum and on the supplier's invoice. What the list reflects is Malian practice: the operators have laid fibre along the Bamako-Ségou-Mopti road and out to the Senegalese and Ivorian borders, while EDM-SA's distribution network is largely câble autoporteur, the self-supporting twisted bundle that hangs pole to pole without a separate messenger wire and is the standard across francophone West Africa.
+locale: bm
+---
+Fibre optique
+Câble cuivre
+Câble coaxial
+Paire torsadée
+Câble UTP
+Câble FTP
+Câble électrique
+Câble souterrain
+Câble autoporteur

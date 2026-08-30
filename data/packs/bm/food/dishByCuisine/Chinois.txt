@@ -1,0 +1,12 @@
+---
+description: Chinese food in Bamako, which is recent and infrastructural rather than migratory. Chinese firms built the third Niger bridge, stretches of the ring road, the Palais de la Culture and a great deal else, and the crews and the managers brought restaurants with them; `riz cantonais` has since spread onto Malian menus that have nothing else Asian on them. It is worth noting how the food changes on arrival — the peppers get hotter, the portions come with a side of frites, and the fish is capitaine from the Niger rather than anything from a sea.
+locale: bm
+---
+Riz cantonais
+Nouilles sautées
+Poulet aigre-doux
+Rouleaux de printemps
+Raviolis vapeur
+Bœuf aux oignons
+Soupe won-ton
+Canard laqué

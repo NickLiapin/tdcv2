@@ -1,0 +1,16 @@
+---
+description: Jobs in manufacturing. Fryslân's largest manufacturing employer is not metal or machinery but dairy processing: the milk from the province's own herds goes to suvelfabriken at Ljouwert, Warkum and Gerkeskleaster, so prosesoperator and produksjemeiwurker in a Frisian record most often mean a shift in a dairy rather than on an assembly line. Arkmakker is the toolmaker, and ark is the plain Frisian for tools - one short word where Dutch needs the compound gereedschap. Betsjinne, to operate a machine, is the same verb as tsjinje, to serve, with a prefix on it, so a machine operator is literally someone who waits on the machine.
+locale: fy
+---
+Ferspaner
+Lasker
+Kwaliteitsynspekteur
+Produksjelieder
+Produksjemeiwurker
+Ûnderhâldsmonteur
+Wurkfoarbereider
+Masinebetsjinner
+Arkmakker
+Prosesoperator
+Ploechlieder
+Mjit- en regeltechnikus

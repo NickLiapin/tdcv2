@@ -1,0 +1,12 @@
+---
+description: Book formats. Two entries are Tetum rather than Portuguese and they make a pair a learner can hold on to: toos is hard and mamar is soft, so a hardback is kapa toos and a paperback kapa mamar, where Portuguese would say dura and mole. The rest are loans respelled by rule — eletrônico loses its circumflex and its final o to eletróniku, brochada keeps its ch as x nowhere because the ch here is already a k sound in Portuguese and comes across as broxada only where the sound warrants it. Worth knowing what this list understates: Timor-Leste's publishing output in Tetum is small and heavily religious and educational, so most books that circulate here are in Portuguese, Indonesian or English, and the audiolivru entry matters more than it would elsewhere because adult literacy in the older cohorts is low and radio is the dominant medium.
+locale: tet
+---
+Kapa toos
+Kapa mamar
+Livru eletróniku
+Audiolivru
+Edisaun bolsu
+Edisaun broxada
+Edisaun ilustrada
+Edisaun biblioteka

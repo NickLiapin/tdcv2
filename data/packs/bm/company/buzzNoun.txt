@@ -1,0 +1,64 @@
+---
+description: Institutional nouns in French. The second half of this list is a project cycle rather than a vocabulary — `diagnostic`, `étude de faisabilité`, `plan d'action`, `feuille de route`, `cadre logique`, `indicateur`, `suivi-évaluation`, `restitution`, `comité de pilotage` — and those terms are as familiar in Bamako as any commercial word, because the development sector is a genuine and large white-collar employer and because state programmes are written in the same forms. `Renforcement des capacités` is the phrase that has travelled furthest: it is capacity building, it appears in almost every funded activity in the country, and Malians use it ironically as often as sincerely. `Tontine` and `microfinance` at the financial end are not jargon at all but how most Malians actually save and borrow.
+locale: bm
+---
+innovation
+transformation
+développement
+croissance
+stratégie
+vision
+mission
+performance
+excellence
+qualité
+compétitivité
+productivité
+rentabilité
+durabilité
+résilience
+gouvernance
+transparence
+redevabilité
+partenariat
+synergie
+coopération
+coordination
+mutualisation
+capitalisation
+renforcement des capacités
+accompagnement
+encadrement
+formation
+sensibilisation
+plaidoyer
+diagnostic
+étude de faisabilité
+plan d'action
+feuille de route
+cadre logique
+indicateur
+résultat
+impact
+effet
+pérennisation
+mise à l'échelle
+chaîne de valeur
+filière
+écosystème
+incubation
+amorçage
+financement
+microfinance
+inclusion financière
+digitalisation
+dématérialisation
+interopérabilité
+traçabilité
+conformité
+audit
+supervision
+suivi-évaluation
+restitution
+atelier
+comité de pilotage

@@ -1,0 +1,15 @@
+---
+description: Stages of a hiring process, in order. Резюме кўриб чиқиш is the CV screen; HR keeps its Latin abbreviation, as it does in Uzbek office speech. Тавсиянома is a written reference, and checking them is a genuine step here rather than a formality.
+locale: uz
+---
+резюме кўриб чиқиш
+телефон суҳбати
+онлайн суҳбат
+HR билан суҳбат
+техник суҳбат
+тест топшириғи
+амалий синов
+раҳбар билан суҳбат
+якуний суҳбат
+тавсияномаларни текшириш
+таклиф юбориш

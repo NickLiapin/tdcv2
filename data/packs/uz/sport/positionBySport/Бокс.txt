@@ -1,0 +1,12 @@
+---
+description: Boxing roles and weight bands. Uzbekistan is a boxing country — its fighters have taken more Olympic gold than any other Uzbek sport — and the weight divisions are named plainly: енгил вазн, ўрта вазн, оғир вазн. Ринг ҳаками is the referee in the ring, ён ҳакам the judge at the side.
+locale: uz
+---
+боксёр
+енгил вазн
+ўрта вазн
+оғир вазн
+бош мураббий
+секундант
+ринг ҳаками
+ён ҳакам

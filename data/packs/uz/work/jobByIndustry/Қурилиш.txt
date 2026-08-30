@@ -1,0 +1,24 @@
+---
+description: Construction jobs. Ғишт терувчи is the bricklayer and сувоқчи the plasterer. Ганчкор is the carved-plaster craftsman, a trade that exists because Uzbek interiors are decorated in ганч, and it sits in the same list as прораб, the site foreman, whose title is a Russian abbreviation.
+locale: uz
+---
+қурувчи
+ғишт терувчи
+бетон қуювчи
+арматурачи
+сувоқчи
+бўёқчи
+дурадгор
+пайвандчи
+кранчи
+лойиҳачи
+меъмор
+қурилиш муҳандиси
+сметачи
+сантехник
+электрмонтажчи
+том ёпувчи
+кафел устаси
+ганчкор
+прораб
+қурилиш назоратчиси

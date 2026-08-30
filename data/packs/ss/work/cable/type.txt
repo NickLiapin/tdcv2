@@ -1,0 +1,13 @@
+---
+description: Electrical and communications cable type as specified by the Eswatini Electricity Company and Eswatini Posts and Telecommunications. Intsambo is the head word and it means a cord, a rope or a sinew as well as a cable, which is the same semantic move English made from Latin capulum; the class 9 noun takes tintsambo in the plural. The technical qualifiers stay in English behind the possessive because the specifications, the standards and the tender documents are written in English and a mistranslated conductor rating is a hazard rather than a nuance. Eswatini's grid is small — a single transmission ring, most generation imported from South Africa and Mozambique, with hydro at Maguga, Ezulwini and Edwaleni — so the distribution cabling on this list matters more than the transmission does.
+locale: ss
+---
+Intsambo yemagetsi
+Intsambo yelucingo
+Intsambo yekhompiyutha
+Intsambo ye-fibre optic
+Intsambo yelicoaxial
+Intsambo yemhlaba
+Intsambo lenembandze munye
+Intsambo lenemabhandze lamabili
+Intsambo lenemabhandze lamatsatfu

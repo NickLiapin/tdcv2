@@ -1,0 +1,16 @@
+---
+description: Finance jobs in Eswatini. Tetimali is "matters of the monies", with the class 10 plural timali rather than the singular imali, because the sector is named for money in quantity. The industry is small and entirely shaped by one fact: the lilangeni is pegged one to one with the South African rand under the Common Monetary Area agreement, and the rand circulates here as legal tender, so Eswatini has a central bank that cannot set an independent interest rate and a banking sector whose main players are South African subsidiaries. Umnikimali, the teller, is built from kunika, to give, plus imali — the one who hands over the money — which is a more literal job description than the English word carries.
+locale: ss
+---
+Umbali wetimali
+Umgcini wetimali
+Umhloli wetimali
+Umphatsi welibhange
+Umnikimali
+Umeluleki wetimali
+Umtsengisi wemshuwalense
+Umgcini wemabhuku etimali
+Umcwaningi wemakethe
+Umhleli wemiholo
+Umhloli wetintsengo
+Umphatsi wetimali temtimba

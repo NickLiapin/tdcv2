@@ -1,0 +1,14 @@
+---
+description: Payment states in Bambara. `Sara` is both to pay and a wage, so `saralen` is paid and `sarali` the act of paying; `dɛsɛ` is to fail or be unable, giving `Sarali dɛsɛra`. The two partial states are not edge cases in Malian trade: a great deal of business runs on part-payment and standing credit between people who know each other, so `Sara dafabali` — payment not yet complete, with the negative suffix -bali on `dafa`, to be whole — is an ordinary condition rather than an error, and a schema treating payment as a boolean is modelling a formal economy most Malian commerce is not part of.
+locale: bm
+---
+Makɔnɔni
+Sɔnnen
+Saralen
+Sara dafabali
+Sarali dɛsɛra
+Dabilalen
+Wari seginnen
+Wari dɔ seginnen
+Sɔsɔli la
+Waati tɛmɛnen

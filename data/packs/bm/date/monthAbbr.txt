@@ -1,0 +1,16 @@
+---
+description: Abbreviated month names, cut to three letters and a full stop on the French pattern. Three of them carry no stop — `mɛ`, `uti` and the vowel letters generally — because the name is already at or below the length an abbreviation would reach, which is the same rule French applies to mai and août. Note `mɛ` and `sɛt.` and `ɔku.`: the abbreviation preserves the open-e and open-o letters rather than flattening them to plain e and o, and a config that strips diacritics to make these ASCII-safe is producing forms no Malian would recognise, since ɛ and ɔ are separate letters of the alphabet here and not accented variants.
+locale: bm
+---
+zan.
+feb.
+mar.
+awi.
+mɛ
+zuw.
+zul.
+uti
+sɛt.
+ɔku.
+now.
+des.

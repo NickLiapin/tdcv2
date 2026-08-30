@@ -1,0 +1,13 @@
+---
+description: Thai cooking reached Dili with the restaurants that opened along the beach road during the United Nations years and stayed for the aid sector that followed. The two curries are the interesting entries. Karil is Portuguese caril respelled, c before a written k, and it is the general Tetum word for any curry; the colour word that specifies which one follows the noun, as every Tetum modifier does, giving karil matak for the green and karil mean for the red. Matak is the Tetum green, and the same word means raw and unripe, so a speaker reading karil matak takes the colour sense from the fact that a curry cannot be unripe. The rest of the list keeps its Thai names because they arrived on printed menus and were never spoken often enough to be worn into Tetum shape.
+locale: tet
+---
+Pad thai
+Tom yum
+Tom kha
+Som tam
+Massaman
+Pad krapao
+Larb
+Karil matak
+Karil mean

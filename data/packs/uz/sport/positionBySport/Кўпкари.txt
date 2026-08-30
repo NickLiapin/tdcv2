@@ -1,0 +1,12 @@
+---
+description: Roles in кўпкари, the mounted game played across Central Asia in which riders compete for a goat carcass. Чавандоз is the rider; оқсоқол the elder who presides; жарчи the crier who announces the prizes; соврин берувчи the person who puts up a prize, which at a large game can be a car. От боқувчи is the groom who keeps the horses.
+locale: uz
+---
+чавандоз
+бош чавандоз
+оқсоқол
+бош ҳакам
+майдон ҳаками
+соврин берувчи
+от боқувчи
+жарчи

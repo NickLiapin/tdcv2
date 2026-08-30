@@ -1,0 +1,16 @@
+---
+description: Psychiatric diagnoses. Депрессия and ташвиш бузилиши lead. Гиёҳвандлик is substance dependence and алкоголга қарамлик alcohol dependence, kept separate because Uzbek statistics keep them separate. Посттравматик стресс бузилиши uses the Russian-derived compound rather than a native calque.
+locale: uz
+---
+Депрессия
+Ташвиш бузилиши
+Паник бузилиш
+Биполяр бузилиш
+Шизофрения
+Обсесив-компулсив бузилиш
+Посттравматик стресс бузилиши
+Уйқусизлик
+Алкоголга қарамлик
+Гиёҳвандлик
+Овқатланиш бузилиши
+Диққат етишмовчилиги синдроми

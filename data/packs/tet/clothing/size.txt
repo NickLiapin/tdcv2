@@ -1,0 +1,12 @@
+---
+description: Garment sizes in the international letters, which arrive here on imported labels rather than from any local system. The letters are unreliable in a way a European dataset would not expect: most ready-made clothing in Dili comes through Indonesian and Chinese import channels, so it is cut to Asian sizing and an L on a market stall in Taibesi runs closer to a European M. The country's most-worn garment is not on this scale at all. A tais is woven to a fixed width on a backstrap loom and then wrapped, tied or pinned to the wearer, so the cloth that appears at every wedding, funeral and state occasion has no size label and never needed one.
+locale: tet
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

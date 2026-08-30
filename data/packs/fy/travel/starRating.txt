@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (West Frisian). Note the plural from two upwards: ien stjer, twa stjerren, with the consonant doubled before the ending. Stjer is star, and it is one of the words where Frisian and English kept a shape Dutch did not - ster against stjer against star - and the same stjer turns up in place names and in the compound stjerrekundige, an astronomer. Fryslân has a professional interest in stars it does not advertise: the Waadeilannen hold some of the darkest skies in the Netherlands, the Boschplaat on Skylge is a certified dark-sky park and Skiermûntseach is regularly called the darkest place in the country, so a hotel there sells the night as much as the room.
+locale: fy
+---
+1 stjer
+2 stjerren
+3 stjerren
+4 stjerren
+5 stjerren

@@ -1,0 +1,38 @@
+---
+description: Thoroughfare and locality type in Eswatini, and the list is deliberately half English. Street signage in Mbabane, Manzini and Matsapha carries the generic in English while the specific is siSwati — Gwamile Street, Somhlolo Road, Msakato Street — so a list that offered only siSwati generics would describe a country that does not exist. The loans here are shaped to siSwati phonology and take class prefixes accordingly. The genuinely local entries are the ones at the end: inkhundla is the constituency, the administrative unit the whole Eswatini electoral system is named after and there are 59 of them; umphakatsi is a chiefdom centre; sigcawu is the open ground where a community meets; and lidladla and sibaya belong to the homestead rather than to a street grid, which is how the majority of addresses in this country are actually built.
+locale: ss
+---
+Umgwaco
+Umgwaco lomkhulu
+Sitaladi
+Indlela
+Indlela lencane
+Libhulevadi
+Ikhresenti
+Idrayivu
+Ileyini
+Ikhothi
+Iwokhi
+Iveyi
+Iterasi
+Iriji
+Ivyu
+Iranki
+Iklosi
+Ipaki
+Igadeni
+Sikwele
+Libhulohho
+Sigcawu
+Libala
+Lisango
+Lokishi
+Sitendi
+Sigodzi
+Umphakatsi
+Inkhundla
+Lidladla
+Sibaya
+Umuti
+Lidolobha
+Indzawo

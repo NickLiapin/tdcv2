@@ -1,0 +1,32 @@
+---
+description: Technical verbs in their bare form, which in Tetum is their only form. A Tetum verb does not inflect for person, number or tense: kopia is copy, copies, copied and will copy alike, and what an English or Portuguese speaker expects the ending to carry is carried instead by particles — ona for a completed action, sei for a future one, hela for one in progress. That is why this file and hacker/ingverb.txt hold the same twenty-eight stems with a single word of difference. The stems themselves are Portuguese verbs stripped of their infinitive ending: comprimir gives komprime, encriptar gives enkripta, encaminhar gives enkamiña with nh written ñ. Hakea is English to hack naturalised, and halo backup pairs the Tetum verb halo, to do or make, with an English noun — the commonest way Tetum takes in a new action.
+locale: tet
+---
+halo backup
+kontorna
+hakea
+anula
+komprime
+kopia
+navega
+indexa
+konekta
+jera
+kuantifika
+kalkula
+sintetiza
+introdús
+transmite
+programa
+reinisia
+analiza
+enkripta
+dezenkripta
+implementa
+kompila
+depura
+otimiza
+sinkroniza
+virtualiza
+enkamiña
+monitoriza

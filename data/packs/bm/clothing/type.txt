@@ -1,0 +1,34 @@
+---
+description: Garments. Bɔgɔlanfini is the one to read closely — bɔgɔ is mud, -lan makes it the thing done with mud, fini is cloth, so the name is literally mud-made-cloth, and the process is chemistry rather than dyeing. Narrow strips of hand-woven cotton are soaked in a tannin-rich leaf bath, then painted with fermented river mud, and the black comes out of the reaction between the tannin and the iron in the mud, which is why the pattern is in the fibre and does not wash out. Fini is the general word and covers cloth and clothing both. Bazin riche is the imported damask that is Mali's formal fabric, dyed and then beaten to a hard shine with wooden mallets, a trade of its own in Bamako courtyards. Taafe is the wrapper, dɔlɔki a shirt and dɔlɔkiba the grand boubou that is the same shirt at ceremonial size. The tagelmust is the Tuareg man's veil, wound so that the face is covered rather than the head.
+locale: bm
+---
+fini
+bɔgɔlanfini
+dɔlɔki
+dɔlɔkiba
+taafe
+kulusi
+fugulan
+sabara
+bazin riche
+boubou
+grand boubou
+pagne tissé
+kaftan
+tagelmust
+turban
+chéchia
+babouches
+tee-shirt
+chemise
+pantalon
+jean
+veste
+costume
+cravate
+ceinture
+foulard
+jupe
+robe
+chaussettes
+maillot

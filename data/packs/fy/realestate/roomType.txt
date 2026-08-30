@@ -1,0 +1,23 @@
+---
+description: Room type in a Frisian home. It húske is counted as its own room and is normally a separate cubicle away from the badkeamer, so a listing gives them as two - and the word is worth the entry, because húske is a little house, the outdoor privy that stood in the yard, and the name stayed on the room when it came indoors. Souder is a usable attic floor while a fliering is the low crawl space above it, and a bykeuken is the utility room with the washing machine and the freezer in it. Note the verb-built compounds: sliepkeamer on sliepe, to sleep, ytkeamer on ite, to eat, and wurkkeamer on wurkje - all three verbs standing nearer their English cousins sleep, eat and work than to Dutch slapen, eten and werken.
+locale: fy
+---
+Sliepkeamer
+Badkeamer
+Húske
+Keuken
+Bykeuken
+Wenkeamer
+Ytkeamer
+Wurkkeamer
+Logearkeamer
+Hal
+Kelder
+Souder
+Fliering
+Berging
+Garaazje
+Provizjekast
+Atelier
+Serre
+Dakterras

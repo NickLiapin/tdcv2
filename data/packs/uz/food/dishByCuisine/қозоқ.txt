@@ -1,0 +1,14 @@
+---
+description: Kazakh dishes. Бешбармоқ is the boiled meat and pasta dish eaten by hand, қази the horse sausage, and қимиз fermented mare's milk. Шубат — fermented camel milk — is the desert counterpart. Қурт, the dried salted curd ball, crosses the border in both directions.
+locale: uz
+---
+бешбармоқ
+қази
+қуйрдақ
+баурсак
+қурт
+шубат
+қимиз
+сорпа
+куйрдак
+иримшик

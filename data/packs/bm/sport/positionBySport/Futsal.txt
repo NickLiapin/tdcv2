@@ -1,0 +1,9 @@
+---
+description: Futsal positions, in the same Bambara spatial system football uses, because it is the same game on a smaller floor and the same commentary vocabulary carries over. Futsal matters in Mali out of proportion to its formal status: a full pitch needs land and water that a Bamako quarter does not have, while a concrete rectangle between two buildings needs neither, so much of the country's football talent is first seen there. `Kɔfɛla` covers the fixed defender the sport elsewhere calls by the Portuguese name fixo.
+locale: bm
+---
+Gɔlkipa
+Kɔfɛla
+Ɲɛfɛla kinin fɛ
+Ɲɛfɛla numan fɛ
+Ɲɛfɛla cɛmancɛ

@@ -1,0 +1,30 @@
+---
+description: Mobile carriers. Only the first three sell service inside Timor-Leste: Timor Telecom, which held the monopoly from 2003 until liberalisation in 2012 and is majority Portuguese-owned; Telemor, the Viettel subsidiary, which undercut it and now leads on subscribers because it built towers into the districts the incumbent had skipped; and Telkomcel, backed by Indonesia's Telkomsel. The rest of the list is the roaming and diaspora estate a Timorese phone record actually touches — the Indonesian networks that reach across the land border and cover Oecusse from the West Timor side, the Australian networks used by seasonal workers in the Northern Territory and Victoria, and the Portuguese networks used by the community in Lisbon and Porto. Note the practical consequence for any address dataset: in Oecusse, an exclave surrounded by Indonesian territory, a handset will frequently register on an Indonesian network without leaving Timor-Leste.
+locale: tet
+---
+Timor Telecom
+Telemor
+Telkomcel
+Telkomsel
+Indosat Ooredoo Hutchison
+XL Axiata
+Smartfren
+Telstra
+Optus
+Vodafone Australia
+TPG
+Singtel
+StarHub
+Maxis
+Celcom Digi
+Globe Telecom
+Smart Communications
+Viettel
+Vinaphone
+Mobifone
+MEO
+NOS
+Vodafone Portugal
+Digicel
+Bmobile
+Lycamobile

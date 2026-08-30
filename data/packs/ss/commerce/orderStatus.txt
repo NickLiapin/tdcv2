@@ -1,0 +1,18 @@
+---
+description: Order status in siSwati, and the grammar is worth reading before the list. Nearly every value is a PASSIVE verb, formed by inserting -w- before the final vowel: kukhokha is to pay and kukhokhelwe is "it has been paid for"; kutfumela is to send and kutfunyelwe "it has been sent", where the sending also triggers a sound change in the stem. That is how siSwati says what happened to an order rather than who did it, and it is why these values read as clauses rather than as labels. Kufikile endzaweni yekutsatsa, arrived at the collection point, is a status that matters more here than despatch does: in a country where most addresses are a post office box or a shop counter, the parcel reaching the pickup point is the event a customer is waiting for.
+locale: ss
+---
+Sicelo singenile
+Kulindzelwe kucinisekiswa
+Sicelo sicinisekisiwe
+Kukhokhelwa kulindzelwe
+Kukhokhelwe
+Kupakishwa
+Kutfunyelwe
+Kusendleleni
+Kufikile endzaweni yekutsatsa
+Kuletfwe
+Kucedziwe
+Kwehlulekile kuletfwa
+Kukhanselwe
+Kubuyiselwe

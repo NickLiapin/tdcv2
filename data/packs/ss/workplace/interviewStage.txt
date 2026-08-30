@@ -1,0 +1,15 @@
+---
+description: Recruitment stage in Eswatini. Two entries are ordered differently from a European process and both are worth noting. Kuhlolwa kwebofakazi, checking referees, comes late here and carries unusual weight in a country of 1.2 million people where a hiring manager often knows someone who knows the candidate. Kuhlolwa kwemtimba, the medical examination, is a standard pre-employment step for estate, mine and factory work rather than an exception. Grammatically, most of these are passive infinitives: kuhlolwa is "to be examined", from kuhlola with the passive -w- inserted before the final vowel, which is how siSwati turns an action into something done TO the applicant.
+locale: ss
+---
+Kufaka sicelo
+Kuhlolwa kwesicelo
+Kubitwa kwenkhulumo yekucala
+Inkhulumo yangefoni
+Inkhulumo yekucala
+Kuhlolwa kwelwati
+Inkhulumo yesibili
+Kuhlolwa kwemtimba
+Kuhlolwa kwebofakazi
+Kuniketwa umsebenti
+Kusayina sivumelwane

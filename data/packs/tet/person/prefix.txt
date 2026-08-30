@@ -1,0 +1,36 @@
+---
+description: Honorifics placed before a name in Tetum. The Portuguese block at the top is what a form or a letterhead prints, and Monsenyór shows the rule that governs it: Portuguese nh is respelled ny (or ñ), so monsenhor becomes Monsenyór and senhor becomes senyór, with the acute marking the stressed final syllable that Tetum orthography always writes. Below that the list stops being Portuguese. Maun, Bin and Alin are elder brother, elder sister and younger sibling, and they are used as address terms to strangers of roughly the right age, not only to actual siblings — a Timorese shopkeeper is addressed as maun or bin by someone who has never met them, and getting the relative age wrong is the mistake, not getting the name wrong. Katuas and Ferik are the old man and the old woman and are respectful, not descriptive. Amu and Nai are the native honorifics of rank and of the church, and Amu precedes both Bispu and Padre in ordinary speech. Katekista is a real title on real records: in a country where the priest may serve a dozen chapels across a mountain district, the catechist is the person who actually runs the one in the village. Liurai is the traditional ruler and Dato the noble house below him; neither has constitutional standing and both still carry weight in a suku. Xefe Suku and Xefe Aldeia are the elected heads of the village and of the hamlet, offices with a ballot and a stamp, and they appear on documents beside a name as routinely as Dr. does.
+locale: tet
+---
+Sr.
+Sra.
+Dr.
+Dra.
+Eng.
+Prof.
+Padre
+Madre
+Irmaun
+Irmá
+Bispu
+Monsenyór
+Eminénsia
+Katekista
+Amu
+Nai
+Liurai
+Dato
+Katuas
+Ferik
+Maun
+Bin
+Alin
+Tiu
+Tia
+Avó
+Avô
+Xefe Suku
+Xefe Aldeia
+Komandante
+Lisensiadu
+Mestre

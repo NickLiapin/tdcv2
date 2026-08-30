@@ -1,0 +1,30 @@
+---
+description: Book genres. The four Bambara terms at the head are categories of spoken literature that predate the printed book by centuries and are still the ones people recognise. Nsiirin is the evening folktale, told after dark and in many families not told in daylight at all; maana is the long narrated epic; fasa is the praise song a jeli sings for a lineage, naming its ancestors back through the generations, and it is sung to a living person about their dead. Taariku is history, and it is an Arabic loan for a reason — the Timbuktu chronicles that carry the record of the Songhai empire were written in Arabic by scholars whose descendants still hold the manuscripts. Everything after those four is the shelving of a French-language bookshop, which is what a Bamako bookshop is.
+locale: bm
+---
+nsiirin
+maana
+fasa
+taariku
+roman
+nouvelle
+poésie
+théâtre
+essai
+biographie
+autobiographie
+mémoires
+histoire
+philosophie
+sociologie
+anthropologie
+droit
+économie
+politique
+religion
+science-fiction
+roman policier
+roman d'amour
+littérature jeunesse
+bande dessinée
+récit de voyage

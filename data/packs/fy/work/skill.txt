@@ -1,0 +1,50 @@
+---
+description: Professional skills, technical, trade and soft, for skill lists and profiles. Frysk heads the language group and is not decoration: Fryslân is officially bilingual, provincial and municipal vacancies state a required level of Frisian, and written command of it is a separate competence from speaking it, because almost every Frisian speaker learned to read and write in Dutch first - spoken fluency is near-universal in the villages while confident spelling is not, which is exactly why the Afûk sells courses to native speakers. VCA is the site-safety certificate demanded of most industrial and construction work in the Netherlands and Belgium, and bedriuwshelpferliening is the in-house emergency response training Dutch law obliges every employer to arrange. The trade entries carry the Frisian roots plainly: laskjen for welding, leadjitterswurk for plumbing from lead and jitte, to pour, tekeninglêzen from lêze, to read, and gearwurkjen for teamwork, where gear- means together and turns up again in gearkomste, a meeting. Programming languages and product names keep their international spelling.
+locale: fy
+---
+Python
+JavaScript
+SQL
+Java
+C++
+Cloud computing
+Machine learning
+Data-analyse
+Excel
+Projektmanagement
+Agile wurkjen
+Scrum
+Presintearjen
+Technysk skriuwen
+Klantetsjinst
+Ferkeap
+Boekhâlden
+Finansjele modellering
+CAD-tekenjen
+3D-modellearjen
+Grafysk ûntwerp
+Copywriting
+Laskjen
+Elektryske ynstallaasje
+Leadjitterswurk
+Timmerwurk
+Tekeninglêzen
+Ferspanjen
+Soldearjen
+Heftruksertifikaat
+Betsjinning fan swier materieel
+Frachtwein riden
+VCA-sertifikaat
+Bedriuwshelpferliening
+Earste help
+Reanimaasje
+Itenfeiligens
+Frysk
+Ingelsk
+Dútsk
+Frânsk
+Spaansk
+Ûnderhanneljen
+Lieding jaan
+Probleemoplossend fermogen
+Gearwurkjen

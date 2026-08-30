@@ -1,0 +1,11 @@
+---
+description: Positions in handball (West Frisian). Seven values for the seven players on court, and the layout is symmetrical: a keeper, three opbouwers across the back who build the attack, two hoekspilers in the corners and one sirkelrinner who plays with his back to the goal on the six-metre line. Frisian rinne is to walk or to run and gives sirkelrinner where German says Kreisläufer and English pivot. Note the circumflex in the sport's own name: a hand is a hân, with the n dropped before the d and the vowel lengthened to compensate, which is why the province is a lân of hannen and never a land of handen - hânbal, and never the Dutch handbal.
+locale: fy
+---
+Doelman
+Linkeropbouwer
+Middenopbouwer
+Rjochteropbouwer
+Linkerhoekspiler
+Rjochterhoekspiler
+Sirkelrinner

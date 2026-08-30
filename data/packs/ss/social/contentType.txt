@@ -1,0 +1,17 @@
+---
+description: Social media content type in siSwati. Most of these are built from native roots rather than borrowed: umbhalo, a post, is from kubhala, to write; sitfombe, a picture, is the older word for an image or a reflection; kwabelana ngembhalo, a share, uses the reciprocal -ana so that sharing is literally "portioning out to one another". Sitfombe lesihlekisako, the meme, is described rather than named because siSwati has not borrowed the word and describing it is what a speaker does. Note that inhlolovo, the poll, is the same word used for a formal survey and for a referendum, which is a small reminder that the vocabulary of consultation here predates the platform by a long way.
+locale: ss
+---
+Umbhalo
+Sitfombe
+Ividiyo
+Ividiyo lemfishane
+Umsakato lophilako
+Sitori
+Inhlolovo
+Umyalezo
+Ligama lekukhangisa
+Umculo
+Sitfombe lesihlekisako
+Umbhalo wemngani
+Kwabelana ngembhalo

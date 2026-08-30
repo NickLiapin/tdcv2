@@ -1,0 +1,11 @@
+---
+description: Conditions with a raised frequency in Mediterranean ancestry. Thalassaemia takes its name from this sea — the Greek thalassa — because it was first described in children of Italian and Greek descent, and like sickle cell it persists because carrying one copy blunts malaria, which was endemic around the Mediterranean until the twentieth century. Favism belongs to the same story: it is the acute haemolysis that G6PD-deficient people suffer after eating broad beans, and it is a clinical entity in Italy, Greece and Cyprus in a way it is nowhere else. Haemochromatosis runs the other way, being commonest in northern Europe, and is listed here because the Mediterranean carrier rate is high enough to matter clinically. Ancestry associations, not statements about individuals.
+locale: ss
+---
+I-beta-thalassaemia
+I-alpha-thalassaemia
+I-familial Mediterranean fever
+I-G6PD deficiency
+I-haemochromatosis
+I-favism
+I-Behcet disease

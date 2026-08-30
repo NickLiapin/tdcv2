@@ -1,0 +1,41 @@
+---
+description: Trailing element of a Timorese place name, and the case of an entry tells a config author how to join it. The lowercase ones are bound: they attach directly to a prefix with no space, which is how the real names are written — Fatu plus mean gives Fatumean, Fatu plus bessi gives Fatubessi, Ai plus mutin gives Aimutin, Hato plus lia gives Hatolia, Fatu plus hada gives Fatuhada. The capitalised ones stand as separate words. What the bound set consists of is the ordinary vocabulary of description, unchanged from everyday speech: the colour terms mean red, mutin white, metan black and matak green or unripe; the size and age terms boot big, ki'ik small, naruk long, foun new and tuan old; the position terms leten upper, kraik lower, laran inside and ain foot, so a pair of villages on one hillside is routinely X-leten and X-kraik and the two names differ only in altitude; and the terrain terms tasi sea, foho mountain, mota-derived matan for a water source, hun for the base or origin of something, and mos, clean, which is what you say of drinkable water. Manas and malirin, hot and cold, mark a thermal spring and a highland respectively, and in a country whose road from the coast to Hatobuilico climbs to nearly two thousand metres the distinction is a real one. Lulik, sacred, marks a site under customary prohibition rather than a church. The Portuguese trailing forms do Mar, da Serra, do Rio, do Vale, da Costa, de Baixo, de Sima and Novu belong to the same overlay that produced the Vila and Santa openers, and Lorosa'e and Loromonu close a name the way Portuguese would close it with do Leste or do Oeste.
+locale: tet
+---
+hada
+nuk
+lia
+bessi
+mean
+mutin
+metan
+boot
+ki'ik
+foun
+tuan
+laran
+leten
+kraik
+tasi
+foho
+loro
+hun
+matan
+ain
+ulun
+lulik
+naruk
+manas
+malirin
+mos
+tolu
+do Mar
+da Serra
+do Rio
+do Vale
+da Costa
+de Baixo
+de Sima
+Novu
+Lorosa'e
+Loromonu

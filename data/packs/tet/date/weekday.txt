@@ -1,0 +1,11 @@
+---
+description: Weekday names, borrowed whole from Portuguese and then respelled. Portuguese numbers its weekdays from Sunday — segunda-feira is literally the second fair-day, terça the third — and Tetum inherited that counting intact, so a Tetum week that begins on Monday still calls Monday the second day. Terça becomes Tersa because Tetum has no ç and writes the sound s; quarta and quinta lose their qu for a k. Sábado and Domingo drop their unstressed final o to Sábadu and Domingu. Tetum also has a native alternative built on loron, day — loron-segunda, loron-tersa — and speakers move between the two forms freely. The order here follows the Portuguese file, Sunday first.
+locale: tet
+---
+Domingu
+Segunda-feira
+Tersa-feira
+Kuarta-feira
+Kinta-feira
+Sesta-feira
+Sábadu

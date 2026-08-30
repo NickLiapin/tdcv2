@@ -1,0 +1,15 @@
+---
+description: Reaction to a post, in siSwati, and every one is a full sentence rather than a label. That is unavoidable: siSwati has no way to express "like" as a bare noun or a bare verb stem, so the reaction has to carry a subject concord and a tense marker, and ngiyatsandza is ngi- I, -ya- present continuous, -tsandza love. The result is that a Swazi reaction button says "I love it" where an English one says "Like", which is a stronger claim made unavoidable by the grammar. Ngiyabonga, "I give thanks", is on the list because it is used as a reaction in its own right here far more than a thanks button would be in Europe, and it is the ordinary word for thank you.
+locale: ss
+---
+Ngiyatsandza
+Ngiyakutsandza kakhulu
+Ngiyahleka
+Ngiyamangala
+Ngiyakhala
+Ngiyatfukutsela
+Ngiyavuma
+Angivumi
+Ngiyabonga
+Ngiyacabanga
+Ngiyakhutsata

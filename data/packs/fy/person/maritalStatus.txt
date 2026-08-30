@@ -1,0 +1,18 @@
+---
+description: Marital status in Frisian. The categories are national and the labels are provincial, and both halves of that matter. Civil registration in the Netherlands is a state function, so the states themselves are the ones the Dutch population register recognises - which is why registrearre partnerskip is on this list as a legal status distinct from marriage and from cohabitation, and why gearwenjend mei gearlibbingskontrakt, the notarised cohabitation contract that carries some of the same rights, is separate again from plain gearwenjend. But the labels are genuinely usable in Frisian, because the Wet gebruik Friese taal of 2014 gives Frisian a legal place in written dealings with municipalities and courts in Fryslân, so a form filled in with these words is a valid form and not a translation exercise. Two points of grammar. Frisian forms abstract nouns in -skip where Dutch has -schap and German -schaft, and -skip is the same suffix as English -ship, so partnerskip, freonskip and boargerskip line up with partnership, friendship and citizenship rather than with partnerschap. And gear- is the Frisian prefix for together, cognate with English gather, where Dutch uses samen-: gearwenje is to live together, gearwurkje to work together, gearkomste a meeting. Note widdo and widner as a matched pair, and skaat rather than skieden as the past participle of skiede.
+locale: fy
+---
+ûngetroud
+troud
+skaat
+widdo
+widner
+duorsum skaat libjend
+registrearre partnerskip
+registrearre partnerskip beëinige
+partner ferstoarn
+gearwenjend
+gearwenjend mei gearlibbingskontrakt
+ferloofd
+wertroud
+ûnbekend

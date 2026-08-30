@@ -1,0 +1,22 @@
+---
+description: Cat breeds as an Uzbek speaker names them, mostly by country of origin plus мушук or мушуги: форс мушуги, сиям мушуги, британ мушуги. The last three entries matter more than the pedigrees — кўча мушуги, уй мушуги and қора мушук are what an actual dataset of Uzbek cats is full of.
+locale: uz
+---
+форс мушуги
+сиям мушуги
+британ мушуги
+майн-кун
+сфинкс
+бенгал мушуги
+рус кўк мушуги
+абиссин мушуги
+турк ангораси
+шотланд вислоухи
+норвег ўрмон мушуги
+сибир мушуги
+бомбей мушуги
+рагдолл
+эгей мушуги
+кўча мушуги
+уй мушуги
+қора мушук

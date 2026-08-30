@@ -1,0 +1,14 @@
+---
+description: Pulmonology diagnoses in Tetum, where tuberculosis is not one entry among ten but the organising fact of the whole specialty. Timor-Leste carries one of the highest tuberculosis incidence rates in the world, several hundred cases per hundred thousand people every year — several times the rate of neighbouring Indonesia and something like an order of magnitude above Western Europe — and a large fraction of those cases are never diagnosed at all, so the national programme's real difficulty is finding people rather than treating them once found. Tuberkuloze rezistente is listed apart because drug resistance turns six months of four oral tablets into a far longer, far more toxic course that a district health centre cannot run alone. The word itself is a compact lesson in borrowing: Portuguese tuberculose gives Tuberkuloze because c before u is written k and the final -se, which is voiced in speech, is written -ze. Pulmaun, from pulmão, shows the -ão to -aun rule that governs every nasal-final Portuguese noun in this pack.
+locale: tet
+---
+Tuberkuloze pulmonár
+Tuberkuloze rezistente
+Pneumonia
+Infesaun respiratória akuda
+Azma
+Doensa pulmonár obstrutiva kronika
+Bronkiektazia
+Derame pleurál
+Empiema
+Kansru pulmaun

@@ -1,0 +1,9 @@
+---
+description: Positions in volleyball (West Frisian). Five values, and four of them are jobs rather than places on the court, because volleyball rotates: the spulferdieler sets, the passer-rinner receives serve and attacks from the wing, the middenblokkearder blocks in the middle and the diagonaalspiler hits opposite the setter. Frisian spul is play or a game - the same word as in spultsje, a small game, and in it spul, meaning the business at hand - so a setter is literally the one who distributes the play. The libero is the exception: an Italian word, invented with the position in 1998, and untranslated in every language that plays.
+locale: fy
+---
+Spulferdieler
+Passer-rinner
+Middenblokkearder
+Diagonaalspiler
+Libero

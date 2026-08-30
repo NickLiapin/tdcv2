@@ -1,0 +1,20 @@
+---
+description: American dishes, and the English left standing on this list does something no other file in the folder does: it puts English and Frisian words for the same things on the same page. Mac and cheese is line five, and cheese is tsiis - the same word, both of them palatalised from the same Germanic k before a front vowel, a change English and Frisian carried out together on the North Sea coast while Dutch and German did not, which is why Dutch has kaas and German Käse and neither of them has a ch or a ts. Cornbread holds brea and apple pie holds apel the same way. That is the closest-living-relative fact in its useful form: not that Frisian looks a bit like English, but that the two languages made the same sound changes in the same centuries, and the words that prove it are the oldest and plainest ones on any list - bread, cheese, apple, sheep, ship, fish. Only two lines here take Frisian words at all, Caesarslaad and ahornstreop, streop being the Frisian for syrup.
+locale: fy
+---
+Cheeseburger
+Hamburger
+Hotdog
+Buffalo wings
+Mac and cheese
+Clubsandwich
+Caesarslaad
+Pulled pork
+Spareribs
+BBQ brisket
+Cornbread
+Pancakes mei ahornstreop
+New York cheesecake
+Brownie
+Apple pie
+Chicken wings

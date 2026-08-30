@@ -1,0 +1,14 @@
+---
+description: Fuel types. Every one is a Portuguese loan and the respellings are routine — gasolina keeps its shape, diesel becomes dízel, hidrogénio drops its initial h exactly as hospital does to give ospitál, and híbrido loses both its accent-bearing h and its final o to become ibridu. The list is aspirational at its far end. Timor-Leste imports every litre of liquid fuel it burns despite sitting on the Timor Sea gas fields, because it has no refinery; the electricity that would charge an elétriku car comes mostly from the heavy-fuel-oil plants at Hera and Betano; and outside Dili a filling station is far enough apart that vehicles carry jerrycans as a matter of course.
+locale: tet
+---
+Gazolina
+Dízel
+Elétriku
+Ibridu
+Ibridu plug-in
+Idrojéniu
+Etanol
+Gás naturál komprimidu
+Gás petróleu likuefeitu
+Biodízel

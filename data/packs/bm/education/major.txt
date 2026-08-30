@@ -1,0 +1,32 @@
+---
+description: University fields of study in Mali, in French. The shape of this list is the shape of Bamako: until 2011 there was one university for the whole country, since split into four plus the Université des Sciences, des Techniques et des Technologies which carries medicine, pharmacy and dentistry, and almost all of it sits in the capital. Note how much of the list is applied and agricultural — agronomie, zootechnie, génie rural, médecine vétérinaire — which reflects the Institut Polytechnique Rural at Katibougou and the fact that a country where four Malians in five live off farming and herding trains people to work on it. Odontostomatologie is the standard francophone name for dentistry and will look wrong to anyone expecting the English word.
+locale: bm
+---
+Médecine
+Pharmacie
+Odontostomatologie
+Droit privé
+Droit public
+Sciences économiques
+Gestion
+Comptabilité
+Sciences juridiques
+Lettres modernes
+Histoire-Géographie
+Philosophie
+Psychologie
+Sociologie
+Anthropologie
+Linguistique
+Mathématiques
+Physique
+Chimie
+Biologie
+Géologie
+Agronomie
+Zootechnie
+Médecine vétérinaire
+Génie civil
+Génie informatique
+Génie rural
+Sciences de l'éducation

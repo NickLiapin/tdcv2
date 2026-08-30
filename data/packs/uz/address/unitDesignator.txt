@@ -1,0 +1,27 @@
+---
+description: The part of an Uzbek address below the street: flat, block, entrance, floor. Хонадон is the native word and квартира the Russian one, and both are in daily use on the same building. Подъезд — the stairwell entrance — keeps its Russian hard sign, which is why Latin has to write it podyezd with a bare y.
+locale: uz
+---
+хонадон
+квартира
+кв.
+уй
+уй-жой
+хона
+офис
+кабинет
+блок
+корпус
+подъезд
+қават
+ертўла
+чордоқ
+гараж
+омборхона
+секция
+қисм
+мавзе
+массив
+квартал
+маҳалла
+гузар

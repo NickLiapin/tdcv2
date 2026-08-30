@@ -1,0 +1,63 @@
+---
+description: Materials, and the Malian ones are worth picking out of the list. `Bazin riche` is imported cotton damask, dyed and then pounded with wooden mallets until it shines like metal — the beating is a trade of its own and the sound of it is a Bamako courtyard sound. `Bogolan` is mud cloth, where the pattern is what the iron-rich river mud leaves behind. `Banco` is sun-dried mud brick, the material of the Great Mosque of Djenné, the largest mud-brick building on earth, replastered every year by the whole town in a single day. `Cauris` are cowrie shells, which came across the Indian Ocean and the Sahara and served as Mali's currency into the nineteenth century before becoming ornament and divination tokens.
+locale: bm
+---
+Coton
+Coton bazin
+Bazin riche
+Bogolan
+Wax
+Pagne tissé
+Lin
+Laine
+Soie
+Polyester
+Nylon
+Viscose
+Acrylique
+Cuir
+Cuir de chèvre
+Cuir de mouton
+Peau tannée
+Daim
+Simili cuir
+Caoutchouc
+Plastique
+PVC
+Polypropylène
+Bois
+Bois de caïlcédrat
+Ébène
+Rônier
+Bambou
+Rotin
+Paille
+Vannerie
+Calebasse
+Argile
+Terre cuite
+Banco
+Céramique
+Porcelaine
+Verre
+Métal
+Fer
+Fer forgé
+Acier
+Acier inoxydable
+Aluminium
+Cuivre
+Laiton
+Bronze
+Étain
+Or
+Argent
+Perles
+Cauris
+Corne
+Os
+Karité
+Beurre végétal
+Papier
+Carton
+Mousse

@@ -1,0 +1,20 @@
+---
+description: Horse breeds. The first value is a warning as much as a word. So is the Bambara for horse and so is also the Bambara for house, distinguished in speech by tone alone, and Malian orthography does not write tone, so the two are the same string on the page and only context separates them — a config that pulls so into a building field and a stable field will produce an identical value in both, correctly. The horse itself is a Sahel animal here, the Barb and its crosses, and it carried the cavalry of the Bamana kingdom of Ségou, whose ton-jon warriors fought mounted. The Bamako quarter called Hippodrome is named for its racecourse and Sunday racing is still run there. The European breeds at the end come through the racing and equestrian world rather than through Malian breeding.
+locale: bm
+---
+so
+barbe
+arabe-barbe
+dongola
+poney mossi
+poney du Sahel
+cheval maure
+cheval touareg
+pur-sang arabe
+pur-sang anglais
+andalou
+frison
+haflinger
+percheron
+poney shetland
+trotteur français

@@ -1,0 +1,5 @@
+---
+description: The currency of Бирлашган Араб Амирликлари, named the way an Uzbek price list names it. The country name Бирлашган Араб Амирликлари doubles as the file name, which is how a coherent record keeps the country and its money in step.
+locale: uz
+---
+БАА дирҳами

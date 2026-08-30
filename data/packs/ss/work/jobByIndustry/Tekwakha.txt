@@ -1,0 +1,16 @@
+---
+description: Construction jobs in Eswatini. Tekwakha is "matters of building", from kwakha — and the same verb gives umakhi, the builder, so the sector and the worker come from one root. Kwakha carries more than the English word does: umuti, the homestead, is what a man is said to build when he marries and establishes a household, so the verb covers founding a family as well as laying a wall. The trades themselves are what a small economy needs — block work, tiling, carpentry, painting, wiring and plumbing — and most of the country's formal construction is public: schools, clinics, the Mbabane bypass, the Maguga and Luphohlo dams, and King Mswati III International Airport at Sikhuphe.
+locale: ss
+---
+Umakhi
+Umakhi wetitini
+Umbeki wetayela
+Umbati wetigodvo
+Umpendi
+Umsebenti wemagetsi
+Umsebenti wemanti nemapayipi
+Umnjiniyela wetakhiwo
+Umdvwebi wetakhiwo
+Umphatsi wemsebenti wekwakha
+Umshayeli wegandaganda
+Umhloli wekuphepha kwesakhiwo

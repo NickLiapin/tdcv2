@@ -1,0 +1,16 @@
+---
+description: Jobs in finance. Two of these are Dutch institutions rather than generic roles: the belestingadviseur works a tax code detailed enough to be a profession in its own right, and the hypoteekadviseur exists because Dutch mortgages are sold through licensed intermediaries under a statutory duty of care rather than over a bank counter. Belesting is the Frisian for tax and hypoteek for a mortgage, and the second of those loses the silent h that Dutch writes in hypotheek, because Frisian spells the t of a Greek loan plain. Finansjeel is the adjective belonging to Finânsjes, the industry name, and the pair shows a rule worth knowing: the circumflex marks a long vowel that the noun has and the derived adjective loses, so it is never simply carried over.
+locale: fy
+---
+Finansjeel analist
+Boekhâlder
+Accountant
+Aktuaris
+Belestingadviseur
+Bankmeiwurker
+Fermogensadviseur
+Risikomanager
+Controller
+Hypoteekadviseur
+Fersekeringsadviseur
+Portefúljemanager

@@ -1,0 +1,29 @@
+---
+description: Allergens as a clinic in Fryslân names them out loud. The everyday words are the ones an English ear half-recognises where the Dutch ones give nothing away: weet is wheat against Dutch tarwe, nuten is nuts, molke is milk, aai is egg, fisk is fish, sied is seed and noas is nose. Gerspollen holds a small surprise of its own — grass is gers, with the r and the vowel swapped round against Dutch gras and English grass. Beampollen carries beam, the tree, whose plural breaks its vowel to beammen. The drug allergens use the international generic name, and both acids end in soer, never the Dutch zuur.
+locale: fy
+---
+Penisilline
+Pinda's
+Nuten
+Skaaldieren
+Fisk
+Hinne-aai
+Kowemolke
+Soja
+Weet
+Gluten
+Seldery
+Sesamsied
+Latex
+Gerspollen
+Beampollen
+Hûsstofmyt
+Bisthier
+Skimmels
+Bijegif
+Wespegif
+Asetylsalisylsoer
+Sulfonamiden
+Jodiumhâldend kontrastmiddel
+Nikkel
+Ierdbeien

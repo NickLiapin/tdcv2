@@ -1,0 +1,37 @@
+---
+description: Adverbs of time, place and manner. The spatial ones use the locative -да on a position noun: юқорида above, пастда below, ичкарида inside, чапда on the left. Ҳеч қачон is the two-word negative never, which requires a negative verb later in the sentence.
+locale: uz
+---
+ҳозир
+кейин
+аввал
+бугун
+кеча
+эртага
+доим
+ҳеч қачон
+баъзан
+тез-тез
+камдан-кам
+дарҳол
+секин
+тез
+бирга
+алоҳида
+яқин
+узоқ
+юқорида
+пастда
+ичкарида
+ташқарида
+олдинда
+орқада
+чапда
+ўнгда
+жуда
+бироз
+мутлақо
+албатта
+балки
+шундай
+қандай

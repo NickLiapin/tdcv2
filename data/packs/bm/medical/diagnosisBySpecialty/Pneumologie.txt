@@ -1,0 +1,10 @@
+---
+description: Tuberculosis heads a Malian pulmonology list, not asthma. The COPD entry deserves a second look too: much of it is in women who never smoked a cigarette, from decades of cooking over wood and charcoal in an unventilated kitchen.
+locale: bm
+---
+Tuberculose pulmonaire
+Pneumonie communautaire
+Asthme
+Bronchopneumopathie chronique obstructive
+Pleurésie
+Bronchiolite du nourrisson

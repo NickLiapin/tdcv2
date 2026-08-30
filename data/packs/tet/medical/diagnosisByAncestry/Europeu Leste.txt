@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry, named in Tetum. All but one of these are recessive, which is the point of an ancestry file rather than an accident of this one: recessive variants accumulate wherever a population has stayed relatively closed across many generations, so a list like this describes historical marriage patterns at least as much as it describes geography. Doensa Wilson is the entry a clinician most wants flagged in advance, because copper accumulation is entirely treatable and looks like nothing much at all until it is neither.
+locale: tet
+---
+Emokromatoze ereditária
+Fenilsetonúria
+Iperkolesterolemia familiár
+Doensa fígadu alkóliku
+Fibroze kístika
+Doensa Wilson

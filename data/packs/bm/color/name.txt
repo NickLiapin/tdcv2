@@ -1,0 +1,58 @@
+---
+description: Colour names, and this is the file where mapping a European list one-to-one onto Bambara goes most badly wrong. Bambara has three basic colour terms and no more — finman dark, jɛman light, bilenman warm or red — and the -man on each is the ordinary suffix that turns a quality root into an adjective, so fin, jɛ and bilen are the roots underneath. Every other colour is named for a thing that has it. Binkɛnɛ, green, is fresh grass. Bugurima, grey, is dusty, from buguri. Nɛrɛmugu, yellow, is the flour inside a néré pod, which is exactly that ochre-yellow and which every Malian household has handled. Gala is the indigo plant and its dye, and it does duty for the dark blue that West African cloth is famous for; ordinary blue is the French loan bulu, because indigo named a dye and not a colour. The French names from blanc onward are the second half of the truth — they are what a Bamako paint merchant, a clothing label and a car registration actually carry, and a data set that omits them is describing a language rather than a country.
+locale: bm
+---
+finman
+jɛman
+bilenman
+binkɛnɛ
+bugurima
+nɛrɛmugu
+bulu
+gala
+blanc
+noir
+gris
+gris clair
+gris foncé
+argenté
+rouge
+rouge foncé
+bordeaux
+carmin
+rose
+fuchsia
+orange
+cuivré
+jaune
+jaune citron
+doré
+ocre
+moutarde
+marron
+brun
+marron clair
+chocolat
+café au lait
+beige
+crème
+ivoire
+sable
+vert
+vert foncé
+vert clair
+vert olive
+kaki
+émeraude
+menthe
+turquoise
+bleu
+bleu marine
+bleu ciel
+azur
+indigo
+violet
+mauve
+lilas
+terre cuite
+anthracite

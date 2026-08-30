@@ -1,0 +1,27 @@
+---
+description: Legal term, and what makes this list unlike almost any other minority-language legal vocabulary in western Europe is that it is usable in a courtroom. Under the Wet gebruik Friese taal of 2014 Frisian is an official language of the Netherlands alongside Dutch, and anyone appearing before a court sitting in Fryslân has the right to speak Frisian and to put documents in before it. Be exact about what that right is: it is a right to USE the language, not a duty on the court to run in it. The written record is normally kept in Dutch, the court may call for a certified Dutch version of a Frisian document, and outside the province the right does not apply at all. Frisian legal vocabulary is correspondingly thin, because the statute books and the case law are all in Dutch, so the words here are Frisian forms of Dutch concepts rather than a separate legal tradition. Three of them collapse into a single English word and must never be swapped: a fonnis is a first-instance decision of a rjochtbank, an arrest is a decision of a gerjochtshôf or of the Hege Ried, and a beskikking is a decision in proceedings with no opposing party. Kassaasje is review on points of law only. Tsjûge, a witness, carries the tsj- that Frisian shares with English church against Dutch kerk, and foech is authority or competence, one short native word where Dutch needs bevoegdheid.
+locale: fy
+---
+Easker
+Ferwarder
+Fertochte
+Daging
+Eksploat
+Ferklearring ûnder eed
+Tsjûgeferklearring
+Foarlopige foarsjenning
+Fonnis
+Arrest
+Beskikking
+Skikking
+Proseduere
+Rjochtsitting
+Foech
+Heger berop
+Kassaasje
+Offisier fan justysje
+Advokaat
+Bewiis
+Folmacht
+Griffyrjocht
+Proseskosten

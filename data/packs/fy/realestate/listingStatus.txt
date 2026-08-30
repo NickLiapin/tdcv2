@@ -1,0 +1,17 @@
+---
+description: Property listing status (West Frisian). Ferkocht ûnder foarbehâld is a distinct state and not a synonym for sold: the deal is agreed but still conditional, normally on the buyer getting a mortgage or on a survey, and the property often comes back to the market - so a dataset that treats it as sold will overcount. A private buyer also has three days of statutory bedenktiid after signing in which the sale can be undone with no penalty. Note keapje and hier: keapje, to buy, is the same word as the English chap in chapman and cheapside, both of which once meant trade, and it is nothing like Dutch kopen in shape though it is in origin. Aanst te keap means coming shortly to the market - aanst is soon, presently, one of the everyday Frisian adverbs with no Dutch cognate in daily use.
+locale: fy
+---
+Te keap
+Te hier
+Ûnder bod
+Ûnder opsje
+Reservearre
+Ferkocht ûnder foarbehâld
+Ferkocht
+Ferhierd
+Ynlutsen
+Aanst te keap
+Nijbou
+Priis ferlege
+Eksekúsjefeiling

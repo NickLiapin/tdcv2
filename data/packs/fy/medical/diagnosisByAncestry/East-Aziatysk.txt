@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of East Asian descent, in West Frisian. A prevalence signal, not an exclusive one. Two entries are pharmacogenetic rather than anatomical and matter at the moment of prescribing: the aldehyde dehydrogenase shortage is the flushing reaction to alcohol, and carbamazepine hypersensitivity tracks an HLA variant common enough in East Asian populations that testing is done before the drug is started. Sletten-keamerhoekglaukoom is angle-closure glaucoma spelled out — sletten is closed and keamer is a chamber — and glaucoma is the condition Frisian otherwise calls griene stear, green cataract.
+locale: fy
+---
+Alfa-talassemy
+Aldehydedehydrogenase-2-brek
+Laktoaze-yntolerânsje
+Nasofarynkskarsinoom
+Magekanker
+Sletten-keamerhoekglaukoom
+Sykte fan Kawasaki
+Moyamoya-sykte
+Karbamazepine-oergefoelichheid
+Hege myopy

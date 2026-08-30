@@ -1,0 +1,54 @@
+---
+description: Airline trade name. These are registered marks and are never re-spelled, so the list reads the same in Frisian as in any other language, which is worth saying out loud because everything else in an air-travel record does change: a fleantúch is an aeroplane, a fleanfjild an airfield, and fleane, to fly, is the same verb as English fly. The fact behind the selection is that Fryslân has no scheduled passenger airport at all. Ljouwert has a full-length runway, but it belongs to the Royal Netherlands Air Force and is a fighter base rather than an airport; Drachten and Ballum on It Amelân are small general-aviation fields. Anyone flying from this province leaves it first - for Schiphol, for Groningen Eelde just across the boundary in Drenthe, where AIS Airlines is the one carrier on this list that actually operates, or east to Bremen and Hamburg, which is why Condor, SunExpress and Eurowings earn places here that they would not get on a Randstad list. The Waadeilannen are not reached by air either: Skiermûntseach, Skylge, Flylân and It Amelân are ferry destinations out of Lauwerseach, Harns and Holwert, and two of the four are essentially car-free once you land.
+locale: fy
+---
+KLM
+KLM Cityhopper
+Transavia
+Corendon Dutch Airlines
+TUI fly Netherlands
+Martinair
+AIS Airlines
+Ryanair
+easyJet
+Wizz Air
+Vueling
+Eurowings
+Condor
+SunExpress
+Lufthansa
+Air France
+British Airways
+Iberia
+Swiss International Air Lines
+Austrian Airlines
+Brussels Airlines
+SAS Scandinavian Airlines
+Finnair
+Norwegian
+airBaltic
+Aer Lingus
+TAP Air Portugal
+ITA Airways
+Aegean Airlines
+LOT Polish Airlines
+Turkish Airlines
+Pegasus Airlines
+Luxair
+Icelandair
+Emirates
+Qatar Airways
+Etihad Airways
+Singapore Airlines
+Cathay Pacific
+Japan Airlines
+All Nippon Airways
+Korean Air
+China Southern Airlines
+Qantas
+Air Canada
+American Airlines
+United Airlines
+Delta Air Lines
+Ethiopian Airlines
+Surinam Airways

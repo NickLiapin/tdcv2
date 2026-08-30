@@ -1,0 +1,34 @@
+---
+description: Spices. Зира — cumin — is first because palov without it is not palov, and the proverb in the sentence list says exactly that. Седана is nigella, seen on every оби нон loaf; барбарис the dried barberry stirred into rice; зафарон saffron. Анзур пиёз is the mountain onion pickled in the highlands.
+locale: uz
+---
+зира
+қора мурч
+оқ мурч
+қизил қалампир
+аччиқ қалампир
+кашнич уруғи
+седана
+барбарис
+занжабил
+должин
+михак
+ҳил
+зафарон
+куркума
+лавр барги
+жамбил
+райҳон
+укроп уруғи
+хантал
+сумак
+кунжут
+туз
+сирка
+қора зира
+анзур пиёз
+ялпиз
+бодиён
+мускат ёнғоғи
+зиравор аралашмаси
+қизилмия

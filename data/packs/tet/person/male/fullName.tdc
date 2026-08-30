@@ -1,0 +1,16 @@
+---
+description: Timorese full male name - two given names then two family names (Domingos Aleixo da Silva Gusmão). Two given names is the ordinary shape, the second frequently the saint's name from baptism, and the pair of surnames is drawn from one ungendered list because Tetum family names take no feminine form. Note that both surnames are drawn without replacement, so the Portuguese particles that open many of them (da, do, de, dos) can land in either position exactly as they do on a Timorese identity card.
+generator: tdc
+locale: tet
+---
+<sequence name="p">
+  <distinct>
+    <gen name="f1" type="template" value="tet.person.male.firstName"/>
+    <gen name="f2" type="template" value="tet.person.male.firstName"/>
+  </distinct>
+  <distinct>
+    <gen name="l1" type="template" value="tet.person.lastName"/>
+    <gen name="l2" type="template" value="tet.person.lastName"/>
+  </distinct>
+</sequence>
+<data>${{p.f1}} ${{p.f2}} ${{p.l1}} ${{p.l2}}</data>

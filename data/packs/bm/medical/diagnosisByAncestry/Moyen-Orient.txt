@@ -1,0 +1,10 @@
+---
+description: Conditions more frequent in people of Middle Eastern descent. Familial Mediterranean fever heads the list because it is a founder disease of the region rather than a rarity, and consanguineous marriage keeps recessive carriers concentrated inside extended families.
+locale: bm
+---
+Fièvre méditerranéenne familiale
+Bêta-thalassémie
+Déficit en G6PD
+Maladie de Behçet
+Carence en vitamine D
+Trait drépanocytaire

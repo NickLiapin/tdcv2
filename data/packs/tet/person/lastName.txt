@@ -1,0 +1,294 @@
+---
+description: Family names in Timor-Leste, and the single most important fact about them is one a config author will otherwise get wrong: the Portuguese surnames are not evidence of Portuguese descent. They arrived through baptism and through the colonial civil register, which required a name of the European shape, so da Silva, Soares, Guterres, Ximenes, Belo, Freitas, Pereira, Barreto, Carvalho, Correia and dos Santos are carried by families with no European ancestor at all. A Timorese da Silva is Timorese. Gusmão, Guterres, Ximenes, Alkatiri and Boavida are ordinary surnames here in the way Smith is ordinary in England, and the fact that heads of state have borne them says nothing about the families that hold them. The Portuguese particles are kept exactly as registered - da, do, de and dos are part of the name and not a droppable nobiliary tag, so do Amaral, do Carmo, de Jesus, da Costa, de Araújo, do Espírito Santo and dos Reis appear in that form and must sort and match as written. The second block is the Timorese-language one and it is what makes the file Timor's rather than Portugal's: Kadalak, Bere, Berek, Mau, Leki, Loro, Bui, Hoar, Klau, Seran, Taek, Nahak, Bria, Fahik, Suri, Manek, Metan (black), Moruk (bitter), Soru, Falur, Ukun, Lelo, Boot (big), Nai (lord), Dasi, Tilman and Kehi come from Tetun, Bunak, Kemak, Mambai, Makasae and Fataluku, and Neno and Kono from Baikeno in the Oecusse exclave. Ornai and Hornay are two spellings of one name, that of the Topass family which with the da Costas ruled Oecusse for centuries as the so-called Black Portuguese, and both spellings are in live use. Then the compounds. It is very common for a Timorese to carry two surnames of which one is Portuguese and one is not - Ximenes Belo, Sarmento Bere, Amaral Ximenes, Babo Soares, Guterres Loro - and that pair travels together as a unit rather than as a maternal-plus-paternal pair in the Portuguese manner, so treat these entries as single values and not as something to be split. Two smaller communities close the list. Lay, Lim, Chin, Ho, Chan, Yong, Chong, Fong, Kong, Tan, Ng and Wong belong to the Hakka Chinese who have traded in Dili since the nineteenth century and who ran much of its commerce before 1975; Alkatiri, Assegaf and Alaydrus belong to the Hadhrami Arab trading families settled in Dili from Yemen, an old and small community out of all proportion to its visibility. Finally, the thing a config cannot infer: Tetum has no grammatical gender, family names do not inflect, and this one list therefore serves male and female rows alike - there is deliberately no person/female/lastName.txt in this pack, and a woman named Maria Filomena Soares Ximenes carries exactly the strings a man would.
+locale: tet
+---
+da Silva
+Soares
+Gusmão
+Guterres
+Ximenes
+Belo
+Alves
+do Amaral
+do Carmo
+Sarmento
+de Jesus
+Freitas
+Pereira
+dos Santos
+da Costa
+de Araújo
+Fernandes
+Barreto
+Carvalho
+Lopes
+Correia
+Martins
+Ribeiro
+Gomes
+Sousa
+Baptista
+Cardoso
+Ferreira
+Magalhães
+Nunes
+Boavida
+da Cruz
+da Conceição
+da Cunha
+da Câmara
+de Deus
+de Almeida
+de Andrade
+de Carvalho
+de Oliveira
+de Sousa
+do Rego
+do Rosário
+do Espírito Santo
+do Nascimento
+dos Reis
+dos Anjos
+Abrantes
+Afonso
+Aguiar
+Albuquerque
+Amorim
+Andrade
+Antunes
+Aparício
+Assis
+Ataíde
+Azevedo
+Barbosa
+Barros
+Bastos
+Bento
+Borges
+Braga
+Branco
+Brito
+Cabral
+Caetano
+Caldas
+Campos
+Carneiro
+Carrascalão
+Carrilho
+Castro
+Chaves
+Coelho
+Coimbra
+Colaço
+Cordeiro
+Cortez
+Coutinho
+Couto
+Delgado
+Dias
+Duarte
+Estrela
+Esteves
+Exposto
+Falcão
+Faria
+Figueira
+Figueiredo
+Flores
+Fonseca
+Fontes
+Franco
+Furtado
+Gama
+Garcia
+Godinho
+Gonçalves
+Gouveia
+Guedes
+Guerra
+Guerreiro
+Guimarães
+Henriques
+Horta
+Inácio
+Jerónimo
+Lacerda
+Leal
+Leite
+Lemos
+Lima
+Lobato
+Lobo
+Loureiro
+Lourenço
+Lucas
+Machado
+Madeira
+Maia
+Marçal
+Marques
+Martinho
+Mascarenhas
+Matos
+Medeiros
+Melo
+Mendes
+Mendonça
+Menezes
+Mesquita
+Miranda
+Moniz
+Monteiro
+Morais
+Moreira
+Mota
+Moura
+Neto
+Neves
+Nobre
+Nóbrega
+Nogueira
+Noronha
+Oliveira
+Osório
+Pacheco
+Paixão
+Pascoal
+Patrício
+Paulino
+Peixoto
+Pinheiro
+Pinto
+Pires
+Quintão
+Ramos
+Rangel
+Rebelo
+Rocha
+Rodrigues
+Salsinha
+Saldanha
+Sampaio
+Sanches
+Santana
+Saraiva
+Seabra
+Seixas
+Sequeira
+Serra
+Serrão
+Silveira
+Simões
+Sá
+Tavares
+Teixeira
+Teles
+Torres
+Trindade
+Valadares
+Valente
+Varela
+Vasconcelos
+Vaz
+Veiga
+Veloso
+Ventura
+Verdial
+Viana
+Vicente
+Vidal
+Vieira
+Xavier
+Alcântara
+Bandeira
+Bernardino
+Casimiro
+Castanheira
+Damásio
+Ferrão
+Galvão
+Grilo
+Nazaré
+Palma
+Peres
+Sacramento
+Salgado
+Lay
+Lim
+Chin
+Ho
+Chan
+Yong
+Chong
+Fong
+Kong
+Tan
+Ng
+Wong
+Lee
+Loo
+Chung
+Alkatiri
+Assegaf
+Alaydrus
+Kadalak
+Bere
+Berek
+Mau
+Leki
+Loro
+Bui
+Hoar
+Klau
+Seran
+Taek
+Nahak
+Bria
+Fahik
+Suri
+Manek
+Metan
+Moruk
+Soru
+Falur
+Ukun
+Lelo
+Boot
+Nai
+Dasi
+Tilman
+Ornai
+Hornay
+Mali
+Meta
+Mutin
+Rai
+Ruak
+Lere
+Buti
+Kehi
+Neno
+Kono
+Maubere
+Tefa
+Nesi
+Ximenes Belo
+Sarmento Bere
+Amaral Ximenes
+Babo Soares
+Lopes da Cruz
+Corte-Real
+da Silva Bere
+Soares Klau
+Pereira Nahak
+Freitas Leki
+Guterres Loro
+de Jesus Taek
+Boavida Seran
+Martins Hoar
+do Rego Nahak
+Gusmão Mau
+Soares Ximenes
+da Costa Mau
+Nunes Bere
+Belo Klau

@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Northern European ancestry, named in Tetum, and by construction the file in this folder least likely to be drawn on for a Timorese cohort. Fibroze kístika and emokromatoze ereditária are the textbook founder effects — both recessive, both concentrated by the long demographic isolation of one corner of a continent, and both correspondingly rare here. Persisténsia laktaze is the entry that most repays attention, because it inverts the usual framing: retaining the ability to digest milk into adulthood is the derived, unusual state that spread with dairying in northern Europe, while losing it, as most of the world's adults do and as most Timorese do, is the ordinary human default. Two entries drop a Portuguese h at the start of the word, which Tetum does without exception: hemocromatose gives emokromatoze and hereditária gives ereditária.
+locale: tet
+---
+Fibroze kístika
+Emokromatoze ereditária
+Defisiénsia alfa-1 antitripsina
+Fenilsetonúria
+Doensa selíaka
+Eskleroze múltipla
+Diabetes tipu 1
+Kontratura Dupuytren
+Karsinoma bazoselulár
+Persisténsia laktaze

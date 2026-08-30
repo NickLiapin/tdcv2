@@ -1,0 +1,27 @@
+---
+description: Address unit designator in Eswatini — the word written before a number on a formal address. Most of the country has no street address at all: rural homesteads are located by chiefdom and inkhundla, and post is COLLECTED rather than delivered, which is why Bhokisi lemaposi and Sikhwama lemaposi lesivalekile, the post office box and the private bag, sit on this list as ordinary address components rather than as alternatives to one. Iphulothi and Sitendi, the plot and the stand, come from the South African surveying vocabulary Eswatini shares and are what an urban property in Mbabane or Matsapha is actually numbered as; a config that expects a house number on a named street will produce something no Eswatini postal clerk would recognise. The English-derived Yunithi and Suthi appear in the newer Ezulwini and Matsapha developments and nowhere else.
+locale: ss
+---
+Indlu
+Yunithi
+Ifleti
+Suthi
+Iphulothi
+Sitendi
+Sigaba
+Sitezi
+Sitezi sekucala
+Sitezi sangetulu
+Sitezi sangaphansi
+Likamelo
+Likamelo lekugcina imphahla
+Lihhovisi
+Sitolo
+Ligalaji
+Sikhala sekupaka
+Bhokisi lemaposi
+Sikhwama lemaposi lesivalekile
+Umnyango
+Lisango
+Indlu lengemuva
+Indlu yetisebenti

@@ -1,0 +1,12 @@
+---
+description: Conduit or installation method for a cable run, in Frisian trade vocabulary. Three of the eight are words a Dutch reader would not guess. A pipe is a piip, with the ii that Frisian writes where Dutch writes ij. A ladder is a ljedder, and the lj- cluster at the head of a word is a Frisian signature that Dutch has nowhere, the same one in ljocht, light. Streekrjocht means straight or direct, and it contains rjocht, the Frisian for both right and law, which appears elsewhere in this pack as a whole industry name. Boppegrûnsk, overhead, is built on boppe, above, and grûn, ground, and both circumflexes carry meaning rather than decoration - grun without one is not a word.
+locale: fy
+---
+PVC-piip
+Stielen pânserpiip
+HDPE-mantelpiip
+Streekrjocht yn 'e grûn
+Subduct
+Kabelgoate
+Kabelljedder
+Boppegrûnske draachkabel

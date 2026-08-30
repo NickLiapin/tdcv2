@@ -1,0 +1,38 @@
+---
+description: Garments, national dress first. Дўппи is the square embroidered skullcap worn by men and women alike, чопон the quilted coat, and маҳси the soft leather boot worn inside кавуш overshoes. Хонатлас кўйлак names the dress made from the ikat silk of Marghilan. After these come the ordinary shirts and trousers of any wardrobe.
+locale: uz
+---
+дўппи
+чопон
+тўн
+белбоғ
+салла
+рўмол
+хонатлас кўйлак
+адрас кўйлак
+яктак
+камзул
+нимча
+желак
+лозим
+маҳси
+кавуш
+кўйлак
+шим
+жинси шим
+юбка
+костюм
+куртка
+палто
+плаш
+жемпер
+футболка
+галстук
+этик
+туфли
+кроссовка
+шиппак
+пайпоқ
+қўлқоп
+шарф
+кепка

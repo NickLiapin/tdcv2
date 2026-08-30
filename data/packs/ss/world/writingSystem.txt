@@ -1,0 +1,24 @@
+---
+description: Writing system in siSwati. Every value is umbhalo, "the writing", plus a possessive naming the language it belongs to, because siSwati has no separate word for a script as against a language and describes one in terms of the other. siSwati itself is written in umbhalo wesiLatini and has been since missionaries reduced it to writing in the nineteenth century; the orthography was standardised later and is deliberately different from Zulu's in ways that show on every page of this pack, most visibly in tf, ts and dv. Note that Nguni orthography uses c, q and x for the three click consonants rather than for any English sound, which is a genuine trap for anyone reading a siSwati word aloud from an English habit.
+locale: ss
+---
+Umbhalo wesiLatini
+Umbhalo wesiGriki
+Umbhalo wesiSirilikhi
+Umbhalo wesiArabhu
+Umbhalo wesiHebheru
+Umbhalo wesiShayina
+Umbhalo wesiJaphani
+Umbhalo wesiKhoriya
+Umbhalo wesiDevanagari
+Umbhalo wesiBhengali
+Umbhalo wesiThamili
+Umbhalo wesiThayi
+Umbhalo wesiGeez
+Umbhalo wesiArmeniya
+Umbhalo wesiJojiya
+Umbhalo wesiTibhethi
+Umbhalo wesiKhmer
+Umbhalo wesiCherokee
+Umbhalo we-N'Ko
+Umbhalo weBraille

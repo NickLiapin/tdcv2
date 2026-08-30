@@ -1,0 +1,15 @@
+---
+description: Field hockey positions in siSwati. Hockey in Eswatini is a school sport concentrated in the private and mission schools of Mbabane and Manzini rather than a national one, and the vocabulary reflects that: nothing here is a traditional term, and every position is described from the shape of the field using the same um- agent nouns that serve football. Note umvikeli wekugcina, "the defender of the finish", for the sweeper — kugcina means to keep, to finish and to be last, and all three senses are doing work in that phrase. The eleven positions match football's count, but the shape is different: hockey pushes more players into the defensive half and the naming follows.
+locale: ss
+---
+Umgcini welisango
+Umvikeli wangasekudla
+Umvikeli wangasencele
+Umvikeli wangekhatsi
+Umvikeli wekugcina
+Umdlali wangekhatsi wangasekudla
+Umdlali wangekhatsi
+Umdlali wangekhatsi wangasencele
+Umhlaseli wangasekudla
+Umhlaseli wangekhatsi
+Umhlaseli wangasencele

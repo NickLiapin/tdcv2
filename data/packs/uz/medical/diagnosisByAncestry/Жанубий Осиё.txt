@@ -1,0 +1,10 @@
+---
+description: Conditions carried more often in South Asian populations: beta thalassaemia, G6PD deficiency, and an unusually early onset of type 2 diabetes and ischaemic heart disease relative to body weight. Vitamin D deficiency is common even in sunny latitudes because of skin pigmentation and covering.
+locale: uz
+---
+Бета талассемия
+Г6ФД етишмовчилиги
+2-тур қандли диабет
+Юрак ишемик касаллиги
+Лактоза интолеранси
+D витамини етишмовчилиги

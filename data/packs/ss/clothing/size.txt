@@ -1,0 +1,12 @@
+---
+description: Clothing size label in Eswatini, written in the international letter codes because that is what the garment carries. Eswatini has good reason to use them unchanged: the country's textile industry at Matsapha sews for export under exactly these labels, and almost all clothing sold here is either made for that trade or imported from South Africa with South African labelling. The one siSwati value is the last: lulinganiso lolulodvwa, one size, from kulinganisa, to measure or compare, which is the verb that also gives the word for equality. There is no traditional sizing system to set against these, because lihiya and sidvwaba are wrapped and tied rather than fitted, and a wrapped garment has no size.
+locale: ss
+---
+XS
+S
+M
+L
+XL
+XXL
+XXXL
+Lulinganiso lolulodvwa

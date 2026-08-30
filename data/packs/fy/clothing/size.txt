@@ -1,0 +1,12 @@
+---
+description: Clothing size, the international letters, which are the same in Fryslân as everywhere because letters like these do not get translated. What is worth knowing is that the label they are printed on is almost certainly not Frisian. Frisian is the first language of roughly half the province and understood by the great majority, but it is spoken far more than it is written: the written surface of shops, packaging, receipts and care labels is Dutch, and a Frisian speaker reads Dutch all day without remarking on it. A config generating a product record for this locale should therefore not assume the whole record is in Frisian - the conversation in the shop is, the paperwork is not. Alongside these letters Dutch and Frisian shops print a numeric konfeksjemaat, running roughly 36-46 for women and 46-58 for men, and that is what most labels and mail-order forms actually carry; only the letters are listed here so that a single draw stays internally consistent, and a number range covers the other scale.
+locale: fy
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

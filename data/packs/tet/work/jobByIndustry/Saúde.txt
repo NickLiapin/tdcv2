@@ -1,0 +1,14 @@
+---
+description: Health jobs, and two of the ten do not appear on a European list. Parteira tradisionál is the traditional birth attendant, and she is not folklore: a large share of births in Timor-Leste still happen at home rather than in a facility, especially in the mountains where a clinic is hours away over a road that closes in the wet season, and the health system responded by recognising, training and linking these women rather than trying to replace them, so the role is a real cadre with a real relationship to the ministry. Ajente saúde komunitáriu is the village health worker who runs the monthly outreach post where mothers and infants are weighed, vaccinated and referred — a system built precisely because the population is dispersed and the facilities are not. The rest of the list is Portuguese respelled, and the pattern of the medical vocabulary is uniform: the practitioner names take the acute on a stressed final syllable, as in Farmaséutiku and Médiku jerál, while the Greek-derived specialities land in -lojia.
+locale: tet
+---
+Médiku jerál
+Enfermeiru
+Parteira
+Parteira tradisionál
+Farmaséutiku
+Tékniku laboratóriu
+Tékniku radiolojia
+Paramédiku
+Ajente saúde komunitáriu
+Dentista

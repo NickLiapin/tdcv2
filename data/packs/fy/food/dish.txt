@@ -1,0 +1,44 @@
+---
+description: Dish (West Frisian) - the everyday list, with Frisian farmhouse cooking and Dutch snackbar food side by side, which is what a week of eating in Fryslân actually looks like. The Frisian half runs on dairy, pork and dried pulses: sûpengrottenbrij is buttermilk boiled with barley grits, spek en beane is bacon with beans, brune beane-iten is brown beans with potato and bacon, and snert is pea soup cooked until the spoon stands up in it. The bakery half is the province's own export - sûkerbôle is a wheat loaf shot through with lumps of sugar that melt into wet pockets, oranjekoek is a flat spiced cake under white icing and a strip of orange, and dúmkes are hard almond-and-cinnamon biscuits the size and shape of a thumb, which is what their name means. One word here will mislead a reader coming from English: a koeke in Frisian is a whole cake or a slab loaf, never a cookie, so krûdkoeke and oranjekoek are cakes you cut, and the small hard thing is a koekje or carries a diminutive of its own the way dúmkes and drúfkes do.
+locale: fy
+---
+Stamppot boerekoal
+Hutspot
+Snert
+Brune beane-iten
+Spek en beane
+Sûpengrottenbrij
+Drûge woarst
+Rikke woarst
+Poffert
+Sûkerbôle
+Dúmkes
+Oranjekoek
+Krûdkoeke
+Fryske nagelkaas
+Skiepetsiis
+Bitterballen
+Kroket
+Frikandel
+Kibbeling
+Hjerring mei sipel
+Rikke iel
+Útsmiter
+Tosti
+Kapsalon
+Patat mei
+Huzaresalade
+Pankoeken
+Apeltaart
+Oaljekoeken
+Poffertsjes
+Nasi goreng
+Bami goreng
+Sate mei satesaus
+Rendang
+Gado gado
+Roti hin
+Pom
+Pizza margherita
+Doner kebab
+Sushi

@@ -1,0 +1,13 @@
+---
+description: Ivorian food, which is in Bamako because Malians are in Abidjan — the Malian community in Côte d'Ivoire is one of the largest diasporas in West Africa, and the cooking travels back up the corridor with the traders and the returning migrants. `Attiéké` is fermented grated cassava steamed into a couscous and is now sold on Bamako streets as if it were local. `Garba` is attiéké with fried tuna, the cheapest hot meal in Abidjan and named for the Nigerien Hausa men who sell it. `Alloco` is fried plantain. `Sauce graine` is made from palm nuts, which do not grow in Mali at all — this is forest cooking arriving in the Sahel.
+locale: bm
+---
+Attiéké
+Alloco
+Kedjenou
+Garba
+Foutou
+Sauce graine
+Placali
+Poisson braisé
+Claclo

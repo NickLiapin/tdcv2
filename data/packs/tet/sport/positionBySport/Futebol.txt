@@ -1,0 +1,14 @@
+---
+description: Football positions, the ones a Liga Futebol Amadora commentator uses on Radio Timor-Leste. The vocabulary is entirely Portuguese and arrived with the game, but the two sides of the pitch are Tetum: laterál loos and laterál karuk are the right and left backs, using the native words rather than direito and esquerdo. Guarda-redes is the Portuguese form rather than the Brazilian goleiro, which is a small marker of which Portuguese reached Timor and when. Football is the national sport by a distance and the Estádiu Munisipál in Dili is the only stadium in the country that fills.
+locale: tet
+---
+Guarda-redes
+Defeza sentrál
+Laterál loos
+Laterál karuk
+Médiu defensivu
+Médiu
+Médiu ofensivu
+Estremu loos
+Estremu karuk
+Avansadu

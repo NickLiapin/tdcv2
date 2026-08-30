@@ -1,0 +1,17 @@
+---
+description: What a case is about. Two departures from the Portuguese list are deliberate. Violénsia doméstika appears because domestic violence was made a public crime by the 2010 law, meaning the state prosecutes whether or not the complainant withdraws, and it consequently became one of the largest single categories on the criminal docket — a Timorese caseload without it would be a fiction. Disputa rai replaces the property-transaction category because land is the country's great unresolved legal question: Portuguese titles, Indonesian titles and customary claims sit on the same parcels, mass displacement in 1975 and again in 1999 moved people off land they never formally reconveyed, and the result is that boundary and inheritance disputes over land are the commonest civil matter in the country. Insolvénsia, which heads a European list, is absent because there is essentially no insolvency practice here to generate cases. The vocabulary itself is Portuguese throughout, with the usual substitutions — litígio to litíjiu, comercial to komersiál, intelectual to intelektuál — because this is statutory language and the statutes are Portuguese.
+locale: tet
+---
+Sivíl
+Penál
+Família
+Violénsia doméstika
+Danu pesoál
+Laborál
+Litíjiu kontratuál
+Propriedade intelektuál
+Disputa rai
+Imigrasaun
+Fiskál
+Administrativu
+Komersiál

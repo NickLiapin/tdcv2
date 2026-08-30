@@ -1,0 +1,16 @@
+---
+description: Hospitality, and the name of the industry is the key to it. A `jatigi` is a host — the man who takes in a traveller, feeds him and answers for him — and the relationship is an old and serious one in Manding society, the same word used for the patron a griot is attached to. Paid hospitality is that obligation turned into a trade. `Ataya dilanbaga` is on the list because making tea is a job: the three-glass ritual takes two hours and someone in a courtyard, a shop or a bus station is doing it all day. The French titles are the hotel trade proper, which arrived as an industry with its own imported vocabulary of réception, service and gérance.
+locale: bm
+---
+Jatigi
+Tobilikɛla
+Dumunikɛyɔrɔ baarakɛla
+Ataya dilanbaga
+So saniyabaga
+Kɔlɔsibaga
+Réceptionniste
+Serveur
+Chef cuisinier
+Gérant d'hôtel
+Barman
+Agent d'accueil

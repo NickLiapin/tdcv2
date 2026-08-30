@@ -1,0 +1,14 @@
+---
+description: Rugby positions in siSwati, and this is the file where borrowing wins outright. Prop, hooker, lock, flanker, scrum-half and fly-half have no siSwati equivalents and no descriptive phrase would be recognised on a Swazi pitch, so each is taken whole behind umdlali we-, "the player of". That is honest: rugby arrived in southern Africa with British administration and its vocabulary arrived with it intact, and Eswatini's clubs and its national side use the English terms in siSwati sentences without hesitation. Umdlali wenambha eyithi, "the number eight player", is the one position in the game named by a numeral in English too, and siSwati simply borrows the numeral rather than translating it.
+locale: ss
+---
+Umdlali wephrophu
+Umdlali wehhukha
+Umdlali welokhi
+Umdlali weflenkha
+Umdlali wenambha eyithi
+Umdlali wesikramu-hhafu
+Umdlali wefly-hhafu
+Umdlali wesentha
+Umdlali wephiko
+Umdlali wemuva

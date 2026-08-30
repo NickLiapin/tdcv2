@@ -1,0 +1,20 @@
+---
+description: Rank at work, and the file is mixed because a Malian workplace is. The lower rungs are Bambara, because that is what people call each other: `kalanden` a learner, `baarakɛla` a worker, `baarakɛla kɔrɔ` a senior one — with `kɔrɔ`, elder, which is the same word that marks an older brother and carries the same deference. `Baaradɛmɛbaga` is an assistant, `kuntigi` a head, from `kun` the head itself, and `ɲɛmɔgɔ` a leader, literally the person in front. `Lafiɲɛtɔ` is retired, from `lafiɲɛ` rest plus the stative suffix -tɔ. The top four stay French — Chef de service, Chef de division, Directeur, Directeur général — because those are the words on the office door, on the organigramme and in the decree that created the post, and a Malian describing his own boss will switch into French to name the grade.
+locale: bm
+---
+Kalanden
+Baara kalanden
+Baarakɛla kura
+Baarakɛla
+Baarakɛla kɔrɔ
+Baaradɛmɛbaga
+Jɛkulu kuntigi
+Baara ɲɛminɛbaga
+Kuntigi
+Ɲɛmɔgɔ
+Ɲɛmɔgɔba
+Lafiɲɛtɔ
+Chef de service
+Chef de division
+Directeur
+Directeur général

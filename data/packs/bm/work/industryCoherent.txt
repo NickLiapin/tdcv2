@@ -1,0 +1,14 @@
+---
+description: Industry with a job list of its own beside it — the parent of work/jobByIndustry, so each value here names a file of exactly that name. These ten are the wage-earning, registered slice of Mali's economy and not its bulk: seven or eight Malians in ten live from farming, herding and fishing, and after them come gold and petty trade, none of which is a sector on this list. Sariya is the ordinary Bambara word for law, borrowed from Arabic long before the French courts arrived and now used for statute law as readily as for religious law; jatigiya is built on jatigi, the host who takes responsibility for a guest, which is a real social role and not a calque of the English word hospitality. Transport keeps its French shape because that is how a Malian firm registers itself and paints its lorries.
+locale: bm
+---
+Tekinoloji
+Kɛnɛya
+Wariko
+Bonjɔ
+Kalan
+Jatigiya
+Dilanni
+Feereli
+Transport
+Sariya

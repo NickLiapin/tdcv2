@@ -1,0 +1,20 @@
+---
+description: The sixteen points of the compass in Uzbek, capitalised. Uzbek builds the intermediate points by hyphenating the two cardinals with a linking -и: Шимоли-шарқ, Жануби-ғарб. The three-part points repeat the first element — Шимоли-шимоли-шарқ. Ғарб and Шарқ show two of the letters Cyrillic writes with one character and Latin with two.
+locale: uz
+---
+Шимол
+Жануб
+Шарқ
+Ғарб
+Шимоли-шарқ
+Шимоли-ғарб
+Жануби-шарқ
+Жануби-ғарб
+Шимоли-шимоли-шарқ
+Шарқи-шимоли-шарқ
+Шарқи-жануби-шарқ
+Жануби-жануби-шарқ
+Жануби-жануби-ғарб
+Ғарби-жануби-ғарб
+Ғарби-шимоли-ғарб
+Шимоли-шимоли-ғарб

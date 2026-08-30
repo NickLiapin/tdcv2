@@ -1,0 +1,59 @@
+---
+description: Sectors of the Malian economy, in French, and the order reflects the real weight rather than a European template. Agriculture and livestock come first because they occupy roughly four Malians in five: cotton run through the CMDT out of Koutiala and Sikasso, irrigated rice in the Office du Niger scheme at Niono, millet and sorghum everywhere, and a national cattle herd that is one of Africa's largest. Gold follows, because Mali is among the continent's top three producers — industrially at Loulo-Gounkoto, Syama and Fekola, and artisanally through `Orpaillage`, which employs several hundred thousand people with pickaxes, mercury and no regulation to speak of. `Transport fluvial` is a sector here and nowhere in Europe: the Niger is a highway for four months a year. `Organisation non gouvernementale` closes the list as a genuine employment sector rather than a category error.
+locale: bm
+---
+Agriculture
+Culture du coton
+Riziculture
+Maraîchage
+Élevage
+Pêche
+Sylviculture
+Mines d'or
+Orpaillage
+Extraction de sel
+Carrières
+Énergie
+Énergie solaire
+Distribution d'électricité
+Eau et assainissement
+Bâtiment
+Travaux publics
+Matériaux de construction
+Industrie textile
+Égrenage du coton
+Huilerie
+Rizerie
+Minoterie
+Sucrerie
+Brasserie
+Agroalimentaire
+Artisanat
+Teinture et bogolan
+Bijouterie
+Import-export
+Commerce de détail
+Commerce de gros
+Distribution
+Transport routier
+Transport fluvial
+Transport aérien
+Logistique
+Télécommunications
+Informatique
+Médias
+Édition
+Publicité
+Banque
+Microfinance
+Assurance
+Transfert d'argent
+Immobilier
+Hôtellerie
+Restauration
+Tourisme
+Santé
+Éducation
+Formation professionnelle
+Administration publique
+Organisation non gouvernementale

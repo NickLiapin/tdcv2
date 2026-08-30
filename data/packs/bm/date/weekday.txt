@@ -1,0 +1,11 @@
+---
+description: The days of the week in Bambara, and unlike the months these are not French. They came centuries earlier with Islam and are Arabic worn down by Manding pronunciation: `ntɛnɛn` from al-ithnayn the second, `tarata` from ath-thulatha the third, `araba` from al-arbaʿa the fourth, `alamisa` from al-khamis the fifth, `juma` from al-jumʿa the day of congregation, `sibiri` from as-sabt the sabbath. The Arabic numbering starts from Sunday, which is why Monday is the second day. Only `kari`, Sunday, comes from neither Arabic nor French. `Juma` is the one that structures a Malian week: the Friday midday prayer empties the offices and fills the mosques, and a Malian working week is built around it. The list starts on Sunday to match the pack's other locales.
+locale: bm
+---
+kari
+ntɛnɛn
+tarata
+araba
+alamisa
+juma
+sibiri

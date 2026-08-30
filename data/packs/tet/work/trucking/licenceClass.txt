@@ -1,0 +1,9 @@
+---
+description: Heavy-vehicle licence categories. Two systems meet in this short list and neither one gives way. The categories themselves are the European lettered series that came with the Portuguese-model legal framework, so a Timorese Karta Kondusaun is endorsed C, C1, CE, C1E or D exactly as a Portuguese one is. The traffic those licences are used in is not European at all: Timor-Leste drives on the left, inherited from twenty-four years of Indonesian administration and never changed at independence, so a driver holding a Portuguese-shaped licence sits on the right of the cab and overtakes on the right — which makes this one of the few countries where the paperwork and the road belong to different traditions. A practical note for anyone generating driver records: a licence is a scarce and valuable credential here rather than a near-universal adult attribute, and holding one is itself an employment qualification.
+locale: tet
+---
+Kategoria C
+Kategoria C1
+Kategoria CE
+Kategoria C1E
+Kategoria D

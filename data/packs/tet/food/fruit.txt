@@ -1,0 +1,39 @@
+---
+description: Fruit, native names first, because Tetum has its own word for everything that grows on the island and only borrows for what arrives in a crate. Hudi banana, nuu coconut, aidila papaya, hass mango, sabraka citrus, sukaer tamarind and kulu breadfruit are Austronesian and owe nothing to Portuguese. Ai-nanas pineapple shows the productive prefix ai-, which marks a plant or a tree and opens a large share of Tetum botanical vocabulary; strip it and ai- names are simply not analysable as compounds any more, so a config author should treat the prefix as part of the word. The middle block is Malay, and it arrived with trade long before it arrived with soldiers: jambu, rambutan, manggis, durian, nangka, salak, belimbing. The tail is Portuguese respelled — laranja, melaun from melão, limaun from limão, marakujá, pesegu from pêssego, sereja from cereja, damasku, figu. Masan, apple, is on the list because apples are imported and eaten, not grown. Morangu is the exception that proves the geography: strawberries do grow here, in the cool highlands around Maubisse and Letefoho, and they are sold by the roadside to anyone driving up to Ramelau.
+locale: tet
+---
+Hudi
+Nuu
+Aidila
+Hass
+Sabraka
+Ai-nanas
+Sukaer
+Kulu
+Jambu
+Rambutan
+Manggis
+Durian
+Nangka
+Salak
+Belimbing
+Buah naga
+Kaju
+Abakate
+Goiaba
+Anona
+Marakujá
+Melaun
+Melansia
+Limaun
+Laranja
+Tanjerina
+Uva
+Masan
+Pera
+Pesegu
+Ameixa
+Sereja
+Figu
+Damasku
+Morangu

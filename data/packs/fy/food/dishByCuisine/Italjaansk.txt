@@ -1,0 +1,22 @@
+---
+description: Italian dishes. Exactly three words on this list are not Italian, and they are the three that make it Frisian: mei for with, salm for salmon, and poddestoelen for mushrooms. Poddestoel is toad-stool, assembled the same way the English word is, and it is the general Frisian term for anything that grows in a wood - the cultivated one on the supermarket shelf is a champignon and gets its own word. Nothing else has been given a Frisian name, and there is a reason worth recording: Italian food arrived here late and through the pizzeria and the ready-meal, never through the farmhouse, so there was no home-cooked version for the language to name. Compare the Frysk file at the head of this folder, where almost every entry is a Frisian compound, because almost every dish on it was cooked in Frisian kitchens for centuries before it was written down anywhere.
+locale: fy
+---
+Pizza margherita
+Spaghetti bolognese
+Spaghetti carbonara
+Lasagne
+Risotto mei poddestoelen
+Gnocchi
+Ravioli
+Tagliatelle mei salm
+Penne arrabbiata
+Saltimbocca
+Ossobuco
+Vitello tonnato
+Caprese
+Bruschetta
+Minestrone
+Tiramisu
+Panna cotta
+Focaccia

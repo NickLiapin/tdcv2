@@ -1,0 +1,20 @@
+---
+description: Rooms in a home. Меҳмонхона is the guest room, which in an Uzbek house is the best room and is kept for visitors rather than used as a living room. Айвон is the covered terrace along the courtyard side — the room that is half outdoors and where the family actually spends the summer.
+locale: uz
+---
+меҳмонхона
+ётоқхона
+болалар хонаси
+ошхона
+овқатланиш хонаси
+ювиниш хонаси
+ҳожатхона
+даҳлиз
+айвон
+балкон
+лоджия
+ертўла
+чордоқ
+кладовка
+кабинет
+ҳовли

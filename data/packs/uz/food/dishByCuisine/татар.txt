@@ -1,0 +1,14 @@
+---
+description: Tatar dishes. Эчпочмак is the triangular meat pastry — the name means literally three corners — and чак-чак the honeyed fried dough that Uzbek also claims. Tatars have lived in Uzbek cities since the nineteenth century and their food is not treated as foreign here.
+locale: uz
+---
+эчпочмак
+чак-чак
+беляш
+губадия
+кйстйбйй
+перемеч
+тоқмач
+қазилик
+талқан
+катйк

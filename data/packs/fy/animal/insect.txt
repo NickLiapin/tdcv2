@@ -1,0 +1,24 @@
+---
+description: Insect (West Frisian), and the list reads as a short vocabulary test for the Anglo-Frisian relationship. Waps is wasp, where Dutch has wesp with the consonants the other way about; flie is flea; wjirm is worm, so a glow-worm is a glimwjirm and an earwig an earwjirm; and flinter is a butterfly, which is neither the Dutch vlinder nor anything English kept. Two of them separate what Dutch runs together: mich is the ordinary fly and stekmich, sting-fly, is the mosquito, so the Dutch pair vlieg and mug maps onto one Frisian root with a modifier. Sprinkhoanne and bidsprinkhoanne end in hoanne, a cock or rooster, which is what a grasshopper and a mantis were named after.
+locale: fy
+---
+Mier
+Bij
+Hommel
+Flinter
+Kever
+Libel
+Sprinkhoanne
+Leaveheersbistje
+Mot
+Krekel
+Waps
+Glimwjirm
+Bidsprinkhoanne
+Sikade
+Termyt
+Stekmich
+Mich
+Kakkerlak
+Flie
+Earwjirm

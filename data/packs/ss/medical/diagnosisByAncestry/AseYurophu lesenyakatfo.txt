@@ -1,0 +1,14 @@
+---
+description: Conditions with a raised frequency in Northern European ancestry. Two entries here are the mirror image of the sub-Saharan file. Lactase persistence — the ability to digest milk into adulthood — is the DERIVED state, not the default: most of humanity loses the enzyme after weaning, and the northern European variant spread within the last several thousand years alongside dairying, which is why it is listed as a trait of this ancestry rather than as its absence elsewhere. Haemochromatosis, iron overload from HFE variants, reaches its world peak in Ireland and is sometimes called the Celtic curse. Cystic fibrosis carrier rates of roughly one in twenty-five in this population are the highest anywhere. Ancestry associations, not statements about individuals.
+locale: ss
+---
+I-cystic fibrosis
+I-haemochromatosis
+I-lactase persistence
+I-coeliac disease
+I-phenylketonuria
+Sifo sashukela sesigaba sekucala
+I-multiple sclerosis
+I-alpha-1 antitrypsin deficiency
+I-BRCA variants
+Umdlavuza wesikhumba

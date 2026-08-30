@@ -1,0 +1,5 @@
+---
+description: The capital of Таиланд, whose own name is Бангкок in Cyrillic. A config reaches this file by interpolating the country value into the address, so the file name and the parent list have to agree letter for letter.
+locale: uz
+---
+Бангкок

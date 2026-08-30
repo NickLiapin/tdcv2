@@ -1,0 +1,82 @@
+---
+description: How Malians spend time not working. The first two values are the ones that matter most and translate worst. `Ataya` is the green-tea ritual: gunpowder tea boiled three times over charcoal in a tiny pot, poured from a height to raise foam, and drunk in three glasses that get progressively sweeter — the first bitter as death, the second mild as life, the third sweet as love — and the whole thing takes two hours, which is the point. `Grin` is the institution the ataya is drunk in: a fixed group of men who meet at the same spot in the quarter every afternoon of their lives to make tea, argue about football and politics, and hold each other's news. It is the basic unit of male Malian social life and has no European equivalent. `Sumu` is the night-long wedding party where the jeliw sing and money is given; `jeliya` is the griot's own profession practised as an art; `donso` is the hunters' brotherhood, an initiatory society with its own music and law that is far more than a hobby to its members. The French half of the list is the urban, salaried version of the same day.
+locale: bm
+---
+Ataya
+Grin
+Ntolatan
+Dɔnkili
+Dɔn
+Kora
+Ngoni
+Bala
+Jembe
+Tama
+Bɔgɔlan
+Kalan
+Sɛnɛ
+Nakɔ
+Donso
+Awalé
+Sumu
+Balani show
+Fasa
+Jeliya
+Football
+Basket-ball
+Volley-ball
+Athlétisme
+Course à pied
+Natation
+Cyclisme
+Vélo
+Lutte traditionnelle
+Boxe
+Taekwondo
+Judo
+Karaté
+Musculation
+Marche
+Randonnée
+Pêche
+Chasse
+Jardinage
+Élevage
+Aviculture
+Maraîchage
+Cuisine
+Pâtisserie
+Couture
+Broderie
+Teinture
+Tissage
+Poterie
+Sculpture sur bois
+Peinture
+Dessin
+Photographie
+Vidéo
+Musique
+Chant
+Danse
+Théâtre
+Cinéma
+Lecture
+Écriture
+Poésie
+Radio
+Télévision
+Jeux vidéo
+Échecs
+Dames
+Cartes
+Ludo
+Baby-foot
+Informatique
+Réseaux sociaux
+Bricolage
+Mécanique
+Voyage
+Bénévolat
+Étude du Coran
+Chorale

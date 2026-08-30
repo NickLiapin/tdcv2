@@ -1,0 +1,180 @@
+---
+description: Street names as they are signed in Fryslân. Like Dutch, a Frisian street name is ONE fused word that already carries its own thoroughfare element (Tsjerkestrjitte, Molewei, Ljouwerterdyk), so these are complete names and address/streetSuffix.txt lists the element welded onto them rather than something to add with a space; the number follows the name, 'Tsjerkestrjitte 12', never '12 Tsjerkestrjitte'. Three things here are Frisian and not Dutch. Buorren, literally 'the neighbours', is the main street of a Frisian village, and in hundreds of villages that word alone is the whole street name with no suffix at all - there is no Dorpsstraat to translate. The -er and -ster forms are the adjective a Frisian town makes of itself: Ljouwert gives Ljouwerter, Drachten gives Drachtster, Feanwâlden gives Feanwâldster, and a Ljouwerterdyk is not a street named after Ljouwert but the road that goes there, which is why the same name occurs in a dozen villages at once and always points the same way. And the people are the province's own rather than the country's: Gysbert Japicx, who in the 1600s made Frisian a written literary language again when it had been reduced to a spoken one, Waling Dykstra and the brothers Halbertsma who carried it through the 1800s, Obe Postma, Douwe Kalma, Simke Kloosterman, Fedde Schurer, Nynke van Hichtum; Grutte Pier the sixteenth-century Frisian rebel; and Escher and Alma Tadema, both born in Ljouwert. Street names tied to one town belong in a country pack, not here.
+locale: fy
+---
+Tsjerkestrjitte
+Doarpsstrjitte
+Molestrjitte
+Skoallestrjitte
+Nijstrjitte
+Haadstrjitte
+Stasjonsstrjitte
+Riedhússtrjitte
+Merkstrjitte
+Havenstrjitte
+Kanaalstrjitte
+Buorren
+Lange Buorren
+Koarte Buorren
+Nije Buorren
+Alde Buorren
+Tsjerkepaad
+Tsjerkeleane
+Skoalleleane
+Moleleane
+Stasjonswei
+Nijewei
+Aldewei
+Grienewei
+Achterwei
+Foarwei
+Doarpsleane
+Julianastrjitte
+Wilhelminastrjitte
+Emmastrjitte
+Bernhardstrjitte
+Beatrixleane
+Oranjestrjitte
+Nassaustrjitte
+Prins Hendrikstrjitte
+Keninginne Julianaleane
+Willem-Aleksanderstrjitte
+Ljouwerterdyk
+Ljouwerterwei
+Snitserdyk
+Snitserwei
+Harnzerdyk
+Harnzerstrjitte
+Frjentsjerterdyk
+Frjentsjerterwei
+Dokkumerdyk
+Dokkumerstrjitte
+Boalserterdyk
+Boalserterwei
+Warkumerdyk
+Hylperdyk
+Starumerdyk
+Dryltserdyk
+Sleattemerdyk
+Grousterdyk
+Drachtsterwei
+Feanwâldsterwei
+Marssumerdyk
+Stiensterwei
+Berltsumerdyk
+Dronrypsterdyk
+Holwerterdyk
+Ferwerterdyk
+Skiermûntseachleane
+Skylgeleane
+Flylânleane
+Amelânleane
+Marwei
+Feartswâl
+Terpstrjitte
+Terpleane
+Greideleane
+Dykstrjitte
+Polderwei
+Wâldwei
+Kwelderwei
+Iewei
+Sylsterwei
+Hiemstrjitte
+Bouwei
+Waadwei
+Iselmarwei
+Tsjûkemarwei
+Feanwei
+Sédyk
+Ringdyk
+Hegedyk
+Legedyk
+Bûtendykswei
+Noarderhaven
+Súderdjip
+Westersingel
+Eastersingel
+Nije Gracht
+Alde Gracht
+Hearegracht
+Keizersgracht
+Prinsegracht
+Singelgracht
+Wetterkant
+Turfmerk
+Fismerk
+Bûtermerk
+Tsiismerk
+Grutte Merk
+Brink
+Plantsoen
+Hôfplein
+Slúswei
+Beamstrjitte
+Ikeleane
+Ikestrjitte
+Lindeleane
+Elzeleane
+Wylgeleane
+Bjirkeleane
+Ypeleane
+Ahoarnstrjitte
+Kastanjeleane
+Meidoarnleane
+Sparreleane
+Reidstrjitte
+Flaaksleane
+Pompeblêdstrjitte
+Pompeblêdleane
+Tulpstrjitte
+Roazestrjitte
+Narsisstrjitte
+Hyasintstrjitte
+Krokusstrjitte
+Anjerstrjitte
+Leljeleane
+Sinneblomstrjitte
+Klaproasstrjitte
+Koarnblomstrjitte
+Ljipstrjitte
+Ljipleane
+Skriesstrjitte
+Skriesleane
+Sweltsjestrjitte
+Ljurkstrjitte
+Klysterstrjitte
+Rygerstrjitte
+Earrebarrestrjitte
+Swanneleane
+Einestrjitte
+Ûlestrjitte
+Hoannestrjitte
+Guozzeleane
+Hartenleane
+Foksleane
+Hazzepaad
+Stikelbaarchpaad
+Skiepewei
+Hynderleane
+Iikhoarnleane
+Gysbert Japicxstrjitte
+Waling Dykstrastrjitte
+Eeltsje Halbertsmastrjitte
+Joast Halbertsmastrjitte
+Piter Jelles Troelstrawei
+Douwe Kalmastrjitte
+Obe Postmastrjitte
+Simke Kloostermanleane
+Fedde Schurerleane
+Nynke van Hichtumstrjitte
+Titus Brandsmastrjitte
+Alma Tademastrjitte
+Escherleane
+Menno van Coehoornstrjitte
+Grutte Pierwei
+Yndustrywei
+Ambachtswei
+Hannelswei
+Enerzjywei
+Bedriuwswei

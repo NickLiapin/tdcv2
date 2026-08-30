@@ -1,0 +1,18 @@
+---
+description: Insurance products sold in Uzbekistan. Мажбурий автосуғурта is the compulsory motor cover; қишлоқ хўжалиги экинлари суғуртаси and чорва суғуртаси insure crops and livestock, which matter in an agrarian economy. Суғурта itself is a Turkic formation, not a Russian borrowing, and carries ғ.
+locale: uz
+---
+тиббий суғурта
+ҳаётни суғурталаш
+бахтсиз ҳодисадан суғурта
+автомобил суғуртаси
+мажбурий автосуғурта
+мулк суғуртаси
+уй-жой суғуртаси
+ёнғиндан суғурта
+қишлоқ хўжалиги экинлари суғуртаси
+чорва суғуртаси
+юк суғуртаси
+саёҳат суғуртаси
+касбий жавобгарлик суғуртаси
+пенсия суғуртаси

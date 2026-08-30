@@ -1,0 +1,19 @@
+---
+description: Uzbek courts by level and specialisation. Апелляция инстанцияси and кассация инстанцияси are the two appeal stages. Қорақалпоғистон Республикаси Олий суди is named separately because Karakalpakstan is a republic within Uzbekistan with its own supreme court, which no other region has.
+locale: uz
+---
+туман суди
+шаҳар суди
+фуқаролик ишлари бўйича суд
+жиноят ишлари бўйича суд
+маъмурий суд
+иқтисодий суд
+вилоят суди
+ҳарбий суд
+апелляция инстанцияси
+кассация инстанцияси
+Олий суд
+Конституциявий суд
+Қорақалпоғистон Республикаси Олий суди
+ҳакамлик суди
+халқаро арбитраж

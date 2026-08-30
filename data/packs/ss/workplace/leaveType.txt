@@ -1,0 +1,16 @@
+---
+description: Type of leave in Eswatini, and one entry has no counterpart anywhere else. Likhefu lemicimbi yesive covers the two national ceremonies: Umhlanga, the reed dance in late August, when unmarried girls cut reeds and carry them to the Queen Mother at Ludzidzini, and Incwala, the kingship ritual around the December solstice. Both are public holidays, both run over several days rather than one, and both draw participants home from South Africa, so employers plan the year around them. Likhefu lekufelwa, bereavement leave, is used far more heavily in Eswatini than the same entitlement in Europe, because attendance at a relative's funeral is a firm social obligation and the extended family that obligation reaches is large. Likhefu is a loan from English leave, taken with the class 5 li- prefix.
+locale: ss
+---
+Likhefu lemnyaka
+Likhefu lekugula
+Likhefu lekubeleka
+Likhefu lababe wemntfwana
+Likhefu lekufelwa
+Likhefu lekushada
+Likhefu lemicimbi yesive
+Likhefu lekufundza
+Likhefu lelingakhokhelwa
+Likhefu lekunakekela umndeni
+Likhefu lekuvakashela dokotela
+Likhefu lekuphumula emsebentini lomudze

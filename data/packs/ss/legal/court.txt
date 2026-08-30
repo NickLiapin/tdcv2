@@ -1,0 +1,19 @@
+---
+description: Court in Eswatini, and the list is two parallel systems rather than one hierarchy. The Roman-Dutch side runs from the magistrates up through the High Court to the Supreme Court, and it hears commercial, criminal and constitutional matters. Alongside it, entirely separately, run the Swazi National Courts, which apply Swazi law and custom under the authority of the King and hear the disputes that arise on Swazi Nation Land — inheritance, chieftaincy, land allocation, custom. Below both sits the umphakatsi, the chief's court, where a matter is heard in the open at the chiefdom before it goes anywhere else, and above everything sits Libandla, the traditional council. A case can begin under a tree and end in the Supreme Court, and which system it belongs to is itself sometimes the question.
+locale: ss
+---
+Inkantolo yesive lephakeme
+Inkantolo lephakeme
+Inkantolo yekwedluliswa kwemacala
+Inkantolo yesigodzi
+Inkantolo yesiSwati
+Inkantolo yesiSwati lephakeme
+Umphakatsi wesikhulu
+Libandla lesive
+Inkantolo yetemsebenti
+Inkantolo yekwedluliswa kwemacala etemsebenti
+Inkantolo yebantfwana
+Inkantolo yemndeni
+Inkantolo yetikweleti letincane
+Inkantolo yetintsela
+Inkantolo yekuhlola kufa

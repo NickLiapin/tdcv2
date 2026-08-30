@@ -1,0 +1,16 @@
+---
+description: Streaming services. Brand names keep their Latin spelling in any locale, so this file does not change between the two Uzbek scripts. The global services are what an Uzbek subscriber actually uses; Uzbekistan's own platforms are named companies and belong to a country pack.
+locale: uz
+---
+YouTube
+Netflix
+Amazon Prime Video
+Disney+
+Apple TV+
+HBO Max
+Spotify
+Apple Music
+Yandex Music
+Telegram
+TikTok
+Twitch

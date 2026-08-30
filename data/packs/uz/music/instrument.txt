@@ -1,0 +1,38 @@
+---
+description: Musical instruments, national ones first. Дутор is the two-stringed lute almost every household once had, танбур the long-necked one that carries мақом, ғижжак the spike fiddle, and доира the frame drum. Карнай is the long straight trumpet blown at weddings — if you hear it in a street, there is a тўй.
+locale: uz
+---
+дутор
+танбур
+рубоб
+ғижжак
+сато
+қўбиз
+чанг
+қонун
+най
+қўшнай
+сурнай
+карнай
+буламон
+доира
+ноғора
+чиндовул
+сафоил
+қайроқ
+гитара
+скрипка
+виолончел
+контрабас
+фортепиано
+роял
+синтезатор
+аккордеон
+гармон
+баян
+флейта
+кларнет
+труба
+саксофон
+барабан
+зарбли асбоблар

@@ -1,0 +1,24 @@
+---
+description: School subjects, and four of the twenty are languages because the Timorese classroom is a language problem before it is anything else. The constitution and the curriculum put instruction in Tetun and Portugés; almost every teacher over forty was schooled in Indonesian and thinks about grammar and arithmetic in it; and the children arriving in class one speak neither of the official languages at home but one of the country's fifteen-odd other mother tongues — Mambai in the central hills, Makasae and Fataluku in the east, Bunak along the Bobonaro border, Baikeno in Oecusse. A single lesson therefore routinely runs in three languages, the teacher explaining in the local language what the textbook says in Portuguese and writing it on the board in Tetum, and a dataset that treats language of instruction as one value per school is flattening the central fact of Timorese education. Lian, which heads each of the four language subjects, is the ordinary word for voice as well as for language. Relijiaun no Morál is a real timetabled subject and not a devotional footnote, taught through the state system in a country where the Church ran the schools that survived the occupation.
+locale: tet
+---
+Matemátika
+Físika
+Kímika
+Biolojia
+Informátika
+Istória
+Jeografia
+Lian Tetun
+Lian Portugés
+Lian Indonézia
+Lian Inglés
+Arte
+Múzika
+Edukasaun Físika
+Ekonomia
+Filozofia
+Siénsia Naturál
+Siénsia Sosiál
+Edukasaun Sívika
+Relijiaun no Morál

@@ -1,0 +1,19 @@
+---
+description: How a purchase is paid for in Uzbekistan. Нақд пул still leads by volume, but the domestic card and QR systems have moved fast, and бўлиб тўлаш — instalments — is offered on almost any consumer good. Насия is the older word for buying on trust from a neighbourhood shop, with no paperwork behind it.
+locale: uz
+---
+нақд пул
+пластик карта
+банк картаси
+банк ўтказмаси
+онлайн тўлов
+мобил илова орқали тўлов
+QR-код орқали тўлов
+тўлов терминали
+бўлиб тўлаш
+насия
+кредит
+лизинг
+аванс
+ҳисоб-фактура бўйича
+етказиб беришда тўлаш

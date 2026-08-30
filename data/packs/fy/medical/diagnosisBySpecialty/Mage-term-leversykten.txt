@@ -1,0 +1,16 @@
+---
+description: Diagnoses seen in gastroenterology, which the Dutch specialist register names after three organs rather than after Greek — stomach, intestine and liver — so hepatology sits inside the same specialty instead of beside it. In Frisian that comes out Mage-term-leversykten, and the middle element is the one to notice: term is the Frisian for the intestine where Dutch says darm. Mageswolm is a stomach ulcer, from swolm, a sore or a running swelling, and Galstiennen carries stien, the Frisian stone, with the broken plural stiennen that Frisian grammars call brekking.
+locale: fy
+---
+Refluks-sykte
+Mageswolm
+Gastritis
+Prikkelbere-termsyndroom
+Sykte fan Crohn
+Colitis ulcerosa
+Coeliaky
+Divertikulitis
+Galstiennen
+Akute pankreatitis
+Leversirroaze
+Net-alkoholyske leverferfetting

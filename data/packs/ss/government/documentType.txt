@@ -1,0 +1,21 @@
+---
+description: Official document in Eswatini. Two at the end have no counterpart in a European list and both follow from the same fact — that most of the country is Swazi Nation Land administered by chiefs. Incwadzi yesikhulu, the chief's letter, is a written confirmation from a chief that a person belongs to his chiefdom, and it is asked for in situations where a European system would ask for proof of address: opening an account, applying for a plot, registering for a programme. Imvume yekuhamba nemkhawulweni is the border pass used for local crossings into South Africa and Mozambique by people who live along a frontier that cuts through families. Sitifiketi and ilayisensi are loans; incwadzi and imvume are not, and the older words are the ones attached to the older institutions.
+locale: ss
+---
+Ikhadi lemazisi
+Ipasipoti
+Sitifiketi sekutalwa
+Sitifiketi sekufa
+Sitifiketi semshado
+Ilayisensi yekushayela
+Ilayisensi yemoto
+Imvume yekusebenta
+Imvume yekuhlala
+Ivisa
+Sitifiketi sekuphuma esikolweni
+Sitifiketi sentsela
+Imvume yebhizinisi
+Imvume yekwakha
+Sitifiketi sekufuya
+Incwadzi yesikhulu
+Imvume yekuhamba nemkhawulweni

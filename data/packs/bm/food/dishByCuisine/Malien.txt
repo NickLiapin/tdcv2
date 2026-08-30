@@ -1,0 +1,20 @@
+---
+description: The Malian kitchen. `Tô` is the centre of it: millet, sorghum or maize flour beaten into a stiff smooth paste over the fire, turned out and eaten with the right hand, dipped into a sauce — it is the national dish and for most of the country the daily one. The sauces are what vary, and `fakoye` and `sauce gombo` both get their thickness from what is in them rather than from flour. `Tigadɛgɛna` is groundnut-butter sauce, the dish the wider world knows as mafé. `Zamɛ` is rice cooked in oil with meat, the festival food. `Dɛgɛ` is millet balls in sweetened sour milk and is what a Malian breaks the Ramadan fast on. `Ŋɔmi` is the millet fritter sold at dawn from a bowl on a woman's head, and it opens with `ŋ`, one of the four letters that separate this alphabet from a French one.
+locale: bm
+---
+Tô
+Tigadɛgɛna
+Zamɛ
+Malokini
+Basi
+Dɛgɛ
+Moni
+Fonio
+Ŋɔmi
+Toubani
+Djouka
+Capitaine braisé
+Sauce gombo
+Sauce feuille
+Fakoye
+Sauce arachide

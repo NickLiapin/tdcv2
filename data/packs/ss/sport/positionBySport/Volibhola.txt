@@ -1,0 +1,9 @@
+---
+description: Volleyball positions in siSwati. Umcondzisi wemdlalo, the setter, is "the director of the game" — the same root kucondzisa that names the point guard in basketball, and in both sports it names the player who decides where the ball goes next, which is a more revealing description than either English term. Umvikeli lokhetsekile, the libero, is "the special defender", and the loan libero is not used here. Volleyball is played in Eswatini's schools and on the beach-style sand courts at Ezulwini, and the six-position rotation means these five names move around the court rather than staying put, which is a fact the file cannot express.
+locale: ss
+---
+Umcondzisi wemdlalo
+Umhlaseli wephiko
+Umhlaseli wangekhatsi
+Umhlaseli waseceleni
+Umvikeli lokhetsekile

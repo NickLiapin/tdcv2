@@ -1,0 +1,22 @@
+---
+description: Weather condition (West Frisian), the words a Frisian forecast on Omrop Fryslân actually uses. Ûnwaar is the one to look at: it is a thunderstorm, and it is built as un-weather, weather that has stopped being weather, which is a judgement no English or Dutch word for the same thing makes. Iizel is freezing rain that glazes the road and is its own warned-for category, and the spelling matters - Frisian writes iis for ice with a plain double i and has no IJ digraph, so it is never IJzel here. Buien, passing showers marching in off the Waadsee, are the default rather than the exception on this coast; motrein is fine steady drizzle and mizerich the miserable half-rain that is neither drizzle nor shower. Mist and nevel are separate categories set apart by visibility, not synonyms. TRAP: broeierich is the word for muggy - do not reach for benaud, which in Frisian means afraid and nothing else, though its Dutch lookalike benauwd covers both.
+locale: fy
+---
+Sinnich
+Helder
+Heal bewolke
+Bewolke
+Swierbewolke
+Reinich
+Motrein
+Mizerich
+Buien
+Ûnwaar
+Snie
+Wiete snie
+Iizel
+Hagel
+Mist
+Nevel
+Wynderich
+Broeierich

@@ -1,0 +1,39 @@
+---
+description: Every playing position in the pack, pooled across sports. The Bambara block is football's, and football genuinely has a Bambara register because ORTM commentates matches in it: the system is spatial and regular — `kɔfɛla` the one behind, `cɛmancɛla` the one in the middle, `ɲɛfɛla` the one in front, `kinin fɛ` on the right, `numan fɛ` on the left — and it carries over to futsal, which is the same game on a concrete rectangle. `Nɔnabila` is the substitute, one put in the place of another. The athletics agent nouns follow: `bolila` a runner, `panbaga` a jumper, `filibaga` a thrower, `taamabaga` a walker. The rest stay French because basketball, volleyball, handball and cycling arrived through their federations with their vocabulary attached and no Bambara commentary tradition grew around them. Note the collisions a config must avoid by using sport/positionBySport instead of this pooled list: `Pivot` is three different jobs in three codes, and `Ailier` four.
+locale: bm
+---
+Gɔlkipa
+Kɔfɛla
+Kɔfɛla kinin fɛ
+Kɔfɛla numan fɛ
+Cɛmancɛ kɔfɛla
+Kɔfɛlaw kuntigi
+Cɛmancɛla
+Cɛmancɛla kɔfɛ
+Cɛmancɛla ɲɛfɛ
+Ɲɛfɛla
+Ɲɛfɛla kinin fɛ
+Ɲɛfɛla numan fɛ
+Ɲɛfɛla cɛmancɛ
+Bolila teliman
+Bolila jan
+Panbaga
+Filibaga
+Taamabaga
+Nɔnabila
+Meneur
+Arrière
+Ailier
+Ailier fort
+Pivot
+Passeur
+Central
+Réceptionneur-attaquant
+Pointu
+Libéro
+Demi-centre
+Fixo
+Sprinteur
+Grimpeur
+Rouleur
+Poisson-pilote

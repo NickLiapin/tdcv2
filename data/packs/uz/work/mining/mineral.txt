@@ -1,0 +1,23 @@
+---
+description: Minerals mined in Uzbekistan, in rough order of economic weight. Олтин comes first — the country is among the world's top ten gold producers — then кумуш, мис and уран. Табиий газ and нефт follow; мармар and гранит are quarried for building stone.
+locale: uz
+---
+олтин
+кумуш
+мис
+уран
+табиий газ
+нефт
+кўмир
+молибден
+волфрам
+қўрғошин
+рух
+мармар
+гранит
+оҳактош
+ош тузи
+олтингугурт
+фосфорит
+каолин
+графит

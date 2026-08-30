@@ -1,0 +1,18 @@
+---
+description: Mark on the grading scale used in every school in Fryslân, which is the Dutch one and not a Frisian invention: whole numbers and decimals from 1 to 10, with 5.5 the exact pass boundary, so 6 is the lowest passing whole mark and a 5.4 fails. The top of the scale is effectively shut - a 9 is rare and a 10 for written work is almost never awarded - which catches out anyone who reads these as a percentage divided by ten, and the bottom is barely used either, since a 1 or a 2 means an unsubmitted paper rather than a bad one. Decimals are written with a comma, so a Frisian report card shows 7,5 and never 7.5, and the values here are stored as bare digits so a config that wants the comma has to build it. Primary reports and practical subjects use words in place of numbers, and the Frisian ladder runs ûnfoldwaande, foldwaande, goed and above that tige goed and útmuntend. Tige is worth knowing on its own: it is the everyday Frisian intensifier meaning very, it has no Dutch cognate at all, and Dutch has to reach for zeer or heel instead - it is also the first half of tige tank, the ordinary way to say thank you here. Cum laude is the university distinction, Latin in Frisian exactly as it is in Dutch.
+locale: fy
+---
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+Ûnfoldwaande
+Foldwaande
+Goed
+Cum laude

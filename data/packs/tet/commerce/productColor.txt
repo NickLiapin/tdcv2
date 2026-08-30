@@ -1,0 +1,58 @@
+---
+description: Colour as written on a Timorese product listing, and the top of the list is the whole native inventory. Tetum's inherited colour terms number about five: mutin white, metan black, mean red, kinur yellow and matak. Matak is the interesting one, because it is not simply green — it is the word for raw, unripe and uncooked as well, so modo matak is a green vegetable and also a raw one, and ikan matak is uncooked fish. There is no inherited word for blue at all: azúl is Portuguese, and the shades built on it here are Tetum compounds, with azúl lalehan taking lalehan, the native word for sky. Rai-henek is sand and is native too, literally earth-of-grains. Everything below the first block came in with Portuguese and shows the rules at work — cinza to sinza with c before i to s, chocolate to xokolate with ch to x, castanho to kastañu with c to k and nh to ñ, vinho to vinyu, marfim to marfin, salmão to salmaun. Because Tetum adjectives do not agree, none of these needs a feminine form, and one entry serves a kadeira and a tais alike. Kór is the word for colour itself and is borrowed from cor.
+locale: tet
+---
+Metan
+Mutin
+Mean
+Kinur
+Matak
+Sinza
+Sinza metan
+Sinza pérola
+Prata
+Douradu
+Bronze
+Kobre
+Mean metan
+Bordó
+Vinyu
+Korál
+Roza
+Roza mamar
+Fúksia
+Majenta
+Laranja
+Terrakota
+Salmaun
+Mostarda
+Ouru tuan
+Matak oliva
+Matak menta
+Matak esmeralda
+Matak militár
+Turkeza
+Azúl
+Azúl marinu
+Azúl tasi
+Azúl lalehan
+Azúl petróleu
+Índigu
+Roxu
+Violeta
+Lilás
+Lavanda
+Kastañu
+Xokolate
+Kamel
+Beje
+Kreme
+Marfin
+Rai-henek
+Taupe
+Antrasite
+Transparente
+Kór barak
+Estampadu
+Kór rua
+Naturál

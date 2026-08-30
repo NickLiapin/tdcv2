@@ -1,0 +1,12 @@
+---
+description: Conditions with a raised frequency in South Asian ancestry. The entry that matters most clinically is not a rare syndrome but a common one: coronary artery disease presents roughly a decade earlier in South Asian populations than in European ones and at a lower body mass index, which means the thresholds a European risk calculator uses systematically under-predict it. Type 2 diabetes follows the same pattern for the same reason, with insulin resistance appearing at waist measurements that would be read as normal elsewhere. Haemoglobin E, a variant that is nearly absent in Africa and Europe, reaches high frequency in Bengal and eastward and produces serious disease when it pairs with beta-thalassaemia. Ancestry associations, not statements about individuals.
+locale: ss
+---
+I-beta-thalassaemia
+I-G6PD deficiency
+Sifo sashukela sesigaba sesibili
+I-coronary artery disease lekhula ngesikhatsi
+I-lactase non-persistence
+I-haemoglobin E
+Kushoda kwe-vitamin D
+Umfutfo wengati lophakeme

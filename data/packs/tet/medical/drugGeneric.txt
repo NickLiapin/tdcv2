@@ -1,0 +1,45 @@
+---
+description: Generic names as they are printed on a stock card at SAMES, the autonomous state agency in Comoro on the western edge of Dili that buys, warehouses and distributes every medicine in the public system, from the national hospital out to the referral hospitals and the community health centres in the sucos. A prescription written here names the molecule rather than a brand, because the pharmacy at the other end holds what the national essential medicines list holds and nothing else, and a doctor who writes a trade name is writing something the store cannot issue. The list is therefore a picture of the national programmes rather than of a retail shelf: four first-line antituberculars standing together, dapsona and klofazimina for leprosy, artemeter-lumefantrina still stocked against imported malaria, albendazol and ivermektina for the mass drug administrations run through schools, dietilkarbamazina for lymphatic filariasis, tiamina against beriberi, and sal reidratasaun orál beside zinku, which is the two-item combination that carries small children through a diarrhoeal season. The spellings follow the ordinary borrowing rules, and three are visible here: gentamicina gives Jentamisina because g before e is written j and c before i is written s, haloperidol drops its initial h to give Aloperidol, and ibuprofeno takes -u for its unstressed final -o.
+locale: tet
+---
+Parasetamol
+Ibuprofenu
+Amoksisilina
+Amoksisilina ho ásidu klavulániku
+Kotrimoksazol
+Azitromisina
+Siprofloksasina
+Doksisiklina
+Metronidazol
+Jentamisina
+Seftriaksona
+Benzilpenisilina
+Isoniazida
+Rifampisina
+Pirazinamida
+Etambutol
+Dapsona
+Klofazimina
+Artemeter-lumefantrina
+Primakina
+Albendazol
+Ivermektina
+Dietilkarbamazina
+Flukonazol
+Sal reidratasaun orál
+Zinku
+Ferru-folatu
+Vitamina A
+Tiamina
+Salbutamol
+Prednizolona
+Amlodipina
+Idroklorotiazida
+Furosemida
+Metformina
+Insulina
+Omeprazol
+Aloperidol
+Diazepam
+Oksitosina
+Sulfatu magnéziu

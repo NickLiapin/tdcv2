@@ -1,0 +1,8 @@
+---
+description: The Malian year, and this is the file to read before any other in the date group. Mali does not have two seasons, wet and dry, as the shorthand goes, and it does not have Europe's four. It has these four, and they are named, agriculturally decisive, and known to everyone: `samiya`, the rains, roughly June to September, when the millet goes in and the whole year's food is decided; `kawulɛ`, the end of the rains and the harvest, October and November, the cool bright weeks that are the pleasantest of the year; `fonɛnɛ`, the cold dry season from December to February, when the harmattan blows dust out of the Sahara and Bamako mornings can drop to fifteen degrees; and `tilema`, the hot dry season from March to May, when Kayes routinely passes forty-five and the country waits. A dataset that maps these onto spring, summer, autumn and winter has thrown away the only calendar that matters here.
+locale: bm
+---
+samiya
+kawulɛ
+fonɛnɛ
+tilema

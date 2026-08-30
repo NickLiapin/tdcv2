@@ -1,0 +1,19 @@
+---
+description: Why a customer sends something back. Ўлчами тўғри келмади (wrong size) and ранги мос келмади (wrong colour) lead any real return log. Фикрим ўзгарди — I changed my mind — is the honest catch-all, and совға қайтарилмоқда covers the gift being returned by someone who did not choose it.
+locale: uz
+---
+ўлчами тўғри келмади
+ранги мос келмади
+сифати паст
+нуқсонли маҳсулот
+тавсифга мос эмас
+нотўғри маҳсулот юборилди
+етказишда шикастланган
+тўлиқ эмас
+кеч етказилди
+фикрим ўзгарди
+арзонроқ топдим
+ишламаяпти
+муддати ўтган
+ортиқча буюртма
+совға қайтарилмоқда

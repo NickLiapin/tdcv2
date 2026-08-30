@@ -1,0 +1,12 @@
+---
+description: Lebanese food travels with the aid economy, and this list is what an international canteen or a Dili deli serves rather than anything with roots on the island. The names come through English and French menus, and the only systematic change is the one Tetum makes to any sh it meets: there is no such letter sequence in the orthography, so shawarma is xawarma, fattoush is fatuxe and manakish is manakix, all on the same rule that writes Portuguese ch as x. Homus and kibe lose the doubled consonants that neither Portuguese nor Tetum spelling keeps.
+locale: tet
+---
+Homus
+Falafel
+Tabule
+Xawarma
+Kibe
+Baba ganuxe
+Fatuxe
+Manakix

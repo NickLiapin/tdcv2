@@ -1,0 +1,34 @@
+---
+description: Units of measure. The metric block is the legal system and comes through Portuguese, respelled to rule — kilograma, litru, metru kuadradu, with unstressed final -o going to -u throughout. The three at the end are what a Dili market actually sells by and none of them is metric. Kaleng is Indonesian for a tin, and it is a volume measure: rice, maize and beans are scooped into a standard can and sold by the can, so a price is quoted per kaleng and the shopper never sees a scale. Ikat is Indonesian for a tie or bundle and is how leaf vegetables, kangkung and fish are sold — bound with a strip of palm frond into a unit whose size everyone in the market agrees on and no regulation defines. Bidon is the twenty-litre jerrycan, the unit that drinking water, kerosene and cooking oil move in, and in much of the country it is also the unit household water consumption is counted in, because the supply is a standpipe or a delivery truck rather than a meter. All three are transaction units in the same records the metric ones appear in, and a config that omits them is pricing a supermarket that most of the country does not shop in.
+locale: tet
+---
+unidade
+kaixa
+pakote
+duzia
+par
+konjuntu
+rolu
+fardu
+kilograma
+grama
+tonelada
+litru
+mililitru
+metru
+sentímetru
+metru kuadradu
+metru kúbiku
+saku
+bandeja
+lata
+garrafa
+frasku
+tubu
+palete
+envelope
+kit
+lote
+bidon
+kaleng
+ikat

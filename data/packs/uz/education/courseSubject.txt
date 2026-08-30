@@ -1,0 +1,24 @@
+---
+description: School subjects on an Uzbek timetable. Она тили is the mother tongue class and is separate from адабиёт; both рус тили and инглиз тили are taught, and the balance between them has shifted sharply toward English since the 2010s. Ўзбекистон тарихи is a distinct subject from жаҳон тарихи.
+locale: uz
+---
+она тили
+адабиёт
+математика
+алгебра
+геометрия
+физика
+кимё
+биология
+география
+тарих
+Ўзбекистон тарихи
+жаҳон тарихи
+ҳуқуқ асослари
+иқтисодиёт асослари
+информатика
+чизмачилик
+инглиз тили
+рус тили
+жисмоний тарбия
+тасвирий санъат

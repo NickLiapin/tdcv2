@@ -1,0 +1,29 @@
+---
+description: Fish (West Frisian). North Sea and Waadsee species first, then the fresh water of the Frisian lakes and canals. The word itself is the lesson: fisk, with the sk- cluster English keeps in fish and Dutch smoothed to vis, and the same cluster in skol for plaice and skelfisk for haddock. Iel is the other one - eel, spelled and meaning as in English, where Dutch has the unrelated paling - and it names a trade rather than a species here, because eel fishing on the Frisian meres was a living into living memory and the gear it used, the fûke or fyke net, is the Frisian word English borrowed for the same trap. Garnaal, the North Sea brown shrimp, is a crustacean and not a fish, but the Harns and Wierum boats land it and any list of what the fleet brings in has to have it.
+locale: fy
+---
+Hjerring
+Kabeljau
+Skol
+Tonge
+Makriel
+Skelfisk
+Koalfisk
+Wyting
+Seebears
+Heilbot
+Bot
+Roch
+Sardine
+Ansjovis
+Seeduvel
+Garnaal
+Salm
+Foarel
+Tonyn
+Iel
+Snoek
+Snoekbears
+Bears
+Karper
+Brazem

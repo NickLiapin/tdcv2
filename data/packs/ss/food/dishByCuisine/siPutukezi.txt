@@ -1,0 +1,13 @@
+---
+description: Portuguese and Mozambican dishes. Mozambique begins at the Lomahasha and Mananga border posts, Maputo is closer to Manzini than Johannesburg is, and this is the cuisine Eswatini reaches for when it eats out. Inkhukhu yeperi-peri is the dish that made the crossing most completely: peri-peri is the Portuguese rendering of the Swahili pilipili, the bird's-eye chilli itself came from the Americas with Portuguese ships, and the combination came back to southern Africa as the thing most Swazi restaurants grill. Imatapa is cassava leaves pounded with groundnuts and coconut, and it is worth setting beside umbidvo wetintsanga on the siSwati list, which is pumpkin leaves pounded with groundnuts — the same dish reasoned out twice from what each country grows.
+locale: ss
+---
+Inkhukhu yeperi-peri
+Emaprawn ayegalikhi
+Imatapa
+Ibacalhau
+Ipastel de nata
+Icaldo verde
+Ifeijoada
+Ichourico
+Ibolo polana

@@ -1,0 +1,154 @@
+---
+description: Filler paragraphs in Bambara, three or four sentences each, written by hand for the same reason as text/sentence: the corpus builder has no public-domain Bambara source to cut them from, so they were composed. They carry three things a single sentence cannot show. The first is the joinery — ani and, nka but, walima or, bawo because, o kɔ after that, o de kosɔn that is why, fo until, and the conditional ni ... clause that opens a great many everyday Bambara paragraphs: ni sanji nana, an bɛna sɛnɛ kɛ, if the rain comes we will farm. The second is ko, which is both the verb to say and the word that opens what was said, standing exactly where English puts that: a ko ko a bɛna na, he said that he would come, and the doubled ko there is not a typing slip. The third is min, the relative word, which stays inside the clause it belongs to and is picked up afterwards by o: mɔgɔ min bɛ baara kɛ, o bɛ dumuni sɔrɔ, the person who works, that one eats. Topic-fronting turns up in the same way, a noun set out in front and resumed by o — wari, o tɛ n bolo, money, that is not in my hands. The subject matter stays ordinary throughout, a compound at first light, a bus to Ségou, a field after the first rain, an evening of tea; none of it is a lesson about Bambara.
+locale: bm
+---
+Sɔgɔma fɛ, somɔgɔw bɛɛ wulila. N ba ye tasuma mɛnɛ ani a ye ji wuli. O kɔ, denw ye u bolo ko ka sigi tabali la.
+Dugu jɛra ka ɲɛ bi. Kɔnɔninw bɛ kasi jiri kan ani fiɲɛ ka sumalen. N bɔra kɛnɛ ma ka n teri fo.
+Muso ye kɛnɛ furan sɔgɔma fɛ. A ko ko dunanw bɛna na bi. O de kosɔn, a ye so kɔnɔ labɛn ka ɲɛ.
+Denw ma sɔn ka wuli joona. U ba ye u wele siɲɛ saba nka u tora u ka dilan kan. O kɔ, u wulila ka taa lakɔli la.
+Fa ye a ka nɛgɛso ta ka taa baara la. A ka baara ka jan so la, o de kosɔn a bɛ wuli joona. A bɛ segin wula fɛ.
+Gwa la, sisi ka ca. Muso bɛ tɔ tobi ani a den bɛ a dɛmɛ. Denmisɛnw bɛ makɔnɔ kɛnɛ kan bawo kɔngɔ bɛ u la.
+N ye n ka fini ko ka bila tile la. Sanji nana wula fɛ nka fini tun jara ka ban. N ye u ta ka don so kɔnɔ.
+So kɔnɔ ka jɛ bi. Musokɔrɔba ye a furan sɔgɔma fɛ ani a ye ji bɔn duguma. Denw tɛ se ka bɔgɔ don so kɔnɔ tugun.
+Juma don, cɛw bɛ taa misiri la. N fa bɛ a ka fini jɛman don ka bɔ. A ko ko seli ye laada belebele ye.
+Nɔnɔ banna so kɔnɔ. N ba ye n ci butiki la ka dɔ san. N seginna ni nɔnɔ ni buru ye.
+Su fɛ, denw sunɔgɔra joona. Kalo bɔra ani dugu lafiyara. Wuluw dɔrɔn de bɛ mankan kɛ.
+Jakuma sunɔgɔra sigilan kɔrɔ. Wulu bɛ da la ka dugu kɔlɔsi. Mɔgɔ si tɛ don so kɔnɔ ni an ma a dɔn.
+N ma sunɔgɔ ka ɲɛ su fɛ. Funteni tun ka ca ani sosow tun bɛ n dimi. Sɔgɔma fɛ, sɛgɛn tun bɛ n na.
+Denmuso bɛ a ba dɛmɛ tuma bɛɛ. A bɛ ji ta kɔlɔn na ani a bɛ kɛnɛ furan. A ba ko ko a den ye muso ɲuman ye.
+Dumuni banna, an ye an bolo ko. O kɔ, an sigira jiri kɔrɔ ka ataya min. Kuma ka ca an cɛ.
+Sugu bɛ wuli sɔgɔma fɛ. Musow bɛ na ni u ka fɛnw ye ka u sigi sira da la. Mɔgɔ min nana joona, o bɛ yɔrɔ ɲuman sɔrɔ.
+N taara sugu la ka malo san. Sɔngɔ tun ka gɛlɛn kosɛbɛ, o de kosɔn n ma se ka kilo caman san. N ye kilo fila dɔrɔn ta.
+Jagokɛla ye a fɔ ko a bɛna sɔngɔ jigin. N y'a mɛn nka n ma sɔn. N taara butiki wɛrɛ la ka a san yen.
+Wari tɛ n bolo bi. N teri ye n dɛmɛ ni dɔɔni ye. N bɛna a sara dɔgɔkun wɛrɛ la.
+An ye juru ta banki la ka so dilan. Baara ka gɛlɛn nka an bɛna a ban ɲinan. Ni an ye baara kɛ, an bɛna juru sara.
+Sugu kɔnɔ, kuma ka ca. Mɔgɔw bɛ sɔngɔ ɲininka ani u bɛ ɲɔgɔn fo. Feereli tɛ se ka kɛ ni kuma tɛ.
+Wari, o tɛ hɛrɛ ye. Mɔgɔ dɔw ka nafolo ka ca nka u dusukun tɛ lafiya. Cɛkɔrɔbaw ko ko hɛrɛ ka fisa nafolo ye.
+Butiki bɛ da tugu su fɛ. Butikitigi bɛ a ka wari jate ka ban ka taa so. Sɔgɔma fɛ, a bɛ segin joona.
+Jago bɛ kɛ Bamakɔ ni Abidjan cɛ. Mɔbiliw bɛ taa ni kɔɔri ye ka na ni fɛn wɛrɛw ye. Sira ka jan nka tɔnɔ bɛ a la.
+Ɲinan, malo sɔngɔ ka gɛlɛn. Sanji ma na kosɛbɛ, o de kosɔn suman ma ɲɛ. Cikɛlaw ko ko san wɛrɛ bɛna fisaya.
+N ye n ka fini san sugu la. A ka nɔgɔ ani a ka ɲi. N ba y'a ye ka a fɔ ko a bɛnna n ma.
+Faantanw tɛ se ka fura san lopitali la. Gomina ka kan ka u dɛmɛ. Ni o ma kɛ, banaw bɛna caya.
+Baara de bɛ nafolo di. Mɔgɔ min tɛ baara kɛ, o tɛ fɛn sɔrɔ. Nin ye an bɛɛ ka laada ye.
+Cɛw taara foro la sɔgɔma fɛ. U ye u ka dabaw ta ani u ye bin bɔ ɲɔ cɛma. Tile bɔra ka goni, o de kosɔn u seginna so.
+Sɛnɛ bɛ daminɛ samiya fɛ. Ni sanji fɔlɔ nana, cikɛlaw bɛ ɲɔ dan. O kɔ, u bɛ makɔnɔ fo suman ka mɔ.
+Kɔɔri bɛ sɛnɛ Koutiala mara la. Mɔgɔ caman bɛ u ka nafolo sɔrɔ o la. Kɔɔri ye Mali ka fɛn belebele ye.
+Ɲinan, suman ma ɲɛ. Sanji nana dɔɔni dɔɔni nka a ma caya. Cikɛlaw ko ko dumuni bɛna gɛlɛya.
+Misiw bɛ gɛn ka taa kungo kɔnɔ sɔgɔma fɛ. Denmisɛnw de bɛ u kɔlɔsi tile fɛ. Wula fɛ, u bɛ segin ni u ye.
+Fali bɛ wotoro sama sira kan. Suman bɛ ta foro la ka na so. Baara in ka gɛlɛn nka a ka kan ka kɛ.
+Kawulɛ fɛ, an bɛ suman ta. Denbaya bɛɛ bɛ taa foro la ani baara bɛ ban joona. Su fɛ, an bɛ ɲɛnajɛ kɛ.
+Dugukolo ka gɛlɛn tilema fɛ. Daba tɛ se ka don a kɔnɔ. Cikɛlaw bɛ makɔnɔ fo sanji ka na.
+Jiriw bɛ bulu bɔ samiya fɛ. Kungo bɛ kɛ binkɛnɛ ye ani baganw bɛ dumuni sɔrɔ. Fonɛnɛ fɛ, bulu bɛ bin ka jiri to a kelen na.
+Foro bɛ ba da la. Ji ka surun, o de kosɔn an bɛ se ka nakɔ sɛnɛ yen. Jaba ni foronto bɛ bɔ yen tuma bɛɛ.
+An ye ɲɔ ta ka na so. Musow ye a susu ani u ye mugu kɛ. O kɔ, tɔ tobira wula fɛ.
+Sɛnɛ ye baara gɛlɛn ye nka a bɛ mɔgɔ caman balo. Cikɛla min bɛ a ka baara kɛ ka ɲɛ, o tɛ kɔngɔ dɔn. Nin ye tiɲɛ ye dugu bɛɛ la.
+Joliba bɛ tɛmɛ Bamakɔ la. Musow bɛ fini ko a da la ani denw bɛ tulon kɛ ji la. Bozow bɛ jɛgɛ minɛ u ka kurunw kɔnɔ.
+Sanji binna su fɛ. Sɔgɔma fɛ, ji tun ka ca sira kan. Denw ma se ka taa lakɔli la joona.
+Fiɲɛ ka gɛlɛn bi. A ye jiri dɔ kari kɛnɛ kan. Mɔgɔ si ma jogin nka siran donna an na.
+Tilema fɛ, tile ka goni kosɛbɛ Kayes la. Mɔgɔw tɛ bɔ kɛnɛ ma tile cɛma. U bɛ sunɔgɔ jiri kɔrɔ.
+Kɔlɔn bɛ dugu cɛma. Musow bɛ na yen sɔgɔma ni wula ka ji ta. Ji ka sumalen ani a ka jɛ.
+Sanji ye sira tiɲɛ. Mɔbiliw tɛ se ka tɛmɛ tugun. Gomina ko ko a bɛna sira dilan sɔɔni.
+Samiya banna, kawulɛ nana. Fiɲɛ bɛ daminɛ ka sumaya. Mɔgɔw bɛ u ka finiw ɲini ka don.
+Ji ka ca ba kɔnɔ samiya fɛ. Kurunw bɛ tɛmɛ ka taa Mopti. Tilema fɛ, ji bɛ dɔgɔya ka kurunw jɔ.
+An ye sanpɛrɛn mɛn su fɛ. Denw kasira bawo siran donna u la. U ba ye u minɛ ka u lafiya.
+Fonɛnɛ waati la, nɛnɛ ka ca sɔgɔma fɛ. Denmisɛnw bɛ tasuma mɛnɛ kɛnɛ kan ka u yɛrɛ goniya. Tile bɔra kɔfɛ ani nɛnɛ banna.
+Ji tɛ so kɔnɔ bi. N taara kɔlɔn na ni filen fila ye. Sira ka jan nka baasi tɛ.
+Kɔgɔji ka jan Mali la. An ka jamana bɛ Afriki tilebin fɛ ani jamana wɛrɛw bɛ a lamini na. Joliba de ye an ka ba belebele ye.
+Denw bɛ taa lakɔli la sɔgɔma fɛ. Karamɔgɔ bɛ u makɔnɔ da la. Ni kalanden dɔ nana kɔfɛ, a bɛ jɔ kɛnɛ kan.
+Karamɔgɔ ye ɲininkali kɛ. Kalanden min ye jaabi di, o ka kuma tun ka ɲi. Denw bɛɛ ye a lamɛn.
+An bɛ kalan kɛ bamanankan na ani tubabukan na. Kalan fɔlɔ bɛ kɛ bamanankan na bawo denw bɛ a famu. Tubabukan bɛ na kɔfɛ.
+Gafew ka ca lakɔli la nka u man ca so kɔnɔ. Denw bɛ u ka gafew to kalanso kɔnɔ. Karamɔgɔ ko ko o ka fisa.
+Denmuso bɛ kalan fɛ kosɛbɛ. A ko ko a bɛna kɛ dɔgɔtɔrɔ ye don dɔ. A ba ye a dɛmɛ ka gafew san a ye.
+Kalan bɛ ban wula fɛ. Denw bɛ segin so ka bɔ lakɔli la. U bɛ dumuni kɛ ka u ka baara kɛ.
+Lakɔli tɛ an ka dugu la. Denw bɛ taama ka taa dugu wɛrɛ la. Samiya fɛ, sira ka gɛlɛn kosɛbɛ.
+Karamɔgɔ ye a fɔ ko kalan bɛna daminɛ sɔɔni. Denw bɛɛ nisɔndiyara. U ye u ka gafew labɛn.
+Kalanden min tɛ na tuma bɛɛ, o tɛ se ka famu. Karamɔgɔ bɛ a fɔ o ba ye. Nka baara ka ca so kɔnɔ fana.
+Denmisɛnw bɛ dɔnkili da lakɔli kɛnɛ kan. Dɔw bɛ tulon kɛ ani dɔw bɛ sigi ka kuma. Kalan waati sera, u donna kalanso kɔnɔ.
+Dɔnniya tɛ ban. Mɔgɔ min ye kalan kɛ, o ka kan ka kalan kɛ tugun. Cɛkɔrɔbaw fana bɛ se ka kalan kɛ.
+Sɛbɛnni ka gɛlɛn denmisɛnw ye. U bɛ sigi duguma ka sɛbɛn u ka gafew kɔnɔ. Karamɔgɔ bɛ tɛmɛ u cɛma ka u kɔlɔsi.
+An bɛna taa Segu sini. Bisi bɛ bɔ Bamakɔ sɔgɔma fɛ. An ye an ka bilɛw san garasi la kunun.
+Bisi tɛmɛna dugu caman fɛ. Sira ka jan nka a ka ɲi. An sera Segu la wula fɛ.
+Sɔfɛri ye a ka mɔbili jɔ sira da la. Mɔgɔw jiginna ka dumuni kɛ. O kɔ, an ye an ka taama daminɛ tugun.
+Mɔbili binna sira kan kunun. Mɔgɔ si ma sa nka dɔw joginna. Zandarimuw nana joona ka u dɛmɛ.
+Awiyɔn bɛ bɔ Bamakɔ ɛropɔri la don o don. Mɔgɔ caman tɛ se ka bilɛ san bawo sɔngɔ ka gɛlɛn. Bisi de ka nɔgɔ.
+Kati ka surun Bamakɔ la. Mɔgɔw bɛ taa baara la yen sɔgɔma fɛ ka segin wula fɛ. Sira bɛ fa ni mɔgɔw ye tuma bɛɛ.
+Tombouctou ka jan Bamakɔ la kosɛbɛ. Taama bɛ tile caman ta. Mɔgɔ dɔw bɛ taa ni awiyɔn ye.
+Sira tiɲɛna sanji kosɔn. Wotoro dɔ jɔra bɔgɔ kɔnɔ. Cɛw bolila ka na ka a sama ka bɔ.
+Djenné misiri ye bɔgɔ ye. San o san, dugudenw bɛ ɲɔgɔn lajɛ ka a dilan kokura. Nin ye laada ye kabini waati jan.
+An ye tile saba kɛ sira kan. An ye dugu caman ye ani an ye mɔgɔ caman dɔn. Taama ye sɛgɛn ye nka a ye dɔnniya fana ye.
+Nɛgɛso bɛ n bolo. N bɛ taa baara la ni a ye don o don. Mɔbili sɔngɔ ka gɛlɛn kosɛbɛ n ma.
+Bisi kɔnɔ, mɔgɔw bɛ kuma ɲɔgɔn fɛ. Muso dɔ ye a fɔ ko a bɛ taa a bɛnkɛ fɛ Sikasso. Radiyo tun bɛ kuma bisi kɔnɔ.
+Wula fɛ, cɛw bɛ sigi jiri kɔrɔ ka ataya min. Ataya fɔlɔ ka kunan ani filanan ka di. Kuma ka ca u cɛ.
+Dunan nana n ka so kunun. N ye a fo ka ɲɛ ani n ye dumuni di a ma. A ko ko a bɛna to yan tile fila.
+Jatigi ka kan ka dumuni di a ka dunan ma. Nin ye Mali ka laada ye. Mɔgɔ si tɛ dunan gɛn.
+An ye ɲɔgɔn ye kunun wula fɛ. An ye ataya min ani an ye kuma caman fɔ. Sɔɔni, an bɛna ɲɔgɔn ye tugun.
+Sigiɲɔgɔnw bɛ ɲɔgɔn dɛmɛ tuma bɛɛ. Ni bana ye mɔgɔ minɛ, a sigiɲɔgɔn de bɛ na fɔlɔ. Nin de ye dugu ka fanga ye.
+N teri nana ka n ye baara la. A ko ko a bɛ taa Segu la sini. N ye a fɔ a ye ko n bɛna a bila sira.
+Ataya bɛ waati ta nka mɔgɔ si tɛ kɔrɔtɔ. Cɛw bɛ sigi fo su ka se. Kuma min bɛ fɔ yen, o tɛ ban.
+Teriya ka fisa wari ye. Mɔgɔ min tɛ teri sɔrɔ, o ka ko ka gɛlɛn. Nin de kosɔn an bɛ ɲɔgɔn fo don o don.
+Sanankuya bɛ Coulibaly ni Keïta cɛ. U bɛ ɲɔgɔn nɛni ka tila ka yɛlɛ. Kɛlɛ tɛ se ka wuli u ni ɲɔgɔn cɛ.
+Dunan tɛ dugu dɔn. Ni i sera dugu kura la, i ka kan ka dugutigi fo fɔlɔ. O kɔ, mɔgɔw bɛna i dɛmɛ.
+Furu ɲɛnajɛ kɛra sibiri don. Somɔgɔw bɛɛ nana ani jeliw ye ngoni fɔ. Dɔn kɛra fo su ka se.
+Denbaya ye misi faga furu kama. Musow ye tɔ ni nan tobi mɔgɔ caman ye. Dumuni ma ban hali su fɛ.
+Den bangera kunun sɔgɔma fɛ. Tile wolonwula kɔ, u ye a tɔgɔ da. Somɔgɔw bɛɛ nana ka nisɔndiya.
+Jeli ye jamu fɔ ka ɲɛ. A ye masakɛ kɔrɔw tɔgɔ fɔ ani mɔgɔw ye a lamɛn. O kɔ, mɔgɔw ye wari di a ma.
+Kɔɲɔmuso donna so kɔnɔ wula fɛ. A somɔgɔw ye a bila sira ka na. Su fɛ, ɲɛnajɛ daminɛna.
+Furu wari ka ca bi. Kamalen dɔw tɛ se ka furu kɛ joona. U bɛ baara kɛ san caman ka wari ɲini fɔlɔ.
+Mama bɛ nsiirin da denw ye su fɛ. Denw bɛ sigi a lamini na ka a lamɛn. Nsiirin bɛɛ bɛ ban ni kalan ye.
+Denbaya ka bon ka tɛmɛ nafolo kan. Ni ko gɛlɛn ye i sɔrɔ, i somɔgɔw de bɛ na fɔlɔ. Wari bɛ ban nka badenya tɛ ban.
+Seli don, mɔgɔw bɛ u ka fini kura don. Denmisɛnw bɛ taa u bɛnkɛw fɛ ka u fo. U bɛ wari dɔɔni sɔrɔ ka na so ni a ye.
+Muso ye a den ta ka taa a ba fɛ. U ye tile fila kɛ yen. O kɔ, u seginna Bamakɔ.
+Bana ye den minɛ su fɛ. A fari tun ka goni kosɛbɛ. Sɔgɔma fɛ, a ba taara ni a ye lopitali la.
+Dɔgɔtɔrɔ ye den lajɛ ka a fɔ ko sumaya de don. A ye sɛbɛn di muso ma ka a ci farimasi la. Fura sɔngɔ tun ka gɛlɛn nka a ye a san.
+Sumaya bɛ bɔ soso la. O de kosɔn, an ka kan ka sosow gɛn so kɔnɔ. Denw de bɛ minɛ ka tɛmɛ mɔgɔkɔrɔbaw kan.
+N kun bɛ n dimi kabini kunun. N ma se ka baara kɛ bi. N bɛna taa dɔgɔtɔrɔ fɛ ni a ma ban.
+Kɛnɛya ye nafolo ye. Mɔgɔ min ka kɛnɛ, o bɛ se ka baara kɛ ani ka a somɔgɔw balo. Nin de kosɔn an ka kan ka an yɛrɛ kɔlɔsi.
+Lopitali ka jan an ka dugu la. Ni mɔgɔ banana su fɛ, a ka gɛlɛn ka taa yen. Dugutigi ye a fɔ ko dɔgɔtɔrɔso ka kan ka sigi yan.
+Fura man di den ye. A ba ye a kɛ nɔnɔ la ka a di a ma. Den ye a min ka ban.
+Ɛnfirimiye bɛ na dugu la dɔgɔkun o dɔgɔkun. A bɛ denw kɔlɔsi ani a bɛ fura di u ma. Musow bɛ makɔnɔ kɛnɛ kan ni u denw ye.
+Kɔngɔ ni bana bɛ taa ɲɔgɔn fɛ. Ni dumuni ma ɲɛ, kɛnɛya fana tɛ ɲɛ. Nin ye tiɲɛ ye dugu bɛɛ la.
+A kɛnɛyara sɔɔni. Tile duuru kɔ, a wulila ka bɔ. A ko ko a bɛna segin baara la sini.
+Denmisɛnw bɛ ntolatan kɛ kɛnɛ kan wula fɛ. U bɛ tulon kɛ fo su ka se. U ba bɛ u wele ka u lasegin so.
+Djoliba ni Stade Malien kunbɛnna kunun. Mɔgɔ caman taara ka a filɛ. An dɔw ye a filɛ telewisɔn na so kɔnɔ.
+Ntolatan ka di Malidenw bɛɛ ye. Ni an ka jɛkulu bɛ tulon kɛ, sira bɛ lakolon. Mɔgɔ bɛɛ bɛ radiyo walima telewisɔn kɔrɔ.
+Jeli bɛ ngoni fɔ ani a bɛ dɔnkili da. A bɛ mɔgɔw jamu fɔ ka u tɔgɔ bonya. Mɔgɔw bɛ wari di a ma ka a fo.
+Kora ye Manden ka fɔlifɛn ye. A mankan ka di kosɛbɛ. Denmisɛnw bɛ a kalan u fa fɛ.
+Radiyo bɛ kuma bamanankan na sɔgɔma fɛ. Kunnafoni bɛ di sanji ni sugu sɔngɔ ko la. Cikɛlaw bɛ a lamɛn ka ban ka taa foro la.
+Bala ni jembe bɛ fɔ ɲɔgɔn fɛ ɲɛnajɛ la. Musow bɛ dɔn kɛ kɛnɛ cɛma. Su bɛ tɛmɛ nka mɔgɔ si tɛ sɛgɛn.
+Dɔnkilidala caman bɛ bɔ Wasulu. U ka dɔnkiliw bɛ kuma sɛnɛ ni furu ni denbaya ko la. Mɔgɔw bɛ u lamɛn Mali bɛɛ kɔnɔ.
+Nsiirin bɛ fɔ su fɛ dɔrɔn. Cɛkɔrɔbaw ko ko a man ɲi ka a fɔ tile fɛ. Denw bɛ makɔnɔ fo su ka se.
+Tulon banna wula fɛ. Denw seginna so ni sɛgɛn ye. U ye ji min ka sunɔgɔ joona.
+An ye Mali ni Senegali ntolatan filɛ. An ka jɛkulu ye se sɔrɔ ani mɔgɔw ye ɲɛnajɛ kɛ sira kan. Mankan ma ban fo dugu ka jɛ.
+Telewisɔn bɛ so kɔnɔ nka a man teli ka baara kɛ. Kuran bɛ taa tuma caman na. O de kosɔn, an bɛ radiyo lamɛn kosɛbɛ.
+Baara bɛ daminɛ sɔgɔma fɛ Bamakɔ la. Mɔgɔw bɛ bɔ u ka so ka taa ni bisi walima nɛgɛso ye. Sira bɛ fa ni mɔgɔw ye fo tile ka bɔ.
+Cɛ bɛ baara kɛ banki la. A ka baara ka gɛlɛn nka a sara ka ɲi. A bɛ segin so wula fɛ ni sɛgɛn ye.
+Gomina ye a fɔ ko a bɛna sira dilan. Dugudenw ye a lamɛn nka u ma la a la. U ko ko u bɛna a ye don min na.
+Dugutigi ye jama wele kɛnɛ kan. A ye ko caman fɔ ani mɔgɔ bɛɛ ye u hakilina fɔ. O kɔ, u bɛnna kuma kelen kan.
+Sanu bɛ bɔ Mali dugukolo kɔnɔ. Kɔɔri ni baganw fana ye an ka nafolo ye. Nka mɔgɔ caman tɛ nafa sɔrɔ o la.
+Mali ka hɔrɔnya sɔrɔla san 1960. O kɔ, jamana ye ko caman ye. Bi, mɔgɔw bɛ baara kɛ ka jamana ɲɛtaa ɲini.
+Bamakɔ ye faaba ye. Mɔgɔ waa caman bɛ yen ani sira bɛ fa don o don. Sugu, banki ani lakɔli bɛɛ bɛ yen.
+Pɔlisiw bɛ sira da la. U bɛ mɔbiliw jɔ ka sɛbɛnw ɲininka. Ni fɛn bɛɛ ka ɲi, i bɛ tɛmɛ.
+Baarakɛlaw ye u ka baara ban wula fɛ. U ye ɲɔgɔn fo ka taa u ka sow la. Sini, u bɛna segin joona.
+Minisiri nana dugu la kunun. Jama ye a kunbɛn ani jeliw ye dɔnkili da. A ko ko lakɔli bɛna sigi yan ɲinan.
+Baara ye mɔgɔ ka danbe ye. Mɔgɔ min bɛ baara kɛ, o tɛ mɔgɔ si makɔnɔ. Nin de kosɔn an bɛ an denw kalan baara la.
+Jago bɛ kɛ Bamakɔ sugu la don o don. Musow bɛ bɔ dugu wɛrɛw la ni u ka fɛnw ye. Wula fɛ, u bɛ segin ni wari ye.
+An ka jamana ka bon nka sira ka dɔgɔ. Mara dɔw ka jan kosɛbɛ faaba la. Gomina ko ko a bɛna o ko ɲɛnabɔ.
+Kuntigi ye a fɔ ko baara bɛna daminɛ sɔɔni. Baarakɛlaw nisɔndiyara. U ye u ka minɛnw labɛn.
+Su kɔnɔ, mankan tɛ dugu la. Wuluw dɔrɔn de bɛ kuma. Kalo bɛ yeelen di sira ma.
+Cɛkɔrɔbaw bɛ sigi tasuma lamini na su fɛ. U bɛ kuma kɔrɔw fɔ denmisɛnw ye. Denw bɛ u lamɛn fo sunɔgɔ bɛ u minɛ.
+Dugu jɛra ka ɲɛ. Sisɛw bɛ kasi ani musow bɛ wuli ka tasuma mɛnɛ. Tile bɔra tuma min na, baara daminɛna.
+An ka dugu ka dɔgɔ nka a ka ɲi. Mɔgɔ bɛɛ bɛ ɲɔgɔn dɔn ani mɔgɔ bɛɛ bɛ ɲɔgɔn dɛmɛ. Kɛlɛ tɛ yan.
+Kɔlɔn bɛ dugu cɛma. Musow bɛ ɲɔgɔn kunbɛn yen sɔgɔma fɛ. Kuma caman bɛ fɔ kɔlɔn da la.
+Dunan nana dugu la su fɛ. Dugutigi ye a wele a ka so. A ye dumuni di a ma ani a ye dilan labɛn a ye.
+Mɔgɔ min bɛ dugu kɔlɔsi su fɛ, o tɛ sunɔgɔ. A bɛ taama kɛnɛw kan fo dugu ka jɛ. Sɔgɔma fɛ, a bɛ taa sunɔgɔ.
+Denmisɛnw bɛ tulon kɛ kalo yeelen na. U bɛ boli ani u bɛ dɔnkili da. U ba bɛ u wele siɲɛ caman.
+Sigiɲɔgɔn ye n dɛmɛ kunun. Ji tun donna n ka so kɔnɔ sanji kosɔn. A nana ni a ka minɛnw ye ka n dɛmɛ.
+Bagan caman bɛ dugu kɔfɛ. Denmisɛnw bɛ u gɛn ka taa ji la sɔgɔma fɛ. Wula fɛ, u bɛ segin ni u ye.
+Hɛrɛ bɛ an ka dugu kɔnɔ. Mɔgɔw bɛ ɲɔgɔn fo don o don ani u bɛ ɲɔgɔn dɛmɛ baara la. Nin de ye an ka nafolo ye.
+Tasuma bɛ mɛnɛ kɛnɛ kan su fɛ. Mɔgɔw bɛ sigi a lamini na ka ataya min. Su bɛ tɛmɛ ni kuma ye.
+Mɔgɔ bɛɛ bɛ segin a ka so su fɛ. Da bɛ tugu ani tasuma bɛ faga. Dugu bɛ sunɔgɔ fo sɔgɔma.
+Telefɔni bɛ n bolo nka kuran tɛ an ka dugu la. N bɛ taa duguba la dɔgɔkun o dɔgɔkun. Yen, n bɛ n somɔgɔw wele.
+N ye a mɛn ko sugu bɛna da tugu sini. N teri de ye a fɔ n ye. O de kosɔn, an ye an ka fɛnw san bi.
+Muso min bɛ sigi n kɛrɛ fɛ, o ye karamɔgɔ ye. A bɛ baara kɛ lakɔli la kabini san tan. Denw bɛɛ bɛ a bonya.
+Wari, o tɛ n bolo sisan. Nka baara bɛ yen ani jigi bɛ n na. Ni n ye baara kɛ, n bɛna a sɔrɔ.
+Kuma ka nɔgɔ nka kɛwale de ka gɛlɛn. Mɔgɔ min bɛ kuma caman fɔ, o tɛ baara caman kɛ. Cɛkɔrɔbaw de ye nin fɔ an ye.

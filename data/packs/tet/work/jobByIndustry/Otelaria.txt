@@ -1,0 +1,13 @@
+---
+description: Hospitality jobs. The sector's shape was set by an arrival rather than by a market: from 1999 the UN administration and the organisations that followed put several thousand well-paid foreigners into a city with almost no hotels, and the hotels, restaurants and guesthouses that went up were built for them. The result is a hospitality industry priced and staffed for an international clientele and concentrated almost wholly in Dili, with Gia turizmu a genuine but small occupation serving divers on the Atauro reefs and walkers on Ramelau. Lava bikan, the dishwasher, is the one native phrase in a Portuguese list: bikan is the plate, an Austronesian word that no loan displaced, and lava is to wash. Xefe kuziña is the chef, kuziña being cozinha with nh written ñ, and it sits directly above Kuziñeiru, the cook, in the same borrowed pair the Portuguese kitchen uses.
+locale: tet
+---
+Xefe kuziña
+Kuziñeiru
+Jerente otél
+Resesionista otél
+Barman
+Barista
+Garsón
+Lava bikan
+Gia turizmu

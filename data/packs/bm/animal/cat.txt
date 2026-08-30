@@ -1,0 +1,22 @@
+---
+description: Cat breeds, and the honest answer is that Mali has almost no pedigree cats. Jakuma is the Bambara word and it opens the list because the cat in a Malian compound is an unregistered one that lives on rats and gets no papers. The breed names that follow are French and circulate through veterinary practices, expatriate households and imported pet food, not through breeders. Bambara has no grammatical gender anywhere in it, so jakuma covers tom and queen alike, and a config that expects a masculine and a feminine form of an animal name will find nothing here to fill them.
+locale: bm
+---
+jakuma
+chat persan
+chat siamois
+maine coon
+british shorthair
+bleu russe
+bengal
+sphynx
+abyssin
+ragdoll
+norvégien
+scottish fold
+sacré de Birmanie
+angora turc
+chartreux
+devon rex
+mau égyptien
+européen à poil court

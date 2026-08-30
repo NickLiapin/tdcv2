@@ -1,0 +1,16 @@
+---
+description: Month names, lower case, as Uzbek writes them. THEY ARE RUSSIAN-DERIVED, not Turkish: январ, феврал, март, апрел, not Ocak or Subat. They arrived in the Soviet period and were not replaced after 1991. In a date the day takes a hyphen before the month — 5-март — because the day number is an ordinal and the hyphen is how Uzbek attaches an ordinal suffix to a numeral.
+locale: uz
+---
+январ
+феврал
+март
+апрел
+май
+июн
+июл
+август
+сентябр
+октябр
+ноябр
+декабр

@@ -1,0 +1,36 @@
+---
+description: Adverbs, and Tetum makes them in a way Portuguese does not. There is no suffix answering to -mente: an adjective simply stands in adverbial position unchanged, so lalais is both fast and quickly and neineik is both slow and slowly, and the twenty-two-letter rapidamente of the Portuguese list has no Tetum counterpart at all. Where a manner needs spelling out, Tetum builds it with ho, meaning with, plus a noun — ho kuidadu is with care, ho aten-brani is with courage from aten the liver and brani brave, and ho ksolok is with joy. A few high-frequency items are native single words that repay learning because they turn up in every second sentence: deit, only or just, placed after what it limits; beibeik, often; dala ruma, sometimes; liuliu, especially; karik, perhaps; and sei, which marks both still and the future depending on where it sits.
+locale: tet
+---
+lalais
+neineik
+ho kuidadu
+fasil
+nonook
+barullu
+sempre
+nunka
+beibeik
+dala ruma
+raru
+derepente
+mamar
+klaru
+simples
+kuaze
+tomak
+deit
+liuliu
+loos duni
+kle'an
+luan
+livre
+ho aten-brani
+metin
+ho ksolok
+ho laran-di'ak
+lakleur
+tardi
+sedu
+karik
+sei

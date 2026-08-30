@@ -1,0 +1,15 @@
+---
+description: How a Malian is engaged to work. `Baara banbali` is work without an end, from `ban` to finish plus the negative -bali, and it is the contrat à durée indéterminée; `Baara waati dantigɛlen` is work whose time has been cut, the fixed-term one. `Don o don baara` — day after day work — is day labour, and `Sɛnɛwaati baara` is the farming season, which together account for far more Malian working life than the contracts above them. `A yɛrɛ ka baara`, his own work, covers the informal self-employment that is most of the urban economy. Three values stay French: `Stage`, `Fonctionnaire` and `Contractuel de l'État` name statuses defined by the Code du travail and the civil-service statute, and a Malian says them in French precisely because they are legal categories with entitlements attached rather than descriptions of an activity.
+locale: bm
+---
+Baara banbali
+Baara waati dantigɛlen
+Kɔrɔbɔli waati
+Waati dɔɔni baara
+Kalanden baara
+Don o don baara
+Sɛnɛwaati baara
+A yɛrɛ ka baara
+Stage
+Fonctionnaire
+Contractuel de l'État

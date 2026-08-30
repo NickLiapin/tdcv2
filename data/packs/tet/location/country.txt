@@ -1,0 +1,237 @@
+---
+description: Country names in Tetum. Read the endings first: Portuguese -ão becomes -aun without exception, which is why the list is full of Afeganistaun, Japaun, Butaun, Gabaun, Sudaun, Azerbaijaun, Kamaroens and Salomaun where Portuguese writes Afeganistão, Japão and the rest. Ilha becomes illa by the lh-to-ll rule, so every island group here opens with Illa. The Portuguese c splits by the vowel that follows it — Colômbia to Kolómbia and Croácia to Kroásia with k, Cidade to Sidade with s — and ch goes to x, giving Xade, Xékia, Xile, Xina and Xipre in a run. The most important difference is not a sound change at all: Tetum joins the halves of a compound name with no, its own word for and, so Antígua no Barbuda and Bósnia no Herzegovina carry no Portuguese e. Five entries carry more weight in a Timorese record than their size suggests. Indonézia is the only land neighbour, and the border runs twice — once down the island and once around Oecusse, which is a Timorese exclave sitting inside Indonesian West Timor and reachable from Dili only by sea or by transiting Indonesian territory. Portugál is the former coloniser and the source of the other official language. Austrália is the largest aid donor, the nearest big economy and the destination of the seasonal-worker scheme that sends money home. Xina is the largest infrastructure creditor. Kuba has run a medical brigade and a scholarship programme here for two decades, and a large share of Timorese doctors trained in Havana. Timór-Leste is on the list under its Portuguese-derived name; in Tetum the country calls itself Timór Lorosa'e, Timor of the rising sun, from loro sun and sa'e to rise.
+locale: tet
+---
+Afeganistaun
+Albánia
+Alemaña
+Andorra
+Angola
+Anguila
+Antártida
+Antígua no Barbuda
+Arábia Saudita
+Aljéria
+Arjentina
+Arménia
+Aruba
+Austrália
+Áustria
+Azerbaijaun
+Bahamas
+Bangladexe
+Barbadus
+Barein
+Béljika
+Belize
+Benin
+Bermudas
+Bielorrúsia
+Bolívia
+Bósnia no Herzegovina
+Botsuana
+Brazíl
+Brunei
+Bulgária
+Burkina Faso
+Burundi
+Butaun
+Kabu Verde
+Kamboja
+Kamaroens
+Kanadá
+Katar
+Xade
+Xékia
+Xile
+Xina
+Xipre
+Sidade Vatikanu
+Kolómbia
+Komoros
+Koreia Norte
+Koreia Súl
+Kosta Marfín
+Kosta Rika
+Kroásia
+Kuba
+Kurasau
+Dinamarka
+Dominika
+Ekuadór
+Ejitu
+El Salvador
+Emiradu Árabe Unidu
+Eritreia
+Eslovákia
+Eslovénia
+España
+Estadu Unidu
+Estónia
+Essuatíni
+Etiópia
+Filipinas
+Finlándia
+Fiji
+Fransa
+Gabaun
+Gámbia
+Jeórjia
+Gana
+Jibraltár
+Granada
+Grésia
+Gronelándia
+Guadalupe
+Guam
+Guatemala
+Guiana Franseza
+Giné
+Giné-Bisau
+Giné Ekuatoriál
+Guiana
+Haiti
+Honduras
+Hong Kong
+Hungria
+Índia
+Indonézia
+Iraki
+Iraun
+Irlanda
+Illa Natál
+Islándia
+Illa Kaimaun
+Illa Kokus
+Illa Kook
+Illa Faroé
+Illa Malvinas
+Illa Mariana Norte
+Illa Marshall
+Illa Pitcairn
+Illa Salomaun
+Illa Turkas no Kaikus
+Illa Virjen Britániku
+Illa Virjen Amerikanu
+Israél
+Itália
+Jamaika
+Japaun
+Jordánia
+Kazakistaun
+Kénia
+Kirgistaun
+Kiribati
+Kosovu
+Kuweit
+Laos
+Lezotu
+Letónia
+Líbanu
+Libéria
+Líbia
+Liechtenstein
+Lituánia
+Luksemburgu
+Makau
+Masedónia Norte
+Madagaskár
+Malázia
+Maláui
+Maldivas
+Mali
+Malta
+Marokus
+Martinika
+Maurísia
+Mauritánia
+Mayotte
+Méxiku
+Mikronézia
+Moldávia
+Mónaku
+Mongólia
+Montenegru
+Montserrat
+Mosambike
+Mianmar
+Namíbia
+Nauru
+Nepál
+Nikarágua
+Nijer
+Nijéria
+Niue
+Noruega
+Nova Kaledónia
+Nova Zelándia
+Omán
+Olanda
+Paquistaun
+Palau
+Palestina
+Panamá
+Papua-Nova Giné
+Paraguai
+Peru
+Polinézia Franseza
+Polónia
+Portugál
+Portu Riku
+Reinu Unidu
+Repúblika Sentru-Afrikana
+Repúblika Kongu
+Repúblika Demokrátika Kongu
+Repúblika Dominikana
+Reuniaun
+Ruanda
+Roménia
+Rúsia
+Sahara Osidentál
+Samoa
+Samoa Amerikanu
+Saun Kristovaun no Neves
+Saun Marinu
+Saun Visente no Granadinas
+Santa Lúsia
+Saun Tomé no Prínsipe
+Senegál
+Sérvia
+Seixeles
+Serra Leoa
+Singapura
+Síria
+Somália
+Sri Lanka
+Áfrika Súl
+Sudaun
+Sudaun Súl
+Suésia
+Suisa
+Suriname
+Tailándia
+Taiwan
+Tanzánia
+Tajikistaun
+Territóriu Austrál Fransés
+Timór-Leste
+Togo
+Tokelau
+Tonga
+Trindade no Tobago
+Tunízia
+Turkmenistaun
+Turkia
+Tuvalu
+Ukránia
+Uganda
+Uruguai
+Uzbekistaun
+Vanuatu
+Venezuela
+Vietname
+Wallis no Futuna
+Iémen
+Djibuti
+Zámbia
+Zimbabue

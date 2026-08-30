@@ -1,0 +1,16 @@
+---
+description: Timorese full female name - two given names then two family names (Maria Filomena Soares Ximenes). The double given name is the norm rather than a flourish: the first is usually the everyday name and the second the baptismal saint, so Maria and Ana recur constantly in second position. The two surnames are not a maternal-plus-paternal pair in the Portuguese manner but simply the names the family carries, and one of the two is often from a Timorese language rather than Portuguese. The surname address is the shared person.lastName list because Tetum family names do not inflect for gender.
+generator: tdc
+locale: tet
+---
+<sequence name="p">
+  <distinct>
+    <gen name="f1" type="template" value="tet.person.female.firstName"/>
+    <gen name="f2" type="template" value="tet.person.female.firstName"/>
+  </distinct>
+  <distinct>
+    <gen name="l1" type="template" value="tet.person.lastName"/>
+    <gen name="l2" type="template" value="tet.person.lastName"/>
+  </distinct>
+</sequence>
+<data>${{p.f1}} ${{p.f2}} ${{p.l1}} ${{p.l2}}</data>

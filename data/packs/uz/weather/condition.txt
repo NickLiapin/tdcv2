@@ -1,0 +1,20 @@
+---
+description: Weather conditions. Жазирама — the scorching heat — is the one that defines an Uzbek summer, and қаттиқ совуқ the continental winter at the other end. Сепалак is a light drizzle and жала a downpour; қор бўрони is a blizzard.
+locale: uz
+---
+қуёшли
+очиқ
+булутли
+ярим булутли
+ёмғирли
+сепалак
+жала
+момақалдироқ
+қорли
+қор бўрони
+дўл
+туманли
+шудрингли
+шамолли
+жазирама
+қаттиқ совуқ

@@ -1,0 +1,16 @@
+---
+description: Shoe size on the EU Paris-point scale, which is what is used here as in the rest of the Netherlands. The range sits high because the people do: the Netherlands measures as the tallest country on earth and the northern provinces, Fryslân among them, measure above even the Dutch average, so real feet in this locale cluster at the top of a European list rather than in the middle of it. The list itself is unweighted and so does not encode that skew - weight it in the config if it matters. The Frisian name for the thing being measured shows one of the language's oldest habits: one shoe is a skoech and two of them are skuon, the vowel changing outright between singular and plural rather than an ending being added, the same alternation that turns foet into fuotten and beam into beammen. Frisian calls it brekking, breaking, and it is why a Frisian plural often cannot be derived from the singular by rule - which also means the gloves two rows away in this folder are hânskuon and not hânskoechen.
+locale: fy
+---
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47

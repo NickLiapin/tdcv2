@@ -1,0 +1,14 @@
+---
+description: Uyghur dishes. Лағмон is the hand-pulled noodle dish that has become fully Uzbek, and the Uyghur version ғуйро лағмон keeps the sauce separate. Ғўш нан is meat bread; кавап is the Uyghur form of the word Uzbek writes кабоб. Three values here carry ғ or ў.
+locale: uz
+---
+лағмон
+ғуйро лағмон
+суюқ ош
+полу
+кавап
+самса
+манту
+тунур кавап
+ғўш нан
+чучура

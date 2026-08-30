@@ -1,0 +1,34 @@
+---
+description: Hotel amenity in Eswatini. Ijenaretha, the generator, is advertised for the same reason it is across the region — the power supply is not always steady and a lodge that guarantees it is selling something real. Indzawo yekwosela inyama, the braai area, is a standard fitting rather than a luxury: cooking meat over an open fire is what a Swazi family does at a gathering, and a guesthouse without a place to do it is missing a facility rather than a flourish. Kutfutfwa kusuka enkhundleni yetindiza matters because King Mswati III International at Sikhuphe is an hour and a half from the Ezulwini hotels with no public transport of any kind between them, so the transfer is part of the booking rather than an extra.
+locale: ss
+---
+Wi-Fi yamahhala
+Umshini wemoya lomandzi
+Emanti lashisako
+Ijenaretha
+Ilifti
+Sikhala sekupaka
+Kudla kwasekuseni
+Indlu yekudlela
+Ibha
+Lusito lwasekamelweni
+Kuwashelwa timphahla
+Isefu ekamelweni
+Ithelevishini yesathelayithi
+Igymu
+Umbhukusho
+Isipha
+Likamelo lemihlangano
+Lihholo lemshado
+Indzawo yekwosela inyama
+Sivandze
+Indzawo yekudlala yebantfwana
+Likamelo lemndeni
+Kutfutfwa kusuka enkhundleni yetindiza
+Ithekisi
+Umkhombisi wetivakashi
+Tekuphepha
+Ikhamera yekuphepha
+Lihhovisi lekwemukela tivakashi lelivulwe malanga onkhe
+Kufinyelela kwalabakhubatekile
+Tinja letivunyelwe

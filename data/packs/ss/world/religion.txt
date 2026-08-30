@@ -1,0 +1,25 @@
+---
+description: Religion and denomination in Eswatini. The class 14 prefix bu- names a religion as an abstract quality — buKhristu, buSulumane, buHindu — which is the same prefix that gives buhle, beauty, and buchwepheshe, technology. Two entries need the country's own context. BaZayoni, the Zionist churches, are together the largest religious grouping in Eswatini by a considerable margin: independent African churches founded from the early twentieth century, worshipping outdoors in white or blue robes, drumming and dancing, and combining Christian scripture with practices continuous with what came before. Inkholo yemadloti, the veneration of the ancestors, is not an alternative to Christianity for most Swazi people but a parallel obligation held alongside it, and the royal ritual year at Incwala is conducted on exactly that basis.
+locale: ss
+---
+BuKhristu
+BaZayoni
+Emabandla ekutimela
+BuKhatholika
+BuAngilikhani
+BuMethodisti
+BuLuthela
+BuBhaphtizi
+BuPhentekoste
+BuNazaretha
+BuAdventisti
+BoFakazi baJehova
+BuMormoni
+Inkholo yemadloti
+BuSulumane
+BuJuda
+BuHindu
+BuBhuda
+BuBahai
+BuSikh
+Kungakholwa

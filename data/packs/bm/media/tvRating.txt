@@ -1,0 +1,13 @@
+---
+description: Content ratings as they appear on Malian screens, which are the French CSA categories arriving with Canal+ and TV5 rather than a Malian classification system — the country has a Haute Autorité de la Communication that licenses broadcasters, but the little white numbers in the corner of the picture are French. In practice the ratings do very little work: television is watched communally, often outdoors in a courtyard with the whole compound including small children present, so the notion of an audience that can be filtered by age at the set is not one Malian viewing habits support.
+locale: bm
+---
+Tout public
+-10
+-12
+-16
+-18
+Accord parental
+Déconseillé aux enfants
+Public averti
+Interdit aux mineurs

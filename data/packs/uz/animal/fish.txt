@@ -1,0 +1,29 @@
+---
+description: Fish of Uzbekistan's rivers, canals and reservoirs, followed by the sea fish that arrive frozen. Лаққа catfish, сазан carp and чўртан pike come out of the Amudaryo and Sirdaryo systems; осетр and бакра are the sturgeons the Aral once supplied. A landlocked country still has a full fish vocabulary, which is what this file records.
+locale: uz
+---
+лаққа
+зоғора балиқ
+сазан
+карп
+оқ амур
+қорабалиқ
+илонбош
+маринка
+оқ балиқ
+шўрбалиқ
+зоғора
+чўртан
+судак
+кумушбалиқ
+осетр
+бакра
+форел
+лосос
+селд
+тулка
+скумбрия
+тунес
+треска
+камбала
+акула

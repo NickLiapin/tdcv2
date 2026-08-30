@@ -1,0 +1,27 @@
+---
+description: Interior designators in a Malian address. Most of this list stays French, and that is the correct answer rather than an omission: Bamako's addressing system IS French, the standard form is Porte NNN, Rue NNN followed by the quarter, and those two words are painted in figures on the compound wall with no street name between them and no postcode anywhere in Mali. A Malian giving directions in Bambara says `porte` and `rue` in the middle of the sentence. The four Bambara values are the parts of a dwelling that predate the system: `Da` is a door or a mouth, and it is what the painted number is actually numbering; `Bulon` is the roofed entrance vestibule where a visitor is received; `Lu` is the courtyard; `So` a room or a house. Naming somebody's bulon is an ordinary way to say which household inside a large compound you mean.
+locale: bm
+---
+Porte
+Rue
+Da
+Bulon
+Lu
+So
+Immeuble
+Bâtiment
+Étage
+Rez-de-chaussée
+Appartement
+Appt
+Villa
+Lot
+Parcelle
+Concession
+Boîte postale
+BP
+Bureau
+Local
+Magasin
+Escalier
+Chambre

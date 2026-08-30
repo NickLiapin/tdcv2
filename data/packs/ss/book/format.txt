@@ -1,0 +1,12 @@
+---
+description: Book format in siSwati. Incwadzi is the head word and its range is worth knowing: it means a book, a letter and a document all at once, so incwadzi yesikhulu, elsewhere in this pack, is a chief's letter and not a chief's book, and context does all the work. The class 9 noun takes tincwadzi in the plural. Two formats matter more here than a European list would suggest: incwadzi lelalelwako, the audiobook, because listening does not require the literacy that reading does, and incwadzi yesikolo, the school book, because the textbook is for a great many Swazi households the only book in the house, and the government's free primary school book scheme is what put it there.
+locale: ss
+---
+Incwadzi lenekhava lelukhuni
+Incwadzi lenekhava letsambile
+Incwadzi ye-elekthroniki
+Incwadzi lelalelwako
+Incwadzi yebantfwana
+Incwadzi lenkhulu yetitfombe
+Incwadzi yesikolo
+Iphephabhuku

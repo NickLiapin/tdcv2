@@ -1,0 +1,20 @@
+---
+description: Grade labels for a role. The whole ladder is imported and the top of it is thin in practice: the private sector in Timor-Leste is small, so Distintu and Prinsipál are aspirational catalogue values rather than titles many people hold, while the largest employer in the country runs a different ladder altogether. In the civil service the sequence is Diretór-Jerál, then Diretór Nasionál, then Xefe Departamentu, then Xefe Seksaun, a Portuguese administrative structure inherited with the legal system and named in Portuguese on every organic statute. Xefe is the word to watch: it is Portuguese chefe, and it is the same Xefe that heads Xefe Suku and Xefe Aldeia, the elected village and hamlet offices, so one word runs from the bottom of the customary order to the top of a company org chart. Jerente is gerente. Nothing on this list inflects for the person holding it — Tetum does not mark gender, so Diretór is what a woman is called too, and Diretora does not appear.
+locale: tet
+---
+Estajiáriu
+Aprendís
+Júnior
+Asosiadu
+Plenu
+Sénior
+Lider
+Espesialista
+Prinsipál
+Distintu
+Jerente
+Jerente sénior
+Diretór
+Vise-prezidente
+Xefe
+Diretór-jerál

@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of North African descent, in West Frisian. A prevalence signal, not an exclusive one. Famyljêre is the adjective built on famylje, family, and its circumflex marks the ending Frisian gives to every Dutch -air and -eer of this shape: populêr, militêr, nukleêr. Xeroderma pigmentosum keeps its Latin intact because Frisian, like Dutch, leaves a binomial of that kind alone, while the two ordinary words on the list are Frisian through and through — koarts for a fever and brek for a shortage.
+locale: fy
+---
+Glukoaze-6-fosfaatdehydrogenasebrek
+Bèta-talassemy minor
+Famyljêre mediterrane koarts
+Sykte fan Behçet
+Laktoaze-yntolerânsje
+Xeroderma pigmentosum

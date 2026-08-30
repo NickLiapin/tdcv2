@@ -1,0 +1,32 @@
+---
+description: Flowers, and this list is almost entirely Portuguese for a reason worth stating: Tetum names plants that are eaten, burned, built with or slept under, and a decorative flower has usually arrived with the person who planted it in a pot. Ibisku and buganvília are the exceptions that matter — hibiscus and bougainvillea grow along every wall in Dili and are what a Timorese street actually looks like — and ai-kamboja is the frangipani, which came through Malay and stands in cemeteries and outside churches all over the country. Note ibisku: Portuguese hibisco loses its initial h, exactly as hospital gives ospitál and hora gives oras, because Tetum does not write a letter it does not pronounce. Jirasól, from girassol, is the busiest respelling in this pack: g before i is written j, the double s is reduced to one, and the stressed final syllable takes an acute — three rules in six letters. Narciso gives narsizu, açucena gives asusena, crisântemo gives krizántemu, and gerânio gives jerániu on the same g rule as the sunflower.
+locale: tet
+---
+Roza
+Tulipa
+Margarida
+Jirasól
+Líriu
+Orkídea
+Narsizu
+Kaléndula
+Lavanda
+Íris
+Peónia
+Kravu
+Krizántemu
+Papoila
+Violeta
+Jasmin
+Ibisku
+Lótus
+Dália
+Begónia
+Asusena
+Gardénia
+Kamélia
+Petúnia
+Jerániu
+Buganvília
+Ai-kamboja
+Azálea

@@ -1,0 +1,12 @@
+---
+description: Method of extraction, ordered honestly for this province. There has never been a mine in Fryslân in the pit sense, and the entry that matters most here is feangraven, peat digging: the southeast of the province - Opsterlân, Skoatterlân and the Stellingwerven - was cut away layer by layer over three centuries by gangs of migrant labourers paid by the turf and housed in huts on the workings, and what they left behind is the water and reed country of De Alde Feanen and a landscape ruled into straight drainage canals. Oplossingswinning, solution mining, is how salt is actually taken today: water is pumped down to dissolve a salt bed lying more than two kilometres beneath the Waadsee off Harns and the brine is pumped back up, so nobody goes underground at all. Boarwinning is drilling, for gas, and baggerwinning is dredging, for sand. Deibou, open-cast, is literally day-building, on dei, the Frisian for day and the same word as English day where Dutch has dag.
+locale: fy
+---
+Deibou
+Ûndergrûnske winning
+Pilerbou
+Feangraven
+Skachtbou
+Baggerwinning
+Boarwinning
+Oplossingswinning

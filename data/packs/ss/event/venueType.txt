@@ -1,0 +1,20 @@
+---
+description: Venue type in Eswatini, and three of these are not buildings. Sibaya is the royal cattle byre at Lobamba, an open circular kraal where the entire nation may assemble to be addressed by the King and to speak in reply; it is the country's largest and most consequential venue and it has no roof. Sigcawu is the open ground where a community meets or a dance is performed. Umuti, the homestead, is where a wedding and a funeral actually happen — not a hall, but the family's own yard, with a tent pitched in it, which is why litende is on the list as a venue in its own right. Somhlolo National Stadium in Lobamba and the Mavuso Trade Centre at Manzini are the built venues that most events on this list would use.
+locale: ss
+---
+Sibaya
+Sigcawu
+Umuti
+Litende
+Lihholo lemphakatsi
+Lihholo lemshado
+Sikhungu semihlangano
+Indlu yekukhombisa
+Sitediyamu
+Libala lemidlalo
+Lihhotela
+Indlu yekudlela
+Lisontfo
+Sikolo
+Sivandze
+Indzawo yekugidza

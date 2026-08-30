@@ -1,0 +1,42 @@
+---
+description: What a patient actually says to a health worker, and the one medical file in this pack written in Bambara rather than French. The pattern to read is compounding: dimi is pain and it attaches directly to the body part, so kunkolodimi is head pain, kɔnɔdimi belly pain, ɲindimi toothache, tulodimi earache — one word each, with no preposition, because Bambara has none and uses postpositions instead. Several entries are transparent once you split them: farigan, fever, is body-hot; kɔnɔboli, diarrhoea, is belly-running; sunɔgɔbaliya, insomnia, is sleep plus the -baliya suffix that turns a noun into its absence; su wɔsi is night sweat. A health worker hears all of this in Bambara and then writes the diagnosis in French, which is why medical/diagnosis.txt is in the other language — sumaya, the Bambara word for malaria, literally means coolness, and it is what the patient says on this side of that gap.
+locale: bm
+---
+Farigan
+Yɛrɛyɛrɛ
+Kunkolodimi
+Sɔgɔsɔgɔ
+Sɔgɔsɔgɔ jalan
+Kɔnɔboli
+Fɔɔnɔ
+Fɔɔnɔ nege
+Kɔnɔdimi
+Kɔnɔ fununi
+Kɔnɔgan
+Disidimi
+Kandimi
+Ɲindimi
+Tulodimi
+Ɲɛdimi
+Kɔdimi
+Sendimi
+Bolodimi
+Kolodimi
+Fasadimi
+Ninakili gɛlɛya
+Sɛgɛn
+Barika dɔgɔya
+Kunkolo munumunu
+Ɲɛ dibi
+Nunji boli
+Nun datugu
+Tisɔ
+Dusukun tanni teliya
+Dumuni nege banni
+Farikolo dɔgɔya
+Su wɔsi
+Sunɔgɔbaliya
+Hakili ɲagami
+Kan tiɲɛni
+Nun joli bɔli
+Fari fununi

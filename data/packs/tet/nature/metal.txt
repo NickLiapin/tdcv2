@@ -1,0 +1,26 @@
+---
+description: Metals, and the first two entries are the ones a config author could not guess. Gold is osan-mean and silver is osan-mutin — literally red money and white money — because osan is money and the two precious metals are named by colour against it, which tells you they were counted before they were assayed. Both survive beside the Portuguese ouru and prata, and the choice between them is register rather than meaning: a jeweller's shop in Colmera prices ouru, while the discs and ornaments handed over in a barlake exchange are osan-mutin. Iron shows the same doubling from a different direction, with Malay besi beside Portuguese feru. Note asu, steel: Portuguese aço gives it by two ordinary rules, ç written s and unstressed final o written u, and the result is spelled and said exactly like asu, dog. Nothing in the orthography separates them and only the sentence does, which is the kind of collision a generated list will happily produce and a reader will have to resolve. The remainder is routine: chumbo gives xumbu, estanho gives estañu, latão gives lataun, níquel gives níkel, and the -io endings of alumínio, titânio, crómio, mercúrio and magnésio all resolve to -iu.
+locale: tet
+---
+Osan-mean
+Osan-mutin
+Ouru
+Prata
+Platina
+Kobre
+Besi
+Feru
+Alumíniu
+Titániu
+Zinku
+Níkel
+Xumbu
+Estañu
+Bronze
+Lataun
+Asu
+Paládiu
+Kobaltu
+Krómiu
+Merkúriu
+Magnéziu

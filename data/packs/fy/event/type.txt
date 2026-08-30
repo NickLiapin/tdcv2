@@ -1,0 +1,22 @@
+---
+description: Event type (West Frisian). Two of these are provincial institutions rather than generic categories. A merke is the village fair - a weekend of keatsen, a fairground, a tent and a band, held on the same weekend every year by every village that has one - and it is the fixed point of the rural summer, not an occasional event. An iepenloftspul is an open-air play: a village assembles a cast of its own people, builds a set in a field or a farmyard and performs for a fortnight, and dozens of Frisian villages do it every summer, the one at Jorwert being the best known. Neither has an English or Dutch equivalent that carries the same weight, which is why they take the places a Netherlands-wide list gives to a gala and a christening. Jierdei, a birthday, is a year-day; benefytjûn is a benefit evening, on jûn.
+locale: fy
+---
+Konferinsje
+Kongres
+Brulloft
+Konsert
+Festival
+Workshop
+Seminar
+Webinar
+Fakbeurs
+Tentoanstelling
+Benefytjûn
+Netwurkburrel
+Produktlansearring
+Merke
+Jierdei
+Diploma-útrikking
+Iepenloftspul
+Jubileum

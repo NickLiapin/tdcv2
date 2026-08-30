@@ -1,0 +1,22 @@
+---
+description: Surinamese dishes, ordinary Dutch city food since independence in 1975 and, in Fryslân, mostly Ljouwert food - the province is rural and this kitchen arrived with people who settled in towns. The names come from Sranantongo and from Hindustani and are not translated: moksi meti is mixed meat, telo is fried cassava, bara a fried lentil ring, and bakabana is plantain in batter. Where the Dutch original used a Dutch word, this list swaps in the Frisian one - sop for soup, rys for rice, brune beanen for the brown beans, broadsje for the roll, hin for the chicken - and those five words are the only visible difference between this file and its Dutch counterpart. That is the honest answer: the cuisine is a Netherlands-wide import that reached Fryslân through the Netherlands, and a pack that pretended otherwise would be inventing a history the food does not have.
+locale: fy
+---
+Roti hin
+Bara
+Pom
+Broadsje pom
+Moksi meti
+Brune beanen mei rys
+Pindasop
+Saoto sop
+Bakabana
+Telo mei bakkeljauw
+Heri heri
+Petjil
+Nasi mei masala hin
+Fiadu
+Bojo
+Pastei
+Sopropo
+Tjauw min

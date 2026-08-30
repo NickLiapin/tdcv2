@@ -1,0 +1,28 @@
+---
+description: Character class for a game, rendered into siSwati agent nouns — and the exercise shows what the language does and does not have a slot for. Libutfo and umlwi cover the warrior easily, because Eswatini's emabutfo, the age regiments, are a live institution and the vocabulary is current. Umelaphi, the healer, is straightforward. But the fantasy caster splits into two words that are not interchangeable and neither of which is a game term: sangoma is a diviner who is called by the ancestors and works with them, inyanga is a herbalist who works with plants, and umtsakatsi is a sorcerer working for harm — an accusation rather than a profession, and a serious one. A config that treats all three as flavours of "mage" is flattening a distinction that matters a great deal in Eswatini.
+locale: ss
+---
+Libutfo
+Umlwi
+Sotja
+Umvikeli
+Umdubuli
+Umtingeli
+Umgadzi
+Umelaphi
+Sangoma
+Inyanga
+Umlumbi
+Umtsakatsi
+Umbhali
+Umhloli
+Umtsengisi
+Umakhi
+Umshayeli
+Umkhandzi
+Inkhosi
+Umeluleki
+Umgijimi
+Sela
+Umculi
+Umlimi

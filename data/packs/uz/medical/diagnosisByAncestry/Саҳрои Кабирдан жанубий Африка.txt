@@ -1,0 +1,10 @@
+---
+description: Conditions carried more often in sub-Saharan African populations. Ўроқсимон ҳужайрали анемия — sickle cell — heads the list; the trait persists because it protects against malaria. Lactose intolerance is common but not universal, since several African pastoralist populations evolved persistence independently.
+locale: uz
+---
+Ўроқсимон ҳужайрали анемия
+Г6ФД етишмовчилиги
+Алфа талассемия
+Гипертония
+Простата саратони
+Лактоза интолеранси

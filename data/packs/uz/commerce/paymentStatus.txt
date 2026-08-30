@@ -1,0 +1,14 @@
+---
+description: The payment state of an invoice, separate from the order state. Қисман тўланди covers the partial payment that instalment selling produces constantly, and муддати ўтган is the overdue flag. Тўланмаган and тўланди are the two ends a report usually counts.
+locale: uz
+---
+тўланмаган
+кутилмоқда
+тасдиқланмоқда
+тўланди
+қисман тўланди
+кечиктирилган
+муддати ўтган
+қайтарилди
+рад этилди
+бекор қилинди

@@ -1,0 +1,19 @@
+---
+description: Payment method in Eswatini. Two names on this list are the country's own and they matter more than the cards above them: MoMo is MTN Eswatini's mobile money service and e-Mali is Eswatini Mobile's, and between them they carry a very large share of person-to-person transfers and small retail payment in a country where formal bank accounts are far from universal. Sending money to a relative in a rural homestead means a phone rather than a branch. Note the two credit entries at the end: sikweleti sasesitolo, store credit, is the account a rural general dealer keeps in a book for regular customers and settles at month end, an institution older than any card and still running.
+locale: ss
+---
+Imali lephatsekako
+Ikhadi lekukhokha
+Ikhadi lesikweleti
+Ikhadi lesitolo
+MoMo
+e-Mali
+Kutfumela imali ngefoni
+Kutfumela imali ngebhanga
+Isheke
+Umyalelo webhanga
+Kukhokha uma sekufikile
+Sikweleti sasesitolo
+Ivocha
+Kukhokha ngetigaba
+Kukhokha ngeposi

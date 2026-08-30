@@ -1,0 +1,26 @@
+---
+description: Household budget line. Two entries belong to Fryslân rather than to the Netherlands generally. Hier is rent, and it is a trap for anyone reading with Dutch eyes: Dutch hier means here, whereas Frisian for here is hjir and Frisian hier is rent - and, from a separate root, hair. Gemeentlike heffingen bundles the local charges, and in this province that bundle is unusual, because alongside the municipal bill a household receives a yearly demand from Wetterskip Fryslân, an elected water board that taxes every resident and every landowner to hold the water table where it belongs; in a province lying largely below sea level that is not a discretionary service and the bill is not small. Soarchfersekering stands as its own line because Dutch basic health cover is compulsory for every resident yet bought from a private insurer as a monthly premium, so it behaves like a bill and not like a tax. Amounts are in euro, written with a full stop for thousands and a comma for decimals, as in 45.000,50. Two words show the language rather than the money: húsbisten uses bist, the ordinary Frisian for an animal where Dutch says dier, and klean is the Frisian plural for clothes, the direct cognate of English clothes against Dutch kleding.
+locale: fy
+---
+Hier
+Hypoteek
+Boadskippen
+Enerzjy en wetter
+Ferfier
+Útgean
+Soarch
+Soarchfersekering
+Fersekeringen
+Restaurants
+Sparje
+Abonneminten
+Fakânsje
+Ûnderwiis
+Klean
+Kado's
+Berne-opfang
+Ôflossing skulden
+Húsbisten
+Telefoan en ynternet
+Belestingen
+Gemeentlike heffingen

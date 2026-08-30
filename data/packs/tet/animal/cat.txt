@@ -1,0 +1,22 @@
+---
+description: Cat breeds. The animal is busa, a native word, but pedigree cats are not a Timorese institution and every name on this list is imported through Portuguese, so the file is best read as a specimen of how the language absorbs a technical vocabulary it has no stake in. Two entries were built rather than borrowed: britániku fulun badak and amerikanu fulun badak render the shorthairs with fulun, which is fur and feather alike, and badak, short, in the ordinary noun-then-modifier order — Tetum has no compound-noun machinery like English and states the property after the thing. Noruegés ai-laran is the Norwegian forest cat, and ai-laran is literally inside-the-trees, the standard word for forest. Azúl rusu is the Russian blue and needs azúl because Tetum has no native basic term for blue at all. The rest are respelled by rule: abissínio loses a double s and its final o to give abisíniu, siamês and burmês take the acute of a stressed final syllable, and Birmânia keeps its circumflex as an acute in sagradu Birmánia.
+locale: tet
+---
+Persa
+Maine Coon
+Siamés
+Ragdoll
+Bengal
+Sphynx
+Britániku fulun badak
+Abisíniu
+Scottish Fold
+Noruegés ai-laran
+Azúl rusu
+Sagradu Birmánia
+Amerikanu fulun badak
+Devon Rex
+Burmés
+Angorá turku
+Somali
+Manx

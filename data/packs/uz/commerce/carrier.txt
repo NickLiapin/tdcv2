@@ -1,0 +1,24 @@
+---
+description: Delivery companies and the generic Uzbek terms for them. The international couriers keep their Latin trademarks — a Cyrillic pack does not repaint a logo. Everything after Cainiao is an ordinary Uzbek noun phrase: почта хизмати, курьер хизмати, шаҳар ичи курьери. Курьер needs a soft sign in Cyrillic, which Latin cannot show, so it is written kuryer there.
+locale: uz
+---
+DHL
+FedEx
+UPS
+TNT
+EMS
+DPD
+GLS
+Aramex
+SF Express
+Cainiao
+почта хизмати
+курьер хизмати
+тезкор етказиб бериш
+шаҳар ичи курьери
+юк ташиш компанияси
+автомобил ташувчи
+темирйўл ташувчи
+ҳаво юк ташувчи
+экспедиторлик компанияси
+ўз курьеримиз

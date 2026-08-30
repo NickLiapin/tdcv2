@@ -1,0 +1,14 @@
+---
+description: Psychiatric diagnoses in Tetum. Perturbasaun, from Portuguese perturbação by the same -ção to -saun rule that runs through the whole pack, carries almost the entire category, and the fact that this vocabulary is borrowed rather than native says something in itself: there was for a long time no psychiatric service here to name these things in Tetum with. The country came out of a twenty-four-year occupation and the destruction of 1999 with a population carrying very high rates of trauma exposure, and for years afterwards it had a handful of psychiatrists at most for more than a million people, with almost all care delivered by mental health nurses working out of community health centres rather than in a hospital. Intoksikasaun tua sabu is filed here rather than under general poisoning because tua sabu, the spirit distilled from the sap of the akadiru lontar palm, is drunk everywhere, is made and sold entirely outside regulation, and turns lethal when a batch carries methanol. Dependénsia tabaku belongs near the top of any Timorese list: adult male smoking prevalence in this country is among the highest ever measured anywhere.
+locale: tet
+---
+Depresaun maiór
+Perturbasaun ansiedade jeneralizada
+Perturbasaun stress pós-traumátiku
+Eskizofrenia
+Psikoze akuda
+Perturbasaun bipolár
+Dependénsia alkól
+Intoksikasaun tua sabu
+Dependénsia tabaku
+Insónia

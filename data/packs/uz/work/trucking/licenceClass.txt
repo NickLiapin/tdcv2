@@ -1,0 +1,11 @@
+---
+description: Driving licence categories. They are printed as Latin letters on an Uzbek licence — A, B, C, D, E and the trailer combinations BE and CE — so this file is identical in both scripts. The scheme follows the Vienna Convention, which Uzbekistan is party to.
+locale: uz
+---
+A
+B
+C
+D
+E
+BE
+CE

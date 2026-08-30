@@ -1,0 +1,16 @@
+---
+description: Listing states. Ba fa'an and Ba aluga open the list — for sale and to let, built with ba, the all-purpose Tetum preposition meaning to or for, in front of a bare verb, because Tetum has no infinitive marker and no gerund to press into service. Fa'an ona is sold, with the completive ona again doing the work of a past tense. What the list cannot show is the caveat over everything below it: land titling in Timor-Leste is unresolved for much of the country, with Portuguese-era, Indonesian-era and customary claims sitting on the same parcels and a Land Law that took until 2017 to pass, so a great many properties change hands on a customary agreement witnessed by the Xefe Suku rather than on a registered title, and Ezekusaun ipotekária, mortgage foreclosure, is close to a theoretical category.
+locale: tet
+---
+Ba fa'an
+Ba aluga
+Pendente
+Fa'an ona
+Iha kontratu
+Sai husi merkadu
+Lakleur
+Ezekusaun ipotekária
+Konstrusaun foun
+Presu tun
+Rezervadu
+Aluga ona

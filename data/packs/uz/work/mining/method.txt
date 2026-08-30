@@ -1,0 +1,12 @@
+---
+description: Mining methods. Очиқ усул is open-pit, which is how Muruntau works, and шахта усули is underground. Ер ости ювиш is in-situ leaching, the method Uzbekistan uses for most of its uranium, and it is why the country can be a major uranium producer with almost no visible mines.
+locale: uz
+---
+очиқ усул
+ер ости усули
+карьер усули
+шахта усули
+бурғулаш ва портлатиш
+ер ости ювиш
+кимёвий ювиш
+қумдан ажратиш

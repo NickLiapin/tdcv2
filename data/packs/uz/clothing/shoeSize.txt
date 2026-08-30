@@ -1,0 +1,16 @@
+---
+description: Shoe sizes as sold in Uzbekistan, on the continental European scale that runs 35 to 46. Nothing in this file changes between scripts because it is all digits — worth knowing when you are checking that a Cyrillic pack really did convert.
+locale: uz
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

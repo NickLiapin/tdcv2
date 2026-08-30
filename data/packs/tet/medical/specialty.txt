@@ -1,0 +1,40 @@
+---
+description: The specialties a national health system recognises, and a superset of the ten in specialtyCoherent for which this pack ships matching diagnosis lists. It reads better as a description of a small country's medicine than as a teaching hospital's org chart. Timor-Leste runs one national referral hospital, the Hospital Nacional Guido Valadares in Dili, with referral hospitals in Baucau, Maliana, Suai, Maubisse and Oecusse behind it, and for years after 1999 it had almost no doctors of its own to put under these headings at all; the cohort that fills them now was trained in Cuba, several hundred Timorese students sent to Havana from 2003 and later taught by Cuban staff at the medical faculty in Dili, which is why a Timorese specialist's first medical vocabulary is as often Spanish as Portuguese. Medisina Tropikál and Saúde Públika are not ornamental headings here; they are where the tuberculosis, nutrition and vector programmes sit, and they employ more people than several of the clinical specialties above them. Every entry is a Portuguese loan bent by rule rather than a word borrowed whole: medicina gives Medisina, cirurgia geral gives Sirurjia Jerál with c before i written s and g before e written j, emergência gives Emerjénsia, nutrição gives Nutrisaun, geriatria gives Jeriatria, and pública gives Públika.
+locale: tet
+---
+Kardiolojia
+Neurolojia
+Onkolojia
+Dermatolojia
+Gastroenterolojia
+Endokrinolojia
+Pneumolojia
+Ortopedia
+Psikiatria
+Nefrolojia
+Pediatria
+Neonatolojia
+Ginekolojia no Obstetrísia
+Sirurjia Jerál
+Sirurjia Plástika
+Traumatolojia
+Fizioterapia no Reabilitasaun
+Oftalmolojia
+Otorrinolaringolojia
+Radiolojia
+Anestesiolojia
+Medisina Interna
+Medisina Familia
+Medisina Emerjénsia
+Medisina Tropikál
+Infesiolojia
+Reumatolojia
+Urolojia
+Hematolojia
+Imunolojia
+Alergolojia
+Patolojia
+Jeriatria
+Nutrisaun Klínika
+Saúde Públika
+Odontolojia

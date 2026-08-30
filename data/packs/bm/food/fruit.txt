@@ -1,0 +1,38 @@
+---
+description: Fruit, with the Bambara names first, and several of them are gathered from wild trees rather than grown. `Sira` is the baobab and also its fruit, the dry white pods the French call pain de singe, whose powder is stirred into water and is extraordinarily high in vitamin C. `Zaban` is Saba senegalensis, a forest liana fruit sold in heaps at the roadside in the rainy season and eaten sour with salt. `Ntomi` is tamarind and `Woro` the kola nut, which is not really eaten as fruit at all: kola is a stimulant, a gift, and a formal instrument — a marriage proposal is carried by kola, and a bag of it opens negotiations. `Mangoro` is the one Mali sells: mango is a serious export crop out of Sikasso and Bougouni, and the season floods the country with fruit so cheap it is given away.
+locale: bm
+---
+Mangoro
+Namasa
+Lenburu
+Sira
+Ntomi
+Zaban
+Woro
+Toro
+Sunsun
+Mangue
+Banane
+Orange
+Citron
+Pamplemousse
+Mandarine
+Papaye
+Goyave
+Ananas
+Pastèque
+Melon
+Anacarde
+Noix de cajou
+Datte
+Raisin
+Pomme
+Poire
+Fraise
+Corossol
+Jujube
+Tamarin
+Pain de singe
+Néré
+Karité
+Grenade

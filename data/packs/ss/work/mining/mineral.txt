@@ -1,0 +1,23 @@
+---
+description: Mineral mined or quarried in Eswatini. This is a real inventory rather than a periodic table. Insimbi and its ores ihemathayithi and isipekhulariti come from Ngwenya, worked for pigment 43,000 years ago and for iron ore industrially from 1964 until the reserve was exhausted, then reopened. Lilahle is anthracite coal from Maloma in the Shiselweni lowveld, still producing. I-asbestos is Bulembu, once one of the largest chrysotile mines in the world, closed in 2001 and leaving a company town and a health legacy behind it. Igolide is Piggs Peak and Forbes Reef, worked from the 1880s and long since worked out. The rest is quarry: dolerite, granite, clay and building stone, which is what most of Eswatini's mining licences actually cover today.
+locale: ss
+---
+Insimbi
+Ihemathayithi
+Isipekhulariti
+Lilahle
+Igolide
+I-asbestos
+Idayimane
+Ikhwatsi
+Iklei
+Ilitje lekwakha
+Idolerite
+Igranite
+Isihlabatsi
+Ilayimu
+Italc
+Ibharyte
+Ipyrophyllite
+Ikaolini
+Isilika

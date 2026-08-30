@@ -1,0 +1,15 @@
+---
+description: Booking states. Two entries show how Tetum expresses a completed action without any change to the verb: Check-in halo ona is literally check-in do already, with ona, the completive particle, doing the work an English past participle does. Ona is one of the most frequent words in the language and it attaches to the end of a clause rather than to the verb, so the same halo serves for do, does, did and done. La mai is the no-show, built with la, the negator, before mai, to come — Tetum negates by putting la in front of the verb and has no negative prefix of any kind. The rest are Portuguese participles taken whole and respelled: cancelada to kanselada, reembolsada unchanged but for its stress, expirada to espirada.
+locale: tet
+---
+Konfirmada
+Pendente
+Kanselada
+Iha espera
+Check-in halo ona
+Check-out halo ona
+La mai
+Modifikada
+Reembolsada
+Espirada
+Garantida

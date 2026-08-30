@@ -1,0 +1,15 @@
+---
+description: Reactions to a post, said in Bambara even though no platform offers a bamanankan interface — a Malian who thinks and speaks in Bambara taps buttons labelled in French, and this file records what the tap means rather than what it says. `A ka di n ye` is it is pleasing to me, which is how Bambara expresses liking: the thing is the subject and the person is the recipient. `Kabako` is a wonder. `Dusukasi` is grief, literally the heart's weeping, and `Dimi` covers both pain and anger with no line between them. `Barika` is thanks, blessing and congratulation at once, and it is the commonest thing written under a Malian post. `Hakilina` is an opinion, from `hakili` the mind.
+locale: bm
+---
+A ka di n ye
+A ka ɲi
+Barika
+A ye n dusukun mina
+Yɛlɛ
+Kabako
+Dusukasi
+Dimi
+Tilali
+Hakilina
+Marali

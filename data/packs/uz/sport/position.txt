@@ -1,0 +1,39 @@
+---
+description: Playing positions and roles across all sports, from football through wrestling to chess. Разводящий is borrowed straight from Russian volleyball and is the setter. Полвон is the wrestler, чавандоз the mounted rider in кўпкари, and секундант the cornerman.
+locale: uz
+---
+дарвозабон
+ҳимоячи
+марказий ҳимоячи
+қанот ҳимоячиси
+ярим ҳимоячи
+ҳужумчи
+марказий ҳужумчи
+қанот ҳужумчиси
+жамоа сардори
+захира ўйинчи
+либеро
+боғловчи
+блокчи
+разводящий
+форвард
+марказий ўйинчи
+полвон
+чавандоз
+боксёр
+жудочи
+штангачи
+югурувчи
+сакровчи
+улоқтирувчи
+сузувчи
+велосипедчи
+конкичи
+шахматчи
+отувчи
+камончи
+қиличбоз
+бош мураббий
+мураббий
+ёрдамчи мураббий
+секундант

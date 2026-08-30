@@ -1,0 +1,16 @@
+---
+description: Digestive diagnoses. Сурункали гастрит and ошқозон яраси are the two most recorded, and Uzbekistan has a high Helicobacter pylori prevalence behind them. Жигар циррози — cirrhosis — is one of the words where Cyrillic ц appears as a Latin s, so the Latin pack writes it sirroz.
+locale: uz
+---
+Сурункали гастрит
+Ошқозон яраси
+Ўн икки бармоқли ичак яраси
+Гастроэзофагеал рефлюкс
+Ўт-тош касаллиги
+Холецистит
+Панкреатит
+Ёғли гепатоз
+Жигар циррози
+Вирусли гепатит
+Яравий колит
+Ичак дисбактериози

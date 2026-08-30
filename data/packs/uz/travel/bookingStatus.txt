@@ -1,0 +1,15 @@
+---
+description: The state of a travel booking. Сўров юборилди is the enquiry sent, кутиш рўйхатида the waiting list, and келмади the no-show. Uzbek marks completed states with the -ди past tense and pending ones with -моқда, so the two groups are visible at a glance.
+locale: uz
+---
+сўров юборилди
+тасдиқланмоқда
+тасдиқланди
+тўлов кутилмоқда
+тўланди
+ўзгартирилди
+бекор қилинди
+қайтарилди
+кутиш рўйхатида
+якунланди
+келмади

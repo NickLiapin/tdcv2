@@ -1,0 +1,13 @@
+---
+description: Italian food as a Bamako menu writes it, in French rather than Italian — bolognaise not bolognese, escalope milanaise not cotoletta — because it arrived through France and not from Italy. Pasta itself is not exotic in Mali: dry spaghetti and macaroni are cheap imported staples sold by the packet in every boutique, and a plate of `spaghetti` with tomato and oil is ordinary student and worker food long before anyone calls it Italian. The pizza half of the list belongs to a much smaller world of restaurants with ovens.
+locale: bm
+---
+Pizza margherita
+Pizza quatre saisons
+Spaghetti bolognaise
+Lasagnes
+Tagliatelles carbonara
+Risotto
+Escalope milanaise
+Tiramisu
+Panna cotta

@@ -1,0 +1,17 @@
+---
+description: Stage of a hiring process. Petear is the Frisian for a conversation and has no Dutch counterpart whatever - Dutch has to reach for gesprek - so a job interview is a sollisitaasjepetear and every stage of the process that consists of talking to somebody ends in -petear. The arbeidsbetingstenpetear is a meeting in its own right and not a formality: pay, holiday, travel allowance and start date are negotiated after the candidate has been chosen and before anything is signed, so a rejection can still happen at that point. Betingst, a condition or a term, is another word Frisian does not share with Dutch, which uses voorwaarde. Weromlutsen, withdrawn, is the strong past participle of weromlûke, with the vowel change from û to u that Frisian keeps where Dutch has levelled it flat in terugtrekken.
+locale: fy
+---
+Sollisitaasje ûntfongen
+Cv-screening
+Telefoanyske screening
+Earste petear
+Twadde petear
+Assessment
+Praktykopdracht
+Arbeidsbetingstenpetear
+Referinsjecheck
+Oanbod
+Ôfwiisd
+Oannommen
+Weromlutsen

@@ -1,0 +1,15 @@
+---
+description: Gaming platform in Eswatini, and the order is deliberately not the order a European list would use. Lifoni lelihlakaniphile, the smartphone, is where essentially all gaming in this country happens: consoles are expensive imports carrying South African retail prices on top of a currency pegged to the rand, and a PlayStation costs a substantial share of an annual income here. Igeyimu lengenayo i-inthanethi, the offline game, is a platform category rather than a feature for the same reason it is one across Africa — data is bought in small bundles as cash allows, and a game that needs a connection to start is a game most players cannot afford to open.
+locale: ss
+---
+Lifoni lelihlakaniphile
+Ithebhulethi
+Igeyimu lengenayo i-inthanethi
+Ikhompiyutha
+Ilaptop
+I-inthanethi
+IPlayStation
+IXbox
+INintendo Switch
+Ithelevishini yeSmart
+I-arcade

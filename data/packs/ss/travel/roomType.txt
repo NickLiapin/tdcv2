@@ -1,0 +1,22 @@
+---
+description: Hotel room type in Eswatini. Likamelo lemndeni, the family room, is the ordinary booking in this market rather than a special request, because Swazi families travel together and in numbers for the ceremonies and for funerals, and a lodge that cannot put six people in one room loses the business. Likamelo lelingenawo umshini wemoya lomandzi, the room without air conditioning, is a real and cheaper category rather than an omission: the highveld around Mbabane is cool enough that many guesthouses do not fit it, while at Big Bend and Simunye in the lowveld it is not optional. Note that likamelo is itself a loan, from Portuguese through Afrikaans, because a partitioned interior is an introduced idea in a country whose traditional dwelling is a single round room.
+locale: ss
+---
+Likamelo lemuntfu munye
+Likamelo lembhedze munye lomkhulu
+Likamelo lemibhedze lemibili
+Likamelo lebantfu labatsatfu
+Likamelo lemndeni
+Likamelo lelinemibhedze leminyenti
+Likamelo lelijwayelekile
+Likamelo leliphansi ngentsengo
+Likamelo leliphakeme
+Likamelo lebaphatsi
+Isuthi
+Isuthi lenkhulu
+Likamelo lelinemshini wemoya lomandzi
+Likamelo lelingenawo umshini wemoya lomandzi
+Likamelo lelibuka intsaba
+Likamelo lelibuka sivandze
+Likamelo lelinemvelo lenhle
+Emakamelo lahlanganisiwe

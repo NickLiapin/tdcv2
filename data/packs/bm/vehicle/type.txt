@@ -1,0 +1,26 @@
+---
+description: Vehicles as Mali names them, and three are pure Bamako. A `Jakarta` is a motorcycle — a brand name that swallowed the category when cheap Chinese and Indian machines flooded the city in the 2000s, and now simply the word for a motorbike and for the young men who ride them for hire. A `Sotrama` is the battered green minibus that is the capital's real public transport, named after a long-defunct transport company; a `Douroudourouni` is the smaller one on the same routes, roughly the little-by-little, because it stops for everybody. `Wotoro` is the cart, and `Fali wotoro` behind a donkey is the commonest freight vehicle in the country by number. `Kurun` is a boat and `Kurunba` the long motorised pinasse that supplies Mopti, Timbuktu and the Delta villages when the water is high. `Kamiyɔn` and `Taksi` are loans worn into Bambara; Pick-up, 4x4, Tracteur, Bus, Citerne and Ambulance keep their French forms as imported machine categories.
+locale: bm
+---
+Mɔbili
+Nɛgɛso
+Jakarta
+Moto
+Sotrama
+Douroudourouni
+Taksi
+Kungo taksi
+Kamiyɔn
+Wotoro
+Fali wotoro
+Misi wotoro
+Kurun
+Kurunba
+Sen saba mɔbili
+Bus
+Citerne
+Pick-up
+4x4
+Tracteur
+Bac
+Ambulance

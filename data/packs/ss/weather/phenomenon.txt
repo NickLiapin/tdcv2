@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon in siSwati. Utsingo lwenkhosatana, the rainbow, is literally "the princess's arch" and is one of the oldest shared Nguni compounds, appearing with the same sense in Zulu and Xhosa. Somiso, drought, is the phenomenon that has done Eswatini the most damage in living memory — the 2015 to 2016 El Nino drought killed cattle across the lowveld and forced maize imports — and sikhukhula, flood, is its counterpart on the Lusutfu and Mbuluzi when the tail of a Mozambique Channel cyclone crosses the Lubombo. Umlilo wetjani, the grass fire, belongs on a weather list here rather than a hazard list, because on the highveld in August it is driven by wind and dryness and is treated as a seasonal condition.
+locale: ss
+---
+Utsingo lwenkhosatana
+Umbani
+Kudvuma kwelitulu
+Sichotho
+Sikhukhula
+Somiso
+Inkhungu
+Sitfwatfwa
+Sishingishane
+Sivunguvungu
+Umlilo wetjani
+Umoya lovunguako
+Bumanti
+Kushisa lokwedlulele
+Kubandza lokwedlulele

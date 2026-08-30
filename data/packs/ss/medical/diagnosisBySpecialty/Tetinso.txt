@@ -1,0 +1,9 @@
+---
+description: Nephrology diagnosis in Eswatini, and the shortest of the ten specialty lists for a reason that is about the country rather than the kidney: Eswatini has very limited dialysis capacity and no transplant programme, so chronic kidney disease here is often identified late and managed conservatively, and the diagnostic vocabulary a record carries is correspondingly narrow. Tetinso is "matters of the kidneys", from inso with the class 10 plural tinso. Two of the leading causes are elsewhere in this pack rather than in this file — hypertension and diabetes — and the third is genetic: APOL1 risk variants, which arose in West and Central Africa as protection against sleeping sickness, carry a substantially raised risk of kidney failure and are common across sub-Saharan ancestry populations.
+locale: ss
+---
+Sifo setinso
+Kuhluleka kwetinso
+Ematje etinsweni
+I-nephrotic syndrome
+I-glomerulonephritis

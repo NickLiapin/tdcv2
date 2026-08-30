@@ -1,0 +1,36 @@
+---
+description: Building type in siSwati. Two entries carry facts a European list has no slot for. Umuti is not a house but a HOMESTEAD — a cluster of dwellings, a cattle byre and a yard belonging to one extended family under one head — and it is the unit most of Eswatini actually lives in and is addressed by; the same word also means a tree and a medicine, which is one of the language's most quietly useful ambiguities. Indlu yetjani is the grass-thatched beehive dwelling, still built for ritual use at Ludzidzini and Lobamba long after concrete block took over daily housing. Sibaya, the cattle byre, is on a building list rather than a farm list because the national Sibaya at Lobamba is where the whole country assembles to be addressed by the King, so the word names both a kraal and a parliament.
+locale: ss
+---
+Indlu
+Indlu yetjani
+Umuti
+Ifleti
+Sakhiwo
+Sakhiwo sekusebenta
+Sakhiwo lesidze
+Lihhovisi
+Lihhovisi lemtimba wembuso
+Sitolo
+Sitolo lesikhulu
+Indlu yekudlela
+Lihhotela
+Sikolo
+Sibhedlela
+Sikhungu semphilo
+Lisontfo
+Lihholo lemphakatsi
+Lilayibhulari
+Imyuziyamu
+Sitediyamu
+Libhange
+Imfekthri
+Indlu yekugcina imphahla
+Ligalaji
+Lipulazi
+Sibaya
+Sitendi lesingakakhiwa
+Indlu lenkhulu
+Indlu yesikhosini
+Indlu yebafundzi
+Indlu yekuhlala yetisebenti

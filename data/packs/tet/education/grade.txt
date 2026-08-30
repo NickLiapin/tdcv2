@@ -1,0 +1,17 @@
+---
+description: Marks and result states. The underlying scale in Timorese schools is numeric and runs from nought to ten, inherited with the rest of the Portuguese-model system, so a report card carries a figure and the words on this list are the bands that figure falls into rather than a separate lettering. Two vocabularies are doing that work at once. The Portuguese one supplies Ekselente, Distintu, Sufisiente, Insufisiente and Regulár, and it is what gets printed. The Tetum one supplies Di'ak and Aat, good and bad, which is what is actually said about the result at home, and Di'ak uitoan — good a little — is the hedge for a pass that was nothing to celebrate. Rekuperasaun is the value that has no clean English equivalent and that a config author will otherwise lose: it is neither a pass nor a fail but a state in between, the recovery period and resit given to a student who has failed a subject, and the final record of the year cannot be written until it resolves. Aprovadu and Reprovadu are the year-level outcomes and sit alongside the subject marks rather than replacing them.
+locale: tet
+---
+Ekselente
+Distintu
+Di'ak tebes
+Di'ak
+Di'ak uitoan
+Sufisiente
+Regulár
+Insufisiente
+Aat
+Aat tebes
+Aprovadu
+Reprovadu
+Rekuperasaun

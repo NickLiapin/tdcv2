@@ -1,0 +1,12 @@
+---
+description: American food, which reaches Mali by screen rather than by migration — there is no significant American community here and no chain restaurants, so what exists is a Malian reading of an imported picture. The result is a fast-food register that a visitor from the United States would find slightly displaced: `Poulet frit` and `Frites` are the two that actually sell, `Hamburger` is a restaurant item rather than a street one, and the whole category sits at a price point that makes it aspirational rather than cheap — the reverse of its meaning at home.
+locale: bm
+---
+Hamburger
+Cheeseburger
+Hot-dog
+Poulet frit
+Frites
+Milkshake
+Cookies
+Salade César

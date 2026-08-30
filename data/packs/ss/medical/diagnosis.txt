@@ -1,0 +1,184 @@
+---
+description: General diagnosis list for Eswatini, and it is weighted toward this country's actual disease burden rather than a European one. The infectious block runs first and long because that is the reality: Eswatini has among the highest adult HIV prevalence in the world and has built one of the largest treatment programmes to match, tuberculosis travels with it so closely that the two are managed by a single national programme, malaria persists in the Lubombo lowveld where the country is part of a regional elimination effort, and bilharzia is endemic along the Lusutfu and Mbuluzi. Behind that sits a fast-growing non-communicable burden of hypertension and type 2 diabetes, and behind that the injuries — road traffic on the Mbabane-Manzini corridor, and the occupational lung disease Swazi men brought back from the South African mines. The list is written the way an Eswatini chart is written, siSwati for what the patient describes and English behind an i- prefix for what gets coded, because that is genuinely how a bilingual health service records disease and pretending otherwise would misdescribe the country.
+locale: ss
+---
+Ligciwane leHIV
+I-AIDS
+Tifuba
+Tifuba letimelene nemitsi
+Tifuba nengculazi ndzawonye
+Umalaleveva
+I-bilharzia
+Kutseleleka kwemphimbo
+Umkhuhlane
+I-influenza
+I-COVID-19
+I-measles
+I-mumps
+I-rubella
+I-chickenpox
+I-hepatitis B
+I-hepatitis A
+I-typhoid
+I-cholera
+I-dysentery
+Luhudvo lwebantfwana
+Tikelemu
+I-tetanus
+I-meningitis
+I-pneumonia
+I-bronchitis
+I-shingles
+I-syphilis
+I-gonorrhoea
+I-chlamydia
+I-herpes
+I-candidiasis
+I-cryptococcal meningitis
+I-Kaposi sarcoma
+I-rabies
+Sifo sashukela
+Sifo sashukela sesigaba sekucala
+Sifo sashukela sesigaba sesibili
+Umfutfo wengati lophakeme
+Umfutfo wengati lophansi
+Kukhuluphala ngalokwedlulele
+Kondza kwemtimba
+Kungakhuli kahle kwebantfwana
+Kushoda kwensimbi engatini
+I-sickle cell disease
+I-thalassaemia
+I-gout
+I-hyperthyroidism
+I-hypothyroidism
+Umdlavuza wesibeletfo
+Umdlavuza webele
+Umdlavuza we-prostate
+Umdlavuza wemaphaphu
+Umdlavuza wesibindzi
+Umdlavuza wemathumbu
+Umdlavuza wesisu
+Umdlavuza wengati
+I-lymphoma
+Umdlavuza wesikhumba
+Kucwasa kwematfambo
+I-rheumatoid arthritis
+I-osteoarthritis
+I-lupus
+I-epilepsy
+Kwehla kwengcondvo
+Sifo senhlitiyo
+Kuhlaselwa yinhlitiyo
+Kuhluleka kwenhlitiyo
+I-angina
+Kushaya kwenhlitiyo lokungakahleleki
+I-atrial fibrillation
+Sifo semitsambo yenhlitiyo
+Sifo senhlitiyo lesibangwa yi-rheumatic fever
+Kufa kwengcondvo
+I-transient ischaemic attack
+I-deep vein thrombosis
+I-pulmonary embolism
+Kuvuvukala kwemitsambo yemilente
+I-cardiomyopathy
+I-endocarditis
+Sifuba semoya
+I-COPD
+I-emphysema
+I-silicosis
+I-asbestosis
+I-pneumoconiosis
+I-pleural effusion
+I-pneumothorax
+I-sinusitis
+Sifo sekungaphefumuli kahle nawulele
+I-bronchiectasis
+I-lung fibrosis
+Silondza sesisu
+I-gastritis
+I-GORD
+I-irritable bowel syndrome
+I-Crohn disease
+I-ulcerative colitis
+Kubopha kwesisu
+I-haemorrhoids
+I-appendicitis
+Ematje esinyeni senyongo
+Kuvuvukala kwesibindzi
+I-cirrhosis
+Buhlungu benhloko lobucinile
+I-Parkinson disease
+I-multiple sclerosis
+I-neuropathy yesifo sashukela
+I-Bell palsy
+I-sciatica
+I-carpal tunnel syndrome
+I-encephalitis
+I-cerebral palsy
+I-Alzheimer disease
+I-motor neurone disease
+I-brain tumour
+Kudangala
+I-anxiety disorder
+I-bipolar disorder
+I-schizophrenia
+I-post-traumatic stress disorder
+Butsatsi bebutjwala
+Butsatsi betidzakamiva
+I-insomnia
+I-ADHD
+I-autism spectrum disorder
+Buhlungu bemhlane
+I-slipped disc
+I-frozen shoulder
+I-tendinitis
+Kwephuka kwelitfambo
+Kusheleleka kwelunga
+I-scoliosis
+I-osteomyelitis
+I-bursitis
+Kutseleleka kwemalunga
+I-plantar fasciitis
+I-muscle strain
+I-eczema
+I-psoriasis
+I-acne
+I-vitiligo
+I-scabies
+I-ringworm
+Silondza lesingapholi
+I-cellulitis
+I-impetigo
+Kushiswa lilanga
+I-cataract
+I-glaucoma
+I-conjunctivitis
+I-trachoma
+Kungaboni kahle kwelibanga lelidze
+I-diabetic retinopathy
+Kutseleleka kwendlebe
+Kungeva
+I-tonsillitis
+I-tinnitus
+Sifo setinso
+Kuhluleka kwetinso
+Ematje etinsweni
+Kutseleleka kwendlela yemchamo
+I-nephrotic syndrome
+I-glomerulonephritis
+Kukhula kwe-prostate lokungesiwo umdlavuza
+Kungabambeki kwemchamo
+Kulimala engotini yemgwaco
+Kwephuka kwenhloko
+Kushiswa ngemlilo
+Kulunywa yinyoka
+Kulimala emsebentini
+Kuminta emanti
+Kutsatsa umutsi ngalokwedlulele
+Kulimala ngekuhlaselwa
+Kondza kwemanti emtimbeni
+Kushisa kwemtimba ngalokwedlulele
+I-anaemia yekukhulelwa
+Kwehla kwemtimba ngenca yekugula
+Kukhulelwa lokunetingoti
+Kungatfoli umntfwana

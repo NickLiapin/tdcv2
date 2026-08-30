@@ -1,0 +1,28 @@
+---
+description: Post-nominal suffixes as they appear after a Timorese name. Two unrelated systems sit in this one column and the split is generational. The Portuguese-derived block — Júnior, Filu (from filho, with lh respelled ll and then reduced), Netu, the Roman numerals, Dr., Eng., Arq., Lic. — belongs to the colonial and post-independence schooling. The block that follows is Indonesian and it is the giveaway of the 1975-1999 cohort: anyone who took a degree during the occupation holds an Indonesian title, written after the name with the degree abbreviated, so S.H. is Sarjana Hukum in law, S.E. Sarjana Ekonomi, S.Pd. Sarjana Pendidikan in education, S.T. Sarjana Teknik in engineering, and Drs. the old doctorandus. These are still printed on business cards and signed under letters in Dili today, and a dataset of Timorese professionals that offers only Western post-nominals is missing the commonest ones on people now in their fifties and sixties. SDB and SJ close the list because the religious orders are institutions here rather than a footnote: the Salesians of Don Bosco run schools and technical colleges the length of the country, and clergy sign with the order after the name.
+locale: tet
+---
+Jr.
+Júnior
+Filu
+Netu
+II
+III
+IV
+V
+Ph.D.
+M.A.
+M.Sc.
+MBA
+Dr.
+Dra.
+Eng.
+Arq.
+Lic.
+Drs.
+S.H.
+S.E.
+S.Pd.
+S.T.
+SDB
+SJ

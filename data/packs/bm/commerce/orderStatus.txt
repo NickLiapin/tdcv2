@@ -1,0 +1,18 @@
+---
+description: The life of an order, in Bambara, because a Bamako trader tracking a delivery does not say expédié. The grammar on show is the resultative suffix -len (also spelled -nen), which turns a verb into a state: `ci` is to send and `cilen` is sent, `labɛn` is to prepare and `labɛnnen` is ready, `dabila` is to drop something and `dabilalen` is cancelled. `Sɔrɔla` and `Lasera` are perfectives instead — the -ra ending on an intransitive verb — so the file shows both of the ways Bambara says a thing has happened. `Tara butiki la` is its own state rather than a variant of delivered, because with no street addresses and no postcodes in Mali collection at a shop is often the only workable fulfilment.
+locale: bm
+---
+Sɔrɔla
+Wari makɔnɔni
+Sara sɔrɔla
+Labɛnni na
+Labɛnnen
+Cilen
+Sira kan
+Laseli la
+Lasera
+Tara butiki la
+Dabilalen
+Kɔsegilen
+Wari seginnen
+Sɔsɔli la

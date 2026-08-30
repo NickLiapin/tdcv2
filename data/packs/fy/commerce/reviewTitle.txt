@@ -1,0 +1,30 @@
+---
+description: Product review headline (West Frisian), as a buyer writes one. Frisian intensifies differently from Dutch and both of its everyday devices are on this list. Tige is the general intensifier - tige tefreden, tige brûkerfreonlik - and it is the same word as in tige tank, which is how a Frisian says thank you very much. Poer is not a separate adverb but a prefix welded onto the adjective: poerbêst is the ordinary superlative a satisfied customer reaches for, and the same prefix gives poerlilk, furious, and poertsjuster, pitch dark. The third thing to read closely is the comparative: Frisian says better as ferwachte and flugger levere as tasein, using as where Dutch requires dan - the construction a Dutch schoolteacher corrects is the only correct one here. As in Dutch, the register runs flat, and Docht wat it dwaan moat is genuine approval rather than faint praise.
+locale: fy
+---
+Poerbêst!
+Tige tefreden
+Echt in oanrieder
+It jild net wurdich
+Boppe ferwachting
+Gewoan okee
+Soe ik sa wer keapje
+Teloarstellend
+Treflike kwaliteit
+Te gau stikken
+Perfekt foar dizze priis
+Better as ferwachte
+Foldocht net
+Hielendal bliid mei!
+Oan de djoere kant
+Krekt sa't beskreaun
+Docht wat it dwaan moat
+Goede priis-kwaliteitferhâlding
+Fluch levere
+Minne materialen
+Krekt wat ik sike
+Hânlieding ûndúdlik
+Tige brûkerfreonlik
+Net wat ik ferwachte hie
+Klantetsjinst goed regele
+Stevich makke

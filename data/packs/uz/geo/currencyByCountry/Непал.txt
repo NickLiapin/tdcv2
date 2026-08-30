@@ -1,0 +1,5 @@
+---
+description: The currency of Непал, named the way an Uzbek price list names it. The country name Непал doubles as the file name, which is how a coherent record keeps the country and its money in step.
+locale: uz
+---
+Непал рупияси

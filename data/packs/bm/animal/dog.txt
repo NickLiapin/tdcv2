@@ -1,0 +1,29 @@
+---
+description: Dog breeds. The azawakh leads because it is the one internationally registered breed that is genuinely from here — the sighthound of the Azawagh valley on the Mali-Niger border, bred by Tuareg and Peul herders to run down gazelle across open sand, and standing so lean that a European vet meeting one for the first time usually assumes it is starved. Wulu is the Bambara for dog and covers the ordinary compound dog nobody has ever thought of as a breed; donsowulu is the hunter's dog, from donso, and the donso are a formal brotherhood in Mali with their own initiation, their own music and their own praise-singers, not simply men who shoot. The rest are French breed names, which is what a Bamako vet, a customs form and a guard-dog seller all use.
+locale: bm
+---
+azawakh
+wulu
+donsowulu
+berger allemand
+berger belge malinois
+labrador
+golden retriever
+rottweiler
+doberman
+boxer
+bouledogue français
+bulldog anglais
+caniche
+yorkshire terrier
+chihuahua
+teckel
+cocker
+dalmatien
+husky sibérien
+beagle
+pitbull
+american staff
+cane corso
+dogue allemand
+sloughi

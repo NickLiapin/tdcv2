@@ -1,0 +1,15 @@
+---
+description: Cricket fielding positions, and this file is deliberately almost untranslated. Cricket's field names are among the least translatable terms in any sport — slip, gully, cover, midwicket, square leg and fine leg describe angles relative to a right-handed batter and have no descriptive content that survives being put into another language, so Tetum does what every other language does and keeps them. Only two are localised: Lansadór, the bowler, from Portuguese lançador, one who throws, with the cedilla going to s; and Guarda-wicket, the keeper, which pairs Portuguese guarda with an English noun in exactly the way Tetum builds so many of its compounds. The name of the sport itself, Kríkete, shows the pack's treatment of an English word that ends in a consonant cluster Tetum will not pronounce: a vowel is added and the stress is marked with an acute.
+locale: tet
+---
+Lansadór
+Guarda-wicket
+Slip
+Gully
+Point
+Cover
+Mid-off
+Mid-on
+Midwicket
+Square leg
+Fine leg

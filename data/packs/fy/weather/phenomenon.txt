@@ -1,0 +1,21 @@
+---
+description: Weather phenomenon (West Frisian). Two of these are not abstractions in this province. Stoarmfloed, the North Sea storm surge, is the thing the whole landscape is arranged against: before there were dykes people lived on terpen, artificial dwelling mounds raised above the highest water, and the oldest villages in the north still sit on them; the surge of 1825 drowned a large part of Fryslân and is remembered by name. And nachtfroast is the condition the province waits for, because the Alvestêdetocht - the 200-kilometre skating tour of the eleven cities - can only be called when hard night frost has put fifteen centimetres of natural ice under the whole route. It has been run fifteen times since 1909 and not once since 4 January 1997, which makes nachtfroast the most closely watched word on this list. Note hjittegolf and kâldegolf: hjit and kâld are hot and cold, both standing nearer English than Dutch heet and koud, and froast is frost.
+locale: fy
+---
+Stoarm
+Swiere stoarm
+Orkaan
+Wynhoas
+Stoarmfloed
+Springtij
+Oerstreaming
+Sniestoarm
+Hjittegolf
+Kâldegolf
+Nachtfroast
+Droechte
+Boskbrân
+Hagelstoarm
+Sânstoarm
+Syklon
+Moesson

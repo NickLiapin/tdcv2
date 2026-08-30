@@ -1,0 +1,18 @@
+---
+description: Order status (West Frisian). This short list is the clearest place in the pack to see the rule that catches every Dutch-trained speller: Frisian forms its past participles without the ge- prefix. Dutch geannuleerd, geretourneerd and gemaakt are annulearre, retournearre and makke, and there is no ge- anywhere on this list - a find-and-replace built from Dutch stems will either leave it in or fail to strip it. Borrowed verbs join the -earje class and end in -earre in the participle, which is where the double r in annulearre and retournearre comes from. Two smaller things: Frisian writes yn for Dutch in, and the definite article contracts after a preposition, so in de wacht becomes Yn 'e wacht with an apostrophe that is part of the spelling and not a typographic flourish. Ferstjoerd and Levere are separate states and stay separate - the first is the moment the shop hands the parcel over, the second the moment the carrier hands it to somebody.
+locale: fy
+---
+Yn behanneling
+Befêstige
+Wurdt ferwurke
+Klearmakke foar ferstjoering
+Ferstjoerd
+Ûnderweis
+Levere
+Annulearre
+Retournearre
+Werombetelle
+Yn 'e wacht
+Wachtet op betelling
+Net op foarried
+Mislearre

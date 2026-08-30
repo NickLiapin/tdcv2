@@ -1,0 +1,24 @@
+---
+description: Who moves a parcel in Mali, and the answer is mostly a bus company. Mali is landlocked and has almost no functioning railway, so the intercity coach lines — Africa Tours Trans, Bani, Bittar, Sonef, Diarra, Binke — double as the national parcel network: you hand a box to the bagagiste at the gare routière, pay a few thousand francs, telephone the recipient with the plate number, and they collect it at the other end that evening. It is fast, cheap, entirely undocumented and completely reliable. `COMANAV` is the river company whose boats work the Niger from Koulikoro to Gao when the water is high enough, which is roughly August to December. The international couriers at the top of the list serve Bamako and effectively nowhere else.
+locale: bm
+---
+La Poste du Mali
+DHL
+UPS
+FedEx
+Chronopost
+TNT
+Aramex
+Africa Tours Trans
+Bani Transport
+Bittar Transport
+Sonef
+Diarra Transport
+Binke Transport
+Gana Transport
+Tilemsi Transport
+COMANAV
+Livreur à moto
+Coursier
+Bagagiste
+Transporteur routier

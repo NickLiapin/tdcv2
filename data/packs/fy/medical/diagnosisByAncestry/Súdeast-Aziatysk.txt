@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Southeast Asian descent, in West Frisian. A prevalence signal, not an exclusive one. Haemoglobin E is what separates this file from the Mediterranean one beside it: it is the commonest abnormal haemoglobin of mainland Southeast Asia, mild on its own but severe when it meets a beta-thalassaemia allele, which is why both appear together here. Brugada-syndroom, a cardiac rhythm disorder over-represented in the same region, is the reason a young man from it can die in his sleep with a structurally normal heart. The folder name shows the Frisian compass twice, súd for south and east spelt as in English.
+locale: fy
+---
+Hemoglobine-E-sykte
+Alfa-talassemy
+Bèta-talassemy
+Glukoaze-6-fosfaatdehydrogenasebrek
+Nasofarynkskarsinoom
+Brugada-syndroom
+Laktoaze-yntolerânsje

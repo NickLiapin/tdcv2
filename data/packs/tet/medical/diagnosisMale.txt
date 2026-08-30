@@ -1,0 +1,34 @@
+---
+description: Medical diagnosis in Tetum that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis. Tetum has no grammatical gender whatever: nia is he, she and it alike, adjectives never agree, and one surname list serves every row in the pack. Nothing in the language marks these entries as male, which is precisely why the split has to be made in the data rather than in the words, and why a config that tries to infer sex from the spelling of a Tetum diagnosis will infer nothing. The vocabulary here shows the h rule more clearly than anywhere else in this pack, because Portuguese medical terms are full of initial h and Tetum drops every one of them: hidrocele becomes Idrosele, hipogonadismo becomes Ipogonadismu, hiperplasia becomes Iperplazia, hérnia becomes Érnia and hematospermia becomes Ematospermia. Kansru prostata appears far less often in a Timorese register than in a European one, and that is a fact about detection rather than about prostates — there is no screening programme, and urology is among the specialties the country has long covered with visiting surgical teams rather than a resident consultant.
+locale: tet
+---
+Iperplazia prostátika benigna
+Prostatite
+Absesu prostátiku
+Kansru prostata
+Kansru testíkulu
+Kansru pénis
+Torsaun testíkulu
+Varikosele
+Idrosele
+Espermatosele
+Epididimite
+Orkite
+Vezikulite seminál
+Kriptorkidia
+Fimoze
+Parafimoze
+Balanite
+Estenoze uretrál
+Disfunsaun erétil
+Ejakulasaun presose
+Priapizmu
+Doensa Peyronie
+Ipogonadismu maskulinu
+Ginekomastia
+Infertilidade maskulina
+Azoospermia
+Ematospermia
+Alopesia androjenétika
+Érnia eskrotál
+Síndrome Klinefelter

@@ -1,0 +1,14 @@
+---
+description: The medical specialties this pack ships a coherent diagnosis list for, and a compact lesson in how Tetum takes a Portuguese technical word. Every one of these is a Portuguese loan respelled by rule rather than borrowed whole: the Portuguese -logia becomes -lojia because Tetum writes the sound of the g in gia with a j and never with a g, so cardiologia is Kardiolojia and nefrologia is Nefrolojia. The c before a, o and u becomes k (cardiologia, Kardiolojia), the c before e and i becomes s, and psiquiatria loses its qu for a k to give Psikiatria. Ortopedia and Dermatolojia keep their shape because nothing in them needs changing. The full specialty list beside this one is longer; this file is deliberately the subset the pack can produce matching diagnoses for, which is what makes a generated patient record internally consistent instead of merely plausible.
+locale: tet
+---
+Kardiolojia
+Neurolojia
+Onkolojia
+Dermatolojia
+Gastroenterolojia
+Endokrinolojia
+Pneumolojia
+Ortopedia
+Psikiatria
+Nefrolojia

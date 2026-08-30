@@ -1,0 +1,12 @@
+---
+description: Ghanaian food. Ghana matters to Mali historically out of proportion to the modern trade between them: it was the first colony in sub-Saharan Africa to gain independence, Kwame Nkrumah's pan-Africanism shaped Modibo Keïta's first republic, and Mali briefly joined Ghana and Guinea in a political union — which is why Bamako has an Avenue Kwame Nkrumah. The cooking is forest cooking, built on cassava, plantain and maize rather than the millet of the Sahel, and `banku` and `kenkey` are both fermented maize doughs with no Malian equivalent.
+locale: bm
+---
+Waakye
+Banku
+Kenkey
+Fufu
+Jollof ghanéen
+Kelewele
+Red red
+Tilapia grillé

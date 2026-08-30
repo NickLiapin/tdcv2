@@ -1,0 +1,16 @@
+---
+description: Selling, which in Mali is overwhelmingly a Bambara-speaking trade done outside any shop. `Jagokɛla` is the trader and `jagokɛlaba` the big one; `butikitigi` owns the boutique, the small general store on a corner; `sugu feerekɛla` sells in the market and `feerekɛla yaalayaala` walks — the hawker moving between cars at a junction with phone cards, tissues and cold water, and `yaalayaala` is reduplicated, which is how Bambara makes a manner word. The commodity sellers below are separate trades with their own suppliers and their own place in the market. The four French titles are the formal retail chain of command, which exists in the supermarkets and the wholesalers and almost nowhere else.
+locale: bm
+---
+Jagokɛla
+Jagokɛlaba
+Butikitigi
+Sugu feerekɛla
+Feerekɛla yaalayaala
+Woro feerekɛla
+Fini feerekɛla
+Sogo feerekɛla
+Caissier
+Grossiste
+Détaillant
+Gérant de magasin

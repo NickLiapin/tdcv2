@@ -1,0 +1,10 @@
+---
+description: Conditions carried more often by Indigenous American populations. The cluster is metabolic — type 2 diabetes, gallstones, obesity — and lactose intolerance is near-universal, which is why it closes the list.
+locale: uz
+---
+2-тур қандли диабет
+Ўт-тош касаллиги
+Семизлик
+Алкоголга қарамлик
+Ревматоид артрит
+Лактоза интолеранси

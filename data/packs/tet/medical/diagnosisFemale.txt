@@ -1,0 +1,40 @@
+---
+description: Medical diagnosis in Tetum that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis. Gravides is Portuguese gravidez with the final consonant written as Tetum hears it, and pregnancy carries most of this file: Timorese women still bear among the highest number of children in Asia, a large share of births in the districts happen at home with a customary attendant rather than in a facility, and emorajia pós-partu is the single largest cause of maternal death — a word that shows two rules at once, since hemorragia loses its initial h, as every Portuguese h does in Tetum, and its g before i is written j. Pré-eklámpsia and eklámpsia are listed separately for the same reason, and they are why magnesium sulfate has a permanent place on the national essential medicines list. Anemia iha gravides sits here rather than in the general file because it is close to universal in pregnancy in this country and because iha, the Tetum word for at or in, is how such a phrase is built — the language borrows the nouns and keeps its own connective tissue.
+locale: tet
+---
+Endometrioze
+Síndrome ováriu polikístiku
+Mioma uterinu
+Kistu ováriu
+Kansru ováriu
+Kansru serviks
+Displazia serviks
+Servisite
+Endometrite
+Kansru endométriu
+Doensa inflamatória pélvika
+Vajinoze bakteriana
+Kandidíaze vulvovajinál
+Menorrajia
+Dismenorreia
+Amenorreia
+Pré-eklámpsia
+Eklámpsia
+Diabetes jestasionál
+Iperémeze gravídika
+Gravides ektópika
+Emorajia pós-partu
+Anemia iha gravides
+Mastite
+Alterasaun fibrokístika mama
+Síndrome klimatériku
+Prolapsu uterinu
+Adenomioze
+Torsaun ováriu
+Plasenta prévia
+Deskolamentu prematuru plasenta
+Kansru vulva
+Kansru vajina
+Kistu Bartholin
+Síndrome Turner
+Infertilidade feminina

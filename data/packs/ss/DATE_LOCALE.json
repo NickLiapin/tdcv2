@@ -1,0 +1,47 @@
+{
+  "months": [
+    "Bhimbidvwane",
+    "iNdlovana",
+    "iNdlovulenkhulu",
+    "Mabasa",
+    "iNkhwekhweti",
+    "iNhlaba",
+    "Kholwane",
+    "iNgci",
+    "iNyoni",
+    "iMphala",
+    "Lweti",
+    "iNgongoni"
+  ],
+  "monthsShort": [
+    "Bhim",
+    "Ndlova",
+    "Ndlovu",
+    "Mab",
+    "Nkhwe",
+    "Nhla",
+    "Khol",
+    "Ngci",
+    "Nyoni",
+    "Mpha",
+    "Lweti",
+    "Ngon"
+  ],
+  "weekdays": [
+    "liSontfo",
+    "uMsombuluko",
+    "Lesibili",
+    "Lesitsatfu",
+    "Lesine",
+    "Lesihlanu",
+    "uMgcibelo"
+  ],
+  "weekdaysShort": ["Son", "Mso", "Sib", "Sits", "Sine", "Sihl", "Mgci"],
+  "formats": {
+    "L": "DD/MM/YYYY",
+    "LL": "D MMMM YYYY",
+    "LLL": "D MMMM YYYY HH:mm",
+    "LLLL": "dddd, D MMMM YYYY HH:mm"
+  },
+  "notes": "The months here are the siSwati names rather than borrowed English ones, and that is a deliberate choice: Janiwari, Februwari and the rest exist in Eswatini and are what a newspaper masthead often carries, but they are loans, whereas Bhimbidvwane, iNdlovana and iNgongoni are the calendar a siSwati speaker actually recognises as siSwati and the one the national broadcaster uses. The names describe the southern-hemisphere year rather than a Latin one. iNdlovana and iNdlovulenkhulu, February and March, are the little elephant and the great elephant, the height of the wet summer; iNhlaba in June is the aloe that flowers through the dry cold; iNyoni in September is the month the birds return; iMphala in October carries the name of the impala. Note the orthography: the initial vowel is lowercase and the stem capitalised, iNdlovana and not Indlovana, because the i- is a grammatically bound class prefix rather than part of the name — the same convention that writes siSwati and liSontfo. The weekday series is mostly counted rather than named: only uMsombuluko, Monday, and uMgcibelo, Saturday, have names of their own, and liSontfo, Sunday, is named for the church. The count begins at Sunday, so Lesibili is the second day and falls on Tuesday, which means the numeral inside a siSwati weekday name is one higher than the English weekday number. Because the four counted days share the leading Lesi-, their abbreviations must cut into the stem rather than take the first three letters, or all four collapse into one string. Eswatini writes dates day-first, following British and South African practice, and the working week runs Monday to Friday with the two national ceremonies, Incwala around the December solstice and Umhlanga in late August, as public holidays that move with the moon and the reeds rather than with the calendar."
+}

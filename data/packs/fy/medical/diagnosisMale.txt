@@ -1,0 +1,34 @@
+---
+description: Diagnoses in West Frisian that require male anatomy and cannot occur in a female patient; general conditions live in medical/diagnosis. Two Frisian habits run through the list. Sied is seed, the direct cognate of the English word where Dutch has zaad, and it builds Foartidige siedlozing and Siedblaaskesûntstekking; the middle of that second compound is a diminutive, blaas becoming blaaske and its plural blaaskes, one of the three endings -ke, -tsje and -je that Frisian uses where Dutch has only -je. The other habit is the disappearance of c: it becomes s before e and i and k elsewhere, so cele turns into -sèle in Farikosèle and Hydrosèle and cryptorchisme into Kryptorkisme.
+locale: fy
+---
+Benigne prostaathyperplasy
+Prostatitis
+Prostaatkanker
+Testikelkanker
+Torsio testis
+Farikosèle
+Hydrosèle
+Epididymitis
+Kryptorkisme
+Fimoaze
+Balanitis
+Ereksjesteuring
+Sykte fan Peyronie
+Manlike ûnfruchtberens
+Gynekomasty
+Manlik hypogonadisme
+Priapisme
+Spermatosèle
+Androgene alopecia
+Skrotale hernia
+Peniskanker
+Orchitis
+Uretrastriktuer
+Klinefelter-syndroom
+Asoöspermy
+Foartidige siedlozing
+Parafimoaze
+Prostaatabses
+Siedblaaskesûntstekking
+Hematospermy

@@ -1,0 +1,10 @@
+---
+description: Conditions carried more often in Ashkenazi Jewish populations. Тей-Сакс касаллиги, Гошер касаллиги and Канаван касаллиги are the classic recessive disorders screened for before marriage. BRCA1 keeps its Latin form: gene symbols are international.
+locale: uz
+---
+Тей-Сакс касаллиги
+Гошер касаллиги
+Канаван касаллиги
+Оилавий дисавтономия
+BRCA1 мутацияси
+Ниманн-Пик касаллиги

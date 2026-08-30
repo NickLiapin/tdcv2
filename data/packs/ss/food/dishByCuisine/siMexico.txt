@@ -1,0 +1,12 @@
+---
+description: Mexican dishes. The chilli in most of these came to Africa from Mexico long before the dishes did — capsicum crossed the Atlantic on Portuguese ships in the sixteenth century and reached the interior of southern Africa well ahead of the maize that now feeds it, so the pelepele in a Swazi kitchen and the chilli in a Mexican one are the same American plant arriving from opposite directions. Maize itself made the same journey, which means the tortilla on this list and the sishwala on the siSwati one are two treatments of one crop that neither country grew before 1500. The dishes themselves are recent arrivals, through South African restaurants.
+locale: ss
+---
+Itaco
+Iburrito
+Iquesadilla
+Ienchilada
+Iguacamole
+Inachos
+Itamale
+Ichilli con carne

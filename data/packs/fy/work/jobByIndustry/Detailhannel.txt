@@ -1,0 +1,16 @@
+---
+description: Jobs in retail. Fakkenfoller, the shelf stacker, is the entry job of this labour market - a filler of compartments, from fak and folje - and it is held overwhelmingly by schoolchildren, because Dutch law lets fifteen-year-olds work limited hours and the supermarkets have built their evening rosters around exactly that. Ynkeaper, the buyer, comes from keapje, to buy, whose ea diphthong is the falling vowel Dutch does not have and whose family includes the English cheap in its old sense of a bargain or a market. Etaleur, the window dresser, keeps its French ending untouched, as every -eur agent noun does in Frisian.
+locale: fy
+---
+Filiaalmanager
+Kassameiwurker
+Ferkeapmeiwurker
+Fakkenfoller
+Winkelbefeiliger
+Kategorymanager
+Ynkeaper
+Klantadviseur
+Magazynmeiwurker
+Rayonmanager
+Etaleur
+Bedriuwslieder

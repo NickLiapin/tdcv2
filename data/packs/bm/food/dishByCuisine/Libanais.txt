@@ -1,0 +1,13 @@
+---
+description: Lebanese food, and it is on this list for a reason that goes back a century. Lebanese and Syrian traders began arriving in French West Africa in the 1890s and built a lasting merchant community in Bamako, Ségou and Sikasso — in import-export, textiles, hardware and construction — and their descendants are Malian. The restaurants followed, and `chawarma` is now so thoroughly a Bamako street food that a Malian would not necessarily think of it as foreign. `Kebbé` is kibbeh, bulgur and lamb; `manakich` the thyme flatbread eaten at breakfast.
+locale: bm
+---
+Chawarma
+Falafel
+Houmous
+Taboulé
+Kebbé
+Fattouche
+Moutabal
+Manakich
+Baklava

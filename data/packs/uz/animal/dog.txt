@@ -1,0 +1,29 @@
+---
+description: Dog breeds in Uzbek. The first four are Central Asian and belong here rather than in any European list: the алабай shepherd dog, the този and тайғон sighthounds bred for coursing, and the ўзбек овчаркаси. Ovcharka, from the Russian for shepherd, has become the ordinary Uzbek word for a guard dog of any size.
+locale: uz
+---
+ўзбек овчаркаси
+алабай
+този
+тайғон
+немис овчаркаси
+қопоғон ит
+лабрадор
+овчарка
+булдог
+такса
+пудел
+спаниел
+ротвейлер
+доберман
+боксёр
+хаски
+маламут
+шарпей
+мопс
+чихуахуа
+терер
+гончи ит
+лака
+овчи ит
+қўриқчи ит

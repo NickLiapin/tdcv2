@@ -1,0 +1,16 @@
+---
+description: Education jobs in Eswatini. Temfundvo is "matters of learning", from kufundza, to read and to learn, and the full ministry name is Litiko leTemfundvo neKucecesha, education and training. Note that siSwati writes temfundvo where Zulu writes imfundo, the dv being one of this language's most visible signatures. The sector matters disproportionately here: Queen Regent Labotsibeni, known by her praise name Gwamile, raised a cattle levy from the whole nation in 1906 to found the Zombodze national school, on the argument that the country would be governed by whoever could read the papers it signed, and free primary education arrived in 2010. Thishela is a loan from English teacher, taken through Zulu, and it sits beside the native umfundzisi, which does duty for a university lecturer and for a church minister alike.
+locale: ss
+---
+Thishela
+Thishela lomkhulu
+Sekela-thishela lomkhulu
+Thishela wemabanga laphansi
+Thishela wemabanga laphakeme
+Umhloli wetikolo
+Umfundzisi wasenyuvesi
+Umgcini welayibhulari
+Umeluleki webafundzi
+Umphatsi wesikolo
+Umsizi wathishela
+Umnakekeli webantfwana

@@ -1,0 +1,14 @@
+---
+description: Tajik dishes, which overlap with Uzbek ones more than either country's menus admit. Қурутоб is the flagship: dried curd dissolved over torn bread and onion. Оши палав, самбуса and манту are the same dishes as палов, сомса and манти under Tajik names.
+locale: uz
+---
+қурутоб
+оши палав
+самбуса
+манту
+лагмон
+тухум барак
+каклик шўрва
+чўпон оши
+нишолда
+ҳалво

@@ -1,0 +1,8 @@
+---
+description: Seasons, and this file deliberately does not follow the Portuguese one. Timor-Leste sits nine degrees south of the equator and has no spring, summer, autumn or winter; it has a wet season and a dry one, and the agricultural year hangs off them. Tempu Udan is the monsoon, roughly November to April, when the rivers run and the roads to Ainaro and Same wash out. Tempu Bailoron is the dry, May to October, and the word is built from Tetum's own material — bai plus loron, the day or the sun. Between them sit the two working seasons a farmer actually plans by: Tempu Kuda, the planting that starts with the first rains, and Tempu Kolleita, the harvest. Kolleita is Portuguese colheita with lh rewritten ll, the same change that turns retalho into retallu.
+locale: tet
+---
+Tempu Udan
+Tempu Bailoron
+Tempu Kuda
+Tempu Kolleita

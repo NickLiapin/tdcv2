@@ -1,0 +1,23 @@
+---
+description: Property type in Eswatini. Umuti, the homestead, is the type that matters most and has no European equivalent: a walled or fenced compound holding several dwellings, a cattle byre and a yard, belonging to one extended family under a head, allocated by a chief on Swazi Nation Land rather than bought. It cannot be sold, it passes within the family, and a majority of the country lives in one. Everything else on this list is title-deed land, which exists only in and around Mbabane, Manzini, Matsapha, Ezulwini and the company towns and covers a minority of the country's surface. Umhlaba wekufuywa, grazing land, is likewise communal rather than owned, held by the chiefdom and used in common, which is why it appears as a property type with no owner.
+locale: ss
+---
+Indlu
+Indlu lesegcekeni linye
+Ifleti
+Indlu lehlanganisiwe
+Sakhiwo lesinemafleti lamanyenti
+Umuti
+Indlu yasemaphandleni
+Indlu yasedolobheni
+Indlu yeholideyi
+Sitendi lesingakakhiwa
+Lipulazi
+Insimu
+Umhlaba wekufuywa
+Indlu yekutsengisela
+Lihhovisi
+Sakhiwo semabhizinisi
+Indlu yekugcina imphahla
+Imfekthri
+Indlu yetivakashi

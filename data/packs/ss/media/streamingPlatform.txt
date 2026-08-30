@@ -1,0 +1,16 @@
+---
+description: Streaming and broadcast service available in Eswatini. DStv and GOtv head the list because satellite television, not internet streaming, is how most Swazi households watch anything beyond terrestrial broadcast: MultiChoice's dishes are on roofs across the country and the subscription is priced in emalangeni. Eswatini TV is the national broadcaster, and it carries the only substantial siSwati-language programming on the list — everything else is in English. Boomplay and Audiomack are here rather than only Spotify because both are built for African markets, both work on cheap data bundles, and both carry the amapiano and gospel that dominate what people here actually listen to.
+locale: ss
+---
+DStv
+GOtv
+Showmax
+Netflix
+YouTube
+Amazon Prime Video
+Disney+
+Apple TV+
+Spotify
+Boomplay
+Audiomack
+Eswatini TV

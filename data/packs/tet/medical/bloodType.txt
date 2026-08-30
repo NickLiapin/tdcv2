@@ -1,0 +1,12 @@
+---
+description: ABO and Rh group, kept in Latin letters because that is exactly how the group is printed on a donor card and on a crossmatch slip; Tetum's own word for blood is ran, and it lives in the everyday clinical phrases — ran husi inus for a nosebleed, mear ran for coughing blood — rather than in the group notation, which is never translated. The eight rows are not equally likely in a Timorese cohort. RhD-negative blood is rare across island Southeast Asia and Melanesia, well under one person in a hundred against roughly fifteen in a hundred in Western Europe, so a generated population that emits A- and O- at European rates has produced Europeans with Timorese names. The country has no large standing panel of voluntary donors either: a unit for a bleeding mother or a road casualty is usually found by calling the patient's own family into the hospital to replace what is used.
+locale: tet
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

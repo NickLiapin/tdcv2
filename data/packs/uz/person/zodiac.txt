@@ -1,0 +1,16 @@
+---
+description: Zodiac signs in their classical Arabic-Persian names, not translated: Ҳамал is Aries, Савр Taurus, Жавзо Gemini, Саратон Cancer. These are the names used in Uzbek astrology and almanacs, and Саратон is also the ordinary word for cancer the disease — the crab, in both senses.
+locale: uz
+---
+Ҳамал
+Савр
+Жавзо
+Саратон
+Асад
+Сунбула
+Мезон
+Ақраб
+Қавс
+Жади
+Далв
+Ҳут

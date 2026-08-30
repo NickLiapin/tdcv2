@@ -1,0 +1,12 @@
+---
+description: Sports that have a coherent position list behind them, chosen for what is actually played in Timor-Leste rather than for what a European list would carry. Futebol is the national obsession and the Liga Futebol Amadora fills the Estádiu Munisipál in Dili; Futsál is arguably bigger still, because a concrete court fits in a schoolyard where a full pitch does not, and half the sucos in Dili have one. Basketbol and Voleibol are the school and church sports, and a volleyball net strung between two posts in a village square is one of the commonest sights in the interior. Note what is absent: there is no ice hockey here, because the country sits nine degrees south of the equator and no Tetum word for the game has ever been needed. The spellings follow the pack's rule for European sports words: football is Futebol from Portuguese, but basketball and cricket come through English and are written as Tetum hears them, Basketbol and Kríkete, with the acute marking the stress and a final vowel added because Tetum does not end a word in a hard consonant cluster.
+locale: tet
+---
+Futebol
+Futsál
+Basketbol
+Voleibol
+Handebol
+Beisbol
+Rugby
+Kríkete

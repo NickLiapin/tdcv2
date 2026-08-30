@@ -1,0 +1,14 @@
+---
+description: Italian dishes. Пицца doubles its ц in Cyrillic — the Latin spelling pitsa has only one ts, so the two scripts disagree about how many letters the word has. Спагетти, лазаня, ризотто and тирамису arrived through Russian and keep the Russian spelling.
+locale: uz
+---
+пицца
+спагетти
+лазаня
+ризотто
+карбонара
+минестроне
+брускетта
+тирамису
+равиоли
+панна котта

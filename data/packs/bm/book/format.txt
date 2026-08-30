@@ -1,0 +1,12 @@
+---
+description: Book formats, in French because Malian publishing is a French-language industry, with one exception that matters. The syllabaire is the adult-literacy primer, and it is the format Bambara owns — the Malian alphabet was fixed in 1967 and revised in 1982 specifically so that adults could be taught to read their own language, and the state literacy service and the Bamako publishers have produced primers, readers and farmers' manuals in Bambara ever since. The manuel scolaire is the largest print category in the country by volume, since the school textbook is the book most Malian households own. Gafe is the Bambara for a book.
+locale: bm
+---
+broché
+relié
+livre de poche
+manuel scolaire
+syllabaire
+livre numérique
+livre audio
+réédition

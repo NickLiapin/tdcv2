@@ -1,0 +1,18 @@
+---
+description: Insurance in Bambara, on the naturalised loan `asiransi` — French assurance reshaped to Bambara phonology, which is what a Malian actually says, and the qualifier goes in front of it: `Mɔbili asiransi`, `Ni asiransi` life insurance from `ni` the soul, `Saya asiransi` from `saya` death, `Begɛn asiransi` for livestock. `Sumanw asiransi` covers the crop, and the index products written against drought are the frontier of the sector rather than an established line. Three values stay French because they are named schemes and legal instruments rather than descriptions: AMO is the Assurance Maladie Obligatoire for formal employees, Mutuelle de santé is the community model that tries to reach everyone else, and Responsabilité civile is the wording printed on the certificate a motorbike must carry to be registered.
+locale: bm
+---
+Mɔbili asiransi
+Moto asiransi
+Kɛnɛya asiransi
+So asiransi
+Ni asiransi
+Saya asiransi
+Taama asiransi
+Jago asiransi
+Sɛnɛ asiransi
+Sumanw asiransi
+Begɛn asiransi
+Baara asiransi
+AMO
+Responsabilité civile

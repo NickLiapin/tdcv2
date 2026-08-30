@@ -1,0 +1,10 @@
+---
+description: Orthopaedic diagnosis in Eswatini. Tematfambo is "matters of the bones", from litfambo with its class 6 plural ematfambo — and note that litfambo also means a sinew or a tendon, so the specialty name covers rather more than the English word bone suggests. Fracture leads because of where the fractures come from: the Mbabane-Manzini corridor carries most of the country's traffic and most of its road deaths, and orthopaedic trauma from that road is the single largest surgical workload at Raleigh Fitkin Memorial Hospital in Manzini. Osteomyelitis, bone infection, remains common here long after it became rare in Europe, usually as a late complication of an untreated open fracture or of sickle cell disease.
+locale: ss
+---
+Kwephuka kwelitfambo
+I-osteoarthritis
+Buhlungu bemhlane
+I-osteomyelitis
+Kusheleleka kwelunga
+I-scoliosis

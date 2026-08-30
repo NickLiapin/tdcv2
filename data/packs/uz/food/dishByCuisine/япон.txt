@@ -1,0 +1,14 @@
+---
+description: Japanese dishes. All ten arrived in Uzbekistan in the last twenty years, through Moscow rather than Tokyo, and are spelled from the Russian transcription: суши rather than суси, and гёза from the Russian rendering of gyoza. Мисо шўрва shows the pattern — foreign noun plus the Uzbek word for soup.
+locale: uz
+---
+суши
+рамен
+темпура
+удон
+мисо шўрва
+онигири
+якитори
+сашими
+гёза
+мочи

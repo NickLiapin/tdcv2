@@ -1,0 +1,27 @@
+---
+description: Government body in Eswatini. The ministries are named with litiko plus a te- sector noun — Litiko LeTemphilo, the Ministry of Health, Litiko LeTemfundvo neKucecesha, Education and Training — and that construction is the source of the te- pattern used throughout this pack for industries and medical specialties. Note the capitalisation convention: the sector noun keeps its capital inside the phrase because it is a proper name, which is why LeTemphilo is written as one word with a capital in the middle. The bodies named in English below them are named that way in reality: Eswatini's statutory corporations, its central bank, its revenue service and its armed forces carry English names in law, and the Umbutfo Eswatini Defence Force keeps a single siSwati word, umbutfo, the regiment, at the front of an otherwise English title.
+locale: ss
+---
+Litiko Letemphilo
+Litiko Letemfundvo neKucecesha
+Litiko Letetimali
+Litiko Letekuhamba neTekuchumana
+Litiko Letekulima
+Litiko Letebulungiswa
+Litiko Letekuphepha kwaVelonkhe
+Litiko Letemsebenti
+Litiko Letemikhicito neTekutsengiselana
+Litiko Letekwakha
+Litiko Letekuvakasha neTemvelo
+Litiko Letebuholi beMasiko
+Litiko Letekutfutfukisa uMphakatsi
+Umbutfo Eswatini Defence Force
+Royal Eswatini Police Service
+His Majesty's Correctional Services
+Eswatini Revenue Service
+Central Bank of Eswatini
+Eswatini Electricity Company
+Eswatini Water Services Corporation
+Eswatini Environment Authority
+Eswatini Communications Commission
+Eswatini National Provident Fund

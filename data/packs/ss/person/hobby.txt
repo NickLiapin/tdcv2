@@ -1,0 +1,82 @@
+---
+description: Pastime in siSwati, and every value is an INFINITIVE — the class 15 form in ku-, which is how siSwati names an activity at all. There is no bare noun for "singing"; there is only kucula, "to sing", used as the name of the thing. That is why nothing on this list can be shortened by dropping the first two letters, and why a config joining these to a verb produces a double infinitive. Several entries name crafts that are still economically real in Eswatini rather than hobbies: kwaluka tikhwama is the grass and sisal basketry that Swazi women sell through cooperatives at Malkerns and Mantenga, kwenta tigcebesha is beadwork, and kubata tigodvo is the woodcarving trade. Kusina covers the ceremonial dancing of Umhlanga and Incwala as well as social dancing, and makhweyane, the braced gourd bow at kudlala makhweyane, is Eswatini's own instrument.
+locale: ss
+---
+Kucula
+Kusina
+Kudlala libhola
+Kudlala netibhola
+Kudlala ragbhi
+Kudlala volibhola
+Kudlala bhasikhidi
+Kudlala thenisi
+Kudlala khilikithi
+Kudlala hhokhi
+Kudlala golfu
+Kubhukusha
+Kugijima
+Kugijima libanga lelidze
+Kuhamba ngetinyawo
+Kukhwela tintsaba
+Kugibela libhayisikili
+Kutivocavoca
+Kuya egyimini
+Kubukela imidlalo
+Kuvakasha
+Kuvakashela tigodzi tetilwane
+Kuhlala emakamu
+Kufundza tincwadzi
+Kubhala tinkhondlo
+Kubhala tindzaba
+Kubhala emabhuku
+Kudweba
+Kupenda
+Kutsatsa titfombe
+Kutsatsa emavidiyo
+Kupheka
+Kubhaka
+Kuluka emahiya
+Kwaluka tikhwama
+Kutfunga
+Kwenta tigcebesha
+Kubata tigodvo
+Kwenta imbita yelubumba
+Kwenta tintfo ngetandla
+Kulima insimu
+Kuhlanyela timbali
+Kufuya tinkhukhu
+Kufuya tinyosi
+Kufuya timbuti
+Kudoba tinhlanti
+Kutingela
+Kubuka tinyoni
+Kutsandza tilwane
+Kufuya tinja
+Kubuka i-thelevishini
+Kubuka emamuvi
+Kulalela umculo
+Kwenta umculo
+Kucula ekwayeni
+Kudlala sigubhu
+Kudlala sigingci
+Kudlala makhweyane
+Kudlala chess
+Kudlala emakhadi
+Kudlala emageyimu ekhompiyutha
+Kuvakashela tihlobo
+Kuhlala nemngani
+Kuhamba ngemoto
+Kulungisa timoto
+Kwakha
+Kufundza tilwimi
+Kufundza umlandvo
+Kufundza ngetinkhanyeti
+Kucwaninga umndeni
+Kubhala emaphephandzaba
+Kutsenga
+Kuhlela imicimbi
+Kusita emphakatsini
+Kuvolontiya
+Kufundzisa
+Kufundza libhayibheli
+Kuya esontfweni

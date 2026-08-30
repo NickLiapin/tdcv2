@@ -1,0 +1,54 @@
+---
+description: Departments of a Malian shop or market, in French. Two entries would not appear in a European list and matter here. `Pagnes et bazin` is a department in its own right because cloth is bought by the pagne — a fixed length, sold uncut — and then taken to a tailor, so the fabric trade and the clothing trade are separate businesses; the bazin end of it, imported damask dyed and beaten to a shine in Bamako courtyards, is a serious industry. `Agriculture et élevage` is the other, covering seed, fertiliser, veterinary products and the hand tools that four Malians in five need for a living. Note how much of the list is hardware and construction: Bamako is growing fast and a very large share of urban retail is building materials.
+locale: bm
+---
+Alimentation
+Épicerie
+Boulangerie
+Boucherie
+Poissonnerie
+Fruits et légumes
+Produits laitiers
+Surgelés
+Boissons
+Épices et condiments
+Céréales
+Huiles
+Conserves
+Hygiène
+Cosmétiques
+Parfumerie
+Pharmacie
+Bébé
+Vêtements homme
+Vêtements femme
+Vêtements enfant
+Chaussures
+Maroquinerie
+Bijouterie
+Tissus
+Pagnes et bazin
+Mercerie
+Électroménager
+Électronique
+Téléphonie
+Informatique
+Audio et vidéo
+Papeterie
+Librairie
+Jouets
+Sport
+Bricolage
+Quincaillerie
+Matériaux de construction
+Peinture
+Plomberie
+Électricité
+Automobile
+Pièces détachées
+Motos et vélos
+Meubles
+Literie
+Décoration
+Jardinage
+Agriculture et élevage

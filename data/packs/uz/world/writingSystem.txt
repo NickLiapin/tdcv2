@@ -1,0 +1,27 @@
+---
+description: Writing systems, and the file where this pack's own subject is on the list. Лотин алифбоси and кирилл алифбоси are the first two entries because Uzbekistan uses both: the switch was declared in 1993, the deadline has been moved repeatedly, and Cyrillic is still what much print and signage uses. Араб алифбоси was the script before 1929, чиғатой ёзуви the literary form Navoiy wrote in, and Ўрхун-Энасой ёзуви the runic script of the eighth-century Turkic inscriptions. Four systems for one language, in one millennium.
+locale: uz
+---
+лотин алифбоси
+кирилл алифбоси
+араб алифбоси
+форс алифбоси
+чиғатой ёзуви
+қадимги туркий ёзув
+ўрхун-энасой ёзуви
+суғд ёзуви
+хоразм ёзуви
+оромий ёзуви
+юнон алифбоси
+арман алифбоси
+грузин алифбоси
+иброний алифбоси
+деванагари
+бенгал ёзуви
+тамил ёзуви
+тай ёзуви
+хитой иероглиф ёзуви
+ҳирагана
+катакана
+ҳангул
+миххат

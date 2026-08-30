@@ -1,0 +1,29 @@
+---
+description: Company department or function. The Frisian for a department is ôfdieling, with the circumflex o that Dutch afdeling does not have, and it is the word standing behind ôfdielingshaad in the seniority list. Tsjinst is the Frisian for a service or a duty, and it shows the palatalisation that marks the language off from Dutch most clearly: the same shift that turns kerk into tsjerke and kaas into tsiis turns dienst into tsjinst, so an in-house maintenance department is a technyske tsjinst and a facilities department a fasilitêre tsjinst. Personielssaken is the traditional name for HR in this labour market, arbo covers the occupational health and safety organisation every Dutch employer is legally required to keep, and ûndersyk, research, is built on sykje, to seek, the same verb as English seek.
+locale: fy
+---
+Ûntwikkeling
+Produktmanagement
+Ûntwerp
+Ferkeap
+Marketing
+Finânsjes
+Boekhâlding
+Salarisadministraasje
+Personielssaken
+Bedriuwsfiering
+Juridyske saken
+Klantetsjinst
+Ynformaasjetechnology
+Ûndersyk en ûntwikkeling
+Ynkeap
+Kwaliteitsboarging
+Logistyk
+Administraasje
+Technyske tsjinst
+Fasilitêre tsjinst
+Arbo en feiligens
+Compliance
+Kommunikaasje
+Oplieding en ûntwikkeling
+Direksje

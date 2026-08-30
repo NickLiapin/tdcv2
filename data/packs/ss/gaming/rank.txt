@@ -1,0 +1,14 @@
+---
+description: Competitive rank ladder, rendered for siSwati. The lower rungs are the international metal series taken as loans, which is what an Eswatini player sees in any game they open. The top three are the interesting part, because they replace the usual "grandmaster" and "legend" with the real Swazi hierarchy: ingcweti is a master of a craft, sikhulu is a senior chief who holds land in trust for a chiefdom, and Ingwenyama, "the Lion", is the King's own title and cannot be outranked by anything. A ladder that ends at Ingwenyama is saying something a Swazi player reads instantly, and it is also the reason the title should not be used lightly in a product — it names a living person.
+locale: ss
+---
+Losacala
+Ibhronzi
+Isiliva
+Igolide
+Iplathinamu
+Idayimane
+Iemeraldi
+Ingcweti
+Sikhulu
+Ingwenyama

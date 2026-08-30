@@ -1,0 +1,27 @@
+---
+description: Malian public bodies, in French, which is the language of the whole administration. Two are worth knowing. The `INPS`, the Institut National de Prévoyance Sociale, is the social security fund that covers formal employees — which in Mali is a small minority, since most work is informal, so an INPS number on a record marks someone in the salaried economy. The `Direction Générale des Impôts` and the `Direction Générale des Douanes` matter out of proportion because Mali is landlocked: a very large share of state revenue is customs duty collected on goods that came 1,200 kilometres up the corridor from Dakar or Abidjan, which is why the customs service is one of the most consequential institutions in the country.
+locale: bm
+---
+Présidence de la République
+Primature
+Ministère de l'Administration territoriale
+Ministère de la Justice
+Ministère des Finances
+Ministère de la Santé
+Ministère de l'Éducation nationale
+Ministère de l’Agriculture
+Ministère des Mines
+Ministère des Affaires étrangères
+Ministère de la Défense
+Ministère des Transports
+Assemblée nationale
+Cour constitutionnelle
+Cour suprême
+Direction générale des impôts
+Direction générale des douanes
+Institut national de prévoyance sociale
+Agence nationale pour l’emploi
+Institut national de la statistique
+Protection civile
+Police nationale
+Gendarmerie nationale

@@ -1,0 +1,21 @@
+---
+description: Qualifications, and this ladder is two ladders standing in the same hall. Bacharelatu, Lisensiatura, Mestradu and Doutoramentu are the Portuguese sequence, restored after independence and used by the national university and by anyone who studied in Portugal or Brazil. Diploma I, Diploma II and Diploma III are the Indonesian D1-D3 vocational awards, inherited from the occupation, never abolished, and still issued and still asked for by employers — a diploma of that kind is a real and current credential here rather than a historical trace. The consequence for a records dataset is that a single Timorese CV can legitimately carry qualifications from three education systems: a Diploma III taken at an Indonesian institute before 1999, a Lisensiatura from the national university afterwards, and a master's from Australia, Portugal or Indonesia on a scholarship. Ensinu Báziku is the nine-year basic cycle that replaced the old primary and pre-secondary split, and Ensinu Sekundáriu divides into a general and a technical-vocational track, which is a branch point worth modelling because the two lead to quite different working lives.
+locale: tet
+---
+Ensinu Báziku
+Ensinu Sekundáriu Jerál
+Ensinu Sekundáriu Tékniku-Vokasionál
+Diploma I
+Diploma II
+Diploma III
+Kursu Tékniku
+Sertifikadu Profisionál
+Bacharelatu
+Lisensiatura
+Pós-Graduasaun
+Espesializasaun
+Mestradu
+Mestradu Profisionál
+Mestradu Jestaun Empreza
+Doutoramentu
+Pós-Doutoramentu

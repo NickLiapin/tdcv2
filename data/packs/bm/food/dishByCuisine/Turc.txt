@@ -1,0 +1,12 @@
+---
+description: Turkish food, which is the newest arrival on this list and arrived with money. Turkey has expanded hard into West Africa since the 2000s — Turkish Airlines flies Istanbul to Bamako, Turkish contractors build, Turkish schools and clinics operate, and a Turkish cultural centre runs in the capital — and the restaurants came with all of it. `Döner` and `kebab` compete directly with the Lebanese chawarma on the same Bamako streets and the two are frequently confused on signage, which is a small live example of how a foreign cuisine gets absorbed.
+locale: bm
+---
+Kebab
+Döner
+Lahmacun
+Pide
+Köfte
+Menemen
+Börek
+Baklava turc

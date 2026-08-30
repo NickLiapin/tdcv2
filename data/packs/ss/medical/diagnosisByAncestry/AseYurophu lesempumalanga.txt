@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised frequency in Eastern European ancestry. Several of these are classic founder effects, where a variant that entered a small population early became common as that population grew: the Slavic BRCA1 5382insC variant accounts for a large share of hereditary breast and ovarian cancer in Poland, Russia and Ukraine, and is screened for as a three-variant panel rather than by full sequencing for exactly that reason. Wilson disease, copper accumulation from ATP7B variants, has regional clusters across the same area. Phenylketonuria is on the list because its frequency in Turkey, Ireland and parts of eastern Europe is several times the western European rate, which is why newborn screening began where it did. Ancestry associations, not statements about individuals.
+locale: ss
+---
+I-BRCA1 founder variants
+I-alkaptonuria
+I-phenylketonuria
+I-haemochromatosis
+I-Wilson disease
+I-familial hypercholesterolaemia

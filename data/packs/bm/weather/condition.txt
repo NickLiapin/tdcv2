@@ -1,0 +1,20 @@
+---
+description: Weather conditions, and the first thing to say is what is not here. Mali has no snow, no sleet and no ice, and a list that carries them because the source language did is describing somewhere else. Sanji, rain, is transparent — san is sky and ji is water — and it falls in one season only, roughly June to September, so a year of Malian records is not a sine wave but a long dry stretch with a wet block in it. The condition that actually shapes the Malian year is dust. Buguri is the Bambara for it and brume sèche is the term the meteorological service uses, the dry haze the harmattan carries down off the Sahara, which can hold visibility under two kilometres for days at a time and ground aircraft at Bamako. The French values are the register of the broadcast bulletin, the Bambara ones the register of the courtyard.
+locale: bm
+---
+Tile
+Sanji
+Sanji misɛn
+Sanjiba
+Sanpɛrɛn
+Fɔɲɔ
+Fɔɲɔba
+Buguri
+Funteni
+Nɛnɛ
+Dibi
+Ciel clair
+Ciel voilé
+Nuageux
+Brume sèche
+Orage

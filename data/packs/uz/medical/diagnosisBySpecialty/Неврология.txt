@@ -1,0 +1,16 @@
+---
+description: Neurology diagnoses. Мигрен and эпилепсия lead. Бел остеохондрози is the Russian-tradition label for degenerative lumbar spine disease and is recorded far more often in post-Soviet medicine than in western systems, where it barely exists as a diagnosis.
+locale: uz
+---
+Мигрен
+Эпилепсия
+Инсулт
+Мия қон айланишининг ўткир бузилиши
+Паркинсон касаллиги
+Алцгеймер касаллиги
+Тарқоқ склероз
+Невропатия
+Радикулит
+Бел остеохондрози
+Уч шохли нерв невралгияси
+Вертиго

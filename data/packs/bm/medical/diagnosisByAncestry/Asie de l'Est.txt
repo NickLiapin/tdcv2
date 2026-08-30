@@ -1,0 +1,14 @@
+---
+description: Conditions more frequent in people of East Asian descent. Two entries matter at the prescribing desk rather than the diagnostic one: aldehyde dehydrogenase 2 deficiency causes the alcohol flushing reaction and raises oesophageal cancer risk in those who drink anyway, and carbamazepine hypersensitivity is tied to an HLA allele common in the region, which is why testing precedes the prescription there.
+locale: bm
+---
+Alpha-thalassémie
+Déficit en aldéhyde déshydrogénase 2
+Non-persistance de la lactase
+Carcinome du nasopharynx
+Cancer de l'estomac
+Glaucome primitif à angle fermé
+Maladie de Kawasaki
+Maladie de moyamoya
+Hypersensibilité à la carbamazépine
+Myopie forte

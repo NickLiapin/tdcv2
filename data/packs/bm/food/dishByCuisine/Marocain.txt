@@ -1,0 +1,12 @@
+---
+description: Moroccan food, which arrives in Mali across the oldest trade route in the country's history. The trans-Saharan caravans ran from Sijilmasa in Morocco to Timbuktu and Gao carrying salt south and gold north, and Morocco has never stopped being a reference point — Ahmad al-Mansur's army took Timbuktu in 1591, Moroccan banks are among the largest in Bamako, and the Casablanca flight is the busiest long-haul connection out of Sénou. `Thé à la menthe` is on this list as a dish rather than a drink because in Mali it is a ritual with its own name, ataya, and its own etiquette of three glasses.
+locale: bm
+---
+Couscous royal
+Tajine de poulet
+Harira
+Pastilla
+Méchoui
+Briouates
+Zaalouk
+Thé à la menthe

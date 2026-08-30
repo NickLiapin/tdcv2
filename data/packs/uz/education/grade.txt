@@ -1,0 +1,16 @@
+---
+description: Marks as an Uzbek school or university records them. The five-point numeric scale runs downward from 5, and the word forms аъло, яхши, қониқарли, қониқарсиз map onto it. Аъло carries the тутуқ белгиси, the sign that marks a break between two vowels and has no sound of its own.
+locale: uz
+---
+5
+4
+3
+2
+аъло
+яхши
+қониқарли
+қониқарсиз
+ўтди
+ўтмади
+ҳисобга олинди
+ҳисобга олинмади

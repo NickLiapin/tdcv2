@@ -1,0 +1,28 @@
+---
+description: Mined mineral or extracted commodity. What Fryslân actually produces stands at the head of the list: ierdgas from fields under the north of the province, stiensâlt solution-mined at Harns out of a bed lying beneath the Waadsee, sân and klaai dug from the coastal deposits, and fean, peat, which fuelled the whole northern Netherlands and was cut out of the southeast of this province on an industrial scale until the ground ran out. Klaai is not only a material here but half of the province's own geography: Fryslân divides into De Klaai, the heavy sea clay of the north and west, and De Wâlden, the sandy wooded east, and a Frisian will place a village by telling you which of the two it stands on. The metals lower down are carried for general use and none of them comes out of Frisian ground. Note lead for lead, where Frisian keeps the English word and Dutch has lood, and sâlt, sulver, sink and stien for salt, silver, zinc and stone, all with the initial s that Frisian writes where Dutch writes z.
+locale: fy
+---
+Ierdgas
+Stiensâlt
+Sân
+Grint
+Klaai
+Fean
+Stienkoal
+Brúnkoal
+Kalkstien
+Gips
+Izererts
+Koper
+Goud
+Sulver
+Sink
+Lead
+Bauksyt
+Nikkel
+Uranium
+Lithium
+Kobalt
+Tin
+Fosfaat
+Kalysâlt

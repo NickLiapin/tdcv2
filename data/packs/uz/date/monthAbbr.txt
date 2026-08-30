@@ -1,0 +1,16 @@
+---
+description: Month abbreviations for a compact date, three letters each and lower case, no full stop. They follow the ordinary Cyrillic short forms — янв, фев, июн, июл, ноя — which are already distinct at three characters. The Latin pack cannot do that: iyun and iyul share their first three letters, so it has to write iyn and iyl instead, and the two packs diverge here on purpose.
+locale: uz
+---
+янв
+фев
+мар
+апр
+май
+июн
+июл
+авг
+сен
+окт
+ноя
+дек

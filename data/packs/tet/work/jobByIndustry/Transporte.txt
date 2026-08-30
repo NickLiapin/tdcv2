@@ -1,0 +1,12 @@
+---
+description: Transport jobs, and the list turns on a register split that is invisible in translation. Xofer and Motorista both mean driver, and Tetum uses them for different men. Xofer, worn down from the same root as chauffeur and reinforced by Indonesian sopir, is the driver of a mikrolet, an angguna, a taxi or an ojek — self-employed or working for the vehicle's owner, paid out of the day's takings, with no contract. Motorista is the salaried professional: the ministry driver, the company driver, and above all the Motorista ONG, which is a sought-after job with a wage, a fuel card and a hard vehicle behind it, and one that a great many Timorese men have held at some point since 1999. The same person may be both in a lifetime, but never on the same day, and a record that flattens them into one occupation loses the distinction that matters most about the work. Kapitaun ró uses ró, the native word for a boat, because the sea link matters: freight and passengers move by ship where the road does not go.
+locale: tet
+---
+Motorista kamiaun
+Xofer mikrolet
+Xofer angguna
+Xofer taksi
+Koordenadór lojístika
+Operadór armazén
+Kapitaun ró
+Motorista ONG

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in nephrology, in West Frisian. Skea is damage or harm, cognate with English scathe, so Kroanyske nierskea is chronic kidney damage and reads nothing like Dutch nierschade despite meaning exactly that. Urinewei-ynfeksje contains wei, the Frisian way, spelt as in English against Dutch weg, and it is the commonest thing in the file by a wide margin. Systenieren is polycystic kidney disease with the c gone out of cyst, the change Frisian applies to every borrowed c standing before an e or an i.
+locale: fy
+---
+Kroanyske nierskea
+Akút nierfalen
+Nierstiennen
+Glomerulonefritis
+Nefrotysk syndroom
+Systenieren
+Diabetyske nefropaty
+Urinewei-ynfeksje
+Renale anemy
+Hyperkaliëmy

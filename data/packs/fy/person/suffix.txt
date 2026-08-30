@@ -1,0 +1,28 @@
+---
+description: Name and academic suffix, the part that follows the surname. Almost nothing on this list is Frisian, and that is the point worth recording: academic degrees and protected professional titles are awarded by the Dutch state, not by the province, so a graduate of NHL Stenden or Van Hall Larenstein in Ljouwert carries MSc or RA on the diploma in the same letters as a graduate in Maastricht, and there is no Frisian translation for any of them. Frisian puts its real titles in front of the name instead - see person/prefix.txt, where Drs., Ir. and Mr. sit - and the post-nominal habit here is an Anglo import that arrived with the Bologna reform. The generational suffixes are the interesting exception, because they are rare in Fryslân for a historical reason: before the civil registry of 1811 a Frisian was identified by patronymic rather than by an inherited surname, so Sjoerd Jelles simply meant Sjoerd son of Jelle and the father was Jelle Sjoerds, an alternating pattern that names the generation far more precisely than Jr. and Sr. ever could and that made a numbered suffix pointless. Traces of it are still visible in the surname file, where names like Sjoerdsma, Jansma and Folkertsma are frozen patronymics that stopped alternating in 1811. RA and RC are Dutch protected titles (registeraccountant and register controller) and may only be used by people on the national register.
+locale: fy
+---
+Jr.
+Sr.
+jr.
+sr.
+II
+III
+IV
+BSc
+MSc
+MA
+LLM
+LLB
+BA
+BBA
+MBA
+PhD
+RA
+RC
+AA
+MD
+EMBA
+BEng
+MEng
+PDEng

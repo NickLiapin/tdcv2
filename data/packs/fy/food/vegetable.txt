@@ -1,0 +1,46 @@
+---
+description: Vegetable (West Frisian). Ierappel, the potato, is earth-apple, and it is the word this whole list stands on: the heavy sea clay of the northern Bouhoeke and It Bilt has grown seed potatoes for export for well over a century, so in Fryslân a potato is a cash crop before it is dinner. The cabbages all end in -koal, and boerekoal, curly kale, is not a side dish here but the base of the winter one-pot. Three words repay a second look. Knyflok and bieslok end in the same -lok that English kept whole as leek and Dutch writes as -look. Grienten, the general word for vegetables, is built on grien, green, which is the grien of griene tsiis in the rhyme Frisians use to catch out a foreigner. And champignon is only the shop word for the cultivated mushroom - the general Frisian word for a mushroom is poddestoel, toad-stool, put together exactly the way the English word is and not the way Dutch paddenstoel splits it.
+locale: fy
+---
+Ierappel
+Woartel
+Sipel
+Prei
+Knyflok
+Sjalot
+Boerekoal
+Sprútsjes
+Blomkoal
+Broccoli
+Wite koal
+Reade koal
+Spitskoal
+Savoaiekoal
+Koalraap
+Knolsellery
+Bleeksellery
+Andyvje
+Spinaazje
+Slaad
+Wytlof
+Postelein
+Snijbiet
+Rammenas
+Radys
+Biet
+Reade biet
+Pastinaak
+Skorsenear
+Asperzje
+Sperziebean
+Snijbean
+Túnbean
+Dopeart
+Peultsjes
+Courgette
+Aubergine
+Paprika
+Tomaat
+Komkommer
+Pompoen
+Champignon

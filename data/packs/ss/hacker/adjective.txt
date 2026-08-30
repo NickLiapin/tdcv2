@@ -1,0 +1,32 @@
+---
+description: Technical adjective in siSwati, written with the loku- concord because that is the form that agrees with an infinitive or with an abstract state — which is what a system property is. Every value is a relative clause: lokusheshako is "which is fast", lokuvikelekile "which is protected", lokungasebenti "which does not work". The negative is the part worth studying, because siSwati negates inside the relative rather than in front of it: lokungasebenti carries the -nga- negative marker between the concord and the stem, so there is no separate word for "not" to strip out. A config that tries to build a negative by prefixing something to the positive form will produce nothing a speaker recognises.
+locale: ss
+---
+Lokusha
+Lokudzala
+Lokusheshako
+Lokulula
+Lokuvikelekile
+Lokuphelele
+Lokungasebenti
+Lokusebentako
+Lokungakalungiswa
+Lokugcwele
+Lokungenalutfo
+Lokuvuliwe
+Lokuvaliwe
+Lokuhlelekile
+Lokungahleleki
+Lokukhulu
+Lokuncane
+Lokuphakeme
+Lokuphansi
+Lokusetjentiswako
+Lokungasetjentiswa
+Lokugciniwe
+Lokulahlekile
+Lokutfunyelwe
+Lokwamukelekile
+Lokungenatiphutsa
+Lokunetiphutsa
+Lokuhlolisisiwe

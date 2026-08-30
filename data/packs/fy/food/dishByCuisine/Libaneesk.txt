@@ -1,0 +1,19 @@
+---
+description: Lebanese dishes, which reached the Netherlands through shawarma counters rather than through home cooking, so every name here is Arabic and untouched. One entry connects straight back to the Frisian file at the head of this folder: labneh is milk or yoghurt hung in a cloth until the whey drains out of it, and hingop, on the Frysk list, is exactly that technique applied to buttermilk - two dairy cultures at opposite ends of a continent arriving independently at the same way of making a thin milk thick. Kibbeh and kafta are minced meat worked with bulgur or spice; manakish and sfiha are flatbreads. And warak enab, stuffed vine leaves, is the same dish the Greek file calls dolmades and the Turkish file calls dolma, which is a useful reminder that a cuisine field draws borders where a kitchen never did.
+locale: fy
+---
+Hummus
+Baba ganoush
+Tabouleh
+Fattoush
+Falafel
+Shawarma
+Kibbeh
+Manakish
+Sfiha
+Mujadara
+Kafta
+Warak enab
+Labneh
+Muhammara
+Knafeh

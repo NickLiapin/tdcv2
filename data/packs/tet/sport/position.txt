@@ -1,0 +1,39 @@
+---
+description: Playing positions pooled across every sport in the pack, for use where a config does not know which sport a row belongs to. Two pieces of Tetum run through the list. Left and right are karuk and loos, both native, and loos is worth noting because it also means true, correct and straight — the right hand is the correct hand, an association Tetum shares with a great many languages and encodes in a single word, so loos in a sentence is ambiguous between the side and the truth until the context decides. The baseball bases use Tetum ordinals rather than digits: baze dahuluk, daruak and datoluk are first, second and third, built with the da- prefix on the cardinals. The rest are Portuguese respelled — guarda-redes keeps its shape, lateral takes an acute on its stressed final syllable to give laterál, pivô becomes pivó, arremessador is replaced by lansadór.
+locale: tet
+---
+Guarda-redes
+Defeza sentrál
+Laterál loos
+Laterál karuk
+Médiu defensivu
+Médiu
+Médiu ofensivu
+Estremu loos
+Estremu karuk
+Avansadu
+Armadór
+Ala-armadór
+Ala
+Ala-pivó
+Pivó
+Levantadór
+Ponteiru
+Sentrál
+Opostu
+Líberu
+Ponta karuk
+Ponta loos
+Lansadór
+Reseptór
+Baze dahuluk
+Baze daruak
+Baze datoluk
+Interbazes
+Jardineiru sentrál
+Batedór dezignadu
+Pilár
+Talonadór
+Médiu-scrum
+Abertura
+Fullback

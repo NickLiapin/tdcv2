@@ -1,0 +1,16 @@
+---
+description: The state of a property on offer, in Bambara. `A bɛ yen` — it is there — is how availability is said, with the locative `yen` doing the work an adjective does elsewhere. `Jɔli la` is under construction, from `jɔ` to stand something up; `Dafalen` is finished, from `dafa` to be whole. `Sɔsɔli la` is in dispute, and it is a real and common state rather than an exception: customary tenure, in which land belongs to a lineage and is allocated by a village chief, sits alongside the state's titres fonciers, and the same plot can carry two honest claims — a problem that sharpens as Bamako eats the farmland around it. `Luwelen` keeps the naturalised French louer, because renting for money is a transaction the customary system had no word for.
+locale: bm
+---
+A bɛ yen
+Maralen
+Luwelen
+Feerelen
+Bɛnkan ɲinini na
+Bɛnkan sɛbɛnnen
+Bɔlen
+Jɔli la
+Dafalen
+Sigilen
+Sɔsɔli la
+Labɛnni ka kan

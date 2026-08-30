@@ -1,0 +1,64 @@
+---
+description: Materials, opening with the textiles Uzbekistan actually makes: пахта cotton, ипак silk, and the three woven cloths хонатлас, адрас and беқасам. Қоракўл is the karakul lambskin of Bukhara. Further down, ганч — the carved gypsum plaster of Uzbek interiors — sits beside ordinary гипс, and they are not the same trade.
+locale: uz
+---
+пахта
+ипак
+хонатлас
+адрас
+беқасам
+жун
+қоракўл
+кашмир
+зиғир
+каноп
+чарм
+сунъий чарм
+замша
+мўйна
+синтетика
+полиэстер
+акрил
+вискоза
+нейлон
+эластан
+каучук
+резина
+силикон
+пластмасса
+полиэтилен
+полипропилен
+акрилик шиша
+шиша
+кристалл
+чинни
+сопол
+кулолчилик лойи
+металл
+темир
+пўлат
+зангламайдиган пўлат
+чўян
+алюминий
+мис
+латун
+бронза
+кумуш
+олтин
+титан
+ёғоч
+қайрағоч ёғочи
+тут ёғочи
+чинор ёғочи
+бамбук
+қамиш
+фанера
+ДСП
+картон
+қоғоз
+мум
+гипс
+ганч
+мармар
+гранит
+бетон

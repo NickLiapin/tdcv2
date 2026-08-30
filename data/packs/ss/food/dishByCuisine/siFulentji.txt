@@ -1,0 +1,12 @@
+---
+description: French dishes. These arrive in Eswatini through hotel kitchens and catering training rather than through any French community, and the vocabulary is professional rather than domestic — a cook at an Ezulwini hotel learns these names in a South African hospitality college. Icroissant and ibaguette have travelled furthest into ordinary use, sold in Mbabane bakeries. The names keep their French spelling and simply take a class 9 prefix, which means a siSwati speaker reading them aloud must apply French orthography rules the language has no other use for; that is a real cost of unassimilated borrowing and it is why older loans in this pack, like litafula from Portuguese tavola, were reshaped instead.
+locale: ss
+---
+Ibaguette
+Icroissant
+Iratatouille
+Icoq au vin
+Ibouillabaisse
+Iquiche lorraine
+Icreme brulee
+Iboeuf bourguignon

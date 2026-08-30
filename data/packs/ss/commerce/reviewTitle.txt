@@ -1,0 +1,30 @@
+---
+description: Customer review headline in siSwati. Notice how few of these are noun phrases: a siSwati review title is a statement with a verb in it, because the language builds emphasis through the verb rather than through a stacked adjective. Ngiyayincoma is one word carrying subject, object and verb together — ngi- I, -ya- present, -yi- it, -ncoma praise — and that agglutination is why a siSwati headline can be shorter than its English translation while saying more. The two customer-service entries are worth reading as a pair: lusito is help or assistance, from kusita, and the same word covers a warranty department and a neighbour lending a hand, which is a fair description of how service works in a country this small.
+locale: ss
+---
+Imphahla lenhle kakhulu
+Isebenta kahle
+Ngiyayincoma
+Ifanele imali yayo
+Yefike ngesikhatsi
+Ipakishwe kahle
+Ngiyeneliseka
+Angizange ngenetiseke
+Ayifanani nencazelo
+Ikhwalithi lephansi
+Yephuke masinyane
+Yefike sekwedlule sikhatsi
+Yenta loko lekutsiwa iyakwenta
+Ngingayitsenga futsi
+Angisoze ngiphindze ngitsenge lapha
+Intsengo iphakeme kakhulu
+Intsengo ishibhile
+Ilula kusetjentiswa
+Kumatima kuyisebentisa
+Lusito lwemakhasimende lolukahle
+Lusito lwemakhasimende lolubi
+Ubungako abukalungi
+Imibala imihle
+Ayibhidliki
+Ngiyayitsandza
+Ingcono kunaleyo bengiyilindzele

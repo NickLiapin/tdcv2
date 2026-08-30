@@ -1,0 +1,17 @@
+---
+description: What Malian lorries actually carry, named in Bambara because the goods are ordinary things with ordinary names. `Kɔɔri` is cotton, the country's great export crop, moving from the gins of Koutiala and Sikasso down the corridor to Dakar or Abidjan; `Sanu` is gold, which goes the same way in far smaller volumes and far greater value. `Kɔgɔ` is salt, still cut in slabs at the Saharan mines of Taoudénit and carried south — the trade that named the four cardinal directions in this language. `Begɛn` is livestock on the hoof, Mali's second export, walked or trucked to the coastal cities. `Siman` is French ciment worn into Bambara, and it moves in the opposite direction, inland, like almost everything manufactured in a landlocked country. Three values stay French — Conteneur, Marchandises diverses and Produits dangereux — because they are customs and freight-manifest categories rather than things, and the manifest is written in French.
+locale: bm
+---
+Malo
+Ɲɔ
+Kɔɔri
+Begɛn
+Sanu
+Kɔgɔ
+Jɛgɛ jalan
+Siman
+Esansi
+Fɛn sumaninw
+Conteneur
+Marchandises diverses
+Produits dangereux

@@ -1,0 +1,16 @@
+---
+description: The Portuguese dishes that survived in Timorese kitchens rather than the ones a Lisbon menu would list, and every name here has been through the Tetum spelling rules. Bacalhau becomes bakalyau, which is the salt cod that arrives dried and keeps without refrigeration — the reason it took root on a tropical island in the first place. Pastel de nata becomes pastél de nata, with the acute marking the stressed final syllable the way tribunál and profesór take one. Chouriço becomes xourisu on two rules at once, ch written x and ç written s. Sardinha becomes sardiña, nh written ñ. Paun, from pão, is the bread roll, and it is the single most successful Portuguese import of all: bread is sold on every Dili street corner in the early morning and nobody counts it as a foreign food. Broa is the maize bread, which found a country that already lived on maize. The list deliberately leaves out the elaborate restaurant cooking of Portugal; what is here is what a Timorese household or a Dili tasca actually puts on a plate.
+locale: tet
+---
+Bakalyau
+Kaldeirada
+Feijoada
+Sopa kaldu verde
+Arroz de pato
+Bifana
+Pastél de nata
+Xourisu
+Karne asada
+Sardiña tunu
+Paun
+Broa

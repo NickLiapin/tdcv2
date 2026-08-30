@@ -1,0 +1,45 @@
+---
+description: Legal forms of a Malian entity, and the first block is not French but OHADA — the Organisation pour l'Harmonisation en Afrique du Droit des Affaires, a treaty body of seventeen mostly francophone African states that has written a single uniform business law for all of them. So a Malian SA, SARL, SNC, GIE or SCOOPS is governed by the same text as an Ivorian or Senegalese one, and a config generating company records across francophone West Africa can reuse this list unchanged, which is not true of any European set. At the far end are two forms that are Malian and customary rather than statutory: the `Ton villageois` is the village work association, an old Bamana institution of collective labour now used as a legal vehicle for cooperatives, and `Groupement féminin` is the women's association through which a great deal of rural credit and processing actually operates.
+locale: bm
+---
+SA
+SARL
+SARL-U
+SAS
+SASU
+SNC
+SCS
+GIE
+SCOOPS
+Société coopérative
+Entreprise individuelle
+Établissement
+Succursale
+Bureau de représentation
+SA avec conseil d'administration
+SA avec administrateur général
+Société civile
+Société civile immobilière
+Société civile professionnelle
+Groupement d'intérêt économique
+Association
+ONG
+Fondation
+Mutuelle
+Société mutualiste
+Institution de microfinance
+Caisse d'épargne et de crédit
+Société d'État
+Société d'économie mixte
+Établissement public
+Établissement public à caractère administratif
+Établissement public à caractère industriel et commercial
+Agence
+Direction nationale
+Régie
+Coopérative agricole
+Union de coopératives
+Fédération
+Ton villageois
+Association villageoise
+Groupement féminin

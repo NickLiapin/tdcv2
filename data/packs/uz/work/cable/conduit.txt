@@ -1,0 +1,11 @@
+---
+description: How a cable is carried: plastic or metal pipe, corrugated conduit, cable duct, tray, or strung overhead. Ҳаво линияси — the overhead line — is still the commonest method outside city centres, which is why Uzbek streets are strung with wire.
+locale: uz
+---
+пластик қувур
+металл қувур
+гофрирланган қувур
+кабел канали
+ер ости канали
+кабел лотоги
+ҳаво линияси

@@ -1,0 +1,44 @@
+---
+description: Malian dishes across the whole day, from the fritters sold at dawn to the evening tô. The rhythm of eating here is worth knowing before reading the list: there is one large communal meal, usually at midday, eaten from a shared bowl on a mat with the right hand, men and women often in separate groups, and the rest of the day is small purchases from street sellers — `Ŋɔmi`, `Beignets`, `Toubani`, a `Sandwich` of baguette and beans. `Pain-beurre` is the standard Malian breakfast, bread and butter and sweet coffee or tea. The sauces are listed separately from the starches because that is how the food is built: the starch is nearly constant and the sauce is where the variety, the season and the household's money show.
+locale: bm
+---
+Tô
+Tigadɛgɛna
+Zamɛ
+Malokini
+Basi
+Dɛgɛ
+Moni
+Fonio
+Ŋɔmi
+Toubani
+Djouka
+Capitaine braisé
+Poisson frit
+Sauce gombo
+Sauce feuille
+Sauce arachide
+Fakoye
+Riz au gras
+Couscous de mil
+Bouillie de mil
+Haricots
+Fricassée
+Ragoût de mouton
+Brochettes
+Poulet braisé
+Alloco
+Attiéké poisson
+Salade de crudités
+Œufs durs
+Pain-beurre
+Sandwich
+Beignets
+Galette de mil
+Bouillie de fonio
+Riz au poisson
+Foie grillé
+Tripes
+Soupe de viande
+Igname frite
+Patate douce bouillie

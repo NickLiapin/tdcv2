@@ -1,0 +1,10 @@
+---
+description: Conditions carried more often in Middle Eastern populations. Beta thalassaemia and G6PD deficiency are widespread. The last-but-one entry names the underlying mechanism directly: consanguineous marriage raises the frequency of recessive disorders, and it is common enough in the region to be a public health category.
+locale: uz
+---
+Бета талассемия
+Г6ФД етишмовчилиги
+Оилавий Ўрта ер денгизи иситмаси
+Қандли диабет 2-тур
+Қариндошлар никоҳи билан боғлиқ ирсий касалликлар
+Алфа талассемия

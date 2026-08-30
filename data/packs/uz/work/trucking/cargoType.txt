@@ -1,0 +1,17 @@
+---
+description: Freight categories on an Uzbek road haulage manifest. Пахта толаси — cotton fibre — leads, and сабзавот-мева covers the fruit and vegetable exports that move north by refrigerated truck. Хавфли юк is the dangerous goods class.
+locale: uz
+---
+пахта толаси
+ғалла
+сабзавот-мева
+қурилиш материаллари
+цемент
+металл прокат
+нефт маҳсулотлари
+суюлтирилган газ
+кимёвий маҳсулотлар
+озиқ-овқат
+маиший техника
+контейнер юки
+хавфли юк

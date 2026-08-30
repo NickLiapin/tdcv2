@@ -1,0 +1,23 @@
+---
+description: Legal vocabulary, and this file is the clearest place in the pack to see the two-register problem. The first six values are Bambara and they are the words a dispute is actually argued in: `sariya` law, `kiiri` judgement or trial, `kiitigɛla` the one who cuts the judgement, `seere` witness, `jalaki` accusation or blame, `bɛnkan` the agreement that settles it. Those words handle the customary conciliation that resolves most Malian conflicts. The moment the matter enters a state court, the register switches entirely to the French below, and the litigant needs an interpreter to follow proceedings about his own land. `Médiation coutumière` at the end is where the two systems are formally stitched together.
+locale: bm
+---
+Sariya
+Kiiri
+Kiitigɛla
+Seere
+Jalaki
+Bɛnkan
+Avocat
+Procureur
+Greffier
+Huissier
+Plainte
+Assignation
+Jugement
+Appel
+Pourvoi en cassation
+Prescription
+Caution
+Amende
+Médiation coutumière

@@ -1,0 +1,16 @@
+---
+description: Jobs in health care. Húsdokter is the general practitioner, the gatekeeper of Dutch medicine: nothing on the specialist half of this list is reachable without a referral from one, so the húsdokter is the busiest and least glamorous entry here. Ferloskundige is the independent midwife who leads a normal birth on her own authority with no doctor present, an arrangement standard in the Netherlands and unusual almost everywhere else. Toskedokter, the dentist, is built on tosk, the Frisian for a tooth and the same word as English tusk, where Dutch has tand - one of the places where a Frisian medical term is transparent to an English speaker and opaque to a Dutch one.
+locale: fy
+---
+Ferpleechkundige
+Húsdokter
+Apteker
+Fysioterapeut
+Doktersassistint
+Radiodiagnostysk laborant
+Ambulânseferpleechkundige
+Sjirurch
+Bernedokter
+Toskedokter
+Ferloskundige
+Fersoargjende IG

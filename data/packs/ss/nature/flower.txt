@@ -1,0 +1,32 @@
+---
+description: Flower in Eswatini. The first entries are the ones that grow here without being planted. Inhlaba is the aloe, which flowers red through the dry winter when nothing else does and gives its name to iNhlaba, the month of June, in this pack's calendar. Ikhosimosi, the cosmos, is not native at all — it arrived in horse fodder shipped from South America during the South African War and now colours the whole highveld pink and white every March, an accidental import that has become the sign of the season. Iagapanthusi and isitrelitziya went the other way, being southern African plants that became garden flowers across the world. The remainder are cultivated and take the class 9 i- prefix that siSwati gives an unadapted loan.
+locale: ss
+---
+Inhlaba
+Intebe
+Iphrothiya
+Isitrelitziya
+Ijakaranda
+Ibhougenvilliya
+Ihibhiskhasi
+Irozi
+Ililiya
+Isanflawa
+Idahliya
+Ikharineshini
+Ithulipi
+Idaffodili
+Ideyisi
+Ijasimini
+Ilavenda
+Imagnoliya
+Iokhidi
+Iphetuniya
+Ipopi
+Imarigoldi
+Ijeraniyamu
+Ifuchiya
+Ikhosimosi
+Iagapanthusi
+Igladiyolasi
+Iviyoleti

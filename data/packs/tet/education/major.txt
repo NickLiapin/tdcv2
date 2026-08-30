@@ -1,0 +1,32 @@
+---
+description: Fields of study as a Timorese prospectus lists them, and the shape of the list is set by what the country needed to staff after 2002. Agronomia, Kafé no Agrikultura, Veterinária and Peskas no Akuakultura stand where a European list would put a broad science faculty, because agriculture is where most of the population works and because the national university built a full agricultural faculty for exactly that reason. Petróleu no Gás and Jeolojia exist as degree programmes for an unusual reason: a state that had to negotiate maritime boundaries and regulate an offshore industry could not keep buying that expertise abroad, so it began training its own petroleum administrators and geologists. Ensinu Lian Portugés and Ensinu Lian Tetun are teacher-training degrees rather than literature degrees, and they are among the most consequential programmes in the country, since the shortage they address is the reason so much teaching still happens in Indonesian. That is the other thing a records dataset should know: a Timorese graduate over forty very often took their degree at an Indonesian university, still reads technical material in Indonesian by preference, and holds a qualification whose name is neither Portuguese nor Tetum.
+locale: tet
+---
+Agronomia
+Kafé no Agrikultura
+Veterinária
+Peskas no Akuakultura
+Petróleu no Gás
+Jeolojia
+Enjeñaria Sivíl
+Enjeñaria Elétrika
+Enjeñaria Mekánika
+Enjeñaria Informátika
+Siénsia Komputasaun
+Medisina
+Enfermajen
+Saúde Públika
+Farmásia
+Nutrisaun
+Direitu
+Administrasaun Públika
+Jestaun Empreza
+Ekonomia
+Kontabilidade
+Ensinu Lian Portugés
+Ensinu Lian Tetun
+Istória
+Antropolojia
+Siénsia Polítika
+Dezenvolvimentu Komunitáriu
+Turizmu

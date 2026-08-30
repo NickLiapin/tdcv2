@@ -1,0 +1,24 @@
+---
+description: Employment benefit as offered in the Netherlands. Fakânsjejild is not an offer but a debt: every employee is owed at least eight per cent of annual salary as holiday allowance, normally paid out in one lump in May, and it appears on the payslip whether the employer advertises it or not. Jild is the Frisian for money, and the j- where Dutch has g- is the same shift that gives jier for a year and jaan for to give, one of the most reliable tells between the two languages. Reiskostenfergoeding, thúswurkfergoeding and the fytsplan are tax-facilitated Dutch schemes rather than employer generosity, since the state sets the untaxed ceiling on each. One local benefit is not listed because it sits inside the training budget: Frisian employers, and the provincial government above all, routinely pay for a Frisian course at the Afûk in Ljouwert for staff who moved in from elsewhere.
+locale: fy
+---
+Fakânsjejild
+Trettjinde moanne
+Pensjoenregeling
+Reiskostenfergoeding
+Thúswurkfergoeding
+Leaseauto
+Fytsplan
+Kollektive soarchfersekering
+Opliedingsbudzjet
+Winstútkearing
+Bonusregeling
+Fleksibele wurktiden
+Hybride wurkjen
+Bedriuwsfitness
+Personielskoarting
+Laptop fan 'e saak
+Telefoan fan 'e saak
+Boppewetlike fakânsjedagen
+Betelle âlderskipsferlof
+OV-jierabonnemint

@@ -1,0 +1,14 @@
+---
+description: Conditions with a raised frequency in East Asian ancestry. Two entries are pharmacogenetic rather than diseases, and they are the reason ancestry is asked about before certain prescriptions: HLA-B*1502, common in Han Chinese and several Southeast Asian populations and rare in Europeans, carries a severe risk of Stevens-Johnson syndrome with carbamazepine, and regulators in the region require testing before the drug is started. Aldehyde dehydrogenase deficiency, the ALDH2 variant behind the alcohol flush reaction, is carried by a large minority of East Asians and by almost no one else, and raises oesophageal cancer risk in those who drink despite it. Nasopharyngeal carcinoma clusters in southern China so strongly that it was once called Canton tumour. Ancestry associations, not statements about individuals.
+locale: ss
+---
+I-alpha-thalassaemia
+I-G6PD deficiency
+I-lactase non-persistence
+I-aldehyde dehydrogenase deficiency
+Umdlavuza wesisu
+I-nasopharyngeal carcinoma
+I-hepatitis B carriage
+I-Behcet disease
+I-angle-closure glaucoma
+I-HLA-B*1502 carbamazepine reaction

@@ -1,0 +1,12 @@
+---
+description: Teaching jobs. Alfabetizadór is the entry that belongs to Timor-Leste specifically: adult literacy was a national programme rather than a charitable sideline, because the occupation left a generation that had been schooled in Indonesian or not schooled at all, and independence made Tetum and Portuguese the languages of public life overnight. The state ran a countrywide campaign through village-level facilitators — many of them young people with only a secondary education themselves — teaching adults to read in Tetum, and the literacy teacher is consequently an occupation with a payroll behind it and not a volunteer category. Edukadór infantíl is a newer and rapidly growing title, since pre-school provision barely existed before independence. The teaching profession as a whole is the largest single group of public employees in the country, which is why an employment dataset that treats teaching as a minor sector will get the Timorese distribution badly wrong.
+locale: tet
+---
+Profesór ensinu báziku
+Profesór ensinu sekundáriu
+Profesór universidade
+Diretór eskola
+Ajudante ensinu
+Edukadór infantíl
+Bibliotekáriu
+Alfabetizadór

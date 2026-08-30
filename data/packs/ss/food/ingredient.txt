@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient in Eswatini. Impuphu, meal, is the head word for four separate staples here and the possessive that follows it decides which — impuphu yembila is maize meal, impuphu yemabele sorghum meal, impuphu yakolo wheat flour — so the word alone is not an ingredient and a config that shortens these will produce a value with no referent. Imvubelo is worth reading twice: it is the living sour starter kept back from one batch of incwancwa to raise the next, the same relationship a sourdough culture has to its bread, and it is not interchangeable with the iyisti a few lines below it. Emasi, soured milk, is a preserved food rather than a spoiled one, made by leaving milk in a gourd until it separates, and it is eaten with tinkhobe as a meal in its own right.
+locale: ss
+---
+Impuphu yembila
+Impuphu yemabele
+Impuphu yakolo
+Impuphu yetindlubu
+Tinkhobe
+Lubisi
+Emasi
+Ibhotela
+Ushiji
+Emafutsa ekupheka
+Emafutsa etilwane
+Sawoti
+Shukela
+Ushukela lomnyama
+Uju
+Emacandza
+Inyama yenkhomo
+Inyama yembuti
+Inyama yenkhukhu
+Inhlanti
+Emantongomane
+Tindlubu
+Emabhontjisi
+Anyanisi
+Ligalikhi
+Litamatisi
+Litsanga
+Imbewu yelitsanga
+Emakhowe
+Emanti
+Ijusi yelilamula
+Iyisti
+Ibhaking phawuda
+Iviniga
+Isoya sosi
+Imvubelo
+Isitashi
+Ijelethini
+Ikhokhwa
+Ivanila

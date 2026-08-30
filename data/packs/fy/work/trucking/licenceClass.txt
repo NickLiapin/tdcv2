@@ -1,0 +1,12 @@
+---
+description: Driving licence category for lorries and buses. These are the EU categories, so the list holds across the whole Dutch language area, and a professional driver additionally carries code 95, the periodic professional competence endorsement, which is not a category of its own and never appears as one. Riibewiis is the Frisian word - ride, to drive, plus bewiis, proof - and it quietly illustrates the standing of the language: Frisian is the second official language of the Netherlands and is what gets spoken in the cab, but the licence is issued by the RDW and printed in Dutch, English and French only, so riibewiis is the everyday name for a document that does not carry the word anywhere on it.
+locale: fy
+---
+Riibewiis B
+Riibewiis BE
+Riibewiis C1
+Riibewiis C1E
+Riibewiis C
+Riibewiis CE
+Riibewiis D
+Riibewiis DE

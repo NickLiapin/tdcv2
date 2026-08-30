@@ -1,0 +1,47 @@
+---
+description: The element that closes a company name in a Timorese register. The first ten are statutory and they are deliberately not respelled: Timor-Leste's commercial law is written in Portuguese, one of the two official languages, and a firm registered at SERVE, the one-stop business registry in Dili, carries the Portuguese form on its certificate whatever language the rest of the letterhead is in. Lda. is the sociedade por quotas, the ordinary private company and by a wide margin the commonest form; Unipessoal Lda. is its single-member version, created so that a sole owner need not invent a second shareholder; ENI, empresa em nome individual, is the registered sole trader and is the form most small Timorese businesses actually hold; S.A. is the public limited company and is what the state enterprises and the banks use; Kooperativa and Empreza Públika take the Tetum spelling because they are named that way in ordinary speech rather than only on a certificate. After the statutory block comes the neighbourhood, because a Timorese record meets the region's forms constantly: PT and CV are Indonesian, UD is the Indonesian small-trader licence, Koperasi is its cooperative, Pty Ltd is Australian, Pte Ltd Singaporean and Sdn Bhd Malaysian, and all of them appear on invoices and contracts here because those are the countries the goods come from. The remainder are trade endings rather than legal forms. Two of them show the language plainly: Irmaun is irmãos, brothers, by the ão-to-aun rule, and no Filu is the Portuguese e Filhos remade twice over — lh collapses to l, and the conjunction is Tetum no, which joins nouns, rather than Portuguese e. A config should append one of these or a European suffix, never both.
+locale: tet
+---
+Lda.
+Unipessoal Lda.
+S.A.
+Sociedade por Quotas
+Sociedade Anónima
+Sociedade Unipessoal
+ENI
+Empresa em Nome Individual
+Kooperativa
+Empreza Públika
+Ltda.
+PT
+CV
+UD
+Koperasi
+Pty Ltd
+Pte Ltd
+Sdn Bhd
+Bhd
+Ltd.
+Inc.
+LLC
+PLC
+Corp.
+Co.
+& Co.
+Grupu
+Holding
+Konsórsiu
+Asosiasaun
+Fundasaun
+ONG
+Organizasaun Naun-Governamentál
+Irmaun
+no Filu
+no Asosiadu
+Investimentu
+Servisu
+Solusaun
+Sistema
+Teknolojia
+Komérsiu
+Distribuisaun

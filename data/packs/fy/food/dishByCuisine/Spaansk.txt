@@ -1,0 +1,19 @@
+---
+description: Spanish dishes. One word changes, and it is a good one: sûkelade, chocolate, where Dutch writes chocolade and Frisian puts an s at the front and a û in the middle. The word came into Europe from Nahuatl by way of Spanish, so churros mei sûkelade sets the borrowed form next to the language that lent it, four hundred years and one sound change later. Everything else stays Spanish, and the way this cuisine arrived explains why: Spanish food reaches Fryslân through holidays and through the tapas bar rather than through migration, which is the difference between this list and the Turkish or Moroccan one beside it in the same folder. Food that comes with people gets domesticated; food that comes with tourists keeps its passport.
+locale: fy
+---
+Paella
+Tortilla espanola
+Gazpacho
+Patatas bravas
+Jamon iberico
+Gambas al ajillo
+Croquetas
+Pulpo a la gallega
+Fabada
+Cochinillo
+Pisto
+Albondigas
+Churros mei sûkelade
+Crema catalana
+Pan con tomate

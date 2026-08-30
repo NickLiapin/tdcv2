@@ -1,0 +1,32 @@
+---
+description: Technical verb as a present participle. Frisian builds it by adding -end to the infinitive, so the language's two live conjugation classes show through the whole list: class I verbs in -e give -end (ferbine becomes ferbinend, oerskriuwe becomes oerskriuwend) while class II verbs in -je give -jend (berekkenje becomes berekkenjend), which is why so many lines here end in -jend and not one of their Dutch counterparts does. Do not build a progressive tense out of these. Frisian has a real progressive of its own and it uses a different construction entirely - hy is oan it programmearjen, literally he is on the programming, or the posture form hy sit te wurkjen, he sits to work - so the participle is attributive or headline material only, which is exactly what this filler list is for. Two spellings will be misjudged by a Dutch reader: Dutch over is Frisian oer, giving oerskriuwend, and the circumflex and acute in útrôljend are letters rather than decoration, since ô and û are separate vowels that change the word.
+locale: fy
+---
+befeiligjend
+omsilend
+hackend
+oerskriuwend
+komprimearjend
+kopiearjend
+navigearjend
+yndeksearjend
+ferbinend
+generearjend
+kwantifisearjend
+berekkenjend
+syntetisearjend
+ynfierend
+oerdragend
+programmearjend
+werstartend
+analysearjend
+fersiferjend
+ûntsiferjend
+útrôljend
+kompilearjend
+debuggend
+optimalisearjend
+synchronisearjend
+firtualisearjend
+routearjend
+monitorjend

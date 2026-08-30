@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child). These are not translations of an English sector list — they are the form Eswatini actually uses. The prefix te- is the class 10 possessive, "matters of", and it turns any noun or infinitive into the name of a domain: temfundvo is education, from kufundza to learn; tekwakha is construction, from kwakha to build; tekuhamba is transport, from kuhamba to travel. Every government ministry in Eswatini is named this way — Litiko leTemfundvo neKucecesha is the Ministry of Education and Training, Litiko leTemphilo the Ministry of Health — so a Swazi reader recognises these as sector headings on sight. Buchwepheshe breaks the pattern because technology is an abstract quality rather than a set of matters, and abstracts take the class 14 prefix bu-.
+locale: ss
+---
+Buchwepheshe
+Temphilo
+Tetimali
+Tekwakha
+Temfundvo
+Tekuvakasha
+Tekukhicita
+Tekutsengisa
+Tekuhamba
+Temtsetfo

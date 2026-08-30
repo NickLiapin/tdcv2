@@ -1,0 +1,20 @@
+---
+description: Levels of Uzbek education, lowest to highest. The post-Soviet reform layered бакалавр and магистр on top of the older ordinature and doctorate track, and both the old фан номзоди and the new PhD are in circulation — which is why both appear here. PhD keeps its Latin form because that is how it is printed on the diploma.
+locale: uz
+---
+ўрта маълумот
+ўрта махсус маълумот
+коллеж дипломи
+техникум дипломи
+лицей аттестати
+бакалавр
+магистр
+мутахассис дипломи
+ординатура
+аспирантура
+таянч докторантура
+докторантура
+PhD
+фан номзоди
+фан доктори
+профессор

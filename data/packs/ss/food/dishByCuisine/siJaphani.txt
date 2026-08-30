@@ -1,0 +1,12 @@
+---
+description: Japanese dishes. Sushi is landlocked Eswatini's least likely restaurant category and it exists here anyway, in Ezulwini and at the Mbabane hotels, supplied by refrigerated road freight from Durban about 500 kilometres away. That supply chain is the interesting fact rather than the food: everything marine on this list, and on the fish list in this pack, reaches the country by truck across a border, which is why Eswatini's seafood vocabulary is entirely borrowed and its freshwater fish vocabulary is not. Imiso soup and iramen came in through the same restaurants rather than through any Japanese community, of which the country has essentially none.
+locale: ss
+---
+Isushi
+Isashimi
+Iramen
+Itempura
+Imiso soup
+Iyakitori
+Iudon
+Ikatsu

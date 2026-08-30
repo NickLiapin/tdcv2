@@ -1,0 +1,12 @@
+---
+description: Legal jobs, and the profession is small enough to count. Every Timorese judge, prosecutor and public defender passes through a single state legal training centre, which sets the pace at which the courts can be staffed at all, and the shortage it addresses is why cases wait and why the private bar is thin outside Dili. Defensór públiku is on this list rather than as a footnote because a publicly funded defender is how most criminal defendants are represented here — private counsel is beyond nearly everyone. The value that no European list would carry is Lia-na'in, the master of the word: the elder who holds a lineage's history and speaks for it, and who is the person actually consulted when a marriage payment, a boundary or a compensation is in dispute. He has no licence and no statute behind him, and he resolves far more matters than the four district courts between them, which is why he belongs in a legal-sector occupation list and not in a folklore one.
+locale: tet
+---
+Advogadu
+Juís
+Prokuradór
+Defensór públiku
+Asistente jurídiku
+Eskrivaun judisiál
+Notáriu
+Lia-na'in

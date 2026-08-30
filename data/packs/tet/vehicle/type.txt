@@ -1,0 +1,28 @@
+---
+description: Vehicle types as a Timorese road actually presents them. Three entries have no European equivalent and they carry most of the country's passengers and freight. The mikrolet is Dili's minibus, painted and numbered by route, and the name is Indonesian mikrolet from micro-let, inherited whole from the occupation. The angguna is the small flatbed truck that serves as the rural bus: people, sacks of rice, a pig and a motorbike ride together on the tray between Maubisse and Ainaro, and the word is a contraction of the Indonesian aneka guna, all-purpose. The motorizada is the motorcycle, and it is the vehicle the country runs on. Todu-terenu is the four-wheel-drive that any organisation working outside the capital must own, because the roads into the interior are seasonal. The remaining Portuguese loans respell as expected: cupé to kupé, camião to kamiaun with the -ão to -aun rule, carrinha to karriña with nh written ñ.
+locale: tet
+---
+Sedan
+Kupé
+Hatchback
+SUV
+Crossover
+Todu-terenu
+Deskapotável
+Monovolume
+Pick-up
+Pick-up kabine rua
+Angguna
+Karriña komersiál
+Furgaun
+Desportivu
+Roadster
+Utilitáriu
+Kareta luksu
+Limuzina
+Mikrolet
+Bis
+Bis boot
+Kamiaun
+Motorizada
+Traktór

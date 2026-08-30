@@ -1,0 +1,9 @@
+---
+description: Positions in keatsen, Frisian handball. A partoer is three players and the field has two halves that are not symmetrical, which is why the list is short: it is not truncated, the game genuinely has this many roles. The serving side stands in the open field, the útfjild, and one of its three is the opslagger, who throws the ball in with a straight-arm sling; the receiving side stands in the perk, a marked rectangle, where the foarynse takes the ball at the front and the efterynse covers the back and hits the long returns. The two sides swap ends, so every player is an opslagger, a foarynse and an efterynse over the course of a match, and a partoer is described by who serves rather than by fixed positions - the strongest server is the foarbêst opslach and a partoer is often built around him. The scoring is the other thing an outsider gets wrong: keatsen counts in earsten and a game runs to six of them, and the umpire calls in Frisian.
+locale: fy
+---
+Opslagger
+Foarynse
+Efterynse
+Perkspiler
+Útfjildspiler

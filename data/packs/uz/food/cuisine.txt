@@ -1,0 +1,21 @@
+---
+description: Cuisines an Uzbek menu distinguishes. The first six are the neighbours whose food is on ordinary tables — ўзбек, тожик, қозоқ, уйғур, корейс, рус. Корейс is there because of the Koryo-saram deported to Central Asia in 1937, whose carrot salad and noodles are now standard Uzbek market food. Each value here names a file in dishByCuisine.
+locale: uz
+---
+ўзбек
+тожик
+қозоқ
+уйғур
+корейс
+рус
+татар
+турк
+озарбайжон
+эрон
+араб
+ҳинд
+хитой
+япон
+италян
+франсуз
+америка

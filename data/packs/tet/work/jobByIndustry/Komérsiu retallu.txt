@@ -1,0 +1,12 @@
+---
+description: Retail jobs, and the top of the list is not a shop in the European sense. Nain kios is the keeper of a kios, the one-window booth selling soap, sugar, credit top-ups, eggs, cigarettes and cooking oil in single-serving quantities, and there is one on nearly every corner and roadside in the country. Fa'an-na'in merkadu is the market seller, from fa'an, to sell — the daily produce market is where most Timorese food is bought, the traders are overwhelmingly women, and the stall is generally an extension of the household's own garden rather than a purchased stock. Vendedór ambulante is the hawker working the mikrolet queues and the roadside with fruit, phone cards and cold drinks. Between them these three carry the great majority of retail activity, while Jerente loja, Kaixa and Repozitór describe the supermarkets and the branded shops, which exist almost entirely in Dili. Weighting this list evenly would invent a retail sector the country does not have.
+locale: tet
+---
+Nain kios
+Fa'an-na'in merkadu
+Vendedór
+Vendedór ambulante
+Jerente loja
+Kaixa
+Repozitór
+Kompradór

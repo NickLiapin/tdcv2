@@ -1,0 +1,23 @@
+---
+description: The working vocabulary of a Timorese court, and it sits on a fault line. The codes, the constitution and every judgment are written in Portuguese; the hearing itself is conducted in Tetum, because that is the language the parties and most of the witnesses have; and a great deal of court time therefore goes on interpreting between the two, with terms of art that have no settled Tetum equivalent read out in Portuguese and glossed on the spot. The consequence is that the terms on this list are Portuguese words respelled rather than translated — sentença to Sentensa and justiça-family words generally taking s for ç, apelação to Apelasaun, jurisdição to Jurisdisaun — and that is a description of practice, not a shortcut. Two entries come from the other legal order entirely. Lisan is customary law itself, the body of obligation that governs marriage, land, inheritance and reparation for most Timorese most of the time. Tara bandu is a customary regulation enacted by hanging a marker, and the state has taken it seriously enough to use it as environmental law. What is deliberately absent is Mandado de segurança, which heads the Brazilian list: it is a Brazilian constitutional writ with no counterpart in Timorese procedure, and importing it would misdescribe the system.
+locale: tet
+---
+Autór
+Reu
+Sitasaun judisiál
+Juramentu
+Depoimentu
+Testemuña
+Medida kautelár
+Sentensa
+Akordu konsiliatóriu
+Litíjiu
+Audiénsia inisiál
+Jurisdisaun
+Rekursu apelasaun
+Prokuradór
+Advogadu defeza
+Prova
+Notifikasaun
+Lisan
+Tara bandu

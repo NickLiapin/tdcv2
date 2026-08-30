@@ -1,0 +1,22 @@
+---
+description: Rooms to sleep in. `So` is the word for both a house and a room, so `So kelen` is a single and `So mɔgɔ fila` a room for two people — Bambara counts the occupants rather than the beds, which is why `Dilan fila so`, a two-bed room, has to be said differently. `So sumalen` is a cooled room and `So fiɲɛlanma` one with a fan, and the price gap between them is the electricity bill. `San fɛ sunɔgɔyɔrɔ` is a place on the flat roof, where guests and hosts alike sleep through the hot dry season when an indoor room holds the day's heat all night. Six values keep their international forms — Villa, Studio, Appartement, Dortoir, Bungalow, Tente — because they are booking-platform categories rather than Malian ones and a guest reading a listing meets them in that shape.
+locale: bm
+---
+So kelen
+So mɔgɔ fila
+Dilan fila so
+So mɔgɔ saba
+Denbaya ka so
+So belebele
+So belebele fitini
+Bugu
+So sumalen
+So fiɲɛlanma
+So Joliba filɛ
+San fɛ sunɔgɔyɔrɔ
+Villa
+Studio
+Appartement
+Dortoir
+Bungalow
+Tente

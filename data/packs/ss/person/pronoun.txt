@@ -1,0 +1,12 @@
+---
+description: Personal pronoun in siSwati, and the fact that matters most is an absence: siSwati marks NO gender anywhere in its pronoun system. Yena is he and she and neither, wakhe is his and hers, and there is no third form waiting to be chosen. A config that branches on gender to pick a pronoun has nothing to branch on, and a form that asks for pronouns in siSwati is asking a question the language does not answer. What siSwati marks instead is noun class: yena is the pronoun for a PERSON, class 1, and a river or a dog or a nation each takes a different one, so the eight values here cover people only. The pronouns are also usually dropped altogether, because the subject concord on the verb already carries the information — uyahamba is "he or she is going" with no pronoun in sight — which makes these emphatic forms rather than ordinary ones.
+locale: ss
+---
+mine
+wena
+yena
+tsine
+nine
+bona
+yena/wakhe
+bona/wabo

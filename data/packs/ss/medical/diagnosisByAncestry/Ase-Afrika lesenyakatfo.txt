@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised frequency in North African ancestry. The genetic history here is Mediterranean as much as African: the Sahara has been a barrier for most of the Holocene while the sea has been a highway, so the haemoglobin and enzyme variants of the Maghreb group with Italy, Greece and the Levant rather than with the Sahel. Familial Mediterranean fever, a periodic inflammatory disorder caused by MEFV variants, is one of the clearest examples and reaches its highest frequencies in populations around the eastern and southern Mediterranean rim. Ancestry associations, not statements about individuals.
+locale: ss
+---
+I-beta-thalassaemia
+I-G6PD deficiency
+I-familial Mediterranean fever
+I-hepatitis C
+Sifo sashukela sesigaba sesibili
+I-lactase non-persistence

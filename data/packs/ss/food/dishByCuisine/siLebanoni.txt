@@ -1,0 +1,12 @@
+---
+description: Lebanese dishes. The Lebanese trading diaspora in West and Central Africa is very large and in southern Africa much smaller, so these dishes reach Eswatini through South African restaurants and the general spread of Middle Eastern food rather than through a local community. Ihummus and ifalafel are both built on the chickpea, which sets them beside this pack's tindlubu, the jugo bean, and emabhontjisi — three pulse traditions doing the same nutritional work in three places. Ishawarma is the same rotating spit as the Turkish idoner and the Greek igyros under a third name, and all three are on these files because all three are sold in Eswatini under their own signs.
+locale: ss
+---
+Ihummus
+Ifalafel
+Itabbouleh
+Ibaba ghanoush
+Ishawarma
+Ifattoush
+Ikibbeh
+Imanakish

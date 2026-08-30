@@ -1,0 +1,19 @@
+---
+description: Truck cargo or trailer type in road freight. Oplizzer is the Frisian for a semi-trailer, from lizze, to lie, and the húfoplizzer, the curtain-sided trailer, is the European workhorse rather than the closed dry van an American list would lead with. The final entry is the province's own: molkeferfier, milk haulage, is the tanker that calls at every dairy farm on a fixed daily round and empties into the suvelfabryk, and in a province whose largest industry is dairying it is the single most common freight movement on Frisian roads - the flower runs out of the western auctions, which dominate Dutch conditioned transport, barely reach here. ADR is the European agreement governing dangerous goods and is a licence endorsement rather than a trailer. Djiplader for a low-loader keeps djip, the Frisian for deep, and iepen for open is one of the words where Frisian and English have both broken the vowel and Dutch has not.
+locale: fy
+---
+Sletten oplizzer
+Kuoloplizzer
+Húfoplizzer
+Iepen oplizzer
+Tankoplizzer
+Silo-oplizzer
+Feeferfier
+ADR-ferfier
+Containerchassis
+Autotransporter
+Djiplader
+Semy-djiplader
+Kipper
+Houtferfier
+Molkeferfier

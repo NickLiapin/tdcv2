@@ -1,0 +1,10 @@
+---
+description: Pulmonology diagnosis in Eswatini. Temaphaphu is "matters of the lungs", using the class 6 plural emaphaphu, because a person has two and siSwati counts them. Tuberculosis heads the list and would head it in any honest ordering: Eswatini has one of the highest TB incidence rates in the world, the great majority of cases occur in people also living with HIV, and the two programmes are run as one. Silicosis is the other locally specific entry — the legacy of a century of Swazi men on contract in South African gold mines, where quartz dust scarred the lung and left them susceptible to exactly the tuberculosis at the top of this list. The two diagnoses are related in this country in a way they are nowhere in Europe.
+locale: ss
+---
+Tifuba
+Sifuba semoya
+I-pneumonia
+I-COPD
+I-silicosis
+I-pleural effusion

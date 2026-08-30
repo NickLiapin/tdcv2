@@ -1,0 +1,34 @@
+---
+description: Unit of measure in Eswatini. The metric units at the top are the legal ones and are what a scale in a shop reads, but the imperial block below them is not dead weight: Eswatini shares a border and a building trade with South Africa, where timber is still bought by the foot, land is still spoken of in acres by older farmers, and a person's height is given in feet and inches in ordinary conversation. Both systems are in daily use and a data set that offers only one describes half the country. Note that every metric unit here is a class 9 loan taking i-, while the household measures at the end — sipunu a spoon, inkomishi a cup, sikhwama a bag, sicheme a bundle — are native words in their own classes, and those are how produce is actually sold at a market in Manzini.
+locale: ss
+---
+Imilligremu
+Ligremu
+Likhilogremu
+Ithani
+Imililitha
+Ilitha
+Ikhubhikhi mitha
+Imilimitha
+Isentimitha
+Imitha
+Ikhilomitha
+Isikwe mitha
+Ihektha
+Iyintji
+Ifutsi
+Iyadi
+Imayela
+I-awunsi
+Iphawundi
+Igalani
+Sipunu
+Inkomishi
+Ibhodlela
+Ibhokisi
+Ikhathoni
+Iphakethe
+Sikhwama
+Umtfwalo
+Lidazini
+Sicheme

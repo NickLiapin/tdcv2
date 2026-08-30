@@ -1,0 +1,22 @@
+---
+description: Cuisines as a kitchen in Dili actually meets them, and each value has a dishByCuisine child file. The order is not alphabetical and not a copy of a European list: it follows what a Timorese eater has in reach. Timor-oan comes first because it is the home kitchen, then Portugés because four centuries left bakalyau, kaldeirada and the bread roll on the table under respelled names, then Indonéziu because twenty-four years of occupation left nasi goreng, bakso and mie goreng in every warung and they never left when the troops did. Xinés is the oldest commercial kitchen in the country, run by the Hakka families who have traded in Dili since the nineteenth century. The rest are the restaurants the United Nations period opened along the beach road at Lecidere and Metiaut and the tastes the diaspora brought home from Australia and Portugal. Note the adjective forms: Tetum has no grammatical gender, so where Portuguese must choose between italiano and italiana this list carries one invariable Italianu, and the -o of a Portuguese masculine adjective is written -u because Tetum has no unstressed final o.
+locale: tet
+---
+Timor-oan
+Portugés
+Indonéziu
+Xinés
+Japonés
+Tailandés
+Italianu
+Indianu
+Koreanu
+Vietnamita
+Malaiu
+Filipinu
+Amerikanu
+Australianu
+Brazileiru
+Meksikanu
+Libanés
+Fransés

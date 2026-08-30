@@ -1,0 +1,21 @@
+---
+description: Turkish dishes. Everything here keeps its Turkish name and the single line that changes is the last one, where Turks brood becomes Turksk brea - and that one line puts two of the pack's rules side by side. The nationality adjective takes -sk, which is what Frisian does to all of them and the same suffix English ground down into -ish. And brea is bread, with the Frisian ea where Dutch has the oo of brood. Brea is not a neutral word to end a list on either: it is the middle term of the rhyme every Frisian knows, bûter, brea en griene tsiis, so the plainest entry on this Turkish menu is one of the three words this language uses to identify its own speakers. Turkish food came to the Netherlands with labour migration from the 1960s and is now what a Frisian town eats after eleven at night.
+locale: fy
+---
+Doner kebab
+Lahmacun
+Pide
+Iskender kebab
+Adana kebab
+Kofte
+Manti
+Menemen
+Borek
+Dolma
+Mercimek corbasi
+Cacik
+Imam bayildi
+Baklava
+Kunefe
+Simit
+Turksk brea

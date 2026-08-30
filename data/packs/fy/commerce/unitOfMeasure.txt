@@ -1,0 +1,36 @@
+---
+description: Unit of measure for products (West Frisian). Ûns and pûn are everyday shop units and they are metric rather than imperial - in ûns is exactly 100 g and in pûn exactly 500 g - so neither may be mapped onto the English ounce or pound. Pûnsmiet is the one unit here no other locale can carry: it is the old Frisian land measure, 36.75 are or about a third of a hectare, and the name means the ground a pound of seed would sow. It reads as a metric figure only because it was fixed at exactly 36.75 are when the country went metric, it is still how Frisian farmland is talked about, and it runs through older land deeds and cadastral records, so a config generating land or agricultural rows can reach for it while everything else on the list stays ordinary metric. Two more differ from Dutch in a way that matters for matching: a sack is a sek, the same word as English sack against Dutch zak, and an envelope is a slúf, a word Dutch has no form of at all.
+locale: fy
+---
+stik
+doaze
+krat
+pak
+dozyn
+pear
+set
+rôle
+bosk
+bondel
+kilogram
+gram
+ûns
+pûn
+ton
+liter
+milliliter
+meter
+sentimeter
+fjouwerkante meter
+kubike meter
+sek
+tray
+blik
+flesse
+pot
+tube
+baal
+pallet
+slúf
+party
+pûnsmiet

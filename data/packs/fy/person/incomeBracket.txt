@@ -1,0 +1,12 @@
+---
+description: Annual gross household income bracket, labelled in Frisian. Amounts are in euros, and the numbers are punctuated the Dutch way - full stop for thousands, comma for decimals - so 45.000 EUR is forty-five thousand and not forty-five. The two words that are not numbers carry the grammar lesson. Frisian makes a comparison with as, so it is minder as and mear as, where standard Dutch prescribes dan and reserves als for likeness; Frisian has only the one word and uses it for both. This is more than a curiosity for anyone working with Dutch-language material from the north of the country, because it is the source of one of the best-documented substrate effects in the Netherlands: speakers in and around Fryslân say groter als in their Dutch too, a construction schoolteachers have been correcting for a century and which is simply Frisian grammar showing through. On the amounts themselves, note that Fryslân sits near the bottom of the Dutch provinces for median household income and also near the bottom for housing costs, so a bracket does not describe the same standard of living here as it would in Utrecht or Amsterdam, and a model that treats the bracket as a proxy for wealth without a regional correction will get Fryslân wrong in both directions at once.
+locale: fy
+---
+Minder as 15.000 EUR
+15.000-25.000 EUR
+25.000-35.000 EUR
+35.000-50.000 EUR
+50.000-75.000 EUR
+75.000-100.000 EUR
+100.000-150.000 EUR
+Mear as 150.000 EUR

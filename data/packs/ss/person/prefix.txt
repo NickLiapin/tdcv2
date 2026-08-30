@@ -1,0 +1,36 @@
+---
+description: Form of address in Eswatini, written before a name. The first block has no counterpart in a European pack because it belongs to a living monarchy: Ingwenyama, "the Lion", is the King's title and Indlovukazi, "the She-Elephant", is the Queen Mother's, and the two rule jointly by design, the King at Lobamba and the Queen Mother at Ludzidzini. Below them Inkhosi is a chief, Sikhulu a senior chief who holds land in trust for a chiefdom, Indvuna the headman who runs it day to day, and Bucopho the elected member who represents a chiefdom at the inkhundla. Umhlekazi is the general honorific for a man of rank. Note that Babe and Make, father and mother, are used to address any older man or woman and are the ordinary polite forms in a shop or an office, so they are titles here rather than kinship terms. Sangoma, the diviner, and Inyanga, the herbalist, are different professions and the words are not interchangeable; inyanga also means the moon and the month.
+locale: ss
+---
+Ingwenyama
+Indlovukazi
+Umntfwanenkhosi
+Inkhosana
+Inkhosatana
+Inkhosi
+Inkhosikati
+Sikhulu
+Indvuna
+Bucopho
+Umhlekazi
+Babe
+Make
+Mnumzane
+Nkhosikati
+Nkhosatana
+Mfundzisi
+Dokotela
+Nesi
+Thishela
+Mholi
+Gogo
+Mkhulu
+Bhuti
+Sisi
+Malume
+Sangoma
+Inyanga
+Mnu.
+Nkk.
+Nkz.
+Dkt.

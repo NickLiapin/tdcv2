@@ -1,0 +1,44 @@
+---
+description: What a cook reaches for. The first pair is a distinction English has to spell out and Tetum carries in the vocabulary: foos is rice that is still raw and countable in a sack, etu is rice that has been cooked and is now a meal, and no speaker would substitute one for the other. Masin is salt, and masin midar — literally sweet salt — is sugar, which tells you which of the two arrived in the kitchen first. Mina is oil and mina nuu is coconut oil, still pressed in villages. Manu tolun, egg, is manu, chicken, plus tolun, and the possessive relation is expressed by simple juxtaposition with no linking particle. Susu, milk, is Malay, as are sambal and sagu. The Portuguese layer is respelled by rule: farinha loses its palatal to farina, queijo becomes keju, massa drops one s to masa, chocolate takes x for ch to give xokolate, and mel takes an acute on its final stressed syllable to become mél. Budu and ikan masin are here rather than among the dishes because they are what a household keeps in a jar to make plain rice taste of something. Sukaer, tamarind, is the souring agent in most of the coastal fish cooking, standing where a Southeast Asian kitchen further west would use lime.
+locale: tet
+---
+Foos
+Etu
+Batar
+Masin
+Masin midar
+Mina
+Mina nuu
+Nuu
+Sukaer
+Ai-manas
+Fore rai
+Koto
+Manteiga
+Manu tolun
+Susu
+Farina
+Keju
+Sebola
+Allu
+Tomate
+Karne
+Ikan
+Manu
+Sardiña
+Ikan masin
+Budu
+Vinagre
+Sambal
+Mél
+Fermentu
+Natas
+Iogurte
+Masa
+Paun raladu
+Kaldu manu
+Xokolate
+Amendoa
+Sagu
+Vinu mutin
+Maizena

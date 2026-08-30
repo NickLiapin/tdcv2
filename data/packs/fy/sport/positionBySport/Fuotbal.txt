@@ -1,0 +1,15 @@
+---
+description: Positions in football (West Frisian). The Frisian words are built on Frisian roots rather than borrowed from Dutch: a field is a fjild, so a midfielder is a middenfjilder; ferdigenje is to defend and gives ferdigener; oanfalle is to attack and gives oanfallende; bûten is outside and gives rjochtsbûten and linksbûten for the two wide forwards; and skaad is shadow, so the withdrawn striker who plays off the front man is a skaadspits. Only back, spits and libero come straight from the Dutch game. The province supports two professional clubs, sc Hearrenfean and SC Cambuur in Ljouwert, and their matchday programmes and the Omrop Fryslân commentary use exactly these terms.
+locale: fy
+---
+Doelman
+Rjochtsback
+Linksback
+Sintrale ferdigener
+Ferdigenjende middenfjilder
+Sintrale middenfjilder
+Oanfallende middenfjilder
+Rjochtsbûten
+Linksbûten
+Skaadspits
+Spits

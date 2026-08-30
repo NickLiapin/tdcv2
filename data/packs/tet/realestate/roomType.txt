@@ -1,0 +1,20 @@
+---
+description: Rooms of a house. Sala han is the dining room, literally the eating room, built on han, the Tetum verb to eat, and Kuartu bainaka is the guest room, from bainaka, a guest or a visitor — a word with more weight here than its English gloss suggests, since receiving a bainaka carries obligations of feeding and lodging that a household takes seriously. Kuartu banu is the bathroom, and the everyday alternative is sintina, from Portuguese sentina, which is what most people actually say. The Portuguese loans behave as usual: escritório to eskritóriu, sótão to sótaun by the -ão rule, pátio to pátiu.
+locale: tet
+---
+Kuartu
+Kuartu banu
+Kuziña
+Sala estar
+Sala han
+Eskritóriu
+Kave
+Sótaun
+Garajen
+Lavandaria
+Kuartu bainaka
+Despensa
+Hall entrada
+Sala estudu
+Pátiu
+Terrasu

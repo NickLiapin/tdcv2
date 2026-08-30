@@ -1,0 +1,29 @@
+---
+description: Property type in Fryslân. The row house is named by its exact place in the row and the distinction is priced: a tuskenwente sits in the middle with neighbours both sides, a hoekwente or einwente closes the row with one free side and a wider garden, and a twaûnderienkapwente is a pair sharing one roof. English collapses all of that into terraced and semi-detached. Two entries are Frisian building types rather than market categories. A pleats is a working farmhouse, and the province has two named forms of it that an estate agent will specify: the kop-hals-romp, where the dwelling, a narrow connecting neck and the barn stand in a row like a head, a neck and a body, and the stjelp, where house, byre and hay barn sit under one great pyramidal roof with the hay in the middle. Both are protected building types, both are converted into houses constantly, and neither exists outside the north. Dykwente is a house built into the dyke itself.
+locale: fy
+---
+Rychjehûs
+Tuskenwente
+Hoekwente
+Einwente
+Twaûnderienkapwente
+Frijsteande wente
+Appartemint
+Portykwente
+Galerijflat
+Maisonnette
+Boppewente
+Ûnderwente
+Studio
+Penthouse
+Hearehûs
+Stjelp
+Dykwente
+Hofkeswente
+Wenboat
+Wenwein
+Pleats
+Bungalow
+Villa
+Rekreaasjewente
+Boukavel

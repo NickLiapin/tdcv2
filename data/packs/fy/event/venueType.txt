@@ -1,0 +1,20 @@
+---
+description: Venue type (West Frisian). Stins is the entry a generic list would get wrong by translating it as castle. Fryslân has almost no castles: what it has are stinzen and states, the fortified stone houses and country seats that the medieval Frisian landowning families built in a province with no counts and no feudal lord above them, and a few dozen survive as event venues, museums and hotels. A strânpaviljoen is a permanent beach restaurant that doubles as a hall, which on the Waadeilannen is where a wedding actually happens. Note seal for a hall, in hotelseal and feestseal, and gearkomstseal for a meeting room, from gearkomste - a coming-together, the ordinary Frisian word for a meeting where Dutch says vergadering.
+locale: fy
+---
+Hotelseal
+Kongressintrum
+Stadion
+Teater
+Feestseal
+Dakterras
+Tún
+Loads
+Auditorium
+Nachtklub
+Gearkomstseal
+Lângoed
+Stins
+Strânpaviljoen
+Museum
+Kultureel sintrum

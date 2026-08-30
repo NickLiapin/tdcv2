@@ -1,0 +1,15 @@
+---
+description: Gaming platforms, and the ordering a Timorese dataset should really carry is close to the inverse of a European one. Consoles are rare and expensive here and none is sold through an official channel; the platform that matters is Telemóvel, the phone, because a mid-range Android handset bought on the Indonesian import trade is the only computer most households own. Navegadór, the browser, comes next for the same reason. The PC entry mostly means a machine in a warnet — the Indonesian word for an internet café, still the term used in Dili — rather than one at home, and bandwidth is the binding constraint: the country was on satellite backhaul until the submarine cable landed, so anything requiring a live connection has been a minority activity. Telemóvel is Portuguese telemóvel taken whole; the Indonesian-layer alternative HP, from handphone, is at least as common in speech.
+locale: tet
+---
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox Series S
+Xbox One
+Nintendo Switch
+PC
+Steam Deck
+Meta Quest
+Telemóvel
+Navegadór

@@ -1,0 +1,24 @@
+---
+description: Insects. Three of the names are native or old-trade and the rest are Portuguese, which is roughly the proportion you would expect: an insect that bites you or steals your crop keeps its own word, an insect you only read about takes a borrowed one. Bani is the bee, and it is also the source of honey in a country where wild hives are still robbed rather than kept. Lalar is the fly and anai-anai the termite, whose mounds stand in the dry grassland of the north coast. Gafañotu, from gafanhoto, is on the list with more weight than a European reader expects: in 2020 and 2021 swarms of African migratory locusts moved through Timor-Leste and stripped maize and rice across several municipalities, in a country where the maize crop is the year's food and not a commodity. Muskitu is Portuguese mosquito respelled and names the vector of both malaria and dengue. Note also joaninha giving joaniña, escaravelho giving eskaravellu, and traça giving trasa — nh, lh and ç doing exactly what they do everywhere else in this pack.
+locale: tet
+---
+Muskitu
+Bani
+Lalar
+Borboleta
+Formiga
+Eskaravellu
+Libélula
+Gafañotu
+Joaniña
+Trasa
+Grilu
+Vespa
+Pirilampu
+Louva-deus
+Sigarra
+Anai-anai
+Barata
+Pulga
+Sentopeia
+Perseveju

@@ -1,0 +1,26 @@
+---
+description: Common allergens, with a local slant at the top: пахта чанги, cotton dust, is an occupational allergen across the cotton belt and does not appear on a European list at all. Then the ordinary pollens and dusts, the antibiotics, and the foods. Пенициллин and аспирин are the drug allergies most often recorded.
+locale: uz
+---
+пахта чанги
+ўсимлик чанги
+уй чанги
+моғор замбуруғлари
+ҳайвон жуни
+мушук жуни
+ит жуни
+асалари чақиши
+пенициллин
+сулфаниламидлар
+аналгин
+аспирин
+ёдли препаратлар
+тухум
+сут оқсили
+ёнғоқ
+писта
+асал
+балиқ
+соя
+глутен
+латекс

@@ -1,0 +1,18 @@
+---
+description: Order status in Tetum, and this is the clearest place in the pack to see how the verb system works, because a status label in English or Portuguese is a past participle and in Tetum it cannot be. Tetum verbs never inflect: haruka is send for any person, any number and any time. What changes is a particle placed after the verb. Ona marks that the event is complete, so haruka ona is sent, entrega ona is delivered and kansela ona is cancelled — the same ona that turns kaben into married in the marital-status file. Hela marks the ongoing, which is why pending is hein hela, waiting-and-still-waiting. Sei would mark the future and does not appear here because no order status describes something that has not started. La is the negator and sits before the verb, giving la konsege for failed and sasán la iha for out of stock, literally the goods are not there — iha is both the verb to exist and the preposition at, so iha prosesu is in process by the same word.
+locale: tet
+---
+Hein hela
+Iha prosesu
+Konfirmadu ona
+Prepara atu haruka
+Haruka ona
+Sai ona ba entrega
+Entrega ona
+Kansela ona
+Fila fali ona
+Selu fila ona
+Para uitoan
+Hein pagamentu
+Sasán la iha
+La konsege

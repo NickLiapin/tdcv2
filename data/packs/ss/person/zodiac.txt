@@ -1,0 +1,16 @@
+---
+description: Zodiac sign as printed in Eswatini, which is to say in English and Latin. siSwati has no traditional zodiac and no established translations for these twelve, and the horoscope column in the Times of Eswatini runs in English, so inventing siSwati names here would put words in the language that no reader has seen. What siSwati DOES have is its own star-lore, and it is agricultural rather than personal: iSilimela, the Pleiades, is watched for because its reappearance before dawn marks the time to plant, and the same cluster names a year of age in the Nguni counting of years. That is the sky Swazi people actually read, and it has nothing to do with the twelve signs below.
+locale: ss
+---
+Aries
+Taurus
+Gemini
+Cancer
+Leo
+Virgo
+Libra
+Scorpio
+Sagittarius
+Capricorn
+Aquarius
+Pisces

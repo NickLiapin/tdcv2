@@ -1,0 +1,16 @@
+---
+description: Conditions with a raised frequency in Ashkenazi Jewish ancestry — the most thoroughly characterised founder population in clinical genetics, and the reason it is so well characterised is a demographic bottleneck: the Ashkenazi population of central and eastern Europe descends from a very small founding group and expanded rapidly, so variants that were present by chance in that group became common. Tay-Sachs carrier screening beginning in the 1970s is the earliest large-scale community genetic screening programme anywhere and cut the incidence of the disease by more than ninety per cent, which is why the condition is now discussed as a screening success rather than as a burden. The BRCA1 185delAG, BRCA1 5382insC and BRCA2 6174delT variants together account for the great majority of hereditary breast and ovarian cancer in this population. Ancestry associations, not statements about individuals.
+locale: ss
+---
+I-Tay-Sachs disease
+I-Gaucher disease
+I-Canavan disease
+I-familial dysautonomia
+I-Niemann-Pick disease
+I-Bloom syndrome
+I-Fanconi anaemia type C
+I-mucolipidosis IV
+I-BRCA1 founder variants
+I-BRCA2 founder variants
+I-factor XI deficiency
+I-Crohn disease

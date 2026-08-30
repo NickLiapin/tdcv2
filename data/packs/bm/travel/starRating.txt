@@ -1,0 +1,9 @@
+---
+description: Hotel star ratings, in French. The scale is the French one and is applied by the Malian tourism ministry, but it should be read with care in a dataset: classification is patchy outside Bamako, a great many establishments advertise stars nobody awarded them, and the things that actually determine a stay here — whether the generator runs, whether the air conditioning works, whether the water is hot — are not what the scale measures. Outside the capital and Mopti the practical range is one to three, and the top of the scale exists almost entirely for the business hotels of Bamako.
+locale: bm
+---
+1 étoile
+2 étoiles
+3 étoiles
+4 étoiles
+5 étoiles

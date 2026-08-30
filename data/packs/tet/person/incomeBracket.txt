@@ -1,0 +1,12 @@
+---
+description: Household income bracket, and the currency is the fact worth carrying away: Timor-Leste's money is the United States dollar. It was adopted in 2000 under the UN transitional administration because the country came out of 1999 with no functioning banking system, no reserves and no institution capable of standing behind a new currency, and it was never replaced afterwards. The country does mint its own coin, the centavu, in 1, 5, 10, 25, 50 and 100 pieces, so change in a Dili shop is Timorese and the notes in the same till are American. That means a Timorese money column is not a national-currency column and cannot be derived from the locale in the usual way — no conversion applies, and any figure written here is already in USD. The brackets are stated per month (kada fulan) rather than per year, because that is the period wages, remittances and the veterans' and elderly pensions are quoted in, and because a large share of households sit near the bottom of this scale where an annual figure is meaningless. Menus husi is less than and liu husi is more than.
+locale: tet
+---
+Menus husi USD 100 kada fulan
+USD 100 - 250 kada fulan
+USD 250 - 500 kada fulan
+USD 500 - 750 kada fulan
+USD 750 - 1000 kada fulan
+USD 1000 - 1500 kada fulan
+USD 1500 - 2500 kada fulan
+Liu husi USD 2500 kada fulan

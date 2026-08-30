@@ -1,0 +1,20 @@
+---
+description: Horse breed (West Frisian). First, the word: a horse is a hynder and a stallion a hynst, which is not the Dutch paard with a different spelling but a different word, and it is why Frisian place and family names carry hyns- where Dutch ones carry paard-. Then the breed at the head of the list, which is a world export from this province. The Frysk hynder is black, always black - white markings are not admitted beyond a small star - with a long mane and tail that are never cut and the high knee action that made it a carriage horse. Its studbook, founded in 1879, is the oldest in the Netherlands, and the breed came close to disappearing twice: by 1913 the register was down to about three approved stallions, and every Friesian alive today descends from that bottleneck. It is now bred on every continent, and a Frisian breeder can be talking to Californian and Australian buyers in the same week. Gelders and Grinzer are the neighbouring provinces' breeds, and the Nederlânsk waarmbloedhynder of the KWPN studbook is the sport horse the country actually competes on.
+locale: fy
+---
+Frysk hynder
+Gelders hynder
+Grinzer hynder
+Nederlânsk waarmbloedhynder
+Shetlânpony
+Fjordehynder
+Arabier
+Ingelske folbloed
+Andalusiër
+Lusitano
+Haflinger
+Appaloosa
+Quarter horse
+Shire
+Clydesdale
+Percheron

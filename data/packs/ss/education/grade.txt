@@ -1,0 +1,16 @@
+---
+description: Grade in Eswatini. The letters are the EGCSE and Primary Certificate scale that the country localised from Cambridge, running A to F with U for ungraded, and they are what appears on a certificate. The siSwati phrases below them are how a result is reported and discussed, and they are verb clauses rather than labels: kuphumelele is "it has succeeded", from kuphumelela, to come out well, so a Swazi pupil does not GET a pass, the work passes. Kwehlulekile, from kwehluleka, to be defeated, is the counterpart. Note that both are impersonal, with no subject visible, which is why they can be used of a pupil, a paper or a whole school without changing form.
+locale: ss
+---
+A
+B
+C
+D
+E
+F
+U
+Kuphumelele kahle kakhulu
+Kuphumelele kahle
+Kuphumelele
+Kuphumelele ngekulinganisela
+Kwehlulekile

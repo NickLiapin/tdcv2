@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Northern European descent, in West Frisian. A prevalence signal, not an exclusive one, and the one file in this folder that describes the population of Fryslân itself: hereditary haemochromatosis, cystic fibrosis carriage and lactase persistence all reach their world maxima in northwest Europe, and adult milk-drinking — the trait behind Laktaazepersistinsje — is close to universal in a province whose most famous export is a dairy cow. Taaislymsykte is cystic fibrosis read out literally as tough-mucus disease, and Erflike is the Frisian for hereditary, from erve, to inherit.
+locale: fy
+---
+Taaislymsykte
+Erflike hemokromatoaze
+Alfa-1-antitrypsinebrek
+Fenylketonury
+Coeliaky
+Multiple skleroaze
+Diabetes mellitus type 1
+Sykte fan Dupuytren
+Basaalselkarsinoom
+Laktaazepersistinsje

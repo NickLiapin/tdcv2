@@ -1,0 +1,40 @@
+---
+description: Medical specialties as a Malian hospital lists them, in French. The shape of the list is Mali's own: gériatrie is absent because the median age is around sixteen and old age is simply not where the caseload is, while maladies infectieuses et tropicales, nutrition and santé publique are full departments rather than footnotes. Médecine traditionnelle is a real one too — the Département de médecine traditionnelle at the INRSP in Bamako is among the oldest state institutes of its kind in Africa and registers standardised phytomedicines. Note that these are titles, not places: most Malians meet the health system at a CSCom, the community health centre staffed by a general practitioner or a nurse, and reach any of these specialties only on referral to a CSRéf or a CHU.
+locale: bm
+---
+Médecine générale
+Pédiatrie
+Gynécologie-obstétrique
+Chirurgie générale
+Médecine interne
+Cardiologie
+Pneumologie
+Gastroentérologie
+Néphrologie
+Neurologie
+Endocrinologie
+Rhumatologie
+Dermatologie
+Ophtalmologie
+Oto-rhino-laryngologie
+Odontostomatologie
+Orthopédie
+Traumatologie
+Urologie
+Neurochirurgie
+Chirurgie maxillo-faciale
+Chirurgie pédiatrique
+Anesthésie-réanimation
+Médecine d'urgence
+Radiologie et imagerie médicale
+Anatomie pathologique
+Biologie médicale
+Hématologie
+Oncologie
+Psychiatrie
+Maladies infectieuses et tropicales
+Néonatologie
+Nutrition
+Santé publique
+Médecine du travail
+Médecine traditionnelle

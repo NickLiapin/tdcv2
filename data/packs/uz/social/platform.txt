@@ -1,0 +1,21 @@
+---
+description: Social platforms, brand names, unchanged in any script. TELEGRAM IS FIRST FOR A REASON: it is the dominant social and news platform in Uzbekistan by a wide margin, used for public channels far more than for private chat, and a dataset that treats it as a minor messenger is wrong about the country.
+locale: uz
+---
+Telegram
+Instagram
+Facebook
+YouTube
+TikTok
+WhatsApp
+Odnoklassniki
+VKontakte
+X
+LinkedIn
+Threads
+Pinterest
+Snapchat
+Reddit
+Discord
+Viber
+IMO

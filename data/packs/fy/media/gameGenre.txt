@@ -1,0 +1,21 @@
+---
+description: Video game genre (West Frisian). Half the list is untranslated English, which is honest rather than lazy: shooter, platformer, survival, roguelike and MMORPG are what a Frisian player says, and no Frisian word for any of them has ever been coined. The half that is Frisian shows the spul suffix doing the work Dutch -spel does - rollespul, racespul, fjochtspul, muzykspul - from spul, a game or a piece of business, and fjochtsje, to fight. Iepen wrâld is open world, on iepen, which is the same word as English open where Dutch has open too but pronounces it nothing like it.
+locale: fy
+---
+Aksje
+Aventoer
+Rollespul
+Strategy
+Simulaasje
+Sport
+Puzel
+Shooter
+Platformer
+Racespul
+Fjochtspul
+Survival
+Iepen wrâld
+MMORPG
+Roguelike
+Horror
+Muzykspul

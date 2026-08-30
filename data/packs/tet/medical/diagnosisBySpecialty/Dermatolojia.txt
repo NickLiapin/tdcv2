@@ -1,0 +1,14 @@
+---
+description: Dermatology diagnoses in Tetum. In a hot, humid country where households are crowded and water has to be carried, a skin clinic is mostly an infection clinic: skabiose passes through a household and then a school in a matter of weeks, impetigu follows the scratching, and between them they account for a large share of everything paediatrics sees. Frambézia, yaws, is on the list because it is one of the small number of diseases targeted for eradication with a single oral dose of azithromycin, and Timor-Leste sits inside the humid tropical belt where it has survived. Lepra is filed under dermatology rather than infectious disease because of how it announces itself — a pale patch of skin with no sensation in it — and it is the dermatologist who is asked to put a name to that. Kulit, the word for skin running through this vocabulary, is from the Malay layer rather than the Portuguese one, a reminder that the trade contact predates the colony.
+locale: tet
+---
+Skabiose
+Impetigu
+Mikoze pele
+Tinea kapitis
+Frambézia
+Lepra
+Dermatite atópika
+Dermatite kontaktu
+Ulsera tropikál
+Erpes-zóster

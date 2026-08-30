@@ -1,0 +1,23 @@
+---
+description: What is actually extracted here, and the list is not a generic minerals inventory. It opens offshore: Petróleu, Gás naturál and Kondensadu are the Timor Sea fields, and condensate deserves its own line because the country's producing field was a gas-condensate field rather than an oil field, so the barrels counted in the national accounts were largely condensate and liquefied petroleum gas. On land the real industry is stone. Mármore comes from the quarries around Manatuto and Baucau and is genuinely good marble, exported as slab; Kalkáriu feeds the cement works; Fatuk, Fatuk britadu, Saibru and Henek are building stone, crushed aggregate, gravel and sand, the unglamorous commodities that a road programme consumes and that make up most licensed extraction. Manganés, Ouru, Kromite, Kobre, Prata and Bentonite are known occurrences worked at small scale or not at all — alluvial gold is panned in river gravels rather than mined. Masin is sea salt, panned in shallow pans along the north coast and sold by the sack. The layering of the vocabulary is worth reading: the metals and the industrial commodities arrive from Portuguese, while everything a person can pick up in their hand keeps its Austronesian name — masin salt, fatuk stone, henek sand, rai-mean the red clay, from rai, earth, and mean, red. Carvão heads the Portuguese list and coal is deliberately absent from this one, because there is no coal industry in Timor-Leste and putting it here would be inventing an economy.
+locale: tet
+---
+Petróleu
+Gás naturál
+Kondensadu
+Mármore
+Kalkáriu
+Manganés
+Ouru
+Prata
+Kromite
+Kobre
+Besi
+Bentonite
+Fosfatu
+Masin
+Rai-mean
+Fatuk
+Fatuk britadu
+Saibru
+Henek

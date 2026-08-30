@@ -1,0 +1,24 @@
+---
+description: Finance jobs. Бухгалтер and бош бухгалтер lead, because the chief accountant is a legally named officer of an Uzbek company and not just a senior role. Хазиначи is the treasurer and актуарий the actuary; валюта оператори handles foreign exchange at a bank window.
+locale: uz
+---
+бухгалтер
+бош бухгалтер
+молиячи
+иқтисодчи
+аудитор
+солиқ маслаҳатчиси
+кредит мутахассиси
+риск таҳлилчиси
+хазиначи
+кассир-оператор
+суғурта агенти
+актуарий
+инвестиция таҳлилчиси
+молиявий назоратчи
+бюджет мутахассиси
+ҳисобчи
+иш юритувчи
+молия директори
+лизинг мутахассиси
+валюта оператори

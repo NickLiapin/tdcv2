@@ -1,0 +1,199 @@
+---
+description: Street names that recur across Malian towns. Two things a config writer needs to know. First, most streets in Bamako have no name at all — they have a number, and a full address reads Porte 118, Rue 224, Faladié, so the named thoroughfares here are the avenues and boulevards, not the residential lanes. Second, these values are built for French grammar, which is the language of every street sign in Mali — a personal name follows the type bare (Avenue Modibo Keïta) while a common noun needs its article (Avenue de l'Indépendance), and that is why roughly half the list opens with de la, du or de l'. The people are Mali's own before they are anyone else's — the Ségou Bamana kings Biton Coulibaly and Da Monzon Diarra, Babemba Traoré who died rather than surrender Sikasso in 1898, the Timbuktu chroniclers Ahmed Baba and Mahmoud Kati, the first president Modibo Keïta — followed by the pan-African figures independence-era Mali chose to honour and the Gulf donors, Cheick Zayed and Al Quoods, whose names came with the roads they paid for. The dates are Malian dates, 22 Septembre for independence in 1960 and 26 Mars for the fall of the dictatorship in 1991. Quarter names are given bare because Bamako streets are commonly named after the quarter they lead to, and note the -bougou ending on so many of them, Bambara bugu, a hamlet.
+locale: bm
+---
+Modibo Keïta
+Soundiata Keïta
+Kankou Moussa
+Askia Mohamed
+Sonni Ali Ber
+Ahmed Baba
+Mahmoud Kati
+Biton Coulibaly
+Da Monzon Diarra
+Ngolo Diarra
+Babemba Traoré
+Tiéba Traoré
+Samory Touré
+El Hadj Oumar Tall
+Firhoun Ag Alinsar
+Fily Dabo Sissoko
+Mamadou Konaté
+Mamby Sidibé
+Balla Fasséké Kouyaté
+Ali Farka Touré
+Amadou Hampâté Bâ
+Seydou Badian Kouyaté
+Massa Makan Diabaté
+Yambo Ouologuem
+Aoua Kéita
+Bouillagui Fadiga
+Kasse Keïta
+Baba Diarra
+Kwame Nkrumah
+Patrice Lumumba
+Thomas Sankara
+Nelson Mandela
+Ahmed Sékou Touré
+Gamal Abdel Nasser
+Félix Houphouët-Boigny
+Léopold Sédar Senghor
+Amilcar Cabral
+Jomo Kenyatta
+Cheick Zayed
+Al Quoods
+Cheick Anta Diop
+Haïlé Sélassié
+du 26 Mars
+du 22 Septembre
+du 20 Janvier
+du 1er Mai
+du 8 Mars
+du 25 Mai
+de l'Indépendance
+du Peuple
+de la Nation
+de la Liberté
+de la Paix
+de l'Unité
+de l'Amitié
+de la République
+du Mali
+de l'Afrique
+de l'OUA
+de la CEDEAO
+de l'UEMOA
+de la Francophonie
+du Commerce
+du Marché
+de la Mosquée
+de l'École
+de l'Hôpital
+de la Poste
+de la Gare
+du Stade
+de l'Aéroport
+de la Mairie
+du Gouvernorat
+de la Douane
+de la Justice
+des Martyrs
+de la Corniche
+de la Jeunesse
+des Écoles
+de la Santé
+du Progrès
+de la Solidarité
+du Joliba
+du Niger
+du Bani
+du Bafing
+du Bakoye
+du Sénégal
+du Fleuve
+du Sahel
+de la Savane
+du Désert
+des Dunes
+du Baobab
+du Karité
+du Néré
+des Manguiers
+du Fromager
+des Rôniers
+des Caïlcédrats
+du Balanzan
+de la Colline
+du Plateau
+des Jardins
+Badalabougou
+Hamdallaye
+Magnambougou
+Lafiabougou
+Djélibougou
+Sébénikoro
+Kalaban Coura
+Faladié
+Sogoniko
+Torokorobougou
+Niamakoro
+Banconi
+Missira
+Médina Coura
+Quinzambougou
+Niaréla
+Bozola
+Daoudabougou
+Sabalibougou
+Baco Djicoroni
+Korofina
+Boulkassoumbougou
+Sotuba
+Hippodrome
+Yirimadio
+Kalabancoro
+Sirakoro
+Djicoroni Para
+Bagadadji
+Dravéla
+Ouolofobougou
+Bolibana
+Point G
+Sikoroni
+Titibougou
+Moribabougou
+Samé
+Lassa
+Kabala
+Sénou
+de Ségou
+de Sikasso
+de Mopti
+de Tombouctou
+de Gao
+de Kayes
+de Koulikoro
+de Kati
+de Djenné
+de Bougouni
+de Koutiala
+de San
+de Niono
+de Nara
+de Bandiagara
+de Kita
+de Nioro
+de Markala
+de Douentza
+de Kidal
+de Ménaka
+de Banamba
+de Kolokani
+de Dioïla
+de Fana
+de Bla
+de Yanfolila
+de Kadiolo
+de Diéma
+de Bafoulabé
+de Kéniéba
+de Yélimané
+de Kangaba
+d'Ansongo
+de Goundam
+de Diré
+de Bourem
+de Youwarou
+de Ténenkou
+de Macina
+Bɛnkadi
+Hɛrɛ
+Jigiya
+Badenya
+Danbe
+Sabali
+Kanu
+Danaya
+Jɛkabaara
+Sigida
+Nafa

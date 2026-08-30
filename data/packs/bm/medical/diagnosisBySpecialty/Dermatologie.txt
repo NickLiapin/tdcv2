@@ -1,0 +1,10 @@
+---
+description: A Malian dermatology clinic is mostly infectious rather than inflammatory: scabies and tinea capitis in schoolchildren account for a large share of visits, and Buruli ulcer is here because Mali reports cases along the river systems where the disease is endemic.
+locale: bm
+---
+Gale
+Teigne du cuir chevelu
+Dermatite atopique
+Ulcère de Buruli
+Vitiligo
+Acné

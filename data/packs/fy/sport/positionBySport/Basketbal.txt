@@ -1,0 +1,9 @@
+---
+description: Positions in basketball (West Frisian) - and they are in English, unchanged, which is the fact worth recording. Basketball came to Fryslân late and entirely through the American game, so the five positions were never given Frisian names the way the football and handball ones were, and a Frisian club coach says point guard and small forward in the middle of a Frisian sentence without anyone noticing. Compare sport/positionBySport/Fuotbal, where every single position was rebuilt on Frisian roots. The one Frisian word in the sport is the verb: basketbalje.
+locale: fy
+---
+Point guard
+Shooting guard
+Small forward
+Power forward
+Center

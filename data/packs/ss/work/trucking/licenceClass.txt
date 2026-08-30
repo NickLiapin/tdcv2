@@ -1,0 +1,11 @@
+---
+description: Driving licence class in Eswatini, and they are the Southern African codes rather than European ones — Eswatini shares its road law, its vehicle categories and its left-hand traffic with South Africa, so a licence issued in Mbabane reads the same as one issued in Nelspruit. A is motorcycle above 125cc and A1 below it; B is a light vehicle up to 3500kg; C1 is a heavy vehicle to 16000kg and C above it; the E prefix on EB and EC adds a trailer, which is the code that matters for the cross-border haulage in this pack's cargo list. A config reaching for European B, C, D and E codes here will produce licences that no Eswatini traffic officer would recognise.
+locale: ss
+---
+A
+A1
+B
+C1
+C
+EB
+EC

@@ -1,0 +1,26 @@
+---
+description: Metals, and gold has to lead. The Bambuk and Buré goldfields on the upper Senegal and Niger supplied the trans-Saharan trade for six hundred years, paid for Mansa Musa's pilgrimage to Mecca in 1324 and put Mali on the European maps that followed it, and Mali is again one of Africa's largest producers today. Sanu is gold and warijɛ is silver, literally white money, from wari, money. Nɛgɛ is iron and it is the loaded word here — the smith who works it is a numu, a member of a hereditary caste that marries within itself, and his work is held to release ɲama, the force that transformation lets loose, which is why the numu is also the man who carves masks and circumcises boys. Lithium appears near the end because of Goulamina, and it is the first metal in a very long time to change what Malian mining means.
+locale: bm
+---
+sanu
+warijɛ
+nɛgɛ
+cuivre
+bronze
+laiton
+acier
+fonte
+aluminium
+étain
+plomb
+zinc
+nickel
+chrome
+manganèse
+titane
+magnésium
+tungstène
+cobalt
+lithium
+platine
+mercure

@@ -1,0 +1,24 @@
+---
+description: Parcel and freight carrier operating in Eswatini. Eswatini Posts and Telecommunications is first because it is the national operator and because in a country where most homes have no street address the post office box is the delivery point rather than the door — EPTC counters in Mbabane, Manzini and every district town are where mail is collected, not where it starts from. Eswatini Railway is on a parcel list because it is the only rail operator here and it exists purely for freight: 300 kilometres of track built to move sugar, coal and timber to Maputo and to Richards Bay, with no passenger service at all. The rest are South African couriers working the same corridor across the Ngwenya and Lavumisa border posts, plus the international integrators, and their presence is a fair map of where Eswatini's goods actually come from.
+locale: ss
+---
+Eswatini Posts and Telecommunications
+EPTC Speed Post
+Eswatini Railway
+DHL
+FedEx
+UPS
+Aramex
+PostNet
+The Courier Guy
+RAM Hand-to-Hand Couriers
+Dawn Wing
+Skynet
+Courier It
+Fastway
+Berco Express
+DSV
+Bidvest International Logistics
+Imperial Logistics
+Manica Africa
+Transnet Freight Rail

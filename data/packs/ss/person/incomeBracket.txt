@@ -1,0 +1,12 @@
+---
+description: Annual income band in Eswatini, in emalangeni. The lilangeni, plural emalangeni, is pegged one to one with the South African rand and the rand circulates here as legal tender alongside it, so these figures can be read as rand without conversion — which is exactly how a Swazi worker paid in South Africa reads them. The name is the same word as lilanga, the sun, and it is why Swazi people are called bantfu bemalanga, the people of the sun; a hundred tisenti make one lilangeni. The bands are deliberately low by European standards and still describe a minority: most of Eswatini's labour is subsistence farming or informal trade with no annual figure at all, so any dataset built from these will over-represent the salaried.
+locale: ss
+---
+Ngephansi kwa-E2 000
+E2 000 kuya ku-E5 000
+E5 001 kuya ku-E10 000
+E10 001 kuya ku-E20 000
+E20 001 kuya ku-E35 000
+E35 001 kuya ku-E60 000
+E60 001 kuya ku-E100 000
+Ngetulu kwa-E100 000

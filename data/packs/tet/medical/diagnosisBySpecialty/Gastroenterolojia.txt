@@ -1,0 +1,14 @@
+---
+description: Gastroenterology diagnoses in Tetum, which in Timor-Leste means largely a nutrition and parasite service. Roughly half of all Timorese children under five are stunted — permanently short for their age from chronic undernutrition compounded by repeated infection — one of the highest rates recorded anywhere on earth, and that is why malnutrisaun kronika and diarreia kronika appear on a specialist list here rather than only on a paediatric one. Verme intestinál covers the soil-transmitted helminths together, roundworm, whipworm and hookworm, which are carried by a majority of school-age children in the districts and which take iron and calories from a child who has none to give; the deworming rounds against them are run through schools twice a year. Askaríaze, amebíaze and jiardíaze are named separately because that is how a laboratory slip names them. Fígadu is Portuguese fígado with its unstressed final -o written -u, the most regular and the most invisible of all the borrowing rules.
+locale: tet
+---
+Verme intestinál
+Askaríaze
+Amebíaze
+Jiardíaze
+Diarreia kronika
+Malnutrisaun kronika
+Febre tifóide
+Hepatite B kronika
+Siroze fígadu
+Ulsera péptika

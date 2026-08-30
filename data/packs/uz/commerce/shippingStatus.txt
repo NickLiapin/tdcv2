@@ -1,0 +1,15 @@
+---
+description: Where a parcel is. Саралаш марказида is the sorting hub, етказишга чиқди is out for delivery, and қабул қилувчи топилмади is the failed-delivery state that a real courier dataset is full of. Транзитда covers everything in between, which is where most rows sit at any moment.
+locale: uz
+---
+қабул қилинди
+омборда
+қадоқланди
+жўнатилди
+транзитда
+саралаш марказида
+етказишга чиқди
+етказилди
+қабул қилувчи топилмади
+сақлашда
+қайтарилмоқда

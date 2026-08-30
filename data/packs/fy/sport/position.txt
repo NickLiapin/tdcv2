@@ -1,0 +1,39 @@
+---
+description: Playing position drawn from several sports at once (West Frisian). Because it mixes sports, the same word means different things depending on the game: middenfjilder is a midfielder in football and hockey but the centre fielder in honkbal, and Center is the middle man of an ice-hockey line and also the tallest player in basketball. For a coherent single-sport draw use sport/positionBySport instead. Two keatsen roles close the list, Opslagger and Efterynse, because a Frisian position list that left out the province's own sport would be a Dutch list with the spelling changed; the third keatsen role, Foarynse, is in the Keatsen child file. Frisian basketball keeps the English position names unchanged while football rebuilt every one of its own on Frisian roots - ferdigener, middenfjilder, bûten - and both facts are visible in a single draw from here.
+locale: fy
+---
+Doelman
+Sintrale ferdigener
+Rjochtsback
+Linksback
+Ferdigenjende middenfjilder
+Sintrale middenfjilder
+Oanfallende middenfjilder
+Rjochtsbûten
+Linksbûten
+Spits
+Wjukspiler
+Spulferdieler
+Passer-rinner
+Middenblokkearder
+Diagonaalspiler
+Libero
+Smiter
+Fanger
+Koarte stop
+Earste honkman
+Twadde honkman
+Tredde honkman
+Bûtenfjilder
+Oanwiisde slachman
+Sirkelrinner
+Linkerhoekspiler
+Rjochterhoekspiler
+Opbouwer
+Point guard
+Shooting guard
+Small forward
+Power forward
+Center
+Opslagger
+Efterynse

@@ -1,0 +1,11 @@
+---
+description: Household size, as a count of people, with everything from seven upward collapsed into one bucket. These are the only values in the whole Frisian pack that need no translation, because the digits are written identically in every locale here - but they are not read identically, and that is the thing a config cannot see. A Frisian counts ien, twa, trije, fjouwer, fiif, seis, sân, and sân is a false friend for a Dutch reader twice over: Dutch zeven and Frisian sân share no visible letter at all, while Dutch zand and Frisian sân look close and mean nothing alike, sân doing duty in Frisian for both seven and sand. So a report that renders this column as words rather than digits cannot be produced by a lookup table built from the Dutch one. On the distribution itself: the average household in Fryslân is a little over two people, but the province splits sharply, with Ljouwert carrying a large share of one-person households as the only real student city between the Waadsee and the German border, and the agricultural municipalities holding the larger households.
+locale: fy
+---
+1
+2
+3
+4
+5
+6
+7+

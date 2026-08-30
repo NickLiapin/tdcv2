@@ -1,0 +1,45 @@
+---
+description: Legal form of an Eswatini business, and the list is in English because company law here is: the Companies Act registers a Proprietary Limited, a public Limited and a handful of other forms under English names, and a siSwati translation would not appear on any certificate of incorporation. Three entries are worth noticing. General Dealers is a real and very common suffix, being the licence category for a rural trading store that sells food, paraffin, blankets and farm inputs from one counter. Savings and Credit Cooperative is the SACCO, which reaches far more Swazi savers and borrowers than the banks do. Parastatal covers the state corporations — the electricity company, the water services corporation, the posts and telecommunications operator — which are a large share of formal employment in a country this size.
+locale: ss
+---
+(Pty) Ltd
+Ltd
+Limited
+Proprietary Limited
+Inc
+Incorporated
+Company
+Corporation
+Group
+Group (Pty) Ltd
+Holdings (Pty) Ltd
+Investments (Pty) Ltd
+Enterprises
+Enterprises (Pty) Ltd
+Trading
+Trading (Pty) Ltd
+General Dealers
+Construction (Pty) Ltd
+Transport (Pty) Ltd
+Farms (Pty) Ltd
+Estates
+Estates (Pty) Ltd
+Projects (Pty) Ltd
+Services (Pty) Ltd
+Supplies (Pty) Ltd
+and Sons
+and Partners
+Partnership
+Sole Trader
+Cooperative
+Cooperative Society
+Savings and Credit Cooperative
+Association
+Society
+Trust
+Trust Fund
+Foundation
+Board
+Authority
+Commission
+Parastatal

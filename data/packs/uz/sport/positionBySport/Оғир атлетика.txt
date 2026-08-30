@@ -1,0 +1,12 @@
+---
+description: Roles in weightlifting. Штангачи is the lifter, from штанга, the barbell. Uzbekistan has a strong weightlifting programme and the weight bands are named by the same енгил, ўрта, оғир triple used in wrestling and boxing, with тоифаси for the category.
+locale: uz
+---
+штангачи
+енгил вазн тоифаси
+ўрта вазн тоифаси
+оғир вазн тоифаси
+бош мураббий
+ҳакам
+захира спортчи
+ёрдамчи

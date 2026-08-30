@@ -1,0 +1,20 @@
+---
+description: Japanese dishes. Sushi is sushi, in Frisian as in every other European language, and that is the fact rather than a gap in the list: this entire cuisine reached Fryslân after about 1990, through restaurants and supermarket chill cabinets, so there was neither time nor need for the language to build words of its own for any of it. Only two lines carry Frisian at all, miso sop and teriyaki hin, and both of them use words a thousand years older than the dish they are stuck to. Sop is soup; hin is a hen, and Frisian uses the name of the live bird where Dutch reaches for the separate word kip. That is a habit worth knowing when generating menu text in this locale: Frisian names meat after the animal far more readily than Dutch does.
+locale: fy
+---
+Sushi
+Sashimi
+Ramen
+Udon
+Soba
+Tempura
+Yakitori
+Tonkatsu
+Gyoza
+Donburi
+Okonomiyaki
+Miso sop
+Onigiri
+Teriyaki hin
+Katsu curry
+Edamame

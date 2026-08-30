@@ -1,0 +1,22 @@
+---
+description: Cat breed (West Frisian). The shorthair breeds carry the word worth noticing: hair is hier in Frisian, standing beside English hair where Dutch has haar, so a shorthair is a koarthier. Breed names coined abroad are given in their Frisian form where one exists (Siamees, Britsk koarthier, Noarske boskkat) and left in the original where none does (Maine Coon, Ragdoll, Sphynx), which is the ordinary rule for trade and studbook names in this pack. Fryslân has no cat breed of its own - the two native breeds here are dogs, in animal/dog - so unlike almost every other file in the pack this one has nothing provincial in it, and that absence is itself worth recording rather than papering over.
+locale: fy
+---
+Perzyske kat
+Maine Coon
+Siamees
+Ragdoll
+Bengaal
+Sphynx
+Britsk koarthier
+Abessyn
+Scottish Fold
+Noarske boskkat
+Russysk blau
+Hillige Birmaan
+Amerikaansk koarthier
+Devon Rex
+Burmees
+Turkske angora
+Somali
+Manx

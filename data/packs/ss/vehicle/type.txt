@@ -1,0 +1,26 @@
+---
+description: Vehicle type in siSwati. Two entries carry more weight here than the rest. Ikhombi, the sixteen-seat minibus, is how most of Eswatini actually travels: it runs on fixed routes from the Manzini and Mbabane ranks with no timetable, leaves when it is full, and is the reason a Swazi address is often given as a rank rather than a street. Ibhakhi, the pickup — Afrikaans bakkie, taken straight over the border — is the ordinary rural vehicle, carrying people in the back as often as goods. The country drives on the LEFT and registers vehicles in South African categories, so a config building a fleet from this list should not reach for European ones. Note that most of these are class 9 loans taking i-, while the two indigenous formations, sitimela and sitfutfutfu, take class 7 si-; sitfutfutfu is onomatopoeic for the sound of a motorcycle.
+locale: ss
+---
+Imoto
+Ibhakhi
+Ikhombi
+Ibhasi
+Ibhasi yelibanga lelidze
+Iloli
+Iloli lelinemateyla
+Ithengi
+Ithrekhtha
+Igandaganda
+Sitimela
+Indiza
+Ihhelikhophtha
+Sitfutfutfu
+Libhayisikili
+Ambulensi
+Imoto yemaphoyisa
+Imoto yemlilo
+Ithekisi
+Iteyla
+Sikebhe
+Imoto yekutfutsa tinkhomo

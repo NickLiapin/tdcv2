@@ -1,0 +1,19 @@
+---
+description: Directional qualifier in Tetum. The east-west axis is the country's own and the north-south axis is borrowed, which is an asymmetry worth reading rather than smoothing over. Lorosa'e is east and unpacks to loro, sun, plus sa'e, to rise; loromonu is west, the sun going down. Those are not decorative: Timór Lorosa'e, Timor of the rising sun, is what the country calls itself in its own language, so the word for a compass bearing is also the national name. North and south have no such native form in Tetum Dili and take Portuguese norte and súl, with the acute that a Tetum final stressed syllable always carries, and the four intercardinals come over from Portuguese whole. Tasi Feto and Tasi Mane are the two entries a Timorese would reach for before any of the rest. The island runs northeast to southwest, so it has exactly two coasts and each has a name and a gender: the northern one is the woman sea, shallow, sheltered and calm, and the southern one is the man sea, open to the Timor Sea swell and rough enough that its beaches are not swum. Fishing seasons, road conditions and where a family is from are all stated in those two terms. Iha leten and iha okos are up and down, iha laran is inside and is how the interior of a suku is described, and karuk and loos are the left and right of spoken directions in Dili, where a route is given by landmark rather than by street. Iha oin and iha kotuk, in front and behind, are left off: they are relative to a speaker's body rather than to the map.
+locale: tet
+---
+Lorosa'e
+Loromonu
+Norte
+Súl
+Nordeste
+Noroeste
+Sudeste
+Sudoeste
+Tasi Feto
+Tasi Mane
+Iha Leten
+Iha Okos
+Iha Laran
+Karuk
+Loos

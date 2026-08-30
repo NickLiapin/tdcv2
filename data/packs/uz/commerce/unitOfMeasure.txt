@@ -1,0 +1,34 @@
+---
+description: Units of measure, metric plus the local land measures. Сотих and таноб are the ones to notice: a сотих is one hundred square metres and is how house plots are advertised, while таноб is the older unit still heard in farming talk. Центнер, a hundred kilograms, is standard in grain and cotton reporting.
+locale: uz
+---
+дона
+кг
+грамм
+тонна
+центнер
+литр
+миллилитр
+метр
+сантиметр
+миллиметр
+километр
+квадрат метр
+куб метр
+сотих
+гектар
+таноб
+жуфт
+тўплам
+қути
+пакет
+халта
+қоп
+яшик
+банка
+шиша
+рулон
+боғлам
+даста
+палет
+блок

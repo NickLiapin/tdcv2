@@ -1,0 +1,15 @@
+---
+description: Booking states in Bambara. The two separate cancellations are not pedantry in a Malian dataset — a trip dropped by the traveller and one dropped by the host have different causes here, and the host's are frequently structural: a river boat that cannot sail because the Niger is too low between January and July, a road closed by the rains or by insecurity, a flight schedule thinned out. `Taamakɛla` is the traveller, from `taama` to travel; `sotigi` is the owner of the house, which is what a Malian calls whoever is putting you up, hotel or not. `Makɔnɔni sɛbɛn na` — on the waiting paper — is a working state on routes served two or three times a week.
+locale: bm
+---
+Ɲini cilen
+Sɔn makɔnɔni
+Sɔnnen
+Saralen
+Sara dafabali
+Yɛlɛmalen
+Makɔnɔni sɛbɛn na
+Dabilalen taamakɛla fɛ
+Dabilalen sotigi fɛ
+Wari seginnen
+Banna

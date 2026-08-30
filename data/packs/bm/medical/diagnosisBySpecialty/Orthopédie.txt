@@ -1,0 +1,10 @@
+---
+description: Bamako's orthopaedic wards run on motorbike trauma. The jakarta — the cheap Chinese two-wheeler that carries most of the city — produces the femur fractures and head injuries that dominate the trauma intake, which is why a fracture, not an arthritis, opens this list.
+locale: bm
+---
+Fracture du fémur
+Ostéomyélite
+Arthrose
+Lombalgie
+Hernie discale
+Polyarthrite rhumatoïde

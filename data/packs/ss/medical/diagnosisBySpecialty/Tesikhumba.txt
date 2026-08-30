@@ -1,0 +1,10 @@
+---
+description: Dermatology diagnosis in Eswatini. Tesikhumba is "matters of the skin", from sikhumba, which means skin and also hide and leather — the same word covers the sidvwaba, the ox-hide skirt a married Swazi woman wears at Umhlanga and Incwala. Scabies and ringworm lead a real Swazi list rather than the eczema and psoriasis a temperate one begins with, because both spread in crowded homesteads and both are among the commonest reasons a child is brought to a rural clinic. Silondza lesingapholi, the ulcer that will not heal, is here as its own entry because in this population it is a presentation rather than a disease: it may be venous, diabetic, or the first sign of Kaposi sarcoma.
+locale: ss
+---
+I-eczema
+I-psoriasis
+I-scabies
+I-ringworm
+Silondza lesingapholi
+I-vitiligo

@@ -1,0 +1,36 @@
+---
+description: Kind of building, in Frisian. Three entries are architectural types rather than descriptions, and a Frisian identifies them from the road. A stjelp gathers house, byre and hayloft under one enormous pyramidal roof carried on a free-standing timber frame in the middle of the floor, so the entire farm is a single square block and the family lives against the inside of the same roof that covers the cattle. A kop-hals-romp pulls them apart into a line: the kop is the dwelling at the front, the hals a narrow neck holding the dairy and the passage between, and the romp the great barn behind - which is why a Frisian farmyard read from the air is a stroke rather than a square. Pleats is the farm itself, buorkerij the working business on it. Stins and state are medieval and are still postal addresses. A stins - the word is built on stien, stone - was a fortified tower house, put up when Fryslân had no count and no duke and every family of standing defended itself against its neighbours; the Schierstins at Feanwâlden survives and is the oldest inhabited building in the province. A state is the unfortified country seat those same families moved into once the feuding stopped. Note the everyday words as well: tsjerke and skoalle are the church and the school, and the tsj and sk in them are the sounds Frisian shares with English church and school and Dutch, with kerk and school, does not have.
+locale: fy
+---
+Wente
+Hûs
+Rychjeshûs
+Tuskenwente
+Hoekwente
+Twa-ûnder-ien-kapwente
+Frijsteande wente
+Appartemint
+Flat
+Bungalow
+Pleats
+Kop-hals-romp
+Stjelp
+Buorkerij
+Skuorre
+Stins
+State
+Tsjerke
+Mole
+Toer
+Loads
+Kantoar
+Winkel
+Skoalle
+Doarpshûs
+Kafee
+Hotel
+Sikehûs
+Garaazje
+Kas
+Silo
+Stasjon

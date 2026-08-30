@@ -1,0 +1,23 @@
+---
+description: Movie genre (West Frisian). Note oarlochsfilm, on oarloch, war - a compound where the Frisian first element is not the Dutch oorlog respelled but the regular Frisian oa for Dutch oo, the same vowel as in beam, read and brea. Komeedzje and dokumintêre show the two commonest Frisian endings for borrowed nouns, -dzje for Dutch -die and -êre for Dutch -aire. Frisian cinema exists but is small and almost entirely documentary and short film; feature films in Frisian can be counted on two hands, of which De Fûke and Nynke are the ones people name, so most of these genres describe what a Frisian audience watches rather than what it makes.
+locale: fy
+---
+Aksje
+Komeedzje
+Drama
+Horror
+Thriller
+Romantyk
+Sciencefiction
+Fantasy
+Dokumintêre
+Animaasje
+Aventoer
+Misdied
+Mystearje
+Western
+Musical
+Oarlochsfilm
+Biografy
+Film noir
+Romantyske komeedzje

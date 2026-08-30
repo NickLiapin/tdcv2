@@ -1,0 +1,14 @@
+---
+description: Fuel types at an Uzbek filling station. The АИ- numbers are octane grades on the Russian research scale, and АИ-80 still exists here for older engines. Метан matters more than it would elsewhere: Uzbekistan runs a large share of its cars on compressed natural gas, and a метан station is as ordinary as a petrol one.
+locale: uz
+---
+бензин
+АИ-80
+АИ-91
+АИ-92
+АИ-95
+дизел
+метан
+пропан
+электр
+гибрид
