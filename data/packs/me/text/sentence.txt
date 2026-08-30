@@ -1,5 +1,5 @@
 ---
-description: Filler sentences in Montenegrin, the lorem-ipsum prose of this pack. Written by hand: data/scripts/build-text-corpus.mjs builds these files from public-domain books and Project Gutenberg holds no Montenegrin text, so the corpus was composed rather than extracted. The subjects are deliberately ordinary and mixed — the house and the yard, the sheep and the katun above the treeline, the boat and the nets in Boka, the market, the school, the road over Lovćen, work, weather, food, the evening — because filler drawn from a single subject reads as a glossary instead of as language. Three things show in almost every line. Jat first: long it is written ije and short je, so vrijeme, snijeg, rijeka, lijep and mlijeko stand where a Serbian text has vreme, sneg, reka, lep and mleko, and the words are otherwise identical. Then the two letters the 2009 Pravopis crnogorskoga jezika added and no other Štokavian standard writes, ś and ź, which appear here twenty-three times in the words that genuinely carry them — śutra, śutradan, śever, śekira, śetva, śeme, uśev, iśeći, śednica, śedište, pośeta, śećanje, ośećaj, źenica, iźutra. And nijesu, the Montenegrin negated present of jesam, which Serbian and Croatian both write nisu: it is one of the most reliable single-word markers that a text is Montenegrin, and it turns up twice below.
+description: Filler sentences in Montenegrin, the lorem-ipsum prose of this pack. Written by hand: data/scripts/build-text-corpus.mjs builds these files from public-domain books and Project Gutenberg holds no Montenegrin text, so the corpus was composed rather than extracted. The subjects are deliberately ordinary and mixed — the house and the yard, the sheep and the katun above the treeline, the boat and the nets in Boka, the market, the school, the road over Lovćen, work, weather, food, the evening — because filler drawn from a single subject reads as a glossary instead of as language. Three things show in almost every line. Jat first: long it is written ije and short je, so vrijeme, snijeg, rijeka, lijep and mlijeko stand where a Serbian text has vreme, sneg, reka, lep and mleko, and the words are otherwise identical. Then the two letters the 2009 Pravopis crnogorskoga jezika added and no other Štokavian standard writes, ś and ź, which appear here on 25 of the five hundred sentences, in the words that genuinely carry them — śutra, śutradan, śever, śekira, śetva, śeme, uśev, iśeći, śednica, śedište, śeđeti, pośeta, śećanje, ośećaj, źenica, iźutra. And nijesu, the Montenegrin negated present of jesam, which Serbian and Croatian both write nisu: it is one of the most reliable single-word markers that a text is Montenegrin, and it turns up twice below.
 locale: me
 ---
 Kuća stoji na brijegu iznad puta.
@@ -48,7 +48,7 @@ Podrumska vrata se zaključavaju samo zimi.
 U kući se ne nosi obuća.
 Papuče stoje spremne za goste.
 Šporet na drva grije i kuhinju i sobu do nje.
-Zimi cijela porodica sjedi u jednoj sobi.
+Zimi cijela porodica śedi u jednoj sobi.
 Ljeti se ruča napolju, pod lozom.
 Loza nad terasom daje hlad i grožđe.
 Kuća je stara osamdeset godina i još je čvrsta.
@@ -452,7 +452,7 @@ Sud zasijeda ponedjeljkom i srijedom.
 Ročište je odloženo za mjesec dana.
 Svjedok nije došao.
 Presuda se objavljuje u pisanoj formi.
-Uveče se sjedi pred kućom dok se ne ohladi.
+Uveče se śedi pred kućom dok se ne ohladi.
 Djed skida gusle sa zida.
 Gusle imaju samo jednu žicu, od konjske dlake.
 Gudalo se prevlači sporo.
