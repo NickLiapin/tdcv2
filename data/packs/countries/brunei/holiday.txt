@@ -1,0 +1,18 @@
+---
+address: brunei.holiday
+description: Bruneian public holidays. National Day on 23 February marks full independence from Britain in 1984 — Brunei was the last British protectorate in Asia. The Sultan's birthday is a national holiday and the Sultan has ruled since 1967, one of the longest reigns in the world. The calendar is largely Islamic: Ramadan, both Eids, Isra Mikraj, the Islamic New Year and the Prophet's birthday are all observed, and Chinese New Year is kept for the Chinese minority.
+locale: en
+---
+New Year's Day
+Chinese New Year
+National Day
+Isra and Mi'raj
+First Day of Ramadan
+Revelation of the Quran
+Hari Raya Aidilfitri
+Royal Brunei Armed Forces Day
+Sultan's Birthday
+Hari Raya Aidiladha
+Islamic New Year
+Prophet Muhammad's Birthday
+Christmas Day

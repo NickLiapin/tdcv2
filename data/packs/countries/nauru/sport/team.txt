@@ -1,0 +1,10 @@
+---
+address: nauru.sport.team
+description: Nauruan sports. Australian rules football is the national sport — not rugby and not soccer — brought by Australian administrators, and Nauru is one of very few countries outside Australia where it is the dominant code. Weightlifting is the country's Commonwealth Games strength.
+locale: en
+---
+Nauru National Team
+Buada Warriors
+Aiwo Eagles
+Meneng Whales
+Denig Dolphins

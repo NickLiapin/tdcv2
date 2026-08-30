@@ -1,0 +1,9 @@
+---
+address: saint_lucia.vehicle.plate
+description: Saint Lucian licence plate — a class letter and four digits. PA is private, TX taxi, H hire.
+generator: tdc
+locale: en
+---
+<sequence name="cls"><gen type="text" value="PA,TX,H,R" percent="70,12,12,6"/></sequence>
+<sequence name="serial"><gen type="number" value="1..9999" length="4" first_zero="true"/></sequence>
+<data>${{cls}} ${{serial}}</data>

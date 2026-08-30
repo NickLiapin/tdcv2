@@ -1,0 +1,11 @@
+---
+address: saint_vincent_and_the_grenadines.geo.parish
+description: The six parishes of Saint Vincent and the Grenadines. The Grenadines are a chain of thirty-two islands and cays running south towards Grenada — Bequia, Mustique, Canouan, Union Island — and only nine are inhabited, so a single parish here is a scatter of separate islands rather than a contiguous area.
+locale: en
+---
+Saint George
+Saint Andrew
+Saint David
+Saint Patrick
+Charlotte
+Grenadines

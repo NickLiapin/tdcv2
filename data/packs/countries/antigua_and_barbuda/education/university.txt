@@ -1,0 +1,9 @@
+---
+address: antigua_and_barbuda.education.university
+description: Antigua's tertiary institutions. The UWI Five Islands campus opened in 2019 and is the regional university's fourth; the American University of Antigua is an offshore medical school, a business model several eastern Caribbean states run — students are almost entirely North American and the school is an export industry rather than a national one.
+locale: en
+---
+University of the West Indies Five Islands
+American University of Antigua
+Antigua State College
+University of Health Sciences Antigua

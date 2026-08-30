@@ -227,7 +227,7 @@ de trabajo actual, así que una configuración puede mudarse junto con su proyec
 ## `tdcv2 pack` — descargar y quitar conjuntos
 
 Sin argumentos y en una terminal, `pack` abre un **selector** en vez de volcarle el
-catálogo encima. 260 conjuntos no caben en una pantalla, así que se recorren con la forma
+catálogo encima. 285 conjuntos no caben en una pantalla, así que se recorren con la forma
 que tienen:
 
 - **Todo**, o **elegir lo que necesito**: la primera pregunta, antes que ninguna otra.
@@ -305,7 +305,7 @@ lista por angosta que esté la terminal. En una tubería o con la salida redirig
 ventana que medir, y las cinco implementaciones asumen 80 columnas — de modo que un
 listado guardado es el mismo archivo lo haya escrito cualquiera de ellas.
 
-El catálogo tiene hoy **260 conjuntos**: `common`, 86 idiomas y 173 países. Un idioma o
+El catálogo tiene hoy **285 conjuntos**: `common`, 86 idiomas y 198 países. Un idioma o
 un país que no aparezca en la lista todavía no está terminado: una entrada es la promesa
 de que toda dirección bajo ella resuelve, así que una carpeta con un solo archivo no
 recibe una.

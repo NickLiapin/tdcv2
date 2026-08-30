@@ -1,0 +1,14 @@
+---
+address: saint_kitts_and_nevis.geo.city
+description: Settlements of the two islands. Basseterre is the federal capital on St Kitts, Charlestown the capital of Nevis. Sugar was the entire economy until the state-owned industry closed in 2005 — the last sugar estate in the eastern Caribbean — and the railway that served it now carries tourists.
+locale: en
+---
+Basseterre
+Charlestown
+Sandy Point Town
+Cayon
+Dieppe Bay Town
+Tabernacle
+Monkey Hill
+Gingerland
+Newcastle

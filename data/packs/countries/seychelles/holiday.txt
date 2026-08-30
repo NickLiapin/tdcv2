@@ -1,0 +1,17 @@
+---
+address: seychelles.holiday
+description: Seychellois public holidays. Independence from Britain is 29 June 1976. Constitution Day on 18 June marks the 1993 return to multi-party rule after sixteen years of one-party government following the 1977 coup. The country is overwhelmingly Catholic and the calendar reflects it.
+locale: en
+---
+New Year's Day
+New Year Holiday
+Good Friday
+Holy Saturday
+Easter Sunday
+Labour Day
+Constitution Day
+Independence Day
+Assumption Day
+All Saints' Day
+Immaculate Conception
+Christmas Day

@@ -1,0 +1,11 @@
+---
+address: seychelles.sport.team
+description: Seychellois football clubs of the Seychelles Premier League. The country's international sporting presence is small; sailing and fishing are what the islands actually do, and the tuna cannery in Victoria is the largest employer in the country.
+locale: en
+---
+St Michel United
+Light Stars
+Côte d'Or
+Anse Réunion
+La Passe
+Foresters FC

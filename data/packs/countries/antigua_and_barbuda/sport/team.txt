@@ -1,0 +1,11 @@
+---
+address: antigua_and_barbuda.sport.team
+description: Antiguan football clubs of the Premier Division. Cricket matters more: Antigua produced Viv Richards and Andy Roberts, and the Sir Vivian Richards Stadium hosts West Indies Tests.
+locale: en
+---
+Antigua Barracuda
+SAP FC
+Grenades FC
+Empire FC
+Ottos Rangers
+Parham FC

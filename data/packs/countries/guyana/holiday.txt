@@ -1,0 +1,20 @@
+---
+address: guyana.holiday
+description: Guyanese public holidays, and the calendar is the population: Phagwah and Diwali for the Indo-Guyanese majority-plurality, Eid and Youman Nabi for Muslims, Christmas and Easter for Christians. Independence from Britain is 26 May 1966 and Republic Day on 23 February — Mashramani — is the national carnival. Arrival Day marks the coming of both the enslaved and the indentured.
+locale: en
+---
+New Year's Day
+Republic Day
+Phagwah
+Good Friday
+Easter Monday
+Labour Day
+Arrival Day
+Independence Day
+CARICOM Day
+Emancipation Day
+Youman Nabi
+Diwali
+Eid al-Adha
+Christmas Day
+Boxing Day

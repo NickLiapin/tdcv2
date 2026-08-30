@@ -1,0 +1,12 @@
+---
+address: bahamas.finance.bank
+description: Bahamian banks. The Central Bank of the Bahamas issues the Bahamian dollar and pegs it one-to-one to the US dollar, and both circulate interchangeably — a shopper in Nassau routinely receives change in a mixture. The offshore sector is far larger than the domestic one: the Bahamas has been an international financial centre since the 1930s, and the number of licensed banks exceeds anything the resident population would need.
+locale: en
+---
+Central Bank of the Bahamas
+Commonwealth Bank
+Fidelity Bank Bahamas
+Bank of the Bahamas
+Royal Bank of Canada Bahamas
+Scotiabank Bahamas
+CIBC FirstCaribbean Bahamas

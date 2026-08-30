@@ -1,0 +1,9 @@
+---
+address: andorra.phone
+description: Andorran number in E.164 form — +376 and six digits. Andorra Telecom is the sole operator and is state-owned; it is one of very few national telecoms monopolies left in Europe.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="3,4,6,7" percent="20,15,40,25"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{5}"/></sequence>
+<data>+376${{prefix}}${{line}}</data>

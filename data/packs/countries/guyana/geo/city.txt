@@ -1,0 +1,15 @@
+---
+address: guyana.geo.city
+description: Guyanese settlements. Georgetown is the capital and lies below the high-tide line. Guyana is in South America but is culturally Caribbean — English-speaking, in CARICAM, and its people descend from African slavery and Indian indenture rather than from Spanish or Portuguese settlement. Offshore oil found in 2015 has made it the fastest-growing economy in the world for several years running.
+locale: en
+---
+Georgetown
+Linden
+New Amsterdam
+Anna Regina
+Bartica
+Skeldon
+Rosignol
+Mahdia
+Lethem
+Corriverton

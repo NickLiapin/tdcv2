@@ -1,0 +1,6 @@
+---
+address: brunei.finance.currency
+description: The Brunei dollar, interchangeable at par with the Singapore dollar under a Currency Interchangeability Agreement running since 1967 — each country accepts the other's notes as customary tender, which is a rarer arrangement than a peg and depends on both central banks honouring it.
+locale: en
+---
+Brunei dollar

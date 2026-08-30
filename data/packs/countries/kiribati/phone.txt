@@ -1,0 +1,9 @@
+---
+address: kiribati.phone
+description: Kiribati number in E.164 form — +686 and five to eight digits. The numbering plan was extended from five digits in 2015 as mobile use grew.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="6,7,3" percent="45,40,15"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+686${{prefix}}${{line}}</data>

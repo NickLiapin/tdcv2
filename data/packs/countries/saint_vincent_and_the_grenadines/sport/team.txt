@@ -1,0 +1,11 @@
+---
+address: saint_vincent_and_the_grenadines.sport.team
+description: Vincentian football clubs of the NLA Premier League.
+locale: en
+---
+Avenues United
+Hope International
+System 3
+SV United
+Green Hill United
+Bequia United

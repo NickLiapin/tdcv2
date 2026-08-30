@@ -1,0 +1,10 @@
+---
+address: saint_lucia.finance.bank
+description: Saint Lucian banks. The Eastern Caribbean Central Bank is shared with seven neighbours.
+locale: en
+---
+Eastern Caribbean Central Bank
+1st National Bank St Lucia
+Bank of Saint Lucia
+Republic Bank Saint Lucia
+First Caribbean International Bank Saint Lucia

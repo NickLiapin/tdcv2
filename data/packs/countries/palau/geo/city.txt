@@ -1,0 +1,12 @@
+---
+address: palau.geo.city
+description: Palauan settlements. Koror is the largest town; Ngerulmud in Melekeok is the capital, a purpose-built complex opened in 2006 and the least populous national capital on earth. Peleliu was the site of one of the Pacific War's bloodiest battles.
+locale: en
+---
+Koror
+Ngerulmud
+Airai
+Meyuns
+Kloulklubed
+Ulimang
+Mengellang

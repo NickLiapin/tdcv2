@@ -1,0 +1,6 @@
+---
+address: solomon_islands.finance.currency
+description: The Solomon Islands dollar, floated against a trade-weighted basket.
+locale: en
+---
+Solomon Islands dollar

@@ -1,0 +1,9 @@
+---
+address: micronesia.geo.state
+description: The four states of the Federated States of Micronesia — Yap, Chuuk, Pohnpei and Kosrae — spread across 2,700 kilometres of the western Pacific. The federation is loose: each state has its own constitution, its own language and considerable autonomy, and Chuuk has voted on independence more than once. Yap is where stone money is still socially current: rai discs up to four metres across, whose ownership transfers without the stone moving.
+locale: en
+---
+Chuuk
+Pohnpei
+Yap
+Kosrae

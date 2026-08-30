@@ -1,0 +1,16 @@
+---
+address: tuvalu.holiday
+description: Tuvaluan public holidays. Independence from Britain is 1 October 1978. Commonwealth Day, the Queen's or King's birthday, and Gospel Day are observed; each island also keeps its own day, so the working calendar varies within a country of 11,000 people.
+locale: en
+---
+New Year's Day
+Commonwealth Day
+Good Friday
+Easter Monday
+Gospel Day
+King's Birthday
+National Children's Day
+Tuvalu Day
+Heir to the Throne's Birthday
+Christmas Day
+Boxing Day

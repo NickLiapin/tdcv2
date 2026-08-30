@@ -1,0 +1,10 @@
+---
+address: belize.education.university
+description: Belizean tertiary institutions. The University of Belize was assembled in 2000 from several older colleges. Belize's teaching is in English while most of the population also speaks Spanish and a large minority Belizean Kriol, so a Belizean graduate is typically trilingual in a way the paperwork does not record.
+locale: en
+---
+University of Belize
+Galen University
+University of the West Indies Open Campus Belize
+St John's College Belize
+Central America Health Sciences University

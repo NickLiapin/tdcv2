@@ -1,0 +1,11 @@
+---
+address: dominica.sport.team
+description: Dominican football clubs. The country's most famous sportsman is not a footballer but a cricketer, and its most famous export is the Kalinago canoe.
+locale: en
+---
+Harlem United
+Dublanc
+Bath Estate
+Sagicor South East
+Middleham United
+Pointe Michel

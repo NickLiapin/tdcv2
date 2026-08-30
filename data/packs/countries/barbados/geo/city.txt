@@ -1,0 +1,14 @@
+---
+address: barbados.geo.city
+description: Barbadian settlements. Bridgetown is the only city; everything else is a town or a village, and the island is small enough that most Barbadians commute into it. Historic Bridgetown and its Garrison are a World Heritage site — the garrison held the largest British military presence in the region.
+locale: en
+---
+Bridgetown
+Speightstown
+Oistins
+Holetown
+Bathsheba
+Crane
+Saint Lawrence Gap
+Six Cross Roads
+Checkker Hall

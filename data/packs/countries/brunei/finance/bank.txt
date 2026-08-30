@@ -1,0 +1,11 @@
+---
+address: brunei.finance.bank
+description: Bruneian banks. Autoriti Monetari Brunei Darussalam acts as the central bank. Bank Islam Brunei Darussalam is the largest and the country's banking is substantially Islamic — Brunei applies sharia law and interest-based products sit alongside a large takaful and sukuk sector.
+locale: en
+---
+Autoriti Monetari Brunei Darussalam
+Bank Islam Brunei Darussalam
+Baiduri Bank
+Standard Chartered Brunei
+Maybank Brunei
+RHB Bank Brunei

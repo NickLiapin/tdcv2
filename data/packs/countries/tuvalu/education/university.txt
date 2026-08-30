@@ -1,0 +1,8 @@
+---
+address: tuvalu.education.university
+description: Tuvaluan tertiary education. There is no university; the University of the South Pacific runs an extension centre and the maritime school trains seafarers, whose remittances are one of the country's few sources of foreign income.
+locale: en
+---
+University of the South Pacific Funafuti
+Tuvalu Maritime Training Institute
+Motufoua Secondary School

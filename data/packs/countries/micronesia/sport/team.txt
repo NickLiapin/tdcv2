@@ -1,0 +1,10 @@
+---
+address: micronesia.sport.team
+description: Micronesian sports. Baseball is the popular sport, brought by the Japanese administration between the wars rather than by the Americans — a colonial legacy visible in the vocabulary of the game across the Caroline Islands.
+locale: en
+---
+FSM National Team
+Pohnpei United
+Chuuk All Stars
+Yap Selection
+Kosrae Selection

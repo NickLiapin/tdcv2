@@ -1,0 +1,19 @@
+---
+address: nauru.geo.district
+description: The fourteen districts of Nauru — a country of 21 square kilometres and about 12,000 people, the third-smallest state on earth and the smallest republic. Nauru has no official capital: Yaren is where the parliament sits and is conventionally named as one, but no law says so.
+locale: en
+---
+Yaren
+Aiwo
+Anabar
+Anetan
+Anibare
+Baiti
+Boe
+Buada
+Denigomodu
+Ewa
+Ijuw
+Meneng
+Nibok
+Uaboe

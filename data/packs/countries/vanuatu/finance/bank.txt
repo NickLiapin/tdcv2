@@ -1,0 +1,11 @@
+---
+address: vanuatu.finance.bank
+description: Vanuatu's banks. The Reserve Bank of Vanuatu issues the vatu. The country was a tax haven from the 1970s and has spent the last decade dismantling that reputation under OECD pressure; it also sells citizenship, which is a significant share of government revenue.
+locale: en
+---
+Reserve Bank of Vanuatu
+National Bank of Vanuatu
+Bred Bank Vanuatu
+ANZ Vanuatu
+Bank of South Pacific Vanuatu
+Wanfuteng Bank

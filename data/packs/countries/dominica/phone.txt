@@ -1,0 +1,9 @@
+---
+address: dominica.phone
+description: Dominica number in the North American Numbering Plan — +1 767. The digits spell ROS for Roseau on a telephone keypad, which is why that code was chosen.
+generator: tdc
+locale: en
+---
+<sequence name="exchange"><gen type="number" value="200..799" length="3"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{4}"/></sequence>
+<data>+1767${{exchange}}${{line}}</data>

@@ -1,0 +1,6 @@
+---
+address: fiji.finance.currency
+description: The Fijian dollar. Managed against a basket of the currencies of Fiji's main trading partners rather than pegged to one, which is unusual for an island economy of this size.
+locale: en
+---
+Fijian dollar

@@ -1,0 +1,9 @@
+---
+address: saint_kitts_and_nevis.education.university
+description: Tertiary institutions of the federation, including two offshore medical schools. The pattern is regional: small eastern Caribbean states host American medical schools as an export industry.
+locale: en
+---
+University of the West Indies Open Campus Saint Kitts
+Clarence Fitzroy Bryant College
+Windsor University School of Medicine
+Medical University of the Americas

@@ -1,0 +1,9 @@
+---
+address: belize.phone
+description: Belizean number in E.164 form — +501 and seven digits. Belize is not in the North American Numbering Plan despite its neighbours: it has its own country code, so a Belizean number does not look like a US one, unlike every anglophone Caribbean island.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="6,2,3,4,5,7,8" percent="62,10,6,5,6,6,5"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+501${{prefix}}${{line}}</data>

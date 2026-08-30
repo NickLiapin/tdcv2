@@ -1,0 +1,8 @@
+---
+address: micronesia.finance.bank
+description: Micronesian banks. There is no central bank: the country uses the US dollar and the FSM Banking Board regulates a sector of two banks. The Compact Trust Fund, built from US payments, is intended to replace Compact grants when they end.
+locale: en
+---
+Bank of the FSM
+Bank of Guam FSM
+FSM Development Bank

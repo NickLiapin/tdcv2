@@ -1,0 +1,15 @@
+---
+address: belize.geo.city
+description: Belizean settlements. Belize City is the largest but not the capital: the government moved inland to Belmopan after Hurricane Hattie flattened the coastal capital in 1961, making Belmopan one of very few purpose-built capitals created for storm safety rather than politics. San Pedro on Ambergris Caye is the tourism centre.
+locale: en
+---
+Belize City
+San Ignacio
+Orange Walk Town
+San Pedro
+Corozal Town
+Dangriga
+Belmopan
+Benque Viejo del Carmen
+Punta Gorda
+Ladyville

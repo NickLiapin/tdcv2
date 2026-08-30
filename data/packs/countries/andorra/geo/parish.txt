@@ -1,0 +1,12 @@
+---
+address: andorra.geo.parish
+description: The seven parishes of Andorra. The country's constitutional arrangement has no parallel: it is a co-principality whose two heads of state are the President of the French Republic and the Bishop of Urgell in Spain, an arrangement running unbroken since 1278 — so one of Andorra's heads of state is elected by the French and the other appointed by the Pope, and neither is Andorran.
+locale: en
+---
+Andorra la Vella
+Escaldes-Engordany
+Encamp
+Sant Julià de Lòria
+La Massana
+Canillo
+Ordino

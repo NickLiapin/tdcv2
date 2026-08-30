@@ -1,0 +1,9 @@
+---
+address: palau.phone
+description: Palauan number in E.164 form — +680 and seven digits.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="6,7,4" percent="45,35,20"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+680${{prefix}}${{line}}</data>

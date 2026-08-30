@@ -1,0 +1,6 @@
+---
+address: bahamas.finance.currency
+description: The Bahamian dollar, pegged at par to the US dollar since 1966 and circulating alongside it. In 2020 the Bahamas issued the Sand Dollar, the world's first fully deployed central bank digital currency — a small country solving the problem of moving cash between thirty inhabited islands.
+locale: en
+---
+Bahamian dollar

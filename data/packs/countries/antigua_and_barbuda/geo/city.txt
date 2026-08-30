@@ -1,0 +1,14 @@
+---
+address: antigua_and_barbuda.geo.city
+description: Antiguan settlements. St John's holds most of the population; Codrington is Barbuda's only village. The island advertises 365 beaches, one for every day, and the tourism that phrase sells is roughly half the economy.
+locale: en
+---
+Saint John's
+All Saints
+Liberta
+Potters Village
+Bolans
+Swetes
+Codrington
+Parham
+Willikies

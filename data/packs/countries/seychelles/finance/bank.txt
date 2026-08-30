@@ -1,0 +1,11 @@
+---
+address: seychelles.finance.bank
+description: Seychellois banks. The Central Bank of Seychelles floated the rupee in 2008 during an IMF programme after a debt default — the float was abrupt and the currency lost most of its value in weeks, which is visible as a step change in any Seychellois price series from that year.
+locale: en
+---
+Central Bank of Seychelles
+Seychelles Commercial Bank
+Nouvobanq
+Absa Bank Seychelles
+Mauritius Commercial Bank Seychelles
+Bank of Baroda Seychelles

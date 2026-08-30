@@ -1,0 +1,11 @@
+---
+address: brunei.sport.team
+description: Bruneian football clubs. DPMM FC is the one to know: it plays in the Singapore Premier League rather than at home, the only club in the world competing as a national representative in another country's domestic league, and it has won it twice.
+locale: en
+---
+DPMM FC
+Kasuka FC
+Indera SC
+MS ABDB
+Rimba Star
+Kota Ranger

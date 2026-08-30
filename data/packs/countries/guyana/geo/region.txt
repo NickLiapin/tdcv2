@@ -1,0 +1,15 @@
+---
+address: guyana.geo.region
+description: The ten regions of Guyana, numbered as well as named — a Guyanese address routinely says 'Region 4' rather than 'Demerara-Mahaica'. Ninety per cent of the population lives on the narrow coastal strip, most of it below sea level and protected by a sea wall built by the Dutch; the interior is rainforest and savannah with almost nobody in it.
+locale: en
+---
+Barima-Waini
+Pomeroon-Supenaam
+Essequibo Islands-West Demerara
+Demerara-Mahaica
+Mahaica-Berbice
+East Berbice-Corentyne
+Cuyuni-Mazaruni
+Potaro-Siparuni
+Upper Takutu-Upper Essequibo
+Upper Demerara-Berbice

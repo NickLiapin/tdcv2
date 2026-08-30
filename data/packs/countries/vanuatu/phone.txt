@@ -1,0 +1,9 @@
+---
+address: vanuatu.phone
+description: Vanuatu number in E.164 form — +678 and seven digits. Mobile numbers begin 5 or 7; Digicel and Vodafone share the market.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="5,7" percent="55,45"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+678${{prefix}}${{line}}</data>

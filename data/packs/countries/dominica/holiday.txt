@@ -1,0 +1,17 @@
+---
+address: dominica.holiday
+description: Dominican public holidays. Independence from Britain is 3 November 1978. Community Service Day, the day before it, is a public holiday for cleaning and repairing — an unusual thing to legislate and characteristic of the island.
+locale: en
+---
+New Year's Day
+Carnival Monday
+Carnival Tuesday
+Good Friday
+Easter Monday
+Labour Day
+Whit Monday
+Emancipation Day
+Independence Day
+Community Service Day
+Christmas Day
+Boxing Day

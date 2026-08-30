@@ -1,0 +1,16 @@
+---
+address: bahamas.holiday
+description: Bahamian public holidays. Independence from Britain is 10 July 1973. Junkanoo on Boxing Day and New Year's Day is the national festival — a masquerade parade with brass and cowbells that runs through the night, descended from the brief Christmas freedoms allowed to enslaved people, and the closest thing the country has to a defining event.
+locale: en
+---
+New Year's Day
+Majority Rule Day
+Good Friday
+Easter Monday
+Whit Monday
+Randol Fawkes Labour Day
+Independence Day
+Emancipation Day
+National Heroes Day
+Christmas Day
+Boxing Day

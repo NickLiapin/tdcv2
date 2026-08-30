@@ -1,0 +1,10 @@
+---
+address: guyana.education.university
+description: Guyanese universities. The University of Guyana opened in 1963 and is the country's own; unusually for the region Guyana is not a campus territory of the University of the West Indies, which is why its higher education developed separately.
+locale: en
+---
+University of Guyana
+Texila American University
+Greenheart Medical University
+Cyril Potter College of Education
+American International School of Medicine

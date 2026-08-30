@@ -1,0 +1,9 @@
+---
+address: solomon_islands.education.university
+description: Solomon Islands tertiary institutions. The University of the South Pacific is the institution to understand here: it is owned jointly by twelve Pacific island countries, has campuses in all of them, and is headquartered in Fiji — so a Pacific graduate's university is regional rather than national, the same arrangement the University of the West Indies has in the Caribbean. The Solomon Islands National University was created in 2013 from the older college of higher education.
+locale: en
+---
+Solomon Islands National University
+University of the South Pacific Honiara
+Solomon Islands College of Higher Education
+Pacific Adventist University Solomon Islands

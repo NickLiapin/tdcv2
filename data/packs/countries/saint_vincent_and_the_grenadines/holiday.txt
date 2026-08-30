@@ -1,0 +1,17 @@
+---
+address: saint_vincent_and_the_grenadines.holiday
+description: Vincentian public holidays. Independence from Britain is 27 October 1979. National Heroes Day in March honours Joseph Chatoyer, the Garifuna chief who led resistance to British settlement and is the country's only declared national hero.
+locale: en
+---
+New Year's Day
+National Heroes Day
+Good Friday
+Easter Monday
+Labour Day
+Whit Monday
+Carnival Monday
+Carnival Tuesday
+Emancipation Day
+Independence Day
+Christmas Day
+Boxing Day

@@ -1,0 +1,11 @@
+---
+address: guyana.finance.bank
+description: Guyanese banks. The Bank of Guyana is the central bank. Republic Bank and GBTI are the large commercial names. The oil revenue since 2019 arrives in a Natural Resource Fund whose governance has been rewritten twice — the question of how a very poor country absorbs sudden oil money is being answered here in public.
+locale: en
+---
+Bank of Guyana
+Republic Bank Guyana
+Guyana Bank for Trade and Industry
+Demerara Bank
+Citi Guyana
+Bank of Baroda Guyana

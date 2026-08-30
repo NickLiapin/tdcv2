@@ -1,0 +1,6 @@
+---
+address: barbados.finance.currency
+description: The Barbados dollar, pegged at two to one US dollar since 1975. The peg is old enough and firm enough that Barbadian prices are routinely quoted in both currencies without conversion anxiety.
+locale: en
+---
+Barbadian dollar

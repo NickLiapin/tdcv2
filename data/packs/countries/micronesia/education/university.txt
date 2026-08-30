@@ -1,0 +1,9 @@
+---
+address: micronesia.education.university
+description: Micronesian tertiary education. The College of Micronesia-FSM has campuses in all four states and is the country's only tertiary institution; most graduates continue in Guam, Hawaii or the mainland United States, which the Compact of Free Association makes straightforward.
+locale: en
+---
+College of Micronesia-FSM
+College of Micronesia Pohnpei
+Chuuk Campus
+Yap Campus

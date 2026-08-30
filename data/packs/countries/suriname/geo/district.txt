@@ -1,0 +1,15 @@
+---
+address: suriname.geo.district
+description: The ten districts of Suriname. Paramaribo and the coastal districts hold nearly the whole population; Sipaliwini covers most of the country's area and is rainforest inhabited mainly by Indigenous peoples and Maroons — descendants of escaped enslaved people who established independent communities in the interior in the eighteenth century and hold territorial rights the state has never fully codified.
+locale: en
+---
+Paramaribo
+Wanica
+Nickerie
+Commewijne
+Saramacca
+Para
+Marowijne
+Coronie
+Brokopondo
+Sipaliwini

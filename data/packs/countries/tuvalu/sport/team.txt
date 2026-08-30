@@ -1,0 +1,10 @@
+---
+address: tuvalu.sport.team
+description: Tuvaluan sports. Te ano, a traditional ball game, is the national sport; Tuvalu has competed at the Olympics since 2008 without a medal and has no stadium — the airstrip serves.
+locale: en
+---
+Tuvalu National Team
+Nauti FC
+Tofaga
+Lakena United
+Manu Laeva

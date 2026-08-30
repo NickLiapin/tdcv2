@@ -1,0 +1,9 @@
+---
+address: samoa.vehicle.plate
+description: Samoan licence plate — a class letter and up to five digits. Samoa switched from driving on the right to driving on the left in 2009, one of very few countries ever to do so, in order to make second-hand cars from New Zealand and Australia importable.
+generator: tdc
+locale: en
+---
+<sequence name="cls"><gen type="text" value="P,T,R,G" percent="70,14,10,6"/></sequence>
+<sequence name="serial"><gen type="number" value="1..99999" length="5" first_zero="true"/></sequence>
+<data>${{cls}}${{serial}}</data>

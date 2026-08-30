@@ -1,0 +1,14 @@
+---
+address: nauru.holiday
+description: Nauruan public holidays. Independence from Australian administration is 31 January 1968. Angam Day on 26 October is the one to know: it marks the day the Nauruan population recovered to 1,500 people, the number thought necessary for the community to survive — reached first in 1932 and again in 1949 after the wartime deportation to Chuuk from which only a third returned.
+locale: en
+---
+New Year's Day
+Independence Day
+Good Friday
+Easter Monday
+Easter Tuesday
+Constitution Day
+Angam Day
+Christmas Day
+Boxing Day

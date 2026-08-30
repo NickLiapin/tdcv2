@@ -1,0 +1,17 @@
+---
+address: samoa.holiday
+description: Samoan public holidays. Independence from New Zealand administration is 1 January 1962 — Samoa was the first Pacific island country to become independent, and it celebrates on 1 June rather than on the anniversary itself. White Sunday in October is a children's holiday of a kind found nowhere else: children lead the church service and are served first at the family meal.
+locale: en
+---
+New Year's Day
+New Year's Holiday
+Good Friday
+Easter Monday
+Mother's Day
+Independence Day
+Father's Day
+White Sunday
+White Monday
+Arbor Day
+Christmas Day
+Boxing Day

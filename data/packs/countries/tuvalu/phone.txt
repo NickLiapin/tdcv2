@@ -1,0 +1,9 @@
+---
+address: tuvalu.phone
+description: Tuvaluan number in E.164 form — +688 and five to six digits. One operator serves the country.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="90,70,20" percent="50,30,20"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{4}"/></sequence>
+<data>+688${{prefix}}${{line}}</data>

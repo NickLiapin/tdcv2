@@ -1,0 +1,9 @@
+---
+address: fiji.vehicle.plate
+description: Fijian licence plate — a letter series and up to four digits. Plates are issued nationally in sequence.
+generator: tdc
+locale: en
+---
+<sequence name="letters"><gen type="regex" value="[A-Z]{2}"/></sequence>
+<sequence name="serial"><gen type="number" value="1..9999" length="3" first_zero="true"/></sequence>
+<data>${{letters}} ${{serial}}</data>

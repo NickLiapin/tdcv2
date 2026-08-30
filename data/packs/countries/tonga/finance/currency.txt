@@ -1,0 +1,6 @@
+---
+address: tonga.finance.currency
+description: The Tongan pa'anga, subdivided into 100 seniti. Pegged to a basket weighted towards the Australian and New Zealand dollars.
+locale: en
+---
+Tongan pa'anga

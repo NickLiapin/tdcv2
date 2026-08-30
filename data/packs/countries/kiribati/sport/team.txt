@@ -1,0 +1,8 @@
+---
+address: kiribati.sport.team
+description: Kiribati sports. Football and athletics; the country's Olympic appearances are small and its best-known athlete is a weightlifter who danced at the Rio opening ceremony and became briefly famous for it.
+locale: en
+---
+Kiribati National Team
+Tarawa Selection
+Betio Selection

@@ -1,0 +1,9 @@
+---
+address: tonga.phone
+description: Tongan number in E.164 form — +676 and five to seven digits. The numbering plan is short because the population is 100,000; mobile numbers begin 7 or 8.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="7,8" percent="60,40"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+676${{prefix}}${{line}}</data>

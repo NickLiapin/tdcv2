@@ -1,0 +1,6 @@
+---
+address: samoa.finance.currency
+description: The Samoan tala, subdivided into 100 sene — the names are the Samoan renderings of dollar and cent.
+locale: en
+---
+Samoan tala

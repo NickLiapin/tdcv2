@@ -1,0 +1,11 @@
+---
+address: saint_kitts_and_nevis.sport.team
+description: Football clubs of the SKNFA Premier League. Cricket is the larger sport and Warner Park in Basseterre is a West Indies Test venue, the smallest country ever to host one.
+locale: en
+---
+Cayon Rockets
+St Peters Strikers
+Village Superstars
+Garden Hotspurs
+Newtown United
+Conaree FC

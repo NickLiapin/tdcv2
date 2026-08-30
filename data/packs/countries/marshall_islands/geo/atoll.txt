@@ -1,0 +1,23 @@
+---
+address: marshall_islands.geo.atoll
+description: The atolls and islands of the Marshall Islands — 29 coral atolls and five islands in two chains, Ratak and Ralik, spread over two million square kilometres of ocean with 180 square kilometres of land. Bikini and Enewetak were the sites of 67 US nuclear tests between 1946 and 1958; Bikini remains uninhabited and its people have never returned.
+locale: en
+---
+Majuro
+Kwajalein
+Ailinglaplap
+Arno
+Jaluit
+Mili
+Namu
+Ebon
+Wotje
+Maloelap
+Likiep
+Utirik
+Bikini
+Enewetak
+Rongelap
+Aur
+Lae
+Ujae

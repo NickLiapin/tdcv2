@@ -1,0 +1,23 @@
+---
+address: kiribati.geo.island
+description: The islands of Kiribati, spread across 3.5 million square kilometres of ocean in three groups — Gilbert, Phoenix and Line. Kiribati straddled the international date line until 1995, when it moved the line east so that the whole country would share one calendar day; the effect is that Kiritimati is the first inhabited place on earth to see each new day, which the country marketed successfully for the millennium.
+locale: en
+---
+Tarawa
+Kiritimati
+Abaiang
+Abemama
+Butaritari
+Beru
+Makin
+Maiana
+Kuria
+Aranuka
+Nonouti
+Tabiteuea
+Onotoa
+Tamana
+Arorae
+Banaba
+Tabuaeran
+Teraina

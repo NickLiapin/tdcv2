@@ -1,0 +1,8 @@
+---
+address: grenada.education.university
+description: Grenadian tertiary institutions. St George's University is an offshore medical school with more students than the island has in any other single institution, and it is the country's largest employer — American students were the reason for the 1983 United States invasion, which is a rare case of a university shaping an invasion's justification.
+locale: en
+---
+St George's University
+T. A. Marryshow Community College
+University of the West Indies Open Campus Grenada

@@ -1,0 +1,6 @@
+---
+address: antigua_and_barbuda.finance.currency
+description: The East Caribbean dollar, shared by eight members of the Organisation of Eastern Caribbean States and pegged at 2.70 to the US dollar since 1976 — one of the longest-held pegs anywhere. The Eastern Caribbean Central Bank in St Kitts issues it for all of them, so none of these countries has monetary policy of its own.
+locale: en
+---
+East Caribbean dollar

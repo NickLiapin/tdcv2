@@ -1,0 +1,8 @@
+---
+address: andorra.education.university
+description: Andorran tertiary education. The Universitat d'Andorra was founded in 1997 and is small; most Andorrans study in Spain or France, which the country's education system — running three parallel school networks, Andorran, French and Spanish — prepares them for directly.
+locale: en
+---
+Universitat d'Andorra
+Escola Andorrana
+Universitat Oberta La Salle Andorra

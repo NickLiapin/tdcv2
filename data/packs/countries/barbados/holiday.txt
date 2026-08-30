@@ -1,0 +1,17 @@
+---
+address: barbados.holiday
+description: Barbadian public holidays. Independence from Britain is 30 November 1966 — and on that date in 2021 Barbados removed the Queen as head of state and became a republic, the first Commonwealth realm to do so in nearly thirty years, so the same holiday now marks two foundings. Crop Over in August is the festival that closed the sugar harvest and is now the national carnival. Errol Barrow was the first prime minister.
+locale: en
+---
+New Year's Day
+Errol Barrow Day
+Good Friday
+Easter Monday
+National Heroes Day
+Labour Day
+Whit Monday
+Emancipation Day
+Kadooment Day
+Independence Day
+Christmas Day
+Boxing Day

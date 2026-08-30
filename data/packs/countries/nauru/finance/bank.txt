@@ -1,0 +1,7 @@
+---
+address: nauru.finance.bank
+description: Nauruan banks. Nauru uses the Australian dollar. The country had no commercial bank at all between 2006 and 2015 after the Bank of Nauru collapsed — for nine years a sovereign state ran entirely on cash — until Bendigo Bank opened an agency.
+locale: en
+---
+Bendigo Bank Agency Nauru
+Republic of Nauru Finance Corporation

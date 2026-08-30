@@ -1,0 +1,9 @@
+---
+address: samoa.education.university
+description: Samoan tertiary institutions. The University of the South Pacific is the institution to understand here: it is owned jointly by twelve Pacific island countries, has campuses in all of them, and is headquartered in Fiji — so a Pacific graduate's university is regional rather than national, the same arrangement the University of the West Indies has in the Caribbean. The National University of Samoa is the country's own.
+locale: en
+---
+National University of Samoa
+University of the South Pacific Alafua
+Oceania University of Medicine
+Samoa Polytechnic

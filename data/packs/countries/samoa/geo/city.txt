@@ -1,0 +1,15 @@
+---
+address: samoa.geo.city
+description: Samoan settlements. Apia is the capital and the only town of any size. Samoa moved across the international date line on 30 December 2011 — the country skipped that day entirely, going straight from Thursday to Saturday, to align its working week with Australia and New Zealand rather than with the United States.
+locale: en
+---
+Apia
+Vaitele
+Faleula
+Vailele
+Leulumoega
+Salelologa
+Safotu
+Asau
+Mulifanua
+Siusega

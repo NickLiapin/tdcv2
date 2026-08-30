@@ -1,0 +1,11 @@
+---
+address: bahamas.sport.team
+description: Bahamian football clubs of the BFA Senior League. The country's real sporting weight is in athletics and the Golden Girls relay team; the Bahamas has more Olympic medals per head than almost any nation, nearly all of them on the track.
+locale: en
+---
+Lyford Cay Dragons
+Baha Juniors
+Cavalier FC Bahamas
+Dynamos FC
+United FC
+Western Warriors

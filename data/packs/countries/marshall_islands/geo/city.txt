@@ -1,0 +1,12 @@
+---
+address: marshall_islands.geo.city
+description: Marshallese settlements. Majuro is the capital and Ebeye on Kwajalein one of the most densely populated places on earth — its residents work on the US Army missile-testing base on the same atoll and are not permitted to live there. Sea-level rise is an existential rather than an abstract question here: the average elevation is two metres.
+locale: en
+---
+Majuro
+Ebeye
+Laura
+Rita
+Jabor
+Wotje
+Tinak

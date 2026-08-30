@@ -1,0 +1,11 @@
+---
+address: belize.geo.district
+description: The six districts of Belize. The country is the only one in Central America with English as its official language — it was British Honduras until 1973 and independent in 1981 — and it belongs to CARICOM rather than to the Central American integration bloc, which makes it culturally Caribbean and geographically Central American at once.
+locale: en
+---
+Belize
+Cayo
+Orange Walk
+Corozal
+Stann Creek
+Toledo

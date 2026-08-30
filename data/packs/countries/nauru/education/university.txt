@@ -1,0 +1,8 @@
+---
+address: nauru.education.university
+description: Nauruan tertiary education. There is no university on the island; the University of the South Pacific runs a campus and Nauruans study in Fiji or Australia.
+locale: en
+---
+University of the South Pacific Nauru
+Nauru Secondary School
+Nauru College

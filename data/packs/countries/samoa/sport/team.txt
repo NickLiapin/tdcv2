@@ -1,0 +1,11 @@
+---
+address: samoa.sport.team
+description: Samoan sports sides. Rugby is the national game and Manu Samoa is the country's most visible institution abroad; Samoans and players of Samoan descent are represented in professional rugby out of all proportion to a population of 220,000.
+locale: en
+---
+Manu Samoa
+Kiwi FC
+Lupe o le Soaga
+Vaipuna
+Tuanaimato Breeze
+Goldstar Sogi

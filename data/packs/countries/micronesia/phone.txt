@@ -1,0 +1,9 @@
+---
+address: micronesia.phone
+description: Micronesian number in E.164 form — +691 and seven digits.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="3,9,5,7" percent="34,30,20,16"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+691${{prefix}}${{line}}</data>

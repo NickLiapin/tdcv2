@@ -1,0 +1,14 @@
+---
+address: brunei.geo.city
+description: Bruneian settlements. Bandar Seri Begawan is the capital; Kampong Ayer, the water village built on stilts in the river through the middle of it, has been continuously inhabited for over a thousand years and still houses thousands of people. Seria and Kuala Belait exist because of the oil field found in 1929.
+locale: en
+---
+Bandar Seri Begawan
+Kuala Belait
+Seria
+Tutong
+Bangar
+Muara
+Jerudong
+Gadong
+Kampong Ayer

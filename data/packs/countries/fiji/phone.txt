@@ -1,0 +1,9 @@
+---
+address: fiji.phone
+description: Fijian number in E.164 form — +679 and seven digits. Mobile numbers begin 7, 8 or 9; fixed lines begin 3 or 6. Vodafone Fiji and Digicel Fiji share the market.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="7,8,9" percent="45,30,25"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+679${{prefix}}${{line}}</data>

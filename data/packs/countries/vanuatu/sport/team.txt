@@ -1,0 +1,11 @@
+---
+address: vanuatu.sport.team
+description: Vanuatu sports sides. Football is the main sport and Vanuatu has qualified for the OFC Nations Cup repeatedly. The islands' own contribution to world sport is land diving on Pentecost — men jumping from wooden towers with vines tied to their ankles, the ritual that inspired bungee jumping.
+locale: en
+---
+Amicale FC
+Tupuji Imere
+Galaxy FC
+Erakor Golden Star
+Ifira Black Bird
+Malampa Revivors

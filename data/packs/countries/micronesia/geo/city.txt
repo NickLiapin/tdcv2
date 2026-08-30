@@ -1,0 +1,13 @@
+---
+address: micronesia.geo.city
+description: Micronesian settlements. Palikir on Pohnpei is the capital, a purpose-built government centre; Weno in Chuuk is the largest town. Chuuk Lagoon holds the sunken Japanese fleet of Operation Hailstone, 1944, and is one of the world's great wreck dives.
+locale: en
+---
+Palikir
+Weno
+Kolonia
+Colonia
+Tofol
+Nett
+Sokehs
+Kitti

@@ -1,0 +1,11 @@
+---
+address: fiji.finance.bank
+description: Fijian banks. The Reserve Bank of Fiji issues the Fijian dollar. Australian and New Zealand banks dominate the commercial sector, which is the pattern across the whole region.
+locale: en
+---
+Reserve Bank of Fiji
+Bank of the South Pacific Fiji
+Westpac Fiji
+ANZ Fiji
+HFC Bank
+Bred Bank Fiji

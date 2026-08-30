@@ -1,0 +1,11 @@
+---
+address: barbados.sport.team
+description: Barbadian football clubs of the Barbados Premier League. Cricket is the island's actual religion: Barbados has produced more West Indies Test captains than any other territory, the Kensington Oval is the region's most storied ground, and Garfield Sobers is on the ten-dollar note.
+locale: en
+---
+Weymouth Wales
+Paradise FC
+Barbados Defence Force Sports Programme
+Notre Dame SC
+Empire Club
+Brittons Hill United

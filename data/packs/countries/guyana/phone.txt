@@ -1,0 +1,9 @@
+---
+address: guyana.phone
+description: Guyanese number in E.164 form — +592 and seven digits. Guyana has its own country code rather than sitting in the North American Numbering Plan, unlike the Caribbean islands it resembles culturally. GTT and Digicel share the mobile market.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="6,7,2,3,4" percent="60,12,10,10,8"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+592${{prefix}}${{line}}</data>

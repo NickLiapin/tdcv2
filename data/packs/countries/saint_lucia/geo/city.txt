@@ -1,0 +1,15 @@
+---
+address: saint_lucia.geo.city
+description: Saint Lucian settlements. The Pitons above Soufrière are the island's emblem and a World Heritage site. Saint Lucia has produced two Nobel laureates — Arthur Lewis in economics and Derek Walcott in literature — which for a population of 180,000 is the highest rate on earth by a wide margin.
+locale: en
+---
+Castries
+Gros Islet
+Vieux Fort
+Micoud
+Soufrière
+Dennery
+Laborie
+Choiseul
+Anse la Raye
+Canaries

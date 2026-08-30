@@ -1,0 +1,24 @@
+---
+address: bahamas.geo.island
+description: The inhabited islands and districts of the Bahamas. The country is an archipelago of some 700 islands and 2,400 cays spread over 800 kilometres of ocean, of which about thirty are inhabited — so a Bahamian address is an island first and a settlement second, and New Providence alone holds about seventy per cent of the population.
+locale: en
+---
+New Providence
+Grand Bahama
+Abaco
+Eleuthera
+Andros
+Exuma
+Long Island
+Cat Island
+Bimini
+Harbour Island
+Berry Islands
+Inagua
+Mayaguana
+Acklins
+Crooked Island
+San Salvador
+Rum Cay
+Ragged Island
+Spanish Wells

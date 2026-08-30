@@ -1,0 +1,6 @@
+---
+address: andorra.finance.currency
+description: The euro, used under a monetary agreement with the European Union. Andorra is not in the EU and not in the eurozone, but unlike Montenegro its use of the euro is agreed rather than unilateral — and it mints its own euro coins, which collectors chase because the volumes are tiny.
+locale: en
+---
+Euro

@@ -1,0 +1,9 @@
+---
+address: brunei.geo.district
+description: The four districts of Brunei. Temburong is separated from the rest of the country by Malaysian territory and was reachable only by boat until the Sultan Haji Omar Ali Saifuddien Bridge opened in 2020 — thirty kilometres of bridge across a bay to connect a district of ten thousand people to its own country.
+locale: en
+---
+Brunei-Muara
+Belait
+Tutong
+Temburong

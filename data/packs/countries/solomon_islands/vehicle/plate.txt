@@ -1,0 +1,9 @@
+---
+address: solomon_islands.vehicle.plate
+description: Solomon Islands licence plate — a class letter and up to four digits.
+generator: tdc
+locale: en
+---
+<sequence name="cls"><gen type="text" value="A,B,G,T" percent="62,18,8,12"/></sequence>
+<sequence name="serial"><gen type="number" value="1..9999" length="4" first_zero="true"/></sequence>
+<data>${{cls}} ${{serial}}</data>

@@ -1,0 +1,13 @@
+---
+address: vanuatu.geo.city
+description: Vanuatu settlements. Port Vila on Efate is the capital and Luganville on Espiritu Santo the second town — Luganville was a vast American military base in the Second World War, and the surplus equipment bulldozed into the sea there is now a dive site called Million Dollar Point.
+locale: en
+---
+Port Vila
+Luganville
+Norsup
+Isangel
+Sola
+Lakatoro
+Saratamata
+Port Olry

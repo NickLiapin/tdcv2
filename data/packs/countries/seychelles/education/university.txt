@@ -1,0 +1,10 @@
+---
+address: seychelles.education.university
+description: Seychellois tertiary education. The University of Seychelles opened only in 2009; before it every Seychellois graduate studied abroad, and most still do. The country has the highest GDP per head in Africa, which its education statistics reflect.
+locale: en
+---
+University of Seychelles
+Seychelles Institute of Technology
+Seychelles Tourism Academy
+Seychelles Maritime Academy
+National Institute of Health and Social Studies

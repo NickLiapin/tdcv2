@@ -1,0 +1,10 @@
+---
+address: solomon_islands.finance.bank
+description: Solomon Islands banks. The Central Bank of Solomon Islands issues the dollar. The commercial sector is small and concentrated in Honiara; most of the population lives in villages with no bank branch within a day's travel, and mobile money is only beginning to change that.
+locale: en
+---
+Central Bank of Solomon Islands
+Bank of South Pacific Solomon Islands
+ANZ Solomon Islands
+Pan Oceanic Bank
+Solomon Islands Development Bank

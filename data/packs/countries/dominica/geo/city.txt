@@ -1,0 +1,15 @@
+---
+address: dominica.geo.city
+description: Dominican settlements. Roseau is the capital. The island is the last place where the Kalinago — the indigenous people the Caribbean is named after — hold territory: the Kalinago Territory on the east coast is 3,700 acres held communally, and it is the only such reserve in the region.
+locale: en
+---
+Roseau
+Portsmouth
+Marigot
+Berekua
+Mahaut
+Saint Joseph
+Wesley
+Salisbury
+Castle Bruce
+La Plaine

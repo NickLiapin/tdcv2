@@ -1,0 +1,15 @@
+---
+address: dominica.geo.parish
+description: The ten parishes of Dominica. The first thing any dataset must get right about this country is that it is NOT the Dominican Republic: different island, different language, different currency, a thousand kilometres apart, and the two are conflated in address data constantly. Dominica is the Commonwealth of Dominica, English-speaking, in the Lesser Antilles.
+locale: en
+---
+Saint George
+Saint Andrew
+Saint David
+Saint John
+Saint Joseph
+Saint Luke
+Saint Mark
+Saint Patrick
+Saint Paul
+Saint Peter

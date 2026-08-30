@@ -1,0 +1,10 @@
+---
+address: barbados.education.university
+description: Barbadian tertiary institutions. The Cave Hill campus is one of the three founding campuses of the University of the West Indies. Barbados has among the highest literacy rates in the world and made university free for nationals for decades, which is the deliberate policy behind its position in Caribbean professional services.
+locale: en
+---
+University of the West Indies Cave Hill
+Barbados Community College
+Samuel Jackman Prescod Institute of Technology
+Erdiston Teachers' Training College
+Codrington College

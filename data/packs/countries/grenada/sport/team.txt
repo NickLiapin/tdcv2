@@ -1,0 +1,11 @@
+---
+address: grenada.sport.team
+description: Grenadian football clubs of the GFA Premier League. Kirani James, the 400m Olympic champion in 2012, is the country's first and only Olympic medallist and the island stopped for him.
+locale: en
+---
+Hard Rock FC
+Paradise FC
+Queens Park Rangers Grenada
+Hurricanes FC
+GBSS FC
+St John's Sports Club

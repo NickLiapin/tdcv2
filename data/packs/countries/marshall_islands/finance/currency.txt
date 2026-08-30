@@ -1,0 +1,6 @@
+---
+address: marshall_islands.finance.currency
+description: The United States dollar. The country uses it as its own currency under a Compact of Free Association with the United States — it has no central bank issuing notes, and US monetary policy is its monetary policy.
+locale: en
+---
+United States dollar

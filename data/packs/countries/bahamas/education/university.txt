@@ -1,0 +1,9 @@
+---
+address: bahamas.education.university
+description: Bahamian tertiary institutions. The University of the Bahamas became a university only in 2016, having been the College of the Bahamas since 1974 — so a Bahamian degree older than that decade carries the college's name.
+locale: en
+---
+University of the Bahamas
+Bahamas Technical and Vocational Institute
+University of the West Indies Open Campus Bahamas
+Galilee College

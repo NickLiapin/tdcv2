@@ -1,0 +1,11 @@
+---
+address: saint_lucia.sport.team
+description: Saint Lucian football clubs. Cricket and the West Indies side matter more; Daren Sammy captained the West Indies to two World T20 titles and the national stadium carries his name.
+locale: en
+---
+VSADC
+Platinum FC
+Big Players FC
+Mabouya Valley
+Canaries FC
+Marchand FC

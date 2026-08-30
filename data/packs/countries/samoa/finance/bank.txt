@@ -1,0 +1,10 @@
+---
+address: samoa.finance.bank
+description: Samoan banks. The Central Bank of Samoa issues the tala. Remittances from Samoans in New Zealand, Australia and the United States are a larger share of national income than any export, so the money-transfer operators matter as much as the banks.
+locale: en
+---
+Central Bank of Samoa
+Bank of South Pacific Samoa
+ANZ Samoa
+Samoa Commercial Bank
+National Bank of Samoa

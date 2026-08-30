@@ -1,0 +1,9 @@
+---
+address: kiribati.vehicle.plate
+description: Kiribati licence plate — a short serial. The vehicle fleet is confined almost entirely to the single road along South Tarawa.
+generator: tdc
+locale: en
+---
+<sequence name="serial"><gen type="number" value="1..9999" length="4" first_zero="true"/></sequence>
+<sequence name="cls"><gen type="text" value="P,T,G" percent="70,20,10"/></sequence>
+<data>${{cls}}${{serial}}</data>

@@ -1,0 +1,9 @@
+---
+address: dominica.education.university
+description: Dominica's tertiary institutions. Ross University School of Medicine was the island's largest employer until Hurricane Maria destroyed the campus in 2017 and it relocated to Barbados — a single institution's departure that measurably changed a national economy.
+locale: en
+---
+Ross University School of Medicine
+All Saints University
+Dominica State College
+University of the West Indies Open Campus Dominica

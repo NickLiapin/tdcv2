@@ -1,0 +1,13 @@
+---
+address: saint_vincent_and_the_grenadines.geo.city
+description: Vincentian settlements. Kingstown is the capital. La Soufrière erupted explosively in April 2021 and displaced a fifth of the population; the volcano's exclusion zones are drawn across the north of the main island and appear in any current Vincentian geographic data.
+locale: en
+---
+Kingstown
+Georgetown
+Barrouallie
+Port Elizabeth
+Chateaubelair
+Layou
+Calliaqua
+Mesopotamia

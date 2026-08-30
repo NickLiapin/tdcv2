@@ -1,0 +1,9 @@
+---
+address: nauru.phone
+description: Nauruan number in E.164 form — +674 and seven digits. There is one operator.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="55,55,55" percent="40,30,30"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{5}"/></sequence>
+<data>+674${{prefix}}${{line}}</data>

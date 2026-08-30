@@ -1,0 +1,9 @@
+---
+address: kiribati.education.university
+description: Kiribati tertiary education. The University of the South Pacific has a Tarawa campus; the Kiribati Institute of Technology and the Marine Training Centre are the country's own — the last of these matters more than its size suggests, because I-Kiribati seafarers crew merchant ships worldwide and their remittances are a major part of national income.
+locale: en
+---
+University of the South Pacific Tarawa
+Kiribati Institute of Technology
+Kiribati Marine Training Centre
+Kiribati Teachers College

@@ -1,0 +1,16 @@
+---
+address: barbados.geo.parish
+description: The eleven parishes of Barbados, unchanged since 1645 — one of the oldest continuously used administrative divisions in the Americas. Saint Michael holds Bridgetown and most of the population. The parishes are Anglican in origin and the island's church-based registration is why Barbadian genealogical records run further back than almost anywhere else in the region.
+locale: en
+---
+Saint Michael
+Christ Church
+Saint Philip
+Saint James
+Saint George
+Saint Peter
+Saint John
+Saint Thomas
+Saint Lucy
+Saint Joseph
+Saint Andrew

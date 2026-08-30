@@ -1,0 +1,7 @@
+---
+address: marshall_islands.education.university
+description: Marshallese tertiary education. The College of the Marshall Islands is the country's institution; the Compact of Free Association gives Marshallese citizens the right to live and work in the United States without a visa, and a large part of the population has taken it.
+locale: en
+---
+College of the Marshall Islands
+University of the South Pacific Majuro

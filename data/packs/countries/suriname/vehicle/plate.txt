@@ -1,0 +1,9 @@
+---
+address: suriname.vehicle.plate
+description: Surinamese licence plate — two letters and up to four digits. Suriname drives on the left, unlike every neighbour on the South American mainland, because the British held the colony briefly and the Dutch never changed it back.
+generator: tdc
+locale: en
+---
+<sequence name="letters"><gen type="regex" value="[A-Z]{2}"/></sequence>
+<sequence name="serial"><gen type="number" value="1..9999" length="4" first_zero="true"/></sequence>
+<data>${{letters}}-${{serial}}</data>

@@ -1,0 +1,9 @@
+---
+address: belize.vehicle.plate
+description: Belizean licence plate — a district prefix, a class letter and a serial. C is Belize City, CY Cayo, OW Orange Walk, SC Stann Creek, CZL Corozal, TOL Toledo.
+generator: tdc
+locale: en
+---
+<sequence name="district"><gen type="text" value="C,CY,OW,SC,CZL,TOL" percent="42,20,13,10,9,6"/></sequence>
+<sequence name="serial"><gen type="number" value="1..99999" length="5" first_zero="true"/></sequence>
+<data>${{district}}-${{serial}}</data>

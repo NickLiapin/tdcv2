@@ -1,0 +1,10 @@
+---
+address: antigua_and_barbuda.finance.bank
+description: Antiguan banks. The Eastern Caribbean Central Bank is shared with seven neighbours and sits in St Kitts. Antigua's own banking history includes the collapse of Stanford International Bank in 2009, a Ponzi scheme of eight billion dollars that was for years the largest employer and taxpayer on the island.
+locale: en
+---
+Eastern Caribbean Central Bank
+Antigua Commercial Bank
+Caribbean Union Bank
+Global Bank of Commerce
+RBC Royal Bank Antigua

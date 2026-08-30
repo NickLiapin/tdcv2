@@ -1,0 +1,15 @@
+---
+address: suriname.geo.city
+description: Surinamese settlements. Paramaribo's historic inner city is a World Heritage site of Dutch colonial timber architecture. Suriname is the only sovereign state outside Europe with Dutch as its official language, and the only one in the Americas — an inheritance of the 1667 Treaty of Breda, under which the Dutch took Suriname and the English took New Amsterdam, now New York.
+locale: en
+---
+Paramaribo
+Lelydorp
+Nieuw Nickerie
+Moengo
+Nieuw Amsterdam
+Mariënburg
+Wageningen
+Albina
+Groningen
+Brownsweg

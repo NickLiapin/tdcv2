@@ -1,0 +1,7 @@
+---
+address: tuvalu.finance.bank
+description: Tuvaluan banks. The country uses the Australian dollar. Its largest single revenue source for years was leasing the .tv internet domain — a country-code top-level domain that happened to spell television, sold to a foreign operator, and worth a substantial share of national income.
+locale: en
+---
+National Bank of Tuvalu
+Development Bank of Tuvalu

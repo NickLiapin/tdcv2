@@ -1,0 +1,9 @@
+---
+address: seychelles.phone
+description: Seychellois number in E.164 form — +248 and seven digits. Mobile numbers begin 2; Cable & Wireless and Airtel share the market.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="2,4" percent="80,20"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+248${{prefix}}${{line}}</data>

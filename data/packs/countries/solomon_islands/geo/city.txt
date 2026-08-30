@@ -1,0 +1,14 @@
+---
+address: solomon_islands.geo.city
+description: Solomon Islands settlements. Honiara on Guadalcanal is the capital and sits beside the Second World War battlefield the Americans called Bloody Ridge — the Guadalcanal campaign of 1942-43 was fought here and the wrecks in the strait north of the city gave it the name Iron Bottom Sound.
+locale: en
+---
+Honiara
+Auki
+Gizo
+Munda
+Buala
+Kirakira
+Tulagi
+Lata
+Taro Island

@@ -1,0 +1,14 @@
+---
+address: tonga.geo.city
+description: Tongan settlements. Nuku'alofa on Tongatapu is the capital. The Hunga Tonga-Hunga Ha'apai eruption in January 2022 was the largest atmospheric explosion recorded since Krakatoa, severed the country's single submarine cable and cut Tonga off from the internet for weeks — a reminder that an island state's data infrastructure can be one cable.
+locale: en
+---
+Nuku'alofa
+Neiafu
+Haveluloto
+Vaini
+Pangai
+Ohonua
+Hihifo
+Mu'a
+Kolonga

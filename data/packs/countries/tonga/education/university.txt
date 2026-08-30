@@ -1,0 +1,9 @@
+---
+address: tonga.education.university
+description: Tongan tertiary institutions. The University of the South Pacific is the institution to understand here: it is owned jointly by twelve Pacific island countries, has campuses in all of them, and is headquartered in Fiji — so a Pacific graduate's university is regional rather than national, the same arrangement the University of the West Indies has in the Caribbean. Tonga hosts a USP campus and its own institute.
+locale: en
+---
+University of the South Pacific Tonga
+Tonga Institute of Higher Education
+'Atenisi University
+Tonga National University

@@ -1,0 +1,21 @@
+---
+address: palau.geo.state
+description: The sixteen states of Palau — an unusual number for a country of 18,000 people, which works out at roughly a thousand citizens per state. Each has its own constitution and governor. Palau is one of the world's smallest sovereign states and one of its largest marine protected areas: eighty per cent of its exclusive economic zone is a no-take sanctuary.
+locale: en
+---
+Koror
+Airai
+Ngaraard
+Ngardmau
+Ngatpang
+Ngchesar
+Ngeremlengui
+Ngiwal
+Melekeok
+Aimeliik
+Angaur
+Hatohobei
+Kayangel
+Peleliu
+Sonsorol
+Ngarchelong

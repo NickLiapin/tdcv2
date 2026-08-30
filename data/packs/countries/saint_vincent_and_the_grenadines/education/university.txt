@@ -1,0 +1,9 @@
+---
+address: saint_vincent_and_the_grenadines.education.university
+description: Vincentian tertiary institutions, including two offshore medical schools.
+locale: en
+---
+University of the West Indies Open Campus Saint Vincent
+St Vincent and the Grenadines Community College
+All Saints University School of Medicine
+Trinity School of Medicine

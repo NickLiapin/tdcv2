@@ -1,0 +1,13 @@
+---
+address: antigua_and_barbuda.geo.parish
+description: The six parishes of Antigua plus Barbuda and Redonda. Barbuda is a separate island with its own council and a land-tenure system found nowhere else in the Caribbean: land there is held communally by all Barbudans rather than owned individually, which became a live constitutional fight after Hurricane Irma emptied the island in 2017. Redonda is an uninhabited rock.
+locale: en
+---
+Saint John
+Saint George
+Saint Peter
+Saint Paul
+Saint Mary
+Saint Philip
+Barbuda
+Redonda

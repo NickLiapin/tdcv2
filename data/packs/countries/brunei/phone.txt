@@ -1,0 +1,9 @@
+---
+address: brunei.phone
+description: Bruneian number in E.164 form — +673 and seven digits. Mobile numbers begin 7 or 8; there is effectively one mobile network, Imagine, formed from the state's consolidation of the sector.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="7,8" percent="55,45"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+673${{prefix}}${{line}}</data>

@@ -1,0 +1,6 @@
+---
+address: belize.finance.currency
+description: The Belize dollar, pegged at two to the US dollar since 1978. US dollars are accepted everywhere at that rate, which makes Belize one of the easiest currency environments in the Americas for a visitor and one of the least flexible for a central bank.
+locale: en
+---
+Belize dollar

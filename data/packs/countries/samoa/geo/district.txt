@@ -1,0 +1,16 @@
+---
+address: samoa.geo.district
+description: The eleven districts of Samoa, on the two main islands of Upolu and Savai'i. Samoa's land tenure is the fact to carry: about eighty per cent of the country is customary land held by extended families under a matai chief and cannot be sold, only leased — so land registries here record a system of title that Western property models do not describe.
+locale: en
+---
+Tuamasaga
+A'ana
+Aiga-i-le-Tai
+Atua
+Va'a-o-Fonoti
+Fa'asaleleaga
+Gaga'emauga
+Gaga'ifomauga
+Vaisigano
+Satupa'itea
+Palauli

@@ -1,0 +1,9 @@
+---
+address: palau.sport.team
+description: Palauan sports. Baseball again, from the Japanese period, and Palau has sent competitors to every Olympics since 1996 without yet winning a medal.
+locale: en
+---
+Palau National Team
+Koror Ravens
+Airai Warriors
+Peleliu Selection

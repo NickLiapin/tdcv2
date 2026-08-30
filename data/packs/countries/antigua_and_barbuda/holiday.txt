@@ -1,0 +1,16 @@
+---
+address: antigua_and_barbuda.holiday
+description: Antiguan public holidays. Independence from Britain is 1 November 1981. V. C. Bird Day honours the first prime minister. Carnival here runs in late July and early August rather than before Lent — it marks the 1834 abolition of slavery, not the Christian calendar.
+locale: en
+---
+New Year's Day
+Good Friday
+Easter Monday
+Labour Day
+Whit Monday
+Carnival Monday
+Carnival Tuesday
+Independence Day
+V. C. Bird Day
+Christmas Day
+Boxing Day

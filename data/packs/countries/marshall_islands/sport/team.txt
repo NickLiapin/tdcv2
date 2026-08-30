@@ -1,0 +1,8 @@
+---
+address: marshall_islands.sport.team
+description: Marshallese sports. The country's sporting participation is small and centred on athletics and weightlifting at the Micronesian Games.
+locale: en
+---
+Marshall Islands National Team
+Majuro Selection
+Ebeye Selection

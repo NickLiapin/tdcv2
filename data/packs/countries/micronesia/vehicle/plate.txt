@@ -1,0 +1,9 @@
+---
+address: micronesia.vehicle.plate
+description: Micronesian licence plate — a state prefix and a serial. Plates are issued by state, not federally.
+generator: tdc
+locale: en
+---
+<sequence name="state"><gen type="text" value="CK,PN,YP,KS" percent="46,34,12,8"/></sequence>
+<sequence name="serial"><gen type="number" value="1..9999" length="4" first_zero="true"/></sequence>
+<data>${{state}} ${{serial}}</data>

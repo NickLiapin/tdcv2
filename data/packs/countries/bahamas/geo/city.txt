@@ -1,0 +1,18 @@
+---
+address: bahamas.geo.city
+description: Bahamian settlements. Nassau on New Providence is the capital and Freeport on Grand Bahama the second city, built from nothing in the 1950s as a free-trade zone under the Hawksbill Creek Agreement. Marsh Harbour and much of Abaco were destroyed by Hurricane Dorian in 2019, which stalled over the island for two days at category five.
+locale: en
+---
+Nassau
+Freeport
+West End
+Coopers Town
+Marsh Harbour
+Freetown
+High Rock
+Andros Town
+George Town
+Dunmore Town
+Alice Town
+Clarence Town
+Matthew Town

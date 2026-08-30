@@ -1,0 +1,10 @@
+---
+address: tonga.finance.bank
+description: Tongan banks. The National Reserve Bank of Tonga issues the pa'anga. Remittances are among the highest in the world as a share of GDP — more than a third in some years — because a large part of the Tongan population lives in New Zealand, Australia and the United States.
+locale: en
+---
+National Reserve Bank of Tonga
+Bank of South Pacific Tonga
+ANZ Tonga
+Tonga Development Bank
+MBf Bank Tonga

@@ -1,0 +1,10 @@
+---
+address: fiji.geo.division
+description: The four divisions of Fiji and the dependency of Rotuma. Fiji is two large islands and about 330 smaller ones, of which roughly a third are inhabited. Rotuma is culturally Polynesian rather than Melanesian and has its own language and a separate legal status.
+locale: en
+---
+Central
+Western
+Northern
+Eastern
+Rotuma

@@ -1,0 +1,8 @@
+---
+address: marshall_islands.finance.bank
+description: Marshallese banks. The country uses the US dollar and has no central bank. The Marshall Islands legislated a sovereign digital currency in 2018, which the IMF publicly advised against — a very small state attempting monetary independence by other means.
+locale: en
+---
+Bank of the Marshall Islands
+Bank of Guam Majuro
+Marshall Islands Development Bank

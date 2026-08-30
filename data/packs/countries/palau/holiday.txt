@@ -1,0 +1,14 @@
+---
+address: palau.holiday
+description: Palauan public holidays. Independence from the Trust Territory is 1 October 1994 — the last of the Pacific trust territories to become sovereign. Youth Day, Senior Citizens Day and Constitution Day are all separate holidays, which for a country this size means a substantial part of the calendar is observance.
+locale: en
+---
+New Year's Day
+Youth Day
+Senior Citizens Day
+President's Day
+Constitution Day
+Independence Day
+United Nations Day
+Thanksgiving Day
+Christmas Day

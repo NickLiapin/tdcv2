@@ -1,0 +1,11 @@
+---
+address: vanuatu.geo.province
+description: The six provinces of Vanuatu, and their names are an acronym each: TORBA is Torres and Banks, SANMA is Santo and Malo, PENAMA is Pentecost, Ambae and Maewo, MALAMPA is Malekula, Ambrym and Paama, SHEFA is Shepherds and Efate, TAFEA is Tanna, Aniwa, Futuna, Erromango and Aneityum. Every province name is built from the islands inside it.
+locale: en
+---
+Shefa
+Sanma
+Tafea
+Malampa
+Penama
+Torba

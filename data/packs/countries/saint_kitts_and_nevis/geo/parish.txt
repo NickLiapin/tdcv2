@@ -1,0 +1,19 @@
+---
+address: saint_kitts_and_nevis.geo.parish
+description: The fourteen parishes of Saint Kitts and Nevis — nine on St Kitts, five on Nevis. This is the smallest sovereign state in the Americas by both area and population, and it is a federation: Nevis has its own assembly, its own premier, and a constitutional right to secede, which it came within a few hundred votes of exercising in a 1998 referendum.
+locale: en
+---
+Saint George Basseterre
+Saint Peter Basseterre
+Saint Anne Sandy Point
+Saint Thomas Middle Island
+Trinity Palmetto Point
+Saint Mary Cayon
+Christ Church Nichola Town
+Saint John Capisterre
+Saint Paul Capisterre
+Saint James Windward
+Saint John Figtree
+Saint George Gingerland
+Saint Paul Charlestown
+Saint Thomas Lowland

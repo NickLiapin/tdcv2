@@ -1,0 +1,12 @@
+---
+address: grenada.geo.parish
+description: The six parishes of Grenada plus the dependency of Carriacou and Petite Martinique. Grenada is the world's second-largest nutmeg producer after Indonesia, and the nutmeg is on the flag — one of very few national flags to carry a crop.
+locale: en
+---
+Saint George
+Saint David
+Saint Andrew
+Saint Patrick
+Saint Mark
+Saint John
+Carriacou and Petite Martinique

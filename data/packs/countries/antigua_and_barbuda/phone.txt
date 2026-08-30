@@ -1,0 +1,9 @@
+---
+address: antigua_and_barbuda.phone
+description: Antigua and Barbuda number in the North American Numbering Plan — +1 268. Like the rest of the anglophone Caribbean it shares country code 1, so the number is dialled from the United States as domestic long distance.
+generator: tdc
+locale: en
+---
+<sequence name="exchange"><gen type="number" value="200..799" length="3"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{4}"/></sequence>
+<data>+1268${{exchange}}${{line}}</data>

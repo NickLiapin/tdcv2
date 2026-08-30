@@ -1,0 +1,13 @@
+---
+address: fiji.sport.team
+description: Fijian football and rugby sides. Rugby sevens is the national sport and Fiji won Olympic gold in it in 2016 — the country's first Olympic medal of any colour, in the sport it effectively defines. The football clubs below play in the district-based Fiji Premier League.
+locale: en
+---
+Fiji Airways Flying Fijians
+Ba FC
+Lautoka FC
+Suva FC
+Rewa FC
+Navua FC
+Labasa FC
+Nadi FC

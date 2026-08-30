@@ -1,0 +1,28 @@
+---
+address: seychelles.geo.district
+description: The districts of Seychelles, nearly all of them on Mahé. The country is 115 islands scattered over 1.4 million square kilometres of the Indian Ocean, of which the inner granitic group — Mahé, Praslin, La Digue — holds almost the whole population; the outer islands are coral and mostly uninhabited.
+locale: en
+---
+English River
+Bel Air
+Saint Louis
+Mont Fleuri
+Plaisance
+Roche Caiman
+Les Mamelles
+Anse Aux Pins
+Anse Boileau
+Anse Etoile
+Anse Royale
+Au Cap
+Baie Lazare
+Baie Sainte Anne
+Beau Vallon
+Cascade
+Glacis
+Grand Anse Mahé
+Grand Anse Praslin
+La Digue
+Pointe Larue
+Port Glaud
+Takamaka

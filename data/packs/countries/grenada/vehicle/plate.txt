@@ -1,0 +1,9 @@
+---
+address: grenada.vehicle.plate
+description: Grenadian licence plate — a class letter and four digits. P is private, H hire, T taxi.
+generator: tdc
+locale: en
+---
+<sequence name="cls"><gen type="text" value="P,H,T,R" percent="70,12,12,6"/></sequence>
+<sequence name="serial"><gen type="number" value="1..9999" length="4" first_zero="true"/></sequence>
+<data>${{cls}} ${{serial}}</data>

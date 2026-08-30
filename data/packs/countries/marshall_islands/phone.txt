@@ -1,0 +1,9 @@
+---
+address: marshall_islands.phone
+description: Marshallese number in E.164 form — +692 and seven digits.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="2,3,4,5" percent="30,30,20,20"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{5}"/></sequence>
+<data>+692${{prefix}}${{line}}</data>

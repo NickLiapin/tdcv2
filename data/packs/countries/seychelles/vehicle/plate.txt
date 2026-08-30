@@ -1,0 +1,9 @@
+---
+address: seychelles.vehicle.plate
+description: Seychellois licence plate — a letter and four digits. Mahé's roads are steep and narrow and the island is 27 kilometres long, so the vehicle fleet is small and heavily weighted to small cars.
+generator: tdc
+locale: en
+---
+<sequence name="letter"><gen type="text" value="S,P,T,B" percent="70,12,12,6"/></sequence>
+<sequence name="serial"><gen type="number" value="1..9999" length="4" first_zero="true"/></sequence>
+<data>${{letter}}${{serial}}</data>

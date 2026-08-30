@@ -1,0 +1,14 @@
+---
+address: tuvalu.geo.island
+description: The nine islands of Tuvalu — six atolls and three reef islands, 26 square kilometres of land in total, the fourth-smallest country on earth. The name means 'eight standing together': Niulakita was uninhabited when the name was chosen and is the ninth.
+locale: en
+---
+Funafuti
+Vaitupu
+Nanumea
+Niutao
+Nui
+Nukufetau
+Nukulaelae
+Nanumaga
+Niulakita

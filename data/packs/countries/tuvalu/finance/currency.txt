@@ -1,0 +1,6 @@
+---
+address: tuvalu.finance.currency
+description: The Australian dollar, used as the national currency, alongside Tuvaluan coins minted for circulation.
+locale: en
+---
+Australian dollar

@@ -1,0 +1,9 @@
+---
+address: saint_kitts_and_nevis.vehicle.plate
+description: Kittitian licence plate — a class letter and four digits. Nevis plates carry an N.
+generator: tdc
+locale: en
+---
+<sequence name="cls"><gen type="text" value="P,T,H,N" percent="62,12,12,14"/></sequence>
+<sequence name="serial"><gen type="number" value="1..9999" length="4" first_zero="true"/></sequence>
+<data>${{cls}} ${{serial}}</data>

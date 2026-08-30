@@ -1,0 +1,9 @@
+---
+address: brunei.vehicle.plate
+description: Bruneian licence plate — a letter and up to five digits. Private plates run from a single letter series; the Sultan's own vehicles carry no number at all, only the royal crest.
+generator: tdc
+locale: en
+---
+<sequence name="letter"><gen type="text" value="A,B,C,D,E,K,L,M" percent="20,16,14,12,12,10,8,8"/></sequence>
+<sequence name="serial"><gen type="number" value="1..99999" length="5" first_zero="true"/></sequence>
+<data>${{letter}} ${{serial}}</data>

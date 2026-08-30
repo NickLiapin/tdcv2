@@ -1,0 +1,10 @@
+---
+address: tonga.geo.division
+description: The five island divisions of Tonga. Tonga is the only Pacific island nation never colonised: it was a British protected state from 1900 to 1970 but kept its monarchy and its sovereignty throughout, and it remains a kingdom with a reigning king today.
+locale: en
+---
+Tongatapu
+Vava'u
+Ha'apai
+'Eua
+Niuas

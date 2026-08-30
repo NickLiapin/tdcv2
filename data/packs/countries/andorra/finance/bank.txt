@@ -1,0 +1,10 @@
+---
+address: andorra.finance.bank
+description: Andorran banks. There is no central bank: Andorra uses the euro under a monetary agreement with the European Union that lets it mint its own euro coins without being a member state. Banking secrecy was the sector's business until 2018, when Andorra ended it under OECD pressure and the sector consolidated sharply.
+locale: en
+---
+Andbank
+Crèdit Andorrà
+MoraBanc
+Vall Banc
+Banc Sabadell d'Andorra

@@ -1,0 +1,19 @@
+---
+address: vanuatu.holiday
+description: Vanuatu public holidays. Independence from the Anglo-French Condominium is 30 July 1980 — the country was governed jointly by Britain and France, an arrangement so duplicated that it had two police forces, two school systems and three official languages, and the legacy is that Vanuatu today is officially English, French and Bislama at once. Custom Chiefs' Day recognises traditional authority alongside the state's.
+locale: en
+---
+New Year's Day
+Father Lini Day
+Custom Chiefs' Day
+Labour Day
+Good Friday
+Easter Monday
+Ascension Day
+Children's Day
+Independence Day
+Assumption Day
+Constitution Day
+Unity Day
+Christmas Day
+Family Day

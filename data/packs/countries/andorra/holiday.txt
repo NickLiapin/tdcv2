@@ -1,0 +1,19 @@
+---
+address: andorra.holiday
+description: Andorran public holidays. Each of the seven parishes keeps its own festa major, so the national calendar below is only part of the working year. Constitution Day marks 14 March 1993, when Andorra adopted a written constitution and became a sovereign state in modern law after seven centuries of co-principality by custom. Our Lady of Meritxell is the national patron.
+locale: en
+---
+New Year's Day
+Epiphany
+Carnival
+Constitution Day
+Good Friday
+Easter Monday
+Labour Day
+Whit Monday
+Assumption Day
+National Day of Andorra
+All Saints' Day
+Immaculate Conception
+Christmas Day
+Saint Stephen's Day

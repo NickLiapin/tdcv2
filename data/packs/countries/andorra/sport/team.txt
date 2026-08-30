@@ -1,0 +1,11 @@
+---
+address: andorra.sport.team
+description: Andorran sports sides. FC Andorra plays in the Spanish league system rather than a domestic one — the club was bought by Gerard Piqué in 2018 and climbed to the second tier — while the national football team plays its own competition. Skiing is the sport the country lives on: Grandvalira is the largest ski area in the Pyrenees.
+locale: en
+---
+FC Andorra
+Inter Club d'Escaldes
+UE Santa Coloma
+FC Santa Coloma
+Atlètic Club d'Escaldes
+Penya Encarnada

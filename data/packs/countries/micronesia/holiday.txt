@@ -1,0 +1,13 @@
+---
+address: micronesia.holiday
+description: Micronesian public holidays. Independence from the US-administered Trust Territory of the Pacific Islands is 3 November 1986. Each of the four states also keeps its own constitution day, so the working calendar differs by state within one country.
+locale: en
+---
+New Year's Day
+FSM Culture Day
+Micronesian Day
+Constitution Day
+United Nations Day
+Independence Day
+Presidents' Day
+Christmas Day

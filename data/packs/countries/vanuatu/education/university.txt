@@ -1,0 +1,9 @@
+---
+address: vanuatu.education.university
+description: Vanuatu's tertiary institutions. The University of the South Pacific is the institution to understand here: it is owned jointly by twelve Pacific island countries, has campuses in all of them, and is headquartered in Fiji — so a Pacific graduate's university is regional rather than national, the same arrangement the University of the West Indies has in the Caribbean. The national university opened in 2020.
+locale: en
+---
+University of the South Pacific Emalus
+National University of Vanuatu
+Vanuatu Institute of Technology
+Talua Theological Training Institute

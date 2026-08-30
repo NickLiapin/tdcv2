@@ -1,0 +1,9 @@
+---
+address: saint_lucia.phone
+description: Saint Lucia number in the North American Numbering Plan — +1 758.
+generator: tdc
+locale: en
+---
+<sequence name="exchange"><gen type="number" value="200..799" length="3"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{4}"/></sequence>
+<data>+1758${{exchange}}${{line}}</data>

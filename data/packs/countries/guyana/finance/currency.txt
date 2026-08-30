@@ -1,0 +1,6 @@
+---
+address: guyana.finance.currency
+description: The Guyanese dollar. Managed against the US dollar; the oil boom since 2019 has put upward pressure on it and the resulting Dutch-disease question — an appreciating currency hollowing out agriculture and manufacturing — is the central argument of Guyanese economic policy.
+locale: en
+---
+Guyanese dollar

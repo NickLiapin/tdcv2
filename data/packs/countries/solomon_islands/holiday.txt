@@ -1,0 +1,14 @@
+---
+address: solomon_islands.holiday
+description: Solomon Islands public holidays. Independence from Britain is 7 July 1978. Each province also has its own appointed provincial holiday, so the national calendar is only part of the picture — a dataset of working days here has to know which province a record belongs to.
+locale: en
+---
+New Year's Day
+Good Friday
+Easter Saturday
+Easter Monday
+Whit Monday
+Queen's Birthday
+Independence Day
+Christmas Day
+National Day of Thanksgiving

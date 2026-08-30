@@ -1,0 +1,21 @@
+---
+address: suriname.holiday
+description: Surinamese public holidays, and the calendar is one of the most plural anywhere: Holi Phagwa and Diwali for the Hindu population, both Eids for the Muslim one — Suriname has the largest Muslim share of any country in the Americas — Chinese New Year, and the Christian dates. Maroon Day on 10 October marks the treaties recognising the interior communities; Indigenous Peoples' Day on 9 August is a national holiday. Independence from the Netherlands is 25 November 1975.
+locale: en
+---
+New Year's Day
+Chinese New Year
+Day of the Revolution
+Holi Phagwa
+Good Friday
+Easter Monday
+Eid al-Fitr
+Labour Day
+Indigenous Peoples' Day
+Keti Koti
+Maroon Day
+Eid al-Adha
+Diwali
+Independence Day
+Christmas Day
+Boxing Day

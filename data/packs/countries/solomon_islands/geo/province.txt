@@ -1,0 +1,15 @@
+---
+address: solomon_islands.geo.province
+description: The nine provinces of Solomon Islands and the Capital Territory. The country has around seventy living languages for 700,000 people, and Solomon Islands Pijin is the lingua franca that lets them work together — English is official but Pijin is what is actually spoken between provinces.
+locale: en
+---
+Guadalcanal
+Malaita
+Western
+Central
+Choiseul
+Isabel
+Makira-Ulawa
+Temotu
+Rennell and Bellona
+Honiara

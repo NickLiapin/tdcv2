@@ -1,0 +1,18 @@
+---
+address: saint_lucia.holiday
+description: Saint Lucian public holidays. Independence from Britain is 22 February 1979. Thanksgiving in October and National Day on 13 December — the feast of Saint Lucy, the island's namesake — bracket the end of the year.
+locale: en
+---
+New Year's Day
+New Year's Holiday
+Independence Day
+Good Friday
+Easter Monday
+Labour Day
+Whit Monday
+Corpus Christi
+Emancipation Day
+Thanksgiving Day
+National Day
+Christmas Day
+Boxing Day

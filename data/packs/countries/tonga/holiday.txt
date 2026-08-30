@@ -1,0 +1,16 @@
+---
+address: tonga.holiday
+description: Tongan public holidays. The calendar is a monarchy's: the birthdays and coronation of the reigning king and of the crown prince are all public holidays, and Constitution Day marks the 1875 constitution that made Tonga a constitutional monarchy. Sunday observance is written into that constitution — commerce is legally prohibited on Sundays, which is unusual enough to affect any dataset of Tongan trading hours.
+locale: en
+---
+New Year's Day
+Good Friday
+Easter Monday
+Anzac Day
+Birthday of the Crown Prince
+Emancipation Day
+Birthday of the King
+Constitution Day
+King Tupou I Day
+Christmas Day
+Boxing Day

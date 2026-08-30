@@ -1,0 +1,15 @@
+---
+address: seychelles.geo.city
+description: Seychellois settlements. Victoria on Mahé is one of the smallest national capitals in the world. Aldabra, far to the southwest, is a raised atoll with the largest population of giant tortoises on earth and a World Heritage site; the Vallée de Mai on Praslin grows the coco de mer, whose seed is the largest of any plant.
+locale: en
+---
+Victoria
+Anse Boileau
+Beau Vallon
+Cascade
+Takamaka
+Anse Royale
+Grand Anse
+Baie Sainte Anne
+La Passe
+Port Glaud

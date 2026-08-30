@@ -1,0 +1,11 @@
+---
+address: solomon_islands.sport.team
+description: Solomon Islands sports sides. Futsal is the country's strongest sport by international ranking — the Kurukuru have been Oceania champions repeatedly — which is unusual for a Pacific nation and reflects how little flat outdoor space Honiara has.
+locale: en
+---
+Solomon Warriors
+Central Coast FC
+Henderson Eels
+Marist Fire
+Kossa FC
+Real Kakamora

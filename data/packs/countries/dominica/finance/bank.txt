@@ -1,0 +1,9 @@
+---
+address: dominica.finance.bank
+description: Dominican banks. The Eastern Caribbean Central Bank is shared. Dominica sells citizenship by investment, and the programme is a large share of government revenue, which is why the country's financial data looks unlike its size.
+locale: en
+---
+Eastern Caribbean Central Bank
+National Bank of Dominica
+Republic Bank Dominica
+First Caribbean International Bank Dominica

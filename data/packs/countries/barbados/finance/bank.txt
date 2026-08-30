@@ -1,0 +1,11 @@
+---
+address: barbados.finance.bank
+description: Barbadian banks. The Central Bank of Barbados pegs the Barbados dollar at two to the US dollar, a rate held since 1975. Barbados restructured its public debt in 2018 after decades of accumulation, and the restructuring included the same hurricane clause Grenada had pioneered.
+locale: en
+---
+Central Bank of Barbados
+Republic Bank Barbados
+CIBC FirstCaribbean International Bank
+Scotiabank Barbados
+RBC Royal Bank Barbados
+Barbados Public Workers Co-operative Credit Union

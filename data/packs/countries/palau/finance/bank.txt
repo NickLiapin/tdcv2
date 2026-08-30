@@ -1,0 +1,9 @@
+---
+address: palau.finance.bank
+description: Palauan banks. No central bank — Palau uses the US dollar. The Bank of Hawaii and Bank of Guam serve the islands alongside the national development bank.
+locale: en
+---
+Bank of Hawaii Palau
+Bank of Guam Palau
+Palau National Development Bank
+Asia Pacific Commercial Bank

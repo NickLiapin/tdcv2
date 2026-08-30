@@ -1,0 +1,8 @@
+---
+address: kiribati.finance.bank
+description: Kiribati banks. The country uses the Australian dollar and has no central bank. The Revenue Equalisation Reserve Fund, built from phosphate royalties before the deposits ran out in 1979, is a sovereign wealth fund a country of 130,000 has kept for fifty years.
+locale: en
+---
+Bank of Kiribati
+Development Bank of Kiribati
+ANZ Kiribati

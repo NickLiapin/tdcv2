@@ -1,0 +1,9 @@
+---
+address: saint_lucia.education.university
+description: Saint Lucian tertiary institutions. Sir Arthur Lewis Community College is named for the island's Nobel economist, who was the first Black person to hold a chair at a British university.
+locale: en
+---
+University of the West Indies Open Campus Saint Lucia
+Sir Arthur Lewis Community College
+American International Medical University
+Spartan Health Sciences University

@@ -1,0 +1,6 @@
+---
+address: kiribati.finance.currency
+description: The Australian dollar, used as the national currency; Kiribati has issued its own coins for circulation alongside it but no notes.
+locale: en
+---
+Australian dollar

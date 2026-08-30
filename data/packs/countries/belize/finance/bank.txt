@@ -1,0 +1,11 @@
+---
+address: belize.finance.bank
+description: Belizean banks. The Central Bank of Belize pegs the Belize dollar at two to the US dollar. The offshore sector was large and has shrunk sharply under international pressure since 2015; Belize has restructured its sovereign debt repeatedly, most recently in a 2021 debt-for-nature swap that funded marine conservation in exchange for debt relief — an instrument the country helped pioneer.
+locale: en
+---
+Central Bank of Belize
+Belize Bank
+Atlantic Bank
+Heritage Bank
+National Bank of Belize
+Scotiabank Belize

@@ -1,0 +1,6 @@
+---
+address: seychelles.finance.currency
+description: The Seychellois rupee, subdivided into 100 cents. Floated in 2008; before that it was pegged and the parallel market rate ran at a large multiple of the official one, which made pre-2008 Seychellois economic data difficult to compare with anything.
+locale: en
+---
+Seychellois rupee

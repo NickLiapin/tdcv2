@@ -1,0 +1,9 @@
+---
+address: marshall_islands.vehicle.plate
+description: Marshallese licence plate — a serial with an atoll letter. The vehicle fleet is small: Majuro's main road is a single strip along the atoll rim.
+generator: tdc
+locale: en
+---
+<sequence name="serial"><gen type="number" value="1..9999" length="4" first_zero="true"/></sequence>
+<sequence name="atoll"><gen type="text" value="MAJ,KWA,JAL" percent="72,22,6"/></sequence>
+<data>${{serial}} ${{atoll}}</data>

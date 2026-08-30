@@ -1,0 +1,17 @@
+---
+address: fiji.geo.city
+description: Fijian settlements. Suva is the capital and the largest city in the Pacific islands outside Papua New Guinea; Nadi has the international airport and is where most visitors arrive. Lautoka is the sugar city.
+locale: en
+---
+Suva
+Lautoka
+Nadi
+Labasa
+Ba
+Levuka
+Sigatoka
+Nausori
+Navua
+Savusavu
+Tavua
+Rakiraki

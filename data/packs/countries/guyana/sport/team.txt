@@ -1,0 +1,13 @@
+---
+address: guyana.sport.team
+description: Guyanese sports sides. Cricket is first: Guyana plays in West Indies domestic cricket as the Guyana Harpy Eagles and the Providence stadium hosts internationals. Football clubs of the GFF Elite League follow.
+locale: en
+---
+Guyana Harpy Eagles
+Guyana Amazon Warriors
+Fruta Conquerors
+Slingerz FC
+Western Tigers
+Guyana Defence Force
+Santa Rosa
+Buxton United

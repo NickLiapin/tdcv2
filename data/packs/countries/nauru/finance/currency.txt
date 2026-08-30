@@ -1,0 +1,6 @@
+---
+address: nauru.finance.currency
+description: The Australian dollar, used as the national currency. Nauru has never issued a circulating currency of its own.
+locale: en
+---
+Australian dollar

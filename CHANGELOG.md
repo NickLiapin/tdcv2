@@ -32,6 +32,29 @@ page — is tracked in that implementation's own changelog:
   pack words exactly as the env's does, `TDC153` accepts what the packs actually know, and
   `TDC272` warns only for a locale that truly carries no date words — Bambara, not Afrikaans.
 
+<!-- covers: every country on earth -->
+
+- **The last twenty-five, and the country list is complete: every one of the world's 195
+  sovereign states now ships a pack.** Andorra, Antigua and Barbuda, Bahamas, Barbados, Belize,
+  Brunei, Dominica, Fiji, Grenada, Guyana, Kiribati, Marshall Islands, Micronesia, Nauru, Palau,
+  Saint Kitts and Nevis, Saint Lucia, Saint Vincent and the Grenadines, Samoa, Seychelles,
+  Solomon Islands, Suriname, Tonga, Tuvalu, Vanuatu — 198 packs including Macau, Puerto Rico,
+  Taiwan and the delegating `europe`. The two guards written after the last wave's defects paid
+  for themselves immediately: twenty-five packs, both structural checks green on the first run.
+  Every one of the 225 addresses renders in all five implementations to one checksum, and
+  `tuvalu.zip` — a country of 11,000 people on 26 square kilometres — was unpacked into an empty
+  store and rendered from nothing else.
+
+  Small countries are where the facts are. Nauru's national sport is Australian rules football
+  and it had no commercial bank at all between 2006 and 2015. Kiribati moved the international
+  date line east in 1995 so the whole country would share one day. Samoa skipped 30 December
+  2011 entirely, crossing the line the other way. Andorra's two heads of state are the President
+  of France and a Spanish bishop, an arrangement running since 1278. Brunei's football club
+  plays in Singapore's league. Suriname is the only Dutch-speaking state in the Americas, and
+  drives on the left because the British held it briefly. Tuvalu's largest revenue source for
+  years was leasing the `.tv` domain. Dominica is not the Dominican Republic, and the pack says
+  so in its first line, because address data conflates them constantly.
+
 <!-- covers: two country-pack guards -->
 
 - **Two guards, written because a sample check missed two real defects.** The twelve packs of

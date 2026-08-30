@@ -43984,6 +43984,63 @@
       "unreleased": false
     },
     {
+      "id": "andorra",
+      "name": "Andorra",
+      "blurb": "Data specific to Andorra",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "parish"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 4242,
+      "regions": [
+        "europe"
+      ],
+      "unreleased": true
+    },
+    {
       "id": "angola",
       "name": "Angola",
       "blurb": "Data specific to Angola",
@@ -44045,6 +44102,63 @@
         "africa"
       ],
       "unreleased": false
+    },
+    {
+      "id": "antigua_and_barbuda",
+      "name": "Antigua And Barbuda",
+      "blurb": "Data specific to Antigua And Barbuda",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "parish"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 4650,
+      "regions": [
+        "north"
+      ],
+      "unreleased": true
     },
     {
       "id": "argentina",
@@ -44491,6 +44605,63 @@
       "unreleased": true
     },
     {
+      "id": "bahamas",
+      "name": "Bahamas",
+      "blurb": "Data specific to Bahamas",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "island"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 4365,
+      "regions": [
+        "north"
+      ],
+      "unreleased": true
+    },
+    {
       "id": "bahrain",
       "name": "Bahrain",
       "blurb": "Data specific to Bahrain",
@@ -44636,6 +44807,63 @@
       "unreleased": true
     },
     {
+      "id": "barbados",
+      "name": "Barbados",
+      "blurb": "Data specific to Barbados",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "parish"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 4304,
+      "regions": [
+        "north"
+      ],
+      "unreleased": true
+    },
+    {
       "id": "belarus",
       "name": "Belarus",
       "blurb": "Data specific to Belarus",
@@ -44772,6 +45000,63 @@
         "europe"
       ],
       "unreleased": false
+    },
+    {
+      "id": "belize",
+      "name": "Belize",
+      "blurb": "Data specific to Belize",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "district"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 4312,
+      "regions": [
+        "north"
+      ],
+      "unreleased": true
     },
     {
       "id": "benin",
@@ -45142,7 +45427,7 @@
       "id": "botswana",
       "name": "Botswana",
       "blurb": "Data specific to Botswana",
-      "files": 9,
+      "files": 10,
       "groups": [
         [
           "docs",
@@ -45187,9 +45472,15 @@
           [
             "team"
           ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
         ]
       ],
-      "bytes": 4893,
+      "bytes": 5421,
       "regions": [
         "africa"
       ],
@@ -45272,6 +45563,63 @@
         "south"
       ],
       "unreleased": false
+    },
+    {
+      "id": "brunei",
+      "name": "Brunei",
+      "blurb": "Data specific to Brunei",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "district"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 4166,
+      "regions": [
+        "asia"
+      ],
+      "unreleased": true
     },
     {
       "id": "bulgaria",
@@ -45786,7 +46134,7 @@
       "id": "central_african_republic",
       "name": "Central African Republic",
       "blurb": "Data specific to Central African Republic",
-      "files": 9,
+      "files": 10,
       "groups": [
         [
           "education",
@@ -45831,9 +46179,15 @@
           [
             "team"
           ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
         ]
       ],
-      "bytes": 5532,
+      "bytes": 6131,
       "regions": [
         "africa"
       ],
@@ -46749,6 +47103,63 @@
       "unreleased": false
     },
     {
+      "id": "dominica",
+      "name": "Dominica",
+      "blurb": "Data specific to Dominica",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "parish"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 4093,
+      "regions": [
+        "north"
+      ],
+      "unreleased": true
+    },
+    {
       "id": "dominican_republic",
       "name": "Dominican Republic",
       "blurb": "Data specific to Dominican Republic",
@@ -47240,7 +47651,7 @@
       "id": "eritrea",
       "name": "Eritrea",
       "blurb": "Data specific to Eritrea",
-      "files": 8,
+      "files": 9,
       "groups": [
         [
           "education",
@@ -47279,9 +47690,15 @@
           [
             "team"
           ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
         ]
       ],
-      "bytes": 4254,
+      "bytes": 4807,
       "regions": [
         "africa"
       ],
@@ -47397,7 +47814,7 @@
       "id": "eswatini",
       "name": "Eswatini",
       "blurb": "Data specific to Eswatini",
-      "files": 8,
+      "files": 9,
       "groups": [
         [
           "education",
@@ -47436,9 +47853,15 @@
           [
             "team"
           ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
         ]
       ],
-      "bytes": 3948,
+      "bytes": 4496,
       "regions": [
         "africa"
       ],
@@ -47511,6 +47934,63 @@
       "bytes": 8106,
       "regions": [
         "africa"
+      ],
+      "unreleased": true
+    },
+    {
+      "id": "fiji",
+      "name": "Fiji",
+      "blurb": "Data specific to Fiji",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "division"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 3782,
+      "regions": [
+        "oceania"
       ],
       "unreleased": true
     },
@@ -47730,7 +48210,7 @@
       "id": "gambia",
       "name": "Gambia",
       "blurb": "Data specific to Gambia",
-      "files": 8,
+      "files": 9,
       "groups": [
         [
           "education",
@@ -47769,9 +48249,15 @@
           [
             "team"
           ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
         ]
       ],
-      "bytes": 4084,
+      "bytes": 4685,
       "regions": [
         "africa"
       ],
@@ -48130,6 +48616,63 @@
       "unreleased": false
     },
     {
+      "id": "grenada",
+      "name": "Grenada",
+      "blurb": "Data specific to Grenada",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "parish"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 3963,
+      "regions": [
+        "north"
+      ],
+      "unreleased": true
+    },
+    {
       "id": "guatemala",
       "name": "Guatemala",
       "blurb": "Data specific to Guatemala",
@@ -48330,6 +48873,63 @@
         "africa"
       ],
       "unreleased": false
+    },
+    {
+      "id": "guyana",
+      "name": "Guyana",
+      "blurb": "Data specific to Guyana",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "region"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 4331,
+      "regions": [
+        "south"
+      ],
+      "unreleased": true
     },
     {
       "id": "haiti",
@@ -49256,7 +49856,7 @@
       "id": "jamaica",
       "name": "Jamaica",
       "blurb": "Data specific to Jamaica",
-      "files": 9,
+      "files": 10,
       "groups": [
         [
           "docs",
@@ -49301,9 +49901,15 @@
           [
             "team"
           ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
         ]
       ],
-      "bytes": 5002,
+      "bytes": 5552,
       "regions": [
         "north"
       ],
@@ -49609,6 +50215,63 @@
       "bytes": 21750,
       "regions": [
         "africa"
+      ],
+      "unreleased": true
+    },
+    {
+      "id": "kiribati",
+      "name": "Kiribati",
+      "blurb": "Data specific to Kiribati",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "island"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 4047,
+      "regions": [
+        "oceania"
       ],
       "unreleased": true
     },
@@ -50028,7 +50691,7 @@
       "id": "lesotho",
       "name": "Lesotho",
       "blurb": "Data specific to Lesotho",
-      "files": 8,
+      "files": 9,
       "groups": [
         [
           "education",
@@ -50067,9 +50730,15 @@
           [
             "team"
           ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
         ]
       ],
-      "bytes": 4182,
+      "bytes": 4715,
       "regions": [
         "africa"
       ],
@@ -50079,7 +50748,7 @@
       "id": "liberia",
       "name": "Liberia",
       "blurb": "Data specific to Liberia",
-      "files": 8,
+      "files": 9,
       "groups": [
         [
           "education",
@@ -50118,9 +50787,15 @@
           [
             "team"
           ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
         ]
       ],
-      "bytes": 4357,
+      "bytes": 4938,
       "regions": [
         "africa"
       ],
@@ -50619,7 +51294,7 @@
           ]
         ]
       ],
-      "bytes": 6240,
+      "bytes": 6241,
       "regions": [
         "africa"
       ],
@@ -50988,6 +51663,63 @@
       "unreleased": false
     },
     {
+      "id": "marshall_islands",
+      "name": "Marshall Islands",
+      "blurb": "Data specific to Marshall Islands",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "atoll",
+            "city"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 4255,
+      "regions": [
+        "oceania"
+      ],
+      "unreleased": true
+    },
+    {
       "id": "mauritania",
       "name": "Mauritania",
       "blurb": "Data specific to Mauritania",
@@ -51048,7 +51780,7 @@
       "id": "mauritius",
       "name": "Mauritius",
       "blurb": "Data specific to Mauritius",
-      "files": 9,
+      "files": 10,
       "groups": [
         [
           "docs",
@@ -51093,9 +51825,15 @@
           [
             "team"
           ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
         ]
       ],
-      "bytes": 5079,
+      "bytes": 5589,
       "regions": [
         "africa"
       ],
@@ -51189,6 +51927,63 @@
         "north"
       ],
       "unreleased": false
+    },
+    {
+      "id": "micronesia",
+      "name": "Micronesia",
+      "blurb": "Data specific to Micronesia",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "state"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 3930,
+      "regions": [
+        "oceania"
+      ],
+      "unreleased": true
     },
     {
       "id": "moldova",
@@ -51451,7 +52246,7 @@
       "id": "montenegro",
       "name": "Montenegro",
       "blurb": "Data specific to Montenegro",
-      "files": 9,
+      "files": 10,
       "groups": [
         [
           "docs",
@@ -51496,9 +52291,15 @@
           [
             "team"
           ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
         ]
       ],
-      "bytes": 5131,
+      "bytes": 5818,
       "regions": [
         "europe"
       ],
@@ -51738,7 +52539,7 @@
       "id": "namibia",
       "name": "Namibia",
       "blurb": "Data specific to Namibia",
-      "files": 8,
+      "files": 9,
       "groups": [
         [
           "education",
@@ -51777,11 +52578,74 @@
           [
             "team"
           ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
         ]
       ],
-      "bytes": 4343,
+      "bytes": 4938,
       "regions": [
         "africa"
+      ],
+      "unreleased": true
+    },
+    {
+      "id": "nauru",
+      "name": "Nauru",
+      "blurb": "Data specific to Nauru",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "district"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 3769,
+      "regions": [
+        "oceania"
       ],
       "unreleased": true
     },
@@ -52704,6 +53568,63 @@
       "bytes": 21144,
       "regions": [
         "asia"
+      ],
+      "unreleased": true
+    },
+    {
+      "id": "palau",
+      "name": "Palau",
+      "blurb": "Data specific to Palau",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "state"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 3610,
+      "regions": [
+        "oceania"
       ],
       "unreleased": true
     },
@@ -53671,6 +54592,234 @@
       "unreleased": false
     },
     {
+      "id": "saint_kitts_and_nevis",
+      "name": "Saint Kitts And Nevis",
+      "blurb": "Data specific to Saint Kitts And Nevis",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "parish"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 4693,
+      "regions": [
+        "north"
+      ],
+      "unreleased": true
+    },
+    {
+      "id": "saint_lucia",
+      "name": "Saint Lucia",
+      "blurb": "Data specific to Saint Lucia",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "district"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 4050,
+      "regions": [
+        "north"
+      ],
+      "unreleased": true
+    },
+    {
+      "id": "saint_vincent_and_the_grenadines",
+      "name": "Saint Vincent And The Grenadines",
+      "blurb": "Data specific to Saint Vincent And The Grenadines",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "parish"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 4669,
+      "regions": [
+        "north"
+      ],
+      "unreleased": true
+    },
+    {
+      "id": "samoa",
+      "name": "Samoa",
+      "blurb": "Data specific to Samoa",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "district"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 4041,
+      "regions": [
+        "oceania"
+      ],
+      "unreleased": true
+    },
+    {
       "id": "san_marino",
       "name": "San Marino",
       "blurb": "Data specific to San Marino",
@@ -53999,6 +55148,63 @@
       "unreleased": true
     },
     {
+      "id": "seychelles",
+      "name": "Seychelles",
+      "blurb": "Data specific to Seychelles",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "district"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 4340,
+      "regions": [
+        "africa"
+      ],
+      "unreleased": true
+    },
+    {
       "id": "sierra_leone",
       "name": "Sierra Leone",
       "blurb": "Data specific to Sierra Leone",
@@ -54295,6 +55501,63 @@
         "europe"
       ],
       "unreleased": false
+    },
+    {
+      "id": "solomon_islands",
+      "name": "Solomon Islands",
+      "blurb": "Data specific to Solomon Islands",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "province"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 4289,
+      "regions": [
+        "oceania"
+      ],
+      "unreleased": true
     },
     {
       "id": "somalia",
@@ -54811,6 +56074,63 @@
         "africa"
       ],
       "unreleased": false
+    },
+    {
+      "id": "suriname",
+      "name": "Suriname",
+      "blurb": "Data specific to Suriname",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "district"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 4417,
+      "regions": [
+        "south"
+      ],
+      "unreleased": true
     },
     {
       "id": "sweden",
@@ -55456,10 +56776,67 @@
       "unreleased": false
     },
     {
+      "id": "tonga",
+      "name": "Tonga",
+      "blurb": "Data specific to Tonga",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "division"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 3870,
+      "regions": [
+        "oceania"
+      ],
+      "unreleased": true
+    },
+    {
       "id": "trinidad_and_tobago",
       "name": "Trinidad And Tobago",
       "blurb": "Data specific to Trinidad And Tobago",
-      "files": 9,
+      "files": 10,
       "groups": [
         [
           "docs",
@@ -55504,9 +56881,15 @@
           [
             "team"
           ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
         ]
       ],
-      "bytes": 5339,
+      "bytes": 5941,
       "regions": [
         "north",
         "south"
@@ -55757,6 +57140,63 @@
       "bytes": 34974,
       "regions": [
         "asia"
+      ],
+      "unreleased": true
+    },
+    {
+      "id": "tuvalu",
+      "name": "Tuvalu",
+      "blurb": "Data specific to Tuvalu",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "island"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 3701,
+      "regions": [
+        "oceania"
       ],
       "unreleased": true
     },
@@ -56349,6 +57789,63 @@
       "bytes": 38863,
       "regions": [
         "asia"
+      ],
+      "unreleased": true
+    },
+    {
+      "id": "vanuatu",
+      "name": "Vanuatu",
+      "blurb": "Data specific to Vanuatu",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "province"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 4088,
+      "regions": [
+        "oceania"
       ],
       "unreleased": true
     },

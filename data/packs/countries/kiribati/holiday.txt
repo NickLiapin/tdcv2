@@ -1,0 +1,17 @@
+---
+address: kiribati.holiday
+description: Kiribati public holidays. Independence from Britain is 12 July 1979. Health Day, Youth Day, Elderly Day and Women's Day are each separate national holidays, and the Gospel Day marks the arrival of Christianity — this is a country whose public calendar is largely social rather than political.
+locale: en
+---
+New Year's Day
+Women's Day
+Good Friday
+Easter Monday
+Health Day
+Gospel Day
+Independence Day
+Youth Day
+Elderly Day
+Human Rights Day
+Christmas Day
+Boxing Day

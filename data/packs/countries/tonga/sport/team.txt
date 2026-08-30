@@ -1,0 +1,11 @@
+---
+address: tonga.sport.team
+description: Tongan sports sides. Rugby is the national sport and 'Ikale Tahi the national side; Tonga's per-capita representation in professional rugby is among the highest on earth.
+locale: en
+---
+'Ikale Tahi
+Veitongo FC
+Lotoha'apai United
+Marist FC Tonga
+Navutoka FC
+Police FC Tonga

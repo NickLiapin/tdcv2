@@ -1,0 +1,11 @@
+---
+address: suriname.finance.bank
+description: Surinamese banks. The Centrale Bank van Suriname issues the dollar. The country has had repeated currency crises and defaulted on its debt in 2021; gold and, since 2020, offshore oil discoveries are the basis of an expected transformation that has not yet arrived.
+locale: en
+---
+Centrale Bank van Suriname
+De Surinaamsche Bank
+Hakrinbank
+Republic Bank Suriname
+Finabank
+Surinaamse Postspaarbank

@@ -1,0 +1,6 @@
+---
+address: vanuatu.finance.currency
+description: The vatu, which has no subdivision at all — there are no cents, and the smallest unit is one vatu. Very few currencies in the world are undivided.
+locale: en
+---
+Vanuatu vatu

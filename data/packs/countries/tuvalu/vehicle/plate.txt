@@ -1,0 +1,8 @@
+---
+address: tuvalu.vehicle.plate
+description: Tuvaluan licence plate — a very short serial. There are a few kilometres of paved road and a fleet mostly of motorcycles.
+generator: tdc
+locale: en
+---
+<sequence name="serial"><gen type="number" value="1..999" length="3" first_zero="true"/></sequence>
+<data>TV ${{serial}}</data>

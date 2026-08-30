@@ -1,0 +1,9 @@
+---
+address: suriname.education.university
+description: Surinamese universities. Anton de Kom University, named for the anti-colonial writer, is the national one and teaches in Dutch — which means a Surinamese degree is legible in the Netherlands and almost nowhere else in the region, and a large share of graduates emigrate there.
+locale: en
+---
+Anton de Kom University of Suriname
+Instituut voor de Opleiding van Leraren
+Polytechnic College Suriname
+Academie voor Hoger Kunst en Cultuur Onderwijs

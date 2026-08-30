@@ -1,0 +1,16 @@
+---
+address: saint_lucia.geo.district
+description: The districts of Saint Lucia. The island changed hands between Britain and France fourteen times — more than any other Caribbean territory — which is why an English-speaking country has French place names throughout and a French-lexicon creole, Kwéyòl, as its first language for most of the population.
+locale: en
+---
+Castries
+Gros Islet
+Vieux Fort
+Micoud
+Soufrière
+Dennery
+Laborie
+Choiseul
+Anse la Raye
+Canaries
+Babonneau

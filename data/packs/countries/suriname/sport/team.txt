@@ -1,0 +1,12 @@
+---
+address: suriname.sport.team
+description: Surinamese football clubs. Suriname's real footballing story is elsewhere: an extraordinary share of the Netherlands' greatest players — Gullit, Rijkaard, Kluivert, Davids, Seedorf — are of Surinamese descent, and the country changed its nationality law in 2019 partly so that Dutch-born players could represent it.
+locale: en
+---
+Inter Moengotapoe
+Robinhood
+Transvaal
+SV Leo Victor
+Walking Boyz Company
+Notch
+Excelsior

@@ -1,0 +1,16 @@
+---
+address: marshall_islands.holiday
+description: Marshallese public holidays. Independence is 1 May 1979, when the constitution took effect. Nuclear Victims Remembrance Day on 1 March marks the 1954 Castle Bravo test at Bikini, the largest US nuclear detonation ever, whose fallout reached inhabited atolls downwind.
+locale: en
+---
+New Year's Day
+Nuclear Victims Remembrance Day
+Good Friday
+Constitution Day
+Fishermen's Day
+Dri-Jerbal Day
+Custom Day
+President's Day
+Gospel Day
+Thanksgiving Day
+Christmas Day

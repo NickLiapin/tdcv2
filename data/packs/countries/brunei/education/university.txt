@@ -1,0 +1,10 @@
+---
+address: brunei.education.university
+description: Bruneian universities. Universiti Brunei Darussalam is the national one; UNISSA teaches Islamic studies and the Institute of Technology is the technical school. Higher education is free for citizens, as is healthcare — the oil revenue funds a welfare state with no income tax at all.
+locale: en
+---
+Universiti Brunei Darussalam
+Universiti Islam Sultan Sharif Ali
+Universiti Teknologi Brunei
+Politeknik Brunei
+Kolej Universiti Perguruan Ugama Seri Begawan

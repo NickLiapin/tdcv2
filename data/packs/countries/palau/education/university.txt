@@ -1,0 +1,7 @@
+---
+address: palau.education.university
+description: Palauan tertiary education. Palau Community College is the country's institution; most students continue in Guam, Hawaii or the US mainland under the Compact.
+locale: en
+---
+Palau Community College
+Pacific Islands University Palau

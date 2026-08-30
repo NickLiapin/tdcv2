@@ -1,0 +1,17 @@
+---
+address: saint_kitts_and_nevis.holiday
+description: Public holidays of the federation. Independence from Britain is 19 September 1983, the most recent in the Americas. Culturama is Nevis's own festival in August, a separate holiday from St Kitts's Carnival at Christmas — the two islands celebrate at opposite ends of the year.
+locale: en
+---
+New Year's Day
+Carnival Day
+Good Friday
+Easter Monday
+Labour Day
+Whit Monday
+Emancipation Day
+Culturama Day
+National Heroes Day
+Independence Day
+Christmas Day
+Boxing Day

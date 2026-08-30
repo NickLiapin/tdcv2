@@ -1,0 +1,9 @@
+---
+address: saint_vincent_and_the_grenadines.finance.bank
+description: Vincentian banks. The Eastern Caribbean Central Bank is shared.
+locale: en
+---
+Eastern Caribbean Central Bank
+Bank of Saint Vincent and the Grenadines
+First Caribbean International Bank SVG
+Republic Bank SVG

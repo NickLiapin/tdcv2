@@ -1,0 +1,15 @@
+---
+address: andorra.geo.city
+description: Andorran settlements. Andorra la Vella at 1,023 metres is the highest capital in Europe. The country has no airport and no railway station: everyone arrives by road through France or Spain, which is why duty-free retail and skiing are most of the economy.
+locale: en
+---
+Andorra la Vella
+Escaldes-Engordany
+Encamp
+Sant Julià de Lòria
+La Massana
+Santa Coloma
+Ordino
+Canillo
+El Pas de la Casa
+Arinsal

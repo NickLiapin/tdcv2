@@ -1,0 +1,12 @@
+---
+address: nauru.geo.city
+description: Nauruan settlements. The island is a raised coral platform whose interior — four fifths of the land — was strip-mined for phosphate until it became uninhabitable moonscape, so the entire population lives on the coastal fringe. Nauru was for a brief period in the 1970s among the richest countries per head in the world, and the phosphate is now gone.
+locale: en
+---
+Yaren
+Denigomodu
+Aiwo
+Meneng
+Anabar
+Baiti
+Anibare

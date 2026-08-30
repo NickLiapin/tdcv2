@@ -1,0 +1,6 @@
+---
+address: suriname.finance.currency
+description: The Surinamese dollar, which replaced the guilder in 2004 at 1,000 to 1. It has been devalued repeatedly since and the parallel rate has often run well ahead of the official one, so a Surinamese amount needs both a date and a rate source to mean anything.
+locale: en
+---
+Surinamese dollar

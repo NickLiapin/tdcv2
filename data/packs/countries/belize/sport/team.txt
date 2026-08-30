@@ -1,0 +1,11 @@
+---
+address: belize.sport.team
+description: Belizean football clubs of the Premier League of Belize. The country's distinctive sport is not football but the La Ruta Maya, a four-day canoe race down the Belize River that draws the whole country to the riverbank.
+locale: en
+---
+Verdes FC
+Belmopan Bandits
+San Pedro Pirates
+Altitude FC
+Progresso FC
+Wagiya SC

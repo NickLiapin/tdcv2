@@ -1,0 +1,18 @@
+---
+address: grenada.holiday
+description: Grenadian public holidays. Independence from Britain is 7 February 1974. Thanksgiving Day on 25 October marks the 1983 US-led invasion, which most Grenadians regard as a rescue from the coup that had killed Maurice Bishop — a national holiday for a foreign military intervention is rare enough to note.
+locale: en
+---
+New Year's Day
+Independence Day
+Good Friday
+Easter Monday
+Labour Day
+Whit Monday
+Corpus Christi
+Emancipation Day
+Carnival Monday
+Carnival Tuesday
+Thanksgiving Day
+Christmas Day
+Boxing Day

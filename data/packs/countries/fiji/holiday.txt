@@ -1,0 +1,16 @@
+---
+address: fiji.holiday
+description: Fijian public holidays. Independence from Britain is 10 October 1970. The calendar is deliberately plural: Diwali is a public holiday because roughly a third of Fijians are Indo-Fijian, descended from indentured labourers brought for the sugar estates between 1879 and 1916, and Prophet Muhammad's birthday is observed too. Girmit Day, added in 2023, marks the arrival of the first indentured ship.
+locale: en
+---
+New Year's Day
+Girmit Day
+Good Friday
+Easter Saturday
+Easter Monday
+Ratu Sukuna Day
+Prophet Muhammad's Birthday
+Fiji Day
+Diwali
+Christmas Day
+Boxing Day

@@ -637,6 +637,15 @@
       "packs": ["packs/countries/algeria"]
     },
     {
+      "id": "andorra",
+      "name": "Andorra (country)",
+      "description": "Data specific to Andorra: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "andorra",
+      "regions": ["europe"],
+      "point": [1.6, 42.5],
+      "packs": ["packs/countries/andorra"]
+    },
+    {
       "id": "angola",
       "name": "Angola (country)",
       "description": "Data specific to Angola: docs, education, finance, geo, holiday, phone, sport, vehicle.",
@@ -644,6 +653,15 @@
       "regions": ["africa"],
       "point": [17, -12],
       "packs": ["packs/countries/angola"]
+    },
+    {
+      "id": "antigua_and_barbuda",
+      "name": "Antigua And Barbuda (country)",
+      "description": "Data specific to Antigua And Barbuda: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "antigua_and_barbuda",
+      "regions": ["north"],
+      "point": [-61.8, 17.1],
+      "packs": ["packs/countries/antigua_and_barbuda"]
     },
     {
       "id": "argentina",
@@ -691,6 +709,15 @@
       "packs": ["packs/countries/azerbaijan"]
     },
     {
+      "id": "bahamas",
+      "name": "Bahamas (country)",
+      "description": "Data specific to Bahamas: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "bahamas",
+      "regions": ["north"],
+      "point": [-77.4, 25],
+      "packs": ["packs/countries/bahamas"]
+    },
+    {
       "id": "bahrain",
       "name": "Bahrain (country)",
       "description": "Data specific to Bahrain: docs, education, finance, geo, holiday, phone, sport, vehicle.",
@@ -709,6 +736,15 @@
       "packs": ["packs/countries/bangladesh"]
     },
     {
+      "id": "barbados",
+      "name": "Barbados (country)",
+      "description": "Data specific to Barbados: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "barbados",
+      "regions": ["north"],
+      "point": [-59.5, 13.2],
+      "packs": ["packs/countries/barbados"]
+    },
+    {
       "id": "belarus",
       "name": "Belarus (country)",
       "description": "Data specific to Belarus: docs, education, finance, geo, holiday, phone, sport, vehicle.",
@@ -725,6 +761,15 @@
       "regions": ["europe"],
       "point": [4.5, 50.5],
       "packs": ["packs/countries/belgium"]
+    },
+    {
+      "id": "belize",
+      "name": "Belize (country)",
+      "description": "Data specific to Belize: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "belize",
+      "regions": ["north"],
+      "point": [-88.5, 17.2],
+      "packs": ["packs/countries/belize"]
     },
     {
       "id": "benin",
@@ -765,7 +810,7 @@
     {
       "id": "botswana",
       "name": "Botswana (country)",
-      "description": "Data specific to Botswana: docs, education, finance, geo, holiday, phone, sport.",
+      "description": "Data specific to Botswana: docs, education, finance, geo, holiday, phone, sport, vehicle.",
       "country": "botswana",
       "regions": ["africa"],
       "point": [24, -22],
@@ -779,6 +824,15 @@
       "regions": ["south"],
       "point": [-52, -10],
       "packs": ["packs/countries/brazil"]
+    },
+    {
+      "id": "brunei",
+      "name": "Brunei (country)",
+      "description": "Data specific to Brunei: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "brunei",
+      "regions": ["asia"],
+      "point": [114.7, 4.5],
+      "packs": ["packs/countries/brunei"]
     },
     {
       "id": "bulgaria",
@@ -846,7 +900,7 @@
     {
       "id": "central_african_republic",
       "name": "Central African Republic (country)",
-      "description": "Data specific to Central African Republic: education, finance, geo, holiday, language, phone, sport.",
+      "description": "Data specific to Central African Republic: education, finance, geo, holiday, language, phone, sport, vehicle.",
       "country": "central_african_republic",
       "regions": ["africa"],
       "point": [21, 6.6],
@@ -970,6 +1024,15 @@
       "packs": ["packs/countries/djibouti"]
     },
     {
+      "id": "dominica",
+      "name": "Dominica (country)",
+      "description": "Data specific to Dominica: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "dominica",
+      "regions": ["north"],
+      "point": [-61.4, 15.4],
+      "packs": ["packs/countries/dominica"]
+    },
+    {
       "id": "dominican_republic",
       "name": "Dominican Republic (country)",
       "description": "Data specific to Dominican Republic: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
@@ -1035,7 +1098,7 @@
     {
       "id": "eritrea",
       "name": "Eritrea (country)",
-      "description": "Data specific to Eritrea: education, finance, geo, holiday, phone, sport.",
+      "description": "Data specific to Eritrea: education, finance, geo, holiday, phone, sport, vehicle.",
       "country": "eritrea",
       "regions": ["africa"],
       "point": [39, 15.2],
@@ -1053,7 +1116,7 @@
     {
       "id": "eswatini",
       "name": "Eswatini (country)",
-      "description": "Data specific to Eswatini: education, finance, geo, holiday, phone, sport.",
+      "description": "Data specific to Eswatini: education, finance, geo, holiday, phone, sport, vehicle.",
       "country": "eswatini",
       "regions": ["africa"],
       "point": [31.5, -26.5],
@@ -1067,6 +1130,15 @@
       "regions": ["africa"],
       "point": [39.5, 9],
       "packs": ["packs/countries/ethiopia"]
+    },
+    {
+      "id": "fiji",
+      "name": "Fiji (country)",
+      "description": "Data specific to Fiji: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "fiji",
+      "regions": ["oceania"],
+      "point": [178, -17.8],
+      "packs": ["packs/countries/fiji"]
     },
     {
       "id": "finland",
@@ -1098,7 +1170,7 @@
     {
       "id": "gambia",
       "name": "Gambia (country)",
-      "description": "Data specific to Gambia: education, finance, geo, holiday, phone, sport.",
+      "description": "Data specific to Gambia: education, finance, geo, holiday, phone, sport, vehicle.",
       "country": "gambia",
       "regions": ["africa"],
       "point": [-15.4, 13.4],
@@ -1141,6 +1213,15 @@
       "packs": ["packs/countries/greece"]
     },
     {
+      "id": "grenada",
+      "name": "Grenada (country)",
+      "description": "Data specific to Grenada: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "grenada",
+      "regions": ["north"],
+      "point": [-61.7, 12.1],
+      "packs": ["packs/countries/grenada"]
+    },
+    {
       "id": "guatemala",
       "name": "Guatemala (country)",
       "description": "Data specific to Guatemala: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
@@ -1166,6 +1247,15 @@
       "regions": ["africa"],
       "point": [-15, 12],
       "packs": ["packs/countries/guinea_bissau"]
+    },
+    {
+      "id": "guyana",
+      "name": "Guyana (country)",
+      "description": "Data specific to Guyana: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "guyana",
+      "regions": ["south"],
+      "point": [-58.9, 4.9],
+      "packs": ["packs/countries/guyana"]
     },
     {
       "id": "haiti",
@@ -1278,7 +1368,7 @@
     {
       "id": "jamaica",
       "name": "Jamaica (country)",
-      "description": "Data specific to Jamaica: docs, education, finance, geo, holiday, phone, sport.",
+      "description": "Data specific to Jamaica: docs, education, finance, geo, holiday, phone, sport, vehicle.",
       "country": "jamaica",
       "regions": ["north"],
       "point": [-77.3, 18.1],
@@ -1319,6 +1409,15 @@
       "regions": ["africa"],
       "point": [37.9, 0],
       "packs": ["packs/countries/kenya"]
+    },
+    {
+      "id": "kiribati",
+      "name": "Kiribati (country)",
+      "description": "Data specific to Kiribati: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "kiribati",
+      "regions": ["oceania"],
+      "point": [173, 1.4],
+      "packs": ["packs/countries/kiribati"]
     },
     {
       "id": "kuwait",
@@ -1368,7 +1467,7 @@
     {
       "id": "lesotho",
       "name": "Lesotho (country)",
-      "description": "Data specific to Lesotho: education, finance, geo, holiday, phone, sport.",
+      "description": "Data specific to Lesotho: education, finance, geo, holiday, phone, sport, vehicle.",
       "country": "lesotho",
       "regions": ["africa"],
       "point": [28.2, -29.6],
@@ -1377,7 +1476,7 @@
     {
       "id": "liberia",
       "name": "Liberia (country)",
-      "description": "Data specific to Liberia: education, finance, geo, holiday, phone, sport.",
+      "description": "Data specific to Liberia: education, finance, geo, holiday, phone, sport, vehicle.",
       "country": "liberia",
       "regions": ["africa"],
       "point": [-9.4, 6.4],
@@ -1483,6 +1582,15 @@
       "packs": ["packs/countries/malta"]
     },
     {
+      "id": "marshall_islands",
+      "name": "Marshall Islands (country)",
+      "description": "Data specific to Marshall Islands: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "marshall_islands",
+      "regions": ["oceania"],
+      "point": [171, 7.1],
+      "packs": ["packs/countries/marshall_islands"]
+    },
+    {
       "id": "mauritania",
       "name": "Mauritania (country)",
       "description": "Data specific to Mauritania: docs, education, finance, geo, holiday, phone, sport.",
@@ -1494,7 +1602,7 @@
     {
       "id": "mauritius",
       "name": "Mauritius (country)",
-      "description": "Data specific to Mauritius: docs, education, finance, geo, holiday, phone, sport.",
+      "description": "Data specific to Mauritius: docs, education, finance, geo, holiday, phone, sport, vehicle.",
       "country": "mauritius",
       "regions": ["africa"],
       "point": [57.5, -20.3],
@@ -1508,6 +1616,15 @@
       "regions": ["north"],
       "point": [-102, 23.5],
       "packs": ["packs/countries/mexico"]
+    },
+    {
+      "id": "micronesia",
+      "name": "Micronesia (country)",
+      "description": "Data specific to Micronesia: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "micronesia",
+      "regions": ["oceania"],
+      "point": [158, 6.9],
+      "packs": ["packs/countries/micronesia"]
     },
     {
       "id": "moldova",
@@ -1539,7 +1656,7 @@
     {
       "id": "montenegro",
       "name": "Montenegro (country)",
-      "description": "Data specific to Montenegro: docs, education, finance, geo, holiday, phone, sport.",
+      "description": "Data specific to Montenegro: docs, education, finance, geo, holiday, phone, sport, vehicle.",
       "country": "montenegro",
       "regions": ["europe"],
       "point": [19.4, 42.7],
@@ -1575,11 +1692,20 @@
     {
       "id": "namibia",
       "name": "Namibia (country)",
-      "description": "Data specific to Namibia: education, finance, geo, holiday, phone, sport.",
+      "description": "Data specific to Namibia: education, finance, geo, holiday, phone, sport, vehicle.",
       "country": "namibia",
       "regions": ["africa"],
       "point": [17, -22],
       "packs": ["packs/countries/namibia"]
+    },
+    {
+      "id": "nauru",
+      "name": "Nauru (country)",
+      "description": "Data specific to Nauru: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "nauru",
+      "regions": ["oceania"],
+      "point": [166.9, -0.5],
+      "packs": ["packs/countries/nauru"]
     },
     {
       "id": "nepal",
@@ -1679,6 +1805,15 @@
       "regions": ["asia"],
       "point": [69.3, 30.4],
       "packs": ["packs/countries/pakistan"]
+    },
+    {
+      "id": "palau",
+      "name": "Palau (country)",
+      "description": "Data specific to Palau: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "palau",
+      "regions": ["oceania"],
+      "point": [134.6, 7.5],
+      "packs": ["packs/countries/palau"]
     },
     {
       "id": "palestine",
@@ -1798,6 +1933,42 @@
       "packs": ["packs/countries/rwanda"]
     },
     {
+      "id": "saint_kitts_and_nevis",
+      "name": "Saint Kitts And Nevis (country)",
+      "description": "Data specific to Saint Kitts And Nevis: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "saint_kitts_and_nevis",
+      "regions": ["north"],
+      "point": [-62.7, 17.3],
+      "packs": ["packs/countries/saint_kitts_and_nevis"]
+    },
+    {
+      "id": "saint_lucia",
+      "name": "Saint Lucia (country)",
+      "description": "Data specific to Saint Lucia: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "saint_lucia",
+      "regions": ["north"],
+      "point": [-61, 13.9],
+      "packs": ["packs/countries/saint_lucia"]
+    },
+    {
+      "id": "saint_vincent_and_the_grenadines",
+      "name": "Saint Vincent And The Grenadines (country)",
+      "description": "Data specific to Saint Vincent And The Grenadines: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "saint_vincent_and_the_grenadines",
+      "regions": ["north"],
+      "point": [-61.2, 13.2],
+      "packs": ["packs/countries/saint_vincent_and_the_grenadines"]
+    },
+    {
+      "id": "samoa",
+      "name": "Samoa (country)",
+      "description": "Data specific to Samoa: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "samoa",
+      "regions": ["oceania"],
+      "point": [-172.1, -13.6],
+      "packs": ["packs/countries/samoa"]
+    },
+    {
       "id": "san_marino",
       "name": "San Marino (country)",
       "description": "Data specific to San Marino: docs, education, finance, geo, holiday, phone, sport, vehicle.",
@@ -1843,6 +2014,15 @@
       "packs": ["packs/countries/serbia"]
     },
     {
+      "id": "seychelles",
+      "name": "Seychelles (country)",
+      "description": "Data specific to Seychelles: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "seychelles",
+      "regions": ["africa"],
+      "point": [55.5, -4.6],
+      "packs": ["packs/countries/seychelles"]
+    },
+    {
       "id": "sierra_leone",
       "name": "Sierra Leone (country)",
       "description": "Data specific to Sierra Leone: docs, education, finance, geo, holiday, phone, sport, vehicle.",
@@ -1877,6 +2057,15 @@
       "regions": ["europe"],
       "point": [15, 46.15],
       "packs": ["packs/countries/slovenia"]
+    },
+    {
+      "id": "solomon_islands",
+      "name": "Solomon Islands (country)",
+      "description": "Data specific to Solomon Islands: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "solomon_islands",
+      "regions": ["oceania"],
+      "point": [160, -9.6],
+      "packs": ["packs/countries/solomon_islands"]
     },
     {
       "id": "somalia",
@@ -1940,6 +2129,15 @@
       "regions": ["africa"],
       "point": [30, 15.5],
       "packs": ["packs/countries/sudan"]
+    },
+    {
+      "id": "suriname",
+      "name": "Suriname (country)",
+      "description": "Data specific to Suriname: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "suriname",
+      "regions": ["south"],
+      "point": [-56, 4],
+      "packs": ["packs/countries/suriname"]
     },
     {
       "id": "sweden",
@@ -2014,9 +2212,18 @@
       "packs": ["packs/countries/togo"]
     },
     {
+      "id": "tonga",
+      "name": "Tonga (country)",
+      "description": "Data specific to Tonga: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "tonga",
+      "regions": ["oceania"],
+      "point": [-175.2, -21.2],
+      "packs": ["packs/countries/tonga"]
+    },
+    {
       "id": "trinidad_and_tobago",
       "name": "Trinidad And Tobago (country)",
-      "description": "Data specific to Trinidad And Tobago: docs, education, finance, geo, holiday, phone, sport.",
+      "description": "Data specific to Trinidad And Tobago: docs, education, finance, geo, holiday, phone, sport, vehicle.",
       "country": "trinidad_and_tobago",
       "regions": ["north", "south"],
       "point": [-61.2, 10.7],
@@ -2048,6 +2255,15 @@
       "regions": ["asia"],
       "point": [59.6, 39],
       "packs": ["packs/countries/turkmenistan"]
+    },
+    {
+      "id": "tuvalu",
+      "name": "Tuvalu (country)",
+      "description": "Data specific to Tuvalu: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "tuvalu",
+      "regions": ["oceania"],
+      "point": [179.2, -8.5],
+      "packs": ["packs/countries/tuvalu"]
     },
     {
       "id": "uae",
@@ -2111,6 +2327,15 @@
       "regions": ["asia"],
       "point": [64.6, 41.4],
       "packs": ["packs/countries/uzbekistan"]
+    },
+    {
+      "id": "vanuatu",
+      "name": "Vanuatu (country)",
+      "description": "Data specific to Vanuatu: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "vanuatu",
+      "regions": ["oceania"],
+      "point": [167, -16],
+      "packs": ["packs/countries/vanuatu"]
     },
     {
       "id": "vatican_city",

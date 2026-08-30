@@ -1,0 +1,13 @@
+---
+address: grenada.geo.city
+description: Grenadian settlements. St George's harbour is a drowned volcanic crater and one of the most photographed in the Caribbean. Hillsborough is Carriacou's town, an hour's ferry away.
+locale: en
+---
+Saint George's
+Gouyave
+Grenville
+Victoria
+Sauteurs
+Hillsborough
+Grand Anse
+Saint David's

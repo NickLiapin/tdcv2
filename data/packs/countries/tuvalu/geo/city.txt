@@ -1,0 +1,12 @@
+---
+address: tuvalu.geo.city
+description: Tuvaluan settlements. Funafuti is the capital atoll and Fongafale its main islet — in places a few dozen metres wide, with the airstrip doubling as the island's public space when no plane is due. Tuvalu's highest point is 4.6 metres and the country has begun building a digital replica of itself, declaring that it intends to remain a state even if the land goes under.
+locale: en
+---
+Funafuti
+Fongafale
+Vaiaku
+Asau
+Tanrake
+Savave
+Kulia

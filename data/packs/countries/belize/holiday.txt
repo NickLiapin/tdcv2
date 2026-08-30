@@ -1,0 +1,19 @@
+---
+address: belize.holiday
+description: Belizean public holidays. Independence from Britain is 21 September 1981. Saint George's Caye Day on 10 September marks the 1798 battle against Spain that settled British control, and Garifuna Settlement Day on 19 November marks the 1832 arrival of the Garifuna people from Honduras — a national holiday for one community's migration, which is unusual and says something about how Belize understands itself.
+locale: en
+---
+New Year's Day
+George Price Day
+National Heroes and Benefactors Day
+Good Friday
+Holy Saturday
+Easter Monday
+Labour Day
+Emancipation Day
+Saint George's Caye Day
+Independence Day
+Indigenous Peoples' Resistance Day
+Garifuna Settlement Day
+Christmas Day
+Boxing Day

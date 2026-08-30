@@ -1,0 +1,9 @@
+---
+address: fiji.education.university
+description: Fijian universities. The University of the South Pacific is the institution to understand here: it is owned jointly by twelve Pacific island countries, has campuses in all of them, and is headquartered in Fiji — so a Pacific graduate's university is regional rather than national, the same arrangement the University of the West Indies has in the Caribbean. Fiji hosts the main campus at Laucala in Suva.
+locale: en
+---
+University of the South Pacific
+Fiji National University
+University of Fiji
+Fiji School of Medicine

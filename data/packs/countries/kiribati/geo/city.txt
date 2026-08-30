@@ -1,0 +1,13 @@
+---
+address: kiribati.geo.city
+description: Kiribati settlements. South Tarawa holds half the population on a strip of coral a few hundred metres wide and is among the most densely populated places in the Pacific. Banaba was mined out for phosphate and its people resettled to Fiji in 1945 — an entire island's population moved because the island was consumed.
+locale: en
+---
+South Tarawa
+Betio
+Bairiki
+Bikenibeu
+London
+Banana
+Tabwakea
+Rawannawi
