@@ -1,0 +1,6 @@
+---
+description: Gender. 男 and 女 are the single characters a Taiwanese form prints and what the second digit of a national identity card number encodes; 男性 and 女性 are the fuller words used in prose and in official statistics. Chinese has no grammatical gender, so nothing else in a record has to agree with this field — which is why the surname list beside it needs no female variant.
+locale: zh
+---
+男
+女

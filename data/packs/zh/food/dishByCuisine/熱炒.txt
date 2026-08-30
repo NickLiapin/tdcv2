@@ -1,0 +1,16 @@
+---
+description: Dishes of 熱炒, the Taiwanese stir-fry beer house — fast, loud, and traditionally a flat 100 元 a plate, which is why the shops are signposted 熱炒100. 蒼蠅頭 means 'fly heads' and is minced pork with flowering chives and fermented black beans; the black specks the name refers to are the beans. 金沙 in any Taiwanese dish name means salted duck-egg yolk, and 塔香 means the dish is finished with 九層塔, Taiwan's basil.
+locale: zh
+---
+蒼蠅頭
+塔香茄子
+沙茶牛肉
+三杯中卷
+生炒花枝
+炒海瓜子
+鹽酥溪蝦
+蛤蜊絲瓜
+鳳梨蝦球
+炒水蓮
+金沙杏鮑菇
+炒空心菜

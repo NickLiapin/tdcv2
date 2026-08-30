@@ -1,0 +1,12 @@
+---
+description: Blood group as Taiwan records it. The ABO group takes 型 — A型 — and the Rh factor is stated separately after it. Rh-negative blood is rarer here than in almost any Western population: roughly three Taiwanese in a thousand carry it, against about fifteen per cent of Europeans, so a hospital that needs a unit goes to the rare-donor register maintained by the Taiwan Blood Services Foundation rather than to its own refrigerator. Taiwan does not use the mainland nickname 熊貓血 for it. The term in Taiwanese use is 稀有血型, and carrying a card that says so is ordinary practice for the people on that register.
+locale: zh
+---
+A型Rh陽性
+A型Rh陰性
+B型Rh陽性
+B型Rh陰性
+AB型Rh陽性
+AB型Rh陰性
+O型Rh陽性
+O型Rh陰性

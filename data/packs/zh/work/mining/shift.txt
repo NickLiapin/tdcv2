@@ -1,0 +1,9 @@
+---
+description: Shift name in Taiwan. The three-shift roster is 白班, 小夜班 and 大夜班, literally day, small-night and big-night, and that 小夜 and 大夜 split is the standard local wording, used identically in hospitals, wafer fabs and convenience stores. Night work carries a statutory pay premium, and for women it was restricted outright by the Labor Standards Act until the Constitutional Court struck that provision down in 2021. 檢修班 is the maintenance shift that works while the line is stopped.
+locale: zh
+---
+早班
+小夜班
+大夜班
+日班
+檢修班

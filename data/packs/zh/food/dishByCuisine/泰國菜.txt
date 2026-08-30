@@ -1,0 +1,14 @@
+---
+description: Dishes of 泰國菜. 月亮蝦餅 is the entry worth knowing: the 'moon prawn cake' is on the menu of essentially every Thai restaurant in Taiwan, is what Taiwanese diners think of first when they think of Thai food, and does not exist in Thailand — it was invented here. Note also that pineapple is 鳳梨 in Taiwan, so the fried rice served in a hollowed fruit is 鳳梨炒飯 and never the mainland's 菠蘿飯.
+locale: zh
+---
+泰式酸辣湯
+月亮蝦餅
+打拋豬
+綠咖哩
+青木瓜沙拉
+泰式鳳梨炒飯
+泰式炒河粉
+芒果糯米飯
+咖哩螃蟹
+檸檬魚

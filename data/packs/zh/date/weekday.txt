@@ -1,0 +1,11 @@
+---
+description: Weekdays. Taiwan says 星期 or 週 where the mainland also says 周; Sunday is 星期日 formally and 星期天 in speech. Like the months, the days are numbered — 星期一 is day one — with Sunday the exception.
+locale: zh
+---
+星期日
+星期一
+星期二
+星期三
+星期四
+星期五
+星期六

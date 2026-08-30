@@ -1,0 +1,32 @@
+---
+description: Trees. 台灣杉 is one of the few plant genera named after Taiwan and grows to seventy metres in the island's high forest. 榕樹, the banyan, is the tree of a Taiwanese temple courtyard and village square, and 桂竹 is the makino bamboo that Taiwanese scaffolding and furniture were built from before steel.
+locale: zh
+---
+銀杏
+水杉
+松樹
+柏樹
+杉樹
+柳樹
+楊樹
+槐樹
+榆樹
+樺樹
+楓樹
+梧桐
+樟樹
+香樟
+榕樹
+台灣杉
+竹子
+桂竹
+桃樹
+李樹
+杏樹
+梨樹
+蘋果樹
+棗樹
+柿樹
+石榴樹
+橡樹
+棕櫚

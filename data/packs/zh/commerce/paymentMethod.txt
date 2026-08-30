@@ -1,0 +1,19 @@
+---
+description: Payment method at a Taiwanese or Hong Kong checkout. Taiwan is a card-and-cash market with a thick layer of local wallets on top, so the mainland pair of 微信支付 and 支付寶 is absent: LINE Pay rides on the messaging app essentially everyone uses, 街口支付 is the largest independent wallet, and 悠遊付, 一卡通 Money and 全支付 grew out of transit cards and supermarket loyalty schemes. 超商取貨付款 means paying cash at the convenience-store counter on collection, and 超商代碼繳費 is a printed code taken to the same counter. Every purchase issues a 發票, a government uniform invoice carrying a number entered in a bi-monthly national lottery. 八達通 and 轉數快 are the Hong Kong entries.
+locale: zh
+---
+信用卡
+分期付款
+貨到付款
+超商取貨付款
+ATM 轉帳
+超商代碼繳費
+郵局劃撥
+LINE Pay
+街口支付
+悠遊付
+一卡通 Money
+全支付
+Apple Pay
+八達通
+轉數快

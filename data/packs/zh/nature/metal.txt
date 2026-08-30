@@ -1,0 +1,26 @@
+---
+description: Metals. Chinese builds almost all of them on the 金 radical — 銀, 銅, 鐵, 鋁, 鋅 — so the writing system marks the whole category the way the periodic table does, and a reader can tell an unfamiliar character is a metal without knowing which one.
+locale: zh
+---
+金
+銀
+銅
+鐵
+鋁
+鋅
+錫
+鉛
+鎳
+鈦
+鎂
+鎢
+鉬
+鈷
+鉻
+錳
+汞
+鉑
+鈀
+稀土
+不鏽鋼
+青銅

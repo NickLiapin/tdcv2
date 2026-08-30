@@ -1,0 +1,18 @@
+---
+description: Dishes of 火鍋. Taiwan's hotpot splits into the imported 麻辣鍋 and two native winter genres that are restaurants in their own right: 薑母鴨, duck in sesame oil, old ginger and rice wine, and 羊肉爐, mutton stewed with medicinal herbs. Both are 進補 — food eaten deliberately to warm the body — and both appear on the street the week the weather turns. Taiwan dips hotpot in 沙茶醬, a Chaozhou paste of dried shrimp, garlic and peanut, where the mainland uses sesame paste; ordering sesame paste in Taipei marks you as a visitor.
+locale: zh
+---
+麻辣鍋
+鴛鴦鍋
+酸菜白肉鍋
+薑母鴨
+羊肉爐
+石頭火鍋
+臭臭鍋
+泡菜鍋
+牛奶鍋
+昆布鍋
+鴨血
+凍豆腐
+肥牛片
+魚餃

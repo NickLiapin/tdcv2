@@ -1,0 +1,18 @@
+---
+description: Insurance in Taiwan. The first five are the state schemes and the first two are compulsory and near-universal — 健保 is the single-payer 全民健康保險 launched in 1995, which covers essentially the whole population and is deducted from payroll, and 勞保 is the labour insurance that carries occupational injury and the old-age pension. 勞退 is separate from 勞保 and often confused with it, being the employer's monthly contribution of six percent of salary into the worker's own individual retirement account under the system introduced in 2005. 國民年金 catches those outside employment insurance. 強制汽車責任險 is compulsory for every car and scooter on the road, and 車體損失險 is the optional cover for one's own vehicle bought on top of it.
+locale: zh
+---
+勞保
+健保
+勞退
+就業保險
+國民年金
+醫療險
+重大疾病險
+意外險
+定期壽險
+終身壽險
+年金險
+長期照顧險
+強制汽車責任險
+車體損失險

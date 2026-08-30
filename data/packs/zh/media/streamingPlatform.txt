@@ -1,0 +1,16 @@
+---
+description: Streaming services actually used in Taiwan and Hong Kong. Netflix, YouTube and Disney+ all operate normally here, which alone makes this a different market from the mainland, and none of 騰訊視頻, 優酷 or 芒果TV is a meaningful presence. Three of these are telco services sold bundled with a phone plan — Hami Video belongs to Chunghwa Telecom, friDay影音 to FarEasTone and myVideo to Taiwan Mobile — and KKTV and KKBOX come from the same Taiwanese company, KKBOX having been the island's dominant music service since long before Spotify arrived. LINE TV rides on the messenger that nearly everyone in Taiwan uses daily, 巴哈姆特動畫瘋 is the anime arm of the local games community, and Viu is Hong Kong's own, run by PCCW. 愛奇藝國際站 is the separate overseas edition with its own catalogue, and Taiwan barred local companies from acting as its agent in 2020.
+locale: zh
+---
+Netflix
+YouTube
+Disney+
+LINE TV
+KKTV
+friDay影音
+myVideo
+Hami Video
+巴哈姆特動畫瘋
+Viu
+愛奇藝國際站
+KKBOX

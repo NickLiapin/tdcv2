@@ -1,0 +1,32 @@
+---
+description: Genres as a Taiwanese bookshop shelves them. 武俠 is the martial-arts novel, a genre whose defining works — Jin Yong's — were serialised in Hong Kong newspapers and were banned in Taiwan for years and on the mainland for longer. 報導文學 is literary reportage, a category Chinese-language publishing treats as its own rather than folding into non-fiction.
+locale: zh
+---
+小說
+武俠
+玄幻
+仙俠
+都市
+歷史
+軍事
+懸疑
+推理
+科幻
+言情
+青春文學
+兒童文學
+散文
+詩歌
+傳記
+報導文學
+社會科學
+哲學
+心理學
+商業管理
+電腦
+參考書
+考試用書
+養生
+食譜
+旅遊
+繪本

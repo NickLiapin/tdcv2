@@ -1,0 +1,36 @@
+---
+description: Country names in Traditional Chinese. Several differ from the mainland's rendering: Taiwan writes 義大利 for Italy where the mainland writes 意大利, 紐西蘭 for New Zealand against 新西兰, 寮國 for Laos against 老挝, and 沙烏地阿拉伯 for Saudi Arabia against 沙特阿拉伯 — the divergence is in the transliteration choices, not only in the characters.
+locale: zh
+---
+台灣
+中國
+日本
+韓國
+美國
+加拿大
+英國
+法國
+德國
+義大利
+西班牙
+葡萄牙
+荷蘭
+瑞士
+瑞典
+挪威
+俄羅斯
+澳洲
+紐西蘭
+新加坡
+馬來西亞
+泰國
+越南
+菲律賓
+印尼
+印度
+寮國
+柬埔寨
+沙烏地阿拉伯
+巴西
+墨西哥
+南非

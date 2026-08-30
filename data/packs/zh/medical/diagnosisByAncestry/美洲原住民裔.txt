@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Indigenous American ancestry. The Pima of Arizona have among the highest type 2 diabetes rates ever recorded in a studied population, and the Amerindian-specific SLC16A11 haplotype carried across Mexico raises risk appreciably in its carriers; the same metabolic profile underlies the obesity and the gallstone disease that make cholecystectomy an unusually common operation in Chile and across the American Southwest. The protective ALDH2 variant of East Asia is absent here, removing one brake on heavy drinking and its liver consequences. Shared-epitope HLA-DRB1 alleles at high frequency drive rheumatoid arthritis and lupus, eustachian tube anatomy first described in Navajo and Inuit children explains the recurrent otitis media, tuberculosis persists where housing is crowded, and CYP1B1 founder variants in historically isolated communities account for primary congenital glaucoma. A prevalence signal, not an exclusive one.
+locale: zh
+---
+第二型糖尿病
+膽結石症
+類風濕性關節炎
+酒精性肝病
+肥胖症
+全身性紅斑性狼瘡
+中耳炎
+結核病
+先天性青光眼
+乳糖不耐症

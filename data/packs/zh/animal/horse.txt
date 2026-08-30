@@ -1,0 +1,20 @@
+---
+description: Horse breeds in Traditional characters. Neither Taiwan nor Hong Kong has a native horse, so this list is honestly an imported one, and it is led by 純種馬 — the thoroughbred — because Hong Kong racing is the reason a Chinese-language horse vocabulary exists in this region at all. The Hong Kong Jockey Club runs two tracks and is among the largest taxpayers in the territory, and its horses are almost entirely thoroughbreds bought abroad. The remaining breeds are riding-school and equestrian-club animals; 蒙古馬 and 汗血寶馬 survive from the mainland list because they belong to the shared literary vocabulary rather than to any local stable.
+locale: zh
+---
+純種馬
+阿拉伯馬
+蒙古馬
+汗血寶馬
+美國夸特馬
+安達魯西亞馬
+佛里斯蘭馬
+阿帕盧薩馬
+摩根馬
+漢諾威馬
+荷蘭溫血馬
+愛爾蘭運動馬
+威爾斯矮種馬
+設得蘭矮種馬
+迷你馬
+挽馬

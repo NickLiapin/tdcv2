@@ -1,0 +1,13 @@
+---
+description: Compass directions. Two things to know. Chinese orders the compound directions the opposite way to English — 東南 is east-south, not south-east — and in a Taiwanese address the direction is part of the road's name rather than a modifier: 忠孝東路 and 忠孝西路 are two named segments of one long road through Taipei, numbered separately, and a delivery to the wrong one lands kilometres away.
+locale: zh
+---
+東
+西
+南
+北
+東南
+東北
+西南
+西北
+中

@@ -1,0 +1,17 @@
+---
+description: Informal forms of address. The 阿- prefix and the doubled syllable are the two productive patterns: 阿明 from 志明, 婷婷 from 雅婷. 小- before a surname is what colleagues use for someone younger, and 老- for someone older, so 小陳 and 老陳 can be the same person twenty years apart.
+locale: zh
+---
+阿明
+阿華
+阿美
+阿良
+小陳
+小林
+老王
+婷婷
+涵涵
+豪哥
+芬姐
+阿嬤
+阿伯

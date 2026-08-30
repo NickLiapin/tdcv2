@@ -12,8 +12,14 @@
  * i18n system on earth already follows (RFC 4647 lookup, moment's own
  * `en-gb` → `en`): a variant answers for itself where it ships something, and
  * defers to its base language everywhere else. One step, never a chain, and
- * never as far as English — `zh-tw` has no `zh` to fall back to and still
- * refuses, which is correct, because Traditional is not Simplified.
+ * never as far as English — `tzm-latn` has a `tzm` folder that ships nothing,
+ * so it refuses rather than reaching further.
+ *
+ * That one step is also what decided where Traditional Chinese lives. It is
+ * shipped as `zh`, not as `zh-tw`, because `zh` is the only address all three
+ * of zh-tw, zh-hk and zh-mo can reach in a single step; a pack named after any
+ * one of them would be invisible to the other two. `zh-cn` keeps its own pack
+ * and never falls back, so nothing is taken from it.
  */
 
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
@@ -94,11 +100,25 @@ describe('a variant locale defers to its base language', () => {
   });
 
   it('a variant with no base data still refuses — the fallback is one step, not a search', () => {
-    // `zh-tw` would have to reach `zh`, which ships nothing; falling on to
-    // `zh-cn` would hand Traditional readers Simplified data.
-    expect(() => render(NAMES('zh-tw'))).toThrow(/no data for locale "zh-tw"/);
+    // `tzm-latn` reaches `tzm`, a folder that exists and ships nothing. There is
+    // no second step to a neighbouring locale, and there should not be: guessing
+    // is worse than saying so.
+    expect(() => render(NAMES('tzm-latn'))).toThrow(/no data for locale "tzm-latn"/);
     // And the empty-locale test vector the pack suite relies on stays empty.
     expect(() => render(NAMES('x-pseudo'))).toThrow(/no data for locale "x-pseudo"/);
+  });
+
+  it('all three Traditional Chinese locales reach the one zh pack, and zh-cn does not', () => {
+    // The case the rule was designed around. zh-tw, zh-hk and zh-mo ship nothing
+    // of their own and each takes a single step to `zh`, so all three render the
+    // same Traditional names. zh-cn has its own pack, never falls back, and must
+    // stay different — a Traditional reader handed Simplified data would be the
+    // failure this whole mechanism exists to avoid.
+    const tw = render(NAMES('zh-tw'));
+    expect(render(NAMES('zh-hk'))).toBe(tw);
+    expect(render(NAMES('zh-mo'))).toBe(tw);
+    expect(render(NAMES('zh'))).toBe(tw);
+    expect(render(NAMES('zh-cn'))).not.toBe(tw);
   });
 
   it('check agrees with the run — no TDC217 for a variant the run can serve', () => {

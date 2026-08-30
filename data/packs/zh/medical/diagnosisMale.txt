@@ -1,0 +1,34 @@
+---
+description: Diagnosis that only affects men, or is overwhelmingly male, in Taiwan's clinical register. The prostate is the fault line: Taiwan writes 攝護腺 where the mainland writes 前列腺, so every prostate entry differs from its Simplified counterpart in the stem and not merely in the glyphs. Two further habits run through the whole list — a named syndrome is a 症候群 in Taiwan against the mainland's 综合征, which is why Klinefelter's appears as 克林菲特氏症候群; and an abscess is a 膿瘍, never a 脓肿. Taiwan also uses the standard form 睪 for the testis rather than 睾, calls the epididymis 副睪 instead of 附睾, treats a hernia as the everyday 疝氣, shortens androgenetic alopecia to 雄性禿, and files male infertility under 不孕症, the same word it applies to women, where the mainland reserves 不育 for men.
+locale: zh
+---
+良性攝護腺肥大
+攝護腺炎
+攝護腺癌
+睪丸癌
+睪丸扭轉
+精索靜脈曲張
+陰囊水腫
+副睪炎
+隱睪症
+包莖
+龜頭炎
+勃起功能障礙
+陰莖硬結症
+男性不孕症
+男性女乳症
+男性性腺功能低下症
+陰莖異常勃起
+精液囊腫
+雄性禿
+陰囊疝氣
+陰莖癌
+睪丸炎
+尿道狹窄
+克林菲特氏症候群
+無精症
+早洩
+包皮嵌頓
+攝護腺膿瘍
+精囊炎
+血精症

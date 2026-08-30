@@ -1,0 +1,28 @@
+---
+description: Department inside a Taiwanese company. The vocabulary diverges sharply from the mainland's: sales is 業務部 rather than 銷售部, marketing is 行銷部, business operations are 營運部 while infrastructure operations are 維運部, data is 資料 and never 數據, strategy is 策略 rather than 戰略, and quality assurance is 品保, short for 品質保證. The last entry is where the two lists cannot correspond at all. In place of the mainland's Party committee office stands 稽核室, the internal audit unit that Taiwan's Financial Supervisory Commission requires every listed company to maintain and which reports to the board rather than to management.
+locale: zh
+---
+技術部
+研發部
+產品部
+設計部
+測試部
+維運部
+資料部
+行銷部
+業務部
+商務部
+營運部
+客服部
+人力資源部
+行政部
+財務部
+法務部
+採購部
+供應鏈部
+生產部
+品保部
+倉儲物流部
+策略投資部
+公共關係部
+稽核室

@@ -1,0 +1,11 @@
+---
+description: Words that open a place name. Taiwan's map is built almost entirely from these: 新北 is New Taipei, named for surrounding the old city, and 台北, 台中, 台南 and 台東 are simply north, middle, south and east of 台 — the island named once and then divided by compass point, which is why four of its six special municipalities share a first character.
+locale: zh
+---
+新
+大
+東
+西
+南
+北
+中

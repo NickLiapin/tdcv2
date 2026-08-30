@@ -1,0 +1,31 @@
+---
+description: Condition that affects only women, or overwhelmingly women, in Taiwanese medical Chinese. Note how far the terms drift across the strait: breast cancer is 乳癌 and not 乳腺癌, the cervix is 子宮頸 and not 宮頸, the pelvis is 骨盆腔 and not 盆腔, pre-eclampsia is 子癲前症 and not 子癇前期, and lupus is 全身性紅斑性狼瘡 rather than 系統性紅斑狼瘡. Period pain reverses its own two characters — 經痛 in Taiwan, 痛經 on the mainland — and depression is 憂鬱 here against 抑鬱 there, which is why postnatal depression can only be 產後憂鬱症.
+locale: zh
+---
+乳癌
+乳房纖維囊腫
+乳腺炎
+子宮頸癌
+子宮頸炎
+子宮肌瘤
+子宮內膜異位症
+子宮內膜癌
+卵巢囊腫
+卵巢癌
+多囊性卵巢症候群
+骨盆腔發炎
+陰道炎
+月經失調
+經痛
+無月經症
+更年期症候群
+先兆性流產
+妊娠糖尿病
+妊娠高血壓
+子癲前症
+產後出血
+產後憂鬱症
+不孕症
+骨質疏鬆症
+橋本氏甲狀腺炎
+全身性紅斑性狼瘡

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in 腎臟內科 (Taiwanese Mandarin). Taiwan has for years reported the world's highest prevalence of treated end-stage kidney disease, with some ninety thousand people on 洗腎 paid for in full by National Health Insurance, which makes this department unusually large for the size of the island; diabetes and hypertension supply most new cases, and aristolochic acid in several traditional herbal remedies was documented as a Taiwanese cause of kidney failure before those herbs were banned in 2003. Damage to the organ is 病變 in Taiwanese usage, giving 糖尿病腎病變 and 高血壓腎病變, and nephrotic syndrome is 腎病症候群.
+locale: zh
+---
+慢性腎臟病
+急性腎損傷
+腎病症候群
+IgA腎病變
+糖尿病腎病變
+高血壓腎病變
+腎結石
+泌尿道感染
+多囊腎
+尿毒症

@@ -1,0 +1,11 @@
+---
+description: The administrative words that end a Taiwanese place name. 市 is a city, 縣 a county, 區 an urban district, 鄉 a rural township, 鎮 an urban township and 里 the smallest unit — a Taiwanese address ends with one of these and the level tells a reader how rural the address is.
+locale: zh
+---
+市
+縣
+區
+鄉
+鎮
+里
+村

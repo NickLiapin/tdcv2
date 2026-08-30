@@ -1,0 +1,12 @@
+---
+description: Sizes. Taiwanese labels use the Latin letters directly rather than translating them, and 均一尺寸 — one size — is what a Taiwanese tag prints where the mainland prints 均码.
+locale: zh
+---
+XS
+S
+M
+L
+XL
+XXL
+XXXL
+均一尺寸

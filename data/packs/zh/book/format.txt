@@ -1,0 +1,12 @@
+---
+description: Book formats. 線裝 is thread binding, the traditional Chinese format in which folded leaves are stitched along the open edge and read from the back forward; it survives for reprints of classics.
+locale: zh
+---
+平裝
+精裝
+簡裝
+線裝
+電子書
+有聲書
+期刊
+漫畫

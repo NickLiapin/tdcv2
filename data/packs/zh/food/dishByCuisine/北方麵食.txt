@@ -1,0 +1,16 @@
+---
+description: Dishes of 北方麵食 — northern wheat food, a restaurant category that exists in Taiwan because of the 1949 migration and nowhere in a mainland classification, where this food is simply what the north eats. Southern China and Taiwan eat rice; the north eats wheat, and the dumpling-and-noodle shops in every Taiwanese town were opened by mainlanders who could not buy the food they grew up on. 貓耳朵 means 'cat's ears' and is dough pinched into curls by thumb against a board.
+locale: zh
+---
+水餃
+鍋貼
+蔥油餅
+牛肉捲餅
+韭菜盒子
+餡餅
+刀削麵
+炸醬麵
+麻醬麵
+貓耳朵
+酸辣湯
+饅頭

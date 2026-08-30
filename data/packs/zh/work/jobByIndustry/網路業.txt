@@ -1,0 +1,16 @@
+---
+description: Jobs in Taiwan's internet sector. The island's technology industry is built on hardware, so the pure software and web firms form a comparatively small world concentrated in Taipei, and they hire against semiconductor companies that can simply pay more for the same engineers. The titles here are the Taiwanese ones: 演算法 for algorithms, 資料 for data, 維運 for infrastructure operations, 互動設計 for interaction design, and 技術長 for the chief technology officer.
+locale: zh
+---
+前端工程師
+後端工程師
+演算法工程師
+資料工程師
+測試工程師
+維運工程師
+產品經理
+互動設計師
+UI設計師
+營運專員
+技術長
+資料分析師

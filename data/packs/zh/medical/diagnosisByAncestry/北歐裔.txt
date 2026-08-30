@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Northern European ancestry. Two founder variants dominate the list — F508del in CFTR, carried by roughly one Northern European in twenty-five, and C282Y in HFE, which reaches its world peak in Ireland and earned hereditary haemochromatosis the nickname of the Celtic curse. The HLA-DQ2 and DQ8 haplotypes that make coeliac disease possible are common in the same populations, alongside the risk alleles behind type 1 diabetes and multiple sclerosis, and HLA-B27, carried by close to one Scandinavian in ten, underlies the ankylosing spondylitis excess. Alpha-1 antitrypsin deficiency traces to the PiZ allele of Baltic origin, and low constitutive melanin explains the melanoma rates. A prevalence signal, not an exclusive one.
+locale: zh
+---
+囊狀纖維化症
+遺傳性血色素沉著症
+乳糜瀉
+第一型糖尿病
+多發性硬化症
+苯酮尿症
+α1抗胰蛋白酶缺乏症
+黑色素瘤
+僵直性脊椎炎
+遺傳性出血性微血管擴張症

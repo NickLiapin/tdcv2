@@ -1,0 +1,20 @@
+---
+description: Vegetables, in Traditional characters. Note 空心菜 and 地瓜葉, both everyday Taiwanese greens with no common English name, and 高麗菜 — the cabbage, whose name comes from Korea by way of Japanese.
+locale: zh
+---
+高麗菜
+空心菜
+地瓜葉
+青江菜
+白菜
+菠菜
+韭菜
+芹菜
+茄子
+苦瓜
+絲瓜
+南瓜
+蘿蔔
+竹筍
+香菇
+玉米

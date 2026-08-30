@@ -1,0 +1,14 @@
+---
+description: Loan products sold in Taiwan. 青年安心成家購屋貸款 is the government's subsidised first-home scheme, carrying a rate below the commercial one and a longer term, and it is the closest thing here to the mainland's housing provident fund loan though the mechanism is entirely different — a state-owned bank lends with a Treasury interest subsidy rather than a payroll savings pot lending back to its own members. 理財型房貸 turns the repaid portion of a mortgage into a revolving credit line drawn and repaid at will, and 二胎房貸 is a second charge on the same property. 保單借款 is borrowing against the cash value of one's own life policy, which in Taiwan is a common and quick source of funds. Taiwan says 就學貸款 for the student loan, not the mainland's 助學貸款.
+locale: zh
+---
+房屋貸款
+青年安心成家購屋貸款
+二胎房貸
+理財型房貸
+房屋修繕貸款
+信用貸款
+汽車貸款
+就學貸款
+企業貸款
+保單借款

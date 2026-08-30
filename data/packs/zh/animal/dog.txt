@@ -1,0 +1,31 @@
+---
+description: Dog breeds in Traditional characters. 台灣犬 is the Formosan mountain dog, the island's own hunting dog, kept by the indigenous peoples for centuries before any breed club took an interest, and 米克斯犬 is the everyday word for a mixed-breed dog, borrowed from the English mix. Several names diverge from the mainland even though the animal is the same — Taiwan says 黃金獵犬 for the golden retriever where the mainland says 金毛尋回犬, and 德國狼犬 for the German shepherd where the mainland says 德國牧羊犬. 馬爾濟斯, the Maltese, is one of the most commonly registered small dogs on the island.
+locale: zh
+---
+台灣犬
+黃金獵犬
+拉布拉多犬
+德國狼犬
+邊境牧羊犬
+哈士奇
+阿拉斯加雪橇犬
+薩摩耶犬
+柯基犬
+柴犬
+秋田犬
+比熊犬
+馬爾濟斯
+貴賓犬
+博美犬
+吉娃娃
+臘腸犬
+鬥牛犬
+法國鬥牛犬
+杜賓犬
+羅威納犬
+鬆獅犬
+沙皮犬
+西施犬
+北京犬
+藏獒
+米克斯犬

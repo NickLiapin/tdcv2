@@ -1,0 +1,11 @@
+---
+description: Positions in 排球 (Traditional Chinese). Taiwanese volleyball calls the setter the 舉球員 and the libero the 自由球員, and both differ from the mainland terms. The 自由球員 wears a contrasting shirt, plays only in the back court and cannot serve, block or attack the ball above the net.
+locale: zh
+---
+主攻手
+副攻手
+舉球員
+接應
+自由球員
+發球專項
+攔網專項

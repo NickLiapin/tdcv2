@@ -1,0 +1,12 @@
+---
+description: Mining method, in Traditional characters: 開採 rather than the simplified 开采, and 採礦 written with the hand radical. Taiwan's own mining today is almost entirely 露天開採 of limestone and marble in the mountains of the east coast. The underground longwall and room-and-pillar workings in this list belong to the coal era, which ended when the last pits in the hills of northern Taiwan closed.
+locale: zh
+---
+露天開採
+地下開採
+房柱法
+長壁開採
+充填採礦法
+崩落採礦法
+水力開採
+鑽孔開採

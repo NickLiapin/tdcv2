@@ -1,0 +1,28 @@
+---
+description: Mobile and fixed-line operators of Taiwan, Hong Kong and Macau. Taiwan's market consolidated hard in 2023 — 台灣之星 merged into 台灣大哥大 and 亞太電信 into 遠傳 — leaving three national carriers where there had been five, so both the old and the new names appear in real data depending on when it was captured.
+locale: zh
+---
+中華電信
+台灣大哥大
+遠傳電信
+台灣之星
+亞太電信
+無框行動
+台灣之星speed+
+中嘉和信
+凱擘大寬頻
+台灣寬頻
+台灣固網
+新世紀資通
+香港電訊
+csl
+3香港
+SmarTone
+中國移動香港
+China Unicom HK
+鴨聊佳
+Birdie
+澳門電訊
+數碼通
+MTel
+和記電訊

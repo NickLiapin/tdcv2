@@ -1,0 +1,35 @@
+---
+description: Instruments, Chinese first and Western after. 嗩吶 is the double-reed horn heard at Taiwanese temple processions and funerals and is loud enough to carry over a street; 南管 ensembles use 琵琶 held horizontally, in a posture abandoned elsewhere a thousand years ago and preserved in southern Fujian and Taiwan.
+locale: zh
+---
+古箏
+古琴
+琵琶
+二胡
+板胡
+京胡
+中阮
+柳琴
+三弦
+揚琴
+笛子
+簫
+嗩吶
+笙
+塤
+葫蘆絲
+鑼
+鈸
+木魚
+編鐘
+大鼓
+腰鼓
+鋼琴
+小提琴
+大提琴
+吉他
+電吉他
+貝斯
+爵士鼓
+薩克斯風
+小號

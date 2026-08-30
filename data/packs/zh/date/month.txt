@@ -1,0 +1,16 @@
+---
+description: Months. Chinese numbers its months rather than naming them — 一月 is simply month one — which is true in both scripts and makes the month field trivially sortable in a way European month names are not.
+locale: zh
+---
+一月
+二月
+三月
+四月
+五月
+六月
+七月
+八月
+九月
+十月
+十一月
+十二月

@@ -1,0 +1,16 @@
+---
+description: Jobs in Taiwanese schools. The stages are 國小 and 國中, from 國民小學 and 國民中學 and the nine years of compulsory 國民教育, so a primary teacher is a 國小教師 and never a 小學教師. The teacher who takes charge of a class is the 導師, a role that follows the same cohort for years and absorbs discipline, pastoral care and all dealings with parents; the mainland's 班主任 is not used. School counselling is done by 輔導老師, while clinical work belongs to the separately licensed 諮商心理師.
+locale: zh
+---
+國小教師
+國中教師
+大學教師
+幼教老師
+導師
+教務主任
+教學組長
+校長
+輔導老師
+企業講師
+教科書編輯
+諮商心理師

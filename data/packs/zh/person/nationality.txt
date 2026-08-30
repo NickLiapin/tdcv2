@@ -1,0 +1,21 @@
+---
+description: Nationality as written in Traditional Chinese. Note 中華民國 — the Republic of China, which is the formal name of the state on Taiwan and what a Taiwanese passport says, while 台灣 is what people say. Both appear in real documents and a dataset that models only one of them will fail to match half its sources.
+locale: zh
+---
+中華民國
+台灣
+中國
+香港
+澳門
+日本
+韓國
+新加坡
+馬來西亞
+美國
+加拿大
+英國
+澳洲
+菲律賓
+越南
+泰國
+印尼

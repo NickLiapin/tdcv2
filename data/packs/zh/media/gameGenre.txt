@@ -1,0 +1,21 @@
+---
+description: Video game genres in Traditional Chinese. Taiwan writes 線上 for online where the mainland writes 在線, so the MOBA category is 多人線上競技 here, and sports games are 運動 rather than 體育. 生存恐怖 keeps the English word order of survival horror, against the mainland's 恐怖生存. The vocabulary was shaped by Taiwan's own PC-game industry of the 1990s and by 巴哈姆特電玩資訊站, the forum that has been the island's central games community since 1996 and where most of these labels are the actual board names.
+locale: zh
+---
+角色扮演
+動作
+冒險
+射擊
+第一人稱射擊
+多人線上競技
+策略
+即時戰略
+模擬經營
+運動
+競速
+音樂節奏
+休閒
+益智
+卡牌
+沙盒
+生存恐怖

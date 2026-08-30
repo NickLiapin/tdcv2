@@ -1,0 +1,17 @@
+---
+description: Types of case. The vocabulary splits from the mainland's at several points: a contract is 契約 not 合同, intellectual property is 智慧財產 not 知识产权, and a labour dispute is 勞資爭議 — capital and labour named as the two sides — rather than 劳动争议.
+locale: zh
+---
+民事案件
+刑事案件
+行政訴訟
+契約糾紛
+勞資爭議
+婚姻家事事件
+繼承事件
+侵權行為
+智慧財產糾紛
+不動產買賣糾紛
+交通事故
+民間借貸
+強制執行

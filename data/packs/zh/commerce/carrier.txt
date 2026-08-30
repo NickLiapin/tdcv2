@@ -1,0 +1,24 @@
+---
+description: Parcel carrier or delivery option offered at a Taiwanese or Hong Kong checkout. A Taiwanese carrier list overlaps almost nowhere with a mainland one: 黑貓宅急便 is Yamato's local joint venture and is the default home delivery, 新竹物流 and 嘉里大榮物流 carry the heavier freight, and the four convenience-store networks matter more than any of them — 超商取貨 sends the parcel to a 7-ELEVEN, 全家, 萊爾富 or OK counter near the buyer, who collects it within seven days and often pays cash on collection. 蝦皮店到店 is Shopee's own store network, built because store pickup is so dominant that renting someone else's counters was too expensive. 中華郵政 is the postal operator and 郵局 is what the checkout radio button actually says. 順豐速運, 嘉里快遞 and 香港郵政 carry the Hong Kong side.
+locale: zh
+---
+黑貓宅急便
+新竹物流
+台灣宅配通
+嘉里大榮物流
+全速配
+順豐速運
+嘉里快遞
+中華郵政
+郵局
+香港郵政
+7-ELEVEN 交貨便
+全家店到店
+萊爾富取貨
+OK超商取貨
+蝦皮店到店
+郵局i郵箱
+DHL
+FedEx 聯邦快遞
+UPS
+Lalamove 啦啦快送

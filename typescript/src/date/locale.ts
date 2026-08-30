@@ -8,6 +8,7 @@ import {
   EN,
   ES,
   ZH_CN,
+  ZH_TW,
   FR,
   AR,
   PT,
@@ -38,7 +39,8 @@ const LOCALES = new Map<string, DateLocale>([
   ['es', ES],
   ['spa', ES],
   ['zh-cn', ZH_CN],
-  ['zh', ZH_CN],
+  ['zh-tw', ZH_TW],
+  ['zh', ZH_TW],
   ['fr', FR],
   ['fra', FR],
   ['ar', AR],
@@ -103,6 +105,7 @@ export const DATE_LOCALE_NAMES: readonly string[] = [
   'uk',
   'vi',
   'zh-cn',
+  'zh-tw',
 ];
 
 /*

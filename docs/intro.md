@@ -271,7 +271,7 @@ byte-for-byte match with the output shown above.
   implementations, and the same seed gives the same value in each.
 
 - **[Locale and country packs](data-packs/overview.md#top).** Generate data for people,
-  places, medical records, and documents in 86 languages. Country packs
+  places, medical records, and documents in 87 languages. Country packs
   also support national ID formats for 198 countries, with the
   appropriate check-digit rule for each format.
 
@@ -345,7 +345,7 @@ registry produces the same bytes for the same config and seed.
 | **[Java](bindings/java.md#top)**             | Maven Central | `io.github.nickliapin:tdcv2` | 0.2.2   |
 
 Every published package carries a starter set of data packs, so it works with
-nothing else installed; the other 86 languages and
+nothing else installed; the other 87 languages and
 198 country packs are
 [a download away](data-packs/installing-packs.md#top).
 

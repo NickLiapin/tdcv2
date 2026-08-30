@@ -1,0 +1,27 @@
+---
+description: Taiwanese government bodies. The structure is a five-branch one — 行政, 立法, 司法, 考試, 監察 — designed by Sun Yat-sen and found nowhere else, which is why 考試院 and 監察院 appear here with no counterpart in any other country's list. 戶政事務所 is the household registration office and is where a Taiwanese life is recorded: birth, marriage, address, death. 數位發展部, the Ministry of Digital Affairs, was created in 2022.
+locale: zh
+---
+內政部
+警察局
+派出所
+國稅局
+稅捐稽徵處
+戶政事務所
+地政事務所
+勞動部
+經濟部
+財政部
+教育部
+衛生福利部
+交通部
+法務部
+環境部
+文化部
+農業部
+數位發展部
+監察院
+考試院
+移民署
+區公所
+里辦公處

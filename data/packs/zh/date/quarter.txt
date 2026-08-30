@@ -1,0 +1,8 @@
+---
+description: Fiscal quarters. Taiwan's fiscal year runs with the calendar year, so 第一季 is January to March and a company's annual report covers the same twelve months a Western one does — unlike Japan, whose year starts in April, or India's starting in July. Listed companies file quarterly with the Financial Supervisory Commission on that calendar.
+locale: zh
+---
+第一季
+第二季
+第三季
+第四季

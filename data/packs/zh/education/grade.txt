@@ -1,0 +1,16 @@
+---
+description: Grades as Taiwanese schools and universities record them. The traditional band scale is 優 甲 乙 丙 丁 — five characters that are not letters and not the mainland's 優秀 良好 中等, and 甲 as a passing grade will read as an oddity to anyone expecting an A. Alongside it universities keep a 100-point scale with the pass line at 60 for undergraduates and 70 for postgraduates, and many have added letter grades since the 2010s, so all three systems appear in real transcripts. 補考 is a resit of the assessment and 重修 is retaking the entire course for credit; both are recorded outcomes rather than absences of one.
+locale: zh
+---
+優
+甲
+乙
+丙
+丁
+及格
+不及格
+滿分
+A+
+A
+補考
+重修

@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of North African ancestry. The Maghreb carries both an old malarial legacy and, in many communities, high rates of first-cousin marriage, and the second is what makes recessive disease so visible here — beta thalassaemia, G6PD deficiency, phenylketonuria, glycogen storage disease, oculocutaneous albinism and connexin-26 hearing loss all sit well above European frequencies, often as a single founder variant shared across one region. Familial Mediterranean fever is carried at high rates in Berber and North African Jewish populations through MEFV founder alleles. Haemolytic crises in G6PD-deficient people cluster with the spring broad-bean harvest rather than falling evenly through the year. A prevalence signal, not an exclusive one.
+locale: zh
+---
+家族性地中海熱
+蠶豆症
+β型地中海型貧血
+肝醣儲積症
+苯酮尿症
+色素性視網膜炎
+遺傳性聽力障礙
+白化症
+蠶豆症溶血危象
+家族性高膽固醇血症

@@ -11,12 +11,12 @@ import {
 } from '../../src/data-pack/locales.js';
 
 describe('canonical locales', () => {
-  it('has 136 locales (135 moment files + en)', () => {
-    expect(CANONICAL_LOCALES.size).toBe(136);
+  it('has 137 locales (135 moment files + en + zh)', () => {
+    expect(CANONICAL_LOCALES.size).toBe(137);
   });
 
   it('includes the reference/populated locales and en', () => {
-    for (const c of ['ru', 'es', 'en', 'he', 'ar', 'zh-cn', 'en-gb']) {
+    for (const c of ['ru', 'es', 'en', 'he', 'ar', 'zh', 'zh-cn', 'en-gb']) {
       expect(CANONICAL_LOCALES.has(c), c).toBe(true);
     }
   });

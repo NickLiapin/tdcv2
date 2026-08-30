@@ -1,0 +1,20 @@
+---
+description: Sky conditions as Taiwan's Central Weather Administration reports them. Its rainfall scale is its own and is tied to disaster response rather than to millimetres alone: 大雨 is 80mm in a day, 豪雨 200mm, then 大豪雨 and 超大豪雨 above that. A mountainous island that takes typhoons needs the extra rungs.
+locale: zh
+---
+晴
+多雲
+陰
+小雨
+中雨
+大雨
+豪雨
+雷陣雨
+小雪
+中雪
+大雪
+暴風雪
+雨夾雪
+霧
+霾
+強風

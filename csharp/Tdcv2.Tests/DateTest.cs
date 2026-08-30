@@ -56,10 +56,19 @@ public class DateTest
             // language has its own word for February — Dutch and Swedish both write "februari",
             // and the two have been shipping side by side ever since Swedish was added. The point
             // of the check is that no table is a copy of another, and only the full year says that.
+            //
+            // The short weekdays joined the fingerprint for the same reason one level down.
+            // zh-cn and zh-tw share every month name and every long weekday, because Chinese
+            // numbers its months and writes 星期日 identically in both scripts; the ONLY thing
+            // that separates them is the short form, 周日 against 週日. Sampling months and long
+            // weekdays alone called the Traditional table a copy of the Simplified one, which is
+            // exactly the claim this test exists to refute.
             seen.Add(
                 string.Join('|', DateLocales.Resolve(name).Months)
                     + "//"
-                    + string.Join('|', DateLocales.Resolve(name).Weekdays));
+                    + string.Join('|', DateLocales.Resolve(name).Weekdays)
+                    + "//"
+                    + string.Join('|', DateLocales.Resolve(name).WeekdaysShort));
         }
 
         Assert.Equal(DateLocales.Names.Count, seen.Count);

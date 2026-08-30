@@ -1,0 +1,22 @@
+---
+description: Fruit, in Traditional characters. Taiwan is subtropical and the list reflects it: 芒果, 蓮霧, 釋迦 and 芭樂 are everyday fruit here and exotic almost everywhere else. 蓮霧 is the wax apple and 釋迦 the sugar apple, named for its resemblance to the Buddha's curled hair.
+locale: zh
+---
+芒果
+鳳梨
+蓮霧
+釋迦
+芭樂
+荔枝
+龍眼
+西瓜
+木瓜
+香蕉
+柳丁
+蘋果
+葡萄
+草莓
+火龍果
+楊桃
+枇杷
+柿子

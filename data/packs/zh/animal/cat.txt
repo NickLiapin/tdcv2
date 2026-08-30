@@ -1,0 +1,22 @@
+---
+description: Cat descriptions and breeds as a Taiwanese or Hong Kong owner would give them. Two entries here are pure Taiwanese vocabulary and will not be found on the mainland. 賓士貓 — Benz cat — is the tuxedo cat, so called because the white wedge on a black chest looks like the Mercedes badge. 米克斯貓 is a mixed-breed cat, from the English word mix borrowed straight into Mandarin; shelters and vets on the island use it as an ordinary breed field, where the mainland writes 中華田園貓 and English writes moggy. 虎斑貓 and 三花貓 describe coat pattern rather than pedigree, which is how most cats here are actually recorded.
+locale: zh
+---
+虎斑貓
+橘貓
+賓士貓
+三花貓
+玳瑁貓
+英國短毛貓
+美國短毛貓
+布偶貓
+波斯貓
+暹羅貓
+緬因貓
+俄羅斯藍貓
+蘇格蘭摺耳貓
+孟買貓
+無毛貓
+金吉拉貓
+曼赤肯貓
+米克斯貓

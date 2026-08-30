@@ -1,0 +1,32 @@
+---
+description: Flowers. 梅花, the plum blossom, is the national flower of the Republic of China and appears on the tail of every China Airlines aircraft; it is prized for flowering in winter, before its own leaves, which made it the classical emblem of endurance. 桂花 scents Taiwanese autumn and goes into tea and cakes rather than a vase.
+locale: zh
+---
+牡丹
+芍藥
+梅花
+蘭花
+菊花
+荷花
+桂花
+茉莉
+玫瑰
+月季
+杜鵑花
+山茶花
+海棠
+玉蘭
+紫藤
+丁香
+石榴花
+梔子花
+水仙
+君子蘭
+鳳仙花
+牽牛花
+向日葵
+百合
+鬱金香
+康乃馨
+薰衣草
+滿天星

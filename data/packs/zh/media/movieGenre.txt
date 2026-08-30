@@ -1,0 +1,23 @@
+---
+description: Film genres in Traditional Chinese. 警匪 — cops and robbers — is the genre that Hong Kong made its own and exported, running from the heroic-bloodshed films of the late 1980s through Infernal Affairs, and it is a real box-office category that a listings page in Hong Kong or Taipei will offer as a filter. It stands where the mainland list puts 主旋律, the state-approved patriotic genre, which has no counterpart in either territory. 武俠 and 古裝 are distinct and not interchangeable — 武俠 is a martial-chivalry story that may be set in any period, while 古裝 merely means period costume.
+locale: zh
+---
+劇情
+喜劇
+動作
+愛情
+科幻
+懸疑
+驚悚
+恐怖
+犯罪
+戰爭
+歷史
+古裝
+武俠
+動畫
+紀錄片
+青春
+家庭
+公路
+警匪

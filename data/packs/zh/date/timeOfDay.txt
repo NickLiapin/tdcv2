@@ -1,0 +1,12 @@
+---
+description: Parts of the day. Chinese divides the morning more finely than English: 凌晨 is the small hours, 早上 the early morning, 上午 the later morning before noon.
+locale: zh
+---
+凌晨
+早上
+上午
+中午
+下午
+傍晚
+晚上
+半夜

@@ -1,0 +1,16 @@
+---
+description: Jobs in Taiwanese healthcare. The physician ladder runs 住院醫師 to 主治醫師 to 科主任 to 部主任, and staff say the English abbreviations R and VS out loud on the ward. 護理師 replaced 護士 as the registered grade. The allied professions are separately licensed, each under its own statute, which is why they appear here as 醫檢師, 醫事放射師 and 物理治療師 rather than as generic technicians. General practice is 家庭醫學科 and never 全科, and 中醫師 qualify through a parallel degree and practise under National Health Insurance alongside western medicine.
+locale: zh
+---
+部主任
+科主任
+主治醫師
+住院醫師
+家醫科醫師
+護理長
+護理師
+藥師
+醫檢師
+醫事放射師
+物理治療師
+中醫師

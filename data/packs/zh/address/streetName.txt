@@ -1,0 +1,24 @@
+---
+description: Street names, Taiwanese. The pattern is political and repeats in every town: 中山 for Sun Yat-sen and 中正 for Chiang Kai-shek are the two commonest street names on the island, followed by the 忠孝仁愛信義和平 set — loyalty, filial piety, benevolence, love, trust, righteousness, peace — laid out as a grid of Confucian virtues in the Taipei street plan.
+locale: zh
+---
+中山
+中正
+忠孝
+仁愛
+信義
+和平
+民生
+民權
+民族
+光復
+復興
+建國
+南京
+松江
+敦化
+羅斯福
+重慶
+成功
+自由
+文化

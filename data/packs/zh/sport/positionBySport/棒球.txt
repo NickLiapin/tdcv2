@@ -1,0 +1,14 @@
+---
+description: Fielding positions in 棒球 (Traditional Chinese). Taiwanese baseball keeps the Japanese habit of numbering the positions, so a scorebook writes the pitcher as 1 and the right fielder as 9; the outfield is split three ways into 左外野手, 中外野手 and 右外野手 rather than left as a single 外野手.
+locale: zh
+---
+投手
+捕手
+一壘手
+二壘手
+三壘手
+游擊手
+左外野手
+中外野手
+右外野手
+指定打擊

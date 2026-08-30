@@ -1,0 +1,15 @@
+---
+description: Employment type under Taiwanese labour law. A contract is a 契約, never a 合同, and the Labor Standards Act turns on whether it is a 定期契約 for genuinely fixed-term work or the indefinite kind that carries seniority and severance. 派遣 is the contested category: a dispatched worker is employed by the agency and merely placed in the firm, and the Act still has no dedicated chapter governing the arrangement. In the public sector 正式編制 means an established post with civil-service tenure and a separate pension, while everyone else is hired as 約聘僱. 自由業 is the formal word for freelancing, though Taiwanese normally say 接案.
+locale: zh
+---
+全職
+兼職
+實習
+派遣
+外包
+勞務契約
+正式編制
+契約工
+臨時工
+自由業
+回聘

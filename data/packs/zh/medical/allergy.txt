@@ -1,0 +1,26 @@
+---
+description: Allergen as a Taiwanese chart records it. The drug block at the top is where the two sides part company: penicillin is 盤尼西林, a straight transliteration, rather than the mainland's 青黴素; cephalosporins are 頭孢子菌素; and a contrast agent is a 顯影劑 where the mainland writes 造影劑. The environmental block belongs to a humid subtropical island rather than a northern continental one. Taiwan has no willow-catkin season, so the spring nuisance that fills a Beijing list is missing, and 塵蟎 take its place as the year-round dominant — humidity here rarely falls far enough to interrupt mite breeding, which is why dust mite is the most common positive on a Taiwanese allergy panel. 羽毛 earns its slot from bedding. 芒果 is a contact allergen worth listing in a country that grows it.
+locale: zh
+---
+盤尼西林
+頭孢子菌素類抗生素
+磺胺類藥物
+阿斯匹靈
+顯影劑
+麻醉藥
+花粉
+羽毛
+塵蟎
+黴菌
+貓毛
+狗毛
+蟑螂
+花生
+堅果
+牛奶
+雞蛋
+海鮮
+蝦
+芒果
+大豆
+小麥

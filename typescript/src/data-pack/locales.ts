@@ -2,10 +2,13 @@
  * Canonical locale set for data packs (locale-first addressing).
  *
  * Mirrors moment.js's `locale/*.js` files (135 locales) so the pack scheme
- * stays in lockstep with the date layer, plus `en` — moment ships no `en.js`
- * (English is its built-in default), but a data-pack system needs English.
- * Total: 136. A pack address's first segment must be one of these codes or a
- * reserved bucket (`common`).
+ * stays in lockstep with the date layer, plus two codes moment does not ship.
+ * `en` is one — moment treats English as its built-in default and ships no
+ * `en.js`, but a data-pack system needs English. `zh` is the other, and it is
+ * here because the variant fallback takes exactly ONE step to the base
+ * language: `zh` is the only address zh-tw, zh-hk and zh-mo can all reach, so
+ * it is where Traditional Chinese has to live. Total: 137. A pack address's
+ * first segment must be one of these codes or a reserved bucket (`common`).
  */
 
 export type Direction = 'ltr' | 'rtl';
@@ -143,6 +146,7 @@ export const CANONICAL_LOCALES: ReadonlySet<string> = new Set([
   'vi',
   'x-pseudo',
   'yo',
+  'zh',
   'zh-cn',
   'zh-hk',
   'zh-mo',

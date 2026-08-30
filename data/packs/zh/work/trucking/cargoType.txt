@@ -1,0 +1,17 @@
+---
+description: Freight cargo type in Taiwan. A shipping container is a 貨櫃, never the mainland's 集裝箱, and the word runs right through the language of the industry, from the 貨櫃車 on the freeway to the 貨櫃碼頭 at Kaohsiung. Bulk cargo is 散裝, and parcels move as 宅配. Dangerous goods are 危險品 and their carriage is licensed on top of the ordinary professional driving licence, with tank vehicles subject to separate inspection.
+locale: zh
+---
+普通貨物
+危險品
+冷藏貨物
+生鮮
+散裝貨物
+貨櫃
+大型貨物
+超限貨物
+液體貨物
+糧食
+煤炭
+建材
+宅配包裹

@@ -1,0 +1,18 @@
+---
+description: Dishes of 小吃 — the night-market repertoire. The word translates as 'small eats' and misleads: in Taiwan this is where people have dinner, and a 小吃 stall that has sold one dish for forty years outranks most restaurants. 蚵仔麵線 is thickened enough to be eaten with a spoon and no chopsticks, 米血糕 is pig's blood set with sticky rice and served on a stick, and 藥燉排骨 is ribs simmered in Chinese medicinal herbs, sold from the same window as the fried chicken cutlet.
+locale: zh
+---
+蚵仔麵線
+鹽酥雞
+雞排
+肉圓
+碗粿
+筒仔米糕
+米血糕
+潤餅
+藥燉排骨
+花枝羹
+胡椒餅
+車輪餅
+地瓜球
+豆花

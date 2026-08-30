@@ -1,0 +1,25 @@
+---
+description: Religions, with Taiwan's own emphasis. 民間信仰 — folk religion — is what most Taiwanese practise in fact, and 媽祖信仰, the cult of the sea goddess Mazu, is its centre: the annual 大甲媽祖遶境 pilgrimage moves hundreds of thousands of people across the island on foot over nine days. 一貫道 was banned in Taiwan until 1987 and remains banned on the mainland, which is why it belongs on a Traditional-Chinese list and not a Simplified one.
+locale: zh
+---
+佛教
+道教
+伊斯蘭教
+天主教
+基督教
+東正教
+藏傳佛教
+南傳佛教
+儒家
+民間信仰
+媽祖信仰
+一貫道
+薩滿教
+苯教
+印度教
+猶太教
+錫克教
+神道教
+巴哈伊教
+摩尼教
+無宗教信仰

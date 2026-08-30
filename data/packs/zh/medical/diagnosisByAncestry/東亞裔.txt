@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of East Asian ancestry. Taiwan's national newborn screening programme covers G6PD deficiency, known on the island as 蠶豆症, which is found in roughly two to three per cent of newborns and is the most frequently detected disorder on the panel; thalassaemia carrier screening is likewise a routine part of antenatal care, because alpha-thalassaemia deletions are carried by several per cent of the population and two carriers of the Southeast Asian deletion risk a pregnancy ending in Bart's hydrops. The ALDH2 rs671 allele behind the alcohol flush reaction is effectively confined to East Asia, peaks in Han populations of Taiwan and southeastern China, and raises oesophageal cancer risk in those who drink. Epstein-Barr-associated nasopharyngeal carcinoma clusters along the southern Chinese coast, Kawasaki disease is reported at many times European rates, normal-tension open-angle glaucoma is the dominant glaucoma subtype in regional surveys, and thyrotoxic periodic paralysis is largely a disorder of young East Asian men. A prevalence signal, not an exclusive one.
+locale: zh
+---
+α型地中海型貧血
+乙醛去氫酶2缺乏
+乳糖不耐症
+鼻咽癌
+胃癌
+川崎氏症
+原發性隅角開放性青光眼
+高尿酸血症
+甲狀腺毒性週期性麻痺
+遺傳性聽力障礙

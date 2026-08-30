@@ -214,9 +214,13 @@ packs/
       city.txt      ← only this differs
 ```
 
-The step is taken **once**, and never as far as English. `zh-tw` looks for `zh`, finds
-nothing, and refuses — because handing a Traditional Chinese run Simplified data from
-`zh-cn` would be worse than saying so.
+The step is taken **once**, and never as far as English. That single step is why
+Traditional Chinese is shipped as `zh` rather than as `zh-tw`: Taiwan, Hong Kong and
+Macau write the same script, all three of `zh-tw`, `zh-hk` and `zh-mo` reach `zh` in one
+step, and none of them would reach a pack named after any one of the others. `zh-cn`
+ships a full pack of its own and never falls back, so `zh` is precisely the slot the
+Traditional locales share. The date tables follow the same split — `zh-cn` writes a short
+weekday `周日`, the Traditional locales write `週日`.
 
 #### An external file as the body — `file:`, `column:`, `delimiter:`
 

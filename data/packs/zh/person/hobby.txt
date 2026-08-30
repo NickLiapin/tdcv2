@@ -1,0 +1,20 @@
+---
+description: Pastimes. 登山 is first for a reason: Taiwan has 268 peaks above 3,000 metres in an island the size of the Netherlands, and hiking them is a mainstream weekend activity rather than a specialist one. 夜市 counts as a pastime here because visiting one is an outing in itself, and 泡茶 — brewing gongfu-style over an afternoon — is a social occasion, not a drink.
+locale: zh
+---
+登山
+夜市
+書法
+泡茶
+打籃球
+看棒球
+騎腳踏車
+攝影
+烹飪
+卡拉OK
+下圍棋
+電影
+釣魚
+瑜珈
+露營
+追劇

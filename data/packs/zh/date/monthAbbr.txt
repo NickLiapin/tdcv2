@@ -1,0 +1,16 @@
+---
+description: Short month forms. Chinese abbreviates a month by dropping the character for month-name and keeping the digit, so 1月 rather than 一月 — and the digit form is what appears in a date field, on a form, or in a headline, while the character form belongs to prose.
+locale: zh
+---
+1月
+2月
+3月
+4月
+5月
+6月
+7月
+8月
+9月
+10月
+11月
+12月

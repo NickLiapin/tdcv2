@@ -200,6 +200,42 @@ ZH_CN = DateLocale(
     },
 )
 
+
+# Traditional Chinese, the calendar the zh data pack ships with and the one zh-tw, zh-hk and
+# zh-mo reach through it. Only one field differs from the Simplified table and that is the whole
+# reason this one exists: Taiwan and Hong Kong write a short weekday as 週日, with the full 週,
+# where the mainland writes 周日. No script converter will catch it, because 周 is an ordinary
+# Traditional character in its own right — it is a surname and it means a cycle — so the two
+# spellings are a usage difference rather than a script one and must be carried as separate
+# tables. Everything else is shared: the months are numbered identically in both scripts and
+# 星期日 is written the same way on both sides.
+ZH_TW = DateLocale(
+    "zh-tw",
+    (
+        "一月",
+        "二月",
+        "三月",
+        "四月",
+        "五月",
+        "六月",
+        "七月",
+        "八月",
+        "九月",
+        "十月",
+        "十一月",
+        "十二月",
+    ),
+    ("1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"),
+    ("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"),
+    ("週日", "週一", "週二", "週三", "週四", "週五", "週六"),
+    {
+        "L": "YYYY/MM/DD",
+        "LL": "YYYY[年]M[月]D[日]",
+        "LLL": "YYYY[年]M[月]D[日] HH:mm",
+        "LLLL": "YYYY[年]M[月]D[日]dddd HH:mm",
+    },
+)
+
 # French names are lowercase, dates day-first, and the long forms are a bare "D MMMM YYYY" with no
 # connector: 18 octobre 2026, mardi 18 octobre 2026 14:05.
 FR = DateLocale(
@@ -928,7 +964,8 @@ _BY_NAME: dict[str, DateLocale] = {
     "es": ES,
     "spa": ES,
     "zh-cn": ZH_CN,
-    "zh": ZH_CN,
+    "zh-tw": ZH_TW,
+    "zh": ZH_TW,
     "fr": FR,
     "fra": FR,
     "ar": AR,
@@ -993,6 +1030,7 @@ NAMES = (
     "uk",
     "vi",
     "zh-cn",
+    "zh-tw",
 )
 
 

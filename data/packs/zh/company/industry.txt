@@ -1,0 +1,22 @@
+---
+description: Industry words in Traditional Chinese. 半導體 — semiconductors — leads because it does: Taiwan makes the majority of the world's advanced chips, and a Taiwanese company dataset without a semiconductor sector is not describing Taiwan.
+locale: zh
+---
+半導體
+電子
+資訊
+科技
+貿易
+營造
+食品
+紡織
+化工
+金融
+保險
+物流
+生技
+觀光
+零售
+機械
+航運
+綠能

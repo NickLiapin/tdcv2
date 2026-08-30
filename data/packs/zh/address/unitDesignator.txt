@@ -1,0 +1,9 @@
+---
+description: The unit words that finish a Taiwanese address, in order from largest to smallest: 號 is the street number, 樓 the floor, 室 the room, and 之 introduces a sub-number — 100號3樓之2 is number 100, third floor, unit 2.
+locale: zh
+---
+號
+樓
+室
+之
+棟

@@ -1,0 +1,24 @@
+---
+description: Household budget lines as a Taiwanese family keeps them. 孝親費 is the exact word for the money an adult child hands to their parents, usually monthly and usually a fixed sum agreed once and then not discussed again; it is a normal line in a young worker's budget and it has no English name. 紅白包 is the other one — the red envelope of cash given at weddings and at New Year and the white envelope given at funerals, an obligation that can run to several months' savings in a heavy year. 補習進修 is cram school, an expense that the 補習班 industry makes routine from primary school onwards, and 外食 covers eating out, which for the large 外食族 who never cook is the single largest food line rather than a treat.
+locale: zh
+---
+房租
+房貸
+車貸
+水電瓦斯
+管理費
+通訊費
+交通費
+外食
+買菜
+日用品
+治裝美妝
+醫療
+保險費
+補習進修
+育兒
+娛樂
+旅遊
+紅白包
+孝親費
+儲蓄投資

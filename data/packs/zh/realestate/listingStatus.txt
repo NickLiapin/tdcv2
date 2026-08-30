@@ -1,0 +1,16 @@
+---
+description: Where a Taiwanese listing stands. 過戶 is the transfer of title at the land office and is the point at which the sale is real; everything before it can still fall through.
+locale: zh
+---
+出售中
+待售
+已售出
+已下架
+已預訂
+簽約中
+過戶中
+已過戶
+出租中
+已出租
+暫緩出售
+議價中

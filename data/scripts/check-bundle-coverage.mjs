@@ -51,6 +51,7 @@ const LOCALE_NAMES = {
   ta: 'Tamil', te: 'Telugu', tg: 'Tajik', th: 'Thai', tk: 'Turkmen', tr: 'Turkish',
   'ug-cn': 'Uyghur', uk: 'Ukrainian', ur: 'Urdu', 'uz-latn': 'Uzbek (Latin)',
   vi: 'Vietnamese', yo: 'Yoruba', 'zh-cn': 'Simplified Chinese',
+  zh: 'Traditional Chinese',
 };
 
 

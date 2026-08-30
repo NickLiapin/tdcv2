@@ -1,0 +1,24 @@
+---
+description: Kinds of trip, as a Taiwanese travel agent or booking form categorises them. 環島 — going round the island — is the one with no equivalent anywhere else. It is a single loop of roughly 900 to 1000 kilometres by bicycle, scooter, car or train, it takes anything from three days to two weeks, and completing it is a recognised rite of passage rather than merely a holiday. 小旅行 is the opposite end of the same scale, a short domestic trip of a day or two, and the phrase is used constantly in Taiwanese tourism marketing. 校外教學 is the school trip, where the mainland says 研學遊, and 春節返鄉 is going home for Lunar New Year. The mainland's 紅色旅遊, touring revolutionary sites, has no counterpart here.
+locale: zh
+---
+跟團旅遊
+自由行
+半自由行
+自駕遊
+客製化行程
+小資旅行
+背包旅行
+親子旅遊
+校外教學
+蜜月旅行
+商務出差
+探親
+春節返鄉
+小旅行
+一日遊
+週末旅遊
+郵輪旅遊
+露營車旅遊
+環島
+出國旅遊

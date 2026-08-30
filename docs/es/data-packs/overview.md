@@ -222,9 +222,13 @@ packs/
       city.txt      ← solo esto difiere
 ```
 
-El paso se da **una sola vez**, y nunca llega hasta el inglés. `zh-tw` busca `zh`, no
-encuentra nada y rechaza — porque entregar datos simplificados de `zh-cn` a una ejecución
-en chino tradicional sería peor que decirlo.
+El paso se da **una sola vez**, y nunca llega hasta el inglés. Ese único paso es la razón
+de que el chino tradicional se publique como `zh` y no como `zh-tw`: Taiwán, Hong Kong y
+Macao escriben con la misma grafía, los tres nombres `zh-tw`, `zh-hk` y `zh-mo` llegan a
+`zh` en un solo paso, y ninguno llegaría a un paquete que llevara el nombre de otro.
+`zh-cn` trae su propio paquete completo y nunca recurre a una base, de modo que `zh` es
+exactamente la casilla que comparten las variantes tradicionales. Las tablas de fechas se
+dividen igual: `zh-cn` escribe el día abreviado `周日` y las tradicionales `週日`.
 
 #### Un archivo externo como cuerpo — `file:`, `column:`, `delimiter:`
 

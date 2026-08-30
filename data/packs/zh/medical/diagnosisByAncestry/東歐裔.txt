@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry. Slavic populations carry their own founder alleles rather than a thinner version of the Western European set. The large CFTR deletion CFTRdele2,3 accounts for a substantial share of cystic fibrosis in Russia, Poland, Belarus and Ukraine and is almost unseen further west, and the ATP7B variant H1069Q makes Wilson disease the characteristic inherited liver disorder of the region. Phenylketonuria and congenital hypothyroidism both run above the West European average, and they are the two conditions the region's long-established newborn screening programmes were built around. Acute intermittent porphyria and hereditary haemochromatosis are followed through well-documented Central and Eastern European pedigrees. A prevalence signal, not an exclusive one.
+locale: zh
+---
+囊狀纖維化症
+苯酮尿症
+先天性甲狀腺低能症
+家族性高膽固醇血症
+遺傳性血色素沉著症
+乳糜瀉
+色素性視網膜炎
+脊髓性肌肉萎縮症
+威爾森氏症
+紫質症

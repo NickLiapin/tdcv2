@@ -1,0 +1,19 @@
+---
+description: Taiwan's courts, and the structure is not the mainland's. There are no 人民法院 here: the ordinary ladder is 地方法院 → 高等法院 → 最高法院, with a separate administrative chain and a separate prosecution service (檢察署) that is organisationally distinct from the courts. 智慧財產及商業法院 hears intellectual-property and corporate cases in one specialist court, an arrangement Taiwan adopted in 2008 and consolidated in 2021. Note 智慧財產 for intellectual property where the mainland writes 知识产权.
+locale: zh
+---
+最高法院
+高等法院
+地方法院
+簡易庭
+智慧財產及商業法院
+最高行政法院
+高等行政法院
+少年及家事法院
+懲戒法院
+最高檢察署
+高等檢察署
+地方檢察署
+勞動事件專庭
+中華民國仲裁協會
+鄉鎮市調解委員會

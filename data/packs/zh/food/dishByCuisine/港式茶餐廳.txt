@@ -1,0 +1,18 @@
+---
+description: Dishes of the 茶餐廳, the Hong Kong diner. Hong Kong and Taiwan both write Traditional characters but not the same words, and this file is where that shows: a pineapple is 菠蘿 in Hong Kong and 鳳梨 in Taiwan, so the split bun with a slab of cold butter inside keeps its Hong Kong name 菠蘿油 and would be wrong spelled any other way — the bun contains no pineapple, only a crackled top that looks like one. 絲襪奶茶, 'stocking milk tea', is named for the cloth sleeve the tea is strained through until it stains brown, and 西多士 is French toast built from the Cantonese for 'toast'.
+locale: zh
+---
+菠蘿油
+西多士
+蛋撻
+絲襪奶茶
+凍檸茶
+乾炒牛河
+焗豬扒飯
+星洲炒米
+雲吞麵
+餐蛋麵
+魚蛋粉
+豬扒包
+叉燒飯
+咖喱魚蛋

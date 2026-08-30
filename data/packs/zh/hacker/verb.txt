@@ -1,0 +1,32 @@
+---
+description: Technical verbs in Taiwanese usage. 除錯 is debugging, where the mainland says 調試; 登入 is logging in, where the mainland says 登錄; 重新開機 is rebooting a machine, and 設定 rather than 配置 is what you do to it afterwards. 拷貝 and 複製 both mean copy and both are current — 拷貝 is the older loanword from the English and tends to attach to whole disks and tapes, 複製 to files and text. A loop, which appears in the compiled result rather than in this list, is a 迴圈 here and a 循環 on the mainland.
+locale: zh
+---
+編譯
+部署
+設定
+重新開機
+連線
+登入
+加密
+解密
+壓縮
+解壓縮
+建立索引
+快取
+同步
+複製
+擴充
+路由
+攔截
+繞過
+入侵
+除錯
+還原
+更新
+刪除
+新增
+拷貝
+移轉
+掛載
+格式化

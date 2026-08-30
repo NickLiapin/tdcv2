@@ -1,0 +1,16 @@
+---
+description: Jobs in Taiwanese restaurants and hotels. The kitchen is the 內場 and the dining room the 外場, and staff are recruited, rostered and paid as one or the other. Housekeeping is 房務. The duty manager on a hotel floor is the 大廳副理, literally lobby assistant manager, which is the standard title rather than the mainland's 大堂經理. Waiting staff are 服務生, since 服務員 sounds mainland to a Taiwanese ear. Much of this workforce is part-time student labour, and the sector is where the statutory hourly minimum wage bites hardest.
+locale: zh
+---
+廚師
+麵點師
+內場主管
+服務生
+傳菜員
+收銀員
+店長
+櫃檯接待
+房務員
+大廳副理
+調酒師
+咖啡師

@@ -1,0 +1,16 @@
+---
+description: Jobs in Taiwanese manufacturing, where the vocabulary is set by the semiconductor industry. A 製程工程師 owns one process step, a 設備技術員 keeps the 機台 running, and 良率, the yield, is the single number that decides whether a fab makes money. Silicon moves as 晶圓 through fabrication and then downstream into 封裝測試, the assembly-and-test business that Taiwan also leads. Note that there is no 車間 here: a plant is a 廠 under a 廠長, a line is led by a 線長, the people on it are 作業員, and many of them spend the shift inside a 無塵室. Production planning and scheduling is 生管.
+locale: zh
+---
+廠長
+產線線長
+組裝作業員
+CNC操作員
+電銲工
+鉗工
+品管員
+製程工程師
+設備技術員
+倉管人員
+採購專員
+生管人員

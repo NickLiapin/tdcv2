@@ -1,0 +1,12 @@
+---
+description: Legal forms of a Taiwanese company. 股份有限公司 is a company limited by shares and is what any listed company is; 有限公司 is the smaller closely held form. The Hong Kong equivalent is 有限公司 alone. Note that Taiwan does NOT use 有限責任公司, which is the mainland's form — the presence of that string in a record is a reliable sign the company is registered on the mainland rather than in Taiwan.
+locale: zh
+---
+股份有限公司
+有限公司
+企業社
+商行
+工作室
+事務所
+合夥
+基金會

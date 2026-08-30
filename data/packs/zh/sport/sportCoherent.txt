@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Traditional Chinese). 棒球 heads the list because baseball is the sport Taiwan actually organises itself around, and its nine fielding positions plus the designated hitter are the most fully specified position set here. 桌球 and 羽球 have no positions on court at all — what the child files hold for those two is the numbered slot a player occupies in a team tie, such as 第一單打 or 混合雙打.
+locale: zh
+---
+棒球
+籃球
+足球
+排球
+桌球
+羽球
+橄欖球
+冰球

@@ -1,0 +1,28 @@
+---
+description: Character classes. 補師 — literally patcher — is the Taiwanese gamer's word for a healer and is not used on the mainland; the last several entries are wuxia and xianxia classes drawn from Chinese martial-arts fiction rather than from Western fantasy.
+locale: zh
+---
+戰士
+法師
+刺客
+射手
+坦克
+輔助
+補師
+獵人
+盜賊
+德魯伊
+聖騎士
+術士
+牧師
+武僧
+死亡騎士
+劍客
+劍仙
+刀客
+槍豪
+道士
+和尚
+醫師
+御靈師
+陣法師

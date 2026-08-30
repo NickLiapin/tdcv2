@@ -1,0 +1,22 @@
+---
+description: Occasions. 收涎 is the drool-bib ceremony held when a baby reaches four months, in which biscuits are strung round the child's neck and given out to guests. 尾牙 and 春酒 bracket the Lunar New Year for a company — the year-end banquet before it and the spring banquet after — and both are large enough events that restaurants book out months ahead. 告別式 is the funeral service, Taiwan's word where the mainland says 追悼会.
+locale: zh
+---
+婚禮
+訂婚宴
+滿月酒
+收涎
+生日宴
+壽宴
+謝師宴
+升學宴
+喬遷宴
+開幕典禮
+尾牙
+春酒
+告別式
+發表會
+展覽
+徵才博覽會
+音樂節
+運動會

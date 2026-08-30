@@ -1,0 +1,11 @@
+---
+description: Event slots in 羽球 (Traditional Chinese). Badminton is entered by event rather than by position, and Taiwan calls the sport 羽球 rather than 羽毛球. The men's doubles slot is the one that carries weight locally: Lee Yang and Wang Chi-lin won 男子雙打 gold at both the 2020 and 2024 Olympics, the first back-to-back badminton title of its kind.
+locale: zh
+---
+男子單打
+女子單打
+男子雙打
+女子雙打
+混合雙打
+團體第一單打
+團體第一雙打

@@ -1,0 +1,16 @@
+---
+description: Jobs in Taiwanese transport. Ride-hailing was legalised inside the taxi system as 多元化計程車, so an Uber driver here holds a taxi licence and drives a 多元計程車 rather than operating around the regulator. Parcel delivery is 宅配, a word taken from the Japanese 宅配便. On the railway the driver's official title is 司機員 and the conductor is the 列車長. Cabin crew are 空服員. The quayside work at Kaohsiung, for decades one of the world's busiest container ports, is done by 碼頭理貨員.
+locale: zh
+---
+貨車司機
+客運司機
+多元計程車駕駛
+宅配員
+揀貨員
+調度員
+司機員
+列車長
+空服員
+地勤人員
+船員
+碼頭理貨員

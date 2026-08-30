@@ -1,0 +1,12 @@
+---
+description: Languages of Taiwan and Hong Kong. 國語 is Mandarin as Taiwan calls it — the mainland says 普通話 — and 台語 is Taiwanese Hokkien, spoken natively by a large share of the island and suppressed in schools until the 1990s. 客家話 is Hakka. Cantonese, 廣東話, is the language of Hong Kong and Macau, where the same Traditional characters are read with an entirely different spoken language.
+locale: zh
+---
+國語
+台語
+客家話
+廣東話
+英語
+日語
+原住民語
+閩南語

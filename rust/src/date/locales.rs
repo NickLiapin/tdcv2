@@ -500,6 +500,51 @@ static ZH_CN: DateLocale = DateLocale {
     ],
 };
 
+/// Traditional Chinese, the calendar the zh data pack ships with and the one zh-tw, zh-hk and
+/// zh-mo reach through it. Only one field differs from the Simplified table and that is the whole
+/// reason this one exists: Taiwan and Hong Kong write a short weekday as 週日, with the full 週,
+/// where the mainland writes 周日. No script converter will catch it, because 周 is an ordinary
+/// Traditional character in its own right — it is a surname and it means a cycle — so the two
+/// spellings are a usage difference rather than a script one and must be carried as separate
+/// tables. Everything else is shared: the months are numbered identically in both scripts and
+/// 星期日 is written the same way on both sides.
+static ZH_TW: DateLocale = DateLocale {
+    months: [
+        "一月",
+        "二月",
+        "三月",
+        "四月",
+        "五月",
+        "六月",
+        "七月",
+        "八月",
+        "九月",
+        "十月",
+        "十一月",
+        "十二月",
+    ],
+    months_in_date: None,
+    months_short: [
+        "1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月",
+    ],
+    weekdays: [
+        "星期日",
+        "星期一",
+        "星期二",
+        "星期三",
+        "星期四",
+        "星期五",
+        "星期六",
+    ],
+    weekdays_short: ["週日", "週一", "週二", "週三", "週四", "週五", "週六"],
+    formats: [
+        "YYYY/MM/DD",
+        "YYYY[年]M[月]D[日]",
+        "YYYY[年]M[月]D[日] HH:mm",
+        "YYYY[年]M[月]D[日]dddd HH:mm",
+    ],
+};
+
 /// Every name a config may write, including the three-letter aliases.
 // Ukrainian, like Russian and Polish, inflects the month name inside a date: the
 // standalone nominative is "січень" but a date reads "18 січня 2026". These are
@@ -1025,14 +1070,15 @@ static FI: DateLocale = DateLocale {
     ],
 };
 
-static BY_NAME: [(&str, &DateLocale); 44] = [
+static BY_NAME: [(&str, &DateLocale); 45] = [
     ("en", &EN),
     ("eng", &EN),
     ("ru", &RU),
     ("es", &ES),
     ("spa", &ES),
     ("zh-cn", &ZH_CN),
-    ("zh", &ZH_CN),
+    ("zh-tw", &ZH_TW),
+    ("zh", &ZH_TW),
     ("fr", &FR),
     ("fra", &FR),
     ("ar", &AR),
@@ -1073,9 +1119,9 @@ static BY_NAME: [(&str, &DateLocale); 44] = [
 ];
 
 /// The advertised names, for the validator's "did you mean" list.
-pub static NAMES: [&str; 24] = [
+pub static NAMES: [&str; 25] = [
     "ar", "cs", "de", "el", "en", "es", "fi", "fr", "hu", "id", "it", "ja", "ko", "hi", "nl", "pl",
-    "pt", "ru", "sv", "th", "tr", "uk", "vi", "zh-cn",
+    "pt", "ru", "sv", "th", "tr", "uk", "vi", "zh-cn", "zh-tw",
 ];
 
 /// The named locale, falling back to English.

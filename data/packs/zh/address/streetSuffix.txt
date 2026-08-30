@@ -1,0 +1,10 @@
+---
+description: Street-type words in a Taiwanese address. The hierarchy is strict and is what makes Taiwanese addresses navigable: 路 is a major road, 街 a smaller street, and then 巷 is a lane off it and 弄 an alley off the lane — so 中山路一段100巷5弄 descends three levels, and the numbers are positional rather than arbitrary.
+locale: zh
+---
+路
+街
+大道
+巷
+弄
+段

@@ -1,0 +1,8 @@
+---
+description: Marital status as a Taiwanese form prints it. Taiwan legalised same-sex marriage in May 2019, the first place in Asia to do so, and the household registration system records those marriages in the same field as any other.
+locale: zh
+---
+未婚
+已婚
+離婚
+喪偶

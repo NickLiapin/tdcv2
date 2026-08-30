@@ -1,0 +1,34 @@
+---
+description: Birds, in Traditional characters, weighted towards what actually flies over Taiwan and Hong Kong. 台灣藍鵲 won a 2007 public vote for a national bird that the government never formally ratified, and it is unmistakable in the field — blue, red-billed, with a tail longer than its body. 帝雉 and 藍腹鷴 are pheasants found nowhere else on earth; the first of them is the bird printed on the NT$1000 note. 黑面琵鷺 is the black-faced spoonbill, a globally endangered species of which a large share of the world population winters in the Tainan wetlands each year. The mainland list's 丹頂鶴, 朱䴉 and 紅腹錦雞 are northern and western Chinese birds that do not occur here, so they give up their places.
+locale: zh
+---
+麻雀
+喜鵲
+烏鴉
+燕子
+鴿子
+畫眉
+黃鸝
+白頭翁
+八哥
+鸚鵡
+翠鳥
+啄木鳥
+五色鳥
+杜鵑
+台灣藍鵲
+帝雉
+藍腹鷴
+白鷺鷥
+蒼鷺
+黑面琵鷺
+綠繡眼
+野鴨
+鴛鴦
+孔雀
+環頸雉
+貓頭鷹
+老鷹
+隼
+海鷗
+鸕鶿

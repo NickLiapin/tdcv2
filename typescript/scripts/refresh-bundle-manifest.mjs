@@ -179,6 +179,7 @@ const LANGUAGE_NAMES = {
   vi: 'Vietnamese',
   yo: 'Yoruba',
   'zh-cn': 'Simplified Chinese',
+  zh: 'Traditional Chinese',
 };
 
 function readLocaleName(dir, id) {

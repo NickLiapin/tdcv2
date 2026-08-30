@@ -1,0 +1,30 @@
+---
+description: Condition that affects only men, or overwhelmingly men, in Taiwanese medical Chinese. The vocabulary diverges from the mainland's much further than the shared characters suggest, and a glyph conversion produces terms no Taiwanese doctor writes: the prostate is 攝護腺 here and 前列腺 there, a syndrome is a 症候群 and not a 綜合症, the epididymis is 副睪 and not 附睾, and male-pattern baldness is the plain 雄性禿. Duchenne muscular dystrophy is 裘馨氏肌肉失養症 in Taiwan, a transliteration that shares not one character with the mainland's 杜氏肌營養不良. A hernia is 疝氣 in ordinary speech and on the chart.
+locale: zh
+---
+攝護腺肥大
+攝護腺癌
+攝護腺炎
+睪丸炎
+睪丸癌
+副睪炎
+精索靜脈曲張
+隱睪症
+包莖
+包皮過長
+陰莖癌
+勃起功能障礙
+早洩
+男性不孕症
+少精症
+無精症
+睪丸扭轉
+陰囊水腫
+男性女乳症
+雄性禿
+克氏症候群
+A型血友病
+紅綠色盲
+裘馨氏肌肉失養症
+腹股溝疝氣
+痛風

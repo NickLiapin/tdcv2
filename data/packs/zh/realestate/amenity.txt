@@ -1,0 +1,26 @@
+---
+description: Selling points in a Taiwanese listing. Two of these have no equivalent elsewhere. 公設比 is the share of the building's floor area that is common space — lobby, corridors, plant rooms — and it is charged to the buyer at the same price per 坪 as the flat itself, so a low 公設比 is a genuine saving and is advertised as one. 頂樓加蓋 is a rooftop addition, usually built without a permit, tolerated in practice and sold openly, and it is why a listed floor area and a measured one can disagree.
+locale: zh
+---
+電梯
+中央空調
+全新裝潢
+毛胚屋
+採光佳
+落地窗
+前後陽台
+露台
+私人庭院
+平面車位
+機械車位
+24小時保全
+門禁系統
+管理費
+幼兒園
+明星學區
+近捷運
+臨公園
+生活機能佳
+醫院
+頂樓加蓋
+公設比低

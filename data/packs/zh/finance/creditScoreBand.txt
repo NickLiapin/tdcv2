@@ -1,0 +1,9 @@
+---
+description: Credit standing in Taiwan. There is no FICO here and no Sesame Credit either — the number that matters is the 個人信用評分 issued by the 聯合徵信中心, the JCIC, a single non-profit clearing house that every bank reports to and draws from. It runs from 200 to 800, and a person with too thin a file to score receives an asterisk instead of a number, which is why 無信用評分 is a band in its own right and not merely a low one — a young applicant with no card and no loan is refused for having no record rather than a bad one. Individuals may request their own report from the JCIC directly.
+locale: zh
+---
+無信用評分
+待加強
+普通
+良好
+優良

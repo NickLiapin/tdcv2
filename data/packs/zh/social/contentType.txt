@@ -1,0 +1,17 @@
+---
+description: Kinds of post. 限時動態 is the Instagram story, 短影音 the short-form video format, and 彈幕 the scrolling comment overlay that runs across a video — an invention of Japanese and Chinese video sites with no Western counterpart.
+locale: zh
+---
+限時動態
+短影音
+直播
+圖文
+長文
+貼文
+分享
+留言
+彈幕
+話題
+投票
+打卡
+Vlog

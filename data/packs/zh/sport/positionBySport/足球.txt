@@ -1,0 +1,16 @@
+---
+description: Positions in 足球 (Traditional Chinese). The list runs back to front, from the 門將 out through the defence and midfield to the strikers. 清道夫 is the old sweeper role playing behind the centre-backs, and 影子前鋒 is the withdrawn forward who works in the space between the opposing defence and midfield.
+locale: zh
+---
+門將
+中後衛
+邊後衛
+清道夫
+後腰
+中場
+前腰
+邊前衛
+邊鋒
+前鋒
+中鋒
+影子前鋒

@@ -1,0 +1,34 @@
+---
+description: Hashtags in the Taiwanese register, and note the punctuation: Taiwan uses the global form, one leading # and no closing one, whereas Weibo wraps its topics in a pair — #話題#. The slang is separate too. Taiwan's 厭世 (world-weary), 小確幸 (a small certain happiness, borrowed from Murakami by way of Japanese) and 耍廢 (deliberate idling) do the cultural work that 内卷 and 躺平 do on the mainland, and 學測 and 指考 are its university entrance exams where the mainland has 高考.
+locale: zh
+---
+#厭世
+#佛系
+#小確幸
+#社畜
+#耍廢
+#出社會
+#被療癒了
+#雙11
+#618
+#年貨大街
+#過年
+#春節返鄉
+#元宵
+#清明
+#端午
+#中秋
+#國慶
+#學測
+#指考
+#考研究所
+#考公職
+#畢業季
+#開學季
+#職場
+#副業
+#理財
+#減肥打卡
+#健身日常
+#美食探店
+#週末去哪玩

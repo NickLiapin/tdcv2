@@ -1,0 +1,18 @@
+---
+description: Order status on a Taiwanese storefront. The sequence has two states the mainland equivalent has no use for: with 超商取貨 the parcel is delivered to a convenience-store counter rather than to a person, so 已到店 (arrived at the store) and 已取貨 (collected by the buyer) are separate events, sometimes days apart, and the seller is not paid until the second one. 備貨中 rather than 待發貨 is the standard phrasing for an order that has been paid but not yet picked.
+locale: zh
+---
+待付款
+已付款
+備貨中
+已出貨
+運送中
+已到店
+已取貨
+已完成
+已取消
+退款中
+已退款
+退貨中
+換貨中
+訂單關閉

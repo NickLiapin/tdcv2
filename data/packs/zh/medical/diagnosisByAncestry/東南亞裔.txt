@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Southeast Asian ancestry. The region sits at the centre of the world's haemoglobinopathy belt — haemoglobin E carrier rates pass thirty per cent in parts of Thailand, Laos and Cambodia, and HbE inherited alongside a beta thalassaemia allele produces the transfusion-dependent intermediate disease that fills paediatric haematology wards there, while the Southeast Asian alpha-globin deletion is the classic cause of Bart's hydrops fetalis and is the very deletion Taiwan screens for in pregnancy. Brugada syndrome was described out of the sudden unexplained nocturnal death syndrome of young Thai, Lao and Filipino men and carries SCN5A haplotypes specific to the region. Chronic hepatitis B and tuberculosis remain high-burden endemic infections, and adult lactase non-persistence is close to universal. A prevalence signal, not an exclusive one.
+locale: zh
+---
+α型地中海型貧血
+血紅素E病
+蠶豆症
+鼻咽癌
+B型肝炎
+布魯蓋達症候群
+中間型地中海型貧血
+結核病
+乳糖不耐症
+蠶豆症溶血危象

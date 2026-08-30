@@ -1,0 +1,11 @@
+---
+description: Haulage route type in Taiwan. There is no province to run within: the Taiwan Provincial Government was stripped of its functions in 1998 and formally abolished in 2018, so domestic geography is counted in 縣市 and a long haul is 跨縣市, never 跨省. Distance also means something different here, because the island is under four hundred kilometres from end to end and a Taipei to Kaohsiung run down 國道一號 is a single driver's day. The final leg to the customer's door is the 最後一哩路, measured in miles where the mainland says 最後一公里.
+locale: zh
+---
+市區配送
+縣市內運輸
+跨縣市長途
+幹線運輸
+支線運輸
+最後一哩路
+回頭車

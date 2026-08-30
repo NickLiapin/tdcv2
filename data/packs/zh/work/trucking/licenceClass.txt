@@ -1,0 +1,11 @@
+---
+description: Taiwanese driving licence class. Every class exists in two forms, 普通 for driving your own vehicle and 職業 for driving for hire, and only the 職業 licence permits paid work; it must also be renewed periodically with a medical examination, which the ordinary licence does not require. Size runs 小型車, then 大貨車, then 大客車, then 聯結車, and the larger classes are built on the smaller, so an applicant for a 聯結車 licence must already hold the 大貨車 one and have held it for a qualifying period. This is an entirely different scheme from the mainland's A1 to C2 grades, and neither set of codes is valid in the other jurisdiction.
+locale: zh
+---
+職業聯結車
+職業大客車
+職業大貨車
+職業小型車
+普通聯結車
+普通大客車
+普通大貨車

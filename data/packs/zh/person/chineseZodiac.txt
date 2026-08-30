@@ -1,0 +1,16 @@
+---
+description: The twelve animals of the Chinese zodiac in Traditional characters. The sign follows the lunar new year rather than 1 January, so anyone born in January or February belongs to the previous year's animal — a source of quiet error in any dataset that derives the sign from a Gregorian birth year.
+locale: zh
+---
+鼠
+牛
+虎
+兔
+龍
+蛇
+馬
+羊
+猴
+雞
+狗
+豬

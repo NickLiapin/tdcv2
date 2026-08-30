@@ -1,0 +1,32 @@
+---
+description: Technical actions written as nouns, in Taiwanese usage. Chinese verbs do not inflect, so the difference between this list and the verb list is one of framing rather than grammar — these are the labels a progress bar or a job queue shows. The vocabulary is Taiwan's own — 設定 rather than the mainland's 配置 for configuring, 連線 rather than 連接 for connecting, 移轉 rather than 遷移 for a migration, and 貼上 rather than 粘貼 for pasting. 回溯 is a rollback.
+locale: zh
+---
+編譯
+部署
+設定
+重新啟動
+連線
+認證
+加密
+解密
+壓縮
+解壓縮
+建索引
+快取
+同步
+複製
+擴充
+路由
+攔截
+繞過
+入侵
+修補
+回溯
+更新
+刪除
+建立
+複製貼上
+移轉
+掛載
+格式化

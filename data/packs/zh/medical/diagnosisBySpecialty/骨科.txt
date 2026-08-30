@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in 骨科 (Taiwanese Mandarin). Unlike the 內科 departments this one is surgical, and in Taiwan a large share of its trauma arrives on two wheels — with well over ten million scooters registered on an island of twenty-three million people, scooter crashes are a standing source of fractures in young adults, while osteoporotic hip fracture fills the other end of the age range. Taiwan writes ankylosing spondylitis 僵直性脊椎炎 and osteoarthritis 退化性關節炎, and frozen shoulder goes into the chart as 五十肩.
+locale: zh
+---
+腰椎椎間盤突出
+頸椎退化性病變
+骨折
+退化性關節炎
+五十肩
+腱鞘炎
+半月板損傷
+僵直性脊椎炎
+股骨頭壞死
+脊椎側彎

@@ -1,0 +1,13 @@
+---
+description: Cable type in Taiwan. Two words separate this list from a mainland one: telecommunications is 通訊 rather than 通信, and an Ethernet patch lead is a 網路線 rather than a 網線. Taiwan is a substantial manufacturer of copper cable and connectors, and domestic fixed broadband is overwhelmingly 光纖 delivered to the building by 中華電信 over the network it inherited from the former state telecoms monopoly.
+locale: zh
+---
+電力電纜
+控制電纜
+通訊電纜
+同軸電纜
+光纖電纜
+超五類網路線
+六類網路線
+架空線
+礦用電纜

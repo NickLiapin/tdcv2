@@ -1,0 +1,29 @@
+---
+description: Gemstones, with jade at the head of the list where Chinese culture puts it. 台灣玉 is Hualien nephrite, mined on the island's east coast and at one point in the 1970s supplying a large share of the world's nephrite. The 玉 family is graded by translucency and colour rather than by carat, and 羊脂玉 — mutton-fat jade — is the top grade of white nephrite.
+locale: zh
+---
+台灣玉
+翡翠
+羊脂玉
+和闐玉
+岫玉
+南紅
+綠松石
+青金石
+瑪瑙
+水晶
+紫水晶
+黃水晶
+茶晶
+鑽石
+紅寶石
+藍寶石
+祖母綠
+碧璽
+月光石
+石榴石
+橄欖石
+珍珠
+珊瑚
+琥珀
+蜜蠟

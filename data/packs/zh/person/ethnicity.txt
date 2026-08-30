@@ -1,0 +1,14 @@
+---
+description: Ethnic and origin groups as Taiwan's census records them. The four-groups framing — Hoklo, Hakka, mainlander, indigenous — is a Taiwanese political vocabulary rather than a Chinese one, and 原住民 covers sixteen officially recognised Austronesian peoples whose languages are unrelated to Chinese.
+locale: zh
+---
+閩南人
+客家人
+外省人
+原住民
+新住民
+阿美族
+泰雅族
+排灣族
+布農族
+卑南族

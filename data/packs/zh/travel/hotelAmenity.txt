@@ -1,0 +1,34 @@
+---
+description: Hotel facilities as a Taiwanese or Hong Kong booking page lists them. 三溫暖 is the local word for a sauna, and it is a sound-and-sense rendering of the foreign word that happens to read as three warmths, which is a fair description of the hot-warm-cold circuit. Air conditioning is 冷氣 in ordinary speech and 中央空調 only when it is a building system; the mainland's 空調 alone sounds technical here. 溫泉 is worth its place because Taiwan sits on a volcanic arc and hot springs at Beitou, Jiaoxi and Guanziling are the reason for a large share of domestic hotel nights. Taiwan writes 盥洗用品 for toiletries and 行李寄放 for luggage storage, against the mainland's 洗漱用品 and 行李寄存.
+locale: zh
+---
+免費WiFi
+冷氣
+電視
+冰箱
+快煮壺
+吹風機
+盥洗用品
+拖鞋
+浴缸
+淋浴
+24小時熱水
+中央空調
+保險箱
+書桌
+沙發
+陽台
+免費早餐
+中式早餐
+餐廳
+大廳酒吧
+健身房
+游泳池
+溫泉
+三溫暖
+會議室
+商務中心
+停車場
+機場接送
+行李寄放
+洗衣服務

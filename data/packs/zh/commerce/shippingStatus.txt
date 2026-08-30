@@ -1,0 +1,15 @@
+---
+description: Shipping-tracking event in Taiwan. 已送達門市 is the step a mainland tracking log has no equivalent for — the parcel has reached the convenience store the buyer chose, and the clock on the seven-day collection window starts there. Only when the buyer walks in does the log move to 已取貨; an uncollected parcel goes back to the seller as 退回中.
+locale: zh
+---
+已下單
+倉庫處理中
+已出庫
+已收件
+運送中
+抵達轉運中心
+配送中
+已送達門市
+已取貨
+配送失敗
+退回中

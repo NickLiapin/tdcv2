@@ -1,0 +1,20 @@
+---
+description: Seniority level in a Taiwanese company. The ladder runs 專員 to 副理 to 經理 to 協理 to 副總經理 to 總經理, and 協理 is the rung with no mainland counterpart, roughly an assistant vice-president sitting between a manager and a deputy general manager. 課長 and 股長 are inherited from the corporate structure left by the Japanese colonial administration and remain ordinary titles in manufacturing. A new graduate is a 社會新鮮人 rather than an 應屆生. At the top, 董事長 is the chairman, which in Taiwan's family-controlled groups is where the real authority sits, while 執行長 is the imported CEO title, common in technology firms and rare in older ones.
+locale: zh
+---
+實習生
+社會新鮮人
+初階
+中階
+高階
+資深
+專家
+主管
+課長
+經理
+資深經理
+協理
+副總經理
+總經理
+執行長
+董事長

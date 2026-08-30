@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in 神經內科 (Taiwanese Mandarin), the medical half of the pair with 神經外科. Stroke dominates the service and Taiwanese charts call it 中風, split into 缺血性 and 出血性 forms rather than written with the mainland's term. Taiwan is ageing faster than almost anywhere in Asia, so the department also carries the dementia caseload under 失智症, with 阿茲海默症 as its commonest cause; eponyms keep the 氏 that Taiwanese naming gives them, hence 帕金森氏症.
+locale: zh
+---
+缺血性腦中風
+出血性腦中風
+短暫性腦缺血發作
+癲癇
+偏頭痛
+帕金森氏症
+阿茲海默症
+多發性硬化症
+顏面神經麻痺
+重症肌無力

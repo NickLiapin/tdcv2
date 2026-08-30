@@ -1,0 +1,11 @@
+---
+description: Team-match slots in 桌球 (Traditional Chinese). Table tennis has no positions on court, so what a squad record holds instead is which rubber of the tie a player is entered for. Taiwan writes these out in full — 第一單打 is the first singles, 第一雙打 the first doubles — where the mainland abbreviates them to 一單 and 一雙.
+locale: zh
+---
+第一單打
+第二單打
+第三單打
+第一雙打
+第二雙打
+混合雙打
+團體替補

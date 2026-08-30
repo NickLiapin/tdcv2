@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Pacific Islander ancestry. Polynesian populations carry the world's highest documented frequencies of the urate transporter variants in SLC2A9 and ABCG2, Q141K among them, which raise serum urate independently of diet and leave Māori and Pacific men with gout rates several times those of Europeans of the same age. The same populations show very high type 2 diabetes and obesity prevalence, worsened by the post-war shift from local food to imported refined staples, and diabetic nephropathy together with post-streptococcal damage makes end-stage kidney disease disproportionately common. Acute rheumatic fever and rheumatic heart disease persist in Pacific and Māori children at rates among the highest anywhere, feeding early cardiovascular disease, and childhood asthma and chronic hepatitis B are both over-represented across Melanesia and Polynesia. A prevalence signal, not an exclusive one.
+locale: zh
+---
+第二型糖尿病
+肥胖症
+痛風
+高尿酸血症
+風濕熱
+慢性腎臟病
+類風濕性關節炎
+氣喘
+B型肝炎
+心血管疾病

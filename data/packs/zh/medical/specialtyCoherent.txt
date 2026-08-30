@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list, in the Taiwanese naming. Taiwan builds an internal-medicine department name from the organ written out in full plus 內科, so 心臟內科 is cardiology and sits under a different roof from 心臟外科, cardiac surgery, with its own outpatient clinic and its own registration queue. Two of these ten name no organ at all: 新陳代謝科 names the metabolism it manages rather than the endocrine glands, and 胃腸肝膽科 lists the stomach, intestine, liver and gallbladder it covers rather than choosing one to stand for the rest. Every value here is also the name of the folder holding that department's diagnoses, so each string has to be the department's own spelling and not a paraphrase of it.
+locale: zh
+---
+心臟內科
+神經內科
+腫瘤科
+皮膚科
+胃腸肝膽科
+新陳代謝科
+胸腔內科
+骨科
+精神科
+腎臟內科

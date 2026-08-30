@@ -1,0 +1,23 @@
+---
+description: Mineral, in Traditional characters. Taiwan mines very little metal. What it extracts at scale is 石灰石 from the ranges behind Hualien, feeding a cement industry built on that one seam, together with marble and serpentine from the same rock. Coal was the island's only significant fuel and is finished: the pits around Ruifang and Pingxi in the north were closed after a run of fatal accidents in the 1980s and the last mine shut in 2000. Nearly everything else on this list arrives by ship, which is why Taiwan's metals sector is a refining and fabrication business rather than an extractive one.
+locale: zh
+---
+煤
+鐵礦石
+銅礦
+鋁土礦
+鉛鋅礦
+金礦
+銀礦
+鎢礦
+鉬礦
+銻礦
+錫礦
+稀土
+磷礦
+石灰石
+高嶺土
+螢石
+石墨
+石膏
+鹽礦

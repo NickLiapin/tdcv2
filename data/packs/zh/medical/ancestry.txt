@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, the kind that predicts carrier frequencies, HLA associations and drug metabolism — and not the ethnic categories of person/ethnicity.txt, which records Taiwan's Hoklo, Hakka, mainlander and indigenous framing alongside sixteen officially recognised Austronesian peoples. That file answers a census question and this one answers a pharmacogenetic one, which is why they neither overlap nor substitute for each other: nearly every patient in a Taiwanese record falls under 東亞裔 here no matter which group the census would assign them. The clinical weight of that is real, since HLA-B*1502 and the carbamazepine screening it triggers are tied to this ancestry rather than to any census category.
+locale: zh
+---
+撒哈拉以南非洲裔
+北非裔
+地中海裔
+中東裔
+北歐裔
+東歐裔
+德系猶太裔
+南亞裔
+東亞裔
+東南亞裔
+美洲原住民裔
+太平洋島民裔

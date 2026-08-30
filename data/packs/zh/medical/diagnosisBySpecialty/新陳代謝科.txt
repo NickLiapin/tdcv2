@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in 新陳代謝科 (Taiwanese Mandarin). The full Taiwanese sign usually reads 內分泌暨新陳代謝科 and is shortened with metabolism first, because diabetes, lipids and obesity fill the clinic rather than pituitary or adrenal work. Gout is unusually prominent here — Taiwan reports some of the world's highest rates of hyperuricaemia and 痛風, and the burden falls hardest on the indigenous peoples of the eastern counties and the mountains. Diabetes types are ordinal in Taiwanese usage, 第一型 and 第二型, and thyroid activity is 機能, giving 甲狀腺機能亢進 and 甲狀腺機能低下.
+locale: zh
+---
+第二型糖尿病
+第一型糖尿病
+甲狀腺機能亢進
+甲狀腺機能低下
+橋本氏甲狀腺炎
+甲狀腺結節
+高尿酸血症
+痛風
+骨質疏鬆症
+肥胖症

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in 胃腸肝膽科 (Taiwanese Mandarin). Taiwanese hospitals name the department for the organs rather than for digestion, and many sign it 肝膽腸胃科 with the liver first, which matches the workload: chronic hepatitis B carriage ran at roughly fifteen to twenty per cent of adults before Taiwan launched the world's first nationwide infant hepatitis B vaccination programme in 1984, and cirrhosis and liver cancer followed from that cohort for decades. Everyday complaints are 胃食道逆流 for reflux and 大腸激躁症 for irritable bowel.
+locale: zh
+---
+胃炎
+胃潰瘍
+十二指腸潰瘍
+幽門螺旋桿菌感染
+胃食道逆流
+大腸激躁症
+潰瘍性結腸炎
+脂肪肝
+肝硬化
+膽囊炎

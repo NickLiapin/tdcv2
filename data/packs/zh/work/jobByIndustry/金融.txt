@@ -1,0 +1,16 @@
+---
+description: Jobs in Taiwanese finance. Lending is 授信, so a loan officer is a 授信專員 rather than the mainland's 信貸員, and an ordinary bank employee is a 行員. The 理財專員, universally shortened to 理專, is the branch salesperson who sells funds and insurance across the counter; the role is prominent enough that mis-selling by 理專 surfaces as a public scandal every few years. Insurance is sold by licensed 保險業務員, of whom Taiwan has several hundred thousand in a population of twenty-three million, among the highest densities anywhere.
+locale: zh
+---
+客戶經理
+授信專員
+行員
+理財專員
+風控專員
+投資經理
+精算師
+證券分析師
+保險業務員
+會計
+內部稽核
+基金經理人

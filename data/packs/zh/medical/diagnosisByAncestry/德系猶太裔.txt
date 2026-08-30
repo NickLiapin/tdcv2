@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Ashkenazi Jewish ancestry, where the founder mutations are unusually well characterised. A severe population bottleneck in medieval Central Europe, followed by centuries of endogamy, fixed a small number of variants at high carrier rates — roughly one in twenty-seven for Tay-Sachs disease, about one in fifteen for Gaucher disease type 1, and close to one in thirty for familial dysautonomia, which is essentially confined to this population. The BRCA1 alleles 185delAG and 5382insC together with BRCA2 6174delT account for most hereditary breast and ovarian cancer in the group and are carried by about one person in forty. Because the variants are few and known, carrier panels for this ancestry are among the oldest in clinical genetics. A prevalence signal, not an exclusive one.
+locale: zh
+---
+泰薩克斯症
+高雪氏症
+家族性自律神經失調症
+尼曼匹克症
+卡納文氏症
+布魯姆症候群
+范可尼貧血
+BRCA1相關乳癌
+囊狀纖維化症
+家族性地中海熱

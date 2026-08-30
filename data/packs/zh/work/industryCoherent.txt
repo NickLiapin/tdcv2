@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child). The category names follow Taiwan's own usage rather than the mainland's. Construction is 營造, because 建築 in Taiwan names the architectural profession of the 建築師 rather than the building trade, and the industry statute is the 營造業法. Healthcare is 醫療保健, the wording used in the government's standard industrial classification. 網路業 is written with 網路, the Taiwanese word for a network, where the mainland writes 網絡.
+locale: zh
+---
+網路業
+醫療保健
+金融
+營造
+教育
+餐飲旅宿
+製造業
+零售
+交通運輸
+法律

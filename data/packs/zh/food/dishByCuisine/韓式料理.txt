@@ -1,0 +1,14 @@
+---
+description: Dishes of 韓式料理. Taiwan writes 韓式 on the shopfront where the mainland writes 韓國/韩国 for the same restaurant, and calls the seaweed rice roll 韓式飯捲 where the mainland calls it 紫菜包飯. 部隊鍋 is a real piece of history rather than a fusion invention: 'army base stew' was built after the Korean War from American surplus ham and sausage dropped into Korean chilli broth.
+locale: zh
+---
+韓式烤肉
+石鍋拌飯
+泡菜
+部隊鍋
+韓式冷麵
+韓式炸雞
+辣炒年糕
+大醬湯
+蔘雞湯
+韓式飯捲

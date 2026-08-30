@@ -1,0 +1,16 @@
+---
+description: Plan types. 吃到飽 — literally eat until full — is the Taiwanese term for an unlimited data plan and is what the carriers themselves print on their tariff sheets, not slang. Taiwan's unlimited plans were among the cheapest in the world through the 2010s as a result of a price war that regulators eventually leaned on the carriers to end.
+locale: zh
+---
+預付卡
+月租型
+吃到飽
+上網加值包
+通話包
+簡訊包
+5G資費
+家庭方案
+學生方案
+日租型
+物聯網卡
+漫遊包

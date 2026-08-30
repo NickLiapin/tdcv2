@@ -1,0 +1,9 @@
+---
+description: Taiwan's statutory audience ratings, which apply to film, television and games alike and are enforced by the National Communications Commission and the Ministry of Culture. 普遍級 is for everyone; 保護級 means unsuitable for under-sixes and requires an adult for six to eleven; 輔12級 and 輔15級 bar under-twelves and under-fifteens outright and advise parental guidance above that; 限制級 is eighteen and over, and a 限制級 programme may only be broadcast between eleven at night and six in the morning. The single 輔導級 was split into 輔12 and 輔15 in 2015, which is why older Taiwanese discs carry a four-level marking and current ones carry five. Hong Kong runs a separate scheme of its own with categories I, IIA, IIB and III. The mainland has no age rating at all.
+locale: zh
+---
+普遍級
+保護級
+輔12級
+輔15級
+限制級

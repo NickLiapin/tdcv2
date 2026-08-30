@@ -1,0 +1,8 @@
+---
+description: Seasons, each written with 天 after it, which is the ordinary spoken form — 春天 rather than the bare 春 of written Chinese. The four-season frame fits the island poorly and Taiwanese say so: the north has a long wet 梅雨 spring and the south has essentially no winter, so the year is felt more as a wet half and a dry one than as four equal parts.
+locale: zh
+---
+春天
+夏天
+秋天
+冬天

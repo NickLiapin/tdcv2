@@ -246,6 +246,13 @@
       "description": "The same one step on the date side. de-at is Austrian German; before this it read English month names, because the variant is not among the built-in date locales and the lookup fell straight through to EN.",
       "config": "<tdc><env count=\"1\" seed=\"d\" local=\"de-at\"><sequence name=\"D\"><gen type=\"date\" value=\"2024-03-01..2024-03-01\" format=\"MMMM\"/></sequence></env><block><line><data>${{D}}</data></line></block></tdc>",
       "expected": ["März"]
+    },
+    {
+      "name": "the-two-chinese-scripts-write-a-short-weekday-differently",
+      "description": "Simplified writes a short weekday 周日, Traditional writes it 週日, and the difference survives every script converter because 周 is an ordinary Traditional character in its own right. zh-cn keeps 周; zh-tw, zh-hk and zh-mo take 週 through the base step; and bare zh is Traditional because that is the slot the Traditional data pack occupies.",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"cn\"><gen type=\"date\" range=\"2026-01-04..2026-01-04\" format=\"ddd\" local=\"zh-cn\"/></sequence><sequence name=\"tw\"><gen type=\"date\" range=\"2026-01-04..2026-01-04\" format=\"ddd\" local=\"zh-tw\"/></sequence><sequence name=\"hk\"><gen type=\"date\" range=\"2026-01-04..2026-01-04\" format=\"ddd\" local=\"zh-hk\"/></sequence><sequence name=\"mo\"><gen type=\"date\" range=\"2026-01-04..2026-01-04\" format=\"ddd\" local=\"zh-mo\"/></sequence><sequence name=\"bare\"><gen type=\"date\" range=\"2026-01-04..2026-01-04\" format=\"ddd\" local=\"zh\"/></sequence></env><block><line><data>${{cn}}|${{tw}}|${{hk}}|${{mo}}|${{bare}}</data></line></block></tdc>",
+      "expected": ["周日|週日|週日|週日|週日"],
+      "now": "2026-04-23T12:00:00Z"
     }
   ]
 }

@@ -1,0 +1,21 @@
+---
+description: Documents a Taiwanese person holds. The identity card is 國民身分證 and carries a ten-character number whose first letter encodes the county of first registration and whose second digit encodes sex — a design that makes the number partly self-describing. 台胞證 is the permit a Taiwanese resident needs to enter mainland China, issued by Beijing rather than Taipei, and its existence is a consequence of the two sides not recognising each other's passports.
+locale: zh
+---
+國民身分證
+戶口名簿
+戶籍謄本
+中華民國護照
+台胞證
+入出境許可證
+駕駛執照
+行車執照
+結婚證書
+離婚協議書
+出生證明
+不動產權狀
+營利事業登記證
+全民健康保險卡
+學位證書
+畢業證書
+身心障礙證明

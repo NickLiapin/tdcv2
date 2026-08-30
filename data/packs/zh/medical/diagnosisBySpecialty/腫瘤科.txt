@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in 腫瘤科 (Taiwanese Mandarin). Cancer has been Taiwan's leading cause of death every year since 1982, and the island's profile is its own — chewing 檳榔 (betel quid), usually with tobacco and slaked lime, gives Taiwanese men one of the highest rates of 口腔癌 in the world, while endemic hepatitis B made 肝癌 a top killer for a generation. Taiwanese names are shorter than the mainland's in several places, giving 乳癌 for breast cancer, 食道癌 for oesophageal and 大腸直腸癌 for colorectal.
+locale: zh
+---
+肺癌
+胃癌
+肝癌
+食道癌
+大腸直腸癌
+乳癌
+鼻咽癌
+淋巴瘤
+白血病
+甲狀腺癌

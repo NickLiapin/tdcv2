@@ -1,0 +1,24 @@
+---
+description: Name elements a Taiwanese or Hong Kong company is built from. The auspicious vocabulary is doing real work: 鴻 great, 泰 peace, 昌 prosperity, 隆 abundance, 富 wealth — a company name is chosen to be lucky, and the same characters recur across centuries of firms. 台 and 中華 mark a national scope.
+locale: zh
+---
+鴻
+泰
+昌
+隆
+富
+盛
+晶
+宏
+聯
+華
+台
+中華
+國際
+遠東
+新光
+統一
+和碩
+廣達
+長榮
+永豐

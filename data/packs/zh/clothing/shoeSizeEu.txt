@@ -1,0 +1,16 @@
+---
+description: European shoe sizes. Taiwan sells shoes in three systems at once — EU, US and centimetres — and a box commonly prints all three, so a size field in Taiwanese retail data has to say which one it means.
+locale: zh
+---
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45

@@ -1,0 +1,30 @@
+---
+description: Headline on a Taiwanese customer review. CP值高 is the one worth knowing: CP值 stands for cost-performance ratio, it is written with the Latin letters inside the Chinese sentence, and it is the single most common thing a Taiwanese reviewer says about a product they liked. Mainland reviewers write 性價比 instead, so the string is a clean marker of which side of the strait a review came from.
+locale: zh
+---
+出貨速度快
+包裝完整
+品質不錯
+CP值高
+值得購買
+與描述相符
+做工精細
+顏色很正
+尺寸標準
+手感很好
+用料紮實
+物超所值
+回購了
+推薦購買
+客服態度好
+出貨準時
+安裝方便
+靜音效果好
+續航力持久
+拍照清晰
+普普通通
+有點小貴
+略有色差
+包裝簡陋
+到貨太慢
+與照片不符

@@ -1,0 +1,23 @@
+---
+description: Taiwanese property types, and the vocabulary is genuinely its own. The three residential forms are distinguished by height and lift: 公寓 is a walk-up of five floors or fewer, 華廈 has a lift and up to ten, 電梯大樓 is anything taller. 透天厝 is the Taiwanese townhouse, owned floor to roof by one household. On the market side, 預售屋 is sold off-plan before it is built, 新成屋 is finished and unsold, 中古屋 is resale — a three-way split the mainland's 期房/现房/二手房 maps onto only loosely.
+locale: zh
+---
+住宅
+公寓
+華廈
+電梯大樓
+透天厝
+套房
+店面
+辦公室
+廠房
+倉庫
+車位
+商業登記住宅
+三合院
+自地自建
+學區宅
+中古屋
+預售屋
+新成屋
+法拍屋

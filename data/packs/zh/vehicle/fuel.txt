@@ -1,0 +1,14 @@
+---
+description: Fuel grades as a Taiwanese pump labels them. Petrol is sold by octane as 92, 95 and 98 無鉛汽油 — unleaded — and diesel comes in 超級 and 高級 grades rather than the mainland's numbered cold-flow classes, because Taiwan does not get cold enough to need them.
+locale: zh
+---
+92無鉛汽油
+95無鉛汽油
+98無鉛汽油
+超級柴油
+高級柴油
+純電動
+插電式混合動力
+油電混合動力
+天然氣
+氫燃料電池

@@ -1,0 +1,11 @@
+---
+description: Number of people in the household. Taiwan maintains a household registration system (戶籍) and issues a 戶口名簿 per household, so household size is a recorded administrative fact here rather than a survey estimate — it is the number the Ministry of the Interior publishes monthly. The figure worth carrying is that it has fallen from about five people in 1980 to roughly two and a half today, and single-person households are now the largest single category, so a dataset centred on four will not look like Taiwan.
+locale: zh
+---
+1
+2
+3
+4
+5
+6
+7+

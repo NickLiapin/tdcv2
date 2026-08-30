@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of South Asian ancestry. Cardiometabolic disease appears at a lower body-mass index and close to a decade earlier than in European populations, which is why Asian-specific thresholds of 23 for overweight and 27.5 for obesity are used in place of the standard cut-offs — visceral fat distribution, early insulin resistance and high lipoprotein(a) drive both the type 2 diabetes and the premature coronary disease. Beta thalassaemia and G6PD deficiency reflect malaria selection across the subcontinent, and sickle cell disease is concentrated in the tribal populations of central India rather than being absent from Asia as is often assumed. Adult lactase non-persistence is the ancestral state outside the northwestern dairying belt, and vitamin D deficiency is widespread despite the latitude. A prevalence signal, not an exclusive one.
+locale: zh
+---
+β型地中海型貧血
+蠶豆症
+第二型糖尿病
+冠狀動脈心臟病
+結核病
+乳糖不耐症
+鐮刀型細胞疾病
+維生素D缺乏
+代謝症候群
+遺傳性聽力障礙

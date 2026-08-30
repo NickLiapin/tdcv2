@@ -1,0 +1,9 @@
+---
+description: Hotel star ratings. Taiwan runs a real one — the 星級旅館評鑑 administered by the Tourism Administration, which scores a property on building and facilities first and on service quality second, and awards one to five stars for a fixed term after which the hotel must be assessed again. A rating is therefore something a hotel holds and can lose, not a self-description, and a legally registered hotel may carry no stars at all because it never applied. Hong Kong by contrast has no official scheme, and stars quoted there come from the booking sites.
+locale: zh
+---
+一星級
+二星級
+三星級
+四星級
+五星級

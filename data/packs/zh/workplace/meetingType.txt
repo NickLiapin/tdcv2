@@ -1,0 +1,16 @@
+---
+description: Meetings. 尾牙 is the last one of the year and the most consequential: a company banquet held before Lunar New Year at which bonuses are announced and, by long tradition, the boss signals who is not being kept on. The name comes from the merchants' custom of honouring the earth god on the sixteenth of each lunar month, of which this is the final one.
+locale: zh
+---
+晨會
+週會
+月會
+季會
+檢討會
+需求評審
+專案啟動會
+部門例會
+一對一
+全員大會
+述職
+尾牙

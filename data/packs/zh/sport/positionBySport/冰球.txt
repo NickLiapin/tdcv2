@@ -1,0 +1,11 @@
+---
+description: Positions in 冰球 (Traditional Chinese). Ice hockey lines up as three forwards, two defencemen and a goaltender, and a team rotates whole forward lines on and off the ice rather than substituting players individually. Taiwan's federation uses 冰球 as the sport's name, though 冰上曲棍球 appears in older writing.
+locale: zh
+---
+守門員
+左邊鋒
+右邊鋒
+中鋒
+左後衛
+右後衛
+替補

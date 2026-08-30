@@ -1,0 +1,32 @@
+---
+description: Technical adjectives in the Taiwanese register. The split from mainland usage is wide enough that a document can be placed by these words alone. Taiwan writes 數位 for digital where the mainland writes 數字, 分散式 for distributed against 分佈式, 非同步 for asynchronous against 異步, 快取 for cached against 緩存, 相容 for compatible against 兼容, 最佳化 for optimised against 優化, and 多執行緒 for multithreaded against 多線程. 備援 is the Taiwanese word for a redundant standby system, which the mainland calls 冗餘.
+locale: zh
+---
+數位化的
+二進位的
+分散式的
+平行的
+非同步的
+同步的
+安全的
+加密的
+開放原始碼的
+閉源的
+遠端的
+本機的
+雲端的
+虛擬的
+容器化的
+可擴充的
+高可用的
+備援的
+快取的
+索引化的
+壓縮的
+最佳化過的
+過時的
+相容的
+跨平台的
+多執行緒的
+底層的
+高層的

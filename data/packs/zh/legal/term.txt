@@ -1,0 +1,23 @@
+---
+description: Terms of procedure. 交互詰問 — cross-examination — is the one to notice: Taiwan rewrote its criminal procedure in 2003 to move from an inquisitorial model, where the judge questioned, to an adversarial one where the parties do, and this word entered ordinary legal Chinese with that reform.
+locale: zh
+---
+原告
+被告
+第三人
+上訴人
+被上訴人
+訴訟代理人
+辯護人
+證人
+起訴
+開庭
+舉證
+交互詰問
+言詞辯論
+調解
+判決
+裁定
+上訴
+再審
+強制執行

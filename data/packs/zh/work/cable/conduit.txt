@@ -1,0 +1,11 @@
+---
+description: Cable conduit type in Taiwanese electrical work. Wiring runs are governed by the 用戶用電設備裝置規則, which specifies 電線導管 by material and by fill ratio rather than leaving the choice to the installer. The tray that carries bundled cable overhead is a 電纜架 in the trade here, not the mainland's 橋架. Because the island is humid, seismic and hit by typhoons every summer, 鍍鋅鋼管 and buried 地下管路 are used far more heavily outdoors than surface plastic.
+locale: zh
+---
+PVC管
+鍍鋅鋼管
+金屬軟管
+電纜架
+線槽
+地下管路
+電線導管

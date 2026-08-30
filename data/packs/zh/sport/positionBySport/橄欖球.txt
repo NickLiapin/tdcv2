@@ -1,0 +1,14 @@
+---
+description: Positions in 橄欖球 (Traditional Chinese). These are rugby union positions, which is what 橄欖球 means in Taiwan — American football is 美式足球 and is a separate sport. The eight forwards who bind into the scrum come first, then the backs from 傳鋒 (scrum-half) out to 全衛 (full-back).
+locale: zh
+---
+前鋒
+鋒線
+第二排
+八號位
+爭球前鋒
+傳鋒
+接鋒
+中衛
+邊衛
+全衛

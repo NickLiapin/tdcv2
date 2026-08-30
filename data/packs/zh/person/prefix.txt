@@ -1,0 +1,12 @@
+---
+description: Titles, written after the family name rather than before it: 陳先生 is Mr Chen. 小姐 for an unmarried woman and 女士 for a woman generally are both current in Taiwan; 太太 marks a married woman by her husband's surname and is now often avoided in official use.
+locale: zh
+---
+先生
+小姐
+女士
+太太
+博士
+教授
+醫師
+老師

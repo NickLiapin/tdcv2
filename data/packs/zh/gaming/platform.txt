@@ -1,0 +1,15 @@
+---
+description: Gaming platforms. Consoles have a real presence in Taiwan that they do not have on the mainland, where they were banned outright from 2000 to 2014 and the market went to PC and mobile instead.
+locale: zh
+---
+PC
+手機
+iOS
+Android
+Steam
+PlayStation 5
+Xbox Series X
+Nintendo Switch
+網頁遊戲
+雲端遊戲
+LINE遊戲

@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Middle Eastern ancestry. Consanguineous marriage rates are among the highest recorded anywhere across much of the region, and the recessive burden follows — spinal muscular atrophy, congenital adrenal hyperplasia, phenylketonuria, lysosomal storage disorders and non-syndromic hearing loss all run above world averages, frequently as one founder variant shared by an extended family or a single village. Familial Mediterranean fever and Behçet disease trace the old Silk Road distribution, the second of them tied to HLA-B51. Beta thalassaemia and G6PD deficiency mark the same malarial history as the wider Mediterranean, and type 2 diabetes prevalence in the Gulf states is now among the highest in the world. A prevalence signal, not an exclusive one.
+locale: zh
+---
+家族性地中海熱
+β型地中海型貧血
+貝賽特氏症
+蠶豆症
+脊髓性肌肉萎縮症
+先天性腎上腺增生症
+遺傳性聽力障礙
+第二型糖尿病
+苯酮尿症
+溶小體儲積症

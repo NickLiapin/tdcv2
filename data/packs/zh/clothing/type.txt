@@ -1,0 +1,30 @@
+---
+description: Garments. Several are Taiwan's own word rather than a converted mainland one: a hoodie is 帽T, built from 帽 hood and the letter T, where the mainland says 卫衣; a dress is 洋裝, literally Western clothing, where the mainland says 连衣裙. The last three — 旗袍, 唐裝, 漢服 — are historical forms worn now for weddings and festivals.
+locale: zh
+---
+T恤
+襯衫
+POLO衫
+帽T
+毛衣
+針織衫
+外套
+夾克
+風衣
+羽絨衣
+棉襖
+大衣
+西裝
+背心
+褲子
+牛仔褲
+西裝褲
+運動褲
+短褲
+裙子
+洋裝
+窄裙
+旗袍
+唐裝
+漢服
+中山裝

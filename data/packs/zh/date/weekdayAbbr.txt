@@ -1,0 +1,11 @@
+---
+description: Short weekday forms. Taiwan writes 週 where the mainland writes 周 — the same word with the radical kept — so 週一 for Monday. Sunday is 週日, the only day not named by a number.
+locale: zh
+---
+週日
+週一
+週二
+週三
+週四
+週五
+週六

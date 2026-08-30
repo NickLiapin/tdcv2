@@ -1,0 +1,29 @@
+---
+description: Fish as they are named and eaten in Taiwan. 虱目魚 and 吳郭魚 open the list because they are the two fish the island farms at scale — 吳郭魚 is tilapia, and it carries the surnames of 吳振輝 and 郭啟彰, the two men who carried the fingerlings back from Singapore in 1946, which is why the mainland's 羅非魚 is the wrong word here. 櫻花鉤吻鮭 is the Formosan landlocked salmon, a relict of the last ice age stranded in a few cold headwaters of the Dajia river, critically endangered and printed on the NT$2000 note. 土魠魚 and 白鯧 are market fish with a season and a price that makes the news — 白鯧 before Lunar New Year especially — and 飛魚 is central to the calendar of the Tao people of Orchid Island.
+locale: zh
+---
+虱目魚
+吳郭魚
+草魚
+鰱魚
+鯉魚
+鯽魚
+香魚
+鱔魚
+泥鰍
+鱸魚
+白帶魚
+土魠魚
+白鯧
+石斑魚
+鮪魚
+鮭魚
+鱈魚
+鯊魚
+鰻魚
+櫻花鉤吻鮭
+鬼頭刀
+飛魚
+烏魚
+金魚
+錦鯉

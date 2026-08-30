@@ -1,0 +1,14 @@
+---
+description: Payment status in Traditional Chinese. Taiwanese systems say 付款 where mainland ones say 支付, so the whole column reads differently even though the states are the same. 已撥款 is the last one: the gateway has released the money to the merchant, which for a store-pickup order happens only after the buyer has actually collected the parcel.
+locale: zh
+---
+未付款
+付款處理中
+付款成功
+付款失敗
+已取消
+部分退款
+全額退款
+退款失敗
+已凍結
+已撥款

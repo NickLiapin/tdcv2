@@ -1,0 +1,22 @@
+---
+description: Where an event is held. 廟埕 is the forecourt of a temple and is the real public square of a Taiwanese town: markets, puppet shows, opera, elections and funerals all happen on it, and it is common land in a way a park is not.
+locale: zh
+---
+飯店宴會廳
+餐廳
+會展中心
+體育館
+體育場
+劇院
+音樂廳
+電影院
+展覽館
+博物館
+文化中心
+社區活動中心
+學校禮堂
+公園
+廣場
+廟埕
+農場
+度假村

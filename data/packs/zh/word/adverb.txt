@@ -1,0 +1,36 @@
+---
+description: Common adverbs. Chinese adverbs sit before the verb and never after it, and several here mark aspect rather than manner — 已經 for a completed action, 正在 for one in progress, 將要 for one about to start — because Chinese has no verb tense and puts that work on words like these.
+locale: zh
+---
+很
+非常
+特別
+十分
+極其
+稍微
+有點
+比較
+更
+最
+太
+真
+挺
+都
+也
+還
+又
+再
+就
+才
+只
+剛
+已經
+正在
+將要
+馬上
+立刻
+終於
+突然
+漸漸
+一直
+從來

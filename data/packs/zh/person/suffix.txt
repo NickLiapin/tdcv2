@@ -1,0 +1,28 @@
+---
+description: Professional or academic title written after a Taiwanese name — 王大明醫師, never Dr Wang. Almost every licensed profession in Taiwan ends in 師, and the licence comes from a national examination run by the 考試院, the Examination Yuan, a whole separate branch of government that exists in no other constitution in the world. Taiwan has no graded teacher ranks, so the mainland's 特級教師 and 高級教師 have no counterpart here. Chinese also has no equivalent of Jr., Sr. or III: a family that wants to mark generations shares a 輩分字, a fixed generational character placed inside the given name of every cousin born in that generation — it sits in the middle of the name and cannot be modelled as a suffix at all.
+locale: zh
+---
+院士
+博士
+碩士
+學士
+博士後
+教授
+副教授
+助理教授
+講師
+研究員
+副研究員
+助研究員
+技師
+建築師
+會計師
+律師
+醫師
+主治醫師
+住院醫師
+藥師
+護理師
+營養師
+社工師
+獸醫師

@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Sub-Saharan African ancestry. Much of the pattern was written by malaria — the sickle haemoglobin allele and G6PD deficiency both spread because carriers resist Plasmodium falciparum, and both stay common wherever transmission was historically intense. Other entries owe nothing to that selection. The two APOL1 risk alleles that arose in West Africa and protect against trypanosomiasis drive the excess of focal segmental glomerulosclerosis and of salt-sensitive hypertensive kidney disease, while the Duffy-null promoter variant produces a benign low neutrophil count that is repeatedly mistaken for pathology when European reference ranges are applied. A prevalence signal, not an exclusive one.
+locale: zh
+---
+鐮刀型細胞疾病
+蠶豆症
+β型地中海型貧血
+類肉瘤病
+局部節段性腎絲球硬化症
+攝護腺癌
+鹽敏感性高血壓
+子宮肌瘤
+酮症傾向糖尿病
+良性嗜中性球減少症

@@ -1,0 +1,16 @@
+---
+description: Jobs in Taiwan's legal system. The court clerk is a 書記官, a civil-service post entered by national examination rather than a junior lawyer's job. 司法事務官 is a position created in 2004 to take compulsory enforcement, estate supervision and simplified debt cases off the judges' hands, and it has no mainland counterpart. Patent work is done by 專利師, licensed under a statute of their own, and the umbrella term in Taiwan is 智慧財產權 rather than 知識產權. Arbitrators are 仲裁人.
+locale: zh
+---
+律師
+實習律師
+法官
+檢察官
+書記官
+法務專員
+公證人
+仲裁人
+司法鑑定人
+專利師
+法遵經理
+司法事務官

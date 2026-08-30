@@ -1,0 +1,16 @@
+---
+description: Dishes of 素食. Taiwan has one of the highest vegetarian rates in the world — roughly a tenth of the population — sustained by Buddhist practice and by 初一十五, the first and fifteenth of each lunar month, when families who otherwise eat meat go 素 for the day, which is why even convenience stores stock vegetarian lunchboxes. Taiwanese Buddhist 素食 excludes not only meat but the 五辛: garlic, onion, leek, chive and asafoetida. 蔬食 is the newer label for vegetarian food without that restriction, aimed at diners with no religious motive.
+locale: zh
+---
+素肉燥飯
+素滷味
+三杯杏鮑菇
+炸素排
+素獅子頭
+腐皮捲
+炒麵筋
+素春捲
+猴頭菇煲
+麻油麵線
+涼拌海帶芽
+蔬食咖哩

@@ -1,0 +1,30 @@
+---
+description: Aircraft types flown by the carriers on this pack's airline list. China Airlines and EVA Air both run large 777-300ER and 787 fleets on long haul plus 737 and A321neo narrowbodies in Asia, and STARLUX ordered the A350-1000 to open its own long-haul routes. The mainland's C919 and ARJ21 are absent because no Traditional-Chinese-market carrier operates them.
+locale: zh
+---
+A220-300
+A319
+A320
+A320neo
+A321
+A321neo
+A330-200
+A330-300
+A330-900neo
+A350-900
+A350-1000
+A380
+B737-800
+B737 MAX 8
+B747-400
+B747-8F
+B757-200
+B767-300
+B777-200
+B777-300ER
+B777F
+B787-9
+B787-10
+CRJ900
+E190
+ATR 72-600

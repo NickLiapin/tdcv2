@@ -1,0 +1,22 @@
+---
+description: Colour names in Traditional characters. 青 is the interesting one: it covers a range English splits into blue and green and is the colour of both the sky and young grass, which is why 青菜 is a green vegetable and 青天 a blue sky.
+locale: zh
+---
+紅
+橙
+黃
+綠
+藍
+靛
+紫
+黑
+白
+灰
+粉紅
+金
+銀
+咖啡色
+青
+米色
+淺藍
+深綠

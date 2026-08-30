@@ -1,0 +1,32 @@
+---
+description: University subjects as Taiwanese department names. The unit is the 學系, and an applicant applies to a named department at a named university rather than to the university alone, so 資訊工程學系 at one institution and 資訊工程學系 at another are separate applications with separate cut-off scores. The engineering names reflect what the island's economy runs on — 電機, 電子 and 光電 are three distinct departments, not one, and they feed a semiconductor industry that makes most of the world's advanced chips. 醫學系 is a six-year undergraduate programme entered straight from secondary school, which is why there is no separate 臨床醫學 entry of the kind the mainland catalogue lists.
+locale: zh
+---
+資訊工程學系
+資訊管理學系
+電機工程學系
+電子工程學系
+光電工程學系
+機械工程學系
+土木工程學系
+化學工程學系
+材料科學與工程學系
+建築學系
+環境工程學系
+醫學系
+牙醫學系
+中醫學系
+藥學系
+護理學系
+生命科學系
+數學系
+物理學系
+財務金融學系
+會計學系
+企業管理學系
+國際企業學系
+法律學系
+中國文學系
+外國語文學系
+新聞學系
+心理學系

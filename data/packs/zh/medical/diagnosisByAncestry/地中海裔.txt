@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Mediterranean ancestry. Endemic malaria around the basin selected for red-cell variants that hamper the parasite, which is why beta thalassaemia runs from Sardinia and Cyprus through Greece and the Levant, and why G6PD deficiency is common enough that the acute haemolytic reaction to broad beans took the name favism from the region. Familial Mediterranean fever concentrates in Turkish, Armenian, Arab and Sephardi Jewish families through a handful of MEFV founder alleles. Taiwanese medicine calls the same thalassaemia 地中海型貧血, several per cent of the island population are carriers, and carrier screening is a routine part of antenatal care there. A prevalence signal, not an exclusive one.
+locale: zh
+---
+β型地中海型貧血
+蠶豆症溶血危象
+家族性地中海熱
+血色素沉著症
+遺傳性球形紅血球增多症
+全身性紅斑性狼瘡
+貝賽特氏症
+家族性高膽固醇血症
+囊狀纖維化症
+血友病

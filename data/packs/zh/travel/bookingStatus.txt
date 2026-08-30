@@ -1,0 +1,15 @@
+---
+description: Booking states as a Taiwanese or Hong Kong reservation system reports them. The chain is not linear — 已改期 can follow 已確認 without passing through cancellation, and 退款處理中 sits between the cancellation and the money actually arriving, which for a Taiwanese credit card refund is typically one to two billing cycles rather than days. Taiwan writes 付款 for payment where the mainland writes 支付.
+locale: zh
+---
+待確認
+已確認
+已付款
+待入住
+已入住
+已退房
+已完成
+已取消
+退款處理中
+已退款
+已改期

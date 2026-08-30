@@ -1,0 +1,16 @@
+---
+description: Dishes of 江浙菜 — Jiangsu and Zhejiang cooking, sold in Taiwan under one combined name rather than split into 蘇菜 and 浙菜 the way mainland classification splits them. The register is sweet, dark and wine-scented rather than hot. 醃篤鮮 is a spring soup of cured pork, fresh pork and bamboo shoot whose name is three Shanghainese cooking verbs strung together, and 烤麩 is a wheat gluten braised in soy and sugar that most diners meet before they learn what it is made of.
+locale: zh
+---
+東坡肉
+西湖醋魚
+龍井蝦仁
+清燉蟹粉獅子頭
+松鼠桂魚
+醃篤鮮
+雪菜黃魚
+上海菜飯
+蔥開煨麵
+油燜筍
+無錫排骨
+烤麩

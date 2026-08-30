@@ -1,0 +1,14 @@
+---
+description: Dishes of 原住民料理, the food of Taiwan's sixteen officially recognised Austronesian peoples — a cuisine with no mainland counterpart at all, since these languages are not related to Chinese and several ingredients are named by transliteration from them. 馬告 is 山胡椒, a native mountain pepper carrying a lemongrass note, borrowed from Atayal. 雨來菇, 'rain mushroom', is a ground algae that appears only after rain and is sold under the trade name 情人的眼淚. 竹筒飯 is sticky rice steamed inside a green bamboo section and split open at the table.
+locale: zh
+---
+竹筒飯
+石板烤肉
+馬告雞湯
+山豬肉香腸
+刺蔥煎蛋
+樹豆排骨湯
+小米糕
+飛魚乾
+過貓沙拉
+雨來菇

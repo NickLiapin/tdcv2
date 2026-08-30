@@ -1,0 +1,19 @@
+---
+description: Reason a Taiwanese customer returns an order. The first entry is the statutory one: the Consumer Protection Act gives a distance-selling buyer a 七日鑑賞期, a seven-day inspection window in which the order can be sent back without giving any reason and without penalty. It is counted from the day the goods arrive, not from the order date, and because the buyer needs no grounds it is the reason code most returns are filed under. 買貴退差價 is the price-drop guarantee several Taiwanese platforms offer.
+locale: zh
+---
+七日鑑賞期退貨
+不喜歡
+尺寸不合
+顏色不符
+與商品描述不符
+品質瑕疵
+商品破損
+短少漏寄
+出貨錯誤
+效期不足或過期
+包裝破損
+出貨太慢
+重複下單
+下錯訂單
+買貴退差價

@@ -1,0 +1,16 @@
+---
+description: Jobs in Taiwanese retail. A shop is a 門市, so the salesperson on the floor is 門市人員 and the manager covering several branches is a 區域督導; 門店 and 導購 are mainland words. Taiwan has the densest convenience-store network in the world, roughly one 超商 for every two thousand people, and the chains are employers large enough that the 門市 career ladder is formalised all the way up. Livestream selling is done by a 直播主, because in Taiwan a 主播 is still a television news anchor.
+locale: zh
+---
+門市人員
+店長
+收銀員
+理貨員
+視覺陳列師
+商品企劃
+區域督導
+客服專員
+倉管
+電商營運
+直播主
+售後專員

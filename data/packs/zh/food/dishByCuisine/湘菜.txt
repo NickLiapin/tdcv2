@@ -1,0 +1,14 @@
+---
+description: Dishes of 湘菜, Hunan cooking, which is hotter than Sichuan by a plain measure of chilli. Where Sichuan pairs chilli with the numbing 花椒, Hunan pairs it with sourness and smoke: 剁椒 is chilli chopped and salt-fermented until it turns sour, and 臘味 is meat cured over pine smoke through the twelfth lunar month, which is what 臘 means. Taiwan's Hunan restaurants descend from the kitchens that followed the Nationalist government in 1949.
+locale: zh
+---
+剁椒魚頭
+辣椒炒肉
+農家小炒肉
+臘味合蒸
+毛氏紅燒肉
+乾鍋牛蛙
+血粑鴨
+口味蝦
+外婆菜
+湘西臘肉

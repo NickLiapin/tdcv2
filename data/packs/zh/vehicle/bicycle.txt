@@ -1,0 +1,21 @@
+---
+description: Bicycles. YouBike is Taiwan's public bike-share, run by Giant — the world's largest bicycle manufacturer, which is Taiwanese — and it is dense enough in Taipei that it functions as part of the transport network rather than as a leisure scheme. Note 腳踏車 for bicycle, where the mainland says 自行车, and 機車 for a scooter, which on the mainland means something else entirely.
+locale: zh
+---
+YouBike
+登山車
+公路車
+折疊車
+通勤車
+城市車
+電輔車
+場地車
+淑女車
+兒童腳踏車
+三輪車
+載貨三輪車
+協力車
+越野車
+旅行車
+躺車
+小徑車

@@ -1,0 +1,28 @@
+---
+description: Taiwanese dishes, in Traditional characters. Most of these are night-market food rather than restaurant food, which is the point: the 夜市 is where Taiwan eats, and 蚵仔煎, 大腸包小腸 and 臭豆腐 are stall dishes with no restaurant equivalent. 滷肉飯 — braised pork over rice — is the island's defining everyday dish, and 珍珠奶茶 was invented in Taichung in the 1980s and has since gone everywhere.
+locale: zh
+---
+滷肉飯
+牛肉麵
+蚵仔煎
+珍珠奶茶
+鹽酥雞
+臭豆腐
+小籠包
+擔仔麵
+肉圓
+割包
+鳳梨酥
+芒果冰
+大腸包小腸
+胡椒餅
+車輪餅
+三杯雞
+麻油雞
+蔥抓餅
+豆漿
+燒餅油條
+滷味
+炒米粉
+虱目魚湯
+棺材板

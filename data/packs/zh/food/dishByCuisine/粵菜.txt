@@ -1,0 +1,18 @@
+---
+description: Dishes of 粵菜, Cantonese cooking — the school with the lightest hand, built on steaming and on 鑊氣, the scorched smoky quality that only a wok hot enough gives food. 鑊氣 is what a Cantonese cook is actually judged on and it has no English name. 老火湯 is soup simmered three hours or longer and drunk before the meal rather than after it, and it is treated as medicine as much as food.
+locale: zh
+---
+白切雞
+燒鵝
+蜜汁叉燒
+脆皮乳豬
+清蒸石斑魚
+蝦餃
+燒賣
+腸粉
+煲仔飯
+老火湯
+白灼蝦
+蠔油芥藍
+咕咾肉
+避風塘炒蟹

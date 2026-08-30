@@ -1,0 +1,21 @@
+---
+description: Cuisine as a Traditional-character diner actually picks it, which is not the mainland's list of 八大菜系. Four of these categories exist nowhere in a mainland classification: 台菜, the Taiwanese kitchen proper; 小吃, the night-market repertoire, which here is a place to have dinner rather than a snack; 熱炒, the flat-price stir-fry beer house; and 原住民料理, the food of the island's Austronesian peoples. 江浙菜 and 北方麵食 arrived with the 1949 migration and are still sold under those names, so one Taipei street can offer Hakka, Jiangzhe and Sichuan food within a block. 港式茶餐廳 covers the Hong Kong diner, the other half of the Traditional-character world. Each value has a dishByCuisine child file.
+locale: zh
+---
+台菜
+小吃
+客家菜
+熱炒
+原住民料理
+港式茶餐廳
+粵菜
+川菜
+江浙菜
+湘菜
+北方麵食
+素食
+火鍋
+日本料理
+韓式料理
+西餐
+泰國菜

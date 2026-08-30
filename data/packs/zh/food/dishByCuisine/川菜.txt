@@ -1,0 +1,18 @@
+---
+description: Dishes of 川菜. Sichuan food reached Taiwan with the 1949 migration and was rebuilt here: 川味紅燒牛肉麵, the red-braised beef noodle soup now treated as Taiwan's national dish, was invented in the 眷村 — the military dependents' villages of Kaohsiung — by soldiers from Sichuan working with what Taiwan sold, and it does not exist in Sichuan. 麻辣 names two separate sensations: 麻, the numbing tingle of 花椒, and 辣, the burn of chilli.
+locale: zh
+---
+麻婆豆腐
+宮保雞丁
+回鍋肉
+水煮魚
+夫妻肺片
+魚香肉絲
+辣子雞
+口水雞
+擔擔麵
+蒜泥白肉
+乾煸四季豆
+酸菜魚
+毛血旺
+川味紅燒牛肉麵

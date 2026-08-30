@@ -1,0 +1,16 @@
+---
+description: Leave types under Taiwan's Labor Standards Act. 生理假 is menstrual leave — three days a year beyond ordinary sick leave, a statutory entitlement since 2002 and one of the few in the world. 育嬰假 is parental leave of up to two years per child, available to either parent.
+locale: zh
+---
+特休
+病假
+事假
+婚假
+產假
+陪產假
+育嬰假
+喪假
+公傷病假
+補休
+家庭照顧假
+生理假

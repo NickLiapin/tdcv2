@@ -1,0 +1,24 @@
+---
+description: Writing systems, and the first two entries are the point of this whole pack. Taiwan calls its script 正體字 — orthodox characters — rather than 繁體字, traditional or complex characters, because the name asserts that nothing was added: the mainland removed. Taiwan also teaches pronunciation with 注音符號 (bopomofo), a set of 37 symbols invented in 1913, rather than with 漢語拼音 in Latin letters, so a Taiwanese keyboard and a mainland one are laid out on different principles. 台灣羅馬字 is the romanisation used for Taiwanese Hokkien.
+locale: zh
+---
+正體字
+簡體字
+注音符號
+漢語拼音
+甲骨文
+金文
+篆書
+隸書
+拉丁字母
+西里爾字母
+希臘字母
+阿拉伯字母
+希伯來字母
+天城文
+泰文
+諺文
+假名
+藏文
+蒙古文
+台灣羅馬字

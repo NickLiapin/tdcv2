@@ -1,0 +1,15 @@
+---
+description: Stages of a Taiwanese hiring process. 一面, 二面 and 三面 are simply first, second and third round; 人資 is HR, abbreviated from 人力資源, where the mainland writes HR in Latin letters.
+locale: zh
+---
+履歷篩選
+人資初篩
+電話面試
+筆試
+一面
+二面
+三面
+技術面試
+主管面試
+人資面試
+資歷查核

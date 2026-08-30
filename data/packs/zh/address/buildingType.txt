@@ -1,0 +1,12 @@
+---
+description: Building words in an address, and the distinction is the same one that prices a Taiwanese flat: 公寓 is a walk-up of five floors or fewer with no lift, 華廈 has a lift and stops around ten, and 大樓 is anything taller. 透天厝 is the Taiwanese townhouse — one household owning ground floor to roof, with its own street door — and it is the ordinary form of housing outside the big cities.
+locale: zh
+---
+大樓
+公寓
+大廈
+別墅
+透天厝
+華廈
+社區
+工業區

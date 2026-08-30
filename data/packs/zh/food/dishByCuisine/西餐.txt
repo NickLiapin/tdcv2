@@ -1,0 +1,14 @@
+---
+description: Dishes of 西餐. Half the loanwords here differ across the Chinese-speaking world even though all three write the same dish: Taiwan writes 義大利麵 where the mainland writes 意大利面, and 三明治 where Hong Kong writes 三文治. 羅宋湯 is borscht — 羅宋 is a nineteenth-century transliteration of 'Russian' — but the Taiwanese version reached the island by way of Shanghai and contains tomato and beef with no beetroot in it at all.
+locale: zh
+---
+牛排
+義大利麵
+披薩
+漢堡
+凱撒沙拉
+奶油蘑菇濃湯
+羅宋湯
+焗烤飯
+三明治
+炸魚薯條

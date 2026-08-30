@@ -1,0 +1,20 @@
+---
+description: Room counts as a Taiwanese listing writes them. The formula is 房 for bedrooms and 廳 for reception rooms, so 三房兩廳 is three bedrooms plus a living room and a dining room. Taiwan says 房 where the mainland says 室, and 衛浴 where it says 卫生间 — the same layout described with a different set of words.
+locale: zh
+---
+一房一廳
+兩房一廳
+兩房兩廳
+三房一廳
+三房兩廳
+四房兩廳
+開放式套房
+樓中樓
+夾層
+主臥
+次臥
+客廳
+餐廳
+書房
+廚房
+衛浴

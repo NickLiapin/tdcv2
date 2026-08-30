@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in 精神科 (Taiwanese Mandarin). Taiwan formally renamed schizophrenia in 2014, retiring 精神分裂症 in favour of 思覺失調症 — literally a disorder of thought and perception — to break the stigma carried by the older word, and the new name is now standard in charts, in law and in the press. The rest of the register is equally Taiwanese, with 憂鬱症 for depression, 躁鬱症 for bipolar disorder, 恐慌症 for panic disorder and 注意力不足過動症 for ADHD.
+locale: zh
+---
+憂鬱症
+焦慮症
+躁鬱症
+思覺失調症
+強迫症
+失眠症
+創傷後壓力症候群
+恐慌症
+注意力不足過動症
+神經衰弱

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in 胸腔內科 (Taiwanese Mandarin). Taiwan names the department for the chest rather than for breathing and pairs it with 胸腔外科, so it takes everything inside the thorax that is not operated on. Tuberculosis is still a notifiable disease in Taiwan and still admitted here, and lung cancer is the island's deadliest cancer with a striking share of cases in women who never smoked, which is why low-dose CT screening was rolled out as a national programme in 2022. Asthma is plain 氣喘 and sleep apnoea is 睡眠呼吸中止症.
+locale: zh
+---
+慢性阻塞性肺病
+氣喘
+肺炎
+支氣管炎
+肺結核
+支氣管擴張症
+睡眠呼吸中止症
+塵肺症
+肺氣腫
+過敏性鼻炎

@@ -1,0 +1,20 @@
+---
+description: Levels of education in Taiwan. The school ladder is 國小, 國中, 高中 and then university, and the degree ladder above it is 學士, 碩士, 博士 — the mainland's 本科 and 大專 are not used here. 五專 and 二專 are the vocational alternatives that make the Taiwanese system distinctive — 五專 is a five-year junior college entered straight from 國中 at fifteen, and it ends at twenty with an 副學士, the associate degree that Taiwan formalised in 2004. Entry to university runs through the 學測 in January and, for those who need a second route, the exam long known as 指考 and renamed 分科測驗 in 2022. 碩士在職專班 is the part-time master's taken while employed, and 學士後 programmes such as 學士後醫學系 admit graduates of another subject.
+locale: zh
+---
+國小
+國中
+高中
+高職
+五專
+二專
+專科
+副學士
+學士
+雙主修
+碩士
+碩士在職專班
+博士
+博士後
+學士後
+MBA

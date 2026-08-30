@@ -1,0 +1,26 @@
+---
+description: Vehicle types. Almost every one of these is a different word from the mainland's: an SUV is 休旅車 not 越野车, a taxi is 計程車 not 出租车, a bus is 公車 not 公交车, a van is 廂型車 not 面包车. A dataset that converts the mainland's characters and stops will read as foreign to any Taiwanese user.
+locale: zh
+---
+轎車
+休旅車
+MPV
+掀背車
+三廂車
+跑車
+越野車
+皮卡
+廂型車
+微型車
+電動車
+純電動車
+插電式混合車
+計程車
+網約車
+公車
+遊覽車
+校車
+貨車
+拖車
+露營車
+電動自行車

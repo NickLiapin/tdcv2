@@ -1,0 +1,14 @@
+---
+description: Dishes of 日本料理. Japan governed Taiwan for fifty years to 1945 and the food stayed behind as ordinary rather than exotic, which is why a small town with no Italian restaurant will still have three Japanese ones. The vocabulary records the same history: Taiwanese says 生魚片 for sashimi where the mainland borrows the Japanese word 刺身, and 便當 — the Japanese bentō — has become a plain Chinese word in Taiwan while the mainland says 盒飯.
+locale: zh
+---
+壽司
+生魚片
+天婦羅
+日式拉麵
+味噌湯
+照燒雞腿
+鰻魚飯
+章魚燒
+壽喜燒
+日式咖哩

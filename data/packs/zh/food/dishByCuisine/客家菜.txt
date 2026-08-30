@@ -1,0 +1,16 @@
+---
+description: Dishes of 客家菜, the Hakka kitchen of the Hsinchu and Miaoli hills. Hakka cooking is defined by 鹹、香、肥 — salty, aromatic, fatty — because it was built to feed field labour, and by preservation: 梅干菜 and 福菜 are the same mustard green dried to two different stages, and 桔醬 is a kumquat sauce served with plain boiled chicken. 客家小炒 — pork belly, dried squid, celery and dried tofu in one pan — is the dish every Hakka restaurant is judged on. 粄 is the Hakka word for a rice-flour cake and appears in no other regional cuisine's vocabulary.
+locale: zh
+---
+客家小炒
+薑絲大腸
+梅干扣肉
+客家鹹豬肉
+福菜肉片湯
+客家粄條
+鹹湯圓
+米篩目
+艾草粿
+高麗菜封
+桔醬白斬雞
+擂茶

@@ -1,0 +1,34 @@
+---
+description: Spice or aromatic, Taiwanese register. 九層塔 is what makes 三杯雞 the dish it is — Taiwan's name for basil, literally 'nine-storey pagoda', where the mainland uses the botanical 羅勒 and means a different variety by it. 紅蔥頭, the shallot, fried down into 油蔥酥, is the single flavour that identifies Taiwanese cooking: it is what makes 滷肉飯 taste Taiwanese rather than merely Chinese. 馬告 is a native mountain pepper whose name comes from Atayal, 沙茶醬 is the Chaozhou peanut and dried-shrimp paste Taiwan uses wherever the mainland reaches for sesame paste, and 當歸 sits in a spice list at all because Taiwanese home cooking treats medicinal herbs as seasoning rather than as medicine.
+locale: zh
+---
+花椒
+八角
+桂皮
+肉桂
+月桂葉
+丁香
+小茴香
+孜然
+草果
+陳皮
+乾辣椒
+辣椒粉
+薑
+老薑
+薑母
+蒜頭
+青蔥
+紅蔥頭
+油蔥酥
+洋蔥
+九層塔
+香菜
+馬告
+五香粉
+白胡椒
+黑胡椒
+沙茶醬
+咖哩粉
+芥末
+當歸

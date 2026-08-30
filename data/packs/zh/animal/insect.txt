@@ -1,0 +1,24 @@
+---
+description: Insects in Traditional characters. 獨角仙 and 鍬形蟲 — the rhinoceros beetle and the stag beetle — are the summer insects of a Taiwanese childhood, sold live in shops and caught around lit sap trees at night. 紫斑蝶 is the purple crow butterfly, and its winter gathering in the Maolin valleys is one of only two known mass overwintering butterfly migrations in the world; when the swarm heads north in spring the highway authority closes a lane of National Freeway 3 so that the butterflies can cross. 虎頭蜂 is the hornet that causes fatalities in the mountains most autumns. The mainland's paired cricket words 蟈蟈 and 蛐蛐 belong to a fighting-and-singing pet trade that has no equivalent here, so only 蟋蟀 and the proper 螽斯 remain. 蜘蛛 is not an insect, and is kept anyway because a generated list of small crawling things is expected to contain it.
+locale: zh
+---
+螞蟻
+蜜蜂
+虎頭蜂
+蝴蝶
+紫斑蝶
+蛾
+蜻蜓
+蟑螂
+蚊子
+蒼蠅
+蟋蟀
+螽斯
+螳螂
+瓢蟲
+螢火蟲
+蟬
+蠶
+獨角仙
+鍬形蟲
+蜘蛛

@@ -1,0 +1,37 @@
+---
+description: Unit of measure in Taiwan. Two entries carry traps. 台斤 is the Taiwanese catty and weighs 600 grams, divided into sixteen 兩 of 37.5 grams each — it is not the mainland 市斤, which is 500 grams, so the same word without the 台 prefix means different weights on either side of the strait and a market price per 斤 cannot be compared across them. 坪 is the area unit every Taiwanese property listing quotes, about 3.306 square metres, inherited from the Japanese tsubo. Metric units mostly take 公 as a prefix: 公尺, 公分, 公克, 公升, 公噸.
+locale: zh
+---
+個
+隻
+件
+台
+部
+張
+條
+根
+支
+把
+塊
+台斤
+公斤
+公克
+公噸
+公尺
+公分
+公釐
+平方公尺
+立方公尺
+公升
+毫升
+瓶
+罐
+包
+袋
+盒
+箱
+雙
+套
+份
+杯
+坪

@@ -1114,6 +1114,14 @@
         "lines": ["März"]
       }
     },
+    "dates/the-two-chinese-scripts-write-a-short-weekday-differently": {
+      "engine2": {
+        "lines": ["周日|週日|週日|週日|週日"]
+      },
+      "engine3": {
+        "lines": ["周日|週日|週日|週日|週日"]
+      }
+    },
     "derived-columns/a-formula-over-two-columns": {
       "engine2": {
         "lines": [

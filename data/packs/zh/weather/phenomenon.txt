@@ -1,0 +1,19 @@
+---
+description: Weather events. 颱風 is the local spelling of typhoon and Taiwan takes three or four landfalls in an average year, which is why a 颱風假 — a typhoon day off, declared county by county by the local government — is part of the working calendar. 梅雨, the plum rain, is the May–June front that delivers much of the island's water supply, and 秋老虎, the autumn tiger, is the hot spell that returns after the first cool weather.
+locale: zh
+---
+颱風
+沙塵暴
+浮塵
+霾害
+梅雨
+回南天
+寒流
+倒春寒
+秋老虎
+冰雹
+霜害
+結冰
+龍捲風
+雷暴
+乾旱

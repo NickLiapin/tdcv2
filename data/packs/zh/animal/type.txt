@@ -1,0 +1,22 @@
+---
+description: Animals in Traditional characters. 台灣黑熊 — the Formosan black bear with its white chest crescent — is the island's emblematic species and endangered; the 石虎, or leopard cat, is the last wild feline on Taiwan.
+locale: zh
+---
+狗
+貓
+豬
+牛
+馬
+羊
+雞
+鴨
+鵝
+兔
+老鼠
+猴子
+台灣黑熊
+石虎
+梅花鹿
+穿山甲
+藍鵲
+海豚

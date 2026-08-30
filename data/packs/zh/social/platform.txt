@@ -1,0 +1,21 @@
+---
+description: Where Taiwan and Hong Kong actually are online, which is nowhere the mainland is. LINE is the messaging app of Taiwan the way WhatsApp is of Europe — it carries not just chat but news, payments and government notices — while Hong Kong runs on WhatsApp. Facebook remains dominant in Taiwan long after its decline elsewhere. PTT is a text-mode BBS from 1995 still running on telnet and still setting the national conversation; Dcard is the student forum that succeeded it; 巴哈姆特 is the gaming forum; 連登 is Hong Kong's LIHKG. None of 微信, 微博 or 抖音 belongs on this list.
+locale: zh
+---
+LINE
+Facebook
+Instagram
+YouTube
+Threads
+Dcard
+PTT
+巴哈姆特
+蝦皮購物
+Messenger
+TikTok
+X
+WhatsApp
+連登
+Telegram
+Twitch
+痞客邦

@@ -1,0 +1,18 @@
+---
+description: Dishes of 台菜, the Taiwanese kitchen proper — banquet and home cooking rather than street food. The register is restrained with chilli and heavy on 麻油 (sesame oil), 米酒 and 醬油膏. 麻油雞 is not simply a soup: it is what a woman eats through 坐月子, the month of confinement after giving birth, so it carries a life stage with it. 佛跳牆 came from Fujian but is now a Taiwanese New Year dish, and 破布子, the pickled cordia berry steamed over fish, grows almost nowhere else.
+locale: zh
+---
+三杯雞
+麻油雞
+鳳梨苦瓜雞湯
+菜脯蛋
+破布子蒸魚
+五柳枝魚
+蔭豉蚵仔
+鹹蜆仔
+豬腳麵線
+筍絲蹄膀
+金瓜米粉
+炒山蘇
+紅蟳米糕
+佛跳牆

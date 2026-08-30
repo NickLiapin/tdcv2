@@ -1,0 +1,15 @@
+---
+description: What a viewer does to a post. 抖內 is a phonetic borrowing of the English word donate, used for tipping a livestreamer, and is written in characters chosen purely for sound — 抖 shake and 內 inside mean nothing here. 一鍵三連 is the Bilibili gesture of liking, saving and tipping in one action.
+locale: zh
+---
+按讚
+收藏
+分享
+留言
+轉發
+追蹤
+抖內
+一鍵三連
+送禮物
+檢舉
+封鎖

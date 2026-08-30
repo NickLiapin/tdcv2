@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in 心臟內科 (Taiwanese Mandarin). Taiwanese hospitals split the heart between 心臟內科, the internal-medicine department that manages hypertension, arrhythmia and coronary disease and runs the catheterisation lab, and 心臟血管外科, which operates. Heart disease has ranked second only to cancer among Taiwan's causes of death for most of the past two decades, and the ward vocabulary is the island's own — 心肌梗塞 for infarction, 心律不整 for arrhythmia, 心臟衰竭 for heart failure. Rheumatic valve disease is now uncommon but still followed in older patients.
+locale: zh
+---
+高血壓
+冠狀動脈心臟病
+心絞痛
+心肌梗塞
+心律不整
+心房顫動
+心臟衰竭
+心肌病變
+心包膜炎
+風濕性心臟病

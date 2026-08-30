@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket in New Taiwan dollars (新台幣, 元). 萬 is ten thousand, so 100萬元 is one million NTD — close to what a median Taiwanese household earns in a year. The unit split is the thing to know: Taiwan quotes an individual's pay monthly, as 月薪, and 22K was shorthand for a graduate's starting salary for most of a decade, but household income is always quoted annually, which is why these labels read in 萬元 per year and a monthly figure here would be a category error.
+locale: zh
+---
+50萬元以下
+50萬-80萬元
+80萬-100萬元
+100萬-150萬元
+150萬-200萬元
+200萬-300萬元
+300萬-500萬元
+500萬元以上

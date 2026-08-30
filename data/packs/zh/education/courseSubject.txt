@@ -1,0 +1,24 @@
+---
+description: School subjects under Taiwan's 108 curriculum, which took effect in 2019 and reorganised teaching into learning domains. 國語文 is the Chinese-language subject, the equivalent of what the mainland calls 語文, and it is a first-language subject rather than anything to do with Chinese as a foreign language. 本土語文 has no mainland counterpart at all — it is a compulsory local-language period in which a pupil takes Taiwanese Hokkien, Hakka or an indigenous language, introduced into primary schools in 2001 after decades in which speaking those languages at school was punished. 公民與社會 is civics, and it stands where the mainland puts 道德與法治. 表演藝術 and 綜合活動 are domains rather than single subjects.
+locale: zh
+---
+國語文
+數學
+英語文
+物理
+化學
+生物
+歷史
+地理
+公民與社會
+本土語文
+資訊科技
+生活科技
+健康與體育
+音樂
+美術
+表演藝術
+自然科學
+綜合活動
+家政
+生涯規劃

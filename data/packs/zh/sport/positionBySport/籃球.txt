@@ -1,0 +1,12 @@
+---
+description: Positions in 籃球 (Traditional Chinese). The five numbered positions come first, then three role labels Taiwanese commentary uses for players who do not sit neatly in them: 第六人 is the first substitute off the bench, 組織前鋒 a forward who runs the offence, and 空間型內線 a big man who plays out at the arc.
+locale: zh
+---
+控球後衛
+得分後衛
+小前鋒
+大前鋒
+中鋒
+第六人
+組織前鋒
+空間型內線

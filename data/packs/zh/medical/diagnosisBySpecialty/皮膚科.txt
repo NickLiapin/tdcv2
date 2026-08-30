@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in 皮膚科 (Taiwanese Mandarin). Taiwan's subtropical heat and humidity keep fungal infection a year-round complaint rather than a seasonal one, and 足癬 is common enough that the whole island calls it 香港腳; the same climate fills summer clinics with eczema and hand dermatitis. The register is Taiwanese throughout — 異位性皮膚炎 for atopic dermatitis, 脂漏性皮膚炎 for the seborrhoeic kind, and 乾癬 for psoriasis, a name that shares no characters at all with the mainland one.
+locale: zh
+---
+濕疹
+異位性皮膚炎
+乾癬
+蕁麻疹
+痤瘡
+帶狀皰疹
+白斑症
+脂漏性皮膚炎
+手足癬
+接觸性皮膚炎

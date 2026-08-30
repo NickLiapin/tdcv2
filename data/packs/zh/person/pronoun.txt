@@ -1,0 +1,7 @@
+---
+description: Third-person pronouns. All three are pronounced identically — tā — and are distinguished only in writing, which is a comparatively recent invention: 她 for a woman was coined in the 1920s by the writer Liu Bannong and was controversial at the time. 牠 for an animal and 祂 for a deity are still used in Taiwan and have largely fallen out of use on the mainland.
+locale: zh
+---
+他
+她
+牠

@@ -1,0 +1,14 @@
+---
+description: Competitive tiers, in the League of Legends ladder that most Chinese-language games copy. Taiwan says 白金 for platinum where the mainland says 铂金 — the same metal, a different word.
+locale: zh
+---
+黑鐵
+青銅
+白銀
+黃金
+白金
+翡翠
+鑽石
+大師
+宗師
+王者

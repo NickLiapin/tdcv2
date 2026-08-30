@@ -1,0 +1,22 @@
+---
+description: Employee benefits in Taiwan, and the package is structurally different from the mainland's 五险一金. 勞健保 is labour insurance plus National Health Insurance, both compulsory and both split between employer and employee. 三節獎金 is the three-festival bonus, paid at Lunar New Year, Dragon Boat and Mid-Autumn, and is a real component of Taiwanese annual pay rather than a courtesy. 特休 is statutory paid leave and scales with years of service, from three days in the first six months to thirty at ten years.
+locale: zh
+---
+勞健保
+年終獎金
+特休假
+團體保險
+租屋補助
+交通補助
+伙食津貼
+電話補助
+加班費
+三節獎金
+交通車
+員工餐廳
+定期健檢
+員工分紅
+進修補助
+員工旅遊
+生日禮金
+補休

@@ -1,0 +1,22 @@
+---
+description: Room types as Taiwanese and Hong Kong hotels sell them. The unit word is 房 here, not the mainland's 間, so a single is a 單人房 and not a 單人間. 休息房 is a room let for a fixed block of a few hours rather than overnight — Taiwanese motels quote 休息 and 住宿 as two separate prices on the same board, and the practice is ordinary rather than furtive. 和室房 is a tatami room, a legacy of fifty years of Japanese rule that survives in hot-spring hotels and homestays. Taiwan writes 禁菸房 for a non-smoking room, using the 菸 that means tobacco, where the mainland writes 無煙房 with the 煙 that means smoke.
+locale: zh
+---
+單人房
+標準房
+雙人房
+雙床房
+三人房
+家庭房
+豪華房
+行政房
+套房
+豪華套房
+總統套房
+親子房
+禁菸房
+無障礙房
+蜜月房
+和室房
+休息房
+背包客床位

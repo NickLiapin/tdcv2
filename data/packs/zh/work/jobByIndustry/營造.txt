@@ -1,0 +1,16 @@
+---
+description: Jobs in Taiwanese construction. 技師 is a licence rather than a job grade: the Professional Engineers Act maintains separate registers for 結構技師, 大地技師 and the rest, and a design above a threshold size must be sealed by the right one. 工地主任 is statutory too, since the Construction Industry Act requires a certified site manager on every qualifying project. Supervision on the client's behalf is 監造, a distinction worth holding onto because 監理 in Taiwan means the vehicle registration office. 水電 is one trade covering both plumbing and wiring.
+locale: zh
+---
+建築師
+結構技師
+工地主任
+監造工程師
+工程估價師
+專案經理
+測量員
+工安人員
+材料管理員
+水電工
+鋼筋工
+木工

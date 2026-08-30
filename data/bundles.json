@@ -603,6 +603,13 @@
       "packs": ["packs/yo"]
     },
     {
+      "id": "zh",
+      "name": "Traditional Chinese (language)",
+      "description": "Content bound to the Traditional Chinese language rather than to any one country: DATE_LOCALE, address, airline, animal, book, clothing, color, commerce, company, date, education, event, and 24 more.",
+      "locale": "zh",
+      "packs": ["packs/zh"]
+    },
+    {
       "id": "zh-cn",
       "name": "Simplified Chinese (language)",
       "description": "Content bound to the Simplified Chinese language rather than to any one country: DATE_LOCALE, address, airline, animal, book, clothing, color, commerce, company, date, education, event, and 24 more.",
