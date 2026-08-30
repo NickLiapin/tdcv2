@@ -1,0 +1,22 @@
+---
+address: botswana.geo.city
+description: Botswanan towns. Gaborone was built from nothing after independence in 1966 — it was chosen as the capital because the colonial administration had run Bechuanaland from Mafeking, in South Africa, and the new country needed a capital inside its own borders. Jwaneng and Orapa are diamond towns owned by Debswana and are closed to visitors without a permit; the mines there are among the richest in the world and are the reason Botswana went from one of the poorest countries at independence to a middle-income one.
+locale: en
+---
+Gaborone
+Francistown
+Molepolole
+Maun
+Serowe
+Selebi-Phikwe
+Kanye
+Mochudi
+Mahalapye
+Palapye
+Lobatse
+Ramotswa
+Thamaga
+Tonota
+Jwaneng
+Ghanzi
+Kasane

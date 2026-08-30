@@ -1,0 +1,10 @@
+---
+address: trinidad_and_tobago.education.university
+description: Trinidadian universities. The St Augustine campus of the University of the West Indies began in 1922 as the Imperial College of Tropical Agriculture and is the oldest part of the regional university — older than the Jamaican campus. UTT was created in 2004 to serve the energy sector directly, which is what the country's economy needed and what a general university was not producing.
+locale: en
+---
+University of the West Indies St Augustine
+University of Trinidad and Tobago
+University of the Southern Caribbean
+College of Science Technology and Applied Arts of Trinidad and Tobago
+School of Business and Computer Science

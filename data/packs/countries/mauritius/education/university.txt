@@ -1,0 +1,13 @@
+---
+address: mauritius.education.university
+description: Mauritian universities. The University of Mauritius opened in 1965 as an agricultural college for the sugar industry and became the national university at independence. The sector since has been built deliberately as an export: Mauritius set out to be a regional education hub, which is why several foreign universities run full campuses here.
+locale: en
+---
+University of Mauritius
+University of Technology Mauritius
+Open University of Mauritius
+Université des Mascareignes
+Middlesex University Mauritius
+Curtin Mauritius
+Charles Telfair Institute
+Mahatma Gandhi Institute

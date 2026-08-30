@@ -1,0 +1,8 @@
+---
+address: eritrea.finance.bank
+description: Eritrean banks. There are three, all state-owned, and the Bank of Eritrea is the central one. The Commercial Bank of Eritrea holds nearly all retail accounts. Eritrea has no private banking sector at all — an unusual enough fact that a dataset modelling Eritrean finance on any other country's template will be wrong in its structure and not merely in its names.
+locale: en
+---
+Bank of Eritrea
+Commercial Bank of Eritrea
+Housing and Commerce Bank of Eritrea

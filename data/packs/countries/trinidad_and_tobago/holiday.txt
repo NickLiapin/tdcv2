@@ -1,0 +1,21 @@
+---
+address: trinidad_and_tobago.holiday
+description: Trinidad and Tobago's public holidays, and this is one of the most religiously plural calendars anywhere: Divali and Eid al-Fitr are national holidays beside Corpus Christi and Easter, because the population is roughly a third Hindu-descended Indo-Trinidadian, a third Afro-Trinidadian and mixed. Indian Arrival Day on 30 May marks the 1845 landing of the first indentured labourers; Emancipation Day on 1 August marks the end of slavery. Carnival, the country's largest event by far, is not a public holiday — the two days before Ash Wednesday are observed by everything closing anyway.
+locale: en
+---
+New Year's Day
+Carnival Monday
+Carnival Tuesday
+Spiritual Baptist Liberation Day
+Good Friday
+Easter Monday
+Indian Arrival Day
+Corpus Christi
+Labour Day
+Emancipation Day
+Independence Day
+Republic Day
+Divali
+Eid al-Fitr
+Christmas Day
+Boxing Day

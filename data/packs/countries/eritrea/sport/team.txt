@@ -1,0 +1,13 @@
+---
+address: eritrea.sport.team
+description: Clubs of the Eritrean Premier League, almost all of them in Asmara. Eritrea's real sporting distinction is not football but cycling: the Italians brought the bicycle and the sport took root as it did nowhere else in Africa, the Tour of Eritrea has run since 1946, and Eritrean riders have worn the polka-dot jersey at the Tour de France. A dataset of Eritrean sport that models only football misses the thing the country is actually known for.
+locale: en
+---
+Red Sea FC
+Asmara Brewery
+Adulis Club
+Denden Club
+Al Tahrir
+Hintsa
+Segen Construction
+Akria

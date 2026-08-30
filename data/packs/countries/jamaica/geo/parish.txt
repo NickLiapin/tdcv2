@@ -1,0 +1,19 @@
+---
+address: jamaica.geo.parish
+description: The fourteen parishes of Jamaica, the country's first-level division since the eighteenth century and still the unit an address, a police division and an election are organised by. Kingston and St Andrew were merged administratively in 1923 into the Kingston and St Andrew Corporation and are usually treated as one — the capital's built-up area covers both — but they remain two parishes on paper, which is a common source of double-counting in Jamaican data.
+locale: en
+---
+Kingston
+Saint Andrew
+Saint Catherine
+Clarendon
+Manchester
+Saint Elizabeth
+Westmoreland
+Hanover
+Saint James
+Trelawny
+Saint Ann
+Saint Mary
+Portland
+Saint Thomas

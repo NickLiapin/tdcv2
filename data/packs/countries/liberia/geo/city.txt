@@ -1,0 +1,20 @@
+---
+address: liberia.geo.city
+description: Liberian towns. Monrovia dwarfs the rest and grew enormously during the two civil wars of 1989-2003 as the interior emptied into it. Buchanan and Harper are Atlantic ports; Ganta on the Guinean border is the main trading town of the interior; Gbarnga was the seat of Charles Taylor's wartime administration and is a county capital again.
+locale: en
+---
+Monrovia
+Ganta
+Gbarnga
+Kakata
+Buchanan
+Zwedru
+Harper
+Voinjama
+Robertsport
+Sanniquellie
+Greenville
+Tubmanburg
+Fish Town
+Barclayville
+Bopolu

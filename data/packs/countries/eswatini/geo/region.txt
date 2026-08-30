@@ -1,0 +1,9 @@
+---
+address: eswatini.geo.region
+description: The four regions of Eswatini. The country was Swaziland until April 2018, when King Mswati III renamed it on the fiftieth anniversary of independence — partly to end the confusion with Switzerland, which he said outright. Any dataset spanning that year holds both names for the same country and no automatic mapping fixes it, because the ISO code changed too: SZ stayed but the name in every registry did not.
+locale: en
+---
+Hhohho
+Manzini
+Lubombo
+Shiselweni

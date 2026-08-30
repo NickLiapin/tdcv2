@@ -1,0 +1,9 @@
+---
+address: liberia.phone
+description: Liberian mobile number in E.164 form — +231 and eight or nine digits. Orange Liberia holds the 77x and 88x blocks, Lonestar Cell MTN the 88x and 55x. Written nationally the number starts 0. Mobile money on both networks does the work a branch network never did: Liberia's banks are concentrated in Monrovia and the interior banks by phone.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="77,88,55,66" percent="38,38,14,10"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{7}"/></sequence>
+<data>+231${{prefix}}${{line}}</data>

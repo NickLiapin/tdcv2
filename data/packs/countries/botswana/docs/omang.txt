@@ -1,0 +1,7 @@
+---
+address: botswana.docs.omang
+description: Omang number — the Botswanan national identity card, and one of the most complete civil registers in Africa. Nine digits, issued to every citizen at sixteen, and required for essentially every interaction with the state or a bank. The card's name is simply the Setswana word for identity. Coverage is high enough that a dataset of Botswanan adults can reasonably assume an Omang number for almost every row, which is not true of most countries in this corpus.
+generator: tdc
+locale: en
+---
+<gen type="number" value="100000000..999999999" length="9"/>

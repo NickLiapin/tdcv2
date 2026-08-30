@@ -1,0 +1,13 @@
+---
+address: eswatini.sport.team
+description: Clubs of the Eswatini Premier League. Mbabane Swallows and Mbabane Highlanders are the capital's pair; Royal Leopards is the army's side and Green Mamba the correctional service's, which is the institutional pattern the region shares.
+locale: en
+---
+Mbabane Swallows
+Mbabane Highlanders
+Royal Leopards
+Green Mamba
+Young Buffaloes
+Manzini Wanderers
+Moneni Pirates
+Mhlambanyatsi Rovers

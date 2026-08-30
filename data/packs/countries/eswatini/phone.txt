@@ -1,0 +1,9 @@
+---
+address: eswatini.phone
+description: Eswatini mobile number in E.164 form — +268 and eight digits with no trunk prefix. MTN Eswatini holds 76x and 78x and was for years the only mobile operator; Eswatini Mobile entered in 2018 on 79x. Fixed lines start with 2.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="76,78,79" percent="45,38,17"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+268${{prefix}}${{line}}</data>

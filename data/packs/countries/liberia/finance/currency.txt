@@ -1,0 +1,6 @@
+---
+address: liberia.finance.currency
+description: The Liberian dollar — one of two currencies in daily use, the other being the US dollar, which is legal tender here and quotes most large transactions. The dual system is old: Liberia had no currency of its own between 1943 and 1982 and used US notes exclusively. A Liberian amount without a currency marker is genuinely ambiguous, and the exchange rate between the two moves.
+locale: en
+---
+Liberian dollar

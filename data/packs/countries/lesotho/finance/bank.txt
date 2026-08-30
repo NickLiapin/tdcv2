@@ -1,0 +1,10 @@
+---
+address: lesotho.finance.bank
+description: Lesotho's banks. The Central Bank of Lesotho issues the loti, pegged at par to the South African rand under the Common Monetary Area, and the rand circulates freely alongside it. Three of the four commercial banks are South African subsidiaries; the Lesotho Post Bank is the state's own and reaches the mountain districts the others do not.
+locale: en
+---
+Central Bank of Lesotho
+Standard Lesotho Bank
+Nedbank Lesotho
+First National Bank Lesotho
+Lesotho Post Bank

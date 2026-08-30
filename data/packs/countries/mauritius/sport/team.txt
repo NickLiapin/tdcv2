@@ -1,0 +1,13 @@
+---
+address: mauritius.sport.team
+description: Clubs of the Mauritian Premier League. Several carry a community in the name — Cercle de Joachim, Pamplemousses SC — because the league grew out of clubs organised along the island's communal lines, a pattern the football association has worked to break since renaming reforms in the 2000s. Horse racing at the Champ de Mars in Port Louis, running since 1812, draws far larger crowds than football and is the second-oldest racecourse in the southern hemisphere.
+locale: en
+---
+Cercle de Joachim
+Pamplemousses SC
+Curepipe Starlight
+Petite Rivière Noire
+La Cure Sylvester
+Champ Borne
+AS Port-Louis 2000
+Savanne SC

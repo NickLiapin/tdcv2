@@ -1,0 +1,12 @@
+---
+address: liberia.finance.bank
+description: Liberian banks. The Central Bank of Liberia issues the Liberian dollar, but the country runs on two currencies at once: the US dollar is legal tender alongside it and has been since the founding — Liberia used the US dollar as its only currency from 1943 to 1982 — so prices, wages and bank balances all exist in both, and any Liberian financial record has to say which. The Nigerian banks hold much of the commercial sector.
+locale: en
+---
+Central Bank of Liberia
+Liberian Bank for Development and Investment
+Ecobank Liberia
+United Bank for Africa Liberia
+Guaranty Trust Bank Liberia
+International Bank Liberia
+Afriland First Bank Liberia

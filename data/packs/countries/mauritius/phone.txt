@@ -1,0 +1,9 @@
+---
+address: mauritius.phone
+description: Mauritian mobile number in E.164 form — +230 and eight digits, mobile numbers beginning with 5. Three operators: my.t (Mauritius Telecom), Emtel and Chili. Fixed lines are seven digits beginning 2 or 4 and are still widely used — Mauritius has near-universal fixed broadband, which is unusual for a small island state and is a deliberate policy outcome.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="52,54,57,58,59" percent="22,20,20,20,18"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+230${{prefix}}${{line}}</data>

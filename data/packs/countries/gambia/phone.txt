@@ -1,0 +1,9 @@
+---
+address: gambia.phone
+description: Gambian mobile number in E.164 form — +220 and seven digits, with no trunk prefix at all when dialled nationally. Four operators share the ranges: Africell, QCell, Comium and the state's Gamcel. Seven digits is short — the numbering plan was built for a country of a million and has not needed to grow.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="2,3,5,6,7,9" percent="18,22,12,12,20,16"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+220${{prefix}}${{line}}</data>

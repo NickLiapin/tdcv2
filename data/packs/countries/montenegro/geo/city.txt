@@ -1,0 +1,20 @@
+---
+address: montenegro.geo.city
+description: Montenegrin towns. Podgorica is the capital and by far the largest; the coast — Budva, Kotor, Herceg Novi, Tivat — carries the tourism the economy runs on, and Kotor's bay is a UNESCO site. Cetinje in the mountains was the royal capital of the independent principality before 1918 and is where the country keeps that memory.
+locale: en
+---
+Podgorica
+Nikšić
+Pljevlja
+Bijelo Polje
+Bar
+Herceg Novi
+Berane
+Cetinje
+Ulcinj
+Budva
+Rožaje
+Tivat
+Kotor
+Danilovgrad
+Mojkovac

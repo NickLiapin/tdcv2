@@ -1,0 +1,14 @@
+---
+address: lesotho.sport.team
+description: Clubs of the Lesotho Premier League. Matlama and Lioli are the two most successful. Lesotho's distinctive sport is horse racing — mountain ponies, ridden at village meetings in the highlands, in a country where the horse is still working transport above the road head — and its distinctive dress, the Basotho blanket, is worn to those meetings.
+locale: en
+---
+Matlama
+Lioli
+Bantu
+Likhopo
+Lesotho Defence Force
+Kick4Life
+Linare
+Swallows
+Lifofane

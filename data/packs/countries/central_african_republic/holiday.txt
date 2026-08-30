@@ -1,0 +1,16 @@
+---
+address: central_african_republic.holiday
+description: Central African public holidays. Two dates carry the country's founding: Boganda Day on 29 March for Barthélemy Boganda, who led the country to autonomy and died in a plane crash a year before independence, and National Day on 1 December for the 1958 proclamation of the republic. Independence from France is 13 August 1960. The Catholic calendar supplies the rest — the CAR is majority Christian — and Ramadan's end is observed for the Muslim minority in the north.
+locale: en
+---
+New Year's Day
+Boganda Day
+Easter Monday
+Labour Day
+Ascension Day
+Whit Monday
+Independence Day
+Assumption Day
+All Saints' Day
+National Day
+Christmas Day

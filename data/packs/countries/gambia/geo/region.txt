@@ -1,0 +1,11 @@
+---
+address: gambia.geo.region
+description: The Gambia's five regions and the City of Banjul. The country's shape is the fact to carry: it is a strip of land on either side of the Gambia river, nowhere much more than fifty kilometres wide, entirely surrounded by Senegal except for its Atlantic coast — the borders were drawn around the river's navigable length, and every region below is a section of riverbank.
+locale: en
+---
+Banjul
+West Coast
+Lower River
+North Bank
+Central River
+Upper River

@@ -1,0 +1,13 @@
+---
+address: central_african_republic.sport.team
+description: Clubs of the Central African Republic's Ligue de Bangui. Almost the entire league plays in the capital, which is not a quirk of the competition but of the country — the road network makes an away fixture in Bria or Bangassou a multi-day expedition through territory the state does not control.
+locale: en
+---
+Tocages
+Olympic Real de Bangui
+AS Tempête Mocaf
+Stade Centrafricain
+Anges de Fatima
+DTH Bangui
+AS Petroca
+Red Star Bangui

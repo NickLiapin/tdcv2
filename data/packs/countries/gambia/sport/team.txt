@@ -1,0 +1,13 @@
+---
+address: gambia.sport.team
+description: Clubs of the GFA League First Division. Real de Banjul and Wallidan are the capital's two old sides; Steve Biko is named for the South African activist, which is common in West African club naming. The Gambia reached its first Africa Cup of Nations in 2021 and got to the quarter-finals, which for a country of under three million was the sporting event of a generation.
+locale: en
+---
+Real de Banjul
+Wallidan
+Steve Biko
+Gambia Ports Authority
+Hawks
+Brikama United
+Gamtel
+Armed Forces

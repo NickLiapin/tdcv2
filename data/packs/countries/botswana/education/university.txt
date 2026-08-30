@@ -1,0 +1,12 @@
+---
+address: botswana.education.university
+description: Botswanan universities. The University of Botswana opened in 1982 — before that Botswana, Lesotho and Swaziland shared one university, and the split of that federal institution is why all three countries' universities date from the same period. BIUST at Palapye is the science and technology university, founded 2012 as part of the deliberate policy of building an economy for after the diamonds.
+locale: en
+---
+University of Botswana
+Botswana International University of Science and Technology
+Botswana University of Agriculture and Natural Resources
+Botho University
+Ba Isago University
+Limkokwing University Botswana
+Gaborone University College

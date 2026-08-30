@@ -1,0 +1,19 @@
+---
+address: mauritius.holiday
+description: Mauritian public holidays, and the list is the country's demography written out: Cavadee and Thaipoosam Cavadee for Tamil Hindus, Maha Shivaratree and Divali for the Hindu majority, Eid al-Fitr for Muslims, Chinese Spring Festival for the Sino-Mauritian community, and the Christian dates for Creole and Franco-Mauritians. Abolition of Slavery on 1 February and the Arrival of Indentured Labourers on 2 November mark the two migrations that made the population. Independence is 12 March 1968.
+locale: en
+---
+New Year's Day
+Abolition of Slavery
+Chinese Spring Festival
+Thaipoosam Cavadee
+Maha Shivaratree
+National Day
+Ugadi
+Labour Day
+Eid al-Fitr
+Assumption of the Blessed Virgin Mary
+Ganesh Chaturthi
+Arrival of Indentured Labourers
+Divali
+Christmas Day

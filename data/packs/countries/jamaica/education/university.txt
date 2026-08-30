@@ -1,0 +1,12 @@
+---
+address: jamaica.education.university
+description: Jamaican universities. The University of the West Indies is the one to understand: it is a single regional university with campuses in Jamaica, Trinidad and Barbados and centres across the English-speaking Caribbean, founded 1948, and it is jointly owned by seventeen governments — so a UWI degree is Caribbean rather than national, and a Jamaican graduate may have studied in Trinidad. UTech was the College of Arts, Science and Technology and became a university in 1995.
+locale: en
+---
+University of the West Indies
+University of Technology Jamaica
+Northern Caribbean University
+University of the Commonwealth Caribbean
+Caribbean Maritime University
+Edna Manley College of the Visual and Performing Arts
+Shortwood Teachers' College

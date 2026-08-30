@@ -1,0 +1,16 @@
+---
+address: montenegro.holiday
+description: Montenegrin public holidays. Independence Day on 21 May marks the 2006 referendum; Statehood Day on 13 July marks two things at once — the 1878 recognition of Montenegrin independence at the Congress of Berlin and the 1941 uprising against the Axis occupation. Orthodox Christmas and Easter follow the Julian calendar, so Christmas is 7 January, and the Catholic and Muslim holidays are observed as well for the Croat and Bosniak communities.
+locale: en
+---
+New Year's Day
+Orthodox Christmas Eve
+Orthodox Christmas
+Orthodox Good Friday
+Orthodox Easter Monday
+Labour Day
+Independence Day
+Statehood Day
+Eid al-Fitr
+Eid al-Adha
+Catholic Christmas

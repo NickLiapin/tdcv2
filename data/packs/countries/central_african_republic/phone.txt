@@ -1,0 +1,9 @@
+---
+address: central_african_republic.phone
+description: Central African mobile number in E.164 form — +236 and eight digits, of which the first two are the operator. Telecel, Orange Centrafrique and Moov hold the 7x blocks. There is essentially no fixed network: the state operator's copper collapsed and was never rebuilt, so a Central African phone number is a mobile number by default.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="70,72,75,77" percent="30,28,22,20"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+236${{prefix}}${{line}}</data>

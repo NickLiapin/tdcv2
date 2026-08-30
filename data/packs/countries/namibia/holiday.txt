@@ -1,0 +1,18 @@
+---
+address: namibia.holiday
+description: Namibian public holidays. Independence from South African administration is 21 March 1990 — the last African colony to become independent, and late enough that the country's founding is within living memory for most adults. Cassinga Day on 4 May marks the 1978 South African raid on a SWAPO camp in Angola; Heroes' Day on 26 August marks the 1966 start of the armed struggle. Genocide Remembrance Day was added in 2024 for the 1904-08 German genocide of the Herero and Nama.
+locale: en
+---
+New Year's Day
+Independence Day
+Good Friday
+Easter Monday
+Workers' Day
+Cassinga Day
+Africa Day
+Ascension Day
+Heroes' Day
+Genocide Remembrance Day
+Day of the Namibian Women
+Christmas Day
+Family Day

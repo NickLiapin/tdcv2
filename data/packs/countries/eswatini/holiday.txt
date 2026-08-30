@@ -1,0 +1,18 @@
+---
+address: eswatini.holiday
+description: Eswatini's public holidays. Two are ceremonies rather than dates: Incwala, the kingship ritual held around the December solstice, and the Umhlanga reed dance in late August-September — both move with the lunar and agricultural calendar and both are central to the monarchy's authority, which here is executive rather than symbolic. Independence from Britain is 6 September 1968 and is called Somhlolo Day after King Sobhuza I.
+locale: en
+---
+New Year's Day
+Good Friday
+Easter Monday
+King's Birthday
+National Flag Day
+Workers' Day
+Ascension Day
+Birthday of King Sobhuza II
+Umhlanga Day
+Somhlolo Day
+Incwala Day
+Christmas Day
+Boxing Day

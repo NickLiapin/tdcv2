@@ -1,0 +1,15 @@
+---
+address: namibia.sport.team
+description: Clubs of the Namibia Premier League. African Stars and Black Africa are the Windhoek sides. Namibia's international sport is rugby rather than football — the national side has qualified for every Rugby World Cup since 1999, which for a country of under three million is remarkable, and the Welwitschias play in South African competitions.
+locale: en
+---
+African Stars
+Black Africa
+African Stars Windhoek
+Tura Magic
+Blue Waters
+Civics
+Eleven Arrows
+Okahandja United
+Young African
+Unam FC

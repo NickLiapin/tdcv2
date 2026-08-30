@@ -1,0 +1,9 @@
+---
+address: trinidad_and_tobago.phone
+description: Trinidad and Tobago number in the North American Numbering Plan — +1 868. Like Jamaica it shares country code 1 with the United States and Canada, so the number is dialled as domestic long distance from North America and passes any validator that only checks the country code.
+generator: tdc
+locale: en
+---
+<sequence name="exchange"><gen type="number" value="200..799" length="3"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{4}"/></sequence>
+<data>+1868${{exchange}}${{line}}</data>

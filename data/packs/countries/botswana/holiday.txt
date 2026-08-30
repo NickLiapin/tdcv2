@@ -1,0 +1,16 @@
+---
+address: botswana.holiday
+description: Botswanan public holidays. Independence from Britain is 30 September 1966 and is marked over two days. Sir Seretse Khama Day on 1 July honours the first president, who married a British woman in 1948 and was exiled for it by a British government under pressure from apartheid South Africa — the affair is a founding story of the country. President's Day in July gets two days as well, and Boxing Day and the day after Christmas make the December holidays four.
+locale: en
+---
+New Year's Day
+Good Friday
+Easter Monday
+Labour Day
+Ascension Day
+Sir Seretse Khama Day
+President's Day
+Independence Day
+Botswana Day
+Christmas Day
+Boxing Day

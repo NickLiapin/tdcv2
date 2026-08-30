@@ -1,0 +1,10 @@
+---
+address: jamaica.phone
+description: Jamaican number in the North American Numbering Plan — +1 876, and the newer overlay 658 added in 2018 when 876 ran out. Jamaica shares country code 1 with the United States and Canada, so a Jamaican number is dialled from the US as a domestic long-distance call and looks like a US number to any validator that only checks the country code. That resemblance is regularly exploited by fraud operations running out of the island, which is why 876 is one of the most-blocked area codes in North America.
+generator: tdc
+locale: en
+---
+<sequence name="area"><gen type="text" value="876,658" percent="88,12"/></sequence>
+<sequence name="exchange"><gen type="number" value="200..999" length="3"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{4}"/></sequence>
+<data>+1${{area}}${{exchange}}${{line}}</data>

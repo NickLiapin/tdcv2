@@ -1,0 +1,11 @@
+---
+address: eswatini.education.university
+description: Eswatini's universities. The University of Eswatini descends from the shared university of Basutoland, Bechuanaland and Swaziland — the same institution that produced the universities of Lesotho and Botswana — and became national in 1982. It was the University of Swaziland until the 2018 renaming, so degrees issued before then carry the old name.
+locale: en
+---
+University of Eswatini
+Southern Africa Nazarene University
+Limkokwing University Eswatini
+Eswatini Medical Christian University
+Ngwane Teacher Training College
+William Pitcher College

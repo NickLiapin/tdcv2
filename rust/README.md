@@ -46,7 +46,7 @@ A pack is the _data_ — the name lists, cities, streets and locale rules that
 `common`, `en` and the USA country pack, 489 files — is compiled into the binary,
 so `cargo install tdcv2` gives you something that works with no further steps.
 
-86 languages and 161 country packs, each with the right check-digit
+86 languages and 173 country packs, each with the right check-digit
 rule for its national ID formats, are a download away:
 
 ```bash
@@ -114,7 +114,7 @@ against the active locale; write `ru.person.lastName` to name a pack outright.
 **Why a string and not `tdc.person().last_name()`.** That shape needs a generated
 function per address, and a generated surface can only ever cover the packs
 compiled into the binary. Most packs are downloaded at runtime — 86 languages,
-161 countries — so `tdc.lang().ru()` would not exist for the pack a user
+173 countries — so `tdc.lang().ru()` would not exist for the pack a user
 had just installed, while `get("ru.person.lastName")` works the moment the
 download finishes.
 

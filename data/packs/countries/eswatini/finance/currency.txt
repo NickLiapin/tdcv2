@@ -1,0 +1,6 @@
+---
+address: eswatini.finance.currency
+description: The lilangeni — plural emalangeni, so amounts are written E50 — pegged at par to the South African rand, which also circulates. Eswatini, Lesotho, Namibia and South Africa form the Common Monetary Area, and the three smaller members each keep a national currency that is legally interchangeable with the rand at one to one.
+locale: en
+---
+Swazi lilangeni

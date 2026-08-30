@@ -1,0 +1,15 @@
+---
+address: lesotho.geo.district
+description: The ten districts of Lesotho. The country is entirely surrounded by South Africa — one of only three such enclaved states in the world, with San Marino and Vatican City — and it is the only country on earth whose entire territory lies above 1,000 metres, which is why the mountain districts of Thaba-Tseka, Mokhotlong and Qacha's Nek are so thinly settled while the western lowland strip holds most of the population.
+locale: en
+---
+Maseru
+Leribe
+Berea
+Mafeteng
+Mohale's Hoek
+Quthing
+Butha-Buthe
+Mokhotlong
+Thaba-Tseka
+Qacha's Nek

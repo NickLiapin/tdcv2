@@ -763,6 +763,15 @@
       "packs": ["packs/countries/bosnia_and_herzegovina"]
     },
     {
+      "id": "botswana",
+      "name": "Botswana (country)",
+      "description": "Data specific to Botswana: docs, education, finance, geo, holiday, phone, sport.",
+      "country": "botswana",
+      "regions": ["africa"],
+      "point": [24, -22],
+      "packs": ["packs/countries/botswana"]
+    },
+    {
       "id": "brazil",
       "name": "Brazil (country)",
       "description": "Data specific to Brazil: docs, education, finance, geo, holiday, phone, phoneAreaCode, sport, tax, vehicle.",
@@ -833,6 +842,15 @@
       "regions": ["africa"],
       "point": [-24, 16],
       "packs": ["packs/countries/cape_verde"]
+    },
+    {
+      "id": "central_african_republic",
+      "name": "Central African Republic (country)",
+      "description": "Data specific to Central African Republic: education, finance, geo, holiday, language, phone, sport.",
+      "country": "central_african_republic",
+      "regions": ["africa"],
+      "point": [21, 6.6],
+      "packs": ["packs/countries/central_african_republic"]
     },
     {
       "id": "chad",
@@ -1015,6 +1033,15 @@
       "packs": ["packs/countries/equatorial_guinea"]
     },
     {
+      "id": "eritrea",
+      "name": "Eritrea (country)",
+      "description": "Data specific to Eritrea: education, finance, geo, holiday, phone, sport.",
+      "country": "eritrea",
+      "regions": ["africa"],
+      "point": [39, 15.2],
+      "packs": ["packs/countries/eritrea"]
+    },
+    {
       "id": "estonia",
       "name": "Estonia (country)",
       "description": "Data specific to Estonia: docs, education, finance, geo, government, holiday, phone, phoneLandline, phoneMobilePrefix, phoneNational, sport, tax, vehicle.",
@@ -1022,6 +1049,15 @@
       "regions": ["europe"],
       "point": [25.5, 58.6],
       "packs": ["packs/countries/estonia"]
+    },
+    {
+      "id": "eswatini",
+      "name": "Eswatini (country)",
+      "description": "Data specific to Eswatini: education, finance, geo, holiday, phone, sport.",
+      "country": "eswatini",
+      "regions": ["africa"],
+      "point": [31.5, -26.5],
+      "packs": ["packs/countries/eswatini"]
     },
     {
       "id": "ethiopia",
@@ -1058,6 +1094,15 @@
       "regions": ["africa"],
       "point": [11.8, -0.8],
       "packs": ["packs/countries/gabon"]
+    },
+    {
+      "id": "gambia",
+      "name": "Gambia (country)",
+      "description": "Data specific to Gambia: education, finance, geo, holiday, phone, sport.",
+      "country": "gambia",
+      "regions": ["africa"],
+      "point": [-15.4, 13.4],
+      "packs": ["packs/countries/gambia"]
     },
     {
       "id": "georgia",
@@ -1231,6 +1276,15 @@
       "packs": ["packs/countries/ivory_coast"]
     },
     {
+      "id": "jamaica",
+      "name": "Jamaica (country)",
+      "description": "Data specific to Jamaica: docs, education, finance, geo, holiday, phone, sport.",
+      "country": "jamaica",
+      "regions": ["north"],
+      "point": [-77.3, 18.1],
+      "packs": ["packs/countries/jamaica"]
+    },
+    {
       "id": "japan",
       "name": "Japan (country)",
       "description": "Data specific to Japan: docs, education, finance, geo, holiday, phone, phoneLandline, sport, tax, vehicle.",
@@ -1310,6 +1364,24 @@
       "regions": ["asia"],
       "point": [35.9, 33.9],
       "packs": ["packs/countries/lebanon"]
+    },
+    {
+      "id": "lesotho",
+      "name": "Lesotho (country)",
+      "description": "Data specific to Lesotho: education, finance, geo, holiday, phone, sport.",
+      "country": "lesotho",
+      "regions": ["africa"],
+      "point": [28.2, -29.6],
+      "packs": ["packs/countries/lesotho"]
+    },
+    {
+      "id": "liberia",
+      "name": "Liberia (country)",
+      "description": "Data specific to Liberia: education, finance, geo, holiday, phone, sport.",
+      "country": "liberia",
+      "regions": ["africa"],
+      "point": [-9.4, 6.4],
+      "packs": ["packs/countries/liberia"]
     },
     {
       "id": "libya",
@@ -1420,6 +1492,15 @@
       "packs": ["packs/countries/mauritania"]
     },
     {
+      "id": "mauritius",
+      "name": "Mauritius (country)",
+      "description": "Data specific to Mauritius: docs, education, finance, geo, holiday, phone, sport.",
+      "country": "mauritius",
+      "regions": ["africa"],
+      "point": [57.5, -20.3],
+      "packs": ["packs/countries/mauritius"]
+    },
+    {
       "id": "mexico",
       "name": "Mexico (country)",
       "description": "Data specific to Mexico regardless of the language it is written in: CURP, RFC, NSS and clave de elector with real check digits, CLABE with its Banxico bank codes, states and their INEGI/ISO/RENAPO codes, municipalities, cities, postal codes, universities, holidays, sports teams, plates and the SAT tax regimes.",
@@ -1456,6 +1537,15 @@
       "packs": ["packs/countries/mongolia"]
     },
     {
+      "id": "montenegro",
+      "name": "Montenegro (country)",
+      "description": "Data specific to Montenegro: docs, education, finance, geo, holiday, phone, sport.",
+      "country": "montenegro",
+      "regions": ["europe"],
+      "point": [19.4, 42.7],
+      "packs": ["packs/countries/montenegro"]
+    },
+    {
       "id": "morocco",
       "name": "Morocco (country)",
       "description": "Data specific to Morocco: docs, education, finance, geo, holiday, phone, sport, vehicle.",
@@ -1481,6 +1571,15 @@
       "regions": ["asia"],
       "point": [96, 21.9],
       "packs": ["packs/countries/myanmar"]
+    },
+    {
+      "id": "namibia",
+      "name": "Namibia (country)",
+      "description": "Data specific to Namibia: education, finance, geo, holiday, phone, sport.",
+      "country": "namibia",
+      "regions": ["africa"],
+      "point": [17, -22],
+      "packs": ["packs/countries/namibia"]
     },
     {
       "id": "nepal",
@@ -1913,6 +2012,15 @@
       "regions": ["africa"],
       "point": [1, 8.6],
       "packs": ["packs/countries/togo"]
+    },
+    {
+      "id": "trinidad_and_tobago",
+      "name": "Trinidad And Tobago (country)",
+      "description": "Data specific to Trinidad And Tobago: docs, education, finance, geo, holiday, phone, sport.",
+      "country": "trinidad_and_tobago",
+      "regions": ["north", "south"],
+      "point": [-61.2, 10.7],
+      "packs": ["packs/countries/trinidad_and_tobago"]
     },
     {
       "id": "tunisia",

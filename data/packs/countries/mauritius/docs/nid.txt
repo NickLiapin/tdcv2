@@ -1,0 +1,9 @@
+---
+address: mauritius.docs.nid
+description: Mauritian National Identity Card number — a letter followed by twelve digits, in which the digits encode the holder's date of birth. The biometric card introduced in 2013 was challenged in the Supreme Court over the storage of fingerprints and the state was required to destroy the centralised biometric database while keeping the card, which is an unusually clean example of a national ID scheme being constrained by a court after rollout.
+generator: tdc
+locale: en
+---
+<sequence name="letter"><gen type="regex" value="[A-Z]"/></sequence>
+<sequence name="digits"><gen type="regex" value="[0-9]{12}"/></sequence>
+<data>${{letter}}${{digits}}</data>

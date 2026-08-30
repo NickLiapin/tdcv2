@@ -1,0 +1,11 @@
+---
+address: namibia.education.university
+description: Namibian universities. The University of Namibia was founded in 1992, two years after independence — before that Namibians studied in South Africa or in exile, and a substantial part of the country's first post-independence administration held degrees from the Soviet Union, Cuba or East Germany, which is a real feature of Namibian professional biographies from that generation.
+locale: en
+---
+University of Namibia
+Namibia University of Science and Technology
+International University of Management
+Welwitschia University
+Namibia Business School
+Institute of Open Learning

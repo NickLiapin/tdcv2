@@ -1,0 +1,15 @@
+---
+address: jamaica.sport.team
+description: Jamaican sports sides. Football's National Premier League clubs are here, but the country's sporting identity is track and field: Jamaica has produced more Olympic sprint champions per head than anywhere on earth, and the high-school championships — Champs, held every Easter at the National Stadium — draw crowds a Premier League club never will. Any dataset of Jamaican sport that models only club football describes the smaller half.
+locale: en
+---
+Portmore United
+Arnett Gardens
+Harbour View
+Cavalier
+Waterhouse
+Tivoli Gardens
+Mount Pleasant Football Academy
+Molynes United
+Dunbeholden
+Humble Lion

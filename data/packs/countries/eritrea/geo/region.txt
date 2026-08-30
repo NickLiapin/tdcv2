@@ -1,0 +1,11 @@
+---
+address: eritrea.geo.region
+description: The six regions (zoba) of Eritrea. They were drawn in 1996 to cut deliberately across the old provincial boundaries that had followed ethnic and religious lines — the government's stated aim was to build a national identity rather than reproduce the divisions of the Ethiopian period, so an Eritrean region is an administrative construction rather than a historical one, unlike almost every other country in this corpus.
+locale: en
+---
+Maekel
+Debub
+Anseba
+Gash-Barka
+Northern Red Sea
+Southern Red Sea

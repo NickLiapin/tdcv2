@@ -1,0 +1,20 @@
+---
+address: jamaica.geo.city
+description: Jamaican towns. Kingston is the capital and the largest; Portmore beside it is a dormitory city built on reclaimed land in the 1960s and now holds a substantial share of the metropolitan population. Montego Bay is the tourist capital and the second airport, Ocho Rios and Negril the resort towns — the split between the Kingston economy and the north-coast tourist economy runs through most Jamaican datasets.
+locale: en
+---
+Kingston
+Portmore
+Spanish Town
+Montego Bay
+May Pen
+Mandeville
+Old Harbour
+Savanna-la-Mar
+Ocho Rios
+Port Antonio
+Linstead
+Negril
+Falmouth
+Saint Ann's Bay
+Morant Bay

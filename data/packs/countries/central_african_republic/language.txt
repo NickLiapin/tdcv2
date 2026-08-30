@@ -1,0 +1,7 @@
+---
+address: central_african_republic.language
+description: The two official languages. Sango is the one worth knowing: it began as a river trade pidgin on the Ubangi, became a creole, and is now spoken by almost the entire population — one of very few African languages that genuinely functions as a national lingua franca rather than as one language among many. French remains the language of administration and schooling.
+locale: en
+---
+Sango
+French

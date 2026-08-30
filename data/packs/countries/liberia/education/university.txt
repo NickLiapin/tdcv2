@@ -1,0 +1,12 @@
+---
+address: liberia.education.university
+description: Liberian universities. The University of Liberia was chartered in 1862 and is one of the oldest in Africa; Cuttington, founded 1889 by the Episcopal Church, is the oldest private one in the region. Both closed during the civil wars and reopened afterwards, so a Liberian degree dated between 1990 and 2003 needs looking at — many were awarded in exile or after long interruptions.
+locale: en
+---
+University of Liberia
+Cuttington University
+William V. S. Tubman University
+African Methodist Episcopal University
+United Methodist University
+Stella Maris Polytechnic
+Mother Patern College of Health Sciences

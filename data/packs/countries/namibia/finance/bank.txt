@@ -1,0 +1,13 @@
+---
+address: namibia.finance.bank
+description: Namibian banks. The Bank of Namibia issues the Namibian dollar, which is pegged one-to-one to the South African rand — and the rand is legal tender in Namibia alongside it, so both circulate and prices are effectively identical across the border. Namibia is part of the Common Monetary Area with South Africa, Lesotho and Eswatini, which means it has no independent monetary policy in practice.
+locale: en
+---
+Bank of Namibia
+First National Bank Namibia
+Standard Bank Namibia
+Bank Windhoek
+Nedbank Namibia
+Letshego Bank Namibia
+Agricultural Bank of Namibia
+Bank BIC Namibia

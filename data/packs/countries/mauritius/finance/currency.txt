@@ -1,0 +1,6 @@
+---
+address: mauritius.finance.currency
+description: The Mauritian rupee, subdivided into 100 cents. Named rupee because the indentured labourers who became most of the population came from India, and the currency followed them — the same reason the country's rupee sits alongside a French-derived legal system and English-language administration.
+locale: en
+---
+Mauritian rupee

@@ -1,0 +1,6 @@
+---
+address: montenegro.finance.currency
+description: The euro — used unilaterally. Montenegro adopted the Deutsche Mark in 1999 to escape the hyperinflating Yugoslav dinar and followed it into the euro in 2002 without ever joining the eurozone. It has no seat on the ECB, no share of seigniorage and cannot issue coins of its own, and the arrangement has been tolerated rather than agreed by the European Union.
+locale: en
+---
+Euro

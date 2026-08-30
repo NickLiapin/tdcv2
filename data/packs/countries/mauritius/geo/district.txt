@@ -1,0 +1,15 @@
+---
+address: mauritius.geo.district
+description: The nine districts of Mauritius plus its dependencies. Rodrigues, 560 kilometres east, has been an autonomous region since 2002 with its own assembly; Agalega and St Brandon are outer islands. The Chagos Archipelago is claimed by Mauritius and administered by the United Kingdom, and the dispute — the International Court of Justice advised in 2019 that the UK should end its administration — is live enough that any Mauritian geographic dataset has to decide where it stands, which is why it is named here rather than silently included or omitted.
+locale: en
+---
+Port Louis
+Plaines Wilhems
+Flacq
+Grand Port
+Pamplemousses
+Rivière du Rempart
+Savanne
+Moka
+Black River
+Rodrigues

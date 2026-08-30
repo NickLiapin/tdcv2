@@ -1,0 +1,22 @@
+---
+address: namibia.geo.city
+description: Namibian towns. Windhoek is the capital and roughly a fifth of the population; the north — Oshakati, Ondangwa, Rundu — holds most of the rest, which is the opposite of what the country's colonial-era infrastructure was built for. Walvis Bay is the deep-water port and was held by South Africa for four years after Namibian independence, not transferring until 1994. Lüderitz and Swakopmund keep their German names from the 1884-1915 colony.
+locale: en
+---
+Windhoek
+Rundu
+Walvis Bay
+Oshakati
+Swakopmund
+Katima Mulilo
+Grootfontein
+Rehoboth
+Otjiwarongo
+Okahandja
+Ondangwa
+Ongwediva
+Keetmanshoop
+Tsumeb
+Lüderitz
+Gobabis
+Mariental

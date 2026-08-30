@@ -1,0 +1,7 @@
+---
+address: jamaica.docs.trn
+description: Taxpayer Registration Number — nine digits, issued by Tax Administration Jamaica and used far beyond tax. The TRN is the closest thing Jamaica has to a universal identifier: it is required to open a bank account, register a vehicle, be employed, or receive a government payment, and it is quoted on most official forms. There is no separate national ID number in general use, so a Jamaican person record is keyed on the TRN.
+generator: tdc
+locale: en
+---
+<gen type="number" value="100000000..999999999" length="9"/>

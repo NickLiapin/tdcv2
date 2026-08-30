@@ -1,0 +1,11 @@
+---
+address: eswatini.finance.bank
+description: Eswatini's banks. The Central Bank of Eswatini issues the lilangeni, pegged at par to the South African rand under the Common Monetary Area, and the rand is legal tender here as it is in Lesotho and Namibia. Three of the four commercial banks are South African; Eswatini Bank is the state's own.
+locale: en
+---
+Central Bank of Eswatini
+Standard Bank Eswatini
+Nedbank Eswatini
+First National Bank Eswatini
+Eswatini Bank
+Eswatini Building Society

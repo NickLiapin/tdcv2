@@ -32,6 +32,26 @@ page — is tracked in that implementation's own changelog:
   pack words exactly as the env's does, `TDC153` accepts what the packs actually know, and
   `TDC272` warns only for a locale that truly carries no date words — Bambara, not Afrikaans.
 
+<!-- covers: twelve small country packs -->
+
+- **Twelve more: Central African Republic, Liberia, Eritrea, Gambia, Jamaica, Botswana, Namibia,
+  Lesotho, Eswatini, Mauritius, Trinidad and Tobago, Montenegro.** 170 of the world's 195
+  sovereign states now ship, and the twenty-five still missing hold 6.5 million people between
+  them — **99.92% of the world's population is covered**. The small countries turned out to be
+  where the interesting facts live. Liberia and Lesotho run two currencies at once, the second
+  being someone else's: US dollars in Monrovia, South African rand in Maseru, both legal tender
+  beside the national note. Montenegro uses the euro without being in the eurozone, unilaterally
+  since 2002, with no ECB seat and no seigniorage. The Gambia's capital is not its largest city
+  and is outnumbered ten to one by Serrekunda next door. Eritrea has no university at all — the
+  University of Asmara was closed in 2006 and dispersed into colleges — and one state mobile
+  operator. Mauritius and Trinidad ship the most religiously plural holiday calendars in the
+  corpus, Hindu, Muslim, Christian and Chinese festivals side by side as national holidays,
+  because both populations were assembled by indenture. Eswatini was Swaziland until 2018, and
+  every dataset spanning that year holds both names for one country. Registry, bundle manifest
+  with map geography for all 173 country packs, README counts and docs catalogue updated;
+  `montenegro.zip` was unpacked into an empty store and rendered from nothing else. Identical
+  bytes from all five implementations.
+
 <!-- covers: five more country packs -->
 
 - **Five more, same rule: North Korea, Burundi, South Sudan, Papua New Guinea, Sierra Leone.**

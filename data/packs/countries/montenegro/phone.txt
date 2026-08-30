@@ -1,0 +1,9 @@
+---
+address: montenegro.phone
+description: Montenegrin mobile number in E.164 form — +382 and eight digits, mobile beginning 6. Three operators: Telekom Crne Gore, One and m:tel. Written nationally the number starts 0. The +382 code was assigned in 2006 on independence; before that Montenegro used Serbia and Montenegro's +381, so pre-2006 contact data does not route.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="67,68,69,63" percent="34,24,32,10"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+382${{prefix}}${{line}}</data>

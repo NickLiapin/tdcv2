@@ -1,0 +1,14 @@
+---
+address: botswana.sport.team
+description: Clubs of the Botswana Premier League. Township Rollers and Gaborone United are the capital's two big sides. Botswana's international sporting moment came not in football but in athletics: Nijel Amos took 800m silver in 2012 and Letsile Tebogo won the 200m at the 2024 Olympics, the country's first Olympic gold.
+locale: en
+---
+Township Rollers
+Gaborone United
+Orapa United
+Jwaneng Galaxy
+Police XI
+Mochudi Centre Chiefs
+Security Systems
+Sankoyo Bush Bucks
+Nico United

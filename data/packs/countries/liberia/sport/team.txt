@@ -1,0 +1,13 @@
+---
+address: liberia.sport.team
+description: Clubs of the Liberian first division. Invincible Eleven and Mighty Barrolle are the two historic Monrovia sides and their rivalry predates both civil wars. LPRC Oilers belongs to the petroleum refining company and Nimba United to the iron-ore county. Liberia's footballing fame rests on one man: George Weah, FIFA World Player of the Year in 1995 and President of Liberia from 2018 — the only person to have been both.
+locale: en
+---
+Invincible Eleven
+Mighty Barrolle
+LPRC Oilers
+Nimba United
+Watanga FC
+BEA Mountain
+Fassell FC
+Monrovia Club Breweries

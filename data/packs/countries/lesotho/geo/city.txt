@@ -1,0 +1,18 @@
+---
+address: lesotho.geo.city
+description: Lesotho's towns, all of them small — Maseru is the only settlement above a hundred thousand people. The country's urban pattern follows the lowland border with South Africa, and the towns are camp towns founded around colonial administrative posts. Semonkong and Mokhotlong in the highlands are reached by roads that close in winter snow, which is not a sentence one expects to write about a country in southern Africa.
+locale: en
+---
+Maseru
+Teyateyaneng
+Mafeteng
+Hlotse
+Mohale's Hoek
+Maputsoe
+Qacha's Nek
+Quthing
+Butha-Buthe
+Mokhotlong
+Thaba-Tseka
+Semonkong
+Roma

@@ -1,0 +1,10 @@
+---
+address: central_african_republic.education.university
+description: Central African higher education. The University of Bangui, founded 1969, is effectively the country's university — the other entries are its faculties and the specialist institutes around it. Higher education here has been repeatedly interrupted by conflict, and a degree year in a CAR record is worth checking against the country's timeline before it is trusted as a date of graduation.
+locale: en
+---
+University of Bangui
+Faculté des Sciences de la Santé
+Institut Supérieur de Technologie
+École Normale Supérieure de Bangui
+Université Catholique d'Afrique Centrale

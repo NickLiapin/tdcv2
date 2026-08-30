@@ -1,0 +1,11 @@
+---
+address: montenegro.docs.jmbg
+description: Unique Master Citizen Number (JMBG) — the thirteen-digit identifier inherited from Yugoslavia and still used across most of its successor states. The structure is unusually revealing: DDMMYYY where the year is the last three digits, then a two-digit register code for the region of birth, a three-digit serial in which the range separates men from women, and a mod-11 check digit. It therefore leaks date of birth, sex and birth region from the number alone, which is why several successor states have moved to replace it.
+generator: tdc
+locale: en
+---
+<sequence name="dob"><gen type="regex" value="(0[1-9]|1[0-9]|2[0-8])(0[1-9]|1[0-2])(9[0-9][0-9]|0[0-2][0-9])"/></sequence>
+<sequence name="region"><gen type="text" value="21,22,23,24,25,26,27,28,29"/></sequence>
+<sequence name="serial"><gen type="number" value="0..999" length="3" first_zero="true"/></sequence>
+<sequence name="check"><gen type="number" value="0..9" length="1"/></sequence>
+<data>${{dob}}${{region}}${{serial}}${{check}}</data>

@@ -1,0 +1,15 @@
+---
+address: mauritius.finance.bank
+description: Mauritian banks. The Bank of Mauritius is the central bank; MCB and SBM are the two large domestic groups and both operate across the region. The sector is disproportionately large for a country of 1.3 million because Mauritius built itself as an offshore financial centre — the double-taxation treaty with India routed an enormous share of foreign investment into India through Mauritian vehicles for two decades, until the treaty was renegotiated in 2016.
+locale: en
+---
+Bank of Mauritius
+Mauritius Commercial Bank
+State Bank of Mauritius
+Absa Bank Mauritius
+AfrAsia Bank
+Bank One
+Investec Bank Mauritius
+HSBC Mauritius
+SBI Mauritius
+MauBank

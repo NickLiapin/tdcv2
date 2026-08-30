@@ -45139,6 +45139,63 @@
       "unreleased": true
     },
     {
+      "id": "botswana",
+      "name": "Botswana",
+      "blurb": "Data specific to Botswana",
+      "files": 9,
+      "groups": [
+        [
+          "docs",
+          [
+            "omang"
+          ]
+        ],
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "district"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ]
+      ],
+      "bytes": 4893,
+      "regions": [
+        "africa"
+      ],
+      "unreleased": true
+    },
+    {
       "id": "brazil",
       "name": "Brazil",
       "blurb": "Data specific to Brazil",
@@ -45724,6 +45781,63 @@
         "africa"
       ],
       "unreleased": false
+    },
+    {
+      "id": "central_african_republic",
+      "name": "Central African Republic",
+      "blurb": "Data specific to Central African Republic",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "prefecture"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "language",
+          [
+            "language"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ]
+      ],
+      "bytes": 5532,
+      "regions": [
+        "africa"
+      ],
+      "unreleased": true
     },
     {
       "id": "chad",
@@ -47123,6 +47237,57 @@
       "unreleased": false
     },
     {
+      "id": "eritrea",
+      "name": "Eritrea",
+      "blurb": "Data specific to Eritrea",
+      "files": 8,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "region"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ]
+      ],
+      "bytes": 4254,
+      "regions": [
+        "africa"
+      ],
+      "unreleased": true
+    },
+    {
       "id": "estonia",
       "name": "Estonia",
       "blurb": "Data specific to Estonia",
@@ -47227,6 +47392,57 @@
         "europe"
       ],
       "unreleased": false
+    },
+    {
+      "id": "eswatini",
+      "name": "Eswatini",
+      "blurb": "Data specific to Eswatini",
+      "files": 8,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "region"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ]
+      ],
+      "bytes": 3948,
+      "regions": [
+        "africa"
+      ],
+      "unreleased": true
     },
     {
       "id": "ethiopia",
@@ -47509,6 +47725,57 @@
         "africa"
       ],
       "unreleased": false
+    },
+    {
+      "id": "gambia",
+      "name": "Gambia",
+      "blurb": "Data specific to Gambia",
+      "files": 8,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "region"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ]
+      ],
+      "bytes": 4084,
+      "regions": [
+        "africa"
+      ],
+      "unreleased": true
     },
     {
       "id": "georgia",
@@ -48986,6 +49253,63 @@
       "unreleased": false
     },
     {
+      "id": "jamaica",
+      "name": "Jamaica",
+      "blurb": "Data specific to Jamaica",
+      "files": 9,
+      "groups": [
+        [
+          "docs",
+          [
+            "trn"
+          ]
+        ],
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "parish"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ]
+      ],
+      "bytes": 5002,
+      "regions": [
+        "north"
+      ],
+      "unreleased": true
+    },
+    {
       "id": "japan",
       "name": "Japan",
       "blurb": "Data specific to Japan",
@@ -49699,6 +50023,108 @@
         "asia"
       ],
       "unreleased": false
+    },
+    {
+      "id": "lesotho",
+      "name": "Lesotho",
+      "blurb": "Data specific to Lesotho",
+      "files": 8,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "district"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ]
+      ],
+      "bytes": 4182,
+      "regions": [
+        "africa"
+      ],
+      "unreleased": true
+    },
+    {
+      "id": "liberia",
+      "name": "Liberia",
+      "blurb": "Data specific to Liberia",
+      "files": 8,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "county"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ]
+      ],
+      "bytes": 4357,
+      "regions": [
+        "africa"
+      ],
+      "unreleased": true
     },
     {
       "id": "libya",
@@ -50619,6 +51045,63 @@
       "unreleased": false
     },
     {
+      "id": "mauritius",
+      "name": "Mauritius",
+      "blurb": "Data specific to Mauritius",
+      "files": 9,
+      "groups": [
+        [
+          "docs",
+          [
+            "nid"
+          ]
+        ],
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "district"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ]
+      ],
+      "bytes": 5079,
+      "regions": [
+        "africa"
+      ],
+      "unreleased": true
+    },
+    {
       "id": "mexico",
       "name": "Mexico",
       "blurb": "Data specific to Mexico regardless of the language it is written in",
@@ -50965,6 +51448,63 @@
       "unreleased": true
     },
     {
+      "id": "montenegro",
+      "name": "Montenegro",
+      "blurb": "Data specific to Montenegro",
+      "files": 9,
+      "groups": [
+        [
+          "docs",
+          [
+            "jmbg"
+          ]
+        ],
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "municipality"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ]
+      ],
+      "bytes": 5131,
+      "regions": [
+        "europe"
+      ],
+      "unreleased": true
+    },
+    {
       "id": "morocco",
       "name": "Morocco",
       "blurb": "Data specific to Morocco",
@@ -51191,6 +51731,57 @@
       "bytes": 39763,
       "regions": [
         "asia"
+      ],
+      "unreleased": true
+    },
+    {
+      "id": "namibia",
+      "name": "Namibia",
+      "blurb": "Data specific to Namibia",
+      "files": 8,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "region"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ]
+      ],
+      "bytes": 4343,
+      "regions": [
+        "africa"
       ],
       "unreleased": true
     },
@@ -54863,6 +55454,64 @@
         "africa"
       ],
       "unreleased": false
+    },
+    {
+      "id": "trinidad_and_tobago",
+      "name": "Trinidad And Tobago",
+      "blurb": "Data specific to Trinidad And Tobago",
+      "files": 9,
+      "groups": [
+        [
+          "docs",
+          [
+            "nationalId"
+          ]
+        ],
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "region"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ]
+      ],
+      "bytes": 5339,
+      "regions": [
+        "north",
+        "south"
+      ],
+      "unreleased": true
     },
     {
       "id": "tunisia",

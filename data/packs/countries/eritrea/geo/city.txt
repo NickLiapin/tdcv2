@@ -1,0 +1,18 @@
+---
+address: eritrea.geo.city
+description: Eritrean towns. Asmara sits at 2,300 metres and is a UNESCO World Heritage site in its entirety — the Italian colonial administration built it as a modernist showcase in the 1930s and it survived because nothing was built over it afterwards, leaving one of the most complete early-modernist cityscapes anywhere. Massawa and Assab are the Red Sea ports; Assab handled most of landlocked Ethiopia's trade until the 1998 war closed the border.
+locale: en
+---
+Asmara
+Keren
+Massawa
+Assab
+Mendefera
+Barentu
+Adi Keih
+Dekemhare
+Adi Quala
+Teseney
+Ghinda
+Nakfa
+Senafe

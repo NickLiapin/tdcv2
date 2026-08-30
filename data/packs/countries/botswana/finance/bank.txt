@@ -1,0 +1,14 @@
+---
+address: botswana.finance.bank
+description: Botswanan banks. The Bank of Botswana is the central bank and manages one of the largest sovereign reserves in Africa relative to population — diamond revenue has been saved rather than spent, and the Pula Fund is the result. The commercial sector is dominated by South African and British names, which reflects how closely the two economies are tied.
+locale: en
+---
+Bank of Botswana
+First National Bank Botswana
+Standard Chartered Botswana
+Absa Bank Botswana
+Stanbic Bank Botswana
+Bank Gaborone
+Botswana Savings Bank
+Access Bank Botswana
+National Development Bank

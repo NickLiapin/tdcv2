@@ -1,0 +1,17 @@
+---
+address: mauritius.geo.city
+description: Mauritian towns. Port Louis is the capital and the port; the conurbation running inland through Beau Bassin, Quatre Bornes, Vacoas and Curepipe holds more people than the capital does and is effectively one continuous city climbing to cooler altitude — the colonial pattern of moving uphill from a malarial port. Names come from three colonial layers at once: Dutch, French and British.
+locale: en
+---
+Port Louis
+Beau Bassin-Rose Hill
+Vacoas-Phoenix
+Curepipe
+Quatre Bornes
+Triolet
+Goodlands
+Centre de Flacq
+Mahébourg
+Saint Pierre
+Grand Baie
+Port Mathurin

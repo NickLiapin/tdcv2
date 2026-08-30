@@ -1,0 +1,7 @@
+---
+address: trinidad_and_tobago.docs.nationalId
+description: Trinidad and Tobago national identification number — eleven digits on the ID card issued by the Elections and Boundaries Commission, which is itself worth noting: the identity register is run by the electoral authority rather than by a civil registry or an interior ministry, so the ID and the voter roll are the same list.
+generator: tdc
+locale: en
+---
+<gen type="number" value="10000000000..99999999999" length="11"/>

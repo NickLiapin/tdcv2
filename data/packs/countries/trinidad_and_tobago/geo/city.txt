@@ -1,0 +1,18 @@
+---
+address: trinidad_and_tobago.geo.city
+description: Trinidadian and Tobagonian towns. Port of Spain is the capital; Chaguanas, in the centre, has grown past San Fernando to become the largest municipality — a shift driven by the sugar belt's Indo-Trinidadian population moving into commerce. Point Fortin and Point Lisas are the energy towns: Trinidad runs on natural gas and petrochemicals rather than on tourism, which makes it economically unlike almost every other Caribbean state.
+locale: en
+---
+Port of Spain
+Chaguanas
+San Fernando
+Arima
+Marabella
+Point Fortin
+Tunapuna
+Scarborough
+Sangre Grande
+Couva
+Princes Town
+Siparia
+Rio Claro

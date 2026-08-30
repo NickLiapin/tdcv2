@@ -1,0 +1,22 @@
+---
+address: central_african_republic.geo.prefecture
+description: The sixteen prefectures of the Central African Republic and the autonomous commune of Bangui. Administration outside the capital and the west has been intermittent since 2012, and several of these prefectures have spent years under the control of armed groups rather than the state, so a prefecture in a CAR dataset frequently names a place the government does not administer. Vakaga and Haute-Kotto in the northeast are the emptiest — the country's population is heavily concentrated in the southwest, along the road to Cameroon.
+locale: en
+---
+Bangui
+Ombella-M'Poko
+Lobaye
+Ouham
+Ouham-Pendé
+Nana-Mambéré
+Mambéré-Kadéï
+Sangha-Mbaéré
+Kémo
+Nana-Grébizi
+Ouaka
+Basse-Kotto
+Mbomou
+Haut-Mbomou
+Haute-Kotto
+Bamingui-Bangoran
+Vakaga

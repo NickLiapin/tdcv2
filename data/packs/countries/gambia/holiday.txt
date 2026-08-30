@@ -1,0 +1,17 @@
+---
+address: gambia.holiday
+description: Gambian public holidays. Independence from Britain is 18 February 1965. Revolution Day on 22 July marks the 1994 coup that brought Yahya Jammeh to power and was kept as a holiday through his twenty-two years; it survived his departure in 2017. The Islamic calendar supplies most of the rest — Koriteh and Tobaski are the local names for Eid al-Fitr and Eid al-Adha, the Wolof and Mandinka forms rather than the Arabic ones, and they are what a Gambian document will say.
+locale: en
+---
+New Year's Day
+Independence Day
+Good Friday
+Easter Monday
+Labour Day
+Africa Day
+Koriteh
+Tobaski
+Revolution Day
+Assumption Day
+Mawlid
+Christmas Day

@@ -1,0 +1,6 @@
+---
+address: lesotho.finance.currency
+description: The loti — plural maloti, which is why prices are written M50 rather than L50 — pegged at par to the South African rand, which is also legal tender here. Lesotho's economy runs on two things the peg makes legible: remittances from Basotho working in South African mines, and water sold to South Africa from the Highlands Water Project.
+locale: en
+---
+Lesotho loti

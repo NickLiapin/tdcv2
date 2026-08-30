@@ -1,0 +1,20 @@
+---
+address: liberia.geo.county
+description: The fifteen counties of Liberia. The names carry the country's founding: Liberia was settled from 1822 by freed and free-born African Americans under the American Colonization Society and declared independence in 1847, which makes it Africa's oldest republic, and Maryland County is named for the US state whose colonization society founded it as a separate settlement. Montserrado holds Monrovia — named for President James Monroe — and roughly a third of the population.
+locale: en
+---
+Montserrado
+Nimba
+Bong
+Lofa
+Margibi
+Grand Bassa
+Grand Gedeh
+Sinoe
+Maryland
+Grand Cape Mount
+Bomi
+Gbarpolu
+River Cess
+River Gee
+Grand Kru

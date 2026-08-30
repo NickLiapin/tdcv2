@@ -1,0 +1,12 @@
+---
+address: eritrea.education.university
+description: Eritrean higher education, and the shape of this list is the story. The University of Asmara — the country's only university, founded 1958 — was closed by the government in 2006 and its functions dispersed into a set of specialised colleges scattered across the country, each under a different ministry. There is no university in Eritrea today in the ordinary sense, which is why every entry below is a college or an institute.
+locale: en
+---
+Eritrea Institute of Technology
+College of Health Sciences
+Hamelmalo Agricultural College
+College of Business and Social Sciences
+College of Marine Sciences and Technology
+College of Arts and Social Sciences
+Orotta School of Medicine

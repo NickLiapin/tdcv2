@@ -1,0 +1,30 @@
+---
+address: montenegro.geo.municipality
+description: The twenty-five municipalities of Montenegro — the country's only administrative division, since it is too small for a tier above them. Podgorica was Titograd from 1946 to 1992, and Cetinje remains the Old Royal Capital, a title with constitutional standing: the president's official residence is there while the government sits in Podgorica, so the country has a capital and an honorary capital at once.
+locale: en
+---
+Podgorica
+Nikšić
+Herceg Novi
+Bar
+Bijelo Polje
+Cetinje
+Budva
+Pljevlja
+Ulcinj
+Tivat
+Berane
+Kotor
+Danilovgrad
+Rožaje
+Mojkovac
+Plav
+Kolašin
+Žabljak
+Plužine
+Šavnik
+Andrijevica
+Gusinje
+Petnjica
+Tuzi
+Zeta

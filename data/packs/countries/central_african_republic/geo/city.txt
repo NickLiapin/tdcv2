@@ -1,0 +1,20 @@
+---
+address: central_african_republic.geo.city
+description: Central African towns. Bangui sits on the Ubangi river directly across from the Democratic Republic of the Congo and holds a large share of the country's urban population; Bimbo is its suburb and counts as the second city. Berbérati and Carnot in the southwest are the diamond towns. The interior is thinly populated — this is a country the size of France with fewer than six million people.
+locale: en
+---
+Bangui
+Bimbo
+Berbérati
+Carnot
+Bambari
+Bouar
+Bossangoa
+Bria
+Bangassou
+Nola
+Kaga-Bandoro
+Sibut
+Mbaïki
+Bozoum
+Paoua

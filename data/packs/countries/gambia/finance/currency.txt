@@ -1,0 +1,6 @@
+---
+address: gambia.finance.currency
+description: The dalasi, subdivided into 100 bututs. Introduced in 1971 to replace the West African pound at five dalasi to the pound. The Gambia stayed out of the CFA franc zone that surrounds it — Senegal, which encloses the country on three sides, uses the West African CFA franc — so a border crossing here is also a currency change, twice, for anyone travelling through.
+locale: en
+---
+Gambian dalasi

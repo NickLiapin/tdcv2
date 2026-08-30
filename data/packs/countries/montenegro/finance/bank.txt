@@ -1,0 +1,14 @@
+---
+address: montenegro.finance.bank
+description: Montenegrin banks. The Central Bank of Montenegro does not issue a currency: Montenegro adopted the Deutsche Mark unilaterally in 1999 and moved to the euro in 2002 without joining the eurozone or the European Union, so it uses the euro with no seat at the European Central Bank and no monetary policy of its own. That arrangement is unique in Europe alongside Kosovo's and is the single most important fact about Montenegrin finance.
+locale: en
+---
+Central Bank of Montenegro
+Crnogorska Komercijalna Banka
+Erste Bank Montenegro
+NLB Banka Podgorica
+Hipotekarna Banka
+Addiko Bank Montenegro
+Universal Capital Bank
+Zapad Banka
+Lovćen Banka

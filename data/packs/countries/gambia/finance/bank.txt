@@ -1,0 +1,14 @@
+---
+address: gambia.finance.bank
+description: Gambian banks. The Central Bank of The Gambia issues the dalasi. Trust Bank and the Nigerian entrants — GTBank, Access, Zenith — make up most of the commercial sector, and the Islamic bank AGIB serves a country that is over ninety percent Muslim. Remittances from Gambians abroad are a larger share of national income than in almost any other country, so the money-transfer operators matter here as much as the banks.
+locale: en
+---
+Central Bank of The Gambia
+Trust Bank
+Guaranty Trust Bank Gambia
+Access Bank Gambia
+Zenith Bank Gambia
+Ecobank Gambia
+Standard Chartered Gambia
+Arab Gambian Islamic Bank
+BSIC Gambia

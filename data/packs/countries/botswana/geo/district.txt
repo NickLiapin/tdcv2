@@ -1,0 +1,21 @@
+---
+address: botswana.geo.district
+description: The districts of Botswana. Central District is enormous — it covers a third of the country and holds a third of its people — because the Kalahari fills most of the rest and is nearly empty. The district structure descends from the tribal territories of the Bechuanaland Protectorate and several districts still carry the name of the people whose land they were: Kgatleng, Kweneng, Ngwaketse in Southern District.
+locale: en
+---
+Central
+Kweneng
+Southern
+North East
+North West
+Kgatleng
+South East
+Kgalagadi
+Ghanzi
+Chobe
+Gaborone
+Francistown
+Lobatse
+Selebi-Phikwe
+Jwaneng
+Sowa Town

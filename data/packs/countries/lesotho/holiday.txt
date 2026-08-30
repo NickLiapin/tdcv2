@@ -1,0 +1,16 @@
+---
+address: lesotho.holiday
+description: Lesotho's public holidays. Moshoeshoe's Day on 11 March honours the founder who assembled the Basotho nation in the mountains during the upheavals of the 1820s and then asked Britain for protection in 1868 to avoid absorption by the Boer republics — which is why Lesotho exists as a separate country inside South Africa at all. Independence is 4 October 1966. King's Birthday on 17 July marks Letsie III's; the monarchy is constitutional and the king reigns rather than rules.
+locale: en
+---
+New Year's Day
+Moshoeshoe's Day
+Good Friday
+Easter Monday
+Workers' Day
+Ascension Day
+Africa Day
+King's Birthday
+Independence Day
+Christmas Day
+Boxing Day

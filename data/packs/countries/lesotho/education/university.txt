@@ -1,0 +1,11 @@
+---
+address: lesotho.education.university
+description: Lesotho's universities. The National University of Lesotho at Roma is the descendant of Pius XII College, founded 1945, which became the shared university of Basutoland, Bechuanaland and Swaziland — so it is the parent institution of the universities of Botswana and Eswatini as well, and the three countries' higher education all traces back to this one campus in the Lesotho highlands.
+locale: en
+---
+National University of Lesotho
+Limkokwing University Lesotho
+Lerotholi Polytechnic
+Lesotho College of Education
+Centre for Accounting Studies
+Botho University Lesotho

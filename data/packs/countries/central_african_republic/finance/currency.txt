@@ -1,0 +1,6 @@
+---
+address: central_african_republic.finance.currency
+description: The Central African CFA franc, shared with five neighbours and pegged to the euro at a fixed 655.957 to 1 — a rate that has not moved since the euro replaced the French franc in 1999, and before that was fixed to the franc for decades. The peg means a Central African price series carries no exchange-rate noise against Europe at all and all of it against the dollar, which is the opposite of most African currencies and worth knowing before comparing.
+locale: en
+---
+Central African CFA franc

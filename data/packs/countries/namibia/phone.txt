@@ -1,0 +1,9 @@
+---
+address: namibia.phone
+description: Namibian mobile number in E.164 form — +264 and nine digits. MTC, the state-owned operator, holds 81x and carries most subscribers; Telecom Namibia's TN Mobile holds 85x. Written nationally the number starts 0. Namibia is one of the world's least densely populated countries and the network follows the roads — coverage is a line rather than an area.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="81,85" percent="82,18"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{7}"/></sequence>
+<data>+264${{prefix}}${{line}}</data>

@@ -1,0 +1,6 @@
+---
+address: eritrea.finance.currency
+description: The nakfa, named for the town where the independence movement had its wartime headquarters. Fixed by decree against the US dollar rather than floated, and reissued in November 2015 in a swap that required every holder to deposit old notes into a bank account — a measure aimed at the cash economy and at remittances, and one that a financial dataset spanning 2015 will show as a discontinuity with no market cause.
+locale: en
+---
+Eritrean nakfa

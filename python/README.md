@@ -171,7 +171,7 @@ tdcv2 people.tdc -o people.csv --count 100000 --jobs 8
 
 A pack is the _data_ — the name lists, cities, streets and locale rules that
 `type="template"` draws from. The wheel carries a starter set: `common`, `en` and the USA
-country pack, which is what the example above uses. 86 languages and 161
+country pack, which is what the example above uses. 86 languages and 173
 country packs — with the right check-digit rule for each national ID format — are
 downloaded on demand:
 

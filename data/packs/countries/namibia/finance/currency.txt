@@ -1,0 +1,6 @@
+---
+address: namibia.finance.currency
+description: The Namibian dollar, pegged at par to the South African rand, which is itself legal tender in Namibia. The peg has held since the currency's introduction in 1993, so Namibian and South African prices are directly comparable in a way almost no other pair of national currencies allows — and a dataset holding both should not treat them as an exchange-rate problem.
+locale: en
+---
+Namibian dollar

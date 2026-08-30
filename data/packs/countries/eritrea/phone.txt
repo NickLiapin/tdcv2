@@ -1,0 +1,9 @@
+---
+address: eritrea.phone
+description: Eritrean mobile number in E.164 form — +291 and seven digits. EriTel is the sole operator and the state owns it: there is no competing network, no MVNO and no foreign entrant, which makes Eritrea one of the last single-operator mobile markets in the world. Mobile internet only became generally available in 2018.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="7,1" percent="88,12"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+291${{prefix}}${{line}}</data>

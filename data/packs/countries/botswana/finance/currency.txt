@@ -1,0 +1,6 @@
+---
+address: botswana.finance.currency
+description: The pula, subdivided into 100 thebe. The name is the Setswana word for rain, and the motto on the coat of arms is the same word — in a country that is largely Kalahari, rain is the word for good fortune, so the currency is called blessing. Managed against a basket of the South African rand and the SDR rather than floated.
+locale: en
+---
+Botswana pula

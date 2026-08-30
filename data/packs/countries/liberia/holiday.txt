@@ -1,0 +1,16 @@
+---
+address: liberia.holiday
+description: Liberian public holidays, and several are American in shape because the country is: Thanksgiving falls on the first Thursday of November, Decoration Day in March tends the graves, and J. J. Roberts's birthday honours the first president, who was born in Virginia. Independence Day is 26 July 1847. Armed Forces Day and the Fast and Prayer Day complete a calendar that looks more like the antebellum United States than like West Africa, which is exactly what its founders intended.
+locale: en
+---
+New Year's Day
+Armed Forces Day
+Decoration Day
+J. J. Roberts Birthday
+Fast and Prayer Day
+Unification Day
+Independence Day
+Flag Day
+Thanksgiving Day
+Goodridge Day
+Christmas Day

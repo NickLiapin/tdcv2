@@ -1,0 +1,14 @@
+---
+address: montenegro.sport.team
+description: Clubs of the Montenegrin First League. Budućnost Podgorica and Sutjeska Nikšić are the two the title runs between. Montenegro's real sporting weight is in water polo and handball — the water polo side has won European gold and Olympic silver for a country of six hundred thousand, and the sport is followed here the way football is elsewhere.
+locale: en
+---
+Budućnost Podgorica
+Sutjeska Nikšić
+Dečić
+Rudar Pljevlja
+Jedinstvo Bijelo Polje
+Arsenal Tivat
+Mornar Bar
+OFK Petrovac
+Zeta

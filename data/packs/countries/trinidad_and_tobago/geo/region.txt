@@ -1,0 +1,20 @@
+---
+address: trinidad_and_tobago.geo.region
+description: The regional corporations and boroughs of Trinidad, plus Tobago. The two islands are not administered alike: Tobago has its own House of Assembly with devolved powers and has voted repeatedly on greater autonomy, while Trinidad is divided into the fourteen local bodies below. A dataset that treats Tobago as one more region of Trinidad is describing a constitutional arrangement that does not exist.
+locale: en
+---
+Port of Spain
+San Fernando
+Chaguanas
+Arima
+Point Fortin
+Tunapuna-Piarco
+San Juan-Laventille
+Diego Martin
+Couva-Tabaquite-Talparo
+Princes Town
+Sangre Grande
+Siparia
+Penal-Debe
+Mayaro-Rio Claro
+Tobago

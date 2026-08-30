@@ -1,0 +1,19 @@
+---
+address: eritrea.holiday
+description: Eritrean public holidays. Independence Day on 24 May 1991 marks the end of a thirty-year war with Ethiopia; Martyrs' Day on 20 June and the Start of the Armed Struggle on 1 September mark the war itself, and Fenkil Day on 10 February the 1990 battle for Massawa. The religious calendar is doubled and evenly so: Eritrea is roughly half Orthodox Christian and half Muslim, and the state observes both — Orthodox Christmas on 7 January and Timkat beside Eid al-Fitr and Eid al-Adha.
+locale: en
+---
+New Year's Day
+Orthodox Christmas
+Timkat
+Fenkil Day
+Women's Day
+Orthodox Easter
+May Day
+Independence Day
+Martyrs' Day
+Start of the Armed Struggle
+Eid al-Fitr
+Eid al-Adha
+Mawlid
+Christmas Day

@@ -1,0 +1,15 @@
+---
+address: jamaica.holiday
+description: Jamaican public holidays. Independence from Britain is 6 August 1962. Emancipation Day on 1 August marks the 1834 abolition of slavery and sits directly before it, so the country spends the first week of August marking both the end of slavery and the end of colonial rule — the two are deliberately adjacent. National Heroes Day in October honours seven national heroes including Marcus Garvey, Nanny of the Maroons and Paul Bogle.
+locale: en
+---
+New Year's Day
+Ash Wednesday
+Good Friday
+Easter Monday
+Labour Day
+Emancipation Day
+Independence Day
+National Heroes Day
+Christmas Day
+Boxing Day

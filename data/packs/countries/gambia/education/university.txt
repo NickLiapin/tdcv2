@@ -1,0 +1,10 @@
+---
+address: gambia.education.university
+description: Gambian higher education. The University of The Gambia opened in 1999 — the country had none before that, and Gambians who wanted a degree went to Sierra Leone, Nigeria or Britain. That recency shapes any dataset of Gambian graduates: almost every domestic degree in circulation is younger than the millennium.
+locale: en
+---
+University of The Gambia
+Gambia College
+Management Development Institute
+Gambia Technical Training Institute
+American International University West Africa

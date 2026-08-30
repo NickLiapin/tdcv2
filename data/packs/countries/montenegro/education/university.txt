@@ -1,0 +1,10 @@
+---
+address: montenegro.education.university
+description: Montenegrin universities. The University of Montenegro in Podgorica, founded 1974, is the public one and holds most enrolment; the private universities are post-independence. Montenegro left the state union with Serbia in 2006 after a referendum decided by a margin of a few thousand votes, and the higher-education system dates its independence from then.
+locale: en
+---
+University of Montenegro
+University of Donja Gorica
+Mediterranean University
+Adriatic University
+Faculty of Dramatic Arts Cetinje

@@ -1,0 +1,6 @@
+---
+address: trinidad_and_tobago.finance.currency
+description: The Trinidad and Tobago dollar. Managed against the US dollar rather than floated, and foreign exchange has been rationed by the banks for years — the official rate and the availability of dollars at that rate are two different things, which matters for any dataset of Trinidadian prices or imports.
+locale: en
+---
+Trinidad and Tobago dollar

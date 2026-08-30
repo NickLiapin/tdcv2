@@ -1,0 +1,10 @@
+---
+address: central_african_republic.finance.bank
+description: Central African banks. The central bank is the Banque des États de l'Afrique Centrale, which is shared: BEAC issues one currency for six countries — Cameroon, CAR, Chad, Republic of the Congo, Equatorial Guinea and Gabon — so the CAR has no monetary policy of its own and its notes carry a letter identifying the issuing country. The commercial sector is four banks and reaches almost nobody outside Bangui.
+locale: en
+---
+Banque des États de l'Afrique Centrale
+Banque Populaire Maroco-Centrafricaine
+Ecobank Centrafrique
+Commercial Bank Centrafrique
+Banque Sahélo-Saharienne pour l'Investissement et le Commerce

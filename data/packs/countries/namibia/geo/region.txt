@@ -1,0 +1,19 @@
+---
+address: namibia.geo.region
+description: The fourteen regions of Namibia. Several were renamed in 2013 to drop colonial-era and apartheid-era names: Caprivi became Zambezi, Karas became ǁKaras with the lateral click written, and Kavango was split into East and West. The Zambezi Region is the strip in the northeast — the Caprivi Strip, a corridor drawn by Germany in 1890 to reach the Zambezi and never useful for it, and one of the most obviously artificial borders on the continent.
+locale: en
+---
+Khomas
+Ohangwena
+Omusati
+Oshikoto
+Oshana
+Kavango East
+Kavango West
+Zambezi
+Erongo
+Otjozondjupa
+Hardap
+ǁKaras
+Kunene
+Omaheke

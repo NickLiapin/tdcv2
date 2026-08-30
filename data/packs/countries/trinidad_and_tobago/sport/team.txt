@@ -1,0 +1,14 @@
+---
+address: trinidad_and_tobago.sport.team
+description: Trinidadian clubs of the TT Premier Football League — and the institutional pattern again: Defence Force is the army and coast guard's side, Police FC the police's, Central FC and W Connection corporate foundations. Trinidad and Tobago qualified for the 2006 World Cup, the smallest country ever to do so at the time. Cricket matters at least as much: the national side plays as Trinidad and Tobago domestically and its players appear for the West Indies internationally.
+locale: en
+---
+Defence Force
+Police FC
+W Connection
+Central FC
+San Juan Jabloteh
+Morvant Caledonia United
+Club Sando
+Point Fortin Civic
+Terminix La Horquetta Rangers

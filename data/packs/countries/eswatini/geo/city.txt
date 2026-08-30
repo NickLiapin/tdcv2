@@ -1,0 +1,16 @@
+---
+address: eswatini.geo.city
+description: Eswatini's towns. Mbabane is the administrative capital and Lobamba the legislative and royal one — the parliament and the queen mother's residence are there, so the country has two capitals in the way South Africa has three. Manzini is the largest town and the commercial centre. Big Bend and Simunye are sugar towns: sugar is the country's main export and those settlements exist because of the estates.
+locale: en
+---
+Manzini
+Mbabane
+Lobamba
+Siteki
+Nhlangano
+Piggs Peak
+Big Bend
+Simunye
+Malkerns
+Hlatikulu
+Mankayane

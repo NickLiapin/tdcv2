@@ -1,0 +1,9 @@
+---
+address: lesotho.phone
+description: Lesotho mobile number in E.164 form — +266 and eight digits with no national trunk prefix. Vodacom Lesotho holds the 5x blocks and Econet Telecom Lesotho the 6x. Fixed lines start with 2. Roaming onto South African networks is routine in the border districts, which makes location inference from a Lesotho mobile number unreliable in exactly the places most people live.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="50,51,52,53,56,57,58,59,62,63,66,67,68" percent="9,9,8,8,8,8,8,8,7,7,7,7,6"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+266${{prefix}}${{line}}</data>

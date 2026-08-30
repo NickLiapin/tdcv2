@@ -1,0 +1,6 @@
+---
+address: jamaica.finance.currency
+description: The Jamaican dollar. Floated since 1983 after decades of a fixed peg to sterling and then to the US dollar, and it has depreciated steadily since — a Jamaican price series spanning decades is dominated by that trend, and comparing nominal figures across years without deflating is close to meaningless.
+locale: en
+---
+Jamaican dollar

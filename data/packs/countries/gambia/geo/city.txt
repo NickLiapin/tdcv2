@@ -1,0 +1,18 @@
+---
+address: gambia.geo.city
+description: Gambian towns, and the first surprise is that the capital is not the largest. Banjul sits on an island at the river mouth and has fewer than forty thousand people; Serrekunda, on the mainland just beyond it, has ten times that and is where the country actually lives. Any dataset that assumes the capital is the population centre will be wrong here.
+locale: en
+---
+Serrekunda
+Brikama
+Bakau
+Banjul
+Farafenni
+Lamin
+Sukuta
+Basse Santa Su
+Gunjur
+Soma
+Janjanbureh
+Kerewan
+Mansa Konko

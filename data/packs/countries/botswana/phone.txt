@@ -1,0 +1,9 @@
+---
+address: botswana.phone
+description: Botswanan mobile number in E.164 form — +267 and eight digits with no trunk prefix nationally. Mascom holds 71x-74x, Orange Botswana 75x-76x, and beMobile — the state operator's mobile arm — 77x. Fixed lines start with 3 or 4 and are still meaningfully used, which is unusual for the region and reflects how much of the population lives in a few large settlements along the eastern corridor.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="71,72,73,74,75,76,77" percent="16,16,15,13,14,13,13"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+267${{prefix}}${{line}}</data>
