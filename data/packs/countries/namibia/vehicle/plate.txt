@@ -1,0 +1,9 @@
+---
+address: namibia.vehicle.plate
+description: Namibian licence plate — a letter pair, four digits and the two-letter registering-town code. The town codes are the ones to know: W is Windhoek, WB Walvis Bay, S Swakopmund, OK Okahandja, OT Otjiwarongo. A Namibian plate therefore does say where a vehicle was registered, unlike Botswana's next door.
+generator: tdc
+locale: en
+---
+<sequence name="serial"><gen type="number" value="1..99999" length="5" first_zero="true"/></sequence>
+<sequence name="town"><gen type="text" value="W,WB,S,OK,OT,GR,TS,KM,RU,LZ" percent="40,12,9,7,7,6,6,5,4,4"/></sequence>
+<data>${{serial}} ${{town}}</data>

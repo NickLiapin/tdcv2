@@ -1,0 +1,9 @@
+---
+address: jamaica.vehicle.plate
+description: Jamaican licence plate — two letters and four digits, with the letter pair identifying the plate class rather than the parish: private plates run in one series, public passenger vehicles in another, and the distinction is visible on the road because commercial plates are red on white. The series letters are issued nationally in sequence.
+generator: tdc
+locale: en
+---
+<sequence name="letters"><gen type="regex" value="[A-Z]{2}"/></sequence>
+<sequence name="serial"><gen type="number" value="1..9999" length="4" first_zero="true"/></sequence>
+<data>${{letters}} ${{serial}}</data>

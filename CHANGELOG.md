@@ -32,6 +32,25 @@ page — is tracked in that implementation's own changelog:
   pack words exactly as the env's does, `TDC153` accepts what the packs actually know, and
   `TDC272` warns only for a locale that truly carries no date words — Bambara, not Afrikaans.
 
+<!-- covers: two country-pack guards -->
+
+- **Two guards, written because a sample check missed two real defects.** The twelve packs of
+  the last wave were verified by rendering a few addresses each, they all rendered, and both of
+  these were sitting there anyway. Twelve packs had no `vehicle/plate.txt` — one of the seven
+  files 145 of the 153 older packs all ship — because the file was simply forgotten twelve times
+  and no address that was tested touched it. And `malawi/phone.txt` listed seventeen operator
+  prefixes summing to 98, which the engine refuses at render time with a message naming the sum
+  and not the file: the pack built, bundled, shipped and installed cleanly, and would have failed
+  for whoever used that address first. Rendering EVERY address of all twenty-one new packs in one
+  config found it in a second. Both are fixed, and both now have a check that fails:
+  `check-country-core.mjs` holds the core seven with named exceptions and a reason each
+  (city-states have no city list; `europe` is a delegating generator), and
+  `check-pack-percents.mjs` sums every complete share list. The second guard was wrong on its
+  first draft — it flagged two correct Malayalam packs, because a `<mix>` may name fewer shares
+  than it has cases and the last takes the remainder. The rule was checked against the engine
+  both ways round before the guard was allowed to encode it. Both run in `npm run
+packs:generated`.
+
 <!-- covers: twelve small country packs -->
 
 - **Twelve more: Central African Republic, Liberia, Eritrea, Gambia, Jamaica, Botswana, Namibia,

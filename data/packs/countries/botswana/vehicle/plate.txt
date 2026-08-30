@@ -1,0 +1,10 @@
+---
+address: botswana.vehicle.plate
+description: Botswanan licence plate — a letter, three digits and three letters. Registration is national rather than by district, and personalised plates are common enough in Gaborone to be worth remembering when a validator assumes the pattern always holds.
+generator: tdc
+locale: en
+---
+<sequence name="head"><gen type="regex" value="[A-Z]"/></sequence>
+<sequence name="serial"><gen type="number" value="1..999" length="3" first_zero="true"/></sequence>
+<sequence name="tail"><gen type="regex" value="[A-Z]{3}"/></sequence>
+<data>${{head}} ${{serial}} ${{tail}}</data>

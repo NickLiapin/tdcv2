@@ -1,0 +1,10 @@
+---
+address: gambia.vehicle.plate
+description: Gambian licence plate — two letters, four digits and a letter. BJL identifies Banjul registrations; the rest are issued nationally. The country is small enough that the whole vehicle fleet would fit in one district of a large neighbour.
+generator: tdc
+locale: en
+---
+<sequence name="head"><gen type="text" value="BJL,KMC,WCR,NBR,LRR,CRR,URR" percent="40,25,14,6,5,5,5"/></sequence>
+<sequence name="serial"><gen type="number" value="1..9999" length="4" first_zero="true"/></sequence>
+<sequence name="tail"><gen type="text" value="A,B,C,D,E,F,G,H,J,K,L,M,N,P,R,S,T,U,V,W,X,Y,Z"/></sequence>
+<data>${{head}} ${{serial}}${{tail}}</data>

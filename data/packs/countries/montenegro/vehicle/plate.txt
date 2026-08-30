@@ -1,0 +1,10 @@
+---
+address: montenegro.vehicle.plate
+description: Montenegrin licence plate — the two-letter town code, three digits, two letters, in the European format with the MNE country strip. PG is Podgorica, NK Nikšić, BD Budva, KO Kotor, HN Herceg Novi. The town code is retained on resale within the same municipality, so a plate is a reasonable location signal in a way it is not in most of the corpus.
+generator: tdc
+locale: en
+---
+<sequence name="town"><gen type="text" value="PG,NK,HN,BR,BP,CT,BD,PV,UL,TV,BE,KO,DG,RO,MK" percent="34,12,7,7,6,5,6,5,4,4,4,3,1,1,1"/></sequence>
+<sequence name="serial"><gen type="number" value="1..999" length="3" first_zero="true"/></sequence>
+<sequence name="tail"><gen type="regex" value="[A-Z]{2}"/></sequence>
+<data>${{town}} ${{serial}} ${{tail}}</data>

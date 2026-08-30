@@ -1,0 +1,10 @@
+---
+address: eswatini.vehicle.plate
+description: Eswatini licence plate — three letters, three digits and a district letter. The plates were reissued after the 2018 renaming from Swaziland, so vehicles carrying the older SD-marked plates are on the road beside the newer ones.
+generator: tdc
+locale: en
+---
+<sequence name="letters"><gen type="regex" value="[A-Z]{3}"/></sequence>
+<sequence name="serial"><gen type="number" value="1..999" length="3" first_zero="true"/></sequence>
+<sequence name="district"><gen type="text" value="H,M,L,S" percent="30,40,15,15"/></sequence>
+<data>${{letters}} ${{serial}} ${{district}}</data>

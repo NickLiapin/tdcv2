@@ -1,0 +1,10 @@
+---
+address: lesotho.vehicle.plate
+description: Lesotho licence plate — a letter, four digits and two letters. The mountain districts register few vehicles: above the road head the working transport is still the Basotho pony, and several district capitals are reached by roads that close in winter snow.
+generator: tdc
+locale: en
+---
+<sequence name="head"><gen type="regex" value="[A-Z]"/></sequence>
+<sequence name="serial"><gen type="number" value="1..9999" length="4" first_zero="true"/></sequence>
+<sequence name="tail"><gen type="regex" value="[A-Z]{2}"/></sequence>
+<data>${{head}} ${{serial}} ${{tail}}</data>
