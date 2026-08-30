@@ -1,0 +1,12 @@
+---
+description: Korean food, and in Russia that phrase covers two unrelated things. The older one is Koryo-saram cooking, the food of the Soviet Koreans deported from the Far East to Central Asia in 1937, whose descendants sell салаты at every market in the country: Морковь по-корейски is their invention and exists nowhere in Korea, and Хе is their raw marinated fish. Both have been ordinary Russian market food for decades and are eaten in Cheboksary by people who have never met a Korean. The newer layer is the restaurant kind, Пибимпап and Токпокки and Пулькоги, which came with television and pop music in the 2010s and sits on a completely different shelf. Keeping both in one file is accurate to how the word is used.
+locale: cv
+---
+Кимчи
+Пибимпап
+Пулькоги
+Токпокки
+Чапче
+Кимчи-чиге
+Морковь по-корейски
+Хе

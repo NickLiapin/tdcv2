@@ -1,0 +1,175 @@
+---
+description: The evocative element of a Breton company name, to be composed with a legalSuffix, and this field carries more weight in Brittany than its equivalent would anywhere else in France: firms here name themselves in the regional language far more readily than any other French region does, and Ker-, Ti-, Ar- and Mor- turn up on vans, shopfronts, trawler transoms and letterheads from Brest to Vannes, a good share of them belonging to businesses whose staff speak no Breton at all. The commonest building block is Ker, from kêr, a hamlet or a farm with its outbuildings; it names several thousand settlements in Lower Brittany, so a firm that takes it is taking the address of a place rather than a word. Beside it stands Ti, the house, and the article, which picks its shape from the sound that follows: an before a vowel and before n, d, t, h, al before l, ar everywhere else, which is why this list holds An Aod, Al Lann and Ar Mor and never the reverse. Then the landscape vocabulary that does the real work - mor the sea and arvor the country beside it, argoad the wood inland, aod the shore, enez an island, menez a hill, roc'h a rock, feunteun a spring, kroaz a crossroads, lann the gorse and brug the heather that cover the moors, sav-heol the sunrise and kuzh-heol the sunset - together with the words a baker, a cider house or a chandler puts straight on the sign: bara, amann, krampouezh, sistr, laezh, pesked, bag. The wind rose is in here too, and it is a Breton system rather than a translated one: gwalarn is the north-west wind, mervent the south-west, gevred the south-east, biz the north-east, and gwalarn was also the name Roparz Hemon gave the review that invented modern Breton literature. The region's own names follow in Breton - Breizh, Kerne, Leon, Treger, Gwened, Penn-ar-Bed, Aodoù-an-Arvor - with the rivers Elorn, Odet, Blavet, Aulne and Rance, some of which a Breton sign will spell the French way. The French and personal-name block at the end is not padding: most firms in Brittany are still named in French or after their founder, so Bretagne, Atlantique, Ponant, Cornouaille, Trégor and the surnames Le Gall, Tanguy, Prigent, Guivarc'h and Kerdraon belong in the same draw, and a generator that never produced one of them would be making a caricature of the region rather than a picture of it. THE TRAP IS MUTATION. Every bare value here is a dictionary form, and Breton changes the first sound of a word according to what stands in front of it, so a config that concatenates two draws from this file mechanically will emit compounds that a reader sees as wrong at a glance. Worked example: Ker plus Bihan is not Ker Bihan. Kêr is feminine, a following adjective softens, b becomes v, and the name is written Kervihan - which is how it appears on the map and on the letterhead. Ti plus Glas, by contrast, is simply Ti Glas, because ti is masculine and an adjective after a masculine singular is left alone; and the article does the softening on its own, so An plus Gwenn is written An Wenn, gw giving w. An unmutated Kerbihan is not a spelling variant, it is the mark of someone who does not have the language, in the way that a apple is in English. The Ker-, Ti- and article values in this list are therefore supplied already compounded and already mutated; build compound names by drawing one of those, not by gluing two elements together at run time.
+locale: br
+---
+Ker
+Kernevez
+Kergoat
+Kerlann
+Kervihan
+Kerhuon
+Kervella
+Kermaria
+Keranna
+Kerloc'h
+Kerguelen
+Kermorvan
+Kerlouan
+Kergrist
+Kerlaz
+Ti
+Ti Glas
+Ti ar Vro
+Ar Vro
+Ar Mor
+Ar C'hoad
+Al Lann
+An Aod
+An Heol
+Ar Men
+An Oaled
+Ar Vag
+Mor
+Mor Bras
+Arvor
+Argoad
+Aod
+Enez
+Traezh
+Karreg
+Bag
+Gouel
+Reverzhi
+Lanv
+Tre
+Iroise
+Aber
+Elorn
+Odet
+Blavet
+Aulne
+Rance
+Bezhin
+Pesked
+Beg
+Porzh
+Menez
+Koad
+Gwez
+Derv
+Kelenn
+Lann
+Brug
+Feunteun
+Kroaz
+Roc'h
+Bre
+Traoñ
+Krec'h
+Penn
+Tal
+Sav
+Douar
+Prad
+Park
+Gwazh
+Stêr
+Poull
+Maez
+Gwern
+Haleg
+Faou
+Heol
+Sav-heol
+Kuzh-heol
+Avel
+Steredenn
+Loar
+Sklerijenn
+Gouloù
+Tarzh-an-deiz
+Gwalarn
+Mervent
+Gevred
+Biz
+Kornôg
+Reter
+Gwenn
+Du
+Ruz
+Glas
+Melen
+Arc'hant
+Nevez
+Bihan
+Bras
+Kozh
+Uhel
+Izel
+Kreiz
+Mat
+Gwir
+Kaer
+Bara
+Amann
+Kouign
+Krampouezh
+Sistr
+Laezh
+Gwin
+Chouchen
+Gwinizh
+Gwinizh Du
+Kig
+Holen
+Mel
+Aval
+Skol
+Levr
+Kan
+Son
+Breizh
+Kerne
+Leon
+Treger
+Gwened
+Bro-Leon
+Bro-Dreger
+Bro-Gerne
+Bro-Wened
+Penn-ar-Bed
+Aodoù-an-Arvor
+Mor-Bihan
+Roazhon
+Brest
+Kemper
+An Oriant
+Sant-Brieg
+Landerne
+Douarnenez
+Karaez
+Montroulez
+Naoned
+Bretagne
+Armorique
+Atlantique
+Océane
+Ouest
+Ponant
+Cornouaille
+Trégor
+Goëlo
+Penthièvre
+Grand Large
+Triskell
+Le Gall
+Le Goff
+Tanguy
+Prigent
+Guivarc'h
+Kerdraon
+Salaün
+Hamon
+Morvan
+Riou
+Corre

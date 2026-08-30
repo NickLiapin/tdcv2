@@ -1,0 +1,11 @@
+---
+description: Household size as a Nordic statistical office bins it, one to six with everything larger collapsed into 7+. Two things skew this distribution in Sápmi and neither is visible in the numbers. First, the household that matters economically for a herding family is not the dwelling but the siida, the group of families that herd one range together and whose members eat, work and count reindeer as a unit while living in separate houses in Guovdageaidnu or Kárášjohka. Second, the herding year splits households seasonally: during calving and during the autumn separation, part of the family is at the corral for weeks, and a register that counts residents on one night gets a different answer depending on the night.
+locale: se
+---
+1
+2
+3
+4
+5
+6
+7+

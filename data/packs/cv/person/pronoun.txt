@@ -1,0 +1,12 @@
+---
+description: Personal pronoun set (Chuvash, with a Russian fallback pair). The first six values are the whole Chuvash third person, and the striking thing about them is what is missing: вӑл is he, she and it at once, and унӑн is his, her and its. Chuvash marks no gender anywhere in its grammar, so a Chuvash sentence can run for a page about a named person without ever revealing whether that person is a man or a woman. A config that genuinely needs a gendered pronoun cannot get one out of Chuvash, which is why the last two values are the Russian он and она — the pair a bilingual writer in Cheboksary reaches for when the distinction has to be made in the text.
+locale: cv
+---
+вӑл
+унӑн
+вӑл/унӑн
+вӗсем
+вӗсен
+вӗсем/вӗсен
+он
+она

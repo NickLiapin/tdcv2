@@ -1,0 +1,54 @@
+---
+description: Scheduled and charter airlines whose aircraft turn at Brittany's airports across a year — Nantes Atlantique, Rennes Saint-Jacques, Brest Bretagne, Lorient Bretagne Sud, Quimper Cornouaille, Dinard and Lannion. The names are left in the form each carrier registers, which is French, English or neither, because an airline's name is a trademark and no locale translates it. Two are worth pointing out. Finist'air flies the shortest scheduled route in France, Brest to Ouessant, about fifteen minutes over the Iroise sea in a nine-seat aircraft, and it exists because the island has no bridge and a rough winter crossing. Chalair and Amelia are the small French regional carriers that keep Brest and Lorient tied to Lyon and Bordeaux when the flag carrier will not. The shape of the list says something too: no Gulf or Asian carrier appears on it, because none serves Brittany at all — long-haul out of the region goes through Paris, with the single exception of Nantes, which reaches Canada and the Caribbean directly in season. And the region's most famous transport company is not here because it is not an airline: Brittany Ferries was founded in 1972 by the Breton farmers' leader Alexis Gourvennec to carry Finistère artichokes and cauliflowers to Plymouth when no French shipowner would.
+locale: br
+---
+Air France
+HOP!
+Volotea
+Ryanair
+easyJet
+Transavia France
+Vueling
+Chalair Aviation
+Amelia
+Finist'air
+Twin Jet
+Air Corsica
+Aer Lingus
+Lufthansa
+KLM
+Brussels Airlines
+SWISS
+Austrian Airlines
+Iberia
+Air Nostrum
+TAP Air Portugal
+Wizz Air
+SAS Scandinavian Airlines
+Norwegian
+Finnair
+airBaltic
+LOT Polish Airlines
+ITA Airways
+Aegean Airlines
+Turkish Airlines
+Pegasus Airlines
+Royal Air Maroc
+Air Arabia Maroc
+Air Algérie
+ASL Airlines France
+Tunisair
+Nouvelair
+Corsair
+French bee
+Air Canada
+Air Transat
+TUI fly
+TUI fly Belgium
+Eurowings
+Luxair
+Aurigny
+Blue Islands
+British Airways
+Air Europa
+Enter Air

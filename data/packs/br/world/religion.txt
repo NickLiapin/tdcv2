@@ -1,0 +1,25 @@
+---
+description: Religion and confession. Brittany's is Catholic and specifically so, and the shape of this list follows a vocabulary that is enormous for Christianity and essentially empty for everything else: Breton devotional literature ran to catechisms, hymnals and the BUEZ AR ZENT lives of the saints for four centuries and never had occasion to build the rest, so a Breton speaker naming Hinduism or Shinto reaches for the French word, and the French words are what stand here. What is peculiar to Breton Catholicism is not in the confession names at all. The PARDON is the parish pilgrimage on the saint's day, a banner procession that walks the bounds and ends in a fair. The ENCLOS PAROISSIAL is the walled parish close — triumphal arch, calvary, ossuary, church, all inside one wall — a form built almost nowhere outside Leon and Cornouaille and paid for out of the sixteenth-century linen trade, which is why villages of two hundred people carry monumental architecture. The TRO BREIZ is the circuit of the seven founding saints, Paol Aorelian, Tudual, Brieg, Malo, Padern, Kaourintin and Samzun, whose seven cathedral towns are the seven bishoprics counted by the nine stripes of the Gwenn-ha-Du; walking it was held to spare you the journey after death. Behind those seven stands a tail of several hundred local saints, mostly Brittonic and Irish immigrants of the fifth and sixth centuries, the great majority never canonised by Rome and venerated on parish authority alone — a genuine peculiarity, and the reason Breton place names begin with PLOU-, LAN- and TRE- followed by a saint no Roman calendar lists. Against all of that: practice has collapsed since the 1960s in what had been one of the most observant regions in France, and French laïcité means the state records no religion on any form at all, so a dataset built to French administrative shape has no field for this value.
+locale: br
+---
+Katolikelezh
+Iliz katolik roman
+Kristeniezh
+Protestantelezh
+Iliz reformet
+Iliz ortodoks
+Iliz anglikan
+Testoù Jehova
+Islam
+Islam sunnite
+Islam chiite
+Judaïsme
+Bouddhisme
+Hindouisme
+Sikhisme
+Jaïnisme
+Shintoïsme
+Taoïsme
+Confucianisme
+Athéisme
+Agnosticisme

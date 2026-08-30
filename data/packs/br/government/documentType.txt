@@ -1,0 +1,21 @@
+---
+description: Official documents, in French, because every one of them is issued by the French state and exists in no other language. The list is worth reading for two entries a landlocked country would not have. The permis plaisance is the licence to drive a motor boat and is as ordinary a possession in a Breton coastal commune as a driving licence. The livret professionnel maritime is the seafarer's own document, the record of service that a fisherman or a merchant sailor carries and that the maritime affairs administration stamps; there are more of them per head in Finistère than anywhere else in France. The other entry to notice is the acte de naissance, because it is where the language question becomes a legal one: a Breton first name has to survive the registrar to reach this document, and the Fañch case of 2017 to 2019 was fought precisely over whether the tilde in that name could be written on it. The parents won on appeal, and the ñ stayed.
+locale: br
+---
+Carte nationale d'identité
+Passeport
+Permis de conduire
+Certificat d'immatriculation
+Acte de naissance
+Acte de mariage
+Acte de décès
+Livret de famille
+Certificat de nationalité française
+Carte Vitale
+Extrait de casier judiciaire
+Justificatif de domicile
+Titre de séjour
+Autorisation de travail
+Permis plaisance
+Livret professionnel maritime
+Diplôme

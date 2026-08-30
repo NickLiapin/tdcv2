@@ -1,0 +1,16 @@
+---
+description: Jobs in health care, in French, and for the same reason every medical list in this pack is French: a patient's file at the CHU de Brest or at Rennes is written in French from cover to cover, and so is every job title in the building. What Breton has in this sector is not vocabulary but a clinical problem. A speaker who learned Breton at home and French at school loses the second language before the first under dementia, so an eighty-year-old in a Finistère care home can stop understanding the aide-soignant who has looked after her for years, and revert to a language the staff may not have; care homes in Lower Brittany recruit for Breton on exactly that ground, and it is the most concrete argument anyone in the region makes for the language. The demography behind it is real: the Breton departments are older than the French average and the coastal ones markedly so, which is why auxiliaire de vie earns a place on a list of only twelve health jobs. Interne des hôpitaux is a rung and not a rank — a doctor in training who is paid, on the rota and responsible for patients — so a config that treats it as a student post will get the seniority wrong.
+locale: br
+---
+Médecin généraliste
+Chirurgien
+Interne des hôpitaux
+Infirmier
+Aide-soignant
+Sage-femme
+Pharmacien
+Kinésithérapeute
+Manipulateur en radiologie
+Technicien de laboratoire
+Ambulancier
+Auxiliaire de vie

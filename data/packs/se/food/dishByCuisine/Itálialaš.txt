@@ -1,0 +1,13 @@
+---
+description: Italian dishes, the child of food.cuisine value Itálialaš. The pizzeria is the second thing a northern Norwegian town gets after the petrol station, and pizza is by a wide margin the most eaten restaurant food in Finnmark. This is not a small cultural fact: Norway is among the world's heaviest consumers of frozen pizza per head, and the freezer in a shop in a village of four hundred people carries it.
+locale: se
+---
+Pizza margherita
+Lasagne
+Spaghetti bolognese
+Carbonara
+Risotto
+Minestrone
+Tiramisu
+Bruschetta
+Gnocchi

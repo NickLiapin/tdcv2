@@ -1,0 +1,82 @@
+---
+description: Hobby or pastime in Chuvash. Chuvash names an activity with a verbal noun, which is why so many of these end in -ни or -сси: тӗрӗ тӗрлени is literally "the embroidering of embroidery", not a noun for a craft. Four entries are not hobbies anywhere else. Тӗрӗ тӗрлени is Chuvash counted-thread embroidery, a registered regional art with its own named ornament vocabulary, still taught in village schools and still worked onto the сурпан and the тевет. Хӑмла ӳстерни is growing hops, which is not a curiosity but the republic's signature crop — Chuvashia has grown the bulk of Russia's hops for centuries. Сӑра тӑвасси is brewing the household beer that goes with it, an autumn job rather than a craft revival. And Акатуй уявне хатӗрленни is preparing for Акатуй, the spring ploughing festival that is the Chuvash national holiday; кӗрешӳ, belt wrestling, is its central contest, which is why it sits in this list next to boxing rather than under folklore. Кӗсле and шӑпӑр, the zither and the bagpipe, are the old instruments; купӑс, the accordion, is the one that actually turns up at a wedding. The rest is ordinary modern leisure, because Chuvashia is an industrial republic and most of these people live in a flat in Cheboksary.
+locale: cv
+---
+Кӗнеке вулани
+Сӑвӑ ҫырни
+Ҫыру ҫырни
+Тӗрӗ тӗрлени
+Ҫӗлени
+Ҫыхни
+Ӳкерни
+Сӑн ӳкерни
+Йывӑҫ каскалани
+Тӑмран япала тӑвасси
+Хӑмла ӳстерни
+Пахча ӗҫӗ
+Чечек ӳстерни
+Улма пахчи пӑхни
+Пыл хурчӗ ӗрчетни
+Лаша ӗрчетни
+Чӑх-чӗп ӗрчетни
+Сунар
+Пулӑ тытни
+Кӑмпа пуҫтарни
+Ҫырла пуҫтарни
+Курӑк пуҫтарни
+Вӑрманта ҫӳрени
+Атӑл хӗрринче канни
+Кимӗпе ярӑнни
+Палаткӑра ҫӗр каҫни
+Ҫулҫӳрев
+Кӗсле каласси
+Шӑпӑр каласси
+Купӑс каласси
+Гитара каласси
+Пианино каласси
+Юрлани
+Хорта юрлани
+Ташлани
+Халӑх ташши
+Акатуй уявне хатӗрленни
+Театра ҫӳрени
+Кино пӑхни
+Музыка итлени
+Апат пӗҫерни
+Кукӑль пӗҫерни
+Сӑра тӑвасси
+Шӑрттан хатӗрлени
+Консерв хатӗрлени
+Шахмат
+Шашка
+Кроссворд
+Судоку
+Пазл
+Сӗтел вӑййисем
+Компьютер вӑййисем
+Бильярд
+Боулинг
+Футбол
+Хоккей
+Волейбол
+Баскетбол
+Теннис
+Сӗтел теннисӗ
+Кӗрешӳ
+Бокс
+Самбо
+Йӗлтӗрпе ярӑнни
+Конькипе ярӑнни
+Велосипедпа ҫӳрени
+Чупни
+Ишни
+Йога
+Фитнес
+Тренажёр залӗ
+Кайӑксене сӑнани
+Ҫӑлтӑрсене сӑнани
+Марка пуҫтарни
+Монета пуҫтарни
+Тӑван ен историне тӗпчени
+Чӗлхе вӗренни
+Волонтёр ӗҫӗ

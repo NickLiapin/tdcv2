@@ -1,0 +1,45 @@
+---
+description: The legal form that closes a company name in Brittany, and every value is French without exception, because a Breton firm is registered with a French registry, in French, under the code de commerce and the code rural: there is no Breton legal form to incorporate under and never has been, so a bilingual shopfront that reads Ti ar Bara above the door still reads SARL on the Kbis. What makes the list Breton rather than generic is the farming and co-operative block in the middle. GAEC is a group farm in which several partners work one holding as equals and each keeps the status of a full farmer; EARL is the limited-liability farm; SCEA the civil farming company that holds land and stock - between them they are the legal shape of Breton agriculture, and a region that leads France in pigs, poultry, eggs and milk registers far more of them per head than the national average. CUMA is the coopérative d'utilisation de matériel agricole, a machinery pool: neighbouring farmers jointly own the combine, the slurry tanker and the maize header and book them by the day, and Brittany carries one of the densest CUMA networks in the country, so a large share of its farmers belong to one and it is a legal entity with a name, a president and accounts. SICA is the collective-interest agricultural company, and in Brittany it means one thing above all: the SICA founded at Saint-Pol-de-Léon in 1961 out of the artichoke revolt, which took the Léon vegetable trade out of the hands of the merchants and still runs the auction that prices cauliflowers for much of Europe. SCOP and SCIC are the worker- and the multi-stakeholder co-operative, used here more than the French average, and coopérative maritime is the chandlery and fuel co-operative that fishing ports run for their own boats. Copropriété de navire is the oldest form in the list and the most maritime: a fishing boat is commonly owned in quirats, fractional shares held by the skipper, his family and his backers, a medieval arrangement that French law never abolished. Two notes for anyone parsing this field. EIRL was closed to new registrations by the law of 14 February 2022 in favour of independent professional activity, so a live EIRL in current data is an error while a historical one is perfectly correct - the form survives on old paperwork and on companies registered before that date. And micro-entreprise and auto-entrepreneur are the same thing under two names: the régime was created as auto-entrepreneur in 2008 and renamed micro-entrepreneur in 2016, and both words are still in daily use, so a dataset will meet the pair. Association loi 1901, finally, is not a company at all but the non-profit association of the law of 1 July 1901, and it deserves its place because an extraordinary amount of Breton economic life is carried in one - the Diwan schools, the fest-noz circuit, the bagadoù and most of the language sector are legally associations rather than firms.
+locale: br
+---
+SARL
+EURL
+SAS
+SASU
+SA
+SNC
+SCS
+SCA
+SCI
+SCM
+SCP
+SEL
+SELARL
+SELAS
+GIE
+GEIE
+EI
+EIRL
+Micro-entreprise
+Auto-entrepreneur
+Association loi 1901
+Fondation
+SCOP
+SCIC
+Coopérative
+Coopérative agricole
+Coopérative maritime
+GAEC
+EARL
+SCEA
+CUMA
+SICA
+GFA
+SEM
+SPL
+Groupement d'employeurs
+Copropriété de navire
+Société à responsabilité limitée
+Société par actions simplifiée
+Société anonyme
+Société civile immobilière

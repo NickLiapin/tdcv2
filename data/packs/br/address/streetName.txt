@@ -1,0 +1,199 @@
+---
+description: The name part of a street in Brittany, to be composed after a streetSuffix. Four kinds of value sit here and they take different grammar, so a config must know which it has drawn. Personal names and Breton phrases follow the type word bare — Rue Anatole Le Braz, Straed ar Vugale — and take no preposition; the French common nouns already carry their own preposition and article inside the value (de la Gare, du Port, des Ajoncs, de l'Église) and must never be given a second one. The Breton values are written with the article already mutated as the language requires and must not be regularised back to the dictionary form: ar Vugale from bugale, ar Vilin from milin, ar Wazh from gwazh, ar Groaz from kroaz, ar C'hoad from koad. Brittany's bilingual signage is real, recent and administrative rather than decorative — the Ofis Publik ar Brezhoneg's Ya d'ar brezhoneg charter, launched in 2001, commits a signatory commune to putting Breton on its road signs, and more than two hundred communes have signed it — so in Kemper, An Oriant, Karaez and Gwened a street genuinely has two names on one panel, and any dataset drawn from Brittany will meet both. That is why Anne de Bretagne stands beside Anna Vreizh, Pierre-Jakez Hélias beside Per-Jakez Helias, Jean-Pierre Calloc'h beside Yann-Ber Kalloc'h: one person twice over, which is the data and not a fault in it. The people are Brittany's before they are France's — the ninth-century rulers Nominoë, Erispoë and Alain Barbetorte who made it first a kingdom and then a duchy, Anne de Bretagne who was twice queen of France and whose marriage contract cost the duchy its independence, the Saint-Malo corsairs Surcouf and Duguay-Trouin, Jacques Cartier who sailed from the same harbour, the writers Anatole Le Braz, Tristan Corbière, Max Jacob, Victor Segalen and Anjela Duval, Roparz Hemon of the review Gwalarn, the Pont-Aven painters Gauguin, Sérusier and Émile Bernard, the cyclists Bernard Hinault, Louison Bobet and Jean Robic, the sailors Éric Tabarly and Alain Colas, and Jean-Marie Le Bris, a Douarnenez sea captain who in 1856 got a glider off the ground by towing it behind a cart on the beach. Three of the French values are worth reading closely: de Siam, the main street of Brest, is named for the Siamese embassy that came ashore there in 1686; des Terre-Neuvas and des Islandais commemorate the cod fleets that sailed from Saint-Malo and Paimpol for Newfoundland and Iceland and buried men every season; and du 18 Juin 1940 carries a weight here it carries nowhere else, because almost every man on Enez-Sun answered it and left.
+locale: br
+---
+ar Vugale
+an Aod
+ar Porzh
+ar Groaz
+ar Feunteun
+ar Gêr Nevez
+ar Mor
+an Enez
+ar Stêr
+ar Menez
+an Ti Kozh
+ar Skol
+an Iliz
+ar C'hoad
+al Lann
+ar Prad
+ar Vilin
+ar Chapel
+an Traoñ
+ar C'hrec'h
+ar Marc'had
+ar Vered
+an Ti-Kêr
+ar Roc'h
+ar Baradoz
+an Aber
+ar Yeun
+ar C'hastell
+ar Vro
+ar Gwez
+ar Poull
+ar Wazh
+ar Gwenn-ha-Du
+ar Sav-heol
+an Traezh
+ar Wenodenn
+Breizh
+Bro-Leon
+Arvor
+Argoad
+Sant-Erwan
+Sant-Yann
+Sant-Weltas
+Sant-Mikael
+Sant-Kaourintin
+Sant-Brieg
+Sant-Malou
+Sant-Ronan
+Sant-Tudi
+Sant-Gwenole
+Santez-Anna
+Santez-Barba
+Saint-Yves
+Saint-Corentin
+Saint-Guénolé
+Saint-Michel
+Saint-Mathieu
+Sainte-Anne
+Sainte-Barbe
+Sainte-Croix
+Anna Vreizh
+Roparz Hemon
+Anjela Duval
+Yann-Ber Kalloc'h
+Per-Jakez Helias
+Glenmor
+Xavier Grall
+Nominoë
+Erispoë
+Alain Barbetorte
+Conan Mériadec
+Salomon de Bretagne
+Anne de Bretagne
+Bertrand du Guesclin
+Théodore Botrel
+Anatole Le Braz
+Pierre-Jakez Hélias
+Jean-Marie Le Bris
+Surcouf
+Jacques Cartier
+Chateaubriand
+Jules Verne
+Bernard Hinault
+Louison Bobet
+Jean Robic
+Éric Tabarly
+Alain Colas
+Ernest Renan
+Auguste Brizeux
+Tristan Corbière
+Max Jacob
+Victor Segalen
+Charles Le Goffic
+Émile Souvestre
+La Villemarqué
+Paul Gauguin
+Paul Sérusier
+Émile Bernard
+Mathurin Méheut
+Yves de Kerguelen
+Duguay-Trouin
+Amiral Ronarc'h
+Lamennais
+Yves Nicolazic
+Jean Moulin
+Jean Jaurès
+Victor Hugo
+Émile Zola
+Jules Ferry
+Louis Pasteur
+Marie Curie
+Aristide Briand
+Maréchal Foch
+Général Leclerc
+Amiral Courbet
+Jean-Baptiste Charcot
+Pierre Loti
+Youenn Gwernig
+Jean-Pierre Calloc'h
+Guy Ropartz
+Jean Cras
+de la Gare
+des Fontaines
+du Port
+de la Mairie
+du Général de Gaulle
+du 19 Mars 1962
+de la Libération
+des Écoles
+de l'Église
+du Moulin
+des Chênes
+des Ajoncs
+de la Lande
+des Genêts
+des Bruyères
+des Hortensias
+des Camélias
+des Ormes
+des Peupliers
+du Stade
+de la Poste
+du Calvaire
+du Pardon
+de la Plage
+des Dunes
+du Phare
+de la Corniche
+des Goélands
+des Mouettes
+des Cormorans
+du Sémaphore
+de la Criée
+des Sardiniers
+des Terre-Neuvas
+des Islandais
+du Grand Large
+des Korrigans
+des Menhirs
+des Dolmens
+des Druides
+de Kergoat
+de Kervern
+de Kerlann
+du 8 Mai 1945
+du 11 Novembre
+du 18 Juin 1940
+des Résistants
+des Fusillés
+de la République
+de la Paix
+de l'Océan
+de l'Atlantique
+des Marins
+des Pêcheurs
+des Sabotiers
+des Tisserands
+de la Fontaine
+du Lavoir
+du Presbytère
+du Bourg
+de la Grève
+du Vieux Marché
+des Halles
+du Champ de Foire
+des Quatre Vents
+du Vieux Pont
+de la Tour
+des Remparts
+du Château
+de la Chapelle
+de la Pointe
+des Falaises
+de Siam
+des Quatre Moulins

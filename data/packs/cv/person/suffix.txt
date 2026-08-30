@@ -1,0 +1,28 @@
+---
+description: Name and academic suffix as written after a name on a Chuvash Republic form. Every value here is Russian, and there is no Chuvash alternative to offer: degrees are awarded, abbreviated and recorded by a federal system, so a philologist in Cheboksary who has spent a career on Chuvash grammar still signs д.филол.н. and not a Chuvash equivalent. Note also that Russian, like Serbian, normally puts these BEFORE the name — проф. Иванов, not Иванов, проф. — so as a trailing field they read as form data rather than as running text. The two-tier к. / д. pair is the Soviet-inherited ladder that Russia still uses: кандидат наук first, доктор наук perhaps fifteen years later, and only a few hundred people in the republic hold the second. The republic's own honours, such as Чӑваш Республикин тава тивӗҫлӗ ӗҫченӗ, are Chuvash-language titles but they precede the name and are not suffixes, so they are deliberately not in this list.
+locale: cv
+---
+Мл.
+Ст.
+II
+III
+IV
+V
+к.т.н.
+к.м.н.
+к.ф.-м.н.
+к.и.н.
+к.э.н.
+к.п.н.
+к.ю.н.
+д.т.н.
+д.м.н.
+д.и.н.
+д.э.н.
+д.филол.н.
+проф.
+доц.
+академик РАН
+чл.-корр. РАН
+PhD
+MBA

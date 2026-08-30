@@ -1,0 +1,35 @@
+---
+description: Instruments, and the head of the list is a pair rather than two separate entries. The talabard, the bombarde in French, and the biniou kozh are played together and never in unison: the piper and the bombard player alternate, each phrase begun by one and taken up by the other, which is what lets the bombard be played at all, since it is loud, physically exhausting and sounds an octave below the little pipe it is answering. Kan ha diskan is the same architecture sung, and the alternation is the reason a fest-noz can run for hours without the sound ever stopping. Biniou bras is the Scottish great pipe, which arrived in the twentieth century, carried the bagadoù with it and now vastly outnumbers the old biniou; veuze is the bagpipe of the Nantes country and the marches, the southern outlier of the family; and treujenn-gaol is the Breton clarinet, literally the cabbage stump, whose name wears a mutation on its face, since kaol is cabbage and softens to gaol because treujenn is feminine. Telenn, the harp, is the revival's founding instrument: it had been extinct in Brittany for centuries when Jord Cochevelou built one in the 1950s and put it into the hands of his son, who performed as Alan Stivell and made it the emblem of everything that came after. Caisse claire, grosse caisse and tambour ténor are on the list because they are the third section of a bagad, standing behind the bombardes and the pipes. Note the spelling of two values: this pack writes kozh and bras in the unified orthography, while festival posters, record sleeves and instrument makers very often print koz and braz in the older one, and a dataset of Breton music will meet both forms of the same word.
+locale: br
+---
+Talabard
+Biniou kozh
+Biniou bras
+Veuze
+Treujenn-gaol
+Telenn
+Accordéon diatonique
+Vielle à roue
+Violon
+Caisse claire
+Grosse caisse
+Tambour ténor
+Flûte traversière
+Flûte à bec
+Clarinette
+Hautbois
+Saxophone
+Trompette
+Trombone
+Cor
+Tuba
+Guitare
+Guitare basse
+Mandoline
+Piano
+Orgue
+Clavier
+Contrebasse
+Violoncelle
+Alto
+Batterie

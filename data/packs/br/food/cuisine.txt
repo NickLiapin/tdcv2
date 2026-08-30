@@ -1,0 +1,21 @@
+---
+description: Cuisines as a restaurant listing in Brest, Rennes or Lorient names them, and the parent of food/dishByCuisine: every value here has a child file of exactly that name beside it. The values are country names rather than adjectives because Breton has no nationality adjective to put here — it builds the relation by bare juxtaposition, boued Breizh 'Breton food', sistr Breizh, amann Breizh, a genitive with no preposition and no ending at all, so the country name is doing the work an adjective does in French. Note the Bro- prefix, 'country of': Bro-C'hall is the country of the Gauls and Bro-Saoz the country of the Saxons, the same root as Welsh Saeson and Irish Sasana, from a period when neighbours were named after their people and not after their state. One thing a config writer must know before reading the children: only the Breizh file is in Breton. The dish names in the other sixteen stay French, or stay in their own language inside a French sentence, because that is what is printed on the board of a kebab shop in Brest and on the menu of a pizzeria in Rennes — putting a doner kebab into Breton would be inventing a register that no one writes.
+locale: br
+---
+Breizh
+Bro-C'hall
+Italia
+Spagn
+Portugal
+Bro-Saoz
+Gres
+Turkia
+Maroko
+Aljeria
+Liban
+India
+Sina
+Japan
+Korea
+Tailand
+Amerika

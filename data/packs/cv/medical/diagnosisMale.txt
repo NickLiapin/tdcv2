@@ -1,0 +1,34 @@
+---
+description: Diagnoses that require male anatomy and cannot occur in a female patient, in Russian; draw from this list only for male rows, since general conditions live in medical/diagnosis. Nearly all of it belongs to урология, which in the Russian nomenclature is a single specialty covering the urinary tract in both sexes and the male reproductive tract as well — there is no separate andrology post, so an andrological complaint in Cheboksary is a urologist's appointment. Prostate disease dominates the older end of the list by weight of numbers, and prostate cancer detection has risen sharply since PSA testing entered the Russian dispanserizatsiya screening programme, which every adult in the republic is invited to annually.
+locale: cv
+---
+Доброкачественная гиперплазия предстательной железы
+Хронический простатит
+Рак предстательной железы
+Рак яичка
+Перекрут яичка
+Варикоцеле
+Гидроцеле
+Эпидидимит
+Крипторхизм
+Фимоз
+Парафимоз
+Баланопостит
+Эректильная дисфункция
+Болезнь Пейрони
+Мужское бесплодие
+Гинекомастия
+Мужской гипогонадизм
+Приапизм
+Сперматоцеле
+Андрогенная алопеция
+Пахово-мошоночная грыжа
+Рак полового члена
+Орхит
+Стриктура уретры
+Синдром Клайнфельтера
+Азооспермия
+Преждевременная эякуляция
+Абсцесс предстательной железы
+Везикулит
+Гемоспермия

@@ -1,0 +1,8 @@
+---
+description: The four quarters of a financial year, built on trimiziad, a three-month span from tri and miz. The reason to read this file rather than glance at it is where the ordinal sits: kentañ, first, FOLLOWS its noun in Breton — an trimiziad kentañ — while every other ordinal precedes it, an eil, an trede, ar pevare trimiziad. One word out of the series behaves the opposite way to the rest, which is a real rule of the language and not a stylistic choice, and a config that builds Breton ordinal phrases by template will get three of the four right and the first one wrong. Note too that this is the register where Breton is least often written: a company in Brittany files its accounts in French, so a Breton speaker sees 1er trimestre on the paperwork and says an trimiziad kentañ out loud, and the values here are the spoken form rather than the filed one.
+locale: br
+---
+Trimiziad kentañ
+Eil trimiziad
+Trede trimiziad
+Pevare trimiziad

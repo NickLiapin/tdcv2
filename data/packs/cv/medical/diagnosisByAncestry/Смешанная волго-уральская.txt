@@ -1,0 +1,14 @@
+---
+description: Conditions in people of mixed Volga-Ural descent, and in a Chuvash dataset this is the value that should draw most often. Centuries of intermarriage between Chuvash, Russian, Tatar, Mari and Mordvin families mean that a large share of the republic's population cannot be assigned to a single ancestry at all, and a genetics register that forced the choice would be recording a fiction. Nothing here is a founder disorder, deliberately: it is the region's shared burden — hypertension and stroke first, then type 2 diabetes and obesity, alcohol-related liver disease, iodine-deficiency goitre, and the bank-vole haemorrhagic fever that anyone living beside a Volga linden forest can catch regardless of descent.
+locale: cv
+---
+Артериальная гипертензия
+Ишемический инсульт
+Сахарный диабет 2 типа
+Ожирение
+Алкогольная болезнь печени
+Первичная лактазная недостаточность
+Дефицит витамина D
+Железодефицитная анемия
+Эндемический зоб
+Геморрагическая лихорадка с почечным синдромом

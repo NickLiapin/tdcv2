@@ -1,0 +1,12 @@
+---
+description: Vietnamese dishes, the child of food.cuisine value Vietnamalaš. Vietnamese communities in Norway date from the boat refugees of the late 1970s and 1980s, who were distributed across the whole country by settlement policy rather than concentrated in the capital, which is precisely why there are Vietnamese families in small northern towns. pho and banh mi arrived later, with a second generation and with restaurants aimed at everyone.
+locale: se
+---
+Pho
+Bun cha
+Banh mi
+Goi cuon
+Bun bo Hue
+Ca kho to
+Banh xeo
+Che

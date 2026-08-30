@@ -1,0 +1,23 @@
+---
+description: What is dug out of the ground in Sápmi, written in Sami spelling. Ruovdemálbma, iron ore, comes first because of Giron, the largest underground iron mine in the world, and Váhtjer beside it; the ore railway that carries it to Narvik and Luleå was driven straight through herding land in the 1890s and has cut migration routes ever since. Veaikemálbma is the live dispute: the copper deposit at Riehpovuotna was licensed with permission to dump tailings into the fjord, and herders and fishers opposed it together. Litium and kobolta at the end of the list are the newest pressure — the metals an electric economy needs are disproportionately under northern Fennoscandia, and the phrase used in Sami politics for mines justified by the climate transition is green colonialism, which is meant literally.
+locale: se
+---
+Ruovdemálbma
+Veaikemálbma
+Nihkkel
+Sinka
+Blyi
+Silba
+Golli
+Kroma
+Titána
+Litium
+Kobolta
+Grafihtta
+Apatihtta
+Kvárca
+Kalkkageađgi
+Dolomihtta
+Olivinna
+Marmor
+Skiferra

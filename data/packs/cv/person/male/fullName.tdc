@@ -1,0 +1,10 @@
+---
+description: Chuvash full male name — one given name and one surname, given name first (Мишши Иванов, Сетнер Петров). The two halves come from different worlds and that is the point: the given name may be Chuvash, while the surname is Russian in form, because Orthodox baptism assigned Russian patronymic surnames across the middle Volga from the eighteenth century onwards and the Chuvash names survived only on the given-name side. A row such as Ухтиван Тимофеев is not a mixture error — it is what a Chuvash man's name looks like. The everyday spoken name in Chuvashia adds a patronymic between the two, Russian-fashion, but this generator emits the two-part form because that is what a form field holds.
+generator: tdc
+locale: cv
+---
+<sequence name="p">
+  <gen name="f" type="template" value="cv.person.male.firstName"/>
+  <gen name="l" type="template" value="cv.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

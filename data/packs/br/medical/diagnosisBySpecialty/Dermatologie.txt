@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in dermatology, where Brittany's grey reputation hides a real sun problem. The population carries a high share of phototypes I and II, the fair, freckling, poorly tanning Celtic skin, and a great deal of its outdoor work happens on water, where reflected ultraviolet roughly doubles the dose reaching the face and the backs of the hands; actinic keratosis and basal cell carcinoma in retired fishermen, oyster farmers and dairy farmers follow directly from that. Rosacea belongs to the same complexion, and dermatologists have long nicknamed it the curse of the Celts. Occupational contact eczema is the agri-food entry, produced by wet work, gloves and disinfectants on the cutting lines. French labels: the histology report on the excised lesion is written in it.
+locale: br
+---
+Dermatite atopique
+Psoriasis
+Rosacée
+Kératose actinique
+Carcinome basocellulaire
+Eczéma de contact professionnel

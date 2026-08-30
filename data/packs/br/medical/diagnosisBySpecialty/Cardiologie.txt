@@ -1,0 +1,10 @@
+---
+description: Diagnoses a cardiology department in Brittany actually records, and the file that accounts for the language of this whole folder. A Breton speaker's hospital file at the CHU de Brest or Rennes is written in French from end to end: the plate on the department door reads Cardiologie, the CIM-10 label attached to the stay is French, the discharge letter is French. Breton has no clinical register at all, and never acquired one, because no faculty ever taught medicine in it and no administration ever asked it to; inventing a Breton cardiology vocabulary for a data pack would misdescribe the region rather than serve it. The last entry is the locally weighted one: iron-overload cardiomyopathy is a curiosity in most cardiology departments and a real diagnosis here, because untreated hereditary haemochromatosis deposits iron in the myocardium and no studied population carries more of it than this one.
+locale: br
+---
+Hypertension artérielle
+Cardiopathie ischémique
+Fibrillation auriculaire
+Insuffisance cardiaque
+Infarctus du myocarde
+Cardiomyopathie par surcharge en fer

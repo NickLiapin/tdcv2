@@ -1,0 +1,10 @@
+---
+description: Full male name in Brittany — one given name and one surname, given name first (Yann Le Gall, Erwan Guivarc'h). The surname is drawn from br.person.lastName, the same list a woman's is drawn from, because Breton surnames do not inflect for gender; compare pl, whose equivalent file must read a separate feminine list. The interesting fact here is the surname's French shape. A great many Breton family names begin with Le — Le Gall, Le Goff, Le Bihan, Le Floc'h — and that Le is not Breton at all: it is a French clerk's translation of the Breton definite article ar, an or al, so the man registered as Le Gall is Ar Gall when a Breton-language newspaper prints his name, Le Bihan is Ar Bihan, Nédélec is An Nedeleg. Both spellings name the same family and a dataset drawn from Brittany will meet both, sometimes for the same person. The given name is where the politics sits: Yann, Erwan, Gwenaël, Ronan and Fañch are Breton and were, within living memory, refusable by a French registrar, while Jean, Pierre and Michel on the same list are the names of the same population under a different pressure. This generator joins the two with a single space and nothing else — Breton carries no patronymic particle and no second surname.
+generator: tdc
+locale: br
+---
+<sequence name="p">
+  <gen name="f" type="template" value="br.person.male.firstName"/>
+  <gen name="l" type="template" value="br.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

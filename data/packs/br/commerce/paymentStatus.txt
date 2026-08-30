@@ -1,0 +1,14 @@
+---
+description: Payment states, and the gap between two of them is the whole point of the list. Autorisé and Payé are not the same event: a French card payment is authorised first, which places a hold on the customer's funds without moving any money, and captured later when the retailer actually ships, so an order can sit authorised for days and an authorisation can quietly lapse untaken — which is what Expiré records. Since PSD2 came into force, strong customer authentication is compulsory on nearly every French card purchase made online, so a payment that never reaches Autorisé has usually died at the 3-D Secure step inside the customer's own banking app rather than anywhere the retailer can see. Annulé is the reversal of an authorisation and works only before capture; Remboursé is a separate movement of money in the opposite direction and leaves both the original payment and its record standing.
+locale: br
+---
+Non payé
+En attente
+Autorisé
+En cours de traitement
+Payé
+Partiellement payé
+Refusé
+Annulé
+Remboursé
+Expiré

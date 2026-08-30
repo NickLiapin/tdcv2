@@ -1,0 +1,36 @@
+---
+description: Common Breton adverbs. The interesting part of this field is how many of them are built rather than borrowed: a-wechoù, sometimes, is a plus gwech, a time, with the a forcing the soft mutation that turns gwech into wech, so the mutation is frozen inside the word and the hyphen marks the join; a-raok and a-benn ar fin are assembled the same way. Muioc'h and nebeutoc'h carry the comparative suffix -oc'h, which contains the letter c'h and must never be split. Two of these are worth a config writer's attention because they change the sentence around them: morse, never, and the negative adverbs generally require the verbal negative ne ... ket frame to be present or reduced, so Breton says ne welan morse rather than putting a bare never in front of a positive verb; and gwall, which means very when it stands in front of an adjective and badly when it stands alone, softening what follows it. Amañ, aze and du-hont are a three-way deixis — here by me, there by you, yonder away from both — where French makes do with ici and là.
+locale: br
+---
+buan
+goustadik
+ervat
+gwall
+kalz
+nebeut
+muioc'h
+nebeutoc'h
+atav
+morse
+alies
+a-wechoù
+bremañ
+neuze
+dec'h
+hiziv
+warc'hoazh
+amañ
+aze
+du-hont
+e-barzh
+er-maez
+a-raok
+goude
+abred
+diwezhat
+ivez
+hepken
+marteze
+evel-just
+dre vras
+a-benn ar fin

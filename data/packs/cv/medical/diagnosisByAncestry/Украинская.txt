@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised frequency in people of Ukrainian descent. Ukrainians are a long-standing minority in the Chuvash Republic, most of it arriving with twentieth-century industrial resettlement to Cheboksary and Novocheboksarsk, and genetically the group belongs to the eastern-European cluster — so this list is the eastern-European recessive panel rather than anything specific to the Volga. Haemochromatosis, cystic fibrosis, phenylketonuria and alpha-1 antitrypsin deficiency all run higher in European populations than in the Turkic and Finno-Ugric ones around them, and coeliac disease follows the HLA-DQ2 frequency of the same cluster.
+locale: cv
+---
+Наследственный гемохроматоз
+Муковисцидоз
+Фенилкетонурия
+Семейная гиперхолестеринемия
+Дефицит альфа-1-антитрипсина
+Целиакия

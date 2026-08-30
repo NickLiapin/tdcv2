@@ -1,0 +1,26 @@
+---
+description: Company department or function, as the organisational chart of a Chuvash enterprise names them. This is the broader list; work/industryCoherent.txt is the narrower one that has job lists behind it. The shape here is unmistakably that of a Russian industrial company rather than an office: alongside the accounts, sales and HR departments any firm has, there are the three service departments a plant cannot run without — отдел главного механика and отдел главного энергетика, the chief mechanic's and chief power engineer's departments, which own the machinery and the electrical supply respectively, and отдел технического контроля, the quality inspectorate, universally spoken as ОТК. Планово-экономический отдел, the planning and economics department, is a survival of the planned economy that large enterprises kept because it turned out to be useful. Russian throughout; a department name is what goes on the stamp and the internal memo, and those are not written in Chuvash.
+locale: cv
+---
+Дирекция
+Бухгалтерия
+Планово-экономический отдел
+Отдел кадров
+Юридический отдел
+Отдел снабжения
+Отдел продаж
+Отдел маркетинга
+Конструкторское бюро
+Технологический отдел
+Производственный цех
+Отдел главного механика
+Отдел главного энергетика
+Отдел технического контроля
+Отдел логистики
+Склад
+Транспортный отдел
+Отдел информационных технологий
+Служба поддержки клиентов
+Служба охраны труда
+Административно-хозяйственный отдел
+Служба безопасности

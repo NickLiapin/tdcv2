@@ -1,0 +1,44 @@
+---
+description: Cooking ingredients, in Chuvash, ordered roughly as a Chuvash pantry is stocked: grain first, then dairy, then fat, then meat, then the roots that come out of the cellar. Grain leads because it genuinely does — ыраш rye is the bread grain of this latitude and хӑпарту, the risen loaf, is made from it, while тулӑ wheat is the holiday flour and вир millet, урпа barley and сӗлӗ oats become пӑтӑ. The dairy line is the part with no short English equivalent: сӗт is milk, хӑйма the thick soured cream, уйран the buttermilk left after churning, турӑх the soured milk drunk plain, тӑпӑрчӑ the fresh curd and чӑкӑт the same curd salted and dried until it keeps all winter, which is six words where English has two. Услам ҫу is butter specifically, as against ҫу for fat or oil of any kind. Дрожжи is Russian and kept in Russian because that is the word on the packet and the word in the shop.
+locale: cv
+---
+ҫӑнӑх
+ыраш ҫӑнӑхӗ
+тулӑ ҫӑнӑхӗ
+кӗрпе
+вир кӗрпи
+рис
+ыраш
+тулӑ
+урпа
+сӗлӗ
+сахӑр
+тӑвар
+дрожжи
+ҫӑмарта
+сӗт
+хӑйма
+уйран
+турӑх
+тӑпӑрчӑ
+чӑкӑт
+ҫу
+услам ҫу
+хӗвелҫаврӑнӑш ҫӑвӗ
+сысна ҫӑвӗ
+пыл
+аш
+сысна ашӗ
+ӗне ашӗ
+сурӑх ашӗ
+чӑх ашӗ
+хур ашӗ
+пулӑ
+кӑлпасси
+ҫӗрулми
+купӑста
+сухан
+ыхра
+кишӗр
+кӑмпа
+мӑйӑр

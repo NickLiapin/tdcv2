@@ -1,0 +1,11 @@
+---
+description: The seven days in Breton, listed Monday first in the continental way an author expects from a plain list — note that DATE_LOCALE.json beside this pack starts the same seven on Sunday, because that is the index the date formatter uses, and both orderings are correct for what they do. These are the bare NAMES of the days, and Breton has a second set for saying that something happens on one: prefix di- and you get disul, dilun, dimeurzh, dimerc'her, diriaou, digwener, disadorn, which is not a case ending but a separate word meaning on that day, worn down from an old preposition. So Sul is Sunday and disul is on Sunday, and a config that builds a Breton sentence by dropping a value from this file after a preposition will produce something a speaker would not say. Meurzh is Tuesday and is also March, the same string in this file and in date/month.txt; Merc'her carries c'h, one letter and not two, so a formatter that strips punctuation from a weekday will destroy it; Yaou is Thursday, from Jove, and shows how far Breton has worn the Latin down. Sul heads no week here but is the day the pardon and the fest-noz fall on, and Sadorn, Saturday, is market day in most of the towns of Lower Brittany.
+locale: br
+---
+Lun
+Meurzh
+Merc'her
+Yaou
+Gwener
+Sadorn
+Sul

@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in gastroenterology and hepatology, the department where Brittany's two signature liver problems meet. Alcohol-related cirrhosis and acute alcoholic hepatitis are over-represented in the region's health statistics, and hereditary haemochromatosis is managed here as well, by hepatologists rather than geneticists, because the reference centres at Rennes and Brest grew up inside liver units and because iron overload presents as a liver problem long before it presents as anything else. Its treatment is the surprising part: venesection, half a litre of blood removed at a sitting, sometimes weekly for a year, is a remedy inherited from the age of bloodletting that remains first-line and entirely effective. The endoscopy report that closes most of these consultations is a French document, and so is every value here.
+locale: br
+---
+Cirrhose alcoolique
+Hépatite alcoolique aiguë
+Hémochromatose héréditaire
+Reflux gastro-œsophagien
+Maladie de Crohn
+Syndrome de l'intestin irritable

@@ -1,0 +1,30 @@
+---
+description: One-line customer-review headlines in ordinary spoken Breton, the register of a sentence typed fast in satisfaction or in irritation, roughly half of each. Three values show the construction that separates Breton from the French around it more sharply than any word does: the verb is fronted as a bare verb-noun and the person is carried by an auxiliary standing behind it, so Erbediñ a ran is literally to-recommend do-I, Prenañ a rin adarre is to-buy will-do-I again, and Talvezout a ra e briz is to-be-worth does its price. Breton puts the emphasised element first and conjugates ober, to do, in second position; a Breton sentence that keeps subject-verb-object order throughout reads as though it is being translated off French in real time. Two more values show mutation in the wild rather than in a paradigm: re, too, triggers the soft mutation, so bihan and bras — stored in productAdjective in their dictionary shape — surface here as re vihan and re vras, and diwezhat, late, surfaces as re ziwezhat. Ne bad ket is the flat negative of padout, to last, and Ne dalv ket ar boan, it is not worth the trouble, is a fixed idiom rather than a word-for-word construction. One honest note: a review actually left on a French retailer's site by a Breton speaker will be written in French. These are what the same sentences sound like when the customer is talking instead of typing.
+locale: br
+---
+Mat-tre
+Dispar
+Kaer eo
+Plijet on gantañ
+Ur gwir blijadur
+Talvezout a ra e briz
+Marc'had-mat ha mat
+Solut ha padus
+Aes da implijout
+Implijout a ran bemdez
+Prenañ a rin adarre
+Erbediñ a ran
+Prof dispar
+Kaset buan-tre
+Heñvel ouzh ar skeudenn
+N'eo ket evel er skeudenn
+Re vihan
+Re vras
+Deuet re ziwezhat
+Deuet torret
+Diaes da vontañ
+Ne bad ket
+Torret a-benn ur miz
+Kalz re ger
+Ne dalv ket ar boan
+Fall-tre

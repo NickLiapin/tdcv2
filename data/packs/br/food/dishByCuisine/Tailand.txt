@@ -1,0 +1,13 @@
+---
+description: Thai dishes as a Breton menu prints them, with the curries translated by colour into French — curry vert, curry rouge — and only pad thaï and tom yam left in Thai, which is a fair picture of how far a name travels before a French card takes it over. Thai restaurants reached provincial France in the 1990s, later than the Chinese and Vietnamese ones, and in Brittany they cluster in Rennes and along the tourist coast. Almost nothing in this kitchen can be grown here: the lemongrass, galangal, kaffir lime and mango all arrive by air, which is part of why a plate of it costs half again what a galette does.
+locale: br
+---
+Pad thaï
+Tom yam
+Curry vert
+Curry rouge
+Tom kha kai
+Pad see ew
+Salade de papaye
+Satay
+Riz gluant à la mangue

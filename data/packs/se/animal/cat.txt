@@ -1,0 +1,22 @@
+---
+description: Cats. bussá is the ordinary Sami word and gáhtta the other one; everything after them is a breed, and breeds are a southern institution that arrived with the pet trade rather than with anything Sami. Norsk skogkatt, the Norwegian forest cat, is the one with any claim to the north — a long-haired, heavy-coated farm cat of the Norwegian coast, recognised as a breed only in the 1970s after centuries as simply the cat that survived outdoors. Sibirsk katt and Norsk skogkatt are frequently confused for the same reason: both are what a cat becomes when it winters at this latitude without help. The rest of the list is what a veterinary register in Álaheadju or Romsa would actually hold, and the commonest entry in such a register is huskatt, no breed at all.
+locale: se
+---
+Bussá
+Gáhtta
+Huskatt
+Bondekatt
+Norsk skogkatt
+Sibirsk katt
+Persisk
+Siameser
+Maine coon
+British korthår
+Europeisk korthår
+Ragdoll
+Bengal
+Russisk blå
+Abyssiner
+Hellig birma
+Sfinks
+Ryssekatt

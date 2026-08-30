@@ -1,0 +1,15 @@
+---
+description: Employment and contract type, named as the Russian Labour Code names it, because a Chuvash employer files under federal law and has no regional variant to file under. The first distinction the Code draws is between the бессрочный and the срочный трудовой договор — open-ended and fixed-term — and the fixed-term one may only be concluded on grounds the Code lists, which is why an employer who wants flexibility reaches instead for a договор гражданско-правового характера, a civil-law contract for a result rather than for labour, and gets no holiday entitlement or sick pay with it. Самозанятость is newer: the professional-income tax regime introduced in 2019 that lets an individual invoice at a low flat rate, now the ordinary way a courier or a private tutor is engaged. Вахтовый метод, the long-rotation posting, matters here because Chuvashia exports labour to the oil and construction regions on exactly that basis.
+locale: cv
+---
+Бессрочный трудовой договор
+Срочный трудовой договор
+Испытательный срок
+Неполный рабочий день
+Совместительство
+Договор гражданско-правового характера
+Ученический договор
+Стажировка
+Сезонная работа
+Вахтовый метод
+Самозанятость

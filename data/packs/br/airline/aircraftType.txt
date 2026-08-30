@@ -1,0 +1,30 @@
+---
+description: Aircraft types, in the manufacturer's designation, which is the same string in every language on earth — a type certificate is not translated and this file is one of the few in the pack with no locale content at all. What makes it Brittany's is the SHAPE of the list: the peninsula's traffic is short-haul and thin, so the working aircraft here are the A320 family out of Nantes and Rennes, the ATR turboprops that Air France's regional arm flies into Brest and Quimper, the Embraer and CRJ regional jets, and at the bottom of the range the nine-seat Cessna 208 Caravan and the Britten-Norman Islander that link Brest to Ouessant and Belle-Île, aircraft small enough to be counted as buses with wings. The widebodies at the top of the list belong to Nantes Atlantique, the only Breton airport with long-haul service, and to the charter season. Anyone modelling movements at a Breton airport should weight the turboprops and the narrowbodies heavily and treat the A350 and the 787 as rare events.
+locale: br
+---
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A321neo
+Airbus A220-300
+Airbus A330-200
+Airbus A330-900neo
+Airbus A350-900
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 767-300ER
+Boeing 777-300ER
+Boeing 787-9 Dreamliner
+ATR 42-500
+ATR 72-500
+ATR 72-600
+Embraer E170
+Embraer E190
+Embraer E195
+Bombardier CRJ700
+Bombardier CRJ1000
+De Havilland Dash 8 Q400
+Beechcraft King Air 200
+Cessna 208 Caravan
+Britten-Norman BN-2 Islander

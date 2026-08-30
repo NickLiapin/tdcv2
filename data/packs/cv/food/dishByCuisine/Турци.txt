@@ -1,0 +1,12 @@
+---
+description: Turkish food, which arrives in Chuvashia along two separate roads. One is the package holiday: Antalya has been the standard Russian seaside since the 2000s and returning tourists brought back a taste for пиде, менемен and above all баклава. The other is the street kiosk, where шаурма is now so thoroughly domesticated that most people who eat it daily would not name it as Turkish at all. Note that Chuvash itself is Turkic, which makes this the one cuisine on the list whose language is a distant relative of the local one — distant enough that a Turkish speaker and a Chuvash speaker share almost no words at all, because Chuvash split off before the rest of Turkic finished forming.
+locale: cv
+---
+Донер-кебаб
+Шаурма
+Адана-кебаб
+Лахмаджун
+Пиде
+Менемен
+Долма
+Баклава

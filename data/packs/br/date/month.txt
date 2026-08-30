@@ -1,0 +1,16 @@
+---
+description: The twelve months in Breton, and they are the best short lesson in the language this pack can offer, because half of them are not borrowed at all. Du is the ordinary adjective for black and Kerzu is very dark, so November and December are named for what the light does on this coast in winter rather than for a Roman numeral or an emperor; Eost is the harvest, the same word as the reaping; Gwengolo is the white brushwood, gwen and kolo, the pale stubble left standing in September; Mezheven is the middle of summer. Meurzh, from Mars, does double duty as March and as Tuesday, and appears in date/weekday.txt as well as here — that repetition across two files is the language, not an error. C'hwevrer opens with c'h, one letter of the Breton alphabet and not a c followed by punctuation, so a sorter that treats the apostrophe as a word break will file it wrongly. Breton capitalises month names as French does not, and a date is written d'an 12 a viz Genver, on the 12th of month January, where miz lenites to viz after the preposition a; the month name itself never changes shape, which is why DATE_LOCALE.json beside this pack repeats the same twelve strings in months and monthsInDate. Those two files answer different questions: this one is the list an author draws a month from as a WORD, the JSON table is what the date formatter reads for format="LL", and a pack can hold a perfect set of names here and still print English months if the table is missing.
+locale: br
+---
+Genver
+C'hwevrer
+Meurzh
+Ebrel
+Mae
+Mezheven
+Gouere
+Eost
+Gwengolo
+Here
+Du
+Kerzu

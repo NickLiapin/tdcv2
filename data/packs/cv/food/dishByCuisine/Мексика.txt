@@ -1,0 +1,12 @@
+---
+description: Mexican food, which reached Chuvashia the way it reached most of Europe: as a bar snack and a supermarket kit, not as a cuisine. There is no migration behind it and no Mexican community anywhere near the Volga, so the whole category rests on Начос with cheese sauce in cinemas and beer bars, tortilla packets on a shelf, and a Тако or Буррито on the menu of a place that is mainly something else. Гуакамоле is the entry that dates a menu, because avocado only became reliably available in Russian provincial supermarkets in the 2010s. Chilli heat is dialled well down from the original in every case.
+locale: cv
+---
+Тако
+Буррито
+Кесадилья
+Начос
+Гуакамоле
+Энчилада
+Фахитас
+Чили кон карне

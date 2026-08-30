@@ -1,0 +1,16 @@
+---
+description: Meeting type as a French workplace names it, and two of these are legal obligations rather than habits. The entretien annuel d'évaluation is contractual and optional: a firm holds it because its own agreements say so, and it is about performance. The entretien professionnel is required by law every two years, concerns career path and training rather than performance, and carries a fuller stocktaking every six; treating the two as one meeting is a real compliance failure, which is why they are kept as separate values here. Réunion du comité social et économique is the meeting of the elected staff body that in 2017 absorbed the older works council, staff delegates and health-and-safety committee into a single institution, and négociation annuelle obligatoire is the yearly pay bargaining round that a firm with union representation must open whether or not it intends to concede anything in it.
+locale: br
+---
+Réunion d'équipe
+Point hebdomadaire
+Réunion de service
+Entretien annuel d'évaluation
+Entretien professionnel
+Réunion du comité social et économique
+Négociation annuelle obligatoire
+Réunion client
+Comité de direction
+Séminaire
+Formation
+Visioconférence

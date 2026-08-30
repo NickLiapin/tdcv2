@@ -1,0 +1,16 @@
+---
+description: The state of a property listing, in the vocabulary of the French sale process, which has two staged commitments where an English-speaking market has one. Sous compromis means the parties have signed the compromis de vente and the buyer is inside the ten-day statutory cooling-off period and the suspensive conditions, chiefly the mortgage offer; Sous conditions suspensives keeps that state visible while the conditions run; Vendu is only true after the acte authentique is signed in front of a notaire, typically two to three months later. A dataset that collapses those into one sold flag will lose the part of the process where most Breton transactions actually sit at any given moment. Viager is the French life-annuity sale, where the buyer pays a rent until the seller dies and only then takes possession, and it is common enough in a region with an old rural population to belong on the list rather than in a footnote.
+locale: br
+---
+En vente
+Nouveauté
+Exclusivité
+Sous compromis
+Sous conditions suspensives
+Vendu
+Loué
+Retiré de la vente
+Expiré
+Baisse de prix
+En construction
+Viager

@@ -1,0 +1,238 @@
+---
+description: Country and territory names as Breton writes them. Where Breton has a name of its own — and it has one for every country it has actually had dealings with — that name is used and not transcribed: BRO-C'HALL for France, ALAMAGN for Germany, SPAGN, ITALIA, GRES, RUSIA, SINA, JAPAN, NORVEGIA, ISLANDI, IWERZHON for Ireland, ROUANTELEZH-UNANET for the United Kingdom, STADOÙ-UNANET AMERIKA for the United States, MEC'HIKO for Mexico and ENEZ NEDELEG for Christmas Island. Where Breton has no separate name the international form is used as the Breton-language press meets it, rather than a Breton spelling being invented for it; that is a decision and not an omission, it is why this list mixes the two registers, and it is why so many values here carry C, Q and X, three letters the Breton alphabet does not contain. France's overseas departments and collectivities keep their French official names for the same reason. BRO- is a live prefix meaning country-of and it names a land after its people, so Bro-C'hall is the country of the Gauls: a fossil of the fifth century, when British migrants crossing to the peninsula found Gaulish still spoken on the far side of the marches, and the name they gave those neighbours went on to mean the whole of France centuries after Gaulish was dead. The Breton names used most often are precisely the ones this field cannot hold — BRO-SAOZ (England, the country of the Saxons), BRO-SKOS, KEMBRE (Wales), KERNEV-VEUR (Cornwall) and BREIZH itself are all absent, because the register here is sovereign states and dependent territories and none of the five is one: Brittany is a region of France, Cornwall a county of England, and the country line of a form filled in at Brest reads Bro-C'hall. Note instead BREIZH-VEUR, Great Brittany, which is simply Breton for Great Britain — the island and the peninsula carry the same name, and Brittany was BREIZH-VIHAN, Little Brittany, beside it. Sorted alphabetically, which is NOT Breton dictionary order: CH and C'H are separate letters of the Breton alphabet and are filed between B and D. A config that looks for France under F will not find it here, because in Breton it files under B.
+locale: br
+---
+Afghanistan
+Alamagn
+Albania
+Aljeria
+Andorra
+Angola
+Anguilla
+Antarktika
+Antigua ha Barbuda
+Antilhez Nederlandat
+Aostralia
+Aostria
+Arabia Saoudat
+Argentina
+Armenia
+Aruba
+Azerbaidjan
+Bahamas
+Bahrein
+Bangladesh
+Barbados
+Belarus
+Belgia
+Belize
+Benin
+Bermuda
+Bhoutan
+Bolivia
+Bosnia-Herzegovina
+Botswana
+Brazil
+Bro-C'hall
+Brunei
+Bulgaria
+Burkina Faso
+Burundi
+Cabo Verde
+Chile
+Costa Rica
+Côte d'Ivoire
+Danmark
+Djibouti
+Dominica
+Ecuador
+Ejipt
+Emiradoù Arab Unanet
+Enez Nedeleg
+Eritrea
+Estonia
+Eswatini
+Etiopia
+Fidji
+Filipinez
+Finland
+Gabon
+Gambia
+Georgia
+Ghana
+Gibraltar
+Grenada
+Gres
+Groenland
+Guadeloupe
+Guam
+Guatemala
+Guinea
+Guinea Ekvatorial
+Guinea-Bissau
+Guyana
+Guyane française
+Haiti
+Honduras
+Hong Kong
+Hungaria
+India
+Indonezia
+Inizi Cook
+Inizi Falkland
+Inizi Faroe
+Inizi Gwerc'h Amerikan
+Inizi Gwerc'h Breizh-Veur
+Inizi Kayman
+Inizi Kokos
+Inizi Mariana an Norzh
+Inizi Marshall
+Inizi Salomon
+Inizi Turks ha Caicos
+Irak
+Iran
+Islandi
+Israel
+Italia
+Iwerzhon
+Jamaika
+Japan
+Jordania
+Kambodja
+Kameroun
+Kanada
+Kazakhstan
+Kenya
+Kiprenez
+Kirgizstan
+Kiribati
+Kolombia
+Komorez
+Korea an Norzh
+Korea ar Su
+Kosovo
+Koweit
+Kroatia
+Kuba
+La Réunion
+Laos
+Lesotho
+Letonia
+Liban
+Liberia
+Libia
+Liechtenstein
+Lituania
+Luksembourg
+Macao
+Madagaskar
+Makedonia an Norzh
+Malawi
+Malaysia
+Maldivez
+Mali
+Malta
+Maroko
+Martinique
+Mauritania
+Mauritius
+Mayotte
+Mec'hiko
+Mikronezia
+Moldova
+Monako
+Mongolia
+Montenegro
+Montserrat
+Mozambik
+Myanmar
+Namibia
+Nauru
+Nederlandoù
+Nepal
+Niger
+Nigeria
+Nikaragua
+Niue
+Norvegia
+Nouvelle-Calédonie
+Oman
+Ouganda
+Ouzbekistan
+Pakistan
+Palau
+Panama
+Papoua-Guinea Nevez
+Paraguay
+Perou
+Pitcairn
+Polonia
+Polynésie française
+Portugal
+Puerto Rico
+Qatar
+Republik Demokratel Kongo
+Republik Dominikan
+Republik Kongo
+Republik Kreiz-Afrika
+Rouantelezh-Unanet
+Roumania
+Rusia
+Rwanda
+Sahara Kornôg
+Salvador
+Samoa
+Samoa Amerikan
+San Marino
+Sant Kitts ha Nevis
+Sant Visant hag ar Grenadinez
+Santez Lusia
+São Tomé ha Príncipe
+Senegal
+Serbia
+Seychellez
+Sierra Leone
+Sina
+Singapour
+Siria
+Slovakia
+Slovenia
+Somalia
+Spagn
+Sri Lanka
+Stadoù-Unanet Amerika
+Suafrika
+Sudan
+Sudan ar Su
+Suis
+Surinam
+Sveden
+Tadjikistan
+Tailand
+Taiwan
+Tanzania
+Tchad
+Tchekia
+Terres australes françaises
+Tibet
+Timor-Leste
+Tiriadoù Palestina
+Togo
+Tokelau
+Tonga
+Trinidad ha Tobago
+Tunizia
+Turkia
+Turkmenistan
+Tuvalu
+Ukraina
+Uruguay
+Vanuatu
+Vatikan
+Venezuela
+Vietnam
+Wallis-et-Futuna
+Yemen
+Zambia
+Zeland-Nevez
+Zimbabwe

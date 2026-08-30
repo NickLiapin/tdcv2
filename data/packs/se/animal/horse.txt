@@ -1,0 +1,20 @@
+---
+description: Horses. heasta is the word, and the honest note is that the horse is not the animal of Sápmi — the heargi is. Before the snowmobile a Sami family moved on reindeer draught, and the horse belonged to the settled farms of the coast and the river valleys rather than to the plateau. The northern breeds on this list are the ones that could stand it: lyngshest, also called nordlandshest, is a small, hardy horse of Troms and Nordland that came within a few dozen animals of disappearing in the 1960s and was pulled back by a deliberate rescue programme; finnhest is its Finnish counterpart; fjording and dølahest are the Norwegian working horses of the west and the eastern valleys; islandshest brings its extra gaits from a country with the same problem of footing. The rest are sport and leisure animals, which is what most horses in Finnmark now are.
+locale: se
+---
+Heasta
+Lyngshest
+Nordlandshest
+Fjording
+Dølahest
+Islandshest
+Finnhest
+Nordsvensk brukshäst
+Ardenner
+Shetlandsponni
+Welshponni
+Varmblods ridehest
+Travhest
+Fullblodshest
+Kaldblodstraver
+Haflinger

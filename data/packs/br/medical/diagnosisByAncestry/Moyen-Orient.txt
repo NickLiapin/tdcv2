@@ -1,0 +1,10 @@
+---
+description: Conditions more frequent in people of Middle Eastern descent. Familial Mediterranean fever heads the list as a founder disease of the region rather than a rarity, and it is worth naming for an unusual reason: colchicine, a cheap plant alkaloid used since antiquity, both stops the recurring attacks of fever and abdominal pain and prevents the amyloid kidney failure that used to kill patients before forty, so a diagnosis made in clinic changes the whole course of a life. These strings are French because the consultation de génétique that draws the family tree three generations deep records them in French, alongside the pedigree it produces.
+locale: br
+---
+Fièvre méditerranéenne familiale
+Bêta-thalassémie
+Déficit en G6PD
+Maladie de Behçet
+Trait drépanocytaire
+Carence en vitamine D

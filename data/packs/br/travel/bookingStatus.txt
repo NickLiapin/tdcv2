@@ -1,0 +1,15 @@
+---
+description: The states a booking passes through, in French. Two of them carry legal weight in France rather than being mere workflow labels: arrhes and acompte look like synonyms for a deposit and are not — arrhes let either side walk away, the customer forfeiting the sum and the seller repaying double, while an acompte binds both parties to the contract and neither can withdraw. Which word a Breton gîte or hotel writes on its confirmation therefore decides what happens when a summer booking is cancelled, and a dataset that renders both as deposit has destroyed the distinction. The rest is ordinary, but note that Brittany's tourist trade is violently seasonal — a large share of the region's bookings are made and cancelled for eight weeks of the year — so a realistic generator should cluster these states in time rather than spreading them evenly.
+locale: br
+---
+Créée
+En attente
+Confirmée
+Garantie
+Arrhes versées
+Acompte versé
+Payée
+Modifiée
+Annulée
+Expirée
+Honorée

@@ -1,0 +1,44 @@
+---
+description: Dishes eaten in Chuvashia, local and imported together, ordered from the most Chuvash to the most international. The first twenty are the republic's own kitchen and they describe a northern forest-farming table with a Turkic streak running through it — rye and hop-brewed сӑра, oats, barley and millet as пӑтӑ, dairy in every keeping form the Volga winter demands (турӑх soured, чӑкӑт dried into a stone), soups named for what went into the pot (купӑста яшки cabbage, пӑрҫа яшки peas, кӑмпа яшки mushrooms, пултӑран яшки hogweed picked in spring), and meat cured rather than eaten fresh: шӑрттан is a sheep's stomach stuffed with fatty mutton and dry-aged until it keeps a season without a cellar. That combination is the whole history in one meal. Chuvash is the only surviving Oghur Turkic language, the sole living relative of the Bulgar of the Volga Bulgars, and it split from the rest of Turkic so early that it is mutually unintelligible with every other Turkic tongue — where Common Turkic has z and š, Chuvash has r and l, Turkish kız against Chuvash хӗр "girl", Turkish taş against Chuvash чул "stone". The kitchen carries the same doubleness: steppe preserving technique kept alive by people who have farmed rye in the forest belt for a thousand years. After those come the Soviet and Russian everyday, which is not foreign here at all, then the Tatar pastries that cross the river freely, and finally the delivery-app layer that is identical in every Russian city.
+locale: cv
+---
+Шӑрттан
+Хуплу
+Хуран кукли
+Чӑкӑт
+Какай шӳрпи
+Пӳремеч
+Тултармӑш
+Пӑтӑ
+Турӑх
+Йӑва
+Хӑпарту
+Ҫӑмарта хӑпартни
+Пултӑран яшки
+Купӑста яшки
+Пӑрҫа яшки
+Кӑмпа яшки
+Икерчӗ
+Салма
+Кӑвас
+Сӑра
+Борщ
+Щи
+Пельмень
+Окрошка
+Солянка
+Оливье
+Винегрет
+Голубцы
+Котлета
+Пирожки
+Эчпочмак
+Чак-чак
+Плов
+Шашлык
+Пицца
+Паста
+Гамбургер
+Сэндвич
+Суши
+Шаурма

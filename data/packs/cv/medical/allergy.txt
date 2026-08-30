@@ -1,0 +1,26 @@
+---
+description: Allergens as a Chuvash Republic polyclinic records them, in Russian, because the allergy history goes onto a Russian form even when it was taken out loud in Chuvash. The seasonal calendar is the Middle Volga's rather than the Balkans': ragweed, which heads every Serbian allergy list, barely reaches this latitude, so the spring peak here is birch pollen and the late-summer one is wormwood and goosefoot. Hop dust is on the list for a reason no other Russian region can claim — Chuvashia grows the great majority of Russia's hops and has done for centuries, and hop-garden work is a real occupational sensitiser here. Bee and wasp stings and honey belong to the same rural picture, village beekeeping being ordinary. Novocaine appears where a Western list would not have it: procaine is still the routine local anaesthetic in Russian dentistry and minor surgery, so it is the drug a post-Soviet chart most often carries an allergy note against.
+locale: cv
+---
+Пыльца березы
+Пыльца злаковых трав
+Пыльца полыни
+Пыльца лебеды
+Хмелевая пыль
+Домашняя пыль
+Клещ домашней пыли
+Плесневые грибы
+Шерсть кошки
+Шерсть собаки
+Пенициллин
+Сульфаниламиды
+Новокаин
+Ацетилсалициловая кислота
+Йод
+Рентгеноконтрастные вещества
+Арахис
+Коровье молоко
+Куриное яйцо
+Рыба
+Мед
+Укус пчелы или осы

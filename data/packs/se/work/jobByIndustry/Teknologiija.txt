@@ -1,0 +1,16 @@
+---
+description: Jobs in technology, the child of work.industryCoherent value Teknologiija. The titles are built with the ordinary Sami agent suffixes — -eaddji on a verb, so ovddidit, to develop, gives ovddideaddji, a developer — and that productivity is why a language with twenty-five thousand speakers can name a profession that did not exist when the last speaker generation was born. Terminology is decided rather than inherited: a Sami language board agrees the words for things like a database or a firewall, and they enter use through NRK Sápmi, the schools and the Sámediggi's own documents. There is real Sami-language technical work behind this, including keyboard layouts, spellcheckers and machine translation for a language whose consonant gradation makes naive text processing fail.
+locale: se
+---
+Prográmmaráhkadeaddji
+Systemaovddideaddji
+Neahttahábmejeaddji
+Dihtorteknihkkár
+Systemahálddašeaddji
+Fierpmádatteknihkkár
+Dáhtaanalytihkkár
+Dáhtabásahálddašeaddji
+Sihkkarvuođaanalytihkkár
+Testejeaddji
+IT-konsuleanta
+Prošeaktajođiheaddji

@@ -1,0 +1,16 @@
+---
+description: Conditions with a raised frequency in people of Chuvash descent. The first entry is the one this file exists for: Chuvash polycythemia is a genuine endemic disorder, a congenital erythrocytosis caused by a homozygous VHL R200W variant that leaves oxygen sensing switched permanently on, and it is named after this population because it was first characterised here, in the villages of the middle Volga, where the carrier frequency is orders of magnitude above the world background. The rest is honest regional burden rather than genetics — hypertension, stroke, type 2 diabetes and alcohol-related liver disease are the Volga profile, endemic goitre follows iodine-poor soils, and adult lactase non-persistence is the ordinary state across the Turkic and Finno-Ugric Volga peoples rather than the exception it is in northern Europe.
+locale: cv
+---
+Чувашская полицитемия
+Первичная лактазная недостаточность
+Артериальная гипертензия
+Ишемический инсульт
+Сахарный диабет 2 типа
+Эндемический зоб
+Алкогольная болезнь печени
+Дефицит витамина D
+Врожденный гипотиреоз
+Фенилкетонурия
+Хеликобактерная инфекция
+Мочекаменная болезнь

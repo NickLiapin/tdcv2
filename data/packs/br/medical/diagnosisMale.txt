@@ -1,0 +1,34 @@
+---
+description: Diagnoses that require male anatomy and cannot occur in a female patient — draw from this list only for male rows; general conditions live in medical/diagnosis. French, like the rest of the clinical bucket. One entry is regionally loaded and it is worth knowing why: France has a pronounced west-to-east gradient in testicular cancer incidence, with the highest rates in the country recorded in Brittany and the neighbouring Pays de la Loire, and the excess has been argued in the epidemiological literature to track agricultural and pesticide exposure in the intensively farmed départements rather than anything about diagnosis rates. Cancer du testicule is therefore not a filler line in a Breton dataset. The broader background is a male mortality gap: Breton men die younger than the French average by a margin the region's own health observatory attributes largely to alcohol and tobacco, which is also why dépendance à l'alcool sits in the general diagnosis list rather than being an afterthought there.
+locale: br
+---
+Hypertrophie bénigne de la prostate
+Prostatite
+Cancer de la prostate
+Cancer du testicule
+Torsion du testicule
+Varicocèle
+Hydrocèle
+Épididymite
+Cryptorchidie
+Phimosis
+Balanite
+Dysfonction érectile
+Maladie de La Peyronie
+Infertilité masculine
+Gynécomastie
+Hypogonadisme masculin
+Priapisme
+Spermatocèle
+Alopécie androgénétique
+Hernie scrotale
+Cancer du pénis
+Orchite
+Rétrécissement de l'urètre
+Syndrome de Klinefelter
+Azoospermie
+Éjaculation précoce
+Paraphimosis
+Abcès de la prostate
+Vésiculite
+Hémospermie

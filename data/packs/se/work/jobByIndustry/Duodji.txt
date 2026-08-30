@@ -1,0 +1,16 @@
+---
+description: Jobs in duodji, the child of work.industryCoherent value Duodji. duodji is craft, but the word covers a trade with a formal apprenticeship, a state-recognised qualification and a certification mark — the Sámi Duodji label exists precisely because mass-produced imitations of Sami work are sold to tourists across three countries and the makers wanted a way to say which is which. The specialisms split by material rather than by product: silver, hide, antler and bone, wood, and cloth. A gákteduojár makes the gákti, and that is not dressmaking — the cut, the colours, the ribbon patterns and the shape of the collar say which family and which valley the wearer belongs to, so making one wrong is a factual error and not a matter of taste.
+locale: se
+---
+Duojár
+Silbaduojár
+Náhkkeduojár
+Čoarveduojár
+Muorraduojár
+Gákteduojár
+Goarru
+Niibbiiddahkki
+Vuoddagiidgođđi
+Duodjeoahpaheaddji
+Duodjegávpejođiheaddji
+Duodjekonsuleanta

@@ -1,0 +1,13 @@
+---
+description: Spanish dishes as a Breton town lists them, which in practice means a paella at a summer fête and a tapas bar of recent date, since the tapas format only reached provincial France in the 2000s. The older link between Brittany and Spain is not food but fish: the sardine and tuna boats of Douarnenez and Concarneau worked the same Biscay grounds as the Basque and Galician fleets for centuries, the Breton canneries sold into Spain, and the quarrels over those grounds are still live in Brussels. Jambon serrano and chorizo are on the list as products rather than dishes because that is how they are bought and eaten here.
+locale: br
+---
+Paella
+Tapas
+Tortilla espagnole
+Gazpacho
+Jambon serrano
+Croquetas
+Patatas bravas
+Chorizo grillé
+Churros

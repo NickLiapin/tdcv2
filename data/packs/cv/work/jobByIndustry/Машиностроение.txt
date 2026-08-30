@@ -1,0 +1,16 @@
+---
+description: Jobs in machine building, the trade Cheboksary is built on. The industrial-tractor works turns out bulldozers, pipelayers and excavator undercarriage, and the shop floor around it is staffed by the classic Soviet-era machine trades that the unified skills catalogue still names: turner, miller, toolmaker, fitter. The design and process engineers who sit above them are split into two distinct posts in Russian practice — the конструктор draws the part, the технолог decides how it will be cut — and a config that flattens both to "engineer" loses a distinction any Russian personnel department treats as basic. Titles are Russian, which is the only language a works order or a job advertisement here is written in.
+locale: cv
+---
+Инженер-конструктор
+Инженер-технолог
+Оператор станков с ЧПУ
+Токарь
+Фрезеровщик
+Шлифовщик
+Слесарь-инструментальщик
+Сварщик
+Сборщик
+Наладчик станков
+Инженер по качеству
+Начальник цеха

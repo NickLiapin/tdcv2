@@ -1,0 +1,15 @@
+---
+description: Crew roles aboard a racing boat, and they are French for an industrial reason rather than a cultural one: offshore racing is a French professional trade with a French technical vocabulary, and Brittany is where that trade lives. Lorient's Cité de la Voile and the pôle course au large at Port-la-Forêt are where Vendée Globe and Route du Rhum skippers actually train, the Route du Rhum itself starts from Saint-Malo, and the great majority of France's ocean-racing teams sit on the coast between Saint-Malo and Concarneau with the design offices, the composite yards and the mast makers alongside them. Bageal is the Breton, built on bag, a boat, and it covers going by water in general rather than racing in particular. The roles are worth glossing: numéro un works the foredeck, piano is the station at the bank of clutches and winches by the mast where the halyards are handled, embraqueur is the one who hauls the sheet in, bosco is the deck boss, and préparateur is the shore job of stripping and rebuilding a boat between races, which in Brittany is a career and not a chore. Eric Tabarly named his boats Pen Duick after the coal tit, Breton for little black head.
+locale: br
+---
+Skipper
+Barreur
+Tacticien
+Navigateur
+Régleur de grand-voile
+Régleur de génois
+Numéro un
+Piano
+Embraqueur
+Bosco
+Préparateur

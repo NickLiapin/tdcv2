@@ -1,0 +1,12 @@
+---
+description: Mordvin food, from the republic to the south-west. The label is a compromise and the pack says so: Chuvash distinguishes мӑкшӑ from ирҫе, the Moksha from the Erzya, who speak two separate Finno-Ugric languages and do not regard themselves as one people, but a restaurant listing anywhere in the Volga uses a single heading for both. The cooking is millet, pork and offal — шонгарям is millet boiled with pork ribs, селянка here means a roast of liver, heart and lung rather than the Russian soup of the same name, and the cutlet sold as медвежья лапа is a meat-and-liver patty crusted with breadcrumbs, named for its shape and not its contents. Поза is the fermented sugar-beet brew that stands in the same social position as Chuvash сӑра. Several of these reach a Chuvash menu already wearing Russian names, which is recorded here rather than corrected.
+locale: cv
+---
+Пачат
+Шонгарям
+Селянка
+Медвежья лапа
+Пряка
+Сюкоро
+Салма
+Поза

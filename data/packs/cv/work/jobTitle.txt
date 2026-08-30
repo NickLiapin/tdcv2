@@ -1,0 +1,240 @@
+---
+description: Job titles across every sector of working life in the Chuvash Republic, and Russian from end to end, which is the honest thing to record rather than a shortcut: employment here is administered in Russian. The contract, the entry in the employment record book, the establishment table and the vacancy advertisement are federal Russian documents, and the unified qualification catalogues that grade a turner or a fitter are federal too, so a personnel office in Cheboksary writes токарь and nothing else. That is an administrative fact and not a linguistic one. Chuvash is the only surviving Oghur Turkic language, the sole living relative of the extinct Bulgar of the Volga Bulgars, and it split from the rest of Turkic so early that it is mutually unintelligible with every other Turkic language — where Common Turkic has z and sh, Chuvash has r and l: Turkish kiz against Chuvash хӗр for "girl", Turkish tas against Chuvash чул for "stone". It has its own words for work and for the people who do it — ӗҫ work, ӗҫлекен a worker, хресчен a peasant farmer, тимӗрҫӗ a blacksmith, вӗрентекен a teacher, тухтӑр a doctor, кӗтӳҫӗ a herdsman — and they are alive in speech, in literature and in the village, but not on a staffing schedule, so scattering a few of them through a list that a real personnel department writes in Russian would be a fiction. The list leans where the republic leans: heavy on the machine, electrical and instrument trades that Cheboksary lives by, carrying хмелевод because Chuvashia grows the greater part of Russia's hops, and carrying учитель чувашского языка и литературы, which is a funded, timetabled post because the language has state status here and the subject is examined. On form: the titles are masculine, which is what a vacancy prints. Russian has feminine counterparts for a great many of them — учительница, продавщица, повариха — but they sit lower in register than the masculine, the official document keeps the masculine even for a woman, and whether to use the feminine at all is an argument still running in Russian. A config writing about a woman can therefore neither reuse these strings unthinkingly nor derive the alternative by rule.
+locale: cv
+---
+Разработчик программного обеспечения
+Ведущий разработчик
+Фронтенд-разработчик
+Бэкенд-разработчик
+Мобильный разработчик
+Веб-разработчик
+Программист 1С
+DevOps-инженер
+QA-инженер
+Аналитик данных
+Дата-сайентист
+ML-инженер
+Системный аналитик
+Бизнес-аналитик
+Продакт-менеджер
+UX-дизайнер
+UI-дизайнер
+Системный администратор
+Сетевой инженер
+Администратор баз данных
+Специалист по информационной безопасности
+Специалист технической поддержки
+Врач-терапевт
+Врач общей практики
+Врач-хирург
+Врач-анестезиолог
+Врач-педиатр
+Врач-акушер-гинеколог
+Врач-кардиолог
+Врач-психиатр
+Врач-рентгенолог
+Врач-стоматолог
+Фельдшер
+Фельдшер скорой помощи
+Медицинская сестра
+Старшая медицинская сестра
+Акушерка
+Фармацевт
+Зубной техник
+Лаборант клинической лаборатории
+Рентгенолаборант
+Санитар
+Ветеринарный врач
+Водитель скорой помощи
+Электрик
+Электромонтажник
+Электромонтёр по ремонту электрооборудования
+Слесарь-сантехник
+Слесарь-ремонтник
+Слесарь механосборочных работ
+Слесарь-инструментальщик
+Слесарь КИПиА
+Сварщик
+Токарь
+Фрезеровщик
+Оператор станков с ЧПУ
+Наладчик станков
+Литейщик
+Кузнец
+Обмотчик электрических машин
+Монтажник радиоэлектронной аппаратуры
+Сборщик распределительных щитов
+Контролер ОТК
+Мастер участка
+Начальник цеха
+Автомеханик
+Автослесарь
+Автоэлектрик
+Каменщик
+Бетонщик
+Арматурщик
+Плотник
+Столяр
+Кровельщик
+Плиточник
+Штукатур
+Маляр
+Изолировщик
+Монтажник металлоконструкций
+Машинист крана
+Машинист экскаватора
+Машинист бульдозера
+Бурильщик
+Рабочий карьера
+Прораб
+Мастер строительно-монтажных работ
+Разнорабочий
+Водитель грузового автомобиля
+Водитель-международник
+Водитель автобуса
+Водитель-экспедитор
+Таксист
+Водитель погрузчика
+Кладовщик
+Грузчик
+Логист
+Диспетчер автотранспорта
+Экспедитор
+Машинист локомотива
+Помощник машиниста
+Кондуктор
+Курьер
+Почтальон
+Пилот
+Бортпроводник
+Кабельщик-спайщик
+Техник оптических линий связи
+Инженер связи
+Оператор котельной
+Машинист гидроагрегата
+Оператор очистных сооружений
+Слесарь газового хозяйства
+Контролер энергосбыта
+Инженер-энергетик
+Бухгалтер
+Главный бухгалтер
+Экономист
+Финансовый аналитик
+Аудитор
+Налоговый консультант
+Операционист банка
+Кредитный специалист
+Брокер
+Страховой агент
+Менеджер по продажам
+Руководитель отдела продаж
+Торговый представитель
+Менеджер по маркетингу
+Маркетолог
+Специалист по кадрам
+Рекрутер
+Менеджер по закупкам
+Руководитель проектов
+Помощник руководителя
+Офис-менеджер
+Секретарь
+Делопроизводитель
+Оператор ввода данных
+Повар
+Помощник повара
+Шеф-повар
+Кондитер
+Пекарь
+Мясник
+Официант
+Бармен
+Бариста
+Администратор гостиницы
+Горничная
+Управляющий гостиницей
+Продавец-консультант
+Кассир
+Заведующий магазином
+Товаровед
+Мерчандайзер
+Оператор контакт-центра
+Охранник
+Уборщик
+Дворник
+Садовник
+Парикмахер
+Мастер маникюра
+Швея
+Портной
+Учитель начальных классов
+Учитель чувашского языка и литературы
+Учитель русского языка и литературы
+Учитель математики
+Учитель физики
+Учитель истории
+Учитель физической культуры
+Воспитатель детского сада
+Педагог дополнительного образования
+Педагог-психолог
+Логопед
+Социальный педагог
+Мастер производственного обучения
+Преподаватель колледжа
+Доцент
+Профессор
+Библиотекарь
+Директор школы
+Полицейский
+Участковый уполномоченный
+Следователь
+Инспектор ГИБДД
+Пожарный
+Спасатель
+Военнослужащий
+Социальный работник
+Адвокат
+Юрисконсульт
+Нотариус
+Судебный пристав
+Судья
+Прокурор
+Помощник судьи
+Судебный эксперт
+Медиатор
+Журналист
+Редактор
+Корректор
+Переводчик
+Фотограф
+Графический дизайнер
+Копирайтер
+Архитектор
+Дизайнер интерьера
+Музейный работник
+Артист
+Звукооператор
+Инженер-строитель
+Инженер-механик
+Инженер-конструктор
+Инженер-технолог
+Инженер-электрик
+Геодезист
+Инженер по охране труда
+Эколог
+Метролог
+Агроном
+Хмелевод
+Зоотехник
+Тракторист
+Комбайнер
+Механизатор
+Оператор машинного доения
+Скотник
+Пчеловод
+Овощевод
+Садовод
+Лесник
+Вальщик леса
+Егерь
+Рыбовод
+Ландшафтный архитектор

@@ -1,0 +1,9 @@
+---
+description: Volleyball positions, in French. Mell-nij is the most literary name in the whole set: nij is flight, from nijal, to fly, so the game is ball-flight, and it is the only one of the four mell- compounds that describes what the ball does rather than the equipment it meets or the limb that hits it. Rennes Volley 35 and Quimper Volley 29 have both carried Breton sides in the national first division, which for an indoor sport in a region whose entire reputation is outdoor and wet is worth recording. Libéro is the back-court specialist in the contrasting shirt who may neither attack nor serve, and pointu is the opposite hitter who takes the ball on the right; both are settled French terms with no Breton register behind them, and a config should leave them alone rather than reach for a Breton word that does not exist.
+locale: br
+---
+Passeur
+Pointu
+Réceptionneur-attaquant
+Central
+Libéro

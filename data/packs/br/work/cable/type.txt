@@ -1,0 +1,13 @@
+---
+description: Cable type for telecom and electrical work orders, in French, because the words are printed on the drum, on the supplier's invoice and in the specification, and Breton has no register for any of these distinctions. The last value is the one that matters in Brittany. Câble sous-marin is not an exotic category here but local infrastructure: the transatlantic telecommunications cables come ashore on this coast, at Penmarc'h on the western tip of the Bigouden country and at Plérin beside Saint-Brieuc, so the fibre that carries a large share of the traffic between Europe and North America surfaces in a concrete hut behind a Breton beach. That is not an accident of geography alone — the CNET, the French national telecommunications research centre, was established at Lannion in the 1960s and did the country's switching and then its optical research there, the site is now Orange Labs, and the concentration of engineers, manufacturers and landing stations it left behind is why the Trégor is called the Telecom Valley. The rest of the list is the ordinary contents of a van: fibre and copper, coax for older distribution, the shielded and unshielded twisted-pair families for building networks, and the power and buried types.
+locale: br
+---
+Câble à fibre optique
+Câble cuivre
+Câble coaxial
+Paire torsadée
+Câble U/UTP
+Câble F/UTP
+Câble d'énergie
+Câble souterrain
+Câble sous-marin

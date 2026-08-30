@@ -1,0 +1,11 @@
+---
+description: How a cable is carried and protected. The northern constraint is frost heave: ground that freezes and thaws lifts and moves whatever is buried in it, so a trench has to go below the frost line or the duct has to tolerate being shifted, and a joint that was fine in September can be pulled apart by March. Kabelgrøft, the trench, is therefore the expensive part of any build up here and the reason so much of the network runs on masts. Overhead lines carry a cost of their own on the plateau: they cross grazing land and migration routes, and a new line means consultation with the affected orohagat before anything is put in the ground or the air.
+locale: se
+---
+Trekkerør
+Kabelkanal
+Kabelbru
+Kabelgrøft
+Kabelkum
+Mastefeste
+Sjøkabelrør

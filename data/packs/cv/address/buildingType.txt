@@ -1,0 +1,36 @@
+---
+description: Building type. The split in this list is worth reading as a fact about Chuvashia rather than as a compromise. The first block is Chuvash because it names things a Chuvash household still owns and still has its own words for: пӳрт is the wooden village house as opposed to ҫурт, a building of any kind; мунча is the bathhouse, which in a Volga village is a separate structure at the bottom of the plot and not a room; кӗлет is the storehouse where the grain and the dowry chest lived; лаҫ is the detached summer kitchen, once the older of the two dwellings on a Chuvash farmstead and now usually a shed; вите is the cattle shed. Нумай хваттерлӗ ҫурт, literally "a house with many flats", is the ordinary Chuvash phrase for a block of flats. Чиркӳ, the church, is Chuvash because the word arrived with the mass baptisms of the eighteenth century and was naturalised. Everything institutional after it is Russian — Больница, Поликлиника, Университет, Библиотека, Завод — and that is simply accurate: Russian is co-official in the republic and runs administration, medicine, industry and higher education outright, so an office block or a polyclinic carries a Russian name on its plaque even in a village where the conversation outside is entirely in Chuvash.
+locale: cv
+---
+Ҫурт
+Пӳрт
+Хваттер
+Нумай хваттерлӗ ҫурт
+Мунча
+Кӗлет
+Лаҫ
+Вите
+Коттедж
+Дача
+Гараж
+Склад
+Ангар
+Магазин
+Пасар
+Ресторан
+Кафе
+Гостиница
+Шкул
+Гимназия
+Университет
+Библиотека
+Больница
+Поликлиника
+Аптека
+Театр
+Музей
+Чиркӳ
+Стадион
+Завод
+Фабрика
+Ферма

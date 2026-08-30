@@ -1,0 +1,26 @@
+---
+description: The features a Breton listing advertises, and the list is shaped by a wet, windy, rural region rather than by a city. Three entries are worth explaining. Assainissement individuel means the house is not on a sewer and has its own septic system, which is true of a very large share of Breton properties because the settlement pattern is dispersed — Brittany is a land of hamlets and isolated farms rather than villages, and the survey that certifies the system is a compulsory part of every sale. Toiture en ardoise is not decoration either: slate from Maël-Carhaix and from Angers roofed the whole peninsula, and a slate roof against a granite wall is the region's building signature. Mouillage, a mooring, appears in coastal listings the way a parking space appears in an urban one, and it is often a licence attached to a spot in a harbour rather than anything owned. Vue mer is the phrase that moves the price more than any other in this file. Note that puits, a well, is still listed as an asset in the interior, where mains water arrived late.
+locale: br
+---
+Cheminée
+Poêle à bois
+Chauffage au bois
+Pompe à chaleur
+Double vitrage
+Toiture en ardoise
+Pierre apparente
+Poutres apparentes
+Combles aménagés
+Cave
+Grenier
+Garage
+Appentis
+Jardin clos
+Terrasse
+Véranda
+Puits
+Assainissement individuel
+Fibre optique
+Portail électrique
+Vue mer
+Mouillage

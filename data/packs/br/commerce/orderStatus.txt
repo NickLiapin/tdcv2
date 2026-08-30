@@ -1,0 +1,18 @@
+---
+description: Order lifecycle states as a French retailer's back office writes them, and the strings carry a grammatical constraint that is easy to break. These are past participles agreeing with commande, which is feminine, so they take the feminine -e: Créée, Confirmée, Expédiée, Livrée, Annulée, Retournée. The parallel list in shippingStatus agrees with colis, which is masculine, and reads Livré and Retourné with no -e at all. The two files are therefore not interchangeable, and a config that swaps one for the other produces French that every French reader sees as wrong at a glance. Retirée en point relais is a proper terminal state rather than an edge case: across a region of small communes, collection at a relay counter is a normal ending for an order and not a fallback after a failure. Litige is the French term for a formal dispute opened against an order, and it sits between delivery and refund rather than after them, which is why it is not simply a variant of Refusée.
+locale: br
+---
+Créée
+Confirmée
+En attente
+En cours de préparation
+Prête à expédier
+Expédiée
+En transit
+En cours de livraison
+Livrée
+Retirée en point relais
+Annulée
+Retournée
+Litige
+Refusée

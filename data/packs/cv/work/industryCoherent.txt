@@ -1,0 +1,14 @@
+---
+description: The ten industries that have a job list of their own behind them — the parent of work/jobByIndustry, so every value here names a file of exactly that name. The set is drawn from what the Chuvash Republic actually employs people in rather than from a generic sector taxonomy. Cheboksary is an engineering and electrical town before it is anything else: the electrical-apparatus works that grew out of plant evacuated east in 1941 still makes relay protection and switchgear, and the industrial-tractor works next to it makes bulldozers and pipelayers, which is why machine building and electrical engineering are listed apart from each other here. The chemical works at Novocheboksarsk, the town built in the 1960s to house it, is the republic's other heavy employer, and the Cheboksary hydroelectric station on the Volga anchors the energy line. Agriculture is not a residual category in Chuvashia: hops, in Chuvash хӑмла, have been grown here for centuries and the republic supplies the greater part of Russia's crop, alongside grain, potatoes and dairy. The names are Russian because a Chuvash enterprise registers, advertises and files its accounts in Russian.
+locale: cv
+---
+Машиностроение
+Электротехника
+Химическая промышленность
+Энергетика
+Сельское хозяйство
+Строительство
+Транспорт и логистика
+Здравоохранение
+Образование
+Торговля

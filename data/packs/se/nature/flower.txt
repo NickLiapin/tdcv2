@@ -1,0 +1,32 @@
+---
+description: Flowering plants of the far north, with four Sami entries at the head that are not flowers at all and are here because a Sami plant list starts where the value is. jeagil is reindeer lichen, the pale grey-white mat that covers dry pine heath and open plateau, and it is the winter feed of an entire people's livestock: it grows perhaps three to five millimetres a year, takes twenty to thirty years to recover from being grazed out, and is destroyed for good by the wrong development or the wrong thaw. suoidni is hay, cut on river meadows. luopmán is the cloudberry plant, whose fruit is the great gathered crop of the bogs, picked in August, frozen or preserved, eaten with reindeer meat and cheese, and jealously mapped — cloudberry grounds are known, remembered and in some places legally protected as private harvest. rássi is simply a flower or a herb. The named species after them are the arctic-alpine flora as a Norwegian field guide gives it: reinrose, the mountain avens that colonised the ground behind the retreating ice, myrull, the bog cotton that whitens a whole mire in July, and mogop, the pasque flower that opens the moment the snow leaves.
+locale: se
+---
+Rássi
+Jeagil
+Suoidni
+Luopmán
+Reinrose
+Fjellsmelle
+Issoleie
+Snøsøte
+Fjellfiol
+Rødsildre
+Purpurkarse
+Mogop
+Ballblom
+Marikåpe
+Bjørnebrodd
+Tettegras
+Soldogg
+Myrull
+Rosenrot
+Fjellsyre
+Harerug
+Setermjelt
+Kvitmaure
+Blåklokke
+Engsoleie
+Løvetann
+Hvitveis
+Fjellpryd

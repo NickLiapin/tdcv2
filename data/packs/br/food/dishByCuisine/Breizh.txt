@@ -1,0 +1,20 @@
+---
+description: Brittany's own kitchen, and these sixteen are a fair portrait of a real table rather than a tourist one. Krampouezh appears twice on purpose: gwinizh du, buckwheat, makes the savoury galette and wheat makes the sweet crêpe, and that split is the entire grammar of a crêperie — although the board itself will usually print galette de blé noir in French. Kouign-amann is literally 'butter cake', from Douarnenez, and its proportions are not a rumour: roughly a third flour, a third butter and a third sugar by weight, folded in and caramelised. Kig-ha-farz is the boiled dinner of Leon, meat and root vegetables cooked with a buckwheat pudding in a cloth bag hung in the same pot and crumbled out at the end. Galette-saucisse is a Rennes street food, a grilled sausage rolled cold in a wheat galette and eaten standing at Stade Rennais matches; the andouille de Guémené is made by threading pig chitterlings one inside another, so a slice comes out in concentric rings. The shellfish entries are geography: Cancale for oysters, the bay of Saint-Brieuc for scallops. Coco de Paimpol is a fresh shelling bean with an appellation of its own, and niniche is the Quiberon lollipop.
+locale: br
+---
+Krampouezh gwinizh du
+Krampouezh gwinizh
+Kouign-amann
+Far breton
+Kig-ha-farz
+Cotriade
+Galette-saucisse
+Andouille de Guémené
+Homard à l'armoricaine
+Huîtres de Cancale
+Moules marinière
+Coquilles Saint-Jacques
+Artichauts vinaigrette
+Coco de Paimpol
+Gâteau breton
+Niniche

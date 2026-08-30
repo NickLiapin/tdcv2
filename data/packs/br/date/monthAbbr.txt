@@ -1,0 +1,16 @@
+---
+description: The months abbreviated, as a Breton calendar, timetable or column heading prints them. Two entries carry no full stop, Mae and Du, because neither is abbreviated at all — a three-letter month and a two-letter one have nothing to cut, and the stop in Breton as in French marks a word that has been shortened rather than decorating every cell in the row. C'hwe. is the one to watch: the cut falls after the digraph zh would begin, and the c'h at its head is a single letter of the alphabet, so the string is five characters of which the apostrophe is not punctuation and must never be stripped. Mezh. and Kerz. keep the zh whole for the same reason, since splitting a zh would leave a form no dialect reads: the digraph exists precisely to be read /z/ in KLT and /h/ in Vannetais, and half of it is neither. These are the forms this pack ships to the date formatter as monthsShort in DATE_LOCALE.json, so the two files agree here, unlike months and monthsInDate in languages that inflect a month inside a date.
+locale: br
+---
+Gen.
+C'hwe.
+Meu.
+Ebr.
+Mae
+Mezh.
+Goue.
+Eos.
+Gwen.
+Her.
+Du
+Kerz.

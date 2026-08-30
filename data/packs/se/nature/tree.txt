@@ -1,0 +1,32 @@
+---
+description: Trees, and the first nine are the whole forest of the Sami interior. soahki, the mountain birch, is the tree that draws the treeline across Sápmi — it is the last one going north and up, it burns hot enough to be worth carrying, and its bark roofed the goahti. beahci is Scots pine, which gives the dry heaths and the building timber; guossa is spruce, which stops well short of the plateau; leaibi alder and sieđga willow hold the riverbanks. skierri is dwarf birch, ankle-high, and it is not a small tree so much as a ground cover that makes walking miserable and reindeer grazing possible. gaskkas is juniper and lageš rowan. Everything south of that is a schoolbook tree with a Norwegian name, because oak, beech, ash and lime simply do not occur here and the language had no cause to name them. What should be said beside this list is that the tree layer is not the plant that matters most: jeagil, the reindeer lichen that carpets the pine heaths and takes decades to recover from overgrazing or a single bad thaw, is the crop this whole country is farmed for, and it is not a tree, a grass or a plant but a fungus and an alga living as one thing.
+locale: se
+---
+Soahki
+Beahci
+Guossa
+Leaibi
+Sieđga
+Skierri
+Suhpi
+Lageš
+Gaskkas
+Eik
+Bøk
+Alm
+Ask
+Lind
+Lønn
+Hassel
+Hegg
+Barlind
+Kastanje
+Platan
+Poppel
+Sypress
+Sedertre
+Oliventre
+Palme
+Edelgran
+Lerk
+Sitkagran

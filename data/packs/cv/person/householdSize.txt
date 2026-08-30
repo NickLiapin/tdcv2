@@ -1,0 +1,11 @@
+---
+description: Household size, as a survey band. Chuvashia is one of the more rural republics of the Volga region — a little over a third of its people still live in villages, well above the Russian average — and the rural household there is not the same shape as the city one: the Cheboksary flat holds two or three people while a village house in Yantikovo or Alikovo district may hold three generations at once, grandparents, a married son and the grandchildren. The 7+ band is deliberately open-ended because those households do exist and a fixed top of six would cut them off.
+locale: cv
+---
+1
+2
+3
+4
+5
+6
+7+

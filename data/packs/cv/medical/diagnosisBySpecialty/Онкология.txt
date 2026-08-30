@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in oncology, ordered roughly by how much of the republican oncology dispensary's workload each carries. Lung and stomach cancer sit at the top for a reason that is regional rather than universal: smoking prevalence among men in the Volga district is high, and gastric cancer follows the very high background rate of Helicobacter pylori infection in the Russian population. Colorectal and breast cancer are the two that the national screening programme reaches, so their share of first-time registrations at an early stage has been climbing.
+locale: cv
+---
+Рак легкого
+Рак желудка
+Колоректальный рак
+Рак молочной железы
+Лимфома Ходжкина
+Острый лейкоз

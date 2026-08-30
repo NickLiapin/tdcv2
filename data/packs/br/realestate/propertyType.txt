@@ -1,0 +1,23 @@
+---
+description: Property types as a Breton estate agent lists them, and this is one of the places where Breton words have walked straight into French with no translation. A penty is a small stone cottage, and the word is Breton — penn-ti, the end house, the cottage at the end of the farm buildings — used unaltered in French listings all over Finistère. A longère is the long low farmhouse with every room in a row under one roof and a single ridge line, the commonest old dwelling in the interior. A malouinière is the grand country house a Saint-Malo shipowner built with the money from the Newfoundland cod or the India trade, and there are a few hundred of them within a day's ride of the town. The maison néo-bretonne is the most numerous and the least loved: the 1960s and 1970s house with a steep slate roof and granite trim, built in tens of thousands across the region as a modern gloss on a traditional silhouette, and now the standard second-hand purchase. The apartment sizes are the French T-numbers, where T3 counts rooms and not bedrooms, which catches out every buyer from a country that counts the other way.
+locale: br
+---
+Penty
+Longère
+Maison néo-bretonne
+Maison de bourg
+Maison de pêcheur
+Malouinière
+Manoir
+Chaumière
+Corps de ferme
+Maison individuelle
+Maison de ville
+Villa
+Appartement T1
+Appartement T2
+Appartement T3
+Appartement T4
+Terrain constructible
+Local commercial
+Hangar agricole

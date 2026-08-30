@@ -1,0 +1,14 @@
+---
+description: Norwegian dishes, the child of food.cuisine value Norgalaš. This is the canteen and Sunday food of the Norwegian side of Sápmi, and it is genuinely eaten there: a school kitchen in Kárášjohka serves fårikål in the autumn like every other school kitchen in the country. Two entries have a northern accent. finnbiff is reindeer stew and its name preserves the old exonym for Sami, a word that is now avoided in Norwegian for people but survives on a menu. bacalao is salt cod with tomato and potato, a dish Norway learned from Portugal and Spain in exchange for the dried cod it sold them, which is the oldest trade this coast has.
+locale: se
+---
+Fårikål
+Kjøttkaker
+Lapskaus
+Finnbiff
+Fiskesuppe
+Bacalao
+Raspeball
+Sodd
+Vaffel
+Multekrem

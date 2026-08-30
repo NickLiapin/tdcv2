@@ -1,0 +1,36 @@
+---
+description: Chuvash form of address, in three layers that do not mix. The first twelve are the village layer, and the point about them is that Chuvash has never had a Mr/Mrs system: you address a stranger with a KINSHIP term chosen by their age and sex relative to you, so an older man you have never met is пичче or мучи, an older woman аппа or кинемей, a very old couple асатте and асанне, and a man married into your family йысна. Getting the term wrong is a real social error, and the terms are used to people with whom there is no blood tie at all. Хисеплӗ, "respected", opens a letter or a speech. The second layer is the Russian civil vocabulary that every office, court and hospital in the republic runs on, and the third is the Orthodox clergy of the Cheboksary and Chuvashia eparchy — Chuvashia was baptised late and incompletely, but its parish structure today is ordinary Russian Orthodox, and a priest is addressed with the Russian title.
+locale: cv
+---
+Хисеплӗ
+Юлташ
+Пичче
+Аппа
+Мучи
+Кинемей
+Асатте
+Асанне
+Атте
+Анне
+Йысна
+Инке
+Господин
+Госпожа
+Гражданин
+Гражданка
+Товарищ
+Уважаемый
+Уважаемая
+Д-р
+Проф.
+Доц.
+К.м.н.
+Академик
+Инж.
+Судья
+Иерей
+Протоиерей
+Диакон
+Игумен
+Митрополит
+Матушка

@@ -1,0 +1,11 @@
+---
+description: The weekday names cut short, Monday first to match date/weekday.txt beside it. Lun and Sul take no full stop because there is nothing in them to cut — the stop marks a shortening, and a three-letter day is already as short as it goes. Mer. is the one that loses something real: the full form is Merc'her, and the abbreviation drops the c'h entirely rather than truncating inside it, because c'h is a single letter of the Breton alphabet and a form ending in a bare c is not Breton at all. The same logic keeps Meu. from being cut to a form that would collide with Mer. in a narrow column, which is a genuine risk in Breton where two of seven days begin with Me-. These are the strings this pack hands the formatter as weekdaysShort, and the formatter indexes them from Sunday, so DATE_LOCALE.json holds the same seven in a different order.
+locale: br
+---
+Lun
+Meu.
+Mer.
+Yao.
+Gwe.
+Sad.
+Sul

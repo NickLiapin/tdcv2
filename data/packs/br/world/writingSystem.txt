@@ -1,0 +1,24 @@
+---
+description: Writing systems. The Breton entries are the ones worth reading, because Breton adds no letter to the Latin alphabet and yet does not fit it. C'H is a single letter of the Breton alphabet, a velar fricative, and the apostrophe inside it is part of the letter and not punctuation: it is distinct from CH, which is the sound of English SH, so MARC'H, C'HOARI and MERC'HER must never be split across it, stripped of it, or have it normalised into a typographic quote — it is the plain ASCII apostrophe and nothing else. ZH is not a letter but a political spelling: the 1941 PEURUNVAN orthography writes ZH at exactly the points where the KLT dialects say a Z and Vannetais says an H, so BREIZH is read Breiz in the west and Breih in the south-east, and one digraph carries both a dialect boundary and a negotiated peace between two literary traditions that had until then written separately. Its date is why it is still argued over, and why SKOLVEURIEG of 1953 and the interdialectal ETRERANNYEZHEL of 1975 appear here beside it as live rival systems rather than as history. Also present: the tilde of FAÑCH, which a French registrar refused to enter in the civil register in 2017 on the ground that the character was not French, the parents winning on appeal in 2019; and the absence of native C, Q and X, whose work is done by K — which is why the town Breton spells KEMPER stands on the road sign as QUIMPER, French clerks having spent centuries replacing the Breton K with C or QU in every place name and surname they copied into a register.
+locale: br
+---
+lizherenneg latin
+lizherenneg brezhonek
+peurunvan
+skolveurieg
+etrerannyezhel
+lizherenneg gresianek
+lizherenneg kirillek
+lizherenneg arabek
+lizherenneg hebraek
+lizherenneg armenianek
+lizherenneg jorjianek
+devanagari
+skritur sinaek
+hiragana
+katakana
+hangeul
+skritur ogam
+skritur runek
+tifinagh
+hierogliffoù ejiptek

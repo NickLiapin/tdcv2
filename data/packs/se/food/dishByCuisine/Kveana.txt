@@ -1,0 +1,12 @@
+---
+description: Kven dishes, the child of food.cuisine value Kveana. The Kven are the descendants of Finnish-speaking farmers and fishers who moved into northern Norway from the 1700s onward, and they are a recognised national minority with their own language, their own villages in Finnmark and Troms, and a history of assimilation policy that ran in parallel with the one aimed at Sami. Their kitchen sits between the two: rieska is the soft Finnish flatbread, kompa and klubb are potato dumplings, kaffeost is the Finnish bread cheese dropped into a cup of boiled coffee to soak, and mölje is pure north Norwegian coast — boiled cod eaten with its liver and roe, a dish that only exists where the fish is landed the same morning. Kven, Sami and Norwegian households in the same fjord have been eating from each other's tables for three hundred years.
+locale: se
+---
+Rieska
+Kompa
+Klubb
+Kaffeost
+Mölje
+Nisu
+Blodpannekake
+Sursild

@@ -1,0 +1,12 @@
+---
+description: Extraction method, and an honest list rather than a flattering one: Chuvashia is not a mining republic. It has no ore, no coal seam and no metal, and what it does have is the quiet extraction that a building industry needs — quarries, sand pits and peat workings. So открытая разработка and its variants dominate, гидромеханизированная добыча песка is the dredging of sand from the Volga terraces that supplies concrete plants, and фрезерная добыча торфа is the milled-peat method used on drained bog, where the surface is scarified, dried in the sun and swept up rather than dug. Подземная разработка is on the list for one reason, the gypsum worked underground in the south-east of the republic, and not because there is a mining industry behind it. Russian terminology throughout; this is a licensed, federally regulated activity and it is documented in Russian.
+locale: cv
+---
+Открытая разработка
+Подземная разработка
+Карьерная выемка
+Уступная отработка
+Буровзрывные работы
+Экскаваторная разработка
+Гидромеханизированная добыча песка
+Фрезерная добыча торфа

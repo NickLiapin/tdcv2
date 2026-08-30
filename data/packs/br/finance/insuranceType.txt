@@ -1,0 +1,18 @@
+---
+description: Insurance products, in French, sold in Brittany largely by mutual insurers rather than by shareholder companies — the region's banking and insurance landscape is dominated by Crédit Mutuel Arkéa, headquartered at Le Relecq-Kerhuon outside Brest, by Crédit Agricole's four Breton caisses and by Groupama, all of them member-owned structures descended from nineteenth-century farmers' and sailors' mutual aid societies. That history is why the list has three entries an urban locale would not: assurance récolte and the livestock cover behind it belong to a region that is France's first for pigs, poultry and milk; assurance plaisance covers the enormous small-boat population of a coast with more moorings than any other in France; and assurance maritime here means cover for a working fishing vessel and its crew, written by specialist mutuals in Lorient and Concarneau. Note that assurance habitation is compulsory for a tenant in France and responsabilité civile is bundled into almost every household policy, so those two are near-universal rather than optional.
+locale: br
+---
+Assurance habitation
+Assurance automobile
+Complémentaire santé
+Responsabilité civile
+Assurance vie
+Prévoyance
+Garantie obsèques
+Assurance emprunteur
+Assurance scolaire
+Multirisque professionnelle
+Garantie décennale
+Assurance récolte
+Assurance plaisance
+Assurance maritime

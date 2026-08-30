@@ -1,0 +1,13 @@
+---
+description: Cable types, as a network build in the north specifies them. The terms are Norwegian because the trade is: standards, tenders and datasheets are all in Norwegian, and no Sami vocabulary was ever coined for a coaxial cable. What is worth knowing is the ground they go into. Digging in Finnmark means digging in permafrost or in ground that freezes to a depth of more than a metre, so trenching is a summer activity with a very short window, and a great deal of the network is strung overhead or laid on the seabed instead. Sjøkabel, submarine cable, is how several fjord communities get power and data at all, and the fibre that reaches Guovdageaidnu and Kárášjohka is what makes Sami-language remote teaching, telemedicine and the broadcasters' district offices possible.
+locale: se
+---
+Fiberkabel
+Kobberkabel
+Koaksialkabel
+Tvunnet parkabel
+UTP-kabel
+Jordkabel
+Luftstrekk
+Sjøkabel
+Høyspentkabel

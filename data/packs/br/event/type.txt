@@ -1,0 +1,24 @@
+---
+description: Occasions, and the first is the one without which Brittany would be unrecognisable. A pardon is the feast of a parish's patron saint: the banners and the statue carried out of the church in procession to a chapel, often across open fields, followed by a mass, a meal and historically the settling of accounts and of marriages. Sainte-Anne-d'Auray draws the largest, tens of thousands of pilgrims in late July; the Troménie of Locronan is the strangest, a twelve-kilometre circuit of twelve stations walked in full only every sixth year and following what looks very like a boundary older than the Christianity laid over it. Tro Breiz is the pilgrimage joining the cathedral towns of the seven founding saints — Dol, Saint-Malo, Saint-Brieuc, Tréguier, Saint-Pol-de-Léon, Quimper and Vannes — some six hundred kilometres, medieval, long lapsed, and walked again every summer since 1994. The Redadeg is the newest and the least churchly: a relay race for the Breton language, run continuously day and night across the peninsula every two years since 2008, its kilometres sold in advance to fund Breton-medium schooling. Under Festival sit the Vieilles Charrues at Carhaix, which is the largest music festival in France and happens in a town of about seven thousand people, and the Fête des Filets Bleus at Concarneau, begun in 1905 to raise relief for sardine crews ruined when the shoals failed; Festival interceltique is Lorient's, ten days each August that bring the six Celtic countries into one town. Eured, badeziant, deiz-ha-bloaz, interamant, marc'had, diskouezadeg and kendalc'h are the ordinary Breton words for a wedding, a christening, a birthday, a funeral, a market, an exhibition and a congress, while comice agricole is French because the institution is French, a district agricultural show run by the department.
+locale: br
+---
+Pardon
+Fest-noz
+Fest-deiz
+Festival
+Festival interceltique
+Concours de bagadoù
+Tournoi de gouren
+Tro Breiz
+Redadeg
+Eured
+Badeziant
+Deiz-ha-bloaz
+Interamant
+Marc'had
+Comice agricole
+Kermesse
+Concert
+Diskouezadeg
+Kendalc'h
+Séminaire

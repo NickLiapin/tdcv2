@@ -1,0 +1,44 @@
+---
+description: What a Breton kitchen holds, the Breton words at the head and a French tail for the things a shopping list writes in French. The reason Brittany's butter is salted is fiscal rather than culinary: the gabelle, the French salt tax, did not apply here — the province kept its exemption as a condition of the 1532 act of union — so salt stayed cheap on this coast and butter was salted here for centuries while the rest of France ate it fresh, which is why beurre demi-sel is a Breton signature and not a preference. Note gwinizh du, literally 'black wheat', which is buckwheat and not a wheat at all: it is a knotweed, it ripens in three months on thin acid soil that will carry nothing else, and it is the grain of poor inland Brittany turned into the savoury galette. laezh-ribod is buttermilk, the sour drink poured with galettes, and French in Brittany borrowed it back as lait ribot, which is on the list too because a dataset will meet both. The trap: every Breton value here is a dictionary form, and Breton alters a word's first sound to suit the word in front of it, so bara 'bread' is unchanged in ar bara but becomes da vara 'your bread' — dropping a raw value into that slot produces a form no speaker would write.
+locale: br
+---
+amann
+laezh
+laezh-ribod
+dienn
+keuz
+vioù
+bleud
+bleud gwinizh du
+gwinizh du
+gwinizh
+kerc'h
+heiz
+holen
+sukr
+mel
+eoul
+dour
+bara
+kig
+kig-moc'h
+pesked
+silzig
+lard
+bezhin
+patatez
+kignen
+beurre demi-sel
+crème fraîche
+lait ribot
+farine de blé noir
+huile de tournesol
+levure de boulanger
+lardons
+jambon
+saucisse fumée
+maquereau
+sardine
+moule
+huître
+coquille Saint-Jacques

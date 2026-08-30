@@ -1,0 +1,22 @@
+---
+description: Employee benefit as a French payslip or company agreement lists it. These are French legal and HR categories and they have no Breton form on any payslip anywhere — less a gap in the language than a domain the language was never let into. Several of them are not perks at all. Intéressement and participation are profit-sharing schemes that the law obliges firms above a certain size to operate; the mutuelle d'entreprise, the top-up cover that pays what the state health scheme does not, has been compulsory for every employer since 2016; and the treizième mois is usually a collective-agreement entitlement rather than a gift. RTT are the days that fell out of the thirty-five hour week: a firm working a longer week converts the overshoot into rest days instead of pay, which is why they are counted apart from congés payés and why a French leave balance carries two numbers. The compte personnel de formation is the entry with a Breton use, and a real one: an adult can spend that training account on a six-month intensive Breton course at Stumdi or Roudour, which is how a large share of the region's new adult speakers — and of its future bilingual teachers — actually acquire the language.
+locale: br
+---
+Tickets restaurant
+Mutuelle d'entreprise
+Prévoyance
+Treizième mois
+Prime d'ancienneté
+Intéressement
+Participation
+Plan d'épargne entreprise
+RTT
+Télétravail
+Forfait mobilités durables
+Remboursement de l'abonnement de transport
+Véhicule de fonction
+Téléphone professionnel
+Ordinateur portable professionnel
+Chèques vacances
+Avantages du comité social et économique
+Compte personnel de formation

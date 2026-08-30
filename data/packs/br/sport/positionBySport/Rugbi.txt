@@ -1,0 +1,14 @@
+---
+description: Rugby union positions, in French. Rugbi is the only value on this pack's coherent sport list that Breton did not translate but merely respelled, trading the y for an i, and that is a fair signal of how the game arrived: rugby is a south-western French sport and Brittany was a late and marginal territory for it, with football, sailing and cycling holding the ground first. It has changed sharply and recently — RC Vannes went up to the Top 14 in 2024, the first Breton club ever to reach the French first division — while Rennes and Brest carry the amateur weight. Demi de mêlée and demi d'ouverture are the scrum-half and the fly-half, troisième ligne aile is the flanker, and numéro huit is one of the very few positions in any sport whose name in every language is simply its shirt number.
+locale: br
+---
+Pilier
+Talonneur
+Deuxième ligne
+Troisième ligne aile
+Numéro huit
+Demi de mêlée
+Demi d'ouverture
+Centre
+Ailier
+Arrière

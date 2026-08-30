@@ -1,0 +1,16 @@
+---
+description: Jobs in hospitality. Ostiz is the Breton for a host or an innkeeper and the word standing behind ostaleri, the inn, which is what gives this folder its name; the trades themselves are French, because a kitchen brigade is named in French in every country that has one. Crêpier is the entry that is generic nowhere else. A crêperie is a Breton institution with fixed equipment and a fixed division of labour: the pillig, a flat cast-iron griddle heated from beneath, which French menus write billig — and that b repays a second look, because it is the soft mutation of pillig after the article ar, a piece of Breton grammar that has crossed into French spelling without anyone noticing it happen; the rozell, the small wooden T that spreads the batter in one turn of the wrist; and the spanell for lifting. Buckwheat batter makes the savoury galette and wheat the sweet crêpe, and a crêpier works two or three griddles at once. Gérant de camping is here because Brittany holds one of the densest concentrations of campsites in France and the coastal hospitality economy is violently seasonal: a Morbihan resort can multiply its resident population several times over in August, and hires and sheds staff on that rhythm.
+locale: br
+---
+Ostiz
+Crêpier
+Cuisinier
+Chef de cuisine
+Commis de cuisine
+Pâtissier
+Boulanger
+Serveur
+Barman
+Réceptionniste d'hôtel
+Femme de chambre
+Gérant de camping

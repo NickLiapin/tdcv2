@@ -1,0 +1,16 @@
+---
+description: Jobs in Breton manufacturing, and this list is French from top to bottom for a reason worth stating: a factory trade in France is named by the convention collective that fixes its pay grade, no such document exists in Breton, and so the job titles at a cutting plant in Josselin and at a shipyard in Lorient are equally French even when everyone in the room speaks Breton at home. Two industries share the file. The first is agri-food, Brittany's largest private employer and the reason its inland towns are the size they are: slaughter, cutting, chilling and packing lines at Landivisiau, Lampaul-Guimiliau, Josselin, Pontivy and Loudéac, where opérateur de production and découpeur-désosseur are among the commonest industrial job titles in the region. The second is metal on water: Chantiers de l'Atlantique at Saint-Nazaire, in the Breton department that the decree of 1941 left outside the administrative region, builds some of the largest cruise ships in the world; Naval Group builds frigates at Lorient; and the state dockyard at Brest, a naval arsenal since Richelieu's time, has employed the same households for so many generations that ouvrier de l'arsenal describes a family rather than a job. Charpentier de marine is the survivor of the list: wooden boatbuilding held on at Douarnenez and Camaret long enough to come back as a heritage trade with apprentices in it again.
+locale: br
+---
+Opérateur de production agroalimentaire
+Conducteur de ligne
+Découpeur-désosseur
+Technicien qualité agroalimentaire
+Technicien de maintenance industrielle
+Chaudronnier
+Soudeur
+Tuyauteur
+Électricien industriel
+Charpentier de marine
+Ouvrier de l'arsenal
+Responsable d'atelier

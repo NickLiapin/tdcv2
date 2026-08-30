@@ -111,9 +111,30 @@ function countryEntry(id) {
 const manifest = JSON.parse(readFileSync(MANIFEST, 'utf8'));
 const declared = new Set(manifest.bundles.map((b) => b.id));
 
+/**
+ * Locale packs deliberately not shipping YET, because they are half written.
+ *
+ * A pack lands over several sessions — 222 files is more than one sitting — and
+ * the half-written state has to be committable, or the only copy of a day's
+ * work lives on one laptop. But it must not SHIP: somebody installing a locale
+ * and finding two thirds of its addresses missing is worse served than somebody
+ * who is told the locale does not exist yet.
+ *
+ * So an entry here means "the files are in the repo, the bundle is not". Take
+ * the name out the moment the pack is complete — `refresh-bundle-manifest.mjs`
+ * will then register it and this list stops mentioning it.
+ */
+const WORK_IN_PROGRESS = new Map([
+  ['br', 'Breton — partial; see the handover in its commit message'],
+  ['se', 'Northern Sami — 90 of 222 files; address/animal/date/food/nature/weather/work/person done'],
+  ['cv', 'Chuvash — partial; work/ still needs rebalancing away from Russian'],
+]);
+
 // `europe` is a region grouping rather than a country and is deliberately not a
 // bundle of its own; it is named by other bundles' `regions`.
-const missingLocales = realLocalePacks().filter((c) => !declared.has(c));
+const missingLocales = realLocalePacks().filter(
+  (c) => !declared.has(c) && !WORK_IN_PROGRESS.has(c),
+);
 const missingCountries = realCountryPacks().filter((c) => c !== 'europe' && !declared.has(c));
 const missing = [...missingLocales, ...missingCountries];
 

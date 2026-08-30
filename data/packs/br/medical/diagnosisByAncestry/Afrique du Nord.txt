@@ -1,0 +1,10 @@
+---
+description: Conditions more frequent in people of North African descent. The Maghreb sits where the Mediterranean thalassaemia belt meets the Middle Eastern autoinflammatory cluster and inherits entries from both, but xeroderma pigmentosum is its own: the highest incidences recorded anywhere are in Tunisia, Algeria and Morocco, several times the European figure, because the disease is recessive and marriage within the extended family concentrates it. It is also the entry with the sharpest practical consequence in a paediatric file, since an affected child cannot be allowed unfiltered daylight at all. The values are French for the ordinary reason that the courrier sent back to the médecin traitant, the family doctor who follows the patient between hospital episodes, is a French document.
+locale: br
+---
+Déficit en G6PD
+Trait bêta-thalassémique
+Fièvre méditerranéenne familiale
+Maladie de Behçet
+Xeroderma pigmentosum
+Non-persistance de la lactase

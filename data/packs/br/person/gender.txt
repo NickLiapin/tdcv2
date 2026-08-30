@@ -1,0 +1,6 @@
+---
+description: Gender label, and exactly two values, because this is what a parent= filter selects on and a longer list silently leaves most rows without a name. Paotr is a lad or a man and Plac'h a girl or a woman — note that plac'h carries c'h, one letter of the Breton alphabet and not a c followed by an apostrophe and an h. The reason a Breton dataset needs this column more than a French one does is counting: the low numerals have separate masculine and feminine forms, daou and div for two, tri and teir for three, pevar and peder for four, so daou baotr is two lads and div blac'h two girls, and Breton cannot count people at all without knowing their sex first.
+locale: br
+---
+Paotr
+Plac'h

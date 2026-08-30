@@ -1,0 +1,26 @@
+---
+description: Department or function inside a company, in French, because a French organigramme is a French document and no Breton form of any of these appears on one. Two entries do not map one-to-one onto their English near-equivalents and a config writer should not treat them as spare synonyms. Contrôle de gestion is management accounting and budget control, a separate profession from comptabilité with its own diploma and its own place on the chart; and bureau d'études is the in-house design and engineering office, the room that turns a specification into drawings, which most English organisation charts do not name at all. What is regionally true here is the weight of two of the boxes: Brittany's largest private employers are food processors, and in a dairy, a slaughterhouse or a canning line the Qualité and Hygiène sécurité environnement departments are not administrative overhead but the part of the plant that can stop it, with state veterinary inspection permanently on site and the plant's approval number depending on them.
+locale: br
+---
+Direction
+Finances
+Comptabilité
+Contrôle de gestion
+Ressources humaines
+Service juridique
+Achats
+Ventes
+Marketing
+Communication
+Recherche et développement
+Bureau d'études
+Production
+Maintenance
+Qualité
+Hygiène sécurité environnement
+Logistique
+Magasin
+Transport
+Systèmes d'information
+Service client
+Services généraux

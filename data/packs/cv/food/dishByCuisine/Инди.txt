@@ -1,0 +1,12 @@
+---
+description: Indian food, the thinnest real presence on this list. Provincial Russia has very few Indian restaurants and Cheboksary's exposure comes mostly through students — Russian medical schools recruit heavily in India, and the university towns of the Volga have Indian student communities that cook for themselves and occasionally open a place. The vocabulary that has escaped that circle is small: Карри as a general idea, Наан as bread, Тикка масала as the one dish a Russian menu will list without explanation. The rest is here because a serious Indian kitchen in the city would cook it, not because the words are common on the street.
+locale: cv
+---
+Карри
+Тикка масала
+Палак панир
+Бирьяни
+Самоса
+Наан
+Дал
+Виндалу

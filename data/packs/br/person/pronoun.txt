@@ -1,0 +1,12 @@
+---
+description: The Breton personal pronouns. Three things no English-shaped config will guess. FIRST, there is no neuter: eñ and hi are he and she, but every Breton noun is grammatically masculine or feminine and takes one or the other, so a table is hi and a book is eñ, and a template that maps a row's sex onto a pronoun is only handling the animate half of the language. SECOND, c'hwi is both the plural you and the polite singular, against familiar te, so choosing between them encodes a relationship rather than a number. THIRD, and this is the one that bites, the pronoun does grammatical work through mutation. Put one in front of a verb and it needs the particle a, which softens the verb — karout, to love, becomes me a gar, I love. And in the third person the possessives that correspond to eñ and hi, namely e and he, sound alike in ordinary speech and are told apart purely by the mutation they force on the next word: e dad is his father with a soft mutation and he zad is her father with a spirant one, both from tad. Strip the mutation and the sentence stops saying whose father it is. The last value is the impersonal: Breton normally carries it in the verb ending rather than in a pronoun, so lavarout gives lavarer, one says, and where a subject word is wanted speakers reach for an nen, literally the person.
+locale: br
+---
+me
+te
+eñ
+hi
+ni
+c'hwi
+int
+an nen

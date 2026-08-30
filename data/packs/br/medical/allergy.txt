@@ -1,0 +1,26 @@
+---
+description: Allergens as a Breton consultation records them, in French, from a history that may well have been taken in Breton. The head of the list is not a pollen, and that is the regional fact: Brittany's climate is oceanic and damp, winters are mild and houses rarely dry out, so house dust mite is the dominant perennial allergen here where a Serbian list is headed by ragweed and a Provençal one by cypress. Ambroisie, which tops allergy lists in the Rhône valley, is barely established on the peninsula at all. Crustacés and Poisson are not filler either: crab, langoustine and prawn are landed and processed industrially all along the Cornouaille coast, and occupational asthma and skin sensitisation among the workers of the fish-processing halls at Concarneau, Douarnenez and Le Guilvinec is a recognised trade illness rather than a dietary curiosity. Farine belongs to the same economy — flour and grain dust from the bakeries and the agri-food plants — and iode is worth keeping in mind in a region whose diet, and whose contrast imaging, both run on the sea.
+locale: br
+---
+Acariens
+Moisissures
+Pollen de graminées
+Pollen de bouleau
+Poils d'animaux
+Farine
+Pénicilline
+Sulfamides
+Aspirine
+Iode
+Arachide
+Fruits à coque
+Sésame
+Soja
+Blé
+Œuf
+Lait de vache
+Poisson
+Crustacés
+Mollusques
+Latex
+Piqûre d'abeille ou de guêpe

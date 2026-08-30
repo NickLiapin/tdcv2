@@ -1,0 +1,11 @@
+---
+description: Route type as a haulier's dispatcher classifies it. Магистральный рейс, the trunk run, is the one that matters here: the M7 «Волга» passes Cheboksary, so a driver based in the republic can be loaded for Moscow, Kazan or Nizhny Novgorod and back without leaving the same road. Развозной маршрут is its opposite, the multi-drop round that serves village shops across a republic of unusually many small settlements. Обратная загрузка — the return load — is a dispatcher's daily problem rather than a category of journey, but it is planned and priced as one, because an empty truck coming home is the difference between a profitable run and a loss.
+locale: cv
+---
+Городская доставка
+Развозной маршрут
+Региональный рейс
+Магистральный рейс
+Международная перевозка
+Обратная загрузка
+Транзитный рейс

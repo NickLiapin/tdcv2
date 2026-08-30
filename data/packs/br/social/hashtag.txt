@@ -1,0 +1,34 @@
+---
+description: Hashtag words as they actually circulate from Brittany, given without the # so a template can add it. BZH is the one to understand, and it is the internet's Breton marker. It is Breizh with the vowels taken out, and it began life on the oval sticker Bretons put on the back of the car in place of the F — an unofficial country code for a country that is not one, tolerated rather than authorised, and on French roads for fifty years. In 2014 it became a top-level domain: after a campaign begun in 2004 by the association behind it, ICANN delegated .bzh in the round that opened the namespace beyond the old generic suffixes, which makes Brittany one of a very short list of regions anywhere in the world with a domain of its own — .cat for Catalonia went first and .gal, .eus, .scot, .cymru, .alsace and .corsica followed on the same argument. Several thousand .bzh names are registered, and the regional council, the football club and a long tail of small firms use them, so BZH is now a car sticker, a web address and a hashtag at once. The list is deliberately mixed between Breton and French spellings, because real posting is: #Bretagne is used many times more often than #Breizh and reaches a far larger audience, while #Breizh, #brezhoneg and #GwennHaDu mark the poster as much as the subject. Four are campaign tags rather than topics. Redadeg is the relay race for the Breton language, run every two years without stopping day or night across the whole peninsula, with each kilometre sold in advance to fund language projects. Diwan is the immersion school network. Ai'ta is the direct-action group that stickers monolingual French shopfronts and signage. And 44BZH is the demand that Loire-Atlantique — département 44, Naoned, the historic capital — be returned to the administrative region it was cut out of in 1941, which is the most reliably recurring political hashtag in Breton social media. One typographic note that matters in a pack this careful about spelling: hashtags carry no diacritics and no apostrophes, which is why Aodoù-an-Arvor appears here as AodouAnArvor with its accents gone and the hyphens closed up into camel case. A Breton word needing a c'h would lose the apostrophe that is part of that letter — the one flattening this pack forbids everywhere else, and the reason the c'h words are not on this list.
+locale: br
+---
+Breizh
+BZH
+Brezhoneg
+GwennHaDu
+FestNoz
+Bretagne
+Redadeg
+Diwan
+AiTa
+44BZH
+PennArBed
+MorBihan
+AodouAnArvor
+Roazhon
+Brest
+Kemper
+Gwened
+AnOriant
+Naoned
+Karnag
+TroBreiz
+GR34
+Arvor
+Argoad
+Bagad
+KanHaDiskan
+Gouren
+Triskell
+KouignAmann
+Krampouezh

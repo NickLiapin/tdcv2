@@ -1,0 +1,17 @@
+---
+description: Types of proceeding, in the French procedural vocabulary, because French civil and criminal procedure is the only procedure Brittany has. Two entries are regional rather than generic. The contentieux maritime covers what happens when a fishing boat is boarded — a quota infringement, a closed-zone haul, an undersized catch — and it is a routine category of business in Quimper and Brest in a way it is nowhere inland. The bail rural and the remembrement disputes behind the litige foncier are the long tail of Brittany's land consolidation, the post-war programme that tore out tens of thousands of kilometres of the bocage hedgerows and reshaped almost every farm in the region; the arguments about boundaries, drainage and hedge removal that it started are still in front of the courts. Note that a case brought in Breton does not exist as a category: the language of the proceeding is French by law, so the label on the file is French whatever language the parties speak at home.
+locale: br
+---
+Procédure civile
+Procédure pénale
+Contentieux administratif
+Contentieux prud'homal
+Contentieux commercial
+Procédure de divorce
+Succession
+Litige foncier
+Bail rural
+Contentieux maritime
+Contentieux de l'urbanisme
+Contentieux environnemental
+Procédure collective

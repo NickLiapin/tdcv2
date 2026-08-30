@@ -1,0 +1,12 @@
+---
+description: How the material is won, in French, and in Brittany the method follows from the product rather than from the depth of the deposit. Almost everything is open pit today; exploitation souterraine is here for the record, because the lead-silver galleries of Huelgoat and Poullaouen ran underground for centuries and nothing of the sort is worked now. The two entries that are genuinely Breton in character are sciage au fil diamanté and abattage hydraulique. Dimension granite cannot be blasted at the face — an explosive charge puts micro-fractures through the block and destroys its value — so the working face of a granite quarry is cut by diamond wire and split along drilled lines, which is why the walls of a Breton granite pit are flat and square while an aggregate quarry beside it is a rubble slope torn down by abattage à l'explosif. Kaolin is not a rock to be broken but a clay dispersed through a sand matrix, so at Ploemeur it is washed out with water jets and separated downstream, and the plant does more of the work than the pit does. Dragage marin is the last one and the disputed one: the sea floor is a working face here, dredged for sand and formerly for maërl, and the arguments about it are fought in the coastal communes rather than in the quarry.
+locale: br
+---
+Carrière à ciel ouvert
+Exploitation souterraine
+Décapage de la découverte
+Abattage à l'explosif
+Sciage au fil diamanté
+Abattage hydraulique
+Lavage et flottation
+Dragage marin

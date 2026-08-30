@@ -1,0 +1,36 @@
+---
+description: Titles that stand in front of a name, and the honest warning is that Sami society barely uses them. People are addressed by their given name, or by the ancestral name chain that identifies whose child and grandchild they are, and a Sami-language letter that opens with a title is usually a translation of a Norwegian, Swedish or Finnish letter that opened with one. So most of this list is a register layer rather than speech. hearrá, mister, is an old Norse loan; eamit is the mistress of a household and nieida is a girl or an unmarried woman. The genuinely Sami entries are the offices: presideanta is the president of a Sámediggi, of which there are three, one in Norway, one in Sweden and one in Finland, each elected by its own Sami electoral roll; áirras is an elected member of one; sátnejođiheaddji, the word-leader, is both a parliamentary speaker and a municipal mayor. siidaisit is the head of a siida, the herding community, and it is a real position with real authority over pasture, migration and who joins the group, held by nobody the state has appointed. duojár is a maker of duodji, the craft tradition, and is a title people use of one another with weight.
+locale: se
+---
+Hearrá
+Eamit
+Nieida
+Hr.
+Fr.
+Dr.
+Doavttir
+Prof.
+Professor
+Prof. dr.
+Doseanta
+Rektor
+Oahpaheaddji
+Báhppa
+Bisma
+Presideanta
+Áirras
+Sátnejođiheaddji
+Jođiheaddji
+Hoavda
+Ossodathoavda
+Direktevra
+Duopmár
+Advokáhta
+Buohccidivššár
+Siidaisit
+Isit
+Duojár
+Juoigi
+Girječálli
+Journalista
+Konsuleanta

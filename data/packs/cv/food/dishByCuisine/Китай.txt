@@ -1,0 +1,12 @@
+---
+description: Chinese food in a Russian regional capital, which is a wok-and-noodle format rather than a regional Chinese one. Cheboksary is a long way from the Far East, where Chinese cooking arrived directly and stayed recognisable; here it came second-hand through Moscow food courts and delivery apps, so the register is Лапша вок in a paper box with a choice of sauce. The names are given as Russian menus give them, including the fully translated ones — Утка по-пекински and Свинина в кисло-сладком соусе are what a customer orders, and no shorter Chuvash form is in use. Дим-сам is the newest arrival and the one that signals a more ambitious kitchen.
+locale: cv
+---
+Утка по-пекински
+Лапша вок
+Спринг-роллы
+Дим-сам
+Кунг-пао
+Свинина в кисло-сладком соусе
+Чау-мейн
+Вонтон-суп

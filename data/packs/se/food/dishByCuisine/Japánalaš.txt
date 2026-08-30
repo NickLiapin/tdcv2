@@ -1,0 +1,12 @@
+---
+description: Japanese dishes, the child of food.cuisine value Japánalaš. Sushi reached northern Norway the way it reached everywhere, through the 2000s, and it arrived with an argument attached: Norwegian farmed salmon is what a great deal of the world's sushi is made of, Japan was the market that made that industry, and the fjords the salmon is farmed in are the same fjords the Sea Sami fish. Sea lice and escaped farmed fish are a live grievance for anyone with a salmon river.
+locale: se
+---
+Sushi
+Sashimi
+Ramen
+Tempura
+Udon
+Yakitori
+Miso-suppe
+Gyoza

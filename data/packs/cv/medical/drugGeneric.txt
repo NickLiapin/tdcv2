@@ -1,0 +1,45 @@
+---
+description: Generic names as a pharmacy in Cheboksary prints them: the INN transliterated into Russian, which is how the Russian state medicines register writes it and how a prescription is legally required to be written. The formulary is Russia's rather than a European one, and four entries show it. Метамизол натрия is анальгин, withdrawn or restricted across much of the world for agranulocytosis and still one of the most-taken analgesics in Russian households. Дротаверин is но-шпа, the near-universal post-Soviet antispasmodic. Изониазид and рифампицин are ordinary stock rather than specialist items, because tuberculosis treatment is dispensed free through a standing dispensary network. Тиамина хлорид is here for the alcohol-related neuropathy and Korsakov cases that the region records in quantity, and левотироксин натрия for a population living on iodine-poor Volga soils.
+locale: cv
+---
+Парацетамол
+Ибупрофен
+Ацетилсалициловая кислота
+Диклофенак
+Кеторолак
+Метамизол натрия
+Дротаверин
+Трамадол
+Амоксициллин
+Амоксициллин + клавулановая кислота
+Азитромицин
+Цефтриаксон
+Ципрофлоксацин
+Доксициклин
+Метронидазол
+Изониазид
+Рифампицин
+Эналаприл
+Лизиноприл
+Периндоприл
+Лозартан
+Амлодипин
+Метопролол
+Бисопролол
+Индапамид
+Фуросемид
+Спиронолактон
+Аторвастатин
+Розувастатин
+Клопидогрел
+Варфарин
+Метформин
+Гликлазид
+Инсулин гларгин
+Левотироксин натрия
+Омепразол
+Сальбутамол
+Будесонид
+Преднизолон
+Тиамина хлорид
+Сертралин

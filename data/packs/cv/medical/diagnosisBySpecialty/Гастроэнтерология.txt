@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in gastroenterology. Two of the six are regionally loaded. Алкогольный цирроз печени is on the list because alcohol-attributable liver disease is a leading cause of premature death among men in the Volga region and a Russian chart names the cause in the diagnosis itself rather than writing 'cirrhosis' and leaving it there. Хронический гастрит and the ulcer entries follow a Helicobacter pylori carriage rate in the Russian population that has been measured at well over half of adults, far above Western European figures.
+locale: cv
+---
+Гастроэзофагеальная рефлюксная болезнь
+Хронический гастрит
+Язвенная болезнь желудка
+Алкогольный цирроз печени
+Синдром раздраженного кишечника
+Неалкогольная жировая болезнь печени

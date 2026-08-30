@@ -1,0 +1,19 @@
+---
+description: Courts as they are named and organised in Brittany. All of Brittany plus Loire-Atlantique falls under a single appeal court, the Cour d'appel de Rennes, which is why Rennes and not Nantes or Brest is the region's legal capital and why the phrase ressort de la cour d'appel de Rennes turns up in so much Breton paperwork. Below it the tribunaux judiciaires sit in Brest, Quimper, Lorient, Vannes, Saint-Brieuc, Saint-Malo and Rennes. The specifically Breton entry is the tribunal maritime: France tries maritime offences — a skipper fishing in a closed zone, a collision, an infraction of the sea code — in dedicated maritime courts, and Brest hosts one of the few. Everything here is in French, and that is not a translation gap. Judicial proceedings in France are conducted in French by law, and attempts to give testimony or take an oath in Breton have been refused by French courts within living memory, so a Breton speaker in a Breton courtroom in a Breton town argues his case in French or through an interpreter he has to pay for.
+locale: br
+---
+Tribunal judiciaire de Rennes
+Tribunal judiciaire de Brest
+Tribunal judiciaire de Quimper
+Tribunal judiciaire de Lorient
+Tribunal judiciaire de Vannes
+Tribunal judiciaire de Saint-Brieuc
+Tribunal de proximité
+Tribunal de commerce
+Conseil de prud'hommes
+Tribunal de police
+Cour d'assises
+Tribunal maritime de Brest
+Tribunal administratif de Rennes
+Cour administrative d'appel de Nantes
+Cour d'appel de Rennes

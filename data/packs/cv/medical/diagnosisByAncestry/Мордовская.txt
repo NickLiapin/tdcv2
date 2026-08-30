@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised frequency in people of Mordvin descent. The Mordvins — Erzya and Moksha together — are the Volga Finno-Ugric people most heavily assimilated into the surrounding Russian population, with high intermarriage over several generations, which is precisely why no distinctive disease profile separates them and this file carries the general regional burden instead. Saying so is more useful than inventing a signature: hypertension, stroke, type 2 diabetes and alcohol-related liver disease are what the clinic actually sees, and endemic goitre follows the same iodine-poor soils as everywhere else in the middle Volga.
+locale: cv
+---
+Первичная лактазная недостаточность
+Артериальная гипертензия
+Ишемический инсульт
+Сахарный диабет 2 типа
+Алкогольная болезнь печени
+Эндемический зоб

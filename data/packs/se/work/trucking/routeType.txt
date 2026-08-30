@@ -1,0 +1,11 @@
+---
+description: Kinds of haulage route. The E6 runs the whole length of Finnmark and is frequently the only road, so a closure shuts a region rather than a road; winter driving includes the convoy system, where vehicles wait at a barrier and cross an exposed mountain stretch in a column behind a plough. Both border crossings on this list are ordinary daily traffic and not exceptional events: the Sami area straddles them, families and herds are on both sides, and the 1751 Lapp Codicil guaranteed the right to cross with reindeer long before any customs post existed. Kystrute is the other geography entirely — the fjord coast, where goods still move by boat because the road takes four times as long.
+locale: se
+---
+Bydistribusjon
+Regionrute
+E6-ruta
+Vinterveg
+Grensekryssing Norge–Finland
+Grensekryssing Norge–Sverige
+Kystrute

@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in psychiatry. Brittany carries the highest regional suicide mortality in metropolitan France, well above the national rate and heaviest in the western, Breton-speaking departments, and alcohol use disorder is entangled with that figure rather than standing apart from it, which is why both appear here as ordinary coded diagnoses and not as commentary. Most of this work happens at a CMP, the centre médico-psychologique, the free public outpatient unit that is the front door of French psychiatry in every sector of the country, rather than on a ward. This file also marks the folder's clearest seam: the diagnosis is recorded in French, while what the patient actually says, in Breton, is a different field and lives in medical/symptom.txt.
+locale: br
+---
+Trouble dépressif caractérisé
+Trouble anxieux généralisé
+Trouble de l'usage de l'alcool
+Trouble bipolaire
+Schizophrénie
+Tentative de suicide

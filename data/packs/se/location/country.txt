@@ -1,0 +1,238 @@
+---
+description: Countries as Sami-language media and the Sámediggi write them, sorted in Sami alphabetical order, which puts á after a, č after c, đ after d, ŋ after n, š after s, ŧ after t and ž last. Only the near neighbours and the old great powers have names of their own here, and those names are worth reading: Norga, Ruoŧŧa, Suopma and Ruošša are the four states Sápmi is divided among, and not one of their borders was drawn with any reference to it — the Norway-Sweden border cut the migration routes in 1751, the Finnish border closed in 1852, and families found their summer and winter pastures in different countries. The 1751 treaty carried a supplement, the Lapp Codicil, that guaranteed Sami the right to cross with their herds regardless of the border, and it is still cited today. Nuortariika, Austria, is literally the eastern realm; Duiska is Germany; Vuolleeatnamat is the Netherlands, the low lands, rendered word for word rather than borrowed; Ruonáeatnan is Greenland, the green land, likewise; Juovlasuolu is Christmas Island, named for the day it was sighted; Frankriika, Kiinná, Japána and Durka are old borrowings worn into Sami shape. Everything else is the internationally current name written with Sami spelling — that is not a shortcut but what actual Sami practice does, since a language with twenty-five thousand speakers has had no occasion to coin a native word for Vanuatu.
+locale: se
+---
+Afghanistan
+Albánia
+Algeria
+Amerihká ovttastuvvan stáhtat
+Amerihká Samoa
+Amerihká Virgin-sullot
+Andorra
+Angola
+Anguilla
+Antárktis
+Antigua ja Barbuda
+Argentina
+Armenia
+Aruba
+Aserbaižan
+Austrália
+Bahamas
+Bahrain
+Bangladeš
+Barbados
+Belarusia
+Belgia
+Belize
+Benin
+Bermuda
+Bhutan
+Bolivia
+Bosnia ja Hercegovina
+Botswana
+Brasil
+Brittalaš Virgin-sullot
+Brunei
+Bulgária
+Burkina Faso
+Burundi
+Cayman-sullot
+Chile
+Cook-sullot
+Costa Rica
+Côte d'Ivoire
+Čeahkka
+Davvi-Korea
+Davvi-Makedonia
+Davvi-Mariánat
+Dánmárku
+Djibouti
+Dominica
+Dominikána dásseváldi
+Duiska
+Durka
+Ecuador
+Egypta
+Ekvatoriála Guinea
+El Salvador
+Eritrea
+Estlánda
+Eswatini
+Etiopia
+Falklandsullot
+Fearsullot
+Fiji
+Filippiinnat
+Frankriika
+Fránskka Guyana
+Fránskka lulli eatnamat
+Fránskka Polynesia
+Gabon
+Gaska-Afrihká dásseváldi
+Gámbia
+Georgia
+Ghana
+Gibraltar
+Grenada
+Gréika
+Guadeloupe
+Guam
+Guatemala
+Guinea
+Guinea-Bissau
+Guyana
+Haiti
+Hollánda Antillat
+Honduras
+Hongkong
+India
+Indonesia
+Irak
+Iran
+Irlánda
+Islánda
+Israel
+Itália
+Jamaica
+Japána
+Jemen
+Jordánia
+Juovlasuolu
+Kambodža
+Kamerun
+Kanáda
+Kap Verde
+Kasakstan
+Kenia
+Kiinná
+Kirgisistan
+Kiribati
+Kokos-sullot
+Kolombia
+Komoros
+Kongo dásseváldi
+Kongo demokráhtalaš dásseváldi
+Kosovo
+Kroátia
+Kuba
+Kuwait
+Kypros
+Laos
+Látvia
+Lesotho
+Libanon
+Libya
+Libéria
+Liechtenstein
+Liettuva
+Lulli-Afrihká
+Lulli-Korea
+Lulli-Sudan
+Luxemburg
+Macao
+Madagaskar
+Malawi
+Malediivvat
+Malesia
+Mali
+Marokko
+Marshall-sullot
+Martinique
+Mauretánia
+Mauritius
+Mayotte
+Málta
+Meksiko
+Mikronesia
+Moldova
+Monaco
+Mongolia
+Montenegro
+Montserrat
+Mosambik
+Myanmar
+Namibia
+Nauru
+Nepal
+Nicaragua
+Niger
+Nigéria
+Niue
+Norga
+Nuortariika
+Nuorta-Timor
+Oarje-Sahara
+Ođđa-Kaledonia
+Ođđa-Selánda
+Oman
+Ovttastuvvan arábaemiráhtat
+Ovttastuvvan gonagasriika
+Pakistan
+Palau
+Palestina eatnamat
+Panama
+Papua Ođđa-Guinea
+Paraguay
+Peru
+Pitcairn
+Polen
+Portugála
+Puerto Rico
+Qatar
+Románia
+Ruonáeatnan
+Ruošša
+Ruoŧŧa
+Rwanda
+Réunion
+Saint Kitts ja Nevis
+Saint Lucia
+Saint Vincent ja Grenadinnat
+Salomon-sullot
+Samoa
+San Marino
+Saudi-Arábia
+Senegal
+Serbia
+Seychellat
+Sierra Leone
+Singapore
+Slovákia
+Slovenia
+Somália
+Spánia
+Sri Lanka
+Sudan
+Suopma
+Surinam
+Syria
+São Tomé ja Príncipe
+Šveica
+Tadžikistan
+Taiwan
+Tanzánia
+Thailánda
+Tibet
+Togo
+Tokelau
+Tonga
+Trinidad ja Tobago
+Tšad
+Tunisia
+Turkmenistan
+Turks ja Caicos-sullot
+Tuvalu
+Uganda
+Ukraina
+Ungária
+Uruguay
+Usbekistan
+Vanuatu
+Vatikána
+Venezuela
+Vietnam
+Vuolleeatnamat
+Wallis ja Futuna
+Zambia
+Zimbabwe

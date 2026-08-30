@@ -1,0 +1,20 @@
+---
+description: Academic and vocational qualification as awarded in France, which is what Brittany has. The ladder is French throughout: CAP and BEP for the trades, then three baccalauréats — général, technologique, professionnel — which are not three versions of one examination but three separate school careers decided years in advance, then the Bologna licence-master-doctorat laid over the older BTS and DUT. The DUT was replaced by the three-year BUT in 2021 and both names are in circulation, because everyone holding the old one goes on writing it. Classes préparatoires aux grandes écoles are not a qualification at all but two years of post-baccalauréat cramming toward a competitive entrance examination; they are in this list because a French curriculum vitae puts them where a degree would go, and any dataset of French education records will contain them. CAPES de breton is the Breton entry and a genuine state qualification: a competitive examination created in the 1980s that certifies a secondary teacher of the language and is largely sat in Breton. The number of posts opened at it each year is the real ceiling on how fast bilingual schooling can grow, which is why that number is argued about publicly every spring.
+locale: br
+---
+Brevet des collèges
+CAP
+BEP
+Baccalauréat général
+Baccalauréat technologique
+Baccalauréat professionnel
+Classes préparatoires aux grandes écoles
+BTS
+DUT
+BUT
+Licence
+Licence professionnelle
+Master
+Diplôme d'ingénieur
+Doctorat
+CAPES de breton

@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in neurology. Stroke heads the list on the numbers: the Volga region records some of the highest cerebrovascular incidence in Europe, and the stroke unit is the busiest part of a Chuvash neurology department. Two entries are specific to this medical tradition rather than to this region — дисциркуляторная энцефалопатия is a chronic cerebrovascular diagnosis of the Russian-language neurological school with no exact Western counterpart, and алкогольная полинейропатия is written out by name because the alcohol-related caseload is large enough that it is a routine referral, not a footnote.
+locale: cv
+---
+Ишемический инсульт
+Мигрень
+Эпилепсия
+Дисциркуляторная энцефалопатия
+Болезнь Паркинсона
+Алкогольная полинейропатия

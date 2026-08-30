@@ -1,0 +1,8 @@
+---
+description: The four seasons, and the number four is a concession to the calendar this list has to interoperate with. Northern Sami counts eight: dálvi, giđđadálvi, giđđa, giđđageassi, geassi, čakčageassi, čakča, čakčadálvi — winter, spring-winter, spring, spring-summer, summer, autumn-summer, autumn, autumn-winter. The four extra ones are not poetry. They are the transitional periods that matter most to a herd, when the ground is neither frozen nor open, when the crust forms and breaks, when the calving grounds are reachable and when they are not, and a herding year is planned around exactly those boundaries. Each of the eight has its own work, its own pasture and its own risk.
+locale: se
+---
+dálvi
+giđđa
+geassi
+čakča

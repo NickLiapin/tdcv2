@@ -1,0 +1,23 @@
+---
+description: Everyday legal vocabulary, in French, and the reason is worth stating once because it explains half the French entries in this pack: Article 2 of the French constitution says that the language of the Republic is French, and courts have read it strictly. Breton has no legal register of its own that a lawyer could work in — there is no Breton code, no Breton case law, no Breton form of summons — so a Breton speaker before a Breton judge in a Breton town uses these words and not others. That is a real asymmetry: the language survives in the kitchen, the boat and the fest-noz and stops at the courthouse door. The one Breton legal word worth knowing is not on this list because it names something abolished: the old duchy had its own custom, the Très Ancienne Coutume de Bretagne, written down in 1312 and superseded when the duchy was united to France by the act of 1532, which is the last date at which anything in this field was not French.
+locale: br
+---
+assignation
+demandeur
+défendeur
+jugement
+ordonnance
+appel
+pourvoi en cassation
+audience
+preuve
+témoin
+expertise
+procuration
+avocat
+huissier de justice
+contrat
+avenant
+clause
+prescription
+compétence territoriale

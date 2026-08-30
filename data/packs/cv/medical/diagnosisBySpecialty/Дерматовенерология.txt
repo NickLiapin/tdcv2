@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in dermatovenereology, and the list explains the specialty's name. In the Russian nomenclature skin disease and sexually transmitted infection are a single post held by one doctor with one certificate, dispensing from a single кожно-венерологический диспансер, which is why сифилис sits here beside псориаз instead of belonging to an infectious-disease clinic as it would in most of Europe. That arrangement is inherited from the Soviet dispensary system, where notifiable venereal infection was tracked by the same service that treated eczema.
+locale: cv
+---
+Псориаз
+Атопический дерматит
+Акне
+Контактный дерматит
+Меланома
+Сифилис

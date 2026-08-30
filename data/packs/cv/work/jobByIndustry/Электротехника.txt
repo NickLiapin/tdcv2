@@ -1,0 +1,16 @@
+---
+description: Jobs in electrical engineering, listed separately from machine building because in Cheboksary it genuinely is a separate industry with its own institutes and its own vocabulary. Low-voltage switchgear, relay protection and control cabinets are the local speciality, so the list carries posts that would look oddly narrow anywhere else — a relay-protection engineer, a winder of electrical machines, an assembler of distribution boards — and they are ordinary vacancies here. Метролог is on the list because a plant that ships tested equipment needs a calibration service by law. Russian throughout: the standards, the drawings and the vacancy texts are all Russian.
+locale: cv
+---
+Инженер-электрик
+Инженер-схемотехник
+Инженер по релейной защите
+Инженер по автоматизации
+Инженер-испытатель
+Электромонтажник
+Электромонтёр по ремонту электрооборудования
+Монтажник радиоэлектронной аппаратуры
+Сборщик распределительных щитов
+Обмотчик электрических машин
+Метролог
+Техник-электрик

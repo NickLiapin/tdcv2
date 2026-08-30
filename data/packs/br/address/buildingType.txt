@@ -1,0 +1,36 @@
+---
+description: Building type, and the list is split down the middle deliberately. The Breton half is the vernacular building stock and every word in it is real and current: ti a house, ti-kêr the town hall (literally the house of the town), ti-post the post office, penn-ti a small end-cottage, ti-feurm a farmhouse, ti-forn the bakehouse, savadur a building, ilis a church, chapel a chapel, kastell a castle, maner a manor, milin a mill, skol a school, levraoueg a library, mirdi a museum. Kanndi is the one with no equivalent anywhere: the kanndi is the small stone linen-washing house of the Léon, built over its own spring, in which the flax thread of the linen trade was steeped and bleached before it went to market, and they survive by the hundred as roofless shells in the fields inland from Landerne — a whole vanished industry recorded in one common noun. The French half is French because the register is French, and pretending otherwise would be inventing: résidence, immeuble, HLM, lotissement and pavillon are the vocabulary of the planning code and the estate agent, and nobody in Brittany reaches for a Breton word when talking about a block of flats. Longère deserves its own sentence — it is the long low Breton farmhouse with every room in a single row under one roof, byre at one end and hearth at the other, and having been the cheapest housing in the countryside it is now what a renovated holiday property is advertised as. Phare, criée, conserverie and malouinière are Brittany's own French: the lighthouse, of which this coast has more than any other in France, the covered fish auction that every working port is built around, the sardine cannery that made and unmade Douarnenez and Konk-Kerne, and the fortified country house a Saint-Malo shipowner built out of the Indies trade. The Breton values are dictionary forms and mutate in use, most visibly after a numeral, where ti gives tri zi for three houses.
+locale: br
+---
+Ti
+Ti-kêr
+Ti-post
+Penn-ti
+Ti-feurm
+Ti-forn
+Savadur
+Ilis
+Chapel
+Kastell
+Maner
+Milin
+Skol
+Levraoueg
+Mirdi
+Kanndi
+Résidence
+Immeuble
+HLM
+Lotissement
+Pavillon
+Gîte
+Longère
+Chaumière
+Corps de ferme
+Hôtel
+Restaurant
+Hôpital
+Phare
+Criée
+Conserverie
+Malouinière

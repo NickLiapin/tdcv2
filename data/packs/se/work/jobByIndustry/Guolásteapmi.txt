@@ -1,0 +1,16 @@
+---
+description: Jobs in fishing, the child of work.industryCoherent value Guolásteapmi. Two quite different fisheries sit in one word. The first is the river fishery of the interior, above all the Deatnu salmon, taken with nets and weirs under rules set by treaty between Norway and Finland — the 2017 agreement cut traditional Sami fishing hard and has been fought in the courts and at the UN ever since. The second is the coast, where the Sea Sami of the fjords have fished cod and saithe from small boats for as long as anyone has been there; their right to do so was recognised only slowly, and the Finnmark Act of 2005 and the coastal fishing commission that followed it were the result of a very long argument about who owns the sea a village lives off.
+locale: se
+---
+Guolásteaddji
+Fanashoavda
+Styrmánna
+Mašinista
+Matrosa
+Guollebargi
+Guollerusttetbargi
+Luossabivdi
+Guollegávppašeaddji
+Guollekontrollár
+Mearrabiologa
+Fanasdivvár

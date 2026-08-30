@@ -1,0 +1,18 @@
+---
+description: Marital status, Chuvash first and then the Russian registry wording. Chuvash has no grammatical gender, yet marriage is the one place where it still forces the sexes apart, because it uses two different verbs: a man авлан- "takes a wife", a woman качча кай- "goes as a bride". So авланнӑ is said only of a husband and качча кайнӑ only of a wife, and a config must pick the one that matches the row. Ҫураҫнӑ is the betrothal state, from ҫураҫу, the formal matchmaking visit that still opens a village wedding. The remaining eight values are the Russian forms a ЗАГС office actually prints, and they are here because the certificate is a Russian document even when the wedding was conducted entirely in Chuvash; note that Russian, unlike Chuvash, splits every one of them by gender. Chuvash does have a word for a widow, тӑлӑх арӑм, literally "orphaned woman", but no matching word for a widower, so that gap is covered here by вдовец.
+locale: cv
+---
+Авланман
+Качча кайман
+Авланнӑ
+Качча кайнӑ
+Уйрӑлнӑ
+Ҫураҫнӑ
+Холост
+Не замужем
+Женат
+Замужем
+Разведён
+Разведена
+Вдовец
+Вдова

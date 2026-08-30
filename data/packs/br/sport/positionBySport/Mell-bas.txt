@@ -1,0 +1,9 @@
+---
+description: Basketball positions, in French, and numbered one to five in club practice from the meneur at one to the pivot at five, so a Breton coach will as often say the number as the word. The Breton name of the game is the odd one in the mell- series because only half of it is Breton: mell is the ball and bas is a clipping of the borrowed basket, so the compound records the exact moment a foreign game was fitted into a native frame instead of being described afresh. Brittany's flagship side is not in a city — Landerneau Bretagne Basket plays in the women's first division out of a town of some fifteen thousand people near Brest — and UJAP Quimper carries the men's professional game. Pivot here is the tallest player working nearest the basket, which is not what pivot means in handball, and a config that draws positions across sports will meet the word twice with two meanings.
+locale: br
+---
+Meneur
+Arrière
+Ailier
+Ailier fort
+Pivot

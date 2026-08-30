@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised frequency in people of Udmurt descent. The Udmurts are the Permic branch of Finno-Ugric, north-east of Chuvashia across the Vyatka, and their profile sits between the northern-European one and the Volga one — hereditary haemochromatosis, a northern-European variant disorder, is plausible in a way it is not for the Turkic Volga peoples, while lactase non-persistence is still common. The forest entries are the same as for the Mari, tick-borne encephalitis being endemic through the taiga edge of Udmurtia. As with the other Volga peoples, this is a prevalence signal and not an exclusive one.
+locale: cv
+---
+Первичная лактазная недостаточность
+Наследственный гемохроматоз
+Артериальная гипертензия
+Алкогольная болезнь печени
+Клещевой энцефалит
+Дефицит витамина D

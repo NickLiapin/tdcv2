@@ -1,0 +1,38 @@
+---
+description: Fruit and berries, in Chuvash, with the forest and the garden first and the supermarket last — which is also the order in which Chuvashia actually eats them. Улма, the apple, leads because the right bank of the Volga here is orchard country and the apple is the fruit a Chuvash household preserves by the bucket. The berry names repay reading literally: хӑмла ҫырли, the raspberry, is "hops berry"; ҫӗр ҫырли, the strawberry, is "earth berry"; шур ҫырли, the cranberry, is "bog berry"; иҫӗм ҫырли is the grape. Пилеш rowan, ҫӗмӗрт bird cherry and палан viburnum are gathered rather than grown and all three carry more cultural weight than culinary — they turn up in songs and in embroidery names as often as in a jar. From крыжовник onward the words are Russian, because that is what a speaker says: greenhouse and import fruit arrived through Russian-language commerce and never acquired Chuvash names, and pretending otherwise would invent a vocabulary that no market in Cheboksary uses.
+locale: cv
+---
+улма
+хӑмла ҫырли
+ҫӗр ҫырли
+хурлӑхан
+пилеш
+ҫӗмӗрт
+палан
+кӗтмел
+шур ҫырли
+хура ҫырла
+чие
+иҫӗм ҫырли
+мӑйӑр
+груша
+слива
+крыжовник
+облепиха
+шиповник
+арбуз
+дыня
+абрикос
+персик
+лимон
+апельсин
+мандарин
+банан
+ананас
+киви
+авокадо
+грейпфрут
+гранат
+хурма
+инжир
+манго

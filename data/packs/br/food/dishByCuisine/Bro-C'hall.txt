@@ -1,0 +1,13 @@
+---
+description: French cuisine as a brasserie in Rennes or Brest serves it, in French, because that is what the card says. The name of the file is worth unpacking: Bro-C'hall is 'the country of the Gauls', and Breton gall meant first a Gaul and then simply a Frenchman or an outsider — which is why Le Gall, one of the commonest surnames in Brittany, literally means 'the Frenchman'. A French clerk translated the Breton article of Ar Gall into Le, and both forms are borne today. The same root names Gallo, the Romance language of Upper Brittany, so a Breton speaker's word for his French-speaking neighbour and for that neighbour's language are one word.
+locale: br
+---
+Bœuf bourguignon
+Coq au vin
+Blanquette de veau
+Quiche lorraine
+Soupe à l'oignon
+Steak-frites
+Croque-monsieur
+Crème brûlée
+Tarte Tatin

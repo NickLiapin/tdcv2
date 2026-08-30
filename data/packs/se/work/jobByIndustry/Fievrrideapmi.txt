@@ -1,0 +1,16 @@
+---
+description: Jobs in transport, the child of work.industryCoherent value Fievrrideapmi. Distance is the industry here. The E6 runs the length of Finnmark and is the only road for most of it; a closed mountain pass in January cuts a town off entirely, and the convoy system, where vehicles cross an exposed stretch in a group behind a plough, is an ordinary part of winter driving. Aviation is not a luxury but the substitute for a road network, which is why girdivuoddji, pilot, sits on a list beside bus driver. The one hazard peculiar to the region is on the road itself: reindeer stand on warm asphalt and are struck in numbers every year, which is a herder's loss, a driver's insurance claim and a police report all at once.
+locale: se
+---
+Vuoddji
+Lastevuoddji
+Bussevuoddji
+Taksivuoddji
+Girdivuoddji
+Girdibálvaleaddji
+Logistihkkakoordináhtor
+Vuorkábargi
+Poastabargi
+Mekanihkkár
+Geaidnodivvár
+Girdišilljubargi

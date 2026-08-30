@@ -1,0 +1,15 @@
+---
+description: Parcel-level tracking states, masculine because they agree with colis rather than with commande — the note in orderStatus explains why the two lists cannot be substituted for each other. Au centre de tri names a real link in the chain and not a euphemism: La Poste sorts through a small number of industrial platforms rather than through local offices, so a parcel addressed to Finistère typically passes the Rennes platform before it turns west, and a Breton tracking page will often show the parcel travelling away from its addressee for a day before it comes back. Disponible en point relais is a terminal-looking state that is not delivery: the parcel is sitting in a shop, the clock on it is short — about a fortnight — and when it runs out Retourné à l'expéditeur follows automatically without anyone deciding anything, which makes those two values much more strongly correlated in real data than the list order suggests.
+locale: br
+---
+En préparation
+Prêt à expédier
+Remis au transporteur
+En transit
+Au centre de tri
+En cours de livraison
+Tentative de livraison
+Livré
+Disponible en point relais
+Retourné à l'expéditeur
+Colis perdu

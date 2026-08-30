@@ -1,0 +1,16 @@
+---
+description: Jobs in building. Kalvez is the Breton for a carpenter, and it is also, with a French article welded onto the front of it, one of the surnames in this pack: Le Calvez is the carpenter exactly as Le Goff is the smith, from gov, so a list of Breton family names is to a large extent a list of trades from the centuries before the parish registers went over to French. The materials are what make these trades local. Roofs in Lower Brittany are slate, cut in the Monts d'Arrée and around Maël-Carhaix, which is why couvreur-ardoisier is a trade apart from couvreur and not a flourish; walls are granite, and the tailleur de pierre still has work because the parish closes of Léon — Guimiliau, Saint-Thégonnec, Pleyben — were raised in kersanton stone by masons paid out of the sixteenth-century linen and canvas trade, and have been under restoration ever since. Everything else on the list is French, because the devis, the corps de métier and the convention collective that govern a building site are all French documents and a site speaks the language its paperwork is written in.
+locale: br
+---
+Kalvez
+Maçon
+Tailleur de pierre
+Couvreur-ardoisier
+Menuisier
+Plombier-chauffagiste
+Électricien du bâtiment
+Carreleur
+Peintre en bâtiment
+Géomètre-topographe
+Chef de chantier
+Conducteur de travaux

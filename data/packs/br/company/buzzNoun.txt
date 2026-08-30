@@ -1,0 +1,64 @@
+---
+description: Corporate filler nouns, and the register has to be stated plainly rather than dressed up: a Breton company's website, brochure and annual report are written in French, with English loans on top, and that is what the bulk of this list is. There is no Breton business jargon in general circulation. The language has a full everyday vocabulary for work - a fisherman, a farmer, a joiner and a baker all have Breton words for what they do and what they make - but the layer above it, the layer of strategy documents and value propositions, was never built by speakers because the institutions that would have built it conducted their business in French. What exists instead is a real but narrow terminological register, produced deliberately by the Ofis Publik ar Brezhoneg and its TermBret service, which publishes word lists for administration, signage and commerce, and used in earnest by perhaps a few dozen organisations: the office itself, the Diwan schools, the regional council's language service, the publishers and the handful of firms that trade on being Breton. The six Breton nouns at the end of this file come from that register and are genuine: embregerezh is a company or enterprise and is the ordinary word, raktres a project, kenlabour collaboration, diorren development, marc'had a market, kalite quality. They are placed last rather than first because that is their true weight - a config drawing from this file will produce French about nine times out of ten, which is what a corpus of Breton business prose actually looks like. The English block in the middle is not decoration either: le reporting, le benchmark, la data, la roadmap and le business model are French office words now, borrowed whole and inflected with French articles, and a firm in Rennes uses them exactly as a firm in Lyon does. Note that the French nouns carry no article, so a config that needs le or la must supply it and must know the gender - and that three of them are regional rather than universal: circuit court, ancrage territorial and filière are words a Breton agri-food firm uses constantly and a software company almost never.
+locale: br
+---
+solution
+plateforme
+écosystème
+infrastructure
+architecture
+intégration
+optimisation
+transformation
+numérisation
+automatisation
+innovation
+stratégie
+vision
+croissance
+efficacité
+productivité
+performance
+qualité
+démarche
+processus
+savoir-faire
+valeur ajoutée
+marché
+filière
+chiffre d'affaires
+rentabilité
+investissement
+partenariat
+coopération
+synergie
+réseau
+accompagnement
+conseil
+expertise
+proximité
+satisfaction client
+fidélisation
+gouvernance
+conformité
+traçabilité
+transition écologique
+développement durable
+circuit court
+ancrage territorial
+business model
+management
+marketing
+reporting
+benchmark
+cloud
+data
+digital
+feedback
+roadmap
+embregerezh
+raktres
+kenlabour
+diorren
+marc'had
+kalite

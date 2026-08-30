@@ -1,0 +1,13 @@
+---
+description: Italian food as a Breton menu writes it, in French spelling — bolognaise, not bolognese — and one entry is a French invention rather than an Italian dish: spaghetti bolognaise has no counterpart in Bologna, where the ragù goes on tagliatelle. The pizzeria is the second sit-down format of every Breton town after the crêperie, and the two are in direct competition: both sell a cheap flat thing cooked to order on a hot surface, both are ordered by a list of toppings, and in a town like Lannion or Quimperlé they will be on the same street at the same prices.
+locale: br
+---
+Pizza margherita
+Pizza quatre fromages
+Spaghetti bolognaise
+Pâtes carbonara
+Lasagnes
+Risotto
+Gnocchi
+Osso buco
+Tiramisu

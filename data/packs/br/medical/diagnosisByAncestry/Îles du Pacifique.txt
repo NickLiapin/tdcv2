@@ -1,0 +1,10 @@
+---
+description: Conditions more frequent in people of Pacific Islander descent, reaching Brittany by a specific route rather than by chance. French Polynesia, Wallis-et-Futuna and New Caledonia are French, their patients are transferred to metropolitan hospitals under the évacuation sanitaire scheme when the local plateau technique cannot cope, and Brest is a naval port whose personnel and their families rotate through Papeete and Nouméa for years at a time. Gout and hyperuricaemia are genuinely elevated in this population on genetic grounds and not only dietary ones, and rheumatic heart disease persists at rates that most high-income countries eliminated decades ago. The coding thesaurus a French hospital picks these strings from exists in French only.
+locale: br
+---
+Diabète de type 2
+Hypertension liée à l'obésité
+Goutte
+Hyperuricémie
+Cardiopathie rhumatismale
+Insuffisance rénale chronique

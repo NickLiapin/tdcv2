@@ -1,0 +1,19 @@
+---
+description: Directions. The four cardinals are davvi north, lulli south, nuorta east and oarji west, and they combine in the expected way, but the two entries at the end are the ones that show how the language really orients itself. bajás is upstream and vulos is downstream, and in a country of long rivers running to the sea they do more work than the compass does: a village on the Deatnu describes its neighbours as up or down, not as north or south, and directions given in a fjord are relative to the water rather than to any absolute grid. siskkit and olggut, inner and outer, do the same job along a fjord — the inner end is the head of it, deep inland, and the outer end faces the open sea. bajit and vuolit, upper and lower, split settlements the same way and turn up constantly in place names.
+locale: se
+---
+Davvi
+Lulli
+Nuorta
+Oarji
+Davvinuorta
+Davvioarji
+Lullinuorta
+Lullioarji
+Gaska
+Bajit
+Vuolit
+Siskkit
+Olggut
+Bajás
+Vulos

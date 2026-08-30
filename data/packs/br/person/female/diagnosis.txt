@@ -1,0 +1,31 @@
+---
+description: Diagnoses recorded for a female patient, in FRENCH, for the reason every clinical file in this pack is French: the consultation may be held in Breton but the record never is. What the patient says lives in medical/symptom.txt, in Breton; this file is the line the doctor writes underneath it, coded to CIM-10 and legible to any hospital in France. The two files are the two sides of one consultation, and a config modelling a Breton patient honestly should draw from both. The list opens with the gynaecological and obstetric conditions and then runs into the common chronic ones, so it can carry a whole female cohort and not only a women's-health clinic. Two things about it are regional. Carence en vitamine D is not filler here: the peninsula takes several hundred hours less sun a year than the French average, its summer is cloud rather than heat, and deficiency is picked up as a matter of routine. And hereditary haemochromatosis is deliberately absent from this list although it sits on the male one, because the sex difference in that disease is real and large — a woman loses iron every month and again with every pregnancy, so the identical genotype declares itself ten to twenty years later in her, usually only after the menopause. A Breton woman's iron diagnosis belongs to a later decade of her life than her brother's, and a synthetic cohort that puts it at the same age in both has got the region's signature disease wrong. The values are the exact French clinical strings with their accents and their apostrophes; strip either and no French record system will match them.
+locale: br
+---
+Endométriose
+Syndrome des ovaires polykystiques
+Fibrome utérin
+Kyste ovarien
+Cancer du sein
+Cancer du col de l'utérus
+Vaginose bactérienne
+Dysménorrhée
+Syndrome climatérique
+Prééclampsie
+Diabète gestationnel
+Mastite
+Hypothyroïdie
+Anémie ferriprive
+Ostéoporose
+Migraine
+Hypertension artérielle
+Diabète de type 2
+Polyarthrite rhumatoïde
+Lupus érythémateux disséminé
+Trouble dépressif
+Trouble anxieux généralisé
+Infection urinaire
+Insuffisance veineuse des membres inférieurs
+Maladie cœliaque
+Fibromyalgie
+Carence en vitamine D

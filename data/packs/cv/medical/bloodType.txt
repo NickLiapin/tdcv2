@@ -1,0 +1,12 @@
+---
+description: ABO and Rh as a Russian clinical record writes them. Russian practice numbers the groups rather than lettering them: the Roman numeral is the group and the ABO letters ride along in brackets, so a patient in Cheboksary says "у меня вторая положительная" — "I am second, positive" — and never says "A positive". This pack holds one convention throughout, numeral first with the letters in brackets, and writes the O group as the digit zero, which is what a Russian transfusion card and a Russian passport-of-blood stamp both use. Rh-negative runs at roughly fifteen per cent across the Volga population, so the negative rows are genuinely a minority but not a rarity, and the Rh sign is written out because a Russian form prints Rh(+) and Rh(-) rather than a bare plus or minus.
+locale: cv
+---
+I(0) Rh+
+I(0) Rh-
+II(A) Rh+
+II(A) Rh-
+III(B) Rh+
+III(B) Rh-
+IV(AB) Rh+
+IV(AB) Rh-

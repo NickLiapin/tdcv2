@@ -1,0 +1,28 @@
+---
+description: What follows a name — degrees, ranks and the two words that separate a father from a son of the same name. nuorat, younger, and boarráseabbo, elder, do the work that Jr. and Sr. do elsewhere, and they are needed constantly: Sami families reuse given names across generations by design, a child is often named for a grandparent, and a village can hold several living men with the identical registered name. The degree abbreviations are Nordic and are written the way the awarding university writes them, because a Sami academic takes a degree from Tromsø, Umeå, Oulu or Helsinki and the diploma is not in Sami. doseanta and professor emeritus keep their Nordic shape for the same reason. advokáhta and duopmár are here because Sami, like Serbian, puts a professional standing after the name in official correspondence.
+locale: se
+---
+nuorat
+boarráseabbo
+II
+III
+IV
+dr.
+dr.philos.
+dr.art.
+PhD
+prof.
+prof. em.
+doseanta
+mag.art.
+cand.philol.
+cand.polit.
+cand.med.
+cand.jur.
+MA
+MSc
+MBA
+BA
+lic.
+advokáhta
+duopmár

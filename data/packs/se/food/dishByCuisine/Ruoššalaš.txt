@@ -1,0 +1,12 @@
+---
+description: Russian dishes, the child of food.cuisine value Ruoššalaš. Russia holds the fourth part of Sápmi, the Kola Peninsula, where Kildin Sami is spoken and Ter and Akkala Sami have effectively died out. The border at Sør-Varanger is the only land border Norway has with Russia and it has been crossed for trade for centuries — the Pomor trade brought Russian flour and grain north in exchange for fish, and left a pidgin, Russenorsk, behind it. The Skolt Sami, whose surnames appear in this pack's surname list, are Orthodox and were baptised in the Russian church, which is why a Russian entry belongs in a Sami cuisine list at all rather than only as a foreign restaurant.
+locale: se
+---
+Borsjtsj
+Pelmeni
+Blini
+Pirog
+Soljanka
+Sjtsji
+Olivier-salat
+Kvass

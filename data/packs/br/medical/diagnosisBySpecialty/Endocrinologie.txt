@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in endocrinology. The last entry is the regional one and it carries an old name worth knowing: haemochromatosis damages the pancreas as well as the liver and the skin, and nineteenth-century French medicine called the resulting triad of cirrhosis, diabetes and grey-bronze pigmentation le diabète bronzé, a description that stood for a century before the HFE gene explained it. The first step in finding it is an endocrine laboratory test rather than a genetic one, the transferrin saturation on a fasting sample, cheap and available in any town, and in Brittany it is worth ordering earlier than the textbooks advise. The analysis slip it is ordered on, like every label in this file, is French.
+locale: br
+---
+Diabète de type 2
+Hypothyroïdie
+Hyperthyroïdie
+Ostéoporose
+Syndrome des ovaires polykystiques
+Diabète secondaire à une surcharge en fer

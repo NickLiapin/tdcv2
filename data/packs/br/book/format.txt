@@ -1,0 +1,12 @@
+---
+description: Physical book formats, and the split in this list is the point. What a book IS gets a Breton word, because Breton publishers describe their own catalogues in Breton: LEVR-GODELL a pocket edition, LEVR-SON an audiobook, LEVR ELEKTRONEK an e-book, LEVR SKEUDENNAOUET an illustrated one. What a printer DOES to it stays French — couverture rigide, broché, grand format, réédition are the trade's own vocabulary, and a Breton house buys its printing from a French printer and orders in French. LEVR itself is one of the oldest layers in the language, a Latin loan from LIBRUM that came in with Christianity rather than with the press, and it is cognate with Welsh LLYFR and Cornish LYVER.
+locale: br
+---
+levr-godell
+levr elektronek
+levr-son
+levr skeudennaouet
+couverture rigide
+broché
+grand format
+réédition

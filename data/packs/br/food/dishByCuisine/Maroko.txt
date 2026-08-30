@@ -1,0 +1,12 @@
+---
+description: Moroccan dishes as they are listed in Brittany. A demographic note that shapes this whole folder: Brittany has proportionally the smallest immigrant population of any region of mainland France, so the North African restaurant presence is thinner here than in Marseille or Lyon and arrived later, largely carried by couscous itself, which French national surveys keep placing among the country's best-loved dishes regardless of region. Tajine names both the conical earthenware pot and what is cooked in it, and a Breton menu prints it in French with the filling named after it, which is the form used here.
+locale: br
+---
+Couscous royal
+Tajine de poulet au citron confit
+Tajine d'agneau aux pruneaux
+Pastilla
+Harira
+Méchoui
+Briouates
+Cornes de gazelle

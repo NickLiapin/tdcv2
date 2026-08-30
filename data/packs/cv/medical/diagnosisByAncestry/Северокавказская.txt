@@ -1,0 +1,11 @@
+---
+description: Conditions with a raised frequency in people of North Caucasian descent, a group present in Chuvashia through internal migration within Russia. This is one of the few files in the folder with a genuinely strong signal: familial Mediterranean fever runs at high carrier frequency among several Caucasian and Armenian populations and is the reason a periodic fever with serositis is investigated differently in a patient from Dagestan than in one from a Chuvash village. Beta-thalassaemia carriage, G6PD deficiency and Behçet disease follow the same broad Caucasus-to-Mediterranean gradient. A prevalence signal, never an exclusive one.
+locale: cv
+---
+Семейная средиземноморская лихорадка
+Бета-талассемия, носительство
+Дефицит глюкозо-6-фосфатдегидрогеназы
+Болезнь Бехчета
+Артериальная гипертензия
+Сахарный диабет 2 типа
+Ревматическая болезнь сердца

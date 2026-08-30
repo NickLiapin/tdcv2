@@ -1,0 +1,10 @@
+---
+description: Conditions more frequent in people of Eastern European descent, mostly recessive founder variants that the region's newborn screening programmes were built around. Two of them are on France's own heel-prick panel, the carte de Guthrie taken on the third day of life, and phenylketonuria is the reason that panel exists at all: it is invisible in a newborn, causes irreversible intellectual disability if missed, and is controlled by diet alone if caught in the first weeks. BRCA1 5382insC is here as the clearest Slavic founder mutation, carried by a large share of hereditary breast and ovarian cancer families from Poland eastwards, and specific enough that a single targeted test can settle a family. The labels are French because a French genetics department writes and files its notes in French whatever the patient's origin.
+locale: br
+---
+Phénylcétonurie
+Mucoviscidose
+Hypercholestérolémie familiale
+Maladie de Wilson
+Mutation BRCA1 5382insC
+Maladie alcoolique du foie

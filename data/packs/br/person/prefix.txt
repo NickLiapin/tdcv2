@@ -1,0 +1,36 @@
+---
+description: Form of address written before a name in Brittany, and the list is mixed on purpose because the register is: Breton is what is said and French is what is printed. The Breton titles are Aotrou for a man, Itron for a married or adult woman and Dimezell for an unmarried one, normally with the article — An Aotrou Yann Le Gall — and abbreviated Ao. and Itr. Aotrou is not simply Mr: it is the old word for a lord, and it is still the word in an Aotrou Doue, the Lord God. Aotrou Person is the parish priest, and the French half of that phrase carries a fact peculiar to Brittany: in the Breton dioceses the priest in charge of a parish is titled recteur, not the curé he would be almost anywhere else in France, so a Breton letterhead reads Monsieur le Recteur where a Norman one reads Monsieur le Curé. The French block is what appears on a form, a summons, a payslip or an envelope, and it includes Me for an avocat or a notaire and Pr for a professor of medicine, both written before the name and never after. Mademoiselle is here because Brittany still prints it, although a circular of 2012 removed it from French administrative documents. The naval ranks are not decoration either: Brest is a préfecture maritime and the home port of the Atlantic fleet, and Amiral, Capitaine and Commandant are ordinary forms of address in a Finistère address book.
+locale: br
+---
+Aotrou
+Itron
+Dimezell
+An Aotrou
+An Itron
+Ao.
+Itr.
+Aotrou Person
+Aotrou Doktor
+Monsieur
+Madame
+Mademoiselle
+M.
+Mme
+Mlle
+Dr
+Docteur
+Pr
+Professeur
+Me
+Maître
+Mgr
+Monseigneur
+Père
+Abbé
+Recteur
+Sœur
+Frère
+Chanoine
+Amiral
+Capitaine
+Commandant

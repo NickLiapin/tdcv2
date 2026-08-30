@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in pulmonology. Туберкулез легких appears on an ordinary outpatient list because tuberculosis in Russia is neither rare nor exotic: the whole adult population is invited to annual fluorography, and a positive film from a Chuvash district polyclinic goes first to a pulmonologist and then to the phthisiology dispensary, which holds the case thereafter. Chronic obstructive disease and chronic bronchitis carry the rest of the department, on a smoking prevalence among men that remains among the highest in Europe.
+locale: cv
+---
+Бронхиальная астма
+Хроническая обструктивная болезнь легких
+Внебольничная пневмония
+Туберкулез легких
+Хронический бронхит
+Синдром обструктивного апноэ сна

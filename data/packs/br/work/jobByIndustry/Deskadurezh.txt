@@ -1,0 +1,16 @@
+---
+description: Jobs in education, four of which exist in Brittany and almost nowhere else in France. Diwan, founded in 1977 with a single class at Lampaul-Ploudalmézeau, teaches by immersion: the schools are associative and free, under contract with the state, the children are taught in Breton from nursery upward and meet written French only at seven or eight, and the network now runs the whole way to a lycée at Carhaix. Div Yezh is the parents' association behind the bilingual streams inside ordinary state schools and Dihun the equivalent inside the Catholic ones, the two names being the plain Breton for two languages and for awakening. A professeur de breton is a different job again: that teacher takes the language as a subject, to pupils whose schooling is otherwise entirely in French. Skolaer is the ordinary Breton word for a schoolteacher, and the grades beneath it stay French because the concours that awards them is a national competitive examination and a teacher is an official of the ministry before anything else. ATSEM is the municipal assistant who runs a nursery classroom beside the teacher — a town council employee and not a state one, which means that in a bilingual nursery it is the commune, not the ministry, that decides whether the second adult in the room speaks Breton.
+locale: br
+---
+Skolaer
+Professeur des écoles
+Professeur certifié
+Professeur agrégé
+Professeur de breton
+Enseignant Diwan
+Enseignant bilingue Div Yezh
+Enseignant bilingue Dihun
+ATSEM
+Conseiller principal d'éducation
+Directeur d'école
+Professeur des universités

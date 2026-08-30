@@ -1,0 +1,44 @@
+---
+description: Dishes, with the Sami kitchen first and the north Norwegian one after it. bidos is the dish that matters: reindeer meat on the bone, stewed slowly with potato and carrot in its own broth, and it is the wedding food and the confirmation food, cooked in quantity in a large pot for a hall full of people. suovasbiergu is cold-smoked reindeer, sliced thin; goikebiergu is wind-dried meat, hung in the cold dry spring air rather than salted, which is the only preservation method that has ever really been needed here. márfi is blood sausage, and blood is used rather than discarded because an animal that has been killed is used entirely — meat, blood, marrow, tongue, liver, sinew for thread, hide for boots, antler for handles. dákteliepma is bone broth, the by-product of that principle. luopmánat ja vuostá is cloudberries with cheese, which is the dessert. The Norwegian names further down are the everyday food of the same households, because a family in Kárášjohka eats finnbiff and kjøttkaker on a Tuesday like anyone else in the country, and finnbiff is worth a note of its own: it is reindeer stew as Norwegian cooking names it, and the name uses the old exonym for Sami.
+locale: se
+---
+Bidos
+Suovasbiergu
+Goikebiergu
+Márfi
+Vuoššanbiergu
+Biergomális
+Guollemális
+Gáhkku
+Vuostá
+Bohccobiergu
+Bohcconjuovčča
+Bohccovuoivvas
+Dákteliepma
+Suovasluossa
+Sáltejuvvon luossa
+Goikeguolli
+Vuoššanguolli
+Luopmánat ja vuostá
+Finnbiff
+Reinsdyrstek
+Reinsdyrkarbonade
+Blodpalt
+Blodklubb
+Kumpe
+Fiskesuppe
+Bacalao
+Boknafisk
+Møsbrømlefse
+Lefse
+Flatbrød
+Gomme
+Multekrem
+Tyttebærsyltetøy
+Sodd
+Kjøttkaker
+Fårikål
+Lapskaus
+Vaffel
+Kanelsnurr
+Riskrem

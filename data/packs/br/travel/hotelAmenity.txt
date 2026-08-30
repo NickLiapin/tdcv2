@@ -1,0 +1,34 @@
+---
+description: Hotel facilities as a Breton property lists them, in French, which is the language of every booking site and every reception desk in the region. The list is tilted by what Breton tourism is: coastal, seasonal, wet and family-shaped. Accès direct à la plage and Vue sur mer are the two lines that set a price on this coast. Centre de thalassothérapie is a facility class in its own right here, because the region invented the seawater cure as an industry and a fair number of hotels are built around one. Local à vélos matters because the region has turned its abandoned railway lines into a dense network of voies vertes and the Vélomaritime runs the whole northern coast, so a secure bicycle room is a booking criterion and not a nicety. Salle de séchage is the same logic from the other direction — Brittany rains, walkers come off the GR 34 soaked, and a drying room is worth advertising. Crêperie appears because a hotel restaurant in Brittany very often is one.
+locale: br
+---
+Wi-Fi gratuit
+Parking gratuit
+Parking privé
+Restaurant
+Crêperie
+Bar
+Petit-déjeuner
+Demi-pension
+Pension complète
+Piscine
+Piscine intérieure
+Centre de thalassothérapie
+Spa
+Sauna
+Salle de sport
+Ascenseur
+Chambres non-fumeurs
+Animaux acceptés
+Service en chambre
+Réception 24h/24
+Coffre-fort
+Bagagerie
+Laverie
+Salle de séchage
+Local à vélos
+Salle de séminaire
+Terrasse
+Jardin
+Vue sur mer
+Accès direct à la plage

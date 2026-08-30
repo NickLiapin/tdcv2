@@ -1,0 +1,240 @@
+---
+description: What people in Brittany do for a living, and the file follows one rule that a config writer should know before drawing from it: a job keeps its BRETON name where Breton genuinely has one in current use, and its FRENCH name where the trade exists only on French paperwork. So pesketaer is a fisherman, kalvez a carpenter, toer a roofer, gov a smith, kiger a butcher, baraer a baker, mezeg a physician, kelenner a teacher, keginer a cook, marc'hadour a merchant — these are living words a speaker uses of a neighbour — while conseiller principal d'éducation, manipulateur en radiologie, technicien qualité agroalimentaire and sauveteur SNSM stay French because they are not trades at all but grades, defined by a French diploma, a French job code and a French collective agreement, and no Breton conversation has ever needed to name them. Nothing here is a coinage: where Breton has no settled word, the French one stands. The Breton entries are built with the ordinary agent suffixes — bara bread gives baraer, kig meat gives kiger, to a roof gives toer, kegin a kitchen gives keginer, milin a mill gives miliner, gwenan bees gives gwenanner, liv colour gives livour, micher a trade gives micherour — so the shape of the word tells you what the worker touches. Three of them are trades no other European region would list. Paludier is the salt-worker of the Guérande and Batz-sur-Mer marshes, who still rakes fleur de sel off clay pans by hand on a plan laid out in the ninth century. Goémonier is the seaweed harvester of the northern Léon coast, who cuts bezhin — the wrack whose zh is the peurunvan spelling that reads Breiz in the west and Breih in Vannetais — and lands it for the alginate works at Landerneau and Lannilis. Pilhaouer is the rag-and-bone man of the Poher around Carhaix, who walked the inland farms trading crockery for linen rags for the paper mills, and who is remembered because those men were also the carriers of news and song across Argoad. The sea section is the largest for a reason: Brittany lands more fish than any other French region, and the trades around a criée are finely divided, so a mareyeur, a lamaneur and a patron de pêche are three different jobs with three different qualifications. The school section is worth reading as politics: enseignant Diwan teaches in the immersion schools founded in 1977, enseignant bilingue Div Yezh in the public parity stream and enseignant bilingue Dihun in the Catholic one, and those three names cover essentially all Breton-medium teaching in the peninsula — around eighteen thousand pupils, and the single largest employer of Breton speakers as Breton speakers. Sous-marinier is here because the French ballistic-missile submarine fleet is based at the Ile Longue in the Rade de Brest, and marin de la Marine nationale because Brest has been a naval town since Richelieu. Archer is the ordinary Breton word for a gendarme, unrelated to bowmen in modern use, and it sits beside the French gendarme because both are current. On grammar: these are dictionary forms and they mutate in place. Masculine plurals naming people soften after the article, so kemener becomes ar gemenerien, the tailors, and kalvez becomes ar galvezien; the singular after ur is untouched. Gender: Breton makes a feminine agent in -ez — kelenner and kelennerez, kaner and kanerez, soner and sonerez — and this list gives the masculine, with one deliberate exception, amiegez, the midwife, which is listed in the feminine because the trade is, and whose masculine amieg is barely used. Finally, soner, talabarder, biniaouer, kaner and diskaner are not folklore: a fest-noz is a paid engagement, several hundred of them run every year, and the talabarder and biniaouer play in alternation while the kaner and diskaner overlap the last bars of each other's lines in kan ha diskan.
+locale: br
+---
+Pesketaer
+Martolod
+Marin-pêcheur
+Patron de pêche
+Second de pêche
+Matelot de pont
+Mécanicien de bord
+Mareyeur
+Vendeur à la criée
+Poissonnier
+Ostréiculteur
+Conchyliculteur
+Mytiliculteur
+Algoculteur
+Goémonier
+Pilote de port
+Lamaneur
+Docker
+Agent portuaire
+Sauveteur SNSM
+Gardien de phare
+Skipper
+Charpentier de marine
+Maître voilier
+Ouvrier de chantier naval
+Treizher
+Moniteur de voile
+Maître nageur sauveteur
+Contrôleur des affaires maritimes
+Technicien des pêches
+Chercheur en biologie marine
+Plongeur professionnel
+Labourer-douar
+Kouer
+Éleveur porcin
+Éleveur laitier
+Éleveur de volailles
+Éleveur allaitant
+Maraîcher
+Ouvrier serriste
+Ouvrier agricole
+Conducteur de machine agricole
+Technicien laitier
+Contrôleur laitier
+Inséminateur
+Technicien agricole
+Conseiller agricole
+Milvezeg
+Mesaer
+Bugul
+Gwenanner
+Paludier
+Miliner
+Baraer
+Pâtissier
+Kiger
+Ouvrier d'abattoir
+Opérateur de découpe
+Opérateur de ligne agroalimentaire
+Technicien qualité agroalimentaire
+Crêpier
+Producteur de cidre
+Forestier
+Bûcheron
+Garde-chasse
+Garde du littoral
+Paysagiste
+Kalvez
+Mañsoner
+Toer
+Livour
+Gov
+Marichal
+Maçon
+Charpentier
+Menuisier
+Couvreur-ardoisier
+Couvreur-zingueur
+Tailleur de pierre
+Carreleur
+Plombier
+Chauffagiste
+Électricien
+Peintre en bâtiment
+Façadier
+Serrurier-métallier
+Terrassier
+Conducteur d'engins
+Grutier
+Chef de chantier
+Conducteur de travaux
+Géomètre-topographe
+Architecte
+Ostiz
+Tavarnour
+Keginer
+Chef de cuisine
+Commis de cuisine
+Plongeur en restauration
+Serveur
+Barman
+Réceptionniste
+Gouvernante d'hôtel
+Directeur d'hôtel
+Gérant de camping
+Animateur touristique
+Guide-conférencier
+Agent d'accueil touristique
+Secrétaire de mairie
+Agent territorial
+Agent technique communal
+Cantonnier
+Agent de déchèterie
+Facteur
+Guichetier
+Agent des finances publiques
+Contrôleur des impôts
+Archer
+Gendarme
+Policier municipal
+Tan-lazher
+Sapeur-pompier volontaire
+Douanier
+Marin de la Marine nationale
+Officier de marine
+Sous-marinier
+Agent des espaces verts
+Bibliothécaire
+Aide à domicile
+Auxiliaire de vie sociale
+Assistant maternel
+Éducateur spécialisé
+Travailleur social
+Conseiller en insertion
+Mezeg
+Médecin généraliste
+Médecin urgentiste
+Chirurgien
+Anesthésiste
+Pédiatre
+Cardiologue
+Psychiatre
+Radiologue
+Gériatre
+Pharmacien
+Préparateur en pharmacie
+Klañvdiour
+Infirmier libéral
+Aide-soignant
+Amiegez
+Kinésithérapeute
+Ergothérapeute
+Orthophoniste
+Manipulateur en radiologie
+Technicien de laboratoire
+Ambulancier
+Chirurgien-dentiste
+Kelenner
+Skolaer
+Professeur des écoles
+Enseignant Diwan
+Enseignant bilingue Div Yezh
+Enseignant bilingue Dihun
+Professeur de breton
+Professeur certifié
+Professeur agrégé
+Maître de conférences
+Professeur des universités
+Conseiller principal d'éducation
+Directeur d'école
+ATSEM
+Animateur périscolaire
+Formateur en langue bretonne
+Micherour
+Ingénieur logiciel
+Développeur web
+Développeur mobile
+Ingénieur DevOps
+Administrateur systèmes
+Administrateur réseau
+Ingénieur télécoms
+Technicien fibre optique
+Ingénieur radiofréquence
+Ingénieur en traitement du signal
+Chercheur en photonique
+Analyste de données
+Ingénieur en cybersécurité
+Ingénieur en systèmes embarqués
+Chef de projet informatique
+Architecte naval
+Ingénieur d'armement
+Technicien d'essais
+Chaudronnier
+Tuyauteur
+Soudeur
+Électronicien
+Automaticien
+Opérateur de production
+Conducteur de ligne
+Technicien de maintenance
+Contrôleur qualité
+Mécanicien automobile
+Carrossier
+Magasinier
+Cariste
+Bleiner
+Chauffeur routier
+Chauffeur-livreur
+Conducteur de car
+Chauffeur de taxi
+Conducteur de train
+Responsable logistique
+Marc'hadour
+Gwerzher
+Vendeur
+Chef de rayon
+Caissier
+Responsable de magasin
+Comptable
+Alvokad
+Notaire
+Kemener
+Kere
+Gwiader
+Pilhaouer
+Soner
+Talabarder
+Biniaouer
+Kaner
+Diskaner
+Luthier
+Régisseur de festival
+Kazetenner
+Journaliste
+Traducteur
+Skrivagner

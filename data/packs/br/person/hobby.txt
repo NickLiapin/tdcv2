@@ -1,0 +1,82 @@
+---
+description: How Brittany spends the time it is not working, and the list is dominated by things you join rather than things you do alone, because that is the shape of leisure here — Brittany carries one of the densest networks of registered associations in France, and most of the first third of this file names a club with a rehearsal night and a season. The bagad and the cercle celtique are the pair to understand. A bagad is a Breton pipe band, biniou and bombardes and drums together, a formation devised in the 1940s on the model of a Scottish pipe band and now running to well over a hundred active ensembles; the cercle celtique is the dance company beside it, and there are several hundred of those. Both compete in a national championship judged in five divisions, with the first-division final played in front of tens of thousands at the Lorient interceltic festival every August, so a teenager who lists Bagad is describing a competitive sport with instruments and not an interest. The dances are named individually because they are not interchangeable: the gavotenn belongs to Cornouaille, an dro and hanter-dro to the Vannetais, dañs plinn to the Poher around Karaez, laridé to the south, and Kost ar c'hoad has its own step again — a dancer who knows one does not automatically know the others, and the poster for a night says which will be played. Pêche à pied is the value that surprises outsiders and it stands in French because that is what everybody calls it: gathering shellfish on foot at low water, done by tens of thousands of families on the big tides, and regulated in earnest — a legal minimum size for every species, grounds closed after an algal bloom, and a tide coefficient printed in the newspaper that tells you whether the bank you want will uncover at all. Surf is here because of La Torche, the point at the end of the Baie d'Audierne that is the main Atlantic break in France outside the Landes; char à voile because the enormous flat tidal beaches of the north coast are among the few places in Europe where sand yachting works at all; aviron de mer and kayak de mer because this coastline is long enough to make rowing and paddling sea sports rather than river ones. Palet breton is a real regional game and not a curiosity — flat metal discs pitched at a wooden board, played in leagues in Morbihan and Loire-Atlantique — and it belongs beside a glass of cider rather than beside a gym. Deskiñ brezhoneg, learning Breton, is on the list because it is a genuine adult pastime for thousands of people in evening and weekend classes, and because the six-month full-time immersion courses run by Stumdi and Roudour turn adults who did not grow up with the language into speakers who can work in it. The rule for the file is the pack's rule: a value is Breton where Breton genuinely has the word — gouren, bageal, pesketa, bale, redek, neuial, kanañ, dañsal, lenn, skrivañ, keginañ, gwriat, liorzhañ, gwenanerezh, ober krampouezh, ober chistr — and French where the activity arrived in French and no Breton term ever settled on it.
+locale: br
+---
+Fest-noz
+Fest-deiz
+Dañsal
+Gavotenn
+An dro
+Hanter-dro
+Laridé
+Dañs plinn
+Kost ar c'hoad
+Bagad
+Cercle celtique
+Biniou
+Bombard
+Treujenn-gaol
+Telenn
+Accordéon diatonique
+Kan ha diskan
+Kanañ
+Chorale
+Deskiñ brezhoneg
+Lenn
+Skrivañ
+Barzhoniezh
+Généalogie
+Histoire locale
+Pêche à pied
+Pesketa
+Bageal
+Régate
+Kayak de mer
+Surf
+Planche à voile
+Kitesurf
+Char à voile
+Plongée sous-marine
+Aviron de mer
+Neuial
+Modélisme naval
+Bale
+Marc'h-houarn
+VTT
+Redek
+Trail
+Liorzhañ
+Gwenanerezh
+Chasse
+Équitation
+Observation des oiseaux
+Cerf-volant
+Camping
+Bénévolat
+Gouren
+Mell-droad
+Rugbi
+Mell-bas
+Mell-dorn
+Mell-nij
+Tennis
+Tennis de table
+Boxe
+Judo
+Musculation
+Yoga
+Bricolage
+Palet breton
+Jeux vidéo
+Échecs
+Jeux de société
+Ober krampouezh
+Ober chistr
+Keginañ
+Pâtisserie
+Gwriat
+Tricot
+Broderie
+Poterie
+Peinture
+Photographie

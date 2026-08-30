@@ -1,0 +1,32 @@
+---
+description: Field of study as a student in Brittany would write it on an application, which means the labels of the French system: the licence-master-doctorat ladder runs in French and the field names are the ministry's. Breton et celtique is the one to notice. Rennes 2 and the Université de Bretagne Occidentale at Brest both award degrees in Breton and Celtic studies, taught in Breton and going up to doctoral level, and the Centre de recherche bretonne et celtique at Brest is the discipline's research base; the field sits in the same list as medicine and law because it is a degree of the same kind and not an evening class, and it is the pipeline that produces the teachers the bilingual schools depend on. Sciences de la mer and agronomie are the other two that no other country's list would contain in this proportion: the Institut universitaire européen de la mer at Plouzané stands beside Ifremer in the Brest oceanographic cluster, one of the largest concentrations of marine science in Europe, and the agricultural school at Rennes trains the engineers that Brittany's livestock and food industry absorbs about as fast as they qualify. Télécommunications is on the list for the same reason it is on the technology job list. The remainder is standard French higher education, and deliberately so.
+locale: br
+---
+Médecine
+Chirurgie dentaire
+Pharmacie
+Droit
+Économie
+Gestion
+Psychologie
+Sociologie
+Sciences de l'éducation
+Breton et celtique
+Lettres modernes
+Langues étrangères appliquées
+Histoire
+Histoire de l'art
+Philosophie
+Géographie et aménagement
+Information et communication
+Architecture
+Génie civil
+Génie mécanique
+Informatique
+Télécommunications
+Agronomie
+Sciences de la mer
+Biologie
+Chimie
+Physique
+Mathématiques

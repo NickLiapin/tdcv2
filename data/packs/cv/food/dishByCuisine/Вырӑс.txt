@@ -1,0 +1,14 @@
+---
+description: Russian food, which in Chuvashia is not a foreign cuisine in any useful sense. Russians are somewhat over a quarter of the republic's population, Russian is co-official, and the two kitchens have shared a table for three centuries — the same household will make хуплу on Sunday and борщ on Tuesday without regarding either as an outing. That is why this is the second-largest child on the list. The names are kept in their Russian form because that is what they are called in Chuvash speech too: a borrowed dish keeps its borrowed name. Оливье and Селёдка под шубой are the Soviet layer rather than the Russian one, invented for the twentieth-century holiday table and now inseparable from New Year anywhere in the former Union.
+locale: cv
+---
+Борщ
+Щи
+Пельмень
+Окрошка
+Солянка
+Уха
+Пирожки
+Голубцы
+Оливье
+Селёдка под шубой

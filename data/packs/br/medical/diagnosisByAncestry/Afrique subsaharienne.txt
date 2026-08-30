@@ -1,0 +1,14 @@
+---
+description: Conditions more frequent in people of sub-Saharan African descent, headed by sickle-cell disease and its carrier state. France makes an instructive case for a field of this kind: the law sharply restricts the collection of ethnic data, yet newborn sickle-cell screening was for years offered only to babies judged at risk by parental origin, an awkward compromise that ended in 2024 when the screening was extended to every child born in the country. Neutropénie ethnique bénigne is the entry most often mishandled in a dataset, because it is a normal neutrophil count for the person carrying it rather than a disease, and applying one universal reference range sets off a cascade of pointless haematology work-ups. All labels are French, as the dossier médical partagé that follows the patient from one hospital to the next stores them.
+locale: br
+---
+Drépanocytose homozygote SS
+Trait drépanocytaire
+Hémoglobinose C
+Déficit en G6PD
+Néphropathie liée à APOL1
+Néphrosclérose hypertensive
+Neutropénie ethnique bénigne
+Chéloïdes
+Fibrome utérin
+Sarcoïdose

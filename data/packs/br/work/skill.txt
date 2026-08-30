@@ -1,0 +1,46 @@
+---
+description: Professional skill — technical, trade and language — for skill lists and CV profiles. The first block is the honest part and the one that is specific to this region: Breton is a hireable competence, not a hobby line at the bottom of a CV. The immersion schools of Diwan and the bilingual streams Div Yezh and Dihun advertise posts every year that they cannot fill for want of candidates who can teach a subject through Breton; the Ofis Publik ar Brezhoneg, the region's public language office, employs translators and terminologists whose job is to settle words that did not exist before the file they are writing; France 3 Breizh and the online channel Brezhoweb need presenters and editors who work in the language; and the bilingual road signage that covers the whole peninsula is an industry in itself, because every panel has to carry a place name spelled to a standard rather than to a clerk's ear. Gallo sits beside it deliberately: it is the Romance language of Upper Brittany, east of a line running roughly from Plouha to Vannes, it is not a dialect of Breton and not the same subject, and both Breton and Gallo can be taken as an option at the baccalaureate — which is why either can appear on a school-leaver's record. The trade block reflects what the peninsula builds and repairs, and two of its entries are regional specialisms rather than generic ones: taille de pierre because Breton granite is worked wet and by hand at the finish, and couverture ardoise because the slate roof is the standard covering inland and needs a different apprenticeship from zinc. The maritime certificates are professional documents with legal force, not self-assessments — a certificat de matelot pont is what allows someone on the deck of a working boat at all. Programming languages, tool names and the French certificate acronyms keep their printed form, exactly as a CV in Brittany prints them.
+locale: br
+---
+Brezhoneg
+Gallo
+Français
+Anglais
+Enseignement bilingue
+Traduction breton-français
+Terminologie
+Signalétique bilingue
+Animation d'antenne
+Python
+JavaScript
+SQL
+Java
+C++
+Linux
+Docker
+Réseaux IP
+Raccordement fibre optique
+Traitement du signal
+Cybersécurité
+Analyse de données
+Gestion de projet
+CAO
+Modélisation 3D
+Rédaction web
+Comptabilité
+Relation client
+Soudure TIG
+Chaudronnerie
+Électricité du bâtiment
+Plomberie
+Charpente
+Taille de pierre
+Couverture ardoise
+Lecture de plans
+Conduite d'engins
+CACES cariste
+Permis C
+Certificat de matelot pont
+Permis mer côtier
+Hygiène alimentaire HACCP
+Secourisme PSC1

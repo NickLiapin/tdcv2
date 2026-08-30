@@ -1,0 +1,16 @@
+---
+description: Leave type as French labour law classifies it, and the classification is legal rather than customary: congés payés accrue at two and a half working days for every month worked, which is the five weeks everyone quotes, while RTT are a separate stock with separate rules, and the two are not interchangeable on a leave balance. The interesting entry here is the one that is absent. Brittany has no public holiday of its own — Gouel Erwan, Saint Yves on 19 May, is the national day of Brittany and is not a day off work, and the only part of France with statutory holidays beyond the national eleven is Alsace-Moselle, which kept two of them from the period of German administration. So jour férié on this list means the eleven the whole country shares, and the pont, taking the Friday when the Thursday falls on a holiday, has no legal existence at all and is settled firm by firm.
+locale: br
+---
+Congés payés
+RTT
+Arrêt maladie
+Congé maternité
+Congé paternité et d'accueil de l'enfant
+Congé parental d'éducation
+Congé pour événement familial
+Congé de deuil
+Congé de proche aidant
+Congé sabbatique
+Congé sans solde
+Jour férié

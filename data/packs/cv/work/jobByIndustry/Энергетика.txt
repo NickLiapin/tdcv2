@@ -1,0 +1,16 @@
+---
+description: Jobs in power generation and distribution. The Cheboksary hydroelectric station on the Volga is the republic's landmark energy asset and also its longest-running argument: the reservoir has never been filled to the level the station was designed for, and the difference between the design mark and the working mark has been debated between the neighbouring regions for four decades, because raising it would flood land upstream. That is why машинист гидроагрегата — the operator who runs a hydro unit — sits on this list beside the boiler and grid trades that any region would have. Дежурный электромонтёр подстанции is a duty post, not a repair post; Russian distinguishes the two carefully and so does the pay scale.
+locale: cv
+---
+Инженер-энергетик
+Машинист гидроагрегата
+Машинист котлов
+Дежурный электромонтёр подстанции
+Диспетчер энергосистемы
+Слесарь по ремонту гидротурбинного оборудования
+Электрослесарь
+Инженер по эксплуатации оборудования
+Инженер по охране труда
+Контролер энергосбыта
+Мастер по ремонту оборудования
+Начальник смены станции

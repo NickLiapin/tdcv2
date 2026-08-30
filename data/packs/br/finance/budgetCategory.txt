@@ -1,0 +1,24 @@
+---
+description: Household budget lines, in French, because a bank statement and a household account book in Brittany are French documents. The shape of a Breton budget is genuinely different from a Parisian one and the list shows it. Carburant is a large line rather than a small one: the settlement pattern is dispersed hamlets and isolated farms, public transport outside Rennes and Brest is thin, and households here drive further per year than the French average, so fuel and vehicle costs eat a share of income that an urban model will badly underestimate. Chauffage covers wood and heating oil as often as gas, because a great many rural Breton houses are off the gas network entirely, and firewood is bought by the stère. Assainissement is its own line for the same reason as in the property listings — houses not on a sewer pay for their own system and its inspection. Taxe foncière and taxe d'habitation are separate French property taxes and only the first is still levied on a main residence, which a dataset carrying both should know.
+locale: br
+---
+Loyer
+Crédit immobilier
+Taxe foncière
+Assurance habitation
+Électricité
+Chauffage
+Eau
+Assainissement
+Courses alimentaires
+Cantine scolaire
+Carburant
+Entretien du véhicule
+Assurance automobile
+Complémentaire santé
+Téléphone et internet
+Vêtements
+Loisirs
+Vacances
+Dons et cotisations
+Épargne

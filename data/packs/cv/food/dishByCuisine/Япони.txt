@@ -1,0 +1,13 @@
+---
+description: Japanese food, which in Chuvashia means delivery sushi and very little else. This is the one entry on the list that arrived without a single migrant: between roughly 2005 and 2015 roll-and-set delivery spread through every Russian city above about fifty thousand people, on a business model of telephone orders and cardboard boxes rather than restaurants, and Cheboksary and Novocheboksarsk got it exactly like everywhere else. What is eaten under the heading is therefore the Russian sushi dialect — heavy on baked and deep-fried rolls, cream cheese in a large share of them, and crab sticks standing in for crab a thousand kilometres from any sea. Роллы is listed separately from Суши because on a Russian menu they are two different things.
+locale: cv
+---
+Суши
+Роллы
+Сашими
+Темпура
+Рамен
+Удон
+Якитори
+Мисо-суп
+Терияки

@@ -1,0 +1,13 @@
+---
+description: Uzbek food, the other cuisine that has genuinely saturated the Russian provinces, and by a different route from the Georgian one. This arrived with labour migration after 1991 rather than with Soviet tourism, and it occupies the cheap end that Georgian restaurants do not: a плов canteen, a лагман counter, a tandoor turning out нон by the sackful next to a market. Chuvashia's construction sites and markets have had Central Asian workers for twenty years and the food followed them. It also lands on a Turkic table, which is worth noticing — Uzbek is Common Turkic and Chuvash is Oghur, so the two languages share almost nothing a speaker can hear, but the fondness for mutton, fat and preserved dairy needs no translation at all.
+locale: cv
+---
+Плов
+Лагман
+Манты
+Самса
+Шурпа
+Димлама
+Чучвара
+Норин
+Нон

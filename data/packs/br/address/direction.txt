@@ -1,0 +1,19 @@
+---
+description: Directional qualifier attached to a Breton street, quarter or housing estate. The Breton wind rose is a system of its own and not a calque of the French one: Norzh and Su are north and south, Reter is the east and means the rising, Kornôg the west, and the four intercardinals carry single indivisible words rather than compounds — Gwalarn north-west, Biz north-east, Gevred south-east, Mervent south-west — which is what a language spoken on a peninsula does when the weather arrives from every quarter and each quarter has its own character. Gwalarn is the value worth knowing twice over: besides naming the north-west wind it is the name of the literary review Roparz Hemon founded in 1925, whose stated aim was to make Breton a language of European literature rather than of folklore, and which printed Breton translations of Shakespeare, Yeats and Synge alongside new Breton fiction until it stopped in 1944. Krec'h and Traoñ, the height and the valley bottom, do the work of upper and lower, and they are the same two words that open hundreds of Breton place names. Kleiz and Dehou are left and right, Kreiz is the centre. Arvor is the coast, from ar mor, by the sea, and Argoad the inland wood, from ar c'hoad; the pair divides Brittany into its two halves, sailors and farmers, and it is where Armorica gets its name.
+locale: br
+---
+Norzh
+Su
+Reter
+Kornôg
+Gwalarn
+Biz
+Gevred
+Mervent
+Kreiz
+Krec'h
+Traoñ
+Kleiz
+Dehou
+Arvor
+Argoad

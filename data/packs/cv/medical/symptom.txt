@@ -1,0 +1,42 @@
+---
+description: What the patient says, and the one file in medical/ written in Chuvash rather than Russian — the register split that this whole folder turns on. A Chuvash speaker in a village of the Batyrevo or Alikovo district describes the complaint in Chuvash to a doctor who understands it, and the doctor then writes the diagnosis, the drug and the referral in Russian, so medical/diagnosis.txt and medical/drugGeneric.txt are Russian and this file is not. The pattern to read is the verbal noun in -ни: ыратни is 'aching', from ырат- 'to ache', and it simply follows the body part with nothing between them — пуҫ ыратни head, хырӑм ыратни belly, пыр ыратни throat, сыпӑ ыратни joint, пилӗк ыратни lower back. Several others open the same way once split: вӗриленни is 'becoming hot', from вӗри 'hot'; пуҫ ҫаврӑнни is 'the head turning', dizziness; сӑмса юхни is 'the nose flowing'. Two work by naming an absence instead — вӑй ҫукки is 'strength's not-being' and ыйхӑ ҫукки 'sleep's not-being', weakness and insomnia. The language itself is worth the note: Chuvash is the only surviving Oghur Turkic language, the sole living relative of the extinct Bulgar of the Volga Bulgars, and it split from the rest of Turkic so early that it is mutually unintelligible with every other Turkic language. Where Common Turkic has z and š, Chuvash has r and l: Turkish kız against Chuvash хӗр 'girl', Turkish taş against Chuvash чул 'stone'. A Turkish speaker recognises nothing.
+locale: cv
+---
+Вӗриленни
+Пуҫ ыратни
+Ывӑнни
+Ӑш пӑтранни
+Хӑсни
+Вар кайни
+Вар хытни
+Хырӑм ыратни
+Кӑкӑр ыратни
+Сывлӑш ҫитменни
+Ӳслӗк
+Пыр ыратни
+Сӑмса юхни
+Сӑмса питӗрӗнни
+Пуҫ ҫаврӑнни
+Куҫ тӗтреленни
+Ӳт-пӳ сурни
+Сыпӑ ыратни
+Пилӗк ыратни
+Шатра тухни
+Кӗҫӗтни
+Шыҫни
+Алӑ-ура кӳтни
+Чӗпӗтни
+Чӗре хӑвӑрт тапни
+Апат ҫиес килменни
+Виҫе чакни
+Ҫӗрле тарлани
+Сивӗ тытни
+Аксӑрни
+Ӑш ҫунни
+Хырӑм хӑпарни
+Хырӑм туртни
+Вӑй ҫукки
+Тӑн пӑтранни
+Сасӑ ларни
+Сӑмсаран юн кайни
+Ыйхӑ ҫукки

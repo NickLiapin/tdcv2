@@ -1,0 +1,12 @@
+---
+description: Lebanese dishes, the child of food.cuisine value Libanonlaš. The Levantine kitchen arrived in the Nordic north with refugee resettlement, first from Lebanon and later and in far greater numbers from Syria after 2015 — and northern municipalities took a share, so falafel and shawarma are now sold in towns above the Arctic Circle. Sami municipalities that had lost population for decades gained some of it back this way, which has made integration in a minority-language community an unusual and genuinely difficult question: which language does a newcomer learn in a town where the school teaches in Sami?
+locale: se
+---
+Hummus
+Falafel
+Tabbouleh
+Shawarma
+Kibbeh
+Fattoush
+Baba ganoush
+Manakish

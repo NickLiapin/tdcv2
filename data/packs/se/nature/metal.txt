@@ -1,0 +1,26 @@
+---
+description: Metals. silba comes first because silver is not an ornament in Sami terms but a store of wealth and a mark of standing: the silver collar, brooches and the ring-and-pendant work of a gákti were a family's convertible capital, silver was what a good year at the market was turned into, and the round pendant discs that hang from a brooch ring were made to be seen and heard. ruovdi, iron, names the other side of the ledger. The largest underground iron mine on earth is at Giron, which Sweden calls Kiruna, and it sits on Sami herding land; it has undermined the town so thoroughly that the town is being physically moved, and its railway and its expansion cut the migration route of the Gabna siida. veaiki, copper, is the live version of the same argument at Riehpovuotna in Norway, where a copper mine licensed to dump tailings into the fjord was opposed by herders and by fishers together. Lithium, cobalt and the rest at the end of the list are the metals the energy transition wants, and the deposits are disproportionately in the north, which is why the phrase green colonialism is now used in Sami politics without irony.
+locale: se
+---
+Silba
+Golli
+Ruovdi
+Veaiki
+Stálli
+Mássiŋ
+Bronsa
+Datni
+Blyi
+Sinka
+Nihkkel
+Aluminiuma
+Kroma
+Titána
+Volframa
+Mangána
+Kobolta
+Platina
+Palládiuma
+Uránium
+Litium
+Molybdena

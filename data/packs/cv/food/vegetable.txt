@@ -1,0 +1,34 @@
+---
+description: Vegetables, in Chuvash, ordered as a cellar is filled rather than as a shop is laid out. Ҫӗрулми the potato comes first and купӑста the cabbage second, which is not a stylistic choice: those two plus кишӗр carrots and кӑшман beetroot are what a village household stores for a winter that runs from November into April, and йӳҫӗтнӗ купӑста, salted and fermented by the barrel, is how the cabbage survives it. Three entries here are gathered and not planted — вӗлтӗрен nettle, пултӑран hogweed and кӑшкар ути sorrel are cut young in May, when the cellar is empty and nothing has come up yet, and they go into the spring soups for exactly that reason. From редис onward the names are Russian: the greenhouse and market vegetables of the twentieth century came through Russian-language trade and are called by Russian names in Chuvash speech, and цветная капуста in particular has no Chuvash form anyone uses.
+locale: cv
+---
+ҫӗрулми
+купӑста
+йӳҫӗтнӗ купӑста
+сухан
+симӗс сухан
+ыхра
+кишӗр
+кӑшман
+ҫарӑк
+хӑяр
+помидор
+пӑрӑҫ
+пӑрҫа
+кавӑн
+кӑмпа
+вӗлтӗрен
+пултӑран
+кӑшкар ути
+редис
+кабачок
+баклажан
+сельдерей
+пастернак
+цветная капуста
+брокколи
+шпинат
+салат
+кукуруза
+фасоль
+хрен

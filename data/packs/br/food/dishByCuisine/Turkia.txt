@@ -1,0 +1,12 @@
+---
+description: Turkish dishes as a kebab shop in Brest, Rennes or Lorient writes them: a French board with the Turkish names kept. The route is worth stating, because it is not the obvious one — the doner sandwich sold across France did not come from Turkey directly but from Turkish emigration to Germany, where it was assembled into a sandwich in Berlin in the early 1970s and then spread west, reaching provincial Breton towns in the 1990s. It is now the commonest thing to eat after eleven at night in a student city like Rennes. Lahmacun, pide and baklava belong to the smaller sit-down half of the trade.
+locale: br
+---
+Döner kebab
+Adana kebab
+Lahmacun
+Pide
+Börek
+Menemen
+Köfte
+Baklava

@@ -1,0 +1,19 @@
+---
+description: Payment methods a French retailer offers, and two of them need explaining to anyone outside France. Carte Bleue is not a brand of plastic but the French domestic card network, running since 1967, and it is still the rails almost every French card actually travels on: a card issued in France is normally co-badged, CB on one side of the logo and Visa or Mastercard on the other, and a purchase made inside France routes over CB while the international scheme is used only abroad — which is why Carte bancaire, Carte Bleue, Visa and Mastercard can all be listed as separate options for what is physically one piece of plastic in one pocket. Chèque is not a survival either: France writes the large majority of the cheques still written anywhere in the European Union, and paying a builder, a school or a butcher by cheque is entirely ordinary. Paylib is the French banks' own wallet, built as an alternative to the American ones rather than as a layer over them, and Paiement en 3 fois sans frais is a specific regulated instalment product rather than a generic credit offer.
+locale: br
+---
+Carte bancaire
+Carte Bleue
+Visa
+Mastercard
+Paiement sans contact
+Espèces
+Chèque
+Virement bancaire
+Prélèvement SEPA
+Paiement à la livraison
+Paiement en 3 fois sans frais
+PayPal
+Apple Pay
+Paylib
+Carte cadeau

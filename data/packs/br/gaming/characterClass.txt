@@ -1,0 +1,28 @@
+---
+description: Character classes, in French, and the honesty is the point of the file. Breton has a real computing vocabulary, deliberately built from the 1990s onward, with a spellchecker and Breton interfaces for Firefox and LibreOffice behind it, so the language is perfectly capable of naming things on a screen. It has no gaming register at all, because the games are played in French or in English and nothing has grown up behind them, and a Breton player therefore reads Druide on the screen like everyone else in the country. That is a small irony worth naming: the volunteer association that produced most of that Breton software calls itself An Drouizig, the little druid, so the word in this list and the word behind the Breton spellchecker are the same word arriving from opposite directions, one through a fantasy franchise and one through a deliberate act of language planning. Inventing a Breton class name here would be coining rather than recording, and this pack does not do it.
+locale: br
+---
+Guerrier
+Chevalier
+Barbare
+Gladiateur
+Lancier
+Archer
+Chasseur
+Voleur
+Assassin
+Bandit
+Éclaireur
+Mage
+Sorcier
+Magicien
+Invocateur
+Nécromancien
+Druide
+Chaman
+Prêtre
+Guérisseur
+Paladin
+Moine
+Barde
+Ingénieur

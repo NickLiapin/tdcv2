@@ -1,0 +1,12 @@
+---
+description: Personal pronouns, nominative and genitive, and the field where Northern Sami differs most sharply from the languages around it. There is no gender: son is he and she and the person in question, and a Sami sentence simply does not tell you which. There is, on the other hand, a whole number that English and Norwegian lack — the dual, a separate set of forms for exactly two people. moai is the two of us, doai the two of you, soai the two of them, and they are not a stylistic variant of the plural but obligatory: use mii of two people and you have made a grammatical error. The dual is not decorative in a herding society either; a great deal of work is done in pairs, and the language has a word for that pair. The genitive forms show consonant gradation at work — son becomes su, mun becomes mu — which is why a pronoun in a template cannot simply be pasted into any slot.
+locale: se
+---
+mun/mu
+don/du
+son/su
+moai/munno
+doai/dudno
+soai/sudno
+mii/min
+sii/sin

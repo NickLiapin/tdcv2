@@ -1,0 +1,16 @@
+---
+description: Jobs in Brittany's fishing sector, and the file where this pack's naming rule is easiest to read: a trade keeps its Breton name where Breton genuinely has one in daily use, and takes its French name where the job exists only on French paperwork. Pesketaer and martolod are ordinary Breton words that a crew out of Le Guilvinec or Douarnenez uses of itself; mareyeur, agent de criée and contrôleur des pêches stay French because the wholesale trade, the auction hall and the fisheries inspectorate are French institutions and the words for them live on French forms and nowhere else. Brittany lands more fish than any other French region, and its ports are known by species rather than by tonnage: Le Guilvinec for langoustine, Concarneau and Lorient for the offshore trawlers, Erquy and Saint-Quay-Portrieux for scallops. The two seaweed lines are not decoration. Wild kelp is cut off the Iroise by goémoniers working a boat-mounted hydraulic hook called a scoubidou, over one of the largest laminaria beds in Europe, and the weed goes for alginates to the plants at Lannilis and Pleubian; algoculteur is the newer trade of growing it on lines instead of cutting it wild. Ostréiculteur and mytiliculteur are two shellfish industries that share no gear at all: oysters in the bay of Morlaix, at Cancale and in the Golfe du Morbihan, mussels on bouchot posts at Pénestin and in the bay of Saint-Brieuc.
+locale: br
+---
+Pesketaer
+Martolod
+Patron de pêche
+Mécanicien de bord
+Ramendeur de filets
+Mareyeur
+Agent de criée
+Ostréiculteur
+Mytiliculteur
+Goémonier
+Algoculteur
+Contrôleur des pêches

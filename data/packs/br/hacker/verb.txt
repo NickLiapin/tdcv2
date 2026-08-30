@@ -1,0 +1,32 @@
+---
+description: Computing verbs in Breton, given as verbal nouns, which is the citation form and doubles as the infinitive. Several are transparent compounds worth reading: pellgargañ, to download, is pell plus kargañ, to load from far away, and the same pell gives pellgomz for a telephone; adloc'hañ, to reboot, is the prefix ad-, again, on loc'hañ, to set in motion, so a machine that reboots in Breton is being set going again rather than started over; distaliañ is the negative prefix di- on staliañ, to install. Hizivaat, to update, is built on hiziv, today — updating something is making it today's. The list mixes these coinages with plain everyday Breton verbs doing technical duty (klask to search, rannañ to share, troc'hañ to cut, pegañ to stick, which is paste), because that is what the Breton Firefox and LibreOffice interfaces actually do, and with a small number of straight loans where no coinage took (kompilañ). A config putting one of these into a running sentence should note that the endings -añ and -iñ are the productive verbal-noun endings and that the progressive is built by putting the particle o in front, which mutates several of these first letters — see hacker/ingverb.txt beside this file, which holds exactly that.
+locale: br
+---
+loc'hañ
+adloc'hañ
+staliañ
+distaliañ
+hizivaat
+kefluniañ
+kevreañ
+digevreañ
+pellgargañ
+kas
+degemer
+enrollañ
+digeriñ
+serriñ
+dilemel
+eilañ
+pegañ
+troc'hañ
+klask
+rannañ
+moullañ
+skrivañ
+lenn
+amprouiñ
+reizhañ
+kompilañ
+seveniñ
+paouez

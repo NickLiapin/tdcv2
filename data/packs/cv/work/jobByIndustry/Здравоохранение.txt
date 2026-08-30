@@ -1,0 +1,16 @@
+---
+description: Jobs in healthcare, staffed and titled exactly as the federal system requires. Two things about the naming are worth a config author's attention. A Russian doctor's title is a compound with the specialty attached — врач-терапевт, врач-хирург — and the bare word врач on its own is the profession, not a post. And фельдшер has no English counterpart: a mid-level clinician who runs a village health point alone, diagnoses, treats and refers, which in a republic of small settlements like Chuvashia is the medicine most rural people actually meet. The list is Russian; a rural фельдшер very often works in Chuvash with the patients and writes the record in Russian.
+locale: cv
+---
+Врач-терапевт
+Врач-хирург
+Врач-педиатр
+Врач-анестезиолог
+Фельдшер
+Медицинская сестра
+Акушерка
+Фармацевт
+Лаборант клинической лаборатории
+Рентгенолаборант
+Врач-стоматолог
+Санитар

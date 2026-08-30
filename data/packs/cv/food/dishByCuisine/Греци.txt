@@ -1,0 +1,12 @@
+---
+description: Greek food, present in Chuvashia almost entirely as one salad. Греческий салат has been a fixed item on Russian menus of every kind since the 1990s — cucumber, tomato, olives, feta — to the point where it is treated as a Russian menu category rather than a foreign dish, and it outsells everything else on this list combined. Behind it sit the holiday dishes: Greece and Cyprus were affordable Mediterranean destinations for Russian tourists for two decades, and Гирос, Сувлаки and Цацики came home in that luggage. Мусака is shared with the Turkish and Balkan kitchens, and Баклава appears here and under Турци for the same reason — the pastry is older than any of the borders drawn across it.
+locale: cv
+---
+Греческий салат
+Мусака
+Гирос
+Сувлаки
+Цацики
+Спанакопита
+Долмадес
+Баклава

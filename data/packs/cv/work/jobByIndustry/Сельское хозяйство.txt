@@ -1,0 +1,16 @@
+---
+description: Jobs on the land. Chuvashia is a small republic of dense villages and small fields, and farming employs a share of it that the national average does not prepare you for. Хмелевод, the hop grower, is the entry that could not appear on any other Russian region's list at this weight: Chuvash hops — хӑмла — have been grown here since long before the industry was organised, the republic's hop yards supply most of what Russian brewing buys domestically, and the plant is on the republic's coat of arms. Beside it are the ordinary crops and herds of the middle Volga: grain, potatoes, cattle and dairy. Titles are Russian because farm employment is registered in Russian, though a Chuvash farmer is still a хресчен in his own speech.
+locale: cv
+---
+Агроном
+Хмелевод
+Зоотехник
+Ветеринарный врач
+Тракторист-машинист
+Комбайнер
+Механизатор
+Оператор машинного доения
+Пчеловод
+Овощевод
+Бригадир полеводческой бригады
+Инженер по сельскохозяйственной технике

@@ -1,0 +1,10 @@
+---
+description: Full female name in Brittany — one given name and one surname (Nolwenn Le Goff, Soazig Quéméner). The surname comes from br.person.lastName, the SAME list a man's comes from, and that is deliberate: Breton and the French forms of Breton surnames alike are invariable, so Nolwenn and her brother Erwan are both Le Goff, which is why this pack ships no person/female/lastName. Compare pl, where the feminine file is compulsory because Kowalski must become Kowalska. What Breton does have, and what a surname list cannot show, is a mutation rule the language applies to women's names in speech: a feminine singular noun after the article takes the soft mutation, so where a man is Ar Gall a Breton speaker naming his sister may say Ar C'hall or reach for the house name instead — traditionally a woman in the countryside was known by her farm, Mari Kerdraon meaning the Mari of Kerdraon, and the Ker- surnames in the list beside this one are exactly those farm names hardened into family names. The generator joins given name and surname with one space; Brittany carries a single surname, not the two-surname Spanish form.
+generator: tdc
+locale: br
+---
+<sequence name="p">
+  <gen name="f" type="template" value="br.person.female.firstName"/>
+  <gen name="l" type="template" value="br.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

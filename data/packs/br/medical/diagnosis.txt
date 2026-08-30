@@ -1,0 +1,184 @@
+---
+description: Diagnoses that can occur in any patient, with no sex or ancestry restriction — sex-specific conditions live in diagnosisMale and diagnosisFemale, ancestry-linked ones in diagnosisByAncestry. The values are French, and that is the fact this bucket exists to record rather than a gap in the pack: the consultation at a Quimper surgery may be conducted in Breton, but the line that enters the file is French and the code under it is CIM-10, of which no Breton edition has ever existed; medical/symptom.txt holds the patient's half of the same conversation. The caseload is Brittany's and not a generic European one. Alcohol runs through it because it runs through the region's mortality tables: Brittany has carried one of France's heaviest alcohol-attributable death rates for decades, and the chain from dépendance à l'alcool through syndrome de sevrage, cirrhose alcoolique and pancréatite chronique to the cancers of the oesophagus, larynx and mouth is the most Breton sequence in this file. Intoxication médicamenteuse volontaire is here because suicide rates in the western départements, Côtes-d'Armor and Finistère above all, stand well above the national figure. Hémochromatose héréditaire and mucoviscidose are here because the founder genetics of the Celtic west put both at their French maximum in Brittany. The occupational block is the other regional signature. Troubles musculo-squelettiques — syndrome du canal carpien, épicondylite, coiffe des rotateurs, lombalgie — are the most frequently recognised occupational illness in the region, produced on the cutting and packing lines of the agri-food plants and the fish-processing halls that are Brittany's largest private employers; plaques pleurales and mésothéliome pleural are the legacy of asbestos in the naval yards at Brest and Lorient; maladie de Parkinson and lymphome non hodgkinien appear on the French agricultural occupational-disease tables and are fought over in the farming départements; intoxication au sulfure d'hydrogène is the green-algae question that recurs on the northern beaches; intoxication par phycotoxines closes shellfish beds several times a year; and accident de décompression belongs to a region whose divers and scallop dredgers work under water for a living.
+locale: br
+---
+Hypertension artérielle
+Diabète de type 2
+Asthme
+Bronchite aiguë
+Grippe saisonnière
+Migraine
+Trouble anxieux généralisé
+Épisode dépressif caractérisé
+Dépendance à l'alcool
+Syndrome de sevrage alcoolique
+Cirrhose alcoolique
+Hépatite alcoolique aiguë
+Pancréatite chronique
+Arthrose
+Polyarthrite rhumatoïde
+Reflux gastro-œsophagien
+Anémie ferriprive
+Hémochromatose héréditaire
+Hypothyroïdie
+Infection urinaire
+Pneumonie communautaire
+Maladie rénale chronique
+Maladie coronarienne
+Fibrillation auriculaire
+Insuffisance cardiaque chronique
+Accident vasculaire cérébral ischémique
+Épilepsie
+Maladie de Parkinson
+Maladie d'Alzheimer
+Sclérose en plaques
+Psoriasis
+Dermatite atopique
+Rhinite allergique
+Sinusite chronique
+Otite moyenne aiguë
+Cataracte
+Glaucome
+Appendicite aiguë
+Cholécystite aiguë
+Diverticulite
+Syndrome de l'intestin irritable
+Maladie de Crohn
+Rectocolite hémorragique
+Hépatite B chronique
+Pancréatite aiguë
+Goutte
+Ostéoporose
+Fibromyalgie
+Sciatique
+Hernie discale
+Syndrome du canal carpien
+Épicondylite latérale
+Lombalgie chronique
+Tendinopathie de la coiffe des rotateurs
+Syndrome de Raynaud
+Bronchopneumopathie chronique obstructive
+Asthme professionnel
+Tuberculose pulmonaire
+Leucémie aiguë myéloïde
+Leucémie lymphoïde chronique
+Lymphome non hodgkinien
+Myélome multiple
+Mélanome
+Carcinome basocellulaire
+Kératose actinique
+Hyperlipidémie
+Obésité
+Syndrome d'apnées obstructives du sommeil
+Insomnie chronique
+Trouble bipolaire
+Trouble du déficit de l'attention avec hyperactivité
+Maladie cœliaque
+Lupus érythémateux disséminé
+Vertige positionnel paroxystique bénin
+Acouphènes
+Hémorroïdes
+Varices des membres inférieurs
+Thrombose veineuse profonde
+Embolie pulmonaire
+Lithiase rénale
+Hyperthyroïdie
+Ulcère gastroduodénal
+Gastrite
+Érysipèle
+Sepsis
+Cancer du sein
+Gastro-entérite aiguë
+Carence en vitamine D
+Insuffisance veineuse chronique
+Diabète de type 1
+Infarctus du myocarde
+Angor d'effort
+Artériopathie oblitérante des membres inférieurs
+Péricardite
+Endocardite infectieuse
+Rétrécissement aortique
+Anévrisme de l'aorte abdominale
+Bronchite chronique
+Emphysème pulmonaire
+Épanchement pleural
+Plaques pleurales
+Mésothéliome pleural
+Fibrose pulmonaire idiopathique
+Mucoviscidose
+Pharyngite
+Œsophagite
+Endobrachyœsophage
+Cancer de l'œsophage
+Cancer du larynx
+Cancer de la cavité buccale
+Cancer de l'estomac
+Cancer colorectal
+Stéatose hépatique non alcoolique
+Hépatite C chronique
+Hernie hiatale
+Hernie inguinale
+Insuffisance rénale aiguë
+Glomérulonéphrite
+Pyélonéphrite
+Cystite
+Incontinence urinaire
+Cancer de la vessie
+Carcinome à cellules rénales
+Accident ischémique transitoire
+Céphalée de tension
+Algie vasculaire de la face
+Névralgie du trijumeau
+Paralysie faciale périphérique
+Neuropathie périphérique
+Syndrome des jambes sans repos
+Tremblement essentiel
+Myasthénie
+Syndrome de Guillain-Barré
+Trouble panique
+Trouble obsessionnel compulsif
+État de stress post-traumatique
+Anorexie mentale
+Boulimie
+Schizophrénie
+Intoxication médicamenteuse volontaire
+Épuisement professionnel
+Thyroïdite de Hashimoto
+Maladie de Basedow
+Syndrome de Cushing
+Maladie d'Addison
+Syndrome métabolique
+Carence en vitamine B12
+Nodule thyroïdien
+Thrombopénie
+Cancer du poumon
+Cancer du pancréas
+Cancer de la thyroïde
+Aponévrosite plantaire
+Rupture de la coiffe des rotateurs
+Spondylarthrite ankylosante
+Acné
+Rosacée
+Pelade
+Urticaire
+Dermatite de contact
+Zona
+Dégénérescence maculaire liée à l'âge
+Rétinopathie diabétique
+Décollement de rétine
+Syndrome de l'œil sec
+Maladie de Ménière
+Surdité neurosensorielle
+Mononucléose infectieuse
+Maladie de Lyme
+Leptospirose
+Hépatite A
+Infection par le VIH
+Infection à herpès simplex
+Varicelle
+Méningite bactérienne
+Encéphalite virale
+Intoxication au sulfure d'hydrogène
+Intoxication par phycotoxines
+Accident de décompression
+Dénutrition du sujet âgé

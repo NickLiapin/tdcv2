@@ -1,0 +1,34 @@
+---
+description: Vegetables, and the first three are the only plant foods with deep roots in the Sami diet, none of which is a vegetable in the greengrocer's sense. fádnu is angelica: the thick hollow stem is peeled and eaten raw in early summer, sweet and strong, and it was gathered in quantity — it is one of the very few green things this far north with enough sugar and vitamin C to be worth the walk. juopmu is mountain sorrel, sharp and acidic, boiled into milk and stored in a skin bag to keep through the winter, which is a preservation technique and not a garnish. buđet, the potato, arrived with settlement and is the vegetable that changed the northern diet more than any other, because it grows in a short cool season where grain does not. The rest of the list is what a shop in Guovdageaidnu stocks, all of it trucked north, and it is written in Norwegian because that is what the label says.
+locale: se
+---
+Fádnu
+Juopmu
+Buđet
+Gulrot
+Kålrot
+Nepe
+Løk
+Purre
+Hvitløk
+Kål
+Rødkål
+Blomkål
+Brokkoli
+Rosenkål
+Erter
+Bønner
+Spinat
+Salat
+Agurk
+Tomat
+Paprika
+Squash
+Aubergine
+Mais
+Sopp
+Selleri
+Persillerot
+Reddik
+Sukkererter
+Grønnkål

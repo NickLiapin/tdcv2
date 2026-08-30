@@ -1,0 +1,11 @@
+---
+description: How a cable run is carried — the containment and installation method, in French, the vocabulary of the site drawing and the works order. The interesting split in Brittany is between the last two land options. Ligne aérienne, the pole route, held on far longer here than the French average and for a plain reason: burying a cable means trenching, and outside the river valleys the rock is granite or schist a spade's depth down, so a tranchée costs several times what it costs on a plain. What changed the balance was weather rather than economics — the hurricane-force storm of October 1987 tore across the Trégor and Finistère and brought down poles and lines across whole cantons, and the storms at the end of December 1999 did it again, after which undergrounding programmes were pushed hard by the departments and the electricity network. A dataset of Breton cable work will therefore show fourreau and tranchée on new estates and ligne aérienne surviving on the older rural runs, sometimes in the same commune.
+locale: br
+---
+Fourreau
+Goulotte
+Chemin de câbles
+Chambre de tirage
+Tranchée
+Ligne aérienne
+Boîte de sol

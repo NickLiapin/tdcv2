@@ -1,0 +1,504 @@
+---
+description: Filler sentences in Breton, the lorem-ipsum prose of this pack, kept short and plain on purpose — six to fourteen words, one or two clauses, the register of a Breton primary reader or a radio bulletin: the household waking, the boat and the tide, the field and the herd, the market, school, rain and wind, the road between Brest and Roazhon, cider and crêpes, a fest-noz, an illness, a football match. The clause is built inside out by the standards of anything else spoken in France. Breton fronts exactly one element and then plants a particle in front of the verb — a when the fronted element is the subject or the direct object, e when it is anything else — so Yann a zebr bara is Yann eats bread with the subject fronted, and Bara a zebr Yann is that same sentence with the object fronted; in both, debriñ has lenited to zebr, because the particle a softens whatever follows it, and that mutation is part of the machinery rather than decoration. The particle e carries its own mixed set, which is why dont surfaces down this file as o tont and e teuan. A second frame, just as common, fronts the verbal noun itself and lets ober carry the person: Debriñ a reomp lein asambles, eating we-do breakfast together. The present progressive is periphrastic — bezañ plus the particle o (oc'h before a vowel) plus the verbal noun, emaon o labourat, I am working — and bezañ has two present tenses where French has one, a split Breton shares with Welsh and Irish and with almost nothing else nearby: emañ for where a thing is and what it is doing, eo and zo for what a thing is and what it is like, hence Emañ ar vag er porzh against Ur porzh bras eo An Oriant. The possessive particles are learned as a set, because each forces a different mutation: tad, father, gives ma zad, da dad, e dad, he zad — four different first consonants for one noun. Plurals run in -où and -ed (bagoù, merc'hed, pesketaerien), but a noun after a numeral stays singular, tri mab for three sons and never tri mibien; a plural lexical subject also leaves the verb in the third person singular, which is why these lines say ar vugale a red and not a redont. The spelling is peurunvan, the unified orthography of 1941, so zh stands at exactly the points where the KLT dialects say /z/ and Vannetais says /h/ (Breizh, brezhoneg, krampouezh, bezhin), and c'h is a single letter of the alphabet whose apostrophe belongs to the letter, distinct from ch and never to be stripped or normalised away. Tense, person and verb are varied deliberately down the file so that a random draw does not read as one drill, and nothing here is a question: every line closes on a plain full stop.
+locale: br
+---
+Da c'hwec'h eur e savan bemdez.
+Ma zad a zihun a-raok an heol.
+Emañ ma mamm o poazhañ ar bara.
+Ar vugale a gousk c'hoazh er gambr.
+Tomm eo an dour war an tan.
+Ur banne kafe am eus evet er gegin.
+Ma c'hoar a walc'h he daouarn er gegin.
+Emañ an amann war an daol e-kichen ar bara.
+Debriñ a reomp lein asambles bemdez.
+Ne gousk ket mat ar bugel bihan.
+Emaon oc'h aozañ ur banne kafe d'am zad.
+Sec'h eo an dilhad war ar gordenn.
+Ma mamm-gozh a serr an nor war he lerc'h.
+Klevet em eus ar radio er gegin.
+Skubañ a ra ma c'hoar ar sal vras.
+Marv eo an tan en oaled.
+Lakaat a ran keuneud war an tan.
+Yen eo an ti er mintin.
+Digeriñ a ran ar prenestr d'an heol.
+Emañ ma zad o tebriñ e lein.
+Ar radio a gomz eus an amzer hiziv.
+Aet eo ma breur er-maez gant ar c'hi.
+Ma zad-kozh a ev e volenn laezh.
+N'eus ket a vara er gegin.
+Prenañ a rin bara er gêr warc'hoazh.
+Ar chas a lamm en-dro d'an ti.
+Ur c'hazh du a gousk war ar gador.
+Ar merc'hed a gomz gant an amezeg.
+Kollet em eus ma alc'hwez er porzh.
+Ar bolennoù a vez lakaet war an daol.
+Ma mamm a lak an dilhad da sec'hañ.
+Emañ ar bugel o c'hoari en ti.
+Ne welan ket ma lunedoù er gegin.
+Dont a ra ma amezeg d'ar gêr.
+Ur bannac'h dour a c'houlenn ar bugel.
+Sevel a ra ma c'hoar da seizh eur.
+Lazhet eo ar gouloù er gambr.
+Naet eo an ti a-raok kreisteiz.
+Skrivet en deus ul lizher d'e vamm.
+Ma zad a wisk e votoù a-raok mont er-maez.
+Er gegin e vez tomm atav.
+Ar vugale a red war an hent bihan.
+Klask a ran ma levr e-touez ar paperoù.
+Gwelet em eus ma amezeg er porzh.
+Serriñ a ran an nor war ma lerc'h.
+Digor eo an nor a-hed an deiz.
+Ma breur a walc'h ar podoù goude koan.
+Un tamm bara gant amann a zebr ar bugel.
+Da eizh eur ez a ma zad d'e labour.
+Kousket mat hon eus en noz-mañ.
+Emañ ar vag er porzh abaoe dec'h.
+Emañ ar besketaerien o vont er-maez.
+Kalz pesked o deus tapet hiziv.
+Uhel eo ar mor er mintin.
+Tre eo ar mor bremañ e-tal an aod.
+Kreñv eo an avel war ar mor.
+Ma zad a besketa e-kichen Douarnenez.
+Bagoù a zo o tont er porzh.
+Sardin a vez tapet e Douarnenez.
+Goloet eo an aod gant ar bezhin.
+Ar vugale a c'hoari war an treaz.
+Kregin a zo war ar mein.
+Emañ al lanv o sevel bremañ.
+Ur reverzhi vras a zo bet dec'h.
+Ne c'haller ket mont er-maez gant an amzer-mañ.
+Sevel a reont ar gouel a-raok kuitaat.
+Yen eo an dour er mor c'hoazh.
+Ur vag ruz a dremen dirak an enez.
+Pell emañ Enez-Eusa diouzh an aod.
+Mont a raimp da Enez-Sun disadorn.
+Ur c'hrank a zo dindan ar mein.
+Ar besketaerien a zistro d'ar porzh da noz.
+Gwerzhet o deus o fesked er marc'had.
+An avel a c'hwezh eus ar c'hornôg.
+Un avel yen ha kreñv eo Gwalarn.
+Kreñv eo ar mor e-tal Enez-Vriad.
+Torret eo ar vag gant ar gwagennoù.
+Emaint o kempenn ar rouedoù er porzh.
+Ker eo al legestr er marc'had.
+Un tourmant a zo bet en noz.
+Ar besketaerien a chom er porzh hiziv.
+Mont a ran d'an aod bep sul.
+Glas eo ar mor e-tal an aod.
+Bezhin a vez dastumet war an aod.
+Ar vugale a neuñv en dour yen.
+Sec'h eo an treaz gant an heol.
+Un tour-tan a zo war ar penn-tir.
+Emañ gouloù an tour-tan o treiñ.
+Ar reverzhi a zeu gant al loar nevez.
+Nav bag a zo o kuitaat ar porzh.
+Ma zad-kozh a oa pesketaer e Konk-Kerne.
+An avel a rae trouz bras en noz.
+Ur maen bras a zo war an aod.
+Kalz a dud a zo war an aod en hañv.
+Gleb eo ma botoù gant an dour-mor.
+Ne vez ket kalz bagoù er porzh er goañv.
+Ur porzh bras eo An Oriant.
+Emañ ma breur o vageal etrezek Ar Gerveur.
+Klevet hon eus an avel a-hed an noz.
+Pesked fresk a vez gwerzhet e Konk-Kerne.
+Ar gwagennoù a dorr war ar mein.
+Diaes eo mont er-maez gant ar brumenn.
+Savet eo bet ar vag e Douarnenez.
+Un draezhenn hir a zo e-kichen Perroz-Gireg.
+Emaomp o sellet ouzh ar bagoù bihan.
+Ar pesketaer a werzh e besked war ar c'hae.
+Gouelini a nij a-us d'ar porzh.
+Start eo ar goañv war an aod.
+Emañ an heol o kuzhat war ar mor.
+Ur morhoc'h a zo bet gwelet er bae.
+Livet e vez ar bagoù bep bloaz.
+Ne oar ket ar bugel neuñviñ c'hoazh.
+Ma zad a labour er park a-hed an deiz.
+Emañ ar saout er prad abaoe ar mintin.
+Ur vuoc'h a zo klañv en atant.
+Ar foenn a vez troc'het e miz Mezheven.
+Hadañ a reomp ar gwinizh du e miz Mae.
+Kroget eo an eost er parkoù.
+Patatez a vez plantet e miz Ebrel.
+Ar moc'h a zo er c'hraou en noz.
+Deñved a zo e-tal ar c'hleuz.
+Ma mamm a c'horo ar saout d'ar mintin.
+Kalz laezh a ro ar vuoc'h-mañ.
+Ar yer a zo er porzh dirak an ti.
+Dastumet em eus vioù er c'hraou.
+Emañ ma breur o troc'hañ keuneud.
+Bleuñv a zo war ar gwez e miz Ebrel.
+Ledan eo ar park a-drek an ti.
+Kaol a zo e liorzh ma zad-kozh.
+Artichaod a vez gounezet e Bro-Leon.
+Ar sivi eus Plougastell a zo brudet.
+Bep bloaz e vez eostet an ed e miz Eost.
+Gleb eo an douar goude ar glav.
+Ur marc'h gwenn a zo er prad.
+Ne c'hell ket ar c'hezeg mont er-maez hiziv.
+Ma zad a bren ur c'harr nevez evit an atant.
+Al labour-douar a zo start e Breizh.
+Ar vugale a sikour o zad er park.
+Emañ ar c'hi o virout ar saout.
+Un tarv du a zo bet prenet er foar.
+Ma amezeg a vag gwenan a-drek e di.
+Emañ ma mamm-gozh el liorzh abaoe ar mintin.
+Bleunioù ruz a zo e-tal an ti.
+Ar gwez-avaloù a ro kalz frouezh er bloaz-mañ.
+Chistr a vez graet gant an avaloù-mañ.
+Ar park a zo bet aret dec'h.
+Diwanet eo an ed er parkoù.
+Emañ ma zad o kas ar saout d'ar c'hraou.
+Yen eo ar mintin war ar maez.
+Uhel eo ar c'hleuz war an hent-se.
+Leun a goadoù eo an Argoad.
+Emaomp o vont d'ar foar e Karaez.
+Gwerzhet en deus e saout er foar.
+Ar prad a zo leun a vleunioù.
+Ne blij ket din ar glav war ar maez.
+Kalz gwez a zo bet plantet e-kichen an ti.
+Ma zad-kozh a ouie lenn an amzer.
+Emañ ar vugale o tastum avaloù.
+Mat e vefe un tammig glav evit an ed.
+Ar merc'hed a zo aet d'ar foar.
+Ur c'hi bihan a heuilh ar saout.
+Ar vugale a sell ouzh al leue nevez.
+Skuizh eo ma zad goude an eost.
+Al labour a vez graet a-raok kuzh-heol.
+Emañ ma breur o valañ an ed er vilin.
+Kalz foenn a zo bet dastumet er bloaz-mañ.
+Bep sadorn ez eomp d'ar marc'had.
+Emañ ar marc'had e kreiz ar gêr.
+Prenet he deus legumaj hag avaloù.
+Ker eo ar c'hig er stal-mañ hiziv.
+Ar merc'hed a werzh krampouezh er stal.
+Dek euro am eus paeet evit ar pesked.
+Ne brenan ket bara er stal-se.
+Emañ ar boulañjer o werzhañ e vara.
+Kalz a dud a zo er marc'had disadorn.
+Ar c'higer a droc'h ar c'hig war an daol.
+Marc'had-mat eo ar patatez er goañv.
+Gwerzhañ a ra ma amezeg mel er marc'had.
+N'em eus ket arc'hant a-walc'h ganin.
+Ar stal a zo digor betek kreisteiz.
+Emaon o klask ur roched nevez.
+Ar priz a zo savet er bloaz-mañ.
+Talvout a ra ar vag-se kalz arc'hant.
+Tremen a ra kalz a dud dre ar marc'had.
+Prenet hon eus kouign-amann evit ar sul.
+Ne vez ket gwerzhet chistr er stal-mañ.
+Paeet he deus ma mamm ar boued.
+Ur c'hilo avaloù am eus prenet er marc'had.
+Ar marc'hadour a zigor e stal da eizh eur.
+Kalz stalioù a zo e kreiz Landerne.
+Kollet he deus ma c'hoar he yalc'h.
+Emaomp o kontañ an arc'hant war an daol.
+Gwerzhet eo bet an holl besked a-raok kreisteiz.
+Ar foar a vez e Karaez bep miz.
+Prenañ a ra ma zad e chistr en atant.
+Ur bara hir am eus goulennet digant ar boulañjer.
+Ar stalioù a serr da c'hwec'h eur.
+Kalz traoù a zo da brenañ er marc'had.
+Paeañ a reer gant ar gartenn bremañ.
+Emañ ar re gozh o kaozeal e-tal ar stalioù.
+Emañ marc'had ar pesked tost d'ar porzh.
+Emañ ar vugale er skol da nav eur.
+Ar skolaerez a lenn ur gontadenn d'ar re vihan.
+Deskiñ a reomp brezhoneg er skol.
+Ne oar ket ar bugel lenn c'hoazh.
+Skrivet en deus e anv war e gaier.
+Ar skolidi a sav pa zeu ar mestr.
+Diwan a zigoras ur skol e Karaez.
+Kalz bugale a zesk brezhoneg e Breizh.
+Emañ ar skolaer o skrivañ war an daolenn.
+Goulennet en deus ar skolaer ur respont.
+Ne blij ket din ar jedoniezh er mintin.
+Al levrioù a zo war an daol c'hoazh.
+Kentel ar brezhoneg a grog da zek eur.
+Ar vakañsoù a grog e miz Gouere.
+Skuizh eo ar skolidi diouzh an abardaez.
+Lennet hon eus ul levr diwar-benn Breizh.
+Emaon o teskiñ ur ganaouenn nevez.
+Emañ ar skol e-kichen an iliz.
+Ne gomz ket ma zad galleg er gêr.
+Ar skolaerez a zeu eus Kemper bemdez.
+Bep merc'her ne vez ket skol amañ.
+Emañ ar vugale o c'hoari er porzh-skol.
+Kelennet en deus istor Breizh d'ar skolidi.
+Un tamm bara am eus lakaet em sac'h.
+Ar gentel a echu da bevar eur.
+Ne gav ket ar bugel e levr brezhoneg.
+Skrivañ a ran ul lizher d'am mignon.
+Ar Redadeg a dremen dre ar skolioù.
+Emaint o teskiñ ar sifroù er c'hlas.
+Ar skolaer a c'houlenn sioulder er c'hlas.
+Lennet he deus Katell teir gwerz hir.
+Ar vugale a gan e brezhoneg bep beure.
+Ne vezan ket diwezhat d'ar skol.
+Emañ ma c'hoar o studiañ e Roazhon.
+Un abadenn a vo er skol disadorn.
+Deuet eo ar gerent d'ar skol hiziv.
+Ar skolidi a zebr o merenn er sal.
+Klevet em eus ar vugale o kanañ er porzh.
+Ne oar ket ar bugel e gentel c'hoazh.
+Emañ ar skolaerez o reiñ labour d'ar re yaouank.
+Ur skol Diwan a zo e Lannuon.
+Bemdez e teuan d'ar skol war ma marc'h-houarn.
+Ar vugale a zesk kanaouennoù kozh.
+Diaes eo studiañ diwezhat en noz.
+Ne vez ket kalz skolidi er c'hlas-mañ.
+Emañ ma breur o prientiñ e arnodenn.
+Gwenaël a zesk sonerezh er skol.
+Kozh eo ti ar skol e kreiz ar vourc'h.
+Kalz levrioù brezhonek a zo el levraoueg.
+Emaomp o lenn ur werz eus ar Barzaz Breiz.
+Glav a ra abaoe ar mintin.
+Kreñv eo an avel war an aod hiziv.
+Brav e vo an amzer warc'hoazh.
+Du eo an oabl a-us d'ar mor.
+Ne ra ket glav hiziv e Kemper.
+Tomm eo bet an hañv-mañ e Breizh.
+Erc'h a zo kouezhet e Menez-Are.
+Ar brumenn a guzh an aod a-bezh.
+Klouar eo an amzer er goañv e Breizh.
+Ur ganevedenn a zo war ar mor.
+Emañ an heol o sevel a-dreñv ar c'hoad.
+Yen eo an avel a zeu eus ar Biz.
+Gleb eo ma dilhad gant ar glav.
+Ne welomp ket an enez gant al latar.
+Kurun a zo bet en noz e Bro-Leon.
+Sioul eo an amzer er mintin-mañ.
+Ar glav a zeu gant ar Gevred.
+Skorn a zo war an hentoù bihan.
+Koumoul du a zo war ar mor.
+An heol a sav abred en hañv.
+Ne baouez ket ar glav hiziv.
+Ur barrad-amzer a zo bet dec'h da noz.
+Tomm eo an heol war ma c'hein.
+Bras eo ar mor gant an avel-mañ.
+Deuet eo ar goañv abred er bloaz-mañ.
+Berr eo an hañv e Breizh.
+Ne vez ket kalz erc'h war an aod.
+Emañ an amzer o cheñch abaoe dec'h.
+Mat e vefe un tamm glav evit al liorzh.
+Ar gwagennoù a save uhel gant ar mor bras.
+Deuet eo an diskar-amzer er miz-mañ.
+Gwenn eo an oabl er mintin.
+Ne zeu ket an heol er-maez hiziv.
+An amzer a zo fall abaoe tri deiz.
+Emaon o c'hortoz ar glav da baouez.
+Kalz avel a vez war Enez-Eusa.
+Skedus eo an heol war ar mor.
+Ar goañv a zo bet gleb er bloaz-mañ.
+Emañ an erc'h o teuziñ war an hent.
+Ne blij ket d'ar vugale an amzer-mañ.
+Ur goumoulenn vras a zo dreist ar menez.
+Bemdez e sell ma zad ouzh an oabl.
+Glav a zeu gant ar Mervent.
+Yen eo bet ar mintin-mañ war ar maez.
+Sec'h eo bet ar miz-mañ e-pad pemzek deiz.
+An heol a guzh a-raok c'hwec'h eur er goañv.
+Emaomp o vont er-maez etre daou varrad glav.
+Kalz glav a gouezh war Vreizh bep bloaz.
+Klouar eo an dour er porzh en hañv.
+Ne vez ket yen kalz e Breizh er goañv.
+Mont a ran da Vrest bep sizhun.
+Pell emañ Roazhon diouzh Kemper ha diouzh Brest.
+An hent etre Brest ha Roazhon a zo hir.
+Emañ ar bus o tont er straed.
+Kemeret hon eus an tren e Montroulez.
+Diwezhat eo bet an tren hiziv.
+Ur c'harr du a dremen war an hent.
+Ne c'haller ket parkañ e kreiz Kemper.
+Emaomp o vont da Naoned warc'hoazh.
+Div eur a bad an hent betek Naoned.
+Emañ ar gar e kreiz kêr.
+Kerzhet a ran betek ar chapel bep sul.
+Ma zad a gas ar vugale d'ar skol.
+Ne blij ket din bleniañ en noz.
+Ur bern kirri a zo war an hent d'ar sul.
+Emañ ma breur o chom e Gwened.
+Aet eo Nolwenn da Sant-Brieg dre an tren.
+Un tamm pelloc'h emañ Kemperle war an hent.
+Treuziñ a reomp ar Menez-Are gant ar c'harr.
+An hent-houarn a ya betek Kemper.
+Ne zeu ket ar bus d'an eur.
+Emaon o c'hortoz ar bus e-tal ar skol.
+Hir eo an hent dre Vro-Dreger.
+Ur marc'h-houarn am eus prenet evit mont d'al labour.
+Strizh eo ar straedoù e Montroulez.
+Ur pont bras a zo e Montroulez.
+Distreiñ a raimp d'ar gêr da noz.
+Ne gav ket ma zad an hent mat.
+Tremenet omp dre Landerne er mintin.
+An hent a zo serret gant ar skorn.
+Emañ ma c'hoar o vont da Roazhon d'ar gwener.
+Ur bag-treizh a ya da Enez-Sun bemdez.
+Kalz a dud a ya da Vro-C'hall da labourat.
+Berr eo an hent etre Gwengamp ha Lannuon.
+Emaomp o kerzhet war an hent-aod.
+Ne vez ket kalz kirri war an hentoù bihan.
+Kollet omp bet e-kreiz ar c'hoad.
+Torret eo ar c'harr e-kichen Pondi.
+Emañ ma zad o vleniañ betek Kastellin.
+Un eur hanter a bad an hent betek Brest.
+Ne zistroan ket d'ar gêr a-raok disul.
+Ar bus a chom e-tal an iliz.
+Emaint o tont eus Gwened en tren.
+Aet eo ma mignon da Bariz da labourat.
+Alies e vezomp e Kemper d'ar sadorn.
+Krampouezh a vez graet gant gwinizh du.
+Emañ ma mamm o poazhañ krampouezh.
+Ur volennad chistr a ev ma zad.
+Kouign-amann a vez debret d'ar sul.
+Far breton a zo bet graet gant ma mamm-gozh.
+Amann sall a zo war an daol.
+Ne blij ket din ar c'hig-sall.
+Kig-ha-farz a vez debret e Bro-Leon.
+Emaomp o tebriñ soubenn er mintin.
+Ur grampouezhenn gant sukr a zebr ar bugel.
+Chistr a vez evet er fest-noz.
+Ne evan ket gwin gant ar pesked.
+Emañ ar chistr er c'hav abaoe an eost.
+Kalz amann a vez lakaet er c'houign.
+Ur podad soubenn a zo war an tan.
+Debret hon eus pesked fresk d'ar merenn.
+Ne vez ket debret kig bep deiz.
+Emañ ma zad o troc'hañ ar bara.
+Laezh-ribod a veze evet gant ar farz gwechall.
+Ar c'hrampouezh a vez debret gant chistr.
+Un tamm kouign-amann a c'houlenn ar vugale.
+Emaint o prientiñ ar goan evit an holl.
+Mel eus Menez-Are a vez gwerzhet er marc'had.
+Ne gav ket ma breur mat ar soubenn-mañ.
+Sivi Plougastell a vez debret e miz Mezheven.
+Emañ ar boued war an daol dija.
+Un tamm keuz gant bara a zebran.
+Kreñv-tre eo ar chouchenn da evañ.
+Debriñ a raimp asambles e ti ma mamm-gozh.
+Ne blij ket din ar c'hafe hep sukr.
+Emaon o c'houlenn ur volennad chistr.
+Ar farz a vez poazhet er sac'h.
+Kalz avaloù a vez troet e chistr.
+Ur banne dour a zo a-walc'h din.
+Emañ ar vugale o tebriñ o merenn.
+Ne zebromp ket ar merenn a-raok kreisteiz.
+Un ostaleri vihan a zo e-tal ar porzh.
+Kalz tud a zeu da zebriñ krampouezh en hañv.
+Emaomp o werzhañ krampouezh er gouel.
+Ne vez ket gwerzhet legumaj amañ er goañv.
+Ur banne chouchenn a vez profet d'ar re gozh.
+Debret en deus ar bugel e grampouezhenn.
+Emañ ma c'hoar o kempenn an daol.
+Tomm eo ar boued war an daol c'hoazh.
+Gwell eo gant ma zad ar chistr eget ar gwin.
+Kalz sukr a lak ma c'hoar en he c'hafe.
+Emaon o waskañ avaloù evit ober chistr.
+Ur bara nevez a vez prenet bemdez.
+Ne vez ket debret kouign-amann bep deiz.
+Emañ an holen war an daol e-kichen ar bolennoù.
+Kalz a dud a zeu d'an ostaleri d'ar sadorn.
+Debret em eus re a grampouezh hiziv.
+Ne evan ket kalz chistr en deiz.
+Emaomp o prientiñ ur pred evit an amezeien.
+Ur pred pounner eo ar c'hig-ha-farz.
+Ur fest-noz a vo e Kastellin disadorn.
+Emaint o tañsal betek hanternoz er sal.
+Ar sonerien a c'hoari biniou ha bombard.
+Kan ha diskan a vez klevet er fest-noz.
+Dañsal a ra ma mamm-gozh c'hoazh.
+Ne oar ket ma breur dañsal an dro.
+Leun a dud eo ar sal fenoz.
+Ur werz hir a gan an den kozh.
+Ar gavotenn a zeu eus Bro-Gerne.
+Klevet em eus un telenner e Kemper.
+Emaomp o vont d'ar fest-noz gant ar re yaouank.
+Ne baouez ket ar sonerezh a-raok an deiz.
+Kalz tud a zañs e-kreiz ar sal.
+Kreñv-tre eo ar bombard da glevout.
+Un abadenn a vo er chapel d'ar sul.
+Ar pardon a vo er chapel disul.
+Ar veleien a gerzh dirak ar banniel.
+Kanet he deus Nolwenn ur ganaouenn gozh.
+Emaon o teskiñ c'hoari gant an akordeoñs.
+Ne vez ket graet fest-noz bep sizhun amañ.
+Ar sonerien a zeu eus Bro-Wened.
+Un delenn vras a zo war al leurenn.
+Emaomp o kanañ e brezhoneg gant an holl.
+Ar gwerzioù a gont istorioù trist.
+Dañsal a reomp betek ar mintin.
+Ne blij ket d'am zad ar sonerezh nevez.
+Kalz sonerien a zo o tont d'ar gouel.
+Emañ ar biniou o son er porzh.
+Ur plinn a zo bet dañset en abardaez.
+Ar Redadeg a dremeno dre Gemper er bloaz-mañ.
+Ne vez ket paeet an dañserien amañ.
+Kalz a dud a zeu d'ar fest-noz eus pell.
+Ar gouel a vo e Gwengamp e miz Eost.
+Emaon o sellet ouzh an dañserien.
+Un den kozh a gont istorioù d'ar vugale.
+Ar vugale a zesk dañsal er skol.
+Emañ ar gouel o kregiñ bremañ.
+Ne oar ket an holl kanañ kan ha diskan.
+Ar biniou hag ar bombard a ya asambles.
+Emaomp o c'hortoz ar sonerien er porzh.
+Un tamm chistr a vez evet etre daou zañs.
+Leun e vez ar sal ar sadorn da noz.
+Ne vez ket echu ar fest-noz a-raok teir eur.
+Kanet en deus Yann ur ganaouenn nevez.
+Klañv eo ar bugel abaoe dec'h.
+Poan-benn am eus abaoe ar mintin.
+Emañ ma mamm o vont d'ar medisin.
+Ne c'hell ket ma zad-kozh kerzhet pell.
+Terzhienn en deus ar bugel bihan.
+Louzoù a zo bet roet d'ar bugel.
+Skuizh on goude an devezh labour.
+Emaon o c'hortoz e-tal an ospital.
+Gwelloc'h eo ma c'hoar abaoe an noz.
+Ne gousk ket mat ma zad-kozh.
+Poan-gof he deus ma c'hoar abaoe dec'h.
+Emañ ar medisin o tont d'ar gêr.
+Torret en deus e vrec'h en ur gouezhañ.
+Yac'h eo an holl er gêr bremañ.
+Ne blij ket din al louzoù-se.
+Kalz tud a zo klañv gant ar sifern.
+Emaomp o vont da glask louzoù.
+Gwan eo bet ma mamm-gozh er goañv.
+Ne zeuio ket d'al labour hiziv.
+Ur gouli en deus war e zorn.
+Emañ ar bugel o kousket gant an derzhienn.
+Kollet he deus he nerzh goude ar c'hleñved.
+Ne vez ket aes kousket gant ar boan.
+Emaon o paouez gant ar butun.
+Kalz tud a zo o c'hortoz er sal.
+Yen eo ma daouarn er goañv.
+Ne c'hallan ket sevel ar sac'h-mañ.
+Ur c'hrogad mell-droad a vo e Brest disul.
+Emaint o c'hoari war ar prad.
+Trec'h eo bet ar skipailh dec'h.
+Ne oar ket ar bugel c'hoari mell-dorn.
+Kalz tud a zeu da sellet ouzh ar c'hrogad.
+Emañ ma breur o redek war an aod.
+Gouren a vez graet er gouelioù hañv.
+Ur gourener yaouank en deus gounezet al lamm.
+Ne vez ket paeet ar c'hoarierien amañ.
+Emaomp o c'hoari mell-bas er sal.
+Marc'h-houarn a ra ma zad bep sul.
+Ar redadeg a grog da nav eur.
+Bageal a vez desket en Oriant.
+Emañ ar vugale o c'hoari mell-nij er skol.
+Ne c'hallan ket redek pell hiziv.
+Kalz merc'hed a c'hoari mell-dorn e Breizh.
+Emaint o vont d'ar redadeg marc'h-houarn.
+Gounezet en deus ar skipailh yaouank.
+Ur pal a zo bet lakaet er munut diwezhañ.
+Emañ ar skipailh o prientiñ ar c'hrogad.
+Ne vez ket c'hoariet mell-droad gant ar skorn.
+Kalz bugale a zesk gouren e Bro-Gerne.
+Emaon o c'hoari kartoù gant ma zad.
+Ar gouren a echu gant ul lamm.
+Ne blij ket d'am breur ar rugbi.
+Kalz a dud a sell ouzh ar c'hrogad war ar skinwel.
+Emañ ar bugel o teskiñ neuñviñ er mor.
+Skuizh omp holl goude ar c'hoari.

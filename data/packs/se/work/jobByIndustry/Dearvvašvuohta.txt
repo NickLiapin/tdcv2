@@ -1,0 +1,16 @@
+---
+description: Jobs in health care, the child of work.industryCoherent value Dearvvašvuohta. The distances decide the shape of the work: a district with a few thousand people spread over an area the size of a small country needs a doctor who travels, an ambulance service that plans for two hours of road in a blizzard, and air ambulance as an ordinary rather than an exceptional resource. Language is a clinical matter and not a courtesy — SANKS, the Sami national competence service for mental health in Kárášjohka, exists because a patient describing distress in a second language is describing something else, and the right to be treated in Sami is written into Norwegian law for the administrative area.
+locale: se
+---
+Doavttir
+Buohccidivššár
+Bátnedoavttir
+Bátnedivššár
+Psykologa
+Fysioterapeuhta
+Ergoterapeuhta
+Apotekára
+Ambulánsabargi
+Dikšobargi
+Sosiálabargi
+Laboratoriabargi

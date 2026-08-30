@@ -1,0 +1,24 @@
+---
+description: Telephone and internet providers available in Brittany. Almost all of them are the French national operators and their low-cost sub-brands, because mobile licences in France are national and there is no regional carrier — but the last entries are not brands at all and are the reason this file is worth reading. Mégalis Bretagne is the public body through which the region, the four departments and the communes built their own fibre network, and Bretagne Très Haut Débit is that programme's name; Brittany decided that a dispersed rural population would never be wired by the market and wired it publicly instead, which is why fibre reaches hamlets here that would be on copper in comparable regions elsewhere. There is a deeper reason the region cares: Lannion in the Trégor has been France's telecommunications research centre since the CNET moved there in the 1960s, the place where the Minitel and much of French digital switching was developed, and the local nickname Telecom Valley is not a marketing invention. The first transatlantic cables into France still land a short way down the coast.
+locale: br
+---
+Orange
+SFR
+Bouygues Telecom
+Free
+Sosh
+RED by SFR
+B&You
+Free Mobile
+La Poste Mobile
+NRJ Mobile
+Prixtel
+Coriolis Telecom
+Lebara
+Lycamobile
+Syma Mobile
+Auchan Telecom
+Cdiscount Mobile
+YouPrice
+Mégalis Bretagne
+Bretagne Très Haut Débit

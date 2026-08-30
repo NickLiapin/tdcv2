@@ -1,0 +1,21 @@
+---
+description: Cuisines as a restaurant listing in Romsa, Álaheadju or Anár names them, and the parent of food/dishByCuisine, so every value here has a file of exactly that name beside it. Sámi comes first and is the only one of the seventeen that is not a national cuisine: it belongs to a people, not a state, and the same kitchen is found in three countries. Norgalaš, Suopmelaš and Ruoŧŧelaš are here because Sápmi is administered by all three and a Sami town eats the food of whichever one it pays tax to. Kveana is the interesting entry — Kven cooking, the Finnish-derived kitchen of the Kven settlers of northern Norway, which is neither Norwegian nor Sami and is recognised as its own thing by everyone who lives beside it. Turkalaš is the kebab shop, and the kebab shop is the single most reliable indicator that a northern town has a bus station. The Asian cuisines arrived with the same restaurant wave that reached every Nordic small town in the 1990s and 2000s, and the Thai entry in particular is not an import from a distance: Thai women have migrated into northern Norway and Finland in numbers large enough that Thai food is now a village institution there.
+locale: se
+---
+Sámi
+Norgalaš
+Suopmelaš
+Ruoŧŧelaš
+Kveana
+Ruoššalaš
+Itálialaš
+Kiinnálaš
+Thailándalaš
+Indialaš
+Turkalaš
+Vietnamalaš
+Japánalaš
+Meksikolaš
+Amerihkálaš
+Gréikalaš
+Libanonlaš

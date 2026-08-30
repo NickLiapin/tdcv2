@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in endocrinology. Эндемический зоб is not filler here: the soils and groundwater of the middle Volga are genuinely iodine-poor, iodine deficiency has been documented across Chuvashia and its neighbours for decades, and thyroid enlargement is common enough that a rural clinic screens for it as a matter of course — which is also why левотироксин натрия appears in medical/drugGeneric. Type 2 diabetes and obesity fill most of the remaining appointments, on the same rising curve as the rest of Russia.
+locale: cv
+---
+Сахарный диабет 2 типа
+Гипотиреоз
+Эндемический зоб
+Диффузный токсический зоб
+Ожирение
+Остеопороз

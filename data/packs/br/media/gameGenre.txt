@@ -1,0 +1,21 @@
+---
+description: Video game genres in French and English exactly as the French games press writes them. No Breton equivalents are offered because none is in use: the Ofis Publik ar Brezhoneg coins and publishes terminology for administration, road signage, schooling and the workplace, and video games have simply never been a field it has worked, so a Breton speaker discussing a jeu de tir à la première personne says exactly that. Brittany's own connection to the medium is industrial rather than linguistic: Rennes has hosted Stunfest since 2005, one of the oldest video game festivals in France, and the region's digital industry grew out of state telecommunications research planted at Lannion in the 1960s, which is how a small town inside the Breton-speaking Trégor ended up with a fibre-optics laboratory in it.
+locale: br
+---
+Action
+Aventure
+Action-aventure
+Jeu de tir
+Jeu de tir à la première personne
+Jeu de rôle
+Stratégie
+Stratégie en temps réel
+Stratégie au tour par tour
+Simulation
+Jeu de sport
+Jeu de course
+Jeu de combat
+Jeu de plateforme
+Jeu de réflexion
+Jeu d'horreur
+Jeu de survie

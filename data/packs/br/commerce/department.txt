@@ -1,0 +1,54 @@
+---
+description: Store departments as a French hypermarket signs its aisles, which is what a Breton shopper walks through. Brittany has a particular claim on this vocabulary: Édouard Leclerc opened his first shop in Landerneau in 1949, twenty kilometres from Brest, selling groceries at close to wholesale prices out of a back room and starting the price war that produced French mass retail; Intermarché grew out of a breakaway of Leclerc affiliates led by Jean-Pierre Le Roch and is run from Vitré at the far end of the region; and Système U's western cooperative is Breton too. Several of the groups that between them sell most of France's food were founded inside one small peninsula. Marée is the entry an outsider misreads: in French retail it means the fresh-seafood counter, literally the tide, and in a large shop it is a different rayon from poissonnerie with its own buyer and its own overnight supply from the auction halls at Le Guilvinec, Loctudy and Saint-Guénolé. Biscuiterie is a real department here and not a flourish, because salted-butter biscuits — galettes and palets — are a regional industry rather than a souvenir. And produits régionaux is the one aisle in the whole shop where the Breton language is physically present, printed on the packaging of cider, biscuits and beurre salé; the signage everywhere else, including the signs over this list, is French.
+locale: br
+---
+Boulangerie
+Pâtisserie
+Boucherie
+Charcuterie
+Marée
+Poissonnerie
+Traiteur
+Fromagerie
+Fruits et légumes
+Épicerie salée
+Épicerie sucrée
+Produits frais
+Surgelés
+Conserves
+Biscuiterie
+Confiserie
+Boissons
+Bières et cidres
+Cave à vins
+Produits régionaux
+Bio
+Hygiène
+Parfumerie
+Parapharmacie
+Entretien
+Animalerie
+Puériculture
+Prêt-à-porter femme
+Prêt-à-porter homme
+Vêtements enfant
+Lingerie
+Chaussures
+Maroquinerie
+Bijouterie
+Optique
+Jouets
+Papeterie
+Librairie
+Informatique
+Téléphonie
+Image et son
+Électroménager
+Arts de la table
+Linge de maison
+Décoration
+Mobilier
+Bricolage
+Jardinerie
+Sport
+Nautisme

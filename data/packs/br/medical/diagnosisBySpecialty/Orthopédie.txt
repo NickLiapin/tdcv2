@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in orthopaedics, and in Brittany largely an occupational list. Musculoskeletal disorders are by a wide margin the most frequently recognised occupational illness in France, declared under table 57 of the general scheme, and this region manufactures them at scale: the pork and poultry cutting lines, the fish-processing plants and the shellfish sheds put thousands of people through the same fast, cold, wet, repeated movement of wrist and shoulder across a whole working life. Carpal tunnel syndrome and rotator cuff tendinopathy head the list for that reason rather than because the population is old. A diagnosis here frequently doubles as a maladie professionnelle declaration, a French administrative form with its own deadlines, which is one more reason these labels are French.
+locale: br
+---
+Syndrome du canal carpien
+Tendinopathie de la coiffe des rotateurs
+Épicondylite latérale
+Lombalgie chronique
+Arthrose
+Hernie discale

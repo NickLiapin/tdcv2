@@ -1,0 +1,10 @@
+---
+description: Chuvash full female name — one given name and one surname, given name first (Нарспи Петрова, Кӗтерне Иванова). Note the literal а welded onto the end of the surname in the data line. Chuvash itself has no grammatical gender whatsoever, but the surnames of the Chuvash Republic are Russian in form, and a Russian-form surname DOES inflect for sex: Иванов is a man and Иванова is his sister, and a register that wrote Кӗтерне Иванов would be wrong. Because every value in cv.person.lastName is the masculine citation form ending in -ов, -ёв, -ев, -ин or -ын, appending a single а derives the entire feminine set correctly — which is exactly why this pack, unlike ru and pl, needs no person/female/lastName.txt at all. Its absence is the design, not an omission: one list plus one letter cannot drift out of step with itself the way two hand-kept lists can.
+generator: tdc
+locale: cv
+---
+<sequence name="p">
+  <gen name="f" type="template" value="cv.person.female.firstName"/>
+  <gen name="l" type="template" value="cv.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}а</data>

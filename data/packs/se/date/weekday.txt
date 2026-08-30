@@ -1,0 +1,11 @@
+---
+description: Weekdays, listed from Monday as European practice writes them, while the DATE_LOCALE.json table beside this file must start on Sunday because that is the index the formatter uses. Two of these names are older and stranger than the rest. vuossárga, Monday, and maŋŋebárga, Tuesday, are built on the same element -árga or -bárga, with vuos- meaning first and maŋŋe- meaning after, so the pair reads as the first árga and the one after it. gaskavahkku, Wednesday, is transparently the middle of the week, gaska plus vahkku. bearjadat and lávvardat came with Norse — Friday and the washing day that became Saturday — and sotnabeaivi is the holy day compounded with beaivi, the day and the sun.
+locale: se
+---
+vuossárga
+maŋŋebárga
+gaskavahkku
+duorasdat
+bearjadat
+lávvardat
+sotnabeaivi

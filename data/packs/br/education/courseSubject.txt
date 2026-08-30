@@ -1,0 +1,24 @@
+---
+description: School subject as the French curriculum names it, plus the two entries that make a Breton timetable different from any other in France. Breton appears as a langue vivante régionale, taken as an option from collège onward and presentable at the baccalauréat, where a few thousand candidates sit it every year. Histoire-géographie en breton is the other, and it is a different thing entirely: in the bilingual streams Breton is not a subject but the medium, history and geography are the subjects most often taught through it, and a pupil out of those streams is allowed to answer that paper of the brevet in Breton rather than in French. One trap for a config writer: this list and education/major.txt share several words but not their level — Mathématiques here is a line on a school timetable and in the other file it is a university degree, so drawing on both for one record can produce a person who studied their school subject at doctoral level.
+locale: br
+---
+Français
+Mathématiques
+Histoire-géographie
+Enseignement moral et civique
+Sciences de la vie et de la Terre
+Physique-chimie
+Technologie
+Anglais LV1
+Espagnol LV2
+Allemand LV2
+Breton langue vivante régionale
+Latin
+Arts plastiques
+Éducation musicale
+Éducation physique et sportive
+Sciences numériques et technologie
+Sciences économiques et sociales
+Philosophie
+Enseignement scientifique
+Histoire-géographie en breton

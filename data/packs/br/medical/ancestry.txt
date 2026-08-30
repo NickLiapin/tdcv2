@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group as clinical genetics uses the term — geographic descent, not a social race category — and the parent of medical/diagnosisByAncestry, so every value here is also the name of a file in that folder. The labels are French, the register of a French genetics department. Unlike most packs, where the ancestry axis is a courtesy to international cohorts, Brittany has a founder-population genetics of its own and the first value is the loaded one: Europe du Nord. Brittany is the world hotspot for hereditary haemochromatosis. The C282Y mutation of the HFE gene reaches its highest frequencies anywhere in the Celtic west — Ireland, Wales, Cornwall and Brittany — with roughly one Breton in six or seven carrying a copy, which puts homozygotes at a rate no other European region matches and makes an unexplained ferritin the single test a Breton file is most likely to turn on. Rennes hosts the national reference centre for rare genetic iron overload for exactly that reason. Cystic fibrosis carrier rates are high on the same Atlantic gradient, and Brittany records France's highest incidence of the disease. So the child file behind Europe du Nord is the longest in this pack, and it is not decoration: the population it describes is the one the pack is about. The other eleven values exist so a config can still model a mixed or diaspora cohort in a Rennes or Brest teaching hospital.
+locale: br
+---
+Europe du Nord
+Europe de l'Est
+Bassin méditerranéen
+Afrique du Nord
+Afrique subsaharienne
+Moyen-Orient
+Juifs ashkénazes
+Asie du Sud
+Asie de l'Est
+Asie du Sud-Est
+Amérindiens
+Îles du Pacifique

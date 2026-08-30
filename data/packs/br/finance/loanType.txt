@@ -1,0 +1,14 @@
+---
+description: Loan products as a French bank sells them. Two are state instruments rather than commercial ones and behave differently in any model. The prêt à taux zéro is an interest-free portion of a first-time buyer's mortgage, funded by the state and repaid without interest, and the amount depends on where the property is — the zoning puts most of Brittany outside the tightest bands, so a Breton PTZ is smaller than a Paris one for the same income. The prêt d'honneur is a personal, interest-free, unsecured loan made to someone starting a business, granted by networks such as Initiative France on the strength of a committee's judgement rather than collateral, and it is used heavily in a region of very small firms. The prêt jeune agriculteur belongs to the same tradition, subsidised installation credit for a farmer taking over a holding, which matters in a region where the average farmer is well over fifty and succession is the industry's central problem. Note that French mortgages are overwhelmingly fixed-rate for their whole term, which makes a French loan book behave nothing like an Anglo-American one.
+locale: br
+---
+Prêt immobilier
+Prêt à taux zéro
+Prêt relais
+Prêt travaux
+Prêt personnel
+Crédit auto
+Crédit renouvelable
+Prêt étudiant
+Prêt professionnel
+Prêt jeune agriculteur

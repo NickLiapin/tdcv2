@@ -1,0 +1,27 @@
+---
+description: The interior designator written in front of a number on an address line in Brittany. Most of it is French, and that is not a gap to be papered over: an address here is a French postal object, so appartement, bâtiment, escalier, porte, entrée and rez-de-chaussée, together with the clipped forms appt, bât., esc. and RDC that people actually write, are what appears on the lease, the letter box and the electricity bill. Both the spelled-out and the clipped form of each are listed because both occur on real address lines, and a config that wants a single register must filter rather than assume it has one. The Breton words are here because they are equally real and are what is said aloud and painted on the door even when the envelope is French: ranndi a flat, literally a share of a house, which is a more honest description of a flat than the French word manages; estaj a storey; kav a cellar; solier a loft; kambr a room; karrdi a garage, a car-house, built on the same ti pattern as ti-post and ti-forn. These Breton values are dictionary forms and will mutate in place — kambr becomes ma c'hambr, my room, under the spirant mutation that follows ma — so a config dropping one of them into running Breton text after a possessive is producing a form no speaker would write.
+locale: br
+---
+Ranndi
+Estaj
+Kav
+Solier
+Kambr
+Karrdi
+Appartement
+Appt
+Étage
+Bâtiment
+Bât.
+Escalier
+Esc.
+Porte
+Entrée
+Rez-de-chaussée
+RDC
+Combles
+Cave
+Garage
+Box
+Place de parking
+Local

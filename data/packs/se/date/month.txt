@@ -1,0 +1,16 @@
+---
+description: The twelve months, and they are a working calendar of the herding year rather than a set of Roman names. Every one is a compound ending in mánnu, moon or month, and the first element names what the month is for. njukčamánnu is the swan's month, when njukča comes back over the still-frozen lakes. cuoŋománnu is the month of cuoŋu, the crust that forms when a thawed surface refreezes hard enough to carry a sled, a running herd and a wolf. miessemánnu is the calving month, from miessi, the reindeer calf born in May. suoidnemánnu is the hay month. borgemánnu takes its name from borga, driving snow, the first of it. golggotmánnu is the month of the rut, when the bulls fight and the siida gathers the herd for separation. skábmamánnu opens skábma, the dark time, the weeks when the sun does not clear the horizon at all this far north. Only ođđajagemánnu, the new-year month, and juovlamánnu, the Yule month, are named after the Christian and administrative calendar rather than after the year outside the door. In a written date the noun goes into the genitive and the long nn shortens: 5. cuoŋománu 2026, not cuoŋománnu.
+locale: se
+---
+ođđajagemánnu
+guovvamánnu
+njukčamánnu
+cuoŋománnu
+miessemánnu
+geassemánnu
+suoidnemánnu
+borgemánnu
+čakčamánnu
+golggotmánnu
+skábmamánnu
+juovlamánnu

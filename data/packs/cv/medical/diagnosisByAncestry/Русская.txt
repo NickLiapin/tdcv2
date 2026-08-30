@@ -1,0 +1,14 @@
+---
+description: Conditions with a raised frequency in people of Russian descent — a prevalence signal only, and the Russian population of Chuvashia is genetically an eastern-European one. The recessive entries are the ones the newborn screening programme and the regional genetic consultation actually look for: phenylketonuria and cystic fibrosis are both on the national newborn panel, and the GJB2 35delG variant is the commonest single cause of non-syndromic congenital deafness across European populations, Russian included. Болезнь Вильсона — Коновалова is written with both names because Nikolai Konovalov's Moscow work on hepatolenticular degeneration is credited alongside Wilson's in every Russian textbook. Hypertension, stroke and alcohol-related liver disease are here as regional burden, not ancestry.
+locale: cv
+---
+Наследственный гемохроматоз
+Фенилкетонурия
+Муковисцидоз
+Семейная гиперхолестеринемия
+Болезнь Вильсона — Коновалова
+Спинальная мышечная атрофия
+Несиндромальная тугоухость (мутация GJB2 35delG)
+Алкогольная болезнь печени
+Артериальная гипертензия
+Ишемический инсульт

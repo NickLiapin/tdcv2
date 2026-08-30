@@ -1,0 +1,53 @@
+{
+  "months": [
+    "Genver",
+    "C'hwevrer",
+    "Meurzh",
+    "Ebrel",
+    "Mae",
+    "Mezheven",
+    "Gouere",
+    "Eost",
+    "Gwengolo",
+    "Here",
+    "Du",
+    "Kerzu"
+  ],
+  "monthsInDate": [
+    "Genver",
+    "C'hwevrer",
+    "Meurzh",
+    "Ebrel",
+    "Mae",
+    "Mezheven",
+    "Gouere",
+    "Eost",
+    "Gwengolo",
+    "Here",
+    "Du",
+    "Kerzu"
+  ],
+  "monthsShort": [
+    "Gen.",
+    "C'hwe.",
+    "Meu.",
+    "Ebr.",
+    "Mae",
+    "Mezh.",
+    "Goue.",
+    "Eos.",
+    "Gwen.",
+    "Her.",
+    "Du",
+    "Kerz."
+  ],
+  "weekdays": ["Sul", "Lun", "Meurzh", "Merc'her", "Yaou", "Gwener", "Sadorn"],
+  "weekdaysShort": ["Sul", "Lun", "Meu.", "Mer.", "Yao.", "Gwe.", "Sad."],
+  "formats": {
+    "L": "DD/MM/YYYY",
+    "LL": "D [a viz] MMMM YYYY",
+    "LLL": "D [a viz] MMMM YYYY HH:mm",
+    "LLLL": "dddd D [a viz] MMMM YYYY HH:mm"
+  },
+  "notes": "Two things in this table are worth reading before a config uses it. The first is the literal [a viz] inside the long formats, which is not decoration: Breton names a date as the day OF the month of X — d'an 12 a viz Genver 2026, on the 12th of month January — and miz, month, lenites to viz after the preposition a. The mutation is therefore visible in the format string itself, which is as close as a date table gets to teaching the grammar of the language it serves. The second is the month names. Du is the ordinary Breton adjective for black and Kerzu is very dark, so November and December are named for the failing light rather than for a Roman numeral or an emperor; Eost is the harvest, and Gwengolo the white brushwood. Meurzh, from Mars, does double duty as both March and Tuesday and appears in both arrays of this file — that is not a copy-paste slip. Merc'her carries the c'h, one letter of the Breton alphabet and not c followed by an apostrophe and h, so a formatter that strips punctuation from a weekday name will destroy it. The bare forms are used here because that is what a formatter substitutes for dddd; in running Breton the weekday takes the prefix di-, disul, dilun, dimeurzh, dimerc'her, diriaou, digwener, disadorn, which means on that day and is a different word from the name of the day. Weekdays are indexed from Sunday, as the formatter requires, while date/weekday.txt beside it starts on Monday in the continental way, and both are right. Dates run day-first, as in France."
+}

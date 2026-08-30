@@ -1,0 +1,15 @@
+---
+description: Contract type, and every value is French for a reason worth stating plainly: these are not descriptions of work but named instruments of the Code du travail, each with its own article, its own maximum duration and its own end-of-contract indemnity, and a contract signed in Brittany is drafted in French from the first line to the signature — Breton has no legal register at all, because it has never been a language of French administration. Two entries carry the region's economy. CDD saisonnier is not a minor category here: the coastal tourist season and the vegetable season both run on it, the artichoke, cauliflower and shallot harvests of the Léon and the campsites and crêperies of the whole coast hiring for a few months and closing, so a large share of Breton employment histories is a chain of them. Groupement d'employeurs is the French device that answers exactly that problem — several farms or food plants join a legal grouping, hire one person between them, and share the time, which converts what would have been four seasonal CDDs into a single permanent job; agricultural groupements are denser in Brittany than anywhere else in France, and they exist because the work is seasonal in different months on neighbouring holdings. Fonctionnaire titulaire and agent contractuel are the two sides of public employment, and the difference matters in a rural region where the commune, the school and the hospital are often the largest employers in the parish.
+locale: br
+---
+CDI
+CDD
+CDD saisonnier
+Intérim
+Apprentissage
+Contrat de professionnalisation
+Stage
+Temps partiel
+Fonctionnaire titulaire
+Agent contractuel
+Groupement d'employeurs

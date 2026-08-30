@@ -1,0 +1,10 @@
+---
+description: Full male name: one given name and one surname, given name first (Áslat Sara, Nils-Aslak Valkeapää). The surname is drawn from se.person.lastName, the same list a woman's name is drawn from, because Northern Sami has no grammatical gender at all and a surname does not inflect — compare pl, whose equivalent file must read a separate feminine list. What this two-part form cannot show is the name people actually use. In a Sami village the identifying name is the ancestor chain, the father's and grandfather's given names stacked in front of a person's own — Iŋgor Ántte Áilu is the Áilu of the Ánte of the Iŋgor — and it is used in speech, in obituaries and on record covers, because surnames repeat so heavily that they identify almost nobody. A config that needs that form should build it from two or three draws on se.person.male.firstName rather than expect it here.
+generator: tdc
+locale: se
+---
+<sequence name="p">
+  <gen name="f" type="template" value="se.person.male.firstName"/>
+  <gen name="l" type="template" value="se.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

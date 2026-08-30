@@ -1,0 +1,12 @@
+---
+description: Greek dishes, the child of food.cuisine value Gréikalaš. A small category in the north and mostly a holiday memory: Greece is where Norwegians and Finns go in the two weeks of summer when they want heat, and the taverna food comes home with them. The overlap with the Turkish list — gyros beside döner, baklava on both — is a real culinary history and not a mistake.
+locale: se
+---
+Moussaka
+Souvlaki
+Gyros
+Tzatziki
+Gresk salat
+Dolmades
+Spanakopita
+Baklava

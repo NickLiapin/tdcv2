@@ -1,0 +1,14 @@
+---
+description: Conditions more frequent in people of East Asian descent. Glaucome primitif à angle fermé is the entry that most often reaches the wrong department first: the eye's anterior chamber is anatomically shallower in this population, and an acute attack presents with headache, nausea and vomiting, so the patient arrives in an emergency department and is worked up for a migraine or a stomach upset while the optic nerve is being destroyed over a few hours. Two other entries belong to the prescribing desk rather than the diagnostic one, since aldehyde dehydrogenase 2 deficiency causes the alcohol flush and raises oesophageal cancer risk in those who drink through it, and carbamazepine hypersensitivity tracks an HLA allele common enough in the region that testing is expected before the prescription. French labels: the ordonnance that comes out of the consultation is a French legal document, valid at any pharmacy in the country and nowhere written otherwise.
+locale: br
+---
+Alpha-thalassémie
+Déficit en aldéhyde déshydrogénase 2
+Non-persistance de la lactase
+Carcinome du nasopharynx
+Cancer de l'estomac
+Glaucome primitif à angle fermé
+Maladie de Kawasaki
+Maladie de moyamoya
+Hypersensibilité à la carbamazépine
+Myopie forte

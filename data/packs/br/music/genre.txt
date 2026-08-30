@@ -1,0 +1,39 @@
+---
+description: Genres and dance forms, and the front of the list is not a matter of taste but a map. Naming a Breton dance names a canton: an dro and hanter dro are Vannetais, plinn belongs to the Kreiz Breizh country around Bourbriac, dañs fisel to the Fisel terroir around Rostrenen, gavotte to Cornouaille, ridée to the Morbihan and rond de Saint-Vincent to the Gallo-speaking east, so a dancer who does one of them properly is from somewhere in particular and everyone in the hall knows where. Fest-noz, the night dance, went onto the UNESCO intangible heritage list in 2012 on the strength of being a living circuit of several hundred events a year rather than a folklore revival, and fest-deiz is its daytime form. Gwerz and sonioù are the two halves of the sung repertoire and the division on which La Villemarqué built the Barzaz Breiz in 1839: a gwerz is a long narrative ballad, almost always a death — a shipwreck, a plague, a murder, a woman taken by the sea — sung unaccompanied and sometimes running to dozens of stanzas, while a son is short and light and made to pass an evening. Kan-plaen is the plain undanced song, and kantik is the Breton hymn, of which the pardons have kept hundreds still sung by the congregation in Breton in parishes where the language survives in nothing else. Kan ha diskan is the technique that makes all of it work: two singers overlap, the second picking up the last bars of the first's line while the first is still singing them, so the pulse never breaks. Bagad is a genre here as well as an ensemble, because the bands compete with written arrangements; rock breton and electro-trad are what the 1970s revival grew into.
+locale: br
+---
+Fest-noz
+Fest-deiz
+Kan ha diskan
+Gwerz
+Sonioù
+Kan-plaen
+Kantik
+Gavotte
+An dro
+Hanter dro
+Plinn
+Dañs fisel
+Laridé
+Ridée
+Rond de Saint-Vincent
+Marche
+Bagad
+Musique celtique
+Rock breton
+Electro-trad
+Folk
+Chanson française
+Pop
+Rock
+Punk
+Métal
+Jazz
+Blues
+Chant choral
+Reggae
+Hip-hop
+Rap
+Musique électronique
+Musique classique
+Musique de film

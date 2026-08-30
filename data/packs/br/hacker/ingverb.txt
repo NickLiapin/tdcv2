@@ -1,0 +1,32 @@
+---
+description: The progressive — what English writes with -ing — and in Breton it is not a suffix at all but a particle standing in front of the verbal noun: o before a consonant, oc'h before a vowel, with a form of bezañ carrying the tense, emaon o pellgargañ for I am downloading. The reason this file is not simply hacker/verb.txt with a word bolted on is that the particle MUTATES what follows it, by the mixed mutation, which is the least discussed of the four and the one a config writer will get wrong. It turns d into t, m into v, b into v, g into c'h and gw into w, and leaves everything else alone. So digeriñ becomes o tigeriñ, dilemel becomes o tilemel, degemer becomes o tegemer, moullañ becomes o voullañ — every entry in this list beginning with t- where the verb begins with d- is that rule at work, not a typing slip, and the same rule is why Breton says emaon o vont for I am going and emaon o tebriñ for I am eating. The values here are therefore ready to drop straight into a sentence after a form of bezañ, which is the opposite of most of the noun lists in this pack, where the value is a dictionary form that still has to be mutated by hand.
+locale: br
+---
+o loc'hañ
+oc'h adloc'hañ
+o staliañ
+o tistaliañ
+o hizivaat
+o kefluniañ
+o kevreañ
+o tigevreañ
+o pellgargañ
+o kas
+o tegemer
+oc'h enrollañ
+o tigeriñ
+o serriñ
+o tilemel
+oc'h eilañ
+o pegañ
+o troc'hañ
+o klask
+o rannañ
+o voullañ
+o skrivañ
+o lenn
+oc'h amprouiñ
+o reizhañ
+o kompilañ
+o seveniñ
+o paouez

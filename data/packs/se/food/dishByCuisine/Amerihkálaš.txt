@@ -1,0 +1,12 @@
+---
+description: American dishes, the child of food.cuisine value Amerihkálaš. The names are the Norwegian forms, which is what the sign over the counter says. The connection worth noting is not the food: emigration from northern Norway and Sweden to Minnesota and the Dakotas in the late nineteenth century took Sami families with it, some of them recruited deliberately to bring reindeer to Alaska in the 1890s, and there are Sami descendants in North America who trace their line to exactly that.
+locale: se
+---
+Hamburger
+Cheeseburger
+Pølse i brød
+Buffalo wings
+BBQ-ribbe
+Caesarsalat
+Pannekaker
+Eplepai

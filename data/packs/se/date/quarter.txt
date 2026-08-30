@@ -1,0 +1,8 @@
+---
+description: Business quarters as a Sami institution writes them — the Sámediggi in Kárášjohka, a siida accounting for its slaughter income, a reindeer-herding district reporting to the state. kvartála is a Nordic loan and is here on purpose: quarterly reporting is an administrative act performed towards Norway, Sweden or Finland, and the vocabulary of that act came with it. The herding year itself is not divided this way at all. It is divided into eight seasons, and the boundaries fall where the herd moves, not where a fiscal quarter ends.
+locale: se
+---
+1. kvartála
+2. kvartála
+3. kvartála
+4. kvartála

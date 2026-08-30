@@ -1,0 +1,82 @@
+---
+description: What people do outside paid work, and in Sápmi the line between a pastime and a livelihood is thin on purpose. duodji, the craft tradition, heads the list because it is simultaneously an art form with juried exhibitions, a household necessity and a certified trade with its own Sami-language apprenticeship: a knife sheath, a birch cup, a set of vuoddagat — the woven bands that lace a reindeer-skin boot — are made to be used. meahcástallan has no English word: it means going out into the land and living off what it gives, hunting, fishing, snaring, gathering, checked against the seasons rather than against a calendar, and it is the single most common answer a Sami adult gives to this question. suohpanbálkestallan, lasso throwing, and heargevuodjin, racing behind a draught reindeer, are competitive sports with national championships, held on the ice at the Easter festival in Guovdageaidnu and at the Jokkmokk winter market in February, which is why márkanat, the markets, is on this list at all: those gatherings are where an entire dispersed people meets. juoigan is joiking, and it is worth being precise about what it is — a luohti is not a song about its subject but a way of rendering that subject present, so one does not joik about a person, one joiks the person. gáfestallan, sitting over coffee, is on the list without irony; it is the frame every visit takes. And guovssahasaid geahččan, watching the northern lights, comes with an old prohibition against whistling at them.
+locale: se
+---
+Duodji
+Gávtti goarrun
+Vuoddagiid gođđin
+Silbaduodji
+Niibbiid duddjon
+Čoarveduodji
+Náhkkeduodji
+Beassebargu
+Muorraduodji
+Juoigan
+Luođiid oahppan
+Lávlun
+Musihkka
+Gitáraspeallan
+Dánsun
+Máinnasteapmi
+Girjjiid lohkan
+Čállin
+Divttaid čállin
+Govvideapmi
+Filbmen
+Málen
+Sárgun
+Meahcástallan
+Vázzin
+Duottarvázzin
+Čuoigan
+Čierastallan
+Biatlon
+Skohtervuodjin
+Heargevuodjin
+Suohpanbálkestallan
+Spábbačiekčan
+Šáhkka
+Kortaspeallan
+Dihtorspealut
+Guolásteapmi
+Oaggun
+Jieŋaoaggun
+Fierbmebivdu
+Bivdu
+Rievssatbivdu
+Riebanbivdu
+Sarvvabivdu
+Murjen
+Luomemurjen
+Sarridmurjen
+Guobbariid čoaggin
+Vuoššan
+Bassan
+Gáfestallan
+Bierggu suovastahttin
+Guliid goikadeapmi
+Lávvomátki
+Dolastallan
+Guossástallan
+Sohkadutkan
+Historjjá dutkan
+Báikenamaid čoaggin
+Guovssahasaid geahččan
+Násttiid geahččan
+Loddedutkan
+Šattuid dovdan
+Fanasvuodjin
+Vuodjan
+Beatnagiid dikšun
+Beatnagiid hárjehallan
+Duodjegilvvut
+Márkanat
+Museai fitnan
+Teáhter
+Filbmageahččan
+Mátkkošteapmi
+Giellaoahppan
+Lášmmohallan
+Sihkkelastin
+Radioguldaleapmi
+Suhkan

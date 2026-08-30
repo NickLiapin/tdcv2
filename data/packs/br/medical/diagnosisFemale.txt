@@ -1,0 +1,40 @@
+---
+description: Diagnoses that require female anatomy and cannot occur in a male patient — draw from this list only for female rows, since general conditions live in medical/diagnosis. French, like every clinical file in this pack. What is specifically Breton about the obstetric half of it is where those lines can still be written: Brittany has lost maternity unit after maternity unit to the national consolidation of small services, and the fight over the one at Carhaix in 2008, when the town occupied its own hospital for weeks and forced the case into national politics, is the episode everyone in Kreiz-Breizh still dates things by. The unit survived by being absorbed into the CHRU de Brest, sixty-five kilometres away over roads that are not motorway; others at Guingamp and elsewhere did not survive at all. So a Breton dataset of prééclampsie, hémorragie du post-partum and hyperémèse gravidique is a dataset whose rows cluster into fewer and fewer places each decade, and the drive time behind each one is part of the record.
+locale: br
+---
+Endométriose
+Syndrome des ovaires polykystiques
+Fibrome utérin
+Kyste ovarien
+Cancer de l'ovaire
+Cancer du col de l'utérus
+Dysplasie cervicale
+Cervicite
+Endométrite
+Cancer de l'endomètre
+Infection génitale haute
+Vaginose bactérienne
+Candidose vaginale
+Ménorragie
+Dysménorrhée
+Aménorrhée
+Prééclampsie
+Diabète gestationnel
+Hyperémèse gravidique
+Grossesse extra-utérine
+Hémorragie du post-partum
+Mastite
+Maladie fibrokystique du sein
+Syndrome climatérique
+Trouble dysphorique prémenstruel
+Prolapsus utérin
+Adénomyose
+Torsion de l'ovaire
+Placenta praevia
+Hématome rétroplacentaire
+Cancer de la vulve
+Cancer du vagin
+Kyste de la glande de Bartholin
+Vaginite atrophique
+Syndrome de Turner
+Infertilité féminine

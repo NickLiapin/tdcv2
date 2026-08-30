@@ -1,0 +1,16 @@
+---
+description: Jobs in transport, all of them French-named, because road haulage, the railway and the merchant marine are each governed by a national collective agreement that fixes the job titles along with the pay grades. Two facts shape the sector here. Brittany's fast roads carry no tolls: the Plan routier breton, obtained from the state in 1969 after a decade of regional pressure, built the RN12 along the north coast, the RN165 along the south and the central axis across the middle to motorway standard at public expense, on the argument that a peninsula pays for its distance twice over — and a toll-free voie express network means a chauffeur poids lourd here works a different map from one in Normandy or the Rhône valley. The ferries, meanwhile, were started by farmers: Brittany Ferries was set up in 1972 by Léon vegetable growers to carry their own artichokes and cauliflowers from Roscoff to Plymouth, sailing that January, and the passenger business grew on top of the freight rather than the other way about. Capitaine de vedette à passagers is the island trade — the year-round boats to Ouessant, Molène, Sein, Bréhat, Groix and Belle-Île, where the crew double as the post and the ambulance and are the last link when the weather closes in.
+locale: br
+---
+Chauffeur poids lourd
+Chauffeur de car scolaire
+Conducteur de bus urbain
+Conducteur de train
+Contrôleur SNCF
+Officier de la marine marchande
+Capitaine de vedette à passagers
+Docker
+Cariste
+Agent de quai
+Livreur
+Agent d'escale

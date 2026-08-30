@@ -1,0 +1,9 @@
+---
+description: Work shift at a quarry or processing plant, in French. Brittany's pits sit close to villages in a densely settled countryside, and the prefectoral order authorising a quarry normally restricts blasting and extraction to daylight hours on working days, so the night shift here belongs to the crushing and washing plant rather than to the face — the kaolin works runs on when the pit above it has stopped. Poste en 3x8 is the round-the-clock rotation that goes with such a plant, three eight-hour turns handing over to each other, and it is a contractual arrangement with its own pay premiums rather than a description of a time of day. Astreinte is on-call cover, which in an aggregates operation means the person who has to come out when the primary crusher jams at four in the morning; marine dredging, by contrast, ignores this whole vocabulary and works to the tide and the weather window.
+locale: br
+---
+Équipe du matin
+Équipe de l'après-midi
+Équipe de nuit
+Poste en 3x8
+Astreinte

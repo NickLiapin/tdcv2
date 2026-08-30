@@ -1,0 +1,23 @@
+---
+description: Extracted mineral or commodity. The metals that head a mining list almost anywhere else are absent here, and that absence is the accurate fact about Chuvashia: the republic sits on the sedimentary cover of the Volga upland and its registered reserves are construction raw material and fuel peat, nothing more. Gypsum and anhydrite are the serious deposits, worked in the south-east near the Sura; limestone, dolomite and marl feed lime and cement; brick clay, loam, sand and gravel feed everything else. Трепел and опока are the two that need a word of explanation — a light siliceous earth and the harder rock it grades into, both quarried in the south of the republic and used for cement additive, filtration and insulation. Peat and lake sapropel are dug for fuel and for fertiliser, and phosphorite nodules have been worked in a small way for the same reason. A list that admits what a region does not have is better data than one that invents mines.
+locale: cv
+---
+Гипс
+Ангидрит
+Доломит
+Известняк
+Мергель
+Мел
+Трепел
+Опока
+Строительный камень
+Кирпичная глина
+Керамзитовая глина
+Суглинок
+Строительный песок
+Стекольный песок
+Гравий
+Торф
+Сапропель
+Фосфориты
+Минеральная вода

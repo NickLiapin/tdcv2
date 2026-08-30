@@ -1,0 +1,59 @@
+---
+description: Sports played in Brittany, and the language of each value is itself a piece of information. The names in Breton are the ones Breton genuinely uses — the mell- ball games and rugbi from schools and Breton-language broadcasting, gouren, bageal and marc'h-houarn from the sports' own institutions, pesketa for angling — while everything else stands in French because that is what a club, a licence, a poster and a results sheet say. Six values belong to nobody else on earth: gouren is Breton wrestling, and boultenn, bazhig-kamm, c'hoari bazh-yod, sac'h-sav and the lancer de la perche are the sports athlétiques bretons, the Breton games, governed since 1930 by FALSAB and contested at the same summer tournaments as the wrestling. C'hoari bazh-yod is the porridge-stick pull, two players sitting sole against sole hauling on a single stave until one of them comes off the ground, and sac'h-sav is the tug of war. Palet breton deserves its own note, because it is the game actually played rather than the game shown to visitors: metal discs thrown at a board or into clay, in bars and at every fête, and it splits geographically, on a board in Haute-Bretagne and on clay in the Loire-Atlantique country. The rest of the list is coastline. The GR34, the old customs officers' path, runs some two thousand kilometres round the whole peninsula and is the most walked long-distance trail in France; La Torche in the bay of Audierne is the Atlantic surf reference for the entire country; Cherrueix, on the bay of Mont-Saint-Michel, is one of Europe's principal sand-yachting beaches; longe-côte is walking chest-deep in the sea against the swell, which reads as a joke until a Breton club turns out fifty people for it on a February morning; and the golf links at Dinard, laid out in 1887, are among the oldest on the continent.
+locale: br
+---
+Mell-droad
+Bageal
+Marc'h-houarn
+Mell-dorn
+Mell-bas
+Mell-nij
+Rugbi
+Gouren
+Tennis
+Judo
+Équitation
+Athlétisme
+Randonnée pédestre
+Course à pied
+Trail
+Marathon
+Cross-country
+Triathlon
+Natation
+Surf
+Planche à voile
+Kitesurf
+Char à voile
+Longe-côte
+Kayak de mer
+Canoë-kayak
+Aviron
+Voile traditionnelle
+Plongée sous-marine
+Sauvetage côtier
+Pesketa
+Palet breton
+Boultenn
+Bazhig-kamm
+C'hoari bazh-yod
+Sac'h-sav
+Lancer de la perche
+Pétanque
+Golf
+Tennis de table
+Badminton
+Escrime
+Tir à l'arc
+Tir sportif
+Boxe anglaise
+Boxe française
+Karaté
+Taekwondo
+Gymnastique
+Escalade
+Course d'orientation
+VTT
+Cyclo-cross
+Hockey sur gazon
+Courses hippiques

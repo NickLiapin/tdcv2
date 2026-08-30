@@ -1,0 +1,15 @@
+---
+description: Football positions, in French, because that is the language of every team-sheet, every touchline instruction and every coaching badge in Brittany even where the game itself is called mell-droad. The region carries football far out of proportion to its size: Stade Rennais, Stade Brestois, FC Lorient and En Avant Guingamp have all held places in the first division within the same decade, drawn from four million people, and Guingamp is the extreme case, a town of about seven thousand that has won the Coupe de France twice. Libéro is kept although the role has effectively vanished from the modern game, because any Breton football record written before the middle 1990s will contain it and a dataset that cannot represent it cannot represent the archive. Arrière droit and arrière gauche are the full-backs, positions on the flanks of the defence and nothing to do with the goalkeeper.
+locale: br
+---
+Gardien de but
+Arrière droit
+Arrière gauche
+Défenseur central
+Libéro
+Milieu défensif
+Milieu relayeur
+Milieu offensif
+Ailier droit
+Ailier gauche
+Avant-centre

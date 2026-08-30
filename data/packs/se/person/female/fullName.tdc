@@ -1,0 +1,10 @@
+---
+description: Full female name: one given name and one surname (Elle-Máret Gaup, Máret Sara). The surname comes from se.person.lastName, the SAME list the male generator reads, and this pack deliberately ships no person/female/lastName.txt: Northern Sami marks no gender anywhere in its grammar, so a surname has one form for everyone, and Elle Sara and Ánte Sara differ in nothing but the given name. Naming practice at marriage follows the state the family lives in rather than anything Sami — Norwegian, Swedish and Finnish law all allow keeping, taking or joining names, and double surnames joined with a hyphen are common on all three sides of the border, which is why some values in the surname list already carry one.
+generator: tdc
+locale: se
+---
+<sequence name="p">
+  <gen name="f" type="template" value="se.person.female.firstName"/>
+  <gen name="l" type="template" value="se.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

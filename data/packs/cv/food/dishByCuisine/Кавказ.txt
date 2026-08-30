@@ -1,0 +1,12 @@
+---
+description: Caucasian food as a Russian menu heading, which is a commercial category rather than a country. In practice it means an Armenian, Azerbaijani or Dagestani grill house, and it is deliberately kept separate from Грузин because Georgian restaurants brand themselves by name while everyone else on that map ends up under this one word. Шашлык and люля-кебаб are the working core of it; хинкал is the Dagestani dish of boiled dough with broth and garlic sauce and has nothing to do with Georgian хинкали beyond an accident of spelling. Хаш, the overnight tripe broth eaten at dawn with garlic and lavash, is the entry that marks a real Caucasian kitchen rather than a grill with a sign.
+locale: cv
+---
+Шашлык
+Люля-кебаб
+Долма
+Хаш
+Бастурма
+Хинкал
+Чуду
+Лаваш

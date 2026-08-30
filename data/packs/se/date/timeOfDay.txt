@@ -1,0 +1,12 @@
+---
+description: Parts of the day. What a speaker further south should keep in mind is that in Sápmi these words are hours on a clock rather than descriptions of light. Above the Arctic Circle the sun does not set for weeks around geassemánnu and does not rise for weeks in skábmamánnu, so gaskaidja, midnight, can be broad daylight in June and gaskabeaivi, midday, can be a blue dusk in December. idja is the night as a period of the day, not as darkness. beaivi is the single most overworked noun in the language: it is the day, and it is also the sun itself, which is why Sami place names and personal names built on it read two ways at once.
+locale: se
+---
+Iđit
+Árra iđit
+Beaivi
+Gaskabeaivi
+Eahketbeaivi
+Eahket
+Idja
+Gaskaidja

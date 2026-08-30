@@ -1,0 +1,13 @@
+---
+description: Chinese dishes, the child of food.cuisine value Kiinnálaš. The names are given as a Norwegian menu prints them, because that is how they are ordered — the Chinese restaurants of northern Norway serve a European adaptation with a European vocabulary, and no Sami version of the terms exists or is needed. The Chinese presence in the Arctic north is not only culinary: Chinese investment interest in Arctic shipping and mining has been a live political topic in Sápmi since the 2010s.
+locale: se
+---
+Wokede nudler
+Stekt ris
+Vårruller
+Dumplings
+Sursøt kylling
+Peking-and
+Chow mein
+Chop suey
+Kung pao-kylling

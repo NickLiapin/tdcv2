@@ -1,0 +1,17 @@
+---
+description: Trailer or load type, in French, which is the register of the transport order and the CMR note. The list leans cold and leans agricultural, because Breton road freight overwhelmingly carries things that spoil: fish leaving the auctions of Le Guilvinec, Lorient and Concarneau, and pork, poultry and dairy leaving the processing plants inland, so a frigorifique or a caisse isotherme is the default trailer of the region rather than a specialism. Citerne à lait is separated from citerne on purpose — it is a food-grade insulated tank with its own pump, sampling gear and cleaning regime, it never carries anything else, and it exists in numbers here because milk is collected from farm tanks rather than delivered. Bétaillère carries live animals to the slaughterhouse and is governed by animal-transport rules on journey time, ventilation and rest that no other trailer type has to meet. Vrac agroalimentaire is the tonnage nobody outside the sector thinks about: compound animal feed, and the cereals and soya meal it is made from, landed at the ports and hauled inland to farms in tipping bulk trailers — the feed industry moves more weight in Brittany than the meat industry it supplies.
+locale: br
+---
+Bâchée
+Frigorifique
+Caisse isotherme
+Citerne
+Citerne à lait
+Bétaillère
+Benne
+Plateau
+Porte-engins
+Porte-voitures
+Convoi exceptionnel
+Matières dangereuses ADR
+Vrac agroalimentaire

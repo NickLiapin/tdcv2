@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised frequency in people of Bashkir descent. The Bashkirs are the Turkic population of the southern Urals, east of the Volga peoples, and the regional entries here are more informative than any inherited one: Bashkortostan and the neighbouring republics are the core of the world's largest focus of haemorrhagic fever with renal syndrome, and the seasonal case count there rises and falls with the bank-vole population in the linden forests. Adult lactase non-persistence is the Turkic default, and the metabolic entries track the same rising type 2 diabetes and obesity curve as the rest of the Volga-Ural region.
+locale: cv
+---
+Первичная лактазная недостаточность
+Сахарный диабет 2 типа
+Ожирение
+Артериальная гипертензия
+Геморрагическая лихорадка с почечным синдромом
+Желчнокаменная болезнь

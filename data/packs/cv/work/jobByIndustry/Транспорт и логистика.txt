@@ -1,0 +1,16 @@
+---
+description: Jobs in transport and warehousing. The M7 «Волга» federal highway runs the length of the republic between Moscow and Kazan and passes Cheboksary, which makes long-haul road freight a real local trade rather than a borrowed category; the Volga itself still carries bulk cargo in the open season, and the Kanash railway junction is a working depot town. Кладовщик is the storekeeper who signs for goods and is materially liable for them under a separate contract, which is why the post exists as its own title and not as a shade of "warehouse worker". Russian throughout — waybills, licences and dispatch are federal paperwork.
+locale: cv
+---
+Водитель грузового автомобиля
+Водитель автобуса
+Водитель погрузчика
+Машинист локомотива
+Логист
+Диспетчер автотранспорта
+Экспедитор
+Кладовщик
+Кондуктор
+Механик автоколонны
+Курьер
+Начальник автоколонны

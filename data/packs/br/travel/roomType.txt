@@ -1,0 +1,22 @@
+---
+description: Room categories in the French a Breton hotel or gîte uses. The distinction to get right is the bed: a chambre double in French has one large bed and a chambre twin has two singles, and the size names — lit double, grand lit, lit king — are not interchangeable on a French booking form, so a dataset that maps double onto two beds will misprice a room. Chambre communicante is a family category and Chambre familiale a fixed one. Two entries are regional. The gîte is a self-catering rural let, a French institution with its own national labelling body, and Brittany has more of them than any other region; a booking system serving this region needs it as a room type and not merely as a property type. The dortoir belongs to the walkers' hostels along the GR 34 and to the sailing schools. Chambre PMR is the French administrative label for an accessible room, PMR standing for personne à mobilité réduite, and it is the exact string a French listing uses.
+locale: br
+---
+Chambre simple
+Chambre double
+Chambre twin
+Chambre triple
+Chambre quadruple
+Chambre familiale
+Chambre communicante
+Chambre supérieure
+Chambre deluxe
+Chambre avec vue sur mer
+Chambre avec balcon
+Chambre avec terrasse
+Suite
+Suite junior
+Studio
+Gîte
+Dortoir
+Chambre PMR

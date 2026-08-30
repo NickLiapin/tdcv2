@@ -1,0 +1,6 @@
+---
+description: The two gender values a Sami form offers. What a config writer should know is that the language itself makes no such distinction anywhere in its grammar: Northern Sami has one third-person pronoun, son, for a man and a woman alike, no gendered articles, no gendered adjective agreement, and no gendered surname endings — so unlike Polish or Czech, this pack needs no separate feminine surname list, and Elle Sara and Ánte Sara carry the identical string. The split lives only in the vocabulary of persons: dievdu is a man and nisu a woman, almmái is a man in the sense of a husband and nisson a woman in the sense of a wife, and the words for boy and girl, bárdni and nieida, are the ones that actually get used most of the time.
+locale: se
+---
+Dievdu
+Nisu

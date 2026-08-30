@@ -1,0 +1,24 @@
+---
+description: Parcel and freight carriers that actually deliver in Brittany, in French. This is the file where the pack's language stops, and it is worth stating once and not repeating: an order confirmation, a tracking page, a delivery notice and a returns label in Brittany are in French without exception, no carrier operating here publishes a Breton interface, and so this list and the six back-office lists beside it — department, paymentMethod, orderStatus, shippingStatus, paymentStatus and returnReason — are French deliberately rather than for want of a translation. La Poste is the state postal operator and Colissimo and Chronopost are its own parcel and express brands rather than separate companies, so all three can appear against the same shipment at different stages. Mondial Relay and Relais Colis are the two large point-relais networks, and they matter here out of proportion to their national share: a relay parcel is not delivered to a door at all but left at a village shop, a bakery, a petrol station or a bar for the addressee to collect, which is how a great deal of rural inland Brittany actually receives its post — a commune of scattered hamlets is expensive to drive and cheap to serve from the one counter everyone passes anyway. Colis Privé runs the same model under its own relay brand. The last four are regional hauliers rather than parcel carriers: STEF, Delanchy and Olano run refrigerated fleets, and Delanchy in particular exists to move fish out of the Breton auction halls overnight, since Brittany lands more fish than any other French region and almost none of it is eaten where it comes ashore; Le Roy Logistique is a Breton general haulier run from Vitré.
+locale: br
+---
+La Poste
+Colissimo
+Chronopost
+Mondial Relay
+Relais Colis
+Colis Privé
+DPD France
+GLS France
+UPS
+DHL Express
+FedEx
+TNT
+Geodis
+XPO Logistics
+Heppner
+Dachser
+STEF
+Delanchy
+Olano
+Le Roy Logistique

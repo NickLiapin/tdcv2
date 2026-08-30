@@ -1,0 +1,69 @@
+{
+  "months": [
+    "ođđajagemánnu",
+    "guovvamánnu",
+    "njukčamánnu",
+    "cuoŋománnu",
+    "miessemánnu",
+    "geassemánnu",
+    "suoidnemánnu",
+    "borgemánnu",
+    "čakčamánnu",
+    "golggotmánnu",
+    "skábmamánnu",
+    "juovlamánnu"
+  ],
+  "monthsInDate": [
+    "ođđajagemánu",
+    "guovvamánu",
+    "njukčamánu",
+    "cuoŋománu",
+    "miessemánu",
+    "geassemánu",
+    "suoidnemánu",
+    "borgemánu",
+    "čakčamánu",
+    "golggotmánu",
+    "skábmamánu",
+    "juovlamánu"
+  ],
+  "monthsShort": [
+    "ođđj.",
+    "guov.",
+    "njuk.",
+    "cuoŋ.",
+    "mies.",
+    "geas.",
+    "suoi.",
+    "borg.",
+    "čakč.",
+    "golg.",
+    "skáb.",
+    "juov."
+  ],
+  "weekdays": [
+    "sotnabeaivi",
+    "vuossárga",
+    "maŋŋebárga",
+    "gaskavahkku",
+    "duorasdat",
+    "bearjadat",
+    "lávvardat"
+  ],
+  "weekdaysShort": [
+    "sotn.",
+    "vuos.",
+    "maŋŋ.",
+    "gask.",
+    "duor.",
+    "bear.",
+    "láv."
+  ],
+  "formats": {
+    "L": "DD.MM.YYYY",
+    "LL": "D. MMMM YYYY",
+    "LLL": "D. MMMM YYYY HH:mm",
+    "LLLL": "dddd D. MMMM YYYY HH:mm"
+  },
+  "notes": "monthsInDate is doing real work here and is not a copy of months. Every Northern Sami month name ends in -mánnu, and a date puts that noun in the genitive, where the long nn shortens to a single n: the month is cuoŋománnu, the date is 5. cuoŋománu 2026. That alternation is consonant gradation, the Uralic stem alternation that runs through the whole language, and it is the reason a Sami list can never be a flat set of dictionary words used unchanged in every slot. The names themselves are a herding calendar rather than a Roman one. cuoŋománnu, April, is the month of cuoŋu, the snow crust hard enough to carry a sled and a running herd. miessemánnu, May, is the month of the miessi, the newborn reindeer calf. golggotmánnu, October, is the month of the rut, when the bulls fight and the herd is gathered for separation. skábmamánnu, November, opens skábma, the polar night, the weeks when the sun does not rise at all above Guovdageaidnu. njukčamánnu, March, is the swan's month, when njukča returns north. Only ođđajagemánnu, the new-year month, and juovlamánnu, the Yule month, are calendar-driven rather than season-driven. Dates run day-first with dots, as in Norway and Finland, since three states administer Sápmi and two of the three write it that way."
+}

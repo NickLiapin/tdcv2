@@ -1,0 +1,12 @@
+---
+description: Extraction methods, and one of them was invented here. Storrasdrift, sublevel caving, is the method the iron mine at Giron uses and largely perfected: the ore body is drilled and blasted from below and allowed to collapse into the void, which is cheap and efficient and which also means the ground above subsides. Giron's ground has subsided so far that the town centre is being physically relocated, buildings and church included, several kilometres east. Gullvasking, gold panning, is the opposite extreme — a licence, a pan and a shovel in the Lemmenjoki valley in Anár, worked since the 1870s inside what is now a national park. Between the two sits the argument that runs through all mining in Sápmi: every one of these methods needs surface, and the surface is somebody's winter pasture.
+locale: se
+---
+Dagbrudd
+Underjordsdrift
+Storrasdrift
+Skivepallbryting
+Rom- og pilarbryting
+Utlutning
+Gullvasking
+Prøveboring

@@ -1,0 +1,12 @@
+---
+description: Japanese dishes as a Breton sushi counter lists them. The French version of this menu is unusually salmon-heavy: France eats more sushi than any other country in Europe, most of it farmed Norwegian salmon, a fish that was not sushi in Japan at all until Norwegian exporters spent the 1980s persuading the Japanese trade to accept it. Worth noticing on a Breton list is that a coast landing scallops, bar, lieu jaune and langoustine supplies almost none of this — the fish counter and the sushi counter in the same town buy from entirely different worlds.
+locale: br
+---
+Sushi
+Sashimi
+Maki
+Ramen
+Tempura
+Yakitori
+Gyoza
+Soupe miso

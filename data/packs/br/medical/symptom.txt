@@ -1,0 +1,42 @@
+---
+description: What the patient says, and the one medical file in this pack written in Breton rather than French — because what a patient says and what a doctor writes are not the same language here. A farmer from Kreiz-Breizh describes poan-gof and terzhienn across the desk, and the line that goes into the record under it is French, coded to CIM-10; medical/diagnosis.txt is the other side of that same consultation, and the seam between the two files is the seam this whole pack is built on. It is not a museum register either: in the care homes of Lower Brittany it is the working one, because people with dementia lose their acquired second language first and revert to their first, so a resident who has spoken French for sixty years ends up describing pain only in Breton, and EHPADs in Finistère and Trégor recruit Breton-speaking staff for that reason and no other. The list itself is worth reading structurally. Poan is pain and it compounds directly onto the body part, but the body part mutates inside the compound: penn a head gives poan-benn, kof a belly gives poan-gof, kein a back gives poan-gein, gouzoug a throat gives poan-c'houzoug and brec'h an arm gives poan-vrec'h, so the second element never appears here in the form a dictionary lists it under. Where the complaint is an action rather than a place, Breton uses poan da plus the verb and the verb softens after da: bale to walk becomes poan da vale. Droug is the other ailment word, the general one, and heads its own compounds — droug-mor, seasickness, is a diagnosis that a region landing more fish than any other in France actually writes down. Gwad en troazh shows a second mutation-adjacent trap: the preposition e becomes en before a vowel and before d, t, n and h, so blood in the urine is en troazh and never e troazh. THE VALUES ARE DICTIONARY FORMS AND THEY MUTATE IN USE. A generator that drops one of these into running text after a possessive will be wrong: poan-gein after ma "my" takes the spirant mutation and p becomes f, so a patient says ma foan-gein, not ma poan-gein — and after da "your" it is da boan-gein instead.
+locale: br
+---
+Poan
+Poan-benn
+Poan-gof
+Poan-gein
+Poan-dent
+Poan-skouarn
+Poan-c'houzoug
+Poan-vruched
+Poan-galon
+Poan-lagad
+Poan-vrec'h
+Poan-c'har
+Poan da analañ
+Poan da gousket
+Poan da lonkañ
+Poan da vale
+Terzhienn
+Anoued
+Kren
+Paz
+Sifern
+Sec'hed
+Naon
+Skuizhder
+Gwander
+Droug
+Droug-mor
+Dislonk
+Red-kof
+Koenv
+Goulioù
+Koll gwad
+Gwad en troazh
+Penn-dro
+Debron
+Burbuenn
+Nec'hamant
+Melkoni

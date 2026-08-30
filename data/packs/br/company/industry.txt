@@ -1,0 +1,59 @@
+---
+description: The sector a company trades in, and the language here is a deliberate choice that runs against the rest of the pack: this list is French, while work/industryCoherent.txt beside it is Breton. The reason is granularity. Breton has genuine, current, everyday words for a broad sector - pesketaerezh, labour-douar, greanterezh, kenwerzh - and those ten words are used in Breton conversation about work every day. It has nothing settled for conchyliculture, for énergies marines renouvelables, for cybersécurité or for hôtellerie de plein air, and a company's sector at this level of detail is not a conversational category at all but an administrative one: it is the NAF code INSEE assigns at registration, printed in French on the Kbis, and inventing Breton for it would be inventing a register that no firm, no chamber of commerce and no Breton speaker uses. Fifty-five French sector labels are therefore honest where fifty-five Breton ones would be fiction. What the list does carry is Brittany rather than France. The sea block is finely divided because the trades are: criée et mareyage is the auction and the wholesale buyers who work it, conchyliculture splits into oyster and mussel farming, and algoculture is a sector that barely exists elsewhere in Europe - the northern Léon coast and the Iroise supply most of France's harvested seaweed, first for the alginate works and now for food and cosmetics. Construction navale militaire is separate from civil shipbuilding because Brest and Lorient are naval towns with a state customer, and Saint-Nazaire, which builds the world's largest cruise ships, sits in Loire-Atlantique - detached from the administrative région in 1941 and still claimed by half the peninsula. Coopérative légumière is one line and an enormous industry: the Léon growers who founded their own marketing co-operative in 1961 went on to found Brittany Ferries in 1972 for the plainest of reasons, to get cauliflowers and artichokes to British supermarkets in their own ships. Grande distribution is here because Édouard Leclerc opened his first shop in Landerneau in 1949 and the group grew out of Finistère. Télécommunications, électronique et photonique and cybersécurité are the Rennes-Lannion-Brest arc: the Trégor around Lannion held the national telecommunications research laboratory and its firms still descend from it, while Rennes now holds the French military cyber command and the defence procurement agency's information branch. Thalassothérapie is a French word for a Breton institution - Roscoff has run a sea-water cure centre since 1899 - and extraction de granit et ardoise is the quarry trade that roofed and kerbed the region and gave it its grey.
+locale: br
+---
+Pêche maritime
+Criée et mareyage
+Conchyliculture
+Ostréiculture
+Mytiliculture
+Algoculture et récolte des algues
+Aquaculture
+Construction et réparation navale
+Construction navale militaire
+Nautisme et course au large
+Énergies marines renouvelables
+Transport maritime et ferries
+Ports et services portuaires
+Agriculture
+Élevage porcin
+Aviculture
+Production laitière
+Industrie laitière
+Maraîchage
+Coopérative légumière
+Horticulture et pépinières
+Industrie agroalimentaire
+Abattage et transformation des viandes
+Conserverie
+Boulangerie et biscuiterie
+Cidrerie
+Brasserie
+Alimentation animale
+Machinisme agricole
+Télécommunications
+Électronique et photonique
+Cybersécurité
+Édition de logiciels
+Services informatiques
+Recherche et développement
+Enseignement et formation
+Santé
+Action sociale et médico-sociale
+Thalassothérapie
+Tourisme et hébergement
+Hôtellerie et restauration
+Camping et hôtellerie de plein air
+Commerce de détail
+Grande distribution
+Transport routier de marchandises
+Logistique et entreposage
+Bâtiment et travaux publics
+Extraction de granit et ardoise
+Industrie automobile
+Plasturgie
+Banque et assurance
+Services aux entreprises
+Culture et spectacle vivant
+Médias et audiovisuel
+Services publics et collectivités

@@ -1,0 +1,11 @@
+---
+description: Driving licence category for goods vehicles, in the French naming of the common European scheme, with the professional qualification that sits on top of it. The categories themselves are ordinary: C1 up to seven and a half tonnes, C above it, and the E suffix adding a heavy trailer to either. The seventh value is the one a config writer should not treat as another licence, because it is not one — the FIMO is a separate mandatory course, a hundred and forty hours before a driver may work commercially at all, renewed by a thirty-five-hour refresher every five years, and it is evidenced by a carte de qualification de conducteur carried alongside the licence. A driver holding permis CE and nothing else may move a lorry but may not be paid to, which is the distinction the pair of documents exists to draw.
+locale: br
+---
+Permis B
+Permis BE
+Permis C1
+Permis C1E
+Permis C
+Permis CE
+FIMO (formation initiale minimale obligatoire)

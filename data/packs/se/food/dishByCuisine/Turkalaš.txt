@@ -1,0 +1,13 @@
+---
+description: Turkish dishes, the child of food.cuisine value Turkalaš. The kebab shop is the late-night institution of every Nordic town, and the northern ones are no exception; a gatekjøkken in Álaheadju or Romsa sells döner beside hamburgers and hot dogs. baklava travels further than the rest and turns up at Sami events as often as at Turkish ones, which is how food actually moves.
+locale: se
+---
+Kebab
+Döner
+Lahmacun
+Pide
+Köfte
+Baklava
+Meze
+Börek
+Iskender

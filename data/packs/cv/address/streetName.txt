@@ -1,0 +1,199 @@
+---
+description: Street names that recur across the towns and villages of the Chuvash Republic. The values are given in the bare nominative, because that is the form a Chuvash street name takes: the honorand's name does not inflect and the thoroughfare word behind it carries the possessive instead, so Ленин plus урамӗ gives Ленин урамӗ and Мускав plus проспекчӗ gives Мускав проспекчӗ. The Russian half of the same bilingual sign puts the name in the genitive or turns it into an adjective (улица Ленина, Школьная улица), which is why a value here is a plain noun where a Russian pack would carry an ending. The honorands are what make the list Chuvashia's rather than any other region's. Иван Яковлев built the modern Chuvash alphabet in 1871 and founded the Simbirsk school that taught the first generation to read it, and he is the most honoured name in the republic. Ҫеҫпӗл Мишши made modern Chuvash verse before he was dead at twenty-three; Константин Иванов wrote Нарспи in 1908 and gave the language its national epic, which is why the heroine and Сетнер are on the list as street names in their own right; Педер Хусанкай, Яккӑв Ухсай, Мигулай Ильбек, Семен Эльгер and Василий Митта are the writers who came after, and Геннадий Айхи is the one the wider world read. Никита Бичурин, born in a Chuvash village, founded Russian sinology; Николай Ашмарин spent a working life on the seventeen-volume dictionary that is still the reference. Андриян Николаев flew as the third Soviet man in space and was born at Шуршелы an hour from the capital, so he counts here in a way he does not elsewhere, and Василий Чапаев was born at Будайка, a village that Cheboksary has since grown over. The all-Russia set of Ленин, Гагарин, Пушкин, Киров, Калинин and the rest is not padding: it genuinely dominates the register in Chuvashia as it does in every other region, and a list that hid it would be a false picture. The Chuvash-language layer under it is the real local colour — Атӑл and Сӑр for the Volga and the Sura, Ҫавал, Анӑш, Кӗтне and Пӑла for the rivers that only Chuvashia has, Хӑмла for the hops the republic has grown for Russia for centuries, Акатуй for the spring ploughing festival and Ҫимӗк for the summer remembrance of the dead, Тӗрӗ for the embroidery and Кӗсле for the old zither, and the republic's own towns from Шупашкар down to Элӗк used as street names the way any region uses its neighbours. Streets unique to a single city belong in a country pack, not here. Date-named streets are deliberately absent: they exist everywhere in Chuvashia but they carry a numeral a config has to format rather than a name it can slot in.
+locale: cv
+---
+Иван Яковлев
+Ҫеҫпӗл Мишши
+Константин Иванов
+Педер Хусанкай
+Яккӑв Ухсай
+Геннадий Айхи
+Андриян Николаев
+Василий Чапаев
+Никита Бичурин
+Николай Ашмарин
+Федор Павлов
+Максим Михайлов
+Мигулай Ильбек
+Семен Эльгер
+Василий Митта
+Николай Никольский
+Алексей Кокель
+Моисей Спиридонов
+Нарспи
+Сетнер
+Ленин
+Карл Маркс
+Фридрих Энгельс
+Гагарин
+Циолковский
+Королев
+Терешкова
+Титов
+Пушкин
+Лермонтов
+Гоголь
+Толстой
+Достоевский
+Чехов
+Тургенев
+Некрасов
+Маяковский
+Есенин
+Горький
+Крылов
+Белинский
+Чернышевский
+Радищев
+Ломоносов
+Менделеев
+Пирогов
+Мичурин
+Иван Павлов
+Тимирязев
+Попов
+Кулибин
+Киров
+Калинин
+Дзержинский
+Фрунзе
+Котовский
+Щорс
+Буденный
+Ворошилов
+Суворов
+Кутузов
+Нахимов
+Ушаков
+Жуков
+Гастелло
+Зоя Космодемьянская
+Александр Матросов
+Репин
+Шишкин
+Айвазовский
+Чайковский
+Глинка
+Мусоргский
+Лобачевский
+Вавилов
+Курчатов
+Октябрь
+Комсомол
+Пионер
+Совет
+Ҫамрӑклӑх
+Шкул
+Вокзал
+Завод
+Депо
+Строитель
+Энергетик
+Машиностроитель
+Химик
+Кооператив
+Гражданин
+Больница
+Спорт
+Стадион
+Аэропорт
+Пристань
+Ҫӗнтерӳ
+Тӑнӑҫлӑх
+Ӗҫ
+Ирӗклӗх
+Юлташлӑх
+Пӗрлӗх
+Тӑван ҫӗршыв
+Ӗмӗт
+Пурнӑҫ
+Шӑплӑх
+Космонавт
+Хӑмла
+Акатуй
+Ҫимӗк
+Тӗрӗ
+Кӗсле
+Атӑл
+Сӑр
+Ҫавал
+Анӑш
+Кӗтне
+Пӑла
+Хӗвел
+Ҫӑлтӑр
+Уйӑх
+Ҫурхи
+Юман
+Хурӑн
+Ҫӑка
+Хыр
+Чӑрӑш
+Чечек
+Улмуҫҫи
+Ҫаран
+Вӑрман
+Уй
+Ҫыран
+Шыв
+Кӳлӗ
+Ту
+Ҫырма
+Пахча
+Симӗс
+Ҫӗнӗ
+Кивӗ
+Центр
+Хӗрлӗ
+Тимӗрҫӗ
+Пыл
+Сӑра
+Ыраш
+Тулӑ
+Ҫӑкӑр
+Кӗпер
+Ҫул
+Ҫӑл
+Тӑвайкки
+Уяв
+Юрӑ
+Ташӑ
+Илем
+Тӳрӗ
+Вӑрӑм
+Сарлака
+Ял
+Чӗкеҫ
+Кайӑк
+Тӑри
+Ҫӑлкуҫ
+Улӑх
+Хӑва
+Ҫӗмӗрт
+Хӑмӑш
+Ҫырла
+Тырӑ
+Ҫуркунне
+Кӗркунне
+Ҫӗнӗ хула
+Хӗвеллӗ
+Ешӗл
+Шупашкар
+Ҫӗнӗ Шупашкар
+Канаш
+Улатӑр
+Ҫӗрпӳ
+Ҫӗмӗрле
+Вӑрнар
+Етӗрне
+Муркаш
+Куславкка
+Патӑрьел
+Йӗпреҫ
+Сӗнтӗрвӑрри
+Элӗк
+Тӑвай
+Хӗрлӗ Чутай
+Мускав
+Хусан
+Чулхула

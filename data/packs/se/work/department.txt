@@ -1,0 +1,26 @@
+---
+description: Departments inside an organisation, built the ordinary Sami way on ossodat, a division or section. Two of them exist only in this part of the world. giellaossodat, the language department, is a real and common unit in a Sami municipality, hospital or broadcaster — it does translation, terminology, and the checking of every public text, because a minority language administration must manufacture its own vocabulary as it goes, and new terms for law, medicine and computing are agreed by a Sami language board rather than inherited. boazodoalloossodat, the reindeer husbandry department, exists in county administrations, in the Sámediggi and in the state agriculture agency, and handles grazing districts, predator compensation and the annual herding agreement.
+locale: se
+---
+Hálddahus
+Ekonomiija
+Rehketdoallu
+Bargiidossodat
+Márkanfievrrideapmi
+Vuovdinossodat
+Oastinossodat
+IT-ossodat
+Teknihkalaš ossodat
+Dutkan ja ovddideapmi
+Kvalitehtaossodat
+Sihkkarvuođaossodat
+Logistihkka
+Vuorká
+Kundebálvalus
+Gulahallanossodat
+Juridihkalaš ossodat
+Plánenossodat
+Prošeaktaossodat
+Giellaossodat
+Kulturossodat
+Boazodoalloossodat

@@ -1,0 +1,18 @@
+---
+description: Marital status. The French forms are the operative ones, and that is a fact about the state rather than about the language: état civil is a French administrative act, the register is kept in French, and a Breton speaker's marriage certificate says Marié whatever was spoken at the table afterwards. They are gendered, so a config must match the value to the row's sex — Marié and Divorcé for a man, Mariée and Divorcée for a woman, Veuf against Veuve. Pacsé and Pacsée are not a softer word for cohabiting: the pacte civil de solidarité, in force since 1999, is a registered contract with its own legal consequences, it is recorded by the state, and France now signs roughly as many PACS a year as marriages, so a dataset of French civil status that omits it is missing a category the administration itself counts. The four Breton values show how the language builds the field: dimeziñ is to marry and dimezet married, dizimez is unmarried with the privative di- in front of it, and intañv is a widower against intañvez a widow — the -ez there is the ordinary Breton feminine suffix, the same one that turns kaner, a singer, into kanerez.
+locale: br
+---
+Dizimez
+Dimezet
+Intañv
+Intañvez
+Célibataire
+Marié
+Mariée
+Pacsé
+Pacsée
+Divorcé
+Divorcée
+Veuf
+Veuve
+Séparé

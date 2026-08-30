@@ -1,0 +1,16 @@
+---
+description: Conditions that run above baseline in people of Northern European descent, and the one file in this folder that is about Brittany itself rather than about someone who moved here. Hereditary haemochromatosis leads it because the peninsula is the world hotspot: the C282Y variant of the HFE gene reaches its highest recorded frequencies in the Celtic west, carrier rates in parts of Brittany run near one person in six or seven, and the homozygote rate is high enough that Rennes and Brest have run dedicated iron-overload clinics and long cohort studies around it. Cystic fibrosis carrier rates are high here for the same founder reason. Both figures are measured local epidemiology rather than folklore, and they are why this file is the clinically loaded one of the twelve. Every value is the French label, because the French label is what the record carries: the CIM-10 code that France attaches to the episode is issued and read in French, and no Breton clinical vocabulary exists to compete with it. Read the list as a prevalence signal and never an exclusive one, since anyone can carry any of these and most patients of any descent carry none.
+locale: br
+---
+Hémochromatose héréditaire
+Hétérozygotie HFE C282Y
+Mucoviscidose
+Déficit en alpha-1 antitrypsine
+Facteur V Leiden
+Phénylcétonurie
+Maladie cœliaque
+Sclérose en plaques
+Diabète de type 1
+Maladie de Dupuytren
+Carcinome basocellulaire
+Persistance de la lactase

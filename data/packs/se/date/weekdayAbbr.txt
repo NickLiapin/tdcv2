@@ -1,0 +1,11 @@
+---
+description: Abbreviated weekday names for timetables, rosters and column headings. Sami cuts these to the first syllable of the distinguishing element and adds a full stop, which is why Monday and Tuesday come out vuos. and maŋŋ. rather than both collapsing onto the shared -árga they are built from. maŋŋ. keeps the ŋ, the velar nasal that is a full letter of the Sami alphabet and not an n with a decoration; the sound it writes is the ng of English sing, and it can stand at the start of a syllable in Sami as it never does in English.
+locale: se
+---
+vuos.
+maŋŋ.
+gask.
+duor.
+bear.
+láv.
+sotn.

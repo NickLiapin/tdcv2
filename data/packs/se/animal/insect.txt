@@ -1,0 +1,24 @@
+---
+description: Insects, and in a herding country the important ones are the ones that move a herd against its herder's wishes. čuoika, the mosquito, hatches off the bogs in numbers that are hard to convey and is the reason reindeer climb to windswept high ground and snow patches in July: the herd flees the insects, and a summer pasture is chosen for the wind as much as for the grazing. The two botflies matter more. reinbrems, the warble fly, lays eggs on the animal's legs; the larvae bore in and winter under the hide, and a heavily infested hide is worth nothing. nesebrems, the nasal botfly, deposits larvae in the nostrils, and an animal that has them runs. Both change herd behaviour for weeks and both are treated with veterinary drugs at the autumn gathering. fjellbjørkemåler is a different order of problem entirely: the autumnal moth, whose outbreaks defoliate and kill the mountain birch forest over enormous areas of Finnmark and northern Finland, and the dead forest does not grow back the same, so a caterpillar rewrites the pasture map for a generation.
+locale: se
+---
+Čuoika
+Knott
+Sviknott
+Klegg
+Reinbrems
+Hudbrems
+Nesebrems
+Fjellbjørkemåler
+Maur
+Skogsmaur
+Humle
+Honningbie
+Veps
+Sommerfugl
+Døgnflue
+Steinflue
+Vårflue
+Bille
+Barkbille
+Edderkopp

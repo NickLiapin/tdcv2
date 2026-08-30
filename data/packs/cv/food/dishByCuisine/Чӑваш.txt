@@ -1,0 +1,20 @@
+---
+description: The Chuvash kitchen, and the largest child here because it is the local one. Its logic is a northern forest-farming table — rye, barley, oats and millet, heavy dairy in every form the milk will take (турӑх soured, чӑкӑт dried hard, tolerated all winter), potato since the nineteenth century, and meat treated as something to be preserved rather than eaten fresh. Шӑрттан is the dish that carries the whole argument: a sheep's stomach packed with fatty mutton, salted, sewn shut and dry-cured for weeks until it keeps without a cellar, then sliced or dropped into a broth as шӑрттан яшки. That is a steppe technique surviving in a rye-growing forest zone, which is exactly what you would expect of the only remaining Oghur Turkic people living as northern farmers. Хуплу is the counterweight, the big covered pie of meat and potato baked for guests and holidays, and хуран кукли are the boiled dumplings named for the хуран, the cauldron. Кӑвас and сӑра are drinks rather than dishes and are kept here anyway, because a Chuvash table is described by them more often than by any main course: сӑра, the home-brewed hopped beer, is an institution with its own place in Акатуй and in every village wedding, and no description of this table is honest without it.
+locale: cv
+---
+Шӑрттан
+Хуплу
+Хуран кукли
+Чӑкӑт
+Какай шӳрпи
+Пӳремеч
+Тултармӑш
+Шӑрттан яшки
+Пултӑран яшки
+Пӑтӑ
+Турӑх
+Йӑва
+Хӑпарту
+Ҫӑмарта хӑпартни
+Кӑвас
+Сӑра

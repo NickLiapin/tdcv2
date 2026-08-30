@@ -1,0 +1,34 @@
+---
+description: Seasonings, and the list is deliberately honest: Brittany is not a spice culture. What a Breton kitchen seasons with is salt, pepper and the herbs of a kitchen garden, and only the tail of this file is spice in the exotic sense. The salt is local — the paludiers of the Guérande and Batz-sur-Mer marshes still rake it by hand out of clay pans, and fleur de sel is the fine crust skimmed off the surface on a still evening, a different product from the grey gros sel dragged off the bottom of the same pan. The imported half came ashore at two ports, Nantes and Lorient, and Lorient is the better story: the town's name is simply L'Orient, because there was no town there until the Compagnie des Indes built a shipyard at the mouth of the Scorff in the 1660s and the place was called after the East it traded with, so the pepper, cinnamon, cloves, nutmeg and vanilla on this list are named after a Breton port. Only two values are Breton. holen is native Celtic, cognate with Welsh halen, and pebr is a Latin loan from piper: the Britons had salt before they met Rome and pepper only afterwards. Note also that holen begins with h, which never mutates, so it is safe in any slot, while pebr is not — after ma 'my' the spirant mutation makes it ma febr.
+locale: br
+---
+holen
+pebr
+fleur de sel de Guérande
+gros sel de Guérande
+persil
+ciboulette
+cerfeuil
+estragon
+thym
+laurier
+romarin
+sauge
+menthe
+oseille
+aneth
+fenouil
+moutarde
+vinaigre de cidre
+paillettes d'algues
+poivre blanc
+muscade
+clou de girofle
+cannelle
+gingembre
+curcuma
+cumin
+coriandre
+safran
+curry
+vanille

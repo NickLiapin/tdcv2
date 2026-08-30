@@ -1,0 +1,10 @@
+---
+description: Diagnoses a cardiologist in the Chuvash Republic actually enters. Cardiovascular disease is the largest single cause of death here as across the Volga federal district, and hypertension is the doorway to almost everything else on this list, which is why артериальная гипертензия leads rather than trails it. The republican cardiology dispensary in Cheboksary is a regional vascular centre and takes the acute infarction rows around the clock from the district hospitals.
+locale: cv
+---
+Артериальная гипертензия
+Ишемическая болезнь сердца
+Фибрилляция предсердий
+Хроническая сердечная недостаточность
+Острый инфаркт миокарда
+Дислипидемия

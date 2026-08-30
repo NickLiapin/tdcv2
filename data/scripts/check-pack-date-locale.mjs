@@ -54,6 +54,17 @@ function hasData(dir) {
   return walk(dir);
 }
 
+/**
+ * Half-written packs, which are committable but do not ship.
+ *
+ * The same list exists in `check-bundle-coverage.mjs` and for the same reason:
+ * a 222-file pack lands over more than one sitting, and the intermediate state
+ * has to be safe to commit. A pack here has not written its `date/` folder yet,
+ * so it has nothing to build a table from. Remove the name when the pack is
+ * finished — at which point it needs its DATE_LOCALE.json like everyone else.
+ */
+const WORK_IN_PROGRESS = new Set(['cv']);
+
 const builtIn = builtInDateLocales();
 const problems = [];
 let checked = 0;
@@ -63,6 +74,7 @@ for (const name of readdirSync(PACKS).sort()) {
   const dir = join(PACKS, name);
   if (!statSync(dir).isDirectory()) continue;
   if (!hasData(dir)) continue;
+  if (WORK_IN_PROGRESS.has(name)) continue;
   checked += 1;
 
   const table = join(dir, 'DATE_LOCALE.json');

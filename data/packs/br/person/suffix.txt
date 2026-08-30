@@ -1,0 +1,28 @@
+---
+description: Qualifier written after a name, and the honest thing to say first is that neither Breton nor French has the Anglo-American tradition this field was designed for. There is no Jr and no Sr, and the roman numerals in French belong to sovereigns and popes, not to a third John Smith, so a French-speaking Breton called after his father is distinguished by père and fils placed after the surname — Le Gall père, Le Gall fils — or by aîné and cadet. Breton does the same job with adjectives and puts them after the given name: Yann Kozh is the elder Yann and Yann Yaouank the younger, bras and bihan (big and little) serve the same turn in a household or a village where several people share a name, and henañ and yaouankañ are the superlatives, eldest and youngest. The academic block is short because French qualifications are written before the name (Dr, Pr, Me, Ing.) and PhD and MBA appear only on the CVs of people who studied in English. French honours are never abbreviated after a name the way OBE is: they are written out in full, which is why the last four entries are long. The Mérite maritime, created in 1930 for seafarers, is the one Brittany collects.
+locale: br
+---
+kozh
+yaouank
+henañ
+yaouankañ
+bras
+bihan
+père
+fils
+aîné
+cadet
+jeune
+II
+III
+IV
+Dr
+Pr
+Me
+Ing.
+PhD
+MBA
+Chevalier de la Légion d'honneur
+Officier de l'Ordre national du Mérite
+Chevalier des Palmes académiques
+Médaille du Mérite maritime

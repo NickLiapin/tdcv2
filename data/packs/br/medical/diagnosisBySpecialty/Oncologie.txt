@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in oncology, two of them over-represented in Brittany's health statistics for a single shared reason. Cancers of the upper aerodigestive tract, meaning lip, mouth, pharynx, larynx and oesophagus, and hepatocellular carcinoma both follow heavy alcohol use, which the region records well above the French average. For the aerodigestive group alcohol and tobacco do not merely add up: together they multiply the risk many times over, which is why the combination produces a cancer profile this region knows better than it would like to. Every case here passes through an RCP, the réunion de concertation pluridisciplinaire that French law requires before a treatment plan can be set, and the record it produces is French like every value in the file.
+locale: br
+---
+Cancer du poumon
+Cancer du sein
+Cancer colorectal
+Cancer des voies aérodigestives supérieures
+Carcinome hépatocellulaire
+Cancer de la prostate

@@ -1,0 +1,12 @@
+---
+description: Conditions with a raised frequency in people of Tatar descent. The Volga Tatars are the Chuvash Republic's second-largest Turkic-speaking neighbour and its largest minority after the Russians, concentrated in the southern districts along the Tatarstan border, and no distinctive founder disorder has been described for them of the kind that Chuvash polycythemia is for the Chuvash — so this file is honestly the region's metabolic burden rather than a genetic signature. Adult lactase non-persistence leads it because that, not persistence, is the default across Turkic Volga populations, and the rest tracks the type 2 diabetes and cardiovascular curve of the middle Volga as a whole.
+locale: cv
+---
+Первичная лактазная недостаточность
+Сахарный диабет 2 типа
+Артериальная гипертензия
+Ишемическая болезнь сердца
+Ожирение
+Желчнокаменная болезнь
+Дефицит витамина D
+Эндемический зоб

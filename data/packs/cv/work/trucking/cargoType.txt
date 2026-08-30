@@ -1,0 +1,17 @@
+---
+description: Truck body or cargo type. The M7 «Волга» federal highway crosses the republic on its way from Moscow to Kazan and on to the Urals, and it is the freight artery of the whole middle Volga, so the traffic through Chuvashia is a fair sample of Russian long-haul: curtain-sider trailers, reefers, tankers and containers. Two entries are local rather than generic — молоковоз, the insulated milk tanker that collects from dairy farms on a fixed morning round, and зерновоз, the grain tipper that only really works for six weeks after harvest. Опасный груз ADR carries the European agreement's name because Russia is a party to it and the placarding, the driver's certificate and the route restrictions all follow from it.
+locale: cv
+---
+Тентованный полуприцеп
+Рефрижератор
+Изотермический фургон
+Цистерна
+Молоковоз
+Зерновоз
+Самосвал
+Контейнеровоз
+Автовоз
+Низкорамный трал
+Лесовоз
+Негабаритный груз
+Опасный груз ADR

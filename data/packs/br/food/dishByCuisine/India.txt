@@ -1,0 +1,12 @@
+---
+description: Indian dishes as a Breton restaurant lists them, with two honest notes attached. The menu is a British one rather than an Indian one — poulet tikka masala was assembled in Britain, most plausibly in Glasgow, and travelled to France inside the same restaurant format — and the restaurants in provincial France are as often run by Bangladeshi, Pakistani or Sri Lankan Tamil families as by Indian ones, with the sign reading indien because that is the word that sells. Naan and dal are the north Indian half of the card; south Indian cooking is barely represented on a Breton menu at all.
+locale: br
+---
+Poulet tikka masala
+Poulet au beurre
+Palak paneer
+Biryani
+Samoussa
+Naan
+Dal
+Vindaloo

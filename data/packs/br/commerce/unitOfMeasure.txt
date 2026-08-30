@@ -1,0 +1,34 @@
+---
+description: Units a product is sold by. Brittany is metric like the rest of France and the metric names are straight borrowings — metr, litr, gramm, kilogramm — but the interesting half of this list is the container measures, because Breton has a suffix that does the work French needs a preposition for. Add -ad to a container and it becomes a measure of that container: pod a pot and podad a potful, sac'h a sack and sac'had a sackful, paner a basket and paneriad a basketful, boest a box and boestad a boxful, loa a spoon and loaiad a spoonful. Both members of each pair are deliberately present, because on an invoice they price different things — sac'h is the sack you are buying and sac'had is how much is inside it, and collapsing them loses that. Banne is the everyday measure of anything drinkable, ur banne chistr, and names no fixed volume; it is what a Breton bar sells in. Gourhed is the fathom, an arm-span from fingertip to fingertip, and it is not a museum piece: it is still the unit a Breton fisherman states a depth in. Devezh is the odd one out here in that it measures labour rather than goods, a day's work rather than a calendar day, and it is the word behind the old land measure devezh-arat, the area a team could plough between morning and night — a unit defined by how long the ox lasted rather than by any length.
+locale: br
+---
+pezh
+re
+dousenn
+strollad
+boest
+boestad
+pakad
+sac'h
+sac'had
+paner
+paneriad
+pod
+podad
+loaiad
+banne
+boutailh
+tonell
+rollad
+metr
+santimetr
+metr karrez
+gourhed
+litr
+mililitr
+kilogramm
+gramm
+eur
+deiz
+devezh
+miz

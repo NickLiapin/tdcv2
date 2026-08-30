@@ -1,0 +1,6 @@
+---
+description: Gender label (Chuvash). Two values, matching en, ru and sr — this list is what a parent= filter selects on, so a longer one would silently leave most rows without a name. Chuvash has no grammatical gender at all: one pronoun вӑл covers he, she and it, verbs and adjectives never agree for sex, and nothing in the language forces a speaker to say which one a person is. These two labels are therefore lexical nouns, арҫын "man" and хӗрарӑм "woman", literally "male person" and "female person", not a grammatical category the way Serbian Мушки / Женски is.
+locale: cv
+---
+Арҫын
+Хӗрарӑм

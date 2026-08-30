@@ -1,0 +1,238 @@
+---
+description: Country and territory names in Chuvash, sorted in Chuvash alphabetical order. That order is not the Latin one and not the Russian one either: Chuvash inserts four extra letters into the Cyrillic sequence, ӑ directly after а, ӗ after ё, ҫ after с and ӳ after у, so Ҫурҫӗр Корея files under ҫ between Судан and Тайвань rather than anywhere a default collator would put it, and a config that re-sorts this list with a stock comparator will scramble it. The shapes are worth explaining. Chuvash builds most country names on the Russian ones and then applies its own endings, which is why the Russian -ия comes out as a bare -и throughout: Итали, Испани, Германи, Австрали, Румыни, Эфиопи. Раҫҫей for Russia is the important exception and the genuine Chuvash word, not Россия respelled. Native vocabulary does the compounding work where a name has grammar in it: утравӗсем is "its islands" and ends every archipelago on the list, тата is "and" and joins Антигуа тата Барбуда, Республики is the possessive that makes Тӗп Африка Республики, and the compass words give Кӑнтӑр Корея, Ҫурҫӗр Македони, Тухӑҫ Тимор and Анӑҫ Сахара. Раштав утравӗ for Christmas Island is a small pleasure: Раштав is the Chuvash word for Christmas, borrowed early and thoroughly naturalised. Being Turkic buys Chuvash nothing here, and that is worth saying plainly. Chuvash is the only surviving Oghur Turkic language, the sole living relative of the Bulgar of the Volga Bulgars, and it split from the rest of Turkic so early that it is mutually unintelligible with all of it — where Common Turkic has z and š, Chuvash has r and l, Turkish kız against Chuvash хӗр "girl", Turkish taş against Chuvash чул "stone" — so a Chuvash speaker gets no free ride from Turkish or Azerbaijani place names and the world map arrived through Russian instead. Where a small territory has no distinct attested Chuvash form, the Russian one stands unchanged, which accounts for Гибралтар, Монтсеррат, Питкэрн, Реюньон and most of the rest of the minor entries. That is not a gap being papered over: Chuvash-language geography writing follows Russian usage for territories nobody has had cause to name in Chuvash, and inventing forms for them would be inventing the language.
+locale: cv
+---
+Австрали
+Австри
+Азербайджан
+Албани
+Алжир
+Америка Виргин утравӗсем
+Америка Самоа
+Америкӑри Пӗрлешӳллӗ Штатсем
+Анӑҫ Сахара
+Ангилья
+Ангола
+Андорра
+Антарктида
+Антигуа тата Барбуда
+Аргентина
+Армени
+Аруба
+Аслӑ Британи
+Афганистан
+Багам утравӗсем
+Бангладеш
+Барбадос
+Бахрейн
+Беларусь
+Белиз
+Бельги
+Бенин
+Бермуд утравӗсем
+Болгари
+Боливи
+Босни тата Герцеговина
+Ботсвана
+Бразили
+Британи Виргин утравӗсем
+Бруней
+Буркина-Фасо
+Бурунди
+Бутан
+Вануату
+Ватикан
+Венгри
+Венесуэла
+Вьетнам
+Габон
+Гаити
+Гайана
+Гамби
+Гана
+Гваделупа
+Гватемала
+Гвиней
+Гвиней-Бисау
+Германи
+Гибралтар
+Гондурас
+Гонконг
+Гренада
+Гренланди
+Греци
+Грузи
+Гуам
+Дани
+Джибути
+Доминика
+Доминикана Республики
+Египет
+Замби
+Зимбабве
+Израиль
+Инди
+Индонези
+Иордани
+Ирак
+Иран
+Ирланди
+Исланди
+Испани
+Итали
+Йемен
+Кабо-Верде
+Казахстан
+Кайман утравӗсем
+Камбоджа
+Камерун
+Канада
+Катар
+Кӑнтӑр Африка Республики
+Кӑнтӑр Корея
+Кӑнтӑр Судан
+Кени
+Кипр
+Киргизи
+Кирибати
+Китай
+Кокос утравӗсем
+Колумби
+Комор утравӗсем
+Конго Демократи Республики
+Конго Республики
+Косово
+Коста-Рика
+Кот-д'Ивуар
+Куба
+Кувейт
+Кук утравӗсем
+Лаос
+Латви
+Лесото
+Либери
+Ливан
+Ливи
+Литва
+Лихтенштейн
+Люксембург
+Маврики
+Мавритани
+Мадагаскар
+Майотта
+Макао
+Малави
+Малайзи
+Мали
+Мальдив утравӗсем
+Мальта
+Марокко
+Мартиника
+Маршалл утравӗсем
+Мексика
+Микронези
+Мозамбик
+Молдави
+Монако
+Монголи
+Монтсеррат
+Мьянма
+Намиби
+Науру
+Непал
+Нигер
+Нигери
+Нидерланд
+Нидерланд Антилӗсем
+Никарагуа
+Ниуэ
+Норвеги
+Оман
+Пакистан
+Палау
+Палестина территорийӗсем
+Панама
+Папуа — Ҫӗнӗ Гвиней
+Парагвай
+Перу
+Пӗрлешӳллӗ Араб Эмирачӗсем
+Питкэрн
+Польша
+Португали
+Пуэрто-Рико
+Раҫҫей
+Раштав утравӗ
+Реюньон
+Руанда
+Румыни
+Сальвадор
+Самоа
+Сан-Марино
+Сан-Томе тата Принсипи
+Сауд Аравийӗ
+Сейшел утравӗсем
+Сенегал
+Сент-Винсент тата Гренадинсем
+Сент-Китс тата Невис
+Сент-Люси
+Серби
+Сингапур
+Сири
+Словаки
+Словени
+Соломон утравӗсем
+Сомали
+Судан
+Суринам
+Сьерра-Леоне
+Ҫӗнӗ Зеланди
+Ҫӗнӗ Каледони
+Ҫурҫӗр Корея
+Ҫурҫӗр Македони
+Ҫурҫӗр Мариана утравӗсем
+Таджикистан
+Таиланд
+Тайвань
+Танзани
+Теркс тата Кайкос утравӗсем
+Тӗп Африка Республики
+Тибет
+Того
+Токелау
+Тонга
+Тринидад тата Тобаго
+Тувалу
+Тунис
+Туркменистан
+Турци
+Тухӑҫ Тимор
+Уганда
+Узбекистан
+Украина
+Уоллис тата Футуна
+Уругвай
+Фарер утравӗсем
+Фиджи
+Филиппинсем
+Финлянди
+Фолкленд утравӗсем
+Франци
+Франци Гвианӗ
+Франци Кӑнтӑр территорийӗсем
+Франци Полинезийӗ
+Хорвати
+Чад
+Черногори
+Чехи
+Чили
+Швейцари
+Швеци
+Шри-Ланка
+Эквадор
+Экваториаллӑ Гвиней
+Эритрей
+Эсватини
+Эстони
+Эфиопи
+Ямайка
+Япони

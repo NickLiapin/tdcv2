@@ -1,0 +1,20 @@
+---
+description: The state of the weather at a given moment. beaivváš is the sun and beaivi is both the sun and the day, so a Sami weather report and a Sami calendar use the same noun. bievla is a value with no English counterpart: it means bare ground, the patches where the snow has gone and the ground shows through, and it is watched closely in spring because bievla is where a reindeer can feed without digging and where a sledge can no longer run. borga is not just snow but snow being driven, and guoldu is the finest version of that — dry snow lifted off the surface by wind in clear cold air, a ground blizzard under a blue sky, which takes visibility to nothing without a cloud in sight and is one of the genuinely dangerous conditions on the plateau. skoađđi is fog. galbma and liekkas, cold and warm, are relative in a place where minus twenty is a working day.
+locale: se
+---
+Beaivváš
+Balvvat
+Arvi
+Muohta
+Borga
+Guoldu
+Biegga
+Bievla
+Skoađđi
+Suoldni
+Jiekŋa
+Seavdnjat
+Čuovga
+Galbma
+Liekkas
+Njuoskkas

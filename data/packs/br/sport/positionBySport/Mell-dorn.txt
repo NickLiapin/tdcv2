@@ -1,0 +1,11 @@
+---
+description: Handball positions in French, listed outward from the goal, which is the order a coach names them. Handball is the strongest indoor sport in Brittany by some distance and the women's game here is stronger than the men's: Brest Bretagne Handball reached a European Champions League final in 2021, and Cesson-Rennes carries the men's side in the first division. The name repays a second look, because dorn is the hand and Breton counts hands in a dual rather than a plural — the pair of them is daouarn, not a regular plural of dorn — and the same dual gives daoulagad for the two eyes and divrec'h for the two arms; the language marks what comes in twos with a form of its own, and a body-part noun in a Breton word list is therefore the singular of something that is normally met in pairs. Pivot in this file is the player working with his back to the goal inside the defensive wall, an entirely different job from the basketball pivot.
+locale: br
+---
+Gardien de but
+Arrière gauche
+Demi-centre
+Arrière droit
+Ailier gauche
+Ailier droit
+Pivot

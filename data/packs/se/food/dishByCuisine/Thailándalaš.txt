@@ -1,0 +1,12 @@
+---
+description: Thai dishes, the child of food.cuisine value Thailándalaš. Thai food is not exotic in the Sami north, it is village food: Thai migration to northern Norway and Finnish Lapland has been substantial since the 1990s, largely through marriage, and Thai women now run restaurants and cleaning firms in towns of a few thousand people. A settlement inside the Arctic Circle with one grocery shop and one restaurant will quite often have the restaurant be Thai.
+locale: se
+---
+Pad thai
+Tom yum
+Grønn karri
+Rød karri
+Tom kha gai
+Massaman
+Som tam
+Mango sticky rice

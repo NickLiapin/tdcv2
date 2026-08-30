@@ -1,0 +1,40 @@
+---
+description: Hospital and clinic specialties as a Breton patient meets them, in French, because the referral letter, the appointment slip and the department itself are French. Two entries carry the region. Médecine hyperbare is the first: Brest runs one of the small number of hyperbaric chambers in France, and it is there because Brittany's professional divers, its scallop dredgers and the Navy at the Brest arsenal produce decompression cases that an inland region simply does not generate. Médecine du travail is the second, and it is no formality here — the agri-food plants and the fish-processing halls are Brittany's largest private employers, and the occupational physician who signs off on a cutting line is a busier figure in this region than almost anywhere else in France. Read the list against a shortage, too: central Brittany, the Kreiz-Breizh around Carhaix and Rostrenen, is one of the country's severest medical deserts, so the specialty a config draws is often not one the patient can actually reach without a hundred-kilometre drive to Brest, Rennes, Vannes or Lorient. Ten of these thirty-six also name a file in medical/diagnosisBySpecialty; those ten are listed separately in medical/specialtyCoherent, and the two files must agree.
+locale: br
+---
+Cardiologie
+Dermatologie
+Endocrinologie
+Gastroentérologie
+Neurologie
+Oncologie
+Ophtalmologie
+Orthopédie
+Pédiatrie
+Psychiatrie
+Pneumologie
+Radiologie
+Rhumatologie
+Urologie
+Néphrologie
+Hématologie
+Anesthésie-réanimation
+Médecine d'urgence
+Médecine générale
+Médecine interne
+Gynécologie-obstétrique
+Oto-rhino-laryngologie
+Anatomie et cytologie pathologiques
+Chirurgie plastique
+Chirurgie viscérale et digestive
+Chirurgie vasculaire
+Infectiologie
+Gériatrie
+Néonatologie
+Médecine physique et de réadaptation
+Neurochirurgie
+Chirurgie cardiaque
+Chirurgie maxillo-faciale
+Odontologie
+Médecine du travail
+Médecine hyperbare

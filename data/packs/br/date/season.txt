@@ -1,0 +1,8 @@
+---
+description: The four seasons. Two of them are compounds of amzer, and amzer is both time and weather in Breton — the same word covers the hour and the sky — so nevez-amzer is literally the new weather and diskar-amzer the falling weather, autumn as the season in which the weather comes down. That single ambiguity tells you something about a peninsula where the sky is the main event: pet amzer eo? asks what the weather is like, and amzer 'zo asks whether there is time. Hañv and goañv, summer and winter, are the two that stand alone, and both are old Brythonic words with Welsh cousins, haf and gaeaf, which is one of the clearest places to see that Breton's relatives sit across the Channel and not in Ireland. These are written lower case except at the head of a value, as Breton writes them in running text, unlike the months and weekdays in this same folder, which take a capital.
+locale: br
+---
+Nevez-amzer
+Hañv
+Diskar-amzer
+Goañv

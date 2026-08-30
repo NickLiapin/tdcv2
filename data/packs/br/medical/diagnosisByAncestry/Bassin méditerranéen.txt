@@ -1,0 +1,11 @@
+---
+description: Conditions more frequent around the Mediterranean basin, reaching a Breton hospital through internal French migration rather than through the local population. Two values here name the same enzyme defect from opposite ends and a config writer should not treat them as a duplicate pair: Déficit en G6PD is the inherited state a laboratory measures, while Favisme is the acute haemolytic crisis it produces after broad beans or certain drugs, and a patient can carry the first for sixty years without ever meeting the second. The thalassaemias and G6PD deficiency persist for a shared reason, both blunting falciparum malaria, which was endemic on these coasts, Corsica and the Camargue included, until the twentieth century. French is the register throughout, since the compte rendu de consultation is written in it and so is every letter that follows.
+locale: br
+---
+Bêta-thalassémie
+Trait bêta-thalassémique
+Alpha-thalassémie
+Déficit en G6PD
+Favisme
+Fièvre méditerranéenne familiale
+Maladie de Behçet

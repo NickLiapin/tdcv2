@@ -1,0 +1,16 @@
+---
+description: Jobs at a chemical works. Novocheboksarsk — Ҫӗнӗ Шупашкар in Chuvash, literally "new Cheboksary" — was laid out in the 1960s around a single chemical plant, and the town and the works have shared a fate ever since. The characteristic job title is аппаратчик, the operator of a closed process vessel, graded by the process he tends rather than by the machine he stands at; it has no clean English equivalent and is one of the reasons this list is Russian. Слесарь КИПиА is the instrumentation-and-control fitter, an abbreviation so worn in that it is spoken as a word. Continuous plant means shift work, hence the shift chief at the end.
+locale: cv
+---
+Инженер-химик
+Инженер-технолог химического производства
+Аппаратчик синтеза
+Аппаратчик перегонки
+Оператор технологических установок
+Лаборант химического анализа
+Слесарь КИПиА
+Слесарь по ремонту технологического оборудования
+Машинист компрессорных установок
+Инженер по промышленной безопасности
+Инженер-эколог
+Начальник смены

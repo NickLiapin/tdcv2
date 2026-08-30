@@ -1,0 +1,13 @@
+---
+description: Finnish dishes, the child of food.cuisine value Suopmelaš. Finland administers the eastern third of the Northern Sami area, and this is what is eaten there. poronkäristys is the direct counterpart of the Sami reindeer dishes — shaved frozen reindeer meat fried and served with mashed potato and lingonberry — and it is the standard restaurant dish of Finnish Lapland. leipäjuusto, squeaky bread cheese, is served warm with cloudberry jam and is the same pairing that closes a Sami meal. karjalanpiirakka, the rye-crusted rice pasty, comes from Karelia at the other end of the country and is now eaten everywhere in Finland, including by Sami who have never been near Karelia.
+locale: se
+---
+Poronkäristys
+Karjalanpiirakka
+Lohikeitto
+Kalakukko
+Hernekeitto
+Mustamakkara
+Ruisleipä
+Leipäjuusto
+Mämmi

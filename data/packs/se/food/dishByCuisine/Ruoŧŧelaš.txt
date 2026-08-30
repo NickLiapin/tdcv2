@@ -1,0 +1,13 @@
+---
+description: Swedish dishes, the child of food.cuisine value Ruoŧŧelaš. Sweden holds the western part of Sápmi, including Giron and Jåhkåmåhkke, and the Swedish table there runs on the same potato-and-preserved-meat logic as the Sami one. palt and kroppkakor are potato dumplings stuffed with salt pork, heavy winter food from Norrbotten and Norrland rather than from Stockholm, and they are the dishes a Sami household in Sweden is most likely to make. gravlax is salmon cured in salt, sugar and dill, and the name records the original method, which was to bury it.
+locale: se
+---
+Köttbullar
+Palt
+Kroppkakor
+Raggmunk
+Ärtsoppa
+Gravlax
+Janssons frestelse
+Pyttipanna
+Kanelbulle

@@ -1,0 +1,21 @@
+---
+description: Cuisines as a Cheboksary restaurant listing names them, and the parent of food/dishByCuisine — every value here has a child file of exactly that name beside it. Chuvash builds these phrases from a bare attributive noun rather than an adjective (чӑваш апачӗ "Chuvash food", китай апачӗ "Chinese food"), so the list is ethnonyms where the cooks are neighbours and country names where the cuisine arrived as a national brand. The shape is regional before it is international: Чӑваш, Вырӑс, Тутар, Ҫармӑс and Мӑкшӑ are the Middle Volga itself, because the republic borders Tatarstan, Mari El and Mordovia, shares mixed villages with all of them, and treats those kitchens as neighbouring rather than foreign. Грузин and Узбек are next because those two are the foreign cuisines that genuinely saturate provincial Russia — every Russian town of any size has a khinkali house and a plov canteen, and Chuvashia is no exception. Япони is on the list for one reason only, which is that sushi delivery reached every Russian city above about fifty thousand people during the 2010s and never left. Мӑкшӑ is a simplification worth flagging: Chuvash names the two Mordvin peoples separately, мӑкшӑ and ирҫе, and one label covering both is a menu's convenience rather than an ethnographic claim.
+locale: cv
+---
+Чӑваш
+Вырӑс
+Тутар
+Ҫармӑс
+Мӑкшӑ
+Грузин
+Узбек
+Кавказ
+Япони
+Итали
+Китай
+Турци
+Корея
+Америка
+Инди
+Мексика
+Греци

@@ -1,0 +1,11 @@
+---
+description: Driving licence classes, in the European lettering that Norway, Sweden and Finland all use — which is one of the few things about crossing these borders that is genuinely uniform. B is a car, C a lorry, D a bus, and the E suffix adds a trailer. Worth noting beside them is the licence this list does not contain: there is no separate class for a snowmobile in Norway beyond an ordinary licence plus a compulsory course, and the snowmobile is the working vehicle of the interior for half the year.
+locale: se
+---
+B
+BE
+C1
+C
+CE
+D1
+D

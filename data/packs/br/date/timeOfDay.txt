@@ -1,0 +1,12 @@
+---
+description: The parts of the day, dawn to night. Two of these words are also the names of directions, and that is the fact worth carrying away from this file: kreisteiz is midday and it is also SOUTH, because the sun stands there at noon, while hanternoz is midnight and also NORTH, the quarter of the sky the sun never reaches. Breton navigates by the clock, so a Breton speaker saying he lives e kreisteiz Breizh means the south of Brittany and not that he lives at lunchtime — see address/direction.txt in this pack, where the same two words appear on the compass beside Reter, the east, which means the rising. The rest are ordinary: gouloù-deiz is the light of day, mintin and beure divide the morning between them with beure the earlier and more rural of the two, endervezh is the long afternoon, abardaez the dusk, noz the night. A config joining these to a verb should know that Breton marks the time of day with da or war rather than with a bare noun, da greisteiz at midday, and that greisteiz there is kreisteiz softened after da.
+locale: br
+---
+gouloù-deiz
+beure
+mintin
+kreisteiz
+endervezh
+abardaez
+noz
+hanternoz

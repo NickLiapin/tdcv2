@@ -1,0 +1,12 @@
+---
+description: Lebanese dishes as a Breton menu prints them, in the French transliteration — chawarma with ch, houmous with h and ou, taboulé with an accent — and the spelling matters because a dataset assembled from anywhere else will carry the English forms instead. The Lebanese restaurant in France is largely a product of the emigration of the 1975-1990 civil war, and the food has since gone well past restaurants: houmous is a supermarket tub in Quimper, and taboulé in France has quietly become a different dish from the Lebanese one, mostly semolina with a little parsley rather than mostly parsley with a little bulgur.
+locale: br
+---
+Houmous
+Taboulé
+Falafel
+Chawarma
+Baba ganousch
+Kebbé
+Fattouche
+Manakich

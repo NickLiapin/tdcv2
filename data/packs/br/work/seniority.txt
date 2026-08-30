@@ -1,0 +1,20 @@
+---
+description: Rank or level attached to a role, in French, and the list mixes two ladders that a config writer should not blend carelessly. Junior, confirmé, senior, expert and référent are advertising words: they describe experience, they have no legal definition, and a firm may use them however it likes. Agent de maîtrise and cadre are something else entirely — they are statutory categories in the collective agreement, and moving between them changes real things: the notice period, the working-time regime, the pension arrangement, and historically the pension fund itself, since cadres paid into a separate scheme until the Agirc and Arrco funds were merged in 2019. Cadre is therefore a status a person holds rather than a job they do, which is why a French CV states it on its own line. Breton has perfectly good words for rank — penn is a head, mestr a master, and both are alive in the language — but neither has ever been an employment grade, and a Breton-speaking foreman on the quay at Concarneau is a chef d'équipe on his payslip and nothing else.
+locale: br
+---
+Stagiaire
+Apprenti
+Alternant
+Débutant
+Junior
+Confirmé
+Senior
+Expert
+Référent
+Agent de maîtrise
+Chef d'équipe
+Coordinateur
+Responsable
+Cadre
+Directeur
+Directeur général

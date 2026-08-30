@@ -1,0 +1,12 @@
+---
+description: Korean dishes, the newest of these cuisines in Brittany and usually one restaurant in a university city rather than a trade. There is a real point of contact with the region, and it is seaweed: Korea eats it as an everyday food and Brittany harvests more of it than anywhere else in Europe, from the kelp fields of the Iroise sea off Ouessant and Molène, cut by a small licensed fleet of scoubidou boats. The Breton seaweed industry now sells into exactly this kitchen. Kimchi is listed as a dish rather than a condiment because that is how it is ordered here.
+locale: br
+---
+Bibimbap
+Bulgogi
+Kimchi
+Poulet frit coréen
+Tteokbokki
+Japchae
+Samgyeopsal
+Kimchi jjigae

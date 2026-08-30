@@ -1,0 +1,9 @@
+---
+description: Hotel star ratings as France awards them. The scale is not a review score: since the 2009 reform it is a state classification granted by Atout France for five years against a checklist of a couple of hundred criteria, and a hotel may hold no stars at all and still be full, which is common in Brittany where a great many small coastal establishments never applied. The plural is the thing to notice in the string — French writes 1 étoile in the singular and 2 étoiles upward in the plural, so a template that appends a fixed suffix to a number will be wrong on the first value. The same scale is applied separately to campsites, and Brittany has more campsite pitches than any region in France after Occitanie, so a tourism dataset here draws this field for far more campsites than hotels.
+locale: br
+---
+1 étoile
+2 étoiles
+3 étoiles
+4 étoiles
+5 étoiles

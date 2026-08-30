@@ -1,0 +1,19 @@
+---
+description: Directional qualifier for a Chuvash street, district or housing estate. The Chuvash compass is built out of the sun's daily positions rather than out of abstract points, and it shows in the words themselves: ҫурҫӗр is north and also midnight, кӑнтӑр is south and also midday, тухӑҫ is east from the verb "to rise" and анӑҫ is west from the verb "to set". Four bare nouns, four hyphenated compounds and four locative forms in -ти / -ри cover what a district name needs; the locatives are the ones that modify a following noun, so ҫурҫӗрти is the shape that goes with a microdistrict rather than the shape that names a compass point. Тӗп is the native word for central and outranks the Russian Центр in Chuvash-language use, but both appear on signage, and Кивӗ хула is the old-town label that a historic centre carries.
+locale: cv
+---
+Ҫурҫӗр
+Кӑнтӑр
+Тухӑҫ
+Анӑҫ
+Ҫурҫӗр-тухӑҫ
+Ҫурҫӗр-анӑҫ
+Кӑнтӑр-тухӑҫ
+Кӑнтӑр-анӑҫ
+Ҫурҫӗрти
+Кӑнтӑрти
+Тухӑҫри
+Анӑҫри
+Тӗп
+Центр
+Кивӗ хула

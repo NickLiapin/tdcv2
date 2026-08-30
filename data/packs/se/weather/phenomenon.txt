@@ -1,0 +1,19 @@
+---
+description: Named weather and snow conditions, and this is the list the language is famous for — usually for the wrong reason. The point is not that Sami has a mystical number of words for snow; it is that a herding people needs to say, precisely and in one word, whether a herd can reach its food. Every term here is a surface condition with a consequence. oppas is untouched snow no animal has dug. vahca is fresh soft snow lying on older snow. seaŋáš is the coarse, granular, loosely packed layer at the very bottom of the pack, the easiest thing in the world to dig through, and a winter pasture with good seaŋáš is a good pasture. cuoŋu is the spring crust, refrozen after a thaw and hard enough to carry a sled, a running herd and a wolf, which makes travel easy and defence hard. moarri is a thinner, sharper crust that breaks under an animal and cuts its legs. čearga is snow packed hard by wind into a slab, and skálvi is a deep drift. The two that ruin a year are skárta and ruokŋa: a layer of ice frozen directly onto the ground and the lichen, sealing the feed under a lid the animals cannot break, which is what a warm spell in midwinter leaves behind and what is happening more often as the Arctic warms. jassa is a snow patch that survives the summer and draws the herd to it in the insect season. guovssahasat, the northern lights, and skábma, the polar night that lasts from late November to mid-January at this latitude, are on the list because they are weather here in every sense that matters.
+locale: se
+---
+Oppas
+Vahca
+Seaŋáš
+Cuoŋu
+Moarri
+Čearga
+Skálvi
+Skárta
+Ruokŋa
+Jassa
+Guoldu
+Borga
+Guovssahasat
+Skábma
+Idjabeaivváš

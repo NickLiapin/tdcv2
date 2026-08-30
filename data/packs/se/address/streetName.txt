@@ -1,0 +1,199 @@
+---
+description: Street names as the signs in Kárášjohka, Guovdageaidnu, Deatnu and Anár actually read. Note first that these are whole words, not name-plus-blank: Sami welds the type onto the name, so the road is Boazogeaidnu and the track is Skohterluodda, and address/streetSuffix beside this file lists those generic elements for a config that needs to build its own rather than to append one here. The vocabulary a town draws on is the land it stands in. There are five separate words for kinds of snow on this list because they name five separate problems for a herd — cuoŋu is the spring crust hard enough to carry a sled and a running animal, seaŋáš is the coarse granular layer at the very bottom of the pack that a reindeer digs down to, skárta is a thin ice layer frozen onto the ground that locks the lichen away and can starve a herd, vahca is fresh soft snow on top of older, guoldu is dry snow lifted and driven by wind in clear cold air. The reindeer terms are equally exact: heargi is a trained draught animal, áldu an adult female, miessi a calf, čearpmat a yearling, varit a two-year-old male, vuobis a three-year-old male. Those are terms of trade in a herding economy and not folklore. The last thirty values are people, and they are Sápmi's own: Isak Saba wrote the Sami anthem and in 1906 became the first Sami elected to a national parliament; Johan Turi published Muitalus sámiid birra in 1910, the first secular book written in Sami by a Sami; Elsa Laula Renberg convened the first Sami congress in Trondheim in 1917, the date the national day now marks; Nils-Aslak Valkeapää took the Nordic Council literature prize in 1991; Ole Henrik Magga was the first president of the Norwegian Sámediggi in 1989; Aslak Hætta and Mons Somby were executed after the Kautokeino rebellion of 1852 and Lars Hætta, imprisoned for the same events, put the Bible into Sami from his cell. The Norwegian names at the end — Stockfleth, Leem, Friis, Nielsen, Qvigstad — are the outsiders who wrote the grammars and dictionaries, and Finnmark streets carry them too.
+locale: se
+---
+Ávjovárgeaidnu
+Deanugeaidnu
+Anárgeaidnu
+Romssageaidnu
+Girongeaidnu
+Kárášjohgeaidnu
+Álaheajugeaidnu
+Porsáŋggugeaidnu
+Unjárgageaidnu
+Buolbmátgeaidnu
+Mázegeaidnu
+Sirbmágeaidnu
+Njuorggángeaidnu
+Ohcejohgeaidnu
+Eanodatgeaidnu
+Soađegilgeaidnu
+Jåhkåmåhkegeaidnu
+Jiellevárgeaidnu
+Árjepluovvegeaidnu
+Julevgeaidnu
+Johkageaidnu
+Jávregeaidnu
+Várregeaidnu
+Duottargeaidnu
+Meahccegeaidnu
+Gieddegeaidnu
+Luoktageaidnu
+Njárgageaidnu
+Suolugeaidnu
+Vuomegeaidnu
+Leahkegeaidnu
+Jeaggegeaidnu
+Gorsageaidnu
+Guoikageaidnu
+Guolbbageaidnu
+Miellegeaidnu
+Bávtegeaidnu
+Ávžegeaidnu
+Oaivegeaidnu
+Čohkkageaidnu
+Gáisageaidnu
+Vuotnageaidnu
+Eanugeaidnu
+Dievvágeaidnu
+Luohkkágeaidnu
+Mohkkegeaidnu
+Muotkegeaidnu
+Luoppalgeaidnu
+Sávvugeaidnu
+Roggegeaidnu
+Soahkegeaidnu
+Beahcegeaidnu
+Leaibegeaidnu
+Sieđgageaidnu
+Skierregeaidnu
+Beassegeaidnu
+Muorjegeaidnu
+Jeagilgeaidnu
+Suoidnegeaidnu
+Geađgegeaidnu
+Sieidegeaidnu
+Bassivárgeaidnu
+Guovžžageaidnu
+Gumpegeaidnu
+Riebangeaidnu
+Boazogeaidnu
+Heargegeaidnu
+Áldogeaidnu
+Miessegeaidnu
+Varitgeaidnu
+Čearpmatgeaidnu
+Vuobisgeaidnu
+Gárdegeaidnu
+Ráidogeaidnu
+Johtingeaidnu
+Muohtageaidnu
+Cuoŋogeaidnu
+Seaŋášgeaidnu
+Skártageaidnu
+Vahcageaidnu
+Guoldogeaidnu
+Ceavvigeaidnu
+Jiekŋageaidnu
+Skábmageaidnu
+Guovssahasgeaidnu
+Beaivegeaidnu
+Nástegeaidnu
+Giđđageaidnu
+Geassegeaidnu
+Dálvegeaidnu
+Boazobálggis
+Miessebálggis
+Johkabálggis
+Jávrebálggis
+Duottarbálggis
+Meahccebálggis
+Soahkebálggis
+Skierrebálggis
+Muorjebálggis
+Jeaggebálggis
+Guolbbabálggis
+Nástebálggis
+Beaivebálggis
+Guovssahasbálggis
+Rievssatbálggis
+Loddebálggis
+Njukčabálggis
+Guollebálggis
+Sieidebálggis
+Lávvobálggis
+Goahtebálggis
+Njallabálggis
+Áitebálggis
+Luovvebálggis
+Gárdebálggis
+Boazoluodda
+Heargeluodda
+Skohterluodda
+Duottarluodda
+Meahcceluodda
+Johkaluodda
+Jávreluodda
+Gieddeluodda
+Vuomeluodda
+Bávteluodda
+Ávželuodda
+Guoikaluodda
+Mielleluodda
+Njárgaluodda
+Suoluluodda
+Jeaggeluodda
+Gorsaluodda
+Oaiveluodda
+Čohkkaluodda
+Gáisaluodda
+Muohtaluodda
+Jiekŋaluodda
+Ráidoluodda
+Johtinluodda
+Gárdeluodda
+Johkagáddi
+Jávregáddi
+Eanugáddi
+Luoktagáddi
+Vuotnagáddi
+Mearragáddi
+Deanugáddi
+Johkašaldi
+Deanušaldi
+Guoikašaldi
+Muotkešaldi
+Boazomáđii
+Duottarmáđii
+Johtinmáđii
+Dálvemáđii
+Skuvlageaidnu
+Girkogeaidnu
+Márkangeaidnu
+Siidageaidnu
+Duodjegeaidnu
+Luohtegeaidnu
+Gáktegeaidnu
+Sámediggegeaidnu
+Dearvvašvuođageaidnu
+Gávpegeaidnu
+Isak Saba
+Elsa Laula Renberg
+Johan Turi
+Nils-Aslak Valkeapää
+Anders Larsen
+Matti Aikio
+Per Fokstad
+Hans-Aslak Guttorm
+Paulus Utsi
+Lars Levi Læstadius
+Ole Henrik Magga
+Karin Stenberg
+Torkel Tomasson
+Israel Ruong
+Andreas Labba
+Marry Ailonieida Somby
+Rauni Magga Lukkari
+Kirsti Paltto
+Aslak Hætta
+Mons Somby
+Lars Hætta
+Elen Skum
+John Savio
+Ellen Marie Vars
+Mari Boine
+Nils Vibe Stockfleth
+Knud Leem
+Jens Andreas Friis
+Konrad Nielsen
+Just Qvigstad

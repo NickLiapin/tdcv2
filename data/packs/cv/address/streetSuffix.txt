@@ -1,0 +1,38 @@
+---
+description: Chuvash thoroughfare types, and the one fact that will break any config ported from another Cyrillic pack. Serbian writes the type FIRST (Улица Немањина) and so does Russian (улица Ленина), but Chuvash writes it LAST and turns it into a possessive: Ленин урамӗ, literally "Lenin's street", and Мускав проспекчӗ for the Moscow avenue. A Chuvash address therefore joins name-then-type, the exact reverse of the Serbian order, and the type changes shape when it gets there. That is why this list carries each native word twice. The bare nouns are урам, тӑкӑрлӑк, ҫул, кӗпер, пасар, пахча; the forms an actual street sign carries are урамӗ, тӑкӑрлӑкӗ, ҫулӗ, кӗперӗ, пасарӗ, пахчи, built with the third-person possessive suffix that appears as -ӗ or -и depending on the vowels of the stem. Watch проспект, which becomes проспекчӗ: the suffix softens a final т to ч, and that alternation is regular, not a typo. The Russian loans keep Russian spelling, which is settled Chuvash orthographic practice for borrowings rather than a lapse; some of them take the Chuvash possessive anyway (бульварӗ, паркӗ, скверӗ) while the feminine ones and the ones that live mostly as abbreviations on official signage never do. The last two values are settlement types, not thoroughfare types, but they fill the same slot in the Russian federal address format that Chuvashia files its addresses in, so a config building a rural address reaches for them there.
+locale: cv
+---
+урам
+урамӗ
+тӑкӑрлӑк
+тӑкӑрлӑкӗ
+ҫул
+ҫулӗ
+кӗпер
+кӗперӗ
+пасар
+пасарӗ
+пахча
+пахчи
+ҫыран хӗрри
+проспект
+проспекчӗ
+бульвар
+бульварӗ
+парк
+паркӗ
+сквер
+скверӗ
+площадь
+аллея
+микрорайон
+квартал
+проезд
+тупик
+переулок
+набережная
+шоссе
+тракт
+спуск
+ял
+поселок

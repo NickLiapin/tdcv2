@@ -1,0 +1,36 @@
+---
+description: Kinds of building, and the first half of the list has no equivalent anywhere south of here. A goahti is the permanent turf dwelling, built over a frame of curved poles and covered with birch bark and peat, warm enough to winter in; a lávvu is its portable cousin, the conical pole tent that goes with the herd. An áiti is a storehouse raised on posts, and a njalla is the same idea taken further — a hut on a single squared-off pole with the bark left off so that no bear, wolverine or fox can climb it, reached by a notched log the owner takes away with them. A luovvi is an open platform for drying meat and fish out of an animal's reach. A gárdi is the corral where a herd is gathered for marking and separation, and it is a building in the sense that matters: it is the largest structure most siidas own. Two entries are institutions rather than shapes. A girkosiida is a church village, the cluster of small huts a scattered population kept so it had somewhere to stay when it came in for Christmas, Easter and the fairs — Guovdageaidnu and Kárášjohka both grew out of one. A sámediggeviessu is a Sami parliament building, and there are three of them, in Kárášjohka, Giron and Anár.
+locale: se
+---
+Lávvu
+Goahti
+Darfegoahti
+Bealljegoahti
+Njalla
+Áiti
+Luovvi
+Viessu
+Stohpu
+Bárta
+Dállu
+Blohkka
+Sierraviessu
+Ráidoviessu
+Návet
+Vuorkkáviessu
+Garaša
+Skuvla
+Mánáidgárdi
+Girku
+Girkosiida
+Buohcciviessu
+Dearvvašvuođaguovddáš
+Gávpi
+Hotealla
+Restauránta
+Gieldaviessu
+Sámediggeviessu
+Musea
+Kulturviessu
+Gárdi
+Meahccestohpu

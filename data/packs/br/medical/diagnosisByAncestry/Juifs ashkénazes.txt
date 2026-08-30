@@ -1,0 +1,16 @@
+---
+description: Founder mutations are better characterised in this population than in almost any other, which is why this file is long and names individual variants where the others name broad categories. Two entries pull in opposite directions and both matter to whoever builds records from this list. Déficit en facteur XI is not a genetic-counselling finding at all: it is usually silent for a lifetime and announces itself as unexpected bleeding during surgery or a dental extraction, so it belongs to the pre-operative record rather than the family history. Maladie de Gaucher de type 1 teaches the opposite lesson, the one lysosomal storage disease here with an effective enzyme replacement therapy, which is why carrier panels in this population are not only about reproductive choice. French clinical labels throughout, because the written consent and the counselling note that accompany any of these tests in France are French documents.
+locale: br
+---
+Maladie de Tay-Sachs
+Maladie de Gaucher de type 1
+Dysautonomie familiale
+Maladie de Canavan
+Maladie de Niemann-Pick de type A
+Syndrome de Bloom
+Déficit en facteur XI
+Mutation fondatrice BRCA1
+Mutation fondatrice BRCA2
+Mucolipidose de type IV
+Maladie de Crohn
+Dystonie de torsion

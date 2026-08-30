@@ -1,0 +1,30 @@
+---
+description: Book genres as the Breton publishing world names them, and it is a real world, small and unbroken: Al Liamm, a review since 1946 and the house that has printed the bulk of modern Breton literature; Skol Vreizh at Morlaix; An Alarc'h; Keit Vimp Bev for children; Mouladurioù Hor Yezh — together turning out on the order of a hundred new Breton titles a year without a break since the war, out of a readership of a few thousand. Several values here are categories Breton has and French does not: a GWERZ is a long tragic narrative ballad, sung, and it is a literary genre in its own right set against the light SONIOÙ, while a MARVAILH is a wonder-tale and a MOJENN a legend. The market labels stay French, POLAR and THRILLER, because that is what the shelf in a Quimper bookshop says and because Breton has settled on no word for either. The best-selling Breton books ever printed are not literary at all but BANDENN-TRESET, comics: the Breton Tintin and Asterix outsell everything else in the language by a wide margin, which is why the category sits in the list rather than in a footnote, and why KENTELIOÙ BREZHONEG, language-method books, is a genre a Breton publisher genuinely lives on. Note LENNEGEZH AR VUGALE, literature of the children: BUGALE is a plural of persons, so the article softens it to VUGALE and the mutation is inside the value. A generator that normalised it back to BUGALE would produce a string no Breton catalogue prints.
+locale: br
+---
+romant
+danevell
+barzhoniezh
+c'hoariva
+gwerz
+marvailh
+mojenn
+buhezskrid
+eñvorennoù
+istor
+istor Breizh
+prederouriezh
+bredoniezh
+skiant-faltazi
+faltazi
+polar
+thriller
+romant karantez
+levr-beaj
+bandenn-treset
+levr-skol
+dornlevr
+lennegezh ar vugale
+geriadur
+kentelioù brezhoneg
+levr-keginañ

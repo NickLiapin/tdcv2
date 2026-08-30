@@ -1,0 +1,32 @@
+---
+description: Fish, and the first block is the freshwater catch of the interior, which is a food supply and not a sport. luossa, the Atlantic salmon, runs up the Deatnu, the great river the Norwegian-Finnish border follows, and the Deatnu salmon fishery is old, Sami, regulated by treaty between two states, and bitterly contested — the 2017 agreement cut traditional Sami net and weir fishing sharply and was challenged as a breach of Sami rights. dápmot is brown trout, rávdu arctic char, čuovža whitefish, hávga pike, vuoskku perch: these are what a household nets under the ice in a plateau lake through a winter. dorski and sáidi are cod and saithe from the coast, where the Sea Sami — the settled, fishing, boat-owning Sami of the fjords — have always lived, a population whose existence often surprises people who picture only herders. The Norwegian names further down are the commercial marine species as the fish landing and the shop label give them.
+locale: se
+---
+Luossa
+Dápmot
+Rávdu
+Čuovža
+Hávga
+Vuoskku
+Sáidi
+Dorski
+Guolli
+Duovvi
+Sei
+Hyse
+Steinbit
+Kveite
+Uer
+Sild
+Lodde
+Makrell
+Rognkjeks
+Flyndre
+Harr
+Lake
+Ørret
+Laks
+Røye
+Sik
+Brasme
+Gjørs

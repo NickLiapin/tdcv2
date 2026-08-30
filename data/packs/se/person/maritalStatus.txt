@@ -1,0 +1,18 @@
+---
+description: Marital status as a Nordic population register records it, in Sami. náitalit is to marry and náitalan is married; earránit is to divorce and sierranit to separate, and the register keeps them apart because the legal steps are separate in all three states. leaska is a widowed person of either sex, since the noun carries no gender, and the compounds leaskaalmmái and leaskanisu exist for when the sex has to be said out loud. ovttasássi, literally one who lives together, is the cohabitant — the Nordic samboer category, which in Sápmi as elsewhere in the north covers a very large share of couples with children and is tracked separately from marriage. Behind the register sits an older institution the register cannot see: soagŋu, the formal wooing journey in which the suitor's family travels to the woman's family with gifts and a spokesman, which is still performed and which fixes a couple's standing in both families long before any office is involved.
+locale: se
+---
+Náitalkeahttá
+Náitalan
+Ođđasit náitalan
+Ovttasássi
+Guoibmevuohta
+Registrerejuvvon guoibmevuohta
+Sierranan
+Earránan
+Leaska
+Leaskaalmmái
+Leaskanisu
+Okto ássi
+Bissovaš guoibmi
+Náittosdilli ii dieđus

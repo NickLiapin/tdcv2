@@ -1,0 +1,12 @@
+---
+description: Mexican dishes, the child of food.cuisine value Meksikolaš. In Norway this is above all a home cuisine rather than a restaurant one — taco kits are a Friday institution in Norwegian households to a degree outsiders find hard to credit, and that includes Sami households, where Friday tacos and Sunday bidos coexist without any sense of contradiction.
+locale: se
+---
+Tacos
+Burrito
+Quesadilla
+Enchiladas
+Guacamole
+Nachos
+Fajitas
+Chili con carne

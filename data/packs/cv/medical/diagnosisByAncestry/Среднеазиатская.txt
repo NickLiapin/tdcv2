@@ -1,0 +1,11 @@
+---
+description: Conditions with a raised frequency in people of Central Asian descent — in Chuvashia largely a labour-migration population from Uzbekistan, Tajikistan and Kyrgyzstan working in construction and agriculture. Two entries are epidemiological rather than genetic and matter more in practice: tuberculosis incidence in the Central Asian republics runs several times the Russian rate, so a migrant worker's first fluorography in Cheboksary is a genuine detection point, and rheumatic heart disease persists where streptococcal pharyngitis went untreated in childhood. Beta-thalassaemia carriage and G6PD deficiency reflect the southern edge of the historical malaria belt.
+locale: cv
+---
+Туберкулез
+Бета-талассемия, носительство
+Дефицит глюкозо-6-фосфатдегидрогеназы
+Ревматическая болезнь сердца
+Первичная лактазная недостаточность
+Железодефицитная анемия
+Дефицит витамина D

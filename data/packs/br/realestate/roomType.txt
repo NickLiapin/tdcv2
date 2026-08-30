@@ -1,0 +1,20 @@
+---
+description: Rooms, in the French an estate agent writes, with one distinction that trips up anyone translating from English: French separates the salle de bains, which has a bath, from the salle d'eau, which has only a shower, and lists them as different rooms with different values, while the WC is counted separately again. The cellier and the buanderie are the working rooms of a rural house and appear far more often in Breton listings than in Parisian ones. The old Breton farmhouse behind all of this had almost none of these divisions: the traditional interior was a single room with the hearth at one gable and the box beds, the gwele-kloz, built as furniture along the wall, so that sleeping quarters were carpentry rather than architecture. Those beds are now in museums and the rooms in this list are what replaced them. Note that a Breton speaker naming a room reaches for kambr, kegin and sal — real everyday words — but no listing is written in them.
+locale: br
+---
+Salon
+Séjour
+Salle à manger
+Cuisine
+Arrière-cuisine
+Cellier
+Buanderie
+Chambre
+Bureau
+Salle de bains
+Salle d'eau
+WC
+Entrée
+Couloir
+Véranda
+Atelier

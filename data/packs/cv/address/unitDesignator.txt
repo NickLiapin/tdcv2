@@ -1,0 +1,27 @@
+---
+description: Unit and interior designator, in the forms written before a number. Chuvashia files its addresses in the Russian federal format, so the ordering matters as much as the words: the house number comes first and the flat number follows it, as in Ленин урамӗ, 12-мӗш ҫурт, 45-мӗш хваттер, and a config that emits the flat before the house is writing an address no postal system here would route. The Chuvash words are genuine and used in Chuvash-language text — хваттер for a flat, ҫурт for the house or building, хут for a storey, пӳлӗм for a room — but the abbreviations that appear on a real envelope or in a registry record are the Russian ones, д., кв., корп., стр., эт., пом., which is why both sets are here. Chuvash has no native short forms in circulation for these, and inventing some would produce addresses no clerk in Cheboksary has ever seen.
+locale: cv
+---
+хваттер
+хв.
+квартира
+кв.
+ҫурт
+дом
+д.
+корпус
+корп.
+строение
+стр.
+подъезд
+под.
+этаж
+эт.
+хут
+пӳлӗм
+комната
+офис
+помещение
+пом.
+литера
+гараж

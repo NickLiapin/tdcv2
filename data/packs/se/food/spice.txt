@@ -1,0 +1,34 @@
+---
+description: Seasonings. The traditional Sami list is genuinely short — sálti, salt, and very little else — and that is a fact about preservation rather than about taste: meat here was dried, smoked and frozen rather than spiced, and the cold does the work that pepper and vinegar do further south. gaskkasmuorji, juniper berry, is the one native aromatic, crushed into reindeer dishes and used in smoking. bipar, pepper, is a loan and arrived by trade. Everything below them comes off a supermarket shelf and is written in Norwegian, which is honest: a spice rack in Kárášjohka in 2026 holds the same jars as one in Oslo, and the interesting thing about the list is not what it contains but how recently all of it arrived.
+locale: se
+---
+Sálti
+Bipar
+Gaskkasmuorji
+Sort pepper
+Hvit pepper
+Chili
+Paprikapulver
+Karri
+Spisskummen
+Koriander
+Kanel
+Kardemomme
+Nellik
+Muskat
+Ingefær
+Gurkemeie
+Safran
+Vanilje
+Laurbærblad
+Timian
+Rosmarin
+Oregano
+Basilikum
+Persille
+Dill
+Gressløk
+Estragon
+Sennepsfrø
+Fennikel
+Anis

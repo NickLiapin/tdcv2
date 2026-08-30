@@ -1,0 +1,31 @@
+---
+description: Diagnosis for a female patient — gynaecological and obstetric conditions first, then the chronic disease that fills a woman's chart later in life. Like its male counterpart the wording is Russian, because that is the working language of every clinic, women's consultation and maternity house in the republic; the Chuvash a midwife in Yantikovo actually speaks to a patient never reaches the record. Two entries are worth reading as a pair with the male list: iron-deficiency anaemia and vitamin D deficiency are both routine findings here and both are partly latitude and diet rather than pathology — Chuvashia sits at 56 degrees north, where there is no useful ultraviolet for months at a stretch. The obstetric block is short on purpose. It carries the conditions a record would name, preeclampsia, gestational diabetes, mastitis, and not the pregnancy itself, which is a state and not a diagnosis.
+locale: cv
+---
+Эндометриоз
+Синдром поликистозных яичников
+Миома матки
+Киста яичника
+Рак молочной железы
+Рак шейки матки
+Бактериальный вагиноз
+Дисменорея
+Климактерический синдром
+Преэклампсия
+Гестационный сахарный диабет
+Мастит
+Гипотиреоз
+Железодефицитная анемия
+Остеопороз
+Мигрень
+Артериальная гипертензия
+Сахарный диабет 2 типа
+Ревматоидный артрит
+Системная красная волчанка
+Депрессивное расстройство
+Генерализованное тревожное расстройство
+Инфекция мочевыводящих путей
+Варикозное расширение вен нижних конечностей
+Целиакия
+Фибромиалгия
+Дефицит витамина D

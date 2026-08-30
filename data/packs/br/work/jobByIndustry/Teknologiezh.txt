@@ -1,0 +1,16 @@
+---
+description: Jobs in technology, in French. Breton did build itself a computing vocabulary — urzhiataer for a computer, from urzh, order — and it is genuinely used: there is a Breton Wikipedia, and Breton interface translations of Firefox and LibreOffice that volunteers keep up. But no employment contract in the sector is written in anything but French, so the titles here are French, and this is the case in the pack where a real Breton word exists and still loses to the paperwork. The industry itself is real and unusually concentrated for a region of this size. The Trégor around Lannion has been a telecommunications research town since the CNET laboratory was moved there in the early 1960s, deliberately, to push France's switching and optical fibre work out of Paris; the Minitel and much of the country's videotex work came out of the CCETT at Rennes; and Rennes is now France's cyberdefence capital, with the defence ministry's cyber command in the city and the armament agency's information-warfare centre at Bruz on its southern edge. Ingénieur télécoms and ingénieur en cybersécurité are therefore not filler on this list: they are the two titles the region actually recruits for.
+locale: br
+---
+Ingénieur logiciel
+Développeur web
+Développeur mobile
+Administrateur systèmes
+Ingénieur réseaux
+Ingénieur télécoms
+Ingénieur en cybersécurité
+Administrateur de bases de données
+Ingénieur DevOps
+Testeur logiciel
+Analyste de données
+Chef de produit

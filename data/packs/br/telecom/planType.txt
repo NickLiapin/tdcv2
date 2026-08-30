@@ -1,0 +1,16 @@
+---
+description: Mobile and internet plan types in the French vocabulary a Breton subscriber sees on a bill. Two distinctions matter for anyone modelling this market. Forfait sans engagement against forfait avec engagement is the central one in France — the no-commitment plan is the default of the low-cost brands and the twelve or twenty-four month commitment buys a subsidised handset — and it is a stronger signal than the data allowance. The other is the box: French providers sell fixed-line internet as a physical router with a brand name, and quadruple play means internet, telephone, television and mobile on one contract. Where Brittany differs is at the bottom of the list: forfait 4G fixe exists because a scatter of inland communes are still served by a mobile-network router rather than by a line, which is exactly the gap the region's own fibre programme was created to close. Nothing here has a Breton form; a telecoms contract in France is a French document.
+locale: br
+---
+Forfait sans engagement
+Forfait avec engagement
+Forfait bloqué
+Prépayé
+Carte SIM seule
+Forfait illimité
+Forfait 5 Go
+Forfait 100 Go
+Option roaming
+Box fibre
+Quadruple play
+Forfait 4G fixe

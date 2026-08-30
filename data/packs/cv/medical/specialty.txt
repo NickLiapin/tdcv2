@@ -1,0 +1,40 @@
+---
+description: Specialty titles as the Russian Ministry of Health nomenclature defines them and a Chuvash Republic hospital staffs them, in Russian, because a doctor's post, diploma and certificate are all named in Russian and no Chuvash equivalent register exists. Four entries mark the list as Russian rather than Western. Фтизиатрия is a full standalone specialty with its own dispensary network and its own annual fluorography screening of the whole adult population — tuberculosis has never been folded into pulmonology here. Психиатрия-наркология is likewise separate, addiction being a distinct qualification with a distinct dispensary, which matters in a region carrying a heavy alcohol burden. Дерматовенерология is one post covering both skin disease and sexually transmitted infection, so the same doctor sees psoriasis and syphilis. Профпатология exists as its own specialty for the occupational caseload of the Cheboksary and Novocheboksarsk industrial belt and of large-scale agriculture. Note also that these are titles, not places: most people in the republic meet the system through a терапевт or a врач общей практики at a district polyclinic or a rural FAP, and reach any of the rest on referral.
+locale: cv
+---
+Терапия
+Общая врачебная практика
+Педиатрия
+Кардиология
+Неврология
+Эндокринология
+Гастроэнтерология
+Пульмонология
+Нефрология
+Ревматология
+Гематология
+Онкология
+Дерматовенерология
+Психиатрия
+Психиатрия-наркология
+Фтизиатрия
+Инфекционные болезни
+Аллергология и иммунология
+Офтальмология
+Оториноларингология
+Урология
+Акушерство и гинекология
+Травматология и ортопедия
+Хирургия
+Нейрохирургия
+Сердечно-сосудистая хирургия
+Челюстно-лицевая хирургия
+Анестезиология и реаниматология
+Скорая медицинская помощь
+Рентгенология
+Ультразвуковая диагностика
+Патологическая анатомия
+Неонатология
+Гериатрия
+Стоматология
+Профпатология

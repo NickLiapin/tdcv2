@@ -1,0 +1,32 @@
+---
+description: Technical adjectives in Breton, and the pair at the end of the list is the reason to read this file: kalet, hard, and blot, soft. Those two words name the mutations themselves — the soft mutation is kemmadur blotaat, the softening, and the hard one is kaletaat, the hardening — so the vocabulary a Breton speaker uses for a hard disk is the vocabulary the grammar uses for what happens to the front of a word. Elsewhere the list is the ordinary product of a young register: -el and -ek are the two suffixes doing most of the derivational work (niverel from niver a number, lec'hel from lec'h a place, poellek from poell reason, elektronek), while participles in -et supply the states (kevreet connected, kuzhet hidden, hizivaet updated, serret closed) and a few straight loans stand where nothing was coined. Remember that a Breton adjective follows its noun and softens after a feminine singular, so these citation forms are correct only in the masculine slot: ur rouedad prevez, a private network, but ul lec'hienn brevez.
+locale: br
+---
+niverel
+elektronek
+galloudus
+buan
+gorrek
+diogel
+digor
+serret
+nevez
+kozh
+enlinenn
+distag
+kevreet
+kuzhet
+publik
+prevez
+dizanv
+skañv
+pounner
+stabil
+poellek
+emgefreek
+hollek
+lec'hel
+padus
+hizivaet
+kalet
+blot

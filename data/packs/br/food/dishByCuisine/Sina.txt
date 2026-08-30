@@ -1,0 +1,12 @@
+---
+description: Chinese dishes as a Breton traiteur or restaurant lists them, and the list contains its own explanation: nems and rouleaux de printemps are Vietnamese and not Chinese, and they are here because the Chinese restaurant trade in France was built in large part by ethnic-Chinese refugees from Vietnam, Cambodia and Laos who arrived after 1975. That is why a French chinois menu is Cantonese and Teochew with a South-East Asian seam running through it, and why riz cantonais — a menu name used in France and not in Guangzhou — appears on almost every one of them.
+locale: br
+---
+Canard laqué
+Nems
+Rouleaux de printemps
+Riz cantonais
+Nouilles sautées
+Raviolis vapeur
+Bœuf aux oignons
+Soupe won-ton

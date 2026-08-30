@@ -1,0 +1,19 @@
+---
+description: The reason a customer gives when sending an order back. Changement d'avis is the legally load-bearing value: French distance selling gives the buyer fourteen days to withdraw under the droit de rétractation in the Code de la consommation, and the withdrawal needs no reason whatever — the seller may not demand a justification, may not charge a fee for it, and must refund the outbound delivery charge alongside the goods. So this field records what the customer volunteered rather than a condition the retailer imposed, and any analysis that treats these strings as verified causes is reading them as something they are not. Date de péremption dépassée sits on the list because grocery delivery is ordinary rather than exotic here, and Erreur de référence is the picker's mistake rather than the customer's, which is a different cost centre entirely.
+locale: br
+---
+Article endommagé
+Article cassé à la livraison
+Erreur de référence
+Non conforme à la description
+Taille incorrecte
+Couleur différente de la photo
+Pièce manquante
+Article défectueux
+Livraison trop tardive
+Changement d'avis
+Prix trouvé moins cher ailleurs
+Qualité insuffisante
+Double livraison
+Commande passée par erreur
+Date de péremption dépassée

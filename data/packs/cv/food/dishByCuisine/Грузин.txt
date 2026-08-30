@@ -1,0 +1,13 @@
+---
+description: Georgian food, which is the single most reliable foreign cuisine in provincial Russia. The reason is Soviet: Georgia was the holiday republic and its restaurants were the ones that travelled, so by the 1970s a Georgian menu was already the default idea of a feast from Kaliningrad to Vladivostok, and the trade in wine, spices and cooks that followed the Union's collapse only entrenched it. In Cheboksary the хачапури-and-хинкали format is ordinary rather than exotic, which is why it takes one of the larger slots on this list. Сациви and пхали are the walnut end of the kitchen and the part that surprises a first-time diner; харчо has been naturalised so completely that Russian speakers rarely register it as a loanword at all.
+locale: cv
+---
+Хачапури
+Хинкали
+Харчо
+Лобио
+Сациви
+Пхали
+Чахохбили
+Аджапсандали
+Мцвади

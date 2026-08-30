@@ -1,0 +1,14 @@
+---
+description: Weight bands and age grades rather than positions, because gouren is Breton wrestling and a wrestler holds no position on a field. The bout is decided by the lamm: both of the opponent's shoulders touching the ground at the same instant, and a throw that lands one shoulder before the other is not a lamm however clean it looked. Wrestlers fight in a stiff canvas jacket, the roched, worn over the trousers and gripped anywhere above the belt, and they open by swearing an oath before the judge, hand laid on hand, to wrestle without treachery and on their honour. The sport is federated and alive rather than reconstructed, contested through a summer circuit of tournaments across Lower Brittany, with a ram standing as the traditional prize — gounit ar maout, to win the ram, is still ordinary Breton for carrying off the trophy in any contest at all. The weight bands are called in Breton on the field, dindan being simply under and a-us da above; the three age grades at the foot of the list are French because they are copied off a federal entry form, and every sports form in the country is printed in French.
+locale: br
+---
+Dindan 62 kg
+Dindan 68 kg
+Dindan 75 kg
+Dindan 82 kg
+Dindan 90 kg
+Dindan 100 kg
+A-us da 100 kg
+Minimes
+Cadets
+Seniors

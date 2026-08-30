@@ -1,0 +1,12 @@
+---
+description: Portuguese dishes as they appear in Brittany, where the Portuguese are one of the larger settled communities and the cooking is domestic more than commercial. Bacalhau is the connection worth naming: salt cod is Portugal's national obsession and it was also Brittany's industry — the Terre-Neuvas of Saint-Malo sailed for the Newfoundland banks from the sixteenth century until the fishery collapsed in the 1990s, salted the catch on board, and the morue they landed is the same fish under another name. Pastel de nata has since detached itself from the community altogether and become an ordinary bakery item, sold in Breton supermarkets that stock nothing else Portuguese.
+locale: br
+---
+Bacalhau à brás
+Caldo verde
+Francesinha
+Poulet piri-piri
+Sardines grillées
+Feijoada
+Bifana
+Pastel de nata

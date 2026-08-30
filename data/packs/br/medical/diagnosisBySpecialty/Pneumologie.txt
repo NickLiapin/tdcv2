@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in pulmonology, two of them occupational and both drawn from Brittany's own working life. Extrinsic allergic alveolitis is the farmer's lung, le poumon de fermier, an immune reaction to mould spores from damp hay and from poultry sheds, and it is compensated under the agricultural scheme's own table of occupational diseases. The asbestos pleural plaques come from the other side of the regional economy: the naval dockyard at Brest and the shipyards of the south coast insulated warships with asbestos for decades, and their retired workers are still followed by a surveillance programme that finds plaques far more often than it finds tumours. The lung-function report, the épreuves fonctionnelles respiratoires, is read and written in French like the rest of the record.
+locale: br
+---
+Asthme
+Bronchopneumopathie chronique obstructive
+Pneumonie communautaire
+Alvéolite allergique extrinsèque
+Plaques pleurales liées à l'amiante
+Apnée du sommeil

@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in psychiatry. The list includes синдром зависимости от алкоголя even though addiction has its own certified specialty in Russia — психиатрия-наркология, with its own dispensary — because the qualification is a branch of psychiatry and the comorbid cases come back to the general psychiatrist. Depression and anxiety are the two that a district polyclinic refers most and that a Russian chart historically under-recorded, some of that load having been carried for years by the catch-all somatoform diagnosis that still appears in medical/diagnosis.
+locale: cv
+---
+Депрессивный эпизод
+Генерализованное тревожное расстройство
+Биполярное аффективное расстройство
+Шизофрения
+Синдром зависимости от алкоголя
+Посттравматическое стрессовое расстройство

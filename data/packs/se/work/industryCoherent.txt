@@ -1,0 +1,14 @@
+---
+description: Industries with a job list of their own beside them — the parent of work/jobByIndustry, so each value names a file of exactly that name. These ten are not a miniature of a European economy and they are not meant to be. boazodoallu, reindeer husbandry, heads the list because it is the industry that defines the region legally as well as economically: in Norway it is a protected occupation that only Sami may practise, organised into orohagat, grazing districts, with its own agreement negotiated annually with the state; it employs a small minority of Sami directly and shapes land-use law for everyone. duodji is a certified trade with its own education and its own protected mark. guolásteapmi covers both the Deatnu salmon fishery and the Sea Sami coastal fleet. hálddahus, public administration, is disproportionately large here, because a minority language survives through institutions — the three Sámediggis, Sami-language schools, the Sami hospital in Kárášjohka, the state broadcasters' Sami divisions — and those are the offices that hire Sami speakers. kultuvra is likewise a real employer rather than an ornament: publishing, theatre, film, music and NRK Sápmi. mátkeealáhus, tourism, is the fastest-growing and the most contested, since it sells the same land the herds need and sells images of the people who live on it.
+locale: se
+---
+Boazodoallu
+Duodji
+Guolásteapmi
+Oahpahus
+Dearvvašvuohta
+Hálddahus
+Kultuvra
+Teknologiija
+Mátkeealáhus
+Fievrrideapmi

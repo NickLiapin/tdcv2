@@ -1,0 +1,13 @@
+---
+description: Greek dishes as a Breton town lists them, and there is a naming trap in French that a config writer should know about: in France un grec is a sandwich of shaved meat in flatbread, sold by shops that are Turkish or Kurdish and not Greek at all, so the word grec on a sign in Brest points at the Turkia list rather than at this one. What is genuinely Greek here is the restaurant register — the moussaka, the souvlaki, the mezze — and on the Breton coast it is a small and largely seasonal presence that opens for the summer and closes in October.
+locale: br
+---
+Moussaka
+Gyros
+Souvlaki
+Tzatziki
+Salade grecque
+Dolmades
+Spanakopita
+Poulpe grillé
+Baklava

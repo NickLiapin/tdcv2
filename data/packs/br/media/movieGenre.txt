@@ -1,0 +1,23 @@
+---
+description: Film genres in French, because a cinema listing anywhere in Brittany is in French: the multiplex at Brest and the art-house at Douarnenez both run on the CNC and Allociné categories and there is no Breton set in circulation to compete with them. That is not the whole picture, and the gap is worth knowing. The Douarnenez festival has since 1978 programmed the cinema of minority peoples in their own languages, which is how Breton audiences see Sami, Kurdish and Welsh film subtitled rather than dubbed; and DIZALE, based at Quimper since 1999, has dubbed several hundred hours of feature film and series into Breton, including the studio animation that Breton-speaking children actually watch. So the soundtrack goes into Breton while the genre label above it stays French, and a config that mixes this field with a Breton title field is not making a mistake.
+locale: br
+---
+Action
+Aventure
+Comédie
+Drame
+Thriller
+Épouvante-horreur
+Science-fiction
+Fantastique
+Policier
+Comédie dramatique
+Comédie romantique
+Romance
+Guerre
+Historique
+Western
+Documentaire
+Animation
+Comédie musicale
+Famille

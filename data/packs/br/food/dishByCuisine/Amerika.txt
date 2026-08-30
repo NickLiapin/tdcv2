@@ -1,0 +1,12 @@
+---
+description: American dishes as a Breton town sells them, and the burger stopped being a novelty some time ago: restaurant-trade surveys in France have put burger sales ahead of the jambon-beurre sandwich since the late 2010s, and the burger is now on the card of ordinary brasseries that would never call themselves American. Pancakes are the entry worth a second look on a Breton list — thick, small and raised with baking powder, they are the exact opposite of a krampouezh, which is thin, wide and unraised and cooked on a flat iron plate rather than in a pan, and no crêperie will make them.
+locale: br
+---
+Hamburger
+Cheeseburger
+Hot-dog
+Frites
+Ribs barbecue
+Macaroni and cheese
+Pancakes
+Cheesecake

@@ -1,0 +1,14 @@
+---
+description: The subset of medical/specialty for which this pack ships a matching diagnosis list, and the parent of medical/diagnosisBySpecialty — every value here is also a filename in that folder, character for character, so renaming one means renaming both. The values are French, and that is the whole point of the medical bucket in a Breton pack: a Breton speaker's hospital file at the CHU de Brest or the CHU de Rennes is written in French from cover to cover, the specialty is French, the referral letter is French and the CIM-10 code behind it has no Breton edition. The sign on the corridor need not be: since Ofis Publik ar Brezhoneg launched the Ya d'ar brezhoneg charter in 2001, hospitals and communes across Lower Brittany have put up bilingual signage, so a patient can be walked to a bilingual door and handed a file in which not one line is in Breton. Ten rather than the full thirty-six, because a coherent list is a promise that the diagnoses behind the name are the ones that department actually sees.
+locale: br
+---
+Cardiologie
+Neurologie
+Oncologie
+Dermatologie
+Gastroentérologie
+Endocrinologie
+Pneumologie
+Orthopédie
+Psychiatrie
+Néphrologie

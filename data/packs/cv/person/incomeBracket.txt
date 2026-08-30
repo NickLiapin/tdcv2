@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, in Russian roubles. Only the two open-ended bands carry a Chuvash word — таран "up to" and ытла "over" — and that mixture is the honest form rather than a compromise: money in the Chuvash Republic is transacted and documented in Russian, a payslip, a bank statement and a tax return are Russian-language papers, and the Chuvash that survives in the sentence is the grammar around the figure, not the figure itself. Note that Chuvash puts таран and ытла AFTER the amount, because it is a postpositional language throughout. The bands are set around Chuvash earnings rather than translated from a richer pack — Chuvashia is one of the lower-paid regions of Russia, its average nominal wage running well under the national figure and under those of neighbouring Tatarstan and Nizhny Novgorod — so a household in the middle of this list is an ordinary two-earner one and the top band is genuinely rare there.
+locale: cv
+---
+300 000 ₽ таран
+300 000–500 000 ₽
+500 000–750 000 ₽
+750 000–1 000 000 ₽
+1 000 000–1 400 000 ₽
+1 400 000–2 000 000 ₽
+2 000 000–3 000 000 ₽
+3 000 000 ₽ ытла

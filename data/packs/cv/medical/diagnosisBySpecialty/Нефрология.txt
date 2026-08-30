@@ -1,0 +1,9 @@
+---
+description: Diagnoses seen in nephrology, and the shortest of the ten lists because nephrology is the smallest of these departments: the Chuvash Republic runs dialysis from a handful of centres in Cheboksary and Novocheboksarsk, and everything upstream of dialysis is managed by the district therapist with the nephrologist consulting. Diabetic nephropathy and hypertensive kidney damage are what most of the chronic caseload is actually made of, which puts this list downstream of the endocrinology and cardiology ones.
+locale: cv
+---
+Хроническая болезнь почек
+Мочекаменная болезнь
+Хронический гломерулонефрит
+Острое повреждение почек
+Диабетическая нефропатия

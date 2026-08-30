@@ -1,0 +1,10 @@
+---
+description: Conditions more frequent in people of Indigenous American descent, which is not an exotic category in a French dataset at all: the Wayana, Wayampi, Teko, Kali'na and Palikur communities of Guyane are French citizens in a French department, treated in French hospitals, and flown to metropolitan France when Cayenne cannot provide the care. Gallstones and type 2 diabetes head the list for one shared reason, both following a metabolic profile that was an advantage under an intermittent food supply and becomes a liability on a constant one. The admission questionnaire that populates an ancestry field like this one is printed in French, and so is every value in the file.
+locale: br
+---
+Diabète de type 2
+Lithiase biliaire
+Néphropathie diabétique
+Stéatose hépatique non alcoolique
+Syndrome métabolique
+Polyarthrite rhumatoïde

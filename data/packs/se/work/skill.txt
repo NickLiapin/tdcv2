@@ -1,0 +1,46 @@
+---
+description: Skills, and the striking thing is how badly the two halves of this list mix on a single CV — which is exactly the point, because they do sit on single CVs here. The first half is knowledge that takes years outdoors and cannot be certified: suohpanbálkesteapmi, throwing a lasso onto a running animal; njuovvan, slaughtering and butchering correctly; reading a herd; knowing one particular range in winter and in fog; snowmobile handling on bad ice. báikedovdamuš, knowing the place, is a genuine professional qualification in search and rescue and in herding, and it does not transfer to the next valley. The language entries are qualifications in the literal sense: a post in a Sami municipality or at the Sámediggi can require documented Northern Sami, and the number of people who can supply it is small enough that recruitment is a standing problem. The second half is the ordinary skill stock of a Nordic labour market, and a herder's child studying data analysis in Romsa carries both halves.
+locale: se
+---
+Boazodoallu
+Suohpanbálkesteapmi
+Njuovvan
+Bohccuid merken
+Skohtervuodjin
+Meahccedáidu
+Báikedovdamuš
+Dálkedovdamuš
+Čuoigan
+Fanasvuodjin
+Duodji
+Gávtti goarrun
+Silbabargu
+Náhkkebargu
+Čoarveduodji
+Vuoddagiid gođđin
+Davvisámegiella
+Julevsámegiella
+Dárogiella
+Ruoŧagiella
+Suomagiella
+Eŋgelasgiella
+Jorgaleapmi
+Dulkon
+Juoigan
+Máinnasteapmi
+Čállin
+Govvideapmi
+Filbmačuohppan
+Prošeaktajođiheapmi
+Rehketdoallu
+Hálddašeapmi
+Python
+JavaScript
+SQL
+Excel
+GIS
+QGIS
+Neahttasiidohábmen
+Sosiála media
+Márkanfievrrideapmi
+Dáhtaanalysa

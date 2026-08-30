@@ -1,0 +1,14 @@
+---
+description: Industry that has a job list of its own beside it — the parent of work/jobByIndustry, so each value here names a file of exactly that name, character for character. These ten are Brittany's actual economy rather than a generic sector wheel, and the order is roughly what the region is known for. Pesketaerezh leads because Brittany lands more fish than any other French region and has done for a century: it means Le Guilvinec, Concarneau, Lorient and Douarnenez, four ports whose morning criée sets the price for a good part of the French market, and behind them the shellfish beds and the seaweed harvest. Labour-douar and Greanterezh have to be read together, because in Brittany they are one machine: the fields feed the slaughterhouses and the dairies, the co-operatives own both ends of it, and the result is that Brittany is France's first region for pigs, poultry, eggs and milk — roughly half the country's pork and a third of its milk come out of five departments, and the biggest private employers in the peninsula are food processors, not factories in the ordinary sense. Greanterezh is industry in general, but here it is overwhelmingly agri-food, with shipbuilding and vehicles behind it. What is missing is as deliberate as what is present: the Serbian pack this file mirrors carries finance and law as sectors, and Brittany carries neither, because France does its banking in Paris and its litigation in courts that employ a few thousand people region-wide — neither is a place where a Breton looks for work. Teknologiezh is last but real, and it is not a token: the Rennes-Lannion-Brest arc is where French telecommunications research was done, and it still hires. The words are ordinary Breton compounds — kenwerzh is trade, treuzdougen is carrying-across, sevel-tiez is house-raising, and ostaleriezh is built on ostaleri, the inn.
+locale: br
+---
+Pesketaerezh
+Labour-douar
+Greanterezh
+Yec'hed
+Deskadurezh
+Sevel-tiez
+Kenwerzh
+Ostaleriezh
+Treuzdougen
+Teknologiezh

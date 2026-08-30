@@ -1,0 +1,11 @@
+---
+description: Trucking route type, in French. One structural fact shapes all of them: Brittany is a peninsula and therefore a dead end for freight. Nothing passes through on its way somewhere else, so there is no transit category worth listing, and every load that arrives has to be balanced by one that leaves — which is why retour à vide is a planned route type here rather than a mistake, and why a haulier prices the outbound leg to cover a possible empty return. The second fact is that the roads are free. The plan routier breton, launched at the end of the 1960s to compensate the region for its distance from markets, built the RN12, RN165 and RN164 as toll-free dual carriageways, and Brittany remains the large French region without motorway tolls, which makes road haulage cheap enough here that it displaced rail and coastal shipping almost completely. Tournée de collecte covers the two rounds that define the calendar: the milk tanker working farm to farm on a forty-eight-hour cycle, and the night run that takes the day's catch off the quays and puts it into the Rungis market outside Paris before the morning.
+locale: br
+---
+Livraison locale
+Tournée de distribution
+Tournée de collecte
+Ligne régionale
+Ligne nationale
+Transport international
+Retour à vide

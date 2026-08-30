@@ -1,0 +1,16 @@
+---
+description: Mark or verdict as a French school or university records it. Everything is out of 20 and the mentions are thresholds on that one scale: passable from 10, assez bien from 12, bien from 14, très bien from 16, and a baccalauréat candidate landing between 8 and 10 goes to the oral de rattrapage rather than failing outright. The four objectifs lines are the primary school scale, which gave up numbers altogether in favour of a four-level statement of whether a competence was reached. The Breton detail is in the arithmetic: for many years the optional Breton paper counted only the points scored above 10, as a bonus that could raise a total and never lower it, which made presenting it a rational decision as well as a political one and is part of why the option holds its few thousand candidates a year.
+locale: br
+---
+Très bien
+Bien
+Assez bien
+Passable
+Insuffisant
+Admis
+Ajourné
+Oral de rattrapage
+Objectifs dépassés
+Objectifs atteints
+Objectifs partiellement atteints
+Objectifs non atteints

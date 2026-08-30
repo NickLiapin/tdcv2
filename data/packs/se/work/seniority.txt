@@ -1,0 +1,20 @@
+---
+description: Levels of standing at work, from apprentice to board chair. The two ends are worth a note. oahppi is a learner and it is the ordinary word for a pupil as well as an apprentice, which fits a trade like duodji where the training is still substantially a matter of sitting beside someone who knows. meašttir, master, is a real grade in the craft system rather than a courtesy. In herding, none of this applies: standing inside a siida comes from the herd a family holds, from the marks registered to it and from experience of a particular range, and no employer confers it.
+locale: se
+---
+Oahppi
+Praktikánta
+Álgi
+Junior
+Seniora
+Fágabargi
+Meašttir
+Áššedovdi
+Ovddasvástideaddji
+Jođiheaddji
+Ossodathoavda
+Hoavda
+Direktevra
+Váldodirektevra
+Stivrajođiheaddji
+Emeritus

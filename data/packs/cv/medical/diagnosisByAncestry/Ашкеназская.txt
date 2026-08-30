@@ -1,0 +1,16 @@
+---
+description: Conditions with a raised frequency in people of Ashkenazi Jewish descent, the best-characterised founder population in medical genetics — a few dozen variants at high carrier frequency, arising from a severe medieval bottleneck, which is why carrier screening panels for this ancestry are standard and long predate general population sequencing. The Ashkenazi community of the Volga cities is small and mostly urban, but the panel travels with the patient rather than the place, and a Cheboksary genetic consultation applies the same list a Moscow or Tel Aviv one would. The BRCA1 and BRCA2 founder variants are the two with the largest practical consequence for adult care.
+locale: cv
+---
+Болезнь Тея — Сакса
+Болезнь Гоше 1 типа
+Семейная дизавтономия
+Болезнь Канавана
+Болезнь Ниманна — Пика типа А
+Синдром Блума
+Дефицит фактора XI
+Мутация-основатель BRCA1
+Мутация-основатель BRCA2
+Муколипидоз IV типа
+Болезнь Крона
+Торсионная дистония

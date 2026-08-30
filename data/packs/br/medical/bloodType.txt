@@ -1,0 +1,12 @@
+---
+description: ABO and Rh as a French laboratory writes them, and note the letter: France uses a capital O for the zero group, not the digit that Serbian and German records print, so a Breton carte de groupe sanguin reads O Rh positif. Two things about this list are regional rather than merely French. Group O runs high all along the Atlantic fringe of Europe — Ireland holds the European maximum and Brittany sits on the same gradient — so an O-heavy draw is the demographically honest one for a Breton cohort. And Brittany gives more blood than any other French region: the Établissement français du sang counts it as its strongest donor base year after year, sustained by the amicales de donneurs de sang bénévoles that run mobile collections through small communes where nothing else medical happens at all.
+locale: br
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

@@ -1,0 +1,41 @@
+---
+description: Computing nouns in Breton, and this is one of the youngest registers the language has — almost all of it was built deliberately from the 1990s onward by Ofis Publik ar Brezhoneg and by the volunteers of An Drouizig, who produced the Breton spellchecker and the Breton interfaces of Firefox and LibreOffice, so a Breton speaker really can run a machine end to end in Breton. The coinages are worth reading rather than skimming. Merdeer, a web browser, is built on merdeiñ, to navigate a boat, so in Breton you sail the web and the metaphor is a sailor's rather than a shopper's. Postel, e-mail, is a clipping of post elektronek. Logodenn is a little mouse, singular of logod, the same calque French and English made. Urzhiataer, a computer, is built on urzh, order, the thing that puts things in order. Ger-tremen, a password, is a passing-word. Where nothing was coined the international term simply stands — algoritm, protokol, sistem, wifi — and that is not a gap in the list but the honest shape of the register. Note pellgomz hezoug, a mobile phone, literally a far-speech that can be carried, and note that several of these are compounds joined by a hyphen, which Breton uses far more freely than French.
+locale: br
+---
+urzhiataer
+meziant
+restr
+teuliad
+roadennoù
+rouedad
+kenrouedad
+lec'hienn
+postel
+skramm
+klavier
+logodenn
+servijer
+pajenn
+ger-tremen
+diaz roadennoù
+kod
+fazi
+eilad
+merdeer
+arload
+moullerez
+titouroù
+stumm
+sifr
+disk kalet
+memor
+algoritm
+protokol
+sistem
+terminal
+konsol
+skript
+pakad
+prosesor
+wifi
+pellgomz hezoug

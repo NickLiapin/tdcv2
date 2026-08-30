@@ -1,0 +1,15 @@
+---
+description: Hiring stage as a French recruitment runs it, in order, with three conventions a config writer should know. A French application is still routinely expected to carry a lettre de motivation beside the curriculum vitae, so candidature covers two documents and not a web form. Prise de références is on the list but is the weakest step in France, where a former employer will confirm dates and job title and takes care to say very little else. And the process does not truly end at the signature: a French contract opens with a période d'essai, two months for an employee and up to four for a cadre, renewable once where the branch agreement allows, during which either side can walk away at short notice — so signature du contrat is not the last real decision point in the sequence. The Breton variation adds a filter rather than a stage: a post at a Diwan school, in a bilingual stream or in Breton-language broadcasting tests the language itself, and that test is folded into the test technique.
+locale: br
+---
+Candidature
+Tri des CV
+Entretien téléphonique
+Entretien avec les ressources humaines
+Test technique
+Étude de cas
+Entretien avec le manager
+Entretien avec la direction
+Prise de références
+Proposition d'embauche
+Signature du contrat

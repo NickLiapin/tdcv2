@@ -1,0 +1,13 @@
+---
+description: Cable type, given in the Russian marking system, which is a code rather than a name and reads left to right as a specification. In ВВГ the first В is PVC insulation, the second В a PVC sheath and the Г means no armour; put an А in front and АВВГ is the same cable with aluminium conductors instead of copper. The нг(А)-LS suffix on ВВГнг(А)-LS is the fire-safety class — non-propagating, low smoke — and is now mandatory for cable run inside buildings, so the plain and the suffixed cable are genuinely different products and not two ways of writing one. ПВС is the flexible connecting cord on an appliance, КГ the heavy rubber trailing cable that feeds a welder or a site machine, СИП the self-supporting insulated conductor strung on village poles. NYM is the German designation, made under licence in Russia and sold under that name. All of this is apt in Cheboksary, where the electrical-apparatus industry is the town's own trade.
+locale: cv
+---
+ВВГ
+ВВГнг(А)-LS
+АВВГ
+ПВС
+КГ
+NYM
+СИП
+Витая пара UTP
+Оптический кабель

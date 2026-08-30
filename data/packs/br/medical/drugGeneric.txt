@@ -1,0 +1,45 @@
+---
+description: Generic drug names in French, written as DCI — dénomination commune internationale, the French rendering of the INN — because that is literally what is on the box and on the prescription. France made DCI prescribing compulsory on 1 January 2015, so the line a Breton GP hands across the desk reads paracétamol and not the brand, and the pharmacist in Landerneau dispenses against that name. Three entries are French rather than merely international, and they are the interesting ones. Fluindione is an anti-vitamin K prescribed in almost no country but France, where it long outsold warfarin by an order of magnitude; a European formulary would not contain it and a French one of any vintage will. Pristinamycine, sold as Pyostacine, is another near-exclusively French antibiotic, reached for when a penicillin is out of the question. Bromazépam stands for a national habit rather than a molecule: France is among Europe's heaviest consumers of benzodiazepines, and a long-running one on a repeat prescription is an ordinary finding in a French record. Baclofène is here for Brittany specifically — a muscle relaxant repurposed against alcohol dependence in a wholly French affair, used off-label from 2008, given a temporary recommendation for use in 2014 and a marketing authorisation for that indication in 2018 — in the region that carries one of the country's heaviest alcohol burdens.
+locale: br
+---
+Paracétamol
+Ibuprofène
+Kétoprofène
+Acide acétylsalicylique
+Diclofénac
+Naproxène
+Tramadol
+Codéine
+Morphine
+Amoxicilline
+Amoxicilline-acide clavulanique
+Pristinamycine
+Azithromycine
+Ciprofloxacine
+Doxycycline
+Métronidazole
+Céfixime
+Périndopril
+Ramipril
+Losartan
+Amlodipine
+Bisoprolol
+Aténolol
+Hydrochlorothiazide
+Furosémide
+Spironolactone
+Atorvastatine
+Rosuvastatine
+Clopidogrel
+Fluindione
+Apixaban
+Metformine
+Insuline glargine
+Lévothyroxine
+Oméprazole
+Ésoméprazole
+Salbutamol
+Prednisone
+Sertraline
+Bromazépam
+Baclofène

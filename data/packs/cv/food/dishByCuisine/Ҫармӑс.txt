@@ -1,0 +1,12 @@
+---
+description: Mari food, from the republic across the Volga to the north — ҫармӑс is the Chuvash name for the Mari, the same word that reached Russian as Cheremis. The two peoples are close neighbours and complete linguistic strangers: Chuvash is Turkic, Mari is Finno-Ugric, and the border between them runs along the river rather than through any difference of climate or crop. The kitchen shows that shared climate plainly. Команмелна is the signature item, a thick pancake spread and baked in three layers of different batters, and подкогыльо are filled dumplings that stand in the same relation to хуран кукли as one village's word does to the next one's. Сокта is a blood-and-groat sausage, the Mari counterpart of тултармӑш. Names here are given in Mari, as Chuvash menus give them.
+locale: cv
+---
+Команмелна
+Подкогыльо
+Туара
+Сокта
+Шергинде
+Уяча
+Пулашкамуно
+Лашка

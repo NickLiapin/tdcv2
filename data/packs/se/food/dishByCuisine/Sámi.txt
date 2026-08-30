@@ -1,0 +1,20 @@
+---
+description: Sami dishes, the child of food.cuisine value Sámi. The kitchen is built on one animal and on what the land gives beside it, and its techniques are preservation techniques: drying in cold dry air, cold-smoking over birch, freezing outdoors, and boiling. bidos is the ceremonial dish, reindeer on the bone with potato and carrot, cooked in a large pot for a wedding or a confirmation and eaten by everyone present. suovasbiergu is cold-smoked meat and goikebiergu is wind-dried meat, neither of which needs salt in quantity because the climate does the work. márfi is blood sausage and dákteliepma is bone broth, both of them expressions of the rule that a killed animal is used entirely. gáhkku is the flat unleavened bread baked on a pan or in the ashes, and vuostá is cheese. luopmánat ja vuostá — cloudberries with cheese — closes the meal, and closes it in three countries.
+locale: se
+---
+Bidos
+Suovasbiergu
+Goikebiergu
+Márfi
+Vuoššanbiergu
+Biergomális
+Guollemális
+Gáhkku
+Vuostá
+Bohcconjuovčča
+Bohccovuoivvas
+Dákteliepma
+Suovasluossa
+Goikeguolli
+Vuoššanguolli
+Luopmánat ja vuostá

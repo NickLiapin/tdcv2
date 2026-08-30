@@ -1,0 +1,20 @@
+---
+description: Seniority or grade label for a role, and deliberately two ladders in one list, because Russian working life runs two at once. The older one is the graded qualification ladder that a staffing schedule uses and that carries a legal pay consequence: младший специалист, специалист, старший, ведущий, главный, each a distinct entry in the establishment table rather than a compliment. The newer one is the transliterated джуниор / мидл / сеньор that an IT vacancy prints, which has no legal standing at all and exists only in advertisements and salary surveys — the two are not convertible, and a firm using one will usually not use the other. Ученик is the apprentice grade attached to a training contract, and мастер and начальник участка are the first two rungs where a person stops being paid for their own output and starts being paid for other people's.
+locale: cv
+---
+Стажёр
+Ученик
+Джуниор
+Мидл
+Сеньор
+Младший специалист
+Специалист
+Старший специалист
+Ведущий специалист
+Главный специалист
+Мастер
+Начальник участка
+Начальник отдела
+Руководитель направления
+Заместитель директора
+Генеральный директор

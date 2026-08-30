@@ -1,0 +1,24 @@
+---
+description: The kinds of trip people actually take in and to Brittany, which is the fourth most visited region in France and takes most of its visitors in eight weeks of summer. Four entries carry real weight. The GR 34 is the customs officers' path, the sentier des douaniers, cut in 1791 so that patrols could watch for smugglers and now a waymarked footpath running more than two thousand kilometres around the entire Breton coast — it is the most walked long-distance trail in France and a whole tourist economy of gîtes and baggage transfer has grown along it. The Tro Breiz is older: a medieval pilgrimage around the cathedrals of the seven founding saints of Brittany, Saint-Pol, Tréguier, Saint-Brieuc, Saint-Malo, Dol, Vannes and Quimper, abandoned after the Middle Ages and walked again in stages since the 1990s. Thalassothérapie is a Breton invention as an industry — the first institute opened at Roscoff in 1899 to treat rheumatism with heated seawater, and the coast is still full of them. And Fest-noz belongs on a list of trip types because people genuinely travel for one: the night dance is on the UNESCO intangible heritage list and several hundred are held a year, most of them in ordinary parish halls rather than for visitors.
+locale: br
+---
+Séjour balnéaire
+Week-end
+Court séjour
+Randonnée sur le GR 34
+Tro Breiz
+Circuit des enclos paroissiaux
+Excursion aux îles
+Croisière
+Sortie en mer
+Stage de voile
+Thalassothérapie
+Fest-noz
+Festival
+Pardon
+Camping
+Location de gîte
+Chambre d'hôtes
+Voyage scolaire
+Séminaire
+Voyage d'affaires

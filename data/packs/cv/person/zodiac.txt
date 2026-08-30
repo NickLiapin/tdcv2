@@ -1,0 +1,16 @@
+---
+description: Zodiac sign in Chuvash, as the horoscope column of a Chuvash-language newspaper sets it. Ten of the twelve are plain Chuvash words rather than borrowings, because the zodiac is mostly livestock and the Volga farmer had names for all of it: така a ram, вӑкӑр an ox, качака a goat, арӑслан a lion, тараса a balance, пулӑсем fishes. Скорпион is the exception and had to be borrowed — no scorpion lives in the forest belt of the middle Volga, so Chuvash never needed a word for one. Хӗр, Virgo, is simply the ordinary word for a girl or an unmarried daughter, and Шыв юхтаракан, Aquarius, is a participle meaning "the one who makes water flow".
+locale: cv
+---
+Така
+Вӑкӑр
+Йӗкӗреш
+Рак
+Арӑслан
+Хӗр
+Тараса
+Скорпион
+Ухӑҫӑ
+Качака
+Шыв юхтаракан
+Пулӑсем

@@ -1,0 +1,16 @@
+---
+description: Jobs on a building site. Прораб — a contraction of производитель работ, the works foreman — is the post that runs a Russian site day to day, and it is worth knowing that it outranks мастер rather than the other way round. The trade names below it are the ones the unified tariff catalogue grades, which means they are also the names on a worker's employment record book, so they are the strings a personnel file would really contain. Cheboksary and Novocheboksarsk grew through decades of panel housing and are still building, while the villages build in brick and timber, and the same trade names cover both.
+locale: cv
+---
+Инженер-строитель
+Архитектор
+Прораб
+Мастер строительно-монтажных работ
+Каменщик
+Бетонщик
+Арматурщик
+Плотник
+Кровельщик
+Штукатур
+Маляр
+Геодезист

@@ -1,0 +1,40 @@
+---
+description: Diagnoses that require female anatomy and cannot occur in a male patient, in Russian, as an obstetrics-and-gynaecology department in Cheboksary enters them; draw from this list only for female rows, since general conditions live in medical/diagnosis. Two of the names carry Russian medical history rather than the international eponym: Turner syndrome is синдром Шерешевского — Тернера here, because Nikolai Shereshevsky described the condition in Moscow in 1925, seven years before Henry Turner, and Russian textbooks have credited both ever since. The obstetric entries are the ones a district hospital sees most: gestational diabetes screening is universal in the Russian antenatal schedule, and preeclampsia and placental complications are what a Chuvash central district hospital transfers to the perinatal centre in Cheboksary.
+locale: cv
+---
+Эндометриоз
+Синдром поликистозных яичников
+Миома матки
+Киста яичника
+Рак яичника
+Рак шейки матки
+Дисплазия шейки матки
+Цервицит
+Эндометрит
+Рак эндометрия
+Воспалительные заболевания органов малого таза
+Бактериальный вагиноз
+Вульвовагинальный кандидоз
+Меноррагия
+Дисменорея
+Аменорея
+Преэклампсия
+Гестационный сахарный диабет
+Чрезмерная рвота беременных
+Внематочная беременность
+Послеродовое кровотечение
+Лактационный мастит
+Фиброзно-кистозная мастопатия
+Климактерический синдром
+Предменструальное дисфорическое расстройство
+Опущение матки
+Аденомиоз
+Перекрут яичника
+Предлежание плаценты
+Преждевременная отслойка плаценты
+Рак вульвы
+Рак влагалища
+Киста бартолиновой железы
+Атрофический вагинит
+Синдром Шерешевского — Тернера
+Женское бесплодие

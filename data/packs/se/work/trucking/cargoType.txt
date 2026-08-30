@@ -1,0 +1,17 @@
+---
+description: What a lorry carries in the north. Reinkjøtt and fersk fisk are the two loads that leave the region; almost everything else on the list is coming in, because a population of this density produces raw materials and imports the rest. Both outbound loads are temperature-controlled and both are time-critical — reindeer meat moves from the slaughterhouse in a narrow window after the autumn separation, and fresh fish is worth what it is worth only if it reaches a market fast. Dyretransport is its own category and its own regulation: live reindeer are moved by lorry between summer and winter ranges where a road now cuts the old migration route, which is a solution to a problem the road created.
+locale: se
+---
+Fryselast
+Kjølelast
+Reinkjøtt
+Fersk fisk
+Frossen fisk
+Drivstoff
+Byggevarer
+Stykkgods
+Container
+Tømmer
+Malm
+Dyretransport
+Farlig gods

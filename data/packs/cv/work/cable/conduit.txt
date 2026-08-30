@@ -1,0 +1,11 @@
+---
+description: How a cable run is carried — conduit, tray or trench. Гофрированная труба ПВХ is the corrugated PVC sleeve that hides a domestic run inside a wall or above a suspended ceiling, and труба ПНД is the black low-pressure polyethylene pipe used where the run goes underground, the two being so ordinary in Russian installation practice that an electrician names them by their material and never by a brand. Кабель-канал is the surface trunking screwed to a wall in a building nobody wants to chase out, and кабельный лоток the perforated steel tray that carries bundles above a factory floor. Воздушная линия, the overhead run on poles, is still how power reaches a great many Chuvash villages, and the aerial bundled conductor that replaced bare wire on those poles is the reason the type list beside this one carries СИП.
+locale: cv
+---
+Гофрированная труба ПВХ
+Труба ПНД
+Стальная труба
+Кабельный лоток
+Кабель-канал
+Траншея
+Воздушная линия

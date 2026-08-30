@@ -1,0 +1,29 @@
+---
+description: Gemstones, written in Sami spelling — the international names taken in with -a endings and doubled consonants, which is the ordinary way this language absorbs a word it never had. Two of them are local. Ametista is mined at Luosto in Finnish Lapland, on a fell, in a working mine that lets visitors dig a stone out and take it away, and amethyst from there is sold across Sápmi. Golli, gold, is panned rather than mined in the Lemmenjoki valley in Anár, a genuine gold field worked since the 1870s and still worked, inside a national park and beside reindeer pasture, which has made the pans and the herds uneasy neighbours for a century and a half. Mánnogeađgi, moonstone, is a literal compound — moon plus stone — of the kind Sami prefers to a borrowing when the meaning is transparent. What a Sami jeweller actually reaches for, though, is not on this list: it is silver, and the stone in a piece of duodji is far more often bone, antler or nothing at all.
+locale: se
+---
+Diamánta
+Smaragda
+Rubiinna
+Safiira
+Ametista
+Akvamariinna
+Topása
+Granáhta
+Turmaliinna
+Opála
+Peridohta
+Sitriinna
+Kvárca
+Bergkristálla
+Rosakvárca
+Jáspis
+Agáhta
+Karneola
+Onyks
+Malakihtta
+Lapislázuli
+Turkiisa
+Ravva
+Perlla
+Mánnogeađgi

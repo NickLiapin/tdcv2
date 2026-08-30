@@ -1,0 +1,12 @@
+---
+description: Indian dishes, the child of food.cuisine value Indialaš. The list is the standard northern European restaurant repertoire and is ordered in Norwegian. Worth knowing beside it: the Sami and the peoples of northern India meet in one real place, the Arctic Council and the international indigenous rights movement, where the Sami Council has been an active participant since the 1970s and where the language of the UN Declaration on the Rights of Indigenous Peoples was worked out by delegations that included Sami lawyers.
+locale: se
+---
+Tikka masala
+Biryani
+Dal
+Naan
+Samosa
+Tandoori-kylling
+Rogan josh
+Palak paneer

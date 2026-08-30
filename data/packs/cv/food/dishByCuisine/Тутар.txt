@@ -1,0 +1,13 @@
+---
+description: Tatar food, from the republic immediately east across the Sura and the Volga. It is the closest neighbour cuisine and the one with the most overlap: салма dumplings, токмач noodles and dried curd are common property of the Middle Volga rather than anyone's invention, and a Chuvash cook and a Tatar cook would argue about the name before they argued about the recipe. What is distinctly Tatar is the baking — эчпочмак, the triangular meat-and-potato pastry, and губадия, the tall layered festive pie — and the sugar-fried чак-чак that has become the standard edible souvenir of Kazan. The Tatar table is Muslim, so it carries no pork at all, which is the sharpest single line between it and the Chuvash one.
+locale: cv
+---
+Эчпочмак
+Элеш
+Губадия
+Кыстыбый
+Азу
+Токмач
+Катык
+Чак-чак
+Кош теле

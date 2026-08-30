@@ -1,0 +1,34 @@
+---
+description: Seasonings and kitchen herbs. The entry that matters is хӑмла, hops, and it is not really a spice at all — it is the signature crop of the Chuvash Republic. Chuvashia has grown hops for centuries and supplies the great bulk of Russia's harvest, on terraced river-valley plantations that are the northernmost commercial hop fields in the country, and the plant is on the republic's own emblem. That is the reason сӑра, the home-brewed hopped beer, is a Chuvash institution and not an incidental drink: the bitter was always in reach, every household brewed, and the beer has its own place in Акатуй, in weddings and in the vocabulary. Хӑмла flavours a drink rather than a dish, which is why it sits oddly on a spice list and is kept here anyway. Beyond it the Chuvash core is short and plain — тӑвар salt, хура пӑрӑҫ and хӗрлӗ пӑрӑҫ, лавр ҫулҫи the bay leaf, пӗтнӗк mint — and the rest of the list is Russian, because a spice rack in Cheboksary is stocked from Russian-language packets and hardly anyone reaches for a Chuvash word to name куркума.
+locale: cv
+---
+тӑвар
+хура пӑрӑҫ
+хӗрлӗ пӑрӑҫ
+чили
+лавр ҫулҫи
+пӗтнӗк
+хӑмла
+укроп
+петрушка
+кинза
+тмин
+кориандр
+куркума
+корица
+гвоздика
+мускат мӑйӑрӗ
+имбирь
+ваниль
+базилик
+орегано
+розмарин
+тимьян
+шалфей
+мелисса
+хмели-сунели
+аджика
+горчица
+паприка
+карри
+кунжут

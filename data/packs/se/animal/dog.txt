@@ -1,0 +1,29 @@
+---
+description: Dogs, and this is a working list before it is a pet list. A herding siida runs on dogs: a boazobeana turns a herd, holds it against a corral fence and finds animals a rider on a snowmobile cannot see, and the herding breeds here are the Sami dog proper — the Lapponian herder of Finland, the Finnish and Swedish Lapphunds, all descended from the spitz-type dogs Sami herders bred for the job long before any kennel club wrote a standard. bivdobeana is a hunting dog and the elkhounds beside it are the northern hunting stock. The sled breeds are a separate tradition again and largely a modern sport one: a Sami herding family before the snowmobile moved with reindeer pulling the sleds, not dogs, and the racing teams that cross Finnmark every March in the Finnmarksløpet are a twentieth-century arrival. Note that a good herding dog is genuinely valuable property and is talked about in the same terms as a good heargi.
+locale: se
+---
+Beana
+Boazobeana
+Bivdobeana
+Čuoikkabeana
+Lapinporokoira
+Suomenlapinkoira
+Svensk lapphund
+Norsk elghund grå
+Norsk elghund svart
+Jämthund
+Karelsk bjørnehund
+Norrbottenspets
+Finsk spets
+Samojed
+Siberian husky
+Alaskan husky
+Grønlandshund
+Alaskan malamute
+Border collie
+Australian shepherd
+Schäfer
+Labrador retriever
+Golden retriever
+Blandingshund
+Gårdshund

@@ -1,0 +1,14 @@
+---
+description: Competitive tiers, in French, following the imported metal ladder that games print on the screen untranslated and that Breton has never had any reason to render. Brittany's own ranking system is a good deal more surprising and sits somewhere nobody would look for it: the bagadoù, the Breton pipe bands, are graded into five divisions and promoted and relegated between them on the results of the national championship judged at Lorient each August, so a music competition is run exactly like a football league, a band's category is a matter of public record, and a bad season costs it a division in front of everyone. Note that argent here is the metal and not money — French runs the two senses together in one word, and Breton does precisely the same, arc'hant being both the silver and the cash, while aour is gold and nothing else.
+locale: br
+---
+Débutant
+Bronze
+Argent
+Or
+Platine
+Diamant
+Maître
+Grand maître
+Élite
+Champion

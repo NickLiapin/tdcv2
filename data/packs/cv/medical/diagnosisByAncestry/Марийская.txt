@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised frequency in people of Mari descent. The Mari are the Finno-Ugric population immediately north of the Volga from Chuvashia, and their forest districts are the reason two infections lead this list rather than any inherited disorder: the oak, linden and birch forest of Mari El and northern Chuvashia is prime bank-vole habitat, and the middle Volga is the largest focus of haemorrhagic fever with renal syndrome — мышиная лихорадка — in the world, with tick-borne encephalitis endemic in the same woodland. Alcohol-related liver disease and hypertension are the same regional burden the other Volga peoples carry.
+locale: cv
+---
+Геморрагическая лихорадка с почечным синдромом
+Клещевой энцефалит
+Первичная лактазная недостаточность
+Алкогольная болезнь печени
+Артериальная гипертензия
+Дефицит витамина D

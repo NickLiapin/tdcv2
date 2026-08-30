@@ -1,0 +1,13 @@
+---
+description: Content ratings as they are actually applied to a screen in Brittany, which means the French system and nothing else: the coloured age disc introduced by the CSA in 2002 and now administered by Arcom, burnt into the corner of the picture, plus the CNC visa classification that governs cinema release. There is no Breton rating body and no Breton wording anywhere in it — even Brezhoweb, whose whole schedule is in Breton, carries the French pictogram and the French sentence, because the licence that permits it to broadcast is a French licence and the obligation comes with it. Both shapes a config might need are shipped: the bare markers as a broadcaster shows them, and the full advisory sentences as a printed listing prints them. Note that -18 is the only one of the five that is a prohibition rather than advice; the others are déconseillé, recommended against, and carry no legal force at all.
+locale: br
+---
+Tous publics
+-10
+-12
+-16
+-18
+Déconseillé aux moins de 10 ans
+Déconseillé aux moins de 12 ans
+Déconseillé aux moins de 16 ans
+Interdit aux moins de 18 ans

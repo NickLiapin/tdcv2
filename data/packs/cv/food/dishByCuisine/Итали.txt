@@ -1,0 +1,13 @@
+---
+description: Italian food, which reached Chuvashia through the pizzeria and the supermarket rather than through any Italian community. It is the international default: a town of any size has a pizza counter, dried pasta is a pantry staple in every household, and Ризотто and Ньокки appear on menus mainly to signal that the kitchen is a proper restaurant. The Russian reading of the cuisine is visible in the details — dill turns up on pizza, sour cream turns up beside it, and Пицца is ordered by the metre for birthdays. Тирамису is here because it colonised the dessert page of provincial Russian menus in the 2000s and never gave it back.
+locale: cv
+---
+Пицца
+Паста
+Спагетти карбонара
+Лазанья
+Ризотто
+Ньокки
+Брускетта
+Минестроне
+Тирамису

@@ -1,0 +1,15 @@
+---
+description: Platforms, with the brand names left in their registered spelling, which is how the French and the Breton press alike write them. Only the last value is translatable at all, and it happens to be the single item on this list that a Breton speaker has ever seen carrying a Breton name on a real screen: the browser has been localised, and in Breton a web browser is a merdeer, an agent noun built on the verb for working a boat through open water, so the metaphor for moving about the web is a sailor's rather than a shopper's. The value stays French here because a platform field is filled in from a French form or a French shop listing and not from the browser's own menus. Everything above it is a trademark and must not be translated by a config, however Breton the rest of the row happens to be.
+locale: br
+---
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox Series S
+Xbox One
+Nintendo Switch
+Steam Deck
+Android
+iOS
+Navigateur web

@@ -1,0 +1,9 @@
+---
+description: Diagnoses seen in nephrology, the shortest file in the folder because the field is narrow at the top. Autosomal dominant polycystic kidney disease is the entry that behaves unlike the rest: it is the commonest inherited kidney disease anywhere and a leading genetic cause of dialysis, it runs visibly down a family tree, and it is very often found by an ultrasound ordered for something else entirely. Nephrology is also the one French specialty with a complete national count behind it, the REIN register, which has recorded every dialysis and transplant patient in the country region by region since the mid-2000s, so regional figures here are measured rather than modelled. Its entry forms, like these labels, are French.
+locale: br
+---
+Maladie rénale chronique
+Néphropathie diabétique
+Glomérulonéphrite
+Polykystose rénale autosomique dominante
+Lithiase urinaire

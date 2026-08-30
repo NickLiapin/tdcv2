@@ -1,0 +1,14 @@
+---
+description: The subset of medical/specialty for which this pack actually ships a diagnosis list, and the parent of medical/diagnosisBySpecialty — every value here is also a value of specialty.txt and also the name of a file in that folder. The ten were chosen as the outpatient departments that carry the Chuvash Republic's real caseload rather than as an abstract sample: cardiology and neurology because cardiovascular and cerebrovascular disease lead mortality across the Volga district, gastroenterology and psychiatry because the region's alcohol burden lands in both, endocrinology because iodine-poor soils and type 2 diabetes together fill the clinic, pulmonology because tuberculosis is still routine work here. Note that дерматовенерология and травматология и ортопедия are written out in full: those are single combined posts in the Russian nomenclature, not two, and the filename has to match the title exactly.
+locale: cv
+---
+Кардиология
+Неврология
+Онкология
+Дерматовенерология
+Гастроэнтерология
+Эндокринология
+Пульмонология
+Травматология и ортопедия
+Психиатрия
+Нефрология

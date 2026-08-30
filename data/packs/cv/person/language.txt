@@ -1,0 +1,74 @@
+---
+description: Language name in Chuvash, lowercase, and the file where the central fact about the language belongs. Chuvash is the only surviving Oghur Turkic language — the sole living relative of the extinct Bulgar of the Volga Bulgars — and it split from the rest of Turkic so early that it is mutually unintelligible with every other Turkic language. Where Common Turkic has z and š, Chuvash has r and l: Turkish kız against Chuvash хӗр "girl", Turkish taş against Chuvash чул "stone". A Turkish speaker recognises nothing. That is why пӑлхар чӗлхи, the Bulgar language, sits in this list at all: it is not a foreign language to Chuvash but its own dead ancestor, readable today mainly from fourteenth-century gravestones in the middle Volga. The list has two shapes. A language in daily contact takes the adverbial suffix -ла/-ле, which is not a noun but a manner form — чӑвашла means "in the Chuvash way, in Chuvash", and the suffix harmonises with the vowels of the stem, so вырӑсла and тутарла but нимӗҫле and тӗрӗкле. Everything more remote uses the analytic frame X чӗлхи, "the language of X", with чӗлхе "tongue" in the possessive. Which shape a language takes is itself a record of contact: the whole -ла group is either a Volga neighbour, a Turkic relative or a school subject.
+locale: cv
+---
+чӑвашла
+вырӑсла
+тутарла
+ҫармӑсла
+удмуртла
+пушкӑртла
+кӑлмӑкла
+акӑлчанла
+нимӗҫле
+французла
+испанла
+итальянла
+украинла
+белорусла
+казахла
+узбекла
+тӗрӗкле
+арабла
+китайла
+японла
+монголла
+пӑлхар чӗлхи
+ирҫе чӗлхи
+мӑкшӑ чӗлхи
+коми чӗлхи
+поляк чӗлхи
+чех чӗлхи
+словак чӗлхи
+словен чӗлхи
+серб чӗлхи
+хорват чӗлхи
+болгар чӗлхи
+македон чӗлхи
+румын чӗлхи
+венгр чӗлхи
+грек чӗлхи
+албан чӗлхи
+голланд чӗлхи
+швед чӗлхи
+норвег чӗлхи
+дат чӗлхи
+финн чӗлхи
+эстон чӗлхи
+латыш чӗлхи
+литва чӗлхи
+португал чӗлхи
+чечен чӗлхи
+осетин чӗлхи
+армян чӗлхи
+грузин чӗлхи
+азербайджан чӗлхи
+киргиз чӗлхи
+таджик чӗлхи
+туркмен чӗлхи
+якут чӗлхи
+бурят чӗлхи
+еврей чӗлхи
+перс чӗлхи
+хинди чӗлхи
+урду чӗлхи
+бенгал чӗлхи
+корей чӗлхи
+вьетнам чӗлхи
+тай чӗлхи
+индонези чӗлхи
+малай чӗлхи
+суахили чӗлхи
+исланд чӗлхи
+ирланд чӗлхи
+латин чӗлхи

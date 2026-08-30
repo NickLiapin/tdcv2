@@ -1,0 +1,14 @@
+---
+description: Algerian dishes, and this file is longer than the Moroccan one because the Algerian presence in France is older and larger. One value has crossed over completely: merguez is no longer foreign food in France at all — it is grilled at village fêtes and sold from the same van as the galette-saucisse at a fest-noz, which makes it the one thing on any of these lists that a Breton would not think of as belonging to another country. Chakhchoukha and rechta are the domestic end, cooked at home rather than sold, and makroud and kalb el louz are the semolina sweets that go with mint tea.
+locale: br
+---
+Couscous algérien
+Chorba frik
+Chakhchoukha
+Rechta
+Mhadjeb
+Bourek
+Merguez grillées
+Tajine zitoune
+Makroud
+Kalb el louz

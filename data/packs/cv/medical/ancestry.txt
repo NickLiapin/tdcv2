@@ -1,0 +1,16 @@
+---
+description: Ancestry as clinical genetics uses the term — geographic descent, not a social race category — and the parent of medical/diagnosisByAncestry, so every value here is also the name of a file in that folder. The list is the Volga-Kama one rather than a generic global set, because that is the distinction a clinic or a genetic register in Cheboksary actually draws: the middle Volga is a genuine contact zone where Finno-Ugric (Mari, Mordvin, Udmurt), Turkic (Chuvash, Tatar, Bashkir) and Slavic populations have lived side by side and intermarried for a thousand years, and mixed Volga-Ural descent is the commonest real answer of all, which is why it is one of the twelve. Chuvash ancestry is the interesting case on its own terms: the Chuvash are the Turkic-speaking descendants of the Volga Bulgars settled over a Finno-Ugric substrate, and that population carries a condition named after it — Chuvash polycythemia, a congenital erythrocytosis caused by a homozygous VHL R200W variant, first described here and still the textbook example of an endemic founder mutation in Europe. Everything else in the folder is a prevalence signal, never an exclusive one, and most patients of any of these ancestries have none of the conditions listed behind their name.
+locale: cv
+---
+Чувашская
+Русская
+Татарская
+Марийская
+Мордовская
+Башкирская
+Удмуртская
+Украинская
+Северокавказская
+Среднеазиатская
+Ашкеназская
+Смешанная волго-уральская

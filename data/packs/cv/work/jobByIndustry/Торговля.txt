@@ -1,0 +1,16 @@
+---
+description: Jobs in retail and wholesale trade, the sector that employs more people in a Russian regional capital than any factory does. Товаровед is the entry with no English equal — a merchandise specialist responsible for the quality, documentation and assortment of goods received, a post inherited from Soviet trade organisation and still staffed and still examined for. Продавец-консультант rather than plain продавец is what a chain store advertises, because the job description now includes advising, and the two titles carry different pay. All Russian: shop signage in Cheboksary is sometimes bilingual, but the employment contract behind the counter is not.
+locale: cv
+---
+Продавец-консультант
+Кассир
+Заведующий магазином
+Администратор торгового зала
+Товаровед
+Мерчандайзер
+Менеджер по закупкам
+Менеджер по продажам
+Кладовщик
+Грузчик
+Оператор кассового узла
+Контролер торгового зала

@@ -1,0 +1,16 @@
+---
+description: Streaming services a household in Brittany can actually subscribe to, brand names kept as they appear on screen and in the press. Two of them are here for the language rather than for their subscriber counts. BREZHOWEB is a web television channel broadcasting wholly in Breton, licensed by the French audiovisual regulator since 2006 and, as far as television goes, the only channel anywhere whose entire schedule is in the language; FRANCE 3 BREIZH carries a small daily block of Breton programming inside an otherwise French regional service, which for decades was the whole of Breton on television. Most Breton-language audio is not on any platform in this list at all but on radio: France Bleu Breizh Izel broadcasts in Breton from Quimper, and Radio Kerne in Cornouaille and Radio Bro Gwened in the Vannetais country are association stations running in the language, streaming from their own sites. The French national services here, france.tv and myCANAL, carry none.
+locale: br
+---
+Netflix
+Disney+
+Amazon Prime Video
+Apple TV+
+Canal+
+myCANAL
+france.tv
+Brezhoweb
+France 3 Breizh
+YouTube
+Deezer
+Spotify

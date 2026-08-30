@@ -1,0 +1,16 @@
+---
+description: Abbreviated month names, cut at the point where the compound is still unambiguous and closed with a full stop. The shortening always happens inside the first element and never touches mánnu, because mánnu is what every month name has in common and carries no information: cuoŋománnu abbreviates to cuoŋ. and not to mán. Note that the abbreviation keeps the special letters — čakč. for čakčamánnu, ođđj. for ođđajagemánnu — since č and đ are letters of the alphabet in their own right and stripping them to c and d produces a string no Sami reader would accept, in the same way that dropping the dot from a Turkish i does.
+locale: se
+---
+ođđj.
+guov.
+njuk.
+cuoŋ.
+mies.
+geas.
+suoi.
+borg.
+čakč.
+golg.
+skáb.
+juov.

@@ -1,0 +1,12 @@
+---
+description: Annual household income in Norwegian kroner. The currency is the single hardest choice in this whole pack, because Sápmi is administered by three states and a Northern Sami speaker may be paid in NOK, SEK or EUR depending on which side of a border their house stands, with no border anywhere matching the language area. The pack picks NOK because the municipalities where Northern Sami is the majority everyday language — Guovdageaidnu and Kárášjohka above all — are Norwegian, and because Norway holds the largest share of speakers. A herding income is also not a salary: it arrives as a lump at the autumn slaughter, varies with how many animals the winter and the predators left, and is reported per siida share, so a Sami household's year looks nothing like a monthly wage curve. Sami writes the ranges with a space as the thousands separator, as Norway does, and marks the open ends with vuollel, below, and badjel, above.
+locale: se
+---
+Vuollel 300 000 NOK
+300 000–450 000 NOK
+450 000–600 000 NOK
+600 000–800 000 NOK
+800 000–1 000 000 NOK
+1 000 000–1 300 000 NOK
+1 300 000–1 800 000 NOK
+Badjel 1 800 000 NOK

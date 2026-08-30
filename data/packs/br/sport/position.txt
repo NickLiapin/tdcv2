@@ -1,0 +1,39 @@
+---
+description: Playing positions drawn from across every sport on this pack's coherent list, for configs that want a position without first drawing a sport; sport/positionBySport holds the same material split by game and should be preferred whenever the two fields have to agree with each other. The values are French, as a Breton team-sheet is, and flattening them makes visible something the split files hide: the same word does different work in different games. Pivot is the tallest player under the basket in basketball and the man with his back to goal inside the defensive wall in handball. Libéro is the volleyball defensive specialist who may not attack, and in football writing before the middle 1990s it is the sweeper behind the back four. Arrière on its own is a basketball guard or a rugby full-back, while arrière droit and arrière gauche are football full-backs on one reading and handball back-court shooters on another. The word centre never means the same thing twice in the list: central is a volleyball blocker, défenseur central a football centre-back, demi-centre the handball playmaker and avant-centre the striker. The last eight values are not team positions at all but the crew roles and rider jobs of sailing and cycling, and they sit here because two of Brittany's headline sports are individual ones and a position field that refuses them would misdescribe the region.
+locale: br
+---
+Gardien de but
+Arrière droit
+Arrière gauche
+Défenseur central
+Libéro
+Milieu défensif
+Milieu relayeur
+Milieu offensif
+Ailier droit
+Ailier gauche
+Avant-centre
+Meneur
+Arrière
+Ailier fort
+Pivot
+Passeur
+Pointu
+Central
+Réceptionneur-attaquant
+Demi-centre
+Pilier
+Talonneur
+Deuxième ligne
+Troisième ligne aile
+Numéro huit
+Demi de mêlée
+Demi d'ouverture
+Skipper
+Barreur
+Tacticien
+Navigateur
+Numéro un
+Grimpeur
+Sprinteur
+Rouleur

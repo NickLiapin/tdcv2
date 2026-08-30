@@ -1,0 +1,16 @@
+---
+description: Jobs in Breton farming. Labourer-douar is the Breton for a farmer, literally an earth-worker, and it differs by a single letter from the name of the folder it sits in, labour-douar, which is the work itself rather than the person doing it; everything else is French, because a French farm is administered in French, through the chambre d'agriculture, the cooperative and the herd book. The specialisations are not interchangeable padding. Brittany raises more than half of France's pigs and a very large share of its poultry and its milk, so éleveur porcin, éleveur de volailles and éleveur laitier are three different social groups with three different sets of farm buildings, concentrated in Centre-Bretagne and inland Morbihan. The maraîcher belongs to the Léon vegetable belt behind Saint-Pol-de-Léon, artichokes and cauliflowers grown on a strip of coastal loam only a few kilometres deep, whose growers built themselves a cooperative auction after the price collapse of 1961, when farmers occupied the sous-préfecture at Morlaix and the affair went national. The paludier is the salt worker of Guérande and Batz-sur-Mer, raking fleur de sel by hand out of clay pans first laid out in the ninth century, a trade that never mechanised and that French statistics still count as agriculture rather than as mining. Contrôleur laitier is the technician who samples each cow's yield for the milk records, and technicien d'insémination the one who drives from farm to farm with a flask of liquid nitrogen.
+locale: br
+---
+Labourer-douar
+Éleveur laitier
+Éleveur porcin
+Éleveur de volailles
+Maraîcher
+Paludier
+Producteur de cidre
+Ouvrier agricole
+Contrôleur laitier
+Technicien d'insémination
+Vétérinaire rural
+Conseiller de la chambre d'agriculture

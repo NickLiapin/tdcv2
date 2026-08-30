@@ -1,0 +1,11 @@
+---
+description: Driving licence category as a Russian licence prints it, which resembles the European scheme without being it. C is the rigid lorry over 3.5 tonnes, C1 the lighter class between 3.5 and 7.5, CE the articulated combination, and the E is not a category of its own but a suffix that only exists attached to another one — there is no bare E licence. D is the bus, which belongs on a haulier's list because in a region like this the same firm often runs both. The last entry is not a licence at all: the ДОПОГ certificate is the Russian implementation of the ADR agreement on dangerous goods, held in addition to the category and renewed on its own five-year cycle. A commercial driver also needs a tachograph card and a periodic medical certificate, neither of which is a licence category and so neither of which appears here.
+locale: cv
+---
+Категория B
+Категория C1
+Категория C1E
+Категория C
+Категория CE
+Категория D
+Свидетельство ДОПОГ (ADR)

@@ -1,0 +1,12 @@
+---
+description: American food, meaning the fast-food register and nothing beyond it. There is no American community in Chuvashia and the category came entirely through franchises and screens, so what it contains is a burger counter's menu: Гамбургер, Картофель фри, Хот-дог. The interesting part is where it sits socially — in the 1990s a burger was an event and a marker of the new world, and thirty years later it is the cheapest hot meal in a shopping centre, a complete inversion of its meaning over one generation. Панкейк is listed beside the Chuvash икерчӗ elsewhere in this pack on purpose: the same object, arriving twice, once as village food and once as an import with an English name.
+locale: cv
+---
+Гамбургер
+Чизбургер
+Хот-дог
+Картофель фри
+Барбекю
+Макароны с сыром
+Панкейк
+Чизкейк

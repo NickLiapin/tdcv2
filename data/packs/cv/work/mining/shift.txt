@@ -1,0 +1,9 @@
+---
+description: Work shift at a quarry or peat working. Russian industry numbers its shifts rather than naming them by time of day, so первая and вторая смена are the first and second turns of a working day and everyone knows what hours they mean without being told. Ночная смена is paid at a statutory premium under the Labour Code, which is why it is a separate entry and not merely the third number. Скользящий график, the rolling roster, is the arrangement seasonal extraction actually runs on: a sand pit or a peat field works hard while the ground allows it and stops when it does not, and in Chuvashia that means the season closes with the autumn rain.
+locale: cv
+---
+Первая смена
+Вторая смена
+Ночная смена
+Дежурная смена
+Скользящий график

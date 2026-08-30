@@ -1,0 +1,30 @@
+---
+description: Diagnosis for a male patient — the sex-specific conditions first, then the ordinary chronic disease of a middle-aged man in the Volga region. The wording is Russian, and deliberately so: medicine in the Chuvash Republic is conducted, coded and archived in Russian, a discharge summary from the Republican Clinical Hospital in Cheboksary is a Russian document, and the ICD-10 line under it is a Russian translation of an international standard. Chuvash-language medical vocabulary exists — the health column of a Chuvash newspaper manages perfectly well — but it is a register for talking to patients, not for writing a chart, and a list of Chuvash diagnosis names would be a fiction. What is regional here is the selection rather than the language: cardiovascular disease and its companions run heavy across the middle Volga, which is why hypertension, ischaemic heart disease, hyperlipidaemia and stroke crowd the second half of a list that in another country might be dominated by something else.
+locale: cv
+---
+Доброкачественная гиперплазия предстательной железы
+Простатит
+Рак предстательной железы
+Рак яичка
+Варикоцеле
+Эпидидимит
+Эректильная дисфункция
+Мужской гипогонадизм
+Гинекомастия
+Андрогенная алопеция
+Артериальная гипертензия
+Сахарный диабет 2 типа
+Ишемическая болезнь сердца
+Гиперлипидемия
+Подагра
+Хроническая обструктивная болезнь лёгких
+Бронхиальная астма
+Остеоартроз
+Люмбоишиалгия
+Грыжа межпозвонкового диска
+Хронический гастрит
+Язвенная болезнь желудка
+Депрессивное расстройство
+Синдром обструктивного апноэ сна
+Мочекаменная болезнь
+Ишемический инсульт

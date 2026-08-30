@@ -1,0 +1,9 @@
+---
+description: Shift patterns. The rotations matter more here than the hours do, because a mine in the north draws much of its workforce from somewhere else: a 2-2 rotation means two weeks on site and two weeks at home, with the home often a thousand kilometres south, and the fly-in workforce is a large part of why a mining town's population figures and its social life do not match. Underground, the shift is the same whether it is dark or light outside, which in a place with two months of polar night and two months of midnight sun is one of the few things that stays constant all year.
+locale: se
+---
+Iđitbargu
+Eahketbargu
+Idjabargu
+12 diimmu bargu
+2-2 rotašuvdna

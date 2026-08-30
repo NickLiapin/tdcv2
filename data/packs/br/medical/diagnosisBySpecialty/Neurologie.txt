@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in neurology, one of which carries an administrative twist specific to France and lands hard in Brittany. Parkinson's disease has been a recognised occupational illness of the agricultural scheme since 2012, listed in its own table for farmers with long pesticide exposure, so in a region built on intensive pig, poultry and vegetable production the diagnosis is often followed by a claim to the MSA, the farmers' social insurance fund, and not only by a prescription. Peripheral neuropathy is the other entry whose commonest cause here is not the one the textbook order suggests: alcohol accounts for a large share of it. Values are French, matching the lettre de liaison handed to the patient on the day of discharge, which French law has required since 2016.
+locale: br
+---
+Migraine
+Épilepsie
+Accident vasculaire cérébral ischémique
+Sclérose en plaques
+Maladie de Parkinson
+Neuropathie périphérique

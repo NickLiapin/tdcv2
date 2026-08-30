@@ -1,0 +1,59 @@
+---
+description: Buzz adjectives for catch-phrases, given in the French masculine singular, which is the base form a config must agree for itself: French adjectives inflect for gender and number, so une solution innovante and des services innovants are both drawn from the single value innovant here, and a generator that concatenates without agreeing will produce text no French reader accepts. The list is French with an English layer, for the same reason the noun list is, but it carries one genuinely regional block that is worth understanding before using it. Breton, régional, artisanal, familial, indépendant, coopératif, maritime and bio are not filler adjectives in Brittany, they are the marketing position, and there is an institution behind them: Produit en Bretagne, founded in Brest in 1993, is an association of several hundred firms whose lighthouse logo appears on packaging across the region, and its members compete on provenance rather than on price. A Breton food firm will describe itself as breton and familial long before it describes itself as scalable. The five Breton adjectives at the end are real and current in the language-movement register rather than invented: nevez is new, lec'hel local, efedus effective, hollvedel global or universal, and padus lasting - padus being the word in diorren padus, the settled Breton for sustainable development. Note that a Breton adjective follows its noun and softens after a feminine singular, so ur gevredigezh nevez keeps nevez intact but ur blenerezh padus does not stay padus in every position, which is another reason these values must not be glued to Breton nouns automatically. The English entries - smart, green, low-cost, open source - are used in French as invariable adjectives, which conveniently means a config never has to agree them at all. One more thing a config writer should know: labellisé, certifié, agréé and conforme are not synonyms in French commercial usage; a label is a voluntary quality mark, a certification is issued by an accredited third party, an agrément is a state authorisation, and conformité is a legal minimum.
+locale: br
+---
+innovant
+numérique
+intégré
+évolutif
+optimisé
+stratégique
+global
+local
+durable
+efficace
+agile
+robuste
+flexible
+modulaire
+automatisé
+intelligent
+transparent
+fiable
+sécurisé
+compétitif
+rentable
+dynamique
+proactif
+collaboratif
+connecté
+personnalisé
+sur mesure
+accessible
+performant
+mesurable
+opérationnel
+clé en main
+certifié
+agréé
+conforme
+responsable
+engagé
+artisanal
+familial
+indépendant
+régional
+breton
+maritime
+coopératif
+bio
+labellisé
+smart
+green
+low-cost
+open source
+nevez
+padus
+efedus
+lec'hel
+niverel

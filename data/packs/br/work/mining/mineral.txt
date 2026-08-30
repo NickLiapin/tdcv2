@@ -1,0 +1,23 @@
+---
+description: What is actually dug in Brittany, in French, which is the register of the quarry office and the shipping note. There is no coal here and no working gold industry: the Armorican massif is old crystalline rock, so the list is stone, clay and sand, and the order runs from what leaves the region by the million tonnes down to what is only a memory. Granulats and sable head it because crushed rock and sand for concrete are, unglamorously, the largest extractive activity in the peninsula by a wide margin. Granit is the region's signature, worked at Huelgoat, at Louvigné-du-Désert and on the Île Grande off Pleumeur-Bodou, where the quarries were cut at the water's edge and the blocks left by sea. Kaolin is the surprise: the pit at Ploemeur beside Lorient has been worked since the start of the twentieth century and is one of the largest kaolin operations in Europe, feeding paper coating and porcelain. Ardoise means Maël-Carhaix, whose slate roofed inland Brittany. Andalousite is the entry a reader will not expect: the deposit at Glomel in the Côtes-d'Armor is among the biggest in the world, and it goes into the refractory linings of steel furnaces. Maërl deserves the longest note, because it explains the region: Brittany has almost no limestone anywhere in its bedrock, so farmers had no way to lime their fields from the land, and for centuries they dredged maërl instead — the calcareous gravel of dead coralline red algae lying in beds off the Glénan and in the Bay of Brest — along with sea sand for the same purpose. That is also why sable marin stands here as a category of its own rather than under sable: marine aggregate extraction is the most contested mining question in the region, and the licence granted for the dune off the bay of Lannion set fishermen and coastal communes against it in open opposition. Tourbe was cut for fuel in the peat bogs of the Monts d'Arrée. The last four are historical rather than current: étain from the alluvial tin worked around Saint-Renan in Finistère into the 1970s and, far earlier, from the medieval workings of the Poher; plomb argentifère from the lead-silver galleries of Huelgoat and Poullaouen, which were among the more important mines in France in their day and were worked for the silver rather than the lead; antimoine from small veins in the east; and uranium from the modest workings opened in the granite in the middle of the twentieth century and long since closed.
+locale: br
+---
+Granulats
+Sable
+Granit
+Kaolin
+Ardoise
+Andalousite
+Sable marin
+Maërl
+Grès
+Schiste
+Quartz
+Feldspath
+Mica
+Argile
+Tourbe
+Étain
+Plomb argentifère
+Antimoine
+Uranium

@@ -1,0 +1,9 @@
+---
+description: Rider roles rather than positions, in French, because a bicycle race has no fixed places on a field and what a rider has instead is a job for the day, assigned in the morning and abandoned if the race goes another way. Grimpeur climbs, sprinteur finishes, rouleur holds a high speed on the flat and against the clock, poisson-pilote is the last man delivering the sprinter to the line — the pilot fish, a metaphor borrowed from the sea by a sport that Brittany of all places was well placed to appreciate — and équipier is the rider who works for someone else and does not win, what English borrows from French as the domestique. The vocabulary is French throughout because the professional sport is French: the region's own team is run out of Saint-Grégoire beside Rennes and has ridden the Tour de France under a succession of sponsors' names, and beneath it the Breton calendar of village criteriums and Sunday road races is among the densest in the country, which is why a peninsula of four million people has been exporting professional riders for a century.
+locale: br
+---
+Grimpeur
+Sprinteur
+Rouleur
+Poisson-pilote
+Équipier

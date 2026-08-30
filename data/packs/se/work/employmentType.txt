@@ -1,0 +1,15 @@
+---
+description: Forms of employment, as a Nordic contract names them. The Sami-specific entry is sesoŋŋabargu, seasonal work, and in this economy the season is not the tourist summer but the herding calendar: extra hands are taken on for the calf marking in July and for the autumn separation and slaughter, both of which are short, intense and immovable. iehčanas bargi, self-employed, covers most of the herding and craft economy, which is one reason Sami working life is badly represented in employment statistics — a herder is a business, not a job. Note also that a permanent post advertised by a Sami municipality or institution frequently carries a Sami-language requirement, which narrows the applicant pool for a given vacancy to a few hundred people in the world.
+locale: se
+---
+Bistevaš virgi
+Gaskaboddosaš virgi
+Geahččalanáigodat
+Ollesáigebargu
+Oassebargu
+Sadjásaš
+Oahppobargu
+Prošeaktabargu
+Sesoŋŋabargu
+Iehčanas bargi
+Frilánsa

@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in traumatology and orthopaedics — one combined post in the Russian nomenclature, which is why the filename carries both words and why acute injury sits in the same list as degenerative joint disease. The seasonal shape is local: a Chuvash winter runs from November to March with repeated freeze-thaw, and hip and wrist fractures from falls on ice are the standing reason the trauma point of a Cheboksary hospital is open at night. Osteoarthritis of the knee and hip is the outpatient bulk in the other direction.
+locale: cv
+---
+Остеоартроз коленного сустава
+Коксартроз
+Грыжа межпозвонкового диска
+Синдром запястного канала
+Перелом шейки бедра
+Разрыв вращательной манжеты плеча

@@ -1,0 +1,27 @@
+---
+description: Public bodies a resident of Brittany actually deals with, and they are in French because the French state administers in French only — Article 2 of the constitution says la langue de la République est le français, and that single sentence is why this file is not in Breton. The exception is the last kind of entry and the interesting one: Ofis Publik ar Brezhoneg, the Breton Language Office, is a genuine public establishment jointly funded by the Region and the state since 2010, and it is the one agency on this list whose legal name is in Breton. Note how much of Brittany's administration is maritime, which no inland region's list would show: the Préfecture maritime de l'Atlantique sits in Brest and commands everything from pollution response to search and rescue, the SHOM in Brest draws France's nautical charts, Ifremer runs the national oceanographic fleet from Plouzané, and the SNSM is a volunteer lifeboat service with stations in nearly every fishing port. Note also that Brittany the administrative region has four departments, not five: Loire-Atlantique and the city of Nantes were detached in 1941 and the campaign to reattach them is a live political question, so a dataset joining a Breton agency to a department has to decide what Brittany means.
+locale: br
+---
+Préfecture de la région Bretagne
+Conseil régional de Bretagne
+Conseil départemental du Finistère
+Conseil départemental des Côtes-d'Armor
+Conseil départemental du Morbihan
+Conseil départemental d'Ille-et-Vilaine
+Rectorat de l'académie de Rennes
+Agence régionale de santé Bretagne
+Direction régionale des finances publiques
+Direction départementale des territoires et de la mer
+Préfecture maritime de l'Atlantique
+Service hydrographique et océanographique de la Marine
+Ifremer
+Société nationale de sauvetage en mer
+Ofis Publik ar Brezhoneg
+Chambre d'agriculture de Bretagne
+Chambre de commerce et d'industrie de Bretagne
+Comité régional des pêches maritimes
+Agence de l'eau Loire-Bretagne
+Office national des forêts
+Caisse d'allocations familiales
+URSSAF Bretagne
+France Travail

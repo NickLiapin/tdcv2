@@ -1,0 +1,16 @@
+---
+description: Jobs in retail. Marc'hadour is the Breton for a merchant, and it carries a c'h, which is one letter of the Breton alphabet and not a c followed by punctuation and an h; the same root gives marc'had, a market, which stands in a great many Breton place names and in the surname Marc'hadour itself. The rest of the list is French, and Brittany's contribution to French retailing was not a shop but a way of running one: Édouard Leclerc opened a grocery at Landerneau in 1949 that sold at close to wholesale prices and refused the customary margins, the movement grown from it still registers its head office in that same small Finistère town, and Intermarché was founded in 1969 by Jean-Pierre Le Roch, another Breton, who had broken away from it. Poissonnier de rayon marée is the local speciality of this list: a staffed wet-fish counter with a qualified fishmonger behind it is expected of a hypermarket here in a way it is not inland, and the fish on it comes off the boats named in this pack's fishing list. Préparateur de commandes drive is the newest entry, a job that did not exist before the 2010s and is now one of the commonest ways into a store.
+locale: br
+---
+Marc'hadour
+Vendeur en magasin
+Conseiller de vente
+Hôte de caisse
+Employé libre-service
+Poissonnier de rayon marée
+Chef de rayon
+Préparateur de commandes drive
+Merchandiseur
+Responsable des achats
+Gérant de supérette
+Directeur de magasin

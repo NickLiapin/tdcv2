@@ -1,0 +1,12 @@
+---
+description: English food as Brittany meets it, and Brittany meets it more than the rest of France does: the ferries out of Roscoff and Saint-Malo run to Plymouth, Portsmouth and Cork, and the traffic is old and two-way. The best of it is the Johnnies — the onion sellers of Roscoff who from 1828 crossed each summer with strings of pink onions slung on a bicycle, worked Wales, Scotland and the north of England, and picked up enough Welsh to trade in it because the two languages are close enough to meet halfway. They are the origin of the British cartoon Frenchman in a striped shirt and beret with onions round his neck, who was never a French speaker at all.
+locale: br
+---
+Fish and chips
+Petit-déjeuner anglais
+Shepherd's pie
+Roast beef
+Bangers and mash
+Scones
+Crumble aux pommes
+Sticky toffee pudding

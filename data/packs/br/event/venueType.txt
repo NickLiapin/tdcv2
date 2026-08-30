@@ -1,0 +1,20 @@
+---
+description: Where an event in Brittany actually takes place, and two of the sixteen belong to nowhere else. An enclos paroissial is the walled parish close of Leon and Cornouaille — church, ossuary, calvary and a triumphal arch cut through the wall, built between the sixteenth and eighteenth centuries out of the money the linen and hemp trade made, and standing at Saint-Thégonnec, Guimiliau, Lampaul-Guimiliau and Pleyben — and it is still the ground a pardon assembles on. A criée is the auction hall on a fishing quay where the night's catch is sold at first light, and the ones at Le Guilvinec, Lorient and Concarneau are working industrial buildings that are also let for events. The plain answer to where a fest-noz happens, though, is neither of those: it is the salle des fêtes or the salle omnisports, a municipal hall with a wooden floor and a bar at one end, so a great deal of Breton culture takes place under fluorescent light in a building put up in the 1970s, and a venue list that offers only the picturesque options will misdescribe the region badly. Hippodrome is here because Brittany runs dozens of small racecourses and a race day is a village occasion rather than a metropolitan one; stade resolves in practice to the Roazhon Park at Rennes or the Stade Francis-Le Blé at Brest; and a longère is the long low stone farmhouse under a single unbroken roofline with the byre at one end, which is now the standard rural wedding venue.
+locale: br
+---
+Salle des fêtes
+Salle omnisports
+Enclos paroissial
+Chapelle
+Église
+Halles
+Criée
+Port
+Hippodrome
+Stade
+Salle de concert
+Centre culturel
+Bistrot
+Crêperie
+Manoir
+Longère

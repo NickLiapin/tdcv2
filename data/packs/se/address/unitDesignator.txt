@@ -1,0 +1,27 @@
+---
+description: The part of an address below the street: which flat, which floor, which entrance. Sami builds most of these as compounds on latnja, a room, or on sadji, a place — biilasadji is a car space and skohtersadji is a snowmobile space, and the second one is not a joke in a municipality where the snowmobile is the winter vehicle and a household may own several. The Nordic loans in the list are genuine and unavoidable: etaša, kealláris, loptta, blohkka, kantuvra and poastaboksa all came in with the housing and the post office that use them, and a Sami address form prints them. What no unit designator can express is the address a herding family actually lives at for part of the year, which is a camp on a named piece of ground with no number of any kind.
+locale: se
+---
+latnja
+ássanlatnja
+lanjanummir
+etaša
+vuolleetaša
+badjeetaša
+kealláris
+loptta
+uksa
+uksalohku
+viessolohku
+blohkka
+kantuvra
+gávpelatnja
+vuorkálatnja
+garaša
+biilasadji
+skohtersadji
+poastaboksa
+poastanummir
+oassi
+dássi
+bealli

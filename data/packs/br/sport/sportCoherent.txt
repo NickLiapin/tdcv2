@@ -1,0 +1,12 @@
+---
+description: The subset of sports this pack ships positions for, and the parent of sport/positionBySport, so every value here has a file of exactly that name beside it. Four of the eight are compounds of mell, the ball, and the series is entirely transparent once you have the key: mell-droad is ball-foot, mell-dorn ball-hand, mell-bas ball-basket, and mell-nij ball-flight, which is volleyball named for what the ball does rather than for the limb that strikes it. Mell-droad also carries a mutation frozen inside it, since the word for foot is troad and it softens to droad in second position, so the commonest sport name in Brittany is a standing lesson in the first-consonant rule. Marc'h-houarn is the bicycle, literally the iron horse, and note the c'h inside marc'h; the sport goes by the name of the machine and by no other name, and the region has earned it, having produced Bernard Hinault, Louison Bobet and Jean Robic, while the Tro Bro Leon is run each spring partly on unsurfaced farm tracks between the fields of Leon and hands the winner a live piglet. The order is by how many people in Brittany actually play the thing rather than by how the world ranks the sports, which is why gouren stands sixth: it is not a museum piece but a federated sport with clubs, licences and a summer tournament circuit. Two of the children hold categories rather than positions and say so plainly, because neither sport has fixed positions to list: Gouren holds weight bands and age grades, Marc'h-houarn holds rider roles.
+locale: br
+---
+Mell-droad
+Mell-bas
+Mell-nij
+Mell-dorn
+Rugbi
+Gouren
+Bageal
+Marc'h-houarn

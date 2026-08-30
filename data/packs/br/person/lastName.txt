@@ -1,0 +1,205 @@
+---
+description: Breton family names, ONE list for both sexes, and the first thing to read is the Le. Le Gall, Le Goff, Le Bihan, Le Roux, Le Floc'h — that Le is not Breton at all: it is a French clerk's translation of the Breton definite article ar, an or al, made at the moment the household was written into a civil register, so the family recorded as Le Gall is Ar Gall when a Breton-language paper prints the name, Le Bihan is Ar Bihan and Nedelec is An Nedeleg, and both forms are borne today, sometimes by one person on two different documents; a dataset drawn from Brittany will meet the pair. Under the article the words are ordinary Breton: gall a Frenchman, gov a smith, bihan small, meur great, kozh old, ruz red, bras big, moal bald, floc'h a page or squire, du black — so these are not opaque family names but nicknames that hardened, and a Breton speaker still hears the adjective. The second visible block is the Ker- names — Kerdraon, Kervella, Kermarrec, Kerhervé, Kerbrat, Kernevez, Kerouedan, Kergoat, Kerambrun, Kerviel — where kêr is a hamlet, a homestead, a farm with its outbuildings. It names several thousand settlements, which is why a map of Lower Brittany is a wall of Ker-, and it became a surname the plainest way there is: a family known by its farm was registered by its farm, so Kernevez is the household at the new place and Kergoat the one by the wood. Breton surnames DO NOT inflect for gender — the string that names a man names his sister unaltered — which is why this pack deliberately ships no person/female/lastName.txt; its absence is the design, not an omission, and it is the opposite of pl, where Kowalski must become Kowalska before a woman can carry it. The apostrophe block is not ornament: Guivarc'h, Le Floc'h, Le Cléac'h, Lozac'h, Guyomarc'h, Gaonac'h, Manac'h, Falc'hun, Argouarc'h, Pennanéac'h and Le Vourc'h all contain c'h, a single letter of the Breton alphabet rather than a letter followed by punctuation, and French registers have never been consistent about it — Créach and Créac'h are one name entered by two clerks, as are Floch and Floc'h, which is why both spellings of the first sit in this list. Geographically this is a western stock: Le Gall, Le Goff and Le Roux are heavily concentrated in Finistère and the Côtes-d'Armor and thin out east of the Gallo line, so a row carrying one of them is implicitly a row from Breizh-Izel rather than from Rennes. THE WEIGHTS ARE AN ORDERING, NOT MEASURED SHARES. France publishes no surname frequencies by region in any usable form — the national file of births by name carries no departmental breakdown for surnames — so there is no honest per-Brittany share to encode, and the counts here are a rank-decay curve, 1000000 divided by rank to the power 0.72, running about forty-five to one from the head to the tail. That slope is deliberately gentler than the Welsh pack's, where the concentration is real and measured: Breton surnames are common, but nothing in this list is Jones.
+locale: br
+weighted: true
+---
+Le Gall,1000000
+Le Goff,607097
+Tanguy,453391
+Le Roux,368567
+Hamon,313864
+Prigent,275252
+Le Bris,246337
+Riou,223756
+Guillou,205563
+Le Bihan,190546
+Salaün,177909
+Corre,167105
+Nicolas,157747
+Mahé,149550
+Le Guen,142303
+Perrot,135842
+Guéguen,130040
+Simon,124797
+Cadiou,120032
+Jézéquel,115680
+Quéméner,111687
+Le Berre,108008
+Le Coz,104606
+Le Meur,101449
+Morvan,98511
+Le Moal,95768
+Le Roy,93200
+Le Guern,90792
+Guivarc'h,88527
+Le Floc'h,86392
+Le Bras,84376
+Le Corre,82469
+Nédélec,80662
+Rolland,78947
+Ollivier,77316
+Madec,75764
+Le Dû,74284
+Le Pape,72871
+Le Cam,71521
+Cariou,70229
+Jaouen,68992
+Le Braz,67805
+Le Quéré,66666
+Le Naour,65571
+Le Hénaff,64519
+Le Lay,63506
+Le Saux,62530
+Le Tallec,61589
+Le Fur,60682
+Le Guillou,59806
+Le Borgne,58959
+Le Bec,58140
+Le Bail,57348
+Le Bellec,56582
+Le Bot,55839
+Le Bozec,55119
+Le Corvec,54421
+Le Doaré,53744
+Le Drian,53087
+Le Duff,52448
+Le Gac,51828
+Le Gallic,51225
+Le Garrec,50638
+Le Guennec,50067
+Le Hir,49511
+Le Louarn,48970
+Le Menn,48442
+Le Moigne,47928
+Le Pennec,47427
+Le Priol,46939
+Le Quellec,46462
+Le Rouzic,45996
+Le Scanff,45542
+Le Strat,45098
+Le Thiec,44664
+Le Ny,44240
+Le Men,43825
+Le Mouël,43420
+Le Foll,43024
+Le Goaziou,42636
+Le Guyader,42256
+Le Vourc'h,41885
+Le Cléac'h,41521
+Le Boulc'h,41164
+Le Marc'hadour,40815
+Kerdraon,40473
+Kervella,40137
+Kermarrec,39808
+Kerhervé,39486
+Kerbrat,39169
+Kernevez,38859
+Kerouedan,38554
+Kerouel,38255
+Kerouanton,37962
+Kergoat,37674
+Kerambrun,37391
+Kernéis,37113
+Kerviel,36840
+Abgrall,36571
+Andro,36308
+Argouarc'h,36049
+Auffret,35794
+Berthou,35543
+Bleunven,35297
+Bolloré,35054
+Bothorel,34816
+Bourhis,34581
+Briand,34351
+Broudic,34123
+Cabon,33900
+Calvez,33680
+Canévet,33463
+Caradec,33249
+Cloarec,33039
+Conan,32832
+Cornec,32628
+Cosquer,32427
+Créac'h,32229
+Créach,32034
+Cueff,31841
+Dagorn,31652
+Derrien,31465
+Douguet,31280
+Drézen,31098
+Even,30919
+Falc'hun,30742
+Favennec,30568
+Feunteun,30395
+Fraval,30226
+Gaonac'h,30058
+Gicquel,29893
+Gloaguen,29729
+Goasdoué,29568
+Gourlaouen,29409
+Gourmelon,29252
+Gourvennec,29097
+Grall,28944
+Guégan,28793
+Guézennec,28644
+Guiavarc'h,28496
+Guillerm,28351
+Guilloux,28207
+Guyomarc'h,28065
+Hascoët,27924
+Hélias,27785
+Huon,27648
+Inizan,27513
+Jacq,27379
+Jaffré,27246
+Jégou,27115
+Jéhanno,26986
+Lagadec,26858
+Lannuzel,26731
+Lescop,26606
+Loarer,26483
+Lozac'h,26360
+Manac'h,26239
+Marec,26120
+Marzin,26001
+Mazéas,25884
+Ménez,25768
+Merrien,25654
+Mével,25540
+Miossec,25428
+Moal,25317
+Moullec,25207
+Moysan,25098
+Nicol,24991
+Omnès,24884
+Paugam,24779
+Pédron,24674
+Pennanéac'h,24571
+Péron,24468
+Piriou,24367
+Plusquellec,24267
+Postec,24167
+Pouliquen,24069
+Quéau,23972
+Queffélec,23875
+Quiviger,23780
+Rannou,23685
+Raoul,23591
+Rivoal,23498
+Ropars,23406
+Roudaut,23315
+Rouxel,23225
+Ruellan,23135
+Sanquer,23047
+Savina,22959
+Séité,22872
+Sévellec,22785
+Sinquin,22700
+Stéphan,22615
+Tanneau,22531
+Thépaut,22448
+Toullec,22365
+Tréguer,22284
+Troadec,22202
+Uguen,22122
+Urvoas,22042

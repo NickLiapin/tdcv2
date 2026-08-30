@@ -1,0 +1,9 @@
+---
+description: This field has to be handled carefully in a French locale, because France has no consumer credit score. There is no FICO, no Schufa, no national bureau selling a number that follows a borrower around; scoring individuals that way is restricted under French data-protection law. What exists instead is a blacklist: the Banque de France keeps the FICP, the register of payment incidents, and the FCC for bounced cheques, and a name is either on one or it is not. A bank lending in Quimper therefore looks at whether the applicant is fiché, at the taux d'endettement — the debt-service ratio, capped in practice at about thirty-five per cent of income by the lending recommendations French banks follow — and at its own internal rating, which it does not disclose. These five values are that reality rather than a translated American band, and a config that maps them onto a 300-to-850 range is inventing a number no French institution would recognise.
+locale: br
+---
+Aucun incident
+Bon dossier
+Dossier à examiner
+Taux d'endettement élevé
+Inscrit au FICP

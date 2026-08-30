@@ -1,0 +1,16 @@
+---
+description: Jobs in education, and the one industry list in this pack where Chuvash is not merely tolerated but taught. Учитель чувашского языка и литературы is a real, funded, timetabled post in the republic's schools — the language has state status alongside Russian here, and the subject is examined — so it belongs on the list beside the maths and Russian teachers rather than as a curiosity. Note the split Russian keeps between учитель, who teaches in a school, and преподаватель, who teaches in a college or university: they are not interchangeable, and a config that swaps them will read as a mistake to anyone who works in the system. Titles are Russian because the staffing schedule is a federal document.
+locale: cv
+---
+Учитель начальных классов
+Учитель чувашского языка и литературы
+Учитель русского языка и литературы
+Учитель математики
+Воспитатель детского сада
+Педагог-психолог
+Логопед
+Социальный педагог
+Преподаватель колледжа
+Доцент
+Библиотекарь
+Директор школы

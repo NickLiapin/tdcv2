@@ -1,0 +1,44 @@
+---
+description: Dishes and drinks eaten in Brittany, the local kitchen first and the ordinary international tail after it. The list carries a fact about French rather than about Breton: kouign-amann, far, kig-ha-farz and chouchen are not translations but loans, words French took whole, so a menu written entirely in French in Quimper is already carrying Breton — and krampouezh sits behind the word crepe on every crêperie board in the region. Cotriade is the same borrowing running the other way in spelling only: it is Breton kaoteriad, 'a potful', from kaoter, a cauldron, and it is the soup a crew made from the part of the catch nobody would buy. The four drinks at the end earn a place on a dish list because a Breton table is described by them: chistr, cider, is drunk from a bolenn, a bowl rather than a glass; lambig is the spirit distilled from it; chouchen is fermented honey; and Breton beer is a real modern industry rather than a heritage act, restarted at Carhaix in 1985 by Coreff after brewing here had effectively stopped, with something like a hundred breweries following it.
+locale: br
+---
+Krampouezh gwinizh du
+Krampouezh gwinizh
+Kouign-amann
+Far breton
+Kig-ha-farz
+Cotriade
+Galette-saucisse
+Andouille de Guémené
+Homard à l'armoricaine
+Huîtres de Cancale
+Moules marinière
+Coquilles Saint-Jacques
+Artichauts vinaigrette
+Coco de Paimpol
+Gâteau breton
+Niniche
+Palets bretons
+Crêpes dentelle
+Quatre-quarts
+Pâté Hénaff
+Sardines de Douarnenez
+Soupe de poisson
+Bar de ligne au beurre blanc
+Chistr
+Lambig
+Chouchen
+Bière bretonne
+Pizza
+Pâtes bolognaise
+Couscous
+Kebab
+Paella
+Sushi
+Nems
+Poulet tikka masala
+Pad thaï
+Hamburger
+Sandwich jambon-beurre
+Bœuf bourguignon
+Frites

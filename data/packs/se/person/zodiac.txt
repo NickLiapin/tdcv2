@@ -1,0 +1,16 @@
+---
+description: The twelve western zodiac signs in Sami dress. They are an import — the Sami sky is read differently, and the difference is worth knowing before anyone treats this list as traditional. Sami star lore names Sarvvis, the wild reindeer bull, across the stars that Greek astronomy cut into the Great Bear and Cassiopeia; Gállá bártnit, the sons of Gállá, are the three stars English calls Orion's belt, hunters chasing that reindeer; Boahjenásti, the nail star, is Polaris, understood as the pin the whole sky rotates around, and the North Star sits nearly overhead at these latitudes rather than low on the horizon; Lodderáidaras, the birds' path, is the Milky Way, the road migrating birds follow south. Several names here are Sami words doing double duty — vierca is a ram, vuoksá an ox, gáica a goat, reabbá a crab, guolit fishes, nieida a girl — while skorpiona and ledjon are loans for animals no one in Sápmi has ever had to name.
+locale: se
+---
+Vierca
+Vuoksá
+Guovttos
+Reabbá
+Ledjon
+Nieida
+Vihkkár
+Skorpiona
+Báhčči
+Gáica
+Čáhceguoddi
+Guolit

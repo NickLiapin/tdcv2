@@ -1,0 +1,46 @@
+---
+description: Professional skill — technical, trade and soft — for CVs and staff profiles. Product and language names stay in Latin script even in an otherwise Cyrillic CV, which is simply how a Russian-language CV is written, and no one transliterates Python or Kubernetes. Two of the entries are Russian software that a foreign skills list would never predict and that a Chuvash job advertisement asks for constantly: 1С:Предприятие, the accounting and enterprise platform so dominant that "1С programmer" is a career rather than a task, and КОМПАС-3D, the domestic CAD system used in machine-building design offices next to or instead of SolidWorks. Релейная защита — relay protection — earns its place because Cheboksary designs and builds that equipment, so it is an ordinary local competence rather than an exotic one, and монтаж КИПиА is the instrumentation and control fitting that keeps the chemical plant running. The manual skills at the end are graded, certificated things in Russia, not self-assessed ones: a forklift or an excavator needs its own machine-operator ticket, and охрана труда is a course with an examination and an expiry date.
+locale: cv
+---
+Python
+JavaScript
+SQL
+Java
+C++
+1С:Предприятие
+Git
+Linux
+Docker
+Kubernetes
+Microsoft Excel
+AutoCAD
+КОМПАС-3D
+SolidWorks
+Анализ данных
+Машинное обучение
+Облачные технологии
+Управление проектами
+Agile
+Scrum
+Информационная безопасность
+Техническая документация
+Публичные выступления
+Переговоры
+Продажи
+Клиентский сервис
+Бухгалтерский учёт
+Финансовое моделирование
+Кадровое делопроизводство
+Чтение чертежей
+Программирование станков с ЧПУ
+Механическая обработка
+Сварка
+Электромонтаж
+Монтаж КИПиА
+Релейная защита
+Пайка
+Столярное дело
+Управление погрузчиком
+Управление строительной техникой
+Первая помощь
+Охрана труда
