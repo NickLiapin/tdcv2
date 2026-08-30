@@ -10,9 +10,12 @@
  * through a real pipe can catch it — the bug lives in the syscall's contract,
  * not in any logic a unit test could reach.
  *
- * The config is deliberately wide and over `AUTO_JOBS_MIN_ROWS`: the losing
- * path was the parallel concatenation (`cli/parallel.ts`), and enough bytes
- * must flow to fill the pipe buffer many times over.
+ * The config is deliberately wide and the run asks for `--jobs 4` outright:
+ * the losing path was the parallel concatenation (`cli/parallel.ts`), and
+ * enough bytes must flow to fill the pipe buffer many times over. The job count
+ * is explicit rather than inherited from `AUTO_JOBS_MIN_ROWS` — that threshold
+ * is a performance judgement and has moved once already, and a test that stops
+ * exercising its own subject when a constant changes is worse than no test.
  */
 
 import { execFileSync, spawnSync } from 'node:child_process';
@@ -27,7 +30,7 @@ const here = dirname(fileURLToPath(import.meta.url));
 const pkgRoot = resolve(here, '..', '..');
 const distMain = join(pkgRoot, 'dist', 'cli', 'main.js');
 
-const ROWS = 200_000; // above AUTO_JOBS_MIN_ROWS, so the parallel path runs
+const ROWS = 200_000; // enough bytes to fill the pipe buffer many times over
 const CONFIG = `<tdc>
   <env count="${String(ROWS)}" seed="pipe">
     <sequence name="Id"><gen type="increment" value="1"/></sequence>
@@ -59,9 +62,13 @@ describe('stdout is a pipe', () => {
     // A shell pipeline, because that is the failing shape: the CLI's stdout is
     // a pipe with another process on the other end, not a file descriptor we
     // opened ourselves.
-    const piped = spawnSync('sh', ['-c', `node '${distMain}' '${cfg}' | cat > '${viaPipe}'`], {
-      stdio: ['ignore', 'ignore', 'pipe'],
-    });
+    const piped = spawnSync(
+      'sh',
+      ['-c', `node '${distMain}' '${cfg}' --jobs 4 | cat > '${viaPipe}'`],
+      {
+        stdio: ['ignore', 'ignore', 'pipe'],
+      },
+    );
     expect(piped.status, String(piped.stderr)).toBe(0);
 
     const expected = readFileSync(viaFile, 'utf8');
@@ -77,7 +84,7 @@ describe('stdout is a pipe', () => {
     const out = join(dir, 'via-gzip.csv.gz');
     // gzip drains the pipe far slower than TDC fills it — the case that threw
     // EAGAIN and exited 1 before the write loop existed.
-    const r = spawnSync('sh', ['-c', `node '${distMain}' '${cfg}' | gzip > '${out}'`], {
+    const r = spawnSync('sh', ['-c', `node '${distMain}' '${cfg}' --jobs 4 | gzip > '${out}'`], {
       stdio: ['ignore', 'ignore', 'pipe'],
     });
     expect(r.status, String(r.stderr)).toBe(0);

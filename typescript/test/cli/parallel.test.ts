@@ -28,7 +28,11 @@ describe('resolveJobCount — auto thread count', () => {
     resolveJobCount({
       explicit: undefined,
       canParallelize: true,
-      count: 1_000_000,
+      // Symbolic, not a literal: the threshold is a performance judgement and
+      // has moved once already. A default of 1_000_000 silently stopped being
+      // "big enough" the day it was raised, and every case below went green by
+      // returning 1 for the wrong reason.
+      count: AUTO_JOBS_MIN_ROWS,
       cores: 8,
       ...over,
     });

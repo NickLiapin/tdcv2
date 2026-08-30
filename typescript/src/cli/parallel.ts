@@ -117,8 +117,38 @@ export function parallelBlockReason(source: string): string | undefined {
  * Below this row count, splitting across worker threads costs more (thread
  * spawn + temp files + ordered concatenation) than it saves — auto mode stays
  * single-threaded under it.
+ *
+ * It was 100_000 and that was far too low. Measured on twelve cores, a config
+ * of two short fields:
+ *
+ *   1,000,000 rows   parallel 8.38 s / 2897 MB   serial 4.29 s /  701 MB
+ *   2,000,000 rows   parallel 9.06 s / 3701 MB   serial 7.04 s /  701 MB
+ *   4,000,000 rows   parallel 7.21 s / 4970 MB   serial 13.09 s / 712 MB
+ *
+ * Below three million the split lost on BOTH counts: slower AND four times
+ * heavier, because every worker keeps its own heap. Spawning eleven workers,
+ * writing their temp files and concatenating them in order costs a few seconds
+ * whatever the config, and under three million rows there is not enough work to
+ * pay it back. (The clearest sign of that fixed price: the parallel run of four
+ * million rows finished FASTER than the parallel run of two million.)
+ *
+ * One number cannot be right for every config, and this one is a deliberate
+ * compromise rather than a measurement. A heavier config — six fields drawing
+ * from packs — crosses over near three hundred thousand rows, ten times lower,
+ * so between there and three million it now runs on one thread: about 1.4x
+ * slower and five times lighter. That is the safer default of the two. A run
+ * that is slower still finishes; a run that wanted 5 GB on a laptop does not,
+ * and nothing in the row count warned anybody.
+ *
+ * The honest fix is to stop guessing from the row count and measure the config
+ * — time a short probe render and extrapolate, since what actually decides this
+ * is how long the serial run would take, not how many rows it has. That was
+ * prototyped and NOT shipped: the probe has to exclude one-off setup (parsing,
+ * scanning a hundred locale packs) or it overestimates several-fold, and once
+ * that is excluded the probe still cost 2.8 s on a 4.5 s run. It needs a proper
+ * benchmark harness rather than a calibration against noisy numbers.
  */
-export const AUTO_JOBS_MIN_ROWS = 100_000;
+export const AUTO_JOBS_MIN_ROWS = 3_000_000;
 
 /**
  * Decide how many worker threads to use. An explicit `--jobs` is honored
