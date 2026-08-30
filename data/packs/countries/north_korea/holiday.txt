@@ -1,0 +1,18 @@
+---
+address: north_korea.holiday
+description: North Korean public holidays. Two matter more than the rest and both are birthdays: the Day of the Sun (15 April, Kim Il Sung) and the Day of the Shining Star (16 February, Kim Jong Il). The political calendar dominates — Party Foundation Day, the founding of the Korean People's Army, Victory Day for the 1953 armistice, which the DPRK marks as a victory — and the two traditional Korean holidays, Lunar New Year and Chuseok, sit among them. The DPRK also keeps its own era: years are numbered from 1912, Kim Il Sung's birth, so 2026 is Juche 115.
+locale: en
+---
+New Year's Day
+Lunar New Year
+Day of the Shining Star
+Day of the Foundation of the Korean People's Army
+International Women's Day
+Day of the Sun
+May Day
+Victory Day
+Liberation Day
+Day of the Foundation of the Republic
+Chuseok
+Party Foundation Day
+Constitution Day

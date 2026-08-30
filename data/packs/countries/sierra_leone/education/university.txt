@@ -1,0 +1,14 @@
+---
+address: sierra_leone.education.university
+description: Sierra Leonean universities, and the first entry is the notable one: Fourah Bay College was founded in 1827 and is the oldest Western-style university in West Africa — it educated much of the region's colonial-era professional class, from what is now Nigeria and Ghana as well as Sierra Leone, and Freetown was called the Athens of West Africa because of it. The University of Sierra Leone was assembled around it in 1967; Njala is the agricultural university, and the newer institutions were created by splitting the federal structure in 2021.
+locale: en
+---
+Fourah Bay College
+University of Sierra Leone
+Njala University
+Ernest Bai Koroma University of Science and Technology
+Milton Margai Technical University
+Institute of Public Administration and Management
+University of Makeni
+Limkokwing University Sierra Leone
+College of Medicine and Allied Health Sciences

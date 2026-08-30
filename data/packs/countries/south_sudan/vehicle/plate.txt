@@ -1,0 +1,10 @@
+---
+address: south_sudan.vehicle.plate
+description: South Sudanese licence plate — three letters, three digits and a state suffix letter. Plates were reissued after 2011 to replace Sudanese registrations, and the changeover was slow enough that vehicles carrying old Sudanese plates were still on southern roads years later.
+generator: tdc
+locale: en
+---
+<sequence name="letters"><gen type="regex" value="[A-Z]{3}"/></sequence>
+<sequence name="serial"><gen type="number" value="1..999" length="3" first_zero="true"/></sequence>
+<sequence name="state"><gen type="text" value="CE,EE,WE,JG,UN,UN,WR,NB,WB,LK"/></sequence>
+<data>${{letters}} ${{serial}} ${{state}}</data>

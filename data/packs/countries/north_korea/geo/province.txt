@@ -1,0 +1,18 @@
+---
+address: north_korea.geo.province
+description: The first-level divisions of the DPRK: nine provinces plus the directly-governed city of Pyongyang and the special cities. Rason is a special economic zone on the Chinese and Russian border and has been governed separately since 1991; Nampo is the port that serves Pyongyang; Kaesong sits on the southern border and was the site of the joint industrial complex until it closed in 2016. This file, like the rest of this pack, records what is externally documented — the DPRK publishes little statistical detail, and a reader should treat these lists as the outside world's best account rather than as a gazetteer.
+locale: en
+---
+South Pyongan
+North Pyongan
+South Hamgyong
+North Hamgyong
+South Hwanghae
+North Hwanghae
+Kangwon
+Chagang
+Ryanggang
+Pyongyang
+Nampo
+Rason
+Kaesong

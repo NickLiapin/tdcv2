@@ -1,0 +1,17 @@
+---
+address: burundi.holiday
+description: Burundian public holidays. Three commemorate assassinations, which is unusual and tells the country's history plainly: Rwagasore Day (13 October) for the independence leader killed in 1961 before he could take office, Ndadaye Day (21 October) for the first democratically elected Hutu president killed in 1993 — the event that opened the civil war — and Unity Day (5 February) for the 1991 charter that tried to close the ethnic division the other two dates mark. Independence is 1 July 1962. The Islamic holidays are gazetted; Burundi is overwhelmingly Christian and the Catholic calendar supplies most of the rest.
+locale: en
+---
+New Year's Day
+Unity Day
+Labour Day
+Ascension Day
+Independence Day
+Assumption Day
+Rwagasore Day
+Ndadaye Day
+All Saints' Day
+Christmas Day
+Eid al-Fitr
+Eid al-Adha

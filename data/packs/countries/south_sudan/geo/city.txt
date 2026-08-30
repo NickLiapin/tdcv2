@@ -1,0 +1,20 @@
+---
+address: south_sudan.geo.city
+description: South Sudanese towns. Juba is the capital and by far the largest; the others are state capitals and river ports. Malakal and Bentiu sit in the oil-producing north and both were largely emptied and partly destroyed in the 2013-18 war, so population figures for them differ by an order of magnitude depending on the year and the source. Wau and Aweil anchor the Bahr el Ghazal region in the west.
+locale: en
+---
+Juba
+Wau
+Malakal
+Yei
+Aweil
+Bentiu
+Bor
+Torit
+Rumbek
+Yambio
+Kuajok
+Renk
+Nimule
+Maridi
+Tonj

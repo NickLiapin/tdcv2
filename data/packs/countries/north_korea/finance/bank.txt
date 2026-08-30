@@ -1,0 +1,11 @@
+---
+address: north_korea.finance.bank
+description: North Korean banks. The Central Bank of the DPRK issues the won and, unusually, also acts as the commercial bank for state enterprises — the split between central and commercial banking that most countries treat as fundamental does not exist here in the same form. The Foreign Trade Bank handles hard currency and has been under international sanctions since 2013. Daesong and Golden Triangle exist to move foreign exchange; ordinary North Koreans save in cash, and increasingly in dollars and renminbi rather than won.
+locale: en
+---
+Central Bank of the DPRK
+Foreign Trade Bank
+Korea Daesong Bank
+Golden Triangle Bank
+Koryo Commercial Bank
+Korea Kwangson Banking Corporation

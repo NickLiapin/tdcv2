@@ -1,0 +1,9 @@
+---
+address: sierra_leone.phone
+description: Sierra Leonean mobile number in E.164 form — +232 and eight digits. Orange Sierra Leone holds 7x and 8x, Africell 3x and 9x, Qcell 2x. Written nationally the number starts 0 rather than +232. Africell and Orange between them carry nearly all subscribers, and mobile money on both networks is how most wages and remittances move — the branch network in the interior is thin enough that the phone is the bank.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="30,31,33,34,35,76,77,78,79,88,99,25" percent="9,9,9,9,9,10,10,9,9,7,6,4"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+232${{prefix}}${{line}}</data>

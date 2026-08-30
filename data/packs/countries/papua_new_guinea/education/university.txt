@@ -1,0 +1,12 @@
+---
+address: papua_new_guinea.education.university
+description: Papua New Guinean universities. UPNG in Port Moresby and Unitech in Lae are the two national ones, both founded in the 1960s just before independence; Divine Word in Madang and Pacific Adventist near Port Moresby are church foundations, which in PNG carry a share of higher education and almost all of the rural health and school system.
+locale: en
+---
+University of Papua New Guinea
+Papua New Guinea University of Technology
+University of Goroka
+Divine Word University
+Pacific Adventist University
+University of Natural Resources and Environment
+Western Pacific University

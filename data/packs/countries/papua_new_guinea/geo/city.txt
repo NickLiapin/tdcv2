@@ -1,0 +1,22 @@
+---
+address: papua_new_guinea.geo.city
+description: Papua New Guinean towns. Port Moresby is the capital and is not connected by road to any other major centre — the highway network is fragmented by mountains and rivers, so domestic travel is largely by air, and that shapes everything from freight costs to how a national dataset is collected. Lae is the industrial port and the start of the Highlands Highway; Mount Hagen and Goroka anchor the densely populated highlands where most of the country actually lives.
+locale: en
+---
+Port Moresby
+Lae
+Mount Hagen
+Madang
+Wewak
+Goroka
+Kokopo
+Kimbe
+Popondetta
+Alotau
+Mendi
+Kavieng
+Daru
+Vanimo
+Lorengau
+Rabaul
+Buka

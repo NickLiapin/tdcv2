@@ -1,0 +1,12 @@
+---
+address: papua_new_guinea.finance.bank
+description: Papua New Guinean banks. Bank South Pacific is the dominant one by a wide margin — it holds most of the country's accounts and its branch and agent network is the only banking presence in much of the interior. Kina Bank grew by acquiring ANZ's retail business in 2019. The Bank of Papua New Guinea is the central bank and issues the kina.
+locale: en
+---
+Bank South Pacific
+Kina Bank
+Westpac Papua New Guinea
+ANZ Papua New Guinea
+National Development Bank
+People's Micro Bank
+Bank of Papua New Guinea

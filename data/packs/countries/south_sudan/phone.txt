@@ -1,0 +1,9 @@
+---
+address: south_sudan.phone
+description: South Sudanese mobile number in E.164 form — +211 and nine digits. MTN South Sudan holds 92x, Zain South Sudan 91x and Digitel 95x. The +211 code was assigned in 2011: before independence the south used Sudan's +249, so a contact list that predates 2011 holds numbers that no longer route, and the migration was not automatic.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="92,91,95" percent="45,40,15"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{7}"/></sequence>
+<data>+211${{prefix}}${{line}}</data>

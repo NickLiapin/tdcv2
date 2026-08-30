@@ -1,0 +1,9 @@
+---
+address: burundi.phone
+description: Burundian mobile number in E.164 form — +257 and eight digits. The mobile blocks are 6x and 7x: Lumitel (Viettel's Burundian operator, launched 2015 and now the largest) holds 6x, Econet Leo holds 7x, and Onamob, the state operator, holds a small share of the same ranges. Written nationally the number is dialled as the eight digits with no trunk prefix at all — Burundi has no leading 0, which trips validators written for its neighbours.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="61,62,65,66,68,69,71,72,75,76,79" percent="12,12,10,10,9,9,9,9,7,7,6"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+257${{prefix}}${{line}}</data>

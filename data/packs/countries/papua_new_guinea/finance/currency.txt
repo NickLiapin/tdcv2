@@ -1,0 +1,6 @@
+---
+address: papua_new_guinea.finance.currency
+description: The kina, subdivided into 100 toea. Both names are pre-colonial money: kina is the pearl shell used as currency across the highlands and toea the armshell of the coast, so the country's decimal currency is named after the shell money it replaced rather than after a foreign unit.
+locale: en
+---
+Papua New Guinean kina

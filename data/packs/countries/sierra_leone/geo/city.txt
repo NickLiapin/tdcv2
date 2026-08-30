@@ -1,0 +1,20 @@
+---
+address: sierra_leone.geo.city
+description: Sierra Leonean towns. Freetown was founded in 1792 as a settlement for freed slaves — from Nova Scotia, from London, and later from ships intercepted by the Royal Navy's anti-slavery patrol — and the Krio language and culture of the peninsula come from that founding, which is why the capital's history differs so sharply from the interior's. Bo is the second city and the Mende heartland; Koidu sits in the diamond fields of Kono.
+locale: en
+---
+Freetown
+Bo
+Kenema
+Makeni
+Koidu
+Lunsar
+Port Loko
+Waterloo
+Kabala
+Kailahun
+Magburaka
+Segbwema
+Bonthe
+Moyamba
+Pujehun

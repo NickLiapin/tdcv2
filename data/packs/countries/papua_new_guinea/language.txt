@@ -1,0 +1,17 @@
+---
+address: papua_new_guinea.language
+description: Languages of Papua New Guinea — the three official ones and a handful of the largest indigenous languages. The number behind this file is the point: PNG has roughly 840 living languages, more than any other country on earth and about an eighth of the world's total, in a population of ten million. Tok Pisin is the creole that lets them talk to each other and is the true national language by usage; Hiri Motu is a second lingua franca in the south, now declining; English is the language of government and schooling. Any dataset that models a PNG person's language as a single value is compressing something enormous.
+locale: en
+---
+Tok Pisin
+English
+Hiri Motu
+Enga
+Melpa
+Kuman
+Huli
+Kuanua
+Golin
+Wahgi
+Dobu
+Kâte

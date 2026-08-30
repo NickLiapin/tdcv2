@@ -1,0 +1,6 @@
+---
+address: sierra_leone.finance.currency
+description: The leone, redenominated on 1 July 2022 by dropping three zeros: 1,000 old leones became 1 new leone, and both were legal tender side by side for over a year. Any Sierra Leonean price series spanning 2022 holds amounts a thousand times apart with nothing in the data to say which unit is meant — the redenomination is the single most important thing to know before comparing a Sierra Leonean figure across that year.
+locale: en
+---
+Sierra Leonean leone

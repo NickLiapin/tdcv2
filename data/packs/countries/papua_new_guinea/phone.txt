@@ -1,0 +1,9 @@
+---
+address: papua_new_guinea.phone
+description: Papua New Guinean mobile number in E.164 form — +675 and eight digits. Digicel holds the 7xxx blocks and carries most of the country's traffic; Vodafone PNG entered in 2022 on 8xxx. Fixed lines sit in the 3xx range and exist mainly in Port Moresby and Lae. Mobile coverage arrived late and then very fast — Digicel's 2007 launch put phones into highland valleys that had never had a landline, and PNG's telecoms history effectively starts there.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="70,71,72,73,74,75,76,79,81,82" percent="14,14,13,13,12,10,10,6,4,4"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+675${{prefix}}${{line}}</data>

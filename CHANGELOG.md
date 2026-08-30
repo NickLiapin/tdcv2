@@ -32,6 +32,25 @@ page — is tracked in that implementation's own changelog:
   pack words exactly as the env's does, `TDC153` accepts what the packs actually know, and
   `TDC272` warns only for a locale that truly carries no date words — Bambara, not Afrikaans.
 
+<!-- covers: five more country packs -->
+
+- **Five more, same rule: North Korea, Burundi, South Sudan, Papua New Guinea, Sierra Leone.**
+  Another 69 million people, taking country coverage past **99.5% of the world's population**
+  at 161 packs. Each one carries a fact its data cannot be read without. South Sudan's state
+  map was rewritten twice — ten states became twenty-eight in 2015, thirty-two in 2017, then
+  back to ten in 2020 — so any dataset from those years names states that no longer exist and
+  no clean mapping brings them back. Burundi's capital moved from Bujumbura to Gitega in 2019,
+  and its eighteen provinces become five in 2025. Papua New Guinea has roughly 840 living
+  languages in ten million people, an eighth of the world's total, which is why that pack ships
+  a `language` list and why modelling a PNG person's language as one value compresses something
+  enormous. Sierra Leone redenominated the leone in 2022 by dropping three zeros, so a price
+  series across that year holds amounts a thousand times apart with nothing in the data to say
+  which unit is meant. The North Korea pack says plainly in its own descriptions that it records
+  what is externally documented rather than a gazetteer, because for that country the honest
+  position is the only defensible one. Registry, bundle manifest with map geography, README
+  counts and the docs catalogue all updated; `papua_new_guinea.zip` was unpacked into an empty
+  store and rendered from nothing else. Identical bytes from all five implementations.
+
 <!-- covers: four country packs -->
 
 - **Four country packs written: Ethiopia, Afghanistan, Malawi, Zambia.** Chosen by population

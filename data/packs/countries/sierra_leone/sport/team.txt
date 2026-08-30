@@ -1,0 +1,15 @@
+---
+address: sierra_leone.sport.team
+description: Clubs of the Sierra Leone Premier League. East End Lions and Mighty Blackpool are the Freetown pair whose derby the city stops for, and both are older than independence. Bo Rangers came from outside the capital to break their hold in the 2020s. FC Kallon was founded by Mohamed Kallon, the country's best-known footballer, which is a common pattern in West African leagues — a returning international builds the club he wished he had played for.
+locale: en
+---
+East End Lions
+Mighty Blackpool
+Bo Rangers
+FC Kallon
+Ports Authority
+Diamond Stars
+Old Edwardians
+Wusum Stars
+Central Parade
+Kamboi Eagles

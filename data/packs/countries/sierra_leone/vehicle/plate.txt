@@ -1,0 +1,10 @@
+---
+address: sierra_leone.vehicle.plate
+description: Sierra Leonean licence plate — two letters, three digits and two letters. Freetown-registered vehicles dominate any real sample because the Western Area holds most of the country's cars.
+generator: tdc
+locale: en
+---
+<sequence name="head"><gen type="regex" value="[A-Z]{2}"/></sequence>
+<sequence name="serial"><gen type="number" value="1..999" length="3" first_zero="true"/></sequence>
+<sequence name="tail"><gen type="regex" value="[A-Z]{2}"/></sequence>
+<data>${{head}} ${{serial}} ${{tail}}</data>

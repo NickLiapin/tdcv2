@@ -1,0 +1,13 @@
+---
+address: south_sudan.education.university
+description: South Sudanese universities. The University of Juba was founded in 1975, moved to Khartoum during the second civil war and returned to Juba after the 2005 peace agreement — a physical relocation of an entire university, twice. John Garang Memorial University is named for the SPLM leader who signed that agreement and died months later. The sector is small and its degrees are recent: the country itself is younger than most of its graduates.
+locale: en
+---
+University of Juba
+University of Bahr el Ghazal
+Upper Nile University
+John Garang Memorial University of Science and Technology
+Rumbek University
+Catholic University of South Sudan
+Starford International University
+University of Northern Bahr el Ghazal

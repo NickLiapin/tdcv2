@@ -1,0 +1,15 @@
+---
+address: north_korea.sport.team
+description: Clubs of the DPRK Premier Football League. April 25 is the armed forces' side and the country's most successful; Kigwancha belongs to the railways, Amnokgang to the Ministry of Social Security, Hwaebul to the youth league. Sports clubs here are ministries rather than cities, which makes the pattern the same one Kenya and Zambia show for a completely different reason: there, the employer sponsors; here, the ministry IS the club.
+locale: en
+---
+April 25
+Kigwancha
+Pyongyang City
+Amnokgang
+Sobaeksu
+Hwaebul
+Ryomyong
+Rimyongsu
+Wolmido
+Kyonggongop

@@ -1,0 +1,14 @@
+---
+address: south_sudan.finance.bank
+description: South Sudanese banks. The Bank of South Sudan was created at independence in 2011 and issued the South Sudanese pound within weeks of it. Ivory Bank is the oldest commercial bank in the country; the Kenyan and Ugandan banks — Equity, KCB, Cooperative — moved in immediately after independence because the southern economy had banked in Khartoum until then and needed replacing quickly. Most of the country remains unbanked and oil revenue dominates the formal economy.
+locale: en
+---
+Bank of South Sudan
+Ivory Bank
+Equity Bank South Sudan
+KCB Bank South Sudan
+Cooperative Bank of South Sudan
+Buffalo Commercial Bank
+Eden Commercial Bank
+Nile Commercial Bank
+Agricultural Bank of South Sudan

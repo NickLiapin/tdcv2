@@ -1,0 +1,15 @@
+---
+address: sierra_leone.finance.bank
+description: Sierra Leonean banks. The Bank of Sierra Leone is the central bank; Sierra Leone Commercial Bank and Rokel Commercial Bank are the two state-owned commercial banks and between them hold most retail accounts. The Nigerian banks — GTBank, Zenith, UBA, Access — arrived in the 2000s and are a significant part of the sector, which is characteristic of West Africa: Nigerian banking capital follows the region.
+locale: en
+---
+Bank of Sierra Leone
+Sierra Leone Commercial Bank
+Rokel Commercial Bank
+Guaranty Trust Bank Sierra Leone
+Zenith Bank Sierra Leone
+United Bank for Africa Sierra Leone
+Ecobank Sierra Leone
+Standard Chartered Sierra Leone
+Union Trust Bank
+Access Bank Sierra Leone

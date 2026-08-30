@@ -1,0 +1,16 @@
+---
+address: south_sudan.holiday
+description: South Sudanese public holidays. Independence Day is 9 July 2011 — this is the world's newest sovereign state, and every adult in it remembers the day. Peace Agreement Day marks the 2005 Comprehensive Peace Agreement that ended the second civil war and set up the referendum; SPLA Day marks the movement's founding in 1983; Martyrs' Day on 30 July marks John Garang's death in 2005. The Christian calendar supplies the rest — the south's separation from Sudan was in large part a religious one — and the two Eids are observed for the Muslim minority.
+locale: en
+---
+New Year's Day
+Peace Agreement Day
+International Women's Day
+Good Friday
+Easter Monday
+SPLA Day
+Independence Day
+Martyrs' Day
+Christmas Day
+Eid al-Fitr
+Eid al-Adha

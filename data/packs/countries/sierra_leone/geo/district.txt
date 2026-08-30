@@ -1,0 +1,21 @@
+---
+address: sierra_leone.geo.district
+description: The sixteen districts of Sierra Leone, grouped into four provinces and the Western Area. Five districts are recent: Falaba, Karene, Kambia and Moyamba's neighbours were reorganised in 2017 when the country went from twelve districts to sixteen, so a pre-2017 dataset is missing four names entirely. Western Area Urban is Freetown and Western Area Rural the peninsula around it — the two are administratively separate and are frequently conflated in data.
+locale: en
+---
+Western Area Urban
+Western Area Rural
+Bo
+Kenema
+Bombali
+Port Loko
+Kailahun
+Tonkolili
+Koinadugu
+Moyamba
+Pujehun
+Kono
+Bonthe
+Kambia
+Karene
+Falaba

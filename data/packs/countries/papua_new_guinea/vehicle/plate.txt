@@ -1,0 +1,9 @@
+---
+address: papua_new_guinea.vehicle.plate
+description: Papua New Guinean licence plate — three letters and three digits. Registration is provincial in administration but the plate itself carries no province code, so unlike much of Africa the number says nothing about where the vehicle is kept.
+generator: tdc
+locale: en
+---
+<sequence name="letters"><gen type="regex" value="[A-Z]{3}"/></sequence>
+<sequence name="serial"><gen type="number" value="1..999" length="3" first_zero="true"/></sequence>
+<data>${{letters}} ${{serial}}</data>

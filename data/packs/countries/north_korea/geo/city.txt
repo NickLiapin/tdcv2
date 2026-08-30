@@ -1,0 +1,22 @@
+---
+address: north_korea.geo.city
+description: North Korean cities. Pyongyang holds a share of the country's resources far beyond its share of the population, and residence there is administratively controlled, so a dataset that distributes people evenly across these names describes a country that does not exist. Hamhung is the industrial second city, Chongjin the northeastern port, Sinuiju the crossing to Dandong in China through which most external trade moves.
+locale: en
+---
+Pyongyang
+Hamhung
+Chongjin
+Nampo
+Wonsan
+Sinuiju
+Tanchon
+Kaechon
+Kaesong
+Sariwon
+Haeju
+Kanggye
+Hyesan
+Rason
+Pyongsong
+Sunchon
+Hungnam

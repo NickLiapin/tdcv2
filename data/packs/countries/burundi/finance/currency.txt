@@ -1,0 +1,6 @@
+---
+address: burundi.finance.currency
+description: The Burundian franc, subdivided into 100 centimes though the centime has no practical existence. One of the least valuable currencies in East Africa, and the gap between the official rate and the parallel market rate has been wide enough for long enough that a Burundian price series has to say which rate it used.
+locale: en
+---
+Burundian franc

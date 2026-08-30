@@ -1,0 +1,14 @@
+---
+address: south_sudan.sport.team
+description: Clubs of the South Sudan National Football Championship. Al-Malakia and Atlabara are the Juba sides; Al-Salam and Wau Salaam come from Wau. The naming carries the country's split history — several clubs keep the Arabic names they were founded with under Sudanese administration, beside newer sides named in English.
+locale: en
+---
+Al-Malakia
+Atlabara
+Al-Salam Wau
+Wau Salaam
+Al-Merreikh Bentiu
+Jamus
+Koryom
+Young Stars
+Malakia Bor

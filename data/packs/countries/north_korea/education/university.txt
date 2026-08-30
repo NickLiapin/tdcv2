@@ -1,0 +1,15 @@
+---
+address: north_korea.education.university
+description: North Korean universities. Kim Il Sung University (1946) is the country's first and its graduates fill the senior administration; Kim Chaek University of Technology is the engineering counterpart. Pyongyang University of Science and Technology is the outlier and worth knowing about: founded in 2010 and funded by evangelical Korean-American donors, it taught in English and was the only DPRK institution with a substantial foreign faculty until the 2020 border closure sent them home.
+locale: en
+---
+Kim Il Sung University
+Kim Chaek University of Technology
+Pyongyang University of Science and Technology
+Pyongyang University of Foreign Studies
+Kim Hyong Jik University of Education
+Koryo Songgyungwan University
+Pyongyang Medical University
+Wonsan University of Agriculture
+Hamhung University of Chemical Industry
+Chongjin Mining and Metal University

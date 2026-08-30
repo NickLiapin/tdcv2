@@ -1,0 +1,8 @@
+---
+address: north_korea.phone
+description: North Korean mobile number in E.164 form — +850 191 and seven digits. Koryolink, the joint venture with Egypt's Orascom launched in 2008, holds the 191 block and is the network almost every domestic subscriber is on; a second network, Kang Song NET, appeared later. Domestic mobile phones cannot call abroad and foreign visitors' SIMs cannot call domestic numbers — the two are separated at the network level, so a North Korean number in an international contact list is almost always an official or diplomatic line rather than an ordinary subscriber.
+generator: tdc
+locale: en
+---
+<sequence name="line"><gen type="regex" value="[0-9]{7}"/></sequence>
+<data>+850191${{line}}</data>

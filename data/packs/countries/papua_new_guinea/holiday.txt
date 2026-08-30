@@ -1,0 +1,15 @@
+---
+address: papua_new_guinea.holiday
+description: Papua New Guinean public holidays. Independence from Australian administration is 16 September 1975. Two are unusual: Remembrance Day on 23 July honours PNG's own war dead rather than the Commonwealth date, and National Repentance Day on 26 August was created in 2011 as a Christian day of national prayer — PNG's constitution names Christian principles, and the holiday follows from that rather than from any historical event.
+locale: en
+---
+New Year's Day
+Good Friday
+Easter Saturday
+Easter Monday
+King's Birthday
+National Remembrance Day
+National Repentance Day
+Independence Day
+Christmas Day
+Boxing Day

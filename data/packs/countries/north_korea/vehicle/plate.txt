@@ -1,0 +1,9 @@
+---
+address: north_korea.vehicle.plate
+description: North Korean licence plate: a two-digit region code, a space and a five-digit serial. Private car ownership is rare and permitted mainly to institutions, so most plates on the road belong to a ministry, an enterprise or the military rather than to a person — a fact worth carrying into any dataset that joins vehicles to individuals.
+generator: tdc
+locale: en
+---
+<sequence name="region"><gen type="text" value="10,11,12,13,20,21,22,23,24,25,26,27"/></sequence>
+<sequence name="serial"><gen type="number" value="1..99999" length="5" first_zero="true"/></sequence>
+<data>${{region}} ${{serial}}</data>

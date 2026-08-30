@@ -1,0 +1,15 @@
+---
+address: burundi.finance.bank
+description: Burundian banks. The Banque de la République du Burundi is the central bank. BANCOBU and BCB are the two oldest commercial banks and both date to the colonial and immediate post-independence period; the regional entrants — Ecobank, KCB, CRDB from Tanzania — arrived in the 2010s as the East African Community integrated. The sector is small: Burundi is among the world's lowest-income countries and most economic activity is subsistence agriculture that never touches a bank.
+locale: en
+---
+Banque de la République du Burundi
+BANCOBU
+Banque de Crédit de Bujumbura
+Interbank Burundi
+BBCI
+FinBank Burundi
+Ecobank Burundi
+KCB Bank Burundi
+CRDB Bank Burundi
+Banque Nationale pour le Développement Économique

@@ -1,0 +1,18 @@
+---
+address: south_sudan.geo.state
+description: The ten states of South Sudan and its three administrative areas. The state map has been rewritten twice since independence: the original ten became twenty-eight in 2015 and thirty-two in 2017, then reverted to the original ten in February 2020 as part of the peace agreement, with Abyei, Pibor and Ruweng left as administrative areas outside the state structure. Abyei's status is disputed with Sudan and unresolved since 2011. Any South Sudanese dataset from 2015-2020 uses state names that no longer exist, and there is no clean mapping back.
+locale: en
+---
+Central Equatoria
+Eastern Equatoria
+Western Equatoria
+Jonglei
+Unity
+Upper Nile
+Warrap
+Northern Bahr el Ghazal
+Western Bahr el Ghazal
+Lakes
+Abyei Administrative Area
+Greater Pibor Administrative Area
+Ruweng Administrative Area

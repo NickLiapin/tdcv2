@@ -790,6 +790,15 @@
       "packs": ["packs/countries/burkina_faso"]
     },
     {
+      "id": "burundi",
+      "name": "Burundi (country)",
+      "description": "Data specific to Burundi: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "burundi",
+      "regions": ["africa"],
+      "point": [29.9, -3.4],
+      "packs": ["packs/countries/burundi"]
+    },
+    {
       "id": "cambodia",
       "name": "Cambodia (country)",
       "description": "Data specific to Cambodia: docs, education, finance, geo, government, holiday, legal, phone, phoneAreaCode, phoneLandline, phoneMobilePrefix, phoneMobilePrefixWithLength, sport, tax, vehicle.",
@@ -1528,6 +1537,15 @@
       "packs": ["packs/countries/nigeria"]
     },
     {
+      "id": "north_korea",
+      "name": "North Korea (country)",
+      "description": "Data specific to North Korea: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "north_korea",
+      "regions": ["asia"],
+      "point": [127, 40],
+      "packs": ["packs/countries/north_korea"]
+    },
+    {
       "id": "north_macedonia",
       "name": "North Macedonia (country)",
       "description": "Data specific to North Macedonia: docs, education, finance, geo, government, holiday, language, phone, phoneAreaCode, sport, tax, vehicle.",
@@ -1580,6 +1598,15 @@
       "regions": ["north"],
       "point": [-80.1, 8.5],
       "packs": ["packs/countries/panama"]
+    },
+    {
+      "id": "papua_new_guinea",
+      "name": "Papua New Guinea (country)",
+      "description": "Data specific to Papua New Guinea: education, finance, geo, holiday, language, phone, sport, vehicle.",
+      "country": "papua_new_guinea",
+      "regions": ["oceania"],
+      "point": [144, -6],
+      "packs": ["packs/countries/papua_new_guinea"]
     },
     {
       "id": "paraguay",
@@ -1717,6 +1744,15 @@
       "packs": ["packs/countries/serbia"]
     },
     {
+      "id": "sierra_leone",
+      "name": "Sierra Leone (country)",
+      "description": "Data specific to Sierra Leone: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "sierra_leone",
+      "regions": ["africa"],
+      "point": [-11.8, 8.5],
+      "packs": ["packs/countries/sierra_leone"]
+    },
+    {
       "id": "singapore",
       "name": "Singapore (country)",
       "description": "Data specific to Singapore: docs, education, finance, geo, holiday, phone, phoneLandline, sport, tax, vehicle.",
@@ -1769,6 +1805,15 @@
       "regions": ["asia"],
       "point": [127.8, 35.9],
       "packs": ["packs/countries/south_korea"]
+    },
+    {
+      "id": "south_sudan",
+      "name": "South Sudan (country)",
+      "description": "Data specific to South Sudan: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "south_sudan",
+      "regions": ["africa"],
+      "point": [31, 7],
+      "packs": ["packs/countries/south_sudan"]
     },
     {
       "id": "spain",

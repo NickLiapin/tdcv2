@@ -272,7 +272,7 @@ byte-for-byte match with the output shown above.
 
 - **[Locale and country packs](data-packs/overview.md#top).** Generate data for people,
   places, medical records, and documents in 86 languages. Country packs
-  also support national ID formats for 156 countries, with the
+  also support national ID formats for 161 countries, with the
   appropriate check-digit rule for each format.
 
 ## Where TDC is used
@@ -346,7 +346,7 @@ registry produces the same bytes for the same config and seed.
 
 Every published package carries a starter set of data packs, so it works with
 nothing else installed; the other 86 languages and
-156 country packs are
+161 country packs are
 [a download away](data-packs/installing-packs.md#top).
 
 ## Where to start

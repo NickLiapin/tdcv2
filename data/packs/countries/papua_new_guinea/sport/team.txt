@@ -1,0 +1,19 @@
+---
+address: papua_new_guinea.sport.team
+description: Papua New Guinean sports sides, and this list is rugby league because the country is. League is the national sport by a margin no other code approaches: the PNG Hunters play in the Queensland Cup in Australia, and the Digicel Cup clubs below are provincial franchises followed with an intensity that has repeatedly closed schools and offices on match days. Enga Mioks, Hela Wigmen and Mendi Muruks are highlands sides; Rabaul Gurias comes from East New Britain.
+locale: en
+---
+PNG Hunters
+Lae Snax Tigers
+Port Moresby Vipers
+Hela Wigmen
+Mendi Muruks
+Enga Mioks
+Goroka Lahanis
+Rabaul Gurias
+Waghi Tumbe
+Central Dabaris
+Kimbe Cutters
+Mt Hagen Eagles
+Simbu Lions
+Gulf Isapea

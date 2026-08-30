@@ -1,0 +1,16 @@
+---
+address: sierra_leone.holiday
+description: Sierra Leonean public holidays. Independence from Britain is 27 April 1961. The calendar is evenly split between Christian and Muslim observances and both are national holidays — Sierra Leone is roughly three-quarters Muslim with a large Christian minority, and the two calendars sitting side by side in the gazette without comment is itself a fact about the country. Armed Forces Day on 18 February commemorates the military; the anniversary of the end of the 1991-2002 civil war is not a public holiday, which surprises visitors.
+locale: en
+---
+New Year's Day
+Armed Forces Day
+International Women's Day
+Good Friday
+Easter Monday
+Independence Day
+Eid al-Fitr
+Eid al-Adha
+Maulid an-Nabi
+Christmas Day
+Boxing Day

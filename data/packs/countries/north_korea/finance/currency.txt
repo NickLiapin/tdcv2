@@ -1,0 +1,6 @@
+---
+address: north_korea.finance.currency
+description: The North Korean won, subdivided into 100 chon. Redenominated in November 2009 at 100 old to 1 new, with a strict cap on how much any household could exchange — the reform wiped out private savings held outside the state system and is the single event most often cited for the collapse of confidence in the won. Prices in the country's markets are widely quoted in US dollars and Chinese renminbi as a result.
+locale: en
+---
+North Korean won

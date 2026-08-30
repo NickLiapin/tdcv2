@@ -1,0 +1,6 @@
+---
+address: south_sudan.finance.currency
+description: The South Sudanese pound, introduced in July 2011 to replace the Sudanese pound at par. It has lost most of its value since: the 2013-18 war cut oil production, which was almost the entire source of foreign exchange, and the parallel-market rate has run far ahead of the official one for most of the currency's existence.
+locale: en
+---
+South Sudanese pound

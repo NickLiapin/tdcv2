@@ -1,0 +1,15 @@
+---
+address: burundi.sport.team
+description: Clubs of the Burundi Ligue A. Vital'O and Inter Star are the Bujumbura pair the league has revolved around for decades; Aigle Noir and Flambeau du Centre come from Gitega and Ngozi. Burundian football's best-known export is Saido Berahino, and the national side's first Africa Cup of Nations appearance in 2019 remains the sport's high point in the country.
+locale: en
+---
+Vital'O
+Inter Star
+Aigle Noir
+Flambeau du Centre
+Le Messager Ngozi
+Athlético Olympic
+Bumamuru
+Musongati
+Rukinzo
+Magara Young Boys

@@ -1,0 +1,10 @@
+---
+address: burundi.vehicle.plate
+description: Burundian licence plate — a letter pair, four digits and a letter, on a plate that also carries the country oval RU. Registration is national rather than provincial, so unlike most of the region the plate says nothing about where the vehicle lives.
+generator: tdc
+locale: en
+---
+<sequence name="head"><gen type="regex" value="[A-Z]{1}"/></sequence>
+<sequence name="serial"><gen type="number" value="1..9999" length="4" first_zero="true"/></sequence>
+<sequence name="tail"><gen type="text" value="A,B,C,D,E,F,G,H,J,K,L,M,N,P,R,S,T,U,V,W,X,Y,Z"/></sequence>
+<data>${{head}}${{serial}}${{tail}}</data>

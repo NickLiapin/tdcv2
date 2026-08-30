@@ -1,0 +1,21 @@
+---
+address: burundi.geo.city
+description: Burundian cities. The order carries the country's most confusing recent fact: Bujumbura is by far the largest city and was the capital until 2019, when the seat of government moved to Gitega, which is much smaller and sits in the centre. Bujumbura remains the economic capital and the port on Lake Tanganyika, so 'the capital' means different places depending on whether the question is political or commercial.
+locale: en
+---
+Bujumbura
+Gitega
+Ngozi
+Rumonge
+Muyinga
+Ruyigi
+Kayanza
+Makamba
+Bururi
+Cibitoke
+Kirundo
+Muramvya
+Bubanza
+Cankuzo
+Karuzi
+Rutana

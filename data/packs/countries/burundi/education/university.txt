@@ -1,0 +1,15 @@
+---
+address: burundi.education.university
+description: Burundian universities. The University of Burundi is the public one and dates to 1964; almost everything else is private and post-1999, founded during and after the civil war when the single public university could not meet demand. Hope Africa University belongs to the Free Methodist Church and is among the largest private institutions in the country, which is characteristic — several of these are church foundations rather than commercial ones.
+locale: en
+---
+University of Burundi
+Hope Africa University
+Université Lumière de Bujumbura
+Université de Ngozi
+Université du Lac Tanganyika
+Université Espoir d'Afrique
+Université Sagesse d'Afrique
+Université Polytechnique de Gitega
+Ecole Normale Supérieure
+Université des Grands Lacs

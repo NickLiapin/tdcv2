@@ -45352,6 +45352,63 @@
       "unreleased": false
     },
     {
+      "id": "burundi",
+      "name": "Burundi",
+      "blurb": "Data specific to Burundi",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "province"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 5191,
+      "regions": [
+        "africa"
+      ],
+      "unreleased": true
+    },
+    {
       "id": "cambodia",
       "name": "Cambodia",
       "blurb": "Data specific to Cambodia",
@@ -51657,6 +51714,63 @@
       "unreleased": true
     },
     {
+      "id": "north_korea",
+      "name": "North Korea",
+      "blurb": "Data specific to North Korea",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "province"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 5422,
+      "regions": [
+        "asia"
+      ],
+      "unreleased": true
+    },
+    {
       "id": "north_macedonia",
       "name": "North Macedonia",
       "blurb": "Data specific to North Macedonia",
@@ -52142,6 +52256,69 @@
         "north"
       ],
       "unreleased": false
+    },
+    {
+      "id": "papua_new_guinea",
+      "name": "Papua New Guinea",
+      "blurb": "Data specific to Papua New Guinea",
+      "files": 10,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "province"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "language",
+          [
+            "language"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 5981,
+      "regions": [
+        "oceania"
+      ],
+      "unreleased": true
     },
     {
       "id": "paraguay",
@@ -53231,6 +53408,69 @@
       "unreleased": true
     },
     {
+      "id": "sierra_leone",
+      "name": "Sierra Leone",
+      "blurb": "Data specific to Sierra Leone",
+      "files": 10,
+      "groups": [
+        [
+          "docs",
+          [
+            "nin"
+          ]
+        ],
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "district"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 5842,
+      "regions": [
+        "africa"
+      ],
+      "unreleased": true
+    },
+    {
       "id": "singapore",
       "name": "Singapore",
       "blurb": "Data specific to Singapore",
@@ -53683,6 +53923,63 @@
       "bytes": 20212,
       "regions": [
         "asia"
+      ],
+      "unreleased": true
+    },
+    {
+      "id": "south_sudan",
+      "name": "South Sudan",
+      "blurb": "Data specific to South Sudan",
+      "files": 9,
+      "groups": [
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "currency"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "state"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 5092,
+      "regions": [
+        "africa"
       ],
       "unreleased": true
     },

@@ -1,0 +1,23 @@
+---
+address: burundi.geo.province
+description: The eighteen provinces of Burundi. A reform passed in 2023 reduces them to five from the 2025 electoral cycle, which will make this list historical the moment it takes effect — a dataset built either side of that boundary is right for its moment and wrong for the other, and the two cannot be reconciled by mapping because the new provinces cut across the old ones. Rumonge is itself recent: it was created in 2015 out of Bururi and Bujumbura Rural. Bujumbura Mairie is the city; Bujumbura Rural is the countryside around it and is a separate province.
+locale: en
+---
+Bujumbura Mairie
+Gitega
+Ngozi
+Muyinga
+Kirundo
+Kayanza
+Ruyigi
+Cankuzo
+Rutana
+Makamba
+Bururi
+Rumonge
+Mwaro
+Muramvya
+Cibitoke
+Bubanza
+Karuzi
+Bujumbura Rural

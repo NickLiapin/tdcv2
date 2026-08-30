@@ -1,0 +1,27 @@
+---
+address: papua_new_guinea.geo.province
+description: The provinces of Papua New Guinea, including the National Capital District and the Autonomous Region of Bougainville. Bougainville is the one to know about: it fought a civil war for independence from 1988 to 1998, voted 98% for independence in a 2019 referendum, and its separation is being negotiated rather than settled — a dataset built a few years from now may need a country pack rather than a province entry. Hela and Jiwaka were created in 2012 out of Southern Highlands and Western Highlands, so a list of twenty provinces is a pre-2012 one.
+locale: en
+---
+National Capital District
+Morobe
+Eastern Highlands
+Southern Highlands
+Western Highlands
+Madang
+East Sepik
+Simbu
+Enga
+West New Britain
+East New Britain
+Central
+Western
+Gulf
+Oro
+Milne Bay
+New Ireland
+West Sepik
+Manus
+Bougainville
+Hela
+Jiwaka

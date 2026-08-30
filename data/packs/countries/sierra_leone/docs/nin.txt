@@ -1,0 +1,7 @@
+---
+address: sierra_leone.docs.nin
+description: Sierra Leone National Identification Number — the number on the card issued by the National Civil Registration Authority, which began mass enrolment in 2017. The NIN is now required to open a bank account, register a SIM and collect a government payment, and the NCRA register is the base for the voter roll, so coverage among adults is high by regional standards.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[0-9]{9}[A-Z]{1}"/>
