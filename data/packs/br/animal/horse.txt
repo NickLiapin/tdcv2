@@ -1,0 +1,20 @@
+---
+description: Horse breed, and the two at the head are Brittany's own. The Trait breton is the draught horse of the peninsula, compact and very heavy for its height, and the Postier breton is the lighter, quicker type inside the same stud book, bred for the mail coach and the artillery limber rather than for the plough — one stud book holding two builds of horse, which is unusual enough to be worth the second line it takes here. Both were shaped at the Haras national de Lamballe in the Côtes-d'Armor, founded in 1825 and still one of the largest national studs in France, and the breed came within a generation of vanishing when the tractor arrived, before meat and leisure gave it a second life. Everything after the first two is the ordinary French and international stock of a riding centre or a show ring. The Breton for a mare is kazeg, and it mutates: div gazeg is two mares, k softening to g behind div — and div rather than daou because Breton has two separate words for two, chosen by the gender of whatever is being counted.
+locale: br
+---
+Trait breton
+Postier breton
+Selle français
+Trotteur français
+Pur-sang anglais
+Anglo-arabe
+Pur-sang arabe
+Percheron
+Cob normand
+Ardennais
+Comtois
+Frison
+Haflinger
+Connemara
+Poney shetland
+Fjord

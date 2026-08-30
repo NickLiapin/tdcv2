@@ -1,0 +1,11 @@
+---
+description: Number of people in the household, as a census or a form records it, with the top band left open at 7+. The Breton word is tiegezh, built on ti, a house, and it means a household and a farm holding at the same time — which tells you what a household was here until living memory: a working unit rather than a residence. It is not that now, and the distribution has moved further than most. The Breton household averages around two people, the one-person household is the commonest size in the region, and the drivers are an age structure older than France's as a whole and a long retirement migration onto the coast. Two things a config should hold on to. The coastal communes are extreme: in some of them more than half of all dwellings are second homes, which sit in the housing stock and hold no household at all, so a model that infers population from addresses on this coast will overcount badly. The inland communes of Kreiz-Breizh have the opposite problem, ageing and emptying, with a heavy share of one- and two-person households living in houses built for six.
+locale: br
+---
+1
+2
+3
+4
+5
+6
+7+

@@ -1,0 +1,20 @@
+---
+description: Weather condition. Breton builds most of these adjectives with a single suffix, -ek, straight off the noun: heol the sun gives heoliek, koumoul cloud gives koumoulek, avel wind gives avelek, brumenn mist gives brumennek. The system is regular where French is not — French has pluvieux and nuageux but nothing at all built on vent — so Breton can coin the adjective it needs on the spot and be understood. The nouns in the list are here because Breton uses them bare where English wants an adjective, and the rain words are the point of the file: glav is rain, barrad-glav a single burst of it, glav munut the fine kind that soaks you without ever seeming to fall, and latar the drizzle that hangs in the air rather than descending. Three grades of not-quite-rain is not a joke about the climate; on a peninsula pushed a hundred and fifty kilometres into the Atlantic the difference between latar, glav munut and barrad-glav decides whether the day's work goes on. gwallamzer, built on the prefix gwall-, bad, is the general word for weather that has turned. Mutation: brumenn is feminine, like every noun in -enn, so it is ar vrumenn after the article, b softening to v, while the adjective brumennek in this file is the unmutated form.
+locale: br
+---
+Brav
+Heoliek
+Koumoulek
+Teñval
+Brumennek
+Latar
+Glav munut
+Glav
+Barrad-glav
+Kurun
+Erc'h
+Grizilh
+Skorn
+Avelek
+Gwallamzer
+Klouar

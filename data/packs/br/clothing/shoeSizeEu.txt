@@ -1,0 +1,16 @@
+---
+description: Shoe size on the Continental scale, which is what every shop in Brittany uses. The scale is neither metric nor arbitrary: it is the point de Paris, one size being two thirds of a centimetre, a unit descended from the Paris inch cut into eighteen, which is why the numbers run as high as they do and why a true half size does not exist on it. Breton has no size vocabulary of its own, so the number printed on the box is the number a speaker says.
+locale: br
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

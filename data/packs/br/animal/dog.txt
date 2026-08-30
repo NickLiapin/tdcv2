@@ -1,0 +1,29 @@
+---
+description: Dog breed, written as a French kennel register writes it, because breed names are international and the body that records them here is French. The Épagneul breton at the head is the region's own and the reason this file could belong to no other pack: a small, fast, naturally short-tailed gundog fixed as a breed in the first decade of the twentieth century, with the club and the first standard dating from 1907 and the work done around Loudéac in the Côtes-d'Armor. It is the only spaniel that points instead of flushing, which is why it left the peninsula at all, and it is now among the most numerous pointing dogs in the world. Be careful with the neighbours a careless list puts beside it: the Berger de Brie is from Brie, the Griffon nivernais from the Nivernais and the Bleu de Gascogne from Gascony, and not one of them is Breton however often the names are grouped together. The rest of the list leans deliberately on gundogs and herding dogs, which is what a rural Breton commune actually keeps. The Breton for a dog is ki and it mutates like everything else: daou gi is two dogs, k softening to g behind the numeral.
+locale: br
+---
+Épagneul breton
+Berger allemand
+Labrador retriever
+Golden retriever
+Bouledogue français
+Beagle
+Braque français
+Setter anglais
+Setter irlandais
+Springer spaniel anglais
+Cocker spaniel anglais
+Border collie
+Berger australien
+Berger belge malinois
+Jack Russell terrier
+Yorkshire terrier
+Caniche
+Rottweiler
+Boxer
+Teckel
+Chihuahua
+Husky sibérien
+Bouvier bernois
+Cane corso
+Cavalier King Charles

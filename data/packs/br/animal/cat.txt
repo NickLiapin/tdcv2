@@ -1,0 +1,22 @@
+---
+description: Cat breed, French, as a veterinary file or a breeders' register writes it, with Européen and Chartreux at the head because those are the two a Breton vet actually meets: the first the ordinary cat of the house, the second a genuinely French breed. The Breton word is kazh, and it is one of the standard illustrations of the zh spelling — the unified orthography of 1941 writes zh at exactly the points where the western KLT dialects say a z and Vannetais in the south-east says an h, so kazh is read kaz around Landerne and kah around Gwened, and one digraph holds a dialect boundary together rather than choosing a side. The compound worth knowing is kazh-koad, a wood-cat, which is the squirrel: Breton reached for the cat where English reached for a Greek word. The asymmetry to state plainly is about mutation. The Breton noun takes it — kazh is ma c'hazh, my cat, under the spirant mutation — while the breed names in this file are the register's own strings and are best left exactly as written in any slot they are dropped into.
+locale: br
+---
+Chartreux
+Européen
+Persan
+Siamois
+Maine coon
+British shorthair
+Bleu russe
+Bengal
+Sphynx
+Abyssin
+Ragdoll
+Norvégien
+Scottish fold
+Sacré de Birmanie
+Angora turc
+Somali
+Oriental
+Devon rex

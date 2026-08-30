@@ -1,0 +1,14 @@
+---
+description: Fuel type as a pump, a carte grise and a fleet spreadsheet name it, French throughout because all three documents are French and no Breton register competes with them. Électrique is the value with a Breton story behind it: the peninsula generates only a modest share of the power it burns and hangs off the end of the national grid on a thin connection, which is why winter peaks have been a live political question here for decades and why the pacte électrique breton of 2010 tied demand reduction, renewables and a securing line into one agreement. The Rance tidal station has been feeding that same grid since 1966. GPL and Superéthanol E85 are on the list because they are on the pumps, not because they are common.
+locale: br
+---
+Essence
+SP95-E10
+Gazole
+Superéthanol E85
+GPL
+Hybride
+Hybride rechargeable
+Électrique
+Hydrogène
+Gaz naturel

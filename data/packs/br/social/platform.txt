@@ -1,0 +1,20 @@
+---
+description: Social platforms as they are used in Brittany, in their own brand spelling, which is the only form anyone writes — a brand name is not translated and the Breton press does not try. The mix is a French one rather than an anglophone one, and the difference matters for a realistic dataset: Snapchat and WhatsApp sit far higher in France than in the English-speaking world, Messenger is counted separately from Facebook and used as a messaging app in its own right, and X is written X but is still said Twitter by most people over thirty. Facebook is the value that carries the region. It is where Brittany's associative life is published — the bagadoù, the cercles celtiques, the comités des fêtes, the sailing clubs and the organisers of the several hundred fest-noz held every year post their calendars there and effectively nowhere else — so a Facebook page in Brittany is the working diary of a cultural circuit and not merely a social account. Note what is not here: there is no Breton platform and there never was one. The Breton-language media that do exist, the online television channel and the local radio stations of Lower Brittany among them, distribute through these same international services, which means the entire online public life of the language runs on infrastructure that has no idea it is carrying it.
+locale: br
+---
+Facebook
+Instagram
+TikTok
+YouTube
+Snapchat
+WhatsApp
+Messenger
+X
+LinkedIn
+Pinterest
+Discord
+Twitch
+Reddit
+Telegram
+Threads
+Mastodon

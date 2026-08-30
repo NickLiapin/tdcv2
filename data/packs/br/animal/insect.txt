@@ -1,0 +1,24 @@
+---
+description: Insect, and one piece of grammar explains most of the file. Breton names insects with a collective first — gwenan is bees, merien ants, kelien flies, c'hwen fleas, the mass of them — and then adds -enn to cut a single one out of the mass: gwenanenn a bee, merienenn an ant, kelienenn a fly, c'hwenenn a flea. The direction runs opposite to the European default, where you start from one and add a plural ending; here you start from the swarm, which for an insect is the sensible way round. This file holds the singulatives, because a generator wants one insect and not the swarm. nadoz-aer, the dragonfly, is an air-needle, and the compound is the sort of thing that makes people who have never heard Breton stop and ask what the language is. The French tail is the beekeeping and pest-control register, and the frelon asiatique in it is not filler: Vespa velutina arrived in France in 2004, covered the country within a decade and presses Breton hives hard enough that the traps are an ordinary sight on a garden wall. Since every noun in -enn is feminine the mutation follows automatically — gwenanenn is ar wenanenn after the article, gw softening to w.
+locale: br
+---
+gwenanenn
+gwespedenn
+balafenn
+merienenn
+kelienenn
+c'hwil
+c'hwenenn
+laouenn
+skrilh
+nadoz-aer
+fubuenn
+bourdon
+frelon
+frelon asiatique
+coccinelle
+cafard
+sauterelle
+punaise
+tique
+perce-oreille

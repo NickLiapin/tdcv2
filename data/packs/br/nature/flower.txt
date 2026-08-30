@@ -1,0 +1,32 @@
+---
+description: Flowering plant, and the honest shape of this file is a short Breton head and a long French tail. The head is the flora of the heath and the hedge-bank, the plants that actually cover the ground here: lann the gorse, which carries some flower in every month of the year and turns the coast yellow in March, brug the heather beside it, balan the broom, raden the bracken, melchon the clover. Beware one homophone while reading a map with this list in hand: the Lann- that opens Lannion and Lanvéoc is not the gorse but a different word entirely, an early monastic enclosure, the same element as Welsh llan. The French tail is the garden, and it is French because the garden is: Brittany's acid granite soil and its frost-free oceanic winters suit exactly the plants that hate lime and cold, so hortensias, camellias, rhododendrons and agapanthes grow here on a scale that startles visitors, and Bréhat off the north coast is called the island of flowers for mimosa and eucalyptus standing at nearly forty-nine degrees north. Breton has no settled term for most of them and the nurseryman's label is what a speaker says. Mutation: boked, a flower or a bouquet, is da voked after da, your, so a value dropped raw into that slot is wrong.
+locale: br
+---
+lann
+brug
+balan
+raden
+melchon
+rozenn
+lili
+spern gwenn
+hortensia
+camélia
+rhododendron
+azalée
+magnolia
+mimosa
+agapanthe
+jonquille
+narcisse
+tulipe
+jacinthe
+primevère
+pâquerette
+marguerite
+coquelicot
+bleuet
+digitale
+fuchsia
+pivoine
+iris

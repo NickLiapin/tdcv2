@@ -1,0 +1,17 @@
+---
+description: The kind of thing a post is, and this file is a mixed list on purpose. Breton stands where the language has a settled word that a real user would reach for: embannadenn a publication, luc'hskeudenn a photograph — literally a light-picture, built exactly the way photograph was built out of Greek — pennad an article or a piece of writing, evezhiadenn a comment or remark, rannañ to share, sontadeg a poll, abadenn a broadcast programme, and war-eeun, literally on straight, which is what Breton-language radio and television say for going out live. None of those was coined for a screen: abadenn and war-eeun come off the air, where Breton has kept a continuous professional register since the first broadcasts in the language, and pennad and evezhiadenn come off the page. Reel and Story are in English because the button is: a platform's own product name is what users say in every language, and neither Breton nor French has displaced them. Video and Albom are old settled borrowings. The trap in this file is one the rest of the pack does not cover, and it is the definite article itself. Breton has three forms of the word the, chosen by the sound that follows: an before a vowel and before d, t, n and h, al before l, and ar everywhere else. So it is an embannadenn, al luc'hskeudenn and ar pennad, all three of them the — and a template that hard-codes one form in front of a value drawn from this file will be wrong roughly two times in three.
+locale: br
+---
+Embannadenn
+Luc'hskeudenn
+Albom
+Video
+Reel
+Story
+War-eeun
+Sontadeg
+Evezhiadenn
+Rannañ
+Pennad
+Podkast
+Abadenn

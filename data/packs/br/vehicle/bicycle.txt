@@ -1,0 +1,21 @@
+---
+description: Bicycle type, in the French of a bike shop, with the Breton word for the machine standing behind every one of them: marc'h-houarn, the iron horse — and note that the c'h in marc'h is a single letter of the alphabet, never to be split across, stripped, or normalised into a c and an h. Brittany matters to this field out of all proportion to its size. Louison Bobet came from Saint-Méen-le-Grand and won the Tour three years running in the 1950s; Bernard Hinault came from Yffiniac, twenty-odd kilometres away, and won it five times; Jean Robic, who won in 1947, rode in a leather helmet after fracturing his skull. The race that says most about the place is the Tro Bro Leon, run around the Léon every spring since 1984 partly on unsurfaced farm tracks called ribinoù, with a live piglet handed to the winner and to the first rider over each of the ribin sectors. The values are the shop's categories, which is what a Breton cyclist says for the type; the Breton term stays on the object. Mutation, since marc'h-houarn is a noun like any other: da varc'h-houarn is your bicycle, m softening to v.
+locale: br
+---
+Vélo de ville
+Vélo de route
+Vélo de course
+VTT
+VTC
+Gravel
+Cyclocross
+BMX
+Vélo de randonnée
+Vélo d'enfant
+Vélo pliant
+Vélo électrique
+Vélo cargo
+Pignon fixe
+Tandem
+Tricycle
+Vélo d'appartement

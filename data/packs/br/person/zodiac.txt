@@ -1,0 +1,16 @@
+---
+description: The twelve signs, and the honest position is that Breton has no settled astrological register at all: horoscopes in Brittany are read in French, in Ouest-France and in the magazines, and a Breton speaker asked his sign answers Bélier or Balance like everyone else. What this list gives is the twelve figures under their ordinary Breton names, and it splits into two halves that the description should not blur. Half are plain everyday words that happen to be what the sign depicts and needed no invention whatever — tarv a bull, krank a crab, gavr a goat, maout a ram, pesked fish, and gwerc'hez a virgin, which is also the ordinary word for the Virgin Mary and therefore among the most frequently spoken nouns in a peninsula whose parish churches, fountains and roadside chapels are overwhelmingly hers. The other half are transparent calques, and they are calques: dourer is built with the productive agent suffix -er on dour, water, so it is a water-carrier; saezher is the same suffix on saezh, an arrow, so it is an archer; gevelled is simply the plural of gevell, a twin; balañs is the borrowed word for a pair of scales. Leon is the lion and collides head-on with Leon the country, Bro-Leon, the north-western of the four old bishoprics and one of the four dialect areas, so a dataset indexing on this string will find a star sign and a region under one key. The values are given without the definite article on purpose. The article mutates the noun behind it, and for k it produces c'h rather than the g the ordinary soft mutation would give, so a template that writes ar in front of a value from this file will be wrong more often than it is right. Worth knowing beyond the twelve: Breton names the sky in its own way, and the Milky Way is Hent Sant-Jakez, the road of Saint James — the pilgrim way to Compostela laid out across the stars.
+locale: br
+---
+Maout
+Tarv
+Gevelled
+Krank
+Leon
+Gwerc'hez
+Balañs
+Skorpion
+Saezher
+Gavr
+Dourer
+Pesked

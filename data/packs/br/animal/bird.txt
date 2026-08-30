@@ -1,0 +1,40 @@
+---
+description: Bird. The Breton half of the list is the everyday one — gouelan the gull, morvran the cormorant, which is literally the sea-crow, gwennili the swallow, moualc'h the blackbird, eostig the nightingale, alarc'h the swan, kaouenn the owl, falc'hun the falcon, a word that is also a Breton surname and was the name of the priest and dialectologist who spent his life mapping where one Breton pronunciation stops and the next begins. eostig is worth a second look: besides the nightingale it is the title of one of Marie de France's twelfth-century lais, which she says she is retelling from a Breton one, so the bird carries a piece of medieval literary history in four letters. The French tail is the seabird half, and it is French because the people who count these birds count them in French: the Sept-Îles reserve off Perros-Guirec holds the only northern gannet colony in France, on the single islet of Rouzic, and the puffins there are the reason the Ligue pour la Protection des Oiseaux was founded in 1912, after excursion boats took to shooting them for sport. Values are unmutated dictionary forms, and kaouenn shows why that matters: every Breton noun ending in -enn is feminine, so it is ar gaouenn after the article and never ar kaouenn.
+locale: br
+---
+gouelan
+morvran
+gwennili
+golvan
+koulm
+bran
+pig
+kaouenn
+moualc'h
+eostig
+alc'hweder
+laouenanig
+kefeleg
+klujar
+durzhunell
+alarc'h
+kerc'heiz
+garan
+erer
+falc'hun
+sparfell
+drask
+houad-gouez
+fazan
+macareux moine
+fou de Bassan
+guillemot de Troïl
+pingouin torda
+cormoran huppé
+sterne pierregarin
+huîtrier pie
+courlis cendré
+crave à bec rouge
+pic vert
+mésange bleue
+rouge-gorge

@@ -1,0 +1,30 @@
+---
+description: Diagnoses recorded for a male patient, in FRENCH, because the record is French even when the encounter was not — the Breton half of that same encounter is medical/symptom.txt, which holds what the patient actually says across the desk. The list runs from the urological and andrological conditions into the chronic diseases of an ageing male population, and four of its entries are here because of where this pack is set rather than to fill a slot. Hémochromatose héréditaire is the first: this is the most affected population in the world for it, and it sits on the male list because men have no monthly iron loss to offset the accumulation and so present in their forties and fifties, a decade or two before women carrying the identical genotype. Trouble de l'usage de l'alcool and Cirrhose hépatique are the second and third, and they are not a slur on the region but its plainest public-health fact: Brittany records the highest alcohol-attributable mortality of any French region, by a wide margin, and the excess is overwhelmingly male. The same asymmetry stands behind Trouble dépressif — Brittany also carries France's highest suicide rate, roughly half again the national figure, and again it is men who account for most of it, which is why the region has run targeted prevention programmes for years and why a depressive disorder on a Breton man's record is a commoner line here than the French average would predict. A config drawing from this file is describing a real epidemiological profile and not a generic one. Values are the exact French clinical forms, accents and apostrophes intact.
+locale: br
+---
+Hyperplasie bénigne de la prostate
+Prostatite
+Cancer de la prostate
+Cancer du testicule
+Varicocèle
+Épididymite
+Dysfonction érectile
+Hypogonadisme masculin
+Gynécomastie
+Alopécie androgénétique
+Hémochromatose héréditaire
+Hypertension artérielle
+Diabète de type 2
+Cardiopathie ischémique
+Hyperlipidémie
+Goutte
+Bronchopneumopathie chronique obstructive
+Asthme
+Cancer bronchique
+Trouble de l'usage de l'alcool
+Cirrhose hépatique
+Gonarthrose
+Lombosciatique
+Hernie discale
+Trouble dépressif
+Syndrome d'apnées obstructives du sommeil

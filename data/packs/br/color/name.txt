@@ -1,0 +1,58 @@
+---
+description: Colour name as a paint chart or a clothing label writes it, lowercase throughout because Breton does not capitalise colour words. The Breton head of the list turns on glas, which covers the blue of the sea and the sky and equally the green of grass and of a living leaf, while gwer is kept for the green of dyed cloth and manufactured things — a cut across the spectrum Breton shares with Welsh and Irish and does not share with the French spoken beside it, so a speaker turning vert into Breton has to decide first which green is meant. Around it: gwenn white, du black, ruz red, melen yellow, louet grey, gell the brown of an animal's coat, rous russet, aour gold, arc'hant silver. morlivet is the one with no French equivalent at all — literally sea-coloured, it is the grey-white of a face gone pale, and the metaphor is taken from the water rather than from ash or chalk. teñval dark and sklaer light are the ordinary modifiers, so the compound shades are transparent and predictable. The French tail is deliberate: Breton has no settled term for taupe, magenta or bleu roi, and the French word off the chart is what a Breton speaker buying paint or a coat actually says. The mutation trap here is that these are adjectives, and a Breton adjective softens its own first consonant behind a feminine singular noun — kador, a chair, is ur gador after the article, and gwenn behind it becomes wenn, ur gador wenn, so every string in this file is correct in the masculine slot only.
+locale: br
+---
+gwenn
+gwenn-kann
+du
+ruz
+ruz teñval
+ruz sklaer
+melen
+melen sklaer
+glas
+glas teñval
+glas sklaer
+gwer
+gwer teñval
+gwer sklaer
+louet
+louet teñval
+louet sklaer
+gell
+gell teñval
+rous
+aour
+arc'hant
+morlivet
+beige
+écru
+ivoire
+crème
+sable
+taupe
+mauve
+lilas
+violet
+indigo
+turquoise
+azur
+bleu marine
+bleu ciel
+bleu roi
+bordeaux
+grenat
+pourpre
+magenta
+fuchsia
+rose
+corail
+saumon
+orange
+abricot
+ocre
+moutarde
+kaki
+olive
+émeraude
+anthracite

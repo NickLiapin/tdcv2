@@ -1,0 +1,32 @@
+---
+description: Tree, and the list is the bocage — the hedge-and-bank field system that until sixty years ago covered inland Brittany entire, a lattice of earth banks called talus with a hedge planted along the top, sheltering stock, draining the field and yielding firewood on a rotation. Its trees are here: derv oak, faou beech, bezv birch, kelvez hazel, kelenn holly, haleg willow, gwern alder in the wet bottoms, spern du the blackthorn of the hedge itself. Breton tree names are all over the map of Brittany, because a wood is the obvious thing to name a place after and the suffix -eg makes a collective out of any of them: Le Faou in Finistère is simply the beech, Guern in the Morbihan the alder marsh, Quélennec the holly grove, and the Coat- and Coët- that open dozens of names is koad, wood. The remembrement, the post-war consolidation of scattered strips into machine-workable fields, took out a great part of that hedge network between the 1950s and the 1980s, and the Breizh Bocage programme has been paying to replant it since 2007. The French tail names species with no settled Breton word, among them the cyprès de Lambert, a Californian tree that turned out to be the only reliable windbreak on an exposed Breton coast and now stands the length of it. The trap in this file is the hard mutation, which no other list here shows: after ho, your in the plural, g, d and b harden rather than soften, so derv is ho terv.
+locale: br
+---
+derv
+faou
+bezv
+gwern
+haleg
+kelenn
+kelvez
+kistin
+onn
+ivin
+spern du
+skav
+pin
+sapr
+gwezenn-aval
+beuz
+charme
+érable
+orme
+peuplier
+platane
+tilleul
+marronnier
+cyprès de Lambert
+pin maritime
+eucalyptus
+laurier-sauce
+noyer

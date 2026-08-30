@@ -1,0 +1,34 @@
+---
+description: Garment. The Breton head of this list is the wardrobe that has Breton names because it existed before the shop did: roched the shirt, bragoù the trousers and bragoù-bras the wide pleated breeches of the old male costume, lostenn the skirt, sae the gown, chupenn the jacket, mantell the cloak, botoù the shoes and botoù-koad the wooden ones, loeroù, manegoù, gouriz, and koef the coiffe — which is not one object but a parish signature, cut differently from commune to commune, and which in the Bigouden country grew from a few centimetres about 1900 to over thirty by the 1930s, taller and taller as the tradition came closer to ending. The French tail is the modern shop, and two of its entries are Brittany's own export into French: the marinière, made at Quimper by Armor-Lux since 1938, and the ciré, the yellow oilskin Guy Cotten began cutting at Concarneau in 1964, which is now the standard image of a French fisherman anywhere. Labels, sizes and shop vocabulary are French throughout and the file does not pretend otherwise. Mutation: tog, a hat, is da dog after da, t softening to d, so the bare forms here cannot be concatenated after a possessive.
+locale: br
+---
+roched
+bragoù
+bragoù-bras
+lostenn
+sae
+chupenn
+mantell
+tog
+koef
+botoù
+botoù-koad
+loeroù
+manegoù
+gouriz
+jiletenn
+marinière
+vareuse
+caban
+ciré jaune
+pull marin
+tee-shirt
+chemisier
+jean
+short
+costume
+veste
+anorak
+écharpe
+bottes
+sandales

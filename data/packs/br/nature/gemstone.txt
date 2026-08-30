@@ -1,0 +1,29 @@
+---
+description: Gemstone, in the French of a jeweller's window, and the description has to be honest about why: Brittany has no gem tradition at all. What the Armorican massif yields is building stone and industrial minerals — granite by the quarryful, slate at Maël-Carhaix and in the Monts d'Arrée, kaolin at Ploemeur in the Morbihan for porcelain, and andalusite at Glomel, one of the largest andalusite operations anywhere — and none of that cuts into a ring. The one local stone with a folk life is staurotide, whose crystals grow as natural crosses and were carried as pierres de croix; they come out of the schists around Coray and Scaër. Everything else here is the international stock any European jeweller sells, and Breton has no words for it. The traffic in words went the other way instead: maen is a stone, menhir is maen hir, a long stone, and dolmen was coined in French at the end of the eighteenth century out of the Breton for table and stone. Breton itself says taol-vaen, and there is the mutation — taol is feminine, so maen softens to vaen behind it, and no value in this file is safe in a slot like that without the same change.
+locale: br
+---
+diamant
+rubis
+saphir
+émeraude
+améthyste
+topaze
+opale
+tourmaline
+grenat
+aigue-marine
+citrine
+péridot
+turquoise
+lapis-lazuli
+malachite
+onyx
+agate
+jaspe
+cristal de roche
+quartz rose
+quartz fumé
+pierre de lune
+ambre
+perle
+staurotide

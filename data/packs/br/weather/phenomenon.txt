@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon, and the first four values are the tide, which in Brittany belongs in this field and not in some separate one. lanv is the flood, tre the ebb, reverzhi the spring tide, and this coast carries among the largest tidal ranges on earth — over thirteen metres in the bay of Mont-Saint-Michel, around ten at Saint-Malo. That is a fact with consequences rather than a curiosity: the Rance barrage above Saint-Malo, opened in 1966, was the first tidal power station in the world and stayed the largest for close on half a century. Every Breton paper prints the coefficient de marée beside the tide times, a number running from 20 to 120, and when it climbs past 100 the pêche à pied empties villages onto the strand for a few hours. mor bras is the heavy sea that comes with it. The three winds here are Breton names carrying weather rather than a compass bearing: gwalarn the north-westerly that drives the squalls in off the Atlantic, mervent the wet south-westerly, biz the dry cold north-easterly of a clear winter. luc'hedenn is one flash of lightning and kanevedenn a rainbow, both showing the -enn that cuts a single instance out of a mass. The mutation in this file is the spirant: tourmant, a storm, is ma zourmant after ma, my, with t becoming z.
+locale: br
+---
+Reverzhi
+Lanv
+Tre
+Mor bras
+Barr-avel
+Tourmant
+Gwalarn
+Mervent
+Biz
+Luc'hedenn
+Kanevedenn
+Glizh
+Reo
+Sec'hor
+Brumenn

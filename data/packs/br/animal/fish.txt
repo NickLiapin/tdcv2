@@ -1,0 +1,32 @@
+---
+description: Fish, and Brittany is this field's natural home: the region lands more fish than any other in France, and Le Guilvinec, at the tip of the Bigouden country, is the leading French port for fresh fish brought in by day-boats. The Breton head of the list is what comes off them — sardin, brell the mackerel, moru the cod, eog the salmon that still runs up the Elorn and the Aulne, silienn the eel, morgi the dogfish, a sea-dog by the same compound logic that names the porpoise, rae the ray. gwrac'h is the one to notice: it is the wrasse, and the word also means an old woman, exactly as the fish's French name vieille does — two languages landed independently on the same joke about the same fish. The French tail is the auction hall, because the criée at Le Guilvinec, Concarneau, Lorient-Keroman and Saint-Quay-Portrieux calls and prints its lots in French, so lieu jaune, saint-pierre, congre and thon germon are what the trade says whatever language the crew speaks aboard. sardin carries a history the word does not show: Douarnenez canned sardines by the hundred million, and in the winter of 1924 the women who did the canning, the Penn Sardin, struck for six weeks and won their raise. The mutation here is the spirant one: after tri, three, k, t and p become c'h, z and f, so pesk is tri fesk.
+locale: br
+---
+sardin
+brell
+moru
+eog
+dluzh
+silienn
+morgi
+rae
+meilh
+gwrac'h
+lieu jaune
+lieu noir
+merlu
+bar
+dorade royale
+dorade grise
+sole
+turbot
+barbue
+saint-pierre
+lotte
+grondin
+rouget
+congre
+chinchard
+anchois
+thon germon
+églefin

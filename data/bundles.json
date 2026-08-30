@@ -64,6 +64,13 @@
       "packs": ["packs/bo"]
     },
     {
+      "id": "br",
+      "name": "Breton (language)",
+      "description": "Content bound to the Breton language rather than to any one country: DATE_LOCALE, address, airline, animal, book, clothing, color, commerce, company, date, education, event, and 24 more.",
+      "locale": "br",
+      "packs": ["packs/br"]
+    },
+    {
       "id": "bs",
       "name": "Bosnian (language)",
       "description": "Content bound to the Bosnian language rather than to any one country: DATE_LOCALE, address, airline, animal, book, clothing, color, commerce, company, date, education, event, and 25 more.",
@@ -366,8 +373,8 @@
     },
     {
       "id": "me",
-      "name": "Me (language)",
-      "description": "Content bound to the Me language rather than to any one country: DATE_LOCALE, address, airline, animal, book, clothing, color, commerce, company, date, education, event, and 24 more.",
+      "name": "Montenegrin (language)",
+      "description": "Content bound to the Montenegrin language rather than to any one country: DATE_LOCALE, address, airline, animal, book, clothing, color, commerce, company, date, education, event, and 24 more.",
       "locale": "me",
       "packs": ["packs/me"]
     },

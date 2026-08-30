@@ -1,0 +1,15 @@
+---
+description: Reaction labels, and these are the exact strings the French interfaces print rather than translations of the English ones — which is why two of them look strange written down. French Facebook does not label the angry reaction En colère; it labels it Grrr. The wow reaction is Wouah, a spelling that has almost no other life in written French. J'aime and J'adore are the like and the love, and Solidaire is the care reaction, introduced in 2020 and kept. Bravo, Soutien, Instructif and Curieux come from LinkedIn's French set, which is a different vocabulary again because the context is professional rather than social. The values are French and not Breton on purpose, and the reason is worth stating because it is the one place in this pack where the choice is made by a setting rather than by a speaker: interface language is picked once, on the phone, and virtually every phone in Brittany is set to French, so these are the strings a real dataset of Breton social activity actually carries. It is also the shortest answer to a question this pack keeps raising — Breton survives in what people say to each other, not in what the machine says to them.
+locale: br
+---
+J'aime
+J'adore
+Haha
+Wouah
+Triste
+Grrr
+Solidaire
+Bravo
+Soutien
+Instructif
+Curieux

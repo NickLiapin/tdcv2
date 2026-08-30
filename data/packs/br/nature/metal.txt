@@ -1,0 +1,26 @@
+---
+description: Metal. The Breton head is short and old: houarn iron, dir steel, aour gold, arc'hant, kouevr copper, plom lead, staen tin. arc'hant earns a sentence of its own — it means silver and it means money, one word doing both jobs, and Welsh arian and Irish airgead do exactly the same, so this is inherited Celtic and not a borrowing of the French argent that happens to work the same way. Brittany's own metals are the two dullest on the list. Lead-silver was mined at Poullaouen and Huelgoat in the Monts d'Arrée on a genuinely industrial scale through the eighteenth century, worked by chartered companies and drained by galleries still under the forest floor; and tin, as cassiterite, was dug at Abbaretz in the Loire-Atlantique until the 1950s, where the spoil heap remains the local landmark. Neither gold nor copper was ever a Breton business. The French tail is French because the periodic table reached Brittany in French. One mutation note with an exception worth having: h is outside the system entirely, so houarn is houarn in every slot the language offers, but kouevr is not — it is da gouevr after da, with k softening to g.
+locale: br
+---
+houarn
+dir
+aour
+arc'hant
+kouevr
+plom
+staen
+aluminium
+zinc
+nickel
+chrome
+manganèse
+titane
+magnésium
+tungstène
+cobalt
+molybdène
+mercure
+bronze
+laiton
+antimoine
+platine

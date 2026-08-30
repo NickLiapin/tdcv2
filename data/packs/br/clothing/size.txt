@@ -1,0 +1,12 @@
+---
+description: Clothing size on the international letter scale, used unchanged in Brittany. Worth knowing that this is not the usual French system: a French label more often carries a number, roughly 36 to 48 for women and 38 to 58 for men, and the letters are what an international brand or an online shop prints instead. Breton never developed a size vocabulary of its own, so a speaker reads these out in French.
+locale: br
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

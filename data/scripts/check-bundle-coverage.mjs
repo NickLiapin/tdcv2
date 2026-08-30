@@ -35,20 +35,19 @@ const MANIFEST = join(ROOT, 'data', 'bundles.json');
 /** English names for the locale codes we ship, for the bundle's `name`. */
 const LOCALE_NAMES = {
   af: 'Afrikaans', ar: 'Arabic', az: 'Azerbaijani', be: 'Belarusian', bg: 'Bulgarian',
-  bn: 'Bengali', bo: 'Tibetan', bs: 'Bosnian', ca: 'Catalan', cs: 'Czech', cy: 'Welsh',
-  da: 'Danish', de: 'German', dv: 'Dhivehi', el: 'Greek', en: 'English', es: 'Spanish',
+  bm: 'Bambara', bn: 'Bengali', br: 'Breton', bo: 'Tibetan', bs: 'Bosnian', ca: 'Catalan', cs: 'Czech', cy: 'Welsh',
+  cv: 'Chuvash', da: 'Danish', de: 'German', dv: 'Dhivehi', el: 'Greek', en: 'English', es: 'Spanish',
   et: 'Estonian', eu: 'Basque', fa: 'Persian', fi: 'Finnish', fil: 'Filipino',
-  fo: 'Faroese', fr: 'French', ga: 'Irish', gd: 'Scottish Gaelic', gl: 'Galician',
+  fo: 'Faroese', fy: 'Western Frisian', fr: 'French', ga: 'Irish', gd: 'Scottish Gaelic', gl: 'Galician',
   gu: 'Gujarati', he: 'Hebrew', hi: 'Hindi', hr: 'Croatian', hu: 'Hungarian',
   'hy-am': 'Armenian', id: 'Indonesian', is: 'Icelandic', it: 'Italian', ja: 'Japanese',
   jv: 'Javanese', ka: 'Georgian', kk: 'Kazakh', km: 'Khmer', kn: 'Kannada', ko: 'Korean',
   ku: 'Kurdish', ky: 'Kyrgyz', lb: 'Luxembourgish', lo: 'Lao', lt: 'Lithuanian',
   lv: 'Latvian', mi: 'Māori', mk: 'Macedonian', ml: 'Malayalam', mn: 'Mongolian',
-  mr: 'Marathi', ms: 'Malay', mt: 'Maltese', my: 'Burmese', nb: 'Norwegian Bokmål',
+  me: 'Montenegrin', mr: 'Marathi', ms: 'Malay', mt: 'Maltese', my: 'Burmese', nb: 'Norwegian Bokmål',
   ne: 'Nepali', nl: 'Dutch', nn: 'Norwegian Nynorsk', 'pa-in': 'Punjabi', pl: 'Polish',
   pt: 'Portuguese', ro: 'Romanian', ru: 'Russian', si: 'Sinhala', sk: 'Slovak',
-  bm: 'Bambara', fy: 'Western Frisian', sd: 'Sindhi', se: 'Northern Sami',
-  ss: 'Swati', tet: 'Tetum', uz: 'Uzbek (Cyrillic)', sl: 'Slovenian', sq: 'Albanian', sr: 'Serbian', sv: 'Swedish', sw: 'Swahili',
+  sl: 'Slovenian', sq: 'Albanian', sr: 'Serbian', sv: 'Swedish', sw: 'Swahili',
   ta: 'Tamil', te: 'Telugu', tg: 'Tajik', th: 'Thai', tk: 'Turkmen', tr: 'Turkish',
   'ug-cn': 'Uyghur', uk: 'Ukrainian', ur: 'Urdu', 'uz-latn': 'Uzbek (Latin)',
   vi: 'Vietnamese', yo: 'Yoruba', 'zh-cn': 'Simplified Chinese',
@@ -125,7 +124,6 @@ const declared = new Set(manifest.bundles.map((b) => b.id));
  * will then register it and this list stops mentioning it.
  */
 const WORK_IN_PROGRESS = new Map([
-  ['br', 'Breton — partial; see the handover in its commit message'],
   ['se', 'Northern Sami — 90 of 222 files; address/animal/date/food/nature/weather/work/person done'],
   ['cv', 'Chuvash — partial; work/ still needs rebalancing away from Russian'],
 ]);

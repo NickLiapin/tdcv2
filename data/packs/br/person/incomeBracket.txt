@@ -1,0 +1,12 @@
+---
+description: Annual household income band, labelled in French and denominated in euros, and the French typography is not decoration: a space groups the thousands (15 000, never 15,000), a comma marks the decimal, and the euro sign follows the number with a space in front of it — 15 000 € and not €15,000. Format these the English way and no French reader will accept the result. The bands are set on Brittany rather than translated down from a richer pack, and the region's position is genuinely unusual and worth stating. Breton median household income sits slightly BELOW the French average: there is no Paris here, no concentration of very high salaries, and the economy is agri-food, fishing, tourism, defence and a wide scatter of small firms in small towns rather than headquarters. And yet Brittany has one of the LOWEST poverty rates of any region in mainland France, several points under the national figure. A low median and a low poverty rate do not normally travel together; here they do, because the distribution is narrow at both ends — employment is high and unemployment persistently below the national rate, home ownership is widespread, and the region has neither a concentration of the very rich nor the concentrated urban poverty that pulls other regions' averages apart. The practical consequence for a config is that a Breton sample should cluster harder on the middle bands than a French national sample would: both ends of this list are thinner here than in the country as a whole.
+locale: br
+---
+Moins de 15 000 €
+15 000–22 000 €
+22 000–30 000 €
+30 000–40 000 €
+40 000–55 000 €
+55 000–75 000 €
+75 000–110 000 €
+Plus de 110 000 €

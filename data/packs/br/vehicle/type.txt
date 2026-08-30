@@ -1,0 +1,26 @@
+---
+description: Vehicle body type, French throughout, and the reason is documentary rather than cultural: the carte grise, the dealer's listing and the contrôle technique report are French forms, and a Breton speaker registering a car fills them in in French like everybody else. Breton has perfectly good words for the vehicles themselves, and they are worth knowing even though they are not the values here — karr is a cart and karr-tan a motor car, a fire-cart; marc'h-tan a motorbike, a fire-horse, formed exactly as marc'h-houarn is for a bicycle; karr-boutin, the common cart, is the bus, and karr-nij, the flying cart, the aeroplane. The pattern is productive and transparent, and it is how the language took in the twentieth century without borrowing a word for any of it. Ludospace and monospace are French categories with no real English equivalent and they are the shapes that actually fill a Breton car park, so they stay. If a config does mix the Breton words in, they mutate like any other noun: karr-tan is da garr-tan after da, your.
+locale: br
+---
+Berline
+Citadine
+Break
+Coupé
+Cabriolet
+Roadster
+SUV
+Crossover
+Monospace
+Ludospace
+Pick-up
+Fourgonnette
+Fourgon
+Camion
+Tracteur routier
+Autocar
+Autobus
+Minibus
+Moto
+Scooter
+Cyclomoteur
+Tracteur agricole
