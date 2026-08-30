@@ -1,0 +1,15 @@
+---
+description: Sizes. Pakistani labels carry the Latin letters and the spelled-out Sindhi words side by side, because a great deal of clothing is still stitched to measure by a درزي rather than bought off a rack, and فري سائيز — one size — covers the ready-made end of the market.
+locale: sd
+---
+XS
+S
+M
+L
+XL
+XXL
+XXXL
+سمال
+ميڊيم
+لارج
+فري سائيز

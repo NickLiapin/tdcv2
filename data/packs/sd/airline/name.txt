@@ -1,0 +1,54 @@
+---
+description: Airlines. The first five are Pakistan's own — پي آءِ اي the flag carrier, then the private operators — and ايئر سيال is the one to notice: it was founded by the Sialkot business community, the same Sialkot business community that funded and runs Pakistan's only privately built airport — a chamber-of-commerce shareholding model that is rare anywhere. The Gulf carriers that follow matter disproportionately here because the labour migration to the Gulf is the country's largest source of foreign exchange.
+locale: sd
+---
+پي آءِ اي
+ايئر بلو
+سرين ايئر
+ايئر سيال
+فلائي جناح
+ايئر انڊيا
+انڊيگو
+وستارا
+اسپائس جيٽ
+ايمريٽس
+قطر ايئرويز
+اتحاد ايئرويز
+فلائي دبئي
+ايئر عربيا
+سعودي ايئرلائنز
+گلف ايئر
+عمان ايئر
+ڪويت ايئرويز
+جزيره ايئرويز
+ترڪش ايئرلائنز
+قازقستان ايئر
+ازبڪستان ايئرويز
+ٿائي ايئرويز
+سنگاپور ايئرلائنز
+ملائيشيا ايئرلائنز
+ڪيٿي پيسيفڪ
+چائنا سدرن
+ايئر چائنا
+جاپان ايئرلائنز
+ڪورين ايئر
+برٽش ايئرويز
+ورجن ائٽلانٽڪ
+لفتهانزا
+ايئر فرانس
+ڪي ايل ايم
+سوئس
+آسٽرين ايئرلائنز
+ايبيريا
+آءِ ٽي اي ايئرويز
+ايروفلوٽ
+فن ايئر
+ايس اي ايس
+ٽي اي پي پرتگال
+ايٿوپين ايئرلائنز
+ڪينيا ايئرويز
+مصر ايئر
+رائل جورڊينين
+مڊل ايسٽ ايئرلائنز
+بيمان بنگلاديش
+سري لنڪن ايئرلائنز

@@ -1,0 +1,30 @@
+---
+description: Aircraft types, left in Latin script as every airline, airport board and ticket in Pakistan writes them. The ATR 42 carries more of this list's weight than it would elsewhere: PIA flies it into Gilgit and Chitral, where the runways are short and the approaches are through mountains. Skardu, despite the mountains, takes jets — its runway is nearly 12,000 feet.
+locale: sd
+---
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 747-400
+Boeing 757-200
+Boeing 767-300ER
+Boeing 777-200LR
+Boeing 777-300ER
+Boeing 787-8 Dreamliner
+Boeing 787-9 Dreamliner
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A321neo
+Airbus A330-200
+Airbus A330-300
+Airbus A350-900
+Airbus A380-800
+ATR 42-500
+ATR 72-500
+ATR 72-600
+Embraer E175
+Embraer E190
+Bombardier CRJ900
+De Havilland Dash 8-Q400
+Fokker F27 Friendship

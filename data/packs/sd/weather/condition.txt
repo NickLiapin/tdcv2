@@ -1,0 +1,25 @@
+---
+description: Sky conditions. مينهن is rain and the word carries more weight in Sindh than a translation suggests: the monsoon tracks east of the province and most of it is desert or irrigated desert, so the year's water arrives either as چوماسو rain in a few weeks or down the Indus from mountains eight hundred miles away. گهم, the oppressive humid heat of coastal Karachi, is a separate word from سخت گرمي, the dry inland kind.
+locale: sd
+---
+صاف
+اُس
+ڪڪريلو
+جزوي ڪڪريلو
+ڪڪر
+مينهن
+هلڪو مينهن
+تيز مينهن
+چوماسو
+ڦڙ ڦڙ
+گجگوڙ
+ڳڙا
+ڪوهيڙو
+دز
+آنڌي
+گهم
+سڪل
+سخت گرمي
+سخت سردي
+برفباري
+سموگ

@@ -1,0 +1,38 @@
+---
+description: Government bodies. کاتو is a department and takes ک, the aspirated letter — a good example of the contrast with ڪ, since ڪاتو is a kind of flat cake and ڪاتي a knife. تعلقو is Sindh's sub-district, where Punjab and Khyber Pakhtunkhwa say tehsil, and روينيو کاتو — the revenue department — is the one that matters most in rural life because it holds the land record every claim starts from.
+locale: sd
+---
+وزارت
+ڊويزن
+کاتو
+ادارو
+اٿارٽي
+ڪميشن
+بورڊ
+ڪائونسل
+ايجنسي
+ڊائريڪٽوريٽ
+سيڪريٽريٽ
+روينيو کاتو
+آبپاشي کاتو
+تعليم کاتو
+صحت کاتو
+زراعت کاتو
+ٻيلي کاتو
+ڊاڪ کاتو
+موسميات کاتو
+شماريات کاتو
+اطلاعات کاتو
+بلديه
+ضلعي انتظاميه
+تعلقي آفيس
+يونين ڪائونسل
+پوليس
+انسداد بدعنواني کاتو
+ڪسٽمز
+ايڪسائيز
+ٽيڪس بورڊ
+اليڪشن ڪميشن
+عدالت
+رجسٽرار آفيس
+آڊيٽر جنرل

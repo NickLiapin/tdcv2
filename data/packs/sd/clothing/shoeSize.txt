@@ -1,0 +1,17 @@
+---
+description: Shoe sizes. Pakistan sells shoes on the UK scale, so a size 8 here is a UK 8 and not the EU 42 that a European list would carry — the same number means a different foot.
+locale: sd
+---
+4
+5
+6
+6.5
+7
+7.5
+8
+8.5
+9
+9.5
+10
+11
+12

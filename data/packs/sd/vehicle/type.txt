@@ -1,0 +1,32 @@
+---
+description: Vehicles. Four of these are specific to Pakistan and three of those to the way people actually move: چنگچي is a motorcycle-rickshaw, a Chinese import name that became the generic word for the thing; سوزوڪي is used loosely of small pickups and vans generally, because the company's Bolan and Ravi held the segment for so long that the brand became the category; and ٽانگو, گڏهه گاڏي and ڏاند گاڏي — the horse tonga, the donkey cart and the bullock cart — are still working transport in rural Sindh rather than heritage — the donkey cart most of all, hauling from the wholesale bazaars, while the tonga has retreated to the old city quarters.
+locale: sd
+---
+ڪار
+موٽر سائيڪل
+رڪشو
+چنگچي
+سوزوڪي
+پڪ اپ
+ڊبل ڪيبن
+جيپ
+ويگن
+ميني بس
+بس
+ڪوچ
+ٽرڪ
+ٽرالر
+ٽينڪر
+ڊمپر
+ٽريڪٽر
+ٽرالي
+ڪرين
+لوڊر
+ايمبولينس
+فائر بريگيڊ
+ٽانگو
+گڏهه گاڏي
+ڏاند گاڏي
+ٺيلهو
+سائيڪل
+اسڪوٽر

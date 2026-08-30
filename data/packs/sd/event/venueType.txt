@@ -1,0 +1,28 @@
+---
+description: Where an event is held. درگاهه, the shrine, is a venue in the full sense here — weddings, vows, music, political gatherings and funerals all happen in its courtyard, and in much of rural Sindh it is the only public building of any size. اوطاق, absent from an Urdu list, is the men's guesthouse a landowning family keeps for receiving visitors and settling disputes.
+locale: sd
+---
+شادي هال
+شاميانو
+هوٽل
+بينڪوئٽ هال
+آڊيٽوريم
+ڪانفرنس روم
+ڪميونٽي سينٽر
+اوطاق
+ريسٽورنٽ
+فارم هائوس
+لان
+باغ
+ڇت
+اسٽيڊيم
+راند جو ميدان
+مسجد
+امام بارگاهه
+درگاهه
+ٿيٽر
+سئنيما
+نمائش گاهه
+يونيورسٽي ڪيمپس
+اسڪول هال
+گهر

@@ -1,0 +1,17 @@
+---
+description: Kinds of post. Eight are English loans written phonetically, because the platforms arrived in English and the vocabulary came with them; تصوير, خبر, اشتهار, لکڻي and تبصرو were already Sindhi — the last two natively, the first three as Arabic loans naturalised for centuries.
+locale: sd
+---
+تصوير
+وڊيو
+ريل
+شارٽ
+لائيو
+اسٽوري
+لکڻي
+ٿريڊ
+پول
+ميم
+خبر
+اشتهار
+تبصرو

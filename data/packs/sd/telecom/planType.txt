@@ -1,0 +1,18 @@
+---
+description: Plan types. Pakistani mobile is overwhelmingly پري پيڊ — prepaid — and sold as short bundles rather than monthly contracts, so روزاني بنڊل, the daily bundle, is a real and heavily used product with no counterpart in a European tariff list.
+locale: sd
+---
+پري پيڊ
+پوسٽ پيڊ
+روزاني بنڊل
+هفتيوار بنڊل
+ماهوار بنڊل
+ڪال پيڪيج
+ايس ايم ايس پيڪيج
+انٽرنيٽ پيڪيج
+سوشل پيڪيج
+اڻ ڳڻيو
+فيملي پيڪيج
+رومنگ
+ڊيٽا سم
+بزنس پيڪيج

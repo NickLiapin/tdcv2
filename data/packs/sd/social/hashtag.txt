@@ -1,0 +1,34 @@
+---
+description: Hashtags in the Sindhi register. #ڀٽائي is Shah Abdul Latif Bhittai and trends every year at his عرس; #اجرڪ trends on Sindhi Culture Day in December, when the whole province wears it; and #ڪافي is the Sufi song form rather than the drink. Note the underscore convention — Sindhi is written right to left but a hashtag joins its words with an underscore exactly as English does, because the platforms' tokenisers stop at a space.
+locale: sd
+---
+#سنڌ
+#سنڌي
+#سنڌي_ادب
+#شاعري
+#ڀٽائي
+#اجرڪ
+#ڪافي
+#ڪرڪٽ
+#هاڪي
+#تعليم
+#صحت
+#معيشت
+#ڪاروبار
+#ٽيڪنالاجي
+#سفر
+#کاڌو
+#رڌ_پچاءُ
+#فيشن
+#خريداري
+#فوٽوگرافي
+#فلم
+#ڊرامو
+#موسيقي
+#ڪتاب
+#خبرون
+#موسم
+#رمضان
+#عيد
+#محرم
+#نوجوان

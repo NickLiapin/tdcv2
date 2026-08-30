@@ -1,0 +1,16 @@
+---
+description: Meetings. بيٺڪ is a Sindhi word meaning a sitting, and it covers the informal gathering where اجلاس is the formal session — the two are not interchangeable in a minute book.
+locale: sd
+---
+روزاني بيٺڪ
+انفرادي ملاقات
+عام اجلاس
+جائزو اجلاس
+رٿابندي اجلاس
+شروعاتي اجلاس
+پيش رفت اجلاس
+تربيتي بيٺڪ
+مشاورتي اجلاس
+بورڊ اجلاس
+ايمرجنسي اجلاس
+بريفنگ

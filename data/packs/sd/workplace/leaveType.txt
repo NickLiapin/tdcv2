@@ -1,0 +1,18 @@
+---
+description: Leave types. موڪل is the Sindhi word for leave, where Urdu says چھٹی. Three entries have no Western counterpart: حج جي موڪل and عمري جي موڪل for the pilgrimages, which large employers grant once in a career, and عدت جي موڪل — the waiting period a widowed or divorced woman observes, which employers accommodate in practice rather than by statute.
+locale: sd
+---
+سالياني موڪل
+اتفاقي موڪل
+بيماري جي موڪل
+طبي موڪل
+زچگي جي موڪل
+پيءُ جي موڪل
+حج جي موڪل
+عمري جي موڪل
+سوڳ جي موڪل
+عدت جي موڪل
+شادي جي موڪل
+بنا پگهار جي موڪل
+تعليمي موڪل
+ايمرجنسي موڪل

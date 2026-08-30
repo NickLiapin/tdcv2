@@ -1,0 +1,34 @@
+---
+description: Selling points in a Pakistani listing, and the first eight are all about supply rather than luxury: بورنگ is a private borehole because the mains water is intermittent, and جنريٽر, يو پي ايس and سولر سسٽم are three tiers of answer to load-shedding — the scheduled power cuts that run for hours a day. Listings advertise them in free text because a buyer needs to know which tier the house has.
+locale: sd
+---
+بجلي
+گئس
+پاڻي
+بورنگ
+واٽر ٽينڪ
+جنريٽر
+يو پي ايس
+سولر سسٽم
+ايئر ڪنڊيشنر
+لفٽ
+پارڪنگ
+چوڪيدار
+ڀت
+لان
+اڱڻ
+ڇت
+ٺهيل الماريون
+ڪچن ڪيبنٽ
+ماربل فرش
+ٽائل فرش
+نيڪال
+انٽرنيٽ
+نوڪر ڪوارٽر
+مسجد ويجهو
+اسڪول ويجهو
+بازار ويجهو
+اسپتال ويجهو
+پارڪ ويجهو
+مکيه رستي تي
+گيٽيڊ ڪميونٽي

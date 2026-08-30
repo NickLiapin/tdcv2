@@ -1,0 +1,26 @@
+---
+description: Documents. شناختي ڪارڊ is the CNIC, the computerised national identity card, and it is the master key to Pakistani civic life: no SIM card, bank account, passport, vote or property transfer without it. ڊوميسائل certifies domicile of Pakistan, and in Sindh it is the Permanent Residence Certificate beside it that actually grounds a claim on the provincial quota in university admission and government jobs — which is why both are documents people fight over. فرد ملڪيت is the extract from the revenue record, which the Sindh High Court has held is evidence of possession rather than proof of title.
+locale: sd
+---
+شناختي ڪارڊ
+پاسپورٽ
+ڊرائيونگ لائسنس
+ڄم جو سرٽيفڪيٽ
+وفات جو سرٽيفڪيٽ
+نڪاح نامو
+طلاق نامو
+ڊوميسائل
+ڪردار جو سرٽيفڪيٽ
+فرد ملڪيت
+رجسٽري
+اسٽامپ پيپر
+حلف نامو
+ووٽر لسٽ ۾ اندراج
+راشن ڪارڊ
+تعليمي سند
+ڊگري
+لائسنس
+اجازت نامو
+اين او سي
+ٽيڪس گوشوارو
+ويزا

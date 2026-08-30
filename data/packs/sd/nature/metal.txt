@@ -1,0 +1,26 @@
+---
+description: Metals. ٽامو is copper and پتل brass — the two that a Sindhi kitchen and a shrine are made of, and the trade that gives Thatta and Hyderabad their metalworking bazaars.
+locale: sd
+---
+سون
+چاندي
+ٽامو
+پتل
+ڪانسي
+لوهه
+فولاد
+شيهو
+جست
+ٽين
+ايلومينيم
+نڪل
+ڪروم
+ٽائيٽينيم
+پلاٽينم
+پارو
+ٽنگسٽن
+ڪوبالٽ
+مينگنيز
+ميگنيشيم
+يورينيم
+ليٿيم

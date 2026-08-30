@@ -1,0 +1,21 @@
+---
+description: Courts. Pakistan runs two parallel systems and both are here: the ordinary ladder from ضلعي عدالت up to عدالت عظميٰ, and beside it the وفاقي شرعي عدالت, the Federal Shariat Court, which can declare a law repugnant to Islamic injunctions and name the date it ceases to have effect — the Constitution, Muslim personal law and court procedure lie outside its reach, and its rulings go on appeal to the Supreme Court's Shariat Appellate Bench. It has no counterpart in a common-law list. احتساب عدالت is the accountability court for corruption cases.
+locale: sd
+---
+عدالت عظميٰ
+عدالت عاليه
+ضلعي عدالت
+سيشن عدالت
+مئجسٽريٽ عدالت
+ديواني عدالت
+فوجداري عدالت
+خانداني عدالت
+بينڪنگ عدالت
+انسداد دهشتگردي عدالت
+احتساب عدالت
+محنت جي عدالت
+ٽيڪس ٽربيونل
+صارف عدالت
+وفاقي شرعي عدالت
+دارالقضا
+ثالثي عدالت

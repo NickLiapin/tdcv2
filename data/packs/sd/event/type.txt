@@ -1,0 +1,35 @@
+---
+description: Occasions. ڄڃ is the wedding procession that brings the groom's party to the bride's village — Urdu says بارات — and it opens with ڄ, one of Sindhi's four implosive consonants — ٻ ڏ ڄ ڳ — which Urdu and Punjabi lack, though neighbouring Saraiki has the same four. عرس is the death anniversary of a saint, kept as a festival at the shrine: Shah Abdul Latif's at Bhit Shah and Lal Shahbaz Qalandar's at Sehwan draw hundreds of thousands over several days and are the largest gatherings in the province's year. چاليهو is the fortieth day after a death.
+locale: sd
+---
+شادي
+مڱڻو
+ميندي
+ڄڃ
+وليمو
+عقيقو
+سالگرهه
+ختم قرآن
+محفل نعت
+مجلس
+ٽيجهو
+چاليهو
+عرس
+ميلاد
+افطار پارٽي
+عيد ملن
+ڪانفرنس
+سيمينار
+ورڪشاپ
+تربيتي نشست
+مشاعرو
+مباحثو
+نمائش
+ميلو
+ڪنسرٽ
+انعامي تقريب
+افتتاح
+جلسو
+ريلي
+فنڊ ريزنگ
+راندين جو مقابلو

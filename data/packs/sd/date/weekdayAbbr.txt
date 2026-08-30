@@ -1,0 +1,11 @@
+---
+description: Short weekday forms, repeating the full column. CLDR does the same for Sindhi, aliasing the abbreviated width back to the full names; the clipped forms it does define — سو، اڱ، خم، جم، ڇن — belong to the narrow width instead, which is the one-or-two-letter slot a calendar grid needs.
+locale: sd
+---
+آچر
+سومر
+اڱارو
+اربع
+خميس
+جمعو
+ڇنڇر

@@ -1,0 +1,34 @@
+---
+description: Terms of procedure. Four near the end come from Islamic family law and are used in a Pakistani court exactly as written: مهر, the dower a husband owes his wife and which is stated in the marriage contract; نان نفقو, maintenance; عدت, the waiting period after divorce or widowhood; and وصيت, the bequest, which under Islamic inheritance rules may cover only a third of an estate because the rest is already assigned.
+locale: sd
+---
+مدعي
+مدعا عليه
+وڪيل
+شاهد
+شاهدي
+قسم
+حلف نامو
+ثبوت
+فرد جرم
+چالان
+ضمانت
+ريمانڊ
+فيصلو
+ڊڪري
+اپيل
+نظرثاني
+حڪم امتناعي
+سمن
+وارنٽ
+قبضو
+وراثت
+وصيت
+عدت
+مهر
+نان نفقو
+ازالو
+هرجاڻو
+معاهدو
+دفعو
+قانون سازي

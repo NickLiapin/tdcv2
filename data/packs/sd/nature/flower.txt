@@ -1,0 +1,32 @@
+---
+description: Flowers. موتيو and رات جي راڻي — jasmine and the night-blooming cestrum — are what scent a Sindhi courtyard after dark, and هار, garlands of strung موتيو, are sold at every shrine. The second half of the list are the imported garden flowers, written phonetically.
+locale: sd
+---
+گلاب
+چنبيلي
+موتيو
+رات جي راڻي
+گيندو
+نرگس
+سوسن
+سنبل
+گل دائودي
+سورج مکي
+ڪنول
+نيلوفر
+ڪچنار
+گڙهل
+هار سينگار
+چمپا
+ڪيتڪي
+بوگن ويليا
+گل خيرو
+موگرو
+ٽيولپ
+ڊيفوڊل
+للي
+آرڪڊ
+ڪارنيشن
+ڊيزي
+پينزي
+پٽونيا

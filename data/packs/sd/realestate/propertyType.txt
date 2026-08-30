@@ -1,0 +1,24 @@
+---
+description: Property types. پورشن is a Pakistani word in English dress: a house divided horizontally and let by floor, so مٿيون پورشن and هيٺيون پورشن are separate tenancies in one building and are advertised as separate properties. حويلي is the old courtyard mansion of a prosperous family, and ڪوٺي covers a dwelling and a lock-up commercial premises alike — it is بنگلو, not ڪوٺي, that the dictionary defines as the airy house with verandahs on every side.
+locale: sd
+---
+گهر
+فليٽ
+اپارٽمينٽ
+پورشن
+مٿيون پورشن
+هيٺيون پورشن
+ڪوٺي
+بنگلو
+حويلي
+پينٽ هائوس
+فارم هائوس
+رهائشي پلاٽ
+واپاري پلاٽ
+زرعي زمين
+دڪان
+آفيس
+گودام
+ڪارخانو
+عمارت
+هاسٽل

@@ -1,0 +1,15 @@
+---
+description: Reactions. The last two are not emotions and that is what makes them interesting: ماشاءالله is said to ward off the evil eye when admiring something, and سبحان الله in wonder at it. Both are everyday reactions on a Pakistani post and neither maps onto a platform's built-in set.
+locale: sd
+---
+پسند
+محبت
+واهه
+کل
+حيرت
+افسوس
+ڪاوڙ
+دعا
+مهرباني
+ماشاءالله
+سبحان الله

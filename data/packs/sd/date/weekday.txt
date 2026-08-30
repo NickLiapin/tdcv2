@@ -1,0 +1,11 @@
+---
+description: Weekday names, and unlike the months these are not borrowed — they are inherited Indo-Aryan words where Urdu's are Persian and Arabic. اڱارو for Tuesday, ڇنڇر for Saturday and آچر for Sunday descend from Sanskrit اَنگارَڪ, شَنِهه and آدتيه وار, and are shared with neighbouring Saraiki rather than with Urdu, which says منگل, ہفتہ and اتوار for the same three days. The week begins on Sunday, and جمعو, Friday, carries the congregational prayer that shortens the working day.
+locale: sd
+---
+آچر
+سومر
+اڱارو
+اربع
+خميس
+جمعو
+ڇنڇر

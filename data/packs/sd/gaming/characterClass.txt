@@ -1,0 +1,28 @@
+---
+description: Character classes. The first half are Sindhi and Perso-Arabic words a fantasy game would reach for — شڪاري the hunter, ساحر the sorcerer — and the second half are the English class names that arrived with the games themselves and are written phonetically, which is what Pakistani players actually say.
+locale: sd
+---
+سورمو
+سپاهي
+تيرانداز
+جادوگر
+ساحر
+عامل
+شفا ڏيندڙ
+راهب
+چور
+قاتل
+شڪاري
+محافظ
+بهادر
+سردار
+نائيٽ
+پيلاڊن
+ڊروڊ
+بارڊ
+رينجر
+ورلاڪ
+نيڪرومينسر
+برسرڪر
+مونڪ
+سمنر

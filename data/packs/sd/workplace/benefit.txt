@@ -1,0 +1,24 @@
+---
+description: Employee benefits. گريجويٽي is the statutory one — thirty days' wages for every completed year — and پراويڊنٽ فنڊ is a voluntary company scheme beside it; both are lump sums paid on leaving rather than a pension stream. عيدي — the bonus paid before Eid — is expected rather than discretionary, and حج جي سهولت, an employer paying for the pilgrimage, is a real benefit offered by large Pakistani firms and appears on no Western list.
+locale: sd
+---
+طبي سهولت
+گروپ انشورنس
+پراويڊنٽ فنڊ
+گريجويٽي
+پينشن
+سالياني بونس
+عيدي
+سالياني واڌ
+اوور ٽائيم
+رهائش
+گاڏي
+پيٽرول الائونس
+موبائل الائونس
+ماني جي سهولت
+ٽرانسپورٽ
+ٻارن جي تعليمي مدد
+حج جي سهولت
+لچڪدار اوقات
+گهر کان ڪم
+تربيتي ڪورس

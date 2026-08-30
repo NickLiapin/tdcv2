@@ -1,0 +1,12 @@
+---
+description: Book formats. درسي ايڊيشن — the textbook edition — is a category of its own in Pakistan because the provincial textbook boards are the largest publishers in the country by volume, and a Sindhi book's first print run is more likely to be a school text than a trade edition.
+locale: sd
+---
+مجلد
+سادو جلد
+ڪاغذي جلد
+ڪتابچو
+اي بڪ
+آڊيو بڪ
+تصويري ايڊيشن
+درسي ايڊيشن

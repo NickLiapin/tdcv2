@@ -1,0 +1,15 @@
+---
+description: Gaming platforms, left in Latin script because that is how they are written everywhere in Pakistan — on a shop sign, in an advert, in a chat message. Mobile leads by an enormous margin: consoles carry heavy import duty and a PlayStation costs several months of a median wage, so the phone is the games market.
+locale: sd
+---
+Mobile
+Android
+iOS
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox Series S
+Xbox One
+Nintendo Switch
+Steam Deck

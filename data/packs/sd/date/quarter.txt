@@ -1,0 +1,8 @@
+---
+description: Fiscal quarters. Pakistan's financial year runs from 1 July to 30 June, so the first quarter of a company's year is July to September and a Pakistani annual report never lines up with a calendar one — a real trap for any dataset that assumes the two agree.
+locale: sd
+---
+پهرين ٽماهي
+ٻي ٽماهي
+ٽين ٽماهي
+چوٿين ٽماهي

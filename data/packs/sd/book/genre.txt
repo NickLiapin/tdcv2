@@ -1,0 +1,36 @@
+---
+description: Genres as a Sindhi bookshop shelves them. بيت is the Sindhi verse form the Risalo is built from, and the dictionary calls it a صنف, a genre, rather than merely a metre. It is not the couplet its Arabic namesake is: the Sindhi bait runs to more than two lines. سفرنامو, the travel account, and آتم ڪهاڻي, the autobiography, are both taken more seriously in South Asian publishing than their Western equivalents, with their own critical tradition.
+locale: sd
+---
+ناول
+ڪهاڻي
+مختصر ڪهاڻي
+داستان
+شاعري
+بيت
+غزل
+نظم
+مرثيو
+مثنوي
+رباعي
+سوانح عمري
+آتم ڪهاڻي
+سفرنامو
+خط
+تاريخ
+فلسفو
+تصوف
+مذهب
+تفسير
+سيرت
+سياست
+جاسوسي ناول
+رومانوي ناول
+سائنس فڪشن
+فينٽسي
+هارر
+طنز ۽ مزاح
+تنقيد
+ٻارن جو ادب
+درسي ڪتاب
+لغت

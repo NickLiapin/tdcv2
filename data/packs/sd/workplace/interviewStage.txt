@@ -1,0 +1,16 @@
+---
+description: Stages of hiring. تحريري امتحان — the written test — sits early and matters more here than in most countries: public-sector recruitment in Pakistan runs through commission examinations with published marks, so the test is the gate rather than the interview.
+locale: sd
+---
+درخواست جو جائزو
+تحريري امتحان
+ٽيليفون انٽرويو
+فني انٽرويو
+آمهون سامهون انٽرويو
+پينل انٽرويو
+حتمي انٽرويو
+حوالن جي تصديق
+طبي معائنو
+آڇ
+رد
+ڀرتي

@@ -1,0 +1,22 @@
+---
+description: Rooms. اوطاق is the one to know — the separate men's room or guest house where a Sindhi household receives visitors, holds gatherings and settles disputes, kept apart from the family quarters. زنانخانو is its counterpart. اڱڻ, the courtyard, is a room in the sense that matters: much of domestic life happens in it.
+locale: sd
+---
+ڪمرو
+بيڊ روم
+ماسٽر بيڊ روم
+ڊرائنگ روم
+بيٺڪ
+زنانخانو
+اوطاق
+ٽي وي لائونج
+ماني جو ڪمرو
+رڌڻو
+غسل خانو
+اٽيچڊ باٿ
+ورانڊو
+اڱڻ
+ڇت
+اسٽور
+گئراج
+نوڪر ڪوارٽر

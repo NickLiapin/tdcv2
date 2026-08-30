@@ -1,0 +1,24 @@
+---
+description: Weather events, and ٻوڏ — flood — leads for good reason. The 2022 floods made Sindh the worst-hit province — twenty-four districts declared calamity-hit, some fourteen million people affected; the 2010 floods did much the same. لُو is the dry killing wind of May and June, a named phenomenon with its own public health warnings, and ڏڪار is famine, which Tharparkar has met repeatedly within living memory.
+locale: sd
+---
+ٻوڏ
+چاڙهه
+چوماسو
+لُو
+گرمي جي لهر
+سردي جي لهر
+خشڪ سالي
+ڏڪار
+آنڌي
+ڌوڙ جو طوفان
+طوفان
+سامونڊي طوفان
+واچوڙو
+ڳڙا
+برفاني تودو
+گليشيئر ڍنڍ جو ڦاٽڻ
+لينڊ سلائيڊنگ
+سموگ
+زلزلو
+سونامي

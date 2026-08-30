@@ -1,0 +1,36 @@
+---
+description: Common adverbs. Several are formed with سان, the instrumental postposition — خوشيءَ سان, literally with happiness — which is how Sindhi builds a manner adverb where English adds -ly. The ءَ before it is the hamza carrying an inflected vowel, and it is written.
+locale: sd
+---
+جلدي
+آهستي
+فوري
+هاڻي
+پوءِ
+اڪثر
+ڪڏهن
+هميشه
+ڪڏهن به نه
+شايد
+ضرور
+واقعي
+بلڪل
+تقريباً
+مشڪل سان
+گهڻو
+گهٽ
+وڌيڪ
+ٿورو
+خاص طور
+عام طور
+آخرڪار
+پهرين
+بعد ۾
+گڏوگڏ
+الڳ الڳ
+باقاعدگي سان
+اوچتو
+ٿورو ٿورو ڪري
+خوشيءَ سان
+بدقسمتيءَ سان
+خاموشيءَ سان

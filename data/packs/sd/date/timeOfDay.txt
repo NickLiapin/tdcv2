@@ -1,0 +1,20 @@
+---
+description: Parts of the day. The second half of this list is the five daily prayers — فجر, ظهر, عصر, مغرب, عشاء — which in Pakistan are how people actually fix a time of day: an appointment is set for after عصر far more often than for five o'clock. سحري and افطار bracket the fasting day in Ramadan and move with the calendar rather than the clock.
+locale: sd
+---
+صبح
+سويرو
+منجهند
+ٽيپهري
+شام
+رات
+اڌ رات
+سج اڀرڻ
+سج لهڻ
+فجر
+ظهر
+عصر
+مغرب
+عشاء
+سحري
+افطار

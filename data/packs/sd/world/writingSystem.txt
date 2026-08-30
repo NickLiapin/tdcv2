@@ -1,0 +1,33 @@
+---
+description: Writing systems, and the first two entries carry the fact that shapes this whole pack. Urdu is set in نستعليق, the sloping Persian hand; Sindhi is set in نسخ, the upright one, and the fonts built for it are Naskh — Nastaliq's own list of languages does not include Sindhi. The alphabet the British standardised for Sindhi in 1852 runs to 52 letters, the most of any Arabic-derived script, and they are told apart by dots — one, two or three above or below, and four on ٿ, ڙ, ڦ and ڀ. Nastaliq's sloping, context-dependent forms need so many sorts that Urdu was lithographed rather than set in movable type for a century; the upright hand could be cast. Two languages of the same country and the same script family, typeset in different hands.
+locale: sd
+---
+نسخ
+نستعليق
+عربي
+فارسي
+شاهه مکي
+گرمکي
+ديوناگري
+بنگالي
+گجراتي
+تامل
+تيلگو
+ڪنڙ
+مليالم
+اڙيا
+سنهالي
+تبتي
+لاطيني
+سيريلي
+يوناني
+عبراني
+چيني
+هيراگانا
+ڪاتاڪانا
+هنگول
+ٿائي
+برمي
+خمير
+جارجيائي
+آرمينيائي

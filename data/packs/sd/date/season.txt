@@ -1,0 +1,9 @@
+---
+description: Seasons. Sindhi names four — بهار، اونهارو، سرءُ and سيارو — and برسات, the rains, is carried here as a fifth because in Sindh they decide the year; the four-month monsoon has a Sindhi name of its own, چوماسو. In lower Sindh the hot season is the long one and winter barely arrives; Jacobabad in the north regularly reaches 50°C and is among the hottest inhabited places on earth.
+locale: sd
+---
+بهار
+اونهارو
+برسات
+سرءُ
+سيارو

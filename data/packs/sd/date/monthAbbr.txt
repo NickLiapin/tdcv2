@@ -1,0 +1,16 @@
+---
+description: Short month forms. Sindhi has no abbreviation habit of its own to copy — CLDR aliases the abbreviated width straight back to the full names and the Sindhi press prints months out in full — so these are clippings cut for a narrow column. آڪٽ and ڊس keep the letters that mark the script as Sindhi rather than Urdu.
+locale: sd
+---
+جن
+فيب
+مار
+اپر
+مئي
+جون
+جول
+آگ
+سيپ
+آڪٽ
+نوم
+ڊس

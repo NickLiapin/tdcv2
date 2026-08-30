@@ -1,0 +1,34 @@
+---
+description: Instruments. The first six are Sindh's own. يڪتارو is the single-string drone a wandering faqir carries; دنبورو is the five-string lute of Shah Latif's shrine, said to have been designed by him — the Latif Award is a model of it in gold; سرندو is the bowed folk fiddle; نڙ is a long reed flute played with circular breathing; and بورينڊو is a clay ocarina, three or four finger holes in a fired sphere, a village and children's instrument whose shape answers to clay figures from Mohenjo-daro — the same thing, in the same place, across some five thousand years. The shepherd's instrument is the الغوزو, the paired flute at the end of the Sindhi block.
+locale: sd
+---
+يڪتارو
+دنبورو
+سرندو
+نڙ
+بورينڊو
+چپڙي
+ڍولڪ
+دهل
+نغارو
+دف
+جهانجهه
+ستار
+سرود
+سارنگي
+رباب
+تنبورو
+ڪماچ
+پڪواز
+بين
+بانسري
+الغوزو
+شهنائي
+هارمونيم
+گٽار
+پيانو
+وائلن
+ڊرم سيٽ
+سيڪسو فون
+ٽرمپيٽ
+ڪلارينيٽ

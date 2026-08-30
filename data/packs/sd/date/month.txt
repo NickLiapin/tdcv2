@@ -1,0 +1,16 @@
+---
+description: Month names. Sindhi takes the Gregorian months as loans, as Urdu does, but spells them in its own orthography and the difference is visible in half of them: آڪٽوبر carries ڪ and ٽ where Urdu writes اکتوبر, ڊسمبر opens with ڊ against Urdu's دسمبر, and آگسٽ ends in ٽ. The Islamic lunar months run alongside these for religious dates and are a separate calendar, not a translation of this one.
+locale: sd
+---
+جنوري
+فيبروري
+مارچ
+اپريل
+مئي
+جون
+جولاءِ
+آگسٽ
+سيپٽمبر
+آڪٽوبر
+نومبر
+ڊسمبر

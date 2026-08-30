@@ -1,0 +1,29 @@
+---
+description: Gemstones. عقيق, the carnelian, carries particular weight here — it is the stone of a ring worn for religious reasons rather than ornament, and فيروزو, the Nishapur turquoise, the same. Both are sold by weight at every shrine bazaar in Sindh.
+locale: sd
+---
+ياقوت
+زمرد
+نيلم
+هيرو
+موتي
+فيروزو
+عقيق
+لعل
+مرجان
+پکراج
+دُر نجف
+لاجورد
+زبرجد
+يشب
+ڪهربا
+سنگ سليماني
+اوپل
+ٽوپاز
+جيڊ
+گارنيٽ
+ايميٿسٽ
+چندر ڪانت
+ٽائيگر آءِ
+بلور
+سنگ مرمر

@@ -1,0 +1,53 @@
+{
+  "months": [
+    "جنوري",
+    "فيبروري",
+    "مارچ",
+    "اپريل",
+    "مئي",
+    "جون",
+    "جولاءِ",
+    "آگسٽ",
+    "سيپٽمبر",
+    "آڪٽوبر",
+    "نومبر",
+    "ڊسمبر"
+  ],
+  "monthsInDate": [
+    "جنوري",
+    "فيبروري",
+    "مارچ",
+    "اپريل",
+    "مئي",
+    "جون",
+    "جولاءِ",
+    "آگسٽ",
+    "سيپٽمبر",
+    "آڪٽوبر",
+    "نومبر",
+    "ڊسمبر"
+  ],
+  "monthsShort": [
+    "جن",
+    "فيب",
+    "مار",
+    "اپر",
+    "مئي",
+    "جون",
+    "جول",
+    "آگ",
+    "سيپ",
+    "آڪٽ",
+    "نوم",
+    "ڊس"
+  ],
+  "weekdays": ["آچر", "سومر", "اڱارو", "اربع", "خميس", "جمعو", "ڇنڇر"],
+  "weekdaysShort": ["آچر", "سومر", "اڱارو", "اربع", "خميس", "جمعو", "ڇنڇر"],
+  "formats": {
+    "L": "DD/MM/YYYY",
+    "LL": "D MMMM YYYY",
+    "LLL": "D MMMM YYYY HH:mm",
+    "LLLL": "dddd، D MMMM YYYY HH:mm"
+  },
+  "notes": "Sindhi is right-to-left and takes the Gregorian months as loans spelled in its own orthography, but its weekday names are inherited Indo-Aryan ones, descended from Sanskrit where Urdu's are Persian and Arabic, and shared with neighbouring Saraiki. Dates are day-first, as everywhere in South Asia. The comma in the long form is the Arabic comma ، not the Latin one."
+}

@@ -1,0 +1,35 @@
+---
+description: Trees. The first four carry the Indus plain: بڙ the banyan and پپر the peepal, both of which shade a village square and are left standing when everything round them is cleared; نم the neem, planted for shade and used as medicine and toothbrush; and انب the mango, of which Sindh grows Sindhri and Chaunsa for export — Langra is a Punjab variety. ڪنڊو and ٻٻر are the thorn trees of the Thar desert, and کجور the date palm — Khairpur district grows around seventy per cent of Pakistan's dates.
+locale: sd
+---
+بڙ
+پپر
+نم
+انب
+ٽالهي
+ڪنڊو
+ٻٻر
+سرو
+چنار
+ديودار
+صنوبر
+چير
+چلغوزو
+ٻير
+بيد مشڪ
+املتاس
+گل مور
+ڄمون
+تُوت
+ڏاڙهون
+انجير
+کجور
+ناريل
+بانس
+لئي
+ڪنبي
+ڪچنار
+ارجن
+بادام
+اخروٽ
+زيتون

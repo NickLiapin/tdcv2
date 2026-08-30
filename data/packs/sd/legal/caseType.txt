@@ -1,0 +1,30 @@
+---
+description: Case types. The last two are not courts at all and that is the point: فيصلو is the ordinary word for a decision or verdict and also names the Sindhi tribal settlement, convened by elders and binding by custom rather than statute — Sindh says faislo where Balochistan and Khyber Pakhtunkhwa say jirga — and پنچائت is its village council counterpart. A very large share of disputes in rural Sindh is settled through them and never reaches a courtroom, so a dataset of Pakistani legal matters that omits them describes only the part the state can see.
+locale: sd
+---
+ديواني ڪيس
+فوجداري ڪيس
+خانداني ڪيس
+طلاق
+خلع
+نان نفقو
+حضانت
+وراثت
+ملڪيت جو تڪرار
+قبضو
+ڪرائيداري
+معاهدي جي ڀڃڪڙي
+هتڪ عزت
+چوري
+ڌاڙو
+قتل
+فراڊ
+بدعنواني
+ٽيڪس جو تڪرار
+مزدوري جو تڪرار
+صارف جي شڪايت
+آئيني درخواست
+ضمانت جي درخواست
+اپيل
+فيصلو
+پنچائت

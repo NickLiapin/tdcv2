@@ -1,0 +1,39 @@
+---
+description: Musical genres, and وائي, سُر and ڳجهارت belong to Sindhi and to no other language — ڪافي is shared with Punjabi and Saraiki, and ڀڳت is pan-Indic outside its Sindhi sense of a folk dance-drama. ڪافي and وائي are the two forms Shah Abdul Latif Bhittai wrote in, and سُر is a chapter of his Shah jo Risalo — thirty of them, each named for a mode and a story, and still sung nightly at his shrine at Bhit Shah by singers who hold the post by inheritance. ڳجهارت is the Sindhi riddle-song, a competitive form in which the answer is hidden in the verse. لاڏو and سهرو are both the groom's wedding songs and the dictionary lists each under the other — لاڏو the one women sing dancing in a ring, سهرو the one sung as the garland is tied.
+locale: sd
+---
+ڪافي
+وائي
+سُر
+ڀڳت
+ڳجهارت
+لاڏو
+سهرو
+مولود
+مداح
+قوالي
+غزل
+نعت
+حمد
+منقبت
+نوحو
+مرثيو
+صوفياڻو ڪلام
+قومي نغمو
+لوڪ موسيقي
+ڪلاسيڪي موسيقي
+نيم ڪلاسيڪي
+خيال
+ٺمري
+ڌرپد
+سلوڪ
+دوهو
+ڪبت
+لولي
+گيت
+فلمي موسيقي
+پاپ
+راڪ
+هپ هاپ
+جاز
+اوپيرا

@@ -1,0 +1,30 @@
+---
+description: Mobile and fixed-line operators. The first five are Pakistan's own — جاز, زونگ, يوفون and ٽيلينار hold the mobile market and پي ٽي سي ايل the landlines — and ايس سي او is the state operator that serves Gilgit-Baltistan and Azad Kashmir, where the commercial networks do not go. The rest are the regional carriers a Pakistani number roams onto.
+locale: sd
+---
+جاز
+زونگ
+يوفون
+ٽيلينار
+وارد
+ايس سي او
+پي ٽي سي ايل
+ورلڊ ڪال
+نيا ٽيل
+ٽرانس ورلڊ
+ويٽيل
+جيو
+ايئرٽيل
+وي آئي
+بي ايس اين ايل
+ايم ٽي اين ايل
+ايس ٽي سي
+زين
+اتصالات
+اوريدو
+موبائلي
+دو
+عمانٽيل
+ٽرڪسل
+گرامين فون
+روبي

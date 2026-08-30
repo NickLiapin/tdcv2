@@ -1,0 +1,25 @@
+---
+description: Religions. Sindh holds the largest Hindu population of any Pakistani province — several million people, concentrated in Tharparkar and Umerkot — so هندو ڌرم is not a foreign entry on this list. The Muslim majority is overwhelmingly Sufi in practice, organised around shrines rather than seminaries, which is why the province's religious calendar is a calendar of عرس festivals. Note that Sindhi carries three words for a religion — Sanskrit-derived ڌرم and مت beside Arabic-derived مذهب — and uses them across the board rather than splitting them by origin: the dictionary glosses ڌرم as مذهب outright and writes ٻڌ مذهب for Buddhism.
+locale: sd
+---
+اسلام
+سني اسلام
+شيعه اسلام
+هندو ڌرم
+عيسائيت
+سک ڌرم
+ٻڌ ڌرم
+يهوديت
+جين ڌرم
+زرتشتي
+پارسي
+بهائيت
+احمديت
+ڪالاش مذهب
+لادينيت
+الحاد
+اگناسٽڪ
+سيڪيولر
+قديم مذهب
+ٻيا
+نامعلوم

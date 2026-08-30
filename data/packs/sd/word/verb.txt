@@ -1,0 +1,48 @@
+---
+description: Common verbs, given in the infinitive, which in Sindhi ends in -ڻ: ڪرڻ to do, وڃڻ to go, کائڻ to eat. That ending is one of the clearest markers of the language — Urdu's infinitive ends in -نا, so ڪرڻ and کائڻ could not be mistaken for کرنا and کھانا. Eight of these carry the aspirated ک: رکڻ, کڻڻ, کائڻ, لکڻ, سکڻ, سيکارڻ, کولڻ and کلڻ.
+locale: sd
+---
+هجڻ
+ڪرڻ
+وڃڻ
+اچڻ
+ڏسڻ
+ٻڌڻ
+ڳالهائڻ
+چوڻ
+پڇڻ
+ٻڌائڻ
+وٺڻ
+ڏيڻ
+رکڻ
+کڻڻ
+هلڻ
+ڊوڙڻ
+ويهڻ
+بيهڻ
+سمهڻ
+جاڳڻ
+کائڻ
+پيئڻ
+لکڻ
+پڙهڻ
+سکڻ
+سيکارڻ
+سوچڻ
+سمجهڻ
+وسارڻ
+ياد ڪرڻ
+کولڻ
+بند ڪرڻ
+ڀڃڻ
+ٺاهڻ
+خريد ڪرڻ
+وڪڻڻ
+ملڻ
+ڇڏڻ
+رڪڻ
+ڀڄڻ
+کلڻ
+روئڻ
+ڊڄڻ
+چاهڻ
