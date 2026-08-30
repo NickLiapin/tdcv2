@@ -68,8 +68,10 @@ public final class Main {
         --data-path <dir>        Add a data folder for @data/... sources (repeatable)
         --jobs <n>               Worker threads for a large streaming run. Needs -o:
                                  stdout is written by one thread. By default TDC uses
-                                 one per core bar one; the count never changes the
-                                 output, only how long it takes.
+                                 one per core bar one. The count never changes the
+                                 output, but it does change the cost: each thread
+                                 keeps its own buffers, so memory grows with it.
+                                 Use --jobs 1 when memory matters more than time.
         --mode <memory|disk>     Advanced. disk (default): bounded memory, scales to
                                  any size — TDC picks the streaming or exact engine
                                  automatically from the config. memory: the small,

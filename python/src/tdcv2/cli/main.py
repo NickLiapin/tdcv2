@@ -72,9 +72,12 @@ Options:
                            Without it the run reads the real clock, so a config
                            using today / now / b_day cannot be reproduced later
   --data-path <dir>        Add a data folder for @data/... sources (repeatable)
-  --jobs <n>               Split the run across n processes. Same output either
-                           way — a pure speed knob. Needs -o and the streaming
-                           engine; ignored where the run cannot be split
+  --jobs <n>               Split the run across n processes. The output is
+                           identical either way, but the COST is not: each
+                           process keeps its own heap, so memory grows with the
+                           job count. Use --jobs 1 when memory matters more than
+                           wall time. Needs -o and the streaming engine;
+                           ignored where the run cannot be split
   --mode <memory|disk>     Advanced. disk (default): bounded memory, scales to
                            any size — TDC picks the streaming or exact engine
                            automatically from the config. memory: the small,

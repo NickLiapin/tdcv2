@@ -97,8 +97,12 @@ Options:
   --data-path <dir>        Add a data folder for @data/... sources (repeatable)
   --jobs <n>               Override the worker-thread count. By default TDC
                            auto-parallelizes big splittable files and stays
-                           single-threaded otherwise — you need not set this.
-                           Same output regardless (a pure speed knob)
+                           single-threaded otherwise. The output is identical
+                           either way, but the COST is not: each worker keeps
+                           its own heap, so memory grows with the job count —
+                           a million rows took 0.7 GB at --jobs 1 and 2.9 GB
+                           on eleven workers. Use --jobs 1 when memory matters
+                           more than wall time
   --mode <memory|disk>     Advanced. disk (default): bounded memory, scales to
                            any size — TDC picks the streaming or exact engine
                            automatically from the config. memory: the small,
