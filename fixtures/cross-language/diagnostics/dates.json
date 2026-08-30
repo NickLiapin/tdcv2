@@ -102,9 +102,9 @@
     {
       "name": "an-env-locale-with-no-date-translations-says-so",
       "demonstrates": "TDC272",
-      "description": "A locale can be a perfectly good source of NAMES and still ship no month names — Bambara has a name pack and no DATE_LOCALE.json — so refusing it on <env local=> would forbid the name pack for the dates' sake. This warns instead, and only when the format actually reads the locale: format=\"YYYY-MM-DD\" is the same in every language and says nothing. It used to warn for Afrikaans too, wrongly: the pack SHIPPED the translations and the engine never read them. Seventy locales' DATE_LOCALE.json files are loaded now, so the warning is reserved for locales that truly carry none.",
-      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"bm\"><sequence name=\"D\"><gen type=\"date\" value=\"2026-03-01..2026-03-05\" format=\"LL\"/></sequence></env><block><line><data>${{D}}</data></line></block></tdc>",
-      "expected": ["warning TDC272 1:59"]
+      "description": "A locale can be a perfectly good source of NAMES and still ship no month names, so refusing it on <env local=> would forbid the name pack for the dates' sake. This warns instead, and only when the format actually reads the locale: format=\"YYYY-MM-DD\" is the same in every language and says nothing. It used to warn for Afrikaans too, wrongly: the pack SHIPPED the translations and the engine never read them. Seventy locales' DATE_LOCALE.json files are loaded now, so the warning is reserved for locales that truly carry none. The case is anchored on x-pseudo deliberately — it used to name Bambara, and then Bambara was written and shipped a DATE_LOCALE.json, which left this case asserting a warning nothing could earn. x-pseudo is the one locale that exists and will never hold data, which is exactly what an example of 'no translations' needs.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"x-pseudo\"><sequence name=\"D\"><gen type=\"date\" value=\"2026-03-01..2026-03-05\" format=\"LL\"/></sequence></env><block><line><data>${{D}}</data></line></block></tdc>",
+      "expected": ["warning TDC272 1:65"]
     },
     {
       "name": "two-spellings-of-the-same-range",
