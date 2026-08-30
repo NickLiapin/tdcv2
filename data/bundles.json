@@ -43,6 +43,13 @@
       "packs": ["packs/bg"]
     },
     {
+      "id": "bm",
+      "name": "Bambara (language)",
+      "description": "Content bound to the Bambara language rather than to any one country: DATE_LOCALE, address, airline, animal, book, clothing, color, commerce, company, date, education, event, and 24 more.",
+      "locale": "bm",
+      "packs": ["packs/bm"]
+    },
+    {
       "id": "bn",
       "name": "Bengali (language)",
       "description": "Content bound to the Bengali language rather than to any one country: DATE_LOCALE, address, airline, animal, book, clothing, color, commerce, company, date, education, event, and 24 more.",
@@ -174,6 +181,13 @@
       "description": "Content bound to the French language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
       "locale": "fr",
       "packs": ["packs/fr"]
+    },
+    {
+      "id": "fy",
+      "name": "Western Frisian (language)",
+      "description": "Content bound to the Western Frisian language rather than to any one country: DATE_LOCALE, address, airline, animal, book, clothing, color, commerce, company, date, education, event, and 24 more.",
+      "locale": "fy",
+      "packs": ["packs/fy"]
     },
     {
       "id": "ga",
@@ -512,6 +526,13 @@
       "packs": ["packs/sr"]
     },
     {
+      "id": "ss",
+      "name": "Swati (language)",
+      "description": "Content bound to the Swati language rather than to any one country: DATE_LOCALE, address, airline, animal, book, clothing, color, commerce, company, date, education, event, and 24 more.",
+      "locale": "ss",
+      "packs": ["packs/ss"]
+    },
+    {
       "id": "sv",
       "name": "Swedish (language)",
       "description": "Content bound to the Swedish language rather than to any one country: DATE_LOCALE, address, airline, animal, book, clothing, color, commerce, company, date, education, event, and 24 more.",
@@ -538,6 +559,13 @@
       "description": "Content bound to the Telugu language rather than to any one country: DATE_LOCALE, address, airline, animal, book, clothing, color, commerce, company, date, education, event, and 24 more.",
       "locale": "te",
       "packs": ["packs/te"]
+    },
+    {
+      "id": "tet",
+      "name": "Tetum (language)",
+      "description": "Content bound to the Tetum language rather than to any one country: DATE_LOCALE, address, airline, animal, book, clothing, color, commerce, company, date, education, event, and 24 more.",
+      "locale": "tet",
+      "packs": ["packs/tet"]
     },
     {
       "id": "tg",
@@ -587,6 +615,13 @@
       "description": "Content bound to the Urdu language rather than to any one country: DATE_LOCALE, address, airline, animal, book, clothing, color, commerce, company, date, education, event, and 25 more.",
       "locale": "ur",
       "packs": ["packs/ur"]
+    },
+    {
+      "id": "uz",
+      "name": "Uzbek (Cyrillic) (language)",
+      "description": "Content bound to the Uzbek (Cyrillic) language rather than to any one country: DATE_LOCALE, address, airline, animal, book, clothing, color, commerce, company, date, education, event, and 25 more.",
+      "locale": "uz",
+      "packs": ["packs/uz"]
     },
     {
       "id": "uz-latn",
