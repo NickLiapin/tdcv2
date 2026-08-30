@@ -4,7 +4,7 @@
  * Every bundled address, as a property. Regenerate after changing the packs:
  * `npm run quick:types`. `npm run check` fails if the two disagree.
  *
- * 30062 addresses.
+ * 30803 addresses.
  */
 
 import type { QuickAddress, QuickParams } from './types.js';
@@ -265,6 +265,33 @@ export type QuickAddressTree = {
     readonly namePart: QuickAddress;
   };
   readonly country: {
+    readonly afghanistan: {
+      readonly docs: {
+        readonly tazkira: QuickAddress;
+      };
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly province: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly tax: {
+        readonly tin: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
     readonly albania: {
       readonly docs: {
         readonly nid: QuickAddress;
@@ -331,6 +358,27 @@ export type QuickAddressTree = {
         readonly plate: QuickAddress;
       };
     };
+    readonly andorra: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly parish: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
     readonly angola: {
       readonly docs: {
         readonly nif: QuickAddress;
@@ -345,6 +393,27 @@ export type QuickAddressTree = {
       readonly geo: {
         readonly city: QuickAddress;
         readonly province: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
+    readonly antigua_and_barbuda: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly parish: QuickAddress;
       };
       readonly holiday: QuickAddress;
       readonly phone: QuickAddress;
@@ -543,6 +612,27 @@ export type QuickAddressTree = {
         readonly regionCode: QuickAddress;
       };
     };
+    readonly bahamas: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly island: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
     readonly bahrain: {
       readonly docs: {
         readonly cpr: QuickAddress;
@@ -607,6 +697,27 @@ export type QuickAddressTree = {
         readonly plateClass: QuickAddress;
       };
     };
+    readonly barbados: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly parish: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
     readonly belarus: {
       readonly docs: {
         readonly personalNumber: QuickAddress;
@@ -659,6 +770,27 @@ export type QuickAddressTree = {
       readonly tax: {
         readonly enterpriseNumber: QuickAddress;
         readonly vat: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
+    readonly belize: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly district: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
       };
       readonly vehicle: {
         readonly plate: QuickAddress;
@@ -822,6 +954,30 @@ export type QuickAddressTree = {
         readonly plate: QuickAddress;
       };
     };
+    readonly botswana: {
+      readonly docs: {
+        readonly omang: QuickAddress;
+      };
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly district: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
     readonly brazil: {
       readonly docs: {
         readonly pis: QuickAddress;
@@ -848,6 +1004,27 @@ export type QuickAddressTree = {
       readonly tax: {
         readonly cnpj: QuickAddress;
         readonly cpf: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
+    readonly brunei: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly district: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
       };
       readonly vehicle: {
         readonly plate: QuickAddress;
@@ -897,6 +1074,27 @@ export type QuickAddressTree = {
       readonly geo: {
         readonly city: QuickAddress;
         readonly region: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
+    readonly burundi: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly province: QuickAddress;
       };
       readonly holiday: QuickAddress;
       readonly phone: QuickAddress;
@@ -1037,6 +1235,28 @@ export type QuickAddressTree = {
       readonly phone: QuickAddress;
       readonly sport: {
         readonly team: QuickAddress;
+      };
+    };
+    readonly central_african_republic: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly prefecture: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly language: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
       };
     };
     readonly chad: {
@@ -1423,6 +1643,27 @@ export type QuickAddressTree = {
         readonly plate: QuickAddress;
       };
     };
+    readonly dominica: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly parish: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
     readonly dominican_republic: {
       readonly docs: {
         readonly cedula: QuickAddress;
@@ -1632,6 +1873,27 @@ export type QuickAddressTree = {
         readonly plate: QuickAddress;
       };
     };
+    readonly eritrea: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly region: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
     readonly estonia: {
       readonly docs: {
         readonly isikukood: QuickAddress;
@@ -1678,9 +1940,79 @@ export type QuickAddressTree = {
         readonly plate: QuickAddress;
       };
     };
+    readonly eswatini: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly region: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
+    readonly ethiopia: {
+      readonly docs: {
+        readonly fayda: QuickAddress;
+      };
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly account: QuickAddress;
+        readonly bank: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly postalCode: QuickAddress;
+        readonly region: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly tax: {
+        readonly tin: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
     readonly europe: {
       readonly tax: {
         readonly vat: QuickAddress;
+      };
+    };
+    readonly fiji: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly division: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
       };
     };
     readonly finland: {
@@ -1758,6 +2090,27 @@ export type QuickAddressTree = {
       };
       readonly finance: {
         readonly bank: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly region: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
+    readonly gambia: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
       };
       readonly geo: {
         readonly city: QuickAddress;
@@ -1919,6 +2272,27 @@ export type QuickAddressTree = {
         readonly plate: QuickAddress;
       };
     };
+    readonly grenada: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly parish: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
     readonly guatemala: {
       readonly docs: {
         readonly cui: QuickAddress;
@@ -1987,6 +2361,27 @@ export type QuickAddressTree = {
       readonly finance: {
         readonly bank: QuickAddress;
         readonly iban: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly region: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
+    readonly guyana: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
       };
       readonly geo: {
         readonly city: QuickAddress;
@@ -2401,6 +2796,30 @@ export type QuickAddressTree = {
         readonly plate: QuickAddress;
       };
     };
+    readonly jamaica: {
+      readonly docs: {
+        readonly trn: QuickAddress;
+      };
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly parish: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
     readonly japan: {
       readonly docs: {
         readonly driversLicense: QuickAddress;
@@ -2527,6 +2946,27 @@ export type QuickAddressTree = {
       readonly tax: {
         readonly kraPin: QuickAddress;
         readonly vat: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
+    readonly kiribati: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly island: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
       };
       readonly vehicle: {
         readonly plate: QuickAddress;
@@ -2694,6 +3134,48 @@ export type QuickAddressTree = {
       readonly geo: {
         readonly city: QuickAddress;
         readonly region: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
+    readonly lesotho: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly district: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
+    readonly liberia: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly county: QuickAddress;
       };
       readonly holiday: QuickAddress;
       readonly phone: QuickAddress;
@@ -2874,6 +3356,33 @@ export type QuickAddressTree = {
         readonly plate: QuickAddress;
       };
     };
+    readonly malawi: {
+      readonly docs: {
+        readonly nationalId: QuickAddress;
+      };
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly district: QuickAddress;
+        readonly region: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly tax: {
+        readonly tpin: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
     readonly malaysia: {
       readonly docs: {
         readonly mykad: QuickAddress;
@@ -3037,6 +3546,27 @@ export type QuickAddressTree = {
         readonly plate: QuickAddress;
       };
     };
+    readonly marshall_islands: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly atoll: QuickAddress;
+        readonly city: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
     readonly mauritania: {
       readonly docs: {
         readonly nni: QuickAddress;
@@ -3056,6 +3586,30 @@ export type QuickAddressTree = {
       readonly phone: QuickAddress;
       readonly sport: {
         readonly team: QuickAddress;
+      };
+    };
+    readonly mauritius: {
+      readonly docs: {
+        readonly nid: QuickAddress;
+      };
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly district: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
       };
     };
     readonly mexico: {
@@ -3095,6 +3649,27 @@ export type QuickAddressTree = {
         readonly rfc: QuickAddress;
         readonly rfc_org: QuickAddress;
         readonly rfc_person: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
+    readonly micronesia: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly state: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
       };
       readonly vehicle: {
         readonly plate: QuickAddress;
@@ -3205,6 +3780,30 @@ export type QuickAddressTree = {
         readonly plateRegionCode: QuickAddress;
       };
     };
+    readonly montenegro: {
+      readonly docs: {
+        readonly jmbg: QuickAddress;
+      };
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly municipality: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
     readonly morocco: {
       readonly docs: {
         readonly cin: QuickAddress;
@@ -3297,6 +3896,48 @@ export type QuickAddressTree = {
       readonly vehicle: {
         readonly plate: QuickAddress;
         readonly regionCode: QuickAddress;
+      };
+    };
+    readonly namibia: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly region: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
+    readonly nauru: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly district: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
       };
     };
     readonly nepal: {
@@ -3533,6 +4174,27 @@ export type QuickAddressTree = {
         readonly plateCode: QuickAddress;
       };
     };
+    readonly north_korea: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly province: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
     readonly north_macedonia: {
       readonly docs: {
         readonly embg: QuickAddress;
@@ -3678,6 +4340,27 @@ export type QuickAddressTree = {
         readonly plate: QuickAddress;
       };
     };
+    readonly palau: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly state: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
     readonly palestine: {
       readonly docs: {
         readonly idNumber: QuickAddress;
@@ -3733,6 +4416,28 @@ export type QuickAddressTree = {
       };
       readonly tax: {
         readonly ruc: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
+    readonly papua_new_guinea: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly province: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly language: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
       };
       readonly vehicle: {
         readonly plate: QuickAddress;
@@ -4080,6 +4785,90 @@ export type QuickAddressTree = {
         readonly plate: QuickAddress;
       };
     };
+    readonly saint_kitts_and_nevis: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly parish: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
+    readonly saint_lucia: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly district: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
+    readonly saint_vincent_and_the_grenadines: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly parish: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
+    readonly samoa: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly district: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
     readonly san_marino: {
       readonly docs: {
         readonly coe: QuickAddress;
@@ -4210,6 +4999,51 @@ export type QuickAddressTree = {
         readonly plate: QuickAddress;
       };
     };
+    readonly seychelles: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly district: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
+    readonly sierra_leone: {
+      readonly docs: {
+        readonly nin: QuickAddress;
+      };
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly district: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
     readonly singapore: {
       readonly docs: {
         readonly driversLicense: QuickAddress;
@@ -4314,6 +5148,27 @@ export type QuickAddressTree = {
         readonly plate: QuickAddress;
       };
     };
+    readonly solomon_islands: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly province: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
     readonly somalia: {
       readonly education: {
         readonly university: QuickAddress;
@@ -4403,6 +5258,27 @@ export type QuickAddressTree = {
       readonly tax: {
         readonly businessNumber: QuickAddress;
         readonly vat: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
+    readonly south_sudan: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly state: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
       };
       readonly vehicle: {
         readonly plate: QuickAddress;
@@ -4503,6 +5379,27 @@ export type QuickAddressTree = {
       readonly geo: {
         readonly city: QuickAddress;
         readonly region: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
+    readonly suriname: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly district: QuickAddress;
       };
       readonly holiday: QuickAddress;
       readonly phone: QuickAddress;
@@ -4787,6 +5684,51 @@ export type QuickAddressTree = {
         readonly plate: QuickAddress;
       };
     };
+    readonly tonga: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly division: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
+    readonly trinidad_and_tobago: {
+      readonly docs: {
+        readonly nationalId: QuickAddress;
+      };
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly region: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
     readonly tunisia: {
       readonly docs: {
         readonly cin: QuickAddress;
@@ -4885,6 +5827,27 @@ export type QuickAddressTree = {
       readonly vehicle: {
         readonly plate: QuickAddress;
         readonly plateRegion: QuickAddress;
+      };
+    };
+    readonly tuvalu: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly island: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
       };
     };
     readonly uae: {
@@ -5149,6 +6112,27 @@ export type QuickAddressTree = {
         readonly plateRegionWithCode: QuickAddress;
       };
     };
+    readonly vanuatu: {
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+        readonly currency: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly province: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
     readonly vatican_city: {
       readonly education: {
         readonly university: QuickAddress;
@@ -5259,6 +6243,32 @@ export type QuickAddressTree = {
       readonly phone: QuickAddress;
       readonly sport: {
         readonly team: QuickAddress;
+      };
+    };
+    readonly zambia: {
+      readonly docs: {
+        readonly nrc: QuickAddress;
+      };
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly bank: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly province: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly tax: {
+        readonly tpin: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
       };
     };
     readonly zimbabwe: {
@@ -6548,25 +7558,38 @@ export type QuickAddressTree = {
       readonly '东北菜': QuickAddress;
       readonly '中華': QuickAddress;
       readonly '京菜': QuickAddress;
+      readonly '北方麵食': QuickAddress;
+      readonly '原住民料理': QuickAddress;
+      readonly '台菜': QuickAddress;
       readonly '和食': QuickAddress;
+      readonly '客家菜': QuickAddress;
+      readonly '小吃': QuickAddress;
       readonly '居酒屋': QuickAddress;
       readonly '川菜': QuickAddress;
       readonly '徽菜': QuickAddress;
       readonly '日本料理': QuickAddress;
+      readonly '江浙菜': QuickAddress;
       readonly '泰国菜': QuickAddress;
+      readonly '泰國菜': QuickAddress;
       readonly '洋食': QuickAddress;
       readonly '浙菜': QuickAddress;
       readonly '清真菜': QuickAddress;
+      readonly '港式茶餐廳': QuickAddress;
       readonly '湘菜': QuickAddress;
+      readonly '火鍋': QuickAddress;
       readonly '火锅': QuickAddress;
+      readonly '熱炒': QuickAddress;
       readonly '粤菜': QuickAddress;
+      readonly '粵菜': QuickAddress;
       readonly '精進料理': QuickAddress;
+      readonly '素食': QuickAddress;
       readonly '苏菜': QuickAddress;
       readonly '西北菜': QuickAddress;
       readonly '西餐': QuickAddress;
       readonly '郷土料理': QuickAddress;
       readonly '闽菜': QuickAddress;
       readonly '韓国料理': QuickAddress;
+      readonly '韓式料理': QuickAddress;
       readonly '韩国料理': QuickAddress;
       readonly '鲁菜': QuickAddress;
       readonly '麺類': QuickAddress;
@@ -6621,6 +7644,7 @@ export type QuickAddressTree = {
       readonly 'Alemaña': QuickAddress;
       readonly Algeria: QuickAddress;
       readonly Algerien: QuickAddress;
+      readonly Algir: QuickAddress;
       readonly 'Algèria': QuickAddress;
       readonly Almaniya: QuickAddress;
       readonly 'Ameerika Ühendriigid': QuickAddress;
@@ -6750,6 +7774,7 @@ export type QuickAddressTree = {
       readonly 'Banqladeş': QuickAddress;
       readonly Belanda: QuickAddress;
       readonly Belarus: QuickAddress;
+      readonly Belgi: QuickAddress;
       readonly Belgia: QuickAddress;
       readonly Belgija: QuickAddress;
       readonly Belgium: QuickAddress;
@@ -6780,6 +7805,7 @@ export type QuickAddressTree = {
       readonly 'Brażil': QuickAddress;
       readonly Bretland: QuickAddress;
       readonly Brunei: QuickAddress;
+      readonly 'Brunei Darussalam': QuickAddress;
       readonly Bulgaria: QuickAddress;
       readonly Bulgarien: QuickAddress;
       readonly Burundi: QuickAddress;
@@ -6795,10 +7821,12 @@ export type QuickAddressTree = {
       readonly 'Cap Vert': QuickAddress;
       readonly Ceanada: QuickAddress;
       readonly Cehia: QuickAddress;
+      readonly Ceylon: QuickAddress;
       readonly Chexiya: QuickAddress;
       readonly Chile: QuickAddress;
       readonly Chili: QuickAddress;
       readonly China: QuickAddress;
+      readonly Cile: QuickAddress;
       readonly Cina: QuickAddress;
       readonly 'Coirea a Deas': QuickAddress;
       readonly Colombia: QuickAddress;
@@ -6870,6 +7898,7 @@ export type QuickAddressTree = {
       readonly Filipina: QuickAddress;
       readonly Filippin: QuickAddress;
       readonly Filippini: QuickAddress;
+      readonly Finlan: QuickAddress;
       readonly Finland: QuickAddress;
       readonly Finlandia: QuickAddress;
       readonly Finlandiya: QuickAddress;
@@ -6951,6 +7980,7 @@ export type QuickAddressTree = {
       readonly Holandija: QuickAddress;
       readonly Holland: QuickAddress;
       readonly Hollandiya: QuickAddress;
+      readonly Honggari: QuickAddress;
       readonly Hrvatska: QuickAddress;
       readonly 'Hrvaška': QuickAddress;
       readonly Huitene: QuickAddress;
@@ -6990,6 +8020,7 @@ export type QuickAddressTree = {
       readonly Ingarangi: QuickAddress;
       readonly 'Initonīhia': QuickAddress;
       readonly 'Innis Tìle': QuickAddress;
+      readonly Irak: QuickAddress;
       readonly Iran: QuickAddress;
       readonly Iraq: QuickAddress;
       readonly Ireland: QuickAddress;
@@ -7044,6 +8075,8 @@ export type QuickAddressTree = {
       readonly 'Južnoafriška republika': QuickAddress;
       readonly 'Jàpánù': QuickAddress;
       readonly 'Jámánì': QuickAddress;
+      readonly 'Kaamiran Arab Manunggal': QuickAddress;
+      readonly Kamboja: QuickAddress;
       readonly 'Kamerúnù': QuickAddress;
       readonly Kanada: QuickAddress;
       readonly Kanadaja: QuickAddress;
@@ -7064,6 +8097,7 @@ export type QuickAddressTree = {
       readonly Komoro: QuickAddress;
       readonly 'Korea Kidul': QuickAddress;
       readonly 'Korea Kusini': QuickAddress;
+      readonly 'Korea Lor': QuickAddress;
       readonly 'Korea Selatan': QuickAddress;
       readonly 'Koreja e Jugut': QuickAddress;
       readonly Kosova: QuickAddress;
@@ -7086,6 +8120,7 @@ export type QuickAddressTree = {
       readonly Lenkija: QuickAddress;
       readonly Lesotho: QuickAddress;
       readonly Lettland: QuickAddress;
+      readonly Libanon: QuickAddress;
       readonly Liberia: QuickAddress;
       readonly Libja: QuickAddress;
       readonly Lietuva: QuickAddress;
@@ -7111,6 +8146,7 @@ export type QuickAddressTree = {
       readonly Marekani: QuickAddress;
       readonly Maroc: QuickAddress;
       readonly Marokk: QuickAddress;
+      readonly Maroko: QuickAddress;
       readonly Marroc: QuickAddress;
       readonly Marrocos: QuickAddress;
       readonly 'Marēhia': QuickAddress;
@@ -7220,6 +8256,7 @@ export type QuickAddressTree = {
       readonly Pakistani: QuickAddress;
       readonly 'Pakistāna': QuickAddress;
       readonly 'Papua New Guinea': QuickAddress;
+      readonly 'Papua Niu Guinea': QuickAddress;
       readonly 'Papua Nūkini': QuickAddress;
       readonly 'Paquistán': QuickAddress;
       readonly Parahi: QuickAddress;
@@ -7371,6 +8408,8 @@ export type QuickAddressTree = {
       readonly 'Suid-Korea': QuickAddress;
       readonly Suitza: QuickAddress;
       readonly Suomija: QuickAddress;
+      readonly Suriah: QuickAddress;
+      readonly Suriname: QuickAddress;
       readonly Suriya: QuickAddress;
       readonly Suwesya: QuickAddress;
       readonly Suwisa: QuickAddress;
@@ -7428,6 +8467,7 @@ export type QuickAddressTree = {
       readonly Tierkei: QuickAddress;
       readonly 'Timog Aprika': QuickAddress;
       readonly 'Timog Korea': QuickAddress;
+      readonly 'Timor Wetan': QuickAddress;
       readonly 'Timor-Leste': QuickAddress;
       readonly Tojikiston: QuickAddress;
       readonly Tonga: QuickAddress;
@@ -7536,6 +8576,7 @@ export type QuickAddressTree = {
       readonly 'Yangi Zelandiya': QuickAddress;
       readonly Yaponiya: QuickAddress;
       readonly 'Yeni Zelandiya': QuickAddress;
+      readonly Yordania: QuickAddress;
       readonly 'Yr Aifft': QuickAddress;
       readonly 'Yr Alban': QuickAddress;
       readonly 'Yr Almaen': QuickAddress;
@@ -8753,6 +9794,7 @@ export type QuickAddressTree = {
       readonly 'Alemaña': QuickAddress;
       readonly Algeria: QuickAddress;
       readonly Algerien: QuickAddress;
+      readonly Algir: QuickAddress;
       readonly 'Algèria': QuickAddress;
       readonly Almaniya: QuickAddress;
       readonly 'Ameerika Ühendriigid': QuickAddress;
@@ -8882,6 +9924,7 @@ export type QuickAddressTree = {
       readonly 'Banqladeş': QuickAddress;
       readonly Belanda: QuickAddress;
       readonly Belarus: QuickAddress;
+      readonly Belgi: QuickAddress;
       readonly Belgia: QuickAddress;
       readonly Belgija: QuickAddress;
       readonly Belgium: QuickAddress;
@@ -8912,6 +9955,7 @@ export type QuickAddressTree = {
       readonly 'Brażil': QuickAddress;
       readonly Bretland: QuickAddress;
       readonly Brunei: QuickAddress;
+      readonly 'Brunei Darussalam': QuickAddress;
       readonly Bulgaria: QuickAddress;
       readonly Bulgarien: QuickAddress;
       readonly Burundi: QuickAddress;
@@ -8927,10 +9971,12 @@ export type QuickAddressTree = {
       readonly 'Cap Vert': QuickAddress;
       readonly Ceanada: QuickAddress;
       readonly Cehia: QuickAddress;
+      readonly Ceylon: QuickAddress;
       readonly Chexiya: QuickAddress;
       readonly Chile: QuickAddress;
       readonly Chili: QuickAddress;
       readonly China: QuickAddress;
+      readonly Cile: QuickAddress;
       readonly Cina: QuickAddress;
       readonly 'Coirea a Deas': QuickAddress;
       readonly Colombia: QuickAddress;
@@ -9002,6 +10048,7 @@ export type QuickAddressTree = {
       readonly Filipina: QuickAddress;
       readonly Filippin: QuickAddress;
       readonly Filippini: QuickAddress;
+      readonly Finlan: QuickAddress;
       readonly Finland: QuickAddress;
       readonly Finlandia: QuickAddress;
       readonly Finlandiya: QuickAddress;
@@ -9083,6 +10130,7 @@ export type QuickAddressTree = {
       readonly Holandija: QuickAddress;
       readonly Holland: QuickAddress;
       readonly Hollandiya: QuickAddress;
+      readonly Honggari: QuickAddress;
       readonly Hrvatska: QuickAddress;
       readonly 'Hrvaška': QuickAddress;
       readonly Huitene: QuickAddress;
@@ -9122,6 +10170,7 @@ export type QuickAddressTree = {
       readonly Ingarangi: QuickAddress;
       readonly 'Initonīhia': QuickAddress;
       readonly 'Innis Tìle': QuickAddress;
+      readonly Irak: QuickAddress;
       readonly Iran: QuickAddress;
       readonly Iraq: QuickAddress;
       readonly Ireland: QuickAddress;
@@ -9176,6 +10225,8 @@ export type QuickAddressTree = {
       readonly 'Južnoafriška republika': QuickAddress;
       readonly 'Jàpánù': QuickAddress;
       readonly 'Jámánì': QuickAddress;
+      readonly 'Kaamiran Arab Manunggal': QuickAddress;
+      readonly Kamboja: QuickAddress;
       readonly 'Kamerúnù': QuickAddress;
       readonly Kanada: QuickAddress;
       readonly Kanadaja: QuickAddress;
@@ -9196,6 +10247,7 @@ export type QuickAddressTree = {
       readonly Komoro: QuickAddress;
       readonly 'Korea Kidul': QuickAddress;
       readonly 'Korea Kusini': QuickAddress;
+      readonly 'Korea Lor': QuickAddress;
       readonly 'Korea Selatan': QuickAddress;
       readonly 'Koreja e Jugut': QuickAddress;
       readonly Kosova: QuickAddress;
@@ -9218,6 +10270,7 @@ export type QuickAddressTree = {
       readonly Lenkija: QuickAddress;
       readonly Lesotho: QuickAddress;
       readonly Lettland: QuickAddress;
+      readonly Libanon: QuickAddress;
       readonly Liberia: QuickAddress;
       readonly Libja: QuickAddress;
       readonly Lietuva: QuickAddress;
@@ -9243,6 +10296,7 @@ export type QuickAddressTree = {
       readonly Marekani: QuickAddress;
       readonly Maroc: QuickAddress;
       readonly Marokk: QuickAddress;
+      readonly Maroko: QuickAddress;
       readonly Marroc: QuickAddress;
       readonly Marrocos: QuickAddress;
       readonly 'Marēhia': QuickAddress;
@@ -9352,6 +10406,7 @@ export type QuickAddressTree = {
       readonly Pakistani: QuickAddress;
       readonly 'Pakistāna': QuickAddress;
       readonly 'Papua New Guinea': QuickAddress;
+      readonly 'Papua Niu Guinea': QuickAddress;
       readonly 'Papua Nūkini': QuickAddress;
       readonly 'Paquistán': QuickAddress;
       readonly Parahi: QuickAddress;
@@ -9503,6 +10558,8 @@ export type QuickAddressTree = {
       readonly 'Suid-Korea': QuickAddress;
       readonly Suitza: QuickAddress;
       readonly Suomija: QuickAddress;
+      readonly Suriah: QuickAddress;
+      readonly Suriname: QuickAddress;
       readonly Suriya: QuickAddress;
       readonly Suwesya: QuickAddress;
       readonly Suwisa: QuickAddress;
@@ -9560,6 +10617,7 @@ export type QuickAddressTree = {
       readonly Tierkei: QuickAddress;
       readonly 'Timog Aprika': QuickAddress;
       readonly 'Timog Korea': QuickAddress;
+      readonly 'Timor Wetan': QuickAddress;
       readonly 'Timor-Leste': QuickAddress;
       readonly Tojikiston: QuickAddress;
       readonly Tonga: QuickAddress;
@@ -9668,6 +10726,7 @@ export type QuickAddressTree = {
       readonly 'Yangi Zelandiya': QuickAddress;
       readonly Yaponiya: QuickAddress;
       readonly 'Yeni Zelandiya': QuickAddress;
+      readonly Yordania: QuickAddress;
       readonly 'Yr Aifft': QuickAddress;
       readonly 'Yr Alban': QuickAddress;
       readonly 'Yr Almaen': QuickAddress;
@@ -10884,6 +11943,7 @@ export type QuickAddressTree = {
       readonly 'Alemaña': QuickAddress;
       readonly Algeria: QuickAddress;
       readonly Algerien: QuickAddress;
+      readonly Algir: QuickAddress;
       readonly 'Algèria': QuickAddress;
       readonly Almaniya: QuickAddress;
       readonly 'Ameerika Ühendriigid': QuickAddress;
@@ -11013,6 +12073,7 @@ export type QuickAddressTree = {
       readonly 'Banqladeş': QuickAddress;
       readonly Belanda: QuickAddress;
       readonly Belarus: QuickAddress;
+      readonly Belgi: QuickAddress;
       readonly Belgia: QuickAddress;
       readonly Belgija: QuickAddress;
       readonly Belgium: QuickAddress;
@@ -11043,6 +12104,7 @@ export type QuickAddressTree = {
       readonly 'Brażil': QuickAddress;
       readonly Bretland: QuickAddress;
       readonly Brunei: QuickAddress;
+      readonly 'Brunei Darussalam': QuickAddress;
       readonly Bulgaria: QuickAddress;
       readonly Bulgarien: QuickAddress;
       readonly Burundi: QuickAddress;
@@ -11058,10 +12120,12 @@ export type QuickAddressTree = {
       readonly 'Cap Vert': QuickAddress;
       readonly Ceanada: QuickAddress;
       readonly Cehia: QuickAddress;
+      readonly Ceylon: QuickAddress;
       readonly Chexiya: QuickAddress;
       readonly Chile: QuickAddress;
       readonly Chili: QuickAddress;
       readonly China: QuickAddress;
+      readonly Cile: QuickAddress;
       readonly Cina: QuickAddress;
       readonly 'Coirea a Deas': QuickAddress;
       readonly Colombia: QuickAddress;
@@ -11133,6 +12197,7 @@ export type QuickAddressTree = {
       readonly Filipina: QuickAddress;
       readonly Filippin: QuickAddress;
       readonly Filippini: QuickAddress;
+      readonly Finlan: QuickAddress;
       readonly Finland: QuickAddress;
       readonly Finlandia: QuickAddress;
       readonly Finlandiya: QuickAddress;
@@ -11214,6 +12279,7 @@ export type QuickAddressTree = {
       readonly Holandija: QuickAddress;
       readonly Holland: QuickAddress;
       readonly Hollandiya: QuickAddress;
+      readonly Honggari: QuickAddress;
       readonly Hrvatska: QuickAddress;
       readonly 'Hrvaška': QuickAddress;
       readonly Huitene: QuickAddress;
@@ -11253,6 +12319,7 @@ export type QuickAddressTree = {
       readonly Ingarangi: QuickAddress;
       readonly 'Initonīhia': QuickAddress;
       readonly 'Innis Tìle': QuickAddress;
+      readonly Irak: QuickAddress;
       readonly Iran: QuickAddress;
       readonly Iraq: QuickAddress;
       readonly Ireland: QuickAddress;
@@ -11307,6 +12374,8 @@ export type QuickAddressTree = {
       readonly 'Južnoafriška republika': QuickAddress;
       readonly 'Jàpánù': QuickAddress;
       readonly 'Jámánì': QuickAddress;
+      readonly 'Kaamiran Arab Manunggal': QuickAddress;
+      readonly Kamboja: QuickAddress;
       readonly 'Kamerúnù': QuickAddress;
       readonly Kanada: QuickAddress;
       readonly Kanadaja: QuickAddress;
@@ -11327,6 +12396,7 @@ export type QuickAddressTree = {
       readonly Komoro: QuickAddress;
       readonly 'Korea Kidul': QuickAddress;
       readonly 'Korea Kusini': QuickAddress;
+      readonly 'Korea Lor': QuickAddress;
       readonly 'Korea Selatan': QuickAddress;
       readonly 'Koreja e Jugut': QuickAddress;
       readonly Kosova: QuickAddress;
@@ -11349,6 +12419,7 @@ export type QuickAddressTree = {
       readonly Lenkija: QuickAddress;
       readonly Lesotho: QuickAddress;
       readonly Lettland: QuickAddress;
+      readonly Libanon: QuickAddress;
       readonly Liberia: QuickAddress;
       readonly Libja: QuickAddress;
       readonly Lietuva: QuickAddress;
@@ -11374,6 +12445,7 @@ export type QuickAddressTree = {
       readonly Marekani: QuickAddress;
       readonly Maroc: QuickAddress;
       readonly Marokk: QuickAddress;
+      readonly Maroko: QuickAddress;
       readonly Marroc: QuickAddress;
       readonly Marrocos: QuickAddress;
       readonly 'Marēhia': QuickAddress;
@@ -11483,6 +12555,7 @@ export type QuickAddressTree = {
       readonly Pakistani: QuickAddress;
       readonly 'Pakistāna': QuickAddress;
       readonly 'Papua New Guinea': QuickAddress;
+      readonly 'Papua Niu Guinea': QuickAddress;
       readonly 'Papua Nūkini': QuickAddress;
       readonly 'Paquistán': QuickAddress;
       readonly Parahi: QuickAddress;
@@ -11634,6 +12707,8 @@ export type QuickAddressTree = {
       readonly 'Suid-Korea': QuickAddress;
       readonly Suitza: QuickAddress;
       readonly Suomija: QuickAddress;
+      readonly Suriah: QuickAddress;
+      readonly Suriname: QuickAddress;
       readonly Suriya: QuickAddress;
       readonly Suwesya: QuickAddress;
       readonly Suwisa: QuickAddress;
@@ -11691,6 +12766,7 @@ export type QuickAddressTree = {
       readonly Tierkei: QuickAddress;
       readonly 'Timog Aprika': QuickAddress;
       readonly 'Timog Korea': QuickAddress;
+      readonly 'Timor Wetan': QuickAddress;
       readonly 'Timor-Leste': QuickAddress;
       readonly Tojikiston: QuickAddress;
       readonly Tonga: QuickAddress;
@@ -11799,6 +12875,7 @@ export type QuickAddressTree = {
       readonly 'Yangi Zelandiya': QuickAddress;
       readonly Yaponiya: QuickAddress;
       readonly 'Yeni Zelandiya': QuickAddress;
+      readonly Yordania: QuickAddress;
       readonly 'Yr Aifft': QuickAddress;
       readonly 'Yr Alban': QuickAddress;
       readonly 'Yr Almaen': QuickAddress;
@@ -27635,35 +28712,55 @@ export type QuickAddressTree = {
       readonly geo: {
         readonly capitalByCountry: {
           readonly 'Afrika Kidul': QuickAddress;
+          readonly Algir: QuickAddress;
           readonly 'Amerika Sarekat': QuickAddress;
           readonly 'Arab Saudi': QuickAddress;
           readonly Argentina: QuickAddress;
           readonly Banggaladesa: QuickAddress;
+          readonly Belgi: QuickAddress;
           readonly Brasil: QuickAddress;
+          readonly 'Brunei Darussalam': QuickAddress;
+          readonly Ceylon: QuickAddress;
+          readonly Cile: QuickAddress;
           readonly Cina: QuickAddress;
           readonly Dhenemarken: QuickAddress;
           readonly Ethiopia: QuickAddress;
           readonly Filipina: QuickAddress;
+          readonly Finlan: QuickAddress;
+          readonly Ghana: QuickAddress;
           readonly Grikenlan: QuickAddress;
+          readonly Honggari: QuickAddress;
           readonly Indhi: QuickAddress;
           readonly Indhonesia: QuickAddress;
+          readonly Irak: QuickAddress;
           readonly Iran: QuickAddress;
+          readonly Israel: QuickAddress;
           readonly Itali: QuickAddress;
           readonly Jepang: QuickAddress;
           readonly Jerman: QuickAddress;
+          readonly 'Kaamiran Arab Manunggal': QuickAddress;
+          readonly Kamboja: QuickAddress;
           readonly Kanadha: QuickAddress;
           readonly 'Karajan Manunggal': QuickAddress;
+          readonly Kazakhstan: QuickAddress;
           readonly Kenya: QuickAddress;
+          readonly Kolombia: QuickAddress;
           readonly 'Korea Kidul': QuickAddress;
+          readonly 'Korea Lor': QuickAddress;
+          readonly Libanon: QuickAddress;
           readonly Malaysia: QuickAddress;
+          readonly Maroko: QuickAddress;
           readonly Meksiko: QuickAddress;
           readonly Mesir: QuickAddress;
+          readonly Myanmar: QuickAddress;
+          readonly Nepal: QuickAddress;
           readonly Nigeria: QuickAddress;
           readonly 'Niu Selan': QuickAddress;
           readonly Nurwegen: QuickAddress;
           readonly Ostenrik: QuickAddress;
           readonly Ostrali: QuickAddress;
           readonly Pakistan: QuickAddress;
+          readonly 'Papua Niu Guinea': QuickAddress;
           readonly Polen: QuickAddress;
           readonly Portegal: QuickAddress;
           readonly Prancis: QuickAddress;
@@ -27671,46 +28768,75 @@ export type QuickAddressTree = {
           readonly Ruslan: QuickAddress;
           readonly Singapura: QuickAddress;
           readonly Spanyol: QuickAddress;
+          readonly Sudan: QuickAddress;
+          readonly Suriah: QuickAddress;
+          readonly Suriname: QuickAddress;
           readonly Swedhen: QuickAddress;
           readonly Switserlan: QuickAddress;
+          readonly Taiwan: QuickAddress;
+          readonly Tanzania: QuickAddress;
           readonly Thai: QuickAddress;
+          readonly 'Timor Wetan': QuickAddress;
           readonly Turki: QuickAddress;
           readonly Ukraina: QuickAddress;
+          readonly Uzbekistan: QuickAddress;
           readonly Vietnam: QuickAddress;
           readonly Walanda: QuickAddress;
+          readonly Yaman: QuickAddress;
+          readonly Yordania: QuickAddress;
         };
         readonly country: QuickAddress;
         readonly currencyByCountry: {
           readonly 'Afrika Kidul': QuickAddress;
+          readonly Algir: QuickAddress;
           readonly 'Amerika Sarekat': QuickAddress;
           readonly 'Arab Saudi': QuickAddress;
           readonly Argentina: QuickAddress;
           readonly Banggaladesa: QuickAddress;
+          readonly Belgi: QuickAddress;
           readonly Brasil: QuickAddress;
+          readonly 'Brunei Darussalam': QuickAddress;
+          readonly Ceylon: QuickAddress;
+          readonly Cile: QuickAddress;
           readonly Cina: QuickAddress;
           readonly Dhenemarken: QuickAddress;
           readonly Ethiopia: QuickAddress;
           readonly Filipina: QuickAddress;
+          readonly Finlan: QuickAddress;
+          readonly Ghana: QuickAddress;
           readonly Grikenlan: QuickAddress;
+          readonly Honggari: QuickAddress;
           readonly Indhi: QuickAddress;
           readonly Indhonesia: QuickAddress;
+          readonly Irak: QuickAddress;
           readonly Iran: QuickAddress;
+          readonly Israel: QuickAddress;
           readonly Itali: QuickAddress;
           readonly Jepang: QuickAddress;
           readonly Jerman: QuickAddress;
+          readonly 'Kaamiran Arab Manunggal': QuickAddress;
+          readonly Kamboja: QuickAddress;
           readonly Kanadha: QuickAddress;
           readonly 'Karajan Manunggal': QuickAddress;
+          readonly Kazakhstan: QuickAddress;
           readonly Kenya: QuickAddress;
+          readonly Kolombia: QuickAddress;
           readonly 'Korea Kidul': QuickAddress;
+          readonly 'Korea Lor': QuickAddress;
+          readonly Libanon: QuickAddress;
           readonly Malaysia: QuickAddress;
+          readonly Maroko: QuickAddress;
           readonly Meksiko: QuickAddress;
           readonly Mesir: QuickAddress;
+          readonly Myanmar: QuickAddress;
+          readonly Nepal: QuickAddress;
           readonly Nigeria: QuickAddress;
           readonly 'Niu Selan': QuickAddress;
           readonly Nurwegen: QuickAddress;
           readonly Ostenrik: QuickAddress;
           readonly Ostrali: QuickAddress;
           readonly Pakistan: QuickAddress;
+          readonly 'Papua Niu Guinea': QuickAddress;
           readonly Polen: QuickAddress;
           readonly Portegal: QuickAddress;
           readonly Prancis: QuickAddress;
@@ -27718,45 +28844,74 @@ export type QuickAddressTree = {
           readonly Ruslan: QuickAddress;
           readonly Singapura: QuickAddress;
           readonly Spanyol: QuickAddress;
+          readonly Sudan: QuickAddress;
+          readonly Suriah: QuickAddress;
+          readonly Suriname: QuickAddress;
           readonly Swedhen: QuickAddress;
           readonly Switserlan: QuickAddress;
+          readonly Taiwan: QuickAddress;
+          readonly Tanzania: QuickAddress;
           readonly Thai: QuickAddress;
+          readonly 'Timor Wetan': QuickAddress;
           readonly Turki: QuickAddress;
           readonly Ukraina: QuickAddress;
+          readonly Uzbekistan: QuickAddress;
           readonly Vietnam: QuickAddress;
           readonly Walanda: QuickAddress;
+          readonly Yaman: QuickAddress;
+          readonly Yordania: QuickAddress;
         };
         readonly currencyCodeByCountry: {
           readonly 'Afrika Kidul': QuickAddress;
+          readonly Algir: QuickAddress;
           readonly 'Amerika Sarekat': QuickAddress;
           readonly 'Arab Saudi': QuickAddress;
           readonly Argentina: QuickAddress;
           readonly Banggaladesa: QuickAddress;
+          readonly Belgi: QuickAddress;
           readonly Brasil: QuickAddress;
+          readonly 'Brunei Darussalam': QuickAddress;
+          readonly Ceylon: QuickAddress;
+          readonly Cile: QuickAddress;
           readonly Cina: QuickAddress;
           readonly Dhenemarken: QuickAddress;
           readonly Ethiopia: QuickAddress;
           readonly Filipina: QuickAddress;
+          readonly Finlan: QuickAddress;
+          readonly Ghana: QuickAddress;
           readonly Grikenlan: QuickAddress;
+          readonly Honggari: QuickAddress;
           readonly Indhi: QuickAddress;
           readonly Indhonesia: QuickAddress;
+          readonly Irak: QuickAddress;
           readonly Iran: QuickAddress;
+          readonly Israel: QuickAddress;
           readonly Itali: QuickAddress;
           readonly Jepang: QuickAddress;
           readonly Jerman: QuickAddress;
+          readonly 'Kaamiran Arab Manunggal': QuickAddress;
+          readonly Kamboja: QuickAddress;
           readonly Kanadha: QuickAddress;
           readonly 'Karajan Manunggal': QuickAddress;
+          readonly Kazakhstan: QuickAddress;
           readonly Kenya: QuickAddress;
+          readonly Kolombia: QuickAddress;
           readonly 'Korea Kidul': QuickAddress;
+          readonly 'Korea Lor': QuickAddress;
+          readonly Libanon: QuickAddress;
           readonly Malaysia: QuickAddress;
+          readonly Maroko: QuickAddress;
           readonly Meksiko: QuickAddress;
           readonly Mesir: QuickAddress;
+          readonly Myanmar: QuickAddress;
+          readonly Nepal: QuickAddress;
           readonly Nigeria: QuickAddress;
           readonly 'Niu Selan': QuickAddress;
           readonly Nurwegen: QuickAddress;
           readonly Ostenrik: QuickAddress;
           readonly Ostrali: QuickAddress;
           readonly Pakistan: QuickAddress;
+          readonly 'Papua Niu Guinea': QuickAddress;
           readonly Polen: QuickAddress;
           readonly Portegal: QuickAddress;
           readonly Prancis: QuickAddress;
@@ -27764,13 +28919,22 @@ export type QuickAddressTree = {
           readonly Ruslan: QuickAddress;
           readonly Singapura: QuickAddress;
           readonly Spanyol: QuickAddress;
+          readonly Sudan: QuickAddress;
+          readonly Suriah: QuickAddress;
+          readonly Suriname: QuickAddress;
           readonly Swedhen: QuickAddress;
           readonly Switserlan: QuickAddress;
+          readonly Taiwan: QuickAddress;
+          readonly Tanzania: QuickAddress;
           readonly Thai: QuickAddress;
+          readonly 'Timor Wetan': QuickAddress;
           readonly Turki: QuickAddress;
           readonly Ukraina: QuickAddress;
+          readonly Uzbekistan: QuickAddress;
           readonly Vietnam: QuickAddress;
           readonly Walanda: QuickAddress;
+          readonly Yaman: QuickAddress;
+          readonly Yordania: QuickAddress;
         };
         readonly direction: QuickAddress;
       };
@@ -48331,6 +49495,322 @@ export type QuickAddressTree = {
         readonly writingSystem: QuickAddress;
       };
     };
+    readonly zh: {
+      readonly address: {
+        readonly buildingType: QuickAddress;
+        readonly cityPrefix: QuickAddress;
+        readonly citySuffix: QuickAddress;
+        readonly direction: QuickAddress;
+        readonly streetName: QuickAddress;
+        readonly streetSuffix: QuickAddress;
+        readonly unitDesignator: QuickAddress;
+      };
+      readonly airline: {
+        readonly aircraftType: QuickAddress;
+        readonly name: QuickAddress;
+      };
+      readonly animal: {
+        readonly bird: QuickAddress;
+        readonly cat: QuickAddress;
+        readonly dog: QuickAddress;
+        readonly fish: QuickAddress;
+        readonly horse: QuickAddress;
+        readonly insect: QuickAddress;
+        readonly type: QuickAddress;
+      };
+      readonly book: {
+        readonly format: QuickAddress;
+        readonly genre: QuickAddress;
+      };
+      readonly clothing: {
+        readonly shoeSizeEu: QuickAddress;
+        readonly size: QuickAddress;
+        readonly type: QuickAddress;
+      };
+      readonly color: {
+        readonly name: QuickAddress;
+      };
+      readonly commerce: {
+        readonly carrier: QuickAddress;
+        readonly department: QuickAddress;
+        readonly orderStatus: QuickAddress;
+        readonly paymentMethod: QuickAddress;
+        readonly paymentStatus: QuickAddress;
+        readonly productAdjective: QuickAddress;
+        readonly productColor: QuickAddress;
+        readonly productMaterial: QuickAddress;
+        readonly productNoun: QuickAddress;
+        readonly returnReason: QuickAddress;
+        readonly reviewTitle: QuickAddress;
+        readonly shippingStatus: QuickAddress;
+        readonly unitOfMeasure: QuickAddress;
+      };
+      readonly company: {
+        readonly buzzAdjective: QuickAddress;
+        readonly buzzNoun: QuickAddress;
+        readonly buzzVerb: QuickAddress;
+        readonly industry: QuickAddress;
+        readonly legalSuffix: QuickAddress;
+        readonly namePart: QuickAddress;
+      };
+      readonly date: {
+        readonly month: QuickAddress;
+        readonly monthAbbr: QuickAddress;
+        readonly quarter: QuickAddress;
+        readonly season: QuickAddress;
+        readonly timeOfDay: QuickAddress;
+        readonly weekday: QuickAddress;
+        readonly weekdayAbbr: QuickAddress;
+      };
+      readonly education: {
+        readonly courseSubject: QuickAddress;
+        readonly degree: QuickAddress;
+        readonly grade: QuickAddress;
+        readonly major: QuickAddress;
+      };
+      readonly event: {
+        readonly type: QuickAddress;
+        readonly venueType: QuickAddress;
+      };
+      readonly finance: {
+        readonly budgetCategory: QuickAddress;
+        readonly creditScoreBand: QuickAddress;
+        readonly insuranceType: QuickAddress;
+        readonly loanType: QuickAddress;
+      };
+      readonly food: {
+        readonly cuisine: QuickAddress;
+        readonly dish: QuickAddress;
+        readonly dishByCuisine: {
+          readonly '北方麵食': QuickAddress;
+          readonly '原住民料理': QuickAddress;
+          readonly '台菜': QuickAddress;
+          readonly '客家菜': QuickAddress;
+          readonly '小吃': QuickAddress;
+          readonly '川菜': QuickAddress;
+          readonly '日本料理': QuickAddress;
+          readonly '江浙菜': QuickAddress;
+          readonly '泰國菜': QuickAddress;
+          readonly '港式茶餐廳': QuickAddress;
+          readonly '湘菜': QuickAddress;
+          readonly '火鍋': QuickAddress;
+          readonly '熱炒': QuickAddress;
+          readonly '粵菜': QuickAddress;
+          readonly '素食': QuickAddress;
+          readonly '西餐': QuickAddress;
+          readonly '韓式料理': QuickAddress;
+        };
+        readonly fruit: QuickAddress;
+        readonly ingredient: QuickAddress;
+        readonly spice: QuickAddress;
+        readonly vegetable: QuickAddress;
+      };
+      readonly gaming: {
+        readonly characterClass: QuickAddress;
+        readonly platform: QuickAddress;
+        readonly rank: QuickAddress;
+      };
+      readonly government: {
+        readonly agency: QuickAddress;
+        readonly documentType: QuickAddress;
+      };
+      readonly hacker: {
+        readonly abbreviation: QuickAddress;
+        readonly adjective: QuickAddress;
+        readonly ingverb: QuickAddress;
+        readonly noun: QuickAddress;
+        readonly verb: QuickAddress;
+      };
+      readonly legal: {
+        readonly caseType: QuickAddress;
+        readonly court: QuickAddress;
+        readonly term: QuickAddress;
+      };
+      readonly location: {
+        readonly country: QuickAddress;
+      };
+      readonly media: {
+        readonly gameGenre: QuickAddress;
+        readonly movieGenre: QuickAddress;
+        readonly streamingPlatform: QuickAddress;
+        readonly tvRating: QuickAddress;
+      };
+      readonly medical: {
+        readonly allergy: QuickAddress;
+        readonly ancestry: QuickAddress;
+        readonly bloodType: QuickAddress;
+        readonly diagnosis: QuickAddress;
+        readonly diagnosisByAncestry: {
+          readonly '中東裔': QuickAddress;
+          readonly '北歐裔': QuickAddress;
+          readonly '北非裔': QuickAddress;
+          readonly '南亞裔': QuickAddress;
+          readonly '地中海裔': QuickAddress;
+          readonly '太平洋島民裔': QuickAddress;
+          readonly '德系猶太裔': QuickAddress;
+          readonly '撒哈拉以南非洲裔': QuickAddress;
+          readonly '東亞裔': QuickAddress;
+          readonly '東南亞裔': QuickAddress;
+          readonly '東歐裔': QuickAddress;
+          readonly '美洲原住民裔': QuickAddress;
+        };
+        readonly diagnosisBySpecialty: {
+          readonly '心臟內科': QuickAddress;
+          readonly '新陳代謝科': QuickAddress;
+          readonly '皮膚科': QuickAddress;
+          readonly '神經內科': QuickAddress;
+          readonly '精神科': QuickAddress;
+          readonly '胃腸肝膽科': QuickAddress;
+          readonly '胸腔內科': QuickAddress;
+          readonly '腎臟內科': QuickAddress;
+          readonly '腫瘤科': QuickAddress;
+          readonly '骨科': QuickAddress;
+        };
+        readonly diagnosisFemale: QuickAddress;
+        readonly diagnosisMale: QuickAddress;
+        readonly drugGeneric: QuickAddress;
+        readonly specialty: QuickAddress;
+        readonly specialtyCoherent: QuickAddress;
+        readonly symptom: QuickAddress;
+      };
+      readonly music: {
+        readonly genre: QuickAddress;
+        readonly instrument: QuickAddress;
+      };
+      readonly nature: {
+        readonly flower: QuickAddress;
+        readonly gemstone: QuickAddress;
+        readonly metal: QuickAddress;
+        readonly tree: QuickAddress;
+      };
+      readonly person: {
+        readonly chineseZodiac: QuickAddress;
+        readonly ethnicity: QuickAddress;
+        readonly female: {
+          readonly diagnosis: QuickAddress;
+          readonly firstName: QuickAddress;
+          readonly nameChar: QuickAddress;
+        };
+        readonly gender: QuickAddress;
+        readonly hobby: QuickAddress;
+        readonly householdSize: QuickAddress;
+        readonly incomeBracket: QuickAddress;
+        readonly language: QuickAddress;
+        readonly lastName: QuickAddress;
+        readonly male: {
+          readonly diagnosis: QuickAddress;
+          readonly firstName: QuickAddress;
+          readonly nameChar: QuickAddress;
+        };
+        readonly maritalStatus: QuickAddress;
+        readonly nationality: QuickAddress;
+        readonly nickname: QuickAddress;
+        readonly prefix: QuickAddress;
+        readonly pronoun: QuickAddress;
+        readonly suffix: QuickAddress;
+        readonly zodiac: QuickAddress;
+      };
+      readonly realestate: {
+        readonly amenity: QuickAddress;
+        readonly listingStatus: QuickAddress;
+        readonly propertyType: QuickAddress;
+        readonly roomType: QuickAddress;
+      };
+      readonly social: {
+        readonly contentType: QuickAddress;
+        readonly hashtag: QuickAddress;
+        readonly platform: QuickAddress;
+        readonly reaction: QuickAddress;
+      };
+      readonly sport: {
+        readonly name: QuickAddress;
+        readonly position: QuickAddress;
+        readonly positionBySport: {
+          readonly '冰球': QuickAddress;
+          readonly '排球': QuickAddress;
+          readonly '桌球': QuickAddress;
+          readonly '棒球': QuickAddress;
+          readonly '橄欖球': QuickAddress;
+          readonly '籃球': QuickAddress;
+          readonly '羽球': QuickAddress;
+          readonly '足球': QuickAddress;
+        };
+        readonly sportCoherent: QuickAddress;
+      };
+      readonly telecom: {
+        readonly carrier: QuickAddress;
+        readonly planType: QuickAddress;
+      };
+      readonly text: {
+        readonly word: QuickAddress;
+      };
+      readonly travel: {
+        readonly bookingStatus: QuickAddress;
+        readonly hotelAmenity: QuickAddress;
+        readonly roomType: QuickAddress;
+        readonly starRating: QuickAddress;
+        readonly tripType: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly bicycle: QuickAddress;
+        readonly fuel: QuickAddress;
+        readonly type: QuickAddress;
+      };
+      readonly weather: {
+        readonly condition: QuickAddress;
+        readonly phenomenon: QuickAddress;
+      };
+      readonly word: {
+        readonly adjective: QuickAddress;
+        readonly adverb: QuickAddress;
+        readonly noun: QuickAddress;
+        readonly verb: QuickAddress;
+      };
+      readonly work: {
+        readonly cable: {
+          readonly conduit: QuickAddress;
+          readonly type: QuickAddress;
+        };
+        readonly department: QuickAddress;
+        readonly employmentType: QuickAddress;
+        readonly industryCoherent: QuickAddress;
+        readonly jobByIndustry: {
+          readonly '交通運輸': QuickAddress;
+          readonly '教育': QuickAddress;
+          readonly '法律': QuickAddress;
+          readonly '營造': QuickAddress;
+          readonly '網路業': QuickAddress;
+          readonly '製造業': QuickAddress;
+          readonly '醫療保健': QuickAddress;
+          readonly '金融': QuickAddress;
+          readonly '零售': QuickAddress;
+          readonly '餐飲旅宿': QuickAddress;
+        };
+        readonly jobTitle: QuickAddress;
+        readonly mining: {
+          readonly method: QuickAddress;
+          readonly mineral: QuickAddress;
+          readonly shift: QuickAddress;
+        };
+        readonly seniority: QuickAddress;
+        readonly skill: QuickAddress;
+        readonly trucking: {
+          readonly cargoType: QuickAddress;
+          readonly licenceClass: QuickAddress;
+          readonly routeType: QuickAddress;
+        };
+      };
+      readonly workplace: {
+        readonly benefit: QuickAddress;
+        readonly interviewStage: QuickAddress;
+        readonly leaveType: QuickAddress;
+        readonly meetingType: QuickAddress;
+      };
+      readonly world: {
+        readonly religion: QuickAddress;
+        readonly writingSystem: QuickAddress;
+      };
+    };
     readonly 'zh-cn': {
       readonly address: {
         readonly buildingType: QuickAddress;
@@ -49617,22 +51097,30 @@ export type QuickAddressTree = {
       readonly '东欧裔': QuickAddress;
       readonly '中东裔': QuickAddress;
       readonly '中東系': QuickAddress;
+      readonly '中東裔': QuickAddress;
       readonly '先住アメリカ系': QuickAddress;
       readonly '北アフリカ系': QuickAddress;
       readonly '北欧系': QuickAddress;
       readonly '北欧裔': QuickAddress;
+      readonly '北歐裔': QuickAddress;
       readonly '北非裔': QuickAddress;
       readonly '南アジア系': QuickAddress;
       readonly '南亚裔': QuickAddress;
+      readonly '南亞裔': QuickAddress;
       readonly '地中海系': QuickAddress;
       readonly '地中海裔': QuickAddress;
       readonly '太平洋岛民裔': QuickAddress;
+      readonly '太平洋島民裔': QuickAddress;
       readonly '太平洋諸島系': QuickAddress;
       readonly '德系犹太裔': QuickAddress;
+      readonly '德系猶太裔': QuickAddress;
       readonly '撒哈拉以南非洲裔': QuickAddress;
       readonly '東アジア系': QuickAddress;
+      readonly '東亞裔': QuickAddress;
       readonly '東南アジア系': QuickAddress;
+      readonly '東南亞裔': QuickAddress;
       readonly '東欧系': QuickAddress;
+      readonly '東歐裔': QuickAddress;
       readonly '美洲原住民裔': QuickAddress;
       readonly '남아시아계': QuickAddress;
       readonly '동남아시아계': QuickAddress;
@@ -50244,18 +51732,25 @@ export type QuickAddressTree = {
       readonly '呼吸器内科': QuickAddress;
       readonly '循環器内科': QuickAddress;
       readonly '心内科': QuickAddress;
+      readonly '心臟內科': QuickAddress;
       readonly '整形外科': QuickAddress;
+      readonly '新陳代謝科': QuickAddress;
       readonly '消化内科': QuickAddress;
       readonly '消化器内科': QuickAddress;
       readonly '皮肤科': QuickAddress;
       readonly '皮膚科': QuickAddress;
       readonly '神経内科': QuickAddress;
+      readonly '神經內科': QuickAddress;
       readonly '神经内科': QuickAddress;
       readonly '精神科': QuickAddress;
       readonly '肾内科': QuickAddress;
       readonly '肿瘤科': QuickAddress;
+      readonly '胃腸肝膽科': QuickAddress;
+      readonly '胸腔內科': QuickAddress;
       readonly '腎臓内科': QuickAddress;
+      readonly '腎臟內科': QuickAddress;
       readonly '腫瘍内科': QuickAddress;
+      readonly '腫瘤科': QuickAddress;
       readonly '骨科': QuickAddress;
       readonly '내분비내과': QuickAddress;
       readonly '소화기내과': QuickAddress;
@@ -50911,11 +52406,15 @@ export type QuickAddressTree = {
       readonly '剣道': QuickAddress;
       readonly '排球': QuickAddress;
       readonly '柔道': QuickAddress;
+      readonly '桌球': QuickAddress;
       readonly '棒球': QuickAddress;
       readonly '橄榄球': QuickAddress;
+      readonly '橄欖球': QuickAddress;
       readonly '相撲': QuickAddress;
       readonly '篮球': QuickAddress;
+      readonly '籃球': QuickAddress;
       readonly '羽毛球': QuickAddress;
+      readonly '羽球': QuickAddress;
       readonly '足球': QuickAddress;
       readonly '野球': QuickAddress;
       readonly '농구': QuickAddress;
@@ -51701,6 +53200,7 @@ export type QuickAddressTree = {
       readonly 'Ẹ̀kọ́': QuickAddress;
       readonly '互联网': QuickAddress;
       readonly '交通运输': QuickAddress;
+      readonly '交通運輸': QuickAddress;
       readonly '制造业': QuickAddress;
       readonly '医疗卫生': QuickAddress;
       readonly '医療': QuickAddress;
@@ -51710,11 +53210,16 @@ export type QuickAddressTree = {
       readonly '技術': QuickAddress;
       readonly '教育': QuickAddress;
       readonly '法律': QuickAddress;
+      readonly '營造': QuickAddress;
+      readonly '網路業': QuickAddress;
       readonly '製造': QuickAddress;
+      readonly '製造業': QuickAddress;
       readonly '運輸': QuickAddress;
+      readonly '醫療保健': QuickAddress;
       readonly '金融': QuickAddress;
       readonly '零售': QuickAddress;
       readonly '飲食・宿泊': QuickAddress;
+      readonly '餐飲旅宿': QuickAddress;
       readonly '餐饮住宿': QuickAddress;
       readonly '건설': QuickAddress;
       readonly '교육': QuickAddress;
