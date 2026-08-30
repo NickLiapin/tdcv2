@@ -1,0 +1,34 @@
+---
+description: Vegetable. Raštan leads because it is the Montenegrin winter green — a loose-leaved kale that never forms a head, cut leaf by leaf off the same plant right through the cold months, boiled long with smoked meat, and rolled around a stuffing to make japraci, which is what a Montenegrin cook makes where others reach for a cabbage leaf. Blitva is its coastal counterpart, boiled together with potato and dressed with olive oil, and on a Boka table it turns up beside almost every fish that comes out of the bay. Most of the rest is grown on the Zeta plain, the flat irrigated ground between Podgorica and Skadarsko jezero, which supplies the country's markets and, in a Mediterranean climate with mountain water behind it, yields two crops in a season. Note peršunov korijen and bijeli luk rather than koren and beli, and note that the northern word for the standing crop itself is uśev, spelled with the letter ś that the 2009 Pravopis crnogorskoga jezika added to the alphabet.
+locale: me
+---
+raštan
+blitva
+paprika
+paradajz
+krastavac
+krompir
+crni luk
+bijeli luk
+praziluk
+šargarepa
+peršun
+celer
+peršunov korijen
+paštrnak
+cvekla
+rotkvica
+kupus
+kiseli kupus
+kelj
+karfiol
+brokoli
+boranija
+grašak
+pasulj
+bob
+tikvice
+bundeva
+patlidžan
+spanać
+zelena salata

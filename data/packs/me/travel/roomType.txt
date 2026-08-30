@@ -1,0 +1,22 @@
+---
+description: Room types in Montenegrin. The graded categories matter less here than they would elsewhere, because the larger part of Montenegro's accommodation is not hotels at all: it is private rooms and apartments let by the households that own them, the izdajem sobe and apartmani signs that line every road from Herceg Novi to Ulcinj through the summer, and a very large share of the country's registered beds sits in that informal sector rather than in categorised hotels. Soba s pogledom na more is the phrase that sets the price and the one every listing leads with. Spavaonica, the dormitory, belongs to the hostels inside the walls of Kotor and to the mountain huts on Durmitor, where the bed is a plank and the view is the point.
+locale: me
+---
+Jednokrevetna soba
+Dvokrevetna soba
+Dvokrevetna s francuskim ležajem
+Trokrevetna soba
+Četvorokrevetna soba
+Porodična soba
+Apartman
+Studio apartman
+Dupleks apartman
+Superior soba
+Deluks soba
+Soba s pogledom na more
+Soba s terasom
+Soba s balkonom
+Povezane sobe
+Soba za osobe s invaliditetom
+Bungalov
+Spavaonica

@@ -1,0 +1,15 @@
+---
+description: Contract type as the Montenegrin Zakon o radu names it. Two entries carry facts worth knowing. Sezonski rad is not a minor category here: tourism is the largest single contributor to Montenegrin GDP, the coast between Herceg Novi and Ulcinj staffs up in June and empties in September, and a large part of the year's hiring happens on contracts written for that window, with additional seasonal workers brought in from the region on work permits. Stručno osposobljavanje pripravnika is a state programme rather than an ordinary contract — the government pays graduates a stipend for a nine-month placement with an employer, and for a decade it has been the usual first entry on a Montenegrin CV. Ugovor o djelu and ugovor o privremenim i povremenim poslovima stand outside an employment relationship altogether: the person is paid for a result, not for time, and accrues no right to annual leave.
+locale: me
+---
+Ugovor o radu na neodređeno vrijeme
+Ugovor o radu na određeno vrijeme
+Probni rad
+Rad sa nepunim radnim vremenom
+Dopunski rad
+Ugovor o djelu
+Ugovor o privremenim i povremenim poslovima
+Stručno osposobljavanje pripravnika
+Sezonski rad
+Volonterski rad
+Ustupanje zaposlenih preko agencije

@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Pulmonology. Tuberkuloza is on the list because Montenegro fought it institutionally: the hospital at Brezovik above Nikšić was built as a sanatorium when tuberculosis was a leading cause of death in these mountains, and it is still the country's specialist hospital for lung disease. The pressing item today is chronic obstructive pulmonary disease, in a country with some of the highest tobacco consumption in Europe and a smoking ban that took years of argument to enforce indoors.
+locale: me
+---
+Astma
+Hronična opstruktivna bolest pluća
+Pneumonija
+Plućna embolija
+Tuberkuloza
+Apneja u snu

@@ -1,0 +1,9 @@
+---
+description: Standing of a borrower in the eyes of a Montenegrin bank, expressed as a band and not as a number. Montenegro has no consumer credit score of the American kind and no private scoring bureau selling one. What exists instead is the Kreditni registar kept by the Centralna banka Crne Gore, to which every bank and microcredit institution reports each borrower's outstanding exposure and any arrears, and which a lender queries before approving anything. On top of that reading the bank applies its own classification of the loan under the central bank's rules, grading exposures by days past due and by the borrower's capacity to repay. The result a customer is told is a judgement in words, of the kind listed here. A config that renders one of these beside a three-digit figure is inventing an institution Montenegro does not have.
+locale: me
+---
+Loša
+Ispod prosjeka
+Prosječna
+Dobra
+Odlična

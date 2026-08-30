@@ -1,0 +1,27 @@
+---
+description: Interior designator written before a number in a Montenegrin address. In ordinary use the flat number simply follows the building number after a slash — Njegoševa 22/14 — so a config that joins these words with a space is producing the formal register a lease or a court filing uses, not the one written on an envelope. Two entries carry the ijekavian reflex that marks the standard: garažno mjesto and parking mjesto, where Serbian writes mesto and Montenegrin writes mjesto from short jat. Lamela is worth knowing because it belongs to a specific building era: a socialist-period block was designed as a row of structurally separate slabs sharing one address, and each slab is a lamela with its own staircase, so a Podgorica or Nikšić address can need lamela, ulaz and sprat before the flat number narrows to one door. Apartman does more work on the coast than anywhere else — a Budva or Herceg Novi building may be entirely short-let flats, and the apartman number is what a booking, an invoice and the tourist registration all key on.
+locale: me
+---
+stan
+st.
+sprat
+spr.
+ulaz
+lamela
+zgrada
+zg.
+lokal
+lok.
+kancelarija
+kanc.
+soba
+apartman
+prizemlje
+potkrovlje
+podrum
+garaža
+garažno mjesto
+parking mjesto
+ostava
+pomoćna prostorija
+segment

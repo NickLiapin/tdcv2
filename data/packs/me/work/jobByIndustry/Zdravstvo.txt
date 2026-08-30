@@ -1,0 +1,16 @@
+---
+description: Occupations in Montenegrin healthcare. Ljekar is the word to notice: the ijekavian form of the noun for a doctor, from lijek, medicine, where an ekavian standard says lekar and lek. A Montenegrin prescription, a hospital door and a diploma all say ljekar. The system is small and centralised — the Klinički centar Crne Gore in Podgorica is the only tertiary hospital in the country, with general hospitals in seven towns and a network of domovi zdravlja beneath them — so a specialist here usually trained abroad, in Belgrade, Zagreb or Ljubljana, and a difficult case still leaves the country. Medicinska sestra and babica are given in the feminine because that is how the professions are named, and a man in either uses medicinski tehničar or babičar.
+locale: me
+---
+Ljekar opšte prakse
+Specijalista
+Hirurg
+Anesteziolog
+Pedijatar
+Medicinska sestra
+Babica
+Farmaceut
+Fizioterapeut
+Zubni tehničar
+Laboratorijski tehničar
+Vozač sanitetskog vozila

@@ -1,0 +1,58 @@
+---
+description: Colour name in Montenegrin, given in the feminine singular because the words are adjectives and boja, "colour", is feminine — bijela boja, crvena boja. The country is named after one of them. Crna Gora is literally "black mountain", the name Venetian sailors calqued as monte negro when they looked up from the Bay of Kotor at Lovćen, whose dense dark evergreen forest read as black against the limestone around it; the principality recognised as independent at Berlin in 1878, the kingdom proclaimed in 1910 and the state of today have all carried that colour in the name. bijela shows the ijekavian reflex of jat that separates this standard from Serbian bela, and svijetlosiva, svijetlocrvena, svijetlozelena and svijetloplava carry the same vowel in the "light" prefix. Two entries are local rather than borrowed from a paint chart: boja mora, the particular deep blue-green of the Adriatic off the Montenegrin coast, and maslinasta, olive, named for a tree that has grown here long enough that the Stara maslina at Bar is reckoned to be over two thousand years old and is claimed as one of the oldest in Europe.
+locale: me
+---
+bijela
+crna
+siva
+tamnosiva
+svijetlosiva
+srebrna
+crvena
+tamnocrvena
+svijetlocrvena
+bordo
+grimizna
+ružičasta
+roze
+fuksija
+narandžasta
+bakarna
+žuta
+limun žuta
+zlatna
+oker
+senf žuta
+smeđa
+tamnosmeđa
+svijetlosmeđa
+kestenjasta
+čokoladna
+bež
+krem
+slonovača
+boja pijeska
+zelena
+tamnozelena
+svijetlozelena
+maslinasta
+smaragdna
+mentol zelena
+boja limete
+tirkizna
+plava
+tamnoplava
+svijetloplava
+nebeskoplava
+teget
+azurna
+kobaltna
+indigo
+boja mora
+ljubičasta
+lila
+boja lavande
+boja šljive
+terakota
+boja trešnje
+antracit

@@ -1,0 +1,36 @@
+---
+description: Common Montenegrin adverb. Two of these are the clearest single-word demonstration of what separates the Montenegrin standard from its neighbours: śutra and prekośutra, "tomorrow" and "the day after tomorrow", written with ś. Serbian and Croatian both write sjutra or sutra and have no letter for the sound at all; the 2009 Pravopis crnogorskoga jezika admitted ś and ź to the alphabet precisely because southern Montenegrin speech had kept a distinct soft consonant where the other standards had resolved the old sj cluster or dropped it. The sound is not an invention of the codifiers — it is what Cetinje, Njeguši and the Katunska nahija have always said — but giving it a letter was, and it remains the most contested decision in the orthography. The rest of the list carries the second Montenegrin marker, the ijekavian reflex of jat: lijepo, uvijek, rijetko, nigdje, dolje and naprijed, against Serbian lepo, uvek, retko, nigde, dole and napred. juče, not the Croatian jučer, is the form used here.
+locale: me
+---
+brzo
+sporo
+dobro
+loše
+lijepo
+mnogo
+malo
+više
+manje
+uvijek
+nikad
+često
+rijetko
+ponekad
+sad
+onda
+danas
+śutra
+prekośutra
+juče
+rano
+kasno
+odmah
+polako
+zajedno
+ovdje
+tamo
+svuda
+nigdje
+gore
+dolje
+naprijed

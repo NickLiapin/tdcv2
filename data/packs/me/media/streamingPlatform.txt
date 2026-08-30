@@ -1,0 +1,16 @@
+---
+description: Streaming services available in the Montenegrin market, under their registered names. A market of six hundred thousand people is far too small to be dubbed for, so foreign film and series arrive subtitled and Montenegrin viewers read their television rather than hear it — with the side effect that passive English comprehension is unusually high, and children pick up reading speed from cartoons. Subtitles are supplied in the regional standards more or less interchangeably, since the differences between them do not obstruct comprehension. EON is the operator-run platform of the local cable providers, and it is the one that carries the domestic channels, including the public broadcaster RTCG, that none of the international services do.
+locale: me
+---
+Netflix
+HBO Max
+Disney+
+Amazon Prime Video
+Apple TV+
+YouTube
+YouTube Premium
+SkyShowtime
+EON TV
+Pickbox NOW
+Spotify
+Deezer

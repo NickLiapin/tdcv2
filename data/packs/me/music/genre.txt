@@ -1,0 +1,39 @@
+---
+description: Musical genres in Montenegrin, opening with the ones that exist nowhere else. Guslarska pjesma is epic verse sung to the gusle in lines of ten syllables, the form that carried history before literacy and the form Njegoš wrote Gorski vijenac in. Oro is not sung to instruments at all: the dancers make a ring, clap, and take turns leaping into the middle while the circle sings, and a wedding in the interior is not finished until it has been danced. Klapska pjesma is the unaccompanied male close harmony of the coast, sevdalinka the slow love song of the northern towns, and crnogorska izvorna the unaccompanied village singing of the highlands. Everything from pop onward is the international list written as it sounds — džez, bluz, haus, dram en bejs — because Montenegrin spells borrowed names phonetically rather than keeping the foreign shape.
+locale: me
+---
+Guslarska pjesma
+Oro
+Crnogorska izvorna muzika
+Narodna muzika
+Klapska pjesma
+Sevdalinka
+Starogradska muzika
+Novokomponovana narodna muzika
+Turbo-folk
+Pop
+Rok
+Pank
+Metal
+Hevi metal
+Hard rok
+Alternativni rok
+Indi
+Džez
+Bluz
+Soul
+Fank
+Disko
+Hip-hop
+Rep
+Rege
+Elektronska muzika
+Haus
+Tehno
+Trans
+Dram en bejs
+Ambijentalna muzika
+Klasična muzika
+Opera
+Horska muzika
+Crkveno pojanje

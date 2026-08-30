@@ -1,0 +1,34 @@
+---
+description: Unit of measure on a Montenegrin invoice or price label. The country is metric without exception and has been since the Kingdom adopted the metric system before the First World War, so there is no local non-metric unit the way an English list carries pounds and inches. What survives instead is spoken rather than written: the Ottoman oka, a little over 1.2 kilograms, is still heard in market talk in Pljevlja, Rožaje, Plav and Berane when somebody buys cheese or potatoes, and older speakers will quote a rakija still by the oka, but no till and no invoice has printed the word for a century. Prices behind these units are always in euro, which Montenegro adopted unilaterally in 2002 without joining the eurozone. Note mjesec against the Serbian mesec: the same short jat that gives mjesto and mjera, and the reason a Montenegrin subscription is billed po mjesecu. Dužni metar, the running metre, is how timber, guttering, worktops and fencing are sold, and it is a different quantity from metar even though the number looks the same — a config that treats them as synonyms will silently mis-price a joinery order.
+locale: me
+---
+komad
+kom.
+par
+set
+kutija
+pakovanje
+pak.
+kesa
+vreća
+paleta
+boca
+limenka
+tegla
+tuba
+rolna
+metar
+centimetar
+milimetar
+kvadratni metar
+kubni metar
+litar
+mililitar
+decilitar
+kilogram
+gram
+tona
+dužni metar
+sat
+dan
+mjesec

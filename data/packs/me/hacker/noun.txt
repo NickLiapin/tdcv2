@@ -1,0 +1,41 @@
+---
+description: Technical nouns in Montenegrin, and what stands out is how many are calques rather than loans. Zaštitni zid is a firewall translated wall for wall; propusni opseg renders bandwidth as pass-through range; datoteka is a coined word for a file; čvor is simply the everyday word for a knot; and utičnica is the same word used for the electrical socket in the wall. That habit of building from native roots runs directly against the wholesale borrowing you find in the sports vocabulary of this pack, and it is a deliberate preference of technical writing in the region rather than an accident. Pośeta, a visit in the web-analytics sense, is written with ś, one of the two letters that separate the Montenegrin alphabet from every other Štokavian standard. Engineering is taught in Podgorica at the Elektrotehnički fakultet of the Univerzitet Crne Gore, founded in 1960 and the country's oldest faculty of the kind.
+locale: me
+---
+server
+klijent
+baza podataka
+tabela
+upit
+indeks
+ključ
+zapis
+polje
+datoteka
+direktorijum
+putanja
+memorija
+keš
+procesor
+jezgro
+nit
+proces
+pośeta
+mreža
+protokol
+port
+utičnica
+paket
+ruter
+svič
+zaštitni zid
+posrednik
+opterećenje
+propusni opseg
+kašnjenje
+rezervna kopija
+skladište
+kontejner
+slika
+čvor
+klaster

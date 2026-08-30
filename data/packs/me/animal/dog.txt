@@ -1,0 +1,29 @@
+---
+description: Dog breeds in Montenegrin, opening with the two the country can claim. The crnogorski planinski gonič is a black-and-tan scenthound bred to work the karst on voice alone, driving hare and fox across ground too broken for a handler to follow, and it is registered internationally under Montenegro's name. The šarplaninac is the other: a livestock guardian that lives with the flock rather than with the shepherd, still working the katuni of Durmitor, Sinjajevina and Bjelasica where sheep are taken uphill for the summer and wolves have never been eradicated — a heavy, slow, low-barking dog that decides for itself. Everything after those two is a town breed, arrived with apartments rather than with pasture, and written as it sounds.
+locale: me
+---
+crnogorski planinski gonič
+šarplaninac
+tornjak
+njemački ovčar
+labrador retriver
+zlatni retriver
+francuski buldog
+engleski buldog
+pudla
+rotvajler
+jorkširski terijer
+bokser
+doberman
+dalmatinac
+bigl
+mops
+čivava
+sibirski haski
+aljaski malamut
+bernski planinski pas
+border koli
+šetlandski ovčar
+kane korso
+njemačka doga
+maltezer

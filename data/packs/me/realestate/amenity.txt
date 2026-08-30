@@ -1,0 +1,26 @@
+---
+description: Feature advertised in a Montenegrin property listing. Two of them carry more weight than the rest. Pogled na more is the single attribute that moves a price most on this coast, and it is sold in gradations a foreigner would not guess — a direct view over the Boka, a slanted view past a neighbour's roof, a view that exists only from the terrace. Uknjižen means the property is entered in the land register kept by the Uprava za katastar i državnu imovinu, and it appears in advertisements precisely because so many buildings are not: a long boom of building without permits along the coast and around Podgorica left tens of thousands of structures outside the register, and successive legalisation laws have been working through them ever since. Note also grijanje, where centralno rarely means district heating — Montenegro has almost none — but a boiler serving one building.
+locale: me
+---
+Lift
+Garaža
+Parking mjesto
+Terasa
+Balkon
+Lođa
+Dvorište
+Bašta
+Podrum
+Tavan
+Ostava
+Centralno grijanje
+Etažno grijanje
+Podno grijanje
+Klima-uređaj
+Kamin
+Interfon
+Video-nadzor
+Optički internet
+Namješten
+Uknjižen
+Pogled na more

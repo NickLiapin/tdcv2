@@ -1,0 +1,13 @@
+---
+description: Cable type in telecommunications and power work. The most consequential cable ever laid in Montenegro is not on this list as a product but as a category: the energetski kabl running under the Adriatic from Lastva near Tivat to Villanova in Abruzzo, a 445-kilometre high-voltage direct-current link commissioned in 2019 that ties the Montenegrin grid to the Italian one and made a country of 620,000 people a transit point for Balkan electricity. Above ground the vocabulary is ordinary European: optički kabl for the fibre that Crnogorski Telekom and the cable operators have been pulling into buildings, upredena parica and its UTP and FTP screened forms indoors, samonosivi kabl for the self-supporting aerial spans that cross the gorges of the north without a messenger wire.
+locale: me
+---
+Optički kabl
+Bakarni kabl
+Koaksijalni kabl
+Upredena parica
+UTP kabl
+FTP kabl
+Energetski kabl
+Podzemni kabl
+Samonosivi kabl

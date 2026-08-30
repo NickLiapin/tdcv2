@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Cardiology. Interventional cardiology and cardiac surgery in Montenegro are done in one place, the Klinički centar Crne Gore in Podgorica, and before the catheterisation laboratory there was working a patient with an acute infarction was driven to Belgrade — several hours through the Morača canyon, on a road that closes in snow. Cardiovascular disease is the leading cause of death in the country, as it is across the western Balkans, in a population with some of the highest tobacco consumption in Europe.
+locale: me
+---
+Hipertenzija
+Koronarna bolest srca
+Atrijalna fibrilacija
+Srčana insuficijencija
+Infarkt miokarda
+Hiperlipidemija

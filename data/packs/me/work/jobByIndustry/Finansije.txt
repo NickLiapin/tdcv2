@@ -1,0 +1,16 @@
+---
+description: Occupations in Montenegrin banking, accounting and insurance. Every one of these people works in euro and none of them works in a currency their state can issue: Montenegro took the Deutsche mark in 1999 and the euro in 2002, unilaterally, and has never been a member of the eurozone or the European Union. That single fact removes most of the work an ordinary Balkan finance department does — there is no exchange-rate exposure on a domestic loan, no indexation clause, no dinar column beside the euro one — and concentrates the profession on credit risk instead. Knjigovođa and računovođa are not synonyms: the first keeps the books, the second is a licensed accountant who signs the statements. Poreski savjetnik keeps the ijekavian savjet where an ekavian text would write savet.
+locale: me
+---
+Knjigovođa
+Računovođa
+Finansijski analitičar
+Revizor
+Aktuar
+Poreski savjetnik
+Bankarski službenik
+Kreditni referent
+Blagajnik
+Broker
+Kontrolor
+Šef računovodstva

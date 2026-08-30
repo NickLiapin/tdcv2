@@ -1,0 +1,19 @@
+---
+description: How a Montenegrin customer pays. Every amount behind these labels is in euro, and the way that came about has no parallel anywhere else in Europe. Montenegro abandoned the Yugoslav dinar in November 1999 for the German mark, then moved to the euro on 1 January 2002 when the mark was withdrawn — unilaterally, without an agreement with the European Central Bank, without ever having been in the eurozone and without being in the EU at all. The country therefore mints no euro coin of its own and prints no note; it has no national side on any coin in circulation, which is why a Montenegrin till holds only other countries' euros. The Centralna banka Crne Gore performs every central-bank function except the one that defines the job: it cannot create money, so it has no monetary policy and no lender of last resort, and bank supervision is effectively its whole mandate. Two consequences show up in this list. There is no domestic card scheme — nothing here corresponds to Serbia's DinaCard, because a scheme needs a currency authority behind it — so Viza, Mastercard and Maestro carry all card volume. And plaćanje pouzećem, cash on delivery, remains the default for online orders in a country where cash is still trusted more than a card entry form. Uplatnica is the paper giro slip paid over a counter at the post office or a bank, and virmanski nalog is its business equivalent.
+locale: me
+---
+Gotovina
+Platna kartica
+Debitna kartica
+Kreditna kartica
+Viza
+Mastercard
+Maestro
+Plaćanje pouzećem
+Uplatnica
+Virmanski nalog
+Bankovni transfer
+Elektronsko bankarstvo
+Mobilno bankarstvo
+Plaćanje na rate
+Poklon vaučer

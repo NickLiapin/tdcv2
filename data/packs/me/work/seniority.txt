@@ -1,0 +1,20 @@
+---
+description: Seniority label attached to a role. Montenegro runs two naming systems side by side and this list holds both. A private advertisement in Podgorica prints the English loans — junior, medior, senior — because the software and outsourcing firms that use them work for clients abroad and hire against foreign job ladders. A public body cannot: the civil service is graded by a systematisation act, and its rungs are samostalni, viši and glavni before a title, so a ministry produces a samostalni savjetnik and a glavni inspektor where a company would produce a senior anything. Pripravnik is the entry rung in both worlds and has a statutory meaning as well, since a Montenegrin trainee period runs to a defined length and ends in an exam for several regulated professions.
+locale: me
+---
+Pripravnik
+Volonter
+Junior
+Medior
+Senior
+Samostalni
+Viši
+Vodeći
+Glavni
+Šef
+Rukovodilac
+Koordinator
+Menadžer
+Direktor sektora
+Izvršni direktor
+Generalni direktor

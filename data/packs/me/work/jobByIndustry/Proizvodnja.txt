@@ -1,0 +1,16 @@
+---
+description: Occupations in Montenegrin manufacturing, a sector that is smaller than the list suggests and organised around a handful of plants. The Kombinat aluminijuma Podgorica smelted bauxite from the Nikšić mines into ingot and at its height accounted for a large share of national exports and an even larger share of national electricity consumption; the Nikšić steelworks, the Trebjesa brewery that makes Nikšićko pivo, and the Plantaže winery on the Ćemovsko polje are the other names a Montenegrin will give when asked what the country makes. Bravar, strugar, glodač and alatničar are four distinct metal trades and a Montenegrin vocational school teaches them separately: locksmith-fitter, turner, miller and toolmaker.
+locale: me
+---
+Mašinski inženjer
+Tehnolog
+Operater na mašini
+Bravar
+Zavarivač
+Strugar
+Glodač
+Alatničar
+Kontrolor kvaliteta
+Održavalac
+Električar
+Magacioner

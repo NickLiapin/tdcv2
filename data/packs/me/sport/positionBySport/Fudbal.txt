@@ -1,0 +1,15 @@
+---
+description: Positions in association football, in Montenegrin. The domestic league is small — Budućnost of Podgorica and Sutjeska of Nikšić hold most of the titles between them — but the national team is younger than the players who first wore its shirt: Montenegro registered with FIFA and UEFA in 2007, after the independence referendum of May 2006, making it one of Europe's youngest federations, and its first home was the Gradski stadion in Podgorica with a capacity of around eleven thousand. Slobodni bek, the sweeper, stays on the list because Yugoslav and Montenegrin coaching taught the position long after western European sides had abandoned it, and the word is still used to describe a defender who reads rather than marks.
+locale: me
+---
+Golman
+Desni bek
+Lijevi bek
+Štoper
+Slobodni bek
+Defanzivni vezni
+Centralni vezni
+Ofanzivni vezni
+Desno krilo
+Lijevo krilo
+Centarfor

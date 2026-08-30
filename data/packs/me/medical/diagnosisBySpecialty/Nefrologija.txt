@@ -1,0 +1,9 @@
+---
+description: Diagnoses seen in Nephrology. Dialysis is the service that decides where a Montenegrin with kidney failure is able to live: haemodialysis units are distributed to the general hospitals so that patients in Berane, Bijelo Polje, Nikšić, Bar and Kotor are not driven to Podgorica three times a week, while transplantation is concentrated at the Klinički centar Crne Gore. Hronična bolest bubrega is largely a downstream diagnosis here — diabetes and hypertension between them put most of the patients into the chair.
+locale: me
+---
+Hronična bolest bubrega
+Nefrolitijaza
+Glomerulonefritis
+Akutno oštećenje bubrega
+Policistična bolest bubrega

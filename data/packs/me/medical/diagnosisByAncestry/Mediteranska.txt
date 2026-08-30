@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Mediterranean ancestry; a prevalence signal, not an exclusive one. This is the group Montenegro's own population belongs to, so the beta-thalassaemia entries are not abstract here — raised carrier frequencies are documented around Skadarsko jezero and along the coastal strip, the same low, wet, formerly malarial ground where the trait once paid for itself. Favizam is the G6PD deficiency on the list seen from the other side: a sudden haemolytic crisis brought on by eating broad beans, which grow very well on the Zeta plain and are eaten fresh in spring.
+locale: me
+---
+Beta-talasemija
+Nosilaštvo beta-talasemije
+Deficit glukoza-6-fosfat dehidrogenaze
+Porodična mediteranska groznica
+Behčetova bolest
+Alfa-talasemija
+Favizam

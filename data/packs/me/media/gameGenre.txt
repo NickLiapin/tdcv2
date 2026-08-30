@@ -1,0 +1,21 @@
+---
+description: Video game genres in Montenegrin. The vocabulary is half translated and half borrowed, and pucačina, from pucati, to shoot, is a native formation with a colloquial suffix that no committee coined — it grew on gaming forums and stuck, which is why it sits beside the stiffer strategija u realnom vremenu without looking out of place. Montenegro's own connection to games is commercial rather than creative: the country's .me domain, delegated after the old .yu space was wound up, is a favourite with studios, streamers and gaming sites worldwide, because me reads as an English word and produces short addresses that finish a sentence instead of merely labelling a server.
+locale: me
+---
+Akcija
+Avantura
+Akciono-avanturistička
+Pucačina
+Pucačina iz prvog lica
+Igranje uloga
+Strategija
+Strategija u realnom vremenu
+Potezna strategija
+Simulacija
+Sportska igra
+Trkačka igra
+Borilačka igra
+Platformska igra
+Logička igra
+Horor igra
+Igra preživljavanja

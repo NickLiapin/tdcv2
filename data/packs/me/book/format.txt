@@ -1,0 +1,12 @@
+---
+description: Book format in Montenegrin. Montenegro has an unusually long claim on this vocabulary for a country of six hundred thousand people: the Crnojević printing house operated at Cetinje between 1493 and 1496, barely forty years after Gutenberg, and it produced the Oktoih prvoglasnik, among the first books ever printed in Cyrillic types and the first printed anywhere in the South Slav lands using them. Its press was set up under Đurađ Crnojević and run by the monk Makarije, it worked on paper imported by sea through Kotor, and it stopped when the Ottomans took the Zeta lowlands. Cetinje kept the trade afterwards through the state press of Njegoš's time, and the Nacionalna biblioteka Crne Gore still sits there rather than in the capital. tvrdi povez and meki povez are hard and soft binding, džepno izdanje the pocket edition, and audio-knjiga takes a hyphen because the first element is an indeclinable foreign prefix that cannot simply be glued to a Montenegrin noun.
+locale: me
+---
+tvrdi povez
+meki povez
+džepno izdanje
+elektronska knjiga
+audio-knjiga
+reprint
+ilustrovano izdanje
+luksuzno izdanje

@@ -1,0 +1,24 @@
+---
+description: Writing systems in Montenegrin, and the first two entries are the whole point. The Montenegrin alphabet has thirty-two letters: the thirty shared with the Latin alphabet of the region plus ś and ź, added by the Pravopis crnogorskoga jezika in 2009 to write sounds that the other Štokavian standards spell as sj and zj — śutra for tomorrow, źenica for the pupil of the eye. Their Cyrillic counterparts are с́ and з́, so the two alphabets stay letter for letter equivalent. Article 13 of the 2007 constitution names Montenegrin the official language and makes Cyrillic and Latin equal in status, so both are constitutionally official, but Latin is what schools, newspapers, road signs and this pack actually use. Glagoljica at the end is the oldest Slavic script of all, older than Cyrillic, and it was still being cut into stone on the eastern Adriatic long after it had died out everywhere else.
+locale: me
+---
+crnogorska latinica
+crnogorska ćirilica
+latinica
+ćirilica
+gajica
+grčko pismo
+arapsko pismo
+hebrejsko pismo
+jermensko pismo
+gruzijsko pismo
+devanagari
+bengalsko pismo
+tamilsko pismo
+tajlandsko pismo
+kineski znakovi
+hiragana
+katakana
+hangul
+glagoljica
+klinasto pismo

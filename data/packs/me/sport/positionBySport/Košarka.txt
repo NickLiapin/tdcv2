@@ -1,0 +1,9 @@
+---
+description: Positions in basketball, in Montenegrin. Budućnost Voli of Podgorica play the regional Adriatic league and European competition out of the Morača hall, and basketball is the sport that most reliably fills it on a winter evening. The five names split into two kinds: plejmejker and centar are naturalised borrowings that no longer feel foreign, while bek šuter, nisko krilo and krilni centar are literal renderings of shooting guard, small forward and power forward. Because the translated terms are clumsy in speech, a Montenegrin commentator will as often simply say the numbers — jedan through pet — which is why the positions are known here by digit far more than by name.
+locale: me
+---
+Plejmejker
+Bek šuter
+Nisko krilo
+Krilni centar
+Centar

@@ -1,0 +1,32 @@
+---
+description: Flowers in Montenegrin. Mimoza comes first for a calendar reason: the tree flowers at Herceg Novi in the second half of February, when the north of the country is still under snow, and the town has built a festival around it since 1969 that runs for weeks and opens the coastal year. At the other end of the altitude range runolist, the edelweiss, grows on the bare limestone of Durmitor and Prokletije and is legally protected. Lincura, the yellow gentian, is dug for its root and steeped in loza to make the bitter mountain rakija of the north, which is why a flower name doubles as a drink name in conversation. Oleandar closes the list on the coast, planted along every promenade from Herceg Novi to Ulcinj because it takes salt, drought and neglect without complaint.
+locale: me
+---
+mimoza
+runolist
+lincura
+božur
+perunika
+ljiljan
+planinski ljiljan
+visibaba
+jagorčevina
+ljubičica
+maslačak
+kamilica
+neven
+suncokret
+ruža
+karanfil
+lala
+zumbul
+narcis
+gerber
+hrizantema
+dalija
+petunija
+muškatla
+ciklama
+orhideja
+lavanda
+oleandar

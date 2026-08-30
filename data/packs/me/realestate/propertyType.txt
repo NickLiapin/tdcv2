@@ -1,0 +1,23 @@
+---
+description: Kind of property offered for sale or rent in Montenegro. Room counting comes first and is the commonest misunderstanding: a dvosoban stan has two rooms not counting the kitchen and the bathroom, so it is not a two-bedroom flat in the English sense, and the half in dvoiposoban is a small room that could not be called a full one. Apartman is not a synonym for stan but a coastal unit sold or let furnished for short stays. Three entries have no equivalent in an inland pack. A konoba is the vaulted stone ground floor of an old coastal house, once the wine and oil store, now usually a dining room, and it is advertised as a feature in its own right. A kamena kuća is the dry-stone house of the Boka and the Paštrovići hinterland, protected in the Kotor world heritage area and expensive to restore. A katun is the summer highland settlement of the herders of Durmitor, Sinjajevina, Bjelasica and the Komovi — a cluster of huts and a pen, occupied only from June to September while the cattle are on the mountain grass, and now increasingly bought and rebuilt as a holiday property, which is how a transhumant institution turned into a listing category.
+locale: me
+---
+Garsonjera
+Jednosoban stan
+Jednoiposoban stan
+Dvosoban stan
+Dvoiposoban stan
+Trosoban stan
+Četvorosoban stan
+Penthaus
+Dupleks
+Apartman
+Kuća
+Kuća u nizu
+Vila
+Kamena kuća
+Konoba
+Katun
+Plac
+Poslovni prostor
+Lokal

@@ -1,0 +1,40 @@
+---
+description: Birds in Montenegrin. Skadarsko jezero, the largest lake in the Balkans and shared with Albania, is why this list leans wet: the lake and its flooded willow scrub hold one of the last breeding colonies of the kudravi pelikan, the Dalmatian pelican, in this part of Europe, and the nests are counted every spring from boats out of Virpazar because the colony is small enough that single pairs matter. The mali vranac, the pygmy cormorant, winters there in thousands, and the reserve is one of the largest bird sanctuaries on the continent. Away from the water the vocabulary is the ordinary one of karst and village, but note sjenica for the tit: the ijekavian je where the eastern standards write se is the quickest way to tell a Montenegrin list from a Serbian one at a glance.
+locale: me
+---
+kudravi pelikan
+mali vranac
+veliki vranac
+čaplja
+mala bijela čaplja
+liska
+divlja patka
+gnjurac
+galeb
+čigra
+bjeloglavi sup
+suri orao
+orao ribar
+soko
+jastreb
+mišar
+sova
+ćuk
+ušara
+vrabac
+lasta
+čiopa
+golub
+gugutka
+vrana
+gavran
+svraka
+sojka
+sjenica
+kos
+drozd
+slavuj
+čvorak
+detlić
+kukavica
+ševa

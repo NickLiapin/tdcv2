@@ -1,0 +1,32 @@
+---
+description: Technical adjectives in Montenegrin, given in the definite form. Montenegrin, like the other Štokavian standards, keeps a short indefinite adjective apart from a long definite one — mrežan against mrežni — and technical prose uses the definite throughout, because what is being named is a known category rather than one instance of it; that is a live grammatical distinction where English lost the endings centuries ago and now does the same work with the article. Ośetljivi, sensitive, is written with ś: the letter comes from an older sj that the 2009 orthography of Montenegrin finally gave a character of its own, and it appears in exactly this everyday phrase, ośetljivi podaci, sensitive data.
+locale: me
+---
+digitalni
+virtuelni
+mrežni
+bežični
+optički
+digitalno potpisani
+šifrovani
+otvoreni
+zatvoreni
+distribuirani
+paralelni
+asinhroni
+sinhroni
+redundantni
+skalabilni
+modularni
+integrisani
+automatizovani
+inteligentni
+ośetljivi
+hijerarhijski
+relacioni
+keširani
+komprimovani
+serijalizovani
+rezervni
+primarni
+sekundarni

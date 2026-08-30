@@ -1,0 +1,16 @@
+---
+description: Occupations in the Montenegrin legal profession, and three of them carry names Montenegro chose differently from its neighbours. The notary is a notar here, an office reintroduced in 2011 to take conveyancing and inheritance work off the courts. The bailiff is a javni izvršitelj, a private officer of the court since 2014. The prosecutor is a državni tužilac, a state prosecutor, not a javni tužilac, and the whole prosecution service is organised as državno tužilaštvo up to the Vrhovno and the specialised office created in 2015 for organised crime and corruption. Sudski vještak keeps the ijekavian vještak where an ekavian text writes veštak, and the word is worth learning because a Montenegrin civil case very often turns on the court expert's report rather than on the pleadings.
+locale: me
+---
+Advokat
+Advokatski pripravnik
+Notar
+Javni izvršitelj
+Sudija
+Državni tužilac
+Sudijski pomoćnik
+Pravni savjetnik
+Pravni zastupnik
+Medijator
+Sudski vještak
+Sudski tumač

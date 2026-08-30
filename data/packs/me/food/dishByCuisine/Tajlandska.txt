@@ -1,0 +1,12 @@
+---
+description: Dishes of Thai cuisine. Montenegro takes well over two million visitors a year against a resident population of about 620 000, and that ratio is the whole reason a country this small carries a Thai restaurant at all. The pattern is strictly seasonal: the coast between Herceg Novi and Ulcinj cooks the world's cuisines from June to September and shuts most of them by November, so a menu that exists in Budva in July has no address in the same town in February.
+locale: me
+---
+Pad taj
+Tom jam
+Zeleni kari
+Tom ka gaj
+Pad si ju
+Mango sa ljepljivim pirinčem
+Sataj
+Salata od papaje

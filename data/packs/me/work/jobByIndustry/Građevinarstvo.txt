@@ -1,0 +1,16 @@
+---
+description: Occupations on a Montenegrin building site. Construction is a larger share of this economy than of most, and the reason is the 293 kilometres of coast: apartment blocks behind Budva, hotels at Tivat and Bečići, and the marina complexes at Porto Montenegro and Luštica Bay have kept the trades busy for two decades. Inland the work is different in kind — the Bar–Boljare motorway drove a road through the Morača canyon on viaducts and in tunnels, which is armirač and miner work rather than moler work. Nadzorni organ is a legal role, not a job description: an independent supervising engineer whose signature the investor needs before the work can be certified, and no Montenegrin building permit closes without one.
+locale: me
+---
+Građevinski inženjer
+Arhitekta
+Geodeta
+Nadzorni organ
+Poslovođa
+Zidar
+Tesar
+Armirač
+Moler
+Keramičar
+Izolater
+Krovopokrivač

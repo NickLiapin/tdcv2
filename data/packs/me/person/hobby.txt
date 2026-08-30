@@ -1,0 +1,82 @@
+---
+description: Pastime in Montenegro. Six of these are not generic leisure but things the country's geography makes possible within an hour's drive of each other, which is the single most quoted fact about Montenegro and happens to be true: rafting the Tara through the deepest canyon in Europe, skiing at Kolašin or Žabljak, diving off Boka, sailing the bay, walking the Velika plaža at Ulcinj and climbing on Durmitor can all be done in one weekend. Three more are cultural rather than recreational. Sviranje gusala is playing the gusle, a single-stringed bowed instrument that accompanies sung epic and is on the UNESCO intangible heritage list; oro is a circle dance performed with no instruments at all, only clapping and singing, with dancers taking turns to leap into the ring; pjevanje u klapi is the multi-part unaccompanied male singing of the Adriatic coast. Pčelarstvo, maslinarstvo and vinogradarstvo — beekeeping, olives and vines — are hobbies in the Montenegrin sense in which a family plot produces more than the family eats.
+locale: me
+---
+Čitanje
+Planinarenje
+Fotografija
+Kuvanje
+Baštovanstvo
+Slikanje
+Biciklizam
+Video-igre
+Joga
+Putovanja
+Ribolov
+Pletenje
+Trčanje
+Pečenje kolača
+Obrada drveta
+Šah
+Ples
+Folklor
+Kampovanje
+Posmatranje ptica
+Grnčarstvo
+Astronomija
+Filatelija
+Numizmatika
+Maketarstvo
+Ronjenje
+Skijanje
+Snoubord
+Klizanje
+Plivanje
+Veslanje
+Kajak
+Jedrenje
+Paraglajding
+Orijentiring
+Speleologija
+Lov
+Streljaštvo
+Streličarstvo
+Borilačke vještine
+Boks
+Fitnes
+Teretana
+Pilates
+Aerobik
+Tenis
+Stoni tenis
+Odbojka
+Košarka
+Fudbal
+Rukomet
+Vaterpolo
+Kuglanje
+Bilijar
+Pikado
+Društvene igre
+Slagalice
+Ukrštene riječi
+Sudoku
+Sviranje gitare
+Sviranje gusala
+Pjevanje u klapi
+Oro
+Pčelarstvo
+Maslinarstvo
+Vinogradarstvo
+Rafting na Tari
+Kanjoning
+Podvodni ribolov
+Berba ljekovitog bilja
+Sakupljanje gljiva
+Pisanje
+Poezija
+Gluma
+Kaligrafija
+Kolekcionarstvo
+Vez
+Šetnja uz more

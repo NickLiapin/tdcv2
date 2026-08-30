@@ -1,0 +1,59 @@
+---
+description: Business buzz adjective for a Montenegrin catch-phrase, given in the masculine singular base form; a feminine or neuter noun needs an agreeing ending, so pouzdan partner but pouzdana usluga and pouzdano rješenje. Two words in the list are the whole reason this file cannot be shared with the Serbian one: bezbjedan and mjerljiv. Serbian writes bezbedan and merljiv, Montenegrin writes the short jat as je, and a company that puts bezbjednost on its website has told a reader which side of the Tara it writes from before saying anything about what it sells. The rest of the vocabulary arrived through a single grammatical door — English verbs and adjectives are naturalised with -ovan / -ovati (optimizovan, automatizovan, sertifikovan), which is why the register sounds uniform. Note also which adjectives a Montenegrin firm actually reaches for. The economy is overwhelmingly services: tourism and the businesses attached to it account for roughly a quarter of everything the country produces, and the state is a small and very concentrated market of about 620 000 people, so licenciran, sertifikovan, usklađen and regulisan do heavy work in a place where an EU-accession chapter, not a marketing department, decides what a firm is allowed to claim.
+locale: me
+---
+inovativan
+digitalan
+integrisan
+skalabilan
+optimizovan
+strateški
+globalni
+lokalni
+održiv
+efikasan
+agilan
+robustan
+fleksibilan
+modularan
+automatizovan
+inteligentan
+korisnički orijentisan
+transparentan
+pouzdan
+bezbjedan
+konkurentan
+profitabilan
+dinamičan
+proaktivan
+sinergijski
+multiplatformski
+pametni
+napredni
+savremen
+sveobuhvatan
+prilagodljiv
+interoperabilan
+distribuirani
+decentralizovan
+virtuelni
+hibridni
+mobilni
+klaud orijentisan
+vođen podacima
+personalizovan
+pristupačan
+produktivan
+mjerljiv
+kontinuiran
+vertikalno integrisan
+horizontalan
+operativan
+ključni
+vodeći
+premijum
+ekskluzivan
+sertifikovan
+licenciran
+usklađen
+regulisan

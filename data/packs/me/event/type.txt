@@ -1,0 +1,24 @@
+---
+description: Occasions in Montenegrin, mixing the family calendar with the public one. Krsna slava is the household feast of the family's patron saint, inherited down the male line and kept on the saint's day rather than on anyone's birthday; it is the most important date in many Montenegrin homes and the one guests do not need an invitation to. The public entries are just as local. Bokeljska noć is a night in August when the bay at Kotor fills with decorated boats and the town stays lit until morning; the Kotorski karneval runs in February with masked processions inherited from centuries of Venetian rule; Praznik mimoze opens the year at Herceg Novi while the mimosa is still in flower; Njegoševi dani honour Petar II Petrović Njegoš, prince-bishop and poet, buried in the mausoleum on Lovćen. Śednica, a formal sitting, is written with ś, one of the two letters unique to the Montenegrin alphabet.
+locale: me
+---
+Krsna slava
+Svadba
+Vjeridba
+Krštenje
+Rođendan
+Godišnjica braka
+Matursko veče
+Doček Nove godine
+Bokeljska noć
+Kotorski karneval
+Praznik mimoze
+Sea Dance festival
+Petrovdan
+Ilindan
+Njegoševi dani
+Konferencija
+Śednica
+Sajam
+Izložba
+Koncert

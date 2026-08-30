@@ -1,0 +1,19 @@
+---
+description: Reason a Montenegrin buyer gives when sending goods back. The list splits cleanly along a line the law draws. The first block is a reklamacija — the goods are faulty, wrong or incomplete — and there the seller carries the obligation: Montenegrin consumer law gives a two-year guarantee of conformity on new goods and requires the trader to answer a written complaint within eight days. The later entries, led by Predomislio sam se and Našao sam povoljniju ponudu, are a different right entirely: a distance contract can be withdrawn from within fourteen days without any reason at all, and the buyer then pays the return postage while the seller returns the price. Predomislio sam se is masculine and a woman writes Predomislila sam se, because the l-participle agrees with the speaker's gender — the same is true of Našao / Našla sam — so a form that stores this string verbatim is storing the gender of whoever typed it. Nedostaje dio and Ne odgovara namjeni carry the ijekavian jat against the Serbian deo and nameni.
+locale: me
+---
+Oštećen proizvod
+Pogrešan proizvod
+Ne odgovara opisu
+Pogrešna veličina
+Ne odgovara boja
+Nedostaje dio
+Proizvod ne radi
+Isporuka prekasna
+Predomislio sam se
+Našao sam povoljniju ponudu
+Loš kvalitet
+Dvostruka isporuka
+Naručeno greškom
+Istekao rok trajanja
+Ne odgovara namjeni

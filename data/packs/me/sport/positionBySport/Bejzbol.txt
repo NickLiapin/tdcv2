@@ -1,0 +1,14 @@
+---
+description: Positions in baseball, in Montenegrin. Baseball is a curiosity here — a handful of clubs, no professional structure and no purpose-built stadium, so games are played on adapted football or athletics grounds with borrowed equipment. The vocabulary shows exactly how the sport arrived: bacač and hvatač, thrower and catcher, are honest translations because throwing and catching already had words, while šort stop, autfilder and the base names are simply English written to Montenegrin sound rules, since nothing in the local game gave a translator anything to work from. Određeni udarač renders designated hitter and is the only phrase on the list that had to be invented rather than borrowed or translated.
+locale: me
+---
+Bacač
+Hvatač
+Prva baza
+Druga baza
+Treća baza
+Šort stop
+Lijevi autfilder
+Centralni autfilder
+Desni autfilder
+Određeni udarač

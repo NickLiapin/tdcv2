@@ -1,0 +1,20 @@
+---
+description: Places an event is held, in Montenegrin, and two of them have no English word at all. A konoba is a stone-vaulted room, originally the ground floor where wine, oil and cured meat were kept cool, and now the coastal tavern where a wedding or a slava is as likely to be held as in any restaurant. A katun is a cluster of huts on high summer pasture, occupied from June to September while the flocks are up, and as herding declines the katun is increasingly the setting for gatherings that used to happen in the village below. Dom kulture, the house of culture, is the Yugoslav-era public hall built in almost every municipality, and in a small town it still serves as the concert venue, the cinema, the theatre and the meeting room at once.
+locale: me
+---
+Hotel
+Kongresni centar
+Svečana sala
+Restoran
+Konoba
+Klub
+Pozorište
+Bioskop
+Koncertna dvorana
+Sportska dvorana
+Stadion
+Dom kulture
+Galerija
+Muzej
+Sajamski prostor
+Katun

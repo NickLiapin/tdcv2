@@ -1,0 +1,46 @@
+---
+description: Skill on a Montenegrin CV, technical, manual and personal together. Programming languages and tool names are left exactly as the world writes them, which costs this pack nothing because Montenegrin is written in Latin script as readily as in Cyrillic — Article 13 of the 2007 constitution gives both alphabets equal standing, and in practice a CV, a shop sign and a website are Latin. Two entries are local. Pomorska navigacija belongs to the Kotor maritime tradition: the Pomorski fakultet there certifies deck and engineer officers to the international STCW convention, and a Montenegrin seafarer's competence certificate is recognised on foreign flags worldwide. Bezbjednost hrane keeps the ijekavian bezbjednost, and it is a real hiring requirement rather than a nicety in a country whose summer population multiplies and whose restaurants are inspected accordingly.
+locale: me
+---
+Python
+JavaScript
+SQL
+Java
+C++
+C#
+PHP
+React
+Node.js
+Docker
+Kubernetes
+Linux
+Klaud računarstvo
+Mašinsko učenje
+Analiza podataka
+Pomorska navigacija
+Upravljanje projektima
+Agile
+Scrum
+Javni nastup
+Tehničko pisanje
+Korisnička podrška
+Prodaja
+Pregovaranje
+Knjigovodstvo
+Finansijsko modelovanje
+CAD
+3D modelovanje
+Grafički dizajn
+Kopirajting
+Zavarivanje
+Elektroinstalacije
+Vodoinstalaterski radovi
+Stolarija
+Čitanje nacrta
+Mašinska obrada
+Lemljenje
+Upravljanje viljuškarom
+Upravljanje građevinskom mašinom
+Vožnja C kategorije
+Prva pomoć
+Bezbjednost hrane

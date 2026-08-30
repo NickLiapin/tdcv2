@@ -1,0 +1,240 @@
+---
+description: Job title in Montenegro, given in the masculine because that is the form a job advertisement prints. Montenegrin has a feminine for nearly all of them — profesorica, ljekarka, vozačica, sudinica, inženjerka — so a config describing a woman cannot simply reuse these strings. The vocabulary itself is ijekavian, and the difference is not decorative: a doctor is a ljekar, not a lekar, because the word is built on lijek; a shift supervisor is a nadzornik smjene, not smene; a court expert is a vještak; a dairyman is a mljekar. Four industries are over-represented here for good reason. Tourism is the largest sector of the economy and fills the hotel and restaurant block. The sea fills another: the Pomorski fakultet in Kotor has trained deck and engineer officers since 1959, in a bay whose navigation school at Perast was teaching Russian noblemen sent by Peter the Great in 1698, and Montenegrin officers sail on foreign flags all over the world. Mining and heavy industry fill a third, around Pljevlja coal, Nikšić bauxite and steel, and the Podgorica aluminium plant. The fourth is the state: in a country of 620,000 people the public administration, the schools, the health service and the police are between them the largest employer there is.
+locale: me
+---
+Softverski inženjer
+Viši softverski inženjer
+Programer
+Veb programer
+Mobilni programer
+Frontend programer
+Bekend programer
+DevOps inženjer
+Inženjer pouzdanosti sistema
+Tester softvera
+Analitičar podataka
+Naučnik za podatke
+Inženjer mašinskog učenja
+Produkt menadžer
+UX dizajner
+UI dizajner
+Sistem administrator
+Mrežni inženjer
+Administrator baze podataka
+Analitičar bezbjednosti
+Klaud arhitekta
+IT podrška
+Ljekar opšte prakse
+Specijalista interne medicine
+Hirurg
+Anesteziolog
+Pedijatar
+Ginekolog
+Kardiolog
+Psihijatar
+Radiolog
+Farmaceut
+Medicinska sestra
+Glavna sestra
+Babica
+Fizioterapeut
+Radni terapeut
+Zubar
+Zubni tehničar
+Stomatološka sestra
+Laboratorijski tehničar
+Vozač sanitetskog vozila
+Veterinar
+Veterinarski tehničar
+Njegovatelj
+Električar
+Vodoinstalater
+Zavarivač
+Tesar
+Stolar
+Bravar
+Limar
+Mehaničar
+Automehaničar
+Autoelektričar
+Autolimar
+Vulkanizer
+Dizel mehaničar
+Brodograditelj
+Mašinbravar
+Strugar
+Glodač
+Alatničar
+Livac
+Kovač
+Zidar
+Armirač
+Tesar na gradilištu
+Krovopokrivač
+Keramičar
+Moler
+Fasader
+Izolater
+Staklorezac
+Parketar
+Gipsar
+Rudar
+Rudar u jami
+Bušač
+Rukovalac građevinskom mašinom
+Dizaličar
+Bagerista
+Miner
+Rudarski mjerač
+Radnik u kamenolomu
+Vozač kamiona
+Vozač u međunarodnom transportu
+Vozač dostavnog vozila
+Vozač autobusa
+Taksista
+Viljuškarista
+Magacioner
+Koordinator logistike
+Dispečer
+Špediter
+Kontrolor letenja
+Pilot
+Stjuardesa
+Mašinovođa
+Kondukter
+Kurir
+Poštar
+Monter vodova
+Telekomunikacioni tehničar
+Kablista
+Tehničar optičkih vlakana
+Operater u elektrani
+Operater postrojenja za vodu
+Tehničar vjetroturbina
+Monter solarnih panela
+Monter rashladnih sistema
+Očitač brojila
+Knjigovođa
+Računovođa
+Finansijski analitičar
+Revizor
+Aktuar
+Poreski savjetnik
+Bankarski službenik
+Kreditni referent
+Blagajnik
+Broker
+Komercijalista
+Predstavnik prodaje
+Menadžer prodaje
+Menadžer marketinga
+Stručnjak za marketing
+Brend menadžer
+Stručnjak za ljudske resurse
+Regruter
+Menadžer operacija
+Projektni menadžer
+Poslovni analitičar
+Izvršni asistent
+Šef kancelarije
+Referent
+Administrativni radnik
+Lučki radnik
+Referent nabavke
+Kuvar
+Pomoćni kuvar
+Šef kuhinje
+Poslastičar
+Pekar
+Mesar
+Konobar
+Šanker
+Barista
+Domaćin restorana
+Perač posuđa
+Menadžer hotela
+Sobarica
+Portir
+Recepcionar
+Prodavac
+Poslovođa prodavnice
+Kasir
+Agent korisničke podrške
+Agent u kol centru
+Radnik obezbjeđenja
+Čistač
+Higijeničar
+Domar
+Baštovan
+Učitelj
+Nastavnik razredne nastave
+Nastavnik predmetne nastave
+Profesor
+Nastavnik u specijalnoj školi
+Asistent
+Docent
+Vanredni profesor
+Redovni profesor
+Pedagog
+Školski psiholog
+Bibliotekar
+Direktor škole
+Turistički vodič
+Policajac
+Vatrogasac
+Inspektor
+Kriminalistički inspektor
+Zatvorski čuvar
+Granični policajac
+Vojno lice
+Socijalni radnik
+Referent socijalne zaštite
+Komunalni radnik
+Grafički dizajner
+Fotograf
+Snimatelj
+Montažer
+Kopirajter
+Novinar
+Urednik
+Lektor
+Prevodilac
+Sudski tumač
+Arhitekta
+Dizajner enterijera
+Građevinski inženjer
+Mašinski inženjer
+Elektroinženjer
+Tehnolog
+Geodeta
+Građevinski inspektor
+Nadzorni organ
+Advokat
+Advokatski pripravnik
+Pravni savjetnik
+Notar
+Javni izvršitelj
+Sudija
+Državni tužilac
+Sudijski pomoćnik
+Sudski vještak
+Medijator
+Poljoprivrednik
+Zapovjednik broda
+Povrtar
+Voćar
+Vinogradar
+Stočar
+Mljekar
+Pčelar
+Poljoprivredni radnik
+Šumar
+Drvosječa
+Ribar
+Lovočuvar
+Brodski mašinista
+Pejzažni arhitekta
+Radnik na gradilištu
+Poslovođa na gradilištu
+Radnik na rušenju
+Nadzornik smjene

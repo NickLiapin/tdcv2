@@ -1,0 +1,16 @@
+---
+description: Occupations in Montenegrin catering and hotels, the country's largest industry by share of national income. The rhythm of the trade is unlike a northern European one: a coastal restaurant may take most of its year's turnover between June and September, staff triples in July, and a kuvar or konobar who works Budva in summer often works Kolašin or Žabljak in the ski months. The cooking these people do is also geographically split. On the coast it is Mediterranean and Venetian-inflected — fish, olive oil, black risotto, buzara — while forty minutes uphill it turns to kačamak, cicvara, raštan and the njeguški pršut cured in the draught that blows between the sea and Lovćen at Njeguši village. Sobarica and domaćin restorana are given in the forms an advertisement prints.
+locale: me
+---
+Kuvar
+Pomoćni kuvar
+Šef kuhinje
+Poslastičar
+Pekar
+Konobar
+Šanker
+Barista
+Recepcionar
+Sobarica
+Menadžer hotela
+Domaćin restorana

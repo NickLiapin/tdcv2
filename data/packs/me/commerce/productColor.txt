@@ -1,0 +1,58 @@
+---
+description: Colour as written on a Montenegrin product listing, in the masculine singular definite form, which is the form a listing uses because the item is already identified — bijeli frižider, not bijel frižider. Keep that in mind against the colour list used for a person or an abstract shade, which is feminine and reads bijela; the two files are not interchangeable and joining a colour from here to a feminine noun will produce an ungrammatical string. Six values show the ijekavian standard at work: bijeli against Serbian beli, boja pijeska against boja peska, and the four svijetlo- compounds against svetlo-. The pattern is the same one that gives Bijelo Polje its name and Njegoš's Gorski vijenac its title — long jat becomes ije, short jat becomes je — and it is the single most visible thing separating written Montenegrin from written Serbian. Borrowed shades stay invariable and do not decline at all: bordo, roza, fuksija, menta, teget, indigo, lila, terakota, krem and bež take no ending in any gender or case. Inoks, from the French inoxydable, is the trade word for brushed stainless steel and is what an appliance listing prints where English would print stainless.
+locale: me
+---
+bijeli
+crni
+sivi
+tamnosivi
+svijetlosivi
+srebrni
+crveni
+tamnocrveni
+svijetlocrveni
+bordo
+grimizni
+ružičasti
+roza
+fuksija
+narandžasti
+bakarni
+žuti
+limun žuti
+zlatni
+oker
+senf žuti
+braon
+tamnobraon
+svijetlobraon
+kestenjasti
+čokoladni
+bež
+krem
+slonovača
+boja pijeska
+zeleni
+tamnozeleni
+svijetlozeleni
+maslinasti
+smaragdni
+menta
+tirkizni
+plavi
+tamnoplavi
+svijetloplavi
+nebeskoplavi
+teget
+azurni
+kobaltni
+indigo
+ljubičasti
+lila
+boja lavande
+boja šljive
+terakota
+antracit
+bronzani
+inoks
+grafit

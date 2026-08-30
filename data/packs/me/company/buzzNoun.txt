@@ -1,0 +1,64 @@
+---
+description: Business buzz noun in Montenegrin. Four entries show the ijekavian standard doing its work inside otherwise international vocabulary — rješenje, vrijednost, izvještaj and bezbjednost, against the Serbian rešenje, vrednost, izveštaj and bezbednost. That matters practically rather than decoratively: a Montenegrin annual report is a godišnji izvještaj, the audited figure in it is a vrijednost, and a search that assumes the ekavian spellings will miss every filing lodged in Podgorica. Note also how the abstract nouns are built. The -acija block (integracija, optimizacija, digitalizacija) is a Latinism that entered through German and Italian and now takes any English verb as a stem, while the -ost block (efikasnost, produktivnost, održivost, usklađenost) is the native machinery for turning an adjective into a quality, and the two never mix. Održivost and društvena odgovornost carry more weight here than the list length suggests: Montenegro wrote itself into its constitution in 1991 as an ekološka država, the first country to make ecological statehood a constitutional term, and every tourism, energy and construction prospectus since has had to answer to that sentence.
+locale: me
+---
+rješenje
+platforma
+ekosistem
+infrastruktura
+arhitektura
+integracija
+optimizacija
+transformacija
+digitalizacija
+automatizacija
+inovacija
+strategija
+vizija
+misija
+rast
+skaliranje
+efikasnost
+produktivnost
+performanse
+kvalitet
+standard
+metodologija
+proces
+tok posla
+poslovni model
+vrijednost
+prednost
+potencijal
+prilika
+tržište
+segment
+niša
+korisničko iskustvo
+zadovoljstvo korisnika
+lojalnost
+angažovanje
+konverzija
+prihod
+profitabilnost
+isplativost
+ulaganje
+prinos
+partnerstvo
+saradnja
+sinergija
+mreža
+zajednica
+podrška
+konsalting
+analitika
+podaci
+uvid
+metrika
+pokazatelj
+izvještaj
+bezbjednost
+usklađenost
+upravljanje
+održivost
+društvena odgovornost

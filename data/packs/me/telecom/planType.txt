@@ -1,0 +1,16 @@
+---
+description: Mobile or broadband tariff type as a Montenegrin operator sells it. Pripejd is disproportionately important here and the reason is arithmetic: Montenegro has about 620,000 residents and receives on the order of two million visitors a year, so for three months every summer the coast holds several times its ordinary population, and prepaid SIMs sold at kiosks in Budva, Kotor and Ulcinj are a serious line of business rather than an afterthought. Roming paket has meanwhile become a much smaller one, because since July 2021 the Western Balkan roaming agreement lets a Montenegrin number work at domestic prices across the region, leaving roaming bundles to cover the European Union and beyond. Dupli and tripl plej are the bundled television, internet and telephone packages that the cable operators use to compete with the incumbent's fibre.
+locale: me
+---
+Pripejd
+Postpejd
+Neograničeni razgovori
+Paket minuta
+Paket interneta
+Porodični paket
+Poslovni paket
+Dupli plej
+Tripl plej
+Roming paket
+Data kartica
+Studentski paket

@@ -1,0 +1,16 @@
+---
+description: Occupations in the Montenegrin software and IT sector. This is the youngest industry in the country and the only one whose vocabulary is half English: programer, tester and DevOps inženjer are written as they are pronounced, while inženjer bezbjednosti keeps the ijekavian bezbjednost that marks the text as Montenegrin rather than ekavian. The sector clusters almost entirely in Podgorica, draws its graduates from the Elektrotehnički fakultet and the computing programme of the Univerzitet Crne Gore, and works overwhelmingly for clients abroad, because a domestic market of 620,000 people cannot absorb a software industry. Since 2022 it has also absorbed a substantial number of relocated engineers from further east, which is why an office in Podgorica may run in English all day.
+locale: me
+---
+Softverski inženjer
+Programer
+Veb programer
+Mobilni programer
+Sistem administrator
+Mrežni inženjer
+Administrator baze podataka
+Inženjer bezbjednosti
+DevOps inženjer
+Tester softvera
+Analitičar podataka
+Produkt menadžer

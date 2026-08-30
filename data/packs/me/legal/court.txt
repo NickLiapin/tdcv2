@@ -1,0 +1,19 @@
+---
+description: Court, prosecution office and judicial council in Montenegro. The whole judiciary of a country of 620,000 people fits on one page: fifteen osnovni sudovi spread across the municipalities, two viši sudovi at Podgorica and Bijelo Polje, and then a single appellate court, a single supreme court, a single commercial court and a single administrative court for the entire state. Specijalno državno tužilaštvo is the entry with a date attached — established in 2015 as a dedicated office for organised crime, corruption, war crimes and money laundering, with its own investigators and its own department in the Viši sud, and it has since prosecuted the cases that most shaped Montenegrin politics. Sudski savjet and Tužilački savjet are not courts but the bodies that appoint and discipline judges and prosecutors, and their composition has been an open constitutional argument for years.
+locale: me
+---
+Osnovni sud
+Viši sud
+Apelacioni sud Crne Gore
+Vrhovni sud Crne Gore
+Ustavni sud Crne Gore
+Privredni sud Crne Gore
+Upravni sud Crne Gore
+Sud za prekršaje
+Viši sud za prekršaje
+Osnovno državno tužilaštvo
+Više državno tužilaštvo
+Specijalno državno tužilaštvo
+Vrhovno državno tužilaštvo
+Sudski savjet
+Tužilački savjet

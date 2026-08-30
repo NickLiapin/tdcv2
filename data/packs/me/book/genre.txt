@@ -1,0 +1,30 @@
+---
+description: Literary genre in Montenegrin, and epska poezija is not a historical category here the way it is in most of Europe. The decasyllabic epic sung to the gusle, a one-stringed bowed instrument held upright on the knee, is on the UNESCO list of intangible cultural heritage and still has living performers; the songs are memorised and recomposed in performance rather than read, and a gusle hangs on the wall of houses that own no other instrument. The written literature grows straight out of that metre: Petar II Petrović Njegoš, prince-bishop of Montenegro from 1830 to 1851, wrote Gorski vijenac in 1847 in the same ten-syllable line as the sung epic, and it is the national text, quoted in fragments by people who have never opened the book. His Luča mikrokozma is a cosmological poem in the tradition of Milton, and Lažni car Šćepan Mali a play about an impostor who ruled Montenegro for six years pretending to be a dead Russian tsar. Two spellings here are diagnostic: pripovijetka and dječja književnost carry the ijekavian jat that Serbian writes as pripovetka and dečja.
+locale: me
+---
+roman
+pripovijetka
+epska poezija
+lirska poezija
+drama
+esej
+biografija
+autobiografija
+memoari
+istorija
+filozofija
+psihologija
+naučna fantastika
+epska fantastika
+triler
+kriminalistički roman
+ljubavni roman
+horor
+avanturistički roman
+satira
+humor
+putopis
+dječja književnost
+strip
+udžbenik
+priručnik

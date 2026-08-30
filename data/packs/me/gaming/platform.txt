@@ -1,0 +1,15 @@
+---
+description: Gaming platforms, keeping their registered Latin spelling exactly as the shops in Podgorica and the regional gaming press write them. Veb pregledač is the only translated entry, and the way it is written shows the general rule: Montenegrin respells borrowed words to its own sound values rather than preserving the foreign shape, which is the same instinct that produces kompjuter, softver and mejl. Consoles reach the country through regional distributors rather than direct launches, so release dates trail the western European ones by weeks, prices are set in euro — Montenegro adopted the currency unilaterally in 2002 without ever joining the eurozone — and the second-hand market is proportionally much larger than in richer markets.
+locale: me
+---
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox Series S
+Xbox One
+Nintendo Switch
+Steam Deck
+Android
+iOS
+Veb pregledač

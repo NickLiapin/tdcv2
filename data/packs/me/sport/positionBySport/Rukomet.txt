@@ -1,0 +1,11 @@
+---
+description: Positions in handball, in Montenegrin, and this is the list behind the best team result the country has ever had in any sport. ŽRK Budućnost of Podgorica won the EHF Champions League in 2012, and the national women's team, built largely from that club, took Olympic silver in London in August of the same year and then the European Championship in December — a double from a country of about six hundred thousand people. Pivot is the line player who works with her back to goal in among the defenders and lives on contact; the three bekovi are the back-court shooters who jump into the gaps they open; and the krila attack from the corners at angles that look impossible from the stand.
+locale: me
+---
+Golman
+Lijevi bek
+Srednji bek
+Desni bek
+Lijevo krilo
+Desno krilo
+Pivot

@@ -1,0 +1,20 @@
+---
+description: Room inside a Montenegrin dwelling. Two pairs are worth separating. Predsoblje and hodnik are not the same thing: the predsoblje is the entrance space where shoes and coats are left, a room in its own right in the flats built in the socialist decades, while the hodnik is merely the corridor that connects the others. Kupatilo and toalet are likewise distinct, the second being the separate lavatory with no bath, listed on its own because in a two-room flat its presence changes what the place is worth. Konoba is here because on the coast it genuinely is a room and not an outbuilding: the stone-vaulted ground floor of an old Boka or Paštrovići house, cool in August, used for wine, cured ham and long lunches. Dječja soba carries the ijekavian dje, from dijete, where an ekavian text writes dečja.
+locale: me
+---
+Dnevna soba
+Spavaća soba
+Dječja soba
+Radna soba
+Kuhinja
+Trpezarija
+Kupatilo
+Toalet
+Hodnik
+Predsoblje
+Ostava
+Podrum
+Tavan
+Terasa
+Balkon
+Konoba

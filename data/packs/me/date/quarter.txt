@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter in Montenegrin. The word is tromjesečje, literally "three-month-hood", and its middle syllable is the ijekavian reflex of jat that Serbia's eastern standard writes as tromesečje — the same je that gives mjesec for the month it is built on. Montenegro's fiscal year is the calendar year, and Monstat, the statistics office in Podgorica, publishes quarterly national accounts on that grid. Those four numbers are unusually unequal here. Tourism is somewhere near a quarter of the economy once indirect effects are counted, and it arrives almost entirely between June and September, so the third quarter routinely carries a fifth or more of the year's activity on its own while the first quarter is the trough — a seasonality more extreme than almost anywhere else in Europe, and one reason revenue forecasts in Montenegro are argued quarter by quarter rather than annually.
+locale: me
+---
+prvo tromjesečje
+drugo tromjesečje
+treće tromjesečje
+četvrto tromjesečje

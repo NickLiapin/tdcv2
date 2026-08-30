@@ -1,0 +1,24 @@
+---
+description: Parcel and freight carriers a Montenegrin shipment is actually handed to. Pošta Crne Gore is the state post and the only operator that reaches every settlement, including the ones up the Tara and behind Durmitor that no courier prices a route to; Post Express is its overnight service. The country's postal codes are five digits and every one of them starts with 8 — 81000 for Podgorica, 85000 for Bar — which is a legacy of the numbering block Montenegro held inside the old Yugoslav system and kept when the state union with Serbia dissolved in 2006. The domestic names in the middle are freight rather than parcels: Zetatrans and Interšped are forwarders built around the Port of Bar, which is where almost everything heavy enters the country, and Montenomaks runs road haulage out of Podgorica. Barska plovidba is the Bar shipping line. Note the practical consequence of a market of about 620 000 people: none of the global integrators runs a sorting hub inside Montenegro, so a parcel from western Europe is typically sorted in Belgrade, Zagreb or Ljubljana and trucked in, and an inbound tracking history will show a foreign hub scan before it ever shows a Montenegrin one.
+locale: me
+---
+Pošta Crne Gore
+Post Express
+Montenomaks
+Zetatrans
+Interšped
+Overseas Express
+City Express
+Milšped
+DHL
+DHL Express
+FedEx
+UPS
+TNT
+GLS
+DPD
+DB Schenker
+Gebrüder Weiss
+Kuehne+Nagel
+Barska plovidba
+Air Montenegro Cargo

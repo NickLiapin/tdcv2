@@ -1,0 +1,32 @@
+---
+description: Trees in Montenegrin. Munika, the Bosnian pine, is the one to know: it grows on bare limestone where nothing else will hold, and the stands on Durmitor include individuals over five hundred years old, among the oldest living things in the country. Crnogorica is the collective word for the conifers, and one folk etymology of the country's own name reaches for exactly that dark forest cover, though historians prefer the older explanation. Bukva, the beech, makes Biogradska gora, one of the last stretches of primeval forest in Europe, protected since 1878 by decree of the prince before national parks were an idea anywhere. The last block is a different country altogether — maslina, smokva, nar, čempres and lovor belong to the coast, and one olive at Stari Bar is reputed to be more than two thousand years old and is fenced and visited like a monument.
+locale: me
+---
+munika
+crni bor
+bor
+smrča
+jela
+kleka
+tisa
+bukva
+hrast
+cer
+grab
+brijest
+jasen
+javor
+lipa
+breza
+topola
+jablan
+vrba
+divlji kesten
+pitomi kesten
+orah
+lijeska
+maslina
+smokva
+nar
+čempres
+lovor

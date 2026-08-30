@@ -1,0 +1,34 @@
+---
+description: Seasoning and herb. Morska so comes first for a reason: the salt pans at Ulcinj, the Solana on the Bojana delta, covered close to fifteen square kilometres and supplied the country until production stopped in 2013, after which the flooded basins turned into one of the most important bird sites on the whole Adriatic flyway and were placed under Ramsar protection. Ruzmarin, žalfija, lovorov list, majčina dušica and morač are not shop herbs here but maquis — they grow wild on the karst above Boka Kotorska and on the Lovćen slopes, and sage in particular carpets the stony ground above Cetinje, where it has been cut and distilled for generations. Aleva paprika and čubar belong to the northern half of the country, where the cooking took its heat from four Ottoman centuries. Everything after them came in by sea, through Kotor when Kotor was a Venetian port and through Bar once Bar became the country's own.
+locale: me
+---
+morska so
+ruzmarin
+lovorov list
+origano
+žalfija
+majčina dušica
+bosiljak
+nana
+matičnjak
+peršun
+mirođija
+celer
+morač
+aleva paprika
+ljuta aleva paprika
+biber
+kim
+anis
+korijander
+kurkuma
+cimet
+karanfilić
+muškatni oraščić
+đumbir
+čubar
+slačica
+šafran
+kari
+čili
+susam

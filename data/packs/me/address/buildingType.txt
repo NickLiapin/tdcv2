@@ -1,0 +1,36 @@
+---
+description: Kind of building an address points at in Montenegro. Four of these have no equivalent in a flat-country list and are worth knowing. A katun is the summer settlement a family moves its livestock up to when the lowland burns off in July — a cluster of huts on a mountain pasture on Sinjajevina, Durmitor or Bjelasica, occupied from about Đurđevdan to the first snow and empty the rest of the year, and enough of them have been rebuilt as houses that they now carry real addresses. A kula is the fortified stone tower house of the highlands, one room stacked on another with the animals underneath and gun-slits rather than windows on the lowest floor. A konak is the guest wing of a monastery or a chieftain's house, and Montenegro's monastic konaci at Ostrog, Morača and Cetinje still take bookings. A kamena kuća is the coastal building type — Boka Kotorska and the Njeguši villages build in dressed limestone under a roof of stone slabs, which is why the old towns of Kotor, Perast and Risan read as one continuous material. Apartman deserves its own line rather than being folded into Stan: on the coast it means a flat let to tourists by the week, and in Budva and Herceg Novi that describes a very large share of everything ever built.
+locale: me
+---
+Kuća
+Stan
+Apartman
+Zgrada
+Stambena zgrada
+Soliter
+Vila
+Vikendica
+Kamena kuća
+Katun
+Konak
+Kula
+Poslovni prostor
+Lokal
+Magacin
+Skladište
+Fabrika
+Industrijska hala
+Hotel
+Restoran
+Tržni centar
+Marina
+Bolnica
+Dom zdravlja
+Škola
+Gimnazija
+Univerzitet
+Manastir
+Crkva
+Džamija
+Muzej
+Garaža

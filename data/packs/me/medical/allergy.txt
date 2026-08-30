@@ -1,0 +1,26 @@
+---
+description: Allergens as a Montenegrin allergy clinic records them, and the order here is Mediterranean rather than continental. Parietaria — crkvina, the pellitory that grows out of every old wall in Kotor, Budva and Ulcinj — releases pollen for most of the year on this coast and is the dominant outdoor allergen there, with olive and cypress behind it; ragweed matters too, but it matters inland, around Podgorica and up the northern valleys. Preośetljivost, hypersensitivity, is written with ś: the letter is one of two added to the alphabet by the 2009 Pravopis crnogorskoga jezika, and it turns up wherever the root ośet- does, so ośetiti, ośetljiv, ośećaj and preośetljivost all carry it. Testing, challenge and immunotherapy are concentrated at the Klinički centar Crne Gore in Podgorica, which in a country of about 620 000 people is the only hospital that offers them at all.
+locale: me
+---
+Polen parietarije
+Polen masline
+Polen čempresa
+Ambrozija
+Polen trava
+Polen breze
+Grinje iz kućne prašine
+Buđ
+Dlaka kućnih ljubimaca
+Otrov pčele ili ose
+Penicilin
+Sulfonamidi
+Aspirin
+Preośetljivost na lokalne anestetike
+Jod i kontrastna sredstva
+Lateks
+Kikiriki
+Jezgrasto voće
+Pšenica
+Jaja
+Mlijeko
+Školjke i rakovi

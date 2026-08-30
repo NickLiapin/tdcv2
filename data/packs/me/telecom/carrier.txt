@@ -1,0 +1,24 @@
+---
+description: Operator whose name a Montenegrin phone is likely to show, at home or a short drive away. Three networks serve the country. Crnogorski Telekom is the former state incumbent, majority-held through Magyar Telekom in the Deutsche Telekom group and retailing under the T-Com sign. One Crna Gora is the network that was Telenor until 2021, when its new owners retired the Norwegian brand across the region. M:tel is jointly owned out of Belgrade and Banja Luka. Telemach, part of United Group, is the main cable and broadband challenger. The regional names beyond them are on the list for a concrete reason: since 1 July 2021 the six Western Balkan economies have abolished roaming charges among themselves under a regional agreement, so a Montenegrin SIM works at home prices in Serbia, Bosnia and Herzegovina, North Macedonia, Albania and Kosovo — and in a country where five borders are within two hours, that changed daily life more than any tariff ever did.
+locale: me
+---
+Crnogorski Telekom
+One Crna Gora
+M:tel Crna Gora
+Telemach Crna Gora
+T-Com
+Telenor Crna Gora
+Magyar Telekom
+Deutsche Telekom
+PPF Group
+United Group
+Telekom Srbija
+Telekom Srpske
+A1 Srbija
+Yettel Srbija
+Hrvatski Telekom
+A1 Hrvatska
+BH Telecom
+Vodafone Albania
+Telekom Austria Group
+Ipko

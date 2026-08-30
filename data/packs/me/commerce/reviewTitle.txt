@@ -1,0 +1,30 @@
+---
+description: Headline a Montenegrin customer puts on a product review. Six of these carry the ijekavian jat and are the quickest way to tell a Montenegrin review from a Serbian one at a glance: vrijedno, vrijeme, cijene, vrijedi, pregorjelo and poslije, against the Serbian vredno, vreme, cene, vredi, pregorelo and posle. Poslije is the sharper marker of the two kinds — it comes from the same root as posljednji, and where Serbian has posle Montenegrin keeps the syllable. Note the participles again: Kupio bih ponovo and Predomislio-type forms are masculine, and a woman writes Kupila bih ponovo, so an interface that stores the title as typed is also storing the reviewer's gender whether it meant to or not. Svaka preporuka has no literal English equivalent — it means roughly every recommendation from me and is the standard warm one-line endorsement across the region. Solidno za tu cijenu is its mirror: the polite way of saying the thing is adequate and no more, and in a small market where sellers and buyers often know each other, that hedge does a lot of work.
+locale: me
+---
+Odličan proizvod
+Veoma sam zadovoljan
+Svaka preporuka
+Vrijedno novca
+Tačno kao na slici
+Brza isporuka
+Stiglo na vrijeme
+Kvalitet iznad očekivanja
+Solidno za tu cijenu
+Dobar odnos cijene i kvaliteta
+Ispunilo očekivanja
+Moglo je i bolje
+Osrednje
+Razočaravajuće
+Ne vrijedi novca
+Loš kvalitet materijala
+Stiglo oštećeno
+Ne odgovara opisu
+Teško za korišćenje
+Uputstvo nerazumljivo
+Manje je nego što sam mislio
+Kupio bih ponovo
+Naručujem već drugi put
+Idealan poklon
+Koristim ga svakodnevno
+Pregorjelo poslije mjesec dana

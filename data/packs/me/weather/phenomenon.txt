@@ -1,0 +1,19 @@
+---
+description: Weather phenomena in Montenegrin, and the first five are named winds. Bura falls off the Lovćen escarpment into Boka Kotorska as a dry cold gust that arrives in minutes and can reach hurricane force; jugo comes up warm and wet from the south and brings the rain; maestral is the mild afternoon sea breeze of summer that sailors plan around; tramuntana blows from the north across the open Adriatic. Śevernjak, the north wind of the interior, is written with ś — one of the two letters, with ź, that the 2009 orthography added to give Montenegrin an alphabet of thirty-two. The rain those winds deliver is extraordinary: Crkvice, on the slope above Boka, records around five thousand millimetres a year and is the wettest inhabited place in Europe, several times what falls on Podgorica an hour's drive inland.
+locale: me
+---
+Bura
+Jugo
+Śevernjak
+Maestral
+Tramuntana
+Mraz
+Slana
+Inje
+Poledica
+Grad
+Rosa
+Magla
+Suša
+Poplava
+Duga

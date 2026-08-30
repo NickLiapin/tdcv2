@@ -1,0 +1,12 @@
+---
+description: Dishes of Lebanese cuisine. Ulcinj holds Montenegro's oldest Levantine connections: through the sixteenth and seventeenth centuries it was a corsair port whose ships worked the length of the Mediterranean, and the town kept for generations afterwards a community of North African descent whose presence is recorded in local documents and in family names. Ulcinj today is the country's most Albanian and most Muslim town, and meze — the same word as mezze, small plates covering the table at once — is how a meal is laid there.
+locale: me
+---
+Humus
+Tabule
+Falafel
+Šavarma
+Baba ganuš
+Kibe
+Fatuš
+Manakiš

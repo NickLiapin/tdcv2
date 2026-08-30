@@ -1,0 +1,9 @@
+---
+description: Positions in volleyball, in Montenegrin. Tehničar is the setter, literally the technician: the player who takes the second touch and decides where the attack goes, and the only position named for judgement rather than for a place on the court. Korektor is the opposite hitter, primač servisa the receiver, srednji bloker the middle. Libero keeps its Italian name unchanged in every language that plays the game, and it is the newest word on the list by a wide margin — the rule that created the position, letting a defensive specialist substitute freely without counting against the limit, only entered international volleyball in 1998, so the term is younger than most of the players using it.
+locale: me
+---
+Tehničar
+Korektor
+Primač servisa
+Srednji bloker
+Libero

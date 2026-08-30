@@ -1,0 +1,26 @@
+---
+description: Metals in Montenegrin, with aluminijum at the head because for forty years the country's economy turned on it. Bauxite has been mined near Nikšić since the 1950s and smelted at the Kombinat aluminijuma Podgorica, a plant that at its height produced a large share of Montenegro's exports and consumed a comparable share of its electricity — the smelter's power contract was a standing item in national politics, and its collapse rewrote the country's trade figures. The older story on the list is silver: Brskovo, near today's Mojkovac, was one of the great mining towns of the medieval Serbian state in the thirteenth century, worked by Saxon miners brought in for the purpose, and its silver was struck into coin and traded through Kotor. Čelik, bronza and mesing are alloys, and they sit here because everyday speech does not separate them from metals.
+locale: me
+---
+aluminijum
+gvožđe
+čelik
+zlato
+srebro
+platina
+bakar
+cink
+olovo
+kalaj
+nikl
+hrom
+mangan
+titanijum
+magnezijum
+volfram
+kobalt
+molibden
+živa
+bronza
+mesing
+antimon

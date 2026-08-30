@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient. Skorup is the one a visitor will not recognise — it is the thick clotted cream skimmed off scalded sheep's or cow's milk and matured in a wooden vessel, and the Njeguši version is sold by weight the way a cheese is, spooned onto hot kačamak until it melts through it. Kukuruzno brašno stands beside plain brašno because maize reached these mountains only in the seventeenth and eighteenth centuries and then went on to define the whole northern kitchen. Maslinovo ulje is the coastal fat and svinjska mast the highland one, and the line between them runs roughly where the Lovćen massif drops to the sea, which is also the line between a kitchen that fries fish and one that smokes mutton. Note mlijeko, tjestenina and bijeli luk rather than mleko, testenina and beli luk: the long jat gives ije and the short jat gives je, and this is the single most visible rule in written Montenegrin. The word for a standing crop, uśev, carries ś, one of two letters the 2009 orthography added that no other Štokavian standard writes.
+locale: me
+---
+brašno
+kukuruzno brašno
+šećer
+so
+kvasac
+jaja
+mlijeko
+pavlaka
+kisela pavlaka
+skorup
+maslac
+sir
+njeguški sir
+kačkavalj
+ulje
+maslinovo ulje
+svinjska mast
+sirće
+med
+pirinač
+tjestenina
+griz
+pršut
+suvo meso
+pasulj
+sočivo
+boranija
+krompir
+crni luk
+bijeli luk
+paradajz
+paprika
+svinjetina
+junetina
+teletina
+jagnjetina
+piletina
+slanina
+kobasica
+riba

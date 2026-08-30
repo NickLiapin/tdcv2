@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Ashkenazi Jewish ancestry. Founder mutations are unusually well characterised in this population, because a small founding group followed by centuries of marriage within it fixes a handful of variants at high frequency — the same mechanism, on a different scale, that concentrates hereditary disease in Montenegro's own mountain plemena, where a brotherhood could descend from one recorded ancestor and marry outward only by rule. Tay-Sachs carrier screening, begun in the 1970s, is the programme every later population screening effort was modelled on, and it reduced the incidence of the disease by more than ninety per cent within a generation.
+locale: me
+---
+Taj-Saksova bolest
+Gošeova bolest tip 1
+Porodična disautonomija
+Kanavanova bolest
+Niman-Pikova bolest tip A
+Blumov sindrom
+Deficit faktora XI
+BRCA1 osnivačka mutacija
+BRCA2 osnivačka mutacija
+Mukolipidoza tip IV
+Kronova bolest
+Torziona distonija

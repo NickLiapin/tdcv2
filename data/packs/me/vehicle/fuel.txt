@@ -1,0 +1,14 @@
+---
+description: Fuel types in Montenegrin. Montenegro refines nothing: every litre of petrol and diesel arrives already refined, largely through the port of Bar, and the ministry responsible for the economy sets a maximum retail price by decree every fortnight, so pump prices across the whole country move together on the same day rather than drifting station by station as they do in a free market. The price is quoted in euro, a currency Montenegro adopted unilaterally in 2002 — it has never been in the eurozone, mints no coins of its own and has no central bank able to issue the notes it uses. TNG is autogas, and conversions are common on older cars because the fuel is far cheaper per kilometre than petrol.
+locale: me
+---
+Benzin
+Dizel
+TNG
+Metan
+Hibrid
+Plug-in hibrid
+Električni pogon
+Vodonik
+Benzin i TNG
+Etanol

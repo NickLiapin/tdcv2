@@ -1,0 +1,10 @@
+---
+description: Montenegrin full male name — one given name and one surname (Marko Popović). The given name comes first. Beneath that flat two-part form sits a third element the list cannot show: the pleme, the tribe, which is what a Montenegrin gives when asked who he is. Popović alone identifies almost nobody, because the same surname occurs in unrelated bratstva across the country; Popović iz Bjelopavlića and Popović iz Rovaca are different families and everyone local knows it. Older documents therefore run given name, patronymic and surname together — Marko Petrov Popović — and the middle element is the father's name in the possessive, not a second forename.
+generator: tdc
+locale: me
+---
+<sequence name="p">
+  <gen name="f" type="template" value="me.person.male.firstName"/>
+  <gen name="l" type="template" value="me.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

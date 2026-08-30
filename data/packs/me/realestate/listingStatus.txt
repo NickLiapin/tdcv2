@@ -1,0 +1,16 @@
+---
+description: State of a property advertisement on a Montenegrin portal. Snižena cijena keeps the ijekavian cijena, from the long jat, where an ekavian text writes cena — the same vowel that gives lijep, rijeka and mlijeko. The status that behaves unusually here is izdat, let, because letting on the coast is two different markets wearing one word: a flat in Budva or Petrovac may be advertised for the season only, from June to September at a weekly rate, and then be free again in October, while the same word in Podgorica means a twelve-month tenancy. A serious portal splits them, and a config generating Montenegrin listings without that distinction will produce coastal apartments that appear permanently occupied. U izgradnji is likewise heavier than elsewhere: much of the coastal stock is sold off plan, years before it exists.
+locale: me
+---
+Aktivan
+Nov oglas
+Izdvojen oglas
+Rezervisan
+Pod ugovorom
+Prodat
+Izdat
+Povučen
+Istekao
+Snižena cijena
+U izgradnji
+Useljiv

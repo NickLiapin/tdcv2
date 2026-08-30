@@ -1,0 +1,12 @@
+---
+description: ABO and Rh blood group as it is written in Montenegro, and note the ZERO: like most of continental Europe, Montenegro writes the O group as the digit 0 — nula krvna grupa — and not as the letter O, so a pack shipping "O+" here is quietly using the American convention on a Montenegrin form. Collection, testing and distribution for the entire country run through the Zavod za transfuziju krvi Crne Gore in Podgorica, one national service for about 620 000 people, supplied almost entirely by voluntary unpaid donation drives organised through the Crveni krst, workplaces, the army and the university. At that scale a single week of poor turnout is visible in the national stock, which is why donation appeals in Montenegro are national news rather than hospital notices.
+locale: me
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+0+
+0-

@@ -1,0 +1,15 @@
+---
+description: Stage of a Montenegrin hiring process. Provjera referenci keeps the ijekavian provjera, and it is the stage that behaves least like its counterpart elsewhere: in a labour market of roughly a quarter of a million employed people, in a country where most professions know each other by name and a surname still places a person in a region and often in a pleme, references are usually taken by telephone from someone the employer already knows. The formal side belongs to the Zavod za zapošljavanje Crne Gore, the public employment service, through which vacancies are notified and through which most subsidised placements run. Public-sector posts add a step this list keeps generic: a competitive written examination whose results are published.
+locale: me
+---
+Prijava
+Selekcija prijava
+Telefonski razgovor
+Razgovor sa HR-om
+Stručni razgovor
+Testiranje znanja
+Praktični zadatak
+Razgovor sa rukovodiocem
+Provjera referenci
+Ponuda
+Potpisivanje ugovora

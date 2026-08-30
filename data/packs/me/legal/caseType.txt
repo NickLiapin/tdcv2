@@ -1,0 +1,17 @@
+---
+description: Type of proceeding in a Montenegrin court. Krivični postupak works differently here from the way it worked a generation ago: the Zakonik o krivičnom postupku that entered force in 2011 abolished the investigating judge and handed the investigation to the prosecutor, moving Montenegro from an inquisitorial model toward an adversarial one, so the case a lawyer prepares today is shaped by a državni tužilac rather than by a judge gathering evidence. Ustavna žalba is the individual constitutional complaint to the Ustavni sud, available after every other remedy is exhausted and the last step before Strasbourg. Ostavinski postupak, probate, is heavier work in Montenegro than the word suggests, because so much rural property was never divided after a death and titles run back through generations of undivided family land.
+locale: me
+---
+Parnični postupak
+Krivični postupak
+Prekršajni postupak
+Izvršni postupak
+Vanparnični postupak
+Upravni spor
+Ostavinski postupak
+Brakorazvodna parnica
+Radni spor
+Privredni spor
+Stečajni postupak
+Spor za naknadu štete
+Ustavna žalba

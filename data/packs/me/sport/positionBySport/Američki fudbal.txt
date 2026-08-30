@@ -1,0 +1,15 @@
+---
+description: Positions in American football, in Montenegrin. The sport is held up by a small league of clubs in Podgorica, Nikšić and on the coast, playing with imported equipment and the occasional imported quarterback, and almost every name on this list is an English word respelled phonetically: kvoterbek, raning bek, vajd risiver, tajt end, lajnbeker, kornerbek, sefti, kiker. Only ofanzivni centar and gard are even partly translated. That wholesale borrowing is itself the lesson — when a sport arrives with television and not with clubs, the language takes over the sound and never gets round to the sense, and the words stay transparent to nobody who has not watched the game.
+locale: me
+---
+Kvoterbek
+Raning bek
+Fulbek
+Vajd risiver
+Tajt end
+Ofanzivni centar
+Gard
+Lajnbeker
+Kornerbek
+Sefti
+Kiker

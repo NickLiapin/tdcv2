@@ -1,0 +1,16 @@
+---
+description: Occupations in Montenegrin retail. Obezbjeđenje carries the ijekavian je that an ekavian text drops, and it is worth noticing because it appears in the name of half the security firms in the country. Retail here is shaped by the same seasonality that shapes everything else: a supermarket in Budva or Ulcinj hires for the summer and a shop in Pljevlja does not, and the coastal chains publish separate summer rotas. The trade is also unusually concentrated in a few regional groups operating across the former Yugoslav market, so a kasir in Podgorica and a kasir in Sarajevo often work for the same owner under different signage. Komercijalista is the travelling sales representative who takes orders from shops, a role that survives here long after it faded in larger markets.
+locale: me
+---
+Prodavac
+Poslovođa prodavnice
+Kasir
+Komercijalista
+Merčendajzer
+Menadžer prodaje
+Radnik u magacinu
+Referent nabavke
+Dekorater izloga
+Agent korisničke podrške
+Inventurni radnik
+Obezbjeđenje

@@ -1,0 +1,16 @@
+---
+description: Occupations in Montenegrin schools and universities. Učitelj, nastavnik and profesor are three ranks and not three words for one thing: the učitelj teaches all subjects to the first grades of the nine-year osnovna škola, the nastavnik teaches one subject to the upper grades, and profesor belongs to a gimnazija or a university. Above them asistent, docent, vanredni and redovni profesor are the academic ladder of the Univerzitet Crne Gore, which is not gathered on one campus but spread across the country — the philosophy faculty in Nikšić, two maritime and tourism faculties in Kotor, drama and fine art on Cetinje, the rest in Podgorica. Stručni saradnik covers the pedagog, the psychologist and the librarian, whom every Montenegrin school is required to have.
+locale: me
+---
+Učitelj
+Nastavnik
+Profesor
+Vaspitač
+Stručni saradnik
+Pedagog
+Školski psiholog
+Direktor škole
+Asistent
+Docent
+Bibliotekar
+Laborant

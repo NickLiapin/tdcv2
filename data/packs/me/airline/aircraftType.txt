@@ -1,0 +1,30 @@
+---
+description: Aircraft types by manufacturer designation, used unchanged in Montenegrin timetables and on tickets. The locally relevant fleet is small: Air Montenegro flies Embraer E195s out of Podgorica, and traffic at both national airports is narrowbody almost without exception. Tivat is the constraint that shapes the list. Its runway is about two and a half kilometres long, it lies at the head of Boka Kotorska with mountains close on either side and a curving visual approach over the water that pilots are separately qualified for, and it takes no widebodies at all — yet in July and August it handles more passengers than the capital's airport does, nearly all of them on charter and low-cost narrowbodies. Cessna 172 and Let L-410 Turbolet sit at the flying-school and light-transport end of the national register.
+locale: me
+---
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A321neo
+Airbus A220-300
+Airbus A330-200
+Airbus A330-900neo
+Airbus A350-900
+Boeing 737-700
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 757-200
+Boeing 767-300ER
+Boeing 777-300ER
+Boeing 787-9 Dreamliner
+ATR 72-600
+ATR 42-500
+Embraer E190
+Embraer E195
+Bombardier CRJ900
+Bombardier CRJ200
+De Havilland Dash 8 Q400
+Fokker 100
+Cessna 172
+Let L-410 Turbolet

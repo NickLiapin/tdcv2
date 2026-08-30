@@ -1,0 +1,11 @@
+---
+description: Haulage route type in Montenegro, where the categories mean something different from what they would mean in a large country. Montenegro is 13,812 square kilometres, about 175 kilometres north to south, and a lokalna dostava on the coast may cover ten kilometres of switchbacks in an hour. Međugradska ruta almost always means the run between the coast and Podgorica or the north over the Sozina tunnel or the canyon road. Međunarodni transport starts at once, because five borders are within a couple of hours of anywhere: Croatia at Debeli Brijeg, Bosnia and Herzegovina above Nikšić and Pljevlja, Serbia at Dobrakovo, Kosovo at Kula and Albania at Sukobin and Božaj. Tranzit is a real economic category too, since freight moving between Serbia and the Adriatic crosses the country without stopping in it.
+locale: me
+---
+Lokalna dostava
+Regionalna ruta
+Međugradska ruta
+Međunarodni transport
+Tranzit
+Povratna tura
+Distributivna tura

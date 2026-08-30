@@ -1,0 +1,16 @@
+---
+description: Shoe size on the continental European scale, which is what Montenegrin shops and shoe boxes use. The scale counts Paris points of two thirds of a centimetre each, so one European size is about 6.7 mm of last length and the steps are finer than the British or American ones — a 42 is roughly 28 cm of last, not of foot. The range matters here more than in most places: Montenegrins are among the tallest people on earth, with adult male averages measured near 183 cm in the Dinaric belt that runs through the country, so the upper half of this list moves stock that the lower half does not, and 45 and 46 are ordinary rather than special orders. The traditional footwear the scale replaced was not numbered at all — opanci, the turned-up leather shoes still worn with national dress, were cut to a foot that the maker had in front of him, and a village shoemaker sized by tracing rather than by measuring.
+locale: me
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

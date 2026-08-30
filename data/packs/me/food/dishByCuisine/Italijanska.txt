@@ -1,0 +1,13 @@
+---
+description: Dishes of Italian cuisine, which is not foreign food on the Montenegrin coast. Kotor, Perast and the whole of Boka Kotorska were governed from Venice from 1420 until the republic fell in 1797, the towns kept Italian as a language of trade and administration long after that, and the local brodet, pašticada and rižot are the surviving domestic half of the same inheritance. The overnight ferry from Bar to Bari still crosses the Adriatic, which is why an Italian ingredient reaches a Montenegrin kitchen faster than it reaches most of the Balkans.
+locale: me
+---
+Pica
+Pasta karbonara
+Lazanje
+Rižoto
+Njoki
+Bruskete
+Minestrone
+Tiramisu
+Oso buko

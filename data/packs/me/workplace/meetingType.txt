@@ -1,0 +1,16 @@
+---
+description: Kind of meeting, and the last entry is the one that makes this list Montenegrin rather than merely Balkan. Śednica, a sitting or session, is written with ś — one of the two letters the 2009 Pravopis crnogorskoga jezika added to the alphabet, alongside ź, and which no other Štokavian standard has. The sound comes from an old sj cluster: where Serbian and Croatian write sjednica, from the root of sjesti, to sit down, Montenegrin merges the s and the j into a single soft consonant and writes śednica. The same letter turns up in śutra, tomorrow, in śever, north, and in pośeta, a visit. A śednica is also a specific register: the Skupština Crne Gore holds śednice, a municipal assembly holds śednice, a company board holds one, while a project team merely has a sastanak.
+locale: me
+---
+Kolegijum
+Sastanak tima
+Jutarnji sastanak
+Individualni razgovor
+Godišnji razgovor
+Radni sastanak
+Sastanak sa klijentom
+Prezentacija
+Radionica
+Obuka
+Video-konferencija
+Śednica

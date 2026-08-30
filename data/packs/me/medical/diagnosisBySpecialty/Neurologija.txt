@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Neurology. Stroke is the organising problem for a country shaped like this one: Montenegro is 13 812 square kilometres of mountain, the window in which clot-busting treatment still helps is measured in a few hours, and the road from Rožaje or Plav down to the Klinički centar in Podgorica is long enough to close that window on its own. It is why the northern general hospitals in Berane and Bijelo Polje matter far more than their bed counts suggest.
+locale: me
+---
+Migrena
+Epilepsija
+Parkinsonova bolest
+Multipla skleroza
+Ishemijski moždani udar
+Periferna neuropatija

@@ -1,0 +1,20 @@
+---
+description: Dishes of Montenegrin cuisine. Njeguški pršut and njeguški sir carry a place name rather than a recipe: Njeguši is one village of a few hundred people on the Lovćen slope above Kotor, the home village of the Petrović-Njegoš dynasty, and the reason its ham is prized is meteorological — the wind there alternates between salt air off the Boka and dry air off the mountain, so the meat cures in a draught that turns twice a day. Kačamak and cicvara are the northern half of the same small country, maize flour worked with sheep's-milk fat over an open hearth until it pulls away from the pot. The lake dishes are a third kitchen again: Skadarsko jezero, the largest lake in the Balkans, gives the eel that spawns in the Sargasso and returns up the Bojana, and the ukljeva, a small bleak dried in the sun and eaten through the winter. Rakija loza and vranac are not dishes at all but a grape brandy and a native red grape, and they stay on the list because a Montenegrin table is described by them more often than by any main course.
+locale: me
+---
+Njeguški pršut
+Njeguški sir
+Njeguški popeci
+Kačamak
+Cicvara
+Priganice
+Raštan sa suvim mesom
+Japraci
+Jagnjetina ispod sača
+Riblja čorba sa Skadarskog jezera
+Sušena ukljeva
+Jegulja sa Skadarskog jezera
+Punjene paprike
+Pogača ispod sača
+Rakija loza
+Vranac

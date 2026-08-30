@@ -1,0 +1,12 @@
+---
+description: Dishes of Greek cuisine. Budva was Greek before it was anything else — it is one of the oldest settlements on the Adriatic, with a Hellenic layer beneath the Roman and Venetian ones, and the founding legend hands it to Kadmos and Harmonia, exiled from Thebes. The necropolis under the old town has yielded Greek pottery and jewellery that now sits in the town museum, and the olive, the vine and the fig, the three plants that still define the Montenegrin coastal kitchen, all reached this shore with Greek settlement.
+locale: me
+---
+Musaka
+Giros
+Suvlaki
+Caciki
+Grčka salata
+Spanakopita
+Dolmades
+Baklava

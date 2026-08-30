@@ -1,0 +1,17 @@
+---
+description: Kinds of social media content in Montenegrin. Dijeljenje, a share, carries the ijekavian vowel where the eastern standards write deljenje, and it is exactly the sort of everyday word that identifies a Montenegrin feed at a glance without any place name in it. The category matters more here than the size of the country suggests: Montenegro's own media landscape is very small — a few national outlets, with the daily and news portal Vijesti and the public broadcaster RTCG the largest — so social platforms carry a disproportionate share of public argument, and the comment thread under a news post is treated as a recognised part of political life rather than a sideshow to it.
+locale: me
+---
+Objava
+Fotografija
+Album
+Video
+Kratki video
+Priča
+Uživo
+Anketa
+Komentar
+Dijeljenje
+Članak
+Podkast
+Emisija

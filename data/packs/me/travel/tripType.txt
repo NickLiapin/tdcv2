@@ -1,0 +1,24 @@
+---
+description: Types of trip in Montenegrin. Ljetovanje and zimovanje are single words for going away for the summer and going away for the winter, a distinction the language makes in one word where English needs a phrase, and both are literal here: the coast from Herceg Novi through Budva to the thirteen-kilometre beach at Ulcinj in July, and Kolašin and Žabljak under Durmitor in January. Katunski boravak is a stay at a katun, a summer settlement of shepherds' huts on high pasture, increasingly let to visitors as the flocks shrink. Hodočašće means Ostrog above all, the monastery built into a vertical cliff face, which draws on the order of a million visitors a year — Orthodox, Catholic and Muslim alike — in a country of six hundred thousand people. Pośeta rodbini, visiting relatives, is written with ś and is a travel category in its own right in a country with a diaspora larger than some of its municipalities.
+locale: me
+---
+Ljetovanje
+Zimovanje
+Vikend putovanje
+Gradski odmor
+Razgledanje
+Krstarenje
+Aranžman
+Pośeta rodbini
+Individualno putovanje
+Poslovno putovanje
+Službeni put
+Planinarenje
+Kampovanje
+Banjski odmor
+Seoski turizam
+Katunski boravak
+Manastirska tura
+Hodočašće
+Školska ekskurzija
+Izlet

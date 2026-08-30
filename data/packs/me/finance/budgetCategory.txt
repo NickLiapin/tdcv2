@@ -1,0 +1,24 @@
+---
+description: Household spending category, counted in euro. That is the fact behind the whole list: Montenegro pays for its groceries, rent and electricity in a currency it adopted unilaterally in 2002, after two years of the Deutsche mark, and which it neither issues nor governs, so a Montenegrin budget has no exchange-rate line in it at all. Grijanje is the entry that varies most across a small country. There is almost no district heating anywhere in Montenegro, so a flat in Podgorica heats with electricity and a reversible air conditioner, a house in Kolašin or Pljevlja heats with cut wood delivered by the cubic metre in autumn, and a summer apartment on the coast barely heats at all. Struja comes from Elektroprivreda Crne Gore, and the Pljevlja lignite plant and the Piva and Perućica hydro stations between them are why the bill is what it is. Note the ijekavian in grijanje, lijekovi and odjeća.
+locale: me
+---
+Stanovanje
+Kirija
+Komunalije
+Struja
+Grijanje
+Hrana
+Prevoz
+Gorivo
+Zdravstvo
+Lijekovi
+Obrazovanje
+Odjeća i obuća
+Zabava
+Restorani i kafići
+Putovanja
+Štednja
+Osiguranje
+Otplata kredita
+Telefon i internet
+Kućni ljubimci

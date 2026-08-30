@@ -1,0 +1,21 @@
+---
+description: Cuisine as a Montenegrin menu names it. Crnogorska heads a list that is really two kitchens under one name — the coast, where Boka Kotorska and the littoral down to Ulcinj cooked inside the Venetian Republic for close to four centuries and still eat brodet, buzara and rižot out of that inheritance, and the mountain north, where maize, sheep's milk and woodsmoke give kačamak, cicvara and pršut. Everything after the first value is what a country of about 620 000 residents that receives well over two million visitors a year puts on its coastal streets between June and September; the pizzeria in Budva and the sushi bar in Tivat close in October and open again in spring, so the range of a Montenegrin high street is seasonal in a way that a landlocked country's is not. Each value has a child file in dishByCuisine.
+locale: me
+---
+Crnogorska
+Italijanska
+Japanska
+Meksička
+Kineska
+Indijska
+Francuska
+Tajlandska
+Grčka
+Španska
+Američka
+Korejska
+Vijetnamska
+Turska
+Libanska
+Peruanska
+Argentinska

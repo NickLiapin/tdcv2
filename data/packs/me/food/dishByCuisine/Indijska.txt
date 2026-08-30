@@ -1,0 +1,12 @@
+---
+description: Dishes of Indian cuisine. A largely vegetarian menu lands on a Montenegrin table more easily than one might expect. The Orthodox calendar keeps roughly two hundred fasting days a year, and a strict post excludes meat, dairy and eggs, so the traditional posna kitchen of beans, lentils, raštan and olive oil is effectively vegan and has been for centuries — the coast and the monasteries at Ostrog and Morača kept it long before anyone called it a diet. Podgorica's Indian restaurants are recent and few; the fasting recipes they resemble are not.
+locale: me
+---
+Buter piletina
+Tika masala
+Palak panir
+Birjani
+Samosa
+Nan
+Dal
+Vindalu

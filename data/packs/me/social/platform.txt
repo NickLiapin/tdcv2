@@ -1,0 +1,20 @@
+---
+description: Social platforms as they are used in Montenegro, under their registered Latin names. Viber sits far higher here than a global ranking would put it: across the western Balkans it became the default messenger well before WhatsApp did, and schools, municipalities, shops and football clubs still run their announcement groups on it, so an app most of Europe has forgotten is a piece of local infrastructure. Montenegro also has more active mobile subscriptions than inhabitants — a country of roughly six hundred thousand people carrying well over that many SIM cards, and the figure swells every summer as visitors buy local numbers — which makes its penetration statistics look implausible until the tourism is factored in.
+locale: me
+---
+Instagram
+Facebook
+TikTok
+YouTube
+X
+Viber
+WhatsApp
+Telegram
+Snapchat
+LinkedIn
+Pinterest
+Reddit
+Discord
+Twitch
+Threads
+Signal

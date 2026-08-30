@@ -1,0 +1,10 @@
+---
+description: Montenegrin full female name — one given name and one surname (Milica Popović). The surname is drawn from me.person.lastName, the SAME list a man's is drawn from, because Montenegrin surnames do not inflect for gender: Milica and her brother Marko are both Popović, and the -ić ending never becomes -ićeva or -ka in a modern document. That is why this pack ships no person/female/lastName — its absence is the design, not a gap. Compare pl, where the equivalent file has to read a separate feminine -ska list. What does change is declension rather than form: a man's surname declines through the cases (vidio sam Popovića) while a woman's stays put (vidio sam Milicu Popović), so a config that builds an oblique-case sentence cannot treat the two the same way.
+generator: tdc
+locale: me
+---
+<sequence name="p">
+  <gen name="f" type="template" value="me.person.female.firstName"/>
+  <gen name="l" type="template" value="me.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

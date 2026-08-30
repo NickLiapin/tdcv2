@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Orthopedics. Rehabilitation after most of these has a single national address, the institute at Igalo on the Bay of Kotor, which treats with the sulphurous peloid mud dredged from the shallows of the bay and with its mineral water, and which has drawn patients from across Europe since the 1950s. There is also a measurement worth knowing: Montenegrins are, by measured mean height, among the tallest people in the world, which orthopaedic surgeons notice in the size of the implants they have to keep on the shelf.
+locale: me
+---
+Osteoartroza
+Reumatoidni artritis
+Diskus hernija
+Sindrom karpalnog tunela
+Išijalgija
+Ruptura rotatorne manžetne

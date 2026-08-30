@@ -1,0 +1,11 @@
+---
+description: Way a cable run is carried in a Montenegrin installation. Cijev, the pipe, is the ijekavian form of the word an ekavian standard writes cev, and the difference is visible on every Montenegrin bill of quantities. What decides the choice here is rock: most of the country sits on Dinaric karst, a limestone that will not take a trench without a breaker or a charge, so a podzemni rov is the expensive option and a vazdušni vod strung between concrete poles is what actually reaches a village above Nikšić or in the Komovi. On the coast the calculation inverts. Kotor, Perast and the Budva old town are protected built heritage, façades cannot carry new cable, and a run there is threaded through kablovsko okno and existing kanalica laid under the paving centuries after the walls went up. Regal, the cable tray, and podna kutija, the floor box, belong to the newer office buildings in Podgorica.
+locale: me
+---
+Cijev
+Kanalica
+Regal
+Kablovsko okno
+Podzemni rov
+Vazdušni vod
+Podna kutija

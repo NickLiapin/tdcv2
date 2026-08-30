@@ -1,0 +1,504 @@
+---
+description: Filler sentences in Montenegrin, the lorem-ipsum prose of this pack. Written by hand: data/scripts/build-text-corpus.mjs builds these files from public-domain books and Project Gutenberg holds no Montenegrin text, so the corpus was composed rather than extracted. The subjects are deliberately ordinary and mixed — the house and the yard, the sheep and the katun above the treeline, the boat and the nets in Boka, the market, the school, the road over Lovćen, work, weather, food, the evening — because filler drawn from a single subject reads as a glossary instead of as language. Three things show in almost every line. Jat first: long it is written ije and short je, so vrijeme, snijeg, rijeka, lijep and mlijeko stand where a Serbian text has vreme, sneg, reka, lep and mleko, and the words are otherwise identical. Then the two letters the 2009 Pravopis crnogorskoga jezika added and no other Štokavian standard writes, ś and ź, which appear here twenty-three times in the words that genuinely carry them — śutra, śutradan, śever, śekira, śetva, śeme, uśev, iśeći, śednica, śedište, pośeta, śećanje, ośećaj, źenica, iźutra. And nijesu, the Montenegrin negated present of jesam, which Serbian and Croatian both write nisu: it is one of the most reliable single-word markers that a text is Montenegrin, and it turns up twice below.
+locale: me
+---
+Kuća stoji na brijegu iznad puta.
+Krov je pokriven kamenim pločama.
+Zidovi su od tesanog kamena, debeli pola metra.
+Vrata škripe kad ih neko otvori.
+Prozor u kuhinji gleda na dvorište.
+U dvorištu raste stara smokva.
+Ispod smokve stoji drveni sto i četiri stolice.
+Na tavanu se suši pršut.
+U podrumu stoje bačve s vinom.
+Ognjište se loži svake večeri od oktobra.
+Dim izlazi kroz dimnjak i vjetar ga odnosi ka rijeci.
+Majka mijesi hljeb u velikoj karlici.
+Lonac ključa na šporetu.
+Na polici stoji red tegli sa zimnicom.
+Śekira je naslonjena uz zid pored drva.
+Drva za zimu složena su uz južni zid.
+Mačka spava na jastuku kraj peći.
+Pas leži pred vratima i ne miče se po vrućini.
+Sapun i peškir stoje kraj lavaboa.
+Sijalica u hodniku je pregorjela.
+Sinoć je nestalo struje pa smo palili svijeće.
+Ključ od kapije visi o ekseru u hodniku.
+Metla stoji iza vrata.
+Ogledalo u sobi je staro koliko i kuća.
+Krevet je namješten, jorgan presavijen.
+Sto je postavljen za šestoro.
+Kašike i viljuške stoje u drvenoj kutiji.
+Šolje za kafu peru se odmah poslije ručka.
+Voda iz česme je hladna i ljeti.
+Bunar u dvorištu presuši u avgustu.
+Kroz otvoren prozor ulazi miris raštana.
+Na zidu kuhinje visi kalendar iz prošle godine.
+Radio svira tiho u drugoj sobi.
+Djeca su ostavila cipele pred vratima.
+Konopac za veš razapet je preko dvorišta.
+Veš se osuši za sat vremena kad duva śever.
+Kokoške čeprkaju oko kapije.
+Iza kuće je mala njiva sa krompirom.
+U bašti raste luk, paradajz i kupus.
+Ograda je popustila na tri mjesta.
+Otac je juče mijenjao crijep na krovu.
+Stepenice su uske i strme.
+Podrumska vrata se zaključavaju samo zimi.
+U kući se ne nosi obuća.
+Papuče stoje spremne za goste.
+Šporet na drva grije i kuhinju i sobu do nje.
+Zimi cijela porodica sjedi u jednoj sobi.
+Ljeti se ruča napolju, pod lozom.
+Loza nad terasom daje hlad i grožđe.
+Kuća je stara osamdeset godina i još je čvrsta.
+Otac radi u opštini već dvadeset godina.
+Majka predaje u osnovnoj školi.
+Brat je otišao na more da radi sezonu.
+Sestra studira u Podgorici.
+Najmlađi sin ide u treći razred.
+Djed je bio zidar i sam je podigao ovu kuću.
+Baba pamti kako je bilo prije rata.
+Ujak nam je u pośetu došao iz Berana.
+Stric živi u Nikšiću i rijetko svraća.
+Tetka je donijela pitu i kolač.
+Kum je došao neočekivano, sa cijelom familijom.
+Gost se ne pušta iz kuće bez kafe.
+Domaćin prvi nazdravlja, pa onda ostali.
+Komšija je zamolio da mu čuvamo pse dok je odsutan.
+Komšinica preko puta drži pčele.
+Djeca se igraju na ulici do mraka.
+Dječak je pao s bicikla i ogulio koljeno.
+Djevojka nosi vodu sa izvora u dvije kante.
+Momak pomaže ocu oko sijena.
+U ovoj kući živi četvoro čeljadi.
+Naše pleme je odavde, sa ove strane brda.
+Prezime nam se piše na ić, kao i većini ovdje.
+Slava se slavi svake godine istog dana.
+Za slavu se sprema jagnje i pita.
+Na svadbu je došlo dvjesta zvanica.
+Mlada je iz susjednog sela.
+Svatovi su pjevali do zore.
+Kum je darovao mladence.
+Sahrana je bila u subotu ujutru.
+Cijelo selo je došlo da isprati pokojnika.
+Žene su donijele hranu u kuću žalosti.
+Djed je sahranjen pored crkve.
+Śećanje na njega ostalo je u cijeloj varoši.
+O njemu se i danas priča u kafani.
+Njegova śekira i danas stoji u šupi.
+Unuk nosi njegovo ime.
+Porodica se okuplja za Božić i za slavu.
+Za Novu godinu djeca dobijaju paketiće.
+Bajram se ovdje slavi u Rožajama i Plavu.
+Uskrs pada svake godine drugog datuma.
+Na Vaskrs se farbaju jaja u ljusci od luka.
+Prvo jaje se čuva do sljedeće godine.
+Prijatelji dolaze bez najave i to niko ne zamjera.
+Kafa se pije polako i dugo.
+Razgovor obično počne od zdravlja pa pređe na politiku.
+Niko ne ustaje od stola dok domaćin ne ustane.
+Djeca ljube ruku starijima.
+Stariji se oslovljavaju sa vi.
+Ośećaj obaveze prema rodbini ovdje je jak.
+Riječ data pred svjedocima vrijedi kao ugovor.
+Stado se iźutra izgoni na pašu.
+Ovce se same vraćaju u tor kad padne mrak.
+Pas čuva stado bolje nego dvojica ljudi.
+Jagnje je ostalo bez majke pa se hrani iz flaše.
+Koze se penju tamo gdje ovca ne može.
+Krava se muze ujutru i uveče.
+Mlijeko se cijedi kroz platno.
+Od jutarnjeg mlijeka pravi se sir.
+Kajmak se skida sa vrha i soli.
+Sir zrije u drvenoj kaci četrdeset dana.
+Ljeti porodica seli na katun.
+Katun je na hiljadu i po metara, iznad šume.
+U katunskoj kolibi ima samo ognjište i dva ležaja.
+Voda se donosi sa izvora ispod stijene.
+Trava je gore sočnija nego u dolini.
+Sijeno se kosi u julu, dok je vrijeme suvo.
+Kosa se kleplje uveče, za śutrašnji dan.
+Sijeno se suši dva dana pa se dene u stog.
+Stog se pravi oko koca zabodenog u zemlju.
+Kiša na pokošenoj travi je nesreća za domaćina.
+U septembru se silazi sa katuna.
+Stoka se tjera niz strmu stazu do sela.
+Snijeg gore padne i u oktobru.
+Vuk je prošle zime zaklao dvije ovce.
+Medvjed je razvalio košnicu u zabranu.
+Orao kruži nad grebenom cijelo prijepodne.
+Soko se gnijezdi u stijeni iznad kanjona.
+Zmija se sunča na toplom kamenu.
+Konj se koristi tamo gdje traktor ne može.
+Magarac nosi drva uskom stazom.
+Bunar na katunu puni se samo od kiše.
+Krš je ovdje toliko go da se između kamenja jedva nađe zemlje.
+Njiva je velika kao soba i ograđena suvozidom.
+Suvozid je slagan bez maltera, kamen na kamen.
+Zemlja se donosila u vrećama i sipala među stijene.
+Planina se zove po plemenu koje je na njoj ljetovalo.
+Sa vrha se vidi i more i Prokletije.
+Durmitor ima osamnaest jezera u visokoj zoni.
+Tara je usjekla kanjon dubok preko hiljadu metara.
+Voda u Tari je toliko bistra da se vidi dno.
+Preko kanjona vodi most sa pet lukova.
+Biogradska gora je jedna od posljednjih prašuma u Evropi.
+Bukve u njoj imaju po tri stotine godina.
+Staza kroz šumu je označena crvenom bojom.
+Pastir zna svaku ovcu po glavi.
+Zvono na ovnu čuje se preko cijele doline.
+Śever duva sa vrha i ledi ruke.
+Kolibu su prošle zime zatrpali snjegovi.
+Krov katunske kolibe se svake godine popravlja.
+Ko nema stoke, taj gore ne ide.
+More je ujutru mirno kao ogledalo.
+Barka je vezana za rivu.
+Ribar je izašao prije zore.
+Mreže se pregledaju i krpe na obali.
+Ulov je bio slab, jedva dvije kile.
+Riba se prodaje odmah, na kraju rive.
+Jegulja se lovi u Bojani.
+Ukljeva se suši na Skadarskom jezeru i tako čuva.
+Skadarsko jezero je najveće na Balkanu.
+Manji dio jezera pripada Albaniji.
+Ljeti se voda povuče i pojave se pješčani sprudovi.
+Ptice se na jezeru gnijezde u trsci.
+Kotorski zaliv se uvlači duboko u kopno.
+Brda nad zalivom padaju pravo u more.
+Stari grad je opasan zidinama koje se penju uz brdo.
+Do tvrđave vodi hiljadu i po stepenika.
+Sa vrha se cijeli zaliv vidi kao na dlanu.
+Brodovi ulaze u zaliv kroz uski tjesnac.
+Kruzeri pristaju u Kotoru cijelo ljeto.
+U Tivtu je marina puna jahti.
+Perast ima dva ostrva pred sobom.
+Jedno ostrvo je nasuto kamenjem koje su bacali mornari.
+Svakog jula mještani ponove taj običaj.
+Klapa pjeva na rivi u ljetnje večeri.
+Vaterpolo se ovdje igra od djetinjstva.
+Djeca skaču u more sa mula.
+Voda je u junu još hladna.
+U avgustu je more toplo do kasno uveče.
+Plaža u Ulcinju duga je trinaest kilometara.
+Pijesak na njoj je taman i sitan.
+Sveti Stefan je ostrvo spojeno uskim nasipom.
+Nekad je to bilo ribarsko selo.
+Maslinjak iznad kuće daje dovoljno ulja za godinu.
+Masline se beru u novembru.
+Stara maslina u Baru stara je preko dvije hiljade godina.
+Ulje se cijedi u seoskoj uljari.
+Smokve se suše na suncu, na drvenim rešetkama.
+Vino od vranca pravi se ovdje odvajkada.
+Vranac i krstač su domaće sorte.
+Loza se pije poslije ručka, u malim čašama.
+Bura duva sa Orjena i ruši sve nezavezano.
+Jugo donosi kišu i tešku glavu.
+Zimi u Boki pada kiša danima bez prekida.
+Crkvice iznad zaliva su najkišovitije mjesto u Evropi.
+Barka se zimi izvlači na suvo.
+Motor se podmazuje prije nego se ostavi.
+Luka u Baru prima najveće brodove.
+Pruga od Bara do granice ide kroz stotinu tunela.
+Voz prelazi preko viadukta visokog dvjesta metara.
+Iz voza se vidi kanjon Mrtvice.
+Jutros je pao mraz.
+Magla se digla tek oko podne.
+Nebo je vedro, ni oblaka.
+Sunce prži od deset sati.
+U Podgorici je danas trideset devet stepeni.
+Ljeti se u kotlini ne može disati od vrućine.
+Ljudi izlaze tek kad padne mrak.
+Kiša je počela naglo i stala isto tako.
+Padala je cijelu noć, a śutradan je granulo.
+Potok je nabujao i odnio drveni most.
+Rijeka je mutna od kiše.
+Snijeg je zavijao put do Žabljaka.
+U Žabljaku je snijeg visok metar i po.
+Zima gore traje od novembra do maja.
+Led na jezeru drži do marta.
+Vjetar je noćas oborio dva bora.
+Bura je odnijela crijep sa krova.
+Jugo duva treći dan zaredom.
+Grmi nad planinom, ali kiša još ne pada.
+Munja je udarila u dalekovod.
+Grom se čuo čak u susjednom selu.
+Poslije oluje vazduh miriše na mokru zemlju.
+Duga se pružila preko cijele doline.
+Vedrina poslije kiše traje kratko.
+Śutra se očekuje pogoršanje.
+Prognoza kaže kišu do kraja sedmice.
+U planini je vrijeme nepredvidivo.
+Za sat vremena se sunce pretvori u maglu.
+Kad se magla spusti, ne vidi se ni deset koraka.
+Ljeti su noći na primorju vlažne.
+U Nikšiću zna pasti snijeg i u aprilu.
+Mraz je uništio cvijet na voćkama.
+Suša je trajala šest sedmica.
+Bunari su presušili u pola sela.
+Uśev je pregorio od sunca.
+Poslije prve kiše sve je ozelenjelo.
+Śeme se sije čim se zemlja prosuši.
+Prvi snijeg obično padne oko svetog Nikole.
+Zima je bila blaga, skoro bez snijega.
+Ljetnja oluja rashladi vazduh na sat vremena.
+More se zatalasalo pred veče.
+Talasi su preplavili rivu.
+Ribari nijesu izlazili tri dana.
+Vjetar je promijenio pravac pred zoru.
+Śever donosi hladnoću i vedrinu.
+Kad duva śever, priča se da se sa Lovćena vidi italijanska obala.
+Vrućina traje do kasno u septembar.
+U oktobru se noći naglo rashlade.
+Prvi mraz zatekne one koji nijesu spremili drva.
+Vrijeme se ovdje mijenja između mora i planine na svakih dvadeset kilometara.
+Hljeb se mijesi svako drugo jutro.
+Peče se pod sačem, na žaru.
+Kačamak se pravi od kukuruznog brašna i krompira.
+U kačamak se dodaje kajmak dok je vruć.
+Cicvara se sprema od kajmaka i brašna.
+Priganice se prže i posipaju sirom ili medom.
+Pita se razvlači rukom, na velikom stolu.
+Kora mora biti tanka koliko se može.
+Pita sa sirom peče se u okrugloj tepsiji.
+Japraci se zavijaju u list raštana.
+Raštan raste u bašti cijelu zimu.
+Pasulj se kuva sa suvim mesom.
+Čorba od riblje glave sprema se na jezeru.
+Riba se peče na roštilju, sa maslinovim uljem i limunom.
+Njeguški pršut suši se u promaji između mora i planine.
+Suši se najmanje godinu dana.
+Njeguški sir se čuva u ulju.
+Popeci se pune pršutom i sirom pa prže.
+Jagnje se peče na ražnju za praznik.
+Meso se soli dan ranije.
+Krompir se peče ispod mesa, u masti.
+Kupus se kiseli u velikoj kaci u oktobru.
+Zimnica se sprema u avgustu i septembru.
+Ajvar se peče na otvorenom, u velikom kazanu.
+Paradajz se ostavlja u flašama za zimu.
+Med se vadi iz košnica u julu.
+Orasi se beru u oktobru i suše na tavanu.
+Suve smokve se jedu preko zime.
+Nar sazrijeva u novembru.
+Sok od nara se cijedi rukom.
+Kafa se kuva u džezvi, na tri kašičice.
+Prva kafa se pije iźutra, na prazan stomak.
+Uz kafu se obavezno donese čaša vode.
+Rakija se pije prije jela, u malim čašama.
+Loza se peče od komine poslije berbe.
+Kazan se pali u novembru i radi po nekoliko dana.
+Vino se pravi kod kuće, u bačvama od hrasta.
+Vranac je taman i jak.
+Krstač je bijelo vino sa Ćemovskog polja.
+Nikšićko pivo se vari u Nikšiću od devetnaestog vijeka.
+Ručak je glavni obrok i jede se poslije podne.
+Za stolom se ne žuri.
+Domaćica prvo posluži goste, pa onda svoje.
+Ostatak pršuta se iśeče na tanke kriške.
+Hljeb se ne ostavlja na stolu naopako.
+So i hljeb se iznose gostu prvo.
+Voda se pije sa izvora, ne iz flaše.
+Mlijeko se prokuva prije nego se popije.
+Sir i pršut su doručak jednako često kao i večera.
+Ko dođe u podne, taj i ruča.
+Put do Cetinja ide serpentinama uz Lovćen.
+Ima dvadeset pet okuka na tom usponu.
+Sa svake okuke se vidi Kotor sve dublje dolje.
+Vozi se polako, jer je put uzak.
+Dva autobusa se na toj cesti ne mogu mimoići.
+Zimi se prevoj zatvori zbog snijega.
+Do Njegoševog mauzoleja vodi četiristo šezdeset i jedan stepenik.
+Mauzolej stoji na Jezerskom vrhu.
+Odatle se vidi skoro cijela zemlja.
+Cetinje je stara prijestonica.
+U Cetinju su ambasade bile u malim kamenim kućama.
+Put od Podgorice do Kolašina prolazi kroz kanjon Morače.
+Tunel za tunelom, jedan za drugim.
+Manastir Morača se vidi sa magistrale.
+Do Ostroga se penje uskim putem uz stijenu.
+Manastir je uklesan u kamen.
+Hodočasnici se posljednji dio penju pješke.
+Autoput do Mateševa gradio se godinama.
+Most preko Tare vidi se sa puta za Žabljak.
+Preko mosta se prelazi pješke da bi se pogledalo dolje.
+Voz iz Bara polazi ujutru i stiže uveče.
+Pruga se penje sa nule na hiljadu metara.
+Mala Rijeka je najviši željeznički viadukt u ovom dijelu Evrope.
+Autobuska stanica u Podgorici radi cijelu noć.
+Karta do Nikšića košta koliko i dva hljeba.
+Do Ulcinja se putuje tri sata autobusom.
+Ljeti su putevi ka moru zakrčeni.
+Kolona se pred Sozinom zna zaustaviti na sat.
+Tunel Sozina skratio je put do mora.
+Trajekt preko Verige vozi od zore do ponoći.
+Bez trajekta se zaliv obilazi sat vremena duže.
+Aerodrom u Tivtu ljeti primi više putnika nego zimi za pola godine.
+Podgorički aerodrom je udaljen desetak kilometara od grada.
+Taksi do centra košta fiksnu cijenu.
+Benzinska pumpa na izlazu iz grada radi cijelu noć.
+Kamion sa drvima ide sporo uzbrdo.
+Iza njega se stvorila kolona od dvadeset kola.
+Policija kontroliše brzinu na ulazu u varoš.
+Znak upozorava na odron kamenja.
+Zimi se na prevoje ne kreće bez lanaca.
+Staza za pješake ide starim karavanskim putem.
+Tim putem se nekad nosila roba na magarcima.
+Od Kotora do Njeguša se pješke ide četiri sata.
+Planinarski dom je otvoren od maja do oktobra.
+Markacija na stijeni je izblijedjela.
+Do vrha ima još sat hoda.
+Voda se nosi sa sobom, jer izvora gore nema.
+Silazak je teži za koljena nego uspon.
+Magla na grebenu je opasnija od kiše.
+Ko ne poznaje planinu, taj ne ide sam.
+Pijaca radi od šest ujutru.
+Seljaci dolaze sa robom prije zore.
+Na tezgi su paradajz, luk i krompir.
+Sir se prodaje na kile, iz plastičnih kanti.
+Med se nudi u teglama, sa cijenom napisanom rukom.
+Cjenkanje je dio kupovine.
+Kupac prvo proba, pa onda pita za cijenu.
+Riba se prodaje na posebnom dijelu pijace.
+Do podne se sve rasproda.
+Prodavnica na ćošku radi i nedjeljom.
+Hljeb stiže u prodavnicu dva puta dnevno.
+Pekara se otvara u pola pet.
+U čaršiji su radnje otvorene do osam uveče.
+Ljeti radnje na primorju rade do ponoći.
+Kafići na trgu puni su cijelo prijepodne.
+Konobar pamti šta ko pije.
+Račun se traži tek na kraju.
+Banka radi do tri, a petkom do dva.
+U pošti se plaćaju računi za struju.
+Red pred šalterom je najduži prvog u mjesecu.
+Opština izdaje dozvole za gradnju.
+Papiri se predaju u prizemlju, a preuzimaju na spratu.
+Radno vrijeme je od sedam do petnaest.
+Plata stiže oko petog u mjesecu.
+Penzija se prima u pošti ili na račun.
+Majstor je došao da popravi bojler.
+Zanat se ovdje uči uz starijeg.
+Zidar radi od jutra do mraka dok traje sezona.
+Građevina zimi stane.
+Radnik na sezoni radi po dvanaest sati.
+Ljeti se u hotelima zapošljavaju studenti.
+Konobarski posao traje od juna do septembra.
+Zarada od jednog ljeta pokrije pola godine.
+Trgovina radi na malo i na veliko.
+Skladište je iza zgrade, u dvorištu.
+Kamion istovara robu rano ujutru.
+Kancelarija ima tri stola i jedan prozor.
+Ugovor se potpisuje u dva primjerka.
+Pečat stoji u fioci kod direktora.
+Sastanak je zakazan za deset.
+Śednica je trajala do kasno.
+Zapisnik je pisala sekretarica.
+Śedište firme je u Podgorici.
+Firma zapošljava dvadeset i tri radnika.
+Račun se ispostavlja krajem mjeseca.
+Porez se plaća do petnaestog.
+Cijene su izražene u eurima.
+Euro se ovdje koristi iako zemlja nije u eurozoni.
+Prije eura se plaćalo njemačkom markom.
+Sitniš se rijetko vraća, uvijek fali kovanica.
+Škola počinje prvog septembra.
+Đaci nose knjige u rancu.
+Prvi čas počinje u osam.
+Odmor traje deset minuta.
+Veliki odmor je poslije trećeg časa.
+Učiteljica piše zadatak na tabli.
+Djeca prepisuju u sveske.
+Olovka se šilji nad korpom.
+Domaći zadatak se pregleda sljedećeg dana.
+Kontrolni je najavljen za petak.
+Ocjene idu od jedan do pet.
+Roditeljski sastanak je zakazan za utorak.
+Škola u selu ima samo dva odjeljenja.
+Djeca iz zaseoka putuju kombijem.
+Zimi se nastava skrati zbog snijega.
+Fiskulturna sala se koristi i za priredbe.
+Za kraj školske godine sprema se predstava.
+Đaci recituju Njegoša napamet.
+Gorski vijenac se uči u srednjoj školi.
+Stihovi su u desetercu.
+Deseterac je isti onaj u kojem se pjeva uz gusle.
+Biblioteka u varoši ima dvije prostorije.
+Knjige se pozajmljuju na petnaest dana.
+Bibliotekarka zna svakog čitaoca po imenu.
+Rječnik stoji na posebnoj polici i ne iznosi se.
+Studenti uče u čitaonici do zatvaranja.
+Ispitni rok je u januaru i u junu.
+Univerzitet je u Podgorici, sa fakultetima po drugim gradovima.
+Medicinski fakultet prima mali broj studenata.
+Diploma se brani pred komisijom od tri člana.
+Nastavnik je pozvao roditelje na razgovor.
+Đak je izostao pet dana bez opravdanja.
+Ljekarsko uvjerenje se donosi iz doma zdravlja.
+Dom zdravlja radi u dvije smjene.
+Ljekar prima od sedam do trinaest.
+Za specijalistu se čeka mjesec dana.
+Klinički centar je u glavnom gradu.
+Hitna pomoć stiže za petnaest minuta.
+Apoteka dežura preko noći svake druge sedmice.
+Recept vrijedi mjesec dana.
+Zub je vađen kod privatnog zubara.
+Zdravlje se ovdje prvo traži kod komšije, pa kod ljekara.
+Bolest se dugo krije od porodice.
+Ośećaj slabosti trajao je nekoliko dana.
+Pritisak se mjeri svako jutro.
+Ljekar je posvijetlio u oko i gledao kako se źenica skuplja.
+Sud zasijeda ponedjeljkom i srijedom.
+Ročište je odloženo za mjesec dana.
+Svjedok nije došao.
+Presuda se objavljuje u pisanoj formi.
+Uveče se sjedi pred kućom dok se ne ohladi.
+Djed skida gusle sa zida.
+Gusle imaju samo jednu žicu, od konjske dlake.
+Gudalo se prevlači sporo.
+Pjesma se ne čita, nego pamti.
+Guslar sam sklapa stihove dok pjeva.
+Slušaoci ćute dok pjesma traje.
+Pjesme govore o starim bojevima i o ljudima iz plemena.
+Oro se igra u krugu, bez muzike.
+Igrači pljeskaju i pjevaju u ritmu.
+U sredinu kola izlazi jedan po jedan.
+Klapa pjeva bez instrumenata, u više glasova.
+Na primorju se klapa čuje ljeti na svakom trgu.
+Sevdalinka se sluša na śeveru zemlje.
+Harmonika svira na svadbama do zore.
+Mladi slušaju drugu muziku nego njihovi očevi.
+Vaterpolo utakmica se gleda u cijeloj kafani.
+Kad reprezentacija igra, ulice su prazne.
+Bazen u Herceg Novom je pun djece cijelo ljeto.
+Rukometašice su donijele zlato sa prvenstva Evrope.
+Košarkaški klub igra u regionalnoj ligi.
+Fudbalski stadion je pun samo za derbi.
+Djeca igraju fudbal na betonskom igralištu.
+Šah se igra u parku, na kamenim stolovima.
+Kartanje traje do kasno u noć.
+Lov je dozvoljen od jeseni do zime.
+Ribolov na Tari je pod dozvolom.
+Pastrmka se lovi na mušicu.
+Berba grožđa je krajem septembra.
+Cijela porodica izlazi u vinograd.
+Berba traje dva do tri dana.
+Poslije berbe se pravi gozba.
+U proljeće počinje śetva u nižim selima.
+Voćke se orezuju u februaru.
+Pčele izlaze čim se otopli.
+Prvi roj se hvata u maju.
+Ljeto se cijelo provodi u poslu.
+Jesen je vrijeme spremanja za zimu.
+Drva se cijepaju i slažu u septembru.
+Zima je duga u planini i kratka na moru.
+Za Božić se lomi česnica.
+U česnici je skriven novčić.
+Ko nađe novčić, tome ide sreća.
+Badnjak se unosi na Badnje veče.
+Prvi gost na Božić zove se položajnik.
+Nova godina se dočekuje na trgu.
+Vatromet se vidi sa svih brda oko grada.
+Trinaesti jul je državni praznik.
+Toga dana se vije zastava sa svake zgrade.
+Ljeto poslije praznika prolazi brzo.

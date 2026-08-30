@@ -1,0 +1,24 @@
+---
+description: Insects in Montenegrin. The maslinova muva, the olive fruit fly, earns a line of its own: it is the most serious pest of the olive groves around Bar and Ulcinj, where the trees are worked in terraces built centuries ago and one at Stari Bar, the Stara maslina, is reckoned to be over two thousand years old, and the whole harvest calendar turns on trapping it before it lays in the fruit. Pčela heads the list rather than sitting in the middle because beekeeping is a real rural income in the northern municipalities and in Crmnica above Skadar lake, where the chestnut and sage flows are worked in turn. Note stjenica for the bedbug, with the ijekavian je that the Montenegrin standard requires.
+locale: me
+---
+pčela
+osa
+stršljen
+bumbar
+mrav
+leptir
+moljac
+muva
+maslinova muva
+komarac
+bubamara
+žohar
+skakavac
+zrikavac
+cvrčak
+vilin konjic
+stjenica
+buva
+krpelj
+gundelj

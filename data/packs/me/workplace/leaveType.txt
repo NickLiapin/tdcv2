@@ -1,0 +1,16 @@
+---
+description: Reason for a Montenegrin employee's absence, as an HR system records it. Slava is the entry with no counterpart in a western European list: the krsna slava is the feast day of the household's patron saint, inherited down the male line, and Montenegrin labour law gives an employee a paid day off for it, so it sits on a payroll system beside annual leave rather than in a diary. Porodiljsko and roditeljsko odsustvo together run for up to a year from the birth, and the second may be taken by either parent. Državni praznik covers the two dates that define the modern state — Dan nezavisnosti on 21 May, the anniversary of the 2006 referendum that restored Montenegrin independence by 55.5 percent of the vote, and Dan državnosti on 13 July. Vjerski praznik keeps its ijekavian je and covers Orthodox, Catholic and Muslim calendars, all three of which the state recognises.
+locale: me
+---
+Godišnji odmor
+Bolovanje
+Porodiljsko odsustvo
+Roditeljsko odsustvo
+Odsustvo radi njege djeteta
+Slava
+Plaćeno odsustvo
+Neplaćeno odsustvo
+Smrt člana porodice
+Sklapanje braka
+Državni praznik
+Vjerski praznik

@@ -1,0 +1,32 @@
+---
+description: Action nouns in Montenegrin, standing where English uses an -ing form. The language has no present participle that can serve as a noun, so it builds a verbal noun in -nje out of the passive participle — testirati gives testiranje, keširati gives keširanje — or else borrows a Latinate noun in -cija, and both patterns are represented here. The grammatical consequence is real: these words decline like ordinary neuter nouns and take cases and prepositions that an English gerund cannot, so a Montenegrin sentence can say after the encrypting in one word ending. Much of this vocabulary entered daily use with the state's administrative digitisation, when tax filing, company registration and residence paperwork moved onto central portals and words like autentifikacija and migracija arrived with the forms.
+locale: me
+---
+kompajliranje
+prevođenje koda
+pokretanje
+izvršavanje
+otklanjanje grešaka
+testiranje
+profilisanje
+optimizovanje
+refaktorisanje
+verzionisanje
+grananje
+spajanje
+objavljivanje
+postavljanje
+instaliranje
+nadogradnja
+migracija
+replikacija
+sinhronizacija
+indeksiranje
+keširanje
+komprimovanje
+šifrovanje
+dešifrovanje
+autentifikacija
+autorizacija
+nadgledanje
+evidentiranje

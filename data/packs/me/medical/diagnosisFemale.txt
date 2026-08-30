@@ -1,0 +1,40 @@
+---
+description: Diagnoses that require female anatomy and cannot occur in a male patient; draw from this file only for female rows, and take general conditions from medical/diagnosis. Obstetrics and gynaecology in Montenegro is centralised to a degree that surprises visitors: most of the country's births happen at the Klinika za ginekologiju i akušerstvo of the Klinički centar Crne Gore in Podgorica, with the general hospitals in Nikšić, Bar, Kotor, Berane and Bijelo Polje covering the rest, and the whole country registers something on the order of six to seven thousand births in a year — fewer than a single large maternity hospital elsewhere in Europe handles on its own. Cervical screening and the HPV vaccination programme are run nationally by the Institut za javno zdravlje, and note the spelling poslijeporođajno rather than postporođajno.
+locale: me
+---
+Endometrioza
+Sindrom policističnih jajnika
+Miomi materice
+Cista na jajniku
+Rak jajnika
+Rak grlića materice
+Cervikalna displazija
+Cervicitis
+Endometritis
+Rak endometrijuma
+Karlična inflamatorna bolest
+Bakterijska vaginoza
+Vaginalna kandidijaza
+Menoragija
+Dismenoreja
+Amenoreja
+Preeklampsija
+Gestacijski dijabetes
+Hiperemeza gravidarum
+Vanmaterična trudnoća
+Poslijeporođajno krvarenje
+Mastitis
+Fibrocistična bolest dojke
+Menopauzalni sindrom
+Predmenstrualni disforični poremećaj
+Prolaps materice
+Adenomioza
+Torzija jajnika
+Placenta previja
+Abrupcija posteljice
+Rak vulve
+Rak vagine
+Bartolinijeva cista
+Atrofični vaginitis
+Ternerov sindrom
+Ženski infertilitet

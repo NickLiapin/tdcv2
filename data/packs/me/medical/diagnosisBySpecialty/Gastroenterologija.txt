@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Gastroenterology. Two of these carry a Montenegrin dimension worth stating plainly: alcohol-related liver disease is common in a country where households distil their own loza and a bottle on the table is a form of hospitality rather than a purchase, and chronic viral hepatitis, once a substantial burden here, has been pushed back by universal newborn hepatitis B vaccination and by the direct-acting antivirals the Fond za zdravstveno osiguranje now reimburses.
+locale: me
+---
+Gastroezofagealna refluksna bolest
+Kronova bolest
+Ulcerozni kolitis
+Ulkusna bolest
+Sindrom iritabilnog crijeva
+Ciroza jetre

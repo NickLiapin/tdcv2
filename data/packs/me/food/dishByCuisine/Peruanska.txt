@@ -1,0 +1,13 @@
+---
+description: Dishes of Peruvian cuisine. Half of this list rests on the potato, and the potato is the one American crop with a dated Montenegrin origin story: tradition credits Petar I Petrović Njegoš, the metropolitan who governed Montenegro until 1830, with pressing the tuber on a suspicious peasantry in the early nineteenth century, and krompir went on to become a staple of exactly those karst villages where almost nothing else would grow. Seviče needs no such introduction on a coast that already marinates raw fish in lemon and salt and calls it lunch.
+locale: me
+---
+Seviče
+Lomo saltado
+Ahi de galjina
+Papa a la uankaina
+Antikučos
+Kausa
+Čupe de kamarones
+Pisko sur
+Rokoto releno

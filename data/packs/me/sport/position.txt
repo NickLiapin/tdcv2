@@ -1,0 +1,39 @@
+---
+description: Playing positions across several sports in Montenegrin. The first five are water polo, which is where a Montenegrin list has to begin: golman in the cage, centar with his back to goal on the two-metre line, centarbek marking him from behind, and bekovi and krila working the perimeter in a game played entirely without touching the bottom. The vocabulary itself tells you how each sport arrived. The football and handball terms are calques or borrowings a century old and fully naturalised; the baseball and gridiron terms at the end — bacač, šort stop, kvoterbek, lajnbeker — are straight phonetic transcriptions of English, because those sports reached Montenegro through television rather than through clubs, and a language takes the sound when it has no practice to attach the sense to. Note lijevi and lijevo for left, ijekavian throughout.
+locale: me
+---
+Golman
+Centar
+Centarbek
+Bek
+Krilo
+Štoper
+Desni bek
+Lijevi bek
+Defanzivni vezni
+Centralni vezni
+Ofanzivni vezni
+Desno krilo
+Lijevo krilo
+Centarfor
+Plejmejker
+Bek šuter
+Nisko krilo
+Krilni centar
+Tehničar
+Korektor
+Primač servisa
+Srednji bloker
+Libero
+Srednji bek
+Pivot
+Bacač
+Hvatač
+Prva baza
+Druga baza
+Treća baza
+Šort stop
+Autfilder
+Kvoterbek
+Lajnbeker
+Kornerbek

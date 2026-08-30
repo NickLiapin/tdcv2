@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation in Montenegrin, Monday first, each cut to three letters and closed with a full stop that marks the truncation. Two of them are quiet evidence of which standard the text is written in: sri. and ned. can only come from srijeda and nedjelja, where a Serbian calendar prints sre. and ned. from sreda and nedelja, so the third column of a printed month is enough to place the language. The abbreviations are the ones used on bus timetables, pharmacy duty rosters and the working-hours plates on shop doors across Montenegro, where opening times are normally given as a range from pon. to pet. with a shorter Saturday and sub. often marked separately.
+locale: me
+---
+pon.
+uto.
+sri.
+čet.
+pet.
+sub.
+ned.

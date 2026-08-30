@@ -1,0 +1,13 @@
+---
+description: Dishes of Mexican cuisine. The two kitchens share a plant. Maize crossed the Atlantic and reached these mountains through Venice and the Ottoman lands in the seventeenth and eighteenth centuries, where it became not a tortilla but a porridge, and kačamak is now the emblematic dish of northern Montenegro and the reason kukuruzno brašno sits beside wheat flour in every highland pantry. The chilli travelled the same route on the same ships, which is why aleva paprika is in every Montenegrin spice cupboard and why the north seasons more sharply than the coast.
+locale: me
+---
+Takos
+Burito
+Kesadilja
+Načos
+Gvakamole
+Enčilade
+Fahitas
+Tamale
+Čili kon karne

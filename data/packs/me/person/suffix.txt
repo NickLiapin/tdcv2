@@ -1,0 +1,28 @@
+---
+description: Qualification or generational marker written after a name. Montenegro runs the Bologna structure, so dipl. ing. is a pre-2004 title that an older engineer still carries and a graduate of the last twenty years does not, while mast. ing. is what replaced it — the two are not equivalent and putting the wrong one on a person misdates them by a generation. Adv. before a name and adv. after it mean the same profession but belong to different registers, court filings preferring the leading form. Ml. and St., the younger and the elder, are used when father and son share a given name and a surname, which in a country of a few hundred surnames and a strong habit of naming a boy after his grandfather happens constantly.
+locale: me
+---
+Ml.
+St.
+II
+III
+IV
+V
+dr
+mr
+prof. dr
+doc. dr
+red. prof.
+vanr. prof.
+dipl. ing.
+dipl. ecc.
+dipl. pravnik
+mast. ing.
+spec.
+prim.
+akademik
+adv.
+sudija
+PhD
+MBA
+MSc

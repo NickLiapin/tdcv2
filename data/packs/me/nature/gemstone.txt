@@ -1,0 +1,29 @@
+---
+description: Gemstones in Montenegrin. Montenegro mines none of them, so the vocabulary arrives by two routes and the list shows both: the sea and the church. The captains of Boka Kotorska brought stones home from Venice, Constantinople and the Levant across four centuries of shipping, and the treasury of the cathedral of Sveti Tripun in Kotor — consecrated in 1166 and still standing after two great earthquakes — holds reliquaries of worked silver and gold set with them. Crveni koral, the red coral of the Adriatic, is the one gem this coast produced itself: it was gathered from these waters and worked into filigree by Kotor's goldsmiths, a craft still taught in the town. Note gorski kristal, literally mountain crystal, for clear quartz, and mjesečev kamen for moonstone with the ijekavian je.
+locale: me
+---
+dijamant
+rubin
+safir
+smaragd
+ametist
+topaz
+opal
+turmalin
+granat
+akvamarin
+citrin
+peridot
+tirkiz
+lapis lazuli
+malahit
+oniks
+ahat
+crveni koral
+kvarc
+gorski kristal
+ružičasti kvarc
+dimni kvarc
+mjesečev kamen
+jantar
+biser

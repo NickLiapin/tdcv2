@@ -1,0 +1,34 @@
+---
+description: Garment in a Montenegrin wardrobe, everyday clothing first and the national dress at the end, where it belongs on the same list rather than in a museum. kapa crnogorska is the small flat cap that is the country's most recognisable object: a black rim around a crimson crown, and on the crown five gold semicircular arcs with the initials of Nikola I set among them. The reading taught in Montenegrin schools makes the black a mourning band for the loss of the medieval state, the red the blood spilled since, and the gold what survived of the old freedom. dolama is the long white or blue coat worn over it, džamadan the embroidered waistcoat beneath, jelek the woman's sleeveless jacket worked in gold thread, and opanci the leather shoes with turned-up toes. This is not costume kept for tourists — it comes out at weddings, at slava, at the 13 July state holiday and at funerals, and a family that owns a set keeps it fitted to a living person. The coastal end of the list is just as real: Montenegro has 293 km of Adriatic shoreline, and a kupaći kostim is a year-round item in Budva in a way it is not in Žabljak.
+locale: me
+---
+majica
+košulja
+džemper
+duks
+jakna
+kaput
+prsluk
+pantalone
+farmerke
+šorc
+suknja
+haljina
+odijelo
+sako
+donji veš
+čarape
+patike
+cipele
+čizme
+sandale
+papuče
+šal
+rukavice
+kaiš
+kupaći kostim
+kapa crnogorska
+dolama
+džamadan
+jelek
+opanci

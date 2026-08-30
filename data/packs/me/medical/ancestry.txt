@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group, the parent of diagnosisByAncestry. These are descent populations as clinical genetics uses them — the geography of a patient's ancestors, not social race categories — and any given person may carry several of them or none of the associations attached to any. Montenegro's own population falls in the Mediterranean group, and that carries real clinical weight: raised beta-thalassaemia carriage is documented around Skadarsko jezero and along the coastal strip, the same low, formerly malarial ground where the trait once conferred an advantage. The country's mountain plemena — Vasojevići, Kuči, Piperi, Njeguši, Drobnjaci and the rest — were endogamous enough for long enough that particular hereditary conditions concentrate in named brotherhoods, which is why a careful Montenegrin family history is taken by pleme as well as by parent. Two values are spelled with ś: śever is the Montenegrin form of north, from a short jat before s, where Serbian and Croatian write sjever.
+locale: me
+---
+Subsaharska
+Śevernoafrička
+Mediteranska
+Bliskoistočna
+Śevernoevropska
+Istočnoevropska
+Aškenaska
+Južnoazijska
+Istočnoazijska
+Jugoistočnoazijska
+Autohtona američka
+Pacifičkih ostrva

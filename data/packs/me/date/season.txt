@@ -1,0 +1,8 @@
+---
+description: Season in Montenegrin, lowercase. proljeće and ljeto both carry jat resolved the ijekavian way — Serbia's eastern standard writes proleće and leto — and no Montenegrin text spells them with a bare e. Four seasons is the right count, but it hides how little the word means without a place attached: Montenegro fits a Mediterranean coast and a subalpine interior into about a hundred kilometres, so ljeto at Ulcinj is nine months of sun and a sea that stays swimmable into October, while at Žabljak on the Durmitor plateau at 1 456 m it is a short green window between snows that can last from November to May. zima is even more divided — Podgorica sits in a bowl that traps heat and rarely freezes hard, and Crkvice above the Bay of Kotor, a few dozen kilometres away, is the wettest inhabited place in Europe with roughly five metres of precipitation a year, much of it winter snow measured in metres rather than centimetres.
+locale: me
+---
+proljeće
+ljeto
+jesen
+zima

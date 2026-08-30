@@ -1,0 +1,18 @@
+---
+description: Order status label in a Montenegrin shop system, written in the label style a screen uses. Every value is a feminine singular passive participle because the noun it silently agrees with is porudžbina, the order, which is feminine — Porudžbina je isporučena. Swap the subject for a masculine or neuter noun and the whole column has to change ending, which is the trap in reusing these strings for anything but an order. Reklamirana is not the English cognate: a reklamacija is a formal complaint about goods, and Montenegrin consumer law gives the buyer a right to lodge one and obliges the seller to answer in writing within eight days, so the status marks a legal step rather than an advertising one. Note that Vraćena and Otkazana are not interchangeable either — cancelled before dispatch, returned after it — and that Montenegro's distance-selling rules give a fourteen-day right of withdrawal counted from the day the goods arrive, which is what puts a real gap between Isporučena and Vraćena in the data.
+locale: me
+---
+Kreirana
+Potvrđena
+Na čekanju
+U obradi
+Spremna za slanje
+Poslata
+U transportu
+Na isporuci
+Isporučena
+Preuzeta
+Otkazana
+Vraćena
+Reklamirana
+Odbijena

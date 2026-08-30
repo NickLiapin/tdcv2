@@ -1,0 +1,11 @@
+---
+description: Number of people in a household. The cap at 7+ is set by Montenegrin reality rather than by convenience: the average household in Montenegro was about 3.2 people at the last census, well above the European average, and the north — Rožaje, Plav, Petnjica, Andrijevica — still runs multi-generational houses where grandparents, a married son and grandchildren share one address. The single-person household, by contrast, is concentrated in Podgorica and on the coast, which is where the rural depopulation of the last fifty years has been going.
+locale: me
+---
+1
+2
+3
+4
+5
+6
+7+

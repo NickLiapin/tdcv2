@@ -1,0 +1,36 @@
+---
+description: Form of address written before a name in Montenegro. The last block has no European counterpart and is the reason this file is not simply a list of doctorates: vojvoda, serdar, knez, glavar and kapetan are the ranks of the tribal order that governed Montenegro until the twentieth century, awarded by the ruler to the head of a pleme or a nahija and inherited in practice, and they survive today as forms of respect and as the second half of dozens of surnames and place names. Vladika is the one that matters most — the prince-bishop who was both metropolitan and head of state from 1516 to 1852, which is what Petar II Petrović Njegoš was when he wrote Gorski vijenac. Mitropolit and Vladika are not interchangeable ranks in the church even though everyday speech treats them so. The academic block reflects a small country with one public university: Akademik means a member of the Crnogorska akademija nauka i umjetnosti, of which there are a few dozen alive at any time.
+locale: me
+---
+Gospodin
+Gospođa
+Gospođica
+G.
+Gđa
+Gđica
+Dr
+Prof. dr
+Doc. dr
+Mr
+Dipl. ing.
+Ing.
+Prim. dr
+Spec. dr med.
+Akademik
+Red. prof.
+Vanr. prof.
+Mitropolit
+Vladika
+Iguman
+Arhimandrit
+Protojerej
+Protojerej-stavrofor
+Jerej
+Đakon
+Mati
+Sestra
+Vojvoda
+Serdar
+Knez
+Glavar
+Kapetan

@@ -1,0 +1,16 @@
+---
+description: Month name in Montenegrin, nominative and lowercase — month names are not capitalised in this orthography. Montenegro uses the INTERNATIONAL Latin-derived set, januar through decembar, and this is one of the sharpest lexical borders in the region: cross into Croatia and the same twelve months become siječanj, veljača, ožujak, travanj, the old Slavic names Croatian kept and Montenegro did not. Two forms give the family away at a glance. avgust is spelled with a v, from the Greek-mediated pronunciation that came through Church Slavonic, where Croatian has kolovoz and English has August; and oktobar, septembar, novembar and decembar end in -bar rather than the -ber of German or the -bre of the Romance languages. In running text a date normally puts the month in the genitive and the day as an ordinal with a full stop — 13. jula, the Day of Statehood, marks both the 1878 recognition of Montenegrin independence at the Congress of Berlin and the 1941 uprising against the Italian occupation.
+locale: me
+---
+januar
+februar
+mart
+april
+maj
+jun
+jul
+avgust
+septembar
+oktobar
+novembar
+decembar

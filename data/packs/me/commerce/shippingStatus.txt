@@ -1,0 +1,15 @@
+---
+description: Shipping status label in Montenegrin. The forms are neuter singular, agreeing with the silent noun pošiljka's verb rather than with pošiljka itself — Isporučeno, Vraćeno, Predato read as impersonal reports of what was done, which is the register a tracking page uses; the one value that breaks the pattern, Izgubljena pošiljka, names the noun outright because that is the phrase a claim form needs. Two entries reflect the country's geography rather than any software. Čeka u paketomatu is newer here than in most of Europe: parcel lockers arrived late and cluster in Podgorica, Nikšić and the coastal towns, so a northern address will almost never see this status. And Pokušaj isporuke is unusually common, because a large share of Montenegrin deliveries are cash on delivery to a person rather than a card-paid drop at a door, which means the courier needs to find somebody home with the money — and in a country where a village address can be a surname and a hillside, that takes more than one attempt.
+locale: me
+---
+Priprema se
+Spremno za preuzimanje
+Predato kurirskoj službi
+U transportu
+U sortirnom centru
+Na isporuci
+Pokušaj isporuke
+Isporučeno
+Čeka u paketomatu
+Vraćeno pošiljaocu
+Izgubljena pošiljka

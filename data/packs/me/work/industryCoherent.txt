@@ -1,0 +1,14 @@
+---
+description: Industry for which this pack ships a matching list of occupations, so that a generated person's sector and job title agree instead of pairing a bricklayer with a bank. The ten are not a neutral sample of the world economy but a fair sketch of where Montenegrins are employed: ugostiteljstvo and transport are inflated by a tourist season that brings roughly two million visitors a year to a country of 620,000 residents, građevinarstvo by the apartment building that follows them along the coast, obrazovanje and zdravstvo by a public sector that is one of the largest employers in the country, and tehnologija by a small but fast-grown software industry in Podgorica. Proizvodnja is the shortest of the ten in real life: Montenegro makes aluminium, steel, beer, wine and cured ham, and imports most of the rest.
+locale: me
+---
+Tehnologija
+Zdravstvo
+Finansije
+Građevinarstvo
+Obrazovanje
+Ugostiteljstvo
+Proizvodnja
+Trgovina na malo
+Transport
+Pravo

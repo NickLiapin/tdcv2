@@ -1,0 +1,12 @@
+---
+description: Dishes of Chinese cuisine. China is present in Montenegro in a way it is not in most of Europe: the first section of the Bar–Boljare motorway, from Smokovac to Mateševo through the Morača canyon, was built by China Road and Bridge Corporation on a Chinese loan and opened in July 2022, and the debt it created was argued over in every Montenegrin newspaper for a decade. Thousands of workers came into the Morača valley with it, into a country of about 620 000 people, which is a large arrival by local measure.
+locale: me
+---
+Pekinška patka
+Proljećne rolnice
+Vok nudle
+Dim sam
+Kung pao piletina
+Svinjetina u slatko-kiselom sosu
+Čau mein
+Vonton supa

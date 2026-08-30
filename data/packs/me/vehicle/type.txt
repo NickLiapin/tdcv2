@@ -1,0 +1,26 @@
+---
+description: Vehicle body types in Montenegrin. Number plates are worth knowing beside this vocabulary, because in a country this size the plate tells you where a car comes from before the driver does: a Montenegrin plate opens with a one- or two-letter code for the town of registration — PG for Podgorica, NK for Nikšić, HN for Herceg Novi, KO for Kotor, BR for Bar, UL for Ulcinj, TV for Tivat, CT for Cetinje — followed by the state coat of arms, and the international distinguishing sign is MNE. The prominence of terenac and krosover reflects what actually sells: the interior is mountainous, many village roads are unsurfaced, and ground clearance is a practical purchase rather than a fashion.
+locale: me
+---
+Hečbek
+Limuzina
+Karavan
+Kupe
+Kabriolet
+Roudster
+Terenac
+Krosover
+Miniven
+Kombi
+Pikap
+Kamionet
+Kamion
+Tegljač
+Autobus
+Mini bus
+Motocikl
+Skuter
+Moped
+Traktor
+Prikolica
+Poluprikolica

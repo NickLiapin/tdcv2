@@ -1,0 +1,149 @@
+---
+description: Product noun in Montenegrin. Grammatical gender runs in all three values across the list — sto is masculine, fotelja feminine, ogledalo neuter — so any adjective drawn from productAdjective has to be made to agree before the two are joined, and there is no ending that works for all of them. One entry is spelled with a letter no other Štokavian standard has: śeme, seed. The 2009 orthography admits ś where a short jat stood before s, and this is one of the words it names explicitly, alongside śever, śekira and śetva; Serbian and Croatian write sjeme or seme and stop there. Note that the same file also holds sječenje, in daska za sječenje, spelled with plain sj — the letter is licensed in a closed set of words, not applied to every sj in the language, and a config that rewrites one into the other will produce something no Montenegrin would print. Three items are here because of where the country is: maska za ronjenje and peraja belong to a coast where diving is a year-round trade, and ražanj, the roasting spit, is standard household equipment rather than a specialist purchase. Odijelo, zavjesa, grijalica and crijevo carry the ijekavian jat against the Serbian odelo, zavesa, grejalica and crevo.
+locale: me
+---
+stolica
+fotelja
+sto
+krevet
+orman
+polica
+komoda
+sofa
+dušek
+jastuk
+ćebe
+posteljina
+peškir
+zavjesa
+tepih
+ogledalo
+lampa
+luster
+sat
+vaza
+saksija
+sapun
+šampon
+pasta za zube
+četkica za zube
+makaze
+nož
+viljuška
+kašika
+tanjir
+šolja
+čaša
+bokal
+lonac
+tiganj
+pekač
+daska za sječenje
+kutlača
+cjediljka
+teglica
+termos
+boca
+korpa
+kesa
+kofer
+ranac
+torba
+novčanik
+kišobran
+naočare za sunce
+kapa
+šal
+rukavice
+kaiš
+cipele
+patike
+čizme
+papuče
+čarape
+majica
+košulja
+džemper
+jakna
+kaput
+pantalone
+farmerke
+suknja
+haljina
+odijelo
+računar
+laptop
+tablet
+monitor
+tastatura
+miš
+slušalice
+zvučnik
+mikrofon
+kamera
+fotoaparat
+telefon
+punjač
+kabl
+adapter
+baterija
+eksterni disk
+USB memorija
+ruter
+televizor
+daljinski upravljač
+konzola
+džojstik
+frižider
+zamrzivač
+šporet
+rerna
+mikrotalasna pećnica
+sudo-mašina
+veš-mašina
+usisivač
+pegla
+fen
+mašina za kosu
+mikser
+blender
+sokovnik
+toster
+aparat za kafu
+kuvalo za vodu
+ventilator
+klima-uređaj
+grijalica
+ovlaživač vazduha
+bicikl
+roleri
+klizaljke
+skije
+sanke
+lopta
+reket
+šator
+vreća za spavanje
+ranac za planinarenje
+štapovi za hodanje
+pumpa
+maska za ronjenje
+peraja
+čekić
+odvijač
+klješta
+ključ
+testera
+bušilica
+brusilica
+metar
+merdevine
+crijevo za zalivanje
+kosilica
+makaze za živu ogradu
+đubrivo
+śeme
+rukavice za baštovanstvo
+roštilj
+ražanj
+kutija za alat

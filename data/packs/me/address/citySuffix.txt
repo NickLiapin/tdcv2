@@ -1,0 +1,41 @@
+---
+description: Trailing element of a Montenegrin place name (Bijelo Polje, Danilovgrad, Rijeka Crnojevića, Bar na moru). The list is short on purpose, because the commonest way of naming a settlement here does not use a trailing element at all: an enormous share of Montenegrin villages are simply a family or a pleme in the plural, so the map reads Njeguši, Vasojevići, Cuce, Bjelopavlići, Ozrinići, Ćeklići — the people, not the place. Most of Europe names a settlement after a landscape feature, a founder in the singular, or a saint; naming it after everybody who lives there, in the plural, is a Dinaric habit and Montenegro has it at full strength. What is left over is landscape nouns and river phrases. Note Rijeka rather than the Serbian Reka: long jat gives ije, and the same vowel is in Bijelo. Do is the karst sinkhole, a flat-bottomed hollow ringed by limestone that is the only ploughable ground for miles, which is why so many villages sit in one and take its name. Kuće, houses, marks a hamlet that grew out of one homestead.
+locale: me
+---
+Polje
+Grad
+Selo
+Brdo
+Vrh
+Do
+Doli
+Kuće
+Lug
+Gora
+Glava
+Rijeka
+Potok
+Vrelo
+Izvor
+Jezero
+Bara
+Njiva
+Livada
+Klisura
+Kanjon
+Planina
+Kamen
+Stijena
+Most
+Kula
+Luka
+Zaliv
+Uvala
+Rt
+Banja
+na Tari
+na Limu
+na Morači
+na Zeti
+na Pivi
+na Bojani

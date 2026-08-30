@@ -1,0 +1,20 @@
+---
+description: Qualification awarded in Montenegro, from school leaving to doctorate. Two ladders run in parallel and both are here. The first is schooling: osnovna škola lasts nine years and is compulsory, after which a pupil chooses a four-year gimnazija for university or a stručna or umjetnička škola for a trade. The second is the Nacionalni okvir kvalifikacija, an eight-level framework in which a qualification is identified by its nivo rather than its name, so a Montenegrin employment advertisement asks for a IV nivo and everyone knows what is meant. On top of both sits Bologna, which Montenegro implemented unusually: from 2004 the university ran a distinctive three-plus-one-plus-one structure, and only in 2017 did it move to the standard three-plus-two-plus-three, which is why magistar nauka and master describe different things held by people the same age.
+locale: me
+---
+Osnovna škola
+Gimnazija
+Srednja stručna škola
+Srednja umjetnička škola
+III nivo kvalifikacije
+IV nivo kvalifikacije
+V nivo kvalifikacije
+Osnovne akademske studije
+Osnovne primijenjene studije
+Bachelor
+Specijalističke studije
+Master akademske studije
+Master primijenjene studije
+Magistar nauka
+Doktorske studije
+Doktor nauka

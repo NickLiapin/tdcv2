@@ -1,0 +1,54 @@
+---
+description: Store department or shelf category in a Montenegrin shop. Six words in the list are ijekavian where Serbian is ekavian and are worth reading as a set: mliječni proizvodi, dječja oprema, ženska odjeća, bijela tehnika, namještaj, rasvjeta and auto-djelovi against mlečni, dečja, odeća, bela, nameštaj, rasveta and delovi. Bijela tehnika, literally white goods, is the same idiom English uses and covers the big appliances only. Three categories are here because of what the country is. Vina i rakije is separated from general alcohol because Montenegro grows its own grapes — vranac and krstač are native cultivars, and loza, the grape rakija, is distilled domestically at a scale that makes it a shelf of its own rather than a shelf of imports. Oprema za ronjenje exists because the coast supports year-round diving on wrecks in the Boka and along the Luštica peninsula. Oprema za planinarenje exists because the same country holds Durmitor, Prokletije and Biogradska gora within a two-hour drive of the sea, and because a retailer in Kolašin or Žabljak sells mountain kit as staple goods rather than as leisure.
+locale: me
+---
+Prehrana
+Pekara
+Mesara
+Ribarnica
+Mliječni proizvodi
+Voće i povrće
+Smrznuta hrana
+Konzervirana hrana
+Pića
+Alkoholna pića
+Vina i rakije
+Slatkiši
+Grickalice
+Kućna hemija
+Higijena
+Kozmetika
+Parfimerija
+Dječja oprema
+Igračke
+Ženska odjeća
+Muška odjeća
+Dječja odjeća
+Obuća
+Modni detalji
+Nakit
+Satovi
+Sportska oprema
+Oprema za planinarenje
+Oprema za ronjenje
+Tehnika
+Bijela tehnika
+Mali kućni aparati
+Računari
+Mobilni telefoni
+Audio i video
+Knjige
+Kancelarijski materijal
+Namještaj
+Kuhinje
+Posteljina
+Tekstil za dom
+Posuđe
+Rasvjeta
+Baštenski program
+Alat
+Građevinski materijal
+Boje i lakovi
+Auto-djelovi
+Kućni ljubimci
+Apoteka

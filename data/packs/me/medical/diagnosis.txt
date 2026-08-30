@@ -1,0 +1,184 @@
+---
+description: Medical diagnosis that can occur in any patient, with no sex or ancestry restriction; sex-specific conditions live in diagnosisMale and diagnosisFemale, and ancestry-linked ones in diagnosisByAncestry. The clinical register is international, as it is everywhere, but the spelling is Montenegrin and ijekavian throughout — upala slijepog crijeva, čvor na štitnoj žlijezdi, pleuralni izljev, anemija usljed nedostatka gvožđa — and the patient who receives one of these labels moves through a system of an unusual shape. Care begins with the izabrani doktor at a dom zdravlja, is paid for by the Fond za zdravstveno osiguranje, and ends, for anything serious, at the Klinički centar Crne Gore in Podgorica, the country's only tertiary hospital: with about 620 000 people, Montenegro has whole specialties that exist in one building and are held up by a handful of doctors. Malarija is on the list for a domestic reason and not a foreign one — the Zeta plain and the Skadar basin were malarial into the twentieth century and were cleared by drainage and spraying after the Second World War — and the Institut za javno zdravlje still runs the surveillance that would find it again.
+locale: me
+---
+Hipertenzija
+Dijabetes tipa 2
+Astma
+Akutni bronhitis
+Grip
+Migrena
+Generalizovani anksiozni poremećaj
+Velika depresija
+Osteoartroza
+Reumatoidni artritis
+Gastroezofagealna refluksna bolest
+Anemija usljed nedostatka gvožđa
+Hipotireoza
+Urinarna infekcija
+Upala pluća
+Hronična bubrežna bolest
+Koronarna bolest srca
+Atrijalna fibrilacija
+Hronična srčana insuficijencija
+Ishemijski moždani udar
+Epilepsija
+Parkinsonova bolest
+Alchajmerova bolest
+Multipla skleroza
+Psorijaza
+Atopijski dermatitis
+Alergijski rinitis
+Hronični sinuzitis
+Upala srednjeg uha
+Konjunktivitis
+Katarakta
+Glaukom
+Upala slijepog crijeva
+Upala žučne kese
+Divertikulitis
+Sindrom iritabilnog crijeva
+Kronova bolest
+Ulcerozni kolitis
+Hronični hepatitis B
+Ciroza jetre
+Akutni pankreatitis
+Giht
+Osteoporoza
+Fibromijalgija
+Išijas
+Diskus hernija
+Sindrom karpalnog tunela
+Tendinitis
+Hronična opstruktivna bolest pluća
+Tuberkuloza
+Leukemija
+Limfom
+Melanom
+Hiperlipidemija
+Gojaznost
+Opstruktivna apneja u snu
+Nesanica
+Bipolarni poremećaj
+Poremećaj pažnje sa hiperaktivnošću
+Celijakija
+Sistemski eritemski lupus
+Vrtoglavica
+Zujanje u ušima
+Hemoroidi
+Proširene vene
+Duboka venska tromboza
+Plućna embolija
+Kamen u bubregu
+Anemija
+Hipertireoza
+Peptički ulkus
+Gastritis
+Celulitis kože
+Sepsa
+Rak dojke
+Akutni gastroenteritis
+Nedostatak vitamina D
+Hronična venska insuficijencija
+Dijabetes tipa 1
+Infarkt miokarda
+Angina pektoris
+Periferna arterijska bolest
+Dilatativna kardiomiopatija
+Miokarditis
+Perikarditis
+Infektivni endokarditis
+Aortna stenoza
+Prolaps mitralne valvule
+Aneurizma trbušne aorte
+Hronični bronhitis
+Emfizem pluća
+Pleuralni izljev
+Plućna fibroza
+Plućna hipertenzija
+Bronhiektazije
+Laringitis
+Faringitis
+Tonzilitis
+Ezofagitis
+Baretov jednjak
+Rak želuca
+Kolorektalni rak
+Analna fisura
+Nealkoholna masna jetra
+Hronični hepatitis C
+Hijatalna hernija
+Preponska kila
+Akutno oštećenje bubrega
+Glomerulonefritis
+Pijelonefritis
+Cistitis
+Urinarna inkontinencija
+Rak mokraćne bešike
+Karcinom bubrežnih ćelija
+Tranzitorni ishemijski atak
+Tenziona glavobolja
+Klaster glavobolja
+Neuralgija trigeminusa
+Belova paraliza
+Periferna neuropatija
+Sindrom nemirnih nogu
+Esencijalni tremor
+Mijastenija gravis
+Gijen-Bareov sindrom
+Panični poremećaj
+Opsesivno-kompulzivni poremećaj
+Posttraumatski stresni poremećaj
+Socijalna fobija
+Anoreksija nervoza
+Bulimija nervoza
+Šizofrenija
+Zavisnost od alkohola
+Hašimotov tireoiditis
+Grejvsova bolest
+Kušingov sindrom
+Adisonova bolest
+Hiperparatireoidizam
+Metabolički sindrom
+Nedostatak vitamina B12
+Čvor na štitnoj žlijezdi
+Trombocitopenija
+Policitemija vera
+Rak pluća
+Rak pankreasa
+Rak štitne žlijezde
+Multipli mijelom
+Burzitis
+Plantarni fasciitis
+Ruptura rotatorne manžetne
+Ankilozirajući spondilitis
+Skolioza
+Osteomijelitis
+Akne
+Rozaceja
+Vitiligo
+Areatna alopecija
+Urtikarija
+Kontaktni dermatitis
+Herpes zoster
+Onihomikoza
+Makularna degeneracija
+Dijabetesna retinopatija
+Ablacija retine
+Uveitis
+Sindrom suvog oka
+Menijerova bolest
+Senzorineuralni gubitak sluha
+Nosni polipi
+Infektivna mononukleoza
+Lajmska bolest
+Malarija
+Denga groznica
+Salmoneloza
+Hepatitis A
+HIV infekcija
+Infekcija herpes simpleksom
+Male boginje
+Ovčije boginje
+Bakterijski meningitis
+Virusni encefalitis

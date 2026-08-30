@@ -1,0 +1,14 @@
+---
+description: Dishes of Spanish cuisine. The Montenegrin coast cooks rice with seafood on its own account: crni rižoto, black with cuttlefish ink, is a Boka Kotorska dish and the closest local relative of a seafood paella. Boka itself went onto the UNESCO World Heritage list in 1979 — the same year an earthquake of magnitude 7.0 struck the coast on 15 April, killing more than a hundred people in Montenegro and wrecking or damaging almost every historic town between Herceg Novi and Ulcinj, so a great deal of what a visitor now photographs in Kotor is patient reconstruction rather than survival.
+locale: me
+---
+Paelja
+Tapas
+Gaspačo
+Tortilja de patatas
+Čuros
+Hamon serano
+Krokete
+Pulpo a la galjega
+Fabada
+Kaldo galjego

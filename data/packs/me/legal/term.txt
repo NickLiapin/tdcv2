@@ -1,0 +1,23 @@
+---
+description: Everyday word of Montenegrin legal language, lowercase because these are common nouns and not the names of institutions. Four of them are the clearest short demonstration of what ijekavian does to a professional vocabulary: rješenje, the decision or order, is rešenje in an ekavian text; svjedok, the witness, is svedok; vještak, the court-appointed expert, is veštak; and zastarjelost, the limitation period, is zastarelost. A Montenegrin judgment is therefore visibly different from a Serbian one at a glance, in the commonest words rather than the rare ones, even though the two are mutually intelligible in every respect. Note also the pairing of tužilac and tuženi, which look like a matched pair but are not — the first is the claimant who brings the suit, the second is the passive participle, the one who has been sued.
+locale: me
+---
+tužba
+tužilac
+tuženi
+presuda
+rješenje
+žalba
+revizija
+ročište
+dokaz
+svjedok
+vještak
+punomoćje
+advokat
+ugovor
+aneks
+klauzula
+zastarjelost
+nadležnost
+izvršenje

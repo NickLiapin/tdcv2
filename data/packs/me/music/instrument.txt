@@ -1,0 +1,35 @@
+---
+description: Musical instruments in Montenegrin, and gusle stands first for good reason. It has a single string of horsehair, is played with a bow, is never played alone but always under a singer — usually the player himself — and the practice of singing to it is inscribed on the UNESCO list of intangible cultural heritage. Its head is carved, commonly as a ram, an eagle or a historical figure, so the instrument is as much a made object as a tool, and an old gusle hangs on a wall the way a portrait would. Two of Montenegro's strongest traditions need nothing on this list at all: oro is danced to clapping and voices alone, and klapa singing on the coast is unaccompanied by rule. Mandolina belongs to the town orchestras of Boka, dvojnice is a double flute stopped by one player, and zurla with tapan is the shawm-and-drum pair heard at open-air weddings in the southeast.
+locale: me
+---
+gusle
+frula
+dvojnice
+svirala
+gajde
+zurla
+tapan
+def
+mandolina
+harmonika
+tamburica
+šargija
+saz
+violina
+viola
+violončelo
+kontrabas
+gitara
+bas-gitara
+klavir
+orgulje
+klavijatura
+usna harmonika
+flauta
+klarinet
+oboa
+fagot
+saksofon
+truba
+trombon
+bubnjevi

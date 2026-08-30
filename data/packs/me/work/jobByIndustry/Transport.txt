@@ -1,0 +1,16 @@
+---
+description: Occupations in Montenegrin transport. The country is 13,812 square kilometres and almost none of it is flat, so distances here are measured in hours rather than kilometres: Herceg Novi to Rožaje is about 350 road kilometres and most of a day. Mašinovođa belongs to the Bar–Belgrade line, opened in 1976, which climbs from sea level at Bar to over a thousand metres and crosses the Mala Rijeka viaduct, for years the highest railway bridge in the world at 198 metres. Pilot and stjuardesa belong to Air Montenegro, formed in 2020 after the collapse of Montenegro Airlines, flying from Podgorica and Tivat. Špediter is the customs-clearing forwarder, a profession kept fully alive by the fact that Montenegro is outside the European customs union and every lorry stops at the border.
+locale: me
+---
+Vozač kamiona
+Vozač autobusa
+Vozač dostavnog vozila
+Taksista
+Mašinovođa
+Pilot
+Stjuardesa
+Kontrolor letenja
+Dispečer
+Špediter
+Viljuškarista
+Kurir

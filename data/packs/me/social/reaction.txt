@@ -1,0 +1,15 @@
+---
+description: Reactions to a post, in Montenegrin. Sviđa mi se is worth pausing on: it means literally it is pleasing to me, with the thing liked standing as the grammatical subject and the person who likes it in the dative, so nobody in this construction does anything — which is the same pattern the language uses for liking, needing and being cold, and the reason a Montenegrin learning English will say the film liked me before the habit wears off. Smiješno keeps the ijekavian je. Note that the list keeps volim and obožavam apart, love and adore, a distinction the platforms themselves collapse into a single heart.
+locale: me
+---
+Sviđa mi se
+Volim
+Obožavam
+Smiješno
+Iznenađenje
+Tužno
+Ljutito
+Podrška
+Slažem se
+Ne slažem se
+Zahvalnost

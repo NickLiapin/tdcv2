@@ -1,0 +1,12 @@
+---
+description: Dishes of Argentine cuisine. The asado has a close Montenegrin relative in the sač, a heavy iron bell set over meat on the hearth and buried in embers, which cooks lamb or veal slowly in its own steam and is still how a village marks a wedding or a slava. Montenegrins also went south: the emigration around 1900 sent families to Argentina, Uruguay and Chile alongside the larger flow to the United States. Vranac plays the part in Montenegro that Malbec plays in Argentina — a dark red grape turned into a national emblem — except that vranac is genuinely native to the Skadar basin while Malbec is a French immigrant that did better abroad than at home.
+locale: me
+---
+Asado
+Čorizo
+Empanade
+Čimičuri
+Milanesa
+Dulse de leče
+Provoleta
+Lokro

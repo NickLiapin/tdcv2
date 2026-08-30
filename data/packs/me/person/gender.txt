@@ -1,0 +1,6 @@
+---
+description: Gender label in Montenegrin. Two values, matching en and ru, because this list is what a parent= filter selects on: lengthen it and most rows silently come back without a name. The forms are masculine because they agree with pol, a masculine noun, so it is Muški and Ženski rather than Muško and Žensko — the same agreement Serbian and Croatian make, and a good illustration that adjectives here take their ending from the noun they modify even when that noun is left unsaid.
+locale: me
+---
+Muški
+Ženski

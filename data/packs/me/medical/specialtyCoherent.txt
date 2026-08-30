@@ -1,0 +1,14 @@
+---
+description: The subset of specialties that carries a matching diagnosis list, and the parent of diagnosisBySpecialty. Ten is close to the real working shape of a Montenegrin hospital: at the Klinički centar Crne Gore in Podgorica these are separate clinics with their own wards and their own on-call rotas, while the rarer disciplines are a single consulting room, a visiting consultant, or nothing at all — in which case the Fond za zdravstveno osiguranje pays for the patient to be treated abroad, most often in Belgrade, Ljubljana or Istanbul. Deciding what a country of 620 000 people can afford to do at home and what it must buy elsewhere is a standing question of Montenegrin health policy rather than a settled one.
+locale: me
+---
+Kardiologija
+Neurologija
+Onkologija
+Dermatologija
+Gastroenterologija
+Endokrinologija
+Pulmologija
+Ortopedija
+Psihijatrija
+Nefrologija

@@ -1,0 +1,31 @@
+---
+description: Diagnosis recorded for a female patient, obstetric and gynaecological conditions first and then the general ones women are recorded with more often. Montenegro's maternity care is concentrated in a way most European countries' is not: the Klinički centar Crne Gore in Podgorica is the only tertiary hospital in the country, so a complicated pregnancy anywhere from Herceg Novi to Rožaje is transferred to one building, and the national screening programmes for breast and cervical cancer are run from the Institut za javno zdravlje for a population of about 620 000 — small enough that the whole programme is a single register. Iron deficiency anaemia and vitamin D deficiency both appear here because both are documented as common in the northern municipalities. Sideropenijska is the local clinical term for iron-deficiency, from the Greek rather than through English.
+locale: me
+---
+Endometrioza
+Sindrom policističnih jajnika
+Miomi materice
+Cista jajnika
+Karcinom dojke
+Karcinom grlića materice
+Bakterijska vaginoza
+Dismenoreja
+Menopauzni sindrom
+Preeklampsija
+Gestacijski dijabetes melitus
+Mastitis
+Hipotireoza
+Sideropenijska anemija
+Osteoporoza
+Migrena
+Hipertenzija
+Dijabetes melitus tip 2
+Reumatoidni artritis
+Sistemski lupus eritematozus
+Depresivni poremećaj
+Generalizovani anksiozni poremećaj
+Infekcija urinarnog trakta
+Proširene vene
+Celijakija
+Fibromijalgija
+Deficit vitamina D

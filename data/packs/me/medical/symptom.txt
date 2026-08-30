@@ -1,0 +1,42 @@
+---
+description: Presenting complaints as a Montenegrin patient states them and a doctor writes them down. Two entries carry letters no other Štokavian standard has: ośećaj, the word for a sensation or a feeling, is written with ś, and źenica, the pupil of the eye, is one of a very small handful of words that take ź — both descend from old sj and zj clusters that Serbian and Croatian keep as they are, and the 2009 Pravopis crnogorskoga jezika made them letters in their own right rather than spellings. Note nenamjerni rather than nenamerni, and tjelesni rather than telesni, throughout. The list itself is the ordinary front door of Montenegrin primary care: complaints of this kind go first to the izabrani doktor at a dom zdravlja, who is the gatekeeper for everything downstream, and only what will not settle there travels on to Podgorica.
+locale: me
+---
+Groznica
+Jeza
+Glavobolja
+Umor
+Slabost
+Mučnina
+Povraćanje
+Proliv
+Zatvor
+Bol u stomaku
+Nadutost
+Gorušica
+Gubitak apetita
+Nenamjerni gubitak težine
+Bol u grudima
+Ośećaj pritiska u grudima
+Otežano disanje
+Kašalj
+Promuklost
+Grlobolja
+Curenje iz nosa
+Zapušen nos
+Kijanje
+Krvarenje iz nosa
+Vrtoglavica
+Zamućen vid
+Proširene źenice
+Lupanje srca
+Bol u mišićima
+Bol u zglobovima
+Bol u krstima
+Osip
+Svrab
+Otok
+Utrnulost
+Peckanje
+Noćno znojenje
+Konfuzija

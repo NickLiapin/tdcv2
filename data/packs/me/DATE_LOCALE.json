@@ -1,0 +1,61 @@
+{
+  "months": [
+    "januar",
+    "februar",
+    "mart",
+    "april",
+    "maj",
+    "jun",
+    "jul",
+    "avgust",
+    "septembar",
+    "oktobar",
+    "novembar",
+    "decembar"
+  ],
+  "monthsInDate": [
+    "januar",
+    "februar",
+    "mart",
+    "april",
+    "maj",
+    "jun",
+    "jul",
+    "avgust",
+    "septembar",
+    "oktobar",
+    "novembar",
+    "decembar"
+  ],
+  "monthsShort": [
+    "jan.",
+    "feb.",
+    "mar.",
+    "apr.",
+    "maj",
+    "jun",
+    "jul",
+    "avg.",
+    "sep.",
+    "okt.",
+    "nov.",
+    "dec."
+  ],
+  "weekdays": [
+    "nedjelja",
+    "ponedjeljak",
+    "utorak",
+    "srijeda",
+    "četvrtak",
+    "petak",
+    "subota"
+  ],
+  "weekdaysShort": ["ned.", "pon.", "uto.", "sri.", "čet.", "pet.", "sub."],
+  "formats": {
+    "L": "DD.MM.YYYY.",
+    "LL": "D. MMMM YYYY.",
+    "LLL": "D. MMMM YYYY. HH:mm",
+    "LLLL": "dddd, D. MMMM YYYY. HH:mm"
+  },
+  "notes": "Montenegrin takes the international Latin-derived month names, as Serbian and Bosnian do and as Croatian does not: a Montenegrin newspaper dates itself 30. avgust, never 30. kolovoz. Note avgust with a v rather than the augustus of the Latin, which is how the name arrived here through Greek and Church Slavonic rather than directly from Rome. monthsInDate is therefore identical to months, because Montenegrin keeps the nominative inside a date where Czech and Polish switch to the genitive. The weekday list is where the language shows itself. Montenegro is ijekavian, so the long jat of *nedělja and *ponedělьnikъ surfaces as je and the short jat of *sreda as ije: nedjelja, ponedjeljak and srijeda, never the ekavian nedelja, ponedeljak and sreda of Belgrade. The abbreviation sri. has to cut after three letters of srijeda and so keeps the i of the diphthong, which is why it does not look like the Serbian sre. Both full stops in the numeric format are load-bearing: each element of a Montenegrin date is an ordinal number, so 30.08.2026. closes with a dot after the year, and dropping it makes the string ungrammatical rather than merely unusual. The week begins on Monday for every practical purpose — the working week, the school timetable, the bus schedule — even though this array starts at Sunday, which is an index convention rather than a claim about Montenegro."
+}

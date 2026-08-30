@@ -1,0 +1,28 @@
+---
+description: Character classes for role-playing games, in Montenegrin. Bard has a real local counterpart, which is rare for a word on a list like this: the guslar is a singer of epic who accompanies himself on a one-stringed fiddle and composes in performance out of memorised formulas, which is exactly the function the fantasy class imagines, and the tradition is alive enough to sit on the UNESCO list of intangible cultural heritage rather than in a museum. Strijelac and iscjelitelj carry the ijekavian je. Vrač, čarobnjak and mađioničar are three shades of magic-worker that English tends to flatten into one word: the first is the folk healer or cunning man and keeps a faintly sinister colouring, the second is the learned wizard, and the third is closer to a stage conjuror.
+locale: me
+---
+Ratnik
+Vitez
+Varvarin
+Gladijator
+Kopljanik
+Strijelac
+Lovac
+Lopov
+Ubica
+Razbojnik
+Izviđač
+Čarobnjak
+Vrač
+Mađioničar
+Prizivač
+Nekromant
+Druid
+Šaman
+Sveštenik
+Iscjelitelj
+Paladin
+Monah
+Bard
+Inženjer

@@ -1,0 +1,32 @@
+---
+description: Fish in Montenegrin, and the list splits in two because the country does. Ukljeva, the Skadar bleak, is the fish of Skadarsko jezero: netted in winter, dried in the draught of open sheds without salt and eaten through the year, it built the trade of Virpazar and Rijeka Crnojevića. Jegulja, the eel, has the strangest life on the list — spawned in the Sargasso Sea, it crosses the Atlantic as a transparent larva, climbs the Bojana into the lake, spends years growing there and then swims the whole way back to spawn and die. Against that freshwater half, everything from cipal downward is Adriatic, sold by the kilo on the quays of Kotor, Budva and Bar; lignja, hobotnica and sipa are not fish at all, but they lie on the same slab and appear on the same menu, so a Montenegrin fish list carries them.
+locale: me
+---
+ukljeva
+krap
+jegulja
+skobalj
+klen
+grgeč
+potočna pastrmka
+jezerska pastrmka
+lipljen
+mladica
+som
+štuka
+cipal
+orada
+brancin
+zubatac
+arbun
+škarpina
+kovač
+list
+ugor
+skuša
+sardela
+inćun
+tuna
+lignja
+hobotnica
+sipa

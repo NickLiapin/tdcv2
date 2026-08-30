@@ -1,0 +1,25 @@
+---
+description: Religions and religious bodies as they stand in Montenegro. The Orthodox majority is divided between two organisations, and that division is the central fact of religious life here: the Mitropolija crnogorsko-primorska, seated at Cetinje and part of the Serbian Orthodox Church, holds the great majority of parishes and monasteries, while the Crnogorska pravoslavna crkva, re-established in 1993, is not in communion with the other Orthodox churches, and the dispute between them over property and legitimacy has repeatedly reached the parliament and the streets. About a fifth of the population is Muslim, organised in the Islamska zajednica and concentrated in the northeast around Rožaje, Plav and Gusinje and in Ulcinj at the southern end of the coast. Catholics are served by the diocese of Kotor and the archdiocese of Bar, whose archbishop still carries the ancient title Primas Serbiae. Ostrog, the monastery cut into a cliff above the Bjelopavlići plain, is visited by Orthodox, Catholic and Muslim pilgrims alike, which is genuinely unusual anywhere.
+locale: me
+---
+Pravoslavlje
+Mitropolija crnogorsko-primorska
+Crnogorska pravoslavna crkva
+Srpska pravoslavna crkva
+Katoličanstvo
+Kotorska biskupija
+Barska nadbiskupija
+Protestantizam
+Evangelistička crkva
+Adventizam
+Baptizam
+Islam
+Islamska zajednica
+Sunitski islam
+Judaizam
+Budizam
+Hinduizam
+Sikizam
+Šintoizam
+Ateizam
+Agnosticizam

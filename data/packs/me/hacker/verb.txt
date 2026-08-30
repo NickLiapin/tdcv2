@@ -1,0 +1,32 @@
+---
+description: Technical verbs in the infinitive, in Montenegrin, and most of them are perfective — verbs that name an action complete rather than an action under way. Aspect is grammatical here and not optional: pokrenuti means to start and be done starting, pokretati means to be in the middle of starting, and every verb in the language belongs to one side or the other, which is why anyone translating an English manual has to decide something the English never stated. Note too that although the infinitive is the written standard, speech in Montenegro overwhelmingly prefers da plus the present tense — hoću da pokrenem rather than hoću pokrenuti — a Balkan areal feature shared with Bulgarian, Macedonian, Greek and Albanian and one of the clearest signs that the language belongs to its neighbourhood as well as to its family. Pośetiti, to visit, is written with ś and does duty for calling on a person and for traversing a node alike; prenijeti and premjestiti carry the ijekavian je.
+locale: me
+---
+kompajlirati
+pokrenuti
+izvršiti
+prekinuti
+restartovati
+instalirati
+nadograditi
+deinstalirati
+konfigurisati
+pośetiti
+povezati
+prekinuti vezu
+prenijeti
+preuzeti
+otpremiti
+sačuvati
+učitati
+obrisati
+kopirati
+premjestiti
+preimenovati
+arhivirati
+šifrovati
+dešifrovati
+indeksirati
+keširati
+klonirati
+spojiti

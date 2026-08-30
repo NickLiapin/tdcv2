@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Sub-Saharan African ancestry. This is a prevalence signal and not an exclusive one — anyone can have these, and most patients of this ancestry have none of them. The sickle-cell entries explain why such associations exist at all: carrying one copy of the variant protects against falciparum malaria, so it was selected for wherever malaria was endemic, and the same logic drives the G6PD and thalassaemia entries elsewhere in this folder. Benigna etnička neutropenija is on the list to prevent harm rather than to describe it: a low neutrophil count that is normal for the patient has been read as marrow failure often enough to trigger biopsies nobody needed.
+locale: me
+---
+Srpasta anemija
+Nosilaštvo srpaste ćelije
+Deficit glukoza-6-fosfat dehidrogenaze
+APOL1 nefropatija
+Keloidno ožiljavanje
+Sarkoidoza
+Hipertenzivna nefroskleroza
+Miomi materice
+Benigna etnička neutropenija
+Neperzistencija laktaze
+Pseudofolikulitis brade
+Vitiligo

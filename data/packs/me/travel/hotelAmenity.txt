@@ -1,0 +1,34 @@
+---
+description: Hotel amenities in Montenegrin, and two entries belong specifically to this coast. Privatna plaža matters because Montenegrin beaches are state property leased out concession by concession: a hotel does not own its beach, it rents the right to put loungers on it for a season, so the difference between a private and a public stretch of sand is a lease rather than a title deed. Vez za plovilo, a berth, points at Porto Montenegro in Tivat, a superyacht marina built on the site of the Yugoslav navy's Arsenal shipyard, which turned a closed military base into the most expensive address in the country. Tourism is the largest single contributor to Montenegro's economy, and in August the population of the coastal towns multiplies several times over.
+locale: me
+---
+Besplatan Wi-Fi
+Parking
+Garaža
+Restoran
+Bar
+Doručak
+Polupansion
+Pun pansion
+Bazen
+Zatvoreni bazen
+Privatna plaža
+Vez za plovilo
+Spa centar
+Sauna
+Teretana
+Klima-uređaj
+Lift
+Soba za nepušače
+Dozvoljeni ljubimci
+Usluga u sobi
+Recepcija 24 sata
+Mjenjačnica
+Sef
+Perionica
+Konferencijska sala
+Dječji kutak
+Terasa
+Bašta
+Prevoz do aerodroma
+Pristup za osobe s invaliditetom

@@ -1,0 +1,15 @@
+---
+description: The state of a booking in Montenegrin, and every adjective ends in -a because it agrees with rezervacija, which is feminine — the status is not a label stuck on the noun but a word that changes shape to match it. Two of them carry the ijekavian je in the middle: djelimično plaćena, partly paid, and izmijenjena, amended. Behind the vocabulary sits a real administrative burden: anyone providing accommodation in Montenegro must register each guest with the authorities within twenty-four hours of arrival and account for the boravišna taksa, the nightly tourist tax, which is why even a private room let for two nights generates paperwork a hotel elsewhere in Europe would never see.
+locale: me
+---
+Kreirana
+Na čekanju
+Potvrđena
+Garantovana
+Plaćena
+Djelimično plaćena
+Izmijenjena
+Otkazana
+Istekla
+Realizovana
+Odbijena

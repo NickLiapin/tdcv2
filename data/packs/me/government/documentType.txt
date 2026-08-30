@@ -1,0 +1,21 @@
+---
+description: Official document a person may be asked to produce in Montenegro. Almost all of them carry the JMBG, the jedinstveni matični broj građana, a thirteen-digit number whose structure is worth knowing because it is not an arbitrary identifier: the first seven digits are the date of birth written day, month and the last three digits of the year, the next two place the register of birth by region — Montenegro occupies the twenties in that scheme — and the remainder encode sex and a check digit. A JMBG therefore leaks a person's birthday and rough origin to anyone who reads it, which is exactly why the Agencija za zaštitu ličnih podataka spends much of its time on it. Note the ijekavian spelling uvjerenje, not uverenje, on the two certificates. Pomorska knjižica, the seafarer's book, is here because a country that trains ship's officers at Kotor issues a great many of them.
+locale: me
+---
+Lična karta
+Pasoš
+Vozačka dozvola
+Saobraćajna dozvola
+Izvod iz matičnog registra rođenih
+Izvod iz matičnog registra vjenčanih
+Izvod iz matičnog registra umrlih
+Uvjerenje o državljanstvu
+Zdravstvena knjižica
+Poreska prijava
+Uvjerenje o nekažnjavanju
+Potvrda o prebivalištu
+Dozvola za privremeni boravak
+Radna dozvola
+Oružani list
+Diploma
+Pomorska knjižica

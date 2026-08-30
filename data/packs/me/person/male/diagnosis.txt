@@ -1,0 +1,30 @@
+---
+description: Diagnosis recorded for a male patient, mixing the sex-specific conditions with the general ones that fall disproportionately on men in Montenegro. The second group is where the country's own epidemiology shows: cardiovascular disease accounts for roughly half of all deaths in Montenegro, well above the European average, and the drivers are the ones a health survey keeps finding — smoking prevalence among the highest in Europe, high salt intake, and obesity rising fastest in the north. Chronic obstructive pulmonary disease clusters around Pljevlja, where the country's only coal-fired power station and an open-pit lignite mine sit beside the town. Note ljekar rather than the ekavian lekar for the doctor writing these down, and moždani udar for a stroke.
+locale: me
+---
+Benigna hiperplazija prostate
+Prostatitis
+Karcinom prostate
+Karcinom testisa
+Varikokela
+Epididimitis
+Erektilna disfunkcija
+Muški hipogonadizam
+Ginekomastija
+Androgena alopecija
+Hipertenzija
+Dijabetes melitus tip 2
+Koronarna bolest srca
+Hiperlipidemija
+Giht
+Hronična opstruktivna bolest pluća
+Astma
+Osteoartroza
+Išijalgija
+Diskus hernija
+Gastritis
+Ulkusna bolest
+Depresivni poremećaj
+Opstruktivna apneja u snu
+Nefrolitijaza
+Moždani udar

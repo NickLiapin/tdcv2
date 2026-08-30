@@ -1,0 +1,13 @@
+---
+description: Dishes of French cuisine. Montenegro had a French period. After Napoleon broke Venice the Boka Kotorska passed through Austrian and Russian hands and then, from 1807 until 1814, was administered by France as part of the Illyrian Provinces under Marshal Marmont, who is still remembered locally for the roads he ordered built. French remained the language of the Montenegrin court's diplomacy into the reign of Nikola I, whose daughters married across Europe and one of whom, Jelena, became Queen of Italy.
+locale: me
+---
+Kroasan
+Kok o ven
+Ratatuj
+Kiš loren
+Bef burginjon
+Krem brle
+Supa od luka
+Baget
+Ekler

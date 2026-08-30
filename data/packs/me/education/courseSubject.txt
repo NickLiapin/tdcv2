@@ -1,0 +1,24 @@
+---
+description: School subject in the Montenegrin curriculum. The first entry hides the most contested sentence in Montenegrin education. Since 2011 the subject has been carried in the official curriculum under the compound name Crnogorski – srpski, bosanski, hrvatski jezik i književnost: a compromise reached after months of school strikes and parliamentary deadlock over whether the language taught in Montenegrin schools should be called Montenegrin, Serbian, or both. At the 2011 census 36.97 percent of the population named Montenegrin as their mother tongue and 42.88 percent named Serbian, and the four-part subject title is what that arithmetic produced. Everything the pupils actually read is shared. A second thing to notice is what is absent: religious instruction is not a subject in Montenegrin state schools, and Građansko vaspitanje occupies the slot that a vjeronauka would fill elsewhere in the region.
+locale: me
+---
+Crnogorski jezik i književnost
+Matematika
+Fizika
+Hemija
+Biologija
+Istorija
+Geografija
+Engleski jezik
+Njemački jezik
+Ruski jezik
+Italijanski jezik
+Likovna kultura
+Muzička kultura
+Fizičko vaspitanje
+Informatika
+Tehnika i tehnologija
+Priroda i društvo
+Građansko vaspitanje
+Sociologija
+Filozofija

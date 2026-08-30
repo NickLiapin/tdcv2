@@ -1,0 +1,12 @@
+---
+description: Dishes of Turkish cuisine. The Ottoman centuries never took the mountain core but they held the north until the Balkan Wars: Pljevlja, Bijelo Polje, Rožaje, Plav and Gusinje became part of Montenegro only in 1912 and 1913, and the Husein-paša mosque in Pljevlja, built in 1569 and carrying the tallest minaret in the country, is the finest Ottoman building Montenegro has. Northern cooking still shows that history in its pies, its grilled meat and its syrup-soaked sweets, and about a fifth of the population is Muslim.
+locale: me
+---
+Dener kebab
+Ćevap
+Lahmadžun
+Pide
+Baklava
+Dolma
+Menemen
+Ćufte

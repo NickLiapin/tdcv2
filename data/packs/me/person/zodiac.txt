@@ -1,0 +1,16 @@
+---
+description: Zodiac sign in Montenegrin. Two of the twelve are the clearest ijekavian markers in the pack: Djevica for Virgo and Strijelac for Sagittarius, where the ekavian standard of Belgrade writes Devica and Strelac. Both come from the same jat vowel — *děva, the maiden, and *strěla, the arrow — and the split runs through the whole vocabulary rather than through these two words, so a pack that got the signs right and mlijeko wrong would be inconsistent rather than merely imperfect. Škorpija is the scorpion with its Greek k intact, which is how the name arrived through Church Slavonic rather than through Latin.
+locale: me
+---
+Ovan
+Bik
+Blizanci
+Rak
+Lav
+Djevica
+Vaga
+Škorpija
+Strijelac
+Jarac
+Vodolija
+Ribe

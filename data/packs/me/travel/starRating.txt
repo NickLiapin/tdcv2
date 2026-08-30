@@ -1,0 +1,9 @@
+---
+description: Hotel star ratings, and the point of this short list is grammatical rather than commercial. Montenegrin counts in three bands: one takes the nominative singular, two through four take a form inherited from the old Slavic dual, and five and upward take the genitive plural — which is why zvjezdica, zvjezdice, zvjezdice, zvjezdice, zvjezdica is correct and looks like a mistake to anyone counting in English. Note the ijekavian zvjezdica against the eastern zvezdica. Categorisation is carried out by the ministry responsible for tourism, and the country's best-known property is not a building but a whole settlement: Sveti Stefan, a fifteenth-century fortified island village converted entire into a hotel in the 1950s and reached by a causeway.
+locale: me
+---
+1 zvjezdica
+2 zvjezdice
+3 zvjezdice
+4 zvjezdice
+5 zvjezdica

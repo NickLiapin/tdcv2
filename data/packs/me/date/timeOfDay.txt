@@ -1,0 +1,12 @@
+---
+description: Time of day in Montenegrin. iźutra is the value that could not appear in any other Štokavian standard. It is built from iz plus jutro, "out of the morning", and when the z met the following j the two fused into a single soft consonant written ź — the rarer of the two letters the 2009 Pravopis crnogorskoga jezika added, alongside ś, and one that has only a handful of words to its name (źenica, the pupil of the eye, and iźelica, a glutton, are most of the rest). Serbian and Croatian have no letter for the sound and write izjutra or simply ujutru. prijepodne and poslijepodne show the other Montenegrin marker, jat resolved as ije, against Serbian prepodne and poslepodne. veče is neuter here and takes the plural večeri; note that the list runs from zora, first light, through to noć, and that a Montenegrin speaking of an appointment will very often anchor it to one of these blocks rather than to a clock hour.
+locale: me
+---
+zora
+iźutra
+jutro
+prijepodne
+podne
+poslijepodne
+veče
+noć

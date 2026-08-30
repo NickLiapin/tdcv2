@@ -1,0 +1,40 @@
+---
+description: Medical specialty as Montenegro recognises it for licensing and for the sign on a clinic door. The list is standard European; the map behind it is not. The Klinički centar Crne Gore in Podgorica is the country's only tertiary hospital, so most of these specialties exist in exactly one building and several are practised by fewer than a dozen doctors nationally, which means a single retirement can leave a discipline short. Some are attached to a named institution rather than a department — psychiatry to the Specijalna bolnica in Dobrota on the Bay of Kotor, physical medicine and rehabilitation to the institute at Igalo, which treats with the sulphurous peloid mud and mineral water of the bay, and lung disease historically to the sanatorium at Brezovik above Nikšić. Specialist training runs through the Medicinski fakultet of the Univerzitet Crne Gore, founded in Podgorica in 1997; before that every Montenegrin doctor qualified somewhere else in Yugoslavia and many never came back.
+locale: me
+---
+Kardiologija
+Dermatologija
+Endokrinologija
+Gastroenterologija
+Neurologija
+Onkologija
+Oftalmologija
+Ortopedija
+Pedijatrija
+Psihijatrija
+Pulmologija
+Radiologija
+Reumatologija
+Urologija
+Nefrologija
+Hematologija
+Imunologija
+Anesteziologija
+Urgentna medicina
+Opšta medicina
+Interna medicina
+Ginekologija i akušerstvo
+Otorinolaringologija
+Patologija
+Plastična hirurgija
+Opšta hirurgija
+Vaskularna hirurgija
+Infektologija
+Gerijatrija
+Neonatologija
+Fizikalna medicina i rehabilitacija
+Neurohirurgija
+Kardiohirurgija
+Maksilofacijalna hirurgija
+Stomatologija
+Medicina rada

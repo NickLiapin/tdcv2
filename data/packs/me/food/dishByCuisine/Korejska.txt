@@ -1,0 +1,12 @@
+---
+description: Dishes of Korean cuisine. Fermented cabbage is not a new idea here. Across the Montenegrin north whole heads go into barrels in November and stay there until spring, and rasol, the sour brine they make, is drunk on its own, prescribed as a hangover cure and used as the base of a soup — a household that pickles cabbage by the barrel understands kimchi on sight. Korean food itself arrived recently and with the tourist season, but the technique behind half this list has been in the cellar all along.
+locale: me
+---
+Kimči
+Bibimbap
+Bulgogi
+Tok-boki
+Kimči čige
+Japče
+Samgjopsal
+Korejska pržena piletina

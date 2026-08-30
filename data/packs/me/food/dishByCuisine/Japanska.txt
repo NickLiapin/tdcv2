@@ -1,0 +1,13 @@
+---
+description: Dishes of Japanese cuisine. Sushi reached Montenegro through yacht harbours rather than through immigration: Porto Montenegro opened in Tivat in 2009 on the site of the Yugoslav navy's Arsenal base, Budva and Kotor followed it, and the country's Japanese restaurants are seasonal coastal businesses that make their year in two summer months. The raw fish under them is largely Adriatic — sea bass, sea bream and tuna landed at Bar — because Montenegro's own fishing fleet is small and works the same water.
+locale: me
+---
+Suši
+Sašimi
+Tempura
+Ramen
+Jakitori
+Udon
+Miso supa
+Gjoza
+Takojaki

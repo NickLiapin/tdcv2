@@ -1,0 +1,14 @@
+---
+description: Payment status label in Montenegrin. These are neuter singular forms, agreeing with plaćanje — Plaćanje je odbijeno — which is why they end in -o and not in the -a of the order statuses, whose noun is feminine; the two lists cannot be swapped even though they look parallel on a screen. Djelimično plaćeno carries the ijekavian jat that Serbian writes as delimično. Stornirano and Refundirano look like a pair and are not: a storno reverses an authorisation before the money has moved and leaves no trace on a statement, while a refundacija sends money back after settlement and appears as a second entry, and Montenegrin accounting keeps the distinction because the two land in different periods. Isteklo is more common here than the label length suggests, because a card authorisation held against a hotel or apartment booking on the coast can outlive the season it was taken for.
+locale: me
+---
+Neplaćeno
+Na čekanju
+Autorizovano
+U obradi
+Plaćeno
+Djelimično plaćeno
+Odbijeno
+Stornirano
+Refundirano
+Isteklo

@@ -1,0 +1,59 @@
+---
+description: Industry sector as a Montenegrin register or job advertisement names it. The shape of this list is the shape of the actual economy, and several sectors that dominate a larger country's list are simply absent here: there is no oil extraction, no gas industry, no automotive assembly and no textile industry worth a line. What replaces them tells the story. Prerada aluminijuma is here because the Kombinat aluminijuma Podgorica, built at Ćemovsko polje in the 1970s around cheap hydro power, at times supplied a majority of the country's export earnings and a large share of its electricity demand at the same time. Hidroenergetika is here because Perućica on the Zeta and Piva at Mratinje give Montenegro most of its own power from falling water, in a country whose rivers drop from 2 500 m to sea level in under a hundred kilometres. Pomorski saobraćaj and brodogradnja belong to the Port of Bar and the Bijela yard in Boka. Marikultura is mussel and sea-bass farming in the Boka fjord and the Bay of Tivat. Maslinarstvo counts: the olive belt around Bar holds trees that predate the towns beside them, including one at Mirovica reckoned at over two thousand years old. Nautički turizam is a sector because Porto Montenegro at Tivat turned a decommissioned naval yard into a superyacht marina and pulled an entire service economy in behind it.
+locale: me
+---
+Informacione tehnologije
+Softverski inženjering
+Telekomunikacije
+Bankarstvo
+Osiguranje
+Finansijske usluge
+Računovodstvo
+Konsalting
+Revizija
+Trgovina na veliko
+Trgovina na malo
+Elektronska trgovina
+Logistika
+Transport
+Špedicija
+Pomorski saobraćaj
+Brodogradnja
+Građevinarstvo
+Projektovanje
+Arhitektura
+Nekretnine
+Proizvodnja
+Prehrambena industrija
+Metalska industrija
+Prerada aluminijuma
+Drvna industrija
+Poljoprivreda
+Stočarstvo
+Vinogradarstvo
+Maslinarstvo
+Šumarstvo
+Ribarstvo
+Marikultura
+Rudarstvo
+Energetika
+Hidroenergetika
+Obnovljivi izvori energije
+Komunalne usluge
+Vodoprivreda
+Upravljanje otpadom
+Zdravstvo
+Farmacija
+Obrazovanje
+Nauka i istraživanje
+Državna uprava
+Lokalna samouprava
+Pravne usluge
+Bezbjednost
+Odbrana
+Turizam
+Ugostiteljstvo
+Nautički turizam
+Mediji
+Marketing i oglašavanje
+Kultura i umjetnost

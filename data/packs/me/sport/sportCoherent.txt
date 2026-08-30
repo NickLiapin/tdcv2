@@ -1,0 +1,12 @@
+---
+description: The sports for which this pack carries a matching list of playing positions, in Montenegrin. All eight are team sports with a fixed, named set of positions, which is what makes it possible to draw a position that actually belongs to the sport beside it rather than a random one. Four of them — fudbal, košarka, odbojka and rukomet — are the school and club sports of every Montenegrin town, played from Herceg Novi to Rožaje. The other four are marginal here: bejzbol, ragbi and američki fudbal are held up by a handful of clubs and imported coaching, and hokej na ledu by no clubs at all, since the country has no permanent indoor rink. Vaterpolo, the national sport, is deliberately not on this list; its positions sit on the general position list instead, where they lead.
+locale: me
+---
+Fudbal
+Košarka
+Odbojka
+Rukomet
+Bejzbol
+Ragbi
+Američki fudbal
+Hokej na ledu

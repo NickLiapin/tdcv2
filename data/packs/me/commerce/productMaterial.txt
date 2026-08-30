@@ -1,0 +1,63 @@
+---
+description: Product material in Montenegrin, given as a noun; compose it with od and the genitive — sto od hrastovine, stolica od nerđajućeg čelika, kuća od kamena. Note the wood pattern, which has no English equivalent: hrast is the oak tree and hrastovina is the timber cut from it, and the -ovina suffix does the same for beech and pine, so a material name and a species name are different words rather than the same word used twice. Two materials mean more here than a shopping list suggests. Aluminijum is the metal Montenegro made itself: the Podgorica smelter ran on the country's own hydro power and for decades dominated its exports, so aluminium sections are a domestic product rather than an import. Kamen is the national building material — the Njeguši villages on Lovćen and the whole of Boka Kotorska are built in dressed limestone and roofed in stone slabs, dry-laid without mortar in the older work, and a stone facade is still what a Montenegrin house aspires to. Pjena and memori pjena carry the ijekavian jat against the Serbian pena. Prevrnuta koža is what a listing calls suede; brušena koža is the same thing in a technical specification.
+locale: me
+---
+drvo
+hrastovina
+bukovina
+borovina
+orahovo drvo
+iverica
+MDF
+šperploča
+bambus
+ratan
+pluta
+metal
+čelik
+nerđajući čelik
+aluminijum
+bakar
+mesing
+liveno gvožđe
+titanijum
+cink
+plastika
+polipropilen
+polikarbonat
+akril
+silikon
+guma
+kaučuk
+staklo
+kaljeno staklo
+kristal
+keramika
+porcelan
+kamen
+granit
+mermer
+beton
+tkanina
+pamuk
+lan
+vuna
+svila
+kašmir
+poliester
+viskoza
+najlon
+koža
+eko-koža
+prevrnuta koža
+krzno
+filc
+juta
+karton
+papir
+pjena
+memori pjena
+lateks
+ugljena vlakna
+staklena vlakna
+epoksi smola

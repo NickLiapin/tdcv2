@@ -1,0 +1,34 @@
+---
+description: Hashtag words in Montenegrin, given here with their diacritics. In practice the diacritics are stripped: Lovćen is tagged as Lovcen and Njegoš as Njegos, because c-with-acute and s-with-caron cut reach and break on foreign keyboards, so a config building realistic social copy should fold them rather than keep them. The place names are the ones that actually travel — Kotor, Budva, Durmitor, the Tara canyon, Sveti Stefan — and the country's tourism campaign has run for years under an English slogan, Wild Beauty, which is part of why the English form Montenegro tags better abroad than Crna Gora does, even though the two mean the same thing in different languages.
+locale: me
+---
+CrnaGora
+Montenegro
+Podgorica
+Kotor
+Budva
+Durmitor
+Tara
+SkadarskoJezero
+BokaKotorska
+SvetiStefan
+Lovćen
+Ostrog
+Ulcinj
+HercegNovi
+Cetinje
+Njegoš
+More
+Planina
+Ljeto
+Zima
+Putovanje
+Priroda
+Hrana
+Kafa
+Rakija
+Porodica
+Prijatelji
+Ljubav
+Muzika
+Sport

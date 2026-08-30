@@ -1,0 +1,9 @@
+---
+description: Positions in ice hockey, in Montenegrin. Montenegro is one of the very few countries in Europe with no permanent indoor ice rink and no national team in the international federation, so this vocabulary reaches people almost entirely through television and through the regional league played across the border; a temporary rink goes up in Podgorica for a few winter weeks and that is the extent of the domestic game. The names here are translated rather than borrowed, which is unusual for a sport that arrived by screen — odbrambeni igrač for the defenceman, lijevo and desno krilo for the wings — and lijevo carries the ijekavian je that marks the Montenegrin standard against the eastern ones.
+locale: me
+---
+Golman
+Odbrambeni igrač
+Centar
+Lijevo krilo
+Desno krilo

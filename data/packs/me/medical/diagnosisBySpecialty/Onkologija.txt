@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Oncology. Radiotherapy exists in Montenegro at exactly one address, the Klinika za onkologiju i radioterapiju of the Klinički centar Crne Gore in Podgorica, and the register that measures the national caseload is kept separately by the Institut za javno zdravlje. Treatment abroad, paid for by the Fond za zdravstveno osiguranje, remains part of the pathway for what cannot be done at home, which in a country of 620 000 people is a standing budget line rather than an exception.
+locale: me
+---
+Karcinom dojke
+Karcinom pluća
+Kolorektalni karcinom
+Leukemija
+Limfom
+Melanom

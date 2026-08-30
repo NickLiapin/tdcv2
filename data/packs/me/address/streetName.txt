@@ -1,0 +1,199 @@
+---
+description: Street-name material that recurs across Montenegrin towns. Most values are already in the genitive or in a possessive adjective, because that is how the name is built — Ulica Marka Miljanova is "the street of Marko Miljanov", not "Marko Miljanov street" — so a config must not inflect them a second time. Seven kinds of name are mixed here in roughly the proportion a real street index shows. The Petrović-Njegoš dynasty comes first and dominates every town centre: Njegoš, prince-bishop and author of Gorski vijenac, is the country's one unarguable figure, King Nikola ruled for fifty-eight years and married daughters into the Italian, Russian and Serbian courts, and the Crnojevići before them moved the court to Cetinje and set up the printing house that produced the Oktoih in 1494, among the first books printed anywhere in south-eastern Europe. Then the fighters and the writers: Marko Miljanov put down the sword at fifty and taught himself to write, and the poets Zogović, Banjević, Ratković and Lalić are the twentieth century's side of the same tradition. Then the plemena in adjective form — Vasojevićka, Kučka, Njeguška — because the clan is still how a Montenegrin locates a family, and the four historical nahije survive as Katunska, Riječka, Lješanska and Crmnička. Then the mountains and rivers, then the towns, then the dates: 13. jula is statehood day, 21. maja is the 2006 independence referendum, and 19. decembra is the liberation of Podgorica. Bokeljska mornarica is the Boka seafarers' guild, chartered by tradition since 809 and still parading in Kotor every 3 February. Streets peculiar to a single city belong in a country pack, not here.
+locale: me
+---
+Njegoševa
+Petra II Petrovića Njegoša
+Petra I Petrovića
+Kralja Nikole
+Kraljice Milene
+Knjaza Danila
+Knjaza Nikole
+Kneginje Darinke
+Danila Petrovića
+Vladike Danila
+Vladike Rada
+Vladike Save
+Ivana Crnojevića
+Đurđa Crnojevića
+Stefana Crnojevića
+Balšića
+Vojvode Mirka
+Vojvode Boža Petrovića
+Marka Miljanova
+Vuka Mićunovića
+Baja Pivljanina
+Nikca od Rovina
+Serdara Jola Piletića
+Vojvode Maša Vrbice
+Vojvode Stanka Radonjića
+Vojvode Petra Vukotića
+Serdara Janka Vukotića
+Vojvode Gavra Vukovića
+Vojvode Radomira Vešovića
+Novice Cerovića
+Ilije Plamenca
+Novaka Miloševa
+Mihaila Lalića
+Radovana Zogovića
+Mirka Banjevića
+Janka Đonovića
+Čeda Vukovića
+Blaža Šćepanovića
+Riste Ratkovića
+Dušana Kostića
+Stefana Mitrova Ljubiše
+Petra Lubarde
+Mila Milunovića
+Rista Stijovića
+Valtazara Bogišića
+Jovana Sundečića
+Svetlane Kane Radević
+Vuka Karadžića
+Save Kovačevića
+Ljuba Čupića
+Radoja Dakića
+Blaža Jovanovića
+Vaka Đurovića
+Boža Ljumovića
+Ivana Milutinovića
+Josipa Broza Tita
+Đoka Miraševića
+Bracana Bracanovića
+Vasojevićka
+Kučka
+Piperska
+Bjelopavlićka
+Njeguška
+Cucka
+Drobnjačka
+Rovačka
+Bjelička
+Ćeklićka
+Ozrinićka
+Pješivačka
+Bratonožićka
+Grbaljska
+Paštrovićka
+Krivošijska
+Banjska
+Uskočka
+Lovćenska
+Durmitorska
+Komovska
+Tarska
+Moračka
+Zetska
+Limska
+Pivska
+Bokeljska
+Skadarska
+Orjenska
+Rumijska
+Sinjajevinska
+Bjelasička
+Prokletijska
+Ćehotinska
+Bojanska
+Primorska
+Jadranska
+Katunska
+Lješanska
+Riječka
+Crmnička
+Biogradska
+Cetinjska
+Podgorička
+Nikšićka
+Kotorska
+Budvanska
+Barska
+Ulcinjska
+Tivatska
+Hercegnovska
+Beranska
+Bjelopoljska
+Pljevaljska
+Kolašinska
+Žabljačka
+Mojkovačka
+Danilovgradska
+Rožajska
+Plavska
+Andrijevička
+Šavnička
+Plužinska
+Petnjička
+13. jula
+21. maja
+19. decembra
+1. maja
+8. marta
+29. novembra
+4. jula
+Bokeljske mornarice
+Mornarička
+Kapetanska
+Pomorska
+Ribarska
+Solanska
+Maslinska
+Vinogradska
+Slobode
+Bratstva i jedinstva
+Nezavisnosti
+Oslobođenja
+Mira
+Pobjede
+Zore
+Sunčana
+Cvjetna
+Radnička
+Omladinska
+Studentska
+Školska
+Bolnička
+Željeznička
+Poštanska
+Sportska
+Gorska
+Šumska
+Rudarska
+Svetog Petra Cetinjskog
+Svetog Vasilija Ostroškog
+Svetog Nikole
+Jovana Vladimira
+Dukljanska
+Vojislavljevića
+Kralja Bodina
+Kralja Mihaila
+Kraljice Jelene
+Manastirska
+Ostroška
+Moskovska
+Džordža Vašingtona
+Beogradska
+Zagrebačka
+Sarajevska
+Ljubljanska
+Skopska
+Dubrovačka
+Nikole Tesle
+Iva Andrića
+Ćamila Sijarića
+Husein-paše Boljanića
+Rifata Burdžovića
+Skenderbegova
+Vasa Raičkovića
+Stare varoši
+Šaranačka
+Zagaračka
+Komanska
+Ljubotinjska
+Ceklinska
+Borova
+Lipova
+Bagremova
+Kestenova
+Orahova
+Galebova

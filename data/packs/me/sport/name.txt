@@ -1,0 +1,59 @@
+---
+description: Sports in Montenegrin, listed in something close to national order. Vaterpolo comes first because it is the national sport in a way no other country's is: the men's team has taken European, World League and Olympic medals since Montenegro began competing under its own flag in 2006, and its two great clubs — Jadran of Herceg Novi and Primorac of Kotor, both European champions — draw full stands to open sea-water pools in towns of a few thousand people. Rukomet follows on the women's side, where ŽRK Budućnost won the Champions League in 2012 and the national team took the European title and Olympic silver the same year, an astonishing return for a country of roughly six hundred thousand. Košarka means Budućnost Voli in the Adriatic league. The landscape hands out the rest: rafting through the Tara canyon, the deepest in Europe, jedrenje in Boka Kotorska, alpinizam and planinarenje on Durmitor, skokovi u vodu off the rocks of the coast — and bacanje kamena s ramena, putting a stone from the shoulder, the traditional trial of strength still contested at village gatherings.
+locale: me
+---
+Vaterpolo
+Rukomet
+Košarka
+Fudbal
+Odbojka
+Skokovi u vodu
+Plivanje
+Jedrenje
+Veslanje
+Kajak i kanu
+Rafting
+Ronjenje
+Sportski ribolov
+Tenis
+Stoni tenis
+Badminton
+Skvoš
+Atletika
+Maraton
+Gimnastika
+Ritmička gimnastika
+Džudo
+Karate
+Tekvondo
+Boks
+Rvanje
+Kik-boks
+Bacanje kamena s ramena
+Dizanje tegova
+Streljaštvo
+Streličarstvo
+Mačevanje
+Biciklizam
+Brdski biciklizam
+Planinarenje
+Alpinizam
+Sportsko penjanje
+Orijentiring
+Skijanje
+Snoubord
+Umjetničko klizanje
+Hokej na ledu
+Paraglajding
+Padobranstvo
+Konjički sport
+Automobilizam
+Motociklizam
+Triatlon
+Golf
+Kuglanje
+Bilijar
+Šah
+Bejzbol
+Ragbi
+Američki fudbal

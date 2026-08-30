@@ -1,0 +1,20 @@
+---
+description: Horse breeds in Montenegrin. The working animal is the domaći brdski konj, the small hardy mountain horse of the interior, which carried salt, timber, cheese and hay on tracks no cart could take and is still used to supply the katuni, the summer huts on the high pastures above Durmitor and Sinjajevina where the road stops well below the grass. Semi-feral herds graze the Krnovo and Sinjajevina plateaus through the summer and are gathered in autumn, and the sight of loose horses on an open plateau at fifteen hundred metres is ordinary rather than remarkable. The names further down are the sport and show breeds of the riding clubs around Podgorica and Danilovgrad, written as they sound rather than as they are spelled abroad.
+locale: me
+---
+domaći brdski konj
+bosanski brdski konj
+lipicaner
+nonijus
+arapski konj
+engleski punokrvnjak
+haflinger
+frizijski konj
+ahaltekinac
+andaluzijski konj
+šetlandski poni
+peršeron
+belgijski hladnokrvnjak
+hanoveranac
+trakener
+orlovski kasač

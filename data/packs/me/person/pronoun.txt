@@ -1,0 +1,12 @@
+---
+description: Third-person pronoun, with the possessive pairings a form asks for. Montenegrin has three genders in the singular and the pronoun agrees with the grammatical gender of the noun, not with the sex of anything: a table is ona because sto is feminine in some dialects and masculine in the standard, a child is ono because dijete is neuter, and a Montenegrin therefore says ono for a baby without any of the coldness that reading brings in English. The language also drops the pronoun almost always, because the verb ending already carries the person — radim can only mean I work — which is why a pronoun in a Montenegrin sentence usually signals emphasis or contrast rather than plain reference.
+locale: me
+---
+on
+ona
+ono
+on/njegov
+ona/njen
+ono/njegovo
+on/ona
+ona/ono

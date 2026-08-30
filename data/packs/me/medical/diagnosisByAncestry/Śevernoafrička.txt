@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of North African ancestry; a prevalence signal, not an exclusive one. Porodična mediteranska groznica, which appears on this list and on three more in the folder, is a single-gene disease of the MEFV gene common in an arc running from the Maghreb through Anatolia to the Levant, and it is one of the very few inherited inflammatory diseases with a cheap and almost completely effective drug — colchicine, taken daily, prevents both the attacks and the amyloidosis that used to kill patients in their forties. Note the ś in the file's own name: śever is the Montenegrin form of north.
+locale: me
+---
+Deficit glukoza-6-fosfat dehidrogenaze
+Nosilaštvo beta-talasemije
+Porodična mediteranska groznica
+Behčetova bolest
+Neperzistencija laktaze
+Pigmentna kseroderma

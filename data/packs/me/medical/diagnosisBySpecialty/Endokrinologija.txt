@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Endocrinology. Thyroid disease deserves the local note. The Montenegrin interior is high, mountainous and was historically short of dietary iodine, endemic goitre was a recognised problem in the highland districts, and universal iodisation of table salt — long standing across the former Yugoslavia and maintained since — is the plain public-health measure that removed it. What is left on this list is autoimmune rather than nutritional, which is what a thyroid clinic anywhere in Europe now looks like.
+locale: me
+---
+Dijabetes melitus tip 2
+Hipotireoza
+Hipertireoza
+Osteoporoza
+Kušingov sindrom
+Sindrom policističnih jajnika

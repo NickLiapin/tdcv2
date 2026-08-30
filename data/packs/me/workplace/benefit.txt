@@ -1,0 +1,22 @@
+---
+description: Employee benefit as a Montenegrin payslip and collective agreement list them. The first two are not perks. Topli obrok, the meal allowance, and regres za godišnji odmor, the holiday allowance, are components of pay set by the general collective agreement, and a Montenegrin salary is quoted and understood with them included or excluded rather than as a single number. The whole of this list sits on top of a wage floor that changed sharply in 2022, when the Evropa sad programme abolished the health-insurance contribution on wages and raised the net minimum wage in one step, which lifted take-home pay and left employers looking for non-cash benefits of exactly this kind. Sistematski pregled, the periodic medical check paid by the employer, is the one most often asked for after the money.
+locale: me
+---
+Topli obrok
+Regres za godišnji odmor
+Naknada za prevoz
+Privatno zdravstveno osiguranje
+Sistematski pregled
+Dobrovoljno penzijsko osiguranje
+Službeni telefon
+Službeni laptop
+Službeni automobil
+Rad od kuće
+Fleksibilno radno vrijeme
+Stručno usavršavanje
+Plaćeni kurs jezika
+Članarina za teretanu
+Timska putovanja
+Novogodišnji paketići za djecu
+Otpremnina
+Stimulacija

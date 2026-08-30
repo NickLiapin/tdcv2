@@ -1,0 +1,54 @@
+---
+description: Airlines serving Montenegro, under their registered Latin names, which is how they appear on a Montenegrin ticket or departure board. Air Montenegro, trading as ToMontenegro, was created in 2020 after Montenegro Airlines — the flag carrier since 1994 — lost its operating licence and was wound up, leaving the country without an airline of its own for several weeks; the new carrier started with a handful of Embraers and took over the flag-carrier role without the debts. The rest of the list divides by airport, because Montenegro's two behave nothing alike. Podgorica is the year-round airport, tied to the European hubs and to Belgrade and Istanbul through the winter. Tivat is a summer airport in the sharpest sense: it is nearly silent from November to April and then takes charter and low-cost leisure traffic from Britain, Germany, Poland, Scandinavia and the former Soviet states in volumes that briefly exceed the capital's.
+locale: me
+---
+Air Montenegro
+Air Serbia
+Wizz Air
+Ryanair
+Lufthansa
+Austrian Airlines
+Swiss International Air Lines
+Air France
+KLM
+Turkish Airlines
+AJet
+Pegasus Airlines
+British Airways
+easyJet
+Eurowings
+Vueling
+Transavia
+LOT Polish Airlines
+Aegean Airlines
+Croatia Airlines
+ITA Airways
+TAP Air Portugal
+Finnair
+airBaltic
+SAS Scandinavian Airlines
+Norwegian
+Brussels Airlines
+Iberia
+Aeroflot
+Ural Airlines
+Nordwind Airlines
+S7 Airlines
+Red Wings
+Jazeera Airways
+Qatar Airways
+Emirates
+flydubai
+Etihad Airways
+EgyptAir
+Air Cairo
+Royal Jordanian
+El Al
+SunExpress
+Corendon Airlines
+Marabu
+Condor
+Edelweiss Air
+Trade Air
+Sky Express
+Chair Airlines

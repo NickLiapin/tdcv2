@@ -1,0 +1,11 @@
+---
+description: Weekday name in Montenegrin, lowercase, Monday first — the week begins on Monday here, so an index of 0 for this file is Monday and not Sunday. Three of the seven carry the ijekavian reflex of jat and are spelled differently from the Serbian ones a config might otherwise reuse: ponedjeljak, srijeda and nedjelja, against ponedeljak, sreda and nedelja. The names are transparent once nedjelja is understood as the anchor. nedjelja is "no-working", the day on which nothing is done, and it also means "week", so nedjelja can be Sunday or the whole seven days and only context separates them; ponedjeljak is "after nedjelja"; utorak is the second; srijeda is the middle, from the same root as English "mid"; četvrtak and petak are simply the fourth and the fifth counted from Monday. subota is the outlier, a loan from Hebrew shabbat by way of Greek and Church Slavonic.
+locale: me
+---
+ponedjeljak
+utorak
+srijeda
+četvrtak
+petak
+subota
+nedjelja

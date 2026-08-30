@@ -1,0 +1,44 @@
+---
+description: Dish, and the Montenegrin table is genuinely two tables. On the coast the kitchen is Adriatic and Venetian — Boka Kotorska and the towns down to Ulcinj spent nearly four centuries inside the Venetian Republic, and buzara, brodet, crni rižoto and pašticada came in with it, cooked in olive oil from the groves around Bar, where the Stara maslina at Mirovica has been standing for more than two thousand years. Inland and north the kitchen is pastoral and smoky: kačamak and cicvara are made from maize flour and sheep's-milk fat over an open hearth, njeguški pršut and njeguški sir are cured in the village of Njeguši on the Lovćen slope above Kotor, where the wind alternates between salt air off the bay and dry mountain air, and jagnjetina ispod sača is lamb cooked under an iron bell buried in embers. Between the two sits Skadarsko jezero, the largest lake in the Balkans, which supplies the carp, the eel and the ukljeva that no other Adriatic cuisine has. The international entries at the end are not decoration but what the coast actually sells in season.
+locale: me
+---
+Njeguški pršut
+Njeguški sir
+Njeguški popeci
+Kačamak
+Cicvara
+Priganice
+Raštan sa suvim mesom
+Japraci
+Jagnjetina ispod sača
+Jagnjetina u mlijeku
+Riblja čorba
+Ukljeva na žaru
+Jegulja na žaru
+Krap sa suvim šljivama
+Buzara od škampa
+Brodet
+Crni rižoto
+Lignje na žaru
+Pašticada
+Dagnje na buzaru
+Rožata
+Popara
+Uštipci
+Pogača ispod sača
+Punjene paprike
+Sarma
+Đuveč
+Ćevapi
+Pljeskavica
+Musaka
+Pita sa sirom
+Burek
+Palačinke
+Baklava
+Tulumbe
+Krofne
+Pica
+Pasta
+Sendvič
+Pileća supa

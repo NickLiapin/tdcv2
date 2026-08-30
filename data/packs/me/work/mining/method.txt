@@ -1,0 +1,12 @@
+---
+description: Extraction method used in Montenegrin mining and quarrying. All three of the country's real mining stories appear in this vocabulary. Površinska eksploatacija is Pljevlja, where the Potrlica open pit strips lignite for the thermal power station beside it — the only thermal plant Montenegro has, and for decades the source of roughly a third to a half of the country's electricity. Podzemna eksploatacija is bauxite at Nikšić, worked in galleries under the Zagrad and Biočki Stan deposits, and it was also Brskovo near Mojkovac, the lead and zinc mine that closed in 1991 and left a tailings pond beside the Tara that is still an environmental question. Kamenolom is the largest category by number of licences: most mining permits issued in Montenegro today are for building stone and aggregate, not for metal.
+locale: me
+---
+Površinska eksploatacija
+Podzemna eksploatacija
+Komorno-stubna metoda
+Duga čela
+Etažno otkopavanje
+Bušenje i miniranje
+Ispiranje
+Kamenolom

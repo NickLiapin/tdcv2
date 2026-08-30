@@ -1,0 +1,12 @@
+---
+description: Dishes of American cuisine. Montenegro's strongest link to the United States is emigration: from the 1890s until the First World War men left the poor karst villages in very large numbers for American mines and mills, sent wages home to buy land, and a great many never returned, so a Montenegrin family history very often has an American branch two or three generations back. The money order from abroad kept whole highland parishes solvent, and the country joined NATO in 2017, which is one reason a burger reads as ordinary rather than exotic on a Podgorica menu.
+locale: me
+---
+Hamburger
+Čizburger
+Hot-dog
+Pomfrit
+Barbikju rebarca
+Makarone sa sirom
+Palačinke
+Čizkejk

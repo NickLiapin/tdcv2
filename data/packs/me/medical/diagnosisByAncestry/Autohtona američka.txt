@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Indigenous American ancestry; a prevalence signal, not an exclusive one. The clustering of type 2 diabetes, gallstones and fatty liver in these populations is metabolic rather than coincidental, and the gallstone association has been traced to specific cholesterol-transporter variants that raise the amount of cholesterol the liver puts into bile. It is one of the clearest cases in which a group difference in disease turns out to have a single, identifiable and entirely unmysterious cause.
+locale: me
+---
+Dijabetes melitus tip 2
+Kamenci u žučnoj kesi
+Dijabetesna nefropatija
+Reumatoidni artritis
+Nealkoholna masna bolest jetre
+Metabolički sindrom

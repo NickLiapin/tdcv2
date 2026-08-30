@@ -1,0 +1,238 @@
+---
+description: Country and territory names as Montenegrin writes them, sorted in the order of the Montenegrin Latin abeceda: a b c č ć d dž đ e f g h i j k l lj m n nj o p r s š ś t u v z ž ź. Three things follow from that order and none of them survive a default Unicode collator. First, the digraphs dž, lj and nj are single letters, so Džibuti sits after every plain D name rather than inside them, and Njemačka comes after Norveška rather than before Nepal. Second, ś is a letter of its own and stands after š, which puts Śeverna Koreja, Śeverna Makedonija and Śeverna Marijanska Ostrva at the very end of the list, past Švedska — Montenegrin writes śever where Serbian and Croatian write sjever, and the compass words are where a country list runs into that letter. Third, the names themselves are ijekavian: Bjelorusija, Njemačka and the two sets of Djevičanska Ostrva all carry the jat reflex, so this list is not the Serbian one respelt. Crna Gora is in it, under C, sorted like any other country and not promoted to the front.
+locale: me
+---
+Albanija
+Alžir
+Američka Djevičanska Ostrva
+Američka Samoa
+Andora
+Angola
+Angvila
+Antarktik
+Antigva i Barbuda
+Argentina
+Aruba
+Australija
+Austrija
+Avganistan
+Azerbejdžan
+Bahami
+Bahrein
+Bangladeš
+Barbados
+Belgija
+Belize
+Benin
+Bermudi
+Bjelorusija
+Bocvana
+Bolivija
+Bosna i Hercegovina
+Božićno Ostrvo
+Brazil
+Britanska Djevičanska Ostrva
+Brunej
+Bugarska
+Burkina Faso
+Burundi
+Butan
+Centralnoafrička Republika
+Crna Gora
+Čad
+Češka
+Čile
+Danska
+Demokratska Republika Kongo
+Dominika
+Dominikanska Republika
+Džibuti
+Egipat
+Ekvador
+Ekvatorijalna Gvineja
+Eritreja
+Estonija
+Esvatini
+Etiopija
+Farska Ostrva
+Fidži
+Filipini
+Finska
+Foklandska Ostrva
+Francuska
+Francuska Gvajana
+Francuska Polinezija
+Francuske Južne Teritorije
+Gabon
+Gambija
+Gana
+Gibraltar
+Grčka
+Grenada
+Grenland
+Gruzija
+Guam
+Gvadelup
+Gvajana
+Gvatemala
+Gvineja
+Gvineja-Bisao
+Haiti
+Holandija
+Holandski Antili
+Honduras
+Hongkong
+Hrvatska
+Indija
+Indonezija
+Irak
+Iran
+Irska
+Island
+Istočni Timor
+Italija
+Izrael
+Jamajka
+Japan
+Jemen
+Jermenija
+Jordan
+Južna Koreja
+Južni Sudan
+Južnoafrička Republika
+Kajmanska Ostrva
+Kambodža
+Kamerun
+Kanada
+Katar
+Kazahstan
+Kenija
+Kina
+Kipar
+Kirgistan
+Kiribati
+Kokosova (Kilingova) Ostrva
+Kolumbija
+Komorska Ostrva
+Kosovo
+Kostarika
+Kuba
+Kukova Ostrva
+Kuvajt
+Laos
+Lesoto
+Letonija
+Liban
+Liberija
+Libija
+Lihtenštajn
+Litvanija
+Luksemburg
+Madagaskar
+Mađarska
+Majot
+Makao
+Malavi
+Maldivi
+Malezija
+Mali
+Malta
+Maroko
+Maršalska Ostrva
+Martinik
+Mauricijus
+Mauritanija
+Meksiko
+Mijanmar
+Mikronezija
+Moldavija
+Monako
+Mongolija
+Monserat
+Mozambik
+Namibija
+Nauru
+Nepal
+Niger
+Nigerija
+Nikaragva
+Niue
+Norveška
+Nova Kaledonija
+Novi Zeland
+Njemačka
+Obala Slonovače
+Oman
+Ostrva Turks i Kaikos
+Pakistan
+Palau
+Palestinske teritorije
+Panama
+Papua Nova Gvineja
+Paragvaj
+Peru
+Pitkern
+Poljska
+Portoriko
+Portugalija
+Reinion
+Republika Kongo
+Ruanda
+Rumunija
+Rusija
+Salvador
+Samoa
+San Marino
+Sao Tome i Principe
+Saudijska Arabija
+Sejšeli
+Senegal
+Sent Kits i Nevis
+Sent Vinsent i Grenadini
+Sijera Leone
+Singapur
+Sirija
+Sjedinjene Američke Države
+Slovačka
+Slovenija
+Solomonska Ostrva
+Somalija
+Srbija
+Sudan
+Surinam
+Sveta Lucija
+Španija
+Šri Lanka
+Švajcarska
+Švedska
+Śeverna Koreja
+Śeverna Makedonija
+Śeverna Marijanska Ostrva
+Tadžikistan
+Tajland
+Tajvan
+Tanzanija
+Tibet
+Togo
+Tokelau
+Tonga
+Trinidad i Tobago
+Tunis
+Turkmenistan
+Turska
+Tuvalu
+Uganda
+Ujedinjeni Arapski Emirati
+Ujedinjeno Kraljevstvo
+Ukrajina
+Urugvaj
+Uzbekistan
+Valis i Futuna
+Vanuatu
+Vatikan
+Venecuela
+Vijetnam
+Zambija
+Zapadna Sahara
+Zelenortska Ostrva
+Zimbabve

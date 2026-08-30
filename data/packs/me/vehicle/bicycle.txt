@@ -1,0 +1,21 @@
+---
+description: Bicycle types in Montenegrin, and geography does the sorting. Podgorica sits about forty metres above sea level and Žabljak, the highest town in the country, at roughly fourteen hundred and fifty, with the road between them climbing more or less continuously, so brdski bicikl and električni bicikl are equipment decisions rather than lifestyle ones. The country has signposted a long network of mountain-bike routes across the north, and the abandoned corridor of the old narrow-gauge line together with the rim of the Tara canyon carries most of the touring traffic. Dječji carries the ijekavian je, and note prenos rather than prijenos for the gearing: on that word Montenegrin sides with the eastern form, which is a useful reminder that ijekavian does not mean Croatian.
+locale: me
+---
+Gradski bicikl
+Treking bicikl
+Brdski bicikl
+Drumski bicikl
+Gravel bicikl
+Kros bicikl
+BMX bicikl
+Dječji bicikl
+Ženski bicikl
+Sklopivi bicikl
+Električni bicikl
+Tandem
+Tricikl
+Teretni bicikl
+Bicikl s fiksnim prenosom
+Trkački bicikl
+Sobni bicikl

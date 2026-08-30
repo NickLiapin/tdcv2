@@ -1,0 +1,23 @@
+---
+description: What is actually dug, quarried or evaporated in Montenegro, which is a short and specific inventory rather than a periodic table. Boksit heads it because bauxite is what Montenegrin mining has meant since the 1950s: red ore from the karst around Nikšić, smelted into aluminium at the Podgorica combine, for years the country's largest export and largest consumer of electricity. Lignit is Pljevlja, feeding the one thermal power station in the country, and mrki ugalj is the older Berane basin. Olovna and cinkova ruda, with the silver, gold and copper that travel with them, are Brskovo above Mojkovac, mined since the Middle Ages under a Serbian and then a Venetian and Ottoman trade in Balkan metal, closed in 1991 and repeatedly proposed for reopening since. Morska so is the salina at Ulcinj, fourteen square kilometres of shallow pans where the sun does the work; it stopped producing commercially in 2013 and is now protected as one of the most important bird stopovers on the Adriatic flyway. The rest is stone: limestone, marble, dolomite, gravel and sand, which is what most licences cover.
+locale: me
+---
+Boksit
+Lignit
+Mrki ugalj
+Olovna ruda
+Cinkova ruda
+Bakarna ruda
+Srebro
+Zlato
+Barit
+Krečnjak
+Mermer
+Dolomit
+Tehnički kamen
+Arhitektonski kamen
+Šljunak
+Kvarcni pijesak
+Glina
+Gips
+Morska so

@@ -1,0 +1,45 @@
+---
+description: Company legal form and name tail as the Montenegrin register records it. Everything a company here is, it is because of one database: the CRPS, the Centralni registar privrednih subjekata, which holds every firm in the country and which sits inside the tax and customs administration rather than inside a court, so registering a business and acquiring a tax number are the same errand. The genuinely legal forms are the opening block. Društvo sa ograničenom odgovornošću — d.o.o. — swallows nearly everything, because its founding capital requirement is one euro and the country uses the euro without ever having joined the eurozone, which makes incorporating here unusually cheap; akcionarsko društvo is for the banks, the insurers and the privatised state industries; ortačko and komanditno društvo exist on paper and are rare in practice; preduzetnik is the sole trader; dio stranog društva is the branch of a foreign company, a form that matters in a place where a great deal of coastal property is owned through one. JU, javna ustanova, covers the schools, health centres and cultural institutions. The tail of the list is not law at all but naming habit: a Montenegrin firm calls itself Promet, Invest, Komerc, Inženjering or Grupa far more readily than it appends a second legal marker, and those words travel with the form rather than replacing it.
+locale: me
+---
+d.o.o.
+DOO
+društvo sa ograničenom odgovornošću
+a.d.
+AD
+akcionarsko društvo
+o.d.
+ortačko društvo
+k.d.
+komanditno društvo
+preduzetnik
+dio stranog društva
+JU
+javna ustanova
+JP
+javno preduzeće
+ustanova
+fondacija
+udruženje
+NVO
+nevladina organizacija
+ogranak
+predstavništvo
+zadruga
+Grupa
+Holding
+Sistem
+Kompanija
+Inženjering
+Projekt
+Promet
+Trgovina
+Komerc
+Invest
+Konsalting
+Tehnologije
+Produkcija
+Industrija
+Grupa d.o.o.
+Promet d.o.o.
+Invest a.d.

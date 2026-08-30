@@ -1,0 +1,20 @@
+---
+description: Weather conditions in Montenegrin, as a forecast reads them out. Podgorica sits in a bowl of the Zeta plain barely forty metres above the sea with mountains closing it on three sides, and the result is that it is regularly among the hottest cities in Europe in summer: July afternoons above forty degrees are routine and the recorded maximum is over forty-four, so sparno, close and humid, is a working label there rather than an exotic one. The whole list is ijekavian, which is where the Montenegrin standard parts company with the eastern ones — snijeg gives snježno, susnježica keeps the same root, and delimično is written djelimično, because a short jat becomes je.
+locale: me
+---
+Vedro
+Sunčano
+Pretežno sunčano
+Djelimično oblačno
+Oblačno
+Tmurno
+Maglovito
+Kišovito
+Pljusak
+Slaba kiša
+Grmljavina
+Susnježica
+Snježno
+Mećava
+Vjetrovito
+Sparno

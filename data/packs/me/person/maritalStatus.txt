@@ -1,0 +1,18 @@
+---
+description: Marital status in Montenegrin, given in both genders because the language has no common form: a man is neoženjen and a woman neudata, and the two words are built on different verbs — oženiti se is what a man does and udati se is what a woman does, so the asymmetry is lexical rather than grammatical and cannot be smoothed over by an ending. Note vjeren and vjerena for engaged: Montenegro is ijekavian, so the jat of *věra surfaces as je, and the Serbian veren is not a spelling variant here but a different dialect. Vanbračna zajednica, the unregistered partnership, carries legal weight in Montenegro — it creates property and inheritance claims — so it belongs in a status list rather than in a description of one.
+locale: me
+---
+neoženjen
+neudata
+oženjen
+udata
+razveden
+razvedena
+udovac
+udovica
+vjeren
+vjerena
+u vanbračnoj zajednici
+u vezi
+rastavljen
+rastavljena

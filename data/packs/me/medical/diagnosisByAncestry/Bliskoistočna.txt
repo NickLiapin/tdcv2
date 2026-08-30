@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Middle Eastern ancestry; a prevalence signal, not an exclusive one. Porodična mediteranska groznica and Behčetova bolest both cluster along the corridor of the old Silk Road, and Behçet's is named for Hulusi Behçet, the Turkish dermatologist who described the triad of mouth ulcers, genital ulcers and uveitis in 1937 — a rare instance of a disease keeping the name of a physician from the region where it is commonest.
+locale: me
+---
+Porodična mediteranska groznica
+Beta-talasemija
+Deficit glukoza-6-fosfat dehidrogenaze
+Behčetova bolest
+Nedostatak vitamina D
+Nosilaštvo srpaste ćelije

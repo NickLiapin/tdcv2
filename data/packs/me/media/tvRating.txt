@@ -1,0 +1,13 @@
+---
+description: Content ratings as Montenegrin broadcasting labels them. Regulation is the work of the Agencija za elektronske medije, which licenses broadcasters and enforces the watershed for material unsuitable for minors, and the system it applies is descriptive rather than coded: the viewer is told in words what the programme contains and from what age it is thought suitable, instead of being handed a single letter as in the American scheme, so a warning is a sentence and not a symbol. Neprimjeren carries the ijekavian je, and djecu shows the same vowel in the word for children — a rating card is one of the few places where a viewer sees the standard spelled out on screen.
+locale: me
+---
+Dozvoljeno svim uzrastima
+Preporučuje se roditeljski nadzor
+12+
+16+
+18+
+Nije preporučljivo za djecu
+Sadrži scene nasilja
+Sadrži neprimjeren jezik
+Sadrži scene seksualnog sadržaja

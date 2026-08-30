@@ -1,0 +1,26 @@
+---
+description: Department or function inside a Montenegrin company. Bezbjednost i zdravlje na radu shows the ijekavian reflex that separates this vocabulary from the ekavian one: where an ekavian text writes bezbednost, Montenegrin writes bezbjednost, and the same je turns up in vrijeme, mjesto and savjet throughout an employment file. The list is longer than most Montenegrin firms are. The registry counts tens of thousands of companies, but the overwhelming majority employ fewer than ten people, where one person is at once računovodstvo, nabavka and opšti poslovi. A full set of separate departments exists only in the two dozen large employers — Elektroprivreda Crne Gore, Crnogorski Telekom, Luka Bar, Plantaže with its vineyards on the Ćemovsko polje, the bigger coastal hotel groups and the banks.
+locale: me
+---
+Uprava
+Finansije
+Računovodstvo
+Knjigovodstvo
+Kontrola
+Ljudski resursi
+Pravna služba
+Nabavka
+Prodaja
+Marketing
+Odnosi s javnošću
+Razvoj
+Proizvodnja
+Održavanje
+Kvalitet
+Logistika
+Magacin
+Transport
+Informacione tehnologije
+Korisnička podrška
+Bezbjednost i zdravlje na radu
+Opšti poslovi

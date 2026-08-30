@@ -1,0 +1,16 @@
+---
+description: Month abbreviation in Montenegrin. The full stop is not decoration: in this orthography a shortened word keeps a stop to mark that letters were removed, so jan. and avg. carry one while maj, jun and jul do not, being already as short as they get and not abbreviations at all. That leaves nine of the twelve punctuated and three bare, an irregularity a fixed-width date format has to accommodate. Montenegrin dates are written little-endian with a stop after each number, 21. 05. 2006. — the date of the independence referendum in which 55.5 per cent voted to leave the state union with Serbia, just over the 55 per cent threshold the European Union had set, and the reason the country's second national holiday, Dan nezavisnosti, falls on 21 May.
+locale: me
+---
+jan.
+feb.
+mar.
+apr.
+maj
+jun
+jul
+avg.
+sep.
+okt.
+nov.
+dec.

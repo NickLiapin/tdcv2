@@ -1,0 +1,45 @@
+---
+description: Generic drug names as they appear on a Montenegrin package leaflet — international nonproprietary names in Latin script, spelled the way the Institut za ljekove i medicinska sredstva Crne Gore, CInMED, registers them from its offices in Podgorica. Note ljekovi and not lekovi: the plural of lijek shortens the long jat to je, and every regulatory document in the country writes it that way. Almost nothing on this list is made locally. Montenegro has no pharmaceutical manufacturing of any scale, so CInMED's register is overwhelmingly imported product, and the reimbursement list of the Fond za zdravstveno osiguranje decides which of it a patient actually receives — a market of 620 000 people is small enough that a manufacturer withdrawing a single old and cheap medicine can leave the country without it entirely.
+locale: me
+---
+Paracetamol
+Ibuprofen
+Acetilsalicilna kiselina
+Diklofenak
+Nimesulid
+Naproksen
+Tramadol
+Amoksicilin
+Amoksicilin sa klavulanskom kiselinom
+Azitromicin
+Cefaleksin
+Ciprofloksacin
+Doksiciklin
+Metronidazol
+Lizinopril
+Ramipril
+Losartan
+Amlodipin
+Metoprolol
+Bisoprolol
+Hidrohlortiazid
+Furosemid
+Spironolakton
+Atorvastatin
+Rosuvastatin
+Simvastatin
+Klopidogrel
+Varfarin
+Metformin
+Insulin glargin
+Levotiroksin
+Omeprazol
+Pantoprazol
+Salbutamol
+Montelukast
+Prednizon
+Deksametazon
+Sertralin
+Escitalopram
+Duloksetin
+Gabapentin

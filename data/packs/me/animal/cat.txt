@@ -1,0 +1,22 @@
+---
+description: Cat breeds as a Montenegrin breeder or vet writes them. Pedigree cats are a small world here, and the cats that actually matter in Montenegro have no pedigree at all: the street cats of Kotor, which the walled town has taken as its informal emblem, are fed by a registered association rather than culled, appear on every souvenir stall and have a small museum of their own inside the old town. The naming convention in the list is consistent — a breed built on a place keeps the adjective and the word mačka, as in persijska mačka and sijamska mačka, while a breed known by an English or invented name is simply respelled to Montenegrin sound rules, so Maine Coon becomes mejn kun, Sphynx becomes sfinks and Ragdoll becomes ragdol.
+locale: me
+---
+persijska mačka
+sijamska mačka
+mejn kun
+britanska kratkodlaka
+ruska plava
+bengalska mačka
+sfinks
+abisinska mačka
+ragdol
+norveška šumska mačka
+škotska klempava mačka
+burmanska mačka
+angorska mačka
+somalijska mačka
+orijentalna kratkodlaka
+egipatska mau
+devon reks
+sibirska mačka

@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Dermatology. Melanom sits on this list with a local edge to it: the Montenegrin coast records some of the strongest ultraviolet levels in Europe in July and August, the tourist economy puts a large share of the working population outdoors in exactly those months, and the fair Dinaric colouring of much of the interior is not built for that sun. Screening moles is one of the few oncological things a dom zdravlja can usefully do before the patient ever reaches Podgorica.
+locale: me
+---
+Psorijaza
+Atopijski dermatitis
+Akne
+Melanom
+Rozaceja
+Kontaktni dermatitis

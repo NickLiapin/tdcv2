@@ -1,0 +1,14 @@
+---
+description: Competitive rank tiers in Montenegrin. Velemajstor, second from the top, is not a games invention at all: it is the actual word for grandmaster in chess, a title Montenegrin players hold, and the country's chess federation took up membership of the world body in its own right in 2006, in the wave of international affiliations that followed the independence referendum that May — a small country's sporting sovereignty is assembled federation by federation. Drveni, the wooden rank at the bottom, is a joke with regional roots: a drvena medalja, a wooden medal, is what you are said to win by finishing fourth, just outside the podium.
+locale: me
+---
+Drveni
+Bronzani
+Srebrni
+Zlatni
+Platinasti
+Dijamantski
+Majstor
+Velemajstor
+Elita
+Šampion

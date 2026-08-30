@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Psychiatry. Inpatient psychiatry in Montenegro means one building: the Specijalna bolnica za psihijatriju in Dobrota, on the shore of the Bay of Kotor, serves the entire country, with acute beds at the Klinički centar and community teams working out of the domovi zdravlja around it. In a society still organised to a real degree around the pleme and the extended household, families absorb a great deal of what would be admitted elsewhere — which keeps admission rates low and says nothing at all about how much illness there is.
+locale: me
+---
+Depresivni poremećaj
+Generalizovani anksiozni poremećaj
+Bipolarni poremećaj
+Šizofrenija
+Posttraumatski stresni poremećaj
+Poremećaj pažnje sa hiperaktivnošću

@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Montenegrin street, block or housing estate (naselje Jug, blok Istok, Stari grad). This short list is the best place in the whole pack to see the letter that separates Montenegrin from every other Štokavian standard. The 2009 Pravopis crnogorskoga jezika admitted ś (Cyrillic с́) as a full letter of the alphabet, and north is where an ordinary speaker meets it every day: śever, not sjever. The sound is a soft palatal sh, and it arises where a short jat stood in front of s — Common Slavic *sěverъ gives śever the way *sěkyra gives śekira and *sěme gives śeme — or where an older sj fused, as in pośeta and ośećaj. Serbian and Croatian resolve exactly the same etymology as sjever and stop there; Montenegrin carries the fusion into the spelling. Only the four compass words and their adjectives take it here, because the standard admits ś in a closed set of words and does not license inventing new ones: jug, istok and zapad have nothing to fuse and stay as they are. Stari grad is in the list because it behaves like a direction in an address — in Kotor, Budva and Ulcinj it names the walled town as against everything built outside the gate.
+locale: me
+---
+Śever
+Jug
+Istok
+Zapad
+Śeveroistok
+Śeverozapad
+Jugoistok
+Jugozapad
+Śeverni
+Južni
+Istočni
+Zapadni
+Centar
+Centralni
+Stari grad

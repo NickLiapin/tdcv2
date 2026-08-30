@@ -1,0 +1,34 @@
+---
+description: Diagnoses that require male anatomy and cannot occur in a female patient; draw from this file only for male rows, and take general conditions from medical/diagnosis. The register that measures how often these appear is the national cancer registry kept by the Institut za javno zdravlje in Podgorica, which records incidence for the entire country, and prostate cancer is among the commonest cancers it records in Montenegrin men. Urology, like nearly every specialty here, is concentrated at the Klinički centar Crne Gore, so a man in Plav or Rožaje travels most of the length of the country for an operation. Note prijevremena rather than prevremena — the long jat gives ije.
+locale: me
+---
+Benigna hiperplazija prostate
+Prostatitis
+Rak prostate
+Rak testisa
+Torzija testisa
+Varikocela
+Hidrocela
+Epididimitis
+Kriptorhizam
+Fimoza
+Balanitis
+Erektilna disfunkcija
+Pejronijeva bolest
+Muški infertilitet
+Ginekomastija
+Muški hipogonadizam
+Prijapizam
+Spermatocela
+Muška ćelavost
+Skrotalna kila
+Rak penisa
+Orhitis
+Striktura uretre
+Klinefelterov sindrom
+Azoospermija
+Prijevremena ejakulacija
+Parafimoza
+Apsces prostate
+Vezikulitis
+Hematospermija

@@ -1,0 +1,12 @@
+---
+description: Annual household income band, in euros. Montenegro uses the euro unilaterally and has done since 2002, having taken the German mark in 1999 and simply carried on when the mark was replaced; it has never been in the eurozone or in the European Union, issues no euro coins or notes of its own, and its central bank cannot create money. That makes these bands directly comparable with a German or an Italian pack and misleading if read as European purchasing power: the average net wage in Montenegro is a few hundred euros a month, so the lowest two bands here hold a large part of the working population rather than the poorest fringe of it.
+locale: me
+---
+Ispod 6.000 EUR
+6.000–9.000 EUR
+9.000–12.000 EUR
+12.000–18.000 EUR
+18.000–24.000 EUR
+24.000–36.000 EUR
+36.000–60.000 EUR
+Preko 60.000 EUR

@@ -1,0 +1,42 @@
+---
+description: Animals in general, in Montenegrin, ordered from the yard outward. The domestic block is the vocabulary of the katun economy, in which sheep and goats go up to high pasture in June and come down in September, and it is why the language keeps separate everyday words for the ewe, the ram and the lamb, and for the she-goat and the he-goat, where English needs a qualifier. The wild block is not decorative: vuk and medvjed hold the northern massifs, divokoza works the cliffs of Durmitor and the walls of the Tara canyon, and ris is the Balkan lynx, of which only a few dozen survive in the Prokletije and across the Albanian border, making it one of the most endangered cats in Europe. Note medvjed and vjeverica, ijekavian where the eastern standards write medved and veverica.
+locale: me
+---
+pas
+mačka
+konj
+krava
+bik
+vo
+tele
+ovca
+ovan
+jagnje
+koza
+jarac
+svinja
+prase
+magarac
+mazga
+kokoška
+pijetao
+pile
+patka
+guska
+ćurka
+zec
+kunić
+vuk
+lisica
+medvjed
+ris
+divlja svinja
+srna
+jelen
+divokoza
+vidra
+dabar
+jež
+krtica
+vjeverica
+miš

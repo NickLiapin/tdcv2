@@ -1,0 +1,17 @@
+---
+description: Trailer or cargo type on a Montenegrin haulage job. What shapes this list is gradient. Almost everything that lands at the Port of Bar, the country's only cargo port, has to climb: the old road north follows the Morača canyon, and until the first 41-kilometre section of the Bar–Boljare motorway opened in 2022 with the Moračica bridge and a string of tunnels, every cisterna and niska platforma bound for Serbia went that way at walking pace behind a loaded truck. Hladnjača and izotermička prikolica carry the summer, when the coast feeds several times its resident population. Opasan teret ADR is a category with teeth here, because a tanker crossing the 4.2-kilometre Sozina tunnel between Bar and the Zeta plain is subject to restrictions an open road would not impose.
+locale: me
+---
+Cerada
+Hladnjača
+Izotermička prikolica
+Cisterna
+Silos
+Kiper
+Kontejnerska platforma
+Niska platforma
+Autotransporter
+Kran prikolica
+Vangabaritni teret
+Opasan teret ADR
+Rasuti teret

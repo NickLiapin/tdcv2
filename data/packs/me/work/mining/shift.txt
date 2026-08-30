@@ -1,0 +1,9 @@
+---
+description: Work shift on a Montenegrin rota. Smjena is the ijekavian form; an ekavian standard writes smena, and the je is one of the quickest tells that a duty roster was printed in Podgorica rather than Belgrade. Three-shift working is not a general feature of this economy — most Montenegrins work one daytime shift — but it is the rule in the places that cannot stop: the Pljevlja power station and the mine that feeds it, the aluminium and steel plants, the emergency departments of the Klinički centar, and the Port of Bar when a ship is alongside. Dežurstvo is not a fourth shift but an on-call duty period, and in a hospital or a utility it is a separate line on the payslip with its own allowance.
+locale: me
+---
+Prva smjena
+Druga smjena
+Treća smjena
+Noćna smjena
+Dežurstvo

@@ -1,0 +1,18 @@
+---
+description: Insurance product sold in Montenegro. Osiguranje uśeva i plodova, crop and fruit insurance, is spelled with ś: uśev, a sown crop, comes from the same old root as śetva, the sowing, and where Serbian and Croatian write usev and setva, Montenegrin merges the consonant and the following j into the letter the 2009 Pravopis added to the alphabet. The product itself is real and partly subsidised by the state, covering hail and frost on the vineyards of the Ćemovsko polje and the fruit of the Bjelopavlići and the Lim valley. Two more entries are shaped by geography rather than language: obavezno osiguranje vozila is the compulsory motor third-party policy every registered vehicle must carry, and osiguranje plovila is an ordinary retail product in a country with 293 kilometres of coast, two large marinas and a bay full of boats.
+locale: me
+---
+Obavezno osiguranje vozila
+Kasko osiguranje
+Osiguranje imovine
+Osiguranje domaćinstva
+Zdravstveno osiguranje
+Dobrovoljno zdravstveno osiguranje
+Putno osiguranje
+Životno osiguranje
+Osiguranje od posljedica nezgode
+Dobrovoljno penzijsko osiguranje
+Osiguranje od odgovornosti
+Osiguranje uśeva i plodova
+Osiguranje robe u transportu
+Osiguranje plovila

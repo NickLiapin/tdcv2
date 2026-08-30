@@ -1,0 +1,14 @@
+---
+description: Positions in rugby union, in Montenegrin. The sport arrived late and stayed small, with clubs in Podgorica and on the coast and a federation counting its players in the hundreds, but the vocabulary is more interesting than the league. It has two layers: stub for prop and broj osam for number eight are plain translations, while demi for the scrum-half, otvarač for the fly-half and arijer, from the French arrière, for the full back came in through French rather than English — a reminder that rugby reached the Balkans by way of France. Krilni trećelinijaš, the flanker, is one of the longest single words for a playing position anywhere in the language.
+locale: me
+---
+Stub
+Taloner
+Skakač druge linije
+Krilni trećelinijaš
+Broj osam
+Demi
+Otvarač
+Centar
+Krilo
+Arijer

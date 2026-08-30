@@ -1,0 +1,27 @@
+---
+description: Montenegrin state body under the name it currently carries. One of them is stranger than it looks. The Centralna banka Crne Gore supervises banks, runs the payment system, keeps the credit register and publishes monetary statistics, and it cannot print money: Montenegro adopted the Deutsche mark in 1999 and the euro in 2002 unilaterally, without an agreement with the European Central Bank, and has never been a member of the eurozone or of the European Union. Every euro in the country was earned or borrowed from outside it, which makes the CBCG a central bank without a currency of its own — no issuance, no interest-rate policy, no lender of last resort in the ordinary sense. The rest are the working state: the Uprava prihoda i carina collects tax and customs in one office, the Uprava za katastar i državnu imovinu holds the land register on which every property transaction depends, and Monstat is the statistical office whose census figures decide, among much else, how many people call the language Montenegrin.
+locale: me
+---
+Vlada Crne Gore
+Skupština Crne Gore
+Ministarstvo finansija
+Ministarstvo unutrašnjih poslova
+Ministarstvo vanjskih poslova
+Ministarstvo odbrane
+Ministarstvo pravde
+Ministarstvo prosvjete, nauke i inovacija
+Ministarstvo zdravlja
+Ministarstvo ekonomskog razvoja
+Ministarstvo poljoprivrede, šumarstva i vodoprivrede
+Ministarstvo saobraćaja i pomorstva
+Ministarstvo energetike i rudarstva
+Ministarstvo rada i socijalnog staranja
+Uprava prihoda i carina
+Uprava za katastar i državnu imovinu
+Zavod za statistiku Crne Gore – Monstat
+Centralna banka Crne Gore
+Centralni registar privrednih subjekata
+Fond penzijskog i invalidskog osiguranja
+Fond za zdravstveno osiguranje
+Zavod za zapošljavanje Crne Gore
+Agencija za zaštitu ličnih podataka i slobodan pristup informacijama

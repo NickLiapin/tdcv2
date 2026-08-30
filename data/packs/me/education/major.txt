@@ -1,0 +1,32 @@
+---
+description: Field of study, which in Montenegro means very largely a unit of one institution. The Univerzitet Crne Gore, founded in 1974, is the country's only public university and it is deliberately not gathered on a single campus: the Filozofski fakultet is in Nikšić, the Fakultet za turizam i hotelijerstvo and the Pomorski fakultet are in Kotor, the Fakultet dramskih umjetnosti and the Fakultet likovnih umjetnosti are on Cetinje, and medicine, law, economics, engineering and the natural sciences are in Podgorica. A student's subject therefore decides which town they live in, which is unusual for a country this size and was a conscious act of regional policy. The Kotor maritime faculty carries the longest lineage of the lot: seamanship has been taught in the Boka since the school of Marko Martinović at Perast, who in 1698 instructed a group of young Russian noblemen sent by Peter the Great to learn navigation.
+locale: me
+---
+Medicina
+Stomatologija
+Farmacija
+Pravo
+Ekonomija
+Politikologija
+Psihologija
+Sociologija
+Pedagogija
+Crnogorski jezik i južnoslovenske književnosti
+Engleski jezik i književnost
+Istorija
+Filozofija
+Novinarstvo
+Arhitektura
+Građevinarstvo
+Mašinstvo
+Elektrotehnika
+Računarstvo i informacione tehnologije
+Pomorske nauke
+Turizam i hotelijerstvo
+Biotehnika
+Biologija
+Hemija
+Fizika
+Matematika
+Dramske umjetnosti
+Likovne umjetnosti

@@ -1,0 +1,14 @@
+---
+description: Retail and business credit product offered by Montenegrin banks. There is one thing missing from this list that dominates its equivalents elsewhere in the region, and its absence is the point: no currency clause. A Serbian, Croatian or Bosnian borrower of the last thirty years knows what an indexed loan is — a mortgage denominated in euro or Swiss francs and repaid in a local currency that could move against it — and whole waves of litigation followed. A Montenegrin loan is written in euro and repaid in euro, because the euro is simply the money, so the contract has no indexation and no conversion risk in it. Gotovinski kredit, the unsecured cash loan, is the commonest product on the list; dozvoljeni minus is the arranged current-account overdraft; and subvencionisani stambeni kredit belongs to state programmes that carry part of the interest on a first home.
+locale: me
+---
+Gotovinski kredit
+Stambeni kredit
+Subvencionisani stambeni kredit
+Auto kredit
+Potrošački kredit
+Kredit za refinansiranje
+Dozvoljeni minus
+Poljoprivredni kredit
+Investicioni kredit
+Kredit za likvidnost

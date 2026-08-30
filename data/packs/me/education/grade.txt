@@ -1,0 +1,16 @@
+---
+description: Mark on a Montenegrin report or transcript, and there are two scales here which a config must not mix. In school the scale runs from 1 to 5 with 5 the best: odličan, vrlo dobar, dobar, dovoljan, and nedovoljan, which is the fail. That is the reverse of several European systems where 1 is the top mark, so the number alone is ambiguous and the adjective is what a Montenegrin actually says — a pupil is odličan, not a five. At the Univerzitet Crne Gore the scale is different again, running from 6 to 10 with 10 the best and 5 recorded as a fail, so a student's transcript and their younger sibling's report card use overlapping digits that mean opposite things. Note also that the first grades of osnovna škola are marked descriptively rather than numerically, and that the word for a mark is ocjena, with the ijekavian je, not ocena.
+locale: me
+---
+odličan (5)
+vrlo dobar (4)
+dobar (3)
+dovoljan (2)
+nedovoljan (1)
+10
+9
+8
+7
+6
+položio
+nije položio

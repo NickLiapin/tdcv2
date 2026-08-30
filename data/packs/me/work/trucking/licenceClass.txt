@@ -1,0 +1,11 @@
+---
+description: Driving licence category for goods vehicles in Montenegro. The categories are the European ones, letter for letter, even though Montenegro is not a member of the European Union: the Zakon o bezbjednosti saobraćaja adopted the B, C1, C and E scheme so that a Montenegrin licence would be recognised across the borders its hauliers cross every day, and a driver who never leaves the country still carries a document written to that standard. The last entry is not a licence at all but the professional competence certificate, obtained separately by training and examination and renewed periodically, without which no one may drive commercially for hire — the licence says the driver can handle the vehicle, the certificate says the driver may be paid for it.
+locale: me
+---
+Kategorija B
+Kategorija B+E
+Kategorija C1
+Kategorija C1+E
+Kategorija C
+Kategorija C+E
+Sertifikat o stručnoj osposobljenosti vozača

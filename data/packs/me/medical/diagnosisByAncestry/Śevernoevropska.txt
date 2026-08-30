@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Northern European ancestry; a prevalence signal, not an exclusive one. Perzistencija laktaze sits on a list of diagnoses only by convention: being able to digest milk as an adult is the derived trait, carried by most Northern Europeans and by a minority of the world's population, and it is the mutation that made a dairy kitchen possible — including the Montenegrin one, where skorup, kajmak and sheep's cheese assume that adults drink milk. Note the ś in the file's own name: Montenegrin writes śever where Serbian and Croatian write sjever.
+locale: me
+---
+Cistična fibroza
+Nasljedna hemohromatoza
+Deficit alfa-1 antitripsina
+Fenilketonurija
+Celijakija
+Multipla skleroza
+Dijabetes melitus tip 1
+Dipitrenova kontraktura
+Bazocelularni karcinom
+Perzistencija laktaze

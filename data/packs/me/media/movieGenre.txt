@@ -1,0 +1,23 @@
+---
+description: Film genres in Montenegrin. The country has an odd relationship with one of them: Casino Royale is set at a grand hotel in Montenegro and the name did more for the country's image abroad than any tourism campaign, yet not a frame of it was shot here — the production filmed in the Czech Republic and Italy, and the railway carriage crossing the imagined Montenegrin landscape crosses Bohemia. The real cinema is older and smaller than the myth: the film festival at Herceg Novi has run since 1966 and is among the oldest in the region. Note that naučna fantastika and fantastika are separate entries, because Montenegrin separates science fiction from fantasy by the adjective alone and drops it when the context is obvious.
+locale: me
+---
+Akcija
+Avantura
+Komedija
+Drama
+Triler
+Horor
+Naučna fantastika
+Fantastika
+Kriminalistički
+Misterija
+Romantična komedija
+Ljubavni
+Ratni
+Istorijski
+Vestern
+Dokumentarni
+Animirani
+Mjuzikl
+Porodični
