@@ -1,0 +1,21 @@
+---
+description: Seniority in Sindhi. گريڊ comes last because it is how the public sector actually ranks people: Pakistan's Basic Pay Scale runs from BPS-1 to BPS-22, and a Sindh government servant is described by his grade before his title. وچولو درجو for mid-level is native Sindhi, built on وچ, the middle, and carrying the masculine -و ending that Sindhi gives its nouns and adjectives where Urdu uses -ا.
+locale: sd
+---
+انٽرن
+زير تربيت
+اپرنٽس
+جونيئر
+اسسٽنٽ
+ايسوسي ايٽ
+وچولو درجو
+سينيئر
+ليڊ
+انچارج
+سپروائيزر
+مئنيجر
+سينيئر مئنيجر
+ڊپٽي ڊائريڪٽر
+ڊائريڪٽر
+سربراهه
+گريڊ

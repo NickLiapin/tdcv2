@@ -1,0 +1,24 @@
+---
+description: Construction jobs in Sindhi. مستري is the skilled tradesman and راج مستري lays brick, but Sindhi keeps its own single word for the carpenter, واڍو, instead of building a compound on مستري as Urdu does. مزدور is the unskilled labourer taken on beside him by the day, and that pairing is how nearly every site in Karachi and in the district towns is staffed.
+locale: sd
+---
+سول انجنيئر
+سائيٽ انجنيئر
+آرڪيٽيڪٽ
+سرويئر
+ڪوانٽٽي سرويئر
+فورمين
+راج مستري
+واڍو
+لوهار
+ويلڊر
+پلمبر
+بجليءَ جو مستري
+پينٽر
+ٽائيل لڳائيندڙ
+شٽرنگ ڪاريگر
+ڪرين آپريٽر
+مزدور
+سيفٽي آفيسر
+پروجيڪٽ مئنيجر
+ٺيڪيدار

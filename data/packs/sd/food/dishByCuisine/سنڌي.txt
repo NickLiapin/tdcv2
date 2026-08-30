@@ -1,0 +1,16 @@
+---
+description: Sindhi dishes, in Sindhi. This is the file the rest of the pack is built around. سنڌي برياني is not a hotter biryani but a different one - potato, sour dried plum and yoghurt are in it and are the point of it. ڪوڪي is a thick onion-and-chilli griddle bread cooked slowly so that it survives a journey, and it is what a Sindhi household eats for breakfast with tea. سائي ڀاڄي is spinach, dill and lentils cooked down to a purée. پلو مڇي is the hilsa of the Indus, a fish so identified with the province that its season is news. سيل is a technique rather than a dish - onion, tomato and green chilli fried down until the oil separates, then the rice or fish cooked in it. تڙيل دال with دال پڪوان is the Sunday breakfast of Sindhi Hindu and Muslim households alike. سنڌي کير is rice boiled down in milk - and its first letter is worth a second look, because ک here is the aspirated kh and not the plain-k ڪ of ڪوڪي and ڪڙهي two lines above it: ڪير means who, کير means milk, and the two letters are as separate in this alphabet as b and p.
+locale: sd
+---
+سنڌي برياني
+سائي ڀاڄي
+ڪوڪي
+سنڌي ڪڙهي
+پلو مڇي
+دال پڪوان
+تڙيل دال
+لولو
+مٽن پلاو
+سيل مڇي
+بيسڻ جي ماني
+سنڌي کير

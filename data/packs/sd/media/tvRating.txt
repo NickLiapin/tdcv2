@@ -1,0 +1,13 @@
+---
+description: Content rating in Sindhi. Pakistan certifies cinema releases through the Central Board of Film Censors as U, universal, or A, adults only, with very little in between, while television is regulated separately by PEMRA, which enforces a code on the broadcaster rather than rating programmes one at a time. Neither ladder resembles the American G, PG, PG-13, R sequence, so these are the local labels with their Sindhi glosses rather than a translation of somebody else's system. The age lines are worth reading for the numerals: تيرهن, سورهن and ارڙهن are thirteen, sixteen and eighteen, and Sindhi, like Urdu and Hindi, has a separate irregular word for every number up to a hundred rather than building them from tens and units.
+locale: sd
+---
+يو - هر عمر لاءِ
+يو اي - والدين جي رهنمائي
+اي - رڳو بالغن لاءِ
+ايس - مخصوص ناظرين
+خانداني
+عمومي
+تيرهن سالن کان مٿي
+سورهن سالن کان مٿي
+ارڙهن سالن کان مٿي

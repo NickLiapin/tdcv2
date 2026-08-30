@@ -1,0 +1,14 @@
+---
+description: Pashtun dishes in Sindhi. This kitchen barely uses chilli - meat is salted, roasted and served with rice or bread - and چپلي ڪباب is the one loud exception, a flat minced-meat patty heavy with pomegranate seed and tomato. قهوو, green tea with cardamom, closes every meal.
+locale: sd
+---
+ڪابلي پلاو
+چپلي ڪباب
+دم پخت
+لانڊي
+شينواري تڪو
+ڪڙاهي گوشت
+مانٽو
+شولو
+پشاوري نان
+قهوو

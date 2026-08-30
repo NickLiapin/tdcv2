@@ -1,0 +1,19 @@
+---
+description: Directional qualifier appended to a Sindhi street, block or sector name. Sindhi names east and west from the sun rather than from a borrowed abstraction: اوڀر is built on اڀرڻ, to rise, and اولهه on لهڻ, to set, so the compass here describes what the sky does. اتر and ڏکڻ, north and south, are the native words as well, which is worth noting because a pack drafted from Urdu would carry شمالي and جنوبي instead and lose all four. مٿيون and هيٺيون, upper and lower, and نئون and پراڻو, new and old, are on this list because in Sindhi addressing they do a compass word's job: they are what separates two quarters carrying the same name.
+locale: sd
+---
+اتر
+ڏکڻ
+اوڀر
+اولهه
+اتر اوڀر
+اتر اولهه
+ڏکڻ اوڀر
+ڏکڻ اولهه
+مرڪزي
+مٿيون
+هيٺيون
+اندريون
+ٻاهريون
+نئون
+پراڻو

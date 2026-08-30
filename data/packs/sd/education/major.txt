@@ -1,0 +1,46 @@
+---
+description: Field of study in Sindhi, as a university prospectus names it. سنڌي ادب is a full degree subject rather than a language elective: the University of Sindh at Jamshoro, Shah Abdul Latif University at Khairpur and the Sindhi Language Authority all run departments of Sindhi literature and linguistics, and the discipline has a critical tradition of its own reaching back to the nineteenth century. زراعت and ويٽرنري سائنس are large faculties here rather than niche ones, because the provincial economy rests on irrigated agriculture and livestock — Sindh Agriculture University at Tandojam exists for precisely that, and its graduates go into an extension service rather than a laboratory.
+locale: sd
+---
+ڪمپيوٽر سائنس
+سافٽ ويئر انجنيئرنگ
+انفارميشن ٽيڪنالاجي
+مصنوعي ذهانت
+اليڪٽريڪل انجنيئرنگ
+ميڪينيڪل انجنيئرنگ
+سول انجنيئرنگ
+ڪيميڪل انجنيئرنگ
+اليڪٽرانڪس
+ٽيڪسٽائيل انجنيئرنگ
+آرڪيٽيڪچر
+طب
+ڏندن جي ڊاڪٽري
+فارمسي
+نرسنگ
+ويٽرنري سائنس
+حياتيات
+بايو ٽيڪنالاجي
+ڪيميا
+طبعيات
+رياضي
+شماريات
+ماحولياتي سائنس
+زراعت
+ارضيات
+معاشيات
+بزنس ايڊمنسٽريشن
+اڪائونٽنگ ۽ فنانس
+بينڪاري
+قانون
+بين الاقوامي تعلقات
+سياسيات
+نفسيات
+عمرانيات
+ابلاغ عامو
+صحافت
+تاريخ
+فلسفو
+سنڌي ادب
+انگريزي ادب
+اسلاميات
+فنون لطيفه

@@ -1,0 +1,44 @@
+---
+description: Playing positions in Sindhi, mixed across sports. Cricket positions dominate the list because cricket dominates the province, and several of them - سلپ, گلي, پوائنٽ, لانگ آن, ڊيپ فائن ليگ - name a patch of ground rather than a role in a team, a kind of position that no other sport here has. کيڏاري is the Sindhi word for a player, from کيڏڻ to play, which is why the twelfth man is ٻارهون کيڏاري rather than a borrowed English phrase.
+locale: sd
+---
+بلي باز
+اوپننگ بلي باز
+مڊل آرڊر بلي باز
+وڪيٽ ڪيپر
+آل رائونڊر
+تيز گيند باز
+اسپن گيند باز
+فيلڊر
+سلپ
+گلي
+پوائنٽ
+ڪور
+مڊ آن
+مڊ آف
+لانگ آن
+ڊيپ فائن ليگ
+ٻارهون کيڏاري
+ڪپتان
+گول ڪيپر
+دفاعي کيڏاري
+سينٽر بيڪ
+رائيٽ بيڪ
+ليفٽ بيڪ
+سويپر
+مڊفيلڊر
+دفاعي مڊفيلڊر
+حملي آور مڊفيلڊر
+ونگر
+فارورڊ
+سينٽر فارورڊ
+اسٽرائيڪر
+ريڊر
+اسٽاپر
+ڪارنر
+سيٽر
+لبيرو
+مڊل بلاڪر
+پوائنٽ گارڊ
+سينٽر
+هاف بيڪ

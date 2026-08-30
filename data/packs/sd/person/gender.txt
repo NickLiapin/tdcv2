@@ -1,0 +1,8 @@
+---
+description: Gender label in Sindhi. THREE, not two, and the third is a legal category rather than a courtesy: خواجه سرا is recognised as a third gender on Pakistan's identity card and passport after the Supreme Court's 2009 ruling and the Transgender Persons (Protection of Rights) Act 2018, and Sindh's own provincial assembly legislated on the community's rights ahead of the federal act. So a gender column for this locale offering only مرد and عورت cannot hold a value that appears on real state-issued documents. The fourth value, ٻيو, opens with ٻ, one of Sindhi's four implosive consonants - sounds made by drawing air inward rather than pushing it out, which Urdu does not have and has no letters for.
+locale: sd
+---
+مرد
+عورت
+خواجه سرا
+ٻيو

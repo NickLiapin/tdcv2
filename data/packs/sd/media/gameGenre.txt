@@ -1,0 +1,22 @@
+---
+description: Video game genre in Sindhi. Two entries use the native word rather than the English one. راند is the ordinary Sindhi word for a game or a sport, so it does the work "sports" does on an English list without borrowing anything. ڳجهارت is the riddle — a Sindhi verse form in which a hidden word has to be worked out from sung clues, performed competitively at gatherings and broadcast on Sindhi radio and television — and it is the natural name for a puzzle game rather than a translation of one.
+locale: sd
+---
+ايڪشن
+مهم جوئي
+ويڙهه
+نشانو بازي
+بقا
+خوف
+راند
+ريسنگ
+حڪمت عملي
+ڳجهارت
+ڪردار نگاري
+نقالي
+تعميراتي
+تعليمي
+موسيقي
+بورڊ گيم
+ڪارڊ گيم
+آن لائين ملٽي پليئر

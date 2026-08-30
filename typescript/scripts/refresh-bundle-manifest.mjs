@@ -162,6 +162,7 @@ const LANGUAGE_NAMES = {
   si: 'Sinhala',
   sk: 'Slovak',
   sl: 'Slovenian',
+  sd: 'Sindhi',
   sq: 'Albanian',
   sr: 'Serbian',
   sv: 'Swedish',

@@ -1,0 +1,34 @@
+---
+description: Household budget category in Sindhi. Four of these have no line in a European budget. زڪوات is the obligatory annual alms of two and a half per cent on savings, and in Pakistan it is not merely budgeted but collected: under the Zakat and Ushr Ordinance the banks deduct it at source from savings accounts on the first day of Ramadan, unless the holder has filed a declaration of exemption, which is why the amount is predictable enough to plan around. قرباني is the animal bought at Eid al-Adha, a single large yearly outlay that households save towards for months. ڏاج is the goods a family accumulates for a daughter's marriage, saved towards for years, and among the biggest commitments a household here ever plans for. ڪميٽي is a rotating savings pool among people who know one another: each member pays a fixed sum monthly and each in turn takes the whole pot, and for a great many households it does the work that a bank loan does elsewhere.
+locale: sd
+---
+گهر جو ڪرايو
+قسط
+راشن
+بجلي جو بل
+گئس جو بل
+پاڻي جو بل
+موبائيل ۽ انٽرنيٽ
+سفر
+پيٽرول
+تعليم
+في
+صحت
+دوا
+بيمو
+ڪپڙا
+گهرو سامان
+مرمت
+ملازم جي پگهار
+ٻاهر ماني
+تفريح
+زڪوات
+خيرات
+قرباني
+ڏاج
+تحفا
+بچت
+سيڙپڪاري
+قرض جي ادائگي
+ڪميٽي
+ٻيا

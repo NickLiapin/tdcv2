@@ -1,0 +1,24 @@
+---
+description: Cricket positions in Sindhi. Batting order, bowling type and fielding place are three different kinds of position and all three sit on the same list, which is exactly how a team sheet reads. ٻارهون کيڏاري, the twelfth man, may field but neither bat nor bowl. Karachi club cricket has fed the national side for seventy years - Hanif Mohammad and Javed Miandad both came up through it - and the province plays as Sindh in the domestic first-class season.
+locale: sd
+---
+اوپننگ بلي باز
+ون ڊائون بلي باز
+مڊل آرڊر بلي باز
+فنشر
+وڪيٽ ڪيپر
+بيٽنگ آل رائونڊر
+بائولنگ آل رائونڊر
+تيز گيند باز
+سوئنگ گيند باز
+آف اسپنر
+ليگ اسپنر
+کاٻي هٿ جو اسپنر
+سلپ فيلڊر
+پوائنٽ
+ڪور
+مڊ آن
+لانگ آن
+ڊيپ فائن ليگ
+ڪپتان
+ٻارهون کيڏاري

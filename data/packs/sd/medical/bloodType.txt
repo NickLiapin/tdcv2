@@ -1,0 +1,12 @@
+---
+description: ABO and Rh group. The notation is international and is printed in Latin on a Pakistani blood-group card, so it is not transliterated. Blood typing is not a filing formality in Sindh: the province supports one of the country's largest transfusion-dependent thalassaemia populations, children who need a unit every few weeks for life, and provincial transfusion rules require every donated unit to be screened for hepatitis B, hepatitis C, HIV, syphilis and malaria before it is released.
+locale: sd
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

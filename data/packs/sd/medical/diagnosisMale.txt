@@ -1,0 +1,34 @@
+---
+description: Medical diagnosis in Sindhi that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis, and male-skewed but not male-only conditions live in person/male/diagnosis. The Sindhi adjective مرداڻو runs through several entries and shows the language's own morphology at work: where Urdu builds مردانہ from Persian, Sindhi suffixes -اڻو with the retroflex ڻ.
+locale: sd
+---
+پروسٽيٽ جو وڌي وڃڻ
+پروسٽيٽ جي سوزش
+پروسٽيٽ جو سرطان
+خصيي جو سرطان
+خصيي جو مروڙ
+خصيي جي رڳن جي سوڄ
+خصيي ۾ پاڻي
+خصيي جي نالي جي سوزش
+خصيي جو نه لهڻ
+ختني جي چم جي تنگي
+حشفي جي سوزش
+مرداڻي ڪمزوري
+پيروني جي بيماري
+مرداڻو بانجهه پن
+مردن ۾ ڇاتي جو وڌڻ
+مرداڻي هارمون جي ڪمي
+مسلسل نعوظ جو مرض
+مني جي ٿيلهي
+مرداڻو گنج پڻو
+خصيي جي ٿيلهي جو هرنيا
+عضو تناسل جو سرطان
+خصيي جي سوزش
+پيشاب جي نالي جي تنگي
+ڪلائين فيلٽر سنڊروم
+مني ۾ توليدي خلين جو نه هجڻ
+جلد انزال
+ختني جي چم جو ڦاسي پوڻ
+پروسٽيٽ جو ڦوڙو
+مني جي ٿيلهين جي سوزش
+مني ۾ رت

@@ -1,0 +1,15 @@
+---
+description: Thai dishes in Sindhi. The cuisine's own name opens with ٿ, the single Sindhi letter for the aspirated t that Urdu needs two characters (تھ) to write - one small illustration of why Sindhi needs fifty-two letters where Urdu manages with fewer. ڪري is curry as a Thai dish, thin and coconut-based, and shares nothing but the English word with the ڪڙهي of a Sindhi kitchen. ٽام کا گائي takes ک rather than ڪ because the Thai kh really is aspirated, and Sindhi has a letter for exactly that.
+locale: sd
+---
+پيڊ ٿائي
+ٽام يم
+گرين ڪري
+ريڊ ڪري
+ٽام کا گائي
+سوم تم
+ٿائي فرائيڊ رائس
+ساتي
+لارب
+ماسامن ڪري
+مينگو اسٽڪي رائس

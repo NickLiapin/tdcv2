@@ -1,0 +1,40 @@
+---
+description: Bird names in Sindhi. ڪونج, the crane, carries more weight than any other bird here: in Sindhi folk verse it is the bird calling to a flock it has been separated from, answered by the woman waiting for an absent husband, and its arrival down the Indus flyway each winter is a season rather than a sighting. تلور is the houbara bustard, which winters in the Thar and in Sindh's rangelands and is the subject of a long-running national argument, because the hunting permits issued for it go to visiting Gulf dignitaries while the bird is listed as vulnerable. ڳجهه is the vulture, and the word now names a bird most Sindhi children have never seen: the Indus valley's vultures collapsed by more than ninety per cent from the 1990s after the veterinary drug diclofenac entered the cattle carcasses they fed on. چٻرو, the owl, is a bird of ill omen in village belief rather than a symbol of wisdom.
+locale: sd
+---
+ڪانءُ
+جهرڪي
+ڪبوتر
+ڳيرو
+قمري
+طوطو
+مينا
+بلبل
+ڪوئل
+هدهد
+چٻرو
+باز
+شاهين
+عقاب
+ڳجهه
+چيل
+شڪرو
+مرغابي
+ٻدڪ
+هنج
+ڪڪڙ
+ڪڪڙي
+بٽير
+تتر
+چڪور
+مور
+ڪونج
+ٻگهلو
+لق لق
+ابابيل
+ڪاٺ ڪٽو
+نيل ڪنٺ
+سرخاب
+شتر مرغ
+تلور
+پپيهو

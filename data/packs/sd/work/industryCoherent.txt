@@ -1,0 +1,14 @@
+---
+description: Industry with a coherent job list beside it — the parent of work/jobByIndustry, so every value here has a file of that exact name. The spread is Sindh's own: Karachi carries the finance, technology, retail and port work, while the rest of the province lives on canal-irrigated agriculture, the gas fields, and the mills that gin cotton, husk rice and crush sugarcane.
+locale: sd
+---
+ٽيڪنالاجي
+صحت
+ماليات
+تعميرات
+تعليم
+مهمان نوازي
+صنعت
+پرچون
+ٽرانسپورٽ
+قانون

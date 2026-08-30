@@ -1,0 +1,18 @@
+---
+description: Cargo type in Sindhi. Karachi Port and Port Qasim between them take almost all of Pakistan's seaborne trade, so containers leaving the city up the N-5 and the Indus Highway are this fleet's base load, while ڀاڻ, fertiliser, moves the other way into the canal-irrigated cotton and sugarcane belt. ٿڌو مال, refrigerated freight, is what carries the mangoes of Mirpurkhas and the dates of Khairpur, and ڍور, cattle, moves in numbers in the weeks before Eid.
+locale: sd
+---
+عام مال
+ڪنٽينر
+بلڪ
+اناج
+سيمينٽ
+ڀاڻ
+ڪوئلو
+تيل
+ڪيميڪل
+خطرناڪ مال
+ٿڌو مال
+ڍور
+گاڏيون
+تعميراتي سامان

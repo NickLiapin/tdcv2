@@ -1,0 +1,11 @@
+---
+description: Conditions with a higher prevalence in Pacific Islander ancestry, in Sindhi. ٻيٽ is the ordinary Sindhi word for an island, spelt with ٻ — one of the four implosive consonants ٻ ڄ ڏ ڳ that Sindhi added to the Arabic script and that no other language written in that script uses.
+locale: sd
+---
+ذيابيطس قسم دوم
+ٿولهه
+نقرس
+بلند فشار خون
+گردي جي دائمي بيماري
+گٺيا
+دل جي بيماري

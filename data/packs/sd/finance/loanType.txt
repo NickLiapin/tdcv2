@@ -1,0 +1,19 @@
+---
+description: Loan type in Sindhi. The first four are Islamic finance contracts and are not synonyms for the interest-bearing loans beneath them: مرابحو is a cost-plus sale in which the bank buys the asset itself and resells it to the customer at a disclosed markup, اجارو is a lease, مشارڪو a partnership sharing profit and loss, and قرض حسنه an interest-free benevolent loan repaid at par. سود, interest, is prohibited in Islamic law and has been contested in Pakistan's courts for decades — the Federal Shariat Court ruled against it again in 2022 and set a deadline for conversion — so a substantial and growing share of the market is deliberately structured to avoid it. A lending data set for this region that offers only conventional loan types is missing the products a great many borrowers will actually be sold.
+locale: sd
+---
+مرابحو
+اجارو
+مشارڪو
+قرض حسنه
+گهر جو قرض
+گاڏي جو قرض
+ذاتي قرض
+تعليمي قرض
+ڪاروباري قرض
+زرعي قرض
+مائيڪرو فنانس
+سون تي قرض
+اوور ڊرافٽ
+ڪريڊٽ لائين
+قرضن جي يڪجائي

@@ -1,0 +1,18 @@
+---
+description: Employment type in Sindhi. ڏهاڙي دار, the daily-wage labourer picked up at a morning labour stand with no contract of any kind, is the category a payroll dataset for Sindh cannot leave out; ٺيڪي وارو ملازم is labour hired through an intermediary, which is the normal arrangement on Karachi's industrial estates and at the ports. خانداني ڪاروبار covers unpaid work in a family business, which is how most rural women's labour is recorded when it is recorded at all. The implosive ڏ that opens ڏهاڙي is one of four such consonants that Sindhi has and its neighbours do not.
+locale: sd
+---
+مستقل
+عارضي
+ٺيڪي وارو ملازم
+ڏهاڙي دار
+جزوقتي
+ڪل وقتي
+فري لانس
+انٽرن شپ
+اپرنٽس شپ
+موسمي
+خانداني ڪاروبار
+ڊيلي ويجز
+ڪنٽريڪٽ
+آئوٽ سورس

@@ -1,0 +1,12 @@
+---
+description: Mining method in Sindhi. کليل کاڻ leads because the province's one large mine is an open pit: Thar Block II in Tharparkar strips overburden to reach lignite that is burned at mine-mouth power stations rather than railed away, since the coal carries too little energy per tonne to be worth hauling. Underground and shaft work in Sindh is small by comparison and is mostly limestone and gypsum cut for the cement plants. Both کاڻ, a mine, and کوٽائي, digging, take ک rather than ڪ — the two letters contrast in Sindhi, ڪ being plain k and ک an aspirated kh, so they are not interchangeable the way the shared shape suggests to a reader of Urdu.
+locale: sd
+---
+کليل کاڻ
+زير زمين کاڻ
+شافٽ کاڻ
+ڊرفٽ کاڻ
+پٽي کاڻ ڪني
+دريائي کاڻ ڪني
+بلاسٽنگ
+هٿ سان کوٽائي

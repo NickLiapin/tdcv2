@@ -1,0 +1,54 @@
+---
+description: Store department or product category in Sindhi. Read the list as the counters of a bazaar rather than the floor plan of a mall: Karachi buys from Empress Market, Bohri Bazaar and Juna Market far more than from any shopping centre, and these are the categories those rows of shops sort themselves into. ڪريانو is the neighbourhood dry-goods shop and covers the whole grocery trade. ڪپڙو (unstitched cloth) and درزي (tailoring) are departments separate from تيار ڪپڙا, because a shalwar kameez is normally bought as cloth and then made up. ڏاج جو سامان, the household goods assembled for a dowry, is a retail category with shops of its own, and ڍور ڍڳا belongs on a Sindh list because livestock is traded in the same weekly markets as everything else.
+locale: sd
+---
+ڪتاب
+فلمون
+موسيقي
+رانديون
+اليڪٽرانڪس
+ڪمپيوٽر
+موبائل فون
+گهرو سامان
+باغباني
+اوزار
+ڪريانو
+ميوا ۽ ڀاڄيون
+گوشت
+بيڪري
+مشروبات
+ڪپڙو
+تيار ڪپڙا
+درزي
+جتيون
+زيور
+گهڙيون
+عطر ۽ خوشبو
+ڪاسميٽڪس
+ٻارن جو سامان
+رانديڪا
+راند جو سامان
+دفتري سامان
+اسٽيشنري
+دوا
+طبي اوزار
+فرنيچر
+غاليچا ۽ دريون
+ٿانو
+بجلي جو سامان
+هارڊويئر
+رنگ ۽ پينٽ
+آٽو پارٽس
+موٽر سائيڪل
+سائيڪل
+زرعي سامان
+ڍور ڍڳا
+پاليل جانور
+ڏاج جو سامان
+تحفا
+سفري سامان
+ڪئميرا
+آڊيو
+ايئر ڪنڊيشنر
+فرج
+واشنگ مشين

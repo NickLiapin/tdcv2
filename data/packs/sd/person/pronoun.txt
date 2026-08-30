@@ -1,0 +1,11 @@
+---
+description: Pronouns in Sindhi, and this is one of the places where Sindhi and Urdu, so alike in script, come apart in grammar. Sindhi MARKS GENDER in the third person singular: هو is he and هوءَ is she, two different words, where Urdu has only وہ for both. So a Sindhi pronoun field CAN express the he/she distinction an English one is built around and an Urdu one cannot - a config that assumes the South Asian behaviour it learned from the ur pack will be wrong here. Respect is marked too, but on two levels rather than Urdu's three: تون is the familiar singular, used to friends, children and juniors, and توهان is the respectful form and also the plural, used to a stranger, an elder or anyone senior. Sindhi has no third intimate-or-contemptuous level answering to Urdu's تو. هي and هو also do duty as this and that, near and far, which is what they originally are.
+locale: sd
+---
+مان
+اسان
+تون
+توهان
+هي
+هو
+هوءَ

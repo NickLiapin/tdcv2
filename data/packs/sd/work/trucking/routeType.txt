@@ -1,0 +1,11 @@
+---
+description: Trucking route type in Sindhi. ڊگهو پنڌ, long haul, means one specific thing in this province: the run from Karachi's two ports up the N-5 and the Indus Highway into Punjab, which is the single busiest freight corridor in the country. پنڌ is the native Sindhi word for a journey made over ground.
+locale: sd
+---
+ڊگهو پنڌ
+بين الصوبائي
+علائقائي
+مقامي
+شهري
+بين الاقوامي
+آخري ميل

@@ -1,0 +1,46 @@
+---
+description: Technical noun in Sindhi. Sindhi has genuine native words in this field rather than only transliterations, and a working engineer uses both registers in the same sentence: نياپو is a message, ڪنجي a key, ڍير a stack, ذخيرو a store and خانو a field or cell, while سرور, ڊيٽابيس, فائل and پيڪيج are borrowed unchanged because nobody has coined anything better. The list mixes them in the proportion real technical Sindhi does, which is what a generated log line has to look like to be plausible.
+locale: sd
+---
+نظام
+پروگرام
+فائل
+فولڊر
+ڊيٽا
+ڊيٽابيس
+سرور
+ڪلائنٽ
+نيٽ ورڪ
+رابطو
+پروٽوڪول
+نياپو
+درخواست
+جواب
+خرابي
+تنبيهه
+رڪارڊ
+اندراج
+فهرست
+صف
+قطار
+ڍير
+خانو
+ڪنجي
+قدر
+متغير
+فعل
+طريقو
+ڪلاس
+شيءِ
+ماڊيول
+لائبريري
+پيڪيج
+رسائي
+اجازت
+سند
+ڳجهي ڪنجي
+يادداشت
+ذخيرو
+بينڊوڊٿ
+دير
+گنجائش

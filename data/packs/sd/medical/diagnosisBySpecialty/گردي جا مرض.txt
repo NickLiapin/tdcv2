@@ -1,0 +1,19 @@
+---
+description: Nephrology diagnoses in Sindhi. Kidney stones are markedly more common across this belt than in Europe — heat, chronic dehydration and diet — and diabetic kidney disease is the main road into dialysis here. Sindh is also unusual in how that dialysis is paid for: a large share of the province's patients are kept alive by charitable and government-subsidised units rather than by insurance, which is why ڊائيلاسز تي مريض is a recorded status in its own right.
+locale: sd
+---
+گردي جي دائمي بيماري
+گردي جي اوچتي ناڪامي
+گردي جي پٿري
+گردي جي سوزش
+ذيابيطس سبب گردي جي خرابي
+بلند فشار خون سبب گردي جي خرابي
+پيشاب جي نالي جو انفيڪشن
+مثاني جو انفيڪشن
+گردي ۾ پاڻي جو ڀرجڻ
+گردي جو سسٽ
+پيشاب ۾ پروٽين
+پيشاب ۾ رت
+ڊائيلاسز تي مريض
+گردي جي پيوندڪاري
+نمڪيات جو عدم توازن

@@ -1,0 +1,24 @@
+---
+description: Education jobs in Sindhi. Sindhi is the medium of instruction in most government schools in the province and is a compulsory subject through matriculation, so استاد here means a Sindhi-medium teacher by default rather than by exception. قاري and حافظ are teaching posts in their own right, since recitation and memorisation are taught inside ordinary schools as well as in madrasas; مهتمم heads a madrasa, and آيا is the woman who looks after the youngest children.
+locale: sd
+---
+استاد
+پرائمري ٽيچر
+سيڪنڊري ٽيچر
+ليڪچرار
+اسسٽنٽ پروفيسر
+ايسوسي ايٽ پروفيسر
+پروفيسر
+هيڊ ماستر
+پرنسپال
+وائيس چانسلر
+ناظم امتحانات
+لئبريرين
+ليب اسسٽنٽ
+راند جو استاد
+قاري
+حافظ
+مهتمم
+تعليمي مشير
+آيا
+چپڙاسي

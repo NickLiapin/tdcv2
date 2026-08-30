@@ -1,0 +1,58 @@
+---
+description: Adjectives a Sindhi product listing uses. اصلي (genuine) and امپورٽيڊ carry more selling weight in this market than any quality claim, because the counterfeit trade is large enough that authenticity is the headline feature rather than a footnote, and هٿ سان ٺهيل and ديسي are not downmarket words here. The core adjectives are Sindhi rather than borrowed - وڏو big, ننڍو small, ڳرو heavy, سهڻو beautiful - and they are spelt with the implosive and retroflex letters that give Sindhi the largest alphabet of any Arabic-derived script, fifty-two letters where Urdu has under forty.
+locale: sd
+---
+ننڍو
+وڏو
+وچولو
+هلڪو
+ڳرو
+مضبوط
+نازڪ
+سهڻو
+شاندار
+عمدو
+اعليٰ
+بهترين
+معياري
+پائيدار
+آرام ده
+ڪارآمد
+جديد
+قديم
+روايتي
+ديسي
+امپورٽيڊ
+اصلي
+نقلي
+هٿ سان ٺهيل
+مشين سان ٺهيل
+سستو
+مهانگو
+ڪفايتي
+پرتعيش
+سادو
+رنگين
+چمڪدار
+ملائم
+کهرو
+نرم
+سخت
+لچڪدار
+هلڪو ڦلڪو
+بي داغ
+خودڪار
+ٻيهر استعمال جوڳو
+ماحول دوست
+پاڻي کان محفوظ
+باهه کان محفوظ
+زنگ کان پاڪ
+بجلي سان هلندڙ
+بيٽري سان هلندڙ
+تهه ٿيندڙ
+کڻڻ جوڳو
+گهريلو
+تجارتي
+صنعتي
+ٻارن لاءِ
+عورتن لاءِ

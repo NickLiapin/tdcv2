@@ -1,0 +1,9 @@
+---
+description: Work shift in Sindhi. منجهند is midday, ٻٽي is double and ڦرندڙ is rotating — three native words that between them use the implosive ٻ and the aspirate ڦ, letters Sindhi has and Urdu does not, so even a shift roster tells the two scripts apart at a glance.
+locale: sd
+---
+صبح واري شفٽ
+منجهند واري شفٽ
+رات واري شفٽ
+ٻٽي شفٽ
+ڦرندڙ شفٽ

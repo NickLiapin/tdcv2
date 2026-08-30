@@ -1,0 +1,24 @@
+---
+description: Technology jobs in Sindhi. The sector is almost entirely Karachi's, and it hires in English — a Karachi software house prints Senior Software Engineer in Latin script on the offer letter. These are the Sindhi forms that appear in Sindhi-language job advertisements, in provincial recruitment rules and in speech, which is a different register from the one on the business card and worth keeping distinct from it.
+locale: sd
+---
+سافٽ ويئر انجنيئر
+سينيئر سافٽ ويئر انجنيئر
+ويب ڊولپر
+موبائل ائپ ڊولپر
+ڊيٽا انجنيئر
+ڊيٽا سائنسدان
+ڊيٽا تجزيه نگار
+نيٽ ورڪ انجنيئر
+سسٽم ايڊمنسٽريٽر
+ڊيٽابيس ايڊمنسٽريٽر
+معيار جاچ انجنيئر
+پروڊڪٽ مئنيجر
+پروجيڪٽ مئنيجر
+يو ايڪس ڊيزائنر
+گرافڪ ڊيزائنر
+سائبر سيڪيورٽي ماهر
+ڊيو آپس انجنيئر
+ٽيڪنيڪل سپورٽ
+آئي ٽي مئنيجر
+ڪال سينٽر نمائندو

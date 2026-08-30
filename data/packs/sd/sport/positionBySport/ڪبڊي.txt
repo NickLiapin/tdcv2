@@ -1,0 +1,14 @@
+---
+description: Kabaddi positions in Sindhi - a genuinely different set from every other sport here. A ريڊر crosses alone into the opposing half and has to get back before his breath runs out; the defenders are named for where they stand along the back line, ڪارنر at the two ends, ڪور beside them and اِن at the centre, and they work as a chain rather than as individuals. Kabaddi is played from village grounds up to national level in Pakistan and its position names have no English originals to borrow.
+locale: sd
+---
+ريڊر
+اسٽاپر
+ليفٽ ڪارنر
+رائيٽ ڪارنر
+ليفٽ ڪور
+رائيٽ ڪور
+ليفٽ اِن
+رائيٽ اِن
+آل رائونڊر
+ڪپتان

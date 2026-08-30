@@ -1,0 +1,157 @@
+---
+description: Product nouns in Sindhi - the things sold. The household block is worth reading as data rather than as vocabulary: کٽ the woven rope bed, رلي the patchwork quilt stitched from scraps that is the signature textile of a Sindhi house, ديڳ and ديڳڙي the two sizes of cooking pot, توو the flat griddle a roti is made on, مٽ the porous earthen jar that keeps water cold without electricity, لوٽو the water pot carried to the washroom, and سل ۽ لوڙهو the stone slab and roller that spices are ground on. None of them has an entry on a European product list. The file also shows the pair the Sindhi alphabet turns on: ڪتاب a book takes ڪ, plain k, while کٽ a bed takes ک, aspirated kh, and the two letters are not interchangeable.
+locale: sd
+---
+ڪرسي
+ميز
+صوفو
+بسترو
+کٽ
+پلنگ
+الماري
+دراز
+شيلف
+غاليچو
+دري
+تڏو
+وهاڻو
+گادي
+چادر
+رلي
+ڪمبل
+پردو
+آرسي
+گهڙي
+ديوار گهڙي
+ليمپ
+پکو
+ڇت جو پکو
+هيٽر
+ايئر ڪنڊيشنر
+فرج
+فريزر
+واشنگ مشين
+چلهه
+تنور
+اوون
+مائيڪرو ويو
+بلينڊر
+جوسر
+ڪيتلي
+ديڳ
+ديڳڙي
+هانڊي
+توو
+ڪڙاهي
+چمٽو
+ڪفگير
+ڇاڻي
+سل ۽ لوڙهو
+لوٽو
+صراحي
+مٽ
+گلاس
+پيالي
+پليٽ
+ٿالهي
+چمچو
+ڪانٽو
+ڇري
+ٿانو
+ٽري
+ٽفن
+بوتل
+فلاسڪ
+جڳ
+ڪمپيوٽر
+ليپ ٽاپ
+ٽيبليٽ
+موبائل فون
+ڪي بورڊ
+مائوس
+مانيٽر
+پرنٽر
+اسڪينر
+ڪئميرا
+هيڊ فون
+ايئر بڊ
+اسپيڪر
+ٽي وي
+ريڊيو
+چارجر
+پاور بئنڪ
+يو ايس بي
+هارڊ ڊسڪ
+رائوٽر
+بلب
+سوئچ
+تار
+بيٽري
+سائيڪل
+موٽر سائيڪل
+رڪشو
+گاڏي
+ٽائر
+هيلمٽ
+جتي
+چپل
+کسو
+سينڊل
+بوٽ
+بيگ
+بستو
+پرس
+بٽوو
+سوٽ ڪيس
+ڇٽي
+عينڪ
+ڪاري عينڪ
+ٽوپي
+بيلٽ
+گهڙي جو پٽو
+منڊي
+هار
+ڪنگڻ
+والي
+چوڙي
+قلم
+پينسل
+ڪاپي
+رجسٽر
+ڪتاب
+لفافو
+فائل
+گوند
+قينچي
+پيمانو
+ڪيلڪوليٽر
+صابڻ
+شيمپو
+تيل
+ڪريم
+عطر
+مسواڪ
+ٽوٿ پيسٽ
+برش
+ڦڻي
+ٽوال
+بال
+بلو
+وڪيٽ
+ريڪٽ
+ڄار
+رسي
+ٽوڪري
+بالٽي
+مگ
+ٻهاري
+پوچو
+ڦاوڙو
+ڪوڏر
+ڏاٽو
+هٿوڙو
+پيچ ڪش
+آري
+ميخ
+تالو
+ڪنجي

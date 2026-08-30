@@ -1,0 +1,18 @@
+---
+description: Result grade in Sindhi. Two systems are current at once and both appear on real documents. The letter grades are what a Sindh board prints on a marks sheet today. The divisions under them — فرسٽ ڊويزن, سيڪنڊ ڊويزن, ٿرڊ ڊويزن — are the older percentage bands, roughly sixty per cent and above, forty-five to fifty-nine, and thirty-three to forty-four, and they have not gone away: a job advertisement here asks for a second division, not a C. The pass mark of thirty-three per cent is what makes a third division possible at all. ضمني is the supplementary paper a candidate sits after failing one subject, which is a result state in its own right — the candidate has neither passed nor been failed — and has no European equivalent.
+locale: sd
+---
+اي پلس
+اي
+بي پلس
+بي
+سي
+ڊي
+اِي
+ايف
+فرسٽ ڊويزن
+سيڪنڊ ڊويزن
+ٿرڊ ڊويزن
+ڪامياب
+ناڪام
+ضمني

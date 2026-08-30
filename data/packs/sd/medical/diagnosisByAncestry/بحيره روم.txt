@@ -1,0 +1,12 @@
+---
+description: Conditions with a higher prevalence in Mediterranean ancestry, in Sindhi. Beta thalassaemia takes its older clinical name, Cooley's or Mediterranean anaemia, from this population, and the same variant belt runs east through the Middle East into Sindh — which is why the carrier state a Sindhi haematologist sees daily and the one described in a Greek textbook are the same disease.
+locale: sd
+---
+بيٽا ٿيليسيميا
+جي سڪس پي ڊي جي ڪمي
+بحيره روم جو وقفي وقفي سان تپ
+هيموڪروميٽوسس
+ڪڻڪ جي حساسيت
+ذيابيطس قسم دوم
+رت جي ڪمي
+ولسن جي بيماري

@@ -1,0 +1,32 @@
+---
+description: Technical verb in Sindhi, plain infinitive. The Sindhi infinitive ends in ڻ — ڳنڍڻ, پڙهڻ, لکڻ, روڪڻ — and that final ڻ is a retroflex n, made with the tongue curled back, which Arabic does not have and which Sindhi added a letter for. Where the base is an Arabic or English noun rather than a Sindhi verb root, Sindhi makes a verb of it with ڪرڻ, "to do", which is why roughly half this list is a two-word compound: تجزيو ڪرڻ is literally "to do analysis".
+locale: sd
+---
+ڳنڍڻ
+موڪلڻ
+وصول ڪرڻ
+پڙهڻ
+لکڻ
+محفوظ ڪرڻ
+بازياب ڪرڻ
+جانچڻ
+تجزيو ڪرڻ
+ترتيب ڏيڻ
+ڇاڻڻ
+بدلائڻ
+نقل ڪرڻ
+منتقل ڪرڻ
+مٽائڻ
+بحال ڪرڻ
+ڳجهو ڪرڻ
+کولڻ
+دٻائڻ
+ڦهلائڻ
+هلائڻ
+روڪڻ
+ڳڻڻ
+ماپڻ
+ملائڻ
+الڳ ڪرڻ
+ٺاهڻ
+ڀڃڻ

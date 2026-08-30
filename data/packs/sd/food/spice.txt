@@ -1,0 +1,34 @@
+---
+description: Spices in Sindhi. هيڊ, turmeric, is the Sindhi word and shares its root with the word for yellow, which is how the spice is usually identified in a Sindhi kitchen. Three of these are BLENDS and not single spices - گرم مصالحو, چاٽ مصالحو and برياني مصالحو - and their proportions differ from household to household, so a recipe field holding one of them is naming a mixture rather than an ingredient. الائچي and وڏي الائچي are green and black cardamom and cannot be swapped. ڪارو لوڻ is black salt, a sulphurous rock salt with a smell of its own, not salt that happens to be dark. ڏاڙهون داڻا, dried pomegranate seed, is a souring agent, and souring is what most distinguishes Sindhi cooking from its neighbours'.
+locale: sd
+---
+هيڊ
+ڳاڙهي مرچ
+ثابت ڳاڙهي مرچ
+ڌاڻا
+زيرو
+ڪاري مرچ
+الائچي
+وڏي الائچي
+لونگ
+دار چيني
+تيج پتو
+جائفل
+جاوتري
+سونف
+اجوائڻ
+ڪلونجي
+رائي
+سرنهن
+ميٿي داڻا
+هينگ
+امچور
+ڏاڙهون داڻا
+ڪارو لوڻ
+پوست داڻا
+تر
+ڪيوڙو
+زعفران
+گرم مصالحو
+چاٽ مصالحو
+برياني مصالحو

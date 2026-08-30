@@ -1,0 +1,16 @@
+---
+description: Mexican dishes in Sindhi. The final -o of Spanish lands neatly in Sindhi, which ends a great many of its own masculine nouns the same way - ٽاڪو and بوريٽو need no adjustment at all, while ايلوٽي and پوزولي take the -i ending Sindhi gives to words it has not quite decided about.
+locale: sd
+---
+ٽاڪو
+بوريٽو
+ڪيساڊيا
+ناچوز
+اينچيلاڊا
+فاهيٽا
+گواڪامولي
+سالسا
+چلي ڪون ڪارني
+چرچوس
+پوزولي
+ايلوٽي

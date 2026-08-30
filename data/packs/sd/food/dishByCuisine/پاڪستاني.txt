@@ -1,0 +1,18 @@
+---
+description: Pakistani dishes in Sindhi. نهاري, حليم and سري پايا are BREAKFAST here and not dinner - all three are simmered through the night and sold from first light, so a meal-time field that files them as evening food has the whole cuisine wrong. سڄي, salted meat roasted upright beside an open fire, reached the national list from Balochistan and Upper Sindh rather than from Punjab.
+locale: sd
+---
+برياني
+نهاري
+حليم
+سري پايا
+چڪن ڪڙاهي
+سيخ ڪباب
+چپلي ڪباب
+دال چانور
+آلو گوشت
+حلوو پوري
+نان چڻا
+سجي
+فالودو
+قلفي

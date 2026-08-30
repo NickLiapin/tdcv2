@@ -1,0 +1,22 @@
+---
+description: Retail jobs in Sindhi. ريڙهي وارو, the handcart vendor, and ڦيري وارو, the hawker who works door to door, are counted as retail employment because that is exactly what they are: a very large share of retail in Karachi and in the district towns happens on a cart or on foot rather than inside a shop, and a cart pitch is inherited or rented like any other place of business.
+locale: sd
+---
+دڪاندار
+سيلز مين
+سيلز گرل
+ڪيشيئر
+اسٽور مئنيجر
+شاپ اسسٽنٽ
+ويزوئل مرچنڊائيزر
+خريداري آفيسر
+اسٽاڪ ڪيپر
+اي ڪامرس مئنيجر
+ڪسٽمر سروس نمائندو
+ڊسٽريبيوٽر
+هول سيلر
+ريڙهي وارو
+ڦيري وارو
+ڪريانه فروش
+ميڊيڪل اسٽور اٽينڊنٽ
+برانڊ نمائندو

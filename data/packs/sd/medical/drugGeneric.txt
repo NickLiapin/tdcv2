@@ -1,0 +1,48 @@
+---
+description: Generic drug names in Sindhi script. Pakistan is a very large generic manufacturer and a prescription written in Sindh names the molecule far more often than a brand, so this is the form that actually reaches a pharmacy counter. Names are transliterated rather than translated, and the transliteration itself is diagnostic: English k becomes ڪ, English hard t becomes the retroflex ٽ and English d becomes ڊ, so the same molecule is spelt visibly differently from its Urdu rendering.
+locale: sd
+---
+پيراسيٽامول
+آئيبوپروفين
+ڊائيڪلوفينڪ
+ايسپرين
+ٽرامادول
+اموڪسي سلين
+ايزيٿرومائسين
+سيفڪسيم
+سيپروفلوڪساسين
+ميٽرونيڊازول
+ڊوڪسي سائيڪلين
+رفيمپيسين
+آئسونيازڊ
+پائرازينامائيڊ
+ايٿمبيوٽول
+آرٽيميٿر
+ڪلوروڪوئن
+ميٽفارمين
+گلائي بين ڪلامائيڊ
+انسولين
+املوڊپين
+لوسارٽن
+اٽينولول
+بائيسوپرولول
+اينالاپرل
+فروسيمائيڊ
+ايٽورواسٽيٽن
+ڪلوپيڊوگرل
+وارفرين
+اوميپرازول
+رينيٽيڊين
+ڊومپيريڊون
+اورل ري هائيڊريشن سالٽ
+سالبوٽامول
+بڊيسونائيڊ
+مونٽيلوڪاسٽ
+سيٽريزين
+لوريٽاڊين
+پريڊنيسولون
+هائيڊروڪورٽيزون
+ليوو ٿائيروڪسن
+فولڪ ايسڊ
+آئرن سلفيٽ
+وٽامن ڊي

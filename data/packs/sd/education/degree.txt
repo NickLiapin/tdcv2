@@ -1,0 +1,34 @@
+---
+description: Academic qualification in Sindhi. The ladder is not the European one. مئٽرڪ is the certificate for class ten and انٽرميڊيئٽ for class twelve, and neither is awarded by the school: both are set and marked by a Board of Intermediate and Secondary Education, of which Sindh has several — Karachi, Hyderabad, Sukkur, Larkana, Mirpurkhas and Shaheed Benazirabad — so a CV here names the board along with the year and the grade. The twelfth year splits by stream and the CV says which: ايف اي arts, ايف ايس سي pre-medical or pre-engineering, آءِ ڪام commerce. بي اي and بي ايس سي below were two-year pass degrees until Pakistan moved to the four-year بي ايس, so both shapes are in circulation and both turn up in real employment records. The last four lines are the madrasa ladder, which is a genuine parallel system rather than a religious footnote: درس نظامي is its curriculum, and the Higher Education Commission recognises شهادت العالميه as equivalent to a master's degree in Arabic and Islamic Studies.
+locale: sd
+---
+مئٽرڪ
+انٽرميڊيئٽ
+ايف اي
+ايف ايس سي
+آءِ ڪام
+ڊپلومو
+ڊي اي اي
+بي اي
+بي ايس سي
+بي ڪام
+بي ايس
+بي اي ڊي
+بي ٽيڪ
+ايل ايل بي
+ايم بي بي ايس
+بي ڊي ايس
+ڊي وي ايم
+فارم ڊي
+ايم اي
+ايم ايس سي
+ايم ڪام
+ايم بي اي
+ايم ايس
+ايم فل
+ايل ايل ايم
+پي ايڇ ڊي
+درس نظامي
+شهادت العالميه
+حافظ قرآن
+قاري

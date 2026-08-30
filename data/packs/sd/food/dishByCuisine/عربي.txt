@@ -1,0 +1,16 @@
+---
+description: Arab dishes in Sindhi. مندي and ڪبسو are the spiced rice-and-meat dishes of the Gulf, and they are on a Sindhi list because they came home with the people who cooked them: labour migration from Sindh to Saudi Arabia and the Emirates has run for fifty years and these are not exotic dishes here.
+locale: sd
+---
+مندي
+ڪبسو
+مچبوس
+شاورما
+فلافل
+حمص
+تبولو
+مقلوبو
+فتو
+ام علي
+ڪنافو
+بقلاوو

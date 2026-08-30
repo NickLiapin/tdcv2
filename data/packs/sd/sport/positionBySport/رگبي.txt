@@ -1,0 +1,14 @@
+---
+description: Rugby positions in Sindhi. Rugby is small, recent and largely school-based in Pakistan, so the position names are taken over from English unchanged and only the script is Sindhi - which makes this file a clean illustration of how the alphabet handles a borrowing, since every English k lands on ڪ and not on ک: hooker becomes هڪر and lock becomes لاڪ.
+locale: sd
+---
+پراپ
+هڪر
+لاڪ
+فلينڪر
+نمبر ايٽ
+اسڪرم هاف
+فلائي هاف
+سينٽر
+ونگ
+فل بيڪ

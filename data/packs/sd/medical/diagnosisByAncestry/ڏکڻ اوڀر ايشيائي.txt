@@ -1,0 +1,12 @@
+---
+description: Conditions with a higher prevalence in Southeast Asian ancestry, in Sindhi. Alpha thalassaemia and haemoglobin E map onto the historical range of falciparum malaria, because a carrier state that costs little and protects against malaria is exactly what selection keeps — the same bargain that fixed beta thalassaemia and G6PD deficiency in the Indus belt.
+locale: sd
+---
+الفا ٿيليسيميا
+هيموگلوبن اي
+جي سڪس پي ڊي جي ڪمي
+هيپاٽائٽس بي
+لڪٽوز جي عدم برداشت
+نڪ ۽ نڙي جو سرطان
+ذيابيطس قسم دوم
+مليريا جو خطرو

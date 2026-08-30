@@ -1,0 +1,39 @@
+---
+description: Technical adjective in Sindhi, for generating mock system chatter. Sindhi reaches for its own word wherever it has one rather than borrowing wholesale: ڳجهو is secret, ورهايل is distributed, ڳرو and هلڪو are heavy and light. Adjectives of this shape agree with the noun they qualify — the final و is masculine singular and becomes ي in the feminine — so a config that pastes one of these in front of an arbitrary noun will sometimes produce a mismatch that a Sindhi reader notices immediately.
+locale: sd
+---
+بنيادي
+ثانوي
+مرڪزي
+مقامي
+عالمي
+خودڪار
+دستي
+محفوظ
+غير محفوظ
+ڳجهو
+عوامي
+نجي
+متوازي
+ترتيب وار
+عارضي
+مستقل
+مجازي
+طبعي
+ڊجيٽل
+عددي
+منطقي
+تجزياتي
+متحرڪ
+جامد
+مربوط
+ورهايل
+فعال
+غير فعال
+معطل
+ناڪارو
+بهتر
+تيز
+سست
+ڳرو
+هلڪو

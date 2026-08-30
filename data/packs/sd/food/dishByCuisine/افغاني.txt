@@ -1,0 +1,14 @@
+---
+description: Afghan dishes in Sindhi. مانٽو and آشڪ are steamed dumplings, بولاني a stuffed flatbread, and قابلي پلاو - rice with carrot, raisin and lamb - is the national dish. Afghan cooking is close kin to Pashtun cooking and the two share several dishes outright.
+locale: sd
+---
+قابلي پلاو
+مانٽو
+آشڪ
+بولاني
+ڪوفتو چلو
+شور نخود
+نان افغاني
+فرني
+شير يخ
+ڪچالو

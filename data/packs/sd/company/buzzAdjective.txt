@@ -1,0 +1,59 @@
+---
+description: Business buzz adjective in Sindhi, for generating corporate catch-phrases. About a third are English loans, and the spelling of a loan is what identifies the language rather than the word: the t of اسمارٽ and the d of ڊجيٽل are written ٽ and ڊ, letters Sindhi uses and Urdu does not, so the same two borrowings come out visibly different in the two scripts. The rest is the Persianate formal register a Sindhi prospectus shares with Urdu — جامع, مربوط, مستعد — plus a few adjectives that belong to Sindhi alone: رٿابند is planned or laid out, ڀروسي جوڳو is worthy of trust, and پيشيوراڻو carries the Sindhi adjectival ending -اڻو, which Urdu has no form of.
+locale: sd
+---
+جامع
+مربوط
+مؤثر
+ڪارآمد
+قابل توسيع
+لچڪدار
+مضبوط
+پائيدار
+جديد
+اختراعي
+بي مثال
+منفرد
+معياري
+ڀروسي جوڳو
+شفاف
+محفوظ
+تيز رفتار
+بهتر
+ڪامياب
+ترقي پسند
+عالمي
+مقامي
+گراهڪ دوست
+صارف دوست
+ماحول دوست
+ذميوار
+پيشيوراڻو
+ماهر
+تجربيڪار
+مستعد
+چابڪدست
+فعال
+متحرڪ
+خودڪار
+هم آهنگ
+متوازن
+منظم
+رٿابند
+هدف تي مرڪوز
+نتيجي خيز
+قابل اعتماد
+بين الاقوامي
+ڊجيٽل
+اسمارٽ
+گلوبل
+هاءِ ٽيڪ
+آن لائن
+ڪلائوڊ بيسڊ
+ڊيٽا ڊرون
+اينڊ ٽو اينڊ
+فل اسٽيڪ
+ريئل ٽائيم
+ڪاسٽ ايفيڪٽو
+ڪسٽمر سينٽرڪ
+ويليو ايڊيڊ

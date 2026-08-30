@@ -1,0 +1,52 @@
+---
+description: Dishes as they are eaten and named in Sindh. The list leads with سنڌي برياني because it is the dish the province is known for and it is not simply a spicier biryani: it carries potato, sour dried plum (آلو بخارو) and yoghurt, which is why a Sindhi cook can tell one from a Karachi or a Bombay biryani at a glance. Four entries are found almost nowhere else. ڪوڪي is a thick griddle bread kneaded with onion, green chilli and pomegranate seed and cooked slowly so it keeps for a journey. سائي ڀاڄي is spinach, dill and lentils cooked to a purée and eaten with rice. پلو مڇي is the hilsa of the Indus, a bony, oily river fish whose season is watched the way a mango season is watched. تڙيل دال with دال پڪوان is the Sindhi breakfast: a crisp fried disc of flour and a bowl of split-pea dal. ٿڌل closes the list, a cold almond and poppy-seed drink of the hot months.
+locale: sd
+---
+سنڌي برياني
+پلاو
+يخني پلاو
+ڪابلي پلاو
+قورمو
+نهاري
+حليم
+سري پايا
+ڪڙاهي
+مٽن ڪڙاهي
+چڪن تڪو
+سيخ ڪباب
+شامي ڪباب
+چپلي ڪباب
+بهاري ڪباب
+ملائي بوٽي
+تندوري چڪن
+مرغ چڻا
+دال چانور
+دال گوشت
+آلو گوشت
+ڀينڊي گوشت
+ساگ گوشت
+سائي ڀاڄي
+سنڌي ڪڙهي
+پلو مڇي
+سيل مڇي
+تڙيل دال
+دال پڪوان
+چڻا چاٽ
+دهي ڀلا
+سموسو
+پڪوڙو
+ڪوڪي
+لولو
+پراٺو
+حلوو پوري
+نان چڻا
+زردو
+سيرو
+فرني
+گاجر جو حلوو
+سيويون
+گلاب جامن
+جليبي
+قلفي
+لسي
+ٿڌل

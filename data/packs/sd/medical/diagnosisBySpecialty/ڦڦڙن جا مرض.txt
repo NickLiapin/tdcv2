@@ -1,0 +1,19 @@
+---
+description: Pulmonology diagnoses in Sindhi. Karachi's air is among the most polluted of any megacity, with fine particulate readings routinely many times the WHO guideline, and the whole of this list surges when the winter inversion settles over the city. دز سبب ڦڦڙن جي بيماري and آلودگي سبب ساهه جي تڪليف are ordinary entries here, and biomass cooking smoke gives village women who have never smoked the chronic lung disease a Western clinic would look for only in smokers.
+locale: sd
+---
+دمو
+دائمي رڪاوٽي ڦڦڙن جي بيماري
+تپ دق
+نمونيا
+برونڪائٽس
+ڦڦڙن جو سرطان
+ساهه جي نالي جو انفيڪشن
+گهوگهاٽ ۽ ننڊ جي رڪاوٽ
+ڦڦڙن ۾ پاڻي
+ڦڦڙن جو ڳنڍو
+ڦڦڙن جي سختي
+سليڪوسس
+دز سبب ڦڦڙن جي بيماري
+آلودگي سبب ساهه جي تڪليف
+نڪ جي الرجي

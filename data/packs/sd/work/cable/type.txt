@@ -1,0 +1,13 @@
+---
+description: Cable type in Sindhi. Trade names stay in Latin because that is how they are printed on the drum and how the electrician reads them off it. بجليءَ جي تار shows the Sindhi genitive جي, which inflects to agree with the noun it governs.
+locale: sd
+---
+فائبر آپٽڪ
+ڪو ايڪسيل
+ٽوئسٽيڊ پيئر
+Cat5e
+Cat6
+Cat6a
+ايٿرنيٽ
+بجليءَ جي تار
+آرمرڊ ڪيبل

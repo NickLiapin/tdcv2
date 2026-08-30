@@ -1,0 +1,16 @@
+---
+description: Turkish dishes in Sindhi. The transliterations show Sindhi's borrowing habits clearly: plain k is written ڪ in ڪباب, اسڪندر, بورڪ and لوڪم, and the retroflex ٽ carries the hard t of foreign words such as فاهيٽا or هاٽ, which is why ٽ turns up so often in loanwords and so rarely in Arabic ones.
+locale: sd
+---
+دونر ڪباب
+اسڪندر ڪباب
+آدانا ڪباب
+لحم عجين
+پيدي
+منتي
+بورڪ
+دولمو
+بقلاوو
+لوڪم
+ترڪ قهوو
+عيران

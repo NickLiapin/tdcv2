@@ -1,0 +1,11 @@
+---
+description: Conditions with a higher prevalence in Eastern European ancestry, in Sindhi. Wilson disease and phenylketonuria are both recessive and both are found wherever populations have stayed relatively closed — which is why they appear here and, for a different reason, in the South Asian list as well.
+locale: sd
+---
+هيموڪروميٽوسس
+ڪڻڪ جي حساسيت
+ذيابيطس قسم اول
+ولسن جي بيماري
+فينائل ڪيٽون يوريا
+رت جي ڳنڍي جو رجحان
+هڏن جي ڪمزوري

@@ -1,0 +1,18 @@
+---
+description: Mughlai dishes in Sindhi - the court cooking of the Mughal kitchens, built on slow braising, cream, almond and saffron rather than on chilli heat. شب ديگ is cooked overnight in a sealed pot, and دم پخت names the sealing technique itself rather than any one dish: the lid is luted down with dough so nothing escapes.
+locale: sd
+---
+قورمو
+مرغ مسلم
+شامي ڪباب
+يخني پلاو
+ملائي بوٽي
+نرگسي ڪوفتو
+شب ديگ
+پسندا
+متنجن
+مغلائي پراٺو
+شاهي ٽڪرا
+زردو
+فرني
+سوهن حلوو

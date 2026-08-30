@@ -1,0 +1,13 @@
+---
+description: Balochi dishes in Sindhi. سجي is a whole lamb or chicken salted and roasted standing beside an open fire, and لانڊي is mutton cured by hanging it in the winter air until it dries - both are preservation and pit-cooking rather than curry. This kitchen uses almost no spice at all, which is the opposite of what a South Asian cuisine field usually assumes, and ڪاڪ is bread baked against a heated stone.
+locale: sd
+---
+سجي
+لانڊي
+خدي ڪباب
+دم پخت
+روش
+ڪاڪ
+بلوچي تڪو
+بلوچي پلاو
+ڏڌ پتي

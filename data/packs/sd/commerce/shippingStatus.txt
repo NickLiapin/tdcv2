@@ -1,0 +1,15 @@
+---
+description: Shipping status in Sindhi, as a courier tracking page shows it. مرڪز تي پهتو is the hub scan: parcels for interior Sindh are sorted in Karachi or Hyderabad before they move out to Sukkur, Larkana and Mirpurkhas, so a package can sit at that status for a day without moving. وصول ڪندڙ موجود ناهي matters more on a cash-on-delivery network than on any other, because a missed door means the money was not collected either and the whole order has to be attempted again.
+locale: sd
+---
+ليبل ٺهي ويو
+بڪنگ ٿي وئي
+رستي ۾
+مرڪز تي پهتو
+ترسيل لاءِ روانو
+پهچايو ويو
+وصول ڪندڙ موجود ناهي
+واپس موڪليو پيو وڃي
+دير ٿي
+پڪ اپ جو منتظر
+مسئلو درپيش

@@ -1,0 +1,15 @@
+---
+description: Iranian dishes in Sindhi. چلو ڪباب, grilled meat with rice, is Iran's national dish; قورمو سبزي and فسنجان are the two great stews, the second thickened with ground walnut and pomegranate molasses. The names are written the Sindhi way here, not the Persian way, even where the two languages share the letters.
+locale: sd
+---
+چلو ڪباب
+ڪباب ڪوبيدو
+قورمو سبزي
+فسنجان
+آبگوشت
+ته چين
+زرشڪ پلاو
+آش رشتو
+شير برنج
+فالودو شيرازي
+بستني

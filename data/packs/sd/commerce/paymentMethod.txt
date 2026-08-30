@@ -1,0 +1,19 @@
+---
+description: Payment method in Sindhi. ڪيش آن ڊليوري heads the list instead of closing it because cash on delivery is the default settlement for online purchases in Pakistan, not a fallback: the majority of parcels are paid for in notes at the door, which is why the courier doubles as a collection agent and why a failed delivery is also a failed payment. ايزي پئسا and جاز ڪيش are mobile-money wallets attached to a phone number rather than to a bank account, and for a great many people they are the only account they hold. راست is the State Bank's instant-payment rail, free between persons and now the ordinary way a bank customer pays a small merchant. هنڊي is the broker-to-broker network that settles on trust outside the banking system entirely.
+locale: sd
+---
+ڪيش آن ڊليوري
+نقد
+ايزي پئسا
+جاز ڪيش
+راست
+ڪريڊٽ ڪارڊ
+ڊيبٽ ڪارڊ
+بئنڪ ٽرانسفر
+آن لائن بئنڪنگ
+اي ٽي ايم ٽرانسفر
+ايجنٽ رستي
+چيڪ
+مني آرڊر
+هنڊي
+قسطن تي

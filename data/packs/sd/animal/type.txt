@@ -1,0 +1,48 @@
+---
+description: Animals in Sindhi, general list. ٻلهڻ is the one that exists nowhere else on earth: the Indus river dolphin, functionally blind and navigating muddy water by sonar, found in this river and no other, with a few thousand left in reaches the barrages have cut into separate segments it cannot cross. Several pairs mark distinctions Sindhi draws and English does not. ڳئون is a cow and مينهن a water buffalo — different animals giving different milk, never one word here, and the buffalo is the backbone of Sindhi dairy rather than an exotic. ٻڪري is a goat and رڍ a sheep. شينهن on its own means the tiger, and the lion is ببر شينهن, so rendering "lion" as شينهن quietly renames the animal. اٺ carries people and freight across the Thar and is milked as well. مارخور, the screw-horned wild goat, is Pakistan's national animal, and اڙيال the wild sheep of the Kirthar range along Sindh's western edge.
+locale: sd
+---
+ڪتو
+ٻلي
+گهوڙو
+گڏهه
+خچر
+اٺ
+ڳئون
+مينهن
+ڏاند
+ڍڳو
+ٻڪري
+ٻڪر
+رڍ
+دنبو
+سوئر
+هاٿي
+شينهن
+ببر شينهن
+چيتو
+ريڇ
+بگهڙ
+لومڙ
+گدڙ
+هرڻ
+سهو
+باندر
+لنگور
+ڪوئو
+نوريئڙو
+چمڙو
+نانگ
+مانگر مڇ
+ڇپڪلي
+ڪڇون
+ڏيڏر
+ٻلهڻ
+اڙيال
+وهيل
+زرافو
+زيبرا
+گينڊو
+دريائي گهوڙو
+نيل ڳئون
+مارخور

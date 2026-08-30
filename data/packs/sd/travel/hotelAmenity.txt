@@ -1,0 +1,34 @@
+---
+description: Hotel amenities in Sindhi. قبلا نما, a marker giving the direction of Mecca, and جانماز, a prayer mat, are standard fittings in a Pakistani hotel room and are advertised as amenities in the listing; حلال کاڌو and a مسجد on the premises are the same kind of entry. جنريٽر بيڪ اپ is on the list because a hotel here advertises that the power will not go out — scheduled load-shedding is a normal operating condition rather than a fault, and in interior Sindh in summer it can run for many hours a day, which makes a generator the difference between a working air conditioner and none. چوويهه ڪلاڪ استقباليو, a round-the-clock front desk, matters for the same practical reason: long-distance buses arrive at three in the morning.
+locale: sd
+---
+وائي فائي
+ايئر ڪنڊيشنر
+گرم پاڻي
+جنريٽر بيڪ اپ
+لفٽ
+پارڪنگ
+ناشتو
+حلال کاڌو
+ريسٽورنٽ
+روم سروس
+لانڊري
+قبلا نما
+جانماز
+مسجد
+جم
+سوئمنگ پول
+اسپا
+ڪانفرنس روم
+شادي هال
+ايئرپورٽ ٽرانسفر
+ٽيڪسي سروس
+سيڪيورٽي
+سي سي ٽي وي
+فيملي روم
+ٻارن جي راند جي جاءِ
+معذورن لاءِ رسائي
+ٽي وي
+فرج
+چانهه ڪافي
+چوويهه ڪلاڪ استقباليو

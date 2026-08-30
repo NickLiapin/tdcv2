@@ -1,0 +1,22 @@
+---
+description: Finance jobs in Sindhi. This work sits in one place: the State Bank of Pakistan, the Pakistan Stock Exchange and the head offices of nearly every commercial bank stand within a few streets of each other on I. I. Chundrigar Road in Karachi. شريعه ايڊوائيزر and تڪافل ايجنٽ are regulated posts, since an Islamic bank must keep a Shariah board that rules on how a product is structured and takaful is sold only through its own licensed agents. سيڙپڪاري is the native Sindhi word for investment.
+locale: sd
+---
+اڪائونٽنٽ
+چارٽرڊ اڪائونٽنٽ
+آڊيٽر
+مالياتي تجزيه نگار
+بئنڪ مئنيجر
+بئنڪ ٽيلر
+ڪيشيئر
+قرض آفيسر
+سيڙپڪاري مشير
+شريعه ايڊوائيزر
+تڪافل ايجنٽ
+بيمه ايجنٽ
+ٽيڪس ڪنسلٽنٽ
+خزانچي
+بجيٽ آفيسر
+ريڪوري آفيسر
+مائيڪرو فنانس آفيسر
+ڪريڊٽ تجزيه نگار

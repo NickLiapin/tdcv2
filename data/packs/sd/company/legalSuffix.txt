@@ -1,0 +1,45 @@
+---
+description: The element that closes a company name in Sindhi. The first three are statutory: a firm incorporated in Pakistan is a پرائيويٽ لميٽيڊ or a لميٽيڊ, and a ڪوآپريٽو سوسائٽي is the third registered form, used by farming and housing societies. Sindhi letterheads borrow all three from English rather than translating them. Everything after that is a trade name rather than a legal form, and several belong to this business culture in particular: برادران is brothers and is the commonest family-firm ending in the market, اينڊ سنز is its English-borrowed twin, واپاري and ٽريڊرز are the merchant endings a shop sign carries, انٽرپرائزز is the small-trader ending, and ڪارخانو is a workshop. A config that joins a namePart to one of these should not add a European suffix as well.
+locale: sd
+---
+پرائيويٽ لميٽيڊ
+لميٽيڊ
+ڪوآپريٽو سوسائٽي
+ڪارپوريشن
+ڪمپني
+اينڊ ڪمپني
+برادران
+اينڊ سنز
+اينڊ برادرس
+ايسوسي ايٽس
+پارٽنرز
+ٽريڊرز
+واپاري
+انٽرپرائزز
+گروپ
+هولڊنگز
+انڊسٽريز
+مينوفيڪچررز
+ملز
+ڪارخانو
+ورڪس
+ايجنسيز
+سروسز
+خدمتون
+سولوشنز
+سسٽمز
+ٽيڪنالاجيز
+ليبز
+وينچرز
+ڪنسلٽنٽس
+مشاورتي
+بلڊرز
+ڊولپرز
+امپيڪس
+امپورٽرز
+ايڪسپورٽرز
+انٽرنيشنل
+عالمي
+اسٽور
+ايمپوريم
+ڪارپوريٽ

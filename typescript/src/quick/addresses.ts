@@ -4,7 +4,7 @@
  * Every bundled address, as a property. Regenerate after changing the packs:
  * `npm run quick:types`. `npm run check` fails if the two disagree.
  *
- * 30803 addresses.
+ * 31025 addresses.
  */
 
 import type { QuickAddress, QuickParams } from './types.js';
@@ -7185,6 +7185,7 @@ export type QuickAddressTree = {
       readonly 'צרפתית': QuickAddress;
       readonly 'תאילנדית': QuickAddress;
       readonly 'תימנית': QuickAddress;
+      readonly 'آمريڪي': QuickAddress;
       readonly 'آمریکایی': QuickAddress;
       readonly 'ئامېرىكا': QuickAddress;
       readonly 'ئىتالىيان': QuickAddress;
@@ -7196,7 +7197,9 @@ export type QuickAddressTree = {
       readonly 'ئەمریکی': QuickAddress;
       readonly 'ارمنی': QuickAddress;
       readonly 'اسپانیایی': QuickAddress;
+      readonly 'اطالوي': QuickAddress;
       readonly 'اطالوی': QuickAddress;
+      readonly 'افغاني': QuickAddress;
       readonly 'افغانی': QuickAddress;
       readonly 'الأمريكية': QuickAddress;
       readonly 'الإسبانية': QuickAddress;
@@ -7215,21 +7218,27 @@ export type QuickAddressTree = {
       readonly 'اليابانية': QuickAddress;
       readonly 'اليونانية': QuickAddress;
       readonly 'امریکی': QuickAddress;
+      readonly 'ايراني': QuickAddress;
       readonly 'ایتالیایی': QuickAddress;
       readonly 'ایرانی': QuickAddress;
+      readonly 'بلوچي': QuickAddress;
       readonly 'بلوچی': QuickAddress;
       readonly 'تايلاند': QuickAddress;
       readonly 'تایلندی': QuickAddress;
       readonly 'تایلەندی': QuickAddress;
       readonly 'ترکی': QuickAddress;
+      readonly 'ترڪي': QuickAddress;
       readonly 'تورکی': QuickAddress;
       readonly 'تھائی': QuickAddress;
       readonly 'تۈرك': QuickAddress;
+      readonly 'جاپاني': QuickAddress;
       readonly 'جاپانی': QuickAddress;
       readonly 'خۇي': QuickAddress;
       readonly 'خەنزۇ': QuickAddress;
       readonly 'رۇس': QuickAddress;
       readonly 'سندھی': QuickAddress;
+      readonly 'سنڌي': QuickAddress;
+      readonly 'عربي': QuickAddress;
       readonly 'عربی': QuickAddress;
       readonly 'عەرەبی': QuickAddress;
       readonly 'فارسی': QuickAddress;
@@ -7240,10 +7249,13 @@ export type QuickAddressTree = {
       readonly 'كورېيە': QuickAddress;
       readonly 'لبنانی': QuickAddress;
       readonly 'لوبنانی': QuickAddress;
+      readonly 'مغلائي': QuickAddress;
       readonly 'مغلائی': QuickAddress;
+      readonly 'ميڪسيڪن': QuickAddress;
       readonly 'مکزیکی': QuickAddress;
       readonly 'میکسیکن': QuickAddress;
       readonly 'مەکسیکی': QuickAddress;
+      readonly 'هندستاني': QuickAddress;
       readonly 'هندی': QuickAddress;
       readonly 'هیندی': QuickAddress;
       readonly 'ویتنامی': QuickAddress;
@@ -7251,8 +7263,12 @@ export type QuickAddressTree = {
       readonly 'پارس': QuickAddress;
       readonly 'پاكىستان': QuickAddress;
       readonly 'پاکستانی': QuickAddress;
+      readonly 'پاڪستاني': QuickAddress;
       readonly 'پشتون': QuickAddress;
+      readonly 'پنجابي': QuickAddress;
       readonly 'پنجابی': QuickAddress;
+      readonly 'ٿائي': QuickAddress;
+      readonly 'چيني': QuickAddress;
       readonly 'چینی': QuickAddress;
       readonly 'ژاپنی': QuickAddress;
       readonly 'ژاپۆنی': QuickAddress;
@@ -41569,6 +41585,320 @@ export type QuickAddressTree = {
         readonly writingSystem: QuickAddress;
       };
     };
+    readonly sd: {
+      readonly address: {
+        readonly buildingType: QuickAddress;
+        readonly cityPrefix: QuickAddress;
+        readonly citySuffix: QuickAddress;
+        readonly direction: QuickAddress;
+        readonly streetName: QuickAddress;
+        readonly streetSuffix: QuickAddress;
+        readonly unitDesignator: QuickAddress;
+      };
+      readonly airline: {
+        readonly aircraftType: QuickAddress;
+        readonly name: QuickAddress;
+      };
+      readonly animal: {
+        readonly bird: QuickAddress;
+        readonly cat: QuickAddress;
+        readonly dog: QuickAddress;
+        readonly fish: QuickAddress;
+        readonly horse: QuickAddress;
+        readonly insect: QuickAddress;
+        readonly type: QuickAddress;
+      };
+      readonly book: {
+        readonly format: QuickAddress;
+        readonly genre: QuickAddress;
+      };
+      readonly clothing: {
+        readonly shoeSize: QuickAddress;
+        readonly size: QuickAddress;
+        readonly type: QuickAddress;
+      };
+      readonly color: {
+        readonly name: QuickAddress;
+      };
+      readonly commerce: {
+        readonly carrier: QuickAddress;
+        readonly department: QuickAddress;
+        readonly orderStatus: QuickAddress;
+        readonly paymentMethod: QuickAddress;
+        readonly paymentStatus: QuickAddress;
+        readonly productAdjective: QuickAddress;
+        readonly productColor: QuickAddress;
+        readonly productMaterial: QuickAddress;
+        readonly productNoun: QuickAddress;
+        readonly returnReason: QuickAddress;
+        readonly reviewTitle: QuickAddress;
+        readonly shippingStatus: QuickAddress;
+        readonly unitOfMeasure: QuickAddress;
+      };
+      readonly company: {
+        readonly buzzAdjective: QuickAddress;
+        readonly buzzNoun: QuickAddress;
+        readonly buzzVerb: QuickAddress;
+        readonly industry: QuickAddress;
+        readonly legalSuffix: QuickAddress;
+        readonly namePart: QuickAddress;
+      };
+      readonly date: {
+        readonly month: QuickAddress;
+        readonly monthAbbr: QuickAddress;
+        readonly quarter: QuickAddress;
+        readonly season: QuickAddress;
+        readonly timeOfDay: QuickAddress;
+        readonly weekday: QuickAddress;
+        readonly weekdayAbbr: QuickAddress;
+      };
+      readonly education: {
+        readonly courseSubject: QuickAddress;
+        readonly degree: QuickAddress;
+        readonly grade: QuickAddress;
+        readonly major: QuickAddress;
+      };
+      readonly event: {
+        readonly type: QuickAddress;
+        readonly venueType: QuickAddress;
+      };
+      readonly finance: {
+        readonly budgetCategory: QuickAddress;
+        readonly creditScoreBand: QuickAddress;
+        readonly insuranceType: QuickAddress;
+        readonly loanType: QuickAddress;
+      };
+      readonly food: {
+        readonly cuisine: QuickAddress;
+        readonly dish: QuickAddress;
+        readonly dishByCuisine: {
+          readonly 'آمريڪي': QuickAddress;
+          readonly 'اطالوي': QuickAddress;
+          readonly 'افغاني': QuickAddress;
+          readonly 'ايراني': QuickAddress;
+          readonly 'بلوچي': QuickAddress;
+          readonly 'ترڪي': QuickAddress;
+          readonly 'جاپاني': QuickAddress;
+          readonly 'سنڌي': QuickAddress;
+          readonly 'عربي': QuickAddress;
+          readonly 'مغلائي': QuickAddress;
+          readonly 'ميڪسيڪن': QuickAddress;
+          readonly 'هندستاني': QuickAddress;
+          readonly 'پاڪستاني': QuickAddress;
+          readonly 'پشتون': QuickAddress;
+          readonly 'پنجابي': QuickAddress;
+          readonly 'ٿائي': QuickAddress;
+          readonly 'چيني': QuickAddress;
+        };
+        readonly fruit: QuickAddress;
+        readonly ingredient: QuickAddress;
+        readonly spice: QuickAddress;
+        readonly vegetable: QuickAddress;
+      };
+      readonly gaming: {
+        readonly characterClass: QuickAddress;
+        readonly platform: QuickAddress;
+        readonly rank: QuickAddress;
+      };
+      readonly government: {
+        readonly agency: QuickAddress;
+        readonly documentType: QuickAddress;
+      };
+      readonly hacker: {
+        readonly abbreviation: QuickAddress;
+        readonly adjective: QuickAddress;
+        readonly ingverb: QuickAddress;
+        readonly noun: QuickAddress;
+        readonly verb: QuickAddress;
+      };
+      readonly legal: {
+        readonly caseType: QuickAddress;
+        readonly court: QuickAddress;
+        readonly term: QuickAddress;
+      };
+      readonly location: {
+        readonly country: QuickAddress;
+      };
+      readonly media: {
+        readonly gameGenre: QuickAddress;
+        readonly movieGenre: QuickAddress;
+        readonly streamingPlatform: QuickAddress;
+        readonly tvRating: QuickAddress;
+      };
+      readonly medical: {
+        readonly allergy: QuickAddress;
+        readonly ancestry: QuickAddress;
+        readonly bloodType: QuickAddress;
+        readonly diagnosis: QuickAddress;
+        readonly diagnosisByAncestry: {
+          readonly 'اتر آفريقي': QuickAddress;
+          readonly 'اتر يورپي': QuickAddress;
+          readonly 'اشڪنازي يهودي': QuickAddress;
+          readonly 'اوڀر ايشيائي': QuickAddress;
+          readonly 'اوڀر يورپي': QuickAddress;
+          readonly 'بحرالڪاهل جا ٻيٽ': QuickAddress;
+          readonly 'بحيره روم': QuickAddress;
+          readonly 'صحارا کان ڏکڻ آفريقي': QuickAddress;
+          readonly 'مقامي آمريڪي': QuickAddress;
+          readonly 'وچ اوڀر': QuickAddress;
+          readonly 'ڏکڻ اوڀر ايشيائي': QuickAddress;
+          readonly 'ڏکڻ ايشيائي': QuickAddress;
+        };
+        readonly diagnosisBySpecialty: {
+          readonly 'اعصابي امراض': QuickAddress;
+          readonly 'دل جا مرض': QuickAddress;
+          readonly 'سرطان': QuickAddress;
+          readonly 'غدود ۽ ذيابيطس': QuickAddress;
+          readonly 'معدو ۽ جگر': QuickAddress;
+          readonly 'نفسيات': QuickAddress;
+          readonly 'هڏا ۽ جوڙ': QuickAddress;
+          readonly 'چمڙي جا مرض': QuickAddress;
+          readonly 'ڦڦڙن جا مرض': QuickAddress;
+          readonly 'گردي جا مرض': QuickAddress;
+        };
+        readonly diagnosisFemale: QuickAddress;
+        readonly diagnosisMale: QuickAddress;
+        readonly drugGeneric: QuickAddress;
+        readonly specialty: QuickAddress;
+        readonly specialtyCoherent: QuickAddress;
+        readonly symptom: QuickAddress;
+      };
+      readonly music: {
+        readonly genre: QuickAddress;
+        readonly instrument: QuickAddress;
+      };
+      readonly nature: {
+        readonly flower: QuickAddress;
+        readonly gemstone: QuickAddress;
+        readonly metal: QuickAddress;
+        readonly tree: QuickAddress;
+      };
+      readonly person: {
+        readonly female: {
+          readonly diagnosis: QuickAddress;
+          readonly firstName: QuickAddress;
+        };
+        readonly gender: QuickAddress;
+        readonly hobby: QuickAddress;
+        readonly householdSize: QuickAddress;
+        readonly incomeBracket: QuickAddress;
+        readonly language: QuickAddress;
+        readonly lastName: QuickAddress;
+        readonly male: {
+          readonly diagnosis: QuickAddress;
+          readonly firstName: QuickAddress;
+        };
+        readonly maritalStatus: QuickAddress;
+        readonly nationality: QuickAddress;
+        readonly nickname: QuickAddress;
+        readonly prefix: QuickAddress;
+        readonly pronoun: QuickAddress;
+        readonly suffix: QuickAddress;
+        readonly zodiac: QuickAddress;
+      };
+      readonly realestate: {
+        readonly amenity: QuickAddress;
+        readonly listingStatus: QuickAddress;
+        readonly propertyType: QuickAddress;
+        readonly roomType: QuickAddress;
+      };
+      readonly social: {
+        readonly contentType: QuickAddress;
+        readonly hashtag: QuickAddress;
+        readonly platform: QuickAddress;
+        readonly reaction: QuickAddress;
+      };
+      readonly sport: {
+        readonly name: QuickAddress;
+        readonly position: QuickAddress;
+        readonly positionBySport: {
+          readonly 'باسڪيٽ بال': QuickAddress;
+          readonly 'رگبي': QuickAddress;
+          readonly 'فٽبال': QuickAddress;
+          readonly 'هاڪي': QuickAddress;
+          readonly 'هينڊ بال': QuickAddress;
+          readonly 'والي بال': QuickAddress;
+          readonly 'ڪبڊي': QuickAddress;
+          readonly 'ڪرڪٽ': QuickAddress;
+        };
+        readonly sportCoherent: QuickAddress;
+      };
+      readonly telecom: {
+        readonly carrier: QuickAddress;
+        readonly planType: QuickAddress;
+      };
+      readonly text: {
+        readonly paragraph: QuickAddress;
+        readonly sentence: QuickAddress;
+        readonly word: QuickAddress;
+      };
+      readonly travel: {
+        readonly bookingStatus: QuickAddress;
+        readonly hotelAmenity: QuickAddress;
+        readonly roomType: QuickAddress;
+        readonly starRating: QuickAddress;
+        readonly tripType: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly bicycle: QuickAddress;
+        readonly fuel: QuickAddress;
+        readonly type: QuickAddress;
+      };
+      readonly weather: {
+        readonly condition: QuickAddress;
+        readonly phenomenon: QuickAddress;
+      };
+      readonly word: {
+        readonly adjective: QuickAddress;
+        readonly adverb: QuickAddress;
+        readonly noun: QuickAddress;
+        readonly verb: QuickAddress;
+      };
+      readonly work: {
+        readonly cable: {
+          readonly conduit: QuickAddress;
+          readonly type: QuickAddress;
+        };
+        readonly department: QuickAddress;
+        readonly employmentType: QuickAddress;
+        readonly industryCoherent: QuickAddress;
+        readonly jobByIndustry: {
+          readonly 'تعليم': QuickAddress;
+          readonly 'تعميرات': QuickAddress;
+          readonly 'صحت': QuickAddress;
+          readonly 'صنعت': QuickAddress;
+          readonly 'قانون': QuickAddress;
+          readonly 'ماليات': QuickAddress;
+          readonly 'مهمان نوازي': QuickAddress;
+          readonly 'ٽرانسپورٽ': QuickAddress;
+          readonly 'ٽيڪنالاجي': QuickAddress;
+          readonly 'پرچون': QuickAddress;
+        };
+        readonly jobTitle: QuickAddress;
+        readonly mining: {
+          readonly method: QuickAddress;
+          readonly mineral: QuickAddress;
+          readonly shift: QuickAddress;
+        };
+        readonly seniority: QuickAddress;
+        readonly skill: QuickAddress;
+        readonly trucking: {
+          readonly cargoType: QuickAddress;
+          readonly licenceClass: QuickAddress;
+          readonly routeType: QuickAddress;
+        };
+      };
+      readonly workplace: {
+        readonly benefit: QuickAddress;
+        readonly interviewStage: QuickAddress;
+        readonly leaveType: QuickAddress;
+        readonly meetingType: QuickAddress;
+      };
+      readonly world: {
+        readonly religion: QuickAddress;
+        readonly writingSystem: QuickAddress;
+      };
+    };
     readonly si: {
       readonly address: {
         readonly buildingType: QuickAddress;
@@ -50809,17 +51139,24 @@ export type QuickAddressTree = {
       readonly 'ئامېرىكا يەرلىك خەلقلىرى': QuickAddress;
       readonly 'ئوتتۇرا دېڭىز': QuickAddress;
       readonly 'ئەفریقای ژێرسەحرا': QuickAddress;
+      readonly 'اتر آفريقي': QuickAddress;
+      readonly 'اتر يورپي': QuickAddress;
       readonly 'اشکنازی': QuickAddress;
       readonly 'اشکنازی یہودی': QuickAddress;
+      readonly 'اشڪنازي يهودي': QuickAddress;
       readonly 'البحر الأبيض المتوسط': QuickAddress;
       readonly 'الشرق الأوسط': QuickAddress;
       readonly 'الشعوب الأصلية في الأمريكتين': QuickAddress;
       readonly 'اليهود الأشكناز': QuickAddress;
+      readonly 'اوڀر ايشيائي': QuickAddress;
+      readonly 'اوڀر يورپي': QuickAddress;
       readonly 'باشووری ئاسیا': QuickAddress;
       readonly 'باشووری ڕۆژهەڵاتی ئاسیا': QuickAddress;
       readonly 'باکووری ئەفریقا': QuickAddress;
       readonly 'باکووری ئەوروپا': QuickAddress;
       readonly 'بحرالکاہل کے جزائر': QuickAddress;
+      readonly 'بحرالڪاهل جا ٻيٽ': QuickAddress;
+      readonly 'بحيره روم': QuickAddress;
       readonly 'بحیرہ روم': QuickAddress;
       readonly 'بومی آمریکا': QuickAddress;
       readonly 'تىنچ ئوكيان ئاراللىرى': QuickAddress;
@@ -50853,13 +51190,18 @@ export type QuickAddressTree = {
       readonly 'شىمالىي ياۋروپا': QuickAddress;
       readonly 'شەرقىي ئاسىيا': QuickAddress;
       readonly 'شەرقىي ياۋروپا': QuickAddress;
+      readonly 'صحارا کان ڏکڻ آفريقي': QuickAddress;
       readonly 'مدیترانه‌ای': QuickAddress;
       readonly 'مشرق وسطیٰ': QuickAddress;
       readonly 'مشرقی ایشیائی': QuickAddress;
       readonly 'مشرقی یورپی': QuickAddress;
+      readonly 'مقامي آمريڪي': QuickAddress;
       readonly 'مقامی امریکی': QuickAddress;
       readonly 'مەدیتەرانی': QuickAddress;
+      readonly 'وچ اوڀر': QuickAddress;
       readonly 'يېقىن شەرق': QuickAddress;
+      readonly 'ڏکڻ اوڀر ايشيائي': QuickAddress;
+      readonly 'ڏکڻ ايشيائي': QuickAddress;
       readonly 'ڕۆژهەڵاتی ئاسیا': QuickAddress;
       readonly 'ڕۆژهەڵاتی ئەوروپا': QuickAddress;
       readonly 'ڕۆژهەڵاتی ناوەڕاست': QuickAddress;
@@ -51494,6 +51836,7 @@ export type QuickAddressTree = {
       readonly 'ئۆپكە كېسەللىكلىرى': QuickAddress;
       readonly 'ئێسک و جومگە': QuickAddress;
       readonly 'ارتوپدی': QuickAddress;
+      readonly 'اعصابي امراض': QuickAddress;
       readonly 'اعصابی امراض': QuickAddress;
       readonly 'الأعصاب': QuickAddress;
       readonly 'الأورام': QuickAddress;
@@ -51511,6 +51854,7 @@ export type QuickAddressTree = {
       readonly 'انکولوژی': QuickAddress;
       readonly 'بۆرەك كېسەللىكلىرى': QuickAddress;
       readonly 'تېرە كېسەللىكلىرى': QuickAddress;
+      readonly 'دل جا مرض': QuickAddress;
       readonly 'دڵ و خوێنبەرەکان': QuickAddress;
       readonly 'دەروونی': QuickAddress;
       readonly 'دەمار و مێشک': QuickAddress;
@@ -51523,15 +51867,22 @@ export type QuickAddressTree = {
       readonly 'شێرپەنجە': QuickAddress;
       readonly 'غدد': QuickAddress;
       readonly 'غدود و ذیابیطس': QuickAddress;
+      readonly 'غدود ۽ ذيابيطس': QuickAddress;
       readonly 'قلب و عروق': QuickAddress;
+      readonly 'معدو ۽ جگر': QuickAddress;
       readonly 'معدہ و جگر': QuickAddress;
       readonly 'مغز و اعصاب': QuickAddress;
       readonly 'نفرولوژی': QuickAddress;
+      readonly 'نفسيات': QuickAddress;
       readonly 'نفسیات': QuickAddress;
       readonly 'نېرۋا كېسەللىكلىرى': QuickAddress;
+      readonly 'هڏا ۽ جوڙ': QuickAddress;
       readonly 'يۈرەك كېسەللىكلىرى': QuickAddress;
       readonly 'پوست': QuickAddress;
       readonly 'پێست': QuickAddress;
+      readonly 'چمڙي جا مرض': QuickAddress;
+      readonly 'ڦڦڙن جا مرض': QuickAddress;
+      readonly 'گردي جا مرض': QuickAddress;
       readonly 'گلان و شەکرە': QuickAddress;
       readonly 'گوارش': QuickAddress;
       readonly 'گورچیلە': QuickAddress;
@@ -52230,6 +52581,7 @@ export type QuickAddressTree = {
       readonly 'باسكېتبول': QuickAddress;
       readonly 'باسکٹ بال': QuickAddress;
       readonly 'باسکەتبۆڵ': QuickAddress;
+      readonly 'باسڪيٽ بال': QuickAddress;
       readonly 'بسکتبال': QuickAddress;
       readonly 'بۆکسینگ': QuickAddress;
       readonly 'بیسبال': QuickAddress;
@@ -52238,11 +52590,13 @@ export type QuickAddressTree = {
       readonly 'تېننىس': QuickAddress;
       readonly 'دەستەتۆپ': QuickAddress;
       readonly 'راگبی': QuickAddress;
+      readonly 'رگبي': QuickAddress;
       readonly 'رگبی': QuickAddress;
       readonly 'زۆرانبازی': QuickAddress;
       readonly 'فوتبال': QuickAddress;
       readonly 'فوتسال': QuickAddress;
       readonly 'فٹ بال': QuickAddress;
+      readonly 'فٽبال': QuickAddress;
       readonly 'قول توپ': QuickAddress;
       readonly 'كرة السلة': QuickAddress;
       readonly 'كرة القدم': QuickAddress;
@@ -52250,8 +52604,11 @@ export type QuickAddressTree = {
       readonly 'كرة اليد': QuickAddress;
       readonly 'كۈرەش': QuickAddress;
       readonly 'هاکی روی یخ': QuickAddress;
+      readonly 'هاڪي': QuickAddress;
       readonly 'هندبال': QuickAddress;
       readonly 'هوكي الجليد': QuickAddress;
+      readonly 'هينڊ بال': QuickAddress;
+      readonly 'والي بال': QuickAddress;
       readonly 'والی بال': QuickAddress;
       readonly 'والیبال': QuickAddress;
       readonly 'پۇتبول': QuickAddress;
@@ -52259,6 +52616,8 @@ export type QuickAddressTree = {
       readonly 'ڤۆلیبۆڵ': QuickAddress;
       readonly 'کبڈی': QuickAddress;
       readonly 'کرکٹ': QuickAddress;
+      readonly 'ڪبڊي': QuickAddress;
+      readonly 'ڪرڪٽ': QuickAddress;
       readonly 'ہاکی': QuickAddress;
       readonly 'ہینڈ بال': QuickAddress;
       readonly 'ۋالىبول': QuickAddress;
@@ -52989,7 +53348,9 @@ export type QuickAddressTree = {
       readonly 'المالية': QuickAddress;
       readonly 'النقل': QuickAddress;
       readonly 'بیناسازی': QuickAddress;
+      readonly 'تعليم': QuickAddress;
       readonly 'تعلیم': QuickAddress;
+      readonly 'تعميرات': QuickAddress;
       readonly 'تعمیرات': QuickAddress;
       readonly 'تەندروستی': QuickAddress;
       readonly 'تەکنەلۆژیا': QuickAddress;
@@ -53012,13 +53373,17 @@ export type QuickAddressTree = {
       readonly 'كان سانائىتى': QuickAddress;
       readonly 'مائارىپ': QuickAddress;
       readonly 'مالىيە': QuickAddress;
+      readonly 'ماليات': QuickAddress;
       readonly 'مالی': QuickAddress;
       readonly 'مالیات': QuickAddress;
+      readonly 'مهمان نوازي': QuickAddress;
       readonly 'مہمان نوازی': QuickAddress;
       readonly 'میوانداری': QuickAddress;
       readonly 'نقل و حمل': QuickAddress;
       readonly 'هتلداری و پذیرایی': QuickAddress;
       readonly 'ٹیکنالوجی': QuickAddress;
+      readonly 'ٽرانسپورٽ': QuickAddress;
+      readonly 'ٽيڪنالاجي': QuickAddress;
       readonly 'پرچون': QuickAddress;
       readonly 'پیشەسازی': QuickAddress;
       readonly 'پەروەردە': QuickAddress;

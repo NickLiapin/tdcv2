@@ -1,0 +1,16 @@
+---
+description: Zodiac signs in Sindhi. These are the Arabic names of the twelve signs, which is what a Sindhi newspaper heads its daily horoscope column with - حمل for Aries, ثور for Taurus, and so on down. They are the twelve Western signs and not the Hindu sidereal system, though several of the names are translations of the same Greek originals that reached both traditions.
+locale: sd
+---
+حمل
+ثور
+جوزا
+سرطان
+اسد
+سنبله
+ميزان
+عقرب
+قوس
+جدي
+دلو
+حوت

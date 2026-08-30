@@ -1,0 +1,11 @@
+---
+description: Basketball positions in Sindhi. Coaches number the five starting roles one to five, and the Sindhi list keeps the English names unchanged because the game reached Sindh through schools, colleges and the Karachi gymkhanas rather than through the street, so it was learned in English and only afterwards written down in Sindhi script.
+locale: sd
+---
+پوائنٽ گارڊ
+شوٽنگ گارڊ
+سمال فارورڊ
+پاور فارورڊ
+سينٽر
+سڪسٿ مين
+متبادل کيڏاري

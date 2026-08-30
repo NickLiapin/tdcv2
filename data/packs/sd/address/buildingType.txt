@@ -1,0 +1,48 @@
+---
+description: Kind of building, in Sindhi. اوطاق is the entry with no counterpart anywhere in Europe: the men's guest house standing beside a landowning family's own house in a Sindhi village, where travellers are lodged, disputes are heard and the village's business is settled. It is a real postal destination — mail is addressed to the otaq and collected from it. ڇپر is the thatched roof on posts of the riverine settlements, and جهوپڙي the mud hut. پورشن is the Pakistani rental unit: one floor of a house let separately with its own stair and door, so a single مڪان routinely carries two addresses and two households. Places of worship for four communities are on the list because Sindh has all four in use, not as monuments — the province holds the large majority of Pakistan's Hindus, so مندر and گرودوارو are working buildings here in a way they are not further north.
+locale: sd
+---
+مڪان
+گهر
+اوطاق
+بنگلو
+ڪوٺي
+حويلي
+فليٽ
+اپارٽمينٽ
+پورشن
+ڪوارٽر
+جهوپڙي
+ڇپر
+دفتر
+دڪان
+گودام
+ڪارخانو
+پلازا
+مارڪيٽ
+بازار
+شاپنگ مال
+اسپتال
+ڪلينڪ
+اسڪول
+ڪاليج
+يونيورسٽي
+مدرسو
+مسجد
+امام بارگاهه
+گرجا گهر
+مندر
+گرودوارو
+هوٽل
+ريسٽورنٽ
+لائبريري
+اسٽيڊيم
+سئنيما
+ٿاڻو
+ڊاڪ خانو
+بينڪ
+پيٽرول پمپ
+ورڪشاپ
+فارم هائوس
+هاسٽل
+عمارت

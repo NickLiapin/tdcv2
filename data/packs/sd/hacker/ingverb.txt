@@ -1,0 +1,32 @@
+---
+description: Technical verb in the continuous aspect, in Sindhi — the form a progress message takes. Sindhi builds it from the verb stem plus رهيو آهي, so ڳنڍي رهيو آهي is "is connecting" and لکي رهيو آهي is "is writing". The auxiliary carries gender: رهيو is masculine and رهي feminine, and the masculine form used throughout here is what an unnamed machine subject takes by default, which is why every line in this file is internally consistent and can be pasted after a system name without further agreement work.
+locale: sd
+---
+ڳنڍي رهيو آهي
+موڪلي رهيو آهي
+وصول ڪري رهيو آهي
+پڙهي رهيو آهي
+لکي رهيو آهي
+محفوظ ڪري رهيو آهي
+بازياب ڪري رهيو آهي
+جانچي رهيو آهي
+تجزيو ڪري رهيو آهي
+ترتيب ڏئي رهيو آهي
+ڇاڻي رهيو آهي
+بدلائي رهيو آهي
+نقل ڪري رهيو آهي
+منتقل ڪري رهيو آهي
+مٽائي رهيو آهي
+بحال ڪري رهيو آهي
+ڳجهو ڪري رهيو آهي
+کولي رهيو آهي
+دٻائي رهيو آهي
+ڦهلائي رهيو آهي
+هلائي رهيو آهي
+روڪي رهيو آهي
+وري هلائي رهيو آهي
+ڳڻي رهيو آهي
+ماپي رهيو آهي
+ملائي رهيو آهي
+الڳ ڪري رهيو آهي
+ٺاهي رهيو آهي

@@ -1,0 +1,38 @@
+---
+description: Vegetables in Sindhi. Several of these words are Sindhi and nothing else: potato is پٽاٽو, onion is بصر, garlic is ٿوم, aubergine is واڱڻ with the letter ڱ that only this alphabet has, turnip is گوگڙو, and coriander leaf is ڌاڻا. The gourds are five separate vegetables and not one - توري, ڪدو, حلوا ڪدو, ٽينڊو and ڪريلو are cooked five different ways and a config that folds them into a single 'gourd' value is losing the distinction the kitchen actually makes. سائي ڀاڄي, the spinach-and-dill purée, is why پالڪ appears on a Sindhi list far more often than it would on a Balochi one. ڪڪڙي and کيرو are two different cucumbers, and they begin with two different letters: ڪ is plain k, ک is the aspirated kh, and the same contrast separates ڪچالو the taro from کنڀي the mushroom.
+locale: sd
+---
+پٽاٽو
+بصر
+ٽماٽو
+ٿوم
+ادرڪ
+ڀينڊي
+واڱڻ
+توري
+ڪدو
+حلوا ڪدو
+ٽينڊو
+ڪريلو
+گوگڙو
+گاجر
+مري
+چقندر
+مٽر
+ڦريون
+لوبيا
+گوبي
+بند گوبي
+پالڪ
+ساگ
+ميٿي
+ڌاڻا
+پودينو
+سائي مرچ
+شملا مرچ
+ڪڪڙي
+کيرو
+کنڀي
+اروي
+ڪچالو
+ڪدو جو گل

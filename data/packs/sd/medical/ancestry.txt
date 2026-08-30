@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Sindhi, the parent of medical/diagnosisByAncestry. These are descent populations as clinical genetics uses them, not social race categories. The compass words are Sindhi's own — اتر north, ڏکڻ south, اوڀر east — rather than the Persian شمالي / جنوبي / مشرقي an Urdu list would use. ڏکڻ ايشيائي is the group most speakers of this pack belong to, and it carries specific clinical weight in Sindh: marriage between first cousins is ordinary rather than exceptional here, with survey estimates putting consanguinity above half of all marriages, and cousin marriage concentrates recessive carriers inside a single biradari. That is why beta thalassaemia runs far above the frequency a continental average would predict.
+locale: sd
+---
+صحارا کان ڏکڻ آفريقي
+اتر آفريقي
+بحيره روم
+وچ اوڀر
+اتر يورپي
+اوڀر يورپي
+اشڪنازي يهودي
+ڏکڻ ايشيائي
+اوڀر ايشيائي
+ڏکڻ اوڀر ايشيائي
+مقامي آمريڪي
+بحرالڪاهل جا ٻيٽ

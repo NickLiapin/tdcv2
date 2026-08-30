@@ -1,0 +1,71 @@
+---
+description: Nationality or demonym in Sindhi, adjective form. Led by Pakistan, then ڀارتي, because India comes second in a Sindhi list in a way it would not in a Balochi or Pashto one: Partition split the Sindhi people almost in half, several million Sindhi speakers live in India, and a Sindhi household on either side of the border is likely to have relatives on the other. After that come the Gulf states, where large numbers of Sindhis work, and Afghanistan, which appears constantly in Pakistani records after four decades of refugee movement.
+locale: sd
+---
+پاڪستاني
+ڀارتي
+بنگلاديشي
+افغان
+ايراني
+سريلنڪن
+نيپالي
+ڀوٽاني
+مالديپي
+چيني
+سعودي
+اماراتي
+قطري
+ڪويتي
+عماني
+بحريني
+ترڪ
+مصري
+عراقي
+شامي
+اردني
+لبناني
+فلسطيني
+يمني
+ازبڪ
+تاجڪ
+ترڪمن
+قازق
+ڪرغيز
+آذري
+روسي
+يوڪريني
+برطانوي
+آمريڪي
+ڪينيڊين
+آسٽريلوي
+نيوزي لينڊي
+جرمن
+فرانسيسي
+اطالوي
+هسپانوي
+پرتگالي
+ڊچ
+بيلجين
+سوئس
+سويڊش
+ناروي جو
+ڊينش
+فن لينڊي
+پولش
+يوناني
+جاپاني
+ڪوريائي
+ملائيشيائي
+انڊونيشيائي
+ٿائي
+ويٽنامي
+فلپائني
+سنگاپوري
+ڏکڻ آفريقي
+نائيجيريائي
+ڪينيائي
+مراڪشي
+صومالي
+برازيلي
+ارجنٽيني
+ميڪسيڪن

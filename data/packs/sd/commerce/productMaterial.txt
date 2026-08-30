@@ -1,0 +1,64 @@
+---
+description: Material a product is made of, in Sindhi. Two of the cloth names are Sindh's own and appear on no other locale's list: اجرڪ is the resist-block-printed cotton in madder red and indigo that is worn as a shawl, spread as a bedsheet and given at weddings and funerals across the province, and سوسي is the narrow striped handloom cloth woven at Hala and Nasarpur. ٽالهي is sheesham, the timber Sindhi furniture is actually built from, and a listing names the wood rather than saying wooden. پتل, ٽامو and ڪانسي - brass, copper and bronze - are distinct materials on a kitchenware listing, never synonyms for metal.
+locale: sd
+---
+فولاد
+لوهه
+اسٽينلس اسٽيل
+ايلومينيم
+پتل
+ٽامو
+ڪانسي
+چاندي
+سون
+پليٽينم
+ڪاٺ
+ٽالهي
+ديودار
+چير
+ساگوان
+املتاس
+بانس
+بيد
+پلاسٽڪ
+ايڪريلڪ
+فائبر گلاس
+ربڙ
+چمڙو
+مصنوعي چمڙو
+سوٽي
+ريشمي
+اوني
+لينن
+کدر
+ململ
+اجرڪ
+سوسي
+جارجٽ
+شفون
+ويلوٽ
+ڊينم
+پوليسٽر
+نائلون
+لائيڪرا
+سڻ
+ڪينوس
+شيشو
+آرسي
+چيني
+سيرامڪ
+مٽي
+چيڪي مٽي
+ماربل
+گرينائٽ
+سنگ مرمر
+پٿر
+ڪنڪريٽ
+سيمينٽ
+اٽ
+ڪاغذ
+گتو
+ميڻ
+رال
+سلڪون
+جپسم

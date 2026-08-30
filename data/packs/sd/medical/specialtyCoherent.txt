@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list beside it — the parent of medical/diagnosisBySpecialty, so every value here is also the name of a file in that folder, character for character. The Sindhi forms lean on the language's own possessive جا / جي and on ۽, the Sindhi ampersand, rather than on the Persian izafat construction an Urdu list of the same specialties would use.
+locale: sd
+---
+دل جا مرض
+اعصابي امراض
+سرطان
+چمڙي جا مرض
+معدو ۽ جگر
+غدود ۽ ذيابيطس
+ڦڦڙن جا مرض
+هڏا ۽ جوڙ
+نفسيات
+گردي جا مرض

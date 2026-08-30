@@ -1,0 +1,18 @@
+---
+description: Insurance type in Sindhi. تڪافل leads because it is not a variant of insurance but a separate legal category: participants contribute to a common fund and losses are met from it under a mutual guarantee, which is structured to avoid the uncertainty and the interest that Islamic law prohibits. It is licensed under its own rules by Pakistan's Securities and Exchange Commission, sold by dedicated operators and by takaful windows of conventional insurers, and chosen by many who will not buy conventional cover on religious grounds at any price. فصل جو بيمو and چوپائي مال جو بيمو are ordinary retail products in an agrarian province rather than specialist lines — a grower's cotton and a smallholder's buffalo are the assets most worth insuring, and the buffalo is often the household's single largest one.
+locale: sd
+---
+تڪافل
+صحت جو بيمو
+گاڏي جو بيمو
+گهر جو بيمو
+زندگي جو بيمو
+حادثاتي بيمو
+سفري بيمو
+فصل جو بيمو
+چوپائي مال جو بيمو
+ڪاروباري بيمو
+باهه جو بيمو
+مال برداري جو بيمو
+معذوري جو بيمو
+تعليمي بيمو

@@ -1,0 +1,16 @@
+---
+description: Italian dishes in Sindhi. Sindhi borrows the Italian double consonants as single letters - اسپيگيٽي, ريزوٽو, برسڪيٽا - because the script marks length with a diacritic that is normally left off, so the doubling simply does not appear on the page.
+locale: sd
+---
+پيزا
+پاستا
+اسپيگيٽي
+لزانيا
+ريزوٽو
+راويولي
+نيوڪي
+منسٽروني
+برسڪيٽا
+تيراميسو
+جليٽو
+فوڪاچيا

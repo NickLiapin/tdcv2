@@ -1,0 +1,22 @@
+---
+description: Cat breeds in Sindhi. ٻلي, the word for a cat, opens with ٻ — one of the four implosives ٻ ڄ ڏ ڳ that Sindhi has and neither Urdu, Persian nor Arabic does. They are made by drawing air inward instead of pushing it out, they occur in the commonest words of the language, and they are a large part of why Sindhi needed fifty-two letters where Arabic manages with twenty-eight. The breed names are otherwise the country of origin plus ٻلي, which is how Sindhi labels any imported animal type. ديسي ٻلي closes the list on purpose: locally bred and unpedigreed is what the overwhelming majority of cats here are, and a pet data set for this region containing only pedigree breeds is wrong about the population it claims to describe.
+locale: sd
+---
+ايراني ٻلي
+سيامي ٻلي
+انگورا ٻلي
+ترڪي وان
+روسي نيري
+بنگالي ٻلي
+برمي ٻلي
+حبشي ٻلي
+برٽش شارٽ هيئر
+مين ڪون
+ريگ ڊال
+سائبيرين ٻلي
+اسڪاٽش فولڊ
+اسفنڪس
+بمبئي ٻلي
+سنگاپوري ٻلي
+مصري مائو
+ديسي ٻلي

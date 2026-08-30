@@ -1,0 +1,16 @@
+---
+description: Conditions with a higher prevalence in South Asian ancestry, in Sindhi — the group most speakers of this pack belong to. Type 2 diabetes and coronary disease appear about a decade earlier and at a lower body-mass index than in European populations, so the standard BMI thresholds under-diagnose both here and Pakistani guidance uses lowered cut-offs. Beta thalassaemia carrier rates run high across Sindh and are concentrated further by cousin marriage, and وات جو سرطان follows the region's chewed areca and tobacco habit.
+locale: sd
+---
+ذيابيطس قسم دوم
+دل جي شريانن جي جلد بيماري
+بيٽا ٿيليسيميا
+جي سڪس پي ڊي جي ڪمي
+وٽامن ڊي جي ڪمي
+لوهه جي ڪمي
+لڪٽوز جي عدم برداشت
+پولي سسٽڪ اووري
+گردي جي دائمي بيماري
+وات جو سرطان
+تپ دق جو خطرو
+موروثي ٻوڙائپ

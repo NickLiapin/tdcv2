@@ -1,0 +1,20 @@
+---
+description: Horse breeds in Sindhi. نڪرو is the pure white riding horse of Pakistan, named and valued for the colour itself rather than for a pedigree line. سنڌي گهوڙو and بلوچي گهوڙو are the local desert types, and مارواڙي — from the same Thar desert, on the Indian side of the border that cuts it in two — is recognisable at once by ear tips that curve inward until they touch. عربي گهوڙو is the Arabian, from which most of the light breeds below it descend. ٽٽو is a pony rather than a breed, and belongs on the list because it is what actually pulls a cart. خچر, the mule, is deliberately absent: it is not a horse, and a breed list that admits it has quietly become a list of pack animals.
+locale: sd
+---
+عربي گهوڙو
+نڪرو
+بلوچي گهوڙو
+سنڌي گهوڙو
+مارواڙي
+ڪاٺياواڙي
+ڪابلي گهوڙو
+اخل تيڪي
+ٿورو برڊ
+عرب ٿورو برڊ
+مستنگ
+ڪوارٽر هارس
+اپلوسا
+فريزين
+شائر
+ٽٽو

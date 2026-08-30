@@ -1,0 +1,22 @@
+---
+description: Hotel room types in Sindhi. فيملي روم is the ordinary booking in this market rather than a special request, because families travel together and in numbers, and a hotel that cannot put six people in one room loses the business. عورتن لاءِ الڳ ماڙ, a women-only floor, is a real room category in Pakistan and the Gulf rather than a courtesy, and it is what a family booking for unaccompanied women will actually ask for. ماڙ is the Sindhi word for a storey, and the same root gives ماڙي, a multi-storey house, which turns up as a village name element as well.
+locale: sd
+---
+سنگل روم
+ڊبل روم
+ٽوئن روم
+ٽرپل روم
+فيملي روم
+ڊيلڪس روم
+ايگزيڪيوٽو روم
+سوئٽ
+پريزيڊينشل سوئٽ
+اڪانامي روم
+اسٽينڊرڊ روم
+ايئر ڪنڊيشنڊ روم
+نان اي سي روم
+ڊارميٽري
+عورتن لاءِ الڳ ماڙ
+سمنڊ جي نظاري وارو روم
+باغ جي نظاري وارو روم
+ڳنڍيل روم

@@ -1,0 +1,19 @@
+---
+description: Field hockey positions in Sindhi. Pakistani hockey keeps the older English names - اِن سائيڊ رائيٽ, سينٽر هاف - that the modern game has largely dropped, because that is the era the country's hockey was built in: Olympic gold in 1960, 1968 and 1984, and four World Cups. پينلٽي ڪارنر اسپيشلسٽ is a real squad role rather than a nickname, the drag-flicker who takes the short corners and is often the highest scorer in the side.
+locale: sd
+---
+گول ڪيپر
+فل بيڪ
+رائيٽ بيڪ
+ليفٽ بيڪ
+سويپر
+هاف بيڪ
+سينٽر هاف
+رائيٽ هاف
+ليفٽ هاف
+اِن سائيڊ رائيٽ
+اِن سائيڊ ليفٽ
+رائيٽ ونگ
+ليفٽ ونگ
+سينٽر فارورڊ
+پينلٽي ڪارنر اسپيشلسٽ

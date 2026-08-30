@@ -1,0 +1,16 @@
+---
+description: Chinese dishes as they are eaten and named in Sindh. This is Pakistani-Chinese cooking, which is its own hybrid rather than a copy: چڪن مانچورين and هاٽ اينڊ سار سوپ are South Asian inventions that no kitchen in China serves, and چائنيز چانور means fried rice with a particular local seasoning. Karachi has had Chinese restaurants since the 1930s and this is what they cook.
+locale: sd
+---
+چائنيز چانور
+چڪن مانچورين
+هاٽ اينڊ سار سوپ
+چڪن ڪارن سوپ
+چائومين
+اسپرنگ رول
+ڊمپلنگ
+سويٽ اينڊ سار چڪن
+ڪنگ پائو چڪن
+ماپو ٽوفو
+پيڪنگ ڊڪ
+ڊم سم

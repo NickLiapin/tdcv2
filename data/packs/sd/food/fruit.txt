@@ -1,0 +1,38 @@
+---
+description: Fruit in Sindhi, and a good part of this list is Sindhi vocabulary rather than Urdu vocabulary wearing a different script: mango is انب, not آم; watermelon is متيرو; guava is جامفل; pomegranate is ڏاڙهون with the implosive ڏ; jujube is ٻير with the implosive ٻ; tamarind is گدامڙي; sugarcane is ڪمند. انب comes first for the same reason it does everywhere in the subcontinent, but Sindh has its own claim on it - سنڌڙي, grown around Mirpurkhas, is a named Sindhi variety and the province's mango season is a matter of public argument about which orchard has the better fruit. کجور, the date, is the other crop Sindh owns: the Khairpur groves produce the bulk of Pakistan's dates and the harvest is spread on the ground to dry in sheets that can be seen from the road. Note that کجور opens with ک, the aspirated kh, not with the plain-k ڪ of ڪيلو and ڪينو - the two are separate letters in this alphabet.
+locale: sd
+---
+انب
+ڪيلو
+صوف
+انگور
+ڏاڙهون
+جامفل
+پپيتو
+گدرو
+متيرو
+آڙو
+خوباڻي
+آلوبخارو
+ناشپاتي
+ليچي
+چيڪو
+فالسو
+جامون
+ٻير
+توت
+انجير
+کجور
+ناريل
+انناس
+مالٽو
+ڪينو
+سنگترو
+ليمون
+گريپ فروٽ
+اسٽرابيري
+چيري
+ڪيوي
+ايوڪاڊو
+گدامڙي
+ڪمند

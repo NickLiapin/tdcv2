@@ -1,0 +1,11 @@
+---
+description: Driving licence class in Sindhi. Pakistan endorses LTV (light transport vehicle), HTV (heavy transport vehicle) and PSV (public service vehicle) on top of the ordinary car and motorcycle licence, and a lorry driver pulling out of Karachi port must hold HTV. The classes keep their Latin abbreviations even on Sindhi paperwork, which is why they are set down here letter by letter rather than translated into a phrase.
+locale: sd
+---
+موٽر سائيڪل
+ايل ٽي وي
+ايڇ ٽي وي
+پي ايس وي
+ٽريڪٽر
+بين الاقوامي لائسنس
+لرنر پرمٽ

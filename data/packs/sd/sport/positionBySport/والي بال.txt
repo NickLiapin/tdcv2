@@ -1,0 +1,11 @@
+---
+description: Volleyball positions in Sindhi. Volleyball needs a net, a ball and a level patch of ground, which is why after cricket it is the game most often found in village Sindh, played on courts scratched into the dust beside a school or a canal bank. لبيرو is the defensive specialist who wears a different shirt and may not attack the ball above the height of the net.
+locale: sd
+---
+سيٽر
+آئوٽ سائيڊ هٽر
+اپوزٽ هٽر
+مڊل بلاڪر
+لبيرو
+ڊفينس اسپيشلسٽ
+سرور

@@ -1,0 +1,16 @@
+---
+description: Punjabi dishes in Sindhi. سرنهن جو ساگ eaten with مڪئي جي ماني is a winter dish and only a winter dish, because mustard greens are a cold-season crop - a Punjabi menu offering it in June is describing a restaurant rather than a kitchen. دال مکڻي is named for butter (مکڻ) and is cooked overnight with cream until the black lentils turn almost purple; note the aspirated ک in مکڻي against the plain ڪ of مڪئي and ڪڙهي in the same list.
+locale: sd
+---
+سرنهن جو ساگ
+مڪئي جي ماني
+دال مکڻي
+مرغ چڻا
+آلو پراٺو
+تندوري ماني
+ڪڙهي
+ڀينڊي گوشت
+پنير
+لسي
+کير
+گاجر جو حلوو

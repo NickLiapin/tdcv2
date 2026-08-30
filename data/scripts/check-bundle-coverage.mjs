@@ -47,7 +47,7 @@ const LOCALE_NAMES = {
   mr: 'Marathi', ms: 'Malay', mt: 'Maltese', my: 'Burmese', nb: 'Norwegian Bokmål',
   ne: 'Nepali', nl: 'Dutch', nn: 'Norwegian Nynorsk', 'pa-in': 'Punjabi', pl: 'Polish',
   pt: 'Portuguese', ro: 'Romanian', ru: 'Russian', si: 'Sinhala', sk: 'Slovak',
-  sl: 'Slovenian', sq: 'Albanian', sr: 'Serbian', sv: 'Swedish', sw: 'Swahili',
+  sd: 'Sindhi', sl: 'Slovenian', sq: 'Albanian', sr: 'Serbian', sv: 'Swedish', sw: 'Swahili',
   ta: 'Tamil', te: 'Telugu', tg: 'Tajik', th: 'Thai', tk: 'Turkmen', tr: 'Turkish',
   'ug-cn': 'Uyghur', uk: 'Ukrainian', ur: 'Urdu', 'uz-latn': 'Uzbek (Latin)',
   vi: 'Vietnamese', yo: 'Yoruba', 'zh-cn': 'Simplified Chinese',

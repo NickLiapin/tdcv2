@@ -1,0 +1,164 @@
+---
+description: Street and road names as Sindhi forms them. The Sindhi street draws on wells no European list has, and the deepest is Shah Abdul Latif's Shah Jo Risalo: سسئي, مارئي, مومل, راڻو, سهڻي and ميهار are the heroines and heroes of its surs, not names picked at random, and streets in Hyderabad and Karachi genuinely carry them. The poets follow — لطيف and ڀٽائي for Bhittai himself, سچل for Sachal Sarmast, سامي, اياز for Shaikh Ayaz, قاضي قادن who is the earliest Sindhi verse we have, and مرزا قليچ بيگ, who wrote the first Sindhi novel and translated Hamlet into it. لاڙ, سيرو and وچولو are the three traditional regions of Sindh, lower, upper and middle, and ٿر, ڪيرٿر, منڇر and ڪينجهر are its desert, its hill range and its two great lakes. کجي is the date palm, which is not decorative here: Khairpur district is one of the largest date-growing areas in the world. Compose with address/streetSuffix — a Sindhi street name is the qualifier, and the suffix carries the noun. Names of specific national figures and cantonment roads are deliberately absent, because those belong to a country pack rather than to the language.
+locale: sd
+---
+گلشن
+گلستان
+گلزار
+باغ
+باغيچو
+چمن
+بهار
+نور
+روشني
+سوجهرو
+پرهه
+سويرو
+صبا
+نسيم
+شبنم
+سج
+چنڊ
+تارو
+ڪهڪشان
+شفق
+ضياء
+انوار
+چراغ
+مهتاب
+آزادي
+اتحاد
+ترقي
+خوشحالي
+امن
+انصاف
+حريت
+استقلال
+جمهوريت
+وحدت
+ڀائيچارو
+محبت
+سچائي
+شرافت
+ديانت
+عزت
+وقار
+شان
+جلال
+جمال
+ڪمال
+خير
+برڪت
+رحمت
+نعمت
+عنايت
+هدايت
+بشارت
+سعادت
+فلاح
+نجات
+اميد
+آرزو
+تمنا
+جستجو
+خواب
+خيال
+ڏاهپ
+علم
+حڪمت
+ادب
+فن
+هنر
+سونهن
+دانش
+لطيف
+ڀٽائي
+سچل
+سرمست
+سامي
+اياز
+بيڪس
+بيدل
+قاضي قادن
+مخدوم نوح
+شاهه ڪريم
+روحل
+همل
+خليفو نبي بخش
+مصري شاهه
+نياز همايوني
+استاد بخاري
+تنوير عباسي
+امداد حسيني
+حسن درس
+ابراهيم منشي
+مرزا قليچ بيگ
+ڀيرومل
+لعل شهباز
+شاهه عنايت
+سسئي
+پنهون
+مارئي
+عمر
+مومل
+راڻو
+سهڻي
+ميهار
+ليلان
+چنيسر
+نوري
+ڄام تماچي
+دودو
+مورڙو
+سورٺ
+راءِ ڏياچ
+سنڌو
+مهراڻ
+ٿر
+ڪيرٿر
+منڇر
+ڪينجهر
+ڪوهستان
+لاڙ
+سيرو
+وچولو
+ڪڇ
+ڍورو
+ٻيلو
+واهه
+گلاب
+چنبيلي
+موتيو
+نرگس
+سوسن
+ڪنول
+نيلوفر
+گيندو
+رات جي راڻي
+ٻٻر
+ڄار
+ڪنڊو
+ٽالهي
+نم
+پيپل
+بڙ
+کجي
+انب
+ڄمون
+ڏاڙهون
+زمرد
+ياقوت
+مرجان
+لعل
+موتي
+هيرو
+نيلم
+فيروزو
+عقيق
+شاهين
+مور
+ڪونج
+ماڊل
+گارڊن
+هائيٽس
+گرين

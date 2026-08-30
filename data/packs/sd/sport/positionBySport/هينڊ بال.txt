@@ -1,0 +1,12 @@
+---
+description: Handball positions in Sindhi. پيوٽ is the one role here with no counterpart in football: the pivot plays with his back to the goal, inside the opposing defensive wall, and spends the match being pushed rather than running. Handball in Pakistan lives almost entirely in the university and departmental leagues.
+locale: sd
+---
+گول ڪيپر
+ليفٽ ونگ
+رائيٽ ونگ
+ليفٽ بيڪ
+رائيٽ بيڪ
+سينٽر بيڪ
+پيوٽ
+دفاعي کيڏاري

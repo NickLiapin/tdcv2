@@ -1,0 +1,29 @@
+---
+description: Fish in Sindhi. پلو comes first because it is the fish of Sindh: the Indus hilsa, which runs up from the sea to spawn and was once caught below Kotri in numbers that whole fishing communities organised their year around. The barrages cut the run, and the palla is now scarce and expensive in the province that defines itself by it. رهو, موري, ٿيلهو and ڪرڙو are the Indus carps and catfish a Sindhi fish market actually sells, and none of them has a common English name. ماهشير is the great river carp of the northern tributaries, a fish that needs fast clean water and has retreated as far as it can. جهينگو and ڪيڪڙو, prawn and crab, come from the delta creeks below Thatta, which produce most of Pakistan's shrimp catch and which are shrinking as the river's silt and freshwater stop reaching them. The international names follow, in the spellings a menu uses.
+locale: sd
+---
+پلو
+رهو
+موري
+ٿيلهو
+ڪرڙو
+ڏنڀرو
+سيڀارو
+ڄرڪو
+سنگهارو
+گلفام
+ماهشير
+سول
+سرمئي
+راوس
+دنديو
+بام مڇي
+جهينگو
+ڪيڪڙو
+ٽراؤٽ
+سالمن
+ٽونا
+ڪوڊ
+تلاپيا
+گراس ڪارپ
+شارڪ

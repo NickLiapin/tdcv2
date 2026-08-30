@@ -1,0 +1,30 @@
+---
+description: Product review headlines in Sindhi, as a buyer writes them. The mix is deliberately uneven the way real reviews are - enthusiastic, flat and disappointed - and several are the stock phrases of Pakistani marketplaces: پئسا پورا وصول (full value for the money), اصلي مال (genuine goods) and تصوير کان مختلف (different from the photo), which is the standard complaint where a listing is photographed once and stocked loosely afterwards. دٻو ڀڳل مليو appears because a packaging complaint is about the journey rather than about the seller.
+locale: sd
+---
+بهترين شيءِ
+ضرور وٺو
+پئسا پورا وصول
+اصلي مال
+معيار شاندار
+توقع کان وڌيڪ
+بس ٺيڪ ٺاڪ
+ڪا خاص ڳالهه ناهي
+مايوسي ٿي
+پئسا ضايع
+جلد خراب ٿي ويو
+تصوير کان مختلف
+قيمت جي حساب سان سٺو
+ٻيهر وٺندس
+ترسيل تمام تيز
+ترسيل ۾ دير ٿي
+پيڪنگ سٺي هئي
+دٻو ڀڳل مليو
+سائيز ننڍو نڪتو
+سائيز وڏو نڪتو
+رنگ مختلف آهي
+ڪم آسان ٿي ويو
+مضبوط ۽ پائيدار
+هلڪو ۽ آرام ده
+سڀني کي صلاح ڏيندس
+ٻيهر نه

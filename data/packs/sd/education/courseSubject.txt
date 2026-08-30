@@ -1,0 +1,32 @@
+---
+description: School subject in Sindhi, as it appears on a report card issued in Sindh. سنڌي leads the languages for a reason that holds in no other province: Sindh is the only one where the provincial language is a compulsory school subject the whole way through, taught from class one beside اردو, the national language, and انگريزي. The textbooks come from the Sindh Textbook Board at Jamshoro, which prints in Sindhi and English for the same syllabus. اسلاميات and مطالعو پاڪستان are compulsory nationally through secondary school, and اخلاقيات, ethics, is the subject offered to non-Muslim students in place of اسلاميات — a real column value here rather than a formality, since Sindh has the largest non-Muslim school population in the country.
+locale: sd
+---
+رياضي
+طبعيات
+ڪيميا
+حياتيات
+ڪمپيوٽر سائنس
+سنڌي
+اردو
+انگريزي
+عربي
+فارسي
+اسلاميات
+اخلاقيات
+مطالعو پاڪستان
+تاريخ
+جاگرافي
+معاشيات
+معاشرتي علوم
+شهريت
+نفسيات
+فلسفو
+مصوري
+موسيقي
+جسماني تعليم
+ڊرائنگ
+گهريلو معاشيات
+زراعت
+شماريات
+اڪائونٽنگ

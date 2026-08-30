@@ -1,0 +1,16 @@
+---
+description: Indian dishes in Sindhi, drawn from across the country rather than only from the north - the southern دوسو and سانڀر belong here as much as بٽر چڪن does. The list matters more in a Sindhi pack than it would in most, because the largest body of Sindhi speakers outside Sindh lives in India, where families displaced in 1947 settled in Gujarat, Maharashtra and Rajasthan and have been eating this food for three generations.
+locale: sd
+---
+مسالو دوسو
+ادلي
+سانڀر
+راجما چانور
+ڇولا ڀٽورا
+پاو ڀاڄي
+وڙا پاو
+پاڻي پوري
+بٽر چڪن
+روگن جوش
+رس گلو
+ٺنڍائي

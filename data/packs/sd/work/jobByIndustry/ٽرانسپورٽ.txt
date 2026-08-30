@@ -1,0 +1,24 @@
+---
+description: Transport jobs in Sindhi. چنگچي ڊرائيور is a distinct occupation and not a loose word for a rickshaw driver: the Qingqi is a motorcycle with a passenger cabin welded on, it took over Karachi's short routes as the minibus fleet shrank and the circular railway stood closed, and it is licensed and fared differently from the auto rickshaw. ڪنڊيڪٽر, the conductor who collects fares by hand along a moving bus, has not disappeared here.
+locale: sd
+---
+ڊرائيور
+ٽرڪ ڊرائيور
+بس ڊرائيور
+رڪشا ڊرائيور
+چنگچي ڊرائيور
+ٽيڪسي ڊرائيور
+ڪنڊيڪٽر
+ڊليوري رائيڊر
+ڪوريئر
+لاجسٽڪس مئنيجر
+ڊسپيچر
+گدام انچارج
+فورڪ لفٽ آپريٽر
+ٽرئفڪ وارڊن
+ريلوي گارڊ
+اسٽيشن ماستر
+پائلٽ
+فضائي ميزبان
+ڪئپٽن
+بحري ملاح

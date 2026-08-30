@@ -1,0 +1,64 @@
+---
+description: Business buzz noun in Sindhi, for generating corporate catch-phrases. Compose with buzzVerb and buzzAdjective. Several entries are Sindhi words where an Urdu list would carry an Arabic or Persian one: رٿا is a plan or a scheme and is the word a provincial budget document uses, واڌ is growth, سيڙپڪاري is investment, and ڍانچو is a structure or framework. نظامِ ڪار shows the Persian ezafe, the small kasra under the first noun that links it to the second and is written but not spaced.
+locale: sd
+---
+حڪمت عملي
+رٿا
+نظام
+ڍانچو
+بنياد
+پليٽ فارم
+حل
+خدمتون
+مصنوعات
+معيار
+ڪارڪردگي
+پيداوار
+ترقي
+واڌ
+منافعو
+سيڙپڪاري
+وسيلا
+صلاحيت
+مهارت
+تجربو
+عمل
+طريقيڪار
+ماڊل
+رجحان
+مارڪيٽ
+گراهڪ
+صارف
+ڀائيواري
+تعاون
+رابطو
+مواصلات
+معلومات
+ڊيٽا
+تجزيو
+رپورٽ
+جائزو
+تشخيص
+هدف
+مقصد
+وژن
+مشن
+قدر
+ثقافت
+ٽيم
+قيادت
+انتظام
+نگراني
+احتساب
+شفافيت
+جدت
+تحقيق
+ترقياتي عمل
+ماحول
+نظامِ ڪار
+سپلاءِ چين
+ويليو چين
+ايڪو سسٽم
+ورڪ فلو
+پائپ لائين
+ڊيش بورڊ

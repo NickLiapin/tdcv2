@@ -1,0 +1,22 @@
+---
+description: Hospitality jobs in Sindhi. باورچي is the cook, نانبائي specifically the tandoor baker and a separate trade with its own premises, and چانهه وارو keeps the tea stall. On a Sindh highway the word hotel covers all three: the roadside hotel is first a place to stop for tea and a charpoy, and only afterwards a restaurant.
+locale: sd
+---
+هوٽل مئنيجر
+استقباليه آفيسر
+دربان
+بيرو
+ويٽر
+باورچي
+شيف
+نانبائي
+تنور وارو
+چانهه وارو
+بار ٽينڊر
+هائوس ڪيپنگ
+لانڊري ورڪر
+ايونٽ مئنيجر
+ٽريول ايجنٽ
+ٽور گائيڊ
+بڪنگ آفيسر
+شادي هال مئنيجر

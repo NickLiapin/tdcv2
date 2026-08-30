@@ -1,0 +1,46 @@
+---
+description: Cooking ingredients in Sindhi. The four flours are four ingredients and not four grades of one: اٽو is wholemeal wheat for ماني, ميدو refined white, سوجي semolina, and بيسڻ - the Sindhi form of the word, with the retroflex ڻ - is gram flour, which is what دال پڪوان and بيسڻ جي ماني are made of. The pulses are likewise five distinct things with five cooking times. Two entries carry Sindhi's implosive consonants, the sounds made by drawing air inward that give the language its particular thump: ڏڌ is milk and ڳڙ is unrefined cane jaggery, still the ordinary sweetener in a village kitchen. This file is also the clearest place in the pack to see Sindhi's ڪ/ک contrast at work: ڪڪڙ is a chicken and ڪريم is cream, with plain k, while مکڻ butter, کويو reduced milk, کنڊ sugar and ماکي honey all carry the aspirated kh and are different letters, not variant spellings.
+locale: sd
+---
+اٽو
+ميدو
+سوجي
+بيسڻ
+چانور
+چڻن جي دال
+مسور جي دال
+ماهه جي دال
+منگ جي دال
+ارهر جي دال
+چڻا
+لوبيا
+تيل
+گيهه
+بناسپتي
+مکڻ
+دهي
+ڏڌ
+بالائي
+ڪريم
+پنير
+کويو
+آنو
+گوشت
+ڪڪڙ
+مڇي
+قيمو
+کنڊ
+چيني
+ڳڙ
+ماکي
+لوڻ
+سرڪو
+ليمون جو رس
+خمير
+بيڪنگ پائوڊر
+ڪارن فلور
+ناريل جو برادو
+بادام
+پستو
+اخروٽ
+ڪشمش

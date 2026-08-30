@@ -1,0 +1,29 @@
+---
+description: Dog breeds in Sindhi. The imported pedigrees come first, spelled as Sindhi writes them. The second block is the region's own and appears on no European list: the بلي ڪتو, the mastiff English calls the Bully Kutta and breeders here often call the Sindhi Mastiff, bred through Sindh and southern Punjab as a guard dog on landholdings; گل ٽير and گل ڊونگ, its crosses; the Afghan ڪوچي, which moves with the herding families and their flocks; and the تازي, the sighthound that Arabic calls a saluki and that has been coursing hare across the Thar for as long as anyone has been counting. مڌول هائونڊ is the sighthound of the Deccan. آوارا ڪتو closes the list because the free-roaming street dog outnumbers every pedigree above it many times over, and any honest dog column for a South Asian city has to contain it.
+locale: sd
+---
+جرمن شيفرڊ
+ليبراڊور
+گولڊن ريٽريور
+راٽ ويلر
+ڊوبرمين
+بل ڊاگ
+باڪسر
+بيگل
+پگ
+ڊالميشن
+هسڪي
+پوميرينين
+چيهواهوا
+گريٽ ڊين
+ڪاڪر اسپينيل
+شيه زو
+لاسا اپسو
+افغاني هائونڊ
+بلي ڪتو
+گل ٽير
+گل ڊونگ
+ڪوچي
+تازي
+مڌول هائونڊ
+آوارا ڪتو

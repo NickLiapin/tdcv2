@@ -1,0 +1,44 @@
+---
+description: The noun that closes a Sindhi street address. Three registers sit side by side and mixing them carelessly is what makes a data set read as a translation. گهٽي and رستو are the ordinary Sindhi words for a lane and a road, and واٽ and پيچرو are the older native ones for a way and a footpath. شاهراهه and گذرگاهه are the formal Persianate register that appears on signboards and in gazette notifications. روڊ, اسٽريٽ, ايونيو, باءِ پاس and موٽروي are English loans in Sindhi script, which is what a modern Pakistani address actually carries. محلو and پاڙو are not streets at all but residential quarters, and in an older Sindhi town that is how an address is given in full: the quarter is named, and the house is found by asking in it.
+locale: sd
+---
+روڊ
+رستو
+گهٽي
+ڪوچو
+شاهراهه
+گذرگاهه
+واٽ
+پيچرو
+چوڪ
+موڙ
+پل
+ڦاٽڪ
+ناڪو
+بازار
+مارڪيٽ
+منڊي
+ميدان
+احاطو
+محلو
+پاڙو
+بستي
+ڪالوني
+ٽائون
+سيڪٽر
+بلاڪ
+فيز
+اسٽريٽ
+ايونيو
+لين
+بوليوارڊ
+سرڪل
+ڪراسنگ
+باءِ پاس
+لنڪ روڊ
+مين روڊ
+سروس روڊ
+هاءِ وي
+موٽروي
+رنگ روڊ
+انڊر پاس

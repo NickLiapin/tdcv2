@@ -1,0 +1,46 @@
+---
+description: Workplace skills in Sindhi. سنڌي ٽائپنگ is a separately listed skill and not a synonym for Urdu typing: the Sindhi alphabet has 52 letters, the largest of any Arabic-derived script, and it needs its own keyboard layout to reach the implosives and the aspirates, so provincial government posts advertise Sindhi and English typing as two different requirements. رڌ پچاءُ for cooking and سبڻ for sewing are the everyday Sindhi words rather than borrowed ones, and the possessive جو / جي runs through the compound entries where Urdu would use a different particle entirely.
+locale: sd
+---
+قيادت
+ٽيم ورڪ
+ابلاغ
+مسئلو حل ڪرڻ
+وقت جو انتظام
+تنقيدي سوچ
+تخليقي سوچ
+ڳالهه ٻولهه
+منصوبابندي
+فيصلا سازي
+تجزيو
+رپورٽ نويسي
+پيشڪش
+تدريس
+تربيت
+گراهڪ سان تعلق
+وڪرو
+مارڪيٽنگ
+بجيٽ سازي
+حساب ڪتاب
+ڪمپيوٽر مهارت
+ايم ايس آفيس
+ايڪسل
+سنڌي ٽائپنگ
+انگريزي ٽائپنگ
+ڊيٽا انٽري
+پروگرامنگ
+ويب ڊيزائن
+گرافڪ ڊيزائن
+وڊيو ايڊيٽنگ
+ترجمو
+خطاطي
+ڊرائيونگ
+مشين آپريشن
+ويلڊنگ
+بجليءَ جو ڪم
+پلمبنگ
+سبڻ
+رڌ پچاءُ
+ابتدائي طبي امداد
+حفاظتي اصول
+معيار جي جاچ

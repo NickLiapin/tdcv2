@@ -1,0 +1,60 @@
+---
+description: Colour names in Sindhi. The first block is native, and it is what separates this list from an Urdu one: اڇو white, ڪارو black, ڳاڙهو red, پيلو yellow, سائو green, نيرو blue, ناسي brown and ڦڪو pale. Sindhi colour adjectives agree with their noun in gender, so the -و ending running down the list is the masculine singular and ڪارو becomes ڪاري before a feminine noun. ڪارو (black) and کارو (salty) differ only in the first letter, plain ڪ against aspirated ک, and are not the same word. The Persian and Arabic layer follows, and after it the shades named for the thing that carries them: ڌاڻي is the pale green of young shoots, موتئي the off-white of the jasmine bud, ڪٿئي the brown of catechu, گلناري the red of the pomegranate flower, and ڪڻڪ رنگو the colour of wheat, which is said of skin.
+locale: sd
+---
+اڇو
+ڪارو
+ڳاڙهو
+پيلو
+سائو
+نيرو
+ناسي
+ڀورو
+ڦڪو
+گلابي
+نارنگي
+سرمئي
+سونهري
+چاندي
+مٽيالو
+سانورو
+ڪڻڪ رنگو
+سفيد
+سياهه
+سرخ
+لال
+زرد
+سبز
+آسماني
+آبي
+لاجوردي
+جامني
+ارغواني
+بنفشي
+ڪاسني
+فيروزي
+زيتوني
+پستائي
+انگوري
+طوطائي
+ڌاڻي
+مهرون
+عنابي
+گلناري
+زعفراني
+سرنهي
+بادامي
+خاڪي
+ڪٿئي
+ريتيلو
+تانبئي
+ڪانسي
+ڪريمي
+موتئي
+چمپئي
+شربتي
+مورپنکهي
+برفاني
+ڳوڙهو ڳاڙهو
+هلڪو نيرو
+نيوي

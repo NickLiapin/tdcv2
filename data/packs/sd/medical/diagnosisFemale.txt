@@ -1,0 +1,40 @@
+---
+description: Medical diagnosis in Sindhi that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis. ولادت کان پوءِ خون وهڻ carries more weight here than it would in a European list: maternal death remains common in Sindh, the province's maternal mortality ratio is well above the national figure, most rural deliveries still happen at home with a دائي rather than in a facility, and post-partum haemorrhage is the single leading cause.
+locale: sd
+---
+رحم جي جهلي جو ڦهلاءُ
+بيضه داني جي ٿيلهين جو مرض
+رحم جون رسوليون
+بيضه داني جي ٿيلهي
+بيضه داني جو سرطان
+رحم جي منهن جو سرطان
+رحم جي منهن جي خلين جي خرابي
+رحم جي منهن جي سوزش
+رحم جي اندروني جهلي جي سوزش
+رحم جي اندروني جهلي جو سرطان
+پيڙو جي سوزش جي بيماري
+جراثيمي اندام نهاني جي سوزش
+اندام نهاني جي ڦڦوندي
+حيض جي گهڻائي
+دردناڪ حيض
+حيض جو بند ٿيڻ
+حمل جو بلند فشار خون
+حمل جي ذيابيطس
+حمل جي شديد الٽي
+رحم کان ٻاهر حمل
+ولادت کان پوءِ خون وهڻ
+ڇاتي جي سوزش
+ڇاتي جون ڳنڍيون
+سن ياس جون علامتون
+حيض کان اڳ جي ذهني پريشاني
+رحم جو هيٺ لهڻ
+رحم جي پٺن ۾ جهلي جو ڦهلاءُ
+بيضه داني جو مروڙ
+اڳيان لڳل آنول
+آنول جو وقت اڳ الڳ ٿيڻ
+فرج جو سرطان
+اندام نهاني جو سرطان
+بارٿولن غدود جي ٿيلهي
+اندام نهاني جو سڪڻ
+ٽرنر سنڊروم
+زناني بانجهه پن

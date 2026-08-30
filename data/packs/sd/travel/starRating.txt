@@ -1,0 +1,9 @@
+---
+description: Hotel star rating in Sindhi. The numbers repay a look on their own. ٻه, two, opens with the implosive ٻ, a consonant made by drawing air inward rather than pushing it out; Sindhi has four of these and Urdu, Persian and Arabic have none, and they are among the reasons the Sindhi alphabet runs to fifty-two letters against Arabic's twenty-eight. Sindhi also inflects the noun for number, so it is one تارو but two or more تارا, and a template that simply concatenates a numeral with a fixed noun will get four of these five lines wrong.
+locale: sd
+---
+هڪ تارو
+ٻه تارا
+ٽي تارا
+چار تارا
+پنج تارا

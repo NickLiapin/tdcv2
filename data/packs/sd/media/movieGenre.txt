@@ -1,0 +1,24 @@
+---
+description: Film genre in Sindhi. مصالحو فلم is the last line and is a genre in its own right across South Asian cinema rather than a joke: one film carrying action, romance, comedy, family melodrama and half a dozen song sequences, marketed as exactly that, and named after the mixed spice — مصالحو is what a cook grinds together. A genre field for this market that has to pick one of the Western labels will always be picking wrongly, because the film was never built to sit in one of them.
+locale: sd
+---
+ايڪشن
+مهم جوئي
+مزاح
+ڊرامو
+رومانوي
+خانداني
+ٿرلر
+پراسرار
+خوف
+جنگي
+تاريخي
+سوانحي
+سائنس فڪشن
+فينٽسي
+جرائم
+جاسوسي
+دستاويزي
+ڪارٽون
+موسيقي
+مصالحو فلم

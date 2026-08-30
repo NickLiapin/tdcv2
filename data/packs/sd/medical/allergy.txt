@@ -1,0 +1,28 @@
+---
+description: Allergen in Sindhi, as a hospital intake form lists one. ڪڻڪ (wheat), چڻا (chickpea) and سرنهن (mustard) sit high on the list because they are staples of the Sindhi kitchen and are correspondingly common triggers here, while peanut allergy is far rarer than a Western form would lead a clinician to expect. Two entries also happen to demonstrate a distinction the script makes and Urdu does not: ڪڻڪ opens with ڪ, plain k, and کير (milk) opens with ک, aspirated kh. They are separate letters of the 52-letter Sindhi alphabet and swapping them changes the word — ڪير is who, کير is milk.
+locale: sd
+---
+مونگ ڦري
+بادام
+اخروٽ
+ڪاجو
+پستو
+تر
+کير
+آنو
+ڪڻڪ
+گلوٽن
+سويا
+مڇي
+جهينگا
+چڻا
+سرنهن
+دز
+گاهه جو زيرو
+ڦڦوندي
+جانورن جا وار
+ليٽيڪس
+پينسلين
+ايسپرين
+ماکي جي مک جو ڏنگ
+سلفا دوا

@@ -1,0 +1,18 @@
+---
+description: Streaming service as Sindhi writes it. Sindhi-language video does not run on paid subscription; it runs on the broadcasters' own free channels and apps. ڪي ٽي اين, KTN, was the first Sindhi satellite channel and is still the largest, and سنڌ ٽي وي, مهراڻ ٽي وي and آواز ٽي وي make up the rest of a broadcast sector that exists in this language and no other — a whole industry of news, drama and music that no Urdu list would ever name. All four stream free and ad-supported alongside their transmission, which is where the audience actually is, and the same is true of the Urdu channels above them. The international subscription services carry no Sindhi catalogue at all.
+locale: sd
+---
+يوٽيوب
+نيٽفلڪس
+ايمازون پرائيم وڊيو
+ڊزني پلس
+تماشا
+ٽيپميڊ
+اي آر وائي زيپ
+ڪي ٽي اين
+سنڌ ٽي وي
+مهراڻ ٽي وي
+آواز ٽي وي
+جيو سئنيما
+زي فائيو
+ڊيلي موشن

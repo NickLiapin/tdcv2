@@ -1,0 +1,30 @@
+---
+description: Diagnoses recorded for male patients in Sindhi - the male-only conditions plus the ones that skew heavily male in this population. The skew is behavioural rather than biological for several of them: chewed tobacco, نسوار (moist snuff) and ڇاليا (areca nut, sold at every roadside stall) are used overwhelmingly by men here and drive وات جو سرطان, oral cancer, which Karachi's cancer registry has recorded as the commonest male cancer in the city. Motorcycle trauma and industrial injury fill male casualty records for the plain reason that the riders and the mill workers are men. Note ڦڦڙ for lungs and ٻوڙائپ for deafness: both use letters Sindhi has and Urdu does not.
+locale: sd
+---
+پروسٽيٽ جو وڌڻ
+پروسٽيٽ جي سوزش
+پروسٽيٽ جو سرطان
+خصين جو سرطان
+خصيي جو مروڙ
+هائيڊروسيل
+ويريڪوسيل
+ورم الخصيه
+تنگي غلفه
+مردانه بانجهپڻ
+هرنيا
+ٽڪ
+گائوٽ
+وات جو سرطان
+تمباڪو جي لت
+نسوار جو استعمال
+ڇاليا جي لت
+دل جي رڳن جي جلد بيماري
+موٽر سائيڪل جو حادثو
+ڪم واري هنڌ جو حادثو
+چيلهه جي چوٽ
+صنعتي ٻوڙائپ
+ڦڦڙن جي صنعتي بيماري
+چمڙي جو سڙڻ
+ذيابيطس قسم ٻيو
+بلند فشار خون

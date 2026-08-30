@@ -1,0 +1,15 @@
+---
+description: Travel booking status in Sindhi. Most of these are built on ٿيڻ, "to become", which is how Sindhi forms a status label at all: تصديق ٿيل is literally "confirmation-become", that is, confirmed, and چيڪ اِن ٿيو is "check-in happened". The ending distinguishes them — ٿيل is the participle and works as an adjective describing the booking, while ٿيو is the past tense and reports an event — so a column that mixes the two is describing two different things and reads that way to a Sindhi speaker.
+locale: sd
+---
+تصديق ٿيل
+زير التوا
+ويٽنگ لسٽ
+منسوخ
+ادائگي جو منتظر
+چيڪ اِن ٿيو
+چيڪ آئوٽ ٿيو
+مڪمل
+تاريخ تبديل
+رقم واپس
+نه پهتو

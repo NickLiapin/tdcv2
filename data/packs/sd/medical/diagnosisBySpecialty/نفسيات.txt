@@ -1,0 +1,22 @@
+---
+description: Psychiatric diagnoses in Sindhi. Mental illness carries heavy stigma across Sindh and is very substantially under-recorded; complaints arrive as bodily symptoms — گهٻراهٽ, سڄي بدن جو سور, ٿڪاوٽ — far more often than as psychological ones, so any psychiatric column drawn from real records understates prevalence. تماڪ جي لت is separated out because chewed tobacco, not smoked, is the dominant form here.
+locale: sd
+---
+ڊپريشن
+بي چيني
+گهٻراهٽ جا دورا
+ڊپ
+وسواس
+ننڊ جي خرابي
+ٻه قطبي مرض
+شيزوفرينيا
+صدمي کان پوءِ جو دٻاءُ
+ماتمي صدمو
+نشي جي لت
+تماڪ جي لت
+ٻارن ۾ توجهه جي ڪمي
+آٽزم
+ذهني معذوري
+کاڌي جي خرابي
+خودڪشي جو خيال
+ولادت کان پوءِ ڊپريشن

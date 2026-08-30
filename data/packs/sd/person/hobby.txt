@@ -1,0 +1,83 @@
+---
+description: Hobbies and interests in Sindhi. Several here are specific to Sindh and are among the most widely practised things on the list. ڀرت ڀرڻ is Sindhi embroidery, a mirror-work and chain-stitch tradition that is a household skill rather than a craft revival, and اجرڪ سازي is the block-printing of the ajrak, the madder-and-indigo shawl that is the province's emblem and is given as a gift at every significant occasion. ڪوڏي is kabaddi under its Sindhi name. پتنگ بازي is competitive kite flying with cut lines and a season, not a children's pastime. ڪبوتر بازي is pigeon fancying and racing, with its own market and its own vocabulary. Note the verbs: Sindhi forms them with a final ڻ - پڙهڻ to read, ٻڌڻ to listen, ڳائڻ to sing, پالڻ to keep an animal - where Urdu uses نا, so a Sindhi hobby phrase does not look like an Urdu one even when it means the same thing.
+locale: sd
+---
+ڪتاب پڙهڻ
+شاعري
+مشاعرو
+خطاطي
+مصوري
+باغباني
+ماني پچائڻ
+سلائي
+ڀرت ڀرڻ
+اڻت
+فوٽوگرافي
+سفر
+سير و تفريح
+پيادل سفر
+جبل چڙهڻ
+ڪيمپنگ
+پڪنڪ
+مڇي مارڻ
+شڪار
+ترڻ
+ڪرڪيٽ
+هاڪي
+فٽ بال
+بيڊمنٽن
+ٽيبل ٽينس
+اسڪواش
+ٽينس
+ڪوڏي
+شطرنج
+لڊو
+ڪيرم
+تاش
+پتنگ بازي
+ڪبوتر بازي
+ڪڪڙ پالڻ
+مڇي پالڻ
+ڪتا پالڻ
+ٻلي پالڻ
+طوطو پالڻ
+ٻوٽا پوکڻ
+ورزش
+باڊي بلڊنگ
+يوگا
+ڊوڙ
+سائيڪلنگ
+موٽر سائيڪلنگ
+ڊرائيونگ
+گهوڙي سواري
+فلم ڏسڻ
+ڊرامو ڏسڻ
+ٿيٽر
+موسيقي ٻڌڻ
+ڳائڻ
+ساز وڄائڻ
+نعت خواني
+قوالي
+تلاوت
+حفظ قرآن
+ديني مطالعو
+لوڪ ڪهاڻي ٻڌائڻ
+بلاگنگ
+ولاگنگ
+سوشل ميڊيا
+گيمنگ
+اي اسپورٽس
+پروگرامنگ
+برقي مرمت
+واڍڪو ڪم
+ماڊل سازي
+ٽڪٽ گڏ ڪرڻ
+سڪا گڏ ڪرڻ
+نوادرات
+تارن جو مطالعو
+پکي ڏسڻ
+خريداري
+چانهه جي محفل
+رضاڪارانه خدمت
+تدريس
+اجرڪ سازي

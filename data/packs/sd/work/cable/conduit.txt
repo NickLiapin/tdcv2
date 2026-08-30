@@ -1,0 +1,12 @@
+---
+description: Conduit and installation method for cable runs, in Sindhi. ديوار ۾ and نالي ۾ carry the postposition ۾, Sindhi's word for in, a two-letter word of its own that stands after the noun it governs and that exists in no other Perso-Arabic orthography — it is among the quickest ways to tell a line of Sindhi from a line of Urdu on the page.
+locale: sd
+---
+پي وي سي پائيپ
+جي آئي پائيپ
+ايڇ ڊي پي اي
+زير زمين
+ڪيبل ٽري
+اوور هيڊ
+ديوار ۾
+نالي ۾

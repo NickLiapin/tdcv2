@@ -1,0 +1,18 @@
+---
+description: American dishes in Sindhi. Names of this kind reach Sindhi through English signage rather than through speech, so they are spelt the way the English word looks and not the way it sounds - ملڪ شيڪ keeps its l, and ڪيڪ takes ڪ for both of its k sounds.
+locale: sd
+---
+برگر
+چيز برگر
+هاٽ ڊاگ
+باربي ڪيو ريبز
+فرائيڊ چڪن
+ميڪ اينڊ چيز
+ڪلب سينڊوچ
+سيزر سلاد
+پين ڪيڪ
+ايپل پائي
+براوني
+چيز ڪيڪ
+ملڪ شيڪ
+فرينچ فرائز

@@ -1,0 +1,26 @@
+---
+description: Company departments in Sindhi. Sindh's formal employers are concentrated in Karachi, which holds the State Bank of Pakistan, the Pakistan Stock Exchange, both of the country's seaports and most of its textile and shipping groups, so this is the department list of a city head office rather than of a rural estate. Two entries show the language rather than the region: وڪرو is the native Sindhi noun for a sale where Urdu borrows a Persian one, and سنڀال is native for upkeep. Sindhi writes plain /k/ with ڪ, which is why accounts is اڪائونٽس.
+locale: sd
+---
+انتظاميه
+ماليات
+اڪائونٽس
+آڊٽ
+افرادي قوت
+ڀرتي
+تربيت
+وڪرو
+مارڪيٽنگ
+گراهڪ خدمت
+پيداوار
+معيار
+خريداري
+گدام
+ترسيل
+تحقيق ۽ ترقي
+معلوماتي ٽيڪنالاجي
+قانوني
+سيڪيورٽي
+سنڀال
+منصوبابندي
+ابلاغ

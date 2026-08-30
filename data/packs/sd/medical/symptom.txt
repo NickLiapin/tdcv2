@@ -1,0 +1,44 @@
+---
+description: Symptoms in Sindhi, as a patient reports one. Sindhi and Urdu share most of the technical layer, so the differences a reader meets first are orthographic: Sindhi writes ي where Urdu writes ی or ے, ه where Urdu writes ہ, and it keeps ڪ and ک apart as two letters — plain k in ڪمزوري against aspirated kh in کنگهه and کجلي — where Urdu has only one. The everyday layer is where the languages genuinely part. A Sindhi patient says سور for pain where an Urdu one says درد, تپ for fever, مٿو for head and اڃ for thirst; ۾ ("in") and ۽ ("and") are characters Unicode names after Sindhi because no other language writes them. گهٻراهٽ is worth reading as language rather than medicine: it carries palpitation, dread and nausea in one word and is among the commonest presenting complaints in a Sindhi clinic without mapping onto any single English symptom.
+locale: sd
+---
+تپ
+کنگهه
+سڪي کنگهه
+بلغم
+نڙي جي خراش
+نڪ وهڻ
+ڇڪون
+ساهه چڙهڻ
+سيني ۾ سور
+دل جي ڌڙڪڻ تيز ٿيڻ
+گهٻراهٽ
+مٿي ۾ ڦيرا
+بيهوشي
+مٿي جو سور
+اڌ مٿي جو سور
+سڄي بدن جو سور
+ڪمزوري
+ٿڪاوٽ
+پٺن جو سور
+جوڙن جو سور
+چيلهه جو سور
+ڳچي جو سور
+پيٽ جو سور
+دل خراب ٿيڻ
+الٽي
+دست
+قبض
+بک نه لڳڻ
+وزن ۾ ڪمي
+وزن ۾ اضافو
+گهڻي اڃ لڳڻ
+وري وري پيشاب
+پيشاب ۾ سڙڻ
+کجلي
+چمڙي تي داڻا
+سوڄ
+زخم جو نه ڀرجڻ
+اکين جو پيلاڻ
+ننڊ نه اچڻ
+ياداشت جي ڪمزوري

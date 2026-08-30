@@ -1,0 +1,9 @@
+---
+description: Credit rating band in Sindhi. Formal consumer scoring reaches a thin slice of this population. The State Bank of Pakistan's credit information bureau holds a record only for people who have borrowed from a regulated institution, and a large share of borrowing here never touches one: it runs through the ڪميٽي, the rotating savings pool among neighbours and colleagues, through lending inside the family, and in rural Sindh through the landlord or the input dealer who advances seed and fertiliser against the coming harvest. None of that generates a score at all. So these bands describe the banked minority, and a config that uses them to characterise a whole population is describing a different population from the one it names.
+locale: sd
+---
+ڪمزور
+معمولي
+سٺو
+تمام سٺو
+بهترين

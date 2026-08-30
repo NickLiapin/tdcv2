@@ -1,0 +1,12 @@
+---
+description: Household income band in Sindhi, and two things differ from a European list in ways that will break a config that ignores them. First, income here is quoted MONTHLY, never annually - a Pakistani job advertisement and a Pakistani pay slip both state a monthly figure, and an annual bracket would look wrong to every reader. Second, the amounts are grouped by لک (one lakh = 100,000) and ڪروڙ (one crore = 100 lakh = 10,000,000), not by thousand and million, and the digit grouping that goes with them is 2,2,3 - ۱۲،۳۴،۵۶۷ - and not the Western 3,3,3. Note the two words side by side: لک takes the aspirated ک and ڪروڙ the plain ڪ, which is a fair sample of how often the distinction comes up in ordinary Sindhi. The digits are the Perso-Arabic forms ۰۱۲۳۴۵۶۷۸۹ (U+06F0-U+06F9) that Sindhi shares with Urdu and Persian, NOT the Arabic-Indic ٠١٢٣٤٥٦٧٨٩ of the ar pack, and the separator is the Arabic comma ،. The currency is the Pakistani rupee.
+locale: sd
+---
+۳۰ هزار روپين کان گهٽ
+۳۰ کان ۵۰ هزار روپيا
+۵۰ هزار کان ۱ لک روپيا
+۱ کان ۲ لک روپيا
+۲ کان ۳ لک روپيا
+۳ کان ۵ لک روپيا
+۵ کان ۱۰ لک روپيا
+۱۰ لک روپين کان مٿي

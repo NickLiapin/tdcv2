@@ -1,0 +1,31 @@
+---
+description: Diagnoses recorded for female patients in Sindhi - the female-only conditions plus the ones that skew heavily female in this population. لوهه جي ڪمي and وٽامن ڊي جي ڪمي are near-universal findings in women here rather than notable ones: repeated pregnancy depletes iron, and covered dress with indoor work leaves very little sun. The last entry is worth its place - a large share of rural Sindhi households still cook on a چلهه burning wood or dung, and the woman at it breathes the smoke for hours a day, which produces chronic lung disease in people who have never smoked. ٻچيداني is the Sindhi word for the womb, opening with the implosive ٻ.
+locale: sd
+---
+حمل
+حمل جي ذيابيطس
+حمل جو بلند فشار خون
+اسقاط حمل
+حمل خارج رحم
+ڄڻڻ جون پيچيدگيون
+نفاسي رت وهڻ
+ولادت کان پوءِ ڊپريشن
+ماهواري جي بي قاعدگي
+سخت ماهواري درد
+پولي سسٽڪ اووري
+ٻچيداني جون رسوليون
+ٻچيداني جي منهن جو سرطان
+ڇاتي جو سرطان
+ڇاتي جي ڳوڙهي
+بيضه داني جو سسٽ
+رحم جي سوزش
+زنانه بانجهپڻ
+سن ياس جون علامتون
+لوهه جي ڪمي
+وٽامن ڊي جي ڪمي
+هڏن جي ڪمزوري
+ٿائيرائيڊ جي ڪمي
+رت جي ڪمي
+پيشاب جي نالي جو انفيڪشن
+ڊپريشن
+چلهه جي دونهين سان ڦڦڙن جي بيماري

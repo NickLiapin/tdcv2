@@ -1,0 +1,14 @@
+---
+description: Payment status in Sindhi. Where most orders settle in cash at the door, ادا ٿيل is recorded after ترسيل rather than before it, which inverts the order of events a card-first market assumes. رقم واپس usually means notes handed back or a wallet top-up, and چارج بيڪ can only ever apply to the small share of orders that were paid by card at all.
+locale: sd
+---
+زير التوا
+منظور ٿيل
+ادا ٿيل
+ناڪام
+رقم واپس
+جزوي رقم واپس
+چارج بيڪ
+منسوخ
+رد ٿيل
+تصديق طلب

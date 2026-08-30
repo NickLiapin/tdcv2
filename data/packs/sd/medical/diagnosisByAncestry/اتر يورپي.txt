@@ -1,0 +1,12 @@
+---
+description: Conditions with a higher prevalence in Northern European ancestry, in Sindhi. Cystic fibrosis and hereditary haemochromatosis are the clearest cases of a founder effect concentrating a recessive variant in one population, and both are correspondingly uncommon in a Sindhi clinic.
+locale: sd
+---
+سسٽڪ فائبروسس
+هيموڪروميٽوسس
+ڪڻڪ جي حساسيت
+ذيابيطس قسم اول
+ملٽيپل سڪليروسس
+چمڙي جو سرطان
+هڏن جي ڪمزوري
+الفا ون اينٽي ٽرپسن جي ڪمي

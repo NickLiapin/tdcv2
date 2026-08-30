@@ -1,0 +1,20 @@
+---
+description: Neurology diagnoses in Sindhi. ڳچي توڙ تپ is the plain Sindhi name for meningitis — literally the neck-breaking fever — and it names the presenting sign rather than the pathogen, which is how the complaint arrives at a district hospital. Sindh also keeps a summer cluster of amoebic meningoencephalitis: Karachi reports Naegleria deaths most years, traced to inadequately chlorinated tanked water.
+locale: sd
+---
+فالج
+دماغي رڳ جو ڦاٽڻ
+مرگي
+درد شقيقو
+دائمي مٿي جو سور
+ڏڪڻي
+نسيان
+الزائمر
+هڪ طرفو فالج
+عصبي سور
+منهن جو فالج
+ريڙهه جي هڏي جي چوٽ
+ڳچي توڙ تپ
+دماغي سوزش
+عضلاتي ڪمزوري
+اعصابي نقصان

@@ -1,0 +1,24 @@
+---
+description: Parcel carriers as Sindhi writes them, the domestic block first because that is what a parcel inside Pakistan actually travels on. ٽي سي ايس and ليپرڊ ڪورئير are the two large private couriers, ايم اينڊ پي is the oldest distribution house in the country, and پاڪستان پوسٽ still reaches the small towns of interior Sindh that the private networks price themselves out of. بلو ايڪس, ٽريڪس, پوسٽ ايڪس and سوئفٽ لاجسٽڪس exist because of online shopping and were built around cash on delivery, so the rider hands over the parcel and collects the money in one movement and the courier is also the payment channel - see commerce/paymentMethod. The international integrators follow.
+locale: sd
+---
+ٽي سي ايس
+ليپرڊ ڪورئير
+ايم اينڊ پي
+پاڪستان پوسٽ
+ڪال ڪورئير
+بلو ايڪس
+ٽريڪس
+پوسٽ ايڪس
+سوئفٽ لاجسٽڪس
+رائيڊر
+ڊائيوو ايڪسپريس
+او سي ايس
+ڊي ايچ ايل
+فيڊ ايڪس
+يو پي ايس
+ٽي اين ٽي
+آراميڪس
+ايس ايف ايڪسپريس
+اسڪائي نيٽ
+اي ايم ايس

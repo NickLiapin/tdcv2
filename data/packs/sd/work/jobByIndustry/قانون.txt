@@ -1,0 +1,22 @@
+---
+description: Legal jobs in Sindhi. تپيدار and مختيارڪار are Sindh's own revenue titles — the tapedar holds the village record of rights and the mukhtiarkar heads the taluka, the offices Punjab calls patwari and tehsildar — and they belong on a legal list because the entries they make decide almost every property dispute that later reaches a court. منشي is the clerk who runs an advocate's chamber, and قاضي presides in a Shariah forum.
+locale: sd
+---
+وڪيل
+ايڊووڪيٽ
+سينيئر ايڊووڪيٽ
+جج
+مئجسٽريٽ
+قاضي
+سرڪاري وڪيل
+قانوني مشير
+نوٽري
+اسٽامپ وينڊر
+منشي
+عدالتي محرر
+ريڊر
+تپيدار
+مختيارڪار
+رجسٽرار
+قانون ساز مسودو نويس
+تفتيشي آفيسر

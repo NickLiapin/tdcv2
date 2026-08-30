@@ -1,0 +1,31 @@
+---
+description: What follows a name in Sindhi. There is NO generational suffix in this language - no Jr., no Sr., no II or III after a Sindhi name - and translating an English suffix list would produce something no Sindhi speaker has ever written. What actually goes after a name is respect. صاحب is the universal one and attaches to almost anything: a name, a title, even a job. سائين follows a name as readily as it precedes one, which is unusual for an honorific and is why it appears in both this file and person/prefix. ادا and ادي, brother and sister, are used as suffixes to people who are not relatives at all. مرحوم and مرحومه mark someone who has died and are written on documents and gravestones and said in speech about the dead. Then come the qualifications, which in South Asia are written after the name on nameplates, letterheads and visiting cards exactly as they are in English - and finally the state honours (تمغه امتياز, ستاره امتياز, هلال امتياز, نشان حيدر), which are carried after the name for life and are a real part of how a decorated person is styled.
+locale: sd
+---
+صاحب
+صاحبه
+جي
+سائين
+ادا
+ادي
+مرحوم
+مرحومه
+شهيد
+رٽائرڊ
+ايڊووڪيٽ
+ايم اي
+بي اي
+ايم ايس سي
+بي ايس سي
+ايم بي اي
+ايم بي بي ايس
+ايف سي پي ايس
+ايم ڊي
+پي ايڇ ڊي
+ايل ايل بي
+سي ايس پي
+تمغه امتياز
+ستاره امتياز
+هلال امتياز
+نشان حيدر
+تمغه حسن ڪارڪردگي

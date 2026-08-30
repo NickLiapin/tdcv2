@@ -1,0 +1,59 @@
+---
+description: Business buzz verb in Sindhi, given in the infinitive, which in this language ends in -ڻ: ڪرڻ to do, ڏيڻ to give, بڻائڻ to make. Most entries are compounds of a noun with one of those three, so the same endings recur down the list — that repetition is how the grammar builds verbs, not a shortage of vocabulary, and it is also the clearest way to tell the language apart from Urdu, whose infinitive ends in a long -a instead. The simple verbs are the ones carrying consonants Urdu has no letter for: پکيڙڻ to spread, ڳنڍڻ to join, کٽڻ to win, پرکڻ to test, گڏ ڪرڻ to bring together.
+locale: sd
+---
+بهتر بڻائڻ
+مضبوط ڪرڻ
+فروغ ڏيڻ
+وڌائڻ
+تيز ڪرڻ
+آسان بڻائڻ
+منظم ڪرڻ
+مربوط ڪرڻ
+هم آهنگ ڪرڻ
+گڏ ڪرڻ
+وسعت ڏيڻ
+ترقي ڏيڻ
+بااختيار بڻائڻ
+قابل بڻائڻ
+مهيا ڪرڻ
+يقيني بڻائڻ
+متعارف ڪرائڻ
+تشڪيل ڏيڻ
+تيار ڪرڻ
+ڊيزائن ڪرڻ
+لاڳو ڪرڻ
+هلائڻ
+سنڀالڻ
+نگراني ڪرڻ
+جانچڻ
+پرکڻ
+تجزيو ڪرڻ
+سڌارو آڻڻ
+گهٽائڻ
+بچائڻ
+محفوظ بڻائڻ
+خودڪار بڻائڻ
+ڊجيٽل بڻائڻ
+جديد بڻائڻ
+نئين سر ترتيب ڏيڻ
+نئين شڪل ڏيڻ
+متحرڪ ڪرڻ
+ڳنڍڻ
+ملائڻ
+ورهائڻ
+پکيڙڻ
+قائم ڪرڻ
+برقرار رکڻ
+بحال ڪرڻ
+سهارو ڏيڻ
+رهنمائي ڪرڻ
+تربيت ڏيڻ
+متاثر ڪرڻ
+قائل ڪرڻ
+کٽڻ
+اڳتي وڌائڻ
+پيش ڪرڻ
+پورو ڪرڻ
+حاصل ڪرڻ
+ڪامياب بڻائڻ

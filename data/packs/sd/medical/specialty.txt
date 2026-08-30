@@ -1,0 +1,40 @@
+---
+description: Medical specialties in Sindhi. The last two lines are not folklore: حڪمت (Unani, the Greco-Arabic tradition) and هوميو پيٿي are licensed and separately registered systems of practice in Pakistan, with their own councils and their own qualified practitioners, and a Sindhi patient record genuinely names them. Note نڪ ڪن نڙي for ENT: three plain body words rather than a Latinate compound, and both نڪ (nose) and ڪن (ear) take ڪ, the plain-k letter, while a word like کنگهه (cough) takes ک, the aspirated one.
+locale: sd
+---
+دل جا مرض
+اعصابي امراض
+سرطان
+چمڙي جا مرض
+معدو ۽ جگر
+غدود ۽ ذيابيطس
+ڦڦڙن جا مرض
+هڏا ۽ جوڙ
+نفسيات
+گردي جا مرض
+عام طب
+خانداني طب
+اطفال
+امراض نسوان
+زچگي
+جراحي
+دماغي جراحي
+دل جي جراحي
+هڏن جي جراحي
+پلاسٽڪ سرجري
+بيهوشي
+حادثا ۽ ايمرجنسي
+انتهائي نگهداشت
+اکين جا مرض
+نڪ ڪن نڙي
+ڏندن جي طب
+رت جا مرض
+امراض مناعت
+وچڙندڙ مرض
+شعاعي علاج
+ريڊيالاجي
+پيٿالاجي
+بحالي صحت
+مسڪن نگهداشت
+حڪمت
+هوميو پيٿي

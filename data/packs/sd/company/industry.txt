@@ -1,0 +1,70 @@
+---
+description: Industry sector in Sindhi, as a company register or a job advertisement names it. This is not the Punjab list respelled. Sindh grows cotton, rice and sugarcane, and the first processing step of each is a separately registered trade rather than a branch of farming: ڪپهه جننگ is ginning, چانورن جي ڇڙائي is rice husking, کنڊ سازي is sugar milling, and کجور جي پيداوار is the date crop of Khairpur, one of the largest date-growing districts anywhere. The Thar coalfield gives ڪوئلي جي کوٽائي, and Karachi puts بندرگاهي خدمتون and جهاز راني on a provincial list where an inland province would have neither. اسلامي بينڪاري and تڪافل are deliberately kept apart from مالياتي خدمتون and بيمو, because both hold their own licence in Pakistan: تڪافل is mutual cover in which the participants underwrite one another out of a shared fund, so no premium is paid to an insurer and no interest is earned on it. اجرڪ ۽ سوسي, رلي سازي, جنڊي ڪم and ڪاشي گري are the block-printed cloth, the patchwork quilts, the lacquered woodwork and the blue tilework that Hala and Bhit Shah live on.
+locale: sd
+---
+زراعت
+مال پالڻ
+مڇي گيري
+جهنگلات
+ڪپهه جننگ
+چانورن جي ڇڙائي
+کنڊ سازي
+آٽو سازي
+کجور جي پيداوار
+انب جي باغباني
+ٻج ۽ ڀاڻ
+زرعي مشينري
+کاڻ ڪني
+ڪوئلي جي کوٽائي
+تيل ۽ گئس
+بجلي
+قابل تجديد توانائي
+پاڻي ۽ سيوريج
+فضلي جو انتظام
+اڏاوت
+تعميراتي سامان
+سيمينٽ
+لوهه ۽ فولاد
+ڪيميائي صنعت
+دوا سازي
+پلاسٽڪ
+ڪاغذ
+ٽيڪسٽائيل
+ڪپڙي جي سلائي
+چمڙي سازي
+کاڌي جي صنعت
+حلال فوڊ صنعت
+مشروبات
+اجرڪ ۽ سوسي
+رلي سازي
+جنڊي ڪم
+ڪاشي گري
+دستڪاري
+ٿوڪ واپار
+پرچون واپار
+اي ڪامرس
+بندرگاهي خدمتون
+جهاز راني
+لاجسٽڪس
+ٽرانسپورٽ
+هوابازي
+ريلوي
+گدام
+بينڪاري
+اسلامي بينڪاري
+مالياتي خدمتون
+بيمو
+تڪافل
+زڪوات ۽ خيرات
+رئيل اسٽيٽ
+معلوماتي ٽيڪنالاجي
+سافٽ ويئر
+ٽيلي ڪام
+ميڊيا
+اشاعت
+اشتهار سازي
+صحت
+تعليم
+قانوني خدمتون
+مشاورت
+سياحت

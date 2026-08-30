@@ -1,0 +1,16 @@
+---
+description: Conditions with a higher prevalence in Sub-Saharan African ancestry, in Sindhi. This list is a PREVALENCE SIGNAL, not an exclusive one: every condition named here also occurs in every other population, and ancestry shifts a prior probability rather than settling a diagnosis. Sindh has its own reason to keep this group in a local dataset — the Sheedi communities of Karachi, Badin and the lower Indus descend from East African ancestry and sickle cell is documented among them.
+locale: sd
+---
+سڪل سيل جي بيماري
+سڪل سيل جو حامل
+جي سڪس پي ڊي جي ڪمي
+بلند فشار خون
+ذيابيطس قسم دوم
+گردي جي دائمي بيماري
+پروسٽيٽ جو سرطان
+فالج
+سارڪوئيڊوسس
+لڪٽوز جي عدم برداشت
+ڪارو موتيو
+فائبرائڊ

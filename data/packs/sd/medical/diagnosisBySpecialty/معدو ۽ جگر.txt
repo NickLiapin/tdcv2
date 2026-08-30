@@ -1,0 +1,24 @@
+---
+description: Gastroenterology and hepatology diagnoses in Sindhi. Hepatitis B and C dominate this specialty in Sindh far more than anywhere in Europe, spread largely through reused syringes, unscreened blood and shared barber and dental instruments; a Sindhi liver clinic is mostly a viral hepatitis clinic. هيضو and ٽائيفائيڊ are current entries too — Hyderabad and Karachi have both reported extensively drug-resistant typhoid, the first such outbreak recorded anywhere.
+locale: sd
+---
+معدي جو السر
+تيزابيت
+معدي جي سوزش
+آنڊن جي سوزش
+چڙچڙو آنڊو
+قبض
+بواسير
+ڀڳندر
+هيپاٽائٽس بي
+هيپاٽائٽس سي
+يرقان
+جگر جي سختي
+چڪنائي وارو جگر
+پتي جي پٿري
+پتي جي سوزش
+لبلبي جي سوزش
+هيضو
+ٽائيفائيڊ
+اميبي پيچش
+ڪڻڪ جي حساسيت

@@ -1,0 +1,21 @@
+---
+description: Cuisine in Sindhi - the parent list of food/dishByCuisine, so every value here has a file of that exact name beside it. Note the spellings, because they show the one distinction a reader coming from Urdu is most likely to get wrong. Sindhi has TWO separate letters where Urdu has one: ڪ is plain k (پاڪستاني, ترڪي, ميڪسيڪن) and ک is the aspirated kh, a different letter for a different sound - ڪير means who and کير means milk, so writing one for the other is not a spelling slip but a different word. Sindhi also writes ي rather than Urdu's ی at the end of every one of these adjectives, and ٿائي opens with ٿ, one of the aspirates Urdu spells with two characters (تھ) and Sindhi with a single letter. The regional kitchens of Pakistan are listed separately because they really are separate: سنڌي cooking is sour, sweet and fish-heavy, بلوچي is salt and fire with almost no spice, پنجابي is wheat and dairy, and مغلائي is court cooking built on cream and nuts.
+locale: sd
+---
+پاڪستاني
+مغلائي
+پنجابي
+سنڌي
+بلوچي
+پشتون
+هندستاني
+افغاني
+ايراني
+عربي
+ترڪي
+چيني
+جاپاني
+ٿائي
+اطالوي
+آمريڪي
+ميڪسيڪن

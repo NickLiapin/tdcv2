@@ -1,0 +1,13 @@
+---
+description: Conditions with a higher prevalence in Middle Eastern ancestry, in Sindhi. وچ اوڀر is the Sindhi name, built from the language's own words for middle and east rather than from the Persian مشرق وسطیٰ an Urdu list uses. Clinically the group sits close to ڏکڻ ايشيائي: consanguineous marriage is common across the region for the same reasons it is in Sindh, and it raises recessive disease frequency the same way.
+locale: sd
+---
+بحيره روم جو وقفي وقفي سان تپ
+ٿيليسيميا
+سڪل سيل جي بيماري
+جي سڪس پي ڊي جي ڪمي
+ذيابيطس قسم دوم
+موروثي ٻوڙائپ
+وٽامن ڊي جي ڪمي
+ريڙهه جي پٺن جي ڪمزوري
+موروثي ميٽابولڪ امراض

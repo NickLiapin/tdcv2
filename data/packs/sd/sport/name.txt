@@ -1,0 +1,59 @@
+---
+description: Sports in Sindhi, ordered by what the province actually plays. ڪرڪٽ is not one sport among many - Sindh is the first-class side that carries the province's name through Pakistan's domestic season, ڪراچي ڪنگز play in the Pakistan Super League, and everything below competes for what is left over. هاڪي stands second by history rather than by present popularity: field hockey is the national sport and Pakistan has taken three Olympic golds and four World Cups at it. ملهه, third, is Sindh's own wrestling, fought on bare earth at village melas and at the urs of Sufi saints, where a wrestler takes hold of his opponent's twisted waistcloth rather than of his body. ڪبڊي and کوکو are the other village games with roots this deep, نيزي بازي is tent pegging at the gallop, and پٺو گرم and گلي ڏنڊو are the street games children here learn before they learn cricket. The names for playing are built on کيڏڻ, with ک - the aspirated kh that Sindhi keeps distinct from the plain k of ڪ in ڪرڪٽ.
+locale: sd
+---
+ڪرڪٽ
+هاڪي
+ملهه
+ڪبڊي
+فٽبال
+اسڪواش
+ڪشتي
+باڪسنگ
+والي بال
+باسڪيٽ بال
+بيڊمنٽن
+ٽيبل ٽينس
+ٽينس
+پولو
+نيزي بازي
+گهوڙي سواري
+تير اندازي
+نشاني بازي
+ايٿليٽڪس
+ڊوڙ
+ميراٿن
+ڊگهي ٽپ
+اوچي ٽپ
+گولو اڇلائڻ
+نيزو اڇلائڻ
+ڊسڪس ٿرو
+ترڻ
+غوطا خوري
+ٻيڙي هلائڻ
+بادباني
+سائيڪلنگ
+وزن کڻڻ
+جمناسٽڪ
+جوڊو
+ڪراٽي
+تائيڪوانڊو
+کوکو
+فينسنگ
+ڪوهه پيمائي
+ٽريڪنگ
+پيراگلائيڊنگ
+اسڪيئنگ
+آئيس هاڪي
+رگبي
+هينڊ بال
+گالف
+بليئرڊ
+سنوڪر
+شطرنج
+ڪيرم
+لڊو
+گلي ڏنڊو
+پٺو گرم
+رسا ڪشي
+اي اسپورٽس

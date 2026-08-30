@@ -1,0 +1,16 @@
+---
+description: Number of people in a household. The bands run higher than a European list because the households do. Sindh's average household holds a little over six people against roughly two and a half in Western Europe, and rural Sindh runs higher still: the ڪٽنب, the joint family in which married sons, their wives and their children stay in the father's house, routinely produces households of ten or more, and in the agricultural districts a household and a labour unit are frequently the same thing. That is why this list does not stop at 7+.
+locale: sd
+---
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12 يا وڌيڪ

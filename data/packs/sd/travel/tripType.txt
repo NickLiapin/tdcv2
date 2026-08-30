@@ -1,0 +1,24 @@
+---
+description: Purpose of travel in Sindhi. The reasons people here actually travel do not appear on a European list. حج is the pilgrimage made once by those who can afford it, allocated to Pakistan by national quota and balloted for; عمرو is the lesser pilgrimage, made at any time of year and by far larger numbers. ميلو and عرس are the fairs held at a saint's shrine on the anniversary of his death, and in Sindh they move more people than tourism does — the urs of Shah Abdul Latif at Bhit Shah and of Lal Shahbaz Qalandar at Sehwan each draw hundreds of thousands over several days, and the roads and buses are planned around them. ڄڃ is travelling as part of a wedding party, which moves whole busloads across the province at once. لڏپلاڻ is migration, and in Sindh it means both the movement of 1947 and the seasonal one, when herding families walk their animals out of the Thar because the rains have failed. Trekking and mountaineering are absent: Sindh has no mountains to speak of.
+locale: sd
+---
+حج
+عمرو
+زيارت
+مائٽن سان ملاقات
+شادي
+ڄڃ
+ميلو
+عرس
+ڪاروباري دورو
+نوڪري لاءِ سفر
+تعليمي سفر
+علاج لاءِ سفر
+سير ۽ تفريح
+خانداني موڪل
+هني مون
+مذهبي اجتماع
+ڪانفرنس
+نمائش
+خريداري
+لڏپلاڻ

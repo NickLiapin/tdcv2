@@ -217,7 +217,7 @@ working directory, so a config can travel with its project.
 ## `tdcv2 pack` — download and remove sets
 
 Run with no arguments in a terminal, `pack` opens a **picker** rather than printing the
-catalogue at you. 286 bundles do not fit on a screen, so they are browsed the way they
+catalogue at you. 287 bundles do not fit on a screen, so they are browsed the way they
 are shaped:
 
 - **Everything**, or **choose what I need** — the first question, before anything else.
@@ -293,7 +293,7 @@ terminal is. Piped or redirected there is no window to measure, and all five
 implementations assume 80 columns — so a saved listing is the same file whichever one
 wrote it.
 
-The catalogue holds **286 sets today**: `common`, 87 languages, and 198 countries. A
+The catalogue holds **287 sets today**: `common`, 88 languages, and 198 countries. A
 language or country that is not listed is not finished — an entry is a promise that every
 address under it resolves, so a folder holding one file does not get one.
 

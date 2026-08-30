@@ -1,0 +1,19 @@
+---
+description: Reason a customer returns an order, phrased as a Sindhi returns form does. اصلي ناهي (not genuine) is one of the commonest real reasons in a market with a large counterfeit trade, and no European returns list carries it. دٻو ڀڳل هو reflects a last mile carried on motorcycles through traffic. Because most orders are paid in cash at the door, the refusal usually happens before any money changes hands - the buyer looks at the parcel, declines it, and the rider carries it straight back - so a Pakistani return is far more often a purchase that never completed than a reversal of one that did.
+locale: sd
+---
+خراب حالت ۾ پهتو
+غلط شيءِ موڪلي وئي
+تفصيل مطابق ناهي
+سائيز غلط آهي
+رنگ مختلف نڪتو
+ارادو بدلجي ويو
+ٻئي هنڌ سستو مليو
+شروع کان ئي خراب
+ڪجهه حصا غائب آهن
+دير سان پهتو
+هاڻي ضرورت ناهي
+غلطي سان آرڊر ٿي ويو
+معيار توقع کان گهٽ
+اصلي ناهي
+دٻو ڀڳل هو

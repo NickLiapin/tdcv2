@@ -1,0 +1,23 @@
+---
+description: Minerals in Sindhi. The list opens with لوڻ, the Sindhi word for salt, but the deposits that decide the province's economy come further down: Tharparkar holds one of the world's largest lignite fields, the gas fields around Daharki and Kandhkot make Sindh a principal source of Pakistan's natural gas, and the wells of the Badin block are the country's main onshore crude. Limestone quarried from the ranges west of the Indus feeds the cement industry. Copper, chromite and onyx are listed because they are mined in Pakistan, not because they are mined here.
+locale: sd
+---
+لوڻ
+ڪوئلو
+ٽامو
+سون
+چاندي
+لوهه
+ڪروميٽ
+باڪسائيٽ
+سيسو
+جست
+جپسم
+چوني جو پٿر
+سنگ مرمر
+گرينائيٽ
+فائر ڪلي
+گندرف
+بيرائٽس
+سنگ سليماني
+قدرتي گئس

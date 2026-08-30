@@ -1,0 +1,16 @@
+---
+description: Japanese dishes in Sindhi. Note ٽيمپورا, ٽيرياڪي, ڪاٽسو and ٽوفو: Japanese t is heard as the retroflex ٽ by a Sindhi ear and is written that way, while the k of ياڪي and ڪاٽسو takes ڪ. Nothing on this list is old in Sindh - it arrived with city restaurants in the last thirty years.
+locale: sd
+---
+سوشي
+ساشيمي
+رامن
+ٽيمپورا
+ٽيرياڪي
+اوڊون
+ميسو سوپ
+ياڪي توري
+اوڪونومي ياڪي
+ڪاٽسو
+ڊونبوري
+موچي

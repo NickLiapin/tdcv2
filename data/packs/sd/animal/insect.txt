@@ -1,0 +1,28 @@
+---
+description: Insects and the small crawling animals Sindhi files with them. وڇون (scorpion), ڪوريئڙو (spider), چچڙي (tick), ڪينئون (worm) and جونڪ (leech) are not insects zoologically, and they are here because the everyday Sindhi category ڪيڙو means "crawling thing" rather than "hexapod" — a pest-control column or a symptom column written in Sindhi will contain all of them. کٽمل, the bedbug, is built on کٽ, the string bed it lives in, and its first letter is the aspirated ک, which contrasts with plain ڪ: ڪير is "who" and کير is "milk", so the two are not interchangeable spellings of one letter. Sindhi also keeps a native word beside a borrowed one where both are current — اڏوهي is the Sindhi termite and ديمڪ the loan, and both are ordinary speech. ماڪڙ is the desert locust and belongs in farm records rather than in a curiosity list: swarms reached Sindh in 2019 and 2020 and were logged as an agricultural emergency. ٽانڊاڻو, the firefly, is built on ٽانڊو, an ember.
+locale: sd
+---
+مک
+مڇر
+ماڪوڙي
+اڏوهي
+ديمڪ
+ڏينڀو
+ڀونر
+پوپٽ
+پروانو
+ڀنڀوري
+ماڪڙ
+جهينگر
+ڪاڪروچ
+کٽمل
+جونء
+پسو
+وڇون
+ڪوريئڙو
+ٽانڊاڻو
+سنڍي
+گبريلو
+چچڙي
+ڪينئون
+جونڪ

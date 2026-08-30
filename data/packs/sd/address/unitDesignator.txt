@@ -1,0 +1,27 @@
+---
+description: Secondary address unit in Sindhi. Most of these put نمبر after a noun, because a Sindhi address numbers the thing rather than abbreviating it: مڪان نمبر, گهٽي نمبر. سروي نمبر and ديهه نمبر belong to the land record rather than to the post, and in rural Sindh they are the address — the countryside is surveyed into ديهون, each deh cut into numbered survey squares, and a property is identified by its survey number within its deh long before any street reaches it. پورشن, with its مٿيون and هيٺيون variants, is the commonest urban rental unit: one floor of a house let separately with its own entrance, so the same مڪان نمبر can be two households with two tenancies. ڪوارٽر is government or railway staff housing and marks the address as institutional rather than private.
+locale: sd
+---
+مڪان نمبر
+فليٽ نمبر
+پلاٽ نمبر
+دڪان نمبر
+دفتر نمبر
+ڪمرو نمبر
+گهٽي نمبر
+اسٽريٽ نمبر
+سروي نمبر
+ديهه نمبر
+بلاڪ
+يونٽ
+سيڪٽر
+فيز
+ماڙ
+گرائونڊ فلور
+فرسٽ فلور
+سيڪنڊ فلور
+بيسمينٽ
+پورشن
+مٿيون پورشن
+هيٺيون پورشن
+ڪوارٽر

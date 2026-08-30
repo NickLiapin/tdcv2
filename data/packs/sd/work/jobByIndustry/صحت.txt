@@ -1,0 +1,26 @@
+---
+description: Healthcare jobs in Sindhi. ليڊي هيلٿ ورڪر is a formal cadre rather than a description: the Lady Health Worker programme posts a trained woman in her own village to deliver primary care and vaccination, and it is one of the largest community health workforces anywhere. دائي is the traditional birth attendant who still delivers a large share of births in rural Sindh, and حڪيم practises Unani medicine as a registered profession with its own council.
+locale: sd
+---
+ڊاڪٽر
+ماهر امراض قلب
+ماهر اطفال
+سرجن
+ماهر امراض نسوان
+ماهر بيهوشي
+ڊينٽسٽ
+فارماسسٽ
+نرس
+هيڊ نرس
+ليڊي هيلٿ ورڪر
+دائي
+ويڪسينيٽر
+ليب ٽيڪنيشن
+ريڊيالاجي ٽيڪنيشن
+فزيو ٿراپسٽ
+غذائي ماهر
+اسپتال ايڊمنسٽريٽر
+ايمبولينس ڊرائيور
+حڪيم
+هوميو پيٿ
+ماهر نفسيات

@@ -1,0 +1,18 @@
+---
+description: Marital status in Sindhi. Four of these have no slot on a European form. نڪاح ٿيل رخصتي باقي is a real intermediate state: the نڪاح, the marriage contract, is signed and the couple are legally married, but the رخصتي, the bride's departure to her husband's house, has not happened - sometimes months or years later - and until it does they do not live together, so neither single nor married describes them. عدت ۾ is the waiting period a widow or divorced woman observes before she may remarry, four months and ten days after a death, and it carries legal consequences rather than being a private matter. هڪ کان وڌيڪ شاديون records polygamous marriage, lawful in Pakistan subject to the first wife's consent and an arbitration council's permission, and it appears on real records. خلع and طلاق are both dissolutions of marriage and are recorded separately: طلاق is pronounced by the husband, خلع is sought by the wife through a court, and in Sindh's family courts the second is the commoner petition.
+locale: sd
+---
+غير شادي شده
+منگني ٿيل
+نڪاح ٿيل رخصتي باقي
+شادي شده
+هڪ کان وڌيڪ شاديون
+عليحده
+مطلقه
+خلع ورتل
+بيوه
+رنڙ
+عدت ۾
+ٻي شادي
+رشتو طئي ٿيل
+نامعلوم

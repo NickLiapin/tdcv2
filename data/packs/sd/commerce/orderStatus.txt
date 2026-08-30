@@ -1,0 +1,18 @@
+---
+description: Order status in Sindhi, as a Pakistani e-commerce interface shows it. The states are built as participles on ٿيڻ (to become) and ڪرڻ (to do) - تصديق ٿيل, روانو ڪيو ويو - rather than with the Persian ending an Urdu list would take. ادائگي جو منتظر covers a far smaller share of orders here than it would in Europe, because most parcels are never paid for until the rider is at the door.
+locale: sd
+---
+زير التوا
+زير عمل
+تصديق ٿيل
+روانو ڪيو ويو
+ترسيل لاءِ روانو
+پهچايو ويو
+منسوخ
+واپس
+رقم واپس
+روڪيل
+اسٽاڪ ختم
+ناڪام
+ادائگي جو منتظر
+جزوي طور روانو

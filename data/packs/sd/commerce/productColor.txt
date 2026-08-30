@@ -1,0 +1,58 @@
+---
+description: Colour as it appears on a Sindhi product listing, a shorter and more commercial set than color/name. The basic colour words are Sindhi rather than Persian loans - اڇو white, ڪارو black, ڳاڙهو red, سائو green, نيرو blue, ڀورو brown - and a catalogue makes new shades productively by putting ڳوڙهو (deep) or هلڪو (light) in front of them, which is why those pairs recur down the list. ڌاڻي is the pale green of young shoots and has no single-word English equivalent.
+locale: sd
+---
+اڇو
+آف وائيٽ
+سياهه
+ڪارو
+سرمئي
+ڳوڙهو سرمئي
+هلڪو سرمئي
+چاندي
+سونهري
+ڳاڙهو
+ڳوڙهو ڳاڙهو
+هلڪو ڳاڙهو
+مهرون
+عنابي
+گلابي
+هلڪو گلابي
+ڳوڙهو گلابي
+نارنگي
+پيلو
+هلڪو پيلو
+سرنهي
+زعفراني
+سائو
+ڳوڙهو سائو
+هلڪو سائو
+ڌاڻي
+زيتوني
+پستائي
+فيروزي
+آسماني
+نيرو
+ڳوڙهو نيرو
+هلڪو نيرو
+لاجوردي
+رائل بليو
+نيوي
+جامني
+ارغواني
+بنفشي
+ڪاسني
+ڀورو
+ڳوڙهو ڀورو
+هلڪو ڀورو
+ڪٿئي
+بادامي
+خاڪي
+ريتيلو
+ڪريمي
+موتئي
+چمپئي
+مٽيالو
+شربتي
+ٻه رنگو
+گهڻ رنگو

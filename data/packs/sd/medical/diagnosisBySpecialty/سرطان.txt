@@ -1,0 +1,22 @@
+---
+description: Oncology diagnoses in Sindhi. وات جو سرطان leads the list on evidence, not on style: chewed areca and tobacco preparations — گٽڪو, مائنپوري and پان — are used across Sindh on a scale that makes oral cavity cancer the commonest malignancy in men in Karachi's cancer registry, while in most European registries it is a rarity.
+locale: sd
+---
+وات جو سرطان
+ڇاتي جو سرطان
+ڦڦڙن جو سرطان
+معدي جو سرطان
+آنڊي جو سرطان
+جگر جو سرطان
+بچيداني جو سرطان
+رحم جو سرطان
+پروسٽيٽ جو سرطان
+مثاني جو سرطان
+گردي جو سرطان
+رت جو سرطان
+لمف غدود جو سرطان
+هڏي جو سرطان
+چمڙي جو سرطان
+دماغ جي رسولي
+لبلبي جو سرطان
+نڙي جو سرطان

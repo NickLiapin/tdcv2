@@ -1,0 +1,38 @@
+---
+description: Unit of measure in Sindhi. The metric units are official, but the traditional ones below them are what a shop actually weighs with, and a config that omits them is describing a market that does not exist. سير is about 933 g and still measures grain and vegetables; مڻ, the maund of forty seers and roughly 37 kg, is the unit a wheat or cotton crop is bought in; تولو is 11.66 g and is the unit gold is priced in across South Asia, with ماشو and رتي as its subdivisions. گز is the yard cloth is cut by. مرلو and ڪنال measure urban plots - one kanal is twenty marla - while گنٺو is the sub-acre unit that Sindh's own revenue records are kept in.
+locale: sd
+---
+عدد
+درجن
+جوڙو
+سيٽ
+دٻو
+پيڪٽ
+ٿيلهو
+ٻوري
+بنڊل
+رول
+ڪلوگرام
+گرام
+ملي گرام
+ٽن
+ليٽر
+ملي ليٽر
+ميٽر
+سينٽي ميٽر
+ڪلوميٽر
+مربع ميٽر
+مربع فوٽ
+فوٽ
+انچ
+گز
+سير
+ڇٽانڪ
+مڻ
+تولو
+ماشو
+رتي
+مرلو
+ڪنال
+ايڪڙ
+گنٺو

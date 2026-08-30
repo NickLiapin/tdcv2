@@ -1,0 +1,19 @@
+---
+description: Football positions in Sindhi. Football in Pakistan is a club and departmental game rather than a national obsession, but Lyari in Karachi has been its heartland for generations and the neighbourhood's Ramazan night tournaments still supply a large share of the country's players, which is why this vocabulary is heard on Sindhi streets at all.
+locale: sd
+---
+گول ڪيپر
+سينٽر بيڪ
+رائيٽ بيڪ
+ليفٽ بيڪ
+وِنگ بيڪ
+سويپر
+دفاعي مڊفيلڊر
+سينٽرل مڊفيلڊر
+حملي آور مڊفيلڊر
+رائيٽ ونگر
+ليفٽ ونگر
+سينٽر فارورڊ
+اسٽرائيڪر
+سيڪنڊ اسٽرائيڪر
+متبادل کيڏاري
