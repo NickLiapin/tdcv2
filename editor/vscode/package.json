@@ -43,7 +43,7 @@
         "tdc.server.path": {
           "type": "string",
           "default": "",
-          "description": "Absolute path to the language server (typescript/dist/lsp/server.js). Empty means look for it inside the repository."
+          "description": "Absolute path to the language server (…/tdcv2/dist/lsp/server.js). Leave empty and the extension looks for it in the workspace node_modules, then anywhere Node can resolve tdcv2, then in a TDC checkout."
         }
       }
     }

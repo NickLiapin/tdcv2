@@ -4,6 +4,31 @@ A small wrapper: it hooks up `.tdc` highlighting (the grammar from `../`) and
 starts our language server (errors, completion, hover, navigation). It is **not**
 published to the marketplace — install it by hand from this folder.
 
+## Where it looks for the language server
+
+Highlighting is contributed by the manifest and always works. Everything else —
+completion, hover, diagnostics, go-to-definition — needs the server, and the
+extension looks for it in this order:
+
+1. `tdc.server.path`, if you have set it. Taken as given, with no fallback: if
+   you name a path, a typo should fail loudly rather than quietly land you on a
+   different server.
+2. `node_modules/tdcv2/dist/lsp/server.js` in an open workspace folder. This is
+   the ordinary case — a project that depends on `tdcv2` already carries it.
+3. Anywhere Node can resolve `tdcv2` from the extension, which covers a global
+   install.
+4. `../../typescript/dist/lsp/server.js`, for working on TDC itself.
+
+If none of those exists the extension says so once and stops, instead of
+starting a client against a path that is not there. It used to check only the
+fourth, so outside a clone of this repository it silently did nothing.
+
+**The packs it completes** are the ones a run would use: the bundled packs, the
+`dataPaths` from `tdcv2.config.json` and `~/.config/tdcv2/config.json`, and the
+conventional `data/packs` and `packs` folders in the workspace. So a locale you
+installed with `tdcv2 pack add` is offered in autocomplete, and installing one
+while the editor is open takes effect without a restart.
+
 ## Step 0 — build the language server (once)
 
 ```bash
