@@ -1,0 +1,8 @@
+# Every generated file, checked in about half a minute.
+#
+# The test suites and the five-language gate stay in CI: a pre-push hook that
+# costs minutes is one people learn to skip, and a check nobody runs is worse
+# than no check because it also lies about being there.
+#
+# In a genuine hurry: git push --no-verify
+npm run verify:derived
