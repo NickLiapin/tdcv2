@@ -12,6 +12,60 @@
  */
 
 export const TAG_DOCS: Record<string, string> = {
+  // ── the compute sub-language ──────────────────────────────────────────────
+  // A declarative tag tree, not an expression string: every step is a tag, and
+  // values arrive through attributes because the grammar has no text content.
+  int: 'An integer literal.',
+  str: 'A string literal.',
+  list: 'A literal list of values.',
+  field:
+    'Reads another field of this row. It must be declared ABOVE this one — a `<field>` pointing further down the file is `TDC182`, because the row is built in order.',
+  let: 'Names a value once so `<use>` can read it back, instead of computing it twice.',
+  use: 'Reads back a value that `<let>` named.',
+  each: 'Maps over a list, running its body once per element.',
+  reduce: 'Folds a list to a single value, carrying `<acc>` from step to step.',
+  current: 'Inside `<each>` or `<reduce>`: the element at this step.',
+  current_index: 'Inside `<each>` or `<reduce>`: which step this is, counting from zero.',
+  acc: 'Inside `<reduce>`: what the fold has accumulated so far — the value `<do>` produced last time.',
+  init: 'Inside `<reduce>`: what `<acc>` holds before the first step.',
+  do: 'Inside `<reduce>`: the body run at each step, whose result becomes the next `<acc>`.',
+  over: 'Inside `<each>` or `<reduce>`: the list being walked.',
+  index: 'Inside `<at>`: which position to take, counting from zero.',
+  in: 'The list slot of `<join>`, `<at>` and `<length>` — the collection the operation reads. (Not the `in=` attribute of `<gen type="http">`, which names a sequence to send.)',
+  join: 'A list to a string.',
+  split: 'A string to a list, cut on `sep=`.',
+  at: 'Indexes into a list.',
+  length: 'Measures a string or a list.',
+  add: 'Adds its parts together.',
+  subtract: 'Subtracts the rest from the first.',
+  multiply: 'Multiplies its parts together.',
+  divide: 'Integer division — the remainder is thrown away.',
+  mod: 'The remainder of a division.',
+  to_number: 'Reads a string as a number.',
+  encode: 'Re-encodes a value in another base or alphabet.',
+  pad: 'Pads on the left to a fixed width.',
+  concat: 'Glues parts into one string.',
+  upper: 'Upper-cases a string.',
+  lower: 'Lower-cases a string.',
+  capitalize: 'Upper-cases the first letter, leaves the rest.',
+  title: 'Upper-cases the first letter of every word.',
+  mask: 'Splits and rearranges by a pattern.',
+  slice: 'A substring by index.',
+  replace: 'Replaces every occurrence — the needle is a literal, not a pattern.',
+  trim: 'Strips the outer whitespace.',
+  group: 'Groups characters from the RIGHT, the way a card number or a thousands separator does.',
+  choose:
+    'Picks the first `<when>` whose `<test>` holds. `<otherwise>` is required — a `<choose>` without one is `TDC184`.',
+  when: 'One branch of a `<choose>`: a `<test>` and the `<result>` to use when it holds.',
+  otherwise: 'The branch of a `<choose>` taken when no `<when>` matched. Required.',
+  test: 'The condition slot of a `<when>`.',
+  then: 'The value slot of a `<when>`.',
+  result: 'What this branch evaluates to.',
+  equals: 'True when two integers are equal.',
+  greater_than: 'Strict `A > B`.',
+  less_than: 'Strict `A < B`.',
+  is_digit: 'True when a character is `0`–`9`.',
+
   tdc: 'The root of a TDC configuration.',
   env: 'The generation environment: `count` — how many records, `seed` — the RNG seed, `inject` — the interpolation marker, plus the `<sequence>` / `<mix>` / `<switch>` declarations.',
   sequence:
@@ -42,6 +96,60 @@ export const TAG_DOCS: Record<string, string> = {
 };
 
 export const ATTR_DOCS: Record<string, string> = {
+  // ── columns that read other columns ───────────────────────────────────────
+  of: 'The column this one is computed from. On `running` the column to accumulate, on `stat` the column to summarise, on `date` the column to measure from.',
+  accumulate:
+    'How a `running` column adds up — or, beside `repeat`, replaces the list with its running total.',
+  reset:
+    'On `running`: a column whose change restarts the total. A new customer, a new month, a new order.',
+  op: 'On `stat`: which statistic — `sum`, `mean`, `median`, `min`, `max`, `count` or `stddev`.',
+  plus: 'On `<gen type="date" of="…">`: how far from that column — `7d`, `3..10d`, `1..3mo`, `-10..-3d`. A bare number means days.',
+  expr: 'On `formula`: the arithmetic this column is, written the way an `if=` condition is.',
+  filter: 'On `pool`: which members of the pool this row may draw from.',
+
+  // ── file and repeat ───────────────────────────────────────────────────────
+  read: '`"quantile"` — read the file as a sorted sample and land anywhere along it, not only on the values in it.',
+  sample:
+    '`"exact"` — sweep the distribution evenly instead of drawing from it, so the shape comes out exact rather than approximate.',
+  lengths:
+    'Beside `repeat="A..B"`: the share of rows that get each length, shortest first. An exact quota, not an approximation.',
+
+  // ── dates and waves ───────────────────────────────────────────────────────
+  weekdays: 'Which weekdays a walked date axis keeps: `mon..fri`, `sun,wed`.',
+  peak_at: 'Which row the seasonal wave peaks on.',
+
+  // ── http ──────────────────────────────────────────────────────────────────
+  in: 'On `http`: a sequence whose value is sent with each row.',
+  on_error: 'On `http`: `fail` (default) or `empty` when a request does not come back.',
+  timeout: 'On `http`: seconds to wait for a response. 30 by default.',
+  secret: 'On `http`: the key each request is signed with — `env:NAME`, `file:path`, or a literal.',
+
+  // ── statistical distributions ─────────────────────────────────────────────
+  // Which parameters a distribution takes is part of what it IS, so each one
+  // names its own rather than describing the letter in the abstract.
+  distribution:
+    'The shape the numbers take: `normal`, `lognormal`, `exponential`, `pareto`, `weibull`, `poisson`, `zipf`, `gamma`, `beta`, `uniform`.',
+  mean: 'On `normal`: the centre of the bell.',
+  sd: 'On `normal`: the spread — about two thirds of the values land within one of these of the mean.',
+  meanlog:
+    'On `lognormal`: the mean of the LOGARITHM, not of the values. 10.8 is roughly a median of 49,000.',
+  sdlog:
+    'On `lognormal`: the spread of the logarithm. The larger it is, the longer the right tail.',
+  rate: 'On `exponential`: events per unit of time. The mean gap is `1 / rate`.',
+  alpha:
+    'On `pareto`: how fast the tail falls away — smaller is heavier. On `beta`: the first shape parameter.',
+  xmin: 'On `pareto`: the smallest value, where the tail starts.',
+  shape:
+    'On `weibull` and `gamma`: below 1 the risk falls with age, at 1 it is constant, above 1 it is wear-out.',
+  scale:
+    'On `weibull` and `gamma`: the characteristic size — where the distribution sits on the number line.',
+  lambda: 'On `poisson`: the average number of events per interval.',
+  beta: 'On `beta`: the second shape parameter. With `alpha`, it bends the 0..1 range toward one end or the middle.',
+  s: 'On `zipf`: the steepness. Larger skews harder toward the first ranks.',
+  n: 'On `zipf`: how many ranks there are — a hundred products, a thousand pages.',
+  min: 'A floor the drawn value is held to, after the distribution has spoken.',
+  max: 'A ceiling the drawn value is held to, after the distribution has spoken.',
+
   count: 'How many records to generate.',
   seed: 'The random-number seed. The same seed and config give the same output, byte for byte.',
   inject: 'The interpolation marker, `${{%}}` by default. Change it to print a literal `${{…}}`.',
@@ -52,7 +160,7 @@ export const ATTR_DOCS: Record<string, string> = {
   on: 'The subject of a `<switch>` — the sequence whose value is looked up among the keys.',
   is: 'The key or keys of a `<case>` inside a `<switch>`. Several share a branch with `|`, e.g. `US|CA`.',
   uniq: '`uniq="true"` — nothing repeats across records: on a compound sequence the TUPLE of fields, on a simple one the value itself (drawn without replacement; refused when the pool is smaller than the count).',
-  type: 'Which generator: `text`, `number`, `regex`, `advanced_regex`, `date`, `template`, `symbol`, `increment`, `decrement`, `file`, `timeseries`, `pattern`, `http`.',
+  type: 'Which generator: `text`, `number`, `regex`, `advanced_regex`, `date`, `template`, `symbol`, `increment`, `decrement`, `file`, `timeseries`, `pattern`, `http`, `pool`, `running`, `stat`, `formula`.',
   value:
     'The main value — what it means depends on `type`: a list for `text`, a range like `1..9` for `number`, a pack address for `template`.',
   percent:

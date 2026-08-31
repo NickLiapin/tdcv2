@@ -14,8 +14,6 @@
  * `npm install tdcv2`; only needed to actually run the LSP.
  */
 
-import { existsSync } from 'node:fs';
-import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { TextDocument } from 'vscode-languageserver-textdocument';
@@ -42,7 +40,8 @@ import {
   type WorkspaceEdit,
 } from 'vscode-languageserver/node.js';
 
-import { bundledPacksDir, type PackRegistry, scanPacks } from '../data-pack/index.js';
+import { type PackRegistry, scanPacks } from '../data-pack/index.js';
+import { packRootsFor, rootsChanged, stampRoots } from './pack-roots.js';
 import { formatTdc } from '../formatter/format.js';
 
 import { computeCompletions, type PackAddressInfo } from './completion.js';
@@ -52,19 +51,48 @@ import { computeDefinition, computeHover, computeReferences, computeRename } fro
 const connection = createConnection(ProposedFeatures.all);
 const documents = new TextDocuments(TextDocument);
 
-// Packs scanned once on init (bundled + workspace packs). Addresses feed
-// diagnostics (don't flag known pack templates); the richer infos (address +
-// description) feed completion.
+// Packs scanned on init and refreshed when a root changes underneath us.
+// Addresses feed diagnostics (don't flag known pack templates); the richer
+// infos (address + description) feed completion.
 let packAddresses: readonly string[] = [];
 let packInfos: readonly PackAddressInfo[] = [];
+let initParams: InitializeParams | undefined;
+/** Root path → its mtime when last scanned, for the staleness check below. */
+let rootStamps: ReadonlyMap<string, number> = new Map();
 
-connection.onInitialize((params: InitializeParams): InitializeResult => {
-  const registry = loadPacks(params);
+function adoptRegistry(registry: PackRegistry): void {
   packAddresses = [...registry.keys()];
   packInfos = [...registry.values()].map((entry) => ({
     address: entry.address,
     ...(entry.description !== undefined ? { description: entry.description } : {}),
   }));
+}
+
+/**
+ * Rescan if a pack root has changed since the last scan.
+ *
+ * `tdcv2 pack add` unpacks a bundle into the store, which changes that
+ * directory's mtime, and the set of roots itself changes when the install
+ * registers a new `dataPaths` entry. Scanning a hundred locale packs takes
+ * seconds and must not happen per keystroke, so the check is a stat per root —
+ * microseconds — and the walk only runs when one of them actually moved.
+ *
+ * Without this, installing a pack meant restarting the editor before its
+ * addresses could be completed, and nothing said so.
+ */
+function refreshPacksIfStale(): void {
+  if (initParams === undefined) return;
+  const roots = workspaceRoots(initParams);
+  const stamps = stampRoots(roots);
+  if (!rootsChanged(rootStamps, stamps)) return;
+  rootStamps = stamps;
+  adoptRegistry(scanPacks(roots).registry);
+}
+
+connection.onInitialize((params: InitializeParams): InitializeResult => {
+  initParams = params;
+  rootStamps = stampRoots(workspaceRoots(params));
+  adoptRegistry(loadPacks(params));
   return {
     capabilities: {
       textDocumentSync: TextDocumentSyncKind.Incremental,
@@ -96,6 +124,7 @@ connection.onDocumentFormatting((params: DocumentFormattingParams): ProtocolText
 connection.onCompletion((params: CompletionParams): ProtocolCompletionItem[] => {
   const doc = documents.get(params.textDocument.uri);
   if (!doc) return [];
+  refreshPacksIfStale();
   return computeCompletions(doc.getText(), params.position, { packAddresses: packInfos }).map(
     (c) => ({
       label: c.label,
@@ -106,23 +135,18 @@ connection.onCompletion((params: CompletionParams): ProtocolCompletionItem[] => 
   );
 });
 
-/**
- * Scan the bundled pack folder plus each workspace folder's conventional
- * pack locations (`data/packs`, `packs`), so `template` references to a
- * user's own packs are neither flagged nor missing from autocomplete.
- */
 function loadPacks(params: InitializeParams): PackRegistry {
-  const roots: string[] = [];
-  const bundled = bundledPacksDir();
-  if (bundled) roots.push(bundled);
+  return scanPacks(workspaceRoots(params)).registry;
+}
+
+/** Workspace folders as plain directories, for `packRootsFor`. */
+function workspaceRoots(params: InitializeParams): readonly string[] {
+  const dirs: string[] = [];
   for (const folder of params.workspaceFolders ?? []) {
     const dir = uriToPath(folder.uri);
-    if (!dir) continue;
-    for (const candidate of [join(dir, 'data', 'packs'), join(dir, 'packs')]) {
-      if (existsSync(candidate)) roots.push(candidate);
-    }
+    if (dir !== undefined) dirs.push(dir);
   }
-  return scanPacks(roots).registry;
+  return packRootsFor(dirs);
 }
 
 function uriToPath(uri: string): string | undefined {
