@@ -301,7 +301,7 @@ public static class Pack
             string mark = here.Contains(bundle.Id) ? "✓ installed" : " ";
             stdout.Write(string.Create(
                 CultureInfo.InvariantCulture,
-                $"  {bundle.Id.PadRight(idWidth)} {mark,-12} {bundle.Name} ({Megabytes(bundle.Bytes)})\n"));
+                $"  {bundle.Id.PadRight(idWidth)} {mark,-12} {bundle.Name} ({HumanBytes.Format(bundle.Bytes)})\n"));
             foreach (string line in Wrap(bundle.Description, indent))
             {
                 stdout.Write(line + "\n");
@@ -338,7 +338,7 @@ public static class Pack
 
         foreach (PackRegistry.Bundle bundle in bundles)
         {
-            stderr.Write($"tdcv2: downloading {bundle.Id} ({Megabytes(bundle.Bytes)})…\n");
+            stderr.Write($"tdcv2: downloading {bundle.Id} ({HumanBytes.Format(bundle.Bytes)})…\n");
             PackRegistry.Installation result = registry.Install(bundle, store.Path);
 
             // The STORE goes into the config, once, however many bundles land in it — a bundle
@@ -445,7 +445,4 @@ public static class Pack
 
         stderr.Write(string.Join("\n", lines) + "\n");
     }
-
-    private static string Megabytes(long bytes) =>
-        (bytes / 1024.0 / 1024.0).ToString("F1", CultureInfo.InvariantCulture) + " MB";
 }

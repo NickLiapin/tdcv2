@@ -243,10 +243,6 @@ public static class PackPicker
     private sealed record Item(
         Kind Kind, string Label, string Hint, string? Id, string? To, string? Act, string? Region);
 
-    private static string HumanSize(long bytes) => bytes < 102_400
-        ? string.Create(CultureInfo.InvariantCulture, $"{Math.Round(bytes / 1024.0)} KB")
-        : string.Create(CultureInfo.InvariantCulture, $"{bytes / 1_048_576.0:F1} MB");
-
     /// <summary>
     /// "Argentina (country)" is right in a printed list and noise in a screen that says so already.
     /// </summary>
@@ -310,7 +306,7 @@ public static class PackPicker
         public PackRegistry.Bundle? ById(string id) =>
             Bundles.FirstOrDefault(b => string.Equals(b.Id, id, StringComparison.Ordinal));
 
-        public string SizeOf(string id) => HumanSize(ById(id)?.Bytes ?? 0);
+        public string SizeOf(string id) => HumanBytes.Format(ById(id)?.Bytes ?? 0);
 
         public List<PackRegistry.Bundle> Languages() =>
             Bundles.Where(b => b.Locale is not null).ToList();
@@ -383,7 +379,7 @@ public static class PackPicker
                             ? "already installed"
                             : string.Create(
                                 CultureInfo.InvariantCulture,
-                                $"{rest.Count} not installed · {HumanSize(total)}")),
+                                $"{rest.Count} not installed · {HumanBytes.Format(total)}")),
                     GroupItem(
                         "browse", "Choose what I need", "by language, by country, or search"),
                 };
@@ -507,7 +503,7 @@ public static class PackPicker
                 items.Add(Action(
                     "confirm",
                     "Apply — " + string.Join(", ", what),
-                    state.Selected.Count > 0 ? HumanSize(total) : string.Empty));
+                    state.Selected.Count > 0 ? HumanBytes.Format(total) : string.Empty));
                 return items;
             }
 

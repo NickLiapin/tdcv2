@@ -1,5 +1,6 @@
 package io.github.nickliapin.tdc.cli;
 
+import io.github.nickliapin.tdc.HumanBytes;
 import io.github.nickliapin.tdc.packs.PackRegistry;
 import java.io.IOException;
 import java.io.InputStream;
@@ -470,15 +471,9 @@ final class PackPicker {
     return out;
   }
 
-  private static String humanSize(long bytes) {
-    return bytes < 102_400
-        ? Math.round(bytes / 1024.0) + " KB"
-        : String.format(Locale.ROOT, "%.1f MB", bytes / 1048576.0);
-  }
-
   private String sizeOf(String id) {
     PackRegistry.Bundle b = byId.get(id);
-    return b == null ? "" : humanSize(b.bytes());
+    return b == null ? "" : HumanBytes.format(b.bytes());
   }
 
   /** "Argentina (country)" is right in a printed list, and noise on a screen that says so. */
@@ -513,7 +508,7 @@ final class PackPicker {
         }
         out.add(Item.action("all", "Everything",
             rest.isEmpty() ? "already installed"
-                : rest.size() + " not installed · " + humanSize(total)));
+                : rest.size() + " not installed · " + HumanBytes.format(total)));
         out.add(Item.group("browse", "Choose what I need", "by language, by country, or search",
             null));
         if (!installed.isEmpty()) {
@@ -581,7 +576,7 @@ final class PackPicker {
           what.add("remove " + dropping.size());
         }
         out.add(Item.action("confirm", "Apply — " + String.join(", ", what),
-            chosen.isEmpty() ? "" : humanSize(total)));
+            chosen.isEmpty() ? "" : HumanBytes.format(total)));
       }
       case "search" -> {
         String q = query.trim().toLowerCase(Locale.ROOT);

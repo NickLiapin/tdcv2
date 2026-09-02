@@ -11,8 +11,9 @@
  * difference is an extra avoidance, never a duplicate. At these test sizes the
  * odds are astronomically small, so byte equality is asserted outright.
  */
-import { readdirSync } from 'node:fs';
+import { mkdtempSync, readdirSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 
 import { describe, expect, it } from 'vitest';
 
@@ -133,6 +134,30 @@ describe('fingerprints find and fix what text finds and fixes', () => {
   });
 
   it('leaves no fingerprint temp directories behind', () => {
+    /*
+     * In a private temp root, not the machine's.
+     *
+     * The sort spills to `mkdtemp(tmpdir(), 'tdc-fp-sort-')`, and vitest runs
+     * test files in parallel processes — so counting `tdc-fp-` directories in
+     * the shared temp folder counted another worker's live sort as this test's
+     * leak, and this test failed in both directions depending on which worker
+     * was mid-run. `os.tmpdir()` reads TMPDIR on every call, so redirecting it
+     * here moves the implementation and the count together, into a directory
+     * nothing else can touch.
+     */
+    const previousTmp = process.env['TMPDIR'];
+    const root = mkdtempSync(join(tmpdir(), 'tdc-fp-test-'));
+    process.env['TMPDIR'] = root;
+    try {
+      leavesNothingBehind();
+    } finally {
+      if (previousTmp === undefined) delete process.env['TMPDIR'];
+      else process.env['TMPDIR'] = previousTmp;
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  function leavesNothingBehind(): void {
     const countDirs = (): number =>
       readdirSync(tmpdir()).filter((n) => n.startsWith('tdc-fp-')).length;
 
@@ -150,7 +175,7 @@ describe('fingerprints find and fix what text finds and fixes', () => {
       },
     ); // clean
     expect(countDirs()).toBe(before);
-  });
+  }
   /*
    * The scan that finds repeats stops as soon as it is past the cap, because
    * nothing it could find afterwards changes the answer — on a config that

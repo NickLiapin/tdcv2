@@ -270,19 +270,19 @@ tdcv2 pack add ru --registry=https://packs.example.internal/tdc
 ```
 Available data packs:
 
-common Common (locale-agnostic) (0.0 MB)
+common Common (locale-agnostic) (46.5 KB)
 Generators bound to neither a language nor a country: uuid,
 hashes, ISBN/ISSN, GTIN/UPC/EAN, card PANs, MRZ, IPv4/IPv6/MAC,
 semver, and more.
 
-ru ✓ installed Russian (language) (0.1 MB)
+ru ✓ installed Russian (language) (146 KB)
 Content bound to the Russian language: given names, gendered
 surnames and patronymics, gender words, months and weekdays,
 colors, country names. Shared by every Russian-speaking locale.
 
 …
 
-yemen Yemen (country) (0.0 MB)
+yemen Yemen (country) (2.9 KB)
 Data specific to Yemen: docs, education, finance, geo, holiday,
 phone, sport.
 

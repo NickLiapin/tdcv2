@@ -22,6 +22,7 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
+from ..human_bytes import human_bytes
 from ..packs import project_config
 from ..packs.registry import DEFAULT_BASE_URL, Registry
 from ..packs.store import (
@@ -231,7 +232,7 @@ def _list(registry: Registry, store: Store) -> int:
         mark = "\u2713 installed" if bundle.id in here else " "
         sys.stdout.write(
             f"  {bundle.id:<{id_width}} {mark:<12} "
-            f"{bundle.name} ({bundle.bytes / 1048576:.1f} MB)\n"
+            f"{bundle.name} ({human_bytes(bundle.bytes)})\n"
         )
         for line in _wrap(bundle.description, indent):
             sys.stdout.write(line + "\n")
@@ -258,7 +259,7 @@ def _add(registry: Registry, store: Store, ids: list[str]) -> int:
     # leave the first two half-installed.
     bundles = [index.find(bundle_id) for bundle_id in ids]
     for bundle in bundles:
-        sys.stderr.write(f"tdcv2: downloading {bundle.id} ({bundle.bytes / 1048576:.1f} MB)…\n")
+        sys.stderr.write(f"tdcv2: downloading {bundle.id} ({human_bytes(bundle.bytes)})…\n")
         result = registry.install(bundle, store.path)
         # The STORE goes into the config, once, however many bundles land in it — not the bundle.
         stored = project_config.storable(store.config_path, store.path)

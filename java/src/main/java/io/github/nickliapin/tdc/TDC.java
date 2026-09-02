@@ -659,21 +659,21 @@ public final class TDC {
       return null;
     }
 
-    long estMb = (estimated + 1024 * 1024 - 1) / (1024 * 1024);
-    long totalMb = total / (1024 * 1024);
+    String est = HumanBytes.format(estimated);
+    String totalText = HumanBytes.format(total);
     if (ratio >= ERROR_RATIO) {
       return Diagnostic.error(
           "TDC201",
-          "estimated memory need (~" + estMb + " MB) exceeds this machine's RAM ("
-              + totalMb + " MB) — run will likely thrash or crash",
+          "estimated memory need (~" + est + ") exceeds this machine's RAM ("
+              + totalText + ") — run will likely thrash or crash",
           "Reduce count, split the generation into smaller batches, or switch to disk mode "
               + "(mode=\"disk\") which is bounded-memory.",
           1, 0);
     }
     return Diagnostic.warning(
         "TDC200",
-        "estimated memory need (~" + estMb + " MB) is a large share of this machine's RAM ("
-            + totalMb + " MB) — may lean on swap and slow down",
+        "estimated memory need (~" + est + ") is a large share of this machine's RAM ("
+            + totalText + ") — may lean on swap and slow down",
         "This will still run; for very large datasets mode=\"disk\" keeps memory flat "
             + "regardless of count.",
         1, 0);

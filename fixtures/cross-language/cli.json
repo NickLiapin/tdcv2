@@ -544,7 +544,7 @@
       },
       "argv": ["list", "--registry={registry}"],
       "exit": 0,
-      "stdout": "Available data packs:\n\n  demo                      Demo pack (0.0 MB)\n               two surnames\n\nInstall with: tdcv2 pack add <id>\n"
+      "stdout": "Available data packs:\n\n  demo                      Demo pack (182 B)\n               two surnames\n\nInstall with: tdcv2 pack add <id>\n"
     },
     {
       "name": "pack list marks what is already installed",
@@ -557,7 +557,7 @@
       },
       "argv": ["list", "--registry={registry}"],
       "exit": 0,
-      "stdout": "Available data packs:\n\n  demo         ✓ installed  Demo pack (0.0 MB)\n               two surnames\n\nInstall with: tdcv2 pack add <id>\n",
+      "stdout": "Available data packs:\n\n  demo         ✓ installed  Demo pack (182 B)\n               two surnames\n\nInstall with: tdcv2 pack add <id>\n",
       "note": "The mark comes from the store's books, not from a folder with the bundle's name — there are no such folders any more. A tree somebody unpacked by hand is therefore not \"installed\": nothing records what it owns, so nothing could remove it cleanly either."
     },
     {
@@ -619,7 +619,7 @@
       },
       "argv": ["list", "--registry={registry}"],
       "exit": 0,
-      "stdout": "Available data packs:\n\n  demo         ✓ installed  Demo pack (0.0 MB)\n               two surnames\n\nInstall with: tdcv2 pack add <id>\n",
+      "stdout": "Available data packs:\n\n  demo         ✓ installed  Demo pack (182 B)\n               two surnames\n\nInstall with: tdcv2 pack add <id>\n",
       "stderrContains": [
         "used the old per-bundle layout",
         "demo: demo/packs → demo/person (1 files)",

@@ -159,6 +159,19 @@ const BAR = 14;
 const DECIMAL = { en: ".", ru: ",", es: "," };
 
 /** One <Bars> figure as a Markdown table GitHub can render. */
+/**
+ * A pack's download size, by the same rule the CLI and the site component use:
+ * a decimal below a hundred, where it tells 2.6 kB from 3.1 kB, and none above
+ * it, where a tenth is noise. Nothing in this catalogue reaches a megabyte; the
+ * branch above is there for the day one does.
+ */
+function packSize(bytes, kbLabel) {
+  if (bytes < 1024) return `${bytes} B`;
+  const kb = bytes / 1024;
+  const round = (v) => (v < 100 ? v.toFixed(1) : String(Math.round(v)));
+  return kb >= 1024 ? `${round(kb / 1024)} MB` : `${round(kb)} ${kbLabel}`;
+}
+
 function bars(a, code) {
   const [config, tier, field] = a.source.split(".");
   const set = PERFORMANCE[config][tier];
@@ -409,12 +422,18 @@ function convert(body, page, code) {
       const mark = entry.unreleased
         ? ` **(${pageLabels.nextRelease ?? "next release"})**`
         : "";
-      return `| \`${entry.id}\` | ${entry.name}${mark} | ${String(entry.files)} | ${held} |`;
+      // The download size, said the same way the site and `tdcv2 pack list` say
+      // it. Null when the export ran on a clean clone with no build to measure.
+      const size =
+        entry.bytes === null || entry.bytes === undefined
+          ? "—"
+          : packSize(entry.bytes, pageLabels.kb ?? "kB");
+      return `| \`${entry.id}\` | ${entry.name}${mark} | ${String(entry.files)} | ${size} | ${held} |`;
     });
     return hold(
       [
-        "| Pack | Name | Lists | Holds |",
-        "| :--- | :--- | ---: | :--- |",
+        "| Pack | Name | Lists | Size | Holds |",
+        "| :--- | :--- | ---: | ---: | :--- |",
         ...rows,
       ].join("\n") +
         "\n\nInstall any of them with `tdcv2 pack add <pack>`." +

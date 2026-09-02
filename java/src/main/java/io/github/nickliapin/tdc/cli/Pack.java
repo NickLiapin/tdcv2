@@ -1,5 +1,6 @@
 package io.github.nickliapin.tdc.cli;
 
+import io.github.nickliapin.tdc.HumanBytes;
 import io.github.nickliapin.tdc.packs.PackRegistry;
 import io.github.nickliapin.tdc.packs.PackStore;
 import io.github.nickliapin.tdc.packs.ProjectConfig;
@@ -285,7 +286,7 @@ public final class Pack {
           bundle.id(),
           mark,
           bundle.name(),
-          megabytes(bundle.bytes()));
+          HumanBytes.format(bundle.bytes()));
       for (String line : wrap(bundle.description(), indent)) {
         System.out.println(line);
       }
@@ -324,7 +325,7 @@ public final class Pack {
 
     for (PackRegistry.Bundle bundle : bundles) {
       System.err.println(
-          "tdcv2: downloading " + bundle.id() + " (" + megabytes(bundle.bytes()) + ")…");
+          "tdcv2: downloading " + bundle.id() + " (" + HumanBytes.format(bundle.bytes()) + ")…");
       PackStore.InstalledBundle entry = registry.install(bundle, store.path());
       // The STORE goes into the config, once, however many bundles land in it \u2014 never the bundle,
       // which no longer has a folder of its own to name.
@@ -416,7 +417,4 @@ public final class Pack {
     System.err.println(String.join("\n", lines));
   }
 
-  private static String megabytes(long bytes) {
-    return String.format(Locale.ROOT, "%.1f MB", bytes / 1024.0 / 1024.0);
-  }
 }

@@ -20,6 +20,7 @@ pub mod errors;
 pub mod expr;
 pub mod format;
 pub mod generators;
+pub mod human_bytes;
 pub mod json;
 pub mod math;
 pub mod model;
