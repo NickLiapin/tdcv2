@@ -1,5 +1,5 @@
 {
-  "releasedTag": "v0.2.2",
+  "releasedTag": "v0.3.0",
   "generated": "node webdoc/scripts/build-pack-catalogue.mjs",
   "common": [
     {
@@ -42020,7 +42020,7 @@
       ],
       "bytes": 150180,
       "regions": null,
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "tr",
@@ -47704,7 +47704,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "albania",
@@ -47795,7 +47795,7 @@
       "regions": [
         "europe"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "algeria",
@@ -47914,7 +47914,7 @@
       "regions": [
         "europe"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "angola",
@@ -48034,7 +48034,7 @@
       "regions": [
         "north"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "argentina",
@@ -48231,7 +48231,7 @@
         "europe",
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "australia",
@@ -48478,7 +48478,7 @@
         "europe",
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "bahamas",
@@ -48535,7 +48535,7 @@
       "regions": [
         "north"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "bahrain",
@@ -48680,7 +48680,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "barbados",
@@ -48737,7 +48737,7 @@
       "regions": [
         "north"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "belarus",
@@ -48932,7 +48932,7 @@
       "regions": [
         "north"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "benin",
@@ -49122,7 +49122,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "bolivia",
@@ -49297,7 +49297,7 @@
       "regions": [
         "europe"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "botswana",
@@ -49360,7 +49360,7 @@
       "regions": [
         "africa"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "brazil",
@@ -49495,7 +49495,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "bulgaria",
@@ -49687,7 +49687,7 @@
       "regions": [
         "africa"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "cambodia",
@@ -49806,7 +49806,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "cameroon",
@@ -50067,7 +50067,7 @@
       "regions": [
         "africa"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "chad",
@@ -51033,7 +51033,7 @@
       "regions": [
         "north"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "dominican_republic",
@@ -51578,7 +51578,7 @@
       "regions": [
         "africa"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "estonia",
@@ -51741,7 +51741,7 @@
       "regions": [
         "africa"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "ethiopia",
@@ -51811,7 +51811,7 @@
       "regions": [
         "africa"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "fiji",
@@ -51868,7 +51868,7 @@
       "regions": [
         "oceania"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "finland",
@@ -52137,7 +52137,7 @@
       "regions": [
         "africa"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "georgia",
@@ -52243,7 +52243,7 @@
         "europe",
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "germany",
@@ -52418,7 +52418,7 @@
       "regions": [
         "africa"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "greece",
@@ -52546,7 +52546,7 @@
       "regions": [
         "north"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "guatemala",
@@ -52805,7 +52805,7 @@
       "regions": [
         "south"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "haiti",
@@ -53125,7 +53125,7 @@
       "regions": [
         "europe"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "india",
@@ -53212,7 +53212,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "indonesia",
@@ -53289,7 +53289,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "iran",
@@ -53370,7 +53370,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "iraq",
@@ -53593,7 +53593,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "italy",
@@ -53789,7 +53789,7 @@
       "regions": [
         "north"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "japan",
@@ -53878,7 +53878,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "jordan",
@@ -54092,7 +54092,7 @@
       "regions": [
         "africa"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "kiribati",
@@ -54149,7 +54149,7 @@
       "regions": [
         "oceania"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "kuwait",
@@ -54391,7 +54391,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "latvia",
@@ -54618,7 +54618,7 @@
       "regions": [
         "africa"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "liberia",
@@ -54675,7 +54675,7 @@
       "regions": [
         "africa"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "libya",
@@ -55174,7 +55174,7 @@
       "regions": [
         "africa"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "malaysia",
@@ -55258,7 +55258,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "maldives",
@@ -55398,7 +55398,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "mali",
@@ -55593,7 +55593,7 @@
       "regions": [
         "oceania"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "mauritania",
@@ -55713,7 +55713,7 @@
       "regions": [
         "africa"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "mexico",
@@ -55859,7 +55859,7 @@
       "regions": [
         "oceania"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "moldova",
@@ -55943,7 +55943,7 @@
       "regions": [
         "europe"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "monaco",
@@ -56116,7 +56116,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "montenegro",
@@ -56179,7 +56179,7 @@
       "regions": [
         "europe"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "morocco",
@@ -56409,7 +56409,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "namibia",
@@ -56466,7 +56466,7 @@
       "regions": [
         "africa"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "nauru",
@@ -56523,7 +56523,7 @@
       "regions": [
         "oceania"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "nepal",
@@ -56642,7 +56642,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "netherlands",
@@ -57042,7 +57042,7 @@
       "regions": [
         "africa"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "north_korea",
@@ -57099,7 +57099,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "north_macedonia",
@@ -57196,7 +57196,7 @@
       "regions": [
         "europe"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "norway",
@@ -57302,7 +57302,7 @@
       "regions": [
         "europe"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "oman",
@@ -57445,7 +57445,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "palau",
@@ -57502,7 +57502,7 @@
       "regions": [
         "oceania"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "palestine",
@@ -57706,7 +57706,7 @@
       "regions": [
         "oceania"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "paraguay",
@@ -57958,7 +57958,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "poland",
@@ -58522,7 +58522,7 @@
       "regions": [
         "north"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "saint_lucia",
@@ -58579,7 +58579,7 @@
       "regions": [
         "north"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "saint_vincent_and_the_grenadines",
@@ -58636,7 +58636,7 @@
       "regions": [
         "north"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "samoa",
@@ -58693,7 +58693,7 @@
       "regions": [
         "oceania"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "san_marino",
@@ -59021,7 +59021,7 @@
       "regions": [
         "europe"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "seychelles",
@@ -59078,7 +59078,7 @@
       "regions": [
         "africa"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "sierra_leone",
@@ -59141,7 +59141,7 @@
       "regions": [
         "africa"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "singapore",
@@ -59226,7 +59226,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "slovakia",
@@ -59433,7 +59433,7 @@
       "regions": [
         "oceania"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "somalia",
@@ -59654,7 +59654,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "south_sudan",
@@ -59711,7 +59711,7 @@
       "regions": [
         "africa"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "spain",
@@ -59886,7 +59886,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "sudan",
@@ -60006,7 +60006,7 @@
       "regions": [
         "south"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "sweden",
@@ -60337,7 +60337,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "tajikistan",
@@ -60494,7 +60494,7 @@
       "regions": [
         "africa"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "thailand",
@@ -60587,7 +60587,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "togo",
@@ -60706,7 +60706,7 @@
       "regions": [
         "oceania"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "trinidad_and_tobago",
@@ -60770,7 +60770,7 @@
         "north",
         "south"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "tunisia",
@@ -60909,7 +60909,7 @@
         "europe",
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "turkmenistan",
@@ -61017,7 +61017,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "tuvalu",
@@ -61074,7 +61074,7 @@
       "regions": [
         "oceania"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "uae",
@@ -61228,7 +61228,7 @@
       "regions": [
         "africa"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "ukraine",
@@ -61303,7 +61303,7 @@
       "regions": [
         "europe"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "united_kingdom",
@@ -61666,7 +61666,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "vanuatu",
@@ -61723,7 +61723,7 @@
       "regions": [
         "oceania"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "vatican_city",
@@ -61935,7 +61935,7 @@
       "regions": [
         "asia"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "yemen",
@@ -62059,7 +62059,7 @@
       "regions": [
         "africa"
       ],
-      "unreleased": true
+      "unreleased": false
     },
     {
       "id": "zimbabwe",
@@ -62145,7 +62145,7 @@
       "regions": [
         "africa"
       ],
-      "unreleased": true
+      "unreleased": false
     }
   ]
 }
