@@ -22,12 +22,15 @@ is structural rather than a promise:
 
 ```bash
 cd typescript
-npm run test:heavy              # all of them, ~1 hour, ~25 GB of disk
+npm run test:heavy              # all of them, ~4 minutes, under 1 GB of disk
 npm run test:heavy -- progress  # one file
 ```
 
-Check the disk first: the largest needs 25 GB free and cleans up after itself,
-including when it fails.
+Those two numbers used to read "~1 hour, ~25 GB", and they were true when they were
+written. The fingerprint work and narrower configs cut both by roughly an order of
+magnitude — the table below is the current cost — but the warning stayed, and a
+warning that overstates the price by fifteen times is a reason not to run the suite
+at all. Run it before a release; it takes less time than reading this file twice.
 
 ## What each one is for
 

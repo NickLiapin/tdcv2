@@ -108,8 +108,26 @@ describe('the status file on a real run', () => {
         expect(await finished).toBe(0);
 
         const phases = [...new Set(seen.map((s) => s.phase))];
-        // Every phase a large uniq run has, in order, ending in done.
-        expect(phases[0]).toBe('uniq-scan');
+
+        /*
+         * What is pinned is the ORDER, not a fixed first element.
+         *
+         * This used to assert `phases[0] === 'uniq-scan'`, and it was right until
+         * `starting` arrived — a phase written before any work begins, so a watcher
+         * can tell "not begun yet" from "died". The engine was correct and this test
+         * was five days stale, which nobody saw because the heavy suite is rightly
+         * out of CI and its README claimed it cost an hour and 25 GB.
+         *
+         * Order is also the property worth guarding. The bug behind `starting` was a
+         * phase reported OUT of turn — the coordinators primed the file with
+         * `render 0%` before spawning anything, so a bar drawn from it ran
+         * 0 → 68 → 100 → 0 → 100. A 300 ms poll may miss a short phase; it can never
+         * see one arrive early.
+         */
+        const ORDER = ['starting', 'uniq-scan', 'uniq-sort', 'uniq-repair', 'render', 'done'];
+        for (const phase of phases) expect(ORDER).toContain(phase);
+        expect(phases).toEqual([...phases].sort((a, b) => ORDER.indexOf(a) - ORDER.indexOf(b)));
+        expect(phases).toContain('uniq-scan');
         expect(phases).toContain('uniq-sort');
         expect(phases).toContain('render');
         expect(phases[phases.length - 1]).toBe('done');
