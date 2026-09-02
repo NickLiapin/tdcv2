@@ -2,14 +2,12 @@
 
 ## Quick start
 
-**You need:** **The .NET SDK, 6.0 or newer** — the ANTLR runtime comes from NuGet — plus
-**Node** once, to generate the parser from the grammar the five implementations share. A
-released package ships it already generated; a checkout does not.
+**You need:** **The .NET SDK, 6.0 or newer.** The published package carries its parser
+already generated, and the ANTLR runtime comes with it.
 
 ```bash
-node scripts/generate-parsers.mjs --only csharp
-cd csharp
-dotnet build
+dotnet add package Tdcv2              # the library
+dotnet tool install -g Tdcv2.Cli      # the `tdcv2` command
 ```
 
 Then write a config and run it:
@@ -25,11 +23,12 @@ Then write a config and run it:
 ```
 
 ```bash
-dotnet run --project Tdcv2.Cli.Tool -- demo.tdc
+tdcv2 demo.tdc
 ```
 
-`dotnet publish Tdcv2.Cli.Tool -c Release` produces a standalone binary if you
-would rather not go through `dotnet run` every time.
+From a checkout instead: `node scripts/generate-parsers.mjs --only csharp`, then
+`cd csharp && dotnet run --project Tdcv2.Cli.Tool -- demo.tdc`. A checkout has to
+generate the parser; the published package already carries it.
 
 ```
 1,Williams

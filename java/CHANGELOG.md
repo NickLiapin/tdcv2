@@ -20,6 +20,8 @@ the next build, and nothing else is edited.
 
 ## [Unreleased]
 
+## [0.3.0] — 2026-09-01
+
 ### Added
 
 - **`Parallel.NeedsWholeTable`.** Thrown by the parallel coordinator when a `<uniq>` run is

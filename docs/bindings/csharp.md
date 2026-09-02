@@ -19,7 +19,7 @@ Two packages: the library, and the command line as a `dotnet tool`.
 ## Getting it
 
 > [!TIP]
-> **On NuGet — version 0.2.2**
+> **On NuGet — version 0.3.0**
 >
 >
 > ```bash

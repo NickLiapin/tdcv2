@@ -1,0 +1,10 @@
+# What the source distribution carries beyond the package itself.
+#
+# The wheel takes its long description from README.md through pyproject, and PyPI
+# renders that; the CHANGELOG had no route into either artefact at all. Someone who
+# downloads the sdist should be able to read what changed without leaving the file
+# they downloaded, so it is included here — and the `Changelog` project URL in
+# pyproject keeps the link in PyPI's sidebar for everyone else.
+include README.md
+include CHANGELOG.md
+include LICENSE

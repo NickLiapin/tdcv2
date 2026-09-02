@@ -6,8 +6,8 @@
 else — this crate has **no dependencies at all**.
 
 ```bash
-cd rust
-cargo build --release
+cargo add tdcv2         # the library
+cargo install tdcv2     # the `tdcv2` command
 ```
 
 Then write a config and run it:
@@ -23,10 +23,11 @@ Then write a config and run it:
 ```
 
 ```bash
-cargo run --release --bin tdcv2 -- demo.tdc
+tdcv2 demo.tdc
 ```
 
-Or, once built, straight from `target/release/tdcv2`.
+From a checkout instead: `cd rust && cargo run --release --bin tdcv2 -- demo.tdc`, or
+straight from `target/release/tdcv2` once built.
 
 ```
 1,Williams

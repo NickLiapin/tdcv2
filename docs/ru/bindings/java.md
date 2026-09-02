@@ -22,14 +22,14 @@ Java-пакет читает **тот же `.tdc`-конфиг** и при од�
 <dependency>
   <groupId>io.github.nickliapin</groupId>
   <artifactId>tdcv2</artifactId>
-  <version>0.2.2</version>
+  <version>0.3.0</version>
 </dependency>
 ```
 
 Gradle, в `build.gradle.kts`:
 
 ```kotlin
-implementation("io.github.nickliapin:tdcv2:0.2.2")
+implementation("io.github.nickliapin:tdcv2:0.3.0")
 ```
 
 > [!NOTE]
