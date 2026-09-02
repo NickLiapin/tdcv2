@@ -11,7 +11,38 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [0.3.0] — 2026-09-01
+
 ### Added
+
+- **The language server reads the packs you actually installed.** `tdcv2 pack add sd` unpacks
+  into a store and registers it in the project config's `dataPaths` — and the server never
+  opened a config file. It scanned the bundled packs and two conventional folders, so an
+  installed locale rendered perfectly from the command line and offered not one address in
+  autocomplete. On a real store that is 222 invisible addresses per pack. Nobody reported it,
+  because a missing suggestion looks exactly like a suggestion that does not apply.
+
+  The roots now come through `loadConfig` — the same function `tdcv2`, `pack`, `init` and the
+  Quick API call — and are re-scanned when one of their timestamps moves, so a pack installed
+  while the editor is open appears without a restart.
+
+- **Every attribute and every compute tag says what it does on hover.** Thirty-two of the
+  eighty-six `<gen>` attributes had no text at all, and they were the new ones: `of`, `plus`,
+  `expr`, `op`, `reset` and the whole statistical-distribution family. All forty-eight compute
+  tags had none. The attribute was offered, accepted by the validator, and silent when you
+  asked what it meant. `type=`'s own text had drifted the other way — it listed the generators
+  by hand and stopped at `http`, so `pool`, `running`, `stat` and `formula` were missing from
+  the one sentence that claims to list them all.
+
+  A test now requires a doc for every name the validator accepts, and requires `type=` to name
+  every generator the engine implements — the one hover text that enumerates something the
+  engine owns, and so the one that can be checked rather than merely re-read.
+
+- **The VS Code extension finds the server outside this repository.** It looks in four places
+  — the configured `tdc.server.path`, the workspace's own `node_modules`, a resolvable
+  `tdcv2` install, then a local build — and when there is none it says so, naming what still
+  works (highlighting) and what does not (autocomplete, hover, diagnostics), instead of
+  starting a client against a path that does not exist.
 
 - **Parquet reports too**, on both the single-threaded and the parallel path — once per
   row group, summed across workers.
@@ -37,8 +68,6 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   Guarded by `fixtures/cross-language/api.json`, which all five test suites read. There was
   no guard on this surface before, which is why it drifted at all — each choice was
   reasonable in its own language and wrong for a reader crossing between them.
-
-### Added
 
 - **`toColumns()` — the run as columns, with numbers as numbers.** Present in all
   five implementations, spelled by each language's convention: `toColumns`,

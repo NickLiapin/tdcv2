@@ -15,7 +15,33 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+## [0.3.0] — 2026-09-01
+
 ### Added
+
+<!-- covers: nine locale packs -->
+
+- **Nine languages, and the locale catalogue reaches 95: Traditional Chinese, Sindhi,
+  Bambara, Swati, Tetum, West Frisian, Uzbek in Cyrillic, Montenegrin and Breton.** Around
+  220 lists each — names, addresses, companies, food, work, the coherent folders that keep a
+  city inside its own region — with a date table beside them so months and weekdays come out
+  in the language the names came out in.
+
+  Traditional Chinese ships at the plain `zh` address rather than at `zh-tw`, and that is a
+  decision rather than a shortcut: fallback takes exactly one step to the base language, so
+  `zh-tw`, `zh-hk` and `zh-mo` all reach `zh` and none of them reaches another variant. One
+  pack therefore closes three locales. Its content is Taiwanese where the three differ —
+  陳 and 林 lead the surnames, 棒球 leads the sports, the courts are 地方法院 — and a
+  Simplified character anywhere in it is a build failure.
+
+  Two guards were written for this wave and both earned it. `check-locale-script.mjs` reads
+  every pack against the script its language actually uses; it caught a Latin word sitting in
+  a Chinese given-name list. The Sindhi half of it had to learn the language first: a draft
+  that banned `ک` as "the Urdu letter" was wrong — Sindhi uses `ک` and `ڪ` contrastively,
+  ڪير "who" against کير "milk" — and a ban on a letter is a ban on every word that contains
+  it, so the guard was making the vocabulary worse, not cleaner.
+  `check-pack-date-locale.mjs` requires every locale pack to reach a date table, which is what
+  stops a language shipping with English months.
 
 <!-- covers: pack date locales -->
 
@@ -532,6 +558,36 @@ placed` rather than naming a total it stopped counting. A number quietly reading
 
 ### Fixed
 
+<!-- covers: TDC302 -->
+
+- **A `<distinct>` or `<uniq>` group over `<pool>` references was accepted without a word and
+  did nothing.** Two sequences drawing from the same pool, wrapped in a group that promises
+  they differ: 2,000 rows came out byte for byte identical to the same config with no group at
+  all, and 265 of them handed one row the same doctor twice. It was found while checking the
+  examples in a guide — the case that guide opens with.
+
+  Three things had to be true at once for the silence. A reference registers its `Ref.field`
+  columns and no column of its own, because a member is a record rather than a value; the
+  repair filtered its members by "is there a column with this name", so both references fell
+  out and a group of zero members was skipped; and the compound check asks whether a sequence
+  is STRUCTURALLY compound — more than one `<gen>`, or named ones — which a single unnamed
+  reference is not.
+
+  The repair now runs at PICK time instead of over finished columns, and that is what lets one
+  implementation serve all three engines: a member pick is a pure, seekable function of the
+  row, so the streaming engines replay a row's group without a column existing anywhere.
+  Byte-identical on engines 1, 2 and 3. A collision is not retried blindly either — the
+  candidate set is known, so the member is redrawn uniformly from the candidates that row has
+  not already given away, which either succeeds or proves nothing was left. That is also why
+  it composes with `filter=`: the candidates a filter leaves are the candidates the repair
+  draws from, so both promises hold at once.
+
+  **`TDC302`** refuses the three shapes such a group cannot mean, each of which was also
+  silently doing nothing: a reference beside an ordinary sequence (a record and a string have
+  no field to be compared on), references to two different pools (satisfied without changing
+  anything, since a member of one is never a member of another), and more references than the
+  pool has members (no arrangement exists).
+
 <!-- covers: broken pack reported once, at the value that asked -->
 
 - **A pack file that resolves but cannot be used is ONE error, at the `value="…"` that asked —
@@ -984,6 +1040,54 @@ expr= is not a sequence declared above this one` in Python, Rust, Java and C# �
   actually loads, and skips build output when reading source times.
 
 ### Changed
+
+<!-- covers: auto-parallelism threshold -->
+
+- **A run splits across workers at three million rows, not at a hundred thousand — the old
+  threshold was thirty times too low and cost memory to go slower.** Measured on a
+  twelve-core machine, two short columns, `/usr/bin/time -l`:
+
+  |      rows |       default before |          `--jobs 1` |
+  | --------: | -------------------: | ------------------: |
+  | 1,000,000 |     8.38 s / 2897 MB | **4.29 s / 701 MB** |
+  | 2,000,000 |     9.06 s / 3701 MB | **7.04 s / 701 MB** |
+  | 4,000,000 | **7.21 s** / 4970 MB |    13.09 s / 712 MB |
+
+  The row that explains the rest is the third: the default on four million rows finished
+  FASTER than the default on two million. Starting eleven workers, writing their temporary
+  files and stitching the pieces back in order costs a few seconds whatever the run's size, so
+  below a few million the whole job drowns in that fixed price. The crossover sits near three
+  million on a light config and earlier on a heavy one, where each row carries more real work
+  against the same fixed cost.
+
+  One constant cannot be right for every config, and this one is chosen deliberately in favour
+  of memory: a heavy config between 300,000 and 3,000,000 rows now runs single-threaded,
+  roughly half again slower and about five times lighter. A slow run still finishes; a run
+  that decided it wanted 5 GB on a laptop does not. `--jobs N` is unchanged and still overrides
+  the decision, and the number of workers has never changed a single byte of the output.
+
+- **`--jobs` says what it costs.** The help called it a pure speed knob, which was half true:
+  the output is identical at any job count, but the price is not — a million rows took 0.7 GB
+  at `--jobs 1` and 2.9 GB across eleven workers. The four implementations that thread now say
+  so, and name `--jobs 1` as the way to trade wall time for memory.
+
+<!-- covers: human-readable sizes -->
+
+- **Sizes are printed in a unit that fits them: `2.9 KB`, `146 KB`, `20.5 GB` — never
+  `0.0 MB`.** Every shipped pack is smaller than a quarter of a megabyte, so a catalogue
+  printed in megabytes to one decimal collapsed 294 packs into three strings: `0.0 MB` for
+  194 of them, `0.1 MB` for 53, `0.2 MB` for the last 47. A size that cannot tell two packs
+  apart is not a size, and `0.0` is worse than useless — it reads as "nothing" where the
+  honest answer is "three kilobytes". `pack list`, `pack add`, the download line, the
+  interactive picker and the `TDC200`/`TDC201` memory warnings — which said `20981 MB` where
+  they meant 20.5 GB — all read from one formatter now: whole bytes below a kilobyte, one
+  decimal below a hundred of a unit, whole numbers above it.
+
+  Making the number real found a divergence the old precision had been covering. The shared
+  CLI fixture compares `pack list` byte for byte across the five, and with a true size in that
+  line Java disagreed: its runner built the demo archive deflated at 198 bytes while the other
+  four wrote 182. The implementations were already apart; `0.0 MB` was a wide enough bucket to
+  hold both. All five now write the same 182 bytes.
 
 <!-- covers: uniq deal across switch blocks -->
 

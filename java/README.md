@@ -2,11 +2,31 @@
 
 ## Quick start
 
-**You need:** **A JDK, 17 or newer**. Nothing else — the Gradle wrapper fetches what it uses.
+**You need:** **A JDK, 17 or newer.**
+
+```kotlin title="build.gradle.kts"
+implementation("io.github.nickliapin:tdcv2:<version>")
+```
+
+```xml title="pom.xml"
+<dependency>
+  <groupId>io.github.nickliapin</groupId>
+  <artifactId>tdcv2</artifactId>
+  <version><!-- see below --></version>
+</dependency>
+```
+
+No version is written here on purpose: Maven Central meters how many releases it takes
+from a project each month, so this jar is the one artefact that can sit a version behind
+the other four. The number that will actually resolve is the newest dated heading in
+[CHANGELOG.md](CHANGELOG.md), and the [documentation](https://nickliapin.github.io/tdcv2/)
+prints it in every coordinate it shows.
+
+For the command line, take the `cli` classifier — a self-contained jar:
 
 ```bash
-cd java
-./gradlew cliJar
+curl -LO https://repo1.maven.org/maven2/io/github/nickliapin/tdcv2/<version>/tdcv2-<version>-cli.jar
+java -jar tdcv2-<version>-cli.jar init
 ```
 
 Then write a config and run it:
@@ -22,8 +42,11 @@ Then write a config and run it:
 ```
 
 ```bash
-java -jar build/libs/tdcv2-*-cli.jar demo.tdc
+java -jar tdcv2-<version>-cli.jar demo.tdc
 ```
+
+From a checkout instead: `cd java && ./gradlew cliJar`, then
+`java -jar build/libs/tdcv2-*-cli.jar demo.tdc`.
 
 ```
 1,Williams
@@ -34,8 +57,8 @@ java -jar build/libs/tdcv2-*-cli.jar demo.tdc
 The same three names, every time, in every implementation — that is the whole
 point of the `seed`.
 
-Worth an alias — `alias tdcv2='java -jar /absolute/path/tdcv2-0.1.0-SNAPSHOT-cli.jar'` —
-after which the commands below read the same as in every other implementation.
+Worth an alias — `alias tdcv2='java -jar /absolute/path/to/tdcv2-cli.jar'` — after which
+the commands below read the same as in every other implementation.
 
 ### Data packs
 

@@ -170,7 +170,7 @@ with its own build, tests, and publishing pipeline (`npm`, `PyPI`, `Maven Centra
 ### Current phase
 
 **Phase 1 / v1.0:** five implementations of one contract, all published at
-**0.2.2** — npm, PyPI, Maven Central, NuGet and crates.io. Equal version numbers
+**0.3.0** — npm, PyPI, Maven Central, NuGet and crates.io. Equal version numbers
 are not a coincidence: they mean the same engine, so the same config and seed
 produce the same bytes whichever registry the package came from. Maven Central
 caps how many releases it accepts from a project each month, so the jar there can

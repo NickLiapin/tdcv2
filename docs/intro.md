@@ -25,7 +25,7 @@
 > [!IMPORTANT]
 > **This documentation**
 >
-> Covers TDC **0.2.2**, last updated **1 September 2026** — the date of the newest
+> Covers TDC **0.3.0**, last updated **1 September 2026** — the date of the newest
 > change to any page, not the date this site was built.
 
 TDC generates internally consistent test data. Within each row, names match gender
@@ -338,11 +338,11 @@ registry produces the same bytes for the same config and seed.
 
 | Implementation                            | Registry      | Install                      | Version |
 | :---------------------------------------- | :------------ | :--------------------------- | :------ |
-| **[TypeScript](bindings/typescript.md#top)** | npm           | `npm i tdcv2`                | 0.2.2   |
-| **[Python](bindings/python.md#top)**         | PyPI          | `pip install tdcv2`          | 0.2.2   |
-| **[Rust](bindings/rust.md#top)**             | crates.io     | `cargo add tdcv2`            | 0.2.2   |
-| **[C#](bindings/csharp.md#top)**             | NuGet         | `dotnet add package Tdcv2`   | 0.2.2   |
-| **[Java](bindings/java.md#top)**             | Maven Central | `io.github.nickliapin:tdcv2` | 0.2.2   |
+| **[TypeScript](bindings/typescript.md#top)** | npm           | `npm i tdcv2`                | 0.3.0   |
+| **[Python](bindings/python.md#top)**         | PyPI          | `pip install tdcv2`          | 0.3.0   |
+| **[Rust](bindings/rust.md#top)**             | crates.io     | `cargo add tdcv2`            | 0.3.0   |
+| **[C#](bindings/csharp.md#top)**             | NuGet         | `dotnet add package Tdcv2`   | 0.3.0   |
+| **[Java](bindings/java.md#top)**             | Maven Central | `io.github.nickliapin:tdcv2` | 0.3.0   |
 
 Every published package carries a starter set of data packs, so it works with
 nothing else installed; the other 95 languages and

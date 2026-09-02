@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "io.github.nickliapin"
-version = "0.2.2"
+version = "0.3.0"
 
 repositories {
     mavenCentral()
@@ -172,6 +172,18 @@ sourceSets.main {
 
 tasks.processResources {
     dependsOn(bundlePacks)
+}
+
+/**
+ * The changelog travels inside the jar, under `META-INF`.
+ *
+ * Maven Central renders no readme and no changelog — a POM has nowhere to put one — so
+ * of the five packages this was the one where "what changed" was unreachable from the
+ * artefact itself. `META-INF` is where a jar keeps the things that are about the jar
+ * rather than in it.
+ */
+tasks.jar {
+    from("CHANGELOG.md") { into("META-INF") }
 }
 
 tasks.withType<JavaCompile>().configureEach {
