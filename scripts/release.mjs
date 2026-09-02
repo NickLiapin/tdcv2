@@ -36,7 +36,7 @@
  *   node scripts/release.mjs --tag      # …and, if clean, tag and push
  */
 
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -251,6 +251,15 @@ function coversDeclared(section) {
 
 // ── 4. the tree, the branch, and the one tag ─────────────────────────────────
 
+/**
+ * The subject of the commit `tagAndPush` writes, in one place.
+ *
+ * It is written there and read here, and the two must agree: the check below
+ * recognises this commit to let a retry through. Two spellings of it would make
+ * a failed release unrecoverable without anybody understanding why.
+ */
+const CATALOGUE_COMMIT = 'Clear the release marks that ';
+
 function treeIsReleasable(version) {
   if (git('status', '--porcelain') !== '') fail('the working tree has uncommitted changes');
   else ok('working tree clean');
@@ -259,12 +268,43 @@ function treeIsReleasable(version) {
   if (branch !== 'main') fail(`on branch "${branch}" rather than main`);
   else ok('on main');
 
-  git('fetch', '--quiet', 'origin', 'main');
+  /*
+   * A `git()` that throws leaves a Node stack trace where a sentence belongs.
+   * Every other failure in this file is a line in the "not releasable" list, and
+   * an unreachable origin — no network, a VPN down, a bad remote — is the most
+   * ordinary of them. It reported itself as an uncaught exception until it was
+   * seen while testing the tag path.
+   */
+  try {
+    git('fetch', '--quiet', 'origin', 'main');
+  } catch {
+    fail(`cannot reach origin (${git('remote', 'get-url', 'origin')}) — check the network or the remote`);
+    return;
+  }
   const ahead = git('rev-list', '--count', 'origin/main..HEAD');
   const behind = git('rev-list', '--count', 'HEAD..origin/main');
-  if (behind !== '0') fail(`main is ${behind} commits behind origin — pull first`);
-  else if (ahead !== '0') fail(`main is ${ahead} commits ahead of origin — push first`);
-  else ok('main matches origin');
+  if (behind !== '0') {
+    fail(`main is ${behind} commits behind origin — pull first`);
+  } else if (ahead !== '0') {
+    /*
+     * One kind of unpushed commit is this script's own.
+     *
+     * A `--tag` run that fails after writing the catalogue commit leaves exactly
+     * that: one commit, no tag, nothing pushed. Refusing it would dead-end the
+     * retry — the release would be blocked by its own work, with a message
+     * telling the user to push, which is the one thing the atomic push is there
+     * to do. Any OTHER unpushed commit is still a reason to stop: a release must
+     * not publish work nobody has seen as a side effect of tagging.
+     */
+    const subjects = git('log', '--format=%s', 'origin/main..HEAD').split('\n').filter(Boolean);
+    if (subjects.every((subject) => subject.startsWith(CATALOGUE_COMMIT))) {
+      ok(`main is ${ahead} ahead: the catalogue commit of an earlier attempt, which goes up with the tag`);
+    } else {
+      fail(`main is ${ahead} commits ahead of origin — push first`);
+    }
+  } else {
+    ok('main matches origin');
+  }
 
   const tags = git('tag', '--list').split('\n');
   for (const t of [`v${version}`, `java-v${version}`, `csharp-v${version}`]) {
@@ -325,7 +365,138 @@ function centralBudget() {
   }
 }
 
-// ── run ──────────────────────────────────────────────────────────────────────
+// ── 6. the suite CI is not allowed to run ────────────────────────────────────
+
+/** A command whose output belongs on screen, failing loudly. */
+function run(command, args) {
+  const result = spawnSync(command, args, { cwd: ROOT, stdio: 'inherit' });
+  if (result.status !== 0) {
+    throw new Error(`${command} ${args.join(' ')} failed`);
+  }
+}
+
+/**
+ * The heavy tests, run here because this is the only gate that comes before a tag.
+ *
+ * They write real gigabyte-scale files and are deliberately kept OUT of CI: a
+ * runner would be out of disk before it was out of minutes, and each file refuses
+ * to start when `CI` is set so a mistaken workflow line cannot burn an hour. That
+ * exclusion is right, and it leaves a hole — nothing then requires them ever to
+ * run at all.
+ *
+ * They fell straight through it. `starting`, a progress phase written before any
+ * work begins, landed on 27 August across five implementations and three languages
+ * of documentation; `progress.heavy.ts` kept asserting the old first phase and was
+ * red for five days. It was found only because 0.3.0 happened to be cut by hand.
+ *
+ * Run rather than remembered. A stamp file recording "the suite passed at commit
+ * X" was the alternative, and it is the worse one: it goes stale on any later
+ * commit, including a documentation typo, so it would refuse releases for reasons
+ * that are not about the engine — and a gate that cries wolf gets edited out.
+ * Running costs about three and a half minutes and under a gigabyte, cannot lie
+ * about having happened, and only fires under `--tag`, so the ordinary check stays
+ * quick enough to keep running often.
+ */
+function heavyTestsPass() {
+  console.log('\nthe heavy suite — the one CI may not run (~3.5 min, <1 GB)\n');
+  const result = spawnSync('npm', ['--prefix', 'typescript', 'run', 'test:heavy'], {
+    cwd: ROOT,
+    stdio: 'inherit',
+  });
+  if (result.status !== 0) {
+    console.error('\nthe heavy suite failed — nothing was tagged, the version is not spent.\n');
+    process.exit(1);
+  }
+}
+
+// ── 7. tag, catalogue, commit, tag again, push once ──────────────────────────
+
+/**
+ * ONE tag — created twice, on purpose.
+ *
+ * `webdoc/scripts/build-pack-catalogue.mjs` derives each pack's "next release"
+ * mark from the newest `v*` tag. A pack the PUBLISHED build cannot address yet is
+ * downloadable and unusable, and it makes unrelated configs warn; the mark is
+ * derived rather than written precisely so it clears itself at the next release
+ * instead of becoming a sentence somebody must remember to delete.
+ *
+ * That derivation is a loop. The catalogue can only be computed once the tag
+ * exists, and the tag must point at a commit that already holds the computed
+ * catalogue — otherwise CI rebuilds a different one from the tag and `docs:check`
+ * fails. Cutting 0.3.0 walked into it: the pre-push hook refused the tag, and the
+ * rest was finished by hand. So: tag, rebuild under it, commit, move the tag onto
+ * that commit. Moving a tag is only a normal thing to do because it has not been
+ * pushed yet, which is why the push is last and why a failure deletes it.
+ *
+ * The branch and the tag go up TOGETHER. Pushed separately they left a 42-second
+ * window in which the branch's own Documentation run checked out a repository
+ * whose newest tag was still the old one, rebuilt the old catalogue, and failed on
+ * it. `--atomic` is one ref update or none.
+ *
+ * publish.yml publishes all five registries from `v*`; the per-registry workflows
+ * are manual-only, because when they also fired on their own tags the same Java
+ * bundle went to Central twice.
+ */
+function tagAndPush(version) {
+  const tag = `v${version}`;
+  let committed = false;
+  git('tag', '-a', tag, '-m', version);
+  try {
+    run('node', ['webdoc/scripts/build-pack-catalogue.mjs']);
+    run('npm', ['--prefix', 'webdoc', 'run', 'docs:export']);
+
+    if (git('status', '--porcelain') !== '') {
+      git('add', '-A');
+      git(
+        'commit',
+        '-m',
+        `${CATALOGUE_COMMIT}${tag} settles`,
+        '-m',
+        'The docs catalogue marks a pack whose address the published build cannot ' +
+          'resolve yet. The mark is derived from the newest v* tag, so this release ' +
+          'clears it for everything added since the last one. Generated, not written.',
+      );
+      git('tag', '-f', '-a', tag, '-m', version);
+      committed = true;
+    }
+
+    /*
+     * Proof rather than hope. Rebuilt under the tag it now names, the catalogue
+     * has to be exactly what was committed — which is the same question CI asks
+     * when it builds from that tag, answered here where it is still cheap.
+     */
+    run('node', ['webdoc/scripts/build-pack-catalogue.mjs']);
+    if (git('status', '--porcelain') !== '') {
+      throw new Error(
+        'the catalogue does not settle: rebuilt under its own tag it differs from ' +
+          'the commit the tag points at',
+      );
+    }
+
+    git('push', '--atomic', 'origin', 'main', tag);
+  } catch (error) {
+    /*
+     * The tag goes, because a version number half-spent is worse than one not
+     * spent at all. The COMMIT stays if there was one: it holds the regenerated
+     * catalogue, deleting it would throw away work a hook may have touched, and
+     * a commit sitting in the log is visible in a way a deleted one is not.
+     */
+    git('tag', '-d', tag);
+    console.error(`\n${error.message}`);
+    console.error(`\nthe tag was deleted — ${version} is not spent, and nothing was pushed.`);
+    if (committed) {
+      console.error('The catalogue commit was made and is still here; fix the cause and run again.');
+    }
+    console.error('');
+    process.exit(1);
+  }
+
+  console.log(`\npushed main and ${tag} together — one tag, five registries.`);
+  console.log('Watch: gh run list --limit 4\n');
+}
+
+// ── run ─────────────────────────────────────────────────────────────────────
+
 
 const lastTag = git('describe', '--tags', '--abbrev=0', '--match', 'v*');
 console.log(`\nreleasing over ${lastTag}\n`);
@@ -354,10 +525,5 @@ if (!push) {
   process.exit(0);
 }
 
-// ONE tag. publish.yml publishes all five registries from `v*`; the per-registry
-// workflows are manual-only, because when they also fired on their own tags the
-// same Java bundle went to Central twice.
-git('tag', '-a', `v${version}`, '-m', `${version}`);
-git('push', 'origin', `v${version}`);
-console.log(`\npushed v${version} — one tag, five registries.`);
-console.log('Watch: gh run list --limit 3\n');
+heavyTestsPass();
+tagAndPush(version);
