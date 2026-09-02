@@ -32,6 +32,7 @@ from pathlib import Path
 from . import engine
 from .engine import parallel, router
 from .errors import Diagnostic, TdcError, has_errors, summarize
+from .human_bytes import human_bytes
 from .model.config import Config
 from .output import parquet_output
 from .packs import DataPacks, project_config
@@ -560,13 +561,13 @@ class TDC:
         if ratio < WARN_RATIO:
             return None
 
-        estimated_mb = (estimated + 1024 * 1024 - 1) // (1024 * 1024)
-        total_mb = total // (1024 * 1024)
+        estimated_text = human_bytes(estimated)
+        total_text = human_bytes(total)
         if ratio >= ERROR_RATIO:
             return Diagnostic.error(
                 "TDC201",
-                f"estimated memory need (~{estimated_mb} MB) exceeds this machine's RAM "
-                f"({total_mb} MB) — run will likely thrash or crash",
+                f"estimated memory need (~{estimated_text}) exceeds this machine's RAM "
+                f"({total_text}) — run will likely thrash or crash",
                 "Reduce count, split the generation into smaller batches, or switch to disk mode "
                 '(mode="disk") which is bounded-memory.',
                 1,
@@ -574,8 +575,8 @@ class TDC:
             )
         return Diagnostic.warning(
             "TDC200",
-            f"estimated memory need (~{estimated_mb} MB) is a large share of this machine's RAM "
-            f"({total_mb} MB) — may lean on swap and slow down",
+            f"estimated memory need (~{estimated_text}) is a large share of this machine's RAM "
+            f"({total_text}) — may lean on swap and slow down",
             'This will still run; for very large datasets mode="disk" keeps memory flat '
             "regardless of count.",
             1,

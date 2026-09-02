@@ -452,21 +452,21 @@ public sealed class Tdc
             return null;
         }
 
-        long estimatedMb = (estimated + (1024 * 1024) - 1) / (1024 * 1024);
-        long totalMb = total / (1024 * 1024);
+        string estimatedText = HumanBytes.Format(estimated);
+        string totalText = HumanBytes.Format(total);
         return ratio >= ErrorRatio
             ? Diagnostic.Error(
                 "TDC201",
-                $"estimated memory need (~{estimatedMb} MB) exceeds this machine's RAM "
-                + $"({totalMb} MB) — run will likely thrash or crash",
+                $"estimated memory need (~{estimatedText}) exceeds this machine's RAM "
+                + $"({totalText}) — run will likely thrash or crash",
                 "Reduce count, split the generation into smaller batches, or switch to disk mode "
                 + "(mode=\"disk\") which is bounded-memory.",
                 1,
                 0)
             : Diagnostic.Warning(
                 "TDC200",
-                $"estimated memory need (~{estimatedMb} MB) is a large share of this machine's RAM "
-                + $"({totalMb} MB) — may lean on swap and slow down",
+                $"estimated memory need (~{estimatedText}) is a large share of this machine's RAM "
+                + $"({totalText}) — may lean on swap and slow down",
                 "This will still run; for very large datasets mode=\"disk\" keeps memory flat "
                 + "regardless of count.",
                 1,

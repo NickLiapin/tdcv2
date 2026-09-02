@@ -28,6 +28,7 @@ use std::path::Path;
 
 use crate::engine::{self, EngineError, RowSource};
 use crate::errors::{has_errors, Diagnostic, Severity};
+use crate::human_bytes::human_bytes;
 use crate::model::Config;
 use crate::output::parquet_output;
 use crate::packs::{project, DataPacks};
@@ -1026,15 +1027,15 @@ fn memory_estimate(config: &Config, engine: u8, materialized: bool) -> Option<Di
         return None;
     }
 
-    let estimated_mb = (estimated + 1024 * 1024 - 1) / (1024 * 1024);
-    let total_mb = total / (1024 * 1024);
+    let estimated_text = human_bytes(estimated);
+    let total_text = human_bytes(total);
     let at = Pos { line: 1, column: 0 };
     if ratio >= ERROR_RATIO {
         return Some(Diagnostic::error(
             "TDC201",
             format!(
-                "estimated memory need (~{estimated_mb} MB) exceeds this machine's RAM \
-                 ({total_mb} MB) — run will likely thrash or crash"
+                "estimated memory need (~{estimated_text}) exceeds this machine's RAM \
+                 ({total_text}) — run will likely thrash or crash"
             ),
             "Reduce count, split the generation into smaller batches, or switch to disk mode \
              (mode=\"disk\") which is bounded-memory.",
@@ -1044,8 +1045,8 @@ fn memory_estimate(config: &Config, engine: u8, materialized: bool) -> Option<Di
     Some(Diagnostic::warning(
         "TDC200",
         format!(
-            "estimated memory need (~{estimated_mb} MB) is a large share of this machine's RAM \
-             ({total_mb} MB) — may lean on swap and slow down"
+            "estimated memory need (~{estimated_text}) is a large share of this machine's RAM \
+             ({total_text}) — may lean on swap and slow down"
         ),
         "This will still run; for very large datasets mode=\"disk\" keeps memory flat regardless \
          of count.",

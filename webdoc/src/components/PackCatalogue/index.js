@@ -16,14 +16,22 @@ import styles from "./styles.module.css";
 // Every word the reader sees that is not an address comes in through `labels`,
 // because the page exists in three languages while addresses are addresses.
 
+// The same rule the CLI prints, so a size read here and a size read from
+// `tdcv2 pack list` are the same number: a decimal below a hundred, where it
+// tells 2.6 kB apart from 3.1 kB, and none above it, where a tenth is noise.
+// `unit` is the translated kilobyte word; nothing in this catalogue reaches a
+// megabyte, and the branch above is there for the day one does.
 function Bytes({ value, unit }) {
   if (value === null || value === undefined) return null;
   const kb = value / 1024;
+  const round = (v) => (v < 100 ? v.toFixed(1) : String(Math.round(v)));
   return (
     <span className={styles.size}>
-      {kb >= 1024
-        ? `${(kb / 1024).toFixed(1)} MB`
-        : `${Math.round(kb)} ${unit}`}
+      {value < 1024
+        ? `${value} B`
+        : kb >= 1024
+          ? `${round(kb / 1024)} MB`
+          : `${round(kb)} ${unit}`}
     </span>
   );
 }

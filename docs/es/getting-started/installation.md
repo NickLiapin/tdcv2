@@ -369,14 +369,14 @@ tdcv2 pack add en usa # descarga y conecta los paquetes que quiera
 ```
 Available data packs:
 
-common ✓ installed Common (locale-agnostic) (0.0 MB)
+common ✓ installed Common (locale-agnostic) (46.5 KB)
 Generators bound to neither a language nor a country: uuid,
 hashes, ISBN/ISSN, GTIN/UPC/EAN, card PANs, MRZ, IPv4/IPv6/MAC,
 semver, and more.
 
 …
 
-usa ✓ installed Usa (country) (0.0 MB)
+usa ✓ installed Usa (country) (18.8 KB)
 Data specific to the USA regardless of the language it is
 written in: SSN/ITIN/EIN, ZIP codes, states, street names, ABA
 routing numbers, phone format, license plates.

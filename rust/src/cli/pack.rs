@@ -21,6 +21,7 @@ use crate::cli::pack_picker;
 use std::io::Write;
 use std::path::{Path, PathBuf};
 
+use crate::human_bytes::human_bytes;
 use crate::packs::project;
 use crate::packs::registry::{Bundle, PackError, Registry};
 use crate::packs::store::{self, StoreMigration};
@@ -265,7 +266,7 @@ fn list(registry: &Registry, store: &Store, stdout: &mut dyn Write) -> Outcome {
             bundle.id,
             mark,
             bundle.name,
-            megabytes(bundle.bytes)
+            human_bytes(bundle.bytes)
         );
         for line in wrap(&bundle.description, indent) {
             let _ = writeln!(stdout, "{line}");
@@ -314,7 +315,7 @@ fn add(
             stderr,
             "tdcv2: downloading {} ({})…",
             bundle.id,
-            megabytes(bundle.bytes)
+            human_bytes(bundle.bytes)
         );
         let done = registry.install(bundle, &store.path)?;
 
@@ -496,8 +497,4 @@ fn wrap(text: &str, indent: usize) -> Vec<String> {
 /// way for the same command to print differently in the same shell.
 fn terminal_columns() -> usize {
     PIPED_WIDTH
-}
-
-fn megabytes(bytes: i64) -> String {
-    format!("{:.1} MB", bytes as f64 / 1024.0 / 1024.0)
 }

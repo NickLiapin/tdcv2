@@ -24,6 +24,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { loadConfig } from '../config/config.js';
+import { humanBytes } from '../human-bytes.js';
 import {
   BUNDLE_PACKS_DIR,
   PackError,
@@ -332,12 +333,11 @@ function assertNoOverlap(id: string, paths: readonly string[], record: Installed
 }
 
 function progressLine(id: string, received: number, total: number): string {
-  const mb = (n: number): string => (n / 1_048_576).toFixed(1);
   if (total > 0) {
     const pct = Math.floor((received / total) * 100);
-    return `${id}: downloading ${mb(received)}/${mb(total)} MB (${String(pct)}%)`;
+    return `${id}: downloading ${humanBytes(received)}/${humanBytes(total)} (${String(pct)}%)`;
   }
-  return `${id}: downloading ${mb(received)} MB`;
+  return `${id}: downloading ${humanBytes(received)}`;
 }
 
 // ── non-interactive commands ──────────────────────────────────────────────────
@@ -396,8 +396,8 @@ async function cmdList(registry: string, store: Store): Promise<number> {
   process.stdout.write('Available data packs:\n\n');
   for (const b of index.bundles) {
     const mark = installed.has(b.id) ? '✓ installed' : ' ';
-    const mb = (b.bytes / 1_048_576).toFixed(1);
-    process.stdout.write(`  ${b.id.padEnd(idWidth)} ${mark.padEnd(12)} ${b.name} (${mb} MB)\n`);
+    const size = humanBytes(b.bytes);
+    process.stdout.write(`  ${b.id.padEnd(idWidth)} ${mark.padEnd(12)} ${b.name} (${size})\n`);
     for (const line of wrap(b.description, indent)) {
       process.stdout.write(`${line}\n`);
     }

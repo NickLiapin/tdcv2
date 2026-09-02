@@ -81,8 +81,13 @@ afterEach(() => {
 
 /** The demo registry every implementation's runner builds, byte for byte the same. */
 function buildRegistry(root: string): string {
-  // A stored (uncompressed) zip written by hand: the other two runners use their standard library
-  // zip writers, and only the extracted contents have to agree, not the archive's bytes.
+  // A stored (uncompressed) zip written by hand, 182 bytes.
+  //
+  // Its LENGTH is part of the contract now, not just its contents: `pack list`
+  // prints a real size, and a fixture case compares that line byte for byte. So
+  // every runner has to produce the same archive — the ones using a standard
+  // library zip writer ask it for STORED explicitly, because a deflated entry
+  // is a different length and the divergence used to hide behind `0.0 MB`.
   const name = 'demo/packs/demo/person/lastName.txt';
   const body = Buffer.from('Ivanov\nPetrov\n', 'utf8');
   const nameBuf = Buffer.from(name, 'utf8');

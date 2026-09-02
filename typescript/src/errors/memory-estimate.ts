@@ -29,6 +29,8 @@
 
 import { freemem, totalmem } from 'node:os';
 
+import { humanBytes } from '../human-bytes.js';
+
 import type { Diagnostic } from './diagnostic.js';
 
 export interface MemoryEstimate {
@@ -147,8 +149,8 @@ export function estimateMemoryUsage(
  */
 export function memoryWarning(estimate: MemoryEstimate): Diagnostic | undefined {
   if (estimate.ratio < WARN_RATIO) return undefined;
-  const estMB = Math.ceil(estimate.estimatedBytes / (1024 * 1024));
-  const totalMB = Math.floor(estimate.totalBytes / (1024 * 1024));
+  const est = humanBytes(estimate.estimatedBytes);
+  const total = humanBytes(estimate.totalBytes);
   const severity = estimate.ratio >= ERROR_RATIO ? 'error' : 'warning';
   return {
     severity,
@@ -157,8 +159,8 @@ export function memoryWarning(estimate: MemoryEstimate): Diagnostic | undefined 
     column: 0,
     message:
       severity === 'error'
-        ? `estimated memory need (~${String(estMB)} MB) exceeds this machine's RAM (${String(totalMB)} MB) — run will likely thrash or crash`
-        : `estimated memory need (~${String(estMB)} MB) is a large share of this machine's RAM (${String(totalMB)} MB) — may lean on swap and slow down`,
+        ? `estimated memory need (~${est}) exceeds this machine's RAM (${total}) — run will likely thrash or crash`
+        : `estimated memory need (~${est}) is a large share of this machine's RAM (${total}) — may lean on swap and slow down`,
     hint:
       severity === 'error'
         ? 'Reduce `count`, split the generation into smaller batches, or switch to disk mode (`mode="disk"`) which is bounded-memory.'

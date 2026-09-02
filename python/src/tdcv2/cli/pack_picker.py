@@ -22,6 +22,8 @@ import sys
 from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
+from ..human_bytes import human_bytes
+
 if TYPE_CHECKING:
     from ..packs.registry import Bundle
 
@@ -433,11 +435,6 @@ class Decision:
     remove: list[str]
 
 
-def human_size(size: int) -> str:
-    """Kilobytes until a megabyte is worth saying — most bundles are tens of KB."""
-    return f"{round(size / 1024)} KB" if size < 102_400 else f"{size / 1048576:.1f} MB"
-
-
 def plain_name(name: str) -> str:
     """ "Argentina (country)" is right in a printed list, and noise on a screen that says so."""
     for suffix in (" (country)", " (language)", " (locale-agnostic)"):
@@ -474,7 +471,7 @@ class _Picker:
 
     def size_of(self, bundle_id: str) -> str:
         bundle = self.by_id.get(bundle_id)
-        return human_size(bundle.bytes) if bundle else ""
+        return human_bytes(bundle.bytes) if bundle else ""
 
     def not_installed(self) -> list[str]:
         return [b.id for b in self.bundles if b.id not in self.installed]
@@ -500,7 +497,7 @@ class _Picker:
                     "Everything",
                     "already installed"
                     if not rest
-                    else f"{len(rest)} not installed · {human_size(total)}",
+                    else f"{len(rest)} not installed · {human_bytes(total)}",
                     act="all",
                 ),
                 Item(
@@ -609,7 +606,7 @@ class _Picker:
             )
             out.append(
                 Item(
-                    "action", f"Apply — {what}", human_size(total) if chosen else "", act="confirm"
+                    "action", f"Apply — {what}", human_bytes(total) if chosen else "", act="confirm"
                 )
             )
             return out

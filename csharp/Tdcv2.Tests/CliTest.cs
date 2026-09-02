@@ -178,8 +178,14 @@ public class CliTest
             // The zip nests everything under the bundle's own id, so it unpacks into the STORE and
             // lands at <store>/<id>/packs. That layout is the registry's, shared by every
             // implementation, so building it differently here would test the wrong thing.
-            ZipArchiveEntry entry =
-                archive.CreateEntry("demo/packs/demo/person/lastName.txt");
+            //
+            // NoCompression is asked for rather than assumed. The archive's LENGTH is part of the
+            // contract now — `pack list` prints a real size and a fixture case compares that line
+            // byte for byte — and all five runners land on 182 bytes only while the entry is
+            // stored. Leaving it to the default made that depend on what this runtime does with a
+            // fourteen-byte payload.
+            ZipArchiveEntry entry = archive.CreateEntry(
+                "demo/packs/demo/person/lastName.txt", CompressionLevel.NoCompression);
             using var writer = new StreamWriter(entry.Open());
             writer.Write("Ivanov\nPetrov\n");
         }

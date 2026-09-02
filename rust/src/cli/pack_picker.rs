@@ -28,6 +28,7 @@ use std::collections::{BTreeSet, HashMap};
 use std::io::{Read, Write};
 use std::process::{Command, Stdio};
 
+use crate::human_bytes::human_bytes;
 use crate::packs::registry::Bundle;
 
 /// What the user decided. `None` from [`run`] means they left without confirming.
@@ -493,14 +494,6 @@ impl Item {
     }
 }
 
-fn human_size(bytes: i64) -> String {
-    if bytes < 102_400 {
-        format!("{} KB", (bytes as f64 / 1024.0).round() as i64)
-    } else {
-        format!("{:.1} MB", bytes as f64 / 1_048_576.0)
-    }
-}
-
 /// "Argentina (country)" is right in a printed list and noise in a screen that
 /// says so already.
 fn plain_name(name: &str) -> String {
@@ -573,7 +566,7 @@ impl<'a> Picker<'a> {
     }
 
     fn size_of(&self, id: &str) -> String {
-        human_size(self.by_id(id).map_or(0, |b| b.bytes))
+        human_bytes(self.by_id(id).map_or(0, |b| b.bytes))
     }
 
     fn languages(&self) -> Vec<&Bundle> {
@@ -651,7 +644,7 @@ impl<'a> Picker<'a> {
                         if rest.is_empty() {
                             "already installed".to_string()
                         } else {
-                            format!("{} not installed · {}", rest.len(), human_size(total))
+                            format!("{} not installed · {}", rest.len(), human_bytes(total))
                         },
                     ),
                     Item::group(
@@ -813,7 +806,7 @@ impl<'a> Picker<'a> {
                     if self.selected.is_empty() {
                         String::new()
                     } else {
-                        human_size(total)
+                        human_bytes(total)
                     },
                 ));
                 items

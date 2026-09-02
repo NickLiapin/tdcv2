@@ -19,6 +19,8 @@
 
 import { emitKeypressEvents, type Key } from 'node:readline';
 
+import { humanBytes } from '../human-bytes.js';
+
 /** A catalogue entry, as much of it as the picker cares about. */
 export interface PickerBundle {
   readonly id: string;
@@ -401,11 +403,6 @@ interface Item {
   readonly region?: string;
 }
 
-const humanSize = (bytes: number): string =>
-  bytes < 102_400
-    ? `${String(Math.round(bytes / 1024))} KB`
-    : `${(bytes / 1_048_576).toFixed(1)} MB`;
-
 /** "Argentina (country)" is right in a printed list and noise in a screen that says so already. */
 const plainName = (name: string): string =>
   name.replace(/\s*\((country|language|locale-agnostic)\)$/, '');
@@ -432,7 +429,7 @@ export function runPicker(
 
   // The stack is never emptied — `backspace` stops at one — so the fallback never fires.
   const top = (): Screen => stack[stack.length - 1] ?? first;
-  const sizeOf = (id: string): string => humanSize(byId.get(id)?.bytes ?? 0);
+  const sizeOf = (id: string): string => humanBytes(byId.get(id)?.bytes ?? 0);
   const notInstalled = (): readonly string[] =>
     bundles.map((b) => b.id).filter((id) => !installedNow.has(id));
 
@@ -457,7 +454,7 @@ export function runPicker(
             hint:
               rest.length === 0
                 ? 'already installed'
-                : `${String(rest.length)} not installed · ${humanSize(total)}`,
+                : `${String(rest.length)} not installed · ${humanBytes(total)}`,
           },
           {
             kind: 'group',
@@ -561,7 +558,7 @@ export function runPicker(
           kind: 'action',
           act: 'confirm',
           label: `Apply — ${what}`,
-          hint: chosen.length > 0 ? humanSize(total) : '',
+          hint: chosen.length > 0 ? humanBytes(total) : '',
         });
         return items;
       }

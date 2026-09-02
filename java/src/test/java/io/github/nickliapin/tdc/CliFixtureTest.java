@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
+import java.util.zip.CRC32;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 import org.junit.jupiter.api.AfterEach;
@@ -187,12 +188,28 @@ class CliFixtureTest {
     return registry == null ? result : result.replace("{registry}", registry);
   }
 
-  /** The demo registry every implementation's runner builds, byte for byte the same. */
+  /**
+   * The demo registry every implementation's runner builds, byte for byte the same — 182 bytes.
+   *
+   * <p>Its LENGTH is part of the contract now, not just its contents: {@code pack list} prints a
+   * real size, and a fixture case compares that line byte for byte. STORED, not the default
+   * DEFLATED, because a deflated entry made this archive 198 bytes here and 182 everywhere else —
+   * a divergence that used to hide behind {@code 0.0 MB}.
+   */
   private static String buildRegistry(Path root) throws IOException {
+    byte[] body = "Ivanov\nPetrov\n".getBytes(StandardCharsets.UTF_8);
     ByteArrayOutputStream buffer = new ByteArrayOutputStream();
     try (ZipOutputStream zip = new ZipOutputStream(buffer)) {
-      zip.putNextEntry(new ZipEntry("demo/packs/demo/person/lastName.txt"));
-      zip.write("Ivanov\nPetrov\n".getBytes(StandardCharsets.UTF_8));
+      zip.setMethod(ZipOutputStream.STORED);
+      ZipEntry entry = new ZipEntry("demo/packs/demo/person/lastName.txt");
+      entry.setMethod(ZipEntry.STORED);
+      entry.setSize(body.length);
+      entry.setCompressedSize(body.length);
+      CRC32 crc = new CRC32();
+      crc.update(body);
+      entry.setCrc(crc.getValue());
+      zip.putNextEntry(entry);
+      zip.write(body);
       zip.closeEntry();
     }
     byte[] data = buffer.toByteArray();
