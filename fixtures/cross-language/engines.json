@@ -1992,7 +1992,7 @@
     },
     "generators/advanced-regex-weighted": {
       "engine2": {
-        "refused": "stream mode: advanced_regex weighted choice \"(?%{…})\" (\"V\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "refused": "stream mode: advanced_regex weighted choice \"(?%{…})\" (\"V\") is not supported yet — use mode=\"disk\" instead (the router then picks an engine that can), or remove it."
       },
       "engine3": {
         "lines": ["RU", "RU", "DE", "RU", "US", "RU", "RU", "RU", "US", "RU"]
@@ -2000,7 +2000,7 @@
     },
     "generators/advanced-regex-nested": {
       "engine2": {
-        "refused": "stream mode: advanced_regex weighted choice \"(?%{…})\" (\"V\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "refused": "stream mode: advanced_regex weighted choice \"(?%{…})\" (\"V\") is not supported yet — use mode=\"disk\" instead (the router then picks an engine that can), or remove it."
       },
       "engine3": {
         "lines": ["aa", "ab", "b", "ab", "b", "aa", "ab", "aa", "b", "b"]
@@ -2008,7 +2008,7 @@
     },
     "generators/advanced-regex-branches-are-patterns": {
       "engine2": {
-        "refused": "stream mode: advanced_regex weighted choice \"(?%{…})\" (\"V\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "refused": "stream mode: advanced_regex weighted choice \"(?%{…})\" (\"V\") is not supported yet — use mode=\"disk\" instead (the router then picks an engine that can), or remove it."
       },
       "engine3": {
         "lines": ["58", "02", "OU", "49", "NE", "13", "CL", "78", "ZZ", "EE"]
@@ -2412,7 +2412,7 @@
     },
     "mix-switch/mix-advanced-regex-in-a-case": {
       "engine2": {
-        "refused": "stream mode: advanced_regex weighted choice \"(?%{…})\" (\"Code#switch#c0#p0\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "refused": "stream mode: advanced_regex weighted choice \"(?%{…})\" (\"Code#switch#c0#p0\") is not supported yet — use mode=\"disk\" instead (the router then picks an engine that can), or remove it."
       },
       "engine3": {
         "lines": [
@@ -2953,7 +2953,7 @@
     },
     "mix-switch/switch-multi-key-branch-percent-is-exact": {
       "engine2": {
-        "refused": "stream mode: a percentage inside <case is=\"US|CA|MX\"> of <switch on=\"G\"> (\"D\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "refused": "stream mode: a percentage inside <case is=\"US|CA|MX\"> of <switch on=\"G\"> (\"D\") is not supported yet — use mode=\"disk\" instead (the router then picks an engine that can), or remove it."
       },
       "engine3": {
         "lines": [
@@ -3774,7 +3774,7 @@
     },
     "pool/uniq-over-two-references-to-one-pool": {
       "engine2": {
-        "refused": "stream mode: a pool reference inside a config-level <uniq> (\"A\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "refused": "stream mode: a pool reference inside a config-level <uniq> (\"A\") is not supported yet — use mode=\"disk\" instead (the router then picks an engine that can), or remove it."
       },
       "engine3": {
         "lines": [
@@ -4394,7 +4394,7 @@
     },
     "stat/a-row-that-knows-whether-it-is-above-average": {
       "engine2": {
-        "refused": "stream mode: parent \"Kind\" (the parent must be a finite-value <sequence> declared earlier) (\"Amount\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "refused": "stream mode: parent \"Kind\" (the parent must be a finite-value <sequence> declared earlier) (\"Amount\") is not supported yet — use mode=\"disk\" instead (the router then picks an engine that can), or remove it."
       },
       "engine3": {
         "lines": [
@@ -4891,7 +4891,7 @@
     },
     "structure/template-address-named-by-another-column": {
       "engine2": {
-        "refused": "stream mode: bare parent=\"Brand\" (use parent=\"Name.Value\") (\"Model\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "refused": "stream mode: bare parent=\"Brand\" (use parent=\"Name.Value\") (\"Model\") is not supported yet — use mode=\"disk\" instead (the router then picks an engine that can), or remove it."
       },
       "engine3": {
         "lines": [
@@ -5272,7 +5272,7 @@
     },
     "uniq-distinct/uniq-rearranges-a-tight-pool": {
       "engine2": {
-        "refused": "stream mode: uniq (a whole-column rearrangement) (\"K\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "refused": "stream mode: uniq (a whole-column rearrangement) (\"K\") is not supported yet — use mode=\"disk\" instead (the router then picks an engine that can), or remove it."
       },
       "engine3": {
         "lines": [
@@ -5301,7 +5301,7 @@
     },
     "uniq-distinct/uniq-keeps-exact-shares": {
       "engine2": {
-        "refused": "stream mode: uniq (a whole-column rearrangement) (\"K\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "refused": "stream mode: uniq (a whole-column rearrangement) (\"K\") is not supported yet — use mode=\"disk\" instead (the router then picks an engine that can), or remove it."
       },
       "engine3": {
         "lines": [
@@ -5390,7 +5390,7 @@
     },
     "uniq-distinct/uniq-simple-list": {
       "engine2": {
-        "refused": "stream mode: uniq (a whole-column rearrangement) (\"G\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "refused": "stream mode: uniq (a whole-column rearrangement) (\"G\") is not supported yet — use mode=\"disk\" instead (the router then picks an engine that can), or remove it."
       },
       "engine3": {
         "lines": ["c", "a", "d", "e", "b"]
@@ -5398,7 +5398,7 @@
     },
     "uniq-distinct/uniq-simple-int-range": {
       "engine2": {
-        "refused": "stream mode: uniq (a whole-column rearrangement) (\"G\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "refused": "stream mode: uniq (a whole-column rearrangement) (\"G\") is not supported yet — use mode=\"disk\" instead (the router then picks an engine that can), or remove it."
       },
       "engine3": {
         "lines": [
@@ -5419,7 +5419,7 @@
     },
     "uniq-distinct/uniq-simple-weighted-pack": {
       "engine2": {
-        "refused": "stream mode: uniq (a whole-column rearrangement) (\"G\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "refused": "stream mode: uniq (a whole-column rearrangement) (\"G\") is not supported yet — use mode=\"disk\" instead (the router then picks an engine that can), or remove it."
       },
       "engine3": {
         "lines": [
@@ -5454,7 +5454,7 @@
     },
     "uniq-distinct/uniq-true-and-uniq-True-mean-the-same-thing": {
       "engine2": {
-        "refused": "stream mode: uniq (a whole-column rearrangement) (\"Lower\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "refused": "stream mode: uniq (a whole-column rearrangement) (\"Lower\") is not supported yet — use mode=\"disk\" instead (the router then picks an engine that can), or remove it."
       },
       "engine3": {
         "lines": ["4,2", "3,7", "8,1", "6,3", "1,8", "7,6", "5,5", "2,4"]
@@ -5462,7 +5462,7 @@
     },
     "uniq-distinct/a-switch-in-a-distinct-group-is-redrawn-inside-its-own-branch": {
       "engine2": {
-        "refused": "stream mode: <distinct> member \"B\" is a <switch> (\"B\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "refused": "stream mode: <distinct> member \"B\" is a <switch> (\"B\") is not supported yet — use mode=\"disk\" instead (the router then picks an engine that can), or remove it."
       },
       "engine3": {
         "lines": [

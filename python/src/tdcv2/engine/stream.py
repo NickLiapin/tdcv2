@@ -75,7 +75,7 @@ def unsupported(feature: str, name: str) -> UnsupportedError:
     """The one refusal sentence, worded as the reference words it."""
     return UnsupportedError(
         f'stream mode: {feature} ("{name}") is not supported yet — '
-        'run without mode="stream" (the in-memory engine handles it), or remove it.'
+        'use mode="disk" instead (the router then picks an engine that can), or remove it.'
     )
 
 

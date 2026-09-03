@@ -141,7 +141,7 @@ config that asked for streaming is told rather than handed data that quietly rep
 `./run uniq.tdc --engine 2`
 
 ```
-tdcv2: stream mode: uniq (a whole-column rearrangement) ("K") is not supported yet — run without mode="stream" (the in-memory engine handles it), or remove it.
+tdcv2: stream mode: uniq (a whole-column rearrangement) ("K") is not supported yet — use mode="disk" instead (the router then picks an engine that can), or remove it.
 ```
 
 You normally never see a message like that. The router picks the engine itself, and a

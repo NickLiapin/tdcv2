@@ -109,8 +109,8 @@ public final class StreamEngine {
             + feature
             + " (\""
             + name
-            + "\") is not supported yet — run without mode=\"stream\" "
-            + "(the in-memory engine handles it), or remove it.");
+            + "\") is not supported yet — use mode=\"disk\" instead "
+            + "(the router then picks an engine that can), or remove it.");
   }
 
   /** Types whose value is built here and whose modifiers therefore apply here too. */

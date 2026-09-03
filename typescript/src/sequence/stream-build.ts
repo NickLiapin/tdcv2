@@ -524,7 +524,7 @@ function buildSwitchSeq(
 function unsupported(feature: string, name: string): StreamUnsupportedError {
   return new StreamUnsupportedError(
     `stream mode: ${feature} ("${name}") is not supported yet — ` +
-      'run without mode="stream" (the in-memory engine handles it), or remove it.',
+      'use mode="disk" instead (the router then picks an engine that can), or remove it.',
   );
 }
 

@@ -515,8 +515,8 @@ pub struct StreamEngine<'a> {
 /// that wording instead of through here.
 fn here<T>(feature: &str, name: &str) -> EngineResult<T> {
     unsupported(&format!(
-        "stream mode: {feature} (\"{name}\") is not supported yet — run without mode=\"stream\" \
-         (the in-memory engine handles it), or remove it."
+        "stream mode: {feature} (\"{name}\") is not supported yet — use mode=\"disk\" instead \
+         (the router then picks an engine that can), or remove it."
     ))
 }
 

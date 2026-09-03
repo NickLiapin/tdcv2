@@ -85,7 +85,7 @@ public sealed class StreamEngine
     private static UnsupportedHere Unsupported(string feature, string name) =>
         new(
             $"stream mode: {feature} (\"{name}\") is not supported yet — "
-                + "run without mode=\"stream\" (the in-memory engine handles it), or remove it.");
+                + "use mode=\"disk\" instead (the router then picks an engine that can), or remove it.");
 
     /// <summary>Types whose value is built here and whose modifiers therefore apply here too.</summary>
     private static readonly HashSet<string> InlineTypes = new(StringComparer.Ordinal)

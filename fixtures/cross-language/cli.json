@@ -750,7 +750,7 @@
       "exit": 1,
       "stdout": "",
       "stderrContains": [
-        "tdcv2: stream mode: a pool reference with parent= (\"R\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "tdcv2: stream mode: a pool reference with parent= (\"R\") is not supported yet — use mode=\"disk\" instead (the router then picks an engine that can), or remove it."
       ]
     },
     {
@@ -840,7 +840,7 @@
       "exit": 1,
       "stdout": "",
       "stderrContains": [
-        "tdcv2: stream mode: uniq (a whole-column rearrangement) (\"A\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "tdcv2: stream mode: uniq (a whole-column rearrangement) (\"A\") is not supported yet — use mode=\"disk\" instead (the router then picks an engine that can), or remove it."
       ]
     },
     {
@@ -853,7 +853,7 @@
       "exit": 1,
       "stdout": "",
       "stderrContains": [
-        "tdcv2: stream mode: bare parent=\"C\" (use parent=\"Name.Value\") (\"R\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "tdcv2: stream mode: bare parent=\"C\" (use parent=\"Name.Value\") (\"R\") is not supported yet — use mode=\"disk\" instead (the router then picks an engine that can), or remove it."
       ]
     },
     {
@@ -865,7 +865,7 @@
       "exit": 1,
       "stdout": "",
       "stderrContains": [
-        "tdcv2: stream mode: advanced_regex weighted choice \"(?%{…})\" (\"A\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "tdcv2: stream mode: advanced_regex weighted choice \"(?%{…})\" (\"A\") is not supported yet — use mode=\"disk\" instead (the router then picks an engine that can), or remove it."
       ]
     },
     {
@@ -877,7 +877,7 @@
       "exit": 1,
       "stdout": "",
       "stderrContains": [
-        "tdcv2: stream mode: <distinct> member \"K\" is a <mix> (\"K\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "tdcv2: stream mode: <distinct> member \"K\" is a <mix> (\"K\") is not supported yet — use mode=\"disk\" instead (the router then picks an engine that can), or remove it."
       ]
     },
     {
@@ -889,7 +889,7 @@
       "exit": 1,
       "stdout": "",
       "stderrContains": [
-        "tdcv2: stream mode: <distinct> member \"N\" is a <switch> (\"N\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "tdcv2: stream mode: <distinct> member \"N\" is a <switch> (\"N\") is not supported yet — use mode=\"disk\" instead (the router then picks an engine that can), or remove it."
       ]
     },
     {

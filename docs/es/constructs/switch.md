@@ -595,8 +595,8 @@ Forzar el motor de flujo en una de esas configuraciones lo dice en vez de aproxi
 
 ```
 tdcv2: stream mode: a percentage inside <case is="US|CA|MX"> of <switch on="Country">
-("Shipping") is not supported yet — run without mode="stream" (the in-memory engine
-handles it), or remove it.
+("Shipping") is not supported yet — use mode="disk" instead (the router then picks an
+engine that can), or remove it.
 ```
 
 Vea [Salidas grandes](../guides/large-outputs.md#top) para el camino de streaming, y

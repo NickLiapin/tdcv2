@@ -595,8 +595,8 @@ MX -> USD
 
 ```
 tdcv2: stream mode: a percentage inside <case is="US|CA|MX"> of <switch on="Country">
-("Shipping") is not supported yet — run without mode="stream" (the in-memory engine
-handles it), or remove it.
+("Shipping") is not supported yet — use mode="disk" instead (the router then picks an
+engine that can), or remove it.
 ```
 
 См. [Большие объёмы вывода](../guides/large-outputs.md#top) про потоковый путь и

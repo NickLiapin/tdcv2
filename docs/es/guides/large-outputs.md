@@ -150,7 +150,7 @@ datos que se repiten en silencio:
 `./run uniq.tdc --engine 2`
 
 ```
-tdcv2: stream mode: uniq (a whole-column rearrangement) ("K") is not supported yet — run without mode="stream" (the in-memory engine handles it), or remove it.
+tdcv2: stream mode: uniq (a whole-column rearrangement) ("K") is not supported yet — use mode="disk" instead (the router then picks an engine that can), or remove it.
 ```
 
 Normalmente usted nunca ve un mensaje así. El ruteo elige el motor por su cuenta, y un

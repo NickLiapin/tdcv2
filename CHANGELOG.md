@@ -15,7 +15,34 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+### Changed
+
+<!-- covers: stream refusal remedy -->
+
+- **The stream refusal now names `mode="disk"` rather than the in-memory engine.** One
+  sentence refuses seven shapes — a `uniq` column, a pool reference under `parent=`, a
+  weighted `advanced_regex` choice, a percentage inside `<default>`, and the rest — and it
+  ended "run without `mode="stream"` (the in-memory engine handles it)". True, and for one
+  shape actively poor advice: a `uniq` on a compound sequence is handled by the exact
+  on-disk engine with **bounded** memory, so sending the reader to the in-memory engine
+  swaps a bounded run for one whose memory follows `count`. `mode="disk"` lets the router
+  choose, which is right for every shape the sentence refuses — checked one at a time, not
+  assumed.
+
+  The near-identical refusal in the exact-uniq repair is deliberately untouched: there the
+  on-disk engine has already given up, and the in-memory engine really is the only way
+  through.
+
 ### Documentation
+
+<!-- covers: writing-your-own stale promise -->
+
+- **A shipped feature was still listed as "not yet".** `Writing your own packs` closed with
+  "**Address auto-completion** in the editor, driven by the header descriptions — next up",
+  which shipped some time ago — and the neighbouring page said so in as many words, so two
+  pages of ours disagreed and the misleading one was the first a pack author reaches. It
+  now states the truth, with the consequence that matters to somebody writing a header:
+  the description is what a person completing that address will read beside it.
 
 <!-- covers: quick api findable -->
 
