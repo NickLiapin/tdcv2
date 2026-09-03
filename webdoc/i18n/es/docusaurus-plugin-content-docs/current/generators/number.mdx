@@ -18,7 +18,7 @@ se le dé. Esta página recorre cada uno.
 
 | Atributo     | Obligatorio | Qué hace                                                                            |
 | :----------- | :---------- | :---------------------------------------------------------------------------------- |
-| `value`      | no          | `bit`, un rango `"100..999"`, o una lista de rangos                                 |
+| `value`      | no          | `bit`, un número `"50"`, una lista `"10,20,35"`, un rango `"100..999"`, o una mezcla |
 | `length`     | no          | Ancho fijo `"10"`, un rango `"2-10"`, o grupos `"2,10-12"`                          |
 | `percent`    | no          | Proporciones para los grupos de `length`, p. ej. `length="2,10-12" percent="85,15"` |
 | `first_zero` | no          | `true` / `false` — si se permite un cero inicial                                    |
@@ -52,6 +52,34 @@ al `9`.
 1
 0`}
 </Terminal>
+
+## Un número, o unos pocos
+
+`value` acepta un único número cuando la columna siempre lo contiene, y una lista
+separada por comas cuando contiene uno de varios:
+
+```xml
+<gen type="number" value="50"/>        <!-- siempre 50 -->
+<gen type="number" value="10,20,35"/>  <!-- uno de los tres -->
+```
+
+<Terminal title="./run demo.tdc">
+{`50        35
+50        20
+50        35
+50        20
+50        10`}
+</Terminal>
+
+Ambas formas existen para que una constante o un pequeño conjunto de números se quede
+**dentro del generador numérico**, donde los atributos numéricos significan lo que
+dicen. Antes no se aceptaba ninguna de las dos, y la única manera de escribir «siempre
+50» era `<gen type="text" value="50"/>` — una lista de cadenas que parecen un número.
+Eso funciona, y sigue funcionando, pero la comprobación es distinta de una forma que
+importa: una lista de texto se comprueba leyéndola, así que `value="hello,50"` con
+`anomaly=` pasa y luego genera picos solo la mitad de las veces pedidas, porque una
+palabra no se puede multiplicar. En `number` cada valor es un número por
+construcción, así que la tasa declarada es la tasa entregada.
 
 ## Un rango
 

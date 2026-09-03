@@ -207,6 +207,36 @@
         "19 8.49 0.30000000000000004",
         "22 7.99 0.4"
       ]
+    },
+    {
+      "name": "number-single-value",
+      "description": "A single number is a value, not a range — the form that used to force a text list",
+      "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" value=\"50\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["50", "50", "50", "50", "50", "50", "50", "50"]
+    },
+    {
+      "name": "number-value-list",
+      "description": "A comma list of numbers draws one of them, uniformly over the items",
+      "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" value=\"10,20,35\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["20", "10", "35", "10", "35", "35", "10", "20"]
+    },
+    {
+      "name": "number-value-list-mixed",
+      "description": "Numbers and ranges in one list, brackets optional throughout",
+      "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" value=\"0,10..20,99\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["10", "0", "99", "0", "99", "99", "0", "10"]
+    },
+    {
+      "name": "number-single-value-padded",
+      "description": "Leading zeros set the width of a single value, exactly as they do for a range",
+      "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" value=\"007\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["007", "007", "007", "007", "007", "007", "007", "007"]
+    },
+    {
+      "name": "number-single-value-anomaly",
+      "description": "The point of the widening: anomaly on a numeric generator delivers the rate it declares, because every value is a number by construction",
+      "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" value=\"50\" anomaly=\"0.5\" anomaly_factor=\"10\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["500", "50", "500", "500", "500", "50", "50", "500"]
     }
   ]
 }

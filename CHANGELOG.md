@@ -15,6 +15,37 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+### Added
+
+<!-- covers: number single value and list -->
+
+- **`<gen type="number">` takes a single number and a list of numbers, not only a range.**
+  `value="45"`, `value="10,20,35"` and any mix — `value="0,10..20,99"`, brackets optional
+  throughout — alongside the `MIN..MAX` and `[a..b],[c..d]` it already took. Leading zeros
+  set the width for a single value exactly as they do for a range, so `value="007"` is
+  three characters wide.
+
+  It was a generator of RANGES before, and that is a smaller thing than it sounds. There
+  was no way to say "always 50" or "one of these numbers", so both had to be written as
+  `<gen type="text" value="50"/>` — a list of strings that happen to look numeric. That is
+  how arithmetic ended up on the text generator: `anomaly=` has to work where the numbers
+  are, the numbers had nowhere else to live, and once a number is one item of a string list
+  the only check left is "does this parse as a number", which is inspection rather than
+  typing.
+
+  The cost of that shows in one measurement. `value="hello,50,error,20"` with
+  `anomaly="0.5"` passes the inspection, because the list does contain numbers — and then
+  over 4,000 rows it delivers **1,026 spikes where 2,000 were asked for**, 25.7% against
+  the declared 50%. The words can never be multiplied, so the effective rate is the
+  declared rate times the share of the list that is numeric, and nothing says so. On the
+  numeric generator the same 4,000 rows measure 10.2% and 50.1% for `0.1` and `0.5`,
+  because every value is a number by construction and the promise has nothing to break on.
+
+  Purely additive: both new forms were errors before, so no config that runs today changes
+  by a byte — verified on the range forms. `text` keeps everything it has, deliberately;
+  our own documentation shipped that example and people will have copied it. `TDC081` now
+  names all four shapes instead of only the two it used to accept.
+
 ## [0.3.0] — 2026-09-01
 
 ### Added

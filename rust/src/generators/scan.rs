@@ -44,19 +44,3 @@ pub fn split_length_range(text: &str) -> Option<(&str, &str)> {
         None
     }
 }
-
-/// `^\[\s*([^\]]+?)\s*]` — the leading `[…]` of a range list.
-///
-/// Returns the contents and how much of the input the whole bracket consumed,
-/// so the caller can step past it exactly as the regex's match length would.
-pub fn bracket_head(text: &str) -> Option<(&str, usize)> {
-    if !text.starts_with('[') {
-        return None;
-    }
-    let close = text.find(']')?;
-    let inner = text[1..close].trim();
-    if inner.is_empty() {
-        return None;
-    }
-    Some((inner, close + 1))
-}

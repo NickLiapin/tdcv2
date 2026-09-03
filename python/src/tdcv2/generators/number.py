@@ -22,6 +22,7 @@ from ..prng import rand
 from ..prng.prng import Sfc32
 
 _RANGE = re.compile(r"^\s*(-?\d+)\s*\.\.\s*(-?\d+)\s*$")
+_SINGLE = re.compile(r"^-?\d+$")
 _INT = re.compile(r"^-?\d+$")
 _LENGTH_RANGE = re.compile(r"^(\d+)\s*-\s*(\d+)$")
 _DIGITS_ONLY = re.compile(r"^\d+$")
@@ -133,47 +134,67 @@ def pin_length(attrs: dict[str, str], group: LengthChoice) -> dict[str, str]:
 
 
 def parse_ranges(source: str) -> list[Range]:
-    """``0..9``, ``bit``, or a bracketed list of ranges."""
+    """What ``value=`` on a ``<gen type="number">`` may say.
+
+    ``bit`` · ``45`` · ``10,20,35`` · ``34..89`` · ``[10..20],[30..40]`` ·
+    ``0,10..20,99`` — brackets optional throughout.
+
+    The single value and the comma list are the additions. ``number`` used to be
+    a generator of RANGES: a bare number was refused, so "always 50" and "one of
+    these numbers" had to be written as ``<gen type="text">`` — a list of strings
+    that happen to look numeric. That is how arithmetic ended up on the text
+    generator, and why ``anomaly=`` on ``hello,50,error,20`` silently delivers
+    half the rate it was asked for. Every form here either parsed before or was
+    rejected outright, so nothing that runs today changes by a byte.
+    """
     spec = source.strip()
     if not spec:
         raise ValueError("number generator: range is empty")
     if spec == "bit":
         return [Range(0, 1, 0)]
-    if "[" not in spec and "]" not in spec:
-        return [_parse_range(spec)]
 
-    ranges: list[Range] = []
-    rest = spec
-    while rest:
-        # Found by index, not by a regex. ``^\[\s*([^\]]+?)\s*\]`` said the same
-        # thing, but ``\s*`` and ``[^\]]+?`` can both match a space, so an
-        # unclosed bracket made the engine try every way to split the run
-        # between them: ``value="["`` followed by four thousand spaces took a
-        # minute. A generator hanging on its own config is not a slow path, it
-        # is a stopped program.
-        close = rest.find("]") if rest.startswith("[") else -1
-        if close < 0:
+    # Split, then parse each piece with an anchored pattern — never one regex
+    # over the whole string. ``^\[\s*([^\]]+?)\s*\]`` once said what the bracket
+    # form means, but ``\s*`` and ``[^\]]+?`` can both match a space, so an
+    # unclosed bracket made the engine try every way to divide the run between
+    # them: ``value="["`` followed by four thousand spaces took a minute. A
+    # generator that hangs on its own config is not a slow path, it is a stopped
+    # program. Splitting on a comma is linear.
+    return [_parse_range_item(piece, source) for piece in spec.split(",")]
+
+
+def _parse_range_item(piece: str, source: str) -> Range:
+    """One comma-separated piece: ``45``, ``34..89``, or either in brackets."""
+    item = piece.strip()
+    if item.startswith("["):
+        if not item.endswith("]"):
             raise ValueError(f'number generator: invalid range list "{source}"')
-        ranges.append(_parse_range(rest[1:close].strip()))
-        rest = rest[close + 1 :].strip()
-        if not rest:
-            break
-        if not rest.startswith(","):
-            raise ValueError(f'number generator: invalid range list "{source}"')
-        rest = rest[1:].strip()
-        if not rest:
-            raise ValueError(f'number generator: invalid range list "{source}"')
-    return ranges
+        item = item[1:-1].strip()
+    # A bracket left INSIDE a piece means the list itself is malformed — a
+    # missing comma, as in ``[1..9] [2..3]``. Saying "invalid range list" there
+    # is the useful answer.
+    if "[" in item or "]" in item:
+        raise ValueError(f'number generator: invalid range list "{source}"')
+    if not item:
+        raise ValueError(f'number generator: invalid range list "{source}"')
+    # A bare number is the range of one point, so the drawing code, the uniq
+    # capacity check and include/exclude all keep working on it unchanged.
+    if _SINGLE.match(item):
+        return _make_range(item, item, item)
+    return _parse_range(item)
 
 
 def _parse_range(text: str) -> Range:
     m = _RANGE.match(text)
     if not m:
         raise ValueError(f'number generator: invalid range "{text}" (expected MIN..MAX)')
-    min_text, max_text = m.group(1), m.group(2)
+    return _make_range(m.group(1), m.group(2), text)
+
+
+def _make_range(min_text: str, max_text: str, source: str) -> Range:
     minimum, maximum = int(min_text), int(max_text)
     if minimum > maximum:
-        raise ValueError(f'number generator: invalid numeric range "{text}"')
+        raise ValueError(f'number generator: invalid numeric range "{source}"')
     return Range(minimum, maximum, _infer_width(min_text, max_text))
 
 

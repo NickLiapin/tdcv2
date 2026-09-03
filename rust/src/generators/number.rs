@@ -135,37 +135,41 @@ pub fn parse_ranges(source: &str) -> EngineResult<Vec<Range>> {
         }]);
     }
 
-    if !spec.contains('[') && !spec.contains(']') {
-        return Ok(vec![parse_range(spec)?]);
-    }
-
+    // Split, then parse each piece — never one pattern over the whole string.
+    // Splitting on a comma is linear; the bracket scan it replaces had to be
+    // written by index for the same reason.
     let mut ranges = Vec::new();
-    let mut rest = spec;
-    while !rest.is_empty() {
-        let Some((inner, consumed)) = scan::bracket_head(rest) else {
-            return invalid(&format!(
-                "number generator: invalid range list \"{source}\""
-            ));
-        };
-        ranges.push(parse_range(inner)?);
-        rest = rest[consumed..].trim();
-        if rest.is_empty() {
-            break;
-        }
-        let Some(after) = rest.strip_prefix(',') else {
-            return invalid(&format!(
-                "number generator: invalid range list \"{source}\""
-            ));
-        };
-        rest = after.trim();
-        if rest.is_empty() {
-            return invalid(&format!(
-                "number generator: invalid range list \"{source}\""
-            ));
-        }
+    for piece in spec.split(',') {
+        ranges.push(parse_range_item(piece, source)?);
     }
-
     Ok(ranges)
+}
+
+/// One comma-separated piece: `45`, `34..89`, or either wrapped in brackets.
+fn parse_range_item(piece: &str, source: &str) -> EngineResult<Range> {
+    let mut item = piece.trim();
+    if item.starts_with('[') {
+        let Some(stripped) = item.strip_suffix(']') else {
+            return invalid(&format!(
+                "number generator: invalid range list \"{source}\""
+            ));
+        };
+        item = stripped[1..].trim();
+    }
+    // A bracket left INSIDE a piece means the list itself is malformed — a
+    // missing comma, as in `[1..9] [2..3]`. Saying "invalid range list" there is
+    // the useful answer.
+    if item.contains('[') || item.contains(']') || item.is_empty() {
+        return invalid(&format!(
+            "number generator: invalid range list \"{source}\""
+        ));
+    }
+    // A bare number is the range of one point, so the drawing code, the uniq
+    // capacity check and include/exclude all keep working on it unchanged.
+    if scan::is_single_int(item) {
+        return make_range(item, item, item);
+    }
+    parse_range(item)
 }
 
 fn parse_range(range: &str) -> EngineResult<Range> {
@@ -174,14 +178,18 @@ fn parse_range(range: &str) -> EngineResult<Range> {
             "number generator: invalid range \"{range}\" (expected MIN..MAX)"
         ));
     };
+    make_range(min_text, max_text, range)
+}
+
+fn make_range(min_text: &str, max_text: &str, source: &str) -> EngineResult<Range> {
     let (Ok(min), Ok(max)) = (min_text.parse::<i64>(), max_text.parse::<i64>()) else {
         return invalid(&format!(
-            "number generator: invalid range \"{range}\" (expected MIN..MAX)"
+            "number generator: invalid range \"{source}\" (expected MIN..MAX)"
         ));
     };
     if min > max {
         return invalid(&format!(
-            "number generator: invalid numeric range \"{range}\""
+            "number generator: invalid numeric range \"{source}\""
         ));
     }
     Ok(Range {

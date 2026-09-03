@@ -168,40 +168,53 @@ filas:
 
 ```xml
 <env count="20" seed="demo">
-  <sequence name="Low"> <gen type="text" value="50" order="sequential" anomaly="0.1" anomaly_factor="10"/></sequence>
-  <sequence name="High"><gen type="text" value="50" order="sequential" anomaly="0.5" anomaly_factor="10"/></sequence>
+  <sequence name="Low"> <gen type="number" value="50" anomaly="0.1" anomaly_factor="10"/></sequence>
+  <sequence name="High"><gen type="number" value="50" anomaly="0.5" anomaly_factor="10"/></sequence>
 </env>
 ...
 <data>rate 0.1: ${{Low}}   rate 0.5: ${{High}}</data>
 ```
 
+`value="50"` en un `number` es una constante: toda la columna vale 50 hasta que una
+anomalía eleva una fila a 500. Use `number` en lugar de una lista `text` de un solo
+elemento siempre que la columna contenga números: una lista de texto se comprueba
+leyéndola, así que una lista mixta como `value="hello,50"` acepta `anomaly=` y luego
+hace pico solo donde cae un número, entregando menos que la tasa pedida. En `number`
+cada valor es un número por construcción, así que la tasa declarada es la entregada.
+
 `./run rate.tdc (20 filas)`
 
 ```
-rate 0.1:  50   rate 0.5:  50
-rate 0.1:  50   rate 0.5:  50
-rate 0.1:  50   rate 0.5: 500
-rate 0.1:  50   rate 0.5: 500
-rate 0.1:  50   rate 0.5: 500
-rate 0.1:  50   rate 0.5:  50
-rate 0.1:  50   rate 0.5: 500
-rate 0.1:  50   rate 0.5: 500
-rate 0.1:  50   rate 0.5: 500
-rate 0.1:  50   rate 0.5: 500
-rate 0.1:  50   rate 0.5: 500
-rate 0.1:  50   rate 0.5:  50
-rate 0.1:  50   rate 0.5: 500
 rate 0.1: 500   rate 0.5:  50
 rate 0.1:  50   rate 0.5: 500
+rate 0.1:  50   rate 0.5: 500
+rate 0.1:  50   rate 0.5: 500
+rate 0.1:  50   rate 0.5: 500
 rate 0.1:  50   rate 0.5:  50
 rate 0.1:  50   rate 0.5:  50
 rate 0.1:  50   rate 0.5:  50
+rate 0.1:  50   rate 0.5:  50
+rate 0.1:  50   rate 0.5:  50
+rate 0.1: 500   rate 0.5: 500
+rate 0.1:  50   rate 0.5: 500
+rate 0.1:  50   rate 0.5:  50
+rate 0.1: 500   rate 0.5: 500
+rate 0.1: 500   rate 0.5:  50
+rate 0.1:  50   rate 0.5:  50
+rate 0.1:  50   rate 0.5:  50
+rate 0.1: 500   rate 0.5: 500
 rate 0.1:  50   rate 0.5:  50
 rate 0.1:  50   rate 0.5: 500
 ```
 
-La columna izquierda hizo pico una vez de 20; la derecha, 11 veces — a mayor tasa,
-valores atípicos más densos. `anomaly` **se combina con cualquier cosa**: un rango, una
+La columna izquierda hizo pico 5 veces de 20; la derecha, 9 — a mayor tasa, valores
+atípicos más densos.
+
+Veinte filas son una muestra pequeña, y se nota: 5 y 9 frente al 0.1 y el 0.5 pedidos.
+La tasa es una probabilidad por fila, no una cuota, así que una tirada corta oscila a su
+alrededor y una larga se asienta en ella: la misma configuración sobre 4.000 filas mide
+10,2% y 50,1%. Sus propias veinte filas se verán distintas; eso es la tasa funcionando,
+no fallando. `anomaly` **se combina con cualquier cosa**: un rango, una
 [distribución](../generators/number.md#top) o [`missing`](../generators/overview.md#top).
 
 **Por qué/cuándo.** Ajuste la tasa al fenómeno que está modelando — un defecto raro en

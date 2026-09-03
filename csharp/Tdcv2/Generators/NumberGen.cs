@@ -25,6 +25,7 @@ namespace Tdcv2.Generators;
 public static class NumberGen
 {
     private static readonly Regex RangePattern = new(@"^\s*(-?\d+)\s*\.\.\s*(-?\d+)\s*$", RegexOptions.Compiled);
+    private static readonly Regex SinglePattern = new(@"^-?\d+$", RegexOptions.Compiled);
     private static readonly Regex LengthRange = new(@"^(\d+)\s*-\s*(\d+)$", RegexOptions.Compiled);
     private static readonly Regex SingleInt = new(@"^-?\d+$", RegexOptions.Compiled);
 
@@ -170,46 +171,46 @@ public static class NumberGen
             return new[] { new Range(0, 1, 0) };
         }
 
-        if (!spec.Contains('[') && !spec.Contains(']'))
-        {
-            return new[] { ParseRange(spec) };
-        }
-
+        // Split, then parse each piece with an anchored pattern — never one regex over
+        // the whole string. `^\[\s*([^\]]+?)\s*]` once said what the bracket form means,
+        // but `\s*` and `[^\]]+?` can both match a space, so an unclosed bracket made the
+        // engine try every way to divide the run between them: `value="["` followed by
+        // four thousand spaces took a minute. A generator hanging on its own config is not
+        // a slow path, it is a stopped program. Splitting on a comma is linear.
         var ranges = new List<Range>();
-        string rest = spec;
-        while (rest.Length > 0)
+        foreach (string piece in spec.Split(','))
         {
-            // Found by index, not by a regex. `^\[\s*([^\]]+?)\s*]` said the same thing,
-            // but `\s*` and `[^\]]+?` can both match a space, so an unclosed bracket made
-            // the engine try every way to split the run between them: `value="["` followed
-            // by four thousand spaces took a minute. A generator hanging on its own config
-            // is not a slow path, it is a stopped program.
-            int close = rest.StartsWith('[') ? rest.IndexOf(']') : -1;
-            if (close < 0)
-            {
-                throw new ArgumentException($"number generator: invalid range list \"{source}\"");
-            }
-
-            ranges.Add(ParseRange(rest[1..close].Trim()));
-            rest = rest[(close + 1)..].Trim();
-            if (rest.Length == 0)
-            {
-                break;
-            }
-
-            if (!rest.StartsWith(",", StringComparison.Ordinal))
-            {
-                throw new ArgumentException($"number generator: invalid range list \"{source}\"");
-            }
-
-            rest = rest[1..].Trim();
-            if (rest.Length == 0)
-            {
-                throw new ArgumentException($"number generator: invalid range list \"{source}\"");
-            }
+            ranges.Add(ParseRangeItem(piece, source));
         }
 
         return ranges;
+    }
+
+    /// <summary>One comma-separated piece: <c>45</c>, <c>34..89</c>, or either in brackets.</summary>
+    private static Range ParseRangeItem(string piece, string source)
+    {
+        string item = piece.Trim();
+        if (item.StartsWith('['))
+        {
+            if (!item.EndsWith(']'))
+            {
+                throw new ArgumentException($"number generator: invalid range list \"{source}\"");
+            }
+
+            item = item[1..^1].Trim();
+        }
+
+        // A bracket left INSIDE a piece means the list itself is malformed — a missing
+        // comma, as in `[1..9] [2..3]`. Saying "invalid range list" there is the useful
+        // answer; falling through to the range parser names the symptom, not the cause.
+        if (item.Contains('[') || item.Contains(']') || item.Length == 0)
+        {
+            throw new ArgumentException($"number generator: invalid range list \"{source}\"");
+        }
+
+        // A bare number is the range of one point, so the drawing code, the uniq capacity
+        // check and include/exclude all keep working on it unchanged.
+        return SinglePattern.IsMatch(item) ? MakeRange(item, item, item) : ParseRange(item);
     }
 
     private static Range ParseRange(string range)
@@ -221,13 +222,16 @@ public static class NumberGen
                 $"number generator: invalid range \"{range}\" (expected MIN..MAX)");
         }
 
-        string minText = m.Groups[1].Value;
-        string maxText = m.Groups[2].Value;
+        return MakeRange(m.Groups[1].Value, m.Groups[2].Value, range);
+    }
+
+    private static Range MakeRange(string minText, string maxText, string source)
+    {
         long min = long.Parse(minText, CultureInfo.InvariantCulture);
         long max = long.Parse(maxText, CultureInfo.InvariantCulture);
         if (min > max)
         {
-            throw new ArgumentException($"number generator: invalid numeric range \"{range}\"");
+            throw new ArgumentException($"number generator: invalid numeric range \"{source}\"");
         }
 
         return new Range(min, max, InferWidth(minText, maxText));

@@ -3928,8 +3928,8 @@ class _Validator:
             self._error(
                 "TDC081",
                 f'invalid number range "{value}"',
-                'Expected "bit", "MIN..MAX", or a comma-separated range list like '
-                '"[0..100],[345..678]".',
+                'Expected "bit", a single number like "50", a list like "10,20,35", '
+                'a range "MIN..MAX", or a mix of those: "0,10..20,99".',
                 line,
                 column,
             )

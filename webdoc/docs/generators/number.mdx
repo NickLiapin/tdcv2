@@ -18,7 +18,7 @@ you provide. This page walks through each one.
 
 | Attribute    | Required | What it does                                                        |
 | :----------- | :------- | :------------------------------------------------------------------ |
-| `value`      | no       | `bit`, a range `"100..999"`, or a list of ranges                    |
+| `value`      | no       | `bit`, one number `"50"`, a list `"10,20,35"`, a range `"100..999"`, or any mix |
 | `length`     | no       | Fixed width `"10"`, a range `"2-10"`, or groups `"2,10-12"`         |
 | `percent`    | no       | Shares for `length` groups, e.g. `length="2,10-12" percent="85,15"` |
 | `first_zero` | no       | `true` / `false` — whether a leading zero is allowed                |
@@ -52,6 +52,34 @@ With **no** `value` and **no** `length`, `number` emits a single random digit
 1
 0`}
 </Terminal>
+
+## One number, or a few
+
+`value` takes a single number when the column should always hold it, and a
+comma-separated list when it should hold one of a few:
+
+```xml
+<gen type="number" value="50"/>        <!-- always 50 -->
+<gen type="number" value="10,20,35"/>  <!-- one of the three -->
+```
+
+<Terminal title="./run demo.tdc">
+{`50        35
+50        20
+50        35
+50        20
+50        10`}
+</Terminal>
+
+Both forms exist so that a constant or a small set of numbers stays **inside the
+numeric generator**, where the numeric attributes mean what they say. Before, neither
+was accepted here and the only way to write "always 50" was `<gen type="text"
+value="50"/>` — a list of strings that happen to look like a number. That works, and
+it still does, but the checking is different in a way that matters: a text list is
+checked by reading it, so `value="hello,50"` with `anomaly=` passes and then quietly
+spikes only half as often as you asked, because a word cannot be multiplied. In
+`number` every value is a number by construction, so a declared rate is a delivered
+rate.
 
 ## A range
 

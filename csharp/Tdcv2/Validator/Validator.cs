@@ -4624,7 +4624,7 @@ public sealed class Validator
             (int line, int column) = At(gen, "value");
             Error(
                 "TDC081", $"invalid number range \"{value}\"",
-                "Expected \"bit\", \"MIN..MAX\", or a comma-separated range list like \"[0..100],[345..678]\".", line, column);
+                "Expected \"bit\", a single number like \"50\", a list like \"10,20,35\", a range \"MIN..MAX\", or a mix of those: \"0,10..20,99\".", line, column);
         }
 
         string? firstZero = attrs.GetValueOrDefault("first_zero");

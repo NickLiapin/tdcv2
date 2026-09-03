@@ -2222,6 +2222,46 @@
         ]
       }
     },
+    "generators/number-single-value": {
+      "engine2": {
+        "lines": ["50", "50", "50", "50", "50", "50", "50", "50"]
+      },
+      "engine3": {
+        "lines": ["50", "50", "50", "50", "50", "50", "50", "50"]
+      }
+    },
+    "generators/number-value-list": {
+      "engine2": {
+        "lines": ["20", "10", "35", "10", "35", "35", "10", "20"]
+      },
+      "engine3": {
+        "lines": ["20", "10", "35", "10", "35", "35", "10", "20"]
+      }
+    },
+    "generators/number-value-list-mixed": {
+      "engine2": {
+        "lines": ["10", "0", "99", "0", "99", "99", "0", "10"]
+      },
+      "engine3": {
+        "lines": ["10", "0", "99", "0", "99", "99", "0", "10"]
+      }
+    },
+    "generators/number-single-value-padded": {
+      "engine2": {
+        "lines": ["007", "007", "007", "007", "007", "007", "007", "007"]
+      },
+      "engine3": {
+        "lines": ["007", "007", "007", "007", "007", "007", "007", "007"]
+      }
+    },
+    "generators/number-single-value-anomaly": {
+      "engine2": {
+        "lines": ["500", "50", "500", "500", "500", "50", "50", "500"]
+      },
+      "engine3": {
+        "lines": ["500", "50", "500", "500", "500", "50", "50", "500"]
+      }
+    },
     "mix-switch/mix-exact-percents": {
       "engine2": {
         "lines": ["A", "B", "A", "B", "B", "B", "B", "A", "B", "B"]

@@ -158,38 +158,53 @@ column `anomaly="0.1"`, right column `anomaly="0.5"`, 20 rows:
 
 ```xml
 <env count="20" seed="demo">
-  <sequence name="Low"> <gen type="text" value="50" order="sequential" anomaly="0.1" anomaly_factor="10"/></sequence>
-  <sequence name="High"><gen type="text" value="50" order="sequential" anomaly="0.5" anomaly_factor="10"/></sequence>
+  <sequence name="Low"> <gen type="number" value="50" anomaly="0.1" anomaly_factor="10"/></sequence>
+  <sequence name="High"><gen type="number" value="50" anomaly="0.5" anomaly_factor="10"/></sequence>
 </env>
 ...
 <data>rate 0.1: ${{Low}}   rate 0.5: ${{High}}</data>
 ```
 
+`value="50"` on a `number` is a constant — the whole column is 50 until an anomaly
+lifts a row to 500. Reach for `number` rather than a one-item `text` list whenever a
+column holds numbers: a text list is checked by reading it, so a mixed list like
+`value="hello,50"` accepts `anomaly=` and then spikes only where a number happens to
+land, delivering less than the rate it was given. In `number` every value is a number
+by construction, so the rate asked for is the rate delivered.
+
 <Terminal title="./run rate.tdc (20 rows)">
-{`rate 0.1:  50   rate 0.5:  50
-rate 0.1:  50   rate 0.5:  50
-rate 0.1:  50   rate 0.5: 500
-rate 0.1:  50   rate 0.5: 500
-rate 0.1:  50   rate 0.5: 500
-rate 0.1:  50   rate 0.5:  50
-rate 0.1:  50   rate 0.5: 500
+{`rate 0.1: 500   rate 0.5:  50
 rate 0.1:  50   rate 0.5: 500
 rate 0.1:  50   rate 0.5: 500
 rate 0.1:  50   rate 0.5: 500
 rate 0.1:  50   rate 0.5: 500
 rate 0.1:  50   rate 0.5:  50
+rate 0.1:  50   rate 0.5:  50
+rate 0.1:  50   rate 0.5:  50
+rate 0.1:  50   rate 0.5:  50
+rate 0.1:  50   rate 0.5:  50
+rate 0.1: 500   rate 0.5: 500
 rate 0.1:  50   rate 0.5: 500
+rate 0.1:  50   rate 0.5:  50
+rate 0.1: 500   rate 0.5: 500
 rate 0.1: 500   rate 0.5:  50
-rate 0.1:  50   rate 0.5: 500
 rate 0.1:  50   rate 0.5:  50
 rate 0.1:  50   rate 0.5:  50
-rate 0.1:  50   rate 0.5:  50
+rate 0.1: 500   rate 0.5: 500
 rate 0.1:  50   rate 0.5:  50
 rate 0.1:  50   rate 0.5: 500`}
 </Terminal>
 
-The left column spiked once out of 20, the right one 11 times — a higher rate means
-denser outliers. `anomaly` **combines with anything**: a range, a
+The left column spiked 5 times out of 20, the right one 9 — a higher rate means
+denser outliers.
+
+Twenty rows is a small sample, and it shows: 5 and 9 against the 0.1 and 0.5 that were
+asked for. The rate is a probability per row, not a quota, so a short run wobbles around
+it and a long one settles on it — the same config over 4,000 rows measures 10.2% and
+50.1%. Expect your own twenty rows to look different from these; that is the rate
+working, not failing.
+
+`anomaly` **combines with anything**: a range, a
 [distribution](../generators/number.mdx), or [`missing`](../generators/overview.mdx).
 
 **Why/when.** Match the rate to the phenomenon you're modeling — a rare defect at

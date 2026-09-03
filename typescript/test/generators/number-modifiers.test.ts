@@ -53,6 +53,55 @@ describe('number range list — an unclosed bracket does not hang', () => {
     expect(() => parseNumberRanges('[1..9],')).toThrow(/invalid range list/);
     expect(() => parseNumberRanges('[]')).toThrow(/invalid range/);
   });
+
+  /*
+   * `number` was a generator of RANGES, and that is why arithmetic ended up on
+   * the text generator: there was no way to say "always 50" or "one of 10, 20,
+   * 35", so those had to be written as `<gen type="text">` — a list of strings
+   * that happen to look numeric. `anomaly=` then had to work there, and on a
+   * list of strings the only possible check is "does this parse as a number",
+   * which `hello,50,error,20` passes while silently delivering half the
+   * requested rate.
+   */
+  it('takes a single number — the form that used to send people to text', () => {
+    expect(parseNumberRanges('45')).toEqual([{ min: 45, max: 45 }]);
+    expect(parseNumberRanges('-7')).toEqual([{ min: -7, max: -7 }]);
+    expect(parseNumberRanges('0')).toEqual([{ min: 0, max: 0 }]);
+  });
+
+  it('takes a list of numbers, which is a list of one-point ranges', () => {
+    expect(parseNumberRanges('10,20,35')).toEqual([
+      { min: 10, max: 10 },
+      { min: 20, max: 20 },
+      { min: 35, max: 35 },
+    ]);
+  });
+
+  it('mixes numbers and ranges, with brackets optional throughout', () => {
+    expect(parseNumberRanges('0,10..20,99')).toEqual([
+      { min: 0, max: 0 },
+      { min: 10, max: 20 },
+      { min: 99, max: 99 },
+    ]);
+    expect(parseNumberRanges('[5],[10..20]')).toEqual([
+      { min: 5, max: 5 },
+      { min: 10, max: 20 },
+    ]);
+  });
+
+  it('keeps the zero-padding rule a single value inherits', () => {
+    // Leading zeros set the width, exactly as they do for a range: `050` is
+    // three characters wide because it was written three characters wide.
+    expect(parseNumberRanges('050')).toEqual([{ min: 50, max: 50, width: 3 }]);
+    expect(parseNumberRanges('50')).toEqual([{ min: 50, max: 50 }]);
+  });
+
+  it('still refuses everything that is not a number', () => {
+    expect(() => parseNumberRanges('hello')).toThrow(/invalid range/);
+    expect(() => parseNumberRanges('10,,20')).toThrow(/invalid range/);
+    expect(() => parseNumberRanges('1.5')).toThrow(/invalid range/);
+    expect(() => parseNumberRanges('10,hello')).toThrow(/invalid range/);
+  });
 });
 
 describe('number include/exclude — interval math', () => {

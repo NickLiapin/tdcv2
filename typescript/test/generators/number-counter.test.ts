@@ -168,7 +168,10 @@ describe('numberGenerator', () => {
     expect(() => numberGenerator({ range: 'not-a-range' })).toThrow(/invalid/);
     expect(() => numberGenerator({ range: '10-20' })).toThrow(/invalid/);
     expect(() => numberGenerator({ range: '20-10' })).toThrow(/invalid/);
-    expect(() => numberGenerator({ range: '5' })).toThrow(/invalid/);
+    // `range: '5'` used to be here, and it belonged to the era when `number`
+    // was a generator of RANGES: a bare number was refused, so "always 5" had
+    // to be written as a one-item text list. It is a valid single value now.
+    expect(numberGenerator({ range: '5' })).toBeDefined();
     expect(() => numberGenerator({ range: '[0..100],bad' })).toThrow(/invalid/);
     expect(() => numberGenerator({ length: 0 })).toThrow(/invalid length/);
     expect(() => numberGenerator({ length: '10-2' })).toThrow(/invalid length/);

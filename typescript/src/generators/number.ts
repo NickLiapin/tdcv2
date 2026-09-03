@@ -138,6 +138,36 @@ export interface NumberLengthChoice {
   readonly max: number;
 }
 
+/**
+ * What `value=` on a `<gen type="number">` may say.
+ *
+ *   value="bit"                  0 or 1
+ *   value="45"                   always 45
+ *   value="10,20,35"             one of three
+ *   value="34..89"               a range
+ *   value="[10..20],[30..40]"    two ranges
+ *   value="0,10..20,99"          mixed; brackets optional throughout
+ *
+ * ── Why the first three of those are new ────────────────────────────────────
+ *
+ * `number` used to be a generator of RANGES, not of numbers: `value="45"` and
+ * `value="10,20,35"` were both refused. So the only way to say "always 50", or
+ * "one of these numbers", was `<gen type="text" value="50">` — a list of
+ * strings that happen to look numeric.
+ *
+ * That is how arithmetic ended up on the text generator. `anomaly=` has to work
+ * where the numbers are, the numbers had nowhere to live but `text`, and once a
+ * number is one item of a string list the only check left is "does this parse
+ * as a number" — which is inspection, not typing. A list like
+ * `value="hello,50,error,20"` passes that inspection and then quietly delivers
+ * half the anomaly rate it was asked for, because the words can never spike.
+ *
+ * Widening this grammar is the additive half of the repair: every form above is
+ * either what the parser already accepted or what it used to reject outright,
+ * so no config that runs today changes by a byte. `text` keeps everything it
+ * has — people have copied our own documentation — and the numeric road simply
+ * exists now.
+ */
 export function parseNumberRanges(source: string): readonly NumberRange[] {
   const spec = source.trim();
   if (spec.length === 0) {
@@ -146,35 +176,46 @@ export function parseNumberRanges(source: string): readonly NumberRange[] {
   if (spec === 'bit') {
     return [{ min: 0, max: 1 }];
   }
-  if (!spec.includes('[') && !spec.includes(']')) {
-    return [parseRange(spec)];
-  }
 
-  const ranges: NumberRange[] = [];
-  let rest = spec;
-  while (rest.length > 0) {
-    // Found by index, not by a regex. `/^\[\s*([^\]]+?)\s*\]/` said the same
-    // thing, but `\s*` and `[^\]]+?` can both match a space, so an unclosed
-    // bracket made the engine try every way to split the run between them:
-    // `value="[` followed by ten thousand spaces did not finish in five
-    // minutes. A generator hanging on its own config is not a slow path, it is
-    // a stopped program.
-    const close = rest.startsWith('[') ? rest.indexOf(']') : -1;
-    if (close < 0) {
+  /*
+   * Split, then parse each piece with an anchored pattern — never one regex
+   * over the whole string. `/^\[\s*([^\]]+?)\s*\]/` once said what the bracket
+   * form means, but `\s*` and `[^\]]+?` can both match a space, so an unclosed
+   * bracket made the engine try every way to divide the run between them:
+   * `value="["` followed by ten thousand spaces did not finish in five minutes.
+   * A generator that hangs on its own config is not a slow path, it is a
+   * stopped program. Splitting on a comma is linear, and every pattern below is
+   * anchored at both ends with no nested quantifier.
+   */
+  return spec.split(',').map((piece) => parseRangeItem(piece, source));
+}
+
+/** One comma-separated piece: `45`, `34..89`, or either wrapped in brackets. */
+function parseRangeItem(piece: string, source: string): NumberRange {
+  let item = piece.trim();
+  if (item.startsWith('[')) {
+    if (!item.endsWith(']')) {
       throw new Error(`number generator: invalid range list "${source}"`);
     }
-    ranges.push(parseRange(rest.slice(1, close).trim()));
-    rest = rest.slice(close + 1).trim();
-    if (rest.length === 0) break;
-    if (!rest.startsWith(',')) {
-      throw new Error(`number generator: invalid range list "${source}"`);
-    }
-    rest = rest.slice(1).trim();
-    if (rest.length === 0) {
-      throw new Error(`number generator: invalid range list "${source}"`);
-    }
+    item = item.slice(1, -1).trim();
   }
-  return ranges;
+  // A bracket left INSIDE a piece means the list itself is malformed — a
+  // missing comma, as in `[1..9] [2..3]`. Saying "invalid range list" there is
+  // the useful answer; letting it fall through to the range parser would
+  // complain about `1..9] [2..3`, which names the symptom and hides the cause.
+  if (item.includes('[') || item.includes(']')) {
+    throw new Error(`number generator: invalid range list "${source}"`);
+  }
+  if (item.length === 0) {
+    throw new Error(`number generator: invalid range list "${source}"`);
+  }
+  // A bare number is the range of one point. Saying it that way means the
+  // drawing code, the uniq capacity check and include/exclude all keep working
+  // on it unchanged — a list of choices IS a list of one-point ranges.
+  if (/^-?\d+$/.test(item)) {
+    return toRange(item, item, item);
+  }
+  return parseRange(item);
 }
 
 export function parseNumberLengthChoices(source: string | number): readonly NumberLengthChoice[] {

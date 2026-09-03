@@ -4227,7 +4227,7 @@ public final class Validator {
       String problem = Checks.numberRangeProblem(value);
       if (problem != null) {
         error("TDC081", "invalid number range \"" + value + "\"",
-            "Expected \"bit\", \"MIN..MAX\", or a comma-separated range list like \"[0..100],[345..678]\".",
+            "Expected \"bit\", a single number like \"50\", a list like \"10,20,35\", a range \"MIN..MAX\", or a mix of those: \"0,10..20,99\".",
             at(gen, "value")[0], at(gen, "value")[1]);
       }
     }
