@@ -112,7 +112,7 @@ The address is a string here, where TypeScript, Python and C# walk it as members
 The member shape needs one generated function per address, and a generated surface
 could only cover the packs compiled into the binary — while most packs arrive at run
 time, and `get("ru.person.lastName")` works the moment the download finishes. [One
-value at a time](../core-concepts/quick-api.md#top) is the whole surface.
+value at a time](../getting-started/quick-api.md#top) is the whole surface.
 
 ## No dependencies
 

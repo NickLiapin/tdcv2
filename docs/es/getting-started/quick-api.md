@@ -1,21 +1,22 @@
 <a name="top"></a>
 
-**English** · [Русский](../ru/core-concepts/quick-api.md#top) · [Español](../es/core-concepts/quick-api.md#top)
+[English](../../getting-started/quick-api.md#top) · [Русский](../../ru/getting-started/quick-api.md#top) · **Español**
 
-📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/core-concepts/quick-api)**
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/getting-started/quick-api)**
 
-← Previous: [Determinism & proportions](./determinism.md#top) · **[Contents](../README.md#top)** · Next: [Overview](../generators/overview.md#top) →
+← Anterior: [Instalación](./installation.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Su primer conjunto de datos](./first-data.md#top) →
 
 ---
 
-# One value at a time
+# Quick API — un valor a la vez
 
-Sometimes you don't want a dataset. You want a surname, here, on this line of a
-test — the job a faker library does. TDC answers that from the same data packs
-its configs draw on, so the name in your unit test and the name in your million-row
-fixture come from one list.
+A veces no quiere un conjunto de datos. Quiere un apellido, aquí, en esta línea de una
+prueba: el trabajo que hace una librería tipo faker. TDC lo responde desde los mismos
+paquetes de datos que usan las configuraciones, así que el nombre de su prueba unitaria
+y el de su fixture de un millón de filas salen de la misma lista.
 
-All five implementations have it, and the same seed gives the same value in each:
+Las cinco implementaciones lo tienen, y con la misma semilla cada una devuelve el mismo
+valor:
 
 #### TypeScript
 
@@ -63,25 +64,25 @@ let mut tdc = Quick::new();
 tdc.get("person.lastName")?;  // Jones
 ```
 
-That is the whole API. Everything below is that one call with something in front
-of it.
+Ese es todo el API. Lo que sigue es esa misma llamada con algo delante.
 
-Every value shown on this page was drawn under the seed `demo`, so you can
-reproduce it. Without a seed each call is fresh; [Making it
-repeat](#making-it-repeat) is where the seed goes.
+Cada valor de esta página se sorteó con la semilla `demo`, así que puede reproducirlo.
+Sin semilla cada llamada es nueva; la semilla aparece en [Hacer que se
+repita](#hacer-que-se-repita).
 
 > [!NOTE]
-> **This is the loose-values drawer**
+> **Este es el cajón de valores sueltos**
 >
-> Every call is independent. Nothing here ties one value to another — no `parent=`,
-> no `<switch>` on a drawn column, no `uniq`, no `<compute>`. A **coherent record**
-> is a config; see [Your first dataset](../getting-started/first-data.md#top). Use
-> this when the values genuinely don't need to agree with each other.
+> Cada llamada es independiente. Nada aquí ata un valor a otro: ni `parent=`, ni
+> `<switch>` sobre una columna sorteada, ni `uniq`, ni `<compute>`. Un **registro
+> coherente** es una configuración; vea [Su primer conjunto de
+> datos](first-data.md#top). Use esto cuando los valores de verdad no
+> necesiten concordar entre sí.
 
-## One rule: a dot is a dot
+## Una regla: un punto es un punto
 
-`person.male.firstName` in your code is `person.male.firstName` in a config and in
-the reference. There is no second vocabulary to learn.
+`person.male.firstName` en su código es `person.male.firstName` en una configuración y
+en la referencia. No hay un segundo vocabulario que aprender.
 
 #### TypeScript
 
@@ -138,42 +139,42 @@ tdc.get("color.name")?;               // Emerald
 tdc.get("food.dish")?;                // Chicken Tikka Masala
 ```
 
-The segments are spelled the way the packs spell them, camelCase and all, in
-Python and C# as much as in TypeScript. They are not names the library chose;
-renaming them per language would be a second vocabulary to keep in step with the
-reference, with a config, and with four other implementations.
+Los segmentos se escriben como los escriben los paquetes, camelCase incluido, tanto en
+Python y C# como en TypeScript. No son nombres que la librería eligiera; renombrarlos
+por idioma sería un segundo vocabulario que mantener al día con la referencia, con una
+configuración y con las otras cuatro implementaciones.
 
-A bare address is read against the **active locale**, exactly as in a config. In
-`en` you get `Jones`; switch the locale and the same line gives you a Russian
-surname.
+Una dirección sin prefijo se lee contra la **locale activa**, igual que en una
+configuración. En `en` obtiene `Jones`; cambie la locale y la misma línea le da un
+apellido ruso.
 
 > [!NOTE]
-> **Two spellings, one address**
+> **Dos escrituras, una dirección**
 >
-> TypeScript, Python and C# walk the address as members — `tdc.person.lastName()` —
-> because each of those languages can answer for a member that does not exist until
-> it is asked for. Java and Rust take the address as a string instead.
+> TypeScript, Python y C# recorren la dirección como miembros —`tdc.person.lastName()`—
+> porque cada uno de esos lenguajes sabe responder por un miembro que no existe hasta que
+> se lo piden. Java y Rust toman la dirección como cadena.
 >
-> That is a decision, not a gap. The member shape needs one generated method per
-> address, and a generated surface can only cover the packs inside the artifact.
-> Most packs are downloaded at run time, so a generated `tdc.lang().ru()` would not
-> exist for a pack that was installed a minute ago, while `get("ru.person.lastName")`
-> works the moment the download finishes.
+> Es una decisión, no una carencia. La forma con miembros necesita un método generado por
+> dirección, y una superficie generada solo puede cubrir los paquetes que van dentro del
+> artefacto. La mayoría de los paquetes se descarga en tiempo de ejecución, así que un
+> `tdc.lang().ru()` generado no existiría para un paquete instalado hace un minuto,
+> mientras que `get("ru.person.lastName")` funciona en cuanto termina la descarga.
 
-## Naming a pack outright
+## Nombrar un paquete directamente
 
-An address can reach past the active locale and name a pack. Java and Rust write
-that address as it is. TypeScript, Python and C# put `common`, `country` or `lang`
-in front of it — those three words carry no meaning inside an address, and they
-are there so the completion list at `tdc.` stays a list of categories rather than
-a wall of 122 pack codes.
+Una dirección puede alcanzar más allá de la locale activa y nombrar un paquete. Java y
+Rust escriben esa dirección tal cual. TypeScript, Python y C# le anteponen `common`,
+`country` o `lang`: dentro de una dirección esas tres palabras no cargan significado, y
+existen para que la lista de autocompletado en `tdc.` siga siendo una lista de
+categorías y no un muro de 122 códigos de paquete.
 
-| Reaches                                      | TypeScript, Python, C#          | Java, Rust             |
-| :------------------------------------------- | :------------------------------ | :--------------------- |
-| the active locale                            | `tdc.person.lastName()`         | `"person.lastName"`    |
-| the shared pack — the same in every language | `tdc.common.id.uuid()`          | `"common.id.uuid"`     |
-| one country's pack                           | `tdc.country.usa.docs.ssn()`    | `"usa.docs.ssn"`       |
-| one language's pack                          | `tdc.lang.ru.person.lastName()` | `"ru.person.lastName"` |
+| Alcanza                                           | TypeScript, Python, C#          | Java, Rust             |
+| :------------------------------------------------ | :------------------------------ | :--------------------- |
+| la locale activa                                  | `tdc.person.lastName()`         | `"person.lastName"`    |
+| el paquete compartido, igual en todos los idiomas | `tdc.common.id.uuid()`          | `"common.id.uuid"`     |
+| el paquete de un país                             | `tdc.country.usa.docs.ssn()`    | `"usa.docs.ssn"`       |
+| el paquete de un idioma                           | `tdc.lang.ru.person.lastName()` | `"ru.person.lastName"` |
 
 #### TypeScript
 
@@ -235,14 +236,14 @@ tdc.get("usa.docs.ssn")?;               // 699209702
 tdc.get("usa.finance.aba_routing")?;    // 659939946
 ```
 
-Those two identifiers are not shaped like one — they carry real check digits, the
-same ones a config would produce.
+Esos dos identificadores no solo parecen reales: llevan dígitos de control de verdad,
+los mismos que produciría una configuración.
 
-## An address that isn't installed says so
+## Una dirección no instalada lo dice
 
-`common`, `en` and the USA pack ship inside all five artifacts. Anything else is a
-download away, and asking for it before it is there gets you a named failure
-rather than a blank:
+`common`, `en` y el paquete de EE. UU. vienen dentro de las cinco entregas. Todo lo
+demás está a una descarga, y pedirlo antes de tenerlo devuelve un fallo con nombre, no
+un vacío:
 
 #### TypeScript
 
@@ -290,19 +291,18 @@ tdc.get("ru.person.lastName");
 // where packs go).
 ```
 
-Only Java's wording differs, and only because Maven puts nothing on the `PATH`:
-advice to run `tdcv2` would be advice a Java reader cannot type. The command line
-itself is the same in all five. See [Installing
-packs](../data-packs/installing-packs.md#top).
+Solo cambia la redacción de Java, y solo porque Maven no deja nada en el `PATH`:
+aconsejar que ejecute `tdcv2` sería un consejo que un lector de Java no puede teclear.
+La línea de comandos en sí es la misma en las cinco. Vea [Instalar
+paquetes](../data-packs/installing-packs.md#top).
 
-A misspelled segment is a different failure, and says so: `person.lastNam` comes
-back as `unknown address "person.lastNam" (locale "en"). Did you mean
-"en.person.lastName"?`
+Un segmento mal escrito es otro fallo, y lo dice: `person.lastNam` vuelve como `unknown
+address "person.lastNam" (locale "en"). Did you mean "en.person.lastName"?`
 
-## Many at once
+## Varios de una vez
 
-Ask for `n` values in one call instead of calling in a loop — it is one draw of
-`n` values, not `n` draws of one.
+Pida `n` valores en una sola llamada en lugar de llamar en un bucle: es un sorteo de `n`
+valores, no `n` sorteos de uno.
 
 #### TypeScript
 
@@ -339,18 +339,18 @@ let names = tdc.many("person.lastName", 5)?;
 // ["Jones", "Bush", "Armstrong", "Andrews", "Jimenez"]
 ```
 
-## Making it repeat
+## Hacer que se repita
 
-By default every call is fresh — that is what you want in a scratch script. Pin a
-seed and the values become part of the test rather than a variable in it. Pinning
-a seed also returns a **new** object rather than changing the one you called it
-on, so two tests can hold different seeds at the same time.
+Por defecto cada llamada es nueva, que es lo que quiere en un script de borrador. Fije
+una semilla y los valores pasan a ser parte de la prueba en vez de una variable dentro
+de ella. Fijar una semilla además devuelve un objeto **nuevo** en lugar de cambiar aquel
+sobre el que la llamó, así que dos pruebas pueden sostener semillas distintas a la vez.
 
 #### TypeScript
 
 ```typescript
 const t = tdc.seed('demo');
-t.person.lastName(); // Jones, today and next year
+t.person.lastName(); // Jones, hoy y el año que viene
 
 const ru = tdc.seed('fixtures').locale('ru');
 const en = tdc.seed('fixtures').locale('en');
@@ -362,7 +362,7 @@ en.person.lastName(); // Pearson
 
 ```python
 t = tdc.seed("demo")
-t.person.lastName()   # Jones, today and next year
+t.person.lastName()   # Jones, hoy y el año que viene
 
 ru = tdc.seed("fixtures").locale("ru")
 en = tdc.seed("fixtures").locale("en")
@@ -374,7 +374,7 @@ en.person.lastName()  # Pearson
 
 ```java
 Quick t = Quick.seeded("demo");
-t.get("person.lastName");   // Jones, today and next year
+t.get("person.lastName");   // Jones, hoy y el año que viene
 
 Quick ru = Quick.seeded("fixtures").locale("ru");
 Quick en = Quick.seeded("fixtures").locale("en");
@@ -386,7 +386,7 @@ en.get("person.lastName");  // Pearson
 
 ```csharp
 dynamic t = Quick.Seed("demo");
-t.person.lastName();   // Jones, today and next year
+t.person.lastName();   // Jones, hoy y el año que viene
 
 dynamic ru = Quick.Seed("fixtures").locale("ru");
 dynamic en = Quick.Seed("fixtures").locale("en");
@@ -398,7 +398,7 @@ en.person.lastName();  // Pearson
 
 ```rust
 let mut t = Quick::seeded("demo");
-t.get("person.lastName")?;   // Jones, today and next year
+t.get("person.lastName")?;   // Jones, hoy y el año que viene
 
 let mut ru = Quick::seeded("fixtures").locale("ru");
 let mut en = Quick::seeded("fixtures").locale("en");
@@ -406,12 +406,12 @@ ru.get("person.lastName")?;  // Романенко
 en.get("person.lastName")?;  // Pearson
 ```
 
-## Generators without a pack
+## Generadores sin paquete
 
-The engine's own generators are reachable too, for the values that come from a
-rule rather than from a list. They take attributes instead of an address, so they
-live under one name of their own — pack categories are already called `date`,
-`text` and `word`, which leaves the top level occupied.
+Los generadores propios del motor también están al alcance, para los valores que salen
+de una regla y no de una lista. Toman atributos en vez de una dirección, así que viven
+bajo un nombre propio: las categorías de los paquetes ya se llaman `date`, `text` y
+`word`, con lo que el nivel superior está ocupado.
 
 #### TypeScript
 
@@ -448,26 +448,28 @@ tdc.gen("number", &[("value", "18..80")])?;            // 66
 tdc.gen("regex", &[("value", "[A-Z]{2}-[0-9]{4}")])?;  // FZ-3994
 ```
 
-The string is shorthand for `value=`. Pass an **object** to reach every other attribute,
-and `.many(n, …)` works on generators exactly as it does on addresses:
+La cadena es una forma corta de `value=`. Pase un **objeto** para llegar a todos los demás
+atributos, y `.many(n, …)` funciona en generadores igual que en direcciones:
 
 ```typescript
 tdc.gen.date({ from: '2020-01-01', to: '2020-12-31', format: 'DD.MM.YYYY' }); // 11.10.2020
 tdc.gen.number({ distribution: 'normal', mean: '170', sd: '10' }); // 172
 tdc.gen.number.many(5, '1..9'); // [ '7', '6', '8', '6', '3' ]
+tdc.gen.number('50'); // siempre '50' — un número es un valor, no un rango
+tdc.gen.number('10,20,35'); // uno de los tres
 ```
 
-An address takes parameters the same way, where the pack declares any — `tdc.country.usa.finance.aba_routing({ prefix: '12' })` pins the two leading digits and lets the pack draw and check the rest. An address that declares none refuses an unknown one by name rather than ignoring it.
+Una dirección toma parámetros de la misma forma, cuando el paquete declara alguno — `tdc.country.usa.finance.aba_routing({ prefix: '12' })` fija los dos primeros dígitos y deja que el paquete genere y verifique el resto. Una dirección que no declara ninguno rechaza un parámetro desconocido por su nombre en lugar de ignorarlo.
 
-Every generator and its attributes are in [the generators
-reference](../generators/number.md#top).
+Cada generador y sus atributos están en [la referencia de
+generadores](../generators/number.md#top).
 
-## Values are always strings
+## Los valores siempre son cadenas
 
-Including numbers and dates. The engine's world is text — that is what lets one
-config produce CSV, SQL and JSON without changing — and a return type that varied
-with the address would be a different contract in each of the five. Convert at the
-call site when you need a number:
+Números y fechas incluidos. El mundo del motor es texto — eso es lo que permite que una
+configuración produzca CSV, SQL y JSON sin cambiar — y un tipo de retorno que variara
+con la dirección sería un contrato distinto en cada una de las cinco. Convierta en el
+sitio de la llamada cuando necesite un número:
 
 #### TypeScript
 
@@ -499,21 +501,21 @@ int age = int.Parse(tdc.gen.number("18..80"));
 let age: u32 = tdc.gen("number", &[("value", "18..80")])?.parse()?;
 ```
 
-## When to use a config instead
+## Cuándo usar una configuración
 
-Reach for a config the moment two values have to agree: a city that belongs to its
-country, an order total that matches its lines, a 30% share that has to be exactly
-30%. That is what the rest of this documentation is about, and it starts at [Your
-first dataset](../getting-started/first-data.md#top).
+Recurra a una configuración en cuanto dos valores tengan que concordar: una ciudad que
+pertenece a su país, un total de pedido que cuadra con sus líneas, un 30% que tiene que
+ser exactamente 30%. De eso trata el resto de esta documentación, y empieza en [Su
+primer conjunto de datos](first-data.md#top).
 
-## See also
+## Vea también
 
-- **[TypeScript](../bindings/typescript.md#top)**, **[Python](../bindings/python.md#top)**, **[Java](../bindings/java.md#top)**, **[C#](../bindings/csharp.md#top)**, **[Rust](../bindings/rust.md#top)** — the same five packages, for whole datasets.
-- **[Data packs](../data-packs/overview.md#top)** — what a pack is and how addresses are organized.
-- **[Installing packs](../data-packs/installing-packs.md#top)** — adding the other 120.
+- **[TypeScript](../bindings/typescript.md#top)**, **[Python](../bindings/python.md#top)**, **[Java](../bindings/java.md#top)**, **[C#](../bindings/csharp.md#top)**, **[Rust](../bindings/rust.md#top)** — los mismos cinco paquetes, para conjuntos completos.
+- **[Paquetes de datos](../data-packs/overview.md#top)** — qué es un paquete y cómo se organizan las direcciones.
+- **[Instalar paquetes](../data-packs/installing-packs.md#top)** — cómo añadir los otros 120.
 
 ---
 
-← Previous: [Determinism & proportions](./determinism.md#top) · **[Contents](../README.md#top)** · Next: [Overview](../generators/overview.md#top) →
+← Anterior: [Instalación](./installation.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Su primer conjunto de datos](./first-data.md#top) →
 
-📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/core-concepts/quick-api)**
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/getting-started/quick-api)**

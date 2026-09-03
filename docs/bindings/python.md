@@ -69,7 +69,7 @@ tdc.seed("demo").locale("ru").person.lastName()   # pinned and in Russian
 The segments stay camelCase here, unlike the method names above. They are addresses
 the packs already carry, not identifiers this package chose, and `person.lastName`
 has to read the same way in a config, in the reference and in the other four
-implementations. [One value at a time](../core-concepts/quick-api.md#top) is the whole
+implementations. [One value at a time](../getting-started/quick-api.md#top) is the whole
 surface.
 
 ---

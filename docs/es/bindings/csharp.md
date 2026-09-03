@@ -114,7 +114,7 @@ un camino por los datos y no un conjunto fijo de miembros, y una clase por carpe
 paquete metería cien mil líneas de nada en el ensamblado. El precio es que una dirección
 mal escrita se detecta al ejecutar, así que el mensaje que lanza nombra la dirección real
 más cercana. Toda la superficie está en [Un valor a la
-vez](../core-concepts/quick-api.md#top).
+vez](../getting-started/quick-api.md#top).
 
 ## Los mismos nombres en todos los lenguajes
 

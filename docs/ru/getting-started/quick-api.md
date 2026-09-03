@@ -1,14 +1,14 @@
 <a name="top"></a>
 
-[English](../../core-concepts/quick-api.md#top) · **Русский** · [Español](../../es/core-concepts/quick-api.md#top)
+[English](../../getting-started/quick-api.md#top) · **Русский** · [Español](../../es/getting-started/quick-api.md#top)
 
-📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/core-concepts/quick-api)**
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/getting-started/quick-api)**
 
-← Назад: [Детерминизм и пропорции](./determinism.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Обзор генераторов](../generators/overview.md#top) →
+← Назад: [Установка](./installation.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Первый датасет](./first-data.md#top) →
 
 ---
 
-# По одному значению
+# Quick API — по одному значению
 
 Иногда датасет не нужен. Нужна фамилия — здесь, в этой строке теста; работа, которую
 делает faker-библиотека. TDC отвечает на это из тех же пакетов данных, из которых
@@ -75,7 +75,7 @@ tdc.get("person.lastName")?;  // Jones
 >
 > Каждый вызов независим. Ничто здесь не связывает одно значение с другим — ни `parent=`,
 > ни `<switch>` по вытянутой колонке, ни `uniq`, ни `<compute>`. **Связная запись** — это
-> конфиг, см. [Первый датасет](../getting-started/first-data.md#top). Берите этот API, когда
+> конфиг, см. [Первый датасет](first-data.md#top). Берите этот API, когда
 > значениям и правда незачем согласовываться между собой.
 
 ## Одно правило: точка есть точка
@@ -452,6 +452,8 @@ tdc.gen("regex", &[("value", "[A-Z]{2}-[0-9]{4}")])?;  // FZ-3994
 tdc.gen.date({ from: '2020-01-01', to: '2020-12-31', format: 'DD.MM.YYYY' }); // 11.10.2020
 tdc.gen.number({ distribution: 'normal', mean: '170', sd: '10' }); // 172
 tdc.gen.number.many(5, '1..9'); // [ '7', '6', '8', '6', '3' ]
+tdc.gen.number('50'); // всегда '50' — одно число это значение, а не диапазон
+tdc.gen.number('10,20,35'); // одно из трёх
 ```
 
 Адрес принимает параметры так же — если пакет их объявляет. `tdc.country.usa.finance.aba_routing({ prefix: '12' })` закрепляет две первые цифры, а остальное пакет подбирает сам и считает контрольную. Адрес, который не объявляет ни одного параметра, откажет по имени, а не молча его проигнорирует.
@@ -500,7 +502,7 @@ let age: u32 = tdc.gen("number", &[("value", "18..80")])?.parse()?;
 Берите конфиг в тот момент, когда два значения обязаны согласоваться: город принадлежит
 своей стране, сумма заказа сходится со строками, доля в 30% должна быть ровно 30%. Об
 этом вся остальная документация, и начинается она с
-[первого датасета](../getting-started/first-data.md#top).
+[первого датасета](first-data.md#top).
 
 ## См. также
 
@@ -510,6 +512,6 @@ let age: u32 = tdc.gen("number", &[("value", "18..80")])?.parse()?;
 
 ---
 
-← Назад: [Детерминизм и пропорции](./determinism.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Обзор генераторов](../generators/overview.md#top) →
+← Назад: [Установка](./installation.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Первый датасет](./first-data.md#top) →
 
-📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/core-concepts/quick-api)**
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/getting-started/quick-api)**

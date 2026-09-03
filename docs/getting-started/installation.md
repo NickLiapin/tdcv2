@@ -4,7 +4,7 @@
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/getting-started/installation)**
 
-← Previous: [Introduction](../intro.md#top) · **[Contents](../README.md#top)** · Next: [Your first dataset](./first-data.md#top) →
+← Previous: [Introduction](../intro.md#top) · **[Contents](../README.md#top)** · Next: [Quick API — one value at a time](./quick-api.md#top) →
 
 ---
 
@@ -333,7 +333,7 @@ in a million-row config come from one list. Which one you want depends on whethe
 values have to agree with each other: a config is what ties a city to its country and
 holds a share to exactly 30%, and a single call ties nothing to anything.
 
-[The one-value API](../core-concepts/quick-api.md#top) has the whole surface — `.many(n)`,
+[Quick API](quick-api.md#top) — the next page — has the whole surface — `.many(n)`,
 `seed()`, `locale()`, and how to reach a specific pack in each language.
 
 > [!NOTE]
@@ -398,6 +398,6 @@ full workflow (the config file, pack shadowing, removing packs) is covered in
 
 ---
 
-← Previous: [Introduction](../intro.md#top) · **[Contents](../README.md#top)** · Next: [Your first dataset](./first-data.md#top) →
+← Previous: [Introduction](../intro.md#top) · **[Contents](../README.md#top)** · Next: [Quick API — one value at a time](./quick-api.md#top) →
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/getting-started/installation)**

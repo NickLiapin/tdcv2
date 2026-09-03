@@ -4,7 +4,7 @@
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/core-concepts/determinism)**
 
-← Anterior: [Salida y formato](./output-formatting.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Un valor a la vez](./quick-api.md#top) →
+← Anterior: [Salida y formato](./output-formatting.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Descripción general](../generators/overview.md#top) →
 
 ---
 
@@ -377,6 +377,6 @@ los casos se distribuyen de forma pareja.
 
 ---
 
-← Anterior: [Salida y formato](./output-formatting.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Un valor a la vez](./quick-api.md#top) →
+← Anterior: [Salida y formato](./output-formatting.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Descripción general](../generators/overview.md#top) →
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/core-concepts/determinism)**

@@ -216,7 +216,7 @@ tdc.seed("demo").locale("ru").person.lastName(); // fijado y en ruso
 
 Cada dirección incluida es una propiedad real del tipo, así que un error de escritura es
 un error de compilación y el autocompletado funciona sin ningún plugin. Toda la
-superficie está en [Un valor a la vez](../core-concepts/quick-api.md#top).
+superficie está en [Un valor a la vez](../getting-started/quick-api.md#top).
 
 ## Los mismos nombres en todos los lenguajes
 

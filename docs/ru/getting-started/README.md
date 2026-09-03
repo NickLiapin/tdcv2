@@ -11,6 +11,7 @@
 ---
 
 - [Установка](./installation.md#top)
+- [Quick API — по одному значению](./quick-api.md#top)
 - [Первый датасет](./first-data.md#top)
 - [Поддержка в редакторе](./editor-support.md#top)
 

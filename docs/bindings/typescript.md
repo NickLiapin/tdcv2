@@ -214,7 +214,7 @@ tdc.seed("demo").locale("ru").person.lastName(); // pinned and in Russian
 
 Every bundled address is a real property on the type, so a misspelling is a compile
 error and completion works with no plugin. [One value at a
-time](../core-concepts/quick-api.md#top) is the whole surface.
+time](../getting-started/quick-api.md#top) is the whole surface.
 
 ## The same names in every language
 

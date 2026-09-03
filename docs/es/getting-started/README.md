@@ -11,6 +11,7 @@
 ---
 
 - [Instalación](./installation.md#top)
+- [Quick API — un valor a la vez](./quick-api.md#top)
 - [Su primer conjunto de datos](./first-data.md#top)
 - [Soporte del editor](./editor-support.md#top)
 

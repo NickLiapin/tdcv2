@@ -13,6 +13,7 @@
 ## Primeros pasos
 
 - [Instalación](./getting-started/installation.md#top)
+- [Quick API — un valor a la vez](./getting-started/quick-api.md#top)
 - [Su primer conjunto de datos](./getting-started/first-data.md#top)
 - [Soporte del editor](./getting-started/editor-support.md#top)
 
@@ -22,7 +23,6 @@
 - [Secuencias](./core-concepts/sequences.md#top)
 - [Salida y formato](./core-concepts/output-formatting.md#top)
 - [Determinismo y proporciones](./core-concepts/determinism.md#top)
-- [Un valor a la vez](./core-concepts/quick-api.md#top)
 
 ## Generadores
 

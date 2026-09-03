@@ -15,6 +15,24 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+### Documentation
+
+<!-- covers: quick api findable -->
+
+- **The Quick API page is called Quick API, and it comes right after Installation.** The
+  words "Quick API" appeared **nowhere** on the documentation site — not in a heading, not
+  in the sidebar, not in the body of its own page — while three of the five package READMEs
+  used exactly that name and sent the reader to the site for details. The page existed, at
+  `core-concepts/quick-api`, titled "One value at a time", fifth in a section that is
+  collapsed by default. Searching the site for the name it is known by returned nothing.
+
+  It is now the second page of Getting Started, between installing the thing and writing a
+  config — which is also where it belongs by argument, not only by findability. Half the
+  people who arrive want one surname on one line of one test, and meeting a config file
+  first tells them the tool is heavier than it is. The route through a config is one link
+  at the foot of the page, where somebody who now wants values that agree with each other
+  will go looking for it.
+
 ### Added
 
 <!-- covers: number single value and list -->

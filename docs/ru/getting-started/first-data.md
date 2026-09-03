@@ -4,7 +4,7 @@
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/getting-started/first-data)**
 
-← Назад: [Установка](./installation.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Поддержка в редакторе](./editor-support.md#top) →
+← Назад: [Quick API — по одному значению](./quick-api.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Поддержка в редакторе](./editor-support.md#top) →
 
 ---
 
@@ -242,6 +242,6 @@ println!("{data}");
 
 ---
 
-← Назад: [Установка](./installation.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Поддержка в редакторе](./editor-support.md#top) →
+← Назад: [Quick API — по одному значению](./quick-api.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Поддержка в редакторе](./editor-support.md#top) →
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/getting-started/first-data)**

@@ -4,7 +4,7 @@
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/getting-started/installation)**
 
-← Anterior: [Introducción](../intro.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Su primer conjunto de datos](./first-data.md#top) →
+← Anterior: [Introducción](../intro.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Quick API — un valor a la vez](./quick-api.md#top) →
 
 ---
 
@@ -330,7 +330,7 @@ depende de si los valores tienen que concordar entre sí: una configuración es 
 una ciudad a su país y mantiene una proporción en exactamente el 30%, y una llamada suelta
 no ata nada con nada.
 
-[El API de un valor](../core-concepts/quick-api.md#top) tiene toda la superficie: `.many(n)`,
+[Quick API](quick-api.md#top) —la página siguiente— tiene toda la superficie: `.many(n)`,
 `seed()`, `locale()` y cómo alcanzar un paquete concreto en cada lenguaje.
 
 > [!NOTE]
@@ -396,6 +396,6 @@ de configuración, el ocultamiento entre paquetes, cómo quitarlos) está en
 
 ---
 
-← Anterior: [Introducción](../intro.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Su primer conjunto de datos](./first-data.md#top) →
+← Anterior: [Introducción](../intro.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Quick API — un valor a la vez](./quick-api.md#top) →
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/getting-started/installation)**

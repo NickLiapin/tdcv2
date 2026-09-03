@@ -13,6 +13,7 @@
 ## С чего начать
 
 - [Установка](./getting-started/installation.md#top)
+- [Quick API — по одному значению](./getting-started/quick-api.md#top)
 - [Первый датасет](./getting-started/first-data.md#top)
 - [Поддержка в редакторе](./getting-started/editor-support.md#top)
 
@@ -22,7 +23,6 @@
 - [Последовательности](./core-concepts/sequences.md#top)
 - [Вывод и форматирование](./core-concepts/output-formatting.md#top)
 - [Детерминизм и пропорции](./core-concepts/determinism.md#top)
-- [По одному значению](./core-concepts/quick-api.md#top)
 
 ## Генераторы
 

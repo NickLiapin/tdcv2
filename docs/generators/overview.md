@@ -4,7 +4,7 @@
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/overview)**
 
-← Previous: [One value at a time](../core-concepts/quick-api.md#top) · **[Contents](../README.md#top)** · Next: [Text](./text.md#top) →
+← Previous: [Determinism & proportions](../core-concepts/determinism.md#top) · **[Contents](../README.md#top)** · Next: [Text](./text.md#top) →
 
 ---
 
@@ -254,6 +254,6 @@ unchanged, and a list with no numbers at all is refused outright. Full rules on
 
 ---
 
-← Previous: [One value at a time](../core-concepts/quick-api.md#top) · **[Contents](../README.md#top)** · Next: [Text](./text.md#top) →
+← Previous: [Determinism & proportions](../core-concepts/determinism.md#top) · **[Contents](../README.md#top)** · Next: [Text](./text.md#top) →
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/overview)**

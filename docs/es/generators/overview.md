@@ -4,7 +4,7 @@
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/overview)**
 
-← Anterior: [Un valor a la vez](../core-concepts/quick-api.md#top) · **[Contenido](../README.md#top)** · Siguiente: [text](./text.md#top) →
+← Anterior: [Determinismo y proporciones](../core-concepts/determinism.md#top) · **[Contenido](../README.md#top)** · Siguiente: [text](./text.md#top) →
 
 ---
 
@@ -263,6 +263,6 @@ de plano. Las reglas completas están en
 
 ---
 
-← Anterior: [Un valor a la vez](../core-concepts/quick-api.md#top) · **[Contenido](../README.md#top)** · Siguiente: [text](./text.md#top) →
+← Anterior: [Determinismo y proporciones](../core-concepts/determinism.md#top) · **[Contenido](../README.md#top)** · Siguiente: [text](./text.md#top) →
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/overview)**

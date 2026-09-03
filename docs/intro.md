@@ -266,7 +266,7 @@ byte-for-byte match with the output shown above.
 - **[Large datasets](guides/large-outputs.md#top).** Stream millions of rows without holding
   the entire dataset in memory.
 
-- **[One value, without a config](core-concepts/quick-api.md#top).** `tdc.person.lastName()`
+- **[One value, without a config](getting-started/quick-api.md#top).** `tdc.person.lastName()`
   — the job a faker does, answered from the same packs a config draws on. In all five
   implementations, and the same seed gives the same value in each.
 
@@ -313,7 +313,7 @@ for (const user of users) {
 
 - **Loose values are all you will ever need.** TDC answers those too —
   `tdc.person.lastName()`, no config and no file, through
-  [the one-value API](core-concepts/quick-api.md#top) — but a dedicated faker carries a
+  [the one-value API](getting-started/quick-api.md#top) — but a dedicated faker carries a
   larger ready-made catalogue in the box, where TDC ships a starter set and downloads the
   rest. TDC earns its keep when the fields of a record have to agree with each other.
 

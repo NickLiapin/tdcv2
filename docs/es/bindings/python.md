@@ -74,7 +74,7 @@ Aquí los segmentos siguen en camelCase, al contrario que los nombres de método
 arriba. Son direcciones que los paquetes ya traen, no identificadores que este paquete
 eligiera, y `person.lastName` tiene que leerse igual en una configuración, en la
 referencia y en las otras cuatro implementaciones. Toda la superficie está en [Un valor
-a la vez](../core-concepts/quick-api.md#top).
+a la vez](../getting-started/quick-api.md#top).
 
 ---
 

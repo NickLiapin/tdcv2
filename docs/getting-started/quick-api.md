@@ -1,12 +1,14 @@
----
-title: One value at a time
-sidebar_position: 5
+<a name="top"></a>
+
+**English** · [Русский](../ru/getting-started/quick-api.md#top) · [Español](../es/getting-started/quick-api.md#top)
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/getting-started/quick-api)**
+
+← Previous: [Installation](./installation.md#top) · **[Contents](../README.md#top)** · Next: [Your first dataset](./first-data.md#top) →
+
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-# One value at a time
+# Quick API — one value at a time
 
 Sometimes you don't want a dataset. You want a surname, here, on this line of a
 test — the job a faker library does. TDC answers that from the same data packs
@@ -15,8 +17,7 @@ fixture come from one list.
 
 All five implementations have it, and the same seed gives the same value in each:
 
-<Tabs groupId="lang">
-<TabItem value="ts" label="TypeScript" default>
+#### TypeScript
 
 ```typescript
 import { tdc } from 'tdcv2';
@@ -24,8 +25,7 @@ import { tdc } from 'tdcv2';
 tdc.person.lastName(); // Jones
 ```
 
-</TabItem>
-<TabItem value="py" label="Python">
+#### Python
 
 ```python
 from tdcv2 import tdc
@@ -33,8 +33,7 @@ from tdcv2 import tdc
 tdc.person.lastName()  # Jones
 ```
 
-</TabItem>
-<TabItem value="java" label="Java">
+#### Java
 
 ```java
 import io.github.nickliapin.tdc.quick.Quick;
@@ -44,8 +43,7 @@ Quick tdc = Quick.tdc();
 tdc.get("person.lastName");  // Jones
 ```
 
-</TabItem>
-<TabItem value="csharp" label="C#">
+#### C#
 
 ```csharp
 using Tdcv2.Quick;
@@ -55,8 +53,7 @@ dynamic tdc = Quick.Tdc;
 tdc.person.lastName();  // Jones
 ```
 
-</TabItem>
-<TabItem value="rust" label="Rust">
+#### Rust
 
 ```rust
 use tdcv2::quick::Quick;
@@ -66,9 +63,6 @@ let mut tdc = Quick::new();
 tdc.get("person.lastName")?;  // Jones
 ```
 
-</TabItem>
-</Tabs>
-
 That is the whole API. Everything below is that one call with something in front
 of it.
 
@@ -76,20 +70,20 @@ Every value shown on this page was drawn under the seed `demo`, so you can
 reproduce it. Without a seed each call is fresh; [Making it
 repeat](#making-it-repeat) is where the seed goes.
 
-:::note[This is the loose-values drawer]
-Every call is independent. Nothing here ties one value to another — no `parent=`,
-no `<switch>` on a drawn column, no `uniq`, no `<compute>`. A **coherent record**
-is a config; see [Your first dataset](../getting-started/first-data.mdx). Use
-this when the values genuinely don't need to agree with each other.
-:::
+> [!NOTE]
+> **This is the loose-values drawer**
+>
+> Every call is independent. Nothing here ties one value to another — no `parent=`,
+> no `<switch>` on a drawn column, no `uniq`, no `<compute>`. A **coherent record**
+> is a config; see [Your first dataset](first-data.md#top). Use
+> this when the values genuinely don't need to agree with each other.
 
 ## One rule: a dot is a dot
 
 `person.male.firstName` in your code is `person.male.firstName` in a config and in
 the reference. There is no second vocabulary to learn.
 
-<Tabs groupId="lang">
-<TabItem value="ts" label="TypeScript" default>
+#### TypeScript
 
 ```typescript
 tdc.person.lastName(); // Jones
@@ -100,8 +94,7 @@ tdc.color.name(); // Emerald
 tdc.food.dish(); // Chicken Tikka Masala
 ```
 
-</TabItem>
-<TabItem value="py" label="Python">
+#### Python
 
 ```python
 tdc.person.lastName()          # Jones
@@ -112,8 +105,7 @@ tdc.color.name()               # Emerald
 tdc.food.dish()                # Chicken Tikka Masala
 ```
 
-</TabItem>
-<TabItem value="java" label="Java">
+#### Java
 
 ```java
 tdc.get("person.lastName");          // Jones
@@ -124,8 +116,7 @@ tdc.get("color.name");               // Emerald
 tdc.get("food.dish");                // Chicken Tikka Masala
 ```
 
-</TabItem>
-<TabItem value="csharp" label="C#">
+#### C#
 
 ```csharp
 tdc.person.lastName();          // Jones
@@ -136,8 +127,7 @@ tdc.color.name();               // Emerald
 tdc.food.dish();                // Chicken Tikka Masala
 ```
 
-</TabItem>
-<TabItem value="rust" label="Rust">
+#### Rust
 
 ```rust
 tdc.get("person.lastName")?;          // Jones
@@ -148,9 +138,6 @@ tdc.get("color.name")?;               // Emerald
 tdc.get("food.dish")?;                // Chicken Tikka Masala
 ```
 
-</TabItem>
-</Tabs>
-
 The segments are spelled the way the packs spell them, camelCase and all, in
 Python and C# as much as in TypeScript. They are not names the library chose;
 renaming them per language would be a second vocabulary to keep in step with the
@@ -160,17 +147,18 @@ A bare address is read against the **active locale**, exactly as in a config. In
 `en` you get `Jones`; switch the locale and the same line gives you a Russian
 surname.
 
-:::note[Two spellings, one address]
-TypeScript, Python and C# walk the address as members — `tdc.person.lastName()` —
-because each of those languages can answer for a member that does not exist until
-it is asked for. Java and Rust take the address as a string instead.
-
-That is a decision, not a gap. The member shape needs one generated method per
-address, and a generated surface can only cover the packs inside the artifact.
-Most packs are downloaded at run time, so a generated `tdc.lang().ru()` would not
-exist for a pack that was installed a minute ago, while `get("ru.person.lastName")`
-works the moment the download finishes.
-:::
+> [!NOTE]
+> **Two spellings, one address**
+>
+> TypeScript, Python and C# walk the address as members — `tdc.person.lastName()` —
+> because each of those languages can answer for a member that does not exist until
+> it is asked for. Java and Rust take the address as a string instead.
+>
+> That is a decision, not a gap. The member shape needs one generated method per
+> address, and a generated surface can only cover the packs inside the artifact.
+> Most packs are downloaded at run time, so a generated `tdc.lang().ru()` would not
+> exist for a pack that was installed a minute ago, while `get("ru.person.lastName")`
+> works the moment the download finishes.
 
 ## Naming a pack outright
 
@@ -187,8 +175,7 @@ a wall of 122 pack codes.
 | one country's pack                           | `tdc.country.usa.docs.ssn()`    | `"usa.docs.ssn"`       |
 | one language's pack                          | `tdc.lang.ru.person.lastName()` | `"ru.person.lastName"` |
 
-<Tabs groupId="lang">
-<TabItem value="ts" label="TypeScript" default>
+#### TypeScript
 
 ```typescript
 tdc.common.id.uuid(); // 3ff6ff76-6ea7-4fad-8b99-3075a14cc7e9
@@ -200,8 +187,7 @@ tdc.country.usa.docs.ssn(); // 699209702
 tdc.country.usa.finance.aba_routing(); // 659939946
 ```
 
-</TabItem>
-<TabItem value="py" label="Python">
+#### Python
 
 ```python
 tdc.common.id.uuid()                   # 3ff6ff76-6ea7-4fad-8b99-3075a14cc7e9
@@ -213,8 +199,7 @@ tdc.country.usa.docs.ssn()             # 699209702
 tdc.country.usa.finance.aba_routing()  # 659939946
 ```
 
-</TabItem>
-<TabItem value="java" label="Java">
+#### Java
 
 ```java
 tdc.get("common.id.uuid");              // 3ff6ff76-6ea7-4fad-8b99-3075a14cc7e9
@@ -226,8 +211,7 @@ tdc.get("usa.docs.ssn");                // 699209702
 tdc.get("usa.finance.aba_routing");     // 659939946
 ```
 
-</TabItem>
-<TabItem value="csharp" label="C#">
+#### C#
 
 ```csharp
 tdc.common.id.uuid();                   // 3ff6ff76-6ea7-4fad-8b99-3075a14cc7e9
@@ -239,8 +223,7 @@ tdc.country.usa.docs.ssn();             // 699209702
 tdc.country.usa.finance.aba_routing();  // 659939946
 ```
 
-</TabItem>
-<TabItem value="rust" label="Rust">
+#### Rust
 
 ```rust
 tdc.get("common.id.uuid")?;             // 3ff6ff76-6ea7-4fad-8b99-3075a14cc7e9
@@ -252,9 +235,6 @@ tdc.get("usa.docs.ssn")?;               // 699209702
 tdc.get("usa.finance.aba_routing")?;    // 659939946
 ```
 
-</TabItem>
-</Tabs>
-
 Those two identifiers are not shaped like one — they carry real check digits, the
 same ones a config would produce.
 
@@ -264,8 +244,7 @@ same ones a config would produce.
 download away, and asking for it before it is there gets you a named failure
 rather than a blank:
 
-<Tabs groupId="lang">
-<TabItem value="ts" label="TypeScript" default>
+#### TypeScript
 
 ```typescript
 tdc.lang.ru.person.lastName();
@@ -274,8 +253,7 @@ tdc.lang.ru.person.lastName();
 // where packs go).
 ```
 
-</TabItem>
-<TabItem value="py" label="Python">
+#### Python
 
 ```python
 tdc.lang.ru.person.lastName()
@@ -284,8 +262,7 @@ tdc.lang.ru.person.lastName()
 # where packs go).
 ```
 
-</TabItem>
-<TabItem value="java" label="Java">
+#### Java
 
 ```java
 tdc.get("ru.person.lastName");
@@ -295,8 +272,7 @@ tdc.get("ru.person.lastName");
 // once, to say where packs go.
 ```
 
-</TabItem>
-<TabItem value="csharp" label="C#">
+#### C#
 
 ```csharp
 tdc.lang.ru.person.lastName();
@@ -305,8 +281,7 @@ tdc.lang.ru.person.lastName();
 // where packs go).
 ```
 
-</TabItem>
-<TabItem value="rust" label="Rust">
+#### Rust
 
 ```rust
 tdc.get("ru.person.lastName");
@@ -315,13 +290,10 @@ tdc.get("ru.person.lastName");
 // where packs go).
 ```
 
-</TabItem>
-</Tabs>
-
 Only Java's wording differs, and only because Maven puts nothing on the `PATH`:
 advice to run `tdcv2` would be advice a Java reader cannot type. The command line
 itself is the same in all five. See [Installing
-packs](../data-packs/installing-packs.mdx).
+packs](../data-packs/installing-packs.md#top).
 
 A misspelled segment is a different failure, and says so: `person.lastNam` comes
 back as `unknown address "person.lastNam" (locale "en"). Did you mean
@@ -332,48 +304,40 @@ back as `unknown address "person.lastNam" (locale "en"). Did you mean
 Ask for `n` values in one call instead of calling in a loop — it is one draw of
 `n` values, not `n` draws of one.
 
-<Tabs groupId="lang">
-<TabItem value="ts" label="TypeScript" default>
+#### TypeScript
 
 ```typescript
 tdc.person.lastName.many(5);
 // [ 'Jones', 'Bush', 'Armstrong', 'Andrews', 'Jimenez' ]
 ```
 
-</TabItem>
-<TabItem value="py" label="Python">
+#### Python
 
 ```python
 tdc.person.lastName.many(5)
 # ['Jones', 'Bush', 'Armstrong', 'Andrews', 'Jimenez']
 ```
 
-</TabItem>
-<TabItem value="java" label="Java">
+#### Java
 
 ```java
 List<String> names = tdc.many("person.lastName", 5);
 // [Jones, Bush, Armstrong, Andrews, Jimenez]
 ```
 
-</TabItem>
-<TabItem value="csharp" label="C#">
+#### C#
 
 ```csharp
 IReadOnlyList<string> names = tdc.person.lastName.many(5);
 // Jones, Bush, Armstrong, Andrews, Jimenez
 ```
 
-</TabItem>
-<TabItem value="rust" label="Rust">
+#### Rust
 
 ```rust
 let names = tdc.many("person.lastName", 5)?;
 // ["Jones", "Bush", "Armstrong", "Andrews", "Jimenez"]
 ```
-
-</TabItem>
-</Tabs>
 
 ## Making it repeat
 
@@ -382,8 +346,7 @@ seed and the values become part of the test rather than a variable in it. Pinnin
 a seed also returns a **new** object rather than changing the one you called it
 on, so two tests can hold different seeds at the same time.
 
-<Tabs groupId="lang">
-<TabItem value="ts" label="TypeScript" default>
+#### TypeScript
 
 ```typescript
 const t = tdc.seed('demo');
@@ -395,8 +358,7 @@ ru.person.lastName(); // Романенко
 en.person.lastName(); // Pearson
 ```
 
-</TabItem>
-<TabItem value="py" label="Python">
+#### Python
 
 ```python
 t = tdc.seed("demo")
@@ -408,8 +370,7 @@ ru.person.lastName()  # Романенко
 en.person.lastName()  # Pearson
 ```
 
-</TabItem>
-<TabItem value="java" label="Java">
+#### Java
 
 ```java
 Quick t = Quick.seeded("demo");
@@ -421,8 +382,7 @@ ru.get("person.lastName");  // Романенко
 en.get("person.lastName");  // Pearson
 ```
 
-</TabItem>
-<TabItem value="csharp" label="C#">
+#### C#
 
 ```csharp
 dynamic t = Quick.Seed("demo");
@@ -434,8 +394,7 @@ ru.person.lastName();  // Романенко
 en.person.lastName();  // Pearson
 ```
 
-</TabItem>
-<TabItem value="rust" label="Rust">
+#### Rust
 
 ```rust
 let mut t = Quick::seeded("demo");
@@ -447,9 +406,6 @@ ru.get("person.lastName")?;  // Романенко
 en.get("person.lastName")?;  // Pearson
 ```
 
-</TabItem>
-</Tabs>
-
 ## Generators without a pack
 
 The engine's own generators are reachable too, for the values that come from a
@@ -457,48 +413,40 @@ rule rather than from a list. They take attributes instead of an address, so the
 live under one name of their own — pack categories are already called `date`,
 `text` and `word`, which leaves the top level occupied.
 
-<Tabs groupId="lang">
-<TabItem value="ts" label="TypeScript" default>
+#### TypeScript
 
 ```typescript
 tdc.gen.number('18..80'); // 66
 tdc.gen.regex('[A-Z]{2}-[0-9]{4}'); // FZ-3994
 ```
 
-</TabItem>
-<TabItem value="py" label="Python">
+#### Python
 
 ```python
 tdc.gen.number("18..80")             # 66
 tdc.gen.regex("[A-Z]{2}-[0-9]{4}")   # FZ-3994
 ```
 
-</TabItem>
-<TabItem value="java" label="Java">
+#### Java
 
 ```java
 tdc.gen("number", "18..80");            // 66
 tdc.gen("regex", "[A-Z]{2}-[0-9]{4}");  // FZ-3994
 ```
 
-</TabItem>
-<TabItem value="csharp" label="C#">
+#### C#
 
 ```csharp
 tdc.gen.number("18..80");            // 66
 tdc.gen.regex("[A-Z]{2}-[0-9]{4}");  // FZ-3994
 ```
 
-</TabItem>
-<TabItem value="rust" label="Rust">
+#### Rust
 
 ```rust
 tdc.gen("number", &[("value", "18..80")])?;            // 66
 tdc.gen("regex", &[("value", "[A-Z]{2}-[0-9]{4}")])?;  // FZ-3994
 ```
-
-</TabItem>
-</Tabs>
 
 The string is shorthand for `value=`. Pass an **object** to reach every other attribute,
 and `.many(n, …)` works on generators exactly as it does on addresses:
@@ -507,12 +455,14 @@ and `.many(n, …)` works on generators exactly as it does on addresses:
 tdc.gen.date({ from: '2020-01-01', to: '2020-12-31', format: 'DD.MM.YYYY' }); // 11.10.2020
 tdc.gen.number({ distribution: 'normal', mean: '170', sd: '10' }); // 172
 tdc.gen.number.many(5, '1..9'); // [ '7', '6', '8', '6', '3' ]
+tdc.gen.number('50'); // always '50' — one number is a value, not a range
+tdc.gen.number('10,20,35'); // one of the three
 ```
 
 An address takes parameters the same way, where the pack declares any — `tdc.country.usa.finance.aba_routing({ prefix: '12' })` pins the two leading digits and lets the pack draw and check the rest. An address that declares none refuses an unknown one by name rather than ignoring it.
 
 Every generator and its attributes are in [the generators
-reference](../generators/number.mdx).
+reference](../generators/number.md#top).
 
 ## Values are always strings
 
@@ -521,53 +471,51 @@ config produce CSV, SQL and JSON without changing — and a return type that var
 with the address would be a different contract in each of the five. Convert at the
 call site when you need a number:
 
-<Tabs groupId="lang">
-<TabItem value="ts" label="TypeScript" default>
+#### TypeScript
 
 ```typescript
 const age = Number(tdc.gen.number('18..80'));
 ```
 
-</TabItem>
-<TabItem value="py" label="Python">
+#### Python
 
 ```python
 age = int(tdc.gen.number("18..80"))
 ```
 
-</TabItem>
-<TabItem value="java" label="Java">
+#### Java
 
 ```java
 int age = Integer.parseInt(tdc.gen("number", "18..80"));
 ```
 
-</TabItem>
-<TabItem value="csharp" label="C#">
+#### C#
 
 ```csharp
 int age = int.Parse(tdc.gen.number("18..80"));
 ```
 
-</TabItem>
-<TabItem value="rust" label="Rust">
+#### Rust
 
 ```rust
 let age: u32 = tdc.gen("number", &[("value", "18..80")])?.parse()?;
 ```
-
-</TabItem>
-</Tabs>
 
 ## When to use a config instead
 
 Reach for a config the moment two values have to agree: a city that belongs to its
 country, an order total that matches its lines, a 30% share that has to be exactly
 30%. That is what the rest of this documentation is about, and it starts at [Your
-first dataset](../getting-started/first-data.mdx).
+first dataset](first-data.md#top).
 
 ## See also
 
-- **[TypeScript](../bindings/typescript.mdx)**, **[Python](../bindings/python.mdx)**, **[Java](../bindings/java.mdx)**, **[C#](../bindings/csharp.mdx)**, **[Rust](../bindings/rust.mdx)** — the same five packages, for whole datasets.
-- **[Data packs](../data-packs/overview.mdx)** — what a pack is and how addresses are organized.
-- **[Installing packs](../data-packs/installing-packs.mdx)** — adding the other 120.
+- **[TypeScript](../bindings/typescript.md#top)**, **[Python](../bindings/python.md#top)**, **[Java](../bindings/java.md#top)**, **[C#](../bindings/csharp.md#top)**, **[Rust](../bindings/rust.md#top)** — the same five packages, for whole datasets.
+- **[Data packs](../data-packs/overview.md#top)** — what a pack is and how addresses are organized.
+- **[Installing packs](../data-packs/installing-packs.md#top)** — adding the other 120.
+
+---
+
+← Previous: [Installation](./installation.md#top) · **[Contents](../README.md#top)** · Next: [Your first dataset](./first-data.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/getting-started/quick-api)**

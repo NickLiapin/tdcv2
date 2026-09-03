@@ -13,6 +13,7 @@
 ## Getting Started
 
 - [Installation](./getting-started/installation.md#top)
+- [Quick API — one value at a time](./getting-started/quick-api.md#top)
 - [Your first dataset](./getting-started/first-data.md#top)
 - [Editor support](./getting-started/editor-support.md#top)
 
@@ -22,7 +23,6 @@
 - [Sequences](./core-concepts/sequences.md#top)
 - [Output & formatting](./core-concepts/output-formatting.md#top)
 - [Determinism & proportions](./core-concepts/determinism.md#top)
-- [One value at a time](./core-concepts/quick-api.md#top)
 
 ## Generators
 

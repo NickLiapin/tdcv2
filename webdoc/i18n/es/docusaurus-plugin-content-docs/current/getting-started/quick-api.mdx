@@ -1,12 +1,12 @@
 ---
-title: Un valor a la vez
-sidebar_position: 5
+title: Quick API — un valor a la vez
+sidebar_position: 2
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Un valor a la vez
+# Quick API — un valor a la vez
 
 A veces no quiere un conjunto de datos. Quiere un apellido, aquí, en esta línea de una
 prueba: el trabajo que hace una librería tipo faker. TDC lo responde desde los mismos
@@ -80,7 +80,7 @@ repita](#hacer-que-se-repita).
 Cada llamada es independiente. Nada aquí ata un valor a otro: ni `parent=`, ni
 `<switch>` sobre una columna sorteada, ni `uniq`, ni `<compute>`. Un **registro
 coherente** es una configuración; vea [Su primer conjunto de
-datos](../getting-started/first-data.mdx). Use esto cuando los valores de verdad no
+datos](first-data.mdx). Use esto cuando los valores de verdad no
 necesiten concordar entre sí.
 :::
 
@@ -507,6 +507,8 @@ atributos, y `.many(n, …)` funciona en generadores igual que en direcciones:
 tdc.gen.date({ from: '2020-01-01', to: '2020-12-31', format: 'DD.MM.YYYY' }); // 11.10.2020
 tdc.gen.number({ distribution: 'normal', mean: '170', sd: '10' }); // 172
 tdc.gen.number.many(5, '1..9'); // [ '7', '6', '8', '6', '3' ]
+tdc.gen.number('50'); // siempre '50' — un número es un valor, no un rango
+tdc.gen.number('10,20,35'); // uno de los tres
 ```
 
 Una dirección toma parámetros de la misma forma, cuando el paquete declara alguno — `tdc.country.usa.finance.aba_routing({ prefix: '12' })` fija los dos primeros dígitos y deja que el paquete genere y verifique el resto. Una dirección que no declara ninguno rechaza un parámetro desconocido por su nombre en lugar de ignorarlo.
@@ -564,7 +566,7 @@ let age: u32 = tdc.gen("number", &[("value", "18..80")])?.parse()?;
 Recurra a una configuración en cuanto dos valores tengan que concordar: una ciudad que
 pertenece a su país, un total de pedido que cuadra con sus líneas, un 30% que tiene que
 ser exactamente 30%. De eso trata el resto de esta documentación, y empieza en [Su
-primer conjunto de datos](../getting-started/first-data.mdx).
+primer conjunto de datos](first-data.mdx).
 
 ## Vea también
 

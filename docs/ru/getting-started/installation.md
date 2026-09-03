@@ -4,7 +4,7 @@
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/getting-started/installation)**
 
-← Назад: [Введение](../intro.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Первый датасет](./first-data.md#top) →
+← Назад: [Введение](../intro.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Quick API — по одному значению](./quick-api.md#top) →
 
 ---
 
@@ -322,8 +322,7 @@ tdc.get("ru.person.lastName")?;     // после `tdcv2 pack add ru`
 и держит долю ровно в 30%, а одиночный вызов не связывает ничего ни с чем.
 
 Вся поверхность — `.many(n)`, `seed()`, `locale()` и способ дотянуться до конкретного
-пакета в каждом языке — на странице [API одного
-значения](../core-concepts/quick-api.md#top).
+пакета в каждом языке — на следующей странице — [Quick API](quick-api.md#top).
 
 > [!NOTE]
 > **Значения здесь взяты из сида**
@@ -386,6 +385,6 @@ routing numbers, phone format, license plates.
 
 ---
 
-← Назад: [Введение](../intro.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Первый датасет](./first-data.md#top) →
+← Назад: [Введение](../intro.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Quick API — по одному значению](./quick-api.md#top) →
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/getting-started/installation)**

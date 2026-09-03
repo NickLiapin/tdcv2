@@ -62,6 +62,19 @@ const GENERATORS = [
   { seed: 'demo', type: 'number', attrs: { value: '18..80' }, count: 1 },
   { seed: 'x', type: 'number', attrs: { value: '1..1000' }, count: 4 },
   { seed: 'r', type: 'regex', attrs: { value: '[A-Z]{3}-[0-9]{4}' }, count: 3 },
+  // The forms `number` gained when it stopped being a generator of ranges. The
+  // quick API reaches the same generators the DSL does, so a widened grammar
+  // that the five agree on in a config must also be one they agree on here.
+  { seed: 'demo', type: 'number', attrs: { value: '50' }, count: 3 },
+  { seed: 'demo', type: 'number', attrs: { value: '10,20,35' }, count: 5 },
+  { seed: 'demo', type: 'number', attrs: { value: '0,10..20,99' }, count: 5 },
+  { seed: 'demo', type: 'number', attrs: { value: '007' }, count: 2 },
+  {
+    seed: 'demo',
+    type: 'number',
+    attrs: { value: '50', anomaly: '0.5', anomaly_factor: '10' },
+    count: 8,
+  },
 ];
 
 /**

@@ -11,6 +11,7 @@
 ---
 
 - [Installation](./installation.md#top)
+- [Quick API — one value at a time](./quick-api.md#top)
 - [Your first dataset](./first-data.md#top)
 - [Editor support](./editor-support.md#top)
 
