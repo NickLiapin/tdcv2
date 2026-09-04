@@ -71,36 +71,109 @@ TypeScript is the reference; the other four are complete ports of it.
 
 ## Getting started
 
-### Library usage
+Three ways in, and **you can stop at the first**. They are the same engine and the
+same data; what changes is how much you have to say before it answers.
+
+### 1. One value at a time — nothing to configure
+
+The job a faker does. Import, call an address, get a string:
 
 ```typescript
-import { TDC, tdcv2 } from "tdcv2";
+import { tdc } from "tdcv2";
 
-const config = `
-<tdc version="0.1">
-  <env count="3" seed="demo">
-    <sequence name="Gender">
-      <gen type="text" value="Male,Female" percent="50,50"/>
-    </sequence>
-    <sequence name="Code">
-      <gen type="number" value="0000..9999"/>
-    </sequence>
-  </env>
-  <block>
-    <line><data>\${{_count}},\${{Gender}},\${{Code}}</data></line>
-  </block>
-</tdc>`;
+tdc.person.lastName(); // a different surname every run
 
-const dataset = new TDC({ configString: config });
+// …or pin a seed, and the same values come back forever:
+const demo = tdc.seed("demo");
 
-console.log(dataset.toString()); // text output from <block>/<line>/<data>
-dataset.toStream().pipe(fs.createWriteStream("./out.csv"));
-console.log(dataset.toArray()); // object rows from <sequence> declarations
+demo.person.lastName(); // 'Jones'
+demo.person.female.firstName(); // 'Linda'
+demo.country.usa.geo.city(); // 'Los Angeles'
+demo.commerce.department(); // 'Movies'
+demo.gen.number("18..80"); // '66'
+demo.person.lastName.many(3); // [ 'Bush', 'Armstrong', 'Andrews' ]
 ```
 
-### CLI usage
+No config, no files, nothing to install beyond the package — those addresses come
+from the data that ships with it. The seed is the one thing a faker does not give
+you: a failing test that depends on generated data can be re-run and will fail the
+same way. That is the whole API; [Quick
+API](docs/getting-started/quick-api.md) is the rest of it.
 
-Install it and run it:
+### 2. A config in your code — when the values have to agree
+
+The moment two fields must match — a name that follows a gender, a city that sits in
+its country — independent calls stop being enough. Describe the row instead, and keep
+working in your own language:
+
+```typescript
+import { TDC } from "tdcv2";
+
+const users = new TDC({
+  configString: `
+<tdc>
+  <env count="4" seed="demo">
+    <sequence name="Gender"><gen type="text" value="Male,Female" percent="50,50"/></sequence>
+    <switch name="Name" on="Gender">
+      <case is="Male"><gen type="template" value="person.male.firstName"/></case>
+      <case is="Female"><gen type="template" value="person.female.firstName"/></case>
+    </switch>
+    <sequence name="Age"><gen type="number" value="18..65"/></sequence>
+  </env>
+  <block><line><data>\${{Gender}},\${{Name}},\${{Age}}</data></line></block>
+</tdc>`,
+});
+
+users.toArray();
+// [ { Gender: 'Female', Name: 'Mary',      Age: '59' },
+//   { Gender: 'Male',   Name: 'James',     Age: '18' },
+//   { Gender: 'Male',   Name: 'John',      Age: '53' },
+//   { Gender: 'Female', Name: 'Elizabeth', Age: '24' } ]
+```
+
+Every name matches its gender, and the 50/50 split is exactly 50/50 — not
+approximately. `toArray()` gives rows as objects, `toString()` the rendered text,
+`toStream()` a stream for a large file.
+
+### 3. A config file — when the dataset is the product
+
+The same config in a `.tdc` file, run by the command line. No code at all, and the
+file is the artefact: check it into the repository, and the fixture regenerates
+byte-identically on any machine, in any of the five languages.
+
+```xml title="users.tdc"
+<tdc>
+  <env count="4" seed="demo">
+    <before><line><data>gender,name,age</data></line></before>
+
+    <sequence name="Gender"><gen type="text" value="Male,Female" percent="50,50"/></sequence>
+    <switch name="Name" on="Gender">
+      <case is="Male"><gen type="template" value="person.male.firstName"/></case>
+      <case is="Female"><gen type="template" value="person.female.firstName"/></case>
+    </switch>
+    <sequence name="Age"><gen type="number" value="18..65"/></sequence>
+  </env>
+  <block><line><data>${{Gender}},${{Name}},${{Age}}</data></line></block>
+</tdc>
+```
+
+```bash
+npx tdcv2 users.tdc -o users.csv
+```
+
+```
+gender,name,age
+Female,Mary,59
+Male,James,18
+Male,John,53
+Female,Elizabeth,24
+```
+
+The header came from `<before>`, the rows from `<block>` — which is why the output is
+CSV here and could as easily be SQL, JSON or a format nobody has named: the layout is
+something you spell out, not something you pick off a list.
+
+### Installing, and where the examples come from
 
 ```bash
 npm install -D tdcv2
@@ -108,7 +181,7 @@ npx tdcv2 init
 npx tdcv2 tdcv2-examples/01-starter.tdc
 ```
 
-`init` writes a config and three worked examples into `tdcv2-examples/`, then
+The first line is all three ways above need. `init` writes a config and three worked examples into `tdcv2-examples/`, then
 prints the command that runs the first one. **Those files exist only after
 `init`** — nothing puts them there at install time, and once written they are
 yours to edit. `npx` matters on npm: `npm install -D` leaves the command in
