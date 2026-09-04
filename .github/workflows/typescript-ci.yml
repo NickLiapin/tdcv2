@@ -36,10 +36,19 @@ jobs:
   verify:
     name: Verify
     runs-on: ubuntu-latest
-    # Room for a suite that keeps growing. The ceiling was 20, the job took
-    # 16m08s in August, and the margin ran out — GitHub cancels rather than
-    # fails, which reads as a broken build and is not one.
-    timeout-minutes: 35
+    # Room for a suite that keeps growing, raised for the SECOND time.
+    #
+    #   ceiling 20  →  the job took 16m08s in August, margin gone
+    #   ceiling 35  →  the job takes 32-33m in September, margin gone again
+    #
+    # Sixteen minutes to thirty-three in a month, and each time the ceiling was
+    # met the run came back "cancelled" rather than "failed" — which reads as a
+    # broken build, costs an afternoon to diagnose, and is not one. The number
+    # below is not the interesting part: at this rate it buys about a month.
+    # What buys longer is making the gate faster, and the long pole is this
+    # matrix leg, which runs the whole of `npm run check` while the other runs
+    # its pieces.
+    timeout-minutes: 50
 
     strategy:
       fail-fast: false
