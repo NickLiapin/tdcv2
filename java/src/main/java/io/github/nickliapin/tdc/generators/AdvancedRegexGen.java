@@ -57,6 +57,30 @@ public final class AdvancedRegexGen {
 
   record Weighted(List<Branch> choices) implements Node {}
 
+  /**
+   * One branch of {@code (?if{…})}.
+   *
+   * <p>{@code test} is null for the {@code *} branch, which always matches; otherwise it is the
+   * capture index to read and the text it must equal.
+   */
+  record CondBranch(CondTest test, Node node) {}
+
+  record CondTest(int capture, String value) {}
+
+  /**
+   * {@code (?if{sex=male:MR;sex=female:MS})} — pick a branch from what an EARLIER named group
+   * produced on this row.
+   *
+   * <p>The one construct here that reads rather than draws. Everything else decides a row from
+   * randomness alone, which is why a pattern could describe an address or an identifier but never
+   * a title that agrees with a sex chosen two characters earlier.
+   *
+   * <p>Branches are tried in the order written and the first match wins, so a {@code *} is an
+   * "otherwise" wherever it stands — and a row matching NO branch produces nothing at all, which
+   * is what {@code *} exists to prevent.
+   */
+  record Conditional(List<CondBranch> branches) implements Node {}
+
   /** One row under construction: what it has so far, and what its groups captured. */
   private static final class RowState {
     final StringBuilder out = new StringBuilder();
@@ -209,6 +233,28 @@ public final class AdvancedRegexGen {
       }
       return;
     }
+    if (node instanceof Conditional c) {
+      // Each row to the FIRST branch it passes, then the branches in the order written. Rows
+      // that pass no branch are left untouched — nothing is appended — which is the only honest
+      // answer when the pattern says nothing about the value the row actually holds.
+      List<List<RowState>> buckets = buckets(c.branches().size());
+      for (RowState row : rows) {
+        for (int i = 0; i < c.branches().size(); i++) {
+          CondTest test = c.branches().get(i).test();
+          if (test == null
+              || test.value().equals(row.captures.getOrDefault(test.capture(), ""))) {
+            buckets.get(i).add(row);
+            break;
+          }
+        }
+      }
+      for (int i = 0; i < c.branches().size(); i++) {
+        if (!buckets.get(i).isEmpty()) {
+          generateInto(c.branches().get(i).node(), buckets.get(i), prng);
+        }
+      }
+      return;
+    }
     throw new IllegalStateException("advanced_regex: unhandled node " + node);
   }
 
@@ -257,6 +303,15 @@ public final class AdvancedRegexGen {
       }
       return best;
     }
+    if (node instanceof Conditional c) {
+      // The longest branch: a row takes exactly one of them, so the widest the conditional can
+      // be is the widest branch — never their sum.
+      long best = 0;
+      for (CondBranch branch : c.branches()) {
+        best = Math.max(best, maxLength(branch.node(), captureMaxLengths));
+      }
+      return best;
+    }
     throw new IllegalStateException("advanced_regex: unhandled node " + node);
   }
 
@@ -276,6 +331,14 @@ public final class AdvancedRegexGen {
     private int closedCaptureCount;
     int weightedChoiceCount;
     final Map<Integer, Long> captureMaxLengths = new HashMap<>();
+    /**
+     * {@code (?<name>…)} → its capture index, filled as each named group CLOSES.
+     *
+     * <p>Closing rather than opening, so {@code (?<a>(?if{a=x:y}))} cannot read the group it is
+     * inside: at that point the group has produced nothing, and the condition would compare
+     * against the empty string on every row.
+     */
+    private final Map<String, Integer> groupNames = new HashMap<>();
 
     Parser(String pattern) {
       this.pattern = pattern;
@@ -408,14 +471,27 @@ public final class AdvancedRegexGen {
         expect(")");
         return node;
       }
+      if ("?".equals(peek()) && pattern.startsWith("?if{", pos)) {
+        pos += 4;
+        Node node = conditional();
+        expect(")");
+        return node;
+      }
 
       boolean capturing = true;
+      String name = null;
       if ("?".equals(peek())) {
         if (pattern.startsWith("?:", pos)) {
           pos += 2;
           capturing = false;
+        } else if (pattern.startsWith("?<", pos) && !isLookbehind()) {
+          pos += 2;
+          name = groupName();
         } else {
-          throw error("lookaround, named, and conditional groups are not supported yet");
+          throw error(
+              "this group is not supported — advanced_regex has (?:…), (?<name>…), (?%{…}) "
+                  + "and (?if{…}). Lookaround and numbered conditionals decide what a pattern "
+                  + "MATCHES, and nothing here is matching anything");
         }
       }
 
@@ -431,7 +507,101 @@ public final class AdvancedRegexGen {
       closedCaptureCount = Math.max(closedCaptureCount, index);
       long groupMax = maxLength(node, captureMaxLengths);
       captureMaxLengths.put(index, groupMax);
+      if (name != null) {
+        groupNames.put(name, index);
+      }
       return new Capture(index, node, groupMax);
+    }
+
+    /** {@code (?<=…)} and {@code (?<!…)} are LOOKBEHIND, not a group called "=" or "!". */
+    private boolean isLookbehind() {
+      char after = pos + 2 < pattern.length() ? pattern.charAt(pos + 2) : ' ';
+      return after == '=' || after == '!';
+    }
+
+    /** The {@code name} of {@code (?<name>…)}, up to the closing {@code >}. */
+    private String groupName() {
+      int start = pos;
+      while (!atEnd() && !">".equals(peek())) {
+        pos++;
+      }
+      String name = pattern.substring(start, pos);
+      expect(">");
+      if (name.isEmpty()) {
+        throw error("a named group needs a name: (?<sex>…)");
+      }
+      if (!name.matches("[A-Za-z_][A-Za-z0-9_]*")) {
+        throw error(
+            "group name \"" + name + "\" must start with a letter or \"_\" and hold only "
+                + "letters, digits and \"_\"");
+      }
+      // Two groups under one name would make `(?if{name=…})` a coin toss between them, decided
+      // by whichever the parser happened to record last.
+      if (groupNames.containsKey(name)) {
+        throw error("group name \"" + name + "\" is already used");
+      }
+      return name;
+    }
+
+    /**
+     * {@code ?if{sex=male:MR;sex=female:MS}} — the {@code (?if{} is already consumed.
+     *
+     * <p>Each branch is a full pattern, so weighted choices and further conditionals nest inside
+     * them exactly as they do inside a weighted branch.
+     */
+    private Node conditional() {
+      List<CondBranch> branches = new ArrayList<>();
+      while (!atEnd()) {
+        skipSpaces();
+        if ("}".equals(peek())) {
+          throw error("conditional must contain at least one branch");
+        }
+        CondTest test = conditionalTest();
+        Node node = alternation(BRANCH_STOP);
+        branches.add(new CondBranch(test, node));
+
+        String ch = peek();
+        if (";".equals(ch)) {
+          pos++;
+          continue;
+        }
+        if ("}".equals(ch)) {
+          pos++;
+          return new Conditional(branches);
+        }
+        throw error("expected \";\" or \"}\" in conditional");
+      }
+      throw error("unterminated conditional");
+    }
+
+    /** {@code name=value} before a branch's {@code :}, or {@code *} for the branch that always matches. */
+    private CondTest conditionalTest() {
+      int start = pos;
+      while (!atEnd() && !":".equals(peek()) && !"}".equals(peek())) {
+        pos++;
+      }
+      String raw = pattern.substring(start, pos);
+      expect(":");
+      if ("*".equals(raw)) {
+        return null;
+      }
+      int split = raw.indexOf('=');
+      if (split < 0) {
+        throw error(
+            "conditional branch \"" + raw + "\" must read a group: name=value, or \"*\" for "
+                + "every other row");
+      }
+      String name = raw.substring(0, split).trim();
+      Integer capture = groupNames.get(name);
+      if (capture == null) {
+        // Declared LATER is the same as not declared at all here: the pattern is generated left
+        // to right, so a group further along has produced nothing to compare against and the
+        // branch could never be taken.
+        throw error(
+            "conditional reads \"" + name + "\", which no (?<" + name + ">…) group before it "
+                + "declares");
+      }
+      return new CondTest(capture, raw.substring(split + 1));
     }
 
     private Node weightedChoice() {

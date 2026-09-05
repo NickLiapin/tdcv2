@@ -56,9 +56,29 @@ public static class AdvancedRegexGen
         public sealed record Backref(int Index) : Node;
 
         public sealed record Weighted(IReadOnlyList<Branch> Choices) : Node;
+
+        /// <summary>
+        /// <c>(?if{sex=male:MR;sex=female:MS})</c> — pick a branch from what an EARLIER named
+        /// group produced on this row.
+        /// </summary>
+        /// <remarks>
+        /// The one construct here that reads rather than draws. Everything else decides a row
+        /// from randomness alone, which is why a pattern could describe an address or an
+        /// identifier but never a title that agrees with a sex chosen two characters earlier.
+        /// Branches are tried in the order written and the first match wins, so a <c>*</c> is an
+        /// "otherwise" wherever it stands — and a row matching NO branch produces nothing at all,
+        /// which is what <c>*</c> exists to prevent.
+        /// </remarks>
+        public sealed record Conditional(IReadOnlyList<CondBranch> Branches) : Node;
     }
 
     public sealed record Branch(double Percent, Node Inner);
+
+    /// <summary>One branch of <c>(?if{…})</c>; <c>Test</c> is null for the <c>*</c> branch.</summary>
+    public sealed record CondBranch(CondTest? Test, Node Inner);
+
+    /// <summary>Which capture a branch reads, and the text it must equal.</summary>
+    public sealed record CondTest(int Capture, string Value);
 
     /// <summary>One row under construction: what it has so far, and what its groups captured.</summary>
     private sealed class RowState
@@ -253,6 +273,38 @@ public static class AdvancedRegexGen
                 return;
             }
 
+            case Node.Conditional c:
+            {
+                // Each row to the FIRST branch it passes, then the branches in the order
+                // written. Rows that pass no branch are left untouched — nothing is appended —
+                // which is the only honest answer when the pattern says nothing about the value
+                // the row actually holds.
+                List<List<RowState>> buckets = Buckets(c.Branches.Count);
+                foreach (RowState row in rows)
+                {
+                    for (int i = 0; i < c.Branches.Count; i++)
+                    {
+                        CondTest? test = c.Branches[i].Test;
+                        string held = row.Captures.GetValueOrDefault(test?.Capture ?? 0, string.Empty);
+                        if (test is null || held == test.Value)
+                        {
+                            buckets[i].Add(row);
+                            break;
+                        }
+                    }
+                }
+
+                for (int i = 0; i < c.Branches.Count; i++)
+                {
+                    if (buckets[i].Count > 0)
+                    {
+                        GenerateInto(c.Branches[i].Inner, buckets[i], prng);
+                    }
+                }
+
+                return;
+            }
+
             default:
                 throw new InvalidOperationException($"advanced_regex: unhandled node {node}");
         }
@@ -317,6 +369,19 @@ public static class AdvancedRegexGen
                 return best;
             }
 
+            case Node.Conditional c:
+            {
+                // The longest branch: a row takes exactly one of them, so the widest the
+                // conditional can be is the widest branch — never their sum.
+                long best = 0;
+                foreach (CondBranch branch in c.Branches)
+                {
+                    best = Math.Max(best, MaxLength(branch.Inner, captureMaxLengths));
+                }
+
+                return best;
+            }
+
             default:
                 throw new InvalidOperationException($"advanced_regex: unhandled node {node}");
         }
@@ -344,6 +409,14 @@ public static class AdvancedRegexGen
         internal int WeightedChoiceCount;
 
         internal readonly Dictionary<int, long> CaptureMaxLengths = new();
+
+        /// <summary><c>(?&lt;name&gt;…)</c> → its capture index, filled as each named group CLOSES.</summary>
+        /// <remarks>
+        /// Closing rather than opening, so <c>(?&lt;a&gt;(?if{a=x:y}))</c> cannot read the group
+        /// it is inside: at that point the group has produced nothing, and the condition would
+        /// compare against the empty string on every row.
+        /// </remarks>
+        private readonly Dictionary<string, int> _groupNames = new(StringComparer.Ordinal);
 
         internal Parser(string pattern) => _pattern = pattern;
 
@@ -504,7 +577,16 @@ public static class AdvancedRegexGen
                 return weighted;
             }
 
+            if (Peek == "?" && StartsHere("?if{"))
+            {
+                _pos += 4;
+                Node conditional = Conditional();
+                Expect(")");
+                return conditional;
+            }
+
             bool capturing = true;
+            string? name = null;
             if (Peek == "?")
             {
                 if (StartsHere("?:"))
@@ -512,9 +594,17 @@ public static class AdvancedRegexGen
                     _pos += 2;
                     capturing = false;
                 }
+                else if (StartsHere("?<") && !IsLookbehind())
+                {
+                    _pos += 2;
+                    name = GroupName();
+                }
                 else
                 {
-                    throw Error("lookaround, named, and conditional groups are not supported yet");
+                    throw Error(
+                        "this group is not supported — advanced_regex has (?:…), (?<name>…), "
+                        + "(?%{…}) and (?if{…}). Lookaround and numbered conditionals decide "
+                        + "what a pattern MATCHES, and nothing here is matching anything");
                 }
             }
 
@@ -534,7 +624,136 @@ public static class AdvancedRegexGen
             _closedCaptureCount = Math.Max(_closedCaptureCount, index);
             long groupMax = MaxLength(node, CaptureMaxLengths);
             CaptureMaxLengths[index] = groupMax;
+            if (name is not null)
+            {
+                _groupNames[name] = index;
+            }
+
             return new Node.Capture(index, node, groupMax);
+        }
+
+        /// <summary><c>(?&lt;=…)</c> and <c>(?&lt;!…)</c> are LOOKBEHIND, not a group named "=".</summary>
+        private bool IsLookbehind()
+        {
+            char after = _pos + 2 < _pattern.Length ? _pattern[_pos + 2] : ' ';
+            return after == '=' || after == '!';
+        }
+
+        /// <summary>The <c>name</c> of <c>(?&lt;name&gt;…)</c>, up to the closing <c>&gt;</c>.</summary>
+        private string GroupName()
+        {
+            int start = _pos;
+            while (!AtEnd && Peek != ">")
+            {
+                _pos++;
+            }
+
+            string name = _pattern[start.._pos];
+            Expect(">");
+            if (name.Length == 0)
+            {
+                throw Error("a named group needs a name: (?<sex>…)");
+            }
+
+            // Spelled out rather than char.IsAsciiLetter: this targets net6.0, where that
+            // helper does not exist, and "letter" here means ASCII in all five implementations.
+            static bool IsLetter(char c) => (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
+            static bool IsLetterOrDigit(char c) => IsLetter(c) || (c >= '0' && c <= '9');
+            bool headOk = IsLetter(name[0]) || name[0] == '_';
+            if (!headOk || !name.All(c => IsLetterOrDigit(c) || c == '_'))
+            {
+                throw Error(
+                    $"group name \"{name}\" must start with a letter or \"_\" and hold only "
+                    + "letters, digits and \"_\"");
+            }
+
+            // Two groups under one name would make `(?if{name=…})` a coin toss between them,
+            // decided by whichever the parser happened to record last.
+            if (_groupNames.ContainsKey(name))
+            {
+                throw Error($"group name \"{name}\" is already used");
+            }
+
+            return name;
+        }
+
+        /// <summary>
+        /// <c>?if{sex=male:MR;sex=female:MS}</c> — the <c>(?if{</c> is already consumed.
+        /// </summary>
+        /// <remarks>
+        /// Each branch is a full pattern, so weighted choices and further conditionals nest
+        /// inside them exactly as they do inside a weighted branch.
+        /// </remarks>
+        private Node Conditional()
+        {
+            var branches = new List<CondBranch>();
+            while (!AtEnd)
+            {
+                SkipSpaces();
+                if (Peek == "}")
+                {
+                    throw Error("conditional must contain at least one branch");
+                }
+
+                CondTest? test = ConditionalTest();
+                Node node = Alternation(BranchStop);
+                branches.Add(new CondBranch(test, node));
+
+                string? ch = Peek;
+                if (ch == ";")
+                {
+                    _pos++;
+                    continue;
+                }
+
+                if (ch == "}")
+                {
+                    _pos++;
+                    return new Node.Conditional(branches);
+                }
+
+                throw Error("expected \";\" or \"}\" in conditional");
+            }
+
+            throw Error("unterminated conditional");
+        }
+
+        /// <summary><c>name=value</c> before a branch's <c>:</c>, or <c>*</c> for every other row.</summary>
+        private CondTest? ConditionalTest()
+        {
+            int start = _pos;
+            while (!AtEnd && Peek != ":" && Peek != "}")
+            {
+                _pos++;
+            }
+
+            string raw = _pattern[start.._pos];
+            Expect(":");
+            if (raw == "*")
+            {
+                return null;
+            }
+
+            int split = raw.IndexOf('=', StringComparison.Ordinal);
+            if (split < 0)
+            {
+                throw Error(
+                    $"conditional branch \"{raw}\" must read a group: name=value, or \"*\" "
+                    + "for every other row");
+            }
+
+            string name = raw[..split].Trim();
+            if (!_groupNames.TryGetValue(name, out int capture))
+            {
+                // Declared LATER is the same as not declared at all here: the pattern is
+                // generated left to right, so a group further along has produced nothing to
+                // compare against and the branch could never be taken.
+                throw Error(
+                    $"conditional reads \"{name}\", which no (?<{name}>…) group before it "
+                    + "declares");
+            }
+
+            return new CondTest(capture, raw[(split + 1)..]);
         }
 
         private Node WeightedChoice()

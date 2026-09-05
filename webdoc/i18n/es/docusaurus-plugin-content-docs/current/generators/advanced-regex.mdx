@@ -527,25 +527,100 @@ Los dos se rechazan antes de generar — el segundo:
 quantifier is not allowed; use "{1,n}"`}
 </Terminal>
 
-## Planeado, aún no implementado
+## Ponerle nombre a un grupo — `(?<name>…)`
 
-Lo siguiente describe la dirección prevista, pero **no** es sintaxis válida hoy.
-Capturas con nombre:
+Un grupo puede llevar un nombre además de un número:
 
 ```text
 (?<sex>(?%{50:male;50:female}))
 ```
 
-Condicionales, cuyas ramas están pensadas como expresiones `advanced_regex` completas,
-de modo que elecciones ponderadas y más condicionales puedan anidarse dentro:
+Es un grupo de captura corriente — `\1` lo sigue leyendo — con una etiqueta. La
+etiqueta existe para que algo MÁS ADELANTE en el patrón pueda preguntar qué produjo
+este grupo, que es de lo que trata la sección siguiente.
 
-```text
-(?if{sex=male:MR;sex=female:MS})
+Los nombres empiezan con una letra o `_` y llevan letras, dígitos y `_`. Dos grupos no
+pueden compartir un nombre: `(?if{sex=…})` sería entonces un volado entre ellos.
+
+## Que una parte siga a otra — `(?if{…})`
+
+**Úselo cuando** dos partes del mismo valor tienen que concordar. Todo lo demás en
+este generador decide un valor solo a partir del azar, y por eso un patrón podía
+describir un código postal o un identificador pero nunca un tratamiento que
+concuerde con un sexo elegido dos caracteres antes. Eso significaba abandonar
+`advanced_regex` y rehacer la columna como un [`<switch>`](../reference/tags.mdx).
+
+```xml
+<gen type="advanced_regex" value="(?<sex>(?%{50:male;50:female}))/(?if{sex=male:Mr;sex=female:Ms})"/>
 ```
 
-Hasta que lleguen, modele la lógica entre campos con un filtro
-[`parent`](../core-concepts/sequences.mdx#secuencias-dependientes-parent) o con un
-[`<mix>`](../reference/tags.mdx#distribuciones-y-selección).
+<Terminal title="./run titles.tdc (count=8, seed=titles)">
+{`female/Ms
+male/Mr
+male/Mr
+female/Ms
+male/Mr
+female/Ms
+female/Ms
+male/Mr`}
+</Terminal>
+
+Cada fila concuerda consigo misma. A `male` nunca le sigue `Ms`.
+
+### Cómo se lee
+
+`(?if{nombre=valor:rama;nombre=valor:rama})`. Las ramas se separan con `;`, y cada una
+es `qué se prueba`, luego `:`, luego `qué se produce`. Se prueban **en el orden
+escrito** y gana **la primera que coincide**.
+
+Una rama es una expresión `advanced_regex` completa, así que dentro se anidan
+elecciones ponderadas y más condicionales:
+
+```xml
+<gen type="advanced_regex" value="(?<country>(?%{60:RU;30:US;10:DE}))-(?if{country=RU:[0-9]{3};country=US:[A-Z]{3};*:[A-Z]{2}[0-9]})"/>
+```
+
+<Terminal title="./run plates.tdc (count=10, seed=plates)">
+{`RU-683
+US-NGS
+DE-ZQ5
+US-VNS
+RU-867
+RU-722
+RU-372
+RU-890
+US-SEA
+RU-589`}
+</Terminal>
+
+`*` es la rama que coincide con **todo lo demás** — aquí las filas `DE`. Sin ella, una
+fila que no coincide con ninguna rama produce **nada en absoluto** en ese lugar:
+
+```text
+(?<c>(?%{50:a;50:b}))-(?if{c=zzz:NEVER})     →  a-   b-   a-   b- …
+```
+
+Es deliberado. El patrón no dijo nada sobre qué debía producir una fila `a`, y caer en
+silencio en la primera rama emparejaría cosas equivocadas en un archivo que por lo
+demás se ve bien. Escriba una rama `*` para decir lo que quería.
+
+### Lo que no hace
+
+- **No lee un grupo declarado después.** El patrón se construye de izquierda a
+  derecha, así que un grupo más adelante no ha producido nada con qué comparar y la
+  rama nunca podría tomarse. Se rechaza, en vez de dejarla producir mitades vacías.
+- **No lee nada más que un grupo con nombre** — ni otra columna, ni `${{…}}`. Para
+  lógica entre columnas están [`<switch>`](../reference/tags.mdx) y el filtro
+  [`parent`](../core-concepts/sequences.mdx#secuencias-dependientes-parent); esto es
+  para partes de UN valor.
+- **No compara más que texto.** La prueba es `nombre=valor`, una coincidencia exacta
+  con lo que produjo el grupo. Un valor no puede contener `:` — ahí empieza la rama.
+
+### Las cuotas siguen exactas
+
+El condicional lee la elección ponderada; no la altera. Sobre 200 filas
+`(?<c>(?%{70:RU;20:US;10:DE}))` sigue dando exactamente 140, 40 y 20 — y la segunda
+mitad de cada fila se sigue de su propia primera mitad.
 
 ## Vea también
 

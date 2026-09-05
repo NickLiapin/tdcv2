@@ -17,6 +17,36 @@ page — is tracked in that implementation's own changelog:
 
 ### Added
 
+<!-- covers: advanced_regex named groups and conditionals -->
+
+- **`advanced_regex` learned named groups and conditionals** — the two constructs its
+  own page had been describing as "planned, not yet implemented":
+
+  ```text
+  (?<sex>(?%{50:male;50:female}))/(?if{sex=male:Mr;sex=female:Ms})
+  ```
+
+  Every other construct in that generator decides a value from randomness alone, which
+  is why a pattern could describe a postcode or an identifier but never a title that
+  agrees with a sex chosen two characters earlier. Cross-field logic meant abandoning
+  `advanced_regex` and rebuilding the column as a `<switch>`.
+
+  A branch is a full `advanced_regex` expression, so weighted choices and further
+  conditionals nest inside one. Branches are tried in the order written and the first
+  match wins; `*` is the branch that matches everything else. A row that matches NO
+  branch produces nothing at all for that part — deliberate, because the pattern said
+  nothing about that value and quietly taking the first branch would pair the wrong
+  things in a file that otherwise looks right.
+
+  The conditional READS the weighted choice and does not disturb it: over 200 rows
+  `(?%{70:RU;20:US;10:DE})` still comes out exactly 140 / 40 / 20, with each row's
+  second half following from its own first half.
+
+  Refused rather than half-honoured: a conditional reading a group declared LATER in
+  the pattern (built left to right, so that group has produced nothing and the branch
+  could never be taken); two groups under one name; a branch with no `name=value` test.
+  `(?<=…)` and `(?<!…)` stay lookbehind rather than becoming a group named `=`.
+
 <!-- covers: timeseries seasonalities and AR noise -->
 
 - **Several seasonal waves at once, and noise that remembers — the two things the

@@ -38,11 +38,31 @@ pub enum Node {
     Capture(usize, Box<Node>, i64),
     Backref(usize),
     Weighted(Vec<Branch>),
+    /// `(?if{sex=male:MR;sex=female:MS})` — pick a branch from what an EARLIER
+    /// named group produced on this row.
+    ///
+    /// The one construct here that reads rather than draws. Everything else
+    /// decides a row from randomness alone, which is why a pattern could describe
+    /// an address or an identifier but never a title that agrees with a sex
+    /// chosen two characters earlier.
+    Conditional(Vec<CondBranch>),
 }
 
 #[derive(Clone, Debug)]
 pub struct Branch {
     pub percent: f64,
+    pub inner: Node,
+}
+
+#[derive(Clone, Debug)]
+pub struct CondBranch {
+    /// Which capture to read and what it must equal; `None` is the `*` branch,
+    /// which always matches.
+    ///
+    /// Branches are tried in the order written and the first match wins, so a `*`
+    /// is an "otherwise" wherever it stands — and a row matching NO branch
+    /// produces nothing at all, which is what `*` exists to prevent.
+    pub test: Option<(usize, String)>,
     pub inner: Node,
 }
 
@@ -180,6 +200,35 @@ fn generate_into(node: &Node, rows: &mut [RowState], at: &[usize], prng: &mut Sf
                 generate_into(&branch.inner, rows, bucket, prng);
             }
         }
+        Node::Conditional(branches) => {
+            // Each row to the FIRST branch it passes, then the branches in the
+            // order written. Rows that pass no branch are left untouched —
+            // nothing is appended — which is the only honest answer when the
+            // pattern says nothing about the value the row actually holds.
+            let mut buckets: Vec<Vec<usize>> = vec![Vec::new(); branches.len()];
+            for &i in at {
+                for (b, branch) in branches.iter().enumerate() {
+                    let hit = match &branch.test {
+                        None => true,
+                        Some((capture, want)) => {
+                            rows[i]
+                                .captures
+                                .get(capture)
+                                .map(String::as_str)
+                                .unwrap_or("")
+                                == want
+                        }
+                    };
+                    if hit {
+                        buckets[b].push(i);
+                        break;
+                    }
+                }
+            }
+            for (branch, bucket) in branches.iter().zip(&buckets) {
+                generate_into(&branch.inner, rows, bucket, prng);
+            }
+        }
     }
 }
 
@@ -213,6 +262,15 @@ fn max_length(node: &Node, capture_max_lengths: &BTreeMap<usize, i64>) -> Engine
             }
             best
         }
+        // The longest branch: a row takes exactly one of them, so the widest the
+        // conditional can be is the widest branch — never their sum.
+        Node::Conditional(branches) => {
+            let mut best = 0i64;
+            for branch in branches {
+                best = best.max(max_length(&branch.inner, capture_max_lengths)?);
+            }
+            best
+        }
     })
 }
 
@@ -237,6 +295,12 @@ struct Parser {
     closed_capture_count: usize,
     weighted_choice_count: usize,
     capture_max_lengths: BTreeMap<usize, i64>,
+    /// `(?<name>…)` → its capture index, filled as each named group CLOSES.
+    ///
+    /// Closing rather than opening, so `(?<a>(?if{a=x:y}))` cannot read the group
+    /// it is inside: at that point the group has produced nothing, and the
+    /// condition would compare against the empty string on every row.
+    group_names: BTreeMap<String, usize>,
 }
 
 struct ClassAtom {
@@ -251,6 +315,7 @@ impl Parser {
             pos: 0,
             capture_count: 0,
             closed_capture_count: 0,
+            group_names: BTreeMap::new(),
             weighted_choice_count: 0,
             capture_max_lengths: BTreeMap::new(),
         }
@@ -373,14 +438,31 @@ impl Parser {
             return Ok(weighted);
         }
 
+        if self.peek() == Some('?') && self.starts_here("?if{") {
+            self.pos += 4;
+            let conditional = self.conditional()?;
+            self.expect(')')?;
+            return Ok(conditional);
+        }
+
         let mut capturing = true;
+        let mut name: Option<String> = None;
         if self.peek() == Some('?') {
             if self.peek_at(1) == Some(':') {
                 self.pos += 2;
                 capturing = false;
+            } else if self.starts_here("?<")
+                // `(?<=…)` and `(?<!…)` are LOOKBEHIND, not a group called "=" or "!".
+                && !matches!(self.peek_at(2), Some('=') | Some('!'))
+            {
+                self.pos += 2;
+                name = Some(self.group_name()?);
             } else {
-                return self
-                    .error("lookaround, named, and conditional groups are not supported yet");
+                return self.error(
+                    "this group is not supported — advanced_regex has (?:…), (?<name>…), \
+                     (?%{…}) and (?if{…}). Lookaround and numbered conditionals decide what a \
+                     pattern MATCHES, and nothing here is matching anything",
+                );
             }
         }
 
@@ -400,7 +482,97 @@ impl Parser {
         self.closed_capture_count = self.closed_capture_count.max(index);
         let group_max = max_length(&node, &self.capture_max_lengths)?;
         self.capture_max_lengths.insert(index, group_max);
+        if let Some(name) = name {
+            self.group_names.insert(name, index);
+        }
         Ok(Node::Capture(index, Box::new(node), group_max))
+    }
+
+    /// The `name` of `(?<name>…)`, up to the closing `>`.
+    fn group_name(&mut self) -> EngineResult<String> {
+        let start = self.pos;
+        while !self.at_end() && self.peek() != Some('>') {
+            self.pos += 1;
+        }
+        let name: String = self.pattern[start..self.pos].iter().collect();
+        self.expect('>')?;
+        if name.is_empty() {
+            return self.error("a named group needs a name: (?<sex>…)");
+        }
+        let mut chars = name.chars();
+        let head_ok = chars
+            .next()
+            .is_some_and(|c| c.is_ascii_alphabetic() || c == '_');
+        if !head_ok || !chars.all(|c| c.is_ascii_alphanumeric() || c == '_') {
+            return self.error(&format!(
+                "group name \"{name}\" must start with a letter or \"_\" and hold only \
+                 letters, digits and \"_\""
+            ));
+        }
+        // Two groups under one name would make `(?if{name=…})` a coin toss between
+        // them, decided by whichever the parser happened to record last.
+        if self.group_names.contains_key(&name) {
+            return self.error(&format!("group name \"{name}\" is already used"));
+        }
+        Ok(name)
+    }
+
+    /// `?if{sex=male:MR;sex=female:MS}` — the `(?if{` is already consumed.
+    ///
+    /// Each branch is a full pattern, so weighted choices and further conditionals
+    /// nest inside them exactly as they do inside a weighted branch.
+    fn conditional(&mut self) -> EngineResult<Node> {
+        let mut branches: Vec<CondBranch> = Vec::new();
+        while !self.at_end() {
+            self.skip_spaces();
+            if self.peek() == Some('}') {
+                return self.error("conditional must contain at least one branch");
+            }
+            let test = self.conditional_test()?;
+            let inner = self.alternation(BRANCH_STOP)?;
+            branches.push(CondBranch { test, inner });
+
+            match self.peek() {
+                Some(';') => {
+                    self.pos += 1;
+                }
+                Some('}') => {
+                    self.pos += 1;
+                    return Ok(Node::Conditional(branches));
+                }
+                _ => return self.error("expected \";\" or \"}\" in conditional"),
+            }
+        }
+        self.error("unterminated conditional")
+    }
+
+    /// `name=value` before a branch's `:`, or `*` for the branch that always matches.
+    fn conditional_test(&mut self) -> EngineResult<Option<(usize, String)>> {
+        let start = self.pos;
+        while !self.at_end() && !matches!(self.peek(), Some(':') | Some('}')) {
+            self.pos += 1;
+        }
+        let raw: String = self.pattern[start..self.pos].iter().collect();
+        self.expect(':')?;
+        if raw == "*" {
+            return Ok(None);
+        }
+        let Some(split) = raw.find('=') else {
+            return self.error(&format!(
+                "conditional branch \"{raw}\" must read a group: name=value, or \"*\" for \
+                 every other row"
+            ));
+        };
+        let name = raw[..split].trim().to_string();
+        let Some(&capture) = self.group_names.get(&name) else {
+            // Declared LATER is the same as not declared at all here: the pattern
+            // is generated left to right, so a group further along has produced
+            // nothing to compare against and the branch could never be taken.
+            return self.error(&format!(
+                "conditional reads \"{name}\", which no (?<{name}>…) group before it declares"
+            ));
+        };
+        Ok(Some((capture, raw[split + 1..].to_string())))
     }
 
     fn weighted_choice(&mut self) -> EngineResult<Node> {

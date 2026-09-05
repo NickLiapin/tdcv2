@@ -463,6 +463,34 @@
       "description": "`hh` and `A` are Moment's 12-hour clock and AM/PM marker; TDC has neither. They used to pass validation and then print themselves — `hh:mm A` gave `hh:00 A` — so the config was accepted and the file was wrong. Letters outside the token alphabet are still ordinary words: `DD of MM` keeps working unbracketed.",
       "config": "<tdc><env count=\"1\" seed=\"v\"><sequence name=\"D\"><gen type=\"date\" value=\"2024-03-05\" format=\"hh:mm A\"/></sequence></env><block><line><data>${{D}}</data></line></block></tdc>",
       "expected": ["error TDC152 1:92"]
+    },
+    {
+      "name": "advanced-regex-conditional-reads-a-later-group",
+      "demonstrates": "TDC130",
+      "description": "The pattern is generated left to right, so a group further along has produced nothing to compare against and the branch could never be taken. A config asking for it meant the other order, and saying so is the difference between an error and a column of empty halves.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"P\"><gen type=\"advanced_regex\" value=\"(?if{c=a:X})(?<c>a)\"/></sequence></env><block><line><data>${{P}}</data></line></block></tdc>",
+      "expected": ["error TDC130 1:93"]
+    },
+    {
+      "name": "advanced-regex-two-groups-under-one-name",
+      "demonstrates": "TDC130",
+      "description": "Two groups under one name would make (?if{c=…}) a coin toss between them, decided by whichever the parser happened to record last.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"P\"><gen type=\"advanced_regex\" value=\"(?<c>a)(?<c>b)\"/></sequence></env><block><line><data>${{P}}</data></line></block></tdc>",
+      "expected": ["error TDC130 1:93"]
+    },
+    {
+      "name": "advanced-regex-conditional-branch-reads-nothing",
+      "demonstrates": "TDC130",
+      "description": "A branch has to say WHICH group it reads and what it must equal. Without the \"=\" there is no test, and the branch would be either always taken or never — the reader cannot tell which.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"P\"><gen type=\"advanced_regex\" value=\"(?<c>a)(?if{c:X})\"/></sequence></env><block><line><data>${{P}}</data></line></block></tdc>",
+      "expected": ["error TDC130 1:93"]
+    },
+    {
+      "name": "advanced-regex-lookbehind-is-not-a-named-group",
+      "demonstrates": "TDC130",
+      "description": "Lookbehind starts \"(?<\" exactly as a named group does, and reading it as a group called \"=a\" would turn a construct that cannot work here into one that silently does something else. Lookaround decides what a pattern MATCHES, and nothing in this generator is matching.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"P\"><gen type=\"advanced_regex\" value=\"(?<=a)b\"/></sequence></env><block><line><data>${{P}}</data></line></block></tdc>",
+      "expected": ["error TDC130 1:93"]
     }
   ]
 }

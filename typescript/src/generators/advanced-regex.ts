@@ -48,7 +48,8 @@ type AdvancedRegexNode =
   | RepeatNode
   | CaptureNode
   | BackrefNode
-  | WeightedChoiceNode;
+  | WeightedChoiceNode
+  | ConditionalNode;
 
 interface EmptyNode {
   readonly kind: 'empty';
@@ -86,6 +87,8 @@ interface CaptureNode {
   readonly index: number;
   readonly node: AdvancedRegexNode;
   readonly maxLength: number;
+  /** The `(?<name>…)` spelling, kept only so an error can name the group back. */
+  readonly name?: string | undefined;
 }
 
 interface BackrefNode {
@@ -100,6 +103,34 @@ interface WeightedChoiceNode {
 
 interface WeightedBranch {
   readonly percent: number;
+  readonly node: AdvancedRegexNode;
+}
+
+/**
+ * `(?if{sex=male:MR;sex=female:MS})` — pick a branch from what an EARLIER named
+ * group produced on this row.
+ *
+ * The one construct in this generator that reads rather than draws. Everything
+ * else here decides a row from randomness alone, which is why a pattern could
+ * describe an address or an identifier but never a title that agrees with a sex
+ * chosen two characters earlier — the classic reason to abandon `advanced_regex`
+ * and rebuild the column as a `<switch>`.
+ */
+interface ConditionalNode {
+  readonly kind: 'conditional';
+  readonly branches: readonly ConditionalBranch[];
+}
+
+interface ConditionalBranch {
+  /**
+   * Which capture to read and what it must equal; `undefined` is the `*` branch,
+   * which always matches.
+   *
+   * Branches are tried in the order written and the first match wins, so a `*`
+   * is an "otherwise" wherever it stands — and a row matching NO branch produces
+   * nothing at all, which is what `*` exists to prevent.
+   */
+  readonly test: { readonly capture: number; readonly value: string } | undefined;
   readonly node: AdvancedRegexNode;
 }
 
@@ -177,6 +208,14 @@ class AdvancedRegexParser {
   private pos = 0;
   private closedCaptureCount = 0;
   private readonly mutableCaptureMaxLengths = new Map<number, number>();
+  /**
+   * `(?<name>…)` → its capture index, filled as each named group CLOSES.
+   *
+   * Closing rather than opening, so `(?<a>(?if{a=x:y}))` cannot read the group it
+   * is inside: at that point the group has produced nothing, and the condition
+   * would compare against the empty string on every row.
+   */
+  private readonly groupNames = new Map<string, number>();
   public captureCount = 0;
   public weightedChoiceCount = 0;
 
@@ -305,14 +344,33 @@ class AdvancedRegexParser {
       this.expect(')');
       return node;
     }
+    if (this.peek() === '?' && this.pattern.startsWith('?if{', this.pos)) {
+      this.pos += 4;
+      const node = this.parseConditional();
+      this.expect(')');
+      return node;
+    }
 
     let capturing = true;
+    let name: string | undefined;
     if (this.peek() === '?') {
       if (this.pattern.startsWith('?:', this.pos)) {
         this.pos += 2;
         capturing = false;
+      } else if (
+        this.pattern.startsWith('?<', this.pos) &&
+        // `(?<=…)` and `(?<!…)` are LOOKBEHIND, not a group called "=" or "!".
+        this.peekAt(2) !== '=' &&
+        this.peekAt(2) !== '!'
+      ) {
+        this.pos += 2;
+        name = this.parseGroupName();
       } else {
-        throw this.error('lookaround, named, and conditional groups are not supported yet');
+        throw this.error(
+          'this group is not supported — advanced_regex has (?:…), (?<name>…), (?%{…}) ' +
+            'and (?if{…}). Lookaround and numbered conditionals decide what a pattern ' +
+            'MATCHES, and nothing here is matching anything',
+        );
       }
     }
 
@@ -327,7 +385,82 @@ class AdvancedRegexParser {
     this.closedCaptureCount = Math.max(this.closedCaptureCount, index);
     const groupMax = computeMaxLength(node, this.mutableCaptureMaxLengths);
     this.mutableCaptureMaxLengths.set(index, groupMax);
-    return { kind: 'capture', index, node, maxLength: groupMax };
+    if (name !== undefined) this.groupNames.set(name, index);
+    return { kind: 'capture', index, node, maxLength: groupMax, name };
+  }
+
+  /** The `name` of `(?<name>…)`, up to the closing `>`. */
+  private parseGroupName(): string {
+    const start = this.pos;
+    while (!this.atEnd() && this.peek() !== '>') this.pos += 1;
+    const name = this.pattern.slice(start, this.pos);
+    this.expect('>');
+    if (name.length === 0) throw this.error('a named group needs a name: (?<sex>…)');
+    if (!/^[A-Za-z_][A-Za-z0-9_]*$/.test(name)) {
+      throw this.error(
+        `group name "${name}" must start with a letter or "_" and hold only letters, digits and "_"`,
+      );
+    }
+    // Two groups under one name would make `(?if{name=…})` a coin toss between
+    // them, decided by whichever the parser happened to record last.
+    if (this.groupNames.has(name)) throw this.error(`group name "${name}" is already used`);
+    return name;
+  }
+
+  /**
+   * `?if{sex=male:MR;sex=female:MS}` — the `(?if{` is already consumed.
+   *
+   * Each branch is a full pattern, so weighted choices and further conditionals
+   * nest inside them exactly as they do inside a weighted branch.
+   */
+  private parseConditional(): AdvancedRegexNode {
+    const branches: ConditionalBranch[] = [];
+    while (!this.atEnd()) {
+      this.skipControlWhitespace();
+      if (this.peek() === '}') throw this.error('conditional must contain at least one branch');
+      const test = this.parseConditionalTest();
+      const node = this.parseAlternation(WEIGHTED_BRANCH_STOP);
+      branches.push({ test, node });
+
+      const ch = this.peek();
+      if (ch === ';') {
+        this.pos += 1;
+        continue;
+      }
+      if (ch === '}') {
+        this.pos += 1;
+        return { kind: 'conditional', branches };
+      }
+      throw this.error('expected ";" or "}" in conditional');
+    }
+    throw this.error('unterminated conditional');
+  }
+
+  /** `name=value` before a branch's `:`, or `*` for the branch that always matches. */
+  private parseConditionalTest(): ConditionalBranch['test'] {
+    const start = this.pos;
+    while (!this.atEnd() && this.peek() !== ':' && this.peek() !== '}') this.pos += 1;
+    const raw = this.pattern.slice(start, this.pos);
+    this.expect(':');
+    if (raw === '*') return undefined;
+
+    const split = raw.indexOf('=');
+    if (split < 0) {
+      throw this.error(
+        `conditional branch "${raw}" must read a group: name=value, or "*" for every other row`,
+      );
+    }
+    const name = raw.slice(0, split).trim();
+    const capture = this.groupNames.get(name);
+    if (capture === undefined) {
+      // Declared LATER is the same as not declared at all here: the pattern is
+      // generated left to right, so a group further along has produced nothing
+      // to compare against and the branch could never be taken.
+      throw this.error(
+        `conditional reads "${name}", which no (?<${name}>…) group before it declares`,
+      );
+    }
+    return { capture, value: raw.slice(split + 1) };
   }
 
   private parseWeightedChoice(): AdvancedRegexNode {
@@ -569,6 +702,10 @@ class AdvancedRegexParser {
     return this.pattern[this.pos + 1];
   }
 
+  private peekAt(offset: number): string | undefined {
+    return this.pattern[this.pos + offset];
+  }
+
   private error(message: string): AdvancedRegexGeneratorError {
     return new AdvancedRegexGeneratorError(
       `advanced_regex: ${message} at offset ${String(this.pos)}`,
@@ -615,6 +752,9 @@ function generateInto(
       return;
     case 'weightedChoice':
       generateWeightedChoice(node, rows, prng);
+      return;
+    case 'conditional':
+      generateConditional(node, rows, prng);
   }
 }
 
@@ -692,6 +832,40 @@ function generateWeightedChoice(
   }
 }
 
+/**
+ * Send each row to the FIRST branch whose test it passes, then build the branches
+ * in the order they were written.
+ *
+ * Rows that pass no branch are left untouched — nothing is appended — which is
+ * the only honest answer when the pattern says nothing about the value the row
+ * actually holds. Writing a `*` branch is how a config says what to do instead.
+ *
+ * The order matters and is the alternation's: branch by branch, not row by row,
+ * so the draws a branch makes depend on how many rows CHOSE it rather than on
+ * where those rows sit in the column.
+ */
+function generateConditional(
+  node: ConditionalNode,
+  rows: readonly GenerateRow[],
+  prng: () => number,
+): void {
+  const buckets = node.branches.map((): GenerateRow[] => []);
+  for (const row of rows) {
+    for (let i = 0; i < node.branches.length; i++) {
+      const test = node.branches[i]?.test;
+      if (test === undefined || (row.captures[test.capture] ?? '') === test.value) {
+        buckets[i]?.push(row);
+        break;
+      }
+    }
+  }
+  for (let i = 0; i < node.branches.length; i++) {
+    const branch = node.branches[i];
+    const bucket = buckets[i];
+    if (branch && bucket && bucket.length > 0) generateInto(branch.node, bucket, prng);
+  }
+}
+
 function computeMaxLength(
   node: AdvancedRegexNode,
   captureMaxLengths: ReadonlyMap<number, number>,
@@ -715,6 +889,12 @@ function computeMaxLength(
     case 'weightedChoice':
       return Math.max(
         ...node.choices.map((choice) => computeMaxLength(choice.node, captureMaxLengths)),
+      );
+    case 'conditional':
+      // The longest branch: a row takes exactly one of them, so the widest the
+      // conditional can be is the widest branch — never their sum.
+      return Math.max(
+        ...node.branches.map((branch) => computeMaxLength(branch.node, captureMaxLengths)),
       );
   }
 }

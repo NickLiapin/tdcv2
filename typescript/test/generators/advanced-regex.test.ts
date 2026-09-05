@@ -315,11 +315,19 @@ describe('advancedRegexGenerator — rejected constructs', () => {
     expect(() => parseAdvancedRegexProgram('[a-z]{1,}')).toThrow(/unbounded/);
   });
 
-  it('rejects unsupported group constructs for now', () => {
+  /*
+   * Lookaround decides what a pattern MATCHES, and this generator matches
+   * nothing — it produces. `(?<=a)b` is the one worth pinning: it starts `(?<`
+   * exactly as a named group does, and reading it as a group called "=a" would
+   * turn a construct that cannot work into one that silently does something else.
+   */
+  it('rejects unsupported group constructs', () => {
     expect(() => parseAdvancedRegexProgram('(?=a)a')).toThrow(/not supported/);
     expect(() => parseAdvancedRegexProgram('(?!a)a')).toThrow(/not supported/);
     expect(() => parseAdvancedRegexProgram('(?<=a)b')).toThrow(/not supported/);
-    expect(() => parseAdvancedRegexProgram('(?<name>a)')).toThrow(/not supported/);
+    expect(() => parseAdvancedRegexProgram('(?<!a)b')).toThrow(/not supported/);
+    // A NUMBERED conditional is a matching construct too. TDC's own reads a
+    // named group instead: (?if{name=value:…}).
     expect(() => parseAdvancedRegexProgram('(?(1)a|b)')).toThrow(/not supported/);
   });
 
@@ -386,5 +394,118 @@ describe('advancedRegexGenerator — rejected constructs', () => {
 
   it('throws a typed error for invalid programs', () => {
     expect(() => parseAdvancedRegexProgram('[a-z]+')).toThrow(AdvancedRegexGeneratorError);
+  });
+});
+
+/*
+ * Named groups and conditionals — the two constructs that let ONE pattern hold a
+ * value that agrees with another value it chose two characters earlier.
+ *
+ * Everything else in this generator decides a row from randomness alone. That is
+ * why a pattern could describe an identifier or a postcode but never a title that
+ * matches a sex, and why cross-field logic meant abandoning `advanced_regex` and
+ * rebuilding the column as a `<switch>`.
+ */
+describe('named groups', () => {
+  it('names a group without changing what it produces', () => {
+    // Same seed, same pattern but for the name: a name is a label, not a draw.
+    expect(generate('(?<letter>[ab])x', 20, 'named')).toEqual(generate('([ab])x', 20, 'named'));
+  });
+
+  it('is still a numbered group, so \\1 reads it', () => {
+    for (const value of generate('(?<c>[ab])-\\1', 40)) {
+      expect(value).toMatch(/^([ab])-\1$/);
+    }
+  });
+
+  it('refuses a second group under the same name', () => {
+    // Two groups under one name would make (?if{c=…}) a coin toss between them,
+    // decided by whichever the parser happened to record last.
+    expect(() => parseAdvancedRegexProgram('(?<c>a)(?<c>b)')).toThrow(/already used/);
+  });
+
+  it('refuses a name that is not a name', () => {
+    expect(() => parseAdvancedRegexProgram('(?<9x>a)')).toThrow(/must start with a letter/);
+    expect(() => parseAdvancedRegexProgram('(?<>a)')).toThrow(/needs a name/);
+  });
+});
+
+describe('conditionals', () => {
+  it('picks the branch the earlier group chose', () => {
+    for (const value of generate(
+      '(?<sex>(?%{50:male;50:female}))-(?if{sex=male:MR;sex=female:MS})',
+    )) {
+      expect(value).toMatch(/^(male-MR|female-MS)$/);
+    }
+  });
+
+  it('takes the first matching branch, and * matches everything left', () => {
+    const out = generate('(?<c>(?%{34:a;33:b;33:c}))-(?if{c=a:AAA;*:OTHER})', 300);
+    for (const value of out) {
+      expect(value).toMatch(/^(a-AAA|b-OTHER|c-OTHER)$/);
+    }
+    expect(countWhere(out, (v) => v.startsWith('a-'))).toBeGreaterThan(0);
+    expect(countWhere(out, (v) => v.endsWith('-OTHER'))).toBeGreaterThan(0);
+  });
+
+  /*
+   * The honest answer when the pattern says nothing about the value the row
+   * actually holds. It is also why `*` exists — and why this is a test rather
+   * than a footnote: an engine that quietly fell back to the FIRST branch would
+   * produce a plausible file that pairs the wrong things.
+   */
+  it('produces nothing for a row no branch covers', () => {
+    for (const value of generate('(?<c>[ab])-(?if{c=zzz:NEVER})', 20)) {
+      expect(value).toMatch(/^[ab]-$/);
+    }
+  });
+
+  it('nests weighted choices and further conditionals inside its branches', () => {
+    for (const value of generate('(?<c>[ab])-(?if{c=a:(?%{50:A1;50:A2});*:B})', 200)) {
+      expect(value).toMatch(/^(a-(A1|A2)|b-B)$/);
+    }
+    for (const value of generate('(?<c>[ab])(?<d>[xy])-(?if{c=a:(?if{d=x:AX;*:AY});*:B})', 200)) {
+      expect(value).toMatch(/^(ax-AX|ay-AY|b[xy]-B)$/);
+    }
+  });
+
+  it('leaves the weighted choice exact', () => {
+    // The conditional reads the choice; it must not disturb the quota it drew.
+    const counts = valueCounts(
+      generate('(?<c>(?%{70:RU;20:US;10:DE}))-(?if{c=RU:east;*:west})', 1000),
+    );
+    expect(counts.get('RU-east')).toBe(700);
+    expect(counts.get('US-west')).toBe(200);
+    expect(counts.get('DE-west')).toBe(100);
+  });
+
+  /*
+   * Generation runs left to right, so a group further along the pattern has
+   * produced nothing to compare against — the branch could never be taken, and a
+   * config asking for it meant the other order.
+   */
+  it('refuses a group named later in the pattern', () => {
+    expect(() => parseAdvancedRegexProgram('(?if{c=a:X})(?<c>a)')).toThrow(
+      /no \(\?<c>…\) group before it/,
+    );
+    expect(() => parseAdvancedRegexProgram('(?<c>(?if{c=a:X}))')).toThrow(
+      /no \(\?<c>…\) group before it/,
+    );
+  });
+
+  it('refuses a branch that reads nothing, and a conditional with no branch', () => {
+    expect(() => parseAdvancedRegexProgram('(?<c>a)(?if{c:X})')).toThrow(/must read a group/);
+    expect(() => parseAdvancedRegexProgram('(?<c>a)(?if{})')).toThrow(/at least one branch/);
+    // Running off the end reports the same way the weighted choice beside it
+    // does, which is the point: two constructs with one shape and one voice.
+    expect(() => parseAdvancedRegexProgram('(?<c>a)(?if{c=a:X')).toThrow(/expected ";" or "}"/);
+  });
+
+  it('counts only the widest branch towards regex_max_length', () => {
+    // A row takes exactly ONE branch, so the sum of them is not a width anything
+    // can reach — measuring it that way refused patterns that fit.
+    expect(
+      parseAdvancedRegexProgram('(?<c>a)(?if{c=a:XXXXX;*:Y})', { regexMaxLength: 6 }).maxLength,
+    ).toBe(6);
   });
 });

@@ -512,25 +512,101 @@ Both are rejected before generation. Here's the error for the second one:
 quantifier is not allowed; use "{1,n}"`}
 </Terminal>
 
-## Planned, not yet implemented
+## Naming a group — `(?<name>…)`
 
-The syntax below shows the intended direction, but none of it is valid today.
-Named captures:
+A group can carry a name as well as a number:
 
 ```text
 (?<sex>(?%{50:male;50:female}))
 ```
 
-Conditionals, whose branches are meant to be full `advanced_regex` expressions so
-that weighted choices and further conditionals can nest inside them:
+That is an ordinary capturing group — `\1` still reads it — with a label. The label
+exists so that something LATER in the pattern can ask what this group produced,
+which is what the next section is for.
 
-```text
-(?if{sex=male:MR;sex=female:MS})
+Names start with a letter or `_` and hold letters, digits and `_`. Two groups
+cannot share one name: `(?if{sex=…})` would then be a coin toss between them.
+
+## Making one part follow another — `(?if{…})`
+
+**Use it when** two parts of the same value have to agree. Everything else in this
+generator decides a value from randomness alone, which is why a pattern could
+describe a postcode or an identifier but never a title that matches a sex chosen
+two characters earlier. That used to mean abandoning `advanced_regex` and
+rebuilding the column as a [`<switch>`](../reference/tags.mdx).
+
+```xml
+<gen type="advanced_regex" value="(?<sex>(?%{50:male;50:female}))/(?if{sex=male:Mr;sex=female:Ms})"/>
 ```
 
-Until they ship, model cross-field logic with a
-[`parent`](../core-concepts/sequences.mdx#dependent-sequences-parent) filter or a
-[`<mix>`](../reference/tags.mdx#distributions-and-choice).
+<Terminal title="./run titles.tdc (count=8, seed=titles)">
+{`female/Ms
+male/Mr
+male/Mr
+female/Ms
+male/Mr
+female/Ms
+female/Ms
+male/Mr`}
+</Terminal>
+
+Every row agrees with itself. `male` is never followed by `Ms`.
+
+### How it reads
+
+`(?if{name=value:branch;name=value:branch})`. Branches are separated by `;`, and
+each is `what to test` then `:` then `what to produce`. They are tried **in the
+order written** and the **first match wins**.
+
+A branch is a full `advanced_regex` expression, so weighted choices and further
+conditionals nest inside it:
+
+```xml
+<gen type="advanced_regex" value="(?<country>(?%{60:RU;30:US;10:DE}))-(?if{country=RU:[0-9]{3};country=US:[A-Z]{3};*:[A-Z]{2}[0-9]})"/>
+```
+
+<Terminal title="./run plates.tdc (count=10, seed=plates)">
+{`RU-683
+US-NGS
+DE-ZQ5
+US-VNS
+RU-867
+RU-722
+RU-372
+RU-890
+US-SEA
+RU-589`}
+</Terminal>
+
+`*` is the branch that matches **everything else** — the `DE` rows here. Without
+one, a row that matches no branch produces **nothing at all** for that part:
+
+```text
+(?<c>(?%{50:a;50:b}))-(?if{c=zzz:NEVER})     →  a-   b-   a-   b- …
+```
+
+That is deliberate. The pattern said nothing about what an `a` row should produce,
+and quietly falling back to the first branch would pair the wrong things in a file
+that otherwise looks right. Write a `*` branch to say what you meant.
+
+### What it will not do
+
+- **Read a group declared later.** The pattern is built left to right, so a group
+  further along has produced nothing to compare against and the branch could never
+  be taken. Refused, rather than left to produce empty halves.
+- **Read anything but a named group** — not another column, not `${{…}}`. For
+  cross-column logic use [`<switch>`](../reference/tags.mdx) or a
+  [`parent`](../core-concepts/sequences.mdx#dependent-sequences-parent) filter;
+  this is for parts of ONE value.
+- **Compare anything but plain text.** The test is `name=value`, an exact match
+  against what the group produced. A value cannot contain `:` — that is where the
+  branch begins.
+
+### It leaves the quota exact
+
+The conditional reads the weighted choice; it does not disturb it. Over 200 rows
+`(?<c>(?%{70:RU;20:US;10:DE}))` still gives exactly 140, 40 and 20 — and each row's
+second half follows from its own first half.
 
 ## See also
 

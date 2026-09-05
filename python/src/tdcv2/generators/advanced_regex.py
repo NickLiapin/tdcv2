@@ -17,6 +17,7 @@ draw order follows from that shape, so it is part of the contract, not an implem
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 
 from ..distribution import hamilton
@@ -60,6 +61,35 @@ class WeightedChoice(Node):
     """``(?%{70:A;30:B})`` — branches with exact shares over the whole column."""
 
     choices: list[WeightedBranch]
+
+
+@dataclass(frozen=True, slots=True)
+class ConditionalBranch:
+    """One branch of ``(?if{…})``.
+
+    ``test`` is ``None`` for the ``*`` branch, which always matches; otherwise it is the
+    capture index to read and the text it must equal.
+    """
+
+    test: tuple[int, str] | None
+    node: Node
+
+
+@dataclass(frozen=True, slots=True)
+class Conditional(Node):
+    """``(?if{sex=male:MR;sex=female:MS})`` — pick a branch from what an EARLIER named group
+    produced on this row.
+
+    The one construct here that reads rather than draws. Everything else decides a row from
+    randomness alone, which is why a pattern could describe an address or an identifier but
+    never a title that agrees with a sex chosen two characters earlier.
+
+    Branches are tried in the order written and the first match wins, so a ``*`` is an
+    "otherwise" wherever it stands — and a row matching NO branch produces nothing at all,
+    which is what ``*`` exists to prevent.
+    """
+
+    branches: list[ConditionalBranch]
 
 
 @dataclass(frozen=True, slots=True)
@@ -159,6 +189,9 @@ def _generate_into(node: Node, rows: list[_Row], prng: Sfc32) -> None:
     if isinstance(node, WeightedChoice):
         _generate_weighted(node, rows, prng)
         return
+    if isinstance(node, Conditional):
+        _generate_conditional(node, rows, prng)
+        return
     raise AssertionError(f"advanced_regex: unhandled node {node}")
 
 
@@ -200,6 +233,27 @@ def _generate_weighted(node: WeightedChoice, rows: list[_Row], prng: Sfc32) -> N
             _generate_into(choice.node, bucket, prng)
 
 
+def _generate_conditional(node: Conditional, rows: list[_Row], prng: Sfc32) -> None:
+    """Each row to the FIRST branch it passes, then the branches in the order written.
+
+    Rows that pass no branch are left untouched — nothing is appended — which is the only
+    honest answer when the pattern says nothing about the value the row actually holds.
+    Writing a ``*`` branch is how a config says what to do instead.
+
+    Branch by branch, not row by row, so the draws a branch makes depend on how many rows
+    CHOSE it rather than on where those rows sit in the column.
+    """
+    buckets: list[list[_Row]] = [[] for _ in node.branches]
+    for row in rows:
+        for i, branch in enumerate(node.branches):
+            if branch.test is None or row.captures.get(branch.test[0], "") == branch.test[1]:
+                buckets[i].append(row)
+                break
+    for branch, bucket in zip(node.branches, buckets, strict=True):
+        if bucket:
+            _generate_into(branch.node, bucket, prng)
+
+
 def _max_length(node: Node, capture_max_lengths: dict[int, int]) -> int:
     if isinstance(node, Empty):
         return 0
@@ -220,6 +274,10 @@ def _max_length(node: Node, capture_max_lengths: dict[int, int]) -> int:
         return capture_max_lengths.get(node.index, 0)
     if isinstance(node, WeightedChoice):
         return max((_max_length(c.node, capture_max_lengths) for c in node.choices), default=0)
+    if isinstance(node, Conditional):
+        # The longest branch: a row takes exactly one of them, so the widest the conditional
+        # can be is the widest branch — never their sum.
+        return max((_max_length(b.node, capture_max_lengths) for b in node.branches), default=0)
     raise AssertionError(f"advanced_regex: unhandled node {node}")
 
 
@@ -258,6 +316,11 @@ class _Parser:
         self.closed_capture_count = 0
         self.weighted_choice_count = 0
         self.capture_max_lengths: dict[int, int] = {}
+        # ``(?<name>…)`` → its capture index, filled as each named group CLOSES. Closing
+        # rather than opening, so ``(?<a>(?if{a=x:y}))`` cannot read the group it is inside:
+        # at that point the group has produced nothing and the condition would compare
+        # against the empty string on every row.
+        self.group_names: dict[str, int] = {}
 
     def parse(self) -> Node:
         node = self._alternation(frozenset())
@@ -354,14 +417,28 @@ class _Parser:
             node = self._weighted_choice()
             self._expect(")")
             return node
+        if self._peek() == "?" and self.pattern.startswith("?if{", self.pos):
+            self.pos += 4
+            node = self._conditional()
+            self._expect(")")
+            return node
 
         capturing = True
+        name: str | None = None
         if self._peek() == "?":
             if self.pattern.startswith("?:", self.pos):
                 self.pos += 2
                 capturing = False
+            elif self.pattern.startswith("?<", self.pos) and self._peek_at(2) not in ("=", "!"):
+                # ``(?<=…)`` and ``(?<!…)`` are LOOKBEHIND, not a group called "=" or "!".
+                self.pos += 2
+                name = self._group_name()
             else:
-                raise self._error("lookaround, named, and conditional groups are not supported yet")
+                raise self._error(
+                    "this group is not supported — advanced_regex has (?:…), (?<name>…), "
+                    "(?%{…}) and (?if{…}). Lookaround and numbered conditionals decide what a "
+                    "pattern MATCHES, and nothing here is matching anything"
+                )
 
         index = 0
         if capturing:
@@ -376,7 +453,80 @@ class _Parser:
         self.closed_capture_count = max(self.closed_capture_count, index)
         group_max = _max_length(node, self.capture_max_lengths)
         self.capture_max_lengths[index] = group_max
+        if name is not None:
+            self.group_names[name] = index
         return Capture(index, node, group_max)
+
+    def _group_name(self) -> str:
+        """The ``name`` of ``(?<name>…)``, up to the closing ``>``."""
+        start = self.pos
+        while not self._at_end() and self._peek() != ">":
+            self.pos += 1
+        name = self.pattern[start : self.pos]
+        self._expect(">")
+        if not name:
+            raise self._error("a named group needs a name: (?<sex>…)")
+        if not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", name):
+            raise self._error(
+                f'group name "{name}" must start with a letter or "_" and hold only letters, '
+                'digits and "_"'
+            )
+        # Two groups under one name would make ``(?if{name=…})`` a coin toss between them,
+        # decided by whichever the parser happened to record last.
+        if name in self.group_names:
+            raise self._error(f'group name "{name}" is already used')
+        return name
+
+    def _conditional(self) -> Node:
+        """``?if{sex=male:MR;sex=female:MS}`` — the ``(?if{`` is already consumed.
+
+        Each branch is a full pattern, so weighted choices and further conditionals nest
+        inside them exactly as they do inside a weighted branch.
+        """
+        branches: list[ConditionalBranch] = []
+        while not self._at_end():
+            self._skip_control_whitespace()
+            if self._peek() == "}":
+                raise self._error("conditional must contain at least one branch")
+            test = self._conditional_test()
+            node = self._alternation(_BRANCH_STOP)
+            branches.append(ConditionalBranch(test, node))
+
+            ch = self._peek()
+            if ch == ";":
+                self.pos += 1
+                continue
+            if ch == "}":
+                self.pos += 1
+                return Conditional(branches)
+            raise self._error('expected ";" or "}" in conditional')
+        raise self._error("unterminated conditional")
+
+    def _conditional_test(self) -> tuple[int, str] | None:
+        """``name=value`` before a branch's ``:``, or ``*`` for the branch that always matches."""
+        start = self.pos
+        while not self._at_end() and self._peek() not in (":", "}"):
+            self.pos += 1
+        raw = self.pattern[start : self.pos]
+        self._expect(":")
+        if raw == "*":
+            return None
+        split = raw.find("=")
+        if split < 0:
+            raise self._error(
+                f'conditional branch "{raw}" must read a group: name=value, or "*" for every '
+                "other row"
+            )
+        name = raw[:split].strip()
+        capture = self.group_names.get(name)
+        if capture is None:
+            # Declared LATER is the same as not declared at all here: the pattern is generated
+            # left to right, so a group further along has produced nothing to compare against
+            # and the branch could never be taken.
+            raise self._error(
+                f'conditional reads "{name}", which no (?<{name}>…) group before it declares'
+            )
+        return (capture, raw[split + 1 :])
 
     def _weighted_choice(self) -> Node:
         choices: list[WeightedBranch] = []
@@ -582,6 +732,10 @@ class _Parser:
 
     def _peek_next(self) -> str | None:
         return None if self.pos + 1 >= len(self.pattern) else self.pattern[self.pos + 1]
+
+    def _peek_at(self, offset: int) -> str | None:
+        at = self.pos + offset
+        return None if at >= len(self.pattern) else self.pattern[at]
 
     def _safe_int(self, text: str) -> int:
         try:
