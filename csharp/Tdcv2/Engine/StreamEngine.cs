@@ -1494,8 +1494,11 @@ public sealed class StreamEngine
 
         bool inline = InlineTypes.Contains(gen.Type);
         double p = anomaly.Value.Probability;
-        Imperfections.Missing? missing = Imperfections.ParseMissing(gen.Attrs);
-        double missP = missing?.Probability ?? 0.0;
+        // `missing_when=` narrows WHICH rows can be blanked, so the flag has to read the same
+        // condition or it goes back to disagreeing with the value on every row the condition
+        // excludes.
+        Imperfections.Missing? parsed = Imperfections.ParseMissing(gen.Attrs);
+        Imperfections.Missing? missing = parsed is { Probability: > 0 } ? parsed : null;
         return row =>
         {
             if (domain.PopIndexAt(row) is null)
@@ -1505,22 +1508,32 @@ public sealed class StreamEngine
 
             if (inline)
             {
-                // A cell `missing=` blanked has no spike left to label.
-                if (missP > 0 && Seekable.Uniforms(_seed, streamId + "#miss", row, 1)[0] < missP)
-                {
-                    return "false";
-                }
-
                 // Selection is only half of it: a spike replaces a NUMBER, so a selected word is
                 // left exactly as it was. `raw` is the value BEFORE the modifiers ran, because
                 // once `missing=` has blanked a cell a word and a spiked number look alike.
-                bool numeric = raw is not null
-                    && double.TryParse(
-                        raw(row)?.Trim(), NumberStyles.Float, CultureInfo.InvariantCulture,
+                string before = raw?.Invoke(row) ?? "";
+                bool numeric = double.TryParse(
+                        before.Trim(), NumberStyles.Float, CultureInfo.InvariantCulture,
                         out double v)
                     && !double.IsNaN(v) && !double.IsInfinity(v);
-                return Seekable.Uniforms(_seed, streamId + "#anom", row, 1)[0] < p && numeric
-                    ? "true" : "false";
+                bool spikedHere =
+                    Seekable.Uniforms(_seed, streamId + "#anom", row, 1)[0] < p && numeric;
+                if (missing is { } m)
+                {
+                    // The condition reads the value the blanking pass would see — after the
+                    // spike, exactly as the in-memory pass does. A cell `missing=` blanked has
+                    // no spike left to label.
+                    string value = spikedHere
+                        ? Imperfections.Spike(before, anomaly.Value.Factor)
+                        : before;
+                    if (MissingEligible(m, row, value)
+                        && Seekable.Uniforms(_seed, streamId + "#miss", row, 1)[0] < m.Probability)
+                    {
+                        return "false";
+                    }
+                }
+
+                return spikedHere ? "true" : "false";
             }
 
             var spiked = new bool[1];
@@ -1583,14 +1596,16 @@ public sealed class StreamEngine
         {
             return MemoryEngine.Finish(
                 MemoryEngine.Generate(gen, 1, prng, ctx, null, _ => row), gen.Attrs, prng,
-                flagsOut ?? new bool[1]);
+                flagsOut ?? new bool[1], null,
+                // One value, on THIS row — what `missing_when=` needs to read a sibling.
+                ctx, _ => row);
         }
 
         return Repeat.Build(
             repeat.Value, 1, prng,
             slots => MemoryEngine.Finish(
                 MemoryEngine.Generate(gen, slots, prng, ctx, null, _ => row),
-                gen.Attrs, prng, new bool[slots]));
+                gen.Attrs, prng, new bool[slots], null, ctx, _ => row));
     }
 
     /// <summary>A <c>&lt;gen type="template"&gt;</c> pointing at a pack that carries its own shares.</summary>
@@ -2722,6 +2737,17 @@ public sealed class StreamEngine
     private string? ValueAt(string name, int row) =>
         _columns.TryGetValue(name, out Column? column) ? column(row) : null;
 
+    /// <summary>
+    /// Is this row eligible to go missing? True when there is no <c>missing_when=</c>.
+    /// </summary>
+    /// <remarks>
+    /// Handed to the in-memory engine's own test with this engine's lazy registry as the column
+    /// reader, so the two cannot drift apart.
+    /// </remarks>
+    private bool MissingEligible(Imperfections.Missing missing, int row, string value) =>
+        MemoryEngine.MissingRowEligible(
+            missing.When, _columns.ContainsKey, ValueAt, row, value);
+
     private sealed class StreamLookup : Interpolate.ILookup
     {
         private readonly StreamEngine _engine;
@@ -2823,9 +2849,12 @@ public sealed class StreamEngine
                 result = Imperfections.Spike(result, anomaly.Value.Factor);
             }
 
+            // The eligibility test comes BEFORE the draw and reads the SPIKED value, both
+            // exactly as the in-memory pass does — see `ApplyMissing`.
             if (hasMissing
+                && MissingEligible(missing!.Value, row, result)
                 && Seekable.Uniforms(_seed, streamId + "#miss", row, elementDraws)[element]
-                    < missing!.Value.Probability)
+                    < missing.Value.Probability)
             {
                 result = missing.Value.Token;
             }

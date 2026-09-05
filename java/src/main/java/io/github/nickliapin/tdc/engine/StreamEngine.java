@@ -1433,22 +1433,33 @@ public final class StreamEngine {
     }
     boolean inline = INLINE_TYPES.contains(gen.type());
     double p = anomaly.probability();
-    Imperfections.Missing missing = Imperfections.parseMissing(gen.attrs());
-    double missP = missing == null ? 0.0 : missing.probability();
+    // `missing_when=` narrows WHICH rows can be blanked, so the flag has to read the same
+    // condition or it goes back to disagreeing with the value on every row the condition
+    // excludes.
+    Imperfections.Missing parsed = Imperfections.parseMissing(gen.attrs());
+    Imperfections.Missing missing = parsed != null && parsed.probability() > 0 ? parsed : null;
     return row -> {
       if (domain.popIndexAt().apply(row) == null) {
         return null;
       }
       if (inline) {
-        // A cell `missing=` blanked has no spike left to label.
-        if (missP > 0 && Seekable.uniforms(seed, streamId + "#miss", row, 1)[0] < missP) {
-          return "false";
-        }
         // Selection is only half of it: a spike replaces a NUMBER, so a selected word is left
         // exactly as it was. `raw` is the value BEFORE the modifiers ran, because once
         // `missing=` has blanked a cell a word and a spiked number look alike.
-        return String.valueOf(
-            Seekable.uniforms(seed, streamId + "#anom", row, 1)[0] < p && isNumber(raw, row));
+        boolean spiked =
+            Seekable.uniforms(seed, streamId + "#anom", row, 1)[0] < p && isNumber(raw, row);
+        if (missing != null) {
+          // The condition reads the value the blanking pass would see — after the spike,
+          // exactly as the in-memory pass does. A cell `missing=` blanked has no spike to label.
+          String before = raw == null ? "" : raw.valueAt(row);
+          before = before == null ? "" : before;
+          String value = spiked ? Imperfections.spike(before, anomaly.factor()) : before;
+          if (missingEligible(missing, row, value)
+              && Seekable.uniforms(seed, streamId + "#miss", row, 1)[0] < missing.probability()) {
+            return "false";
+          }
+        }
+        return String.valueOf(spiked);
       }
       boolean[] spiked = new boolean[1];
       genValues(gen, Seekable.generator(seed, streamId, row), spiked, row, streamId);
@@ -1532,7 +1543,9 @@ public final class StreamEngine {
               siblings, position -> row, streamId, true),
           gen.attrs(),
           prng,
-          flagsOut == null ? new boolean[1] : flagsOut);
+          flagsOut == null ? new boolean[1] : flagsOut,
+          // One value, on THIS row — what `missing_when=` needs to read a sibling.
+          new MemoryEngine.Neighbours(siblings, position -> row));
     }
     return Repeat.build(
         repeat,
@@ -1545,7 +1558,8 @@ public final class StreamEngine {
                     null, siblings, position -> row, streamId, true),
                 gen.attrs(),
                 prng,
-                new boolean[slots]));
+                new boolean[slots],
+                new MemoryEngine.Neighbours(siblings, position -> row)));
   }
 
   /**
@@ -2523,7 +2537,10 @@ public final class StreamEngine {
               < anomaly.probability()) {
         out = Imperfections.spike(out, anomaly.factor());
       }
+      // The eligibility test comes BEFORE the draw and reads the SPIKED value, both exactly as
+      // the in-memory pass does — see `applyMissing`.
       if (hasMissing
+          && missingEligible(missing, row, out)
           && Seekable.uniforms(seed, streamId + "#miss", row, elementDraws)[element]
               < missing.probability()) {
         out = missing.token();
@@ -2536,6 +2553,20 @@ public final class StreamEngine {
       }
       return out;
     };
+  }
+
+  /**
+   * Is this row eligible to go missing? {@code true} when there is no {@code missing_when=}.
+   *
+   * <p>Handed to the in-memory engine's own test with this engine's lazy registry as the column
+   * reader, so the two cannot drift apart.
+   */
+  private boolean missingEligible(Imperfections.Missing missing, int row, String value) {
+    return MemoryEngine.missingRowEligible(
+        missing.when(),
+        new MemoryEngine.Siblings(columns::containsKey, (name, at) -> valueAt(name, at)),
+        row,
+        value);
   }
 
   private static Column wrap(Modifier mod, Column column) {

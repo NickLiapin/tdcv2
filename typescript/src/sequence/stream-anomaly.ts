@@ -10,7 +10,7 @@
  */
 
 import { keepShape, parseAnomaly } from '../generators/anomaly.js';
-import { parseMissing } from '../generators/missing.js';
+import { missingEligibility, parseMissing } from '../generators/missing.js';
 import { genFormatter } from '../format/transforms.js';
 import { seekableUniforms } from '../prng/seekable.js';
 
@@ -33,6 +33,12 @@ export function missingAnomalyMod(
   seed: string,
   streamId: string,
   elementDraws = 1,
+  /**
+   * The columns `missing_when=` may read. Absent — a nested build with no
+   * registry of its own — leaves `_value` answering and a named column absent,
+   * which is what `if=` does in the same place.
+   */
+  options?: SequenceBuildOptions,
 ): ((i: number, v: string | undefined, k?: number) => string | undefined) | null {
   const anomaly = parseAnomaly(gen.attrs);
   const missing = parseMissing(gen.attrs);
@@ -57,6 +63,12 @@ export function missingAnomalyMod(
     missDraws = hasMissing ? seekableUniforms(seed, `${streamId}#miss`, i, elementDraws) : [];
   };
 
+  const eligible = missingEligibility(
+    missing?.when,
+    (name) => options?.hasColumn?.(name) === true,
+    (name, row) => options?.valueAt?.(name, row) ?? '',
+  );
+
   return (i, v, k = 0) => {
     if (v === undefined) return undefined; // an inactive row stays inactive
     drawsFor(i);
@@ -70,7 +82,14 @@ export function missingAnomalyMod(
       // which has always shared this helper, disagreed with the streaming one.
       if (Number.isFinite(n)) out = keepShape(out, n * anomaly.factor);
     }
-    if (missing && hasMissing && (missDraws[k] ?? 1) < missing.p) {
+    // The eligibility test comes BEFORE the draw and reads the SPIKED value, both
+    // exactly as the in-memory pass does — see `applyMissing`.
+    if (
+      missing &&
+      hasMissing &&
+      (eligible === undefined || eligible(i, out)) &&
+      (missDraws[k] ?? 1) < missing.p
+    ) {
       out = missing.token;
     }
     return fmt ? fmt(out) : out;
@@ -120,19 +139,33 @@ export function anomalyFlagSequence(
   // so the same rule has to be written down twice. Without it the pairing the
   // anomalies page recommends — `anomaly` beside `missing` — wrote `true` next to
   // an empty cell, and the two engines disagreed about it as well.
+  //
+  // `missing_when=` narrows WHICH rows can be blanked, and the flag has to read
+  // the same condition or it goes back to disagreeing with the value on every row
+  // the condition excludes. The condition sees the value AFTER the spike, exactly
+  // as the in-memory pass does.
   const missing = parseMissing(gen.attrs);
-  const blanked =
-    missing && missing.p > 0
-      ? (i: number): boolean =>
-          (seekableUniforms(seed, `${streamId}#miss`, i, 1)[0] ?? 1) < missing.p
-      : (): boolean => false;
+  const eligible = missingEligibility(
+    missing?.when,
+    (name) => options.hasColumn?.(name) === true,
+    (name, row) => options.valueAt?.(name, row) ?? '',
+  );
+  const blanked = (i: number, value: string): boolean =>
+    missing !== undefined &&
+    missing.p > 0 &&
+    (eligible === undefined || eligible(i, value)) &&
+    (seekableUniforms(seed, `${streamId}#miss`, i, 1)[0] ?? 1) < missing.p;
   const decide = INLINE_ANOMALY_TYPES.has(gen.type)
-    ? (i: number): string =>
-        !blanked(i) &&
-        (seekableUniforms(seed, `${streamId}#anom`, i, 1)[0] ?? 1) < p &&
-        Number.isFinite(Number(rawAt ? rawAt(i) : Number.NaN))
-          ? 'true'
-          : 'false'
+    ? (i: number): string => {
+        const raw = rawAt ? rawAt(i) : undefined;
+        const n = Number(raw ?? Number.NaN);
+        const spiked =
+          (seekableUniforms(seed, `${streamId}#anom`, i, 1)[0] ?? 1) < p && Number.isFinite(n);
+        // What the row would hold going into the blanking pass, which is what
+        // `_value` means there.
+        const value = spiked ? keepShape(raw ?? '', n * anomaly.factor) : (raw ?? '');
+        return spiked && !blanked(i, value) ? 'true' : 'false';
+      }
     : (i: number): string =>
         resolveGenAnomalyFlagTextAt(gen, i, seed, streamId, locale, now, options);
   const sequence = lazy(name, (i) => (popIndexAt(i) === undefined ? undefined : decide(i)));

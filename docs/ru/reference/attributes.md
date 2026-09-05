@@ -77,6 +77,7 @@
 | `min` / `max`    | Обрезать выпавшие значения диапазоном           | [Распределения](../guides/statistical-distributions.md#top) |
 | `missing`        | Доля строк, оставленных пустыми                 | [Пропуски](../guides/missing-data.md#top)                   |
 | `missing_as`     | Чем записывается пустая ячейка                  | [Пропуски](../guides/missing-data.md#top)                   |
+| `missing_when`   | Какие строки вообще могут опустеть (MAR / MNAR) | [Пропуски](../guides/missing-data.md#top)                   |
 | `anomaly`        | Доля строк, сделанных выбросами                 | [Аномалии](../guides/anomalies.md#top)                      |
 | `anomaly_factor` | Насколько далеко отодвинут выброс               | [Аномалии](../guides/anomalies.md#top)                      |
 | `anomaly_flag`   | Колонка-ответ, помечающая выбросы               | [Аномалии](../guides/anomalies.md#top)                      |

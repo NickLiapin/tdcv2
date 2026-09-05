@@ -56,6 +56,34 @@
       "description": "The other side of the same boundary: one gen, one sequence, one flag column — this is what the refusal points the reader at, so it must stay valid.",
       "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><sequence name=\"Amount\"><gen type=\"number\" value=\"10..99\" anomaly=\"0.5\" anomaly_flag=\"F\"/></sequence></env><block><line><data>${{Amount}} f=${{F}}</data></line></block></tdc>",
       "expected": []
+    },
+    {
+      "name": "missing-when-with-no-rate",
+      "demonstrates": "TDC303",
+      "description": "A condition and no rate decides nothing — the config reads as if it did something and does not.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"Age\"><gen type=\"number\" value=\"18..60\"/></sequence><sequence name=\"X\"><gen type=\"text\" value=\"a,b,c\" missing_when=\"Age < 30\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC303 1:171"]
+    },
+    {
+      "name": "missing-when-left-empty",
+      "demonstrates": "TDC303",
+      "description": "An empty condition is not \"every row\" — dropping the attribute says that. Written and blank, it is a question nobody finished asking.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"X\"><gen type=\"text\" value=\"a,b,c\" missing=\"0.4\" missing_when=\"\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC303 1:118"]
+    },
+    {
+      "name": "missing-when-names-no-column",
+      "demonstrates": "TDC215",
+      "description": "A misspelled column is a legal bare word here, so the condition would simply never fire and blank nothing, silently. Reported by the same pass that reports it for if=.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"Age\"><gen type=\"number\" value=\"18..60\"/></sequence><sequence name=\"X\"><gen type=\"text\" value=\"a,b,c\" missing=\"0.4\" missing_when=\"Agee < 30\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC215 1:185"]
+    },
+    {
+      "name": "missing-when-on-a-repeated-cell",
+      "demonstrates": "TDC303",
+      "description": "A repeated cell holds several values on one row and the condition asks about one. Both readings are defensible — test each element, or test the row — so the combination is refused rather than guessed at. It was accepted and ignored: every element was blanked at the plain rate, from a config check had called valid.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"X\"><gen type=\"number\" value=\"1..99\" repeat=\"2\" missing=\"0.4\" missing_when=\"_value > 50\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC303 1:131"]
     }
   ]
 }

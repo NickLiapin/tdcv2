@@ -1027,25 +1027,35 @@ class StreamEngine:
         # A cell ``missing=`` blanked has no spike left to label. The independently-drawn types
         # get this from the in-memory builder they re-run; the inline ones decide here, so the
         # same rule has to be written down twice.
+        # ``missing_when=`` narrows WHICH rows can be blanked, so the flag has to read the same
+        # condition or it goes back to disagreeing with the value on every row the condition
+        # excludes.
         missing = imperfections.parse_missing(gen.attrs)
-        miss_p = missing.probability if missing is not None else 0.0
+        if missing is not None and missing.probability <= 0:
+            missing = None
 
         def flag(row: int) -> str | None:
             if domain.pop_index_at(row) is None:
                 return None
             if inline:
-                if (
-                    miss_p > 0
-                    and seekable.uniforms(self.seed, f"{stream_id}#miss", row, 1)[0] < miss_p
-                ):
-                    return "false"
                 drawn = seekable.uniforms(self.seed, f"{stream_id}#anom", row, 1)[0]
                 # Selection is only half of it: a spike replaces a NUMBER, so a selected word is
                 # left exactly as it was. ``raw_at`` is the value BEFORE the modifiers ran — it
                 # has to be the raw one, because once ``missing=`` has blanked a cell a word and
                 # a spiked number look alike.
                 raw = None if raw_at is None else raw_at(row)
-                return str(drawn < p and _is_number(raw)).lower()
+                spiked = drawn < p and _is_number(raw)
+                if missing is not None:
+                    # The condition reads the value the blanking pass would see — after the
+                    # spike, exactly as the in-memory pass does.
+                    before = raw or ""
+                    value = imperfections.spike(before, anomaly.factor) if spiked else before
+                    if self._missing_eligible(missing, row, value) and (
+                        seekable.uniforms(self.seed, f"{stream_id}#miss", row, 1)[0]
+                        < missing.probability
+                    ):
+                        return "false"
+                return str(spiked).lower()
             spiked = [False]
             self._gen_values(
                 gen, seekable.generator(self.seed, stream_id, row), spiked, stream_id=stream_id
@@ -1097,13 +1107,19 @@ class StreamEngine:
                 gen.attrs,
                 prng,
                 [False] if flags_out is None else flags_out,
+                # `reader`, not `run`: the last argument hands `missing_when` the column
+                # reader built above, without switching on the keyed-inline anomaly draw
+                # that passing this as `run` would. A MAR condition reads another column
+                # here exactly as it does on the in-memory engine, over the lazy columns
+                # this engine resolves one row at a time.
+                reader=run,
             )
         return repeat_gen.build(
             repeat,
             1,
             prng,
             lambda slots: memory._finish(
-                memory._generate(gen, slots, run), gen.attrs, prng, [False] * slots
+                memory._generate(gen, slots, run), gen.attrs, prng, [False] * slots, reader=run
             ),
         )
 
@@ -1861,10 +1877,13 @@ class StreamEngine:
                 if drawn < anomaly.probability:
                     out = imperfections.spike(out, anomaly.factor)
             if has_missing:
+                # The eligibility test comes BEFORE the draw and reads the SPIKED value, both
+                # exactly as the in-memory pass does — see ``apply_missing``.
+                eligible = self._missing_eligible(missing, row, out)
                 drawn = seekable.uniforms(self.seed, f"{stream_id}#miss", row, element_draws)[
                     element
                 ]
-                if drawn < missing.probability:
+                if eligible and drawn < missing.probability:
                     out = missing.token
             if mask is not None:
                 out = apply_mask(mask, out)
@@ -1940,6 +1959,20 @@ class StreamEngine:
         }
         base = self._lookup(row)
         return lambda name: overlay[name] if name in overlay else base(name)
+
+    def _missing_eligible(self, missing, row: int, value: str) -> bool:
+        """Is this row eligible to go missing? ``True`` when there is no ``missing_when=``.
+
+        Handed to the in-memory engine's own test with this engine's lazy registry as the
+        column reader, so the two cannot drift apart.
+        """
+        return memory.missing_row_eligible(
+            missing.when,
+            lambda name: name in self.columns,
+            lambda name, r: self.value(name, r),
+            row,
+            value,
+        )
 
     def _condition(self, expression: str, row: int) -> bool:
         return as_condition(

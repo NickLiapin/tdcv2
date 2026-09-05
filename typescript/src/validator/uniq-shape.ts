@@ -110,6 +110,7 @@ const DROPPED_BY_UNIQ = [
   'case',
   'missing',
   'missing_as',
+  'missing_when',
   'repeat',
   'separator',
   'anomaly',

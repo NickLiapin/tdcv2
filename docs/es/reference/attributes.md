@@ -78,6 +78,7 @@ etiqueta y se explica donde se explica esa etiqueta — ver la
 | `min` / `max`    | Recortar los valores sorteados a un rango     | [Distribuciones](../guides/statistical-distributions.md#top) |
 | `missing`        | Proporción de filas dejadas vacías            | [Datos faltantes](../guides/missing-data.md#top)             |
 | `missing_as`     | Cómo se escribe una celda vacía               | [Datos faltantes](../guides/missing-data.md#top)             |
+| `missing_when`   | Qué filas pueden quedar vacías (MAR / MNAR)   | [Datos faltantes](../guides/missing-data.md#top)             |
 | `anomaly`        | Proporción de filas convertidas en atípicas   | [Anomalías](../guides/anomalies.md#top)                      |
 | `anomaly_factor` | Cuán lejos se empuja un valor atípico         | [Anomalías](../guides/anomalies.md#top)                      |
 | `anomaly_flag`   | Columna-respuesta que marca los atípicos      | [Anomalías](../guides/anomalies.md#top)                      |

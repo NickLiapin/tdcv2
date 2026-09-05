@@ -2697,7 +2697,8 @@ public final class MemoryEngine {
           gen.attrs(),
           prng,
           anomalyFlags,
-          instants);
+          instants,
+          siblings == null ? null : new Neighbours(siblings, null));
     }
 
     // A body's inner sequences get NO plain-list layout: the reference gives them no stream
@@ -2713,7 +2714,8 @@ public final class MemoryEngine {
           gen,
           prng,
           anomalyFlags,
-          stream);
+          stream,
+          siblings == null ? null : new Neighbours(siblings, null));
     }
 
     // `sample="exact"` on a quantile read is a PLAN, like the layout above: every row takes its
@@ -2734,18 +2736,22 @@ public final class MemoryEngine {
         // them than the run does.
         swept.add(Quantile.exactAt(source, sweepDecimals, count, sweepKey, i));
       }
-      return finishKeyed(swept, gen, prng, anomalyFlags, stream);
+      return finishKeyed(
+          swept, gen, prng, anomalyFlags, stream,
+          siblings == null ? null : new Neighbours(siblings, null));
     }
 
     // Two types the streaming engine builds INLINE: the value follows the position, and only the
     // one draw that perturbs it is keyed by the row.
     if ("timeseries".equals(gen.type())) {
       return finishKeyed(
-          timeseriesKeyed(gen.attrs(), count, stream), gen, prng, anomalyFlags, stream);
+          timeseriesKeyed(gen.attrs(), count, stream), gen, prng, anomalyFlags, stream,
+          siblings == null ? null : new Neighbours(siblings, null));
     }
     if ("pattern".equals(gen.type())) {
       return finishKeyed(
-          patternKeyed(gen.attrs(), count, baseDir, stream), gen, prng, anomalyFlags, stream);
+          patternKeyed(gen.attrs(), count, baseDir, stream), gen, prng, anomalyFlags, stream,
+          siblings == null ? null : new Neighbours(siblings, null));
     }
 
     // A weighted choice inside an advanced_regex — `(?%{RU:70|US:20|DE:10})` — is a quota over the
@@ -2774,7 +2780,10 @@ public final class MemoryEngine {
                 gen.attrs(),
                 rowPrng,
                 one,
-                scratch);
+                scratch,
+                // One value, on ONE row of the run — so the view carries that row rather than
+                // letting position 0 read row 0 of every sibling.
+                siblings == null ? null : new Neighbours(siblings, position -> here));
         out.add(done.isEmpty() ? "" : done.get(0));
         if (anomalyFlags != null && i < anomalyFlags.length) {
           anomalyFlags[i] = one[0];
@@ -2797,7 +2806,8 @@ public final class MemoryEngine {
         gen,
         prng,
         anomalyFlags,
-        stream);
+        stream,
+        siblings == null ? null : new Neighbours(siblings, null));
   }
 
   /**
@@ -2809,10 +2819,11 @@ public final class MemoryEngine {
       Config.Gen gen,
       Prng.Sfc32 prng,
       boolean[] anomalyFlags,
-      PerRow.Stream stream) {
+      PerRow.Stream stream,
+      Neighbours cols) {
     return PerRow.INLINE_ANOMALY_TYPES.contains(gen.type())
-        ? finishWith(values, gen.attrs(), prng, anomalyFlags, stream)
-        : finish(values, gen.attrs(), prng, anomalyFlags);
+        ? finishWith(values, gen.attrs(), prng, anomalyFlags, stream, cols)
+        : finish(values, gen.attrs(), prng, anomalyFlags, cols);
   }
 
   /** {@link #finish}, with the anomaly and missing draws taken from a stream rather than in order. */
@@ -2821,7 +2832,8 @@ public final class MemoryEngine {
       Map<String, String> attrs,
       Prng.Sfc32 prng,
       boolean[] anomalyFlags,
-      PerRow.Stream stream) {
+      PerRow.Stream stream,
+      Neighbours cols) {
     List<String> out = new ArrayList<>(values);
 
     Imperfections.Anomaly anomaly = Imperfections.parseAnomaly(attrs);
@@ -2841,7 +2853,12 @@ public final class MemoryEngine {
 
     Imperfections.Missing missing = Imperfections.parseMissing(attrs);
     if (missing != null && missing.probability() > 0) {
+      Siblings read = cols == null ? null : cols.siblings();
       for (int i = 0; i < out.size(); i++) {
+        // The eligibility test comes BEFORE the draw — see `applyMissing`.
+        if (!missingRowEligible(missing.when(), read, stream.rowAt(i), out.get(i))) {
+          continue;
+        }
         if (PerRow.purposeDraw(stream, "#miss", stream.rowAt(i)) < missing.probability()) {
           out.set(i, missing.token());
           // A blanked cell has no spike left to label. `anomaly_flag` is the ground truth an
@@ -3072,7 +3089,16 @@ public final class MemoryEngine {
 
   static List<String> finish(
       List<String> values, Map<String, String> attrs, Prng.Sfc32 prng, boolean[] anomalyFlags) {
-    return finish(values, attrs, prng, anomalyFlags, null);
+    return finish(values, attrs, prng, anomalyFlags, null, null);
+  }
+
+  static List<String> finish(
+      List<String> values,
+      Map<String, String> attrs,
+      Prng.Sfc32 prng,
+      boolean[] anomalyFlags,
+      Neighbours cols) {
+    return finish(values, attrs, prng, anomalyFlags, null, cols);
   }
 
   /**
@@ -3088,7 +3114,8 @@ public final class MemoryEngine {
       Map<String, String> attrs,
       Prng.Sfc32 prng,
       boolean[] anomalyFlags,
-      List<Long> instants) {
+      List<Long> instants,
+      Neighbours cols) {
     List<String> out = new ArrayList<>(values);
 
     Imperfections.Anomaly anomaly = Imperfections.parseAnomaly(attrs);
@@ -3098,7 +3125,7 @@ public final class MemoryEngine {
     Imperfections.Missing missing = Imperfections.parseMissing(attrs);
     if (missing != null) {
       List<String> before = new ArrayList<>(out);
-      Imperfections.applyMissing(out, missing, prng);
+      Imperfections.applyMissing(out, missing, prng, eligibleOf(missing, cols));
       if (instants != null) {
         for (int i = 0; i < Math.min(out.size(), instants.size()); i++) {
           if (!java.util.Objects.equals(out.get(i), before.get(i))) {
@@ -3191,6 +3218,70 @@ public final class MemoryEngine {
 
   /** One row link's plan: which row of the file each record reads. */
   private record RowLinkPlan(String sourceKey, List<Integer> indexes) {}
+
+  /**
+   * What {@code missing_when=} reads when it names another column, and which row of the run
+   * each position of the build sits on.
+   *
+   * <p>It rides the {@link Siblings} seam the distribution parameters already use, so the
+   * in-memory engine answers from the columns it has built and the streaming engine from its
+   * lazy registry, with neither learning about the other. {@code rows} of {@code null} means
+   * the position IS the row, which is the whole-column case.
+   */
+  record Neighbours(Siblings siblings, java.util.function.IntUnaryOperator rows) {
+    int rowAt(int position) {
+      return rows == null ? position : rows.applyAsInt(position);
+    }
+  }
+
+  /**
+   * Is this row eligible to go missing? {@code true} for every row when there is no condition,
+   * so an MCAR column costs no evaluation at all.
+   *
+   * <p>The scope is deliberately the one {@code if=} gets, plus a single reserved name.
+   * {@code _value} is what this generator produced for the row, which is what MNAR means: the
+   * chance of a hole depends on what the hole would hide. Everything else resolves through the
+   * sibling reader, so this reaches another column exactly as far as the rest of the language
+   * does and no further — a column declared LATER is not there to read, on either engine.
+   */
+  static boolean missingRowEligible(String when, Siblings siblings, int row, String value) {
+    if (when == null) {
+      return true;
+    }
+    return Evaluate.asCondition(
+        when,
+        new Evaluate.Scope() {
+          @Override
+          public boolean has(String name) {
+            return Imperfections.MISSING_VALUE_NAME.equals(name)
+                || (siblings != null && siblings.has().test(name));
+          }
+
+          @Override
+          public String value(String name) {
+            if (Imperfections.MISSING_VALUE_NAME.equals(name)) {
+              return value;
+            }
+            if (siblings == null) {
+              return "";
+            }
+            String found = siblings.at().apply(name, row);
+            return found == null ? "" : found;
+          }
+        });
+  }
+
+  /** The blanking pass's eligibility test for one build, or {@code null} when there is none. */
+  private static Imperfections.Eligible eligibleOf(
+      Imperfections.Missing missing, Neighbours cols) {
+    if (missing == null || missing.when() == null) {
+      return null;
+    }
+    return (i, value) ->
+        missingRowEligible(
+            missing.when(), cols == null ? null : cols.siblings(),
+            cols == null ? i : cols.rowAt(i), value);
+  }
 
   /**
    * Where a per-row expression reads the columns beside it.

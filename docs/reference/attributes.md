@@ -76,6 +76,7 @@ covered where that tag is explained — see the [compute reference](compute.md#t
 | `min` / `max`    | Clip the drawn values to a range         | [Distributions](../guides/statistical-distributions.md#top) |
 | `missing`        | Share of rows left empty                 | [Missing data](../guides/missing-data.md#top)               |
 | `missing_as`     | How an empty cell is written             | [Missing data](../guides/missing-data.md#top)               |
+| `missing_when`   | Which rows may go missing (MAR / MNAR)   | [Missing data](../guides/missing-data.md#top)               |
 | `anomaly`        | Share of rows turned into outliers       | [Anomalies](../guides/anomalies.md#top)                     |
 | `anomaly_factor` | How far an outlier is pushed             | [Anomalies](../guides/anomalies.md#top)                     |
 | `anomaly_flag`   | Answer column that marks the outliers    | [Anomalies](../guides/anomalies.md#top)                     |

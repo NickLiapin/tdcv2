@@ -206,6 +206,100 @@ Some rows have `N/A` for the phone; row 5 has an empty income (the default marke
 is nothing at all). The blanks in the two fields are **independent**: a hole in
 one column tells you nothing about the other.
 
+## Which rows may go missing — `missing_when`
+
+`missing="p"` on its own drops values without regard to anything else. That is one
+of the three ways real data goes missing, and the least interesting: the holes
+carry no information, so nothing can be learnt from them and nothing can be
+predicted about them.
+
+`missing_when="…"` adds the other two. It is a condition, written in the same
+[expression language](../reference/expressions.mdx) as `if=`, and it decides
+which rows are **eligible** at all. `missing="p"` still decides how often an
+eligible row actually goes blank.
+
+| What you write | What it is called | Where the hole comes from |
+| --- | --- | --- |
+| `missing="0.2"` | **MCAR** | nothing — every row is equally likely |
+| `missing="0.8" missing_when="Age < 30"` | **MAR** | **another column** you can still see |
+| `missing="0.8" missing_when="_value > 60000"` | **MNAR** | **the value itself**, which is now gone |
+
+The names matter because they decide what a model trained on the file can be
+scored on. MCAR holes teach nothing. MAR holes are predictable from what is still
+in the row — an imputation step has something to work with. MNAR holes are
+predictable only from what was taken away, which is the hard case, and the one
+your pipeline is most likely to get wrong.
+
+### MAR — the hole depends on another column
+
+```xml
+<sequence name="Age"><gen type="number" value="18..70"/></sequence>
+<sequence name="Income">
+    <gen type="number" value="30000..90000" missing="0.8" missing_as="NULL" missing_when="Age < 30"/>
+</sequence>
+```
+
+<Terminal title="./run mar.tdc (count=8, seed=ages)">
+{`age: 66 | income: 33520
+age: 56 | income: 76606
+age: 28 | income: NULL
+age: 26 | income: NULL
+age: 67 | income: 40610
+age: 33 | income: 86092
+age: 68 | income: 86789
+age: 18 | income: NULL`}
+</Terminal>
+
+Every blank sits on a row under 30; nobody older lost their income. `Age` is read
+exactly the way `if="Age < 30"` would read it, so the same rules apply: the column
+must be declared **above** the one that names it.
+
+### MNAR — the hole depends on the value that is now gone
+
+Inside `missing_when`, `_value` is the value this generator produced for the row —
+what the blank would have hidden. It is a name the language provides, like
+`_count` and `_last`; no config declares it.
+
+```xml
+<sequence name="Income">
+    <gen type="number" value="30000..90000" missing="0.8" missing_as="NULL" missing_when="_value > 60000"/>
+</sequence>
+```
+
+<Terminal title="./run mnar.tdc (count=8, seed=mnar)">
+{`income: NULL
+income: 53006
+income: 52544
+income: NULL
+income: 52481
+income: NULL
+income: NULL
+income: 35921`}
+</Terminal>
+
+Every surviving income is under 60,000. The high earners are the ones who did not
+answer — which is exactly the bias MNAR names, and exactly what a model trained on
+the visible rows cannot see.
+
+`_value` is the value **after** [`anomaly=`](anomalies.mdx) has run, because that
+is the value the row would have carried. So `missing_when="_value > 150000"`
+beside an `anomaly=` blanks the spikes, and the `anomaly_flag` column agrees: a
+blanked cell has no spike left to label.
+
+### The small print
+
+- **A rate is still required.** `missing_when` without `missing` decides nothing,
+  and is refused rather than ignored.
+- **A bare word is a literal**, here as everywhere else in the language:
+  `missing_when="Tier == hi"` compares against the word `hi`. A misspelled column
+  name is reported (`TDC215`) rather than quietly read as a word.
+- **Not with `repeat=`.** A repeated cell holds several values on one row and the
+  condition asks about one; rather than guess which reading you meant, the
+  combination is refused.
+- **Both engines.** The condition is evaluated per row against the same column
+  reader both engines use, so a streamed run and an in-memory one produce the same
+  file.
+
 ## Details
 
 - **Deterministic.** The same `seed` produces the same blanks — see
@@ -216,12 +310,6 @@ one column tells you nothing about the other.
   [Large outputs & streaming](large-outputs.mdx).
 - **`missing="0"`** means no blanks at all — exactly as if the attribute weren't
   there.
-
-:::note[What's next]
-Only **MCAR** is implemented today: blanks are equally likely and independent of
-everything else. On the roadmap are **MAR / MNAR** — where the chance of a hole
-depends on another field, or on the value itself.
-:::
 
 ## See also
 

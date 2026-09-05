@@ -32,7 +32,7 @@ import { dateAxis, dateGenerator } from '../generators/date.js';
 import { toEpochMillis } from '../date/index.js';
 
 import { applyAnomaly, keepShape, parseAnomaly } from '../generators/anomaly.js';
-import { applyMissing, parseMissing } from '../generators/missing.js';
+import { applyMissing, missingEligibility, parseMissing } from '../generators/missing.js';
 import { numberGenerator } from '../generators/number.js';
 import { patternGenDraws, patternGenValue } from '../generators/pattern.js';
 import { regexGenerator } from '../generators/regex.js';
@@ -1132,7 +1132,27 @@ function buildGenValuesOnce(
   // someone is actually asking.
   const beforeMissing =
     missing && (instantsOut ?? anomalyFlagsOut) ? Array.from(spiked) : undefined;
-  const withMissing = missing ? applyMissing(spiked, missing, drawOn('#miss')) : spiked;
+  /*
+   * `missing_when` decides which rows are eligible — the one attribute that
+   * separates MCAR from MAR and MNAR.
+   *
+   * The scope is deliberately the same one `if=` gets, plus a single reserved
+   * name. `_value` is the value this generator produced for the row, which is
+   * what MNAR means: the chance of a hole depends on what the hole would hide.
+   * Everything else resolves through `ctx.valueAt` — the reader a `<switch>`
+   * inside a `<case>` already uses, which the streaming engine supplies over its
+   * own lazy columns. So this reaches another column exactly as far as the rest
+   * of the language does, and no further: a column declared LATER is not there
+   * to read, on either engine.
+   */
+  const test = missingEligibility(
+    missing?.when,
+    (name) => ctx.hasColumn?.(name) === true,
+    (name, row) => ctx.valueAt?.(name, row) ?? '',
+  );
+  const eligible =
+    test && ((i: number, value: string): boolean => test(absoluteRow(ctx, i), value));
+  const withMissing = missing ? applyMissing(spiked, missing, drawOn('#miss'), eligible) : spiked;
   // A blanked cell keeps neither of the two things computed beside it. The INSTANT
   // goes because a column measuring from this one would otherwise produce a date on
   // a row whose source says nothing; the anomaly FLAG goes because it is the label a

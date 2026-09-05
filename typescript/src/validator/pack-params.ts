@@ -53,6 +53,7 @@ const GEN_ATTRIBUTES: ReadonlySet<string> = new Set([
   'mask',
   'missing',
   'missing_as',
+  'missing_when',
   'name',
   'order',
   'parent',

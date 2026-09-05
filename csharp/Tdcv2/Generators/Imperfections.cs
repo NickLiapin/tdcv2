@@ -20,8 +20,23 @@ namespace Tdcv2.Generators;
 /// </remarks>
 public static class Imperfections
 {
-    /// <summary><c>missing="p"</c> with an optional <c>missing_as="NULL"</c>.</summary>
-    public readonly record struct Missing(double Probability, string Token);
+    /// <summary>The value this row would have held, inside <c>missing_when</c>.</summary>
+    /// <remarks>
+    /// Named like the run's other built-ins (<c>_count</c>, <c>_first</c>, <c>_last</c>,
+    /// <c>_total</c>) because it is one: a name the language provides rather than one a config
+    /// declares. The underscore is what keeps it from colliding with a column.
+    /// </remarks>
+    public const string MissingValueName = "_value";
+
+    /// <summary>
+    /// <c>missing="p"</c> with an optional <c>missing_as="NULL"</c> and <c>missing_when="…"</c>.
+    /// </summary>
+    /// <remarks>
+    /// <paramref name="When"/> is null when every row is eligible — MCAR. It is kept as the
+    /// source TEXT rather than a parsed tree because the evaluator takes text, and because the
+    /// streaming engine builds this spec per row.
+    /// </remarks>
+    public readonly record struct Missing(double Probability, string Token, string? When = null);
 
     /// <summary><c>anomaly="p"</c> with an optional <c>anomaly_factor="10"</c>.</summary>
     public readonly record struct Anomaly(double Probability, double Factor);
@@ -36,8 +51,11 @@ public static class Imperfections
             return null;
         }
 
+        string? when = attrs.GetValueOrDefault("missing_when")?.Trim();
         return new Missing(
-            Probability(raw, "missing"), attrs.GetValueOrDefault("missing_as", ""));
+            Probability(raw, "missing"),
+            attrs.GetValueOrDefault("missing_as", ""),
+            string.IsNullOrEmpty(when) ? null : when);
     }
 
     public static Anomaly? ParseAnomaly(IReadOnlyDictionary<string, string> attrs)
@@ -67,14 +85,24 @@ public static class Imperfections
         return new Anomaly(p, factor);
     }
 
-    /// <summary>
-    /// Blank each value with the given probability — missing completely at random.
-    /// </summary>
+    /// <summary>Blank each ELIGIBLE value with the given probability.</summary>
     /// <remarks>
+    /// <para>
     /// Real datasets have holes, and code that has only ever seen complete data tends to fall over
-    /// on the first one.
+    /// on the first one. <c>missing_when=</c> decides which rows are eligible, and that one
+    /// attribute is the whole difference between the three mechanisms the literature names:
+    /// MCAR (every row), MAR (eligibility from another column) and MNAR (from the value itself).
+    /// </para>
+    /// <para>
+    /// <paramref name="eligible"/> of null means every row is. <b>The draw is made only for an
+    /// eligible row</b>, and that is deliberate: drawing for every row and discarding the result
+    /// would spend a number per row on a column that may never blank, and would tie the eligible
+    /// rows' randomness to how many ineligible ones came before — so widening a condition would
+    /// change rows it does not cover.
+    /// </para>
     /// </remarks>
-    public static void ApplyMissing(IList<string> values, Missing spec, Sfc32 prng)
+    public static void ApplyMissing(
+        IList<string> values, Missing spec, Sfc32 prng, Func<int, string, bool>? eligible = null)
     {
         if (spec.Probability <= 0)
         {
@@ -84,6 +112,11 @@ public static class Imperfections
 
         for (int i = 0; i < values.Count; i++)
         {
+            if (eligible is not null && !eligible(i, values[i]))
+            {
+                continue;
+            }
+
             if (prng.Next() < spec.Probability)
             {
                 values[i] = spec.Token;

@@ -157,7 +157,14 @@ struct Validator {
     /// The names cannot be checked as the walk passes: an expression may name a
     /// sequence declared BELOW it, and the run resolves that happily, so
     /// checking mid-walk would invent errors on configs that work.
-    pending_expressions: Vec<(usize, String, Pos, bool, Option<BTreeSet<String>>)>,
+    pending_expressions: Vec<(
+        usize,
+        String,
+        Pos,
+        bool,
+        Option<BTreeSet<String>>,
+        Option<&'static str>,
+    )>,
     /// The names the expression being walked right now may see, where they are
     /// NOT the run's. A `<pool>` member reads its own pool and nothing else: the
     /// table is built before any row exists, so a condition naming an env column
@@ -404,13 +411,19 @@ impl Validator {
         // in source order.
         let pending = std::mem::take(&mut self.pending_expressions);
         let mut shift = 0usize;
-        for (at_index, condition, pos, each, scope) in pending {
+        for (at_index, condition, pos, each, scope, extra) in pending {
             let before = self.diagnostics.len();
             let outer = match scope {
                 None => None,
                 Some(names) => Some(std::mem::replace(&mut self.declared_names, names)),
             };
+            let added = extra.is_some_and(|name| self.declared_names.insert(name.to_string()));
             self.check_expression_names(&condition, pos, each);
+            if added {
+                if let Some(name) = extra {
+                    self.declared_names.remove(name);
+                }
+            }
             if let Some(names) = outer {
                 self.declared_names = names;
             }
@@ -2438,11 +2451,12 @@ impl Validator {
     /// same text — a mask hides the digits that told them apart, `case` folds
     /// `ab` and `AB` together, `missing` writes the same blank on many rows,
     /// `repeat` turns the cell into a list.
-    const DROPPED_BY_UNIQ: [&str; 9] = [
+    const DROPPED_BY_UNIQ: [&str; 10] = [
         "mask",
         "case",
         "missing",
         "missing_as",
+        "missing_when",
         "repeat",
         "separator",
         "distinct",
@@ -3200,7 +3214,72 @@ impl Validator {
     /// rows come back ordinary with no sign that 30% of them were meant to be
     /// outliers. Only a `type="text"` list is judged: it is the only source whose
     /// whole candidate set is written in the config.
+    /// `missing_when="…"` — the condition that turns MCAR into MAR or MNAR.
+    ///
+    /// Only the STRUCTURAL mistakes are caught here. The expression itself takes the road
+    /// every other condition takes: the parser now, the deferred name pass afterwards, which
+    /// raises TDC215 when a word that looks like a column is not one. A second name check
+    /// written here would have been the easy thing and the wrong one — `if="Tier == hi"`
+    /// proves a bare word is a legal literal, and a rule invented here would refuse configs
+    /// the language accepts everywhere else.
+    fn check_missing_when(&mut self, gen: &Element, attrs: &Attrs) {
+        let Some(raw) = attrs.get("missing_when") else {
+            return;
+        };
+        let at = gen.at("missing_when");
+        let expression = raw.trim();
+
+        if expression.is_empty() {
+            self.error(
+                "TDC303",
+                "missing_when=\"\" is empty — it decides which rows may go missing".to_string(),
+                "Give it a condition (missing_when=\"Age < 30\"), or drop it: without one every \
+                 row is eligible, which is MCAR.",
+                at,
+            );
+            return;
+        }
+
+        if trim_to_none(attrs.get("missing")).is_none() {
+            self.error(
+                "TDC303",
+                "missing_when= without missing= — nothing can go missing, so the condition \
+                 decides nothing"
+                    .to_string(),
+                "Add the rate the eligible rows go missing at: missing=\"0.4\".",
+                at,
+            );
+            return;
+        }
+
+        // A repeated cell holds SEVERAL values on one row, and the condition asks about one.
+        // Both readings are defensible — test each element, or test the row — so the
+        // combination is refused rather than guessed at. It used to be accepted and ignored.
+        if trim_to_none(attrs.get("repeat")).is_some() {
+            self.error(
+                "TDC303",
+                "missing_when= is not read on a <gen> with repeat= — a repeated cell holds \
+                 several values, and the condition asks about one"
+                    .to_string(),
+                "Drop repeat=, or drop missing_when= and use plain missing=\"p\", which does \
+                 apply to every element of the cell.",
+                at,
+            );
+            return;
+        }
+
+        self.check_if_expression(expression, at);
+        self.defer_expression_with(
+            expression.to_string(),
+            at,
+            false,
+            Some(crate::generators::imperfections::MISSING_VALUE_NAME),
+        );
+    }
+
     fn check_imperfections(&mut self, gen: &Element, attrs: &Attrs, gen_type: Option<&str>) {
+        self.check_missing_when(gen, attrs);
+
         for key in ["anomaly", "missing"] {
             let Some(raw) = trim_to_none(attrs.get(key)) else {
                 continue;
@@ -6214,12 +6293,28 @@ impl Validator {
     /// names got it wrong in both directions — a sibling field read as
     /// undeclared, and an env column read as fine.
     fn defer_expression(&mut self, expression: String, at: Pos, each: bool) {
+        self.defer_expression_with(expression, at, each, None);
+    }
+
+    /// The same, with ONE extra name the language provides for this expression alone.
+    ///
+    /// `missing_when=` is the only caller: `_value` is the value being hidden, and it is a
+    /// builtin there and nowhere else. Adding it to the run's names outright would have made
+    /// `if="_value > 5"` pass `check` and then read as a bare word at run time.
+    fn defer_expression_with(
+        &mut self,
+        expression: String,
+        at: Pos,
+        each: bool,
+        extra: Option<&'static str>,
+    ) {
         self.pending_expressions.push((
             self.diagnostics.len(),
             expression,
             at,
             each,
             self.expr_scope.clone(),
+            extra,
         ));
     }
 

@@ -1133,6 +1133,38 @@ def _spread(rows: list[int], produced: list[str], count: int) -> list[str | None
 # ── the passes that run over a finished column ──────────────────────────────────────────────
 
 
+def missing_row_eligible(
+    when: str | None,
+    has: Callable[[str], bool] | None,
+    value_at: Callable[[str, int], str | None] | None,
+    row: int,
+    value: str,
+) -> bool:
+    """Is this row eligible to go missing? ``True`` for every row when there is no condition.
+
+    The scope is deliberately the one ``if=`` gets, plus a single reserved name: ``_value`` is
+    what this generator produced for the row, which is what MNAR means. Everything else
+    resolves through the caller's column reader — the in-memory engine's finished columns, the
+    streaming engine's lazy registry — so a condition reaches another column exactly as far as
+    the rest of the language does, and no further.
+
+    Shared with the streaming engine rather than written twice: a condition answered one way in
+    one engine and another way in the next is the silent wrong file this project exists to
+    prevent.
+    """
+    if when is None:
+        return True
+    return as_condition(
+        when,
+        lambda name: name == imperfections.MISSING_VALUE_NAME or (has is not None and has(name)),
+        lambda name: (
+            value
+            if name == imperfections.MISSING_VALUE_NAME
+            else ((value_at(name, row) if value_at is not None else None) or "")
+        ),
+    )
+
+
 def _finish(
     values: list[str],
     attrs: dict[str, str],
@@ -1141,6 +1173,7 @@ def _finish(
     run: _Run | None = None,
     gen_type: str | None = None,
     instants_out: list[int | None] | None = None,
+    reader: _Run | None = None,
 ) -> list[str]:
     """Outliers, then blanks, then formatting — and the order is the contract.
 
@@ -1171,7 +1204,39 @@ def _finish(
     missing = imperfections.parse_missing(attrs)
     if missing is not None:
         before = list(out)
-        imperfections.apply_missing(out, missing, draw_on("#miss"))
+        # `missing_when` decides which rows are eligible — the one attribute separating MCAR
+        # from MAR and MNAR. The scope is deliberately the one `if=` gets, plus a single
+        # reserved name: `_value` is what this generator produced for the row, which is what
+        # MNAR means. Everything else resolves through `run.value_at`, the reader a `<switch>`
+        # inside a `<case>` already uses and the streaming engine supplies over its own lazy
+        # columns — so this reaches another column exactly as far as the rest of the language
+        # does, and no further.
+        # `run` is absent on the paths that finish a value with no row context of their own —
+        # a repeat element, a redraw, a pack body. `_value` still answers there, so MNAR works;
+        # a condition naming another COLUMN has nothing to read and is false, which is the same
+        # answer `if=` gives when the column it names holds nothing on this row.
+        eligible = None
+        if missing.when is not None:
+            when = missing.when
+
+            def eligible(i: int, value: str, _when: str = when) -> bool:
+                # `reader` and `run` are two different questions. Passing `run` on the per-row
+                # path would switch on the keyed-inline anomaly draw, which the outer loop has
+                # already keyed — so that argument stays None there on purpose. The column
+                # reader has nothing to do with keying, and a MAR condition needs it on both
+                # paths, so it travels separately.
+                ctx = reader if reader is not None else run
+                read = ctx.value_at if ctx is not None else None
+                row_at = per_row.absolute_row(ctx, i) if ctx is not None else i
+                return missing_row_eligible(
+                    _when,
+                    None if read is None else (lambda name: read(name, row_at) is not None),
+                    read,
+                    row_at,
+                    value,
+                )
+
+        imperfections.apply_missing(out, missing, draw_on("#miss"), eligible)
         # A cell `missing=` blanked no longer shows the date it was built from, so the instant
         # behind it goes too — otherwise a column measuring from this one would produce a date on
         # a row whose source says nothing. `mask=`/`case=` below change only the SPELLING, which
@@ -2129,6 +2194,7 @@ def _column_values(
                 None,
                 None,
                 scratch,
+                one,
             )[0]
         )
         flags[i] = single[0]

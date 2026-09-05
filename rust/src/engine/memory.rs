@@ -1164,8 +1164,13 @@ fn build_columns_with(
                                 &gen.gen_type,
                                 |_, element_prng, flag| {
                                     let drawn = generate(&element, 1, element_prng, env)?;
-                                    let done =
-                                        finish(drawn, &element.attrs, element_prng, Some(flag))?;
+                                    let done = finish(
+                                        drawn,
+                                        &element.attrs,
+                                        element_prng,
+                                        Some(flag),
+                                        None,
+                                    )?;
                                     Ok(done.into_iter().next().unwrap_or_default())
                                 },
                                 collected.as_mut(),
@@ -1190,6 +1195,10 @@ fn build_columns_with(
                             Some(&mut anomaly_flags),
                             Some(&mut layouts),
                             collected.as_mut(),
+                            Some(Neighbours {
+                                siblings: env,
+                                rows: &[],
+                            }),
                         )?;
                         // Attach the instants only if the build actually filled them for
                         // every row. A sink that was asked for and left empty is NOT "this
@@ -1336,6 +1345,10 @@ fn build_columns_with(
                                     Some(&part),
                                     None,
                                     Some(&mut layouts),
+                                    Some(Neighbours {
+                                        siblings: env,
+                                        rows: &[],
+                                    }),
                                 )?,
                             ));
                         }
@@ -1359,6 +1372,10 @@ fn build_columns_with(
                                     Some(&part),
                                     None,
                                     Some(&mut layouts),
+                                    Some(Neighbours {
+                                        siblings: env,
+                                        rows: &[],
+                                    }),
                                 )?
                             };
                             for (cell, value) in composed.iter_mut().zip(values) {
@@ -1417,6 +1434,10 @@ fn build_columns_with(
                             Some(&stream),
                             None,
                             Some(&mut layouts),
+                            Some(Neighbours {
+                                siblings: env,
+                                rows: &[],
+                            }),
                         )?,
                     ));
                 }
@@ -1625,7 +1646,7 @@ fn enforce_uniq_redrawing(
     for attempt in 0..UNIQ_REDRAW_ATTEMPTS {
         for (slot, field) in produced.iter_mut().zip(fields) {
             let drawn = generate(&field.gen, count, prng, env)?;
-            slot.1 = finish(drawn, &field.gen.attrs, prng, None)?;
+            slot.1 = finish(drawn, &field.gen.attrs, prng, None, None)?;
         }
 
         // The same value frequencies mean the draw is quota-fixed: every further
@@ -2199,7 +2220,7 @@ fn one_scalar(
     match &spec.source {
         Source::Gen(gen) => {
             let drawn = generate(gen, 1, prng, env)?;
-            Ok(finish(drawn, &gen.attrs, prng, None)?
+            Ok(finish(drawn, &gen.attrs, prng, None, None)?
                 .into_iter()
                 .next()
                 .unwrap_or_default())
@@ -2250,8 +2271,9 @@ pub(super) fn finish(
     attrs: &BTreeMap<String, String>,
     prng: &mut Sfc32,
     anomaly_flags: Option<&mut [bool]>,
+    cols: ColumnsView<'_>,
 ) -> EngineResult<Vec<String>> {
-    finish_into(values, attrs, prng, anomaly_flags, None)
+    finish_into(values, attrs, prng, anomaly_flags, None, cols)
 }
 
 /// `finish`, also clearing the instant behind any cell `missing=` blanked.
@@ -2266,13 +2288,18 @@ pub(super) fn finish_into(
     prng: &mut Sfc32,
     mut anomaly_flags: Option<&mut [bool]>,
     instants: Option<&mut Vec<Option<i64>>>,
+    cols: ColumnsView<'_>,
 ) -> EngineResult<Vec<String>> {
     if let Some(anomaly) = imperfections::parse_anomaly(attrs)? {
         imperfections::apply_anomaly(&mut values, anomaly, prng, anomaly_flags.as_deref_mut());
     }
     if let Some(missing) = imperfections::parse_missing(attrs)? {
         let before = values.clone();
-        imperfections::apply_missing(&mut values, &missing, prng);
+        let when = missing.when.as_deref();
+        let row_of = |position: usize| cols.map_or(position, |view| view.row_at(position));
+        let mut eligible =
+            |position: usize, value: &str| missing_eligible(when, cols, &row_of, position, value);
+        imperfections::apply_missing(&mut values, &missing, prng, Some(&mut eligible))?;
         if let Some(sink) = instants {
             for i in 0..values.len().min(sink.len()) {
                 if values[i] != before[i] {
@@ -2327,6 +2354,7 @@ fn finish_with(
     prng: &mut Sfc32,
     mut anomaly_flags: Option<&mut [bool]>,
     stream: Option<&per_row::Stream>,
+    cols: ColumnsView<'_>,
 ) -> EngineResult<Vec<String>> {
     if let Some(anomaly) = imperfections::parse_anomaly(attrs)? {
         match stream {
@@ -2346,9 +2374,15 @@ fn finish_with(
         }
     }
     if let Some(missing) = imperfections::parse_missing(attrs)? {
+        let when = missing.when.as_deref();
         match stream {
             Some(s) if missing.probability > 0.0 => {
+                let row_of = |position: usize| s.row_at(position);
                 for (i, value) in values.iter_mut().enumerate() {
+                    // The draw is taken only for an eligible row — see `apply_missing`.
+                    if !missing_eligible(when, cols, &row_of, i, value)? {
+                        continue;
+                    }
                     if per_row::purpose_draw(s, "#miss", s.row_at(i)) < missing.probability {
                         *value = missing.token.clone();
                         // A blanked cell has no spike left to label. `anomaly_flag` is the
@@ -2366,7 +2400,11 @@ fn finish_with(
             Some(_) => {}
             None => {
                 let before = values.clone();
-                imperfections::apply_missing(&mut values, &missing, prng);
+                let row_of = |position: usize| cols.map_or(position, |view| view.row_at(position));
+                let mut eligible = |position: usize, value: &str| {
+                    missing_eligible(when, cols, &row_of, position, value)
+                };
+                imperfections::apply_missing(&mut values, &missing, prng, Some(&mut eligible))?;
                 if let Some(flags) = anomaly_flags.as_deref_mut() {
                     for i in 0..values.len().min(flags.len()) {
                         if values[i] != before[i] {
@@ -2449,8 +2487,19 @@ pub(super) fn column_values(
     stream: Option<&per_row::Stream>,
     anomaly_flags: Option<&mut [bool]>,
     layouts: Option<&mut BTreeMap<String, per_row::ExactLayout>>,
+    cols: ColumnsView<'_>,
 ) -> EngineResult<Vec<String>> {
-    column_values_into(gen, count, prng, env, stream, anomaly_flags, layouts, None)
+    column_values_into(
+        gen,
+        count,
+        prng,
+        env,
+        stream,
+        anomaly_flags,
+        layouts,
+        None,
+        cols,
+    )
 }
 
 /// Every name any expression in this config can read — parameters today, `formula`
@@ -2469,6 +2518,14 @@ fn expression_reads(config: &Config, name: &str) -> bool {
     fn gen_reads(gen: &Gen, name: &str) -> bool {
         if let Some(expr) = gen.attrs.get("expr") {
             if mentions(expr, name) {
+                return true;
+            }
+        }
+        // `missing_when=` reads its siblings through the same registry. Without this the
+        // column it names is never kept, `Siblings::has` says no, and the name reads as a
+        // bare WORD — a run that finishes and quietly blanks the wrong rows.
+        if let Some(when) = gen.attrs.get("missing_when") {
+            if mentions(when, name) {
                 return true;
             }
         }
@@ -2522,10 +2579,11 @@ pub(super) fn column_values_into(
     anomaly_flags: Option<&mut [bool]>,
     layouts: Option<&mut BTreeMap<String, per_row::ExactLayout>>,
     mut instants: Option<&mut Vec<Option<i64>>>,
+    cols: ColumnsView<'_>,
 ) -> EngineResult<Vec<String>> {
     let Some(stream) = stream else {
         let drawn = generate_into(gen, count, prng, env, instants.as_deref_mut(), None)?;
-        return finish_into(drawn, &gen.attrs, prng, anomaly_flags, instants);
+        return finish_into(drawn, &gen.attrs, prng, anomaly_flags, instants, cols);
     };
 
     // A body's inner sequences get NO plain-list layout: the reference gives
@@ -2539,7 +2597,7 @@ pub(super) fn column_values_into(
     };
     if let Some((values, percents)) = listed {
         let laid = per_row::exact_text_layout(&values, &percents, count, stream, layouts);
-        return finish_keyed(laid, gen, prng, anomaly_flags, Some(stream));
+        return finish_keyed(laid, gen, prng, anomaly_flags, Some(stream), cols);
     }
 
     // `sample="exact"` on a quantile read is a PLAN, like the layout above: every row
@@ -2569,7 +2627,7 @@ pub(super) fn column_values_into(
                 )
             })
             .collect();
-        return finish_keyed(swept, gen, prng, anomaly_flags, Some(stream));
+        return finish_keyed(swept, gen, prng, anomaly_flags, Some(stream), cols);
     }
 
     // Two types the streaming engine builds INLINE: the value follows the position, and only
@@ -2577,11 +2635,11 @@ pub(super) fn column_values_into(
     match gen.gen_type.as_str() {
         "timeseries" => {
             let built = timeseries_keyed(&gen.attrs, count, stream)?;
-            return finish_keyed(built, gen, prng, anomaly_flags, Some(stream));
+            return finish_keyed(built, gen, prng, anomaly_flags, Some(stream), cols);
         }
         "pattern" => {
             let built = pattern_keyed(&gen.attrs, count, env, stream)?;
-            return finish_keyed(built, gen, prng, anomaly_flags, Some(stream));
+            return finish_keyed(built, gen, prng, anomaly_flags, Some(stream), cols);
         }
         _ => {}
     }
@@ -2623,6 +2681,12 @@ pub(super) fn column_values_into(
                 &mut row_prng,
                 Some(&mut one),
                 scratch.as_mut(),
+                // One value, on ONE row of the run — so the view carries that row rather
+                // than letting position 0 read row 0 of every sibling.
+                cols.map(|view| Neighbours {
+                    siblings: view.siblings,
+                    rows: &here,
+                }),
             )?;
             out.push(done.into_iter().next().unwrap_or_default());
             if let Some(store) = flags.as_deref_mut() {
@@ -2664,7 +2728,7 @@ pub(super) fn column_values_into(
             },
         )),
     )?;
-    finish_keyed(drawn, gen, prng, anomaly_flags, Some(stream))
+    finish_keyed(drawn, gen, prng, anomaly_flags, Some(stream), cols)
 }
 
 /// `anomaly=`, `missing=` and the formatting layer for ONE element of a repeating LISTED
@@ -2787,10 +2851,11 @@ fn finish_keyed(
     prng: &mut Sfc32,
     anomaly_flags: Option<&mut [bool]>,
     stream: Option<&per_row::Stream>,
+    cols: ColumnsView<'_>,
 ) -> EngineResult<Vec<String>> {
     match stream.filter(|_| per_row::is_inline_anomaly(&gen.gen_type)) {
-        Some(s) => finish_with(values, &gen.attrs, prng, anomaly_flags, Some(s)),
-        None => finish(values, &gen.attrs, prng, anomaly_flags),
+        Some(s) => finish_with(values, &gen.attrs, prng, anomaly_flags, Some(s), cols),
+        None => finish(values, &gen.attrs, prng, anomaly_flags, cols),
     }
 }
 
@@ -3248,7 +3313,19 @@ fn case_values(
         let sub = stream.map(|s| s.named(&format!("{}#p{p}", s.id)));
         let values: Vec<String> = match part {
             CasePart::Text(text) => vec![text.clone(); count],
-            CasePart::Gen(gen) => column_values(gen, count, prng, env, sub.as_ref(), None, None)?,
+            CasePart::Gen(gen) => column_values(
+                gen,
+                count,
+                prng,
+                env,
+                sub.as_ref(),
+                None,
+                None,
+                sub.as_ref().map(|_| Neighbours {
+                    siblings: env,
+                    rows: &[],
+                }),
+            )?,
             CasePart::Mix(mix) => mix_values(mix, count, prng, None, env, sub.as_ref(), columns)?,
             CasePart::Switch(sw) => {
                 nested_switch_values(sw, count, prng, env, sub.as_ref(), columns)?
@@ -3901,6 +3978,10 @@ fn conditional(
             Some(&stream),
             Some(&mut flags),
             None,
+            Some(Neighbours {
+                siblings: env,
+                rows: &[],
+            }),
         )?;
         built.push((flag_name, values, flags));
     }
@@ -3949,6 +4030,93 @@ fn conditional(
         }
     }
     Ok((result, flag_columns))
+}
+
+/// What `missing_when=` reads when it names another column, and which row of the run each
+/// position of the build sits on.
+///
+/// Threaded rather than reached for: the value passes are pure functions of what they are
+/// handed, and a global would have been the third way this engine learns a row's other
+/// columns, beside `condition_at` and the streaming reader. It rides the `Siblings` seam
+/// the distribution parameters already use, so the in-memory engine answers from the
+/// columns it has kept and the streaming engine from its lazy registry, with neither
+/// learning about the other.
+#[derive(Clone, Copy)]
+pub(super) struct Neighbours<'a> {
+    pub siblings: &'a dyn Siblings,
+    /// Position → absolute row. **Empty means the position IS the row**, which is the
+    /// in-memory engine's whole-column case; a one-row build carries its own row here.
+    pub rows: &'a [usize],
+}
+
+impl Neighbours<'_> {
+    fn row_at(&self, position: usize) -> usize {
+        if self.rows.is_empty() {
+            position
+        } else {
+            self.rows.get(position).copied().unwrap_or(position)
+        }
+    }
+}
+
+/// `None` on the paths with no row context of their own — an inline generator, a pack
+/// body — where `_value` still answers, so MNAR works there and a condition naming a
+/// COLUMN is simply false, exactly as `if=` is when the column it names holds nothing.
+pub(super) type ColumnsView<'a> = Option<Neighbours<'a>>;
+
+/// The scope `missing_when=` is evaluated in.
+///
+/// Deliberately the scope `if=` gets, plus one reserved name. `_value` is the value this
+/// generator produced for the row, which is what MNAR means: the chance of a hole depends
+/// on what the hole would hide. Everything else resolves through the sibling reader, so
+/// this reaches another column exactly as far as the rest of the language does and no
+/// further — a column declared LATER is not there to read, on either engine.
+struct MissingScope<'a> {
+    value: &'a str,
+    view: Option<Neighbours<'a>>,
+    row: usize,
+}
+
+impl evaluate::Scope for MissingScope<'_> {
+    fn has(&self, name: &str) -> bool {
+        name == imperfections::MISSING_VALUE_NAME
+            || self.view.is_some_and(|view| view.siblings.has(name))
+    }
+
+    fn value(&self, name: &str) -> String {
+        if name == imperfections::MISSING_VALUE_NAME {
+            return self.value.to_string();
+        }
+        self.view
+            .and_then(|view| view.siblings.at(name, self.row))
+            .unwrap_or_default()
+    }
+}
+
+/// Is row `position` eligible to go missing? `Ok(true)` for every row when there is no
+/// condition, so an MCAR column costs no evaluation at all.
+fn missing_eligible(
+    when: Option<&str>,
+    view: ColumnsView<'_>,
+    row_of: &dyn Fn(usize) -> usize,
+    position: usize,
+    value: &str,
+) -> EngineResult<bool> {
+    missing_row_eligible(when, view, row_of(position), value)
+}
+
+/// The same question asked about ONE absolute row, for the streaming engine — which
+/// resolves a row at a time and has no positions to map.
+pub(super) fn missing_row_eligible(
+    when: Option<&str>,
+    view: ColumnsView<'_>,
+    row: usize,
+    value: &str,
+) -> EngineResult<bool> {
+    let Some(source) = when else {
+        return Ok(true);
+    };
+    evaluate::as_condition(source, &MissingScope { value, view, row })
 }
 
 /// One `if=` expression, against one row.
@@ -4143,7 +4311,16 @@ fn materialize_local(
         let mut by_field: Vec<(String, Vec<String>)> = Vec::with_capacity(fields.len());
         for field in fields {
             let stream = body_stream!(format!("{}.{}", spec.name, field.name));
-            let values = column_values(&field.gen, count, prng, env, Some(&stream), None, None)?;
+            let values = column_values(
+                &field.gen,
+                count,
+                prng,
+                env,
+                Some(&stream),
+                None,
+                None,
+                None,
+            )?;
             by_field.push((field.name.clone(), values));
         }
         // After every field exists, never during: a group's members must all be
@@ -4166,7 +4343,7 @@ fn materialize_local(
         return not_ported("a pack sequence that is neither a <gen>, a <mix> nor a <compute>");
     };
     let stream = body_stream!(spec.name.clone());
-    let produced = column_values(gen, count, prng, env, Some(&stream), None, None)?;
+    let produced = column_values(gen, count, prng, env, Some(&stream), None, None, None)?;
     let values = produced.into_iter().map(Some).collect();
     Ok(vec![(spec.name.clone(), values)])
 }

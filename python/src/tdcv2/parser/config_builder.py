@@ -673,6 +673,7 @@ _RESERVED_TEMPLATE_NAMES = frozenset(
         "anomaly_flag",
         "missing",
         "missing_as",
+        "missing_when",
         "mask",
         "case",
         "order",

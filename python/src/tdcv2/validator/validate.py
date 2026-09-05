@@ -428,6 +428,7 @@ PACK_WRAPPER_ATTRS = frozenset(
         "mask",
         "missing",
         "missing_as",
+        "missing_when",
         "name",
         "order",
         "parent",
@@ -443,7 +444,7 @@ GEN_ATTRS = frozenset(
     {
         "type", "value", "name", "if", "comment", "case", "mask", "order", "cycle", "repeat",
         "separator", "accumulate", "distinct", "of", "plus", "reset", "op",
-        "missing", "missing_as", "anomaly",
+        "missing", "missing_as", "missing_when", "anomaly",
         "anomaly_factor",
         "anomaly_flag",
         "local", "weight", "percent", "first_zero", "include", "exclude",
@@ -476,15 +477,43 @@ GEN_ATTRS = frozenset(
 # over "row N plus seven days" would have to invent which rows get the offset and which keep
 # the original. Refused, like the rest.
 OFFSET_WRAPPERS_NOT_READ: frozenset[str] = frozenset(
-    {"mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor", "percent"}
+    {
+        "mask",
+        "case",
+        "missing",
+        "missing_as",
+        "missing_when",
+        "repeat",
+        "anomaly",
+        "anomaly_factor",
+        "percent",
+    }
 )
 
 WRAPPERS_NOT_READ: dict[str, frozenset[str]] = {
     "running": frozenset(
-        {"mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"}
+        {
+            "mask",
+            "case",
+            "missing",
+            "missing_as",
+            "missing_when",
+            "repeat",
+            "anomaly",
+            "anomaly_factor",
+        }
     ),
     "stat": frozenset(
-        {"mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"}
+        {
+            "mask",
+            "case",
+            "missing",
+            "missing_as",
+            "missing_when",
+            "repeat",
+            "anomaly",
+            "anomaly_factor",
+        }
     ),
     # A pool reference hands the row a whole MEMBER from a table built before the run. There is
     # no value of its own for the formatting layer to reach, so every one of these sat on it doing
@@ -496,6 +525,7 @@ WRAPPERS_NOT_READ: dict[str, frozenset[str]] = {
             "case",
             "missing",
             "missing_as",
+            "missing_when",
             "repeat",
             "anomaly",
             "anomaly_factor",
@@ -967,7 +997,9 @@ class _Validator:
         # Every if= seen, where its complaint belongs in the report, and whether the builtins of
         # an each= line are in scope. The names cannot be checked as the walk passes: an
         # expression may name a sequence declared BELOW it, and the run resolves that happily.
-        self.pending_expressions: list[tuple[int, str, int, int, bool, frozenset[str] | None]] = []
+        self.pending_expressions: list[
+            tuple[int, str, int, int, bool, frozenset[str] | None, frozenset[str]]
+        ] = []
         # The names a deferred expression may see, where they are NOT the run's. A <pool> member
         # reads its own pool and nothing else: the table is built before any row exists, so a
         # condition naming an env column is constant-false on every member. None means the run's
@@ -1033,11 +1065,16 @@ class _Validator:
         # back where its attribute was, so the report stays in source order.
         pending, self.pending_expressions = self.pending_expressions, []
         shift = 0
-        for at_index, condition, line, column, each, scope in pending:
+        for at_index, condition, line, column, each, scope, extra in pending:
             before = len(self.diagnostics)
             outer = self.declared_names
+            # `extra` carries the names the LANGUAGE provides for one expression — today just
+            # `_value` inside `missing_when`. Added rather than substituted, so a condition can
+            # still read the columns beside it.
             if scope is not None:
-                self.declared_names = set(scope)
+                self.declared_names = set(scope) | set(extra)
+            elif extra:
+                self.declared_names = set(outer) | set(extra)
             try:
                 self._check_expression_names(condition, line, column, each)
             finally:
@@ -3114,6 +3151,7 @@ class _Validator:
                     where[1],
                 )
 
+        self._check_missing_when(gen, attrs)
         if type_ is None or not type_.strip():
             line, column = _at(gen, "name")
             self._error(
@@ -5920,7 +5958,65 @@ class _Validator:
                     column,
                 )
 
-    def _defer_expression(self, expression: str, line: int, column: int, each: bool) -> None:
+    def _check_missing_when(self, gen, attrs: dict[str, str]) -> None:
+        """``missing_when="…"`` — the condition that turns MCAR into MAR or MNAR.
+
+        Only the two STRUCTURAL mistakes are raised here. The expression itself takes the road
+        every other condition takes: the syntax check, then the deferred name pass that reports
+        a word which looks like a column and is not. Writing a second name rule here would have
+        been the easy thing and the wrong one — ``if="Tier == hi"`` proves a bare word is a legal
+        literal, and a rule invented here would refuse configs the language accepts elsewhere.
+        """
+        when = attrs.get("missing_when")
+        if when is None:
+            return
+        where = _at_attrs(gen.attr(), "missing_when", *_at(gen, "missing_when"))
+        if not when.strip():
+            self._error(
+                "TDC303",
+                'missing_when="" is empty — it decides which rows may go missing',
+                'Give it a condition (missing_when="Age < 30"), or drop it: without one every '
+                "row is eligible, which is MCAR.",
+                where[0],
+                where[1],
+            )
+            return
+        if not (attrs.get("missing") or "").strip():
+            self._error(
+                "TDC303",
+                "missing_when= without missing= — nothing can go missing, so the condition "
+                "decides nothing",
+                'Add the rate the eligible rows go missing at: missing="0.4".',
+                where[0],
+                where[1],
+            )
+            return
+        # A repeated cell holds SEVERAL values on one row, and the condition asks about one.
+        # Both readings are defensible — test each element, or test the row — so the combination
+        # is refused rather than guessed at. It used to be accepted and ignored.
+        if (attrs.get("repeat") or "").strip():
+            self._error(
+                "TDC303",
+                "missing_when= is not read on a <gen> with repeat= — a repeated cell holds "
+                "several values, and the condition asks about one",
+                'Drop repeat=, or drop missing_when= and use plain missing="p", which does '
+                "apply to every element of the cell.",
+                where[0],
+                where[1],
+            )
+            return
+        self._check_if_expression(when.strip(), where[0], where[1])
+        # `_value` is the value being hidden — a name the language provides, like `_count`.
+        self._defer_expression(when.strip(), where[0], where[1], False, extra={"_value"})
+
+    def _defer_expression(
+        self,
+        expression: str,
+        line: int,
+        column: int,
+        each: bool,
+        extra: frozenset[str] | set[str] | None = None,
+    ) -> None:
         """Put an expression aside, together with the names it will be checked against.
 
         The scope is taken HERE rather than at the end: by then a pool's members have left the
@@ -5928,7 +6024,15 @@ class _Validator:
         directions — a sibling field read as undeclared, and an env column read as fine.
         """
         self.pending_expressions.append(
-            (len(self.diagnostics), expression, line, column, each, self.expr_scope)
+            (
+                len(self.diagnostics),
+                expression,
+                line,
+                column,
+                each,
+                self.expr_scope,
+                frozenset(extra or ()),
+            )
         )
 
     def _check_expression_names(self, expression: str, line: int, column: int, each: bool) -> None:

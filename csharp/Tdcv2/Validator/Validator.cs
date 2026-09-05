@@ -134,7 +134,7 @@ public sealed class Validator
     /// </remarks>
     private static readonly IReadOnlySet<string> ReservedTemplateAttrs = Set(
         "type", "value", "local", "name", "if", "comment", "anomaly", "anomaly_factor",
-        "anomaly_flag", "missing", "missing_as", "mask", "case", "order", "cycle");
+        "anomaly_flag", "missing", "missing_as", "missing_when", "mask", "case", "order", "cycle");
 
     /// <summary>
     /// What the pack-parameter check may skip: the engine-reserved names plus the wrappers
@@ -144,7 +144,7 @@ public sealed class Validator
     /// </summary>
     private static readonly IReadOnlySet<string> PackWrapperAttrs = Set(
         "anomaly", "anomaly_factor", "anomaly_flag", "case", "comment", "count", "cycle", "flag", "if", "local",
-        "mask", "missing", "missing_as", "name", "order", "parent", "repeat", "separator", "type", "value", "distinct");
+        "mask", "missing", "missing_as", "missing_when", "name", "order", "parent", "repeat", "separator", "type", "value", "distinct");
 
     /// <summary>The output wrappers a generator type does NOT put its value through.</summary>
     /// <remarks>
@@ -166,18 +166,18 @@ public sealed class Validator
     private static readonly IReadOnlySet<string> OffsetWrappersNotRead =
         new HashSet<string>(StringComparer.Ordinal)
         {
-            "mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor",
+            "mask", "case", "missing", "missing_as", "missing_when", "repeat", "anomaly", "anomaly_factor",
             "percent",
         };
 
     private static readonly IReadOnlyDictionary<string, IReadOnlySet<string>> WrappersNotRead =
         new Dictionary<string, IReadOnlySet<string>>(StringComparer.Ordinal)
         {
-            ["running"] = Set("mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"),
-            ["stat"] = Set("mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"),
+            ["running"] = Set("mask", "case", "missing", "missing_as", "missing_when", "repeat", "anomaly", "anomaly_factor"),
+            ["stat"] = Set("mask", "case", "missing", "missing_as", "missing_when", "repeat", "anomaly", "anomaly_factor"),
             // A pool reference hands the row a whole MEMBER from a table built before the run,
             // so there is no value of its own for the formatting layer to reach.
-            ["pool"] = Set("mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor", "percent"),
+            ["pool"] = Set("mask", "case", "missing", "missing_as", "missing_when", "repeat", "anomaly", "anomaly_factor", "percent"),
         };
 
     private static readonly IReadOnlyDictionary<string, IReadOnlySet<string>> AttributeOwners =
@@ -552,7 +552,7 @@ public sealed class Validator
     private static readonly IReadOnlySet<string> GenAttrs = Set(
         "type", "value", "name", "if", "comment", "case", "mask", "order", "cycle", "repeat",
         "separator", "accumulate", "distinct", "of", "plus", "reset", "op", "missing",
-        "missing_as", "anomaly",
+        "missing_as", "missing_when", "anomaly",
         "anomaly_factor",
         "anomaly_flag",
         "local", "weight", "percent", "first_zero", "include", "exclude",
@@ -696,7 +696,7 @@ public sealed class Validator
     /// configs that work.
     /// </remarks>
     private readonly List<(int At, string Expression, int Line, int Column, bool Each,
-        HashSet<string>? Scope)> _pendingExpressions = new();
+        HashSet<string>? Scope, string? Extra)> _pendingExpressions = new();
 
     /// <summary>
     /// The names a deferred expression may see, where they are NOT the run's.
@@ -719,8 +719,10 @@ public sealed class Validator
     /// and checking one of their conditions against the run's names got it wrong in both directions
     /// — a sibling field read as undeclared, and an env column read as fine.
     /// </remarks>
-    private void DeferExpression(string expression, int line, int column, bool each) =>
-        _pendingExpressions.Add((_diagnostics.Count, expression, line, column, each, _exprScope));
+    private void DeferExpression(
+        string expression, int line, int column, bool each, string? extra = null) =>
+        _pendingExpressions.Add(
+            (_diagnostics.Count, expression, line, column, each, _exprScope, extra));
 
     /// <summary>
     /// Every <c>filter=</c> seen, and where its complaint belongs in the report.
@@ -830,11 +832,11 @@ public sealed class Validator
         // Now that every name is known, the expressions can be checked — and each complaint goes
         // back where its attribute was, so the report stays in source order.
         var pending = new List<(int At, string Expression, int Line, int Column, bool Each,
-            HashSet<string>? Scope)>(_pendingExpressions);
+            HashSet<string>? Scope, string? Extra)>(_pendingExpressions);
         _pendingExpressions.Clear();
         int shift = 0;
         foreach ((int at, string expression, int line, int column, bool each,
-            HashSet<string>? scope) in pending)
+            HashSet<string>? scope, string? extra) in pending)
         {
             int before = _diagnostics.Count;
             HashSet<string>? outer = null;
@@ -845,7 +847,16 @@ public sealed class Validator
                 _declaredNames.UnionWith(scope);
             }
 
+            // `extra` carries the one name the LANGUAGE provides for this expression — today
+            // just `_value` inside `missing_when`. Added rather than substituted, so a condition
+            // can still read the columns beside it.
+            bool added = extra is not null && _declaredNames.Add(extra);
             CheckExpressionNames(expression, line, column, each);
+            if (added)
+            {
+                _declaredNames.Remove(extra!);
+            }
+
             if (outer is not null)
             {
                 _declaredNames.Clear();
@@ -3838,10 +3849,72 @@ public sealed class Validator
     /// that 30% of them were meant to be outliers. Only a <c>type="text"</c> list is judged: it is
     /// the only source whose whole candidate set is written in the config.</para>
     /// </remarks>
+    /// <summary>
+    /// <c>missing_when="…"</c> — the condition that turns MCAR into MAR or MNAR.
+    /// </summary>
+    /// <remarks>
+    /// Only the STRUCTURAL mistakes are caught here. The expression itself takes the road every
+    /// other condition takes: the parser now, the deferred name pass afterwards, which reports a
+    /// word that looks like a column and is not. A second name rule written here would have been
+    /// the easy thing and the wrong one — <c>if="Tier == hi"</c> proves a bare word is a legal
+    /// literal, and a rule invented here would refuse configs the language accepts elsewhere.
+    /// </remarks>
+    private void CheckMissingWhen(
+        TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs)
+    {
+        if (!attrs.TryGetValue("missing_when", out string? when))
+        {
+            return;
+        }
+
+        (int line, int column) = At(gen.attr(), "missing_when", Line(gen), Column(gen));
+        if (string.IsNullOrWhiteSpace(when))
+        {
+            Error(
+                "TDC303",
+                "missing_when=\"\" is empty — it decides which rows may go missing",
+                "Give it a condition (missing_when=\"Age < 30\"), or drop it: without one every "
+                    + "row is eligible, which is MCAR.",
+                line, column);
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(attrs.GetValueOrDefault("missing")))
+        {
+            Error(
+                "TDC303",
+                "missing_when= without missing= — nothing can go missing, so the condition "
+                    + "decides nothing",
+                "Add the rate the eligible rows go missing at: missing=\"0.4\".",
+                line, column);
+            return;
+        }
+
+        // A repeated cell holds SEVERAL values on one row, and the condition asks about one. Both
+        // readings are defensible — test each element, or test the row — so the combination is
+        // refused rather than guessed at. It used to be accepted and ignored.
+        if (!string.IsNullOrWhiteSpace(attrs.GetValueOrDefault("repeat")))
+        {
+            Error(
+                "TDC303",
+                "missing_when= is not read on a <gen> with repeat= — a repeated cell holds "
+                    + "several values, and the condition asks about one",
+                "Drop repeat=, or drop missing_when= and use plain missing=\"p\", which does "
+                    + "apply to every element of the cell.",
+                line, column);
+            return;
+        }
+
+        CheckIfExpression(when.Trim(), line, column);
+        this.DeferExpression(
+            when.Trim(), line, column, false, Generators.Imperfections.MissingValueName);
+    }
+
     private void CheckImperfections(
         TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs,
         string? type)
     {
+        this.CheckMissingWhen(gen, attrs);
         foreach (string key in new[] { "anomaly", "missing" })
         {
             string? probability = attrs.GetValueOrDefault(key);
@@ -7747,7 +7820,7 @@ public sealed class Validator
     /// </summary>
     private static readonly string[] DroppedByUniq =
     {
-        "mask", "case", "missing", "missing_as", "repeat", "separator", "distinct", "anomaly",
+        "mask", "case", "missing", "missing_as", "missing_when", "repeat", "separator", "distinct", "anomaly",
         "anomaly_flag",
     };
 

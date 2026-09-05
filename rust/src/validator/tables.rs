@@ -108,7 +108,7 @@ pub const MISPLACED_IN_SEQUENCE: [&str; 5] = ["mix", "switch", "case", "default"
 /// to `<case>`; `on` to `<switch>`; `v` to `<tdc>`. The list was one flat union of
 /// every attribute name in the language, so writing any of them on a `<gen>`
 /// passed in silence while the reference refused it.
-pub const GEN_ATTRS: [&str; 86] = [
+pub const GEN_ATTRS: [&str; 87] = [
     "type",
     "value",
     "name",
@@ -131,6 +131,7 @@ pub const GEN_ATTRS: [&str; 86] = [
     "op",
     "missing",
     "missing_as",
+    "missing_when",
     "anomaly",
     "anomaly_factor",
     "anomaly_flag",
@@ -604,7 +605,7 @@ pub fn lookup<'a>(table: &'a [(&'a str, &'a [&'a str])], key: &str) -> Option<&'
 /// any OTHER name, which is why the ownership table has no jurisdiction there:
 /// it refused `base=` on the 39 packs that declare a `<sequence name="base">`,
 /// the whole check-digit family, on configs the engine would have run.
-pub const RESERVED_TEMPLATE_ATTRS: [&str; 15] = [
+pub const RESERVED_TEMPLATE_ATTRS: [&str; 16] = [
     "type",
     "value",
     "local",
@@ -616,6 +617,7 @@ pub const RESERVED_TEMPLATE_ATTRS: [&str; 15] = [
     "anomaly_flag",
     "missing",
     "missing_as",
+    "missing_when",
     "mask",
     "case",
     "order",
@@ -626,7 +628,7 @@ pub const RESERVED_TEMPLATE_ATTRS: [&str; 15] = [
 /// wrappers applied around the produced value. Using the union of EVERY
 /// generator's attributes instead meant a name like `points=` was reported by
 /// nobody once the ownership check stopped guessing.
-pub const PACK_WRAPPER_ATTRS: [&str; 21] = [
+pub const PACK_WRAPPER_ATTRS: [&str; 22] = [
     "anomaly",
     "anomaly_factor",
     "anomaly_flag",
@@ -640,6 +642,7 @@ pub const PACK_WRAPPER_ATTRS: [&str; 21] = [
     "mask",
     "missing",
     "missing_as",
+    "missing_when",
     "name",
     "order",
     "parent",
@@ -663,11 +666,12 @@ pub const PACK_WRAPPER_ATTRS: [&str; 21] = [
 /// quota over a derived number is a different argument; a date offset is a DATE, and a quota
 /// over "row N plus seven days" would have to invent which rows get the offset and which keep
 /// the original. Refused, like the rest.
-pub const OFFSET_WRAPPERS_NOT_READ: [&str; 8] = [
+pub const OFFSET_WRAPPERS_NOT_READ: [&str; 9] = [
     "mask",
     "case",
     "missing",
     "missing_as",
+    "missing_when",
     "repeat",
     "anomaly",
     "anomaly_factor",
@@ -682,6 +686,7 @@ pub const WRAPPERS_NOT_READ: [(&str, &[&str]); 3] = [
             "case",
             "missing",
             "missing_as",
+            "missing_when",
             "repeat",
             "anomaly",
             "anomaly_factor",
@@ -694,6 +699,7 @@ pub const WRAPPERS_NOT_READ: [(&str, &[&str]); 3] = [
             "case",
             "missing",
             "missing_as",
+            "missing_when",
             "repeat",
             "anomaly",
             "anomaly_factor",
@@ -708,6 +714,7 @@ pub const WRAPPERS_NOT_READ: [(&str, &[&str]); 3] = [
             "case",
             "missing",
             "missing_as",
+            "missing_when",
             "repeat",
             "anomaly",
             "anomaly_factor",

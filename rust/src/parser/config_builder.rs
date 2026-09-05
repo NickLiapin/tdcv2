@@ -770,7 +770,7 @@ const WHOLE_COLUMN_ATTRS: [&str; 2] = ["uniq", "order"];
 /// What the ENGINE reads off the calling `<gen type="template">` before the pack
 /// runs. A `<sequence>` named one of these can never be set by a caller: the
 /// parameter simply does not exist, however plainly the pack declares it.
-const RESERVED_TEMPLATE_NAMES: [&str; 15] = [
+const RESERVED_TEMPLATE_NAMES: [&str; 16] = [
     "type",
     "value",
     "local",
@@ -782,6 +782,7 @@ const RESERVED_TEMPLATE_NAMES: [&str; 15] = [
     "anomaly_flag",
     "missing",
     "missing_as",
+    "missing_when",
     "mask",
     "case",
     "order",

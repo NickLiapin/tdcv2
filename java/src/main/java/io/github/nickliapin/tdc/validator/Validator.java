@@ -5,6 +5,7 @@ import io.github.nickliapin.tdc.date.DateParse;
 import io.github.nickliapin.tdc.date.DateStep;
 import io.github.nickliapin.tdc.errors.Diagnostic;
 import io.github.nickliapin.tdc.distribution.PercentMask;
+import io.github.nickliapin.tdc.generators.Imperfections;
 import io.github.nickliapin.tdc.generators.Accumulate;
 import io.github.nickliapin.tdc.generators.RegexGen;
 import io.github.nickliapin.tdc.generators.Stat;
@@ -130,7 +131,7 @@ public final class Validator {
    */
   private static final java.util.Set<String> RESERVED_TEMPLATE_ATTRS =
       java.util.Set.of("type", "value", "local", "name", "if", "comment", "anomaly",
-          "anomaly_factor", "anomaly_flag", "missing", "missing_as", "mask", "case", "order",
+          "anomaly_factor", "anomaly_flag", "missing", "missing_as", "missing_when", "mask", "case", "order",
           "cycle");
 
   /**
@@ -141,7 +142,7 @@ public final class Validator {
   private static final java.util.Set<String> PACK_WRAPPER_ATTRS =
       java.util.Set.of(
           "anomaly", "anomaly_factor", "anomaly_flag", "case", "comment", "count", "cycle", "flag",
-          "if", "local", "mask", "missing", "missing_as", "name", "order", "parent",
+          "if", "local", "mask", "missing", "missing_as", "missing_when", "name", "order", "parent",
           "repeat", "separator", "type", "value", "distinct");
 
   /**
@@ -163,16 +164,16 @@ public final class Validator {
    */
   private static final java.util.Set<String> OFFSET_WRAPPERS_NOT_READ =
       java.util.Set.of(
-          "mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor",
+          "mask", "case", "missing", "missing_as", "missing_when", "repeat", "anomaly", "anomaly_factor",
           "percent");
 
   private static final Map<String, java.util.Set<String>> WRAPPERS_NOT_READ =
       Map.of(
-          "running", java.util.Set.of("mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"),
-          "stat", java.util.Set.of("mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"),
+          "running", java.util.Set.of("mask", "case", "missing", "missing_as", "missing_when", "repeat", "anomaly", "anomaly_factor"),
+          "stat", java.util.Set.of("mask", "case", "missing", "missing_as", "missing_when", "repeat", "anomaly", "anomaly_factor"),
           // A pool reference hands the row a whole MEMBER from a table built before the run,
           // so there is no value of its own for the formatting layer to reach.
-          "pool", java.util.Set.of("mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor", "percent"));
+          "pool", java.util.Set.of("mask", "case", "missing", "missing_as", "missing_when", "repeat", "anomaly", "anomaly_factor", "percent"));
 
   private static final Map<String, java.util.Set<String>> ATTRIBUTE_OWNERS =
       Map.ofEntries(
@@ -558,7 +559,7 @@ public final class Validator {
   private static final Set<String> GEN_ATTRS =
       Set.of(
           "type", "value", "name", "if", "comment", "case", "mask", "order", "cycle", "repeat",
-          "separator", "missing", "missing_as", "anomaly", "anomaly_factor", "anomaly_flag",
+          "separator", "missing", "missing_as", "missing_when", "anomaly", "anomaly_factor", "anomaly_flag",
           "local", "weight", "percent", "first_zero", "include", "exclude",
           "accumulate", "distinct", "of", "plus", "reset", "op", "length", "decimals", "distribution", "regex_max_length", "alphabet",
           "format", "from",
@@ -676,7 +677,13 @@ public final class Validator {
    * configs that work.
    */
   private record Pending(
-      int at, String expression, int line, int column, boolean each, Set<String> scope) {}
+      int at,
+      String expression,
+      int line,
+      int column,
+      boolean each,
+      Set<String> scope,
+      String extra) {}
 
   /**
    * The names a deferred expression may see, where they are NOT the run's.
@@ -698,8 +705,20 @@ public final class Validator {
    * directions — a sibling field read as undeclared, and an env column read as fine.
    */
   private void deferExpression(String expression, int line, int column, boolean each) {
+    deferExpression(expression, line, column, each, null);
+  }
+
+  /**
+   * The same, with ONE extra name the language provides for this expression alone.
+   *
+   * <p>{@code missing_when=} is the only caller: {@code _value} is the value being hidden, and it
+   * is a builtin there and nowhere else. Adding it to the run's names outright would have made
+   * {@code if="_value > 5"} pass {@code check} and then read as a bare word at run time.
+   */
+  private void deferExpression(
+      String expression, int line, int column, boolean each, String extra) {
     pendingExpressions.add(
-        new Pending(diagnostics.size(), expression, line, column, each, exprScope));
+        new Pending(diagnostics.size(), expression, line, column, each, exprScope, extra));
   }
 
   private final List<Pending> pendingExpressions = new ArrayList<>();
@@ -827,7 +846,11 @@ public final class Validator {
         declaredNames.clear();
         declaredNames.addAll(item.scope());
       }
+      boolean added = item.extra() != null && declaredNames.add(item.extra());
       checkExpressionNames(item.expression(), item.line(), item.column(), item.each());
+      if (added) {
+        declaredNames.remove(item.extra());
+      }
       if (outer != null) {
         declaredNames.clear();
         declaredNames.addAll(outer);
@@ -3351,8 +3374,60 @@ public final class Validator {
    * that 30% of them were meant to be outliers. Only a {@code type="text"} list is judged: it is
    * the only source whose whole candidate set is written in the config.
    */
+  /**
+   * {@code missing_when="…"} — the condition that turns MCAR into MAR or MNAR.
+   *
+   * <p>Only the STRUCTURAL mistakes are caught here. The expression itself takes the road every
+   * other condition takes: the parser now, the deferred name pass afterwards, which reports a
+   * word that looks like a column and is not. A second name rule written here would have been
+   * the easy thing and the wrong one — {@code if="Tier == hi"} proves a bare word is a legal
+   * literal, and a rule invented here would refuse configs the language accepts elsewhere.
+   */
+  private void checkMissingWhen(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs) {
+    String raw = attrs.get("missing_when");
+    if (raw == null) {
+      return;
+    }
+    int[] where = at(gen.attr(), "missing_when", line(gen), column(gen));
+    if (raw.isBlank()) {
+      error("TDC303",
+          "missing_when=\"\" is empty — it decides which rows may go missing",
+          "Give it a condition (missing_when=\"Age < 30\"), or drop it: without one every row "
+              + "is eligible, which is MCAR.",
+          where[0], where[1]);
+      return;
+    }
+    String rate = attrs.get("missing");
+    if (rate == null || rate.isBlank()) {
+      error("TDC303",
+          "missing_when= without missing= — nothing can go missing, so the condition decides "
+              + "nothing",
+          "Add the rate the eligible rows go missing at: missing=\"0.4\".",
+          where[0], where[1]);
+      return;
+    }
+    // A repeated cell holds SEVERAL values on one row, and the condition asks about one. Both
+    // readings are defensible — test each element, or test the row — so the combination is
+    // refused rather than guessed at. It used to be accepted and ignored.
+    String repeat = attrs.get("repeat");
+    if (repeat != null && !repeat.isBlank()) {
+      error("TDC303",
+          "missing_when= is not read on a <gen> with repeat= — a repeated cell holds several "
+              + "values, and the condition asks about one",
+          "Drop repeat=, or drop missing_when= and use plain missing=\"p\", which does apply "
+              + "to every element of the cell.",
+          where[0], where[1]);
+      return;
+    }
+    checkIfExpression(raw.trim(), where[0], where[1]);
+    deferExpression(
+        raw.trim(), where[0], where[1], false, Imperfections.MISSING_VALUE_NAME);
+  }
+
   private void checkImperfections(
       TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
+    checkMissingWhen(gen, attrs);
     for (String key : List.of("anomaly", "missing")) {
       String raw = attrs.get(key);
       if (raw == null || raw.isBlank() || isProbability(raw)) {
@@ -3762,7 +3837,7 @@ public final class Validator {
    * writes the same blank on many rows, {@code repeat} turns the cell into a list.
    */
   private static final String[] DROPPED_BY_UNIQ = {
-    "mask", "case", "missing", "missing_as", "repeat", "separator", "distinct", "anomaly",
+    "mask", "case", "missing", "missing_as", "missing_when", "repeat", "separator", "distinct", "anomaly",
     "anomaly_flag"
   };
 

@@ -17,8 +17,29 @@ import java.util.Map;
  */
 public final class Imperfections {
 
-  /** {@code missing="p"} with an optional {@code missing_as="NULL"}. */
-  public record Missing(double probability, String token) {}
+  /**
+   * The value this row would have held, inside {@code missing_when}.
+   *
+   * <p>Named like the run's other built-ins ({@code _count}, {@code _first}, {@code _last},
+   * {@code _total}) because it is one: a name the language provides rather than one a config
+   * declares. The underscore is what keeps it from colliding with a column.
+   */
+  public static final String MISSING_VALUE_NAME = "_value";
+
+  /**
+   * {@code missing="p"} with an optional {@code missing_as="NULL"} and {@code missing_when="…"}.
+   *
+   * <p>{@code when} is {@code null} when every row is eligible — MCAR. It is kept as the source
+   * TEXT rather than a parsed tree because the evaluator takes text, and because the streaming
+   * engine builds this spec per row.
+   */
+  public record Missing(double probability, String token, String when) {}
+
+  /** Is row {@code i} eligible to go missing? {@code null} means every row is — MCAR. */
+  @FunctionalInterface
+  public interface Eligible {
+    boolean test(int i, String value);
+  }
 
   /** {@code anomaly="p"} with an optional {@code anomaly_factor="10"}. */
   public record Anomaly(double probability, double factor) {}
@@ -33,7 +54,9 @@ public final class Imperfections {
       return null;
     }
     double p = probability(raw, "missing");
-    return new Missing(p, attrs.getOrDefault("missing_as", ""));
+    String when = attrs.get("missing_when");
+    when = when == null || when.isBlank() ? null : when.trim();
+    return new Missing(p, attrs.getOrDefault("missing_as", ""), when);
   }
 
   public static Anomaly parseAnomaly(Map<String, String> attrs) {
@@ -61,17 +84,38 @@ public final class Imperfections {
   }
 
   /**
-   * Blank each value with the given probability — missing completely at random.
+   * Blank each ELIGIBLE value with the given probability.
    *
    * <p>Real datasets have holes, and code that has only ever seen complete data tends to fall
-   * over on the first one.
+   * over on the first one. {@code missing_when=} decides which rows are eligible, and that one
+   * attribute is the whole difference between the three mechanisms the literature names:
+   *
+   * <pre>
+   * MCAR  missing="0.2"                                 every row eligible
+   * MAR   missing="0.4" missing_when="Age &lt; 30"          eligibility from ANOTHER column
+   * MNAR  missing="0.5" missing_when="_value &gt; 150000"   from the value itself
+   * </pre>
+   *
+   * <p>{@code eligible} of {@code null} means every row is. <b>The draw is made only for an
+   * eligible row</b>, and that is deliberate: drawing for every row and discarding the result
+   * would spend a number per row on a column that may never blank, and would tie the eligible
+   * rows' randomness to how many ineligible ones came before — so widening a condition would
+   * change rows it does not cover.
    */
   public static void applyMissing(List<String> values, Missing spec, Prng.Sfc32 prng) {
+    applyMissing(values, spec, prng, null);
+  }
+
+  public static void applyMissing(
+      List<String> values, Missing spec, Prng.Sfc32 prng, Eligible eligible) {
     if (spec.probability() <= 0) {
       // No draws at all when nothing can go missing, so `missing="0"` costs nothing.
       return;
     }
     for (int i = 0; i < values.size(); i++) {
+      if (eligible != null && !eligible.test(i, values.get(i))) {
+        continue;
+      }
       if (prng.next() < spec.probability()) {
         values.set(i, spec.token());
       }

@@ -45,6 +45,7 @@ export function checkGenImperfections(
 ): void {
   const attrs = gen.attr();
   const attrMap = extractAttrs(attrs);
+  checkMissingWhen(attrs, attrMap, diagnostics);
 
   for (const name of ['anomaly', 'missing'] as const) {
     const attr = findAttr(attrs, name);
@@ -194,4 +195,67 @@ export function checkGenIfInCase(
     hint: 'Put the condition on the branch — <case if="…"> — or move the <gen> into a <sequence> of its own, where a false condition falls through to the next <gen>.',
     code: 'TDC269',
   });
+}
+
+/**
+ * `missing_when="…"` — the condition that turns MCAR into MAR or MNAR.
+ *
+ * Only the two STRUCTURAL mistakes are caught here. The expression itself takes
+ * the road every other condition in this language takes: `checkIfExpression` for
+ * syntax, then the deferred name pass that raises `TDC215` when a word that
+ * looks like a column is not one. Writing a second name check here would have
+ * been the easy thing and the wrong one — `if="Tier == hi"` proves a bare word
+ * is a legal literal on the right of a comparison, and a rule invented here
+ * would have rejected configs the language accepts everywhere else.
+ */
+function checkMissingWhen(
+  attrs: readonly AttrContext[],
+  attrMap: Record<string, string>,
+  diagnostics: Diagnostic[],
+): void {
+  const attr = findAttr(attrs, 'missing_when');
+  if (!attr) return;
+  const expr = (attrMap['missing_when'] ?? '').trim();
+
+  if (expr === '') {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...attrValueRange(attr),
+      message: 'missing_when="" is empty — it decides which rows may go missing',
+      hint: 'Give it a condition (missing_when="Age < 30"), or drop it: without one every row is eligible, which is MCAR.',
+      code: 'TDC303',
+    });
+    return;
+  }
+
+  if ((attrMap['missing'] ?? '').trim() === '') {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...attrValueRange(attr),
+      message:
+        'missing_when= without missing= — nothing can go missing, so the condition decides nothing',
+      hint: 'Add the rate the eligible rows go missing at: missing="0.4".',
+      code: 'TDC303',
+    });
+    return;
+  }
+
+  // A repeated cell holds SEVERAL values on one row, and the condition asks about
+  // one. Both readings are defensible — test each element, or test the row — so
+  // the combination is refused rather than guessed at. It was accepted and
+  // ignored: every element was blanked at the plain rate, from a config `check`
+  // had called valid, with no sign the condition had been dropped.
+  if ((attrMap['repeat'] ?? '').trim() !== '') {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...attrValueRange(attr),
+      message:
+        'missing_when= is not read on a <gen> with repeat= — a repeated cell holds several values, and the condition asks about one',
+      hint: 'Drop repeat=, or drop missing_when= and use plain missing="p", which does apply to every element of the cell.',
+      code: 'TDC303',
+    });
+  }
 }

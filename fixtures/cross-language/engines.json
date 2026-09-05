@@ -236,6 +236,304 @@
         ]
       }
     },
+    "anomaly-flag/missing-mar-another-column": {
+      "engine2": {
+        "lines": [
+          "50,[848]",
+          "35,[]",
+          "48,[204]",
+          "56,[806]",
+          "35,[]",
+          "58,[986]",
+          "41,[]",
+          "31,[]",
+          "45,[295]",
+          "21,[]",
+          "30,[]",
+          "19,[]"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "50,[848]",
+          "35,[]",
+          "48,[204]",
+          "56,[806]",
+          "35,[]",
+          "58,[986]",
+          "41,[]",
+          "31,[]",
+          "45,[295]",
+          "21,[]",
+          "30,[]",
+          "19,[]"
+        ]
+      }
+    },
+    "anomaly-flag/missing-mar-partial-rate": {
+      "engine2": {
+        "lines": [
+          "50,[848]",
+          "35,[707]",
+          "48,[204]",
+          "56,[806]",
+          "35,[680]",
+          "58,[986]",
+          "41,[]",
+          "31,[]",
+          "45,[295]",
+          "21,[904]",
+          "30,[]",
+          "19,[562]"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "50,[848]",
+          "35,[707]",
+          "48,[204]",
+          "56,[806]",
+          "35,[680]",
+          "58,[986]",
+          "41,[]",
+          "31,[]",
+          "45,[295]",
+          "21,[904]",
+          "30,[]",
+          "19,[562]"
+        ]
+      }
+    },
+    "anomaly-flag/missing-mnar-the-value-itself": {
+      "engine2": {
+        "lines": [
+          "[]",
+          "[]",
+          "[204]",
+          "[]",
+          "[]",
+          "[]",
+          "[416]",
+          "[]",
+          "[295]",
+          "[]",
+          "[]",
+          "[]"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "[]",
+          "[]",
+          "[204]",
+          "[]",
+          "[]",
+          "[]",
+          "[416]",
+          "[]",
+          "[295]",
+          "[]",
+          "[]",
+          "[]"
+        ]
+      }
+    },
+    "anomaly-flag/missing-when-covers-nothing": {
+      "engine2": {
+        "lines": [
+          "50,[848]",
+          "35,[707]",
+          "48,[204]",
+          "56,[806]",
+          "35,[680]",
+          "58,[986]",
+          "41,[416]",
+          "31,[842]",
+          "45,[295]",
+          "21,[904]",
+          "30,[870]",
+          "19,[562]"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "50,[848]",
+          "35,[707]",
+          "48,[204]",
+          "56,[806]",
+          "35,[680]",
+          "58,[986]",
+          "41,[416]",
+          "31,[842]",
+          "45,[295]",
+          "21,[904]",
+          "30,[870]",
+          "19,[562]"
+        ]
+      }
+    },
+    "anomaly-flag/missing-when-with-token": {
+      "engine2": {
+        "lines": [
+          "50,848",
+          "35,NULL",
+          "48,204",
+          "56,806",
+          "35,NULL",
+          "58,986",
+          "41,416",
+          "31,NULL",
+          "45,295",
+          "21,NULL",
+          "30,NULL",
+          "19,NULL"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "50,848",
+          "35,NULL",
+          "48,204",
+          "56,806",
+          "35,NULL",
+          "58,986",
+          "41,416",
+          "31,NULL",
+          "45,295",
+          "21,NULL",
+          "30,NULL",
+          "19,NULL"
+        ]
+      }
+    },
+    "anomaly-flag/missing-when-on-inline-types-memory": {
+      "engine2": {
+        "lines": [
+          "28,100,0",
+          "47,NA,1",
+          "33,102,2",
+          "27,103,3",
+          "59,NA,4",
+          "47,NA,NA",
+          "49,NA,NA",
+          "37,107,NA",
+          "19,108,NA",
+          "40,109,NA"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "28,100,0",
+          "47,NA,1",
+          "33,102,2",
+          "27,103,3",
+          "59,NA,4",
+          "47,NA,NA",
+          "49,NA,NA",
+          "37,107,NA",
+          "19,108,NA",
+          "40,109,NA"
+        ]
+      }
+    },
+    "anomaly-flag/missing-when-on-inline-types-stream": {
+      "engine2": {
+        "lines": [
+          "28,100,0",
+          "47,NA,1",
+          "33,102,2",
+          "27,103,3",
+          "59,NA,4",
+          "47,NA,NA",
+          "49,NA,NA",
+          "37,107,NA",
+          "19,108,NA",
+          "40,109,NA"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "28,100,0",
+          "47,NA,1",
+          "33,102,2",
+          "27,103,3",
+          "59,NA,4",
+          "47,NA,NA",
+          "49,NA,NA",
+          "37,107,NA",
+          "19,108,NA",
+          "40,109,NA"
+        ]
+      }
+    },
+    "anomaly-flag/missing-when-and-anomaly-flag-memory": {
+      "engine2": {
+        "lines": [
+          "56,NA,false",
+          "35,101,false",
+          "30,102,false",
+          "37,1030,true",
+          "38,1040,true",
+          "35,1050,true",
+          "33,106,false",
+          "41,NA,false",
+          "46,NA,false",
+          "45,NA,false",
+          "50,NA,false",
+          "34,111,false"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "56,NA,false",
+          "35,101,false",
+          "30,102,false",
+          "37,1030,true",
+          "38,1040,true",
+          "35,1050,true",
+          "33,106,false",
+          "41,NA,false",
+          "46,NA,false",
+          "45,NA,false",
+          "50,NA,false",
+          "34,111,false"
+        ]
+      }
+    },
+    "anomaly-flag/missing-when-and-anomaly-flag-stream": {
+      "engine2": {
+        "lines": [
+          "56,NA,false",
+          "35,101,false",
+          "30,102,false",
+          "37,1030,true",
+          "38,1040,true",
+          "35,1050,true",
+          "33,106,false",
+          "41,NA,false",
+          "46,NA,false",
+          "45,NA,false",
+          "50,NA,false",
+          "34,111,false"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "56,NA,false",
+          "35,101,false",
+          "30,102,false",
+          "37,1030,true",
+          "38,1040,true",
+          "35,1050,true",
+          "33,106,false",
+          "41,NA,false",
+          "46,NA,false",
+          "45,NA,false",
+          "50,NA,false",
+          "34,111,false"
+        ]
+      }
+    },
     "assert/an-assertion-that-holds-changes-nothing": {
       "engine2": {
         "refused": "a statistic (\"Rows\") is computed over every row of the run, including the ones after this one, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)"

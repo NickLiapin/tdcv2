@@ -987,7 +987,7 @@ public static class ConfigBuilder
         new[]
         {
             "type", "value", "local", "name", "if", "comment", "anomaly", "anomaly_factor",
-            "anomaly_flag", "missing", "missing_as", "mask", "case", "order", "cycle",
+            "anomaly_flag", "missing", "missing_as", "missing_when", "mask", "case", "order", "cycle",
         };
 
     /// <summary>

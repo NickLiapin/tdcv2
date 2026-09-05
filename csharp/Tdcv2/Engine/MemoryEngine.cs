@@ -3157,6 +3157,48 @@ public static class MemoryEngine
         string expression, IReadOnlyDictionary<string, string[]> columns, int row) =>
         Evaluate.AsCondition(expression, new RowScope(columns, row));
 
+    /// <summary>
+    /// Is this row eligible to go missing? True for every row when there is no condition, so an
+    /// MCAR column costs no evaluation at all.
+    /// </summary>
+    /// <remarks>
+    /// The scope is deliberately the one <c>if=</c> gets, plus a single reserved name.
+    /// <c>_value</c> is what this generator produced for the row, which is what MNAR means: the
+    /// chance of a hole depends on what the hole would hide. Everything else resolves through the
+    /// sibling seam, so this reaches another column exactly as far as the rest of the language
+    /// does and no further — a column declared LATER is not there to read, on either engine.
+    /// </remarks>
+    internal static bool MissingRowEligible(
+        string? when,
+        Func<string, bool>? has,
+        Func<string, int, string?>? at,
+        int row,
+        string value) =>
+        when is null || Evaluate.AsCondition(when, new MissingScope(has, at, row, value));
+
+    private sealed class MissingScope : Evaluate.IScope
+    {
+        private readonly Func<string, bool>? _has;
+        private readonly Func<string, int, string?>? _at;
+        private readonly int _row;
+        private readonly string _value;
+
+        internal MissingScope(
+            Func<string, bool>? has, Func<string, int, string?>? at, int row, string value)
+        {
+            _has = has;
+            _at = at;
+            _row = row;
+            _value = value;
+        }
+
+        public bool Has(string name) =>
+            name == Imperfections.MissingValueName || (_has is not null && _has(name));
+
+        public string Value(string name) =>
+            name == Imperfections.MissingValueName ? _value : _at?.Invoke(name, _row) ?? "";
+    }
+
     private sealed class RowScope : Evaluate.IScope
     {
         private readonly IReadOnlyDictionary<string, string[]> _columns;
@@ -3742,7 +3784,8 @@ public static class MemoryEngine
         if (stream is null)
         {
             return Finish(
-                Generate(gen, count, prng, ctx, instants), gen.Attrs, prng, anomalyFlags, instants);
+                Generate(gen, count, prng, ctx, instants), gen.Attrs, prng, anomalyFlags,
+                instants, ctx);
         }
 
         // A body's inner sequences get NO plain-list layout: the reference gives them no stream
@@ -3755,7 +3798,7 @@ public static class MemoryEngine
         {
             string[] laid = PerRow.ExactTextLayout(
                 list.Values, list.Percents, count, stream, layouts);
-            return FinishKeyed(laid, gen, prng, anomalyFlags, stream);
+            return FinishKeyed(laid, gen, prng, anomalyFlags, stream, ctx);
         }
 
         // `sample="exact"` on a quantile read is a PLAN, like the layout above: every row takes
@@ -3774,7 +3817,7 @@ public static class MemoryEngine
                 swept[i] = Quantile.ExactAt(source, decimals, count, key, stream.RowAt(i));
             }
 
-            return FinishKeyed(swept, gen, prng, anomalyFlags, stream);
+            return FinishKeyed(swept, gen, prng, anomalyFlags, stream, ctx);
         }
 
         // Two types the streaming engine builds INLINE: the value follows the position, and only
@@ -3782,13 +3825,13 @@ public static class MemoryEngine
         if (gen.Type == "timeseries")
         {
             return FinishKeyed(
-                TimeseriesKeyed(gen.Attrs, count, stream), gen, prng, anomalyFlags, stream);
+                TimeseriesKeyed(gen.Attrs, count, stream), gen, prng, anomalyFlags, stream, ctx);
         }
 
         if (gen.Type == "pattern")
         {
             return FinishKeyed(
-                PatternKeyed(gen.Attrs, count, ctx, stream), gen, prng, anomalyFlags, stream);
+                PatternKeyed(gen.Attrs, count, ctx, stream), gen, prng, anomalyFlags, stream, ctx);
         }
 
         // A weighted choice inside an advanced_regex — `(?%{RU:70|US:20|DE:10})` — is a quota
@@ -3818,7 +3861,10 @@ public static class MemoryEngine
                         ctx with { ColumnStreamId = stream.Id, ColumnRow = here, OneRow = true },
                         scratch,
                         _ => here),
-                    gen.Attrs, rowPrng, one, scratch);
+                    gen.Attrs, rowPrng, one, scratch,
+                    // One value, on ONE row of the run — so the view carries that row rather
+                    // than letting position 0 read row 0 of every sibling.
+                    ctx, _ => here);
                 built.Add(done.Count > 0 ? done[0] : "");
                 if (anomalyFlags is not null)
                 {
@@ -3849,7 +3895,7 @@ public static class MemoryEngine
                 },
                 null,
                 stream.RowAt),
-            gen, prng, anomalyFlags, stream);
+            gen, prng, anomalyFlags, stream, ctx);
     }
 
     /// <summary>
@@ -3862,10 +3908,11 @@ public static class MemoryEngine
         Gen gen,
         Sfc32 prng,
         bool[]? anomalyFlags,
-        PerRow.Stream stream) =>
+        PerRow.Stream stream,
+        Ctx? cols = null) =>
         PerRow.InlineAnomalyTypes.Contains(gen.Type)
-            ? FinishWith(values, gen.Attrs, prng, anomalyFlags, stream)
-            : Finish(values, gen.Attrs, prng, anomalyFlags);
+            ? FinishWith(values, gen.Attrs, prng, anomalyFlags, stream, cols)
+            : Finish(values, gen.Attrs, prng, anomalyFlags, null, cols);
 
     /// <summary>
     /// <see cref="Finish"/>, with the anomaly and missing draws taken from a stream rather than
@@ -3876,7 +3923,8 @@ public static class MemoryEngine
         IReadOnlyDictionary<string, string> attrs,
         Sfc32 prng,
         bool[]? anomalyFlags,
-        PerRow.Stream stream)
+        PerRow.Stream stream,
+        Ctx? cols = null)
     {
         var result = new List<string>(values);
 
@@ -3904,9 +3952,23 @@ public static class MemoryEngine
         {
             for (int i = 0; i < result.Count; i++)
             {
+                // The eligibility test comes BEFORE the draw — see `ApplyMissing`.
+                if (!MissingRowEligible(
+                        m.When, cols?.HasSibling, cols?.SiblingAt, stream.RowAt(i), result[i]))
+                {
+                    continue;
+                }
+
                 if (PerRow.PurposeDraw(stream, "#miss", stream.RowAt(i)) < m.Probability)
                 {
                     result[i] = m.Token;
+                    // A blanked cell has no spike left to label. `anomaly_flag` is the ground
+                    // truth an outlier detector is scored against, and the anomalies page
+                    // promises the flag and the spike "can never disagree".
+                    if (anomalyFlags is not null && i < anomalyFlags.Length)
+                    {
+                        anomalyFlags[i] = false;
+                    }
                 }
             }
         }
@@ -4189,7 +4251,10 @@ public static class MemoryEngine
 
     internal static IReadOnlyList<string> Finish(
         IReadOnlyList<string> values, IReadOnlyDictionary<string, string> attrs, Sfc32 prng,
-        bool[]? anomalyFlags = null, List<long?>? instants = null)
+        bool[]? anomalyFlags = null, List<long?>? instants = null,
+        // What `missing_when=` reads when it names another column, and which row of the run each
+        // position of this build sits on. `rowAt` of null means the position IS the row.
+        Ctx? cols = null, Func<int, int>? rowAt = null)
     {
         var result = new List<string>(values);
 
@@ -4203,7 +4268,15 @@ public static class MemoryEngine
         if (missing is not null)
         {
             var before = new List<string>(result);
-            Imperfections.ApplyMissing(result, missing.Value, prng);
+            Imperfections.ApplyMissing(
+                result,
+                missing.Value,
+                prng,
+                missing.Value.When is null
+                    ? null
+                    : (i, value) => MissingRowEligible(
+                        missing.Value.When, cols?.HasSibling, cols?.SiblingAt,
+                        rowAt is null ? i : rowAt(i), value));
             // A cell `missing=` blanked no longer shows the date it was built from, so the instant
             // behind it goes too — otherwise a column measuring from this one would produce a date
             // on a row whose source says nothing. `mask=`/`case=` below change only the SPELLING,

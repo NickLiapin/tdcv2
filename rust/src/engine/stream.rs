@@ -351,8 +351,13 @@ enum Column {
         /// NUMBER, so a selected word is left exactly as it was, and once `missing=` has
         /// blanked a cell a word and a spiked number look alike.
         raw: Option<Box<Column>>,
-        /// How often `missing=` blanks a cell. A blanked cell has no spike to label.
-        missing: f64,
+        /// How much a spike multiplies by, so the flag can work out what the row would
+        /// hold going INTO the blanking pass — which is what `missing_when="_value …"`
+        /// asks about.
+        factor: f64,
+        /// `missing=` as written, or `None` when nothing can go missing. A blanked cell
+        /// has no spike to label, and `missing_when=` narrows which cells those are.
+        missing: Option<imperfections::Missing>,
     },
     Compute(Box<Element>),
     /// `<gen type="formula">` — arithmetic over this row's other columns.
@@ -1152,10 +1157,11 @@ impl StreamEngine<'_> {
                 inline: INLINE_TYPES.contains(&gen_type),
                 probability: a.probability,
                 raw: Some(Box::new(raw)),
+                factor: a.factor,
                 missing: imperfections::parse_missing(attrs)
                     .ok()
                     .flatten()
-                    .map_or(0.0, |m| m.probability),
+                    .filter(|m| m.probability > 0.0),
             });
         Ok(Built {
             column,
@@ -1541,10 +1547,11 @@ impl StreamEngine<'_> {
                 inline: INLINE_TYPES.contains(&gen_type),
                 probability: a.probability,
                 raw: None,
+                factor: a.factor,
                 missing: imperfections::parse_missing(attrs)
                     .ok()
                     .flatten()
-                    .map_or(0.0, |m| m.probability),
+                    .filter(|m| m.probability > 0.0),
             });
         Ok(Built {
             column: Column::Plain {
@@ -2914,32 +2921,52 @@ impl StreamEngine<'_> {
                 inline,
                 probability,
                 raw,
+                factor,
                 missing,
             } => {
                 if self.pop_index_at(domain, row)?.is_none() {
                     return Ok(None);
                 }
                 if *inline {
-                    if *missing > 0.0
-                        && seekable::uniforms(
-                            &self.drawing_seed(),
-                            &format!("{stream}#miss"),
-                            row,
-                            1,
-                        )[0] < *missing
-                    {
-                        return Ok(Some(bool_text(false)));
-                    }
+                    let before = match raw {
+                        None => String::new(),
+                        Some(column) => self.value_of(column, row)?.unwrap_or_default(),
+                    };
+                    let numeric = imperfections::is_spikeable(&before);
                     let u =
                         seekable::uniforms(&self.drawing_seed(), &format!("{stream}#anom"), row, 1)
                             [0];
-                    let numeric = match raw {
-                        None => false,
-                        Some(column) => self
-                            .value_of(column, row)?
-                            .is_some_and(|v| v.trim().parse::<f64>().is_ok_and(f64::is_finite)),
-                    };
-                    return Ok(Some(bool_text(u < *probability && numeric)));
+                    let spiked = u < *probability && numeric;
+                    if let Some(missing) = missing {
+                        // The condition reads the value the blanking pass would see — after
+                        // the spike, exactly as the in-memory pass does.
+                        let value = if spiked {
+                            imperfections::spike(&before, *factor)
+                        } else {
+                            before
+                        };
+                        let here = [row.max(0) as usize];
+                        let eligible = memory::missing_row_eligible(
+                            missing.when.as_deref(),
+                            Some(memory::Neighbours {
+                                siblings: self,
+                                rows: &here,
+                            }),
+                            here[0],
+                            &value,
+                        )?;
+                        if eligible
+                            && seekable::uniforms(
+                                &self.drawing_seed(),
+                                &format!("{stream}#miss"),
+                                row,
+                                1,
+                            )[0] < missing.probability
+                        {
+                            return Ok(Some(bool_text(false)));
+                        }
+                    }
+                    return Ok(Some(bool_text(spiked)));
                 }
                 let mut spiked = [false];
                 self.one_value(gen, stream, row, Some(&mut spiked))?;
@@ -3283,6 +3310,11 @@ impl StreamEngine<'_> {
             &gen.attrs,
             &mut prng,
             Some(flags.unwrap_or(&mut own)),
+            // One value, on THIS row — what `missing_when=` needs to read a sibling.
+            Some(memory::Neighbours {
+                siblings: self,
+                rows: &here,
+            }),
         )?;
         Ok(finished.into_iter().next().unwrap_or_default())
     }
@@ -3315,13 +3347,25 @@ impl StreamEngine<'_> {
             }
         }
         if let Some(missing) = &modifier.missing {
+            // The eligibility test comes BEFORE the draw and reads the SPIKED value, both
+            // exactly as the in-memory pass does — see `apply_missing`.
+            let here = [row.max(0) as usize];
+            let eligible = memory::missing_row_eligible(
+                missing.when.as_deref(),
+                Some(memory::Neighbours {
+                    siblings: self,
+                    rows: &here,
+                }),
+                here[0],
+                &result,
+            )?;
             let u = seekable::uniforms(
                 &self.drawing_seed(),
                 &format!("{}#miss", modifier.stream),
                 row,
                 modifier.element_draws,
             );
-            if u[element] < missing.probability {
+            if eligible && u[element] < missing.probability {
                 result = missing.token.clone();
             }
         }

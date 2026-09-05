@@ -482,7 +482,7 @@ public final class ConfigBuilder {
   private static final java.util.Set<String> RESERVED_TEMPLATE_NAMES =
       java.util.Set.of(
           "type", "value", "local", "name", "if", "comment", "anomaly", "anomaly_factor",
-          "anomaly_flag", "missing", "missing_as", "mask", "case", "order", "cycle");
+          "anomaly_flag", "missing", "missing_as", "missing_when", "mask", "case", "order", "cycle");
 
   /**
    * A pack sequence whose name the engine takes for itself, so no caller can set it.

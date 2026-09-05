@@ -14,16 +14,28 @@
 use std::collections::BTreeMap;
 
 use crate::engine::{invalid, EngineResult};
-use crate::numbers;
 use crate::prng::Sfc32;
 
 const DEFAULT_FACTOR: f64 = 10.0;
 
-/// `missing="p"` with an optional `missing_as="NULL"`.
+/// The value this row would have held, inside `missing_when`.
+///
+/// Named like the run's other built-ins (`_count`, `_first`, `_last`, `_total`) because it
+/// is one: a name the language provides rather than one a config declares. The underscore
+/// is what keeps it from colliding with a column.
+pub const MISSING_VALUE_NAME: &str = "_value";
+
+/// `missing="p"` with an optional `missing_as="NULL"` and `missing_when="..."`.
 #[derive(Clone, Debug)]
 pub struct Missing {
     pub probability: f64,
     pub token: String,
+    /// Which rows are eligible at all. `None` means every row — MCAR.
+    ///
+    /// Kept as the source text rather than a parsed tree because the evaluator takes text,
+    /// and because the streaming engine builds this spec per row: a tree parsed here would
+    /// be parsed a million times instead of cached where the expression layer caches it.
+    pub when: Option<String>,
 }
 
 /// `anomaly="p"` with an optional `anomaly_factor="10"`.
@@ -40,9 +52,15 @@ pub fn parse_missing(attrs: &BTreeMap<String, String>) -> EngineResult<Option<Mi
     if raw.trim().is_empty() {
         return Ok(None);
     }
+    let when = attrs
+        .get("missing_when")
+        .map(|w| w.trim())
+        .filter(|w| !w.is_empty())
+        .map(str::to_string);
     Ok(Some(Missing {
         probability: probability(raw, "missing")?,
         token: attrs.get("missing_as").cloned().unwrap_or_default(),
+        when,
     }))
 }
 
@@ -74,21 +92,46 @@ pub fn parse_anomaly(attrs: &BTreeMap<String, String>) -> EngineResult<Option<An
     }))
 }
 
-/// Blank each value with the given probability — missing completely at random.
+/// Blank each ELIGIBLE value with the given probability.
 ///
 /// Real datasets have holes, and code that has only ever seen complete data
-/// tends to fall over on the first one.
-pub fn apply_missing(values: &mut [String], spec: &Missing, prng: &mut Sfc32) {
+/// tends to fall over on the first one. `missing_when=` decides which rows are
+/// eligible, and that one attribute is the whole difference between the three
+/// mechanisms the literature names:
+///
+/// ```text
+/// MCAR  missing="0.2"                                   every row eligible
+/// MAR   missing="0.4" missing_when="Age < 30"           eligibility from ANOTHER column
+/// MNAR  missing="0.5" missing_when="_value > 150000"    from the value itself
+/// ```
+///
+/// `eligible` absent means every row is — MCAR. **The draw is made only for an
+/// eligible row**, and that is deliberate: drawing for every row and discarding
+/// the result would spend a number per row on a column that may never blank, and
+/// would make the eligible rows' randomness depend on how many ineligible ones
+/// came before — so widening a condition would change rows it does not cover.
+pub fn apply_missing(
+    values: &mut [String],
+    spec: &Missing,
+    prng: &mut Sfc32,
+    mut eligible: Option<&mut dyn FnMut(usize, &str) -> EngineResult<bool>>,
+) -> EngineResult<()> {
     if spec.probability <= 0.0 {
         // No draws at all when nothing can go missing, so `missing="0"` costs
         // nothing — and adding it does not move any later column.
-        return;
+        return Ok(());
     }
-    for value in values.iter_mut() {
+    for (i, value) in values.iter_mut().enumerate() {
+        if let Some(covered) = eligible.as_deref_mut() {
+            if !covered(i, value)? {
+                continue;
+            }
+        }
         if prng.next() < spec.probability {
             value.clone_from(&spec.token);
         }
     }
+    Ok(())
 }
 
 /// Multiply selected values out of their normal range, for testing detectors and

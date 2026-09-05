@@ -185,6 +185,8 @@ export const ATTR_DOCS: Record<string, string> = {
   precision: 'The step of a date-time range (`day` / `hour` / `minute` / `second`).',
   missing: 'The share of records left empty, `0..1`. Real data has gaps.',
   missing_as: 'What an empty value is written as — blank by default, e.g. `NULL`.',
+  missing_when:
+    'Which records may go empty at all — `missing_when="Age < 30"` (from another column) or `missing_when="_value > 150000"` (from the value itself). Without it every record is eligible.',
   anomaly: 'The share of values pushed out of range, `0..1`. Needs a numeric generator.',
   anomaly_factor: 'How far an outlier is pushed — the value is multiplied by it. 10 by default.',
   anomaly_flag: 'An extra column naming the records that got an outlier — the ground truth.',

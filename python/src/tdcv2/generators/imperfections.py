@@ -15,15 +15,32 @@ import math
 from collections.abc import Callable
 from dataclasses import dataclass
 
+#: The value this row would have held, inside ``missing_when`` — what makes MNAR MNAR.
+#: Named like the run's other built-ins (``_count``, ``_first``, ``_last``, ``_total``)
+#: because it is one: a name the language provides rather than one a config declares.
+MISSING_VALUE_NAME = "_value"
+
 _DEFAULT_FACTOR = 10.0
 
 
 @dataclass(frozen=True, slots=True)
 class Missing:
-    """``missing="p"`` with an optional ``missing_as="NULL"``."""
+    """``missing="p"``, with an optional ``missing_as="NULL"`` and ``missing_when="…"``.
+
+    ``missing_when`` is the one attribute that names the mechanism:
+
+        MCAR  missing="0.2"                                  every row eligible
+        MAR   missing="0.4" missing_when="Age < 30"           another column decides
+        MNAR  missing="0.5" missing_when="_value > 150000"    the hidden value decides
+
+    Kept as source text, not a parsed tree: the evaluator takes text, and the streaming
+    engine builds this spec per row, so a tree parsed here would be parsed a million times
+    instead of cached where the expression layer already caches it.
+    """
 
     probability: float
     token: str
+    when: str | None = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -38,7 +55,8 @@ def parse_missing(attrs: dict[str, str]) -> Missing | None:
     raw = attrs.get("missing")
     if raw is None or not raw.strip():
         return None
-    return Missing(_probability(raw, "missing"), attrs.get("missing_as", ""))
+    when = (attrs.get("missing_when") or "").strip()
+    return Missing(_probability(raw, "missing"), attrs.get("missing_as", ""), when or None)
 
 
 def parse_anomaly(attrs: dict[str, str]) -> Anomaly | None:
@@ -60,7 +78,12 @@ def parse_anomaly(attrs: dict[str, str]) -> Anomaly | None:
     return Anomaly(p, factor)
 
 
-def apply_missing(values: list[str], spec: Missing, draw: Callable[[int], float]) -> None:
+def apply_missing(
+    values: list[str],
+    spec: Missing,
+    draw: Callable[[int], float],
+    eligible: Callable[[int, str], bool] | None = None,
+) -> None:
     """Blank the selected rows, in place.
 
     A draw is taken for every row even at probability zero would be wasteful, so the whole pass
@@ -73,6 +96,14 @@ def apply_missing(values: list[str], spec: Missing, draw: Callable[[int], float]
     if spec.probability <= 0:
         return
     for i in range(len(values)):
+        # The draw is made ONLY for an eligible row. Drawing for every row and throwing the
+        # result away would keep the stream aligned whatever the condition said, which sounds
+        # tidier and is worse: it spends a number per row on a column that may never blank, and
+        # it ties the eligible rows' randomness to how many ineligible ones came first — so
+        # widening a condition would change rows it does not cover. `draw` is seekable per row,
+        # so skipping costs nothing.
+        if eligible is not None and not eligible(i, values[i]):
+            continue
         if draw(i) < spec.probability:
             values[i] = spec.token
 

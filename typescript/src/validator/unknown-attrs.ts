@@ -126,6 +126,7 @@ export const GEN_ATTRIBUTES: ReadonlySet<string> = new Set([
   'plus',
   'missing',
   'missing_as',
+  'missing_when',
   'anomaly',
   'anomaly_factor',
   'anomaly_flag',
@@ -431,6 +432,7 @@ const OFFSET_WRAPPERS_NOT_READ: ReadonlySet<string> = new Set([
   'case',
   'missing',
   'missing_as',
+  'missing_when',
   'repeat',
   'anomaly',
   'anomaly_factor',
@@ -440,11 +442,29 @@ const OFFSET_WRAPPERS_NOT_READ: ReadonlySet<string> = new Set([
 const WRAPPERS_NOT_READ: ReadonlyMap<string, ReadonlySet<string>> = new Map([
   [
     'running',
-    new Set(['mask', 'case', 'missing', 'missing_as', 'repeat', 'anomaly', 'anomaly_factor']),
+    new Set([
+      'mask',
+      'case',
+      'missing',
+      'missing_as',
+      'missing_when',
+      'repeat',
+      'anomaly',
+      'anomaly_factor',
+    ]),
   ],
   [
     'stat',
-    new Set(['mask', 'case', 'missing', 'missing_as', 'repeat', 'anomaly', 'anomaly_factor']),
+    new Set([
+      'mask',
+      'case',
+      'missing',
+      'missing_as',
+      'missing_when',
+      'repeat',
+      'anomaly',
+      'anomaly_factor',
+    ]),
   ],
   // A formula is resolved in declaration order, before the formatting layer
   // runs — the same position `running` and `stat` hold, and so the same list.
@@ -459,7 +479,16 @@ const WRAPPERS_NOT_READ: ReadonlyMap<string, ReadonlySet<string>> = new Map([
   // where the value is PRINTED, so `${{Weight|mask:x}}` works today.
   [
     'formula',
-    new Set(['mask', 'case', 'missing', 'missing_as', 'repeat', 'anomaly', 'anomaly_factor']),
+    new Set([
+      'mask',
+      'case',
+      'missing',
+      'missing_as',
+      'missing_when',
+      'repeat',
+      'anomaly',
+      'anomaly_factor',
+    ]),
   ],
   // A pool reference hands the row a whole MEMBER, drawn from a table that was
   // built before the run. There is no value of its own for the formatting layer
@@ -481,6 +510,7 @@ const WRAPPERS_NOT_READ: ReadonlyMap<string, ReadonlySet<string>> = new Map([
       'case',
       'missing',
       'missing_as',
+      'missing_when',
       'repeat',
       'anomaly',
       'anomaly_factor',

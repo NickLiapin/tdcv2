@@ -204,6 +204,99 @@ Las filas 2 y 3 traen `N/A` en el teléfono; las filas 1, 4 y 5 tienen el ingres
 marcador por omisión no es nada en absoluto). Los vacíos de los dos campos son
 **independientes**: un hueco en una columna no dice nada sobre la otra.
 
+## Qué filas pueden quedar vacías — `missing_when`
+
+`missing="p"` por sí solo borra valores sin mirar nada más. Esa es una de las tres
+formas en que los datos reales se pierden, y la más pobre: esos huecos no llevan
+información, así que no enseñan nada ni se pueden predecir.
+
+`missing_when="…"` añade las otras dos. Es una condición escrita en el mismo
+[lenguaje de expresiones](../reference/expressions.mdx) que `if=`, y decide qué
+filas son **elegibles** siquiera. `missing="p"` sigue decidiendo con qué frecuencia
+una fila elegible se vacía de verdad.
+
+| Lo que escribe | Cómo se llama | De dónde viene el hueco |
+| --- | --- | --- |
+| `missing="0.2"` | **MCAR** | de nada — todas las filas son igual de probables |
+| `missing="0.8" missing_when="Age < 30"` | **MAR** | de **otra columna** que aún se ve |
+| `missing="0.8" missing_when="_value > 60000"` | **MNAR** | del **valor mismo**, que ya no está |
+
+Los nombres importan porque deciden qué se le puede exigir a un modelo entrenado
+con el archivo. Los huecos MCAR no enseñan nada. Los MAR se predicen desde lo que
+queda en la fila — una imputación tiene de dónde agarrarse. Los MNAR solo se
+predicen desde lo que se quitó: el caso difícil, y en el que su tubería tiene más
+probabilidades de equivocarse.
+
+### MAR — el hueco depende de otra columna
+
+```xml
+<sequence name="Age"><gen type="number" value="18..70"/></sequence>
+<sequence name="Income">
+    <gen type="number" value="30000..90000" missing="0.8" missing_as="NULL" missing_when="Age < 30"/>
+</sequence>
+```
+
+<Terminal title="./run mar.tdc (count=8, seed=ages)">
+{`age: 66 | income: 33520
+age: 56 | income: 76606
+age: 28 | income: NULL
+age: 26 | income: NULL
+age: 67 | income: 40610
+age: 33 | income: 86092
+age: 68 | income: 86789
+age: 18 | income: NULL`}
+</Terminal>
+
+Cada vacío cae en una fila de menos de 30 años; nadie mayor perdió su ingreso.
+`Age` se lee exactamente como la leería `if="Age < 30"`, así que valen las mismas
+reglas: la columna debe declararse **arriba** de la que la nombra.
+
+### MNAR — el hueco depende del valor que ya no está
+
+Dentro de `missing_when`, `_value` es el valor que este generador produjo para la
+fila: justo lo que el vacío habría escondido. Es un nombre que da el lenguaje,
+como `_count` y `_last`; ninguna configuración lo declara.
+
+```xml
+<sequence name="Income">
+    <gen type="number" value="30000..90000" missing="0.8" missing_as="NULL" missing_when="_value > 60000"/>
+</sequence>
+```
+
+<Terminal title="./run mnar.tdc (count=8, seed=mnar)">
+{`income: NULL
+income: 53006
+income: 52544
+income: NULL
+income: 52481
+income: NULL
+income: NULL
+income: 35921`}
+</Terminal>
+
+Todos los ingresos que sobreviven están por debajo de 60 000. Los que ganan más
+son los que no contestaron — que es exactamente el sesgo que MNAR nombra, y
+exactamente lo que un modelo entrenado con las filas visibles no puede ver.
+
+`_value` es el valor **después** de [`anomaly=`](anomalies.mdx), porque ese es el
+valor que la fila habría llevado. Así que `missing_when="_value > 150000"` junto a
+un `anomaly=` vacía justamente los picos, y la columna `anomaly_flag` está de
+acuerdo: una celda vaciada ya no tiene pico que etiquetar.
+
+### La letra pequeña
+
+- **La tasa sigue haciendo falta.** `missing_when` sin `missing` no decide nada, y
+  se rechaza en vez de ignorarse.
+- **Una palabra suelta es un literal**, aquí como en todo el lenguaje:
+  `missing_when="Tier == hi"` compara con la palabra `hi`. Un nombre de columna mal
+  escrito se reporta (`TDC215`) en vez de leerse en silencio como palabra.
+- **No junto con `repeat=`.** Una celda repetida guarda varios valores en una fila
+  y la condición pregunta por uno; en vez de adivinar qué lectura quería, la
+  combinación se rechaza.
+- **Los dos motores.** La condición se evalúa por fila con el mismo lector de
+  columnas que usan ambos motores, así que una corrida en streaming y otra en
+  memoria producen el mismo archivo.
+
 ## Detalles
 
 - **Determinista.** El mismo `seed` produce los mismos vacíos — vea [Determinismo y
@@ -214,12 +307,6 @@ marcador por omisión no es nada en absoluto). Los vacíos de los dos campos son
   streaming](large-outputs.mdx).
 - **`missing="0"`** significa que no hay ningún vacío — exactamente como si el atributo
   no estuviera.
-
-:::note[Lo que viene]
-Hoy solo está implementado **MCAR**: los vacíos son igual de probables e independientes
-de todo lo demás. En la hoja de ruta están **MAR / MNAR** — donde la probabilidad de un
-hueco depende de otro campo, o del valor mismo.
-:::
 
 ## Vea también
 

@@ -98,6 +98,173 @@
         "NULL false",
         "NULL false"
       ]
+    },
+    {
+      "name": "missing-mar-another-column",
+      "description": "MAR: the condition reads ANOTHER column — every covered row is blank, every other row intact",
+      "config": "<tdc><env count=\"12\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"Age\"><gen type=\"number\" value=\"18..60\"/></sequence>\n    <sequence name=\"Inc\"><gen type=\"number\" value=\"100..999\" missing=\"1\" missing_when=\"Age < 45\"/></sequence></env><block><line><data>${{Age}},[${{Inc}}]</data></line></block></tdc>",
+      "expected": [
+        "50,[848]",
+        "35,[]",
+        "48,[204]",
+        "56,[806]",
+        "35,[]",
+        "58,[986]",
+        "41,[]",
+        "31,[]",
+        "45,[295]",
+        "21,[]",
+        "30,[]",
+        "19,[]"
+      ]
+    },
+    {
+      "name": "missing-mar-partial-rate",
+      "description": "The rate still applies inside the condition: a covered row may survive, an uncovered one never blanks",
+      "config": "<tdc><env count=\"12\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"Age\"><gen type=\"number\" value=\"18..60\"/></sequence>\n    <sequence name=\"Inc\"><gen type=\"number\" value=\"100..999\" missing=\"0.5\" missing_when=\"Age < 45\"/></sequence></env><block><line><data>${{Age}},[${{Inc}}]</data></line></block></tdc>",
+      "expected": [
+        "50,[848]",
+        "35,[707]",
+        "48,[204]",
+        "56,[806]",
+        "35,[680]",
+        "58,[986]",
+        "41,[]",
+        "31,[]",
+        "45,[295]",
+        "21,[904]",
+        "30,[]",
+        "19,[562]"
+      ]
+    },
+    {
+      "name": "missing-mnar-the-value-itself",
+      "description": "MNAR: the condition reads _value, so which rows vanish depends on what they held",
+      "config": "<tdc><env count=\"12\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"Inc\"><gen type=\"number\" value=\"100..999\" missing=\"1\" missing_when=\"_value > 500\"/></sequence></env><block><line><data>[${{Inc}}]</data></line></block></tdc>",
+      "expected": [
+        "[]",
+        "[]",
+        "[204]",
+        "[]",
+        "[]",
+        "[]",
+        "[416]",
+        "[]",
+        "[295]",
+        "[]",
+        "[]",
+        "[]"
+      ]
+    },
+    {
+      "name": "missing-when-covers-nothing",
+      "description": "A condition no row satisfies blanks nothing, even at missing=\"1\"",
+      "config": "<tdc><env count=\"12\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"Age\"><gen type=\"number\" value=\"18..60\"/></sequence>\n    <sequence name=\"Inc\"><gen type=\"number\" value=\"100..999\" missing=\"1\" missing_when=\"Age > 999\"/></sequence></env><block><line><data>${{Age}},[${{Inc}}]</data></line></block></tdc>",
+      "expected": [
+        "50,[848]",
+        "35,[707]",
+        "48,[204]",
+        "56,[806]",
+        "35,[680]",
+        "58,[986]",
+        "41,[416]",
+        "31,[842]",
+        "45,[295]",
+        "21,[904]",
+        "30,[870]",
+        "19,[562]"
+      ]
+    },
+    {
+      "name": "missing-when-with-token",
+      "description": "missing_as spells the hole; missing_when decides which rows get one",
+      "config": "<tdc><env count=\"12\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"Age\"><gen type=\"number\" value=\"18..60\"/></sequence>\n    <sequence name=\"Inc\"><gen type=\"number\" value=\"100..999\" missing=\"1\" missing_when=\"Age < 40\" missing_as=\"NULL\"/></sequence></env><block><line><data>${{Age}},${{Inc}}</data></line></block></tdc>",
+      "expected": [
+        "50,848",
+        "35,NULL",
+        "48,204",
+        "56,806",
+        "35,NULL",
+        "58,986",
+        "41,416",
+        "31,NULL",
+        "45,295",
+        "21,NULL",
+        "30,NULL",
+        "19,NULL"
+      ]
+    },
+    {
+      "name": "missing-when-on-inline-types-memory",
+      "description": "The types the streaming engine builds INLINE — a timeseries, a counter — take their blanking draw off a keyed #miss stream rather than the generator's own, and that path used to skip the condition entirely: every cell came out blank. MAR from another column and MNAR from the value itself, on one row set, so a port that honours one and not the other fails here.",
+      "config": "<tdc><env count=\"10\" seed=\"mar-inline\" local=\"en\" mode=\"memory\"><sequence name=\"Age\"><gen type=\"number\" value=\"18..60\"/></sequence><sequence name=\"TS\"><gen type=\"timeseries\" base=\"100\" trend=\"1\" noise=\"0\" missing=\"1\" missing_as=\"NA\" missing_when=\"Age > 40\"/></sequence><sequence name=\"Seen\"><gen type=\"increment\" step=\"1\" missing=\"1\" missing_as=\"NA\" missing_when=\"_value > 4\"/></sequence></env><block><line><data>${{Age}},${{TS}},${{Seen}}</data></line></block></tdc>",
+      "expected": [
+        "28,100,0",
+        "47,NA,1",
+        "33,102,2",
+        "27,103,3",
+        "59,NA,4",
+        "47,NA,NA",
+        "49,NA,NA",
+        "37,107,NA",
+        "19,108,NA",
+        "40,109,NA"
+      ]
+    },
+    {
+      "name": "missing-when-on-inline-types-stream",
+      "description": "The same config on the streaming engine, expecting the SAME rows. This is the pair that caught it: the in-memory engine honoured missing_when= and the streaming one blanked every row, from one seed. Byte-identical to missing-when-on-inline-types-memory by design — if you re-baseline one, re-baseline both together or the pair stops testing anything.",
+      "config": "<tdc><env count=\"10\" seed=\"mar-inline\" local=\"en\" mode=\"disk\"><sequence name=\"Age\"><gen type=\"number\" value=\"18..60\"/></sequence><sequence name=\"TS\"><gen type=\"timeseries\" base=\"100\" trend=\"1\" noise=\"0\" missing=\"1\" missing_as=\"NA\" missing_when=\"Age > 40\"/></sequence><sequence name=\"Seen\"><gen type=\"increment\" step=\"1\" missing=\"1\" missing_as=\"NA\" missing_when=\"_value > 4\"/></sequence></env><block><line><data>${{Age}},${{TS}},${{Seen}}</data></line></block></tdc>",
+      "expected": [
+        "28,100,0",
+        "47,NA,1",
+        "33,102,2",
+        "27,103,3",
+        "59,NA,4",
+        "47,NA,NA",
+        "49,NA,NA",
+        "37,107,NA",
+        "19,108,NA",
+        "40,109,NA"
+      ]
+    },
+    {
+      "name": "missing-when-and-anomaly-flag-memory",
+      "description": "anomaly_flag beside a CONDITIONAL missing=. The flag has to read the same condition as the value, or it says false on every row the condition excludes — rows that were never blanked and whose spike is still there. The condition also reads the value AFTER the spike, which is what `_value` means to the blanking pass.",
+      "config": "<tdc><env count=\"12\" seed=\"mar-flag\" local=\"en\" mode=\"memory\"><sequence name=\"Age\"><gen type=\"number\" value=\"18..60\"/></sequence><sequence name=\"TS\"><gen type=\"timeseries\" base=\"100\" trend=\"1\" noise=\"0.2\" anomaly=\"0.5\" anomaly_factor=\"10\" anomaly_flag=\"IsOut\" missing=\"1\" missing_as=\"NA\" missing_when=\"Age > 40\"/></sequence></env><block><line><data>${{Age}},${{TS}},${{IsOut}}</data></line></block></tdc>",
+      "expected": [
+        "56,NA,false",
+        "35,101,false",
+        "30,102,false",
+        "37,1030,true",
+        "38,1040,true",
+        "35,1050,true",
+        "33,106,false",
+        "41,NA,false",
+        "46,NA,false",
+        "45,NA,false",
+        "50,NA,false",
+        "34,111,false"
+      ]
+    },
+    {
+      "name": "missing-when-and-anomaly-flag-stream",
+      "description": "The same config streamed. Byte-identical to missing-when-and-anomaly-flag-memory by design — re-baseline both together or the pair stops testing anything.",
+      "config": "<tdc><env count=\"12\" seed=\"mar-flag\" local=\"en\" mode=\"disk\"><sequence name=\"Age\"><gen type=\"number\" value=\"18..60\"/></sequence><sequence name=\"TS\"><gen type=\"timeseries\" base=\"100\" trend=\"1\" noise=\"0.2\" anomaly=\"0.5\" anomaly_factor=\"10\" anomaly_flag=\"IsOut\" missing=\"1\" missing_as=\"NA\" missing_when=\"Age > 40\"/></sequence></env><block><line><data>${{Age}},${{TS}},${{IsOut}}</data></line></block></tdc>",
+      "expected": [
+        "56,NA,false",
+        "35,101,false",
+        "30,102,false",
+        "37,1030,true",
+        "38,1040,true",
+        "35,1050,true",
+        "33,106,false",
+        "41,NA,false",
+        "46,NA,false",
+        "45,NA,false",
+        "50,NA,false",
+        "34,111,false"
+      ]
     }
   ]
 }

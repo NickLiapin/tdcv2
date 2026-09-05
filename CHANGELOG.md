@@ -15,6 +15,39 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+### Added
+
+<!-- covers: missing_when -->
+
+- **`missing_when="…"` — MAR and MNAR, not just MCAR.** `missing="p"` blanked values
+  without regard to anything else, which is one of the three ways real data goes missing
+  and the least useful: the holes carry no signal, so nothing can be learnt from them.
+  The new attribute is a condition — the same expression language `if=` speaks — deciding
+  which rows are **eligible** at all, while `missing="p"` still decides how often an
+  eligible row goes blank:
+
+  ```xml
+  <gen … missing="0.4" missing_when="Age < 30"/>          <!-- MAR:  another column -->
+  <gen … missing="0.5" missing_when="_value > 150000"/>   <!-- MNAR: the value itself -->
+  ```
+
+  `_value` is the value this generator produced for the row — a name the language
+  provides, like `_count` and `_last` — and it is the value **after** `anomaly=` has run,
+  because that is what the row would have carried. So `anomaly_flag` and the blank agree:
+  a blanked cell has no spike left to label.
+
+  Three things the shape refuses rather than guesses at, each `TDC303`: an empty
+  condition, a condition with no `missing=` rate beside it, and `missing_when` on a
+  `repeat=` cell (which holds several values on one row while the condition asks about
+  one). A name that looks like a column and is not takes the road every other condition
+  takes and is reported as `TDC215`.
+
+  The condition is evaluated per row against the same column reader both engines already
+  use, so a streamed run and an in-memory one produce the same file. Four cross-language
+  fixtures pin that pair — the inline-built types (a timeseries, a counter) took their
+  blanking draw off a keyed stream that skipped the condition entirely, and blanked every
+  row.
+
 ### Changed
 
 <!-- covers: stream refusal remedy -->

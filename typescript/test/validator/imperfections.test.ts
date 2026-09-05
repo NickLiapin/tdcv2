@@ -74,3 +74,64 @@ describe('validator — a drawing with nothing to draw (TDC244)', () => {
     ]);
   });
 });
+
+describe('missing_when — the attribute that names the mechanism', () => {
+  const gen = (attrs: string): string =>
+    `<tdc><env count="3" seed="s"><sequence name="Age"><gen type="number" value="18..60"/></sequence>` +
+    `<sequence name="V"><gen type="number" value="1..9" ${attrs}/></sequence></env>` +
+    `<block><line><data>\${{V}}</data></line></block></tdc>`;
+
+  const codes = (attrs: string): string[] =>
+    validate(parse(gen(attrs)).tree).diagnostics.map((d) => d.code ?? '?');
+
+  it('accepts a condition over another column — MAR', () => {
+    expect(codes('missing="0.4" missing_when="Age < 30"')).toEqual([]);
+  });
+
+  it('accepts _value, the name that makes it MNAR', () => {
+    expect(codes('missing="0.4" missing_when="_value > 5"')).toEqual([]);
+  });
+
+  it('refuses an empty condition rather than treating it as always-true', () => {
+    expect(codes('missing="0.4" missing_when=""')).toContain('TDC303');
+  });
+
+  it('refuses a condition with no rate — it would decide nothing', () => {
+    expect(codes('missing_when="Age < 30"')).toContain('TDC303');
+  });
+
+  /*
+   * The typo case is the reason this attribute is validated at all: a misspelled
+   * column is a legal bare word in this language, so the condition would simply
+   * never fire and nothing would be blanked, silently. It reports as TDC215 —
+   * the SAME code and wording `if=` gives — because it is routed through the
+   * same deferred name pass rather than a second rule invented here.
+   */
+  it('reports a misspelled column exactly as if= does', () => {
+    expect(codes('missing="0.4" missing_when="Agee < 30"')).toContain('TDC215');
+  });
+
+  it('reports a broken expression as a broken expression', () => {
+    expect(codes('missing="0.4" missing_when="Age <"')).toContain('TDC100');
+  });
+
+  /*
+   * A repeated cell holds SEVERAL values on one row and the condition asks about
+   * one. Both readings are defensible — test each element, or test the row — so
+   * the combination is refused rather than guessed at. It used to be accepted and
+   * ignored: every element was blanked at the plain rate, from a config `check`
+   * had called valid.
+   */
+  it('refuses a condition on a repeated cell rather than ignoring it', () => {
+    expect(codes('missing="0.4" repeat="2" missing_when="_value > 5"')).toContain('TDC303');
+    expect(codes('missing="0.4" repeat="2"')).toEqual([]);
+  });
+
+  it("reads _value nowhere else — it is this attribute's builtin, not the run's", () => {
+    const stray =
+      `<tdc><env count="3" seed="s"><sequence name="V">` +
+      `<gen type="number" value="1..9" if="_value > 5"/></sequence></env>` +
+      `<block><line><data>\${{V}}</data></line></block></tdc>`;
+    expect(validate(parse(stray).tree).diagnostics.map((d) => d.code)).toContain('TDC215');
+  });
+});

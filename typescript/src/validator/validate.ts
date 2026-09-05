@@ -70,6 +70,7 @@ import {
   reportUnknownChild,
 } from './placement.js';
 import { checkGenByType } from './gen-type.js';
+import { MISSING_VALUE_NAME } from '../generators/missing.js';
 import { checkIfExpression, type PendingExpression, runPendingExpressions } from './expr-check.js';
 import { checkSwitchCaseAttrs, checkSwitchMap } from './switch-body.js';
 import { checkRowLinkOrder, checkRowLinkSource } from './row-link-order.js';
@@ -948,6 +949,17 @@ function checkGen(
   if (ifAttr) {
     checkIfExpression(ifAttr, attrMap['if'] ?? '', ctx);
     ctx.rememberExpression(ifAttr, attrMap['if'] ?? '');
+  }
+
+  // `missing_when=` is a condition like any other, so it takes the same road:
+  // syntax now, names in the deferred pass. `_value` rides along as a builtin
+  // for this one expression — it is the value being hidden, which is what makes
+  // the difference between MAR and MNAR, and it is a name no config declares.
+  const whenAttr = findAttr(attrs, 'missing_when');
+  const when = (attrMap['missing_when'] ?? '').trim();
+  if (whenAttr && when !== '') {
+    checkIfExpression(whenAttr, when, ctx);
+    ctx.rememberExpression(whenAttr, when, [MISSING_VALUE_NAME]);
   }
 }
 

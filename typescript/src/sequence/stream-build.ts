@@ -625,7 +625,7 @@ function buildValueSequence(
   // the row mapped into it by index, never decided from a single-cell draw.
   const weightedPack = weightedTemplatePack(gen, options.packs, locale);
   const genRepeat = parseRepeat(gen.attrs);
-  const mod = missingAnomalyMod(gen, seed, streamId, genRepeat?.max ?? 1);
+  const mod = missingAnomalyMod(gen, seed, streamId, genRepeat?.max ?? 1, options);
 
   // Lengths are an exact quota decided before any value exists, so the row's
   // slice of the slot space follows from its own position — never from a
