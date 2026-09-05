@@ -455,7 +455,7 @@ GEN_ATTRS = frozenset(
         "lower", "y_range", "fit", "interp", "spread", "ink_threshold", "mode", "in", "on_error",
         "timeout", "secret", "mean", "sd", "meanlog", "sdlog", "rate", "alpha", "xmin",
         "shape", "scale",
-        "lambda", "n", "s", "beta", "min", "max", "filter", "peak_at",
+        "lambda", "n", "s", "beta", "min", "max", "filter", "peak_at", "noise_correlation",
         "expr", "lengths", "read", "sample",
     }
 )  # fmt: skip
@@ -584,6 +584,7 @@ ATTRIBUTE_OWNERS: dict[str, frozenset[str]] = {
     "period": frozenset({"timeseries"}),
     "amplitude": frozenset({"timeseries"}),
     "noise": frozenset({"timeseries"}),
+    "noise_correlation": frozenset({"timeseries"}),
     # Zero-padding a numeric range.
     "first_zero": frozenset({"number"}),
     # ── The date's own vocabulary ─────────────────────────────────────────────────────────
@@ -4225,29 +4226,41 @@ class _Validator:
         )
 
     def _check_timeseries(self, gen, attrs: dict[str, str], type_: str | None) -> None:
-        """``peak_at=`` — which row the seasonal wave is highest on.
+        """The seasonal attributes on a ``<gen type="timeseries">``.
 
-        A wave is ``amplitude·cos(2π·(i − peak)/period)``, so ``peak_at`` names the row it
-        peaks on. Without it the peak sits a quarter period in, which is where a plain sine
-        already peaked — and for a year of daily rows that is early April, the one season
-        nobody means by "warmer in summer".
+        A wave is ``amplitude·cos(2π·(i − peak)/period)``, and ``period``, ``amplitude`` and
+        ``peak_at`` describe the SAME waves position by position: ``period="7,365"`` with
+        ``amplitude="120,400"`` is a weekly wave 120 tall and a yearly one 400 tall. Lengths
+        that disagree describe no wave anybody can draw, so they are refused rather than
+        half-honoured.
 
-        It is a ROW, not a shift, because the row is what the author knows: 182 of 365 is the
-        first of July. Same unit as ``period``, which is also counted in rows.
+        ``peak_at`` names the row the wave is highest on. Without it the peak sits a quarter
+        period in, which is where a plain sine already peaked — and for a year of daily rows
+        that is early April, the one season nobody means by "warmer in summer". It is a ROW,
+        not a shift, because the row is what the author knows: 182 of 365 is the first of
+        July. Same unit as ``period``, which is also counted in rows.
         """
-        if type_ != "timeseries" or attrs.get("peak_at") is None:
+        if type_ != "timeseries":
+            return
+        periods = _wave_entries(attrs.get("period"))
+        amplitudes = _wave_entries(attrs.get("amplitude"))
+        peaks = _wave_entries(attrs.get("peak_at"))
+
+        self._check_noise_correlation(gen, attrs)
+        self._check_wave_lists(gen, periods, amplitudes, peaks)
+
+        if attrs.get("peak_at") is None:
             return
         raw = (attrs.get("peak_at") or "").strip()
         line, column = _at(gen, "peak_at")
 
-        try:
-            float(raw)
-        except ValueError:
+        if not peaks or not _all_numbers(peaks):
             self._error(
                 "TDC252",
                 f'peak_at="{raw}" is not a number',
                 "peak_at is the row the seasonal wave peaks on, counted like period= — "
-                'peak_at="182" over period="365" puts the peak at the first of July.',
+                'peak_at="182" over period="365" puts the peak at the first of July. One '
+                'entry per period=, so period="7,365" takes peak_at="5,182".',
                 line,
                 column,
             )
@@ -4255,17 +4268,107 @@ class _Validator:
 
         # A wave needs a length before it can have a highest point. Without `period` there is
         # no wave at all, so `peak_at` would be read by nobody.
-        period_raw = (attrs.get("period") or "").strip()
-        try:
-            period = float(period_raw) if period_raw else 0.0
-        except ValueError:
-            period = 0.0
-        if period <= 0:
+        if not periods or not _all_numbers(periods) or any(float(p) <= 0 for p in periods):
             self._error(
                 "TDC253",
                 f'peak_at="{raw}" has no period= on the same <gen> — there is no wave to '
                 "place a peak on",
                 "Add period= (the length of one season, in rows), or remove peak_at=.",
+                line,
+                column,
+            )
+
+    def _check_wave_lists(
+        self, gen, periods: list[str], amplitudes: list[str], peaks: list[str]
+    ) -> None:
+        """The three seasonal lists have to line up, and every period has to be a length.
+
+        Both used to be accepted and then half-read: ``period="7,365" amplitude="120"`` gave the
+        yearly wave an amplitude of zero — a config asking for two seasons and getting one, with
+        nothing said. A ``0`` among several periods is the same shape: on its own ``period="0"``
+        means "no wave", which is a sensible thing to write, but in a list it is a wave with no
+        length beside waves that have one.
+        """
+        if not periods or not _all_numbers(periods):
+            return
+
+        if len(periods) > 1 and any(float(p) <= 0 for p in periods):
+            line, column = _at(gen, "period")
+            self._error(
+                "TDC304",
+                f'period="{",".join(periods)}" lists a season with no length — every period '
+                "in a list must be above zero",
+                'period="0" on its own means "no seasonal wave". Among several it is a wave '
+                "nothing can be drawn from: drop the entry, and its amplitude= with it.",
+                line,
+                column,
+            )
+
+        # One amplitude for several periods is the shorthand for waves of equal height, and is
+        # kept: it reads exactly as it looks. Any other mismatch does not.
+        for name, entries in (("amplitude", amplitudes), ("peak_at", peaks)):
+            if not entries:
+                continue
+            if name == "amplitude" and len(entries) == 1:
+                continue
+            if len(entries) == len(periods):
+                continue
+            line, column = _at(gen, name)
+            hint = (
+                'One amplitude per period — period="7,365" amplitude="120,400" — or a single '
+                "amplitude for waves of equal height."
+                if name == "amplitude"
+                else 'One peak_at per period: period="7,365" peak_at="5,182".'
+            )
+            self._error(
+                "TDC304",
+                f'{name}="{",".join(entries)}" has {len(entries)} entries and period= has '
+                f"{len(periods)} — they describe the same waves",
+                hint,
+                line,
+                column,
+            )
+
+    def _check_noise_correlation(self, gen, attrs: dict[str, str]) -> None:
+        """``noise_correlation=`` — how much of one row's noise carries into the next.
+
+        At 1 the noise would stop being noise and become a random walk with no level to return
+        to; at more than 1 it grows without bound. Both are refused rather than clamped, because
+        a config asking for either meant something else.
+        """
+        if attrs.get("noise_correlation") is None:
+            return
+        raw = (attrs.get("noise_correlation") or "").strip()
+        line, column = _at(gen, "noise_correlation")
+        try:
+            value = float(raw)
+        except ValueError:
+            value = float("nan")
+        if value != value or abs(value) >= 1:
+            self._error(
+                "TDC305",
+                f'noise_correlation="{raw}" must be a number between -1 and 1',
+                "It is how much of one row\u2019s noise carries into the next: 0 is "
+                "independent noise, 0.8 is strongly correlated. At 1 the series would wander "
+                "off and never come back.",
+                line,
+                column,
+            )
+            return
+
+        # Correlation of WHAT, when there is nothing to correlate. `noise="0"` and no `noise=`
+        # at all both leave this attribute deciding nothing.
+        noise = (attrs.get("noise") or "").strip()
+        blank = not noise
+        try:
+            zero = not blank and float(noise) == 0
+        except ValueError:
+            zero = False
+        if value != 0 and (blank or zero):
+            self._error(
+                "TDC305",
+                "noise_correlation= without noise= — there is no noise to correlate",
+                'Add noise="p" (the strength of the jitter), or remove noise_correlation=.',
                 line,
                 column,
             )
@@ -6480,6 +6583,25 @@ def _primary_date_attr(attrs: dict[str, str]) -> str:
             return name
     return "value"
 
+
+
+def _wave_entries(raw: str | None) -> list[str]:
+    """The entries of a comma-separated attribute, or [] when it is absent or blank."""
+    text = (raw or "").strip()
+    return [] if not text else [piece.strip() for piece in text.split(",")]
+
+
+def _all_numbers(entries: list[str]) -> bool:
+    for piece in entries:
+        if not piece:
+            return False
+        try:
+            value = float(piece)
+        except ValueError:
+            return False
+        if value != value or value in (float("inf"), float("-inf")):
+            return False
+    return True
 
 def _split_count(value: str) -> int:
     """How many entries a comma-separated attribute holds."""

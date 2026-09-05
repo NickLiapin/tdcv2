@@ -1173,8 +1173,21 @@ public final class StreamEngine {
                 }
                 double z = 0;
                 if (noisy) {
-                  double[] u = Seekable.uniforms(seed, streamId + ":ts", row, 2);
-                  z = Timeseries.standardNormal(u[0], u[1]);
+                  // One row at a time and no state to keep between calls, so the window is read
+                  // straight through: 64 draws when `noise_correlation` is set, one when it is
+                  // not. The SUM is the in-memory engine's, term for term.
+                  final int here = Math.max(0, row);
+                  z =
+                      Timeseries.correlatedNoise(
+                          spec,
+                          here,
+                          k -> {
+                            if (k > here) {
+                              return 0;
+                            }
+                            double[] u = Seekable.uniforms(seed, streamId + ":ts", here - k, 2);
+                            return Timeseries.standardNormal(u[0], u[1]);
+                          });
                 }
                 return format(Timeseries.valueAt(spec, r, z), spec.decimals());
               },

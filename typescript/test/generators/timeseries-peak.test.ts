@@ -85,17 +85,17 @@ describe('peak_at moves the peak to the row it names', () => {
   });
 });
 
-describe('what the validator says', () => {
-  const codes = (gen: string): string[] => {
-    const doc =
-      '<tdc><env count="3" seed="s" local="en">' +
-      `<sequence name="T">${gen}</sequence></env>` +
-      '<block><line><data>${{T}}</data></line></block></tdc>';
-    const parsed = parse(doc);
-    expect(parsed.diagnostics).toEqual([]);
-    return validate(parsed.tree).diagnostics.map((d) => d.code ?? '?');
-  };
+const codes = (gen: string): string[] => {
+  const doc =
+    '<tdc><env count="3" seed="s" local="en">' +
+    `<sequence name="T">${gen}</sequence></env>` +
+    '<block><line><data>${{T}}</data></line></block></tdc>';
+  const parsed = parse(doc);
+  expect(parsed.diagnostics).toEqual([]);
+  return validate(parsed.tree).diagnostics.map((d) => d.code ?? '?');
+};
 
+describe('what the validator says', () => {
   it('accepts peak_at beside a period', () => {
     expect(
       codes('<gen type="timeseries" base="15" amplitude="10" period="12" peak_at="6"/>'),
@@ -136,5 +136,73 @@ describe('through the engines', () => {
     expect(render(parseStrict(doc), { stream: true })).toBe(memory);
     expect(render(parseStrict(doc), { mode: 'disk' })).toBe(memory);
     expect(memory.split('\n').filter(Boolean)[6]).toBe('25.0');
+  });
+});
+
+/*
+ * The seasonal attributes became LISTS, and the three of them describe the same
+ * waves position by position. A length that disagrees used to be half-read: the
+ * extra entry was dropped and nothing said so, which is a config asking for two
+ * seasons and getting one.
+ */
+describe('the seasonal lists have to line up', () => {
+  it('accepts one entry per period', () => {
+    expect(
+      codes('<gen type="timeseries" base="15" period="7,365" amplitude="1,2" peak_at="5,182"/>'),
+    ).toEqual([]);
+  });
+
+  it('accepts a single amplitude for waves of equal height', () => {
+    expect(codes('<gen type="timeseries" base="15" period="7,365" amplitude="3"/>')).toEqual([]);
+  });
+
+  it('refuses an amplitude list of the wrong length', () => {
+    expect(codes('<gen type="timeseries" base="15" period="7,365" amplitude="1,2,3"/>')).toContain(
+      'TDC304',
+    );
+  });
+
+  it('refuses a peak_at list of the wrong length', () => {
+    expect(
+      codes('<gen type="timeseries" base="15" period="7,365" amplitude="1,2" peak_at="5"/>'),
+    ).toContain('TDC304');
+  });
+
+  // `period="0"` alone means "no seasonal wave", which is a sensible thing to
+  // write and stays legal. Among several it is a wave with no length.
+  it('keeps period="0" on its own and refuses it in a list', () => {
+    expect(codes('<gen type="timeseries" base="15" period="0" amplitude="3"/>')).toEqual([]);
+    expect(codes('<gen type="timeseries" base="15" period="7,0" amplitude="1,2"/>')).toContain(
+      'TDC304',
+    );
+  });
+});
+
+describe('noise_correlation is bounded and needs something to correlate', () => {
+  it('accepts a correlation beside noise', () => {
+    expect(codes('<gen type="timeseries" base="15" noise="2" noise_correlation="0.9"/>')).toEqual(
+      [],
+    );
+  });
+
+  it('accepts a negative correlation — each row leaning against the one before', () => {
+    expect(codes('<gen type="timeseries" base="15" noise="2" noise_correlation="-0.5"/>')).toEqual(
+      [],
+    );
+  });
+
+  it('refuses 1, where the series would wander off and never come back', () => {
+    expect(codes('<gen type="timeseries" base="15" noise="2" noise_correlation="1"/>')).toContain(
+      'TDC305',
+    );
+    expect(codes('<gen type="timeseries" base="15" noise="2" noise_correlation="1.5"/>')).toContain(
+      'TDC305',
+    );
+  });
+
+  it('refuses a correlation with no noise to correlate', () => {
+    expect(codes('<gen type="timeseries" base="15" noise_correlation="0.5"/>')).toContain('TDC305');
+    // Zero says "no correlation", which decides nothing either way and is left alone.
+    expect(codes('<gen type="timeseries" base="15" noise_correlation="0"/>')).toEqual([]);
   });
 });

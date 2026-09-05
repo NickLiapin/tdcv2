@@ -41,6 +41,8 @@ import { textUniform } from '../generators/text.js';
 import {
   formatTimeseries,
   parseTimeseries,
+  correlatedNoise,
+  innovationRing,
   standardNormal,
   timeseriesHasNoise,
   timeseriesValueAt,
@@ -1440,17 +1442,22 @@ function buildGenValuesRaw(
       const spec = parseTimeseries(gen.attrs);
       const noisy = timeseriesHasNoise(spec);
       const keyed = keyedDraws(ctx);
+      // The value follows the position; the noise follows the ROW, on the
+      // dedicated `:ts` stream the streaming engine uses. Same two names, same
+      // two uniforms, same series. `noise_correlation` reads the rows before it
+      // through the ring — one draw a row while the walk goes forward.
+      const innovations = innovationRing((row) => {
+        const [u1 = 0.5, u2 = 0.5] = keyed
+          ? seekableUniforms(keyed.seed, `${keyed.streamId}:ts`, row, 2)
+          : [openUnit(prng()), openUnit(prng())];
+        return standardNormal(u1, u2);
+      });
       const out = new Array<string>(count);
       for (let i = 0; i < count; i++) {
         let z = 0;
         if (noisy) {
-          // The value follows the position; the noise follows the row, on the
-          // dedicated `:ts` stream the streaming engine uses. Same two names,
-          // same two uniforms, same series.
-          const [u1 = 0.5, u2 = 0.5] = keyed
-            ? seekableUniforms(keyed.seed, `${keyed.streamId}:ts`, absoluteRow(ctx, i), 2)
-            : [openUnit(prng()), openUnit(prng())];
-          z = standardNormal(u1, u2);
+          const row = keyed ? absoluteRow(ctx, i) : i;
+          z = correlatedNoise(spec, row, (k) => innovations(row, k));
         }
         out[i] = formatTimeseries(timeseriesValueAt(spec, i, z), spec.decimals);
       }

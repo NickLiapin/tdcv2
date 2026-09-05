@@ -3008,12 +3008,20 @@ public final class MemoryEngine {
       Map<String, String> attrs, int count, PerRow.Stream stream) {
     Timeseries.Spec spec = Timeseries.parse(attrs);
     boolean noisy = spec.hasNoise();
+    // `noise_correlation` reads the rows before it through the ring — one draw a row while the
+    // walk goes forward, which is all a sequential build ever asks for.
+    Timeseries.Ring ring = new Timeseries.Ring();
+    Timeseries.Draw draw =
+        r -> {
+          double[] u = Seekable.uniforms(stream.seed(), stream.id() + ":ts", r, 2);
+          return Timeseries.standardNormal(u[0], u[1]);
+        };
     List<String> out = new ArrayList<>(count);
     for (int i = 0; i < count; i++) {
       double z = 0;
       if (noisy) {
-        double[] u = Seekable.uniforms(stream.seed(), stream.id() + ":ts", stream.rowAt(i), 2);
-        z = Timeseries.standardNormal(u[0], u[1]);
+        final int row = stream.rowAt(i);
+        z = Timeseries.correlatedNoise(spec, row, k -> ring.read(row, k, draw));
       }
       out.add(io.github.nickliapin.tdc.lib.Fixed.toFixed(Timeseries.valueAt(spec, i, z), spec.decimals()));
     }

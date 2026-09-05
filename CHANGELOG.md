@@ -17,6 +17,36 @@ page — is tracked in that implementation's own changelog:
 
 ### Added
 
+<!-- covers: timeseries seasonalities and AR noise -->
+
+- **Several seasonal waves at once, and noise that remembers — the two things the
+  timeseries page promised and did not have.** `period`, `amplitude` and `peak_at` each
+  take a list now, one entry per wave, and the waves sum: `period="7,365"
+amplitude="120,400" peak_at="5,182"` is a weekly season and a yearly one on one column.
+  A single wave is byte-identical to what it was.
+
+  `noise_correlation="0.9"` makes the jitter sticky — the AR(1) model, where a row that
+  reads high is followed by another that reads high. It matters because code tested only
+  against independent noise has never met the case it actually fails on.
+
+  The textbook AR(1) is a recurrence, `e(t) = φ·e(t−1) + z(t)`, which a seekable engine
+  cannot evaluate: row 900,000 would have to replay 900,000 rows. Written out it is a
+  weighted sum of the past innovations whose weights fall off geometrically, so the noise
+  is DEFINED as that sum over a fixed 64-row window and evaluated directly — the same
+  terms in the same order on both engines, and any row computable on its own. The sum is
+  normalised by its own weight vector, so every row has the same spread and the first
+  rows of a column are not quieter than the rest. Measured: autocorrelation `φ^h` at lag
+  h, spread unchanged by `φ`, and all three engines byte-identical on a million rows with
+  `φ=0.9` — including the parallel workers, which start mid-run.
+
+  Cost, measured: 64 draws a row would have been forty times the price of plain noise
+  (13.9 µs against 0.32). Keeping the window's draws in a ring makes it one draw a row —
+  0.35 µs, or +9% on a whole million-row run.
+
+  Two shapes refused rather than guessed at: seasonal lists whose lengths disagree, or a
+  `0` among several periods (`TDC304`); a correlation outside −1..1 or with no `noise=`
+  beside it (`TDC305`).
+
 <!-- covers: missing_when -->
 
 - **`missing_when="…"` — MAR and MNAR, not just MCAR.** `missing="p"` blanked values

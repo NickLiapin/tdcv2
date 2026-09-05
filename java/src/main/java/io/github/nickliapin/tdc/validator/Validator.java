@@ -224,6 +224,7 @@ public final class Validator {
           Map.entry("period", java.util.Set.of("timeseries")),
           Map.entry("amplitude", java.util.Set.of("timeseries")),
           Map.entry("noise", java.util.Set.of("timeseries")),
+          Map.entry("noise_correlation", java.util.Set.of("timeseries")),
           // Zero-padding a numeric range.
           Map.entry("first_zero", java.util.Set.of("number")),
           // ── The date's own vocabulary ───────────────────────────────────────────────
@@ -566,7 +567,7 @@ public final class Validator {
           "to", "oldest", "youngest", "precision", "range", "step", "weekdays", "peak_at", "src",
           "column",
           "header",
-          "delimiter", "row", "base", "trend", "period", "amplitude", "noise", "points", "upper",
+          "delimiter", "row", "base", "trend", "period", "amplitude", "noise", "noise_correlation", "points", "upper",
           "lower", "y_range", "fit", "interp", "spread", "ink_threshold", "mode", "in", "on_error",
           "timeout", "secret", "mean", "sd", "meanlog", "sdlog", "rate", "alpha", "xmin",
           "shape", "scale",
@@ -4751,43 +4752,171 @@ public final class Validator {
         where[0], where[1]);
   }
 
+  /**
+   * The seasonal attributes on a {@code <gen type="timeseries">}.
+   *
+   * <p>A wave is {@code amplitude·cos(2π·(i − peak)/period)}, and {@code period},
+   * {@code amplitude} and {@code peak_at} describe the SAME waves position by position:
+   * {@code period="7,365"} with {@code amplitude="120,400"} is a weekly wave 120 tall and a
+   * yearly one 400 tall. Lengths that disagree describe no wave anybody can draw, so they are
+   * refused rather than half-honoured.
+   */
   private void checkTimeseries(
       TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
-    if (!"timeseries".equals(type) || attrs.get("peak_at") == null) {
+    if (!"timeseries".equals(type)) {
+      return;
+    }
+    List<String> periods = waveEntries(attrs.get("period"));
+    List<String> amplitudes = waveEntries(attrs.get("amplitude"));
+    List<String> peaks = waveEntries(attrs.get("peak_at"));
+
+    checkNoiseCorrelation(gen, attrs);
+    checkWaveLists(gen, periods, amplitudes, peaks);
+
+    if (attrs.get("peak_at") == null) {
       return;
     }
     String raw = attrs.get("peak_at").trim();
     int[] where = at(gen, "peak_at");
 
-    double peak;
-    try {
-      peak = Double.parseDouble(raw);
-    } catch (NumberFormatException e) {
+    if (peaks.isEmpty() || !allNumbers(peaks)) {
       error("TDC252", "peak_at=\"" + raw + "\" is not a number",
           "peak_at is the row the seasonal wave peaks on, counted like period= — "
-              + "peak_at=\"182\" over period=\"365\" puts the peak at the first of July.",
+              + "peak_at=\"182\" over period=\"365\" puts the peak at the first of July. One "
+              + "entry per period=, so period=\"7,365\" takes peak_at=\"5,182\".",
           where[0], where[1]);
-      return;
-    }
-    if (Double.isNaN(peak)) {
       return;
     }
 
     // A wave needs a length before it can have a highest point. Without `period` there is no
     // wave at all, so `peak_at` would be read by nobody.
-    double period;
-    try {
-      String rawPeriod = attrs.getOrDefault("period", "").trim();
-      period = rawPeriod.isEmpty() ? 0 : Double.parseDouble(rawPeriod);
-    } catch (NumberFormatException e) {
-      period = 0;
-    }
-    if (period <= 0) {
+    if (periods.isEmpty() || !allNumbers(periods) || periods.stream().anyMatch(p -> asNumber(p) <= 0)) {
       error("TDC253",
           "peak_at=\"" + raw + "\" has no period= on the same <gen> — there is no wave to "
               + "place a peak on",
           "Add period= (the length of one season, in rows), or remove peak_at=.",
           where[0], where[1]);
+    }
+  }
+
+  /**
+   * The three seasonal lists have to line up, and every period has to be a length.
+   *
+   * <p>Both used to be accepted and then half-read: {@code period="7,365" amplitude="120"} gave
+   * the yearly wave an amplitude of zero — a config asking for two seasons and getting one, with
+   * nothing said. A {@code 0} among several periods is the same shape: on its own
+   * {@code period="0"} means "no wave", which is a sensible thing to write, but in a list it is a
+   * wave with no length beside waves that have one.
+   */
+  private void checkWaveLists(
+      TDCParser.SelfClosingElementContext gen,
+      List<String> periods,
+      List<String> amplitudes,
+      List<String> peaks) {
+    if (periods.isEmpty() || !allNumbers(periods)) {
+      return;
+    }
+
+    if (periods.size() > 1 && periods.stream().anyMatch(p -> asNumber(p) <= 0)) {
+      int[] where = at(gen, "period");
+      error("TDC304",
+          "period=\"" + String.join(",", periods) + "\" lists a season with no length — every "
+              + "period in a list must be above zero",
+          "period=\"0\" on its own means \"no seasonal wave\". Among several it is a wave "
+              + "nothing can be drawn from: drop the entry, and its amplitude= with it.",
+          where[0], where[1]);
+    }
+
+    // One amplitude for several periods is the shorthand for waves of equal height, and is kept:
+    // it reads exactly as it looks. Any other mismatch does not.
+    for (String name : List.of("amplitude", "peak_at")) {
+      List<String> entries = "amplitude".equals(name) ? amplitudes : peaks;
+      if (entries.isEmpty()
+          || ("amplitude".equals(name) && entries.size() == 1)
+          || entries.size() == periods.size()) {
+        continue;
+      }
+      int[] where = at(gen, name);
+      String hint =
+          "amplitude".equals(name)
+              ? "One amplitude per period — period=\"7,365\" amplitude=\"120,400\" — or a single "
+                  + "amplitude for waves of equal height."
+              : "One peak_at per period: period=\"7,365\" peak_at=\"5,182\".";
+      error("TDC304",
+          name + "=\"" + String.join(",", entries) + "\" has " + entries.size()
+              + " entries and period= has " + periods.size() + " — they describe the same waves",
+          hint, where[0], where[1]);
+    }
+  }
+
+  /**
+   * {@code noise_correlation=} — how much of one row's noise carries into the next.
+   *
+   * <p>At 1 the noise would stop being noise and become a random walk with no level to return to;
+   * at more than 1 it grows without bound. Both are refused rather than clamped, because a config
+   * asking for either meant something else.
+   */
+  private void checkNoiseCorrelation(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs) {
+    if (attrs.get("noise_correlation") == null) {
+      return;
+    }
+    String raw = attrs.get("noise_correlation").trim();
+    int[] where = at(gen, "noise_correlation");
+    double value;
+    try {
+      value = Double.parseDouble(raw);
+    } catch (NumberFormatException e) {
+      value = Double.NaN;
+    }
+    if (Double.isNaN(value) || Math.abs(value) >= 1) {
+      error("TDC305", "noise_correlation=\"" + raw + "\" must be a number between -1 and 1",
+          "It is how much of one row’s noise carries into the next: 0 is independent noise, "
+              + "0.8 is strongly correlated. At 1 the series would wander off and never come "
+              + "back.",
+          where[0], where[1]);
+      return;
+    }
+
+    // Correlation of WHAT, when there is nothing to correlate. `noise="0"` and no `noise=` at all
+    // both leave this attribute deciding nothing.
+    String noise = attrs.getOrDefault("noise", "").trim();
+    boolean silent = noise.isEmpty() || asNumber(noise) == 0;
+    if (value != 0 && silent) {
+      error("TDC305", "noise_correlation= without noise= — there is no noise to correlate",
+          "Add noise=\"p\" (the strength of the jitter), or remove noise_correlation=.",
+          where[0], where[1]);
+    }
+  }
+
+  /** The entries of a comma-separated attribute, or empty when it is absent or blank. */
+  private static List<String> waveEntries(String raw) {
+    String text = raw == null ? "" : raw.trim();
+    if (text.isEmpty()) {
+      return List.of();
+    }
+    List<String> out = new ArrayList<>();
+    for (String piece : text.split(",", -1)) {
+      out.add(piece.trim());
+    }
+    return out;
+  }
+
+  private static boolean allNumbers(List<String> entries) {
+    for (String piece : entries) {
+      double n = asNumber(piece);
+      if (Double.isNaN(n) || Double.isInfinite(n)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  private static double asNumber(String raw) {
+    try {
+      return Double.parseDouble(raw.trim());
+    } catch (NumberFormatException | NullPointerException e) {
+      return Double.NaN;
     }
   }
 

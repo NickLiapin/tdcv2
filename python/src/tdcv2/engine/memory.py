@@ -2417,18 +2417,26 @@ def _distribute(attrs: dict[str, str], count: int, prng: Sfc32, run: _Run) -> li
 def _timeseries(attrs: dict[str, str], count: int, run: _Run) -> list[str]:
     spec = timeseries.parse(attrs)
     key_pair = per_row.keyed(run)
+
+    def draw(row: int) -> float:
+        # The value follows the position; the noise follows the ROW, on the dedicated ':ts'
+        # stream the streaming engine uses. Same two names, same two uniforms, same series.
+        if key_pair is not None:
+            seed, stream_id = key_pair
+            u1, u2 = seekable.uniforms(seed, f"{stream_id}:ts", row, 2)
+        else:
+            u1, u2 = open_unit(run.prng.next()), open_unit(run.prng.next())
+        return timeseries.standard_normal(u1, u2)
+
+    # ``noise_correlation`` reads the rows before it through the ring — one draw a row while the
+    # walk goes forward, which is the only shape the sequential PRNG above can serve.
+    innovations = timeseries.innovation_ring(draw)
     out = []
     for i in range(count):
         z = 0.0
         if spec.has_noise():
-            # The value follows the position; the noise follows the row, on the dedicated ':ts'
-            # stream the streaming engine uses. Same two names, same two uniforms, same series.
-            if key_pair is not None:
-                seed, stream_id = key_pair
-                u1, u2 = seekable.uniforms(seed, f"{stream_id}:ts", per_row.absolute_row(run, i), 2)
-            else:
-                u1, u2 = open_unit(run.prng.next()), open_unit(run.prng.next())
-            z = timeseries.standard_normal(u1, u2)
+            row = per_row.absolute_row(run, i) if key_pair is not None else i
+            z = timeseries.correlated_noise(spec, row, lambda k, r=row: innovations(r, k))
         out.append(timeseries.format_value(timeseries.value_at(spec, i, z), spec.decimals))
     return out
 

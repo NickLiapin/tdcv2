@@ -237,6 +237,7 @@ public sealed class Validator
             ["period"] = Set("timeseries"),
             ["amplitude"] = Set("timeseries"),
             ["noise"] = Set("timeseries"),
+            ["noise_correlation"] = Set("timeseries"),
 
             // Zero-padding a numeric range.
             ["first_zero"] = Set("number"),
@@ -560,7 +561,7 @@ public sealed class Validator
         "to", "oldest", "youngest", "precision", "range", "step", "weekdays", "peak_at",
         "src", "column",
         "header",
-        "delimiter", "row", "base", "trend", "period", "amplitude", "noise", "points", "upper",
+        "delimiter", "row", "base", "trend", "period", "amplitude", "noise", "noise_correlation", "points", "upper",
         "lower", "y_range", "fit", "interp", "spread", "ink_threshold", "mode", "in", "on_error",
         "timeout", "secret", "mean", "sd", "meanlog", "sdlog", "rate", "alpha", "xmin",
         "shape", "scale",
@@ -5148,11 +5149,31 @@ public sealed class Validator
     /// summer". It is a ROW, not a shift: 182 of 365 is the first of July, and <c>period</c> is
     /// already counted in rows.
     /// </remarks>
+    /// <summary>The seasonal attributes on a <c>&lt;gen type="timeseries"&gt;</c>.</summary>
+    /// <remarks>
+    /// A wave is <c>amplitude·cos(2π·(i − peak)/period)</c>, and <c>period</c>, <c>amplitude</c>
+    /// and <c>peak_at</c> describe the SAME waves position by position: <c>period="7,365"</c>
+    /// with <c>amplitude="120,400"</c> is a weekly wave 120 tall and a yearly one 400 tall.
+    /// Lengths that disagree describe no wave anybody can draw, so they are refused rather than
+    /// half-honoured.
+    /// </remarks>
     private void CheckTimeseries(
         TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs,
         string? type)
     {
-        if (type != "timeseries" || !attrs.TryGetValue("peak_at", out string? rawPeak))
+        if (type != "timeseries")
+        {
+            return;
+        }
+
+        IReadOnlyList<string> periods = WaveEntries(attrs.GetValueOrDefault("period"));
+        IReadOnlyList<string> amplitudes = WaveEntries(attrs.GetValueOrDefault("amplitude"));
+        IReadOnlyList<string> peaks = WaveEntries(attrs.GetValueOrDefault("peak_at"));
+
+        this.CheckNoiseCorrelation(gen, attrs);
+        this.CheckWaveLists(gen, periods, amplitudes, peaks);
+
+        if (!attrs.TryGetValue("peak_at", out string? rawPeak))
         {
             return;
         }
@@ -5160,22 +5181,20 @@ public sealed class Validator
         string raw = rawPeak.Trim();
         (int line, int column) = At(gen, "peak_at");
 
-        if (!double.TryParse(raw, NumberStyles.Float, CultureInfo.InvariantCulture, out double _))
+        if (peaks.Count == 0 || !AllNumbers(peaks))
         {
             Error(
                 "TDC252", $"peak_at=\"{raw}\" is not a number",
                 "peak_at is the row the seasonal wave peaks on, counted like period= — "
-                + "peak_at=\"182\" over period=\"365\" puts the peak at the first of July.",
+                + "peak_at=\"182\" over period=\"365\" puts the peak at the first of July. One "
+                + "entry per period=, so period=\"7,365\" takes peak_at=\"5,182\".",
                 line, column);
             return;
         }
 
         // A wave needs a length before it can have a highest point. Without `period` there is no
         // wave at all, so `peak_at` would be read by nobody.
-        string rawPeriod = attrs.GetValueOrDefault("period", string.Empty).Trim();
-        if (!double.TryParse(
-                rawPeriod, NumberStyles.Float, CultureInfo.InvariantCulture, out double period)
-            || period <= 0)
+        if (periods.Count == 0 || !AllNumbers(periods) || periods.Any(p => AsNumber(p) <= 0))
         {
             Error(
                 "TDC253",
@@ -5185,6 +5204,116 @@ public sealed class Validator
                 line, column);
         }
     }
+
+    /// <summary>The three seasonal lists have to line up, and every period has to be a length.</summary>
+    /// <remarks>
+    /// Both used to be accepted and then half-read: <c>period="7,365" amplitude="120"</c> gave the
+    /// yearly wave an amplitude of zero — a config asking for two seasons and getting one, with
+    /// nothing said. A <c>0</c> among several periods is the same shape: on its own
+    /// <c>period="0"</c> means "no wave", which is a sensible thing to write, but in a list it is
+    /// a wave with no length beside waves that have one.
+    /// </remarks>
+    private void CheckWaveLists(
+        TDCParser.SelfClosingElementContext gen,
+        IReadOnlyList<string> periods,
+        IReadOnlyList<string> amplitudes,
+        IReadOnlyList<string> peaks)
+    {
+        if (periods.Count == 0 || !AllNumbers(periods))
+        {
+            return;
+        }
+
+        if (periods.Count > 1 && periods.Any(p => AsNumber(p) <= 0))
+        {
+            (int line, int column) = At(gen, "period");
+            Error(
+                "TDC304",
+                $"period=\"{string.Join(",", periods)}\" lists a season with no length — every "
+                + "period in a list must be above zero",
+                "period=\"0\" on its own means \"no seasonal wave\". Among several it is a wave "
+                + "nothing can be drawn from: drop the entry, and its amplitude= with it.",
+                line, column);
+        }
+
+        // One amplitude for several periods is the shorthand for waves of equal height, and is
+        // kept: it reads exactly as it looks. Any other mismatch does not.
+        foreach (string name in new[] { "amplitude", "peak_at" })
+        {
+            IReadOnlyList<string> entries = name == "amplitude" ? amplitudes : peaks;
+            if (entries.Count == 0
+                || (name == "amplitude" && entries.Count == 1)
+                || entries.Count == periods.Count)
+            {
+                continue;
+            }
+
+            (int line, int column) = At(gen, name);
+            string hint = name == "amplitude"
+                ? "One amplitude per period — period=\"7,365\" amplitude=\"120,400\" — or a "
+                    + "single amplitude for waves of equal height."
+                : "One peak_at per period: period=\"7,365\" peak_at=\"5,182\".";
+            Error(
+                "TDC304",
+                $"{name}=\"{string.Join(",", entries)}\" has {entries.Count} entries and period= "
+                + $"has {periods.Count} — they describe the same waves",
+                hint, line, column);
+        }
+    }
+
+    /// <summary><c>noise_correlation=</c> — how much of one row's noise carries into the next.</summary>
+    /// <remarks>
+    /// At 1 the noise would stop being noise and become a random walk with no level to return to;
+    /// at more than 1 it grows without bound. Both are refused rather than clamped, because a
+    /// config asking for either meant something else.
+    /// </remarks>
+    private void CheckNoiseCorrelation(
+        TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs)
+    {
+        if (!attrs.TryGetValue("noise_correlation", out string? rawValue))
+        {
+            return;
+        }
+
+        string raw = rawValue.Trim();
+        (int line, int column) = At(gen, "noise_correlation");
+        double value = AsNumber(raw);
+        if (double.IsNaN(value) || Math.Abs(value) >= 1)
+        {
+            Error(
+                "TDC305", $"noise_correlation=\"{raw}\" must be a number between -1 and 1",
+                "It is how much of one row’s noise carries into the next: 0 is independent "
+                + "noise, 0.8 is strongly correlated. At 1 the series would wander off and never "
+                + "come back.",
+                line, column);
+            return;
+        }
+
+        // Correlation of WHAT, when there is nothing to correlate. `noise="0"` and no `noise=` at
+        // all both leave this attribute deciding nothing.
+        string noise = attrs.GetValueOrDefault("noise", string.Empty).Trim();
+        bool silent = noise.Length == 0 || AsNumber(noise) == 0;
+        if (value != 0 && silent)
+        {
+            Error(
+                "TDC305", "noise_correlation= without noise= — there is no noise to correlate",
+                "Add noise=\"p\" (the strength of the jitter), or remove noise_correlation=.",
+                line, column);
+        }
+    }
+
+    /// <summary>The entries of a comma-separated attribute, or empty when absent or blank.</summary>
+    private static IReadOnlyList<string> WaveEntries(string? raw)
+    {
+        string text = (raw ?? string.Empty).Trim();
+        return text.Length == 0
+            ? Array.Empty<string>()
+            : text.Split(',').Select(piece => piece.Trim()).ToList();
+    }
+
+    private static bool AllNumbers(IReadOnlyList<string> entries) =>
+        entries.All(piece => double.IsFinite(AsNumber(piece)));
+
 
     private void CheckDate(
         TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs,

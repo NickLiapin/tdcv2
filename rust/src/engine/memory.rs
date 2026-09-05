@@ -2792,16 +2792,20 @@ fn timeseries_keyed(
 ) -> EngineResult<Vec<String>> {
     let spec = timeseries::parse(attrs)?;
     let noisy = spec.has_noise();
+    let purpose = format!("{}:ts", stream.id);
+    // The value follows the POSITION; the noise follows the ROW, on the dedicated
+    // `:ts` stream the streaming engine uses. `noise_correlation` reads the rows
+    // before it through the ring — one draw a row while the walk goes forward.
+    let mut ring = timeseries::Ring::new();
     let mut result = Vec::with_capacity(count);
     for i in 0..count {
         let z = if noisy {
-            let u = seekable::uniforms(
-                &stream.seed,
-                &format!("{}:ts", stream.id),
-                stream.row_at(i) as i32,
-                2,
-            );
-            timeseries::standard_normal(u[0], u[1])
+            let row = stream.row_at(i);
+            let mut draw = |r: usize| {
+                let u = seekable::uniforms(&stream.seed, &purpose, r as i32, 2);
+                timeseries::standard_normal(u[0], u[1])
+            };
+            timeseries::correlated_noise(&spec, row, |k| ring.read(row, k, &mut draw))
         } else {
             0.0
         };

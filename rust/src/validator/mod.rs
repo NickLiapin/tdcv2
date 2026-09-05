@@ -4595,16 +4595,24 @@ impl Validator {
         if gen_type != Some("timeseries") {
             return;
         }
+        let periods = wave_entries(attrs.get("period"));
+        let amplitudes = wave_entries(attrs.get("amplitude"));
+        let peaks = wave_entries(attrs.get("peak_at"));
+
+        self.check_noise_correlation(gen, attrs);
+        self.check_wave_lists(gen, &periods, &amplitudes, &peaks);
+
         let Some(raw) = attrs.get("peak_at").map(|v| v.trim().to_string()) else {
             return;
         };
 
-        if raw.parse::<f64>().is_err() {
+        if peaks.is_empty() || !all_numbers(&peaks) {
             self.error(
                 "TDC252",
                 format!("peak_at=\"{raw}\" is not a number"),
                 "peak_at is the row the seasonal wave peaks on, counted like period= — \
-                 peak_at=\"182\" over period=\"365\" puts the peak at the first of July.",
+                 peak_at=\"182\" over period=\"365\" puts the peak at the first of July. One \
+                 entry per period=, so period=\"7,365\" takes peak_at=\"5,182\".",
                 gen.at("peak_at"),
             );
             return;
@@ -4612,11 +4620,12 @@ impl Validator {
 
         // A wave needs a length before it can have a highest point. Without
         // `period` there is no wave at all, so `peak_at` would be read by nobody.
-        let period = attrs
-            .get("period")
-            .and_then(|p| p.trim().parse::<f64>().ok())
-            .unwrap_or(0.0);
-        if period <= 0.0 {
+        if periods.is_empty()
+            || !all_numbers(&periods)
+            || periods
+                .iter()
+                .any(|p| p.parse::<f64>().map(|n| n <= 0.0).unwrap_or(true))
+        {
             self.error(
                 "TDC253",
                 format!(
@@ -4625,6 +4634,112 @@ impl Validator {
                 ),
                 "Add period= (the length of one season, in rows), or remove peak_at=.",
                 gen.at("peak_at"),
+            );
+        }
+    }
+
+    /// The three seasonal lists have to line up, and every period has to be a length.
+    ///
+    /// Both used to be accepted and then half-read: `period="7,365" amplitude="120"` gave the
+    /// yearly wave an amplitude of zero — a config asking for two seasons and getting one, with
+    /// nothing said. A `0` among several periods is the same shape: on its own `period="0"`
+    /// means "no wave", which is a sensible thing to write, but in a list it is a wave with no
+    /// length beside waves that have one.
+    fn check_wave_lists(
+        &mut self,
+        gen: &Element,
+        periods: &[String],
+        amplitudes: &[String],
+        peaks: &[String],
+    ) {
+        if periods.is_empty() || !all_numbers(periods) {
+            return;
+        }
+
+        if periods.len() > 1
+            && periods
+                .iter()
+                .any(|p| p.parse::<f64>().map(|n| n <= 0.0).unwrap_or(false))
+        {
+            self.error(
+                "TDC304",
+                format!(
+                    "period=\"{}\" lists a season with no length — every period in a list must \
+                     be above zero",
+                    periods.join(",")
+                ),
+                "period=\"0\" on its own means \"no seasonal wave\". Among several it is a wave \
+                 nothing can be drawn from: drop the entry, and its amplitude= with it.",
+                gen.at("period"),
+            );
+        }
+
+        // One amplitude for several periods is the shorthand for waves of equal height, and is
+        // kept: it reads exactly as it looks. Any other mismatch does not.
+        for (name, entries) in [("amplitude", amplitudes), ("peak_at", peaks)] {
+            if entries.is_empty()
+                || (name == "amplitude" && entries.len() == 1)
+                || entries.len() == periods.len()
+            {
+                continue;
+            }
+            let hint = if name == "amplitude" {
+                "One amplitude per period — period=\"7,365\" amplitude=\"120,400\" — or a single \
+                 amplitude for waves of equal height."
+            } else {
+                "One peak_at per period: period=\"7,365\" peak_at=\"5,182\"."
+            };
+            self.error(
+                "TDC304",
+                format!(
+                    "{name}=\"{}\" has {} entries and period= has {} — they describe the same \
+                     waves",
+                    entries.join(","),
+                    entries.len(),
+                    periods.len()
+                ),
+                hint,
+                gen.at(name),
+            );
+        }
+    }
+
+    /// `noise_correlation=` — how much of one row's noise carries into the next.
+    ///
+    /// At 1 the noise would stop being noise and become a random walk with no level to return
+    /// to; at more than 1 it grows without bound. Both are refused rather than clamped, because
+    /// a config asking for either meant something else.
+    fn check_noise_correlation(&mut self, gen: &Element, attrs: &Attrs) {
+        let Some(raw) = attrs.get("noise_correlation").map(|v| v.trim().to_string()) else {
+            return;
+        };
+        let value = raw.parse::<f64>();
+        let bad = match &value {
+            Ok(n) => !(n.abs() < 1.0),
+            Err(_) => true,
+        };
+        if bad {
+            self.error(
+                "TDC305",
+                format!("noise_correlation=\"{raw}\" must be a number between -1 and 1"),
+                "It is how much of one row\u{2019}s noise carries into the next: 0 is \
+                 independent noise, 0.8 is strongly correlated. At 1 the series would wander \
+                 off and never come back.",
+                gen.at("noise_correlation"),
+            );
+            return;
+        }
+
+        // Correlation of WHAT, when there is nothing to correlate. `noise="0"` and no `noise=`
+        // at all both leave this attribute deciding nothing.
+        let noise = attrs.get("noise").map(|s| s.trim()).unwrap_or("");
+        let silent = noise.is_empty() || noise.parse::<f64>().map(|n| n == 0.0).unwrap_or(false);
+        if value.unwrap_or(0.0) != 0.0 && silent {
+            self.error(
+                "TDC305",
+                "noise_correlation= without noise= — there is no noise to correlate".to_string(),
+                "Add noise=\"p\" (the strength of the jitter), or remove noise_correlation=.",
+                gen.at("noise_correlation"),
             );
         }
     }
@@ -7349,4 +7464,21 @@ fn collect_prev_targets(node: &expr::Expr, found: &mut std::collections::BTreeSe
         }
         _ => {}
     }
+}
+
+/// The entries of a comma-separated attribute, or empty when it is absent or blank.
+fn wave_entries(raw: Option<&String>) -> Vec<String> {
+    let text = raw.map(|s| s.trim()).unwrap_or("");
+    if text.is_empty() {
+        return Vec::new();
+    }
+    text.split(',')
+        .map(|piece| piece.trim().to_string())
+        .collect()
+}
+
+fn all_numbers(entries: &[String]) -> bool {
+    entries
+        .iter()
+        .all(|piece| piece.parse::<f64>().map(f64::is_finite).unwrap_or(false))
 }

@@ -74,10 +74,11 @@ layers are exactly what `timeseries` adds.
 | :---------- | :------------------------------------------------------- |
 | `base`      | Starting level (default `0`)                             |
 | `trend`     | Slope: how much the value rises each step                |
-| `period`    | Length of the seasonal wave, in rows (e.g. `7` = a week) |
-| `amplitude` | Height of the seasonal wave                              |
-| `peak_at`   | Which row the wave peaks on (default: a quarter period in) |
+| `period`    | Length of the seasonal wave, in rows (e.g. `7` = a week) — or several, `7,365` |
+| `amplitude` | Height of the seasonal wave — one per `period`           |
+| `peak_at`   | Which row the wave peaks on (default: a quarter period in) — one per `period` |
 | `noise`     | Strength of the random noise (standard deviation)        |
+| `noise_correlation` | How much of one row's noise carries into the next, `-1..1` (default `0`) |
 | `decimals`  | Digits after the decimal point (default `0` — integer)   |
 
 Every layer is optional. The sections below take them one at a time — what each
@@ -306,6 +307,103 @@ Reading the columns:
 Each column is the previous one plus **one** attribute — direction, then rhythm,
 then real-world roughness. That's how a realistic series is assembled.
 
+## Several seasons at once
+
+Real series rarely carry one season. A shop takes more on Saturdays **and** more in
+December; a power grid has a daily cycle **and** a yearly one. Write both: `period`,
+`amplitude` and `peak_at` each take a comma-separated list, one entry per wave, and
+the waves add up.
+
+```xml
+<gen type="timeseries" base="1000" trend="2"
+     period="7,365" amplitude="120,400" peak_at="5,182" decimals="0"/>
+```
+
+That is a weekly wave 120 tall peaking on day 5, and a yearly wave 400 tall peaking
+on day 182 — on the same column.
+
+<Terminal title="./run shop.tdc (count=16, seed=shop)">
+{`day 0: 573
+day 1: 494
+day 2: 496
+day 3: 580
+day 4: 684
+day 5: 732
+day 6: 689
+day 7: 591
+day 8: 512
+day 9: 515
+day 10: 600
+day 11: 705
+day 12: 753
+day 13: 712
+day 14: 614
+day 15: 536`}
+</Terminal>
+
+The weekly peaks are plain to see — days 5, 12 and 19 — and each week sits a little
+higher than the last, because the yearly wave is still climbing towards day 182.
+
+The three lists describe **the same waves, position by position**, so they have to
+line up: `period="7,365"` needs two amplitudes. A single `amplitude` is the one
+shorthand — it gives every wave the same height. Anything else is a mistake the
+engine will not guess at (`TDC304`).
+
+## Noise that remembers — `noise_correlation`
+
+Plain `noise` is **independent**: each row is jittered on its own, so a high reading
+tells you nothing about the next one. Real measurement error rarely behaves like
+that. A sensor drifting warm stays warm for a while; a queue that is backing up keeps
+backing up. Code tested only against independent noise has never met the case it will
+actually fail on.
+
+`noise_correlation` says how much of one row's noise carries into the next — `0` is
+the independent noise this generator has always produced, `0.9` is strongly
+correlated. It is the AR(1) model, if you know the name; if you don't, read it as
+"how sticky the jitter is".
+
+```xml
+<sequence name="White">  <gen type="timeseries" base="20" noise="2" decimals="1"/></sequence>
+<sequence name="Drifty"> <gen type="timeseries" base="20" noise="2" noise_correlation="0.9" decimals="1"/></sequence>
+```
+
+<Terminal title="./run sensor.tdc (count=16, seed=sensor)">
+{`independent 17.8   correlated 22.4
+independent 18.5   correlated 21.0
+independent 20.8   correlated 21.8
+independent 21.1   correlated 20.3
+independent 19.3   correlated 22.6
+independent 18.4   correlated 23.9
+independent 20.4   correlated 23.2
+independent 18.7   correlated 21.5
+independent 21.6   correlated 20.9
+independent 23.1   correlated 20.7
+independent 20.0   correlated 20.6
+independent 23.2   correlated 20.2
+independent 22.4   correlated 18.9
+independent 20.0   correlated 18.7
+independent 18.5   correlated 18.4
+independent 18.5   correlated 18.5`}
+</Terminal>
+
+The left column jumps about 20 at random. The right one wanders: up to 23.9, then
+down over ten rows to 18.4. Both have the **same spread** — correlation changes how
+the noise moves, not how big it is.
+
+### The small print
+
+- **It needs `noise=`.** Correlation of what, otherwise? Refused rather than ignored
+  (`TDC305`).
+- **Between −1 and 1**, and not 1 itself: at 1 the series would wander off and never
+  come back, which is a random walk and not noise.
+- **A negative value alternates** — each row leans against the one before it, which is
+  what over-corrected control loops look like.
+- **Both engines, any size.** The correlated value is still computed from the row
+  number, so a streamed run of a billion rows produces the same file as an in-memory
+  one, and memory stays flat. It remembers the last 64 rows: far enough that the
+  weight of anything older is negligible, near enough that the cost is about 20
+  nanoseconds a row.
+
 ## Details
 
 - **Deterministic:** the same `seed` gives the same series. The noise is reproducible
@@ -316,11 +414,6 @@ then real-world roughness. That's how a realistic series is assembled.
 - The time axis is the row number. It pairs naturally with an
   [`increment`](counters.mdx) (a day counter) or a [`date`](date.mdx) column beside
   it, so each value carries a real date.
-
-:::note[Planned]
-Today it's one trend + one seasonal wave + noise. Planned: several seasonalities at
-once (weekly **and** yearly) and AR noise (correlated over time).
-:::
 
 ## See also
 

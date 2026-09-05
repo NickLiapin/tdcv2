@@ -167,6 +167,7 @@ export const GEN_ATTRIBUTES: ReadonlySet<string> = new Set([
   'amplitude',
   'peak_at',
   'noise',
+  'noise_correlation',
   'points',
   'upper',
   'lower',
@@ -299,6 +300,7 @@ export const ATTRIBUTE_OWNERS: ReadonlyMap<string, ReadonlySet<string>> = new Ma
   ['amplitude', new Set(['timeseries'])],
   ['peak_at', new Set(['timeseries'])],
   ['noise', new Set(['timeseries'])],
+  ['noise_correlation', new Set(['timeseries'])],
   // Zero-padding a numeric range.
   ['first_zero', new Set(['number'])],
   // The legacy two-date span, read by the date generator and by the

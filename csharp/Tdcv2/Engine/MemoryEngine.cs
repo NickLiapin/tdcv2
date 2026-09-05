@@ -4150,15 +4150,23 @@ public static class MemoryEngine
     {
         Stats.Timeseries.Spec spec = Stats.Timeseries.Parse(attrs);
         bool noisy = spec.HasNoise;
+        // `noise_correlation` reads the rows before it through the ring — one draw a row while
+        // the walk goes forward, which is all a sequential build ever asks for.
+        var ring = new Stats.Timeseries.Ring();
+        double Draw(int r)
+        {
+            double[] u = Seekable.Uniforms(stream.Seed, $"{stream.Id}:ts", r, 2);
+            return Stats.Timeseries.StandardNormal(u[0], u[1]);
+        }
+
         var result = new List<string>(count);
         for (int i = 0; i < count; i++)
         {
             double z = 0;
             if (noisy)
             {
-                double[] u = Seekable.Uniforms(
-                    stream.Seed, $"{stream.Id}:ts", stream.RowAt(i), 2);
-                z = Stats.Timeseries.StandardNormal(u[0], u[1]);
+                int row = stream.RowAt(i);
+                z = Stats.Timeseries.CorrelatedNoise(spec, row, k => ring.Read(row, k, Draw));
             }
 
             result.Add(Distributions.ToFixed(Stats.Timeseries.ValueAt(spec, i, z), spec.Decimals));

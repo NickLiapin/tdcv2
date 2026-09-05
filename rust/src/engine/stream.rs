@@ -2773,9 +2773,24 @@ impl StreamEngine<'_> {
                     return Ok(None);
                 };
                 let z = if spec.has_noise() {
-                    let u =
-                        seekable::uniforms(&self.drawing_seed(), &format!("{stream}:ts"), row, 2);
-                    timeseries::standard_normal(u[0], u[1])
+                    // One row at a time and no state to keep between calls, so the
+                    // window is read straight through: 64 draws when
+                    // `noise_correlation` is set, one when it is not. The SUM is
+                    // the in-memory engine's, term for term.
+                    let seed = self.drawing_seed();
+                    let purpose = format!("{stream}:ts");
+                    let mut draw = |r: usize| {
+                        let u = seekable::uniforms(&seed, &purpose, r as i32, 2);
+                        timeseries::standard_normal(u[0], u[1])
+                    };
+                    let here = row.max(0) as usize;
+                    timeseries::correlated_noise(spec, here, |k| {
+                        if k > here {
+                            0.0
+                        } else {
+                            draw(here - k)
+                        }
+                    })
                 } else {
                     0.0
                 };

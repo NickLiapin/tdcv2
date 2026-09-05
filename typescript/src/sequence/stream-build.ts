@@ -42,6 +42,8 @@ import { patternGenDraws, patternGenValue } from '../generators/pattern.js';
 import {
   formatTimeseries,
   parseTimeseries,
+  correlatedNoise,
+  innovationRing,
   standardNormal,
   timeseriesHasNoise,
   timeseriesValueAt,
@@ -746,15 +748,17 @@ function buildValueSequence(
     // noise draw is seekable per row on a dedicated stream.
     const spec = parseTimeseries(gen.attrs);
     const noisy = timeseriesHasNoise(spec);
+    // The window's draws, kept in a ring: forward is one draw a row, a jump refills
+    // it. Same SUM as the in-memory engine either way, term for term.
+    const innovations = innovationRing((row) => {
+      const [u1 = 0.5, u2 = 0.5] = seekableUniforms(seed, `${streamId}:ts`, row, 2);
+      return standardNormal(u1, u2);
+    });
     return {
       sequence: wrapLazy((i) => {
         const r = popIndexAt(i);
         if (r === undefined) return undefined;
-        let z = 0;
-        if (noisy) {
-          const [u1 = 0.5, u2 = 0.5] = seekableUniforms(seed, `${streamId}:ts`, i, 2);
-          z = standardNormal(u1, u2);
-        }
+        const z = noisy ? correlatedNoise(spec, i, (k) => innovations(i, k)) : 0;
         return formatTimeseries(timeseriesValueAt(spec, r, z), spec.decimals);
       }),
     };

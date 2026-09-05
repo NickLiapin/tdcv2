@@ -195,6 +195,8 @@ export const ATTR_DOCS: Record<string, string> = {
   period: 'The length of one seasonal cycle, in records (`type="timeseries"`).',
   amplitude: 'The height of the seasonal swing (`type="timeseries"`).',
   noise: 'The standard deviation of the gaussian jitter added on top (`type="timeseries"`).',
+  noise_correlation:
+    'How much of one record’s jitter carries into the next, `-1..1`. `0` is independent jitter, `0.9` is a series that drifts (`type="timeseries"`).',
   decimals: 'How many digits after the decimal point.',
   points: 'The points of the curve for `type="pattern"`, e.g. `0,0 50,100 100,0`.',
   mode: 'How to read the drawing (`type="pattern"`): `signal` — a trajectory across records (default), `density` — a distribution, where height is how often a value occurs.',

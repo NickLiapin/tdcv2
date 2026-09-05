@@ -28,6 +28,34 @@
       "description": "the word readers reach for; the engine spells it peak_at",
       "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"G\"><gen type=\"timeseries\" base=\"15\" amplitude=\"10\" period=\"12\" phase=\"6\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
       "expected": ["error TDC015 1:115"]
+    },
+    {
+      "name": "seasonal-lists-of-different-lengths",
+      "demonstrates": "TDC304",
+      "description": "period=, amplitude= and peak_at= describe the same waves position by position, so a length that disagrees describes no wave anybody can draw. It used to be half-read: the third amplitude was dropped and nothing said so.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"S\"><gen type=\"timeseries\" base=\"10\" period=\"7,365\" amplitude=\"1,2,3\"/></sequence></env><block><line><data>${{S}}</data></line></block></tdc>",
+      "expected": ["error TDC304 1:118"]
+    },
+    {
+      "name": "a-season-with-no-length-among-several",
+      "demonstrates": "TDC304",
+      "description": "period=\"0\" on its own means \"no seasonal wave\", which is a sensible thing to write. Among several it is a wave nothing can be drawn from, standing beside waves that have a length.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"S\"><gen type=\"timeseries\" base=\"10\" period=\"7,0\" amplitude=\"1,2\"/></sequence></env><block><line><data>${{S}}</data></line></block></tdc>",
+      "expected": ["error TDC304 1:100"]
+    },
+    {
+      "name": "noise-correlation-at-one",
+      "demonstrates": "TDC305",
+      "description": "At 1 the noise stops being noise and becomes a random walk with no level to return to; above 1 it grows without bound. Refused rather than clamped, because a config asking for either meant something else.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"S\"><gen type=\"timeseries\" base=\"10\" noise=\"1\" noise_correlation=\"1\"/></sequence></env><block><line><data>${{S}}</data></line></block></tdc>",
+      "expected": ["error TDC305 1:121"]
+    },
+    {
+      "name": "noise-correlation-with-nothing-to-correlate",
+      "demonstrates": "TDC305",
+      "description": "Correlation of WHAT: without noise= there is no jitter for one row to carry into the next, so the attribute decides nothing at all.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"S\"><gen type=\"timeseries\" base=\"10\" noise_correlation=\"0.5\"/></sequence></env><block><line><data>${{S}}</data></line></block></tdc>",
+      "expected": ["error TDC305 1:111"]
     }
   ]
 }

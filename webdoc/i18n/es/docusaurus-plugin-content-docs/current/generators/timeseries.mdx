@@ -75,10 +75,11 @@ agrega `timeseries`.
 | :---------- | :-------------------------------------------------------------- |
 | `base`      | Nivel inicial (por omisión `0`)                                 |
 | `trend`     | Pendiente: cuánto sube el valor en cada paso                    |
-| `period`    | Largo de la onda estacional, en filas (p. ej. `7` = una semana) |
-| `amplitude` | Altura de la onda estacional                                    |
-| `peak_at`   | En qué fila alcanza su máximo la onda (por defecto: a un cuarto del período) |
+| `period`    | Largo de la onda estacional, en filas (p. ej. `7` = una semana) — o varias, `7,365` |
+| `amplitude` | Altura de la onda estacional — una por cada `period`             |
+| `peak_at`   | En qué fila alcanza su máximo la onda (por defecto: a un cuarto del período) — una por cada `period` |
 | `noise`     | Fuerza del ruido aleatorio (desviación estándar)                |
+| `noise_correlation` | Cuánto ruido de una fila pasa a la siguiente, `-1..1` (por omisión `0`) |
 | `decimals`  | Dígitos después del punto decimal (por omisión `0` — entero)    |
 
 Todas las capas son opcionales. Las secciones siguientes las toman una por una: qué
@@ -309,6 +310,103 @@ Leyendo las columnas:
 Cada columna es la anterior más **un** atributo: dirección, luego ritmo, luego
 aspereza del mundo real. Así se arma una serie realista.
 
+## Varias estaciones a la vez
+
+Una serie real rara vez lleva una sola estación. Una tienda vende más los sábados **y**
+más en diciembre; una red eléctrica tiene un ciclo diario **y** uno anual. Escriba los
+dos: `period`, `amplitude` y `peak_at` aceptan listas separadas por comas, una entrada
+por onda, y las ondas se suman.
+
+```xml
+<gen type="timeseries" base="1000" trend="2"
+     period="7,365" amplitude="120,400" peak_at="5,182" decimals="0"/>
+```
+
+Eso es una onda semanal de 120 de alto con su máximo el día 5, y una anual de 400 con
+su máximo el día 182 — en la misma columna.
+
+<Terminal title="./run shop.tdc (count=16, seed=shop)">
+{`day 0: 573
+day 1: 494
+day 2: 496
+day 3: 580
+day 4: 684
+day 5: 732
+day 6: 689
+day 7: 591
+day 8: 512
+day 9: 515
+day 10: 600
+day 11: 705
+day 12: 753
+day 13: 712
+day 14: 614
+day 15: 536`}
+</Terminal>
+
+Los máximos semanales se ven a simple vista — días 5, 12 y 19 — y cada semana queda un
+poco más alta que la anterior, porque la onda anual todavía sube hacia el día 182.
+
+Las tres listas describen **las mismas ondas, posición por posición**, así que tienen
+que cuadrar: `period="7,365"` necesita dos amplitudes. La única abreviatura es una sola
+`amplitude` para ondas de igual altura. Cualquier otra cosa es un error que el motor no
+va a adivinar (`TDC304`).
+
+## Ruido con memoria — `noise_correlation`
+
+El `noise` normal es **independiente**: cada fila se sacude por su cuenta, así que una
+lectura alta no dice nada de la siguiente. El error de medición real casi nunca se
+comporta así. Un sensor que se va hacia arriba se queda arriba un rato; una cola que
+empieza a acumularse sigue acumulándose. El código probado solo contra ruido
+independiente nunca vio el caso con el que va a fallar de verdad.
+
+`noise_correlation` dice cuánto ruido de una fila pasa a la siguiente: `0` es el ruido
+independiente que este generador siempre produjo, `0.9` es fuertemente correlacionado.
+Es el modelo AR(1), si le suena el nombre; si no, léalo como «qué tan pegajoso es el
+ruido».
+
+```xml
+<sequence name="White">  <gen type="timeseries" base="20" noise="2" decimals="1"/></sequence>
+<sequence name="Drifty"> <gen type="timeseries" base="20" noise="2" noise_correlation="0.9" decimals="1"/></sequence>
+```
+
+<Terminal title="./run sensor.tdc (count=16, seed=sensor)">
+{`independent 17.8   correlated 22.4
+independent 18.5   correlated 21.0
+independent 20.8   correlated 21.8
+independent 21.1   correlated 20.3
+independent 19.3   correlated 22.6
+independent 18.4   correlated 23.9
+independent 20.4   correlated 23.2
+independent 18.7   correlated 21.5
+independent 21.6   correlated 20.9
+independent 23.1   correlated 20.7
+independent 20.0   correlated 20.6
+independent 23.2   correlated 20.2
+independent 22.4   correlated 18.9
+independent 20.0   correlated 18.7
+independent 18.5   correlated 18.4
+independent 18.5   correlated 18.5`}
+</Terminal>
+
+La columna izquierda salta alrededor de 20 al azar. La derecha deambula: sube a 23.9 y
+en diez filas baja a 18.4. Las dos tienen la **misma dispersión** — la correlación
+cambia cómo se mueve el ruido, no cuán grande es.
+
+### La letra pequeña
+
+- **Necesita `noise=`.** Si no, ¿correlación de qué? Se rechaza en vez de ignorarse
+  (`TDC305`).
+- **Entre −1 y 1**, y no 1: en 1 la serie se iría y no volvería, lo que es una caminata
+  aleatoria y no ruido.
+- **Un valor negativo alterna** — cada fila se apoya contra la anterior, que es como se
+  ven los lazos de control sobrecorregidos.
+- **Los dos motores, cualquier tamaño.** El valor correlacionado se sigue calculando a
+  partir del número de fila, así que una corrida en streaming de mil millones de filas
+  produce el mismo archivo que una en memoria, y la memoria no crece. Recuerda las
+  últimas 64 filas: lo bastante lejos para que el peso de lo más viejo sea despreciable,
+  y lo bastante cerca para que cueste unos 20 nanosegundos por fila.
+
 ## Detalles
 
 - **Determinista:** el mismo `seed` da la misma serie. El ruido también es
@@ -320,11 +418,6 @@ aspereza del mundo real. Así se arma una serie realista.
 - El eje del tiempo es el número de fila. Se lleva de forma natural con un
   [`increment`](counters.mdx) (un contador de días) o una columna
   [`date`](date.mdx) al lado, para que cada valor cargue una fecha real.
-
-:::note[Planeado]
-Hoy es una tendencia + una onda estacional + ruido. Planeado: varias estacionalidades
-a la vez (semanal **y** anual) y ruido AR (correlacionado en el tiempo).
-:::
 
 ## Vea también
 

@@ -109,6 +109,7 @@
 | `amplitude` | Высота сезонного размаха     | [Временные ряды](../generators/timeseries.md#top) |
 | `peak_at`   | На какой строке пикует сезонная волна | [Временные ряды](../generators/timeseries.md#top) |
 | `noise`     | Случайное дрожание сверху    | [Временные ряды](../generators/timeseries.md#top) |
+| `noise_correlation` | Сколько дрожания одной строки переходит в следующую | [Временные ряды](../generators/timeseries.md#top) |
 
 ## Pattern (рисунок как источник)
 

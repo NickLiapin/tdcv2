@@ -110,6 +110,7 @@ etiqueta y se explica donde se explica esa etiqueta — ver la
 | `amplitude` | Altura del vaivén estacional   | [Series temporales](../generators/timeseries.md#top) |
 | `peak_at`   | En qué fila alcanza su máximo la onda estacional | [Series temporales](../generators/timeseries.md#top) |
 | `noise`     | Ruido aleatorio añadido encima | [Series temporales](../generators/timeseries.md#top) |
+| `noise_correlation` | Cuánto ruido de una fila pasa a la siguiente | [Series temporales](../generators/timeseries.md#top) |
 
 ## Pattern (un dibujo como fuente)
 

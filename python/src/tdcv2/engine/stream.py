@@ -749,14 +749,25 @@ class StreamEngine:
             spec = timeseries.parse(attrs)
             noisy = spec.has_noise()
 
+            def ts_draw(row: int, _stream_id: str = stream_id) -> float:
+                u = seekable.uniforms(self.seed, f"{_stream_id}:ts", row, 2)
+                return timeseries.standard_normal(u[0], u[1])
+
+            # The window's draws, kept in a ring. A chunk walks its rows in order, so this is one
+            # draw a row; a jump — a ``parent=`` filter, another column asking out of turn —
+            # refills the window and costs 64. Either way the SUM is the in-memory engine's, term
+            # for term.
+            ts_innovations = timeseries.innovation_ring(ts_draw)
+
             def series(row: int) -> str | None:
                 r = domain.pop_index_at(row)
                 if r is None:
                     return None
                 z = 0.0
                 if noisy:
-                    u = seekable.uniforms(self.seed, f"{stream_id}:ts", row, 2)
-                    z = timeseries.standard_normal(u[0], u[1])
+                    z = timeseries.correlated_noise(
+                        spec, row, lambda k, _r=row: ts_innovations(_r, k)
+                    )
                 return numbers.to_fixed(timeseries.value_at(spec, r, z), spec.decimals)
 
             return self._inline_built(mod, series, stream_id, gen, domain)
