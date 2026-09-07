@@ -16,7 +16,7 @@
 //! classes, no lookaround. What is accepted produces the same string from the
 //! same seed in every implementation of TDC.
 
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, BTreeSet};
 use std::sync::OnceLock;
 
 use super::rand;
@@ -72,6 +72,9 @@ pub enum Node {
     Repeat(Box<Node>, i32, i32),
     Capture(usize, Box<Node>, i64),
     Backref(usize),
+    /// `(?(area)yes|no)` — the branch follows a group, not chance, and draws
+    /// nothing of its own.
+    Conditional(usize, Box<Node>, Box<Node>),
 }
 
 pub fn generate(
@@ -156,6 +159,15 @@ fn render(node: &Node, captures: &mut BTreeMap<usize, String>, prng: &mut Sfc32)
             value
         }
         Node::Backref(index) => captures.get(index).cloned().unwrap_or_default(),
+        Node::Conditional(index, yes, no) => {
+            // No draw of its own: the branch is already decided by the group.
+            let branch = if captures.contains_key(index) {
+                yes
+            } else {
+                no
+            };
+            render(branch, captures, prng)
+        }
     }
 }
 
@@ -184,6 +196,9 @@ fn max_length(node: &Node, capture_max_lengths: &BTreeMap<usize, i64>) -> Engine
         }
         Node::Capture(_, _, len) => *len,
         Node::Backref(index) => capture_max_lengths.get(index).copied().unwrap_or(0),
+        Node::Conditional(_, yes, no) => {
+            max_length(yes, capture_max_lengths)?.max(max_length(no, capture_max_lengths)?)
+        }
     })
 }
 
@@ -202,6 +217,10 @@ struct Parser {
     capture_count: usize,
     closed_capture_count: usize,
     capture_max_lengths: BTreeMap<usize, i64>,
+    /// Every name written down, so a repeat is caught even when nested.
+    declared_names: BTreeSet<String>,
+    /// Names of groups that have CLOSED — the only ones a reference may reach.
+    closed_names: BTreeMap<String, usize>,
 }
 
 /// One entry inside `[...]`: the characters it contributes, and — when it is a
@@ -219,6 +238,8 @@ impl Parser {
             capture_count: 0,
             closed_capture_count: 0,
             capture_max_lengths: BTreeMap::new(),
+            declared_names: BTreeSet::new(),
+            closed_names: BTreeMap::new(),
         }
     }
 
@@ -338,12 +359,22 @@ impl Parser {
     fn group(&mut self) -> EngineResult<Node> {
         self.expect('(')?;
         let mut capturing = true;
+        let mut name: Option<String> = None;
         if self.peek() == Some('?') {
             if self.peek_at(1) == Some(':') {
                 self.pos += 2;
                 capturing = false;
+            } else if self.peek_at(1) == Some('(') {
+                self.pos += 2;
+                return self.conditional();
+            } else if self.peek_at(1) == Some('<') && !self.at_lookbehind() {
+                self.pos += 2;
+                name = Some(self.group_name()?);
             } else {
-                return self.error("lookaround, named, and conditional groups are not supported");
+                return self.error(
+                    "lookaround groups are not supported: they inspect text that already \
+                     exists, and nothing here is matching anything",
+                );
             }
         }
 
@@ -366,7 +397,110 @@ impl Parser {
         self.closed_capture_count = self.closed_capture_count.max(index);
         let group_max = max_length(&node, &self.capture_max_lengths)?;
         self.capture_max_lengths.insert(index, group_max);
+        if let Some(name) = name {
+            self.closed_names.insert(name, index);
+        }
         Ok(Node::Capture(index, Box::new(node), group_max))
+    }
+
+    /// `(?<=` and `(?<!` are lookbehind, not a group whose name begins with `=`.
+    fn at_lookbehind(&self) -> bool {
+        matches!(self.peek_at(2), Some('=') | Some('!'))
+    }
+
+    /// The `name` of `(?<name>…)`, up to the closing `>`.
+    fn group_name(&mut self) -> EngineResult<String> {
+        let start = self.pos;
+        while !self.at_end() && self.peek() != Some('>') {
+            self.pos += 1;
+        }
+        let name: String = self.pattern[start..self.pos].iter().collect();
+        self.expect('>')?;
+        if name.is_empty() {
+            return self.error("a named group needs a name: (?<area>...)");
+        }
+        if !is_group_name(&name) {
+            return self.error(&format!(
+                "group name \"{name}\" must start with a letter or \"_\" and hold only \
+                 letters, digits and \"_\""
+            ));
+        }
+        // Checked where the name is WRITTEN, not where the group closes, so a
+        // repeat is caught even when one named group sits inside another.
+        if self.declared_names.contains(&name) {
+            return self.error(&format!("group name \"{name}\" is already used"));
+        }
+        self.declared_names.insert(name.clone());
+        Ok(name)
+    }
+
+    /// `(?(area)yes|no)` — the `(?(` is already consumed.
+    fn conditional(&mut self) -> EngineResult<Node> {
+        let start = self.pos;
+        while !self.at_end() && self.peek() != Some(')') {
+            self.pos += 1;
+        }
+        let test: String = self.pattern[start..self.pos].iter().collect();
+        self.expect(')')?;
+        let index = self.conditional_test(&test)?;
+
+        let yes = self.sequence()?;
+        let mut no = Node::Empty;
+        if self.peek() == Some('|') {
+            self.pos += 1;
+            no = self.sequence()?;
+        }
+        if self.peek() == Some('|') {
+            return self.error(
+                "a conditional group takes at most two branches: (?(area)yes|no). \
+                 Group a choice of its own: (?(area)(?:x|y)|z)",
+            );
+        }
+        self.expect(')')?;
+        Ok(Node::Conditional(index, Box::new(yes), Box::new(no)))
+    }
+
+    fn conditional_test(&self, test: &str) -> EngineResult<usize> {
+        if test.is_empty() {
+            return self.error("a conditional group needs a group to test: (?(area)yes|no)");
+        }
+        if test.starts_with(|c: char| c.is_ascii_digit()) {
+            let index = self.safe_int(test)?;
+            if index <= 0 || index as usize > self.closed_capture_count {
+                return self.error(&format!(
+                    "conditional group \"(?({test})...)\" tests group {test}, which is not \
+                     generated yet"
+                ));
+            }
+            return Ok(index as usize);
+        }
+        match self.closed_names.get(test) {
+            Some(index) => Ok(*index),
+            None => self.error(&format!(
+                "conditional group \"(?({test})...)\" tests group \"{test}\", which is not \
+                 generated yet"
+            )),
+        }
+    }
+
+    /// `\k<area>` — the `\k` is already consumed.
+    fn named_backref(&mut self) -> EngineResult<Node> {
+        if self.peek() != Some('<') {
+            return self.error("a named backreference is written \"\\k<area>\"");
+        }
+        self.pos += 1;
+        let start = self.pos;
+        while !self.at_end() && self.peek() != Some('>') {
+            self.pos += 1;
+        }
+        let name: String = self.pattern[start..self.pos].iter().collect();
+        self.expect('>')?;
+        match self.closed_names.get(&name) {
+            Some(index) => Ok(Node::Backref(*index)),
+            None => self.error(&format!(
+                "named backreference \"\\k<{name}>\" points to a group that is not generated yet"
+            )),
+        }
     }
 
     fn char_class(&mut self) -> EngineResult<Node> {
@@ -491,6 +625,7 @@ impl Parser {
         }
 
         match ch {
+            'k' => self.named_backref(),
             'd' => Ok(chars_node(digits())),
             'D' => Ok(chars_node(&inverse(digits()))),
             'w' => Ok(chars_node(word())),
@@ -596,6 +731,16 @@ impl Parser {
     fn error<T>(&self, message: &str) -> EngineResult<T> {
         invalid(&format!("regex: {message} at offset {}", self.pos))
     }
+}
+
+/// A group name starts with a letter or `_` and holds letters, digits and `_`.
+fn is_group_name(name: &str) -> bool {
+    let mut chars = name.chars();
+    match chars.next() {
+        Some(c) if c.is_ascii_alphabetic() || c == '_' => {}
+        _ => return false,
+    }
+    chars.all(|c| c.is_ascii_alphanumeric() || c == '_')
 }
 
 fn chars_node(values: &[char]) -> Node {

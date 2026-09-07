@@ -124,6 +124,9 @@ Si se necesitan **porciones exactas** de variantes dentro del string (digamos, e
 | Grupo                | `(cat\|dog)`                 | Agrupación y captura                             |
 | Grupo sin captura    | `(?:cat\|dog)`               | Agrupación sin captura                           |
 | Retrorreferencia     | `([0-9]{3})-\1`              | Repite un grupo ya generado                      |
+| Grupo con nombre     | `(?<code>[A-Z]{2})`          | Agrupación y captura, bajo un nombre             |
+| Referencia por nombre | `\k<code>`                  | Repite un grupo por su nombre                    |
+| Condicional          | `(?(code)-\|/)`              | Una rama u otra, según el grupo                  |
 | Opcional             | `AB?C`                       | `AC` o `ABC`                                     |
 | Repetición exacta    | `[A-Z]{4}`                   | Exactamente 4                                    |
 | Repetición por rango | `[A-Z]{2,5}`                 | De 2 a 5                                         |
@@ -482,6 +485,79 @@ LRG-G
 Aquí `([A-Z]){3}` corre el grupo tres veces, y `\1` repite solo la tercera letra que
 produjo.
 
+## Grupos con nombre — `(?<name>…)`
+
+Un grupo puede llevar un nombre, y `\k<name>` lo repite. Es el mismo grupo que repite
+`\1`: el nombre es una segunda forma de llegar a un grupo, no un segundo grupo.
+
+```xml
+<gen type="regex" value="(?<code>[A-Z]{2})-[0-9]{3}-\k<code>"/>
+```
+
+`./run demo.tdc`
+
+```
+FZ-399-FZ
+YH-481-YH
+LR-586-LR
+YA-900-YA
+```
+
+Un nombre hace legible un patrón largo, y es lo que lee un condicional. Tres reglas:
+
+- Un nombre empieza por una letra o `_` y lleva letras, dígitos y `_`.
+- **Un nombre se usa una sola vez.** Dos grupos bajo un mismo nombre convertirían
+  `\k<name>` en un volado, resuelto por el que el analizador registró al final.
+- `\k<name>` solo puede nombrar un grupo ya cerrado — la misma regla que sigue `\1`.
+
+`(?<=…)` y `(?<!…)` siguen siendo lookbehind y siguen rechazados. Ninguno es un grupo
+cuyo nombre empiece por `=`.
+
+## Condicionales — `(?(name)sí|no)`
+
+Un condicional pregunta si un grupo produjo algo y escribe una rama u otra. Así se pone
+un separador solo cuando hay algo que separar:
+
+```xml
+<gen type="regex" value="(?<area>0[1-9]{2})?(?(area)-|8 )[0-9]{4}"/>
+```
+
+`./run demo.tdc`
+
+```
+099-9944
+039-8189
+063-8608
+016-0097
+8 7683
+8 0194
+```
+
+El código de área es opcional. Donde aparece lo sigue un `-`; donde no, la fila empieza
+con `8 `. Sin un condicional eso son dos configuraciones, o un `<switch>`.
+
+- **El condicional no gasta azar.** Lee una decisión que el grupo ya tomó, así que
+  añadir uno a un patrón deja el resto de los valores de la columna donde estaban.
+- La segunda rama se puede omitir: `(?(area)-)` escribe el `-` o nada en absoluto.
+- Un grupo también se puede probar por número — `([0-9]{3})?(?(1)-)`.
+- **Dos ramas, no más.** Una tercera se rechaza en vez de descartarse en silencio; si
+  hace falta una elección dentro de una rama, agrúpela: `(?(area)(?:x|y)|z)`.
+
+Un condicional solo puede probar un grupo que esté a su izquierda, por la misma razón
+que una retrorreferencia: el grupo todavía no ha producido nada, así que esa rama nunca
+podría tomarse.
+
+```xml
+<gen type="regex" value="(?(area)-)(?<area>[0-9]{3})"/>
+```
+
+`./run bad.tdc`
+
+```
+error: invalid regex generator pattern: conditional group "(?(area)...)"
+tests group "area", which is not generated yet
+```
+
 ## El límite de longitud — `regex_max_length`
 
 Cada resultado se contrasta con
@@ -548,8 +624,6 @@ resultado ya finito sea más largo.
 | `{n,}`                 | Sin tope superior                              | `{n,m}`                          |
 | Perezosos `*?`, `??`   | Semántica de búsqueda, no de generación        | Escriba el rango que quiere      |
 | Lookahead / lookbehind | Inspeccionan texto existente, no lo construyen | Mueva la condición al DSL        |
-| Capturas con nombre    | Todavía no implementadas                       | Grupos simples y `\1`            |
-| Grupos condicionales   | Todavía no implementados                       | Use `<mix>` o una sequence       |
 | `\p{...}` / `\P{...}`  | Las propiedades Unicode aún no son portables   | `\a{name}` o una clase explícita |
 | `\n` / `\r`            | La generación multilínea vive en otro lado     | Use `<line>`s separados          |
 

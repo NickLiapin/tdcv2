@@ -17,6 +17,39 @@ page — is tracked in that implementation's own changelog:
 
 ### Added
 
+<!-- covers: regex named groups and conditionals -->
+
+- **The `regex` generator learned named groups and conditionals** — the last two rows in
+  its "what's not allowed" table that said "not implemented yet" rather than giving a
+  reason:
+
+  ```xml
+  <gen type="regex" value="(?<area>0[1-9]{2})?(?(area)-|8 )[0-9]{4}"/>
+  ```
+
+  The area code is optional; where it appears a `-` follows it, and where it does not the
+  row begins `8 ` instead. `(?<name>…)` names a group, `\k<name>` repeats it, and
+  `(?(name)yes|no)` — or `(?(1)yes|no)` — asks whether that group produced anything.
+
+  A pattern could already repeat a group with `\1`, but it could not react to one, so a
+  separator that belongs to an optional part meant two configs or a `<switch>`.
+
+  **The conditional draws nothing.** It reads a decision the group already made, so a
+  pattern that gains one keeps every other value in its column: the named-group fixture
+  prints `BY-BY`, `NC-NC`, `EE-EE` beside the plain `[A-Z]{2}-\d{3}` fixture's `BY-546`,
+  `NC-665`, `EE-623` — the same draws, from the same seed.
+
+  Refused rather than half-honoured, all as `TDC097`: two groups under one name (a
+  reference would be a coin toss between them, settled by whichever the parser recorded
+  last) — caught where the name is written, so a repeat nested inside its own group is
+  caught too; a name that is not a name; `\k<name>` or a conditional naming a group
+  declared LATER, which has produced nothing and could never be taken; a third branch in
+  a conditional, since a choice inside a branch has a spelling of its own —
+  `(?(area)(?:x|y)|z)`.
+
+  `(?<=…)` and `(?<!…)` stay lookbehind rather than becoming a group named `=`, and
+  `\k` outside `\k<…>` is now an error instead of a literal `k`.
+
 <!-- covers: parquet map columns -->
 
 - **Parquet can write a `MAP` column — `type="{}int64"`.** The typed-output page had

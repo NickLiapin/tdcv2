@@ -217,11 +217,11 @@ describe('regexGenerator — rejected constructs', () => {
     expect(() => regexGenerator({ pattern: '[a-z]{1,}' })).toThrow(/unbounded/);
   });
 
-  it('rejects unsupported group constructs', () => {
-    expect(() => regexGenerator({ pattern: '(?=a)a' })).toThrow(/not supported/);
-    expect(() => regexGenerator({ pattern: '(?!a)a' })).toThrow(/not supported/);
-    expect(() => regexGenerator({ pattern: '(?<=a)b' })).toThrow(/not supported/);
-    expect(() => regexGenerator({ pattern: '(?<name>a)' })).toThrow(/not supported/);
+  it('rejects lookaround, which inspects text rather than building it', () => {
+    expect(() => regexGenerator({ pattern: '(?=a)a' })).toThrow(/lookaround/);
+    expect(() => regexGenerator({ pattern: '(?!a)a' })).toThrow(/lookaround/);
+    expect(() => regexGenerator({ pattern: '(?<=a)b' })).toThrow(/lookaround/);
+    expect(() => regexGenerator({ pattern: '(?<!a)b' })).toThrow(/lookaround/);
   });
 
   it('rejects invalid backreferences', () => {
@@ -278,5 +278,89 @@ describe('regexGenerator — rejected constructs', () => {
         regexMaxLength: Number.MAX_SAFE_INTEGER,
       }),
     ).toThrow(/maximum length is too large/);
+  });
+});
+
+describe('regexGenerator — named groups', () => {
+  it('names a group and repeats it with \\k<name>', () => {
+    expectGenerated('(?<code>[A-Z]{2})-\\k<code>', /^([A-Z]{2})-\1$/);
+  });
+
+  it('keeps the number a named group also has', () => {
+    expectGenerated('(?<code>[A-Z]{2})-\\1', /^([A-Z]{2})-\1$/);
+  });
+
+  it('refuses a name that repeats, even nested', () => {
+    expect(() => regexGenerator({ pattern: '(?<a>x)(?<a>y)' })).toThrow(/already used/);
+    expect(() => regexGenerator({ pattern: '(?<a>(?<a>y))' })).toThrow(/already used/);
+  });
+
+  it('refuses a name it cannot read', () => {
+    expect(() => regexGenerator({ pattern: '(?<>x)' })).toThrow(/needs a name/);
+    expect(() => regexGenerator({ pattern: '(?<2fast>x)' })).toThrow(/must start with a letter/);
+    expect(() => regexGenerator({ pattern: '(?<a-b>x)' })).toThrow(/must start with a letter/);
+  });
+
+  it('refuses a named backreference that cannot have been produced', () => {
+    expect(() => regexGenerator({ pattern: '\\k<code>(?<code>[A-Z])' })).toThrow(
+      /not generated yet/,
+    );
+    expect(() => regexGenerator({ pattern: '(?<code>[A-Z]\\k<code>)' })).toThrow(
+      /not generated yet/,
+    );
+    expect(() => regexGenerator({ pattern: '(?<code>[A-Z])\\k<other>' })).toThrow(
+      /not generated yet/,
+    );
+    expect(() => regexGenerator({ pattern: '(?<code>[A-Z])\\kcode' })).toThrow(
+      /named backreference is written/,
+    );
+  });
+});
+
+describe('regexGenerator — conditional groups', () => {
+  it('takes the first branch only when the group produced something', () => {
+    const out = expectGenerated(
+      '(?<area>[0-9]{3})?(?(area)-)[0-9]{4}',
+      /^(?:[0-9]{3}-)?[0-9]{4}$/,
+      200,
+    );
+    expect(out.some((value) => value.includes('-'))).toBe(true);
+    expect(out.some((value) => !value.includes('-'))).toBe(true);
+  });
+
+  it('takes the second branch when it is written', () => {
+    const out = expectGenerated('(?<area>[0-9]{3})?(?(area)yes|no)', /^(?:[0-9]{3}yes|no)$/, 200);
+    expect(out.some((value) => value.endsWith('yes'))).toBe(true);
+    expect(out.some((value) => value === 'no')).toBe(true);
+  });
+
+  it('tests a group by number as well as by name', () => {
+    expectGenerated('([0-9]{3})?(?(1)-|/)[0-9]{2}', /^(?:[0-9]{3}-|\/)[0-9]{2}$/, 50);
+  });
+
+  it('draws nothing of its own, so the rest of the pattern is unchanged', () => {
+    const withConditional = generate('(?<a>[xy])(?(a)Z)[0-9]{4}', 30, 'same-seed');
+    const withoutConditional = generate('(?<a>[xy])Z[0-9]{4}', 30, 'same-seed');
+    expect(withConditional).toEqual(withoutConditional);
+  });
+
+  it('measures the longer branch against regex_max_length', () => {
+    expect(parseRegexProgram('(a)?(?(1)xx|yyyy)').maxLength).toBe(5);
+    expect(() => regexGenerator({ pattern: '(a)?(?(1)xx|yyyy)', regexMaxLength: 4 })).toThrow(
+      /exceeds regex_max_length/,
+    );
+  });
+
+  it('refuses a test that could never be true', () => {
+    expect(() => regexGenerator({ pattern: '(?(area)-)(?<area>[0-9])' })).toThrow(
+      /not generated yet/,
+    );
+    expect(() => regexGenerator({ pattern: '(?(1)-)([0-9])' })).toThrow(/not generated yet/);
+    expect(() => regexGenerator({ pattern: '([0-9])(?(2)-)' })).toThrow(/not generated yet/);
+    expect(() => regexGenerator({ pattern: '([0-9])(?()-)' })).toThrow(/needs a group to test/);
+  });
+
+  it('refuses a third branch rather than guessing which two count', () => {
+    expect(() => regexGenerator({ pattern: '([0-9])(?(1)a|b|c)' })).toThrow(/at most two branches/);
   });
 });

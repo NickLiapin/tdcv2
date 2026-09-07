@@ -88,6 +88,15 @@ class Backref(Node):
     index: int
 
 
+@dataclass(frozen=True, slots=True)
+class Conditional(Node):
+    """``(?(area)yes|no)`` — the branch follows a group, not chance, and draws nothing."""
+
+    index: int
+    yes: Node
+    no: Node
+
+
 # ── generating ──────────────────────────────────────────────────────────────────────────────
 
 
@@ -145,6 +154,10 @@ def _render(node: Node, captures: dict[int, str], prng: Sfc32) -> str:
         return value
     if isinstance(node, Backref):
         return captures.get(node.index, "")
+    if isinstance(node, Conditional):
+        # No draw of its own: the branch is already decided by the group.
+        branch = node.no if node.index not in captures else node.yes
+        return _render(branch, captures, prng)
     raise AssertionError(f"regex: unhandled node {node}")
 
 
@@ -167,6 +180,11 @@ def _max_length(node: Node, capture_max_lengths: dict[int, int]) -> int:
         return node.max_length
     if isinstance(node, Backref):
         return capture_max_lengths.get(node.index, 0)
+    if isinstance(node, Conditional):
+        return max(
+            _max_length(node.yes, capture_max_lengths),
+            _max_length(node.no, capture_max_lengths),
+        )
     raise AssertionError(f"regex: unhandled node {node}")
 
 
@@ -183,6 +201,16 @@ def _chars(values: list[str]) -> Node:
 def inverse(excluded: list[str]) -> list[str]:
     exclude = set(excluded)
     return [ch for ch in PRINTABLE_ASCII if ch not in exclude]
+
+
+def is_group_name(name: str) -> bool:
+    """A group name starts with a letter or ``_`` and holds letters, digits and ``_``."""
+    if len(name) == 0:
+        return False
+    first = name[0]
+    if not (first.isascii() and (first.isalpha() or first == "_")):
+        return False
+    return all(ch.isascii() and (ch.isalnum() or ch == "_") for ch in name[1:])
 
 
 def is_digit(ch: str | None) -> bool:
@@ -205,6 +233,10 @@ class _Parser:
         self.capture_count = 0
         self.closed_capture_count = 0
         self.capture_max_lengths: dict[int, int] = {}
+        # Every name written down, so a repeat is caught even when nested.
+        self.declared_names: set[str] = set()
+        # Names of groups that have CLOSED — the only ones a reference may reach.
+        self.closed_names: dict[str, int] = {}
 
     def parse(self) -> Node:
         node = self._alternation()
@@ -298,12 +330,22 @@ class _Parser:
     def _group(self) -> Node:
         self._expect("(")
         capturing = True
+        name: str | None = None
         if self._peek() == "?":
             if self.pattern.startswith("?:", self.pos):
                 self.pos += 2
                 capturing = False
+            elif self.pattern.startswith("?(", self.pos):
+                self.pos += 2
+                return self._conditional()
+            elif self.pattern.startswith("?<", self.pos) and not self._at_lookbehind():
+                self.pos += 2
+                name = self._group_name()
             else:
-                raise self._error("lookaround, named, and conditional groups are not supported")
+                raise self._error(
+                    "lookaround groups are not supported: they inspect text that already "
+                    "exists, and nothing here is matching anything"
+                )
         index = 0
         if capturing:
             self.capture_count += 1
@@ -315,7 +357,75 @@ class _Parser:
         self.closed_capture_count = max(self.closed_capture_count, index)
         group_max = _max_length(node, self.capture_max_lengths)
         self.capture_max_lengths[index] = group_max
+        if name is not None:
+            self.closed_names[name] = index
         return Capture(index, node, group_max)
+
+    def _at_lookbehind(self) -> bool:
+        """``(?<=`` and ``(?<!`` are lookbehind, not a group whose name begins with ``=``."""
+        return self.pattern.startswith("?<=", self.pos) or self.pattern.startswith("?<!", self.pos)
+
+    def _group_name(self) -> str:
+        """The ``name`` of ``(?<name>…)``, up to the closing ``>``."""
+        start = self.pos
+        while not self._at_end() and self._peek() != ">":
+            self.pos += 1
+        name = self.pattern[start : self.pos]
+        self._expect(">")
+        if len(name) == 0:
+            raise self._error("a named group needs a name: (?<area>...)")
+        if not is_group_name(name):
+            raise self._error(
+                f'group name "{name}" must start with a letter or "_" '
+                'and hold only letters, digits and "_"'
+            )
+        # Checked where the name is WRITTEN, not where the group closes, so a
+        # repeat is caught even when one named group sits inside another.
+        if name in self.declared_names:
+            raise self._error(f'group name "{name}" is already used')
+        self.declared_names.add(name)
+        return name
+
+    def _conditional(self) -> Node:
+        """``(?(area)yes|no)`` — the ``(?(`` is already consumed."""
+        start = self.pos
+        while not self._at_end() and self._peek() != ")":
+            self.pos += 1
+        test = self.pattern[start : self.pos]
+        self._expect(")")
+        index = self._conditional_test(test)
+
+        yes = self._sequence()
+        no: Node = Empty()
+        if self._peek() == "|":
+            self.pos += 1
+            no = self._sequence()
+        if self._peek() == "|":
+            raise self._error(
+                "a conditional group takes at most two branches: (?(area)yes|no). "
+                "Group a choice of its own: (?(area)(?:x|y)|z)"
+            )
+        self._expect(")")
+        return Conditional(index, yes, no)
+
+    def _conditional_test(self, test: str) -> int:
+        if len(test) == 0:
+            raise self._error("a conditional group needs a group to test: (?(area)yes|no)")
+        if is_digit(test[0]):
+            index = self._safe_int(test)
+            if index <= 0 or index > self.closed_capture_count:
+                raise self._error(
+                    f'conditional group "(?({test})...)" tests group {test}, '
+                    "which is not generated yet"
+                )
+            return index
+        index_by_name = self.closed_names.get(test)
+        if index_by_name is None:
+            raise self._error(
+                f'conditional group "(?({test})...)" tests group "{test}", '
+                "which is not generated yet"
+            )
+        return index_by_name
 
     def _char_class(self) -> Node:
         self._expect("[")
@@ -400,6 +510,8 @@ class _Parser:
                     f'backreference "\\{index_text}" points to a group that is not generated yet'
                 )
             return Backref(index)
+        if ch == "k":
+            return self._named_backref()
         if ch == "d":
             return _chars(DIGITS)
         if ch == "D":
@@ -423,6 +535,23 @@ class _Parser:
         if ch in ("p", "P"):
             raise self._error("Unicode property classes are not supported")
         return Literal(ch)
+
+    def _named_backref(self) -> Node:
+        r"""``\k<area>`` — the ``\k`` is already consumed."""
+        if self._peek() != "<":
+            raise self._error('a named backreference is written "\\k<area>"')
+        self.pos += 1
+        start = self.pos
+        while not self._at_end() and self._peek() != ">":
+            self.pos += 1
+        name = self.pattern[start : self.pos]
+        self._expect(">")
+        index = self.closed_names.get(name)
+        if index is None:
+            raise self._error(
+                f'named backreference "\\k<{name}>" points to a group that is not generated yet'
+            )
+        return Backref(index)
 
     def _named_alphabet(self) -> list[str]:
         r"""``\a{name}`` — a named alphabet, the escape that has no equivalent anywhere else."""

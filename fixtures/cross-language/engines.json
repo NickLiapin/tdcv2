@@ -2272,6 +2272,36 @@
         "lines": ["BY-546", "NC-665", "EE-623", "LF-045", "KU-864", "WX-575"]
       }
     },
+    "generators/regex-named-group": {
+      "engine2": {
+        "lines": ["BY-BY", "NC-NC", "EE-EE", "LF-LF", "KU-KU", "WX-WX"]
+      },
+      "engine3": {
+        "lines": ["BY-BY", "NC-NC", "EE-EE", "LF-LF", "KU-KU", "WX-WX"]
+      }
+    },
+    "generators/regex-conditional-group": {
+      "engine2": {
+        "lines": [
+          "935-6243",
+          "nat 1566",
+          "106-3503",
+          "nat 2004",
+          "778-4209",
+          "965-5331"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "935-6243",
+          "nat 1566",
+          "106-3503",
+          "nat 2004",
+          "778-4209",
+          "965-5331"
+        ]
+      }
+    },
     "generators/regex-backreference": {
       "engine2": {
         "lines": ["b-b", "a-a", "b-b", "a-a", "b-b", "b-b"]

@@ -68,6 +68,12 @@ public final class RegexGen {
 
   record Backref(int index) implements Node {}
 
+  /**
+   * {@code (?(area)yes|no)} — the branch follows a group, not chance, and draws nothing of its
+   * own.
+   */
+  record Conditional(int index, Node yes, Node no) implements Node {}
+
   private RegexGen() {}
 
   public static List<String> generate(
@@ -158,6 +164,11 @@ public final class RegexGen {
     if (node instanceof Backref b) {
       return captures.getOrDefault(b.index(), "");
     }
+    if (node instanceof Conditional c) {
+      // No draw of its own: the branch is already decided by the group.
+      Node branch = captures.containsKey(c.index()) ? c.yes() : c.no();
+      return render(branch, captures, prng);
+    }
     throw new IllegalStateException("regex: unhandled node " + node);
   }
 
@@ -192,7 +203,34 @@ public final class RegexGen {
     if (node instanceof Backref b) {
       return captureMaxLengths.getOrDefault(b.index(), 0L);
     }
+    if (node instanceof Conditional c) {
+      return Math.max(
+          maxLength(c.yes(), captureMaxLengths), maxLength(c.no(), captureMaxLengths));
+    }
     throw new IllegalStateException("regex: unhandled node " + node);
+  }
+
+  /** A group name starts with a letter or {@code _} and holds letters, digits and {@code _}. */
+  private static boolean isGroupName(String name) {
+    if (name.isEmpty()) {
+      return false;
+    }
+    char first = name.charAt(0);
+    if (!((first >= 'A' && first <= 'Z') || (first >= 'a' && first <= 'z') || first == '_')) {
+      return false;
+    }
+    for (int i = 1; i < name.length(); i++) {
+      char ch = name.charAt(i);
+      boolean ok =
+          (ch >= 'A' && ch <= 'Z')
+              || (ch >= 'a' && ch <= 'z')
+              || (ch >= '0' && ch <= '9')
+              || ch == '_';
+      if (!ok) {
+        return false;
+      }
+    }
+    return true;
   }
 
   private static long guard(long value) {
@@ -210,6 +248,10 @@ public final class RegexGen {
     private int captureCount;
     private int closedCaptureCount;
     final Map<Integer, Long> captureMaxLengths = new HashMap<>();
+    /** Every name written down, so a repeat is caught even when nested. */
+    private final Set<String> declaredNames = new LinkedHashSet<>();
+    /** Names of groups that have CLOSED — the only ones a reference may reach. */
+    private final Map<String, Integer> closedNames = new HashMap<>();
 
     Parser(String pattern) {
       this.pattern = pattern;
@@ -339,12 +381,21 @@ public final class RegexGen {
     private Node group() {
       expect("(");
       boolean capturing = true;
+      String name = null;
       if ("?".equals(peek())) {
         if (pattern.startsWith("?:", pos)) {
           pos += 2;
           capturing = false;
+        } else if (pattern.startsWith("?(", pos)) {
+          pos += 2;
+          return conditional();
+        } else if (pattern.startsWith("?<", pos) && !atLookbehind()) {
+          pos += 2;
+          name = groupName();
         } else {
-          throw error("lookaround, named, and conditional groups are not supported");
+          throw error(
+              "lookaround groups are not supported: they inspect text that already exists, and"
+                  + " nothing here is matching anything");
         }
       }
 
@@ -363,7 +414,116 @@ public final class RegexGen {
       closedCaptureCount = Math.max(closedCaptureCount, index);
       long groupMax = maxLength(node, captureMaxLengths);
       captureMaxLengths.put(index, groupMax);
+      if (name != null) {
+        closedNames.put(name, index);
+      }
       return new Capture(index, node, groupMax);
+    }
+
+    /** {@code (?<=} and {@code (?<!} are lookbehind, not a group whose name begins with "=". */
+    private boolean atLookbehind() {
+      return pattern.startsWith("?<=", pos) || pattern.startsWith("?<!", pos);
+    }
+
+    /** The {@code name} of {@code (?<name>…)}, up to the closing {@code >}. */
+    private String groupName() {
+      int start = pos;
+      while (!atEnd() && !">".equals(peek())) {
+        pos++;
+      }
+      String name = pattern.substring(start, pos);
+      expect(">");
+      if (name.isEmpty()) {
+        throw error("a named group needs a name: (?<area>...)");
+      }
+      if (!isGroupName(name)) {
+        throw error(
+            "group name \""
+                + name
+                + "\" must start with a letter or \"_\" and hold only letters, digits and \"_\"");
+      }
+      // Checked where the name is WRITTEN, not where the group closes, so a repeat is caught
+      // even when one named group sits inside another.
+      if (declaredNames.contains(name)) {
+        throw error("group name \"" + name + "\" is already used");
+      }
+      declaredNames.add(name);
+      return name;
+    }
+
+    /** {@code (?(area)yes|no)} — the {@code (?(} is already consumed. */
+    private Node conditional() {
+      int start = pos;
+      while (!atEnd() && !")".equals(peek())) {
+        pos++;
+      }
+      String test = pattern.substring(start, pos);
+      expect(")");
+      int index = conditionalTest(test);
+
+      Node yes = sequence();
+      Node no = new Empty();
+      if ("|".equals(peek())) {
+        pos++;
+        no = sequence();
+      }
+      if ("|".equals(peek())) {
+        throw error(
+            "a conditional group takes at most two branches: (?(area)yes|no). Group a choice of"
+                + " its own: (?(area)(?:x|y)|z)");
+      }
+      expect(")");
+      return new Conditional(index, yes, no);
+    }
+
+    private int conditionalTest(String test) {
+      if (test.isEmpty()) {
+        throw error("a conditional group needs a group to test: (?(area)yes|no)");
+      }
+      if (isDigit(test.substring(0, 1))) {
+        int index = safeInt(test);
+        if (index <= 0 || index > closedCaptureCount) {
+          throw error(
+              "conditional group \"(?("
+                  + test
+                  + ")...)\" tests group "
+                  + test
+                  + ", which is not generated yet");
+        }
+        return index;
+      }
+      Integer index = closedNames.get(test);
+      if (index == null) {
+        throw error(
+            "conditional group \"(?("
+                + test
+                + ")...)\" tests group \""
+                + test
+                + "\", which is not generated yet");
+      }
+      return index;
+    }
+
+    /** {@code \k<area>} — the {@code \k} is already consumed. */
+    private Node namedBackref() {
+      if (!"<".equals(peek())) {
+        throw error("a named backreference is written \"\\k<area>\"");
+      }
+      pos++;
+      int start = pos;
+      while (!atEnd() && !">".equals(peek())) {
+        pos++;
+      }
+      String name = pattern.substring(start, pos);
+      expect(">");
+      Integer index = closedNames.get(name);
+      if (index == null) {
+        throw error(
+            "named backreference \"\\k<"
+                + name
+                + ">\" points to a group that is not generated yet");
+      }
+      return new Backref(index);
     }
 
     private Node charClass() {
@@ -480,6 +640,8 @@ public final class RegexGen {
       }
 
       switch (ch) {
+        case "k":
+          return namedBackref();
         case "d":
           return chars(DIGITS);
         case "D":

@@ -72,6 +72,12 @@ public static class RegexGen
         public sealed record Capture(int Index, Node Inner, long MaxLength) : Node;
 
         public sealed record Backref(int Index) : Node;
+
+        /// <summary>
+        /// <c>(?(area)yes|no)</c> — the branch follows a group, not chance, and draws nothing of
+        /// its own.
+        /// </summary>
+        public sealed record Conditional(int Index, Node Yes, Node No) : Node;
     }
 
     public static IReadOnlyList<string> Generate(
@@ -172,6 +178,13 @@ public static class RegexGen
 
             case Node.Backref b:
                 return captures.GetValueOrDefault(b.Index, "");
+            case Node.Conditional cond:
+            {
+                // No draw of its own: the branch is already decided by the group.
+                Node branch = captures.ContainsKey(cond.Index) ? cond.Yes : cond.No;
+                return Render(branch, captures, prng);
+            }
+
             default:
                 throw new InvalidOperationException($"regex: unhandled node {node}");
         }
@@ -215,9 +228,43 @@ public static class RegexGen
                 return c.MaxLength;
             case Node.Backref b:
                 return captureMaxLengths.TryGetValue(b.Index, out long len) ? len : 0;
+            case Node.Conditional cond:
+                return Math.Max(
+                    MaxLength(cond.Yes, captureMaxLengths), MaxLength(cond.No, captureMaxLengths));
             default:
                 throw new InvalidOperationException($"regex: unhandled node {node}");
         }
+    }
+
+    /// <summary>A group name starts with a letter or <c>_</c> and holds letters, digits, <c>_</c>.</summary>
+    private static bool IsGroupName(string name)
+    {
+        if (name.Length == 0)
+        {
+            return false;
+        }
+
+        char first = name[0];
+        bool firstOk = (first >= 'A' && first <= 'Z') || (first >= 'a' && first <= 'z') || first == '_';
+        if (!firstOk)
+        {
+            return false;
+        }
+
+        for (int i = 1; i < name.Length; i++)
+        {
+            char ch = name[i];
+            bool ok = (ch >= 'A' && ch <= 'Z')
+                || (ch >= 'a' && ch <= 'z')
+                || (ch >= '0' && ch <= '9')
+                || ch == '_';
+            if (!ok)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private static long Guard(long value)
@@ -238,6 +285,12 @@ public static class RegexGen
         private int _pos;
         private int _captureCount;
         private int _closedCaptureCount;
+
+        /// <summary>Every name written down, so a repeat is caught even when nested.</summary>
+        private readonly HashSet<string> _declaredNames = new();
+
+        /// <summary>Names of groups that have CLOSED — the only ones a reference may reach.</summary>
+        private readonly Dictionary<string, int> _closedNames = new();
 
         internal readonly Dictionary<int, long> CaptureMaxLengths = new();
 
@@ -396,16 +449,29 @@ public static class RegexGen
         {
             Expect("(");
             bool capturing = true;
+            string? name = null;
             if (Peek == "?")
             {
-                if (string.CompareOrdinal(_pattern, _pos, "?:", 0, 2) == 0)
+                if (StartsAt("?:"))
                 {
                     _pos += 2;
                     capturing = false;
                 }
+                else if (StartsAt("?("))
+                {
+                    _pos += 2;
+                    return Conditional();
+                }
+                else if (StartsAt("?<") && !AtLookbehind)
+                {
+                    _pos += 2;
+                    name = GroupName();
+                }
                 else
                 {
-                    throw Error("lookaround, named, and conditional groups are not supported");
+                    throw Error(
+                        "lookaround groups are not supported: they inspect text that already "
+                        + "exists, and nothing here is matching anything");
                 }
             }
 
@@ -427,7 +493,141 @@ public static class RegexGen
             _closedCaptureCount = Math.Max(_closedCaptureCount, index);
             long groupMax = MaxLength(node, CaptureMaxLengths);
             CaptureMaxLengths[index] = groupMax;
+            if (name is not null)
+            {
+                _closedNames[name] = index;
+            }
+
             return new Node.Capture(index, node, groupMax);
+        }
+
+        private bool StartsAt(string text) =>
+            string.CompareOrdinal(_pattern, _pos, text, 0, text.Length) == 0;
+
+        /// <summary><c>(?&lt;=</c> and <c>(?&lt;!</c> are lookbehind, not a group named "=".</summary>
+        private bool AtLookbehind => StartsAt("?<=") || StartsAt("?<!");
+
+        /// <summary>The <c>name</c> of <c>(?&lt;name&gt;…)</c>, up to the closing <c>&gt;</c>.</summary>
+        private string GroupName()
+        {
+            int start = _pos;
+            while (!AtEnd && Peek != ">")
+            {
+                _pos++;
+            }
+
+            string name = _pattern[start.._pos];
+            Expect(">");
+            if (name.Length == 0)
+            {
+                throw Error("a named group needs a name: (?<area>...)");
+            }
+
+            if (!IsGroupName(name))
+            {
+                throw Error(
+                    $"group name \"{name}\" must start with a letter or \"_\" and hold only "
+                    + "letters, digits and \"_\"");
+            }
+
+            // Checked where the name is WRITTEN, not where the group closes, so a repeat is
+            // caught even when one named group sits inside another.
+            if (_declaredNames.Contains(name))
+            {
+                throw Error($"group name \"{name}\" is already used");
+            }
+
+            _declaredNames.Add(name);
+            return name;
+        }
+
+        /// <summary><c>(?(area)yes|no)</c> — the <c>(?(</c> is already consumed.</summary>
+        private Node Conditional()
+        {
+            int start = _pos;
+            while (!AtEnd && Peek != ")")
+            {
+                _pos++;
+            }
+
+            string test = _pattern[start.._pos];
+            Expect(")");
+            int index = ConditionalTest(test);
+
+            Node yes = Sequence();
+            Node no = new Node.Empty();
+            if (Peek == "|")
+            {
+                _pos++;
+                no = Sequence();
+            }
+
+            if (Peek == "|")
+            {
+                throw Error(
+                    "a conditional group takes at most two branches: (?(area)yes|no). Group a "
+                    + "choice of its own: (?(area)(?:x|y)|z)");
+            }
+
+            Expect(")");
+            return new Node.Conditional(index, yes, no);
+        }
+
+        private int ConditionalTest(string test)
+        {
+            if (test.Length == 0)
+            {
+                throw Error("a conditional group needs a group to test: (?(area)yes|no)");
+            }
+
+            if (IsDigit(test[..1]))
+            {
+                int index = SafeInt(test);
+                if (index <= 0 || index > _closedCaptureCount)
+                {
+                    throw Error(
+                        $"conditional group \"(?({test})...)\" tests group {test}, which is not "
+                        + "generated yet");
+                }
+
+                return index;
+            }
+
+            if (!_closedNames.TryGetValue(test, out int byName))
+            {
+                throw Error(
+                    $"conditional group \"(?({test})...)\" tests group \"{test}\", which is not "
+                    + "generated yet");
+            }
+
+            return byName;
+        }
+
+        /// <summary><c>\k&lt;area&gt;</c> — the <c>\k</c> is already consumed.</summary>
+        private Node NamedBackref()
+        {
+            if (Peek != "<")
+            {
+                throw Error("a named backreference is written \"\\k<area>\"");
+            }
+
+            _pos++;
+            int start = _pos;
+            while (!AtEnd && Peek != ">")
+            {
+                _pos++;
+            }
+
+            string name = _pattern[start.._pos];
+            Expect(">");
+            if (!_closedNames.TryGetValue(name, out int index))
+            {
+                throw Error(
+                    $"named backreference \"\\k<{name}>\" points to a group that is not "
+                    + "generated yet");
+            }
+
+            return new Node.Backref(index);
         }
 
         private Node CharClass()
@@ -574,6 +774,8 @@ public static class RegexGen
 
             switch (ch)
             {
+                case "k":
+                    return NamedBackref();
                 case "d":
                     return Chars(Digits);
                 case "D":

@@ -19,6 +19,7 @@ const UPPER = charsBetween('A', 'Z');
 const WORD = [...UPPER, ...LOWER, ...DIGITS, '_'];
 const SPACES = [' ', '\t'];
 const PRINTABLE_ASCII = charsBetween(' ', '~');
+const GROUP_NAME = /^[A-Za-z_][A-Za-z0-9_]*$/;
 
 export interface RegexGenAttrs {
   readonly pattern: string;
@@ -38,7 +39,8 @@ type RegexNode =
   | AlternationNode
   | RepeatNode
   | CaptureNode
-  | BackrefNode;
+  | BackrefNode
+  | ConditionalNode;
 
 interface EmptyNode {
   readonly kind: 'empty';
@@ -81,6 +83,18 @@ interface CaptureNode {
 interface BackrefNode {
   readonly kind: 'backref';
   readonly index: number;
+}
+
+/**
+ * `(?(area)yes|no)` — the branch is decided by whether a group produced
+ * anything, not by chance. It draws nothing, so a pattern that gains a
+ * conditional keeps the rest of its values.
+ */
+interface ConditionalNode {
+  readonly kind: 'conditional';
+  readonly index: number;
+  readonly yes: RegexNode;
+  readonly no: RegexNode;
 }
 
 interface ParsedRegexProgram extends RegexProgram {
@@ -156,6 +170,10 @@ class RegexParser {
   private pos = 0;
   private closedCaptureCount = 0;
   private readonly mutableCaptureMaxLengths = new Map<number, number>();
+  /** Every name written down, so a repeat is caught even when nested. */
+  private readonly declaredNames = new Set<string>();
+  /** Names of groups that have CLOSED — the only ones a reference may reach. */
+  private readonly closedNames = new Map<string, number>();
   public captureCount = 0;
 
   public constructor(private readonly pattern: string) {}
@@ -278,12 +296,22 @@ class RegexParser {
   private parseGroup(): RegexNode {
     this.expect('(');
     let capturing = true;
+    let name: string | undefined;
     if (this.peek() === '?') {
       if (this.pattern.startsWith('?:', this.pos)) {
         this.pos += 2;
         capturing = false;
+      } else if (this.pattern.startsWith('?(', this.pos)) {
+        this.pos += 2;
+        return this.parseConditional();
+      } else if (this.pattern.startsWith('?<', this.pos) && !this.atLookbehind()) {
+        this.pos += 2;
+        name = this.parseGroupName();
       } else {
-        throw this.error('lookaround, named, and conditional groups are not supported');
+        throw this.error(
+          'lookaround groups are not supported: they inspect text that already exists, ' +
+            'and nothing here is matching anything',
+        );
       }
     }
 
@@ -298,7 +326,80 @@ class RegexParser {
     this.closedCaptureCount = Math.max(this.closedCaptureCount, index);
     const groupMax = computeMaxLength(node, this.mutableCaptureMaxLengths);
     this.mutableCaptureMaxLengths.set(index, groupMax);
+    if (name !== undefined) this.closedNames.set(name, index);
     return { kind: 'capture', index, node, maxLength: groupMax };
+  }
+
+  /** `(?<=` and `(?<!` are lookbehind, not a group whose name begins with "=". */
+  private atLookbehind(): boolean {
+    return this.pattern.startsWith('?<=', this.pos) || this.pattern.startsWith('?<!', this.pos);
+  }
+
+  /** The `name` of `(?<name>…)`, up to the closing `>`. */
+  private parseGroupName(): string {
+    const start = this.pos;
+    while (!this.atEnd() && this.peek() !== '>') this.pos += 1;
+    const name = this.pattern.slice(start, this.pos);
+    this.expect('>');
+    if (name.length === 0) throw this.error('a named group needs a name: (?<area>...)');
+    if (!GROUP_NAME.test(name)) {
+      throw this.error(
+        `group name "${name}" must start with a letter or "_" and hold only letters, digits and "_"`,
+      );
+    }
+    // Checked where the name is WRITTEN, not where the group closes, so a
+    // repeat is caught even when one named group sits inside another.
+    if (this.declaredNames.has(name)) throw this.error(`group name "${name}" is already used`);
+    this.declaredNames.add(name);
+    return name;
+  }
+
+  /** `(?(area)yes|no)` — the `(?(` is already consumed. */
+  private parseConditional(): RegexNode {
+    const start = this.pos;
+    while (!this.atEnd() && this.peek() !== ')') this.pos += 1;
+    const test = this.pattern.slice(start, this.pos);
+    this.expect(')');
+    const index = this.resolveConditionalTest(test);
+
+    const yes = this.parseSequence();
+    let no: RegexNode = emptyNode();
+    if (this.peek() === '|') {
+      this.pos += 1;
+      no = this.parseSequence();
+    }
+    if (this.peek() === '|') {
+      throw this.error(
+        'a conditional group takes at most two branches: (?(area)yes|no). ' +
+          'Group a choice of its own: (?(area)(?:x|y)|z)',
+      );
+    }
+    this.expect(')');
+    return { kind: 'conditional', index, yes, no };
+  }
+
+  private resolveConditionalTest(test: string): number {
+    if (test.length === 0) {
+      throw this.error('a conditional group needs a group to test: (?(area)yes|no)');
+    }
+    if (isDigit(test[0] ?? '')) {
+      const index = parseSafeInteger(test, () =>
+        this.error(`invalid conditional group "(?(${test})...)"`),
+      );
+      if (index <= 0 || index > this.closedCaptureCount) {
+        throw this.error(
+          `conditional group "(?(${test})...)" tests group ${test}, which is not generated yet`,
+        );
+      }
+      return index;
+    }
+    const index = this.closedNames.get(test);
+    if (index === undefined) {
+      throw this.error(
+        `conditional group "(?(${test})...)" tests group "${test}", which is not generated yet`,
+      );
+    }
+    return index;
   }
 
   private parseCharClass(): RegexNode {
@@ -396,6 +497,8 @@ class RegexParser {
     }
 
     switch (ch) {
+      case 'k':
+        return this.parseNamedBackref();
       case 'd':
         return charSet(DIGITS);
       case 'D':
@@ -422,6 +525,25 @@ class RegexParser {
       default:
         return { kind: 'literal', value: ch };
     }
+  }
+
+  /** `\k<area>` — the `\k` is already consumed. */
+  private parseNamedBackref(): RegexNode {
+    if (this.peek() !== '<') {
+      throw this.error('a named backreference is written "\\k<area>"');
+    }
+    this.pos += 1;
+    const start = this.pos;
+    while (!this.atEnd() && this.peek() !== '>') this.pos += 1;
+    const name = this.pattern.slice(start, this.pos);
+    this.expect('>');
+    const index = this.closedNames.get(name);
+    if (index === undefined) {
+      throw this.error(
+        `named backreference "\\k<${name}>" points to a group that is not generated yet`,
+      );
+    }
+    return { kind: 'backref', index };
   }
 
   private readNamedAlphabet(): readonly string[] {
@@ -515,6 +637,11 @@ function generateNode(node: RegexNode, ctx: GenerateContext, prng: () => number)
     }
     case 'backref':
       return ctx.captures[node.index] ?? '';
+    case 'conditional':
+      // No draw of its own: the branch is already decided by the group.
+      return ctx.captures[node.index] === undefined
+        ? generateNode(node.no, ctx, prng)
+        : generateNode(node.yes, ctx, prng);
   }
 }
 
@@ -535,6 +662,11 @@ function computeMaxLength(node: RegexNode, captureMaxLengths: ReadonlyMap<number
       return node.maxLength;
     case 'backref':
       return captureMaxLengths.get(node.index) ?? 0;
+    case 'conditional':
+      return Math.max(
+        computeMaxLength(node.yes, captureMaxLengths),
+        computeMaxLength(node.no, captureMaxLengths),
+      );
   }
 }
 

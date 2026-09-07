@@ -177,6 +177,41 @@
       "expected": ["error TDC099 1:77"]
     },
     {
+      "name": "regex-duplicate-group-name",
+      "demonstrates": "TDC097",
+      "description": "Two groups under one name — a reference to it would be a coin toss",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"regex\" value=\"(?<a>[A-Z])(?<a>[A-Z])\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC097 1:73"]
+    },
+    {
+      "name": "regex-group-name-that-is-not-a-name",
+      "demonstrates": "TDC097",
+      "description": "A name that does not start with a letter or underscore",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"regex\" value=\"(?<2fast>[A-Z])\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC097 1:73"]
+    },
+    {
+      "name": "regex-named-backreference-to-nothing",
+      "demonstrates": "TDC097",
+      "description": "A named backreference naming a group that does not exist",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"regex\" value=\"(?<code>[A-Z])\\k<other>\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC097 1:73"]
+    },
+    {
+      "name": "regex-conditional-tests-a-later-group",
+      "demonstrates": "TDC097",
+      "description": "A conditional reading a group declared after it — the branch could never be taken",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"regex\" value=\"(?(area)-)(?<area>[0-9])\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC097 1:73"]
+    },
+    {
+      "name": "regex-conditional-with-three-branches",
+      "demonstrates": "TDC097",
+      "description": "A conditional has two branches; a third is refused rather than ignored",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"regex\" value=\"([0-9])(?(1)a|b|c)\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC097 1:73"]
+    },
+    {
       "name": "advanced-regex-without-value",
       "demonstrates": "TDC128",
       "description": "An advanced_regex with no pattern",

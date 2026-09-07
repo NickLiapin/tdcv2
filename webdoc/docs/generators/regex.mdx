@@ -116,6 +116,9 @@ one prefix), plain `regex` won't do it — reach for
 | Group               | `(cat\|dog)`                 | Grouping and capture                      |
 | Non-capturing group | `(?:cat\|dog)`               | Grouping without capture                  |
 | Backreference       | `([0-9]{3})-\1`              | Repeats an already-generated group        |
+| Named group         | `(?<code>[A-Z]{2})`          | Grouping and capture, under a name        |
+| Named backreference | `\k<code>`                   | Repeats a group by name                   |
+| Conditional         | `(?(code)-\|/)`              | One branch or the other, by the group     |
 | Optional            | `AB?C`                       | `AC` or `ABC`                             |
 | Exact repeat        | `[A-Z]{4}`                   | Exactly 4                                 |
 | Range repeat        | `[A-Z]{2,5}`                 | 2 to 5                                    |
@@ -435,6 +438,72 @@ LRG-G`}
 Here `([A-Z]){3}` runs the group three times, and `\1` echoes only the third letter
 it produced.
 
+## Named groups — `(?<name>…)`
+
+A group can carry a name, and `\k<name>` repeats it. It is the same group `\1` repeats —
+a name is a second way to reach a group, not a second group:
+
+```xml
+<gen type="regex" value="(?<code>[A-Z]{2})-[0-9]{3}-\k<code>"/>
+```
+
+<Terminal title="./run demo.tdc">
+{`FZ-399-FZ
+YH-481-YH
+LR-586-LR
+YA-900-YA`}
+</Terminal>
+
+A name makes a long pattern readable, and it is what a conditional reads. Three rules:
+
+- A name starts with a letter or `_` and holds letters, digits and `_`.
+- **A name is used once.** Two groups under one name would make `\k<name>` a coin toss
+  between them, settled by whichever the parser recorded last.
+- `\k<name>` may only name a group that has already closed — the rule `\1` follows.
+
+`(?<=…)` and `(?<!…)` are still lookbehind and still refused. Neither is a group whose
+name begins with `=`.
+
+## Conditionals — `(?(name)yes|no)`
+
+A conditional asks whether a group produced anything and writes one branch or the other.
+It is how you add a separator only when there is something to separate:
+
+```xml
+<gen type="regex" value="(?<area>0[1-9]{2})?(?(area)-|8 )[0-9]{4}"/>
+```
+
+<Terminal title="./run demo.tdc">
+{`099-9944
+039-8189
+063-8608
+016-0097
+8 7683
+8 0194`}
+</Terminal>
+
+The area code is optional. Where it appears a `-` follows it; where it does not, the row
+starts `8 ` instead. Without a conditional that is two configs, or a `<switch>`.
+
+- **The conditional draws nothing.** It reads a decision the group already made, so adding
+  one to a pattern leaves every other value in the column exactly where it was.
+- The second branch may be left out: `(?(area)-)` writes the `-` or nothing at all.
+- A group can be tested by number too — `([0-9]{3})?(?(1)-)`.
+- **Two branches, no more.** A third is refused rather than quietly dropped; for a choice
+  inside a branch, group it: `(?(area)(?:x|y)|z)`.
+
+A conditional may only test a group to its left, for the reason a backreference may only
+point to one — the group has produced nothing yet, so the branch could never be taken:
+
+```xml
+<gen type="regex" value="(?(area)-)(?<area>[0-9]{3})"/>
+```
+
+<Terminal title="./run bad.tdc">
+{`error: invalid regex generator pattern: conditional group "(?(area)...)"
+tests group "area", which is not generated yet`}
+</Terminal>
+
 ## The length guard — `regex_max_length`
 
 Every result is checked against
@@ -495,8 +564,6 @@ already-finite result to be longer.
 | `{n,}`                 | No upper bound                         | `{n,m}`                         |
 | Lazy `*?`, `??`        | Matcher semantics, not generation      | Write the range you want        |
 | Lookahead / lookbehind | Inspects existing text, doesn't build  | Move the condition into the DSL |
-| Named captures         | Not implemented yet                    | Plain groups and `\1`           |
-| Conditional groups     | Not implemented yet                    | Use `<mix>` or a sequence       |
 | `\p{...}` / `\P{...}`  | Unicode properties aren't portable yet | `\a{name}` or an explicit class |
 | `\n` / `\r`            | Multi-line generation lives elsewhere  | Use separate `<line>`s          |
 

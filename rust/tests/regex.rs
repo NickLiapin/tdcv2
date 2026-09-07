@@ -146,3 +146,47 @@ fn a_class_keeps_first_occurrence_order_so_a_draw_index_means_the_same_thing() {
     let b = gen("[abc]{8}", 5, "order");
     assert_eq!(a, b, "a duplicate in a class must not shift the draw");
 }
+
+#[test]
+fn a_name_is_a_second_way_to_reach_a_group_and_not_a_second_group() {
+    for value in gen(r"(?<code>[A-Z]{2})-\k<code>", 20, "named") {
+        let (left, right) = value.split_once('-').expect("a dash");
+        assert_eq!(left, right, "{value}");
+    }
+    // The same group still answers to its number.
+    for value in gen(r"(?<code>[A-Z]{2})-\1", 20, "named") {
+        let (left, right) = value.split_once('-').expect("a dash");
+        assert_eq!(left, right, "{value}");
+    }
+}
+
+#[test]
+fn a_conditional_follows_the_group_and_takes_no_draw_of_its_own() {
+    let mut seen_both = (false, false);
+    for value in gen(r"(?<area>[0-9]{3})?(?(area)-|nat )[0-9]{4}", 200, "cond") {
+        if value.contains('-') {
+            seen_both.0 = true;
+        } else {
+            assert!(value.starts_with("nat "), "{value}");
+            seen_both.1 = true;
+        }
+    }
+    assert_eq!(seen_both, (true, true));
+
+    // Reading a decision costs nothing, so the digits either side are untouched.
+    assert_eq!(
+        gen(r"(?<a>[xy])(?(a)Z)[0-9]{4}", 30, "steady"),
+        gen(r"(?<a>[xy])Z[0-9]{4}", 30, "steady")
+    );
+}
+
+#[test]
+fn a_group_or_a_reference_that_could_never_work_is_refused() {
+    assert!(refuse("(?<a>x)(?<a>y)").contains("already used"));
+    assert!(refuse("(?<a>(?<a>y))").contains("already used"));
+    assert!(refuse("(?<2fast>x)").contains("must start with a letter"));
+    assert!(refuse(r"\k<code>(?<code>[A-Z])").contains("not generated yet"));
+    assert!(refuse("(?(area)-)(?<area>[0-9])").contains("not generated yet"));
+    assert!(refuse("([0-9])(?(1)a|b|c)").contains("at most two branches"));
+    assert!(refuse("(?<=a)b").contains("lookaround"));
+}
