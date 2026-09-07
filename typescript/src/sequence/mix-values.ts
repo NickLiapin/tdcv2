@@ -21,8 +21,10 @@ import { expandPercentMask } from '../distribution/percent-mask.js';
 import { permute, permuteKey } from '../prng/permute.js';
 import { createPrng } from '../prng/prng.js';
 
+import { caseDataReader } from '../processor/interpolate.js';
 import { buildGenValues } from './build.js';
 import type { SequenceBuildContext } from './context.js';
+
 import { absoluteRow, keyedDraws, withRows } from './per-row.js';
 import type { CaseSpec, MixSpec } from './types.js';
 import { buildNestedSwitchValues } from './switch-build.js';
@@ -136,7 +138,7 @@ function buildKeyedCaseValues(
     const id = `${streamId}#p${String(p)}`;
     let values: readonly string[];
     if (part.kind === 'data') {
-      values = new Array<string>(domain.size).fill(part.text);
+      values = dataPartValues(part.text, ctx, domain.size, (i) => rows[i] ?? i);
     } else if (part.kind === 'gen') {
       values = buildGenValues(part.gen, domain.size, prng, locale, now, withRows(ctx, id, rows));
     } else if (part.kind === 'mix') {
@@ -243,7 +245,7 @@ export function buildCaseValues(
       ctx.streamId === undefined ? ctx : { ...ctx, streamId: `${ctx.streamId}#p${String(p)}` };
     let values: readonly string[];
     if (part.kind === 'data') {
-      values = new Array<string>(count).fill(part.text);
+      values = dataPartValues(part.text, ctx, count, (i) => absoluteRow(ctx, i));
     } else if (part.kind === 'gen') {
       values = buildGenValues(part.gen, count, prng, locale, now, partCtx);
     } else if (part.kind === 'mix') {
@@ -257,4 +259,25 @@ export function buildCaseValues(
     }
   });
   return out;
+}
+
+/**
+ * A `<data>` part of a case body: literal text, or the row's own columns.
+ *
+ * `${{Name}}` here reads the row this case is being built for — the same seam a
+ * nested `<switch>` reads its subject through. That is the difference between it
+ * and a `<gen type="template">` beside it: the generator draws a NEW value,
+ * while a reference keeps the record coherent with what the row already holds.
+ *
+ * Text with no reference in it takes the same one filled array it always did.
+ */
+function dataPartValues(
+  text: string,
+  ctx: SequenceBuildContext,
+  size: number,
+  rowAt: (position: number) => number,
+): string[] {
+  const read = caseDataReader(text, ctx.inject, ctx.hasColumn, ctx.valueAt);
+  if (!read) return new Array<string>(size).fill(text);
+  return Array.from({ length: size }, (_, i) => read(rowAt(i)));
 }

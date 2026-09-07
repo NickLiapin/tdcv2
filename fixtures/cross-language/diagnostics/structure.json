@@ -140,6 +140,13 @@
       "description": "</gen> inside <data> is output, not structure — the name check must not read raw-text bodies",
       "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"></env><block><line><data></gen></data></line></block></tdc>",
       "expected": []
+    },
+    {
+      "name": "a-name-inside-a-case-that-nobody-declared",
+      "demonstrates": "TDC193",
+      "description": "The refusal a <line> has always given, now given inside a <case> too. It could not be made where the tag is walked — a case body may name a column declared BELOW it — so the node is put aside and answered once every declaration is known, exactly as an if= expression is.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><mix name=\"S\" percent=\"60\"><case><data>${{Nosuch}} North</data></case><case><data>plain South</data></case></mix></env><block><line><data>${{S}}</data></line></block></tdc>",
+      "expected": ["error TDC193 1:73"]
     }
   ]
 }

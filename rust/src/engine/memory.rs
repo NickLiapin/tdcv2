@@ -3339,7 +3339,22 @@ fn case_values(
     for (p, part) in case.parts.iter().enumerate() {
         let sub = stream.map(|s| s.named(&format!("{}#p{p}", s.id)));
         let values: Vec<String> = match part {
-            CasePart::Text(text) => vec![text.clone(); count],
+            // `${{Name}}` in a case body reads the row the case is on — the same
+            // seam a nested `<switch>` finds its subject through. A generator
+            // beside it draws a NEW value; a reference keeps the record coherent
+            // with what the row already holds.
+            CasePart::Text(text) => {
+                let mut built = Vec::with_capacity(count);
+                for i in 0..count {
+                    let row = stream.map_or(i, |s| s.row_at(i));
+                    built.push(interpolate::apply(
+                        text,
+                        env.config.inject.as_deref(),
+                        &RowLookup { columns, row },
+                    )?);
+                }
+                built
+            }
             CasePart::Gen(gen) => column_values(
                 gen,
                 count,

@@ -3417,7 +3417,17 @@ public static class MemoryEngine
             IReadOnlyList<string> values;
             if (part.Text is not null)
             {
-                values = Enumerable.Repeat(part.Text, count).ToArray();
+                // `${{Name}}` in a case body reads the row the case is on — the same seam a
+                // nested `<switch>` finds its subject through. A generator beside it draws a NEW
+                // value; a reference keeps the record coherent with what the row already holds.
+                var built = new string[count];
+                for (int i = 0; i < count; i++)
+                {
+                    built[i] = Interpolate.Apply(
+                        part.Text, ctx.Config.Inject, new CaseLookup(ctx, stream?.RowAt(i) ?? i));
+                }
+
+                values = built;
             }
             else if (part.Gen is not null)
             {
@@ -4578,6 +4588,40 @@ public static class MemoryEngine
 
         public string Value(string name) =>
             _overlay.TryGetValue(name, out string? v) ? v : _base.Value(name);
+    }
+
+    /// <summary>A <c>&lt;data&gt;</c> inside a <c>&lt;case&gt;</c>, resolved for ONE row.</summary>
+    /// <remarks>
+    /// <c>Has</c> is asked separately from the value because an ABSENT name is not an empty one:
+    /// a name nobody declared leaves its <c>${{…}}</c> as written, which the validator has
+    /// already refused, while a declared column empty on this row renders as nothing.
+    /// </remarks>
+    private sealed class CaseLookup : Interpolate.ILookup
+    {
+        private readonly Ctx _ctx;
+        private readonly int _row;
+
+        internal CaseLookup(Ctx ctx, int row)
+        {
+            _ctx = ctx;
+            _row = row;
+        }
+
+        public bool Has(string name) =>
+            _ctx.Columns is { } columns
+                ? columns.ContainsKey(name)
+                : _ctx.HasSibling?.Invoke(name) ?? false;
+
+        public string Value(string name)
+        {
+            if (_ctx.Columns is { } columns)
+            {
+                string[] column = columns[name];
+                return _row < column.Length ? column[_row] : "";
+            }
+
+            return _ctx.SiblingAt?.Invoke(name, _row) ?? "";
+        }
     }
 
     private sealed class RowLookup : Interpolate.ILookup

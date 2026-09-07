@@ -725,6 +725,15 @@ public final class Validator {
   private final List<Pending> pendingExpressions = new ArrayList<>();
 
   /**
+   * Every {@code <data>} written inside a {@code <case>}, held back for the reason the
+   * expressions are: a case body may name a column declared BELOW it, and the run resolves that
+   * happily, so checking mid-walk would invent errors on configs that work.
+   */
+  private record PendingData(int at, String text, int line, int column) {}
+
+  private final List<PendingData> pendingCaseData = new ArrayList<>();
+
+  /**
    * A {@code filter=} put aside, and where its complaint belongs in the report.
    *
    * <p>Held back for the same reason an {@code if=} is: the column a filter compares against may
@@ -862,6 +871,21 @@ public final class Validator {
         diagnostics.add(item.at() + shift + i, found.get(i));
       }
       shift += found.size();
+    }
+
+    // The same second pass for a `<data>` inside a `<case>`, spliced back where the tag stood.
+    List<PendingData> pendingData = new ArrayList<>(pendingCaseData);
+    pendingCaseData.clear();
+    int dataShift = 0;
+    for (PendingData item : pendingData) {
+      int before = diagnostics.size();
+      checkInterpolation(item.text(), item.line(), item.column());
+      List<Diagnostic> found = new ArrayList<>(diagnostics.subList(before, diagnostics.size()));
+      diagnostics.subList(before, diagnostics.size()).clear();
+      for (int i = 0; i < found.size(); i++) {
+        diagnostics.add(item.at() + dataShift + i, found.get(i));
+      }
+      dataShift += found.size();
     }
   }
 
@@ -5626,6 +5650,16 @@ public final class Validator {
   private void checkCaseBody(TDCParser.OpenCloseElementContext caseEl) {
     for (TDCParser.ElementContext child : caseEl.content().element()) {
       if (child.dataElement() != null) {
+        // A `${{Name}}` here reads the row the case is on. Put aside rather than answered now:
+        // mid-walk a column declared below this case does not exist yet.
+        if (child.dataElement() instanceof TDCParser.DataWithBodyContext data) {
+          pendingCaseData.add(
+              new PendingData(
+                  diagnostics.size(),
+                  PairedData.restore(data.dataContent().getText()),
+                  data.getStart().getLine(),
+                  data.getStart().getCharPositionInLine()));
+        }
         continue;
       }
       TDCParser.SelfClosingElementContext self = child.selfClosingElement();

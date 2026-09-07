@@ -442,6 +442,19 @@
         "US|invoice-SalesTax",
         "EU|receipt"
       ]
+    },
+    {
+      "name": "a-case-body-reads-the-row-it-is-on",
+      "description": "`${{Name}}` inside a <case> reads the ROW the case is being built for, not a fresh draw — which is the difference between it and a <gen type=\"template\"> beside it, and what keeps the record coherent. The filters are the same ones a <line> may use, so the second branch uppercases the very value the first prints as it stands. Before this the seven characters ${{City}} reached the output verbatim, on every engine, with `check` calling the config valid.",
+      "config": "<tdc><env count=\"6\" seed=\"s\" local=\"en\"><sequence name=\"City\"><gen type=\"text\" value=\"Alpha,Beta,Gamma\"/></sequence><mix name=\"S\" percent=\"60\"><case><data>${{City}} North</data></case><case><data>${{City|upper}} South</data></case></mix></env><block><line><data>${{S}}</data></line></block></tdc>",
+      "expected": [
+        "ALPHA South",
+        "Gamma North",
+        "Gamma North",
+        "Beta North",
+        "Alpha North",
+        "BETA South"
+      ]
     }
   ]
 }

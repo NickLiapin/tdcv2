@@ -399,6 +399,9 @@ enum Column {
     },
     /// A literal piece of a `<case>` body.
     Text(String),
+    /// A `<data>` inside a `<case>` that holds `${{…}}`: resolved per row against
+    /// the row's own columns, the way the in-memory engine resolves it.
+    CaseText(String),
     /// One column of an exact-uniq arrangement: its quota walk, plus whatever
     /// the collision repair moved.
     ExactUniq(Box<exact_uniq::Resolver>),
@@ -1650,7 +1653,15 @@ impl StreamEngine<'_> {
         for (p, part) in case.parts.iter().enumerate() {
             let stream = format!("{stream_id}#p{p}");
             parts.push(match part {
-                CasePart::Text(text) => Column::Text(text.clone()),
+                // `${{Name}}` in a case body reads the row the case is on. A plain
+                // literal keeps the cheaper variant.
+                CasePart::Text(text) => {
+                    if interpolate::has_reference(text, self.env.config.inject.as_deref()) {
+                        Column::CaseText(text.clone())
+                    } else {
+                        Column::Text(text.clone())
+                    }
+                }
                 CasePart::Gen(gen) => self.build_gen(&stream, gen, domain.clone())?.column,
                 // A nested mix contributes its value only; `flag=` is a
                 // top-level idea.
@@ -3009,6 +3020,11 @@ impl StreamEngine<'_> {
             }
 
             Column::Text(text) => Ok(Some(text.clone())),
+            Column::CaseText(text) => Ok(Some(interpolate::apply(
+                text,
+                self.env.config.inject.as_deref(),
+                &StreamLookup { engine: self, row },
+            )?)),
 
             Column::Constant { domain, text } => {
                 Ok(self.pop_index_at(domain, row)?.map(|_| text.clone()))

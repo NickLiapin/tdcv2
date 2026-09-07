@@ -2088,8 +2088,10 @@ public sealed class StreamEngine
             CasePart part = caseSpec.Parts[p];
             if (part.Text is not null)
             {
+                // `${{Name}}` in a case body reads the row the case is on, through the same
+                // lookup the output line uses — so the two engines answer one question alike.
                 string text = part.Text;
-                parts.Add(_ => text);
+                parts.Add(row => Interpolate.Apply(text, _config.Inject, new StreamLookup(this, row)));
             }
             else if (part.Gen is not null)
             {

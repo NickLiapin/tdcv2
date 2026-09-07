@@ -51,6 +51,70 @@ export function interpolate(
   return out;
 }
 
+/**
+ * The same interpolation, resolved by a READER rather than by a registry.
+ *
+ * A `<data>` inside a `<case>` has no registry of its own to look in: it is
+ * built for one row at a time, and the row's other columns reach it through the
+ * `valueAt` seam a nested `<switch>` already uses. Sharing the compiler and the
+ * filters keeps `${{Name|upper}}` meaning one thing wherever it is written.
+ *
+ * `undefined` from `read` leaves the reference as it was written, which the
+ * validator has already refused — the engine never invents a value for a name
+ * nobody declared.
+ */
+export function interpolateWith(
+  text: string,
+  inject: string,
+  read: (name: string) => string | undefined,
+): string {
+  const segments = compileTemplate(text, inject);
+  if (segments.length === 1) {
+    const only = segments[0];
+    if (typeof only === 'string') return only;
+  }
+  let out = '';
+  for (const seg of segments) {
+    if (typeof seg === 'string') {
+      out += seg;
+      continue;
+    }
+    const value = read(seg.name);
+    out += value === undefined ? seg.orig : applyFilters(value, seg.filters);
+  }
+  return out;
+}
+
+/** The marker a document uses unless `<env inject=…>` says otherwise. */
+export const DEFAULT_INJECT = '${{%}}';
+
+/**
+ * A `<data>` written inside a `<case>`, as a reader of ONE row — or undefined
+ * when the text holds no reference and is the literal it has always been.
+ *
+ * Both engines build case bodies their own way and ask for this one thing, so
+ * the question "what does `${{Name}}` mean here" is answered in a single place.
+ */
+export function caseDataReader(
+  text: string,
+  inject: string | undefined,
+  hasColumn: ((name: string) => boolean) | undefined,
+  valueAt: ((name: string, row: number) => string | undefined) | undefined,
+): ((row: number) => string) | undefined {
+  const marker = inject ?? DEFAULT_INJECT;
+  if (!hasInterpolation(text, marker)) return undefined;
+  return (row) =>
+    interpolateWith(text, marker, (name) =>
+      hasColumn?.(name) === true ? (valueAt?.(name, row) ?? '') : undefined,
+    );
+}
+
+/** Whether the text holds any `${{…}}` reference at all — the cheap way out. */
+export function hasInterpolation(text: string, inject: string): boolean {
+  const segments = compileTemplate(text, inject);
+  return segments.some((s) => typeof s !== 'string');
+}
+
 /** A `NAME | filter | filter…` reference inside `${{…}}`. */
 interface Filter {
   readonly kind: string;

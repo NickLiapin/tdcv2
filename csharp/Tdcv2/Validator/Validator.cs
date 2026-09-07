@@ -700,6 +700,13 @@ public sealed class Validator
         HashSet<string>? Scope, string? Extra)> _pendingExpressions = new();
 
     /// <summary>
+    /// Every <c>&lt;data&gt;</c> written inside a <c>&lt;case&gt;</c>, held back for the reason
+    /// the expressions are: a case body may name a column declared BELOW it, and the run resolves
+    /// that happily, so checking mid-walk would invent errors on configs that work.
+    /// </summary>
+    private readonly List<(int At, string Text, int Line, int Column)> _pendingCaseData = new();
+
+    /// <summary>
     /// The names a deferred expression may see, where they are NOT the run's.
     /// </summary>
     /// <remarks>
@@ -868,6 +875,20 @@ public sealed class Validator
             _diagnostics.RemoveRange(before, _diagnostics.Count - before);
             _diagnostics.InsertRange(at + shift, found);
             shift += found.Count;
+        }
+
+        // The same second pass for a `<data>` inside a `<case>`, spliced back where the tag stood.
+        var pendingData = new List<(int At, string Text, int Line, int Column)>(_pendingCaseData);
+        _pendingCaseData.Clear();
+        int dataShift = 0;
+        foreach ((int at, string text, int line, int column) in pendingData)
+        {
+            int before = _diagnostics.Count;
+            CheckInterpolation(text, line, column);
+            var found = _diagnostics.GetRange(before, _diagnostics.Count - before);
+            _diagnostics.RemoveRange(before, _diagnostics.Count - before);
+            _diagnostics.InsertRange(at + dataShift, found);
+            dataShift += found.Count;
         }
     }
 
@@ -6526,6 +6547,17 @@ public sealed class Validator
         {
             if (child.dataElement() is not null)
             {
+                // A `${{Name}}` here reads the row the case is on. Put aside rather than answered
+                // now: mid-walk a column declared below this case does not exist yet.
+                if (child.dataElement() is TDCParser.DataWithBodyContext data)
+                {
+                    _pendingCaseData.Add((
+                        _diagnostics.Count,
+                        PairedData.Restore(data.dataContent().GetText()),
+                        data.Start.Line,
+                        data.Start.Column));
+                }
+
                 continue;
             }
 

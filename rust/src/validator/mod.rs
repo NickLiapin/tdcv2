@@ -165,6 +165,9 @@ struct Validator {
         Option<BTreeSet<String>>,
         Option<&'static str>,
     )>,
+    /// Every `<data>` written inside a `<case>`, held back for the same reason:
+    /// a case body may name a column declared BELOW it.
+    pending_case_data: Vec<(usize, String, Pos)>,
     /// The names the expression being walked right now may see, where they are
     /// NOT the run's. A `<pool>` member reads its own pool and nothing else: the
     /// table is built before any row exists, so a condition naming an env column
@@ -434,6 +437,23 @@ impl Validator {
                     .insert(at_index + shift + offset, diagnostic);
             }
             shift += count;
+        }
+
+        // The same second pass for a `<data>` inside a `<case>`, and for the
+        // same reason — spliced back where the tag stood, so the report reads
+        // top to bottom.
+        let pending_data = std::mem::take(&mut self.pending_case_data);
+        let mut data_shift = 0usize;
+        for (at_index, text, pos) in pending_data {
+            let before = self.diagnostics.len();
+            self.check_interpolation(&text, pos);
+            let found: Vec<Diagnostic> = self.diagnostics.split_off(before);
+            let count = found.len();
+            for (offset, diagnostic) in found.into_iter().enumerate() {
+                self.diagnostics
+                    .insert(at_index + data_shift + offset, diagnostic);
+            }
+            data_shift += count;
         }
     }
 
@@ -5500,7 +5520,18 @@ impl Validator {
                 self.check_case_gen(child);
             }
             match child.kind {
-                Kind::Data | Kind::SelfClosing => continue,
+                // A `${{Name}}` here reads the row the case is on. Put aside
+                // rather than answered now: a case may name a column declared
+                // BELOW it, and mid-walk that column does not exist yet.
+                Kind::Data => {
+                    self.pending_case_data.push((
+                        self.diagnostics.len(),
+                        child.text.clone(),
+                        child.pos,
+                    ));
+                    continue;
+                }
+                Kind::SelfClosing => continue,
                 Kind::Map => {}
                 Kind::OpenClose => {}
             }

@@ -1481,7 +1481,14 @@ class StreamEngine:
         parts: list[Column] = []
         for p, part in enumerate(case.parts):
             if part.text is not None:
-                parts.append(lambda row, text=part.text: text)
+                # `${{Name}}` here reads the row the case is on, through the same reader a
+                # nested `<switch>` finds its subject with — so the two engines answer one
+                # question the same way.
+                read = memory.case_data_reader(part.text, self._case_run())
+                if read is None:
+                    parts.append(lambda row, text=part.text: text)
+                else:
+                    parts.append(lambda row, r=read: r(row))
             elif part.gen is not None:
                 parts.append(self._build_gen(f"{stream_id}#p{p}", part.gen, domain).column)
             elif part.mix is not None:
@@ -1494,6 +1501,21 @@ class StreamEngine:
             return "".join(_none_to_empty(part(row)) for part in parts)
 
         return resolve
+
+    def _case_run(self) -> memory._Run:
+        """The run a `<data>` inside a `<case>` reads its row's columns through."""
+        return memory._Run(
+            self.config,
+            self.packs,
+            self.now_millis,
+            self.base_dir,
+            create(self.config.seed),
+            value_at=lambda name, r: (
+                (self.columns[name](r) or "") if name in self.columns else None
+            ),
+            has_column=lambda name: name in self.columns,
+            per_row=True,
+        )
 
     def _nested_switch(self, stream_id: str, sw, domain: Domain) -> Column:
         """A ``<switch>`` written inside a ``<case>`` — the nested form.

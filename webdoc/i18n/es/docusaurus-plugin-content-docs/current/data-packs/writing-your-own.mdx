@@ -263,10 +263,24 @@ paquete corre en el motor en memoria y su memoria crece con `count`. Un paquete 
 configuración](../guides/large-outputs.mdx#qué-motor-corre-su-configuración).
 
 Dentro de un [`<case>`](../reference/tags.mdx#distribuciones-y-selección), arme el valor
-con las etiquetas mismas ([`<gen>`](../generators/overview.mdx), y
-[`<data>`](../core-concepts/output-formatting.mdx) para el texto literal entre ellas) en
-vez de con `${{…}}`: interpolar otros campos dentro de un `case` todavía no está
-soportado.
+con las etiquetas mismas: [`<gen>`](../generators/overview.mdx), y
+[`<data>`](../core-concepts/output-formatting.mdx) para el texto literal entre ellas.
+
+Un `<data>` ahí también puede **leer la fila en la que está**: `${{Name}}` dentro de un
+case se resuelve igual que en una línea de salida, filtros incluidos.
+
+```text
+<sequence name="City"><gen type="text" value="Alpha,Beta,Gamma"/></sequence>
+<mix name="s" percent="60">
+  <case><data>${{City}} North</data></case>
+  <case><data>${{City|upper}} South</data></case>
+</mix>
+<data>${{s}}</data>
+```
+
+Eso no es lo mismo que un `<gen type="template">` a su lado: el generador saca un valor
+NUEVO, mientras que una referencia mantiene el registro coherente con lo que la fila ya
+tiene. Un nombre que nadie declaró se rechaza (`TDC193`) en vez de imprimirse tal cual.
 
 ### Un marcador de interpolación propio — `inject:`
 

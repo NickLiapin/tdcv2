@@ -68,6 +68,7 @@ import {
   walkedValueAt,
   type SequenceBuildOptions,
 } from './build.js';
+import { caseDataReader } from '../processor/interpolate.js';
 import { dateAxis } from '../generators/date.js';
 import { resolveGenAnomalyFlagTextAt, resolveGenValueAt } from './gen-resolve.js';
 import { weightColumnOf } from '../generators/weighted.js';
@@ -1043,8 +1044,11 @@ export function buildCaseResolver(
 ): (i: number) => string {
   const partResolvers = caseSpec.parts.map((part, p): ((i: number) => string) => {
     if (part.kind === 'data') {
+      // `${{Name}}` here reads the row this case is on, through the same reader
+      // a nested `<switch>` finds its subject with.
       const text = part.text;
-      return () => text;
+      const read = caseDataReader(text, options.inject, options.hasColumn, options.valueAt);
+      return read ?? (() => text);
     }
     // Both a gen and a nested mix resolve over the case's SUBSET domain, so
     // counters count within the case, text is exact-% within it, and nested

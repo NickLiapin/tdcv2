@@ -63,6 +63,18 @@ pub fn split_inject(inject: Option<&str>) -> Option<(&str, &str)> {
     Some((prefix, &rest[mark.len_utf8()..]))
 }
 
+/// Whether the text holds any `${{…}}` reference at all — the cheap way out, so
+/// a case body of plain literal text costs nothing to resolve.
+pub fn has_reference(text: &str, inject: Option<&str>) -> bool {
+    let Some((prefix, suffix)) = split_inject(inject) else {
+        return false;
+    };
+    match text.find(prefix) {
+        Some(rel) => find_close(text, rel + prefix.len(), suffix).is_some(),
+        None => false,
+    }
+}
+
 pub fn apply(text: &str, inject: Option<&str>, lookup: &dyn Lookup) -> EngineResult<String> {
     // An inject with no `%` names nothing, so there is nothing to substitute.
     let Some((prefix, suffix)) = split_inject(inject) else {

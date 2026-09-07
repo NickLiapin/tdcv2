@@ -126,6 +126,10 @@ class _Run:
     # its subject up in. A nested switch is not a column and never reaches the registry, so it
     # cannot be resolved the way the env-level form is.
     value_at: Callable[[str, int], str | None] | None = None
+    #: Is this name a COLUMN at all? ``value_at`` answers ``None`` both for a column that is
+    #: empty on this row and for a word that is no column, and the two must not be confused —
+    #: an unresolved ``${{Name}}`` stays as written, an empty cell becomes empty text.
+    has_column: Callable[[str], bool] | None = None
     #: This build is ONE ROW of a bigger one. Set by every caller that narrows to a single row on
     #: purpose — the per-row loop below, one element of a repeat list, a redraw, a pack body built
     #: for one row — and by the streaming engine on its own one-row runs. Two things read it:
@@ -625,6 +629,7 @@ def _build_columns(
         create(config.seed),
         layouts={},
         value_at=_column_value_at,
+        has_column=lambda name: name in columns,
     )
 
     # Pools first, and off a DERIVED seed. A pool must be invisible to every column it does not
@@ -1396,7 +1401,7 @@ def _case_values(case, count: int, run: _Run) -> list[str]:
     for p, part in enumerate(case.parts):
         part_run = run if run.stream_id is None else replace(run, stream_id=f"{run.stream_id}#p{p}")
         if part.text is not None:
-            values = [part.text] * count
+            values = _case_data_values(part.text, count, run)
         elif part.gen is not None:
             values = _column_values(part.gen, count, part_run)
         elif part.mix is not None:
@@ -1405,6 +1410,40 @@ def _case_values(case, count: int, run: _Run) -> list[str]:
             values = _nested_switch_values(part.switch, count, part_run)
         out = [out[i] + values[i] for i in range(count)]
     return out
+
+
+def case_data_reader(text: str, run: _Run) -> Callable[[int], str] | None:
+    """A ``<data>`` written inside a ``<case>``, as a reader of ONE row.
+
+    ``${{Name}}`` here reads the row the case is being built for — the same seam a nested
+    ``<switch>`` finds its subject through. That is the difference between it and a
+    ``<gen type="template">`` beside it: the generator draws a NEW value, while a reference
+    keeps the record coherent with what the row already holds.
+
+    ``None`` back means the text holds no reference and is the literal it has always been.
+    """
+    inject = run.config.inject or interpolate.DEFAULT_INJECT
+    if not any(
+        not isinstance(seg, str) for seg in interpolate.compile_template(text, inject)
+    ):
+        return None
+
+    def read(row: int) -> str:
+        def lookup(name: str) -> str | None:
+            if run.has_column is None or not run.has_column(name):
+                return None
+            return (run.value_at(name, row) if run.value_at else None) or ""
+
+        return interpolate.apply(text, inject, lookup)
+
+    return read
+
+
+def _case_data_values(text: str, count: int, run: _Run) -> list[str]:
+    read = case_data_reader(text, run)
+    if read is None:
+        return [text] * count
+    return [read(per_row.absolute_row(run, i)) for i in range(count)]
 
 
 def _nested_switch_values(spec, count: int, run: _Run) -> list[str]:

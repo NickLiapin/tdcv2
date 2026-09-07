@@ -248,9 +248,24 @@ Ruiz`}
 конфиг](../guides/large-outputs.mdx#какой-движок-запустит-ваш-конфиг).
 
 Внутри [`<case>`](../reference/tags.mdx#распределения-и-выбор) собирайте значение из
-самих тегов ([`<gen>`](../generators/overview.mdx) и
-[`<data>`](../core-concepts/output-formatting.mdx) для текста между ними), а не через
-`${{…}}` — интерполяция чужих полей внутри кейса пока не поддерживается.
+самих тегов: [`<gen>`](../generators/overview.mdx) и
+[`<data>`](../core-concepts/output-formatting.mdx) для текста между ними.
+
+А ещё `<data>` внутри кейса может **прочитать строку, на которой стоит**: `${{Name}}`
+разрешается там так же, как в выходной строке, вместе с фильтрами.
+
+```text
+<sequence name="City"><gen type="text" value="Alpha,Beta,Gamma"/></sequence>
+<mix name="s" percent="60">
+  <case><data>${{City}} North</data></case>
+  <case><data>${{City|upper}} South</data></case>
+</mix>
+<data>${{s}}</data>
+```
+
+Это не то же самое, что `<gen type="template">` рядом: генератор тянет НОВОЕ значение, а
+ссылка сохраняет запись согласованной с тем, что в строке уже есть. Имя, которого никто не
+объявлял, отклоняется (`TDC193`), а не печатается буквально.
 
 ### Свой маркер интерполяции — `inject:`
 

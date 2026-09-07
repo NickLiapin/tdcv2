@@ -104,6 +104,15 @@ export interface SequenceBuildContext {
    */
   readonly hasColumn?: ((name: string) => boolean) | undefined;
   /**
+   * The `${{…}}` marker this document writes, for a `<data>` inside a `<case>`.
+   *
+   * Carried here because a case body is built far from `<env>`, and a pack that
+   * set its own `inject:` must be interpolated by its own marker rather than by
+   * the default — otherwise a pack written to EMIT `${{…}}` would have its text
+   * eaten. Absent means the default.
+   */
+  readonly inject?: string | undefined;
+  /**
    * Date columns that must keep their instant beside their text, because some
    * `<gen type="date" of="…">` measures from them.
    *

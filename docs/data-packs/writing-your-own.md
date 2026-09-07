@@ -264,8 +264,23 @@ engine runs your config](../guides/large-outputs.md#which-engine-runs-your-confi
 
 Inside a [`<case>`](../reference/tags.md#distributions-and-choice), build the value out
 of the tags themselves — [`<gen>`](../generators/overview.md#top), plus
-[`<data>`](../core-concepts/output-formatting.md#top) for any literal text between them —
-rather than with `${{…}}`. Interpolating other fields inside a case isn't supported yet.
+[`<data>`](../core-concepts/output-formatting.md#top) for any literal text between them.
+
+A `<data>` there may also **read the row it is on**: `${{Name}}` inside a case resolves the
+same way it does in an output line, filters included.
+
+```text
+<sequence name="City"><gen type="text" value="Alpha,Beta,Gamma"/></sequence>
+<mix name="s" percent="60">
+  <case><data>${{City}} North</data></case>
+  <case><data>${{City|upper}} South</data></case>
+</mix>
+<data>${{s}}</data>
+```
+
+That is a different thing from a `<gen type="template">` beside it: the generator draws a
+NEW value, while a reference keeps the record coherent with what the row already holds. A
+name nobody declared is refused (`TDC193`) rather than printed literally.
 
 ### A custom interpolation marker — `inject:`
 

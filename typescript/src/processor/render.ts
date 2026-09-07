@@ -668,6 +668,9 @@ export function prepareRender(
       : {}),
     ...(options.onProgress !== undefined ? { onProgress: options.onProgress } : {}),
     seed: env.seed,
+    // A `<data>` inside a `<case>` interpolates by the document's own marker, so
+    // a config that set `inject=` to emit `${{…}}` literally still does.
+    inject: env.inject,
     pools: buildPoolTables(extractPoolSpecs(envEl), env.seed, env.locale, now, packOptions),
     // `prev()` may look back one row only when the rows are computed in order.
     ...(env.sequential ? { sequential: true as const } : {}),

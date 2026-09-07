@@ -32,6 +32,7 @@ import {
 } from '../errors/index.js';
 import type {
   AttrContext,
+  DataElementContext,
   DocumentContext,
   OpenCloseElementContext,
   SelfClosingElementContext,
@@ -121,7 +122,7 @@ import { isCaseTransform } from '../format/transforms.js';
 import { checkDocumentVersion } from './version.js';
 import type { PackParams, PackParamWidths } from './pack-params.js';
 import { checkRootRegexMaxLength } from './regex-max-length.js';
-import { checkBlockDataRefs } from './data-refs.js';
+import { checkBlockDataRefs, runPendingCaseData } from './data-refs.js';
 
 export interface ValidationResult {
   readonly diagnostics: readonly Diagnostic[];
@@ -278,6 +279,13 @@ export function validate(tree: DocumentContext, options: ValidationOptions = {})
     ctx.valuelessSequences,
     ctx.finiteValues,
   );
+  runPendingCaseData(
+    ctx.pendingCaseData,
+    diags,
+    ctx.inject,
+    ctx.declaredSequences,
+    ctx.poolReferences,
+  );
 
   return { diagnostics: diags };
 }
@@ -340,6 +348,13 @@ class Ctx {
    * the position they were found, so the report still reads top to bottom.
    */
   public readonly pendingExpressions: PendingExpression[] = [];
+  /**
+   * `<data>` bodies written inside `<env>` — in a `<case>`, or a `<switch>`
+   * branch. Their `${{…}}` names are answered once every declaration is known,
+   * for the reason the block's own check states: a case may read a column
+   * declared below it, and mid-walk that column does not exist yet.
+   */
+  public readonly pendingCaseData: { at: number; node: DataElementContext; text: string }[] = [];
 
   /** Put one aside, remembering where in the report it belongs. */
   public rememberExpression(
@@ -1186,6 +1201,13 @@ function checkCaseContent(caseEl: OpenCloseElementContext, ctx: Ctx): void {
     if (!k) continue;
     if (k.kind === 'data') {
       checkData(k.node, ctx);
+      // A `${{Name}}` here reads the row the case is on. Answered after the
+      // walk, so a case may name a column declared below it.
+      ctx.pendingCaseData.push({
+        at: ctx.diagnostics.length,
+        node: k.node,
+        text: extractDataText(k.node),
+      });
       continue;
     }
     if (k.kind === 'self' && elementName(k.node) === 'gen') {

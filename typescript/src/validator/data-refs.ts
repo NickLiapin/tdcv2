@@ -25,6 +25,31 @@ const INTERP_REF = /\$\{\{([^}]*)\}\}/g;
  * `inject` pattern. This check stands down whenever inject is not the default,
  * so that case is already covered.
  */
+/**
+ * The same check for a `<data>` written inside a `<case>`.
+ *
+ * It could not be made where the tag is walked: a case body may name a column
+ * declared BELOW it, and every declaration is known only once the walk is done.
+ * So the node is put aside and answered here, exactly as an `if=` expression is
+ * — and the diagnostics are spliced back where the tag stood, so a reader gets
+ * them in the order the file reads.
+ */
+export function runPendingCaseData(
+  pending: readonly { at: number; node: DataElementContext; text: string }[],
+  diagnostics: Diagnostic[],
+  inject: string,
+  declared: readonly string[],
+  records: readonly string[],
+): void {
+  let shift = 0;
+  for (const item of pending) {
+    const found: Diagnostic[] = [];
+    checkBlockDataRefs(item.text, item.node, inject, declared, found, [], records);
+    diagnostics.splice(item.at + shift, 0, ...found);
+    shift += found.length;
+  }
+}
+
 export function checkBlockDataRefs(
   text: string,
   node: DataElementContext,

@@ -3689,6 +3689,28 @@
         ]
       }
     },
+    "mix-switch/a-case-body-reads-the-row-it-is-on": {
+      "engine2": {
+        "lines": [
+          "ALPHA South",
+          "Gamma North",
+          "Gamma North",
+          "Beta North",
+          "Alpha North",
+          "BETA South"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "ALPHA South",
+          "Gamma North",
+          "Gamma North",
+          "Beta North",
+          "Alpha North",
+          "BETA South"
+        ]
+      }
+    },
     "one-row/a-run-of-one-row": {
       "engine2": {
         "lines": ["aba"]

@@ -2255,9 +2255,13 @@ public final class MemoryEngine {
       PerRow.Stream sub = stream == null ? null : stream.named(stream.id() + "#p" + p);
       List<String> values;
       if (part.text() != null) {
+        // `${{Name}}` in a case body reads the row the case is on — the same seam a nested
+        // `<switch>` finds its subject through. A generator beside it draws a NEW value; a
+        // reference keeps the record coherent with what the row already holds.
         values = new ArrayList<>(count);
         for (int i = 0; i < count; i++) {
-          values.add(part.text());
+          int row = stream == null ? i : stream.rowAt(i);
+          values.add(caseText(part.text(), config, columns, row));
         }
       } else if (part.gen() != null) {
         values =
@@ -3316,6 +3320,36 @@ public final class MemoryEngine {
         missingRowEligible(
             missing.when(), cols == null ? null : cols.siblings(),
             cols == null ? i : cols.rowAt(i), value);
+  }
+
+  /**
+   * A {@code <data>} inside a {@code <case>}, resolved for ONE row.
+   *
+   * <p>{@code has} is asked separately from the value for the reason {@link Siblings} states: an
+   * ABSENT name is not an empty one. A name nobody declared leaves its {@code ${{…}}} as written
+   * — which the validator has already refused.
+   */
+  private static String caseText(
+      String text, Config config, Map<String, String[]> columns, int row) {
+    if (columns == null) {
+      return text;
+    }
+    return Interpolate.apply(
+        text,
+        config.inject(),
+        new Interpolate.Lookup() {
+          @Override
+          public boolean has(String name) {
+            return columns.containsKey(name);
+          }
+
+          @Override
+          public String value(String name) {
+            String[] column = columns.get(name);
+            String found = column != null && row < column.length ? column[row] : null;
+            return found == null ? "" : found;
+          }
+        });
   }
 
   /**

@@ -17,6 +17,36 @@ page — is tracked in that implementation's own changelog:
 
 ### Added
 
+<!-- covers: interpolation inside a case body -->
+
+- **A `<data>` inside a `<case>` can read the row it is on.** The data-pack page said
+  interpolating other fields inside a case "isn't supported yet"; what it actually did was
+  worse than unsupported. The seven characters `${{City}}` reached the output verbatim, on
+  every engine, with `check` calling the config valid — and not only in a pack, but in any
+  config at all.
+
+  ```xml
+  <sequence name="City"><gen type="text" value="Alpha,Beta,Gamma"/></sequence>
+  <mix name="S" percent="60">
+    <case><data>${{City}} North</data></case>
+    <case><data>${{City|upper}} South</data></case>
+  </mix>
+  ```
+
+  `${{Name}}` there now resolves the way it does in an output line, filters included,
+  reading the row the case is being built for. It rides the seam a nested `<switch>`
+  already reads its subject through, so both engines answer the same question the same way
+  — verified byte for byte on the in-memory and the streaming path in all five.
+
+  That is a different thing from a `<gen type="template">` beside it: the generator draws a
+  NEW value, while a reference keeps the record coherent with what the row already holds.
+
+  **A name nobody declared is now refused** with the `TDC193` a `<line>` has always given.
+  It could not be checked where the tag is walked — a case body may name a column declared
+  BELOW it, and mid-walk that column does not exist yet — so the node is put aside and
+  answered once every declaration is known, exactly as an `if=` expression is, with the
+  complaint spliced back where the tag stood. None of the 884 bundled packs was affected.
+
 <!-- covers: repeat with order=sequential -->
 
 - **A row can hold several values walked in order — a fixed `repeat=` beside

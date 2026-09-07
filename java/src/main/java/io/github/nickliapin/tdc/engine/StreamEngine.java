@@ -1970,8 +1970,10 @@ public final class StreamEngine {
     for (int p = 0; p < caseSpec.parts().size(); p++) {
       Config.CasePart part = caseSpec.parts().get(p);
       if (part.text() != null) {
+        // `${{Name}}` in a case body reads the row the case is on, through the same lookup the
+        // output line uses — so the two engines answer one question the same way.
         String text = part.text();
-        parts.add(row -> text);
+        parts.add(row -> Interpolate.apply(text, config.inject(), lookup(row)));
       } else if (part.gen() != null) {
         parts.add(buildGen(streamId + "#p" + p, part.gen(), domain).column());
       } else if (part.mix() != null) {

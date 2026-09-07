@@ -922,6 +922,7 @@ class _Validator:
         "finite_values",
         "locale",
         "packs",
+        "pending_case_data",
         "pending_expressions",
         "pending_pool_filters",
         "pool_field_values",
@@ -1001,6 +1002,9 @@ class _Validator:
         self.pending_expressions: list[
             tuple[int, str, int, int, bool, frozenset[str] | None, frozenset[str]]
         ] = []
+        # Every `<data>` written inside a `<case>`, held back for the same reason: a case body
+        # may name a column declared BELOW it, and the run resolves that happily.
+        self.pending_case_data: list[tuple[int, str, int, int]] = []
         # The names a deferred expression may see, where they are NOT the run's. A <pool> member
         # reads its own pool and nothing else: the table is built before any row exists, so a
         # condition naming an env column is constant-false on every member. None means the run's
@@ -1061,6 +1065,20 @@ class _Validator:
         # is relative to the walk, and re-splicing it after another pass has inserted would need
         # that pass's shifts as well.
         self._run_pending_pool_filters()
+
+        # Now every declaration is known, so a `<data>` inside a `<case>` can have its names
+        # answered — spliced back where the tag stood, so the report still reads top to bottom.
+        pending_data, self.pending_case_data = self.pending_case_data, []
+        data_shift = 0
+        for at_index, text, line, column in pending_data:
+            before = len(self.diagnostics)
+            self._check_interpolation(text, line, column)
+            found = self.diagnostics[before:]
+            if found:
+                del self.diagnostics[before:]
+                for offset, diag in enumerate(found):
+                    self.diagnostics.insert(at_index + data_shift + offset, diag)
+                data_shift += len(found)
 
         # Now that every name is known, the expressions can be checked — and each complaint goes
         # back where its attribute was, so the report stays in source order.
@@ -5585,7 +5603,14 @@ class _Validator:
         and has nowhere of its own to put a flag.
         """
         for child in _elements(case_el):
-            if child.dataElement() is not None:
+            data = child.dataElement()
+            if data is not None:
+                # A `${{Name}}` here reads the row the case is on. Put aside rather than
+                # answered now: a case may name a column declared BELOW it, and mid-walk that
+                # column does not exist yet.
+                self.pending_case_data.append(
+                    (len(self.diagnostics), _data_text(data), _line(data), _column(data))
+                )
                 continue
             self_closing = child.selfClosingElement()
             if self_closing is not None and self_closing.name.text == "gen":

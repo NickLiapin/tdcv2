@@ -184,6 +184,8 @@ export interface SequenceBuildOptions {
    * registry; the in-memory engine passes the same shape on its context.
    */
   readonly valueAt?: ((name: string, row: number) => string | undefined) | undefined;
+  /** The document's `${{…}}` marker, for a `<data>` written inside a `<case>`. */
+  readonly inject?: string | undefined;
   /** Is this name a column? See `SequenceBuildContext.hasColumn`. */
   readonly hasColumn?: ((name: string) => boolean) | undefined;
   /**
@@ -356,6 +358,7 @@ export function buildSequences(
       return seq ? sequenceValueAt(seq, row) : undefined;
     },
     hasColumn: (name) => registry[name] !== undefined,
+    inject: options.inject,
     instantColumns: instantColumnsOf(specs),
   };
 
@@ -950,6 +953,7 @@ export function streamCtx(options: SequenceBuildOptions): SequenceBuildContext {
     // same thing, so it is carried through rather than invented again.
     valueAt: options.valueAt,
     hasColumn: options.hasColumn,
+    inject: options.inject,
   };
   streamCtxCache.set(options, ctx);
   return ctx;
