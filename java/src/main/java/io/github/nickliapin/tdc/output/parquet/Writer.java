@@ -38,11 +38,14 @@ public final class Writer {
    * because which elements are NULL has to be decided — in the definition levels — before
    * anything is converted.
    */
-  public sealed interface Cell permits Scalar, Elements {}
+  public sealed interface Cell permits Scalar, Elements, Pairs {}
 
   public record Scalar(Convert.Value value) implements Cell {}
 
   public record Elements(List<String> texts) implements Cell {}
+
+  /** A map column's raw pairs, for the same reason a list keeps raw texts. */
+  public record Pairs(List<MapLevels.Entry> entries) implements Cell {}
 
   /** What the footer needs to know about one column chunk. */
   public record ChunkMeta(
@@ -53,7 +56,18 @@ public final class Writer {
       long rawSize,
       int codec,
       long numValues,
-      Statistics.Result statistics) {
+      Statistics.Result statistics,
+      /**
+       * Which LEAF this chunk is, spelled as the reader addresses it.
+       *
+       * <p>A scalar column is one leaf and one chunk; a list is one leaf under a wrapper; a MAP
+       * is TWO — the key and the value — under one declared name. The footer used to read the
+       * physical type and the path off the column, which quietly assumed the first of those.
+       */
+      List<String> path,
+      ColumnType physicalType,
+      /** Whether the leaf carries level streams, which decides if RLE is declared. */
+      boolean hasLevels) {
 
     boolean hasDictionary() {
       return dictionaryOffset >= 0;
@@ -133,9 +147,14 @@ public final class Writer {
     List<ChunkMeta> chunks = new ArrayList<>();
     long at = 0;
 
+    // Leaves, not columns: a map is two of them under one declared name, and each gets its own
+    // chunk.
+    List<Page> leaves = new ArrayList<>();
     for (int i = 0; i < columns.size(); i++) {
-      Column column = columns.get(i);
-      Page page = pageBody(column, batch.get(i));
+      leaves.addAll(columnLeaves(columns.get(i), batch.get(i)));
+    }
+
+    for (Page page : leaves) {
 
       // The codec is declared per column chunk, so the choice is made once for the whole chunk —
       // and only taken when it actually saves bytes. Snappy adds framing, which on an already
@@ -168,7 +187,10 @@ public final class Writer {
               (long) dictSize + header.length + page.body.length,
               compress ? Schema.SNAPPY : Schema.UNCOMPRESSED,
               page.numValues,
-              page.statistics));
+              page.statistics,
+              page.path,
+              page.physicalType,
+              page.hasLevels));
       if (dictPage != null) {
         pages.add(dictPage);
       }
@@ -192,7 +214,10 @@ public final class Writer {
               c.rawSize(),
               c.codec(),
               c.numValues(),
-              c.statistics()));
+              c.statistics(),
+              c.path(),
+              c.physicalType(),
+              c.hasLevels()));
     }
     return out;
   }
@@ -207,6 +232,100 @@ public final class Writer {
     byte[] dictionaryBody;
     int dictionaryCount;
     int encoding;
+    List<String> path = List.of();
+    ColumnType physicalType;
+    boolean hasLevels;
+  }
+
+  /** The key type every map uses. Text, and never null: the format insists. */
+  private static final ColumnType KEY_TYPE = ColumnType.parse("string");
+
+  /**
+   * The leaves one declared column becomes.
+   *
+   * <p>One for a scalar or a list, TWO for a map — its key and its value, which are separate
+   * columns in the file and share only their repetition levels.
+   */
+  private static List<Page> columnLeaves(Column column, List<Cell> cells) {
+    if (column.type().isMap()) {
+      return mapLeaves(column, cells);
+    }
+    Page page = pageBody(column, cells);
+    page.path =
+        column.type().isList()
+            ? List.of(column.name(), "list", "element")
+            : List.of(column.name());
+    page.physicalType = column.type().isList() ? column.type().element() : column.type();
+    page.hasLevels = column.type().isList() || column.type().nullable();
+    return List.of(page);
+  }
+
+  /**
+   * A map's two leaves.
+   *
+   * <p>The KEY stream is required text; the VALUE stream carries the column's declared type and
+   * may be optional. Both hold one level slot per pair, and one for a row whose map is empty.
+   */
+  private static List<Page> mapLeaves(Column column, List<Cell> cells) {
+    ColumnType valueType = column.type().element();
+    List<List<MapLevels.Entry>> rows = new ArrayList<>(cells.size());
+    for (Cell cell : cells) {
+      rows.add(((Pairs) cell).entries());
+    }
+    MapLevels.Built levels = MapLevels.build(rows, valueType.nullable());
+
+    List<Convert.Value> keyValues = new ArrayList<>();
+    for (String text : levels.keys()) {
+      Convert.Value value = Convert.value(text, KEY_TYPE);
+      if (value != null) {
+        keyValues.add(value);
+      }
+    }
+    ValueSection keySection = valueSection(KEY_TYPE, keyValues);
+    Page keyPage = new Page();
+    keyPage.body =
+        concat(
+            levelBlock(levels.repLevels(), 1),
+            levelBlock(levels.keyDefLevels(), MapLevels.KEY_MAX_DEF),
+            keySection.values);
+    keyPage.numValues = levels.repLevels().length;
+    // The same rule a list follows: a "null" is any level slot that did not reach the leaf. For
+    // the key leaf that is exactly the rows whose map is empty — a key itself is never absent.
+    keyPage.statistics =
+        Statistics.compute(
+            KEY_TYPE, keyValues, levels.repLevels().length - keyValues.size());
+    keyPage.dictionaryBody = keySection.dictionaryBody;
+    keyPage.dictionaryCount = keySection.dictionaryCount;
+    keyPage.encoding = keySection.encoding;
+    keyPage.path = List.of(column.name(), "key_value", "key");
+    keyPage.physicalType = KEY_TYPE;
+    keyPage.hasLevels = true;
+
+    List<Convert.Value> present = new ArrayList<>();
+    for (String text : levels.present()) {
+      Convert.Value value = Convert.value(text, valueType);
+      if (value != null) {
+        present.add(value);
+      }
+    }
+    ValueSection section = valueSection(valueType, present);
+    Page valuePage = new Page();
+    valuePage.body =
+        concat(
+            levelBlock(levels.repLevels(), 1),
+            levelBlock(levels.valueDefLevels(), levels.maxValueDef()),
+            section.values);
+    valuePage.numValues = levels.repLevels().length;
+    valuePage.statistics =
+        Statistics.compute(valueType, present, levels.repLevels().length - present.size());
+    valuePage.dictionaryBody = section.dictionaryBody;
+    valuePage.dictionaryCount = section.dictionaryCount;
+    valuePage.encoding = section.encoding;
+    valuePage.path = List.of(column.name(), "key_value", "value");
+    valuePage.physicalType = valueType;
+    valuePage.hasLevels = true;
+
+    return List.of(keyPage, valuePage);
   }
 
   /**
@@ -436,6 +555,15 @@ public final class Writer {
    * still exactly one leaf). {@code ColumnOrder} is a union whose only member, {@code
    * TYPE_ORDER}, holds an EMPTY struct, so each entry is three bytes.
    */
+  /** How many leaf columns the declared ones expand to: a map is two, the rest one. */
+  private static int leafCount(List<Column> columns) {
+    int leaves = 0;
+    for (Column column : columns) {
+      leaves += column.type().isMap() ? 2 : 1;
+    }
+    return leaves;
+  }
+
   private static void writeColumnOrders(Thrift w, int leaves) {
     w.listBegin(7, Thrift.STRUCT, leaves);
     for (int i = 0; i < leaves; i++) {
@@ -456,7 +584,7 @@ public final class Writer {
     w.i64(3, numRows);
     writeRowGroups(w, columns, groups);
     w.string(6, CREATED_BY);
-    writeColumnOrders(w, columns.size());
+    writeColumnOrders(w, leafCount(columns));
     w.structEnd();
     byte[] bytes = w.bytes();
 
@@ -497,7 +625,7 @@ public final class Writer {
     // The root plus every SchemaElement — a list contributes three, not one.
     int elements = 0;
     for (Column column : columns) {
-      elements += column.type().isList() ? 3 : 1;
+      elements += column.type().isList() ? 3 : column.type().isMap() ? 4 : 1;
     }
     w.listBegin(2, Thrift.STRUCT, elements + 1);
 
@@ -508,6 +636,10 @@ public final class Writer {
     w.structEnd();
 
     for (Column column : columns) {
+      if (column.type().isMap()) {
+        writeMapSchema(w, column.name(), column.type().element());
+        continue;
+      }
       if (column.type().isList()) {
         writeListSchema(w, column.name(), column.type().element());
         continue;
@@ -530,6 +662,64 @@ public final class Writer {
       writeLogicalType(w, map);
       w.structEnd();
     }
+  }
+
+  /**
+   * The four-element MAP wrapper.
+   *
+   * <p>The names {@code key_value}, {@code key} and {@code value} are fixed by the Parquet spec,
+   * not our choice; readers match on the annotated shape and quietly mis-assemble anything else.
+   * The key is REQUIRED because the format says so: a pair with no key is not a pair, and a
+   * reader given an optional key has no way to index it.
+   */
+  private static void writeMapSchema(Thrift w, String name, ColumnType value) {
+    w.structBegin();
+    w.i32(3, Schema.REQUIRED);
+    w.string(4, name);
+    w.i32(5, 1); // num_children
+    w.i32(6, Schema.CT_MAP);
+    w.fieldBegin(10, Thrift.STRUCT); // logicalType
+    w.structBegin();
+    w.fieldBegin(Schema.LT_MAP, Thrift.STRUCT);
+    w.structBegin();
+    w.structEnd();
+    w.structEnd();
+    w.structEnd();
+
+    w.structBegin();
+    w.i32(3, Schema.REPEATED);
+    w.string(4, "key_value");
+    w.i32(5, 2); // num_children — the key and the value
+    w.structEnd();
+
+    Schema.Mapping keyMapping = Schema.map(KEY_TYPE);
+    w.structBegin();
+    w.i32(1, keyMapping.physical());
+    w.i32(3, Schema.REQUIRED);
+    w.string(4, "key");
+    if (keyMapping.convertedType() != Schema.NONE) {
+      w.i32(6, keyMapping.convertedType());
+    }
+    writeLogicalType(w, keyMapping);
+    w.structEnd();
+
+    Schema.Mapping map = Schema.map(value);
+    w.structBegin();
+    w.i32(1, map.physical());
+    if (map.typeLength() > 0) {
+      w.i32(2, map.typeLength());
+    }
+    w.i32(3, value.nullable() ? Schema.OPTIONAL : Schema.REQUIRED);
+    w.string(4, "value");
+    if (map.convertedType() != Schema.NONE) {
+      w.i32(6, map.convertedType());
+    }
+    if (map.logicalField() == Schema.LT_DECIMAL) {
+      w.i32(7, map.scale());
+      w.i32(8, map.precision());
+    }
+    writeLogicalType(w, map);
+    w.structEnd();
   }
 
   /**
@@ -601,14 +791,11 @@ public final class Writer {
     w.listBegin(4, Thrift.STRUCT, groups.size());
     for (GroupMeta group : groups) {
       w.structBegin();
-      w.listBegin(1, Thrift.STRUCT, columns.size()); // columns
+      w.listBegin(1, Thrift.STRUCT, group.chunks().size()); // columns
       long totalByteSize = 0;
-      for (int i = 0; i < columns.size(); i++) {
-        Column column = columns.get(i);
-        ChunkMeta chunk = group.chunks().get(i);
+      for (ChunkMeta chunk : group.chunks()) {
         totalByteSize += chunk.totalSize();
-        boolean listed = column.type().isList();
-        Schema.Mapping map = Schema.map(listed ? column.type().element() : column.type());
+        Schema.Mapping map = Schema.map(chunk.physicalType());
 
         w.structBegin();
         w.i64(2, chunk.offset()); // file_offset — the dictionary page when there is one
@@ -620,7 +807,7 @@ public final class Writer {
         // is always among its encodings too.
         List<Integer> encodings = new ArrayList<>();
         encodings.add(Schema.PLAIN);
-        if (listed || column.type().nullable()) {
+        if (chunk.hasLevels()) {
           encodings.add(Schema.RLE);
         }
         if (chunk.hasDictionary()) {
@@ -630,11 +817,10 @@ public final class Writer {
         for (int e : encodings) {
           w.listI32(e);
         }
-        // The chunk addresses the LEAF, so a list's path walks through its wrapper.
-        List<String> path =
-            listed ? List.of(column.name(), "list", "element") : List.of(column.name());
-        w.listBegin(3, Thrift.BINARY, path.size()); // path_in_schema
-        for (String segment : path) {
+        // The chunk addresses the LEAF, so a list's path walks through its wrapper and a map's
+        // names which of its two columns this is.
+        w.listBegin(3, Thrift.BINARY, chunk.path().size()); // path_in_schema
+        for (String segment : chunk.path()) {
           w.listString(segment);
         }
         w.i32(4, chunk.codec());

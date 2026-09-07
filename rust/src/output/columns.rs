@@ -312,6 +312,7 @@ fn spell(ty: &ColumnType) -> String {
         Kind::Uuid => "uuid".to_string(),
         Kind::Json => "json".to_string(),
         Kind::List => "list".to_string(),
+        Kind::Map => "map".to_string(),
     };
     if ty.nullable {
         format!("{head}|null")

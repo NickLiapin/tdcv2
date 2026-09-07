@@ -10,6 +10,7 @@
 pub mod convert;
 pub mod dictionary;
 pub mod list_levels;
+pub mod map_levels;
 pub mod plain;
 pub mod rle;
 pub mod schema;

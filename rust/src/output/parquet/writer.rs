@@ -14,7 +14,9 @@
 use super::convert::Value;
 use super::statistics::Stats;
 use super::thrift::Thrift;
-use super::{convert, dictionary, list_levels, plain, rle, schema, snappy, statistics, thrift};
+use super::{
+    convert, dictionary, list_levels, map_levels, plain, rle, schema, snappy, statistics, thrift,
+};
 use crate::engine::{invalid, EngineResult};
 use crate::output::column_type::{ColumnType, Kind};
 
@@ -40,6 +42,8 @@ pub struct Column {
 pub enum Cell {
     Scalar(Option<Value>),
     Elements(Vec<String>),
+    /// A map column's raw pairs, for the same reason a list keeps raw texts.
+    Pairs(Vec<map_levels::Entry>),
 }
 
 /// What the footer needs to know about one column chunk.
@@ -53,6 +57,16 @@ struct ChunkMeta {
     codec: i32,
     num_values: i64,
     stats: Stats,
+    /// Which LEAF this chunk is, spelled as the reader addresses it.
+    ///
+    /// A scalar column is one leaf and one chunk; a list is one leaf under a
+    /// wrapper; a MAP is TWO — the key and the value — under one declared name.
+    /// The footer used to read the physical type and the path off the column,
+    /// which quietly assumed the first of those three.
+    path: Vec<String>,
+    physical_type: ColumnType,
+    /// Whether the leaf carries level streams, which decides if RLE is declared.
+    has_levels: bool,
 }
 
 impl ChunkMeta {
@@ -146,9 +160,14 @@ fn build_block(columns: &[Column], batch: &[Vec<Cell>]) -> EngineResult<Option<B
     let mut chunks: Vec<ChunkMeta> = Vec::new();
     let mut at = 0i64;
 
+    // Leaves, not columns: a map is two of them under one declared name, and
+    // each gets its own chunk.
+    let mut leaves: Vec<Page> = Vec::new();
     for (i, column) in columns.iter().enumerate() {
-        let page = page_body(column, &batch[i])?;
+        leaves.extend(column_leaves(column, &batch[i])?);
+    }
 
+    for page in leaves {
         // The codec is declared per column chunk, so the choice is made once for
         // the whole chunk — and only taken when it actually saves bytes. Snappy
         // adds framing, which on an already tiny dictionary page makes the
@@ -199,6 +218,9 @@ fn build_block(columns: &[Column], batch: &[Vec<Cell>]) -> EngineResult<Option<B
                 schema::UNCOMPRESSED
             },
             num_values: i64::from(page.num_values),
+            path: page.path.clone(),
+            physical_type: page.physical_type.clone(),
+            has_levels: page.has_levels,
             stats: page.stats,
         });
 
@@ -245,6 +267,147 @@ struct Page {
     dictionary_body: Option<Vec<u8>>,
     dictionary_count: i32,
     encoding: i32,
+    path: Vec<String>,
+    physical_type: ColumnType,
+    has_levels: bool,
+}
+
+/// The key type every map uses. Text, and never null: the format insists.
+fn map_key_type() -> ColumnType {
+    ColumnType {
+        kind: Kind::String,
+        nullable: false,
+        precision: 0,
+        scale: 0,
+        element: None,
+    }
+}
+
+/// The leaves one declared column becomes.
+///
+/// One for a scalar or a list, TWO for a map — its key and its value, which are
+/// separate columns in the file and share only their repetition levels.
+fn column_leaves(column: &Column, cells: &[Cell]) -> EngineResult<Vec<Page>> {
+    if column.ty.is_map() {
+        return map_leaves(column, cells);
+    }
+    let mut page = page_body(column, cells)?;
+    page.path = if column.ty.is_list() {
+        vec![
+            column.name.clone(),
+            "list".to_string(),
+            "element".to_string(),
+        ]
+    } else {
+        vec![column.name.clone()]
+    };
+    page.physical_type = if column.ty.is_list() {
+        (**column
+            .ty
+            .element
+            .as_ref()
+            .expect("a list carries its element type"))
+        .clone()
+    } else {
+        column.ty.clone()
+    };
+    page.has_levels = column.ty.is_list() || column.ty.nullable;
+    Ok(vec![page])
+}
+
+/// A map's two leaves.
+///
+/// The KEY stream is required text; the VALUE stream carries the column's
+/// declared type and may be optional. Both hold one level slot per pair, and one
+/// for a row whose map is empty.
+fn map_leaves(column: &Column, cells: &[Cell]) -> EngineResult<Vec<Page>> {
+    let value_type = (**column
+        .ty
+        .element
+        .as_ref()
+        .expect("a map carries its value type"))
+    .clone();
+    let rows: Vec<Vec<map_levels::Entry>> = cells
+        .iter()
+        .map(|cell| match cell {
+            Cell::Pairs(pairs) => pairs.clone(),
+            _ => Vec::new(),
+        })
+        .collect();
+    let levels = map_levels::build(&rows, value_type.nullable);
+    let key_type = map_key_type();
+
+    let mut key_values: Vec<Option<Value>> = Vec::new();
+    for text in &levels.keys {
+        if let Some(value) =
+            convert::of(text, &key_type).map_err(|e| crate::engine::EngineError::Invalid(e.0))?
+        {
+            key_values.push(Some(value));
+        }
+    }
+    let key_section = build_value_section(&key_type, &key_values)?;
+    let mut key_body = level_block(&levels.rep_levels, 1);
+    key_body.extend_from_slice(&level_block(
+        &levels.key_def_levels,
+        map_levels::KEY_MAX_DEF,
+    ));
+    key_body.extend_from_slice(&key_section.values);
+    let key_page = Page {
+        body: key_body,
+        num_values: levels.rep_levels.len() as i32,
+        // The same rule a list follows: a "null" is any level slot that did not
+        // reach the leaf. For the key leaf that is exactly the rows whose map is
+        // empty — a key itself is never absent.
+        stats: statistics::compute(
+            &key_type,
+            &key_values,
+            (levels.rep_levels.len() - key_values.len()) as i64,
+        ),
+        dictionary_body: key_section.dictionary_body,
+        dictionary_count: key_section.dictionary_count,
+        encoding: key_section.encoding,
+        path: vec![
+            column.name.clone(),
+            "key_value".to_string(),
+            "key".to_string(),
+        ],
+        physical_type: key_type,
+        has_levels: true,
+    };
+
+    let mut present: Vec<Option<Value>> = Vec::new();
+    for text in &levels.present {
+        if let Some(value) =
+            convert::of(text, &value_type).map_err(|e| crate::engine::EngineError::Invalid(e.0))?
+        {
+            present.push(Some(value));
+        }
+    }
+    let section = build_value_section(&value_type, &present)?;
+    let mut body = level_block(&levels.rep_levels, 1);
+    body.extend_from_slice(&level_block(&levels.value_def_levels, levels.max_value_def));
+    body.extend_from_slice(&section.values);
+    let value_page = Page {
+        body,
+        num_values: levels.rep_levels.len() as i32,
+        stats: statistics::compute(
+            &value_type,
+            &present,
+            (levels.rep_levels.len() - present.len()) as i64,
+        ),
+        dictionary_body: section.dictionary_body,
+        dictionary_count: section.dictionary_count,
+        encoding: section.encoding,
+        path: vec![
+            column.name.clone(),
+            "key_value".to_string(),
+            "value".to_string(),
+        ],
+        physical_type: value_type,
+        has_levels: true,
+    };
+
+    Ok(vec![key_page, value_page])
 }
 
 /// The page body and the number of LEVEL SLOTS it describes.
@@ -286,6 +449,10 @@ fn page_body(column: &Column, cells: &[Cell]) -> EngineResult<Page> {
             dictionary_body: section.dictionary_body,
             dictionary_count: section.dictionary_count,
             encoding: section.encoding,
+            // Filled by `column_leaves`, which knows the column's name and shape.
+            path: Vec::new(),
+            physical_type: column.ty.clone(),
+            has_levels: false,
         });
     }
 
@@ -298,7 +465,7 @@ fn page_body(column: &Column, cells: &[Cell]) -> EngineResult<Page> {
         .iter()
         .map(|cell| match cell {
             Cell::Elements(texts) => texts.clone(),
-            Cell::Scalar(_) => Vec::new(),
+            Cell::Scalar(_) | Cell::Pairs(_) => Vec::new(),
         })
         .collect();
     let levels = list_levels::build(&rows, element.nullable);
@@ -330,6 +497,10 @@ fn page_body(column: &Column, cells: &[Cell]) -> EngineResult<Page> {
         dictionary_body: section.dictionary_body,
         dictionary_count: section.dictionary_count,
         encoding: section.encoding,
+        // Filled by `column_leaves`, which knows the column's name and shape.
+        path: Vec::new(),
+        physical_type: (**element).clone(),
+        has_levels: true,
     })
 }
 
@@ -423,7 +594,7 @@ fn encode_values(ty: &ColumnType, present: &[Option<Value>]) -> EngineResult<Vec
                 })
                 .collect::<Vec<Vec<u8>>>(),
         ),
-        Kind::List => return invalid("parquet: cannot encode a list of lists"),
+        Kind::List | Kind::Map => return invalid("parquet: a list or map cannot be a leaf value"),
     })
 }
 
@@ -489,6 +660,14 @@ fn dictionary_page_header(raw_size: usize, compressed_size: usize, num_values: i
 /// `ColumnOrder` is a union whose only member, `TYPE_ORDER`, holds an EMPTY
 /// struct, so each entry is three bytes: the union's field header, the empty
 /// struct's stop byte, and the union's own stop byte.
+/// How many leaf columns the declared ones expand to: a map is two, the rest one.
+fn leaf_count(columns: &[Column]) -> usize {
+    columns
+        .iter()
+        .map(|c| if c.ty.is_map() { 2 } else { 1 })
+        .sum()
+}
+
 fn write_column_orders(w: &mut Thrift, leaves: usize) {
     w.list_begin(7, thrift::STRUCT_TYPE, leaves);
     for _ in 0..leaves {
@@ -509,7 +688,7 @@ fn footer(columns: &[Column], groups: &[GroupMeta], num_rows: i64) -> EngineResu
     w.i64(3, num_rows);
     write_row_groups(&mut w, columns, groups)?;
     w.string(6, CREATED_BY);
-    write_column_orders(&mut w, columns.len());
+    write_column_orders(&mut w, leaf_count(columns));
     w.struct_end();
 
     let bytes = w.into_bytes();
@@ -558,7 +737,15 @@ fn write_schema(w: &mut Thrift, columns: &[Column]) -> EngineResult<()> {
     // The root plus every SchemaElement — a list contributes three, not one.
     let elements: usize = columns
         .iter()
-        .map(|c| if c.ty.is_list() { 3 } else { 1 })
+        .map(|c| {
+            if c.ty.is_list() {
+                3
+            } else if c.ty.is_map() {
+                4
+            } else {
+                1
+            }
+        })
         .sum();
     w.list_begin(2, thrift::STRUCT_TYPE, elements + 1);
 
@@ -569,6 +756,10 @@ fn write_schema(w: &mut Thrift, columns: &[Column]) -> EngineResult<()> {
     w.struct_end();
 
     for column in columns {
+        if let Some(value) = column.ty.element.as_ref().filter(|_| column.ty.is_map()) {
+            write_map_schema(w, &column.name, value)?;
+            continue;
+        }
         if let Some(element) = column.ty.element.as_ref().filter(|_| column.ty.is_list()) {
             write_list_schema(w, &column.name, element)?;
             continue;
@@ -653,6 +844,71 @@ fn write_list_schema(w: &mut Thrift, name: &str, element: &ColumnType) -> Engine
     Ok(())
 }
 
+/// The four-element MAP wrapper.
+///
+/// The names `key_value`, `key` and `value` are fixed by the Parquet spec, not
+/// our choice; readers match on the annotated shape and quietly mis-assemble
+/// anything else. The key is REQUIRED because the format says so: a pair with no
+/// key is not a pair, and a reader given an optional key has no way to index it.
+fn write_map_schema(w: &mut Thrift, name: &str, value: &ColumnType) -> EngineResult<()> {
+    w.struct_begin();
+    w.i32(3, schema::REQUIRED);
+    w.string(4, name);
+    w.i32(5, 1); // num_children
+    w.i32(6, schema::CT_MAP);
+    w.field_begin(10, thrift::STRUCT_TYPE); // logicalType
+    w.struct_begin();
+    w.field_begin(schema::LT_MAP, thrift::STRUCT_TYPE);
+    w.struct_begin();
+    w.struct_end();
+    w.struct_end();
+    w.struct_end();
+
+    w.struct_begin();
+    w.i32(3, schema::REPEATED);
+    w.string(4, "key_value");
+    w.i32(5, 2); // num_children — the key and the value
+    w.struct_end();
+
+    let key_type = map_key_type();
+    let key_map = mapping_of(&key_type)?;
+    w.struct_begin();
+    w.i32(1, key_map.physical);
+    w.i32(3, schema::REQUIRED);
+    w.string(4, "key");
+    if key_map.converted_type != schema::NONE {
+        w.i32(6, key_map.converted_type);
+    }
+    write_logical_type(w, &key_map);
+    w.struct_end();
+
+    let map = mapping_of(value)?;
+    w.struct_begin();
+    w.i32(1, map.physical);
+    if map.type_length > 0 {
+        w.i32(2, map.type_length);
+    }
+    w.i32(
+        3,
+        if value.nullable {
+            schema::OPTIONAL
+        } else {
+            schema::REQUIRED
+        },
+    );
+    w.string(4, "value");
+    if map.converted_type != schema::NONE {
+        w.i32(6, map.converted_type);
+    }
+    if map.logical_field == schema::LT_DECIMAL {
+        w.i32(7, map.scale);
+        w.i32(8, map.precision);
+    }
+    write_logical_type(w, &map);
+    w.struct_end();
+    Ok(())
+}
+
 /// parquet.thrift's `Statistics`, field 12 of ColumnMetaData.
 ///
 /// Only the null count and the min/max VALUE fields — never the deprecated
@@ -675,19 +931,12 @@ fn write_row_groups(w: &mut Thrift, columns: &[Column], groups: &[GroupMeta]) ->
     w.list_begin(4, thrift::STRUCT_TYPE, groups.len());
     for group in groups {
         w.struct_begin();
-        w.list_begin(1, thrift::STRUCT_TYPE, columns.len()); // columns
+        w.list_begin(1, thrift::STRUCT_TYPE, group.chunks.len()); // columns
         let mut total_byte_size = 0i64;
 
-        for (i, column) in columns.iter().enumerate() {
-            let chunk = &group.chunks[i];
+        for chunk in &group.chunks {
             total_byte_size += chunk.total_size;
-            let listed = column.ty.is_list();
-            let leaf = if listed {
-                column.ty.element.as_deref().unwrap_or(&column.ty)
-            } else {
-                &column.ty
-            };
-            let map = mapping_of(leaf)?;
+            let map = mapping_of(&chunk.physical_type)?;
 
             w.struct_begin();
             w.i64(2, chunk.offset); // file_offset — the dictionary page when there is one
@@ -700,7 +949,7 @@ fn write_row_groups(w: &mut Thrift, columns: &[Column], groups: &[GroupMeta]) ->
             // dictionary. A list always carries levels, so RLE is always among
             // its encodings too.
             let mut encodings = vec![schema::PLAIN_ENCODING];
-            if listed || column.ty.nullable {
+            if chunk.has_levels {
                 encodings.push(schema::RLE_ENCODING);
             }
             if chunk.has_dictionary() {
@@ -712,14 +961,9 @@ fn write_row_groups(w: &mut Thrift, columns: &[Column], groups: &[GroupMeta]) ->
             }
 
             // The chunk addresses the LEAF, so a list's path walks through its
-            // wrapper.
-            let path: Vec<&str> = if listed {
-                vec![&column.name, "list", "element"]
-            } else {
-                vec![&column.name]
-            };
-            w.list_begin(3, thrift::BINARY, path.len()); // path_in_schema
-            for segment in &path {
+            // wrapper and a map's names which of its two columns this is.
+            w.list_begin(3, thrift::BINARY, chunk.path.len()); // path_in_schema
+            for segment in &chunk.path {
                 w.list_string(segment);
             }
 

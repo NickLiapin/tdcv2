@@ -110,7 +110,7 @@ public static class ParquetOutput
             types.Add(type);
             // A declared []T needs a separator too; a comma when the column was typed by hand rather
             // than derived from a repeating generator.
-            if (type.IsList)
+            if (type.IsRepeated)
             {
                 string? source = Columns.SoleReference(column.Template, config.Inject ?? "${{%}}");
                 string? separator = source is null ? null : Columns.SeparatorOf(source, config);
@@ -169,6 +169,12 @@ public static class ParquetOutput
                                 text.Length == 0
                                     ? Array.Empty<string>()
                                     : Split(text, plan.Separators[i]!)));
+                        }
+                        else if (type.IsMap)
+                        {
+                            batch[i].Add(new Writer.Cell.Pairs(
+                                Tdcv2.Output.Parquet.MapLevels.ParseCell(
+                                    text, plan.Separators[i]!, type.Element!.Nullable)));
                         }
                         else
                         {

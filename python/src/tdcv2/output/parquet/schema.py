@@ -43,6 +43,7 @@ DICTIONARY_PAGE = 2
 
 # parquet.thrift ConvertedType — the legacy annotation.
 CT_UTF8 = 0
+CT_MAP = 1
 CT_LIST = 3
 CT_ENUM = 4
 CT_DECIMAL = 5
@@ -56,6 +57,7 @@ CT_JSON = 19
 
 # Field id of the variant inside parquet.thrift's LogicalType union.
 LT_STRING = 1
+LT_MAP = 2
 LT_LIST = 3
 """Three in the LogicalType union. ConvertedType.LIST is also three, but the two enums are
 unrelated — four here would mean ENUM."""

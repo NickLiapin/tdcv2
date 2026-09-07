@@ -41,12 +41,23 @@ public static class Writer
         public sealed record Scalar(Convert.Value? Value) : Cell;
 
         public sealed record Elements(IReadOnlyList<string> Texts) : Cell;
+
+        /// <summary>A map column's raw pairs, for the same reason a list keeps raw texts.</summary>
+        public sealed record Pairs(IReadOnlyList<MapLevels.Entry> Entries) : Cell;
     }
 
     /// <summary>What the footer needs to know about one column chunk.</summary>
+    /// <param name="Path">
+    /// Which LEAF this chunk is, spelled as the reader addresses it. A scalar column is one leaf
+    /// and one chunk; a list is one leaf under a wrapper; a MAP is TWO — the key and the value —
+    /// under one declared name. The footer used to read the physical type and the path off the
+    /// column, which quietly assumed the first of those three.
+    /// </param>
+    /// <param name="HasLevels">Whether the leaf carries level streams, which decides if RLE is declared.</param>
     public sealed record ChunkMeta(
         long Offset, long DataOffset, long DictionaryOffset, long TotalSize, long RawSize,
-        int Codec, long NumValues, Statistics.Result Stats)
+        int Codec, long NumValues, Statistics.Result Stats,
+        IReadOnlyList<string> Path, ColumnType PhysicalType, bool HasLevels)
     {
         internal bool HasDictionary => DictionaryOffset >= 0;
     }
@@ -128,9 +139,16 @@ public static class Writer
         var chunks = new List<ChunkMeta>();
         long at = 0;
 
+        // Leaves, not columns: a map is two of them under one declared name, and each gets its
+        // own chunk.
+        var leaves = new List<Page>();
         for (int i = 0; i < columns.Count; i++)
         {
-            Page page = PageBody(columns[i], batch[i]);
+            leaves.AddRange(ColumnLeaves(columns[i], batch[i]));
+        }
+
+        foreach (Page page in leaves)
+        {
 
             // The codec is declared per column chunk, so the choice is made once for the whole chunk
             // — and only taken when it actually saves bytes. Snappy adds framing, which on an
@@ -163,7 +181,10 @@ public static class Writer
                 (long)dictSize + header.Length + page.Body.Length,
                 compress ? Schema.SnappyCodec : Schema.Uncompressed,
                 page.NumValues,
-                page.Stats!));
+                page.Stats!,
+                page.Path,
+                page.PhysicalType!,
+                page.HasLevels));
 
             if (dictPage is not null)
             {
@@ -197,6 +218,103 @@ public static class Writer
         internal byte[]? DictionaryBody;
         internal int DictionaryCount;
         internal int Encoding;
+        internal IReadOnlyList<string> Path = Array.Empty<string>();
+        internal ColumnType? PhysicalType;
+        internal bool HasLevels;
+    }
+
+    /// <summary>The key type every map uses. Text, and never null: the format insists.</summary>
+    private static readonly ColumnType KeyType = ColumnType.Parse("string");
+
+    /// <summary>
+    /// The leaves one declared column becomes: one for a scalar or a list, TWO for a map — its key
+    /// and its value, which are separate columns in the file and share only their repetition levels.
+    /// </summary>
+    private static List<Page> ColumnLeaves(Column column, IReadOnlyList<Cell> cells)
+    {
+        if (column.Type.IsMap)
+        {
+            return MapLeaves(column, cells);
+        }
+
+        Page page = PageBody(column, cells);
+        page.Path = column.Type.IsList
+            ? new[] { column.Name, "list", "element" }
+            : new[] { column.Name };
+        page.PhysicalType = column.Type.IsList ? column.Type.Element! : column.Type;
+        page.HasLevels = column.Type.IsList || column.Type.Nullable;
+        return new List<Page> { page };
+    }
+
+    /// <summary>
+    /// A map's two leaves. The KEY stream is required text; the VALUE stream carries the column's
+    /// declared type and may be optional. Both hold one level slot per pair, and one for a row
+    /// whose map is empty.
+    /// </summary>
+    private static List<Page> MapLeaves(Column column, IReadOnlyList<Cell> cells)
+    {
+        ColumnType valueType = column.Type.Element!;
+        var rows = cells.Select(cell => ((Cell.Pairs)cell).Entries).ToList();
+        MapLevels.Built levels = MapLevels.Build(rows, valueType.Nullable);
+
+        var keyValues = new List<Convert.Value?>();
+        foreach (string text in levels.Keys)
+        {
+            if (Convert.Of(text, KeyType) is { } value)
+            {
+                keyValues.Add(value);
+            }
+        }
+
+        ValueSection keySection = BuildValueSection(KeyType, keyValues);
+        var keyPage = new Page
+        {
+            Body = Concat(
+                LevelBlock(levels.RepLevels, 1),
+                LevelBlock(levels.KeyDefLevels, MapLevels.KeyMaxDef),
+                keySection.Values),
+            NumValues = levels.RepLevels.Length,
+            // The same rule a list follows: a "null" is any level slot that did not reach the
+            // leaf. For the key leaf that is exactly the rows whose map is empty — a key itself is
+            // never absent.
+            Stats = Statistics.Compute(
+                KeyType, keyValues, levels.RepLevels.Length - keyValues.Count),
+            DictionaryBody = keySection.DictionaryBody,
+            DictionaryCount = keySection.DictionaryCount,
+            Encoding = keySection.Encoding,
+            Path = new[] { column.Name, "key_value", "key" },
+            PhysicalType = KeyType,
+            HasLevels = true,
+        };
+
+        var present = new List<Convert.Value?>();
+        foreach (string text in levels.Present)
+        {
+            if (Convert.Of(text, valueType) is { } value)
+            {
+                present.Add(value);
+            }
+        }
+
+        ValueSection section = BuildValueSection(valueType, present);
+        var valuePage = new Page
+        {
+            Body = Concat(
+                LevelBlock(levels.RepLevels, 1),
+                LevelBlock(levels.ValueDefLevels, levels.MaxValueDef),
+                section.Values),
+            NumValues = levels.RepLevels.Length,
+            Stats = Statistics.Compute(
+                valueType, present, levels.RepLevels.Length - present.Count),
+            DictionaryBody = section.DictionaryBody,
+            DictionaryCount = section.DictionaryCount,
+            Encoding = section.Encoding,
+            Path = new[] { column.Name, "key_value", "value" },
+            PhysicalType = valueType,
+            HasLevels = true,
+        };
+
+        return new List<Page> { keyPage, valuePage };
     }
 
     /// <summary>
@@ -413,6 +531,10 @@ public static class Writer
     /// <c>TYPE_ORDER</c>, holds an EMPTY struct, so each entry is three bytes.
     /// </para>
     /// </remarks>
+    /// <summary>How many leaf columns the declared ones expand to: a map is two, the rest one.</summary>
+    private static int LeafCount(IReadOnlyList<Column> columns) =>
+        columns.Sum(column => column.Type.IsMap ? 2 : 1);
+
     private static void WriteColumnOrders(Thrift w, int leaves)
     {
         w.ListBegin(7, Thrift.StructType, leaves);
@@ -437,7 +559,7 @@ public static class Writer
         w.I64(3, numRows);
         WriteRowGroups(w, columns, groups);
         w.String(6, CreatedBy);
-        WriteColumnOrders(w, columns.Count);
+        WriteColumnOrders(w, LeafCount(columns));
         w.StructEnd();
         byte[] bytes = w.Bytes();
 
@@ -489,7 +611,8 @@ public static class Writer
     private static void WriteSchema(Thrift w, IReadOnlyList<Column> columns)
     {
         // The root plus every SchemaElement — a list contributes three, not one.
-        int elements = columns.Sum(column => column.Type.IsList ? 3 : 1);
+        int elements = columns.Sum(
+            column => column.Type.IsList ? 3 : column.Type.IsMap ? 4 : 1);
         w.ListBegin(2, Thrift.StructType, elements + 1);
 
         // The root element: a name and the child count, nothing else.
@@ -500,6 +623,12 @@ public static class Writer
 
         foreach (Column column in columns)
         {
+            if (column.Type.IsMap)
+            {
+                WriteMapSchema(w, column.Name, column.Type.Element!);
+                continue;
+            }
+
             if (column.Type.IsList)
             {
                 WriteListSchema(w, column.Name, column.Type.Element!);
@@ -539,6 +668,72 @@ public static class Writer
     /// The names <c>list</c> and <c>element</c> are fixed by the format rather than chosen here;
     /// readers match on the annotated shape.
     /// </remarks>
+    /// <summary>The four-element MAP wrapper.</summary>
+    /// <remarks>
+    /// The names <c>key_value</c>, <c>key</c> and <c>value</c> are fixed by the Parquet spec, not
+    /// our choice; readers match on the annotated shape and quietly mis-assemble anything else. The
+    /// key is REQUIRED because the format says so: a pair with no key is not a pair, and a reader
+    /// given an optional key has no way to index it.
+    /// </remarks>
+    private static void WriteMapSchema(Thrift w, string name, ColumnType value)
+    {
+        w.StructBegin();
+        w.I32(3, Schema.Required);
+        w.String(4, name);
+        w.I32(5, 1); // num_children
+        w.I32(6, Schema.CtMap);
+        w.FieldBegin(10, Thrift.StructType); // logicalType
+        w.StructBegin();
+        w.FieldBegin(Schema.LtMap, Thrift.StructType);
+        w.StructBegin();
+        w.StructEnd();
+        w.StructEnd();
+        w.StructEnd();
+
+        w.StructBegin();
+        w.I32(3, Schema.Repeated);
+        w.String(4, "key_value");
+        w.I32(5, 2); // num_children — the key and the value
+        w.StructEnd();
+
+        Schema.Mapping keyMapping = Schema.Map(KeyType);
+        w.StructBegin();
+        w.I32(1, keyMapping.Physical);
+        w.I32(3, Schema.Required);
+        w.String(4, "key");
+        if (keyMapping.ConvertedType != Schema.None)
+        {
+            w.I32(6, keyMapping.ConvertedType);
+        }
+
+        WriteLogicalType(w, keyMapping);
+        w.StructEnd();
+
+        Schema.Mapping map = Schema.Map(value);
+        w.StructBegin();
+        w.I32(1, map.Physical);
+        if (map.TypeLength > 0)
+        {
+            w.I32(2, map.TypeLength);
+        }
+
+        w.I32(3, value.Nullable ? Schema.Optional : Schema.Required);
+        w.String(4, "value");
+        if (map.ConvertedType != Schema.None)
+        {
+            w.I32(6, map.ConvertedType);
+        }
+
+        if (map.LogicalField == Schema.LtDecimal)
+        {
+            w.I32(7, map.Scale);
+            w.I32(8, map.Precision);
+        }
+
+        WriteLogicalType(w, map);
+        w.StructEnd();
+    }
+
     private static void WriteListSchema(Thrift w, string name, ColumnType element)
     {
         w.StructBegin();
@@ -618,15 +813,12 @@ public static class Writer
         foreach (GroupMeta group in groups)
         {
             w.StructBegin();
-            w.ListBegin(1, Thrift.StructType, columns.Count); // columns
+            w.ListBegin(1, Thrift.StructType, group.Chunks.Count); // columns
             long totalByteSize = 0;
-            for (int i = 0; i < columns.Count; i++)
+            foreach (ChunkMeta chunk in group.Chunks)
             {
-                Column column = columns[i];
-                ChunkMeta chunk = group.Chunks[i];
                 totalByteSize += chunk.TotalSize;
-                bool listed = column.Type.IsList;
-                Schema.Mapping map = Schema.Map(listed ? column.Type.Element! : column.Type);
+                Schema.Mapping map = Schema.Map(chunk.PhysicalType);
 
                 w.StructBegin();
                 w.I64(2, chunk.Offset); // file_offset — the dictionary page when there is one
@@ -637,7 +829,7 @@ public static class Writer
                 // values are written when there is no dictionary. A list always carries levels, so
                 // RLE is always among its encodings too.
                 var encodings = new List<int> { Schema.PlainEncoding };
-                if (listed || column.Type.Nullable)
+                if (chunk.HasLevels)
                 {
                     encodings.Add(Schema.RleEncoding);
                 }
@@ -653,12 +845,10 @@ public static class Writer
                     w.ListI32(e);
                 }
 
-                // The chunk addresses the LEAF, so a list's path walks through its wrapper.
-                string[] path = listed
-                    ? new[] { column.Name, "list", "element" }
-                    : new[] { column.Name };
-                w.ListBegin(3, Thrift.Binary, path.Length); // path_in_schema
-                foreach (string segment in path)
+                // The chunk addresses the LEAF, so a list's path walks through its wrapper and a
+                // map's names which of its two columns this is.
+                w.ListBegin(3, Thrift.Binary, chunk.Path.Count); // path_in_schema
+                foreach (string segment in chunk.Path)
                 {
                     w.ListString(segment);
                 }

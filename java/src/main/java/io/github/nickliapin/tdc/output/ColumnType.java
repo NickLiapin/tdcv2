@@ -40,7 +40,14 @@ public final class ColumnType {
     UUID,
     JSON,
     /** A list of the element type — {@code type="[]int64"}. */
-    LIST;
+    LIST,
+    /**
+     * A map from text to the value type — {@code type="{}int64"}.
+     *
+     * <p>The KEY is always text: Parquet forbids a null key, a cell arrives here as text anyway,
+     * and a second type parameter would double the syntax to buy a conversion nobody asked for.
+     */
+    MAP;
 
     String lower() {
       return name().toLowerCase(java.util.Locale.ROOT);
@@ -85,13 +92,22 @@ public final class ColumnType {
     return scale;
   }
 
-  /** A list's element type, or {@code null} when this is not a list. */
+  /** A list's element type or a map's VALUE type; {@code null} when neither. */
   public ColumnType element() {
     return element;
   }
 
   public boolean isList() {
     return kind == Kind.LIST;
+  }
+
+  public boolean isMap() {
+    return kind == Kind.MAP;
+  }
+
+  /** A list or a map — the shapes that hold several values in one cell. */
+  public boolean isRepeated() {
+    return isList() || isMap();
   }
 
   /**
@@ -104,6 +120,17 @@ public final class ColumnType {
    */
   public static ColumnType parseOutput(String raw) {
     String text = raw.trim();
+    if (text.startsWith("{}")) {
+      String value = text.substring(2).trim();
+      if (value.isEmpty()) {
+        throw new IllegalArgumentException("map type needs a value type, e.g. {}int64");
+      }
+      if (value.startsWith("[]") || value.startsWith("{}")) {
+        throw new IllegalArgumentException(
+            "a map value cannot itself be a list or a map, got \"" + text + "\"");
+      }
+      return new ColumnType(Kind.MAP, false, 0, 0, parse(value));
+    }
     if (!text.startsWith("[]")) {
       return parse(text);
     }
@@ -113,6 +140,9 @@ public final class ColumnType {
     }
     if (inner.startsWith("[]")) {
       throw new IllegalArgumentException("nested lists are not supported, got \"" + text + "\"");
+    }
+    if (inner.startsWith("{}")) {
+      throw new IllegalArgumentException("a list of maps is not supported, got \"" + text + "\"");
     }
     return new ColumnType(Kind.LIST, false, 0, 0, parse(inner));
   }
@@ -199,6 +229,9 @@ public final class ColumnType {
   public String toString() {
     if (kind == Kind.LIST) {
       return "[]" + element;
+    }
+    if (kind == Kind.MAP) {
+      return "{}" + element;
     }
     String base =
         kind == Kind.DECIMAL ? "decimal(" + precision + "," + scale + ")" : kind.lower();

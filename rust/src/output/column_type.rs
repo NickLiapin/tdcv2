@@ -33,6 +33,12 @@ pub enum Kind {
     Json,
     /// A list of the element type — `type="[]int64"`.
     List,
+    /// A map from text to the value type — `type="{}int64"`.
+    ///
+    /// The KEY is always text: Parquet forbids a null key, a cell arrives here
+    /// as text anyway, and a second type parameter would double the syntax to
+    /// buy a conversion nobody asked for.
+    Map,
 }
 
 /// The widest decimal an int64 can hold; 10^19 overflows a signed 64-bit
@@ -48,7 +54,7 @@ pub struct ColumnType {
     pub precision: i32,
     /// decimal only: digits after the point.
     pub scale: i32,
-    /// A list's element type, or `None` when this is not a list.
+    /// A list's element type or a map's VALUE type; `None` when neither.
     pub element: Option<Box<ColumnType>>,
 }
 
@@ -72,6 +78,15 @@ impl ColumnType {
         self.kind == Kind::List
     }
 
+    pub fn is_map(&self) -> bool {
+        self.kind == Kind::Map
+    }
+
+    /// A list or a map — the shapes that hold several values in one cell.
+    pub fn is_repeated(&self) -> bool {
+        self.is_list() || self.is_map()
+    }
+
     /// Parse a `type="…"` that may be a list.
     ///
     /// In `[]int64|null` the `|null` binds to the ELEMENT — read left to right,
@@ -81,6 +96,24 @@ impl ColumnType {
     /// there is no way to say "no list at all".
     pub fn parse_output(raw: &str) -> Result<ColumnType, TypeError> {
         let text = raw.trim();
+        if let Some(inner) = text.strip_prefix("{}") {
+            let inner = inner.trim();
+            if inner.is_empty() {
+                return fail("map type needs a value type, e.g. {}int64");
+            }
+            if inner.starts_with("[]") || inner.starts_with("{}") {
+                return fail(format!(
+                    "a map value cannot itself be a list or a map, got \"{text}\""
+                ));
+            }
+            return Ok(ColumnType {
+                kind: Kind::Map,
+                nullable: false,
+                precision: 0,
+                scale: 0,
+                element: Some(Box::new(ColumnType::parse(inner)?)),
+            });
+        }
         let Some(inner) = text.strip_prefix("[]") else {
             return ColumnType::parse(text);
         };
@@ -91,6 +124,9 @@ impl ColumnType {
         }
         if inner.starts_with("[]") {
             return fail(format!("nested lists are not supported, got \"{text}\""));
+        }
+        if inner.starts_with("{}") {
+            return fail(format!("a list of maps is not supported, got \"{text}\""));
         }
 
         Ok(ColumnType {

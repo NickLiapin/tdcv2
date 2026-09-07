@@ -8,8 +8,14 @@
  * Spec: docs/specs/2026-07-19-typed-output-and-parquet-writer.md §6-7.
  */
 
-import { isListType, type OutputColumnType } from '../column-type.js';
-import type { ColumnType } from '../column-type.js';
+import {
+  isListType,
+  isMapType,
+  type ColumnType,
+  type MapColumnType,
+  type OutputColumnType,
+} from '../column-type.js';
+import { buildMapLevels, MAP_KEY_MAX_DEF, type MapEntry } from './map.js';
 import { convertValue } from './convert.js';
 import { buildListLevels, levelBitWidth } from './list.js';
 import { computeStatistics, type ColumnStatistics } from './statistics.js';
@@ -53,10 +59,11 @@ export interface ParquetSchemaColumn {
 
 /**
  * One cell. A scalar column holds a converted value; a LIST column holds the
- * row's raw element texts, because the definition levels have to be decided
- * (which elements are NULL) before anything is converted.
+ * row's raw element texts, and a MAP its raw pairs, because the definition
+ * levels have to be decided (which entries are NULL) before anything is
+ * converted.
  */
-export type ParquetCell = TypedValue | readonly string[];
+export type ParquetCell = TypedValue | readonly string[] | readonly MapEntry[];
 
 export interface ParquetColumn extends ParquetSchemaColumn {
   /** One entry per ROW. */
@@ -79,11 +86,29 @@ export interface ChunkMeta {
   /** Level slots, NOT rows — for a list they differ. */
   readonly numValues: number;
   readonly statistics: ColumnStatistics;
+  /**
+   * Which LEAF this chunk is, spelled as the reader addresses it.
+   *
+   * A scalar column is one leaf and one chunk; a list is one leaf under a
+   * wrapper; a MAP is TWO — the key and the value — under one declared name.
+   * The footer used to read the physical type and the path off the column,
+   * which quietly assumed the first of those three.
+   */
+  readonly path: readonly string[];
+  readonly physicalType: ColumnType;
+  /** Whether the leaf carries level streams, which decides if RLE is declared. */
+  readonly hasLevels: boolean;
 }
 
-/** The leaf type that actually carries bytes: the element type for a list. */
+/**
+ * The leaf type that actually carries bytes: the element type for a list, the
+ * VALUE type for a map — the key's leaf is described where it is built, because
+ * it is always text and never the declared type.
+ */
 function leafType(type: OutputColumnType): ColumnType {
-  return isListType(type) ? type.element : type;
+  if (isListType(type)) return type.element;
+  if (isMapType(type)) return type.value;
+  return type;
 }
 
 function encodeValues(type: ColumnType, present: readonly TypedValue[]): Uint8Array {
@@ -171,6 +196,98 @@ function encodeValueSection(
   };
 }
 
+/** One leaf's page: the bytes, and what the footer has to say about them. */
+interface LeafPage {
+  body: Uint8Array;
+  numValues: number;
+  statistics: ColumnStatistics;
+  dictionaryBody?: Uint8Array;
+  dictionaryCount?: number;
+  encoding: number;
+  path: readonly string[];
+  physicalType: ColumnType;
+  hasLevels: boolean;
+}
+
+/**
+ * The leaves one declared column becomes: one for a scalar or a list, TWO for a
+ * map — its key and its value, which are separate columns in the file and share
+ * only their repetition levels.
+ */
+function encodeColumnLeaves(column: ParquetColumn): LeafPage[] {
+  if (isMapType(column.type)) return encodeMapLeaves(column, column.type);
+  const single = encodePageBody(column);
+  return [
+    {
+      ...single,
+      path: isListType(column.type) ? [column.name, 'list', 'element'] : [column.name],
+      physicalType: leafType(column.type),
+      hasLevels: isListType(column.type) || column.type.nullable,
+    },
+  ];
+}
+
+/**
+ * A map's two leaves. The KEY stream is required text; the VALUE stream carries
+ * the column's declared type and may be optional. Both hold one level slot per
+ * pair, and one for a row whose map is empty.
+ */
+function encodeMapLeaves(column: ParquetColumn, type: MapColumnType): LeafPage[] {
+  const rows = column.values as readonly (readonly MapEntry[])[];
+  const levels = buildMapLevels(rows, type.value.nullable);
+  const keyType: ColumnType = { kind: 'string', nullable: false };
+
+  const keyValues = levels.keys.map((text) => convertValue(text, keyType));
+  const keySection = encodeValueSection(keyType, keyValues);
+  const keyPage: LeafPage = {
+    body: concat([
+      levelBlock(levels.repLevels, 1),
+      levelBlock(levels.keyDefLevels, MAP_KEY_MAX_DEF),
+      keySection.values,
+    ]),
+    numValues: levels.repLevels.length,
+    // The same rule a list follows: a "null" is any level slot that did not
+    // reach the leaf. For the key leaf that is exactly the rows whose map is
+    // empty — a key itself is never absent.
+    statistics: computeStatistics(keyType, keyValues, levels.repLevels.length - keyValues.length),
+    ...(keySection.dictionaryBody
+      ? {
+          dictionaryBody: keySection.dictionaryBody,
+          dictionaryCount: keySection.dictionaryCount,
+        }
+      : {}),
+    encoding: keySection.encoding,
+    path: [column.name, 'key_value', 'key'],
+    physicalType: keyType,
+    hasLevels: true,
+  };
+
+  const converted = levels.present.map((text) => convertValue(text, type.value));
+  const present = converted.filter((v) => v !== null);
+  const valueSection = encodeValueSection(type.value, present);
+  const valuePage: LeafPage = {
+    body: concat([
+      levelBlock(levels.repLevels, 1),
+      levelBlock(levels.valueDefLevels, levels.maxValueDef),
+      valueSection.values,
+    ]),
+    numValues: levels.repLevels.length,
+    statistics: computeStatistics(type.value, present, levels.repLevels.length - present.length),
+    ...(valueSection.dictionaryBody
+      ? {
+          dictionaryBody: valueSection.dictionaryBody,
+          dictionaryCount: valueSection.dictionaryCount,
+        }
+      : {}),
+    encoding: valueSection.encoding,
+    path: [column.name, 'key_value', 'value'],
+    physicalType: type.value,
+    hasLevels: true,
+  };
+
+  return [keyPage, valuePage];
+}
+
 function encodePageBody(column: ParquetColumn): {
   body: Uint8Array;
   numValues: number;
@@ -179,6 +296,9 @@ function encodePageBody(column: ParquetColumn): {
   dictionaryCount?: number;
   encoding: number;
 } {
+  // A map never reaches here — `encodeColumnLeaves` sends it to its own builder,
+  // because one declared map is two leaves and this returns one page.
+  if (isMapType(column.type)) throw new Error('a map column has two leaves, not one');
   if (!isListType(column.type)) {
     const cells = column.values as readonly TypedValue[];
     const present = cells.filter((v) => v !== null);
@@ -298,8 +418,11 @@ function writeLogicalType(w: CompactWriter, map: ParquetTypeMapping): void {
 }
 
 function writeSchema(w: CompactWriter, columns: readonly ParquetSchemaColumn[]): void {
-  // Root + every SchemaElement: a list contributes three, not one.
-  const elements = columns.reduce((n, c) => n + (isListType(c.type) ? 3 : 1), 0);
+  // Root + every SchemaElement: a list contributes three and a map four, not one.
+  const elements = columns.reduce(
+    (n, c) => n + (isListType(c.type) ? 3 : isMapType(c.type) ? 4 : 1),
+    0,
+  );
   w.listBegin(2, CompactType.STRUCT, elements + 1);
 
   // Root element: just a name and the child count.
@@ -311,6 +434,10 @@ function writeSchema(w: CompactWriter, columns: readonly ParquetSchemaColumn[]):
   for (const column of columns) {
     if (isListType(column.type)) {
       writeListSchema(w, column.name, column.type.element);
+      continue;
+    }
+    if (isMapType(column.type)) {
+      writeMapSchema(w, column.name, column.type.value);
       continue;
     }
     const map = mapColumnType(column.type);
@@ -367,6 +494,63 @@ function writeListSchema(w: CompactWriter, name: string, element: ColumnType): v
 }
 
 /**
+ * The four-element MAP wrapper. The names `key_value`, `key` and `value` are
+ * fixed by the Parquet spec, not our choice; readers match on the annotated
+ * shape and quietly mis-assemble anything else.
+ *
+ *     required group <name> (MAP) {
+ *         repeated group key_value {
+ *             required BYTE_ARRAY key (STRING);
+ *             required|optional <physical> value;
+ *         }
+ *     }
+ *
+ * The key is REQUIRED because the format says so: a pair with no key is not a
+ * pair, and a reader given an optional key has no way to index it.
+ */
+function writeMapSchema(w: CompactWriter, name: string, value: ColumnType): void {
+  w.structBegin();
+  w.i32(3, Repetition.REQUIRED);
+  w.string(4, name);
+  w.i32(5, 1); // num_children
+  w.i32(6, ConvertedType.MAP);
+  w.fieldBegin(10, CompactType.STRUCT); // logicalType
+  w.structBegin();
+  w.fieldBegin(LogicalTypeField.MAP, CompactType.STRUCT);
+  w.structBegin();
+  w.structEnd();
+  w.structEnd();
+  w.structEnd();
+
+  w.structBegin();
+  w.i32(3, Repetition.REPEATED);
+  w.string(4, 'key_value');
+  w.i32(5, 2); // num_children — the key and the value
+  w.structEnd();
+
+  const keyMapping = mapColumnType({ kind: 'string', nullable: false });
+  w.structBegin();
+  w.i32(1, keyMapping.physical);
+  w.i32(3, Repetition.REQUIRED);
+  w.string(4, 'key');
+  if (keyMapping.convertedType !== undefined) w.i32(6, keyMapping.convertedType);
+  writeLogicalType(w, keyMapping);
+  w.structEnd();
+
+  const valueMapping = mapColumnType(value);
+  w.structBegin();
+  w.i32(1, valueMapping.physical);
+  if (valueMapping.typeLength !== undefined) w.i32(2, valueMapping.typeLength);
+  w.i32(3, value.nullable ? Repetition.OPTIONAL : Repetition.REQUIRED);
+  w.string(4, 'value');
+  if (valueMapping.convertedType !== undefined) w.i32(6, valueMapping.convertedType);
+  if (valueMapping.scale !== undefined) w.i32(7, valueMapping.scale);
+  if (valueMapping.precision !== undefined) w.i32(8, valueMapping.precision);
+  writeLogicalType(w, valueMapping);
+  w.structEnd();
+}
+
+/**
  * parquet.thrift `Statistics`, field 12 of ColumnMetaData.
  *
  * Only `null_count` (3), `max_value` (5) and `min_value` (6) — NOT the
@@ -396,12 +580,9 @@ function writeRowGroups(
   w.listBegin(4, CompactType.STRUCT, groups.length);
   for (const group of groups) {
     w.structBegin();
-    w.listBegin(1, CompactType.STRUCT, columns.length); // columns
-    columns.forEach((column, i) => {
-      const chunk = group.chunks[i];
-      if (!chunk) return;
-      const listed = isListType(column.type);
-      const map = mapColumnType(leafType(column.type));
+    w.listBegin(1, CompactType.STRUCT, group.chunks.length); // columns
+    group.chunks.forEach((chunk) => {
+      const map = mapColumnType(chunk.physicalType);
       const dictionaried = chunk.dictionaryOffset !== undefined;
       w.structBegin();
       w.i64(2, chunk.offset); // file_offset — the dictionary page when present
@@ -412,14 +593,14 @@ function writeRowGroups(
       // and how the values are written when there is no dictionary. A list
       // always carries levels, so RLE is always among its encodings too.
       const encodings: number[] = [Encoding.PLAIN];
-      if (listed || column.type.nullable) encodings.push(Encoding.RLE);
+      if (chunk.hasLevels) encodings.push(Encoding.RLE);
       if (dictionaried) encodings.push(Encoding.RLE_DICTIONARY);
       w.listBegin(2, CompactType.I32, encodings.length);
       for (const e of encodings) w.listI32(e);
-      // The chunk addresses the LEAF, so a list's path walks the wrapper.
-      const path = listed ? [column.name, 'list', 'element'] : [column.name];
-      w.listBegin(3, CompactType.BINARY, path.length); // path_in_schema
-      for (const segment of path) w.listString(segment);
+      // The chunk addresses the LEAF, so a list's path walks the wrapper and a
+      // map's names which of its two columns this is.
+      w.listBegin(3, CompactType.BINARY, chunk.path.length); // path_in_schema
+      for (const segment of chunk.path) w.listString(segment);
       w.i32(4, chunk.codec);
       w.i64(5, chunk.numValues);
       w.i64(6, chunk.rawSize); // total_uncompressed_size
@@ -482,10 +663,14 @@ export function* rowGroupBlocks(
     const chunks: ChunkMeta[] = [];
     let at = 0;
 
-    for (const [i, column] of columns.entries()) {
-      const values = batch[i] ?? [];
-      const { body, numValues, statistics, dictionaryBody, dictionaryCount, encoding } =
-        encodePageBody({ ...column, values });
+    // Leaves, not columns: a map is two of them under one declared name, and
+    // each gets its own chunk.
+    const leaves = columns.flatMap((column, i) =>
+      encodeColumnLeaves({ ...column, values: batch[i] ?? [] }),
+    );
+
+    for (const leaf of leaves) {
+      const { body, numValues, statistics, dictionaryBody, dictionaryCount, encoding } = leaf;
 
       // The codec is declared per COLUMN CHUNK, so the choice is made once for
       // the whole chunk — and only taken when it actually saves bytes. Snappy
@@ -519,6 +704,9 @@ export function* rowGroupBlocks(
         codec: compress ? Codec.SNAPPY : Codec.UNCOMPRESSED,
         numValues,
         statistics,
+        path: leaf.path,
+        physicalType: leaf.physicalType,
+        hasLevels: leaf.hasLevels,
       });
       if (dictPage) pages.push(dictPage);
       pages.push(header);
@@ -551,13 +739,20 @@ export function shiftChunks(chunks: readonly ChunkMeta[], by: number): ChunkMeta
  * allowed to read them.
  *
  * One entry per LEAF column, in schema order — the same order the row groups
- * list their chunks in, which is one per `ParquetSchemaColumn` (a list column
- * contributes three schema elements but still exactly one leaf).
+ * list their chunks in. A scalar or a list is one leaf; a MAP is TWO, its key
+ * and its value, so this is not the count of declared columns. Getting that
+ * wrong is not a subtle bug: readers refuse the file outright with "not enough
+ * ColumnOrder values", which is at least loud.
  *
  * `ColumnOrder` is a union whose only member, `TYPE_ORDER`, holds an EMPTY
  * struct, so each entry is three bytes: the union's field header, the empty
  * struct's stop byte, and the union's own stop byte.
  */
+/** How many leaf columns the declared ones expand to: a map is two, the rest one. */
+export function leafCount(columns: readonly ParquetSchemaColumn[]): number {
+  return columns.reduce((n, column) => n + (isMapType(column.type) ? 2 : 1), 0);
+}
+
 function writeColumnOrders(w: CompactWriter, leaves: number): void {
   w.listBegin(7, CompactType.STRUCT, leaves);
   for (let i = 0; i < leaves; i++) {
@@ -582,7 +777,7 @@ export function parquetFooter(
   footer.i64(3, numRows);
   writeRowGroups(footer, columns, groups);
   footer.string(6, CREATED_BY);
-  writeColumnOrders(footer, columns.length);
+  writeColumnOrders(footer, leafCount(columns));
   footer.structEnd();
   const bytes = footer.bytes();
 

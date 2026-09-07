@@ -44,6 +44,7 @@ export const PageType = { DATA_PAGE: 0, DICTIONARY_PAGE: 2 } as const;
 /** parquet.thrift `ConvertedType` (legacy annotation) */
 export const ConvertedType = {
   UTF8: 0,
+  MAP: 1,
   LIST: 3,
   ENUM: 4,
   UINT_8: 11,
@@ -59,6 +60,10 @@ export const ConvertedType = {
 /** Field id of the logical-type variant inside parquet.thrift `LogicalType`. */
 export const LogicalTypeField = {
   STRING: 1,
+  /** NOTE: 2 in the LogicalType union, where ConvertedType.MAP is 1 — the two
+   *  enums are unrelated and a value copied from one to the other annotates
+   *  something else entirely. */
+  MAP: 2,
   /** NOTE: 3 in the LogicalType union; ConvertedType.LIST is also 3, but the
    *  two enums are unrelated — 4 here would be ENUM. */
   LIST: 3,

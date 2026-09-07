@@ -17,7 +17,18 @@ from collections.abc import Callable, Iterable
 from dataclasses import dataclass
 
 from ..column_type import ColumnType, Kind
-from . import convert, dictionary, list_levels, plain, rle, schema, snappy, statistics, thrift
+from . import (
+    convert,
+    dictionary,
+    list_levels,
+    map_levels,
+    plain,
+    rle,
+    schema,
+    snappy,
+    statistics,
+    thrift,
+)
 
 # Fixed so the bytes never depend on a version, a clock, or which language wrote them.
 CREATED_BY = "TDC"
@@ -48,6 +59,8 @@ class Cell:
 
     value: convert.Value | None = None
     texts: list[str] | None = None
+    pairs: list[map_levels.Entry] | None = None
+    """A map column's raw pairs, for the same reason a list keeps raw texts."""
 
 
 @dataclass(frozen=True, slots=True)
@@ -62,6 +75,17 @@ class ChunkMeta:
     codec: int
     num_values: int
     stats: statistics.Result
+    path: tuple[str, ...] = ()
+    """Which LEAF this chunk is, spelled as the reader addresses it.
+
+    A scalar column is one leaf and one chunk; a list is one leaf under a wrapper; a MAP is TWO —
+    the key and the value — under one declared name. The footer used to read the physical type and
+    the path off the column, which quietly assumed the first of those three.
+    """
+
+    physical_type: ColumnType | None = None
+    has_levels: bool = False
+    """Whether the leaf carries level streams, which decides if RLE is declared."""
 
     @property
     def has_dictionary(self) -> bool:
@@ -128,8 +152,13 @@ def _block(columns: list[Column], batch: list[list[Cell]]):
     chunks: list[ChunkMeta] = []
     at = 0
 
-    for i, column in enumerate(columns):
-        page = _page_body(column, batch[i])
+    # Leaves, not columns: a map is two of them under one declared name, and each gets its own
+    # chunk.
+    leaves = [
+        page for i, column in enumerate(columns) for page in _column_leaves(column, batch[i])
+    ]
+
+    for page in leaves:
 
         # The codec is declared per column chunk, so the choice is made once for the whole chunk —
         # and only taken when it actually saves bytes. Snappy adds framing, which on an already
@@ -168,6 +197,9 @@ def _block(columns: list[Column], batch: list[list[Cell]]):
                 schema.SNAPPY if compress else schema.UNCOMPRESSED,
                 page.num_values,
                 page.stats,
+                page.path,
+                page.physical_type,
+                page.has_levels,
             )
         )
         if dict_page is not None:
@@ -190,6 +222,9 @@ def _shift(chunks: list[ChunkMeta], by: int) -> list[ChunkMeta]:
             c.codec,
             c.num_values,
             c.stats,
+            c.path,
+            c.physical_type,
+            c.has_levels,
         )
         for c in chunks
     ]
@@ -208,6 +243,92 @@ class _Page:
     dictionary_body: bytes | None = None
     dictionary_count: int = 0
     encoding: int = schema.PLAIN
+    path: tuple[str, ...] = ()
+    physical_type: ColumnType | None = None
+    has_levels: bool = False
+
+
+def _column_leaves(column: Column, cells: list[Cell]) -> list[_Page]:
+    """The leaves one declared column becomes.
+
+    One for a scalar or a list, TWO for a map — its key and its value, which are separate columns
+    in the file and share only their repetition levels.
+    """
+    if column.type.is_map:
+        return _map_leaves(column, cells)
+    page = _page_body(column, cells)
+    page.path = (
+        (column.name, "list", "element") if column.type.is_list else (column.name,)
+    )
+    page.physical_type = column.type.element if column.type.is_list else column.type
+    page.has_levels = column.type.is_list or column.type.nullable
+    return [page]
+
+
+_KEY_TYPE = ColumnType(Kind.STRING, False)
+
+
+def _map_leaves(column: Column, cells: list[Cell]) -> list[_Page]:
+    """A map's two leaves.
+
+    The KEY stream is required text; the VALUE stream carries the column's declared type and may be
+    optional. Both hold one level slot per pair, and one for a row whose map is empty.
+    """
+    value_type = column.type.element
+    assert value_type is not None
+    rows = [cell.pairs or [] for cell in cells]
+    levels = map_levels.build(rows, value_type.nullable)
+
+    key_values = [convert.value(text, _KEY_TYPE) for text in levels.keys]
+    key_values = [v for v in key_values if v is not None]
+    key_bytes, key_dict, key_dict_count, key_encoding = _value_section(_KEY_TYPE, key_values)
+    key_page = _Page(
+        body=(
+            _level_block(levels.rep_levels, 1)
+            + _level_block(levels.key_def_levels, map_levels.KEY_MAX_DEF)
+            + key_bytes
+        ),
+        num_values=len(levels.rep_levels),
+        # The same rule a list follows: a "null" is any level slot that did not reach the leaf.
+        # For the key leaf that is exactly the rows whose map is empty — a key itself is never
+        # absent.
+        stats=statistics.compute(
+            _KEY_TYPE, key_values, len(levels.rep_levels) - len(key_values)
+        ),
+        dictionary_body=key_dict,
+        dictionary_count=key_dict_count,
+        encoding=key_encoding,
+        path=(column.name, "key_value", "key"),
+        physical_type=_KEY_TYPE,
+        has_levels=True,
+    )
+
+    present = []
+    for text in levels.present:
+        value = convert.value(text, value_type)
+        if value is not None:
+            present.append(value)
+    value_bytes, value_dict, value_dict_count, value_encoding = _value_section(
+        value_type, present
+    )
+    value_page = _Page(
+        body=(
+            _level_block(levels.rep_levels, 1)
+            + _level_block(levels.value_def_levels, levels.max_value_def)
+            + value_bytes
+        ),
+        num_values=len(levels.rep_levels),
+        stats=statistics.compute(
+            value_type, present, len(levels.rep_levels) - len(present)
+        ),
+        dictionary_body=value_dict,
+        dictionary_count=value_dict_count,
+        encoding=value_encoding,
+        path=(column.name, "key_value", "value"),
+        physical_type=value_type,
+        has_levels=True,
+    )
+    return [key_page, value_page]
 
 
 def _page_body(column: Column, cells: list[Cell]) -> _Page:
@@ -343,6 +464,11 @@ def _dictionary_page_header(raw_size: int, compressed_size: int, num_values: int
     return w.bytes()
 
 
+def _leaf_count(columns: list[Column]) -> int:
+    """How many leaf columns the declared ones expand to: a map is two, the rest one."""
+    return sum(2 if column.type.is_map else 1 for column in columns)
+
+
 def _write_column_orders(w: thrift.Writer, leaves: int) -> None:
     """``column_orders`` — the field that makes the statistics USABLE.
 
@@ -378,7 +504,7 @@ def footer(columns: list[Column], groups: list[GroupMeta], num_rows: int) -> byt
     w.i64(3, num_rows)
     _write_row_groups(w, columns, groups)
     w.string(6, CREATED_BY)
-    _write_column_orders(w, len(columns))
+    _write_column_orders(w, _leaf_count(columns))
     w.struct_end()
     body = w.bytes()
     return body + struct.pack("<I", len(body)) + MAGIC
@@ -412,7 +538,9 @@ def _write_logical_type(w: thrift.Writer, mapping: schema.Mapping) -> None:
 
 def _write_schema(w: thrift.Writer, columns: list[Column]) -> None:
     # The root plus every SchemaElement — a list contributes three, not one.
-    elements = sum(3 if column.type.is_list else 1 for column in columns)
+    elements = sum(
+        3 if column.type.is_list else 4 if column.type.is_map else 1 for column in columns
+    )
     w.list_begin(2, thrift.STRUCT, elements + 1)
 
     # The root element: a name and the child count, nothing else.
@@ -422,6 +550,9 @@ def _write_schema(w: thrift.Writer, columns: list[Column]) -> None:
     w.struct_end()
 
     for column in columns:
+        if column.type.is_map:
+            _write_map_schema(w, column.name, column.type.element)
+            continue
         if column.type.is_list:
             _write_list_schema(w, column.name, column.type.element)
             continue
@@ -482,6 +613,59 @@ def _write_list_schema(w: thrift.Writer, name: str, element: ColumnType) -> None
     w.struct_end()
 
 
+def _write_map_schema(w: thrift.Writer, name: str, value: ColumnType) -> None:
+    """The four-element MAP wrapper.
+
+    The names ``key_value``, ``key`` and ``value`` are fixed by the Parquet spec, not our choice;
+    readers match on the annotated shape and quietly mis-assemble anything else. The key is
+    REQUIRED because the format says so: a pair with no key is not a pair, and a reader given an
+    optional key has no way to index it.
+    """
+    w.struct_begin()
+    w.i32(3, schema.REQUIRED)
+    w.string(4, name)
+    w.i32(5, 1)  # num_children
+    w.i32(6, schema.CT_MAP)
+    w.field_begin(10, thrift.STRUCT)  # logicalType
+    w.struct_begin()
+    w.field_begin(schema.LT_MAP, thrift.STRUCT)
+    w.struct_begin()
+    w.struct_end()
+    w.struct_end()
+    w.struct_end()
+
+    w.struct_begin()
+    w.i32(3, schema.REPEATED)
+    w.string(4, "key_value")
+    w.i32(5, 2)  # num_children — the key and the value
+    w.struct_end()
+
+    key_mapping = schema.map_type(_KEY_TYPE)
+    w.struct_begin()
+    w.i32(1, key_mapping.physical)
+    w.i32(3, schema.REQUIRED)
+    w.string(4, "key")
+    if key_mapping.converted_type != schema.NONE:
+        w.i32(6, key_mapping.converted_type)
+    _write_logical_type(w, key_mapping)
+    w.struct_end()
+
+    mapping = schema.map_type(value)
+    w.struct_begin()
+    w.i32(1, mapping.physical)
+    if mapping.type_length > 0:
+        w.i32(2, mapping.type_length)
+    w.i32(3, schema.OPTIONAL if value.nullable else schema.REQUIRED)
+    w.string(4, "value")
+    if mapping.converted_type != schema.NONE:
+        w.i32(6, mapping.converted_type)
+    if mapping.logical_field == schema.LT_DECIMAL:
+        w.i32(7, mapping.scale)
+        w.i32(8, mapping.precision)
+    _write_logical_type(w, mapping)
+    w.struct_end()
+
+
 def _write_statistics(w: thrift.Writer, stats: statistics.Result) -> None:
     """parquet.thrift's ``Statistics``, field 12 of ColumnMetaData.
 
@@ -503,13 +687,11 @@ def _write_row_groups(w: thrift.Writer, columns: list[Column], groups: list[Grou
     w.list_begin(4, thrift.STRUCT, len(groups))
     for group in groups:
         w.struct_begin()
-        w.list_begin(1, thrift.STRUCT, len(columns))  # columns
+        w.list_begin(1, thrift.STRUCT, len(group.chunks))  # columns
         total_byte_size = 0
-        for i, column in enumerate(columns):
-            chunk = group.chunks[i]
+        for chunk in group.chunks:
             total_byte_size += chunk.total_size
-            listed = column.type.is_list
-            mapping = schema.map_type(column.type.element if listed else column.type)
+            mapping = schema.map_type(chunk.physical_type)
 
             w.struct_begin()
             w.i64(2, chunk.offset)  # file_offset — the dictionary page when there is one
@@ -520,17 +702,17 @@ def _write_row_groups(w: thrift.Writer, columns: list[Column], groups: list[Grou
             # values are written when there is no dictionary. A list always carries levels, so RLE
             # is always among its encodings too.
             encodings = [schema.PLAIN]
-            if listed or column.type.nullable:
+            if chunk.has_levels:
                 encodings.append(schema.RLE)
             if chunk.has_dictionary:
                 encodings.append(schema.RLE_DICTIONARY)
             w.list_begin(2, thrift.I32, len(encodings))
             for e in encodings:
                 w.list_i32(e)
-            # The chunk addresses the LEAF, so a list's path walks through its wrapper.
-            path = [column.name, "list", "element"] if listed else [column.name]
-            w.list_begin(3, thrift.BINARY, len(path))  # path_in_schema
-            for segment in path:
+            # The chunk addresses the LEAF, so a list's path walks through its wrapper and a
+            # map's names which of its two columns this is.
+            w.list_begin(3, thrift.BINARY, len(chunk.path))  # path_in_schema
+            for segment in chunk.path:
                 w.list_string(segment)
             w.i32(4, chunk.codec)
             w.i64(5, chunk.num_values)

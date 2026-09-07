@@ -59,6 +59,13 @@
       "config": "<tdc><env count=\"60000\" seed=\"pq-groups\" inject=\"${{%}}\">\n<sequence name=\"Id\"><gen type=\"increment\" value=\"1\"/></sequence>\n</env><block><line><data name=\"id\">${{Id}}</data></line></block></tdc>",
       "size": 240306,
       "sha256": "c212034b69bb4f6bf51cbd134e02c3ec6615cfd713b39ebe0a6e5d52d2f4a7ad"
+    },
+    {
+      "name": "map-columns",
+      "description": "MAP columns: a nullable-valued map, a map that is empty on every row, and one whose values hold colons. One declared map is TWO leaf columns in the file — the key and the value — so this also pins the leaf count in the footer, the path_in_schema of each, and the ColumnOrder list, every one of which a reader refuses the file over.",
+      "config": "<tdc><env count=\"6\" seed=\"golden-map\" inject=\"${{%}}\">\n<sequence name=\"Id\"><gen type=\"increment\" value=\"1\"/></sequence>\n<sequence name=\"Cpu\"><gen type=\"number\" value=\"1..99\"/></sequence>\n<sequence name=\"Mem\"><gen type=\"number\" value=\"1..99\" missing=\"0.4\"/></sequence>\n<sequence name=\"Blank\"><gen type=\"text\" value=\"x\" missing=\"1\"/></sequence>\n</env><block><line>\n<data name=\"id\" type=\"int64\">${{Id}}</data>\n<data name=\"gauges\" type=\"{}int64|null\">cpu:${{Cpu}},mem:${{Mem}}</data>\n<data name=\"empty\" type=\"{}string\">${{Blank}}</data>\n<data name=\"clock\" type=\"{}string\">start:12:30:00,end:18:00:00</data>\n</line></block></tdc>",
+      "size": 1101,
+      "sha256": "aefd1135a4cdf5ded22ec6f20011294029722b1f84dd4599bc8544300ca2bff5"
     }
   ]
 }

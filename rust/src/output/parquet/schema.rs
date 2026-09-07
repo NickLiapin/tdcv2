@@ -40,6 +40,7 @@ pub const DICTIONARY_PAGE: i32 = 2;
 
 /// parquet.thrift `ConvertedType` — the legacy annotation.
 pub const CT_UTF8: i32 = 0;
+pub const CT_MAP: i32 = 1;
 pub const CT_LIST: i32 = 3;
 pub const CT_ENUM: i32 = 4;
 pub const CT_DECIMAL: i32 = 5;
@@ -55,6 +56,7 @@ pub const CT_JSON: i32 = 19;
 pub const LT_STRING: i32 = 1;
 /// Three in the LogicalType union. ConvertedType.LIST is also three, but the two
 /// enums are unrelated — four here would mean ENUM.
+pub const LT_MAP: i32 = 2;
 pub const LT_LIST: i32 = 3;
 pub const LT_ENUM: i32 = 4;
 pub const LT_DECIMAL: i32 = 5;
@@ -119,7 +121,7 @@ pub fn map(ty: &ColumnType) -> Option<Mapping> {
             logical_field: LT_UUID,
             ..simple(FIXED_LEN_BYTE_ARRAY)
         },
-        Kind::List => return None,
+        Kind::List | Kind::Map => return None,
     })
 }
 

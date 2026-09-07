@@ -104,7 +104,7 @@ public final class ParquetOutput {
       types.add(type);
       // A declared []T needs a separator too; a comma when the column was typed by hand rather
       // than derived from a repeating generator.
-      if (type.isList()) {
+      if (type.isRepeated()) {
         String source = Columns.soleReference(column.template(), config.inject());
         String separator = source == null ? null : Columns.separatorOf(source, config);
         separators.add(separator == null ? "," : separator);
@@ -157,6 +157,13 @@ public final class ParquetOutput {
                     .add(
                         new Writer.Elements(
                             text.isEmpty() ? List.of() : split(text, plan.separators.get(i))));
+              } else if (type.isMap()) {
+                batch
+                    .get(i)
+                    .add(
+                        new Writer.Pairs(
+                            io.github.nickliapin.tdc.output.parquet.MapLevels.parseCell(
+                                text, plan.separators.get(i), type.element().nullable())));
               } else {
                 batch.get(i).add(new Writer.Scalar(Convert.value(text, type)));
               }

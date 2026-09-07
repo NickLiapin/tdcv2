@@ -17,6 +17,41 @@ page — is tracked in that implementation's own changelog:
 
 ### Added
 
+<!-- covers: parquet map columns -->
+
+- **Parquet can write a `MAP` column — `type="{}int64"`.** The typed-output page had
+  carried `MAP` under "not yet supported" since the format landed.
+
+  ```xml
+  <data name="gauges" type="{}int64|null">cpu:${{Cpu}},mem:${{Mem}}</data>
+  ```
+
+  reaches a reader as `MAP<STRING, INT64>`, so `gauges['cpu']` is a query rather than a
+  string somebody has to pull apart, and a `missing=` behind a value arrives as a real
+  `null` inside the map. Two independent readers confirm it: pyarrow types the column
+  `map<string, int64>`, DuckDB queries through it.
+
+  **The key is always text.** Parquet forbids a null key, the cell arrives as text
+  anyway, and a second type parameter would double the syntax to buy a conversion nobody
+  asked for — so `{}T` reads "a map from text to T" and there is nothing else to decide.
+  `|null` binds to the VALUE, exactly as it binds to a list's element. The key is
+  everything before the first `:`, so a value may hold colons and a key may not; an empty
+  cell is an empty map.
+
+  Three cells are refused rather than guessed at, because each would leave a map quietly
+  missing an entry: a piece with no `:` at all, an empty key, and a key repeated inside
+  one row (readers disagree about which of the two wins, and some drop that row's map
+  entirely).
+
+  Writing it broke the "one declared column is one leaf" assumption in all five writers:
+  a map is two leaves under a repeated group, each with its own chunk, statistics and
+  `ColumnOrder` entry, and the footer had to start addressing chunks by `path_in_schema`
+  rather than by column. Twelve hand-computed repetition/definition level cases and a
+  shared fixture hold it, and the five produce byte-identical files.
+
+  Still not built, and now said plainly on the page instead of bundled in with `MAP`:
+  lists of lists (`[][]int64`), which would need a second separator.
+
 <!-- covers: pack manifest -->
 
 - **A pack folder can describe itself — `_pack.json`, and `tdcv2 pack info` to read it

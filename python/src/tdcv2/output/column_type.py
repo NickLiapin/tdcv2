@@ -39,6 +39,13 @@ class Kind(Enum):
     LIST = "list"
     """A list of the element type — ``type="[]int64"``."""
 
+    MAP = "map"
+    """A map from text to the value type — ``type="{}int64"``.
+
+    The KEY is always text: Parquet forbids a null key, a cell arrives here as text anyway, and
+    a second type parameter would double the syntax to buy a conversion nobody asked for.
+    """
+
 
 # The widest decimal an int64 can hold; 10^19 overflows a signed 64-bit integer.
 MAX_DECIMAL_PRECISION = 18
@@ -55,15 +62,26 @@ class ColumnType:
     precision: int = 0
     scale: int = 0
     element: ColumnType | None = None
-    """A list's element type, or nothing when this is not a list."""
+    """A list's element type or a map's VALUE type; nothing when this is neither."""
 
     @property
     def is_list(self) -> bool:
         return self.kind is Kind.LIST
 
+    @property
+    def is_map(self) -> bool:
+        return self.kind is Kind.MAP
+
+    @property
+    def is_repeated(self) -> bool:
+        """A list or a map — the shapes that hold several values in one cell."""
+        return self.kind in (Kind.LIST, Kind.MAP)
+
     def __str__(self) -> str:
         if self.kind is Kind.LIST:
             return f"[]{self.element}"
+        if self.kind is Kind.MAP:
+            return f"{{}}{self.element}"
         base = (
             f"decimal({self.precision},{self.scale})"
             if self.kind is Kind.DECIMAL
@@ -81,6 +99,13 @@ def parse_output(raw: str) -> ColumnType:
     list and there is no way to say "no list at all".
     """
     text = raw.strip()
+    if text.startswith("{}"):
+        inner = text[2:].strip()
+        if not inner:
+            raise ValueError("map type needs a value type, e.g. {}int64")
+        if inner.startswith("[]") or inner.startswith("{}"):
+            raise ValueError(f'a map value cannot itself be a list or a map, got "{text}"')
+        return ColumnType(Kind.MAP, False, 0, 0, parse(inner))
     if not text.startswith("[]"):
         return parse(text)
     inner = text[2:].strip()
@@ -88,6 +113,8 @@ def parse_output(raw: str) -> ColumnType:
         raise ValueError("list type needs an element type, e.g. []int64")
     if inner.startswith("[]"):
         raise ValueError(f'nested lists are not supported, got "{text}"')
+    if inner.startswith("{}"):
+        raise ValueError(f'a list of maps is not supported, got "{text}"')
     return ColumnType(Kind.LIST, False, 0, 0, parse(inner))
 
 

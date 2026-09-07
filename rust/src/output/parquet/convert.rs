@@ -105,6 +105,7 @@ pub fn of(raw: &str, ty: &ColumnType) -> Result<Option<Value>, ConvertError> {
         // Passed through untouched, surrounding spaces included.
         Kind::String | Kind::Enum | Kind::Json => Value::Text(raw.to_string()),
         Kind::List => return fail("cannot convert to a list"),
+        Kind::Map => return fail("cannot convert to a map"),
     };
     Ok(Some(value))
 }

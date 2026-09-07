@@ -18,7 +18,7 @@ from ..model.config import Config
 from . import column_type
 from . import columns as columns_lib
 from .column_type import ColumnType
-from .parquet import convert, writer
+from .parquet import convert, map_levels, writer
 
 # Rows per row group. Bounds peak memory and lets a reader skip whole groups. It is also the unit
 # parallel generation would split on, because a group's bytes do not depend on where it sits.
@@ -86,7 +86,7 @@ def _plan(config: Config) -> _Plan:
         types.append(type_)
         # A declared []T needs a separator too; a comma when the column was typed by hand rather
         # than derived from a repeating generator.
-        if type_.is_list:
+        if type_.is_repeated:
             source = columns_lib.sole_reference(column.template, config.inject)
             separator = None if source is None else columns_lib.separator_of(source, config)
             separators.append(separator or ",")
@@ -121,6 +121,13 @@ def _batches(
                         # "" on a comma would otherwise conjure a phantom element.
                         elements = [] if text == "" else text.split(plan.separators[i])
                         batch[i].append(writer.Cell(texts=elements))
+                    elif type_.is_map:
+                        value_type = type_.element
+                        assert value_type is not None
+                        pairs = map_levels.parse_cell(
+                            text, plan.separators[i], value_type.nullable
+                        )
+                        batch[i].append(writer.Cell(pairs=pairs))
                     else:
                         batch[i].append(writer.Cell(value=convert.value(text, type_)))
                 except ValueError as e:

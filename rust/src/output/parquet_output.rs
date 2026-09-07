@@ -14,6 +14,7 @@ use crate::model::Config;
 use crate::output::column_type::ColumnType;
 use crate::output::columns::{self, Declared};
 use crate::output::parquet::convert;
+use crate::output::parquet::map_levels;
 use crate::output::parquet::writer::{self, Cell, Column};
 
 /// Rows per row group.
@@ -283,7 +284,7 @@ fn build_plan(config: &Config) -> EngineResult<Plan> {
         let ty = columns::resolve(column, config).unwrap_or_else(default_type);
         // A declared []T needs a separator too; a comma when the column was
         // typed by hand rather than derived from a repeating generator.
-        separators.push(if ty.is_list() {
+        separators.push(if ty.is_repeated() {
             let inject = config.inject.as_deref().unwrap_or("${{%}}");
             Some(
                 columns::sole_reference(&column.template, inject)
@@ -353,6 +354,17 @@ fn cell_of(
             split(&text, plan.separators[i].as_deref().unwrap_or(","))
         };
         return Ok(Cell::Elements(elements));
+    }
+
+    if ty.is_map() {
+        let value_type = ty.element.as_ref().expect("a map carries its value type");
+        let pairs = map_levels::parse_cell(
+            &text,
+            plan.separators[i].as_deref().unwrap_or(","),
+            value_type.nullable,
+        )
+        .map_err(|e| named(e.message().to_string()))?;
+        return Ok(Cell::Pairs(pairs));
     }
 
     convert::of(&text, ty)

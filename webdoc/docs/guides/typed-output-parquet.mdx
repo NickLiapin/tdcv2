@@ -391,13 +391,53 @@ The frame itself:
 Row 4's `amount` is `NaN`, not an empty string — the `null` survived the round trip. For
 the full library API in each language, see [Language bindings](../bindings/python.mdx).
 
+## Maps
+
+A column can hold a **map** — `type="{}int64"` is a map from text to `int64`. The
+cell reads `key:value` pairs, separated the same way a list's elements are:
+
+```xml
+<data name="gauges" type="{}int64|null">cpu:${{Cpu}},mem:${{Mem}}</data>
+```
+
+<Terminal title="./run metrics.tdc -o metrics.parquet">
+{`host    STRING  REQUIRED
+gauges  MAP<STRING, INT64>  REQUIRED
+
+{"host":"db-1",  "gauges":{"cpu":74,"mem":null}}
+{"host":"db-1",  "gauges":{"cpu":65,"mem":43}}
+{"host":"web-1", "gauges":{"cpu":15,"mem":15}}
+{"host":"web-1", "gauges":{"cpu":10,"mem":12}}
+{"host":"web-2", "gauges":{"cpu":6,"mem":null}}`}
+</Terminal>
+
+The reader gets a real map, not a string it has to pull apart — `gauges['cpu']` is
+a query, and `missing=` on the generator behind a value comes through as a genuine
+`null` inside it.
+
+**The key is always text.** Parquet does not allow a null key, a cell arrives as
+text anyway, and a second type parameter would double the syntax to buy a
+conversion nobody has asked for. So `{}T` reads "a map from text to T" and there
+is nothing else to decide. `|null` binds to the VALUE, exactly as it binds to a
+list's element.
+
+### Writing the cell
+
+- **The key is everything before the first `:`; the value is the rest.** So a
+  value may hold colons — `start:12:30:00` is one pair — and a key may not.
+- **An empty cell is an empty map**, the same rule a list follows.
+- **Three things are refused** rather than guessed at, because each would leave
+  you with a map quietly missing an entry: a piece with no `:` at all, an empty
+  key, and a key that repeats inside one row (readers disagree about which of the
+  two wins, and some drop the row's map entirely).
+
 ## Not yet supported
 
 - **zstd / brotli compression** — snappy is here; these aren't yet.
 - **Dictionaries for floating-point numbers** work, but the win is usually smaller —
   repeats among floats are rare.
-- **`MAP` and nested structures** inside a column — lists already exist (see
-  [`repeat`](../reference/attributes.mdx)), but `MAP` and lists-of-lists aren't supported.
+- **Lists of lists** — `[]int64` and `{}int64` both work, but `[][]int64` does not:
+  it would need a second separator, and no shape for one has earned its place yet.
 - **Geometry types** — added one at a time; each is just a label over the same bytes.
 
 :::note

@@ -29,6 +29,13 @@ public enum ColumnKind
 
     /// <summary>A list of the element type — <c>type="[]int64"</c>.</summary>
     List,
+
+    /// <summary>
+    /// A map from text to the value type — <c>type="{}int64"</c>. The KEY is always text: Parquet
+    /// forbids a null key, a cell arrives here as text anyway, and a second type parameter would
+    /// double the syntax to buy a conversion nobody asked for.
+    /// </summary>
+    Map,
 }
 
 /// <summary>
@@ -76,10 +83,15 @@ public sealed class ColumnType
     /// <summary>decimal only: digits after the point.</summary>
     public int Scale { get; }
 
-    /// <summary>A list's element type, or <c>null</c> when this is not a list.</summary>
+    /// <summary>A list's element type or a map's VALUE type; <c>null</c> when neither.</summary>
     public ColumnType? Element { get; }
 
     public bool IsList => Kind == ColumnKind.List;
+
+    public bool IsMap => Kind == ColumnKind.Map;
+
+    /// <summary>A list or a map — the shapes that hold several values in one cell.</summary>
+    public bool IsRepeated => IsList || IsMap;
 
     /// <summary>
     /// Parse a <c>type="…"</c> that may be a list.
@@ -93,6 +105,24 @@ public sealed class ColumnType
     public static ColumnType ParseOutput(string raw)
     {
         string text = raw.Trim();
+        if (text.StartsWith("{}", StringComparison.Ordinal))
+        {
+            string value = text[2..].Trim();
+            if (value.Length == 0)
+            {
+                throw new ArgumentException("map type needs a value type, e.g. {}int64");
+            }
+
+            if (value.StartsWith("[]", StringComparison.Ordinal)
+                || value.StartsWith("{}", StringComparison.Ordinal))
+            {
+                throw new ArgumentException(
+                    $"a map value cannot itself be a list or a map, got \"{text}\"");
+            }
+
+            return new ColumnType(ColumnKind.Map, false, 0, 0, Parse(value));
+        }
+
         if (!text.StartsWith("[]", StringComparison.Ordinal))
         {
             return Parse(text);
@@ -107,6 +137,11 @@ public sealed class ColumnType
         if (inner.StartsWith("[]", StringComparison.Ordinal))
         {
             throw new ArgumentException($"nested lists are not supported, got \"{text}\"");
+        }
+
+        if (inner.StartsWith("{}", StringComparison.Ordinal))
+        {
+            throw new ArgumentException($"a list of maps is not supported, got \"{text}\"");
         }
 
         return new ColumnType(ColumnKind.List, false, 0, 0, Parse(inner));
@@ -138,7 +173,7 @@ public sealed class ColumnType
 
         Match match = Head.Match(head);
         ColumnKind? kind = match.Success ? KindOf(match.Groups[1].Value) : null;
-        if (kind is null or ColumnKind.List)
+        if (kind is null or ColumnKind.List or ColumnKind.Map)
         {
             throw new ArgumentException($"unknown column type \"{head}\"");
         }

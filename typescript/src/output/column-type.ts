@@ -56,10 +56,36 @@ export interface ListColumnType {
   readonly element: ColumnType;
 }
 
-export type OutputColumnType = ColumnType | ListColumnType;
+/**
+ * A MAP column: `type="{}int64"`, or `type="{}int64|null"` where the `|null`
+ * binds to the VALUE — the same left-to-right reading a list has ("a map to
+ * (int64 or nothing)").
+ *
+ * The KEY is always text. Parquet requires map keys to be non-null, and a cell
+ * arrives here as text anyway, so a second type parameter would buy a
+ * conversion nobody asked for and a syntax twice as wide.
+ *
+ * There is no nullable MAP, for the reason a list has none: an empty cell is an
+ * empty map, and there is no way to say "no map at all".
+ */
+export interface MapColumnType {
+  readonly kind: 'map';
+  readonly value: ColumnType;
+}
+
+export type OutputColumnType = ColumnType | ListColumnType | MapColumnType;
 
 export function isListType(type: OutputColumnType): type is ListColumnType {
   return type.kind === 'list';
+}
+
+export function isMapType(type: OutputColumnType): type is MapColumnType {
+  return type.kind === 'map';
+}
+
+/** A list or a map — the shapes that hold several values in one cell. */
+export function isRepeatedType(type: OutputColumnType): boolean {
+  return isListType(type) || isMapType(type);
 }
 
 /**
@@ -68,11 +94,22 @@ export function isListType(type: OutputColumnType): type is ListColumnType {
  */
 export function parseOutputColumnType(raw: string): OutputColumnType {
   const text = raw.trim();
+  if (text.startsWith('{}')) {
+    const inner = text.slice(2).trim();
+    if (inner === '') throw new Error('map type needs a value type, e.g. {}int64');
+    if (inner.startsWith('[]') || inner.startsWith('{}')) {
+      throw new Error(`a map value cannot itself be a list or a map, got "${text}"`);
+    }
+    return { kind: 'map', value: parseColumnType(inner) };
+  }
   if (!text.startsWith('[]')) return parseColumnType(text);
   const inner = text.slice(2).trim();
   if (inner === '') throw new Error('list type needs an element type, e.g. []int64');
   if (inner.startsWith('[]')) {
     throw new Error(`nested lists are not supported, got "${text}"`);
+  }
+  if (inner.startsWith('{}')) {
+    throw new Error(`a list of maps is not supported, got "${text}"`);
   }
   return { kind: 'list', element: parseColumnType(inner) };
 }

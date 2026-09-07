@@ -19,10 +19,12 @@ import { extractSequenceSpecs } from '../sequence/index.js';
 
 import {
   isListType,
+  isMapType,
   parseColumnType,
   type ColumnType,
   type OutputColumnType,
 } from './column-type.js';
+import { parseMapCell } from './parquet/map.js';
 import { extractDeclaredColumns, type DeclaredColumn } from './columns.js';
 import { deriveOutputColumnType, repeatSeparatorOf, soleReference } from './derive-type.js';
 import { convertValue } from './parquet/convert.js';
@@ -96,7 +98,7 @@ function planFrom(
   // A declared []T needs a separator too; fall back to the default comma when
   // the column was typed by hand rather than derived from a repeating gen.
   const separators = types.map((type, i) => {
-    if (!isListType(type)) return undefined;
+    if (!isListType(type) && !isMapType(type)) return undefined;
     const source = sources[i];
     return (source === undefined ? undefined : repeatSeparatorOf(source, specs)) ?? ',';
   });
@@ -142,6 +144,9 @@ function* batches(
             // "" split on "," would otherwise yield a phantom element.
             const sep = p.separators[index] ?? ',';
             batch[index]?.push(text === '' ? [] : text.split(sep));
+          } else if (isMapType(type)) {
+            const sep = p.separators[index] ?? ',';
+            batch[index]?.push(parseMapCell(text, sep, type.value.nullable));
           } else {
             batch[index]?.push(convertValue(text, type));
           }

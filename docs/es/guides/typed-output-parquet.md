@@ -419,14 +419,55 @@ El `amount` de la fila 4 es `NaN`, no un string vacío — el `null` sobrevivió
 ida y vuelta. Para la API completa de la biblioteca en cada lenguaje, vea
 [Bindings de lenguajes](../bindings/python.md#top).
 
+## Mapas
+
+Una columna puede guardar un **mapa**: `type="{}int64"` es un mapa de texto a `int64`.
+La celda lleva pares `clave:valor`, separados igual que los elementos de una lista:
+
+```xml
+<data name="gauges" type="{}int64|null">cpu:${{Cpu}},mem:${{Mem}}</data>
+```
+
+`./run metrics.tdc -o metrics.parquet`
+
+```
+host    STRING  REQUIRED
+gauges  MAP<STRING, INT64>  REQUIRED
+
+{"host":"db-1",  "gauges":{"cpu":74,"mem":null}}
+{"host":"db-1",  "gauges":{"cpu":65,"mem":43}}
+{"host":"web-1", "gauges":{"cpu":15,"mem":15}}
+{"host":"web-1", "gauges":{"cpu":10,"mem":12}}
+{"host":"web-2", "gauges":{"cpu":6,"mem":null}}
+```
+
+Quien lo lee recibe un mapa de verdad, no una cadena que tenga que desarmar:
+`gauges['cpu']` es una consulta, y el `missing=` del generador que hay detrás de un valor
+llega adentro como un `null` genuino.
+
+**La clave siempre es texto.** Parquet no admite una clave nula, la celda llega como texto
+de todos modos, y un segundo parámetro de tipo duplicaría la sintaxis para comprar una
+conversión que nadie ha pedido. Así que `{}T` se lee «un mapa de texto a T» y no queda
+nada más que decidir. El `|null` se refiere al VALOR, igual que se refiere al elemento de
+una lista.
+
+### Cómo se escribe la celda
+
+- **La clave es todo lo que va antes del primer `:`; el valor es el resto.** Por eso un
+  valor puede llevar dos puntos (`start:12:30:00` es un solo par) y una clave no.
+- **Una celda vacía es un mapa vacío**, la misma regla que sigue una lista.
+- **Tres cosas se rechazan** en vez de adivinarse, porque cada una le dejaría un mapa al
+  que le falta una entrada en silencio: un trozo sin `:`, una clave vacía y una clave que
+  se repite dentro de una misma fila (los lectores no se ponen de acuerdo sobre cuál de
+  las dos gana, y algunos descartan el mapa entero de esa fila).
+
 ## Todavía no soportado
 
 - **Compresión zstd / brotli** — snappy ya está; estas todavía no.
 - **Los diccionarios para números de punto flotante** funcionan, pero la ganancia suele
   ser menor: las repeticiones entre flotantes son raras.
-- **`MAP` y estructuras anidadas** dentro de una columna — las listas ya existen (vea
-  [`repeat`](../reference/attributes.md#top)), pero `MAP` y las listas de listas no están
-  soportadas.
+- **Listas de listas** — `[]int64` y `{}int64` funcionan, pero `[][]int64` no: haría falta
+  un segundo separador, y ninguna forma de hacerlo se ha ganado todavía su lugar.
 - **Tipos geométricos** — se van agregando de uno en uno; cada uno es apenas una etiqueta
   sobre los mismos bytes.
 

@@ -50,6 +50,7 @@ public final class Schema {
   /** parquet.thrift {@code ConvertedType} — the legacy annotation. */
   public static final int CT_UTF8 = 0;
 
+  public static final int CT_MAP = 1;
   public static final int CT_LIST = 3;
   public static final int CT_ENUM = 4;
   public static final int CT_DECIMAL = 5;
@@ -68,6 +69,7 @@ public final class Schema {
    * Three in the LogicalType union. ConvertedType.LIST is also three, but the two enums are
    * unrelated — four here would mean ENUM.
    */
+  public static final int LT_MAP = 2;
   public static final int LT_LIST = 3;
 
   public static final int LT_ENUM = 4;

@@ -49,6 +49,7 @@ public static class Schema
     /// <summary>parquet.thrift <c>ConvertedType</c> — the legacy annotation.</summary>
     public const int CtUtf8 = 0;
 
+    public const int CtMap = 1;
     public const int CtList = 3;
     public const int CtEnum = 4;
     public const int CtDecimal = 5;
@@ -67,6 +68,7 @@ public static class Schema
     /// Three in the LogicalType union. ConvertedType.LIST is also three, but the two enums are
     /// unrelated — four here would mean ENUM.
     /// </summary>
+    public const int LtMap = 2;
     public const int LtList = 3;
 
     public const int LtEnum = 4;
