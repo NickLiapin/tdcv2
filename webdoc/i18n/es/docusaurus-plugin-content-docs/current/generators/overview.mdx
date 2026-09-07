@@ -230,6 +230,38 @@ Lo mismo aplica a los archivos: `<gen type="file" src="cities.txt" order="sequen
 recorre el archivo línea por línea. Todos los detalles en
 **[Máscaras y mayúsculas](../guides/masks-and-case.mdx)**.
 
+#### Varios valores por fila — `repeat="N"`
+
+Añada un [`repeat`](../constructs/multiple-values.mdx) fijo y la fila tomará **N valores**
+del recorrido en vez de uno. El recorrido continúa de una fila a otra, así que el elemento
+_k_ de la fila _r_ es el valor de origen _r_×N+_k_:
+
+```xml
+<sequence name="Step"><gen type="text" value="created,paid,shipped,delivered" repeat="4" order="sequential"/></sequence>
+```
+
+<Terminal title="./run steps.tdc (3 filas)">
+{`created,paid,shipped,delivered
+created,paid,shipped,delivered
+created,paid,shipped,delivered`}
+</Terminal>
+
+Cuatro pasos sobre una lista de cuatro es la lista entera en cada fila, que es como se
+escribe el [ciclo de vida completo](../constructs/relational-tables.mdx) de un registro en
+una sola secuencia. Sobre una lista más corta las filas difieren: `value="a,b,c"` con
+`repeat="2"` da `a,b`, luego `c,a`, luego `b,c`.
+
+Continuar en vez de reiniciar es lo que hace que `repeat="1"` signifique exactamente lo
+mismo que `order="sequential"` a solas: la misma columna, no un caso especial.
+
+Dos formas se rechazan en vez de adivinarse. **Un `repeat="2..5"` por rango** (`TDC254`):
+un recorrido avanza un número fijo de valores por fila, y una fila cuya longitud viene de
+la [cuota de longitudes](../constructs/multiple-values.mdx) no tiene ese número. **Una
+`date` recorrida** (`TDC254`): lleva un instante junto a su texto, y una fila con varias
+fechas no tiene uno solo que dar a `of=` y `plus=`. `distinct="true"` también se rechaza
+(`TDC307`): una fila que camina no toma nada, así que no hay nada que tomar sin
+reemplazo.
+
 ### `missing=` / `anomaly=` — vacíos y valores atípicos
 
 **Úselo cuando** necesite datos que se parezcan al mundo real, donde algunos campos

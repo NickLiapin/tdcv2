@@ -1147,6 +1147,23 @@ public final class MemoryEngine {
       List<String> produced;
       if (applicable == 0) {
         produced = List.of();
+      } else if (repeat != null
+          && repeat.min() == repeat.max()
+          && ("text".equals(spec.gen().type()) || "file".equals(spec.gen().type()))
+          && "sequential".equals(spec.gen().attrs().get("order"))) {
+        // order="sequential" with a fixed repeat: the row's values are decided by its position,
+        // so none of the layout below applies — there is nothing to lay out and nothing to draw.
+        List<String> walkList =
+            "file".equals(spec.gen().type())
+                ? FileGen.load(spec.gen().attrs(), baseDir, packs.dataRoots())
+                : splitText(spec.gen().attrs().getOrDefault("value", ""));
+        boolean walkCycle = !"false".equals(spec.gen().attrs().get("cycle"));
+        produced = new ArrayList<>(applicable);
+        for (int i = 0; i < applicable; i++) {
+          produced.add(
+              Repeat.join(
+                  sequentialRow(walkList, stream.rowAt(i), repeat.max(), walkCycle), repeat));
+        }
       } else if (repeat != null) {
         // A listed column lays every element of every row out at once and reads the slots the
         // length plan gave the row; anything drawn takes one sub-stream per element. Which of
@@ -3444,6 +3461,39 @@ public final class MemoryEngine {
       return "";
     }
     return list.get((int) sequentialIndex(list.size(), index, cycle));
+  }
+
+  /**
+   * The values of ONE row when a fixed {@code repeat="N"} rides {@code order="sequential"}.
+   *
+   * <p>Element k of row r takes source index {@code r * N + k}: the walk carries on across rows
+   * rather than restarting, which is what makes {@code repeat="1"} mean exactly what {@code
+   * order="sequential"} alone has always meant. A row is still a function of its own number, so
+   * this resolves the same way on every engine.
+   *
+   * <p>Only a FIXED repeat reaches here. A ranged one has no stride, and the validator refuses it
+   * ({@code TDC254}) rather than inventing one.
+   */
+  static List<String> sequentialRow(List<String> list, int row, int n, boolean cycle) {
+    List<String> out = new ArrayList<>(n);
+    for (int k = 0; k < n; k++) {
+      int at = row * n + k;
+      // The bound is checked here rather than in sequentialIndex, because with a repeat the
+      // number that ran out is a position in the walk and not a row — and a message naming the
+      // wrong one sends a reader to the wrong attribute.
+      if (!cycle && !list.isEmpty() && at >= list.size()) {
+        throw new IllegalStateException(
+            "order=\"sequential\" cycle=\"false\": the source has only "
+                + list.size()
+                + " values, so row "
+                + (row + 1)
+                + " runs out at element "
+                + (k + 1)
+                + " — shorten count=, shorten repeat=, or lengthen the source");
+      }
+      out.add(pickSequential(list, at, true));
+    }
+    return out;
   }
 
   /** Pack bodies parse once per address and are then reused; a pack does not change mid-run. */

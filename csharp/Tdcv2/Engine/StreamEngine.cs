@@ -1174,6 +1174,23 @@ public sealed class StreamEngine
                 ? FileGen.Load(attrs, _baseDir, _packs.DataRoots)
                 : MemoryEngine.SplitText(attrs.GetValueOrDefault("value", ""));
             bool cycle = attrs.GetValueOrDefault("cycle") != "false";
+            // A fixed `repeat="N"` walks N values per row, element k of row r taking source index
+            // r*N+k. Only a fixed one reaches here; a ranged repeat has no stride and the
+            // validator refuses it.
+            Repeat.Spec? walk = Repeat.Parse(attrs);
+            if (walk is { } fixedWalk && fixedWalk.Min == fixedWalk.Max)
+            {
+                return InlineBuilt(mod, row =>
+                {
+                    int? r = domain.PopIndexAt(row);
+                    return r is null
+                        ? null
+                        : Repeat.Join(
+                            MemoryEngine.SequentialRow(list, r.Value, fixedWalk.Max, cycle),
+                            fixedWalk);
+                }, streamId, gen, domain);
+            }
+
             return InlineBuilt(mod, row =>
             {
                 int? r = domain.PopIndexAt(row);

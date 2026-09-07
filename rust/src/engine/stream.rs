@@ -256,6 +256,11 @@ enum Column {
         domain: Domain,
         list: Vec<String>,
         cycle: bool,
+        /// A fixed `repeat="N"`: the row walks N values instead of one, element
+        /// k of row r taking source index `r * N + k`. `None` is one value per
+        /// row. Only a fixed repeat reaches here — a ranged one has no stride,
+        /// and the validator refuses it.
+        walk: Option<crate::generators::repeat::Spec>,
         modifier: Option<Modifier>,
     },
     /// The same rule over a date range. The axis is arithmetic rather than a
@@ -1266,10 +1271,12 @@ impl StreamEngine<'_> {
                 memory::split_text(gen.attr_or("value", ""))
             };
             let cycle = attrs.get("cycle").map(String::as_str) != Some("false");
+            let walk = crate::generators::repeat::parse(attrs)?.filter(|spec| spec.min == spec.max);
             let raw = Column::Sequential {
                 domain: domain.clone(),
                 list: list.clone(),
                 cycle,
+                walk: walk.clone(),
                 modifier: None,
             };
             return self.inline_built(
@@ -1277,6 +1284,7 @@ impl StreamEngine<'_> {
                     domain: domain.clone(),
                     list,
                     cycle,
+                    walk,
                     modifier,
                 },
                 raw,
@@ -2721,12 +2729,24 @@ impl StreamEngine<'_> {
                 domain,
                 list,
                 cycle,
+                walk,
                 modifier,
             } => {
                 let Some(r) = self.pop_index_at(domain, row)? else {
                     return Ok(None);
                 };
-                let value = memory::pick_sequential(list, r as usize, *cycle)?;
+                let value = match walk {
+                    Some(spec) => {
+                        let parts = memory::sequential_row(
+                            list,
+                            r as usize,
+                            spec.max.max(0) as usize,
+                            *cycle,
+                        )?;
+                        crate::generators::repeat::join(&parts, spec)?
+                    }
+                    None => memory::pick_sequential(list, r as usize, *cycle)?,
+                };
                 self.modify(modifier, row, Some(value), 0)
             }
 

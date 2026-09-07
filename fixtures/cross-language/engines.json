@@ -3851,6 +3851,52 @@
         "lines": ["Jan 845", "Feb 908", "Mar 421", "Jan 573"]
       }
     },
+    "ordering/a-fixed-repeat-walks-the-list-inside-one-row": {
+      "engine2": {
+        "lines": [
+          "created,paid,shipped,delivered",
+          "created,paid,shipped,delivered",
+          "created,paid,shipped,delivered",
+          "created,paid,shipped,delivered",
+          "created,paid,shipped,delivered",
+          "created,paid,shipped,delivered"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "created,paid,shipped,delivered",
+          "created,paid,shipped,delivered",
+          "created,paid,shipped,delivered",
+          "created,paid,shipped,delivered",
+          "created,paid,shipped,delivered",
+          "created,paid,shipped,delivered"
+        ]
+      }
+    },
+    "ordering/the-walk-carries-on-across-rows": {
+      "engine2": {
+        "lines": ["a,b", "c,a", "b,c", "a,b", "c,a", "b,c"]
+      },
+      "engine3": {
+        "lines": ["a,b", "c,a", "b,c", "a,b", "c,a", "b,c"]
+      }
+    },
+    "ordering/repeat-one-is-the-plain-walk": {
+      "engine2": {
+        "lines": ["a", "b", "c", "a", "b", "c"]
+      },
+      "engine3": {
+        "lines": ["a", "b", "c", "a", "b", "c"]
+      }
+    },
+    "ordering/the-same-walk-without-a-repeat": {
+      "engine2": {
+        "lines": ["a", "b", "c", "a", "b", "c"]
+      },
+      "engine3": {
+        "lines": ["a", "b", "c", "a", "b", "c"]
+      }
+    },
     "patterns/pattern-signal": {
       "engine2": {
         "lines": [

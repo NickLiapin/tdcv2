@@ -1137,6 +1137,29 @@ fn build_columns_with(
                 // which ELEMENT spiked rather than merely that one did.
                 let mut repeat_flags: Option<Vec<String>> = None;
                 let values = match repeat::parse(&gen.attrs)? {
+                    // order="sequential" with a fixed repeat: the row's values are decided by
+                    // its position, so none of the layout below applies — there is nothing to
+                    // lay out and nothing to draw.
+                    Some(ref repeat_spec)
+                        if repeat_spec.min == repeat_spec.max
+                            && matches!(gen.gen_type.as_str(), "text" | "file")
+                            && gen.attr("order") == Some("sequential") =>
+                    {
+                        let list = if gen.gen_type == "file" {
+                            file::load(&gen.attrs, env.base_dir, env.packs.data_roots())?
+                        } else {
+                            split_text(gen.attr_or("value", ""))
+                        };
+                        let cycle = gen.attr("cycle") != Some("false");
+                        let mut built = Vec::with_capacity(applicable);
+                        for i in 0..applicable {
+                            let row = stream.row_at(i);
+                            let parts =
+                                sequential_row(&list, row, repeat_spec.max.max(0) as usize, cycle)?;
+                            built.push(repeat::join(&parts, repeat_spec)?);
+                        }
+                        built
+                    }
                     // A listed column lays every element of every row out at once and reads
                     // the slots the length plan gave the row; anything drawn takes one
                     // sub-stream per element. Which of the two is the streaming engine's own
@@ -4613,6 +4636,42 @@ pub(super) fn pick_sequential(list: &[String], i: usize, cycle: bool) -> EngineR
         return Ok(String::new());
     }
     Ok(list[sequential_index(list.len(), i, cycle)?].clone())
+}
+
+/// The values of ONE row when a fixed `repeat="N"` rides `order="sequential"`.
+///
+/// Element k of row r takes source index `r * N + k`: the walk carries on across
+/// rows rather than restarting, which is what makes `repeat="1"` mean exactly
+/// what `order="sequential"` alone has always meant. A row is still a function
+/// of its own number, so this resolves the same way on every engine.
+///
+/// Only a FIXED repeat reaches here. A ranged one has no stride, and the
+/// validator refuses it (`TDC254`) rather than inventing one.
+pub(super) fn sequential_row(
+    list: &[String],
+    row: usize,
+    n: usize,
+    cycle: bool,
+) -> EngineResult<Vec<String>> {
+    let mut out = Vec::with_capacity(n);
+    for k in 0..n {
+        let at = row * n + k;
+        // The bound is checked here rather than in `sequential_index`, because
+        // with a repeat the number that ran out is a position in the walk and
+        // not a row — and a message naming the wrong one sends a reader to the
+        // wrong attribute.
+        if !cycle && !list.is_empty() && at >= list.len() {
+            return invalid(&format!(
+                "order=\"sequential\" cycle=\"false\": the source has only {} values, so row {} \
+                 runs out at element {} — shorten count=, shorten repeat=, or lengthen the source",
+                list.len(),
+                row + 1,
+                k + 1
+            ));
+        }
+        out.push(pick_sequential(list, at, true)?);
+    }
+    Ok(out)
 }
 
 // ── rendering ────────────────────────────────────────────────────────────────

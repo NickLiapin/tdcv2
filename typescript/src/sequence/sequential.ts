@@ -8,6 +8,7 @@
 import { resolveExistingDataSourcePath } from '../data-source/resolve.js';
 import type { DataSourceOptions } from '../data-source/resolve.js';
 import { loadCsvColumnFile, loadListFile } from '../generators/file.js';
+import { joinParts, type RepeatSpec } from './repeat.js';
 import type { GenSpec } from './types.js';
 
 /**
@@ -54,4 +55,71 @@ export function sequentialIndex(size: number, index: number, cycle: boolean): nu
 export function pickSequential(list: readonly string[], index: number, cycle: boolean): string {
   if (list.length === 0) return '';
   return list[sequentialIndex(list.length, index, cycle)] ?? '';
+}
+
+/**
+ * The walk a fixed `repeat="N"` rides, or undefined when this is not that column.
+ *
+ * Both engines ask the same question here, so neither spells the condition out and
+ * they cannot drift apart on which configs are walked.
+ */
+export function walkedRepeat(
+  gen: GenSpec,
+  spec: RepeatSpec | undefined,
+  dataSources: DataSourceOptions,
+): ((row: number) => string) | undefined {
+  if (!spec || spec.min !== spec.max) return undefined;
+  if (gen.type !== 'text' && gen.type !== 'file') return undefined;
+  if (gen.attrs['order'] !== 'sequential') return undefined;
+  const list = sequentialList(gen, dataSources);
+  const cycle = gen.attrs['cycle'] !== 'false';
+  return (row) => joinParts(sequentialRow(list, row, spec.max, cycle), spec);
+}
+
+/**
+ * How a walked column answers ONE row — with a fixed `repeat=` or without.
+ *
+ * The streaming engine asks for exactly this and nothing else, so the choice
+ * between the two shapes is made once, here, rather than at every row.
+ */
+export function walkedValueAt(
+  gen: GenSpec,
+  spec: RepeatSpec | undefined,
+  dataSources: DataSourceOptions,
+): (row: number) => string {
+  const walk = walkedRepeat(gen, spec, dataSources);
+  if (walk) return walk;
+  const list = sequentialList(gen, dataSources);
+  const cycle = gen.attrs['cycle'] !== 'false';
+  return (row) => pickSequential(list, row, cycle);
+}
+
+/**
+ * The values of ONE row when a fixed `repeat="N"` rides `order="sequential"`.
+ *
+ * Element k of row r takes source index `r * N + k`: the walk carries on across
+ * rows rather than restarting, which is what makes `repeat="1"` mean exactly
+ * what `order="sequential"` alone has always meant. A row is still a function of
+ * its own number, so this resolves the same way on every engine.
+ *
+ * Only a FIXED repeat reaches here. A ranged one has no stride, and the
+ * validator refuses it (`TDC254`) rather than inventing one.
+ */
+function sequentialRow(list: readonly string[], row: number, n: number, cycle: boolean): string[] {
+  const out: string[] = new Array<string>(n);
+  for (let k = 0; k < n; k++) {
+    const at = row * n + k;
+    // The bound is checked here rather than in `sequentialIndex`, because with a
+    // repeat the number that ran out is a position in the walk and not a row —
+    // and a message naming the wrong one sends a reader to the wrong attribute.
+    if (!cycle && list.length > 0 && at >= list.length) {
+      throw new Error(
+        `order="sequential" cycle="false": the source has only ${String(list.length)} values, ` +
+          `so row ${String(row + 1)} runs out at element ${String(k + 1)} — shorten count=, ` +
+          'shorten repeat=, or lengthen the source',
+      );
+    }
+    out[k] = pickSequential(list, at, true);
+  }
+  return out;
 }

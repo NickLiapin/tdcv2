@@ -926,6 +926,27 @@ def _plain_column(
 
     if applicable == 0:
         produced: list[str] = []
+    elif (
+        repeat is not None
+        and repeat.min == repeat.max
+        and spec.gen.type in ("text", "file")
+        and spec.gen.attrs.get("order") == "sequential"
+    ):
+        # order="sequential" with a fixed repeat: the row's values are decided by its position,
+        # so none of the layout below applies — there is nothing to lay out and nothing to draw.
+        seq_values = (
+            file_gen.load(spec.gen.attrs, run.base_dir, run.packs.data_roots)
+            if spec.gen.type == "file"
+            else _split_text(spec.gen.attr("value"))
+        )
+        seq_cycle = spec.gen.attrs.get("cycle") != "false"
+        produced = [
+            repeat_gen.join(
+                sequential_row(seq_values, per_row.absolute_row(run, i), repeat.max, seq_cycle),
+                repeat,
+            )
+            for i in range(applicable)
+        ]
     elif repeat is not None and key_pair is not None:
         seed, stream_id = key_pair
         # A listed column lays every element of every row out at once and reads the slots the
@@ -2594,6 +2615,33 @@ def _pick_sequential(values: list[str], index: int, cycle: bool) -> str:
     if not values:
         return ""
     return values[sequential_index(len(values), index, cycle)]
+
+
+def sequential_row(values: list[str], row: int, n: int, cycle: bool) -> list[str]:
+    """The values of ONE row when a fixed ``repeat="N"`` rides ``order="sequential"``.
+
+    Element k of row r takes source index ``r * N + k``: the walk carries on across rows rather
+    than restarting, which is what makes ``repeat="1"`` mean exactly what ``order="sequential"``
+    alone has always meant. A row is still a function of its own number, so this resolves the
+    same way on every engine.
+
+    Only a FIXED repeat reaches here. A ranged one has no stride, and the validator refuses it
+    (``TDC254``) rather than inventing one.
+    """
+    out: list[str] = []
+    for k in range(n):
+        at = row * n + k
+        # The bound is checked here rather than in ``sequential_index``, because with a repeat
+        # the number that ran out is a position in the walk and not a row — and a message naming
+        # the wrong one sends a reader to the wrong attribute.
+        if not cycle and values and at >= len(values):
+            raise EngineError(
+                f'order="sequential" cycle="false": the source has only {len(values)} values, '
+                f"so row {row + 1} runs out at element {k + 1} — shorten count=, "
+                "shorten repeat=, or lengthen the source"
+            )
+        out.append(_pick_sequential(values, at, True))
+    return out
 
 
 def _trim_to_none(value: str | None) -> str | None:

@@ -4564,11 +4564,16 @@ impl Validator {
     /// is already counted in rows.
     /// `repeat=` together with `order="sequential"`.
     ///
-    /// Well defined apart, undefined together — and the engines proved it by
-    /// disagreeing: engine 1 gave the row several elements that were all the
-    /// SAME value and never advanced, engines 2 and 3 dropped the repeat list
-    /// and emitted one walking value. `check` called that valid, so the author
-    /// got data that looks plausible and is wrong differently per engine.
+    /// A FIXED repeat is a feature and lives in the engines: the row's N values
+    /// walk the source, element k of row r taking source index `r * N + k`. At
+    /// `repeat="1"` that is exactly what `order="sequential"` alone has always
+    /// done, which is what makes it the right generalisation.
+    ///
+    /// A RANGED repeat stays refused, and the reason is the stride. A walk
+    /// advances by a fixed number of values per row; a row whose length is
+    /// decided by the length quota has no such number. A walked DATE stays
+    /// refused too: it carries an instant beside its text, and a row holding
+    /// several dates has no single one to give `of=` and `plus=`.
     fn check_sequential_repeat(&mut self, gen: &Element, attrs: &Attrs) {
         if attrs.get("order").map(|v| v.trim()) != Some("sequential") {
             return;
@@ -4579,16 +4584,52 @@ impl Validator {
         if repeat.is_empty() {
             return;
         }
-        // Point at `repeat=`: a walked column is what the author asked for and can keep.
-        self.error(
-            "TDC254",
-            format!("repeat=\"{repeat}\" cannot be combined with order=\"sequential\""),
-            "A walked list and a repeating list are two different columns, and together they \
-             have no one answer — the engines disagree about what they produce. Keep \
-             order=\"sequential\" for a column that walks its source one value per row, or keep \
-             repeat= for several drawn values per row.",
-            gen.at("repeat"),
-        );
+        // Point at `repeat=`: a walked column is what the author asked for and
+        // can keep, and it is the repeat that has to become a number.
+        if attrs.get("type").map(|v| v.trim()) == Some("date") {
+            self.error(
+                "TDC254",
+                format!(
+                    "repeat=\"{repeat}\" cannot be combined with order=\"sequential\" on a date"
+                ),
+                "A walked date carries an instant beside its text, and a row holding several \
+                 dates has no single one to give of= and plus=. Walk the dates one per row, or \
+                 repeat a <gen type=\"text\"> list.",
+                gen.at("repeat"),
+            );
+            return;
+        }
+        if repeat.contains("..") {
+            self.error(
+                "TDC254",
+                format!("repeat=\"{repeat}\" cannot be combined with order=\"sequential\""),
+                "A walk advances by a fixed number of values per row, and a row whose length \
+                 comes from the length quota has no such number — row 5 would start wherever \
+                 rows 0 to 4 happened to leave off. Give repeat= one number for a walked list, \
+                 or drop order=\"sequential\" for a fan-out of drawn values.",
+                gen.at("repeat"),
+            );
+            return;
+        }
+        // `distinct` draws without replacement, and a walked row draws nothing:
+        // its values are decided by its position. Honouring both is not
+        // possible, and silently ignoring one is how a config comes to claim
+        // something it never had.
+        if attrs
+            .get("distinct")
+            .map(|v| v.trim().to_ascii_lowercase())
+            .as_deref()
+            == Some("true")
+        {
+            self.error(
+                "TDC307",
+                "distinct=\"true\" cannot be combined with order=\"sequential\"".to_string(),
+                "A walked row draws nothing — its values are decided by its position — so there \
+                 is no draw for distinct= to make without replacement. Remove distinct=, or \
+                 remove order=\"sequential\" so the row draws its values.",
+                gen.at("distinct"),
+            );
+        }
     }
 
     fn check_timeseries(&mut self, gen: &Element, attrs: &Attrs, gen_type: Option<&str>) {

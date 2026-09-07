@@ -65,9 +65,9 @@ import {
   withRows,
 } from './per-row.js';
 export { patternGenForGen } from './pattern-source.js';
-export { pickSequential, sequentialIndex, sequentialList } from './sequential.js';
+export { pickSequential, sequentialIndex, sequentialList, walkedValueAt } from './sequential.js';
 import { patternGenForGen } from './pattern-source.js';
-import { pickSequential, sequentialIndex, sequentialList } from './sequential.js';
+import { pickSequential, sequentialIndex, sequentialList, walkedRepeat } from './sequential.js';
 import { evaluateIf } from '../expr/evaluate.js';
 
 import { genFormatter } from '../format/transforms.js';
@@ -1027,6 +1027,11 @@ export function buildGenValues(
     }
     return out;
   }
+
+  // order="sequential" with a fixed repeat: the row's values are decided by its
+  // position, so none of the layout below applies — nothing to lay out, nothing to draw.
+  const walk = walkedRepeat(gen, repeat, ctx.dataSources);
+  if (walk) return Array.from({ length: count }, (_, i) => walk(absoluteRow(ctx, i)));
 
   const keyed = keyedDraws(ctx);
   if (keyed) {

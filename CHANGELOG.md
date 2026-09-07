@@ -17,6 +17,48 @@ page — is tracked in that implementation's own changelog:
 
 ### Added
 
+<!-- covers: repeat with order=sequential -->
+
+- **A row can hold several values walked in order — a fixed `repeat=` beside
+  `order="sequential"`.** The combination was refused (`TDC254`) with the refusal itself
+  saying the feature "can be built afterwards, against fixtures, like every other feature
+  here". This is that.
+
+  ```xml
+  <sequence name="Step"><gen type="text" value="created,paid,shipped,delivered" repeat="4" order="sequential"/></sequence>
+  ```
+
+  Element k of row r takes source value `r × N + k`: the walk carries ON across rows
+  rather than restarting. Four steps over a list of four is therefore the whole list on
+  every row — a record's entire lifecycle in one sequence, unrolled with `each=`, where
+  before it took a hand-written `<mix>` of legal paths. Over a shorter list the rows
+  differ: `value="a,b,c" repeat="2"` gives `a,b`, then `c,a`, then `b,c`.
+
+  **Carrying on is what makes it a generalisation rather than a second meaning.** At
+  `repeat="1"` the column is exactly what `order="sequential"` alone has always produced;
+  a walk that restarted per row would make the same spelling mean something new. Two
+  fixtures sit next to each other to pin that — the same list, one with `repeat="1"` and
+  one without — and a third pins the part a single row cannot show, that row 1 continues
+  where row 0 left off.
+
+  What the engines used to do, and why the refusal was right: engine 1 gave the row four
+  elements that were all the SAME value and never advanced; engines 2 and 3 dropped the
+  repeat entirely and emitted one walking value. `check` called that config valid.
+
+  Still refused, each for a reason of its own rather than for lack of work:
+  - **A ranged `repeat="2..5"`** (`TDC254`) — a walk advances by a fixed number of values
+    per row, and a row whose length comes from the length quota has none. Row 5 would
+    start wherever rows 0 to 4 happened to leave off, which is what every engine here is
+    built not to do.
+  - **A walked `date` with any `repeat=`** (`TDC254`) — it carries an instant beside its
+    text, and a row holding several dates has no single one to give `of=` and `plus=`.
+    That failure would be quiet, which is worse than wrong.
+  - **`distinct="true"`** (`TDC307`, new) — it draws without replacement, and a walked row
+    draws nothing at all: its values are decided by its position.
+
+  `cycle="false"` now says which element of which row ran out, rather than naming a row
+  number that was really a position in the walk.
+
 <!-- covers: per-row assertions -->
 
 - **`<assert each="…">` — the per-row assertion the page had been calling a different

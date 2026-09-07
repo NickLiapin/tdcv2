@@ -209,13 +209,33 @@ envió — y los desenlaces caen en las proporciones exactas que declaró `<mix>
 paso se escribe en la línea en vez de contarse, porque las líneas de un camino ya se
 conocen cuando se escribe el config.
 
-:::note[No `repeat` + `order="sequential"`]
-Una forma corta tentadora es una sola secuencia con el camino entero:
+:::note[La forma corta, y cuándo es la correcta]
+Una sola secuencia puede llevar el camino entero:
 `<gen type="text" value="created,paid,shipped,delivered" repeat="4" order="sequential"/>`
-más `each` para desplegarla. Esa combinación se **rechaza** (`TDC254`). Cada atributo está
-bien definido por separado y sin definir juntos, y los motores discrepaban sobre lo que
-producían: un config obtenía datos verosímiles que diferían según qué motor respondiera.
-Una lista por fila que recorre su fuente en orden es una función que TDC todavía no tiene.
+más [`each`](../reference/attributes.mdx) para desplegarla. Un `repeat` fijo sobre una
+lista recorrida toma N valores del recorrido por fila, así que una lista de cuatro leída de
+cuatro en cuatro es el camino entero en cada registro:
+
+```xml
+<sequence name="Order"><gen type="increment" value="1000"/></sequence>
+<sequence name="Step"><gen type="text" value="created,paid,shipped,delivered" repeat="4" order="sequential"/></sequence>
+...
+<line each="Step"><data>${{Order}},${{Step}}</data></line>
+```
+
+<Terminal title="./run steps.tdc (3 pedidos)">
+{`1000,created
+1000,paid
+1000,shipped
+1000,delivered
+1001,created
+1001,paid`}
+</Terminal>
+
+**Úsela cuando cada registro sigue el MISMO camino.** El `<mix>` de arriba es para cuando
+no lo hacen: allí un pedido se cancela y otro se entrega, en proporciones declaradas, y
+ninguna lista recorrida puede decir eso. Las reglas del recorrido y las dos formas que
+rechaza están en [`order=` / `cycle=`](../generators/overview.mdx).
 :::
 
 **legal** — uno enviado se pagó antes, uno cancelado nunca se

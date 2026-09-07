@@ -1257,6 +1257,28 @@ public static class MemoryEngine
             {
                 values = Array.Empty<string>();
             }
+            else if (repeat is { } walkSpec
+                && walkSpec.Min == walkSpec.Max
+                && (spec.Gen.Type == "text" || spec.Gen.Type == "file")
+                && spec.Gen.Attrs.GetValueOrDefault("order") == "sequential")
+            {
+                // order="sequential" with a fixed repeat: the row's values are decided by its
+                // position, so none of the layout below applies — there is nothing to lay out
+                // and nothing to draw.
+                IReadOnlyList<string> walkList = spec.Gen.Type == "file"
+                    ? FileGen.Load(spec.Gen.Attrs, ctx.BaseDir, ctx.Packs.DataRoots)
+                    : SplitText(spec.Gen.Attrs.GetValueOrDefault("value", ""));
+                bool walkCycle = spec.Gen.Attrs.GetValueOrDefault("cycle") != "false";
+                var walked = new List<string>(applicable);
+                for (int i = 0; i < applicable; i++)
+                {
+                    walked.Add(Repeat.Join(
+                        SequentialRow(walkList, stream.RowAt(i), walkSpec.Max, walkCycle),
+                        walkSpec));
+                }
+
+                values = walked;
+            }
             else if (repeat is { } r)
             {
                 // A listed column lays every element of every row out at once and reads the slots
@@ -4386,6 +4408,43 @@ public static class MemoryEngine
 
     internal static string PickSequential(IReadOnlyList<string> list, int index, bool cycle) =>
         list.Count == 0 ? "" : list[(int)SequentialIndex(list.Count, index, cycle)];
+
+    /// <summary>
+    /// The values of ONE row when a fixed <c>repeat="N"</c> rides <c>order="sequential"</c>.
+    /// </summary>
+    /// <remarks>
+    /// Element k of row r takes source index <c>r * N + k</c>: the walk carries on across rows
+    /// rather than restarting, which is what makes <c>repeat="1"</c> mean exactly what
+    /// <c>order="sequential"</c> alone has always meant. A row is still a function of its own
+    /// number, so this resolves the same way on every engine.
+    /// <para>
+    /// Only a FIXED repeat reaches here. A ranged one has no stride, and the validator refuses it
+    /// (<c>TDC254</c>) rather than inventing one.
+    /// </para>
+    /// </remarks>
+    internal static IReadOnlyList<string> SequentialRow(
+        IReadOnlyList<string> list, int row, int n, bool cycle)
+    {
+        var out_ = new List<string>(n);
+        for (int k = 0; k < n; k++)
+        {
+            int at = (row * n) + k;
+            // The bound is checked here rather than in SequentialIndex, because with a repeat the
+            // number that ran out is a position in the walk and not a row — and a message naming
+            // the wrong one sends a reader to the wrong attribute.
+            if (!cycle && list.Count > 0 && at >= list.Count)
+            {
+                throw new InvalidOperationException(
+                    $"order=\"sequential\" cycle=\"false\": the source has only {list.Count} "
+                    + $"values, so row {row + 1} runs out at element {k + 1} — shorten count=, "
+                    + "shorten repeat=, or lengthen the source");
+            }
+
+            out_.Add(PickSequential(list, at, true));
+        }
+
+        return out_;
+    }
 
     internal static IReadOnlyList<string> SplitText(string value) =>
         value.Split(',').Select(p => p.Trim()).ToArray();

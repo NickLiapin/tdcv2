@@ -716,6 +716,22 @@ class StreamEngine:
                 else _split_text(attrs.get("value", ""))
             )
             cycle = attrs.get("cycle") != "false"
+            # A fixed ``repeat="N"`` walks N values per row, element k of row r taking source
+            # index r*N+k. Only a fixed one reaches here; a ranged repeat has no stride and the
+            # validator refuses it.
+            walk = repeat_gen.parse(attrs)
+
+            if walk is not None and walk.min == walk.max:
+
+                def sequential_repeated(row: int, spec=walk) -> str | None:
+                    r = domain.pop_index_at(row)
+                    if r is None:
+                        return None
+                    return repeat_gen.join(
+                        memory.sequential_row(values, r, spec.max, cycle), spec
+                    )
+
+                return self._inline_built(mod, sequential_repeated, stream_id, gen, domain)
 
             def sequential(row: int) -> str | None:
                 r = domain.pop_index_at(row)

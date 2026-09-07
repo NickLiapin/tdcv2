@@ -1114,6 +1114,25 @@ public final class StreamEngine {
               ? FileGen.load(attrs, baseDir, packs.dataRoots())
               : splitText(attrs.getOrDefault("value", ""));
       boolean cycle = !"false".equals(attrs.get("cycle"));
+      // A fixed `repeat="N"` walks N values per row, element k of row r taking source index
+      // r*N+k. Only a fixed one reaches here; a ranged repeat has no stride and the validator
+      // refuses it.
+      Repeat.Spec walk = Repeat.parse(attrs);
+      if (walk != null && walk.min() == walk.max()) {
+        Repeat.Spec fixed = walk;
+        return inlineBuilt(
+            mod,
+            row -> {
+              Integer r = domain.popIndexAt().apply(row);
+              return r == null
+                  ? null
+                  : Repeat.join(
+                      MemoryEngine.sequentialRow(list, r, fixed.max(), cycle), fixed);
+            },
+            streamId,
+            gen,
+            domain);
+      }
       return inlineBuilt(
           mod,
               row -> {

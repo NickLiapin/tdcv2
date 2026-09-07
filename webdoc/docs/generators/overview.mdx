@@ -222,6 +222,37 @@ The same applies to files: `<gen type="file" src="cities.txt" order="sequential"
 walks the file line by line. Full details are on
 **[Masks & case](../guides/masks-and-case.mdx)**.
 
+#### Several values per row — `repeat="N"`
+
+Add a fixed [`repeat`](../constructs/multiple-values.mdx) and the row takes **N values
+off the walk** instead of one. The walk carries on across rows, so element _k_ of row _r_
+is source value _r_×N+_k_:
+
+```xml
+<sequence name="Step"><gen type="text" value="created,paid,shipped,delivered" repeat="4" order="sequential"/></sequence>
+```
+
+<Terminal title="./run steps.tdc (3 rows)">
+{`created,paid,shipped,delivered
+created,paid,shipped,delivered
+created,paid,shipped,delivered`}
+</Terminal>
+
+Four steps over a list of four is the whole list on every row — which is how you write a
+record's [whole lifecycle](../constructs/relational-tables.mdx) in one sequence. Over a
+shorter list the rows differ: `value="a,b,c" repeat="2"` gives `a,b` then `c,a` then
+`b,c`.
+
+Carrying on rather than restarting is what makes `repeat="1"` mean exactly what
+`order="sequential"` alone means — the same column, not a special case.
+
+Two shapes are refused rather than guessed at. **A ranged `repeat="2..5"`** (`TDC254`): a
+walk advances by a fixed number of values per row, and a row whose length comes from the
+[length quota](../constructs/multiple-values.mdx) has no such number. **A walked `date`**
+(`TDC254`): it carries an instant beside its text, and a row holding several dates has no
+single one to give `of=` and `plus=`. `distinct="true"` is refused too (`TDC307`) — a
+walked row draws nothing, so there is no draw to make without replacement.
+
 ### `missing=` / `anomaly=` — blanks and outliers
 
 **Use it when** you need data that looks like the real world — where some fields are

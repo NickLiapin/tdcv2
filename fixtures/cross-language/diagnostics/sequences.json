@@ -86,13 +86,6 @@
       "expected": ["warning TDC221 1:42"]
     },
     {
-      "name": "sequential-repeat-is-refused",
-      "demonstrates": "TDC254",
-      "description": "repeat= with order=\"sequential\" — the engines disagree about what it produces, so it is refused rather than answered three ways",
-      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"a,b,c\" repeat=\"3\" order=\"sequential\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
-      "expected": ["error TDC254 1:98"]
-    },
-    {
       "name": "sequential-repeat-on-a-date-is-refused",
       "demonstrates": "TDC254",
       "description": "The same refusal on a walked date axis — the rule is about the two attributes, not about one generator type",
@@ -133,6 +126,27 @@
       "description": "A <case> body is several parts JOINED into one value, so a condition on one part has no answer to give: if it were false, the part would have to become something, and there is no honest candidate. The branch already carries its own condition. It used to be accepted and ignored, so a <gen if=\"K == p\"> inside a case put its value on EVERY row — including the ones the condition excluded — from a config `check` had called valid. Same reasoning as TDC246 beside it: a flag on one part does not describe the row, and neither does a condition.",
       "config": "<tdc><env count=\"4\" seed=\"s\"><sequence name=\"K\"><gen type=\"text\" value=\"p,q\"/></sequence><mix name=\"M\" percent=\"100\"><case><gen if=\"K == p\" type=\"text\" value=\"ONLY-P\"/></case></mix></env><block><line><data>${{M}}</data></line></block></tdc>",
       "expected": ["error TDC269 1:132"]
+    },
+    {
+      "name": "a-ranged-repeat-cannot-walk",
+      "demonstrates": "TDC254",
+      "description": "A walk advances by a fixed number of values per row. A row whose length comes from the length quota has no such number, and any answer would make row 5 start wherever rows 0 to 4 happened to leave off — which is what every engine here is built not to do.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"text\" value=\"a,b,c\" repeat=\"1..3\" order=\"sequential\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["error TDC254 1:98"]
+    },
+    {
+      "name": "a-walked-date-cannot-repeat",
+      "demonstrates": "TDC254",
+      "description": "A walked date carries an instant beside its text, which is what lets of= and plus= read it. A row holding several dates has no single instant to hand them, so the pairing would go quiet rather than wrong — and quiet is worse.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"date\" from=\"2026-01-01\" to=\"2026-12-31\" repeat=\"3\" order=\"sequential\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["error TDC254 1:118"]
+    },
+    {
+      "name": "a-walked-row-draws-nothing-so-distinct-decides-nothing",
+      "demonstrates": "TDC307",
+      "description": "distinct= draws without replacement, and a walked row draws nothing: its values are decided by its position. Honouring both is impossible, and silently ignoring one is how a config comes to claim something it never had.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"text\" value=\"a,b,c\" repeat=\"2\" order=\"sequential\" distinct=\"true\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["error TDC307 1:130"]
     }
   ]
 }

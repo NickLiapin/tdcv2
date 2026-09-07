@@ -4219,34 +4219,64 @@ class _Validator:
     def _check_sequential_repeat(self, gen, attrs: dict[str, str]) -> None:
         """``repeat=`` together with ``order="sequential"``.
 
-        Each attribute is well defined alone and undefined together, and the engines proved it
-        by disagreeing: engine 1 gave the row several elements that were all the SAME value and
-        never advanced, engines 2 and 3 dropped the repeat list and emitted one walking value.
-        ``check`` called that valid, so the author got data that looks plausible, is wrong, and
-        is wrong differently depending on which engine answered.
+        A FIXED repeat is a feature and lives in the engines: the row's N values walk the
+        source, element k of row r taking source index ``r * N + k``. At ``repeat="1"`` that is
+        exactly what ``order="sequential"`` alone has always done, which is what makes it the
+        right generalisation rather than a second meaning.
 
-        Refusing costs no working feature — there was none. Making the combination mean the
-        obvious thing (the row's elements walk the list) means threading an element index
-        through the length-quota layout in three engines, which is a feature with its own
-        design, not a patch.
+        A RANGED repeat is what stays refused, and the reason is the stride. A walk advances by
+        a fixed number of values per row; a row whose length is decided by the length quota has
+        no such number, and any answer would make row r depend on how many values the rows
+        before it happened to take — which is what every engine here is built not to do.
+
+        A walked DATE stays refused too: it carries an instant beside its text, and a row
+        holding several dates has no single one to give ``of=`` and ``plus=``.
         """
         if (attrs.get("order") or "").strip() != "sequential":
             return
         repeat = (attrs.get("repeat") or "").strip()
         if not repeat:
             return
-        # Point at `repeat=`: a walked column is what the author asked for and can keep.
+        # Point at `repeat=`: a walked column is what the author asked for and can keep,
+        # and it is the repeat that has to become a number.
         line, column = _at(gen, "repeat")
-        self._error(
-            "TDC254",
-            f'repeat="{repeat}" cannot be combined with order="sequential"',
-            "A walked list and a repeating list are two different columns, and together they "
-            "have no one answer — the engines disagree about what they produce. Keep "
-            'order="sequential" for a column that walks its source one value per row, or keep '
-            "repeat= for several drawn values per row.",
-            line,
-            column,
-        )
+        if (attrs.get("type") or "").strip() == "date":
+            self._error(
+                "TDC254",
+                f'repeat="{repeat}" cannot be combined with order="sequential" on a date',
+                "A walked date carries an instant beside its text, and a row holding several "
+                "dates has no single one to give of= and plus=. Walk the dates one per row, or "
+                'repeat a <gen type="text"> list.',
+                line,
+                column,
+            )
+            return
+        if ".." in repeat:
+            self._error(
+                "TDC254",
+                f'repeat="{repeat}" cannot be combined with order="sequential"',
+                "A walk advances by a fixed number of values per row, and a row whose length "
+                "comes from the length quota has no such number — row 5 would start wherever "
+                "rows 0 to 4 happened to leave off. Give repeat= one number for a walked list, "
+                'or drop order="sequential" for a fan-out of drawn values.',
+                line,
+                column,
+            )
+            return
+        # `distinct` draws without replacement, and a walked row draws nothing: its values are
+        # decided by its position. Honouring both is not possible, and silently ignoring one is
+        # how a config comes to claim something it never had.
+        if (attrs.get("distinct") or "").strip().lower() == "true":
+            line, column = _at(gen, "distinct")
+            self._error(
+                "TDC307",
+                'distinct="true" cannot be combined with order="sequential"',
+                "A walked row draws nothing — its values are decided by its position — so there "
+                "is no draw for distinct= to make without replacement. Remove distinct=, or "
+                'remove order="sequential" so the row draws its values.',
+                line,
+                column,
+            )
 
     def _check_timeseries(self, gen, attrs: dict[str, str], type_: str | None) -> None:
         """The seasonal attributes on a ``<gen type="timeseries">``.

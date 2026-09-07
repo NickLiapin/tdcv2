@@ -18,6 +18,37 @@
       "description": "Walking a list in order consumes no randomness",
       "config": "<tdc><env count=\"4\" seed=\"demo\" local=\"en\" mode=\"memory\"><sequence name=\"M\"><gen type=\"text\" value=\"Jan,Feb,Mar\" order=\"sequential\"/></sequence><sequence name=\"N\"><gen type=\"number\" value=\"100..999\"/></sequence></env><block><line><data>${{M}} ${{N}}</data></line></block></tdc>",
       "expected": ["Jan 845", "Feb 908", "Mar 421", "Jan 573"]
+    },
+    {
+      "name": "a-fixed-repeat-walks-the-list-inside-one-row",
+      "description": "The order lifecycle in one sequence: four steps, in order, on every row. Element k of row r takes source index r*N+k, and with a list of four and repeat=\"4\" that is the whole list each time — which is the config this combination was invented for.",
+      "config": "<tdc><env count=\"6\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"text\" value=\"created,paid,shipped,delivered\" order=\"sequential\" repeat=\"4\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": [
+        "created,paid,shipped,delivered",
+        "created,paid,shipped,delivered",
+        "created,paid,shipped,delivered",
+        "created,paid,shipped,delivered",
+        "created,paid,shipped,delivered",
+        "created,paid,shipped,delivered"
+      ]
+    },
+    {
+      "name": "the-walk-carries-on-across-rows",
+      "description": "The part a single row cannot show: three values taken two at a time do not restart at every row, they continue. Row 0 takes a,b — row 1 takes c,a. An implementation that restarted the walk per row would print a,b six times and pass any test that only looked at one row.",
+      "config": "<tdc><env count=\"6\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"text\" value=\"a,b,c\" order=\"sequential\" repeat=\"2\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["a,b", "c,a", "b,c", "a,b", "c,a", "b,c"]
+    },
+    {
+      "name": "repeat-one-is-the-plain-walk",
+      "description": "The property that makes carrying on the right rule rather than a second meaning: at repeat=\"1\" the column is exactly what order=\"sequential\" alone has always produced. The case above it in this file walks the same list without a repeat and must print the same values.",
+      "config": "<tdc><env count=\"6\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"text\" value=\"a,b,c\" order=\"sequential\" repeat=\"1\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["a", "b", "c", "a", "b", "c"]
+    },
+    {
+      "name": "the-same-walk-without-a-repeat",
+      "description": "The twin of the case above, written out rather than described, because a claim about two configs is only checked when both are run.",
+      "config": "<tdc><env count=\"6\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"text\" value=\"a,b,c\" order=\"sequential\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["a", "b", "c", "a", "b", "c"]
     }
   ]
 }

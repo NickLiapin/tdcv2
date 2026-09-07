@@ -208,14 +208,33 @@ never shipped — and the outcomes land in the exact proportions `<mix>` declare
 number is written into the line rather than counted, because the lines of one path are
 known when the config is written.
 
-:::note[Not `repeat` + `order="sequential"`]
-A tempting shorter spelling is one sequence holding the whole path — `<gen type="text"
-value="created,paid,shipped,delivered" repeat="4" order="sequential"/>` — with `each` to
-unroll it. That combination is **refused** (`TDC254`). The two attributes are each well
-defined alone and undefined together, and the engines disagreed about what they produced,
-so a config using it got plausible-looking data that differed depending on which engine
-answered. A per-row list that walks its source in order is a feature TDC does not have
-yet.
+:::note[The shorter spelling, and when it is the right one]
+One sequence can hold the whole path — `<gen type="text"
+value="created,paid,shipped,delivered" repeat="4" order="sequential"/>` — with
+[`each`](../reference/attributes.mdx) to unroll it. A fixed `repeat` on a walked list
+takes N values off the walk per row, so a list of four read four at a time is the whole
+path on every record:
+
+```xml
+<sequence name="Order"><gen type="increment" value="1000"/></sequence>
+<sequence name="Step"><gen type="text" value="created,paid,shipped,delivered" repeat="4" order="sequential"/></sequence>
+...
+<line each="Step"><data>${{Order}},${{Step}}</data></line>
+```
+
+<Terminal title="./run steps.tdc (3 orders)">
+{`1000,created
+1000,paid
+1000,shipped
+1000,delivered
+1001,created
+1001,paid`}
+</Terminal>
+
+**Use it when every record follows the SAME path.** The `<mix>` above is for when they do
+not: there, one order is cancelled and another delivered, in declared proportions, and no
+walked list can say that. See [`order=` / `cycle=`](../generators/overview.mdx) for the
+walk's rules and the two shapes it refuses.
 :::
 
 **Why it is built this way.** A status column that changed by "looking at the previous

@@ -4741,15 +4741,40 @@ public final class Validator {
     if (repeat.isEmpty()) {
       return;
     }
-    // Point at `repeat=`: a walked column is what the author asked for and can keep.
+    // Point at `repeat=`: a walked column is what the author asked for and can keep, and it is
+    // the repeat that has to become a number.
     int[] where = at(gen, "repeat");
-    error("TDC254",
-        "repeat=\"" + repeat + "\" cannot be combined with order=\"sequential\"",
-        "A walked list and a repeating list are two different columns, and together they have "
-            + "no one answer — the engines disagree about what they produce. Keep "
-            + "order=\"sequential\" for a column that walks its source one value per row, or "
-            + "keep repeat= for several drawn values per row.",
-        where[0], where[1]);
+    if ("date".equals(attrs.getOrDefault("type", "").trim())) {
+      error("TDC254",
+          "repeat=\"" + repeat + "\" cannot be combined with order=\"sequential\" on a date",
+          "A walked date carries an instant beside its text, and a row holding several dates has "
+              + "no single one to give of= and plus=. Walk the dates one per row, or repeat a "
+              + "<gen type=\"text\"> list.",
+          where[0], where[1]);
+      return;
+    }
+    if (repeat.contains("..")) {
+      error("TDC254",
+          "repeat=\"" + repeat + "\" cannot be combined with order=\"sequential\"",
+          "A walk advances by a fixed number of values per row, and a row whose length comes "
+              + "from the length quota has no such number — row 5 would start wherever rows 0 to "
+              + "4 happened to leave off. Give repeat= one number for a walked list, or drop "
+              + "order=\"sequential\" for a fan-out of drawn values.",
+          where[0], where[1]);
+      return;
+    }
+    // `distinct` draws without replacement, and a walked row draws nothing: its values are
+    // decided by its position. Honouring both is not possible, and silently ignoring one is how
+    // a config comes to claim something it never had.
+    if ("true".equals(attrs.getOrDefault("distinct", "").trim().toLowerCase(java.util.Locale.ROOT))) {
+      int[] atDistinct = at(gen, "distinct");
+      error("TDC307",
+          "distinct=\"true\" cannot be combined with order=\"sequential\"",
+          "A walked row draws nothing — its values are decided by its position — so there is no "
+              + "draw for distinct= to make without replacement. Remove distinct=, or remove "
+              + "order=\"sequential\" so the row draws its values.",
+          atDistinct[0], atDistinct[1]);
+    }
   }
 
   /**

@@ -64,9 +64,8 @@ import { createPrng } from '../prng/prng.js';
 
 import {
   patternGenForGen,
-  pickSequential,
   sequentialIndex,
-  sequentialList,
+  walkedValueAt,
   type SequenceBuildOptions,
 } from './build.js';
 import { dateAxis } from '../generators/date.js';
@@ -680,19 +679,19 @@ function buildValueSequence(
     };
   }
 
-  // order="sequential": row i → the (population index mod N)-th list/file value,
-  // in order (looping). Index-based, so it resolves seekably like the counters.
+  // order="sequential": row i → the (population index mod N)-th list/file value, in
+  // order (looping); with a fixed `repeat="N"`, N of them, element k taking i*N+k.
+  // Index-based either way, so it resolves seekably like the counters.
   if (
     (gen.type === 'text' || gen.type === 'file') &&
     gen.attrs['order'] === 'sequential' &&
     weightColumn === undefined
   ) {
-    const list = sequentialList(gen, options.dataSources ?? {});
-    const cycle = gen.attrs['cycle'] !== 'false';
+    const at = walkedValueAt(gen, parseRepeat(gen.attrs), options.dataSources ?? {});
     return {
       sequence: wrapLazy((i) => {
         const r = popIndexAt(i);
-        return r === undefined ? undefined : pickSequential(list, r, cycle);
+        return r === undefined ? undefined : at(r);
       }),
     };
   }
