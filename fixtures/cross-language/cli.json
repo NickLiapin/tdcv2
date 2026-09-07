@@ -371,7 +371,7 @@
       "command": "pack",
       "argv": ["--help"],
       "exit": 0,
-      "stdoutContains": ["Usage: tdcv2 pack", "list", "add", "remove"],
+      "stdoutContains": ["Usage: tdcv2 pack", "list", "info", "add", "remove"],
       "note": "Runs before the pack store is resolved, so it works on a machine where init has never run — which is where somebody needs it."
     },
     {
@@ -1228,6 +1228,108 @@
       "stderrContains": [
         "uniq: group \"A × B\" cannot produce 1000000000 unique combinations"
       ]
+    },
+    {
+      "name": "pack info reports a folder's manifest",
+      "command": "pack",
+      "files": {
+        "tdcv2.config.json": "{ \"dataPaths\": [\"./mypacks\"] }\n",
+        "mypacks/company/name.txt": "Acme\nGlobex\n",
+        "mypacks/_pack.json": "{\n  \"name\": \"Acme internal packs\",\n  \"version\": \"1.2.0\",\n  \"license\": \"MIT\",\n  \"author\": \"Acme Data Team\",\n  \"homepage\": \"https://acme.example/packs\",\n  \"description\": \"Product codes and internal identifiers.\"\n}\n"
+      },
+      "argv": ["info"],
+      "exit": 0,
+      "stdoutContains": [
+        "mypacks",
+        "name:",
+        "Acme internal packs",
+        "version:",
+        "1.2.0",
+        "license:",
+        "MIT",
+        "author:",
+        "Acme Data Team",
+        "homepage:",
+        "https://acme.example/packs",
+        "description:",
+        "Product codes and internal identifiers."
+      ],
+      "note": "The one question the pack format could not answer: a folder of lists says what it produces and nothing about where it came from. The folder is printed relative to where the command ran, so the line is readable and does not carry a temp path."
+    },
+    {
+      "name": "pack info reads a manifest one folder down as well",
+      "command": "pack",
+      "files": {
+        "tdcv2.config.json": "{ \"dataPaths\": [\"./mypacks\"] }\n",
+        "mypacks/en/company/name.txt": "Acme\nGlobex\n",
+        "mypacks/en/_pack.json": "{ \"license\": \"CC-BY-4.0\" }\n"
+      },
+      "argv": ["info"],
+      "exit": 0,
+      "stdoutContains": ["mypacks/en", "license:", "CC-BY-4.0"],
+      "note": "Two depths: the data path itself, and each folder in it. A manifest describes a FOLDER OF PACKS — the path somebody configured, or one locale inside it — so the sweep stops there rather than inviting one per .txt file."
+    },
+    {
+      "name": "pack info says so when nothing describes itself",
+      "command": "pack",
+      "files": {
+        "tdcv2.config.json": "{ \"dataPaths\": [\"./mypacks\"] }\n",
+        "mypacks/company/name.txt": "Acme\nGlobex\n"
+      },
+      "argv": ["info"],
+      "exit": 0,
+      "stdoutContains": ["No _pack.json", "license"],
+      "note": "Exit 0: having no manifest is not a mistake. The message says what one would do, because this is the command somebody runs to find that out."
+    },
+    {
+      "name": "pack info refuses a manifest that is not valid JSON",
+      "command": "pack",
+      "files": {
+        "tdcv2.config.json": "{ \"dataPaths\": [\"./mypacks\"] }\n",
+        "mypacks/company/name.txt": "Acme\nGlobex\n",
+        "mypacks/_pack.json": "{ \"license\": \n"
+      },
+      "argv": ["info"],
+      "exit": 2,
+      "stderrContains": ["_pack.json", "not valid JSON"],
+      "note": "An error HERE and silence during a run, and the difference is what the file can reach. A manifest changes no generated value, so halting a generation over it would punish the run for something it does not depend on; reading it is the whole of this command's job, and a licence its author wrote that nobody can read is worse than one nobody wrote."
+    },
+    {
+      "name": "pack info refuses a known field that is not text",
+      "command": "pack",
+      "files": {
+        "tdcv2.config.json": "{ \"dataPaths\": [\"./mypacks\"] }\n",
+        "mypacks/company/name.txt": "Acme\nGlobex\n",
+        "mypacks/_pack.json": "{ \"license\": [\"MIT\"] }\n"
+      },
+      "argv": ["info"],
+      "exit": 2,
+      "stderrContains": ["_pack.json", "\"license\"", "must be text"],
+      "note": "Unknown keys are kept quietly — a folder written for a newer TDC, or carrying a company's own fields, must not stop working here. A field that IS known and holds the wrong kind of thing was meant for this reader and will not arrive."
+    },
+    {
+      "name": "pack info keeps an unknown field and prints the rest",
+      "command": "pack",
+      "files": {
+        "tdcv2.config.json": "{ \"dataPaths\": [\"./mypacks\"] }\n",
+        "mypacks/company/name.txt": "Acme\nGlobex\n",
+        "mypacks/_pack.json": "{ \"license\": \"MIT\", \"acmeInternal\": { \"team\": 7 } }\n"
+      },
+      "argv": ["info"],
+      "exit": 0,
+      "stdoutContains": ["license:", "MIT"]
+    },
+    {
+      "name": "a broken manifest does not stop a run",
+      "files": {
+        "tdcv2.config.json": "{ \"dataPaths\": [\"./mypacks\"] }\n",
+        "mypacks/company/name.txt": "Acme\nGlobex\n",
+        "mypacks/_pack.json": "{ \"license\": \n",
+        "a.tdc": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"C\"><gen type=\"template\" value=\"company.name\"/></sequence></env><block><line><data>${{C}}</data></line></block></tdc>"
+      },
+      "argv": ["{dir}/a.tdc"],
+      "exit": 0,
+      "note": "The manifest is metadata and reaches no value, so the same seed gives the same bytes whether it parses or not. Refusing the run would be blocking work over a field the work never reads."
     }
   ],
   "gaps": {

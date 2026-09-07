@@ -100,8 +100,9 @@ files, generators) get their own worked examples in
 #### `description` — metadata
 
 Free text describing the pack. It has no effect on the output — it's there for humans,
-and for the editor autocomplete that will read it later (see
-[Not yet built](#not-yet-built)). Keep it short: "US city names", "HTTP status codes".
+and for the editor autocomplete that reads it (see
+[Editor support](../getting-started/editor-support.mdx)). Keep it short: "US city
+names", "HTTP status codes".
 
 #### `address:` — override the computed path
 
@@ -348,9 +349,12 @@ ignored by the scanner.
 Address autocomplete in the editor is driven by those same `description:` headers, and
 it ships — see [Editor support](../getting-started/editor-support.mdx).
 
-## Not yet built
+## Describing a folder
 
-- A **batch manifest** for a whole folder (license, author, version) — later.
+A folder of packs can say who wrote it, under what licence and at what version, by
+carrying a `_pack.json` — see
+[Writing your own](writing-your-own.mdx#describing-a-folder--_packjson). Nothing in
+it reaches the generated data; `tdcv2 pack info` reads it back.
 
 ## See also
 

@@ -19,11 +19,17 @@
  * pays for them.
  */
 
-import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { loadConfig } from '../config/config.js';
+import {
+  PACK_MANIFEST_FIELDS,
+  PACK_MANIFEST_FILENAME,
+  displayFolder,
+  sweepPackManifests,
+} from '../data-pack/manifest.js';
 import { humanBytes } from '../human-bytes.js';
 import {
   BUNDLE_PACKS_DIR,
@@ -56,6 +62,7 @@ import {
 const USAGE = `Usage: tdcv2 pack [command]
 
   list                  Show what can be installed, and what already is
+  info                  Who wrote the installed packs, and under what licence
   add <id>...           Download and install one or more bundles
   remove <id>...        Uninstall, and drop them from the config
 
@@ -416,6 +423,93 @@ async function cmdList(registry: string, store: Store): Promise<number> {
   return 0;
 }
 
+/**
+ * `tdcv2 pack info` — the `_pack.json` of every folder that carries one.
+ *
+ * The one question the pack format could not answer before: a folder of lists and
+ * generators says what it produces and nothing about where it came from, which is
+ * the wrong half to know when somebody asks whether the data you shipped may be
+ * shipped.
+ *
+ * Reads the store, not the registry — this is about what is ON THIS MACHINE.
+ * Folders without a manifest are counted rather than listed: a hundred bundled
+ * locales would bury the two that answer the question.
+ */
+function cmdInfo(ctx: PackContext): number {
+  let roots: readonly string[];
+  try {
+    roots = loadConfig({
+      cwd: ctx.cwd,
+      home: ctx.home,
+      platform: ctx.platform,
+      env: ctx.env,
+    }).dataPaths;
+  } catch (err) {
+    process.stderr.write(`tdcv2: ${(err as Error).message}\n`);
+    return 2;
+  }
+  if (roots.length === 0) {
+    process.stdout.write(
+      'No data paths configured, so there is nothing to describe.\n' +
+        'Add one to tdcv2.config.json, or install a bundle with `tdcv2 pack add`.\n',
+    );
+    return 0;
+  }
+
+  const sweep = sweepPackManifests(
+    roots,
+    (path) => {
+      try {
+        return readFileSync(path, 'utf8');
+      } catch {
+        return undefined;
+      }
+    },
+    (path) => {
+      try {
+        return readdirSync(path, { withFileTypes: true })
+          .filter((entry) => entry.isDirectory())
+          .map((entry) => entry.name)
+          .sort();
+      } catch {
+        return [];
+      }
+    },
+    join,
+  );
+
+  // Said out loud rather than skipped. Reading this file is the whole of this
+  // command's job, and a licence its author wrote that nobody can read is worse
+  // than one nobody wrote — so here it is an error, where a run (which the file
+  // cannot reach) never mentions it at all.
+  for (const complaint of sweep.broken) {
+    process.stderr.write(`tdcv2: ${complaint}\n`);
+  }
+
+  if (sweep.found.length === 0) {
+    process.stdout.write(
+      `No ${PACK_MANIFEST_FILENAME} under ${roots.join(', ')}.\n\n` +
+        'A folder of packs can describe itself — name, version, license, author,\n' +
+        'homepage, description — by carrying one. Nothing reads it into the data;\n' +
+        'it is there so the next person can tell where the data came from.\n',
+    );
+    return sweep.broken.length > 0 ? 2 : 0;
+  }
+
+  process.stdout.write('Packs that describe themselves:\n\n');
+  for (const { folder, manifest } of sweep.found) {
+    process.stdout.write(`  ${displayFolder(folder, ctx.cwd, relative)}\n`);
+    for (const field of PACK_MANIFEST_FIELDS) {
+      const value = manifest[field];
+      if (value !== undefined) {
+        process.stdout.write(`    ${`${field}:`.padEnd(13)}${value}\n`);
+      }
+    }
+    process.stdout.write('\n');
+  }
+  return sweep.broken.length > 0 ? 2 : 0;
+}
+
 /** Where a bundle's data ended up, for the line that reports an install. */
 function installedAt(store: string, paths: readonly string[]): string {
   return paths.map((p) => join(store, p)).join(', ');
@@ -582,6 +676,12 @@ export async function runPack(argv: readonly string[], ctx: PackContext): Promis
 
   const args = parsePackArgs(argv);
 
+  // Answered before the store is resolved, and deliberately: the folder this
+  // command is FOR is one somebody wrote themselves, which is a data path and
+  // not the download store. Asking them to run `init` first — so that a store
+  // they will never download into can exist — would be asking for nothing.
+  if (args.sub === 'info') return cmdInfo(ctx);
+
   let store: Store;
   try {
     store = resolveStore(ctx);
@@ -627,7 +727,9 @@ export async function runPack(argv: readonly string[], ctx: PackContext): Promis
       // No TTY and no subcommand: show the list so the command is still useful.
       return await cmdList(args.registry, store);
     }
-    process.stderr.write(`tdcv2: unknown pack command "${args.sub}" (use list | add | remove)\n`);
+    process.stderr.write(
+      `tdcv2: unknown pack command "${args.sub}" (use list | info | add | remove)\n`,
+    );
     return 2;
   } catch (err) {
     endLine();

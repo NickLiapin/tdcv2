@@ -23,6 +23,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from ..human_bytes import human_bytes
+from ..packs import manifest as pack_manifest
 from ..packs import project_config
 from ..packs.registry import DEFAULT_BASE_URL, Registry
 from ..packs.store import (
@@ -40,6 +41,7 @@ from ..packs.store import (
 USAGE = """Usage: tdcv2 pack [command]
 
   list                  Show what can be installed, and what already is
+  info                  Who wrote the installed packs, and under what licence
   add <id>...           Download and install one or more bundles
   remove <id>...        Uninstall, and drop them from the config
 
@@ -79,6 +81,65 @@ def resolve_store(cwd: Path | None = None) -> Store:
     return Store(resolved.pack_store, config_path)
 
 
+def _info(cwd: Path | None = None) -> int:
+    """``tdcv2 pack info`` — the ``_pack.json`` of every folder that carries one.
+
+    The one question the pack format could not answer before: a folder of lists and generators
+    says what it produces and nothing about where it came from, which is the wrong half to know
+    when somebody asks whether the data you shipped may be shipped.
+    """
+    here = (cwd or Path.cwd()).resolve()
+    roots = [str(path) for path in project_config.load(here).data_paths]
+    if not roots:
+        sys.stdout.write(
+            "No data paths configured, so there is nothing to describe.\n"
+            "Add one to tdcv2.config.json, or install a bundle with `tdcv2 pack add`.\n"
+        )
+        return 0
+
+    def read(path: str) -> str | None:
+        try:
+            return Path(path).read_text(encoding="utf-8")
+        except OSError:
+            return None
+
+    def folders(path: str) -> list[str]:
+        try:
+            return sorted(e.name for e in Path(path).iterdir() if e.is_dir())
+        except OSError:
+            return []
+
+    swept = pack_manifest.sweep(roots, read, folders, lambda a, b: str(Path(a) / b))
+
+    # Said out loud rather than skipped. Reading this file is the whole of this command's job,
+    # and a licence its author wrote that nobody can read is worse than one nobody wrote — so
+    # here it is an error, where a run (which the file cannot reach) never mentions it at all.
+    for complaint in swept.broken:
+        sys.stderr.write(f"tdcv2: {complaint}\n")
+
+    if not swept.found:
+        sys.stdout.write(
+            f"No {pack_manifest.FILENAME} under {', '.join(roots)}.\n\n"
+            "A folder of packs can describe itself — name, version, license, author,\n"
+            "homepage, description — by carrying one. Nothing reads it into the data;\n"
+            "it is there so the next person can tell where the data came from.\n"
+        )
+        return 2 if swept.broken else 0
+
+    sys.stdout.write("Packs that describe themselves:\n\n")
+    for entry in swept.found:
+        shown = pack_manifest.display_folder(
+            entry.folder, str(here), lambda a, b: os.path.relpath(b, a)
+        )
+        sys.stdout.write(f"  {shown}\n")
+        for field in pack_manifest.FIELDS:
+            value = entry.manifest.get(field)
+            if value is not None:
+                sys.stdout.write(f"    {field + ':':<13}{value}\n")
+        sys.stdout.write("\n")
+    return 2 if swept.broken else 0
+
+
 def run_pack(argv: list[str], cwd: Path | None = None) -> int:
     if any(a in ("-h", "--help") for a in argv):
         sys.stdout.write(USAGE)
@@ -113,6 +174,13 @@ def run_pack(argv: list[str], cwd: Path | None = None) -> int:
     )
     command = rest[0] if rest else "list"
     ids = rest[1:]
+
+    # Answered before the store is resolved, and deliberately: the folder this command is FOR
+    # is one somebody wrote themselves, which is a data path and not the download store. Asking
+    # them to run `init` first — so that a store they will never download into can exist —
+    # would be asking for nothing.
+    if command == "info":
+        return _info(cwd)
 
     try:
         store = resolve_store(cwd)

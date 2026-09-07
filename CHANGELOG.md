@@ -17,6 +17,37 @@ page — is tracked in that implementation's own changelog:
 
 ### Added
 
+<!-- covers: pack manifest -->
+
+- **A pack folder can describe itself — `_pack.json`, and `tdcv2 pack info` to read it
+  back.** The last of the pack format's "not yet built" notes.
+
+  A folder of packs was all content and no provenance: the lists and generators said
+  what they produced and nothing about where they came from. Fine while the only packs
+  are the bundled ones; not fine the moment somebody hands you a folder and asks whether
+  the data you built from it may be shipped.
+
+  ```json
+  { "name": "Acme internal packs", "version": "1.2.0", "license": "MIT",
+    "author": "Acme Data Team", "homepage": "https://acme.example/packs",
+    "description": "Product codes and internal identifiers." }
+  ```
+
+  Every field optional, and **nothing here reaches the generated data** — the same seed
+  gives the same bytes whether the file is there or not. Looked for in each configured
+  data path and each folder one level inside it: the two shapes a manifest takes ("this
+  whole folder is my pack", "this locale inside came from somewhere of its own"), and no
+  deeper, because a single list of city names has no answer of its own to who wrote it.
+
+  A broken manifest is **an error in `pack info` and silence in a run**, and the
+  difference is what the file can reach. Reading it is the whole of that command's job,
+  and a licence its author wrote that nobody can read is worse than one nobody wrote;
+  a generation, meanwhile, never reads the file at all, so stopping one over it would be
+  blocking work on a field the work does not depend on. Keys TDC does not know are kept
+  quietly, so a folder written for a newer version still works.
+
+  Seven shared CLI cases pin it, so the five implementations print the same thing.
+
 <!-- covers: advanced_regex named groups and conditionals -->
 
 - **`advanced_regex` learned named groups and conditionals** — the two constructs its

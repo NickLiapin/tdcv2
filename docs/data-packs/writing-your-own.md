@@ -390,9 +390,73 @@ Address autocomplete in the editor is driven by those same `description:` header
 it ships — see [Editor support](../getting-started/editor-support.md#top). Write a description
 worth reading and it is what the person completing an address will see beside it.
 
-## Not yet
+## Describing a folder — `_pack.json`
 
-- A **pack manifest** for a whole folder (license, author, version) — planned.
+A pack folder is all content and no provenance: the lists and generators say what
+they produce and nothing about where they came from. That is fine while the only
+packs are the bundled ones, and stops being fine the moment somebody hands you a
+folder and asks whether the data you built from it may be shipped.
+
+Drop a `_pack.json` at the top of the folder — beside `_locale.json`, if there is
+one:
+
+```json
+{
+  "name": "Acme internal packs",
+  "version": "1.2.0",
+  "license": "MIT",
+  "author": "Acme Data Team",
+  "homepage": "https://acme.example/packs",
+  "description": "Product codes and internal identifiers."
+}
+```
+
+Every field is optional, and **nothing here reaches the generated data**. A
+manifest cannot change a single value: the same seed gives the same bytes whether
+it is there or not.
+
+Read it back with `tdcv2 pack info`:
+
+`tdcv2 pack info`
+
+```
+Packs that describe themselves:
+
+  mypacks
+    name:        Acme internal packs
+    version:     1.2.0
+    license:     MIT
+    author:      Acme Data Team
+    homepage:    https://acme.example/packs
+    description: Product codes and internal identifiers.
+
+  mypacks/en
+    license:     CC-BY-4.0
+    description: English lists, from the 2019 open census extract.
+```
+
+### Where it is looked for
+
+Each configured data path, and **each folder one level inside it**. That covers
+the two shapes a manifest has: "this whole folder is my pack" and "this locale
+inside it came from somewhere of its own".
+
+It stops there deliberately. Walking deeper would invite a manifest per `.txt`
+file, and the question this answers — who wrote this data, and under what licence
+— is not one a single list of city names has its own answer to.
+
+### What happens when it is wrong
+
+`tdcv2 pack info` **refuses** a manifest that will not parse, or one whose `name`,
+`version`, `license`, `author`, `homepage` or `description` is not text. Reading
+that file is the whole of that command's job, and a licence its author wrote that
+nobody can read is worse than one nobody wrote.
+
+A **run never mentions it**. The manifest reaches no value, so stopping a
+generation over it would be blocking work on a field the work never reads.
+
+Keys TDC does not know are kept quietly, so a folder written for a newer version —
+or carrying your own tooling's fields beside these — still works here.
 
 ## See also
 

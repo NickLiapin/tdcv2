@@ -102,9 +102,9 @@ ponderadas, archivos externos, generadores) tienen sus propios ejemplos resuelto
 #### `description` — metadatos
 
 Texto libre que describe el paquete. No afecta la salida: está ahí para las personas y
-para el autocompletado del editor que lo leerá más adelante (vea
-[Lo que aún no existe](#lo-que-aún-no-existe)). Manténgalo corto: «nombres de ciudades de
-México», «códigos de estado HTTP».
+para el autocompletado del editor que lo lee (vea
+[Soporte del editor](../getting-started/editor-support.md#top)). Manténgalo corto: «nombres
+de ciudades de México», «códigos de estado HTTP».
 
 #### `address:` — anular la ruta calculada
 
@@ -376,10 +376,12 @@ El autocompletado de direcciones en el editor funciona con esos mismos encabezad
 `description:` y ya se distribuye — vea
 [Soporte del editor](../getting-started/editor-support.md#top).
 
-## Lo que aún no existe
+## Describir una carpeta
 
-- Un **manifiesto por lote** para una carpeta entera (licencia, autor, versión) — más
-  adelante.
+Una carpeta de paquetes puede decir quién la escribió, bajo qué licencia y en qué
+versión, llevando un `_pack.json` — vea
+[Escribir el suyo](writing-your-own.md#describir-una-carpeta--_packjson). Nada de él
+llega a los datos generados; `tdcv2 pack info` lo lee de vuelta.
 
 ## Vea también
 

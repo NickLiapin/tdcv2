@@ -394,10 +394,73 @@ El autocompletado de direcciones en el editor se basa en esas mismas cabeceras
 editor](../getting-started/editor-support.mdx). Escriba una descripción que valga la pena
 leer: es lo que verá junto a la dirección quien la complete.
 
-## Todavía no
+## Describir una carpeta — `_pack.json`
 
-- Un **manifiesto de paquete** para una carpeta entera (licencia, autor, versión) —
-  planeado.
+Una carpeta de paquetes es todo contenido y ninguna procedencia: las listas y los
+generadores dicen qué producen y nada sobre de dónde salieron. Eso está bien
+mientras los únicos paquetes son los incluidos, y deja de estarlo en el momento en
+que alguien le pasa una carpeta y pregunta si los datos que usted construyó con
+ella se pueden distribuir.
+
+Ponga un `_pack.json` en la raíz de la carpeta — junto a `_locale.json`, si lo hay:
+
+```json
+{
+  "name": "Acme internal packs",
+  "version": "1.2.0",
+  "license": "MIT",
+  "author": "Acme Data Team",
+  "homepage": "https://acme.example/packs",
+  "description": "Product codes and internal identifiers."
+}
+```
+
+Todos los campos son opcionales, y **nada de esto llega a los datos generados**. Un
+manifiesto no puede cambiar un solo valor: la misma semilla da los mismos bytes esté
+o no esté.
+
+Léalo de vuelta con `tdcv2 pack info`:
+
+<Terminal title="tdcv2 pack info">
+{`Packs that describe themselves:
+
+  mypacks
+    name:        Acme internal packs
+    version:     1.2.0
+    license:     MIT
+    author:      Acme Data Team
+    homepage:    https://acme.example/packs
+    description: Product codes and internal identifiers.
+
+  mypacks/en
+    license:     CC-BY-4.0
+    description: English lists, from the 2019 open census extract.`}
+</Terminal>
+
+### Dónde se busca
+
+En cada ruta de datos configurada, y **en cada carpeta un nivel adentro**. Eso cubre
+las dos formas que toma un manifiesto: «toda esta carpeta es mi paquete» y «esta
+configuración regional de adentro vino de otro lado».
+
+Ahí se detiene, a propósito. Bajar más invitaría a un manifiesto por cada `.txt`, y
+la pregunta que esto responde — quién escribió estos datos y bajo qué licencia — no
+es una que una sola lista de nombres de ciudades tenga por su cuenta.
+
+### Qué pasa cuando está mal
+
+`tdcv2 pack info` **rechaza** un manifiesto que no se puede leer, o uno cuyo `name`,
+`version`, `license`, `author`, `homepage` o `description` no sea texto. Leer ese
+archivo es todo el trabajo de ese comando, y una licencia que su autor escribió y
+nadie puede leer es peor que una que nadie escribió.
+
+Una corrida **nunca lo menciona**. El manifiesto no alcanza ningún valor, así que
+detener una generación por él sería bloquear el trabajo por un campo que el trabajo
+nunca lee.
+
+Las claves que TDC no conoce se conservan en silencio, así que una carpeta escrita
+para una versión más nueva — o que lleve los campos de su propia herramienta junto a
+estos — sigue funcionando aquí.
 
 ## Vea también
 

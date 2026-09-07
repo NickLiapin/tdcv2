@@ -32,6 +32,7 @@ public static class Pack
     private const string Usage = @"Usage: tdcv2 pack [command]
 
   list                  Show what can be installed, and what already is
+  info                  Who wrote the installed packs, and under what licence
   add <id>...           Download and install one or more bundles
   remove <id>...        Uninstall, and drop them from the config
 
@@ -109,6 +110,15 @@ public static class Pack
         string command = rest.Count == 0 ? "list" : rest[0];
         List<string> ids = rest.Count == 0 ? new List<string>() : rest.Skip(1).ToList();
 
+        // Answered before the store is resolved, and deliberately: the folder this command is
+        // FOR is one somebody wrote themselves, which is a data path and not the download store.
+        // Asking them to run `init` first — so that a store they will never download into can
+        // exist — would be asking for nothing.
+        if (command == "info")
+        {
+            return Info(cwd, stdout, stderr);
+        }
+
         Store store;
         try
         {
@@ -161,7 +171,7 @@ public static class Pack
                     return Remove(store, ids, stdout, stderr);
                 default:
                     stderr.Write(
-                        $"tdcv2: unknown pack command \"{command}\" (use list | add | remove)\n");
+                        $"tdcv2: unknown pack command \"{command}\" (use list | info | add | remove)\n");
                     return 2;
             }
         }
@@ -276,6 +286,106 @@ public static class Pack
         return decision.Install.Count > 0
             ? Add(registry, store, decision.Install, stdout, stderr)
             : 0;
+    }
+
+    /// <summary>
+    /// <c>tdcv2 pack info</c> — the <c>_pack.json</c> of every folder that carries one.
+    /// </summary>
+    /// <remarks>
+    /// The one question the pack format could not answer before: a folder of lists and generators
+    /// says what it produces and nothing about where it came from, which is the wrong half to know
+    /// when somebody asks whether the data you shipped may be shipped.
+    /// </remarks>
+    private static int Info(string cwd, TextWriter stdout, TextWriter stderr)
+    {
+        string here = System.IO.Path.GetFullPath(cwd);
+        IReadOnlyList<string> roots;
+        try
+        {
+            roots = ProjectConfig.Load(here).DataPaths;
+        }
+        catch (ProjectConfig.ConfigException e)
+        {
+            stderr.Write("tdcv2: " + e.Message + "\n");
+            return 2;
+        }
+
+        if (roots.Count == 0)
+        {
+            stdout.Write("No data paths configured, so there is nothing to describe.\n");
+            stdout.Write(
+                "Add one to tdcv2.config.json, or install a bundle with `tdcv2 pack add`.\n");
+            return 0;
+        }
+
+        PackManifest.Sweep swept = PackManifest.DoSweep(
+            roots,
+            path =>
+            {
+                try
+                {
+                    return File.ReadAllText(path);
+                }
+                catch (IOException)
+                {
+                    return null;
+                }
+            },
+            path =>
+            {
+                try
+                {
+                    var names = Directory.GetDirectories(path)
+                        .Select(entry => System.IO.Path.GetFileName(entry))
+                        .ToList();
+                    names.Sort(StringComparer.Ordinal);
+                    return names;
+                }
+                catch (IOException)
+                {
+                    return Array.Empty<string>();
+                }
+                catch (UnauthorizedAccessException)
+                {
+                    return Array.Empty<string>();
+                }
+            },
+            (a, b) => System.IO.Path.Combine(a, b));
+
+        // Said out loud rather than skipped. Reading this file is the whole of this command's
+        // job, and a licence its author wrote that nobody can read is worse than one nobody
+        // wrote — so here it is an error, where a run (which the file cannot reach) never
+        // mentions it at all.
+        foreach (string complaint in swept.Broken)
+        {
+            stderr.Write("tdcv2: " + complaint + "\n");
+        }
+
+        int code = swept.Broken.Count == 0 ? 0 : 2;
+
+        if (swept.FoundEntries.Count == 0)
+        {
+            stdout.Write(
+                $"No {PackManifest.Filename} under {string.Join(", ", roots)}.\n\n"
+                + "A folder of packs can describe itself — name, version, license, author,\n"
+                + "homepage, description — by carrying one. Nothing reads it into the data;\n"
+                + "it is there so the next person can tell where the data came from.\n");
+            return code;
+        }
+
+        stdout.Write("Packs that describe themselves:\n\n");
+        foreach (PackManifest.Found entry in swept.FoundEntries)
+        {
+            stdout.Write("  " + PackManifest.DisplayFolder(entry.Folder, here) + "\n");
+            foreach (KeyValuePair<string, string> field in entry.Manifest)
+            {
+                stdout.Write($"    {field.Key + ":",-13}{field.Value}\n");
+            }
+
+            stdout.Write("\n");
+        }
+
+        return code;
     }
 
     private static int List(PackRegistry registry, Store store, TextWriter stdout)

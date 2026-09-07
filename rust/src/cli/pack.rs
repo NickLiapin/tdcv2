@@ -22,6 +22,7 @@ use std::io::Write;
 use std::path::{Path, PathBuf};
 
 use crate::human_bytes::human_bytes;
+use crate::packs::manifest as pack_manifest;
 use crate::packs::project;
 use crate::packs::registry::{Bundle, PackError, Registry};
 use crate::packs::store::{self, StoreMigration};
@@ -29,6 +30,7 @@ use crate::packs::store::{self, StoreMigration};
 const USAGE: &str = "Usage: tdcv2 pack [command]
 
   list                  Show what can be installed, and what already is
+  info                  Who wrote the installed packs, and under what licence
   add <id>...           Download and install one or more bundles
   remove <id>...        Uninstall, and drop them from the config
 
@@ -123,6 +125,14 @@ pub fn run(
     let command = rest.first().cloned().unwrap_or_else(|| "list".to_string());
     let ids: Vec<String> = rest.into_iter().skip(1).collect();
 
+    // Answered before the store is resolved, and deliberately: the folder this
+    // command is FOR is one somebody wrote themselves, which is a data path and
+    // not the download store. Asking them to run `init` first — so that a store
+    // they will never download into can exist — would be asking for nothing.
+    if command == "info" {
+        return info(cwd, stdout, stderr);
+    }
+
     let store = match resolve_store(cwd) {
         Ok(store) => store,
         Err(e) => {
@@ -172,7 +182,7 @@ pub fn run(
         other => {
             writeln!(
                 stderr,
-                "tdcv2: unknown pack command \"{other}\" (use list | add | remove)"
+                "tdcv2: unknown pack command \"{other}\" (use list | info | add | remove)"
             )?;
             return Ok(2);
         }
@@ -226,6 +236,83 @@ fn browse(
         return add(registry, store, &decision.install, stdout, stderr);
     }
     Ok(0)
+}
+
+/// `tdcv2 pack info` — the `_pack.json` of every folder that carries one.
+///
+/// The one question the pack format could not answer before: a folder of lists
+/// and generators says what it produces and nothing about where it came from,
+/// which is the wrong half to know when somebody asks whether the data you
+/// shipped may be shipped.
+fn info(cwd: &str, stdout: &mut dyn Write, stderr: &mut dyn Write) -> std::io::Result<i32> {
+    let here = PathBuf::from(cwd);
+    let resolved = match project::load(Some(cwd)) {
+        Ok(resolved) => resolved,
+        Err(e) => {
+            writeln!(stderr, "tdcv2: {e}")?;
+            return Ok(2);
+        }
+    };
+    if resolved.data_paths.is_empty() {
+        writeln!(
+            stdout,
+            "No data paths configured, so there is nothing to describe.\nAdd one to \
+             tdcv2.config.json, or install a bundle with `tdcv2 pack add`."
+        )?;
+        return Ok(0);
+    }
+
+    let read = |path: &str| std::fs::read_to_string(path).ok();
+    let folders = |path: &str| {
+        let Ok(entries) = std::fs::read_dir(path) else {
+            return Vec::new();
+        };
+        let mut names: Vec<String> = entries
+            .filter_map(|entry| entry.ok())
+            .filter(|entry| entry.path().is_dir())
+            .map(|entry| entry.file_name().to_string_lossy().into_owned())
+            .collect();
+        names.sort();
+        names
+    };
+    let join = |a: &str, b: &str| Path::new(a).join(b).to_string_lossy().into_owned();
+    let swept = pack_manifest::sweep(&resolved.data_paths, &read, &folders, &join);
+
+    // Said out loud rather than skipped. Reading this file is the whole of this
+    // command's job, and a licence its author wrote that nobody can read is worse
+    // than one nobody wrote — so here it is an error, where a run (which the file
+    // cannot reach) never mentions it at all.
+    for complaint in &swept.broken {
+        writeln!(stderr, "tdcv2: {complaint}")?;
+    }
+    let code = if swept.broken.is_empty() { 0 } else { 2 };
+
+    if swept.found.is_empty() {
+        writeln!(
+            stdout,
+            "No {} under {}.\n\nA folder of packs can describe itself — name, version, license, \
+             author,\nhomepage, description — by carrying one. Nothing reads it into the \
+             data;\nit is there so the next person can tell where the data came from.",
+            pack_manifest::FILENAME,
+            resolved.data_paths.join(", ")
+        )?;
+        return Ok(code);
+    }
+
+    writeln!(stdout, "Packs that describe themselves:\n")?;
+    let root = here.to_string_lossy().into_owned();
+    for entry in &swept.found {
+        writeln!(
+            stdout,
+            "  {}",
+            pack_manifest::display_folder(&entry.folder, &root)
+        )?;
+        for (field, value) in &entry.manifest {
+            writeln!(stdout, "    {:<13}{value}", format!("{field}:"))?;
+        }
+        writeln!(stdout)?;
+    }
+    Ok(code)
 }
 
 fn list(registry: &Registry, store: &Store, stdout: &mut dyn Write) -> Outcome {

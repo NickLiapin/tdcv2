@@ -1,6 +1,7 @@
 package io.github.nickliapin.tdc.cli;
 
 import io.github.nickliapin.tdc.HumanBytes;
+import io.github.nickliapin.tdc.packs.PackManifest;
 import io.github.nickliapin.tdc.packs.PackRegistry;
 import io.github.nickliapin.tdc.packs.PackStore;
 import io.github.nickliapin.tdc.packs.ProjectConfig;
@@ -13,6 +14,7 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -43,6 +45,7 @@ public final class Pack {
       Usage: tdcv2 pack [command]
 
         list                  Show what can be installed, and what already is
+        info                  Who wrote the installed packs, and under what licence
         add <id>...           Download and install one or more bundles
         remove <id>...        Uninstall, and drop them from the config
 
@@ -105,6 +108,14 @@ public final class Pack {
     String command = rest.isEmpty() ? "list" : rest.get(0);
     List<String> ids = rest.isEmpty() ? List.of() : rest.subList(1, rest.size());
 
+    // Answered before the store is resolved, and deliberately: the folder this command is FOR
+    // is one somebody wrote themselves, which is a data path and not the download store. Asking
+    // them to run `init` first — so that a store they will never download into can exist — would
+    // be asking for nothing.
+    if (command.equals("info")) {
+      return info(cwd);
+    }
+
     Store store;
     try {
       store = resolveStore(cwd);
@@ -147,13 +158,85 @@ public final class Pack {
           return remove(store, ids);
         default:
           System.err.println(
-              "tdcv2: unknown pack command \"" + command + "\" (use list | add | remove)");
+              "tdcv2: unknown pack command \"" + command + "\" (use list | info | add | remove)");
           return 2;
       }
     } catch (PackRegistry.PackException | UncheckedIOException e) {
       System.err.println("tdcv2: " + e.getMessage());
       return 2;
     }
+  }
+
+  /**
+   * {@code tdcv2 pack info} — the {@code _pack.json} of every folder that carries one.
+   *
+   * <p>The one question the pack format could not answer before: a folder of lists and generators
+   * says what it produces and nothing about where it came from, which is the wrong half to know
+   * when somebody asks whether the data you shipped may be shipped.
+   */
+  private static int info(Path cwd) {
+    Path here = (cwd == null ? Path.of("") : cwd).toAbsolutePath().normalize();
+    List<String> roots = new ArrayList<>();
+    for (Path path : ProjectConfig.load(here).dataPaths()) {
+      roots.add(path.toString());
+    }
+    if (roots.isEmpty()) {
+      System.out.println("No data paths configured, so there is nothing to describe.");
+      System.out.println(
+          "Add one to tdcv2.config.json, or install a bundle with `tdcv2 pack add`.");
+      return 0;
+    }
+
+    PackManifest.Sweep swept =
+        PackManifest.sweep(
+            roots,
+            path -> {
+              try {
+                return Files.readString(Path.of(path));
+              } catch (IOException e) {
+                return null;
+              }
+            },
+            path -> {
+              try (var entries = Files.list(Path.of(path))) {
+                return entries
+                    .filter(Files::isDirectory)
+                    .map(entry -> entry.getFileName().toString())
+                    .sorted()
+                    .toList();
+              } catch (IOException e) {
+                return List.of();
+              }
+            },
+            (a, b) -> Path.of(a).resolve(b).toString());
+
+    // Said out loud rather than skipped. Reading this file is the whole of this command's job,
+    // and a licence its author wrote that nobody can read is worse than one nobody wrote — so
+    // here it is an error, where a run (which the file cannot reach) never mentions it at all.
+    for (String complaint : swept.broken()) {
+      System.err.println("tdcv2: " + complaint);
+    }
+    int code = swept.broken().isEmpty() ? 0 : 2;
+
+    if (swept.found().isEmpty()) {
+      System.out.println("No " + PackManifest.FILENAME + " under " + String.join(", ", roots) + ".");
+      System.out.println();
+      System.out.println("A folder of packs can describe itself — name, version, license, author,");
+      System.out.println("homepage, description — by carrying one. Nothing reads it into the data;");
+      System.out.println("it is there so the next person can tell where the data came from.");
+      return code;
+    }
+
+    System.out.println("Packs that describe themselves:");
+    System.out.println();
+    for (PackManifest.Found entry : swept.found()) {
+      System.out.println("  " + PackManifest.displayFolder(entry.folder(), here.toString()));
+      for (Map.Entry<String, String> field : entry.manifest().entrySet()) {
+        System.out.printf("    %-13s%s%n", field.getKey() + ":", field.getValue());
+      }
+      System.out.println();
+    }
+    return code;
   }
 
   /**
