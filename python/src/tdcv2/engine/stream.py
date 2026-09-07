@@ -239,6 +239,14 @@ class StreamEngine:
         for row in range(start, stop):
             if self.on_progress is not None and (row - start) % report_every == 0:
                 self.on_progress("render", row - start, total)
+            # Before the row is written, not after: a row that fails its own config's claim
+            # should not reach the file when the engine can still help it.
+            assertions.check_row(
+                self.config.asserts,
+                self.value,
+                lambda name: name in self.columns,
+                row,
+            )
             self._emit(emit, fx.before_block, row, each_info)
 
             active = [

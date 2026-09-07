@@ -269,7 +269,13 @@ public final class Config {
    * <p>A statement about the whole run, like {@code <uniq>} and {@code <distinct>}, which is why
    * it sits in {@code <env>} rather than beside a column.
    */
-  public record AssertSpec(String that, String says) {}
+  /**
+   * One {@code <assert that="…"/>} or {@code <assert each="…"/>} as written.
+   *
+   * <p>Exactly one of the two conditions is filled: {@code that} is read ONCE over whole-run
+   * values, {@code each} on every row.
+   */
+  public record AssertSpec(String that, String says, String each) {}
 
   public record PoolSpec(
       String name,

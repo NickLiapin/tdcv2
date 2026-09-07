@@ -177,6 +177,15 @@ public static class MemoryEngine
                 onProgress("render", row, config.Count);
             }
 
+            // Before the row is written, not after: a row that fails its own config's claim
+            // should not reach the file when the engine can still help it.
+            Assertions.CheckRow(
+                config,
+                (name, at) => columns.TryGetValue(name, out string[]? c) && at < c.Length
+                    ? c[at]
+                    : null,
+                columns.ContainsKey,
+                row);
             Emit(result, eachInfo, fx.BeforeBlock, columns, row, config.Inject);
 
             // Drop the suppressed lines first. A delimiter belongs between the lines that

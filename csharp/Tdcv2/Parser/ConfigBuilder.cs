@@ -69,7 +69,8 @@ public static class ConfigBuilder
                         IReadOnlyDictionary<string, string> a = Attributes(self.attr());
                         asserts.Add(new AssertSpec(
                             a.GetValueOrDefault("that") ?? "",
-                            a.GetValueOrDefault("says") ?? ""));
+                            a.GetValueOrDefault("says") ?? "",
+                            a.GetValueOrDefault("each") ?? ""));
                     }
 
                     continue;

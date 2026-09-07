@@ -19,7 +19,10 @@ sola línea.
 ```
 
 Vive en `<env>`, junto a [`<uniq>` y `<distinct>`](unique-values.mdx), porque como ellos
-dice algo sobre la ejecución entera y no sobre una columna.
+enuncia algo que la ejecución entera debe cumplir, y no algo que una columna es.
+
+Hay dos. `that=` se lee **una vez**, sobre números de la ejecución entera. `each=` se
+responde en **cada fila** — véase [Cada fila](#cada-fila--each) más abajo.
 
 ## Qué merece la pena afirmar
 
@@ -59,13 +62,17 @@ El código de salida es 1, así que CI se detiene ahí.
 
 ## De un vistazo
 
-| Atributo | Obligatorio | Qué hace                                                        |
-| :------- | :---------- | :--------------------------------------------------------------- |
-| `that`   | sí          | La condición, en el mismo lenguaje que [`if=`](../reference/expressions.mdx) |
-| `says`   | sí          | La frase que recibe quien lee cuando la condición no se cumple    |
+| Atributo | Obligatorio   | Qué hace                                                                                       |
+| :------- | :------------ | :----------------------------------------------------------------------------------------------- |
+| `that`   | uno de los dos | Una condición sobre valores de la ejecución entera, leída una vez, en el lenguaje de [`if=`](../reference/expressions.mdx) |
+| `each`   | uno de los dos | Una condición que toda fila debe cumplir, en el mismo lenguaje                                    |
+| `says`   | sí            | La frase que recibe quien lee cuando la condición no se cumple                                    |
 
-Ambos son obligatorios. Una aserción que salta mostrando solo su expresión obliga a quien
-la lee a reconstruir, meses después y en un log de CI, para qué estaba.
+`says=` es obligatorio en ambos casos. Una aserción que salta mostrando solo su expresión
+obliga a quien la lee a reconstruir, meses después y en un log de CI, para qué estaba.
+`that=` y `each=` no pueden escribirse en la misma etiqueta: se comprueban un número
+distinto de veces, y quien lee no podría saber a cuál de las dos se refiere la frase de
+`says=`.
 
 **No hay bandera.** Una aserción se ejecuta porque está escrita: una comprobación que hay
 que recordar activar es una comprobación que nadie ejecutó, sobre una configuración que
@@ -104,7 +111,7 @@ no lo es, y se rechaza:
 ```
 
 <Terminal title="./run amounts.tdc">
-{`tdcv2: assert ("Amount > 0"): "Amount" is not the same on every row, so this would have checked the first row and called the run verified. An assertion reads whole-run values: give it a <gen type="stat" of="Amount" op="…"/> column, or _total.`}
+{`tdcv2: assert ("Amount > 0"): "Amount" is not the same on every row, so this would have checked the first row and called the run verified. A whole-run assertion reads whole-run values: give it a <gen type="stat" of="Amount" op="…"/> column, or _total. To state it of every row instead, write each= rather than that=.`}
 </Terminal>
 
 Sin esta regla, `that="Amount > 0"` leería la fila 0 e informaría sobre una fila de
@@ -115,19 +122,61 @@ Una columna que un filtro `parent=` deja **vacía** en parte de las filas se rec
 mismo: la ejecución no tiene un valor único para ella, y la condición compararía contra lo
 que la fila 0 tuviera por casualidad. Resúmela con `op="count"`.
 
+## Cada fila — `each=`
+
+El rechazo de arriba no es un callejón sin salida, sino una señal. «Cada importe es
+positivo» es una afirmación real, y su sitio es `each=`:
+
+```xml
+<sequence name="Amount"><gen type="number" value="1..500"/></sequence>
+<assert each="Amount > 0" says="cada importe es positivo"/>
+```
+
+La condición se responde en cada fila, en el mismo lenguaje que habla `if=` y sobre los
+mismos nombres: las columnas de esta fila más los
+[valores internos](../reference/builtins.mdx). Nada nuevo que aprender, y ninguna columna
+`stat` que construir antes.
+
+Cuando una fila la rompe, la ejecución se detiene **en esa fila** y dice cuál es:
+
+```xml
+<sequence name="Fee"><gen type="number" value="-3..20"/></sequence>
+<assert each="Fee >= 0" says="una comisión nunca es negativa"/>
+```
+
+<Terminal title="./run fees.tdc (20 filas)">
+{`tdcv2: assert failed on row 16: una comisión nunca es negativa
+  Fee >= 0   with Fee = -3`}
+</Terminal>
+
+El código de salida es 1, igual que con `that=`.
+
+**Se detiene en la primera fila que falla en vez de contarlas todas.** En un motor de flujo
+las filas anteriores ya están en disco, así que «comprobar el archivo entero y luego
+informar» es algo que no todos los motores podrían prometer con honestidad; y una ejecución
+cuyos datos ya están mal no mejora porque averigüemos cuánto. La fila que nombra es siempre
+la primera: las filas se comprueban en orden, cada una antes de escribirse.
+
+Por eso una configuración con una aserción `each=` **corre en un solo hilo**. Cada worker
+se queda con un rango de filas y cada uno pararía en su propia primera fila fallida, así que
+la fila mostrada sería aquella a la que llegase antes algún hilo: un número distinto con la
+misma configuración y la misma semilla. Un `--jobs` explícito lo dice y sigue en un hilo.
+
+Por lo demás no hay consecuencia de motor: a diferencia de `that=`, una aserción por fila no
+necesita una columna `stat`, así que una configuración con una sigue transmitiéndose en
+flujo. Véase [salidas grandes](../guides/large-outputs.mdx).
+
 ## Lo que todavía no hace
 
-- **Aserciones por fila** («cada importe es positivo»). Es otra función: necesita un
-  recorrido por filas y un informe que nombre las filas que fallan, no un solo número.
 - **Afirmar un dígito de control.** Ahí está la trampa: lo calculó
   [`<compute>`](../compute/overview.mdx), y recalcularlo solo afirma que el mismo código
   está de acuerdo consigo mismo.
 
 ## Motores
 
-Una aserción lee columnas `stat`, y `stat` ya envía la configuración al motor en memoria.
-Así que las aserciones no añaden consecuencias de motor propias; véase
-[salidas grandes](../guides/large-outputs.mdx).
+Una aserción `that=` lee columnas `stat`, y `stat` ya envía la configuración al motor en
+memoria, así que no añade consecuencias propias. Una aserción `each=` tampoco, más allá de
+quedarse en un hilo. Véase [salidas grandes](../guides/large-outputs.mdx).
 
 ## Véase también
 

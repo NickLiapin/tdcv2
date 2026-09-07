@@ -109,7 +109,11 @@ def build(document: TDCParser.DocumentContext, default_locale: str | None = None
                 if self_el.name.text == "assert":
                     attrs = attributes(self_el.attr())
                     asserts.append(
-                        AssertSpec(that=attrs.get("that", ""), says=attrs.get("says", ""))
+                        AssertSpec(
+                            that=attrs.get("that", ""),
+                            says=attrs.get("says", ""),
+                            each=attrs.get("each", ""),
+                        )
                     )
                 continue
             open_el = child.openCloseElement()

@@ -4636,6 +4636,15 @@ fn emit(
                 report("render", row, count);
             }
         }
+        // Before the row is written, not after: a row that fails its own
+        // config's claim should not reach the file when the engine can still
+        // help it.
+        crate::sequence::assertions::check_row(
+            &config.asserts,
+            &|name, at| columns.get(name).and_then(|c| c.get(at).cloned()).flatten(),
+            &|name| columns.contains_key(name),
+            row,
+        )?;
         emit_lines(&mut out, &fx.before_block, columns, row, config, &each)?;
 
         // Drop the suppressed lines first. A delimiter belongs between the lines

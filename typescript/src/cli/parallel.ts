@@ -26,6 +26,7 @@ import {
   checkUniqFeasible,
   envUniqGroupsOf,
   hasUnsplittableUniqueness,
+  hasPerRowAssertion,
   renderStream,
 } from '../processor/render.js';
 import { bundledPacksDir, scanPacks } from '../data-pack/load.js';
@@ -109,6 +110,9 @@ export function parallelBlockReason(source: string): string | undefined {
   }
   if (hasUnsplittableUniqueness(document)) {
     return 'the config has uniq="true" on a sequence, which rearranges the generators inside one compound column — a worker resolving a row on its own cannot reproduce that';
+  }
+  if (hasPerRowAssertion(document)) {
+    return 'the config has an <assert each="…">, and its message names the first failing row — across workers "first" would be whichever thread reached one, so the same run would name a different row each time';
   }
   return undefined;
 }

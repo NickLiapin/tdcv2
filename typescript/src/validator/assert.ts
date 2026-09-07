@@ -1,15 +1,22 @@
 /**
- * `<assert that="…" says="…"/>` — the two attributes it cannot do without.
+ * `<assert that="…" says="…"/>` — the attributes it cannot do without.
  *
  * An assertion is the one construct here whose whole worth is that it FAILS. A
  * half-written one is therefore worse than none at all: the config carries a
  * check, the reader believes the run was verified, and nothing was ever
  * compared. Both attributes are required, and an empty one counts as missing.
  *
- * The expression itself is not checked here. `that=` is the `if=` language, so
- * it goes through the very same syntax check and the same put-aside pass that
- * resolves names once every sequence is known — a typo in a column name is
- * reported exactly as it would be in `if=`, because it IS the same mistake.
+ * The expression itself is not checked here. Both `that=` and `each=` are the
+ * `if=` language, so each goes through the very same syntax check and the same
+ * put-aside pass that resolves names once every sequence is known — a typo in a
+ * column name is reported exactly as it would be in `if=`, because it IS the
+ * same mistake.
+ *
+ * The two say different things and cannot be written together. `that=` reads
+ * whole-run values ONCE; `each=` is answered on every row. A tag carrying both
+ * would leave a reader to guess which of the two the sentence in `says=`
+ * describes, and the answer would decide whether the run is checked once or a
+ * million times.
  */
 
 import { type Diagnostic, attrValueRange, nodeRange } from '../errors/index.js';
@@ -52,22 +59,42 @@ function checkAssertAttrs(
 ): { attr: AttrContext; expr: string } | undefined {
   const attrs = extractAttrs(el.attr());
   const that = (attrs['that'] ?? '').trim();
+  const each = (attrs['each'] ?? '').trim();
   const says = (attrs['says'] ?? '').trim();
 
-  if (that === '') {
-    const at = attrNode(el, 'that');
+  if (that !== '' && each !== '') {
+    const at = attrNode(el, 'each') ?? attrNode(el, 'that');
     diagnostics.push({
       severity: 'error',
       source: 'validator',
       ...(at ? attrValueRange(at) : nodeRange(el)),
-      message: '<assert> has no condition — that= is required',
+      message: '<assert> has both that= and each= — they answer different questions',
       hint:
-        'Write the property the run must have, in the if= language, over whole-run columns: ' +
-        '<assert that="Rows == 700" says="…"/>. The numbers come from <gen type="stat">.',
+        'that= is read ONCE, over whole-run values; each= is answered on every row. Write ' +
+        'two assertions, each with its own says=, so a failure says which one broke.',
+      code: 'TDC306',
+    });
+    return undefined;
+  }
+
+  if (that === '' && each === '') {
+    const at = attrNode(el, 'that') ?? attrNode(el, 'each');
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...(at ? attrValueRange(at) : nodeRange(el)),
+      message: '<assert> has no condition — that= or each= is required',
+      hint:
+        'that= states a property of the whole run, over <gen type="stat"> columns: ' +
+        '<assert that="Rows == 700" says="…"/>. each= states one every row must have: ' +
+        '<assert each="Amount > 0" says="…"/>.',
       code: 'TDC265',
     });
     return undefined;
   }
+
+  const written = that !== '' ? that : each;
+  const name = that !== '' ? 'that' : 'each';
 
   if (says === '') {
     const at = attrNode(el, 'says');
@@ -75,7 +102,7 @@ function checkAssertAttrs(
       severity: 'error',
       source: 'validator',
       ...(at ? attrValueRange(at) : nodeRange(el)),
-      message: `<assert that="${that}"> has no message — says= is required`,
+      message: `<assert ${name}="${written}"> has no message — says= is required`,
       hint:
         'When this fails, says= is what the reader is told. An expression alone leaves them ' +
         'to work out what it was for, months later, in a CI log.',
@@ -83,6 +110,6 @@ function checkAssertAttrs(
     });
   }
 
-  const attr = attrNode(el, 'that');
-  return attr ? { attr, expr: that } : undefined;
+  const attr = attrNode(el, name);
+  return attr ? { attr, expr: written } : undefined;
 }

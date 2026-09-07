@@ -106,10 +106,10 @@ export function extractEnvUniqGroups(env: OpenCloseElementContext | undefined): 
 }
 
 /**
- * Env-level `<assert that="…" says="…"/>` declarations, in document order.
+ * Env-level `<assert that="…"/>` and `<assert each="…"/>`, in document order.
  *
  * A sibling of `<uniq>` and `<distinct>` because, like them, it states something
- * about the whole run rather than about one column. Self-closing, so the generic
+ * the run as a whole must satisfy. Self-closing, so the generic
  * `selfClosingElement` rule already parses it and no grammar changed.
  */
 export function extractAsserts(env: OpenCloseElementContext | undefined): AssertSpec[] {
@@ -119,7 +119,11 @@ export function extractAsserts(env: OpenCloseElementContext | undefined): Assert
     const k = elementKind(child);
     if (k?.kind !== 'self' || elementName(k.node) !== 'assert') continue;
     const attrs = extractAttrs(k.node.attr());
-    out.push({ that: (attrs['that'] ?? '').trim(), says: (attrs['says'] ?? '').trim() });
+    out.push({
+      that: (attrs['that'] ?? '').trim(),
+      each: (attrs['each'] ?? '').trim(),
+      says: (attrs['says'] ?? '').trim(),
+    });
   }
   return out;
 }

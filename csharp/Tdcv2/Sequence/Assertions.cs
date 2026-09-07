@@ -82,7 +82,12 @@ public static class Assertions
         int count = Math.Max(config.Count, 0);
         foreach (AssertSpec assertion in config.Asserts)
         {
-            var scope = new Recording(valueAt, known);
+            if (assertion.Each.Length != 0)
+            {
+                continue; // answered per row, in the engines' row loop
+            }
+
+            var scope = new Recording(valueAt, known, 0);
             bool held;
             try
             {
@@ -112,8 +117,9 @@ public static class Assertions
                     : $"\"{name}\" is empty on some rows, so the run has no single value for it — "
                         + "this would have checked whatever the first row happened to hold";
                 throw new AssertionFailed(
-                    $"assert (\"{assertion.That}\"): {why}. An assertion reads whole-run values: "
-                    + $"give it a <gen type=\"stat\" of=\"{name}\" op=\"…\"/> column, or _total.");
+                    $"assert (\"{assertion.That}\"): {why}. A whole-run assertion reads whole-run "
+                    + $"values: give it a <gen type=\"stat\" of=\"{name}\" op=\"…\"/> column, "
+                    + "or _total. To state it of every row instead, write each= rather than that=.");
             }
 
             if (!held)
@@ -127,6 +133,58 @@ public static class Assertions
                     : $"{assertion.That}   with {detail}";
                 throw new AssertionFailed($"assert failed: {assertion.Says}\n  {shown}");
             }
+        }
+    }
+
+    /// <summary>
+    /// Check every <c>each=</c> assertion against ONE row, throwing on the first that fails.
+    /// </summary>
+    /// <remarks>
+    /// Called from the row loop of both engines, so a per-row assertion costs the same and means
+    /// the same whether the run is held in memory or streamed. It is the <c>if=</c> language over
+    /// the scope <c>if=</c> itself gets — this row's columns and the row built-ins — so nothing new
+    /// had to be learnt to write one.
+    /// <para>
+    /// The run stops at the FIRST row that fails. On a streaming engine the rows before it are
+    /// already written, and saying "stops at the first" is honest where "checks the whole file
+    /// first" could not be true of every engine.
+    /// </para>
+    /// </remarks>
+    public static void CheckRow(
+        Config config, Func<string, int, string?> valueAt, Func<string, bool> known, int row)
+    {
+        foreach (AssertSpec assertion in config.Asserts)
+        {
+            if (assertion.Each.Length == 0)
+            {
+                continue;
+            }
+
+            var scope = new Recording(valueAt, known, row);
+            bool held;
+            try
+            {
+                held = Evaluate.AsCondition(assertion.Each, scope);
+            }
+            catch (Exception e) when (e is not AssertionFailed)
+            {
+                throw new AssertionFailed(
+                    $"assert: cannot read \"{assertion.Each}\" — {e.Message}");
+            }
+
+            if (held)
+            {
+                continue;
+            }
+
+            string detail = string.Join(
+                ", ",
+                scope.Read.Select(r => $"{r.Name} = {(r.Value.Length == 0 ? "(empty)" : r.Value)}"));
+            string shown = detail.Length == 0
+                ? assertion.Each
+                : $"{assertion.Each}   with {detail}";
+            throw new AssertionFailed(
+                $"assert failed on row {row + 1}: {assertion.Says}\n  {shown}");
         }
     }
 
@@ -212,10 +270,14 @@ public static class Assertions
         private readonly Func<string, int, string?> _valueAt;
         private readonly Func<string, bool> _known;
 
-        internal Recording(Func<string, int, string?> valueAt, Func<string, bool> known)
+        /// <summary>0 for a whole-run assertion, the current row for a per-row one.</summary>
+        private readonly int _row;
+
+        internal Recording(Func<string, int, string?> valueAt, Func<string, bool> known, int row)
         {
             _valueAt = valueAt;
             _known = known;
+            _row = row;
         }
 
         internal List<(string Name, string Value)> Read { get; } = new();
@@ -224,7 +286,7 @@ public static class Assertions
 
         public string Value(string name)
         {
-            string found = _valueAt(name, 0) ?? "";
+            string found = _valueAt(name, _row) ?? "";
             // Only a real column is recorded. A name that is not declared is not data at all — the
             // expression language reads it as its own literal text, which is what lets `Kind == a`
             // go unquoted — so it has nothing to be constant about, and the validator is the one

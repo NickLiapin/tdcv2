@@ -391,6 +391,12 @@ class TDC:
             return 1
         if any(spec.uniq for spec in self._config.sequences):
             return 1
+        # An `each=` assertion names the FIRST failing row, and "first" is a statement about
+        # the whole run. Workers each own a range and each stop at their own first failure,
+        # so the row a reader is shown would be whichever process got there — a different
+        # number on the same config and the same seed.
+        if any(spec.each for spec in self._config.asserts):
+            return 1
         # A worker that generates a handful of rows spends longer starting up than working.
         return max(1, min(asked, self.count // parallel.MIN_ROWS_PER_WORKER))
 

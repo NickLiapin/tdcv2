@@ -133,6 +133,16 @@ public final class MemoryEngine {
       if (onProgress != null && row % reportEvery == 0) {
         onProgress.report("render", row, count);
       }
+      // Before the row is written, not after: a row that fails its own config's claim should
+      // not reach the file when the engine can still help it.
+      Assertions.checkRow(
+          config,
+          (name, at) -> {
+            String[] column = columns.get(name);
+            return column == null || at >= column.length ? null : column[at];
+          },
+          columns::containsKey,
+          row);
       emit(out, fx.beforeBlock(), columns, row, config.inject());
 
       // Drop the suppressed lines first. A delimiter belongs between the lines that survive,

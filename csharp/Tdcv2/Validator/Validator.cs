@@ -107,7 +107,7 @@ public sealed class Validator
             ["uniq"] = Set("comment"),
 
             // An assertion is its two attributes and nothing else.
-            ["assert"] = Set("that", "says", "comment"),
+            ["assert"] = Set("that", "each", "says", "comment"),
             ["distinct"] = Set("comment"),
         };
 
@@ -7412,8 +7412,14 @@ public sealed class Validator
     /// <remarks>
     /// An assertion is the one construct whose whole worth is that it FAILS, so a half-written one
     /// is worse than none: the config carries a check, the reader believes the run was verified, and
-    /// nothing was ever compared. The expression is not re-checked here — <c>that=</c> is the
-    /// <c>if=</c> language, so a typo in a column name is reported exactly as it is there.
+    /// nothing was ever compared. The expression is not re-checked here — both <c>that=</c> and
+    /// <c>each=</c> are the <c>if=</c> language, so a typo in a column name is reported exactly as
+    /// it is there.
+    /// <para>
+    /// The two cannot be written together: <c>that=</c> is read ONCE over whole-run values,
+    /// <c>each=</c> is answered on every row, and a tag carrying both would leave a reader to guess
+    /// which the sentence in <c>says=</c> describes.
+    /// </para>
     /// </remarks>
     private void CheckAsserts(TDCParser.OpenCloseElementContext env)
     {
@@ -7430,36 +7436,57 @@ public sealed class Validator
             this.CheckClosedTagAttrs("assert", self.attr(), Line(self), Column(self));
             IReadOnlyDictionary<string, string> attrs = Attributes(self.attr());
             string that = (attrs.GetValueOrDefault("that") ?? "").Trim();
+            string each = (attrs.GetValueOrDefault("each") ?? "").Trim();
             string says = (attrs.GetValueOrDefault("says") ?? "").Trim();
-            if (that.Length == 0)
+            if (that.Length != 0 && each.Length != 0)
             {
-                (int l, int c) = At(self.attr(), "that", Line(self), Column(self));
+                (int l, int c) = At(self.attr(), "each", Line(self), Column(self));
                 this.Error(
-                    "TDC265",
-                    "<assert> has no condition — that= is required",
-                    "Write the property the run must have, in the if= language, over whole-run "
-                    + "columns: <assert that=\"Rows == 700\" says=\"…\"/>. The numbers come from "
-                    + "<gen type=\"stat\">.",
+                    "TDC306",
+                    "<assert> has both that= and each= — they answer different questions",
+                    "that= is read ONCE, over whole-run values; each= is answered on every row. "
+                    + "Write two assertions, each with its own says=, so a failure says which one "
+                    + "broke.",
                     l,
                     c);
                 continue;
             }
 
+            if (that.Length == 0 && each.Length == 0)
+            {
+                // Point at whichever of the two was actually written. A blank each= is the
+                // commonest way to reach here, and a caret on the tag would leave a reader
+                // looking for an attribute that is right there.
+                (int fl, int fc) = At(self.attr(), "each", Line(self), Column(self));
+                (int l, int c) = At(self.attr(), "that", fl, fc);
+                this.Error(
+                    "TDC265",
+                    "<assert> has no condition — that= or each= is required",
+                    "that= states a property of the whole run, over <gen type=\"stat\"> columns: "
+                    + "<assert that=\"Rows == 700\" says=\"…\"/>. each= states one every row "
+                    + "must have: <assert each=\"Amount > 0\" says=\"…\"/>.",
+                    l,
+                    c);
+                continue;
+            }
+
+            string attrName = that.Length == 0 ? "each" : "that";
+            string written = that.Length == 0 ? each : that;
             if (says.Length == 0)
             {
                 (int l, int c) = At(self.attr(), "says", Line(self), Column(self));
                 this.Error(
                     "TDC266",
-                    $"<assert that=\"{that}\"> has no message — says= is required",
+                    $"<assert {attrName}=\"{written}\"> has no message — says= is required",
                     "When this fails, says= is what the reader is told. An expression alone leaves "
                     + "them to work out what it was for, months later, in a CI log.",
                     l,
                     c);
             }
 
-            (int tl, int tc) = At(self.attr(), "that", Line(self), Column(self));
-            this.CheckIfExpression(that, tl, tc);
-            this.DeferExpression(that, tl, tc, false);
+            (int tl, int tc) = At(self.attr(), attrName, Line(self), Column(self));
+            this.CheckIfExpression(written, tl, tc);
+            this.DeferExpression(written, tl, tc, false);
         }
     }
 

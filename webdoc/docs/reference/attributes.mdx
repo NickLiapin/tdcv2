@@ -162,5 +162,5 @@ the whole set, so `sequential` is reachable from the config and nowhere else.
 | `repeat` / `separator` | Several values in one cell                 | [Multiple values](../constructs/multiple-values.mdx)          |
 | `lengths`   | Beside `repeat="A..B"`: the share of rows that get each possible length, `A` first — an exact quota, not an approximation                                                        | [Multiple values](../constructs/multiple-values.mdx)                  |
 | `distinct` | No repeats inside one cell (needs `repeat`) | [Multiple values](../constructs/multiple-values.mdx)          |
-| `each`                 | Repeat a line for each list element        | [Relational tables](../constructs/relational-tables.mdx)      |
+| `each`                 | Repeat a line for each list element; on `<assert>`, a condition every row must satisfy | [Relational tables](../constructs/relational-tables.mdx), [Self-checking configs](../constructs/self-checking.mdx) |
 | `flag`                 | Answer column that marks `<mix>` outliers  | [Mix](../constructs/mix.mdx#marking-outliers-with-flag)       |

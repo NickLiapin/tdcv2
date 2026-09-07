@@ -17,6 +17,49 @@ page — is tracked in that implementation's own changelog:
 
 ### Added
 
+<!-- covers: per-row assertions -->
+
+- **`<assert each="…">` — the per-row assertion the page had been calling a different
+  feature.** `that=` states a property of the finished run and reads whole-run values once;
+  `each=` states one every row must have, and is answered on every row:
+
+  ```xml
+  <assert each="Amount > 0" says="every amount is positive"/>
+  ```
+
+  That exact config used to be REFUSED — `"Amount" is not the same on every row` — and the
+  refusal was right: read once, it would have checked row 0 and called the run verified.
+  What was missing was somewhere for the claim to go. The refusal now names it.
+
+  It rides the seams that already exist: the `if=` expression language, over the scope
+  `if=` itself gets — this row's columns and the row built-ins — and the row loop both
+  engines share, so a per-row assertion means the same thing and costs the same whether the
+  run is held in memory or streamed. Unlike `that=`, it needs no `<gen type="stat">` column,
+  so a config carrying one still streams.
+
+  **It stops at the first failing row and names it**, with the value that broke it:
+
+  ```text
+  tdcv2: assert failed on row 16: a fee is never negative
+    Fee >= 0   with Fee = -3
+  ```
+
+  Stopping rather than counting is the honest promise: on a streaming engine the rows before
+  it are already on disk, so "checks the whole file, then reports" is not something every
+  engine could keep. Rows are checked in order, each before it is written, so the row named
+  is always the first.
+
+  That is also why a config with an `each=` assertion **runs single-threaded**. Workers each
+  own a range and would each stop at their own first failure, so the row a reader is shown
+  would be whichever thread reached one — measured, the same config and seed named row 50001
+  on one run and 150004 on the next. It now joins `uniq="true"` as a reason `--jobs` says it
+  cannot split and carries on with one thread; the default path and `--jobs 1` were already
+  deterministic and are unchanged.
+
+  Refused rather than guessed at: `that=` and `each=` on one tag (`TDC306`) — they are
+  checked a different number of times, and a reader could not tell which of the two the
+  sentence in `says=` describes. `says=` stays required for both.
+
 <!-- covers: regex named groups and conditionals -->
 
 - **The `regex` generator learned named groups and conditionals** — the last two rows in

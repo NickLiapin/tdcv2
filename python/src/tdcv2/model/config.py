@@ -234,14 +234,16 @@ class PoolSpec:
 
 @dataclass(frozen=True, slots=True)
 class AssertSpec:
-    """One ``<assert that="…" says="…"/>`` as written.
+    """One ``<assert that="…"/>`` or ``<assert each="…"/>`` as written.
 
-    A statement about the whole run, like ``<uniq>`` and ``<distinct>``, which is why it sits
-    in ``<env>`` rather than beside a column.
+    A statement the whole run must satisfy, like ``<uniq>`` and ``<distinct>``, which is why it
+    sits in ``<env>`` rather than beside a column. Exactly one of the two conditions is filled:
+    ``that`` is read ONCE over whole-run values, ``each`` on every row.
     """
 
     that: str
     says: str
+    each: str = ""
 
 
 @dataclass(frozen=True, slots=True)

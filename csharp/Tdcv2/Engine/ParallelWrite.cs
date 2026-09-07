@@ -95,6 +95,18 @@ public static class ParallelWrite
             }
         }
 
+        // An `each=` assertion names the FIRST failing row, and "first" is a statement about the
+        // whole run. Workers each own a range and each stop at their own first failure, so the row
+        // a reader is shown would be whichever thread got there — a different number on the same
+        // config and the same seed.
+        foreach (AssertSpec assertion in config.Asserts)
+        {
+            if (assertion.Each.Length != 0)
+            {
+                return false;
+            }
+        }
+
         return true;
     }
 

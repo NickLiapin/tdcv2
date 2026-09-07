@@ -6353,16 +6353,20 @@ impl Validator {
         );
     }
 
-    /// `<assert that="…" says="…"/>` — the two attributes it cannot do without.
+    /// `<assert that="…" says="…"/>` — the attributes it cannot do without.
     ///
     /// An assertion is the one construct whose whole worth is that it FAILS, so
     /// a half-written one is worse than none: the config carries a check, the
     /// reader believes the run was verified, and nothing was ever compared.
     ///
-    /// The expression is not re-checked here. `that=` is the `if=` language, so
-    /// it takes the same syntax pass now and the same put-aside name pass once
-    /// every sequence is known — a typo in a column name is reported exactly as
-    /// it is in `if=`, because it IS that mistake.
+    /// The expression is not re-checked here. Both `that=` and `each=` are the
+    /// `if=` language, so each takes the same syntax pass now and the same
+    /// put-aside name pass once every sequence is known — a typo in a column
+    /// name is reported exactly as it is in `if=`, because it IS that mistake.
+    ///
+    /// The two cannot be written together: `that=` is read ONCE over whole-run
+    /// values, `each=` is answered on every row, and a tag carrying both would
+    /// leave a reader to guess which the sentence in `says=` describes.
     fn check_asserts(&mut self, env: &Element) {
         for child in env
             .children
@@ -6373,30 +6377,55 @@ impl Validator {
             // attributes, so an unknown one on <assert> would pass in silence.
             self.check_closed_tag_attrs("assert", child);
             let that = child.attr_value("that").unwrap_or("").trim().to_string();
+            let each = child.attr_value("each").unwrap_or("").trim().to_string();
             let says = child.attr_value("says").unwrap_or("").trim().to_string();
-            if that.is_empty() {
+            if !that.is_empty() && !each.is_empty() {
                 self.error(
-                    "TDC265",
-                    "<assert> has no condition — that= is required".to_string(),
-                    "Write the property the run must have, in the if= language, over whole-run \
-                     columns: <assert that=\"Rows == 700\" says=\"…\"/>. The numbers come from \
-                     <gen type=\"stat\">.",
-                    child.at("that"),
+                    "TDC306",
+                    "<assert> has both that= and each= — they answer different questions"
+                        .to_string(),
+                    "that= is read ONCE, over whole-run values; each= is answered on every \
+                     row. Write two assertions, each with its own says=, so a failure says \
+                     which one broke.",
+                    child.at("each"),
                 );
                 continue;
             }
+            if that.is_empty() && each.is_empty() {
+                // Point at whichever of the two was actually written. A blank each= is the
+                // commonest way to reach here, and a caret on the tag would leave a reader
+                // looking for an attribute that is right there.
+                let at = if child.attr("that").is_some() {
+                    child.at("that")
+                } else {
+                    child.at("each")
+                };
+                self.error(
+                    "TDC265",
+                    "<assert> has no condition — that= or each= is required".to_string(),
+                    "that= states a property of the whole run, over <gen type=\"stat\"> \
+                     columns: <assert that=\"Rows == 700\" says=\"…\"/>. each= states one \
+                     every row must have: <assert each=\"Amount > 0\" says=\"…\"/>.",
+                    at,
+                );
+                continue;
+            }
+            let attr_name = if that.is_empty() { "each" } else { "that" };
+            let written = if that.is_empty() { each } else { that };
             if says.is_empty() {
                 self.error(
                     "TDC266",
-                    format!("<assert that=\"{that}\"> has no message — says= is required"),
+                    format!(
+                        "<assert {attr_name}=\"{written}\"> has no message — says= is required"
+                    ),
                     "When this fails, says= is what the reader is told. An expression alone \
                      leaves them to work out what it was for, months later, in a CI log.",
                     child.at("says"),
                 );
             }
-            let at = child.at("that");
-            self.check_if_expression(&that, at);
-            self.defer_expression(that, at, false);
+            let at = child.at(attr_name);
+            self.check_if_expression(&written, at);
+            self.defer_expression(written, at, false);
         }
     }
 

@@ -106,6 +106,7 @@ pub fn build(document: &Document, default_locale: Option<&str>) -> Result<Config
                 asserts.push(AssertSpec {
                     that: attrs.get("that").cloned().unwrap_or_default(),
                     says: attrs.get("says").cloned().unwrap_or_default(),
+                    each: attrs.get("each").cloned().unwrap_or_default(),
                 });
             }
         }

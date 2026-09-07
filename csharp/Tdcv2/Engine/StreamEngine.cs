@@ -2615,6 +2615,9 @@ public sealed class StreamEngine
                 _onProgress("render", row - from, to - from);
             }
 
+            // Before the row is written, not after: a row that fails its own config's claim
+            // should not reach the file when the engine can still help it.
+            Assertions.CheckRow(_config, ValueAt, _columns.ContainsKey, row);
             Emit(output, fx.BeforeBlock, row);
 
             var active = new List<Line>();

@@ -44,6 +44,9 @@ struct Recording<'a> {
     value_at: &'a dyn Fn(&str, usize) -> Option<String>,
     known: &'a dyn Fn(&str) -> bool,
     read: RefCell<Vec<(String, String)>>,
+    /// The row it answers from: 0 for a whole-run assertion, the current row
+    /// for a per-row one.
+    row: usize,
 }
 
 impl Scope for Recording<'_> {
@@ -52,7 +55,7 @@ impl Scope for Recording<'_> {
     }
 
     fn value(&self, name: &str) -> String {
-        let found = (self.value_at)(name, 0).unwrap_or_default();
+        let found = (self.value_at)(name, self.row).unwrap_or_default();
         // Only a real column is recorded. A name that is not declared is not
         // data at all — the expression language reads it as its own literal
         // text, which is what lets `Kind == a` go unquoted — so it has nothing
@@ -141,11 +144,12 @@ pub fn check(
     known: &dyn Fn(&str) -> bool,
     count: usize,
 ) -> EngineResult<()> {
-    for spec in asserts {
+    for spec in asserts.iter().filter(|s| s.each.is_empty()) {
         let scope = Recording {
             value_at,
             known,
             read: RefCell::new(Vec::new()),
+            row: 0,
         };
         let held = match as_condition(&spec.that, &scope) {
             Ok(held) => held,
@@ -177,8 +181,9 @@ pub fn check(
                 ),
             };
             return invalid(&format!(
-                "assert (\"{}\"): {why}. An assertion reads whole-run values: give it a \
-                 <gen type=\"stat\" of=\"{name}\" op=\"…\"/> column, or _total.",
+                "assert (\"{}\"): {why}. A whole-run assertion reads whole-run values: give it \
+                 a <gen type=\"stat\" of=\"{name}\" op=\"…\"/> column, or _total. To state \
+                 it of every row instead, write each= rather than that=.",
                 spec.that
             ));
         }
@@ -199,6 +204,66 @@ pub fn check(
             };
             return invalid(&format!("assert failed: {}\n  {shown}", spec.says));
         }
+    }
+    Ok(())
+}
+
+/// Check every `each=` assertion against ONE row, refusing on the first that
+/// does not hold.
+///
+/// Called from the row loop of both engines, so a per-row assertion costs the
+/// same and means the same whether the run is held in memory or streamed. It is
+/// the `if=` language over the scope `if=` itself gets — this row's columns and
+/// the row built-ins — so nothing new had to be learnt to write one.
+///
+/// The run stops at the FIRST row that fails. On a streaming engine the rows
+/// before it are already written, and saying "stops at the first" is honest
+/// where "checks the whole file first" could not be true of every engine.
+pub fn check_row(
+    asserts: &[AssertSpec],
+    value_at: &dyn Fn(&str, usize) -> Option<String>,
+    known: &dyn Fn(&str) -> bool,
+    row: usize,
+) -> EngineResult<()> {
+    for spec in asserts.iter().filter(|s| !s.each.is_empty()) {
+        let scope = Recording {
+            value_at,
+            known,
+            read: RefCell::new(Vec::new()),
+            row,
+        };
+        let held = match as_condition(&spec.each, &scope) {
+            Ok(held) => held,
+            Err(e) => {
+                return invalid(&format!(
+                    "assert: cannot read \"{}\" — {}",
+                    spec.each,
+                    e.message()
+                ))
+            }
+        };
+        if held {
+            continue;
+        }
+        let read = scope.read.into_inner();
+        let detail = read
+            .iter()
+            .map(|(name, value)| {
+                let shown = if value.is_empty() { "(empty)" } else { value };
+                format!("{name} = {shown}")
+            })
+            .collect::<Vec<_>>()
+            .join(", ");
+        let shown = if detail.is_empty() {
+            spec.each.clone()
+        } else {
+            format!("{}   with {detail}", spec.each)
+        };
+        return invalid(&format!(
+            "assert failed on row {}: {}\n  {shown}",
+            row + 1,
+            spec.says
+        ));
     }
     Ok(())
 }

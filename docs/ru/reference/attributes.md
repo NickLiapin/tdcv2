@@ -163,7 +163,7 @@
 | `repeat` / `separator` | Несколько значений в одной ячейке             | [Несколько значений](../constructs/multiple-values.md#top)          |
 | `lengths`   | Рядом с `repeat="A..B"`: доля строк, получающих каждую возможную длину, начиная с `A` — точная квота, а не приближение                                                        | [Несколько значений](../constructs/multiple-values.md#top)                  |
 | `distinct` | Без повторов внутри ячейки (нужен `repeat`)   | [Несколько значений](../constructs/multiple-values.md#top)          |
-| `each`                 | Повторить строку для каждого элемента списка  | [Связанные таблицы](../constructs/relational-tables.md#top)         |
+| `each`                 | Повторить строку для каждого элемента списка; на `<assert>` — условие, которому обязана удовлетворять каждая строка | [Связанные таблицы](../constructs/relational-tables.md#top), [Самопроверяющиеся конфиги](../constructs/self-checking.md#top) |
 | `flag`                 | Колонка-ответ для разметки выбросов в `<mix>` | [Mix](../constructs/mix.md#top)                                     |
 
 ---

@@ -112,7 +112,7 @@ def check(
     on both.
     """
     by_name = {spec.name: spec for spec in specs if spec.name}
-    for spec in asserts:
+    for spec in (s for s in asserts if not s.each):
         read: list[_Reading] = []
 
         def value_of(name: str, sink: list[_Reading] = read) -> str:
@@ -145,11 +145,49 @@ def check(
                 "for it — this would have checked whatever the first row happened to hold"
             )
             raise AssertionFailedError(
-                f'assert ("{spec.that}"): {why}. An assertion reads whole-run values: give it '
-                f'a <gen type="stat" of="{reading.name}" op="…"/> column, or _total.'
+                f'assert ("{spec.that}"): {why}. A whole-run assertion reads whole-run values: '
+                f'give it a <gen type="stat" of="{reading.name}" op="…"/> column, or _total. '
+                "To state it of every row instead, write each= rather than that=."
             )
 
         if not held:
             detail = ", ".join(f"{r.name} = {r.value if r.value else '(empty)'}" for r in read)
             shown = f"{spec.that}   with {detail}" if detail else spec.that
             raise AssertionFailedError(f"assert failed: {spec.says}\n  {shown}")
+
+
+def check_row(
+    asserts: SequenceType[AssertSpec],
+    value_at: Callable[[str, int], str | None],
+    known: Callable[[str], bool],
+    row: int,
+) -> None:
+    """Check every ``each=`` assertion against ONE row, raising on the first that fails.
+
+    Called from the row loop of both engines, so a per-row assertion costs the same and means
+    the same whether the run is held in memory or streamed. It is the ``if=`` language over the
+    scope ``if=`` itself gets — this row's columns and the row built-ins — so nothing new had to
+    be learnt to write one.
+
+    The run stops at the FIRST row that fails. On a streaming engine the rows before it are
+    already written, and saying "stops at the first" is honest where "checks the whole file
+    first" could not be true of every engine.
+    """
+    for spec in (s for s in asserts if s.each):
+        read: list[_Reading] = []
+
+        def value_of(name: str, sink: list[_Reading] = read, at: int = row) -> str:
+            value = value_at(name, at) or ""
+            if known(name):
+                sink.append(_Reading(name, value))
+            return value
+
+        try:
+            held = as_condition(spec.each, known, value_of)
+        except Exception as error:
+            raise AssertionFailedError(f'assert: cannot read "{spec.each}" — {error}') from error
+
+        if not held:
+            detail = ", ".join(f"{r.name} = {r.value if r.value else '(empty)'}" for r in read)
+            shown = f"{spec.each}   with {detail}" if detail else spec.each
+            raise AssertionFailedError(f"assert failed on row {row + 1}: {spec.says}\n  {shown}")

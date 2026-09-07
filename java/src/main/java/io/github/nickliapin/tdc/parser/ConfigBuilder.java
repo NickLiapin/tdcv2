@@ -73,7 +73,10 @@ public final class ConfigBuilder {
           if (self.name.getText().equals("assert")) {
             Map<String, String> a = attributes(self.attr());
             asserts.add(
-                new Config.AssertSpec(a.getOrDefault("that", ""), a.getOrDefault("says", "")));
+                new Config.AssertSpec(
+                    a.getOrDefault("that", ""),
+                    a.getOrDefault("says", ""),
+                    a.getOrDefault("each", "")));
           }
           continue;
         }

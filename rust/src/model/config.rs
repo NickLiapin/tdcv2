@@ -293,8 +293,11 @@ pub struct Config {
 /// it sits in `<env>` rather than beside a column.
 #[derive(Clone, Debug, Default, PartialEq, Eq)]
 pub struct AssertSpec {
+    /// The condition read ONCE, over whole-run values.
     pub that: String,
     pub says: String,
+    /// The condition answered on EVERY row. Exactly one of the two is filled.
+    pub each: String,
 }
 
 impl Config {

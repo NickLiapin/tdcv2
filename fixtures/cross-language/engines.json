@@ -607,6 +607,14 @@
         ]
       }
     },
+    "assert/a-per-row-assertion-that-holds-changes-nothing": {
+      "engine2": {
+        "lines": ["a,7", "a,4", "b,4", "a,3", "b,6", "b,6"]
+      },
+      "engine3": {
+        "lines": ["a,7", "a,4", "b,4", "a,3", "b,6", "b,6"]
+      }
+    },
     "comparisons/strict-equality-matches-the-number-written-beside-it": {
       "engine2": {
         "lines": ["0: is0 not1", "1: is1", "2: not1", "3: not1"]

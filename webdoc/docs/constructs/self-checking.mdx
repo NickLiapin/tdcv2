@@ -18,7 +18,10 @@ If it doesn't, the run stops with your own sentence, before a single line is wri
 ```
 
 It lives in `<env>`, beside [`<uniq>` and `<distinct>`](unique-values.mdx), because like
-them it says something about the whole run rather than about one column.
+them it states something the whole run must satisfy rather than something one column is.
+
+There are two of them. `that=` is read **once**, over whole-run numbers. `each=` is
+answered on **every row** — see [Every row](#every-row--each) below.
 
 ## What is worth asserting
 
@@ -58,13 +61,16 @@ The exit code is 1, so CI stops on it.
 
 ## At a glance
 
-| Attribute | Required | What it does                                                    |
-| :-------- | :------- | :-------------------------------------------------------------- |
-| `that`    | yes      | The condition, in the same language as [`if=`](../reference/expressions.mdx) |
-| `says`    | yes      | The sentence a reader is given when it fails                     |
+| Attribute | Required   | What it does                                                                        |
+| :-------- | :--------- | :---------------------------------------------------------------------------------- |
+| `that`    | one of two | A condition over whole-run values, read once, in the [`if=`](../reference/expressions.mdx) language |
+| `each`    | one of two | A condition every row must satisfy, in the same language                             |
+| `says`    | yes        | The sentence a reader is given when it fails                                         |
 
-Both are required. An assertion that fires with only its expression to show has made the
-reader work out what it was for, months later, in a CI log.
+`says=` is required either way. An assertion that fires with only its expression to show
+has made the reader work out what it was for, months later, in a CI log. `that=` and
+`each=` cannot be written on one tag: they are checked a different number of times, and a
+reader could not tell which of the two the sentence describes.
 
 There is **no flag**. An assertion runs because it is written: a check that has to be
 remembered is a check nobody ran, on a config that looks verified.
@@ -102,7 +108,7 @@ and is refused:
 ```
 
 <Terminal title="./run amounts.tdc">
-{`tdcv2: assert ("Amount > 0"): "Amount" is not the same on every row, so this would have checked the first row and called the run verified. An assertion reads whole-run values: give it a <gen type="stat" of="Amount" op="…"/> column, or _total.`}
+{`tdcv2: assert ("Amount > 0"): "Amount" is not the same on every row, so this would have checked the first row and called the run verified. A whole-run assertion reads whole-run values: give it a <gen type="stat" of="Amount" op="…"/> column, or _total. To state it of every row instead, write each= rather than that=.`}
 </Terminal>
 
 Without this rule, `that="Amount > 0"` would read row 0 and report on one row out of five
@@ -113,17 +119,60 @@ A column that a `parent=` filter leaves **empty** on some rows is refused for th
 reason: it has no single value for the run, so the condition would compare against
 whatever row 0 happened to hold. Summarise it with `op="count"` instead.
 
+## Every row — `each=`
+
+The refusal above is not a dead end; it is a signpost. "Every amount is positive" is a
+real claim, and `each=` is where it goes:
+
+```xml
+<sequence name="Amount"><gen type="number" value="1..500"/></sequence>
+<assert each="Amount > 0" says="every amount is positive"/>
+```
+
+The condition is answered on every row, in the same language `if=` speaks and over the
+same names — this row's columns, plus the row
+[built-ins](../reference/builtins.mdx). Nothing new to learn, and no `stat` column to
+build first.
+
+When a row breaks it, the run stops **on that row** and says which:
+
+```xml
+<sequence name="Fee"><gen type="number" value="-3..20"/></sequence>
+<assert each="Fee >= 0" says="a fee is never negative"/>
+```
+
+<Terminal title="./run fees.tdc (20 rows)">
+{`tdcv2: assert failed on row 16: a fee is never negative
+  Fee >= 0   with Fee = -3`}
+</Terminal>
+
+The exit code is 1, as with `that=`.
+
+**It stops at the first failing row rather than counting them all.** On a streaming engine
+the rows before it are already on disk, so "checks the whole file, then reports" is
+something not every engine could honestly promise — and a run whose data is already wrong
+is not made righter by finding out how wrong. The row it names is the first, always: rows
+are checked in order, before each one is written.
+
+That last point is why a config with an `each=` assertion **runs on one thread**. Workers
+each own a range of rows and would each stop at their own first failure, so the row a
+reader is shown would be whichever thread got there — a different number from the same
+config and the same seed. An explicit `--jobs` says so and carries on single-threaded.
+
+Otherwise there is no engine consequence: unlike `that=`, a per-row assertion needs no
+`stat` column, so a config with one still streams. See
+[large outputs](../guides/large-outputs.mdx).
+
 ## What it does not do yet
 
-- **Per-row assertions** ("every amount is positive"). A different feature: it needs a row
-  loop and a report that names failing rows rather than one number.
 - **Asserting a check digit.** That is the trap — [`<compute>`](../compute/overview.mdx)
   produced it, and recomputing it asserts that the same code agrees with itself.
 
 ## Engines
 
-An assertion reads `stat` columns, and `stat` already routes a config to the in-memory
-engine. So assertions add no engine consequence of their own; see
+A `that=` assertion reads `stat` columns, and `stat` already routes a config to the
+in-memory engine — so it adds no engine consequence of its own. An `each=` assertion adds
+none either, beyond staying single-threaded. See
 [large outputs](../guides/large-outputs.mdx).
 
 ## See also

@@ -168,6 +168,14 @@ def build(
     for row in range(count):
         if on_progress is not None and row % report_every == 0:
             on_progress("render", row, count)
+        # Before the row is written, not after: a row that fails its own config's claim
+        # should not reach the file when the engine can still help it.
+        assertions.check_row(
+            config.asserts,
+            lambda name, at: columns[name][at] if name in columns else None,
+            lambda name: name in columns,
+            row,
+        )
         _emit(out, fx.before_block, columns, row, config.inject)
 
         # The suppressed lines are dropped first. A delimiter belongs between the lines that

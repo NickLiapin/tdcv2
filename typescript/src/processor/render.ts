@@ -32,7 +32,8 @@
  */
 
 import { evaluateIf } from '../expr/evaluate.js';
-import { checkAssertions } from '../sequence/assert.js';
+import { checkAssertions, checkRowAssertions, perRowAsserts } from '../sequence/assert.js';
+import type { AssertSpec } from '../sequence/assert.js';
 import { buildEachInfo, elementRegistry, splitElements, type EachInfo } from './each.js';
 import { resolveExistingDataSourcePath, type DataSourceOptions } from '../data-source/index.js';
 import type {
@@ -553,6 +554,22 @@ export function hasUnsplittableUniqueness(document: DocumentContext): boolean {
   return extractSequenceSpecs(env).some((spec) => spec.uniq === true);
 }
 
+/**
+ * Whether the config carries an `<assert each="…"/>`.
+ *
+ * A per-row assertion names the FIRST failing row, and "first" is a statement
+ * about the whole run. Workers each own a range and each stop at their own first
+ * failure, so the row a reader is shown would be whichever thread got there —
+ * a different number on the same config and the same seed. So a config with one
+ * runs single-threaded, and the failure it reports is the true first row.
+ */
+export function hasPerRowAssertion(document: DocumentContext): boolean {
+  const tdc = findTdc(document);
+  const env = tdc ? findChildElement(tdc.content(), 'env') : undefined;
+  if (!env) return false;
+  return perRowAsserts(extractAsserts(env)).length > 0;
+}
+
 export function hasInlineRenderGenerators(document: DocumentContext): boolean {
   const tdc = findTdc(document);
   if (!tdc) return false;
@@ -586,6 +603,8 @@ export interface PreparedRender {
   readonly eachInfo: ReadonlyMap<string, EachInfo>;
   /** The `<sequence>` specs, in declaration order — what the object API reports. */
   readonly sequenceSpecs: readonly SequenceSpec[];
+  /** `<assert each="…"/>` — answered row by row, in the loop below. */
+  readonly perRowAsserts: readonly AssertSpec[];
 }
 
 /**
@@ -772,9 +791,20 @@ export function prepareRender(
   // than in the output half so both the sync and the async path are covered, and
   // so a failed assertion stops before a single line is written — a file that
   // exists is a file someone will use.
-  checkAssertions(extractAsserts(envEl), registry, sequenceSpecs, env.count);
+  const asserts = extractAsserts(envEl);
+  checkAssertions(asserts, registry, sequenceSpecs, env.count);
 
-  return { tdc, blockEl, env, registry, now, prng, eachInfo, sequenceSpecs };
+  return {
+    tdc,
+    blockEl,
+    env,
+    registry,
+    now,
+    prng,
+    eachInfo,
+    sequenceSpecs,
+    perRowAsserts: perRowAsserts(asserts),
+  };
 }
 
 export function* renderStream(
@@ -795,6 +825,7 @@ export function* streamFromPrepared(
   options: RenderOptions = {},
 ): Generator<string, void, void> {
   const { blockEl, env, registry, now, prng, eachInfo } = prepared;
+  const rowAsserts = prepared.perRowAsserts;
   const state = createRenderState(env.count);
 
   const lines = contentElements(blockEl.content())
@@ -839,6 +870,9 @@ export function* streamFromPrepared(
     if (options.onProgress && (i - start) % reportEvery === 0) {
       options.onProgress({ phase: 'render', done: i - start, total: end - start });
     }
+    // Before the row is written, not after: a row that fails its own config's
+    // claim should not reach the file when the engine can still help it.
+    if (rowAsserts.length > 0) checkRowAssertions(rowAsserts, registry, i);
     // Build ONE card's worth of output in a local string, then yield
     // it as a single chunk. This keeps memory bounded by the size of
     // one card (rather than the whole output) while preserving the

@@ -42,7 +42,8 @@
     "sequentialVsEngine": "<tdc><env count=\"2\" seed=\"w\" local=\"en\" mode=\"sequential\" engine=\"2\"><sequence name=\"T\"><gen type=\"increment\" value=\"1\"/></sequence></env><block><line><data>${{T}}</data></line></block></tdc>",
     "tightUniq": "<tdc><env count=\"75000\" seed=\"t\" local=\"en\" mode=\"disk\"><uniq><sequence name=\"A\"><gen type=\"number\" value=\"1..300\"/></sequence><sequence name=\"B\"><gen type=\"number\" value=\"1..300\"/></sequence></uniq></env><block><line><data>${{A}}-${{B}}</data></line></block></tdc>",
     "impossibleUniq": "<tdc><env count=\"1000000000\" seed=\"s\"><uniq><sequence name=\"A\"><gen type=\"text\" value=\"a,b,c\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"x,y,z\"/></sequence></uniq></env><block><line><data>${{A}}${{B}}</data></line></block></tdc>",
-    "blockCutUniq": "<tdc><env count=\"31\" seed=\"blocks\" local=\"en\"><uniq><sequence name=\"G\"><gen type=\"text\" value=\"M,F\" percent=\"50,50\"/></sequence><switch name=\"F\" on=\"G\"><case is=\"M\"><gen type=\"text\" value=\"m1,m2,m3\"/></case><case is=\"F\"><gen type=\"text\" value=\"f1,f2,f3\"/></case></switch><sequence name=\"L\"><gen type=\"text\" value=\"a,b,c,d,e\"/></sequence></uniq></env><block><line><data>${{G}}|${{F}}|${{L}}</data></line></block></tdc>"
+    "blockCutUniq": "<tdc><env count=\"31\" seed=\"blocks\" local=\"en\"><uniq><sequence name=\"G\"><gen type=\"text\" value=\"M,F\" percent=\"50,50\"/></sequence><switch name=\"F\" on=\"G\"><case is=\"M\"><gen type=\"text\" value=\"m1,m2,m3\"/></case><case is=\"F\"><gen type=\"text\" value=\"f1,f2,f3\"/></case></switch><sequence name=\"L\"><gen type=\"text\" value=\"a,b,c,d,e\"/></sequence></uniq></env><block><line><data>${{G}}|${{F}}|${{L}}</data></line></block></tdc>",
+    "rowAssert": "<tdc><env count=\"20\" seed=\"cli\" local=\"en\"><sequence name=\"Fee\"><gen type=\"number\" value=\"-3..20\"/></sequence><assert each=\"Fee >= 0\" says=\"a fee is never negative\"/></env><block><line><data>${{Fee}}</data></line></block></tdc>"
   },
   "cases": [
     {
@@ -1330,6 +1331,19 @@
       "argv": ["{dir}/a.tdc"],
       "exit": 0,
       "note": "The manifest is metadata and reaches no value, so the same seed gives the same bytes whether it parses or not. Refusing the run would be blocking work over a field the work never reads."
+    },
+    {
+      "name": "a per-row assertion names the row it failed on and exits 1",
+      "files": {
+        "fees.tdc": "@rowAssert"
+      },
+      "argv": ["{dir}/fees.tdc"],
+      "exit": 1,
+      "stderrContains": [
+        "assert failed on row 16: a fee is never negative",
+        "Fee >= 0   with Fee = -3"
+      ],
+      "note": "The row number is the contract, not just the failure. Row 16 is the FIRST of the twenty that breaks the claim, and every implementation has to reach it by checking rows in order and stopping there — one that checked the whole run and reported the last failure, or that let workers race for it, names a different number. The value beside the expression is what makes the message worth reading in a CI log."
     }
   ],
   "gaps": {

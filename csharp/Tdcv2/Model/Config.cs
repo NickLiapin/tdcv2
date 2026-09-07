@@ -246,7 +246,14 @@ public sealed class PoolSpec
 /// A statement about the whole run, like <c>&lt;uniq&gt;</c> and <c>&lt;distinct&gt;</c>, which is
 /// why it sits in <c>&lt;env&gt;</c> rather than beside a column.
 /// </remarks>
-public sealed record AssertSpec(string That, string Says);
+/// <summary>
+/// One <c>&lt;assert that="…"/&gt;</c> or <c>&lt;assert each="…"/&gt;</c> as written.
+/// </summary>
+/// <remarks>
+/// Exactly one of the two conditions is filled: <c>That</c> is read ONCE over whole-run values,
+/// <c>Each</c> on every row.
+/// </remarks>
+public sealed record AssertSpec(string That, string Says, string Each = "");
 
 public sealed class Config
 {

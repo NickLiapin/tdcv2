@@ -3425,6 +3425,15 @@ impl StreamEngine<'_> {
                     report("render", done, total);
                 }
             }
+            // Before the row is written, not after: a row that fails its own
+            // config's claim should not reach the file when the engine can
+            // still help it.
+            crate::sequence::assertions::check_row(
+                &self.env.config.asserts,
+                &|name, at| self.value_at(name, at as i32).ok().flatten(),
+                &|name| self.columns.contains_key(name),
+                row.max(0) as usize,
+            )?;
             self.emit(out, &fx.before_block, row)?;
 
             let mut active = Vec::new();

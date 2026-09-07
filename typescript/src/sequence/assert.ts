@@ -44,12 +44,24 @@ import { evaluateInScope } from '../expr/evaluate.js';
 import { sequenceValueAt } from './types.js';
 import type { Sequence, SequenceRegistry, SequenceSpec } from './types.js';
 
-/** One `<assert>` as written. */
+/** One `<assert>` as written. Exactly one of `that` and `each` is filled. */
 export interface AssertSpec {
-  /** The `if=`-style expression that must hold. */
+  /** The `if=`-style expression that must hold ONCE, over whole-run values. */
   readonly that: string;
+  /** The `if=`-style expression that must hold on EVERY row. */
+  readonly each: string;
   /** The sentence a reader gets when it does not. */
   readonly says: string;
+}
+
+/** The whole-run assertions — the ones `checkAssertions` answers. */
+export function wholeRunAsserts(asserts: readonly AssertSpec[]): readonly AssertSpec[] {
+  return asserts.filter((spec) => spec.each === '');
+}
+
+/** The per-row assertions — the ones the render loop answers, row by row. */
+export function perRowAsserts(asserts: readonly AssertSpec[]): readonly AssertSpec[] {
+  return asserts.filter((spec) => spec.each !== '');
 }
 
 /** A run whose output did not hold up its own config's claim. */
@@ -152,7 +164,7 @@ export function checkAssertions(
   const byName = new Map<string, SequenceSpec>();
   for (const spec of specs) byName.set(spec.name, spec);
 
-  for (const spec of asserts) {
+  for (const spec of wholeRunAsserts(asserts)) {
     const read = new Map<string, string | undefined>();
     const scope = (name: string): string | undefined => {
       const column = registry[name];
@@ -189,8 +201,9 @@ export function checkAssertions(
           : `"${name}" is empty on some rows, so the run has no single value for it — this ` +
             'would have checked whatever the first row happened to hold';
       throw new AssertionError(
-        `assert ("${spec.that}"): ${why}. An assertion reads whole-run values: give it a ` +
-          `<gen type="stat" of="${name}" op="…"/> column, or _total.`,
+        `assert ("${spec.that}"): ${why}. A whole-run assertion reads whole-run values: give ` +
+          `it a <gen type="stat" of="${name}" op="…"/> column, or _total. To state it of every ` +
+          'row instead, write each= rather than that=.',
       );
     }
 
@@ -205,4 +218,51 @@ function describe(that: string, read: ReadonlyMap<string, string | undefined>): 
   if (read.size === 0) return that;
   const parts = [...read].map(([name, value]) => `${name} = ${value ?? '(empty)'}`);
   return `${that}   with ${parts.join(', ')}`;
+}
+
+/**
+ * Check every per-row assertion against ONE row.
+ *
+ * Called from the row loop both engines share, so a `each=` assertion costs the
+ * same and means the same whether the run is held in memory or streamed. It is
+ * the `if=` language over the same scope `if=` itself gets — this row's columns
+ * and the row built-ins — so nothing new had to be learnt to write one.
+ *
+ * The run stops at the FIRST row that fails. On a streaming engine the rows
+ * before it are already written, and saying "stops at the first" is honest where
+ * "checks the whole file first" could not be true of every engine.
+ */
+export function checkRowAssertions(
+  perRow: readonly AssertSpec[],
+  registry: SequenceRegistry,
+  row: number,
+): void {
+  for (const spec of perRow) {
+    const read = new Map<string, string | undefined>();
+    // The scope `if=` is given, with the names it reaches written down so the
+    // failure can show them. `?? ''` matches evaluateIf exactly: an unset cell
+    // reads as empty text rather than as a missing name.
+    const scope = (name: string): string | undefined => {
+      const seq = registry[name];
+      if (!seq) return undefined;
+      const value = sequenceValueAt(seq, row) ?? '';
+      read.set(name, value);
+      return value;
+    };
+
+    let held: boolean;
+    try {
+      held = evaluateInScope(spec.each, scope);
+    } catch (error) {
+      throw new AssertionError(
+        `assert: cannot read "${spec.each}" — ${error instanceof Error ? error.message : String(error)}`,
+      );
+    }
+
+    if (!held) {
+      throw new AssertionError(
+        `assert failed on row ${String(row + 1)}: ${spec.says}\n  ${describe(spec.each, read)}`,
+      );
+    }
+  }
 }

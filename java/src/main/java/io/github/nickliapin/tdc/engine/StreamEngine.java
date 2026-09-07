@@ -2351,6 +2351,9 @@ public final class StreamEngine {
         if (onProgress != null && (row - from) % reportEvery == 0) {
           onProgress.report("render", row - from, to - from);
         }
+        // Before the row is written, not after: a row that fails its own config's claim should
+        // not reach the file when the engine can still help it.
+        Assertions.checkRow(config, this::valueAt, columns::containsKey, row);
         emit(out, fx.beforeBlock(), row);
 
         List<Config.Line> active = new ArrayList<>();

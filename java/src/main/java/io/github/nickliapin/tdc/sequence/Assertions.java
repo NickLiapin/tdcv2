@@ -79,7 +79,10 @@ public final class Assertions {
     int count = Math.max(config.count(), 0);
 
     for (Config.AssertSpec assertion : config.asserts()) {
-      Recording scope = new Recording(valueAt, known);
+      if (!assertion.each().isEmpty()) {
+        continue; // answered per row, in the engines' row loop
+      }
+      Recording scope = new Recording(valueAt, known, 0);
       boolean held;
       try {
         held = Evaluate.asCondition(assertion.that(), scope);
@@ -105,8 +108,9 @@ public final class Assertions {
                     + "this would have checked whatever the first row happened to hold";
         throw new AssertionFailed(
             "assert (\"" + assertion.that() + "\"): " + why
-                + ". An assertion reads whole-run values: give it a <gen type=\"stat\" of=\""
-                + name + "\" op=\"…\"/> column, or _total.");
+                + ". A whole-run assertion reads whole-run values: give it a <gen type=\"stat\" "
+                + "of=\"" + name + "\" op=\"…\"/> column, or _total. To state it of every row "
+                + "instead, write each= rather than that=.");
       }
 
       if (!held) {
@@ -193,12 +197,16 @@ public final class Assertions {
     private final BiFunction<String, Integer, String> valueAt;
     private final Predicate<String> known;
 
+    /** The row it answers from: 0 for a whole-run assertion, the current row for a per-row one. */
+    private final int row;
+
     /** Insertion-ordered, so the reported values read in the order the expression asked. */
     private final Map<String, String> read = new LinkedHashMap<>();
 
-    Recording(BiFunction<String, Integer, String> valueAt, Predicate<String> known) {
+    Recording(BiFunction<String, Integer, String> valueAt, Predicate<String> known, int row) {
       this.valueAt = valueAt;
       this.known = known;
+      this.row = row;
     }
 
     @Override
@@ -208,7 +216,7 @@ public final class Assertions {
 
     @Override
     public String value(String name) {
-      String found = valueAt.apply(name, 0);
+      String found = valueAt.apply(name, row);
       String text = found == null ? "" : found;
       // Only a real column is recorded. A name that is not declared is not data at all — the
       // expression language reads it as its own literal text, which is what lets `Kind == a` go
@@ -218,6 +226,48 @@ public final class Assertions {
         read.putIfAbsent(name, text);
       }
       return text;
+    }
+  }
+
+  /**
+   * Check every {@code each=} assertion against ONE row, throwing on the first that does not hold.
+   *
+   * <p>Called from the row loop of both engines, so a per-row assertion costs the same and means
+   * the same whether the run is held in memory or streamed. It is the {@code if=} language over the
+   * scope {@code if=} itself gets — this row's columns and the row built-ins — so nothing new had
+   * to be learnt to write one.
+   *
+   * <p>The run stops at the FIRST row that fails. On a streaming engine the rows before it are
+   * already written, and saying "stops at the first" is honest where "checks the whole file first"
+   * could not be true of every engine.
+   */
+  public static void checkRow(
+      Config config,
+      BiFunction<String, Integer, String> valueAt,
+      Predicate<String> known,
+      int row) {
+    for (Config.AssertSpec assertion : config.asserts()) {
+      if (assertion.each().isEmpty()) {
+        continue;
+      }
+      Recording scope = new Recording(valueAt, known, row);
+      boolean held;
+      try {
+        held = Evaluate.asCondition(assertion.each(), scope);
+      } catch (RuntimeException e) {
+        throw new AssertionFailed(
+            "assert: cannot read \"" + assertion.each() + "\" — " + e.getMessage());
+      }
+      if (held) {
+        continue;
+      }
+      String detail =
+          scope.read.entrySet().stream()
+              .map(e -> e.getKey() + " = " + (e.getValue().isEmpty() ? "(empty)" : e.getValue()))
+              .collect(Collectors.joining(", "));
+      String shown = detail.isEmpty() ? assertion.each() : assertion.each() + "   with " + detail;
+      throw new AssertionFailed(
+          "assert failed on row " + (row + 1) + ": " + assertion.says() + "\n  " + shown);
     }
   }
 }

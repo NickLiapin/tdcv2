@@ -105,7 +105,7 @@ public final class Validator {
           // writing it on the wrapper is a common slip and now says so.
           Map.entry("uniq", Set.of("comment")),
           // An assertion is its two attributes and nothing else.
-          Map.entry("assert", Set.of("that", "says", "comment")),
+          Map.entry("assert", Set.of("that", "each", "says", "comment")),
           Map.entry("distinct", Set.of("comment")));
 
   /** Where each construct belongs — the "put it in X" half of a placement complaint. */
@@ -6642,10 +6642,14 @@ public final class Validator {
    * is worse than none: the config carries a check, the reader believes the run was verified, and
    * nothing was ever compared.
    *
-   * <p>The expression is not re-checked here. {@code that=} is the {@code if=} language, so it
-   * takes the same syntax pass now and the same put-aside name pass once every sequence is known —
-   * a typo in a column name is reported exactly as it is in {@code if=}, because it IS that
-   * mistake.
+   * <p>The expression is not re-checked here. Both {@code that=} and {@code each=} are the
+   * {@code if=} language, so each takes the same syntax pass now and the same put-aside name pass
+   * once every sequence is known — a typo in a column name is reported exactly as it is in
+   * {@code if=}, because it IS that mistake.
+   *
+   * <p>The two cannot be written together: {@code that=} is read ONCE over whole-run values,
+   * {@code each=} is answered on every row, and a tag carrying both would leave a reader to guess
+   * which the sentence in {@code says=} describes.
    */
   private void checkAsserts(TDCParser.OpenCloseElementContext env) {
     for (TDCParser.ElementContext child : env.content().element()) {
@@ -6658,32 +6662,50 @@ public final class Validator {
       checkClosedTagAttrs("assert", self.attr(), line(self), column(self));
       Map<String, String> attrs = attributes(self.attr());
       String that = attrs.getOrDefault("that", "").trim();
+      String each = attrs.getOrDefault("each", "").trim();
       String says = attrs.getOrDefault("says", "").trim();
-      if (that.isEmpty()) {
-        int[] where = at(self, "that");
+      if (!that.isEmpty() && !each.isEmpty()) {
+        int[] where = at(self, "each");
         error(
-            "TDC265",
-            "<assert> has no condition — that= is required",
-            "Write the property the run must have, in the if= language, over whole-run columns: "
-                + "<assert that=\"Rows == 700\" says=\"…\"/>. The numbers come from "
-                + "<gen type=\"stat\">.",
+            "TDC306",
+            "<assert> has both that= and each= — they answer different questions",
+            "that= is read ONCE, over whole-run values; each= is answered on every row. Write two "
+                + "assertions, each with its own says=, so a failure says which one broke.",
             where[0],
             where[1]);
         continue;
       }
+      if (that.isEmpty() && each.isEmpty()) {
+        // Point at whichever of the two was actually written. A blank each= is the commonest way
+        // to reach here, and a caret on the tag would leave a reader looking for an attribute
+        // that is right there.
+        int[] fallback = at(self, "each");
+        int[] where = at(self.attr(), "that", fallback[0], fallback[1]);
+        error(
+            "TDC265",
+            "<assert> has no condition — that= or each= is required",
+            "that= states a property of the whole run, over <gen type=\"stat\"> columns: "
+                + "<assert that=\"Rows == 700\" says=\"…\"/>. each= states one every row must "
+                + "have: <assert each=\"Amount > 0\" says=\"…\"/>.",
+            where[0],
+            where[1]);
+        continue;
+      }
+      String attrName = that.isEmpty() ? "each" : "that";
+      String written = that.isEmpty() ? each : that;
       if (says.isEmpty()) {
         int[] where = at(self, "says");
         error(
             "TDC266",
-            "<assert that=\"" + that + "\"> has no message — says= is required",
+            "<assert " + attrName + "=\"" + written + "\"> has no message — says= is required",
             "When this fails, says= is what the reader is told. An expression alone leaves them to "
                 + "work out what it was for, months later, in a CI log.",
             where[0],
             where[1]);
       }
-      int[] where = at(self, "that");
-      checkIfExpression(that, where[0], where[1]);
-      deferExpression(that, where[0], where[1], false);
+      int[] where = at(self, attrName);
+      checkIfExpression(written, where[0], where[1]);
+      deferExpression(written, where[0], where[1], false);
     }
   }
 

@@ -102,7 +102,7 @@ CLOSED_TAG_ATTRIBUTES = {
     "uniq": {"comment"},
     "distinct": {"comment"},
     # An assertion is its two attributes and nothing else.
-    "assert": {"that", "says", "comment"},
+    "assert": {"that", "each", "says", "comment"},
 }
 
 # Where each construct belongs — the "put it in X" half of a placement complaint.
@@ -2201,38 +2201,61 @@ class _Validator:
             )
             attrs = _attrs(self_closing.attr())
             that = (attrs.get("that") or "").strip()
+            each = (attrs.get("each") or "").strip()
             says = (attrs.get("says") or "").strip()
-            if not that:
+            if that and each:
                 line, column = _at_attrs(
-                    self_closing.attr(), "that", _line(self_closing), _column(self_closing)
+                    self_closing.attr(), "each", _line(self_closing), _column(self_closing)
                 )
                 self._error(
-                    "TDC265",
-                    "<assert> has no condition — that= is required",
-                    "Write the property the run must have, in the if= language, over whole-run "
-                    'columns: <assert that="Rows == 700" says="…"/>. The numbers come from '
-                    '<gen type="stat">.',
+                    "TDC306",
+                    "<assert> has both that= and each= — they answer different questions",
+                    "that= is read ONCE, over whole-run values; each= is answered on every "
+                    "row. Write two assertions, each with its own says=, so a failure says "
+                    "which one broke.",
                     line,
                     column,
                 )
                 continue
+            if not that and not each:
+                # Point at whichever of the two was actually written. A blank each= is the
+                # commonest way to reach here, and a caret on the tag would leave a reader
+                # looking for an attribute that is right there.
+                fallback = _at_attrs(
+                    self_closing.attr(), "each", _line(self_closing), _column(self_closing)
+                )
+                line, column = _at_attrs(
+                    self_closing.attr(), "that", fallback[0], fallback[1]
+                )
+                self._error(
+                    "TDC265",
+                    "<assert> has no condition — that= or each= is required",
+                    'that= states a property of the whole run, over <gen type="stat"> '
+                    'columns: <assert that="Rows == 700" says="…"/>. each= states one every '
+                    'row must have: <assert each="Amount > 0" says="…"/>.',
+                    line,
+                    column,
+                )
+                continue
+            written = that or each
+            attr_name = "that" if that else "each"
             if not says:
                 line, column = _at_attrs(
                     self_closing.attr(), "says", _line(self_closing), _column(self_closing)
                 )
                 self._error(
                     "TDC266",
-                    f'<assert that="{that}"> has no message — says= is required',
+                    f'<assert {attr_name}="{written}"> has no message — says= is required',
                     "When this fails, says= is what the reader is told. An expression alone "
                     "leaves them to work out what it was for, months later, in a CI log.",
                     line,
                     column,
                 )
             where = _at_attrs(
-                self_closing.attr(), "that", _line(self_closing), _column(self_closing)
+                self_closing.attr(), attr_name, _line(self_closing), _column(self_closing)
             )
-            self._check_if_expression(that, where[0], where[1])
-            self._defer_expression(that, where[0], where[1], False)
+            self._check_if_expression(written, where[0], where[1])
+            self._defer_expression(written, where[0], where[1], False)
 
     def _check_group_derived_member(self, sequence, tag: str) -> None:
         """A DERIVED column inside a `<uniq>` or `<distinct>` group.
@@ -6584,7 +6607,6 @@ def _primary_date_attr(attrs: dict[str, str]) -> str:
     return "value"
 
 
-
 def _wave_entries(raw: str | None) -> list[str]:
     """The entries of a comma-separated attribute, or [] when it is absent or blank."""
     text = (raw or "").strip()
@@ -6602,6 +6624,7 @@ def _all_numbers(entries: list[str]) -> bool:
         if value != value or value in (float("inf"), float("-inf")):
             return False
     return True
+
 
 def _split_count(value: str) -> int:
     """How many entries a comma-separated attribute holds."""
