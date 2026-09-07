@@ -340,6 +340,15 @@ public final class AdvancedRegexGen {
      */
     private final Map<String, Integer> groupNames = new HashMap<>();
 
+    /**
+     * Every name written down, closed or not. The map above only learns a name when its group
+     * closes, so checking THAT for a repeat misses the nested spelling — {@code (?<a>(?<a>x))} —
+     * where the inner group closes first and the outer then overwrites it. Which of the two
+     * {@code (?if{a=…})} reads would be decided by parse order, so both spellings are refused
+     * here instead.
+     */
+    private final Set<String> declaredNames = new LinkedHashSet<>();
+
     Parser(String pattern) {
       this.pattern = pattern;
     }
@@ -537,9 +546,10 @@ public final class AdvancedRegexGen {
       }
       // Two groups under one name would make `(?if{name=…})` a coin toss between them, decided
       // by whichever the parser happened to record last.
-      if (groupNames.containsKey(name)) {
+      if (declaredNames.contains(name)) {
         throw error("group name \"" + name + "\" is already used");
       }
+      declaredNames.add(name);
       return name;
     }
 

@@ -321,6 +321,12 @@ class _Parser:
         # at that point the group has produced nothing and the condition would compare
         # against the empty string on every row.
         self.group_names: dict[str, int] = {}
+        # Every name written down, closed or not. The map above only learns a name when its
+        # group closes, so checking THAT for a repeat misses the nested spelling —
+        # ``(?<a>(?<a>x))`` — where the inner group closes first and the outer then
+        # overwrites it. Which of the two ``(?if{a=…})`` reads would be decided by parse
+        # order, so both spellings are refused here instead.
+        self.declared_names: set[str] = set()
 
     def parse(self) -> Node:
         node = self._alternation(frozenset())
@@ -473,8 +479,9 @@ class _Parser:
             )
         # Two groups under one name would make ``(?if{name=…})`` a coin toss between them,
         # decided by whichever the parser happened to record last.
-        if name in self.group_names:
+        if name in self.declared_names:
             raise self._error(f'group name "{name}" is already used')
+        self.declared_names.add(name)
         return name
 
     def _conditional(self) -> Node:

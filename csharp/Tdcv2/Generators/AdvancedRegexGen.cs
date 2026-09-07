@@ -418,6 +418,15 @@ public static class AdvancedRegexGen
         /// </remarks>
         private readonly Dictionary<string, int> _groupNames = new(StringComparer.Ordinal);
 
+        /// <summary>Every name written down, closed or not.</summary>
+        /// <remarks>
+        /// The map above only learns a name when its group closes, so checking THAT for a repeat
+        /// misses the nested spelling — <c>(?&lt;a&gt;(?&lt;a&gt;x))</c> — where the inner group
+        /// closes first and the outer then overwrites it. Which of the two <c>(?if{a=…})</c>
+        /// reads would be decided by parse order, so both spellings are refused here instead.
+        /// </remarks>
+        private readonly HashSet<string> _declaredNames = new(StringComparer.Ordinal);
+
         internal Parser(string pattern) => _pattern = pattern;
 
         internal Node Parse()
@@ -669,11 +678,12 @@ public static class AdvancedRegexGen
 
             // Two groups under one name would make `(?if{name=…})` a coin toss between them,
             // decided by whichever the parser happened to record last.
-            if (_groupNames.ContainsKey(name))
+            if (_declaredNames.Contains(name))
             {
                 throw Error($"group name \"{name}\" is already used");
             }
 
+            _declaredNames.Add(name);
             return name;
         }
 

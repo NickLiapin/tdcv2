@@ -207,6 +207,22 @@ amplitude="120,400" peak_at="5,182"` is a weekly season and a yearly one on one 
   blanking draw off a keyed stream that skipped the condition entirely, and blanked every
   row.
 
+### Fixed
+
+<!-- covers: advanced_regex nested duplicate group name -->
+
+- **`advanced_regex` refused two groups under one name only when they were written side
+  by side.** `(?<a>x)(?<a>y)` was an error and the nested `(?<a>(?<a>x))` was not, because
+  the check read the map of names that a group joins when it CLOSES: the inner group
+  closed first, the outer one then overwrote its entry, and which of the two
+  `(?if{a=…})` read was settled by parse order rather than by the pattern.
+
+  The name is now checked where it is **written**, so both spellings are refused with the
+  same `TDC130` — and both are pinned in the shared fixtures, since one being refused
+  while the other was accepted is exactly the kind of difference no single test noticed.
+  Found while giving the plain `regex` generator the same construct, which was built with
+  the corrected rule from the start.
+
 ### Changed
 
 <!-- covers: stream refusal remedy -->

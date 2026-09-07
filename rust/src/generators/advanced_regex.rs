@@ -17,7 +17,7 @@
 //! and `advanced_regex`. That is not a defect to be reconciled — it follows from
 //! what an exact share requires.
 
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, BTreeSet};
 
 use super::rand;
 use super::regex::{self, distinct, inverse, printable_ascii, SPACES};
@@ -301,6 +301,12 @@ struct Parser {
     /// it is inside: at that point the group has produced nothing, and the
     /// condition would compare against the empty string on every row.
     group_names: BTreeMap<String, usize>,
+    /// Every name written down, closed or not. The map above only learns a name
+    /// when its group closes, so checking THAT for a repeat misses the nested
+    /// spelling — `(?<a>(?<a>x))` — where the inner group closes first and the
+    /// outer then overwrites it. Which of the two `(?if{a=…})` reads would be
+    /// decided by parse order, so both spellings are refused here instead.
+    declared_names: BTreeSet<String>,
 }
 
 struct ClassAtom {
@@ -316,6 +322,7 @@ impl Parser {
             capture_count: 0,
             closed_capture_count: 0,
             group_names: BTreeMap::new(),
+            declared_names: BTreeSet::new(),
             weighted_choice_count: 0,
             capture_max_lengths: BTreeMap::new(),
         }
@@ -511,9 +518,10 @@ impl Parser {
         }
         // Two groups under one name would make `(?if{name=…})` a coin toss between
         // them, decided by whichever the parser happened to record last.
-        if self.group_names.contains_key(&name) {
+        if self.declared_names.contains(&name) {
             return self.error(&format!("group name \"{name}\" is already used"));
         }
+        self.declared_names.insert(name.clone());
         Ok(name)
     }
 

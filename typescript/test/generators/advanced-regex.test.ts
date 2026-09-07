@@ -422,6 +422,9 @@ describe('named groups', () => {
     // Two groups under one name would make (?if{c=…}) a coin toss between them,
     // decided by whichever the parser happened to record last.
     expect(() => parseAdvancedRegexProgram('(?<c>a)(?<c>b)')).toThrow(/already used/);
+    // The nested spelling too: the name is checked where it is WRITTEN, so the
+    // inner group closing first cannot hide the repeat from the outer one.
+    expect(() => parseAdvancedRegexProgram('(?<c>(?<c>b))')).toThrow(/already used/);
   });
 
   it('refuses a name that is not a name', () => {

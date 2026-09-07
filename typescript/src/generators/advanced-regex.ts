@@ -216,6 +216,14 @@ class AdvancedRegexParser {
    * would compare against the empty string on every row.
    */
   private readonly groupNames = new Map<string, number>();
+  /**
+   * Every name written down, closed or not. The map above only learns a name when
+   * its group closes, so checking THAT for a repeat misses the nested spelling —
+   * `(?<a>(?<a>x))` — where the inner group closes first and the outer then
+   * overwrites it. Which of the two `(?if{a=…})` reads would be decided by parse
+   * order, so both spellings are refused here instead.
+   */
+  private readonly declaredNames = new Set<string>();
   public captureCount = 0;
   public weightedChoiceCount = 0;
 
@@ -403,7 +411,8 @@ class AdvancedRegexParser {
     }
     // Two groups under one name would make `(?if{name=…})` a coin toss between
     // them, decided by whichever the parser happened to record last.
-    if (this.groupNames.has(name)) throw this.error(`group name "${name}" is already used`);
+    if (this.declaredNames.has(name)) throw this.error(`group name "${name}" is already used`);
+    this.declaredNames.add(name);
     return name;
   }
 

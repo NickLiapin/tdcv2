@@ -212,6 +212,20 @@
       "expected": ["error TDC097 1:73"]
     },
     {
+      "name": "advanced-regex-duplicate-group-name",
+      "demonstrates": "TDC130",
+      "description": "Two groups under one name — a conditional reading it would be a coin toss",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"advanced_regex\" value=\"(?<a>[XY])(?<a>[XY])\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC130 1:82"]
+    },
+    {
+      "name": "advanced-regex-nested-duplicate-group-name",
+      "demonstrates": "TDC130",
+      "description": "The same repeat, nested: refused where the name is written, not where the group closes",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"advanced_regex\" value=\"(?<a>(?<a>[XY]))\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC130 1:82"]
+    },
+    {
       "name": "advanced-regex-without-value",
       "demonstrates": "TDC128",
       "description": "An advanced_regex with no pattern",

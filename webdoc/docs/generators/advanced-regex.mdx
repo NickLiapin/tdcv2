@@ -525,7 +525,8 @@ exists so that something LATER in the pattern can ask what this group produced,
 which is what the next section is for.
 
 Names start with a letter or `_` and hold letters, digits and `_`. Two groups
-cannot share one name: `(?if{sex=…})` would then be a coin toss between them.
+cannot share one name: `(?if{sex=…})` would then be a coin toss between them. That
+holds when one of the two sits inside the other, as well as side by side.
 
 ## Making one part follow another — `(?if{…})`
 
