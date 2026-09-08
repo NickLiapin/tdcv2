@@ -35,7 +35,10 @@ export default defineConfig({
         // LSP server is thin I/O glue, exercised by real editors, not units.
         '**/lsp/server.ts',
       ],
-      reporter: ['text', 'html', 'lcov'],
+      // `json-summary` is the one a machine reads: `scripts/coverage.mjs` puts this
+      // number beside the other four implementations', which is where a branch covered
+      // here and missed in a port stops being nobody's problem.
+      reporter: ['text', 'html', 'lcov', 'json-summary'],
       thresholds: {
         /*
          * A RATCHET, not a target. Each number sits just under what the suite

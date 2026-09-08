@@ -79,7 +79,7 @@ Changelog = "https://github.com/NickLiapin/tdcv2/blob/main/python/CHANGELOG.md"
 Issues = "https://github.com/NickLiapin/tdcv2/issues"
 
 [project.optional-dependencies]
-dev = ["pytest>=8", "ruff>=0.6"]
+dev = ["pytest>=8", "pytest-cov>=5", "ruff>=0.6"]
 
 # `pip install tdcv2` puts `tdcv2` on the PATH. A Python user should never need another language's
 # toolchain to run a .tdc file, which is exactly what having only the TypeScript CLI would mean.
@@ -101,6 +101,26 @@ where = ["src"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
+
+# Coverage is NOT on by default: instrumentation takes this suite from 40 seconds to six and a
+# half minutes, and the fast run is the one anybody edits against. The gate lives in
+# `scripts/coverage.mjs`, which asks for it explicitly and compares the number against the same
+# ratchet every other implementation answers to.
+[tool.coverage.run]
+source = ["tdcv2"]
+branch = true
+omit = [
+    # ANTLR writes it; no test here is about it, and measuring it would report on the
+    # generator's output rather than on this project's code.
+    "*/parser/generated/*",
+]
+
+[tool.coverage.report]
+exclude_also = [
+    # A branch that exists so an impossible state says so rather than continuing quietly.
+    "raise AssertionError",
+    "if TYPE_CHECKING:",
+]
 
 [tool.ruff]
 line-length = 100

@@ -179,3 +179,11 @@ webdoc/build/
 webdoc/.docusaurus/
 webdoc/review-bundle/
 webdoc/*.zip
+
+# Coverage reports. `scripts/coverage.mjs` writes one per implementation and reads it back;
+# only the RATCHET (fixtures/coverage-ratchet.json) is committed, because the reports are a
+# measurement of the machine that took them and the floor is the thing under review.
+python/coverage.json
+rust/coverage.json
+csharp/coverage/
+csharp/**/TestResults/

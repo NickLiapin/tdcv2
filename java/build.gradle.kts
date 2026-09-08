@@ -3,6 +3,7 @@ plugins {
     antlr
     `maven-publish`
     signing
+    jacoco
 }
 
 group = "io.github.nickliapin"
@@ -191,6 +192,33 @@ tasks.withType<JavaCompile>().configureEach {
     // -Werror is deliberately absent: this compiles ANTLR's generated sources too, and their
     // warnings are not ours to fix.
     options.compilerArgs.add("-Xlint:all")
+}
+
+/*
+ * Coverage, so a port cannot drift from the reference in silence.
+ *
+ * The XML report is the one a machine reads: `scripts/coverage.mjs` compares every
+ * implementation's numbers side by side, which is where a branch covered in TypeScript and
+ * missed here shows up as a difference rather than as nobody's problem.
+ *
+ * The generated parser is excluded. ANTLR writes it, no test here is about it, and leaving it
+ * in would measure the generator's output rather than this project's code.
+ */
+jacoco {
+    toolVersion = "0.8.12"
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+    reports {
+        xml.required = true
+        html.required = true
+    }
+    classDirectories.setFrom(
+        files(classDirectories.files.map {
+            fileTree(it) { exclude("io/github/nickliapin/tdc/parser/generated/**") }
+        })
+    )
 }
 
 tasks.test {

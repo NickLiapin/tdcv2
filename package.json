@@ -35,7 +35,9 @@
     "release:tag": "npm run check && node scripts/release.mjs --tag",
     "packs:publish": "node scripts/publish-data-packs.mjs",
     "packs:published": "node scripts/publish-data-packs.mjs --check",
-    "verify:derived": "node scripts/verify-derived.mjs"
+    "verify:derived": "node scripts/verify-derived.mjs",
+    "coverage": "node scripts/coverage.mjs",
+    "coverage:update": "node scripts/coverage.mjs --update"
   },
   "devDependencies": {
     "husky": "^9.1.6",
