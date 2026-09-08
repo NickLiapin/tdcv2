@@ -2,24 +2,24 @@
   "comment": "Coverage floors, one per implementation. A RATCHET: each number sits just under what its suite measures today, so coverage cannot slip without CI saying so, and every one of them is meant to be raised and never lowered. The five are NOT expected to agree with each other \u2014 the languages structure the same logic differently, and a match arm is not a switch case \u2014 but a number that falls is a test somebody deleted or a branch somebody stopped reaching. Rust reports REGIONS in the branch column: llvm-cov counts no branches on a stable toolchain, and regions are the nearest thing it does count. Regenerate with: node scripts/coverage.mjs --update",
   "floors": {
     "typescript": {
-      "lines": 88,
-      "branches": 75
+      "lines": 88.6,
+      "branches": 75.3
     },
     "python": {
-      "lines": 82,
-      "branches": 76
+      "lines": 82.4,
+      "branches": 76.2
     },
     "rust": {
-      "lines": 82,
-      "branches": 82
+      "lines": 82.7,
+      "branches": 82.0
     },
     "java": {
-      "lines": 83,
-      "branches": 71
+      "lines": 83.8,
+      "branches": 71.9
     },
     "csharp": {
-      "lines": 83,
-      "branches": 73
+      "lines": 83.8,
+      "branches": 73.0
     }
   }
 }

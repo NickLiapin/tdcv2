@@ -241,12 +241,13 @@ function main() {
   }
 
   if (update) {
+    // Kept to a TENTH of a percent, not a whole one. A round of negative tests moved Java's
+    // branches from 71.23 to 71.93 and a whole-number floor would have recorded no change at
+    // all — a ratchet that cannot hear a gain is not holding anything.
+    const down = (n) => Math.floor((n ?? 0) * 10) / 10;
     const floors = { ...ratchet.floors };
     for (const [id, m] of Object.entries(measured)) {
-      floors[id] = {
-        lines: Math.floor(m.lines ?? 0),
-        branches: Math.floor(m.branches ?? 0),
-      };
+      floors[id] = { lines: down(m.lines), branches: down(m.branches) };
     }
     writeFileSync(RATCHET_FILE, `${JSON.stringify({ ...ratchet, floors }, null, 2)}\n`);
     console.log('\n  ratchet updated');

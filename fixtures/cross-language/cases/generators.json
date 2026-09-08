@@ -559,6 +559,24 @@
         "US-west",
         "RU-east"
       ]
+    },
+    {
+      "name": "advanced-regex-shorthand-class-inside-a-set",
+      "description": "`[\\d]` inside advanced_regex. The plain regex generator has been pinned on this for a long time; the advanced one carries its own copy of the class reader, and until this case no test in any implementation had executed it — found by asking JaCoCo which Java methods no test ever calls. All five already agreed; nothing was holding them to it.",
+      "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"advanced_regex\" value=\"[\\d]{4}\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["0935", "5156", "1106", "4200", "4778", "8965"]
+    },
+    {
+      "name": "advanced-regex-negated-shorthand-class",
+      "description": "The negated form of the same reader: everything printable that is not a digit. The set it draws from is order-sensitive — a draw index means a different character if the exclusion is built in another order — which is exactly what a shared expectation pins.",
+      "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"advanced_regex\" value=\"[^\\d]{3}\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["$zC", "V(Z", "/-&", "O< ", "Llf", "rwe"]
+    },
+    {
+      "name": "advanced-regex-named-alphabet",
+      "description": "`\\a{kana.hiragana}` inside advanced_regex — the other reader that had never been executed. The alphabet is a written-down range shared by all five, so a port that built it in a different order would draw different characters from the same seed.",
+      "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"advanced_regex\" value=\"\\a{kana.hiragana}{3}\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["うゑせ", "ねぉひ", "けぎぇ", "てこあ", "っゃま", "りわぼ"]
     }
   ]
 }

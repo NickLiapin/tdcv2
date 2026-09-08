@@ -2911,6 +2911,30 @@
         ]
       }
     },
+    "generators/advanced-regex-shorthand-class-inside-a-set": {
+      "engine2": {
+        "lines": ["0935", "5156", "1106", "4200", "4778", "8965"]
+      },
+      "engine3": {
+        "lines": ["0935", "5156", "1106", "4200", "4778", "8965"]
+      }
+    },
+    "generators/advanced-regex-negated-shorthand-class": {
+      "engine2": {
+        "lines": ["$zC", "V(Z", "/-&", "O< ", "Llf", "rwe"]
+      },
+      "engine3": {
+        "lines": ["$zC", "V(Z", "/-&", "O< ", "Llf", "rwe"]
+      }
+    },
+    "generators/advanced-regex-named-alphabet": {
+      "engine2": {
+        "lines": ["うゑせ", "ねぉひ", "けぎぇ", "てこあ", "っゃま", "りわぼ"]
+      },
+      "engine3": {
+        "lines": ["うゑせ", "ねぉひ", "けぎぇ", "てこあ", "っゃま", "りわぼ"]
+      }
+    },
     "mix-switch/mix-exact-percents": {
       "engine2": {
         "lines": ["A", "B", "A", "B", "B", "B", "B", "A", "B", "B"]

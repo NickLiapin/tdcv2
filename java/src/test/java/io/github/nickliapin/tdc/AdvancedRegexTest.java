@@ -127,4 +127,87 @@ class AdvancedRegexTest {
     assertEquals(2, counts.get("US"));
     assertEquals(1, counts.get("DE"));
   }
+
+  // ── named groups and conditionals ──────────────────────────────────────────────────────
+  //
+  // The constructs that let one part of a value follow another. The reference has a suite of
+  // them and this port had none, which is the asymmetry that hides a divergence: a refusal
+  // that fires there and not here is a config the two disagree about.
+
+  /** The message a refused pattern carries, so a test can say WHICH refusal it expects. */
+  private static String refuse(String pattern) {
+    RuntimeException thrown = assertThrows(RuntimeException.class, () -> gen(pattern, 1));
+    String message = thrown.getMessage();
+    return message == null ? "" : message;
+  }
+
+  @Test
+  @DisplayName("a conditional reads a named group and follows it")
+  void conditionalFollowsItsGroup() {
+    for (String value : gen("(?<sex>(?%{50:male;50:female}))/(?if{sex=male:Mr;sex=female:Ms})", 40)) {
+      String[] halves = value.split("/");
+      assertEquals(halves[0].equals("male") ? "Mr" : "Ms", halves[1], value);
+    }
+  }
+
+  @Test
+  @DisplayName("a conditional READS the weighted choice without disturbing it")
+  void conditionalTakesNoDraw() {
+    // The exact shares are the point of this generator, so a conditional that consumed a draw
+    // would move every value after it and quietly break the one promise it makes.
+    Map<String, Integer> counts = new LinkedHashMap<>();
+    for (String value : gen("(?<c>(?%{70:RU;20:US;10:DE}))-(?if{c=RU:x;*:y})", 200)) {
+      counts.merge(value.split("-")[0], 1, Integer::sum);
+    }
+    assertEquals(140, counts.get("RU"));
+    assertEquals(40, counts.get("US"));
+    assertEquals(20, counts.get("DE"));
+  }
+
+  @Test
+  @DisplayName("a row matching no branch produces nothing for that part")
+  void noBranchMatches() {
+    // Deliberate: the pattern said nothing about that value, and quietly taking the first
+    // branch would pair the wrong things together in a file that otherwise looks right.
+    for (String value : gen("(?<c>(?%{50:a;50:b}))-(?if{c=zzz:NEVER})", 10)) {
+      assertTrue(value.endsWith("-"), value);
+    }
+  }
+
+  @Test
+  @DisplayName("a group name that repeats is refused, side by side or nested")
+  void duplicateGroupName() {
+    assertTrue(refuse("(?<a>x)(?<a>y)").contains("already used"));
+    assertTrue(refuse("(?<a>(?<a>y))").contains("already used"));
+  }
+
+  @Test
+  @DisplayName("a group name that is not a name is refused")
+  void badGroupName() {
+    assertTrue(refuse("(?<>x)").contains("needs a name"));
+    assertTrue(refuse("(?<2fast>x)").contains("must start with a letter"));
+  }
+
+  @Test
+  @DisplayName("a conditional reading a group declared LATER is refused")
+  void forwardConditional() {
+    // Built left to right, so that group has produced nothing and the branch could never be
+    // taken — a check that silently never fires is worse than one that refuses.
+    assertTrue(
+        refuse("(?if{c=x:y})(?<c>(?%{100:x}))")
+            .contains("which no (?<c>…) group before it declares"));
+  }
+
+  @Test
+  @DisplayName("a branch with no name=value test is refused")
+  void branchWithoutTest() {
+    assertTrue(refuse("(?<c>(?%{100:x}))(?if{justtext})").length() > 0);
+  }
+
+  @Test
+  @DisplayName("lookbehind stays lookbehind rather than becoming a group named \"=\"")
+  void lookbehindIsNotAName() {
+    assertTrue(refuse("(?<=a)b").length() > 0);
+    assertTrue(refuse("(?<!a)b").length() > 0);
+  }
 }
