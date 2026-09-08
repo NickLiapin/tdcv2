@@ -253,6 +253,19 @@
       "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"cn\"><gen type=\"date\" range=\"2026-01-04..2026-01-04\" format=\"ddd\" local=\"zh-cn\"/></sequence><sequence name=\"tw\"><gen type=\"date\" range=\"2026-01-04..2026-01-04\" format=\"ddd\" local=\"zh-tw\"/></sequence><sequence name=\"hk\"><gen type=\"date\" range=\"2026-01-04..2026-01-04\" format=\"ddd\" local=\"zh-hk\"/></sequence><sequence name=\"mo\"><gen type=\"date\" range=\"2026-01-04..2026-01-04\" format=\"ddd\" local=\"zh-mo\"/></sequence><sequence name=\"bare\"><gen type=\"date\" range=\"2026-01-04..2026-01-04\" format=\"ddd\" local=\"zh\"/></sequence></env><block><line><data>${{cn}}|${{tw}}|${{hk}}|${{mo}}|${{bare}}</data></line></block></tdc>",
       "expected": ["周日|週日|週日|週日|週日"],
       "now": "2026-04-23T12:00:00Z"
+    },
+    {
+      "name": "the-older-date-range-spelling",
+      "description": "`value=\"date.range\"` with `range=\"1990.01.01 - 2000.12.31\"` — the spelling that came before `from=`/`to=`, kept because configs in the wild use it. It rewrites the bounds into the form the ordinary date generator reads rather than being a second implementation, and the rewrite is what this pins: no test in any of the five had run it, so a port that parsed the dotted date differently would have gone unnoticed.",
+      "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"D\"><gen type=\"template\" value=\"date.range\" range=\"1990.01.01 - 2000.12.31\"/></sequence></env><block><line><data>${{D}}</data></line></block></tdc>",
+      "expected": [
+        "11/01/1991",
+        "09/17/1995",
+        "09/29/1993",
+        "09/24/1999",
+        "10/27/1994",
+        "10/24/1993"
+      ]
     }
   ]
 }

@@ -253,6 +253,22 @@
       "dataPath": "data",
       "config": "<tdc><env count=\"8\" seed=\"frame\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" src=\"pattern-framed.svg\" y_range=\"0..100\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": ["29", "66", "73", "73", "94", "94", "58", "48"]
+    },
+    {
+      "name": "pattern-src-svg-path-with-a-quadratic-curve",
+      "description": "A `<path>` whose `d` uses Q and its shorthand T. Every other vector case here is a polyline, so the curve flattener had never run in any implementation — the quadratic arm and the reflected control point it computes for T are both reached only by this shape. Curve flattening is arithmetic, and arithmetic is where five implementations drift.",
+      "config": "<tdc><env count=\"8\" seed=\"fit\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" src=\"pattern-path.svg\" y_range=\"0..100\" decimals=\"1\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": [
+        "0.0",
+        "51.7",
+        "73.4",
+        "65.3",
+        "34.7",
+        "26.6",
+        "48.3",
+        "100.0"
+      ],
+      "dataPath": "data"
     }
   ]
 }

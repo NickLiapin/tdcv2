@@ -577,6 +577,12 @@
       "description": "`\\a{kana.hiragana}` inside advanced_regex — the other reader that had never been executed. The alphabet is a written-down range shared by all five, so a port that built it in a different order would draw different characters from the same seed.",
       "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"advanced_regex\" value=\"\\a{kana.hiragana}{3}\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": ["うゑせ", "ねぉひ", "けぎぇ", "てこあ", "っゃま", "りわぼ"]
+    },
+    {
+      "name": "number-length-groups-with-shares",
+      "description": "`length=\"2,10-12\" percent=\"85,15\"` — widths laid out as an exact quota rather than drawn. The engine pins the column to one length group at a time and builds each group separately, a path no other case here takes: found by asking JaCoCo which methods no test calls, and it named the pinning step in every port.",
+      "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" length=\"2,10-12\" percent=\"85,15\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["53", "65", "65", "60", "41", "78", "3938698775", "50"]
     }
   ]
 }

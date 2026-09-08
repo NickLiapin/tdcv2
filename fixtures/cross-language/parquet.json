@@ -66,6 +66,13 @@
       "config": "<tdc><env count=\"6\" seed=\"golden-map\" inject=\"${{%}}\">\n<sequence name=\"Id\"><gen type=\"increment\" value=\"1\"/></sequence>\n<sequence name=\"Cpu\"><gen type=\"number\" value=\"1..99\"/></sequence>\n<sequence name=\"Mem\"><gen type=\"number\" value=\"1..99\" missing=\"0.4\"/></sequence>\n<sequence name=\"Blank\"><gen type=\"text\" value=\"x\" missing=\"1\"/></sequence>\n</env><block><line>\n<data name=\"id\" type=\"int64\">${{Id}}</data>\n<data name=\"gauges\" type=\"{}int64|null\">cpu:${{Cpu}},mem:${{Mem}}</data>\n<data name=\"empty\" type=\"{}string\">${{Blank}}</data>\n<data name=\"clock\" type=\"{}string\">start:12:30:00,end:18:00:00</data>\n</line></block></tdc>",
       "size": 1101,
       "sha256": "aefd1135a4cdf5ded22ec6f20011294029722b1f84dd4599bc8544300ca2bff5"
+    },
+    {
+      "name": "a-mix-column-takes-the-type-its-branches-agree-on",
+      "description": "A typed column whose values come from a <mix>. The writer has to look INTO the branches to find a type, because a mix has no generator of its own — and every branch here is a number, so the column is int64 rather than a string of digits. No case had exercised that before; a port defaulting to string would produce a file that reads fine and sorts wrong.",
+      "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><mix name=\"M\" percent=\"60\"><case><gen type=\"number\" value=\"1..9\"/></case><case><gen type=\"number\" value=\"90..99\"/></case></mix><sequence name=\"S\"><gen type=\"text\" value=\"a,b\"/></sequence></env><block><line><data name=\"M\">${{M}}</data><data name=\"S\">${{S}}</data></line></block></tdc>",
+      "size": 249,
+      "sha256": "3693265e2681abf97f5a3509a193efbadd1350b658ec9457d6067f44b2942f4a"
     }
   ]
 }

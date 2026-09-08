@@ -1428,6 +1428,28 @@
         "lines": ["周日|週日|週日|週日|週日"]
       }
     },
+    "dates/the-older-date-range-spelling": {
+      "engine2": {
+        "lines": [
+          "11/01/1991",
+          "09/17/1995",
+          "09/29/1993",
+          "09/24/1999",
+          "10/27/1994",
+          "10/24/1993"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "11/01/1991",
+          "09/17/1995",
+          "09/29/1993",
+          "09/24/1999",
+          "10/27/1994",
+          "10/24/1993"
+        ]
+      }
+    },
     "derived-columns/a-formula-over-two-columns": {
       "engine2": {
         "lines": [
@@ -2935,6 +2957,14 @@
         "lines": ["うゑせ", "ねぉひ", "けぎぇ", "てこあ", "っゃま", "りわぼ"]
       }
     },
+    "generators/number-length-groups-with-shares": {
+      "engine2": {
+        "lines": ["60", "25", "91", "4200453965", "84", "78", "37", "50"]
+      },
+      "engine3": {
+        "lines": ["60", "25", "91", "4200453965", "84", "78", "37", "50"]
+      }
+    },
     "mix-switch/mix-exact-percents": {
       "engine2": {
         "lines": ["A", "B", "A", "B", "B", "B", "B", "A", "B", "B"]
@@ -3735,6 +3765,28 @@
         ]
       }
     },
+    "mix-switch/a-switch-inside-a-case-on-the-in-memory-engine": {
+      "engine2": {
+        "lines": [
+          "hi:HIGH",
+          "hi:HIGH",
+          "lo:other",
+          "lo:other",
+          "lo:other",
+          "hi:HIGH"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "hi:HIGH",
+          "hi:HIGH",
+          "lo:other",
+          "lo:other",
+          "lo:other",
+          "hi:HIGH"
+        ]
+      }
+    },
     "one-row/a-run-of-one-row": {
       "engine2": {
         "lines": ["aba"]
@@ -4343,6 +4395,32 @@
       },
       "engine3": {
         "lines": ["29", "66", "73", "73", "94", "94", "58", "48"]
+      }
+    },
+    "patterns/pattern-src-svg-path-with-a-quadratic-curve": {
+      "engine2": {
+        "lines": [
+          "0.0",
+          "51.7",
+          "73.4",
+          "65.3",
+          "34.7",
+          "26.6",
+          "48.3",
+          "100.0"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "0.0",
+          "51.7",
+          "73.4",
+          "65.3",
+          "34.7",
+          "26.6",
+          "48.3",
+          "100.0"
+        ]
       }
     },
     "pool/a-pool-hands-a-whole-member-to-a-row": {
@@ -5050,6 +5128,14 @@
           "400,3,2,4 -> true,false,false,false",
           "5,3,100,4 -> false,false,true,false"
         ]
+      }
+    },
+    "repeat-distinct/repeat-on-a-drawn-column-under-the-streaming-engine": {
+      "engine2": {
+        "lines": ["34,41,12", "58,41,91", "34,67,8", "73,79,54", "92,46,11"]
+      },
+      "engine3": {
+        "lines": ["34,41,12", "58,41,91", "34,67,8", "73,79,54", "92,46,11"]
       }
     },
     "running/a-running-total-down-a-column": {

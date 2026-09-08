@@ -75,6 +75,12 @@
         "400,3,2,4 -> true,false,false,false",
         "5,3,100,4 -> false,false,true,false"
       ]
+    },
+    {
+      "name": "repeat-on-a-drawn-column-under-the-streaming-engine",
+      "description": "`repeat=` on a generator that DRAWS rather than one that reads a list, resolved one row at a time. A listed column lays every element out at once; a drawn one takes a sub-stream per element instead, and that second road had never been travelled by a test in any implementation — the length plan, the per-element keying and the join all live on it.",
+      "config": "<tdc><env count=\"5\" seed=\"unit-test\" local=\"en\" mode=\"disk\"><sequence name=\"R\"><gen type=\"number\" value=\"1..99\" repeat=\"3\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
+      "expected": ["34,41,12", "58,41,91", "34,67,8", "73,79,54", "92,46,11"]
     }
   ]
 }

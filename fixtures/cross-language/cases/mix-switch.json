@@ -455,6 +455,19 @@
         "Alpha North",
         "BETA South"
       ]
+    },
+    {
+      "name": "a-switch-inside-a-case-on-the-in-memory-engine",
+      "description": "A nested `<switch>` reads its subject over the rows of the branch it sits in. The streaming engines resolve that one row at a time and were covered; the in-memory engine builds the branch's rows as a block and takes a different road to the same answer, which no case had asked it to walk. Both must agree with the subject printed beside it.",
+      "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"K\"><gen type=\"text\" value=\"hi,lo\" percent=\"50,50\"/></sequence><mix name=\"M\" percent=\"100\"><case><switch on=\"K\"><case is=\"hi\"><gen type=\"text\" value=\"HIGH\"/></case><default><gen type=\"text\" value=\"other\"/></default></switch></case><case><data>never</data></case></mix></env><block><line><data>${{K}}:${{M}}</data></line></block></tdc>",
+      "expected": [
+        "hi:HIGH",
+        "hi:HIGH",
+        "lo:other",
+        "lo:other",
+        "lo:other",
+        "hi:HIGH"
+      ]
     }
   ]
 }
