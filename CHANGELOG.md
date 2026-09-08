@@ -329,6 +329,23 @@ amplitude="120,400" peak_at="5,182"` is a weekly season and a yearly one on one 
 
 ### Fixed
 
+<!-- covers: rust streaming distinct repair over a repeating member -->
+
+- **Rust's streaming engines rebuilt one element where a repeating cell has several.** A
+  `<distinct>` member carrying `repeat=` is rebuilt from scratch when it collides with a
+  sibling, and that rebuild asked for ONE value and handed it back as the whole cell. A
+  repaired row came out holding one element while every other row held two:
+
+  ```
+  <distinct> over two repeat="2" members
+  Rust, engines 2 and 3    a,a / a
+  everywhere else          a,a / a,b
+  ```
+
+  The four other implementations rebuild the whole cell, lengths and all, and were right.
+  Found by a case written to reach the per-row repeat layout — the layout every large run
+  with `repeat=` takes and no test had ever executed.
+
 <!-- covers: advanced_regex named backreference -->
 
 - **`advanced_regex` swallowed `\k<name>` and printed it as text.** The escape reached no

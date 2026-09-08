@@ -5303,6 +5303,32 @@
         "lines": ["34,41,12", "58,41,91", "34,67,8", "73,79,54", "92,46,11"]
       }
     },
+    "repeat-distinct/a-distinct-group-whose-members-repeat": {
+      "engine2": {
+        "lines": [
+          "a,a / a,b",
+          "a,a / b,b",
+          "a,b / b,b",
+          "b,b / a,a",
+          "a,b / b,b",
+          "a,b / b,b",
+          "b,b / b,a",
+          "a,b / b,a"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "a,a / a,b",
+          "a,a / b,b",
+          "a,b / b,b",
+          "b,b / a,a",
+          "a,b / b,b",
+          "a,b / b,b",
+          "b,b / b,a",
+          "a,b / b,a"
+        ]
+      }
+    },
     "running/a-running-total-down-a-column": {
       "engine2": {
         "refused": "a running total (\"Balance\") is the accumulation of every row before it, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)"

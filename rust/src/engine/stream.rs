@@ -3338,36 +3338,58 @@ impl StreamEngine<'_> {
         // from — what a distribution parameter written as an expression needs. Nothing
         // else looks at it, and a generator without one costs no lookup.
         let here = [row.max(0) as usize];
-        let scope = memory::SiblingScope {
-            rows: &here,
-            siblings: self,
-        };
-        // The COLUMN's name and row travel with the one-row build, because the
-        // in-memory engine's own one-row path carries them and anything derived
-        // from them has to come out the same on both engines. A pack generator is
-        // the case that showed it: its body is seeded from the column's identity.
-        let drawn = memory::generate_in_column(
-            gen,
-            1,
-            &mut prng,
-            &self.env,
-            None,
-            Some(&scope),
-            Some((self.env.config.seed.as_str(), stream_id, Some(here[0]))),
-        )?;
+
+        // `repeat=` makes the cell a LIST, and this path used to ask for ONE value and hand
+        // that back as the whole cell. It is reached by the `<distinct>` repair, which rebuilds
+        // a colliding member from scratch — so a repaired row came out holding one element
+        // where every other row held two, and the four other implementations held two as well.
+        // Measured on `<distinct>` over two `repeat="2"` members: `a,a / a` here against
+        // `a,a / a,b` everywhere else. The whole cell has to be rebuilt, lengths and all.
         let mut own = [false];
-        let finished = memory::finish(
-            drawn,
-            &gen.attrs,
-            &mut prng,
-            Some(flags.unwrap_or(&mut own)),
-            // One value, on THIS row — what `missing_when=` needs to read a sibling.
-            Some(memory::Neighbours {
-                siblings: self,
+        let mut build_cell = |slots: usize, prng: &mut prng::Sfc32| -> EngineResult<Vec<String>> {
+            let scope = memory::SiblingScope {
                 rows: &here,
-            }),
-        )?;
-        Ok(finished.into_iter().next().unwrap_or_default())
+                siblings: self,
+            };
+            // The COLUMN's name and row travel with the one-row build, because the
+            // in-memory engine's own one-row path carries them and anything derived
+            // from them has to come out the same on both engines. A pack generator is
+            // the case that showed it: its body is seeded from the column's identity.
+            let drawn = memory::generate_in_column(
+                gen,
+                slots,
+                prng,
+                &self.env,
+                None,
+                Some(&scope),
+                Some((self.env.config.seed.as_str(), stream_id, Some(here[0]))),
+            )?;
+            let mut spiked = vec![false; slots.max(1)];
+            let finished = memory::finish(
+                drawn,
+                &gen.attrs,
+                prng,
+                Some(&mut spiked),
+                // One row — what `missing_when=` needs to read a sibling.
+                Some(memory::Neighbours {
+                    siblings: self,
+                    rows: &here,
+                }),
+            )?;
+            own[0] = spiked.first().copied().unwrap_or(false);
+            Ok(finished)
+        };
+
+        let cell = match repeat::parse(&gen.attrs)? {
+            None => build_cell(1, &mut prng)?,
+            Some(spec) => repeat::build(&spec, 1, &mut prng, build_cell)?,
+        };
+        if let Some(out) = flags {
+            if let Some(slot) = out.first_mut() {
+                *slot = own[0];
+            }
+        }
+        Ok(cell.into_iter().next().unwrap_or_default())
     }
 
     /// The per-row passes an inline-built value still needs.
