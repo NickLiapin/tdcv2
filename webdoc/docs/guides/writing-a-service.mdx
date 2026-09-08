@@ -30,6 +30,13 @@ Four lines of it are all you need to write one:
 - answer with exactly **`N` lines**, in the same order;
 - plain text, no JSON needed anywhere.
 
+**Match the header names case-insensitively**, as HTTP requires. The five implementations do
+not spell them alike on the wire — Python's HTTP library canonicalises `X-TDC-Count` to
+`X-Tdc-Count`, and so does Go's — and every helper used on this page (`self.headers.get` in
+Python, `getRequestHeaders().getFirst` in Java, `req.headers` in Node) already ignores case.
+A service that compares the name as a plain string will work with four runtimes and not the
+fifth.
+
 ### Read `X-TDC-Input` if you can
 
 "Empty body means invent the values" is true almost always, and wrong in one case: a

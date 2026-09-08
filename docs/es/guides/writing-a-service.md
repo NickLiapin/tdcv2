@@ -31,6 +31,14 @@ Para escribir uno bastan cuatro líneas de él:
 - responda con exactamente **`N` líneas**, en el mismo orden;
 - texto plano, no hace falta JSON en ninguna parte.
 
+**Compare los nombres de las cabeceras sin distinguir mayúsculas**, como exige HTTP. Las cinco
+implementaciones no los escriben igual en el cable: la biblioteca HTTP de Python canoniza
+`X-TDC-Count` como `X-Tdc-Count` — Go también —, mientras que las otras cuatro envían la
+escritura literal. Todos los ayudantes que aparecen en esta página (`self.headers.get` en
+Python, `getRequestHeaders().getFirst` en Java, `req.headers` en Node) ya ignoran las
+mayúsculas. Un servicio que compare el nombre como una cadena corriente funcionará con cuatro
+tiempos de ejecución y no con el quinto.
+
 ### Lea `X-TDC-Input` si puede
 
 «Cuerpo vacío significa invente los valores» es cierto casi siempre, y falso en un caso: una
