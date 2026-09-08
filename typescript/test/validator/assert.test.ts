@@ -66,3 +66,53 @@ describe('<assert> — the validator', () => {
     expect(validate(parse(inSequence).tree).diagnostics.length).toBeGreaterThan(0);
   });
 });
+
+/**
+ * TDC306 and the per-row form.
+ *
+ * `that=` and `each=` are checked a DIFFERENT NUMBER OF TIMES — once over
+ * whole-run values against once per row — so a tag carrying both leaves a
+ * reader unable to say which of the two the sentence in `says=` describes.
+ * Refused rather than resolved by precedence, because either precedence would
+ * silently discard a check somebody wrote.
+ */
+describe('<assert each> — the validator', () => {
+  it('says nothing about a complete per-row assertion', () => {
+    expect(codes(`${N}<assert each="N > 0" says="every number is positive"/>`)).toEqual([]);
+  });
+
+  it('TDC306 — both that= and each= on one tag', () => {
+    expect(codes(`${N}${ROWS}<assert that="Rows == 10" each="N > 0" says="something"/>`)).toContain(
+      'TDC306',
+    );
+  });
+
+  it('TDC306 is the ONLY complaint — the tag is not also read as half-written', () => {
+    // A second diagnostic here would send the reader to fix the wrong thing.
+    expect(codes(`${N}${ROWS}<assert that="Rows == 10" each="N > 0" says="s"/>`)).toEqual([
+      'TDC306',
+    ]);
+  });
+
+  it('TDC265 — neither that= nor each=', () => {
+    expect(codes(`${N}<assert says="something"/>`)).toContain('TDC265');
+  });
+
+  it('TDC265 — an each= that is only whitespace', () => {
+    expect(codes(`${N}<assert each="   " says="something"/>`)).toContain('TDC265');
+  });
+
+  it('TDC266 — a per-row assertion still needs its sentence', () => {
+    expect(codes(`${N}<assert each="N > 0"/>`)).toContain('TDC266');
+  });
+
+  it('a typo in each= is caught by the same put-aside pass that catches it in if=', () => {
+    expect(codes(`${N}<assert each="Nosuch > 0" says="something"/>`)).toContain('TDC215');
+  });
+
+  it('each= may name a column declared BELOW it', () => {
+    // The deferred pass is what makes this legal, and a config is entitled to
+    // declare its columns in any order.
+    expect(codes(`<assert each="N > 0" says="something"/>${N}`)).toEqual([]);
+  });
+});

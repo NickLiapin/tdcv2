@@ -183,3 +183,86 @@ describe('<assert> — the run checks itself', () => {
     expect(produced).toBe('');
   });
 });
+
+/**
+ * `<assert each="…">` — the per-row form.
+ *
+ * What is under test is the pair of promises the page makes about it: the
+ * condition is answered on EVERY row, and the run stops on the FIRST row that
+ * breaks it, naming that row. A check that stopped somewhere else, or named a
+ * different row, would still "fail" — and be useless in a CI log.
+ */
+describe('<assert each> — every row checked', () => {
+  const AMOUNT_ONLY = '<sequence name="Amount"><gen type="number" value="1..100"/></sequence>';
+
+  it('says nothing when every row holds up the claim', () => {
+    expect(() =>
+      run(`${AMOUNT_ONLY}<assert each="Amount > 0" says="every amount is positive"/>`, 200),
+    ).not.toThrow();
+  });
+
+  it('is the very config the whole-run form refuses', () => {
+    // The refusal for `that=` names `each=` as the answer, so the two must not
+    // both reject this: the signpost would point nowhere.
+    expect(() =>
+      run(`${AMOUNT_ONLY}<assert that="Amount > 0" says="every amount is positive"/>`, 20),
+    ).toThrow(/is not the same on every row/);
+    expect(() =>
+      run(`${AMOUNT_ONLY}<assert each="Amount > 0" says="every amount is positive"/>`, 20),
+    ).not.toThrow();
+  });
+
+  it('names the FIRST failing row, not merely a failing one', () => {
+    // Row 3 is where this seed first goes negative, and later rows do too. An
+    // implementation that checked the whole column and reported the last, or
+    // that let a worker win the race, names a different number.
+    const env =
+      '<sequence name="Fee"><gen type="number" value="-3..20"/></sequence>' +
+      '<assert each="Fee >= 0" says="a fee is never negative"/>';
+    expect(() => run(env, 20)).toThrow(/assert failed on row 3: a fee is never negative/);
+  });
+
+  it('shows the value that broke it beside the expression', () => {
+    const env =
+      '<sequence name="Fee"><gen type="number" value="-3..20"/></sequence>' +
+      '<assert each="Fee >= 0" says="a fee is never negative"/>';
+    expect(() => run(env, 20)).toThrow(/Fee >= 0 {3}with Fee = -1/);
+  });
+
+  it('reads the row built-ins, so a claim can be about position', () => {
+    expect(() =>
+      run(`${AMOUNT_ONLY}<assert each="_count > 0" says="rows are numbered from one"/>`, 50),
+    ).not.toThrow();
+    expect(() =>
+      run(`${AMOUNT_ONLY}<assert each="_count > 1" says="no row is the first"/>`, 50),
+    ).toThrow(/assert failed on row 1: no row is the first/);
+  });
+
+  it('reads more than one column, on the same row', () => {
+    const env =
+      '<sequence name="Lo"><gen type="number" value="1..10"/></sequence>' +
+      '<sequence name="Hi"><gen type="number" value="90..99"/></sequence>' +
+      '<assert each="Hi > Lo" says="the high value is above the low one"/>';
+    expect(() => run(env, 100)).not.toThrow();
+  });
+
+  it('checks every per-row assertion, not only the first', () => {
+    const env =
+      `${AMOUNT_ONLY}<assert each="Amount > 0" says="positive"/>` +
+      '<assert each="Amount > 1000" says="over a thousand"/>';
+    expect(() => run(env, 5)).toThrow(/over a thousand/);
+  });
+
+  it('means the same thing on the streaming engine', () => {
+    // The row loop is shared, and this is the proof that it is: the same config
+    // under mode="disk" must name the same row.
+    const config =
+      '<tdc><env count="20" seed="s" local="en" mode="disk">' +
+      '<sequence name="Fee"><gen type="number" value="-3..20"/></sequence>' +
+      '<assert each="Fee >= 0" says="a fee is never negative"/></env>' +
+      '<block><line><data>${{Fee}}</data></line></block></tdc>';
+    expect(() => new TDC({ configString: config, now: NOW }).toString()).toThrow(
+      /assert failed on row 3/,
+    );
+  });
+});

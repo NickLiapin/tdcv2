@@ -42,20 +42,26 @@ export default defineConfig({
          * measures today, so coverage cannot slip without CI saying so — and
          * every one of them is meant to be raised, never lowered.
          *
-         * `branches` is the odd one out at 70: measured 71.45 while the other
-         * three clear 80 with room. That gap is real work, not a rounding
-         * artefact — the untested branches are mostly refusal paths, the
-         * arguments a generator rejects. Raising it is tracked separately.
+         * `branches` was the odd one out at 70, measured 71.45, and the note
+         * here said the gap was refusal paths — the arguments a generator
+         * rejects. It was: writing the negative tests for the constructs added
+         * since (a per-row assertion, a walked repeat, a case body that reads
+         * its row, map columns) took the measurement to 75.36, and the files
+         * those tests aimed at moved much further — `interpolate.ts` from 58.9
+         * to 85.7 branches, `sequential.ts` from 67.6 to 86.5.
+         *
+         * Measured 2026-09-07: statements 86.32, branches 75.36,
+         * functions 89.13, lines 88.60.
          *
          * The floor was 80 across the board from the scaffold, when the code
          * was small enough to hit it for free. It went unnoticed as the code
          * grew because this workflow was pointed at a branch that does not
          * exist and had never run.
          */
-        lines: 85,
-        functions: 88,
-        branches: 70,
-        statements: 83,
+        lines: 88,
+        functions: 89,
+        branches: 75,
+        statements: 86,
       },
     },
     reporters: ['default'],

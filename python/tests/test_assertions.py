@@ -98,3 +98,56 @@ def test_an_undeclared_name_is_literal_text_not_a_column() -> None:
         '<sequence name="Env"><gen type="text" value="prod"/></sequence>'
         '<assert that="Env == prod" says="…"/>'
     )
+
+
+# ── the per-row form ────────────────────────────────────────────────────────────────────────
+#
+# `each=` is answered on every row and stops on the FIRST one that breaks it. The shared
+# fixtures pin a per-row assertion that HOLDS; what only lives here is which row a failure
+# names, because a check that stopped somewhere else would still "fail" and be useless in a
+# CI log.
+
+AMOUNT_ONLY = '<sequence name="Amount"><gen type="number" value="1..100"/></sequence>'
+FEE = '<sequence name="Fee"><gen type="number" value="-3..20"/></sequence>'
+
+
+def test_a_per_row_assertion_that_holds_says_nothing() -> None:
+    run(f'{AMOUNT_ONLY}<assert each="Amount > 0" says="every amount is positive"/>', 200)
+
+
+def test_the_config_the_whole_run_form_refuses_is_the_one_each_accepts() -> None:
+    # The `that=` refusal names `each=` as the answer, so the two must not both reject it:
+    # the signpost would point nowhere.
+    with pytest.raises(AssertionFailedError, match="is not the same on every row"):
+        run(f'{AMOUNT_ONLY}<assert that="Amount > 0" says="positive"/>', 20)
+    run(f'{AMOUNT_ONLY}<assert each="Amount > 0" says="positive"/>', 20)
+
+
+def test_the_failure_names_the_first_failing_row_and_the_value() -> None:
+    with pytest.raises(AssertionFailedError) as caught:
+        run(f'{FEE}<assert each="Fee >= 0" says="a fee is never negative"/>', 20)
+    message = str(caught.value)
+    assert "assert failed on row 3: a fee is never negative" in message
+    assert "Fee >= 0   with Fee = -1" in message
+
+
+def test_the_streaming_engine_names_the_same_row() -> None:
+    # The row loop is shared, and this is the proof: the same config under mode="disk" has to
+    # stop on the same row. An engine that checked after writing would name a different one.
+    with pytest.raises(AssertionFailedError, match="assert failed on row 3"):
+        run(f'{FEE}<assert each="Fee >= 0" says="a fee is never negative"/>', 20, mode="disk")
+
+
+def test_a_per_row_assertion_reads_the_row_builtins() -> None:
+    run(f'{AMOUNT_ONLY}<assert each="_count > 0" says="rows are numbered from one"/>', 50)
+    with pytest.raises(AssertionFailedError, match="assert failed on row 1"):
+        run(f'{AMOUNT_ONLY}<assert each="_count > 1" says="no row is the first"/>', 50)
+
+
+def test_every_per_row_assertion_is_checked_not_only_the_first() -> None:
+    env = (
+        f'{AMOUNT_ONLY}<assert each="Amount > 0" says="positive"/>'
+        '<assert each="Amount > 1000" says="over a thousand"/>'
+    )
+    with pytest.raises(AssertionFailedError, match="over a thousand"):
+        run(env, 5)

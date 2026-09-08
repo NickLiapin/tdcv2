@@ -8,6 +8,8 @@ import { describe, expect, it } from 'vitest';
 
 import {
   isListType,
+  isMapType,
+  isRepeatedType,
   parseColumnType,
   parseOutputColumnType,
 } from '../../src/output/column-type.js';
@@ -147,5 +149,72 @@ describe('parseOutputColumnType — lists', () => {
   it('leaves scalars exactly as they were', () => {
     expect(parseOutputColumnType('int64|null')).toEqual({ kind: 'int64', nullable: true });
     expect(isListType(parseOutputColumnType('int64'))).toBe(false);
+  });
+});
+
+/**
+ * `{}T` — a map from text to T.
+ *
+ * The key is always text, so the type names only the value. What is refused
+ * here is every shape that would need a SECOND separator to write: a map of
+ * maps, a map of lists, a list of maps. None of them has a spelling, and
+ * accepting one would produce a file no reader could take apart.
+ */
+describe('parseOutputColumnType — maps', () => {
+  it('parses a map from text to a scalar', () => {
+    expect(parseOutputColumnType('{}int64')).toEqual({
+      kind: 'map',
+      value: { kind: 'int64', nullable: false },
+    });
+  });
+
+  it('binds |null to the VALUE, as it binds to a list element', () => {
+    expect(parseOutputColumnType('{}int64|null')).toEqual({
+      kind: 'map',
+      value: { kind: 'int64', nullable: true },
+    });
+  });
+
+  it('tolerates space around the value type', () => {
+    expect(parseOutputColumnType('{} string ')).toEqual({
+      kind: 'map',
+      value: { kind: 'string', nullable: false },
+    });
+  });
+
+  it('rejects a map with no value type', () => {
+    expect(() => parseOutputColumnType('{}')).toThrow(/value type/);
+  });
+
+  it('rejects an unknown value type', () => {
+    expect(() => parseOutputColumnType('{}widget')).toThrow(/unknown column type/);
+  });
+
+  it('rejects a map of maps — there is no second separator to write it with', () => {
+    expect(() => parseOutputColumnType('{}{}int64')).toThrow(/cannot itself be a list or a map/);
+  });
+
+  it('rejects a map of lists, for the same reason', () => {
+    expect(() => parseOutputColumnType('{}[]int64')).toThrow(/cannot itself be a list or a map/);
+  });
+
+  it('rejects a list of maps', () => {
+    expect(() => parseOutputColumnType('[]{}int64')).toThrow(/list of maps is not supported/);
+  });
+
+  it('still rejects a list of lists', () => {
+    expect(() => parseOutputColumnType('[][]int64')).toThrow(/nested lists are not supported/);
+  });
+
+  it('tells a map apart from a list, and counts both as repeated', () => {
+    const map = parseOutputColumnType('{}int64');
+    const list = parseOutputColumnType('[]int64');
+    const scalar = parseOutputColumnType('int64');
+    expect(isMapType(map)).toBe(true);
+    expect(isMapType(list)).toBe(false);
+    expect(isListType(map)).toBe(false);
+    expect(isRepeatedType(map)).toBe(true);
+    expect(isRepeatedType(list)).toBe(true);
+    expect(isRepeatedType(scalar)).toBe(false);
   });
 });

@@ -63,6 +63,13 @@
       "description": "says= is required of a per-row assertion for the reason it is required of a whole-run one: the sentence is what a reader is given in a CI log months later. Here it also names the row, and a row number with no sentence beside it says even less.",
       "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><assert each=\"N > 0\"/></env><block><line><data>${{N}}</data></line></block></tdc>",
       "expected": ["error TDC266 1:103"]
+    },
+    {
+      "name": "an-assertion-with-each-written-before-that",
+      "demonstrates": "TDC306",
+      "description": "The order the two are written in does not change the answer. An implementation that read whichever came first would accept this and refuse its mirror, which is a difference no rendering fixture could show.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"R\"><gen type=\"stat\" of=\"N\" op=\"count\"/></sequence><assert each=\"N > 0\" that=\"R == 3\" says=\"something\"/></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC306 1:183"]
     }
   ]
 }

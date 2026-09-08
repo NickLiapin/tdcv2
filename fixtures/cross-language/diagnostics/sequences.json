@@ -147,6 +147,13 @@
       "description": "distinct= draws without replacement, and a walked row draws nothing: its values are decided by its position. Honouring both is impossible, and silently ignoring one is how a config comes to claim something it never had.",
       "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"text\" value=\"a,b,c\" repeat=\"2\" order=\"sequential\" distinct=\"true\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
       "expected": ["error TDC307 1:130"]
+    },
+    {
+      "name": "a-walked-row-cannot-draw-without-replacement-however-long-the-list",
+      "demonstrates": "TDC307",
+      "description": "The refusal is about the REGIME, not about whether the list happens to be long enough: four values and a repeat of three could be drawn distinctly, and a walked row still draws nothing at all. An implementation that only refused when the pool was too small would let this through and quietly ignore the attribute.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"text\" value=\"a,b,c,d\" order=\"sequential\" repeat=\"3\" distinct=\"true\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC307 1:132"]
     }
   ]
 }
