@@ -697,7 +697,8 @@ public sealed class Validator
     /// configs that work.
     /// </remarks>
     private readonly List<(int At, string Expression, int Line, int Column, bool Each,
-        HashSet<string>? Scope, string? Extra)> _pendingExpressions = new();
+        HashSet<string>? Scope, string? Extra, HashSet<string>? DeclaredAbove)>
+        _pendingExpressions = new();
 
     /// <summary>
     /// Every <c>&lt;data&gt;</c> written inside a <c>&lt;case&gt;</c>, held back for the reason
@@ -716,6 +717,21 @@ public sealed class Validator
     /// </remarks>
     private HashSet<string>? _exprScope;
 
+    /// <summary>
+    /// The names declared ABOVE the expression being walked, when it is a condition that decides
+    /// a column while that column is BUILT — <c>&lt;gen if=&gt;</c> and <c>missing_when=</c>.
+    /// </summary>
+    /// <remarks>
+    /// Naming a column declared below it was answered differently by the two engines, and both
+    /// answers were defensible: the in-memory engine has not built that column yet, so the
+    /// condition is constant-false, while the lazy registry builds it on demand and the condition
+    /// resolves for real. Measured over five rows from one seed, so the config is refused instead
+    /// (TDC308) — the rule <c>&lt;switch on=&gt;</c> has always enforced. Null is a condition read
+    /// once the row is finished (<c>&lt;data if=&gt;</c>, <c>&lt;line if=&gt;</c>,
+    /// <c>&lt;assert that=&gt;</c>), where any column may be named.
+    /// </remarks>
+    private HashSet<string>? _declaredAbove;
+
     private readonly Dictionary<TDCParser.OpenCloseElementContext, HashSet<string>>
         _poolMemberScope = new();
 
@@ -730,7 +746,22 @@ public sealed class Validator
     private void DeferExpression(
         string expression, int line, int column, bool each, string? extra = null) =>
         _pendingExpressions.Add(
-            (_diagnostics.Count, expression, line, column, each, _exprScope, extra));
+            (_diagnostics.Count, expression, line, column, each, _exprScope, extra, null));
+
+    /// <summary>
+    /// The same, for a condition that decides a column while that column is BUILT.
+    /// </summary>
+    /// <remarks>
+    /// It carries the names declared above it, because those are the only ones it can read — see
+    /// <see cref="_declaredAbove"/> for the two answers the engines gave before this existed.
+    /// Snapshotted rather than read at the end: <c>_declaredNames</c> keeps growing, and this
+    /// sequence's own name is not on it yet, which is exactly the line the rule draws.
+    /// </remarks>
+    private void DeferBuildCondition(
+        string expression, int line, int column, string? extra = null) =>
+        _pendingExpressions.Add(
+            (_diagnostics.Count, expression, line, column, false, _exprScope, extra,
+                new HashSet<string>(_declaredNames, StringComparer.Ordinal)));
 
     /// <summary>
     /// Every <c>filter=</c> seen, and where its complaint belongs in the report.
@@ -840,11 +871,12 @@ public sealed class Validator
         // Now that every name is known, the expressions can be checked — and each complaint goes
         // back where its attribute was, so the report stays in source order.
         var pending = new List<(int At, string Expression, int Line, int Column, bool Each,
-            HashSet<string>? Scope, string? Extra)>(_pendingExpressions);
+            HashSet<string>? Scope, string? Extra, HashSet<string>? DeclaredAbove)>(
+            _pendingExpressions);
         _pendingExpressions.Clear();
         int shift = 0;
         foreach ((int at, string expression, int line, int column, bool each,
-            HashSet<string>? scope, string? extra) in pending)
+            HashSet<string>? scope, string? extra, HashSet<string>? above) in pending)
         {
             int before = _diagnostics.Count;
             HashSet<string>? outer = null;
@@ -859,7 +891,23 @@ public sealed class Validator
             // just `_value` inside `missing_when`. Added rather than substituted, so a condition
             // can still read the columns beside it.
             bool added = extra is not null && _declaredNames.Add(extra);
+
+            // `extra` is provided by the language rather than declared, so it is never "below".
+            if (above is null)
+            {
+                _declaredAbove = null;
+            }
+            else
+            {
+                _declaredAbove = new HashSet<string>(above, StringComparer.Ordinal);
+                if (extra is not null)
+                {
+                    _declaredAbove.Add(extra);
+                }
+            }
+
             CheckExpressionNames(expression, line, column, each);
+            _declaredAbove = null;
             if (added)
             {
                 _declaredNames.Remove(extra!);
@@ -3592,7 +3640,7 @@ public sealed class Validator
         {
             (int gl, int gc) = At(gen.attr(), "if", Line(gen), Column(gen));
             CheckIfExpression(genCondition, gl, gc);
-            this.DeferExpression(genCondition, gl, gc, false);
+            this.DeferBuildCondition(genCondition, gl, gc);
 
             // A pool reference publishes a whole MEMBER, and a <gen> carrying `if` becomes a
             // conditional branch the pool resolver does not recognise — so no Ref.field column
@@ -3928,8 +3976,8 @@ public sealed class Validator
         }
 
         CheckIfExpression(when.Trim(), line, column);
-        this.DeferExpression(
-            when.Trim(), line, column, false, Generators.Imperfections.MissingValueName);
+        this.DeferBuildCondition(
+            when.Trim(), line, column, Generators.Imperfections.MissingValueName);
     }
 
     private void CheckImperfections(
@@ -7394,6 +7442,31 @@ public sealed class Validator
                 column,
                 Diagnostic.ClosestMatch(path, _declaredNames));
             return;
+        }
+
+        // Declared, but not YET — see _declaredAbove. Only a condition that runs while its own
+        // column is built carries the list; everything read after the table exists passes here
+        // untouched.
+        if (_declaredAbove is not null)
+        {
+            bool provided = Checks.Builtins.Contains(root)
+                || (each && (root == "_item" || root == "_item_id"));
+            if (!provided && !_declaredAbove.Contains(root))
+            {
+                string orderHint = _declaredAbove.Count == 0
+                    ? "A condition decides this column while it is being built, so it can only "
+                        + "read columns already built. Move the <sequence> it names above this one."
+                    : "Declared above: " + string.Join(", ", _declaredAbove) + ".";
+                ErrorNear(
+                    "TDC308",
+                    "\"" + root + "\" is not declared above this one, and the condition is "
+                    + "answered before it exists",
+                    orderHint,
+                    line,
+                    column,
+                    string.Empty);
+                return;
+            }
         }
 
         if (tail is null)

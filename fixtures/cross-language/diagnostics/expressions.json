@@ -56,6 +56,34 @@
       "description": "The third home. The pool checks knew which FIELDS a filter reads and nothing about whether the expression was runnable at all.",
       "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><pool name=\"P\" count=\"3\"><sequence name=\"price\"><gen type=\"number\" value=\"1..9\"/></sequence></pool><sequence name=\"R\"><gen type=\"pool\" value=\"P\" filter=\"besselj(price) > 0\"/></sequence></env><block><line><data>${{R.price}}</data></line></block></tdc>",
       "expected": ["error TDC257 1:193"]
+    },
+    {
+      "name": "a-condition-cannot-read-a-column-declared-below-it",
+      "demonstrates": "TDC308",
+      "description": "The two engines answered this differently and both were defensible: the in-memory engine has not built B yet, so the condition is constant-false on every row; the lazy registry builds it on demand, so it resolves. Measured over five rows from one seed, A was empty everywhere on mode=\"memory\" and held a value wherever B was p on mode=\"disk\". Refused instead — the same rule <switch on=> has always enforced.",
+      "config": "<tdc><env count=\"5\" seed=\"f1\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"x,y\" if=\"B == p\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"p,q\"/></sequence></env><block><line><data>${{A}}|${{B}}</data></line></block></tdc>",
+      "expected": ["error TDC308 1:93"]
+    },
+    {
+      "name": "missing_when-rides-the-same-seam-and-takes-the-same-answer",
+      "demonstrates": "TDC308",
+      "description": "missing_when= is a condition answered while the column is blanked, so a name declared below it diverges exactly as if= does — measured, the same five rows disagreed between the two engines. Fixing one had to fix both, and this case is what says so.",
+      "config": "<tdc><env count=\"5\" seed=\"f1\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"x,y\" missing=\"1\" missing_when=\"B == p\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"p,q\"/></sequence></env><block><line><data>${{A}}|${{B}}</data></line></block></tdc>",
+      "expected": ["error TDC308 1:115"]
+    },
+    {
+      "name": "a-condition-may-still-read-a-column-declared-above-it",
+      "demonstrates": "",
+      "description": "The legal direction, kept beside the refusal so a port that over-refuses fails here. Both engines already agreed on this shape, and they must go on agreeing.",
+      "config": "<tdc><env count=\"5\" seed=\"f1\" local=\"en\"><sequence name=\"B\"><gen type=\"text\" value=\"p,q\"/></sequence><sequence name=\"A\"><gen type=\"text\" value=\"x,y\" if=\"B == p\"/></sequence></env><block><line><data>${{A}}|${{B}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "a-data-element-reads-any-column-because-the-row-is-finished",
+      "demonstrates": "",
+      "description": "The rule is about WHEN the condition is answered, not about where the name sits. A <data if=> runs once the whole table exists, so a forward name is fine there — and it was measured fine on both engines. A port that applied the order rule to every condition would refuse this.",
+      "config": "<tdc><env count=\"5\" seed=\"f1\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"x,y\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"p,q\"/></sequence></env><block><line><data if=\"B == p\">${{A}}</data></line></block></tdc>",
+      "expected": []
     }
   ]
 }

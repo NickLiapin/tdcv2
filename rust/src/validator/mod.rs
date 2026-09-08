@@ -164,6 +164,7 @@ struct Validator {
         bool,
         Option<BTreeSet<String>>,
         Option<&'static str>,
+        Option<BTreeSet<String>>,
     )>,
     /// Every `<data>` written inside a `<case>`, held back for the same reason:
     /// a case body may name a column declared BELOW it.
@@ -174,6 +175,19 @@ struct Validator {
     /// is constant-false on every member. `None` is every expression outside a
     /// pool.
     expr_scope: Option<BTreeSet<String>>,
+    /// The names declared ABOVE the expression being walked, when it is a
+    /// condition that decides a column while that column is BUILT — `<gen if=>`
+    /// and `missing_when=`.
+    ///
+    /// Naming a column declared below it was answered differently by the two
+    /// engines, and both answers were defensible: the in-memory engine has not
+    /// built that column yet, so the condition is constant-false, while the lazy
+    /// registry builds it on demand and the condition resolves for real.
+    /// Measured over five rows from one seed, so the config is refused instead
+    /// (TDC308) — the rule `<switch on=>` has always enforced. `None` is a
+    /// condition read once the row is finished (`<data if=>`, `<line if=>`,
+    /// `<assert that=>`), where any column may be named.
+    declared_above: Option<BTreeSet<String>>,
     /// Every `filter=` seen, and where its complaint belongs in the report.
     ///
     /// Held back for the same reason an `if=` is: the column a filter compares
@@ -414,8 +428,15 @@ impl Validator {
         // in source order.
         let pending = std::mem::take(&mut self.pending_expressions);
         let mut shift = 0usize;
-        for (at_index, condition, pos, each, scope, extra) in pending {
+        for (at_index, condition, pos, each, scope, extra, above) in pending {
             let before = self.diagnostics.len();
+            // `extra` is provided by the language rather than declared, so it is never "below".
+            self.declared_above = above.map(|mut names| {
+                if let Some(name) = extra {
+                    names.insert(name.to_string());
+                }
+                names
+            });
             let outer = match scope {
                 None => None,
                 Some(names) => Some(std::mem::replace(&mut self.declared_names, names)),
@@ -430,6 +451,7 @@ impl Validator {
             if let Some(names) = outer {
                 self.declared_names = names;
             }
+            self.declared_above = None;
             let found: Vec<Diagnostic> = self.diagnostics.split_off(before);
             let count = found.len();
             for (offset, diagnostic) in found.into_iter().enumerate() {
@@ -2711,7 +2733,7 @@ impl Validator {
         // branch nobody happened to hit.
         if let Some(condition) = gen.attr_value("if").map(str::to_string) {
             self.check_if_expression(&condition, gen.at("if"));
-            self.defer_expression(condition, gen.at("if"), false);
+            self.defer_build_condition(condition, gen.at("if"), None);
             // A pool reference publishes a whole MEMBER, and a `<gen>` carrying
             // `if` becomes a conditional branch the pool resolver does not
             // recognise — so no `Ref.field` column was registered and
@@ -3289,10 +3311,9 @@ impl Validator {
         }
 
         self.check_if_expression(expression, at);
-        self.defer_expression_with(
+        self.defer_build_condition(
             expression.to_string(),
             at,
-            false,
             Some(crate::generators::imperfections::MISSING_VALUE_NAME),
         );
     }
@@ -6363,6 +6384,34 @@ impl Validator {
             return;
         }
 
+        // Declared, but not YET — see `declared_above`. Only a condition that runs
+        // while its own column is built carries the list; everything read after
+        // the table exists passes here untouched.
+        if let Some(above) = self.declared_above.clone() {
+            let provided = is_builtin(root) || (each && (root == "_item" || root == "_item_id"));
+            if !provided && !above.contains(root) {
+                let hint = if above.is_empty() {
+                    "A condition decides this column while it is being built, so it can only \
+                     read columns already built. Move the <sequence> it names above this one."
+                        .to_string()
+                } else {
+                    let listed: Vec<&str> = above.iter().map(String::as_str).collect();
+                    format!("Declared above: {}.", listed.join(", "))
+                };
+                self.error_near(
+                    "TDC308",
+                    format!(
+                        "\"{root}\" is not declared above this one, and the condition is \
+                         answered before it exists"
+                    ),
+                    &hint,
+                    at,
+                    "",
+                );
+                return;
+            }
+        }
+
         let Some(tail) = tail else { return };
 
         // On a plain sequence the tail is a VALUE — `Gender.Male` asks whether
@@ -6512,6 +6561,25 @@ impl Validator {
         self.defer_expression_with(expression, at, each, None);
     }
 
+    /// The same, for a condition that decides a column while that column is BUILT.
+    ///
+    /// It carries the names declared above it, because those are the only ones it can read —
+    /// see `declared_above` for the two answers the engines gave before this existed.
+    /// Snapshotted rather than read at the end: `declared_names` keeps growing, and this
+    /// sequence's own name is not on it yet, which is exactly the line the rule draws.
+    fn defer_build_condition(&mut self, expression: String, at: Pos, extra: Option<&'static str>) {
+        let above = self.declared_names.clone();
+        self.pending_expressions.push((
+            self.diagnostics.len(),
+            expression,
+            at,
+            false,
+            self.expr_scope.clone(),
+            extra,
+            Some(above),
+        ));
+    }
+
     /// The same, with ONE extra name the language provides for this expression alone.
     ///
     /// `missing_when=` is the only caller: `_value` is the value being hidden, and it is a
@@ -6531,6 +6599,7 @@ impl Validator {
             each,
             self.expr_scope.clone(),
             extra,
+            None,
         ));
     }
 

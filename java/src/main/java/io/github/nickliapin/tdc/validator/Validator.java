@@ -684,7 +684,8 @@ public final class Validator {
       int column,
       boolean each,
       Set<String> scope,
-      String extra) {}
+      String extra,
+      Set<String> declaredAbove) {}
 
   /**
    * The names a deferred expression may see, where they are NOT the run's.
@@ -694,6 +695,20 @@ public final class Validator {
    * every expression outside a pool.
    */
   private Set<String> exprScope = null;
+
+  /**
+   * The names declared ABOVE the expression being walked, when it is a condition that decides a
+   * column while that column is BUILT — {@code <gen if=>} and {@code missing_when=}.
+   *
+   * <p>Naming a column declared below it was answered differently by the two engines, and both
+   * answers were defensible: the in-memory engine has not built that column yet, so the condition
+   * is constant-false, while the lazy registry builds it on demand and the condition resolves for
+   * real. Measured over five rows from one seed, so the config is refused instead (TDC308) — the
+   * rule {@code <switch on=>} has always enforced. Null is a condition read once the row is
+   * finished ({@code <data if=>}, {@code <line if=>}, {@code <assert that=>}), where any column
+   * may be named.
+   */
+  private Set<String> declaredAbove = null;
 
   private final Map<TDCParser.OpenCloseElementContext, Set<String>> poolMemberScope =
       new java.util.IdentityHashMap<>();
@@ -719,7 +734,28 @@ public final class Validator {
   private void deferExpression(
       String expression, int line, int column, boolean each, String extra) {
     pendingExpressions.add(
-        new Pending(diagnostics.size(), expression, line, column, each, exprScope, extra));
+        new Pending(diagnostics.size(), expression, line, column, each, exprScope, extra, null));
+  }
+
+  /**
+   * The same, for a condition that decides a column while that column is BUILT.
+   *
+   * <p>It carries the names declared above it, because those are the only ones it can read — see
+   * {@link #declaredAbove} for the two answers the engines gave before this existed. Snapshotted
+   * rather than read at the end: {@code declaredNames} keeps growing, and this sequence's own
+   * name is not on it yet, which is exactly the line the rule draws.
+   */
+  private void deferBuildCondition(String expression, int line, int column, String extra) {
+    pendingExpressions.add(
+        new Pending(
+            diagnostics.size(),
+            expression,
+            line,
+            column,
+            false,
+            exprScope,
+            extra,
+            new LinkedHashSet<>(declaredNames)));
   }
 
   private final List<Pending> pendingExpressions = new ArrayList<>();
@@ -857,7 +893,17 @@ public final class Validator {
         declaredNames.addAll(item.scope());
       }
       boolean added = item.extra() != null && declaredNames.add(item.extra());
+      // `extra` is provided by the language rather than declared, so it is never "below".
+      if (item.declaredAbove() == null) {
+        declaredAbove = null;
+      } else {
+        declaredAbove = new LinkedHashSet<>(item.declaredAbove());
+        if (item.extra() != null) {
+          declaredAbove.add(item.extra());
+        }
+      }
       checkExpressionNames(item.expression(), item.line(), item.column(), item.each());
+      declaredAbove = null;
       if (added) {
         declaredNames.remove(item.extra());
       }
@@ -3180,7 +3226,7 @@ public final class Validator {
     if (condition != null) {
       int[] where = at(gen.attr(), "if", line(gen), column(gen));
       checkIfExpression(condition, where[0], where[1]);
-      deferExpression(condition, where[0], where[1], false);
+      deferBuildCondition(condition, where[0], where[1], null);
       // A pool reference publishes a whole MEMBER, and a <gen> carrying `if` becomes a
       // conditional branch the pool resolver does not recognise — so no Ref.field column was
       // registered and ${{Ref.name}} reached the output as its own literal text, on every row
@@ -3446,8 +3492,7 @@ public final class Validator {
       return;
     }
     checkIfExpression(raw.trim(), where[0], where[1]);
-    deferExpression(
-        raw.trim(), where[0], where[1], false, Imperfections.MISSING_VALUE_NAME);
+    deferBuildCondition(raw.trim(), where[0], where[1], Imperfections.MISSING_VALUE_NAME);
   }
 
   private void checkImperfections(
@@ -6319,6 +6364,24 @@ public final class Validator {
               + "text \"" + path + "\"",
           hint, line, column, Diagnostic.closestMatch(path, declaredNames));
       return;
+    }
+
+    // Declared, but not YET — see declaredAbove. Only a condition that runs while its own column
+    // is built carries the list; everything read after the table exists passes here untouched.
+    if (declaredAbove != null) {
+      boolean provided = Checks.BUILTINS.contains(root)
+          || (each && ("_item".equals(root) || "_item_id".equals(root)));
+      if (!provided && !declaredAbove.contains(root)) {
+        String hint = declaredAbove.isEmpty()
+            ? "A condition decides this column while it is being built, so it can only read "
+                + "columns already built. Move the <sequence> it names above this one."
+            : "Declared above: " + String.join(", ", declaredAbove) + ".";
+        errorNear("TDC308",
+            "\"" + root + "\" is not declared above this one, and the condition is answered "
+                + "before it exists",
+            hint, line, column, "");
+        return;
+      }
     }
 
     if (tail == null) {

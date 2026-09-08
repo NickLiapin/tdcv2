@@ -10,7 +10,7 @@
       "branches": 77.9
     },
     "rust": {
-      "lines": 84.1,
+      "lines": 84.2,
       "branches": 83.5
     },
     "java": {
@@ -18,7 +18,7 @@
       "branches": 73.7
     },
     "csharp": {
-      "lines": 85.1,
+      "lines": 85.2,
       "branches": 74.4
     }
   }

@@ -10,7 +10,13 @@ import jsep from 'jsep';
 // reads `Country in [US, CA]` as a syntax error while a run accepts it.
 import '../expr/operators.js';
 
-import { type Diagnostic, attrValueRange, closestMatch, type Range } from '../errors/index.js';
+import {
+  type Diagnostic,
+  attrValueRange,
+  closestMatch,
+  formatCandidates,
+  type Range,
+} from '../errors/index.js';
 import type { AttrContext } from '../generated/TDCParser.js';
 
 import {
@@ -484,6 +490,7 @@ export function checkExpressionNames(
   compounds: readonly string[],
   eachBuiltins: readonly string[] = [],
   finiteValues: ReadonlyMap<string, readonly string[]> = new Map(),
+  declaredAbove?: readonly string[],
 ): void {
   let ast: jsep.Expression;
   try {
@@ -500,7 +507,7 @@ export function checkExpressionNames(
     message: string,
     hint: string,
     suggestion?: string,
-    code: 'TDC215' | 'TDC216' = 'TDC215',
+    code: 'TDC215' | 'TDC216' | 'TDC308' = 'TDC215',
   ): void => {
     sink.diagnostics.push({
       // TDC216 is a warning, and deliberately: a value outside today's list makes
@@ -544,6 +551,25 @@ export function checkExpressionNames(
         suggestion ? `did you mean "${suggestion}"?` : undefined,
       );
       return;
+    }
+
+    // Declared, but not YET — see `PendingExpression.declaredAbove`. Only a
+    // condition that runs while its own column is built carries the list;
+    // everything read after the table exists passes through here untouched.
+    if (declaredAbove !== undefined && !BUILTIN_SEQUENCES.includes(root)) {
+      if (!eachBuiltins.includes(root) && !declaredAbove.includes(root)) {
+        complain(
+          `"${root}" is not declared above this one, and the condition is answered ` +
+            'before it exists',
+          declaredAbove.length === 0
+            ? 'A condition decides this column while it is being built, so it can only read ' +
+                'columns already built. Move the <sequence> it names above this one.'
+            : `Declared above: ${formatCandidates([...declaredAbove])}.`,
+          undefined,
+          'TDC308',
+        );
+        return;
+      }
     }
 
     if (tail.length === 0) return;
@@ -680,6 +706,27 @@ export interface PendingExpression {
    *     if="Age >= 18"         is valid      engine: badge=[] on every row
    */
   readonly scope?: readonly string[] | undefined;
+  /**
+   * The sequences declared ABOVE this expression, when it is a condition that
+   * decides a column while that column is being BUILT — `<gen if=>` and
+   * `missing_when=`.
+   *
+   * Naming a column declared below it is answered differently by the two
+   * engines, and both answers are defensible: the in-memory engine has not
+   * built that column yet, so the condition is constant-false; the lazy
+   * registry builds it on demand, so it resolves for real. Measured, five rows
+   * from one seed, with `A` conditional on `B` declared below it:
+   *
+   *     mode="memory"   A is empty on every row
+   *     mode="disk"     A resolves wherever B is `p`
+   *
+   * So the config is refused instead — TDC308 — which is what `<switch on=>`
+   * has always done, and what TDC240 does for `running`/`stat`. A condition
+   * used where the whole row already exists (`<data if=>`, `<line if=>`,
+   * `<assert that=>`) leaves this undefined: both engines agree there, because
+   * the table is finished before any of them is read.
+   */
+  readonly declaredAbove?: readonly string[] | undefined;
 }
 
 /**
@@ -726,6 +773,9 @@ export function runPendingExpressions(
       item.scope ? [] : compounds,
       item.eachBuiltins,
       item.scope ? new Map() : finiteValues,
+      // A pool has its own name space AND its own order; `scope` already refuses
+      // what a member cannot see, so the run's declaration order says nothing there.
+      item.scope ? undefined : item.declaredAbove,
     );
     diagnostics.splice(item.at + shift, 0, ...found);
     shift += found.length;

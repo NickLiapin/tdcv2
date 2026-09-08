@@ -211,9 +211,14 @@ page — is tracked in that implementation's own changelog:
   the data you built from it may be shipped.
 
   ```json
-  { "name": "Acme internal packs", "version": "1.2.0", "license": "MIT",
-    "author": "Acme Data Team", "homepage": "https://acme.example/packs",
-    "description": "Product codes and internal identifiers." }
+  {
+    "name": "Acme internal packs",
+    "version": "1.2.0",
+    "license": "MIT",
+    "author": "Acme Data Team",
+    "homepage": "https://acme.example/packs",
+    "description": "Product codes and internal identifiers."
+  }
   ```
 
   Every field optional, and **nothing here reaches the generated data** — the same seed
@@ -323,6 +328,34 @@ amplitude="120,400" peak_at="5,182"` is a weekly season and a yearly one on one 
   row.
 
 ### Fixed
+
+<!-- covers: a build condition naming a column declared below it -->
+
+- **A condition on a `<gen>` naming a column declared BELOW it was answered differently by
+  the two engines.** All five implementations agreed with each other, and the engines did
+  not — from one seed, five rows:
+
+  ```xml
+  <sequence name="A"><gen type="text" value="x,y" if="B == p"/></sequence>
+  <sequence name="B"><gen type="text" value="p,q"/></sequence>
+  ```
+
+  | mode     | rows                                                                |
+  | :------- | :------------------------------------------------------------------ |
+  | `memory` | `\|q` `\|p` `\|p` `\|q` `\|p` — `A` is empty on every row           |
+  | `disk`   | `\|q` `y\|p` `y\|p` `\|q` `y\|p` — `A` resolves wherever `B` is `p` |
+
+  Both answers were defensible, which is why neither could stay. The condition is resolved
+  while `A` is being built: the in-memory engine has not built `B` yet and reads it as
+  empty, so the branch never fires; the lazy registry builds `B` on demand, so it fires for
+  real. `missing_when=` rides the same seam and diverged the same way.
+
+  Such a config is now refused — `TDC308` — instead of producing one of two answers
+  depending on the engine. It is the rule `<switch on=>` has always enforced, and the one
+  `TDC240` enforces for `running` and `stat`. A condition read once the row is finished —
+  `<data if=>`, `<line if=>`, `<assert that=>` — may still name any column, and a shared
+  case says so, because a port that applied the order rule everywhere would refuse configs
+  that work.
 
 <!-- covers: advanced_regex nested duplicate group name -->
 

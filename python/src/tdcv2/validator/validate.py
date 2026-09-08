@@ -911,6 +911,7 @@ class _Validator:
         "base_dir",
         "count_override",
         "current_sequence",
+        "declared_above",
         "declared_fields",
         "declared_names",
         "declared_order",
@@ -1000,7 +1001,16 @@ class _Validator:
         # an each= line are in scope. The names cannot be checked as the walk passes: an
         # expression may name a sequence declared BELOW it, and the run resolves that happily.
         self.pending_expressions: list[
-            tuple[int, str, int, int, bool, frozenset[str] | None, frozenset[str]]
+            tuple[
+                int,
+                str,
+                int,
+                int,
+                bool,
+                frozenset[str] | None,
+                frozenset[str],
+                frozenset[str] | None,
+            ]
         ] = []
         # Every `<data>` written inside a `<case>`, held back for the same reason: a case body
         # may name a column declared BELOW it, and the run resolves that happily.
@@ -1011,6 +1021,15 @@ class _Validator:
         # own names, which is every expression outside a pool.
         self.expr_scope: frozenset[str] | None = None
         self.pool_member_scope: dict[int, frozenset[str]] = {}
+        # The names declared ABOVE the expression being checked, when it is a condition that
+        # decides a column while that column is BUILT — `<gen if=>` and `missing_when=`. Naming a
+        # column declared below it was answered differently by the two engines: the in-memory one
+        # has not built that column yet, so the condition was constant-false, while the lazy
+        # registry built it on demand and the condition resolved for real. Measured over five
+        # rows from one seed, both answers defensible, which is why the config is refused instead
+        # (TDC308). None means a condition read once the row is finished — `<data if=>`,
+        # `<line if=>`, `<assert that=>` — where any column may be named.
+        self.declared_above: frozenset[str] | None = None
         # Every filter= seen, held back for the same reason: the column it compares against may
         # be declared BELOW the reference, and the run resolves that happily.
         # (at, expression, pool, field, other, line, column)
@@ -1084,9 +1103,11 @@ class _Validator:
         # back where its attribute was, so the report stays in source order.
         pending, self.pending_expressions = self.pending_expressions, []
         shift = 0
-        for at_index, condition, line, column, each, scope, extra in pending:
+        for at_index, condition, line, column, each, scope, extra, above in pending:
             before = len(self.diagnostics)
             outer = self.declared_names
+            # `extra` is provided by the language rather than declared, so it is never "below".
+            self.declared_above = None if above is None else above | extra
             # `extra` carries the names the LANGUAGE provides for one expression — today just
             # `_value` inside `missing_when`. Added rather than substituted, so a condition can
             # still read the columns beside it.
@@ -1098,6 +1119,7 @@ class _Validator:
                 self._check_expression_names(condition, line, column, each)
             finally:
                 self.declared_names = outer
+                self.declared_above = None
             found = self.diagnostics[before:]
             del self.diagnostics[before:]
             for offset, diagnostic in enumerate(found):
@@ -3176,7 +3198,7 @@ class _Validator:
         if condition is not None:
             where = _at_attrs(gen.attr(), "if", *_at(gen, "if"))
             self._check_if_expression(condition, where[0], where[1])
-            self._defer_expression(condition, where[0], where[1], False)
+            self._defer_build_condition(condition, where[0], where[1])
             # A pool reference publishes a whole MEMBER, and a `<gen>` carrying `if` becomes a
             # conditional branch the pool resolver does not recognise — so no `Ref.field` column
             # was registered and `${{Ref.name}}` reached the output as its own literal text, on
@@ -6188,7 +6210,25 @@ class _Validator:
             return
         self._check_if_expression(when.strip(), where[0], where[1])
         # `_value` is the value being hidden — a name the language provides, like `_count`.
-        self._defer_expression(when.strip(), where[0], where[1], False, extra={"_value"})
+        self._defer_build_condition(when.strip(), where[0], where[1], extra={"_value"})
+
+    def _defer_build_condition(
+        self,
+        expression: str,
+        line: int,
+        column: int,
+        extra: frozenset[str] | set[str] | None = None,
+    ) -> None:
+        """The same, for a condition that decides a column while that column is BUILT.
+
+        It carries the names declared above it, because those are the only ones it can read — see
+        ``declared_above`` for the two answers the engines gave before this existed. Snapshotted
+        rather than read at the end: ``declared_names`` keeps growing, and this sequence's own
+        name is not on it yet, which is exactly the line the rule draws.
+        """
+        self._defer_expression(
+            expression, line, column, False, extra=extra, above=frozenset(self.declared_names)
+        )
 
     def _defer_expression(
         self,
@@ -6197,6 +6237,7 @@ class _Validator:
         column: int,
         each: bool,
         extra: frozenset[str] | set[str] | None = None,
+        above: frozenset[str] | None = None,
     ) -> None:
         """Put an expression aside, together with the names it will be checked against.
 
@@ -6213,6 +6254,7 @@ class _Validator:
                 each,
                 self.expr_scope,
                 frozenset(extra or ()),
+                above,
             )
         )
 
@@ -6288,6 +6330,30 @@ class _Validator:
                 line,
                 column,
                 _did_you_mean(closest_match(path, sorted(self.declared_names))),
+            )
+            return
+
+        # Declared, but not YET — see `declared_above`. Only a condition that runs while its own
+        # column is built carries the list; everything read after the table exists passes here
+        # untouched.
+        if (
+            self.declared_above is not None
+            and root not in checks.BUILTINS
+            and not (each and root in ("_item", "_item_id"))
+            and root not in self.declared_above
+        ):
+            self._error(
+                "TDC308",
+                f'"{root}" is not declared above this one, and the condition is answered '
+                "before it exists",
+                (
+                    "A condition decides this column while it is being built, so it can only "
+                    "read columns already built. Move the <sequence> it names above this one."
+                    if not self.declared_above
+                    else "Declared above: " + ", ".join(sorted(self.declared_above)) + "."
+                ),
+                line,
+                column,
             )
             return
 

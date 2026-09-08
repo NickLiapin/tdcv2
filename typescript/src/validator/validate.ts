@@ -366,6 +366,29 @@ class Ctx {
   }
 
   /**
+   * The same, for a condition that decides a column while that column is BUILT.
+   *
+   * It carries the names declared above it, because those are the only ones it
+   * can read — see `PendingExpression.declaredAbove` for the two answers the
+   * engines gave before this existed. Taken as a snapshot rather than read at
+   * the end: `declaredSequences` keeps growing, and this sequence's own name is
+   * not on it yet, which is exactly the line the rule draws.
+   */
+  public rememberBuildCondition(
+    attr: AttrContext,
+    expr: string,
+    eachBuiltins: readonly string[] = [],
+  ): void {
+    this.pendingExpressions.push({
+      at: this.diagnostics.length,
+      attr,
+      expr,
+      eachBuiltins,
+      declaredAbove: [...this.declaredSequences],
+    });
+  }
+
+  /**
    * Of those, the compounds — every `<gen>` named, so the sequence is a group of
    * fields and has no value of its own.
    *
@@ -963,7 +986,7 @@ function checkGen(
   const ifAttr = findAttr(attrs, 'if');
   if (ifAttr) {
     checkIfExpression(ifAttr, attrMap['if'] ?? '', ctx);
-    ctx.rememberExpression(ifAttr, attrMap['if'] ?? '');
+    ctx.rememberBuildCondition(ifAttr, attrMap['if'] ?? '');
   }
 
   // `missing_when=` is a condition like any other, so it takes the same road:
@@ -974,7 +997,7 @@ function checkGen(
   const when = (attrMap['missing_when'] ?? '').trim();
   if (whenAttr && when !== '') {
     checkIfExpression(whenAttr, when, ctx);
-    ctx.rememberExpression(whenAttr, when, [MISSING_VALUE_NAME]);
+    ctx.rememberBuildCondition(whenAttr, when, [MISSING_VALUE_NAME]);
   }
 }
 
