@@ -665,6 +665,8 @@ class _Parser:
                     f'backreference "\\{index_text}" points to a group that is not generated yet'
                 )
             return Backref(index)
+        if ch == "k":
+            return self._named_backref()
         if ch == "d":
             return _chars(DIGITS)
         if ch == "D":
@@ -688,6 +690,38 @@ class _Parser:
         if ch in ("p", "P"):
             raise self._error("Unicode property classes are not supported")
         return Literal(ch)
+
+    def _named_backref(self) -> Node:
+        r"""``\k<area>`` — the ``\k`` is already consumed.
+
+        Missing until now, and missing SILENTLY: ``\k`` fell to the final ``return Literal(ch)``,
+        so ``(?<a>[A-Z]{2})-\k<a>`` produced ``RI-k<a>`` while ``type="regex"`` produced ``RI-RI``
+        from the same pattern and seed. A value that looks plausible, passes every format check
+        and reaches the file is the worst way for a generator to be wrong, and this was the only
+        construct here that failed that way — a numbered ``\1`` already worked, and every other
+        unsupported construct is refused by name.
+
+        The final ``Literal`` is not at fault and is left alone: "an unknown escape is the
+        character itself" is a deliberate rule shared with ``regex`` (``\q`` is ``q`` in both).
+        ``\k`` simply inherited it instead of reaching a branch of its own.
+
+        ``group_names`` is keyed on the group CLOSING, so it already carries the rule this needs:
+        a name further along the pattern has produced nothing to repeat.
+        """
+        if self._peek() != "<":
+            raise self._error('a named backreference is written "\\k<area>"')
+        self.pos += 1
+        start = self.pos
+        while not self._at_end() and self._peek() != ">":
+            self.pos += 1
+        name = self.pattern[start : self.pos]
+        self._expect(">")
+        index = self.group_names.get(name)
+        if index is None:
+            raise self._error(
+                f'named backreference "\\k<{name}>" points to a group that is not generated yet'
+            )
+        return Backref(index)
 
     def _named_alphabet(self) -> list[str]:
         self._expect("{")

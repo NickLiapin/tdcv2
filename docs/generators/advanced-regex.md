@@ -566,6 +566,16 @@ That is an ordinary capturing group — `\1` still reads it — with a label. Th
 exists so that something LATER in the pattern can ask what this group produced,
 which is what the next section is for.
 
+`\k<name>` repeats the group by that name, exactly as in [`regex`](regex.md#top), and it
+is the same group `\1` repeats:
+
+```xml
+<gen type="advanced_regex" value="(?<c>(?%{50:AB;50:CD}))-\k<c>"/>
+```
+
+The name must belong to a group that has already **closed** — the rule `\1` and
+`(?if{…})` both follow, since a group further along has produced nothing to repeat.
+
 Names start with a letter or `_` and hold letters, digits and `_`. Two groups
 cannot share one name: `(?if{sex=…})` would then be a coin toss between them. That
 holds when one of the two sits inside the other, as well as side by side.

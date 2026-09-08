@@ -583,6 +583,44 @@
       "description": "`length=\"2,10-12\" percent=\"85,15\"` — widths laid out as an exact quota rather than drawn. The engine pins the column to one length group at a time and builds each group separately, a path no other case here takes: found by asking JaCoCo which methods no test calls, and it named the pinning step in every port.",
       "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" length=\"2,10-12\" percent=\"85,15\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": ["53", "65", "65", "60", "41", "78", "3938698775", "50"]
+    },
+    {
+      "name": "advanced-regex-named-backreference",
+      "description": "\\k<name> repeats what the named group actually produced. It used to reach the output as the literal text \"k<a>\": \\k fell through to the rule that an unknown escape is the character itself, so a plausible-looking value passed every check and reached the file, while type=\"regex\" gave RI-RI from the same pattern and seed.",
+      "config": "<tdc><env count=\"6\" seed=\"d\" local=\"en\" mode=\"memory\"><sequence name=\"P\"><gen type=\"advanced_regex\" value=\"(?<a>[A-Z]{2})-\\k<a>\"/></sequence></env><block><line><data>${{P}}</data></line></block></tdc>",
+      "expected": ["CV-CV", "PI-PI", "UJ-UJ", "OO-OO", "KX-KX", "UG-UG"]
+    },
+    {
+      "name": "advanced-regex-named-and-numbered-backreference-agree",
+      "description": "The same group read both ways in one pattern. The numbered form always worked here, which is what made the named one easy to miss; both must repeat the same two letters.",
+      "config": "<tdc><env count=\"6\" seed=\"both\" local=\"en\" mode=\"memory\"><sequence name=\"P\"><gen type=\"advanced_regex\" value=\"(?<a>[A-Z]{2})-\\k<a>-\\1\"/></sequence></env><block><line><data>${{P}}</data></line></block></tdc>",
+      "expected": [
+        "XI-XI-XI",
+        "KQ-KQ-KQ",
+        "CH-CH-CH",
+        "TF-TF-TF",
+        "RG-RG-RG",
+        "BB-BB-BB"
+      ]
+    },
+    {
+      "name": "advanced-regex-named-backreference-beside-a-conditional",
+      "description": "A pattern that uses a name for BOTH things advanced_regex can do with one: repeat it, and branch on it. They read the same map, keyed on the group closing.",
+      "config": "<tdc><env count=\"12\" seed=\"kif\" local=\"en\" mode=\"memory\"><sequence name=\"P\"><gen type=\"advanced_regex\" value=\"(?<c>(?%{50:AB;50:CD}))-\\k<c>-(?if{c=AB:first;*:second})\"/></sequence></env><block><line><data>${{P}}</data></line></block></tdc>",
+      "expected": [
+        "AB-AB-first",
+        "CD-CD-second",
+        "AB-AB-first",
+        "CD-CD-second",
+        "AB-AB-first",
+        "CD-CD-second",
+        "CD-CD-second",
+        "AB-AB-first",
+        "CD-CD-second",
+        "AB-AB-first",
+        "CD-CD-second",
+        "AB-AB-first"
+      ]
     }
   ]
 }

@@ -540,6 +540,27 @@
       "description": "Lookbehind starts \"(?<\" exactly as a named group does, and reading it as a group called \"=a\" would turn a construct that cannot work here into one that silently does something else. Lookaround decides what a pattern MATCHES, and nothing in this generator is matching.",
       "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"P\"><gen type=\"advanced_regex\" value=\"(?<=a)b\"/></sequence></env><block><line><data>${{P}}</data></line></block></tdc>",
       "expected": ["error TDC130 1:93"]
+    },
+    {
+      "name": "advanced-regex-named-backreference-to-an-unwritten-group",
+      "demonstrates": "TDC130",
+      "description": "A name no group declares. It used to print \"Xk<zzz>Y\" — the escape fell through to the rule that an unknown escape is the character itself, so nothing was said and the run carried on. The plain regex generator has always refused the same pattern.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"advanced_regex\" value=\"X\\k<zzz>Y\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC130 1:82"]
+    },
+    {
+      "name": "advanced-regex-named-backreference-to-a-group-further-along",
+      "demonstrates": "TDC130",
+      "description": "The name exists, but its group has not closed yet, so it has produced nothing to repeat. The same rule a conditional follows, and keyed on the same map.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"advanced_regex\" value=\"\\k<a>(?<a>[XY])\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC130 1:82"]
+    },
+    {
+      "name": "advanced-regex-named-backreference-without-a-name",
+      "demonstrates": "TDC130",
+      "description": "The escape is written but the angle brackets are not.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"advanced_regex\" value=\"(?<a>[XY])\\ka\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC130 1:82"]
     }
   ]
 }

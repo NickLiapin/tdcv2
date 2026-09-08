@@ -539,6 +539,16 @@ Es un grupo de captura corriente — `\1` lo sigue leyendo — con una etiqueta.
 etiqueta existe para que algo MÁS ADELANTE en el patrón pueda preguntar qué produjo
 este grupo, que es de lo que trata la sección siguiente.
 
+`\k<name>` repite el grupo por ese nombre, igual que en [`regex`](regex.mdx), y es el
+mismo grupo que repite `\1`:
+
+```xml
+<gen type="advanced_regex" value="(?<c>(?%{50:AB;50:CD}))-\k<c>"/>
+```
+
+El nombre debe pertenecer a un grupo que ya **cerró**: es la regla que siguen `\1` y
+`(?if{…})`, porque un grupo más adelante no ha producido nada que repetir.
+
 Los nombres empiezan con una letra o `_` y llevan letras, dígitos y `_`. Dos grupos no
 pueden compartir un nombre: `(?if{sex=…})` sería entonces un volado entre ellos. Eso
 vale también cuando uno de los dos está dentro del otro, y no solo al lado.

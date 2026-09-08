@@ -6,8 +6,8 @@
       "branches": 75.3
     },
     "python": {
-      "lines": 84,
-      "branches": 77.9
+      "lines": 84.1,
+      "branches": 78
     },
     "rust": {
       "lines": 84.2,
@@ -19,7 +19,7 @@
     },
     "csharp": {
       "lines": 85.2,
-      "branches": 74.4
+      "branches": 74.5
     }
   }
 }

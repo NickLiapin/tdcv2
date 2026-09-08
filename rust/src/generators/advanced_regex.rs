@@ -757,6 +757,7 @@ impl Parser {
         }
 
         match ch {
+            'k' => self.named_backref(),
             'd' => Ok(chars_node(regex::digits())),
             'D' => Ok(chars_node(&inverse(regex::digits()))),
             'w' => Ok(chars_node(regex::word())),
@@ -775,6 +776,40 @@ impl Parser {
             't' => Ok(Node::Literal('\t')),
             'p' | 'P' => self.error("Unicode property classes are not supported"),
             _ => Ok(Node::Literal(ch)),
+        }
+    }
+
+    /// `\k<area>` — the `\k` is already consumed.
+    ///
+    /// Missing until now, and missing SILENTLY: `\k` fell to the `_ => Literal(ch)` arm, so
+    /// `(?<a>[A-Z]{2})-\k<a>` produced `RI-k<a>` while `type="regex"` produced `RI-RI` from the
+    /// same pattern and seed. A value that looks plausible, passes every format check and
+    /// reaches the file is the worst way for a generator to be wrong, and this was the only
+    /// construct here that failed that way — a numbered `\1` already worked, and every other
+    /// unsupported construct is refused by name.
+    ///
+    /// The `_` arm is not at fault and is left alone: "an unknown escape is the character
+    /// itself" is a deliberate rule shared with `regex` (`\q` is `q` in both). `\k` simply
+    /// inherited it instead of reaching a branch of its own.
+    ///
+    /// `group_names` is keyed on the group CLOSING, so it already carries the rule this needs:
+    /// a name further along the pattern has produced nothing to repeat.
+    fn named_backref(&mut self) -> EngineResult<Node> {
+        if self.peek() != Some('<') {
+            return self.error("a named backreference is written \"\\k<area>\"");
+        }
+        self.pos += 1;
+        let start = self.pos;
+        while !self.at_end() && self.peek() != Some('>') {
+            self.pos += 1;
+        }
+        let name: String = self.pattern[start..self.pos].iter().collect();
+        self.expect('>')?;
+        match self.group_names.get(&name) {
+            Some(index) => Ok(Node::Backref(*index)),
+            None => self.error(&format!(
+                "named backreference \"\\k<{name}>\" points to a group that is not generated yet"
+            )),
         }
     }
 

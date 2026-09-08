@@ -618,6 +618,8 @@ class AdvancedRegexParser {
     }
 
     switch (ch) {
+      case 'k':
+        return this.parseNamedBackref();
       case 'd':
         return charSet(DIGITS);
       case 'D':
@@ -644,6 +646,41 @@ class AdvancedRegexParser {
       default:
         return { kind: 'literal', value: ch };
     }
+  }
+
+  /**
+   * `\k<area>` — the `\k` is already consumed.
+   *
+   * Missing until now, and missing SILENTLY: `\k` fell to the `default` arm below, which
+   * returns the letter as a literal, so `(?<a>[A-Z]{2})-\k<a>` produced `RI-k<a>` while the
+   * plain `regex` generator produced `RI-RI` from the same pattern and seed. A value that
+   * looks plausible, passes every format check and reaches the file is the worst way for a
+   * generator to be wrong, and this was the only construct here that failed that way — a
+   * numbered `\1` already worked, and every other unsupported construct is refused by name.
+   *
+   * The `default` arm is not at fault and is left alone: "an unknown escape is the character
+   * itself" is a deliberate rule shared with `regex` (`\q` is `q` in both). `\k` simply
+   * inherited it instead of reaching a branch of its own.
+   *
+   * `groupNames` is keyed on the group CLOSING, so it already carries the rule this needs:
+   * a name further along the pattern has produced nothing to repeat.
+   */
+  private parseNamedBackref(): AdvancedRegexNode {
+    if (this.peek() !== '<') {
+      throw this.error('a named backreference is written "\\k<area>"');
+    }
+    this.pos += 1;
+    const start = this.pos;
+    while (!this.atEnd() && this.peek() !== '>') this.pos += 1;
+    const name = this.pattern.slice(start, this.pos);
+    this.expect('>');
+    const index = this.groupNames.get(name);
+    if (index === undefined) {
+      throw this.error(
+        `named backreference "\\k<${name}>" points to a group that is not generated yet`,
+      );
+    }
+    return { kind: 'backref', index };
   }
 
   private readNamedAlphabet(): readonly string[] {

@@ -433,6 +433,53 @@ describe('named groups', () => {
   });
 });
 
+/*
+ * `\k<name>` — the escape this generator used to SWALLOW.
+ *
+ * It reached no branch of its own and fell to the rule that an unknown escape is the
+ * character itself, so `(?<a>[A-Z]{2})-\k<a>` produced `RI-k<a>` while the plain `regex`
+ * generator produced `RI-RI` from the same pattern and seed. Not an unsupported feature but
+ * a silent wrong answer: the value looked plausible, passed every format check and reached
+ * the file. Every other construct this generator cannot do is refused by name, and `\1`
+ * already worked — the named form was the one thing that failed quietly.
+ */
+describe('named backreferences', () => {
+  it('repeats what the named group produced', () => {
+    for (const value of generate('(?<a>[A-Z]{2})-\\k<a>', 40)) {
+      expect(value).toMatch(/^([A-Z]{2})-\1$/);
+    }
+  });
+
+  it('is the same group \\1 reads, so both spellings agree in one pattern', () => {
+    for (const value of generate('(?<a>[A-Z]{2})-\\k<a>-\\1', 40)) {
+      const [head, named, numbered] = value.split('-');
+      expect(named).toBe(head);
+      expect(numbered).toBe(head);
+    }
+  });
+
+  it('refuses a name no group declares, rather than printing it', () => {
+    // The whole point: `X\k<zzz>Y` used to come out as `Xk<zzz>Y` with nothing said.
+    expect(() => parseAdvancedRegexProgram('X\\k<zzz>Y')).toThrow(/not generated yet/);
+  });
+
+  it('refuses a name whose group has not closed yet', () => {
+    // The rule `\1` and `(?if{…})` both follow: a group further along the pattern has
+    // produced nothing to repeat.
+    expect(() => parseAdvancedRegexProgram('\\k<a>(?<a>[XY])')).toThrow(/not generated yet/);
+  });
+
+  it('refuses the escape written without its brackets', () => {
+    expect(() => parseAdvancedRegexProgram('(?<a>[XY])\\ka')).toThrow(/written "\\k<area>"/);
+  });
+
+  it('leaves an unknown escape alone, which is why this one slipped through', () => {
+    // "An unknown escape is the character itself" is a deliberate rule shared with `regex`.
+    // `\k` inherited it instead of reaching a branch of its own; the rule itself is right.
+    expect(generate('A\\qB', 3)).toEqual(['AqB', 'AqB', 'AqB']);
+  });
+});
+
 describe('conditionals', () => {
   it('picks the branch the earlier group chose', () => {
     for (const value of generate(

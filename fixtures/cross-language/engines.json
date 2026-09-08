@@ -2965,6 +2965,57 @@
         "lines": ["60", "25", "91", "4200453965", "84", "78", "37", "50"]
       }
     },
+    "generators/advanced-regex-named-backreference": {
+      "engine2": {
+        "lines": ["CV-CV", "PI-PI", "UJ-UJ", "OO-OO", "KX-KX", "UG-UG"]
+      },
+      "engine3": {
+        "lines": ["CV-CV", "PI-PI", "UJ-UJ", "OO-OO", "KX-KX", "UG-UG"]
+      }
+    },
+    "generators/advanced-regex-named-and-numbered-backreference-agree": {
+      "engine2": {
+        "lines": [
+          "XI-XI-XI",
+          "KQ-KQ-KQ",
+          "CH-CH-CH",
+          "TF-TF-TF",
+          "RG-RG-RG",
+          "BB-BB-BB"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "XI-XI-XI",
+          "KQ-KQ-KQ",
+          "CH-CH-CH",
+          "TF-TF-TF",
+          "RG-RG-RG",
+          "BB-BB-BB"
+        ]
+      }
+    },
+    "generators/advanced-regex-named-backreference-beside-a-conditional": {
+      "engine2": {
+        "refused": "stream mode: advanced_regex weighted choice \"(?%{…})\" (\"P\") is not supported yet — use mode=\"disk\" instead (the router then picks an engine that can), or remove it."
+      },
+      "engine3": {
+        "lines": [
+          "AB-AB-first",
+          "CD-CD-second",
+          "AB-AB-first",
+          "CD-CD-second",
+          "AB-AB-first",
+          "CD-CD-second",
+          "CD-CD-second",
+          "AB-AB-first",
+          "CD-CD-second",
+          "AB-AB-first",
+          "CD-CD-second",
+          "AB-AB-first"
+        ]
+      }
+    },
     "mix-switch/mix-exact-percents": {
       "engine2": {
         "lines": ["A", "B", "A", "B", "B", "B", "B", "A", "B", "B"]

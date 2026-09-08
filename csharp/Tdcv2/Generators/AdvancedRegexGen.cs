@@ -974,6 +974,8 @@ public static class AdvancedRegexGen
 
             switch (ch)
             {
+                case "k":
+                    return NamedBackref();
                 case "d":
                     return Chars(RegexGen.Digits);
                 case "D":
@@ -999,6 +1001,51 @@ public static class AdvancedRegexGen
                 default:
                     return new Node.Literal(ch);
             }
+        }
+
+        /// <summary><c>\k&lt;area&gt;</c> — the <c>\k</c> is already consumed.</summary>
+        /// <remarks>
+        /// <para>
+        /// Missing until now, and missing SILENTLY: <c>\k</c> fell to the <c>default</c> arm,
+        /// which returns the letter as a literal, so <c>(?&lt;a&gt;[A-Z]{2})-\k&lt;a&gt;</c>
+        /// produced <c>RI-k&lt;a&gt;</c> while <c>type="regex"</c> produced <c>RI-RI</c> from the
+        /// same pattern and seed. A value that looks plausible, passes every format check and
+        /// reaches the file is the worst way for a generator to be wrong, and this was the only
+        /// construct here that failed that way — a numbered <c>\1</c> already worked, and every
+        /// other unsupported construct is refused by name.
+        /// </para>
+        /// <para>
+        /// The <c>default</c> arm is not at fault and is left alone: "an unknown escape is the
+        /// character itself" is a deliberate rule shared with <c>regex</c> (<c>\q</c> is
+        /// <c>q</c> in both). <c>\k</c> simply inherited it instead of reaching a branch of its
+        /// own. <c>_groupNames</c> is keyed on the group CLOSING, so it already carries the rule
+        /// this needs: a name further along the pattern has produced nothing to repeat.
+        /// </para>
+        /// </remarks>
+        private Node NamedBackref()
+        {
+            if (Peek != "<")
+            {
+                throw Error("a named backreference is written \"\\k<area>\"");
+            }
+
+            _pos++;
+            int start = _pos;
+            while (!AtEnd && Peek != ">")
+            {
+                _pos++;
+            }
+
+            string name = _pattern[start.._pos];
+            Expect(">");
+            if (!_groupNames.TryGetValue(name, out int index))
+            {
+                throw Error(
+                    $"named backreference \"\\k<{name}>\" points to a group that is not "
+                    + "generated yet");
+            }
+
+            return new Node.Backref(index);
         }
 
         private IReadOnlyList<string> NamedAlphabet()

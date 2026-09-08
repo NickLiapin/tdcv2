@@ -329,6 +329,31 @@ amplitude="120,400" peak_at="5,182"` is a weekly season and a yearly one on one 
 
 ### Fixed
 
+<!-- covers: advanced_regex named backreference -->
+
+- **`advanced_regex` swallowed `\k<name>` and printed it as text.** The escape reached no
+  branch of its own, so it fell to the rule that an unknown escape is the character itself —
+  the backslash was dropped and `k<a>` went to the output as three ordinary characters:
+
+  ```
+  regex           (?<a>[A-Z]{2})-\k<a>   →   RI-RI
+  advanced_regex  (?<a>[A-Z]{2})-\k<a>   →   RI-k<a>
+  ```
+
+  Not an unsupported feature but a silent wrong answer, which is the worst kind in a data
+  generator: the value looks plausible, passes every format check, and reaches the file.
+  Every other construct `advanced_regex` cannot do is refused by name, and a numbered `\1`
+  already worked — the named form was the one thing that failed quietly. A name no group
+  declares was swallowed the same way: `X\k<zzz>Y` printed `Xk<zzz>Y` where `regex` refuses.
+
+  All five behaved identically, so nothing had drifted apart; they were wrong together, and
+  are fixed together. `\k<name>` now repeats the named group and refuses a name whose group
+  has not closed, exactly as in `regex`. The rule it fell through is deliberate and is left
+  alone — `\q` is still `q` in both generators.
+
+  Reported by Nick from the article series, with the reproduction, the line numbers and the
+  five-way survey already done.
+
 <!-- covers: a build condition naming a column declared below it -->
 
 - **A condition on a `<gen>` naming a column declared BELOW it was answered differently by

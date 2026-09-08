@@ -787,6 +787,8 @@ public final class AdvancedRegexGen {
         return new Backref(index);
       }
       switch (ch) {
+        case "k":
+          return namedBackref();
         case "d":
           return chars(RegexGen.DIGITS);
         case "D":
@@ -815,6 +817,45 @@ public final class AdvancedRegexGen {
         default:
           return new Literal(ch);
       }
+    }
+
+    /**
+     * {@code \k<area>} — the {@code \k} is already consumed.
+     *
+     * <p>Missing until now, and missing SILENTLY: {@code \k} fell to the {@code default} arm,
+     * which returns the letter as a literal, so {@code (?<a>[A-Z]{2})-\k<a>} produced
+     * {@code RI-k<a>} while {@code type="regex"} produced {@code RI-RI} from the same pattern and
+     * seed. A value that looks plausible, passes every format check and reaches the file is the
+     * worst way for a generator to be wrong, and this was the only construct here that failed
+     * that way — a numbered {@code \1} already worked, and every other unsupported construct is
+     * refused by name.
+     *
+     * <p>The {@code default} arm is not at fault and is left alone: "an unknown escape is the
+     * character itself" is a deliberate rule shared with {@code regex} ({@code \q} is {@code q}
+     * in both). {@code \k} simply inherited it instead of reaching a branch of its own.
+     *
+     * <p>{@code groupNames} is keyed on the group CLOSING, so it already carries the rule this
+     * needs: a name further along the pattern has produced nothing to repeat.
+     */
+    private Node namedBackref() {
+      if (!"<".equals(peek())) {
+        throw error("a named backreference is written \"\\k<area>\"");
+      }
+      pos++;
+      int start = pos;
+      while (!atEnd() && !">".equals(peek())) {
+        pos++;
+      }
+      String name = pattern.substring(start, pos);
+      expect(">");
+      Integer index = groupNames.get(name);
+      if (index == null) {
+        throw error(
+            "named backreference \"\\k<"
+                + name
+                + ">\" points to a group that is not generated yet");
+      }
+      return new Backref(index);
     }
 
     private List<String> namedAlphabet() {
