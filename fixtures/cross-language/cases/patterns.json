@@ -269,6 +269,24 @@
         "100.0"
       ],
       "dataPath": "data"
+    },
+    {
+      "name": "pattern-src-png-every-scanline-filter",
+      "description": "A PNG read pixel by pixel: its 16 scanlines cycle through all five filters PNG defines (None, Sub, Up, Average, Paeth), so a port that gets one of them wrong reads a different curve out of the same file",
+      "config": "<tdc><env count=\"10\" seed=\"png\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" src=\"pattern-filters.png\" y_range=\"0..100\" decimals=\"1\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "dataPath": "data",
+      "expected": [
+        "83.3",
+        "66.3",
+        "49.3",
+        "32.2",
+        "15.2",
+        "15.2",
+        "32.2",
+        "49.3",
+        "66.3",
+        "83.3"
+      ]
     }
   ]
 }

@@ -606,17 +606,4 @@ final class ComputeCheck {
     diagnostics.add(
         Diagnostic.error(code, message, hint == null ? "" : hint, node.line(), node.column()));
   }
-
-  /** The compute nodes a document holds, for a caller that wants to walk them itself. */
-  static List<TDCParser.OpenCloseElementContext> computeElements(
-      TDCParser.OpenCloseElementContext parent) {
-    List<TDCParser.OpenCloseElementContext> out = new ArrayList<>();
-    for (TDCParser.ElementContext child : parent.content().element()) {
-      TDCParser.OpenCloseElementContext open = child.openCloseElement();
-      if (open != null && "compute".equals(open.name.getText())) {
-        out.add(open);
-      }
-    }
-    return out;
-  }
 }

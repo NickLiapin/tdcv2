@@ -29,31 +29,6 @@ _TAG = re.compile(r"""<\/?([A-Za-z][\w:-]*)((?:[^>"']|"[^"]*"|'[^']*')*)\/?>""")
 _LETTER = re.compile(r"[A-Za-z]")
 
 
-def graph_points(svg: str) -> list[Point]:
-    """The curve to read a graph from: the one spanning the most horizontal space.
-
-    A chart export usually carries axes, a frame and a legend as well. The data line is the widest
-    path, so this picks the signal without anyone having to say which shape it is.
-    """
-    curves = collect(svg)
-    if not curves:
-        raise ValueError(
-            "pattern: the SVG has no <path>/<polyline>/<polygon>/<line>/<rect>/<circle>/"
-            "<ellipse> to read a curve from"
-        )
-    # Drawn curves outrank primitives: a chart export's frame is a <rect> and its
-    # background another, and "the widest shape" must not hand the graph to the
-    # furniture. A file holding ONLY primitives reads the widest of them.
-    drawn = [c for c in curves if not c[2]]
-    ranked = drawn if drawn else curves
-    best_points, best_width, _ = max(ranked, key=lambda c: c[1])
-    if len(best_points) < 2 or best_width <= 0:
-        raise ValueError(
-            "pattern: the SVG curve has no horizontal extent to stretch over the cards"
-        )
-    return [(x, 0.0 if y == 0 else -y) for x, y in best_points]
-
-
 def envelope(svg: str, samples: int = 600) -> tuple[list[Point], list[Point]]:
     """The drawing measured the way the raster reader measures it.
 

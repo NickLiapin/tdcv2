@@ -43,42 +43,6 @@ public final class SvgPath {
 
   private SvgPath() {}
 
-  /**
-   * The single widest curve in the drawing, as graph points.
-   *
-   * <p>Widest, because a drawing usually carries decoration — axes, a frame, a legend — and the
-   * line somebody meant is the one that spans the picture.
-   */
-  public static List<double[]> graphPoints(String svg) {
-    List<Curve> curves = collect(svg);
-    if (curves.isEmpty()) {
-      throw new IllegalArgumentException(
-          "pattern: the SVG has no <path>/<polyline>/<polygon>/<line>/<rect>/<circle>/<ellipse>"
-              + " to read a curve from");
-    }
-    // Drawn curves outrank primitives: a chart export's frame is a <rect> and its
-    // background another, and "the widest shape" must not hand the graph to the
-    // furniture. A file holding ONLY primitives reads the widest of them.
-    boolean anyDrawn = curves.stream().anyMatch(c -> !c.primitive());
-    Curve best = null;
-    for (Curve c : curves) {
-      if (anyDrawn && c.primitive()) {
-        continue;
-      }
-      if (best == null || c.width() > best.width()) {
-        best = c;
-      }
-    }
-    if (best == null) {
-      best = curves.get(0);
-    }
-    if (best.points().size() < 2 || best.width() <= 0) {
-      throw new IllegalArgumentException(
-          "pattern: the SVG curve has no horizontal extent to stretch over the cards");
-    }
-    return flip(best.points());
-  }
-
   /** The top and bottom edges of everything drawn — a band. */
   public record Envelope(List<double[]> top, List<double[]> bottom) {}
 

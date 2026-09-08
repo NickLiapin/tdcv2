@@ -73,6 +73,13 @@
       "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><mix name=\"M\" percent=\"60\"><case><gen type=\"number\" value=\"1..9\"/></case><case><gen type=\"number\" value=\"90..99\"/></case></mix><sequence name=\"S\"><gen type=\"text\" value=\"a,b\"/></sequence></env><block><line><data name=\"M\">${{M}}</data><data name=\"S\">${{S}}</data></line></block></tdc>",
       "size": 249,
       "sha256": "3693265e2681abf97f5a3509a193efbadd1350b658ec9457d6067f44b2942f4a"
+    },
+    {
+      "name": "lists-of-text",
+      "description": "A repeating TEXT gen. The element type cannot be read off the generator the way a number's can, so the list falls back to string rather than losing the list — and missing= on it makes the ELEMENT nullable, not the list. Both fallbacks were unreached by any case: every list column here was a list of numbers.",
+      "config": "<tdc><env count=\"10\" seed=\"pq-list-text\" inject=\"${{%}}\">\n<sequence name=\"T\"><gen type=\"text\" value=\"red,green,blue\" repeat=\"1..3\"/></sequence>\n<sequence name=\"N\"><gen type=\"text\" value=\"alpha,beta\" repeat=\"1..2\" missing=\"0.4\"/></sequence>\n</env><block><line><data name=\"tags\">${{T}}</data><data name=\"notes\">${{N}}</data></line></block></tdc>",
+      "size": 455,
+      "sha256": "5eadc74e947e68be848c59c524f82a5de3fe83b4dc7a36d3cdb1e2629bb0e77b"
     }
   ]
 }

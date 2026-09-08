@@ -1,7 +1,7 @@
 package io.github.nickliapin.tdc.distribution;
 
 import io.github.nickliapin.tdc.prng.Prng;
-import io.github.nickliapin.tdc.prng.Rand;
+import io.github.nickliapin.tdc.prng.Random;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -102,6 +102,6 @@ public final class Hamilton {
         sequence.add(values.get(i));
       }
     }
-    return Rand.shuffle(prng, sequence);
+    return Random.shuffle(prng, sequence);
   }
 }

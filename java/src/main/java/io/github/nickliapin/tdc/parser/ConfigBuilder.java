@@ -896,20 +896,6 @@ public final class ConfigBuilder {
     return null;
   }
 
-  private static TDCParser.SelfClosingElementContext findSelfClosing(
-      TDCParser.ContentContext content, String name) {
-    if (content == null) {
-      return null;
-    }
-    for (TDCParser.ElementContext element : content.element()) {
-      TDCParser.SelfClosingElementContext self = element.selfClosingElement();
-      if (self != null && name.equals(self.name.getText())) {
-        return self;
-      }
-    }
-    return null;
-  }
-
   /**
    * The attributes of a {@code <gen>}, whichever way it was punctuated.
    *

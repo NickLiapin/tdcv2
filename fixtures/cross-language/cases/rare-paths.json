@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "pack-valid-memory",
+      "description": "A pack generator's <valid> predicate rejects and redraws until it holds",
+      "config": "<tdc><env count=\"8\" seed=\"rare\" local=\"en\" mode=\"memory\"><sequence name=\"P\"><gen type=\"template\" value=\"common.logistics.container_iso6346\"/></sequence></env><block><line><data>${{P}}</data></line></block></tdc>",
+      "expected": [
+        "DIUJ9401997",
+        "VTYZ0736730",
+        "RHDZ5320641",
+        "LARJ8365005",
+        "PGRJ3110097",
+        "ZCIU1674907",
+        "ZWQZ2312771",
+        "SYWU2644162"
+      ]
+    },
+    {
+      "name": "weighted-pack-behind-an-interpolated-address",
+      "description": "A row-dependent address reaching a WEIGHTED pack draws per row, honouring the shares",
+      "config": "<tdc><env count=\"12\" seed=\"rare\" local=\"en\" mode=\"memory\"><sequence name=\"Sex\"><gen type=\"text\" value=\"male,female\"/></sequence><sequence name=\"Name\"><gen type=\"template\" value=\"person.${{Sex}}.firstName\"/></sequence></env><block><line><data>${{Sex}} ${{Name}}</data></line></block></tdc>",
+      "expected": [
+        "male William",
+        "male Aiden",
+        "male Johnny",
+        "male Eric",
+        "male Quintin",
+        "male Philip",
+        "female Marilyn",
+        "female Maryann",
+        "female Isabel",
+        "female Geraldine",
+        "female Lucia",
+        "female Tiffany"
+      ]
+    },
+    {
+      "name": "uniq-exact-on-disk",
+      "description": "uniq= in disk mode goes through the exact on-disk engine: fingerprint piles, then a verify",
+      "config": "<tdc><env count=\"20\" seed=\"u\" local=\"en\" mode=\"disk\"><sequence name=\"K\" uniq=\"true\"><gen name=\"a\" type=\"text\" value=\"a1,a2,a3,a4\"/><gen name=\"b\" type=\"text\" value=\"b1,b2,b3,b4,b5,b6,b7,b8\"/></sequence></env><block><line><data>${{K.a}}-${{K.b}}</data></line></block></tdc>",
+      "expected": [
+        "a4-b6",
+        "a4-b4",
+        "a2-b6",
+        "a4-b1",
+        "a4-b7",
+        "a2-b4",
+        "a3-b5",
+        "a3-b2",
+        "a1-b7",
+        "a3-b6",
+        "a1-b8",
+        "a2-b1",
+        "a1-b3",
+        "a1-b5",
+        "a3-b4",
+        "a2-b7",
+        "a4-b8",
+        "a2-b3",
+        "a3-b1",
+        "a1-b2"
+      ]
+    },
+    {
+      "name": "uniq-exact-on-disk-tight-pool",
+      "description": "The on-disk uniq at the edge of what the pool allows, where the verify has real work",
+      "config": "<tdc><env count=\"9\" seed=\"u-tight\" local=\"en\" mode=\"disk\"><sequence name=\"K\" uniq=\"true\"><gen name=\"a\" type=\"text\" value=\"p,q,r\"/><gen name=\"b\" type=\"text\" value=\"x,y,z\"/></sequence></env><block><line><data>${{K.a}}${{K.b}}</data></line></block></tdc>",
+      "expected": ["qz", "ry", "rz", "qy", "rx", "py", "px", "qx", "pz"]
+    }
+  ]
+}

@@ -4423,6 +4423,36 @@
         ]
       }
     },
+    "patterns/pattern-src-png-every-scanline-filter": {
+      "engine2": {
+        "lines": [
+          "83.3",
+          "66.3",
+          "49.3",
+          "32.2",
+          "15.2",
+          "15.2",
+          "32.2",
+          "49.3",
+          "66.3",
+          "83.3"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "83.3",
+          "66.3",
+          "49.3",
+          "32.2",
+          "15.2",
+          "15.2",
+          "32.2",
+          "49.3",
+          "66.3",
+          "83.3"
+        ]
+      }
+    },
     "pool/a-pool-hands-a-whole-member-to-a-row": {
       "engine2": {
         "lines": ["z1", "z1", "y3", "x2", "y3", "x2"]
@@ -5002,6 +5032,90 @@
           "41",
           "29"
         ]
+      }
+    },
+    "rare-paths/pack-valid-memory": {
+      "engine2": {
+        "lines": [
+          "DIUJ9401997",
+          "VTYZ0736730",
+          "RHDZ5320641",
+          "LARJ8365005",
+          "PGRJ3110097",
+          "ZCIU1674907",
+          "ZWQZ2312771",
+          "SYWU2644162"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "DIUJ9401997",
+          "VTYZ0736730",
+          "RHDZ5320641",
+          "LARJ8365005",
+          "PGRJ3110097",
+          "ZCIU1674907",
+          "ZWQZ2312771",
+          "SYWU2644162"
+        ]
+      }
+    },
+    "rare-paths/weighted-pack-behind-an-interpolated-address": {
+      "engine2": {
+        "refused": "template value \"person.${{Sex}}.firstName\" interpolates a field; the in-memory engine resolves it per row"
+      },
+      "engine3": {
+        "lines": [
+          "male William",
+          "male Aiden",
+          "male Johnny",
+          "male Eric",
+          "male Quintin",
+          "male Philip",
+          "female Marilyn",
+          "female Maryann",
+          "female Isabel",
+          "female Geraldine",
+          "female Lucia",
+          "female Tiffany"
+        ]
+      }
+    },
+    "rare-paths/uniq-exact-on-disk": {
+      "engine2": {
+        "refused": "stream mode: uniq (a whole-column rearrangement) (\"K\") is not supported yet — use mode=\"disk\" instead (the router then picks an engine that can), or remove it."
+      },
+      "engine3": {
+        "lines": [
+          "a4-b6",
+          "a4-b4",
+          "a2-b6",
+          "a4-b1",
+          "a4-b7",
+          "a2-b4",
+          "a3-b5",
+          "a3-b2",
+          "a1-b7",
+          "a3-b6",
+          "a1-b8",
+          "a2-b1",
+          "a1-b3",
+          "a1-b5",
+          "a3-b4",
+          "a2-b7",
+          "a4-b8",
+          "a2-b3",
+          "a3-b1",
+          "a1-b2"
+        ]
+      }
+    },
+    "rare-paths/uniq-exact-on-disk-tight-pool": {
+      "engine2": {
+        "refused": "stream mode: uniq (a whole-column rearrangement) (\"K\") is not supported yet — use mode=\"disk\" instead (the router then picks an engine that can), or remove it."
+      },
+      "engine3": {
+        "lines": ["qz", "ry", "rz", "qy", "rx", "py", "px", "qx", "pz"]
       }
     },
     "repeat-distinct/a-listed-column-drawn-without-replacement": {

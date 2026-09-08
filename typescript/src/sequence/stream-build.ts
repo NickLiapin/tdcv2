@@ -31,7 +31,6 @@
  * be finite-value (text) sequences; `parent` must name a value (`P.V`).
  */
 
-import { advancedRegexHasWeightedChoice } from '../generators/advanced-regex.js';
 import { evaluateCompute } from '../compute/index.js';
 import { applyEnvUniq } from './stream-uniq.js';
 import { computeCountsPerValue } from '../distribution/hamilton.js';
@@ -91,8 +90,8 @@ import {
   weightedTemplatePack,
   wholeColumnPackBody,
 } from './stream-weighted.js';
-import { StreamUnsupportedError } from './stream-errors.js';
-import { refuseIfWholeColumn } from './stream-refusals.js';
+import { StreamUnsupportedError, unsupported } from './stream-errors.js';
+import { refuseIfLazyImpossible, refuseIfWholeColumn } from './stream-refusals.js';
 
 // Re-exported from its own module: `stream-refusals.ts` throws it too, and
 // importing it back out of this file would close a cycle. Every existing
@@ -523,13 +522,6 @@ function buildSwitchSeq(
   });
 }
 
-function unsupported(feature: string, name: string): StreamUnsupportedError {
-  return new StreamUnsupportedError(
-    `stream mode: ${feature} ("${name}") is not supported yet — ` +
-      'use mode="disk" instead (the router then picks an engine that can), or remove it.',
-  );
-}
-
 /** Resolve a sequence's population domain: whole set, or a parent-value subset. */
 function domainOf(spec: SequenceSpec, count: number, parents: Map<string, ParentCapable>): Domain {
   if (!spec.parent) return { size: count, popIndexAt: (i) => i };
@@ -593,14 +585,10 @@ function buildValueSequence(
 ): BuildResult {
   const { size, popIndexAt } = domain;
 
-  // advanced_regex weighted choice `(?%{…})` hits its exact percentages only
-  // over the whole column (Hamilton over `count`); a per-row draw would collapse
-  // every row into the top branch. Like percent-weighted uniq, it can't be done
-  // lazily — refuse it so disk mode routes such configs to the exact engine (and
-  // Engine 3's seekable stage falls back to the in-memory engine).
-  if (gen.type === 'advanced_regex' && advancedRegexHasWeightedChoice(gen.attrs['value'] ?? '')) {
-    throw unsupported('advanced_regex weighted choice "(?%{…})"', streamId);
-  }
+  // What the lazy path cannot answer a row at a time, refused while the column
+  // is built so engine 3's catch can turn it into a fallback. See
+  // `stream-refusals.ts`, which holds the reasoning and the rest of the group.
+  refuseIfLazyImpossible(gen, streamId);
 
   // Empty subset (a parent value with zero quota): always inactive.
   if (size === 0) return { sequence: lazy(streamId, () => undefined) };

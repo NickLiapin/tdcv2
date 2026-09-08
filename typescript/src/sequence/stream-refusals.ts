@@ -21,8 +21,10 @@
  * has a line ceiling that this group kept pushing it through.
  */
 
-import { StreamUnsupportedError } from './stream-errors.js';
-import type { SequenceSpec } from './types.js';
+import { advancedRegexHasWeightedChoice } from '../generators/advanced-regex.js';
+import { isDynamicTemplateValue } from '../validator/known.js';
+import { StreamUnsupportedError, unsupported } from './stream-errors.js';
+import type { GenSpec, SequenceSpec } from './types.js';
 
 /**
  * Refuse `spec` if the streaming path cannot answer it a row at a time.
@@ -94,6 +96,40 @@ export function refuseIfWholeColumn(spec: SequenceSpec): void {
       `<gen type="http"> ("${spec.name}") is a network call, so it is neither ` +
         'reproducible nor answerable one row at a time; the in-memory engine handles it ' +
         '(run without a forced streaming engine)',
+    );
+  }
+}
+
+/**
+ * Refuse a GEN the lazy builder cannot answer a row at a time.
+ *
+ * The two here are refused per generator rather than per sequence, because a
+ * compound sequence's fields carry their own — but they are the same idea as
+ * everything above, and they belong to the same timing rule: raised while the
+ * column is CONSTRUCTED, so engine 3's catch turns them into a fallback rather
+ * than an error.
+ */
+export function refuseIfLazyImpossible(gen: GenSpec, streamId: string): void {
+  // `advanced_regex` weighted choice `(?%{…})` hits its exact percentages only
+  // over the whole column (Hamilton over `count`); a per-row draw would collapse
+  // every row into the top branch.
+  if (gen.type === 'advanced_regex' && advancedRegexHasWeightedChoice(gen.attrs['value'] ?? '')) {
+    throw unsupported('advanced_regex weighted choice "(?%{…})"', streamId);
+  }
+
+  /*
+   * A `${{Field}}`-interpolated address is resolved per row against the other
+   * columns, which the lazy path cannot read. `build.ts` refuses it too — but
+   * only when a row is actually rendered, and by then engine 3 has returned its
+   * registry and left the catch. So `--engine 3` failed outright on a config the
+   * other four ports quietly ran in memory, and it was this fixture, not a user,
+   * that caught it: the same escape the module header describes, one instance
+   * later. Engine 2, which has no fallback, still reports it word for word.
+   */
+  if (gen.type === 'template' && isDynamicTemplateValue(gen.attrs['value'] ?? '')) {
+    throw new StreamUnsupportedError(
+      `template value "${gen.attrs['value'] ?? ''}" interpolates a field; ` +
+        'the in-memory engine resolves it per row',
     );
   }
 }
