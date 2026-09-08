@@ -375,14 +375,90 @@ function raster(w: number, h: number): Raster {
   return built;
 }
 
-/** The largest map that still leaves room for the list, or null when nothing sensible fits. */
-function mapSize(columns: number, rows: number, reserved: number): { w: number; h: number } | null {
+/**
+ * The largest map that still leaves room for the list, or null when nothing sensible fits.
+ *
+ * `halfBlocks` is passed rather than read off the module, because it is the one thing here that
+ * depends on the terminal: with half-blocks two map rows share one screen row, so the same map
+ * costs half the height. A parameter makes the whole function a function of its arguments, which
+ * is what lets the answer be pinned across implementations instead of being taken on trust.
+ */
+export function mapSize(
+  columns: number,
+  rows: number,
+  reserved: number,
+  halfBlocks: boolean,
+): { w: number; h: number } | null {
   for (let w = Math.min(columns - 4, 132); w >= 56; w -= 4) {
     // 360 degrees of longitude against 140 of latitude: keep the ratio so nothing is squashed.
     const h = Math.max(2, Math.round((w * 0.39) / 2) * 2);
-    if ((UNICODE && COLOUR ? h / 2 : h) + reserved <= rows) return { w, h };
+    if ((halfBlocks ? h / 2 : h) + reserved <= rows) return { w, h };
   }
   return null;
+}
+
+/**
+ * Where a country's point lands on a map of this size, or null when it falls outside.
+ *
+ * This is what puts each pick's spark where the country actually is, so it has to agree
+ * everywhere: a map that lights Portugal for Spain is worse than no map.
+ */
+export function mapCell(
+  lon: number,
+  lat: number,
+  w: number,
+  h: number,
+): { col: number; row: number } | null {
+  // `floor(x + 0.5)`, spelled out, rather than each language's `round`. The three rounding
+  // rules the five implementations reach for disagree on a half, and this expression lands on
+  // one constantly: at a 60-column map, Belarus, Ireland, New Zealand, Suriname, Uruguay and
+  // Zambia all give exactly x.5, and Python's banker's rounding put every one of them a column
+  // to the LEFT of where the other four put it — 58 (country, map size) pairs over the 198
+  // points that ship. Below zero it is the mirror image: Rust and C# round away from zero, so
+  // a point on the frame's western edge gave -1 there and 0 everywhere else.
+  //
+  // `Math.round` is already `floor(x + 0.5)` in JavaScript; written out because the ports
+  // cannot say `round` and mean this, and because it also avoids returning `-0` as a column.
+  const col = Math.floor(((lon - LON_MIN) / (LON_MAX - LON_MIN)) * w - 0.5 + 0.5);
+  const row = Math.floor(((LAT_MAX - lat) / (LAT_MAX - LAT_MIN)) * h - 0.5 + 0.5);
+  return col >= 0 && col < w && row >= 0 && row < h ? { col, row } : null;
+}
+
+/** The initial each continent is drawn under, for {@link mapRows}. */
+const RASTER_LETTER: Readonly<Record<string, string>> = {
+  africa: 'a',
+  asia: 's',
+  europe: 'e',
+  north: 'n',
+  south: 'u',
+  oceania: 'o',
+};
+
+/**
+ * The rasterised map as text, one character per pixel — the whole of the map's geometry in a
+ * form a person can read and a fixture can hold.
+ *
+ * `.` is sea, a lower-case letter is inland, an upper-case letter is a coastline pixel. Five
+ * implementations each carry their own copy of the continent outlines, and nothing compared
+ * them: identical today, measured, with no test standing between them and a quiet edit.
+ */
+export function mapRows(w: number, h: number): readonly string[] {
+  const { land, edge } = raster(w, h);
+  const out: string[] = [];
+  for (let row = 0; row < h; row++) {
+    let line = '';
+    for (let col = 0; col < w; col++) {
+      const key = land[row * w + col];
+      if (key === null || key === undefined) {
+        line += '.';
+        continue;
+      }
+      const letter = RASTER_LETTER[key] ?? '?';
+      line += edge[row * w + col] === true ? letter.toUpperCase() : letter;
+    }
+    out.push(line);
+  }
+  return out;
 }
 
 // ── the picker ────────────────────────────────────────────────────────────────
@@ -626,9 +702,8 @@ export function runPicker(
     for (const id of selected) {
       const point = byId.get(id)?.point;
       if (!point) continue;
-      const col = Math.round(((point[0] - LON_MIN) / (LON_MAX - LON_MIN)) * w - 0.5);
-      const row = Math.round(((LAT_MAX - point[1]) / (LAT_MAX - LAT_MIN)) * h - 0.5);
-      if (col >= 0 && col < w && row >= 0 && row < h) lit.add(row * w + col);
+      const cell = mapCell(point[0], point[1], w, h);
+      if (cell) lit.add(cell.row * w + cell.col);
     }
 
     // Land you have not chosen is a grey body under a coloured coastline: the shape stays
@@ -714,7 +789,7 @@ export function runPicker(
     const columns = process.stdout.columns;
 
     const onMap = state.screen === 'regions' || state.screen.startsWith('region:');
-    const size = onMap ? mapSize(columns, rows, 13) : null;
+    const size = onMap ? mapSize(columns, rows, 13, UNICODE && COLOUR) : null;
     const chrome = size ? (UNICODE && COLOUR ? size.h / 2 : size.h) + 13 : 8;
     const viewport = Math.max(4, Math.min(items.length, rows - chrome));
 

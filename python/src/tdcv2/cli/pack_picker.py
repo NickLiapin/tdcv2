@@ -17,6 +17,7 @@ installs and removes, which keeps digests, progress and config writing in one pl
 
 from __future__ import annotations
 
+import math
 import os
 import sys
 from dataclasses import dataclass
@@ -356,16 +357,70 @@ def _raster(w: int, h: int) -> tuple[list[str | None], list[bool]]:
     return land, edge
 
 
-def _map_size(columns: int, rows: int, reserved: int) -> tuple[int, int] | None:
-    """The largest map that still leaves room for the list, or None when nothing sensible fits."""
+def map_size(columns: int, rows: int, reserved: int, half_blocks: bool) -> tuple[int, int] | None:
+    """The largest map that still leaves room for the list, or None when nothing sensible fits.
+
+    ``half_blocks`` is passed rather than read off the module, because it is the one thing here
+    that depends on the terminal: with half-blocks two map rows share one screen row, so the same
+    map costs half the height. A parameter makes the whole function a function of its arguments,
+    which is what lets the answer be pinned across implementations instead of taken on trust.
+    """
     w = min(columns - 4, 132)
     while w >= 56:
         # 360 degrees of longitude against 140 of latitude: keep the ratio so nothing is squashed.
         h = max(2, round(w * 0.39 / 2) * 2)
-        if (h // 2 if UNICODE and COLOUR else h) + reserved <= rows:
+        if (h // 2 if half_blocks else h) + reserved <= rows:
             return w, h
         w -= 4
     return None
+
+
+def map_cell(lon: float, lat: float, w: int, h: int) -> tuple[int, int] | None:
+    """Where a country's point lands on a map of this size, or None when it falls outside.
+
+    ``floor(x + 0.5)``, spelled out, rather than ``round``. Python's ``round`` breaks a tie to
+    the EVEN number, and this expression lands on a tie constantly: at a 60-column map, Belarus,
+    Ireland, New Zealand, Suriname, Uruguay and Zambia all give exactly x.5, and every one of
+    them was drawn a column to the LEFT of where the other four implementations drew it — 58
+    (country, map size) pairs among the 198 points that ship. Below zero it is the mirror image:
+    Rust and C# round away from zero, so a point on the frame's western edge gave -1 there and
+    0 everywhere else. Half-up, written out, is the one rule all five can say.
+    """
+    col = math.floor((lon - LON_MIN) / (LON_MAX - LON_MIN) * w - 0.5 + 0.5)
+    row = math.floor((LAT_MAX - lat) / (LAT_MAX - LAT_MIN) * h - 0.5 + 0.5)
+    return (col, row) if 0 <= col < w and 0 <= row < h else None
+
+
+_RASTER_LETTER = {
+    "africa": "a",
+    "asia": "s",
+    "europe": "e",
+    "north": "n",
+    "south": "u",
+    "oceania": "o",
+}
+
+
+def map_rows(w: int, h: int) -> list[str]:
+    """The rasterised map as text, one character per pixel.
+
+    ``.`` is sea, a lower-case letter is inland, an upper-case letter is a coastline pixel. Five
+    implementations each carry their own copy of the continent outlines, and nothing compared
+    them: identical today, measured, with no test standing between them and a quiet edit.
+    """
+    land, edge = _raster(w, h)
+    out: list[str] = []
+    for row in range(h):
+        line = []
+        for col in range(w):
+            key = land[row * w + col]
+            if key is None:
+                line.append(".")
+                continue
+            letter = _RASTER_LETTER.get(key, "?")
+            line.append(letter.upper() if edge[row * w + col] else letter)
+        out.append("".join(line))
+    return out
 
 
 # ── raw keys ──────────────────────────────────────────────────────────────────
@@ -670,10 +725,9 @@ class _Picker:
             point = point.point if point else None
             if point is None:
                 continue
-            col = round((point[0] - LON_MIN) / (LON_MAX - LON_MIN) * w - 0.5)
-            row = round((LAT_MAX - point[1]) / (LAT_MAX - LAT_MIN) * h - 0.5)
-            if 0 <= col < w and 0 <= row < h:
-                lit.add(row * w + col)
+            cell = map_cell(point[0], point[1], w, h)
+            if cell is not None:
+                lit.add(cell[1] * w + cell[0])
 
         def shade(index: int) -> str | None:
             # Land you have not chosen is a grey body under a coloured coastline: the shape stays
@@ -746,7 +800,7 @@ class _Picker:
         columns, rows = _terminal_size()
 
         on_map = state.screen == "regions" or state.screen.startswith("region:")
-        size = _map_size(columns, rows, 13) if on_map else None
+        size = map_size(columns, rows, 13, UNICODE and COLOUR) if on_map else None
         chrome = ((size[1] // 2 if UNICODE and COLOUR else size[1]) + 13) if size else 8
         viewport = max(4, min(len(items), rows - chrome))
 

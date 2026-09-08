@@ -84,6 +84,11 @@ const CHECKS = [
     run: ['npm', ['--prefix', 'typescript', 'run', 'engines', '--silent']],
     fix: 'npm --prefix typescript run engines:update',
   },
+  {
+    what: "the pack picker's map matches the reference",
+    run: ['npm', ['--prefix', 'typescript', 'run', 'picker', '--silent']],
+    fix: 'npm --prefix typescript run picker:update',
+  },
 ];
 
 const failures = [];

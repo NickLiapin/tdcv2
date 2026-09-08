@@ -262,9 +262,14 @@ final class PackPicker {
 
   private record Raster(int w, int h, String[] land, boolean[] edge) {}
 
-  private final Map<String, Raster> rasters = new HashMap<>();
+  /**
+   * Memoised per size, and static because the outlines are: the raster is a pure function of the
+   * width and the height. The other implementations already cache it at module level; this one
+   * kept a copy per picker, which was a second cache for the same answer.
+   */
+  private static final Map<String, Raster> rasters = new HashMap<>();
 
-  private Raster raster(int w, int h) {
+  private static Raster raster(int w, int h) {
     Raster cached = rasters.get(w + "x" + h);
     if (cached != null) {
       return cached;
@@ -309,16 +314,87 @@ final class PackPicker {
     return built;
   }
 
-  /** The largest map that still leaves room for the list, or null when nothing sensible fits. */
-  private int[] mapSize(int columns, int rows, int reserved) {
+  /**
+   * The largest map that still leaves room for the list, or null when nothing sensible fits.
+   *
+   * <p>{@code halfBlocks} is passed rather than read off the picker, because it is the one thing
+   * here that depends on the terminal: with half-blocks two map rows share one screen row, so the
+   * same map costs half the height. A parameter makes the whole function a function of its
+   * arguments, which is what lets the answer be pinned across implementations rather than taken
+   * on trust.
+   */
+  static int[] mapSize(int columns, int rows, int reserved, boolean halfBlocks) {
     for (int w = Math.min(columns - 4, 132); w >= 56; w -= 4) {
       // 360 degrees of longitude against 140 of latitude: keep the ratio so nothing is squashed.
       int h = Math.max(2, (int) Math.round(w * 0.39 / 2) * 2);
-      if ((unicode && colour ? h / 2 : h) + reserved <= rows) {
+      if ((halfBlocks ? h / 2 : h) + reserved <= rows) {
         return new int[] {w, h};
       }
     }
     return null;
+  }
+
+  /**
+   * Where a country's point lands on a map of this size, or null when it falls outside.
+   *
+   * <p>{@code floor(x + 0.5)}, spelled out, rather than each language's {@code round}. Java's
+   * {@code Math.round} already IS that, but the other four cannot say {@code round} and mean it:
+   * Python breaks a tie to the EVEN number and Rust and C# break it away from zero. This
+   * expression lands on a tie constantly — at a 60-column map, Belarus, Ireland, New Zealand,
+   * Suriname, Uruguay and Zambia all give exactly x.5, 58 (country, map size) pairs among the
+   * 198 points that ship, where Python drew a column to the left of everyone else.
+   */
+  static int[] mapCell(double lon, double lat, int w, int h) {
+    int col = (int) Math.floor((lon - LON_MIN) / (LON_MAX - LON_MIN) * w - 0.5 + 0.5);
+    int row = (int) Math.floor((LAT_MAX - lat) / (LAT_MAX - LAT_MIN) * h - 0.5 + 0.5);
+    return col >= 0 && col < w && row >= 0 && row < h ? new int[] {col, row} : null;
+  }
+
+  /** The initial each continent is drawn under, for {@link #mapRows}. */
+  private static char rasterLetter(String key) {
+    switch (key) {
+      case "africa":
+        return 'a';
+      case "asia":
+        return 's';
+      case "europe":
+        return 'e';
+      case "north":
+        return 'n';
+      case "south":
+        return 'u';
+      case "oceania":
+        return 'o';
+      default:
+        return '?';
+    }
+  }
+
+  /**
+   * The rasterised map as text, one character per pixel.
+   *
+   * <p>{@code .} is sea, a lower-case letter is inland, an upper-case letter is a coastline
+   * pixel. Five implementations each carry their own copy of the continent outlines, and nothing
+   * compared them: identical today, measured, with no test standing between them and a quiet
+   * edit.
+   */
+  static List<String> mapRows(int w, int h) {
+    Raster map = raster(w, h);
+    List<String> out = new ArrayList<>(h);
+    for (int row = 0; row < h; row++) {
+      StringBuilder line = new StringBuilder(w);
+      for (int col = 0; col < w; col++) {
+        String key = map.land()[row * w + col];
+        if (key == null) {
+          line.append('.');
+          continue;
+        }
+        char letter = rasterLetter(key);
+        line.append(map.edge()[row * w + col] ? Character.toUpperCase(letter) : letter);
+      }
+      out.add(line.toString());
+    }
+    return out;
   }
 
   private Map<String, Integer> counts() {
@@ -377,10 +453,9 @@ final class PackPicker {
       if (b == null || b.point() == null) {
         continue;
       }
-      int col = (int) Math.round((b.point()[0] - LON_MIN) / (LON_MAX - LON_MIN) * w - 0.5);
-      int row = (int) Math.round((LAT_MAX - b.point()[1]) / (LAT_MAX - LAT_MIN) * h - 0.5);
-      if (col >= 0 && col < w && row >= 0 && row < h) {
-        lit.add(row * w + col);
+      int[] cell = mapCell(b.point()[0], b.point()[1], w, h);
+      if (cell != null) {
+        lit.add(cell[1] * w + cell[0]);
       }
     }
 
@@ -648,7 +723,7 @@ final class PackPicker {
     int rows = window[1];
 
     boolean onMap = state.screen.equals("regions") || state.screen.startsWith("region:");
-    int[] size = onMap ? mapSize(columns, rows, 13) : null;
+    int[] size = onMap ? mapSize(columns, rows, 13, unicode && colour) : null;
     int chrome = size == null ? 8 : (unicode && colour ? size[1] / 2 : size[1]) + 13;
     int viewport = Math.max(4, Math.min(items.size(), rows - chrome));
 

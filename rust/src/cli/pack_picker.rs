@@ -384,6 +384,92 @@ fn inside(lon: f64, lat: f64, ring: &[[f64; 2]]) -> bool {
     hit
 }
 
+/// The largest map that still leaves room for the list, or `None` when nothing sensible fits.
+///
+/// `half_blocks` is passed rather than read off the picker, because it is the one thing here
+/// that depends on the terminal: with half-blocks two map rows share one screen row, so the same
+/// map costs half the height. A parameter makes the whole function a function of its arguments,
+/// which is what lets the answer be pinned across implementations instead of taken on trust.
+pub fn map_size(
+    columns: usize,
+    rows: usize,
+    reserved: usize,
+    half_blocks: bool,
+) -> Option<(usize, usize)> {
+    let mut w = columns.saturating_sub(4).min(132);
+    while w >= 56 {
+        // 360 degrees of longitude against 140 of latitude: keep the ratio so nothing is
+        // squashed.
+        let h = (((w as f64 * 0.39) / 2.0).round() as usize * 2).max(2);
+        let drawn = if half_blocks { h / 2 } else { h };
+        if drawn + reserved <= rows {
+            return Some((w, h));
+        }
+        w -= 4;
+    }
+    None
+}
+
+/// Where a country's point lands on a map of this size, or `None` when it falls outside.
+///
+/// `(x + 0.5).floor()`, spelled out, rather than `round`. Rust rounds a half AWAY from zero and
+/// Python rounds it to the EVEN number, and this expression lands on a half constantly: at a
+/// 60-column map, Belarus, Ireland, New Zealand, Suriname, Uruguay and Zambia all give exactly
+/// x.5 — 58 (country, map size) pairs among the 198 points that ship, where Python drew a column
+/// to the left of everyone else. Below zero it was Rust and C# that differed: a point on the
+/// frame's western edge gave -1 here and 0 in the other three. Half-up is the one rule all five
+/// can say without argument.
+pub fn map_cell(lon: f64, lat: f64, w: usize, h: usize) -> Option<(usize, usize)> {
+    let col = ((lon - LON_MIN) / (LON_MAX - LON_MIN) * w as f64 - 0.5 + 0.5).floor();
+    let row = ((LAT_MAX - lat) / (LAT_MAX - LAT_MIN) * h as f64 - 0.5 + 0.5).floor();
+    if col >= 0.0 && col < w as f64 && row >= 0.0 && row < h as f64 {
+        Some((col as usize, row as usize))
+    } else {
+        None
+    }
+}
+
+/// The initial each continent is drawn under, for [`map_rows`].
+fn raster_letter(key: &str) -> char {
+    match key {
+        "africa" => 'a',
+        "asia" => 's',
+        "europe" => 'e',
+        "north" => 'n',
+        "south" => 'u',
+        "oceania" => 'o',
+        _ => '?',
+    }
+}
+
+/// The rasterised map as text, one character per pixel.
+///
+/// `.` is sea, a lower-case letter is inland, an upper-case letter is a coastline pixel. Five
+/// implementations each carry their own copy of the continent outlines, and nothing compared
+/// them: identical today, measured, with no test standing between them and a quiet edit.
+pub fn map_rows(w: usize, h: usize) -> Vec<String> {
+    let map = raster(w, h);
+    let mut out = Vec::with_capacity(h);
+    for row in 0..h {
+        let mut line = String::with_capacity(w);
+        for col in 0..w {
+            match map.land[row * w + col] {
+                None => line.push('.'),
+                Some(key) => {
+                    let letter = raster_letter(key);
+                    if map.edge[row * w + col] {
+                        line.push(letter.to_ascii_uppercase());
+                    } else {
+                        line.push(letter);
+                    }
+                }
+            }
+        }
+        out.push(line);
+    }
+    out
+}
+
 /// Which continent owns each pixel, and whether that pixel sits on a coastline.
 struct Raster {
     land: Vec<Option<&'static str>>,
@@ -610,24 +696,6 @@ impl<'a> Picker<'a> {
 
     /// The largest map that still leaves room for the list, or nothing when
     /// nothing sensible fits.
-    fn map_size(&self, columns: usize, rows: usize, reserved: usize) -> Option<(usize, usize)> {
-        let mut w = columns.saturating_sub(4).min(132);
-        while w >= 56 {
-            // 360 degrees of longitude against 140 of latitude: keep the ratio so
-            // nothing is squashed.
-            let h = (((w as f64 * 0.39) / 2.0).round() as usize * 2).max(2);
-            let drawn = if self.unicode && self.colour {
-                h / 2
-            } else {
-                h
-            };
-            if drawn + reserved <= rows {
-                return Some((w, h));
-            }
-            w -= 4;
-        }
-        None
-    }
 
     fn items_for(&self, state: &Screen) -> Vec<Item> {
         match state.screen.as_str() {
@@ -912,10 +980,8 @@ impl Picker<'_> {
             let Some([lon, lat]) = self.by_id(id).and_then(|b| b.point) else {
                 continue;
             };
-            let col = (((lon - LON_MIN) / (LON_MAX - LON_MIN)) * w as f64 - 0.5).round();
-            let row = (((LAT_MAX - lat) / (LAT_MAX - LAT_MIN)) * h as f64 - 0.5).round();
-            if col >= 0.0 && col < w as f64 && row >= 0.0 && row < h as f64 {
-                lit.insert(row as usize * w + col as usize);
+            if let Some((col, row)) = map_cell(lon, lat, w, h) {
+                lit.insert(row * w + col);
             }
         }
 
@@ -1045,7 +1111,7 @@ impl Picker<'_> {
 
         let on_map = state.screen == "regions" || state.screen.starts_with("region:");
         let size = if on_map {
-            self.map_size(columns, rows, 13)
+            map_size(columns, rows, 13, self.unicode && self.colour)
         } else {
             None
         };

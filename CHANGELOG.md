@@ -329,6 +329,26 @@ amplitude="120,400" peak_at="5,182"` is a weekly season and a yearly one on one 
 
 ### Fixed
 
+<!-- covers: pack picker map projection rounding -->
+
+- **The `tdcv2 pack` picker put a country's spark in different places in different
+  implementations.** The map lights a pixel where each chosen pack's country actually is, and
+  the column is `round(…)` — a word the five languages do not agree on. Python breaks a tie to
+  the EVEN number; Rust and C# break it away from zero; TypeScript and Java round half up. The
+  expression lands on a tie constantly: at a 60-column map Belarus, Ireland, New Zealand,
+  Suriname, Uruguay and Zambia all give exactly x.5, and Python drew every one of them a column
+  to the left of the other four — **58 (country, map size) pairs among the 198 points that
+  ship**. Below zero it was the other way: a point on the frame's western edge gave -1 in Rust
+  and C# and 0 elsewhere, so the pixel was lit in three implementations and not in two.
+
+  All five now spell `floor(x + 0.5)` out rather than saying `round`, and the map's geometry —
+  the fitted size for a terminal, the rasterised continents, and where a point lands — is pinned
+  in `fixtures/cross-language/pack-picker.json`, checked by every implementation and by
+  `verify:derived`. The picker was about 5,600 lines with no test in any language, the largest
+  untested surface in the project; the five copies of the continent outlines were identical when
+  this was written, measured coordinate by coordinate, with nothing standing between them and a
+  quiet edit.
+
 <!-- covers: rust streaming distinct repair over a repeating member -->
 
 - **Rust's streaming engines rebuilt one element where a repeating cell has several.** A

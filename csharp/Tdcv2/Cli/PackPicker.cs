@@ -174,6 +174,69 @@ public static class PackPicker
         return hit;
     }
 
+    /// <summary>
+    /// Where a country's point lands on a map of this size, or null when it falls outside.
+    /// </summary>
+    /// <remarks>
+    /// <c>Floor(x + 0.5)</c>, spelled out, rather than <c>Math.Round</c>. Rounding a half away
+    /// from zero parts company with the others below zero — a point on the frame's western edge
+    /// gave -1 here and 0 in TypeScript, Java and Python — and Python's ties-to-even parted
+    /// company above it: at a 60-column map Belarus, Ireland, New Zealand, Suriname, Uruguay and
+    /// Zambia all give exactly x.5, 58 (country, map size) pairs among the 198 points that ship.
+    /// Half-up is the one rule all five can say without argument.
+    /// </remarks>
+    internal static (int Col, int Row)? MapCell(double lon, double lat, int w, int h)
+    {
+        double col = Math.Floor(((lon - LonMin) / (LonMax - LonMin) * w) - 0.5 + 0.5);
+        double row = Math.Floor(((LatMax - lat) / (LatMax - LatMin) * h) - 0.5 + 0.5);
+        return col >= 0 && col < w && row >= 0 && row < h ? ((int)col, (int)row) : null;
+    }
+
+    /// <summary>The initial each continent is drawn under, for <see cref="MapRows"/>.</summary>
+    private static char RasterLetter(string key) => key switch
+    {
+        "africa" => 'a',
+        "asia" => 's',
+        "europe" => 'e',
+        "north" => 'n',
+        "south" => 'u',
+        "oceania" => 'o',
+        _ => '?',
+    };
+
+    /// <summary>The rasterised map as text, one character per pixel.</summary>
+    /// <remarks>
+    /// <c>.</c> is sea, a lower-case letter is inland, an upper-case letter is a coastline pixel.
+    /// Five implementations each carry their own copy of the continent outlines, and nothing
+    /// compared them: identical today, measured, with no test standing between them and a quiet
+    /// edit.
+    /// </remarks>
+    internal static IReadOnlyList<string> MapRows(int w, int h)
+    {
+        Raster map = Rasterise(w, h);
+        var out_ = new List<string>(h);
+        for (int row = 0; row < h; row++)
+        {
+            var line = new StringBuilder(w);
+            for (int col = 0; col < w; col++)
+            {
+                string? key = map.LandAt[(row * w) + col];
+                if (key is null)
+                {
+                    line.Append('.');
+                    continue;
+                }
+
+                char letter = RasterLetter(key);
+                line.Append(map.EdgeAt[(row * w) + col] ? char.ToUpperInvariant(letter) : letter);
+            }
+
+            out_.Add(line.ToString());
+        }
+
+        return out_;
+    }
+
     /// <summary>Which continent owns each pixel, and whether it sits on a coastline.</summary>
     private sealed record Raster(string?[] LandAt, bool[] EdgeAt);
 
@@ -346,14 +409,21 @@ public static class PackPicker
     /// <summary>
     /// The largest map that still leaves room for the list, or null when nothing sensible fits.
     /// </summary>
-    private static (int W, int H)? MapSize(int columns, int rows, int reserved)
+    /// <remarks>
+    /// <paramref name="halfBlocks"/> is passed rather than read off the picker, because it is the
+    /// one thing here that depends on the terminal: with half-blocks two map rows share one screen
+    /// row, so the same map costs half the height. A parameter makes the whole function a function
+    /// of its arguments, which is what lets the answer be pinned across implementations instead of
+    /// taken on trust.
+    /// </remarks>
+    internal static (int W, int H)? MapSize(int columns, int rows, int reserved, bool halfBlocks)
     {
         for (int w = Math.Min(columns - 4, 132); w >= 56; w -= 4)
         {
             // 360 degrees of longitude against 140 of latitude: keep the ratio so nothing is
             // squashed.
             int h = Math.Max(2, (int)Math.Round(w * 0.39 / 2, MidpointRounding.AwayFromZero) * 2);
-            if ((Unicode && Colour ? h / 2 : h) + reserved <= rows)
+            if ((halfBlocks ? h / 2 : h) + reserved <= rows)
             {
                 return (w, h);
             }
@@ -583,13 +653,9 @@ public static class PackPicker
                 continue;
             }
 
-            double col = Math.Round(((point[0] - LonMin) / (LonMax - LonMin) * w) - 0.5,
-                MidpointRounding.AwayFromZero);
-            double row = Math.Round(((LatMax - point[1]) / (LatMax - LatMin) * h) - 0.5,
-                MidpointRounding.AwayFromZero);
-            if (col >= 0 && col < w && row >= 0 && row < h)
+            if (MapCell(point[0], point[1], w, h) is (int col, int row))
             {
-                lit.Add(((int)row * w) + (int)col);
+                lit.Add((row * w) + col);
             }
         }
 
@@ -735,7 +801,7 @@ public static class PackPicker
 
         bool onMap = screen.Name == "regions"
             || screen.Name.StartsWith("region:", StringComparison.Ordinal);
-        (int W, int H)? size = onMap ? MapSize(columns, rows, 13) : null;
+        (int W, int H)? size = onMap ? MapSize(columns, rows, 13, Unicode && Colour) : null;
         int chrome = size is null ? 8 : (Unicode && Colour ? size.Value.H / 2 : size.Value.H) + 13;
         int viewport = Math.Max(4, Math.Min(items.Count, rows - chrome));
 
