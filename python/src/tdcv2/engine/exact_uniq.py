@@ -219,6 +219,7 @@ def repair(
     block_of: Callable[[int], str] | None = None,
     on_progress=None,
     plan: Plan | None = None,
+    fingerprint_buckets: int = 0,
 ) -> dict[str, Resolver]:
     """Verified, and whatever the construction left colliding repaired.
 
@@ -230,6 +231,13 @@ def repair(
     from a different list depending on another column, so a male row's first name is not a value a
     female row is allowed to hold; without this the repair would keep the tuple unique and stop the
     record making sense. Absent means one block holding everything, which is the ordinary case.
+
+    ``fingerprint_buckets`` names the pile count instead of working it out from ``count``. Zero
+    means work it out, which is what every production caller passes. A test names it, because
+    otherwise the fingerprint carrier is unreachable below a MILLION rows — and that left the whole
+    on-disk duplicate hunt, the part engine 3 leans on for exactly the runs nobody can hold in
+    memory, with no test at all in this port. The reference has carried the same knob for the same
+    reason since the carrier was written.
     """
     # Told rather than worked out: the whole point of a plan. Nothing below this line runs.
     if plan is not None and plan.preset is not None:
@@ -239,7 +247,7 @@ def repair(
     # The carrier is all that differs — the rows found are the same rows either way, because a
     # matching fingerprint is verified against the true tuples before it is believed.
     report = _RepairReport(on_progress)
-    scan = _fingerprint_scan(resolvers, count, tmp_dir, on_progress, report)
+    scan = _fingerprint_scan(resolvers, count, tmp_dir, on_progress, report, fingerprint_buckets)
 
     excess: list[int] = []
     if scan is not None:
@@ -409,7 +417,12 @@ class _FingerprintScan:
 
 
 def _fingerprint_scan(
-    resolvers: list[Resolver], count: int, tmp_dir: Path | None, on_progress=None, report=None
+    resolvers: list[Resolver],
+    count: int,
+    tmp_dir: Path | None,
+    on_progress=None,
+    report=None,
+    buckets_named: int = 0,
 ) -> _FingerprintScan | None:
     """Hunt duplicates by fingerprint, or return None to leave the text path in charge.
 
@@ -418,7 +431,7 @@ def _fingerprint_scan(
     true tuples for those few rows, so a 64-bit collision costs one recomputation and never a
     false duplicate — the rows returned are exactly the ones the text sort would name.
     """
-    buckets = fingerprint.bucket_count_for(count, os.cpu_count() or 1)
+    buckets = buckets_named or fingerprint.bucket_count_for(count, os.cpu_count() or 1)
     if buckets < 2:
         return None
 

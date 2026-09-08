@@ -273,6 +273,28 @@ final class ExactUniq {
       IntFunction<String> blockOf,
       Progress onProgress,
       Plan plan) {
+    return repair(ids, resolvers, count, label, tmpDir, blockOf, onProgress, plan, 0);
+  }
+
+  /**
+   * The same, with the pile count named instead of worked out from {@code count}.
+   *
+   * <p>{@code 0} means work it out, which is what every production caller passes. A test names it,
+   * because otherwise the fingerprint carrier is unreachable below a MILLION rows — and that left
+   * the whole on-disk duplicate hunt, the part engine 3 leans on for exactly the runs nobody can
+   * hold in memory, with no test at all in this port. The reference has carried the same knob for
+   * the same reason since the carrier was written.
+   */
+  static Map<String, Resolver> repair(
+      List<String> ids,
+      List<Resolver> resolvers,
+      int count,
+      String label,
+      Path tmpDir,
+      IntFunction<String> blockOf,
+      Progress onProgress,
+      Plan plan,
+      int fingerprintBuckets) {
     // Told rather than worked out: the whole point of a plan. Nothing below this line runs.
     if (plan != null && plan.preset() != null) {
       return applyOverride(ids, resolvers, plan.preset());
@@ -282,7 +304,8 @@ final class ExactUniq {
     // The carrier is all that differs — the rows found are the same either way, because a matching
     // fingerprint is verified against the true tuples before it is believed.
     RepairReport report = new RepairReport(onProgress);
-    FingerprintScan scan = fingerprintScan(resolvers, count, tmpDir, onProgress, report);
+    FingerprintScan scan =
+        fingerprintScan(resolvers, count, tmpDir, onProgress, report, fingerprintBuckets);
 
     List<Integer> excess = new ArrayList<>();
     if (scan != null) {
@@ -512,8 +535,16 @@ final class ExactUniq {
    * false duplicate — the rows returned are exactly the ones the text sort would name.
    */
   private static FingerprintScan fingerprintScan(
-      List<Resolver> resolvers, int count, Path tmpDir, Progress onProgress, RepairReport report) {
-    int buckets = Fingerprint.bucketCountFor(count, Runtime.getRuntime().availableProcessors());
+      List<Resolver> resolvers,
+      int count,
+      Path tmpDir,
+      Progress onProgress,
+      RepairReport report,
+      int bucketsNamed) {
+    int buckets =
+        bucketsNamed > 0
+            ? bucketsNamed
+            : Fingerprint.bucketCountFor(count, Runtime.getRuntime().availableProcessors());
     if (buckets < 2) {
       return null;
     }
@@ -612,6 +643,17 @@ final class ExactUniq {
     void finish() {
       emit(base + size);
     }
+  }
+
+  /**
+   * Verification on its own, for a caller holding candidate groups of its own making.
+   *
+   * <p>At test sizes a real 64-bit collision never happens, so the only way to prove this step
+   * does anything is to forge one: rows whose tuples DIFFER, handed over as if their hashes had
+   * matched. Nothing may come back.
+   */
+  static List<Integer> verifyCandidates(List<Resolver> resolvers, List<List<Long>> candidates) {
+    return verify(resolvers, candidates, new RepairReport(null), Integer.MAX_VALUE);
   }
 
   /** Keep only the rows whose tuples GENUINELY repeat, lowest row of each group spared. */

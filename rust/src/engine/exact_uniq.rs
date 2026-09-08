@@ -248,12 +248,38 @@ pub fn repair(
     block_of: Option<&dyn Fn(i32) -> String>,
     on_progress: crate::engine::Watch<'_>,
 ) -> EngineResult<Overrides> {
+    repair_with_buckets(sources, count, label, tmp_dir, block_of, on_progress, 0)
+}
+
+/// The same, with the pile count named instead of worked out from `count`.
+///
+/// `0` means work it out, which is what every production caller passes. A test names it, because
+/// otherwise the fingerprint carrier is unreachable below a MILLION rows — and that left the whole
+/// on-disk duplicate hunt, the part engine 3 leans on for exactly the runs nobody can hold in
+/// memory, with no test at all in this port. The reference has carried the same knob for the same
+/// reason since the carrier was written.
+pub fn repair_with_buckets(
+    sources: &[Source<'_>],
+    count: i32,
+    label: &str,
+    tmp_dir: &Path,
+    block_of: Option<&dyn Fn(i32) -> String>,
+    on_progress: crate::engine::Watch<'_>,
+    fingerprint_buckets: usize,
+) -> EngineResult<Overrides> {
     // How the duplicates are hunted: by fingerprint on a large run, by tuple
     // text on a small one. The carrier is all that differs — the rows found are
     // the same either way, because a matching fingerprint is verified against
     // the true tuples before it is believed.
     let mut report = RepairReport::new(on_progress);
-    let scan = fingerprint_scan(sources, count, tmp_dir, on_progress, &mut report)?;
+    let scan = fingerprint_scan(
+        sources,
+        count,
+        tmp_dir,
+        on_progress,
+        &mut report,
+        fingerprint_buckets,
+    )?;
 
     let mut excess: Vec<i32> = Vec::new();
     match &scan {
@@ -468,11 +494,16 @@ fn fingerprint_scan(
     tmp_dir: &Path,
     on_progress: crate::engine::Watch<'_>,
     report: &mut RepairReport<'_>,
+    buckets_named: usize,
 ) -> EngineResult<Option<FingerprintScan>> {
     let cores = std::thread::available_parallelism()
         .map(std::num::NonZeroUsize::get)
         .unwrap_or(1);
-    let buckets = fingerprint::bucket_count_for(count as u64, cores);
+    let buckets = if buckets_named > 0 {
+        buckets_named
+    } else {
+        fingerprint::bucket_count_for(count as u64, cores)
+    };
     if buckets < 2 {
         return Ok(None);
     }
@@ -521,7 +552,7 @@ fn fingerprint_scan(
     // Past the cap the caller refuses whatever the exact figure is, so the verify
     // is told where the answer stops mattering.
     let stop_after = max_repair_rows_for(count);
-    let excess = verify_candidates(sources, &candidates, report, stop_after);
+    let excess = verify(sources, &candidates, report, stop_after);
     let partial = excess.len() > stop_after;
     Ok(Some(FingerprintScan {
         sorted_paths,
@@ -582,7 +613,17 @@ impl<'a> RepairReport<'a> {
 }
 
 /// Keep only the rows whose tuples GENUINELY repeat, lowest row of each group spared.
-fn verify_candidates(
+/// Verification on its own, so a caller can hand it candidate groups of its own making.
+///
+/// At test sizes a real 64-bit collision never happens, so the only way to prove this step does
+/// anything is to forge one: rows whose tuples DIFFER, handed over as if their hashes had matched.
+/// Nothing may come back. The reference exports its own for the same reason.
+pub fn verify_candidates(sources: &[Source<'_>], candidates: &[Vec<usize>]) -> Vec<i32> {
+    let mut report = RepairReport::new(None);
+    verify(sources, candidates, &mut report, usize::MAX)
+}
+
+fn verify(
     sources: &[Source<'_>],
     candidates: &[Vec<usize>],
     report: &mut RepairReport<'_>,

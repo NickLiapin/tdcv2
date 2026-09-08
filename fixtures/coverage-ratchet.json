@@ -6,20 +6,20 @@
       "branches": 75.3
     },
     "python": {
-      "lines": 83.9,
-      "branches": 77.7
+      "lines": 84,
+      "branches": 77.9
     },
     "rust": {
-      "lines": 83.7,
-      "branches": 83
+      "lines": 84.1,
+      "branches": 83.5
     },
     "java": {
-      "lines": 85.2,
-      "branches": 73.3
+      "lines": 85.7,
+      "branches": 73.7
     },
     "csharp": {
-      "lines": 84.6,
-      "branches": 74
+      "lines": 85.1,
+      "branches": 74.4
     }
   }
 }

@@ -218,9 +218,18 @@ internal static class ExactUniq
     /// holding everything, which is the ordinary case.
     /// </para>
     /// </remarks>
+    /// <param name="fingerprintBuckets">
+    /// The pile count, named instead of worked out from <paramref name="count"/>. Zero means work
+    /// it out, which is what every production caller passes. A test names it, because otherwise
+    /// the fingerprint carrier is unreachable below a MILLION rows — and that left the whole
+    /// on-disk duplicate hunt, the part engine 3 leans on for exactly the runs nobody can hold in
+    /// memory, with no test at all in this port. The reference has carried the same knob for the
+    /// same reason since the carrier was written.
+    /// </param>
     internal static IReadOnlyDictionary<string, Resolver> Repair(
         IReadOnlyList<string> ids, IReadOnlyList<Resolver> resolvers, int count, string label,
-        string tmpDir, Func<int, string>? blockOf, Progress? onProgress = null, Plan? plan = null)
+        string tmpDir, Func<int, string>? blockOf, Progress? onProgress = null, Plan? plan = null,
+        int fingerprintBuckets = 0)
     {
         // Told rather than worked out: the whole point of a plan. Nothing below this line runs.
         if (plan?.Preset is not null)
@@ -232,7 +241,8 @@ internal static class ExactUniq
         // one. The carrier is all that differs — the rows found are the same either way, because a
         // matching fingerprint is verified against the true tuples before it is believed.
         var report = new RepairReport(onProgress);
-        FingerprintScan? scan = RunFingerprintScan(resolvers, count, tmpDir, onProgress, report);
+        FingerprintScan? scan = RunFingerprintScan(
+            resolvers, count, tmpDir, onProgress, report, fingerprintBuckets);
 
         var excess = new List<int>();
         if (scan is not null)
@@ -552,9 +562,11 @@ internal static class ExactUniq
     /// </remarks>
     private static FingerprintScan? RunFingerprintScan(
         IReadOnlyList<Resolver> resolvers, int count, string tmpDir, Progress? onProgress,
-        RepairReport report)
+        RepairReport report, int bucketsNamed)
     {
-        int buckets = Fingerprint.BucketCountFor(count, Environment.ProcessorCount);
+        int buckets = bucketsNamed > 0
+            ? bucketsNamed
+            : Fingerprint.BucketCountFor(count, Environment.ProcessorCount);
         if (buckets < 2)
         {
             return null;
@@ -591,6 +603,16 @@ internal static class ExactUniq
         List<int> excess = Verify(resolvers, candidates, report, stopAfter);
         return new FingerprintScan(sortedPaths, directory, excess, excess.Count > stopAfter);
     }
+
+    /// <summary>Verification on its own, for a caller holding candidate groups of its own making.</summary>
+    /// <remarks>
+    /// At test sizes a real 64-bit collision never happens, so the only way to prove this step
+    /// does anything is to forge one: rows whose tuples DIFFER, handed over as if their hashes had
+    /// matched. Nothing may come back.
+    /// </remarks>
+    internal static List<int> VerifyCandidates(
+        IReadOnlyList<Resolver> resolvers, List<List<int>> candidates) =>
+        Verify(resolvers, candidates, new RepairReport(null), int.MaxValue);
 
     /// <summary>Keep only the rows whose tuples GENUINELY repeat, lowest row of each group spared.</summary>
     private static List<int> Verify(
