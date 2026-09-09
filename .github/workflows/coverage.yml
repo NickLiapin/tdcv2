@@ -39,8 +39,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+      # At the ROOT, not `--prefix typescript`: this is an npm workspaces monorepo and the
+      # lockfile lives at the top. `npm ci --prefix typescript` found no lockfile beside the
+      # package it was pointed at and refused, so this job never ran once — the number it was
+      # meant to guard was never measured in CI at all.
       - name: Install
-        run: npm ci --prefix typescript
+        run: npm ci
       - name: Coverage
         run: node scripts/coverage.mjs --only typescript
 

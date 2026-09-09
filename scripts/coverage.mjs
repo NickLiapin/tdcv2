@@ -251,6 +251,12 @@ function main() {
     }
     writeFileSync(RATCHET_FILE, `${JSON.stringify({ ...ratchet, floors }, null, 2)}\n`);
     console.log('\n  ratchet updated');
+    // Said every time, because it has already cost a red main and three red Dependabot PRs:
+    // the GATE is the CI runner, and it does not always measure what this machine measures.
+    // On 2026-09-08 C# came out 0.45pp lower there on the same commit, which was enough to
+    // fail a floor raised here. Numbers from a laptop are a proposal until CI agrees.
+    console.log('  confirm these against a CI run before committing them — the runner is the');
+    console.log('  gate, and it has measured up to half a point less than a developer machine');
     return 0;
   }
 
