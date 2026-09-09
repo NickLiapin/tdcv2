@@ -2,8 +2,8 @@
   "comment": "Coverage floors, one per implementation. A RATCHET: each number sits just under what the suite measures, so coverage cannot slip without CI saying so, and every one of them is meant to be raised and never lowered. The five are NOT expected to agree with each other — the languages structure the same logic differently, and a match arm is not a switch case — but a number that falls is a test somebody deleted or a branch somebody stopped reaching. Rust reports REGIONS in the branch column: llvm-cov counts no branches on a stable toolchain, and regions are the nearest thing it does count. SET THESE FROM CI, NEVER FROM A LAPTOP: the gate is the runner, and the two do not always measure the same thing. Measured 2026-09-08 on one commit — Java and Python identical, Rust 0.3pp HIGHER in CI, and C# 0.45pp LOWER (74.72 against 75.17 branches), which is enough to fail a floor raised locally and did, on every open Dependabot PR as well as on main. Regenerate with: node scripts/coverage.mjs --update, then confirm against a CI run before committing the raise.",
   "floors": {
     "typescript": {
-      "lines": 88.9,
-      "branches": 75.7
+      "lines": 91.0,
+      "branches": 78.0
     },
     "python": {
       "lines": 85.2,

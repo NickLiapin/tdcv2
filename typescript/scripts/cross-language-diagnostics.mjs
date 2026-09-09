@@ -17,53 +17,13 @@
  */
 
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
-import { bundledPacks, packParameterNames, packParameterWidths } from '../src/data-pack/load.ts';
-import { parse } from '../src/parser/index.ts';
-import { validate } from '../src/validator/index.ts';
-
-const here = dirname(fileURLToPath(import.meta.url));
-const DIR = resolve(here, '..', '..', 'fixtures', 'cross-language', 'diagnostics');
+// How a case is DIAGNOSED lives in one module now, shared with the suite, which runs these same
+// fixtures under coverage. See `shared-fixtures.mjs`.
+import { DIAGNOSTICS_DIR as DIR, diagnoseCase } from './shared-fixtures.ts';
 
 const update = process.argv.includes('--update');
-
-// The bundled packs, exactly as the CLI and every port's harness supply them. Without
-// them the reference cannot tell "this locale does not ship that path" (TDC217) from
-// "no such path anywhere" (TDC071), and would record the wrong code for the other four
-// to match.
-const PACKS = bundledPacks();
-const PACK_ADDRESSES = [...PACKS.keys()];
-const PACK_PARAMS = packParameterNames(PACKS);
-const PACK_PARAM_WIDTHS = packParameterWidths(PACKS);
-
-/**
- * Parse and validate, returning `severity code line:column` per diagnostic, in report order.
- *
- * A parse error stops the run: there is no tree to validate, and the parser's own complaint is
- * the only honest thing to report.
- */
-function diagnose(source, dataPath) {
-  const parsed = parse(source);
-  if (parsed.diagnostics.length > 0) {
-    // A parser diagnostic carries no severity of its own — refusing to parse is never
-    // advisory, so every consumer (the CLI renderer, the LSP) states `error` for it, and
-    // so does this. Without that the reference would record `undefined` where the four
-    // ports record `error`.
-    return parsed.diagnostics.map((d) => `error ${d.code ?? 'PARSE'} ${d.line}:${d.column}`);
-  }
-  return validate(parsed.tree, {
-    packAddresses: PACK_ADDRESSES,
-    packParams: PACK_PARAMS,
-    packParamWidths: PACK_PARAM_WIDTHS,
-    // A case may need a real file on disk — TDC062 is about a CSV column that
-    // is not in the header, and there is no way to say that without a header to
-    // be absent from. `dataPath` names a folder beside these fixtures, exactly
-    // as it does for the rendering cases, so both harnesses spell it one way.
-    ...(dataPath ? { dataSources: { baseDir: join(DIR, dataPath) } } : {}),
-  }).diagnostics.map((d) => `${d.severity} ${d.code ?? '?'} ${d.line}:${d.column}`);
-}
 
 let checked = 0;
 let changed = 0;
@@ -80,7 +40,7 @@ for (const file of readdirSync(DIR)
     checked += 1;
     let actual;
     try {
-      actual = diagnose(testCase.config, testCase.dataPath);
+      actual = diagnoseCase(testCase.config, testCase.dataPath);
     } catch (error) {
       failures.push(`${file} / ${testCase.name}: ${error.message}`);
       continue;

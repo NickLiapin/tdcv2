@@ -17,44 +17,13 @@
  */
 
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
-import { TDC } from '../src/index.ts';
-
-const here = dirname(fileURLToPath(import.meta.url));
-const CASES_DIR = resolve(here, '..', '..', 'fixtures', 'cross-language', 'cases');
+// How a case is RUN lives in one module now, shared with the engines harness and with the
+// suite, which runs these same fixtures under coverage. See `shared-fixtures.mjs`.
+import { CASES_DIR, fromLines, renderCase, toLines } from './shared-fixtures.ts';
 
 const update = process.argv.includes('--update');
-
-/** Render one case exactly as every implementation must. */
-function render(testCase) {
-  const options = { configString: testCase.config };
-  if (testCase.seed !== undefined) options.seed = testCase.seed;
-  if (testCase.count !== undefined) options.count = testCase.count;
-  if (testCase.locale !== undefined) options.locale = testCase.locale;
-  // A case that reads the clock has to pin it, or it passes today and fails tomorrow.
-  if (testCase.now !== undefined) options.now = Date.parse(testCase.now);
-  // A case that reads a FILE names the folder its samples live in, relative to
-  // the cases directory. Every implementation resolves it the same way, so a
-  // `type="file"` config can be pinned across languages like any other.
-  if (testCase.dataPath !== undefined) options.dataPaths = [join(CASES_DIR, testCase.dataPath)];
-  return new TDC(options).toString();
-}
-
-/**
- * Text to the `expected` array. The output always ends in a newline, so the
- * final empty piece of the split is dropped rather than stored as a blank line.
- */
-function toLines(text) {
-  const parts = text.split('\n');
-  if (parts.length > 0 && parts[parts.length - 1] === '') parts.pop();
-  return parts;
-}
-
-function fromLines(lines) {
-  return lines.length === 0 ? '' : `${lines.join('\n')}\n`;
-}
 
 let checked = 0;
 let changed = 0;
@@ -71,7 +40,7 @@ for (const file of readdirSync(CASES_DIR)
     checked += 1;
     let actual;
     try {
-      actual = render(testCase);
+      actual = renderCase(testCase);
     } catch (error) {
       failures.push(`${file} / ${testCase.name}: ${error.message}`);
       continue;

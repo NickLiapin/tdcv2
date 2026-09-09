@@ -20,38 +20,15 @@
  */
 
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
-import { TDC } from '../src/index.ts';
+// How a case is RUN, and on which engines, lives in one module now — shared with the cases
+// harness and with the suite. See `shared-fixtures.mjs`.
+import { CASES_DIR, ENGINES, SHARED_DIR, renderCase, toLines } from './shared-fixtures.ts';
 
-const here = dirname(fileURLToPath(import.meta.url));
-const SHARED = resolve(here, '..', '..', 'fixtures', 'cross-language');
-const CASES_DIR = join(SHARED, 'cases');
-const OUT = join(SHARED, 'engines.json');
-
-/** The engines this fixture covers. Engine 1 is already covered by the cases' own `expected`. */
-const ENGINES = [2, 3];
+const OUT = join(SHARED_DIR, 'engines.json');
 
 const update = process.argv.includes('--update');
-
-function render(testCase, engine) {
-  const options = { configString: testCase.config, engine };
-  if (testCase.seed !== undefined) options.seed = testCase.seed;
-  if (testCase.count !== undefined) options.count = testCase.count;
-  if (testCase.locale !== undefined) options.locale = testCase.locale;
-  if (testCase.now !== undefined) options.now = Date.parse(testCase.now);
-  // Same rule as the cases harness: a `type="file"` case names the folder its
-  // samples live in, relative to the cases directory.
-  if (testCase.dataPath !== undefined) options.dataPaths = [join(CASES_DIR, testCase.dataPath)];
-  return new TDC(options).toString();
-}
-
-function toLines(text) {
-  const parts = text.split('\n');
-  if (parts.length > 0 && parts[parts.length - 1] === '') parts.pop();
-  return parts;
-}
 
 const results = {};
 const disagreed = [];
@@ -67,7 +44,7 @@ for (const file of readdirSync(CASES_DIR)
     const entry = {};
     for (const engine of ENGINES) {
       try {
-        const lines = toLines(render(testCase, engine));
+        const lines = toLines(renderCase(testCase, engine));
         produced += 1;
         /*
          * A disk engine may arrange a uniq group differently from the
