@@ -86,8 +86,13 @@ const IMPLEMENTATIONS = [
   {
     id: 'typescript',
     label: 'TypeScript',
-    probe: 'typescript/node_modules',
-    run: () => ['npm', ['--prefix', 'typescript', 'run', 'test:coverage'], {}],
+    // The ROOT node_modules, not `typescript/node_modules`: this is an npm workspaces
+    // monorepo and the dependencies hoist to the top, so a fresh `npm ci` leaves the workspace
+    // folder empty and this probe declared the toolchain missing. It only ever passed on a
+    // machine with older installs lying around — CI, which starts clean, saw "not installed"
+    // and failed the gate. Probing the tool this actually runs says what is meant.
+    probe: 'node_modules/vitest',
+    run: () => ['npm', ['--workspace', 'typescript', 'run', 'test:coverage'], {}],
     read: () => {
       const path = join(ROOT, 'typescript/coverage/coverage-summary.json');
       const total = JSON.parse(readFileSync(path, 'utf8')).total;
