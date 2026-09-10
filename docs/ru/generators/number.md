@@ -218,7 +218,7 @@
 
 `decimals` принимает целое от **0 до 10**. Всё остальное останавливает прогон:
 
-`./run price.tdc (decimals=&quot;11&quot;)`
+`./run price.tdc (decimals="11")`
 
 ```
 tdcv2: number decimals must be an integer 0..10, got "11"

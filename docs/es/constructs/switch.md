@@ -591,7 +591,7 @@ simple sigue en flujo con normalidad.
 
 Forzar el motor de flujo en una de esas configuraciones lo dice en vez de aproximar:
 
-`./run shipping.tdc (engine=&quot;2&quot; forzado)`
+`./run shipping.tdc (engine="2" forzado)`
 
 ```
 tdcv2: stream mode: a percentage inside <case is="US|CA|MX"> of <switch on="Country">

@@ -591,7 +591,7 @@ MX -> USD
 Принудительный потоковый движок на таком конфиге скажет об этом прямо, а не
 выдаст приближение:
 
-`./run shipping.tdc (принудительный engine=&quot;2&quot;)`
+`./run shipping.tdc (принудительный engine="2")`
 
 ```
 tdcv2: stream mode: a percentage inside <case is="US|CA|MX"> of <switch on="Country">

@@ -222,7 +222,7 @@ alcanzar el ancho).
 
 `decimals` toma un entero de **0 a 10**. Cualquier otra cosa detiene la corrida:
 
-`./run price.tdc (decimals=&quot;11&quot;)`
+`./run price.tdc (decimals="11")`
 
 ```
 tdcv2: number decimals must be an integer 0..10, got "11"

@@ -211,7 +211,7 @@ encabezado que reconocer, y sin eso la palabra `email` misma se sortea como un v
 <gen type="file" src="@data/users.csv" column="3" header="true"/>
 ```
 
-`./run example.tdc (column=&quot;3&quot; header=&quot;true&quot;)`
+`./run example.tdc (column="3" header="true")`
 
 ```
 carlos.fernandez@example.com

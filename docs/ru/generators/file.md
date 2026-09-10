@@ -210,7 +210,7 @@ anna.orlova@example.com
 <gen type="file" src="@data/users.csv" column="3" header="true"/>
 ```
 
-`./run example.tdc (column=&quot;3&quot; header=&quot;true&quot;)`
+`./run example.tdc (column="3" header="true")`
 
 ```
 vera.sidorova@example.com

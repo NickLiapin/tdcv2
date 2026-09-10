@@ -219,7 +219,7 @@ mode a leading zero is allowed by default (so a short value can reach the width)
 
 `decimals` takes an integer **0 to 10**. Anything else stops the run:
 
-`./run price.tdc (decimals=&quot;11&quot;)`
+`./run price.tdc (decimals="11")`
 
 ```
 tdcv2: number decimals must be an integer 0..10, got "11"

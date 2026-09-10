@@ -139,9 +139,37 @@ const used = new Set();
 
 // --------------------------------------------------------------- small parts
 
+/**
+ * The entities a JSX attribute value is FORCED to carry, undone.
+ *
+ * A double-quoted attribute cannot hold a bare `"`, so an author writing
+ * `<Terminal title='./run price.tdc (decimals="11")'>` has to spell it `&quot;`. That is the
+ * markup's demand, not the author's intent — and everything here lands in a markdown code span,
+ * where an entity is shown literally rather than rendered. So `decimals=&quot;11&quot;` reached
+ * the exported page exactly like that, in all three languages, on every page with a titled
+ * terminal block. Nick found it reading the Russian docs on GitHub.
+ *
+ * `&amp;` is undone LAST, or `&amp;quot;` — an author who really did want the six characters —
+ * would decode twice and lose the thing they were quoting.
+ *
+ * This is only for attribute VALUES. An entity written in the prose is the author's own choice,
+ * and several pages show `&lt;` on purpose: the whole "TDC is not XML, nothing is expanded"
+ * explanation is built on it, and decoding that would turn the example into the thing it warns
+ * against.
+ */
+function unescapeAttr(value) {
+  return value
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;|&#39;/g, "'")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&amp;/g, "&");
+}
+
 function attrs(raw) {
   const out = {};
-  for (const m of raw.matchAll(/(\w+)\s*=\s*"([^"]*)"/g)) out[m[1]] = m[2];
+  for (const m of raw.matchAll(/(\w+)\s*=\s*"([^"]*)"/g))
+    out[m[1]] = unescapeAttr(m[2]);
   return out;
 }
 

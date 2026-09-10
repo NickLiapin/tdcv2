@@ -572,7 +572,7 @@ on a **single** value over a plain `value=` list streams normally.
 
 Forcing the streaming engine on one of those configs says so rather than approximating:
 
-`./run shipping.tdc (engine=&quot;2&quot; forced)`
+`./run shipping.tdc (engine="2" forced)`
 
 ```
 tdcv2: stream mode: a percentage inside <case is="US|CA|MX"> of <switch on="Country">
