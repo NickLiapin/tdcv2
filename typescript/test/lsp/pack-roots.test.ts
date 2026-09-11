@@ -16,7 +16,14 @@ import { join } from 'node:path';
 
 import { afterAll, describe, expect, it } from 'vitest';
 
-import { packRootsFor, rootsChanged, stampRoots } from '../../src/lsp/pack-roots.js';
+import {
+  packRootsFor,
+  packViewOf,
+  rootsChanged,
+  stampRoots,
+  uriToPath,
+  workspaceRootsFrom,
+} from '../../src/lsp/pack-roots.js';
 
 const made: string[] = [];
 
@@ -98,5 +105,75 @@ describe('freshness check', () => {
     const before = stampRoots(packRootsFor([dir]));
     mkdirSync(join(dir, 'packs'), { recursive: true });
     expect(rootsChanged(before, stampRoots(packRootsFor([dir])))).toBe(true);
+  });
+});
+
+/*
+ * What a workspace folder's URI means, and what a registry looks like to the editor.
+ *
+ * Both used to sit in `server-impl.ts`, on the far side of the line this file's own header
+ * draws — and the coverage exclusion that was supposed to cover that file named its 34-line
+ * loader instead, so the adapter was measured after all and read 0%. Reading a URI and shaping
+ * a registry are decisions, not wiring: they belong here, where a test can reach them without
+ * an LSP client and without the optional `vscode-languageserver` packages.
+ */
+describe('a workspace folder as a directory', () => {
+  it('reads a file: URI, and one with spaces in it', () => {
+    expect(uriToPath('file:///tmp/work')).toBe('/tmp/work');
+    expect(uriToPath('file:///tmp/my%20work')).toBe('/tmp/my work');
+  });
+
+  it('drops a folder there is no directory behind', () => {
+    // A remote or virtual workspace arrives as some other scheme, and there is nothing to
+    // scan. Dropped rather than guessed at — the editor keeps the roots it could resolve.
+    expect(uriToPath('vscode-vfs://github/nick/tdc')).toBeUndefined();
+    expect(uriToPath('untitled:Untitled-1')).toBeUndefined();
+    expect(uriToPath('https://example.com/x')).toBeUndefined();
+  });
+
+  it('drops a file: URI there is no local directory behind', () => {
+    // A UNC-style host is a real share, not a path this process can stat, and Node refuses to
+    // convert it. A bad percent-escape is refused too. Either way the server keeps starting.
+    expect(uriToPath('file://remote-host/share/packs')).toBeUndefined();
+    expect(uriToPath('file:///a%ZZb')).toBeUndefined();
+  });
+
+  it('keeps the folders it can resolve and ignores the rest', () => {
+    const { dir, store } = workspace({ dataPaths: ['./installed-packs'] });
+    const roots = workspaceRootsFrom([
+      { uri: 'vscode-vfs://github/nick/tdc' },
+      { uri: `file://${dir}` },
+    ]);
+    expect(roots).toContain(store);
+  });
+
+  it('no folders at all is not an error — the bundled packs are still there', () => {
+    expect(workspaceRootsFrom(undefined)).toEqual(workspaceRootsFrom([]));
+  });
+});
+
+describe('a registry as the editor answers from it', () => {
+  const registry = new Map([
+    ['a.b', { address: 'a.b', description: 'first' }],
+    ['c.d', { address: 'c.d' }],
+  ]);
+
+  it('gives diagnostics the addresses and completion the descriptions', () => {
+    const view = packViewOf(registry as never);
+    expect(view.addresses).toEqual(['a.b', 'c.d']);
+    expect(view.infos).toEqual([{ address: 'a.b', description: 'first' }, { address: 'c.d' }]);
+  });
+
+  it('omits a description rather than carrying an empty one', () => {
+    // The list shows `address — description`; an empty one leaves a dangling separator on
+    // every row of a pack that has none.
+    const view = packViewOf(registry as never);
+    expect(Object.hasOwn(view.infos[1] ?? {}, 'description')).toBe(false);
+  });
+
+  it('an empty registry is an empty answer, not a crash', () => {
+    const view = packViewOf(new Map() as never);
+    expect(view.addresses).toEqual([]);
+    expect(view.infos).toEqual([]);
   });
 });

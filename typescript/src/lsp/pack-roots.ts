@@ -18,9 +18,11 @@
 
 import { existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import { loadConfig } from '../config/config.js';
-import { bundledPacksDir } from '../data-pack/index.js';
+import { bundledPacksDir, type PackRegistry } from '../data-pack/index.js';
+import type { PackAddressInfo } from './completion.js';
 
 /**
  * Roots for a set of workspace directories, lowest priority first.
@@ -79,4 +81,61 @@ export function rootsChanged(
     if (previous.get(root) !== stamp) return true;
   }
   return false;
+}
+
+/**
+ * A workspace folder's URI as a plain directory, or nothing.
+ *
+ * The protocol hands folders over as URIs and says nothing about the scheme. A remote or virtual
+ * workspace arrives as something other than `file:`, and there is no directory behind it to scan —
+ * so it is dropped rather than guessed at. A malformed `file:` URI is dropped the same way: the
+ * editor keeps working with the roots it could resolve, which is a better answer than a language
+ * server that will not start.
+ */
+export function uriToPath(uri: string): string | undefined {
+  if (!uri.startsWith('file:')) return undefined;
+  try {
+    return fileURLToPath(uri);
+  } catch {
+    return undefined;
+  }
+}
+
+/**
+ * The pack roots for a set of workspace folders, straight from what `initialize` sent.
+ *
+ * Takes the folders rather than the whole `InitializeParams` so this module never imports the
+ * LSP packages — they are OPTIONAL peer dependencies, absent from a plain `npm install tdcv2`,
+ * and a module that is measured and tested must not need them.
+ */
+export function workspaceRootsFrom(
+  folders: readonly { readonly uri: string }[] | undefined,
+): readonly string[] {
+  const dirs: string[] = [];
+  for (const folder of folders ?? []) {
+    const dir = uriToPath(folder.uri);
+    if (dir !== undefined) dirs.push(dir);
+  }
+  return packRootsFor(dirs);
+}
+
+/**
+ * A scanned registry as the two shapes the editor answers from.
+ *
+ * Addresses feed diagnostics — so a known pack template is not flagged as unknown — and the
+ * richer infos feed completion, where the description is what tells one address from another in
+ * the list. A pack without a description contributes none rather than an empty one, or the list
+ * shows a dangling separator against half its rows.
+ */
+export function packViewOf(registry: PackRegistry): {
+  readonly addresses: readonly string[];
+  readonly infos: readonly PackAddressInfo[];
+} {
+  return {
+    addresses: [...registry.keys()],
+    infos: [...registry.values()].map((entry) => ({
+      address: entry.address,
+      ...(entry.description !== undefined ? { description: entry.description } : {}),
+    })),
+  };
 }

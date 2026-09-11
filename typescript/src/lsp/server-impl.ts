@@ -1,11 +1,18 @@
 /**
  * TDC language server — thin LSP protocol adapter.
  *
- * All real logic lives in the pure brains (`diagnostics.ts`, and later
- * `completion.ts`). This file only wires the Language Server Protocol: it
- * syncs open documents, runs `computeDiagnostics` on every change, and
- * publishes the results. Because it is pure I/O glue — exercised end to end
- * by real editors, not unit tests — it is excluded from coverage.
+ * All real logic lives in the pure brains — `diagnostics.ts`, `completion.ts`,
+ * `navigation.ts`, and `pack-roots.ts` for where the packs are and what a
+ * workspace folder's URI means. This file only wires the Language Server
+ * Protocol: it syncs open documents, runs the brains on every change, and maps
+ * their answers into protocol shapes. Because it is pure I/O glue — exercised
+ * end to end by real editors, not unit tests — it is excluded from coverage.
+ *
+ * That exclusion used to name `server.ts`, the 34-line loader beside this file,
+ * and so never covered the glue it was written for; and three things that are
+ * NOT glue had stayed here behind it — reading a folder URI, deciding when the
+ * packs are stale, and turning a registry into the two shapes the editor
+ * answers from. They live in `pack-roots.ts` now, where they are measured.
  *
  * Loaded by `server.ts` (the `tdcv2-lsp` bin), which dynamically imports this
  * module so a missing optional LSP dependency becomes a friendly message
@@ -13,8 +20,6 @@
  * below are OPTIONAL peer dependencies — not installed by a plain
  * `npm install tdcv2`; only needed to actually run the LSP.
  */
-
-import { fileURLToPath } from 'node:url';
 
 import { TextDocument } from 'vscode-languageserver-textdocument';
 import {
@@ -40,8 +45,8 @@ import {
   type WorkspaceEdit,
 } from 'vscode-languageserver/node.js';
 
-import { type PackRegistry, scanPacks } from '../data-pack/index.js';
-import { packRootsFor, rootsChanged, stampRoots } from './pack-roots.js';
+import { scanPacks } from '../data-pack/index.js';
+import { packViewOf, rootsChanged, stampRoots, workspaceRootsFrom } from './pack-roots.js';
 import { formatTdc } from '../formatter/format.js';
 
 import { computeCompletions, type PackAddressInfo } from './completion.js';
@@ -60,12 +65,8 @@ let initParams: InitializeParams | undefined;
 /** Root path → its mtime when last scanned, for the staleness check below. */
 let rootStamps: ReadonlyMap<string, number> = new Map();
 
-function adoptRegistry(registry: PackRegistry): void {
-  packAddresses = [...registry.keys()];
-  packInfos = [...registry.values()].map((entry) => ({
-    address: entry.address,
-    ...(entry.description !== undefined ? { description: entry.description } : {}),
-  }));
+function adoptRegistry(registry: ReturnType<typeof scanPacks>['registry']): void {
+  ({ addresses: packAddresses, infos: packInfos } = packViewOf(registry));
 }
 
 /**
@@ -92,7 +93,7 @@ function refreshPacksIfStale(): void {
 connection.onInitialize((params: InitializeParams): InitializeResult => {
   initParams = params;
   rootStamps = stampRoots(workspaceRoots(params));
-  adoptRegistry(loadPacks(params));
+  adoptRegistry(scanPacks(workspaceRoots(params)).registry);
   return {
     capabilities: {
       textDocumentSync: TextDocumentSyncKind.Incremental,
@@ -135,27 +136,8 @@ connection.onCompletion((params: CompletionParams): ProtocolCompletionItem[] => 
   );
 });
 
-function loadPacks(params: InitializeParams): PackRegistry {
-  return scanPacks(workspaceRoots(params)).registry;
-}
-
-/** Workspace folders as plain directories, for `packRootsFor`. */
 function workspaceRoots(params: InitializeParams): readonly string[] {
-  const dirs: string[] = [];
-  for (const folder of params.workspaceFolders ?? []) {
-    const dir = uriToPath(folder.uri);
-    if (dir !== undefined) dirs.push(dir);
-  }
-  return packRootsFor(dirs);
-}
-
-function uriToPath(uri: string): string | undefined {
-  if (!uri.startsWith('file:')) return undefined;
-  try {
-    return fileURLToPath(uri);
-  } catch {
-    return undefined;
-  }
+  return workspaceRootsFrom(params.workspaceFolders ?? undefined);
 }
 
 function publish(doc: TextDocument): void {

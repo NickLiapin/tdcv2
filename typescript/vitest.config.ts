@@ -32,8 +32,12 @@ export default defineConfig({
         '**/attrs.ts',
         '**/generator.ts',
         '**/types.ts',
-        // LSP server is thin I/O glue, exercised by real editors, not units.
+        // The LSP's protocol adapter and its loader are thin I/O glue, exercised by real
+        // editors rather than units. This used to name only `server.ts` — the 34-line loader —
+        // so the 211-line adapter it was written for was measured after all, and read 0%. The
+        // parts of it that were NOT glue moved to `pack-roots.ts`, which is measured and tested.
         '**/lsp/server.ts',
+        '**/lsp/server-impl.ts',
       ],
       // `json-summary` is the one a machine reads: `scripts/coverage.mjs` puts this
       // number beside the other four implementations', which is where a branch covered
