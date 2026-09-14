@@ -329,6 +329,20 @@ amplitude="120,400" peak_at="5,182"` is a weekly season and a yearly one on one 
 
 ### Fixed
 
+<!-- covers: pack picker ascii group glyph -->
+
+- **In the `tdcv2 pack` picker's ASCII mode, the cursor and "you can open this" were the same
+  character.** A row you could step into was drawn `> > Choose what I need` — the first `>` the
+  cursor, the second the mark saying the row leads somewhere, and nothing telling you which was
+  which. On a terminal that can do Unicode they have always been different glyphs (`❯` and `»`);
+  it was only the ASCII fallback, which is what the old Windows console and `TDCV2_ASCII` get,
+  where they collided. The mark is now `+`, the character an ASCII tree has always used for a
+  node that opens: `> + Choose what I need`. The `[+]` on an installed pack is bracketed and
+  never appears in the same list.
+
+  One character in five files, and the shared screen fixture checked all five against each other
+  in a single pass — which is what it is for.
+
 <!-- covers: pack picker escape sequence decoding -->
 
 - **The `tdcv2 pack` picker typed a `~` into its own search box when you pressed Delete.** A

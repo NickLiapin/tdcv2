@@ -83,7 +83,11 @@ public static class PackPicker
 
     private static string Cursor => Unicode ? "❯" : ">";
 
-    private static string Group => Unicode ? "»" : ">";
+    /// <remarks>
+    /// Not "&gt;" in the ASCII set: the cursor is already "&gt;", so a row you could open read
+    /// "&gt; &gt; Choose what I need", the same character doing two jobs.
+    /// </remarks>
+    private static string Group => Unicode ? "»" : "+";
 
     private static string On => Unicode ? "▣" : "[x]";
 

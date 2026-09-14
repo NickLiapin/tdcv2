@@ -74,7 +74,11 @@ const GLYPHS = UNICODE
   ? { cursor: '❯', group: '»', on: '▣', off: '▢', done: '✓', drop: '✗', chip: '■', land: '█' }
   : {
       cursor: '>',
-      group: '>',
+      // Not ">" as well. The cursor is already ">", so a row you could open read "> > Choose
+      // what I need" and the two marks were the same character doing different jobs. "+" is
+      // what an ASCII tree has always used for a node that opens, and the "[+]" on an
+      // installed pack is bracketed and never appears in the same list.
+      group: '+',
       on: '[x]',
       off: '[ ]',
       done: '[+]',

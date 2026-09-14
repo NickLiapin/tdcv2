@@ -251,7 +251,9 @@ final class PackPicker {
     Map<String, String> g = new HashMap<>();
     boolean u = unicode;
     g.put("cursor", u ? "❯" : ">");
-    g.put("group", u ? "»" : ">");
+    // Not ">" in the ASCII set: the cursor is already ">", so a row you could open read
+    // "> > Choose what I need", the same character doing two jobs.
+    g.put("group", u ? "»" : "+");
     g.put("on", u ? "▣" : "[x]");
     g.put("off", u ? "▢" : "[ ]");
     g.put("done", u ? "✓" : "[+]");

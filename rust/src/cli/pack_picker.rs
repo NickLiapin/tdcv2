@@ -90,7 +90,9 @@ const RICH: Glyphs = Glyphs {
 
 const PLAIN: Glyphs = Glyphs {
     cursor: ">",
-    group: ">",
+    // Not ">" as well: the cursor is already ">", so a row you could open read "> > Choose
+    // what I need", the same character doing two jobs.
+    group: "+",
     on: "[x]",
     off: "[ ]",
     done: "[+]",
