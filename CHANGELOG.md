@@ -333,19 +333,23 @@ amplitude="120,400" peak_at="5,182"` is a weekly season and a yearly one on one 
 
 - **The `tdcv2 pack` picker typed a `~` into its own search box when you pressed Delete.** A
   terminal cannot say "the user pressed Page Up" — it sends bytes, and the page keys arrive as
-  `ESC [ number ~`. Java and Rust read on to that closing `~` only for the four numbers they
+  `ESC [ number ~`. Java, Rust and C# read on to that closing `~` only for the four numbers they
   recognised: Home, End, Page Up and Page Down. Delete (`ESC[3~`) and Insert (`ESC[2~`) answered
   `unknown` and left the `~` unread, and the next turn of the picker's loop took that `~` for a
   keystroke and put it in the filter. Python consumed it — its guard was any digit — but all
-  three then looked only at the FIRST digit, which made F5 (`ESC[15~`) a Home key everywhere.
+  four then looked only at the FIRST digit, which made F5 (`ESC[15~`) a Home key everywhere.
 
-  All three now read a numbered sequence through to whatever byte ends it and name the whole
+  All four now read a numbered sequence through to whatever byte ends it and name the whole
   number, so an unknown key consumes exactly its own bytes and nothing more, and a modifier held
   on an arrow (`ESC[1;5A`, ctrl+up) is that arrow instead of a read that swallowed the stream
-  hunting for a `~` that was never coming. The vectors are pinned in
-  `fixtures/cross-language/pack-picker-keys.json` — read by three implementations rather than
-  five, because TypeScript decodes through Node's readline and C# through `Console.ReadKey`, so
-  neither ever sees a raw byte.
+  hunting for a `~` that was never coming.
+
+  Only TypeScript was never affected: it decodes through Node's readline and never sees a raw
+  byte. C# looked like it did not either — it asks `Console.ReadKey` first — but .NET hands back
+  a bare escape whenever the terminal database cannot name the whole sequence, and the hand-written
+  fallback behind that is where the same four numbers were spelled out. The vectors in
+  `fixtures/cross-language/pack-picker-keys.json` are read by the three that decode from a stream;
+  C#'s decoder reads the console directly and has no stream to be handed.
 
 <!-- covers: pack picker map projection rounding -->
 

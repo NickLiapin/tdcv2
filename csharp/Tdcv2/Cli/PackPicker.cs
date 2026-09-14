@@ -36,8 +36,14 @@ public static class PackPicker
 
     private const string Esc = "\u001b[";
 
-    private static readonly bool Unicode = DetectUnicode();
-    private static readonly bool Colour = DetectColour();
+    // Not readonly, and not because anything but a test ever assigns them. What a terminal can do
+    // is settled once per process from the environment, and a JVM-style test cannot ask for a
+    // different terminal without saying so — see RunOn, which sets these and puts them back.
+    private static bool Unicode = DetectUnicode();
+    private static bool Colour = DetectColour();
+
+    /// <summary>The window a caller described, when one did. See <see cref="RunOn"/>.</summary>
+    private static (int Columns, int Rows)? WindowOverride;
 
     /// <summary>
     /// Half-blocks and colour are detected, never assumed.
@@ -917,6 +923,11 @@ public static class PackPicker
     /// <summary>The window, or a conservative default when the console cannot say.</summary>
     private static (int Columns, int Rows) Window()
     {
+        if (WindowOverride is { } described)
+        {
+            return described;
+        }
+
         try
         {
             int columns = Console.WindowWidth;
@@ -947,13 +958,54 @@ public static class PackPicker
         output.Write(Esc + "?25l");
         try
         {
-            return Loop(state, output);
+            return Loop(state, output, ReadKeyName);
         }
         finally
         {
             // Whatever happened, the terminal goes back exactly as it was found.
             output.Write(Esc + "?25h" + Esc + "2J" + Esc + "H");
             output.Flush();
+        }
+    }
+
+    /// <summary>The same picker on a terminal the caller describes, drawing to where it says.</summary>
+    /// <remarks>
+    /// For the shared screen fixture in <c>fixtures/cross-language/pack-picker-screens.json</c>,
+    /// which is replayed by every implementation. What a terminal tells the picker — its width,
+    /// its height, and whether it can do glyphs and colour — is settled once per process here from
+    /// the environment, so a run that wants a different terminal has to say so and put the answers
+    /// back afterwards. Keys arrive already named, which is the one thing this does not exercise:
+    /// <see cref="ReadKeyName"/> reads the console directly and has no stream to be handed.
+    /// </remarks>
+    internal static Decision? RunOn(
+        IReadOnlyList<PackRegistry.Bundle> bundles,
+        ISet<string> installed,
+        TextWriter output,
+        Func<string> keys,
+        int columns,
+        int rows,
+        bool unicode,
+        bool colour)
+    {
+        bool savedUnicode = Unicode;
+        bool savedColour = Colour;
+        (int Columns, int Rows)? savedWindow = WindowOverride;
+        Unicode = unicode;
+        Colour = colour;
+        WindowOverride = (columns, rows);
+        var state = new State(bundles, installed);
+        output.Write(Esc + "?25l");
+        try
+        {
+            return Loop(state, output, keys);
+        }
+        finally
+        {
+            output.Write(Esc + "?25h" + Esc + "2J" + Esc + "H");
+            output.Flush();
+            Unicode = savedUnicode;
+            Colour = savedColour;
+            WindowOverride = savedWindow;
         }
     }
 
@@ -1063,42 +1115,66 @@ public static class PackPicker
             third = Console.ReadKey(intercept: true).KeyChar;
         }
 
-        switch (third)
+        if (third < '0' || third > '9')
         {
-            case 'A': return "up";
-            case 'B': return "down";
-            case 'C': return "right";
-            case 'D': return "left";
-            case 'H': return "home";
-            case 'F': return "end";
-            case '5':
-            case '6':
-            case '1':
-            case '4':
-                // A numbered sequence runs on to its "~"; swallow it or the tail arrives as
-                // separate keystrokes.
-                while (Console.KeyAvailable && Console.ReadKey(intercept: true).KeyChar != '~')
-                {
-                    // Nothing to do: the bytes belong to the sequence just read.
-                }
-
-                return third switch
-                {
-                    '5' => "pageup",
-                    '6' => "pagedown",
-                    '1' => "home",
-                    _ => "end",
-                };
-            default: return "unknown";
+            return LetterKey(third);
         }
+
+        // A numbered sequence is "ESC [ digits (and ';') final-byte": "~" for the page keys, an
+        // arrow letter when a modifier is held. Read THROUGH that final byte whatever the number
+        // turns out to be. Stopping only at the four numbers we knew left Delete's "~" in the
+        // buffer, and the next turn of the loop read it as a keystroke and typed it into the
+        // search box.
+        var number = new StringBuilder().Append(third);
+        char last = '\0';
+        while (Console.KeyAvailable)
+        {
+            char ch = Console.ReadKey(intercept: true).KeyChar;
+            if ((ch >= '0' && ch <= '9') || ch == ';')
+            {
+                number.Append(ch);
+                continue;
+            }
+
+            last = ch;
+            break;
+        }
+
+        if (last != '~')
+        {
+            return LetterKey(last);
+        }
+
+        return number.ToString() switch
+        {
+            "1" => "home",
+            "4" => "end",
+            "5" => "pageup",
+            "6" => "pagedown",
+            _ => "unknown",
+        };
     }
 
-    private static Decision? Loop(State state, TextWriter output)
+    /// <summary>
+    /// The final byte of a sequence that carries no number, and of one that carries a modifier.
+    /// </summary>
+    private static string LetterKey(char ch) => ch switch
+    {
+        'A' => "up",
+        'B' => "down",
+        'C' => "right",
+        'D' => "left",
+        'H' => "home",
+        'F' => "end",
+        _ => "unknown",
+    };
+
+    private static Decision? Loop(State state, TextWriter output, Func<string> readKey)
     {
         while (true)
         {
             Draw(state, output);
-            string key = ReadKeyName();
+            string key = readKey();
             Screen screen = state.Top;
             List<Item> items = ItemsFor(state, screen);
             state.Flash = string.Empty;

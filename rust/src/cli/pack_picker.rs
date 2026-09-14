@@ -606,11 +606,33 @@ struct Picker<'a> {
     colour: bool,
     glyphs: &'static Glyphs,
     rasters: HashMap<(usize, usize), Raster>,
+    window: (usize, usize),
 }
 
 impl<'a> Picker<'a> {
     fn new(bundles: &'a [Bundle], installed: BTreeSet<String>) -> Picker<'a> {
-        let unicode = detect_unicode();
+        Picker::on(
+            bundles,
+            installed,
+            Stty::size(),
+            detect_unicode(),
+            detect_colour(),
+        )
+    }
+
+    /// The same picker on a terminal the caller describes.
+    ///
+    /// What a terminal tells the picker — its width, its height, and whether it can do glyphs and
+    /// colour — gathered into arguments so a test can tell it instead. The shared screen fixture
+    /// in `fixtures/cross-language/pack-picker-screens.json` is replayed through here against
+    /// strings, which is the only way anything but the map's geometry was ever reachable.
+    fn on(
+        bundles: &'a [Bundle],
+        installed: BTreeSet<String>,
+        window: (usize, usize),
+        unicode: bool,
+        colour: bool,
+    ) -> Picker<'a> {
         Picker {
             bundles,
             installed,
@@ -625,9 +647,10 @@ impl<'a> Picker<'a> {
             flash: String::new(),
             body_visible: false,
             unicode,
-            colour: detect_colour(),
+            colour,
             glyphs: if unicode { &RICH } else { &PLAIN },
             rasters: HashMap::new(),
+            window,
         }
     }
 
@@ -1105,7 +1128,7 @@ impl Picker<'_> {
     }
 
     fn draw(&mut self, out: &mut dyn Write) {
-        let (columns, rows) = Stty::size();
+        let (columns, rows) = self.window;
         let state = self.stack.last().expect("the stack never empties").clone();
         let items = self.items_for(&state);
 
@@ -1656,6 +1679,186 @@ mod key_tests {
             let mut left = String::new();
             bytes.read_to_string(&mut left).expect("read the tail");
             assert_eq!(left, text(&case, "left"), "left unread after {name}");
+        }
+    }
+}
+
+#[cfg(test)]
+mod screen_tests {
+    use std::collections::BTreeSet;
+    use std::path::Path;
+
+    use super::{Picker, ESC};
+    use crate::json::{self, Value};
+    use crate::packs::registry::Bundle;
+
+    /// What a terminal sends for each key the fixture names; anything else is the character itself.
+    fn bytes_for(key: &str) -> String {
+        match key {
+            "up" => format!("{ESC}A"),
+            "down" => format!("{ESC}B"),
+            "right" => format!("{ESC}C"),
+            "left" => format!("{ESC}D"),
+            "home" => format!("{ESC}1~"),
+            "end" => format!("{ESC}4~"),
+            "pageup" => format!("{ESC}5~"),
+            "pagedown" => format!("{ESC}6~"),
+            "enter" => "\r".to_string(),
+            "space" => " ".to_string(),
+            "backspace" => char::from(127u8).to_string(),
+            "escape" => char::from(27u8).to_string(),
+            other => other.to_string(),
+        }
+    }
+
+    /// The screen as the user sees it — clear, home and cursor commands carry no content.
+    fn to_lines(text: &str) -> Vec<String> {
+        let mut clean = text.to_string();
+        for command in [
+            format!("{ESC}2J"),
+            format!("{ESC}H"),
+            format!("{ESC}?25l"),
+            format!("{ESC}?25h"),
+        ] {
+            clean = clean.replace(&command, "");
+        }
+        clean
+            .strip_suffix('\n')
+            .unwrap_or(&clean)
+            .split('\n')
+            .map(str::to_string)
+            .collect()
+    }
+
+    fn fixture() -> Value {
+        let mut dir: &Path = Path::new(env!("CARGO_MANIFEST_DIR"));
+        let file = loop {
+            let candidate = dir.join("fixtures/cross-language/pack-picker-screens.json");
+            if candidate.is_file() {
+                break candidate;
+            }
+            dir = dir.parent().unwrap_or_else(|| {
+                panic!(
+                    "no pack-picker-screens.json above {}",
+                    env!("CARGO_MANIFEST_DIR")
+                )
+            });
+        };
+        let text = std::fs::read_to_string(&file).expect("read the screen fixture");
+        json::parse(&text).expect("parse the screen fixture")
+    }
+
+    fn text(node: &Value, key: &str) -> String {
+        node.get(key)
+            .and_then(Value::as_str)
+            .unwrap_or_else(|| panic!("{key} is missing"))
+            .to_string()
+    }
+
+    fn strings(node: &Value) -> Vec<String> {
+        node.as_array()
+            .expect("an array")
+            .iter()
+            .filter_map(|v| v.as_str().map(str::to_string))
+            .collect()
+    }
+
+    fn bundles(all: &Value) -> Vec<Bundle> {
+        all.as_array()
+            .expect("bundles")
+            .iter()
+            .map(|b| Bundle {
+                id: text(b, "id"),
+                name: text(b, "name"),
+                description: text(b, "description"),
+                file: format!("{}.zip", text(b, "id")),
+                bytes: b.get("bytes").and_then(Value::as_i64).unwrap_or(0),
+                sha256: "0".repeat(64),
+                version: None,
+                locale: b.get("locale").and_then(Value::as_str).map(str::to_string),
+                country: b.get("country").and_then(Value::as_str).map(str::to_string),
+                // `null` in the fixture, not a missing key: absent regions are spelled out.
+                regions: match b.get("regions") {
+                    Some(v) if v.as_array().is_some() => strings(v),
+                    _ => Vec::new(),
+                },
+                point: b
+                    .get("point")
+                    .and_then(Value::as_array)
+                    .map(|p| [p[0].as_f64().unwrap_or(0.0), p[1].as_f64().unwrap_or(0.0)]),
+            })
+            .collect()
+    }
+
+    #[test]
+    fn draws_what_the_shared_fixture_says() {
+        let fixture = fixture();
+        let catalogue = bundles(fixture.get("bundles").expect("bundles"));
+
+        for run in fixture.get("runs").and_then(Value::as_array).expect("runs") {
+            let name = text(run, "name");
+            let terminal = run.get("terminal").expect("terminal");
+            let number = |key: &str| terminal.get(key).and_then(Value::as_f64).expect(key) as usize;
+            let flag = |key: &str| terminal.get(key).and_then(Value::as_bool).expect(key);
+
+            let keys = strings(run.get("keys").expect("keys"));
+            let script: String = keys.iter().map(|k| bytes_for(k)).collect();
+            let installed: BTreeSet<String> = strings(run.get("installed").expect("installed"))
+                .into_iter()
+                .collect();
+
+            let mut picker = Picker::on(
+                &catalogue,
+                installed,
+                (number("columns"), number("rows")),
+                flag("unicode"),
+                flag("colour"),
+            );
+            let mut input = script.as_bytes();
+            let mut drawn: Vec<u8> = Vec::new();
+            let decision = picker.loop_until_done(&mut input, &mut drawn);
+            // `run` writes the hide-cursor and the clear itself, around the loop; replaying the
+            // loop alone means neither is here, so the screens are what the draws produced and
+            // the one the reference records for the key that left is added back.
+            // Every draw opens by clearing the screen, so that is where one ends and the next
+            // begins; the split leaves an empty piece in front of the first. The picker's own
+            // `run` writes the hide-cursor before the loop and the clear after it — neither is
+            // here, replaying the loop alone, so the empty screen the reference records for the
+            // key that left is put back by hand.
+            let text_out = String::from_utf8(drawn).expect("utf-8");
+            let mut screens: Vec<Vec<String>> = text_out
+                .split(&format!("{ESC}2J"))
+                .skip(1)
+                .map(to_lines)
+                .collect();
+            screens.push(vec![String::new()]);
+
+            let want = run
+                .get("screens")
+                .and_then(Value::as_array)
+                .expect("screens");
+            assert_eq!(screens.len(), want.len(), "number of screens in {name}");
+            for (i, screen) in screens.iter().enumerate() {
+                let after = if i == 0 {
+                    "the opening draw".to_string()
+                } else {
+                    format!("the key \"{}\"", keys[i - 1])
+                };
+                assert_eq!(
+                    screen.join("\n"),
+                    strings(&want[i]).join("\n"),
+                    "{name}, after {after}"
+                );
+            }
+
+            let result = run.get("result").expect("result");
+            match decision {
+                None => assert!(matches!(result, Value::Null), "result of {name}"),
+                Some(d) => {
+                    assert_eq!(d.install, strings(result.get("install").expect("install")));
+                    assert_eq!(d.remove, strings(result.get("remove").expect("remove")));
+                }
+            }
         }
     }
 }

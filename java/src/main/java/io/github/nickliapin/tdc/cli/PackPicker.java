@@ -4,6 +4,7 @@ import io.github.nickliapin.tdc.HumanBytes;
 import io.github.nickliapin.tdc.packs.PackRegistry;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -108,9 +109,10 @@ final class PackPicker {
 
   private static final String ESC = "[";
 
-  private final boolean unicode = detectUnicode();
-  private final boolean colour = detectColour();
-  private final Map<String, String> glyphs = glyphs();
+  private final Terminal terminal;
+  private final boolean unicode;
+  private final boolean colour;
+  private final Map<String, String> glyphs;
 
   private final List<PackRegistry.Bundle> bundles;
   private final Map<String, PackRegistry.Bundle> byId = new HashMap<>();
@@ -151,9 +153,13 @@ final class PackPicker {
     }
   }
 
-  private PackPicker(List<PackRegistry.Bundle> bundles, Set<String> installed) {
+  private PackPicker(List<PackRegistry.Bundle> bundles, Set<String> installed, Terminal terminal) {
     this.bundles = bundles;
     this.installed = installed;
+    this.terminal = terminal;
+    this.unicode = terminal.unicode();
+    this.colour = terminal.colour();
+    this.glyphs = glyphs();
     for (PackRegistry.Bundle b : bundles) {
       byId.put(b.id(), b);
       if (b.locale() != null) {
@@ -180,16 +186,44 @@ final class PackPicker {
         && !System.getProperty("os.name", "").startsWith("Windows");
   }
 
+  /**
+   * Everything the picker learns from the terminal it is drawn on.
+   *
+   * <p>Gathered in one place so it can come from somewhere else. The shared screen fixture in
+   * {@code fixtures/cross-language/pack-picker-screens.json} is replayed against a terminal a
+   * test made up — a fixed width and height, strings for the streams — and the environment
+   * variables the detection reads cannot be set from inside a JVM, so asking them there and
+   * handing the answers here is what makes the drawing reachable at all.
+   */
+  record Terminal(
+      InputStream in, PrintStream out, int columns, int rows, boolean unicode, boolean colour) {
+
+    static Terminal detected() {
+      int[] window = Stty.size();
+      return new Terminal(
+          System.in, System.out, window[0], window[1], detectUnicode(), detectColour());
+    }
+  }
+
   /** Browse the catalogue and come back with what to install and what to remove. */
   static Decision run(List<PackRegistry.Bundle> bundles, Set<String> installed) {
-    PackPicker picker = new PackPicker(bundles, installed);
     String saved = Stty.enterRaw();
+    try {
+      return run(bundles, installed, Terminal.detected());
+    } finally {
+      Stty.restore(saved);
+    }
+  }
+
+  /** The same picker on a terminal the caller describes. Raw mode is the caller's business. */
+  static Decision run(
+      List<PackRegistry.Bundle> bundles, Set<String> installed, Terminal terminal) {
+    PackPicker picker = new PackPicker(bundles, installed, terminal);
     try {
       picker.write(ESC + "?25l");
       return picker.loop();
     } finally {
       picker.write(ESC + "?25h" + ESC + "2J" + ESC + "H");
-      Stty.restore(saved);
     }
   }
 
@@ -240,8 +274,8 @@ final class PackPicker {
   }
 
   private void write(String text) {
-    System.out.print(text);
-    System.out.flush();
+    terminal.out().print(text);
+    terminal.out().flush();
   }
 
   // ── the map ──
@@ -718,7 +752,7 @@ final class PackPicker {
   private void draw() {
     Screen state = top();
     List<Item> items = items();
-    int[] window = Stty.size();
+    int[] window = {terminal.columns(), terminal.rows()};
     int columns = window[0];
     int rows = window[1];
 
@@ -840,7 +874,7 @@ final class PackPicker {
   }
 
   private Decision loop() {
-    InputStream in = System.in;
+    InputStream in = terminal.in();
     while (true) {
       draw();
       String key = Keys.read(in);
