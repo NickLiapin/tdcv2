@@ -198,14 +198,17 @@ if (update) {
   process.exit(0);
 }
 
+// Compared as DATA, not as bytes: the commit hook runs prettier over every fixture, so the
+// file on disk is formatted its way rather than JSON.stringify's, and a byte comparison would
+// fail on every push while the screens themselves matched perfectly.
 let current;
 try {
-  current = readFileSync(OUT, 'utf8');
+  current = JSON.parse(readFileSync(OUT, 'utf8'));
 } catch {
   console.error(`${OUT} is missing or unreadable — run: npm run picker:screens -- --update`);
   process.exit(1);
 }
-if (text !== current) {
+if (JSON.stringify(document, null, 2) !== JSON.stringify(current, null, 2)) {
   console.error(
     'The pack picker draws something different.\n\n' +
       'If the change is intended, run `npm run picker:screens:update` and review the diff — ' +
