@@ -21,7 +21,7 @@ import {
   parallelBlockReason,
   partitionRows,
   resolveJobCount,
-} from '../../src/cli/parallel.js';
+} from '../../src/cli/parallel-plan.js';
 
 describe('resolveJobCount — auto thread count', () => {
   const auto = (over: Partial<Parameters<typeof resolveJobCount>[0]>): number =>

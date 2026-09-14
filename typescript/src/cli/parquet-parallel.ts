@@ -67,32 +67,11 @@ export interface ParquetParallelParams {
     | undefined;
 }
 
-/** Contiguous, balanced group ranges covering `[0, groups)`. */
-export function partitionGroups(
-  groups: number,
-  jobs: number,
-): readonly (readonly [number, number])[] {
-  const j = Math.max(1, Math.min(jobs, Math.max(1, groups)));
-  const base = Math.floor(groups / j);
-  const remainder = groups % j;
-  const ranges: [number, number][] = [];
-  let start = 0;
-  for (let k = 0; k < j; k++) {
-    const end = start + base + (k < remainder ? 1 : 0);
-    ranges.push([start, end]);
-    start = end;
-  }
-  return ranges;
-}
+// Dividing the work is a DECISION and lives where a unit test can reach it; this file only
+// carries it out, which is why it is excluded from coverage. See `parallel-plan.ts`.
+import { partitionGroups } from './parallel-plan.js';
 
-/**
- * How many workers a Parquet run can actually use. Never more than there are
- * row groups — a worker with no groups would only cost a thread.
- */
-export function parquetJobLimit(source: string, jobs: number, now: number, seed: string): number {
-  const groups = parquetRowGroupCount(parseStrict(source), { now, seed });
-  return Math.max(1, Math.min(jobs, groups));
-}
+export { parquetJobLimit } from './parallel-plan.js';
 
 /** Generate to `destFd` across worker threads. */
 export async function runParquetParallel(params: ParquetParallelParams): Promise<void> {

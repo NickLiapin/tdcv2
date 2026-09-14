@@ -41,7 +41,7 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
-import { AUTO_JOBS_MIN_ROWS } from '../../src/cli/parallel.js';
+import { AUTO_JOBS_MIN_ROWS } from '../../src/cli/parallel-plan.js';
 import { startService, type ServiceHandle } from '../fixtures/http-service.js';
 
 const CLI = fileURLToPath(new URL('../../dist/cli/main.js', import.meta.url));

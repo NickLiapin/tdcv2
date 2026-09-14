@@ -38,6 +38,14 @@ export default defineConfig({
         // parts of it that were NOT glue moved to `pack-roots.ts`, which is measured and tested.
         '**/lsp/server.ts',
         '**/lsp/server-impl.ts',
+        // The parallel coordinators spawn worker threads, write temp files and concatenate them.
+        // `test/cli/parallel.test.ts` covers them end to end — byte-identical output at one, four
+        // and seven workers, a uniq group split and still distinct, a valid Parquet file across
+        // worker counts — but it runs the built CLI as a CHILD PROCESS, which this instrument
+        // cannot see. They read 39% and 3% while being thoroughly tested. Everything in them that
+        // is a DECISION rather than plumbing lives in `cli/parallel-plan.ts`, which is measured.
+        '**/cli/parallel.ts',
+        '**/cli/parquet-parallel.ts',
       ],
       // `json-summary` is the one a machine reads: `scripts/coverage.mjs` puts this
       // number beside the other four implementations', which is where a branch covered
