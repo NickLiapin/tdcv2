@@ -55,6 +55,31 @@ export const KEY_BYTES: Readonly<Record<string, string>> = {
   escape: ESC,
 };
 
+/** A bundle as the fixture carries it: absent values are `null`, which JSON can actually hold. */
+export interface FixtureBundle {
+  readonly id: string;
+  readonly name: string;
+  readonly description: string;
+  readonly bytes: number;
+  readonly locale: string | null;
+  readonly country: string | null;
+  readonly regions: readonly string[] | null;
+  readonly point: readonly [number, number] | null;
+}
+
+/** `null` is what the file says; `undefined` is what the picker's own type asks for. */
+export const bundlesFromFixture = (raw: readonly FixtureBundle[]): PickerBundle[] =>
+  raw.map((b) => ({
+    id: b.id,
+    name: b.name,
+    description: b.description,
+    bytes: b.bytes,
+    locale: b.locale ?? undefined,
+    country: b.country ?? undefined,
+    regions: b.regions ?? undefined,
+    point: b.point ?? undefined,
+  }));
+
 export interface PickerTerminal {
   readonly columns: number;
   readonly rows: number;

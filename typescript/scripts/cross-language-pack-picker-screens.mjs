@@ -21,6 +21,13 @@
  * The catalogue is six invented bundles carried in the fixture rather than the real registry,
  * which grows every time a pack is published and would rewrite every screen here when it did.
  *
+ * One rule for whoever adds a run: `escape` may only be the LAST key before the one that leaves.
+ * A terminal sends a bare ESC for it, and the four ports read the next byte to find out whether
+ * more is coming — on a real terminal that read BLOCKS, so Esc does nothing until another key is
+ * pressed and that key is then swallowed. Node's readline gives up waiting after half a second
+ * instead, so the reference acts on Esc alone. Measured, not assumed: a run with `escape` in the
+ * middle records what the reference does and no port can reproduce it.
+ *
  *   --update   rewrite from current behaviour; the diff is the review.
  *   (default)  verify.
  */
@@ -29,7 +36,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { playRun } from './picker-screens.ts';
+import { bundlesFromFixture, playRun } from './picker-screens.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const OUT = join(
@@ -38,17 +45,23 @@ const OUT = join(
 );
 const update = process.argv.includes('--update');
 
-/** Six bundles: one that belongs to no locale, two languages, three countries on two continents. */
+/**
+ * Six bundles: one that belongs to no locale, two languages, three countries on two continents.
+ *
+ * Spelled with `null` rather than left out, because `JSON.stringify` drops an `undefined` and a
+ * port then reads a bundle with no `locale` key at all. `bundlesFromFixture` turns them back into
+ * the `undefined` the picker's own type asks for.
+ */
 const BUNDLES = [
   {
     id: 'common',
     name: 'Common (locale-agnostic)',
     description: 'Colours, animals, and everything that does not speak a language',
     bytes: 12000,
-    locale: undefined,
-    country: undefined,
-    regions: undefined,
-    point: undefined,
+    locale: null,
+    country: null,
+    regions: null,
+    point: null,
   },
   {
     id: 'fr',
@@ -56,9 +69,9 @@ const BUNDLES = [
     description: 'Names, streets and words in French',
     bytes: 340000,
     locale: 'fr',
-    country: undefined,
-    regions: undefined,
-    point: undefined,
+    country: null,
+    regions: null,
+    point: null,
   },
   {
     id: 'pl',
@@ -66,16 +79,16 @@ const BUNDLES = [
     description: 'Names, streets and words in Polish',
     bytes: 210000,
     locale: 'pl',
-    country: undefined,
-    regions: undefined,
-    point: undefined,
+    country: null,
+    regions: null,
+    point: null,
   },
   {
     id: 'france',
     name: 'France (country)',
     description: 'NIR, SIRET and a French IBAN',
     bytes: 41000,
-    locale: undefined,
+    locale: null,
     country: 'FR',
     regions: ['europe'],
     point: [2.3, 48.9],
@@ -85,7 +98,7 @@ const BUNDLES = [
     name: 'Poland (country)',
     description: 'PESEL, NIP and REGON',
     bytes: 38000,
-    locale: undefined,
+    locale: null,
     country: 'PL',
     regions: ['europe'],
     point: [19.1, 52.2],
@@ -95,7 +108,7 @@ const BUNDLES = [
     name: 'Brazil (country)',
     description: 'CPF, CNPJ and PIS',
     bytes: 52000,
-    locale: undefined,
+    locale: null,
     country: 'BR',
     regions: ['south'],
     point: [-47.9, -15.8],
@@ -163,7 +176,7 @@ const RUNS = [
 
 const runs = [];
 for (const run of RUNS) {
-  const played = await playRun(BUNDLES, run);
+  const played = await playRun(bundlesFromFixture(BUNDLES), run);
   runs.push({
     name: run.name,
     terminal: run.terminal,

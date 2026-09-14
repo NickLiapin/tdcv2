@@ -19,11 +19,16 @@ import { fileURLToPath } from 'node:url';
 
 import { describe, expect, it } from 'vitest';
 
-import { playRun, type PickerRun } from '../../scripts/picker-screens.js';
-import type { PickerBundle, PickerResult } from '../../src/cli/pack-picker.js';
+import {
+  bundlesFromFixture,
+  type FixtureBundle,
+  playRun,
+  type PickerRun,
+} from '../../scripts/picker-screens.js';
+import type { PickerResult } from '../../src/cli/pack-picker.js';
 
 interface Fixture {
-  readonly bundles: readonly PickerBundle[];
+  readonly bundles: readonly FixtureBundle[];
   readonly runs: readonly (PickerRun & {
     readonly screens: readonly (readonly string[])[];
     readonly result: PickerResult | null;
@@ -42,7 +47,7 @@ describe('the pack picker draws what the shared fixture says', () => {
     it(
       run.name,
       async () => {
-        const played = await playRun(fixture.bundles, run);
+        const played = await playRun(bundlesFromFixture(fixture.bundles), run);
 
         // Screen by screen rather than all at once: a whole-session diff is unreadable, and the
         // key that broke it is the thing worth being told.

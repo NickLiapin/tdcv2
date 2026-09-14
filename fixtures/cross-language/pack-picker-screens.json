@@ -6,27 +6,38 @@
       "id": "common",
       "name": "Common (locale-agnostic)",
       "description": "Colours, animals, and everything that does not speak a language",
-      "bytes": 12000
+      "bytes": 12000,
+      "locale": null,
+      "country": null,
+      "regions": null,
+      "point": null
     },
     {
       "id": "fr",
       "name": "French (language)",
       "description": "Names, streets and words in French",
       "bytes": 340000,
-      "locale": "fr"
+      "locale": "fr",
+      "country": null,
+      "regions": null,
+      "point": null
     },
     {
       "id": "pl",
       "name": "Polish (language)",
       "description": "Names, streets and words in Polish",
       "bytes": 210000,
-      "locale": "pl"
+      "locale": "pl",
+      "country": null,
+      "regions": null,
+      "point": null
     },
     {
       "id": "france",
       "name": "France (country)",
       "description": "NIR, SIRET and a French IBAN",
       "bytes": 41000,
+      "locale": null,
       "country": "FR",
       "regions": ["europe"],
       "point": [2.3, 48.9]
@@ -36,6 +47,7 @@
       "name": "Poland (country)",
       "description": "PESEL, NIP and REGON",
       "bytes": 38000,
+      "locale": null,
       "country": "PL",
       "regions": ["europe"],
       "point": [19.1, 52.2]
@@ -45,6 +57,7 @@
       "name": "Brazil (country)",
       "description": "CPF, CNPJ and PIS",
       "bytes": 52000,
+      "locale": null,
       "country": "BR",
       "regions": ["south"],
       "point": [-47.9, -15.8]
