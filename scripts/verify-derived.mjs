@@ -89,6 +89,11 @@ const CHECKS = [
     run: ['npm', ['--prefix', 'typescript', 'run', 'picker', '--silent']],
     fix: 'npm --prefix typescript run picker:update',
   },
+  {
+    what: "the pack picker's screens match the reference",
+    run: ['npm', ['--prefix', 'typescript', 'run', 'picker:screens', '--silent']],
+    fix: 'npm --prefix typescript run picker:screens:update',
+  },
 ];
 
 const failures = [];
