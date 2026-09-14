@@ -529,7 +529,18 @@
         "colour": false
       },
       "installed": [],
-      "keys": ["/", "p", "o", "l", "down", "enter", "escape", "q"],
+      "keys": [
+        "/",
+        "p",
+        "o",
+        "l",
+        "down",
+        "enter",
+        "escape",
+        "down",
+        "enter",
+        "q"
+      ],
       "screens": [
         [
           "",
@@ -620,6 +631,30 @@
           "",
           "  >   Everything                 6 not installed · 677 KB",
           "    + Choose what I need         by language, by country, or search",
+          "",
+          "  ↑↓ move · enter open · space pick · / search · m map · backspace back · q cancel",
+          "  basket: 1 to install"
+        ],
+        [
+          "",
+          "",
+          "  Data packs",
+          "",
+          "      Everything                 6 not installed · 677 KB",
+          "  > + Choose what I need         by language, by country, or search",
+          "",
+          "  ↑↓ move · enter open · space pick · / search · m map · backspace back · q cancel",
+          "  basket: 1 to install"
+        ],
+        [
+          "",
+          "",
+          "  Data packs › Choose",
+          "",
+          "  > [ ] Common                     Colours, animals, and everything that does not speak a language",
+          "    + Languages                  2 available",
+          "    + Countries                  3 available · 1 picked",
+          "    + Review and install         1 in the basket",
           "",
           "  ↑↓ move · enter open · space pick · / search · m map · backspace back · q cancel",
           "  basket: 1 to install"

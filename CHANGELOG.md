@@ -329,6 +329,28 @@ amplitude="120,400" peak_at="5,182"` is a weekly season and a yearly one on one 
 
 ### Fixed
 
+<!-- covers: pack picker escape key pushback -->
+
+- **Pressing Esc in the `tdcv2 pack` picker did nothing, and then ate your next keystroke.** A
+  terminal sends one byte for Escape — and the same byte starts every arrow key, so the only way
+  to tell them apart is whether anything followed. Python, Java and Rust found out by READING the
+  next byte, and when it turned out not to be `[`, they threw it away. On a real terminal that
+  read blocks, so Escape appeared dead until you pressed something else, and what you pressed
+  then vanished: Esc to leave the search box, then Down, and you left the search box but the
+  cursor never moved.
+
+  The byte is handed back now — reading it was the question, not a decision to consume it — so
+  nothing is ever lost. Java does better still and never reads it: `InputStream.available()`
+  answers "is anything waiting" outright, so Escape lands the moment you press it. C# was right
+  all along for the same reason, `Console.KeyAvailable`, and TypeScript never had the problem
+  because Node's readline gives up waiting after half a second. Rust has no way to ask — its
+  standard library has no such call and the crate takes no dependencies — so there Escape still
+  waits for the next keypress, and no longer swallows it.
+
+  Two vectors in `fixtures/cross-language/pack-picker-keys.json` pin the handing back, and the
+  search run in `pack-picker-screens.json` now presses Escape in the MIDDLE of the script — the
+  one key no run could contain before — and all five draw the same screens.
+
 <!-- covers: pack picker ascii group glyph -->
 
 - **In the `tdcv2 pack` picker's ASCII mode, the cursor and "you can open this" were the same

@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import math
 import os
+import select
 import sys
 from dataclasses import dataclass
 from typing import TYPE_CHECKING
@@ -428,9 +429,49 @@ def map_rows(w: int, h: int) -> list[str]:
 # ── raw keys ──────────────────────────────────────────────────────────────────
 
 
-def _read_key() -> str:
+class _Keyboard:
+    """The keys, with one character of pushback and a way to ask whether more are waiting.
+
+    A bare ESC and the start of an arrow key look identical until the next character is read,
+    and reading it is a QUESTION, not a decision to consume it: Escape then Down has to leave
+    the arrow intact. Two answers are better than one, so both are here — ``waiting`` asks the
+    terminal directly and settles Escape without reading ahead at all, and the pushback catches
+    the case where nothing can be asked, which is any stream that is not a terminal.
+    """
+
+    def __init__(self, stream: object) -> None:
+        self._stream = stream
+        self._pending = ""
+
+    def read(self) -> str:
+        """The next character, or ``""`` at the end of the input."""
+        if self._pending:
+            ch, self._pending = self._pending[0], self._pending[1:]
+            return ch
+        return self._stream.read(1)  # type: ignore[attr-defined,no-any-return]
+
+    def unread(self, ch: str) -> None:
+        self._pending = ch + self._pending
+
+    def waiting(self) -> bool:
+        """Whether a character is there without waiting for the user to type one.
+
+        Only a real terminal can say. Anything else — a pipe, a string a test is replaying —
+        has no file descriptor to ask about, and answering "yes" there sends the reader on to
+        the pushback, which reaches the same place one character later.
+        """
+        if self._pending:
+            return True
+        try:
+            fileno = self._stream.fileno()  # type: ignore[attr-defined]
+        except (AttributeError, OSError, ValueError):
+            return True
+        return bool(select.select([fileno], [], [], 0)[0])
+
+
+def _read_key(keys: _Keyboard) -> str:
     """One keypress, named. Escape sequences are decoded here so the loop reads plainly."""
-    first = sys.stdin.read(1)
+    first = keys.read()
     if first == "":
         return "quit"
     if first == "\x03":
@@ -445,10 +486,16 @@ def _read_key() -> str:
         return first
 
     # An escape alone is "go back"; an escape with more behind it is an arrow or a page key.
-    second = sys.stdin.read(1)
-    if second not in ("[", "O"):
+    # Ask BEFORE reading, or Escape does nothing until the next key arrives and then eats it.
+    if not keys.waiting():
         return "escape"
-    third = sys.stdin.read(1)
+    second = keys.read()
+    if second not in ("[", "O"):
+        # Escape after all, and the character just read belongs to the NEXT key. Hand it back:
+        # reading it was how the question got answered, not a decision to consume it.
+        keys.unread(second)
+        return "escape"
+    third = keys.read()
     if not ("0" <= third <= "9"):
         return _letter_key(third)
     # A numbered sequence is `ESC [ digits (and `;`) final-byte`: `~` for the page keys, an arrow
@@ -458,7 +505,7 @@ def _read_key() -> str:
     number = third
     last = ""
     while True:
-        ch = sys.stdin.read(1)
+        ch = keys.read()
         if ch == "":
             break
         if ("0" <= ch <= "9") or ch == ";":
@@ -928,9 +975,11 @@ class _Picker:
                 sys.stdout.flush()
 
     def _loop(self) -> Decision | None:
+        # One keyboard for the whole session: the pushback has to outlive a single keypress.
+        keys = _Keyboard(sys.stdin)
         while True:
             self.draw()
-            key = _read_key()
+            key = _read_key(keys)
             state = self.top
             items = self.items()
             self.flash = ""

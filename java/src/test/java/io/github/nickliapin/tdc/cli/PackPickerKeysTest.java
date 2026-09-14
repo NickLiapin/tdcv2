@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
+import java.io.PushbackInputStream;
 import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -41,7 +41,7 @@ class PackPickerKeysTest {
     }
   }
 
-  private static String rest(InputStream in) {
+  private static String rest(PushbackInputStream in) {
     try {
       return new String(in.readAllBytes(), StandardCharsets.UTF_8);
     } catch (IOException e) {
@@ -54,8 +54,12 @@ class PackPickerKeysTest {
   void namesTheKeyATerminalSent() {
     for (JsonNode case_ : vectors()) {
       String name = case_.get("name").asText();
-      InputStream in =
-          new ByteArrayInputStream(case_.get("input").asText().getBytes(StandardCharsets.UTF_8));
+      // The same one byte of pushback the picker's loop gives it: a byte handed back is still
+      // unread, and `left` is what is still unread.
+      PushbackInputStream in =
+          new PushbackInputStream(
+              new ByteArrayInputStream(case_.get("input").asText().getBytes(StandardCharsets.UTF_8)),
+              1);
       assertEquals(case_.get("key").asText(), PackPicker.Keys.read(in), "key for " + name);
       assertEquals(case_.get("left").asText(), rest(in), "left unread after " + name);
     }

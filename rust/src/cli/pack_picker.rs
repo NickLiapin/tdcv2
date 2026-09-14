@@ -1333,17 +1333,61 @@ impl Stty {
     }
 }
 
-/// Escape sequences decoded once, so the loop reads plainly.
-fn read_key(input: &mut dyn Read) -> String {
-    let next = |input: &mut dyn Read| -> i32 {
+/// A keyboard with one byte of pushback.
+///
+/// A bare ESC and the start of an arrow key look identical until the next byte is read, and
+/// reading it is a question, not a decision to consume it: `Escape` then `Down` must leave the
+/// arrow intact. Rust's standard library has no way to ask a terminal whether anything is
+/// waiting — Java has `available()` and C# has `KeyAvailable`, and both answer Escape without
+/// reading ahead at all — so here the byte is read and handed back.
+pub(crate) struct Keyboard<'a> {
+    input: &'a mut dyn Read,
+    pending: Option<u8>,
+}
+
+impl<'a> Keyboard<'a> {
+    pub(crate) fn new(input: &'a mut dyn Read) -> Keyboard<'a> {
+        Keyboard {
+            input,
+            pending: None,
+        }
+    }
+
+    /// The next byte, or -1 at the end of the input.
+    fn next(&mut self) -> i32 {
+        if let Some(byte) = self.pending.take() {
+            return i32::from(byte);
+        }
         let mut byte = [0u8; 1];
-        match input.read(&mut byte) {
+        match self.input.read(&mut byte) {
             Ok(1) => i32::from(byte[0]),
             _ => -1,
         }
-    };
+    }
 
-    let first = next(input);
+    fn unread(&mut self, byte: i32) {
+        if let Ok(byte) = u8::try_from(byte) {
+            self.pending = Some(byte);
+        }
+    }
+}
+
+impl Read for Keyboard<'_> {
+    fn read(&mut self, buf: &mut [u8]) -> std::io::Result<usize> {
+        if buf.is_empty() {
+            return Ok(0);
+        }
+        if let Some(byte) = self.pending.take() {
+            buf[0] = byte;
+            return Ok(1);
+        }
+        self.input.read(buf)
+    }
+}
+
+/// Escape sequences decoded once, so the loop reads plainly.
+fn read_key(keys: &mut Keyboard<'_>) -> String {
+    let first = keys.next();
     match first {
         -1 | 3 => return "quit".to_string(),
         13 | 10 => return "enter".to_string(),
@@ -1355,11 +1399,14 @@ fn read_key(input: &mut dyn Read) -> String {
         }
     }
 
-    let second = next(input);
+    let second = keys.next();
     if second != i32::from(b'[') && second != i32::from(b'O') {
+        // Escape after all, and the byte just read belongs to the NEXT key. Hand it back:
+        // reading it was how the question got answered, not a decision to consume it.
+        keys.unread(second);
         return "escape".to_string();
     }
-    let third = u8::try_from(next(input)).unwrap_or(0);
+    let third = u8::try_from(keys.next()).unwrap_or(0);
     if !third.is_ascii_digit() {
         return letter_key(third);
     }
@@ -1370,7 +1417,7 @@ fn read_key(input: &mut dyn Read) -> String {
     let mut number = String::from(char::from(third));
     let mut last = 0u8;
     loop {
-        let Ok(byte) = u8::try_from(next(input)) else {
+        let Ok(byte) = u8::try_from(keys.next()) else {
             break;
         };
         if byte.is_ascii_digit() || byte == b';' {
@@ -1469,9 +1516,10 @@ impl Picker<'_> {
     }
 
     fn loop_until_done(&mut self, input: &mut dyn Read, out: &mut dyn Write) -> Option<Decision> {
+        let mut keys = Keyboard::new(input);
         loop {
             self.draw(out);
-            let key = read_key(input);
+            let key = read_key(&mut keys);
             let state = self.stack.last().expect("the stack never empties").clone();
             let items = self.items_for(&state);
             self.flash = String::new();
@@ -1635,7 +1683,7 @@ mod key_tests {
     use std::io::Read;
     use std::path::Path;
 
-    use super::read_key;
+    use super::{read_key, Keyboard};
     use crate::json::{self, Value};
 
     /// The shared vectors, found by walking up: `cargo test` runs from the crate root but a
@@ -1677,9 +1725,12 @@ mod key_tests {
             let name = text(&case, "name");
             let input = text(&case, "input");
             let mut bytes = input.as_bytes();
-            assert_eq!(read_key(&mut bytes), text(&case, "key"), "key for {name}");
+            // Read the tail through the keyboard, not the slice: a byte handed back is still
+            // unread, and `left` is what is still unread.
+            let mut keys = Keyboard::new(&mut bytes);
+            assert_eq!(read_key(&mut keys), text(&case, "key"), "key for {name}");
             let mut left = String::new();
-            bytes.read_to_string(&mut left).expect("read the tail");
+            keys.read_to_string(&mut left).expect("read the tail");
             assert_eq!(left, text(&case, "left"), "left unread after {name}");
         }
     }

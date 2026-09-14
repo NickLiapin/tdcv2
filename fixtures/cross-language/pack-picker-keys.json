@@ -10,10 +10,18 @@
     "other fixture is: there is no reference decoder to generate them from. They come from the",
     "escape sequences a terminal actually emits, and the three are held to each other.",
     "",
-    "`left` is what must still be unread once the key has been named. That is the half that was",
-    "wrong: Java and Rust stopped at a `~` only for the four numbers they knew, so Delete and",
-    "Insert named themselves `unknown` and left their `~` in the stream — and the next turn of",
-    "the loop read that `~` as a keystroke and typed it into the search box."
+    "`left` is what must still be unread once the key has been named, and it is where both bugs",
+    "this table has caught showed up. Java and Rust stopped at a `~` only for the four numbers",
+    "they knew, so Delete and Insert named themselves `unknown` and left their `~` in the stream,",
+    "and the next turn of the loop read that `~` as a keystroke and typed it into the search box.",
+    "",
+    "The other is Escape. A bare ESC and the start of an arrow key are the same byte, and the",
+    "only way to tell them apart is whether anything followed — so the reader used to read the",
+    "next byte and, on finding it was not `[`, throw it away. Pressing Escape did nothing until",
+    "you pressed another key, and THAT key vanished. The byte is handed back now: reading it was",
+    "the question, not a decision to consume it. Java and C# do better still and never read it —",
+    "`available()` and `KeyAvailable` answer Escape outright — but a stream a test is replaying",
+    "has nothing to ask, so the pushback is what this table pins."
   ],
   "keys": [
     { "name": "up arrow", "input": "\u001b[A", "key": "up", "left": "" },
@@ -120,10 +128,16 @@
     },
     { "name": "escape alone", "input": "\u001b", "key": "escape", "left": "" },
     {
-      "name": "escape and a letter is still escape",
+      "name": "escape hands back the letter it read to find out",
       "input": "\u001bx",
       "key": "escape",
-      "left": ""
+      "left": "x"
+    },
+    {
+      "name": "escape leaves a whole arrow key alone",
+      "input": "\u001b\u001b[B",
+      "key": "escape",
+      "left": "\u001b[B"
     }
   ]
 }

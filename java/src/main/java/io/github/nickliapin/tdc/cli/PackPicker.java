@@ -5,6 +5,7 @@ import io.github.nickliapin.tdc.packs.PackRegistry;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.io.PushbackInputStream;
 import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -876,7 +877,9 @@ final class PackPicker {
   }
 
   private Decision loop() {
-    InputStream in = terminal.in();
+    // One byte of pushback: a key read only to find out whether an escape sequence was coming
+    // has to be handed back when the answer is no.
+    PushbackInputStream in = new PushbackInputStream(terminal.in(), 1);
     while (true) {
       draw();
       String key = Keys.read(in);
@@ -995,7 +998,7 @@ final class PackPicker {
    * picker is reachable from a test: the rest of it wants a terminal.
    */
   static final class Keys {
-    static String read(InputStream in) {
+    static String read(PushbackInputStream in) {
       int first = next(in);
       if (first < 0 || first == 3) {
         return "quit";
@@ -1012,8 +1015,17 @@ final class PackPicker {
       if (first != 27) {
         return String.valueOf((char) first);
       }
+      // Escape alone, or the start of a sequence? The only way to tell is whether anything
+      // followed it. On a terminal nothing has, until the user presses another key — so ask
+      // BEFORE reading, or Escape does nothing until that key arrives and then eats it.
+      if (!waiting(in)) {
+        return "escape";
+      }
       int second = next(in);
       if (second != '[' && second != 'O') {
+        // Escape after all, and the byte just read belongs to the NEXT key. Hand it back:
+        // reading it was how the question got answered, not a decision to consume it.
+        unread(in, second);
         return "escape";
       }
       int third = next(in);
@@ -1059,9 +1071,29 @@ final class PackPicker {
       };
     }
 
-    private static int next(InputStream in) {
+    private static int next(PushbackInputStream in) {
       try {
         return in.read();
+      } catch (IOException e) {
+        throw new UncheckedIOException(e);
+      }
+    }
+
+    /** Whether a byte is there to be read without waiting for the user to type one. */
+    private static boolean waiting(PushbackInputStream in) {
+      try {
+        return in.available() > 0;
+      } catch (IOException e) {
+        throw new UncheckedIOException(e);
+      }
+    }
+
+    private static void unread(PushbackInputStream in, int byte_) {
+      if (byte_ < 0) {
+        return;
+      }
+      try {
+        in.unread(byte_);
       } catch (IOException e) {
         throw new UncheckedIOException(e);
       }

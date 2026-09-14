@@ -18,12 +18,11 @@ from __future__ import annotations
 
 import io
 import json
-import sys
 from pathlib import Path
 
 import pytest
 
-from tdcv2.cli.pack_picker import _read_key
+from tdcv2.cli.pack_picker import _Keyboard, _read_key
 
 FIXTURE = (
     Path(__file__).resolve().parents[2] / "fixtures" / "cross-language" / "pack-picker-keys.json"
@@ -32,8 +31,12 @@ VECTORS = json.loads(FIXTURE.read_text(encoding="utf-8"))["keys"]
 
 
 @pytest.mark.parametrize("case", VECTORS, ids=lambda c: c["name"])
-def test_names_the_key_a_terminal_sent(case, monkeypatch):
-    stream = io.StringIO(case["input"])
-    monkeypatch.setattr(sys, "stdin", stream)
-    assert _read_key() == case["key"]
-    assert stream.read() == case["left"]
+def test_names_the_key_a_terminal_sent(case):
+    # Read the tail through the keyboard, not the stream: a byte handed back is still unread,
+    # and ``left`` is what is still unread.
+    keys = _Keyboard(io.StringIO(case["input"]))
+    assert _read_key(keys) == case["key"]
+    left = ""
+    while (ch := keys.read()) != "":
+        left += ch
+    assert left == case["left"]

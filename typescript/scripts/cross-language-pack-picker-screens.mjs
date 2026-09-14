@@ -21,12 +21,12 @@
  * The catalogue is six invented bundles carried in the fixture rather than the real registry,
  * which grows every time a pack is published and would rewrite every screen here when it did.
  *
- * One rule for whoever adds a run: `escape` may only be the LAST key before the one that leaves.
- * A terminal sends a bare ESC for it, and the four ports read the next byte to find out whether
- * more is coming — on a real terminal that read BLOCKS, so Esc does nothing until another key is
- * pressed and that key is then swallowed. Node's readline gives up waiting after half a second
- * instead, so the reference acts on Esc alone. Measured, not assumed: a run with `escape` in the
- * middle records what the reference does and no port can reproduce it.
+ * `escape` used to be the one key no run could contain anywhere but at the end: the ports read
+ * the byte after a bare ESC to find out whether an arrow was coming and threw it away, so Escape
+ * did nothing until the next key and that key vanished. The byte is handed back now, and the
+ * search run presses Escape in the middle on purpose. What still differs is only WHEN: Node's
+ * readline gives up waiting after half a second and acts on Escape alone, while a port waits for
+ * the next keypress. The screens either way are these.
  *
  *   --update   rewrite from current behaviour; the diff is the review.
  *   (default)  verify.
@@ -149,7 +149,11 @@ const RUNS = [
     name: 'search, pick, and cancel',
     terminal: { columns: 80, rows: 24, unicode: false, colour: false },
     installed: [],
-    keys: ['/', 'p', 'o', 'l', 'down', 'enter', 'escape', 'q'],
+    // `escape` in the MIDDLE, deliberately. It used to be the one key no run could contain:
+    // the ports read the byte after a bare ESC to find out whether an arrow was coming and
+    // threw it away, so Escape did nothing until the next key and that key vanished. The byte
+    // is handed back now, and this run is what says so in every implementation at once.
+    keys: ['/', 'p', 'o', 'l', 'down', 'enter', 'escape', 'down', 'enter', 'q'],
   },
   {
     name: 'mark an installed pack for removal and apply',
