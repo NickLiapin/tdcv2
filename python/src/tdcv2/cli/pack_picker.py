@@ -447,18 +447,33 @@ def _read_key() -> str:
     if second not in ("[", "O"):
         return "escape"
     third = sys.stdin.read(1)
-    simple = {"A": "up", "B": "down", "C": "right", "D": "left", "H": "home", "F": "end"}
-    if third in simple:
-        return simple[third]
-    if third.isdigit():
-        rest = ""
-        while True:
-            ch = sys.stdin.read(1)
-            if ch == "" or ch == "~":
-                break
-            rest += ch
-        return {"5": "pageup", "6": "pagedown", "1": "home", "4": "end"}.get(third, "unknown")
-    return "unknown"
+    if not ("0" <= third <= "9"):
+        return _letter_key(third)
+    # A numbered sequence is `ESC [ digits (and `;`) final-byte`: `~` for the page keys, an arrow
+    # letter when a modifier is held. Read THROUGH that final byte whatever the number turns out
+    # to be. Stopping only at the four numbers we knew left Delete's `~` in the stream, and the
+    # next turn of the loop typed it into the search box.
+    number = third
+    last = ""
+    while True:
+        ch = sys.stdin.read(1)
+        if ch == "":
+            break
+        if ("0" <= ch <= "9") or ch == ";":
+            number += ch
+            continue
+        last = ch
+        break
+    if last != "~":
+        return _letter_key(last)
+    return {"1": "home", "4": "end", "5": "pageup", "6": "pagedown"}.get(number, "unknown")
+
+
+def _letter_key(ch: str) -> str:
+    """The final byte of a sequence that carries no number, and of one that carries a modifier."""
+    return {"A": "up", "B": "down", "C": "right", "D": "left", "H": "home", "F": "end"}.get(
+        ch, "unknown"
+    )
 
 
 # ── the picker ────────────────────────────────────────────────────────────────

@@ -951,8 +951,14 @@ final class PackPicker {
     }
   }
 
-  /** Escape sequences decoded once, so the loop reads plainly. */
-  private static final class Keys {
+  /**
+   * Escape sequences decoded once, so the loop reads plainly.
+   *
+   * <p>Package-private, and only so the shared key vectors in {@code
+   * fixtures/cross-language/pack-picker-keys.json} have something to call. Nothing else in the
+   * picker is reachable from a test: the rest of it wants a terminal.
+   */
+  static final class Keys {
     static String read(InputStream in) {
       int first = next(in);
       if (first < 0 || first == 3) {
@@ -975,25 +981,44 @@ final class PackPicker {
         return "escape";
       }
       int third = next(in);
-      return switch (third) {
+      if (third < '0' || third > '9') {
+        return letter(third);
+      }
+      // A numbered sequence is `ESC [ digits (and `;`) final-byte`: `~` for the page keys, an
+      // arrow letter when a modifier is held. Read THROUGH that final byte whatever the number
+      // turns out to be. Stopping only at the four numbers we knew left Delete's `~` in the
+      // stream, and the next turn of the loop typed it into the search box.
+      StringBuilder number = new StringBuilder().append((char) third);
+      int last = -1;
+      for (int ch = next(in); ch >= 0; ch = next(in)) {
+        if ((ch >= '0' && ch <= '9') || ch == ';') {
+          number.append((char) ch);
+          continue;
+        }
+        last = ch;
+        break;
+      }
+      if (last != '~') {
+        return letter(last);
+      }
+      return switch (number.toString()) {
+        case "1" -> "home";
+        case "4" -> "end";
+        case "5" -> "pageup";
+        case "6" -> "pagedown";
+        default -> "unknown";
+      };
+    }
+
+    /** The final byte of a sequence that carries no number, and of one that carries a modifier. */
+    private static String letter(int ch) {
+      return switch (ch) {
         case 'A' -> "up";
         case 'B' -> "down";
         case 'C' -> "right";
         case 'D' -> "left";
         case 'H' -> "home";
         case 'F' -> "end";
-        case '5', '6', '1', '4' -> {
-          int ch = next(in);
-          while (ch >= 0 && ch != '~') {
-            ch = next(in);
-          }
-          yield switch (third) {
-            case '5' -> "pageup";
-            case '6' -> "pagedown";
-            case '1' -> "home";
-            default -> "end";
-          };
-        }
         default -> "unknown";
       };
     }

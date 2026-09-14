@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "comment": [
+    "What the pack picker must make of the bytes a terminal sends for one keypress.",
+    "",
+    "Three implementations decode escape sequences by hand — Java, Rust and Python — and",
+    "they are the three this table holds. TypeScript hands the job to Node’s readline and C#",
+    "to Console.ReadKey, so neither ever sees a raw byte and neither reads this file. That is",
+    "also why the expected names are not generated from the TypeScript reference the way every",
+    "other fixture is: there is no reference decoder to generate them from. They come from the",
+    "escape sequences a terminal actually emits, and the three are held to each other.",
+    "",
+    "`left` is what must still be unread once the key has been named. That is the half that was",
+    "wrong: Java and Rust stopped at a `~` only for the four numbers they knew, so Delete and",
+    "Insert named themselves `unknown` and left their `~` in the stream — and the next turn of",
+    "the loop read that `~` as a keystroke and typed it into the search box."
+  ],
+  "keys": [
+    { "name": "up arrow", "input": "\u001b[A", "key": "up", "left": "" },
+    { "name": "down arrow", "input": "\u001b[B", "key": "down", "left": "" },
+    { "name": "right arrow", "input": "\u001b[C", "key": "right", "left": "" },
+    { "name": "left arrow", "input": "\u001b[D", "key": "left", "left": "" },
+    {
+      "name": "home, letter form",
+      "input": "\u001b[H",
+      "key": "home",
+      "left": ""
+    },
+    {
+      "name": "end, letter form",
+      "input": "\u001b[F",
+      "key": "end",
+      "left": ""
+    },
+    { "name": "home over SS3", "input": "\u001bOH", "key": "home", "left": "" },
+    {
+      "name": "home, numbered form",
+      "input": "\u001b[1~",
+      "key": "home",
+      "left": ""
+    },
+    {
+      "name": "end, numbered form",
+      "input": "\u001b[4~",
+      "key": "end",
+      "left": ""
+    },
+    { "name": "page up", "input": "\u001b[5~", "key": "pageup", "left": "" },
+    {
+      "name": "page down",
+      "input": "\u001b[6~",
+      "key": "pagedown",
+      "left": ""
+    },
+    {
+      "name": "delete leaves nothing behind",
+      "input": "\u001b[3~",
+      "key": "unknown",
+      "left": ""
+    },
+    {
+      "name": "insert leaves nothing behind",
+      "input": "\u001b[2~",
+      "key": "unknown",
+      "left": ""
+    },
+    {
+      "name": "f5 is two digits, not a home key",
+      "input": "\u001b[15~",
+      "key": "unknown",
+      "left": ""
+    },
+    {
+      "name": "ctrl on an arrow is still that arrow",
+      "input": "\u001b[1;5A",
+      "key": "up",
+      "left": ""
+    },
+    {
+      "name": "shift+tab ends in a byte we do not know",
+      "input": "\u001b[Z",
+      "key": "unknown",
+      "left": ""
+    },
+    {
+      "name": "a sequence cut off after its `[`",
+      "input": "\u001b[",
+      "key": "unknown",
+      "left": ""
+    },
+    {
+      "name": "a sequence cut off inside its number",
+      "input": "\u001b[5",
+      "key": "unknown",
+      "left": ""
+    },
+    {
+      "name": "a second key is left for the next read",
+      "input": "\u001b[A\u001b[B",
+      "key": "up",
+      "left": "\u001b[B"
+    },
+    { "name": "enter", "input": "\r", "key": "enter", "left": "" },
+    { "name": "enter as a newline", "input": "\n", "key": "enter", "left": "" },
+    { "name": "backspace", "input": "\u007f", "key": "backspace", "left": "" },
+    {
+      "name": "backspace as a control code",
+      "input": "\b",
+      "key": "backspace",
+      "left": ""
+    },
+    { "name": "space", "input": " ", "key": "space", "left": "" },
+    { "name": "ctrl+c quits", "input": "\u0003", "key": "quit", "left": "" },
+    { "name": "a closed input quits", "input": "", "key": "quit", "left": "" },
+    {
+      "name": "a plain letter is itself",
+      "input": "f",
+      "key": "f",
+      "left": ""
+    },
+    { "name": "escape alone", "input": "\u001b", "key": "escape", "left": "" },
+    {
+      "name": "escape and a letter is still escape",
+      "input": "\u001bx",
+      "key": "escape",
+      "left": ""
+    }
+  ]
+}

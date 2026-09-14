@@ -1334,30 +1334,51 @@ fn read_key(input: &mut dyn Read) -> String {
     if second != i32::from(b'[') && second != i32::from(b'O') {
         return "escape".to_string();
     }
-    let third = next(input);
-    match u8::try_from(third).unwrap_or(0) {
-        b'A' => "up".to_string(),
-        b'B' => "down".to_string(),
-        b'C' => "right".to_string(),
-        b'D' => "left".to_string(),
-        b'H' => "home".to_string(),
-        b'F' => "end".to_string(),
-        digit @ (b'5' | b'6' | b'1' | b'4') => {
-            // A numbered sequence runs on to its `~`; swallow it or the tail
-            // arrives as separate keystrokes.
-            let mut ch = next(input);
-            while ch >= 0 && ch != i32::from(b'~') {
-                ch = next(input);
-            }
-            match digit {
-                b'5' => "pageup".to_string(),
-                b'6' => "pagedown".to_string(),
-                b'1' => "home".to_string(),
-                _ => "end".to_string(),
-            }
+    let third = u8::try_from(next(input)).unwrap_or(0);
+    if !third.is_ascii_digit() {
+        return letter_key(third);
+    }
+    // A numbered sequence is `ESC [ digits (and `;`) final-byte`: `~` for the page keys, an
+    // arrow letter when a modifier is held. Read THROUGH that final byte whatever the number
+    // turns out to be. Stopping only at the four numbers we knew left Delete's `~` in the
+    // stream, and the next turn of the loop typed it into the search box.
+    let mut number = String::from(char::from(third));
+    let mut last = 0u8;
+    loop {
+        let Ok(byte) = u8::try_from(next(input)) else {
+            break;
+        };
+        if byte.is_ascii_digit() || byte == b';' {
+            number.push(char::from(byte));
+            continue;
         }
+        last = byte;
+        break;
+    }
+    if last != b'~' {
+        return letter_key(last);
+    }
+    match number.as_str() {
+        "1" => "home".to_string(),
+        "4" => "end".to_string(),
+        "5" => "pageup".to_string(),
+        "6" => "pagedown".to_string(),
         _ => "unknown".to_string(),
     }
+}
+
+/// The final byte of a sequence that carries no number, and of one that carries a modifier.
+fn letter_key(byte: u8) -> String {
+    match byte {
+        b'A' => "up",
+        b'B' => "down",
+        b'C' => "right",
+        b'D' => "left",
+        b'H' => "home",
+        b'F' => "end",
+        _ => "unknown",
+    }
+    .to_string()
 }
 
 // ── the loop ─────────────────────────────────────────────────────────────────
@@ -1580,6 +1601,61 @@ impl Picker<'_> {
         if let Some(state) = self.stack.last_mut() {
             let next = state.cursor as isize + by;
             state.cursor = next.clamp(0, last as isize) as usize;
+        }
+    }
+}
+
+#[cfg(test)]
+mod key_tests {
+    use std::io::Read;
+    use std::path::Path;
+
+    use super::read_key;
+    use crate::json::{self, Value};
+
+    /// The shared vectors, found by walking up: `cargo test` runs from the crate root but a
+    /// workspace or an IDE may not, and a fixture silently not found would pass by checking
+    /// nothing.
+    fn vectors() -> Vec<Value> {
+        let mut dir: &Path = Path::new(env!("CARGO_MANIFEST_DIR"));
+        let file = loop {
+            let candidate = dir.join("fixtures/cross-language/pack-picker-keys.json");
+            if candidate.is_file() {
+                break candidate;
+            }
+            dir = dir.parent().unwrap_or_else(|| {
+                panic!(
+                    "no pack-picker-keys.json above {}",
+                    env!("CARGO_MANIFEST_DIR")
+                )
+            });
+        };
+        let text = std::fs::read_to_string(&file).expect("read the key vectors");
+        json::parse(&text)
+            .expect("parse the key vectors")
+            .get("keys")
+            .and_then(Value::as_array)
+            .expect("keys")
+            .to_vec()
+    }
+
+    fn text(case: &Value, key: &str) -> String {
+        case.get(key)
+            .and_then(Value::as_str)
+            .unwrap_or_else(|| panic!("{key} is missing"))
+            .to_string()
+    }
+
+    #[test]
+    fn names_the_key_a_terminal_sent() {
+        for case in vectors() {
+            let name = text(&case, "name");
+            let input = text(&case, "input");
+            let mut bytes = input.as_bytes();
+            assert_eq!(read_key(&mut bytes), text(&case, "key"), "key for {name}");
+            let mut left = String::new();
+            bytes.read_to_string(&mut left).expect("read the tail");
+            assert_eq!(left, text(&case, "left"), "left unread after {name}");
         }
     }
 }
