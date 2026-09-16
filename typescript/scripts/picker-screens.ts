@@ -189,9 +189,16 @@ export async function playRun(
     const done = picker.runPicker(bundles, new Set(run.installed));
     const screens: string[][] = [];
 
-    /** Wait for the next draw, then a beat more in case the key draws twice. */
+    /**
+     * Wait for the next draw, then a beat more in case the key draws twice.
+     *
+     * The cap is generous on purpose. It is never reached in the normal case — the loop leaves
+     * the moment a draw lands — but a bare ESC does not become a keypress until readline's own
+     * half-second timeout expires, and a cap near that would turn a loaded CI runner into a
+     * screen recorded one key early, which reads as a layout bug rather than as a slow machine.
+     */
     const settle = async (drawn: number): Promise<void> => {
-      const until = Date.now() + 1000;
+      const until = Date.now() + 5000;
       while (out.written.length === drawn && Date.now() < until) {
         await new Promise((r) => setTimeout(r, 2));
       }
