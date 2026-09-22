@@ -20,6 +20,13 @@ the next build, and nothing else is edited.
 
 ## [Unreleased]
 
+## [0.3.2] — 2026-09-22
+
+### Changed
+
+- Nothing for this package: the release fixes how the C# command line declares its
+  runtime — see the [engine changelog](../CHANGELOG.md#032--2026-09-22).
+
 ## [0.3.1] — 2026-09-21
 
 ### Changed

@@ -17,7 +17,7 @@ cross-language guarantee is one of TDC's core promises.
 ## Getting it
 
 > [!TIP]
-> **On PyPI — version 0.3.1**
+> **On PyPI — version 0.3.2**
 >
 >
 > ```bash

@@ -3,6 +3,13 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
+    <!-- Without this the tool installs and then refuses to start for most people. The default
+         roll-forward is Minor: a net6.0 EXECUTABLE looks for a 6.x runtime and declines to use
+         8 or 9, and .NET 6 left support in November 2024. Measured on 0.3.1 — a runner carrying
+         only .NET 8 answered `dotnet tool install` with success and `tdcv2` with "You must
+         install or update .NET to run this application". The library beside it needs nothing:
+         a net6.0 LIBRARY is consumable by a newer app already. -->
+    <RollForward>LatestMajor</RollForward>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Tdcv2.Cli</RootNamespace>
@@ -28,7 +35,7 @@
   -->
   <PropertyGroup>
     <PackageId>Tdcv2.Cli</PackageId>
-    <Version>0.3.1</Version>
+    <Version>0.3.2</Version>
     <Authors>Nikolai Liapin</Authors>
     <Description>Command line for TDC — the deterministic test-data generator. Turns a .tdc config into data: generate, check, format, init, and pack. Same seed, same bytes as the TypeScript, Python, Java and Rust implementations. The library itself is the Tdcv2 package.</Description>
     <PackageTags>test-data;mock-data;fake-data;synthetic-data;data-generator;deterministic;fixtures;testing;cli;dotnet-tool</PackageTags>

@@ -11,6 +11,17 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [0.3.2] — 2026-09-22
+
+### Fixed
+
+- **The tool installed and then refused to start.** `Tdcv2.Cli` targets `net6.0`, and a .NET
+  executable rolls forward only within its own major version unless it says otherwise — so
+  `dotnet tool install --global Tdcv2.Cli` succeeded and `tdcv2` answered "You must install or
+  update .NET to run this application" on any machine without a 6.x runtime. `RollForward` is
+  now `LatestMajor`. The `Tdcv2` library was never affected: a `net6.0` library is consumable
+  by a newer app as it is.
+
 ## [0.3.1] — 2026-09-21
 
 ### Changed

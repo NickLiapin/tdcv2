@@ -15,6 +15,27 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+## [0.3.2] — 2026-09-22
+
+### Fixed
+
+<!-- covers: dotnet tool roll forward -->
+
+- **`dotnet tool install --global Tdcv2.Cli` installed a command that would not start.** The
+  tool is built for `net6.0`, and a .NET EXECUTABLE rolls forward only within its own major
+  version by default — so a machine carrying .NET 8 or 9 and not .NET 6 answered `tdcv2` with
+  "You must install or update .NET to run this application". .NET 6 left support in November
+  2024, which makes that most machines. The tool now declares `RollForward=LatestMajor` and
+  runs on whatever newer runtime is there.
+
+  The library is unaffected and always was: a `net6.0` library is consumable by a newer app
+  already. Only the executable had to ask.
+
+  Found by `npm run verify:published`, which shipped hours earlier in 0.3.1 and installs all
+  five from the registries the way a stranger does. It went red on its first run — on a runner
+  that had only .NET 8, which is the point of running it somewhere that is not the machine the
+  release was cut on.
+
 ## [0.3.1] — 2026-09-21
 
 ### Added
