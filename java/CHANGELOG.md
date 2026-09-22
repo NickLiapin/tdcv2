@@ -20,6 +20,13 @@ the next build, and nothing else is edited.
 
 ## [Unreleased]
 
+## [0.3.1] — 2026-09-21
+
+### Changed
+
+- Engine and `tdcv2 pack` changes only, shared by all five implementations — see the
+  [engine changelog](../CHANGELOG.md#031--2026-09-21).
+
 ## [0.3.0] — 2026-09-01
 
 ### Added

@@ -15,6 +15,8 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+## [0.3.1] — 2026-09-21
+
 ### Added
 
 <!-- covers: interpolation inside a case body -->
@@ -47,7 +49,7 @@ page — is tracked in that implementation's own changelog:
   answered once every declaration is known, exactly as an `if=` expression is, with the
   complaint spliced back where the tag stood. None of the 884 bundled packs was affected.
 
-<!-- covers: repeat with order=sequential -->
+<!-- covers: repeat with order=sequential, TDC307 -->
 
 - **A row can hold several values walked in order — a fixed `repeat=` beside
   `order="sequential"`.** The combination was refused (`TDC254`) with the refusal itself
@@ -89,7 +91,7 @@ page — is tracked in that implementation's own changelog:
   `cycle="false"` now says which element of which row ran out, rather than naming a row
   number that was really a position in the walk.
 
-<!-- covers: per-row assertions -->
+<!-- covers: per-row assertions, TDC306 -->
 
 - **`<assert each="…">` — the per-row assertion the page had been calling a different
   feature.** `that=` states a property of the finished run and reads whole-run values once;
@@ -266,7 +268,7 @@ page — is tracked in that implementation's own changelog:
   could never be taken); two groups under one name; a branch with no `name=value` test.
   `(?<=…)` and `(?<!…)` stay lookbehind rather than becoming a group named `=`.
 
-<!-- covers: timeseries seasonalities and AR noise -->
+<!-- covers: timeseries seasonalities and AR noise, TDC304, TDC305 -->
 
 - **Several seasonal waves at once, and noise that remembers — the two things the
   timeseries page promised and did not have.** `period`, `amplitude` and `peak_at` each
@@ -296,7 +298,7 @@ amplitude="120,400" peak_at="5,182"` is a weekly season and a yearly one on one 
   `0` among several periods (`TDC304`); a correlation outside −1..1 or with no `noise=`
   beside it (`TDC305`).
 
-<!-- covers: missing_when -->
+<!-- covers: missing_when, TDC303 -->
 
 - **`missing_when="…"` — MAR and MNAR, not just MCAR.** `missing="p"` blanked values
   without regard to anything else, which is one of the three ways real data goes missing
