@@ -166,11 +166,21 @@ describe('the status file on a real run', () => {
        * No `<uniq>`: this is about the render phase being summed across workers,
        * and a wide uniq group would spend most of the run in the scan instead.
        */
+      /*
+       * Twenty million, not eight. The channel reports on a cadence rather than per row, so
+       * the number of distinct render states a run produces is a function of how LONG it runs
+       * — and at eight million this test failed intermittently on a fast machine. Measured,
+       * sampling the status file directly: eight million gave 2 render states on one run and 8
+       * on the next, which is a coin toss against a threshold of 3; twenty million gave 19 and
+       * 12. Sampling faster does not help, because the states were never written. The run takes
+       * about 25 seconds instead of 12, which is what a heavy suite is for.
+       */
+      const ROWS = 20_000_000;
       const values = Array.from({ length: 1000 }, (_, i) => `v${String(i)}`).join(',');
       const { writeFileSync } = await import('node:fs');
       writeFileSync(
         config,
-        `<tdc><env count="8000000" seed="heavy-par" local="en">` +
+        `<tdc><env count="${String(ROWS)}" seed="heavy-par" local="en">` +
           `<sequence name="A"><gen type="text" value="${values}"/></sequence>` +
           `<sequence name="B"><gen type="number" value="1..1000000"/></sequence>` +
           `</env><block><line><data>\${{A}}|\${{B}}</data></line></block></tdc>\n`,
@@ -206,12 +216,12 @@ describe('the status file on a real run', () => {
         // a worker's own numbers would have topped out at a quarter of it, and
         // summing deltas twice would have overshot it.
         for (const report of rendering) {
-          expect(report.total).toBe(8_000_000);
-          expect(report.done).toBeLessThanOrEqual(8_000_000);
+          expect(report.total).toBe(ROWS);
+          expect(report.done).toBeLessThanOrEqual(ROWS);
         }
         // And it really got past one worker's share, which is what "whole" means.
         const highest = Math.max(...rendering.map((r) => r.done ?? 0));
-        expect(highest).toBeGreaterThan(8_000_000 / 4);
+        expect(highest).toBeGreaterThan(ROWS / 4);
 
         const final = seen[seen.length - 1];
         expect(final?.phase).toBe('done');
