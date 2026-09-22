@@ -28,6 +28,12 @@ on:
         required: false
         type: string
 
+# Read the repository and nothing else. Everything this workflow reaches for afterwards is
+# public — five registries, no credentials — so the token never needs to write anything, and
+# saying so is what the other seven workflows here already do.
+permissions:
+  contents: read
+
 jobs:
   verify:
     name: Install from the registries and run
