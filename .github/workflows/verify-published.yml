@@ -1,0 +1,88 @@
+name: Verify what the registries serve
+
+# Install all five from the public registries and run the same config in each.
+#
+# `Publish all five` proves the artefacts before it uploads them. This runs AFTER
+# it, and asks the only question that file cannot: whether what the registries now
+# hand a stranger installs and works. Between the two sit five uploads and whatever
+# each registry does to a package on the way in — and until this workflow, nothing
+# ever downloaded a published TDC and ran it.
+#
+# It is deliberately a SEPARATE workflow rather than a job inside the publish one.
+# A registry takes its time: measured on 0.3.1, npm answered after 1.5 minutes,
+# NuGet after 3 and Maven Central after 6. A job that installed straight after
+# uploading would fail on a release that is perfectly fine, so this one waits for
+# the version to appear first — and a failure here means something real.
+#
+# The script cleans up after itself; nothing is installed outside a temporary
+# directory, on a runner or on a laptop.
+
+on:
+  workflow_run:
+    workflows: ["Publish all five"]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to verify (defaults to the working tree's)"
+        required: false
+        type: string
+
+jobs:
+  verify:
+    name: Install from the registries and run
+    # A publish that failed has nothing to verify, and saying so loudly would be
+    # a second alarm for one fire.
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 17 }
+      - uses: actions/setup-dotnet@v4
+        with: { dotnet-version: "8.0.x" }
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Which version
+        id: which
+        run: |
+          version="${{ inputs.version }}"
+          if [ -z "$version" ]; then
+            version=$(node -p "require('./typescript/package.json').version")
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "verifying $version"
+
+      - name: Wait for the registries to carry it
+        env:
+          V: ${{ steps.which.outputs.version }}
+        run: |
+          # Polled rather than slept: a fixed sleep is either too short on a slow
+          # day or wasted on a fast one. 30 minutes is far past the 6 that Maven
+          # Central — the slowest of the five, measured — has ever needed.
+          ua='tdcv2-release-check (https://github.com/NickLiapin/tdcv2)'
+          for i in $(seq 1 60); do
+            npm=$(curl -sS -m 20 "https://registry.npmjs.org/tdcv2/$V" -o /dev/null -w '%{http_code}' || echo 000)
+            pypi=$(curl -sS -m 20 "https://pypi.org/pypi/tdcv2/$V/json" -o /dev/null -w '%{http_code}' || echo 000)
+            crates=$(curl -sS -m 20 -A "$ua" "https://crates.io/api/v1/crates/tdcv2/$V" -o /dev/null -w '%{http_code}' || echo 000)
+            nuget=$(curl -sS -m 20 -A "$ua" "https://api.nuget.org/v3-flatcontainer/tdcv2/$V/tdcv2.$V.nupkg" -o /dev/null -w '%{http_code}' || echo 000)
+            maven=$(curl -sS -m 20 "https://repo1.maven.org/maven2/io/github/nickliapin/tdcv2/$V/tdcv2-$V-cli.jar" -o /dev/null -w '%{http_code}' || echo 000)
+            echo "npm=$npm pypi=$pypi crates=$crates nuget=$nuget maven=$maven"
+            if [ "$npm$pypi$crates$nuget$maven" = "200200200200200" ]; then
+              echo "all five carry $V"; exit 0
+            fi
+            sleep 30
+          done
+          echo "::error::30 minutes and at least one registry still does not serve $V"
+          exit 1
+
+      - name: Install all five and compare their bytes
+        run: node scripts/verify-published.mjs "${{ steps.which.outputs.version }}"

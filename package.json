@@ -36,6 +36,7 @@
     "packs:publish": "node scripts/publish-data-packs.mjs",
     "packs:published": "node scripts/publish-data-packs.mjs --check",
     "verify:derived": "node scripts/verify-derived.mjs",
+    "verify:published": "node scripts/verify-published.mjs",
     "coverage": "node scripts/coverage.mjs",
     "coverage:update": "node scripts/coverage.mjs --update"
   },
