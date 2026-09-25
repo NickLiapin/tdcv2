@@ -15,6 +15,45 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+### Added
+
+<!-- covers: uniq over a regex pattern -->
+
+- **`uniq="true"` takes a `regex` pattern.** A plate number, an invoice code, an order ID —
+  anything a pattern describes and no two records may share:
+
+  ```xml
+  <sequence name="Plate" uniq="true">
+      <gen type="regex" value="[A-Z]{2}-[0-9]{4}"/>
+  </sequence>
+  ```
+
+  It used to be refused as "its values cannot be enumerated", and the reason was never true.
+  Nothing is enumerated for a plain integer range either — the draw is simply taken again when
+  it repeats. What uniqueness needs from a source is its SIZE, so that a count it cannot meet
+  is refused before drawing rather than discovered after, and a `regex` pattern has one: `*`,
+  `+` and `{n,}` are not allowed, so every pattern is finite. Its size is counted over the parse
+  tree — a class counts its characters, a sequence multiplies, `|` adds, `{m,n}` adds every
+  length it allows — so `[A-Z]{2}-[0-9]{4}` is 26² · 10⁴ = 6 760 000, and asking for more is
+  refused naming both numbers.
+
+  A pattern whose length varies runs out of its short forms first, because `{2,10}` picks each
+  of its nine lengths one time in nine. Measured: `[0-9]{2,10}` asked for 200 000 unique values
+  gives out all hundred two-digit strings and all thousand three-digit ones, and leans longer
+  after that. Without `uniq` the same 200 000 rows held only 140 535 different values — the
+  hundred two-digit strings had been drawn 22 413 times.
+
+  The count is exact for what identifiers are made of and an upper bound otherwise:
+  `(a|ab)(c|bc)` reaches `abc` two ways and is counted twice. So the drawing also watches for a
+  run of repeats, and a request that outruns the strings that really exist stops with the reason
+  instead of looping — after at least 100 000 in a row, and twenty times the expected wait for a
+  fresh value near the end, so that asking for every one of the million strings of `[0-9]{6}`
+  still finishes. `advanced_regex` stays refused: its weighted branches need a different count.
+
+  Pinned five ways: every counting rule in `fixtures/cross-language/regex-space.json`, the exact
+  sequence of redraws in four shared cases — one of them all hundred strings of `[0-9]{2}`, where
+  nearly every late draw is a repeat — and both refusals in `cli.json`.
+
 ## [0.3.2] — 2026-09-22
 
 ### Fixed

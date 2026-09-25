@@ -194,9 +194,10 @@ never repeats: the draw runs **without replacement**. A weighted pack keeps its 
 (frequent names are more likely to make the cut), but nothing appears twice. When the
 source holds fewer distinct values than there are records, the run refuses up front and
 names both numbers — never a quiet repeat. Supported sources: `text` value lists,
-`template` packs, `file` columns and plain integer ranges (`value="1..100000"`);
+`template` packs, `file` columns, plain integer ranges (`value="1..100000"`) and
+[`regex` patterns](../generators/regex.md#top), which are finite and so can be counted;
 `increment`/`decrement` are unique by construction. A generator whose values cannot be
-enumerated (`regex`, `date`, …) is refused with a message saying exactly that.
+counted (`advanced_regex`, `date`, …) is refused with a message saying exactly that.
 
 ```xml
 <sequence name="Person" uniq="true">

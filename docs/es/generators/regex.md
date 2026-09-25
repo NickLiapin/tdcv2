@@ -640,6 +640,33 @@ error: invalid regex generator pattern: unbounded "+" quantifier is not
 allowed; use "{1,n}"
 ```
 
+## Valores únicos — `uniq="true"`
+
+Un patrón siempre es finito — `*`, `+` y `{n,}` no se permiten —, así que se puede contar, y
+`uniq="true"` en su secuencia da a cada fila una cadena distinta:
+
+```xml
+<sequence name="Plate" uniq="true">
+    <gen type="regex" value="[A-Z]{2}-[0-9]{4}"/>
+</sequence>
+```
+
+La cuenta sale de la forma del patrón: una clase aporta sus caracteres, una secuencia
+multiplica, `|` suma y `{m,n}` suma cada longitud que permite. `[A-Z]{2}-[0-9]{4}` son
+26² · 10⁴ = 6 760 000 matrículas; si se piden más filas, la corrida se rehúsa antes de sacar
+nada y nombra ambos números. Dentro de esa cuenta, el sorteo simplemente se repite cada vez que
+cae en una matrícula ya entregada.
+
+Un patrón de longitud variable agota primero sus formas cortas. `{2,10}` elige cada una de sus
+nueve longitudes una vez de cada nueve, así que `[0-9]{2,10}`, al pedirle 200 000 valores
+únicos, entrega las cien cadenas de dos dígitos y las mil de tres, y el resto de la columna es
+más largo. La unicidad desplaza la mezcla de longitudes; no rechaza la petición.
+
+Cuando a una misma cadena se llega por dos caminos — `(a|ab)(c|bc)` produce `abc` por ambos —,
+la cuenta queda alta, y una petición cercana a ella puede superar las cadenas que existen de
+verdad. El sorteo nota que las repeticiones se acumulan y se detiene con el motivo, en lugar de
+quedarse en un bucle.
+
 ## Proporciones exactas
 
 El `regex` simple no fija porcentajes dentro de la expresión — `(cat|dog)` es aleatorio,

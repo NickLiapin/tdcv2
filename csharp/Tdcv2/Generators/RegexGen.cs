@@ -100,6 +100,111 @@ public static class RegexGen
         return result;
     }
 
+    /// <summary>
+    /// The ceiling <see cref="SpaceSize"/> saturates at — 2^53 − 1, the largest integer all five
+    /// implementations hold exactly. Past it the only question asked of the count, is there room
+    /// for this many rows, has the same answer for every pattern.
+    /// </summary>
+    public const long SpaceCap = (1L << 53) - 1;
+
+    /// <summary>
+    /// The most different strings a pattern can make — what <c>uniq="true"</c> checks a count
+    /// against before it draws.
+    /// </summary>
+    /// <remarks>
+    /// A class counts its distinct characters, a sequence multiplies, an alternation adds and
+    /// <c>{m,n}</c> adds every length it allows. Exact for literals, classes and repeats; an upper
+    /// bound otherwise, never a lower one: <c>(a|ab)(c|bc)</c> reaches <c>abc</c> two ways and is
+    /// counted twice, a conditional counts both branches, and a back-reference counts once because
+    /// the group it repeats was already counted. Pinned for all five in <c>regex-space.json</c>.
+    /// </remarks>
+    public static long SpaceSize(string pattern, int regexMaxLength) =>
+        Space(Compile(pattern, regexMaxLength));
+
+    /// <summary>The length limit a gen runs under: its own <c>regex_max_length=</c>, else the document's.</summary>
+    public static int LimitOf(IReadOnlyDictionary<string, string> attrs, int documentMaxLength) =>
+        attrs.TryGetValue("regex_max_length", out string? own) ? ParseMaxLength(own) : documentMaxLength;
+
+    /// <summary>One value per call, compiled once — the walk <see cref="Generate"/> takes for each row.</summary>
+    public static Func<Sfc32, string> Drawer(
+        IReadOnlyDictionary<string, string> attrs, int documentMaxLength)
+    {
+        Node root = Compile(attrs.GetValueOrDefault("value", ""), LimitOf(attrs, documentMaxLength));
+        return prng => Render(root, new Dictionary<int, string>(), prng);
+    }
+
+    private static long Times(long a, long b)
+    {
+        if (a == 0 || b == 0)
+        {
+            return 0;
+        }
+
+        return a > SpaceCap / b ? SpaceCap : Math.Min(a * b, SpaceCap);
+    }
+
+    private static long Plus(long a, long b) => Math.Min(a + b, SpaceCap);
+
+    private static long Space(Node node)
+    {
+        switch (node)
+        {
+            case Node.Empty:
+            case Node.Literal:
+            case Node.Backref:
+                return 1;
+            case Node.Chars c:
+                return new HashSet<string>(c.Values).Count;
+            case Node.Sequence s:
+            {
+                long total = 1;
+                foreach (Node part in s.Parts)
+                {
+                    total = Times(total, Space(part));
+                }
+
+                return total;
+            }
+
+            case Node.Alternation a:
+            {
+                long total = 0;
+                foreach (Node choice in a.Choices)
+                {
+                    total = Plus(total, Space(choice));
+                }
+
+                return total;
+            }
+
+            case Node.Capture c:
+                return Space(c.Inner);
+            case Node.Conditional c:
+                return Plus(Space(c.Yes), Space(c.No));
+            case Node.Repeat r:
+            {
+                long each = Space(r.Inner);
+                long term = 1;
+                for (int i = 0; i < r.Min; i++)
+                {
+                    term = Times(term, each);
+                }
+
+                long total = 0;
+                for (int i = r.Min; i <= r.Max; i++)
+                {
+                    total = Plus(total, term);
+                    term = Times(term, each);
+                }
+
+                return total;
+            }
+
+            default:
+                throw new InvalidOperationException($"unknown regex node {node.GetType().Name}");
+        }
+    }
+
     public static Node Compile(string pattern, int regexMaxLength)
     {
         var parser = new Parser(pattern);

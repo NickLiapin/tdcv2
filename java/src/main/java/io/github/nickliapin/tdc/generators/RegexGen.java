@@ -93,6 +93,93 @@ public final class RegexGen {
     return out;
   }
 
+  /**
+   * The ceiling {@link #spaceSize} saturates at — 2^53 − 1, the largest integer all five
+   * implementations hold exactly. Past it the only question asked of the count, is there room for
+   * this many rows, has the same answer for every pattern.
+   */
+  public static final long SPACE_CAP = (1L << 53) - 1;
+
+  /**
+   * The most different strings a pattern can make — what {@code uniq="true"} checks a count
+   * against before it draws.
+   *
+   * <p>A class counts its distinct characters, a sequence multiplies, an alternation adds and
+   * {@code {m,n}} adds every length it allows. Exact for literals, classes and repeats; an upper
+   * bound otherwise, never a lower one: {@code (a|ab)(c|bc)} reaches {@code abc} two ways and is
+   * counted twice, a conditional counts both branches, and a back-reference counts once because
+   * the group it repeats was already counted. Pinned for all five in {@code regex-space.json}.
+   */
+  public static long spaceSize(String pattern, int regexMaxLength) {
+    return space(compile(pattern, regexMaxLength));
+  }
+
+  /** The length limit a gen runs under: its own {@code regex_max_length=}, else the document's. */
+  public static int limitOf(Map<String, String> attrs, int documentMaxLength) {
+    return attrs.get("regex_max_length") != null
+        ? parseMaxLength(attrs.get("regex_max_length"))
+        : documentMaxLength;
+  }
+
+  /** One value per call, compiled once — the walk {@link #generate} takes for each row. */
+  public static java.util.function.Function<Prng.Sfc32, String> drawer(
+      Map<String, String> attrs, int documentMaxLength) {
+    Node root = compile(attrs.getOrDefault("value", ""), limitOf(attrs, documentMaxLength));
+    return prng -> render(root, new HashMap<>(), prng);
+  }
+
+  private static long times(long a, long b) {
+    if (a == 0 || b == 0) {
+      return 0;
+    }
+    return a > SPACE_CAP / b ? SPACE_CAP : Math.min(a * b, SPACE_CAP);
+  }
+
+  private static long plus(long a, long b) {
+    return Math.min(a + b, SPACE_CAP);
+  }
+
+  private static long space(Node node) {
+    if (node instanceof Empty || node instanceof Literal || node instanceof Backref) {
+      return 1;
+    }
+    if (node instanceof Chars c) {
+      return new java.util.HashSet<>(c.chars()).size();
+    }
+    if (node instanceof Sequence s) {
+      long total = 1;
+      for (Node part : s.parts()) {
+        total = times(total, space(part));
+      }
+      return total;
+    }
+    if (node instanceof Alternation a) {
+      long total = 0;
+      for (Node choice : a.choices()) {
+        total = plus(total, space(choice));
+      }
+      return total;
+    }
+    if (node instanceof Capture c) {
+      return space(c.node());
+    }
+    if (node instanceof Conditional c) {
+      return plus(space(c.yes()), space(c.no()));
+    }
+    Repeat r = (Repeat) node;
+    long inner = space(r.node());
+    long term = 1;
+    for (int i = 0; i < r.min(); i++) {
+      term = times(term, inner);
+    }
+    long total = 0;
+    for (int i = r.min(); i <= r.max(); i++) {
+      total = plus(total, term);
+      term = times(term, inner);
+    }
+    return total;
+  }
+
   public static Node compile(String pattern, int regexMaxLength) {
     Parser parser = new Parser(pattern);
     Node root = parser.parse();

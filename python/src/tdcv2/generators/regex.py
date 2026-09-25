@@ -110,6 +110,18 @@ def generate(attrs: dict[str, str], count: int, document_max_length: int, prng: 
     return [_render(root, {}, prng) for _ in range(count)]
 
 
+def limit_of(attrs: dict[str, str], document_max_length: int) -> int:
+    """The length limit a gen runs under: its own ``regex_max_length=``, else the document's."""
+    raw = attrs.get("regex_max_length")
+    return parse_max_length(raw) if raw is not None else document_max_length
+
+
+def drawer(attrs: dict[str, str], document_max_length: int):
+    """One value per call, compiled once — the walk :func:`generate` takes for each row."""
+    root = compile_pattern(attrs.get("value", ""), limit_of(attrs, document_max_length))
+    return lambda prng: _render(root, {}, prng)
+
+
 def compile_pattern(pattern: str, regex_max_length: int) -> Node:
     parser = _Parser(pattern)
     root = parser.parse()
@@ -120,6 +132,56 @@ def compile_pattern(pattern: str, regex_max_length: int) -> Node:
             f"regex_max_length={regex_max_length}"
         )
     return root
+
+
+#: The ceiling :func:`space_size` saturates at — 2^53 − 1, the largest integer all five
+#: implementations hold exactly. Past it the only question anyone asks of the count, is there
+#: room for this many rows, has the same answer for every pattern.
+SPACE_CAP = (1 << 53) - 1
+
+
+def space_size(pattern: str, regex_max_length: int) -> int:
+    """The most different strings a pattern can make — what ``uniq="true"`` checks a count against.
+
+    A class counts its distinct characters, a sequence multiplies, an alternation adds and
+    ``{m,n}`` adds every length it allows. Exact for literals, classes and repeats; an upper
+    bound otherwise, never a lower one: ``(a|ab)(c|bc)`` reaches ``abc`` two ways and is counted
+    twice, a conditional counts both branches, and a back-reference counts once because the
+    group it repeats was already counted. Pinned for all five in ``regex-space.json``.
+    """
+    return _space(compile_pattern(pattern, regex_max_length))
+
+
+def _space(node: Node) -> int:
+    if isinstance(node, (Empty, Literal, Backref)):
+        return 1
+    if isinstance(node, Chars):
+        return len(set(node.chars))
+    if isinstance(node, Sequence):
+        total = 1
+        for part in node.parts:
+            total = min(total * _space(part), SPACE_CAP)
+        return total
+    if isinstance(node, Alternation):
+        total = 0
+        for choice in node.choices:
+            total = min(total + _space(choice), SPACE_CAP)
+        return total
+    if isinstance(node, Capture):
+        return _space(node.node)
+    if isinstance(node, Conditional):
+        return min(_space(node.yes) + _space(node.no), SPACE_CAP)
+    if isinstance(node, Repeat):
+        inner = _space(node.node)
+        term = 1
+        for _ in range(node.min):
+            term = min(term * inner, SPACE_CAP)
+        total = 0
+        for _ in range(node.min, node.max + 1):
+            total = min(total + term, SPACE_CAP)
+            term = min(term * inner, SPACE_CAP)
+        return total
+    raise TypeError(f"unknown regex node {type(node).__name__}")
 
 
 def parse_max_length(raw: str | None) -> int:

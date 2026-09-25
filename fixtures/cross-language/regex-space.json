@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "comment": "How many different strings a type=\"regex\" pattern can make, as `uniq=\"true\"` counts it before drawing. A class counts its distinct characters, a sequence multiplies, an alternation adds, {m,n} adds every length it allows, a back-reference counts once and a conditional counts both branches. Exact for literals, classes and repeats; an upper bound otherwise. Saturates at 9007199254740991 (2^53 − 1). Regenerate with: npm run regex:space -- --update",
+  "cap": 9007199254740991,
+  "patterns": [
+    {
+      "pattern": "[A-Z]{2}-[0-9]{4}/[0-9]{2}",
+      "size": 676000000,
+      "why": "a plate number: 26² · 10⁴ · 10²"
+    },
+    {
+      "pattern": "[0-9]{2}",
+      "size": 100,
+      "why": "the smallest honest space: one hundred"
+    },
+    {
+      "pattern": "[0-9]{2,3}",
+      "size": 1100,
+      "why": "a variable length adds EVERY length it allows: 10² + 10³"
+    },
+    {
+      "pattern": "[0-9]{2,10}",
+      "size": 11111111100,
+      "why": "nine lengths, eleven billion strings"
+    },
+    {
+      "pattern": "abc",
+      "size": 1,
+      "why": "a literal is one string"
+    },
+    {
+      "pattern": "a|b|c",
+      "size": 3,
+      "why": "an alternation adds its branches"
+    },
+    {
+      "pattern": "(a|ab)(c|bc)",
+      "size": 4,
+      "why": "OVERCOUNTED — reaches abc two ways, so four is counted for three strings"
+    },
+    {
+      "pattern": "[aab]",
+      "size": 2,
+      "why": "a class counts DISTINCT characters, not how often one is written"
+    },
+    {
+      "pattern": "([ab])\\1",
+      "size": 2,
+      "why": "a back-reference repeats a group already counted: two, not four"
+    },
+    {
+      "pattern": "(?<n>[ab])\\k<n>",
+      "size": 2,
+      "why": "the same by name"
+    },
+    {
+      "pattern": "(?<x>a)?(?(x)b|c)",
+      "size": 4,
+      "why": "OVERCOUNTED — a conditional counts both branches, though a row takes one"
+    },
+    {
+      "pattern": "x?",
+      "size": 2,
+      "why": "an optional is a repeat of zero or one"
+    },
+    {
+      "pattern": "a{0}",
+      "size": 1,
+      "why": "zero repeats is the empty string, once"
+    },
+    {
+      "pattern": "(ab){2}",
+      "size": 1,
+      "why": "a repeated literal stays one string"
+    },
+    {
+      "pattern": ".{2}",
+      "size": 9025,
+      "why": "the dot is the 95 printable ASCII characters"
+    },
+    {
+      "pattern": "\\d{3}",
+      "size": 1000,
+      "why": "a shorthand class"
+    },
+    {
+      "pattern": "\\w",
+      "size": 63,
+      "why": "letters, digits and the underscore"
+    },
+    {
+      "pattern": "[^a-z]",
+      "size": 69,
+      "why": "a negated class is printable ASCII less what it names"
+    },
+    {
+      "pattern": "[A-Za-z0-9_]{0,2}",
+      "size": 4033,
+      "why": "the empty string counts too: 1 + 63 + 63²"
+    },
+    {
+      "pattern": "(a|a)",
+      "size": 2,
+      "why": "OVERCOUNTED — two branches, one string: the case the draw has to catch"
+    },
+    {
+      "pattern": "[0-9]{15}",
+      "size": 1000000000000000,
+      "why": "10¹⁵ — still exact"
+    },
+    {
+      "pattern": "[0-9]{16}",
+      "size": 9007199254740991,
+      "why": "10¹⁶ is past 2^53 − 1, so it saturates there"
+    },
+    {
+      "pattern": "[0-9]{1,32}",
+      "size": 9007199254740991,
+      "why": "saturates part-way through the sum"
+    }
+  ]
+}

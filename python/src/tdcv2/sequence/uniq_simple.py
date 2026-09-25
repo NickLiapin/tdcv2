@@ -19,6 +19,7 @@ import math
 import re
 
 from ..generators import file as file_gen
+from ..generators import regex as regex_gen
 
 
 class UniqSimpleError(RuntimeError):
@@ -40,6 +41,8 @@ def build_unique_values(name: str, gen, count: int, run) -> list[str]:
     """``count`` pairwise-different values, or a refusal that names both numbers."""
     if gen.type == "number":
         return _unique_numbers(name, gen, count, run.prng)
+    if gen.type == "regex":
+        return _unique_regex(name, gen, count, run)
 
     values, weights = _pool_of(name, gen, run)
     if len(values) < count:
@@ -107,6 +110,54 @@ def _unique_numbers(name: str, gen, count: int, prng) -> list[str]:
     return out
 
 
+def _unique_regex(name: str, gen, count: int, run) -> list[str]:
+    """Unique strings from a ``type="regex"`` pattern: redraw on a repeat, as the range above does.
+
+    What uniqueness needs from a source is its size, so a count it cannot meet is refused before
+    drawing — and a finite pattern knows its size (:func:`regex.space_size`). Each value is one
+    walk of the pattern from the unique stream, a repeat costs one more walk, and a run of
+    repeats longer than :func:`_stall_limit` is refused rather than looped on.
+    """
+    pattern = gen.attrs.get("value", "")
+    limit = regex_gen.limit_of(gen.attrs, run.config.regex_max_length)
+    space = regex_gen.space_size(pattern, limit)
+    if space < count:
+        raise UniqSimpleError(
+            f'uniq: sequence "{name}" cannot produce {count} unique values — the pattern '
+            f'"{pattern}" makes at most {space} different strings. Widen the pattern, or lower '
+            "the count."
+        )
+    draw = regex_gen.drawer(gen.attrs, run.config.regex_max_length)
+    seen: set[str] = set()
+    out: list[str] = []
+    repeats = 0
+    while len(out) < count:
+        value = draw(run.prng)
+        if value in seen:
+            repeats += 1
+            if repeats > _stall_limit(space, len(out)):
+                raise UniqSimpleError(
+                    f'uniq: sequence "{name}" — after {len(out)} unique values the pattern '
+                    f'"{pattern}" produced only ones already drawn, {repeats} in a row. Its '
+                    f"space of at most {space} strings is nearly used up, or fewer of them "
+                    "differ than its shape suggests. Widen the pattern, or lower the count."
+                )
+            continue
+        repeats = 0
+        seen.add(value)
+        out.append(value)
+    return out
+
+
+def _stall_limit(space: int, produced: int) -> int:
+    """Repeats in a row tolerated: at least 100 000, and twenty times the wait for a fresh value.
+
+    Integer ceiling division, so five languages stop on the same draw.
+    """
+    remaining = max(1, space - produced)
+    return max(100_000, 20 * (-(-space // remaining)))
+
+
 def unsupported_reason(gen) -> str:
     """Why this gen cannot take the without-replacement path, for the refusal."""
     if gen.type == "number":
@@ -116,7 +167,7 @@ def unsupported_reason(gen) -> str:
         )
     return (
         f'its values cannot be enumerated (type="{gen.type}") — uniq on a simple sequence '
-        "supports text lists, template packs, file columns and plain integer ranges"
+        "supports text lists, template packs, file columns, plain integer ranges and regex patterns"
     )
 
 

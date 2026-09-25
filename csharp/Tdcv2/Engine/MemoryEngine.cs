@@ -1146,7 +1146,7 @@ public static class MemoryEngine
                     {
                         drawn = UniqSimple.Build(
                             spec.Name, item.Gen!, applicable, prng, ctx.Packs,
-                            ctx.Config.Locale, ctx.BaseDir);
+                            ctx.Config.Locale, ctx.BaseDir, ctx.RegexMax);
                     }
                     else
                     {
@@ -1238,7 +1238,7 @@ public static class MemoryEngine
                         ? Array.Empty<string>()
                         : UniqSimple.Build(
                             spec.Name, spec.Gen, applicable, prng, ctx.Packs,
-                            ctx.Config.Locale, ctx.BaseDir);
+                            ctx.Config.Locale, ctx.BaseDir, ctx.RegexMax);
                 columns[spec.Name] = Spread(rows, unique, count);
                 continue;
             }

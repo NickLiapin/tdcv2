@@ -33,11 +33,17 @@ internal static class UniqSimple
         Prng.Sfc32 prng,
         DataPacks packs,
         string? locale,
-        string? baseDir)
+        string? baseDir,
+        int regexMaxLength)
     {
         if (gen.Type == "number")
         {
             return UniqueNumbers(name, gen, count, prng);
+        }
+
+        if (gen.Type == "regex")
+        {
+            return UniqueRegex(name, gen, count, prng, regexMaxLength);
         }
 
         (List<string> values, List<double> weights) = PoolOf(name, gen, packs, locale, baseDir);
@@ -143,14 +149,77 @@ internal static class UniqSimple
         return outValues;
     }
 
+    /// <summary>
+    /// Unique strings from a <c>type="regex"</c> pattern: redraw on a repeat, as the range above
+    /// does.
+    /// </summary>
+    /// <remarks>
+    /// What uniqueness needs from a source is its size, so a count it cannot meet is refused
+    /// before drawing — and a finite pattern knows its size (<see cref="RegexGen.SpaceSize"/>).
+    /// Each value is one walk of the pattern from the unique stream, a repeat costs one more walk,
+    /// and a run of repeats longer than <see cref="StallLimit"/> is refused rather than looped on.
+    /// </remarks>
+    private static List<string> UniqueRegex(
+        string name, Gen gen, int count, Prng.Sfc32 prng, int regexMaxLength)
+    {
+        string pattern = gen.Attrs.GetValueOrDefault("value", "");
+        long space = RegexGen.SpaceSize(pattern, RegexGen.LimitOf(gen.Attrs, regexMaxLength));
+        if (space < count)
+        {
+            throw new InvalidOperationException(
+                $"uniq: sequence \"{name}\" cannot produce {count} unique values — the pattern "
+                + $"\"{pattern}\" makes at most {space} different strings. Widen the pattern, or "
+                + "lower the count.");
+        }
+
+        Func<Prng.Sfc32, string> draw = RegexGen.Drawer(gen.Attrs, regexMaxLength);
+        var seen = new HashSet<string>(StringComparer.Ordinal);
+        var output = new List<string>(count);
+        long repeats = 0;
+        while (output.Count < count)
+        {
+            string value = draw(prng);
+            if (!seen.Add(value))
+            {
+                repeats += 1;
+                if (repeats > StallLimit(space, output.Count))
+                {
+                    throw new InvalidOperationException(
+                        $"uniq: sequence \"{name}\" — after {output.Count} unique values the pattern "
+                        + $"\"{pattern}\" produced only ones already drawn, {repeats} in a row. Its "
+                        + $"space of at most {space} strings is nearly used up, or fewer of them "
+                        + "differ than its shape suggests. Widen the pattern, or lower the count.");
+                }
+
+                continue;
+            }
+
+            repeats = 0;
+            output.Add(value);
+        }
+
+        return output;
+    }
+
+    /// <summary>
+    /// Repeats in a row tolerated: at least 100 000, and twenty times the wait for a fresh value.
+    /// Integer ceiling division, so five languages stop on the same draw.
+    /// </summary>
+    internal static long StallLimit(long space, long produced)
+    {
+        long remaining = Math.Max(1, space - produced);
+        long wait = (space + remaining - 1) / remaining;
+        return Math.Max(100_000L, 20 * wait);
+    }
+
     /// <summary>Why this gen cannot take the without-replacement path, for the refusal.</summary>
     private static string UnsupportedReason(Gen gen) =>
         gen.Type == "number"
             ? "its values are not a plain integer range — uniq supports value=\"a..b\" without "
               + "decimals=, distribution=, include=, exclude= or first_zero="
             : $"its values cannot be enumerated (type=\"{gen.Type}\") — uniq on a simple "
-              + "sequence supports text lists, template packs, file columns and plain integer "
-              + "ranges";
+              + "sequence supports text lists, template packs, file columns, plain integer ranges "
+              + "and regex patterns";
 
     private static (long, long)? PlainIntRange(Gen gen)
     {

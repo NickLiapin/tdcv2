@@ -100,6 +100,81 @@ pub fn generate(
     Ok(result)
 }
 
+/// The ceiling [`space_size`] saturates at — 2^53 − 1, the largest integer all five
+/// implementations hold exactly. Past it the only question asked of the count, is there room
+/// for this many rows, has the same answer for every pattern.
+pub const SPACE_CAP: u64 = (1 << 53) - 1;
+
+/// The most different strings a pattern can make — what `uniq="true"` checks a count against
+/// before it draws.
+///
+/// A class counts its distinct characters, a sequence multiplies, an alternation adds and
+/// `{m,n}` adds every length it allows. Exact for literals, classes and repeats; an upper bound
+/// otherwise, never a lower one: `(a|ab)(c|bc)` reaches `abc` two ways and is counted twice, a
+/// conditional counts both branches, and a back-reference counts once because the group it
+/// repeats was already counted. Pinned for all five in `regex-space.json`.
+pub fn space_size(pattern: &str, regex_max_length: i32) -> EngineResult<u64> {
+    Ok(space(&compile(pattern, regex_max_length)?))
+}
+
+/// The length limit a gen runs under: its own `regex_max_length=`, else the document's.
+pub fn limit_of(attrs: &BTreeMap<String, String>, document_max_length: i32) -> EngineResult<i32> {
+    match attrs.get("regex_max_length") {
+        Some(own) => parse_max_length(Some(own)),
+        None => Ok(document_max_length),
+    }
+}
+
+/// One value per call, compiled once — the walk [`generate`] takes for each row.
+pub struct Drawer {
+    root: Node,
+}
+
+impl Drawer {
+    pub fn new(attrs: &BTreeMap<String, String>, document_max_length: i32) -> EngineResult<Drawer> {
+        let limit = limit_of(attrs, document_max_length)?;
+        let root = compile(attrs.get("value").map(String::as_str).unwrap_or(""), limit)?;
+        Ok(Drawer { root })
+    }
+
+    pub fn draw(&self, prng: &mut Sfc32) -> String {
+        let mut captures = BTreeMap::new();
+        render(&self.root, &mut captures, prng)
+    }
+}
+
+fn times(a: u64, b: u64) -> u64 {
+    a.saturating_mul(b).min(SPACE_CAP)
+}
+
+fn plus(a: u64, b: u64) -> u64 {
+    a.saturating_add(b).min(SPACE_CAP)
+}
+
+fn space(node: &Node) -> u64 {
+    match node {
+        Node::Empty | Node::Literal(_) | Node::Backref(_) => 1,
+        Node::Chars(chars) => chars.iter().collect::<std::collections::HashSet<_>>().len() as u64,
+        Node::Sequence(parts) => parts.iter().fold(1, |n, part| times(n, space(part))),
+        Node::Alternation(choices) => choices.iter().fold(0, |n, choice| plus(n, space(choice))),
+        Node::Capture(_, inner, _) => space(inner),
+        Node::Conditional(_, yes, no) => plus(space(yes), space(no)),
+        Node::Repeat(inner, min, max) => {
+            let each = space(inner);
+            let mut term = 1u64;
+            for _ in 0..*min {
+                term = times(term, each);
+            }
+            let mut total = 0u64;
+            for _ in *min..=*max {
+                total = plus(total, term);
+                term = times(term, each);
+            }
+            total
+        }
+    }
+}
+
 pub fn compile(pattern: &str, regex_max_length: i32) -> EngineResult<Node> {
     let mut parser = Parser::new(pattern);
     let root = parser.parse()?;

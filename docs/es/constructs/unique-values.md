@@ -197,10 +197,11 @@ el propio valor no se repite: el sorteo corre **sin reemplazo**. Un pack pondera
 conserva su sentido (los nombres frecuentes tienen más probabilidad de entrar), pero
 nada aparece dos veces. Cuando la fuente tiene menos valores distintos que registros, la
 corrida se rehúsa por adelantado nombrando ambos números — nunca una repetición
-silenciosa. Fuentes soportadas: listas `text`, packs `template`, columnas `file` y
-rangos enteros simples (`value="1..100000"`); `increment`/`decrement` son únicos por
-construcción. Un generador cuyos valores no pueden enumerarse (`regex`, `date`, …) se
-rechaza con un mensaje que lo dice tal cual.
+silenciosa. Fuentes soportadas: listas `text`, packs `template`, columnas `file`,
+rangos enteros simples (`value="1..100000"`) y
+[patrones `regex`](../generators/regex.md#top), que son finitos y por eso se pueden contar;
+`increment`/`decrement` son únicos por construcción. Un generador cuyos valores no pueden
+contarse (`advanced_regex`, `date`, …) se rechaza con un mensaje que lo dice tal cual.
 
 ```xml
 <sequence name="Person" uniq="true">

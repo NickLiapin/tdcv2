@@ -1,6 +1,7 @@
 package io.github.nickliapin.tdc.engine;
 
 import io.github.nickliapin.tdc.generators.FileGen;
+import io.github.nickliapin.tdc.generators.RegexGen;
 import io.github.nickliapin.tdc.model.Config;
 import io.github.nickliapin.tdc.packs.DataPacks;
 import io.github.nickliapin.tdc.prng.Prng;
@@ -40,9 +41,13 @@ public final class UniqSimple {
       Prng.Sfc32 prng,
       DataPacks packs,
       String locale,
-      Path baseDir) {
+      Path baseDir,
+      int regexMaxLength) {
     if ("number".equals(gen.type())) {
       return uniqueNumbers(name, gen, count, prng);
+    }
+    if ("regex".equals(gen.type())) {
+      return uniqueRegex(name, gen, count, prng, regexMaxLength);
     }
     Pool pool = poolOf(name, gen, packs, locale, baseDir);
     if (pool.values.size() < count) {
@@ -126,6 +131,59 @@ public final class UniqSimple {
     return out;
   }
 
+  /**
+   * Unique strings from a {@code type="regex"} pattern: redraw on a repeat, as the range above does.
+   *
+   * <p>What uniqueness needs from a source is its size, so a count it cannot meet is refused
+   * before drawing — and a finite pattern knows its size ({@link RegexGen#spaceSize}). Each value
+   * is one walk of the pattern from the unique stream, a repeat costs one more walk, and a run of
+   * repeats longer than {@link #stallLimit} is refused rather than looped on.
+   */
+  private static List<String> uniqueRegex(
+      String name, Config.Gen gen, int count, Prng.Sfc32 prng, int regexMaxLength) {
+    String pattern = gen.attrs().getOrDefault("value", "");
+    long space = RegexGen.spaceSize(pattern, RegexGen.limitOf(gen.attrs(), regexMaxLength));
+    if (space < count) {
+      throw new IllegalStateException(
+          "uniq: sequence \"" + name + "\" cannot produce " + count
+              + " unique values — the pattern \"" + pattern + "\" makes at most " + space
+              + " different strings. Widen the pattern, or lower the count.");
+    }
+    java.util.function.Function<Prng.Sfc32, String> draw =
+        RegexGen.drawer(gen.attrs(), regexMaxLength);
+    Set<String> seen = new HashSet<>();
+    List<String> out = new ArrayList<>(count);
+    long repeats = 0;
+    while (out.size() < count) {
+      String value = draw.apply(prng);
+      if (!seen.add(value)) {
+        repeats += 1;
+        if (repeats > stallLimit(space, out.size())) {
+          throw new IllegalStateException(
+              "uniq: sequence \"" + name + "\" — after " + out.size()
+                  + " unique values the pattern \"" + pattern
+                  + "\" produced only ones already drawn, " + repeats + " in a row. Its space"
+                  + " of at most " + space + " strings is nearly used up, or fewer of them differ"
+                  + " than its shape suggests. Widen the pattern, or lower the count.");
+        }
+        continue;
+      }
+      repeats = 0;
+      out.add(value);
+    }
+    return out;
+  }
+
+  /**
+   * Repeats in a row tolerated: at least 100 000, and twenty times the wait for a fresh value.
+   * Integer ceiling division, so five languages stop on the same draw.
+   */
+  static long stallLimit(long space, long produced) {
+    long remaining = Math.max(1, space - produced);
+    long wait = (space + remaining - 1) / remaining;
+    return Math.max(100_000L, 20 * wait);
+  }
+
   /** Why this gen cannot take the without-replacement path, for the refusal. */
   static String unsupportedReason(Config.Gen gen) {
     if ("number".equals(gen.type())) {
@@ -133,7 +191,8 @@ public final class UniqSimple {
           + "without decimals=, distribution=, include=, exclude= or first_zero=";
     }
     return "its values cannot be enumerated (type=\"" + gen.type() + "\") — uniq on a simple "
-        + "sequence supports text lists, template packs, file columns and plain integer ranges";
+        + "sequence supports text lists, template packs, file columns, plain integer ranges "
+        + "and regex patterns";
   }
 
   private static long[] plainIntRange(Config.Gen gen) {

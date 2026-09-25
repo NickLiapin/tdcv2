@@ -683,6 +683,32 @@
       ]
     },
     {
+      "name": "uniq over a regex pattern refuses a count its space cannot hold",
+      "files": {
+        "uniq.tdc": "<tdc><env count=\"101\" seed=\"u\" local=\"en\"><sequence name=\"G\" uniq=\"true\"><gen type=\"regex\" value=\"[0-9]{2}\"/></sequence></env><block><line><data>${{G}}</data></line></block></tdc>"
+      },
+      "argv": ["{dir}/uniq.tdc"],
+      "exit": 1,
+      "stderrContains": [
+        "cannot produce 101 unique values",
+        "the pattern \"[0-9]{2}\" makes at most 100 different strings"
+      ],
+      "note": "Refused before anything is drawn, from the pattern's size: 10² = 100. The size is counted over the parse tree — see regex-space.json for every rule it follows."
+    },
+    {
+      "name": "uniq over a regex pattern counted high stops with the reason, not in a loop",
+      "files": {
+        "uniq.tdc": "<tdc><env count=\"2\" seed=\"u\" local=\"en\"><sequence name=\"G\" uniq=\"true\"><gen type=\"regex\" value=\"(a|a)\"/></sequence></env><block><line><data>${{G}}</data></line></block></tdc>"
+      },
+      "argv": ["{dir}/uniq.tdc"],
+      "exit": 1,
+      "stderrContains": [
+        "after 1 unique values",
+        "the pattern \"(a|a)\" produced only ones already drawn"
+      ],
+      "note": "(a|a) is counted as two strings and makes one, so a count of two passes the size check and cannot be met. The drawing notices after a run of repeats — 100 000 at least — and says so. Every implementation has to stop on the same draw."
+    },
+    {
       "name": "a pack file is placed by its header, not by its path",
       "note": "Two routes, one file each: `address:` names the address outright, and `locale:` supplies the missing locale for a path-derived one. Both let someone keep a flat folder of their own lists instead of rebuilding the locale tree to hold two files, and both have to work in every implementation — the reference builds an address index when it scans, and the ports build the same index the first time a path lookup misses.",
       "files": {

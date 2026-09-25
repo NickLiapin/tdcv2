@@ -578,6 +578,32 @@ For example, `+` is rejected immediately:
 allowed; use "{1,n}"`}
 </Terminal>
 
+## Unique values — `uniq="true"`
+
+A pattern is always finite — `*`, `+` and `{n,}` are not allowed — so it can be counted, and
+`uniq="true"` on its sequence gives every row a different string:
+
+```xml
+<sequence name="Plate" uniq="true">
+    <gen type="regex" value="[A-Z]{2}-[0-9]{4}"/>
+</sequence>
+```
+
+The count comes from the pattern's shape: a class counts its characters, a sequence
+multiplies, `|` adds, and `{m,n}` adds up every length it allows. `[A-Z]{2}-[0-9]{4}` is
+26² · 10⁴ = 6 760 000 plates; ask for more rows than that and the run is refused before
+anything is drawn, naming both numbers. Within the count, the draw is simply taken again
+whenever it lands on a plate already given out.
+
+A pattern whose length varies runs out of its short forms first. `{2,10}` picks each of its
+nine lengths one time in nine, so `[0-9]{2,10}` asked for 200 000 unique values gives out all
+hundred two-digit strings and all thousand three-digit ones, and the rest of the column is
+longer. Uniqueness bends the length mix; it does not refuse the request.
+
+Where one string can be reached two ways — `(a|ab)(c|bc)` makes `abc` along both — the count
+is high, and a request close to it can outrun the strings that really exist. The draw notices
+the repeats piling up and stops with the reason rather than looping.
+
 ## Exact proportions
 
 Plain `regex` doesn't set percentages inside the expression — `(cat|dog)` is random,

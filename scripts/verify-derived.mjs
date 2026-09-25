@@ -94,6 +94,11 @@ const CHECKS = [
     run: ['npm', ['--prefix', 'typescript', 'run', 'picker:screens', '--silent']],
     fix: 'npm --prefix typescript run picker:screens:update',
   },
+  {
+    what: 'the regex space counts match the reference',
+    run: ['npm', ['--prefix', 'typescript', 'run', 'regex:space', '--silent']],
+    fix: 'npm --prefix typescript run regex:space:update',
+  },
 ];
 
 const failures = [];

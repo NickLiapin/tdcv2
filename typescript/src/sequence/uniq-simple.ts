@@ -21,6 +21,7 @@ import { resolveExistingDataSourcePath } from '../data-source/index.js';
 import { loadCsvColumnFile, loadListFile } from '../generators/file.js';
 import { loadWeightedValues, weightColumnOf } from '../generators/weighted.js';
 import { resolvePackAddress } from '../data-pack/index.js';
+import { regexGenerator, regexSpaceSize } from '../generators/regex.js';
 
 import type { SequenceBuildContext } from './context.js';
 import type { GenSpec } from './types.js';
@@ -36,7 +37,12 @@ interface Pool {
  * and `decrement` are unique by construction and keep their normal build.
  */
 export function genSupportsUniq(gen: GenSpec): boolean {
-  return gen.type === 'increment' || gen.type === 'decrement' || enumerationOf(gen) !== undefined;
+  return (
+    gen.type === 'increment' ||
+    gen.type === 'decrement' ||
+    gen.type === 'regex' ||
+    enumerationOf(gen) !== undefined
+  );
 }
 
 /**
@@ -55,7 +61,7 @@ export function uniqUnsupportedReason(gen: GenSpec): string | undefined {
   }
   return (
     `its values cannot be enumerated (type="${gen.type}") — uniq on a simple sequence ` +
-    'supports text lists, template packs, file columns and plain integer ranges'
+    'supports text lists, template packs, file columns, plain integer ranges and regex patterns'
   );
 }
 
@@ -72,6 +78,7 @@ export function buildUniqueValues(
   ctx: SequenceBuildContext,
 ): string[] {
   if (gen.type === 'number') return uniqueNumbers(name, gen, count, prng);
+  if (gen.type === 'regex') return uniqueRegexValues(name, gen, count, prng, ctx);
 
   const pool = poolOf(name, gen, locale, ctx);
   if (pool.values.length < count) {
@@ -154,6 +161,95 @@ function uniqueNumbers(name: string, gen: GenSpec, count: number, prng: () => nu
     out.push(String(n));
   }
   return out;
+}
+
+/**
+ * Unique strings from a `type="regex"` pattern: the same redraw-on-repeat as the integer range
+ * above, which is the whole of the reason a pattern was ever refused here. Nothing needs listing.
+ * What uniqueness needs from a source is to know how big it is, so that a request it cannot
+ * meet is refused before drawing rather than discovered after — and a finite pattern knows:
+ * `regexSpaceSize` counts it over the parse tree, and this generator accepts no pattern whose
+ * output is unbounded.
+ *
+ * Each value is one walk of the pattern, taken from the stream every unique draw here shares, and
+ * a repeat costs one more walk. That stream is not the plain column's — the plain column keys
+ * each row's draw to the row, the integer range above does not, and neither does this — so a
+ * unique column is not the plain one with its repeats removed, and was never meant to be. Taken
+ * together it is weighted sampling without replacement, with the
+ * pattern's own odds as the weights — the same meaning `uniq` already has over a weighted list:
+ * likelier strings are likelier to make the cut, and none appears twice. It also means a short
+ * form runs out first. `{2,10}` picks each of its nine lengths one time in nine, and the
+ * hundred two-digit strings of `[0-9]{2,10}` are gone long before the longer ones; after that a
+ * draw that lands on length two is simply drawn again, and the column leans longer.
+ *
+ * Two things can make the drawing stall, and both end in a refusal naming them rather than in a
+ * loop. The count can take nearly all of the space, so the last few strings are hard to hit; or
+ * the size can be an overstatement (see `regexSpaceSize`), so the space is smaller than it was
+ * counted. `stallLimit` is how many repeats in a row are allowed before that is said.
+ */
+function uniqueRegexValues(
+  name: string,
+  gen: GenSpec,
+  count: number,
+  prng: () => number,
+  ctx: SequenceBuildContext,
+): string[] {
+  const attrs = {
+    pattern: gen.attrs['value'] ?? '',
+    regexMaxLength: gen.attrs['regex_max_length'] ?? ctx.regexMaxLength,
+  };
+  const space = regexSpaceSize(attrs);
+  if (space < count) {
+    throw new Error(
+      `uniq: sequence "${name}" cannot produce ${String(count)} unique values — the pattern ` +
+        `"${attrs.pattern}" makes at most ${String(space)} different strings. Widen the ` +
+        'pattern, or lower the count.',
+    );
+  }
+  const draw = regexGenerator(attrs);
+  const seen = new Set<string>();
+  const out: string[] = [];
+  let repeats = 0;
+  while (out.length < count) {
+    const value = draw(1, prng)[0] ?? '';
+    if (seen.has(value)) {
+      repeats += 1;
+      if (repeats > stallLimit(space, out.length)) {
+        throw new Error(
+          `uniq: sequence "${name}" — after ${String(out.length)} unique values the pattern ` +
+            `"${attrs.pattern}" produced only ones already drawn, ${String(repeats)} in a row. ` +
+            `Its space of at most ${String(space)} strings is nearly used up, or fewer of them ` +
+            'differ than its shape suggests. Widen the pattern, or lower the count.',
+        );
+      }
+      continue;
+    }
+    repeats = 0;
+    seen.add(value);
+    out.push(value);
+  }
+  return out;
+}
+
+/**
+ * How many repeats in a row a unique pattern draw tolerates before calling the space exhausted.
+ *
+ * A floor of a hundred thousand, and above it twenty times the wait one fresh value costs when
+ * every remaining string is equally likely: with `space` strings of which `produced` are taken,
+ * that wait is space / (space − produced). Twenty of those in a row is a chance of about one in
+ * five hundred million for a pattern whose size is exact and whose odds are even — so asking for
+ * every one of the million six-digit strings of `[0-9]{6}` finishes, while a pattern that was
+ * overcounted stops as soon as its real space is spent.
+ *
+ * The division is done in integers. Five languages have to stop on the same draw, and a
+ * floating-point quotient of two numbers near 2^53 can round onto a whole number and lose the
+ * ceiling that integer division keeps.
+ */
+function stallLimit(space: number, produced: number): number {
+  const total = BigInt(space);
+  const remaining = BigInt(Math.max(1, space - produced));
+  const wait = Number((total + remaining - 1n) / remaining);
+  return Math.max(100_000, 20 * wait);
 }
 
 /** The `a..b` integer range of a plain number gen, or `undefined`. */

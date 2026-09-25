@@ -935,7 +935,8 @@ public final class MemoryEngine {
             values =
                 new ArrayList<>(
                     UniqSimple.build(
-                        spec.name(), gen, applicable, prng, packs, config.locale(), baseDir));
+                        spec.name(), gen, applicable, prng, packs, config.locale(), baseDir,
+                        config.regexMaxLength()));
           } else {
             values =
                 new ArrayList<>(
@@ -1130,7 +1131,8 @@ public final class MemoryEngine {
             applicable == 0
                 ? List.of()
                 : UniqSimple.build(
-                    spec.name(), spec.gen(), applicable, prng, packs, config.locale(), baseDir);
+                    spec.name(), spec.gen(), applicable, prng, packs, config.locale(), baseDir,
+                    config.regexMaxLength());
         columns.put(spec.name(), spread(rows, unique, count));
         continue;
       }

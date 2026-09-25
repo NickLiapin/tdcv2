@@ -16,6 +16,7 @@ use std::collections::{HashMap, HashSet};
 
 use crate::engine::{invalid, EngineResult};
 use crate::generators::file as file_gen;
+use crate::generators::regex;
 use crate::model::config::Gen;
 use crate::prng::Sfc32;
 
@@ -36,6 +37,9 @@ pub fn build(
 ) -> EngineResult<Vec<String>> {
     if gen.gen_type == "number" {
         return unique_numbers(name, gen, count, prng);
+    }
+    if gen.gen_type == "regex" {
+        return unique_regex(name, gen, count, prng, env);
     }
     let pool = pool_of(name, gen, env)?;
     if pool.values.len() < count {
@@ -124,6 +128,63 @@ fn unique_numbers(
     Ok(out)
 }
 
+/// Unique strings from a `type="regex"` pattern: redraw on a repeat, as the range above does.
+///
+/// What uniqueness needs from a source is its size, so a count it cannot meet is refused before
+/// drawing — and a finite pattern knows its size ([`regex::space_size`]). Each value is one walk
+/// of the pattern from the unique stream, a repeat costs one more walk, and a run of repeats
+/// longer than [`stall_limit`] is refused rather than looped on.
+fn unique_regex(
+    name: &str,
+    gen: &Gen,
+    count: usize,
+    prng: &mut Sfc32,
+    env: &Env,
+) -> EngineResult<Vec<String>> {
+    let pattern = gen.attrs.get("value").map(String::as_str).unwrap_or("");
+    let limit = regex::limit_of(&gen.attrs, env.config.regex_max_length)?;
+    let space = regex::space_size(pattern, limit)?;
+    if space < count as u64 {
+        return invalid(&format!(
+            "uniq: sequence \"{name}\" cannot produce {count} unique values — the pattern \
+             \"{pattern}\" makes at most {space} different strings. Widen the pattern, or \
+             lower the count."
+        ));
+    }
+    let drawer = regex::Drawer::new(&gen.attrs, env.config.regex_max_length)?;
+    let mut seen: HashSet<String> = HashSet::new();
+    let mut out = Vec::with_capacity(count);
+    let mut repeats: u64 = 0;
+    while out.len() < count {
+        let value = drawer.draw(prng);
+        if seen.contains(&value) {
+            repeats += 1;
+            if repeats > stall_limit(space, out.len() as u64) {
+                return invalid(&format!(
+                    "uniq: sequence \"{name}\" — after {} unique values the pattern \
+                     \"{pattern}\" produced only ones already drawn, {repeats} in a row. Its \
+                     space of at most {space} strings is nearly used up, or fewer of them differ \
+                     than its shape suggests. Widen the pattern, or lower the count.",
+                    out.len()
+                ));
+            }
+            continue;
+        }
+        repeats = 0;
+        seen.insert(value.clone());
+        out.push(value);
+    }
+    Ok(out)
+}
+
+/// Repeats in a row tolerated: at least 100 000, and twenty times the wait for a fresh value.
+/// Integer ceiling division, so five languages stop on the same draw.
+fn stall_limit(space: u64, produced: u64) -> u64 {
+    let remaining = space.saturating_sub(produced).max(1);
+    let wait = space.div_ceil(remaining);
+    (20 * wait).max(100_000)
+}
+
 /// Why this gen cannot take the without-replacement path, for the refusal.
 fn unsupported_reason(gen: &Gen) -> String {
     if gen.gen_type == "number" {
@@ -133,7 +194,7 @@ fn unsupported_reason(gen: &Gen) -> String {
     }
     format!(
         "its values cannot be enumerated (type=\"{}\") — uniq on a simple sequence supports \
-         text lists, template packs, file columns and plain integer ranges",
+         text lists, template packs, file columns, plain integer ranges and regex patterns",
         gen.gen_type
     )
 }

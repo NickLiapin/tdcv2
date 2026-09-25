@@ -147,6 +147,72 @@ export function regexGenerator(attrs: RegexGenAttrs): Generator {
   };
 }
 
+/**
+ * The ceiling `regexSpaceSize` saturates at, rather than overflowing.
+ *
+ * Five languages have to arrive at the same number, and past this point the only question
+ * anyone asks of it — is there room for this many rows? — has the same answer whatever the
+ * pattern: yes. 2^53 − 1 is the largest integer every one of the five holds exactly.
+ */
+export const REGEX_SPACE_CAP = Number.MAX_SAFE_INTEGER;
+
+/**
+ * The most different strings a pattern can produce — what `uniq="true"` checks a count against
+ * before it draws anything.
+ *
+ * Counted over the parse tree. A character class contributes its distinct characters, a
+ * sequence multiplies, an alternation adds, and `{m,n}` adds up every length it allows — so
+ * `[A-Z]{2}-[0-9]{4}` is 26² · 10⁴ = 6 760 000, and `[0-9]{2,3}` is 10² + 10³ = 1 100.
+ *
+ * That is EXACT for what identifiers are made of: letters, digits, literals, fixed and bounded
+ * repeats. Otherwise it is an UPPER BOUND — never a lower one, because every string needs at
+ * least one way to be produced and some have two. `(a|ab)(c|bc)` reaches `abc` along both and is
+ * counted twice; a conditional counts both its branches although a row takes one. A
+ * back-reference counts once, because what it repeats was already counted where the group
+ * stands. An overstatement never lets a request through that cannot be met: the draw notices
+ * the space running dry and says so (see `uniq-simple.ts`).
+ */
+export function regexSpaceSize(attrs: RegexGenAttrs): number {
+  const program = parseRegex(attrs.pattern, parseRegexMaxLength(attrs.regexMaxLength));
+  return spaceOf(program.root);
+}
+
+const saturate = (n: number): number => (n > REGEX_SPACE_CAP ? REGEX_SPACE_CAP : n);
+// Exact below the cap: two integers whose true product or sum is at most 2^53 multiply and add
+// exactly as doubles, and anything past it clamps to the same ceiling in every language.
+const times = (a: number, b: number): number => saturate(a * b);
+const plus = (a: number, b: number): number => saturate(a + b);
+
+function spaceOf(node: RegexNode): number {
+  switch (node.kind) {
+    case 'empty':
+    case 'literal':
+    case 'backref':
+      return 1;
+    case 'charSet':
+      return new Set(node.chars).size;
+    case 'sequence':
+      return node.parts.reduce((n, part) => times(n, spaceOf(part)), 1);
+    case 'alternation':
+      return node.choices.reduce((n, choice) => plus(n, spaceOf(choice)), 0);
+    case 'capture':
+      return spaceOf(node.node);
+    case 'conditional':
+      return plus(spaceOf(node.yes), spaceOf(node.no));
+    case 'repeat': {
+      const inner = spaceOf(node.node);
+      let term = 1;
+      for (let i = 0; i < node.min; i++) term = times(term, inner);
+      let total = 0;
+      for (let i = node.min; i <= node.max; i++) {
+        total = plus(total, term);
+        term = times(term, inner);
+      }
+      return total;
+    }
+  }
+}
+
 function parseRegex(pattern: string, regexMaxLength: number): ParsedRegexProgram {
   const parser = new RegexParser(pattern);
   const root = parser.parse();
