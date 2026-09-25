@@ -62,7 +62,18 @@ final class PerRow {
    * The column a build belongs to: the seed it derives from, its name on the wire, and — when it
    * does not cover every row — the ABSOLUTE row each drawn position belongs to.
    */
-  record Stream(String seed, String id, List<Integer> rows, boolean oneRow, boolean inBody) {
+  record Stream(
+      String seed,
+      String id,
+      List<Integer> rows,
+      boolean oneRow,
+      boolean inBody,
+      Set<Integer> kept,
+      Map<String, Long[]> instants) {
+
+    Stream(String seed, String id, List<Integer> rows, boolean oneRow, boolean inBody) {
+      this(seed, id, rows, oneRow, inBody, null, null);
+    }
 
     /** A stream over a whole column — the ordinary case. */
     Stream(String seed, String id, List<Integer> rows) {
@@ -75,7 +86,7 @@ final class PerRow {
 
     /** The same stream under a different name, keeping the row list. */
     Stream named(String other) {
-      return new Stream(seed, other, rows, oneRow, inBody);
+      return new Stream(seed, other, rows, oneRow, inBody, kept, instants);
     }
 
     /**
@@ -85,7 +96,7 @@ final class PerRow {
      * rule is stated here.
      */
     Stream forBody() {
-      return new Stream(seed, id, rows, oneRow, true);
+      return new Stream(seed, id, rows, oneRow, true, kept, instants);
     }
 
     /**
@@ -93,7 +104,46 @@ final class PerRow {
      * a single row of the column that names it.
      */
     Stream forOneRow() {
-      return new Stream(seed, id, rows, true, inBody);
+      return new Stream(seed, id, rows, true, inBody, kept, instants);
+    }
+
+    /**
+     * The same stream, keeping only {@code keep} of what it builds — narrowed, never widened.
+     *
+     * <p>A {@code <switch>} branch that cannot be numbered, a nested switch and an {@code if=}
+     * branch are built over the whole run and picked from. A formula or a date offset draws
+     * nothing that depends on the other rows, but it CAN fail on one — {@code Y / X} where X is
+     * zero — and a refusal on a row nobody keeps is one the streaming engine never raises. So
+     * those two compute only these rows. Nothing else reads it.
+     */
+    Stream keeping(Iterable<Integer> keep) {
+      Set<Integer> narrowed = new java.util.HashSet<>();
+      for (Integer row : keep) {
+        if (kept == null || kept.contains(row)) {
+          narrowed.add(row);
+        }
+      }
+      return new Stream(seed, id, rows, oneRow, inBody, narrowed, instants);
+    }
+
+    /** The same stream, keeping what {@code outer} keeps and reading the instants it reads. */
+    Stream inside(Stream outer) {
+      return outer == null
+          ? this
+          : new Stream(seed, id, rows, oneRow, inBody, outer.kept, outer.instants);
+    }
+
+    /**
+     * The same stream, able to read the instants behind the date columns some offset measures
+     * from — what a date offset inside a {@code <case>} or an {@code if=} branch reads.
+     */
+    Stream withInstants(Map<String, Long[]> kept) {
+      return new Stream(seed, id, rows, oneRow, inBody, this.kept, kept);
+    }
+
+    /** Will this build keep {@code row}? */
+    boolean keeps(int row) {
+      return kept == null || kept.contains(row);
     }
 
     /**

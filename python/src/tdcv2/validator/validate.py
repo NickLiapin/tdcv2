@@ -812,6 +812,72 @@ def _is_derived(type_: str | None, attrs: dict[str, str]) -> bool:
     return type_ == "date" and bool((attrs.get("of") or "").strip())
 
 
+#: The end of a placement sentence, by where the `<gen>` stands.
+_PLACE_WHERE = {
+    "branch": "be the fallback branch of a conditional sequence",
+    "case": "sit inside a <case>",
+    "part": "be one part of a composed <sequence>",
+    "field": "be a field of a compound <sequence>",
+}
+
+
+def _sequence_shape(seq) -> str:
+    """What a ``<sequence>`` is, for the placement rules: conditional, simple, or a record.
+
+    The reference's reading: any ``if=`` makes it conditional; every gen named makes it
+    compound; more than one gen, or a ``<data>`` with text beside them, composed; one unnamed
+    gen alone, simple.
+    """
+    gens: list[dict[str, str]] = []
+    literal = False
+    for child in _elements(seq):
+        gen = _gen_element(child)
+        if gen is not None:
+            gens.append(_attrs(gen.attr()))
+            continue
+        data = child.dataElement()
+        if data is not None and _data_text(data):
+            literal = True
+            continue
+        inner = child.openCloseElement()
+        if inner is not None and inner.name.text == "distinct":
+            for g in _elements(inner):
+                wrapped = _gen_element(g)
+                if wrapped is not None:
+                    gens.append(_attrs(wrapped.attr()))
+                    continue
+                wrapped_data = g.dataElement()
+                if wrapped_data is not None and _data_text(wrapped_data):
+                    literal = True
+    if any("if" in g for g in gens):
+        return "conditional"
+    if sum(1 for g in gens if "name" in g) == len(gens):
+        return "compound"
+    if len(gens) > 1 or literal:
+        return "composed"
+    return "simple"
+
+
+def _gen_place(shape: str | None, attrs: dict[str, str]) -> str:
+    """Where one ``<gen>`` stands, given what its enclosing element is."""
+    if shape == "case":
+        return "case"
+    if shape == "conditional":
+        return "branch"
+    if shape in ("composed", "compound"):
+        return "field" if "name" in attrs else "part"
+    return "sequence"
+
+
+def _calls_prev(source: str) -> bool:
+    """Does this expression call ``prev()`` at all? Unparseable text answers no (TDC294)."""
+    try:
+        parsed = expr_parse(source)
+    except ValueError:
+        return False
+    return bool(_prev_calls(parsed))
+
+
 def _identifiers_of(node, bare_words_allowed: bool = False) -> set[str]:
     """Every COLUMN name an expression reads, root of a dotted path included.
 
@@ -885,13 +951,21 @@ def _prev_targets(node) -> set[str]:
     not mistaken for the form.
     """
     found: set[str] = set()
+    for args in _prev_calls(node):
+        first = args[0]
+        if isinstance(first, Name):
+            found.add(first.value.split(".")[0])
+    return found
+
+
+def _prev_calls(node) -> list[list]:
+    """The argument lists of every ``prev()`` call in the tree."""
+    calls: list[list] = []
 
     def walk(n) -> None:
         args = getattr(n, "args", None)
         if getattr(n, "name", None) == "prev" and args:
-            first = args[0]
-            if isinstance(first, Name):
-                found.add(first.value.split(".")[0])
+            calls.append(list(args))
         for attr in ("left", "right", "argument", "test", "consequent", "alternate", "object"):
             child = getattr(n, attr, None)
             if child is not None:
@@ -903,7 +977,7 @@ def _prev_targets(node) -> set[str]:
                     walk(child)
 
     walk(node)
-    return found
+    return calls
 
 
 class _Validator:
@@ -1629,8 +1703,9 @@ class _Validator:
                 self._check_sequence_body(open_el, name)
                 self._check_sequence_data_attrs(open_el)
                 self._check_compute_body(open_el)
+            shape = _sequence_shape(open_el) if tag == "sequence" else None
             for inner in _elements(open_el):
-                self._check_gens_in(inner)
+                self._check_gens_in(inner, shape)
 
             if name is not None and name.strip():
                 declared.append(name)
@@ -3174,20 +3249,26 @@ class _Validator:
                 _column(open_el),
             )
 
-    def _check_gens_in(self, element) -> None:
-        """Into a sequence body, so a ``<gen>`` inside a ``<distinct>`` is checked too."""
+    def _check_gens_in(self, element, shape: str | None = None) -> None:
+        """Into a sequence body, so a ``<gen>`` inside a ``<distinct>`` is checked too.
+
+        ``shape`` is what the enclosing ``<sequence>`` is — see ``_sequence_shape`` — or ``case``
+        once the walk is inside a ``<case>`` or ``<default>``. It decides the gen's PLACE, which
+        is what the placement rules (TDC295, TDC268) read.
+        """
         self_closing = element.selfClosingElement()
         if self_closing is not None and self_closing.name.text == "gen":
-            self._check_gen(self_closing)
+            self._check_gen(self_closing, _gen_place(shape, _attrs(self_closing.attr())))
             return
         open_el = element.openCloseElement()
         if open_el is not None:
+            inner_shape = "case" if open_el.name.text in ("case", "default") else shape
             for inner in _elements(open_el):
-                self._check_gens_in(inner)
+                self._check_gens_in(inner, inner_shape)
 
     # ── gen ─────────────────────────────────────────────────────────────────────────────────
 
-    def _check_gen(self, gen) -> None:
+    def _check_gen(self, gen, place: str = "sequence") -> None:
         attrs = _attrs(gen.attr())
         type_ = attrs.get("type")
 
@@ -3214,6 +3295,21 @@ class _Validator:
                     where[0],
                     where[1],
                 )
+        elif type_ == "pool" and place != "sequence":
+            # Every other place a `<gen>` can stand has the same hole: the fallback after the if=
+            # branches and a part of a composed sequence printed the marker too, and inside a
+            # `<case>` or as a field the run stopped after a clean `check`.
+            line, column = _at(gen, "type")
+            self._error(
+                "TDC268",
+                '<gen type="pool"> publishes a whole MEMBER as Ref.field columns, so it cannot '
+                + _PLACE_WHERE[place],
+                'Draw the member in a <sequence> of its own \u2014 <sequence name="Doc"><gen '
+                'type="pool" value="Doctors"/></sequence> \u2014 and read its fields where they '
+                "are needed: ${{Doc.name}}.",
+                line,
+                column,
+            )
 
         self._check_missing_when(gen, attrs)
         if type_ is None or not type_.strip():
@@ -3262,7 +3358,7 @@ class _Validator:
         self._check_running(gen, attrs, type_)
         self._check_stat(gen, attrs, type_)
         self._check_formula(gen, attrs, type_)
-        self._check_derived_not_conditional(gen, attrs, type_)
+        self._check_derived_place(gen, attrs, type_, place)
         self._check_mask(gen, attrs)
         self._check_counter(gen, attrs, type_)
         self._check_date_templates(gen, attrs, type_)
@@ -5155,28 +5251,57 @@ class _Validator:
             return
         self._expression_names(gen, "expr", source)
 
-    def _check_derived_not_conditional(self, gen, attrs: dict[str, str], type_: str | None) -> None:
-        """A derived column cannot be ONE BRANCH of a per-row choice.
+    def _check_derived_place(
+        self, gen, attrs: dict[str, str], type_: str | None, place: str
+    ) -> None:
+        """A derived column in a place it cannot mean anything.
 
-        `running`, `stat`, a date offset and `formula` are built once, for the whole column, in
-        declaration order. An `if=` asks for something else entirely: a value chosen row by row.
-        The two cannot both be true, and the run used to die with a message that read like an
-        unfinished engine rather than a config that cannot mean anything.
+        ``running``, ``stat`` and a formula that reads ``prev()`` are WHOLE columns — the rows
+        before this one, or all of them — so they must be a ``<sequence>`` of their own. A plain
+        formula and a date offset read only their own row, so a branch (a ``<case>``, an ``if=``
+        branch) can hold them. None of the four is a part or a field of a record: a record's
+        parts are drawn and rearranged together, and a computed value moved to another row no
+        longer describes it.
         """
-        if not _is_derived(type_, attrs):
+        if place == "sequence" or not _is_derived(type_, attrs):
             return
-        if not (attrs.get("if") or "").strip():
-            return
-        line, column = _at(gen, "if")
-        self._error(
-            "TDC295",
-            f'a type="{type_}" column is built for the whole run, so it cannot carry if=',
-            "It reads other columns in declaration order and produces one column, not a value "
-            'chosen per row. Put the condition where the value is USED — `<data if="…">` — or '
-            "compute the column unconditionally and branch on it afterwards.",
-            line,
-            column,
+        whole_run = type_ in ("running", "stat") or (
+            type_ == "formula" and _calls_prev(attrs.get("expr") or "")
         )
+        in_record = place in ("part", "field")
+        if not whole_run and not in_record:
+            return
+        carries_if = "if" in attrs
+        line, column = _at(gen, "if" if place == "branch" and carries_if else "type")
+        if type_ == "date":
+            what = "a date measured from another column (of=)"
+        elif type_ == "formula" and whole_run:
+            what = 'a type="formula" column that reads prev()'
+        else:
+            what = f'a type="{type_}" column'
+        where = "carry if=" if place == "branch" and carries_if else _PLACE_WHERE[place]
+        if whole_run:
+            message = f"{what} is built for the whole run, so it cannot {where}"
+            if place == "branch" and carries_if:
+                hint = (
+                    "It reads other columns in declaration order and produces one column, not a "
+                    "value chosen per row. Put the condition where the value is USED — "
+                    '`<data if="…">` — or compute the column unconditionally and branch on it '
+                    "afterwards."
+                )
+            else:
+                hint = (
+                    "It reads other columns in declaration order and produces one column. Declare "
+                    "it as a <sequence> of its own, above this one, and use it here by name — "
+                    "${{Total}} in a <data>, or Total inside a formula."
+                )
+        else:
+            message = f"{what} is computed from other columns, so it cannot {where}"
+            hint = (
+                "Declare it as a <sequence> of its own and put it into the record where the record "
+                "is printed: <data>ID-${{Total}}</data>."
+            )
+        self._error("TDC295", message, hint, line, column)
 
     def _check_quantile_read(self, gen, attrs: dict[str, str], type_: str | None) -> None:
         """`read="quantile"` — the file as a sorted sample rather than a bag of values.

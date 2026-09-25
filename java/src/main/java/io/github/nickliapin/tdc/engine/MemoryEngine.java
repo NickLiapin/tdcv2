@@ -783,12 +783,8 @@ public final class MemoryEngine {
     // it keeps what it actually generated, and an offset measures from THAT. Only the columns
     // named by some `of=` are kept, so a config with no offset in it pays nothing.
     Map<String, Long[]> instants = new LinkedHashMap<>();
-    Set<String> wantsInstant = new java.util.LinkedHashSet<>();
-    for (Config.SequenceSpec candidate : config.sequences()) {
-      if (DateOffset.isOffset(candidate.gen())) {
-        wantsInstant.add(DateOffset.sourceOf(candidate.gen().attrs()));
-      }
-    }
+    // An offset inside a `<case>` or an `if=` branch counts too.
+    Set<String> wantsInstant = BranchDerived.offsetSources(config);
 
     // Row links are shared across the whole render: two sequences naming one key must land on
     // the same rows, whichever sequence reaches it first.
@@ -1021,7 +1017,9 @@ public final class MemoryEngine {
                     flags,
                     // The '#switch' suffix is a stable historical key: the streaming engine
                     // spells it that way so a <mix> keeps the values of the <switch> it replaced.
-                    new PerRow.Stream(config.seed(), spec.name() + "#switch", rows), columns);
+                    new PerRow.Stream(config.seed(), spec.name() + "#switch", rows)
+                        .withInstants(instants),
+                    columns);
         columns.put(spec.name(), spread(rows, produced, count));
 
         String flagName = spec.mix().flag();
@@ -1040,7 +1038,7 @@ public final class MemoryEngine {
             spec.name(),
             switchValues(
                 spec.switchSpec(), count, prng, packs, config, nowMillis, baseDir, rowLinks,
-                columns, spec.name(), layouts));
+                columns, spec.name(), layouts, instants));
         continue;
       }
 
@@ -1054,7 +1052,9 @@ public final class MemoryEngine {
                     flags,
                     // The '#switch' suffix is a stable historical key: the streaming engine
                     // spells it that way so a <mix> keeps the values of the <switch> it replaced.
-                    new PerRow.Stream(config.seed(), spec.name() + "#switch", rows), columns);
+                    new PerRow.Stream(config.seed(), spec.name() + "#switch", rows)
+                        .withInstants(instants),
+                    columns);
         columns.put(spec.name(), spread(rows, produced, count));
 
         String flagName = spec.mix().flag();
@@ -1075,7 +1075,7 @@ public final class MemoryEngine {
             spec.name(),
             switchValues(
                 spec.switchSpec(), count, prng, packs, config, nowMillis, baseDir, rowLinks,
-                columns, spec.name(), layouts));
+                columns, spec.name(), layouts, instants));
         continue;
       }
 
@@ -1103,7 +1103,9 @@ public final class MemoryEngine {
         // has nothing left to decide.
         columns.put(
             spec.name(),
-            conditional(spec, count, prng, packs, config, nowMillis, baseDir, rowLinks, columns)
+            conditional(
+                    spec, count, prng, packs, config, nowMillis, baseDir, rowLinks, columns,
+                    instants)
                 .toArray(new String[0]));
         continue;
       }
@@ -2207,7 +2209,8 @@ public final class MemoryEngine {
       List<String> values =
           caseValues(
               cases.get(c), quota, prng, packs, config, nowMillis, baseDir, rowLinks,
-              new PerRow.Stream(stream.seed(), stream.id() + "#c" + c, caseRows), columns);
+              new PerRow.Stream(stream.seed(), stream.id() + "#c" + c, caseRows).inside(stream),
+              columns);
       for (int local = 0; local < quota; local++) {
         out.set(positions[local], values.get(local));
       }
@@ -2316,7 +2319,8 @@ public final class MemoryEngine {
       Map<String, RowLinkPlan> rowLinks,
       Map<String, String[]> columns,
       String name,
-      Map<String, PerRow.ExactLayout> layouts) {
+      Map<String, PerRow.ExactLayout> layouts,
+      Map<String, Long[]> instants) {
     // Group the rows by branch BEFORE generating: the subject's whole column is already here.
     String[] subject = columns.get(spec.on());
     List<List<Integer>> entryRows = new ArrayList<>(spec.entries().size());
@@ -2343,13 +2347,13 @@ public final class MemoryEngine {
           entry.value(), entryRows.get(e),
           rankedBranchRows(spec.on(), entry.keys(), entryRows.get(e), layouts),
           name + "#sw" + e, count, prng, packs, config, nowMillis, baseDir, rowLinks, out,
-          columns);
+          columns, instants);
     }
     if (spec.fallback() != null) {
       // <default> holds the rows no entry matched — a complement, which no layout enumerates.
       place(
           spec.fallback(), fallbackRows, null, name + "#swdef", count, prng, packs, config,
-          nowMillis, baseDir, rowLinks, out, columns);
+          nowMillis, baseDir, rowLinks, out, columns, instants);
     }
     return out;
   }
@@ -2438,8 +2442,10 @@ public final class MemoryEngine {
       List<String> whole =
           caseValues(
               body, count, prng, packs, config, nowMillis, baseDir, rowLinks,
-              new PerRow.Stream(
-                  config.seed(), streamId, stream == null ? null : stream.rows()),
+              // A formula or a date offset in it computes only the rows picked.
+              new PerRow.Stream(config.seed(), streamId, stream == null ? null : stream.rows())
+                  .inside(stream)
+                  .keeping(keptRows(positions, stream)),
               columns);
       for (int i : positions) {
         out[i] = whole.get(i);
@@ -2453,7 +2459,7 @@ public final class MemoryEngine {
     List<String> values =
         caseValues(
             body, positions.size(), prng, packs, config, nowMillis, baseDir, rowLinks,
-            new PerRow.Stream(config.seed(), streamId, rows), columns);
+            new PerRow.Stream(config.seed(), streamId, rows).inside(stream), columns);
     for (int local = 0; local < positions.size(); local++) {
       out[positions.get(local)] = values.get(local);
     }
@@ -2482,7 +2488,8 @@ public final class MemoryEngine {
       Path baseDir,
       Map<String, RowLinkPlan> rowLinks,
       String[] out,
-      Map<String, String[]> columns) {
+      Map<String, String[]> columns,
+      Map<String, Long[]> instants) {
     if (rows.isEmpty()) {
       return;
     }
@@ -2494,7 +2501,11 @@ public final class MemoryEngine {
         List<String> whole =
             caseValues(
                 body, count, prng, packs, config, nowMillis, baseDir, rowLinks,
-                new PerRow.Stream(config.seed(), streamId, null), columns);
+                // A formula or a date offset in it computes only the rows picked.
+                new PerRow.Stream(config.seed(), streamId, null)
+                    .withInstants(instants)
+                    .keeping(rows),
+                columns);
         for (int row : rows) {
           out[row] = whole.get(row);
         }
@@ -2506,7 +2517,7 @@ public final class MemoryEngine {
       List<String> exact =
           caseValues(
               body, rows.size(), prng, packs, config, nowMillis, baseDir, rowLinks,
-              new PerRow.Stream(config.seed(), streamId, rows), columns);
+              new PerRow.Stream(config.seed(), streamId, rows).withInstants(instants), columns);
       for (int local = 0; local < rows.size(); local++) {
         out[rows.get(local)] = exact.get(local);
       }
@@ -2515,7 +2526,7 @@ public final class MemoryEngine {
     List<String> values =
         caseValues(
             body, ranked.size(), prng, packs, config, nowMillis, baseDir, rowLinks,
-            new PerRow.Stream(config.seed(), streamId, ranked), columns);
+            new PerRow.Stream(config.seed(), streamId, ranked).withInstants(instants), columns);
     for (int local = 0; local < ranked.size(); local++) {
       out[ranked.get(local)] = values.get(local);
     }
@@ -2536,6 +2547,15 @@ public final class MemoryEngine {
    * and ranks across a union do not compose from the per-value ranks.
    */
   /** Does this {@code <case>} body declare a share that the denominator has to be right for? */
+  /** The absolute rows behind {@code positions} of a build over {@code stream}. */
+  private static List<Integer> keptRows(List<Integer> positions, PerRow.Stream stream) {
+    List<Integer> rows = new ArrayList<>(positions.size());
+    for (int i : positions) {
+      rows.add(stream == null ? i : stream.rowAt(i));
+    }
+    return rows;
+  }
+
   private static boolean caseCarriesPercent(Config.Case body) {
     for (Config.CasePart part : body.parts()) {
       if (part.mix() != null
@@ -2598,7 +2618,8 @@ public final class MemoryEngine {
       long nowMillis,
       Path baseDir,
       Map<String, RowLinkPlan> rowLinks,
-      Map<String, String[]> columns) {
+      Map<String, String[]> columns,
+      Map<String, Long[]> instants) {
     if (count == 0) {
       return List.of();
     }
@@ -2606,12 +2627,40 @@ public final class MemoryEngine {
     // streaming engine gives them. They used to take the run's shared PRNG, which made a
     // branch's values depend on how many draws the columns before it had made, so the same
     // config and seed produced different data here than when streaming.
+    //
+    // Which branch takes each row is decided by the conditions alone, so it is settled BEFORE
+    // any branch is built: a formula or a date offset in a branch then computes only the rows it
+    // won (see PerRow.Stream#keeping), while every other branch is still built over the whole run.
+    int[] winners = new int[count];
+    List<List<Integer>> won = new ArrayList<>();
+    for (int b = 0; b < spec.branches().size(); b++) {
+      won.add(new ArrayList<>());
+    }
+    for (int i = 0; i < count; i++) {
+      int winner = -1;
+      for (int b = 0; b < spec.branches().size(); b++) {
+        String condition = spec.branches().get(b).ifExpr();
+        if (condition == null || condition(condition, columns, i)) {
+          winner = b;
+          break;
+        }
+      }
+      winners[i] = winner;
+      if (winner >= 0) {
+        won.get(winner).add(i);
+      }
+    }
     List<List<String>> built = new ArrayList<>();
     List<String> flagNames = new ArrayList<>();
     List<boolean[]> flags = new ArrayList<>();
     for (int b = 0; b < spec.branches().size(); b++) {
       Config.Gen gen = spec.branches().get(b).gen();
       boolean[] spiked = new boolean[count];
+      PerRow.Stream branchStream =
+          new PerRow.Stream(config.seed(), spec.name() + "#if" + b, null).withInstants(instants);
+      if (BranchDerived.isRowLocal(gen)) {
+        branchStream = branchStream.keeping(won.get(b));
+      }
       built.add(
           columnValues(
               gen,
@@ -2622,7 +2671,7 @@ public final class MemoryEngine {
               nowMillis,
               baseDir,
               rowLinks,
-              new PerRow.Stream(config.seed(), spec.name() + "#if" + b, null),
+              branchStream,
               spiked,
               null,
               columns == null ? null : Siblings.of(columns)));
@@ -2642,14 +2691,7 @@ public final class MemoryEngine {
 
     List<String> out = new ArrayList<>(count);
     for (int i = 0; i < count; i++) {
-      int winner = -1;
-      for (int b = 0; b < spec.branches().size(); b++) {
-        String condition = spec.branches().get(b).ifExpr();
-        if (condition == null || condition(condition, columns, i)) {
-          winner = b;
-          break;
-        }
-      }
+      int winner = winners[i];
       // No branch matched: the row is not covered, so neither the value nor any claim
       // about it exists — every flag column stays null here, masked like the value.
       out.add(winner < 0 ? null : built.get(winner).get(i));
@@ -2722,6 +2764,11 @@ public final class MemoryEngine {
       Map<String, PerRow.ExactLayout> layouts,
       List<Long> instants,
       Siblings siblings) {
+    // A formula or a date offset in a branch reads the row's own columns; it has nothing to lay
+    // out and nothing of the per-row draw below to share.
+    if (BranchDerived.isRowLocal(gen)) {
+      return BranchDerived.values(gen, count, prng, config.locale(), stream, siblings, instants);
+    }
     if (stream == null) {
       return finish(
           generate(
@@ -4329,6 +4376,11 @@ public final class MemoryEngine {
         values = entry.values();
         percent = "";
       }
+      // Whole columns by nature. The validator keeps them out of every place that reaches here —
+      // a <case>, an if= branch, a part or a field (TDC295, TDC268).
+      case "running", "stat", "pool" -> throw new IllegalStateException(
+          "<gen type=\"" + gen.type() + "\"> is a whole column, so it has to be a <sequence> of "
+              + "its own");
       default -> throw new UnsupportedOperationException(
           "generator type \"" + gen.type() + "\" is not ported yet");
     }

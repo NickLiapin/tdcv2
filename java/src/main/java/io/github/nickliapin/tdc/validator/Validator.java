@@ -1488,8 +1488,9 @@ public final class Validator {
         checkComputeBody(open);
       }
       currentSequence = name;
+      String shape = "sequence".equals(tag) ? sequenceShape(open) : null;
       for (TDCParser.ElementContext inner : open.content().element()) {
-        checkGensIn(inner);
+        checkGensIn(inner, shape);
       }
       currentSequence = null;
 
@@ -2593,26 +2594,83 @@ public final class Validator {
   }
 
   /**
-   * A derived column cannot be ONE BRANCH of a per-row choice.
+   * A derived column in a place it cannot mean anything.
    *
-   * <p>{@code running}, {@code stat}, a date offset and {@code formula} are built once, for the
-   * whole column, in declaration order. An {@code if=} asks for something else entirely: a value
-   * chosen row by row. The two cannot both be true, and the run used to die with a message that
-   * read like an unfinished engine rather than a config that cannot mean anything.
+   * <p>{@code running}, {@code stat} and a formula that reads {@code prev()} are WHOLE columns —
+   * the rows before this one, or all of them — so they must be a {@code <sequence>} of their own.
+   * A plain formula and a date offset read only their own row, so a branch (a {@code <case>}, an
+   * {@code if=} branch) can hold them. None of the four is a part or a field of a record: a
+   * record's parts are drawn and rearranged together, and a computed value moved to another row
+   * no longer describes it.
    */
-  private void checkDerivedNotConditional(
-      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
-    if (!isDerived(type, attrs) || attrs.getOrDefault("if", "").trim().isEmpty()) {
+  private void checkDerivedPlace(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type,
+      String place) {
+    if ("sequence".equals(place) || !isDerived(type, attrs)) {
       return;
     }
-    int[] at = at(gen, "if");
-    error(
-        "TDC295",
-        "a type=\"" + type + "\" column is built for the whole run, so it cannot carry if=",
-        "It reads other columns in declaration order and produces one column, not a value chosen "
-            + "per row. Put the condition where the value is USED \u2014 `<data if=\"\u2026\">` "
-            + "\u2014 or compute the column unconditionally and branch on it afterwards.",
-        at[0], at[1]);
+    boolean wholeRun =
+        "running".equals(type)
+            || "stat".equals(type)
+            || ("formula".equals(type) && callsPrev(attrs.getOrDefault("expr", "")));
+    boolean inRecord = "part".equals(place) || "field".equals(place);
+    if (!wholeRun && !inRecord) {
+      return;
+    }
+    boolean carriesIf = attrs.containsKey("if");
+    int[] at = at(gen, "branch".equals(place) && carriesIf ? "if" : "type");
+    String what =
+        "date".equals(type)
+            ? "a date measured from another column (of=)"
+            : "formula".equals(type) && wholeRun
+                ? "a type=\"formula\" column that reads prev()"
+                : "a type=\"" + type + "\" column";
+    String where = "branch".equals(place) && carriesIf ? "carry if=" : placeWhere(place);
+    String message;
+    String hint;
+    if (wholeRun) {
+      message = what + " is built for the whole run, so it cannot " + where;
+      hint =
+          "branch".equals(place) && carriesIf
+              ? "It reads other columns in declaration order and produces one column, not a "
+                  + "value chosen per row. Put the condition where the value is USED \u2014 "
+                  + "`<data if=\"\u2026\">` \u2014 or compute the column unconditionally and "
+                  + "branch on it afterwards."
+              : "It reads other columns in declaration order and produces one column. Declare it "
+                  + "as a <sequence> of its own, above this one, and use it here by name \u2014 "
+                  + "${{Total}} in a <data>, or Total inside a formula.";
+    } else {
+      message = what + " is computed from other columns, so it cannot " + where;
+      hint =
+          "Declare it as a <sequence> of its own and put it into the record where the record is "
+              + "printed: <data>ID-${{Total}}</data>.";
+    }
+    error("TDC295", message, hint, at[0], at[1]);
+  }
+
+  /** Does this expression call {@code prev()} at all? Unparseable text answers no (TDC294). */
+  private static boolean callsPrev(String source) {
+    try {
+      return callsPrev(io.github.nickliapin.tdc.expr.Expr.parse(source));
+    } catch (RuntimeException e) {
+      return false;
+    }
+  }
+
+  private static boolean callsPrev(io.github.nickliapin.tdc.expr.Expr node) {
+    if (node instanceof io.github.nickliapin.tdc.expr.Expr.Unary u) {
+      return callsPrev(u.operand());
+    } else if (node instanceof io.github.nickliapin.tdc.expr.Expr.Binary b) {
+      return callsPrev(b.left()) || callsPrev(b.right());
+    } else if (node instanceof io.github.nickliapin.tdc.expr.Expr.Conditional t) {
+      return callsPrev(t.test()) || callsPrev(t.consequent()) || callsPrev(t.alternate());
+    } else if (node instanceof io.github.nickliapin.tdc.expr.Expr.Call c) {
+      return "prev".equals(c.callee())
+          || c.args().stream().anyMatch(Validator::callsPrev);
+    } else if (node instanceof io.github.nickliapin.tdc.expr.Expr.Arr a) {
+      return a.items().stream().anyMatch(Validator::callsPrev);
+    }
+    return false;
   }
 
   /**
@@ -3198,24 +3256,105 @@ public final class Validator {
     }
   }
 
-  /** Walk into a sequence body so a {@code <gen>} inside a {@code <distinct>} is checked too. */
-  private void checkGensIn(TDCParser.ElementContext element) {
+  /**
+   * Walk into a sequence body so a {@code <gen>} inside a {@code <distinct>} is checked too.
+   *
+   * <p>{@code shape} is what the enclosing {@code <sequence>} is — see {@link #sequenceShape} — or
+   * {@code case} once the walk is inside a {@code <case>} or {@code <default>}. It decides the
+   * gen's PLACE, which is what the placement rules (TDC295, TDC268) read.
+   */
+  private void checkGensIn(TDCParser.ElementContext element, String shape) {
     TDCParser.SelfClosingElementContext self = element.selfClosingElement();
     if (self != null && "gen".equals(self.name.getText())) {
-      checkGen(self);
+      checkGen(self, genPlace(shape, attributes(self.attr())));
       return;
     }
     TDCParser.OpenCloseElementContext open = element.openCloseElement();
     if (open != null) {
+      String tag = open.name.getText();
+      String innerShape = "case".equals(tag) || "default".equals(tag) ? "case" : shape;
       for (TDCParser.ElementContext inner : open.content().element()) {
-        checkGensIn(inner);
+        checkGensIn(inner, innerShape);
       }
+    }
+  }
+
+  /**
+   * What a {@code <sequence>} is, for the placement rules: conditional, simple, or a record.
+   *
+   * <p>The reference's reading: any {@code if=} makes it conditional; every gen named makes it
+   * compound; more than one gen, or a {@code <data>} with text beside them, composed; one unnamed
+   * gen alone, simple.
+   */
+  private static String sequenceShape(TDCParser.OpenCloseElementContext seq) {
+    List<Map<String, String>> gens = new ArrayList<>();
+    boolean literal = false;
+    for (TDCParser.ElementContext child : seq.content().element()) {
+      literal |= shapePart(child, gens);
+      TDCParser.OpenCloseElementContext inner = child.openCloseElement();
+      if (inner != null && "distinct".equals(inner.name.getText())) {
+        for (TDCParser.ElementContext wrapped : inner.content().element()) {
+          literal |= shapePart(wrapped, gens);
+        }
+      }
+    }
+    if (gens.stream().anyMatch(g -> g.containsKey("if"))) {
+      return "conditional";
+    }
+    long named = gens.stream().filter(g -> g.containsKey("name")).count();
+    if (named == gens.size()) {
+      return "compound";
+    }
+    return gens.size() > 1 || literal ? "composed" : "simple";
+  }
+
+  /** Collect a {@code <gen>}'s attributes, or say whether this is a {@code <data>} with text. */
+  private static boolean shapePart(TDCParser.ElementContext child, List<Map<String, String>> gens) {
+    TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+    if (self != null && "gen".equals(self.name.getText())) {
+      gens.add(attributes(self.attr()));
+      return false;
+    }
+    TDCParser.OpenCloseElementContext open = child.openCloseElement();
+    if (open != null && "gen".equals(open.name.getText())) {
+      gens.add(attributes(open.attr()));
+      return false;
+    }
+    return child.dataElement() instanceof TDCParser.DataWithBodyContext body
+        && !PairedData.restore(body.dataContent().getText()).isEmpty();
+  }
+
+  /** Where one {@code <gen>} stands, given what its enclosing element is. */
+  private static String genPlace(String shape, Map<String, String> attrs) {
+    if ("case".equals(shape)) {
+      return "case";
+    }
+    if ("conditional".equals(shape)) {
+      return "branch";
+    }
+    if ("composed".equals(shape) || "compound".equals(shape)) {
+      return attrs.containsKey("name") ? "field" : "part";
+    }
+    return "sequence";
+  }
+
+  /** The end of a placement sentence, by where the {@code <gen>} stands. */
+  private static String placeWhere(String place) {
+    switch (place) {
+      case "branch":
+        return "be the fallback branch of a conditional sequence";
+      case "case":
+        return "sit inside a <case>";
+      case "part":
+        return "be one part of a composed <sequence>";
+      default:
+        return "be a field of a compound <sequence>";
     }
   }
 
   // ── gen ──────────────────────────────────────────────────────────────────────────────────
 
-  private void checkGen(TDCParser.SelfClosingElementContext gen) {
+  private void checkGen(TDCParser.SelfClosingElementContext gen, String place) {
     Map<String, String> attrs = attributes(gen.attr());
     String type = attrs.get("type");
 
@@ -3240,6 +3379,18 @@ public final class Validator {
                 + "empty on the rows it excludes.",
             where[0], where[1]);
       }
+    } else if ("pool".equals(type) && !"sequence".equals(place)) {
+      // Every other place a <gen> can stand has the same hole: the fallback after the if=
+      // branches and a part of a composed sequence printed the marker too, and inside a <case>
+      // or as a field the run stopped after a clean `check`.
+      int[] where = at(gen, "type");
+      error("TDC268",
+          "<gen type=\"pool\"> publishes a whole MEMBER as Ref.field columns, so it cannot "
+              + placeWhere(place),
+          "Draw the member in a <sequence> of its own \u2014 <sequence name=\"Doc\"><gen "
+              + "type=\"pool\" value=\"Doctors\"/></sequence> \u2014 and read its fields where "
+              + "they are needed: ${{Doc.name}}.",
+          where[0], where[1]);
     }
 
     if (type == null || type.isBlank()) {
@@ -3284,7 +3435,7 @@ public final class Validator {
     checkRunning(gen, attrs, type);
     checkStat(gen, attrs, type);
     checkFormula(gen, attrs, type);
-    checkDerivedNotConditional(gen, attrs, type);
+    checkDerivedPlace(gen, attrs, type, place);
     checkMask(gen, attrs);
     checkCounter(gen, attrs, type);
     checkDateTemplates(gen, attrs, type);

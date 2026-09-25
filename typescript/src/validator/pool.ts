@@ -34,6 +34,7 @@ import { attrValueRange, nodeRange } from '../errors/source-map.js';
 import { closestMatch } from '../errors/suggestions.js';
 import { matchKey } from '../expr/match-key.js';
 import { checkIfExpression, exprSite } from './expr-check.js';
+import type { GenPlace } from './gen-type.js';
 
 /**
  * How many members each pool declares, by name.
@@ -706,34 +707,59 @@ function checkPoolSize(
 }
 
 /**
- * `if=` on a `<gen type="pool">` — accepted by the grammar, honoured by nothing.
+ * A `<gen type="pool">` anywhere but as a whole `<sequence>`.
  *
- * A `<gen>` carrying `if=` becomes a CONDITIONAL branch, and the pool resolver
- * only recognises a plain `<gen type="pool">`. So the reference registered no
- * `Ref.field` columns at all and `${{Ref.name}}` reached the output as its own
- * literal text — on EVERY row, including the ones the condition selected. The
- * config validated clean and the file filled up with `${{Doctor.name}}`.
+ * `if=` came first. A `<gen>` carrying `if=` becomes a CONDITIONAL branch, and
+ * the pool resolver only recognises a plain `<gen type="pool">`. So the reference
+ * registered no `Ref.field` columns at all and `${{Ref.name}}` reached the output
+ * as its own literal text — on EVERY row, including the ones the condition
+ * selected. The config validated clean and the file filled up with
+ * `${{Doctor.name}}`.
  *
- * Refused rather than implemented: giving a row no member at all is what
- * `parent=` already does, and a conditional reference would have to answer a
- * question the shape does not raise — what `${{Ref.field}}` means on a row that
- * took the other branch. Until that has an answer, silence is the worst of the
- * three options and this is the cheapest way out of it.
+ * Every other place a `<gen>` can stand has the same hole, measured on all five:
+ * the fallback after the `if=` branches and a part of a composed sequence printed
+ * the marker too, and inside a `<case>` or as a compound field the run stopped
+ * with `gen type "pool" not yet supported` after `check` had called it valid.
+ *
+ * Refused rather than implemented: a reference publishes a whole MEMBER as
+ * `Ref.field` columns, and a branch or a part has no column of its own to publish
+ * them under. Giving a row no member at all is what `parent=` already does.
  */
-export function checkPoolRefHasNoIf(
+export function checkPoolRefPlace(
   gen: OpenCloseElementContext | SelfClosingElementContext,
+  place: GenPlace,
   diagnostics: Diagnostic[],
 ): void {
   const attrs = extractAttrs(gen.attr());
-  if (attrs['type'] !== 'pool' || attrs['if'] === undefined) return;
-  const attr = gen.attr().find((a) => a._attrName?.text === 'if');
+  if (attrs['type'] !== 'pool' || place === 'sequence') return;
+  const ifAttr = gen.attr().find((a) => a._attrName?.text === 'if');
+  if (ifAttr) {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...attrValueRange(ifAttr),
+      message:
+        'if= is not supported on <gen type="pool">: the reference publishes a whole MEMBER, and a conditional one would register no fields at all',
+      hint: 'To leave some rows without a member, use parent="…" — it masks the reference the same way it masks any other sequence, and the fields come out empty on the rows it excludes.',
+      code: 'TDC268',
+    });
+    return;
+  }
+  const where =
+    place === 'branch'
+      ? 'be the fallback branch of a conditional sequence'
+      : place === 'case'
+        ? 'sit inside a <case>'
+        : place === 'part'
+          ? 'be one part of a composed <sequence>'
+          : 'be a field of a compound <sequence>';
+  const typeAttr = gen.attr().find((a) => a._attrName?.text === 'type');
   diagnostics.push({
     severity: 'error',
     source: 'validator',
-    ...(attr ? attrValueRange(attr) : nodeRange(gen)),
-    message:
-      'if= is not supported on <gen type="pool">: the reference publishes a whole MEMBER, and a conditional one would register no fields at all',
-    hint: 'To leave some rows without a member, use parent="…" — it masks the reference the same way it masks any other sequence, and the fields come out empty on the rows it excludes.',
+    ...(typeAttr ? attrValueRange(typeAttr) : nodeRange(gen)),
+    message: `<gen type="pool"> publishes a whole MEMBER as Ref.field columns, so it cannot ${where}`,
+    hint: 'Draw the member in a <sequence> of its own — <sequence name="Doc"><gen type="pool" value="Doctors"/></sequence> — and read its fields where they are needed: ${{Doc.name}}.',
     code: 'TDC268',
   });
 }

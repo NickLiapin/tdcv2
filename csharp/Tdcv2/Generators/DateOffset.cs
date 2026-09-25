@@ -119,7 +119,7 @@ public static class DateOffset
     /// </item>
     /// </list>
     /// </remarks>
-    private static PlainDateTime? StartOfRow(
+    internal static PlainDateTime? StartOfRow(
         string name,
         IReadOnlyDictionary<string, string> attrs,
         long?[]? instants,
@@ -152,7 +152,7 @@ public static class DateOffset
     /// A fixed offset takes no draw, which is what lets <c>plus="7d"</c> be added to a config
     /// without shifting any other column. A range takes exactly one.
     /// </remarks>
-    private static long DrawSteps(DateStep.OffsetSpec offset, Sfc32 prng)
+    internal static long DrawSteps(DateStep.OffsetSpec offset, Sfc32 prng)
     {
         if (offset.Lo == offset.Hi)
         {

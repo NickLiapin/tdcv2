@@ -121,4 +121,26 @@ export interface SequenceBuildContext {
    * other date column stays a plain array of strings.
    */
   readonly instantColumns?: ReadonlySet<string> | undefined;
+  /**
+   * The instants a finished column kept, as a reader — `undefined` for a column
+   * that keeps none. What a date offset inside a `<case>` or an `if=` branch
+   * measures from; the top-level offset reads the registry directly.
+   */
+  readonly instantsOf?:
+    | ((name: string) => ((row: number) => number | undefined) | undefined)
+    | undefined;
+  /**
+   * The ABSOLUTE rows this build will actually keep, when it builds more than it
+   * keeps.
+   *
+   * A `<switch>` branch whose rows cannot be numbered, a nested switch and an
+   * `if=` branch are built over the whole run and then picked from — which is
+   * what keeps a drawn value where the streaming engine puts it. A formula or a
+   * date offset draws nothing that depends on the other rows, but it CAN fail on
+   * one: `Y / X` on a row where X is zero is a refusal. Evaluated on a row the
+   * branch was never going to keep, that refusal belongs to a value nobody asked
+   * for, and the streaming engine — which only ever computes the rows it keeps —
+   * would not raise it. So those two compute only these rows. Nothing else reads it.
+   */
+  readonly keptRows?: ReadonlySet<number> | undefined;
 }

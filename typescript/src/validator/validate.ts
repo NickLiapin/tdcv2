@@ -70,7 +70,7 @@ import {
   reportMisplaced,
   reportUnknownChild,
 } from './placement.js';
-import { checkGenByType } from './gen-type.js';
+import { checkGenByType, type GenPlace } from './gen-type.js';
 import { MISSING_VALUE_NAME } from '../generators/missing.js';
 import { checkIfExpression, type PendingExpression, runPendingExpressions } from './expr-check.js';
 import { checkSwitchCaseAttrs, checkSwitchMap } from './switch-body.js';
@@ -84,7 +84,7 @@ import { checkGenBody, checkGroupBody, openChild } from './container-children.js
 import { checkOneEnvOneBlock } from './container-children.js';
 import {
   checkPoolIsRead,
-  checkPoolRefHasNoIf,
+  checkPoolRefPlace,
   collectPoolFieldValues,
   collectPoolCounts,
   collectPoolFields,
@@ -770,7 +770,7 @@ function checkSequenceBody(seqEl: OpenCloseElementContext, ctx: Ctx): void {
     // Conditional sequence: `<gen if="…">` branches (+ an optional bare fallback
     // gen with no `if`). Each gen is just a generator — no `name` required — so
     // it must NOT be treated as a compound, which reads a name as a field.
-    for (const g of gens) checkGen(g, ctx);
+    for (const g of gens) checkGen(g, ctx, 'branch');
     checkUniqUnsupported(
       seqEl,
       name,
@@ -796,7 +796,7 @@ function checkSequenceBody(seqEl: OpenCloseElementContext, ctx: Ctx): void {
     for (const g of gens) {
       const fieldName = genAttrName(g);
       if (fieldName === undefined) {
-        if (shape !== 'compound') checkGen(g, ctx, false, shape !== 'simple');
+        if (shape !== 'compound') checkGen(g, ctx, shape === 'simple' ? 'sequence' : 'part');
         continue;
       }
       if (seenNames.has(fieldName)) {
@@ -814,7 +814,7 @@ function checkSequenceBody(seqEl: OpenCloseElementContext, ctx: Ctx): void {
       seenNames.add(fieldName);
       // A named gen is a FIELD, so the sequence's own value is built from parts
       // whatever the rest of the body looks like.
-      checkGen(g, ctx, false, true);
+      checkGen(g, ctx, 'field');
       // Register `Parent.Field` so a later reference to the field resolves.
       if (name) ctx.declaredSequences.push(`${name}.${fieldName}`);
     }
@@ -905,9 +905,10 @@ function genAttrIf(gen: OpenCloseElementContext | SelfClosingElementContext): st
 function checkGen(
   gen: OpenCloseElementContext | SelfClosingElementContext,
   ctx: Ctx,
-  inCase = false,
-  inJoinedBody = false,
+  place: GenPlace = 'sequence',
 ): void {
+  const inCase = place === 'case';
+  const inJoinedBody = place === 'part' || place === 'field';
   checkGenBody(gen, ctx);
   const attrs = gen.attr();
   const attrMap = extractAttrs(attrs);
@@ -919,7 +920,7 @@ function checkGen(
   checkGenWeight(gen, ctx.diagnostics);
   checkGenMask(gen, ctx.diagnostics);
   checkGenImperfections(gen, ctx.diagnostics);
-  checkPoolRefHasNoIf(gen, ctx.diagnostics);
+  checkPoolRefPlace(gen, place, ctx.diagnostics);
 
   if (!type) {
     ctx.diagnostics.push({
@@ -979,7 +980,7 @@ function checkGen(
   // one. Five generators used to each blame what they happened to be parsing.
   if (checkAttrInterpolation(attrs, ctx.diagnostics)) return;
 
-  checkGenByType(gen, type, ctx);
+  checkGenByType(gen, type, ctx, place);
 
   // A conditional-sequence gen carries `if` as its branch condition; a
   // plain gen may also have one. Just validate the expression if present.
@@ -1234,11 +1235,11 @@ function checkCaseContent(caseEl: OpenCloseElementContext, ctx: Ctx): void {
       continue;
     }
     if (k.kind === 'self' && elementName(k.node) === 'gen') {
-      checkGen(k.node, ctx, true);
+      checkGen(k.node, ctx, 'case');
       continue;
     }
     if (k.kind === 'open' && elementName(k.node) === 'gen') {
-      checkGen(k.node, ctx, true);
+      checkGen(k.node, ctx, 'case');
       continue;
     }
     if (k.kind === 'open' && elementName(k.node) === 'mix') {

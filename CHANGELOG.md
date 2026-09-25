@@ -96,6 +96,56 @@ page — is tracked in that implementation's own changelog:
   sequence of redraws in four shared cases — one of them all hundred strings of `[0-9]{2}`, where
   nearly every late draw is a repeat — and both refusals in `cli.json`.
 
+### Fixed
+
+- **A `formula` or a date offset inside a `<case>` works, and nothing derived passes `check`
+  only to break the run.** A `<gen>` can stand in six places: as a whole `<sequence>`, as one of
+  its `if=` branches or the fallback after them, inside a `<case>` (of a `<mix>` or a `<switch>`,
+  at any depth), as a part of a composed sequence, or as a field. Only the first was built right
+  for the derived types. Measured before this release, on all five implementations:
+
+  ```
+  D=2020-03-05 C=1975-09-23      a date offset in a <case>, of="D" plus="1d"
+  ```
+
+  `of=` and `plus=` were dropped without a word and an unrelated date was drawn — a plausible
+  value in a column that looked right. `formula`, `running` and `stat` stopped the run with
+  `gen type "formula" not yet supported` after `check` had called the config valid (the C#
+  command line crashed with a stack trace; Python computed a formula on one engine and failed on
+  the other). A `<gen type="pool">` as the fallback branch or a composed part printed
+  `${{Ref.field}}` as literal text on every row.
+
+  Now the rule follows how much of the run each construct reads:
+  - **`formula` and a date offset read only their own row**, so a branch can hold them: a
+    `<case>`, an `if=` branch, the fallback. Each row the branch holds is computed from that row,
+    `_count` is the row's own number, and an empty column read leaves the part empty. A formula
+    streams there as it does at the top level; a date offset is the in-memory engine's, as it
+    already was — engine 2 refuses it by name and auto-routing never sends it there. A ranged
+    `plus=` draws from the row's own stream, so a row keeps its step however the branch split
+    changes. Built over the whole run and picked from, the in-memory engine now computes only
+    the rows a branch keeps, so `Y / X` in a `<default>` that never sees `X = 0` runs on every
+    engine instead of refusing a division nobody asked for.
+  - **`running`, `stat` and a formula that reads `prev()` are whole columns**, so they must be a
+    `<sequence>` of their own: `TDC295` now refuses them in a `<case>`, as a fallback, a part or a
+    field, not only under `if=`.
+  - **None of the derived types is a part or a field of a record** — its parts are drawn and
+    rearranged together, and a computed value moved to another row no longer describes it
+    (`TDC295`). A pool reference, which publishes a whole member, is refused in every place but a
+    sequence of its own (`TDC268`).
+
+  Pinned five ways: twelve rendering cases in `fixtures/cross-language/cases/branch-derived.json`
+  under `mode="memory"` (so the in-memory engine is held to them too, with engines 2 and 3 in
+  `engines.json`), including a `<default>`, a multi-key case, a nested `<switch>` and an `if=`
+  branch whose other rows would divide by zero; and ten new placement diagnostics.
+
+### Changed
+
+- **A plain `formula` or a date offset may carry `if=`.** `TDC295` refused both, together with
+  the constructs that really are whole columns. They read only their own row, so an `if=` branch
+  is a branch like any other: `<gen if="X > 0" type="formula" expr="Y / X"/>` beside a fallback
+  now runs, and computes only the rows it wins. `running`, `stat` and a formula that reads
+  `prev()` stay refused.
+
 ## [0.3.2] — 2026-09-22
 
 ### Fixed

@@ -210,7 +210,13 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
             Report(stderr, e.Diagnostics, options.Input, e.Source);
             return 1;
         }
-        catch (Exception e) when (e is ArgumentException or IOException or InvalidOperationException)
+        // NotSupportedException too: a gap in this port is a refusal like any other, and it used to
+        // escape as an unhandled exception — a .NET stack trace and exit code 134 where the other
+        // four print one line and exit 1. Measured on a formula inside a <case>, before that was
+        // supported anywhere.
+        catch (Exception e) when (
+            e is ArgumentException or IOException or InvalidOperationException
+                or NotSupportedException)
         {
             Fail(stderr, e.Message, false);
             return 1;
@@ -407,7 +413,9 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
             Report(stderr, e.Diagnostics, files[0], e.Source, brief);
             return 1;
         }
-        catch (Exception e) when (e is ArgumentException or IOException or InvalidOperationException)
+        catch (Exception e) when (
+            e is ArgumentException or IOException or InvalidOperationException
+                or NotSupportedException)
         {
             Fail(stderr, e.Message, false);
             return 1;

@@ -71,17 +71,17 @@ def build(
         text = source[i] if i < len(source) else None
         if text is None or text.strip() == "":
             continue
-        start = _start(name, attrs, instants, i, text)
+        start = start_of_row(name, attrs, instants, i, text)
         if start is None:
             continue
-        landed = apply_offset(start, offset, _draw_steps(offset, prng))
+        landed = apply_offset(start, offset, draw_steps(offset, prng))
         if own is not None:
             own[i] = to_epoch_millis(landed)
         values[i] = format_date_time(landed, fmt, locale)
     return (values, own)
 
 
-def _start(
+def start_of_row(
     name: str,
     attrs: dict[str, str],
     instants: list[int | None] | None,
@@ -118,7 +118,7 @@ def _start(
         ) from error
 
 
-def _draw_steps(offset: OffsetSpec, prng: Sfc32) -> int:
+def draw_steps(offset: OffsetSpec, prng: Sfc32) -> int:
     """How many steps this row moves.
 
     A fixed offset takes no draw, which is what lets ``plus="7d"`` be added to a config without

@@ -1108,6 +1108,32 @@ public sealed class StreamEngine
                 + "the in-memory engine resolves it per row");
         }
 
+        // A date offset inside a `<case>` or an `if=` branch — the same refusal the whole-column
+        // form meets in BuildColumns(), for the same reason: the source's instant is not something
+        // the lazy path keeps.
+        if (DateOffset.IsOffset(type, attrs))
+        {
+            throw new UnsupportedHere(
+                $"a date measured from another column (\"{streamId.Split('#')[0]}\") reads that "
+                + "column as the row is built, and the streaming path has no way to do that yet; "
+                + "the in-memory engine handles it (run without a forced streaming engine)");
+        }
+
+        // A formula in a branch reads only its own row: the same lazy column a whole-column
+        // formula is, asked only for the rows the branch holds. An empty answer is an empty part.
+        if (type == "formula")
+        {
+            string formulaSource = Formula.ExpressionOf(attrs);
+            int? formulaDecimals = Formula.DecimalsOf(attrs);
+            return new Built(
+                row => Formula.ValueAtRow(
+                    formulaSource,
+                    formulaDecimals,
+                    row,
+                    _columns.ContainsKey,
+                    name => ValueAt(name, row)) ?? "");
+        }
+
         // A pack generator whose value is a share of the RUN — one its body declares with
         // `percent=`, or one it inherits by drawing from a weighted list. Either way the quota is
         // computed over the count it is handed, so a body asked for one row apportions over a

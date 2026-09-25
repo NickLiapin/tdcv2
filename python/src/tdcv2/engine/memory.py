@@ -46,7 +46,7 @@ from ..sequence import pool as pool_mod
 from ..sequence import uniq as uniq_lib
 from ..stats import dist_params, timeseries
 from ..stats import distribution as dist
-from . import per_row, repeat_keyed
+from . import branch_derived, per_row, repeat_keyed
 
 # How many redraws a <distinct> field gets before its source is called too small.
 DISTINCT_FUSE = 100
@@ -136,6 +136,16 @@ class _Run:
     #: the per-row loop, which must not re-enter itself, and anything that is only correct across
     #: a whole column, which must refuse rather than plan a quota over a single row.
     per_row: bool = False
+    #: The instants a finished column kept, by name — ``None`` for a column that keeps none. What a
+    #: date offset inside a ``<case>`` or an ``if=`` branch measures from.
+    instants_of: Callable[[str], list[int | None] | None] | None = None
+    #: The ABSOLUTE rows this build will actually keep, when it builds more than it keeps. A
+    #: ``<switch>`` branch that cannot be numbered, a nested switch and an ``if=`` branch are
+    #: built over the whole run and picked from. A formula or a date offset draws nothing that
+    #: depends on the other rows, but it CAN fail on one — ``Y / X`` where X is zero — and a
+    #: refusal on a row nobody keeps is one the streaming engine never raises. So those two
+    #: compute only these rows. Nothing else reads it.
+    kept_rows: frozenset[int] | None = None
 
 
 def render(config: Config, packs: DataPacks, now_millis: int, base_dir: Path | None = None) -> str:
@@ -602,11 +612,8 @@ def _build_columns(
     # it keeps what it actually generated, and an offset measures from THAT. Only the columns
     # named by some `of=` are kept, so a config with no offset in it pays nothing.
     instants: dict[str, list[int | None]] = {}
-    wants_instant = {
-        date_offset_gen.source_of(spec.gen.attrs)
-        for spec in config.sequences
-        if date_offset_gen.is_offset(spec.gen)
-    }
+    # An offset inside a `<case>` or an `if=` branch counts too.
+    wants_instant = branch_derived.offset_sources(config.sequences)
 
     # The built-ins first. They are positional, consume no randomness, and are therefore
     # identical for a given count no matter what else the config does.
@@ -630,6 +637,7 @@ def _build_columns(
         layouts={},
         value_at=_column_value_at,
         has_column=lambda name: name in columns,
+        instants_of=instants.get,
     )
 
     # Pools first, and off a DERIVED seed. A pool must be invisible to every column it does not
@@ -1479,7 +1487,10 @@ def _nested_switch_values(spec, count: int, run: _Run) -> list[str]:
         if not positions:
             return
         if not _case_carries_percent(case):
-            whole = _case_values(case, count, replace(run, stream_id=part_id))
+            kept = branch_derived.keeping_only(
+                replace(run, stream_id=part_id), (per_row.absolute_row(run, i) for i in positions)
+            )
+            whole = _case_values(case, count, kept)
             for i in positions:
                 out[i] = whole[i]
             return
@@ -1535,7 +1546,9 @@ def _switch_values(spec, count: int, run: _Run, columns, name: str) -> list[str 
                 # <default>, so they build those over the whole run and read the row they
                 # want. This engine has to do the same or the two would answer differently on
                 # a config neither of them refuses.
-                whole = _case_values(case, count, replace(run, stream_id=stream_id))
+                # A formula or a date offset in it computes only the rows picked (`kept_rows`).
+                kept = branch_derived.keeping_only(replace(run, stream_id=stream_id), rows)
+                whole = _case_values(case, count, kept)
                 for position in positions:
                     out[position] = whole[position]
                 return
@@ -1618,12 +1631,30 @@ def _conditional(spec: SequenceSpec, count: int, run: _Run, columns) -> list[str
     # streaming engine gives them. They used to take the run's shared PRNG, which made a
     # branch's values depend on how many draws the columns before it had made: the same
     # config and seed then produced different data here than when streaming.
+    #
+    # Which branch takes each row is decided by the conditions alone, so it is settled BEFORE any
+    # branch is built: a formula or a date offset in a branch then computes only the rows it won
+    # (see `kept_rows`), while every other branch is still built over the whole run.
+    winners: list[int | None] = []
+    won: list[list[int]] = [[] for _ in spec.branches]
+    for i in range(count):
+        winner = None
+        for b, branch in enumerate(spec.branches):
+            if branch.if_expr is None or _condition(branch.if_expr, columns, i):
+                winner = b
+                break
+        winners.append(winner)
+        if winner is not None:
+            won[winner].append(i)
+
     built: list[list[str]] = []
     flag_names: list[str | None] = []
     flags: list[list[bool]] = []
     for b, branch in enumerate(spec.branches):
         spiked = [False] * count
         branch_run = replace(run, stream_id=f"{spec.name}#if{b}", rows=None)
+        if branch_derived.is_row_local_derived(branch.gen):
+            branch_run = branch_derived.keeping_only(branch_run, won[b])
         built.append(_column_values(branch.gen, count, branch_run, spiked))
         declared = (branch.gen.attrs.get("anomaly_flag") or "").strip()
         flag_names.append(declared or None)
@@ -1638,11 +1669,7 @@ def _conditional(spec: SequenceSpec, count: int, run: _Run, columns) -> list[str
 
     out: list[str | None] = []
     for i in range(count):
-        winner = None
-        for b, branch in enumerate(spec.branches):
-            if branch.if_expr is None or _condition(branch.if_expr, columns, i):
-                winner = b
-                break
+        winner = winners[i]
         # No branch matched: the row is not covered, so neither the value nor any claim about
         # it exists — every flag column stays None here, masked exactly like the value.
         out.append(None if winner is None else built[winner][i])
@@ -2228,6 +2255,10 @@ def _column_values(
     Anything else keeps the older shape: generate the column, then finish it.
     """
     flags = anomaly_flags if anomaly_flags is not None else [False] * count
+    # A formula or a date offset in a branch reads the row's own columns; it has nothing to lay
+    # out and nothing of the per-row draw below to share.
+    if branch_derived.is_row_local_derived(gen):
+        return branch_derived.values(gen, count, run, instants_out)
     if not per_row.per_row_buildable(gen, count, run):
         return _finish(
             _generate(gen, count, run, instants_out),
@@ -2430,6 +2461,13 @@ def _generate(
                 return exact
         return [entry.values[math.floor(prng.next() * len(entry.values))] for _ in range(count)]
     else:
+        if gen.type in ("running", "stat", "pool"):
+            # Whole columns by nature. The validator keeps them out of every place that reaches
+            # here — a <case>, an if= branch, a part or a field (TDC295, TDC268).
+            raise EngineError(
+                f'<gen type="{gen.type}"> is a whole column, so it has to be a <sequence> '
+                "of its own"
+            )
         raise EngineError(f'generator type "{gen.type}" is not ported yet')
 
     # The streaming engine has NO separate uniform path: no `percent=` simply means equal

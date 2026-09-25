@@ -130,6 +130,11 @@ reason: the statistic is built out of a column that already exists.
 
 A statistic that does not say what to summarise, or which statistic to take, is `TDC262`.
 
+A statistic is a **whole column** — it reads every row of the run — so it has to be a
+`<sequence>` of its own. Inside a `<case>`, as one of the `<gen if="…">` branches, or as a part or
+a field of a composed sequence it is refused with `TDC295`. Take the statistic as its own
+sequence above, and read it by name where you need it.
+
 `./run lab.tdc`
 
 ```

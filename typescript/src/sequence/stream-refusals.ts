@@ -117,6 +117,17 @@ export function refuseIfLazyImpossible(gen: GenSpec, streamId: string): void {
     throw unsupported('advanced_regex weighted choice "(?%{…})"', streamId);
   }
 
+  // A date offset inside a `<case>` or an `if=` branch — the same refusal the
+  // whole-column form meets in `refuseIfWholeColumn`, for the same reason: the
+  // source's instant is not something the lazy path keeps.
+  if (gen.type === 'date' && (gen.attrs['of'] ?? '').trim() !== '') {
+    throw new StreamUnsupportedError(
+      `a date measured from another column ("${streamId.split('#')[0] ?? ''}") reads that ` +
+        'column as the row is built, and the streaming path has no way to do that yet; the ' +
+        'in-memory engine handles it (run without a forced streaming engine)',
+    );
+  }
+
   /*
    * A `${{Field}}`-interpolated address is resolved per row against the other
    * columns, which the lazy path cannot read. `build.ts` refuses it too — but

@@ -127,6 +127,13 @@ note: A running total is built from a column that already exists, so the column 
 
 Un total acumulado que no dice qué ni cómo acumular es `TDC239`.
 
+Un total acumulado es una **columna entera** — cada fila arrastra todas las anteriores —, así
+que tiene que ser una `<sequence>` propia. Dentro de un `<case>`, como una de las ramas
+`<gen if="…">`, o como parte o campo de una secuencia compuesta se rechaza con `TDC295`: una
+rama recibe unas filas y no otras, y un total sobre «las filas que le tocaron a esta rama» no es
+un número que nadie haya pedido. Construya el total como una secuencia propia más arriba y
+úselo por su nombre donde lo necesite.
+
 ## Qué motor lo ejecuta
 
 Los [motores de streaming](../guides/large-outputs.md#top) rechazan un total acumulado, y lo

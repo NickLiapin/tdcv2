@@ -13,7 +13,8 @@
 //! so the column's identity travels beside it as a [`Stream`]. Absent, everything falls back
 //! to the sequential PRNG, which is what an inline generator or a nested pack body wants.
 
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, BTreeSet};
+use std::sync::Arc;
 
 use crate::distribution::percent_mask;
 use crate::model::Gen;
@@ -51,6 +52,14 @@ pub struct Stream {
     /// fires there — a plain pack or file drawn inside a body stays a per-row
     /// pick, and this flag is how the same rule is stated here.
     pub in_body: bool,
+    /// The ABSOLUTE rows this build will actually keep, when it builds more than it keeps.
+    ///
+    /// A `<switch>` branch that cannot be numbered, a nested switch and an `if=` branch are
+    /// built over the whole run and picked from. A formula or a date offset draws nothing that
+    /// depends on the other rows, but it CAN fail on one — `Y / X` where X is zero — and a
+    /// refusal on a row nobody keeps is one the streaming engine never raises. So those two
+    /// compute only these rows. Nothing else reads it.
+    pub kept: Option<Arc<BTreeSet<usize>>>,
 }
 
 impl Stream {
@@ -61,7 +70,31 @@ impl Stream {
             id: id.to_string(),
             rows: None,
             one_row: false,
+            kept: None,
         }
+    }
+
+    /// The same stream, keeping only `rows` of what it builds — narrowed, never widened.
+    #[must_use]
+    pub fn keeping(mut self, rows: impl IntoIterator<Item = usize>) -> Self {
+        let kept: BTreeSet<usize> = rows
+            .into_iter()
+            .filter(|row| self.kept.as_ref().is_none_or(|k| k.contains(row)))
+            .collect();
+        self.kept = Some(Arc::new(kept));
+        self
+    }
+
+    /// The same stream, keeping what `outer` keeps — a build nested inside one that narrows.
+    #[must_use]
+    pub fn inside(mut self, outer: Option<&Stream>) -> Self {
+        self.kept = outer.and_then(|o| o.kept.clone());
+        self
+    }
+
+    /// Will this build keep `row`?
+    pub fn keeps(&self, row: usize) -> bool {
+        self.kept.as_ref().is_none_or(|k| k.contains(&row))
     }
 
     /// The same stream, marked as one row of a bigger build.
@@ -85,6 +118,7 @@ impl Stream {
             id: id.to_string(),
             rows: self.rows.clone(),
             one_row: self.one_row,
+            kept: self.kept.clone(),
         }
     }
 
@@ -98,6 +132,7 @@ impl Stream {
             id: id.to_string(),
             rows: Some(rows),
             one_row: false,
+            kept: None,
         }
     }
 

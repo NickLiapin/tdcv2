@@ -11,6 +11,7 @@
 //! and [`disk`] is [`stream`] with `uniq` built exactly — falling back to
 //! [`memory`] for the configs that cannot be both exact and bounded.
 
+pub mod branch_derived;
 pub mod disk;
 pub mod exact_uniq;
 pub mod external_sort;

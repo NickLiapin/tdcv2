@@ -231,6 +231,36 @@ function rootOf(node: jsep.MemberExpression): string | undefined {
  */
 function prevTargets(ast: unknown): Set<string> {
   const found = new Set<string>();
+  eachPrevCall(ast, (args) => {
+    const first = args[0] as { type?: string; name?: string } | undefined;
+    if (first?.type === 'Identifier' && first.name !== undefined) found.add(first.name);
+  });
+  return found;
+}
+
+/**
+ * Does this expression call `prev()` at all?
+ *
+ * A formula that does reads the row before its own, so it is built in row order
+ * over the whole run — a whole column, like a running total. Text that does not
+ * parse answers no: TDC294 already reports it, and one wrong config deserves one
+ * diagnostic.
+ */
+export function callsPrev(expr: string): boolean {
+  let ast: jsep.Expression;
+  try {
+    ast = jsep(expr);
+  } catch {
+    return false;
+  }
+  let found = false;
+  eachPrevCall(ast, () => {
+    found = true;
+  });
+  return found;
+}
+
+function eachPrevCall(ast: unknown, visitCall: (args: readonly unknown[]) => void): void {
   const visit = (node: unknown): void => {
     if (node === null || typeof node !== 'object') return;
     const n = node as {
@@ -243,8 +273,7 @@ function prevTargets(ast: unknown): Set<string> {
       n.callee?.type === 'Identifier' &&
       n.callee.name === 'prev'
     ) {
-      const first = n.arguments?.[0] as { type?: string; name?: string } | undefined;
-      if (first?.type === 'Identifier' && first.name !== undefined) found.add(first.name);
+      visitCall(n.arguments ?? []);
     }
     for (const value of Object.values(node as Record<string, unknown>)) {
       if (Array.isArray(value)) value.forEach(visit);
@@ -252,5 +281,4 @@ function prevTargets(ast: unknown): Set<string> {
     }
   };
   visit(ast);
-  return found;
 }

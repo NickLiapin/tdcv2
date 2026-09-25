@@ -1691,9 +1691,10 @@ public sealed class Validator
             }
 
             _currentSequence = name;
+            string? shape = tag == "sequence" ? SequenceShape(open) : null;
             foreach (TDCParser.ElementContext inner in open.content().element())
             {
-                CheckGensIn(inner);
+                CheckGensIn(inner, shape);
             }
 
             _currentSequence = null;
@@ -2848,34 +2849,90 @@ public sealed class Validator
         CheckParamNames(gen, "expr", source);
     }
 
-    /// <summary>A derived column cannot be ONE BRANCH of a per-row choice.</summary>
+    /// <summary>A derived column in a place it cannot mean anything.</summary>
     /// <remarks>
-    /// <c>running</c>, <c>stat</c>, a date offset and <c>formula</c> are built once, for the whole
-    /// column, in declaration order. An <c>if=</c> asks for something else entirely: a value chosen
-    /// row by row. The two cannot both be true, and the run used to die with a message that read
-    /// like an unfinished engine rather than a config that cannot mean anything.
+    /// <c>running</c>, <c>stat</c> and a formula that reads <c>prev()</c> are WHOLE columns — the
+    /// rows before this one, or all of them — so they must be a <c>&lt;sequence&gt;</c> of their
+    /// own. A plain formula and a date offset read only their own row, so a branch (a
+    /// <c>&lt;case&gt;</c>, an <c>if=</c> branch) can hold them. None of the four is a part or a
+    /// field of a record: a record's parts are drawn and rearranged together, and a computed value
+    /// moved to another row no longer describes it.
     /// </remarks>
-    private void CheckDerivedNotConditional(
+    private void CheckDerivedPlace(
         TDCParser.SelfClosingElementContext gen,
         IReadOnlyDictionary<string, string> attrs,
-        string? type)
+        string? type,
+        string place)
     {
-        if (!IsDerived(type, attrs)
-            || (attrs.GetValueOrDefault("if") ?? "").Trim().Length == 0)
+        if (place == "sequence" || !IsDerived(type, attrs))
         {
             return;
         }
 
-        (int line, int column) = At(gen, "if");
-        Error(
-            "TDC295",
-            $"a type=\"{type}\" column is built for the whole run, so it cannot carry if=",
-            "It reads other columns in declaration order and produces one column, not a value "
-            + "chosen per row. Put the condition where the value is USED \u2014 `<data "
-            + "if=\"\u2026\">` \u2014 or compute the column unconditionally and branch on it "
-            + "afterwards.",
-            line, column);
+        bool wholeRun = type is "running" or "stat"
+            || (type == "formula" && CallsPrev(attrs.GetValueOrDefault("expr") ?? ""));
+        bool inRecord = place is "part" or "field";
+        if (!wholeRun && !inRecord)
+        {
+            return;
+        }
+
+        bool carriesIf = attrs.ContainsKey("if");
+        (int line, int column) = At(gen, place == "branch" && carriesIf ? "if" : "type");
+        string what = type == "date"
+            ? "a date measured from another column (of=)"
+            : type == "formula" && wholeRun
+                ? "a type=\"formula\" column that reads prev()"
+                : $"a type=\"{type}\" column";
+        string where = place == "branch" && carriesIf ? "carry if=" : PlaceWhere(place);
+        string message;
+        string hint;
+        if (wholeRun)
+        {
+            message = $"{what} is built for the whole run, so it cannot {where}";
+            hint = place == "branch" && carriesIf
+                ? "It reads other columns in declaration order and produces one column, not a "
+                    + "value chosen per row. Put the condition where the value is USED \u2014 "
+                    + "`<data if=\"\u2026\">` \u2014 or compute the column unconditionally and "
+                    + "branch on it afterwards."
+                : "It reads other columns in declaration order and produces one column. Declare "
+                    + "it as a <sequence> of its own, above this one, and use it here by name "
+                    + "\u2014 ${{Total}} in a <data>, or Total inside a formula.";
+        }
+        else
+        {
+            message = $"{what} is computed from other columns, so it cannot {where}";
+            hint = "Declare it as a <sequence> of its own and put it into the record where the "
+                + "record is printed: <data>ID-${{Total}}</data>.";
+        }
+
+        Error("TDC295", message, hint, line, column);
     }
+
+    /// <summary>Does this expression call <c>prev()</c> at all? Unparseable text answers no (TDC294).</summary>
+    private static bool CallsPrev(string source)
+    {
+        try
+        {
+            return CallsPrev(Expr.Expr.Parse(source));
+        }
+        catch (Exception)
+        {
+            return false;
+        }
+    }
+
+    private static bool CallsPrev(Expr.Expr node) =>
+        node switch
+        {
+            Expr.Expr.Unary u => CallsPrev(u.Operand),
+            Expr.Expr.Binary b => CallsPrev(b.Left) || CallsPrev(b.Right),
+            Expr.Expr.Conditional t =>
+                CallsPrev(t.Test) || CallsPrev(t.Consequent) || CallsPrev(t.Alternate),
+            Expr.Expr.Call c => c.Callee == "prev" || c.Args.Any(CallsPrev),
+            Expr.Expr.Arr a => a.Items.Any(CallsPrev),
+            _ => false,
+        };
 
     /// <summary><c>read="quantile"</c> — the file as a sorted sample rather than a bag of values.</summary>
     /// <remarks>
@@ -3610,28 +3667,114 @@ public sealed class Validator
     }
 
     /// <summary>Walk into a sequence body so a <c>&lt;gen&gt;</c> inside a <c>&lt;distinct&gt;</c> is checked too.</summary>
-    private void CheckGensIn(TDCParser.ElementContext element)
+    /// <remarks>
+    /// <paramref name="shape"/> is what the enclosing <c>&lt;sequence&gt;</c> is — see
+    /// <see cref="SequenceShape"/> — or <c>case</c> once the walk is inside a <c>&lt;case&gt;</c> or
+    /// <c>&lt;default&gt;</c>. It decides the gen's PLACE, which is what the placement rules
+    /// (TDC295, TDC268) read.
+    /// </remarks>
+    private void CheckGensIn(TDCParser.ElementContext element, string? shape)
     {
         TDCParser.SelfClosingElementContext self = element.selfClosingElement();
         if (self is not null && self.name.Text == "gen")
         {
-            CheckGen(self);
+            CheckGen(self, GenPlace(shape, Attributes(self.attr())));
             return;
         }
 
         TDCParser.OpenCloseElementContext open = element.openCloseElement();
         if (open is not null)
         {
+            string tag = open.name.Text;
+            string? innerShape = tag == "case" || tag == "default" ? "case" : shape;
             foreach (TDCParser.ElementContext inner in open.content().element())
             {
-                CheckGensIn(inner);
+                CheckGensIn(inner, innerShape);
             }
         }
     }
 
+    /// <summary>What a <c>&lt;sequence&gt;</c> is, for the placement rules: conditional, simple, or a record.</summary>
+    /// <remarks>
+    /// The reference's reading: any <c>if=</c> makes it conditional; every gen named makes it
+    /// compound; more than one gen, or a <c>&lt;data&gt;</c> with text beside them, composed; one
+    /// unnamed gen alone, simple.
+    /// </remarks>
+    private static string SequenceShape(TDCParser.OpenCloseElementContext seq)
+    {
+        var gens = new List<IReadOnlyDictionary<string, string>>();
+        bool literal = false;
+        foreach (TDCParser.ElementContext child in seq.content().element())
+        {
+            literal |= ShapePart(child, gens);
+            TDCParser.OpenCloseElementContext inner = child.openCloseElement();
+            if (inner is not null && inner.name.Text == "distinct")
+            {
+                foreach (TDCParser.ElementContext wrapped in inner.content().element())
+                {
+                    literal |= ShapePart(wrapped, gens);
+                }
+            }
+        }
+
+        if (gens.Any(g => g.ContainsKey("if")))
+        {
+            return "conditional";
+        }
+
+        if (gens.Count(g => g.ContainsKey("name")) == gens.Count)
+        {
+            return "compound";
+        }
+
+        return gens.Count > 1 || literal ? "composed" : "simple";
+    }
+
+    /// <summary>Collect a <c>&lt;gen&gt;</c>'s attributes, or say whether this is a <c>&lt;data&gt;</c> with text.</summary>
+    private static bool ShapePart(
+        TDCParser.ElementContext child, List<IReadOnlyDictionary<string, string>> gens)
+    {
+        TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+        if (self is not null && self.name.Text == "gen")
+        {
+            gens.Add(Attributes(self.attr()));
+            return false;
+        }
+
+        TDCParser.OpenCloseElementContext open = child.openCloseElement();
+        if (open is not null && open.name.Text == "gen")
+        {
+            gens.Add(Attributes(open.attr()));
+            return false;
+        }
+
+        return child.dataElement() is TDCParser.DataWithBodyContext body
+            && PairedData.Restore(body.dataContent().GetText()).Length > 0;
+    }
+
+    /// <summary>Where one <c>&lt;gen&gt;</c> stands, given what its enclosing element is.</summary>
+    private static string GenPlace(string? shape, IReadOnlyDictionary<string, string> attrs) =>
+        shape switch
+        {
+            "case" => "case",
+            "conditional" => "branch",
+            "composed" or "compound" => attrs.ContainsKey("name") ? "field" : "part",
+            _ => "sequence",
+        };
+
+    /// <summary>The end of a placement sentence, by where the <c>&lt;gen&gt;</c> stands.</summary>
+    private static string PlaceWhere(string place) =>
+        place switch
+        {
+            "branch" => "be the fallback branch of a conditional sequence",
+            "case" => "sit inside a <case>",
+            "part" => "be one part of a composed <sequence>",
+            _ => "be a field of a compound <sequence>",
+        };
+
     // ── gen ──────────────────────────────────────────────────────────────────────────────────
 
-    private void CheckGen(TDCParser.SelfClosingElementContext gen)
+    private void CheckGen(TDCParser.SelfClosingElementContext gen, string place)
     {
         // A conditional gen carries `if` as its branch condition, and a plain one may have one
         // too. An expression here is an expression like any other: left unchecked, a branch that
@@ -3657,6 +3800,21 @@ public sealed class Validator
                         + "come out empty on the rows it excludes.",
                     gl, gc);
             }
+        }
+        else if (Attributes(gen.attr()).GetValueOrDefault("type") == "pool" && place != "sequence")
+        {
+            // Every other place a <gen> can stand has the same hole: the fallback after the if=
+            // branches and a part of a composed sequence printed the marker too, and inside a
+            // <case> or as a field the run stopped after a clean `check`.
+            (int pl, int pc) = At(gen, "type");
+            Error(
+                "TDC268",
+                "<gen type=\"pool\"> publishes a whole MEMBER as Ref.field columns, so it cannot "
+                    + PlaceWhere(place),
+                "Draw the member in a <sequence> of its own \u2014 <sequence name=\"Doc\"><gen "
+                    + "type=\"pool\" value=\"Doctors\"/></sequence> \u2014 and read its fields "
+                    + "where they are needed: ${{Doc.name}}.",
+                pl, pc);
         }
 
         IReadOnlyDictionary<string, string> attrs = Attributes(gen.attr());
@@ -3714,7 +3872,7 @@ public sealed class Validator
         CheckRunning(gen, attrs, type);
         CheckStat(gen, attrs, type);
         CheckFormula(gen, attrs, type);
-        CheckDerivedNotConditional(gen, attrs, type);
+        CheckDerivedPlace(gen, attrs, type, place);
         CheckMask(gen, attrs);
         CheckCounter(gen, attrs, type);
         CheckDateTemplates(gen, attrs, type);

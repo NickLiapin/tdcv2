@@ -671,6 +671,15 @@ class StreamEngine:
                 f'template value "{attrs.get("value", "")}" interpolates a field; '
                 "the in-memory engine resolves it per row"
             )
+        # A date offset inside a `<case>` or an `if=` branch — the same refusal the whole-column
+        # form meets in `_build_columns`, for the same reason: the source's instant is not
+        # something the lazy path keeps.
+        if date_offset_gen.is_offset(gen):
+            raise UnsupportedError(
+                f'a date measured from another column ("{stream_id.split("#")[0]}") reads that '
+                "column as the row is built, and the streaming path has no way to do that yet; "
+                "the in-memory engine handles it (run without a forced streaming engine)"
+            )
 
         # An empty subset — a parent value with no rows of its own. Always inactive.
         if domain.size == 0:
@@ -828,7 +837,9 @@ class StreamEngine:
                         (self.columns[name](rr) or "") if name in self.columns else None
                     ),
                     lambda name: name in self.columns,
-                    r,
+                    # `_count` is the row the value lands on — inside a `<case>` too, where the
+                    # row's place among the case's own rows is a different number.
+                    row,
                 )
                 return "" if answer is None else answer
 

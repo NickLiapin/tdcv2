@@ -73,7 +73,17 @@ public static class MemoryEngine
         // This build is INSIDE a pack body. The reference gives a body's inner sequences no
         // stream identity, so its plain-list layout never fires there — a plain pack or file
         // drawn inside a body stays a per-row pick, and this flag states the same rule here.
-        bool InBody = false)
+        bool InBody = false,
+        // The instants behind the date columns some offset measures from — what a date offset
+        // inside a `<case>` or an `if=` branch reads. Filled as the run goes, like Columns.
+        Dictionary<string, long?[]>? Instants = null,
+        // The ABSOLUTE rows this build will actually keep, when it builds more than it keeps. A
+        // `<switch>` branch that cannot be numbered, a nested switch and an `if=` branch are built
+        // over the whole run and picked from. A formula or a date offset draws nothing that
+        // depends on the other rows, but it CAN fail on one — `Y / X` where X is zero — and a
+        // refusal on a row nobody keeps is one the streaming engine never raises. So those two
+        // compute only these rows. Nothing else reads it.
+        IReadOnlySet<int>? Kept = null)
     {
         internal int RegexMax => Config.RegexMaxLength;
 
@@ -895,15 +905,8 @@ public static class MemoryEngine
         // that produced it keeps what it actually generated, and an offset measures from THAT.
         // Only the columns named by some `of=` are kept, so a config with no offset pays nothing.
         var instants = new Dictionary<string, long?[]>(StringComparer.Ordinal);
-        var wantsInstant = new HashSet<string>(StringComparer.Ordinal);
-        foreach (SequenceSpec candidate in config.Sequences)
-        {
-            if (candidate.Gen is not null
-                && DateOffset.IsOffset(candidate.Gen.Type, candidate.Gen.Attrs))
-            {
-                wantsInstant.Add(DateOffset.SourceOf(candidate.Gen.Attrs));
-            }
-        }
+        // An offset inside a `<case>` or an `if=` branch counts too.
+        HashSet<string> wantsInstant = BranchDerived.OffsetSources(config);
 
         // Handed to every builder below, so a nested <switch> can look its subject up. The
         // dictionary is filled as the loop runs and read only when a row is resolved, by which
@@ -919,6 +922,7 @@ public static class MemoryEngine
                 columns.TryGetValue(name, out string[]? column) && row < column.Length
                     ? column[row]
                     : null,
+            Instants = instants,
         };
 
         // Built-ins first. They are positional, consume no randomness, and are therefore
@@ -1540,6 +1544,13 @@ public static class MemoryEngine
                 return Counter.Generate(gen.Attrs, count, ascending: true);
             case "decrement":
                 return Counter.Generate(gen.Attrs, count, ascending: false);
+            case "running":
+            case "stat":
+            case "pool":
+                // Whole columns by nature. The validator keeps them out of every place that
+                // reaches here — a <case>, an if= branch, a part or a field (TDC295, TDC268).
+                throw new InvalidOperationException(
+                    $"<gen type=\"{gen.Type}\"> is a whole column, so it has to be a <sequence> of its own");
             default:
                 throw new NotSupportedException(
                     $"generator type \"{gen.Type}\" is not ported to C# yet");
@@ -3114,15 +3125,47 @@ public static class MemoryEngine
         // streaming engine gives them. They used to take the run's shared PRNG, which made a
         // branch's values depend on how many draws the columns before it had made, so the same
         // config and seed produced different data here than when streaming.
+        //
+        // Which branch takes each row is decided by the conditions alone, so it is settled BEFORE
+        // any branch is built: a formula or a date offset in a branch then computes only the rows
+        // it won (see Ctx.Kept), while every other branch is still built over the whole run.
+        var winners = new int[count];
+        var won = new List<List<int>>();
+        for (int b = 0; b < spec.Branches!.Count; b++)
+        {
+            won.Add(new List<int>());
+        }
+
+        for (int i = 0; i < count; i++)
+        {
+            int winner = -1;
+            for (int b = 0; b < spec.Branches.Count; b++)
+            {
+                string? condition = spec.Branches[b].IfExpr;
+                if (condition is null || Condition(condition, columns, i))
+                {
+                    winner = b;
+                    break;
+                }
+            }
+
+            winners[i] = winner;
+            if (winner >= 0)
+            {
+                won[winner].Add(i);
+            }
+        }
+
         var built = new List<IReadOnlyList<string>>();
         var flagNames = new List<string?>();
         var flags = new List<bool[]>();
-        for (int b = 0; b < spec.Branches!.Count; b++)
+        for (int b = 0; b < spec.Branches.Count; b++)
         {
             Gen gen = spec.Branches[b].Gen;
             var spiked = new bool[count];
+            Ctx branchCtx = BranchDerived.IsRowLocal(gen) ? BranchDerived.KeepingOnly(ctx, won[b]) : ctx;
             built.Add(ColumnValues(
-                gen, count, prng, ctx,
+                gen, count, prng, branchCtx,
                 new PerRow.Stream(ctx.Config.Seed, spec.Name + "#if" + b, null), spiked));
             string declared = (gen.Attrs.TryGetValue("anomaly_flag", out string? f) ? f : "").Trim();
             flagNames.Add(declared.Length == 0 ? null : declared);
@@ -3143,16 +3186,7 @@ public static class MemoryEngine
         var result = new string[count];
         for (int i = 0; i < count; i++)
         {
-            int winner = -1;
-            for (int b = 0; b < spec.Branches.Count; b++)
-            {
-                string? condition = spec.Branches[b].IfExpr;
-                if (condition is null || Condition(condition, columns, i))
-                {
-                    winner = b;
-                    break;
-                }
-            }
+            int winner = winners[i];
 
             // No branch matched: the row is not covered, so neither the value nor any claim
             // about it exists — every flag column stays null here, masked like the value.
@@ -3518,8 +3552,10 @@ public static class MemoryEngine
                     // <default>, so they build those over the whole run and read the row they
                     // want. This engine has to do the same or the two would answer differently
                     // on a config neither of them refuses.
+                    // A formula or a date offset in it computes only the rows picked.
                     IReadOnlyList<string> whole = CaseValues(
-                        body, count, prng, ctx, new PerRow.Stream(ctx.Config.Seed, streamId, null));
+                        body, count, prng, BranchDerived.KeepingOnly(ctx, rows),
+                        new PerRow.Stream(ctx.Config.Seed, streamId, null));
                     foreach (int row in rows)
                     {
                         result[row] = whole[row];
@@ -3629,8 +3665,16 @@ public static class MemoryEngine
 
             if (!CaseCarriesPercent(body))
             {
+                // A formula or a date offset in it computes only the rows picked.
+                var kept = new List<int>(positions.Count);
+                foreach (int i in positions)
+                {
+                    kept.Add(stream?.RowAt(i) ?? i);
+                }
+
                 IReadOnlyList<string> whole = CaseValues(
-                    body, count, prng, ctx, new PerRow.Stream(ctx.Config.Seed, id, stream?.Rows));
+                    body, count, prng, BranchDerived.KeepingOnly(ctx, kept),
+                    new PerRow.Stream(ctx.Config.Seed, id, stream?.Rows));
                 foreach (int i in positions)
                 {
                     result[i] = whole[i];
@@ -3822,6 +3866,13 @@ public static class MemoryEngine
         Dictionary<string, PerRow.ExactLayout>? layouts = null,
         List<long?>? instants = null)
     {
+        // A formula or a date offset in a branch reads the row's own columns; it has nothing to
+        // lay out and nothing of the per-row draw below to share.
+        if (BranchDerived.IsRowLocal(gen))
+        {
+            return BranchDerived.Values(gen, count, prng, ctx, stream, instants);
+        }
+
         if (stream is null)
         {
             return Finish(

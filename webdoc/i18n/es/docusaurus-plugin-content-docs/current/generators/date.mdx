@@ -559,6 +559,39 @@ una que [`missing`](../guides/missing-data.mdx) vació — tampoco recibe fecha.
 hay desde dónde medir, e inventarla pondría un valor de aspecto convincente en
 una celda que la configuración dijo que debía estar vacía.
 
+### En una rama
+
+Un desplazamiento lee solo su propia fila, así que también puede ser una de las ramas de una
+elección por fila: un [`<case>`](../constructs/switch.mdx#case--una-rama-con-un-generador), a
+cualquier profundidad, o una de las ramas `<gen if="…">` de una secuencia. Cada fila de la rama
+se mide desde su propia fecha.
+
+```xml
+<tdc>
+  <env count="6" seed="ship" local="es">
+    <sequence name="Ordered"><gen type="date" from="2026-03-01" to="2026-03-31" format="D [de] MMMM"/></sequence>
+    <sequence name="Method"><gen type="text" value="mensajería,recogida"/></sequence>
+    <switch name="Ready" on="Method">
+      <case is="mensajería"><gen type="date" of="Ordered" plus="2..5d" format="D [de] MMMM"/></case>
+      <case is="recogida"><data>el mismo día, en el mostrador</data></case>
+    </switch>
+  </env>
+  <block><line><data>${{Ordered}} | ${{Method}} | ${{Ready}}</data></line></block>
+</tdc>
+```
+
+<Terminal title="./run shipping.tdc">
+{`23 de marzo | mensajería | 27 de marzo
+6 de marzo | mensajería | 11 de marzo
+13 de marzo | recogida | el mismo día, en el mostrador
+21 de marzo | recogida | el mismo día, en el mostrador
+7 de marzo | recogida | el mismo día, en el mostrador
+17 de marzo | mensajería | 19 de marzo`}
+</Terminal>
+
+Un `plus=` con rango dentro de una rama toma el paso de cada fila de la secuencia propia de esa
+fila, así que una fila conserva su paso cuando cambia el reparto de la rama a su alrededor.
+
 ### Qué descarta `of`
 
 `of` sitúa la fecha respecto a otra columna, así que los atributos que acotan su
@@ -570,6 +603,10 @@ de enero tiene razón sobre lo que pidió y no sobre lo que obtuvo.
 La columna nombrada en `of` debe estar declarada **encima** del desplazamiento
 (`TDC240`), la misma regla que siguen [`running`](./running.mdx) y
 [`stat`](./stat.mdx).
+
+Un desplazamiento es una columna calculada a partir de otra, así que no es parte ni campo de
+una `<sequence>` compuesta (`TDC295`): las partes de un registro se sortean juntas, y una fecha
+calculada que acaba en otra fila ya no la describe. Declárelo como una secuencia propia.
 La capa de formato también queda descartada, por la misma razón que en un total
 acumulado: un desplazamiento se construye en orden de declaración, antes de que esa capa
 se ejecute. `mask`, `case`, `missing`, `missing_as`, `repeat`, `anomaly`,

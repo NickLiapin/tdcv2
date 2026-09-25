@@ -125,6 +125,11 @@ por la misma razón: la estadística se construye a partir de una columna que ya
 
 Una estadística que no dice qué resumir, o qué estadística tomar, es `TDC262`.
 
+Una estadística es una **columna entera** — lee todas las filas de la corrida —, así que tiene
+que ser una `<sequence>` propia. Dentro de un `<case>`, como una de las ramas `<gen if="…">`, o
+como parte o campo de una secuencia compuesta se rechaza con `TDC295`. Calcule la estadística
+como una secuencia propia más arriba y léala por su nombre donde la necesite.
+
 <Terminal title="./run lab.tdc">
 {`error[TDC262]: op="men" is not one of sum, mean, median, min, max, count, stddev
  --> lab.tdc:4:63

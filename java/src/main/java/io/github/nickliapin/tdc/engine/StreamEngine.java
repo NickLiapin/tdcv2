@@ -1041,6 +1041,35 @@ public final class StreamEngine {
               + attrs.getOrDefault("value", "")
               + "\" interpolates a field; the in-memory engine resolves it per row");
     }
+    // A date offset inside a `<case>` or an `if=` branch — the same refusal the whole-column form
+    // meets in buildColumns(), for the same reason: the source's instant is not something the
+    // lazy path keeps.
+    if (DateOffset.isOffset(gen)) {
+      throw new Unsupported(
+          "a date measured from another column (\""
+              + streamId.split("#", -1)[0]
+              + "\") reads that column as the row is built, and the streaming path has no way "
+              + "to do that yet; the in-memory engine handles it (run without a forced "
+              + "streaming engine)");
+    }
+    // A formula in a branch reads only its own row: the same lazy column a whole-column formula
+    // is, asked only for the rows the branch holds.
+    if ("formula".equals(type)) {
+      String formulaSource = Formula.expressionOf(attrs);
+      Integer formulaDecimals = Formula.decimalsOf(attrs);
+      // An empty answer is an empty part, as it is in the reference's branch build.
+      return new Built(
+          row -> {
+            String answer =
+                Formula.valueAtRow(
+                    formulaSource,
+                    formulaDecimals,
+                    row,
+                    columns::containsKey,
+                    name -> valueAt(name, row));
+            return answer == null ? "" : answer;
+          });
+    }
     // A whole-column quota INSIDE a pack generator — a `percent=` its body declares, or a weighted
     // list its body draws from. Resolved a row at a time the quota is computed over a column of
     // one and every row takes the largest share: six rows of `hu.person.male.fullName` came out as

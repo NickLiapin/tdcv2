@@ -128,6 +128,53 @@ The rows where `H` has no value leave `W` empty too. That is the same rule
 seen from the other side — and it is what makes a formula safe to put over a
 `missing=` column: the blanks stay blanks instead of turning into arithmetic.
 
+## In a branch
+
+A formula reads only its own row, so it can also be one branch of a per-row choice: a
+[`<case>`](../constructs/switch.mdx#case--a-branch-with-a-generator) of a `<switch>` or a
+`<mix>`, at any depth, or one of a sequence's `<gen if="…">` branches. Each row the branch
+holds is computed from that row.
+
+```xml
+<tdc>
+  <env count="6" seed="shop" local="en">
+    <sequence name="Qty"><gen type="number" value="0..4"/></sequence>
+    <sequence name="Total"><gen type="number" value="10..90"/></sequence>
+    <switch name="Each" on="Qty">
+      <case is="0"><data>nothing bought</data></case>
+      <default><gen type="formula" expr="Total / Qty" decimals="2"/></default>
+    </switch>
+  </env>
+  <block><line><data>${{Qty}},${{Total}},${{Each}}</data></line></block>
+</tdc>
+```
+
+<Terminal title="./run shop.tdc">
+{`0,77,nothing bought
+4,76,19.00
+4,46,11.50
+4,81,20.25
+1,70,70.00
+0,59,nothing bought`}
+</Terminal>
+
+`Total / Qty` is a division by zero on the rows where `Qty` is 0, and those rows belong to the
+other case — so the formula is never asked about them. The same column written with `if=`
+works the same way:
+
+```xml
+<sequence name="Each">
+  <gen if="Qty > 0" type="formula" expr="Total / Qty" decimals="2"/>
+  <gen type="text" value="nothing bought"/>
+</sequence>
+```
+
+`_count` inside a branch is the row's own number, as it is everywhere else. Two things stay
+out of a branch, and `check` says so with [`TDC295`](../reference/errors.mdx): a formula that
+reads `prev()`, because it needs the rows before it and is built in row order over the whole
+run, and any formula used as a part or a field of a composed `<sequence>`. Compute it as a
+sequence of its own and put it into the record where the record is printed.
+
 ## The wrappers a formula does not take
 
 `mask=`, `case=`, `missing=`, `missing_as=`, `repeat=`, `anomaly=` and
@@ -166,6 +213,9 @@ Everything a formula needs is knowable from the config, so none of it waits for 
   name is close to a real one. This is the one that matters most: a typo in an `if=` is a
   bare word and the branch quietly stops firing, but a typo in a formula reaches
   arithmetic.
+- **a formula where it cannot mean anything** — [`TDC295`](../reference/errors.mdx): one that
+  reads `prev()` inside a `<case>` or an `if=` branch, and any formula as a part or a field of
+  a composed `<sequence>`. See [In a branch](#in-a-branch).
 
 The run refuses two more, because they depend on the values rather than the config:
 arithmetic on a **text** column (which is where `NaN` would otherwise come from, and a

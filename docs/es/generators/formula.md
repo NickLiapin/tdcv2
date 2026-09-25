@@ -140,6 +140,55 @@ siguen [acumulado](running.md#top) y [estadística](stat.md#top) al saltarse una
 vaciada, vista desde el otro lado — y es lo que hace segura una fórmula sobre una
 columna con `missing=`: los vacíos siguen vacíos en vez de volverse aritmética.
 
+## En una rama
+
+Una fórmula lee solo su propia fila, así que también puede ser una de las ramas de una
+elección por fila: un [`<case>`](../constructs/switch.md#case--una-rama-con-un-generador) de
+un `<switch>` o de un `<mix>`, a cualquier profundidad, o una de las ramas `<gen if="…">` de una
+secuencia. Cada fila que la rama recibe se calcula a partir de esa fila.
+
+```xml
+<tdc>
+  <env count="6" seed="shop" local="es">
+    <sequence name="Qty"><gen type="number" value="0..4"/></sequence>
+    <sequence name="Total"><gen type="number" value="10..90"/></sequence>
+    <switch name="Each" on="Qty">
+      <case is="0"><data>sin compra</data></case>
+      <default><gen type="formula" expr="Total / Qty" decimals="2"/></default>
+    </switch>
+  </env>
+  <block><line><data>${{Qty}},${{Total}},${{Each}}</data></line></block>
+</tdc>
+```
+
+`./run shop.tdc`
+
+```
+0,77,sin compra
+4,76,19.00
+4,46,11.50
+4,81,20.25
+1,70,70.00
+0,59,sin compra
+```
+
+`Total / Qty` es una división por cero en las filas donde `Qty` vale 0, y esas filas pertenecen
+a la otra rama, así que a la fórmula nunca se le pregunta por ellas. La misma columna escrita
+con `if=` funciona igual:
+
+```xml
+<sequence name="Each">
+  <gen if="Qty > 0" type="formula" expr="Total / Qty" decimals="2"/>
+  <gen type="text" value="sin compra"/>
+</sequence>
+```
+
+`_count` dentro de una rama es el número de la propia fila, como en cualquier otro sitio. Dos
+cosas quedan fuera de una rama, y `check` lo dice con [`TDC295`](../reference/errors.md#top): una
+fórmula que lee `prev()`, porque necesita las filas anteriores y se construye en orden sobre
+toda la corrida, y cualquier fórmula como parte o campo de una `<sequence>` compuesta. Calcúlela
+como una secuencia propia e insértela en el registro donde el registro se imprime.
+
 ## Los envoltorios que una fórmula no toma
 
 `mask=`, `case=`, `missing=`, `missing_as=`, `repeat=`, `anomaly=` y
@@ -178,6 +227,9 @@ Todo lo que una fórmula necesita se sabe desde el config, así que nada espera 
   misma regla, con un `did you mean` cuando el nombre se parece a uno real. Este es el que
   más importa: una errata en un `if=` es una palabra suelta y la rama deja de dispararse en
   silencio, pero una errata en una fórmula llega a la aritmética.
+- **una fórmula donde no puede significar nada** — [`TDC295`](../reference/errors.md#top): una
+  que lee `prev()` dentro de un `<case>` o de una rama `if=`, y cualquier fórmula como parte o
+  campo de una `<sequence>` compuesta. Vea [En una rama](#en-una-rama).
 
 La corrida rechaza dos más, porque dependen de los valores y no del config: aritmética
 sobre una columna de **texto** (de donde saldría el `NaN`, y un archivo lleno de `NaN` sin

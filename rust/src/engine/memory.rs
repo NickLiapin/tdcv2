@@ -16,6 +16,7 @@
 use std::cell::RefCell;
 use std::collections::{BTreeMap, BTreeSet};
 
+use super::branch_derived;
 use super::per_row;
 use super::{invalid, not_ported, EngineError, EngineResult, RowSource};
 use crate::compute;
@@ -111,6 +112,10 @@ pub struct Env<'a> {
     /// Safe because TDC240 already refuses a parameter that names a column not declared
     /// ABOVE it: whatever it reads is finished by the time this column is built.
     siblings: RefCell<BTreeMap<String, Vec<Option<String>>>>,
+    /// The instants behind the date columns some offset measures from — what a date offset
+    /// inside a `<case>` or an `if=` branch reads, since the branch is built far from the
+    /// registry that holds them.
+    offset_instants: RefCell<BTreeMap<String, Vec<Option<i64>>>>,
 }
 
 impl<'a> Env<'a> {
@@ -127,7 +132,28 @@ impl<'a> Env<'a> {
             base_dir,
             row_links: RefCell::new(BTreeMap::new()),
             siblings: RefCell::new(BTreeMap::new()),
+            offset_instants: RefCell::new(BTreeMap::new()),
         }
+    }
+
+    /// Keep the instants of a column some offset measures from.
+    pub(super) fn remember_instants(&self, name: &str, instants: &[Option<i64>]) {
+        if self.offset_instants.borrow().contains_key(name) {
+            return;
+        }
+        self.offset_instants
+            .borrow_mut()
+            .insert(name.to_string(), instants.to_vec());
+    }
+
+    /// The instants a kept column carries, or `None` for a column that keeps none.
+    pub(super) fn sibling_instants(&self, name: &str) -> Option<Vec<Option<i64>>> {
+        self.offset_instants.borrow().get(name).cloned()
+    }
+
+    /// Is this column kept for the expressions that read it?
+    pub(super) fn has_sibling(&self, name: &str) -> bool {
+        self.siblings.borrow().contains_key(name)
     }
 
     /// Keep a finished column, if some expression in this config can read it.
@@ -973,17 +999,8 @@ fn build_columns_with(
     check_env_uniq_capacity(env.config, count)?;
 
     let mut instants: BTreeMap<String, Vec<Option<i64>>> = BTreeMap::new();
-    let wants_instant: BTreeSet<String> = env
-        .config
-        .sequences
-        .iter()
-        .filter_map(|spec| match &spec.source {
-            Source::Gen(gen) if date_offset::is_offset(&gen.gen_type, &gen.attrs) => {
-                Some(date_offset::source_of(&gen.attrs).to_string())
-            }
-            _ => None,
-        })
-        .collect();
+    // An offset inside a `<case>` or an `if=` branch counts too.
+    let wants_instant: BTreeSet<String> = branch_derived::offset_sources(env.config);
 
     // Built-ins first. They are positional, consume no randomness, and are
     // therefore identical for a given count no matter what else the config does.
@@ -1024,6 +1041,9 @@ fn build_columns_with(
         // A column is written once inside this loop, so the first copy is the final one.
         for (name, column) in columns.iter() {
             env.remember_sibling(name, column);
+        }
+        for (name, kept) in instants.iter() {
+            env.remember_instants(name, kept);
         }
 
         // Named one by one rather than as "that shape": each is a separate piece
@@ -2544,6 +2564,13 @@ fn expression_reads(config: &Config, name: &str) -> bool {
                 return true;
             }
         }
+        // A date offset reads its source the same way — inside a `<case>` or an `if=` branch
+        // through this registry too.
+        if date_offset::is_offset(&gen.gen_type, &gen.attrs)
+            && date_offset::source_of(&gen.attrs) == name
+        {
+            return true;
+        }
         // `missing_when=` reads its siblings through the same registry. Without this the
         // column it names is never kept, `Siblings::has` says no, and the name reads as a
         // bare WORD — a run that finishes and quietly blanks the wrong rows.
@@ -2604,6 +2631,11 @@ pub(super) fn column_values_into(
     mut instants: Option<&mut Vec<Option<i64>>>,
     cols: ColumnsView<'_>,
 ) -> EngineResult<Vec<String>> {
+    // A formula or a date offset in a branch reads the row's own columns; it has nothing to
+    // lay out and nothing of the per-row draw below to share.
+    if branch_derived::is_row_local(gen) {
+        return branch_derived::values(gen, count, prng, env, stream, instants);
+    }
     let Some(stream) = stream else {
         let drawn = generate_into(gen, count, prng, env, instants.as_deref_mut(), None)?;
         return finish_into(drawn, &gen.attrs, prng, anomaly_flags, instants, cols);
@@ -3086,6 +3118,11 @@ pub(super) fn generate_in_column(
         "http" => Ok(vec![String::new(); count]),
         "increment" => counter::generate(&gen.attrs, count, true),
         "decrement" => counter::generate(&gen.attrs, count, false),
+        // Whole columns by nature. The validator keeps them out of every place that reaches
+        // here — a <case>, an if= branch, a part or a field (TDC295, TDC268).
+        other @ ("running" | "stat" | "pool") => invalid(&format!(
+            "<gen type=\"{other}\"> is a whole column, so it has to be a <sequence> of its own"
+        )),
         other => not_ported(&format!("<gen type=\"{other}\">")),
     }
 }
@@ -3472,7 +3509,8 @@ fn mix_values(
             .map(|local| position_of_slot[(cum_lo[c] + local) as usize])
             .collect();
         let rows: Vec<usize> = positions.iter().map(|&p| stream.row_at(p)).collect();
-        let sub = per_row::Stream::with_rows(&stream.seed, &format!("{}#c{c}", stream.id), rows);
+        let sub = per_row::Stream::with_rows(&stream.seed, &format!("{}#c{c}", stream.id), rows)
+            .inside(Some(stream));
         let values = case_values(case, quota as usize, prng, env, Some(&sub), columns)?;
         for (local, &position) in positions.iter().enumerate() {
             result[position] = values[local].clone();
@@ -3558,7 +3596,9 @@ fn switch_values(
                 // <default>, so they build those over the whole run and read the row they want.
                 // This engine has to do the same or the two would answer differently on a
                 // config neither of them refuses.
-                let stream = per_row::Stream::new(&env.config.seed, &stream_id);
+                // A formula or a date offset in it computes only the rows picked.
+                let stream = per_row::Stream::new(&env.config.seed, &stream_id)
+                    .keeping(rows.iter().copied());
                 let whole = case_values(case, count, prng, env, Some(&stream), columns)?;
                 for &row in rows {
                     out[row] = Some(whole[row].clone());
@@ -3684,7 +3724,10 @@ fn nested_switch_values(
                 id: id.clone(),
                 rows: stream.and_then(|s| s.rows.clone()),
                 one_row: stream.is_some_and(|s| s.one_row),
-            };
+                kept: stream.and_then(|s| s.kept.clone()),
+            }
+            // A formula or a date offset in it computes only the rows picked.
+            .keeping(positions.iter().map(|&i| row_of(i)));
             let whole = case_values(case, count, prng, env, Some(&sub), columns)?;
             for &i in positions {
                 out[i] = whole[i].clone();
@@ -3692,7 +3735,7 @@ fn nested_switch_values(
             return Ok(());
         }
         let rows: Vec<usize> = positions.iter().map(|&i| row_of(i)).collect();
-        let sub = per_row::Stream::with_rows(&env.config.seed, &id, rows);
+        let sub = per_row::Stream::with_rows(&env.config.seed, &id, rows).inside(stream);
         let values = case_values(case, positions.len(), prng, env, Some(&sub), columns)?;
         for (local, &position) in positions.iter().enumerate() {
             out[position] = values[local].clone();
@@ -4002,9 +4045,36 @@ fn conditional(
     // streaming engine gives them. They used to take the run's shared PRNG, which
     // made a branch's values depend on how many draws the columns before it had
     // made, so the two engines produced different data from one seed.
+    //
+    // Which branch takes each row is decided by the conditions alone, so it is settled
+    // BEFORE any branch is built: a formula or a date offset in a branch then computes only
+    // the rows it won (see `Stream::kept`), while every other branch is still built over the
+    // whole run.
+    let mut winners: Vec<Option<usize>> = Vec::with_capacity(count);
+    let mut won: Vec<Vec<usize>> = vec![Vec::new(); branches.len()];
+    for i in 0..count {
+        let mut winner = None;
+        for (b, branch) in branches.iter().enumerate() {
+            let holds = match &branch.if_expr {
+                None => true,
+                Some(condition) => condition_at(condition, columns, i)?,
+            };
+            if holds {
+                winner = Some(b);
+                break;
+            }
+        }
+        if let Some(b) = winner {
+            won[b].push(i);
+        }
+        winners.push(winner);
+    }
     let mut built = Vec::with_capacity(branches.len());
     for (k, branch) in branches.iter().enumerate() {
-        let stream = per_row::Stream::new(&env.config.seed, &format!("{name}#if{k}"));
+        let mut stream = per_row::Stream::new(&env.config.seed, &format!("{name}#if{k}"));
+        if branch_derived::is_row_local(&branch.gen) {
+            stream = stream.keeping(won[k].iter().copied());
+        }
         let flag_name = branch
             .gen
             .attr("anomaly_flag")
@@ -4045,22 +4115,11 @@ fn conditional(
         .map(|n| (n.clone(), vec![None; count]))
         .collect();
 
-    for i in 0..count {
-        let mut winner = None;
-        for (b, branch) in branches.iter().enumerate() {
-            let holds = match &branch.if_expr {
-                None => true,
-                Some(condition) => condition_at(condition, columns, i)?,
-            };
-            if holds {
-                winner = Some(b);
-                break;
-            }
-        }
+    for (i, winner) in winners.iter().enumerate() {
         // No branch matched: the row is not covered, so neither the value nor any
         // claim about it exists — every flag column stays absent here, masked
         // exactly like the value.
-        let Some(b) = winner else { continue };
+        let Some(b) = *winner else { continue };
         result[i] = Some(built[b].1[i].clone());
         for (column_name, column) in &mut flag_columns {
             // A covered row always has an answer. `false` — not empty — when the

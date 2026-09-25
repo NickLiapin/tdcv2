@@ -115,22 +115,44 @@ describe('<gen type="formula">', () => {
     expect(lines).toEqual(['3', '6', '9', '12']);
   });
 
-  it('is refused under if=, rather than crashing the run', () => {
-    // A derived column is registered once for the whole run, before any branch
-    // has been chosen — so a formula under `if=` used to reach the engine and
-    // die there with a stack trace. It is refused at check time now, and a
-    // condition belongs on the columns it READS instead.
+  it('is one branch of an if= sequence like any other value, on both engines', () => {
+    // A formula reads only its own row, so a branch can hold it: each row the
+    // branch wins is computed from that row. It used to be refused here (TDC295),
+    // together with the constructs that really are whole columns.
+    //
+    // The guard is the point of the case. `Y / X` on a row where X is zero is a
+    // refusal, and the in-memory engine builds a branch over the whole run before
+    // it picks — so it must compute only the rows the branch WON, or it refuses a
+    // division nobody asked for while the streaming engine, which computes only
+    // what it keeps, runs clean.
+    const lines = bothEngines(
+      config(
+        '<sequence name="X"><gen type="number" value="0..3"/></sequence>' +
+          '<sequence name="Y"><gen type="number" value="10..20"/></sequence>' +
+          '<sequence name="V"><gen if="X > 0" type="formula" expr="Y / X" decimals="1"/>' +
+          '<gen type="text" value="-"/></sequence>',
+        12,
+        '${{X}} ${{Y}} ${{V}}',
+      ),
+    );
+    expect(lines.some((l) => l.startsWith('0 '))).toBe(true);
+    for (const line of lines) {
+      const [x = '', y = '', v = ''] = line.split(' ');
+      expect(v).toBe(x === '0' ? '-' : (Number(y) / Number(x)).toFixed(1));
+    }
+  });
+
+  it('reading prev() it is a whole column, so if= is refused', () => {
     expect(() =>
       run(
         config(
           '<sequence name="T"><gen type="text" value="hi,lo"/></sequence>' +
-            '<sequence name="N"><gen type="number" value="4..4"/></sequence>' +
-            '<sequence name="V"><gen if="T == hi" type="formula" expr="N * 100"/></sequence>',
+            '<sequence name="V"><gen if="T == hi" type="formula" expr="prev(V, 0) + 1"/></sequence>',
           6,
         ),
-        2,
+        1,
       ),
-    ).toThrow(/whole run, so it cannot carry if=/);
+    ).toThrow(/reads prev\(\) is built for the whole run, so it cannot carry if=/);
   });
 
   it('is refused when it names a column declared below it', () => {

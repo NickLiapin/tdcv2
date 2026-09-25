@@ -218,6 +218,14 @@ y `bronze` cae al literal `0` de `<default>`. **Por qué importa:** el valor se 
 por fila, no se toma de una cadena fija — esa es toda la razón de que `<case>` exista
 junto a `<map>`.
 
+Una rama también puede calcular a partir de su propia fila: una
+[`formula`](../generators/formula.mdx#en-una-rama) o un
+[desplazamiento de fecha](../generators/date.mdx#en-una-rama) leen las columnas de esa fila y
+nada más. Las construcciones que leen toda la corrida — [`running`](../generators/running.mdx),
+[`stat`](../generators/stat.mdx), una fórmula con `prev()` — y una
+[referencia a un pool](../pools/overview.mdx) tienen que ser secuencias propias (`TDC295`,
+`TDC268`).
+
 ### Claves de coincidencia — `is`
 
 `is` le da a un `<case>` su clave o claves: los valores del sujeto con los que la rama

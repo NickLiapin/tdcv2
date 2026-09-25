@@ -116,6 +116,12 @@ note: A running total is built from a column that already exists, so the column 
 
 A running total that does not say what or how to accumulate is `TDC239`.
 
+A running total is a **whole column** — each row carries every row before it — so it has to be
+a `<sequence>` of its own. Inside a `<case>`, as one of the `<gen if="…">` branches, or as a part
+or a field of a composed sequence it is refused with `TDC295`: a branch holds some rows and not
+others, and a total over "the rows this branch happened to get" is not a number anyone asked
+for. Build the total as its own sequence above, and use it by name where you need it.
+
 ## Which engine runs it
 
 The [streaming engines](../guides/large-outputs.mdx) refuse a running total, by name, and

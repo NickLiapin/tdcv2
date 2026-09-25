@@ -1203,6 +1203,25 @@ impl StreamEngine<'_> {
                 gen.attr_or("value", "")
             ));
         }
+        // A date offset inside a `<case>` or an `if=` branch — the same refusal the whole-column
+        // form meets in `build_columns`, for the same reason: the source's instant is not
+        // something the lazy path keeps.
+        if date_offset::is_offset(gen_type, attrs) {
+            return unsupported(&format!(
+                "a date measured from another column (\"{}\") reads that column as the row is \
+                 built, and the streaming path has no way to do that yet; the in-memory engine \
+                 handles it (run without a forced streaming engine)",
+                stream_id.split('#').next().unwrap_or("")
+            ));
+        }
+        // A formula in a branch reads only its own row: the same lazy column a whole-column
+        // formula is, asked only for the rows the branch holds.
+        if gen_type == "formula" {
+            return Ok(Built::plain(Column::Formula {
+                expr: formula::expression_of(attrs)?,
+                decimals: formula::decimals_of(attrs)?,
+            }));
+        }
         if gen_type == "template" {
             // A pack GENERATOR whose quota spans the column — its own `percent=`,
             // or the weighted list its body draws from. This path asks such a

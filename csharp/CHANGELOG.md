@@ -11,6 +11,14 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Fixed
+
+- **`tdcv2` printed a .NET stack trace instead of a refusal.** A `NotSupportedException` — this
+  port's word for "not built here" — escaped the command line's handler, so the process died with
+  exit code 134 where the other four print one line and exit 1. It is now reported like every
+  other refusal. Found through a `formula` inside a `<case>`, which now simply works (see the
+  [engine changelog](../CHANGELOG.md#unreleased)).
+
 ## [0.3.2] — 2026-09-22
 
 ### Fixed

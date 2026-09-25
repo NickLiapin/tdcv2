@@ -1106,8 +1106,9 @@ impl Validator {
             // that ordering is what makes "declared above" mean what it says.
             let outer_sequence = self.current_sequence.take();
             self.current_sequence = named.map(str::to_string);
+            let shape = (tag == "sequence").then(|| sequence_shape(open));
             for inner in &open.children {
-                self.check_gens_in(inner);
+                self.check_gens_in(inner, shape);
             }
             self.current_sequence = outer_sequence;
 
@@ -1939,30 +1940,73 @@ impl Validator {
     /// in declaration order. An `if=` asks for something else entirely: a value chosen row by
     /// row. The two cannot both be true, and the run used to die with a message that read
     /// like an unfinished engine rather than a config that cannot mean anything.
-    fn check_derived_not_conditional(
+    /// A derived column in a place it cannot mean anything.
+    ///
+    /// `running`, `stat` and a formula that reads `prev()` are WHOLE columns — the rows before
+    /// this one, or all of them — so they must be a `<sequence>` of their own. A plain formula
+    /// and a date offset read only their own row, so a branch (a `<case>`, an `if=` branch) can
+    /// hold them. None of the four is a part or a field of a record: a record's parts are drawn
+    /// and rearranged together, and a computed value moved to another row no longer describes
+    /// it.
+    fn check_derived_place(
         &mut self,
         gen: &Element,
         attrs: &Attrs,
         gen_type: Option<&str>,
+        place: &'static str,
     ) {
-        if !is_derived(gen_type, attrs) {
+        if place == "sequence" || !is_derived(gen_type, attrs) {
             return;
         }
-        if attrs.get("if").map(|s| s.trim()).unwrap_or("").is_empty() {
+        let whole_run = matches!(gen_type, Some("running" | "stat"))
+            || (gen_type == Some("formula")
+                && expr::parse(attrs.get("expr").map(String::as_str).unwrap_or(""))
+                    .is_ok_and(|parsed| calls_prev(&parsed)));
+        let in_record = place == "part" || place == "field";
+        if !whole_run && !in_record {
             return;
         }
+        let carries_if = attrs.contains_key("if");
+        let at = if place == "branch" && carries_if {
+            gen.at("if")
+        } else {
+            gen.at("type")
+        };
         let described = gen_type.unwrap_or("");
-        self.error(
-            "TDC295",
-            format!(
-                "a type=\"{described}\" column is built for the whole run, so it cannot carry if="
-            ),
-            "It reads other columns in declaration order and produces one column, not a value \
-             chosen per row. Put the condition where the value is USED \u{2014} `<data \
-             if=\"\u{2026}\">` \u{2014} or compute the column unconditionally and branch on it \
-             afterwards.",
-            gen.at("if"),
-        );
+        let what = if described == "date" {
+            "a date measured from another column (of=)".to_string()
+        } else if described == "formula" && whole_run {
+            "a type=\"formula\" column that reads prev()".to_string()
+        } else {
+            format!("a type=\"{described}\" column")
+        };
+        let where_ = if place == "branch" && carries_if {
+            "carry if="
+        } else {
+            place_where(place)
+        };
+        let (message, hint) = if whole_run {
+            (
+                format!("{what} is built for the whole run, so it cannot {where_}"),
+                if place == "branch" && carries_if {
+                    "It reads other columns in declaration order and produces one column, not a \
+                     value chosen per row. Put the condition where the value is USED \u{2014} \
+                     `<data if=\"\u{2026}\">` \u{2014} or compute the column unconditionally \
+                     and branch on it afterwards."
+                } else {
+                    "It reads other columns in declaration order and produces one column. Declare \
+                     it as a <sequence> of its own, above this one, and use it here by name \
+                     \u{2014} ${{Total}} in a <data>, or Total inside a formula."
+                },
+            )
+        } else {
+            (
+                format!("{what} is computed from other columns, so it cannot {where_}"),
+                "Declare it as a <sequence> of its own and put it into the record where the \
+                 record is printed: <data>ID-${{Total}}</data>.",
+            )
+        };
+        self.error("TDC295", message, hint, at);
     }
 
     /// `read="quantile"` — the file as a sorted sample rather than a bag of values.
@@ -2712,19 +2756,29 @@ impl Validator {
 
     // ── gen ──────────────────────────────────────────────────────────────────
 
-    fn check_gens_in(&mut self, element: &Element) {
+    /// Into a sequence body, so a `<gen>` inside a `<distinct>` is checked too.
+    ///
+    /// `shape` is what the enclosing `<sequence>` is — see `sequence_shape` — or `case` once
+    /// the walk is inside a `<case>` or `<default>`. It decides the gen's PLACE, which is what
+    /// the placement rules (TDC295, TDC268) read.
+    fn check_gens_in(&mut self, element: &Element, shape: Option<&'static str>) {
         if is_gen(element) {
-            self.check_gen(element);
+            self.check_gen(element, gen_place(shape, element));
             return;
         }
         if element.kind == Kind::OpenClose {
+            let inner_shape = if element.name == "case" || element.name == "default" {
+                Some("case")
+            } else {
+                shape
+            };
             for inner in &element.children {
-                self.check_gens_in(inner);
+                self.check_gens_in(inner, inner_shape);
             }
         }
     }
 
-    fn check_gen(&mut self, gen: &Element) {
+    fn check_gen(&mut self, gen: &Element, place: &'static str) {
         let attrs = gen.attr_map();
 
         // A conditional gen carries `if` as its branch condition, and a plain one
@@ -2751,6 +2805,22 @@ impl Validator {
                     gen.at("if"),
                 );
             }
+        } else if attrs.get("type").map(String::as_str) == Some("pool") && place != "sequence" {
+            // Every other place a `<gen>` can stand has the same hole: the fallback after the
+            // if= branches and a part of a composed sequence printed the marker too, and inside
+            // a `<case>` or as a field the run stopped after a clean `check`.
+            self.error(
+                "TDC268",
+                format!(
+                    "<gen type=\"pool\"> publishes a whole MEMBER as Ref.field columns, so it \
+                     cannot {}",
+                    place_where(place)
+                ),
+                "Draw the member in a <sequence> of its own \u{2014} <sequence name=\"Doc\"><gen \
+                 type=\"pool\" value=\"Doctors\"/></sequence> \u{2014} and read its fields where \
+                 they are needed: ${{Doc.name}}.",
+                gen.at("type"),
+            );
         }
         let gen_type = attrs
             .get("type")
@@ -2803,7 +2873,7 @@ impl Validator {
         self.check_running(gen, &attrs, gen_type);
         self.check_stat(gen, &attrs, gen_type);
         self.check_formula(gen, &attrs, gen_type);
-        self.check_derived_not_conditional(gen, &attrs, gen_type);
+        self.check_derived_place(gen, &attrs, gen_type, place);
         self.check_mask(gen, &attrs);
         self.check_counter(gen, &attrs, gen_type);
         self.check_date_templates(gen, &attrs, gen_type);
@@ -7137,6 +7207,88 @@ pub const BUILTINS: [&str; 6] = ["_count", "_first", "_item", "_item_id", "_last
 
 pub fn is_builtin(name: &str) -> bool {
     BUILTINS.contains(&name)
+}
+
+/// The end of a placement sentence, by where the `<gen>` stands.
+fn place_where(place: &str) -> &'static str {
+    match place {
+        "branch" => "be the fallback branch of a conditional sequence",
+        "case" => "sit inside a <case>",
+        "part" => "be one part of a composed <sequence>",
+        _ => "be a field of a compound <sequence>",
+    }
+}
+
+/// What a `<sequence>` is, for the placement rules: conditional, simple, or a record.
+///
+/// The reference's reading: any `if=` makes it conditional; every gen named makes it
+/// compound; more than one gen, or a `<data>` with text beside them, composed; one unnamed gen
+/// alone, simple.
+fn sequence_shape(seq: &Element) -> &'static str {
+    let mut gens: Vec<&Element> = Vec::new();
+    let mut literal = false;
+    for child in &seq.children {
+        if is_gen(child) {
+            gens.push(child);
+        } else if child.kind == Kind::Data && child.name == "data" && !child.text.is_empty() {
+            literal = true;
+        } else if child.kind == Kind::OpenClose && child.name == "distinct" {
+            for wrapped in &child.children {
+                if is_gen(wrapped) {
+                    gens.push(wrapped);
+                } else if wrapped.kind == Kind::Data
+                    && wrapped.name == "data"
+                    && !wrapped.text.is_empty()
+                {
+                    literal = true;
+                }
+            }
+        }
+    }
+    if gens.iter().any(|g| g.attr_value("if").is_some()) {
+        return "conditional";
+    }
+    let named = gens
+        .iter()
+        .filter(|g| g.attr_value("name").is_some())
+        .count();
+    if named == gens.len() {
+        "compound"
+    } else if gens.len() > 1 || literal {
+        "composed"
+    } else {
+        "simple"
+    }
+}
+
+/// Where one `<gen>` stands, given what its enclosing element is.
+fn gen_place(shape: Option<&str>, gen: &Element) -> &'static str {
+    match shape {
+        Some("case") => "case",
+        Some("conditional") => "branch",
+        Some("composed" | "compound") => {
+            if gen.attr_value("name").is_some() {
+                "field"
+            } else {
+                "part"
+            }
+        }
+        _ => "sequence",
+    }
+}
+
+/// Does this expression call `prev()` at all? Traverses as `collect_prev_targets` does.
+fn calls_prev(node: &expr::Expr) -> bool {
+    match node {
+        expr::Expr::Unary(_, inner) | expr::Expr::Computed(inner) => calls_prev(inner),
+        expr::Expr::Binary(_, left, right) => calls_prev(left) || calls_prev(right),
+        expr::Expr::Conditional(test, yes, no) => {
+            calls_prev(test) || calls_prev(yes) || calls_prev(no)
+        }
+        expr::Expr::Call(name, args) => name == "prev" || args.iter().any(calls_prev),
+        expr::Expr::Array(args) => args.iter().any(calls_prev),
+        _ => false,
+    }
 }
 
 /// A `<gen>` whose whole COLUMN is read from other columns rather than drawn.

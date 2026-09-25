@@ -10,6 +10,7 @@
 
 import type { ExactLayout } from './per-row.js';
 import { absoluteRow, withRows } from './per-row.js';
+import { keepingOnly } from './branch-derived.js';
 import type { SequenceBuildContext } from './context.js';
 import { computeParentMask, orderedRows } from './assemble.js';
 import { buildCaseValues } from './mix-values.js';
@@ -149,7 +150,9 @@ function unrankedBranchValues(
   wholeRunCtx: SequenceBuildContext,
 ): string[] {
   if (!caseCarriesPercent(body)) {
-    const whole = buildCaseValues(body, count, prng, locale, now, wholeRunCtx);
+    // Built over the whole run and picked from; a formula or a date offset in the
+    // body computes only the rows picked (see `keptRows`).
+    const whole = buildCaseValues(body, count, prng, locale, now, keepingOnly(wholeRunCtx, rows));
     return rows.map((row) => whole[row] ?? '');
   }
   return buildCaseValues(
@@ -252,7 +255,11 @@ export function buildNestedSwitchValues(
   const place = (positions: readonly number[], body: CaseSpec, id: string): void => {
     if (positions.length === 0) return;
     if (!caseCarriesPercent(body)) {
-      const whole = buildCaseValues(body, count, prng, locale, now, { ...ctx, streamId: id });
+      const kept = keepingOnly(
+        { ...ctx, streamId: id },
+        positions.map((i) => absoluteRow(ctx, i)),
+      );
+      const whole = buildCaseValues(body, count, prng, locale, now, kept);
       for (const i of positions) out[i] = whole[i] ?? '';
       return;
     }

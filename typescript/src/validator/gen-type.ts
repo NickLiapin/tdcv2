@@ -19,7 +19,7 @@ import { checkGenAdvancedRegex, type AdvancedRegexValidationContext } from './ad
 import { checkGenCounter } from './counter.js';
 import { checkGenDate } from './date.js';
 import { checkGenDrawing, checkGenFile, type FileValidationContext } from './file.js';
-import { checkGenFormula } from './formula.js';
+import { callsPrev, checkGenFormula } from './formula.js';
 import { checkGenHttp, type HttpCheckContext } from './http.js';
 import { checkGenNumber } from './number.js';
 import { checkGenRegex, type RegexValidationContext } from './regex.js';
@@ -67,48 +67,108 @@ export function isDerived(type: string | undefined, attrs: Record<string, string
 }
 
 /**
- * A derived column cannot be ONE BRANCH of a per-row choice.
+ * Where a `<gen>` stands, as far as the placement rules below care.
  *
- * `running`, `stat`, a date offset and `formula` are built once, for the whole
- * column, in declaration order. An `if=` asks for something else entirely: a
- * value chosen row by row. The two cannot both be true, and until now nothing
- * said so — `check` called the config valid and the run died with
- * `sequence: gen type "running" not yet supported`, which reads like an
- * unfinished engine rather than a config that cannot mean anything.
- *
- * Measured on 0.2.1: `<gen if="A > 0" type="running" …>` and the same with
- * `stat` and with a date offset all produced that message. Two of those three
- * are SHIPPED features; `formula` arrived with the same hole and is fixed here
- * with them.
+ *   sequence  the whole `<sequence>`: one unnamed `<gen>`, nothing beside it
+ *   branch    one of a sequence's `<gen if="…">` branches, or the fallback after them
+ *   case      inside a `<case>` or `<default>`, at any depth
+ *   part      an unnamed part of a composed `<sequence>` — beside a literal or another part
+ *   field     a named field of a compound `<sequence>`
  */
-function checkDerivedNotConditional(
+export type GenPlace = 'sequence' | 'branch' | 'case' | 'part' | 'field';
+
+/**
+ * A derived column in a place it cannot mean anything.
+ *
+ * The four derived constructs differ in how much of the run they read (see
+ * `sequence/derived.ts`), and that decides where each may stand:
+ *
+ *   - `running`, `stat`, and a `formula` that reads `prev()` are WHOLE columns —
+ *     the rows before this one, or all of them. A branch holds some rows and not
+ *     others, so they must be a `<sequence>` of their own.
+ *   - a plain `formula` and a date offset read only their own row, so a branch —
+ *     a `<case>`, or an `if=` branch — can have them: each row the branch holds is
+ *     computed from that row.
+ *   - none of the four is a part or a field of a record. A record's parts are
+ *     drawn together and rearranged together by `<distinct>` and `uniq`, and a
+ *     computed value moved to another row no longer describes it.
+ *
+ * Measured before this rule reached past `if=`, on all five implementations: in a
+ * `<case>`, a part, a field or the fallback branch, `check` called every one of
+ * these valid; the run then stopped with `gen type "running" not yet supported`,
+ * or — a date offset — silently dropped `of=` and drew an unrelated date.
+ */
+function checkDerivedPlace(
   gen: OpenCloseElementContext | SelfClosingElementContext,
   type: string | undefined,
+  place: GenPlace,
   diagnostics: Diagnostic[],
 ): void {
+  if (place === 'sequence') return;
   const attrs = extractAttrs(gen.attr());
   if (!isDerived(type, attrs)) return;
-  if ((attrs['if'] ?? '').trim() === '') return;
-  const attr = gen.attr().find((a) => a._attrName?.text === 'if');
+  const wholeRun =
+    type === 'running' || type === 'stat' || (type === 'formula' && callsPrev(attrs['expr'] ?? ''));
+  const inRecord = place === 'part' || place === 'field';
+  if (!wholeRun && !inRecord) return;
+
+  const ifAttr = gen.attr().find((a) => a._attrName?.text === 'if');
+  const typeAttr = gen.attr().find((a) => a._attrName?.text === 'type');
+  const at = place === 'branch' && ifAttr ? ifAttr : typeAttr;
   diagnostics.push({
     severity: 'error',
     source: 'validator',
-    ...(attr ? attrValueRange(attr) : nodeRange(gen)),
-    message: `a type="${String(type)}" column is built for the whole run, so it cannot carry if=`,
-    hint:
-      'It reads other columns in declaration order and produces one column, not a value ' +
-      'chosen per row. Put the condition where the value is USED — `<data if="…">` — or ' +
-      'compute the column unconditionally and branch on it afterwards.',
+    ...(at ? attrValueRange(at) : nodeRange(gen)),
+    message: derivedPlaceMessage(type, wholeRun, place, ifAttr !== undefined),
+    hint: wholeRun
+      ? place === 'branch' && ifAttr
+        ? 'It reads other columns in declaration order and produces one column, not a value ' +
+          'chosen per row. Put the condition where the value is USED — `<data if="…">` — or ' +
+          'compute the column unconditionally and branch on it afterwards.'
+        : 'It reads other columns in declaration order and produces one column. Declare it as a ' +
+          '<sequence> of its own, above this one, and use it here by name — ${{Total}} in a ' +
+          '<data>, or Total inside a formula.'
+      : 'Declare it as a <sequence> of its own and put it into the record where the record is ' +
+        'printed: <data>ID-${{Total}}</data>.',
     code: 'TDC295',
   });
+}
+
+/** The TDC295 sentence: what the column is, and why it cannot stand where it does. */
+function derivedPlaceMessage(
+  type: string | undefined,
+  wholeRun: boolean,
+  place: GenPlace,
+  carriesIf: boolean,
+): string {
+  const what =
+    type === 'date'
+      ? 'a date measured from another column (of=)'
+      : type === 'formula' && wholeRun
+        ? 'a type="formula" column that reads prev()'
+        : `a type="${String(type)}" column`;
+  const where =
+    place === 'branch'
+      ? carriesIf
+        ? 'carry if='
+        : 'be the fallback branch of a conditional sequence'
+      : place === 'case'
+        ? 'sit inside a <case>'
+        : place === 'part'
+          ? 'be one part of a composed <sequence>'
+          : 'be a field of a compound <sequence>';
+  return wholeRun
+    ? `${what} is built for the whole run, so it cannot ${where}`
+    : `${what} is computed from other columns, so it cannot ${where}`;
 }
 
 export function checkGenByType(
   gen: OpenCloseElementContext | SelfClosingElementContext,
   type: string | undefined,
   ctx: GenTypeCtx,
+  place: GenPlace = 'sequence',
 ): void {
-  checkDerivedNotConditional(gen, type, ctx.diagnostics);
+  checkDerivedPlace(gen, type, place, ctx.diagnostics);
   switch (type) {
     case 'text':
       checkGenText(gen, ctx.diagnostics);

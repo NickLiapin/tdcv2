@@ -23,10 +23,10 @@
       "expected": ["error TDC240 1:178"]
     },
     {
-      "name": "a-derived-column-under-a-condition",
+      "name": "a-whole-run-column-under-a-condition",
       "demonstrates": "TDC295",
-      "description": "running, stat, formula and a date offset are built once for the whole run, in declaration order. An if= asks for a value chosen row by row, and the two cannot both be true.",
-      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"T\"><gen type=\"text\" value=\"hi,lo\"/></sequence><sequence name=\"N\"><gen type=\"number\" value=\"4..4\"/></sequence><sequence name=\"F\"><gen if=\"T == hi\" type=\"formula\" expr=\"N * 100\"/></sequence></env><block><line><data>${{F}}</data></line></block></tdc>",
+      "description": "running, stat and a formula that reads prev() are whole columns — the rows before this one, or all of them. An if= asks for a value chosen row by row, and the two cannot both be true. (A plain formula and a date offset read only their own row, so they may be an if= branch — see cases/branch-derived.json.)",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"T\"><gen type=\"text\" value=\"hi,lo\"/></sequence><sequence name=\"N\"><gen type=\"number\" value=\"4..4\"/></sequence><sequence name=\"F\"><gen if=\"T == hi\" type=\"running\" of=\"N\" accumulate=\"sum\"/></sequence></env><block><line><data>${{F}}</data></line></block></tdc>",
       "expected": ["error TDC295 1:193"]
     },
     {
@@ -77,6 +77,48 @@
       "description": "A formula column that never says what to compute — the attribute that IS the column is missing",
       "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"H\"><gen type=\"number\" value=\"150..200\"/></sequence><sequence name=\"W\"><gen type=\"formula\"/></sequence></env><block><line><data>${{W}}</data></line></block></tdc>",
       "expected": ["error TDC294 1:126"]
+    },
+    {
+      "name": "a-running-total-inside-a-case",
+      "demonstrates": "TDC295",
+      "description": "A <case> holds some rows and not others; a running total is the sum of every row before this one. `check` used to call this valid and the run stopped with `gen type \"running\" not yet supported`.",
+      "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><mix name=\"C\"><case><data>-</data></case><case><gen type=\"running\" of=\"N\" accumulate=\"sum\"/></case></mix></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["error TDC295 1:161"]
+    },
+    {
+      "name": "a-statistic-inside-a-switch-default",
+      "demonstrates": "TDC295",
+      "description": "The same for a statistic over the run, in the `<default>` of a `<switch>`.",
+      "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"K\"><gen type=\"text\" value=\"a,b\"/></sequence><switch name=\"C\" on=\"K\"><case is=\"a\"><data>-</data></case><default><gen type=\"stat\" of=\"N\" op=\"mean\"/></default></switch></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["error TDC295 1:241"]
+    },
+    {
+      "name": "a-formula-reading-prev-inside-a-case",
+      "demonstrates": "TDC295",
+      "description": "A formula that reads prev() needs the row before its own, so it is built in row order over the whole run — a whole column, like a running total.",
+      "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><mix name=\"C\"><case><gen type=\"formula\" expr=\"prev(N, 0) + N\"/></case></mix></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["error TDC295 1:134"]
+    },
+    {
+      "name": "a-running-total-as-the-fallback-branch",
+      "demonstrates": "TDC295",
+      "description": "The fallback after the if= branches is a branch too, and it used to slip past the if= rule because it carries no if= of its own.",
+      "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"C\"><gen if=\"N > 5\" type=\"text\" value=\"big\"/><gen type=\"running\" of=\"N\" accumulate=\"sum\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["error TDC295 1:174"]
+    },
+    {
+      "name": "a-formula-as-a-part-of-a-composed-sequence",
+      "demonstrates": "TDC295",
+      "description": "A record’s parts are drawn together and rearranged together; a computed value moved to another row no longer describes it. Declare it as a sequence of its own and compose it where the record is printed.",
+      "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"C\"><data>id-</data><gen type=\"formula\" expr=\"N * 2\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["error TDC295 1:149"]
+    },
+    {
+      "name": "a-date-offset-as-a-field-of-a-compound",
+      "demonstrates": "TDC295",
+      "description": "The same for a date offset as a named field. It used to lose of= and plus= here in silence and draw an unrelated date.",
+      "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"D\"><gen type=\"date\" value=\"2020-01-01..2020-12-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"C\"><gen name=\"due\" type=\"date\" of=\"D\" plus=\"1d\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["error TDC295 1:243"]
     }
   ]
 }

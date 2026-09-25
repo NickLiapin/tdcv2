@@ -550,6 +550,38 @@ A row whose source has no date — one that a `parent` filter left out, or one
 nothing to measure from, and inventing one would put a confident-looking value
 in a cell the config said should be empty.
 
+### In a branch
+
+An offset reads only its own row, so it can be one branch of a per-row choice as well: a
+[`<case>`](../constructs/switch.mdx#case--a-branch-with-a-generator), at any depth, or one of a
+sequence's `<gen if="…">` branches. Each row the branch holds is measured from its own date.
+
+```xml
+<tdc>
+  <env count="6" seed="ship" local="en">
+    <sequence name="Ordered"><gen type="date" from="2026-03-01" to="2026-03-31" format="MMMM D"/></sequence>
+    <sequence name="Method"><gen type="text" value="courier,pickup"/></sequence>
+    <switch name="Ready" on="Method">
+      <case is="courier"><gen type="date" of="Ordered" plus="2..5d" format="MMMM D"/></case>
+      <case is="pickup"><data>same day, at the counter</data></case>
+    </switch>
+  </env>
+  <block><line><data>${{Ordered}} | ${{Method}} | ${{Ready}}</data></line></block>
+</tdc>
+```
+
+<Terminal title="./run shipping.tdc">
+{`March 23 | courier | March 27
+March 6 | courier | March 11
+March 13 | pickup | same day, at the counter
+March 21 | pickup | same day, at the counter
+March 7 | pickup | same day, at the counter
+March 17 | courier | March 19`}
+</Terminal>
+
+A ranged `plus=` in a branch draws each row's step from that row's own stream, so a row keeps
+its step when the branch split around it changes.
+
 ### What `of` rules out
 
 `of` places the date relative to another column, so the attributes that place its
@@ -560,6 +592,10 @@ right about what it asked for and wrong about what it got.
 
 The column named by `of` must be declared **above** the offset (`TDC240`), the
 same rule [`running`](./running.mdx) and [`stat`](./stat.mdx) follow.
+
+An offset is a column computed from another one, so it is not a part or a field of a composed
+`<sequence>` (`TDC295`): a record's parts are drawn together, and a computed date moved to
+another row no longer describes it. Declare it as a sequence of its own.
 
 The formatting layer is ruled out too, for the same reason it is on a running total:
 an offset is built in declaration order, before that layer runs. `mask`, `case`,

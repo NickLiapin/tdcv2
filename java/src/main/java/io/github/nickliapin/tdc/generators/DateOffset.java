@@ -121,7 +121,7 @@ public final class DateOffset {
    *       one locale and the 3rd of February in another.
    * </ol>
    */
-  private static PlainDateTime startOfRow(
+  public static PlainDateTime startOfRow(
       String name, Map<String, String> attrs, Long[] instants, int i, String text) {
     if (instants != null) {
       Long kept = i < instants.length ? instants[i] : null;
@@ -150,7 +150,7 @@ public final class DateOffset {
    * <p>A fixed offset takes no draw, which is what lets {@code plus="7d"} be added to a config
    * without shifting any other column. A range takes exactly one.
    */
-  private static long drawSteps(DateStep.OffsetSpec offset, Prng.Sfc32 prng) {
+  public static long drawSteps(DateStep.OffsetSpec offset, Prng.Sfc32 prng) {
     if (offset.lo() == offset.hi()) {
       return offset.lo();
     }

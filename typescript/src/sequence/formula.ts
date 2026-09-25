@@ -210,11 +210,35 @@ export function rowScope(
   iteration: number,
   read?: ColumnsRead,
 ): (name: string) => string | undefined {
+  return columnScope(
+    iteration,
+    (name) => registry[name] !== undefined,
+    (name) => {
+      const seq = registry[name];
+      return seq ? sequenceValueAt(seq, iteration) : undefined;
+    },
+    read,
+  );
+}
+
+/**
+ * The same scope over any reader of the row's columns — the registry above, or the
+ * `valueAt` a branch is handed when the formula sits inside a `<case>` or an `if=`.
+ *
+ * `hasColumn` is asked separately because the two answers `undefined` could mean
+ * must stay apart: a column that is empty on this row, and a word that is no
+ * column at all, which the expression language reads as text.
+ */
+export function columnScope(
+  row: number,
+  hasColumn: (name: string) => boolean,
+  valueOf: (name: string) => string | undefined,
+  read?: ColumnsRead,
+): (name: string) => string | undefined {
   return (name) => {
-    if (name === '_count') return String(iteration + 1);
-    const seq = registry[name];
-    if (!seq) return undefined; // not a column: a bare word, as `if=` reads it
-    const value = sequenceValueAt(seq, iteration) ?? '';
+    if (name === '_count') return String(row + 1);
+    if (!hasColumn(name)) return undefined; // not a column: a bare word, as `if=` reads it
+    const value = valueOf(name) ?? '';
     if (read) {
       if (value === '') read.empty = true;
       else if (read.text === undefined && !NUMERIC.test(value)) read.text = { name, value };

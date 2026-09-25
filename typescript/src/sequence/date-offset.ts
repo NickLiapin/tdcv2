@@ -94,7 +94,7 @@ export function registerDateOffset(
       values[i] = undefined;
       continue;
     }
-    const start = startOfRow(spec, source, i, from);
+    const start = startOfRow(spec.name, offsetOf(spec), instantReader(source), i, from);
     if (!start) {
       values[i] = undefined;
       continue;
@@ -131,26 +131,32 @@ export function registerDateOffset(
  *      of March in one locale and the 3rd of February in another, and picking
  *      one silently would put a wrong date in a column that looks right.
  */
-function startOfRow(
-  spec: SequenceSpec,
-  source: Sequence,
+export function startOfRow(
+  column: string,
+  of: string,
+  instantAt: ((row: number) => number | undefined) | undefined,
   i: number,
   from: string,
 ): PlainDateTime | undefined {
-  if (source.instants) {
-    const instant = sequenceInstantAt(source, i);
+  if (instantAt) {
+    const instant = instantAt(i);
     return instant === undefined ? undefined : fromEpochMillis(instant);
   }
   try {
     return parseDateTimeStrict(from.trim()).value;
   } catch {
     throw new DateOffsetError(
-      `date offset ("${spec.name}"): "${from}" in column "${offsetOf(spec)}" is not a date ` +
+      `date offset ("${column}"): "${from}" in column "${of}" is not a date ` +
         'this can measure from. A date TDC generated carries its own value and any format= ' +
         'works; one read from a file or a pack has only its text, and only the ISO form ' +
         '(YYYY-MM-DD) means the same thing in every locale.',
     );
   }
+}
+
+/** Row `i`'s instant, when `source` kept them — the first reading `startOfRow` tries. */
+export function instantReader(source: Sequence): ((row: number) => number | undefined) | undefined {
+  return source.instants ? (row) => sequenceInstantAt(source, row) : undefined;
 }
 
 /**
@@ -160,7 +166,7 @@ function startOfRow(
  * config without shifting any other column. A range takes exactly one, so the
  * cost is the same as any other single-value generator.
  */
-function drawSteps(offset: OffsetSpec, prng: () => number): number {
+export function drawSteps(offset: OffsetSpec, prng: () => number): number {
   if (offset.lo === offset.hi) return offset.lo;
   const span = offset.hi - offset.lo + 1;
   return offset.lo + Math.min(span - 1, Math.floor(prng() * span));

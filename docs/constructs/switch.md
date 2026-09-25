@@ -219,6 +219,12 @@ bronze -> 0
 computed per row, not looked up from a fixed string — that's the whole reason `<case>`
 exists alongside `<map>`.
 
+A branch can also compute from the row it is on: a [`formula`](../generators/formula.md#in-a-branch)
+or a [date offset](../generators/date.md#in-a-branch) reads that row's columns and nothing else.
+The constructs that read the whole run — [`running`](../generators/running.md#top),
+[`stat`](../generators/stat.md#top), a formula with `prev()` — and a
+[pool reference](../pools/overview.md#top) have to be sequences of their own (`TDC295`, `TDC268`).
+
 ### Matching keys — `is`
 
 `is` gives a `<case>` its key(s): the subject values that make the branch fire.

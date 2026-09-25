@@ -102,7 +102,7 @@ pub fn build(
 ///    accepted; anything else is refused rather than guessed at, because
 ///    `02/03/2026` is the 2nd of March in one locale and the 3rd of February in
 ///    another.
-fn start_of_row(
+pub fn start_of_row(
     name: &str,
     attrs: &BTreeMap<String, String>,
     instants: Option<&Vec<Option<i64>>>,
@@ -128,7 +128,7 @@ fn start_of_row(
 ///
 /// A fixed offset takes no draw, which is what lets `plus="7d"` be added to a
 /// config without shifting any other column. A range takes exactly one.
-fn draw_steps(offset: OffsetSpec, prng: &mut Sfc32) -> i64 {
+pub fn draw_steps(offset: OffsetSpec, prng: &mut Sfc32) -> i64 {
     if offset.lo == offset.hi {
         return offset.lo;
     }

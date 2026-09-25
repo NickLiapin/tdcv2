@@ -56,7 +56,6 @@ import {
   absoluteRow,
   exactTextLayout,
   plainListLayout,
-  forStreamOf,
   redrawCtx,
   INLINE_ANOMALY_TYPES,
   keyedDraws,
@@ -68,24 +67,17 @@ export { patternGenForGen } from './pattern-source.js';
 export { pickSequential, sequentialIndex, sequentialList, walkedValueAt } from './sequential.js';
 import { patternGenForGen } from './pattern-source.js';
 import { pickSequential, sequentialIndex, sequentialList, walkedRepeat } from './sequential.js';
-import { evaluateIf } from '../expr/evaluate.js';
 
 import { genFormatter } from '../format/transforms.js';
 import type { AttrMap } from '../processor/attrs.js';
 
-import type {
-  CondBranch,
-  GenSpec,
-  Sequence,
-  SequenceRegistry,
-  SequenceSpec,
-  MixSpec,
-} from './types.js';
+import type { GenSpec, Sequence, SequenceRegistry, SequenceSpec, MixSpec } from './types.js';
 import { sequenceValueAt } from './types.js';
 import { composesOwnValue, drawComposed, uniqDrawPart } from './composed.js';
 import { buildMixValues } from './mix-values.js';
 import { materializeCompute } from './compute-sequence.js';
 import { materializeSwitch } from './switch-build.js';
+import { materializeConditional } from './conditional-build.js';
 import { assembleAt, computeParentMask, orderedRows } from './assemble.js';
 import type { LinkedFileRowPlan, SequenceBuildContext } from './context.js';
 import { buildUniqueValues } from './uniq-simple.js';
@@ -102,7 +94,8 @@ import { checkEnvUniqCapacity } from './uniq-capacity.js';
 import { poolRefName, type PoolTables } from './pool.js';
 import { poolGroupPicks } from './pool-member.js';
 import { registerPoolRef } from './pool-ref.js';
-import { isDateOffset, offsetOf } from './date-offset.js';
+import { instantReader } from './date-offset.js';
+import { isRowLocalDerived, offsetSources, rowLocalDerivedValues } from './branch-derived.js';
 import { registerDerivedColumn } from './derived.js';
 import { distributionColumn } from './dist-params.js';
 import { enforceValid } from './pack-valid.js';
@@ -323,14 +316,11 @@ export function runGenerator(
  * in a ru one — and reading a date back out of that is a guess. So a column
  * another one is measured from keeps what it actually generated, and the offset
  * works from the value rather than from its spelling. Only the named columns do:
- * a config with no offset in it allocates nothing extra.
+ * a config with no offset in it allocates nothing extra. An offset inside a
+ * `<case>` or an `if=` branch counts too — see `offsetSources`.
  */
 function instantColumnsOf(specs: readonly SequenceSpec[]): ReadonlySet<string> {
-  const wanted = new Set<string>();
-  for (const spec of specs) {
-    if (isDateOffset(spec)) wanted.add(offsetOf(spec));
-  }
-  return wanted;
+  return offsetSources(specs);
 }
 
 export function buildSequences(
@@ -358,6 +348,10 @@ export function buildSequences(
       return seq ? sequenceValueAt(seq, row) : undefined;
     },
     hasColumn: (name) => registry[name] !== undefined,
+    instantsOf: (name) => {
+      const seq = registry[name];
+      return seq ? instantReader(seq) : undefined;
+    },
     inject: options.inject,
     instantColumns: instantColumnsOf(specs),
   };
@@ -648,79 +642,6 @@ export function buildSequences(
   return registry;
 }
 
-/**
- * Conditional sequence (in-memory / Engine 1): materialize each branch's gen
- * over all rows, then per row pick the FIRST branch whose `if` is truthy (or a
- * fallback branch with no `if`). None match → the row is empty. Conditions are
- * evaluated against the registry, which already holds earlier-declared
- * sequences (parent-before-child order).
- */
-function materializeConditional(
-  spec: SequenceSpec,
-  branches: readonly CondBranch[],
-  registry: SequenceRegistry,
-  count: number,
-  prng: () => number,
-  locale: string,
-  now: number,
-  ctx: SequenceBuildContext,
-): { sequence: Sequence; flags: readonly { name: string; sequence: Sequence }[] } {
-  // Each branch draws under its OWN stream — `Name#if0`, `Name#if1` — the ids
-  // the streaming engine gives them in `buildConditionalSeq`. They used to share
-  // the run's PRNG, which made a branch's values depend on how many draws the
-  // columns before it had made: the same config and seed then produced different
-  // data on the in-memory engine than on the streaming one.
-  const built = branches.map((b, k) => {
-    const flagName = (b.gen.attrs['anomaly_flag'] ?? '').trim();
-    const flags: string[] | undefined = flagName === '' ? undefined : [];
-    return {
-      cond: b.cond,
-      flagName,
-      flags,
-      values: buildGenValues(
-        b.gen,
-        count,
-        prng,
-        locale,
-        now,
-        forStreamOf(ctx, `${spec.name}#if${String(k)}`),
-        flags,
-      ),
-    };
-  });
-
-  const values = new Array<string | undefined>(count);
-  // One column per DISTINCT name: branches sharing `anomaly_flag="IsOutlier"`
-  // share the column, which is the point of writing it on each branch.
-  const flagCols = new Map<string, (string | undefined)[]>();
-  for (const b of built) {
-    if (b.flagName !== '' && !flagCols.has(b.flagName)) {
-      flagCols.set(b.flagName, new Array<string | undefined>(count));
-    }
-  }
-
-  for (let i = 0; i < count; i++) {
-    const winner = built.find((b) => b.cond === undefined || evaluateIf(b.cond, registry, i));
-    values[i] = winner?.values[i];
-    // No branch matched: the row is not covered, so neither the value nor any
-    // claim about it exists. Every flag column stays `undefined` here, masked
-    // exactly like the value.
-    if (!winner) continue;
-    for (const [name, col] of flagCols) {
-      // A covered row always has an answer. `false` — not empty — when the
-      // branch that produced it cannot spike at all, because "no outlier" is
-      // the truth about that row, and a detector scored against the column
-      // needs it stated rather than left blank.
-      col[i] = winner.flagName === name ? (winner.flags?.[i] ?? 'false') : 'false';
-    }
-  }
-
-  return {
-    sequence: { name: spec.name, values },
-    flags: [...flagCols].map(([name, vals]) => ({ name, sequence: { name, values: vals } })),
-  };
-}
-
 function materializeSimple(
   spec: SequenceSpec,
   gen: GenSpec,
@@ -977,6 +898,11 @@ export function buildGenValues(
   flagTextOut?: string[],
   instantsOut?: (number | undefined)[],
 ): string[] {
+  // A formula or a date offset in a branch reads the row's own columns; it has
+  // nothing to lay out and nothing of the per-row draw below to share.
+  if (isRowLocalDerived(gen)) {
+    return rowLocalDerivedValues(gen, count, prng, locale, ctx, instantsOut);
+  }
   // Row by row, off the very stream the streaming engine uses, so the two
   // engines produce the same bytes from one seed. `gen-resolve.ts` already
   // calls THIS function that way — one row, `seekableGen(seed, streamId, i)` —
@@ -1508,6 +1434,14 @@ function buildGenValuesRaw(
       }
       return new Array<string>(count).fill('');
     }
+    case 'running':
+    case 'stat':
+    case 'pool':
+      // Whole columns by nature. The validator keeps them out of every place that
+      // reaches here — a <case>, an if= branch, a part or a field (TDC295, TDC268).
+      throw new Error(
+        `<gen type="${gen.type}"> is a whole column, so it has to be a <sequence> of its own`,
+      );
     default:
       throw new Error(`sequence: gen type "${gen.type}" not yet supported`);
   }

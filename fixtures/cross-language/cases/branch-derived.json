@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "a-formula-in-a-mix-case",
+      "description": "The case that was reported: a formula in one branch of a <mix>. Each row the branch holds is computed from that row — Y * 2 + X — and the mix split stays exact. It used to pass check and stop the run with `gen type \"formula\" not yet supported`.",
+      "config": "<tdc><env count=\"12\" seed=\"br\" local=\"en\" mode=\"memory\"><sequence name=\"X\"><gen type=\"number\" value=\"0..3\"/></sequence><sequence name=\"Y\"><gen type=\"number\" value=\"10..20\"/></sequence><mix name=\"C\" percent=\"40,60\"><case><data>-</data></case><case><gen type=\"formula\" expr=\"Y * 2 + X\"/></case></mix></env><block><line><data>${{X}} ${{Y}} ${{C}}</data></line></block></tdc>",
+      "expected": [
+        "0 10 -",
+        "3 13 29",
+        "0 18 -",
+        "2 12 26",
+        "2 15 -",
+        "3 19 41",
+        "0 16 32",
+        "1 10 -",
+        "1 10 -",
+        "2 17 36",
+        "3 16 35",
+        "3 18 39"
+      ]
+    },
+    {
+      "name": "a-formula-in-a-switch-default-computes-only-its-rows",
+      "description": "A <default> is built over the whole run and picked from. Y / X is a refusal on the X = 0 rows — and those rows belong to the other case, so the formula must never be asked about them. The streaming engine only computes what it keeps; the in-memory engine has to do the same, or one config runs on one engine and fails on the other.",
+      "config": "<tdc><env count=\"12\" seed=\"br\" local=\"en\" mode=\"memory\"><sequence name=\"X\"><gen type=\"number\" value=\"0..3\"/></sequence><sequence name=\"Y\"><gen type=\"number\" value=\"10..20\"/></sequence><switch name=\"C\" on=\"X\"><case is=\"0\"><data>none</data></case><default><gen type=\"formula\" expr=\"Y / X\" decimals=\"2\"/></default></switch></env><block><line><data>${{X}} ${{Y}} ${{C}}</data></line></block></tdc>",
+      "expected": [
+        "0 10 none",
+        "3 13 4.33",
+        "0 18 none",
+        "2 12 6.00",
+        "2 15 7.50",
+        "3 19 6.33",
+        "0 16 none",
+        "1 10 10.00",
+        "1 10 10.00",
+        "2 17 8.50",
+        "3 16 5.33",
+        "3 18 6.00"
+      ]
+    },
+    {
+      "name": "a-formula-in-a-multi-key-case",
+      "description": "A multi-key case is the other branch that cannot be numbered row by row, so it is built over the whole run too. The guard is the same: X - 1 is zero on rows this case does not hold.",
+      "config": "<tdc><env count=\"12\" seed=\"br\" local=\"en\" mode=\"memory\"><sequence name=\"X\"><gen type=\"number\" value=\"0..3\"/></sequence><sequence name=\"Y\"><gen type=\"number\" value=\"10..20\"/></sequence><switch name=\"C\" on=\"X\"><case is=\"0|1\"><data>low</data></case><case is=\"2|3\"><gen type=\"formula\" expr=\"Y / (X - 1)\" decimals=\"1\"/></case></switch></env><block><line><data>${{X}} ${{Y}} ${{C}}</data></line></block></tdc>",
+      "expected": [
+        "0 10 low",
+        "3 13 6.5",
+        "0 18 low",
+        "2 12 12.0",
+        "2 15 15.0",
+        "3 19 9.5",
+        "0 16 low",
+        "1 10 low",
+        "1 10 low",
+        "2 17 17.0",
+        "3 16 8.0",
+        "3 18 9.0"
+      ]
+    },
+    {
+      "name": "a-formula-in-a-switch-nested-in-a-case",
+      "description": "Two levels down: a <switch> inside a <mix> case, with the formula in its <default>. Only the rows both levels keep are computed.",
+      "config": "<tdc><env count=\"12\" seed=\"br\" local=\"en\" mode=\"memory\"><sequence name=\"X\"><gen type=\"number\" value=\"0..3\"/></sequence><mix name=\"C\" percent=\"30,70\"><case><data>none</data></case><case><data>[</data><switch on=\"X\"><case is=\"0\"><data>zero</data></case><default><gen type=\"formula\" expr=\"12 / X\"/></default></switch><data>]</data></case></mix></env><block><line><data>${{X}} ${{C}}</data></line></block></tdc>",
+      "expected": [
+        "0 none",
+        "3 [4]",
+        "0 none",
+        "2 [6]",
+        "2 [6]",
+        "3 [4]",
+        "0 [zero]",
+        "1 none",
+        "1 none",
+        "2 [6]",
+        "3 [4]",
+        "3 [4]"
+      ]
+    },
+    {
+      "name": "a-formula-as-an-if-branch",
+      "description": "A plain formula reads only its own row, so it may be one of the if= branches; it used to be refused (TDC295) together with the constructs that really are whole columns. The branch is built only on the rows it wins, so Y / X never sees an X of zero.",
+      "config": "<tdc><env count=\"12\" seed=\"br\" local=\"en\" mode=\"memory\"><sequence name=\"X\"><gen type=\"number\" value=\"0..3\"/></sequence><sequence name=\"Y\"><gen type=\"number\" value=\"10..20\"/></sequence><sequence name=\"C\"><gen if=\"X > 0\" type=\"formula\" expr=\"Y / X\" decimals=\"1\"/><gen type=\"text\" value=\"-\"/></sequence></env><block><line><data>${{X}} ${{Y}} ${{C}}</data></line></block></tdc>",
+      "expected": [
+        "0 10 -",
+        "3 13 4.3",
+        "0 18 -",
+        "2 12 6.0",
+        "2 15 7.5",
+        "3 19 6.3",
+        "0 16 -",
+        "1 10 10.0",
+        "1 10 10.0",
+        "2 17 8.5",
+        "3 16 5.3",
+        "3 18 6.0"
+      ]
+    },
+    {
+      "name": "a-formula-in-a-branch-counts-the-row-it-lands-on",
+      "description": "_count inside a branch is the row the value lands on, as it is everywhere else — not the value’s place among the rows the branch holds.",
+      "config": "<tdc><env count=\"8\" seed=\"br\" local=\"en\" mode=\"memory\"><sequence name=\"X\"><gen type=\"number\" value=\"0..3\"/></sequence><mix name=\"C\"><case><data>-</data></case><case><gen type=\"formula\" expr=\"_count * 10\"/></case></mix></env><block><line><data>${{_count}} ${{C}}</data></line></block></tdc>",
+      "expected": ["1 -", "2 20", "3 -", "4 40", "5 50", "6 -", "7 70", "8 -"]
+    },
+    {
+      "name": "a-formula-in-a-branch-over-an-empty-cell",
+      "description": "A column that is empty on this row leaves the formula’s part empty — a zero nobody generated is not an answer.",
+      "config": "<tdc><env count=\"8\" seed=\"br\" local=\"en\" mode=\"memory\"><sequence name=\"N\"><gen type=\"number\" value=\"1..9\" missing=\"0.5\"/></sequence><mix name=\"C\"><case><data>n=</data><gen type=\"formula\" expr=\"N + 1\"/></case></mix></env><block><line><data>${{N}}|${{C}}</data></line></block></tdc>",
+      "expected": [
+        "8|n=9",
+        "|n=",
+        "9|n=10",
+        "|n=",
+        "|n=",
+        "5|n=6",
+        "|n=",
+        "|n="
+      ]
+    },
+    {
+      "name": "a-date-offset-in-a-mix-case",
+      "description": "The silent half of the report: a date offset in a <case> dropped of= and plus= and drew an unrelated date — `D=2020-03-05 C=1975-09-23` — from a config check called valid. Every measured row is now its own D plus one day.",
+      "config": "<tdc><env count=\"8\" seed=\"br\" local=\"en\" mode=\"memory\"><sequence name=\"D\"><gen type=\"date\" from=\"2026-01-01\" to=\"2026-12-31\" format=\"YYYY-MM-DD\"/></sequence><mix name=\"C\" percent=\"50\"><case><data>-</data></case><case><gen type=\"date\" of=\"D\" plus=\"1d\" format=\"YYYY-MM-DD\"/></case></mix></env><block><line><data>${{D}} ${{C}}</data></line></block></tdc>",
+      "expected": [
+        "2026-03-12 -",
+        "2026-10-01 2026-10-02",
+        "2026-05-16 -",
+        "2026-06-22 2026-06-23",
+        "2026-09-25 2026-09-26",
+        "2026-04-19 -",
+        "2026-11-10 2026-11-11",
+        "2026-08-22 -"
+      ]
+    },
+    {
+      "name": "a-date-offset-in-a-case-measures-the-value-not-its-spelling",
+      "description": "The source is written DD.MM.YYYY, which nothing should guess at. It keeps the instant it generated beside its text because an offset inside a <case> reads it — the same promise the whole-column offset makes.",
+      "config": "<tdc><env count=\"8\" seed=\"br\" local=\"en\" mode=\"memory\"><sequence name=\"D\"><gen type=\"date\" from=\"2026-01-01\" to=\"2026-12-31\" format=\"DD.MM.YYYY\"/></sequence><sequence name=\"X\"><gen type=\"number\" value=\"0..3\"/></sequence><switch name=\"C\" on=\"X\"><case is=\"0\"><data>-</data></case><default><gen type=\"date\" of=\"D\" plus=\"1mo\" format=\"D MMMM YYYY\"/></default></switch></env><block><line><data>${{D}} ${{X}} ${{C}}</data></line></block></tdc>",
+      "expected": [
+        "12.03.2026 0 -",
+        "01.10.2026 3 1 November 2026",
+        "16.05.2026 0 -",
+        "22.06.2026 2 22 July 2026",
+        "25.09.2026 2 25 October 2026",
+        "19.04.2026 3 19 May 2026",
+        "10.11.2026 0 -",
+        "22.08.2026 1 22 September 2026"
+      ]
+    },
+    {
+      "name": "a-ranged-date-offset-in-a-case",
+      "description": "A ranged plus= draws its step from the row’s own stream, so the step a row gets does not depend on which other rows the branch holds. The expected lines pin the exact dates.",
+      "config": "<tdc><env count=\"10\" seed=\"br\" local=\"en\" mode=\"memory\"><sequence name=\"D\"><gen type=\"date\" from=\"2026-01-01\" to=\"2026-12-31\" format=\"YYYY-MM-DD\"/></sequence><mix name=\"C\" percent=\"40,60\"><case><data>-</data></case><case><gen type=\"date\" of=\"D\" plus=\"3..10d\" format=\"YYYY-MM-DD\"/></case></mix></env><block><line><data>${{D}} ${{C}}</data></line></block></tdc>",
+      "expected": [
+        "2026-03-12 -",
+        "2026-10-01 2026-10-05",
+        "2026-05-16 -",
+        "2026-06-22 2026-06-25",
+        "2026-09-25 2026-09-29",
+        "2026-04-19 2026-04-26",
+        "2026-11-10 2026-11-20",
+        "2026-08-22 -",
+        "2026-08-22 -",
+        "2026-06-30 2026-07-09"
+      ]
+    },
+    {
+      "name": "a-date-offset-as-the-fallback-branch",
+      "description": "After the if= branches, the fallback measures a week back from its own row.",
+      "config": "<tdc><env count=\"8\" seed=\"br\" local=\"en\" mode=\"memory\"><sequence name=\"D\"><gen type=\"date\" from=\"2026-01-01\" to=\"2026-12-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"X\"><gen type=\"number\" value=\"0..3\"/></sequence><sequence name=\"C\"><gen if=\"X == 0\" type=\"text\" value=\"-\"/><gen type=\"date\" of=\"D\" plus=\"-1w\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{D}} ${{X}} ${{C}}</data></line></block></tdc>",
+      "expected": [
+        "2026-03-12 0 -",
+        "2026-10-01 3 2026-09-24",
+        "2026-05-16 0 -",
+        "2026-06-22 2 2026-06-15",
+        "2026-09-25 2 2026-09-18",
+        "2026-04-19 3 2026-04-12",
+        "2026-11-10 0 -",
+        "2026-08-22 1 2026-08-15"
+      ]
+    },
+    {
+      "name": "a-date-offset-in-a-branch-over-an-empty-cell",
+      "description": "A source row with no date measures nothing: the offset’s part is empty, beside the literal that is still printed.",
+      "config": "<tdc><env count=\"8\" seed=\"br\" local=\"en\" mode=\"memory\"><sequence name=\"D\"><gen type=\"date\" from=\"2026-01-01\" to=\"2026-12-31\" format=\"YYYY-MM-DD\" missing=\"0.5\"/></sequence><mix name=\"C\"><case><data>d=</data><gen type=\"date\" of=\"D\" plus=\"-2d\" format=\"YYYY-MM-DD\"/></case></mix></env><block><line><data>${{D}}|${{C}}</data></line></block></tdc>",
+      "expected": [
+        "2026-03-12|d=2026-03-10",
+        "2026-10-01|d=2026-09-29",
+        "2026-05-16|d=2026-05-14",
+        "2026-06-22|d=2026-06-20",
+        "2026-09-25|d=2026-09-23",
+        "|d=",
+        "|d=",
+        "2026-08-22|d=2026-08-20"
+      ]
+    }
+  ]
+}
