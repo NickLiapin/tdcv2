@@ -633,6 +633,34 @@ El condicional lee la elección ponderada; no la altera. Sobre 200 filas
 `(?<c>(?%{70:RU;20:US;10:DE}))` sigue dando exactamente 140, 40 y 20 — y la segunda
 mitad de cada fila se sigue de su propia primera mitad.
 
+## Valores únicos — `uniq="true"`
+
+`uniq="true"` da a cada fila una cadena distinta, y las cuotas exactas siguen siendo exactas:
+
+```xml
+<sequence name="Plate" uniq="true">
+    <gen type="advanced_regex" value="(?%{60:77;40:78})[A-Z]{2}[0-9]{3}"/>
+</sequence>
+```
+
+El sesenta por ciento de las matrículas empieza por `77` y el cuarenta por `78`, igual que sin
+`uniq`, y no hay dos matrículas iguales. Primero la columna se reparte cuota por cuota; una
+matrícula que se repite se vuelve a sacar **por las mismas ramas**, así que una fila de `77` sigue
+siendo de `77` y ninguna cuota se mueve ni una fila.
+
+Por eso «¿hay sitio?» se pregunta a cada cuota, no solo al patrón. Cada cuota se cuenta por sus
+propias ramas: `(?%{70:RU;30:US})-[0-9]{3}` produce 2 000 cadenas, y con 2 000 filas su cuota
+RU necesita 1 400 de las 1 000 que empiezan por `RU-`. La corrida se rehúsa antes de volver a
+sacar nada, nombrando la cuota por su porcentaje y ambos números. Una cuota no puede tomar
+prestado de otra sin dejar de ser exacta.
+
+Un condicional que lee un grupo con cuotas sigue de acuerdo con él: el grupo ya está repartido,
+así que la rama que lo lee es la misma tras volver a sacar. Cuando una elección con cuotas está
+dentro de una repetición, de un `|` o de un condicional, las ramas de una fila dependen también de
+sus sorteos libres, y un nuevo intento que se desvía a otras ramas se descarta en lugar de mover
+una cuota. Esa cuota no se puede contar por separado, así que la cuenta del patrón entero ocupa su
+lugar, y una cuota que se agota se informa tras una larga racha de repeticiones, no por adelantado.
+
 ## Vea también
 
 - **[Regex](regex.mdx)** — las construcciones finitas que hereda esta página.

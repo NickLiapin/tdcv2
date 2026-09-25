@@ -41,4 +41,15 @@ class RegexSpaceTest {
           c.get("pattern").asText() + " — " + c.get("why").asText());
     }
   }
+
+  @Test
+  @DisplayName("counts every advanced pattern's space the way the reference counts it")
+  void countsAnAdvancedPatternTheWayTheReferenceDoes() throws IOException {
+    for (JsonNode c : fixture().get("advanced")) {
+      assertEquals(
+          c.get("size").asLong(),
+          AdvancedRegexGen.spaceSize(c.get("pattern").asText(), RegexGen.DEFAULT_MAX_LENGTH),
+          c.get("pattern").asText() + " — " + c.get("why").asText());
+    }
+  }
 }

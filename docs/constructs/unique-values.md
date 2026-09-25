@@ -195,9 +195,11 @@ never repeats: the draw runs **without replacement**. A weighted pack keeps its 
 source holds fewer distinct values than there are records, the run refuses up front and
 names both numbers — never a quiet repeat. Supported sources: `text` value lists,
 `template` packs, `file` columns, plain integer ranges (`value="1..100000"`) and
-[`regex` patterns](../generators/regex.md#top), which are finite and so can be counted;
-`increment`/`decrement` are unique by construction. A generator whose values cannot be
-counted (`advanced_regex`, `date`, …) is refused with a message saying exactly that.
+[`regex`](../generators/regex.md#top) and [`advanced_regex`](../generators/advanced-regex.md#top)
+patterns, which are finite and so can be counted — an `advanced_regex` pattern keeps its weighted
+shares exact, and each share has to have room for its own rows; `increment`/`decrement` are
+unique by construction. A generator whose values cannot be counted (`date`, …) is refused with a
+message saying exactly that.
 
 ```xml
 <sequence name="Person" uniq="true">

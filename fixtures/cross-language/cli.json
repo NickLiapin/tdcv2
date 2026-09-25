@@ -709,6 +709,58 @@
       "note": "(a|a) is counted as two strings and makes one, so a count of two passes the size check and cannot be met. The drawing notices after a run of repeats — 100 000 at least — and says so. Every implementation has to stop on the same draw."
     },
     {
+      "name": "uniq over an advanced_regex pattern refuses a share its branches cannot fill",
+      "files": {
+        "uniq.tdc": "<tdc><env count=\"2000\" seed=\"u\" local=\"en\"><sequence name=\"G\" uniq=\"true\"><gen type=\"advanced_regex\" value=\"(?%{70:RU;30:US})-[0-9]{3}\"/></sequence></env><block><line><data>${{G}}</data></line></block></tdc>"
+      },
+      "argv": ["{dir}/uniq.tdc"],
+      "exit": 1,
+      "stderrContains": [
+        "the 70% (branch 1 of 2) share of the pattern",
+        "is 1400 rows, and it can make at most 1000 different strings"
+      ],
+      "note": "The whole pattern makes 2 000 strings — exactly as many as asked for — so a check on the pattern alone would pass. The 70% share needs 1 400 of the 1 000 that start RU-, and a share cannot borrow from another without stopping being exact."
+    },
+    {
+      "name": "uniq over an advanced_regex pattern names a nested share by both branches it took",
+      "files": {
+        "uniq.tdc": "<tdc><env count=\"30\" seed=\"u\" local=\"en\"><sequence name=\"G\" uniq=\"true\"><gen type=\"advanced_regex\" value=\"(?%{50:(?%{50:a;50:b});50:c})[0-9]\"/></sequence></env><block><line><data>${{G}}</data></line></block></tdc>"
+      },
+      "argv": ["{dir}/uniq.tdc"],
+      "exit": 1,
+      "stderrContains": [
+        "the 50% (branch 2 of 2) share of the pattern",
+        "is 15 rows, and it can make at most 10 different strings"
+      ],
+      "note": "30 strings in all, 30 asked for; the c share is half the rows, 15, from 10."
+    },
+    {
+      "name": "uniq over an advanced_regex pattern refuses a count the whole pattern cannot hold",
+      "files": {
+        "uniq.tdc": "<tdc><env count=\"3\" seed=\"u\" local=\"en\"><sequence name=\"G\" uniq=\"true\"><gen type=\"advanced_regex\" value=\"(?%{50:a;50:b})\"/></sequence></env><block><line><data>${{G}}</data></line></block></tdc>"
+      },
+      "argv": ["{dir}/uniq.tdc"],
+      "exit": 1,
+      "stderrContains": [
+        "cannot produce 3 unique values",
+        "the pattern \"(?%{50:a;50:b})\" makes at most 2 different strings"
+      ],
+      "note": "Checked before the shares, in the same words as a plain pattern."
+    },
+    {
+      "name": "uniq over an advanced_regex pattern counted high stops naming the share",
+      "files": {
+        "uniq.tdc": "<tdc><env count=\"2\" seed=\"u\" local=\"en\"><sequence name=\"G\" uniq=\"true\"><gen type=\"advanced_regex\" value=\"(?%{100:(a|a)})\"/></sequence></env><block><line><data>${{G}}</data></line></block></tdc>"
+      },
+      "argv": ["{dir}/uniq.tdc"],
+      "exit": 1,
+      "stderrContains": [
+        "after 1 unique values the 100% (branch 1 of 1) share of the pattern",
+        "produced only ones already drawn"
+      ],
+      "note": "Counted as two strings, makes one. The drawing stops after the run of repeats, on the same draw in every implementation."
+    },
+    {
       "name": "a pack file is placed by its header, not by its path",
       "note": "Two routes, one file each: `address:` names the address outright, and `locale:` supplies the missing locale for a path-derived one. Both let someone keep a flat folder of their own lists instead of rebuilding the locale tree to hold two files, and both have to work in every implementation — the reference builds an address index when it scans, and the ports build the same index the first time a path lookup misses.",
       "files": {

@@ -17,6 +17,48 @@ page — is tracked in that implementation's own changelog:
 
 ### Added
 
+<!-- covers: uniq over an advanced_regex pattern -->
+
+- **`uniq="true"` takes an `advanced_regex` pattern, and its weighted shares stay exact.**
+
+  ```xml
+  <sequence name="Plate" uniq="true">
+      <gen type="advanced_regex" value="(?%{60:77;40:78})[A-Z]{2}[0-9]{3}"/>
+  </sequence>
+  ```
+
+  Measured at 1 000 rows: exactly 600 plates start `77` and 400 start `78`, as without `uniq`,
+  and all 1 000 differ. A weighted choice is a promise about the COLUMN and uniqueness a promise
+  about every row, so the column is dealt first, share by share, and a value that repeats is
+  drawn again along the branches its row was dealt. No share moves by a single row; rows whose
+  values already differed are left exactly as dealt.
+
+  That changes the question "is there room?". `(?%{70:RU;30:US})-[0-9]{3}` can make 2 000 strings
+  — exactly as many as 2 000 rows ask for — and its RU share needs 1 400 of the 1 000 that start
+  `RU-`. A check on the pattern alone would pass and then stall. So each share is counted along
+  its own branches, and a share that cannot fill its rows is refused before anything is redrawn:
+  "the 70% (branch 1 of 2) share … is 1400 rows, and it can make at most 1000 different
+  strings". A nested share is named by both branches it took.
+
+  A conditional that reads a weighted group keeps agreeing with it after a redraw — the group is
+  dealt, so the branch that reads it is too. Where a weighted choice stands under a repeat, an `|`
+  or a conditional, a row's branches also depend on its free draws; a redraw that wanders onto
+  different branches is thrown away rather than moving a share, the share is counted with the
+  pattern's whole count, and one that runs dry is reported after a run of repeats.
+
+  Weighted choices are told apart by identity, never by value. In Python and Java a node compares
+  equal to another written the same way — a dataclass, a record whose branch list compares by
+  content — and `(x(?%{50:a;50:b})|y(?%{50:a;50:b}))` would let a redraw carry an x row to the y
+  side. A shared case pins exactly that pattern, and it was checked by putting value equality back
+  in both: the case failed in both. Rust nodes have no equality to misuse, and C# records compare
+  their branch lists by reference; in those two the case was checked by removing the identity
+  test altogether, and it failed there too.
+
+  Pinned five ways: the whole-pattern count for ten advanced patterns in `regex-space.json`;
+  seven shared cases for the exact sequence of redraws — shares, a whole space, a conditional, a
+  nested choice, a choice inside `{2}`, a choice under `|` where redraws stray, and the twins —
+  and four refusals in `cli.json`.
+
 <!-- covers: uniq over a regex pattern -->
 
 - **`uniq="true"` takes a `regex` pattern.** A plate number, an invoice code, an order ID —

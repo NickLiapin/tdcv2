@@ -34,3 +34,23 @@ fn counts_the_space_the_reference_counts() {
         assert_eq!(got, want, "{pattern} — {why}");
     }
 }
+
+#[test]
+fn counts_an_advanced_pattern_the_way_the_reference_does() {
+    let f = common::read_fixture("regex-space.json");
+    let patterns = f
+        .get("advanced")
+        .and_then(Value::as_array)
+        .expect("advanced");
+    for case in patterns {
+        let pattern = case
+            .get("pattern")
+            .and_then(Value::as_str)
+            .expect("pattern");
+        let want = case.get("size").and_then(Value::as_i64).expect("size") as u64;
+        let why = case.get("why").and_then(Value::as_str).unwrap_or("");
+        let got = tdcv2::generators::advanced_regex::space_size(pattern, DEFAULT_MAX_LENGTH)
+            .expect("the pattern parses");
+        assert_eq!(got, want, "{pattern} — {why}");
+    }
+}

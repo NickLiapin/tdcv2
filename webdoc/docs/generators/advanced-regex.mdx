@@ -619,6 +619,34 @@ The conditional reads the weighted choice; it does not disturb it. Over 200 rows
 `(?<c>(?%{70:RU;20:US;10:DE}))` still gives exactly 140, 40 and 20 — and each row's
 second half follows from its own first half.
 
+## Unique values — `uniq="true"`
+
+`uniq="true"` gives every row a different string, and the exact shares stay exact:
+
+```xml
+<sequence name="Plate" uniq="true">
+    <gen type="advanced_regex" value="(?%{60:77;40:78})[A-Z]{2}[0-9]{3}"/>
+</sequence>
+```
+
+Sixty percent of the plates start `77` and forty percent `78`, exactly as without `uniq`, and no
+two plates are the same. The column is dealt first, share by share; a plate that repeats is then
+drawn again **along the same branches**, so a `77` row stays a `77` row and no share moves by a
+single row.
+
+That makes "is there room?" a question for every share, not only for the pattern. Each share is
+counted along its own branches — `(?%{70:RU;30:US})-[0-9]{3}` can make 2 000 strings, and at
+2 000 rows its RU share needs 1 400 of the 1 000 that start `RU-`. The run is refused before
+anything is redrawn, naming the share by its percentage and both numbers. A share cannot borrow
+from another without stopping being exact.
+
+A conditional that reads a weighted group keeps agreeing with it: the group is dealt, so the
+branch that reads it is the same after a redraw. Where a weighted choice stands under a repeat,
+an `|` or a conditional, a row's branches depend on its free draws too, and a redraw that wanders
+onto different branches is thrown away rather than moving a share. Its share then cannot be
+counted on its own, so the pattern's whole count stands in, and a share that runs dry is reported
+after a long run of repeats instead of up front.
+
 ## See also
 
 - **[Regex](regex.mdx)** — the finite constructs this page inherits.

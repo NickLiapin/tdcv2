@@ -1,5 +1,6 @@
 package io.github.nickliapin.tdc.engine;
 
+import io.github.nickliapin.tdc.generators.AdvancedRegexGen;
 import io.github.nickliapin.tdc.generators.FileGen;
 import io.github.nickliapin.tdc.generators.RegexGen;
 import io.github.nickliapin.tdc.model.Config;
@@ -48,6 +49,9 @@ public final class UniqSimple {
     }
     if ("regex".equals(gen.type())) {
       return uniqueRegex(name, gen, count, prng, regexMaxLength);
+    }
+    if ("advanced_regex".equals(gen.type())) {
+      return uniqueAdvancedRegex(name, gen, count, prng, regexMaxLength);
     }
     Pool pool = poolOf(name, gen, packs, locale, baseDir);
     if (pool.values.size() < count) {
@@ -175,6 +179,83 @@ public final class UniqSimple {
   }
 
   /**
+   * Unique strings from an {@code advanced_regex} pattern, with every weighted share kept exact.
+   *
+   * <p>The column is dealt as it would be without {@code uniq}; a value that repeats is redrawn
+   * along the branches its row was dealt. Three refusals, in the order a reader meets them: the
+   * whole pattern too small, one share too small (named by its percentage, before any redraw,
+   * wherever the shares can be counted apart), and a run of repeats too long. See the TypeScript
+   * reference, {@code uniqueAdvancedRegexValues}, for the why.
+   */
+  private static List<String> uniqueAdvancedRegex(
+      String name, Config.Gen gen, int count, Prng.Sfc32 prng, int regexMaxLength) {
+    String pattern = gen.attrs().getOrDefault("value", "");
+    AdvancedRegexGen.Planned column =
+        AdvancedRegexGen.plan(gen.attrs(), count, regexMaxLength, prng);
+    if (column.totalSpace < count) {
+      throw new IllegalStateException(
+          "uniq: sequence \"" + name + "\" cannot produce " + count
+              + " unique values — the pattern \"" + pattern + "\" makes at most "
+              + column.totalSpace + " different strings. Widen the pattern, or lower the count.");
+    }
+
+    Map<String, Integer> rowsIn = new java.util.LinkedHashMap<>();
+    for (String key : column.pathKeys) {
+      rowsIn.merge(key, 1, Integer::sum);
+    }
+    for (Map.Entry<String, Integer> share : rowsIn.entrySet()) {
+      Long space = column.pathSpace(share.getKey());
+      String path = column.describePath(share.getKey());
+      if (space != null && !path.isEmpty() && space < share.getValue()) {
+        throw new IllegalStateException(
+            "uniq: sequence \"" + name + "\" — the " + path + " share of the pattern \""
+                + pattern + "\" is " + share.getValue() + " rows, and it can make at most "
+                + space + " different strings. Give that branch a smaller share, widen it, or "
+                + "lower the count.");
+      }
+    }
+
+    List<String> values = new ArrayList<>(column.values);
+    Set<String> seen = new HashSet<>();
+    Map<String, Long> takenIn = new HashMap<>();
+    List<Integer> redo = new ArrayList<>();
+    for (int row = 0; row < values.size(); row++) {
+      if (!seen.add(values.get(row))) {
+        redo.add(row);
+        continue;
+      }
+      takenIn.merge(column.pathKeys.get(row), 1L, Long::sum);
+    }
+
+    for (int row : redo) {
+      String key = column.pathKeys.get(row);
+      Long pathSpace = column.pathSpace(key);
+      long space = pathSpace != null ? pathSpace : column.totalSpace;
+      String path = column.describePath(key);
+      long repeats = 0;
+      while (true) {
+        String candidate = column.redraw(row, prng);
+        if (candidate != null && seen.add(candidate)) {
+          values.set(row, candidate);
+          takenIn.merge(key, 1L, Long::sum);
+          break;
+        }
+        repeats += 1;
+        if (repeats > stallLimit(space, takenIn.getOrDefault(key, 0L))) {
+          String whose = path.isEmpty() ? "the pattern" : "the " + path + " share of the pattern";
+          throw new IllegalStateException(
+              "uniq: sequence \"" + name + "\" — after " + seen.size() + " unique values "
+                  + whose + " \"" + pattern + "\" produced only ones already drawn, " + repeats
+                  + " in a row. Its space of at most " + space + " strings is nearly used up,"
+                  + " or fewer of them differ than its shape suggests. Widen the pattern, or"
+                  + " lower the count.");
+        }
+      }
+    }
+    return values;
+  }
+
+  /**
    * Repeats in a row tolerated: at least 100 000, and twenty times the wait for a fresh value.
    * Integer ceiling division, so five languages stop on the same draw.
    */
@@ -191,8 +272,8 @@ public final class UniqSimple {
           + "without decimals=, distribution=, include=, exclude= or first_zero=";
     }
     return "its values cannot be enumerated (type=\"" + gen.type() + "\") — uniq on a simple "
-        + "sequence supports text lists, template packs, file columns, plain integer ranges "
-        + "and regex patterns";
+        + "sequence supports text lists, template packs, file columns, plain integer ranges, "
+        + "regex and advanced_regex patterns";
   }
 
   private static long[] plainIntRange(Config.Gen gen) {

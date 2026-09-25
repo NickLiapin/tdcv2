@@ -13,6 +13,7 @@ from pathlib import Path
 
 import pytest
 
+from tdcv2.generators import advanced_regex
 from tdcv2.generators.regex import DEFAULT_MAX_LENGTH, SPACE_CAP, space_size
 
 FIXTURE = Path(__file__).resolve().parents[2] / "fixtures" / "cross-language" / "regex-space.json"
@@ -26,3 +27,10 @@ def test_saturates_at_the_same_ceiling():
 @pytest.mark.parametrize("case", DATA["patterns"], ids=lambda c: c["pattern"])
 def test_counts_the_space_the_reference_counts(case):
     assert space_size(case["pattern"], DEFAULT_MAX_LENGTH) == case["size"], case["why"]
+
+
+@pytest.mark.parametrize("case", DATA["advanced"], ids=lambda c: c["pattern"])
+def test_counts_an_advanced_pattern_the_way_the_reference_does(case):
+    assert advanced_regex.space_size(case["pattern"], DEFAULT_MAX_LENGTH) == case["size"], case[
+        "why"
+    ]

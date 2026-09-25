@@ -46,6 +46,11 @@ internal static class UniqSimple
             return UniqueRegex(name, gen, count, prng, regexMaxLength);
         }
 
+        if (gen.Type == "advanced_regex")
+        {
+            return UniqueAdvancedRegex(name, gen, count, prng, regexMaxLength);
+        }
+
         (List<string> values, List<double> weights) = PoolOf(name, gen, packs, locale, baseDir);
         if (values.Count < count)
         {
@@ -202,6 +207,104 @@ internal static class UniqSimple
     }
 
     /// <summary>
+    /// Unique strings from an <c>advanced_regex</c> pattern, with every weighted share kept exact.
+    /// </summary>
+    /// <remarks>
+    /// The column is dealt as it would be without <c>uniq</c>; a value that repeats is redrawn
+    /// along the branches its row was dealt. Three refusals, in the order a reader meets them: the
+    /// whole pattern too small, one share too small (named by its percentage, before any redraw,
+    /// wherever the shares can be counted apart), and a run of repeats too long. See the
+    /// TypeScript reference, <c>uniqueAdvancedRegexValues</c>, for the why.
+    /// </remarks>
+    private static List<string> UniqueAdvancedRegex(
+        string name, Gen gen, int count, Prng.Sfc32 prng, int regexMaxLength)
+    {
+        string pattern = gen.Attrs.GetValueOrDefault("value", "");
+        AdvancedRegexGen.Planned column = AdvancedRegexGen.Plan(gen.Attrs, count, regexMaxLength, prng);
+        if (column.TotalSpace < count)
+        {
+            throw new InvalidOperationException(
+                $"uniq: sequence \"{name}\" cannot produce {count} unique values — the pattern "
+                + $"\"{pattern}\" makes at most {column.TotalSpace} different strings. Widen the "
+                + "pattern, or lower the count.");
+        }
+
+        // Rows per share, in the order the shares first appear in the column.
+        var order = new List<string>();
+        var rowsIn = new Dictionary<string, int>(StringComparer.Ordinal);
+        foreach (string key in column.PathKeys)
+        {
+            if (!rowsIn.ContainsKey(key))
+            {
+                order.Add(key);
+                rowsIn[key] = 0;
+            }
+
+            rowsIn[key] += 1;
+        }
+
+        foreach (string key in order)
+        {
+            long? space = column.PathSpace(key);
+            string path = column.DescribePath(key);
+            if (space is not null && path.Length > 0 && space < rowsIn[key])
+            {
+                throw new InvalidOperationException(
+                    $"uniq: sequence \"{name}\" — the {path} share of the pattern \"{pattern}\" is "
+                    + $"{rowsIn[key]} rows, and it can make at most {space} different strings. Give "
+                    + "that branch a smaller share, widen it, or lower the count.");
+            }
+        }
+
+        List<string> values = column.Values;
+        var seen = new HashSet<string>(StringComparer.Ordinal);
+        var takenIn = new Dictionary<string, long>(StringComparer.Ordinal);
+        var redo = new List<int>();
+        for (int row = 0; row < values.Count; row++)
+        {
+            if (!seen.Add(values[row]))
+            {
+                redo.Add(row);
+                continue;
+            }
+
+            string key = column.PathKeys[row];
+            takenIn[key] = takenIn.GetValueOrDefault(key) + 1;
+        }
+
+        foreach (int row in redo)
+        {
+            string key = column.PathKeys[row];
+            long space = column.PathSpace(key) ?? column.TotalSpace;
+            string path = column.DescribePath(key);
+            long repeats = 0;
+            while (true)
+            {
+                string? candidate = column.Redraw(row, prng);
+                if (candidate is not null && seen.Add(candidate))
+                {
+                    values[row] = candidate;
+                    takenIn[key] = takenIn.GetValueOrDefault(key) + 1;
+                    break;
+                }
+
+                repeats += 1;
+                if (repeats > StallLimit(space, takenIn.GetValueOrDefault(key)))
+                {
+                    string whose = path.Length == 0 ? "the pattern" : $"the {path} share of the pattern";
+                    throw new InvalidOperationException(
+                        $"uniq: sequence \"{name}\" — after {seen.Count} unique values {whose} "
+                        + $"\"{pattern}\" produced only ones already drawn, {repeats} in a row. Its "
+                        + $"space of at most {space} strings is nearly used up, or fewer of them "
+                        + "differ than its shape suggests. Widen the pattern, or lower the count.");
+                }
+            }
+        }
+
+        return values;
+    }
+
+    /// <summary>
     /// Repeats in a row tolerated: at least 100 000, and twenty times the wait for a fresh value.
     /// Integer ceiling division, so five languages stop on the same draw.
     /// </summary>
@@ -218,8 +321,8 @@ internal static class UniqSimple
             ? "its values are not a plain integer range — uniq supports value=\"a..b\" without "
               + "decimals=, distribution=, include=, exclude= or first_zero="
             : $"its values cannot be enumerated (type=\"{gen.Type}\") — uniq on a simple "
-              + "sequence supports text lists, template packs, file columns, plain integer ranges "
-              + "and regex patterns";
+              + "sequence supports text lists, template packs, file columns, plain integer ranges, "
+              + "regex and advanced_regex patterns";
 
     private static (long, long)? PlainIntRange(Gen gen)
     {

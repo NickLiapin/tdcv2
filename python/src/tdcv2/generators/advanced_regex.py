@@ -29,6 +29,7 @@ from .regex import (
     ALPHABET_NAME,
     DIGITS,
     PRINTABLE_ASCII,
+    SPACE_CAP,
     SPACES,
     WORD,
     Alternation,
@@ -142,11 +143,14 @@ def has_weighted_choice(pattern: str) -> bool:
 class _Row:
     """One row under construction, with the captures it has closed so far."""
 
-    __slots__ = ("captures", "out")
+    __slots__ = ("captures", "dealt", "out")
 
-    def __init__(self) -> None:
+    def __init__(self, dealt: list[tuple[WeightedChoice, int]] | None = None) -> None:
         self.out = ""
         self.captures: dict[int, str] = {}
+        #: Every weighted branch this row was dealt, in the order it met them — kept only when a
+        #: unique column asks, so it can redraw the row along the SAME branches.
+        self.dealt = dealt
 
 
 def _generate_rows(root: Node, count: int, prng: Sfc32) -> list[str]:
@@ -228,6 +232,8 @@ def _generate_weighted(node: WeightedChoice, rows: list[_Row], prng: Sfc32) -> N
     buckets: list[list[_Row]] = [[] for _ in node.choices]
     for row, index in zip(rows, selected, strict=True):
         buckets[index].append(row)
+        if row.dealt is not None:
+            row.dealt.append((node, index))
     for choice, bucket in zip(node.choices, buckets, strict=True):
         if bucket:
             _generate_into(choice.node, bucket, prng)
@@ -252,6 +258,224 @@ def _generate_conditional(node: Conditional, rows: list[_Row], prng: Sfc32) -> N
     for branch, bucket in zip(node.branches, buckets, strict=True):
         if bucket:
             _generate_into(branch.node, bucket, prng)
+
+
+# ── uniq="true" over a pattern ──────────────────────────────────────────────────────────────
+
+
+def space_size(pattern: str, regex_max_length: int) -> int:
+    """The most different strings a pattern can make — counted as :func:`regex.space_size` counts,
+    with a weighted choice adding its branches and a conditional adding its branches plus the empty
+    string a row that matches none contributes (unless a ``*`` branch leaves no such row).
+    """
+    return _space(compile_pattern(pattern, regex_max_length).root, None)
+
+
+class PlannedColumn:
+    """A column dealt exactly as :func:`generate` deals it, able to redraw one row without moving
+    a single exact share. See the TypeScript reference, ``PlannedAdvancedColumn``, for the why.
+
+    Weighted choices are told apart by IDENTITY, never by equality: they are frozen dataclasses,
+    so two written the same way compare equal, and a row dealt the first would be read as having
+    been dealt the second.
+    """
+
+    def __init__(self, root: Node, rows: list[_Row]) -> None:
+        self._root = root
+        self._rows = rows
+        self.values = [row.out for row in rows]
+        self.total_space = _space(root, None)
+        ids: dict[int, int] = {}
+        _number_weighted(root, ids)
+        self._spine = _on_spine(root, False)
+
+        def key_of(dealt: list[tuple[WeightedChoice, int]]) -> str:
+            if not self._spine:
+                return ""
+            return "/".join(f"{ids[id(node)]}.{branch}" for node, branch in dealt)
+
+        self.path_keys = [key_of(row.dealt or []) for row in rows]
+        self._first: dict[str, list[tuple[WeightedChoice, int]]] = {}
+        for key, row in zip(self.path_keys, rows, strict=True):
+            self._first.setdefault(key, row.dealt or [])
+        self._spaces: dict[str, int] = {}
+
+    def path_space(self, key: str) -> int | None:
+        """The strings a path can make, or ``None`` when the shares cannot be counted apart."""
+        if not self._spine:
+            return None
+        if key not in self._spaces:
+            along = {id(node): branch for node, branch in self._first.get(key, [])}
+            self._spaces[key] = _space(self._root, along)
+        return self._spaces[key]
+
+    def describe_path(self, key: str) -> str:
+        """``70% (branch 1 of 2)``, joined by `` → ``, for a refusal.
+
+        Empty where the shares are not counted apart: every row is then in one group, and naming
+        the branches its first row happened to take would describe a share nobody is held to.
+        """
+        if not self._spine:
+            return ""
+        return " → ".join(
+            f"{numbers.to_text(node.choices[branch].percent)}% "
+            f"(branch {branch + 1} of {len(node.choices)})"
+            for node, branch in self._first.get(key, [])
+        )
+
+    def redraw(self, row: int, prng: Sfc32) -> str | None:
+        """One more value for ``row`` along its dealt branches, or ``None`` if the walk strayed."""
+        dealt = self._rows[row].dealt or []
+        fresh = _Row()
+        cursor = [0]
+        if not _draw_along(self._root, fresh, dealt, cursor, prng):
+            return None
+        return fresh.out if cursor[0] == len(dealt) else None
+
+
+def plan_column(
+    attrs: dict[str, str], count: int, document_max_length: int, prng: Sfc32
+) -> PlannedColumn:
+    """Deal a column exactly as :func:`generate` would, remembering each row's weighted branches."""
+    limit = (
+        parse_max_length(attrs["regex_max_length"])
+        if attrs.get("regex_max_length") is not None
+        else document_max_length
+    )
+    root = compile_pattern(attrs.get("value", ""), limit).root
+    rows = [_Row([]) for _ in range(count)]
+    _generate_into(root, rows, prng)
+    return PlannedColumn(root, rows)
+
+
+def _draw_along(
+    node: Node,
+    row: _Row,
+    dealt: list[tuple[WeightedChoice, int]],
+    cursor: list[int],
+    prng: Sfc32,
+) -> bool:
+    """One row walked as :func:`_generate_into` walks a bucket of one — except that a weighted
+    choice takes the branch the row was dealt. ``False`` as soon as it meets a weighted choice the
+    row did not meet at this point the first time."""
+    if isinstance(node, Empty):
+        return True
+    if isinstance(node, Literal):
+        row.out += node.value
+        return True
+    if isinstance(node, Chars):
+        row.out += rand.pick(prng, node.chars)
+        return True
+    if isinstance(node, Sequence):
+        return all(_draw_along(part, row, dealt, cursor, prng) for part in node.parts)
+    if isinstance(node, Alternation):
+        choice = node.choices[rand.next_int(prng, 0, len(node.choices))]
+        return _draw_along(choice, row, dealt, cursor, prng)
+    if isinstance(node, Repeat):
+        times = rand.next_int(prng, node.min, node.max + 1)
+        return all(_draw_along(node.node, row, dealt, cursor, prng) for _ in range(times))
+    if isinstance(node, Capture):
+        start = len(row.out)
+        if not _draw_along(node.node, row, dealt, cursor, prng):
+            return False
+        row.captures[node.index] = row.out[start:]
+        return True
+    if isinstance(node, Backref):
+        row.out += row.captures.get(node.index, "")
+        return True
+    if isinstance(node, WeightedChoice):
+        at = cursor[0]
+        if at >= len(dealt) or dealt[at][0] is not node:
+            return False
+        cursor[0] = at + 1
+        return _draw_along(node.choices[dealt[at][1]].node, row, dealt, cursor, prng)
+    if isinstance(node, Conditional):
+        for branch in node.branches:
+            if branch.test is None or row.captures.get(branch.test[0], "") == branch.test[1]:
+                return _draw_along(branch.node, row, dealt, cursor, prng)
+        return True
+    raise AssertionError(f"advanced_regex: unhandled node {node}")
+
+
+def _number_weighted(node: Node, ids: dict[int, int]) -> None:
+    if isinstance(node, Sequence):
+        for part in node.parts:
+            _number_weighted(part, ids)
+    elif isinstance(node, Alternation):
+        for choice in node.choices:
+            _number_weighted(choice, ids)
+    elif isinstance(node, (Repeat, Capture)):
+        _number_weighted(node.node, ids)
+    elif isinstance(node, WeightedChoice):
+        ids[id(node)] = len(ids)
+        for choice in node.choices:
+            _number_weighted(choice.node, ids)
+    elif isinstance(node, Conditional):
+        for branch in node.branches:
+            _number_weighted(branch.node, ids)
+
+
+def _on_spine(node: Node, under_draw: bool) -> bool:
+    """Every weighted choice passed exactly once by each row reaching its parent."""
+    if isinstance(node, WeightedChoice):
+        return not under_draw and all(_on_spine(c.node, False) for c in node.choices)
+    if isinstance(node, Sequence):
+        return all(_on_spine(part, under_draw) for part in node.parts)
+    if isinstance(node, Capture):
+        return _on_spine(node.node, under_draw)
+    if isinstance(node, Alternation):
+        return all(_on_spine(choice, True) for choice in node.choices)
+    if isinstance(node, Repeat):
+        return _on_spine(node.node, True)
+    if isinstance(node, Conditional):
+        return all(_on_spine(branch.node, True) for branch in node.branches)
+    return True
+
+
+def _space(node: Node, along: dict[int, int] | None) -> int:
+    """Strings ``node`` can make — along ``along``'s branches where it names a weighted choice."""
+    if isinstance(node, (Empty, Literal, Backref)):
+        return 1
+    if isinstance(node, Chars):
+        return len(set(node.chars))
+    if isinstance(node, Sequence):
+        total = 1
+        for part in node.parts:
+            total = min(total * _space(part, along), SPACE_CAP)
+        return total
+    if isinstance(node, Alternation):
+        total = 0
+        for choice in node.choices:
+            total = min(total + _space(choice, along), SPACE_CAP)
+        return total
+    if isinstance(node, Capture):
+        return _space(node.node, along)
+    if isinstance(node, Repeat):
+        inner = _space(node.node, along)
+        term = 1
+        for _ in range(node.min):
+            term = min(term * inner, SPACE_CAP)
+        total = 0
+        for _ in range(node.min, node.max + 1):
+            total = min(total + term, SPACE_CAP)
+            term = min(term * inner, SPACE_CAP)
+        return total
+    if isinstance(node, WeightedChoice):
+        if along is not None and id(node) in along:
+            return _space(node.choices[along[id(node)]].node, along)
+        total = 0
+        for choice in node.choices:
+            total = min(total + _space(choice.node, along), SPACE_CAP)
+        return total
+    if isinstance(node, Conditional):
+        total = 0
+        for branch in node.branches:
+            total = min(total + _space(branch.node, along), SPACE_CAP)
+        # A row that matches no branch appends nothing: one more outcome, unless `*` catches it.
+        if not any(branch.test is None for branch in node.branches):
+            total = min(total + 1, SPACE_CAP)
+        return total
+    raise AssertionError(f"advanced_regex: unhandled node {node}")
 
 
 def _max_length(node: Node, capture_max_lengths: dict[int, int]) -> int:

@@ -55,12 +55,12 @@ describe('uniq on a simple sequence', () => {
     );
   });
 
-  it('a generator whose values cannot be enumerated is refused, not ignored', async () => {
-    // `advanced_regex`, not `regex`: a plain pattern is finite and countable, and takes the
-    // redraw path below. The advanced one weighs its branches and reads what it wrote.
-    await expect(valuesOf('<gen type="advanced_regex" value="[a-z]{4}"/>', 10)).rejects.toThrow(
-      /cannot be enumerated/,
-    );
+  it('a generator whose values cannot be counted is refused, not ignored', async () => {
+    // A date, not a pattern: both kinds of pattern are finite and countable, and take the redraw
+    // paths below.
+    await expect(
+      valuesOf('<gen type="date" from="2026-01-01" to="2026-03-01" format="YYYY-MM-DD"/>', 10),
+    ).rejects.toThrow(/cannot be enumerated/);
   });
 
   it('duplicate strings in the source merge — the pool counts distinct VALUES', async () => {
@@ -132,5 +132,91 @@ describe('uniq over a regex pattern', () => {
     const a = await valuesOf('<gen type="regex" value="[A-Z]{2}[0-9]{3}"/>', 500);
     const b = await valuesOf('<gen type="regex" value="[A-Z]{2}[0-9]{3}"/>', 500);
     expect(a).toEqual(b);
+  });
+});
+
+/**
+ * `uniq="true"` over an `advanced_regex` pattern — the plain pattern's redraw, with the one thing
+ * this generator adds kept exact: its weighted shares. The column is dealt as it would be without
+ * `uniq`; a repeated value is redrawn along the branches its row was dealt, so no share moves by a
+ * single row; and "is there room?" is asked of each share as well as of the whole pattern.
+ */
+describe('uniq over an advanced_regex pattern', () => {
+  const adv = (pattern: string): string => `<gen type="advanced_regex" value="${pattern}"/>`;
+  const share = (out: readonly string[], prefix: string): number =>
+    out.filter((v) => v.startsWith(prefix)).length;
+
+  it('keeps every weighted share exact while making every row different', async () => {
+    const out = await valuesOf(adv('(?%{70:RU;30:US})-[0-9]{4}'), 2000);
+    expect(new Set(out).size).toBe(2000);
+    expect(share(out, 'RU')).toBe(1400);
+    expect(share(out, 'US')).toBe(600);
+  });
+
+  it('a share too small for its rows is refused by its percentage, before any redraw', async () => {
+    // The whole pattern makes 2 000 strings — exactly as many as asked for. The RU share needs
+    // 1 400 of the 1 000 that start RU-, and that is the refusal a reader can act on.
+    await expect(valuesOf(adv('(?%{70:RU;30:US})-[0-9]{3}'), 2000)).rejects.toThrow(
+      /the 70% \(branch 1 of 2\) share of the pattern ".*" is 1400 rows, and it can make at most 1000 different strings/,
+    );
+  });
+
+  it('the whole pattern too small is refused first, as for a plain pattern', async () => {
+    await expect(valuesOf(adv('(?%{50:a;50:b})'), 3)).rejects.toThrow(
+      /cannot produce 3 unique values — the pattern ".*" makes at most 2/,
+    );
+  });
+
+  it('every string of every share, with the shares still exact', async () => {
+    const out = await valuesOf(adv('(?%{50:A;50:B})[0-9]{2}'), 200);
+    expect(new Set(out).size).toBe(200);
+    expect(share(out, 'A')).toBe(100);
+    expect(share(out, 'B')).toBe(100);
+  });
+
+  it('a conditional that reads a weighted group still agrees with it after a redraw', async () => {
+    // M rows take [a-c], F rows [x-z]: thirty strings each, and all thirty of each are asked for.
+    const out = await valuesOf(adv('(?<s>(?%{50:M;50:F}))-(?if{s=M:[a-c];s=F:[x-z]})[0-9]'), 60);
+    expect(new Set(out).size).toBe(60);
+    for (const v of out) expect(v).toMatch(/^(M-[a-c]|F-[x-z])[0-9]$/);
+    expect(share(out, 'M')).toBe(30);
+  });
+
+  it('a nested share is counted along both branches it took', async () => {
+    const pattern = '(?%{50:(?%{50:a;50:b});50:c})[0-9]';
+    const out = await valuesOf(adv(pattern), 20);
+    expect([share(out, 'a'), share(out, 'b'), share(out, 'c')]).toEqual([5, 5, 10]);
+    expect(new Set(out).size).toBe(20);
+    await expect(valuesOf(adv(pattern), 30)).rejects.toThrow(
+      /the 50% \(branch 2 of 2\) share .* is 15 rows, and it can make at most 10/,
+    );
+  });
+
+  it('a weighted choice inside a repeat stays exact at every step', async () => {
+    const out = await valuesOf(adv('((?%{50:a;50:b})){2}[0-9]'), 30);
+    expect(new Set(out).size).toBe(30);
+    expect(out.filter((v) => v.startsWith('a'))).toHaveLength(15);
+    expect(out.filter((v) => v[1] === 'a')).toHaveLength(15);
+  });
+
+  it('a row under an alternation stays on the side it was dealt when it is redrawn', async () => {
+    // Weighted choice under a free alternation: a redraw that wanders to the other side meets a
+    // different set of weighted choices, and is thrown away rather than moving a share.
+    const out = await valuesOf(adv('(x|(?%{50:a;50:b}))[0-9]{2}'), 60);
+    expect(new Set(out).size).toBe(60);
+    // The a and b rows are dealt between themselves exactly, however many took that side — so
+    // an odd number splits one apart, never more.
+    expect(Math.abs(share(out, 'a') - share(out, 'b'))).toBeLessThanOrEqual(1);
+  });
+
+  it('a pattern counted high stops with the reason, naming the share', async () => {
+    await expect(valuesOf(adv('(?%{100:(a|a)})'), 2)).rejects.toThrow(
+      /after 1 unique values the 100% \(branch 1 of 1\) share of the pattern/,
+    );
+  });
+
+  it('deterministic: the same seed gives the same rows, in the same order', async () => {
+    const body = adv('(?%{60:77;40:78})[A-Z]{2}[0-9]{2}');
+    expect(await valuesOf(body, 800)).toEqual(await valuesOf(body, 800));
   });
 });

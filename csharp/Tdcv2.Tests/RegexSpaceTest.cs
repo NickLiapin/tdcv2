@@ -41,4 +41,19 @@ public class RegexSpaceTest
                 $"{pattern}: expected {want}, counted {got} — {c.GetProperty("why").GetString()}");
         }
     }
+
+    [Fact]
+    public void CountsAnAdvancedPatternTheWayTheReferenceDoes()
+    {
+        using JsonDocument doc = Fixture();
+        foreach (JsonElement c in doc.RootElement.GetProperty("advanced").EnumerateArray())
+        {
+            string pattern = c.GetProperty("pattern").GetString()!;
+            long want = c.GetProperty("size").GetInt64();
+            long got = AdvancedRegexGen.SpaceSize(pattern, RegexGen.DefaultMaxLength);
+            Assert.True(
+                want == got,
+                $"{pattern}: expected {want}, counted {got} — {c.GetProperty("why").GetString()}");
+        }
+    }
 }

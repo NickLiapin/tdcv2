@@ -21,6 +21,7 @@ import { resolveExistingDataSourcePath } from '../data-source/index.js';
 import { loadCsvColumnFile, loadListFile } from '../generators/file.js';
 import { loadWeightedValues, weightColumnOf } from '../generators/weighted.js';
 import { resolvePackAddress } from '../data-pack/index.js';
+import { planAdvancedRegexColumn } from '../generators/advanced-regex-plan.js';
 import { regexGenerator, regexSpaceSize } from '../generators/regex.js';
 
 import type { SequenceBuildContext } from './context.js';
@@ -41,6 +42,7 @@ export function genSupportsUniq(gen: GenSpec): boolean {
     gen.type === 'increment' ||
     gen.type === 'decrement' ||
     gen.type === 'regex' ||
+    gen.type === 'advanced_regex' ||
     enumerationOf(gen) !== undefined
   );
 }
@@ -61,7 +63,8 @@ export function uniqUnsupportedReason(gen: GenSpec): string | undefined {
   }
   return (
     `its values cannot be enumerated (type="${gen.type}") — uniq on a simple sequence ` +
-    'supports text lists, template packs, file columns, plain integer ranges and regex patterns'
+    'supports text lists, template packs, file columns, plain integer ranges, regex and ' +
+    'advanced_regex patterns'
   );
 }
 
@@ -79,6 +82,7 @@ export function buildUniqueValues(
 ): string[] {
   if (gen.type === 'number') return uniqueNumbers(name, gen, count, prng);
   if (gen.type === 'regex') return uniqueRegexValues(name, gen, count, prng, ctx);
+  if (gen.type === 'advanced_regex') return uniqueAdvancedRegexValues(name, gen, count, prng, ctx);
 
   const pool = poolOf(name, gen, locale, ctx);
   if (pool.values.length < count) {
@@ -229,6 +233,101 @@ function uniqueRegexValues(
     out.push(value);
   }
   return out;
+}
+
+/**
+ * Unique strings from an `advanced_regex` pattern — the plain pattern's redraw, with the one
+ * thing this generator adds kept exactly: its weighted shares.
+ *
+ * `(?%{70:RU;30:US})` deals RU to exactly seven rows in ten, and that is a promise about the
+ * column that uniqueness must not break. So the column is dealt first, exactly as it would be
+ * without `uniq`, and every value that repeats is redrawn ALONG THE BRANCHES ITS ROW WAS DEALT
+ * (`PlannedAdvancedColumn.redraw`). Rows whose values were already different are left alone.
+ *
+ * That turns "is there room?" into a question per share, and the per-pattern count stops being
+ * enough: `(?%{70:RU;30:US})-[0-9]{3}` at 2 000 rows can make exactly 2 000 strings, and its RU
+ * share alone needs 1 400 of the 1 000 that start `RU-`. So three refusals, in the order a reader
+ * meets them. The whole pattern too small, as for a plain pattern. Then one share too small, named
+ * by its percentage, before anything is redrawn — wherever the pattern's shares can be counted
+ * apart. And a run of repeats too long, when a share runs dry that could not be counted apart, or
+ * when its count was high.
+ */
+function uniqueAdvancedRegexValues(
+  name: string,
+  gen: GenSpec,
+  count: number,
+  prng: () => number,
+  ctx: SequenceBuildContext,
+): string[] {
+  const pattern = gen.attrs['value'] ?? '';
+  const column = planAdvancedRegexColumn(
+    { pattern, regexMaxLength: gen.attrs['regex_max_length'] ?? ctx.regexMaxLength },
+    count,
+    prng,
+  );
+  if (column.totalSpace < count) {
+    throw new Error(
+      `uniq: sequence "${name}" cannot produce ${String(count)} unique values — the pattern ` +
+        `"${pattern}" makes at most ${String(column.totalSpace)} different strings. Widen the ` +
+        'pattern, or lower the count.',
+    );
+  }
+
+  // Rows per share, in the order the shares first appear in the column.
+  const rowsIn = new Map<string, number>();
+  for (const key of column.pathKeys) rowsIn.set(key, (rowsIn.get(key) ?? 0) + 1);
+  for (const [key, rows] of rowsIn) {
+    const space = column.pathSpace(key);
+    const path = column.describePath(key);
+    if (space !== undefined && path !== '' && space < rows) {
+      throw new Error(
+        `uniq: sequence "${name}" — the ${path} share of the pattern "${pattern}" is ` +
+          `${String(rows)} rows, and it can make at most ${String(space)} different strings. ` +
+          'Give that branch a smaller share, widen it, or lower the count.',
+      );
+    }
+  }
+
+  const values = column.values;
+  const seen = new Set<string>();
+  const takenIn = new Map<string, number>();
+  const redo: number[] = [];
+  values.forEach((value, row) => {
+    if (seen.has(value)) {
+      redo.push(row);
+      return;
+    }
+    seen.add(value);
+    const key = column.pathKeys[row] ?? '';
+    takenIn.set(key, (takenIn.get(key) ?? 0) + 1);
+  });
+
+  for (const row of redo) {
+    const key = column.pathKeys[row] ?? '';
+    const space = column.pathSpace(key) ?? column.totalSpace;
+    const path = column.describePath(key);
+    let repeats = 0;
+    for (;;) {
+      const candidate = column.redraw(row, prng);
+      if (candidate !== undefined && !seen.has(candidate)) {
+        values[row] = candidate;
+        seen.add(candidate);
+        takenIn.set(key, (takenIn.get(key) ?? 0) + 1);
+        break;
+      }
+      repeats += 1;
+      if (repeats > stallLimit(space, takenIn.get(key) ?? 0)) {
+        const whose = path === '' ? 'the pattern' : `the ${path} share of the pattern`;
+        throw new Error(
+          `uniq: sequence "${name}" — after ${String(seen.size)} unique values ${whose} ` +
+            `"${pattern}" produced only ones already drawn, ${String(repeats)} in a row. Its ` +
+            `space of at most ${String(space)} strings is nearly used up, or fewer of them ` +
+            'differ than its shape suggests. Widen the pattern, or lower the count.',
+        );
+      }
+    }
+  }
+  return values;
 }
 
 /**

@@ -1,11 +1,14 @@
 package io.github.nickliapin.tdc.generators;
 
 import io.github.nickliapin.tdc.distribution.Hamilton;
+import io.github.nickliapin.tdc.lib.Numbers;
 import io.github.nickliapin.tdc.prng.Prng;
 import io.github.nickliapin.tdc.prng.Random;
 import io.github.nickliapin.tdc.unicode.Alphabets;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.IdentityHashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -85,7 +88,28 @@ public final class AdvancedRegexGen {
   private static final class RowState {
     final StringBuilder out = new StringBuilder();
     final Map<Integer, String> captures = new HashMap<>();
+
+    /**
+     * Every weighted branch this row was dealt, in the order it met them — kept only when a unique
+     * column asks, so it can redraw the row along the SAME branches. {@code null} otherwise.
+     */
+    final List<Dealt> dealt;
+
+    RowState() {
+      this(null);
+    }
+
+    RowState(List<Dealt> dealt) {
+      this.dealt = dealt;
+    }
   }
+
+  /**
+   * One weighted decision a row was dealt. The node is compared by IDENTITY: nodes are records, so
+   * two weighted choices written the same way are {@code equals}, and a row dealt the first would
+   * be read as having been dealt the second.
+   */
+  private record Dealt(Weighted node, int branch) {}
 
   private AdvancedRegexGen() {}
 
@@ -225,6 +249,9 @@ public final class AdvancedRegexGen {
       List<List<RowState>> buckets = buckets(w.choices().size());
       for (int i = 0; i < rows.size(); i++) {
         buckets.get(selected.get(i)).add(rows.get(i));
+        if (rows.get(i).dealt != null) {
+          rows.get(i).dealt.add(new Dealt(w, selected.get(i)));
+        }
       }
       for (int i = 0; i < w.choices().size(); i++) {
         if (!buckets.get(i).isEmpty()) {
@@ -254,6 +281,336 @@ public final class AdvancedRegexGen {
         }
       }
       return;
+    }
+    throw new IllegalStateException("advanced_regex: unhandled node " + node);
+  }
+
+  // ── uniq="true" over a pattern ─────────────────────────────────────────────────────────────
+
+  /**
+   * The most different strings a pattern can make — counted as {@link RegexGen#spaceSize} counts,
+   * with a weighted choice adding its branches and a conditional adding its branches plus the
+   * empty string a row that matches none contributes (unless a {@code *} branch leaves no such
+   * row).
+   */
+  public static long spaceSize(String pattern, int regexMaxLength) {
+    return space(compile(pattern, regexMaxLength), null);
+  }
+
+  /** Deal a column exactly as {@link #generate} would, remembering each row's weighted branches. */
+  public static Planned plan(
+      Map<String, String> attrs, int count, int documentMaxLength, Prng.Sfc32 prng) {
+    int limit = RegexGen.limitOf(attrs, documentMaxLength);
+    Node root = compile(attrs.getOrDefault("value", ""), limit);
+    List<RowState> rows = new ArrayList<>(count);
+    for (int i = 0; i < count; i++) {
+      rows.add(new RowState(new ArrayList<>()));
+    }
+    generateInto(root, rows, prng);
+    return new Planned(root, rows);
+  }
+
+  /**
+   * A column dealt exactly as {@link #generate} deals it, able to redraw one row without moving a
+   * single exact share. See the TypeScript reference, {@code PlannedAdvancedColumn}, for the why.
+   */
+  public static final class Planned {
+    private final Node root;
+    private final List<RowState> rows;
+    private final boolean spine;
+    private final Map<String, List<Dealt>> first = new LinkedHashMap<>();
+    private final Map<String, Long> spaces = new HashMap<>();
+
+    /** The column as dealt — the same values {@link #generate} deals. */
+    public final List<String> values;
+
+    public final long totalSpace;
+
+    /** One key per row; rows with the same key were dealt the same branches. */
+    public final List<String> pathKeys;
+
+    Planned(Node root, List<RowState> rows) {
+      this.root = root;
+      this.rows = rows;
+      this.values = new ArrayList<>(rows.size());
+      for (RowState row : rows) {
+        values.add(row.out.toString());
+      }
+      this.totalSpace = space(root, null);
+      Map<Weighted, Integer> ids = new IdentityHashMap<>();
+      numberWeighted(root, ids);
+      this.spine = onSpine(root, false);
+      this.pathKeys = new ArrayList<>(rows.size());
+      for (RowState row : rows) {
+        StringBuilder key = new StringBuilder();
+        if (spine) {
+          for (Dealt d : row.dealt) {
+            if (key.length() > 0) {
+              key.append('/');
+            }
+            key.append(ids.get(d.node())).append('.').append(d.branch());
+          }
+        }
+        String k = key.toString();
+        pathKeys.add(k);
+        first.putIfAbsent(k, row.dealt);
+      }
+    }
+
+    /** The strings a path can make, or {@code null} when the shares cannot be counted apart. */
+    public Long pathSpace(String key) {
+      if (!spine) {
+        return null;
+      }
+      return spaces.computeIfAbsent(
+          key,
+          k -> {
+            Map<Weighted, Integer> along = new IdentityHashMap<>();
+            for (Dealt d : first.getOrDefault(k, List.of())) {
+              along.put(d.node(), d.branch());
+            }
+            return space(root, along);
+          });
+    }
+
+    /** {@code 70% (branch 1 of 2)}, joined by {@code →}, for a refusal. */
+    public String describePath(String key) {
+      // Empty where the shares are not counted apart: every row is then in one group, and naming
+      // the branches its first row happened to take would describe a share nobody is held to.
+      if (!spine) {
+        return "";
+      }
+      List<String> parts = new ArrayList<>();
+      for (Dealt d : first.getOrDefault(key, List.of())) {
+        parts.add(
+            Numbers.toText(d.node().choices().get(d.branch()).percent())
+                + "% (branch " + (d.branch() + 1) + " of " + d.node().choices().size() + ")");
+      }
+      return String.join(" → ", parts);
+    }
+
+    /** One more value for {@code row} along its dealt branches, or {@code null} if it strayed. */
+    public String redraw(int row, Prng.Sfc32 prng) {
+      List<Dealt> dealt = rows.get(row).dealt;
+      RowState fresh = new RowState();
+      int[] cursor = {0};
+      if (!drawAlong(root, fresh, dealt, cursor, prng)) {
+        return null;
+      }
+      return cursor[0] == dealt.size() ? fresh.out.toString() : null;
+    }
+  }
+
+  /**
+   * One row walked as {@link #generateInto} walks a bucket of one — except that a weighted choice
+   * takes the branch the row was dealt. {@code false} as soon as it meets a weighted choice the
+   * row did not meet at this point the first time.
+   */
+  private static boolean drawAlong(
+      Node node, RowState row, List<Dealt> dealt, int[] cursor, Prng.Sfc32 prng) {
+    if (node instanceof Empty) {
+      return true;
+    }
+    if (node instanceof Literal l) {
+      row.out.append(l.value());
+      return true;
+    }
+    if (node instanceof Chars c) {
+      row.out.append(Random.pick(prng, c.chars()));
+      return true;
+    }
+    if (node instanceof Sequence s) {
+      for (Node part : s.parts()) {
+        if (!drawAlong(part, row, dealt, cursor, prng)) {
+          return false;
+        }
+      }
+      return true;
+    }
+    if (node instanceof Alternation a) {
+      Node choice = a.choices().get(Random.nextInt(prng, 0, a.choices().size()));
+      return drawAlong(choice, row, dealt, cursor, prng);
+    }
+    if (node instanceof Repeat r) {
+      int times = Random.nextInt(prng, r.min(), r.max() + 1);
+      for (int step = 0; step < times; step++) {
+        if (!drawAlong(r.node(), row, dealt, cursor, prng)) {
+          return false;
+        }
+      }
+      return true;
+    }
+    if (node instanceof Capture c) {
+      int start = row.out.length();
+      if (!drawAlong(c.node(), row, dealt, cursor, prng)) {
+        return false;
+      }
+      row.captures.put(c.index(), row.out.substring(start));
+      return true;
+    }
+    if (node instanceof Backref b) {
+      row.out.append(row.captures.getOrDefault(b.index(), ""));
+      return true;
+    }
+    if (node instanceof Weighted w) {
+      int at = cursor[0];
+      if (at >= dealt.size() || dealt.get(at).node() != w) {
+        return false;
+      }
+      cursor[0] = at + 1;
+      return drawAlong(w.choices().get(dealt.get(at).branch()).node(), row, dealt, cursor, prng);
+    }
+    if (node instanceof Conditional c) {
+      for (CondBranch branch : c.branches()) {
+        CondTest test = branch.test();
+        if (test == null || test.value().equals(row.captures.getOrDefault(test.capture(), ""))) {
+          return drawAlong(branch.node(), row, dealt, cursor, prng);
+        }
+      }
+      return true;
+    }
+    throw new IllegalStateException("advanced_regex: unhandled node " + node);
+  }
+
+  private static void numberWeighted(Node node, Map<Weighted, Integer> ids) {
+    if (node instanceof Sequence s) {
+      for (Node part : s.parts()) {
+        numberWeighted(part, ids);
+      }
+    } else if (node instanceof Alternation a) {
+      for (Node choice : a.choices()) {
+        numberWeighted(choice, ids);
+      }
+    } else if (node instanceof Repeat r) {
+      numberWeighted(r.node(), ids);
+    } else if (node instanceof Capture c) {
+      numberWeighted(c.node(), ids);
+    } else if (node instanceof Weighted w) {
+      ids.put(w, ids.size());
+      for (Branch b : w.choices()) {
+        numberWeighted(b.node(), ids);
+      }
+    } else if (node instanceof Conditional c) {
+      for (CondBranch b : c.branches()) {
+        numberWeighted(b.node(), ids);
+      }
+    }
+  }
+
+  /** Every weighted choice passed exactly once by each row reaching its parent. */
+  private static boolean onSpine(Node node, boolean underDraw) {
+    if (node instanceof Weighted w) {
+      if (underDraw) {
+        return false;
+      }
+      for (Branch b : w.choices()) {
+        if (!onSpine(b.node(), false)) {
+          return false;
+        }
+      }
+      return true;
+    }
+    if (node instanceof Sequence s) {
+      for (Node part : s.parts()) {
+        if (!onSpine(part, underDraw)) {
+          return false;
+        }
+      }
+      return true;
+    }
+    if (node instanceof Capture c) {
+      return onSpine(c.node(), underDraw);
+    }
+    if (node instanceof Alternation a) {
+      for (Node choice : a.choices()) {
+        if (!onSpine(choice, true)) {
+          return false;
+        }
+      }
+      return true;
+    }
+    if (node instanceof Repeat r) {
+      return onSpine(r.node(), true);
+    }
+    if (node instanceof Conditional c) {
+      for (CondBranch b : c.branches()) {
+        if (!onSpine(b.node(), true)) {
+          return false;
+        }
+      }
+      return true;
+    }
+    return true;
+  }
+
+  private static long times(long a, long b) {
+    if (a == 0 || b == 0) {
+      return 0;
+    }
+    return a > RegexGen.SPACE_CAP / b ? RegexGen.SPACE_CAP : Math.min(a * b, RegexGen.SPACE_CAP);
+  }
+
+  private static long plus(long a, long b) {
+    return Math.min(a + b, RegexGen.SPACE_CAP);
+  }
+
+  /** Strings {@code node} can make — along {@code along}'s branches where it names a weighted choice. */
+  private static long space(Node node, Map<Weighted, Integer> along) {
+    if (node instanceof Empty || node instanceof Literal || node instanceof Backref) {
+      return 1;
+    }
+    if (node instanceof Chars c) {
+      return new java.util.HashSet<>(c.chars()).size();
+    }
+    if (node instanceof Sequence s) {
+      long total = 1;
+      for (Node part : s.parts()) {
+        total = times(total, space(part, along));
+      }
+      return total;
+    }
+    if (node instanceof Alternation a) {
+      long total = 0;
+      for (Node choice : a.choices()) {
+        total = plus(total, space(choice, along));
+      }
+      return total;
+    }
+    if (node instanceof Capture c) {
+      return space(c.node(), along);
+    }
+    if (node instanceof Repeat r) {
+      long inner = space(r.node(), along);
+      long term = 1;
+      for (int i = 0; i < r.min(); i++) {
+        term = times(term, inner);
+      }
+      long total = 0;
+      for (int i = r.min(); i <= r.max(); i++) {
+        total = plus(total, term);
+        term = times(term, inner);
+      }
+      return total;
+    }
+    if (node instanceof Weighted w) {
+      if (along != null && along.containsKey(w)) {
+        return space(w.choices().get(along.get(w)).node(), along);
+      }
+      long total = 0;
+      for (Branch b : w.choices()) {
+        total = plus(total, space(b.node(), along));
+      }
+      return total;
+    }
+    if (node instanceof Conditional c) {
+      long total = 0;
+      boolean catchAll = false;
+      for (CondBranch b : c.branches()) {
+        total = plus(total, space(b.node(), along));
+        catchAll |= b.test() == null;
+      }
+      // A row that matches no branch appends nothing: one more outcome, unless `*` catches it.
+      return catchAll ? total : plus(total, 1);
     }
     throw new IllegalStateException("advanced_regex: unhandled node " + node);
   }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "comment": "How many different strings a type=\"regex\" pattern can make, as `uniq=\"true\"` counts it before drawing. A class counts its distinct characters, a sequence multiplies, an alternation adds, {m,n} adds every length it allows, a back-reference counts once and a conditional counts both branches. Exact for literals, classes and repeats; an upper bound otherwise. Saturates at 9007199254740991 (2^53 − 1). Regenerate with: npm run regex:space -- --update",
+  "comment": "How many different strings a type=\"regex\" pattern can make, as `uniq=\"true\"` counts it before drawing. A class counts its distinct characters, a sequence multiplies, an alternation adds, {m,n} adds every length it allows, a back-reference counts once and a conditional counts both branches. `advanced` counts advanced_regex patterns the same way: a weighted choice adds its branches, and its conditional adds one more for a row that matches no branch unless a * branch catches it. Exact for literals, classes and repeats; an upper bound otherwise. Saturates at 9007199254740991 (2^53 − 1). Regenerate with: npm run regex:space -- --update",
   "cap": 9007199254740991,
   "patterns": [
     {
@@ -117,6 +117,58 @@
       "pattern": "[0-9]{1,32}",
       "size": 9007199254740991,
       "why": "saturates part-way through the sum"
+    }
+  ],
+  "advanced": [
+    {
+      "pattern": "(?%{70:RU;30:US})-[0-9]{3}",
+      "size": 2000,
+      "why": "a weighted choice adds its branches: (1 + 1) · 10³"
+    },
+    {
+      "pattern": "(?%{50:(?%{50:a;50:b});50:c})[0-9]",
+      "size": 30,
+      "why": "nested weighted choices: (2 + 1) · 10"
+    },
+    {
+      "pattern": "((?%{50:a;50:b})){2}[0-9]",
+      "size": 40,
+      "why": "a weighted choice inside a repeat: 2² · 10"
+    },
+    {
+      "pattern": "(x|(?%{50:a;50:b}))[0-9]{2}",
+      "size": 300,
+      "why": "a weighted choice under an alternation: (1 + 2) · 10²"
+    },
+    {
+      "pattern": "(?<g>[ab])(?if{g=a:[cd]})",
+      "size": 6,
+      "why": "a conditional with no * adds one for the row that matches nothing: 2 · (2 + 1)"
+    },
+    {
+      "pattern": "(?<g>[ab])(?if{g=a:[cd];*:e})",
+      "size": 6,
+      "why": "with a * branch nothing falls through: 2 · (2 + 1)"
+    },
+    {
+      "pattern": "(?<s>(?%{50:M;50:F}))-(?if{s=M:[a-c];s=F:[x-z]})[0-9]",
+      "size": 140,
+      "why": "OVERCOUNTED — both branches count although a row takes one: 2 · 7 · 10"
+    },
+    {
+      "pattern": "(?%{100:(a|a)})",
+      "size": 2,
+      "why": "OVERCOUNTED — the case the draw has to catch"
+    },
+    {
+      "pattern": "[A-Z]{2}[0-9]{3}",
+      "size": 676000,
+      "why": "no weighted choice at all: the same count as a plain pattern"
+    },
+    {
+      "pattern": "(?%{50:[0-9]{16};50:a})",
+      "size": 9007199254740991,
+      "why": "saturates at 2^53 − 1 like a plain pattern"
     }
   ]
 }

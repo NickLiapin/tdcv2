@@ -18,6 +18,7 @@ from __future__ import annotations
 import math
 import re
 
+from ..generators import advanced_regex as advanced_gen
 from ..generators import file as file_gen
 from ..generators import regex as regex_gen
 
@@ -43,6 +44,8 @@ def build_unique_values(name: str, gen, count: int, run) -> list[str]:
         return _unique_numbers(name, gen, count, run.prng)
     if gen.type == "regex":
         return _unique_regex(name, gen, count, run)
+    if gen.type == "advanced_regex":
+        return _unique_advanced_regex(name, gen, count, run)
 
     values, weights = _pool_of(name, gen, run)
     if len(values) < count:
@@ -149,6 +152,75 @@ def _unique_regex(name: str, gen, count: int, run) -> list[str]:
     return out
 
 
+def _unique_advanced_regex(name: str, gen, count: int, run) -> list[str]:
+    """Unique strings from an ``advanced_regex`` pattern, with every weighted share kept exact.
+
+    The column is dealt as it would be without ``uniq``; a value that repeats is redrawn along the
+    branches its row was dealt. Three refusals, in the order a reader meets them: the whole pattern
+    too small, one share too small (named by its percentage, before any redraw, wherever the
+    shares can be counted apart), and a run of repeats too long. See the TypeScript reference,
+    ``uniqueAdvancedRegexValues``, for the why.
+    """
+    pattern = gen.attrs.get("value", "")
+    column = advanced_gen.plan_column(gen.attrs, count, run.config.regex_max_length, run.prng)
+    if column.total_space < count:
+        raise UniqSimpleError(
+            f'uniq: sequence "{name}" cannot produce {count} unique values — the pattern '
+            f'"{pattern}" makes at most {column.total_space} different strings. Widen the '
+            "pattern, or lower the count."
+        )
+
+    rows_in: dict[str, int] = {}
+    for key in column.path_keys:
+        rows_in[key] = rows_in.get(key, 0) + 1
+    for key, rows in rows_in.items():
+        space = column.path_space(key)
+        path = column.describe_path(key)
+        if space is not None and path != "" and space < rows:
+            raise UniqSimpleError(
+                f'uniq: sequence "{name}" — the {path} share of the pattern "{pattern}" is '
+                f"{rows} rows, and it can make at most {space} different strings. Give that "
+                "branch a smaller share, widen it, or lower the count."
+            )
+
+    values = column.values
+    seen: set[str] = set()
+    taken_in: dict[str, int] = {}
+    redo: list[int] = []
+    for row, value in enumerate(values):
+        if value in seen:
+            redo.append(row)
+            continue
+        seen.add(value)
+        key = column.path_keys[row]
+        taken_in[key] = taken_in.get(key, 0) + 1
+
+    for row in redo:
+        key = column.path_keys[row]
+        space = column.path_space(key)
+        if space is None:
+            space = column.total_space
+        path = column.describe_path(key)
+        repeats = 0
+        while True:
+            candidate = column.redraw(row, run.prng)
+            if candidate is not None and candidate not in seen:
+                values[row] = candidate
+                seen.add(candidate)
+                taken_in[key] = taken_in.get(key, 0) + 1
+                break
+            repeats += 1
+            if repeats > _stall_limit(space, taken_in.get(key, 0)):
+                whose = "the pattern" if path == "" else f"the {path} share of the pattern"
+                raise UniqSimpleError(
+                    f'uniq: sequence "{name}" — after {len(seen)} unique values {whose} '
+                    f'"{pattern}" produced only ones already drawn, {repeats} in a row. Its space '
+                    f"of at most {space} strings is nearly used up, or fewer of them differ than "
+                    "its shape suggests. Widen the pattern, or lower the count."
+                )
+    return values
+
+
 def _stall_limit(space: int, produced: int) -> int:
     """Repeats in a row tolerated: at least 100 000, and twenty times the wait for a fresh value.
 
@@ -167,7 +239,8 @@ def unsupported_reason(gen) -> str:
         )
     return (
         f'its values cannot be enumerated (type="{gen.type}") — uniq on a simple sequence '
-        "supports text lists, template packs, file columns, plain integer ranges and regex patterns"
+        "supports text lists, template packs, file columns, plain integer ranges, regex and "
+        "advanced_regex patterns"
     )
 
 

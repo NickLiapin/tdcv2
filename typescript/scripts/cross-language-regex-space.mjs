@@ -21,6 +21,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { advancedRegexSpaceSize } from '../src/generators/advanced-regex-plan.ts';
 import { REGEX_SPACE_CAP, regexSpaceSize } from '../src/generators/regex.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -53,13 +54,41 @@ const PATTERNS = [
   ['[0-9]{1,32}', 'saturates part-way through the sum'],
 ];
 
+/**
+ * `advanced_regex` counts the same way and adds its own two constructs. A weighted choice adds its
+ * branches — the WHOLE pattern's count, the first of the two checks a unique column makes; each
+ * share is then counted along its own branches, which the shared cases and `cli.json` pin. A
+ * conditional adds its branches plus the empty string a row matching none of them contributes,
+ * unless a `*` branch leaves no such row.
+ */
+const ADVANCED = [
+  ['(?%{70:RU;30:US})-[0-9]{3}', 'a weighted choice adds its branches: (1 + 1) · 10³'],
+  ['(?%{50:(?%{50:a;50:b});50:c})[0-9]', 'nested weighted choices: (2 + 1) · 10'],
+  ['((?%{50:a;50:b})){2}[0-9]', 'a weighted choice inside a repeat: 2² · 10'],
+  ['(x|(?%{50:a;50:b}))[0-9]{2}', 'a weighted choice under an alternation: (1 + 2) · 10²'],
+  [
+    '(?<g>[ab])(?if{g=a:[cd]})',
+    'a conditional with no * adds one for the row that matches nothing: 2 · (2 + 1)',
+  ],
+  ['(?<g>[ab])(?if{g=a:[cd];*:e})', 'with a * branch nothing falls through: 2 · (2 + 1)'],
+  [
+    '(?<s>(?%{50:M;50:F}))-(?if{s=M:[a-c];s=F:[x-z]})[0-9]',
+    'OVERCOUNTED — both branches count although a row takes one: 2 · 7 · 10',
+  ],
+  ['(?%{100:(a|a)})', 'OVERCOUNTED — the case the draw has to catch'],
+  ['[A-Z]{2}[0-9]{3}', 'no weighted choice at all: the same count as a plain pattern'],
+  ['(?%{50:[0-9]{16};50:a})', 'saturates at 2^53 − 1 like a plain pattern'],
+];
+
 const document = {
   schemaVersion: 1,
   comment:
     'How many different strings a type="regex" pattern can make, as `uniq="true"` counts it ' +
     'before drawing. A class counts its distinct characters, a sequence multiplies, an ' +
     'alternation adds, {m,n} adds every length it allows, a back-reference counts once and a ' +
-    'conditional counts both branches. Exact for literals, classes and repeats; an upper bound ' +
+    'conditional counts both branches. `advanced` counts advanced_regex patterns the same way: a ' +
+    'weighted choice adds its branches, and its conditional adds one more for a row that matches ' +
+    'no branch unless a * branch catches it. Exact for literals, classes and repeats; an upper bound ' +
     `otherwise. Saturates at ${String(REGEX_SPACE_CAP)} (2^53 − 1). ` +
     'Regenerate with: npm run regex:space -- --update',
   cap: REGEX_SPACE_CAP,
@@ -68,11 +97,18 @@ const document = {
     size: regexSpaceSize({ pattern }),
     why,
   })),
+  advanced: ADVANCED.map(([pattern, why]) => ({
+    pattern,
+    size: advancedRegexSpaceSize({ pattern }),
+    why,
+  })),
 };
 
 if (update) {
   writeFileSync(OUT, `${JSON.stringify(document, null, 2)}\n`);
-  console.log(`regex-space.json: ${String(document.patterns.length)} patterns`);
+  console.log(
+    `regex-space.json: ${String(document.patterns.length)} patterns, ${String(document.advanced.length)} advanced`,
+  );
   process.exit(0);
 }
 
@@ -92,4 +128,6 @@ if (JSON.stringify(document, null, 2) !== JSON.stringify(current, null, 2)) {
   );
   process.exit(1);
 }
-console.log(`regex-space.json: ${String(document.patterns.length)} patterns match`);
+console.log(
+  `regex-space.json: ${String(document.patterns.length)} patterns, ${String(document.advanced.length)} advanced match`,
+);

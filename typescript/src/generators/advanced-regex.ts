@@ -39,7 +39,8 @@ export interface AdvancedRegexProgram {
   readonly weightedChoiceCount: number;
 }
 
-type AdvancedRegexNode =
+/** Exported for `advanced-regex-plan.ts` only — not part of the generator's API. */
+export type AdvancedRegexNode =
   | EmptyNode
   | LiteralNode
   | CharSetNode
@@ -96,7 +97,7 @@ interface BackrefNode {
   readonly index: number;
 }
 
-interface WeightedChoiceNode {
+export interface WeightedChoiceNode {
   readonly kind: 'weightedChoice';
   readonly choices: readonly WeightedBranch[];
 }
@@ -144,9 +145,21 @@ interface ClassAtom {
   readonly single?: string | undefined;
 }
 
-interface GenerateRow {
+export interface GenerateRow {
   out: string;
   captures: string[];
+  /**
+   * Every weighted branch this row was dealt, in the order it met them — kept only when a unique
+   * column asks, so it can redraw the row along the SAME branches and leave every exact share as
+   * it was dealt. Absent otherwise, and then nothing is recorded.
+   */
+  dealt?: Dealt[];
+}
+
+/** One weighted decision a row was dealt: which choice, and which of its branches. */
+export interface Dealt {
+  readonly node: WeightedChoiceNode;
+  readonly branch: number;
 }
 
 export class AdvancedRegexGeneratorError extends Error {
@@ -184,7 +197,10 @@ export function advancedRegexGenerator(attrs: AdvancedRegexGenAttrs): Generator 
   return (count, prng) => generateRows(program.root, count, prng);
 }
 
-function parseAdvancedRegex(pattern: string, regexMaxLength: number): ParsedAdvancedRegexProgram {
+export function parseAdvancedRegex(
+  pattern: string,
+  regexMaxLength: number,
+): ParsedAdvancedRegexProgram {
   const parser = new AdvancedRegexParser(pattern);
   const root = parser.parse();
   const maxLength = computeMaxLength(root, parser.captureMaxLengths);
@@ -765,7 +781,7 @@ function generateRows(root: AdvancedRegexNode, count: number, prng: () => number
   return rows.map((row) => row.out);
 }
 
-function generateInto(
+export function generateInto(
   node: AdvancedRegexNode,
   rows: readonly GenerateRow[],
   prng: () => number,
@@ -869,7 +885,10 @@ function generateWeightedChoice(
   for (let i = 0; i < selected.length; i++) {
     const index = selected[i];
     const row = rows[i];
-    if (index !== undefined && row !== undefined) buckets[index]?.push(row);
+    if (index !== undefined && row !== undefined) {
+      buckets[index]?.push(row);
+      row.dealt?.push({ node, branch: index });
+    }
   }
   for (let i = 0; i < node.choices.length; i++) {
     const choice = node.choices[i];

@@ -199,9 +199,11 @@ nada aparece dos veces. Cuando la fuente tiene menos valores distintos que regis
 corrida se rehúsa por adelantado nombrando ambos números — nunca una repetición
 silenciosa. Fuentes soportadas: listas `text`, packs `template`, columnas `file`,
 rangos enteros simples (`value="1..100000"`) y
-[patrones `regex`](../generators/regex.md#top), que son finitos y por eso se pueden contar;
-`increment`/`decrement` son únicos por construcción. Un generador cuyos valores no pueden
-contarse (`advanced_regex`, `date`, …) se rechaza con un mensaje que lo dice tal cual.
+patrones [`regex`](../generators/regex.md#top) y [`advanced_regex`](../generators/advanced-regex.md#top),
+que son finitos y por eso se pueden contar — en `advanced_regex` las cuotas siguen siendo exactas,
+y cada cuota debe tener sitio para sus propias filas; `increment`/`decrement` son únicos por
+construcción. Un generador cuyos valores no pueden contarse (`date`, …) se rechaza con un mensaje
+que lo dice tal cual.
 
 ```xml
 <sequence name="Person" uniq="true">

@@ -15,6 +15,7 @@
 use std::collections::{HashMap, HashSet};
 
 use crate::engine::{invalid, EngineResult};
+use crate::generators::advanced_regex;
 use crate::generators::file as file_gen;
 use crate::generators::regex;
 use crate::model::config::Gen;
@@ -40,6 +41,9 @@ pub fn build(
     }
     if gen.gen_type == "regex" {
         return unique_regex(name, gen, count, prng, env);
+    }
+    if gen.gen_type == "advanced_regex" {
+        return unique_advanced_regex(name, gen, count, prng, env);
     }
     let pool = pool_of(name, gen, env)?;
     if pool.values.len() < count {
@@ -177,6 +181,104 @@ fn unique_regex(
     Ok(out)
 }
 
+/// Unique strings from an `advanced_regex` pattern, with every weighted share kept exact.
+///
+/// The column is dealt as it would be without `uniq`; a value that repeats is redrawn along the
+/// branches its row was dealt. Three refusals, in the order a reader meets them: the whole pattern
+/// too small, one share too small (named by its percentage, before any redraw, wherever the shares
+/// can be counted apart), and a run of repeats too long. See the TypeScript reference,
+/// `uniqueAdvancedRegexValues`, for the why.
+fn unique_advanced_regex(
+    name: &str,
+    gen: &Gen,
+    count: usize,
+    prng: &mut Sfc32,
+    env: &Env,
+) -> EngineResult<Vec<String>> {
+    let pattern = gen.attrs.get("value").map(String::as_str).unwrap_or("");
+    let column = advanced_regex::plan(&gen.attrs, count, env.config.regex_max_length, prng)?;
+    if column.total_space < count as u64 {
+        return invalid(&format!(
+            "uniq: sequence \"{name}\" cannot produce {count} unique values — the pattern \
+             \"{pattern}\" makes at most {} different strings. Widen the pattern, or lower the \
+             count.",
+            column.total_space
+        ));
+    }
+
+    // Rows per share, in the order the shares first appear in the column.
+    let mut order: Vec<&str> = Vec::new();
+    let mut rows_in: HashMap<&str, u64> = HashMap::new();
+    for key in &column.path_keys {
+        let n = rows_in.entry(key.as_str()).or_insert(0);
+        if *n == 0 {
+            order.push(key.as_str());
+        }
+        *n += 1;
+    }
+    for key in &order {
+        let rows = rows_in[key];
+        let path = column.describe_path(key);
+        if let Some(space) = column.path_space(key) {
+            if !path.is_empty() && space < rows {
+                return invalid(&format!(
+                    "uniq: sequence \"{name}\" — the {path} share of the pattern \"{pattern}\" is \
+                     {rows} rows, and it can make at most {space} different strings. Give that \
+                     branch a smaller share, widen it, or lower the count."
+                ));
+            }
+        }
+    }
+
+    let mut values = column.values.clone();
+    let mut seen: HashSet<String> = HashSet::new();
+    let mut taken_in: HashMap<String, u64> = HashMap::new();
+    let mut redo: Vec<usize> = Vec::new();
+    for (row, value) in values.iter().enumerate() {
+        if seen.contains(value) {
+            redo.push(row);
+            continue;
+        }
+        seen.insert(value.clone());
+        *taken_in.entry(column.path_keys[row].clone()).or_insert(0) += 1;
+    }
+
+    for row in redo {
+        let key = column.path_keys[row].clone();
+        let space = column.path_space(&key).unwrap_or(column.total_space);
+        let path = column.describe_path(&key);
+        let mut repeats: u64 = 0;
+        loop {
+            match column.redraw(row, prng) {
+                Some(candidate) if !seen.contains(&candidate) => {
+                    seen.insert(candidate.clone());
+                    values[row] = candidate;
+                    *taken_in.entry(key.clone()).or_insert(0) += 1;
+                    break;
+                }
+                _ => {}
+            }
+            repeats += 1;
+            let taken = taken_in.get(&key).copied().unwrap_or(0);
+            if repeats > stall_limit(space, taken) {
+                let whose = if path.is_empty() {
+                    "the pattern".to_string()
+                } else {
+                    format!("the {path} share of the pattern")
+                };
+                return invalid(&format!(
+                    "uniq: sequence \"{name}\" — after {} unique values {whose} \"{pattern}\" \
+                     produced only ones already drawn, {repeats} in a row. Its space of at most \
+                     {space} strings is nearly used up, or fewer of them differ than its shape \
+                     suggests. Widen the pattern, or lower the count.",
+                    seen.len()
+                ));
+            }
+        }
+    }
+    Ok(values)
+}
+
 /// Repeats in a row tolerated: at least 100 000, and twenty times the wait for a fresh value.
 /// Integer ceiling division, so five languages stop on the same draw.
 fn stall_limit(space: u64, produced: u64) -> u64 {
@@ -194,7 +296,8 @@ fn unsupported_reason(gen: &Gen) -> String {
     }
     format!(
         "its values cannot be enumerated (type=\"{}\") — uniq on a simple sequence supports \
-         text lists, template packs, file columns, plain integer ranges and regex patterns",
+         text lists, template packs, file columns, plain integer ranges, regex and \
+         advanced_regex patterns",
         gen.gen_type
     )
 }

@@ -17,7 +17,8 @@
 //! and `advanced_regex`. That is not a defect to be reconciled — it follows from
 //! what an exact share requires.
 
-use std::collections::{BTreeMap, BTreeSet};
+use std::cell::RefCell;
+use std::collections::{BTreeMap, BTreeSet, HashMap};
 
 use super::rand;
 use super::regex::{self, distinct, inverse, printable_ascii, SPACES};
@@ -71,7 +72,17 @@ pub struct CondBranch {
 struct RowState {
     out: String,
     captures: BTreeMap<usize, String>,
+    /// Every weighted branch this row was dealt, in the order it met them — kept only when a
+    /// unique column asks, so it can redraw the row along the SAME branches. `None` otherwise.
+    dealt: Option<Vec<Dealt>>,
 }
+
+/// One weighted decision a row was dealt: the choice, by ADDRESS, and the branch it took.
+///
+/// An address rather than the node: two weighted choices written the same way would compare equal
+/// by value and be confused. The address is only ever compared, never followed, and it stays put
+/// because the tree lives behind the `Box` a [`Planned`] column owns.
+type Dealt = (*const Node, usize);
 
 pub fn generate(
     attrs: &BTreeMap<String, String>,
@@ -195,6 +206,9 @@ fn generate_into(node: &Node, rows: &mut [RowState], at: &[usize], prng: &mut Sf
             let mut buckets: Vec<Vec<usize>> = vec![Vec::new(); choices.len()];
             for (&i, &which) in at.iter().zip(&selected) {
                 buckets[which].push(i);
+                if let Some(dealt) = rows[i].dealt.as_mut() {
+                    dealt.push((node as *const Node, which));
+                }
             }
             for (branch, bucket) in choices.iter().zip(&buckets) {
                 generate_into(&branch.inner, rows, bucket, prng);
@@ -227,6 +241,333 @@ fn generate_into(node: &Node, rows: &mut [RowState], at: &[usize], prng: &mut Sf
             }
             for (branch, bucket) in branches.iter().zip(&buckets) {
                 generate_into(&branch.inner, rows, bucket, prng);
+            }
+        }
+    }
+}
+
+// ── uniq="true" over a pattern ───────────────────────────────────────────────
+
+/// The most different strings a pattern can make — counted as [`regex::space_size`] counts, with a
+/// weighted choice adding its branches and a conditional adding its branches plus the empty string
+/// a row that matches none contributes (unless a `*` branch leaves no such row).
+pub fn space_size(pattern: &str, regex_max_length: i32) -> EngineResult<u64> {
+    Ok(space(&compile(pattern, regex_max_length)?, None))
+}
+
+/// A column dealt exactly as [`generate`] deals it, able to redraw one row without moving a single
+/// exact share. See the TypeScript reference, `PlannedAdvancedColumn`, for the why.
+pub struct Planned {
+    root: Box<Node>,
+    rows: Vec<RowState>,
+    spine: bool,
+    percents: HashMap<*const Node, Vec<f64>>,
+    first: HashMap<String, Vec<Dealt>>,
+    spaces: RefCell<HashMap<String, u64>>,
+    /// The column as dealt — the same values [`generate`] deals.
+    pub values: Vec<String>,
+    pub total_space: u64,
+    /// One key per row; rows with the same key were dealt the same branches.
+    pub path_keys: Vec<String>,
+}
+
+/// Deal a column exactly as [`generate`] would, remembering each row's weighted branches.
+pub fn plan(
+    attrs: &BTreeMap<String, String>,
+    count: usize,
+    document_max_length: i32,
+    prng: &mut Sfc32,
+) -> EngineResult<Planned> {
+    let limit = regex::limit_of(attrs, document_max_length)?;
+    // Boxed BEFORE dealing: a row remembers each weighted choice by its address, and the address
+    // of a node behind a Box does not change when the Box moves.
+    let root = Box::new(compile(
+        attrs.get("value").map(String::as_str).unwrap_or(""),
+        limit,
+    )?);
+    let mut rows: Vec<RowState> = (0..count)
+        .map(|_| RowState {
+            dealt: Some(Vec::new()),
+            ..RowState::default()
+        })
+        .collect();
+    let all: Vec<usize> = (0..count).collect();
+    generate_into(&root, &mut rows, &all, prng);
+
+    let mut ids: HashMap<*const Node, usize> = HashMap::new();
+    let mut percents: HashMap<*const Node, Vec<f64>> = HashMap::new();
+    number_weighted(&root, &mut ids, &mut percents);
+    let spine = on_spine(&root, false);
+    let path_keys: Vec<String> = rows
+        .iter()
+        .map(|row| {
+            if !spine {
+                return String::new();
+            }
+            row.dealt
+                .iter()
+                .flatten()
+                .map(|(node, branch)| format!("{}.{branch}", ids[node]))
+                .collect::<Vec<_>>()
+                .join("/")
+        })
+        .collect();
+    let mut first: HashMap<String, Vec<Dealt>> = HashMap::new();
+    for (key, row) in path_keys.iter().zip(&rows) {
+        first
+            .entry(key.clone())
+            .or_insert_with(|| row.dealt.clone().unwrap_or_default());
+    }
+    let values = rows.iter().map(|row| row.out.clone()).collect();
+    let total_space = space(&root, None);
+    Ok(Planned {
+        root,
+        rows,
+        spine,
+        percents,
+        first,
+        spaces: RefCell::new(HashMap::new()),
+        values,
+        total_space,
+        path_keys,
+    })
+}
+
+impl Planned {
+    /// The strings a path can make, or `None` when the shares cannot be counted apart.
+    pub fn path_space(&self, key: &str) -> Option<u64> {
+        if !self.spine {
+            return None;
+        }
+        if let Some(&known) = self.spaces.borrow().get(key) {
+            return Some(known);
+        }
+        let along: HashMap<*const Node, usize> = self
+            .first
+            .get(key)
+            .map(|dealt| dealt.iter().copied().collect())
+            .unwrap_or_default();
+        let counted = space(&self.root, Some(&along));
+        self.spaces.borrow_mut().insert(key.to_string(), counted);
+        Some(counted)
+    }
+
+    /// `70% (branch 1 of 2)`, joined by ` → `, for a refusal.
+    pub fn describe_path(&self, key: &str) -> String {
+        // Empty where the shares are not counted apart: every row is then in one group, and naming
+        // the branches its first row happened to take would describe a share nobody is held to.
+        if !self.spine {
+            return String::new();
+        }
+        self.first
+            .get(key)
+            .map(|dealt| {
+                dealt
+                    .iter()
+                    .map(|(node, branch)| {
+                        let shares = &self.percents[node];
+                        format!(
+                            "{}% (branch {} of {})",
+                            numbers::to_text(shares[*branch]),
+                            branch + 1,
+                            shares.len()
+                        )
+                    })
+                    .collect::<Vec<_>>()
+                    .join(" → ")
+            })
+            .unwrap_or_default()
+    }
+
+    /// One more value for `row` along its dealt branches, or `None` if the walk strayed.
+    pub fn redraw(&self, row: usize, prng: &mut Sfc32) -> Option<String> {
+        let dealt = self.rows[row].dealt.as_deref().unwrap_or(&[]);
+        let mut fresh = RowState::default();
+        let mut cursor = 0usize;
+        if !draw_along(&self.root, &mut fresh, dealt, &mut cursor, prng) {
+            return None;
+        }
+        (cursor == dealt.len()).then_some(fresh.out)
+    }
+}
+
+/// One row walked as [`generate_into`] walks a bucket of one — except that a weighted choice takes
+/// the branch the row was dealt. `false` as soon as it meets a weighted choice the row did not
+/// meet at this point the first time.
+fn draw_along(
+    node: &Node,
+    row: &mut RowState,
+    dealt: &[Dealt],
+    cursor: &mut usize,
+    prng: &mut Sfc32,
+) -> bool {
+    match node {
+        Node::Empty => true,
+        Node::Literal(c) => {
+            row.out.push(*c);
+            true
+        }
+        Node::Chars(values) => {
+            let c = rand::pick(prng, values);
+            row.out.push(c);
+            true
+        }
+        Node::Sequence(parts) => {
+            for part in parts {
+                if !draw_along(part, row, dealt, cursor, prng) {
+                    return false;
+                }
+            }
+            true
+        }
+        Node::Alternation(choices) => {
+            let pick = rand::next_int(prng, 0, choices.len() as i32);
+            let which = (pick.max(0) as usize).min(choices.len() - 1);
+            draw_along(&choices[which], row, dealt, cursor, prng)
+        }
+        Node::Repeat(inner, min, max) => {
+            let times = rand::next_int(prng, *min, *max + 1);
+            for _ in 0..times {
+                if !draw_along(inner, row, dealt, cursor, prng) {
+                    return false;
+                }
+            }
+            true
+        }
+        Node::Capture(index, inner, _) => {
+            let start = row.out.len();
+            if !draw_along(inner, row, dealt, cursor, prng) {
+                return false;
+            }
+            let captured = row.out[start..].to_string();
+            row.captures.insert(*index, captured);
+            true
+        }
+        Node::Backref(index) => {
+            let value = row.captures.get(index).cloned().unwrap_or_default();
+            row.out.push_str(&value);
+            true
+        }
+        Node::Weighted(choices) => {
+            let Some(&(taken, branch)) = dealt.get(*cursor) else {
+                return false;
+            };
+            if !std::ptr::eq(taken, node) {
+                return false;
+            }
+            *cursor += 1;
+            draw_along(&choices[branch].inner, row, dealt, cursor, prng)
+        }
+        Node::Conditional(branches) => {
+            for branch in branches {
+                let hit = match &branch.test {
+                    None => true,
+                    Some((capture, want)) => {
+                        row.captures.get(capture).map(String::as_str).unwrap_or("") == want
+                    }
+                };
+                if hit {
+                    return draw_along(&branch.inner, row, dealt, cursor, prng);
+                }
+            }
+            true
+        }
+    }
+}
+
+fn number_weighted(
+    node: &Node,
+    ids: &mut HashMap<*const Node, usize>,
+    percents: &mut HashMap<*const Node, Vec<f64>>,
+) {
+    match node {
+        Node::Sequence(parts) | Node::Alternation(parts) => {
+            for part in parts {
+                number_weighted(part, ids, percents);
+            }
+        }
+        Node::Repeat(inner, _, _) | Node::Capture(_, inner, _) => {
+            number_weighted(inner, ids, percents);
+        }
+        Node::Weighted(choices) => {
+            let at = ids.len();
+            ids.insert(node as *const Node, at);
+            percents.insert(
+                node as *const Node,
+                choices.iter().map(|b| b.percent).collect(),
+            );
+            for branch in choices {
+                number_weighted(&branch.inner, ids, percents);
+            }
+        }
+        Node::Conditional(branches) => {
+            for branch in branches {
+                number_weighted(&branch.inner, ids, percents);
+            }
+        }
+        _ => {}
+    }
+}
+
+/// Every weighted choice passed exactly once by each row reaching its parent.
+fn on_spine(node: &Node, under_draw: bool) -> bool {
+    match node {
+        Node::Weighted(choices) => !under_draw && choices.iter().all(|b| on_spine(&b.inner, false)),
+        Node::Sequence(parts) => parts.iter().all(|p| on_spine(p, under_draw)),
+        Node::Capture(_, inner, _) => on_spine(inner, under_draw),
+        Node::Alternation(choices) => choices.iter().all(|c| on_spine(c, true)),
+        Node::Repeat(inner, _, _) => on_spine(inner, true),
+        Node::Conditional(branches) => branches.iter().all(|b| on_spine(&b.inner, true)),
+        _ => true,
+    }
+}
+
+fn times(a: u64, b: u64) -> u64 {
+    a.saturating_mul(b).min(regex::SPACE_CAP)
+}
+
+fn plus(a: u64, b: u64) -> u64 {
+    a.saturating_add(b).min(regex::SPACE_CAP)
+}
+
+/// Strings `node` can make — along `along`'s branches where it names a weighted choice.
+fn space(node: &Node, along: Option<&HashMap<*const Node, usize>>) -> u64 {
+    match node {
+        Node::Empty | Node::Literal(_) | Node::Backref(_) => 1,
+        Node::Chars(values) => values.iter().collect::<BTreeSet<_>>().len() as u64,
+        Node::Sequence(parts) => parts.iter().fold(1, |n, p| times(n, space(p, along))),
+        Node::Alternation(choices) => choices.iter().fold(0, |n, c| plus(n, space(c, along))),
+        Node::Capture(_, inner, _) => space(inner, along),
+        Node::Repeat(inner, min, max) => {
+            let each = space(inner, along);
+            let mut term = 1u64;
+            for _ in 0..*min {
+                term = times(term, each);
+            }
+            let mut total = 0u64;
+            for _ in *min..=*max {
+                total = plus(total, term);
+                term = times(term, each);
+            }
+            total
+        }
+        Node::Weighted(choices) => {
+            if let Some(&forced) = along.and_then(|a| a.get(&(node as *const Node))) {
+                return space(&choices[forced].inner, along);
+            }
+            choices
+                .iter()
+                .fold(0, |n, b| plus(n, space(&b.inner, along)))
+        }
+        Node::Conditional(branches) => {
+            let total = branches
+                .iter()
+                .fold(0, |n, b| plus(n, space(&b.inner, along)));
+            // A row that matches no branch appends nothing: one more outcome, unless `*` catches it.
+            if branches.iter().any(|b| b.test.is_none()) {
+                total
+            } else {
+                plus(total, 1)
             }
         }
     }

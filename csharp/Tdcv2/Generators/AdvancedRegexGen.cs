@@ -3,6 +3,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using Tdcv2.Distribution;
 using Tdcv2.Prng;
+using Tdcv2.Stats;
 using Tdcv2.Unicode;
 
 namespace Tdcv2.Generators;
@@ -81,10 +82,17 @@ public static class AdvancedRegexGen
     public sealed record CondTest(int Capture, string Value);
 
     /// <summary>One row under construction: what it has so far, and what its groups captured.</summary>
-    private sealed class RowState
+    internal sealed class RowState
     {
         internal readonly StringBuilder Out = new();
         internal readonly Dictionary<int, string> Captures = new();
+
+        /// <summary>
+        /// Every weighted branch this row was dealt, in the order it met them — kept only when a
+        /// unique column asks, so it can redraw the row along the SAME branches. <c>null</c>
+        /// otherwise.
+        /// </summary>
+        internal List<(Node.Weighted Node, int Branch)>? Dealt;
     }
 
     public static IReadOnlyList<string> Generate(
@@ -260,6 +268,7 @@ public static class AdvancedRegexGen
                 for (int i = 0; i < rows.Count; i++)
                 {
                     buckets[selected[i]].Add(rows[i]);
+                    rows[i].Dealt?.Add((w, selected[i]));
                 }
 
                 for (int i = 0; i < w.Choices.Count; i++)
@@ -303,6 +312,378 @@ public static class AdvancedRegexGen
                 }
 
                 return;
+            }
+
+            default:
+                throw new InvalidOperationException($"advanced_regex: unhandled node {node}");
+        }
+    }
+
+    // ── uniq="true" over a pattern ──────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// The most different strings a pattern can make — counted as <see cref="RegexGen.SpaceSize"/>
+    /// counts, with a weighted choice adding its branches and a conditional adding its branches
+    /// plus the empty string a row that matches none contributes (unless a <c>*</c> branch leaves
+    /// no such row).
+    /// </summary>
+    public static long SpaceSize(string pattern, int regexMaxLength) =>
+        Space(Compile(pattern, regexMaxLength), null);
+
+    /// <summary>Deal a column exactly as <see cref="Generate"/> would, remembering each row's weighted branches.</summary>
+    public static Planned Plan(
+        IReadOnlyDictionary<string, string> attrs, int count, int documentMaxLength, Sfc32 prng)
+    {
+        Node root = Compile(attrs.GetValueOrDefault("value", ""), RegexGen.LimitOf(attrs, documentMaxLength));
+        var rows = new List<RowState>(count);
+        for (int i = 0; i < count; i++)
+        {
+            rows.Add(new RowState { Dealt = new List<(Node.Weighted, int)>() });
+        }
+
+        GenerateInto(root, rows, prng);
+        return new Planned(root, rows);
+    }
+
+    /// <summary>
+    /// A column dealt exactly as <see cref="Generate"/> deals it, able to redraw one row without
+    /// moving a single exact share. See the TypeScript reference, <c>PlannedAdvancedColumn</c>,
+    /// for the why.
+    /// </summary>
+    /// <remarks>
+    /// Weighted choices are told apart by REFERENCE: nodes are records, so two written the same
+    /// way are <c>Equals</c>, and a row dealt the first would be read as having been dealt the
+    /// second.
+    /// </remarks>
+    public sealed class Planned
+    {
+        private readonly Node root;
+        private readonly List<RowState> rows;
+        private readonly bool spine;
+        private readonly Dictionary<string, List<(Node.Weighted Node, int Branch)>> first = new();
+        private readonly Dictionary<string, long> spaces = new();
+
+        internal Planned(Node root, List<RowState> rows)
+        {
+            this.root = root;
+            this.rows = rows;
+            Values = rows.Select(r => r.Out.ToString()).ToList();
+            TotalSpace = Space(root, null);
+            var ids = new Dictionary<Node.Weighted, int>(ReferenceEqualityComparer.Instance);
+            NumberWeighted(root, ids);
+            spine = OnSpine(root, false);
+            var keys = new List<string>(rows.Count);
+            foreach (RowState row in rows)
+            {
+                List<(Node.Weighted Node, int Branch)> dealt = row.Dealt!;
+                string key = spine
+                    ? string.Join("/", dealt.Select(d => $"{ids[d.Node]}.{d.Branch}"))
+                    : string.Empty;
+                keys.Add(key);
+                first.TryAdd(key, dealt);
+            }
+
+            PathKeys = keys;
+        }
+
+        /// <summary>The column as dealt — the same values <see cref="Generate"/> deals.</summary>
+        public List<string> Values { get; }
+
+        public long TotalSpace { get; }
+
+        /// <summary>One key per row; rows with the same key were dealt the same branches.</summary>
+        public IReadOnlyList<string> PathKeys { get; }
+
+        /// <summary>The strings a path can make, or <c>null</c> when the shares cannot be counted apart.</summary>
+        public long? PathSpace(string key)
+        {
+            if (!spine)
+            {
+                return null;
+            }
+
+            if (spaces.TryGetValue(key, out long known))
+            {
+                return known;
+            }
+
+            var along = new Dictionary<Node.Weighted, int>(ReferenceEqualityComparer.Instance);
+            foreach ((Node.Weighted node, int branch) in first.GetValueOrDefault(key) ?? new())
+            {
+                along[node] = branch;
+            }
+
+            long counted = Space(root, along);
+            spaces[key] = counted;
+            return counted;
+        }
+
+        /// <summary><c>70% (branch 1 of 2)</c>, joined by <c> → </c>, for a refusal.</summary>
+        public string DescribePath(string key)
+        {
+            // Empty where the shares are not counted apart: every row is then in one group, and
+            // naming the branches its first row happened to take would describe a share nobody is
+            // held to.
+            if (!spine)
+            {
+                return string.Empty;
+            }
+
+            return string.Join(
+                " → ",
+                (first.GetValueOrDefault(key) ?? new()).Select(d =>
+                    $"{Numbers.ToText(d.Node.Choices[d.Branch].Percent)}% (branch {d.Branch + 1} of {d.Node.Choices.Count})"));
+        }
+
+        /// <summary>One more value for <paramref name="row"/> along its dealt branches, or <c>null</c> if it strayed.</summary>
+        public string? Redraw(int row, Sfc32 prng)
+        {
+            List<(Node.Weighted Node, int Branch)> dealt = rows[row].Dealt!;
+            var fresh = new RowState();
+            int cursor = 0;
+            if (!DrawAlong(root, fresh, dealt, ref cursor, prng))
+            {
+                return null;
+            }
+
+            return cursor == dealt.Count ? fresh.Out.ToString() : null;
+        }
+    }
+
+    /// <summary>
+    /// One row walked as <see cref="GenerateInto"/> walks a bucket of one — except that a weighted
+    /// choice takes the branch the row was dealt. <c>false</c> as soon as it meets a weighted
+    /// choice the row did not meet at this point the first time.
+    /// </summary>
+    private static bool DrawAlong(
+        Node node, RowState row, List<(Node.Weighted Node, int Branch)> dealt, ref int cursor, Sfc32 prng)
+    {
+        switch (node)
+        {
+            case Node.Empty:
+                return true;
+            case Node.Literal l:
+                row.Out.Append(l.Value);
+                return true;
+            case Node.Chars c:
+                row.Out.Append(Rand.Pick(prng, c.Values));
+                return true;
+            case Node.Sequence s:
+                foreach (Node part in s.Parts)
+                {
+                    if (!DrawAlong(part, row, dealt, ref cursor, prng))
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+            case Node.Alternation a:
+                return DrawAlong(a.Choices[Rand.NextInt(prng, 0, a.Choices.Count)], row, dealt, ref cursor, prng);
+            case Node.Repeat r:
+            {
+                int times = Rand.NextInt(prng, r.Min, r.Max + 1);
+                for (int step = 0; step < times; step++)
+                {
+                    if (!DrawAlong(r.Inner, row, dealt, ref cursor, prng))
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+
+            case Node.Capture c:
+            {
+                int start = row.Out.Length;
+                if (!DrawAlong(c.Inner, row, dealt, ref cursor, prng))
+                {
+                    return false;
+                }
+
+                row.Captures[c.Index] = row.Out.ToString(start, row.Out.Length - start);
+                return true;
+            }
+
+            case Node.Backref b:
+                row.Out.Append(row.Captures.GetValueOrDefault(b.Index, ""));
+                return true;
+            case Node.Weighted w:
+            {
+                if (cursor >= dealt.Count || !ReferenceEquals(dealt[cursor].Node, w))
+                {
+                    return false;
+                }
+
+                int branch = dealt[cursor].Branch;
+                cursor += 1;
+                return DrawAlong(w.Choices[branch].Inner, row, dealt, ref cursor, prng);
+            }
+
+            case Node.Conditional c:
+                foreach (CondBranch branch in c.Branches)
+                {
+                    CondTest? test = branch.Test;
+                    string held = row.Captures.GetValueOrDefault(test?.Capture ?? 0, string.Empty);
+                    if (test is null || held == test.Value)
+                    {
+                        return DrawAlong(branch.Inner, row, dealt, ref cursor, prng);
+                    }
+                }
+
+                return true;
+            default:
+                throw new InvalidOperationException($"advanced_regex: unhandled node {node}");
+        }
+    }
+
+    private static void NumberWeighted(Node node, Dictionary<Node.Weighted, int> ids)
+    {
+        switch (node)
+        {
+            case Node.Sequence s:
+                foreach (Node part in s.Parts)
+                {
+                    NumberWeighted(part, ids);
+                }
+
+                break;
+            case Node.Alternation a:
+                foreach (Node choice in a.Choices)
+                {
+                    NumberWeighted(choice, ids);
+                }
+
+                break;
+            case Node.Repeat r:
+                NumberWeighted(r.Inner, ids);
+                break;
+            case Node.Capture c:
+                NumberWeighted(c.Inner, ids);
+                break;
+            case Node.Weighted w:
+                ids[w] = ids.Count;
+                foreach (Branch b in w.Choices)
+                {
+                    NumberWeighted(b.Inner, ids);
+                }
+
+                break;
+            case Node.Conditional c:
+                foreach (CondBranch b in c.Branches)
+                {
+                    NumberWeighted(b.Inner, ids);
+                }
+
+                break;
+        }
+    }
+
+    /// <summary>Every weighted choice passed exactly once by each row reaching its parent.</summary>
+    private static bool OnSpine(Node node, bool underDraw) => node switch
+    {
+        Node.Weighted w => !underDraw && w.Choices.All(b => OnSpine(b.Inner, false)),
+        Node.Sequence s => s.Parts.All(p => OnSpine(p, underDraw)),
+        Node.Capture c => OnSpine(c.Inner, underDraw),
+        Node.Alternation a => a.Choices.All(c => OnSpine(c, true)),
+        Node.Repeat r => OnSpine(r.Inner, true),
+        Node.Conditional c => c.Branches.All(b => OnSpine(b.Inner, true)),
+        _ => true,
+    };
+
+    private static long Times(long a, long b)
+    {
+        if (a == 0 || b == 0)
+        {
+            return 0;
+        }
+
+        return a > RegexGen.SpaceCap / b ? RegexGen.SpaceCap : Math.Min(a * b, RegexGen.SpaceCap);
+    }
+
+    private static long Plus(long a, long b) => Math.Min(a + b, RegexGen.SpaceCap);
+
+    /// <summary>Strings <paramref name="node"/> can make — along <paramref name="along"/>'s branches where it names a weighted choice.</summary>
+    private static long Space(Node node, Dictionary<Node.Weighted, int>? along)
+    {
+        switch (node)
+        {
+            case Node.Empty:
+            case Node.Literal:
+            case Node.Backref:
+                return 1;
+            case Node.Chars c:
+                return new HashSet<string>(c.Values).Count;
+            case Node.Sequence s:
+            {
+                long total = 1;
+                foreach (Node part in s.Parts)
+                {
+                    total = Times(total, Space(part, along));
+                }
+
+                return total;
+            }
+
+            case Node.Alternation a:
+            {
+                long total = 0;
+                foreach (Node choice in a.Choices)
+                {
+                    total = Plus(total, Space(choice, along));
+                }
+
+                return total;
+            }
+
+            case Node.Capture c:
+                return Space(c.Inner, along);
+            case Node.Repeat r:
+            {
+                long each = Space(r.Inner, along);
+                long term = 1;
+                for (int i = 0; i < r.Min; i++)
+                {
+                    term = Times(term, each);
+                }
+
+                long total = 0;
+                for (int i = r.Min; i <= r.Max; i++)
+                {
+                    total = Plus(total, term);
+                    term = Times(term, each);
+                }
+
+                return total;
+            }
+
+            case Node.Weighted w:
+            {
+                if (along != null && along.TryGetValue(w, out int forced))
+                {
+                    return Space(w.Choices[forced].Inner, along);
+                }
+
+                long total = 0;
+                foreach (Branch b in w.Choices)
+                {
+                    total = Plus(total, Space(b.Inner, along));
+                }
+
+                return total;
+            }
+
+            case Node.Conditional c:
+            {
+                long total = 0;
+                foreach (CondBranch b in c.Branches)
+                {
+                    total = Plus(total, Space(b.Inner, along));
+                }
+
+                // A row that matches no branch appends nothing: one more outcome, unless `*` catches it.
+                return c.Branches.Any(b => b.Test is null) ? total : Plus(total, 1);
             }
 
             default:
