@@ -888,6 +888,76 @@
         ]
       }
     },
+    "branch-derived/a formula as the fallback branch": {
+      "engine2": {
+        "lines": [
+          "0 10 -",
+          "3 13 4.3",
+          "0 18 -",
+          "2 12 6.0",
+          "2 15 7.5",
+          "3 19 6.3",
+          "0 16 -",
+          "1 10 10.0",
+          "1 10 10.0",
+          "2 17 8.5",
+          "3 16 5.3",
+          "3 18 6.0"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "0 10 -",
+          "3 13 4.3",
+          "0 18 -",
+          "2 12 6.0",
+          "2 15 7.5",
+          "3 19 6.3",
+          "0 16 -",
+          "1 10 10.0",
+          "1 10 10.0",
+          "2 17 8.5",
+          "3 16 5.3",
+          "3 18 6.0"
+        ]
+      }
+    },
+    "branch-derived/a date offset carrying its own if": {
+      "engine2": {
+        "refused": "a date measured from another column (\"C\") reads that column as the row is built, and the streaming path has no way to do that yet; the in-memory engine handles it (run without a forced streaming engine)"
+      },
+      "engine3": {
+        "lines": [
+          "2026-03-12 0 -",
+          "2026-10-01 3 2026-10-08",
+          "2026-05-16 0 -",
+          "2026-06-22 2 2026-06-29",
+          "2026-09-25 2 2026-10-02",
+          "2026-04-19 3 2026-04-26",
+          "2026-11-10 0 -",
+          "2026-08-22 1 -"
+        ]
+      }
+    },
+    "branch-derived/a date offset in a switch nested inside a case": {
+      "engine2": {
+        "refused": "a date measured from another column (\"C\") reads that column as the row is built, and the streaming path has no way to do that yet; the in-memory engine handles it (run without a forced streaming engine)"
+      },
+      "engine3": {
+        "lines": [
+          "12.03.2026 0 -",
+          "01.10.2026 3 2026-10-03",
+          "16.05.2026 0 zero",
+          "22.06.2026 2 2026-06-24",
+          "25.09.2026 2 2026-09-27",
+          "19.04.2026 3 2026-04-21",
+          "10.11.2026 0 zero",
+          "22.08.2026 1 -",
+          "22.08.2026 1 -",
+          "30.06.2026 2 2026-07-02"
+        ]
+      }
+    },
     "comparisons/strict-equality-matches-the-number-written-beside-it": {
       "engine2": {
         "lines": ["0: is0 not1", "1: is1", "2: not1", "3: not1"]
@@ -5704,6 +5774,14 @@
       },
       "engine3": {
         "lines": ["182,154.00", "86,154.00", "169,154.00", "179,154.00"]
+      }
+    },
+    "stat/count takes a column of words": {
+      "engine2": {
+        "refused": "a statistic (\"S\") is computed over every row of the run, including the ones after this one, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)"
+      },
+      "engine3": {
+        "lines": ["blue 4", "red 4", "green 4", "red 4"]
       }
     },
     "statistics/distribution-normal": {

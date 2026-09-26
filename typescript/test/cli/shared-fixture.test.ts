@@ -9,11 +9,12 @@
  * pins the part of their behaviour that three implementations have to share.
  */
 
+import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -56,6 +57,9 @@ const FIXTURE = JSON.parse(readFileSync(FIXTURE_PATH, 'utf8')) as Fixture;
 /** A case runs here unless it names implementations and this is not one of them. */
 const CASES = FIXTURE.cases.filter((c) => !c.only || c.only.includes('typescript'));
 const SKIPPED = FIXTURE.cases.filter((c) => c.only && !c.only.includes('typescript'));
+
+/** The compiled CLI, for the cases that need real worker threads. */
+const DIST_MAIN = fileURLToPath(new URL('../../dist/cli/main.js', import.meta.url));
 
 let stdoutBuf = '';
 let stderrBuf = '';
@@ -235,6 +239,15 @@ describe('the shared CLI fixture', () => {
       } else if (testCase.command === 'pack') {
         const { runPack } = await import('../../src/cli/pack.js');
         code = await runPack(argv, { cwd: dir });
+      } else if (argv.includes('--jobs')) {
+        // Worker threads load the COMPILED worker module, which exists only under
+        // dist/ — in-process under vitest a split run cannot start its workers.
+        // So a --jobs case runs the built CLI (compiled once by global-setup.ts),
+        // the way a user runs it, and its workers are real.
+        const ran = spawnSync('node', [DIST_MAIN, ...argv], { encoding: 'utf8' });
+        stdoutBuf = ran.stdout;
+        stderrBuf = ran.stderr;
+        code = ran.status ?? 1;
       } else {
         code = await main(argv);
       }

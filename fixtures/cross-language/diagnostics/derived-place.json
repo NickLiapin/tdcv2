@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "a-formula-as-a-field-of-a-compound",
+      "demonstrates": "TDC295",
+      "description": "A formula as a field of a compound is refused: a record's parts are drawn and rearranged together, and a computed value moved to another row no longer describes it. One cell of the placement matrix, pinned so every implementation refuses it at the same place.",
+      "config": "<tdc><env count=\"4\" seed=\"p\" local=\"en\"><pool name=\"P\" count=\"3\"><sequence name=\"n\"><gen type=\"number\" value=\"1..9\"/></sequence></pool><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"D\"><gen type=\"date\" value=\"2020-01-01..2020-12-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"K\"><gen type=\"text\" value=\"a,b\"/></sequence><sequence name=\"C\"><gen name=\"f\" type=\"formula\" expr=\"N * 2\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["warning TDC231 1:40", "error TDC295 1:396"]
+    },
+    {
+      "name": "a-date-offset-as-a-part-of-a-composed-sequence",
+      "demonstrates": "TDC295",
+      "description": "A date offset as a part of a composed sequence is refused: a record's parts are drawn and rearranged together, and a computed value moved to another row no longer describes it. One cell of the placement matrix, pinned so every implementation refuses it at the same place.",
+      "config": "<tdc><env count=\"4\" seed=\"p\" local=\"en\"><pool name=\"P\" count=\"3\"><sequence name=\"n\"><gen type=\"number\" value=\"1..9\"/></sequence></pool><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"D\"><gen type=\"date\" value=\"2020-01-01..2020-12-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"K\"><gen type=\"text\" value=\"a,b\"/></sequence><sequence name=\"C\"><data>id-</data><gen type=\"date\" of=\"D\" plus=\"1d\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["warning TDC231 1:40", "error TDC295 1:403"]
+    },
+    {
+      "name": "a-running-total-in-a-switch-default",
+      "demonstrates": "TDC295",
+      "description": "A running total in a <switch> <default> is refused: it reads more than its own row, so it has to be a <sequence> of its own. One cell of the placement matrix, pinned so every implementation refuses it at the same place.",
+      "config": "<tdc><env count=\"4\" seed=\"p\" local=\"en\"><pool name=\"P\" count=\"3\"><sequence name=\"n\"><gen type=\"number\" value=\"1..9\"/></sequence></pool><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"D\"><gen type=\"date\" value=\"2020-01-01..2020-12-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"K\"><gen type=\"text\" value=\"a,b\"/></sequence><switch name=\"C\" on=\"K\"><case is=\"a\"><data>x</data></case><default><gen type=\"running\" of=\"N\" accumulate=\"sum\"/></default></switch></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["warning TDC231 1:40", "error TDC295 1:435"]
+    },
+    {
+      "name": "a-running-total-in-a-switch-nested-inside-a-case",
+      "demonstrates": "TDC295",
+      "description": "A running total in a <switch> nested inside a <case> is refused: it reads more than its own row, so it has to be a <sequence> of its own. One cell of the placement matrix, pinned so every implementation refuses it at the same place.",
+      "config": "<tdc><env count=\"4\" seed=\"p\" local=\"en\"><pool name=\"P\" count=\"3\"><sequence name=\"n\"><gen type=\"number\" value=\"1..9\"/></sequence></pool><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"D\"><gen type=\"date\" value=\"2020-01-01..2020-12-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"K\"><gen type=\"text\" value=\"a,b\"/></sequence><mix name=\"C\"><case><switch on=\"K\"><case is=\"a\"><gen type=\"running\" of=\"N\" accumulate=\"sum\"/></case></switch></case></mix></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["warning TDC231 1:40", "error TDC295 1:416"]
+    },
+    {
+      "name": "a-running-total-as-a-part-of-a-composed-sequence",
+      "demonstrates": "TDC295",
+      "description": "A running total as a part of a composed sequence is refused: it reads more than its own row, so it has to be a <sequence> of its own. One cell of the placement matrix, pinned so every implementation refuses it at the same place.",
+      "config": "<tdc><env count=\"4\" seed=\"p\" local=\"en\"><pool name=\"P\" count=\"3\"><sequence name=\"n\"><gen type=\"number\" value=\"1..9\"/></sequence></pool><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"D\"><gen type=\"date\" value=\"2020-01-01..2020-12-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"K\"><gen type=\"text\" value=\"a,b\"/></sequence><sequence name=\"C\"><data>id-</data><gen type=\"running\" of=\"N\" accumulate=\"sum\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["warning TDC231 1:40", "error TDC295 1:403"]
+    },
+    {
+      "name": "a-running-total-as-a-field-of-a-compound",
+      "demonstrates": "TDC295",
+      "description": "A running total as a field of a compound is refused: it reads more than its own row, so it has to be a <sequence> of its own. One cell of the placement matrix, pinned so every implementation refuses it at the same place.",
+      "config": "<tdc><env count=\"4\" seed=\"p\" local=\"en\"><pool name=\"P\" count=\"3\"><sequence name=\"n\"><gen type=\"number\" value=\"1..9\"/></sequence></pool><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"D\"><gen type=\"date\" value=\"2020-01-01..2020-12-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"K\"><gen type=\"text\" value=\"a,b\"/></sequence><sequence name=\"C\"><gen name=\"f\" type=\"running\" of=\"N\" accumulate=\"sum\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["warning TDC231 1:40", "error TDC295 1:396"]
+    },
+    {
+      "name": "a-statistic-inside-a-mix-case",
+      "demonstrates": "TDC295",
+      "description": "A statistic inside a <mix> case is refused: it reads more than its own row, so it has to be a <sequence> of its own. One cell of the placement matrix, pinned so every implementation refuses it at the same place.",
+      "config": "<tdc><env count=\"4\" seed=\"p\" local=\"en\"><pool name=\"P\" count=\"3\"><sequence name=\"n\"><gen type=\"number\" value=\"1..9\"/></sequence></pool><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"D\"><gen type=\"date\" value=\"2020-01-01..2020-12-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"K\"><gen type=\"text\" value=\"a,b\"/></sequence><mix name=\"C\"><case><data>x</data></case><case><gen type=\"stat\" of=\"N\" op=\"mean\"/></case></mix></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["warning TDC231 1:40", "error TDC295 1:415"]
+    },
+    {
+      "name": "a-statistic-in-a-switch-nested-inside-a-case",
+      "demonstrates": "TDC295",
+      "description": "A statistic in a <switch> nested inside a <case> is refused: it reads more than its own row, so it has to be a <sequence> of its own. One cell of the placement matrix, pinned so every implementation refuses it at the same place.",
+      "config": "<tdc><env count=\"4\" seed=\"p\" local=\"en\"><pool name=\"P\" count=\"3\"><sequence name=\"n\"><gen type=\"number\" value=\"1..9\"/></sequence></pool><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"D\"><gen type=\"date\" value=\"2020-01-01..2020-12-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"K\"><gen type=\"text\" value=\"a,b\"/></sequence><mix name=\"C\"><case><switch on=\"K\"><case is=\"a\"><gen type=\"stat\" of=\"N\" op=\"mean\"/></case></switch></case></mix></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["warning TDC231 1:40", "error TDC295 1:416"]
+    },
+    {
+      "name": "a-statistic-as-an-if-branch",
+      "demonstrates": "TDC295",
+      "description": "A statistic as an if= branch is refused: it reads more than its own row, so it has to be a <sequence> of its own. One cell of the placement matrix, pinned so every implementation refuses it at the same place.",
+      "config": "<tdc><env count=\"4\" seed=\"p\" local=\"en\"><pool name=\"P\" count=\"3\"><sequence name=\"n\"><gen type=\"number\" value=\"1..9\"/></sequence></pool><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"D\"><gen type=\"date\" value=\"2020-01-01..2020-12-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"K\"><gen type=\"text\" value=\"a,b\"/></sequence><sequence name=\"C\"><gen if=\"K == a\" type=\"stat\" of=\"N\" op=\"mean\"/><gen type=\"text\" value=\"-\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["warning TDC231 1:40", "error TDC295 1:385"]
+    },
+    {
+      "name": "a-statistic-as-the-fallback-branch",
+      "demonstrates": "TDC295",
+      "description": "A statistic as the fallback branch is refused: it reads more than its own row, so it has to be a <sequence> of its own. One cell of the placement matrix, pinned so every implementation refuses it at the same place.",
+      "config": "<tdc><env count=\"4\" seed=\"p\" local=\"en\"><pool name=\"P\" count=\"3\"><sequence name=\"n\"><gen type=\"number\" value=\"1..9\"/></sequence></pool><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"D\"><gen type=\"date\" value=\"2020-01-01..2020-12-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"K\"><gen type=\"text\" value=\"a,b\"/></sequence><sequence name=\"C\"><gen if=\"K == a\" type=\"text\" value=\"-\"/><gen type=\"stat\" of=\"N\" op=\"mean\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["warning TDC231 1:40", "error TDC295 1:427"]
+    },
+    {
+      "name": "a-statistic-as-a-part-of-a-composed-sequence",
+      "demonstrates": "TDC295",
+      "description": "A statistic as a part of a composed sequence is refused: it reads more than its own row, so it has to be a <sequence> of its own. One cell of the placement matrix, pinned so every implementation refuses it at the same place.",
+      "config": "<tdc><env count=\"4\" seed=\"p\" local=\"en\"><pool name=\"P\" count=\"3\"><sequence name=\"n\"><gen type=\"number\" value=\"1..9\"/></sequence></pool><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"D\"><gen type=\"date\" value=\"2020-01-01..2020-12-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"K\"><gen type=\"text\" value=\"a,b\"/></sequence><sequence name=\"C\"><data>id-</data><gen type=\"stat\" of=\"N\" op=\"mean\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["warning TDC231 1:40", "error TDC295 1:403"]
+    },
+    {
+      "name": "a-statistic-as-a-field-of-a-compound",
+      "demonstrates": "TDC295",
+      "description": "A statistic as a field of a compound is refused: it reads more than its own row, so it has to be a <sequence> of its own. One cell of the placement matrix, pinned so every implementation refuses it at the same place.",
+      "config": "<tdc><env count=\"4\" seed=\"p\" local=\"en\"><pool name=\"P\" count=\"3\"><sequence name=\"n\"><gen type=\"number\" value=\"1..9\"/></sequence></pool><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"D\"><gen type=\"date\" value=\"2020-01-01..2020-12-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"K\"><gen type=\"text\" value=\"a,b\"/></sequence><sequence name=\"C\"><gen name=\"f\" type=\"stat\" of=\"N\" op=\"mean\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["warning TDC231 1:40", "error TDC295 1:396"]
+    },
+    {
+      "name": "a-formula-reading-prev-in-a-switch-default",
+      "demonstrates": "TDC295",
+      "description": "A formula reading prev() in a <switch> <default> is refused: it reads more than its own row, so it has to be a <sequence> of its own. One cell of the placement matrix, pinned so every implementation refuses it at the same place.",
+      "config": "<tdc><env count=\"4\" seed=\"p\" local=\"en\"><pool name=\"P\" count=\"3\"><sequence name=\"n\"><gen type=\"number\" value=\"1..9\"/></sequence></pool><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"D\"><gen type=\"date\" value=\"2020-01-01..2020-12-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"K\"><gen type=\"text\" value=\"a,b\"/></sequence><switch name=\"C\" on=\"K\"><case is=\"a\"><data>x</data></case><default><gen type=\"formula\" expr=\"prev(N, 0) + 1\"/></default></switch></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["warning TDC231 1:40", "error TDC295 1:435"]
+    },
+    {
+      "name": "a-formula-reading-prev-in-a-switch-nested-inside-a-case",
+      "demonstrates": "TDC295",
+      "description": "A formula reading prev() in a <switch> nested inside a <case> is refused: it reads more than its own row, so it has to be a <sequence> of its own. One cell of the placement matrix, pinned so every implementation refuses it at the same place.",
+      "config": "<tdc><env count=\"4\" seed=\"p\" local=\"en\"><pool name=\"P\" count=\"3\"><sequence name=\"n\"><gen type=\"number\" value=\"1..9\"/></sequence></pool><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"D\"><gen type=\"date\" value=\"2020-01-01..2020-12-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"K\"><gen type=\"text\" value=\"a,b\"/></sequence><mix name=\"C\"><case><switch on=\"K\"><case is=\"a\"><gen type=\"formula\" expr=\"prev(N, 0) + 1\"/></case></switch></case></mix></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["warning TDC231 1:40", "error TDC295 1:416"]
+    },
+    {
+      "name": "a-formula-reading-prev-as-an-if-branch",
+      "demonstrates": "TDC295",
+      "description": "A formula reading prev() as an if= branch is refused: it reads more than its own row, so it has to be a <sequence> of its own. One cell of the placement matrix, pinned so every implementation refuses it at the same place.",
+      "config": "<tdc><env count=\"4\" seed=\"p\" local=\"en\"><pool name=\"P\" count=\"3\"><sequence name=\"n\"><gen type=\"number\" value=\"1..9\"/></sequence></pool><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"D\"><gen type=\"date\" value=\"2020-01-01..2020-12-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"K\"><gen type=\"text\" value=\"a,b\"/></sequence><sequence name=\"C\"><gen if=\"K == a\" type=\"formula\" expr=\"prev(N, 0) + 1\"/><gen type=\"text\" value=\"-\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["warning TDC231 1:40", "error TDC295 1:385"]
+    },
+    {
+      "name": "a-formula-reading-prev-as-the-fallback-branch",
+      "demonstrates": "TDC295",
+      "description": "A formula reading prev() as the fallback branch is refused: it reads more than its own row, so it has to be a <sequence> of its own. One cell of the placement matrix, pinned so every implementation refuses it at the same place.",
+      "config": "<tdc><env count=\"4\" seed=\"p\" local=\"en\"><pool name=\"P\" count=\"3\"><sequence name=\"n\"><gen type=\"number\" value=\"1..9\"/></sequence></pool><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"D\"><gen type=\"date\" value=\"2020-01-01..2020-12-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"K\"><gen type=\"text\" value=\"a,b\"/></sequence><sequence name=\"C\"><gen if=\"K == a\" type=\"text\" value=\"-\"/><gen type=\"formula\" expr=\"prev(N, 0) + 1\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["warning TDC231 1:40", "error TDC295 1:427"]
+    },
+    {
+      "name": "a-formula-reading-prev-as-a-part-of-a-composed-sequence",
+      "demonstrates": "TDC295",
+      "description": "A formula reading prev() as a part of a composed sequence is refused: it reads more than its own row, so it has to be a <sequence> of its own. One cell of the placement matrix, pinned so every implementation refuses it at the same place.",
+      "config": "<tdc><env count=\"4\" seed=\"p\" local=\"en\"><pool name=\"P\" count=\"3\"><sequence name=\"n\"><gen type=\"number\" value=\"1..9\"/></sequence></pool><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"D\"><gen type=\"date\" value=\"2020-01-01..2020-12-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"K\"><gen type=\"text\" value=\"a,b\"/></sequence><sequence name=\"C\"><data>id-</data><gen type=\"formula\" expr=\"prev(N, 0) + 1\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["warning TDC231 1:40", "error TDC295 1:403"]
+    },
+    {
+      "name": "a-formula-reading-prev-as-a-field-of-a-compound",
+      "demonstrates": "TDC295",
+      "description": "A formula reading prev() as a field of a compound is refused: it reads more than its own row, so it has to be a <sequence> of its own. One cell of the placement matrix, pinned so every implementation refuses it at the same place.",
+      "config": "<tdc><env count=\"4\" seed=\"p\" local=\"en\"><pool name=\"P\" count=\"3\"><sequence name=\"n\"><gen type=\"number\" value=\"1..9\"/></sequence></pool><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"D\"><gen type=\"date\" value=\"2020-01-01..2020-12-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"K\"><gen type=\"text\" value=\"a,b\"/></sequence><sequence name=\"C\"><gen name=\"f\" type=\"formula\" expr=\"prev(N, 0) + 1\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["warning TDC231 1:40", "error TDC295 1:396"]
+    },
+    {
+      "name": "a-pool-reference-in-a-switch-default",
+      "demonstrates": "TDC268",
+      "description": "A pool reference in a <switch> <default> is refused: a pool reference publishes a whole member, so it has to be a <sequence> of its own. One cell of the placement matrix, pinned so every implementation refuses it at the same place.",
+      "config": "<tdc><env count=\"4\" seed=\"p\" local=\"en\"><pool name=\"P\" count=\"3\"><sequence name=\"n\"><gen type=\"number\" value=\"1..9\"/></sequence></pool><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"D\"><gen type=\"date\" value=\"2020-01-01..2020-12-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"K\"><gen type=\"text\" value=\"a,b\"/></sequence><switch name=\"C\" on=\"K\"><case is=\"a\"><data>x</data></case><default><gen type=\"pool\" value=\"P\"/></default></switch></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["error TDC268 1:435"]
+    },
+    {
+      "name": "a-pool-reference-in-a-switch-nested-inside-a-case",
+      "demonstrates": "TDC268",
+      "description": "A pool reference in a <switch> nested inside a <case> is refused: a pool reference publishes a whole member, so it has to be a <sequence> of its own. One cell of the placement matrix, pinned so every implementation refuses it at the same place.",
+      "config": "<tdc><env count=\"4\" seed=\"p\" local=\"en\"><pool name=\"P\" count=\"3\"><sequence name=\"n\"><gen type=\"number\" value=\"1..9\"/></sequence></pool><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"D\"><gen type=\"date\" value=\"2020-01-01..2020-12-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"K\"><gen type=\"text\" value=\"a,b\"/></sequence><mix name=\"C\"><case><switch on=\"K\"><case is=\"a\"><gen type=\"pool\" value=\"P\"/></case></switch></case></mix></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["error TDC268 1:416"]
+    }
+  ]
+}

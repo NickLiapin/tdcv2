@@ -48,7 +48,11 @@
     "offsetFromNumber": "<tdc><env count=\"5\" seed=\"t\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"C\"><gen type=\"date\" of=\"N\" plus=\"1d\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{C}}</data></line></block></tdc>",
     "runningOverText": "<tdc><env count=\"3\" seed=\"t\" local=\"en\"><sequence name=\"T\"><gen type=\"text\" value=\"abc\"/></sequence><sequence name=\"S\"><gen type=\"running\" of=\"T\" accumulate=\"sum\"/></sequence></env><block><line><data>${{S}}</data></line></block></tdc>",
     "computeOverText": "<tdc><env count=\"3\" seed=\"t\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"abc\"/></sequence><sequence name=\"K\"><compute><result><to_number><field name=\"A\"/></to_number></result></compute></sequence></env><block><line><data>${{K}}</data></line></block></tdc>",
-    "statOverText": "<tdc><env count=\"3\" seed=\"t\" local=\"en\"><sequence name=\"T\"><gen type=\"text\" value=\"abc\"/></sequence><sequence name=\"S\"><gen type=\"stat\" of=\"T\" op=\"mean\"/></sequence></env><block><line><data>${{S}}</data></line></block></tdc>"
+    "statOverText": "<tdc><env count=\"3\" seed=\"t\" local=\"en\"><sequence name=\"T\"><gen type=\"text\" value=\"abc\"/></sequence><sequence name=\"S\"><gen type=\"stat\" of=\"T\" op=\"mean\"/></sequence></env><block><line><data>${{S}}</data></line></block></tdc>",
+    "statSumOverText": "<tdc><env count=\"3\" seed=\"t\" local=\"en\"><sequence name=\"T\"><gen type=\"text\" value=\"abc\"/></sequence><sequence name=\"S\"><gen type=\"stat\" of=\"T\" op=\"sum\"/></sequence></env><block><line><data>${{S}}</data></line></block></tdc>",
+    "repeatAccumulateOverText": "<tdc><env count=\"3\" seed=\"t\" local=\"en\"><sequence name=\"S\"><gen type=\"text\" value=\"abc\" repeat=\"3\" accumulate=\"sum\"/></sequence></env><block><line><data>${{S}}</data></line></block></tdc>",
+    "offsetFromNumberParquet": "<tdc><env count=\"5\" seed=\"t\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"C\"><gen type=\"date\" of=\"N\" plus=\"1d\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data name=\"c\">${{C}}</data></line></block></tdc>",
+    "divideByZeroLastRow": "<tdc><env count=\"200000\" seed=\"t\" local=\"en\"><sequence name=\"N\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"F\"><gen type=\"formula\" expr=\"1 / (N - 200000)\"/></sequence></env><block><line><data>${{F}}</data></line></block></tdc>"
   },
   "cases": [
     {
@@ -1493,6 +1497,66 @@
       "exit": 1,
       "stderr": "tdcv2: date offset (\"C\"): \"8\" in column \"N\" is not a date this can measure from. A date TDC generated carries its own value and any format= works; one read from a file or a pack has only its text, and only the ISO form (YYYY-MM-DD) means the same thing in every locale.\n",
       "absent": ["out.csv", "out.csv.partial"]
+    },
+    {
+      "name": "a statistic sum over text is refused in the statistic's own words",
+      "note": "op=\"sum\" used to refuse through the running total, in its words (\"accumulate=: … belongs on a numeric generator\") — a sentence about an attribute the config never wrote. Every op but count now refuses the same way, before the arithmetic.",
+      "files": {
+        "bad.tdc": "@statSumOverText"
+      },
+      "argv": ["{dir}/bad.tdc"],
+      "exit": 1,
+      "stderr": "tdcv2: stat (\"S\"): column \"T\" holds \"abc\", which is not a number, so op=\"sum\" has nothing to compute. Take the statistic of a numeric column — op=\"count\" is the one that counts any cell.\n"
+    },
+    {
+      "name": "accumulate over a repeat of words is one line, not a stack trace",
+      "note": "The running-total refusal reached from its second door: accumulate= on a repeat list. Python printed a traceback and C# exited 134 here too, from the same error class.",
+      "files": {
+        "bad.tdc": "@repeatAccumulateOverText"
+      },
+      "argv": ["{dir}/bad.tdc"],
+      "exit": 1,
+      "stderr": "tdcv2: accumulate=: \"abc\" is not a number, so there is nothing to accumulate. A running total needs numeric elements — accumulate= belongs on a numeric generator.\n"
+    },
+    {
+      "name": "a failed Parquet run leaves the previous file as it was",
+      "note": "The Parquet writers are separate code from the text ones in every implementation, so the atomic write is pinned for them on its own. The previous file must survive byte for byte, and no .partial may be left behind.",
+      "files": {
+        "bad.tdc": "@offsetFromNumberParquet",
+        "out.parquet": "previous parquet\n"
+      },
+      "argv": ["{dir}/bad.tdc", "-o", "{dir}/out.parquet"],
+      "exit": 1,
+      "stderr": "tdcv2: date offset (\"C\"): \"8\" in column \"N\" is not a date this can measure from. A date TDC generated carries its own value and any format= works; one read from a file or a pack has only its text, and only the ISO form (YYYY-MM-DD) means the same thing in every locale.\n",
+      "wrote": {
+        "out.parquet": "previous parquet\n"
+      },
+      "absent": ["out.parquet.partial"]
+    },
+    {
+      "name": "a parallel run that fails leaves the previous file as it was",
+      "note": "The parallel writers are a third copy of the output path. 200,000 rows is past every implementation's threshold for splitting; the division by zero is on the LAST row, so it is a late worker that fails — after others have finished their pieces. The message differs by implementation (a worker's error travels through different channels), so only its substance is pinned.",
+      "files": {
+        "bad.tdc": "@divideByZeroLastRow",
+        "out.csv": "previous\n"
+      },
+      "argv": ["{dir}/bad.tdc", "--jobs", "2", "-o", "{dir}/out.csv"],
+      "exit": 1,
+      "stderrContains": ["division by zero"],
+      "wrote": {
+        "out.csv": "previous\n"
+      },
+      "absent": ["out.csv.partial"]
+    },
+    {
+      "name": "a device is written in place, not replaced",
+      "note": "The atomic write renames a partial file over the destination, which a device cannot take: -o /dev/null has to be written directly, as it always was. An implementation that tried the rename would fail here.",
+      "files": {
+        "ok.tdc": "@tiny"
+      },
+      "argv": ["{dir}/ok.tdc", "-o", "/dev/null"],
+      "exit": 0,
+      "stdout": ""
     }
   ],
   "gaps": {

@@ -40,6 +40,12 @@
       "description": "The shape a reader actually writes: no mode=, no engine=, just a statistic. The other cases here pin mode=\"memory\", so the ROUTER is never exercised by them and a port that sent this config to the streaming engine and let the refusal escape would look green. The streaming engine refuses a statistic by design; when nobody named an engine, that refusal is answered by building the run in memory, not by failing.",
       "config": "<tdc><env count=\"4\" seed=\"prices\" local=\"en\"><sequence name=\"Price\"><gen type=\"number\" value=\"10..200\"/></sequence><sequence name=\"Average\"><gen type=\"stat\" of=\"Price\" op=\"mean\" decimals=\"2\"/></sequence></env><block><line><data>${{Price}},${{Average}}</data></line></block></tdc>",
       "expected": ["182,154.00", "86,154.00", "169,154.00", "179,154.00"]
+    },
+    {
+      "name": "count takes a column of words",
+      "description": "Every op but count now refuses a word; count counts cells and must go on taking any of them.",
+      "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"T\"><gen type=\"text\" value=\"red,green,blue\"/></sequence><sequence name=\"S\"><gen type=\"stat\" of=\"T\" op=\"count\"/></sequence></env><block><line><data>${{T}} ${{S}}</data></line></block></tdc>",
+      "expected": ["blue 4", "red 4", "green 4", "red 4"]
     }
   ]
 }
