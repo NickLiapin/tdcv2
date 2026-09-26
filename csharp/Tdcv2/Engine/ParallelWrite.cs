@@ -244,12 +244,16 @@ public static class ParallelWrite
                     : new InvalidOperationException("a worker failed", e);
             }
 
-            using var output = new FileStream(
-                target, FileMode.Create, FileAccess.Write, FileShare.None, 1 << 16);
-            foreach (string piece in pieces)
+            // Moved over the destination only once every piece is in (see Output.AtomicFile).
+            using (Output.AtomicFile output = Output.AtomicFile.Open(target))
             {
-                using FileStream part = File.OpenRead(piece);
-                part.CopyTo(output);
+                foreach (string piece in pieces)
+                {
+                    using FileStream part = File.OpenRead(piece);
+                    part.CopyTo(output.Stream);
+                }
+
+                output.Commit();
             }
         }
         finally

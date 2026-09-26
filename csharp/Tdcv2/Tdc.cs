@@ -508,9 +508,10 @@ public sealed class Tdc
         // second call to make; the columns still come from the named <data> in the block.
         if (target.EndsWith(".parquet", StringComparison.OrdinalIgnoreCase))
         {
-            using var file = new FileStream(
-                target, FileMode.Create, FileAccess.Write, FileShare.None, 1 << 16);
-            ParquetOutput.Write(_config, _run.Value, file, _onProgress);
+            // Beside the destination and moved over it at the end (see Output.AtomicFile).
+            using AtomicFile file = AtomicFile.Open(target);
+            ParquetOutput.Write(_config, _run.Value, file.Stream, _onProgress);
+            file.Commit();
             return;
         }
 
@@ -541,8 +542,17 @@ public sealed class Tdc
             }
         }
 
-        using var single = new StreamWriter(target, append: false);
-        _run.Value.WriteTo(single);
+        // Beside the destination and moved over it at the end (see Output.AtomicFile): a run that
+        // stops partway leaves the previous file exactly as it was. It used to open the file
+        // before the run was built, so a refusal left it truncated to nothing.
+        using AtomicFile atomic = AtomicFile.Open(target);
+        using (var single = new StreamWriter(
+            atomic.Stream, new System.Text.UTF8Encoding(false), 1 << 16, leaveOpen: true))
+        {
+            _run.Value.WriteTo(single);
+        }
+
+        atomic.Commit();
     }
 
     /// <summary>The records one at a time, without building a list of them.</summary>

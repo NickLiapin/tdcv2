@@ -127,6 +127,16 @@ public class CliTest
                     }
                 }
             }
+
+            if (root.TryGetProperty("absent", out JsonElement absent))
+            {
+                foreach (JsonElement missing in absent.EnumerateArray())
+                {
+                    Assert.False(
+                        File.Exists(Path.Combine(dir, missing.GetString()!)),
+                        $"{missing.GetString()} must not exist");
+                }
+            }
         }
         finally
         {

@@ -19,16 +19,9 @@
  * deterministic per (config, seed, now).
  */
 
-import {
-  closeSync,
-  openSync,
-  readFileSync,
-  renameSync,
-  rmSync,
-  writeFileSync,
-  writeSync,
-} from 'node:fs';
+import { readFileSync, writeSync } from 'node:fs';
 import type { EngineId } from '../processor/render.js';
+import { writeAtomically, writeAtomicallySync } from './atomic-write.js';
 import { dirname, resolve } from 'node:path';
 import { Readable } from 'node:stream';
 
@@ -482,7 +475,12 @@ export class TDC {
       });
       return;
     }
-    writeFileSync(path, await this.toStringAsync());
+    // Rendered in full before the destination is touched; the rename keeps a
+    // failure in the write itself from leaving half a file behind.
+    const text = await this.toStringAsync();
+    writeAtomicallySync(path, (fd) => {
+      writeSync(fd, text);
+    });
   }
 
   /**
@@ -512,8 +510,11 @@ export class TDC {
     // low-level `writeSync` rather than `createWriteStream` because
     // the latter flushes asynchronously — callers reading the file
     // right after `writeFile()` would race against the flush.
-    const fd = openSync(path, 'w');
-    try {
+    //
+    // Beside the destination and renamed over it at the end (see
+    // `atomic-write.ts`): a run that stops partway leaves the previous file
+    // exactly as it was, rather than truncated to what came before the error.
+    writeAtomicallySync(path, (fd) => {
       // Batch cards into ~1 MB buffers before writing: one `writeSync` per
       // card is one syscall per row (millions of them). Peak memory stays
       // bounded by the batch size, not the output length.
@@ -526,9 +527,7 @@ export class TDC {
         }
       }
       if (buf.length > 0) writeSync(fd, buf);
-    } finally {
-      closeSync(fd);
-    }
+    });
   }
 
   /**
@@ -746,40 +745,20 @@ function findEnv(tree: DocumentContext): OpenCloseElementContext | undefined {
  * The temporary sits BESIDE the destination so the rename is within one
  * filesystem, and therefore atomic. The same shape as `format -w`.
  */
-function parquetTempPath(path: string): string {
-  return `${path}.partial`;
-}
-
 function writeParquetAtomicallySync(
   path: string,
   produce: (write: (c: Uint8Array) => void) => void,
 ): void {
-  const temp = parquetTempPath(path);
-  const fd = openSync(temp, 'w');
-  try {
+  writeAtomicallySync(path, (fd) => {
     produce((chunk) => void writeSync(fd, chunk));
-    closeSync(fd);
-  } catch (err) {
-    closeSync(fd);
-    rmSync(temp, { force: true });
-    throw err;
-  }
-  renameSync(temp, path);
+  });
 }
 
 async function writeParquetAtomically(
   path: string,
   produce: (write: (c: Uint8Array) => void) => Promise<void>,
 ): Promise<void> {
-  const temp = parquetTempPath(path);
-  const fd = openSync(temp, 'w');
-  try {
+  await writeAtomically(path, async (fd) => {
     await produce((chunk) => void writeSync(fd, chunk));
-    closeSync(fd);
-  } catch (err) {
-    closeSync(fd);
-    rmSync(temp, { force: true });
-    throw err;
-  }
-  renameSync(temp, path);
+  });
 }

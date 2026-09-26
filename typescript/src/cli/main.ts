@@ -14,15 +14,7 @@
  * TDC as a one-off against a standalone DSL file.
  */
 
-import {
-  closeSync,
-  openSync,
-  existsSync,
-  readFileSync,
-  realpathSync,
-  renameSync,
-  writeFileSync,
-} from 'node:fs';
+import { existsSync, readFileSync, realpathSync, renameSync, writeFileSync } from 'node:fs';
 import { writeAllStringSync } from '../output/write-all.js';
 import { runInit } from './init.js';
 import { availableParallelism } from 'node:os';
@@ -37,6 +29,7 @@ import {
   formatDiagnostics,
 } from '../errors/index.js';
 import { formatTdc } from '../formatter/index.js';
+import { writeAtomically } from '../lib/atomic-write.js';
 import { TDC, WRITE_BATCH_BYTES } from '../lib/tdc.js';
 import { parse } from '../parser/index.js';
 
@@ -828,12 +821,9 @@ async function renderParallel(
     ...(onProgress !== undefined ? { onProgress } : {}),
   };
   if (args.output) {
-    const fd = openSync(args.output, 'w');
-    try {
-      await runParallel({ ...params, destFd: fd });
-    } finally {
-      closeSync(fd);
-    }
+    // Beside the destination and renamed over it only when every worker has
+    // finished — a failed run leaves the previous file as it was.
+    await writeAtomically(args.output, (fd) => runParallel({ ...params, destFd: fd }));
   } else {
     await runParallel({ ...params, destFd: 1 });
   }
@@ -866,12 +856,7 @@ async function renderParquetParallel(
     jobs: parquetJobLimit(worker.source, jobs, now, worker.seed),
     ...(onProgress !== undefined ? { onProgress } : {}),
   };
-  const fd = openSync(args.output ?? '', 'w');
-  try {
-    await runParquetParallel({ ...params, destFd: fd });
-  } finally {
-    closeSync(fd);
-  }
+  await writeAtomically(args.output ?? '', (fd) => runParquetParallel({ ...params, destFd: fd }));
 }
 
 export function isDirectInvocation(

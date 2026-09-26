@@ -153,6 +153,8 @@ def test_case(case: dict, tmp_path: Path, capsys) -> None:
         written = (tmp_path / name).read_text(encoding="utf-8")
         for fragment in fragments:
             assert fragment in written, written
+    for name in case.get("absent", []):
+        assert not (tmp_path / name).exists(), f"{name} must not exist"
 
 
 def test_the_fixture_is_not_empty() -> None:

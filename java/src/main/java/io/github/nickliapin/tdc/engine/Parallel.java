@@ -311,11 +311,15 @@ public final class Parallel {
                 }));
       }
 
-      try (OutputStream out =
-          new java.io.BufferedOutputStream(Files.newOutputStream(target), 1 << 16)) {
+      // Moved over the destination only once every piece is in (see output.AtomicFile).
+      try (io.github.nickliapin.tdc.output.AtomicFile file =
+              io.github.nickliapin.tdc.output.AtomicFile.open(target);
+          OutputStream out = new java.io.BufferedOutputStream(file.stream(), 1 << 16)) {
         for (Future<Path> future : pending) {
           Files.copy(future.get(), out);
         }
+        out.flush();
+        file.commit();
       } catch (IOException e) {
         throw new UncheckedIOException("cannot write " + target, e);
       } catch (InterruptedException e) {

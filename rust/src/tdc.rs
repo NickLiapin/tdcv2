@@ -23,6 +23,7 @@
 //! disagree. Row output ignores `<block>` and the wrappers entirely — those
 //! describe a file format, and a row has no format.
 
+use crate::output::atomic::Pending;
 use std::collections::BTreeMap;
 use std::path::Path;
 
@@ -563,15 +564,21 @@ impl Tdc {
             // of it, and a `.parquet` target used to cost its own size again.
             return self.write_parquet_file(target);
         }
-        std::fs::write(target, self.text().into_bytes())
-            .map_err(|e| TdcError::Io(format!("cannot write \"{}\": {e}", target.display())))
+        // Beside the destination and renamed over it at the end (see `output::atomic`).
+        use std::io::Write as _;
+        let cannot =
+            |e: std::io::Error| TdcError::Io(format!("cannot write \"{}\": {e}", target.display()));
+        let (mut file, pending) = Pending::create(target).map_err(cannot)?;
+        file.write_all(self.text().as_bytes()).map_err(cannot)?;
+        drop(file);
+        pending.commit().map_err(cannot)
     }
 
     /// The Parquet file, streamed to disk from the run this object holds.
     fn write_parquet_file(&self, target: &Path) -> Result<(), TdcError> {
         use std::io::Write as _;
 
-        let file = std::fs::File::create(target)
+        let (file, pending) = Pending::create(target)
             .map_err(|e| TdcError::Io(format!("cannot write \"{}\": {e}", target.display())))?;
         let mut out = std::io::BufWriter::new(file);
         let mut io_error: Option<std::io::Error> = None;
@@ -605,7 +612,9 @@ impl Tdc {
             )));
         }
         written?;
-        Ok(())
+        pending
+            .commit()
+            .map_err(|e| TdcError::Io(format!("cannot write \"{}\": {e}", target.display())))
     }
 
     /// The run as a Parquet file, whatever the target is called.
@@ -792,7 +801,7 @@ impl Plan {
             return Ok(false);
         }
 
-        let file = std::fs::File::create(target)
+        let (file, pending) = Pending::create(target)
             .map_err(|e| TdcError::Io(format!("cannot write \"{}\": {e}", target.display())))?;
         let mut sink = FileSink {
             out: std::io::BufWriter::new(file),
@@ -817,20 +826,21 @@ impl Plan {
         // The streaming engine can refuse a config the router sent it — a running
         // total is the plain case — and when nobody named an engine, the answer is
         // to build it in memory instead. Saying "no" here does exactly that: the
-        // caller writes the ordinary way. The half-written file goes first, so a
-        // failure between here and there cannot leave a truncated run looking
-        // finished.
+        // caller writes the ordinary way. The pending file is dropped on every way
+        // out but the last, which takes the partial file with it and leaves the
+        // destination as it was — it used to delete the destination instead.
+        drop(sink);
         if let Err(e) = &rendered {
             if matches!(e, crate::engine::EngineError::Unsupported(_))
                 && !crate::engine::engine_was_named(&self.config)
             {
-                std::fs::remove_file(target).map_err(|e| {
-                    TdcError::Io(format!("cannot remove \"{}\": {e}", target.display()))
-                })?;
                 return Ok(false);
             }
         }
         rendered?;
+        pending
+            .commit()
+            .map_err(|e| TdcError::Io(format!("cannot write \"{}\": {e}", target.display())))?;
         Ok(true)
     }
 
@@ -877,7 +887,7 @@ impl Plan {
 
         use std::io::Write as _;
 
-        let file = std::fs::File::create(target)
+        let (file, pending) = Pending::create(target)
             .map_err(|e| TdcError::Io(format!("cannot write \"{}\": {e}", target.display())))?;
         let mut out = std::io::BufWriter::new(file);
         // The sink keeps the FIRST failure and stops writing. The writer has no
@@ -914,13 +924,15 @@ impl Plan {
             )));
         }
         if let Err(e) = written {
-            // The half-written file goes FIRST, so a config handed back to the
-            // ordinary path cannot leave a truncated run looking finished.
-            std::fs::remove_file(target).map_err(|e| {
-                TdcError::Io(format!("cannot remove \"{}\": {e}", target.display()))
-            })?;
+            // The pending file goes FIRST — dropped, it takes the partial file
+            // with it — so a config handed back to the ordinary path cannot
+            // leave a truncated run looking finished.
+            drop(pending);
             return self.parquet_fallback(e);
         }
+        pending
+            .commit()
+            .map_err(|e| TdcError::Io(format!("cannot write \"{}\": {e}", target.display())))?;
         Ok(true)
     }
 

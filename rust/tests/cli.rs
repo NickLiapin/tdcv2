@@ -154,6 +154,18 @@ fn run_case(case: &Value, configs: &Value, name: &str) {
     check(case, "stderr", &stderr, dir, registry.as_deref(), name);
     check_written(case, "wrote", dir, registry.as_deref(), name, true);
     check_written(case, "wroteContains", dir, registry.as_deref(), name, false);
+    for relative in case
+        .get("absent")
+        .and_then(Value::as_array)
+        .into_iter()
+        .flatten()
+    {
+        let relative = relative.as_str().unwrap_or_default();
+        assert!(
+            !dir.join(relative).exists(),
+            "{name}: {relative} must not exist"
+        );
+    }
 }
 
 /// The named configs live once in the fixture; a case refers to one with `@name`.

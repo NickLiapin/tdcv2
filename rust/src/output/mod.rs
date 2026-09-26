@@ -1,3 +1,4 @@
+pub mod atomic;
 pub mod column_type;
 pub mod columns;
 pub mod parquet;

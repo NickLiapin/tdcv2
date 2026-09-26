@@ -33,22 +33,22 @@ Besides generating, the CLI has `tdcv2 init` and `tdcv2 pack` for setup and data
 
 ## Options
 
-| Option                  | What it does                                        |
-| :---------------------- | :-------------------------------------------------- |
-| `-o, --output <path>`   | Write to a file. Without it, output goes to stdout. A path ending in `.parquet` selects the [Parquet](../guides/typed-output-parquet.md#top) writer — the only way to get it |
-| `--seed <seed>`         | Override the `seed` from `<env>`                    |
-| `--count <n>`           | Override the `count` from `<env>` — a non-negative integer |
-| `--locale <loc>`        | Override the locale (default `en`)                  |
-| `--now <date>`          | Pin the clock that `today`, `now` and `b_day` read  |
-| `--data-path <dir>`     | Add a data folder for `@data/…` (repeatable)        |
-| `--jobs <n>`            | Number of worker threads, a positive integer (TDC picks one by default) |
-| `--mode <memory\|disk>` | Engine: `disk` (default) or `memory`                |
-| `--engine <1\|2\|3>`    | Force a specific engine (advanced)                  |
-| `--disk`                | Shortcut for `--mode disk` — already the default    |
-| `--progress`            | Write `<output>.progress`, a small JSON status file (needs `-o`) |
-| `--stream`              | Legacy alias for `--engine 2`                       |
-| `-h, --help`            | Show help                                           |
-| `-v, --version`         | Show version                                        |
+| Option                  | What it does                                                                                                                                                                                                                                                                                                                                  |
+| :---------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `-o, --output <path>`   | Write to a file. Without it, output goes to stdout. A path ending in `.parquet` selects the [Parquet](../guides/typed-output-parquet.md#top) writer — the only way to get it. The file appears only when the run finishes: it is written as `<path>.partial` and renamed, so a run that fails leaves an existing file as it was and creates none |
+| `--seed <seed>`         | Override the `seed` from `<env>`                                                                                                                                                                                                                                                                                                              |
+| `--count <n>`           | Override the `count` from `<env>` — a non-negative integer                                                                                                                                                                                                                                                                                    |
+| `--locale <loc>`        | Override the locale (default `en`)                                                                                                                                                                                                                                                                                                            |
+| `--now <date>`          | Pin the clock that `today`, `now` and `b_day` read                                                                                                                                                                                                                                                                                            |
+| `--data-path <dir>`     | Add a data folder for `@data/…` (repeatable)                                                                                                                                                                                                                                                                                                  |
+| `--jobs <n>`            | Number of worker threads, a positive integer (TDC picks one by default)                                                                                                                                                                                                                                                                       |
+| `--mode <memory\|disk>` | Engine: `disk` (default) or `memory`                                                                                                                                                                                                                                                                                                          |
+| `--engine <1\|2\|3>`    | Force a specific engine (advanced)                                                                                                                                                                                                                                                                                                            |
+| `--disk`                | Shortcut for `--mode disk` — already the default                                                                                                                                                                                                                                                                                              |
+| `--progress`            | Write `<output>.progress`, a small JSON status file (needs `-o`)                                                                                                                                                                                                                                                                              |
+| `--stream`              | Legacy alias for `--engine 2`                                                                                                                                                                                                                                                                                                                 |
+| `-h, --help`            | Show help                                                                                                                                                                                                                                                                                                                                     |
+| `-v, --version`         | Show version                                                                                                                                                                                                                                                                                                                                  |
 
 Long options also accept `=`: `tdcv2 demo.tdc --output=out.csv --count=100`.
 
@@ -317,10 +317,10 @@ the formatter reports it and leaves the file untouched (exit code 1).
 
 ## Exit codes
 
-| Code | Meaning                                         |
-| ---: | :---------------------------------------------- |
-|  `0` | Successful generation, `--help`, or `--version` |
-|  `1` | A read, parse, validation, or runtime error     |
+| Code | Meaning                                                                                           |
+| ---: | :------------------------------------------------------------------------------------------------ |
+|  `0` | Successful generation, `--help`, or `--version`                                                   |
+|  `1` | A read, parse, validation, or runtime error                                                       |
 |  `2` | Bad CLI arguments — and any `pack` or `init` failure (a download, a checksum, an existing config) |
 
 ## See also

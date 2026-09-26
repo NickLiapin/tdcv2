@@ -148,6 +148,17 @@ compute`. A number is what the running total reads as one — digits, an optiona
   fraction — so `1e3` is refused by `mean` exactly as it always was by `sum`. Pinned in
   `cli.json`.
 
+- **A run that fails no longer destroys the file it was writing to.** With `-o out.csv`, a
+  failed run truncated an existing `out.csv` to nothing in four of the five and deleted it in
+  the fifth — the previous, successful run's output gone — and with nothing there before, four
+  left an empty file behind, so "the file appeared" looked like success. The output is now
+  written as `out.csv.partial` beside the destination and renamed over it only when the run
+  finishes; a failure removes the partial file and leaves the destination byte for byte. The same
+  holds for Parquet, which one implementation already did this way, and for the parallel
+  writers. A symbolic link stays a link (its target is written), and a destination that cannot
+  be replaced by a rename — `-o /dev/stdout`, a device — is written in place as before. Pinned in
+  `cli.json` by two cases and a new `absent` key the five harnesses now read.
+
 ### Changed
 
 - **A plain `formula` or a date offset may carry `if=`.** `TDC295` refused both, together with

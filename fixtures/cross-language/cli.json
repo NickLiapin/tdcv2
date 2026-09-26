@@ -15,7 +15,8 @@
     "wroteContains": "relative path -> substrings the file must contain",
     "only": "implementations this case runs in. Absent means all five. Present means the others do not support the feature yet — the case stays here, named and visible, rather than being deleted and forgotten.",
     "note": "why the case is shaped the way it is, when that is not obvious",
-    "stderr": "exact stderr, when the SHAPE of the message is the point and not only its words — a one-line refusal that a stack trace would also satisfy under stderrContains"
+    "stderr": "exact stderr, when the SHAPE of the message is the point and not only its words — a one-line refusal that a stack trace would also satisfy under stderrContains",
+    "absent": "relative paths that must NOT exist after the run — a file a failed run must not leave behind"
   },
   "configs": {
     "tiny": "<tdc><env count=\"3\" seed=\"cli\" inject=\"${{%}}\"></env><block><line><data>row ${{_count}}</data></line></block></tdc>",
@@ -1466,6 +1467,32 @@
       "argv": ["{dir}/bad.tdc"],
       "exit": 1,
       "stderr": "tdcv2: stat (\"S\"): column \"T\" holds \"abc\", which is not a number, so op=\"mean\" has nothing to compute. Take the statistic of a numeric column — op=\"count\" is the one that counts any cell.\n"
+    },
+    {
+      "name": "a failed run leaves the previous output as it was",
+      "note": "Measured before: all five destroyed an existing out.csv when the run failed — four truncated it to nothing, one deleted it. The output is now written beside the destination as out.csv.partial and renamed over it only when the run finishes, so a failure leaves the previous file byte for byte, and no partial file behind.",
+      "files": {
+        "bad.tdc": "@offsetFromNumber",
+        "out.csv": "previous good output\n"
+      },
+      "argv": ["{dir}/bad.tdc", "-o", "{dir}/out.csv"],
+      "exit": 1,
+      "stderr": "tdcv2: date offset (\"C\"): \"8\" in column \"N\" is not a date this can measure from. A date TDC generated carries its own value and any format= works; one read from a file or a pack has only its text, and only the ISO form (YYYY-MM-DD) means the same thing in every locale.\n",
+      "wrote": {
+        "out.csv": "previous good output\n"
+      },
+      "absent": ["out.csv.partial"]
+    },
+    {
+      "name": "a failed run creates no output file",
+      "note": "The same rule with nothing there before: four of the five used to leave an empty out.csv, so a script checking \"the file appeared, so it worked\" was fooled.",
+      "files": {
+        "bad.tdc": "@offsetFromNumber"
+      },
+      "argv": ["{dir}/bad.tdc", "-o", "{dir}/out.csv"],
+      "exit": 1,
+      "stderr": "tdcv2: date offset (\"C\"): \"8\" in column \"N\" is not a date this can measure from. A date TDC generated carries its own value and any format= works; one read from a file or a pack has only its text, and only the ISO form (YYYY-MM-DD) means the same thing in every locale.\n",
+      "absent": ["out.csv", "out.csv.partial"]
     }
   ],
   "gaps": {

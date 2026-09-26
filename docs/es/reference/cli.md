@@ -32,22 +32,22 @@ y los datos — vea [Instalar packs](../data-packs/installing-packs.md#top) — 
 
 ## Opciones
 
-| Opción                  | Qué hace                                                 |
-| :---------------------- | :------------------------------------------------------- |
-| `-o, --output <path>`   | Escribe en un archivo. Sin ella, imprime en stdout. Una ruta terminada en `.parquet` selecciona el escritor [Parquet](../guides/typed-output-parquet.md#top) — es la única forma de obtenerlo |
-| `--seed <seed>`         | Sobrescribe el `seed` de `<env>`                         |
-| `--count <n>`           | Sobrescribe el `count` de `<env>` — un entero no negativo |
-| `--locale <loc>`        | Sobrescribe el locale (por omisión `en`)                 |
-| `--now <date>`          | Fija el reloj que leen `today`, `now` y `b_day`          |
-| `--data-path <dir>`     | Agrega una carpeta de datos para `@data/…` (repetible)   |
-| `--jobs <n>`            | Cantidad de hilos de trabajo, un entero positivo (por omisión lo decide TDC) |
-| `--mode <memory\|disk>` | Motor: `disk` (por omisión) o `memory`                   |
-| `--engine <1\|2\|3>`    | Forzar un motor específico (avanzado)                    |
-| `--disk`                | Atajo de `--mode disk` — ya es el valor por omisión      |
-| `--progress`            | Escribe `<output>.progress`, un pequeño archivo JSON de estado (necesita `-o`) |
-| `--stream`              | Alias heredado de `--engine 2`                           |
-| `-h, --help`            | Muestra la ayuda                                         |
-| `-v, --version`         | Muestra la versión                                       |
+| Opción                  | Qué hace                                                                                                                                                                                                                                                                                                                                                                         |
+| :---------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `-o, --output <path>`   | Escribe en un archivo. Sin ella, imprime en stdout. Una ruta terminada en `.parquet` selecciona el escritor [Parquet](../guides/typed-output-parquet.md#top) — es la única forma de obtenerlo. El archivo aparece solo cuando la corrida termina: se escribe como `<path>.partial` y se renombra, así que una corrida que falla deja intacto el archivo existente y no crea ninguno |
+| `--seed <seed>`         | Sobrescribe el `seed` de `<env>`                                                                                                                                                                                                                                                                                                                                                 |
+| `--count <n>`           | Sobrescribe el `count` de `<env>` — un entero no negativo                                                                                                                                                                                                                                                                                                                        |
+| `--locale <loc>`        | Sobrescribe el locale (por omisión `en`)                                                                                                                                                                                                                                                                                                                                         |
+| `--now <date>`          | Fija el reloj que leen `today`, `now` y `b_day`                                                                                                                                                                                                                                                                                                                                  |
+| `--data-path <dir>`     | Agrega una carpeta de datos para `@data/…` (repetible)                                                                                                                                                                                                                                                                                                                           |
+| `--jobs <n>`            | Cantidad de hilos de trabajo, un entero positivo (por omisión lo decide TDC)                                                                                                                                                                                                                                                                                                     |
+| `--mode <memory\|disk>` | Motor: `disk` (por omisión) o `memory`                                                                                                                                                                                                                                                                                                                                           |
+| `--engine <1\|2\|3>`    | Forzar un motor específico (avanzado)                                                                                                                                                                                                                                                                                                                                            |
+| `--disk`                | Atajo de `--mode disk` — ya es el valor por omisión                                                                                                                                                                                                                                                                                                                              |
+| `--progress`            | Escribe `<output>.progress`, un pequeño archivo JSON de estado (necesita `-o`)                                                                                                                                                                                                                                                                                                   |
+| `--stream`              | Alias heredado de `--engine 2`                                                                                                                                                                                                                                                                                                                                                   |
+| `-h, --help`            | Muestra la ayuda                                                                                                                                                                                                                                                                                                                                                                 |
+| `-v, --version`         | Muestra la versión                                                                                                                                                                                                                                                                                                                                                               |
 
 Las opciones largas también aceptan `=`: `tdcv2 demo.tdc --output=out.csv --count=100`.
 
@@ -324,10 +324,10 @@ archivo queda intacto (código de salida 1).
 
 ## Códigos de salida
 
-| Código | Significado                                      |
-| -----: | :----------------------------------------------- |
-|    `0` | Generación exitosa, `--help` o `--version`       |
-|    `1` | Error de lectura, parseo, validación o ejecución |
+| Código | Significado                                                                                                                                   |
+| -----: | :-------------------------------------------------------------------------------------------------------------------------------------------- |
+|    `0` | Generación exitosa, `--help` o `--version`                                                                                                    |
+|    `1` | Error de lectura, parseo, validación o ejecución                                                                                              |
 |    `2` | Argumentos de CLI incorrectos — y cualquier fallo de `pack` o `init` (una descarga, una suma de verificación, una configuración ya existente) |
 
 ## Vea también

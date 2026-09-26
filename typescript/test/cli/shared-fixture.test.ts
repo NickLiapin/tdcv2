@@ -10,7 +10,7 @@
  */
 
 import { createHash } from 'node:crypto';
-import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -37,6 +37,7 @@ interface FixtureCase {
   readonly stderrContains?: readonly string[];
   readonly wrote?: Record<string, string>;
   readonly wroteContains?: Record<string, readonly string[]>;
+  readonly absent?: readonly string[];
   readonly only?: readonly string[];
 }
 
@@ -260,6 +261,9 @@ describe('the shared CLI fixture', () => {
       for (const [name, fragments] of Object.entries(testCase.wroteContains ?? {})) {
         const written = readFileSync(join(dir, name), 'utf8');
         for (const fragment of fragments) expect(written).toContain(fragment);
+      }
+      for (const name of testCase.absent ?? []) {
+        expect(existsSync(join(dir, name)), `${name} must not exist`).toBe(false);
       }
     });
   }

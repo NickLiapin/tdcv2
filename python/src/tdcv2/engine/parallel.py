@@ -32,6 +32,8 @@ import tempfile
 import threading
 from pathlib import Path
 
+from ..output.atomic import open_atomically
+
 # Below this, a process costs more to start than its rows cost to generate. A worker's own startup
 # — interpreter, config parse, pack load — is a few tenths of a second.
 MIN_ROWS_PER_WORKER = 50_000
@@ -187,7 +189,8 @@ def write_file(
         if failures:
             raise ShardError("parallel run failed — " + "; ".join(failures))
 
-        with target.open("wb") as out:
+        # Renamed over the destination only once every piece is in (see ``output/atomic.py``).
+        with open_atomically(target, "wb") as out:
             for part in parts:
                 with part.open("rb") as piece:
                     shutil.copyfileobj(piece, out, length=1 << 20)

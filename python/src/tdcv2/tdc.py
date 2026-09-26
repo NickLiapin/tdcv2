@@ -35,6 +35,7 @@ from .errors import Diagnostic, TdcError, has_errors, summarize
 from .human_bytes import human_bytes
 from .model.config import Config
 from .output import parquet_output
+from .output.atomic import open_atomically
 from .packs import DataPacks, project_config
 from .parser import config_builder, facade
 from .validator import validate
@@ -335,7 +336,7 @@ class TDC:
         # A .parquet name asks for the typed binary form. The extension is the whole switch —
         # there is no flag to remember and no second call to make.
         if path.suffix.lower() == ".parquet":
-            with path.open("wb") as out:
+            with open_atomically(path, "wb") as out:
                 parquet_output.write(self._config, self._run(), out.write, self._on_progress)
             return
 
@@ -368,7 +369,9 @@ class TDC:
             )
             return
 
-        with path.open("w", encoding="utf-8") as out:
+        # Beside the destination and renamed over it at the end (see ``output/atomic.py``): a run
+        # that stops partway leaves the previous file exactly as it was.
+        with open_atomically(path, "w", encoding="utf-8") as out:
             self._run().write_to(out.write)
 
     def _worker_count(self, workers: int | str | None) -> int:

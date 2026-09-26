@@ -468,18 +468,26 @@ public final class TDC {
     try {
       // A .parquet name asks for the typed binary form. The extension is the whole switch —
       // there is no flag to remember and no second call to make.
+      // Beside the destination and moved over it at the end (see output.AtomicFile): a run that
+      // stops partway leaves the previous file exactly as it was.
       if (target.toString().toLowerCase(java.util.Locale.ROOT).endsWith(".parquet")) {
-        try (java.io.OutputStream out =
-            new java.io.BufferedOutputStream(Files.newOutputStream(target), 1 << 16)) {
+        try (io.github.nickliapin.tdc.output.AtomicFile file =
+                io.github.nickliapin.tdc.output.AtomicFile.open(target);
+            java.io.OutputStream out = new java.io.BufferedOutputStream(file.stream(), 1 << 16)) {
           io.github.nickliapin.tdc.output.ParquetOutput.write(config, run(), out, onProgress);
+          out.flush();
+          file.commit();
         }
         return;
       }
-      try (java.io.Writer out =
-          new java.io.BufferedWriter(
-              new java.io.OutputStreamWriter(Files.newOutputStream(target), StandardCharsets.UTF_8),
-              1 << 16)) {
+      try (io.github.nickliapin.tdc.output.AtomicFile file =
+              io.github.nickliapin.tdc.output.AtomicFile.open(target);
+          java.io.Writer out =
+              new java.io.BufferedWriter(
+                  new java.io.OutputStreamWriter(file.stream(), StandardCharsets.UTF_8), 1 << 16)) {
         run().writeTo(out);
+        out.flush();
+        file.commit();
       }
     } catch (IOException e) {
       throw new UncheckedIOException("cannot write " + target, e);

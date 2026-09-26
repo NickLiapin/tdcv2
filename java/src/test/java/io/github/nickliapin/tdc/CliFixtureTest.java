@@ -179,6 +179,10 @@ class CliFixtureTest {
         }
       }
     }
+    for (JsonNode absent : testCase.path("absent")) {
+      assertTrue(
+          !Files.exists(dir.resolve(absent.asText())), absent.asText() + " must not exist");
+    }
   }
 
   private static String resolve(String text, Path dir, String registry) {
