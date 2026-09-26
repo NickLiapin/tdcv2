@@ -61,6 +61,48 @@ pub fn parse_decimals(attrs: &BTreeMap<String, String>) -> Result<Option<usize>,
     Ok(Some(n as usize))
 }
 
+/// Refuse a column of words before any statistic is taken over it.
+///
+/// `count` counts cells and takes anything. Every other op is arithmetic, and it used to split:
+/// `sum`, `min` and `max` went through the running total and refused `abc` in its words, while
+/// `mean`, `median` and `stddev` printed `NaN` on every row with exit 0. One rule now, in the
+/// statistic's own words, naming the first cell that is not a number. An empty cell is not a
+/// word: a filtered or blanked row takes no part, as it never has.
+pub fn refuse_non_numeric(
+    name: &str,
+    of: &str,
+    op: &str,
+    values: &[Option<String>],
+) -> Result<(), String> {
+    if op == "count" {
+        return Ok(());
+    }
+    for value in values.iter().flatten() {
+        let trimmed = value.trim();
+        if trimmed.is_empty() || is_stat_number(trimmed) {
+            continue;
+        }
+        return Err(format!(
+            "stat (\"{name}\"): column \"{of}\" holds \"{value}\", which is not a number, so \
+             op=\"{op}\" has nothing to compute. Take the statistic of a numeric column \u{2014} \
+             op=\"count\" is the one that counts any cell."
+        ));
+    }
+    Ok(())
+}
+
+/// What a statistic counts as a number — `[+-]?digits(.digits)?`, the running total's own
+/// reading, so the two agree.
+fn is_stat_number(text: &str) -> bool {
+    let body = text.strip_prefix(['+', '-']).unwrap_or(text);
+    let (whole, fraction) = match body.split_once('.') {
+        Some((w, f)) => (w, Some(f)),
+        None => (body, None),
+    };
+    let digits = |s: &str| !s.is_empty() && s.bytes().all(|b| b.is_ascii_digit());
+    digits(whole) && fraction.is_none_or(digits)
+}
+
 /// The statistic itself, as the text that goes in every cell.
 ///
 /// A cell the parent filter emptied does not take part — the same rule

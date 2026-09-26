@@ -22,7 +22,7 @@ from ..date.plain import PlainDateTime, from_epoch_millis, to_epoch_millis
 from ..prng.prng import Sfc32
 
 
-class DateOffsetError(Exception):
+class DateOffsetError(ValueError):
     """A source column an offset cannot read."""
 
 

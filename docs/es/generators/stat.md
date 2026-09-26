@@ -111,6 +111,11 @@ dan números distintos:
 participan en ninguna de las demás. Es la misma regla que siguen `accumulate=` y `running`,
 así que una columna filtrada significa una sola cosa en las tres y no tres distintas.
 
+Todas las operaciones salvo `count` son aritmética, así que necesitan números. Una columna que
+contiene una palabra se rechaza, nombrando la columna y la primera celda que no es un número,
+en vez de imprimir `NaN` en cada fila. Un número aquí es lo que el total acumulado lee como tal:
+dígitos, un signo opcional y una parte decimal opcional. `count` cuenta cualquier celda.
+
 ## Céntimos exactos y `decimals=`
 
 `sum`, `min` y `max` son el último valor de la columna **acumulada** correspondiente. No es

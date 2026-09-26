@@ -323,6 +323,9 @@ def _stat(spec: SequenceSpec, columns: dict[str, list[str | None]], count: int) 
     except stat_gen.StatError:
         return  # a bad decimals= is a diagnostic, not a crash
 
+    stat_gen.refuse_non_numeric(
+        spec.name or "", (attrs.get("of") or "").strip(), op, source[:count]
+    )
     answer = stat_gen.statistic(source[:count], op, decimals)
     columns[spec.name or ""] = [answer] * count
 

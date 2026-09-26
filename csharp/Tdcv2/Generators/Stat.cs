@@ -83,6 +83,43 @@ internal static class Stat
     /// <see cref="Accumulate.ApplyColumn"/> follows, so a filtered column has one meaning across
     /// the three features rather than three.
     /// </remarks>
+    /// <summary>What a statistic counts as a number: the running total's own reading, so the two agree.</summary>
+    private static readonly System.Text.RegularExpressions.Regex StatNumber =
+        new(@"^[+-]?\d+(\.\d+)?$", System.Text.RegularExpressions.RegexOptions.CultureInvariant);
+
+    /// <summary>Refuse a column of words before any statistic is taken over it.</summary>
+    /// <remarks>
+    /// <c>count</c> counts cells and takes anything. Every other op is arithmetic, and it used to
+    /// split: <c>sum</c>, <c>min</c> and <c>max</c> went through the running total and refused
+    /// <c>abc</c> in its words, while <c>mean</c>, <c>median</c> and <c>stddev</c> printed
+    /// <c>NaN</c> on every row with exit 0. One rule now, in the statistic's own words, naming the
+    /// first cell that is not a number. An empty cell is not a word: a filtered or blanked row
+    /// takes no part, as it never has.
+    /// </remarks>
+    internal static void RefuseNonNumeric(string name, string of, string op, string?[] values)
+    {
+        if (op == "count")
+        {
+            return;
+        }
+
+        foreach (string? value in values)
+        {
+            if (string.IsNullOrEmpty(value) || value.Trim().Length == 0)
+            {
+                continue;
+            }
+
+            if (!StatNumber.IsMatch(value.Trim()))
+            {
+                throw new StatException(
+                    $"stat (\"{name}\"): column \"{of}\" holds \"{value}\", which is not a number, so "
+                    + $"op=\"{op}\" has nothing to compute. Take the statistic of a numeric column \u2014 "
+                    + "op=\"count\" is the one that counts any cell.");
+            }
+        }
+    }
+
     internal static string Statistic(string?[] values, string op, int? decimals)
     {
         List<string> present = values
@@ -177,7 +214,11 @@ internal static class Stat
 }
 
 /// <summary>A statistic that cannot be read as one.</summary>
-internal sealed class StatException : Exception
+/// <remarks>
+/// An <see cref="InvalidOperationException"/>, like every other refusal the engine raises at run
+/// time, so a caller catching that type catches this one too.
+/// </remarks>
+internal sealed class StatException : InvalidOperationException
 {
     internal StatException(string message)
         : base(message)

@@ -324,6 +324,7 @@ public final class MemoryEngine {
       return; // a bad decimals= is a diagnostic, not a crash
     }
     String[] values = java.util.Arrays.copyOf(source, Math.min(count, source.length));
+    Stat.refuseNonNumeric(spec.name(), of, op, values);
     String answer = Stat.statistic(values, op, decimals);
     String[] column = new String[count];
     java.util.Arrays.fill(column, answer);

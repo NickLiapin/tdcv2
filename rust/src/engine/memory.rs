@@ -336,6 +336,9 @@ fn stat_column(
         return Ok(());
     };
     let values: Vec<Option<String>> = source.into_iter().take(count).collect();
+    if let Err(message) = stat::refuse_non_numeric(&spec.name, of, &op, &values) {
+        return invalid(&message);
+    }
     match stat::statistic(&values, &op, decimals) {
         Ok(answer) => {
             columns.insert(spec.name.clone(), vec![Some(answer); count]);

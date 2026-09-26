@@ -13,11 +13,15 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Fixed
 
-- **`tdcv2` printed a .NET stack trace instead of a refusal.** A `NotSupportedException` — this
-  port's word for "not built here" — escaped the command line's handler, so the process died with
-  exit code 134 where the other four print one line and exit 1. It is now reported like every
-  other refusal. Found through a `formula` inside a `<case>`, which now simply works (see the
-  [engine changelog](../CHANGELOG.md#unreleased)).
+- **`tdcv2` printed a .NET stack trace instead of a refusal.** The command line caught a list of
+  exception types, and every class declared outside it escaped as an unhandled exception — a
+  stack trace and exit code 134 where the other four print one line and exit 1. Measured on a
+  `formula` inside a `<case>` (which now simply works — see the
+  [engine changelog](../CHANGELOG.md#unreleased)), a date offset measured from a number, a
+  running total over text, and every runtime refusal of `<compute>` (`<to_number>`,
+  `<encode>`). The command line now catches any error, as the reference does, and the engine's
+  own refusals — `ComputeError` among them — are `InvalidOperationException`s. Pinned in
+  `cli.json` with the exact one-line stderr.
 
 ## [0.3.2] — 2026-09-22
 

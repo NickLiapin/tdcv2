@@ -19,6 +19,7 @@ ugly one.
 from __future__ import annotations
 
 import math
+import re
 
 from ..lib import numbers
 from ..math import tdc_math
@@ -125,3 +126,29 @@ def _fixed(value: float, decimals: int) -> str:
     if math.isnan(value) or math.isinf(value):
         return numbers.to_text(value)
     return numbers.to_fixed(value, decimals)
+
+
+#: What a statistic counts as a number: the running total's own reading, so the two agree.
+_STAT_NUMBER = re.compile(r"^[+-]?\d+(\.\d+)?$")
+
+
+def refuse_non_numeric(name: str, of: str, op: str, values: list[str | None]) -> None:
+    """Refuse a column of words before any statistic is taken over it.
+
+    ``count`` counts cells and takes anything. Every other op is arithmetic, and it used to split
+    three ways across the implementations: the running total's refusal for ``sum``, ``NaN`` on
+    every row for ``mean``, and here the runtime's own "could not convert string to float". One
+    rule now, in the statistic's own words, naming the first cell that is not a number. An empty
+    cell is not a word: a filtered or blanked row takes no part, as it never has.
+    """
+    if op == "count":
+        return
+    for value in values:
+        if value is None or value.strip() == "":
+            continue
+        if not _STAT_NUMBER.match(value.strip()):
+            raise StatError(
+                f'stat ("{name}"): column "{of}" holds "{value}", which is not a number, so '
+                f'op="{op}" has nothing to compute. Take the statistic of a numeric column — '
+                'op="count" is the one that counts any cell.'
+            )

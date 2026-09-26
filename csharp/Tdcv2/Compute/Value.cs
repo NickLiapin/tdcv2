@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 namespace Tdcv2.Compute;
 
 /// <summary>Anything the compute layer refuses to do, with the reason it refused.</summary>
-public sealed class ComputeError : Exception
+public sealed class ComputeError : InvalidOperationException
 {
     public ComputeError(string message)
         : base(message)

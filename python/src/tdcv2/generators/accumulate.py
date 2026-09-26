@@ -28,7 +28,7 @@ OPS = ("sum", "min", "max")
 _NUMBER = re.compile(r"^[+-]?\d+(\.\d+)?$")
 
 
-class AccumulateError(Exception):
+class AccumulateError(ValueError):
     """A misspelled op, or an element that is not a number."""
 
 

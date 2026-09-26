@@ -249,7 +249,7 @@ internal static class Accumulate
 }
 
 /// <summary>A misspelled op, or an element that is not a number.</summary>
-internal sealed class AccumulateException : Exception
+internal sealed class AccumulateException : InvalidOperationException
 {
     internal AccumulateException(string message)
         : base(message)

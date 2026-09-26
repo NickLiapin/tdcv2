@@ -363,7 +363,9 @@ public static class MemoryEngine
             return; // a bad decimals= is a diagnostic, not a crash
         }
 
-        string answer = Stat.Statistic(source.Take(count).ToArray(), op, decimals);
+        string?[] values = source.Take(count).ToArray();
+        Stat.RefuseNonNumeric(spec.Name, of, op, values);
+        string answer = Stat.Statistic(values, op, decimals);
         var column = new string?[count];
         Array.Fill(column, answer);
         columns[spec.Name] = column;

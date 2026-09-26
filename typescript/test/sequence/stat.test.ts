@@ -172,3 +172,24 @@ describe('stat — what the validator refuses before a row exists', () => {
     );
   });
 });
+
+describe('stat — a column of words', () => {
+  // `mean`, `median` and `stddev` used to parse each cell as a double and print
+  // NaN on every row, exit 0; `sum`, `min` and `max` refused through the running
+  // total in its own words. One refusal now, naming the column and the cell.
+  for (const op of ['sum', 'mean', 'median', 'min', 'max', 'stddev']) {
+    it(`op="${op}" refuses a cell that is not a number`, () => {
+      expect(() => column(op, '4,abc,6')).toThrow(
+        `stat ("S"): column "N" holds "abc", which is not a number, so op="${op}" has nothing to compute`,
+      );
+    });
+  }
+
+  it('op="count" counts any cell, words included', () => {
+    expect(column('count', 'a,b,c')).toEqual(['3', '3', '3']);
+  });
+
+  it('a number with an exponent is refused too — the running total reads numbers the same way', () => {
+    expect(() => column('mean', '1e3,2')).toThrow(/holds "1e3", which is not a number/);
+  });
+});

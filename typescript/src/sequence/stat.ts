@@ -194,8 +194,45 @@ export function registerStat(
 
   const values = new Array<string | undefined>(count);
   for (let i = 0; i < count; i++) values[i] = sequenceValueAt(source, i);
+  refuseNonNumeric(spec.name, statOf(spec), op, values);
 
   // ONE value, on every row. Not "the statistic so far" — that is `running`.
   const answer = statisticOf(values, op, decimals);
   registry[spec.name] = { name: spec.name, values: new Array<string>(count).fill(answer) };
+}
+
+/** What a statistic counts as a number: the running total's own reading, so the two agree. */
+const STAT_NUMBER = /^[+-]?\d+(\.\d+)?$/;
+
+/**
+ * Refuse a column of words before any statistic is taken over it.
+ *
+ * `count` counts cells and takes anything. Every other op is arithmetic, and it
+ * used to split in two: `sum`, `min` and `max` go through the running total and
+ * refused `abc` in its words ("accumulate=: …"), while `mean`, `median` and
+ * `stddev` parsed each cell as a double and printed `NaN` on every row — exit 0,
+ * a file full of `NaN` nobody was warned about. Measured on four of the five; the
+ * fifth refused with its runtime's own "could not convert string to float".
+ *
+ * One rule now, in the statistic's own words, naming the first cell that is not a
+ * number. An empty cell is not a word: a filtered or blanked row takes no part,
+ * as it never has.
+ */
+function refuseNonNumeric(
+  name: string,
+  of: string,
+  op: StatOp,
+  values: readonly (string | undefined)[],
+): void {
+  if (op === 'count') return;
+  for (const value of values) {
+    if (value === undefined || value.trim() === '') continue;
+    if (!STAT_NUMBER.test(value.trim())) {
+      throw new StatError(
+        `stat ("${name}"): column "${of}" holds "${value}", which is not a number, so ` +
+          `op="${op}" has nothing to compute. Take the statistic of a numeric column — ` +
+          'op="count" is the one that counts any cell.',
+      );
+    }
+  }
 }

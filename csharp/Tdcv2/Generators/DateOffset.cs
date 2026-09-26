@@ -165,7 +165,7 @@ public static class DateOffset
 }
 
 /// <summary>A source column an offset cannot read.</summary>
-internal sealed class DateOffsetException : Exception
+internal sealed class DateOffsetException : InvalidOperationException
 {
     public DateOffsetException(string message, Exception inner)
         : base(message, inner)

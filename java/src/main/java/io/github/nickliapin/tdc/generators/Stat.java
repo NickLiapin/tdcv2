@@ -89,6 +89,38 @@ public final class Stat {
    * <p>A cell the parent filter emptied does not take part — the same rule {@code applyColumn}
    * follows, so a filtered column has one meaning across the three features rather than three.
    */
+  /** What a statistic counts as a number: the running total's own reading, so the two agree. */
+  private static final java.util.regex.Pattern STAT_NUMBER =
+      java.util.regex.Pattern.compile("^[+-]?\\d+(\\.\\d+)?$");
+
+  /**
+   * Refuse a column of words before any statistic is taken over it.
+   *
+   * <p>{@code count} counts cells and takes anything. Every other op is arithmetic, and it used to
+   * split: {@code sum}, {@code min} and {@code max} went through the running total and refused
+   * {@code abc} in its words, while {@code mean}, {@code median} and {@code stddev} printed
+   * {@code NaN} on every row with exit 0. One rule now, in the statistic's own words, naming the
+   * first cell that is not a number. An empty cell is not a word: a filtered or blanked row takes
+   * no part, as it never has.
+   */
+  public static void refuseNonNumeric(String name, String of, String op, String[] values) {
+    if ("count".equals(op)) {
+      return;
+    }
+    for (String value : values) {
+      if (value == null || value.trim().isEmpty()) {
+        continue;
+      }
+      if (!STAT_NUMBER.matcher(value.trim()).matches()) {
+        throw new StatError(
+            "stat (\"" + name + "\"): column \"" + of + "\" holds \"" + value
+                + "\", which is not a number, so op=\"" + op + "\" has nothing to compute. Take "
+                + "the statistic of a numeric column \u2014 op=\"count\" is the one that counts "
+                + "any cell.");
+      }
+    }
+  }
+
   public static String statistic(String[] values, String op, Integer decimals) {
     List<String> present = new ArrayList<>();
     for (String v : values) {

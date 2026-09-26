@@ -108,6 +108,11 @@ filter emptied are not counted, and take no part in any of the others either. Th
 same rule `accumulate=` and `running` follow, so a filtered column means one thing across
 all three rather than three.
 
+Every op but `count` is arithmetic, so it needs numbers. A column holding a word is refused,
+naming the column and the first cell that is not a number, rather than printing `NaN` on every
+row. A number here is what the running total reads as one: digits, an optional sign and an
+optional fraction. `count` counts any cell.
+
 ## Exact decimals, and `decimals=`
 
 `sum`, `min` and `max` are the last value of the corresponding **running** column. That is

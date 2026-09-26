@@ -138,6 +138,16 @@ page — is tracked in that implementation's own changelog:
   `engines.json`), including a `<default>`, a multi-key case, a nested `<switch>` and an `if=`
   branch whose other rows would divide by zero; and ten new placement diagnostics.
 
+- **A statistic over a column of words is refused instead of printing `NaN`.** `op="mean"`,
+  `median` and `stddev` over text parsed each cell as a double and wrote `NaN` on every row with
+  exit 0 — in four of the five; Python refused in its runtime's own words ("could not convert
+  string to float"). `sum`, `min` and `max` already refused through the running total, in that
+  total's words. Every op but `count` now refuses the same way, in the statistic's own words:
+  `stat ("S"): column "T" holds "abc", which is not a number, so op="mean" has nothing to
+compute`. A number is what the running total reads as one — digits, an optional sign and
+  fraction — so `1e3` is refused by `mean` exactly as it always was by `sum`. Pinned in
+  `cli.json`.
+
 ### Changed
 
 - **A plain `formula` or a date offset may carry `if=`.** `TDC295` refused both, together with

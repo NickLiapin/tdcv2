@@ -196,6 +196,9 @@ def _generate(options: Options) -> int:
         # prints these as one line, never a stack trace.
         _fail(str(e))
         return 1
+    except Exception as e:  # the reference's rule — see the twin in the block below
+        _fail(str(e))
+        return 1
 
     try:
         code = _produce(data, options)
@@ -211,6 +214,14 @@ def _generate(options: Options) -> int:
         # plain mode="nonsense" printed a Python traceback where the reference prints one line.
         # A reader saw "the program broke" instead of "your config is wrong", with our own file
         # names as the evidence.
+        _fail(str(e))
+        return 1
+    except Exception as e:
+        # Anything else, too. The reference prints the message of ANY error as one line and
+        # exits 1; this handler listed types, and an error class declared outside them walked
+        # straight past it — a date offset measured from a number, a running total over text:
+        # both printed a traceback of some fifty lines. A list of types is exactly the shape
+        # that lets the next one slip through, so the last word is the reference's.
         _fail(str(e))
         return 1
 
@@ -369,6 +380,9 @@ def _check(argv: list[str]) -> int:
         _report(e.diagnostics, files[0], e.source, brief=brief)
         return 1
     except (OSError, ValueError) as e:
+        _fail(str(e))
+        return 1
+    except Exception as e:  # the reference's rule: any error is one line
         _fail(str(e))
         return 1
 

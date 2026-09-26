@@ -11,6 +11,15 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Fixed
+
+- **`tdcv2` printed a Python traceback instead of a one-line refusal.** A date offset measured
+  from a column that is not a date, and a running total over text, raised errors declared outside
+  the types the command line caught — some fifty lines of traceback where the other four print
+  `tdcv2: …` on one line. Both error classes are `ValueError`s now, and the command line catches
+  any error the way the reference does, so the next class declared in the wrong place cannot slip
+  through the same way. Pinned in `cli.json` with the exact one-line stderr.
+
 ## [0.3.2] — 2026-09-22
 
 ### Changed

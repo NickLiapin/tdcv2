@@ -210,13 +210,12 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
             Report(stderr, e.Diagnostics, options.Input, e.Source);
             return 1;
         }
-        // NotSupportedException too: a gap in this port is a refusal like any other, and it used to
-        // escape as an unhandled exception — a .NET stack trace and exit code 134 where the other
-        // four print one line and exit 1. Measured on a formula inside a <case>, before that was
-        // supported anywhere.
-        catch (Exception e) when (
-            e is ArgumentException or IOException or InvalidOperationException
-                or NotSupportedException)
+        // Every other exception, as the reference does: its message on one line, exit 1. This used
+        // to be a list of types, and each exception class declared outside it walked straight past
+        // — a .NET stack trace and exit code 134 where the other four print one line. Measured
+        // three times: a formula inside a <case>, a date offset measured from a number, a
+        // <to_number> over text. A list is the shape that lets the next one through.
+        catch (Exception e)
         {
             Fail(stderr, e.Message, false);
             return 1;
@@ -413,10 +412,9 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
             Report(stderr, e.Diagnostics, files[0], e.Source, brief);
             return 1;
         }
-        catch (Exception e) when (
-            e is ArgumentException or IOException or InvalidOperationException
-                or NotSupportedException)
+        catch (Exception e)
         {
+            // Any error is one line — the reference's rule; see the generate path above.
             Fail(stderr, e.Message, false);
             return 1;
         }
