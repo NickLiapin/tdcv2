@@ -31,6 +31,8 @@ import {
   sweepPackManifests,
 } from '../data-pack/manifest.js';
 import { humanBytes } from '../human-bytes.js';
+
+import { HttpStatusError, ProxyAddressError, proxiedGet, proxyFor } from './proxied-get.js';
 import {
   BUNDLE_PACKS_DIR,
   PackError,
@@ -119,12 +121,36 @@ function readLocal(url: string): Uint8Array {
   }
 }
 
+/**
+ * GET `url` through whatever proxy the environment names, with a failure said
+ * in the words the other four use: the address, the proxy it went through and
+ * from which variable, and what the network answered. It used to be `fetch
+ * failed` — two words that name neither the host nor the reason.
+ */
+async function get(
+  url: string,
+  verb: string,
+  onProgress?: (received: number, total: number) => void,
+): Promise<Uint8Array> {
+  try {
+    return await proxiedGet(url, onProgress);
+  } catch (err) {
+    if (err instanceof ProxyAddressError) throw new PackError(err.message);
+    if (err instanceof HttpStatusError) {
+      throw new PackError(`${verb} ${url} failed: HTTP ${String(err.status)} ${err.statusText}`);
+    }
+    const proxy = proxyFor(new URL(url));
+    const via =
+      proxy === undefined ? '' : ` through the proxy ${proxy.shown} from ${proxy.variable}`;
+    throw new PackError(
+      `cannot reach ${url}${via} (${err instanceof Error ? err.message : String(err)})`,
+    );
+  }
+}
+
 async function fetchText(url: string): Promise<string> {
   if (url.startsWith('file:')) return Buffer.from(readLocal(url)).toString('utf8');
-  const res = await fetch(url);
-  if (!res.ok)
-    throw new PackError(`fetch ${url} failed: HTTP ${String(res.status)} ${res.statusText}`);
-  return res.text();
+  return Buffer.from(await get(url, 'fetch')).toString('utf8');
 }
 
 /** Fetch the registry catalogue. */
@@ -145,29 +171,7 @@ export async function downloadWithProgress(
     onProgress(local.length, local.length);
     return local;
   }
-  const res = await fetch(url);
-  if (!res.ok)
-    throw new PackError(`download ${url} failed: HTTP ${String(res.status)} ${res.statusText}`);
-  const total = Number(res.headers.get('content-length') ?? 0);
-  if (!res.body) {
-    const buf = new Uint8Array(await res.arrayBuffer());
-    onProgress(buf.length, buf.length);
-    return buf;
-  }
-  const chunks: Uint8Array[] = [];
-  let received = 0;
-  for await (const chunk of res.body as AsyncIterable<Uint8Array>) {
-    chunks.push(chunk);
-    received += chunk.length;
-    onProgress(received, total);
-  }
-  const out = new Uint8Array(received);
-  let offset = 0;
-  for (const chunk of chunks) {
-    out.set(chunk, offset);
-    offset += chunk.length;
-  }
-  return out;
+  return get(url, 'download', onProgress);
 }
 
 /**

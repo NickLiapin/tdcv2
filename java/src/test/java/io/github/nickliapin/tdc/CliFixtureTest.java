@@ -128,13 +128,37 @@ class CliFixtureTest {
 
     // `init` and `pack` act on a working directory rather than on a named file, so the fixture
     // hands them the temp directory — a JVM cannot change its own.
+    // A case that names its environment gets exactly that: every proxy variable is cleared first,
+    // so the machine running the tests cannot lend the case a proxy it did not name. A JVM cannot
+    // set its own environment, so the proxy rule's reader is replaced instead, and put back.
+    java.util.function.UnaryOperator<String> environment =
+        io.github.nickliapin.tdc.packs.EnvProxy.environment;
+    JsonNode env = testCase.get("env");
+    if (env != null) {
+      Map<String, String> vars = new java.util.HashMap<>();
+      env.fields().forEachRemaining(e -> vars.put(e.getKey(), e.getValue().asText()));
+      java.util.Set<String> proxyVariables =
+          java.util.Set.of(
+              "http_proxy", "HTTP_PROXY", "https_proxy", "HTTPS_PROXY", "all_proxy", "ALL_PROXY",
+              "no_proxy", "NO_PROXY");
+      io.github.nickliapin.tdc.packs.EnvProxy.environment =
+          name ->
+              vars.containsKey(name)
+                  ? vars.get(name)
+                  : proxyVariables.contains(name) ? null : System.getenv(name);
+    }
     String command = testCase.path("command").asText("main");
-    int code =
-        switch (command) {
-          case "init" -> Init.run(argv, dir);
-          case "pack" -> Pack.run(argv, dir);
-          default -> Main.run(argv);
-        };
+    int code;
+    try {
+      code =
+          switch (command) {
+            case "init" -> Init.run(argv, dir);
+            case "pack" -> Pack.run(argv, dir);
+            default -> Main.run(argv);
+          };
+    } finally {
+      io.github.nickliapin.tdc.packs.EnvProxy.environment = environment;
+    }
 
     String stdout = out.toString(StandardCharsets.UTF_8);
     String stderr = err.toString(StandardCharsets.UTF_8);
@@ -158,6 +182,9 @@ class CliFixtureTest {
     }
     for (JsonNode fragment : testCase.path("stderrContains")) {
       assertTrue(stderr.contains(resolve(fragment.asText(), dir, registry)), stderr);
+    }
+    for (JsonNode fragment : testCase.path("stderrExcludes")) {
+      assertTrue(!stderr.contains(resolve(fragment.asText(), dir, registry)), stderr);
     }
 
     JsonNode wrote = testCase.get("wrote");

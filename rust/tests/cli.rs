@@ -124,6 +124,31 @@ fn run_case(case: &Value, configs: &Value, name: &str) {
         .map(|a| resolve_all(a.as_str().unwrap_or_default(), dir, registry.as_deref()))
         .collect();
 
+    // A case that names its environment gets exactly that: every proxy variable
+    // is cleared first, so the machine running the tests cannot lend the case a
+    // proxy it did not name. Put back afterwards.
+    let saved: Vec<(String, Option<String>)> = match case.get("env") {
+        Some(Value::Object(vars)) => {
+            let names: Vec<String> = PROXY_VARIABLES
+                .iter()
+                .map(|n| (*n).to_string())
+                .chain(vars.iter().map(|(k, _)| k.clone()))
+                .collect();
+            let saved = names
+                .iter()
+                .map(|n| (n.clone(), std::env::var(n).ok()))
+                .collect();
+            for name in &names {
+                std::env::remove_var(name);
+            }
+            for (name, value) in vars {
+                std::env::set_var(name, value.as_str().unwrap_or_default());
+            }
+            saved
+        }
+        _ => Vec::new(),
+    };
+
     let mut stdout: Vec<u8> = Vec::new();
     let mut stderr: Vec<u8> = Vec::new();
     let command = case
@@ -136,6 +161,12 @@ fn run_case(case: &Value, configs: &Value, name: &str) {
         _ => tdcv2::cli::run(&argv, &mut stdout, &mut stderr),
     }
     .unwrap_or_else(|e| panic!("{name}: the CLI could not write its output: {e}"));
+    for (var, value) in saved {
+        match value {
+            Some(v) => std::env::set_var(&var, v),
+            None => std::env::remove_var(&var),
+        }
+    }
 
     let stdout = String::from_utf8(stdout).expect("stdout is UTF-8");
     let stderr = String::from_utf8(stderr).expect("stderr is UTF-8");
@@ -190,6 +221,18 @@ fn write_inputs(case: &Value, configs: &Value, dir: &Path, name: &str) {
     }
 }
 
+/// The variables a proxy is read from, cleared for a case that names its environment.
+const PROXY_VARIABLES: [&str; 8] = [
+    "http_proxy",
+    "HTTP_PROXY",
+    "https_proxy",
+    "HTTPS_PROXY",
+    "all_proxy",
+    "ALL_PROXY",
+    "no_proxy",
+    "NO_PROXY",
+];
+
 fn check(case: &Value, stream: &str, actual: &str, dir: &Path, registry: Option<&str>, name: &str) {
     if let Some(exact) = case.get(stream).and_then(Value::as_str) {
         assert_eq!(
@@ -207,6 +250,18 @@ fn check(case: &Value, stream: &str, actual: &str, dir: &Path, registry: Option<
             assert!(
                 actual.contains(&wanted),
                 "{name}: {stream} should contain {wanted:?}\n--- {stream} ---\n{actual}"
+            );
+        }
+    }
+    if let Some(parts) = case
+        .get(&format!("{stream}Excludes"))
+        .and_then(Value::as_array)
+    {
+        for part in parts {
+            let unwanted = resolve_all(part.as_str().unwrap_or_default(), dir, registry);
+            assert!(
+                !actual.contains(&unwanted),
+                "{name}: {stream} should not contain {unwanted:?}\n--- {stream} ---\n{actual}"
             );
         }
     }

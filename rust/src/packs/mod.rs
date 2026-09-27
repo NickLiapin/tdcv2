@@ -7,6 +7,7 @@
 //! contains precisely as many Jameses as the census says, not approximately.
 
 pub mod bundled_files;
+pub mod env_proxy;
 pub mod manifest;
 pub mod param_width;
 pub mod project;

@@ -353,6 +353,28 @@ Removed en (/path/to/project/tdcv2-packs/en)
 Removing a set is safe: the [built-in default](#built-in-default-vs-downloaded) at those
 addresses comes back on its own.
 
+### Behind a proxy
+
+`pack list` and `pack add` reach the registry through the proxy the environment names,
+as npm and curl do — which matters on a corporate network, a CI runner or an agent's
+sandbox, where a proxy is the only way out:
+
+- an `https` address uses the first of `https_proxy`, `HTTPS_PROXY`, `all_proxy`,
+  `ALL_PROXY` that is set; an `http` one `http_proxy`, `HTTP_PROXY`, `all_proxy`,
+  `ALL_PROXY`;
+- `NO_PROXY` (or `no_proxy`) lists the hosts that go direct, comma-separated: an entry
+  matches the host itself and everything under it (`example.com` and `.example.com`
+  both cover `raw.example.com`), and `*` sends everything direct;
+- a value written without a scheme is an `http://` proxy; a user and password in it
+  (`http://user:pass@proxy:8080`) are sent to the proxy and never printed.
+
+When the registry cannot be reached, the message names the address, the proxy it went
+through and the variable that chose it, and what the network answered:
+
+```text
+tdcv2: cannot reach https://raw.githubusercontent.com/…/index.json through the proxy http://127.0.0.1:9 from HTTPS_PROXY (connect ECONNREFUSED 127.0.0.1:9)
+```
+
 ## Inside the pack store
 
 Every set unpacks into the **one** folder `packStore` names. A language goes under its

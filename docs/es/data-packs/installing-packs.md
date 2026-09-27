@@ -368,6 +368,28 @@ Quitar un conjunto es seguro: el
 [conjunto integrado por omisión](#el-conjunto-integrado-frente-al-descargado) vuelve solo
 en esas direcciones.
 
+### Detrás de un proxy
+
+`pack list` y `pack add` llegan al registro a través del proxy que nombra el entorno,
+como npm y curl — lo que importa en una red corporativa, un runner de CI o el sandbox
+de un agente, donde el proxy es la única salida:
+
+- una dirección `https` usa la primera definida de `https_proxy`, `HTTPS_PROXY`,
+  `all_proxy`, `ALL_PROXY`; una `http`, de `http_proxy`, `HTTP_PROXY`, `all_proxy`,
+  `ALL_PROXY`;
+- `NO_PROXY` (o `no_proxy`) enumera, separados por comas, los hosts que van directo:
+  una entrada cubre el host mismo y todo lo que cuelga de él (`example.com` y
+  `.example.com` cubren ambos `raw.example.com`), y `*` envía todo directo;
+- un valor sin esquema es un proxy `http://`; un usuario y una contraseña en él
+  (`http://user:pass@proxy:8080`) se envían al proxy y nunca se imprimen.
+
+Cuando no se llega al registro, el mensaje nombra la dirección, el proxy por el que
+pasó y la variable que lo eligió, y lo que respondió la red:
+
+```text
+tdcv2: cannot reach https://raw.githubusercontent.com/…/index.json through the proxy http://127.0.0.1:9 from HTTPS_PROXY (connect ECONNREFUSED 127.0.0.1:9)
+```
+
 ## Dentro del almacén de paquetes
 
 Cada conjunto se desempaqueta en la **única** carpeta que nombra `packStore`. Un idioma va

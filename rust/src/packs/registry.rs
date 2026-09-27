@@ -307,16 +307,22 @@ fn fetch(url: &str) -> Result<Vec<u8>, PackError> {
 /// No shell is involved, so a registry address carrying a quote or a semicolon
 /// is a bad address and not a command.
 fn curl(url: &str) -> Result<Vec<u8>, PackError> {
-    let done = std::process::Command::new("curl")
+    let proxy = super::env_proxy::for_url(url)?;
+    let mut command = std::process::Command::new("curl");
+    command
         .arg("--fail") // an HTTP error is a failure, not a page to unpack
         .arg("--silent")
         .arg("--show-error")
         .arg("--location") // the registry's raw URLs redirect
         .arg("--max-time")
-        .arg(TIMEOUT_SECONDS)
-        .arg("--")
-        .arg(url)
-        .output();
+        .arg(TIMEOUT_SECONDS);
+    // The proxy is chosen by the shared rule and handed over, or ruled out, so
+    // curl's own reading of the environment cannot pick a different one.
+    match &proxy {
+        Some(choice) => command.arg("--proxy").arg(&choice.url),
+        None => command.arg("--noproxy").arg("*"),
+    };
+    let done = command.arg("--").arg(url).output();
 
     let done = match done {
         Ok(done) => done,
@@ -337,10 +343,13 @@ fn curl(url: &str) -> Result<Vec<u8>, PackError> {
     if said.contains("404") {
         return fail(format!("not found: {url}"));
     }
+    let via = proxy.map_or_else(String::new, |p| {
+        format!(" through the proxy {} from {}", p.shown, p.variable)
+    });
     fail(if said.is_empty() {
-        format!("cannot reach {url} (curl {})", done.status)
+        format!("cannot reach {url}{via} (curl {})", done.status)
     } else {
-        format!("cannot reach {url} ({said})")
+        format!("cannot reach {url}{via} ({said})")
     })
 }
 

@@ -90,7 +90,6 @@ public sealed class PackRegistry
     }
 
     private readonly string _baseUrl;
-    private static readonly HttpClient Client = new() { Timeout = Timeout };
 
     public PackRegistry()
         : this(DefaultBaseUrl)
@@ -220,13 +219,16 @@ public sealed class PackRegistry
         }
 
         HttpResponseMessage response;
+        EnvProxy.Choice? proxy = EnvProxy.For(uri);
         try
         {
-            response = Client.Send(new HttpRequestMessage(HttpMethod.Get, uri));
+            using HttpClient client = EnvProxy.ClientFor(proxy, Timeout);
+            response = client.Send(new HttpRequestMessage(HttpMethod.Get, uri));
         }
         catch (Exception e) when (e is HttpRequestException or IOException or TaskCanceledException)
         {
-            throw new PackException($"cannot reach {url} ({e.Message})", e);
+            string via = proxy is null ? "" : $" through the proxy {proxy.Shown} from {proxy.Variable}";
+            throw new PackException($"cannot reach {url}{via} ({e.Message})", e);
         }
 
         using (response)

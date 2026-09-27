@@ -36,6 +36,8 @@ interface FixtureCase {
   readonly stdoutMatches?: string;
   readonly stderr?: string;
   readonly stderrContains?: readonly string[];
+  readonly stderrExcludes?: readonly string[];
+  readonly env?: Readonly<Record<string, string>>;
   readonly wrote?: Record<string, string>;
   readonly wroteContains?: Record<string, readonly string[]>;
   readonly absent?: readonly string[];
@@ -57,6 +59,18 @@ const FIXTURE = JSON.parse(readFileSync(FIXTURE_PATH, 'utf8')) as Fixture;
 /** A case runs here unless it names implementations and this is not one of them. */
 const CASES = FIXTURE.cases.filter((c) => !c.only || c.only.includes('typescript'));
 const SKIPPED = FIXTURE.cases.filter((c) => c.only && !c.only.includes('typescript'));
+
+/** The variables a proxy is read from, cleared for a case that names its environment. */
+const PROXY_VARIABLES = [
+  'http_proxy',
+  'HTTP_PROXY',
+  'https_proxy',
+  'HTTPS_PROXY',
+  'all_proxy',
+  'ALL_PROXY',
+  'no_proxy',
+  'NO_PROXY',
+];
 
 /** The compiled CLI, for the cases that need real worker threads. */
 const DIST_MAIN = fileURLToPath(new URL('../../dist/cli/main.js', import.meta.url));
@@ -237,25 +251,43 @@ describe('the shared CLI fixture', () => {
 
       const argv = testCase.argv.map((a) => resolveText(a, dir, registry));
 
+      // A case that names its environment gets exactly that: every proxy variable is cleared
+      // first, so the machine running the tests cannot lend the case a proxy it did not name.
+      const savedEnv = new Map<string, string | undefined>();
+      if (testCase.env !== undefined) {
+        for (const name of [...PROXY_VARIABLES, ...Object.keys(testCase.env)]) {
+          if (!savedEnv.has(name)) savedEnv.set(name, process.env[name]);
+          Reflect.deleteProperty(process.env, name);
+        }
+        Object.assign(process.env, testCase.env);
+      }
+
       // `init` and `pack` act on a working directory rather than on a named file, so the fixture
       // hands them the temp directory instead of chdir-ing the whole test process into it.
       let code: number;
-      if (testCase.command === 'init') {
-        code = await runInit(argv, { cwd: dir });
-      } else if (testCase.command === 'pack') {
-        const { runPack } = await import('../../src/cli/pack.js');
-        code = await runPack(argv, { cwd: dir });
-      } else if (argv.includes('--jobs')) {
-        // Worker threads load the COMPILED worker module, which exists only under
-        // dist/ — in-process under vitest a split run cannot start its workers.
-        // So a --jobs case runs the built CLI (compiled once by global-setup.ts),
-        // the way a user runs it, and its workers are real.
-        const ran = spawnSync('node', [DIST_MAIN, ...argv], { encoding: 'utf8' });
-        stdoutBuf = ran.stdout;
-        stderrBuf = ran.stderr;
-        code = ran.status ?? 1;
-      } else {
-        code = await main(argv);
+      try {
+        if (testCase.command === 'init') {
+          code = await runInit(argv, { cwd: dir });
+        } else if (testCase.command === 'pack') {
+          const { runPack } = await import('../../src/cli/pack.js');
+          code = await runPack(argv, { cwd: dir });
+        } else if (argv.includes('--jobs')) {
+          // Worker threads load the COMPILED worker module, which exists only under
+          // dist/ — in-process under vitest a split run cannot start its workers.
+          // So a --jobs case runs the built CLI (compiled once by global-setup.ts),
+          // the way a user runs it, and its workers are real.
+          const ran = spawnSync('node', [DIST_MAIN, ...argv], { encoding: 'utf8' });
+          stdoutBuf = ran.stdout;
+          stderrBuf = ran.stderr;
+          code = ran.status ?? 1;
+        } else {
+          code = await main(argv);
+        }
+      } finally {
+        for (const [name, value] of savedEnv) {
+          if (value === undefined) Reflect.deleteProperty(process.env, name);
+          else process.env[name] = value;
+        }
       }
 
       expect(code, `exit code; stderr was:\n${stderrBuf}`).toBe(testCase.exit);
@@ -272,6 +304,9 @@ describe('the shared CLI fixture', () => {
       }
       for (const fragment of testCase.stderrContains ?? []) {
         expect(stderrBuf).toContain(resolveText(fragment, dir, registry));
+      }
+      for (const fragment of testCase.stderrExcludes ?? []) {
+        expect(stderrBuf).not.toContain(resolveText(fragment, dir, registry));
       }
 
       for (const [name, contents] of Object.entries(testCase.wrote ?? {})) {

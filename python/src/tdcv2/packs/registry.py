@@ -24,6 +24,7 @@ import urllib.request
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from . import env_proxy
 from .store import (
     InstalledBundle,
     PackError,
@@ -154,15 +155,24 @@ class Registry:
         return Installation(paths, len(rels))
 
     def _fetch(self, url: str) -> bytes:
+        proxy = env_proxy.for_url(url)
+        # The opener is told the proxy, or told there is none, so urllib's own reading of the
+        # environment cannot pick a different one than the rule the other four apply.
+        scheme = url.split(":", 1)[0].lower()
+        opener = urllib.request.build_opener(
+            urllib.request.ProxyHandler({} if proxy is None else {scheme: proxy.url})
+        )
         try:
-            with urllib.request.urlopen(url, timeout=_TIMEOUT_SECONDS) as response:
+            with opener.open(url, timeout=_TIMEOUT_SECONDS) as response:
                 return response.read()
         except urllib.error.HTTPError as e:
             if e.code == 404:
                 raise PackError(f"not found: {url}") from None
             raise PackError(f"{url} returned {e.code}") from None
         except OSError as e:
-            raise PackError(f"cannot reach {url} ({e})") from e
+            via = "" if proxy is None else f" through the proxy {proxy.shown} from {proxy.variable}"
+            reason = e.reason if isinstance(e, urllib.error.URLError) else e
+            raise PackError(f"cannot reach {url}{via} ({reason})") from e
 
 
 def parse_index(text: str) -> Index:

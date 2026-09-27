@@ -95,12 +95,41 @@ public class CliTest
             string command = root.TryGetProperty("command", out JsonElement c)
                 ? c.GetString()!
                 : "main";
-            int exit = command switch
+            // A case that names its environment gets exactly that: every proxy variable is cleared
+            // first, so the machine running the tests cannot lend the case a proxy it did not name.
+            var saved = new Dictionary<string, string?>();
+            if (root.TryGetProperty("env", out JsonElement env))
             {
-                "init" => Init.Run(argv, dir, stdout, stderr),
-                "pack" => Pack.Run(argv, dir, stdout, stderr),
-                _ => Main.Run(argv, stdout, stderr),
-            };
+                var vars = env.EnumerateObject().ToDictionary(p => p.Name, p => p.Value.GetString());
+                foreach (string variable in ProxyVariables.Concat(vars.Keys))
+                {
+                    saved.TryAdd(variable, Environment.GetEnvironmentVariable(variable));
+                    Environment.SetEnvironmentVariable(variable, null);
+                }
+
+                foreach ((string variable, string? value) in vars)
+                {
+                    Environment.SetEnvironmentVariable(variable, value);
+                }
+            }
+
+            int exit;
+            try
+            {
+                exit = command switch
+                {
+                    "init" => Init.Run(argv, dir, stdout, stderr),
+                    "pack" => Pack.Run(argv, dir, stdout, stderr),
+                    _ => Main.Run(argv, stdout, stderr),
+                };
+            }
+            finally
+            {
+                foreach ((string variable, string? value) in saved)
+                {
+                    Environment.SetEnvironmentVariable(variable, value);
+                }
+            }
 
             Assert.Equal(root.GetProperty("exit").GetInt32(), exit);
             Check(root, "stdout", stdout.ToString(), dir, registry);
@@ -223,6 +252,13 @@ public class CliTest
         + "\"description\": \"two surnames\", \"file\": \"bundles/demo.zip\", "
         + $"\"bytes\": {bytes}, \"sha256\": \"{digest}\", \"locale\": \"demo\"}}]}}";
 
+    /// <summary>The variables a proxy is read from, cleared for a case that names its environment.</summary>
+    private static readonly string[] ProxyVariables =
+    {
+        "http_proxy", "HTTP_PROXY", "https_proxy", "HTTPS_PROXY", "all_proxy", "ALL_PROXY",
+        "no_proxy", "NO_PROXY",
+    };
+
     private static void Check(
         JsonElement root, string stream, string actual, string dir, string? registry)
     {
@@ -236,6 +272,14 @@ public class CliTest
             foreach (JsonElement fragment in contains.EnumerateArray())
             {
                 Assert.Contains(Resolve(fragment.GetString()!, dir, registry), actual);
+            }
+        }
+
+        if (root.TryGetProperty(stream + "Excludes", out JsonElement excludes))
+        {
+            foreach (JsonElement fragment in excludes.EnumerateArray())
+            {
+                Assert.DoesNotContain(Resolve(fragment.GetString()!, dir, registry), actual);
             }
         }
 

@@ -210,6 +210,20 @@ you mean "…"?` — the near name last and labelled, so a reader that took the 
   `<uniq>` group, which rearrange instead of drawing, are untouched. Pinned in
   `diagnostics/uniq-draw.json`; reported by the agent building the MCP server.
 
+- **`tdcv2 pack` goes through the proxy the environment names, in all five.** Node's `fetch`
+  and Java's `HttpClient` read no proxy variable, so behind a proxy — a corporate network, a CI
+  runner, an agent's sandbox — `pack add` went straight for the registry and failed, the
+  TypeScript CLI with two words, `fetch failed`, and the Java one with `(null)`, while npm and
+  curl worked on the same machine. All five now apply one rule, the one curl and npm use:
+  `https_proxy`/`HTTPS_PROXY` (or `http_proxy`/`HTTP_PROXY` for an `http` address), then
+  `all_proxy`/`ALL_PROXY`, minus the hosts in `no_proxy`/`NO_PROXY`; a proxy without a scheme is
+  `http://`; a user and password in it are sent and never printed. A failure names the address,
+  the proxy it went through and the variable that chose it, and what the network answered. The
+  proxy is handed to curl, urllib and .NET explicitly rather than left to each one's own reading,
+  so the five cannot choose differently. Verified through a live proxy that demands credentials,
+  listing and installing a real pack; pinned in `cli.json` with eight offline cases and a new
+  `env` key. Reported by the agent building the MCP server.
+
 ### Changed
 
 - **A plain `formula` or a date offset may carry `if=`.** `TDC295` refused both, together with

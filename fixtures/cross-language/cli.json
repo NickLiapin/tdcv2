@@ -16,7 +16,9 @@
     "only": "implementations this case runs in. Absent means all five. Present means the others do not support the feature yet — the case stays here, named and visible, rather than being deleted and forgotten.",
     "note": "why the case is shaped the way it is, when that is not obvious",
     "stderr": "exact stderr, when the SHAPE of the message is the point and not only its words — a one-line refusal that a stack trace would also satisfy under stderrContains",
-    "absent": "relative paths that must NOT exist after the run — a file a failed run must not leave behind"
+    "absent": "relative paths that must NOT exist after the run — a file a failed run must not leave behind",
+    "env": "environment variables set for this run only. Every proxy variable (http_proxy, HTTP_PROXY, https_proxy, HTTPS_PROXY, all_proxy, ALL_PROXY, no_proxy, NO_PROXY) is cleared first, so the machine running the tests cannot lend a case a proxy it did not name",
+    "stderrExcludes": "substrings that must NOT appear on stderr — for what a run must not say, such as a password"
   },
   "configs": {
     "tiny": "<tdc><env count=\"3\" seed=\"cli\" inject=\"${{%}}\"></env><block><line><data>row ${{_count}}</data></line></block></tdc>",
@@ -1442,6 +1444,132 @@
       "argv": ["info"],
       "exit": 0,
       "stdoutContains": ["license:", "MIT"]
+    },
+    {
+      "name": "pack list names the proxy it went through when the proxy is down",
+      "command": "pack",
+      "files": {
+        "tdcv2.config.json": "{\n  \"packStore\": \"./store\"\n}\n"
+      },
+      "env": {
+        "HTTPS_PROXY": "http://127.0.0.1:9"
+      },
+      "argv": ["list", "--registry=https://registry.invalid/packs"],
+      "exit": 2,
+      "stderrContains": [
+        "cannot reach https://registry.invalid/packs/index.json through the proxy http://127.0.0.1:9 from HTTPS_PROXY ("
+      ],
+      "note": "Node's fetch and Java's HttpClient read no proxy variable, so behind a proxy — a corporate network, a CI runner, an agent's sandbox — pack add went straight for the registry and failed, the reference with two words: fetch failed. The address is .invalid and the proxy a closed local port, so the case needs no network: a run that ignored the proxy would fail on the name instead, and not name the proxy."
+    },
+    {
+      "name": "a host listed in NO_PROXY goes direct",
+      "command": "pack",
+      "files": {
+        "tdcv2.config.json": "{\n  \"packStore\": \"./store\"\n}\n"
+      },
+      "env": {
+        "HTTPS_PROXY": "http://127.0.0.1:9",
+        "NO_PROXY": "registry.invalid"
+      },
+      "argv": ["list", "--registry=https://registry.invalid/packs"],
+      "exit": 2,
+      "stderrContains": [
+        "cannot reach https://registry.invalid/packs/index.json ("
+      ],
+      "stderrExcludes": ["through the proxy"]
+    },
+    {
+      "name": "a NO_PROXY entry matches the domains under it",
+      "command": "pack",
+      "files": {
+        "tdcv2.config.json": "{\n  \"packStore\": \"./store\"\n}\n"
+      },
+      "env": {
+        "HTTPS_PROXY": "http://127.0.0.1:9",
+        "no_proxy": ".invalid"
+      },
+      "argv": ["list", "--registry=https://registry.invalid/packs"],
+      "exit": 2,
+      "stderrContains": [
+        "cannot reach https://registry.invalid/packs/index.json ("
+      ],
+      "stderrExcludes": ["through the proxy"]
+    },
+    {
+      "name": "NO_PROXY=* sends every request direct",
+      "command": "pack",
+      "files": {
+        "tdcv2.config.json": "{\n  \"packStore\": \"./store\"\n}\n"
+      },
+      "env": {
+        "HTTPS_PROXY": "http://127.0.0.1:9",
+        "NO_PROXY": "*"
+      },
+      "argv": ["list", "--registry=https://registry.invalid/packs"],
+      "exit": 2,
+      "stderrContains": [
+        "cannot reach https://registry.invalid/packs/index.json ("
+      ],
+      "stderrExcludes": ["through the proxy"]
+    },
+    {
+      "name": "a proxy written without a scheme is an http proxy",
+      "command": "pack",
+      "files": {
+        "tdcv2.config.json": "{\n  \"packStore\": \"./store\"\n}\n"
+      },
+      "env": {
+        "https_proxy": "127.0.0.1:9"
+      },
+      "argv": ["list", "--registry=https://registry.invalid/packs"],
+      "exit": 2,
+      "stderrContains": [
+        "cannot reach https://registry.invalid/packs/index.json through the proxy http://127.0.0.1:9 from https_proxy ("
+      ]
+    },
+    {
+      "name": "all_proxy stands in when no https proxy is named",
+      "command": "pack",
+      "files": {
+        "tdcv2.config.json": "{\n  \"packStore\": \"./store\"\n}\n"
+      },
+      "env": {
+        "ALL_PROXY": "http://127.0.0.1:9"
+      },
+      "argv": ["list", "--registry=https://registry.invalid/packs"],
+      "exit": 2,
+      "stderrContains": [
+        "cannot reach https://registry.invalid/packs/index.json through the proxy http://127.0.0.1:9 from ALL_PROXY ("
+      ]
+    },
+    {
+      "name": "the password in a proxy address is never printed",
+      "command": "pack",
+      "files": {
+        "tdcv2.config.json": "{\n  \"packStore\": \"./store\"\n}\n"
+      },
+      "env": {
+        "HTTPS_PROXY": "http://user:secret@127.0.0.1:9"
+      },
+      "argv": ["list", "--registry=https://registry.invalid/packs"],
+      "exit": 2,
+      "stderrContains": [
+        "cannot reach https://registry.invalid/packs/index.json through the proxy http://127.0.0.1:9 from HTTPS_PROXY ("
+      ],
+      "stderrExcludes": ["secret", "user:"]
+    },
+    {
+      "name": "a proxy variable that is not an address is refused by name",
+      "command": "pack",
+      "files": {
+        "tdcv2.config.json": "{\n  \"packStore\": \"./store\"\n}\n"
+      },
+      "env": {
+        "HTTPS_PROXY": "bad@@value:x"
+      },
+      "argv": ["list", "--registry=https://registry.invalid/packs"],
+      "exit": 2,
+      "stderr": "tdcv2: HTTPS_PROXY=\"bad@@value:x\" is not a proxy address — write it as http://host:port\n"
     },
     {
       "name": "a broken manifest does not stop a run",

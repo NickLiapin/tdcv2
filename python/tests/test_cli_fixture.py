@@ -104,14 +104,35 @@ def tdcv2_version() -> str:
     return _version()
 
 
+#: The variables a proxy is read from, cleared for a case that names its environment.
+PROXY_VARIABLES = (
+    "http_proxy",
+    "HTTP_PROXY",
+    "https_proxy",
+    "HTTPS_PROXY",
+    "all_proxy",
+    "ALL_PROXY",
+    "no_proxy",
+    "NO_PROXY",
+)
+
+
 def resolve(text: str, directory: Path, registry: str | None) -> str:
     out = text.replace("{dir}", str(directory)).replace("{version}", tdcv2_version())
     return out if registry is None else out.replace("{registry}", registry)
 
 
 @pytest.mark.parametrize("case", CASES, ids=[c["name"] for c in CASES])
-def test_case(case: dict, tmp_path: Path, capsys) -> None:
+def test_case(case: dict, tmp_path: Path, capsys, monkeypatch) -> None:
     registry = build_registry(tmp_path / "registry") if case.get("registry") else None
+
+    # A case that names its environment gets exactly that: every proxy variable is cleared first,
+    # so the machine running the tests cannot lend the case a proxy it did not name.
+    if "env" in case:
+        for name in PROXY_VARIABLES:
+            monkeypatch.delenv(name, raising=False)
+        for name, value in case["env"].items():
+            monkeypatch.setenv(name, value)
 
     for name, contents in case.get("files", {}).items():
         # A leading @ names one of the shared configs, so a config used by three cases is written
@@ -144,6 +165,8 @@ def test_case(case: dict, tmp_path: Path, capsys) -> None:
         assert resolve(fragment, tmp_path, registry) in captured.out
     if "stdoutMatches" in case:
         assert re.search(case["stdoutMatches"], captured.out), captured.out
+    for fragment in case.get("stderrExcludes", []):
+        assert resolve(fragment, tmp_path, registry) not in captured.err, captured.err
     for fragment in case.get("stderrContains", []):
         assert resolve(fragment, tmp_path, registry) in captured.err, captured.err
 

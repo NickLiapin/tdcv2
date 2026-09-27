@@ -118,7 +118,12 @@ public final class PackRegistry {
 
   public PackRegistry(String baseUrl) {
     this.baseUrl = baseUrl.endsWith("/") ? baseUrl.substring(0, baseUrl.length() - 1) : baseUrl;
-    this.client = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(15)).build();
+    this.client =
+        HttpClient.newBuilder()
+            .connectTimeout(Duration.ofSeconds(15))
+            .proxy(EnvProxy.selector())
+            .authenticator(EnvProxy.authenticator())
+            .build();
   }
 
   /** The catalogue of what can be installed. */
@@ -256,7 +261,10 @@ public final class PackRegistry {
     try {
       response = client.send(request, HttpResponse.BodyHandlers.ofByteArray());
     } catch (IOException e) {
-      throw new PackException("cannot reach " + url + " (" + e.getMessage() + ")", e);
+      EnvProxy.Choice proxy = EnvProxy.forTarget(uri);
+      String via =
+          proxy == null ? "" : " through the proxy " + proxy.proxy() + " from " + proxy.variable();
+      throw new PackException("cannot reach " + url + via + " (" + describe(e, uri, proxy) + ")", e);
     } catch (InterruptedException e) {
       Thread.currentThread().interrupt();
       throw new PackException("interrupted while fetching " + url, e);
@@ -268,6 +276,39 @@ public final class PackRegistry {
       throw new PackException(url + " returned " + response.statusCode());
     }
     return response.body();
+  }
+
+  /**
+   * What went wrong on the wire, in words. {@code HttpClient} throws a {@code ConnectException}
+   * with no message at all, and "cannot reach … (null)" left a reader nothing to go on.
+   */
+  private static String describe(IOException e, URI uri, EnvProxy.Choice proxy) {
+    String where =
+        proxy != null ? proxy.host() + ":" + proxy.port() : uri.getHost() + portOf(uri);
+    // The name first: HttpClient reports an unknown host as a ConnectException too, with the
+    // real reason one level down.
+    for (Throwable cause = e; cause != null; cause = cause.getCause()) {
+      if (cause instanceof java.net.UnknownHostException
+          || cause instanceof java.nio.channels.UnresolvedAddressException) {
+        return "cannot resolve " + (proxy != null ? proxy.host() : uri.getHost());
+      }
+    }
+    if (e instanceof java.net.ConnectException) {
+      return "connection refused by " + where;
+    }
+    if (e instanceof java.net.http.HttpTimeoutException) {
+      return "timed out waiting for " + where;
+    }
+    for (Throwable cause = e; cause != null; cause = cause.getCause()) {
+      if (cause.getMessage() != null && !cause.getMessage().isBlank()) {
+        return cause.getMessage();
+      }
+    }
+    return e.getClass().getSimpleName();
+  }
+
+  private static String portOf(URI uri) {
+    return uri.getPort() >= 0 ? ":" + uri.getPort() : "https".equals(uri.getScheme()) ? ":443" : ":80";
   }
 
   private static String sha256(byte[] data) {
