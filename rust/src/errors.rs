@@ -254,15 +254,23 @@ pub mod render {
         lines.join("\n")
     }
 
-    /// One line per diagnostic: code, position, message, hint after `::`.
+    /// One line per diagnostic: code, position, message, hint after `::`, and
+    /// the near name last, after `:: help:`.
     ///
     /// The full report is right for a person and wrong for a program. Measured on
     /// a three-error config it is 1807 characters over 27 lines, of which three
     /// lines carry the finding and the rest draw a picture of the file — and a
     /// tool feeding a refusal back to a model spends two thirds of its window on
     /// the drawing. The hint is kept: it carries the list of what IS allowed,
-    /// which is the half a reader acts on. No trailing count either, so a caller
-    /// parsing rows need not skip a sentence at the end.
+    /// which is the half a reader acts on. The near name ("did you mean …") is
+    /// the one line that fixes a typo on the first try, and this form used to
+    /// drop it; it goes last, labelled, so a caller that read the hint as the
+    /// second field still does. No trailing count either, so a caller parsing
+    /// rows need not skip a sentence at the end.
+    ///
+    /// The column is counted from 1, as the full report counts it; it used to
+    /// print the internal count from 0, so the two forms of one diagnostic named
+    /// different columns.
     pub fn brief(diagnostics: &[Diagnostic]) -> String {
         diagnostics
             .iter()
@@ -280,7 +288,17 @@ pub mod render {
                 } else {
                     format!(" :: {}", d.hint)
                 };
-                format!("{code} {}:{} {}{hint}", d.line, d.column, d.message)
+                let help = if d.suggestion.is_empty() {
+                    String::new()
+                } else {
+                    format!(" :: help: {}", d.suggestion)
+                };
+                format!(
+                    "{code} {}:{} {}{hint}{help}",
+                    d.line,
+                    d.column + 1,
+                    d.message
+                )
             })
             .collect::<Vec<_>>()
             .join("\n")

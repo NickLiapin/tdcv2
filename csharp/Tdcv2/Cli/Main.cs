@@ -547,12 +547,16 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
     }
 
     /// <summary>
-    /// One diagnostic on one line: code, position, message, hint after <c>::</c>.
+    /// One diagnostic on one line: code, position, message, hint after <c>::</c>, near name last.
     /// </summary>
     /// <remarks>
     /// The hint is kept because it carries the list of what IS allowed, which is the half a
-    /// reader — or a model — acts on. No trailing count either, so a caller parsing rows need
-    /// not skip a sentence at the end.
+    /// reader — or a model — acts on. The near name ("did you mean …") is the one line that fixes
+    /// a typo on the first try, and this form used to drop it; it goes last, labelled
+    /// <c>help:</c>, so a caller that read the hint as the second field still does. No trailing
+    /// count either, so a caller parsing rows need not skip a sentence at the end. The column is
+    /// counted from 1, as the full report counts it; it used to print the internal count from 0,
+    /// so the two forms of one diagnostic named different columns.
     /// </remarks>
     private static string BriefLine(Diagnostic d)
     {
@@ -560,7 +564,8 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
             ? (d.Severity == Severity.Warning ? "WARN" : "ERROR")
             : d.Code;
         string hint = string.IsNullOrEmpty(d.Hint) ? "" : $" :: {d.Hint}";
-        return $"{code} {d.Line}:{d.Column} {d.Message}{hint}";
+        string help = string.IsNullOrEmpty(d.Suggestion) ? "" : $" :: help: {d.Suggestion}";
+        return $"{code} {d.Line}:{d.Column + 1} {d.Message}{hint}{help}";
     }
 
     /// <summary>

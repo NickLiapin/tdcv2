@@ -290,11 +290,13 @@ siendo `0`, porque una advertencia describe algo que funciona pero probablemente
 que usted quería. Solo un error sale con `1`.
 
 `--brief` es la única bandera que acepta `check`. Imprime una línea por diagnóstico —
-código, posición, mensaje, pista — sin el extracto del fuente, para editores, CI y
-cualquier otra cosa que lea la salida en vez de mirarla:
+código, posición, mensaje, pista y, al final, el nombre real más cercano cuando lo hay —
+sin el extracto del fuente, para editores, CI y cualquier otra cosa que lea la salida en
+vez de mirarla. Los campos van separados por ` :: `, el nombre cercano lleva la etiqueta
+`help:` y la posición es la misma que da el informe completo:
 
 <Terminal title="tdcv2 check --brief demo.tdc">
-  {`TDC041 1:70 unknown gen type "nosuch" :: Allowed types: text, file, template, number, regex, advanced_regex, … (11 more).`}
+  {`TDC015 3:71 <gen> has no "persent" attribute :: Check the spelling, or see the attributes reference for what a generator takes. :: help: did you mean "percent"?`}
 </Terminal>
 
 ## `tdcv2 format`

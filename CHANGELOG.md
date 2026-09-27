@@ -192,6 +192,13 @@ compute`. A number is what the running total reads as one — digits, an optiona
   makes the whole run when the object is created, already refused at creation. Pinned in
   `api.json` for all five; reported by the agent building the MCP server.
 
+- **`check --brief` names the column the full report names, and keeps "did you mean".** The
+  brief line printed the column counted from 0 while the full report counted from 1, so the
+  two forms of one diagnostic disagreed by one; and it dropped the near name, the part that
+  fixes a typo on the first try. The line is now `CODE line:col message :: hint :: help: did
+you mean "…"?` — the near name last and labelled, so a reader that took the hint as the
+  second field still does. Pinned in `cli.json` for all five.
+
 ### Changed
 
 - **A plain `formula` or a date offset may carry `if=`.** `TDC295` refused both, together with

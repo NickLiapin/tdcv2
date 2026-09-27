@@ -283,11 +283,13 @@ warning describes something that works but probably is not what you meant. Only 
 exits `1`.
 
 `--brief` is the only flag `check` takes. It prints one line per diagnostic — code,
-position, message, hint — with no source excerpt, for editors, CI and anything else that
-reads the output rather than looking at it:
+position, message, hint, and last the nearest real name when there is one — with no source
+excerpt, for editors, CI and anything else that reads the output rather than looking at
+it. The fields are separated by ` :: `, the near name is labelled `help:`, and the position
+is the one the full report gives:
 
 <Terminal title="tdcv2 check --brief demo.tdc">
-  {`TDC041 1:70 unknown gen type "nosuch" :: Allowed types: text, file, template, number, regex, advanced_regex, … (11 more).`}
+  {`TDC015 3:71 <gen> has no "persent" attribute :: Check the spelling, or see the attributes reference for what a generator takes. :: help: did you mean "percent"?`}
 </Terminal>
 
 ## `tdcv2 format`

@@ -479,15 +479,21 @@ def _report(
 
 
 def _brief_line(d: Diagnostic) -> str:
-    """One diagnostic on one line: code, position, message, hint after ``::``.
+    """One diagnostic on one line: code, position, message, hint after ``::``, near name last.
 
     The hint is kept because it carries the list of what IS allowed, which is the
-    half a reader — or a model — acts on. No trailing count either, so a caller
-    parsing rows need not skip a sentence at the end.
+    half a reader — or a model — acts on. The near name ("did you mean …") is the one
+    line that fixes a typo on the first try, and this form used to drop it; it goes last,
+    labelled ``help:``, so a caller that read the hint as the second field still does.
+    No trailing count either, so a caller parsing rows need not skip a sentence at the end.
+
+    The column is counted from 1, as the full report counts it; it used to print the
+    internal count from 0, so the two forms of one diagnostic named different columns.
     """
     code = d.code or ("WARN" if d.severity == "warning" else "ERROR")
     hint = f" :: {d.hint}" if d.hint else ""
-    return f"{code} {d.line}:{d.column} {d.message}{hint}"
+    help_ = f" :: help: {d.suggestion}" if d.suggestion else ""
+    return f"{code} {d.line}:{d.column + 1} {d.message}{hint}{help_}"
 
 
 def _report_one(problem: Diagnostic, filename: str | None, source: str | None = None) -> None:

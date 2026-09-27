@@ -284,11 +284,13 @@ tdcv2 check demo.tdc
 Кодом `1` завершается только ошибка.
 
 `--brief` — единственный флаг у `check`. Он печатает по одной строке на диагностику (код,
-позиция, сообщение, подсказка) без выдержки из исходника — для редакторов, CI и всего
-остального, что вывод читает, а не разглядывает:
+позиция, сообщение, подсказка и последним — ближайшее настоящее имя, если оно есть) без
+выдержки из исходника — для редакторов, CI и всего остального, что вывод читает, а не
+разглядывает. Поля разделены ` :: `, ближайшее имя помечено `help:`, а позиция та же, что
+в полном отчёте:
 
 <Terminal title="tdcv2 check --brief demo.tdc">
-  {`TDC041 1:70 unknown gen type "nosuch" :: Allowed types: text, file, template, number, regex, advanced_regex, … (11 more).`}
+  {`TDC015 3:71 <gen> has no "persent" attribute :: Check the spelling, or see the attributes reference for what a generator takes. :: help: did you mean "percent"?`}
 </Terminal>
 
 ## `tdcv2 format`

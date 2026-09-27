@@ -187,15 +187,23 @@ function renderSnippet(d: Diagnostic, source: string, colors: boolean): string[]
 }
 
 /**
- * One diagnostic on one line: code, position, message, and the hint after `::`.
+ * One diagnostic on one line: code, position, message, the hint after `::`, and
+ * the near name after `:: help:`.
  *
  * The hint is kept because it carries the list of what IS allowed, which is the
- * part a reader — or a model — acts on. Dropping it to save characters would
- * remove the only actionable half.
+ * part a reader — or a model — acts on. The near name ("did you mean …") is kept
+ * for the same reason and more so: it is the one line that fixes a typo on the
+ * first try, and this form used to drop it. It goes LAST, labelled, so a caller
+ * that read the hint as the second field still does.
+ *
+ * The column is counted from 1, as the full report's `--> file:line:col` counts
+ * it. It used to print the internal count from 0, so the two forms of the same
+ * diagnostic named different columns.
  */
 function briefLine(d: Diagnostic): string {
   const code = d.code ?? (d.severity === 'warning' ? 'WARN' : 'ERROR');
-  const where = `${String(d.line)}:${String(d.column)}`;
+  const where = `${String(d.line)}:${String(d.column + 1)}`;
   const hint = d.hint === undefined || d.hint === '' ? '' : ` :: ${d.hint}`;
-  return `${code} ${where} ${d.message}${hint}`;
+  const help = d.suggestion === undefined || d.suggestion === '' ? '' : ` :: help: ${d.suggestion}`;
+  return `${code} ${where} ${d.message}${hint}${help}`;
 }

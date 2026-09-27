@@ -507,18 +507,25 @@ public final class Main {
   }
 
   /**
-   * One diagnostic on one line: code, position, message, hint after {@code ::}.
+   * One diagnostic on one line: code, position, message, hint after {@code ::}, near name last.
    *
    * <p>The hint is kept because it carries the list of what IS allowed, which is the half a
-   * reader — or a model — acts on. No trailing count either, so a caller parsing rows need
-   * not skip a sentence at the end.
+   * reader — or a model — acts on. The near name ("did you mean …") is the one line that fixes a
+   * typo on the first try, and this form used to drop it; it goes last, labelled {@code help:},
+   * so a caller that read the hint as the second field still does. No trailing count either, so
+   * a caller parsing rows need not skip a sentence at the end.
+   *
+   * <p>The column is counted from 1, as the full report counts it; it used to print the internal
+   * count from 0, so the two forms of one diagnostic named different columns.
    */
   private static String briefLine(Diagnostic d) {
     String code = d.code() == null || d.code().isEmpty()
         ? (d.severity() == Diagnostic.Severity.WARNING ? "WARN" : "ERROR")
         : d.code();
     String hint = d.hint() == null || d.hint().isEmpty() ? "" : " :: " + d.hint();
-    return code + " " + d.line() + ":" + d.column() + " " + d.message() + hint;
+    String help =
+        d.suggestion() == null || d.suggestion().isEmpty() ? "" : " :: help: " + d.suggestion();
+    return code + " " + d.line() + ":" + (d.column() + 1) + " " + d.message() + hint + help;
   }
 
   private static void reportOne(Diagnostic problem, String filename, String source) {
