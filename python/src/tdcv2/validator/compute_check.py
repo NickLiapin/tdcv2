@@ -202,7 +202,8 @@ class ComputeCheck:
                     "or delete it.",
                 )
 
-        self._slot(_children(compute_element), scope)
+        owner = _Node("compute", {}, [], compute_element.start.line, compute_element.start.column)
+        self._slot(_children(compute_element), scope, owner, extras_reported=seen_result)
 
     def _attribute_names(self, children: list) -> None:
         """Refuse every attribute a compute tag does not read -- the TDC015 ``<gen>`` always had.
@@ -215,6 +216,7 @@ class ComputeCheck:
         for child in children:
             element = child.openCloseElement() or child.selfClosingElement()
             if element is None:
+                self._raw_text(child)
                 continue
             known = _ATTRIBUTES.get(element.name.text)
             if known is not None:
@@ -222,6 +224,25 @@ class ComputeCheck:
                     self._unread_attribute(element.name.text, known, attr)
             if child.openCloseElement() is not None:
                 self._attribute_names(_children(element))
+
+    def _raw_text(self, element) -> None:
+        """``<data>`` or ``<map>`` inside a ``<compute>``.
+
+        They hold raw text, and the compute language has no text -- every value is a tag. The walk
+        skipped them, so ``check`` called the config valid and the run then stopped on the first
+        row, naming no file and no line.
+        """
+        tag = "data" if element.dataElement() is not None else "map"
+        self.diagnostics.append(
+            Diagnostic.error(
+                "TDC180",
+                f"<{tag}> is not part of the compute language",
+                "Inside <compute> every value is a tag, and raw text is never read — the run "
+                'would stop on it. A literal is <str v="…"/>; a column is <field name="…"/>.',
+                element.start.line,
+                element.start.column,
+            )
+        )
 
     def _unread_attribute(self, tag: str, known: tuple[str, ...], attr) -> None:
         name = attr.attrName.text
@@ -249,17 +270,29 @@ class ComputeCheck:
             )
         )
 
-    def _slot(self, children: list, scope: _Scope) -> None:
-        """``<let>`` prefixes bind for the siblings after them, and the last child is the value."""
+    def _slot(
+        self, children: list, scope: _Scope, owner: _Node, extras_reported: bool = False
+    ) -> None:
+        """``<let>`` prefixes bind for the siblings after them, and the last child is the value.
+
+        A slot holds ONE value, and the evaluator honours that literally: it computes every child
+        and keeps the last. So a second value did not fail -- it replaced the first, in silence
+        (``<result><str v="a"/><str v="b"/></result>`` printed ``b``), and a slot with no value
+        passed ``check`` and stopped the run. Both are refused here, on the tag that owns the slot.
+        ``extras_reported`` is set where the extra values already have a refusal of their own.
+        """
         bound = set(scope.variables)
         lost_binding = scope.lost_binding
+        values: list[_Node] = []
         for child in children:
             node = _node(child)
             if node is None:
                 continue
+            if node.name != "let":
+                values.append(node)
             if node.name == "let" and _written_under_another_name(node, "name"):
                 lost_binding = True
-                self._slot(node.children, scope.with_vars(bound))
+                self._slot(node.children, scope.with_vars(bound), node)
                 continue
             if node.name == "let":
                 name = node.attrs.get("name", "")
@@ -270,17 +303,40 @@ class ComputeCheck:
                         f'<let name="{name}"> shadows an outer binding of the same name',
                         None,
                     )
-                self._slot(node.children, scope.with_vars(bound))
+                self._slot(node.children, scope.with_vars(bound), node)
                 bound.add(name)
             else:
                 self._expr(child, scope.with_vars(bound, lost_binding))
+        # Raw text in the slot has its own refusal (TDC180); "holds no value" would be its echo.
+        raw_text = any(_node(child) is None for child in children)
+        if not values:
+            if not raw_text:
+                self._report(
+                    owner,
+                    "TDC187",
+                    f"<{owner.name}> holds no value",
+                    "It needs one value inside it, after any <let>s. With nothing there the run "
+                    "would stop on the first row.",
+                )
+        elif not extras_reported:
+            last = values[-1]
+            for dropped in values[:-1]:
+                self._report(
+                    dropped,
+                    "TDC189",
+                    f"<{dropped.name}> is dropped — <{owner.name}> holds one value, and only the "
+                    "last is used",
+                    f"This one would be computed and thrown away, and <{last.name}> after it "
+                    "would win. Keep one value here: name the others with <let>, or join them "
+                    "with <concat>.",
+                )
 
     def _wrapper(self, node: _Node, wrapper: str, scope: _Scope) -> None:
         """A construct needing one named wrapper child, like ``<each><over>…</over></each>``."""
         for child in node.children:
             inner = _node(child)
             if inner is not None and inner.name == wrapper:
-                self._slot(inner.children, scope)
+                self._slot(inner.children, scope, inner)
                 return
         self._report(node, "TDC187", f"<{node.name}> requires a <{wrapper}> child", None)
 
@@ -388,7 +444,7 @@ class ComputeCheck:
                     "Write a positive whole number. A size the engine cannot use would turn "
                     "grouping off and leave the value unchanged, with nothing to show why.",
                 )
-            self._slot(node.children, scope)
+            self._slot(node.children, scope, node)
         elif name in ("mod", "divide"):
             count = _count_nodes(node)
             if count != 2:
@@ -420,7 +476,7 @@ class ComputeCheck:
             if as_what not in _ENCODINGS and not _written_under_another_name(node, "as"):
                 self._report(node, "TDC186", f'<encode>: unknown encoding "{as_what}"', None)
             self._numeric_builtin_argument(node.children, "encode")
-            self._slot(node.children, scope)
+            self._slot(node.children, scope, node)
         elif name == "mask":
             # The filter form of the same fault is TDC256 in validate.py. A mask with no pattern
             # has nothing to keep, and the engine answered that literally: it returned the empty
@@ -451,7 +507,7 @@ class ComputeCheck:
                         'Indices are 0-based; ranges use "..", e.g. pattern="x[0..3]" or '
                         'pattern="w[-1], w[0]".',
                     )
-            self._slot(node.children, scope)
+            self._slot(node.children, scope, node)
         elif name == "choose":
             self._choose(node, scope)
         elif name == "over":
@@ -461,8 +517,32 @@ class ComputeCheck:
                 "<over> is only valid inside <each> or <reduce>",
                 "It names the list being walked. Outside those tags there is nothing to walk.",
             )
+        elif name in ("when", "test"):
+            # A value position cannot hold either: the evaluator has no case for them outside the
+            # <choose> that reads them, and stopped the run with "unknown compute tag <when>".
+            self._report(
+                node,
+                "TDC181",
+                "<when> is only valid inside <choose>"
+                if name == "when"
+                else "<test> is only valid inside <when>",
+                "It is one branch of a <choose>, and outside one there is nothing to choose "
+                "between. Wrap it: <choose><when><test>…</test><then>…</then></when>"
+                "<otherwise>…</otherwise></choose>.",
+            )
+        elif name == "let":
+            # Reaching here means an operand position -- a slot binds its <let>s before walking
+            # the value. The evaluator stopped on it with no file and no line.
+            self._report(
+                node,
+                "TDC180",
+                "<let> is a binding, not a value — it is valid only ahead of the value in a slot",
+                "A <let> names a value for the siblings after it, inside <result>, <then>, <do> "
+                "and the like. Here it stands where a value is read. Move it up into the "
+                "enclosing slot.",
+            )
         else:
-            self._slot(node.children, scope)
+            self._slot(node.children, scope, node)
 
     def _slot_names(self, node: _Node, slots: tuple[str, ...]) -> None:
         """A child in a SLOT position that names no slot this tag has.
@@ -503,7 +583,7 @@ class ComputeCheck:
                 self._when(inner, scope)
             elif inner.name == "otherwise":
                 has_otherwise = True
-                self._slot(inner.children, scope)
+                self._slot(inner.children, scope, inner)
         if not has_otherwise:
             # Without it, a row matching no branch computes nothing at all — and an empty check
             # digit is indistinguishable from a value that happens to be blank.
@@ -520,11 +600,29 @@ class ComputeCheck:
         if test is None:
             self._report(node, "TDC187", "<when> requires a <test> child", None)
         else:
-            for child in test.children:
-                predicate = _node(child)
-                if predicate is not None:
-                    self._predicate(predicate, scope)
-                    break
+            # One question, read first. An empty <test> passed check and stopped the run; a second
+            # predicate was never asked, and the branch was taken on the first alone. Neither is
+            # walked further: nothing will ever run them.
+            predicates = [p for p in (_node(child) for child in test.children) if p is not None]
+            if not predicates:
+                self._report(
+                    test,
+                    "TDC187",
+                    "<test> holds no predicate",
+                    "It needs one question to answer — <equals>, <greater_than>, <less_than> or "
+                    "<is_digit>. With nothing there the run would stop on the first row.",
+                )
+            else:
+                self._predicate(predicates[0], scope)
+            for extra in predicates[1:]:
+                self._report(
+                    extra,
+                    "TDC189",
+                    f"<{extra.name}> is never asked — <test> holds one predicate, and only the "
+                    "first is read",
+                    "The branch is taken on the first predicate alone. To ask two things, put a "
+                    "second <choose> inside <then>.",
+                )
         self._wrapper(node, "then", scope)
 
     def _comparison_literals(self, node: _Node) -> None:
@@ -595,6 +693,13 @@ class ComputeCheck:
             for child in node.children:
                 self._expr(child, scope)
         elif node.name == "is_digit":
+            # It reads its first child and nothing else: a second was never looked at, and none at
+            # all stopped the run.
+            count = _count_nodes(node)
+            if count != 1:
+                self._report(
+                    node, "TDC183", f"<is_digit> requires exactly 1 child, found {count}", None
+                )
             self._numeric_builtin_argument(node.children, "is_digit")
             for child in node.children:
                 self._expr(child, scope)

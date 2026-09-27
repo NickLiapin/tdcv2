@@ -286,23 +286,46 @@ internal sealed class ComputeCheck
             }
         }
 
-        WalkSlot(computeEl.content().element(), scope);
+        var owner = new Node(
+            "compute", new Dictionary<string, string>(StringComparer.Ordinal),
+            Array.Empty<TDCParser.ElementContext>(), computeEl.Start.Line, computeEl.Start.Column);
+        WalkSlot(computeEl.content().element(), scope, owner, seenResult);
     }
 
     /// <summary>
     /// A slot: <c>&lt;let&gt;</c> prefixes bind for the siblings after them, and the last child is
     /// the value.
     /// </summary>
-    private void WalkSlot(IReadOnlyList<TDCParser.ElementContext> children, Scope scope)
+    /// <remarks>
+    /// A slot holds ONE value, and the evaluator honours that literally: it computes every child
+    /// and keeps the last. So a second value did not fail — it replaced the first, in silence
+    /// (<c>&lt;result&gt;&lt;str v="a"/&gt;&lt;str v="b"/&gt;&lt;/result&gt;</c> printed <c>b</c>),
+    /// and a slot with no value passed check and stopped the run. Both are refused here, on the
+    /// tag that owns the slot. <paramref name="extrasReported"/> is set where the extra values
+    /// already have a refusal of their own.
+    /// </remarks>
+    private void WalkSlot(
+        IReadOnlyList<TDCParser.ElementContext> children,
+        Scope scope,
+        Node owner,
+        bool extrasReported = false)
     {
         var bound = new HashSet<string>(scope.Vars, StringComparer.Ordinal);
         bool lostBinding = scope.LostBinding;
+        var values = new List<Node>();
+        bool rawText = false;
         foreach (TDCParser.ElementContext child in children)
         {
             Node? node = ToNode(child);
             if (node is null)
             {
+                rawText = true;
                 continue;
+            }
+
+            if (node.Name != "let")
+            {
+                values.Add(node);
             }
 
             if (node.Name == "let" && WrittenUnderAnotherName(node, "name"))
@@ -310,7 +333,8 @@ internal sealed class ComputeCheck
                 lostBinding = true;
                 WalkSlot(
                     node.Children,
-                    scope.WithVars(new HashSet<string>(bound, StringComparer.Ordinal)));
+                    scope.WithVars(new HashSet<string>(bound, StringComparer.Ordinal)),
+                    node);
                 continue;
             }
 
@@ -326,7 +350,8 @@ internal sealed class ComputeCheck
 
                 WalkSlot(
                     node.Children,
-                    scope.WithVars(new HashSet<string>(bound, StringComparer.Ordinal)));
+                    scope.WithVars(new HashSet<string>(bound, StringComparer.Ordinal)),
+                    node);
                 bound.Add(name);
             }
             else
@@ -335,6 +360,32 @@ internal sealed class ComputeCheck
                     child,
                     scope.WithVars(new HashSet<string>(bound, StringComparer.Ordinal))
                         with { LostBinding = lostBinding });
+            }
+        }
+
+        // Raw text in the slot has its own refusal (TDC180); "holds no value" would be its echo.
+        if (values.Count == 0)
+        {
+            if (!rawText)
+            {
+                Report(
+                    owner, "TDC187", $"<{owner.Name}> holds no value",
+                    "It needs one value inside it, after any <let>s. With nothing there the run "
+                    + "would stop on the first row.");
+            }
+        }
+        else if (!extrasReported)
+        {
+            Node last = values[^1];
+            foreach (Node dropped in values.Take(values.Count - 1))
+            {
+                Report(
+                    dropped, "TDC189",
+                    $"<{dropped.Name}> is dropped — <{owner.Name}> holds one value, and only the "
+                    + "last is used",
+                    $"This one would be computed and thrown away, and <{last.Name}> after it "
+                    + "would win. Keep one value here: name the others with <let>, or join them "
+                    + "with <concat>.");
             }
         }
     }
@@ -347,7 +398,7 @@ internal sealed class ComputeCheck
             Node? inner = ToNode(child);
             if (inner is not null && inner.Name == wrapper)
             {
-                WalkSlot(inner.Children, scope);
+                WalkSlot(inner.Children, scope, inner);
                 return;
             }
         }
@@ -486,7 +537,7 @@ internal sealed class ComputeCheck
                     }
                 }
 
-                WalkSlot(node.Children, scope);
+                WalkSlot(node.Children, scope, node);
                 return;
 
             case "list":
@@ -600,7 +651,7 @@ internal sealed class ComputeCheck
                     }
                 }
 
-                WalkSlot(node.Children, scope);
+                WalkSlot(node.Children, scope, node);
                 return;
             }
 
@@ -613,7 +664,7 @@ internal sealed class ComputeCheck
                 }
 
                 NumericBuiltinArgument(node.Children, "encode");
-                WalkSlot(node.Children, scope);
+                WalkSlot(node.Children, scope, node);
                 return;
             }
 
@@ -627,8 +678,33 @@ internal sealed class ComputeCheck
                     "It names the list being walked. Outside those tags there is nothing to walk.");
                 return;
 
+            // A value position cannot hold either: the evaluator has no case for them outside
+            // the <choose> that reads them, and stopped the run with "unknown compute tag <when>".
+            case "when":
+            case "test":
+                Report(
+                    node, "TDC181",
+                    node.Name == "when"
+                        ? "<when> is only valid inside <choose>"
+                        : "<test> is only valid inside <when>",
+                    "It is one branch of a <choose>, and outside one there is nothing to choose "
+                    + "between. Wrap it: <choose><when><test>…</test><then>…</then></when>"
+                    + "<otherwise>…</otherwise></choose>.");
+                return;
+
+            // Reaching here means an operand position — a slot binds its <let>s before walking
+            // the value. The evaluator stopped on it with no file and no line.
+            case "let":
+                Report(
+                    node, "TDC180",
+                    "<let> is a binding, not a value — it is valid only ahead of the value in a slot",
+                    "A <let> names a value for the siblings after it, inside <result>, <then>, <do> "
+                    + "and the like. Here it stands where a value is read. Move it up into the "
+                    + "enclosing slot.");
+                return;
+
             default:
-                WalkSlot(node.Children, scope);
+                WalkSlot(node.Children, scope, node);
                 return;
         }
     }
@@ -684,7 +760,7 @@ internal sealed class ComputeCheck
             else if (inner.Name == "otherwise")
             {
                 hasOtherwise = true;
-                WalkSlot(inner.Children, scope);
+                WalkSlot(inner.Children, scope, inner);
             }
         }
 
@@ -716,14 +792,30 @@ internal sealed class ComputeCheck
         }
         else
         {
-            foreach (TDCParser.ElementContext child in test.Children)
+            // One question, read first. An empty <test> passed check and stopped the run; a second
+            // predicate was never asked, and the branch was taken on the first alone. Neither is
+            // walked further: nothing will ever run them.
+            var predicates = test.Children.Select(ToNode).OfType<Node>().ToList();
+            if (predicates.Count == 0)
             {
-                Node? predicate = ToNode(child);
-                if (predicate is not null)
-                {
-                    WalkPredicate(predicate, scope);
-                    break;
-                }
+                Report(
+                    test, "TDC187", "<test> holds no predicate",
+                    "It needs one question to answer — <equals>, <greater_than>, <less_than> or "
+                    + "<is_digit>. With nothing there the run would stop on the first row.");
+            }
+            else
+            {
+                WalkPredicate(predicates[0], scope);
+            }
+
+            foreach (Node extra in predicates.Skip(1))
+            {
+                Report(
+                    extra, "TDC189",
+                    $"<{extra.Name}> is never asked — <test> holds one predicate, and only the "
+                    + "first is read",
+                    "The branch is taken on the first predicate alone. To ask two things, put a "
+                    + "second <choose> inside <then>.");
             }
         }
 
@@ -829,6 +921,16 @@ internal sealed class ComputeCheck
                 return;
 
             case "is_digit":
+            {
+                // It reads its first child and nothing else: a second was never looked at, and
+                // none at all stopped the run.
+                int count = CountNodes(node);
+                if (count != 1)
+                {
+                    Report(
+                        node, "TDC183", $"<is_digit> requires exactly 1 child, found {count}", null);
+                }
+
                 NumericBuiltinArgument(node.Children, "is_digit");
                 foreach (TDCParser.ElementContext child in node.Children)
                 {
@@ -836,6 +938,7 @@ internal sealed class ComputeCheck
                 }
 
                 return;
+            }
 
             default:
                 Report(
@@ -866,6 +969,7 @@ internal sealed class ComputeCheck
             string? tag = open?.name.Text ?? self?.name.Text;
             if (tag is null)
             {
+                RawText(child);
                 continue;
             }
 
@@ -882,6 +986,25 @@ internal sealed class ComputeCheck
                 AttributeNames(open.content().element());
             }
         }
+    }
+
+    /// <summary>
+    /// <c>&lt;data&gt;</c> or <c>&lt;map&gt;</c> inside a <c>&lt;compute&gt;</c>. They hold raw
+    /// text, and the compute language has no text — every value is a tag. The walk skipped them,
+    /// so check called the config valid and the run then stopped on the first row, naming no file
+    /// and no line.
+    /// </summary>
+    private void RawText(TDCParser.ElementContext element)
+    {
+        string tag = element.dataElement() is not null ? "data" : "map";
+        _diagnostics.Add(
+            Diagnostic.Error(
+                "TDC180",
+                $"<{tag}> is not part of the compute language",
+                "Inside <compute> every value is a tag, and raw text is never read — the run would "
+                + "stop on it. A literal is <str v=\"…\"/>; a column is <field name=\"…\"/>.",
+                element.Start.Line,
+                element.Start.Column));
     }
 
     private void UnreadAttribute(string tag, string[] known, TDCParser.AttrContext attr)

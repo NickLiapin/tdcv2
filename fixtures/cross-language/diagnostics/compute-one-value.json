@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "a-second-value-in-result",
+      "demonstrates": "TDC189",
+      "description": "<result> with two values printed the second and dropped the first in silence",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><str v=\"a\"/><str v=\"b\"/></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC189 1:127"]
+    },
+    {
+      "name": "a-second-value-in-a-bare-compute",
+      "demonstrates": "TDC189",
+      "description": "a <compute> with no <result> is one slot too: its first value was dropped",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><str v=\"a\"/><str v=\"b\"/></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC189 1:119"]
+    },
+    {
+      "name": "a-second-value-in-a-let",
+      "demonstrates": "TDC189",
+      "description": "<let> binds one value; with two it bound the last",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><let name=\"x\"><str v=\"a\"/><str v=\"b\"/></let><result><use name=\"x\"/></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC189 1:133"]
+    },
+    {
+      "name": "a-second-value-under-a-transform",
+      "demonstrates": "TDC189",
+      "description": "<upper> over two values printed B for a, b",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><upper><str v=\"a\"/><str v=\"b\"/></upper></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC189 1:134"]
+    },
+    {
+      "name": "every-dropped-value-is-named",
+      "demonstrates": "TDC189",
+      "description": "three values: the first two are each reported, the last is the one used",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><str v=\"a\"/><str v=\"b\"/><str v=\"c\"/></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC189 1:127", "error TDC189 1:139"]
+    },
+    {
+      "name": "lets-ahead-of-the-value-are-not-values",
+      "demonstrates": "TDC189",
+      "description": "two <let>s and two values: only the extra value is reported",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><let name=\"p\"><str v=\"a\"/></let><use name=\"p\"/><let name=\"q\"><str v=\"b\"/></let><use name=\"q\"/></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC189 1:159"]
+    },
+    {
+      "name": "a-second-predicate-is-never-asked",
+      "demonstrates": "TDC189",
+      "description": "<test> read its first predicate and never asked the second",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><choose><when><test><equals><int v=\"1\"/><int v=\"2\"/></equals><equals><int v=\"1\"/><int v=\"1\"/></equals></test><then><str v=\"T\"/></then></when><otherwise><str v=\"F\"/></otherwise></choose></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC189 1:188"]
+    },
+    {
+      "name": "is-digit-with-two-children",
+      "demonstrates": "TDC183",
+      "description": "<is_digit> read its first child and ignored the second",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><choose><when><test><is_digit><str v=\"x\"/><str v=\"7\"/></is_digit></test><then><str v=\"T\"/></then></when><otherwise><str v=\"F\"/></otherwise></choose></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC183 1:147"]
+    },
+    {
+      "name": "is-digit-with-no-child",
+      "demonstrates": "TDC183",
+      "description": "<is_digit> with nothing to ask passed check and stopped the run",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><choose><when><test><is_digit></is_digit></test><then><str v=\"T\"/></then></when><otherwise><str v=\"F\"/></otherwise></choose></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC183 1:147"]
+    },
+    {
+      "name": "an-empty-test",
+      "demonstrates": "TDC187",
+      "description": "<test> with no predicate passed check and stopped the run",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><choose><when><test></test><then><str v=\"T\"/></then></when><otherwise><str v=\"F\"/></otherwise></choose></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC187 1:141"]
+    },
+    {
+      "name": "an-empty-transform",
+      "demonstrates": "TDC187",
+      "description": "<upper> with nothing inside passed check and stopped the run",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><upper></upper></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC187 1:127"]
+    },
+    {
+      "name": "a-compute-with-only-a-let",
+      "demonstrates": "TDC187",
+      "description": "a <compute> that binds a name and never produces a value",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><let name=\"x\"><str v=\"a\"/></let></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC187 1:110"]
+    },
+    {
+      "name": "an-empty-over",
+      "demonstrates": "TDC187",
+      "description": "an <each> whose <over> holds nothing to walk",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><join sep=\",\"><each><over></over><do><current/></do></each></join></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC187 1:147"]
+    },
+    {
+      "name": "a-test-outside-when",
+      "demonstrates": "TDC181",
+      "description": "<test> in a value position passed check and stopped the run as an unknown tag",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><test><int v=\"1\"/></test></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC181 1:127"]
+    },
+    {
+      "name": "a-when-outside-choose",
+      "demonstrates": "TDC181",
+      "description": "<when> in a value position passed check and stopped the run as an unknown tag",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><when><int v=\"1\"/></when></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC181 1:127"]
+    },
+    {
+      "name": "a-let-as-an-operand",
+      "demonstrates": "TDC180",
+      "description": "<let> where <add> reads a value passed check and stopped the run",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><add><let name=\"x\"><int v=\"1\"/></let><int v=\"2\"/></add></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC180 1:132"]
+    },
+    {
+      "name": "data-inside-compute",
+      "demonstrates": "TDC180",
+      "description": "<data> text inside <compute> is never read; the run stopped on it",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><data>x</data></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC180 1:127"]
+    },
+    {
+      "name": "map-inside-compute",
+      "demonstrates": "TDC180",
+      "description": "<map> inside <compute> was skipped by check; the run stopped on it",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><map>a=b</map></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC180 1:127"]
+    }
+  ]
+}

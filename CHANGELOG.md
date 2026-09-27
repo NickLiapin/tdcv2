@@ -171,6 +171,18 @@ compute`. A number is what the running total reads as one — digits, an optiona
   tests before being switched on: no refusal of a working config. Pinned in
   `diagnostics/compute-attributes.json`.
 
+- **A `<compute>` part that would be thrown away, or that the run cannot execute, is refused
+  before the run.** A slot holds one value and the evaluator keeps the last, so a second value
+  replaced the first in silence: `<result><str v="a"/><str v="b"/></result>` printed `b`, and
+  `<upper>` over `a` and `b` printed `B`. `<test>` asked only its first predicate and
+  `<is_digit>` read only its first child, so a second one was never looked at. Six more shapes
+  passed `check` and stopped the run with a message naming no file, no line and no code: an
+  empty slot, an empty `<test>`, an `<is_digit>` with nothing to ask, `<when>` or `<test>`
+  outside the `<choose>` that reads them, `<let>` where a value is read, and `<data>` or `<map>`
+  inside `<compute>`. Each now has a code (`TDC189` for the dropped part, `TDC183`, `TDC187`,
+  `TDC181`, `TDC180`) on the tag it concerns. None of the 688 `<compute>` blocks in the packs,
+  the docs and the tests is refused. Pinned in `diagnostics/compute-one-value.json`.
+
 ### Changed
 
 - **A plain `formula` or a date offset may carry `if=`.** `TDC295` refused both, together with

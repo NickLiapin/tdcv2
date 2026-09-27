@@ -24,6 +24,8 @@ import {
   nodeRange,
 } from '../errors/index.js';
 import { applyMask } from '../format/transforms.js';
+import type { ParserRuleContext } from 'antlr4ng';
+
 import type {
   AttrContext,
   ElementContext,
@@ -34,6 +36,17 @@ import type { AttrMap } from '../processor/attrs.js';
 import { contentElements, elementKind, elementName, extractAttrs } from '../processor/walk.js';
 
 type Node = OpenCloseElementContext | SelfClosingElementContext;
+
+/**
+ * The tag a slot belongs to: what an empty or overfull slot is reported
+ * against. `extrasReported` is set where the extra values already have a
+ * refusal of their own — `<compute>` beside a `<result>` (TDC189 above).
+ */
+interface Slot {
+  readonly name: string;
+  readonly node: Node;
+  readonly extrasReported?: boolean;
+}
 
 interface CN {
   readonly name: string;
@@ -143,6 +156,11 @@ const OTHER_SPELLINGS: Readonly<Record<string, string>> = {
  */
 function checkAttributeNames(children: readonly ElementContext[], diags: Diagnostic[]): void {
   for (const el of children) {
+    const raw = el.dataElement() ?? el.mapElement();
+    if (raw) {
+      reportRawText(raw, el.dataElement() ? 'data' : 'map', diags);
+      continue;
+    }
     const k = elementKind(el);
     if (!k || k.kind === 'data') continue;
     const tag = elementName(k.node);
@@ -152,6 +170,26 @@ function checkAttributeNames(children: readonly ElementContext[], diags: Diagnos
     }
     if (k.kind === 'open') checkAttributeNames(contentElements(k.node.content()), diags);
   }
+}
+
+/**
+ * `<data>` or `<map>` inside a `<compute>`. They hold raw text, and the compute
+ * language has no text — every value is a tag. The walk skipped them, so
+ * `check` called the config valid, and the run then stopped on the first row
+ * with "unexpected <data> or malformed element", naming no file and no line.
+ * Reported here, where every element is reached, rather than in the walk.
+ */
+function reportRawText(node: ParserRuleContext, tag: string, diags: Diagnostic[]): void {
+  diags.push({
+    severity: 'error',
+    source: 'validator',
+    ...nodeRange(node),
+    message: `<${tag}> is not part of the compute language`,
+    hint:
+      'Inside <compute> every value is a tag, and raw text is never read — the run would ' +
+      'stop on it. A literal is <str v="…"/>; a column is <field name="…"/>.',
+    code: 'TDC180',
+  });
 }
 
 function reportUnreadAttribute(
@@ -252,7 +290,11 @@ export function checkCompute(
     }
   }
 
-  walkSlot(contentElements(computeEl.content()), scope, diagnostics);
+  walkSlot(contentElements(computeEl.content()), scope, diagnostics, {
+    name: 'compute',
+    node: computeEl,
+    extrasReported: results.length > 0,
+  });
 }
 
 function report(
@@ -272,17 +314,37 @@ function report(
   });
 }
 
-/** Walk a slot: `<let>` prefixes bind for later siblings; last is the value. */
-function walkSlot(children: readonly ElementContext[], scope: VScope, diags: Diagnostic[]): void {
+/**
+ * Walk a slot: `<let>` prefixes bind for later siblings; last is the value.
+ *
+ * A slot holds ONE value, and the evaluator honours that literally: it
+ * computes every child and keeps the last. So a second value did not fail —
+ * it replaced the first, in silence:
+ *
+ *     <result><str v="a"/><str v="b"/></result>          ->  b
+ *     <upper><str v="a"/><str v="b"/></upper>            ->  B
+ *
+ * and a slot with no value at all passed `check` and stopped the run with
+ * "empty expression slot", naming no file and no line. Both are refused
+ * here, on the tag that owns the slot.
+ */
+function walkSlot(
+  children: readonly ElementContext[],
+  scope: VScope,
+  diags: Diagnostic[],
+  owner: Slot,
+): void {
   const bound = new Set(scope.vars);
   let lostBinding = scope.lostBinding === true;
+  const values: CN[] = [];
   for (const child of children) {
     const n = cnode(child);
     if (!n) continue;
+    if (n.name !== 'let') values.push(n);
     if (n.name === 'let') {
       if (writtenUnderAnotherName(n, 'name')) {
         lostBinding = true;
-        walkSlot(n.children, { ...scope, vars: bound }, diags);
+        walkSlot(n.children, { ...scope, vars: bound }, diags, n);
         continue;
       }
       const name = n.attrs['name'] ?? '';
@@ -294,10 +356,34 @@ function walkSlot(children: readonly ElementContext[], scope: VScope, diags: Dia
           `<let name="${name}"> shadows an outer binding of the same name`,
         );
       }
-      walkSlot(n.children, { ...scope, vars: bound }, diags);
+      walkSlot(n.children, { ...scope, vars: bound }, diags, n);
       bound.add(name);
     } else {
       walkExpr(child, { ...scope, vars: bound, lostBinding }, diags);
+    }
+  }
+  const last = values.at(-1);
+  // Raw text in the slot has its own refusal (TDC180); "holds no value" would be its echo.
+  const rawText = children.some((c) => c.dataElement() !== null || c.mapElement() !== null);
+  if (last === undefined && !rawText) {
+    report(
+      diags,
+      owner.node,
+      'TDC187',
+      `<${owner.name}> holds no value`,
+      `It needs one value inside it, after any <let>s. With nothing there the run would ` +
+        'stop on the first row.',
+    );
+  } else if (last !== undefined && owner.extrasReported !== true) {
+    for (const dropped of values.slice(0, -1)) {
+      report(
+        diags,
+        dropped.node,
+        'TDC189',
+        `<${dropped.name}> is dropped — <${owner.name}> holds one value, and only the last is used`,
+        `This one would be computed and thrown away, and <${last.name}> after it would win. ` +
+          'Keep one value here: name the others with <let>, or join them with <concat>.',
+      );
     }
   }
 }
@@ -308,7 +394,7 @@ function walkWrapper(n: CN, wrapper: string, scope: VScope, diags: Diagnostic[])
     report(diags, n.node, 'TDC187', `<${n.name}> requires a <${wrapper}> child`);
     return;
   }
-  walkSlot(child.children, scope, diags);
+  walkSlot(child.children, scope, diags, child);
 }
 
 /**
@@ -560,7 +646,7 @@ function walkExpr(el: ElementContext, scope: VScope, diags: Diagnostic[]): void 
         report(diags, n.node, 'TDC186', `<encode>: unknown encoding "${as}"`);
       }
       checkNumericBuiltinArgument(n.children, 'encode', diags);
-      walkSlot(n.children, scope, diags);
+      walkSlot(n.children, scope, diags, n);
       return;
     }
     case 'group': {
@@ -578,7 +664,7 @@ function walkExpr(el: ElementContext, scope: VScope, diags: Diagnostic[]): void 
             'grouping off and leave the value unchanged, with nothing to show why.',
         );
       }
-      walkSlot(n.children, scope, diags);
+      walkSlot(n.children, scope, diags, n);
       return;
     }
     case 'choose':
@@ -616,7 +702,7 @@ function walkExpr(el: ElementContext, scope: VScope, diags: Diagnostic[]): void 
           );
         }
       }
-      walkSlot(n.children, scope, diags);
+      walkSlot(n.children, scope, diags, n);
       return;
     }
     case 'join':
@@ -638,10 +724,36 @@ function walkExpr(el: ElementContext, scope: VScope, diags: Diagnostic[]): void 
     case 'index':
     case 'then':
     case 'otherwise':
+      walkSlot(n.children, scope, diags, n);
+      return;
     case 'when':
     case 'test':
+      // A value position cannot hold either: the evaluator has no case for them
+      // outside the <choose> that reads them, and stopped the run with "unknown
+      // compute tag <when>" — no code, no line — on a config `check` called valid.
+      report(
+        diags,
+        n.node,
+        'TDC181',
+        n.name === 'when'
+          ? '<when> is only valid inside <choose>'
+          : '<test> is only valid inside <when>',
+        'It is one branch of a <choose>, and outside one there is nothing to choose between. ' +
+          'Wrap it: <choose><when><test>…</test><then>…</then></when><otherwise>…</otherwise></choose>.',
+      );
+      return;
     case 'let':
-      walkSlot(n.children, scope, diags);
+      // Reaching here means an operand position — a slot binds its <let>s before
+      // walking the value. The evaluator stopped on it with "<let> is a binding
+      // prefix, not a value expression", naming no file and no line.
+      report(
+        diags,
+        n.node,
+        'TDC180',
+        '<let> is a binding, not a value — it is valid only ahead of the value in a slot',
+        'A <let> names a value for the siblings after it, inside <result>, <then>, <do> and ' +
+          'the like. Here it stands where a value is read. Move it up into the enclosing slot.',
+      );
       return;
     case 'over':
       // Reaching here means no <each>/<reduce> consumed it — walkWrapper
@@ -671,7 +783,7 @@ function walkChoose(n: CN, scope: VScope, diags: Diagnostic[]): void {
       walkWhen(cn, scope, diags);
     } else if (cn.name === 'otherwise') {
       hasOtherwise = true;
-      walkSlot(cn.children, scope, diags);
+      walkSlot(cn.children, scope, diags, cn);
     }
   }
   if (!hasOtherwise) {
@@ -685,8 +797,32 @@ function walkWhen(n: CN, scope: VScope, diags: Diagnostic[]): void {
   if (!test) {
     report(diags, n.node, 'TDC187', '<when> requires a <test> child');
   } else {
-    const pred = test.children.map(cnode).find(Boolean);
-    if (pred) walkPredicate(pred, scope, diags);
+    // One question, read first. An empty <test> passed `check` and stopped the run;
+    // a second predicate was never asked, and the branch was taken on the first
+    // alone. Neither is walked further: nothing will ever run them.
+    const [pred, ...unasked] = test.children.map(cnode).filter((c): c is CN => c !== undefined);
+    if (!pred) {
+      report(
+        diags,
+        test.node,
+        'TDC187',
+        '<test> holds no predicate',
+        'It needs one question to answer — <equals>, <greater_than>, <less_than> or ' +
+          '<is_digit>. With nothing there the run would stop on the first row.',
+      );
+    } else {
+      walkPredicate(pred, scope, diags);
+    }
+    for (const extra of unasked) {
+      report(
+        diags,
+        extra.node,
+        'TDC189',
+        `<${extra.name}> is never asked — <test> holds one predicate, and only the first is read`,
+        'The branch is taken on the first predicate alone. To ask two things, put a second ' +
+          '<choose> inside <then>.',
+      );
+    }
   }
   walkWrapper(n, 'then', scope, diags);
 }
@@ -733,10 +869,22 @@ function walkPredicate(n: CN, scope: VScope, diags: Diagnostic[]): void {
       checkComparisonLiterals(n, diags);
       for (const c of n.children) walkExpr(c, scope, diags);
       return;
-    case 'is_digit':
+    case 'is_digit': {
+      // It reads its first child and nothing else: a second was never looked at,
+      // and none at all stopped the run with "<is_digit> requires a child".
+      const count = n.children.filter((c) => cnode(c) !== undefined).length;
+      if (count !== 1) {
+        report(
+          diags,
+          n.node,
+          'TDC183',
+          `<is_digit> requires exactly 1 child, found ${String(count)}`,
+        );
+      }
       checkNumericBuiltinArgument(n.children, 'is_digit', diags);
       for (const child of n.children) walkExpr(child, scope, diags);
       return;
+    }
     default:
       report(diags, n.node, 'TDC180', `unknown predicate <${n.name}> (valid only inside <test>)`);
   }

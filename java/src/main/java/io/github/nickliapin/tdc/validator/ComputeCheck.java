@@ -236,24 +236,45 @@ final class ComputeCheck {
       }
     }
 
-    walkSlot(computeEl.content().element(), scope);
+    Node owner =
+        new Node("compute", Map.of(), List.of(), computeEl.getStart().getLine(),
+            computeEl.getStart().getCharPositionInLine());
+    walkSlot(computeEl.content().element(), scope, owner, seenResult);
   }
 
   /**
    * A slot: {@code <let>} prefixes bind for the siblings after them, and the last child is the
    * value.
    */
-  private void walkSlot(List<TDCParser.ElementContext> children, Scope scope) {
+  private void walkSlot(List<TDCParser.ElementContext> children, Scope scope, Node owner) {
+    walkSlot(children, scope, owner, false);
+  }
+
+  /**
+   * A slot holds ONE value, and the evaluator honours that literally: it computes every child and
+   * keeps the last. So a second value did not fail — it replaced the first, in silence ({@code
+   * <result><str v="a"/><str v="b"/></result>} printed {@code b}), and a slot with no value passed
+   * check and stopped the run. Both are refused here, on the tag that owns the slot. {@code
+   * extrasReported} is set where the extra values already have a refusal of their own.
+   */
+  private void walkSlot(
+      List<TDCParser.ElementContext> children, Scope scope, Node owner, boolean extrasReported) {
     Set<String> bound = new LinkedHashSet<>(scope.vars());
     boolean lostBinding = scope.lostBinding();
+    List<Node> values = new ArrayList<>();
+    boolean rawText = false;
     for (TDCParser.ElementContext child : children) {
       Node node = node(child);
       if (node == null) {
+        rawText = true;
         continue;
+      }
+      if (!"let".equals(node.name())) {
+        values.add(node);
       }
       if ("let".equals(node.name()) && writtenUnderAnotherName(node, "name")) {
         lostBinding = true;
-        walkSlot(node.children(), scope.withVars(new LinkedHashSet<>(bound)));
+        walkSlot(node.children(), scope.withVars(new LinkedHashSet<>(bound)), node);
         continue;
       }
       if ("let".equals(node.name())) {
@@ -262,10 +283,28 @@ final class ComputeCheck {
           report(node, "TDC185",
               "<let name=\"" + name + "\"> shadows an outer binding of the same name", null);
         }
-        walkSlot(node.children(), scope.withVars(new LinkedHashSet<>(bound)));
+        walkSlot(node.children(), scope.withVars(new LinkedHashSet<>(bound)), node);
         bound.add(name);
       } else {
         walkExpr(child, scope.withVars(new LinkedHashSet<>(bound)).losing(lostBinding));
+      }
+    }
+    // Raw text in the slot has its own refusal (TDC180); "holds no value" would be its echo.
+    if (values.isEmpty()) {
+      if (!rawText) {
+        report(owner, "TDC187", "<" + owner.name() + "> holds no value",
+            "It needs one value inside it, after any <let>s. With nothing there the run would "
+                + "stop on the first row.");
+      }
+    } else if (!extrasReported) {
+      Node last = values.get(values.size() - 1);
+      for (Node dropped : values.subList(0, values.size() - 1)) {
+        report(dropped, "TDC189",
+            "<" + dropped.name() + "> is dropped — <" + owner.name()
+                + "> holds one value, and only the last is used",
+            "This one would be computed and thrown away, and <" + last.name()
+                + "> after it would win. Keep one value here: name the others with <let>, or "
+                + "join them with <concat>.");
       }
     }
   }
@@ -284,6 +323,7 @@ final class ComputeCheck {
       TDCParser.SelfClosingElementContext self = child.selfClosingElement();
       String tag = open != null ? open.name.getText() : self != null ? self.name.getText() : null;
       if (tag == null) {
+        rawText(child);
         continue;
       }
       List<String> known = ATTRIBUTES.get(tag);
@@ -296,6 +336,23 @@ final class ComputeCheck {
         attributeNames(open.content().element());
       }
     }
+  }
+
+  /**
+   * {@code <data>} or {@code <map>} inside a {@code <compute>}. They hold raw text, and the compute
+   * language has no text — every value is a tag. The walk skipped them, so check called the config
+   * valid and the run then stopped on the first row, naming no file and no line.
+   */
+  private void rawText(TDCParser.ElementContext element) {
+    String tag = element.dataElement() != null ? "data" : "map";
+    diagnostics.add(
+        Diagnostic.error(
+            "TDC180",
+            "<" + tag + "> is not part of the compute language",
+            "Inside <compute> every value is a tag, and raw text is never read — the run would "
+                + "stop on it. A literal is <str v=\"…\"/>; a column is <field name=\"…\"/>.",
+            element.getStart().getLine(),
+            element.getStart().getCharPositionInLine()));
   }
 
   private void unreadAttribute(String tag, List<String> known, TDCParser.AttrContext attr) {
@@ -345,7 +402,7 @@ final class ComputeCheck {
     for (TDCParser.ElementContext child : node.children()) {
       Node inner = node(child);
       if (inner != null && wrapper.equals(inner.name())) {
-        walkSlot(inner.children(), scope);
+        walkSlot(inner.children(), scope, inner);
         return;
       }
     }
@@ -439,7 +496,7 @@ final class ComputeCheck {
               "<group size=\"" + size.trim() + "\"> is not a whole number of characters",
               "Write a positive whole number. A size the engine cannot use would turn grouping off and leave the value unchanged, with nothing to show why.");
         }
-        walkSlot(node.children(), scope);
+        walkSlot(node.children(), scope, node);
       }
       case "list", "add", "multiply", "concat" -> {
         // <list> has two spellings and reads only the first: with v= set the children are never
@@ -506,7 +563,7 @@ final class ComputeCheck {
                     + "pattern=\"w[-1], w[0]\".");
           }
         }
-        walkSlot(node.children(), scope);
+        walkSlot(node.children(), scope, node);
       }
       case "encode" -> {
         String as = node.attrs().getOrDefault("as", "");
@@ -514,12 +571,30 @@ final class ComputeCheck {
           report(node, "TDC186", "<encode>: unknown encoding \"" + as + "\"", null);
         }
         numericBuiltinArgument(node.children(), "encode");
-        walkSlot(node.children(), scope);
+        walkSlot(node.children(), scope, node);
       }
       case "choose" -> walkChoose(node, scope);
       case "over" -> report(node, "TDC181", "<over> is only valid inside <each> or <reduce>",
           "It names the list being walked. Outside those tags there is nothing to walk.");
-      default -> walkSlot(node.children(), scope);
+      case "when", "test" ->
+          // A value position cannot hold either: the evaluator has no case for them outside the
+          // <choose> that reads them, and stopped the run with "unknown compute tag <when>".
+          report(node, "TDC181",
+              "when".equals(node.name())
+                  ? "<when> is only valid inside <choose>"
+                  : "<test> is only valid inside <when>",
+              "It is one branch of a <choose>, and outside one there is nothing to choose between."
+                  + " Wrap it: <choose><when><test>…</test><then>…</then></when>"
+                  + "<otherwise>…</otherwise></choose>.");
+      case "let" ->
+          // Reaching here means an operand position — a slot binds its <let>s before walking the
+          // value. The evaluator stopped on it with no file and no line.
+          report(node, "TDC180",
+              "<let> is a binding, not a value — it is valid only ahead of the value in a slot",
+              "A <let> names a value for the siblings after it, inside <result>, <then>, <do> and"
+                  + " the like. Here it stands where a value is read. Move it up into the"
+                  + " enclosing slot.");
+      default -> walkSlot(node.children(), scope, node);
     }
   }
 
@@ -581,7 +656,7 @@ final class ComputeCheck {
         walkWhen(inner, scope);
       } else if ("otherwise".equals(inner.name())) {
         hasOtherwise = true;
-        walkSlot(inner.children(), scope);
+        walkSlot(inner.children(), scope, inner);
       }
     }
     if (!hasOtherwise) {
@@ -604,12 +679,29 @@ final class ComputeCheck {
     if (test == null) {
       report(node, "TDC187", "<when> requires a <test> child", null);
     } else {
+      // One question, read first. An empty <test> passed check and stopped the run; a second
+      // predicate was never asked, and the branch was taken on the first alone. Neither is walked
+      // further: nothing will ever run them.
+      List<Node> predicates = new ArrayList<>();
       for (TDCParser.ElementContext child : test.children()) {
         Node predicate = node(child);
         if (predicate != null) {
-          walkPredicate(predicate, scope);
-          break;
+          predicates.add(predicate);
         }
+      }
+      if (predicates.isEmpty()) {
+        report(test, "TDC187", "<test> holds no predicate",
+            "It needs one question to answer — <equals>, <greater_than>, <less_than> or "
+                + "<is_digit>. With nothing there the run would stop on the first row.");
+      } else {
+        walkPredicate(predicates.get(0), scope);
+      }
+      for (Node extra : predicates.subList(Math.min(1, predicates.size()), predicates.size())) {
+        report(extra, "TDC189",
+            "<" + extra.name() + "> is never asked — <test> holds one predicate, and only the "
+                + "first is read",
+            "The branch is taken on the first predicate alone. To ask two things, put a second "
+                + "<choose> inside <then>.");
       }
     }
     walkWrapper(node, "then", scope);
@@ -698,6 +790,12 @@ final class ComputeCheck {
         }
       }
       case "is_digit" -> {
+        // It reads its first child and nothing else: a second was never looked at, and none at
+        // all stopped the run.
+        int count = countNodes(node);
+        if (count != 1) {
+          report(node, "TDC183", "<is_digit> requires exactly 1 child, found " + count, null);
+        }
         numericBuiltinArgument(node.children(), "is_digit");
         for (TDCParser.ElementContext child : node.children()) {
           walkExpr(child, scope);

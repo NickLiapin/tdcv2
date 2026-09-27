@@ -256,7 +256,7 @@ impl<'a> ComputeCheck<'a> {
             }
         }
 
-        self.walk_slot(&compute_el.children, &scope);
+        self.walk_slot(&compute_el.children, &scope, compute_el, seen_result);
     }
 
     /// Refuse every attribute a compute tag does not read — the TDC015 `<gen>`
@@ -269,7 +269,8 @@ impl<'a> ComputeCheck<'a> {
     /// there is no list to hold its attributes against.
     fn attribute_names(&mut self, children: &[Element]) {
         for child in children {
-            if child.kind == Kind::Data {
+            if is_raw(child) {
+                self.raw_text(child);
                 continue;
             }
             if let Some(known) = attributes_of(&child.name) {
@@ -279,6 +280,25 @@ impl<'a> ComputeCheck<'a> {
             }
             self.attribute_names(&child.children);
         }
+    }
+
+    /// `<data>` or `<map>` inside a `<compute>`. They hold raw text, and the
+    /// compute language has no text — every value is a tag. The walk skipped
+    /// them, so `check` called the config valid and the run then stopped on the
+    /// first row, naming no file and no line.
+    fn raw_text(&mut self, node: &Element) {
+        let tag = if node.kind == Kind::Data {
+            "data"
+        } else {
+            "map"
+        };
+        self.report(
+            node,
+            "TDC180",
+            format!("<{tag}> is not part of the compute language"),
+            "Inside <compute> every value is a tag, and raw text is never read — the run would \
+             stop on it. A literal is <str v=\"…\"/>; a column is <field name=\"…\"/>.",
+        );
     }
 
     fn unread_attribute(&mut self, tag: &str, known: &[&str], attr: &Attr) {
@@ -322,16 +342,38 @@ impl<'a> ComputeCheck<'a> {
 
     /// A slot: `<let>` prefixes bind for the siblings after them, and the last
     /// child is the value.
-    fn walk_slot(&mut self, children: &[Element], scope: &Scope) {
+    ///
+    /// A slot holds ONE value, and the evaluator honours that literally: it
+    /// computes every child and keeps the last. So a second value did not fail —
+    /// it replaced the first, in silence (`<result><str v="a"/><str v="b"/></result>`
+    /// printed `b`), and a slot with no value passed `check` and stopped the run.
+    /// Both are refused here, on the tag that owns the slot. `extras_reported` is
+    /// set where the extra values already have a refusal of their own.
+    fn walk_slot(
+        &mut self,
+        children: &[Element],
+        scope: &Scope,
+        owner: &Element,
+        extras_reported: bool,
+    ) {
         let mut bound = scope.vars.clone();
         let mut lost_binding = scope.lost_binding;
+        let mut values: Vec<&Element> = Vec::new();
         for child in children {
-            if child.kind == Kind::Data {
+            if is_raw(child) {
                 continue;
+            }
+            if child.name != "let" {
+                values.push(child);
             }
             if child.name == "let" && written_under_another_name(child, "name") {
                 lost_binding = true;
-                self.walk_slot(&child.children, &scope.with_vars(bound.clone()));
+                self.walk_slot(
+                    &child.children,
+                    &scope.with_vars(bound.clone()),
+                    child,
+                    false,
+                );
                 continue;
             }
             if child.name == "let" {
@@ -344,7 +386,12 @@ impl<'a> ComputeCheck<'a> {
                         "",
                     );
                 }
-                self.walk_slot(&child.children, &scope.with_vars(bound.clone()));
+                self.walk_slot(
+                    &child.children,
+                    &scope.with_vars(bound.clone()),
+                    child,
+                    false,
+                );
                 bound.insert(name);
             } else {
                 let mut inner = scope.with_vars(bound.clone());
@@ -352,13 +399,44 @@ impl<'a> ComputeCheck<'a> {
                 self.walk_expr(child, &inner);
             }
         }
+        // Raw text in the slot has its own refusal (TDC180); "holds no value"
+        // would be its echo.
+        let raw_text = children.iter().any(is_raw);
+        match values.split_last() {
+            None if !raw_text => self.report(
+                owner,
+                "TDC187",
+                format!("<{}> holds no value", owner.name),
+                "It needs one value inside it, after any <let>s. With nothing there the run \
+                 would stop on the first row.",
+            ),
+            Some((last, dropped)) if !extras_reported => {
+                for d in dropped {
+                    self.report(
+                        d,
+                        "TDC189",
+                        format!(
+                            "<{}> is dropped — <{}> holds one value, and only the last is used",
+                            d.name, owner.name
+                        ),
+                        &format!(
+                            "This one would be computed and thrown away, and <{}> after it \
+                             would win. Keep one value here: name the others with <let>, or \
+                             join them with <concat>.",
+                            last.name
+                        ),
+                    );
+                }
+            }
+            _ => {}
+        }
     }
 
     /// A construct that needs one named wrapper child, like `<each><over>…`.
     fn walk_wrapper(&mut self, node: &Element, wrapper: &str, scope: &Scope) {
         for child in nodes(node) {
             if child.name == wrapper {
-                self.walk_slot(&child.children, scope);
+                self.walk_slot(&child.children, scope, child, false);
                 return;
             }
         }
@@ -371,7 +449,7 @@ impl<'a> ComputeCheck<'a> {
     }
 
     fn walk_expr(&mut self, node: &Element, scope: &Scope) {
-        if node.kind == Kind::Data {
+        if is_raw(node) {
             return;
         }
         let name = node.name.as_str();
@@ -510,7 +588,7 @@ impl<'a> ComputeCheck<'a> {
                         );
                     }
                 }
-                self.walk_slot(&node.children, scope);
+                self.walk_slot(&node.children, scope, node, false);
             }
 
             "list" | "add" | "multiply" | "concat" => {
@@ -610,7 +688,7 @@ impl<'a> ComputeCheck<'a> {
                          pattern=\"w[-1], w[0]\".",
                     );
                 }
-                self.walk_slot(&node.children, scope);
+                self.walk_slot(&node.children, scope, node, false);
             }
 
             "encode" => {
@@ -625,7 +703,7 @@ impl<'a> ComputeCheck<'a> {
                     );
                 }
                 self.numeric_builtin_argument(&node.children, "encode");
-                self.walk_slot(&node.children, scope);
+                self.walk_slot(&node.children, scope, node, false);
             }
 
             "choose" => self.walk_choose(node, scope),
@@ -637,7 +715,36 @@ impl<'a> ComputeCheck<'a> {
                 "It names the list being walked. Outside those tags there is nothing to walk.",
             ),
 
-            _ => self.walk_slot(&node.children, scope),
+            // A value position cannot hold either: the evaluator has no case for
+            // them outside the <choose> that reads them, and stopped the run with
+            // "unknown compute tag <when>" on a config `check` called valid.
+            "when" | "test" => self.report(
+                node,
+                "TDC181",
+                if name == "when" {
+                    "<when> is only valid inside <choose>".to_string()
+                } else {
+                    "<test> is only valid inside <when>".to_string()
+                },
+                "It is one branch of a <choose>, and outside one there is nothing to choose \
+                 between. Wrap it: <choose><when><test>…</test><then>…</then></when>\
+                 <otherwise>…</otherwise></choose>.",
+            ),
+
+            // Reaching here means an operand position — a slot binds its <let>s
+            // before walking the value. The evaluator stopped on it with no file and
+            // no line.
+            "let" => self.report(
+                node,
+                "TDC180",
+                "<let> is a binding, not a value — it is valid only ahead of the value in a slot"
+                    .to_string(),
+                "A <let> names a value for the siblings after it, inside <result>, <then>, <do> \
+                 and the like. Here it stands where a value is read. Move it up into the \
+                 enclosing slot.",
+            ),
+
+            _ => self.walk_slot(&node.children, scope, node, false),
         }
     }
 
@@ -685,7 +792,7 @@ impl<'a> ComputeCheck<'a> {
                 self.walk_when(child, scope);
             } else if child.name == "otherwise" {
                 has_otherwise = true;
-                self.walk_slot(&child.children, scope);
+                self.walk_slot(&child.children, scope, child, false);
             }
         }
         if !has_otherwise {
@@ -711,8 +818,34 @@ impl<'a> ComputeCheck<'a> {
                 "",
             ),
             Some(test) => {
-                if let Some(predicate) = nodes(test).next() {
-                    self.walk_predicate(predicate, scope);
+                // One question, read first. An empty <test> passed check and
+                // stopped the run; a second predicate was never asked, and the
+                // branch was taken on the first alone. Neither is walked further:
+                // nothing will ever run them.
+                let mut predicates = nodes(test);
+                match predicates.next() {
+                    None => self.report(
+                        test,
+                        "TDC187",
+                        "<test> holds no predicate".to_string(),
+                        "It needs one question to answer — <equals>, <greater_than>, \
+                         <less_than> or <is_digit>. With nothing there the run would stop on \
+                         the first row.",
+                    ),
+                    Some(predicate) => self.walk_predicate(predicate, scope),
+                }
+                for extra in predicates {
+                    self.report(
+                        extra,
+                        "TDC189",
+                        format!(
+                            "<{}> is never asked — <test> holds one predicate, and only the \
+                             first is read",
+                            extra.name
+                        ),
+                        "The branch is taken on the first predicate alone. To ask two things, \
+                         put a second <choose> inside <then>.",
+                    );
                 }
             }
         }
@@ -736,6 +869,17 @@ impl<'a> ComputeCheck<'a> {
                 }
             }
             "is_digit" => {
+                // It reads its first child and nothing else: a second was never
+                // looked at, and none at all stopped the run.
+                let count = nodes(node).count();
+                if count != 1 {
+                    self.report(
+                        node,
+                        "TDC183",
+                        format!("<is_digit> requires exactly 1 child, found {count}"),
+                        "",
+                    );
+                }
                 self.numeric_builtin_argument(&node.children, "is_digit");
                 for child in nodes(node) {
                     self.walk_expr(child, scope);
@@ -771,7 +915,7 @@ impl<'a> ComputeCheck<'a> {
     /// Only a LITERAL is checked. What a `<field>` or a `<use>` will hold is not known
     /// before the run, and a refusal here has to be a proof.
     fn comparison_literals(&mut self, node: &Element, tag: &str) {
-        for child in node.children.iter().filter(|c| c.kind != Kind::Data) {
+        for child in node.children.iter().filter(|c| !is_raw(c)) {
             if child.name != "str" {
                 continue;
             }
@@ -789,7 +933,7 @@ impl<'a> ComputeCheck<'a> {
     }
 
     fn numeric_builtin_argument(&mut self, children: &[Element], tag: &str) {
-        for child in children.iter().filter(|c| c.kind != Kind::Data) {
+        for child in children.iter().filter(|c| !is_raw(c)) {
             if child.name != "field" {
                 continue;
             }
@@ -823,7 +967,12 @@ impl<'a> ComputeCheck<'a> {
 /// A node's element children — a `<data>` body carries no compute node, so it is
 /// not an argument.
 fn nodes(element: &Element) -> impl Iterator<Item = &Element> {
-    element.children.iter().filter(|c| c.kind != Kind::Data)
+    element.children.iter().filter(|c| !is_raw(c))
+}
+
+/// `<data>` and `<map>`: raw text, which no compute tag reads.
+fn is_raw(element: &Element) -> bool {
+    matches!(element.kind, Kind::Data | Kind::Map)
 }
 
 /// Tags that used to be called something else.
