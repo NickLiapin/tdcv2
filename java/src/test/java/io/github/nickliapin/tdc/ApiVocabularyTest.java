@@ -1,5 +1,7 @@
 package io.github.nickliapin.tdc;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -10,6 +12,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.function.BiConsumer;
 import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.TestFactory;
 
@@ -58,6 +62,41 @@ final class ApiVocabularyTest {
                   }
                 }
                 assertTrue(found, "TDC has no method named " + name);
+              }));
+    }
+    return tests;
+  }
+
+  /** Each reader, read to the end — an iterator that is never drained checks nothing. */
+  private static final Map<String, BiConsumer<TDC, Integer>> READERS =
+      Map.of(
+          "the whole run as text", (tdc, index) -> tdc.toString(),
+          "every record, materialised", (tdc, index) -> tdc.toArray(),
+          "every record, one at a time", (tdc, index) -> tdc.iterate().forEach(row -> {}),
+          "one record by position", (tdc, index) -> tdc.getAt(index),
+          "the run as columns rather than rows", (tdc, index) -> tdc.toColumns());
+
+  @TestFactory
+  List<DynamicTest> aFailingEachAssertionStopsEveryReader() throws IOException {
+    JsonNode rule = new ObjectMapper().readTree(Files.readString(FIXTURE)).get("everyReaderKeepsEachAssert");
+    String config = rule.get("config").asText();
+    String message = rule.get("message").asText();
+    List<DynamicTest> tests = new ArrayList<>();
+    for (JsonNode reader : rule.get("readers")) {
+      String concept = reader.get("concept").asText();
+      int index = reader.has("index") ? reader.get("index").asInt() : 0;
+      tests.add(
+          DynamicTest.dynamicTest(
+              concept,
+              () -> {
+                BiConsumer<TDC, Integer> read = READERS.get(concept);
+                assertNotNull(read, "no reader mapped for " + concept);
+                TDC tdc = TDC.options().configString(config).build();
+                RuntimeException thrown =
+                    assertThrows(RuntimeException.class, () -> read.accept(tdc, index));
+                assertTrue(
+                    thrown.getMessage().contains(message),
+                    "expected \"" + message + "\", got: " + thrown.getMessage());
               }));
     }
     return tests;

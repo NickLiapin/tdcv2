@@ -165,6 +165,8 @@ public static class MemoryEngine
                 ? values[row]
                 : null;
 
+        public bool Has(string column) => _columns.ContainsKey(column);
+
         public string Text() => Emit(_config, _columns, _onProgress);
 
         public void WriteTo(TextWriter output) => output.Write(Text());

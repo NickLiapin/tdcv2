@@ -16,6 +16,8 @@
 import { prepareRender } from '../processor/render.js';
 import type { RenderOptions } from '../processor/render.js';
 import type { DocumentContext } from '../generated/TDCParser.js';
+import { checkRowAssertions } from '../sequence/assert.js';
+import type { AssertSpec } from '../sequence/assert.js';
 import { sequenceValueAt } from '../sequence/types.js';
 import type { Sequence, SequenceRegistry, SequenceSpec } from '../sequence/index.js';
 
@@ -44,6 +46,34 @@ interface ObjectRuntime {
   readonly count: number;
   readonly specs: readonly SequenceSpec[];
   readonly registry: SequenceRegistry;
+  readonly perRowAsserts: readonly AssertSpec[];
+}
+
+/**
+ * An `<assert each=>` holds for every row a reader is handed, or the reader
+ * refuses — the same promise the text output keeps.
+ *
+ * These readers used to skip it. `that=` is checked while the run is prepared,
+ * so it stopped every reader; `each=` was checked only in the loop that writes
+ * TEXT, so `toArray()`, `toColumns()`, `iterate()` and `getAt()` handed back the
+ * rows that failed it without a word — a config that looked verified, read the
+ * way test code reads it, verified nothing.
+ *
+ * What each reader checks is what it hands back: `toArray()` and `toColumns()`
+ * every row, `iterate()` each row just before yielding it (stopping where the
+ * text would), `getAt(i)` row `i` alone — checking the others would cost what
+ * `getAt` exists not to cost, and the row it returns is the one the claim is
+ * about.
+ */
+function checkRow(runtime: ObjectRuntime, index: number): void {
+  if (runtime.perRowAsserts.length > 0) {
+    checkRowAssertions(runtime.perRowAsserts, runtime.registry, index);
+  }
+}
+
+function checkEveryRow(runtime: ObjectRuntime): void {
+  if (runtime.perRowAsserts.length === 0) return;
+  for (let index = 0; index < runtime.count; index++) checkRow(runtime, index);
 }
 
 export function materializeObjectRows(
@@ -51,6 +81,7 @@ export function materializeObjectRows(
   options: RenderOptions = {},
 ): TdcObjectRow[] {
   const runtime = materializeObjectRuntime(document, options);
+  checkEveryRow(runtime);
   return Array.from({ length: runtime.count }, (_, index) => objectRowAt(runtime, index));
 }
 
@@ -59,7 +90,10 @@ export function* iterateObjectRows(
   options: RenderOptions = {},
 ): Generator<TdcObjectRow, void, void> {
   const runtime = materializeObjectRuntime(document, options);
-  for (let index = 0; index < runtime.count; index++) yield objectRowAt(runtime, index);
+  for (let index = 0; index < runtime.count; index++) {
+    checkRow(runtime, index);
+    yield objectRowAt(runtime, index);
+  }
 }
 
 export function getObjectRowAt(
@@ -76,6 +110,7 @@ export function getObjectRowAt(
       `TDC.getAt: index ${String(index)} is out of range for count ${String(runtime.count)}`,
     );
   }
+  checkRow(runtime, index);
   return objectRowAt(runtime, index);
 }
 
@@ -88,6 +123,7 @@ function materializeObjectRuntime(
     count: prepared.env.count,
     specs: prepared.sequenceSpecs,
     registry: prepared.registry,
+    perRowAsserts: prepared.perRowAsserts,
   };
 }
 
@@ -152,6 +188,7 @@ export function materializeColumns(
   options: RenderOptions = {},
 ): TdcColumns {
   const runtime = materializeObjectRuntime(document, options);
+  checkEveryRow(runtime);
   const out: TdcColumns = {};
   for (const [name, column] of columnsOf(runtime)) {
     const text = new Array<string | undefined>(runtime.count);

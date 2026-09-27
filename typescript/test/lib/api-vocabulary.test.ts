@@ -29,6 +29,20 @@ interface Member {
 const fixture = JSON.parse(readFileSync(FIXTURE, 'utf8')) as {
   config: string;
   members: readonly Member[];
+  everyReaderKeepsEachAssert: {
+    config: string;
+    message: string;
+    readers: readonly { concept: string; index?: number }[];
+  };
+};
+
+/** Each reader, read to the end — an iterator that is never drained checks nothing. */
+const READERS: Record<string, (tdc: TDC, index: number) => unknown> = {
+  'the whole run as text': (tdc) => tdc.toString(),
+  'every record, materialised': (tdc) => tdc.toArray(),
+  'every record, one at a time': (tdc) => [...tdc.iterate()],
+  'one record by position': (tdc, index) => tdc.getAt(index),
+  'the run as columns rather than rows': (tdc) => tdc.toColumns(),
 };
 
 describe('the shared API vocabulary', () => {
@@ -45,4 +59,16 @@ describe('the shared API vocabulary', () => {
   it('the vocabulary is not empty, so a broken fixture cannot pass by saying nothing', () => {
     expect(fixture.members.length).toBeGreaterThan(5);
   });
+});
+
+describe('a failing <assert each=> stops every reader', () => {
+  const rule = fixture.everyReaderKeepsEachAssert;
+  for (const reader of rule.readers) {
+    it(reader.concept, () => {
+      const read = READERS[reader.concept];
+      expect(read, `no reader mapped for "${reader.concept}"`).toBeDefined();
+      const tdc = new TDC({ configString: rule.config });
+      expect(() => read?.(tdc, reader.index ?? 0)).toThrow(rule.message);
+    });
+  }
 });

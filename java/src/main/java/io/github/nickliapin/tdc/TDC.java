@@ -511,6 +511,7 @@ public final class TDC {
     RowSource result = run();
     List<Row> out = new ArrayList<>(result.count());
     for (int i = 0; i < result.count(); i++) {
+      checkRow(result, i);
       out.add(new Row(result, i));
     }
     return Collections.unmodifiableList(out);
@@ -533,6 +534,9 @@ public final class TDC {
    */
   public Map<String, Object> toColumns() {
     RowSource result = run();
+    for (int i = 0; i < result.count(); i++) {
+      checkRow(result, i);
+    }
     Map<String, Object> out = new LinkedHashMap<>();
     for (String name : result.sequenceNames()) {
       String[] text = new String[result.count()];
@@ -584,6 +588,7 @@ public final class TDC {
             if (!hasNext()) {
               throw new java.util.NoSuchElementException();
             }
+            checkRow(result, next);
             return new Row(result, next++);
           }
         };
@@ -596,7 +601,23 @@ public final class TDC {
       throw new IndexOutOfBoundsException(
           "row " + index + " is outside a run of " + result.count());
     }
+    checkRow(result, index);
     return new Row(result, index);
+  }
+
+  /**
+   * An {@code <assert each=>} holds for every row a reader is handed, or the reader refuses.
+   *
+   * <p>The text output always kept this promise; the row and column readers did not. {@code
+   * that=} is checked while the run is built, so it stopped every reader, but {@code each=} was
+   * checked only in the loop that writes text — so {@code toArray}, {@code toColumns}, {@code
+   * iterate} and {@code getAt} handed back the rows that failed it without a word. What each
+   * reader checks is what it hands back: every row for the whole-run readers, each row just
+   * before the iterator returns it, and for {@code getAt} the row it returns.
+   */
+  private void checkRow(RowSource result, int index) {
+    io.github.nickliapin.tdc.sequence.Assertions.checkRow(
+        config, result::value, result::has, index);
   }
 
   /**

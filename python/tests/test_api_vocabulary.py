@@ -11,6 +11,7 @@ The fixture is the vocabulary; this test asks Python to answer to it.
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 import pytest
@@ -36,3 +37,23 @@ def test_the_shared_name_exists(member: dict) -> None:
 def test_the_vocabulary_is_not_empty() -> None:
     """A fixture that says nothing would let every name above pass by saying nothing."""
     assert len(MEMBERS) > 5
+
+
+RULE = DOC["everyReaderKeepsEachAssert"]
+
+#: Each reader, read to the end -- an iterator that is never drained checks nothing.
+READERS = {
+    "the whole run as text": lambda tdc, index: tdc.to_string(),
+    "every record, materialised": lambda tdc, index: tdc.to_array(),
+    "every record, one at a time": lambda tdc, index: list(tdc.iterate()),
+    "one record by position": lambda tdc, index: tdc.get_at(index),
+    "the run as columns rather than rows": lambda tdc, index: tdc.to_columns(),
+}
+
+
+@pytest.mark.parametrize("reader", RULE["readers"], ids=[r["concept"] for r in RULE["readers"]])
+def test_a_failing_each_assertion_stops_every_reader(reader: dict) -> None:
+    read = READERS[reader["concept"]]
+    tdc = TDC(config_string=RULE["config"])
+    with pytest.raises(Exception, match=re.escape(RULE["message"])):
+        read(tdc, reader.get("index", 0))

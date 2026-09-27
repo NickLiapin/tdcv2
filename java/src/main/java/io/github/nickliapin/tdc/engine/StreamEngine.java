@@ -321,6 +321,11 @@ public final class StreamEngine {
       }
 
       @Override
+      public boolean has(String column) {
+        return engine.columns.containsKey(column);
+      }
+
+      @Override
       public String text() {
         StringBuilder out = new StringBuilder();
         engine.write(out, 0, engine.count);

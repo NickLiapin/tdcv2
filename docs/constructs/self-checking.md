@@ -163,6 +163,12 @@ something not every engine could honestly promise — and a run whose data is al
 is not made righter by finding out how wrong. The row it names is the first, always: rows
 are checked in order, before each one is written.
 
+**It holds however the rows are read, not only as text.** A program that takes the rows as
+objects gets the same refusal: `toArray()` and `toColumns()` check every row, `iterate()`
+checks each row just before handing it over, and `getAt(i)` checks the row it returns.
+Every library does the same under its own spelling (`to_array`, `ToArray`…). In Rust the
+whole run is made when the object is created, so there the refusal arrives at creation.
+
 That last point is why a config with an `each=` assertion **runs on one thread**. Workers
 each own a range of rows and would each stop at their own first failure, so the row a
 reader is shown would be whichever thread got there — a different number from the same

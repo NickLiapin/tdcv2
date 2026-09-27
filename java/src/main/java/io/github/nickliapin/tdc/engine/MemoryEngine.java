@@ -80,6 +80,11 @@ public final class MemoryEngine {
       return values == null ? null : values[row];
     }
 
+    @Override
+    public boolean has(String column) {
+      return columns.containsKey(column);
+    }
+
     /** Only the declared sequences, in declaration order — not the built-in {@code _count} row. */
     @Override
     public List<String> sequenceNames() {

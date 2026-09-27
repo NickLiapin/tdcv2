@@ -100,5 +100,28 @@
         "python": "len(tdc)"
       }
     }
-  ]
+  ],
+  "everyReaderKeepsEachAssert": {
+    "description": "A failing <assert each=> stops every way of reading the run, not only the text. toArray, toColumns, iterate and getAt used to hand back the rows that failed it without a word in four of the five: that= was checked while the run was prepared, each= only in the loop that writes text. A config that looked verified, read the way test code reads it, verified nothing. Each reader refuses with the same message as the text. getAt is asked for the row that fails: it checks the row it hands back, and Rust, which builds the whole run when the object is created, refuses at creation instead.",
+    "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"N\"><gen type=\"increment\" value=\"1\"/></sequence><assert each=\"N < 3\" says=\"N stays below three\"/></env><block><line><data>${{N}}</data></line></block></tdc>",
+    "message": "assert failed on row 3: N stays below three",
+    "readers": [
+      {
+        "concept": "the whole run as text"
+      },
+      {
+        "concept": "every record, materialised"
+      },
+      {
+        "concept": "every record, one at a time"
+      },
+      {
+        "concept": "one record by position",
+        "index": 2
+      },
+      {
+        "concept": "the run as columns rather than rows"
+      }
+    ]
+  }
 }

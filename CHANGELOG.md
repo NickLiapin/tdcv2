@@ -183,6 +183,15 @@ compute`. A number is what the running total reads as one — digits, an optiona
   `TDC181`, `TDC180`) on the tag it concerns. None of the 688 `<compute>` blocks in the packs,
   the docs and the tests is refused. Pinned in `diagnostics/compute-one-value.json`.
 
+- **A failing `<assert each=>` stops every reader of the run, not only the text.** `toArray`,
+  `toColumns`, `iterate` and `getAt` handed back the rows that failed it without a word in four
+  of the five — `that=` was checked while the run was prepared, `each=` only in the loop that
+  writes text — so a config that looked verified, read the way test code reads it, verified
+  nothing. Each reader now refuses with the same message: the whole-run readers check every
+  row, `iterate` each row just before handing it over, `getAt` the row it returns. Rust, which
+  makes the whole run when the object is created, already refused at creation. Pinned in
+  `api.json` for all five; reported by the agent building the MCP server.
+
 ### Changed
 
 - **A plain `formula` or a date offset may carry `if=`.** `TDC295` refused both, together with

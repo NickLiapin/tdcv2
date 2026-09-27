@@ -22,6 +22,13 @@ public interface RowSource {
   /** One value, or {@code null} when the sequence does not apply to that record. */
   String value(String column, int row);
 
+  /**
+   * Whether {@code column} is a column of this run, built-ins such as {@code _count} included.
+   * An expression reads a name that is not one as its own literal text, so a per-row assertion
+   * checked against this source has to be able to tell the two apart.
+   */
+  boolean has(String column);
+
   /** The whole run as text — what the config's {@code <data>} block produces. */
   String text();
 

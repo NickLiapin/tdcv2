@@ -38,6 +38,7 @@ from .output import parquet_output
 from .output.atomic import open_atomically
 from .packs import DataPacks, project_config
 from .parser import config_builder, facade
+from .sequence import assertions
 from .validator import validate
 
 # A materialized cell, roughly: a short string plus the slot holding it.
@@ -406,6 +407,8 @@ class TDC:
     def to_list(self) -> list[Row]:
         """Every record, as rows."""
         result = self._run()
+        for i in range(self.count):
+            self._check_row(result, i)
         return [Row(result, i) for i in range(self.count)]
 
     def to_array(self) -> list[Row]:
@@ -430,7 +433,9 @@ class TDC:
         """One record by its position, without materialising the rest."""
         if index < 0 or index >= self.count:
             raise IndexError(f"row {index} is outside a run of {self.count}")
-        return Row(self._run(), index)
+        result = self._run()
+        self._check_row(result, index)
+        return Row(result, index)
 
     def iterate(self):
         """Every record, one at a time.
@@ -439,6 +444,7 @@ class TDC:
         """
         result = self._run()
         for i in range(self.count):
+            self._check_row(result, i)
             yield Row(result, i)
 
     def to_columns(self) -> dict[str, array[float] | list[str | None]]:
@@ -459,6 +465,8 @@ class TDC:
         or ``numpy.array`` — no copy of ours stands in the way.
         """
         result = self._run()
+        for i in range(self.count):
+            self._check_row(result, i)
         out: dict[str, array[float] | list[str | None]] = {}
         for name in result.sequence_names():
             text = [result.value(name, i) for i in range(self.count)]
@@ -470,6 +478,7 @@ class TDC:
         """The records one at a time, without building the list."""
         result = self._run()
         for i in range(self.count):
+            self._check_row(result, i)
             yield Row(result, i)
 
     def __getitem__(self, index: int) -> Row:
@@ -477,6 +486,7 @@ class TDC:
         result = self._run()
         if index < 0 or index >= self.count:
             raise IndexError(f"row {index} is outside a run of {self.count}")
+        self._check_row(result, index)
         return Row(result, index)
 
     def __len__(self) -> int:
@@ -597,6 +607,21 @@ class TDC:
     def rows(self):
         """The built run, for an output format that walks it directly."""
         return self._run()
+
+    def _check_row(self, result, index: int) -> None:
+        """An ``<assert each=>`` holds for every row a reader is handed, or the reader refuses.
+
+        The text output always kept this promise; the row and column readers did not. ``that=`` is
+        checked while the run is built, so it stopped every reader, but ``each=`` was checked only
+        in the loop that writes text -- so ``to_array``, ``to_columns``, ``iterate`` and ``get_at``
+        handed back the rows that failed it without a word. What each reader checks is what it
+        hands back: every row for the whole-run readers, each row just before it is yielded, and
+        for ``get_at`` the row it returns.
+        """
+        if any(spec.each for spec in self._config.asserts):
+            assertions.check_row(
+                self._config.asserts, result.value, lambda name: name in result.columns, index
+            )
 
     def _run(self):
         """Generated once and kept: asking for text and then for rows must not run it twice."""

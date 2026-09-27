@@ -21,6 +21,13 @@ public interface IRowSource
     /// <summary>One value, or <c>null</c> when the sequence does not apply to that record.</summary>
     string? Value(string column, int row);
 
+    /// <summary>
+    /// Whether <paramref name="column"/> is a column of this run, built-ins such as <c>_count</c>
+    /// included. An expression reads a name that is not one as its own literal text, so a per-row
+    /// assertion checked against this source has to be able to tell the two apart.
+    /// </summary>
+    bool Has(string column);
+
     /// <summary>The whole run as text — what the config's <c>&lt;data&gt;</c> block produces.</summary>
     string Text();
 

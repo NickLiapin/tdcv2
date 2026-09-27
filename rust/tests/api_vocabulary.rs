@@ -77,3 +77,52 @@ fn every_name_in_the_list_is_a_real_method() {
     let _ = tdc.preflight(true);
     assert_eq!(tdc.count(), 3);
 }
+
+/// A failing `<assert each=>` stops every reader. Here a `Tdc` IS the finished
+/// run — the rows are made, and checked, when it is created — so the refusal
+/// arrives at creation and no reader is ever handed a row that failed. The
+/// fixture's readers are all covered by that one refusal; the test still names
+/// them, so a reader added to the fixture must be thought about here too.
+#[test]
+fn a_failing_each_assertion_stops_every_reader() {
+    let fixture = common::read_fixture("api.json");
+    let rule = fixture
+        .get("everyReaderKeepsEachAssert")
+        .expect("api.json has the each= rule");
+    let text = |key: &str| match rule.get(key) {
+        Some(Value::String(s)) => s.clone(),
+        _ => panic!("the rule has no {key}"),
+    };
+    let readers = match rule.get("readers") {
+        Some(Value::Array(items)) => items,
+        _ => panic!("the rule has no readers"),
+    };
+    const KNOWN: [&str; 5] = [
+        "the whole run as text",
+        "every record, materialised",
+        "every record, one at a time",
+        "one record by position",
+        "the run as columns rather than rows",
+    ];
+    for reader in readers {
+        let concept = match reader.get("concept") {
+            Some(Value::String(s)) => s.clone(),
+            _ => panic!("a reader with no concept"),
+        };
+        assert!(
+            KNOWN.contains(&concept.as_str()),
+            "no reader mapped for {concept}"
+        );
+    }
+    match Tdc::from_string(text("config")) {
+        Ok(_) => panic!("a run whose rows fail their own each= was handed out"),
+        Err(e) => {
+            let message = e.to_string();
+            assert!(
+                message.contains(&text("message")),
+                "expected {:?}, got {message:?}",
+                text("message")
+            );
+        }
+    }
+}

@@ -258,6 +258,8 @@ public sealed class StreamEngine
 
         public string? Value(string column, int row) => _engine.ValueAt(column, row);
 
+        public bool Has(string column) => _engine._columns.ContainsKey(column);
+
         public string Text()
         {
             var writer = new StringWriter();

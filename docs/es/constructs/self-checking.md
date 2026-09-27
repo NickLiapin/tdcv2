@@ -166,6 +166,13 @@ informar» es algo que no todos los motores podrían prometer con honestidad; y 
 cuyos datos ya están mal no mejora porque averigüemos cuánto. La fila que nombra es siempre
 la primera: las filas se comprueban en orden, cada una antes de escribirse.
 
+**Se cumple se lean como se lean las filas, no solo como texto.** Un programa que toma las
+filas como objetos recibe el mismo rechazo: `toArray()` y `toColumns()` comprueban todas las
+filas, `iterate()` comprueba cada fila justo antes de entregarla, y `getAt(i)` comprueba la
+fila que devuelve. Todas las bibliotecas hacen lo mismo con su propia grafía (`to_array`,
+`ToArray`…). En Rust la ejecución entera se construye al crear el objeto, así que allí el
+rechazo llega al crearlo.
+
 Por eso una configuración con una aserción `each=` **corre en un solo hilo**. Cada worker
 se queda con un rango de filas y cada uno pararía en su propia primera fila fallida, así que
 la fila mostrada sería aquella a la que llegase antes algún hilo: un número distinto con la

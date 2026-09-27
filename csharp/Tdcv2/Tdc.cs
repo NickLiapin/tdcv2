@@ -574,6 +574,11 @@ public sealed class Tdc
     public IReadOnlyDictionary<string, object> ToColumns()
     {
         IRowSource source = _run.Value;
+        for (int i = 0; i < source.Count; i++)
+        {
+            CheckRow(source, i);
+        }
+
         var out_ = new Dictionary<string, object>();
         foreach (string name in source.SequenceNames)
         {
@@ -623,6 +628,7 @@ public sealed class Tdc
         IRowSource source = _run.Value;
         for (int i = 0; i < source.Count; i++)
         {
+            CheckRow(source, i);
             yield return new Row(source, i);
         }
     }
@@ -643,6 +649,7 @@ public sealed class Tdc
         var out_ = new List<Row>(source.Count);
         for (int i = 0; i < source.Count; i++)
         {
+            CheckRow(source, i);
             out_.Add(new Row(source, i));
         }
 
@@ -664,9 +671,25 @@ public sealed class Tdc
                     nameof(index), $"row {index} is outside a run of {source.Count}");
             }
 
+            CheckRow(source, index);
             return new Row(source, index);
         }
     }
+
+    /// <summary>
+    /// An <c>&lt;assert each=&gt;</c> holds for every row a reader is handed, or the reader
+    /// refuses.
+    /// </summary>
+    /// <remarks>
+    /// The text output always kept this promise; the row and column readers did not.
+    /// <c>that=</c> is checked while the run is built, so it stopped every reader, but
+    /// <c>each=</c> was checked only in the loop that writes text — so <c>ToArray</c>,
+    /// <c>ToColumns</c>, <c>Iterate</c> and <c>GetAt</c> handed back the rows that failed it
+    /// without a word. What each reader checks is what it hands back: every row for the whole-run
+    /// readers, each row just before it is yielded, and for <c>GetAt</c> the row it returns.
+    /// </remarks>
+    private void CheckRow(IRowSource source, int index) =>
+        Sequence.Assertions.CheckRow(_config, source.Value, source.Has, index);
 
     /// <summary>The declared sequences, in declaration order.</summary>
     public IReadOnlyList<string> SequenceNames => _run.Value.SequenceNames;

@@ -49,4 +49,39 @@ public class ApiVocabularyTest
         // A fixture that says nothing would let every name above pass by saying nothing.
         Assert.True(Fixture.Value.RootElement.GetProperty("members").GetArrayLength() > 5);
     }
+
+    /// <summary>Each reader, read to the end — an iterator that is never drained checks nothing.</summary>
+    private static readonly Dictionary<string, Action<Tdc, int>> Readers = new()
+    {
+        ["the whole run as text"] = (tdc, index) => _ = tdc.ToString(),
+        ["every record, materialised"] = (tdc, index) => _ = tdc.ToArray(),
+        ["every record, one at a time"] = (tdc, index) => _ = tdc.Iterate().Count(),
+        ["one record by position"] = (tdc, index) => _ = tdc.GetAt(index),
+        ["the run as columns rather than rows"] = (tdc, index) => _ = tdc.ToColumns(),
+    };
+
+    private static JsonElement Rule =>
+        Fixture.Value.RootElement.GetProperty("everyReaderKeepsEachAssert");
+
+    public static IEnumerable<object[]> ReadersOfTheRule()
+    {
+        foreach (JsonElement r in Rule.GetProperty("readers").EnumerateArray())
+        {
+            yield return new object[]
+            {
+                r.GetProperty("concept").GetString()!,
+                r.TryGetProperty("index", out JsonElement index) ? index.GetInt32() : 0,
+            };
+        }
+    }
+
+    [Theory]
+    [MemberData(nameof(ReadersOfTheRule))]
+    public void AFailingEachAssertionStopsEveryReader(string concept, int index)
+    {
+        Assert.True(Readers.TryGetValue(concept, out Action<Tdc, int>? read), $"no reader mapped for {concept}");
+        var tdc = new Tdc(new Tdc.Options { ConfigString = Rule.GetProperty("config").GetString()! });
+        Exception thrown = Assert.ThrowsAny<Exception>(() => read!(tdc, index));
+        Assert.Contains(Rule.GetProperty("message").GetString()!, thrown.Message);
+    }
 }
