@@ -519,7 +519,7 @@ async function cmdAdd(registry: string, store: Store, ids: readonly string[]): P
   const index = await fetchIndex(registry);
   const bundles = ids.map((id) => findBundle(index, id)); // validate all first
   for (const bundle of bundles) {
-    const result = await installBundle(registry, store, bundle, rewriteLine);
+    const result = await installBundle(registry, store, bundle, downloadReporter(bundle));
     endLine();
     process.stdout.write(
       `Installed ${result.id}: ${String(result.files)} files → ${installedAt(store.path, result.paths)}\n` +
@@ -630,6 +630,21 @@ async function runInteractive(registry: string, store: Store): Promise<number> {
 }
 
 // ── a single rewritable status line on stderr ────────────────────────────────
+
+/**
+ * How `pack add` shows a download: on a terminal, a live line rewritten in place.
+ *
+ * Off one — a pipe, a file, an agent reading the output — a live line is a
+ * stream of `\r` and `ESC[K` that the reader receives whole: 21 rewrites on a
+ * 128 KB pack, hundreds on a large one, all of it in an agent's context. So off
+ * a terminal it says once what it is fetching, in the words the other four
+ * implementations have always used, and the `Installed …` line says the rest.
+ */
+function downloadReporter(bundle: PackBundle): (line: string) => void {
+  if (process.stderr.isTTY) return rewriteLine;
+  process.stderr.write(`tdcv2: downloading ${bundle.id} (${humanBytes(bundle.bytes)})…\n`);
+  return () => undefined;
+}
 
 let lineOpen = false;
 function rewriteLine(text: string): void {

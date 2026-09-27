@@ -612,6 +612,18 @@
       }
     },
     {
+      "name": "pack add off a terminal says once what it fetches, with no status line",
+      "command": "pack",
+      "registry": true,
+      "files": {
+        "tdcv2.config.json": "{\n  \"packStore\": \"./tdcv2-packs\"\n}\n"
+      },
+      "argv": ["add", "demo", "--registry={registry}"],
+      "exit": 0,
+      "stderr": "tdcv2: downloading demo (182 B)…\n",
+      "note": "A live progress line is a stream of carriage returns and ESC[K. On a terminal it redraws one line; captured — a pipe, a file, an agent reading the output — every redraw arrives, 21 of them on a 128 KB pack. The reference drew it anyway; the other four always said once what they were fetching."
+    },
+    {
       "name": "registering a pack keeps every other key the config already had",
       "command": "pack",
       "registry": true,

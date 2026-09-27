@@ -63,10 +63,15 @@ const DIST_MAIN = fileURLToPath(new URL('../../dist/cli/main.js', import.meta.ur
 
 let stdoutBuf = '';
 let stderrBuf = '';
+const STDERR_IS_TTY = process.stderr.isTTY;
 
 beforeEach(() => {
   stdoutBuf = '';
   stderrBuf = '';
+  // Captured output is not a terminal, and the other four see it that way. Under a
+  // test runner started from a shell the real stderr may be one, which would turn on
+  // the live status lines a captured run never gets.
+  Object.defineProperty(process.stderr, 'isTTY', { value: false, configurable: true });
   vi.spyOn(process.stdout, 'write').mockImplementation((chunk: unknown) => {
     stdoutBuf += String(chunk);
     return true;
@@ -82,6 +87,7 @@ beforeEach(() => {
 
 afterEach(() => {
   vi.restoreAllMocks();
+  Object.defineProperty(process.stderr, 'isTTY', { value: STDERR_IS_TTY, configurable: true });
 });
 
 /** The demo registry every implementation's runner builds, byte for byte the same. */

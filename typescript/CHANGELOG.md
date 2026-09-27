@@ -11,6 +11,15 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Fixed
+
+- **`tdcv2 pack add` no longer streams a progress bar into a pipe.** Off a terminal the live
+  status line arrived whole — a carriage return and `ESC[K` per redraw, 21 of them on a 128 KB
+  pack, hundreds on a large one — in whatever was reading the output, an agent's context
+  included. Off a terminal it now says once `tdcv2: downloading fr (128 KB)…`, as the other
+  four implementations always did, and keeps the live line for a terminal. Pinned in the
+  shared CLI fixture; reported by the agent building the MCP server.
+
 ## [0.3.2] — 2026-09-22
 
 ### Changed
