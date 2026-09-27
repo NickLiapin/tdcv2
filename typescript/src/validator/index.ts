@@ -15,6 +15,7 @@ export {
   SUPPORTED_BINARY_OPERATORS,
   SUPPORTED_UNARY_OPERATORS,
   BUILTIN_SEQUENCES,
+  EXPR_FUNCTIONS,
 } from './known.js';
 export { COMPUTE_TAGS } from './compute.js';
 export { COMPUTE_ATTRIBUTES } from '../compute/attributes.js';

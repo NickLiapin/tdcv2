@@ -28,7 +28,6 @@ import { Readable } from 'node:stream';
 import { loadConfig } from '../config/config.js';
 import {
   type PackRegistry,
-  bundledPacksDir,
   packParameterNames,
   packParameterWidths,
   scanPacks,
@@ -59,6 +58,7 @@ import {
   type TdcColumns,
   type TdcObjectRow,
 } from './object.js';
+import { rootsOf } from './pack-roots.js';
 
 /**
  * Batch size for streaming writes. One write per card is one syscall per row;
@@ -193,11 +193,9 @@ export class TDC {
 
     // Load data packs before validation so pack addresses are accepted as
     // valid `template` values. Roots: the bundled pack folder plus any
-    // user `--data-path` / `dataPaths` directories.
-    const packRoots = [bundledPacksDir(), ...(effective.dataPaths ?? [])].filter(
-      (p): p is string => p !== undefined,
-    );
-    const packScan = scanPacks(packRoots);
+    // user `--data-path` / `dataPaths` directories — built by the same call
+    // the public `packRoots()` makes, so a tool can see what a run sees.
+    const packScan = scanPacks(rootsOf(effective.dataPaths));
     this.packs = packScan.registry;
 
     const parserDiags: Diagnostic[] = parseResult.diagnostics.map((d, i) => ({
@@ -707,6 +705,8 @@ function resolveSource(options: TdcOptions): { readonly source: string; readonly
  */
 function withProjectConfig(options: TdcOptions, baseDir: string): TdcOptions {
   const cfg = loadConfig({ cwd: process.cwd(), searchFrom: baseDir });
+  // `configuredDataPaths` in pack-roots.ts reads the same call; the public
+  // `packRoots()` relies on the two agreeing.
   const paths = [...cfg.dataPaths, ...(options.dataPaths ?? [])];
   const merged: { -readonly [K in keyof TdcOptions]: TdcOptions[K] } = { ...options };
   if (paths.length > 0) merged.dataPaths = paths;

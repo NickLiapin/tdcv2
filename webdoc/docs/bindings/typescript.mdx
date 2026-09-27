@@ -208,6 +208,29 @@ Every bundled address is a real property on the type, so a misspelling is a comp
 error and completion works with no plugin. [One value at a
 time](../getting-started/quick-api.mdx) is the whole surface.
 
+## The packs a run can see
+
+The npm package bundles the English starter packs; the ones a person installs with
+`tdcv2 pack add` live in a store that `tdcv2.config.json` names. `packRoots()` returns
+every folder a run reads packs from — the bundled ones, the global config's
+`dataPaths`, the project's, in that order — and `new TDC()` builds its own list with
+the same call, so the two cannot disagree:
+
+```ts
+import { packRoots, scanPacks } from "tdcv2";
+
+const { registry } = scanPacks(packRoots({ configFile: "users.tdc" }));
+registry.has("fr.person.lastName"); // true once `tdcv2 pack add fr` has run
+```
+
+Pass `configFile` and the project is looked for from that file's folder, as a run
+does; pass `cwd` to start somewhere else, and `dataPaths` for folders a
+`--data-path` would add.
+
+For a tool that writes configs, the package also exports what the validator accepts:
+`EXPR_FUNCTIONS` (every expression function with its arity), `COMPUTE_TAGS` and
+`COMPUTE_ATTRIBUTES` (every `<compute>` tag and the attributes it reads).
+
 ## The same names in every language
 
 The object a run hands back answers to the same names in all five packages, spelled

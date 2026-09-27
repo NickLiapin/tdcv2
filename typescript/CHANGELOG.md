@@ -11,6 +11,18 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Added
+
+- **`packRoots()` — the folders a run reads packs from.** `scanPacks([bundledPacksDir()])`
+  sees only the bundled English packs, so a tool asking whether a person has a pack for
+  `iban` got "no" for every other language, while the CLI rendered the pack they had
+  installed. `scanPacks(packRoots({ configFile }))` is the registry that run gets: the bundled
+  packs, then the global and the project config's `dataPaths`, then any given explicitly.
+  `new TDC()` builds its list with the same call. Asked for by the agent building the MCP
+  server.
+- **`EXPR_FUNCTIONS`, `COMPUTE_TAGS` and `COMPUTE_ATTRIBUTES` in the public entry** — what the
+  validator accepts in an expression and inside `<compute>`, for a tool that writes configs.
+
 ### Fixed
 
 - **`tdcv2 pack add` no longer streams a progress bar into a pipe.** Off a terminal the live

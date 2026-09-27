@@ -34,6 +34,12 @@ export {
   KNOWN_GEN_TYPES,
   KNOWN_TEMPLATE_PATHS,
   BUILTIN_SEQUENCES,
+  // The vocabularies a tool needs to write a config the validator will take:
+  // every expression function with its arity, every <compute> tag, and the
+  // attributes each compute tag reads.
+  EXPR_FUNCTIONS,
+  COMPUTE_TAGS,
+  COMPUTE_ATTRIBUTES,
 } from './validator/index.js';
 export type { ValidationOptions, ValidationResult } from './validator/index.js';
 export { hasErrors } from './errors/index.js';
@@ -73,7 +79,8 @@ export type { TemplateSource } from './templates/index.js';
 export { buildSequences, extractSequenceSpecs } from './sequence/index.js';
 export type { GenSpec, Sequence, SequenceRegistry, SequenceSpec } from './sequence/index.js';
 
-export { TDC } from './lib/index.js';
+export { TDC, packRoots } from './lib/index.js';
+export type { PackRootsOptions } from './lib/index.js';
 export type {
   TdcObjectRow,
   TdcObjectScalar,
