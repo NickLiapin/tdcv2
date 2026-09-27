@@ -89,7 +89,17 @@ export interface PackEntry {
   readonly needsWholeColumn?: boolean | undefined;
   /** Human-readable description from the header, if any. */
   readonly description?: string | undefined;
-  /** Locale tag from the header, if any. */
+  /**
+   * The locale this pack belongs to, as a run finds it: the locale its address
+   * starts with, or — for an address outside every locale (`common`, a country)
+   * — the header's `locale:`, else `undefined`.
+   *
+   * It used to be the header alone. 498 of the bundled packs carry no `locale:`
+   * line — `ru.person.lastName` among them — so the registry said they belonged
+   * nowhere while every run found them in `ru`, and a tool asking "which
+   * locales have this path?" advised installing packs that were already there.
+   * And 55 Nepali files say `locale: en` while living, and being found, in `ne`.
+   */
   readonly locale?: string | undefined;
   /** Absolute path of the file that produced this entry (for diagnostics). */
   readonly sourceFile: string;
@@ -702,9 +712,17 @@ function loadOne(
     address,
     ...payload,
     description: parsed.header['description'],
-    locale: parsed.header['locale'],
+    locale: localeOf(address, parsed.header['locale']),
     sourceFile: file,
   });
+}
+
+/** The locale the address starts with, else the header's `locale:`. */
+function localeOf(address: string, header: string | undefined): string | undefined {
+  const head = address.split('.')[0] ?? '';
+  if (CANONICAL_LOCALES.has(head)) return head;
+  const declared = (header ?? '').trim();
+  return declared === '' ? undefined : declared;
 }
 
 /**

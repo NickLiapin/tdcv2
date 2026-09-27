@@ -25,6 +25,13 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Fixed
 
+- **A pack's `locale` in `scanPacks()` is the locale a run finds it in.** It was copied from
+  the file's `locale:` header alone, and 498 bundled packs carry none — `ru.person.lastName`
+  among them — so the registry said they belonged to no locale while every run found them in
+  `ru`, and a tool asking which locales carry a path advised installing packs already
+  installed. It is now the locale the address starts with, and the header only for a pack
+  outside every locale; 55 Nepali files whose header says `en` report `ne`, where they live
+  and are found. Reported by the agent building the MCP server.
 - **`tdcv2 pack add` no longer streams a progress bar into a pipe.** Off a terminal the live
   status line arrived whole — a carriage return and `ESC[K` per redraw, 21 of them on a 128 KB
   pack, hundreds on a large one — in whatever was reading the output, an agent's context
