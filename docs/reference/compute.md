@@ -19,6 +19,11 @@ number of children, `?` marks an optional attribute, `1` means exactly one child
 expression, and `—` means the tag yields no value of its own. Slot tags — the children
 that carry a job title — are shown by name in the signature of the tag that owns them.
 
+The attributes in the signature are the only ones a tag reads. Any other name —
+`<join seperator="-">` for `sep=` — stops the run with
+[`TDC015`](errors.md#top) and the nearest real name, because a tag that ignored it would
+compute the value as if it were not written. `comment=` is accepted on every tag.
+
 ## Literals and references
 
 In depth: [The compute sub-language](../compute/overview.md#top)

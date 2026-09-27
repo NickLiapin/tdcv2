@@ -14,7 +14,7 @@ use std::collections::BTreeSet;
 
 use crate::errors::Diagnostic;
 use crate::format::mask;
-use crate::parser::ast::{Element, Kind};
+use crate::parser::ast::{Attr, Element, Kind};
 
 const ENCODINGS: [&str; 6] = ["base36", "ascii", "unicode", "hex", "binary", "octal"];
 
@@ -30,63 +30,103 @@ const PREDICATE_TAGS: [&str; 4] = ["equals", "greater_than", "less_than", "is_di
 /// known before the run, which is what makes the TDC286 refusal a proof.
 const NUMERIC_BUILTIN_FIELDS: [&str; 2] = ["_count", "_total"];
 
-const KNOWN_TAGS: [&str; 48] = [
+/// Every tag of the compute language, and the attributes each one reads — the
+/// same table as the reference's `compute/attributes.ts`, in the same order,
+/// because the order is the order a near name is looked for in. A name not
+/// listed for its tag is refused (TDC015): nothing checked these names before,
+/// and `<join seperator="-">` quietly joined with nothing.
+const ATTRIBUTES: [(&str, &[&str]); 48] = [
     // literals and references
-    "int",
-    "str",
-    "list",
-    "field",
-    "use",
-    "current",
-    "current_index",
-    "acc",
+    ("int", &["v"]),
+    ("str", &["v"]),
+    ("list", &["v"]),
+    ("field", &["name"]),
+    ("use", &["name"]),
+    ("current", &[]),
+    ("current_index", &[]),
+    ("acc", &[]),
     // binding
-    "let",
+    ("let", &["name"]),
     // collections
-    "each",
-    "reduce",
-    "join",
-    "split",
-    "at",
-    "length",
+    ("each", &[]),
+    ("reduce", &[]),
+    ("join", &["sep"]),
+    ("split", &["sep"]),
+    ("at", &["default"]),
+    ("length", &[]),
     // arithmetic
-    "add",
-    "subtract",
-    "multiply",
-    "divide",
-    "mod",
+    ("add", &[]),
+    ("subtract", &[]),
+    ("multiply", &[]),
+    ("divide", &[]),
+    ("mod", &[]),
     // encoding and conversion
-    "encode",
-    "to_number",
-    "pad",
-    "concat",
-    "upper",
-    "lower",
-    "capitalize",
-    "title",
-    "mask",
-    "slice",
-    "replace",
-    "trim",
-    "group",
+    ("encode", &["as"]),
+    ("to_number", &[]),
+    ("pad", &["width", "fill"]),
+    ("concat", &[]),
+    ("upper", &[]),
+    ("lower", &[]),
+    ("capitalize", &[]),
+    ("title", &[]),
+    ("mask", &["pattern"]),
+    ("slice", &["from", "to"]),
+    ("replace", &["from", "to"]),
+    ("trim", &[]),
+    ("group", &["size", "sep"]),
     // conditionals and the role wrappers
-    "choose",
-    "when",
-    "otherwise",
-    "test",
-    "then",
-    "result",
-    "over",
-    "do",
-    "init",
-    "in",
-    "index",
+    ("choose", &[]),
+    ("when", &[]),
+    ("otherwise", &[]),
+    ("test", &[]),
+    ("then", &[]),
+    ("result", &[]),
+    ("over", &[]),
+    ("do", &[]),
+    ("init", &[]),
+    ("in", &[]),
+    ("index", &[]),
     // predicates
-    "equals",
-    "greater_than",
-    "less_than",
-    "is_digit",
+    ("equals", &[]),
+    ("greater_than", &[]),
+    ("less_than", &[]),
+    ("is_digit", &[]),
 ];
+
+/// The attributes `tag` reads, or `None` for a tag the language does not have.
+fn attributes_of(tag: &str) -> Option<&'static [&'static str]> {
+    ATTRIBUTES.iter().find(|(t, _)| *t == tag).map(|(_, a)| *a)
+}
+
+/// Accepted on every compute tag and read by none: a note for the reader, as on
+/// every other tag.
+const ANY_TAG_ATTRIBUTE: &str = "comment";
+
+/// Common spellings of an attribute under another name, and the one the tag
+/// reads. Offered only when the tag does read it: `separator=` is what `<gen>`
+/// calls it, so it is what a hand used to `<gen>` writes on a `<join>`.
+fn other_spelling(name: &str) -> Option<&'static str> {
+    match name {
+        "separator" | "seperator" | "delimiter" => Some("sep"),
+        "value" | "val" => Some("v"),
+        _ => None,
+    }
+}
+
+/// Whether `node` lacks `attr` because it was written under a name the tag does
+/// not read. The checks that complain about a MISSING value stand down for such
+/// a tag: the misspelling has been reported, on the tag it belongs to, and the
+/// missing value is only its echo. `<int val="7"/>` was refused as `<int v="">`
+/// — a spelling nobody wrote.
+fn written_under_another_name(node: &Element, attr: &str) -> bool {
+    if node.attr(attr).is_some() {
+        return false;
+    }
+    let known = attributes_of(&node.name).unwrap_or(&[]);
+    node.attrs
+        .iter()
+        .any(|a| a.name != ANY_TAG_ATTRIBUTE && !known.contains(&a.name.as_str()))
+}
 
 /// Tags the compute spec describes but this version does not ship, so the
 /// diagnostic explains the gap instead of reading like a typo.
@@ -123,6 +163,10 @@ struct Scope<'a> {
     /// The names `<field>` may read, or `None` when the caller does not know them
     /// — a pack generator's body is checked without the run's sequences in view.
     known_fields: Option<&'a BTreeSet<String>>,
+    /// A `<let>` above lost its `name=` to a misspelled attribute, so an unbound
+    /// `<use>` may well be the one it meant. The misspelling is reported on the
+    /// `<let>`; blaming the `<use>` as well points one tag too far down.
+    lost_binding: bool,
 }
 
 impl Scope<'_> {
@@ -157,7 +201,14 @@ impl<'a> ComputeCheck<'a> {
             in_iteration: false,
             in_reduce: false,
             known_fields,
+            lost_binding: false,
         };
+
+        // `<compute>` itself reads no attribute, so it is judged against an empty list.
+        for attr in &compute_el.attrs {
+            self.unread_attribute("compute", &[], attr);
+        }
+        self.attribute_names(&compute_el.children);
 
         // Documented as "at most once". A second one silently wins and the first
         // is discarded, so a config can compute something entirely different from
@@ -208,12 +259,79 @@ impl<'a> ComputeCheck<'a> {
         self.walk_slot(&compute_el.children, &scope);
     }
 
+    /// Refuse every attribute a compute tag does not read — the TDC015 `<gen>`
+    /// has always had.
+    ///
+    /// A pass of its own over the whole subtree rather than a check inside the
+    /// walk: the walk deliberately skips what it cannot judge — a misspelled
+    /// slot, an unknown tag, a predicate out of place — and an attribute inside
+    /// one of those is no less misspelled for it. An unknown tag is TDC180's;
+    /// there is no list to hold its attributes against.
+    fn attribute_names(&mut self, children: &[Element]) {
+        for child in children {
+            if child.kind == Kind::Data {
+                continue;
+            }
+            if let Some(known) = attributes_of(&child.name) {
+                for attr in &child.attrs {
+                    self.unread_attribute(&child.name, known, attr);
+                }
+            }
+            self.attribute_names(&child.children);
+        }
+    }
+
+    fn unread_attribute(&mut self, tag: &str, known: &[&str], attr: &Attr) {
+        let name = attr.name.as_str();
+        if name == ANY_TAG_ATTRIBUTE || known.contains(&name) {
+            return;
+        }
+        let near = crate::errors::closest_match(
+            name,
+            &known.iter().map(|k| (*k).to_string()).collect::<Vec<_>>(),
+        );
+        let suggestion = if near.is_empty() {
+            other_spelling(name)
+                .filter(|o| known.contains(o))
+                .unwrap_or("")
+                .to_string()
+        } else {
+            near
+        };
+        let listed = if known.is_empty() {
+            format!("<{tag}> takes no attributes.")
+        } else {
+            let mut sorted = known.to_vec();
+            sorted.sort_unstable();
+            format!("Attributes of <{tag}>: {}.", candidates(&sorted))
+        };
+        let mut d = Diagnostic::error(
+            "TDC015",
+            format!("<{tag}> has no \"{name}\" attribute"),
+            &format!(
+                "{listed} Any other name would be ignored, and the value computed as if it \
+                 were not written."
+            ),
+            attr.at(),
+        );
+        if !suggestion.is_empty() {
+            d.suggestion = format!("did you mean \"{suggestion}\"?");
+        }
+        self.out.push(d);
+    }
+
     /// A slot: `<let>` prefixes bind for the siblings after them, and the last
     /// child is the value.
     fn walk_slot(&mut self, children: &[Element], scope: &Scope) {
         let mut bound = scope.vars.clone();
+        let mut lost_binding = scope.lost_binding;
         for child in children {
             if child.kind == Kind::Data {
+                continue;
+            }
+            if child.name == "let" && written_under_another_name(child, "name") {
+                lost_binding = true;
+                self.walk_slot(&child.children, &scope.with_vars(bound.clone()));
                 continue;
             }
             if child.name == "let" {
@@ -229,7 +347,9 @@ impl<'a> ComputeCheck<'a> {
                 self.walk_slot(&child.children, &scope.with_vars(bound.clone()));
                 bound.insert(name);
             } else {
-                self.walk_expr(child, &scope.with_vars(bound.clone()));
+                let mut inner = scope.with_vars(bound.clone());
+                inner.lost_binding = lost_binding;
+                self.walk_expr(child, &inner);
             }
         }
     }
@@ -281,7 +401,7 @@ impl<'a> ComputeCheck<'a> {
             );
             return;
         }
-        if !KNOWN_TAGS.contains(&name) {
+        if attributes_of(name).is_none() {
             // The reference falls back to naming the tags a <compute> takes when the unknown
             // one has no note of its own. Without the fallback the refusal said only that the
             // tag is unknown, and left the reader to go and find the list -- on the one
@@ -289,7 +409,7 @@ impl<'a> ComputeCheck<'a> {
             let own = hint_for(name);
             let fallback;
             let hint = if own.is_empty() {
-                let mut names: Vec<&str> = KNOWN_TAGS.to_vec();
+                let mut names: Vec<&str> = ATTRIBUTES.iter().map(|(t, _)| *t).collect();
                 names.sort_unstable();
                 fallback = format!("Allowed inside <compute>: {}.", candidates(&names));
                 fallback.as_str()
@@ -330,7 +450,10 @@ impl<'a> ComputeCheck<'a> {
 
             "use" => {
                 let bound = node.attr_value("name").unwrap_or("").to_string();
-                if !scope.vars.contains(&bound) {
+                if !scope.lost_binding
+                    && !written_under_another_name(node, "name")
+                    && !scope.vars.contains(&bound)
+                {
                     self.report(
                         node,
                         "TDC182",
@@ -342,7 +465,9 @@ impl<'a> ComputeCheck<'a> {
 
             "field" => {
                 let field = node.attr_value("name").unwrap_or("").to_string();
-                if scope.known_fields.is_some_and(|k| !k.contains(&field)) {
+                if !written_under_another_name(node, "name")
+                    && scope.known_fields.is_some_and(|k| !k.contains(&field))
+                {
                     self.report(
                         node,
                         "TDC182",
@@ -354,7 +479,7 @@ impl<'a> ComputeCheck<'a> {
 
             "int" => {
                 let raw = node.attr_value("v").unwrap_or("").to_string();
-                if !is_integer_text(raw.trim()) {
+                if !is_integer_text(raw.trim()) && !written_under_another_name(node, "v") {
                     self.report(
                         node,
                         "TDC188",
@@ -461,7 +586,9 @@ impl<'a> ComputeCheck<'a> {
                 // with no pattern has nothing to keep, and the engine answered
                 // that literally: it returned the empty string.
                 let pattern = node.attr_value("pattern").unwrap_or("").trim().to_string();
-                if pattern.is_empty() {
+                if written_under_another_name(node, "pattern") {
+                    // Reported as the misspelling it is; "needs a pattern=" would be its echo.
+                } else if pattern.is_empty() {
                     self.report(
                         node,
                         "TDC256",
@@ -488,7 +615,8 @@ impl<'a> ComputeCheck<'a> {
 
             "encode" => {
                 let as_what = node.attr_value("as").unwrap_or("").to_string();
-                if !ENCODINGS.contains(&as_what.as_str()) {
+                if !ENCODINGS.contains(&as_what.as_str()) && !written_under_another_name(node, "as")
+                {
                     self.report(
                         node,
                         "TDC186",

@@ -17,4 +17,5 @@ export {
   BUILTIN_SEQUENCES,
 } from './known.js';
 export { COMPUTE_TAGS } from './compute.js';
+export { COMPUTE_ATTRIBUTES } from '../compute/attributes.js';
 export { ATTRIBUTE_OWNERS, CLOSED_TAG_ATTRIBUTES, GEN_ATTRIBUTES } from './unknown-attrs.js';

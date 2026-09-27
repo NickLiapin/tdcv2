@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "let-name-misspelled",
+      "demonstrates": "TDC015",
+      "description": "<let nme=\"q\"> — refused on the <let>, not on the <use> that finds nothing bound",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><let nme=\"q\"><str v=\"hi\"/></let><result><use name=\"q\"/></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:129"]
+    },
+    {
+      "name": "field-name-misspelled",
+      "demonstrates": "TDC015",
+      "description": "<field nam=\"Q\"> — refused on the misspelling, not as a field named \"\"",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><field nam=\"Q\"/></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:139"]
+    },
+    {
+      "name": "str-v-misspelled",
+      "demonstrates": "TDC015",
+      "description": "<str val=\"hi\"> printed an empty string",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><str val=\"hi\"/></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:137"]
+    },
+    {
+      "name": "int-v-misspelled",
+      "demonstrates": "TDC015",
+      "description": "<int val=\"7\"> — refused as the misspelling, not as <int v=\"\">",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><int val=\"7\"/></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:137"]
+    },
+    {
+      "name": "list-v-misspelled",
+      "demonstrates": "TDC015",
+      "description": "<list vals=\"100,200\"> became an empty list and the default answered",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><at default=\"0\"><in><list vals=\"100,200\"/></in><index><int v=\"1\"/></index></at></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:159"]
+    },
+    {
+      "name": "slice-from-misspelled",
+      "demonstrates": "TDC015",
+      "description": "<slice frm=\"1\"> sliced from 0",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><slice frm=\"1\" to=\"3\"><str v=\"abcdef\"/></slice></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:139"]
+    },
+    {
+      "name": "pad-width-misspelled",
+      "demonstrates": "TDC015",
+      "description": "<pad widht=\"6\"> padded to nothing",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><pad widht=\"6\" fill=\"0\"><str v=\"42\"/></pad></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:139"]
+    },
+    {
+      "name": "pad-fill-misspelled",
+      "demonstrates": "TDC015",
+      "description": "<pad filll=\"0\"> — the same output by luck, the same fault",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><pad width=\"6\" filll=\"0\"><str v=\"42\"/></pad></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:149"]
+    },
+    {
+      "name": "replace-from-misspelled",
+      "demonstrates": "TDC015",
+      "description": "<replace form=\"a\"> replaced nothing",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><replace form=\"a\" to=\"Z\"><str v=\"abc\"/></replace></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:142"]
+    },
+    {
+      "name": "mask-pattern-misspelled",
+      "demonstrates": "TDC015",
+      "description": "<mask patern=…> — refused as the misspelling, not as a mask with no pattern",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><mask patern=\"xx##\"><str v=\"abcd\"/></mask></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:141"]
+    },
+    {
+      "name": "group-size-misspelled",
+      "demonstrates": "TDC015",
+      "description": "<group siez=\"2\"> grouped by three",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><group siez=\"2\" sep=\"-\"><str v=\"abcdef\"/></group></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:140"]
+    },
+    {
+      "name": "group-sep-misspelled",
+      "demonstrates": "TDC015",
+      "description": "<group seperator=\"-\"> grouped with a space",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><group size=\"2\" seperator=\"-\"><str v=\"abcdef\"/></group></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:154"]
+    },
+    {
+      "name": "encode-as-misspelled",
+      "demonstrates": "TDC015",
+      "description": "<encode ass=\"hex\"> — refused as the misspelling, not as an encoding called \"\"",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><encode ass=\"hex\"><str v=\"A\"/></encode></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:140"]
+    },
+    {
+      "name": "at-default-misspelled",
+      "demonstrates": "TDC015",
+      "description": "<at defualt=\"0\"> passed check and stopped the run on an index out of range",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><at defualt=\"0\"><in><list v=\"100,200\"/></in><index><int v=\"9\"/></index></at></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:140"]
+    },
+    {
+      "name": "join-sep-misspelled",
+      "demonstrates": "TDC015",
+      "description": "<join seperator=\"-\"> joined with nothing: a-b-c became abc",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><join seperator=\"-\"><split sep=\"|\"><field name=\"Q\"/></split></join></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:144"]
+    },
+    {
+      "name": "split-sep-misspelled",
+      "demonstrates": "TDC015",
+      "description": "<split seperator=\"|\"> passed check and stopped the run on an empty separator",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><join sep=\"-\"><split seperator=\"|\"><field name=\"Q\"/></split></join></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:159"]
+    },
+    {
+      "name": "an-attribute-on-a-tag-that-takes-none",
+      "demonstrates": "TDC015",
+      "description": "<upper case=\"x\"> — <upper> reads no attribute at all",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><upper case=\"x\"><str v=\"a\"/></upper></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:140"]
+    },
+    {
+      "name": "an-attribute-on-compute-itself",
+      "demonstrates": "TDC015",
+      "description": "<compute name=\"x\"> — <compute> reads no attribute",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute name=\"x\"><result><str v=\"a\"/></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:125"]
+    },
+    {
+      "name": "a-lost-binding-blames-only-the-let",
+      "demonstrates": "TDC015",
+      "description": "two <use>s of a name whose <let> was misspelled: one error, on the <let>",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><let nme=\"q\"><str v=\"hi\"/></let><result><concat><use name=\"q\"/><use name=\"q\"/></concat></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:129"]
+    },
+    {
+      "name": "a-misspelling-inside-a-misspelled-slot-is-still-reported",
+      "demonstrates": "TDC015",
+      "description": "the pass reaches the parts the walk skips: TDC015 inside a <wen> beside its TDC180",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><choose><wen><test><equals><int val=\"1\"/><int v=\"1\"/></equals></test><then><str v=\"T\"/></then></wen><otherwise><str v=\"F\"/></otherwise></choose></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:164", "error TDC180 1:135"]
+    },
+    {
+      "name": "an-unknown-tag-is-judged-as-a-tag-not-by-its-attributes",
+      "demonstrates": "TDC180",
+      "description": "<frobnicate foo=\"1\"/> — TDC180 only; there is no list to hold foo= against",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><frobnicate foo=\"1\"/></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC180 1:127"]
+    },
+    {
+      "name": "a-real-value-beside-a-misspelling-is-still-judged",
+      "demonstrates": "TDC015",
+      "description": "<int v=\"x\" val=\"7\"> — the misspelling and the bad v= are two faults, both reported",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute><result><int v=\"x\" val=\"7\"/></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:143", "error TDC188 1:127"]
+    }
+  ]
+}

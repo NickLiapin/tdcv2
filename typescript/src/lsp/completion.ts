@@ -21,6 +21,7 @@ import { ALPHABET_NAMES } from '../unicode/alphabets.js';
 import {
   ATTRIBUTE_OWNERS,
   CLOSED_TAG_ATTRIBUTES,
+  COMPUTE_ATTRIBUTES,
   COMPUTE_TAGS,
   GEN_ATTRIBUTES,
   KNOWN_CASE_CHILDREN,
@@ -129,6 +130,9 @@ const TAG_ATTRIBUTES: Record<string, readonly string[]> = {
   gen: [...GEN_ATTRIBUTES].sort(),
   block: [],
   compute: [],
+  // The compute tags, from the table their evaluator reads them through. No
+  // name here collides with a tag above.
+  ...COMPUTE_ATTRIBUTES,
 };
 
 export function computeCompletions(

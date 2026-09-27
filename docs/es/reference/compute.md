@@ -18,6 +18,11 @@ cualquier cantidad de hijos, `?` marca un atributo opcional, `1` es exactamente 
 expresión hija y `—` significa que la etiqueta no da un valor propio. Las ranuras — los
 hijos con un puesto — aparecen por nombre en la firma de la etiqueta que las posee.
 
+Los atributos de la firma son los únicos que una etiqueta lee. Cualquier otro nombre —
+`<join seperator="-">` en lugar de `sep=` — detiene la corrida con
+[`TDC015`](errors.md#top) y el nombre real más cercano, porque una etiqueta que lo ignorara
+calcularía el valor como si no estuviera escrito. `comment=` se acepta en todas.
+
 ## Literales y referencias
 
 A fondo: [El sublenguaje compute](../compute/overview.md#top)

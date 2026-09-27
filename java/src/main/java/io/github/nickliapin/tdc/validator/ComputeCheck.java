@@ -72,24 +72,75 @@ final class ComputeCheck {
     return String.join(", ", all.subList(0, most)) + ", … (" + (all.size() - most) + " more)";
   }
 
-  private static final Set<String> KNOWN_TAGS =
-      Set.of(
-          // literals and references
-          "int", "str", "list", "field", "use", "current", "current_index", "acc",
-          // binding
-          "let",
-          // collections
-          "each", "reduce", "join", "split", "at", "length",
-          // arithmetic
-          "add", "subtract", "multiply", "divide", "mod",
-          // encoding and conversion
-          "encode", "to_number", "pad", "concat", "upper", "lower", "capitalize", "title",
-          "mask", "slice", "replace", "trim", "group",
-          // conditionals and the role wrappers
-          "choose", "when", "otherwise", "test", "then", "result", "over", "do", "init", "in",
-          "index",
-          // predicates
-          "equals", "greater_than", "less_than", "is_digit");
+  /**
+   * Every tag of the compute language, and the attributes each one reads — the same table as the
+   * reference's {@code compute/attributes.ts}, in the same order, because the order is the order a
+   * near name is looked for in. A name not listed for its tag is refused (TDC015): nothing checked
+   * these names before, and {@code <join seperator="-">} quietly joined with nothing.
+   */
+  private static final Map<String, List<String>> ATTRIBUTES = attributeTable();
+
+  private static Map<String, List<String>> attributeTable() {
+    Map<String, List<String>> t = new LinkedHashMap<>();
+    // literals and references
+    t.put("int", List.of("v"));
+    t.put("str", List.of("v"));
+    t.put("list", List.of("v"));
+    t.put("field", List.of("name"));
+    t.put("use", List.of("name"));
+    for (String tag : List.of("current", "current_index", "acc")) {
+      t.put(tag, List.of());
+    }
+    // binding
+    t.put("let", List.of("name"));
+    // collections
+    t.put("each", List.of());
+    t.put("reduce", List.of());
+    t.put("join", List.of("sep"));
+    t.put("split", List.of("sep"));
+    t.put("at", List.of("default"));
+    t.put("length", List.of());
+    // arithmetic
+    for (String tag : List.of("add", "subtract", "multiply", "divide", "mod")) {
+      t.put(tag, List.of());
+    }
+    // encoding and conversion
+    t.put("encode", List.of("as"));
+    t.put("to_number", List.of());
+    t.put("pad", List.of("width", "fill"));
+    for (String tag : List.of("concat", "upper", "lower", "capitalize", "title")) {
+      t.put(tag, List.of());
+    }
+    t.put("mask", List.of("pattern"));
+    t.put("slice", List.of("from", "to"));
+    t.put("replace", List.of("from", "to"));
+    t.put("trim", List.of());
+    t.put("group", List.of("size", "sep"));
+    // conditionals and the role wrappers
+    for (String tag :
+        List.of("choose", "when", "otherwise", "test", "then", "result", "over", "do", "init", "in",
+            "index")) {
+      t.put(tag, List.of());
+    }
+    // predicates
+    for (String tag : List.of("equals", "greater_than", "less_than", "is_digit")) {
+      t.put(tag, List.of());
+    }
+    return java.util.Collections.unmodifiableMap(t);
+  }
+
+  private static final Set<String> KNOWN_TAGS = ATTRIBUTES.keySet();
+
+  /** Accepted on every compute tag and read by none: a note for the reader, as on every tag. */
+  private static final String ANY_TAG_ATTRIBUTE = "comment";
+
+  /**
+   * Common spellings of an attribute under another name, and the one the tag reads. Offered only
+   * when the tag does read it: {@code separator=} is what {@code <gen>} calls it, so it is what a
+   * hand used to {@code <gen>} writes on a {@code <join>}.
+   */
+  private static final Map<String, String> OTHER_SPELLINGS =
+      Map.of("separator", "sep", "seperator", "sep", "delimiter", "sep", "value", "v", "val", "v");
 
   /**
    * Tags the compute spec describes but this version does not ship, so the diagnostic explains
@@ -107,14 +158,25 @@ final class ComputeCheck {
       int column) {}
 
   /** What is visible where: the bound variables, and which bodies we are inside. */
-  private record Scope(Set<String> vars, boolean inIteration, boolean inReduce, Set<String> knownFields) {
+  /**
+   * {@code lostBinding}: a {@code <let>} above lost its {@code name=} to a misspelled attribute,
+   * so an unbound {@code <use>} may well be the one it meant. The misspelling is reported on the
+   * {@code <let>}; blaming the {@code <use>} as well points one tag too far down.
+   */
+  private record Scope(
+      Set<String> vars, boolean inIteration, boolean inReduce, Set<String> knownFields,
+      boolean lostBinding) {
 
     Scope withVars(Set<String> newVars) {
-      return new Scope(newVars, inIteration, inReduce, knownFields);
+      return new Scope(newVars, inIteration, inReduce, knownFields, lostBinding);
+    }
+
+    Scope losing(boolean lost) {
+      return new Scope(vars, inIteration, inReduce, knownFields, lost);
     }
 
     Scope iterating(boolean reduce) {
-      return new Scope(vars, true, reduce || inReduce, knownFields);
+      return new Scope(vars, true, reduce || inReduce, knownFields, lostBinding);
     }
   }
 
@@ -131,7 +193,13 @@ final class ComputeCheck {
    *     not know them — a pack generator's body is checked without the run's sequences in view.
    */
   void check(TDCParser.OpenCloseElementContext computeEl, Set<String> knownFields) {
-    Scope scope = new Scope(Set.of(), false, false, knownFields);
+    Scope scope = new Scope(Set.of(), false, false, knownFields, false);
+
+    // <compute> itself reads no attribute, so it is judged against an empty list.
+    for (TDCParser.AttrContext attr : computeEl.attr()) {
+      unreadAttribute("compute", List.of(), attr);
+    }
+    attributeNames(computeEl.content().element());
 
     // Documented as "at most once". A second one silently wins and the first is discarded, so a
     // config can compute something entirely different from what its author read top to bottom.
@@ -177,9 +245,15 @@ final class ComputeCheck {
    */
   private void walkSlot(List<TDCParser.ElementContext> children, Scope scope) {
     Set<String> bound = new LinkedHashSet<>(scope.vars());
+    boolean lostBinding = scope.lostBinding();
     for (TDCParser.ElementContext child : children) {
       Node node = node(child);
       if (node == null) {
+        continue;
+      }
+      if ("let".equals(node.name()) && writtenUnderAnotherName(node, "name")) {
+        lostBinding = true;
+        walkSlot(node.children(), scope.withVars(new LinkedHashSet<>(bound)));
         continue;
       }
       if ("let".equals(node.name())) {
@@ -191,9 +265,79 @@ final class ComputeCheck {
         walkSlot(node.children(), scope.withVars(new LinkedHashSet<>(bound)));
         bound.add(name);
       } else {
-        walkExpr(child, scope.withVars(new LinkedHashSet<>(bound)));
+        walkExpr(child, scope.withVars(new LinkedHashSet<>(bound)).losing(lostBinding));
       }
     }
+  }
+
+  /**
+   * Refuse every attribute a compute tag does not read — the TDC015 {@code <gen>} has always had.
+   *
+   * <p>A pass of its own over the whole subtree rather than a check inside the walk: the walk
+   * deliberately skips what it cannot judge — a misspelled slot, an unknown tag, a predicate out of
+   * place — and an attribute inside one of those is no less misspelled for it. An unknown tag is
+   * TDC180's; there is no list to hold its attributes against.
+   */
+  private void attributeNames(List<TDCParser.ElementContext> children) {
+    for (TDCParser.ElementContext child : children) {
+      TDCParser.OpenCloseElementContext open = child.openCloseElement();
+      TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+      String tag = open != null ? open.name.getText() : self != null ? self.name.getText() : null;
+      if (tag == null) {
+        continue;
+      }
+      List<String> known = ATTRIBUTES.get(tag);
+      if (known != null) {
+        for (TDCParser.AttrContext attr : open != null ? open.attr() : self.attr()) {
+          unreadAttribute(tag, known, attr);
+        }
+      }
+      if (open != null) {
+        attributeNames(open.content().element());
+      }
+    }
+  }
+
+  private void unreadAttribute(String tag, List<String> known, TDCParser.AttrContext attr) {
+    String name = attr.attrName.getText();
+    if (ANY_TAG_ATTRIBUTE.equals(name) || known.contains(name)) {
+      return;
+    }
+    String suggestion = Diagnostic.closestMatch(name, known);
+    if (suggestion.isEmpty() && known.contains(OTHER_SPELLINGS.getOrDefault(name, ""))) {
+      suggestion = OTHER_SPELLINGS.get(name);
+    }
+    String listed =
+        known.isEmpty()
+            ? "<" + tag + "> takes no attributes."
+            : "Attributes of <" + tag + ">: " + candidates(new java.util.TreeSet<>(known)) + ".";
+    String text = attr.attrValue.getText();
+    boolean quoted = text.length() >= 2 && text.startsWith("\"") && text.endsWith("\"");
+    diagnostics.add(
+        Diagnostic.error(
+                "TDC015",
+                "<" + tag + "> has no \"" + name + "\" attribute",
+                listed
+                    + " Any other name would be ignored, and the value computed as if it were not"
+                    + " written.",
+                attr.attrValue.getLine(),
+                attr.attrValue.getCharPositionInLine() + (quoted ? 1 : 0))
+            .suggesting(Diagnostic.didYouMean(suggestion)));
+  }
+
+  /**
+   * Whether {@code node} lacks {@code attr} because it was written under a name the tag does not
+   * read. The checks that complain about a MISSING value stand down for such a tag: the misspelling
+   * has been reported, on the tag it belongs to, and the missing value is only its echo. {@code
+   * <int val="7"/>} was refused as {@code <int v="">} — a spelling nobody wrote.
+   */
+  private static boolean writtenUnderAnotherName(Node node, String attr) {
+    if (node.attrs().containsKey(attr)) {
+      return false;
+    }
+    List<String> known = ATTRIBUTES.getOrDefault(node.name(), List.of());
+    return node.attrs().keySet().stream()
+        .anyMatch(a -> !ANY_TAG_ATTRIBUTE.equals(a) && !known.contains(a));
   }
 
   /** A construct that needs one named wrapper child, like {@code <each><over>…</over></each>}. */
@@ -258,21 +402,25 @@ final class ComputeCheck {
       }
       case "use" -> {
         String name = node.attrs().getOrDefault("name", "");
-        if (!scope.vars().contains(name)) {
+        if (!scope.lostBinding()
+            && !writtenUnderAnotherName(node, "name")
+            && !scope.vars().contains(name)) {
           report(node, "TDC182", "<use name=\"" + name + "\"> is not bound by an enclosing <let>",
               null);
         }
       }
       case "field" -> {
         String name = node.attrs().getOrDefault("name", "");
-        if (scope.knownFields() != null && !scope.knownFields().contains(name)) {
+        if (!writtenUnderAnotherName(node, "name")
+            && scope.knownFields() != null
+            && !scope.knownFields().contains(name)) {
           report(node, "TDC182",
               "<field name=\"" + name + "\"> refers to a value that is not in scope", null);
         }
       }
       case "int" -> {
         String raw = node.attrs().getOrDefault("v", "").trim();
-        if (!raw.matches("^-?\\d+$")) {
+        if (!raw.matches("^-?\\d+$") && !writtenUnderAnotherName(node, "v")) {
           report(node, "TDC188",
               "<int v=\"" + node.attrs().getOrDefault("v", "") + "\"> is not an integer",
               "Write a whole number, e.g. <int v=\"42\"/>. For text use <str v=\"…\"/>.");
@@ -341,7 +489,9 @@ final class ComputeCheck {
         // The filter form of the same fault is TDC256 in Validator. A mask with no pattern has
         // nothing to keep, and the engine answered that literally: it returned the empty string.
         String pattern = node.attrs().getOrDefault("pattern", "").trim();
-        if (pattern.isEmpty()) {
+        if (writtenUnderAnotherName(node, "pattern")) {
+          // Reported as the misspelling it is; "needs a pattern=" would be its echo.
+        } else if (pattern.isEmpty()) {
           report(node, "TDC256",
               "<mask> needs a pattern= — without one it returns the empty string", null);
         } else {
@@ -360,7 +510,7 @@ final class ComputeCheck {
       }
       case "encode" -> {
         String as = node.attrs().getOrDefault("as", "");
-        if (!ENCODINGS.contains(as)) {
+        if (!ENCODINGS.contains(as) && !writtenUnderAnotherName(node, "as")) {
           report(node, "TDC186", "<encode>: unknown encoding \"" + as + "\"", null);
         }
         numericBuiltinArgument(node.children(), "encode");

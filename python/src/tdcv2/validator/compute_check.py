@@ -15,30 +15,52 @@ import re
 from dataclasses import dataclass
 
 from ..errors import Diagnostic
+from ..errors.diagnostic import closest_match
 from ..format.mask import apply_mask
 
 _ENCODINGS = frozenset({"base36", "ascii", "unicode", "hex", "binary", "octal"})
 
-_KNOWN_TAGS = frozenset(
-    {
-        # literals and references
-        "int", "str", "list", "field", "use", "current", "current_index", "acc",
-        # binding
-        "let",
-        # collections
-        "each", "reduce", "join", "split", "at", "length",
-        # arithmetic
-        "add", "subtract", "multiply", "divide", "mod",
-        # encoding and conversion
-        "encode", "to_number", "pad", "concat", "upper", "lower", "capitalize", "title",
-        "mask", "slice", "replace", "trim", "group",
-        # conditionals and the role wrappers
-        "choose", "when", "otherwise", "test", "then", "result", "over", "do", "init", "in",
-        "index",
-        # predicates
-        "equals", "greater_than", "less_than", "is_digit",
-    }
-)  # fmt: skip
+#: Every tag of the compute language, and the attributes each one reads -- the same table as the
+#: reference's ``compute/attributes.ts``, in the same order, because the order is the order a near
+#: name is looked for in. A name not listed for its tag is refused (TDC015): nothing checked these
+#: names before, and ``<join seperator="-">`` quietly joined with nothing.
+_ATTRIBUTES: dict[str, tuple[str, ...]] = {
+    # literals and references
+    "int": ("v",), "str": ("v",), "list": ("v",), "field": ("name",), "use": ("name",),
+    "current": (), "current_index": (), "acc": (),
+    # binding
+    "let": ("name",),
+    # collections
+    "each": (), "reduce": (), "join": ("sep",), "split": ("sep",), "at": ("default",),
+    "length": (),
+    # arithmetic
+    "add": (), "subtract": (), "multiply": (), "divide": (), "mod": (),
+    # encoding and conversion
+    "encode": ("as",), "to_number": (), "pad": ("width", "fill"), "concat": (), "upper": (),
+    "lower": (), "capitalize": (), "title": (), "mask": ("pattern",), "slice": ("from", "to"),
+    "replace": ("from", "to"), "trim": (), "group": ("size", "sep"),
+    # conditionals and the role wrappers
+    "choose": (), "when": (), "otherwise": (), "test": (), "then": (), "result": (), "over": (),
+    "do": (), "init": (), "in": (), "index": (),
+    # predicates
+    "equals": (), "greater_than": (), "less_than": (), "is_digit": (),
+}  # fmt: skip
+
+_KNOWN_TAGS = frozenset(_ATTRIBUTES)
+
+#: Accepted on every compute tag and read by none: a note for the reader, as on every other tag.
+_ANY_TAG_ATTRIBUTE = "comment"
+
+#: Common spellings of an attribute under another name, and the one the tag reads. Offered only
+#: when the tag does read it: ``separator=`` is what ``<gen>`` calls it, so it is what a hand used
+#: to ``<gen>`` writes on a ``<join>``.
+_OTHER_SPELLINGS = {
+    "separator": "sep",
+    "seperator": "sep",
+    "delimiter": "sep",
+    "value": "v",
+    "val": "v",
+}
 
 
 # Tags the compute spec describes but this version does not ship, so the diagnostic explains the
@@ -104,12 +126,23 @@ class _Scope:
     in_iteration: bool
     in_reduce: bool
     known_fields: set[str] | None
+    #: A ``<let>`` above lost its ``name=`` to a misspelled attribute, so an unbound ``<use>`` may
+    #: well be the one it meant. The misspelling is reported on the ``<let>``; blaming the
+    #: ``<use>`` as well points one tag too far down.
+    lost_binding: bool = False
 
-    def with_vars(self, names) -> _Scope:
-        return _Scope(frozenset(names), self.in_iteration, self.in_reduce, self.known_fields)
+    def with_vars(self, names, lost_binding: bool | None = None) -> _Scope:
+        lost = self.lost_binding if lost_binding is None else lost_binding
+        return _Scope(frozenset(names), self.in_iteration, self.in_reduce, self.known_fields, lost)
 
     def iterating(self, reduce: bool) -> _Scope:
-        return _Scope(self.variables, True, reduce or self.in_reduce, self.known_fields)
+        return _Scope(
+            self.variables,
+            True,
+            reduce or self.in_reduce,
+            self.known_fields,
+            self.lost_binding,
+        )
 
 
 class ComputeCheck:
@@ -125,6 +158,10 @@ class ComputeCheck:
         a pack generator's body is checked without the run's sequences in view.
         """
         scope = _Scope(frozenset(), False, False, known_fields)
+        # ``<compute>`` itself reads no attribute, so it is judged against an empty list.
+        for attr in compute_element.attr():
+            self._unread_attribute("compute", (), attr)
+        self._attribute_names(_children(compute_element))
 
         # Documented as "at most once". A second one silently wins and the first is discarded, so
         # a config can compute something entirely different from what its author read top to
@@ -167,12 +204,62 @@ class ComputeCheck:
 
         self._slot(_children(compute_element), scope)
 
+    def _attribute_names(self, children: list) -> None:
+        """Refuse every attribute a compute tag does not read -- the TDC015 ``<gen>`` always had.
+
+        A pass of its own over the whole subtree rather than a check inside the walk: the walk
+        deliberately skips what it cannot judge -- a misspelled slot, an unknown tag, a predicate
+        out of place -- and an attribute inside one of those is no less misspelled for it. An
+        unknown tag is TDC180's; there is no list to hold its attributes against.
+        """
+        for child in children:
+            element = child.openCloseElement() or child.selfClosingElement()
+            if element is None:
+                continue
+            known = _ATTRIBUTES.get(element.name.text)
+            if known is not None:
+                for attr in element.attr():
+                    self._unread_attribute(element.name.text, known, attr)
+            if child.openCloseElement() is not None:
+                self._attribute_names(_children(element))
+
+    def _unread_attribute(self, tag: str, known: tuple[str, ...], attr) -> None:
+        name = attr.attrName.text
+        if name == _ANY_TAG_ATTRIBUTE or name in known:
+            return
+        other = _OTHER_SPELLINGS.get(name, "")
+        suggestion = closest_match(name, list(known)) or (other if other in known else "")
+        listed = (
+            f"Attributes of <{tag}>: {_candidates(sorted(known))}."
+            if known
+            else f"<{tag}> takes no attributes."
+        )
+        text = attr.attrValue.text
+        quoted = len(text) >= 2 and text.startswith('"') and text.endswith('"')
+        self.diagnostics.append(
+            Diagnostic.error(
+                "TDC015",
+                f'<{tag}> has no "{name}" attribute',
+                listed
+                + " Any other name would be ignored, and the value computed as if it were not "
+                "written.",
+                attr.attrValue.line,
+                attr.attrValue.column + (1 if quoted else 0),
+                f'did you mean "{suggestion}"?' if suggestion else "",
+            )
+        )
+
     def _slot(self, children: list, scope: _Scope) -> None:
         """``<let>`` prefixes bind for the siblings after them, and the last child is the value."""
         bound = set(scope.variables)
+        lost_binding = scope.lost_binding
         for child in children:
             node = _node(child)
             if node is None:
+                continue
+            if node.name == "let" and _written_under_another_name(node, "name"):
+                lost_binding = True
+                self._slot(node.children, scope.with_vars(bound))
                 continue
             if node.name == "let":
                 name = node.attrs.get("name", "")
@@ -186,7 +273,7 @@ class ComputeCheck:
                 self._slot(node.children, scope.with_vars(bound))
                 bound.add(name)
             else:
-                self._expr(child, scope.with_vars(bound))
+                self._expr(child, scope.with_vars(bound, lost_binding))
 
     def _wrapper(self, node: _Node, wrapper: str, scope: _Scope) -> None:
         """A construct needing one named wrapper child, like ``<each><over>…</over></each>``."""
@@ -246,13 +333,17 @@ class ComputeCheck:
                 )
         elif name == "use":
             key = node.attrs.get("name", "")
-            if key not in scope.variables:
+            if scope.lost_binding or _written_under_another_name(node, "name"):
+                pass
+            elif key not in scope.variables:
                 self._report(
                     node, "TDC182", f'<use name="{key}"> is not bound by an enclosing <let>', None
                 )
         elif name == "field":
             key = node.attrs.get("name", "")
-            if scope.known_fields is not None and key not in scope.known_fields:
+            if _written_under_another_name(node, "name"):
+                pass
+            elif scope.known_fields is not None and key not in scope.known_fields:
                 self._report(
                     node,
                     "TDC182",
@@ -261,7 +352,7 @@ class ComputeCheck:
                 )
         elif name == "int":
             raw = node.attrs.get("v", "").strip()
-            if not _INTEGER.match(raw):
+            if not _INTEGER.match(raw) and not _written_under_another_name(node, "v"):
                 self._report(
                     node,
                     "TDC188",
@@ -326,7 +417,7 @@ class ComputeCheck:
             self._wrapper(node, "index", scope)
         elif name == "encode":
             as_what = node.attrs.get("as", "")
-            if as_what not in _ENCODINGS:
+            if as_what not in _ENCODINGS and not _written_under_another_name(node, "as"):
                 self._report(node, "TDC186", f'<encode>: unknown encoding "{as_what}"', None)
             self._numeric_builtin_argument(node.children, "encode")
             self._slot(node.children, scope)
@@ -335,7 +426,9 @@ class ComputeCheck:
             # has nothing to keep, and the engine answered that literally: it returned the empty
             # string, so the column came out blank.
             pattern = (node.attrs.get("pattern") or "").strip()
-            if not pattern:
+            if _written_under_another_name(node, "pattern"):
+                pass  # reported as the misspelling it is; "needs a pattern=" would be its echo
+            elif not pattern:
                 self._report(
                     node,
                     "TDC256",
@@ -542,6 +635,19 @@ def _node(element) -> _Node | None:
 def _children(element) -> list:
     content = element.content()
     return [] if content is None else list(content.element() or [])
+
+
+def _written_under_another_name(node: _Node, attr: str) -> bool:
+    """Whether ``node`` lacks ``attr`` because it was written under a name the tag does not read.
+
+    The checks that complain about a MISSING value stand down for such a tag: the misspelling has
+    been reported, on the tag it belongs to, and the missing value is only its echo.
+    ``<int val="7"/>`` was refused as ``<int v="">`` -- a spelling nobody wrote.
+    """
+    if attr in node.attrs:
+        return False
+    known = _ATTRIBUTES.get(node.name, ())
+    return any(a != _ANY_TAG_ATTRIBUTE and a not in known for a in node.attrs)
 
 
 def _count_nodes(node: _Node) -> int:

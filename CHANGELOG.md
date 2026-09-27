@@ -159,6 +159,18 @@ compute`. A number is what the running total reads as one — digits, an optiona
   be replaced by a rename — `-o /dev/stdout`, a device — is written in place as before. Pinned in
   `cli.json` by two cases and a new `absent` key the five harnesses now read.
 
+- **A misspelled attribute on a `<compute>` tag is refused (`TDC015`), as it is on `<gen>`.**
+  Nothing checked these names, and one letter changed the output without a word:
+  `<join sep="-">` gives `a-b-c`, `<join seperator="-">` gave `abc`. Of sixteen attributes
+  misspelled one letter at a time, nine passed `check` and eight of those produced a different
+  file; the other seven were refused for the wrong reason, pointing at the tag that needed the
+  missing value rather than the one that lost it. Each tag now accepts exactly what it reads
+  (`comment=` is accepted everywhere), the refusal lands on the misspelled attribute with the
+  nearest real name, and the downstream echo is gone — `<int val="7"/>` is no longer reported
+  as `<int v="">`. Measured against all 665 `<compute>` blocks in the packs, the docs and the
+  tests before being switched on: no refusal of a working config. Pinned in
+  `diagnostics/compute-attributes.json`.
+
 ### Changed
 
 - **A plain `formula` or a date offset may carry `if=`.** `TDC295` refused both, together with

@@ -27,6 +27,7 @@ import {
   applyTrim,
 } from '../format/transforms.js';
 
+import { attrOf } from './attributes.js';
 import { encodeChar } from './encode.js';
 import {
   coerceInt,
@@ -143,7 +144,7 @@ function evalSlot(children: readonly ElementContext[], scope: EvalScope): Value 
   for (const child of children) {
     if (nodeName(child) === 'let') {
       const cn = asCNode(child);
-      const name = cn.attrs['name'] ?? '';
+      const name = attrOf(cn.attrs, 'let', 'name') ?? '';
       localScope = withVar(localScope, name, evalSlot(cn.children, localScope));
     } else {
       result = evalElement(child, localScope);
@@ -163,14 +164,14 @@ function evalElement(el: ElementContext, scope: EvalScope): Value {
   switch (n.name) {
     // --- literals ---
     case 'int': {
-      const raw = n.attrs['v'] ?? '';
+      const raw = attrOf(n.attrs, 'int', 'v') ?? '';
       if (!/^-?[0-9]+$/.test(raw)) throw new ComputeError(`<int>: "${raw}" is not an integer`);
       return int(BigInt(raw));
     }
     case 'str':
-      return str(n.attrs['v'] ?? '');
+      return str(attrOf(n.attrs, 'str', 'v') ?? '');
     case 'list': {
-      const raw = n.attrs['v'];
+      const raw = attrOf(n.attrs, 'list', 'v');
       if (raw !== undefined) {
         const parts = raw
           .split(',')
@@ -188,7 +189,7 @@ function evalElement(el: ElementContext, scope: EvalScope): Value {
 
     // --- references ---
     case 'field': {
-      const name = n.attrs['name'] ?? '';
+      const name = attrOf(n.attrs, 'field', 'name') ?? '';
       const value = scope.fields(name);
       if (value === undefined) throw new ComputeError(`<field>: "${name}" is not in scope`);
       // A sequence's value is text, and `coerceInt` deliberately refuses a
@@ -206,7 +207,7 @@ function evalElement(el: ElementContext, scope: EvalScope): Value {
       return str(value);
     }
     case 'use': {
-      const name = n.attrs['name'] ?? '';
+      const name = attrOf(n.attrs, 'use', 'name') ?? '';
       const value = scope.vars.get(name);
       if (value === undefined) throw new ComputeError(`<use>: "${name}" is not bound`);
       return value;
@@ -247,7 +248,7 @@ function evalElement(el: ElementContext, scope: EvalScope): Value {
       return acc;
     }
     case 'join': {
-      const sep = n.attrs['sep'] ?? '';
+      const sep = attrOf(n.attrs, 'join', 'sep') ?? '';
       const value = evalSlot(n.children, scope);
       if (value.t !== 'list') throw new ComputeError('<join>: expected a list');
       return str(value.v.map(coerceStr).join(sep));
@@ -262,7 +263,7 @@ function evalElement(el: ElementContext, scope: EvalScope): Value {
     // The pieces are STRINGS, like every other piece of text in this layer: <to_number> turns
     // one into an integer, and the arithmetic tags say so when they are handed text.
     case 'split': {
-      const sep = n.attrs['sep'] ?? '';
+      const sep = attrOf(n.attrs, 'split', 'sep') ?? '';
       // An empty separator is refused rather than given a meaning. JavaScript would answer with
       // every character, Python would refuse outright, and the other three differ again — so any
       // reading here would make one implementation disagree with the rest. Walking a string
@@ -285,7 +286,7 @@ function evalElement(el: ElementContext, scope: EvalScope): Value {
       const idx = Number(coerceInt(evalWrapper(n, 'index', scope), '<at> index'));
       const found = coll.v[idx];
       if (found !== undefined) return found;
-      const dflt = n.attrs['default'];
+      const dflt = attrOf(n.attrs, 'at', 'default');
       if (dflt !== undefined) return int(parseIntStrict(dflt));
       throw new ComputeError(`<at>: index ${String(idx)} is out of range and no default is set`);
     }
@@ -325,7 +326,7 @@ function evalElement(el: ElementContext, scope: EvalScope): Value {
 
     // --- encoding / conversion ---
     case 'encode': {
-      const as = n.attrs['as'] ?? '';
+      const as = attrOf(n.attrs, 'encode', 'as') ?? '';
       const value = evalSlot(n.children, scope);
       if (value.t !== 'str') throw new ComputeError('<encode>: expected a single-character string');
       return str(encodeChar(value.v, as));
@@ -333,8 +334,8 @@ function evalElement(el: ElementContext, scope: EvalScope): Value {
     case 'to_number':
       return int(parseIntStrict(coerceStr(evalSlot(n.children, scope))));
     case 'pad': {
-      const width = Number(n.attrs['width'] ?? '0');
-      const fill = n.attrs['fill'] ?? '0';
+      const width = Number(attrOf(n.attrs, 'pad', 'width') ?? '0');
+      const fill = attrOf(n.attrs, 'pad', 'fill') ?? '0';
       return str(coerceStr(evalSlot(n.children, scope)).padStart(width, fill));
     }
     case 'concat':
@@ -347,13 +348,15 @@ function evalElement(el: ElementContext, scope: EvalScope): Value {
     case 'title':
       return str(applyCase(n.name, coerceStr(evalSlot(n.children, scope))));
     case 'mask':
-      return str(applyMask(n.attrs['pattern'] ?? '', coerceStr(evalSlot(n.children, scope))));
+      return str(
+        applyMask(attrOf(n.attrs, 'mask', 'pattern') ?? '', coerceStr(evalSlot(n.children, scope))),
+      );
     case 'slice': {
-      const to = n.attrs['to'];
+      const to = attrOf(n.attrs, 'slice', 'to');
       return str(
         applySlice(
           coerceStr(evalSlot(n.children, scope)),
-          Number(n.attrs['from'] ?? '0'),
+          Number(attrOf(n.attrs, 'slice', 'from') ?? '0'),
           to === undefined ? undefined : Number(to),
         ),
       );
@@ -362,8 +365,8 @@ function evalElement(el: ElementContext, scope: EvalScope): Value {
       return str(
         applyReplace(
           coerceStr(evalSlot(n.children, scope)),
-          n.attrs['from'] ?? '',
-          n.attrs['to'] ?? '',
+          attrOf(n.attrs, 'replace', 'from') ?? '',
+          attrOf(n.attrs, 'replace', 'to') ?? '',
         ),
       );
     case 'trim':
@@ -372,8 +375,8 @@ function evalElement(el: ElementContext, scope: EvalScope): Value {
       return str(
         applyGroup(
           coerceStr(evalSlot(n.children, scope)),
-          Number(n.attrs['size'] ?? '3'),
-          n.attrs['sep'] ?? ' ',
+          Number(attrOf(n.attrs, 'group', 'size') ?? '3'),
+          attrOf(n.attrs, 'group', 'sep') ?? ' ',
         ),
       );
 

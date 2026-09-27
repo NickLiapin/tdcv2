@@ -78,31 +78,99 @@ internal sealed class ComputeCheck
                 "is what the new name says. Rename the tag; the name= attribute is unchanged."),
         };
 
-    private static readonly HashSet<string> KnownTags = new(StringComparer.Ordinal)
-    {
-        // literals and references
-        "int", "str", "list", "field", "use", "current", "current_index", "acc",
+    /// <summary>
+    /// Every tag of the compute language, and the attributes each one reads — the same table as
+    /// the reference's <c>compute/attributes.ts</c>, in the same order, because the order is the
+    /// order a near name is looked for in. A name not listed for its tag is refused (TDC015):
+    /// nothing checked these names before, and <c>&lt;join seperator="-"&gt;</c> quietly joined
+    /// with nothing.
+    /// </summary>
+    private static readonly IReadOnlyDictionary<string, string[]> AttributeTable =
+        new Dictionary<string, string[]>(StringComparer.Ordinal)
+        {
+            // literals and references
+            ["int"] = new[] { "v" },
+            ["str"] = new[] { "v" },
+            ["list"] = new[] { "v" },
+            ["field"] = new[] { "name" },
+            ["use"] = new[] { "name" },
+            ["current"] = Array.Empty<string>(),
+            ["current_index"] = Array.Empty<string>(),
+            ["acc"] = Array.Empty<string>(),
 
-        // binding
-        "let",
+            // binding
+            ["let"] = new[] { "name" },
 
-        // collections
-        "each", "reduce", "join", "split", "at", "length",
+            // collections
+            ["each"] = Array.Empty<string>(),
+            ["reduce"] = Array.Empty<string>(),
+            ["join"] = new[] { "sep" },
+            ["split"] = new[] { "sep" },
+            ["at"] = new[] { "default" },
+            ["length"] = Array.Empty<string>(),
 
-        // arithmetic
-        "add", "subtract", "multiply", "divide", "mod",
+            // arithmetic
+            ["add"] = Array.Empty<string>(),
+            ["subtract"] = Array.Empty<string>(),
+            ["multiply"] = Array.Empty<string>(),
+            ["divide"] = Array.Empty<string>(),
+            ["mod"] = Array.Empty<string>(),
 
-        // encoding and conversion
-        "encode", "to_number", "pad", "concat", "upper", "lower", "capitalize", "title",
-        "mask", "slice", "replace", "trim", "group",
+            // encoding and conversion
+            ["encode"] = new[] { "as" },
+            ["to_number"] = Array.Empty<string>(),
+            ["pad"] = new[] { "width", "fill" },
+            ["concat"] = Array.Empty<string>(),
+            ["upper"] = Array.Empty<string>(),
+            ["lower"] = Array.Empty<string>(),
+            ["capitalize"] = Array.Empty<string>(),
+            ["title"] = Array.Empty<string>(),
+            ["mask"] = new[] { "pattern" },
+            ["slice"] = new[] { "from", "to" },
+            ["replace"] = new[] { "from", "to" },
+            ["trim"] = Array.Empty<string>(),
+            ["group"] = new[] { "size", "sep" },
 
-        // conditionals and the role wrappers
-        "choose", "when", "otherwise", "test", "then", "result", "over", "do", "init", "in",
-        "index",
+            // conditionals and the role wrappers
+            ["choose"] = Array.Empty<string>(),
+            ["when"] = Array.Empty<string>(),
+            ["otherwise"] = Array.Empty<string>(),
+            ["test"] = Array.Empty<string>(),
+            ["then"] = Array.Empty<string>(),
+            ["result"] = Array.Empty<string>(),
+            ["over"] = Array.Empty<string>(),
+            ["do"] = Array.Empty<string>(),
+            ["init"] = Array.Empty<string>(),
+            ["in"] = Array.Empty<string>(),
+            ["index"] = Array.Empty<string>(),
 
-        // predicates
-        "equals", "greater_than", "less_than", "is_digit",
-    };
+            // predicates
+            ["equals"] = Array.Empty<string>(),
+            ["greater_than"] = Array.Empty<string>(),
+            ["less_than"] = Array.Empty<string>(),
+            ["is_digit"] = Array.Empty<string>(),
+        };
+
+    private static readonly HashSet<string> KnownTags =
+        new(AttributeTable.Keys, StringComparer.Ordinal);
+
+    /// <summary>Accepted on every compute tag and read by none: a note for the reader.</summary>
+    private const string AnyTagAttribute = "comment";
+
+    /// <summary>
+    /// Common spellings of an attribute under another name, and the one the tag reads. Offered
+    /// only when the tag does read it: <c>separator=</c> is what <c>&lt;gen&gt;</c> calls it, so
+    /// it is what a hand used to <c>&lt;gen&gt;</c> writes on a <c>&lt;join&gt;</c>.
+    /// </summary>
+    private static readonly IReadOnlyDictionary<string, string> OtherSpellings =
+        new Dictionary<string, string>(StringComparer.Ordinal)
+        {
+            ["separator"] = "sep",
+            ["seperator"] = "sep",
+            ["delimiter"] = "sep",
+            ["value"] = "v",
+            ["val"] = "v",
+        };
 
     /// <summary>
     /// Tags the compute spec describes but this version does not ship, so the diagnostic explains
@@ -128,8 +196,18 @@ internal sealed class ComputeCheck
         int Column);
 
     /// <summary>What is visible where: the bound variables, and which bodies we are inside.</summary>
+    /// <remarks>
+    /// <c>LostBinding</c>: a <c>&lt;let&gt;</c> above lost its <c>name=</c> to a misspelled
+    /// attribute, so an unbound <c>&lt;use&gt;</c> may well be the one it meant. The misspelling is
+    /// reported on the <c>&lt;let&gt;</c>; blaming the <c>&lt;use&gt;</c> as well points one tag
+    /// too far down.
+    /// </remarks>
     private sealed record Scope(
-        IReadOnlySet<string> Vars, bool InIteration, bool InReduce, IReadOnlySet<string>? KnownFields)
+        IReadOnlySet<string> Vars,
+        bool InIteration,
+        bool InReduce,
+        IReadOnlySet<string>? KnownFields,
+        bool LostBinding = false)
     {
         internal Scope WithVars(IReadOnlySet<string> newVars) => this with { Vars = newVars };
 
@@ -151,6 +229,14 @@ internal sealed class ComputeCheck
     {
         var scope = new Scope(
             new HashSet<string>(StringComparer.Ordinal), false, false, knownFields);
+
+        // <compute> itself reads no attribute, so it is judged against an empty list.
+        foreach (TDCParser.AttrContext attr in computeEl.attr())
+        {
+            UnreadAttribute("compute", Array.Empty<string>(), attr);
+        }
+
+        AttributeNames(computeEl.content().element());
 
         // Documented as "at most once". A second one silently wins and the first is discarded, so a
         // config can compute something entirely different from what its author read top to bottom.
@@ -210,11 +296,21 @@ internal sealed class ComputeCheck
     private void WalkSlot(IReadOnlyList<TDCParser.ElementContext> children, Scope scope)
     {
         var bound = new HashSet<string>(scope.Vars, StringComparer.Ordinal);
+        bool lostBinding = scope.LostBinding;
         foreach (TDCParser.ElementContext child in children)
         {
             Node? node = ToNode(child);
             if (node is null)
             {
+                continue;
+            }
+
+            if (node.Name == "let" && WrittenUnderAnotherName(node, "name"))
+            {
+                lostBinding = true;
+                WalkSlot(
+                    node.Children,
+                    scope.WithVars(new HashSet<string>(bound, StringComparer.Ordinal)));
                 continue;
             }
 
@@ -236,7 +332,9 @@ internal sealed class ComputeCheck
             else
             {
                 WalkExpr(
-                    child, scope.WithVars(new HashSet<string>(bound, StringComparer.Ordinal)));
+                    child,
+                    scope.WithVars(new HashSet<string>(bound, StringComparer.Ordinal))
+                        with { LostBinding = lostBinding });
             }
         }
     }
@@ -325,7 +423,9 @@ internal sealed class ComputeCheck
             case "use":
             {
                 string name = node.Attrs.GetValueOrDefault("name", "");
-                if (!scope.Vars.Contains(name))
+                if (!scope.LostBinding
+                    && !WrittenUnderAnotherName(node, "name")
+                    && !scope.Vars.Contains(name))
                 {
                     Report(
                         node, "TDC182",
@@ -338,7 +438,9 @@ internal sealed class ComputeCheck
             case "field":
             {
                 string name = node.Attrs.GetValueOrDefault("name", "");
-                if (scope.KnownFields is not null && !scope.KnownFields.Contains(name))
+                if (!WrittenUnderAnotherName(node, "name")
+                    && scope.KnownFields is not null
+                    && !scope.KnownFields.Contains(name))
                 {
                     Report(
                         node, "TDC182",
@@ -351,7 +453,7 @@ internal sealed class ComputeCheck
             case "int":
             {
                 string raw = node.Attrs.GetValueOrDefault("v", "").Trim();
-                if (!IntegerText.IsMatch(raw))
+                if (!IntegerText.IsMatch(raw) && !WrittenUnderAnotherName(node, "v"))
                 {
                     Report(
                         node, "TDC188",
@@ -469,7 +571,11 @@ internal sealed class ComputeCheck
                 // pattern has nothing to keep, and the engine answered that literally: it
                 // returned the empty string.
                 string pattern = node.Attrs.GetValueOrDefault("pattern", "").Trim();
-                if (pattern.Length == 0)
+                if (WrittenUnderAnotherName(node, "pattern"))
+                {
+                    // Reported as the misspelling it is; "needs a pattern=" would be its echo.
+                }
+                else if (pattern.Length == 0)
                 {
                     Report(
                         node, "TDC256",
@@ -501,7 +607,7 @@ internal sealed class ComputeCheck
             case "encode":
             {
                 string @as = node.Attrs.GetValueOrDefault("as", "");
-                if (!Encodings.Contains(@as))
+                if (!Encodings.Contains(@as) && !WrittenUnderAnotherName(node, "as"))
                 {
                     Report(node, "TDC186", $"<encode>: unknown encoding \"{@as}\"", null);
                 }
@@ -737,6 +843,97 @@ internal sealed class ComputeCheck
                     $"unknown predicate <{node.Name}> (valid only inside <test>)", null);
                 return;
         }
+    }
+
+    // ── attribute names ──────────────────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// Refuse every attribute a compute tag does not read — the TDC015 <c>&lt;gen&gt;</c> has
+    /// always had.
+    /// </summary>
+    /// <remarks>
+    /// A pass of its own over the whole subtree rather than a check inside the walk: the walk
+    /// deliberately skips what it cannot judge — a misspelled slot, an unknown tag, a predicate out
+    /// of place — and an attribute inside one of those is no less misspelled for it. An unknown
+    /// tag is TDC180's; there is no list to hold its attributes against.
+    /// </remarks>
+    private void AttributeNames(IReadOnlyList<TDCParser.ElementContext> children)
+    {
+        foreach (TDCParser.ElementContext child in children)
+        {
+            TDCParser.OpenCloseElementContext open = child.openCloseElement();
+            TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+            string? tag = open?.name.Text ?? self?.name.Text;
+            if (tag is null)
+            {
+                continue;
+            }
+
+            if (AttributeTable.TryGetValue(tag, out string[]? known))
+            {
+                foreach (TDCParser.AttrContext attr in open is not null ? open.attr() : self!.attr())
+                {
+                    UnreadAttribute(tag, known, attr);
+                }
+            }
+
+            if (open is not null)
+            {
+                AttributeNames(open.content().element());
+            }
+        }
+    }
+
+    private void UnreadAttribute(string tag, string[] known, TDCParser.AttrContext attr)
+    {
+        string name = attr.attrName.Text;
+        if (name == AnyTagAttribute || known.Contains(name))
+        {
+            return;
+        }
+
+        string suggestion = Diagnostic.ClosestMatch(name, known);
+        if (suggestion.Length == 0
+            && OtherSpellings.TryGetValue(name, out string? other)
+            && known.Contains(other))
+        {
+            suggestion = other;
+        }
+
+        string listed = known.Length == 0
+            ? $"<{tag}> takes no attributes."
+            : $"Attributes of <{tag}>: {Candidates(known.OrderBy(k => k, StringComparer.Ordinal).ToList())}.";
+        string text = attr.attrValue.Text;
+        bool quoted = text.Length >= 2 && text.StartsWith('"') && text.EndsWith('"');
+        _diagnostics.Add(
+            Diagnostic.Error(
+                "TDC015",
+                $"<{tag}> has no \"{name}\" attribute",
+                listed + " Any other name would be ignored, and the value computed as if it were "
+                + "not written.",
+                attr.attrValue.Line,
+                attr.attrValue.Column + (quoted ? 1 : 0)) with
+            {
+                Suggestion = Diagnostic.DidYouMean(suggestion),
+            });
+    }
+
+    /// <summary>
+    /// Whether <paramref name="node"/> lacks <paramref name="attr"/> because it was written under a
+    /// name the tag does not read. The checks that complain about a MISSING value stand down for
+    /// such a tag: the misspelling has been reported, on the tag it belongs to, and the missing
+    /// value is only its echo. <c>&lt;int val="7"/&gt;</c> was refused as <c>&lt;int v=""&gt;</c> —
+    /// a spelling nobody wrote.
+    /// </summary>
+    private static bool WrittenUnderAnotherName(Node node, string attr)
+    {
+        if (node.Attrs.ContainsKey(attr))
+        {
+            return false;
+        }
+
+        string[] known = AttributeTable.GetValueOrDefault(node.Name) ?? Array.Empty<string>();
+        return node.Attrs.Keys.Any(a => a != AnyTagAttribute && !known.Contains(a));
     }
 
     // ── plumbing ─────────────────────────────────────────────────────────────────────────────

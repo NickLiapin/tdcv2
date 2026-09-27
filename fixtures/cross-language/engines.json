@@ -1212,6 +1212,14 @@
         ]
       }
     },
+    "compute/compute-a-comment-on-any-compute-tag": {
+      "engine2": {
+        "lines": ["a-b-c", "a-b-c"]
+      },
+      "engine3": {
+        "lines": ["a-b-c", "a-b-c"]
+      }
+    },
     "containers/a-tag-inside-data-is-text-not-a-mistake": {
       "engine2": {
         "lines": ["x<bogus_tag/>y", "x<bogus_tag/>y"]

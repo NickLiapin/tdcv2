@@ -100,6 +100,12 @@
         "5|5|2 x 19|30|97 = 439",
         "2|3|1 x 24|81|61 = 352"
       ]
+    },
+    {
+      "name": "compute-a-comment-on-any-compute-tag",
+      "description": "comment= is a note on every compute tag, <compute> included: accepted, read by nothing, and the value is unchanged",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute comment=\"the code\"><let name=\"p\" comment=\"parts\"><split sep=\"|\" comment=\"on bars\"><field name=\"Q\" comment=\"the source\"/></split></let><result comment=\"the answer\"><join sep=\"-\" comment=\"with dashes\"><use name=\"p\" comment=\"the parts\"/></join></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["a-b-c", "a-b-c"]
     }
   ]
 }

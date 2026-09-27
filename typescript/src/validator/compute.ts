@@ -11,9 +11,21 @@
  * Diagnostic codes: TDC180–TDC189.
  */
 
+import {
+  ANY_COMPUTE_TAG_ATTRIBUTE,
+  COMPUTE_ATTRIBUTES,
+  computeAttributesOf,
+} from '../compute/attributes.js';
+import {
+  attrValueRange,
+  closestMatch,
+  formatCandidates,
+  type Diagnostic,
+  nodeRange,
+} from '../errors/index.js';
 import { applyMask } from '../format/transforms.js';
-import { formatCandidates, type Diagnostic, nodeRange } from '../errors/index.js';
 import type {
+  AttrContext,
   ElementContext,
   OpenCloseElementContext,
   SelfClosingElementContext,
@@ -35,6 +47,12 @@ interface VScope {
   readonly inIteration: boolean;
   readonly inReduce: boolean;
   readonly knownFields?: ReadonlySet<string>;
+  /**
+   * A `<let>` above lost its `name=` to a misspelled attribute, so an unbound
+   * `<use>` may well be the one it meant. That misspelling has been reported
+   * on the `<let>`; blaming the `<use>` as well points one tag too far down.
+   */
+  readonly lostBinding?: boolean;
 }
 
 const ENCODINGS = new Set(['base36', 'ascii', 'unicode', 'hex', 'binary', 'octal']);
@@ -52,65 +70,10 @@ const NUMERIC_BUILTIN_FIELDS = new Set(['_count', '_total']);
 
 /**
  * Every tag of the compute sub-language, exported for the completion brain:
- * inside a `<compute>` subtree these are the only names worth offering.
+ * inside a `<compute>` subtree these are the only names worth offering. Read
+ * off the attribute table, so a tag and what it accepts are declared once.
  */
-export const COMPUTE_TAGS = new Set([
-  // literals & references
-  'int',
-  'str',
-  'list',
-  'field',
-  'use',
-  'current',
-  'current_index',
-  'acc',
-  // binding
-  'let',
-  // collections
-  'each',
-  'reduce',
-  'join',
-  'split',
-  'at',
-  'length',
-  // arithmetic
-  'add',
-  'subtract',
-  'multiply',
-  'divide',
-  'mod',
-  // encoding / conversion
-  'encode',
-  'to_number',
-  'pad',
-  'concat',
-  'upper',
-  'lower',
-  'capitalize',
-  'title',
-  'mask',
-  'slice',
-  'replace',
-  'trim',
-  'group',
-  // conditional + role wrappers
-  'choose',
-  'when',
-  'otherwise',
-  'test',
-  'then',
-  'result',
-  'over',
-  'do',
-  'init',
-  'in',
-  'index',
-  // predicates
-  'equals',
-  'greater_than',
-  'less_than',
-  'is_digit',
-]);
+export const COMPUTE_TAGS: ReadonlySet<string> = new Set(Object.keys(COMPUTE_ATTRIBUTES));
 
 /**
  * `<is_digit>` and `<encode>` both want ONE CHARACTER OF TEXT, and both were handed
@@ -156,6 +119,81 @@ function cnode(el: ElementContext): CN | undefined {
 }
 
 /**
+ * Common spellings of an attribute under another name, and the one the tag
+ * reads. Offered only when the tag does read it: `separator=` is what `<gen>`
+ * calls it, so it is what a hand already used to `<gen>` writes on a `<join>`.
+ */
+const OTHER_SPELLINGS: Readonly<Record<string, string>> = {
+  separator: 'sep',
+  seperator: 'sep',
+  delimiter: 'sep',
+  value: 'v',
+  val: 'v',
+};
+
+/**
+ * Refuse every attribute a compute tag does not read — the TDC015 that `<gen>`
+ * and every closed tag already have.
+ *
+ * A pass of its own over the whole subtree rather than a check inside the walk:
+ * the walk deliberately skips what it cannot judge — a misspelled slot, an
+ * unknown tag, a predicate out of place — and an attribute inside one of those
+ * is no less misspelled for it. An unknown tag is TDC180's; there is no list to
+ * hold its attributes against.
+ */
+function checkAttributeNames(children: readonly ElementContext[], diags: Diagnostic[]): void {
+  for (const el of children) {
+    const k = elementKind(el);
+    if (!k || k.kind === 'data') continue;
+    const tag = elementName(k.node);
+    const known = computeAttributesOf(tag);
+    if (known) {
+      for (const attr of k.node.attr()) reportUnreadAttribute(tag, known, attr, diags);
+    }
+    if (k.kind === 'open') checkAttributeNames(contentElements(k.node.content()), diags);
+  }
+}
+
+function reportUnreadAttribute(
+  tag: string,
+  known: readonly string[],
+  attr: AttrContext,
+  diags: Diagnostic[],
+): void {
+  const name = attr._attrName?.text;
+  if (name === undefined || name === ANY_COMPUTE_TAG_ATTRIBUTE || known.includes(name)) return;
+  const other = OTHER_SPELLINGS[name];
+  const suggestion =
+    closestMatch(name, known) ?? (other !== undefined && known.includes(other) ? other : undefined);
+  diags.push({
+    severity: 'error',
+    source: 'validator',
+    ...attrValueRange(attr),
+    message: `<${tag}> has no "${name}" attribute`,
+    ...(suggestion ? { suggestion: `did you mean "${suggestion}"?` } : {}),
+    hint:
+      (known.length > 0
+        ? `Attributes of <${tag}>: ${formatCandidates([...known].sort())}.`
+        : `<${tag}> takes no attributes.`) +
+      ' Any other name would be ignored, and the value computed as if it were not written.',
+    code: 'TDC015',
+  });
+}
+
+/**
+ * Whether `n` lacks `attr` because it was written under a name the tag does not
+ * read. The checks that complain about a MISSING value stand down for such a
+ * tag: the misspelling has been reported, on the tag it belongs to, and the
+ * missing value is only its echo. `<int val="7"/>` was refused as
+ * `<int v="">` — a spelling nobody wrote.
+ */
+function writtenUnderAnotherName(n: CN, attr: string): boolean {
+  if (n.attrs[attr] !== undefined) return false;
+  const known = computeAttributesOf(n.name) ?? [];
+  return Object.keys(n.attrs).some((a) => a !== ANY_COMPUTE_TAG_ATTRIBUTE && !known.includes(a));
+}
+
+/**
  * Validate a `<compute>` element. `knownFields`, when provided, is the set of
  * field names visible to `<field>` (a sibling gen / named sequence); field
  * references outside it are flagged.
@@ -171,6 +209,9 @@ export function checkCompute(
     inReduce: false,
     ...(knownFields ? { knownFields } : {}),
   };
+  // `<compute>` itself reads no attribute, so it is judged against an empty list.
+  for (const attr of computeEl.attr()) reportUnreadAttribute('compute', [], attr, diagnostics);
+  checkAttributeNames(contentElements(computeEl.content()), diagnostics);
   // Documented as "at most once". A second one silently won and the first was
   // discarded, so a config could compute something entirely different from what
   // its author read top-to-bottom.
@@ -234,10 +275,16 @@ function report(
 /** Walk a slot: `<let>` prefixes bind for later siblings; last is the value. */
 function walkSlot(children: readonly ElementContext[], scope: VScope, diags: Diagnostic[]): void {
   const bound = new Set(scope.vars);
+  let lostBinding = scope.lostBinding === true;
   for (const child of children) {
     const n = cnode(child);
     if (!n) continue;
     if (n.name === 'let') {
+      if (writtenUnderAnotherName(n, 'name')) {
+        lostBinding = true;
+        walkSlot(n.children, { ...scope, vars: bound }, diags);
+        continue;
+      }
       const name = n.attrs['name'] ?? '';
       if (bound.has(name)) {
         report(
@@ -250,7 +297,7 @@ function walkSlot(children: readonly ElementContext[], scope: VScope, diags: Dia
       walkSlot(n.children, { ...scope, vars: bound }, diags);
       bound.add(name);
     } else {
-      walkExpr(child, { ...scope, vars: bound }, diags);
+      walkExpr(child, { ...scope, vars: bound, lostBinding }, diags);
     }
   }
 }
@@ -412,6 +459,7 @@ function walkExpr(el: ElementContext, scope: VScope, diags: Diagnostic[]): void 
       return;
     case 'use': {
       const name = n.attrs['name'] ?? '';
+      if (scope.lostBinding === true || writtenUnderAnotherName(n, 'name')) return;
       if (!scope.vars.has(name)) {
         report(diags, n.node, 'TDC182', `<use name="${name}"> is not bound by an enclosing <let>`);
       }
@@ -420,6 +468,7 @@ function walkExpr(el: ElementContext, scope: VScope, diags: Diagnostic[]): void 
 
     case 'field': {
       const name = n.attrs['name'] ?? '';
+      if (writtenUnderAnotherName(n, 'name')) return;
       if (scope.knownFields && !scope.knownFields.has(name)) {
         report(
           diags,
@@ -436,7 +485,7 @@ function walkExpr(el: ElementContext, scope: VScope, diags: Diagnostic[]): void 
       // time with no code and no source span, while <encode> and <field> in the
       // same position reported properly. Now it matches its neighbours.
       const raw = (n.attrs['v'] ?? '').trim();
-      if (!/^-?\d+$/.test(raw)) {
+      if (!/^-?\d+$/.test(raw) && !writtenUnderAnotherName(n, 'v')) {
         report(
           diags,
           n.node,
@@ -507,7 +556,7 @@ function walkExpr(el: ElementContext, scope: VScope, diags: Diagnostic[]): void 
       return;
     case 'encode': {
       const as = n.attrs['as'] ?? '';
-      if (!ENCODINGS.has(as)) {
+      if (!ENCODINGS.has(as) && !writtenUnderAnotherName(n, 'as')) {
         report(diags, n.node, 'TDC186', `<encode>: unknown encoding "${as}"`);
       }
       checkNumericBuiltinArgument(n.children, 'encode', diags);
@@ -540,7 +589,9 @@ function walkExpr(el: ElementContext, scope: VScope, diags: Diagnostic[]): void 
       // no pattern has nothing to keep, and the engine answered that literally:
       // it returned the empty string, so the column came out blank.
       const pattern = (n.attrs['pattern'] ?? '').trim();
-      if (pattern === '') {
+      if (writtenUnderAnotherName(n, 'pattern')) {
+        // Reported as the misspelling it is; "needs a pattern=" would be its echo.
+      } else if (pattern === '') {
         report(
           diags,
           n.node,
